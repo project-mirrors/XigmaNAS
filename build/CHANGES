@@ -6,32 +6,32 @@ Changes:
 - Add new logo.
 - Add Denon AVR profile to fuppes.
 - Add more system info to webgui.
-- Add turn on/off Access Time zfs dataset & volume edit.
+- Add turn on/off Access Time (atime) to zfs dataset edit.
 - Changes to console.
 - Changes to cifs/smb allow trusted domains.
 - Cosmetic changes webgui.
 - Cosmetic changes file manager and integration..
 - Upgrade GUI translations.
-- Upgrade bash 4.2 to patch 028.
 - Upgrade fuppes to 0.692.
 - Updates installation menu.
-- Upgrade netatalk to 2.2.2.
 - Upgrade quixplorer to 2.3.2.
 - Upgrade dialog to 1.1-20120215.
 - Upgrade msmtp to 1.4.28.
 - Upgrade lighttpd to 1.4.31.
-- Upgrade nut to 2.6.4.
 - Upgrade bsnmp-ucd to 0.3.6.
-- Upgrade e2fsprogs to 1.42.4.
 - Upgrade to FreeBSD 9.0-RELEASE-p3.
 - Upgrade smartmontools to 5.43.
-- Upgrade samba to 3.6.6.
 - Upgrade translations.
-- Upgrade php to 5.4.5.
 - Upgrade transmission to 2.61.
-- Upgrade zoneinfo to 2012d.
-- Upgrade istgt to 20120726.
-
+- Upgrade bash 4.2 to patch 037.
+- Upgrade e2fsprogs to 1.42.5.
+- Upgrade proftpd to 1.3.4b.
+- Upgrade nut to 2.6.5.
+- Upgrade zoneinfo to 2012e.
+- Upgrade netatalk to 2.2.3.
+- Upgrade istgt to 20120811.
+- Upgrade samba to 3.6.7.
+- Upgrade php to 5.4.6.
 
 Bug fixes:
 
@@ -42,7 +42,11 @@ Bug fixes:
 - Fix creating a zfs raid with 1 device larger than the rest of the members.
 - Fix upgrade embedded installation from livced. (BR-3533624)
 - Fix webserver no longer runs as root. (BR-3517751)
+  Add option to run as www (default) or root user.
 - Fix upssched regression nut.
+- Fix webgui zfs status.
+- Fix transmission webgui errors.
+- Fix charset decoding file manager.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
