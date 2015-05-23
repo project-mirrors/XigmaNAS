@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@nas4free.org>\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
-"PO-Revision-Date: 2013-08-14 08:05+0000\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
+"PO-Revision-Date: 2014-04-16 18:57+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: NAS4Free\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-15 01:44+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2014-04-21 22:09+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -739,6 +739,9 @@ msgstr "Auxiliary eszköz firmware"
 msgid "Auxiliary parameters"
 msgstr "Kiegészítő paraméterek"
 
+msgid "Available"
+msgstr "Elérhető"
+
 msgid "Backup configuration"
 msgstr "Beállítások biztonsági mentése"
 
@@ -773,11 +776,11 @@ msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
 msgstr "Base név automatikusan hozzá lesz fűzve amikor 'iqn.' nélkül indul."
 
-msgid "Battery Charge"
-msgstr "Töltöttségi állapot"
-
 msgid "Battery Details"
 msgstr "Akkumulátor adatok"
+
+msgid "Battery Level"
+msgstr "Feltöltöttségi szint"
 
 msgid "Battery Low"
 msgstr "Alacsony töltöttségi szint"
@@ -796,14 +799,14 @@ msgstr "Akkumulátor kapacitása"
 msgid "Battery change date"
 msgstr "Akkumulátorcsere dátuma"
 
-msgid "Battery charge"
-msgstr "Akkumulátor töltöttsége"
-
 msgid "Battery chemistry"
 msgstr "Akkumulátor kémiai összetétele"
 
 msgid "Battery current"
 msgstr "Akkumulátor jelen van"
+
+msgid "Battery level"
+msgstr "Akkumulátor szintje"
 
 msgid "Battery level when UPS switches to \"Warning\" state"
 msgstr "Akkumulátorszint, amikor UPS \"Figyelmeztetési\" állapotba kapcsol"
@@ -864,6 +867,9 @@ msgstr "CCMP TKIP"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
+
+msgid "CHANGED"
+msgstr "MEGVÁLTOZOTT"
 
 msgid "CHAP"
 msgstr "CHAP"
@@ -1022,13 +1028,13 @@ msgid "Clear config and Import software raid disks"
 msgstr "Beállítások törlése és szoftveres raid lemezek importálása"
 
 msgid ""
-"Click &quot;Enable firmware upload&quot; below, then choose the image file "
-"to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade "
-"process."
+"Click &quot;Enable firmware upload&quot; below, then choose the embedded "
+"image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start "
+"the upgrade process."
 msgstr ""
-"Kattints a &quot;Firmware feltöltés engedélyezése&quot; gombra, majd "
-"válasszd ki a feltöltendő fájlt.<br />Kattints &quot;Firmware "
-"frissítése&quot; gombra a frissítés megkezdéséhez."
+"Kattints a &quot;Firmware feltöltés engedélyezése&quot; gombra, majd válaszd "
+"ki az embedded képfájlt.<br />Végül kattints a &quot;Firmware "
+"frissítés&quot; gombra a folyamat indításához."
 
 msgid "Click this button to download the server configuration in XML format."
 msgstr ""
@@ -1137,6 +1143,9 @@ msgstr ""
 msgid "Content"
 msgstr "Tartalom"
 
+msgid "Controller"
+msgstr "Vezérlő"
+
 msgid "Controller Auth Group"
 msgstr "Kontroller Auth csoport"
 
@@ -1151,6 +1160,9 @@ msgstr "Kontroller IP cím"
 
 msgid "Controller TCP Port"
 msgstr "Kontroller IP port"
+
+msgid "Controller model"
+msgstr "Vezérlő modell"
 
 msgid "Controls power consumption."
 msgstr "Ez szabályozza az energiafogyasztást."
@@ -1304,28 +1316,31 @@ msgstr "DDP"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "DLNA/UPnP"
+msgstr "DLNA/UPnP"
+
+msgid "DLNA/UPnP Media Server"
+msgstr "DLNA/UPnP Média zzerver"
+
 msgid "DNLA/UPnP"
 msgstr "DNLA/UPnP"
-
-msgid "DNLA/UPnP Media Server"
-msgstr "DNLA/UPnP Média Szerver"
 
 msgid "DNS settings"
 msgstr "DNS beállítások"
 
 #, php-format
 msgid ""
-"DO NOT abort the firmware upgrade once it has started. The server will "
-"reboot automatically after storing the new firmware. The configuration will "
-"be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware "
-"update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the "
-"System configuration before doing a Firmware upgrade."
+"DO NOT abort the firmware upgrade process once it has started. Once it is "
+"completed, the server will automatically reboot, the current configuration "
+"will be maintained.<br />You need a minimum of %d MiB free RAM to perform "
+"the upgrade.<br />It is strongly recommended that you <a "
+"href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
-"NE megszakítsd meg a frissítést, ha egyszer az elkezdődött. A szerver "
-"automatikusan újraindul az új firmware mentése után. A jelenlegi beállítások "
-"megmaradnak.<br />Legalább% d Mb RAM szükséges a firmware firssítéhez.<br "
-"/>Erősen javasoljuk, hogy készítsen <a href='%s'>Mentést</a> a firmware "
-"frissítés megkezdése előtt."
+"NE SZAKÍTSD meg a frissítési folyamatot, ha már elindítottad! Amint "
+"befejeződött, a szerver automatikusan újraindul, a jelenlegi konfiguráció "
+"utána is megmarad. <br />Legalább %d MiB szabad RAM szükséges a "
+"frissítéshez. <br />Frissítés előtt célszerű a beállításokat menteni: <a "
+"href='%s'>Mentés</a>."
 
 msgid "DVD"
 msgstr "DVD"
@@ -1585,6 +1600,9 @@ msgstr "Eszköz IP"
 
 msgid "Device Pass-through"
 msgstr "Pass-through Eszöz"
+
+msgid "Device Serial"
+msgstr "Soros eszköz"
 
 msgid "Device model"
 msgstr "Eszköz típusa"
@@ -2112,8 +2130,8 @@ msgstr "ZFS ACL engedélyezése"
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr "Zeroconf/Bonjour engedélyezése"
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
-msgstr "DNLA/UPnP WebGUI engedélyezése"
+msgid "Enable administrative DLNA/UPnP WebGUI."
+msgstr "DLNA/UPnP adminisztráció engedélyezése a WebGUI-n."
 
 msgid "Enable anonymous bind."
 msgstr "Névtelen csatlakozás engedélyezése"
@@ -2621,9 +2639,6 @@ msgstr "Az átjárót távoli hálózatok eléréshez használják."
 
 msgid "General"
 msgstr "Általános"
-
-msgid "General Information UPS Unit"
-msgstr "Általános információk a szünetmentesről"
 
 msgid "General Setup"
 msgstr "Általános beállítások"
@@ -3524,6 +3539,9 @@ msgstr "HIÁNYZIK"
 
 msgid "MOTD"
 msgstr "A nap üzenete"
+
+msgid "MOVED TO"
+msgstr "ÁTHELYEZVE:"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -4805,6 +4823,9 @@ msgstr "Root bind DN"
 msgid "Root bind password"
 msgstr "Root bind jelszó"
 
+msgid "Rotation rate"
+msgstr "Forgatás százalékban"
+
 msgid "Round-robin read"
 msgstr "Round-robin olvasás"
 
@@ -5928,6 +5949,14 @@ msgid "The device's IP address."
 msgstr "Az eszköz IP címe."
 
 msgid ""
+"The device(s) in config are different to actual device(s). Please remove the "
+"device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr ""
+"A beállításokban lévő eszköz(ök) eltérnek a jelenlegi(ek)től. Távolítsd le "
+"majd újra hozzá az eszköz(öke)t, vagy használd a 'Beállítások törlése és "
+"lemezek importálása' lehetőséget."
+
+msgid ""
 "The directory containing the files you want to publish. The remote host does "
 "not need to pass along the directory as part of the transfer."
 msgstr ""
@@ -6354,13 +6383,6 @@ msgstr "Túl sok a további csoport."
 msgid "There is no error, the file uploaded with success."
 msgstr "Nem történt hiba, a fájl feltöltése sikeresen megtörtént."
 
-msgid ""
-"There is wrong disk ID in the config. Please remove the disk and re-add it "
-"or use 'clear and import'."
-msgstr ""
-"Rossz lemezazonosító van a beállításokban. Távolítsd el a lemezt és újra add "
-"hozzá vagy használd a 'letöröl és importál' lehetőséget."
-
 msgid "There must be 2 disks in a RAID 1 volume."
 msgstr "A RAID 1 kötetben 2 lemeznek kell lennie."
 
@@ -6416,6 +6438,8 @@ msgid ""
 "specify parameters to be passed to kernel, and additional modules to be "
 "loaded."
 msgstr ""
+"Ezek a beállítások a /boot/loader.conf.local fáljba kerülnek. Evvel "
+"lehetőség nyílik a kernel paramétereit illetve modulok betöltését beállítani."
 
 msgid ""
 "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
@@ -6991,6 +7015,9 @@ msgstr "Átkódolás"
 msgid "Transfer mode"
 msgstr "Átviteli mód"
 
+msgid "Transfer rate"
+msgstr "Átviteli sebesség"
+
 msgid "Trap host"
 msgstr "Csapdák port"
 
@@ -7044,6 +7071,17 @@ msgstr "UCD-SNMP-MIB"
 
 #, php-format
 msgid ""
+"UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). "
+"Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or "
+"NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgstr ""
+"UFS és ZFS a FreeBSD - a(z) %s alapjául szolgáló operációs rendszer - NATÍV "
+"fájlrendszerei. Más fájlrendszer használata, mint például a FAT, FAT32, "
+"EXT2, EXT3, EXT4 vagy az NTFS kiszámíthatatlan eseményeket, fájlok "
+"sérüléseit, és adatvesztést okozhat!"
+
+#, php-format
+msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, "
 "or NTFS can result in unpredictable results, file corruption, and loss of "
@@ -7053,17 +7091,6 @@ msgstr ""
 "operációs rendszer). Az egyéb - mint FAT, FAT32, EXT2, EXT3 vagy NTFS - "
 "fájlrendszerekkel való kisérletezés kiszámíthatatlan eredményhez, fájl "
 "sérüléshez és adatvesztéshez vezethet!"
-
-#, php-format
-msgid ""
-"UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). "
-"Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS "
-"can result in unpredictable results, file corruption, and loss of data!"
-msgstr ""
-"Az UFS a FreeBSD (a %s alapjául szolgáló operációs rendszer) saját "
-"fájlrendszere. Az egyéb - mint FAT, FAT32, EXT2, EXT3 vagy NTFS - "
-"fájlrendszerekkel való kisérletezés kiszámíthatatlan eredményhez, fájl "
-"sérüléshez és adatvesztéshez vezethet."
 
 msgid "UID"
 msgstr "UID"
@@ -7082,6 +7109,9 @@ msgstr "Szünetmentes bekapcsolva"
 
 msgid "UPS Status"
 msgstr "Szünetmentes állapota"
+
+msgid "UPS Unit General Information"
+msgstr "Szünetmenetes Egység Általános Információi"
 
 msgid "UPS Waiting"
 msgstr "Szünetmentes várakozik"
@@ -7139,6 +7169,9 @@ msgstr "URI"
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unavailable"
+msgstr "Nem érhető el"
 
 msgid "Unformated"
 msgstr "Formázatlan"
@@ -7700,7 +7733,7 @@ msgid "load/unload failed."
 msgstr "töltési hiba"
 
 msgid "loader.conf"
-msgstr ""
+msgstr "loader.conf"
 
 msgid "maximum (highest performance)"
 msgstr "maximum (legnagyobb teljesítmény)"
@@ -7788,6 +7821,9 @@ msgstr "sikeresen."
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
+
+msgid "to"
+msgstr "eddig:"
 
 msgid "umask"
 msgstr "umask"

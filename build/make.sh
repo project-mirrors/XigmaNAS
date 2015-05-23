@@ -3,7 +3,7 @@
 # This script is designed to automate the assembly of NAS4Free builds.
 #
 # Part of NAS4Free (http://www.nas4free.org).
-# Copyright (c) 2012-2013 The NAS4Free Project <info@nas4free.org>.
+# Copyright (c) 2012-2014 The NAS4Free Project <info@nas4free.org>.
 # All rights reserved.
 #
 # Debug script
@@ -78,11 +78,11 @@ NAS4FREE_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/9.2"
 # and NAS4FREE WEbGUI/Scripts. Keep this file very small! This file is unzipped
 # to a RAM disk at NAS4FREE startup.
 # The image must fit on 512MB CF/USB.
-NAS4FREE_MFSROOT_SIZE=210
-NAS4FREE_IMG_SIZE=123
+NAS4FREE_MFSROOT_SIZE=223
+NAS4FREE_IMG_SIZE=125
 if [ "amd64" = ${NAS4FREE_ARCH} ]; then
-	NAS4FREE_MFSROOT_SIZE=224
-	NAS4FREE_IMG_SIZE=123
+	NAS4FREE_MFSROOT_SIZE=240
+	NAS4FREE_IMG_SIZE=125
 fi
 
 # Media geometry, only relevant if bios doesn't understand LBA.
@@ -261,7 +261,7 @@ pre_build_kernel() {
 	# Create list of available packages.
 	echo "#! /bin/sh
 $DIALOG --title \"$NAS4FREE_PRODUCTNAME - Kernel Patches\" \\
---checklist \"Select the patches you want to add. Make sure you have clean/origin kernel sources (via suvbersion) to apply patches successful.\" 22 75 14 \\" > $tempfile
+--checklist \"Select the patches you want to add. Make sure you have clean/origin kernel sources (via suvbersion) to apply patches successful.\" 22 88 14 \\" > $tempfile
 
 	for s in $NAS4FREE_SVNDIR/build/kernel-patches/*; do
 		[ ! -d "$s" ] && continue
@@ -344,7 +344,8 @@ build_kernel() {
 				modulesdir=${NAS4FREE_OBJDIRPREFIX}/usr/src/sys/${NAS4FREE_KERNCONF}/modules/usr/src/sys/modules;
 				for module in $(cat ${NAS4FREE_WORKINGDIR}/modules.files | grep -v "^#"); do
 					install -v -o root -g wheel -m 555 ${modulesdir}/${module} ${NAS4FREE_ROOTFS}/boot/kernel
-				done;;
+				done
+				;;
   	esac
   done
 
@@ -1023,7 +1024,7 @@ $DIALOG --title \"$NAS4FREE_PRODUCTNAME - Ports\" \\
 				cd ${NAS4FREE_SVNDIR}/build/ports/${port};
 				# Delete cookie first, otherwise Makefile will skip this step.
 				rm -f ./work/.install_done.*;
-				env NO_PKG_REGISTER=1 make install;
+				env FORCE_PKG_REGISTER=1 make install;
 				[ 0 != $? ] && return 1; # successful?
 			done;
 			;;

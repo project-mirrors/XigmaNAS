@@ -1,5 +1,5 @@
 PORTNAME=		lighttpd
-PORTVERSION=	1.4.33
+PORTVERSION=	1.4.35
 PORTREVISION= 0
 CATEGORIES=		www
 COMMENT=		A secure, fast, compliant, and very flexible Web Server
@@ -8,9 +8,9 @@ MAINTAINER=		zoon01@nas4free.org
 MASTER_SITES=	http://download.lighttpd.net/lighttpd/releases-1.4.x/ \
 							http://mirrors.cat.pdx.edu/lighttpd/
 
-LIB_DEPENDS+=		uuid.1:${PORTSDIR}/misc/e2fsprogs-libuuid \
-							sqlite3.8:${PORTSDIR}/databases/sqlite3 \
-							pcre:${PORTSDIR}/devel/pcre
+LIB_DEPENDS+=		libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
+							libsqlite3.so:${PORTSDIR}/databases/sqlite3 \
+							libpcre.so:${PORTSDIR}/devel/pcre
 
 USE_BZIP2=	  yes
 #USE_AUTOTOOLS= libtool
@@ -36,6 +36,8 @@ CONFIGURE_ARGS+=	--libdir=${PREFIX}/lib/lighttpd --enable-static \
 									--with-webdav-locks
 
 do-install:
+		@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${NAS4FREE_ROOTFS}/etc/rc.d/${PORTNAME}
+
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/lighttpd ${NAS4FREE_ROOTFS}/usr/local/sbin
 
 		@${MKDIR} -v ${NAS4FREE_ROOTFS}/usr/local/lib/lighttpd

@@ -2,7 +2,7 @@
 	gui.css
 
 	Part of NAS4Free (http://www.nas4free.org).
-	Copyright (c) 2012-2013 The NAS4Free Project <info@nas4free.org>.
+	Copyright (c) 2012-2014 The NAS4Free Project <info@nas4free.org>.
 	All rights reserved.
 
 	Portions of freenas (http://www.freenas.org).
@@ -441,4 +441,14 @@ pre.cmdoutput {
 	white-space: pre-wrap;
 	line-height: 10pt;
 	font-size: 9pt;
+}
+
+.warningtext{
+	color: orange;
+	font-weight: bold;
+}
+
+.errortext{
+	color: red;
+	font-weight: bold;
 }

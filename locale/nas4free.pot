@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -602,6 +602,9 @@ msgstr ""
 msgid "Auxiliary parameters"
 msgstr ""
 
+msgid "Available"
+msgstr ""
+
 msgid "Backup configuration"
 msgstr ""
 
@@ -635,10 +638,10 @@ msgstr ""
 msgid "Base Name will be appended automatically when starting without 'iqn.'."
 msgstr ""
 
-msgid "Battery Charge"
+msgid "Battery Details"
 msgstr ""
 
-msgid "Battery Details"
+msgid "Battery Level"
 msgstr ""
 
 msgid "Battery Low"
@@ -656,13 +659,13 @@ msgstr ""
 msgid "Battery change date"
 msgstr ""
 
-msgid "Battery charge"
-msgstr ""
-
 msgid "Battery chemistry"
 msgstr ""
 
 msgid "Battery current"
+msgstr ""
+
+msgid "Battery level"
 msgstr ""
 
 msgid "Battery level when UPS switches to \"Warning\" state"
@@ -723,6 +726,9 @@ msgid "CCMP TKIP"
 msgstr ""
 
 msgid "CD/DVD"
+msgstr ""
+
+msgid "CHANGED"
 msgstr ""
 
 msgid "CHAP"
@@ -872,7 +878,7 @@ msgstr ""
 msgid "Clear config and Import software raid disks"
 msgstr ""
 
-msgid "Click &quot;Enable firmware upload&quot; below, then choose the image file to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade process."
+msgid "Click &quot;Enable firmware upload&quot; below, then choose the embedded image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start the upgrade process."
 msgstr ""
 
 msgid "Click this button to download the server configuration in XML format."
@@ -970,6 +976,9 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
+msgid "Controller"
+msgstr ""
+
 msgid "Controller Auth Group"
 msgstr ""
 
@@ -983,6 +992,9 @@ msgid "Controller IP address"
 msgstr ""
 
 msgid "Controller TCP Port"
+msgstr ""
+
+msgid "Controller model"
 msgstr ""
 
 msgid "Controls power consumption."
@@ -1093,17 +1105,20 @@ msgstr ""
 msgid "DHCP"
 msgstr ""
 
-msgid "DNLA/UPnP"
+msgid "DLNA/UPnP"
 msgstr ""
 
-msgid "DNLA/UPnP Media Server"
+msgid "DLNA/UPnP Media Server"
+msgstr ""
+
+msgid "DNLA/UPnP"
 msgstr ""
 
 msgid "DNS settings"
 msgstr ""
 
 #, php-format
-msgid "DO NOT abort the firmware upgrade once it has started. The server will reboot automatically after storing the new firmware. The configuration will be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the System configuration before doing a Firmware upgrade."
+msgid "DO NOT abort the firmware upgrade process once it has started. Once it is completed, the server will automatically reboot, the current configuration will be maintained.<br />You need a minimum of %d MiB free RAM to perform the upgrade.<br />It is strongly recommended that you <a href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
 
 msgid "DVD"
@@ -1358,6 +1373,9 @@ msgid "Device IP"
 msgstr ""
 
 msgid "Device Pass-through"
+msgstr ""
+
+msgid "Device Serial"
 msgstr ""
 
 msgid "Device model"
@@ -1839,7 +1857,7 @@ msgstr ""
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr ""
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
+msgid "Enable administrative DLNA/UPnP WebGUI."
 msgstr ""
 
 msgid "Enable anonymous bind."
@@ -2285,9 +2303,6 @@ msgid "Gateway to be used to reach the destination network."
 msgstr ""
 
 msgid "General"
-msgstr ""
-
-msgid "General Information UPS Unit"
 msgstr ""
 
 msgid "General Setup"
@@ -3063,6 +3078,9 @@ msgid "MISSING"
 msgstr ""
 
 msgid "MOTD"
+msgstr ""
+
+msgid "MOVED TO"
 msgstr ""
 
 msgid "MS Active Directory"
@@ -4216,6 +4234,9 @@ msgstr ""
 msgid "Root bind password"
 msgstr ""
 
+msgid "Rotation rate"
+msgstr ""
+
 msgid "Round-robin read"
 msgstr ""
 
@@ -5155,6 +5176,9 @@ msgstr ""
 msgid "The device's IP address."
 msgstr ""
 
+msgid "The device(s) in config are different to actual device(s). Please remove the device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr ""
+
 msgid "The directory containing the files you want to publish. The remote host does not need to pass along the directory as part of the transfer."
 msgstr ""
 
@@ -5445,9 +5469,6 @@ msgid "There are too many additional groups."
 msgstr ""
 
 msgid "There is no error, the file uploaded with success."
-msgstr ""
-
-msgid "There is wrong disk ID in the config. Please remove the disk and re-add it or use 'clear and import'."
 msgstr ""
 
 msgid "There must be 2 disks in a RAID 1 volume."
@@ -5828,6 +5849,9 @@ msgstr ""
 msgid "Transfer mode"
 msgstr ""
 
+msgid "Transfer rate"
+msgstr ""
+
 msgid "Trap host"
 msgstr ""
 
@@ -5880,11 +5904,11 @@ msgid "UCD-SNMP-MIB"
 msgstr ""
 
 #, php-format
-msgid "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgid "UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or NTFS can result in unpredictable results, file corruption, and loss of data!"
 msgstr ""
 
 #, php-format
-msgid "UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgid "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS can result in unpredictable results, file corruption, and loss of data!"
 msgstr ""
 
 msgid "UID"
@@ -5903,6 +5927,9 @@ msgid "UPS On Line"
 msgstr ""
 
 msgid "UPS Status"
+msgstr ""
+
+msgid "UPS Unit General Information"
 msgstr ""
 
 msgid "UPS Waiting"
@@ -5960,6 +5987,9 @@ msgid "URI"
 msgstr ""
 
 msgid "URL"
+msgstr ""
+
+msgid "Unavailable"
 msgstr ""
 
 msgid "Unformated"
@@ -6534,6 +6564,9 @@ msgid "successfully."
 msgstr ""
 
 msgid "sysctl.conf"
+msgstr ""
+
+msgid "to"
 msgstr ""
 
 msgid "umask"

@@ -8,16 +8,21 @@ MASTER_SITES=			http://nightlies.fireflymediaserver.org/nightlies/svn-${PORTVERS
 									http://www.magnesium.net/~mdf/distfiles/
 DISTNAME=				mt-daapd-svn-${PORTVERSION}
 
-LIB_DEPENDS=				sqlite3:${PORTSDIR}/databases/sqlite3 \
+FORCE_PKG_REGISTER=yes
+LIB_DEPENDS+=				sqlite3:${PORTSDIR}/databases/sqlite3 \
 										id3tag.0:${PORTSDIR}/audio/libid3tag \
 										vorbis.4:${PORTSDIR}/audio/libvorbis \
-										FLAC.11:${PORTSDIR}/audio/flac \
-										avcodec:${PORTSDIR}/multimedia/ffmpeg
+										FLAC.11:${PORTSDIR}/audio/flac
 
+NO_STAGE=		yes
+USE_PKGCONFIG=	yes
+MAKE_JOBS_UNSAFE=	yes
+USE_GCC=		any
 USE_LDCONFIG=		yes
 USE_ICONV=		yes
-GNU_CONFIGURE=		yes
-NO_STAGE=       	yes
+GNU_CONFIGURE=	yes
+
+
 CONFIGURE_ENV=			CFLAGS="${CFLAGS} ${PTHREAD_CFLAGS}" \
 										CPPFLAGS="${CPPFLAGS} -I${LOCALBASE}/include" \
 										LDFLAGS="-L${LOCALBASE}/lib" \
@@ -26,9 +31,8 @@ CONFIGURE_ARGS=			--disable-gdbm \
 										--enable-sqlite3 \
 										--with-id3tag=${PREFIX} \
 										--enable-oggvorbis \
-										--enable-flac \
-										--enable-ffmpeg \
-										--with-ffmpeg-includes=${LOCALBASE}/include/ffmpeg
+										--enable-flac
+										
 
 do-install:
 	-@${MKDIR} -v ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd
@@ -37,10 +41,10 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/mt-daapd ${NAS4FREE_ROOTFS}/${PREFIX}/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libout-daap.so* ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/librsp.so* ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libssc-ffmpeg.so* ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/
+	#@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libssc-ffmpeg.so* ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/
 	${LN} -sfv ${PREFIX}/share/mt-daapd/plugins/libout-daap.so.0.0 ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/libout-daap.so
 	${LN} -sfv ${PREFIX}/share/mt-daapd/plugins/librsp.so.0.0 ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/librsp.so
-	${LN} -sfv ${PREFIX}/share/mt-daapd/plugins/libssc-ffmpeg.so.0.0 ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/libssc-ffmpeg.so
+	#${LN} -sfv ${PREFIX}/share/mt-daapd/plugins/libssc-ffmpeg.so.0.0 ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/plugins/libssc-ffmpeg.so
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/mt-daapd.in ${NAS4FREE_ROOTFS}/etc/rc.d/mt-daapd
 
 	-@${MKDIR} -v ${NAS4FREE_ROOTFS}/${PREFIX}/share/mt-daapd/admin-root

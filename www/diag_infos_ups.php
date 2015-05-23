@@ -3,7 +3,7 @@
 	diag_infos_ups.php
 
 	Part of NAS4Free (http://www.nas4free.org).
-	Copyright (c) 2012-2013 The NAS4Free Project <info@nas4free.org>.
+	Copyright (c) 2012-2014 The NAS4Free Project <info@nas4free.org>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -265,7 +265,7 @@ function upsc_enable_change() {
 						tblrow('Status', $disp_status);
 
 						tblrowbar(gettext('Load'), $ups['ups.load'], '%', '100-80', '79-60', '59-0');
-						tblrowbar(gettext('Battery charge'), $ups['battery.charge'], '%', '0-29' ,'30-79', '80-100');
+						tblrowbar(gettext('Battery level'), $ups['battery.charge'], '%', '0-29' ,'30-79', '80-100');
 
 						// status
 						tblrow(gettext('Battery voltage'), $ups['battery.voltage'], 'V');
@@ -278,7 +278,7 @@ function upsc_enable_change() {
 						html_separator();
 						
 						// output						
-						html_titleline(gettext('General Information UPS Unit'));
+						html_titleline(gettext('UPS Unit General Information'));
 						tblrow(gettext('UPS status'), $ups['ups.status']);
 						tblrow(gettext('UPS alarms'), $ups['ups.alarm']);
 						tblrow(gettext('Internal UPS clock time'), $ups['ups.time']);
@@ -359,7 +359,7 @@ function upsc_enable_change() {
 						html_separator();
 						
 						html_titleline(gettext('Battery Details'));
-						tblrow(gettext('Battery charge'), $ups['battery.charge'], '%');
+						tblrow(gettext('Battery level'), $ups['battery.charge'], '%');
 						tblrow(gettext('Battery Remaining level when UPS switches to Shutdown mode (Low Battery)'), $ups['battery.charge.low'], '%');
 						tblrow(gettext('Minimum battery level for UPS restart after power-off'), $ups['battery.charge.restart'], '%');
 						tblrow(gettext('Battery level when UPS switches to "Warning" state'), $ups['battery.charge.warning'], '%');

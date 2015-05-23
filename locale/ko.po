@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@nas4free.org>\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
 "PO-Revision-Date: 2012-03-17 08:48+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: NAS4Free\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-15 01:44+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2014-04-21 22:09+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 "X-Poedit-Country: KOREA\n"
 "Language: \n"
 "X-Poedit-Language: Korean\n"
@@ -688,6 +688,9 @@ msgstr ""
 msgid "Auxiliary parameters"
 msgstr "보조 인자들"
 
+msgid "Available"
+msgstr ""
+
 msgid "Backup configuration"
 msgstr "백업 설정"
 
@@ -722,10 +725,10 @@ msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
 msgstr "'iqn.'이 없이 시작할 때 기본 명이 자동으로 추가될 것입니다."
 
-msgid "Battery Charge"
+msgid "Battery Details"
 msgstr ""
 
-msgid "Battery Details"
+msgid "Battery Level"
 msgstr ""
 
 msgid "Battery Low"
@@ -744,13 +747,13 @@ msgstr ""
 msgid "Battery change date"
 msgstr ""
 
-msgid "Battery charge"
-msgstr ""
-
 msgid "Battery chemistry"
 msgstr ""
 
 msgid "Battery current"
+msgstr ""
+
+msgid "Battery level"
 msgstr ""
 
 msgid "Battery level when UPS switches to \"Warning\" state"
@@ -811,6 +814,9 @@ msgid "CCMP TKIP"
 msgstr "CCMP TKIP"
 
 msgid "CD/DVD"
+msgstr ""
+
+msgid "CHANGED"
 msgstr ""
 
 msgid "CHAP"
@@ -967,12 +973,10 @@ msgid "Clear config and Import software raid disks"
 msgstr ""
 
 msgid ""
-"Click &quot;Enable firmware upload&quot; below, then choose the image file "
-"to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade "
-"process."
+"Click &quot;Enable firmware upload&quot; below, then choose the embedded "
+"image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start "
+"the upgrade process."
 msgstr ""
-"아래의 &quot;펌웨어 업로드 활성화&quot;를 클릭하고 업로드 할 이미지 파일을 선택합니다.<br />&quot;펌웨어 "
-"업그레이드&quot;를 클릭하여 업그레이드 과정을 시작하십시오."
 
 msgid "Click this button to download the server configuration in XML format."
 msgstr ""
@@ -1075,6 +1079,9 @@ msgstr "연락처 정보. 예컨대 이 시스템을 책임지는 사람의 이�
 msgid "Content"
 msgstr "내용"
 
+msgid "Controller"
+msgstr ""
+
 msgid "Controller Auth Group"
 msgstr "컨트롤러 인증 그룹"
 
@@ -1089,6 +1096,9 @@ msgstr "컨트롤러 IP 주소"
 
 msgid "Controller TCP Port"
 msgstr "컨트롤러 TCP 포트"
+
+msgid "Controller model"
+msgstr ""
 
 msgid "Controls power consumption."
 msgstr ""
@@ -1223,10 +1233,13 @@ msgstr "DDP"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNLA/UPnP"
+msgid "DLNA/UPnP"
 msgstr ""
 
-msgid "DNLA/UPnP Media Server"
+msgid "DLNA/UPnP Media Server"
+msgstr ""
+
+msgid "DNLA/UPnP"
 msgstr ""
 
 msgid "DNS settings"
@@ -1234,11 +1247,11 @@ msgstr "DNS 설정"
 
 #, php-format
 msgid ""
-"DO NOT abort the firmware upgrade once it has started. The server will "
-"reboot automatically after storing the new firmware. The configuration will "
-"be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware "
-"update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the "
-"System configuration before doing a Firmware upgrade."
+"DO NOT abort the firmware upgrade process once it has started. Once it is "
+"completed, the server will automatically reboot, the current configuration "
+"will be maintained.<br />You need a minimum of %d MiB free RAM to perform "
+"the upgrade.<br />It is strongly recommended that you <a "
+"href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
 
 msgid "DVD"
@@ -1497,6 +1510,9 @@ msgstr "장치 IP"
 
 msgid "Device Pass-through"
 msgstr "장치 창구"
+
+msgid "Device Serial"
+msgstr ""
 
 msgid "Device model"
 msgstr "장치 모델"
@@ -2005,7 +2021,7 @@ msgstr ""
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr "이 장치의 서비스를 공지하기 위해 Zeroconf/Bonjour 활성화"
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
+msgid "Enable administrative DLNA/UPnP WebGUI."
 msgstr ""
 
 msgid "Enable anonymous bind."
@@ -2491,9 +2507,6 @@ msgstr "대상 네트워크에 도달하는 데에 이용되는 게이트웨이.
 
 msgid "General"
 msgstr "일반"
-
-msgid "General Information UPS Unit"
-msgstr ""
 
 msgid "General Setup"
 msgstr "일반 설정"
@@ -3349,6 +3362,9 @@ msgstr "없음"
 
 msgid "MOTD"
 msgstr "MOTD"
+
+msgid "MOVED TO"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS 액티브 디렉터리"
@@ -4563,6 +4579,9 @@ msgstr "루트 bind DN"
 msgid "Root bind password"
 msgstr "루트 바인트 암호"
 
+msgid "Rotation rate"
+msgstr ""
+
 msgid "Round-robin read"
 msgstr "라운드 로빈 읽기"
 
@@ -5600,6 +5619,11 @@ msgid "The device's IP address."
 msgstr "장치의 IP 주소."
 
 msgid ""
+"The device(s) in config are different to actual device(s). Please remove the "
+"device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr ""
+
+msgid ""
 "The directory containing the files you want to publish. The remote host does "
 "not need to pass along the directory as part of the transfer."
 msgstr "당신이 공개하려고 하는 파일들을 포함하는 디렉터리. 원격 호스트는 전송의 일부로서 디렉터리를 넘길 필요가 없습니다."
@@ -5964,11 +5988,6 @@ msgstr "추가적인 그룹이 너무 많이 존재합니다."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "에러가 없습니다. 파일이 성공적으로 업로드 되었습니다."
-
-msgid ""
-"There is wrong disk ID in the config. Please remove the disk and re-add it "
-"or use 'clear and import'."
-msgstr ""
 
 msgid "There must be 2 disks in a RAID 1 volume."
 msgstr "RAID 1 볼륨에는 2개의 디스크가 존재해야 합니다."
@@ -6523,6 +6542,9 @@ msgstr "트랜스코딩"
 msgid "Transfer mode"
 msgstr "전송 모드"
 
+msgid "Transfer rate"
+msgstr ""
+
 msgid "Trap host"
 msgstr "트랩 호스트"
 
@@ -6576,6 +6598,13 @@ msgstr "UCD-SNMP-MIB"
 
 #, php-format
 msgid ""
+"UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). "
+"Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or "
+"NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgstr ""
+
+#, php-format
+msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, "
 "or NTFS can result in unpredictable results, file corruption, and loss of "
@@ -6583,15 +6612,6 @@ msgid ""
 msgstr ""
 "UFS와 그 변종은 FreeBSD(%s의 기반 OS)의 기본 파일 포맷입니다. FAT, FAT32, EXT2, EXT3이나 NTFS와 "
 "같은 다른 파일 포맷을 이용하려고 하는 것은 파일 붕괴와 데이터 손실과 같은 예측할 수 없는 결과를 야기할 수 있습니다."
-
-#, php-format
-msgid ""
-"UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). "
-"Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS "
-"can result in unpredictable results, file corruption, and loss of data!"
-msgstr ""
-"UFS는 FreeBSD(%s의 기반 OS)의 기본 파일 포맷입니다. FAT, FAT32, EXT2, EXT3이나 NTFS와 같은 다른 "
-"파일 포맷을 이용하려고 하는 것은 파일 붕괴와 데이터 손실과 같은 예측할 수 없는 결과를 야기할 수 있습니다."
 
 msgid "UID"
 msgstr "UID"
@@ -6609,6 +6629,9 @@ msgid "UPS On Line"
 msgstr ""
 
 msgid "UPS Status"
+msgstr ""
+
+msgid "UPS Unit General Information"
 msgstr ""
 
 msgid "UPS Waiting"
@@ -6667,6 +6690,9 @@ msgstr ""
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unavailable"
+msgstr ""
 
 msgid "Unformated"
 msgstr "포맷 되지 않음"
@@ -7282,6 +7308,9 @@ msgstr "성공적으로."
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
+
+msgid "to"
+msgstr ""
 
 msgid "umask"
 msgstr "umask"

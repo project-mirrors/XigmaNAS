@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@nas4free.org>\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
-"PO-Revision-Date: 2013-06-23 22:01+0000\n"
-"Last-Translator: Römermann <roemermann@planetwanderer.de>\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
+"PO-Revision-Date: 2014-01-18 13:45+0000\n"
+"Last-Translator: apollo567 <apollo567@hotmail.de>\n"
 "Language-Team: NAS4Free\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-15 01:45+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2014-04-21 22:09+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 "X-Poedit-Country: GERMANY\n"
 "Language: \n"
 "X-Poedit-Language: German\n"
@@ -749,6 +749,9 @@ msgstr "Firmwarerevision der Hilfseinheit"
 msgid "Auxiliary parameters"
 msgstr "Zusätzliche Parameter"
 
+msgid "Available"
+msgstr "Verfügbar"
+
 msgid "Backup configuration"
 msgstr "Konfiguration sichern"
 
@@ -784,11 +787,11 @@ msgid ""
 msgstr ""
 "Ist der Anfang nicht 'iqn.', wird der Base Name automatisch mit angehängt."
 
-msgid "Battery Charge"
-msgstr "Ladestand des Akkus"
-
 msgid "Battery Details"
 msgstr "Batteriedetails"
+
+msgid "Battery Level"
+msgstr "Batteriestatus"
 
 msgid "Battery Low"
 msgstr "Schwacher Akku"
@@ -806,14 +809,14 @@ msgstr "Batteriekapazität"
 msgid "Battery change date"
 msgstr "Austauschdatum der Batterie"
 
-msgid "Battery charge"
-msgstr "Batterie Ladung"
-
 msgid "Battery chemistry"
 msgstr "Batterietyp"
 
 msgid "Battery current"
 msgstr "Batterie Strom"
+
+msgid "Battery level"
+msgstr "Batteriestatus"
 
 msgid "Battery level when UPS switches to \"Warning\" state"
 msgstr ""
@@ -876,6 +879,9 @@ msgstr "CCMP TKIP"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
+
+msgid "CHANGED"
+msgstr "geändert"
 
 msgid "CHAP"
 msgstr "CHAP"
@@ -1040,13 +1046,13 @@ msgid "Clear config and Import software raid disks"
 msgstr "Entferne Konfiguration und importiere die Software RAID Platten"
 
 msgid ""
-"Click &quot;Enable firmware upload&quot; below, then choose the image file "
-"to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade "
-"process."
+"Click &quot;Enable firmware upload&quot; below, then choose the embedded "
+"image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start "
+"the upgrade process."
 msgstr ""
-"Drücken Sie unterhalb auf &quot;Firmware Upload zulassen&quot; und wählen "
-"Sie das Image zum Hochladen.<br />Anschließend drücken Sie auf &quot;Upgrade "
-"Firmware&quot; zum Starten des Upgrade-Prozesses."
+"&quot anklicken; Firmware upload erlauben&quot; dann die Imagedatei (.img) "
+"auswählen .<br />Click &quot;Upgrade firmware&quot; um den Upgrade Vorgang "
+"zu starten."
 
 msgid "Click this button to download the server configuration in XML format."
 msgstr ""
@@ -1155,6 +1161,9 @@ msgstr ""
 msgid "Content"
 msgstr "Inhalt"
 
+msgid "Controller"
+msgstr "Controller"
+
 msgid "Controller Auth Group"
 msgstr "Authentifizierungsgruppe des Controllers"
 
@@ -1169,6 +1178,9 @@ msgstr "Kontroller IP Adresse"
 
 msgid "Controller TCP Port"
 msgstr "Kontroller TCP Port"
+
+msgid "Controller model"
+msgstr "Controller-Modellbezeichnung"
 
 msgid "Controls power consumption."
 msgstr "Steuert den Stromverbrauch."
@@ -1323,29 +1335,33 @@ msgstr "DDP"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "DLNA/UPnP"
+msgstr ""
+
+msgid "DLNA/UPnP Media Server"
+msgstr ""
+
 msgid "DNLA/UPnP"
 msgstr "DNLA/UPnP"
-
-msgid "DNLA/UPnP Media Server"
-msgstr "DNLA/UPnP Medienserver"
 
 msgid "DNS settings"
 msgstr "DNS-Einstellungen"
 
 #, php-format
 msgid ""
-"DO NOT abort the firmware upgrade once it has started. The server will "
-"reboot automatically after storing the new firmware. The configuration will "
-"be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware "
-"update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the "
-"System configuration before doing a Firmware upgrade."
+"DO NOT abort the firmware upgrade process once it has started. Once it is "
+"completed, the server will automatically reboot, the current configuration "
+"will be maintained.<br />You need a minimum of %d MiB free RAM to perform "
+"the upgrade.<br />It is strongly recommended that you <a "
+"href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
-"Unterbrechen sie den Firmware-Upgrade NICHT, sobald er gestartet wurde. Nach "
-"dem Speichern der neuen Firmware wird der Server automatisch neu gestartet. "
-"Ihre Konfiguration wird dabei berücksichtigt. <br />Sie benötigen als "
-"Minimum %d MB RAM, um ein Firmware-Upgrade durchzuführen.<br />Es wird "
-"dringend empfohlen, vor dem Firmware-Upgrade ein <a href='%s'>Backup </a> "
-"der System-Konfiguration durchzuführen."
+"Der Firmwareupgrade darf unter k e i n e n Umständen unterbrochen werden ! "
+"\r\n"
+"Sobald er beendet ist rebootet das System automatisch. \r\n"
+"Für das Upgrade werden mindestens %d MB freier RAM-Spreicher benötigt.\r\n"
+"\r\n"
+"Es wird dringend empfohlen, die NAS-Konfigurationsdatei <a "
+"href='%s'>Backup</a> zu sichern vor einem Upgrade."
 
 msgid "DVD"
 msgstr "DVD"
@@ -1605,6 +1621,9 @@ msgstr "IP des Geräts"
 
 msgid "Device Pass-through"
 msgstr "Gerät durchreichen"
+
+msgid "Device Serial"
+msgstr "Seriennummer"
 
 msgid "Device model"
 msgstr "Gerätemodell"
@@ -1923,7 +1942,7 @@ msgstr ""
 "erzeugt werden - durch ein vorausgeführtes Skript."
 
 msgid "Donate"
-msgstr "Spende"
+msgstr "Spenden"
 
 msgid "Done"
 msgstr "Fertig"
@@ -2129,6 +2148,8 @@ msgid ""
 "Enable STARTTLS encryption. This doesn't mean you have to use TLS, you can "
 "use SSL."
 msgstr ""
+"STARTTLS Verschlüsselung aktivieren. TLS muss nicht benutzt werden,  SSL ist "
+"weiterhin möglich."
 
 msgid "Enable TLS/SSL connections."
 msgstr "TLS/SSL-Verbindungen aktivieren."
@@ -2139,8 +2160,8 @@ msgstr "Aktivierung von ZFS ACL"
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr "Aktiviere Zeroconf/Bonjour zur Ankündigung der Dienste diese Gerätes"
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
-msgstr "Aktivieren des DNLA/UPnP Weboberfläche"
+msgid "Enable administrative DLNA/UPnP WebGUI."
+msgstr ""
 
 msgid "Enable anonymous bind."
 msgstr "Anomymes Bind einschalten"
@@ -2427,6 +2448,8 @@ msgstr "Zusätzliche Optionen für ifconfig (normalerweise leer)."
 msgid ""
 "Extra options to pass over rpc using transmission-remote (usually empty)."
 msgstr ""
+"Konfigurationsoptiuonen zur Weitergabe über rpc mittels 'Transmission-"
+"remote' (normalerweise leer)"
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Zusätzliche Optionen für rsync (normalerweise leer)."
@@ -2657,9 +2680,6 @@ msgstr "Gateway, der zum Erreichen des Zielnetzwerks benutzt werden soll."
 msgid "General"
 msgstr "Allgemein"
 
-msgid "General Information UPS Unit"
-msgstr "Allegemeine Information der UPS"
-
 msgid "General Setup"
 msgstr "Allgemeine Einstellungen"
 
@@ -2798,7 +2818,7 @@ msgstr ""
 "verursachen!"
 
 msgid "Home directory"
-msgstr "Home-Verzeichnis"
+msgstr "Persönlicher Ordner"
 
 msgid "Host"
 msgstr "Host"
@@ -3187,7 +3207,7 @@ msgid "Interfaces"
 msgstr "Schnittstellen"
 
 msgid "Internal Server Information"
-msgstr ""
+msgstr "interne Server Information"
 
 msgid "Internal UPS clock date"
 msgstr "Datum der UPS-Uhr"
@@ -3202,13 +3222,13 @@ msgid "Interval must be greater or equal than 10 seconds."
 msgstr "Das Intervall muss genau oder länger als 10 Sekunden sein."
 
 msgid "Interval to wait after shutdown with delay command"
-msgstr ""
+msgstr "Warteintervall bis zum Shutdown durch den 'delay'-Befehl"
 
 msgid "Interval to wait before rebooting the UPS)"
 msgstr "Wartezeit vor UPS-Neustart"
 
 msgid "Interval to wait before restarting the load"
-msgstr ""
+msgstr "Warteintervall bis zum Wiederanlauf der Leistung"
 
 msgid "Invalid file format."
 msgstr "Ungültiges Dateiformat."
@@ -3219,6 +3239,7 @@ msgstr "Ungültige Blockgröße! Sie muss im Bereich von %d bis %d sein."
 
 msgid "Invalid username or password. Please try again."
 msgstr ""
+"ungülter Username oder falsches Passwort. Bitte nochmals korrekt eingeben !"
 
 msgid ""
 "It can be changed from the client side by standard SCSI mode page at any "
@@ -3583,6 +3604,9 @@ msgstr "FEHLT"
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOVED TO"
+msgstr "verlagert zu"
+
 msgid "MS Active Directory"
 msgstr "Microsoft ActiveDirectory"
 
@@ -3813,7 +3837,7 @@ msgid "Modules"
 msgstr "Module"
 
 msgid "Monday Tuesday Wednesday Thursday Friday Saturday Sunday"
-msgstr ""
+msgstr "Montag Dienstag Mittwoch Donnerstag Freitag Samstag Sonntag"
 
 msgid "Months"
 msgstr "Monate"
@@ -4075,10 +4099,10 @@ msgid "Nominal output current (A)"
 msgstr "Stromstärke (nominal)"
 
 msgid "Nominal output frequency (Hz)"
-msgstr ""
+msgstr "Stromfrequenz (nominal in Hertz)"
 
 msgid "Nominal output voltage (V)"
-msgstr ""
+msgstr "Ausgangsspannung (nominal in Volt)"
 
 msgid "Nominal value of apparent power (Volt-Amps)"
 msgstr ""
@@ -4872,6 +4896,9 @@ msgstr "Hervorgehobener Name des Systemadministrator für Bind"
 msgid "Root bind password"
 msgstr "Systemadministrator-Kennwort für Bind"
 
+msgid "Rotation rate"
+msgstr "Drehgeschwindigkeit"
+
 msgid "Round-robin read"
 msgstr "Round-robin read"
 
@@ -5158,7 +5185,7 @@ msgid "Set the account's primary group to the given group."
 msgstr "Setzt die primäre Gruppe für das Konto in die vorhandene Gruppe."
 
 msgid "Set the content location(s) to or from the media library."
-msgstr ""
+msgstr "Legen Sie den Pfad der Medien-Bibliothek fest:"
 
 msgid "Set the desired Service Set Identifier (aka network name)."
 msgstr "Setze den gewünschten SSID Namen (Netzwrkname)"
@@ -5610,7 +5637,7 @@ msgid "TKIP"
 msgstr "TKIP"
 
 msgid "TLS mode"
-msgstr ""
+msgstr "TLS Modus"
 
 msgid "Tag"
 msgstr "Tag"
@@ -5888,6 +5915,7 @@ msgstr "Das Attribut '%s': muss im Bereich von %d und %d liegen."
 #, php-format
 msgid "The attribute 'Port': port '%ld' is already taken by another service."
 msgstr ""
+"Der 'Port': port '%ld' wird bereits durch einen anderen Dienst benutzt."
 
 msgid ""
 "The base name (e.g. iqn.2007-09.jp.ne.peach.istgt) will append the target "
@@ -6007,6 +6035,15 @@ msgstr "Der Gerätename darf nur folgende Zeichen enthalten: a-z, A-Z, 0-9."
 
 msgid "The device's IP address."
 msgstr "Die IP Adresse des Geräts."
+
+msgid ""
+"The device(s) in config are different to actual device(s). Please remove the "
+"device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr ""
+"Die Festplattenliste ('devices') in der Systemkonfigurationdatei entsprechen "
+"nicht der gefundenen Festplattenkonfiguration. Entfernen sie die Festplatten "
+"und fügen sie die Festplatten wieder neu in die Konfiguration ein. "
+"Alternativ können den Befehl 'Clear config and Import disks' benutzen."
 
 msgid ""
 "The directory containing the files you want to publish. The remote host does "
@@ -6450,14 +6487,6 @@ msgid "There is no error, the file uploaded with success."
 msgstr ""
 "Es ist kein Fehler aufgetreten. Die Datei wurde erfolgreich hochgeladen."
 
-msgid ""
-"There is wrong disk ID in the config. Please remove the disk and re-add it "
-"or use 'clear and import'."
-msgstr ""
-"In der Konfigurationsdatei ist eine ungültige Disk-ID enthalten. Entfernen "
-"Sie diesen Eintrag (Disk-ID) aus der Konfigurationsdatei und fügen Sie diese "
-"mit dem Befehl 'clear and import' wieder hinzu."
-
 msgid "There must be 2 disks in a RAID 1 volume."
 msgstr "Zwei Festplatten sind für ein RAID 1 notwendig."
 
@@ -6514,6 +6543,9 @@ msgid ""
 "specify parameters to be passed to kernel, and additional modules to be "
 "loaded."
 msgstr ""
+"Diese Konfigurationsoptionen werden zu \"/boot/loader.conf.local\" "
+"hinzugefügt. Dadurch können Parameter an den Systemkern weitergegeben und "
+"zusätzliche Programmmodule können geladen werden."
 
 msgid ""
 "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
@@ -6686,6 +6718,8 @@ msgid ""
 "This is a way to take an existing insecure connection, and upgrade it to a "
 "secure connection using SSL/TLS."
 msgstr ""
+"Dies ist eine Möglichkeit eine bestehende unsichere Netzwerkverbindung durch "
+"eine verschlüsselte SSL/TLS-Verbindung abzusichern."
 
 msgid ""
 "This is both the name of the server as advertised via "
@@ -7116,6 +7150,9 @@ msgstr "Umwandlung"
 msgid "Transfer mode"
 msgstr "Übertragungs Modus"
 
+msgid "Transfer rate"
+msgstr "Übertragungsgeschwindigkeit"
+
 msgid "Trap host"
 msgstr "Trap-Host"
 
@@ -7169,6 +7206,17 @@ msgstr "UCD-SNMP-MIB"
 
 #, php-format
 msgid ""
+"UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). "
+"Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or "
+"NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgstr ""
+"UFS und ZFS sind die originären Dateisysteme von FreeBSD (das zugrunde "
+"liegende Betriebssystem von %s). Die Nutzung anderer Dateisysteme wie FAT, "
+"FAT32, EXT2, EXT3, EXT4 or NTFS  kann zu unvorhersehbaren Ergebnissen führen "
+"einschließlich Datenverlust. Deshalb wird von deren Nutzung abgeraten."
+
+#, php-format
+msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, "
 "or NTFS can result in unpredictable results, file corruption, and loss of "
@@ -7178,17 +7226,6 @@ msgstr ""
 "zugrundeliegenden Betriebssystem). Die Verwendung anderer Dateisysteme wie "
 "FAT, FAT32, EXT2, EXT3, oder NTFS kann unter Umständen unvorhersehbare "
 "Folgen, Dateifehler oder Datenverlust verursachen!"
-
-#, php-format
-msgid ""
-"UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). "
-"Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS "
-"can result in unpredictable results, file corruption, and loss of data!"
-msgstr ""
-"UFS ist das native Dateissystem von FreeBSD (dem %s zugrunde liegenden "
-"Betriebssystem). Die Verwendung anderer Dateisysteme wie FAT, FAT32, EXT2, "
-"EXT3 oder NTFS kann unvorhersehbare Folgen wie bspw. korrumpierte Daten oder "
-"Datenverlust haben."
 
 msgid "UID"
 msgstr "UID"
@@ -7207,6 +7244,9 @@ msgstr "UPS On Line"
 
 msgid "UPS Status"
 msgstr "UPS Status"
+
+msgid "UPS Unit General Information"
+msgstr "Allegemeine Informationen zur UPS"
 
 msgid "UPS Waiting"
 msgstr "UPS wartet"
@@ -7246,7 +7286,7 @@ msgid "UPS status"
 msgstr "USV Status"
 
 msgid "UPS system identifier"
-msgstr ""
+msgstr "UPS System Information"
 
 msgid "UPS temperature"
 msgstr "Temperatur der UPS"
@@ -7265,6 +7305,9 @@ msgstr "URI"
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
 
 msgid "Unformated"
 msgstr "Unformatiert"
@@ -7438,10 +7481,10 @@ msgid "Username"
 msgstr "Benutzername"
 
 msgid "Username contains invalid character(s) : "
-msgstr ""
+msgstr "Der Nutzernahme enthält nicht erlaubte Zeichen oder Buchstaben: "
 
 msgid "Username field : "
-msgstr ""
+msgstr "Nutzername: "
 
 msgid "Username of a domain administrator account."
 msgstr "Benutzername eines 'Domain Administrator Account'."
@@ -7833,7 +7876,7 @@ msgid "load/unload failed."
 msgstr "iSCSI Target konnte nicht geladen/entladen werden"
 
 msgid "loader.conf"
-msgstr ""
+msgstr "loader.conf"
 
 msgid "maximum (highest performance)"
 msgstr "Maximum (h&ouml;chste Leistung)"
@@ -7921,6 +7964,9 @@ msgstr "erfolgreich."
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
+
+msgid "to"
+msgstr "an"
 
 msgid "umask"
 msgstr "umask"

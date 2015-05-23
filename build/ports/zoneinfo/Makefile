@@ -1,5 +1,5 @@
 PORTNAME=		zoneinfo
-DISTVERSION=	2013g
+DISTVERSION=	2014e
 CATEGORIES=		misc
 COMMENT=		Updated timezone definitions
 MAINTAINER=		zoon01@nas4free.org
@@ -7,8 +7,6 @@ MAINTAINER=		zoon01@nas4free.org
 MASTER_SITES=   	ftp://ftp.iana.org/tz/releases/ \
 					ftp://munnari.oz.au/pub/
 DISTNAME=		tzdata${DISTVERSION}
-
-NO_STAGE=       yes
 
 WRKSRC=	${WRKDIR}
 PREFIX=	/usr
@@ -25,8 +23,8 @@ MISSING=	ax bl bq cw gg im je me mf rs ss sx
 
 .ifndef NOMISSING
 .for M in ${MISSING}
-HAS_${M:U}!=	${GREP} -c ^${M:U} /usr/share/misc/iso3166 || ${TRUE}
-.if ${HAS_${M:U}} == "0"
+HAS_${M:tu}!=	${GREP} -c ^${M:tu} /usr/share/misc/iso3166 || ${TRUE}
+.if ${HAS_${M:tu}} == "0"
 EXTRA_PATCHES+=	${FILESDIR}/patchremove-${M}
 .endif
 .endfor

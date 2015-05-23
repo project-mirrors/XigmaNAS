@@ -1,5 +1,5 @@
 PORTNAME=		rsync
-PORTVERSION=	3.0.9
+PORTVERSION=	3.1.0
 CATEGORIES=		net
 COMMENT=		A network file distribution/sync utility
 MAINTAINER=		zoon01@nas4free.org
@@ -14,13 +14,13 @@ MASTER_SITE_SUBDIR=	rsync
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX}
 DISTFILES+=		${PORTNAME}-patches-${PORTVERSION}${EXTRACT_SUFX}
 
+NO_STAGE=       	yes
 GNU_CONFIGURE=	yes
-NO_STAGE=       yes
-CONFIGURE_ARGS+=	--disable-debug \
-									--enable-ipv6 \
-									--with-rsyncd-conf=/var/etc/rsyncd.conf \
-									--with-included-popt \
-									--enable-largefile
+CONFIGURE_ARGS+=		--disable-debug \
+							--enable-ipv6 \
+							--with-rsyncd-conf=/var/etc/rsyncd.conf \
+							--with-included-popt \
+							--enable-largefile
 
 # Enable iconv support.
 USE_ICONV=	yes
@@ -34,13 +34,12 @@ FORCE_PKG_REGISTER=	yes
 
 .include <bsd.port.pre.mk>
 
-PATCH_STRIP=	-p1
-EXTRA_PATCHES+=	${WRKSRC}/patches/fileflags.diff
-EXTRA_PATCHES+=	${WRKSRC}/patches/acls.diff
-
 # guard against CFLAGS damage by MAKE_ENV
 post-patch:
-	@${REINPLACE_CMD} -e 's|CFLAGS|CONFIGUREDCFLAGS|' ${WRKSRC}/Makefile.in
+	@${REINPLACE_CMD} -e 's|CFLAGS|CONFIGUREDCFLAGS|' \
+		-e 's|perl.*|${DO_NADA}|' \
+			${WRKSRC}/Makefile.in
+
 
 pre-configure:
 	@${REINPLACE_CMD} -e 's:/etc/:${PREFIX}/etc/:g'  \

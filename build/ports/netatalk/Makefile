@@ -1,5 +1,5 @@
 PORTNAME=		netatalk
-PORTVERSION=	2.2.4
+PORTVERSION=	2.2.5
 PORTREVISION=	0
 CATEGORIES=		net print
 MASTER_SITES=	SF
@@ -12,10 +12,8 @@ NO_STAGE=       yes
 USE_AUTOTOOLS=	libtool
 USE_BDB=	46+
 USE_BZIP2=	yes
-USE_ICONV=	yes
 GNU_CONFIGURE=	yes
-USE_GMAKE=	yes
-USE_PERL5=	yes
+USES=           iconv gmake perl5
 WANT_GNOME=	yes
 
 CONFIGURE_ARGS+=	--bindir=/usr/local/bin \
@@ -52,6 +50,8 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/etc/uams/.libs/uams_pam.so ${NAS4FREE_ROOTFS}/etc/uams
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/etc/uams/.libs/uams_passwd.so ${NAS4FREE_ROOTFS}/etc/uams
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/etc/uams/.libs/uams_randnum.so ${NAS4FREE_ROOTFS}/etc/uam
+
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/afpd.in ${NAS4FREE_ROOTFS}/etc/rc.d/afpd
 
 	@cd ${NAS4FREE_ROOTFS}/etc/uams && ${LN} -fsv uams_passwd.so uams_clrtxt.so && ${LN} -fsv uams_dhx_passwd.so uams_dhx.so && ${LN} -fsv uams_dhx2_passwd.so uams_dhx2.so
 

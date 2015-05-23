@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@nas4free.org>\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
 "PO-Revision-Date: 2013-03-05 13:26+0000\n"
 "Last-Translator: Rafał Klekowski <Unknown>\n"
 "Language-Team: NAS4Free\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-15 01:45+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2014-04-21 22:09+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
 "X-Poedit-Language: Polish\n"
@@ -717,6 +717,9 @@ msgstr ""
 msgid "Auxiliary parameters"
 msgstr "Parametry dodatkowe"
 
+msgid "Available"
+msgstr ""
+
 msgid "Backup configuration"
 msgstr "Kopia zapasowa konfiguracji"
 
@@ -751,10 +754,10 @@ msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
 msgstr ""
 
-msgid "Battery Charge"
+msgid "Battery Details"
 msgstr ""
 
-msgid "Battery Details"
+msgid "Battery Level"
 msgstr ""
 
 msgid "Battery Low"
@@ -773,13 +776,13 @@ msgstr ""
 msgid "Battery change date"
 msgstr ""
 
-msgid "Battery charge"
-msgstr ""
-
 msgid "Battery chemistry"
 msgstr ""
 
 msgid "Battery current"
+msgstr ""
+
+msgid "Battery level"
 msgstr ""
 
 msgid "Battery level when UPS switches to \"Warning\" state"
@@ -841,6 +844,9 @@ msgstr "CCMP TKIP"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
+
+msgid "CHANGED"
+msgstr ""
 
 msgid "CHAP"
 msgstr "CHAP"
@@ -994,13 +1000,10 @@ msgid "Clear config and Import software raid disks"
 msgstr ""
 
 msgid ""
-"Click &quot;Enable firmware upload&quot; below, then choose the image file "
-"to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade "
-"process."
+"Click &quot;Enable firmware upload&quot; below, then choose the embedded "
+"image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start "
+"the upgrade process."
 msgstr ""
-"Kliknij &quot;Włącz aktualizacje oprogramowania&quot; poniżej, następnie "
-"wskaż plik z aktualizacją.<br />Kliknij &quot;Aktualizuj "
-"oprogramowanie&quot;, aby rozpocząć proces aktualizacji."
 
 msgid "Click this button to download the server configuration in XML format."
 msgstr ""
@@ -1107,6 +1110,9 @@ msgstr ""
 msgid "Content"
 msgstr "Zawartość"
 
+msgid "Controller"
+msgstr ""
+
 msgid "Controller Auth Group"
 msgstr "Grupa autentykacji kontrolera"
 
@@ -1121,6 +1127,9 @@ msgstr "Adres IP kontrolera"
 
 msgid "Controller TCP Port"
 msgstr "Port TCP kontrolera"
+
+msgid "Controller model"
+msgstr ""
 
 msgid "Controls power consumption."
 msgstr ""
@@ -1252,10 +1261,13 @@ msgstr "DDP"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNLA/UPnP"
+msgid "DLNA/UPnP"
 msgstr ""
 
-msgid "DNLA/UPnP Media Server"
+msgid "DLNA/UPnP Media Server"
+msgstr ""
+
+msgid "DNLA/UPnP"
 msgstr ""
 
 msgid "DNS settings"
@@ -1263,11 +1275,11 @@ msgstr "Ustawienia DNS"
 
 #, php-format
 msgid ""
-"DO NOT abort the firmware upgrade once it has started. The server will "
-"reboot automatically after storing the new firmware. The configuration will "
-"be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware "
-"update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the "
-"System configuration before doing a Firmware upgrade."
+"DO NOT abort the firmware upgrade process once it has started. Once it is "
+"completed, the server will automatically reboot, the current configuration "
+"will be maintained.<br />You need a minimum of %d MiB free RAM to perform "
+"the upgrade.<br />It is strongly recommended that you <a "
+"href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
 
 msgid "DVD"
@@ -1526,6 +1538,9 @@ msgid "Device IP"
 msgstr "Adres IP urządzenia"
 
 msgid "Device Pass-through"
+msgstr ""
+
+msgid "Device Serial"
 msgstr ""
 
 msgid "Device model"
@@ -2046,7 +2061,7 @@ msgstr ""
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr "Włącz Zeroconf/Bonjour aby rozgłaszać usługi tego urządzenia"
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
+msgid "Enable administrative DLNA/UPnP WebGUI."
 msgstr ""
 
 msgid "Enable anonymous bind."
@@ -2544,9 +2559,6 @@ msgstr "Brama używana przy dostępie do sieci docelowej"
 
 msgid "General"
 msgstr "Ogólne"
-
-msgid "General Information UPS Unit"
-msgstr ""
 
 msgid "General Setup"
 msgstr "Opcje ogólne"
@@ -3416,6 +3428,9 @@ msgstr "BRAK"
 
 msgid "MOTD"
 msgstr "MOTD"
+
+msgid "MOVED TO"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -4657,6 +4672,9 @@ msgstr "Główna powiązana DN"
 msgid "Root bind password"
 msgstr "Główne hasło powiązania"
 
+msgid "Rotation rate"
+msgstr ""
+
 msgid "Round-robin read"
 msgstr "Odczyt round-robin"
 
@@ -5711,6 +5729,11 @@ msgid "The device's IP address."
 msgstr "Adres IP urządzenia."
 
 msgid ""
+"The device(s) in config are different to actual device(s). Please remove the "
+"device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr ""
+
+msgid ""
 "The directory containing the files you want to publish. The remote host does "
 "not need to pass along the directory as part of the transfer."
 msgstr ""
@@ -6094,11 +6117,6 @@ msgstr "Zbyt dużo dodatkowych grup."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "To nie jest błąd, plik został wysłany pomyślnie."
-
-msgid ""
-"There is wrong disk ID in the config. Please remove the disk and re-add it "
-"or use 'clear and import'."
-msgstr ""
 
 msgid "There must be 2 disks in a RAID 1 volume."
 msgstr "Na poziomie RAID 1 muszą być dwa dyski."
@@ -6662,6 +6680,9 @@ msgstr "Konwersja znaków"
 msgid "Transfer mode"
 msgstr "Tryb transferu"
 
+msgid "Transfer rate"
+msgstr ""
+
 msgid "Trap host"
 msgstr "Serwer usługi SNMP-Trap"
 
@@ -6715,6 +6736,13 @@ msgstr "UCD-SNMP-MIB"
 
 #, php-format
 msgid ""
+"UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). "
+"Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or "
+"NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgstr ""
+
+#, php-format
+msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, "
 "or NTFS can result in unpredictable results, file corruption, and loss of "
@@ -6724,16 +6752,6 @@ msgstr ""
 "Próba użycia innych formatów, jak FAT, FAT32, EXT2, EXT3 lub NTFS może "
 "prowadzić do nieprzewidywalnych rezultatów, zniszczenia plików lub utraty "
 "danych!"
-
-#, php-format
-msgid ""
-"UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). "
-"Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS "
-"can result in unpredictable results, file corruption, and loss of data!"
-msgstr ""
-"UFS jest NATYWNYM formatem plików dla FreeBSD (podstawowym OS z %s). Próby "
-"użycia innych formatów plików, takich jak FAT, FAT32, EXT2, EXT3 czy NTFS "
-"mogą dać nieprzewidywalne efekty i utratę danych!"
 
 msgid "UID"
 msgstr "UID"
@@ -6751,6 +6769,9 @@ msgid "UPS On Line"
 msgstr ""
 
 msgid "UPS Status"
+msgstr ""
+
+msgid "UPS Unit General Information"
 msgstr ""
 
 msgid "UPS Waiting"
@@ -6809,6 +6830,9 @@ msgstr ""
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unavailable"
+msgstr ""
 
 msgid "Unformated"
 msgstr "Niesformatowany"
@@ -7437,6 +7461,9 @@ msgstr ""
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
+
+msgid "to"
+msgstr ""
 
 msgid "umask"
 msgstr ""

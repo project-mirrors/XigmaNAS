@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@nas4free.org>\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
-"PO-Revision-Date: 2013-01-16 20:02+0000\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
+"PO-Revision-Date: 2013-10-21 10:12+0000\n"
 "Last-Translator: Jānis-Marks Gailis <jeanmarc.gailis@gmail.com>\n"
 "Language-Team: NAS4Free\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-15 01:45+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2014-04-21 22:09+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 "X-Poedit-Country: LATVIA\n"
 "Language: \n"
 "X-Poedit-Language: Latvian\n"
@@ -631,7 +631,7 @@ msgid "Apple Filing Protocol"
 msgstr "Apple Arhivēšanas Protokols"
 
 msgid "Apply"
-msgstr ""
+msgstr "Apstiprināt"
 
 msgid "Apply changes"
 msgstr "Pielietot izmaiņas"
@@ -719,6 +719,9 @@ msgstr ""
 msgid "Auxiliary parameters"
 msgstr "Palīgu parametri"
 
+msgid "Available"
+msgstr ""
+
 msgid "Backup configuration"
 msgstr "Dublēšanas konfigurēšana"
 
@@ -753,14 +756,14 @@ msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
 msgstr "Bāzes Nosaukums tiks pievienots automātiski, ja sāksies bez 'iqn.'."
 
-msgid "Battery Charge"
-msgstr ""
-
 msgid "Battery Details"
 msgstr ""
 
-msgid "Battery Low"
+msgid "Battery Level"
 msgstr ""
+
+msgid "Battery Low"
+msgstr "Baterija gandrīz tukša"
 
 msgid ""
 "Battery Remaining level when UPS switches to Shutdown mode (Low Battery)"
@@ -775,13 +778,13 @@ msgstr ""
 msgid "Battery change date"
 msgstr ""
 
-msgid "Battery charge"
-msgstr ""
-
 msgid "Battery chemistry"
 msgstr ""
 
 msgid "Battery current"
+msgstr ""
+
+msgid "Battery level"
 msgstr ""
 
 msgid "Battery level when UPS switches to \"Warning\" state"
@@ -791,7 +794,7 @@ msgid "Battery manufacturing date"
 msgstr ""
 
 msgid "Battery temperature"
-msgstr ""
+msgstr "Baterijās temperatūra"
 
 msgid "Battery voltage"
 msgstr ""
@@ -815,7 +818,7 @@ msgid "Blocksize"
 msgstr ""
 
 msgid "Bridge"
-msgstr ""
+msgstr "Tilts"
 
 msgid "Browseable"
 msgstr "Pārlūkojams"
@@ -845,6 +848,9 @@ msgstr "CCMP TKIP"
 msgid "CD/DVD"
 msgstr ""
 
+msgid "CHANGED"
+msgstr ""
+
 msgid "CHAP"
 msgstr "CHAP"
 
@@ -861,7 +867,7 @@ msgid "CIFS/SMB informations"
 msgstr "CIFS/SMB informācija"
 
 msgid "CP1251 (Cyrillic)"
-msgstr ""
+msgstr "CP1251 (Kirilica)"
 
 msgid "CP437 (Latin US)"
 msgstr ""
@@ -882,7 +888,7 @@ msgid "CP936 (Simplified Chinese GBK)"
 msgstr ""
 
 msgid "CP949 (Korean)"
-msgstr ""
+msgstr "CP949 (Korejiešu)"
 
 msgid "CP950 (Traditional Chinese Big5)"
 msgstr ""
@@ -1001,13 +1007,10 @@ msgid "Clear config and Import software raid disks"
 msgstr ""
 
 msgid ""
-"Click &quot;Enable firmware upload&quot; below, then choose the image file "
-"to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade "
-"process."
+"Click &quot;Enable firmware upload&quot; below, then choose the embedded "
+"image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start "
+"the upgrade process."
 msgstr ""
-"Spied &quot;Iespējot programmatūras augšupielādi&quot; zemāk, tad izvēlies "
-"bildes datni, kuru augšupielādēsi.<br />Spied &quot;Uzlabot "
-"programmatūru&quot;, lai uzsāktu uzlabošanas procesu."
 
 msgid "Click this button to download the server configuration in XML format."
 msgstr ""
@@ -1022,7 +1025,7 @@ msgid "Client sees uppercase, server sees lowercase"
 msgstr "Klients redz lielos, serveris redz mazos"
 
 msgid "Clone"
-msgstr ""
+msgstr "Klonēt"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Savāc sākotnējos datus, lūdzu uzgaidiet..."
@@ -1114,6 +1117,9 @@ msgstr ""
 msgid "Content"
 msgstr "Saturs"
 
+msgid "Controller"
+msgstr ""
+
 msgid "Controller Auth Group"
 msgstr "Kontroliera autentifikācijas grupa"
 
@@ -1128,6 +1134,9 @@ msgstr "Kontroliera IP adrese"
 
 msgid "Controller TCP Port"
 msgstr "Kontroliera TCP ports"
+
+msgid "Controller model"
+msgstr ""
 
 msgid "Controls power consumption."
 msgstr ""
@@ -1212,7 +1221,7 @@ msgid "Creating partition"
 msgstr "Veido partīciju"
 
 msgid "Creation"
-msgstr ""
+msgstr "Izveidošana"
 
 msgid "Credits"
 msgstr "Veidotāji"
@@ -1230,10 +1239,10 @@ msgid "Current"
 msgstr "Tekošais"
 
 msgid "Current Version:"
-msgstr ""
+msgstr "Pašreizējā versija:"
 
 msgid "Current password"
-msgstr ""
+msgstr "Pašreizējā parole"
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr ""
@@ -1265,22 +1274,25 @@ msgstr "DDP"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNLA/UPnP"
+msgid "DLNA/UPnP"
 msgstr ""
 
-msgid "DNLA/UPnP Media Server"
+msgid "DLNA/UPnP Media Server"
 msgstr ""
+
+msgid "DNLA/UPnP"
+msgstr "DNLA/UPnP"
 
 msgid "DNS settings"
 msgstr "DNS uzstādījumi"
 
 #, php-format
 msgid ""
-"DO NOT abort the firmware upgrade once it has started. The server will "
-"reboot automatically after storing the new firmware. The configuration will "
-"be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware "
-"update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the "
-"System configuration before doing a Firmware upgrade."
+"DO NOT abort the firmware upgrade process once it has started. Once it is "
+"completed, the server will automatically reboot, the current configuration "
+"will be maintained.<br />You need a minimum of %d MiB free RAM to perform "
+"the upgrade.<br />It is strongly recommended that you <a "
+"href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
 
 msgid "DVD"
@@ -1450,7 +1462,7 @@ msgid "Delete portal group"
 msgstr "Dzēst portāla grupu"
 
 msgid "Delete resource"
-msgstr ""
+msgstr "Dzēst resursu"
 
 msgid "Delete rule"
 msgstr "Dzēst noteikumus"
@@ -1540,6 +1552,9 @@ msgstr "Ierīces IP"
 
 msgid "Device Pass-through"
 msgstr "Ierīces Padot-caur"
+
+msgid "Device Serial"
+msgstr ""
 
 msgid "Device model"
 msgstr "Ierīces modelis"
@@ -2060,7 +2075,7 @@ msgstr ""
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr "Iespējot Zeroconf/Bonjour, lai reklamētu šīs ierīces servisus"
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
+msgid "Enable administrative DLNA/UPnP WebGUI."
 msgstr ""
 
 msgid "Enable anonymous bind."
@@ -2567,9 +2582,6 @@ msgstr "Vartēja, kuru izmantot, lai piekļūtu mērķa tīklam."
 
 msgid "General"
 msgstr "Vispārēji"
-
-msgid "General Information UPS Unit"
-msgstr ""
 
 msgid "General Setup"
 msgstr "Pamata iestatījumi"
@@ -3463,6 +3475,9 @@ msgstr "PAZUDIS"
 
 msgid "MOTD"
 msgstr "MOTD"
+
+msgid "MOVED TO"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Aktīvā Mape"
@@ -4733,6 +4748,9 @@ msgstr "Saknes bindes DN"
 msgid "Root bind password"
 msgstr "Saknes bindes parole"
 
+msgid "Rotation rate"
+msgstr ""
+
 msgid "Round-robin read"
 msgstr "Round-robin lasīt"
 
@@ -5820,6 +5838,11 @@ msgid "The device's IP address."
 msgstr "Ierīces IP adrese."
 
 msgid ""
+"The device(s) in config are different to actual device(s). Please remove the "
+"device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr ""
+
+msgid ""
 "The directory containing the files you want to publish. The remote host does "
 "not need to pass along the directory as part of the transfer."
 msgstr ""
@@ -6225,11 +6248,6 @@ msgstr "Š"
 
 msgid "There is no error, the file uploaded with success."
 msgstr "Šeit nav kļūdas, datne veiksmīgi augšupielādējās."
-
-msgid ""
-"There is wrong disk ID in the config. Please remove the disk and re-add it "
-"or use 'clear and import'."
-msgstr ""
 
 msgid "There must be 2 disks in a RAID 1 volume."
 msgstr "Priekš RAID 1 sējuma vahag 2 diskus."
@@ -6849,6 +6867,9 @@ msgstr "Pārkodēšana"
 msgid "Transfer mode"
 msgstr "Pārsūtīšanas metode"
 
+msgid "Transfer rate"
+msgstr ""
+
 msgid "Trap host"
 msgstr "Slazda saimniekdators"
 
@@ -6902,21 +6923,17 @@ msgstr "UCD-SNMP-MIB"
 
 #, php-format
 msgid ""
+"UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). "
+"Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or "
+"NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgstr ""
+
+#, php-format
+msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, "
 "or NTFS can result in unpredictable results, file corruption, and loss of "
 "data!"
-msgstr ""
-"UFS un variācijas ir VIETĒJAIS datņu formāts priekš FreeBSD (apakšguļosā OS "
-"no %s). Mēģinājums lietot citus datņu formātus, tādus kā FAT, FAT32, EXT2, "
-"EXT3, vai NTFS var rezumēties neparedzamos rezultātos, datņu samaitāšanā, un "
-"datu pazušanā!"
-
-#, php-format
-msgid ""
-"UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). "
-"Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS "
-"can result in unpredictable results, file corruption, and loss of data!"
 msgstr ""
 "UFS un variācijas ir VIETĒJAIS datņu formāts priekš FreeBSD (apakšguļosā OS "
 "no %s). Mēģinājums lietot citus datņu formātus, tādus kā FAT, FAT32, EXT2, "
@@ -6939,6 +6956,9 @@ msgid "UPS On Line"
 msgstr ""
 
 msgid "UPS Status"
+msgstr ""
+
+msgid "UPS Unit General Information"
 msgstr ""
 
 msgid "UPS Waiting"
@@ -6997,6 +7017,9 @@ msgstr ""
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unavailable"
+msgstr ""
 
 msgid "Unformated"
 msgstr "Neformatēts"
@@ -7643,6 +7666,9 @@ msgstr "veiksmīgi."
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
+
+msgid "to"
+msgstr ""
 
 msgid "umask"
 msgstr "atmaskot"

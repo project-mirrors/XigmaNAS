@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NAS4Free\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@nas4free.org>\n"
-"POT-Creation-Date: 2013-08-15 03:26+0000\n"
-"PO-Revision-Date: 2013-06-12 11:54+0000\n"
+"POT-Creation-Date: 2014-04-16 00:50+0000\n"
+"PO-Revision-Date: 2014-04-16 07:49+0000\n"
 "Last-Translator: Alex Lin <linuxant@gmail.com>\n"
 "Language-Team: NAS4Free\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-15 01:44+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2014-04-21 22:09+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -681,6 +681,9 @@ msgstr "辅助设备固件"
 msgid "Auxiliary parameters"
 msgstr "辅助参数"
 
+msgid "Available"
+msgstr "可用"
+
 msgid "Backup configuration"
 msgstr "备份设置"
 
@@ -715,18 +718,18 @@ msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
 msgstr "当启动时没有'iqn.' ，会自动添加基本名称。"
 
-msgid "Battery Charge"
-msgstr "电池电力"
-
 msgid "Battery Details"
 msgstr "电池信息"
+
+msgid "Battery Level"
+msgstr "电池电量"
 
 msgid "Battery Low"
 msgstr "电力不足"
 
 msgid ""
 "Battery Remaining level when UPS switches to Shutdown mode (Low Battery)"
-msgstr ""
+msgstr "UPS切换到“关闭”模式时的电池剩余电量（低电池电量）"
 
 msgid "Battery alarm threshold"
 msgstr "电池报警阈值"
@@ -737,17 +740,17 @@ msgstr "电池容量"
 msgid "Battery change date"
 msgstr "电池更换日期"
 
-msgid "Battery charge"
-msgstr "电池充电"
-
 msgid "Battery chemistry"
-msgstr "電池化學"
+msgstr "电池的化学物质"
 
 msgid "Battery current"
 msgstr "电池电流"
 
+msgid "Battery level"
+msgstr "电池电量"
+
 msgid "Battery level when UPS switches to \"Warning\" state"
-msgstr ""
+msgstr "UPS切换到“警告”状态时的电池剩余电量"
 
 msgid "Battery manufacturing date"
 msgstr "电池生产日期"
@@ -805,6 +808,9 @@ msgstr "CCMP TKIP"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
+
+msgid "CHANGED"
+msgstr "已更改"
 
 msgid "CHAP"
 msgstr "CHAP"
@@ -958,11 +964,11 @@ msgid "Clear config and Import software raid disks"
 msgstr "清除和导入软体RAID的磁盘设置"
 
 msgid ""
-"Click &quot;Enable firmware upload&quot; below, then choose the image file "
-"to be uploaded.<br />Click &quot;Upgrade firmware&quot; to start the upgrade "
-"process."
+"Click &quot;Enable firmware upload&quot; below, then choose the embedded "
+"image file for flashing.<br />Click &quot;Upgrade firmware&quot; to start "
+"the upgrade process."
 msgstr ""
-"单击 &quot;允许固件上载 &quot; ，然后选择要上传的固件映像档案。<br />单击 &quot;升级固件&quot; 开始升级过程。"
+"点击以下 &quot;启用固件升级功能&quot; ，然后选择升级固件的文件。<br />点击 &quot;升级固件&quot; 开始升级。"
 
 msgid "Click this button to download the server configuration in XML format."
 msgstr "点击此按钮下载XML格式的伺服器配置。"
@@ -1064,6 +1070,9 @@ msgstr "联系人资讯，例如系统管理员的姓名或是电子邮件： em
 msgid "Content"
 msgstr "内容"
 
+msgid "Controller"
+msgstr "控制器"
+
 msgid "Controller Auth Group"
 msgstr "控制器的认证组"
 
@@ -1078,6 +1087,9 @@ msgstr "控制器的 IP 位址"
 
 msgid "Controller TCP Port"
 msgstr "控制器的TCP端口"
+
+msgid "Controller model"
+msgstr "控制器型号"
 
 msgid "Controls power consumption."
 msgstr "控制电源模式。"
@@ -1192,10 +1204,10 @@ msgid "Current password"
 msgstr "当前密码"
 
 msgid "Current value of apparent power (Volt-Amps)"
-msgstr ""
+msgstr "当前的视在功率（伏安）"
 
 msgid "Current value of real power (Watts)"
-msgstr ""
+msgstr "当前的实际功率（瓦特）"
 
 msgid "Custom"
 msgstr "自定"
@@ -1221,25 +1233,28 @@ msgstr "DDP"
 msgid "DHCP"
 msgstr "DHCP"
 
+msgid "DLNA/UPnP"
+msgstr "DLNA/UPnP"
+
+msgid "DLNA/UPnP Media Server"
+msgstr "DLNA/UPnP 媒体伺服器"
+
 msgid "DNLA/UPnP"
 msgstr "DNLA/UPnP"
-
-msgid "DNLA/UPnP Media Server"
-msgstr "DNLA/ UPnP媒体伺服器"
 
 msgid "DNS settings"
 msgstr "DNS 设置"
 
 #, php-format
 msgid ""
-"DO NOT abort the firmware upgrade once it has started. The server will "
-"reboot automatically after storing the new firmware. The configuration will "
-"be maintained.<br />You need a minimum of %d Mb RAM to perform the firmware "
-"update.<br />It is strongly recommended that you <a href='%s'>Backup</a> the "
-"System configuration before doing a Firmware upgrade."
+"DO NOT abort the firmware upgrade process once it has started. Once it is "
+"completed, the server will automatically reboot, the current configuration "
+"will be maintained.<br />You need a minimum of %d MiB free RAM to perform "
+"the upgrade.<br />It is strongly recommended that you <a "
+"href='%s'>Backup</a> the server configuration before doing a upgrade."
 msgstr ""
-"固件升级开始执行后, 请别中止。当新的固件存储后，伺服器将自动重新启动。配置将保持不变。<br />您需要至少 %d MB 的 RAM 来执行固件更新。 "
-"<br />强烈建议您 <a href='%s'>备份</a> 系统配置才执行固件升级。"
+"一旦固件升级程序启动后，不可中止升级程序。一旦固件升级程序启动后，不要中止升级程序。一旦升级完成后，服务器会自动重启，当前的配置将保持不变。.<br "
+"/>您至少需要 %d MIB 的可用 RAM 来升级程序。<br />强烈建议您在升级前 <a href='%s'>备份</a> 伺服器的配置。"
 
 msgid "DVD"
 msgstr "DVD"
@@ -1496,6 +1511,9 @@ msgstr "设备 IP"
 
 msgid "Device Pass-through"
 msgstr "设备直通（Device Pass-through）"
+
+msgid "Device Serial"
+msgstr "设备编号"
 
 msgid "Device model"
 msgstr "设备型号"
@@ -1954,7 +1972,7 @@ msgstr "编辑卷"
 
 msgid ""
 "Efficiency of the UPS (Ratio of the output current on the input current)"
-msgstr ""
+msgstr "UPS的效率（输入电流的输出电流的对比率）"
 
 msgid "Email"
 msgstr "电子邮件"
@@ -1992,7 +2010,7 @@ msgstr "启用 SMTP 认证。"
 msgid ""
 "Enable STARTTLS encryption. This doesn't mean you have to use TLS, you can "
 "use SSL."
-msgstr ""
+msgstr "启用STARTTLS加密。这并不意味着你必须使用TLS，您可以使用SSL。"
 
 msgid "Enable TLS/SSL connections."
 msgstr "允许使用 TLS/SSL 连接。"
@@ -2003,8 +2021,8 @@ msgstr "启用ZFS存取控制清单（ACL）"
 msgid "Enable Zeroconf/Bonjour to advertise services of this device"
 msgstr "启用的 Zeroconf/Bonjour 来宣传这个装置的服务"
 
-msgid "Enable administrative DNLA/UPnP WebGUI."
-msgstr ""
+msgid "Enable administrative DLNA/UPnP WebGUI."
+msgstr "启用 DLNA/UPnP 的管理网页。"
 
 msgid "Enable anonymous bind."
 msgstr "启用匿名绑定。"
@@ -2224,10 +2242,10 @@ msgid "Extended attributes"
 msgstr "扩展属性"
 
 msgid "Extended input frequency range"
-msgstr ""
+msgstr "扩展的输入频率范围"
 
 msgid "Extended input voltage range"
-msgstr ""
+msgstr "扩展的输入电压范围"
 
 msgid "Extensions"
 msgstr "扩充"
@@ -2262,7 +2280,7 @@ msgstr "ifconfig 的额外选项（通常为空白）。"
 
 msgid ""
 "Extra options to pass over rpc using transmission-remote (usually empty)."
-msgstr ""
+msgstr "额外的选项来使用 transmission-remote 传递的RPC（通常为空白）。"
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "rsync 的额外选项（通常为空白）。"
@@ -2415,7 +2433,7 @@ msgid "FirstBurstLength"
 msgstr "FirstBurstLength"
 
 msgid "Flag xxx (ups.conf or cmdline -x) status"
-msgstr ""
+msgstr "标志XXX（ups.conf 或 cmdline -x）的状态"
 
 msgid "Flags"
 msgstr "标示符"
@@ -2485,9 +2503,6 @@ msgstr "用网关到达目的端网络。"
 msgid "General"
 msgstr "一般设定"
 
-msgid "General Information UPS Unit"
-msgstr ""
-
 msgid "General Setup"
 msgstr "一般设定"
 
@@ -2507,7 +2522,7 @@ msgid "Give only local users access to the web page."
 msgstr "只有本机用户可以使用网页伺服器。"
 
 msgid "Give your media library a friendly name."
-msgstr ""
+msgstr "指定媒体库的友好名称。"
 
 msgid "Grant access to the user portal."
 msgstr "授予用户门户网站的访问权。"
@@ -2597,13 +2612,13 @@ msgid "Hide dot files"
 msgstr "隐藏以点开头的文件"
 
 msgid "High voltage boosting transfer point"
-msgstr ""
+msgstr "高升压转换点"
 
 msgid "High voltage transfer point"
-msgstr ""
+msgstr "高电压转换点"
 
 msgid "High voltage trimming transfer point"
-msgstr ""
+msgstr "高电压微调换乘点"
 
 msgid "Highlighting"
 msgstr "语法高亮度显示"
@@ -2617,6 +2632,8 @@ msgid ""
 "real hostnames where possible.<br><font color='red'>Warning</font>: This can "
 "cause a huge delay in loading the log page!"
 msgstr ""
+"提示：如果勾选此选项，在伺服器日志中的IP 地址将尽可能解析为主机名。<br><font "
+"color='red'>警告</font>：这可能会导致延迟加载日志页！"
 
 msgid "Home directory"
 msgstr "个人目录（Home）"
@@ -2928,7 +2945,7 @@ msgid "Input line frequency low (Hz)"
 msgstr "输入线频率低（Hz 赫兹）"
 
 msgid "Input power quality (* opaque)"
-msgstr ""
+msgstr "输入功率质量（*不透明）"
 
 msgid "Input power sensitivity"
 msgstr "输入功率灵敏度"
@@ -2961,7 +2978,7 @@ msgid "Interface Management"
 msgstr "网络介面管理"
 
 msgid "Interface selection"
-msgstr ""
+msgstr "介面选择"
 
 msgid "Interfaces"
 msgstr "网路介面"
@@ -2982,13 +2999,13 @@ msgid "Interval must be greater or equal than 10 seconds."
 msgstr "间隔值必须大于或等于10秒。"
 
 msgid "Interval to wait after shutdown with delay command"
-msgstr ""
+msgstr "delay 命令后的等待关机间隔"
 
 msgid "Interval to wait before rebooting the UPS)"
-msgstr ""
+msgstr "重新启动 UPS 前的等待间隔"
 
 msgid "Interval to wait before restarting the load"
-msgstr ""
+msgstr "重新启动负载之前的等待间隔"
 
 msgid "Invalid file format."
 msgstr "文件格式无效。"
@@ -2998,7 +3015,7 @@ msgid "Invalid max. block size! It must be in the range from %d to %d."
 msgstr "数据块的最大值无效！它必须是从 %d 到 %d 的范围。"
 
 msgid "Invalid username or password. Please try again."
-msgstr ""
+msgstr "用户名或密码无效。请再试一次。"
 
 msgid ""
 "It can be changed from the client side by standard SCSI mode page at any "
@@ -3212,7 +3229,7 @@ msgid "Load on UPS"
 msgstr "UPS 负载"
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
-msgstr ""
+msgstr "UPS切换到超载的情况时的加载（“OVER”）"
 
 msgid "Loadbalance"
 msgstr "负载平衡"
@@ -3259,7 +3276,7 @@ msgid "Location where the content database file will be stored."
 msgstr "储存内容资料库文件的位置。"
 
 msgid "Location where the database with media contents will be stored."
-msgstr ""
+msgstr "媒体内容的数据库的储存位置。"
 
 #, php-format
 msgid ""
@@ -3309,13 +3326,13 @@ msgid "Logout"
 msgstr "登出"
 
 msgid "Low voltage boosting transfer point"
-msgstr ""
+msgstr "低电压升压转换点"
 
 msgid "Low voltage transfer point"
-msgstr ""
+msgstr "低电压转换点"
 
 msgid "Low voltage trimming transfer point"
-msgstr ""
+msgstr "低电压微调换乘点"
 
 msgid "Lowercases names in both directions"
 msgstr "双向字母小写名称"
@@ -3334,6 +3351,9 @@ msgstr "遗失"
 
 msgid "MOTD"
 msgstr "每日讯息"
+
+msgid "MOVED TO"
+msgstr "移动到"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -3429,7 +3449,7 @@ msgid "Maximum idle time in seconds."
 msgstr "最大闲置时间（秒）"
 
 msgid "Maximum incoming voltage seen"
-msgstr ""
+msgstr "可见的最大输入电压"
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr "断线前允许的最多密码尝试次数。"
@@ -3461,10 +3481,10 @@ msgid "Maximum performance, maximum acoustic output"
 msgstr "最高效能，最高噪音输出"
 
 msgid "Maximum relative humidity seen (percent)"
-msgstr ""
+msgstr "最高相对湿度（百分比）"
 
 msgid "Maximum temperature seen (degrees C)"
-msgstr ""
+msgstr "最高气温（摄氏度）"
 
 msgid "Media"
 msgstr "介质（Media）"
@@ -3500,7 +3520,7 @@ msgid "Minimum"
 msgstr "最小值"
 
 msgid "Minimum battery level for UPS restart after power-off"
-msgstr ""
+msgstr "断电后UPS重启的最小电池电量"
 
 msgid "Minimum free space"
 msgstr "最少需求空间"
@@ -3509,16 +3529,16 @@ msgid "Minimum frequency"
 msgstr "最小频率"
 
 msgid "Minimum incoming voltage seen"
-msgstr ""
+msgstr "可见的最小输入电压"
 
 msgid "Minimum performance, Minimum acoustic output"
 msgstr "最低的效能，最低噪音输出"
 
 msgid "Minimum relative humidity seen (percent)"
-msgstr ""
+msgstr "最低相对湿度（百分比）"
 
 msgid "Minimum temperature seen (degrees C)"
-msgstr ""
+msgstr "最低气温（摄氏度）"
 
 msgid "Minutes"
 msgstr "分钟"
@@ -3554,7 +3574,7 @@ msgid "Modules"
 msgstr "模块"
 
 msgid "Monday Tuesday Wednesday Thursday Friday Saturday Sunday"
-msgstr ""
+msgstr "星期一 星期二 星期三 星期四 星期五 星期六 星期日"
 
 msgid "Months"
 msgstr "月"
@@ -3938,7 +3958,7 @@ msgid "Out"
 msgstr "出"
 
 msgid "Outgoing Power/Inverter Information"
-msgstr ""
+msgstr "输出电力/逆变器的信息"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "邮件发送（SMTP）伺服器的地址，例如：smtp.mycorp.com"
@@ -4010,7 +4030,7 @@ msgid "Pairwise"
 msgstr "成对（Pairwise）"
 
 msgid "Parameter xxx (ups.conf or cmdline -x) setting"
-msgstr ""
+msgstr "参数xxx（ups.conf 或 cmdline -x）的设置"
 
 msgid "Partition number"
 msgstr "分割区编号"
@@ -4239,7 +4259,7 @@ msgid "Preserve permissions"
 msgstr "保留权限"
 
 msgid "Prevent deep discharge of battery"
-msgstr ""
+msgstr "防止电池深度漏电"
 
 msgid "Primary"
 msgstr "主要"
@@ -4394,7 +4414,7 @@ msgid "Realm"
 msgstr "Realm"
 
 msgid "Reason for last transfer to battery (* opaque)"
-msgstr ""
+msgstr "上次转移到电池的原因（*不透明）"
 
 msgid "Reboot"
 msgstr "重启"
@@ -4418,10 +4438,10 @@ msgid "Reject"
 msgstr "拒绝"
 
 msgid "Relative humidity alarm (enabled/disabled)"
-msgstr ""
+msgstr "相对湿度警报（启用/禁用）"
 
 msgid "Relative humidity threshold high (percent)"
-msgstr ""
+msgstr "相对湿度高阈值（百分比）"
 
 msgid "Release Notes"
 msgstr "发行说明"
@@ -4430,7 +4450,7 @@ msgid "Reload page"
 msgstr "刷新页面"
 
 msgid "Remaining battery runtime"
-msgstr ""
+msgstr "电池剩余时间"
 
 msgid "Remote Rsync Server"
 msgstr "远端 Rsync 伺服器"
@@ -4515,7 +4535,7 @@ msgid "Results for net rpc testjoin:"
 msgstr "Net rpc testjoin 结果："
 
 msgid "Results of last self test"
-msgstr ""
+msgstr "上一个自检的结果"
 
 msgid "Resume"
 msgstr "继续"
@@ -4543,6 +4563,9 @@ msgstr "Root bind DN"
 
 msgid "Root bind password"
 msgstr "Root bind 密码"
+
+msgid "Rotation rate"
+msgstr "旋转速度"
 
 msgid "Round-robin read"
 msgstr "轮替式读"
@@ -4732,7 +4755,7 @@ msgstr "请选择服务器 XML 配置文件，然​​后点击下面的按钮�
 msgid ""
 "Select which interface to use. (only selectable if your server has more than "
 "one)"
-msgstr ""
+msgstr "选择要使用的介面。（如果您的伺服器有多过一个以上才可选择）"
 
 msgid "Select your read balance algorithm."
 msgstr "请选择您的阅览平衡演算法。"
@@ -4813,7 +4836,7 @@ msgid "Set the account's primary group to the given group."
 msgstr "设置帐号的主要群组。"
 
 msgid "Set the content location(s) to or from the media library."
-msgstr ""
+msgstr "设置从或到媒体库的内容位置。"
 
 msgid "Set the desired Service Set Identifier (aka network name)."
 msgstr "设置所需的服务集标识符（Service Set Identifier）（也称为网络名称）。"
@@ -4883,7 +4906,7 @@ msgid "Shell"
 msgstr "命令壳 (shell)"
 
 msgid "Show RAW UPS Info"
-msgstr ""
+msgstr "显示RAW UPS的信息"
 
 msgid "Show log entries in reverse order (newest entries on top)"
 msgstr "以相反的次序显示记录（先显示最新记录）"
@@ -5143,7 +5166,7 @@ msgid "Switch VIP to MASTER"
 msgstr "VIP 切换到 MASTER"
 
 msgid "Switch off when running on battery and no/low load"
-msgstr ""
+msgstr "当电池运行时无/低负荷才关闭"
 
 msgid "Switch to"
 msgstr "切换到"
@@ -5167,6 +5190,8 @@ msgid ""
 "server. Be sure to set syslogd on the remote server to accept syslog "
 "messages from this server."
 msgstr ""
+"Syslog 发送 UDP 数据包到远程syslog伺服器的514端口。请确定在远程 syslog 伺服器的 syslogd 接收来自此伺服器的 "
+"syslog 信息。"
 
 msgid "System"
 msgstr "系统"
@@ -5226,7 +5251,7 @@ msgid "TKIP"
 msgstr "TKIP"
 
 msgid "TLS mode"
-msgstr ""
+msgstr "TLS模式"
 
 msgid "Tag"
 msgstr "标签"
@@ -5285,16 +5310,16 @@ msgid "Temperature"
 msgstr "温度"
 
 msgid "Temperature alarm (enabled/disabled)"
-msgstr ""
+msgstr "温度警报（启用/禁用）"
 
 msgid "Temperature monitoring"
 msgstr "温度监测"
 
 msgid "Temperature threshold high (degrees C)"
-msgstr ""
+msgstr "温度高阈值（摄氏度）"
 
 msgid "Temperature threshold low (degrees C)"
-msgstr ""
+msgstr "温度低阈值（摄氏度）"
 
 msgid "Temporary Device"
 msgstr "临时装置"
@@ -5473,11 +5498,11 @@ msgstr "'%s' 必须有至少一个项目。"
 
 #, php-format
 msgid "The attribute '%s': use a port in the range from %d to %d."
-msgstr ""
+msgstr "属性'%s'：从 %d 到 %d 的范围使用一个端口。"
 
 #, php-format
 msgid "The attribute 'Port': port '%ld' is already taken by another service."
-msgstr ""
+msgstr "属性'端口'： '%ld'端口已经被另一项服务采用。"
 
 msgid ""
 "The base name (e.g. iqn.2007-09.jp.ne.peach.istgt) will append the target "
@@ -5573,6 +5598,11 @@ msgstr "设备名称只可以由az , AZ , 0-9 的字元组成。"
 
 msgid "The device's IP address."
 msgstr "设备的IP地址。"
+
+msgid ""
+"The device(s) in config are different to actual device(s). Please remove the "
+"device(s) and re-add it or use 'Clear config and Import disks'."
+msgstr "在配置中的设备和实际设备并不相同。请移除设备，然后重新添加它，或使用“清除和导入磁盘设置\"。"
 
 msgid ""
 "The directory containing the files you want to publish. The remote host does "
@@ -5937,11 +5967,6 @@ msgstr "有太多的附加组。"
 msgid "There is no error, the file uploaded with success."
 msgstr "文件上传成功，没有任何错误。"
 
-msgid ""
-"There is wrong disk ID in the config. Please remove the disk and re-add it "
-"or use 'clear and import'."
-msgstr "在配置里有错误的硬盘 ID。请删除硬盘设置并重新添加或使用 “清除和导入硬盘设置” 键。"
-
 msgid "There must be 2 disks in a RAID 1 volume."
 msgstr "RAID 1 模式最少要有 2 个硬盘。"
 
@@ -5991,7 +6016,7 @@ msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
 "specify parameters to be passed to kernel, and additional modules to be "
 "loaded."
-msgstr ""
+msgstr "这些选项将被添加到在 /boot/loader.conf.local 文件。这可以让您指定的参数被传递到内核，并加载额外的模组。"
 
 msgid ""
 "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
@@ -6123,7 +6148,7 @@ msgstr "此群组已存在群组列表中。"
 msgid ""
 "This is a way to take an existing insecure connection, and upgrade it to a "
 "secure connection using SSL/TLS."
-msgstr ""
+msgstr "把现有不安全的连接，使用SSL / TLS将其升级为安全连接。"
 
 msgid ""
 "This is both the name of the server as advertised via "
@@ -6343,13 +6368,13 @@ msgid "Time Machine"
 msgstr "Time Machine"
 
 msgid "Time before the load will be rebooted"
-msgstr ""
+msgstr "负载将重新启动之前的时间"
 
 msgid "Time before the load will be shutdown"
-msgstr ""
+msgstr "负载将被关闭之前的时间"
 
 msgid "Time before the load will be started"
-msgstr ""
+msgstr "负载将启动之前的时间"
 
 msgid "Time interval"
 msgstr "统计间隔"
@@ -6468,6 +6493,9 @@ msgstr "转码"
 msgid "Transfer mode"
 msgstr "传输模式"
 
+msgid "Transfer rate"
+msgstr "传输速率"
+
 msgid "Trap host"
 msgstr "Trap 主机"
 
@@ -6521,6 +6549,15 @@ msgstr "UCD-SNMP-MIB"
 
 #, php-format
 msgid ""
+"UFS and ZFS are the NATIVE filesystems of FreeBSD (the underlying OS of %s). "
+"Attempting to use other filesystems such as FAT, FAT32, EXT2, EXT3, EXT4 or "
+"NTFS can result in unpredictable results, file corruption, and loss of data!"
+msgstr ""
+"UFS 和 ZFS 是 FreeBSD 的（%s 的原操作系统）的初始文件系统。尝试使用其他的文件系统，如 "
+"FAT，FAT32，EXT2，EXT3，EXT4 或 NTFS 可能会导致不可预测的结果，文件损坏和数据丢失！"
+
+#, php-format
+msgid ""
 "UFS and variants are the NATIVE file format for FreeBSD (the underlying OS "
 "of %s). Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, "
 "or NTFS can result in unpredictable results, file corruption, and loss of "
@@ -6528,15 +6565,6 @@ msgid ""
 msgstr ""
 "UFS 档案系统格式是FreeBSD 原生档案格式(%s的OS)。如果使用FAT, FAT32, EXT2, EXT3, 或是NTFS "
 "可能会导致档案损毁等不可预期的效果或错误！"
-
-#, php-format
-msgid ""
-"UFS is the NATIVE file format for FreeBSD (the underlying OS of %s). "
-"Attempting to use other file formats such as FAT, FAT32, EXT2, EXT3, or NTFS "
-"can result in unpredictable results, file corruption, and loss of data!"
-msgstr ""
-"UFS 档案系统格式是FreeBSD 原生档案格式(%s之原生OS)。如果使用FAT, FAT32, EXT2, EXT3, 或是NTFS "
-"档案格式可能会导致档案损毁等不可预期的效果或错误！"
 
 msgid "UID"
 msgstr "UID"
@@ -6556,6 +6584,9 @@ msgstr "UPS 在线"
 msgid "UPS Status"
 msgstr "UPS 状态"
 
+msgid "UPS Unit General Information"
+msgstr "UPS单位的一般资料"
+
 msgid "UPS Waiting"
 msgstr "UPS 等待中"
 
@@ -6563,16 +6594,16 @@ msgid "UPS alarms"
 msgstr "UPS 报警"
 
 msgid "UPS beeper status"
-msgstr ""
+msgstr "UPS的蜂鸣器状态"
 
 msgid "UPS coldstarts from battery"
-msgstr ""
+msgstr "UPS由电池冷启动"
 
 msgid "UPS disabled"
 msgstr "UPS 关闭"
 
 msgid "UPS external contact sensors"
-msgstr ""
+msgstr "UPS外置接触式传感器"
 
 msgid "UPS firmware"
 msgstr "UPS 固件"
@@ -6587,7 +6618,7 @@ msgid "UPS reaches low battery"
 msgstr "UPS 电池电量不足"
 
 msgid "UPS starts when mains is (re)applied"
-msgstr ""
+msgstr "有电源时，启动 UPS"
 
 msgid "UPS status"
 msgstr "UPS 状态"
@@ -6612,6 +6643,9 @@ msgstr "URI"
 
 msgid "URL"
 msgstr "URL"
+
+msgid "Unavailable"
+msgstr "无法使用"
 
 msgid "Unformated"
 msgstr "尚未格式化"
@@ -6768,10 +6802,10 @@ msgid "Username"
 msgstr "用户名"
 
 msgid "Username contains invalid character(s) : "
-msgstr ""
+msgstr "用户名包含无效字符： "
 
 msgid "Username field : "
-msgstr ""
+msgstr "用户名： "
 
 msgid "Username of a domain administrator account."
 msgstr "请在此设置管理员的帐号。"
@@ -6901,7 +6935,7 @@ msgid ""
 msgstr "当HAST 启用时，不支援HAST 卷的本地装置、本地服务和附加套件将不能使用。"
 
 msgid "When UPS switches to Low Battery"
-msgstr ""
+msgstr "当UPS切换到电池低电量"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to "
@@ -7099,10 +7133,10 @@ msgid "get target info failed."
 msgstr "获取目标信息失败。"
 
 msgid "greatest settable high voltage transfer point"
-msgstr ""
+msgstr "最大可设定高电压转换点"
 
 msgid "greatest settable low voltage transfer point"
-msgstr ""
+msgstr "最大可设置的低电压转换点"
 
 msgid "hiadaptive (high performance)"
 msgstr "高自适应（hiadaptive）（高性能）"
@@ -7136,7 +7170,7 @@ msgid "load/unload failed."
 msgstr "加载/卸载失败。"
 
 msgid "loader.conf"
-msgstr ""
+msgstr "loader.conf"
 
 msgid "maximum (highest performance)"
 msgstr "最大（最高性能）"
@@ -7211,10 +7245,10 @@ msgid "second(s)"
 msgstr "秒"
 
 msgid "smallest settable high voltage transfer point"
-msgstr ""
+msgstr "最小可设定高电压转换点"
 
 msgid "smallest settable low voltage transfer point"
-msgstr ""
+msgstr "最小可设定的低电压转换点"
 
 msgid "striping"
 msgstr "条带化（striping）"
@@ -7224,6 +7258,9 @@ msgstr "成功。"
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
+
+msgid "to"
+msgstr "到"
 
 msgid "umask"
 msgstr "档案预设权限（umask）"

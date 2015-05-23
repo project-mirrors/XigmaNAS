@@ -1,6 +1,6 @@
 PORTNAME=		samba36
-PORTVERSION=	  3.6.20
-#PORTREVISION?= 1
+PORTVERSION=	  3.6.24
+#PORTREVISION?= 0
 CATEGORIES?=		net
 MASTER_SITES=		${MASTER_SITE_SAMBA}
 MASTER_SITE_SUBDIR=	samba samba/old-versions samba/rc samba/pre
@@ -21,6 +21,7 @@ IPATHS=			-I${WRKDIR}/${DISTNAME}/source3/m4 -I${WRKDIR}/${DISTNAME}/m4 -I${WRKD
 AUTOHEADER_ARGS=	${IPATHS}
 AUTOCONF_ARGS=		${IPATHS}
 
+NO_STAGE=       	yes
 USE_GMAKE=		yes
 GNU_CONFIGURE=	yes
 USES=                pkgconfig iconv
