@@ -86,8 +86,8 @@ LIB_DEPENDS+=		libsunacl.so:${PORTSDIR}/sysutils/libsunacl
 # IDL compiler
 BUILD_DEPENDS+=		p5-Parse-Pidl>=4.0.0:${PORTSDIR}/devel/p5-Parse-Pidl
 # 
-BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.9.4:${PORTSDIR}/dns/py-dnspython
-RUN_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.9.4:${PORTSDIR}/dns/py-dnspython
+BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.12.0:${PORTSDIR}/dns/py-dnspython
+RUN_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.12.0:${PORTSDIR}/dns/py-dnspython
 PLIST_SUB+=		PY_DNSPYTHON="@comment "
 # talloc
 BUILD_DEPENDS+=		talloc>=2.1.2:${PORTSDIR}/devel/talloc
@@ -404,7 +404,7 @@ SUB_LIST+=		${SAMBA4_SUB}
 SUB_FILES=		pkg-message README.FreeBSD
 # Make sure that the right version of Python is used by the tools
 # https://bugzilla.samba.org/show_bug.cgi?id=7305
-python_OLD_CMD=         /usr/bin/env python
+
 SHEBANG_FILES=		${PATCH_WRKSRC}/source4/scripting/bin/*
 # No fancy color error messages
 .if ${COMPILER_TYPE} == "clang"
