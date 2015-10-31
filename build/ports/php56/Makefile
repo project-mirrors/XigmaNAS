@@ -1,5 +1,5 @@
 PORTNAME=		php56
-PORTVERSION=	5.6.14
+PORTVERSION=	5.6.15
 PORTREVISION?=  0
 CATEGORIES=		lang
 COMMENT=		PHP5 Scripting Language
@@ -9,7 +9,7 @@ MASTER_SITES=		${MASTER_SITE_PHP:S,$,:release,}
 MASTER_SITE_SUBDIR=	distributions/:release
 DISTNAME=		php-${PORTVERSION:S/.r/RC/}
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX}:release
-USES=			tar:bzip2 cpe
+USES=			tar:bzip2 cpe iconv
 
 BUILD_DEPENDS=	sqlite3>=3.0:${PORTSDIR}/databases/sqlite3
 LIB_DEPENDS=		libpcre.so:${PORTSDIR}/devel/pcre
@@ -19,7 +19,9 @@ LIB_DEPENDS+=		libonig.so:${PORTSDIR}/devel/oniguruma4
 LIB_DEPENDS+=		libfreetype.so:${PORTSDIR}/print/freetype2
 LIB_DEPENDS+=		libpng16.so:${PORTSDIR}/graphics/png
 LIB_DEPENDS+=		libjpeg.so:${PORTSDIR}/graphics/jpeg
+LIB_DEPENDS+=		libvpx.so:${PORTSDIR}/multimedia/libvpx
 LIB_DEPENDS+=		libgmp.so:${PORTSDIR}/math/gmp
+LIB_DEPENDS+=		libc-client4.so.9:${PORTSDIR}/mail/cclient
 
 USE_AUTOTOOLS=	 autoconf
 AUTOTOOLSFILES=	 scripts/phpize.in
@@ -45,6 +47,7 @@ CONFIGURE_ARGS+=	\
 		--with-config-file-path=/usr/local/etc \
 		--with-config-file-scan-dir=/usr/local/etc/php \
 		--enable-pdo \
+		--with-pdo-mysql=mysqlnd \
 		--with-pdo-sqlite=${LOCALBASE} \
 		--with-sqlite3 \
 		--with-iconv-dir=${LOCALBASE} \
@@ -54,6 +57,7 @@ CONFIGURE_ARGS+=	\
 		--with-freetype-dir=${LOCALBASE} \
 		--with-jpeg-dir=${LOCALBASE} \
 		--with-png-dir=${LOCALBASE} \
+		--with-vpx-dir=${LOCALBASE} \
 		--with-ldap=${LOCALBASE} \
 		--enable-mbstring \
 		--with-onig=${LOCALBASE} \
@@ -63,7 +67,15 @@ CONFIGURE_ARGS+=	\
 		--enable-bcmath \
 		--enable-hash \
 		--with-mhash \
+		--enable-ftp \
+		--with-imap=${LOCALBASE} \
+		--with-imap-ssl=${OPENSSLBASE} \
 		--enable-soap \
+		--enable-sockets \
+		--enable-sysvmsg \
+		--enable-sysvsem \
+		--enable-sysvshm \
+		--enable-tokenizer \
 		--with-xmlrpc \
 		--enable-zip \
 		--with-zlib=/usr

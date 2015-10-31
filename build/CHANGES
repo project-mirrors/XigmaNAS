@@ -65,10 +65,10 @@ Changes:
 - Upgrade smartmontools to 6.4.
 - Upgrade nano to 2.4.2.
 - Upgrade tzdata to 2015g.
-- Upgrade php to 5.6.14.
 - Upgrade bash 4.3 to patch 42.
 - Upgrade samba to 4.1.21.
 - Upgrade mDNSResponder to 576.30.4.
+- Upgrade php to 5.6.15.
 
 Fixes:
 - Cannot install to Toshiba drive.
