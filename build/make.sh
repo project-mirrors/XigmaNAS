@@ -1844,7 +1844,9 @@ copy_files() {
 			echo "===> Start copy new pango files to ports/multimedia"
 			cp -Rpv ${NAS4FREE_SVNDIR}/build/ports/copy-ports/files/ffmpeg /usr/ports/multimedia/ffmpeg
 			echo "===> Copy new files to /usr/ports/multimedia/ffmpeg done!"
-
+			echo "===> Start copy new php70-APCu files to ports/devel/"
+			cp -Rpv ${NAS4FREE_SVNDIR}/build/ports/copy-ports/files/php70-APCu /usr/ports/devel
+			echo "===> Copy new files to /usr/ports/devel/php70-APCu done!"
 	return 0
 }
 build_ports() {
