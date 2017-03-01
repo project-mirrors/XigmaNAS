@@ -287,7 +287,7 @@ function display_menu($menuid) {
 <body>
 <div id="header">
 	<div id="headerlogo">
-		<a title="www.<?=get_product_url();?>" href="http://<?=get_product_url();?>" target="_blank"><img src="/images/header_logo.png" alt="logo" /></a>
+		<a title="www.<?=get_product_url();?>" href="https://www.<?=get_product_url();?>" target="_blank"><img src="/images/header_logo.png" alt="logo" /></a>
 	</div>
 	<div id="headerrlogo">
 		<div class="hostname">
