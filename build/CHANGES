@@ -30,7 +30,6 @@ Changes:
 - Upgrade inadyn-mt to 02.28.10.
 - Upgrade tmux to 2.3.
 - Upgrade msmtp to 1.6.6.
-- Upgrade tzdata to 2016j.
 - Upgrade samba to 4.3.13.
 - Upgrade noVNC to 0.6.2.
 - Upgrade mDNSResponder to 765.30.11.
@@ -47,6 +46,7 @@ Changes:
 - Upgrade syncthing to 0.14.23.
 - Upgrade php to 7.0.16.
 - Upgrade nano to 2.7.5.
+- Upgrade tzdata to 2017a.
 
 Fixes:
 - Fix prevent deletion of mounted gconcat softraid.
