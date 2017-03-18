@@ -76,6 +76,7 @@ Fixes:
 - Fix sending reports.
 - Fix allow large file downloads in file manager.
 - Fix don't add domain parameter to msmtp configuration when domain is empty.
+- Fix single and double quotes in user passwords.
 
 Permanent restrictions:
 - It is not possible to use virtualbox-ose on 32-bits nas4free, 64-bits only feature.
