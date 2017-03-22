@@ -168,7 +168,7 @@ $pgtitle = array(gtext("Help"), gtext("License & Credits"));
 	    Copyright &copy; 1999-2017 The PHP Group. All Rights Reserved.</p>
 
 	    <p> jQuery - An fast, small, and feature-rich JavaScript library (<a href="http://jquery.com" target="_blank">http://jquery.com</a>).<br />
-	    Copyright &copy; 2016 jQuery Foundation. All Rights Reserved.</p>
+	    Copyright &copy; 2017 jQuery Foundation. All Rights Reserved.</p>
 
 	    <p> Lighttpd -An lighty fast webserver (<a href="http://www.lighttpd.net" target="_blank">http://www.lighttpd.net</a>)<br />
 	    Copyright &copy; 2004 Jan Kneschke (<a href="mailto:jan@kneschke.de">jan@kneschke.de</a>). All Rights Reserved.</p>
@@ -180,7 +180,7 @@ $pgtitle = array(gtext("Help"), gtext("License & Credits"));
 	    Copyright &copy; 2007 Free Software Foundation. All Rights Reserved.</p>
 
 	    <p> Python - An programming language (<a href="http://www.python.org" target="_blank">http://www.python.org</a>)<br />
-	    Copyright &copy; 2001-2016 Python Software Foundation. All Rights Reserved.</p>
+	    Copyright &copy; 2001-2017 Python Software Foundation. All Rights Reserved.</p>
 
 	    <p> Rsync - Utility that provides fast incremental file transfer. (<a href="http://www.samba.org/rsync" target="_blank">http://www.samba.org/rsync</a>)<br />
 	    Copyright &copy; 2007 Free Software Foundation. All Rights Reserved.</p>
@@ -217,7 +217,6 @@ $pgtitle = array(gtext("Help"), gtext("License & Credits"));
 
 	    <p> MiniDLNA - Media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients. (<a href="https://sourceforge.net/projects/minidlna/" target="_blank">https://sourceforge.net/projects/minidlna</a>)<br />
 	    Copyright &copy; 2008-2015  Justin Maggard. All Rights Reserved.</p>
-
 
 	    <p> mt-daapd - Multithread daapd Apple iTunes server (<a href="http://www.fireflymediaserver.org" target="_blank">http://www.fireflymediaserver.org</a>)<br />
 	    Copyright &copy; 2003 Ron Pedde (<a href="mailto:ron@pedde.com">ron@pedde.com</a>). All Rights Reserved.</p>
