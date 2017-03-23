@@ -72,7 +72,6 @@ if (isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid, $a_share, "uuid")
 	$pconfig['storealternatedatastreams'] = isset($a_share[$cnid]['storealternatedatastreams']);
 	$pconfig['storentfsacls'] = isset($a_share[$cnid]['storentfsacls']);
 	$pconfig['afpcompat'] = isset($a_share[$cnid]['afpcompat']);
-	$pconfig['aiomodule'] = $a_share[$cnid]['aiomodule'];
 	$pconfig['hostsallow'] = $a_share[$cnid]['hostsallow'];
 	$pconfig['hostsdeny'] = $a_share[$cnid]['hostsdeny'];
 	$pconfig['auxparam'] = "";
@@ -96,7 +95,6 @@ if (isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid, $a_share, "uuid")
 	$pconfig['storealternatedatastreams'] = false;
 	$pconfig['storentfsacls'] = false;
 	$pconfig['afpcompat'] = false;
-	$pconfig['aiomodule'] = "aio_pthread";
 	$pconfig['hostsallow'] = "";
 	$pconfig['hostsdeny'] = "";
 	$pconfig['auxparam'] = "";
@@ -200,7 +198,6 @@ if ($_POST) {
 		$share['storealternatedatastreams'] = isset($_POST['storealternatedatastreams']) ? true : false;
 		$share['storentfsacls'] = isset($_POST['storentfsacls']) ? true : false;
 		$share['afpcompat'] = isset($_POST['afpcompat']) ? true : false;
-		$share['aiomodule'] = $_POST['aiomodule'];
 		$share['hostsallow'] = $_POST['hostsallow'];
 		$share['hostsdeny'] = $_POST['hostsdeny'];
 
@@ -343,7 +340,6 @@ if ($_POST) {
 					<?php html_checkbox("storealternatedatastreams", gtext("Store alternate data streams"), !empty($pconfig['storealternatedatastreams']) ? true : false, gtext("Store alternate data streams in Extended Attributes"), "", false);?>
 					<?php html_checkbox("storentfsacls", gtext("Store NTFS acls"), !empty($pconfig['storentfsacls']) ? true : false, gtext("Store NTFS acls in Extended Attributes"), gtext("This will provide NTFS acls without ZFS ACL support such as UFS."), false);?>
 					<?php html_checkbox("afpcompat", gtext("AFP compatibility"), !empty($pconfig['afpcompat']) ? true : false, gtext("Enhanced compatibility with Netatalk AFP server"), "", false);?>
-					<?php html_combobox("aiomodule", gtext("AIO module"), $pconfig['aiomodule'], array("aio_pthread" => "aio_pthread", "aio_posix" => "aio_posix"), "", false, false, "");?>
 					<tr>
 						<td width="22%" valign="top" class="vncell"><?=gtext("Hosts allow");?></td>
 						<td width="78%" class="vtable">

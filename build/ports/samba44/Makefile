@@ -1,4 +1,4 @@
-PORTNAME?=		${SAMBA4_BASENAME}43
+PORTNAME?=		${SAMBA4_BASENAME}44
 PORTVERSION?=		${SAMBA4_VERSION}
 PORTREVISION?=		0
 CATEGORIES?=		net
@@ -14,11 +14,13 @@ NO_LICENSES_DIALOGS=	yes
 
 LICENSE=		GPLv3
 
-CONFLICTS?=		*samba3[2-6]-3.* samba4-4.0.* samba41-4.1.* samba42-4.2.* samba44-4.4.*
+CONFLICTS?=		*samba3[2-6]-3.* samba4-4.0.* samba41-4.1.* samba42-4.2.* samba43-4.3.*
+
+#EXTRA_PATCHES=		${PATCHDIR}/extra-patch-security:-p1
 
 SAMBA4_BASENAME=	samba
 SAMBA4_PORTNAME=	${SAMBA4_BASENAME}4
-SAMBA4_VERSION=		4.3.13
+SAMBA4_VERSION=		4.4.12
 SAMBA4_DISTNAME=	${SAMBA4_BASENAME}-${SAMBA4_VERSION:S|.p|pre|:S|.r|rc|:S|.t|tp|:S|.a|alpha|}
 
 WRKSRC?=		${WRKDIR}/${DISTNAME}
@@ -60,7 +62,7 @@ CONFIGURE_ARGS+=	--mandir="${MANPREFIX}/man" \
 CONFIGURE_ENV+=		PTHREAD_LDFLAGS="-lpthread"
 
 USES=			cpe compiler waf pkgconfig perl5 python:2 \
-			execinfo readline iconv shebangfix
+			readline iconv shebangfix
 USE_PERL5=		build
 USE_LDCONFIG=		${SAMBA4_LIBDIR}
 WAF_CMD=		buildtools/bin/waf
@@ -79,53 +81,52 @@ LIB_DEPENDS+=		libgnutls.so:security/gnutls
 # NFS4 ACL glue
 LIB_DEPENDS+=		libsunacl.so:sysutils/libsunacl
 # Libarchive
-BUILD_DEPENDS+=		libarchive>=3.2.1:archivers/libarchive
-RUN_DEPENDS+=		libarchive>=3.2.1:archivers/libarchive
+BUILD_DEPENDS+=		libarchive>=3.2.2:archivers/libarchive
+RUN_DEPENDS+=		libarchive>=3.2.2:archivers/libarchive
 # External Samba dependencies
 # IDL compiler
 BUILD_DEPENDS+=		p5-Parse-Pidl>=4.3.1:devel/p5-Parse-Pidl
-#
-BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.9.4:dns/py-dnspython
-RUN_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.9.4:dns/py-dnspython
+# External Python modules
+BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.15.0:dns/py-dnspython
+RUN_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}dnspython>=1.15.0:dns/py-dnspython
 PLIST_SUB+=		PY_DNSPYTHON="@comment "
 #
-BUILD_DEPENDS+=         ${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601
-RUN_DEPENDS+=           ${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601
+BUILD_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601
+RUN_DEPENDS+=		${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601
 PLIST_SUB+=		PY_ISO8601="@comment "
 # talloc
-BUILD_DEPENDS+=		talloc>=2.1.5:devel/talloc
-RUN_DEPENDS+=		talloc>=2.1.5:devel/talloc
+BUILD_DEPENDS+=		talloc>=2.1.8:devel/talloc
+RUN_DEPENDS+=		talloc>=2.1.8:devel/talloc
 SAMBA4_BUNDLED_LIBS+=	!talloc
 # tevent
-BUILD_DEPENDS+=		tevent>=0.9.28:devel/tevent
-RUN_DEPENDS+=		tevent>=0.9.28:devel/tevent
+BUILD_DEPENDS+=		tevent>=0.9.31:devel/tevent
+RUN_DEPENDS+=		tevent>=0.9.31:devel/tevent
 SAMBA4_BUNDLED_LIBS+=	!tevent
 # tdb
-BUILD_DEPENDS+=		tdb>=1.3.8:databases/tdb
-RUN_DEPENDS+=		tdb>=1.3.8:databases/tdb
+BUILD_DEPENDS+=		tdb>=1.3.12:databases/tdb
+RUN_DEPENDS+=		tdb>=1.3.12:databases/tdb
 SAMBA4_BUNDLED_LIBS+=	!tdb
 # ldb
-BUILD_DEPENDS+=		ldb>=1.1.24:databases/ldb
-RUN_DEPENDS+=		ldb>=1.1.24:databases/ldb
+BUILD_DEPENDS+=		ldb>=1.1.29:databases/ldb
+RUN_DEPENDS+=		ldb>=1.1.29:databases/ldb
 SAMBA4_BUNDLED_LIBS+=	!ldb
 # Don't use external libcom_err
 SAMBA4_BUNDLED_LIBS+=	com_err
 ##############################################################################
 # Options
-OPTIONS_DEFINE=		ACL_SUPPORT AD_DC ADS AIO_SUPPORT CUPS DEBUG \
-			DNSUPDATE DOCS FAM LDAP PAM_SMBPASS \
+OPTIONS_DEFINE=		ACL_SUPPORT AD_DC ADS CUPS DEBUG \
+			DNSUPDATE DOCS FAM LDAP  \
 			PTHREADPOOL QUOTAS SYSLOG UTMP
 
-OPTIONS_DEFAULT:=	ACL_SUPPORT AD_DC ADS AIO_SUPPORT DEBUG \
+OPTIONS_DEFAULT:=	ACL_SUPPORT AD_DC ADS DEBUG \
 			DNSUPDATE DOCS FAM LDAP \
 			PTHREADPOOL QUOTAS SYSLOG UTMP
 # NAS4Free
-OPTIONS_DEFAULT+=	PAM_SMBPASS NSUPDATE
+OPTIONS_DEFAULT+=	NSUPDATE
 
 ACL_SUPPORT_DESC=	File system ACL support
 AD_DC_DESC=		Active Directory Domain Controller support
 ADS_DESC=		Active Directory client support
-AIO_SUPPORT_DESC=	Asyncronous IO support
 DNSUPDATE_DESC=		Dynamic DNS update (require ADS)
 EXP_MODULES_DESC=	Experimental modules
 FAM_DESC=		File Alteration Monitor support
@@ -154,6 +155,7 @@ CONFIGURE_ARGS+=	\
 			--with-pam \
 			--with-iconv \
 			--with-winbind \
+			--disable-rpath \
 			--without-gettext \
 			--with-sendfile-support \
 			--builtin-libraries=smbclient \
@@ -192,12 +194,12 @@ GDB_CMD?=		${LOCALBASE}/bin/gdb
 BUILD_DEPENDS+=		${GDB_CMD}:devel/gdb
 RUN_DEPENDS+=		${GDB_CMD}:devel/gdb
 SAMBA4_MODULES+=	auth_skel perfcount_test pdb_test vfs_shadow_copy_test vfs_skel_opaque vfs_skel_transparent vfs_fake_acls
-CONFIGURE_ARGS+=        --enable-developer --enable-selftest --with-ntvfs-fileserver --abi-check-disable
-PLIST_SUB+=             DEVELOPER="" NTVFS=""
+CONFIGURE_ARGS+=	--enable-developer --enable-selftest --with-ntvfs-fileserver --abi-check-disable
+PLIST_SUB+=		DEVELOPER="" NTVFS=""
 .else
 GDB_CMD=		true
- CONFIGURE_ARGS+=        --without-ntvfs-fileserver 
-PLIST_SUB+=             DEVELOPER="@comment " NTVFS="@comment "
+CONFIGURE_ARGS+=	--without-ntvfs-fileserver
+PLIST_SUB+=		DEVELOPER="@comment " NTVFS="@comment "
 .endif
 ##############################################################################
 # XXX: That will blow up your installation
@@ -209,7 +211,7 @@ WANT_EXP_MODULES=	auth_samba4 auth_script auth_skel auth_unix auth_wbc \
 			idmap_rid idmap_tdb idmap_tdb2 idmap_nss nss_info_template \
 			pdb_ldap pdb_samba_dsdb pdb_smbpasswd pdb_tdbsam \
 			pdb_test pdb_wbc_sam perfcount_test vfs_acl_tdb \
-			vfs_acl_xattr vfs_aio_fork vfs_aio_posix \
+			vfs_acl_xattr vfs_aio_fork \
 			vfs_aio_pthread vfs_audit vfs_cacheprime vfs_cap \
 			vfs_catia vfs_commit vfs_crossrename vfs_default_quota \
 			vfs_dfs_samba4 vfs_dirsort vfs_expand_msdfs vfs_extd_audit \
@@ -252,13 +254,6 @@ SAMBA4_WANT_LDAP=	yes
 # List of extra modules taken from RHEL build
 # https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=197320
 SAMBA4_MODULES+=	idmap_rid idmap_ad idmap_hash idmap_adex idmap_tdb2
-.endif
-
-.if ${PORT_OPTIONS:MAIO_SUPPORT}
-CONFIGURE_ARGS+=	--with-aio-support
-SAMBA4_MODULES+=	vfs_aio_posix
-.else
-CONFIGURE_ARGS+=	--without-aio-support
 .endif
 
 .if ${PORT_OPTIONS:MAVAHI}
@@ -305,14 +300,6 @@ CONFIGURE_ARGS+=	--without-fam
 SAMBA4_WANT_LDAP=	yes
 .endif
 
-.if ${PORT_OPTIONS:MPAM_SMBPASS}
-CONFIGURE_ARGS+=	--with-pam_smbpass
-PLIST_SUB+=		SMBPASS=""
-.else
-CONFIGURE_ARGS+=	--without-pam_smbpass
-PLIST_SUB+=		SMBPASS="@comment "
-.endif
-
 .if ${PORT_OPTIONS:MPTHREADPOOL}
 CONFIGURE_ARGS+=	--enable-pthreadpool
 SAMBA4_MODULES+=	vfs_aio_pthread
@@ -340,8 +327,10 @@ CONFIGURE_ARGS+=	--without-utmp
 
 .if defined(SAMBA4_WANT_ADS)
 CONFIGURE_ARGS+=	--with-ads
+PLIST_SUB+=		ADS=""
 .else
 CONFIGURE_ARGS+=	--without-ads
+PLIST_SUB+=		ADS="@comment "
 .endif
 
 .if defined(SAMBA4_WANT_LDAP)
@@ -375,7 +364,7 @@ CONFIGURE_ARGS+=	--with-shared-modules="${SAMBA4_MODULES:Q:C|(\\\\ )+|,|g:S|\\||
 .for module in	auth_samba4 auth_skel auth_unix auth_wbc gpext_registry gpext_scripts \
 		gpext_security idmap_ad idmap_ldap idmap_nss idmap_passdb idmap_tdb \
 		nss_info_template pdb_ldap pdb_samba_dsdb pdb_smbpasswd pdb_tdbsam \
-		pdb_test pdb_wbc_sam perfcount_test vfs_aio_posix vfs_aio_pthread \
+		pdb_test pdb_wbc_sam perfcount_test vfs_aio_pthread \
 		vfs_cacheprime vfs_dfs_samba4 vfs_fake_acls \
 		vfs_shadow_copy_test vfs_skel_opaque vfs_skel_transparent
 .	if !empty(SAMBA4_MODULES) && ${SAMBA4_MODULES:M${module}}
@@ -435,17 +424,17 @@ SAMBA_MAN5+=		lmhosts.5 smbgetrc.5 smbpasswd.5 pam_winbind.conf.5 \
 
 SAMBA_MAN7+=		samba.7 winbind_krb5_locator.7
 
-SAMBA_MAN8+=		eventlogadm.8 idmap_ad.8 idmap_autorid.8 idmap_hash.8 \
+SAMBA_MAN8+=		cifsdd.8 eventlogadm.8 idmap_ad.8 idmap_autorid.8 idmap_hash.8 \
 			idmap_ldap.8 idmap_nss.8 idmap_rfc2307.8 idmap_rid.8 \
 			idmap_tdb.8 idmap_tdb2.8 net.8 nmbd.8 pam_winbind.8 pdbedit.8 \
-			samba-regedit.8 samba-tool.8 samba.8 smbd.8 smbpasswd.8 smbspool_krb5_wrapper.8 \
-			smbspool.8 smbta-util.8 vfs_acl_tdb.8 vfs_acl_xattr.8 \
+			samba-regedit.8 samba-tool.8 samba.8 smbd.8 smbpasswd.8 \
+			smbspool_krb5_wrapper.8 smbspool.8 smbta-util.8 vfs_acl_tdb.8 vfs_acl_xattr.8 \
 			vfs_aio_fork.8 vfs_aio_linux.8 vfs_aio_pthread.8 \
 			vfs_audit.8 vfs_cacheprime.8 vfs_cap.8 vfs_catia.8 vfs_ceph.8 \
 			vfs_commit.8 vfs_crossrename.8 vfs_default_quota.8 \
 			vfs_dirsort.8 vfs_extd_audit.8 vfs_fake_perms.8 vfs_fileid.8 \
 			vfs_fruit.8 vfs_full_audit.8 vfs_glusterfs.8 vfs_gpfs.8 vfs_media_harmony.8 \
-			vfs_netatalk.8 vfs_prealloc.8 \
+			vfs_netatalk.8 vfs_offline.8 vfs_prealloc.8 \
 			vfs_preopen.8 vfs_readahead.8 vfs_readonly.8 \
 			vfs_recycle.8 vfs_scannedonly.8 vfs_shadow_copy.8 \
 			vfs_shadow_copy2.8 vfs_snapper.8 vfs_smb_traffic_analyzer.8 \
@@ -527,7 +516,7 @@ post-install:
 .endfor
 
 # bin
-.for file in cifsdd dbwrap_tool eventlogadm gentest locktest masktest ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbta-util smbtorture smbtree testparm wbinfo
+.for file in cifsdd dbwrap_tool eventlogadm gentest locktest masktest ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm wbinfo
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${NAS4FREE_ROOTFS}/usr/local/bin
 .endfor
 .for file in samba-tool smbtar
@@ -542,7 +531,7 @@ post-install:
 	done
 
 # share
-	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba43 ${NAS4FREE_ROOTFS}/usr/local/share
+	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba44 ${NAS4FREE_ROOTFS}/usr/local/share
 
 # misc
 	@${MKDIR} -p ${NAS4FREE_ROOTFS}/usr/local/lib/python2.7/site-packages

@@ -1,6 +1,6 @@
---- source3/modules/vfs_shadow_copy2.c.orig	2016-02-22 10:36:15.000000000 +0100
-+++ source3/modules/vfs_shadow_copy2.c	2016-04-18 00:18:11.000000000 +0200
-@@ -1215,7 +1215,7 @@
+--- source3/modules/vfs_shadow_copy2.c.orig	2017-03-01 09:50:48.000000000 +0100
++++ source3/modules/vfs_shadow_copy2.c	2017-03-11 01:18:23.000000000 +0100
+@@ -1533,7 +1533,7 @@
  					&smb_fname,
  					false,
  					SEC_DIR_LIST);

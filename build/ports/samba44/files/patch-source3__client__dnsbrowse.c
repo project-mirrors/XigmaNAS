@@ -9,12 +9,3 @@
  	DNSServiceRefDeallocate(mdns_conn_sdref);
  }
  
-@@ -168,7 +168,7 @@
- 	for (;;)  {
- 		int revents;
- 
--		ret = poll_one_fd(mdnsfd, POLLIN|POLLHUP, &revents, 1000);
-+		ret = poll_one_fd(mdnsfd, POLLIN|POLLHUP, 1000, &revents);
- 		if (ret <= 0 && errno != EINTR) {
- 			break;
- 		}
