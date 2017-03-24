@@ -142,11 +142,12 @@ DEVELOPER_DESC=		With development support
 MANPAGES_DESC=		Build manpages from DOCBOOK templates
 
 OPTIONS_RADIO=		DNS ZEROCONF
-OPTIONS_RADIO_DNS=	NSUPDATE BIND99 BIND910
+OPTIONS_RADIO_DNS=      NSUPDATE BIND99 BIND910 BIND911
 OPTIONS_RADIO_ZEROCONF=	AVAHI MDNSRESPONDER
 
 BIND99_DESC=		Use bind99 as AD DC DNS server frontend
 BIND910_DESC=		Use bind910 as AD DC DNS server frontend
+BIND911_DESC=           Use bind911 as AD DC DNS server frontend
 NSUPDATE_DESC=		Use samba NSUPDATE utility for AD DC
 
 .include <bsd.port.options.mk>
@@ -171,6 +172,9 @@ SUB_LIST+=		NSUPDATE="@comment "
 .elif ${PORT_OPTIONS:MBIND910}
 RUN_DEPENDS+=		bind910>=9.10.0.0:dns/bind910
 SUB_LIST+=		NSUPDATE="@comment "
+.elif ${PORT_OPTIONS:MBIND911}
+RUN_DEPENDS+=           bind911>=9.11.0.0:dns/bind911
+SUB_LIST+=              NSUPDATE="@comment "
 .elif ${PORT_OPTIONS:MNSUPDATE}
 RUN_DEPENDS+=		samba-nsupdate:dns/samba-nsupdate
 SUB_LIST+=		NSUPDATE=""
@@ -469,13 +473,6 @@ pre-configure:
 				${ECHO_CMD}; \
 				${FALSE}; \
 			fi
-
-# XXX: Gross hack to allow build newer Samba while old one is installed.
-# This implies that LINKFLAGS_PYEMBED contains flags which are already
-# used in other parts of LINKFLAGS, namely -L${LOCALBASE}/lib and -pthread
-post-configure:
-	-${REINPLACE_CMD} -e 's|LINKFLAGS_PYEMBED.*|LINKFLAGS_PYEMBED = []|' \
-		${CONFIGURE_WRKSRC}/bin/c4che/default.cache.py
 
 pre-build:
 .if ! ${PORT_OPTIONS:MMANPAGES}
