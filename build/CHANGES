@@ -41,12 +41,12 @@ Changes:
 - Upgrade php to 7.0.17.
 - Upgrade virtualbox-ose to 5.1.18.
 - Upgrade netatalk to 3.1.11.
-- Upgrade syncthing to 0.14.25.
 - Upgrade tzdata to 2017b.
 - Upgrade jQuery to 3.2.0.
 - Upgrade nano to 2.8.0.
 - Upgrade samba to 4.4.13.
 - Upgrade mDNSResponder to 765.50.9.
+- Upgrade syncthing to 0.14.26.
 
 Fixes:
 - Fix prevent deletion of mounted gconcat softraid.
