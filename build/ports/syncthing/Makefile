@@ -31,7 +31,7 @@ post-patch:
 .if ${ARCH} == "i386"
 	# SSE disable patch (run "pkg delete go" before building)
 	@if [ -n "`pkg query %n go`" ]; then pkg delete -y -f go; fi
-	mkdir /usr/ports/lang/go/files
+#	mkdir /usr/ports/lang/go/files
 	@${CP} -v ${FILESDIR}/extra-go-patch-src__cmd__dist__build.go-noSSE2-n4f ${PORTSDIR}/lang/go/files/patch-src__cmd__dist__build.go-noSSE2-n4f
 	@rm -rf ${PORTSDIR}/lang/go/work
 .endif
