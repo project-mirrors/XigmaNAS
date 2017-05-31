@@ -30,7 +30,6 @@ Changes:
 - Upgrade noVNC to 0.6.2.
 - Upgrade libvncserver to 0.9.11.
 - Upgrade lighttpd to 1.4.45.
-- Upgrade sudo to 1.8.19p2.
 - Upgrade ipmitool to 1.8.18.
 - Upgrade bash to 4.4 patch 12.
 - Upgrade e2fsprogs to 1.43.4.
@@ -47,6 +46,7 @@ Changes:
 - Upgrade nano to 2.8.4.
 - Upgrade samba to 4.4.14.
 - Upgrade syncthing to 0.14.29.
+- Upgrade sudo to 1.8.20p1.
 
 Fixes:
 - Fix prevent deletion of mounted gconcat softraid.
