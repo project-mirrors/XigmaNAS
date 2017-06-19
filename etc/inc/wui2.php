@@ -164,7 +164,7 @@ class HTMLBaseControlJS2 extends HTMLBaseControl2 {
 }
 class HTMLEditBox2 extends HTMLBaseControl2 {
 	var $_size = 40;
-	var $_maxlength = 40;
+	var $_maxlength = 0;
 	var $_classinputtext = 'formfld';
 	var $_classinputtextro = 'formfldro';
 	
@@ -179,16 +179,8 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 	function GetClassInputText() { return $this->_classinputtext; }
 	function GetClassInputTextRO() { return $this->_classinputtextro; }	
 	// set methods
-	function SetSize($size) {
-		// maxlength is set to $size when _size == _maxlength 
-		if($this->GetSize() == $this->GetMaxLength()) {
-			$this->SetMaxLength($size);
-		}
-		$this->_size = $size;
-	}
-	function SetMaxLength($maxlength) {
-		$this->_maxlength = $maxlength;
-	}
+	function SetSize($size) { $this->_size = $size; }
+	function SetMaxLength($maxlength) { $this->_maxlength = $maxlength; }
 	function SetClassInputText($param) { $this->_classinputtext = $param; }
 	function SetClassInputTextRO($param) { $this->_classinputtextro = $param; }
 	// support functions
@@ -197,6 +189,10 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 		if (true === $this->IsReadOnly()) { 
 			$param .= 'readonly="readonly" ';
 		}
+		$tagval = $this->GetMaxLength();
+		if($tagval > 0):
+			$param .= 'maxlength="' . $tagval . '" ';
+		endif;
 		return $param;
 	}
 	function GetClassOfInputText() {
@@ -212,7 +208,6 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 			'class="', $this->GetClassOfInputText(), '" ', 
 			'id="', $this->GetCtrlName(), '" ', 
 			'size="', $this->GetSize(), '" ', 
-			'maxlength="', $this->GetMaxLength(), '" ',
 			'value="', htmlspecialchars($this->GetValue(), ENT_QUOTES), '" ',
 			$this->GetParam(),
 			"/>\n";
