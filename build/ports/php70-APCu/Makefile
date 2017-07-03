@@ -10,9 +10,9 @@ NO_BUILD?=	         yes
 NO_PKG_REGISTER?=	 yes
 DEPENDS_TARGET=	clean build stage
 
-DEP_STAGEDIR=	${PORTSDIR}/devel/php70-APCu/work/stage
+DEP_STAGEDIR=	${PORTSDIR}/devel/pecl-APCu/work/stage
 
-BUILD_DEPENDS=	${NONEXISTENT}:devel/php70-APCu
+BUILD_DEPENDS=	${NONEXISTENT}:devel/pecl-APCu
 
 do-install:
 # NAS4Free install
