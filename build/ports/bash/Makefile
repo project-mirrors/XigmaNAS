@@ -16,16 +16,22 @@ PATCHFILES!=		/usr/bin/jot -s " " -w \
 				${PORTNAME}${PORTVERSION:R:S/.//g}-%03d \
 				${PATCHLEVEL} 1 ${PATCHLEVEL} 
 
-OPTIONS_DEFINE=         IMPLICITCD COLONBREAKSWORDS 
-OPTIONS_DEFAULT=        IMPLICITCD COLONBREAKSWORDS 
-IMPLICITCD_DESC=        Use directory name alone to cd into it 
-COLONBREAKSWORDS_DESC=  Colons break words 
+OPTIONS_DEFINE=         COLONBREAKSWORDS HELP NLS
+OPTIONS_DEFAULT=        COLONBREAKSWORDS 
+COLONBREAKSWORDS_DESC=  Colons break words
+HELP_DESC=		Enable builtin help
+ 
 
 COLONBREAKSWORDS_EXTRA_PATCHES= ${PATCHDIR}/extrapatch-colonbreakswords
 
 GNU_CONFIGURE=  yes
-USES=		  bison
+USES=		  bison iconv makeinfo pathfix
 USE_GETTEXT=	  yes
+
+HELP_CONFIGURE_ENABLE=	help-builtin
+NLS_CONFIGURE_ENABLE=	nls
+NLS_USES=		gettext
+
 CONFIGURE_ARGS=	--without-bash-malloc \
 					--disable-rpath \
 					--enable-disabled-builtins \
