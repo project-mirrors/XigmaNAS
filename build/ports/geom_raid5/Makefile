@@ -14,6 +14,10 @@ DEPENDS_TARGET=	clean build
 
 BUILD_DEPENDS=	${NONEXISTENT}:${PORTSDIR}/sysutils/graid5
 
+.include <../nas4free.mk>
+.if ${NAS4FREE_XARCH} == "rpi2"
+export CONF_CFLAGS=-march=armv7a
+.endif
 
 do-install:
 	# Install kernel module.
