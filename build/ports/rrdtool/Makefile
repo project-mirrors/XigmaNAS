@@ -36,14 +36,6 @@ do-install:
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/RRDp.pm ${NAS4FREE_ROOTFS}${SITE_PERL}/
 	@${MKDIR} -p ${NAS4FREE_ROOTFS}${PYTHON_SITELIBDIR}
 	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.so ${NAS4FREE_ROOTFS}${PYTHON_SITELIBDIR}/
-# pango
-	@${MKDIR} -p ${NAS4FREE_ROOTFS}${PANGO_MODULES}
-	@${MKDIR} -p ${NAS4FREE_ROOTFS}${PREFIX}/etc/pango
-	@${CP} -pv ${PANGO_MODULES}/pango-arabic-lang.so ${NAS4FREE_ROOTFS}${PANGO_MODULES}
-	@${CP} -pv ${PANGO_MODULES}/pango-basic-fc.so ${NAS4FREE_ROOTFS}${PANGO_MODULES}
-	@${CP} -pv ${PANGO_MODULES}/pango-indic-lang.so ${NAS4FREE_ROOTFS}${PANGO_MODULES}
-	@${CP} -pv ${PANGO_MODULES}/../modules.cache ${NAS4FREE_ROOTFS}${PANGO_MODULES}/../
-	@${CP} -pv ${PANGO_MODULES}/../modules.cache ${NAS4FREE_ROOTFS}${PREFIX}/etc/pango/pango.modules
 # fonts
 	@${MKDIR} -p ${NAS4FREE_ROOTFS}${PREFIX}/share/fonts
 	@${MKDIR} -p ${NAS4FREE_ROOTFS}${PREFIX}/etc/fonts/conf.avail
