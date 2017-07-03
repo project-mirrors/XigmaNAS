@@ -1826,27 +1826,6 @@ copy_files() {
 			echo "===> Copy istgt-20150713.tar.gz done!"
 			cp -f ${NAS4FREE_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
 			echo "===> Copy fuppes-0.692.tar.gz done!"
-			cp -f ${NAS4FREE_SVNDIR}/build/ports/distfiles/xmd-0.5.tar.gz /usr/ports/distfiles
-			echo "===> Copy xmd-0.5.tar.gz done!"
-
-			# Copy required ports to FreeBSD ports directory.
-			echo;
-			echo "----------------------------------------------------------";
-			echo ">>> Copy new files to ports directory FreeBSD usr/ports/*.";
-			echo "----------------------------------------------------------";
-			echo "===> Delete pango from ports"
-			rm -rf /usr/ports/x11-toolkits/pango
-			echo "===> Start copy new pango files to ports/x11-toolkits"
-			cp -Rpv ${NAS4FREE_SVNDIR}/build/ports/copy-ports/files/pango /usr/ports/x11-toolkits/pango
-			echo "===> Copy new files to /usr/ports/x11-toolkits/pango done!"
-			echo "===> Delete ffmpeg from ports"
-			rm -rf /usr/ports/multimedia/ffmpeg
-			echo "===> Start copy new pango files to ports/multimedia"
-			cp -Rpv ${NAS4FREE_SVNDIR}/build/ports/copy-ports/files/ffmpeg /usr/ports/multimedia/ffmpeg
-			echo "===> Copy new files to /usr/ports/multimedia/ffmpeg done!"
-			echo "===> Start copy new php70-APCu files to ports/devel/"
-			cp -Rpv ${NAS4FREE_SVNDIR}/build/ports/copy-ports/files/php70-APCu /usr/ports/devel
-			echo "===> Copy new files to /usr/ports/devel/php70-APCu done!"
 	return 0
 }
 build_ports() {
@@ -1875,7 +1854,7 @@ $DIALOG --title \"$NAS4FREE_PRODUCTNAME - Ports\" \\
 		port=`basename $s`
 		state=`cat $s/pkg-state`
 		if [ "arm" = ${NAS4FREE_ARCH} ]; then
-			for forceoff in arcconf isboot grub2-bhyve open-vm-tools tw_cli vbox vbox-additions vmxnet3; do
+			for forceoff in arcconf isboot grub2-bhyve open-vm-tools tw_cli vbox vbox-additions vmxnet3 icu; do
 				if [ "$port" = "$forceoff" ]; then
 					state="OFF"; break;
 				fi
