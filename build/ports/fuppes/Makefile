@@ -16,6 +16,7 @@ LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 			libmp3lame.so:audio/lame \
 			libtwolame.so:audio/twolame \
 			libvorbis.so:audio/libvorbis \
+			libmp4v2.so:multimedia/mp4v2 \
 			libavformat.so:multimedia/ffmpeg
 
 USE_AUTOTOOLS=	autoconf
