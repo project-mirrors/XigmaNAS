@@ -1,5 +1,5 @@
 PORTNAME=		xmd
-PORTVERSION=		0.5
+PORTVERSION=		0.5.2
 CATEGORIES=		sysutils
 COMMENT=		Memory Disk driver by Daisuke Aoyama (aoyama@peach.ne.jp)
 
@@ -20,6 +20,11 @@ BASEDIR=x86
 BASEDIR=armv6
 .else
 IGNORE=unsupported on ${ARCH}
+.endif
+
+.include <../nas4free.mk>
+.if ${NAS4FREE_XARCH} == "rpi2"
+export CONF_CFLAGS=-march=armv7a -mtune=cortex-a7
 .endif
 
 post-build:
