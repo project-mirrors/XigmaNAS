@@ -28,9 +28,7 @@ do-install:
 .endfor
 
 # lib
-.for file in python2.7
-	find ${DEP_STAGEDIR}${PREFIX}/lib/libpython2.7.so.1-gdb.py -delete
-.endfor
+	-@find ${DEP_STAGEDIR}${PREFIX}/lib/libpython2.7.so.1-gdb.py -delete
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/lib/libpython2.7.so.* ${NAS4FREE_ROOTFS}/usr/local/lib
 	${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python2.7 ${NAS4FREE_ROOTFS}/usr/local/lib
 .include <bsd.port.mk>
