@@ -10,7 +10,6 @@ MASTER_SITES=	http://download.lighttpd.net/lighttpd/releases-1.4.x/
 LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre
 LIB_DEPENDS+=	libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
 		libsqlite3.so:${PORTSDIR}/databases/sqlite3
-LIB_DEPENDS+=	libmemcached.so:${PORTSDIR}/databases/libmemcached
 LIB_DEPENDS+=	libev.so:${PORTSDIR}/devel/libev
 
 GNU_CONFIGURE=	yes
@@ -38,6 +37,7 @@ CONFIGURE_ARGS+=	--libdir=${PREFIX}/lib/lighttpd --enable-static \
 			--enable-ipv6 \
 			--with-libev \
 			--without-geoip \
+			--without-memcached \
 			--without-mysql \
 			--without-ldap \
 			--with-openssl \
