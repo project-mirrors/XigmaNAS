@@ -40,6 +40,7 @@ Changes:
 - Upgrade nano to 2.8.5.
 - Upgrade syncthing to 0.14.31.
 - Upgrade arcconf to v2_04_22665.
+- Upgrade minidlna to 1.2.0.
 
 Fixes:
 - Fix escaped characters in output.
