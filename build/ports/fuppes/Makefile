@@ -51,6 +51,13 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src__lib__Common__Common.cpp \
 		${FILESDIR}/extra-patch-src__plugins__database_sqlite3.cpp
 .endif
 
+.include <bsd.port.pre.mk>
+
+pre-patch:
+.if ${ARCH} == "amd64" || ${ARCH} == "i386"
+	${CP} ${FILESDIR}/extra-patch-ffmpeg-configure-n4f ${PORTSDIR}/multimedia/ffmpeg/files/patch-configure-n4f
+.endif
+
 pre-configure:
 	@if [ -f "${WRKSRC}/m4/version.sh" ]; then \
 		${REINPLACE_CMD} -e 's,/bin/bash,${LOCALBASE}/bin/bash,' ${WRKSRC}/m4/version.sh; \
@@ -99,4 +106,4 @@ do-install:
 	@${CP} -Rpv ${WRKSRC}/src/plugins/.libs/libsource_itunes.so ${NAS4FREE_ROOTFS}/${PREFIX}/lib/${PORTNAME}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libsource_itunes.so.* ${NAS4FREE_ROOTFS}/${PREFIX}/lib/${PORTNAME}
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
