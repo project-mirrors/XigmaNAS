@@ -35,12 +35,12 @@ Changes:
 - Upgrade sudo to 1.8.20p2.
 - Upgrade samba to 4.6.5.
 - Upgrade tmux to 2.5.
-- Upgrade php to 7.1.6.
 - Upgrade iperf3 to 3.2.
 - Upgrade nano to 2.8.5.
 - Upgrade syncthing to 0.14.31.
 - Upgrade arcconf to v2_04_22665.
 - Upgrade minidlna to 1.2.0.
+- Upgrade php to 7.1.7.
 
 Fixes:
 - Fix escaped characters in output.
