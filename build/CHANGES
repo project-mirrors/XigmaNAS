@@ -47,6 +47,7 @@ Changes:
 - Upgrade syncthing to 0.14.30.
 - Upgrade tmux to 2.5.
 - Upgrade php to 7.0.20.
+- Upgrade xmd to 0.5.2.
 
 Fixes:
 - Fix prevent deletion of mounted gconcat softraid.
