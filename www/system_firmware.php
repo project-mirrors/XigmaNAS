@@ -250,7 +250,7 @@ function check_firmware_version_rss($locale) {
 		$resp .= sprintf(gtext("Latest Beta Build: %s"), $beta);
 		$resp .= "<br />\n";
 	}
-	if (!empty($arm)) {
+	if (!empty($arm) && $arm != $arm_beta) {
 		$resp .= sprintf(gtext("Latest Release: %s"), $arm);
 		$resp .= "<br />\n";
 	}
