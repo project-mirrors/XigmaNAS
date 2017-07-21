@@ -30,7 +30,6 @@ Changes:
 - Upgrade mDNSResponder to 765.50.9.
 - Upgrade jQuery to 3.2.1.
 - Upgrade proftpd to 1.3.5e.
-- Upgrade virtualbox-ose to 5.1.22.
 - Upgrade dialog to 1.3-20170509.
 - Upgrade sudo to 1.8.20p2.
 - Upgrade tmux to 2.5.
@@ -41,6 +40,7 @@ Changes:
 - Upgrade php to 7.1.7.
 - Upgrade samba to 4.6.6.
 - Upgrade syncthing to 0.14.32.
+- Upgrade virtualbox-ose to 5.1.24.
 
 Fixes:
 - Fix escaped characters in output.
