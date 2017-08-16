@@ -14,13 +14,13 @@ NO_LICENSES_DIALOGS=	yes
 
 LICENSE=		GPLv3
 
-CONFLICTS?=		*samba3[2-6]-3.* samba4-4.0.* samba4[1-356]-4.* p5-Parse-Pidl-4.*
+CONFLICTS?=		*samba3[2-6]-3.* samba4-4.0.* samba4[1-35-9]-4.* p5-Parse-Pidl-4.*
 
 #EXTRA_PATCHES=		${PATCHDIR}/extra-patch-security:-p1
 
 SAMBA4_BASENAME=	samba
 SAMBA4_PORTNAME=	${SAMBA4_BASENAME}4
-SAMBA4_VERSION=		4.4.14
+SAMBA4_VERSION=		4.4.15
 SAMBA4_DISTNAME=	${SAMBA4_BASENAME}-${SAMBA4_VERSION:S|.p|pre|:S|.r|rc|:S|.t|tp|:S|.a|alpha|}
 
 WRKSRC?=		${WRKDIR}/${DISTNAME}
@@ -162,11 +162,6 @@ CONFIGURE_ARGS+=	\
 			--with-sendfile-support \
 			--builtin-libraries=smbclient \
 			${ICONV_CONFIGURE_BASE}
-# for libexecinfo: (so that __builtin_frame_address() finds the top of the stack)
-.if ${ARCH} == "amd64"
-CFLAGS+=		-fno-omit-frame-pointer
-.endif
-
 .if ${PORT_OPTIONS:MBIND99}
 RUN_DEPENDS+=		bind99>=9.9.0.0:dns/bind99
 SUB_LIST+=		NSUPDATE="@comment "
@@ -403,9 +398,17 @@ SUB_FILES=		pkg-message README.FreeBSD
 # Make sure that the right version of Python is used by the tools
 # https://bugzilla.samba.org/show_bug.cgi?id=7305
 SHEBANG_FILES=		${PATCH_WRKSRC}/source4/scripting/bin/*
+
+# for libexecinfo: (so that __builtin_frame_address() finds the top of the stack)
+.if ${ARCH} == "amd64"
+CFLAGS+=		-fno-omit-frame-pointer
+.endif
 # No fancy color error messages
 .if ${COMPILER_TYPE} == "clang"
 CFLAGS+=		-fno-color-diagnostics
+.endif
+.if ${readline_ARGS} == port
+CFLAGS+=			-D_FUNCTION_DEF
 .endif
 # NAS4Free
 .if ${OSVERSION} >= 1100000
