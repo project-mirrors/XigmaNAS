@@ -23,7 +23,7 @@ IGNORE=unsupported on ${ARCH}
 .endif
 
 .include <../nas4free.mk>
-.if ${NAS4FREE_XARCH} == "rpi2"
+.if ${NAS4FREE_XARCH} == "rpi2" || ${NAS4FREE_XARCH} == "oc1"
 export CONF_CFLAGS=-march=armv7a -mtune=cortex-a7
 .endif
 
