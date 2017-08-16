@@ -124,6 +124,7 @@ mkdir usr/share/syscons ;
 mkdir usr/share/syscons/fonts ;
 mkdir usr/share/syscons/keymaps ;
 mkdir usr/share/syscons/scrnmaps ;
+mkdir usr/share/tabset ;
 mkdir usr/share/vt ;
 mkdir usr/share/vt/fonts ;
 mkdir usr/share/vt/keymaps ;
