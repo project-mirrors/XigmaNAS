@@ -24,7 +24,9 @@ IGNORE=unsupported on ${ARCH}
 
 .include <../nas4free.mk>
 .if ${NAS4FREE_XARCH} == "rpi2" || ${NAS4FREE_XARCH} == "oc1"
-export CONF_CFLAGS=-march=armv7a -mtune=cortex-a7
+export CONF_CFLAGS=-march=armv7a -mtune=cortex-a7 -mcpu=cortex-a7
+.elif ${NAS4FREE_XARCH} == "rpi"
+export CONF_CFLAGS=-march=armv6z -mtune=arm1176jzf-s -mcpu=arm1176jzf-s -DCPU_ARM1176
 .endif
 
 post-build:
