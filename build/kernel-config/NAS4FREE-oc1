@@ -1,0 +1,128 @@
+#
+# ODROIDC1 -- Custom configuration for the ODROID-C1
+#
+# For more information on this file, please read the config(5) manual page,
+# and/or the handbook section on Kernel Configuration Files:
+#
+#    http://www.FreeBSD.org/doc/en_US.ISO8859-1/books/handbook/kernelconfig-config.html
+#
+# The handbook is also available locally in /usr/share/doc/handbook
+# if you've installed the doc distribution, otherwise always see the
+# FreeBSD World Wide Web server (http://www.FreeBSD.org/) for the
+# latest information.
+#
+# An exhaustive list of options and more detailed explanations of the
+# device lines is also present in the ../../conf/NOTES and NOTES files.
+# If you are in doubt as to the purpose or necessity of a line, check first
+# in NOTES.
+#
+# $FreeBSD$
+
+ident		ODROIDC1
+include 	"std.armv6"
+include 	"../amlogic/meson8b/std.s805"
+
+makeoptions	MODULES_EXTRA="opensolaris zfs"
+
+options 	KERNBASE=0x80000000
+options 	VM_KMEM_SIZE=(750*1024*1024)
+options 	VM_KMEM_SIZE_MAX=(800*1024*1024)
+options 	VM_KMEM_SIZE_SCALE=2
+options 	KSTACK_PAGES=4
+options 	MAXPHYS=(1024*1024)
+
+options 	NFSD			# Network Filesystem Server
+options 	GEOM_ELI		# Disk encryption.
+#options 	GEOM_UZIP		# Read-only compressed disks
+options 	NULLFS			# NULL filesystem
+options 	UNIONFS			# Union filesystem
+
+options 	INTRNG
+
+options 	SCHED_ULE		# ULE scheduler
+options 	SMP			# Enable multiple cores
+options 	PLATFORM
+
+# NFS root from boopt/dhcp
+#options 	BOOTP
+#options 	BOOTP_NFSROOT
+#options 	BOOTP_COMPAT
+#options 	BOOTP_NFSV3
+#options 	BOOTP_WIRED_TO=ue0
+
+#options 	ROOTDEVNAME=\"ufs:mmcsd0s3\"
+
+# ARM Generic Timer
+#device		generic_timer
+
+device		bpf
+device		loop
+device		ether
+device		uart
+device		pty
+device		pl310			# PL310 L2 cache controller
+
+# Comment following lines for boot console on serial port
+device		vt
+device		kbdmux
+device		ukbd
+
+device		sdhci
+device		mmc
+device		mmcsd
+
+device		gpio
+device		gpioled
+
+# I2C
+device		iic
+device		iicbb
+device		iicbus
+
+device		md
+device		random			# Entropy device
+
+# USB support
+device		usb
+device		dwcotg			# DWC OTG controller
+options 	USB_HOST_ALIGN=64	# Align usb buffers to cache line size.
+
+# USB storage support
+device		scbus
+device		da
+device		pass
+device		umass
+
+# USB ethernet support
+device		mii
+device		axe
+device		axge
+
+# Flattened Device Tree
+options 	FDT			# Configure using FDT/DTB data
+
+# NAS4Free
+device		vlan			# 802.1Q VLAN support
+device		tun			# Packet tunnel.
+device		gif			# IPv6 and IPv4 tunneling
+device		lagg			# Link aggregation interface.
+device		if_bridge		# Bridge interface.
+
+# ATA/SCSI peripherals
+#device		scbus			# SCSI bus (required for ATA/SCSI)
+device		ch			# SCSI media changers
+#device		da			# Direct Access (disks)
+device		sa			# Sequential Access (tape etc)
+device		cd			# CD
+#device		pass			# Passthrough device (direct ATA/SCSI access)
+device		ses			# Enclosure Services (SES and SAF-TE)
+#device		ctl			# CAM Target Layer
+
+# Hardware crypto acceleration
+device		crypto		# core crypto support
+device		cryptodev	# /dev/crypto for access to h/w
+
+# IP firewall
+options		IPFIREWALL_VERBOSE
+options		IPFIREWALL_VERBOSE_LIMIT=5
+options		IPFIREWALL_DEFAULT_TO_ACCEPT

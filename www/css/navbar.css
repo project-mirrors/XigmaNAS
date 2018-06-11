@@ -1,0 +1,132 @@
+/*
+	navbar.css
+
+	Part of NAS4Free (http://www.nas4free.org).
+	Copyright (c) 2012-2018 The NAS4Free Project <info@nas4free.org>.
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:
+
+	1. Redistributions of source code must retain the above copyright notice, this
+	   list of conditions and the following disclaimer.
+
+	2. Redistributions in binary form must reproduce the above copyright notice,
+	   this list of conditions and the following disclaimer in the documentation
+	   and/or other materials provided with the distribution.
+
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+	ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+	The views and conclusions contained in the software and documentation are those
+	of the authors and should not be interpreted as representing official policies,
+	either expressed or implied, of the NAS4Free Project.
+*/
+#navhdr {
+	background: gray;
+	background: -webkit-linear-gradient(#9c9c9c, #777777 4%, #000000); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#9c9c9c, #777777 4%, #000000); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#9c9c9c, #777777 4%, #000000); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#9c9c9c, #777777 4%, #000000); /* Standard syntax */
+}
+#navhdr ul ul {
+	display: none;
+}
+#navhdr > ul > li:hover > ul,
+#navhdr > ul > li:focus > ul {
+/*	unfold submenu on event */
+	display: block;
+}
+#navhdr > ul {
+	list-style: none;
+	position: relative;
+	display: inline-table;
+	margin: 0;
+	padding: 0em 2em;
+	z-index: 5;
+}
+#navhdr > ul:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+#navhdr > ul > li {
+	float: left;
+	font-weight: bold;
+	font-size: 13px;
+	position: relative;
+}
+#navhdr > ul > li:hover > a {
+/*	color of top menu when hovered */
+	background: transparent;
+	color: black;
+}
+#navhdr > ul > li:hover > a > img {
+/*	invert image colors when hovered */
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+#navhdr > ul > li > a {
+	display: block;
+	text-decoration: none;
+	padding: 0.3em 0.5em;
+	color: white;
+}
+#navhdr > ul > li > a > img {
+	vertical-align: text-bottom;
+}
+#navhdr ul ul {
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	background: #101010;
+	background: -webkit-linear-gradient(#101010, #95a7c0 70%);
+	background: -o-linear-gradient(#101010, #95a7c0 70%);
+	background: -moz-linear-gradient(#101010, #95a7c0 70%);
+	background: linear-gradient(#101010, #95a7c0 70%);
+	opacity: 0.98;
+	border: 1px solid black;
+	font-size: 11px;
+	font-weight: normal;
+	min-width: 14em;
+	list-style: none;
+	z-index: 10;
+}
+#navhdr ul ul li {
+	float: none; 
+	position: relative;
+}
+#navhdr ul ul li a {
+	display: block;
+	margin: 0;
+	padding: 0.3em 0.6em;
+	width: auto;
+	white-space: nowrap;
+	text-align: left;
+	text-decoration: none;
+	color: white;
+}
+#navhdr ul ul li a:hover {
+	color: black;
+}
+/*	background of top menu when hovered */
+#navhdr > ul > li:hover > a, #navhdr ul ul li a:hover {
+	background: -webkit-linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
+	background: -o-linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
+	background: -moz-linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
+	background: linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
+}
+#navhdr ul span.tabseparator {
+	background: #AAAAAA;
+	display: block;
+	line-height: 1px;
+	height: 1px;
+}
