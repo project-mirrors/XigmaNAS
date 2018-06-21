@@ -43,13 +43,13 @@ Changes:
 - Upgrade e2fsprogs to 1.44.2.
 - Upgrade istgt to 20180521.
 - Upgrade devcpu-data to 1.70.
-- Upgrade php to 7.2.6.
 - Upgrade bash to 4.4 patch 23.
 - Upgrade nano to 2.9.8.
 - Upgrade syncthing to 0.14.48.
 - Upgrade arcconf to 2_06_23164.
 - Upgrade fusefs-exfat to 1.2.8.
 - Upgrade beadm to 1.2.8.
+- Upgrade php to 7.2.7.
 
 
 Fixes:
