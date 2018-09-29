@@ -107,21 +107,21 @@ $table->ins_colgroup_with_styles('width',$a_col_width);
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $tfoot = $table->addTFOOT();
-$thead->ins_titleline(gettext('Overview'),$n_col_width);
-$tr = $thead->addTR();
-$tr->
-	insTHwC('lhell',$cop->get_name()->get_title())->
-	insTHwC('lhell',$cop->get_sysctltype()->get_title())->
-	insTHwC('lhell',$cop->get_sysctlinfo()->get_title())->
-	insTHwC('lhebl',$cop->get_value()->get_title());
+$thead->
+	ins_titleline(gettext('Overview'),$n_col_width)->
+	addTR()->
+		insTHwC('lhell',$cop->get_name()->get_title())->
+		insTHwC('lhell',$cop->get_sysctltype()->get_title())->
+		insTHwC('lhell',$cop->get_sysctlinfo()->get_title())->
+		insTHwC('lhebl',$cop->get_value()->get_title());
 if($record_exists):
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
 		$tbody->
 			addTR()->
-				insTDwC('lcell' . $dc,$sphere->row_id ?? '')->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_sysctltype()->get_name()] ?? '')->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_sysctlinfo()->get_name()] ?? '')->
-				insTDwC('lcebl' . $dc,$sphere->row[$cop->get_value()->get_name()] ?? '');
+				insTDwC('lcell',$sphere->row_id ?? '')->
+				insTDwC('lcell',$sphere->row[$cop->get_sysctltype()->get_name()] ?? '')->
+				insTDwC('lcell',$sphere->row[$cop->get_sysctlinfo()->get_name()] ?? '')->
+				insTDwC('lcebl',$sphere->row[$cop->get_value()->get_name()] ?? '');
 	endforeach;
 else:
 	$tbody->ins_no_records_found($n_col_width);
