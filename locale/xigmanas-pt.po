@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
@@ -12544,15 +12544,3 @@ msgstr "usado de"
 
 msgid "visible"
 msgstr "visível"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Um valor systctl MIB válido."
-
-#~ msgid "Add MIB"
-#~ msgstr "Adicionar MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Editar MIB"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"

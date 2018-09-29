@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-09-27 21:27+0000\n"
-"PO-Revision-Date: 2018-09-27 16:14+0000\n"
+"PO-Revision-Date: 2018-09-28 03:29+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:02+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -678,7 +678,7 @@ msgid "Add self-test"
 msgstr "Lägg till självtest"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "Lägg till sysctl variabel"
 
 msgid "Add target"
 msgstr "Lägg till mål"
@@ -2359,7 +2359,7 @@ msgid "Current Password"
 msgstr "Nuvarande lösenord"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Nuvarande inställningar"
 
 msgid "Current Version"
 msgstr "Aktuell version"
@@ -2465,7 +2465,7 @@ msgid "Data Integrity"
 msgstr "Dataintegritet"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Datatyp"
 
 msgid "Data digest"
 msgstr "Datasammandrag"
@@ -3927,7 +3927,7 @@ msgid "Edit self-test"
 msgstr "Redigera självtest"
 
 msgid "Edit sysctl variable"
-msgstr ""
+msgstr "Ändra sysctl variabel"
 
 msgid "Edit target"
 msgstr "Redigera mål"
@@ -4450,7 +4450,7 @@ msgstr ""
 "kommer att skapas och automatiskt läggas till bryggan."
 
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Skriv ett korrekt värde"
 
 msgid "Enter additional parameter"
 msgstr "Mata in extra parametrar"
@@ -9730,13 +9730,13 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl variable is locked"
-msgstr ""
+msgstr "Sysctl variabeln är låst"
 
 msgid "Sysctl variable is marked for deletion"
-msgstr ""
+msgstr "Sysctl variabeln är märkt för borttagning"
 
 msgid "Sysctl variable is unlocked"
-msgstr ""
+msgstr "Sysctl variabeln är olåst"
 
 msgid "Syslog Level"
 msgstr "Syslognivå"
@@ -10988,6 +10988,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
 "make changes to a running system."
 msgstr ""
+"Dessa sysctl variabler kommer läggas till i /etc/sysctl.conf. Detta ger dig "
+"möjlighet att göra ändringar i ett system som körs."
 
 msgid "Thin Provisioning"
 msgstr "Gles utdelning"
@@ -12963,34 +12965,3 @@ msgstr "använt av"
 
 msgid "visible"
 msgstr "synlig"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Ett giltigt systctl MIB värde."
-
-#~ msgid "Add MIB"
-#~ msgstr "Lägg till MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Redigera MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "Ange värde"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB är låst"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB är markerad för borttagning"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB är olåst"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Dessa MIB:ar kommer att läggas till i /etc/sysctl.conf. Detta ger dig "
-#~ "möjligheter att göra ändringar under drift."

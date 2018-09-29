@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:02+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -13104,34 +13104,3 @@ msgstr "використано з"
 
 msgid "visible"
 msgstr "видимий"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "правильне значення systctl MIB."
-
-#~ msgid "Add MIB"
-#~ msgstr "Додати MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Редагувати MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "Уведіть значення"
-
-#~ msgid "MIB"
-#~ msgstr "База керуючої інформації (MIB)"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB заблоковано"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB позначено для видалення"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB разблокований"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Ці MIB будуть додані в /etc/sysctl.conf. Це дозволяє вносити зміни до "
-#~ "працюючої системи."

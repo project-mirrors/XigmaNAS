@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -13038,34 +13038,3 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Érvényes systctl MIB érték."
-
-#~ msgid "Add MIB"
-#~ msgstr "MIB hozzáadása"
-
-#~ msgid "Edit MIB"
-#~ msgstr "MIB szerkesztése"
-
-#~ msgid "Enter value"
-#~ msgstr "Add meg az értéket"
-
-#~ msgid "MIB"
-#~ msgstr "Változó (MIB)"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB zárolva"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB törlésre megjelölve"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "Az MIB zárolását feloldottad"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Ezeket a MIB-eket a  /etc/sysctl.conf fájlhoz adjuk hozzá. Így működés "
-#~ "közben módosíthatod a rendszert."

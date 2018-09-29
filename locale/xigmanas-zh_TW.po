@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:02+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -12135,32 +12135,3 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可見"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "有效的systctl MIB值"
-
-#~ msgid "Add MIB"
-#~ msgstr "添加MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "編輯MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "輸入數值"
-
-#~ msgid "MIB"
-#~ msgstr "管理資訊庫（MIB）"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB被鎖定"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB被標記為刪除"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB被解鎖"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr "這些MIB將被添加到/etc/sysctl.conf。 這允許您更改正在運行的系統。"

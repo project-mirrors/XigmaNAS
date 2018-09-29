@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 
 msgid " interfaces:"
@@ -12776,28 +12776,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "'N geldige systctl MIB waarde."
-
-#~ msgid "Add MIB"
-#~ msgstr "Voeg MIB by"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Redigeer  MIB"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB is gesluit"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB is geteiken vir uitwis"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Die MIBs sal bygetel word by /etc/sysctl.conf. Dit laat jou toe om "
-#~ "verandering aan die lopende stelsel te bring"

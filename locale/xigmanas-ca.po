@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-09-27 21:27+0000\n"
-"PO-Revision-Date: 2018-09-27 16:55+0000\n"
+"PO-Revision-Date: 2018-09-27 21:29+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "Language: ca_ES\n"
 
@@ -695,7 +695,7 @@ msgid "Add self-test"
 msgstr "Afegir auto-prova"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "Afegeix variable sysctl"
 
 msgid "Add target"
 msgstr "Afegir objetiu"
@@ -2428,7 +2428,7 @@ msgid "Current Password"
 msgstr "Contrasenya actual"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Configuració actual"
 
 msgid "Current Version"
 msgstr "Versió actual"
@@ -2535,7 +2535,7 @@ msgid "Data Integrity"
 msgstr "Integritat de dades"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tipus de dades"
 
 msgid "Data digest"
 msgstr "Assimilar dades"
@@ -4011,7 +4011,7 @@ msgid "Edit self-test"
 msgstr "Editar auto-prova"
 
 msgid "Edit sysctl variable"
-msgstr ""
+msgstr "Editar variable sysctl"
 
 msgid "Edit target"
 msgstr "Editar objetiu"
@@ -4542,7 +4542,7 @@ msgstr ""
 "dispositius es creen i s'afegeixen automàticament al pont."
 
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Introduïu un valor vàlid."
 
 msgid "Enter additional parameter"
 msgstr "Afegir paràmetre adicional"
@@ -9932,13 +9932,13 @@ msgid "Syncthing"
 msgstr "Sincronitzant"
 
 msgid "Sysctl variable is locked"
-msgstr ""
+msgstr "La variable Sysctl està bloquejada"
 
 msgid "Sysctl variable is marked for deletion"
-msgstr ""
+msgstr "La variable Sysctl està marcada per esborrar"
 
 msgid "Sysctl variable is unlocked"
-msgstr ""
+msgstr "La variable Sysctl està desbloquejada"
 
 msgid "Syslog Level"
 msgstr "Nivell del registre de sistema"
@@ -11217,6 +11217,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
 "make changes to a running system."
 msgstr ""
+"Aquestes variables sysctl s'afegiran a /etc/sysctl.conf. Això us permet fer "
+"canvis en un sistema en execució."
 
 msgid "Thin Provisioning"
 msgstr "Aprovisionament lleuger."
@@ -13229,34 +13231,3 @@ msgstr "usat de"
 
 msgid "visible"
 msgstr "visible"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Un valor vàlid systctl MIB."
-
-#~ msgid "Add MIB"
-#~ msgstr "Afegir MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Editar MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "Introduïu un valor"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB està bloquejat"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB està marcat per ser esborrat"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB està desbloquejat"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "S'afegiran aquestes MIB a /etc/sysctl.conf. Això li permet realitzar canvis "
-#~ "en un sistema en funcionament."

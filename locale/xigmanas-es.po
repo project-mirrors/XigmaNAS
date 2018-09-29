@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-09-27 21:27+0000\n"
-"PO-Revision-Date: 2018-09-15 09:53+0000\n"
-"Last-Translator: Victek <Unknown>\n"
+"PO-Revision-Date: 2018-09-28 06:54+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -689,7 +689,7 @@ msgid "Add self-test"
 msgstr "Añadir autocomprobación"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "añadir variable sysctl"
 
 msgid "Add target"
 msgstr "Añadir destino"
@@ -883,6 +883,7 @@ msgstr "Permitir crear nuevos archivos."
 
 msgid "Allow symlinks that point outside user-defined media folders."
 msgstr ""
+"Permitir enlaces que apunten fuera de las carpetas multimedia definidas."
 
 msgid "Allow to start UPS from battery"
 msgstr "Permitir arrancar el SAI desde las baterías"
@@ -2412,7 +2413,7 @@ msgid "Current Password"
 msgstr "Contraseña Actual"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Opciones actuales"
 
 msgid "Current Version"
 msgstr "Versión Actual"
@@ -2517,7 +2518,7 @@ msgid "Data Integrity"
 msgstr "Integridad de datos"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tipo de datos"
 
 msgid "Data digest"
 msgstr "Resumen de datos."
@@ -3984,7 +3985,7 @@ msgid "Edit self-test"
 msgstr "Editar autocomprobación"
 
 msgid "Edit sysctl variable"
-msgstr ""
+msgstr "Editar variable sysctl"
 
 msgid "Edit target"
 msgstr "Editar objetivo"
@@ -4354,7 +4355,7 @@ msgid "Enable white background graphs. (black as default)"
 msgstr "Habilitar fondo blanco (Por defecto es negro)."
 
 msgid "Enable wide-links support."
-msgstr ""
+msgstr "permitir enlaces"
 
 msgid "Enable write cache mode."
 msgstr "Habilitar Write Cache"
@@ -4507,7 +4508,7 @@ msgstr ""
 "https://en.wikipedia.org/wiki/TUN/TAP"
 
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Introduzca un valor válido."
 
 msgid "Enter additional parameter"
 msgstr "Entrar parámetro adicional"
@@ -4593,6 +4594,8 @@ msgstr ""
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
+"Introduzca la ruta del directorio home para la base de Datos y los archivos "
+"de configuración."
 
 msgid ""
 "Enter the path to the database directory. The config files will be created "
@@ -5249,13 +5252,13 @@ msgid "HOT SPARE"
 msgstr "Repuesto"
 
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 msgid "HTTP Proxy"
 msgstr "Proxy HTTP"
 
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 msgid "HVM Guest"
 msgstr "Invitado HVM"
@@ -5639,6 +5642,8 @@ msgstr ""
 msgid ""
 "In this directory, you can create a %s file with your additional parameters."
 msgstr ""
+"En este directorio, se puede crear el archivo %s con estos parámetros "
+"adicionales."
 
 msgid "In/Out Errors"
 msgstr "Errores de Entrada/Salida"
@@ -6457,7 +6462,7 @@ msgid "Maintenance"
 msgstr "Mantenimiento"
 
 msgid "Maintenance Tool Settings"
-msgstr ""
+msgstr "Opciones d ela herramienta de mantenimiento"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Asegúrese de seleccionar el numero de dispositivos optimos"
@@ -6511,7 +6516,7 @@ msgstr ""
 "está especificada."
 
 msgid "MariaDB"
-msgstr ""
+msgstr "MariaDB"
 
 msgid "Masquerade Address"
 msgstr "Máscara"
@@ -7361,7 +7366,7 @@ msgid "On"
 msgstr "Encendido"
 
 msgid "On-Disk Configuration"
-msgstr ""
+msgstr "Configuración del Disco"
 
 msgid "Online Information"
 msgstr "Información online"
@@ -7805,7 +7810,7 @@ msgstr ""
 "permitidos."
 
 msgid "Please read the documentation"
-msgstr ""
+msgstr "Por favor, lea la documentación."
 
 msgid "Polling Time"
 msgstr "Tiempo entre comprobaciones"
@@ -8268,7 +8273,7 @@ msgid "Read from lowest load"
 msgstr "Leído desde la carga más baja"
 
 msgid "Read on-disk configuration."
-msgstr ""
+msgstr "Leer la configuración del propio disco."
 
 msgid "Read only"
 msgstr "Sólo lectura"
@@ -8309,6 +8314,7 @@ msgid ""
 "Reading the configuration from the disks is slower than reading from cache "
 "file."
 msgstr ""
+"Leer la configuración del propio disco es más lento que leerla de la caché."
 
 msgid "Readonly"
 msgstr "Sólo lectura"
@@ -9859,13 +9865,13 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl variable is locked"
-msgstr ""
+msgstr "La variable sysctl está bloqueada"
 
 msgid "Sysctl variable is marked for deletion"
-msgstr ""
+msgstr "La variable sysctl está marcada para borrado"
 
 msgid "Sysctl variable is unlocked"
-msgstr ""
+msgstr "La variable sysctl está desbloqueada"
 
 msgid "Syslog Level"
 msgstr "Nivel de syslog"
@@ -10441,6 +10447,10 @@ msgid ""
 "algorithm - you won't be prompted for this passphrase. The secret should be "
 "at least 32 or more characters long"
 msgstr ""
+"El auth_type basado en cookies, usa AES para encriptar la contraseña. "
+"Introduzca cualquier contraseña de su elección, será usada internamente por "
+"el algoritmo AES.  Usted no será preguntado de nuevo por esta contraseña. "
+"Esta contraseña debe tener al menos 32 caracteres."
 
 msgid ""
 "The count of aborted operations due to HDD timeout. Normally this attribute "
@@ -10914,7 +10924,7 @@ msgid "The server will be reset to factory defaults and will reboot."
 msgstr "El servidor se revertirá a valores de fábrica y se reiniciará."
 
 msgid "The server will be started with the minimum required parameters."
-msgstr ""
+msgstr "El servidor será iniciado con los mínimos parámetros necesarios."
 
 msgid ""
 "The server will reboot after the configuration was successfully restored."
@@ -11071,7 +11081,7 @@ msgstr ""
 "opciones usadas por varios scripts genericos de inicio."
 
 msgid "These parameter will be added to my.cnf"
-msgstr ""
+msgstr "Estos parámetros serán añadidos a my.conf"
 
 msgid "These parameter will be added to the global section of ctl.conf"
 msgstr ""
@@ -11143,6 +11153,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
 "make changes to a running system."
 msgstr ""
+"Estas variables serán añadidas a etc/sysctl.conf. Esto permitirá realizar "
+"cambios en caliente."
 
 msgid "Thin Provisioning"
 msgstr "Aprovisionamiento ligero."
@@ -12191,10 +12203,10 @@ msgid "Use PAM for user authentication."
 msgstr "Usar PAN para la autentificación de usuarios"
 
 msgid "Use Sqlite"
-msgstr ""
+msgstr "Usar SQLite"
 
 msgid "Use Sqlite for lockings and properties."
-msgstr ""
+msgstr "Usar SQLite para bloqueos y propiedades"
 
 msgid "Use TLS"
 msgstr "Usar TLS"
@@ -12716,7 +12728,7 @@ msgid "Who"
 msgstr "Quien"
 
 msgid "Wide Links"
-msgstr ""
+msgstr "Wide Links"
 
 msgid "Wildcard"
 msgstr "Caracter Usado como \"Comodin\""
@@ -13090,7 +13102,7 @@ msgid "on"
 msgstr "encendido"
 
 msgid "phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin"
 
 msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
@@ -13136,34 +13148,3 @@ msgstr "usados de"
 
 msgid "visible"
 msgstr "Visible"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Un valor MIB sysctl válido."
-
-#~ msgid "Add MIB"
-#~ msgstr "Agregar MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Editar MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "Introduzca valor"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB está bloqueado"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB está marcado para eliminación"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB esta desbloqeado"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Estas MIBs son añadidas automáticamente en /etc/sysctl.conf. Esto permite "
-#~ "hacer cambios en sistemas activos."

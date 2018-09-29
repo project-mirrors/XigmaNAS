@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
@@ -13086,34 +13086,3 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Un valore valido per sysctl MIB"
-
-#~ msgid "Add MIB"
-#~ msgstr "Aggiungi MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Modifica MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "Inserire valore"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB è bloccato"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "Mib è selezionato per cancellazione"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB sbloccato"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Questi MIB saranno aggiunti a /etc/sysctl.conf. Questo consentirà di fare "
-#~ "modifiche ad un sistema funzionante."

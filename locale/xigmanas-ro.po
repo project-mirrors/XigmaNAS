@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -13037,31 +13037,3 @@ msgstr "utilizat din"
 
 msgid "visible"
 msgstr "vizibil"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "O valoare validă systctl MIB."
-
-#~ msgid "Add MIB"
-#~ msgstr "Adăugare MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Editare MIB"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB blocat"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB marcat pentru ștergere"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB este deblocat"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Aceste valori MIB vor fi adăugate la /etc/sysctl.conf. Vă permite să "
-#~ "modificați un sistem deja funcțional."

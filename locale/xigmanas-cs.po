@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-27 20:01+0000\n"
+"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
 "X-Generator: Launchpad (build 18783)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -13143,34 +13143,3 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
-
-#~ msgid "A valid systctl MIB value."
-#~ msgstr "Platná hodnota sysctl MIB."
-
-#~ msgid "Add MIB"
-#~ msgstr "Přidat MIB"
-
-#~ msgid "Edit MIB"
-#~ msgstr "Upravit MIB"
-
-#~ msgid "Enter value"
-#~ msgstr "Zadejte hodnotu"
-
-#~ msgid "MIB"
-#~ msgstr "MIB"
-
-#~ msgid "MIB is locked"
-#~ msgstr "MIB soubor je uzamčený"
-
-#~ msgid "MIB is marked for deletion"
-#~ msgstr "MIB soubor je označen ke smazání"
-
-#~ msgid "MIB is unlocked"
-#~ msgstr "MIB je odemčené"
-
-#~ msgid ""
-#~ "These MIBs will be added to /etc/sysctl.conf. This allows you to make "
-#~ "changes to a running system."
-#~ msgstr ""
-#~ "Tyto MIB budou přidány do /etc/sysctl.conf. Toto umožní dělat změny ve "
-#~ "spuštěném systému."
