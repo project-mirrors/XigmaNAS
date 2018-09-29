@@ -7,7 +7,6 @@ Changes:
 - Add WebDAV.
 - Add mariadb and phpMyAdmin.
 - Upgrade iperf3 to 3.6.
-- Upgrade devcpu-data to 1.19.
 - Upgrade virtualbox-ose to 5.2.18.
 - Upgrade lighttpd to 1.4.50.
 - Upgrade msmtp to 1.8.0.
@@ -18,6 +17,7 @@ Changes:
 - Upgrade dmidecode to 3.2.
 - Upgrade nano to 3.1.
 - Upgrade sudo to 1.8.25p1.
+- Upgrade devcpu-data to 1.20
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
