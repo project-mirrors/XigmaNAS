@@ -83,32 +83,21 @@ foreach($a_cfg_vdev as $r_cfg_vdev):
 	endif;
 endforeach;
 $o_geom = new co_geom_info();
-$a_geom_dev = $o_geom->get_dev();
-/*
- * Eliminate devices that are used in zpool except spare devices
- */
-$o_zpool->set_devicepath_strip_regex('/^\/dev\//');
-$a_devices_in_use = array_column($o_zpool->get_all_devices_except_spare_devices(),'device.path');
-$o_zpool->set_devicepath_strip_regex();
-$a_newdev_stage_1 = [];
-foreach($a_geom_dev as $tmp_device):
-	if(false === array_search($tmp_device['name'],$a_devices_in_use)):
-		$a_newdev_stage_1[] = $tmp_device;
-	endif;
-endforeach;
-/*
- *	Eliminate other devices that shouldn't be made available for selection
- */
-$a_devices_in_use = [
-	'cd0','cd1','cd2','cd3','cd4','cd5','cd6','cd7','cd8','cd9',
-	'md0','md1','md2','md3','md4','md5','md6','md7','md8','md9',
-	'xmd0','xmd1','xmd2','xmdx','xmd4','xmd5','xmd6','xmd7','xmd8','xmd9',
-	'ufs/embboot'
+$a_geom_available_provider = $o_geom->get_available_provider();
+$a_reserved_devices = [
+	'ufs/embboot','gpt/gptboot','gpt/gptroot'
 ];
+/*
+ *	Eliminate devices
+ */
 $a_newdev = [];
-foreach($a_newdev_stage_1 as $tmp_device):
-	if(false === array_search($tmp_device['name'],$a_devices_in_use)):
-		$a_newdev[] = $tmp_device;
+foreach($a_geom_available_provider as $potential_device):
+	if(false !== array_search($potential_device['name'],$a_reserved_devices)):
+		//	skip reserved devices
+	elseif(0 === ($potential_device['mediasize'] ?? 0)):
+		//	skip read-only devices
+	else:
+		$a_newdev[] = $potential_device;
 	endif;
 endforeach;
 array_sort_key($a_newdev,'name');
@@ -582,7 +571,7 @@ $document->render();
 							$o_zpool->set_poolname_filter($sphere_array['pool'][0]); // limit next query to selected pool
 							$a_device_for_attach_data = $o_zpool->get_pool_devices_for_attach_data();
 							$o_zpool->set_poolname_filter();
-							render_pooldev_edit($a_device_for_attach_data,'1');
+							render_pooldev_edit($a_device_for_attach_data,'1',[],true);
 							html_separator2(2);
 							html_titleline2(gettext('Select Data Device'),2);
 							render_newdev_edit($a_newdev,'1');
@@ -596,7 +585,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]); // limit next query to selected pool
+							$a_device_for_attach_data = $o_zpool->get_pool_devices_for_attach_data();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_device_for_attach_data);
 							html_separator2(2);
 							html_titleline2(gettext('Source'),2);
 							$prerequisites_ok &= render_newdev_view($sphere_array['newdev']);
@@ -662,7 +654,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]); // limit next query to selected pool
+							$a_device_for_attach_log = $o_zpool->get_pool_devices_for_attach_log();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_device_for_attach_log);
 							html_separator2(2);
 							html_titleline2(gettext('Source'),2);
 							$prerequisites_ok &= render_newdev_view($sphere_array['newdev']);
@@ -720,7 +715,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							render_pooldev_view($sphere_array['pooldev']); // 0-N devices can be selected, no check for success
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_clear = $o_zpool->get_all_data_devices();
+							$o_zpool->set_poolname_filter();
+							render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_clear); // 0-N devices can be selected, no check for success
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -809,7 +807,7 @@ $document->render();
 							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
 							$a_pool_device_for_detach_data = $o_zpool->get_mirrored_data_devices();
 							$o_zpool->set_poolname_filter();
-							render_pooldev_edit($a_pool_device_for_detach_data,'1');
+							render_pooldev_edit($a_pool_device_for_detach_data,'1',[],true);
 							render_set_end();
 							render_submit(4,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
 							break;
@@ -819,7 +817,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_detach_data = $o_zpool->get_mirrored_data_devices();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_detach_data);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -867,7 +868,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_detach_log = $o_zpool->get_mirrored_log_devices();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_detach_log);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -1042,7 +1046,7 @@ $document->render();
 							$o_flags->render_available_keys();
 							html_separator2(2);
 							html_titleline2(gettext('Select Device'),2);
-							render_newdev_edit($a_newdev,'1'); // $a_newdev still lists spares, must be changed
+							render_newdev_edit($a_newdev,'1');
 //							render_newdev_edit($o_zpool->get_all_devices(),'1');
 							render_set_end();
 							render_submit(3,$sphere_array['activity'],$sphere_array['option'],$a_sphere['pool'],[]);
@@ -1103,7 +1107,7 @@ $document->render();
 							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
 							$a_pool_device_for_offline_data = $o_zpool->get_pool_devices_for_offline_data();
 							$o_zpool->set_poolname_filter();
-							render_pooldev_edit($a_pool_device_for_offline_data,'1');
+							render_pooldev_edit($a_pool_device_for_offline_data,'1',[],true);
 							render_set_end();
 							render_submit(4,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
 							break;
@@ -1113,7 +1117,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_offline_data = $o_zpool->get_pool_devices_for_offline_data();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_offline_data);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -1154,7 +1161,7 @@ $document->render();
 							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
 							$a_pool_device_for_online_data = $o_zpool->get_pool_devices_for_online_data();
 							$o_zpool->set_poolname_filter();
-							render_pooldev_edit($a_pool_device_for_online_data,'1');
+							render_pooldev_edit($a_pool_device_for_online_data,'1',[],true);
 							render_set_end();
 							render_submit(4,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
 							break;
@@ -1165,7 +1172,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_online_data = $o_zpool->get_pool_devices_for_online_data();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_online_data);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -1257,7 +1267,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_remove_cache = $o_zpool->get_single_cache_devices();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_remove_cache);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -1305,7 +1318,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_remove_log = $o_zpool->get_single_log_devices();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_remove_log);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -1353,7 +1369,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_remove_spare = $o_zpool->get_single_spare_devices();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_remove_spare);
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
 							$result = $prerequisites_ok ? 0 : 15;
@@ -1394,8 +1413,17 @@ $document->render();
 							render_zpool_status($sphere_array['pool'][0],$b_exec);
 							$o_zpool->set_poolname_filter($sphere_array['pool'][0]); // limit next query to selected pool
 							$a_device_for_replace_data = $o_zpool->get_pool_devices_for_replace_data();
+							$o_zpool->set_devicepath_strip_regex('~^/dev/~');
+							$a_spare_devices = $o_zpool->get_all_spare_devices();
+							$o_zpool->set_devicepath_strip_regex();
 							$o_zpool->set_poolname_filter();
-							render_pooldev_edit($a_device_for_replace_data,'1');
+							render_pooldev_edit($a_device_for_replace_data,'1',[],true);
+							//	add spare devices of selected pool
+							if(!empty($a_spare_devices)):
+								foreach($a_spare_devices as $r_spare_device):
+									$o_geom->get_provider_by_name($a_newdev,$r_spare_device['device.path'] ?? NULL);
+								endforeach;
+							endif;
 							if(!empty($a_newdev)): // new device is an optional parameter
 								html_separator2(2);
 								html_titleline2(gettext('Select Data Device'),2);
@@ -1411,7 +1439,10 @@ $document->render();
 							html_separator2(2);
 							html_titleline2(gettext('Target'),2);
 							$prerequisites_ok = render_pool_view($sphere_array['pool']);
-							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]); // limit next query to selected pool
+							$a_device_for_replace_data = $o_zpool->get_pool_devices_for_replace_data();
+							$o_zpool->set_poolname_filter();
+							$prerequisites_ok &= render_pooldev_view($sphere_array['pooldev'],$a_device_for_replace_data);
 							if(!empty($sphere_array['newdev'][0])): // display only if a new device has been selected
 								html_separator2(2);
 								html_titleline2(gettext('Source'),2);
@@ -1430,8 +1461,12 @@ $document->render();
 									endswitch;
 								endforeach;
 								$a_param[] = escapeshellarg($sphere_array['pool'][0]);
-								$a_param[] = escapeshellarg($sphere_array['pooldev'][0]);
-								if(!empty($sphere_array['newdev'][0])): // new device is optional
+								if(empty($sphere_array['newdev'][0])):
+									//	no new device was selected, in-place replacement, replace dev with dev
+									$a_param[] = escapeshellarg($sphere_array['pooldev'][0]);
+								else:
+									//	a new device was selected, use guid of pooldev instead of dev
+									$a_param[] = escapeshellarg($sphere_array['pooldev'][0]);
 									$a_param[] = escapeshellarg($sphere_array['newdev'][0]);
 								endif;
 								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
