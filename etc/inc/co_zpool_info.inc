@@ -47,11 +47,13 @@ class co_zpool_info {
 	private $is_poolname_filter_set;
 	private $devicepath_strip_regex;
 	private $is_devicepath_strip_regex;
+	private $exclude_devices_not_present;
 	
 	public function __construct() {
 		$this->scan();
 		$this->set_poolname_filter();
 		$this->set_devicepath_strip_regex();
+		$this->set_exclude_devices_not_present(false);
 	}
 	public function configuration_loaded() {
 		$b_ret = (false !== $this->a_xml);
@@ -87,6 +89,9 @@ class co_zpool_info {
 			$this->devicepath_strip_regex = '';
 			$this->is_devicepath_strip_regex = false;
 		endif;
+	}
+	public function set_exclude_devices_not_present(bool $exclude_devices_not_present = false) {
+		$this->exclude_devices_not_present = $exclude_devices_not_present;
 	}
 	protected function pool_info_to_array($r_pool,&$r_ret = []) {
 		$r_ret['pool.guid'] = htmlspecialchars_decode((string)$r_pool->pool_guid,ENT_XML1 || ENT_NOQUOTES);
@@ -124,6 +129,7 @@ class co_zpool_info {
 			$r_ret['device.path'] = htmlspecialchars_decode((string)$r_device->path,ENT_XML1 || ENT_NOQUOTES);
 		endif;
 		$r_ret['device.phys_path'] = htmlspecialchars_decode((string)$r_device->phys_path,ENT_XML1 || ENT_NOQUOTES);
+		$r_ret['device.not_present'] = (bool)$r_device->not_present;
 		return $r_ret;
 	}
 	public function get_all_pools(&$a_ret = []) {
@@ -160,10 +166,14 @@ class co_zpool_info {
 		else:
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="disk"]]';
 		endif;
-		$x_device = './vdev_tree/children[is_log="0" and type="disk"]';
 		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
+				if(!$this->exclude_devices_not_present):
+					$x_device = './vdev_tree/children[is_log="0" and type="disk and not(not_present)]';
+				else:
+					$x_device = './vdev_tree/children[is_log="0" and type="disk"]';
+				endif;
 				if(false !== ($a_device = $r_pool->xpath($x_device))):
 					foreach($a_device as $r_device):
 						$this->devicevdev_info_to_array($r_device,$ret);
@@ -185,14 +195,18 @@ class co_zpool_info {
 		else:
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="mirror"]]';
 		endif;
-		$x_vdev = './vdev_tree/children[is_log="0" and type="mirror"]';
-		$x_device = './/children[is_log="0" and type="disk"]';
 		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
+				$x_vdev = './vdev_tree/children[is_log="0" and type="mirror"]';
 				if(false !== ($a_vdev = $r_pool->xpath($x_vdev))):
 					foreach($a_vdev as $r_vdev):
 						$this->vdev_info_to_array($r_vdev,$r_ret);
+						if($this->exclude_devices_not_present):
+							$x_device = './/children[is_log="0" and type="disk" and not(not_present)]';
+						else:
+							$x_device = './/children[is_log="0" and type="disk"]';
+						endif;
 						if(false !== ($a_device = $r_vdev->xpath($x_device))):
 							foreach($a_device as $r_device):
 								$this->device_info_to_array($r_device,$r_ret);
@@ -215,14 +229,18 @@ class co_zpool_info {
 		else:
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="raidz"]]';
 		endif;
-		$x_vdev = './vdev_tree/children[is_log="0" and type="raidz"]';
-		$x_device = './/children[is_log="0" and type="disk"]';
 		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
+				$x_vdev = './vdev_tree/children[is_log="0" and type="raidz"]';
 				if(false !== ($a_vdev = $r_pool->xpath($x_vdev))):
 					foreach($a_vdev as $r_vdev):
 						$this->devicevdev_info_to_array($r_device,$ret);
+						if($this->exclude_devices_not_present):
+							$x_device = './/children[is_log="0" and type="disk and not(not_present)]';
+						else:
+							$x_device = './/children[is_log="0" and type="disk"]';
+						endif;
 						if(false !== ($a_device = $r_vdev->xpath($x_device))):
 							foreach($a_device as $r_device):
 								$this->device_info_to_array($r_device,$r_ret);
@@ -560,11 +578,13 @@ class co_zpool_info {
 						if(preg_match_all('/^\t(\s+)(\S+)/',$r_row,$a_match)):
 							if($n_spare === strlen($a_match[1][0])):
 								$spare = htmlspecialchars($a_match[2][0],ENT_XML1,'UTF-8');
+								$dev_spare = sprintf('/dev/%s',$spare);
+								$guid = uuid(); // to collect guid run zdb -l $dev_spare
 								$child_root = $spares_root->addChild('children');
 								$child_root->addChild('type','disk'); // it is not confirmed that the spare device is a disk
-								$child_root->addChild('guid',uuid());
-								$child_root->addChild('path',sprintf('/dev/%s',$spare));
-								$child_root->addChild('phys_path',sprintf('/dev/%s',$spare));
+								$child_root->addChild('guid',$guid);
+								$child_root->addChild('path',$dev_spare);
+								$child_root->addChild('phys_path',$dev_spare);
 								$child_root->addChild('is_spare','1');
 							endif;
 						else:
@@ -706,14 +726,14 @@ class co_zpool_info {
 					if(!$b_tag): // no tag without value detected, now check for [tag: value]
 /*
  * 	the following tags of [tag: value] pairs are currently used:
- *  Summary:	pool_guid, name, version, state, type, id, guid, ashift, asize, is_log, path, phys_path
+ *  Summary:	pool_guid, name, version, state, type, id, guid, ashift, asize, is_log, path, phys_path, not_present
  *	pool:		pool_guid, name, version, state
  * 	vdev:		type, id, guid, ashift, asize, is_log
  *	devicevdev:	type, id, ashift, asize, is_log
- *	device		type, id, guid, path, phys_path
+ *	device		type, id, guid, path, phys_path, not_present
  */
 						unset($a_matches);
-						if(preg_match_all('/^(\s+)(pool_guid|name|version|state|type|id|guid|ashift|asize|is_log|path|phys_path):\s(\S.*)$/',$r_row,$a_matches)):
+						if(preg_match_all('/^(\s+)(pool_guid|name|version|state|type|id|guid|ashift|asize|is_log|path|phys_path|not_present):\s(\S.*)$/',$r_row,$a_matches)):
 							$indent_current = strlen($a_matches[1][0]);
 							$tag = $a_matches[2][0];
 							$val = str_replace("'","",trim($a_matches[3][0])); // trim and remove single quotes from value
