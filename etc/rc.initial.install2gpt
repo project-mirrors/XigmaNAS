@@ -59,7 +59,7 @@ $text = <<<EOD
 {$productname} 'Embedded' installer for HDD, SSD, CF or USB flash drive.
 
 - Create GPT partition 1, for bootcode
-- Create GPT partition 2, using UFS, {$part1size}MB size for OS image
+- Create GPT partition 2, using UFS, customizable size for OS image
 - Create GPT partition 3, as SWAP partition
 - Create GPT partition 4, using UFS, for DATA
 - Uses a RAM disk to limit read/write access to the device
@@ -115,6 +115,19 @@ if(disks_ismounted_ex($harddrive,'mdisk')):
 	tui_wait_keypress('The destination drive is already in use!');
 	exit(0);
 endif;
+
+// Get customized destination media size for root partition
+$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
+do {
+	$newpart1size = $part1size;
+	$result = tui_display_input($text, 60, 8, $newpart1size);
+	if (0 != $result)
+		exit(0);
+} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
+
+// Update the root slice/partition size.
+$partlayout[1]['size'] = $newpart1size;
+
 //	get media size of destination media and estimate remaining space
 $available_swap_space = 0;
 if(array_key_exists($harddrive,$disklist)):

@@ -57,7 +57,7 @@ $text = <<<EOD
 
 {$productname} 'Embedded' installer for HDD, SSD, CF or USB flash drive.
 
-- Create MBR partition 1, using UFS, {$part1size}MB size for OS image
+- Create MBR partition 1, using UFS, customizable size for OS image
 - Create MBR partition 2, as SWAP partition
 - Create MBR partition 3, using UFS, for DATA
 - Uses a RAM disk to limit read/write access to the device
@@ -92,6 +92,18 @@ $result = tui_display_menu("Choose installation media", "Select CD/DVD/USB drive
 if(0 != $result):
 	exit(0);
 endif;
+
+// Get customized destination media size for root partition
+$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
+do {
+	$newpart1size = $part1size;
+	$result = tui_display_input($text, 60, 8, $newpart1size);
+	if (0 != $result)
+		exit(0);
+} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
+
+// Update the root slice/partition size.
+$partlayout[0]['size'] = $newpart1size;
 
 // Display destination medias
 $amenuitem = [];
