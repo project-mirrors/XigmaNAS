@@ -170,7 +170,7 @@ class co_zpool_info {
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				if(!$this->exclude_devices_not_present):
-					$x_device = './vdev_tree/children[is_log="0" and type="disk and not(not_present)]';
+					$x_device = './vdev_tree/children[is_log="0" and type="disk" and not(not_present)]';
 				else:
 					$x_device = './vdev_tree/children[is_log="0" and type="disk"]';
 				endif;
