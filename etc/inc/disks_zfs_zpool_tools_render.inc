@@ -265,7 +265,7 @@ function render_pool_view($selected_items = []) { // $item can be an array or a 
 	html_text2('syspool',gettext('Pools'),$output);
 	return $b_ret;
 }
-function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = []) {
+function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [],bool $check_not_present = false) {
 /*
  * Displays a list of radio or checkbox input fields for pool devices
  * Embedded in the body of a table with 2 columns
@@ -301,10 +301,10 @@ function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [])
 			echo '<table class="area_data_selection">',PHP_EOL;
 				echo '<colgroup>',PHP_EOL;
 					echo '<col style="width:5%">',PHP_EOL; // Checkbox or Radio
-					echo '<col style="width:45%">',PHP_EOL; // // Device Name
-					echo '<col style="width:10%">',PHP_EOL; // // Device Type
-					echo '<col style="width:20%">',PHP_EOL; // // Virtual Device
-					echo '<col style="width:20%">',PHP_EOL; // // Pool
+					echo '<col style="width:45%">',PHP_EOL; // Device Name
+					echo '<col style="width:10%">',PHP_EOL; // Device Type
+					echo '<col style="width:20%">',PHP_EOL; // Virtual Device
+					echo '<col style="width:20%">',PHP_EOL; // Pool
 				echo '</colgroup>',PHP_EOL;
 				echo '<thead>',PHP_EOL;
 					echo '<tr>',PHP_EOL;
@@ -324,7 +324,16 @@ function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [])
 						foreach($a_items as $r_item):
 							$id = sprintf($is_checkbox ? 'checkbox_%s' : 'radio_%s',uuid());
 							$attribute['id'] = sprintf('id="%s"',$id);
-							$value = $r_item['device.path'];
+							if($check_not_present):
+								$value = $r_item['device.guid'];
+							else:
+								$value = $r_item['device.path'];
+							endif;
+							if($check_not_present && $r_item['device.not_present']):
+								$display_value = sprintf('%s (%s) %s',$r_item['device.guid'],$r_item['device.path'],gettext('missing'));
+							else:
+								$display_value = $r_item['device.path'];
+							endif;
 							$attribute['value'] = sprintf('value="%s"',$value);
 							if(0 < count($a_selected_items)):
 								$attribute['checked'] = (false === array_search($value,$a_selected_items) ? '' : 'checked="checked"');
@@ -341,7 +350,7 @@ function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [])
 									echo '<input ',implode(' ',$attribute),'/>';
 								echo '</td>',PHP_EOL;
 								echo '<td class="lcell">';
-									echo sprintf('<label for="%s">',$id),htmlspecialchars($value,ENT_HTML5),'</label>';
+									echo sprintf('<label for="%s">',$id),htmlspecialchars($display_value,ENT_HTML5),'</label>';
 								echo '</td>',PHP_EOL;
 								echo '<td class="lcell">',htmlspecialchars($r_item['device.type'],ENT_HTML5),'</td>',PHP_EOL;
 								echo '<td class="lcell">',htmlspecialchars($vdevice,ENT_HTML5),'</td>',PHP_EOL;
@@ -364,23 +373,39 @@ function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [])
 	echo '</tr>',PHP_EOL;
 	return $b_ret;
 }
-function render_pooldev_view($items = []) { // $items can be an array or a string
+function clc_device_path_from_guid($guid,$data_devices) {
+	if(array_key_exists($guid,$data_devices)):
+		if($data_devices[$guid]['device.not_present']):
+			$retval = sprintf('%s (%s) %s',$guid,$data_devices[$guid]['device.path'],gettext('missing'));
+		else:
+			$retval = $data_devices[$guid]['device.path'];
+		endif;
+	else:
+		$retval = sprintf('%s %s',$guid,gettext('unknown'));
+	endif;
+	return $retval;
+}
+function render_pooldev_view($items = [],$data_devices) { // $items can be an array or a string
 /*
- * Displays the items in a comma seperated list
- * Embedded in the body of a table with 2 columns
+ *	Displays the items in a comma seperated list
+ *	Embedded in the body of a table with 2 columns
  */
 	$b_ret = true;
+	$grid = [];
 	if(is_array($items)):
-		if(1 < count($items)):
-			$last = array_pop($items);
-			$content = sprintf('%s %s %s',implode(', ',$items),gettext('and'),$last);
-		else:
-			$content = implode(' ',$items);
-		endif;
+		foreach($items as $item):
+			$grid[] = clc_device_path_from_guid($item,$data_devices);
+		endforeach;
 	elseif(is_string($items)):
-		$content = $items;
+		$grid[] = clc_device_path_from_guid($items,$data_devices);
 	else:
-		$content = '';
+		$grid[] = '';
+	endif;
+	if(1 < count($grid)):
+		$last = array_pop($grid);
+		$content = sprintf('%s %s %s',implode(', ',$grid),gettext('and'),$last);
+	else:
+		$content = implode(' ',$grid);
 	endif;
 	if(preg_match('/\S/',$content)):
 		$output = $content;
@@ -503,6 +528,7 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
  * Displays a list of radio or checkbox input fields for available devices
  * Embedded in the body of a table with 2 columns
  */
+	$use_si = is_sidisksizevalues();
 	$b_ret = (0 < count($a_items));
 	$attribute = [
 		'name' => 'name="newdev[]"',
@@ -534,7 +560,8 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
 			echo '<table class="area_data_selection">',PHP_EOL;
 				echo '<colgroup>',PHP_EOL;
 					echo '<col style="width:5%">',PHP_EOL; // Checkbox or Radio
-					echo '<col style="width:95%">',PHP_EOL; // Device Name
+					echo '<col style="width:45%">',PHP_EOL; // Device Name
+					echo '<col style="width:50%">',PHP_EOL; // Mediasize
 				echo '</colgroup>',PHP_EOL;
 				echo '<thead>',PHP_EOL;
 					echo '<tr>',PHP_EOL;
@@ -543,7 +570,8 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
 						else:
 							echo '<th class="lhelc"></th>',PHP_EOL;
 						endif;
-						echo '<th class="lhebl">',gtext('Device'),'</th>',PHP_EOL;
+						echo '<th class="lhell">',gtext('Device'),'</th>',PHP_EOL;
+						echo '<th class="lhebl">',gtext('Media Size'),'</th>',PHP_EOL;
 					echo '</tr>',PHP_EOL;
 				echo '</thead>',PHP_EOL;
 				echo '<tbody>',PHP_EOL;
@@ -552,6 +580,7 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
 							$id = sprintf($is_checkbox ? 'checkbox_%s' : 'radio_%s',uuid());
 							$attribute['id'] = sprintf('id="%s"',$id);
 							$value = $r_item['name'];
+							$mediasize = $r_item['mediasize'] ?? 0;
 							$attribute['value'] = sprintf('value="%s"',$value);
 							if(0 < count($a_selected_items)):
 								$attribute['checked'] = (false === array_search($value,$a_selected_items) ? '' : 'checked="checked"');
@@ -560,8 +589,11 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
 								echo '<td class="lcelc">';
 									echo '<input ',implode(' ',$attribute),'/>';
 								echo '</td>',PHP_EOL;
-								echo '<td class="lcebl">';
+								echo '<td class="lcell">';
 									echo sprintf('<label for="%s">',$id),htmlspecialchars($value,ENT_HTML5),'</label>';
+								echo '</td>',PHP_EOL;
+								echo '<td class="lcebl">',PHP_EOL;
+									echo htmlspecialchars(format_bytes($mediasize,2,false,$use_si),ENT_HTML5);
 								echo '</td>',PHP_EOL;
 							echo '</tr>';
 						endforeach;
@@ -627,7 +659,7 @@ function render_selector_radio($title,$a_option,$r_option_selected = '') {
 				echo '<table class="area_data_selection">',PHP_EOL;
 					echo '<colgroup>',PHP_EOL;
 						echo '<col style="width:5%">',PHP_EOL; // Radio
-						echo '<col style="width:95%">',PHP_EOL; // // Name
+						echo '<col style="width:95%">',PHP_EOL; // Name
 					echo '</colgroup>',PHP_EOL;
 					echo '<thead>',PHP_EOL;
 //						html_titleline2($gt_title,2);
@@ -794,7 +826,7 @@ class co_zpool_flags extends co_zpool_flag_base {
 				echo '<table class="area_data_selection">',PHP_EOL;
 					echo '<colgroup>',PHP_EOL;
 						echo '<col style="width:5%">',PHP_EOL; // Checkbox
-						echo '<col style="width:95%">',PHP_EOL; // // Name
+						echo '<col style="width:95%">',PHP_EOL; // Name
 					echo '</colgroup>',PHP_EOL;
 					echo '<thead>',PHP_EOL;
 						echo '<tr>',PHP_EOL;
