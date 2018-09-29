@@ -107,15 +107,52 @@ class co_geom_info {
 		endif;
 		return $a_ret;
 	}
-	public function get_provider_ref(&$a_ret = []) {
+	public function get_provider_by_name(&$a_ret = [],string $name = NULL) {
 		$r_ret = [];
+		if(!is_null($name)):
+			$x_provider = sprintf('//provider[@id and name="%s"]',$name);
+			if(false !== ($a_provider = $this->a_xml->xpath($x_provider))):
+				foreach($a_provider as $r_provider):
+					$r_ret['provider.id'] = (string)$r_provider['id'];
+					$r_ret['name'] = (string)$r_provider->name;
+					$r_ret['mediasize'] = (int)$r_provider->mediasize;
+					$r_ret['sectorsize'] = (int)$r_provider->sectorsize;
+					$r_ret['stripesize'] = (int)$r_provider->stripesize;
+					$r_ret['stripeoffset'] = (int)$r_provider->stripeoffset;
+					$a_ret[(string)$r_provider['id']] = $r_ret;
+				endforeach;
+			endif;
+		endif;
+		return $a_ret;
+	}
+	public function get_provider_ref(&$a_ret = []) {
 		$x_provider = '//provider[@ref]';
 		if(false !== ($a_provider = $this->a_xml->xpath($x_provider))):
 			foreach($a_provider as $r_provider):
-				$r_ret['provider.ref'] = (string)$r_provider['ref'];
-				$a_ret[(string)$r_provider['ref']] = $r_ret;
+				$key = (string)$r_provider['ref'];
+				if(array_key_exists($key,$a_ret)):
+					$a_ret[$key]['count']++;
+				else:
+					$a_ret[$key] = ['provider.ref' => $key,'count' => 1];
+				endif;
 			endforeach;
 		endif;
+		return $a_ret;
+	}
+	/**
+	 *	Read all provider and referenced provider. A reference count of 1 indicates
+	 *	an available provider (a dev has always a reference to the provider).
+	 *	@param array $a_ret
+	 *	@return array
+	 */
+	function get_available_provider(&$a_ret = []) {
+		$a_ref = $this->get_provider_ref();
+		$a_provider = $this->get_provider();
+		foreach($a_ref as $r_ref_key => $r_ref_data):
+			if(1 === $r_ref_data['count'] && array_key_exists($r_ref_key,$a_provider)):
+				$a_ret[] = $a_provider[$r_ref_key];
+			endif;
+		endforeach;
 		return $a_ret;
 	}
 }
