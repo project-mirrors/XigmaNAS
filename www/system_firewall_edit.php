@@ -176,7 +176,7 @@ $pgtitle = [gtext('Network'),gtext('Firewall'),gtext('Rule'),isset($uuid) ? gtex
 				</div>
 				<div id="remarks">
 					<?php
-					$helpinghand = '<a href="' . 'http://www.freebsd.org/doc/en/books/handbook/firewalls-ipfw.html' . '" target="_blank">'
+					$helpinghand = '<a href="' . 'https://www.freebsd.org/doc/en/books/handbook/firewalls-ipfw.html' . '" target="_blank">'
 						. gtext('To get detailed informations about writing firewall rules check the FreeBSD documentation')
 						. '</a>.';
 					html_remark("note", gtext('Note'), $helpinghand);
