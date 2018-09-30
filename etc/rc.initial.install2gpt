@@ -44,10 +44,10 @@ $swapsize =  $g_install['default_swap'];
 
 // Default partition layout
 $partlayout = [
-	["partition" => 1, "fstype" => "boot", "size" => "512k", "volname" => "boot"],
-	["partition" => 2, "fstype" => "ufs",  "size" => $part1size, "volname" => "root"],
-	["partition" => 3, "fstype" => "swap", "size" => $swapsize, "volname" => "swap"],
- 	["partition" => 4, "fstype" => "ufs",  "size" => "*", "volname" => "data"]
+	'boot' => ['partition' => 1,'volname' => 'boot','fstype' => 'boot','size' => 512                             ],
+	'root' => ['partition' => 2,'volname' => 'root','fstype' => 'ufs' ,'size' => $g_install['part1size_embedded']],
+	'swap' => ['partition' => 3,'volname' => 'swap','fstype' => 'swap','size' => $g_install['default_swap']      ],
+ 	'data' => ['partition' => 4,'volname' => 'data','fstype' => 'ufs' ,'size' => '*'                             ]
 ];
 
 // Get product information
@@ -68,111 +68,220 @@ WARNING: There will be some limitations:
 1. This will erase ALL partitions and data on the destination disk!
 
 EOD;
-$result = tui_display_message_ex("{$productname} Embedded Installation", $text, 74, 15);
+$result = tui_display_message_ex(sprintf('%s Embedded Installation',$productname),$text,74,15);
 if(0 != $result):
 	exit(0);
 endif;
 
-// Detect hardware
+//	Detect hardware
 $cdlist = get_install_source_drive();
 $disklist = get_physical_disks_list();
 
 if(0 == count($cdlist)):
-	tui_wait_keypress("Failed to detect any CDROM/USB.");
+	tui_wait_keypress('Failed to detect any CDROM/USB.');
 	exit(0);
 endif;
 
-// Display installation medias
+//	display source media
 $amenuitem = [];
 foreach($cdlist as $cdromk => $cdromv):
-	$menuitem = [];
-	$menuitem['tag'] = $cdromk;
-	$menuitem['item'] = $cdromv['desc'];
-	$amenuitem[] = $menuitem;
+	$amenuitem[] = ['tag' => $cdromk,'item' => $cdromv['desc']];
 endforeach;
-$result = tui_display_menu("Choose installation media", "Select CD/DVD/USB drive for installation source.", 60, 10, 6, $amenuitem, $cdrom);
+$result = tui_display_menu('Choose source media','Select CD/DVD/USB drive as installation source.', 60, 10, 6, $amenuitem, $cdrom);
 if(0 != $result):
 	exit(0);
 endif;
 
-// Display destination medias
+//	display destination media
 $amenuitem = [];
 foreach($disklist as $diskk => $diskv):
 	if ($diskk === $cdrom):
 		continue;
 	endif;
-	$menuitem = [];
-	$menuitem['tag'] = $diskk;
-	$menuitem['item'] = "{$diskv['size']} <{$diskv['desc']}>";
-	$amenuitem[] = $menuitem;
+	$amenuitem[] = ['tag' => $diskk,'item' => sprintf('%s <%s>',$diskv['size'],$diskv['desc'])];
 endforeach;
-$result = tui_display_menu("Choose destination media", "Select media where {$productname} OS should be installed.", 60, 14, 10, $amenuitem, $harddrive);
+$result = tui_display_menu('Choose destination media',sprintf('Select device where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
 if(0 != $result):
 	exit(0);
 endif;
-// Check if destination drive is mounted
+
+//	Check if destination drive is mounted
 if(disks_ismounted_ex($harddrive,'mdisk')):
 	tui_wait_keypress('The destination drive is already in use!');
 	exit(0);
 endif;
 
-// Get customized destination media size for root partition
-$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
-do {
-	$newpart1size = $part1size;
-	$result = tui_display_input($text, 60, 8, $newpart1size);
-	if (0 != $result)
-		exit(0);
-} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
-
-// Update the root slice/partition size.
-$partlayout[1]['size'] = $newpart1size;
-
-//	get media size of destination media and estimate remaining space
-$available_swap_space = 0;
+//	Collect destination media information
+$destination_media_capacity = 0;
 if(array_key_exists($harddrive,$disklist)):
 	if(array_key_exists('devicespecialfile',$disklist[$harddrive])):
 		$diskinfo = disks_get_diskinfo($disklist[$harddrive]['devicespecialfile']);
-		$available_swap_space = $diskinfo['mediasize_bytes'] ?? 0;
-		$available_swap_space -= (512 * 8 * 1024); // subtract 4MiB for size of partition 1 (boot) which is 512KiB
-		$available_swap_space -= ($partlayout[1]['size'] * 1024 * 1024); // subtract size of partition 2 (root)
-		if($available_swap_space > 0):
-			$available_swap_space = intval($available_swap_space / (1024 * 1024)); // convert into MiB
-		else:
-			$available_swap_space = 0;
-		endif;
+		$destination_media_capacity = $diskinfo['mediasize_bytes'] ?? 0;
 	endif;
 endif;
-if($available_swap_space < 512):
-	tui_wait_keypress('The destination drive is not big enough for a swap partition!');
+
+//	set basic parameter
+$part_base_uom = 'M';
+$part_base_uom_factor = 20; // MiB
+$part_base_align = $part_base_uom_factor + 2; // align partitions to 4MiB
+$part_media_capacity = $destination_media_capacity >> $part_base_uom_factor;
+$part_media_capacity_left = $part_media_capacity;
+
+//	parameter for boot slice/partition
+$part_boot_uom = 'k';
+$part_boot_uom_factor = 10; // 1kiB
+$part_boot_size_minimum = $partlayout['boot']['size'];
+$part_boot_size_maximum = $partlayout['boot']['size'];
+$part_boot_size_recommended = $partlayout['boot']['size'];
+$part_boot_size_entered = $part_boot_size_recommended;
+$part_boot_size_usage_minimum = (($part_boot_size_minimum << $part_boot_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_boot_size_usage     = (($part_boot_size_recommended << $part_boot_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+
+//	parameter for root slice/partition
+$part_root_uom = 'M';
+$part_root_uom_factor = 20; // 1MiB
+$part_root_size_minimum = $partlayout['root']['size'];
+$part_root_size_maximum = PHP_INT_MAX;
+$part_root_size_recommended = $partlayout['root']['size'];
+$part_root_size_entered = $part_root_size_recommended;
+$part_root_size_usage_minimum = (($part_root_size_minimum << $part_root_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_root_size_usage     = (($part_root_size_recommended << $part_root_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+
+//	parameter for swap slice/partition
+$part_swap_uom = 'M';
+$part_swap_uom_factor = 20;
+$part_swap_size_minimum = $partlayout['swap']['size'];
+$part_swap_size_maximum = PHP_INT_MAX;
+$part_swap_size_recommended = $partlayout['swap']['size'];
+$part_swap_size_entered = $part_swap_size_recommended;
+$part_swap_size_usage_minimum = (($part_swap_size_minimum << $part_swap_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_swap_size_usage     = (($part_swap_size_recommended << $part_swap_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+
+//	parameter for data slice/partition
+$part_data_uom = 'M';
+$part_data_uom_factor = 20;
+$part_data_size_minimum = 0;
+$part_data_size_maximum = PHP_INT_MAX;
+$part_data_size_recommended = PHP_INT_MAX;
+$part_data_size_entered = $partlayout['data']['size'];
+$part_data_size_usage_minimum = (($part_data_size_minimum << $part_data_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_data_size_usage     = (($part_data_size_recommended << $part_data_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+
+//	test capacity
+if(($part_boot_size_minimum + $part_root_size_usage_minimum + $part_swap_size_usage_minimum) > $part_media_capacity_left):
+	tui_wait_keypress('The destination device is too small.');
 	exit(0);
 endif;
-// Add swap partition?
-//$result = tui_display_yesno("Do you want to add a swap partition?", 40, 5, false);
-$result = 0; // always adding swap
-if(0 == $result):
-	do {
-		$raminfo = system_get_ram_info();
-		$swapsize = intval(ceil($raminfo['physical'] / 1024 / 1024 / 1024)); // Convert to GiB
-		$swapsize *= 1024; /* MiB */
-		$swapsize = max($swapsize,512); // suggested $swapsize should not be less than 512MiB
-		$swapsize = max($swapsize,intval($g_install['default_swap'] ?? 1024)); // suggested $swapsize should not be lower than recommended swap size.
-		$swapsize = min($swapsize,$available_swap_space); // suggested $swapsize should not be higher than what's available.
-		$swapsize = min($swapsize,intval($g_install['default_max_swap'] ?? 2048)); // suggested $swapsize should not be greater than max recommended swap size.
 
-		$result = tui_display_input("Enter the size of the swap partition in MiB (min 512, max {$available_swap_space}, recommended {$g_install['default_swap']}).", 47, 8, $swapsize);
+//	get slice/partition size for boot
+$helper = $part_media_capacity_left - $part_root_size_usage_minimum - $part_swap_size_usage_minimum - $part_data_size_usage_minimum;
+$part_boot_size_maximum = min($part_boot_size_maximum,$helper);
+$text = sprintf('Enter the size of the BOOT partition (minimum %2$d%1$s, maximum %3$d%1$s, recommended %4$d%1$s):',$part_boot_uom,$part_boot_size_minimum,$part_boot_size_maximum,$part_boot_size_recommended);
+do {
+//	$result = tui_display_input($text,60,8,$part_boot_size_entered);
+//	if(0 != $result):
+//		exit(0);
+//	endif;
+	if(is_numeric($part_boot_size_entered) && $part_boot_size_entered >= $part_boot_size_minimum && $part_boot_size_entered <= $part_boot_size_maximum):
+		$partlayout['boot']['size'] = sprintf('%d%s',$part_boot_size_entered,$part_boot_uom);
+		$nocigar = false;
+//	elseif(is_string($part_boot_size_entered) && '*' === $part_boot_size_entered):
+//		$part_boot_size_entered = $part_media_capacity_left;
+//		$partlayout['boot']['size'] = '*';
+//		$nocigar = false;
+	else:
+		$nocigar = true;
+	endif;
+} while ($nocigar);
+//	calculate remaining capacity
+$part_boot_size_usage = (($part_boot_size_entered << $part_boot_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_media_capacity_left -= $part_boot_size_usage;
+
+//	get slice/partition size for root
+$helper = $part_media_capacity_left - $part_swap_size_usage - $part_data_size_usage_minimum;
+$part_root_size_maximum = min($part_root_size_maximum,$helper);
+$text = sprintf('Enter the size of the OS partition (minimum %2$d%1$s, maximum %3$d%1$s, recommended %4$d%1$s):',$part_root_uom,$part_root_size_minimum,$part_root_size_maximum,$part_root_size_recommended);
+do {
+	$result = tui_display_input($text,60,8,$part_root_size_entered);
+	if(0 != $result):
+		exit(0);
+	endif;
+	if(is_numeric($part_root_size_entered) && $part_root_size_entered >= $part_root_size_minimum && $part_root_size_entered <= $part_root_size_maximum):
+		$partlayout['root']['size'] = sprintf('%d%s',$part_root_size_entered,$part_root_uom);
+		$nocigar = false;
+//	elseif(is_string($part_root_size_entered) && '*' === $part_root_size_entered):
+//		$part_data_size_entered = $part_media_capacity_left;
+//		$partlayout[1]['size'] = '*';
+//		$nocigar = false;
+	else:
+		$nocigar = true;
+	endif;
+} while ($nocigar);
+//	calculate remaining capacity
+$part_root_size_usage = (($part_root_size_entered << $part_root_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_media_capacity_left -= $part_root_size_usage;
+
+//	get slice/partition size for swap
+$helper = $part_media_capacity_left - $part_data_size_usage_minimum;
+$part_swap_size_maximum = min($part_swap_size_maximum,$helper);
+$text = sprintf('Enter the size of the swap partition (minimum %2$d%1$s, maximum %3$d%1$s, recommended %4$d%1$s):',$part_swap_uom,$part_swap_size_minimum,$part_swap_size_maximum,$part_swap_size_recommended);
+do {
+	$result = tui_display_input($text,60,8,$part_swap_size_entered);
+	if(0 != $result):
+		exit(0);
+	endif;
+	if(is_numeric($part_swap_size_entered) && $part_swap_size_entered >= $part_swap_size_minimum && $part_swap_size_entered <= $part_swap_size_maximum):
+		$partlayout['swap']['size'] = sprintf('%d%s',$part_swap_size_entered,$part_swap_uom);
+		$part_swap_size_usage = (($part_swap_size_entered << $part_swap_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+		$nocigar = false;
+//	elseif(is_string($part_swap_size_entered) && '*' === $part_swap_size_entered):
+//		$part_swap_size_entered = $part_media_capacity_left;
+//		$partlayout[2]['size'] = '*';
+//		$nocigar = false;
+	else:
+		$nocigar = true;
+	endif;
+} while ($nocigar);
+//	calculate remaining capacity
+$part_swap_size_usage = (($part_swap_size_entered << $part_swap_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_media_capacity_left -= $part_swap_size_usage;
+
+if($part_media_capacity_left > 0):
+	//	get slice/partition size for data
+	$helper = $part_media_capacity_left;
+	$part_data_size_maximum = min($part_data_size_maximum,$helper);
+	$text = sprintf('Enter the size of the data partition (minimum %2$d%1$s, maximum %3$d%1$s, recommended: *):',$part_data_uom,$part_data_size_minimum,$part_data_size_maximum);
+	do {
+		$result = tui_display_input($text,60,8,$part_data_size_entered);
 		if(0 != $result):
 			exit(0);
 		endif;
-	} while (!is_numeric($swapsize) || $swapsize < 512 || $swapsize > $available_swap_space);
-
-	// Add swap slice/partition to the partition layout.
-	//$partlayout[] = ["partition" => 3, "fstype" => "swap", "size" => $swapsize, "volname" => ""];
-	$partlayout[2]['size'] = $swapsize;
+		if(is_numeric($part_data_size_entered) && $part_data_size_entered >= $part_data_size_minimum && $part_data_size_entered <= $part_data_size_maximum):
+			$partlayout['data']['size'] = sprintf('%d%s',$part_data_size_entered,$part_data_uom);
+			$nocigar = false;
+		elseif(is_numeric($part_data_size_entered) && $part_data_size_entered == 0):
+			unset($partlayout['data']);
+			$nocigar = false;
+		elseif(is_string($part_data_size_entered) && '*' === $part_data_size_entered):
+			$part_data_size_entered = $part_media_capacity_left;
+			$partlayout['data']['size'] = '*';
+			$nocigar = false;
+		else:
+			$nocigar = true;
+		endif;
+	} while ($nocigar);
+	$part_data_size_usage = (($part_data_size_entered << $part_data_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+	$part_media_capacity_left -= $part_data_size_usage;
+else:
+	$part_data_size_entered = 0;
+	unset($partlayout['data']);
 endif;
+//	calculate remaining capacity
+$part_data_size_usage = (($part_data_size_entered << $part_data_uom_factor) + (1 << $part_base_align) - 1) >> $part_base_align << $part_base_align >> $part_base_uom_factor;
+$part_media_capacity_left -= $part_data_size_usage;
 
 if(install_mount_cd($cdlist[$cdrom])):
-	tui_wait_keypress("There was a problem while mounting the CDROM/USB drive.");
+	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
 	exit(0);
 endif;
 
