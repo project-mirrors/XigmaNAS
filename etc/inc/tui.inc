@@ -140,13 +140,12 @@ function tui_wait_keypress($message = "") {
  *
  *	@param array $partlayout The preconfigured partition table
  *	@param int $destination_media_capacity Capacity of the destination media in bytes.
- *	@return array Updated partition layout
+ *	@return array Updated partition layout or false on failure
  */
-function tui_partlayout(array $partlayout,int $destination_media_capacity): array {
-	//	tui partition layout
-	$base_uom = 'M';
-	$base_uom_powerof2 = 20; // MiB
-	$base_align = $base_uom_powerof2 + 2; // align partitions to 4MiB
+function tui_partlayout(array $partlayout,int $destination_media_capacity,array $base_settings = []) {
+	$base_uom = $base_settings['uom'] ?? 'M';
+	$base_uom_powerof2 = $base_settings['uom_powerof2'] ?? 20; // MiB
+	$base_align = $base_uom_powerof2 + $base_settings['align'] ?? 2; // align partitions to 4MiB
 	$destination_media_capacity_left = $destination_media_capacity >> $base_uom_powerof2;
 	$destination_media_capacity_reserved = 0;
 	//	initialize variables
@@ -158,7 +157,7 @@ function tui_partlayout(array $partlayout,int $destination_media_capacity): arra
 	//	test capacity
 	if($destination_media_capacity_reserved > $destination_media_capacity_left):
 		tui_wait_keypress('The capacity of the selected device is not sufficient enough.');
-		exit(0);
+		return false;
 	endif;
 	//	cycle through partitions
 	foreach($partlayout as $key => &$row):
@@ -182,14 +181,14 @@ function tui_partlayout(array $partlayout,int $destination_media_capacity): arra
 				if($row['allow_edit']):
 					$result = tui_display_input($text,60,8,$entered_size);
 					if(0 != $result):
-						exit(0);
+						return false;
 					endif;
 				endif;
 				if($row['allow_size'] && is_numeric($entered_size) && $entered_size >= $row['minimum'] && $entered_size <= $row['maximum']):
 					$row['size'] = sprintf('%d%s',$entered_size,$row['uom']);
 					$nocigar = false;
 				elseif($row['allow_zero'] && is_numeric($entered_size) && 0 === $entered_size):
-	//				$entered_size = 0;
+//					$entered_size = 0;
 					$nocigar = false;
 				elseif($row['allow_star'] && is_string($entered_size) && '*' === $entered_size):
 					$entered_size = $row['maximum'];
@@ -218,4 +217,3 @@ function tui_partlayout(array $partlayout,int $destination_media_capacity): arra
 	endforeach;
 	return $partlayout;
 }
-?>

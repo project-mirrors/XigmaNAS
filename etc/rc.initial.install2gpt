@@ -40,7 +40,7 @@ require_once 'tui.inc';
 
 //	default size of OS slice/partition
 $part1size = $g_install['part1size_embedded'];
-//	default swap size))
+//	default swap size
 $swapsize =  $g_install['default_swap'];
 
 // default partition layout
@@ -50,28 +50,28 @@ $partlayout = [
 		'uom' => 'k','minimum' => 512,'maximum' => 512,'recommended' => 512,
 		'allow_edit' => false,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
 		'friendly_name' => 'boot',
-		'has_next' => true,
+		'has_next' => true
 	],
 	[
 		'partition' => 2,'volname' => 'root','fstype' => 'ufs','size' => $part1size,
 		'uom' => 'M','minimum' => $part1size,'maximum' => PHP_INT_MAX,'recommended' => $part1size,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
 		'friendly_name' => 'OS',
-		'has_next' => true,
+		'has_next' => true
 	],
 	[
 		'partition' => 3,'volname' => 'swap','fstype' => 'swap','size' => $swapsize,
 		'uom' => 'M','minimum' => $swapsize >> 1,'maximum' => PHP_INT_MAX,'recommended' => $swapsize,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
 		'friendly_name' => 'swap',
-		'has_next' => true,
+		'has_next' => true
 	],
  	[
 		'partition' => 4,'volname' => 'data','fstype' => 'ufs','size' => '*',
 		'uom' => 'M','minimum' => 0,'maximum' => PHP_INT_MAX,'recommended' => PHP_INT_MAX,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => true,'allow_star' => true,
 		'friendly_name' => 'data',
-		'has_next' => false,
+		'has_next' => false
 	]
 ];
 
@@ -146,6 +146,9 @@ if(array_key_exists($harddrive,$disklist)):
 endif;
 
 $partlayout = tui_partlayout($partlayout,$destination_media_capacity);
+if(false === $partlayout):
+	exit(0);
+endif;
 
 if(install_mount_cd($cdlist[$cdrom])):
 	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
@@ -227,4 +230,3 @@ formated as part of the installation!
 EOD;
 
 tui_wait_keypress($text);
-?>
