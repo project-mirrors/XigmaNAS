@@ -177,7 +177,7 @@ function enable_change(enable_change) {
 					<?php html_inputbox("subsystem", gtext("Subsystem"), $pconfig['subsystem'], gtext("Leave this field empty to use default settings."), false, 40);?>
 					<?php
 					$helpinghand = '<a href="' .
-							'http://www.freebsd.org/cgi/man.cgi?query=sshd_config&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+' . $os_release . '-RELEASE&amp;format=html' .
+							'https://www.freebsd.org/cgi/man.cgi?query=sshd_config&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+' . $os_release . '-RELEASE&amp;format=html' .
 							'" target="_blank">' .
 							gtext('Please check the documentation').
 							'</a>.';
