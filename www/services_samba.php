@@ -473,7 +473,7 @@ function aio_change() {
 					html_inputbox("aiowsize", gtext("AIO Write Size"), $pconfig['aiowsize'], sprintf(gtext("Samba will write to file asynchronously when size of request is bigger than this value. (%d by default)."), 1024), true, 30);
 					/*html_inputbox("aiowbehind", gtext("AIO write behind"), $pconfig['aiowbehind'], "", false, 60);*/
 					$helpinghand = '<a href="'
-						. 'http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html'
+						. 'https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html'
 						. '" target="_blank">'
 						. gtext('Please check the documentation')
 						. '</a>.';
