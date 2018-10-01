@@ -119,4 +119,103 @@ function tui_wait_keypress($message = "") {
 	fgets($fp);
 	fclose($fp);
 }
+/**
+ *	TUI dialog for flexible partitions
+ *		the partition layout is an array with partition records:
+ *
+ *		'partition'     => 4,           // Partition Number
+ *		'volname'       => 'data',      // Volume Name
+ *		'fstype'        => 'ufs',       // File System Type
+ *		'size'          => '*',         // Size
+ *		'uom'           => 'M',         // Unit of Measure
+ *		'minimum'       => 0,           // Minimum Size
+ *		'maximum'       => PHP_INT_MAX, // Maximum Size
+ *		'recommended'   => PHP_INT_MAX, // Recommended Size
+ *		'allow_edit'    => true,        // Is editing allowed?
+ *		'allow_size'    => true,        // Allowed changing size?
+ *		'allow_zero'    => true,        // Allowed to enter 0?
+ *		'allow_star'    => true,        // Allowed to enter *?
+ *		'friendly_name' => 'data',      // Displayed Name
+ *		'has_next'      => false        // End Of Table?
+ *
+ *	@param array $partlayout The preconfigured partition table
+ *	@param int $destination_media_capacity Capacity of the destination media in bytes.
+ *	@return array Updated partition layout
+ */
+function tui_partlayout(array $partlayout,int $destination_media_capacity): array {
+	//	tui partition layout
+	$base_uom = 'M';
+	$base_uom_powerof2 = 20; // MiB
+	$base_align = $base_uom_powerof2 + 2; // align partitions to 4MiB
+	$destination_media_capacity_left = $destination_media_capacity >> $base_uom_powerof2;
+	$destination_media_capacity_reserved = 0;
+	//	initialize variables
+	foreach($partlayout as $key => &$row):
+		$row['uom_powerof2'] = 10 * ((false !== ($test = stripos('kmgtpezy',$row['uom']))) ? 1 + $test : 0);
+		$row['minimum_aligned'] = (($row['minimum'] << $row['uom_powerof2']) + (1 << $base_align) - 1) >> $base_align << $base_align >> $base_uom_powerof2;
+		$destination_media_capacity_reserved += $row['minimum_aligned'];
+	endforeach;
+	//	test capacity
+	if($destination_media_capacity_reserved > $destination_media_capacity_left):
+		tui_wait_keypress('The capacity of the selected device is not sufficient enough.');
+		exit(0);
+	endif;
+	//	cycle through partitions
+	foreach($partlayout as $key => &$row):
+		$destination_media_capacity_reserved -= $row['minimum_aligned'];
+		$entered_size = $row['size'];
+		if($destination_media_capacity_left > 0):
+			if($row['allow_star']):
+				$row['maximum'] = $destination_media_capacity_left - $destination_media_capacity_reserved;
+			else:
+				$row['maximum'] = min($row['maximum'],$destination_media_capacity_left - $destination_media_capacity_reserved);
+			endif;
+			$row['recommended'] = max($row['recommended'],$row['minimum']); // recommended must be >= minimum
+			$row['recommended'] = min($row['recommended'],$row['maximum']); // recommended must be <= maximum
+			if('*' !== $entered_size):
+				$entered_size = min($entered_size,$row['recommended']);
+			endif;
+			if($row['allow_edit']):
+				$text = sprintf('Enter the size of the %1$s partition in %2$sB' . PHP_EOL . '(minimum: %3$s, maximum: %4$s, recommended: %5$s)',$row['friendly_name'],$row['uom'],$row['minimum'],$row['maximum'],$entered_size);
+			endif;
+			do {
+				if($row['allow_edit']):
+					$result = tui_display_input($text,60,8,$entered_size);
+					if(0 != $result):
+						exit(0);
+					endif;
+				endif;
+				if($row['allow_size'] && is_numeric($entered_size) && $entered_size >= $row['minimum'] && $entered_size <= $row['maximum']):
+					$row['size'] = sprintf('%d%s',$entered_size,$row['uom']);
+					$nocigar = false;
+				elseif($row['allow_zero'] && is_numeric($entered_size) && 0 === $entered_size):
+	//				$entered_size = 0;
+					$nocigar = false;
+				elseif($row['allow_star'] && is_string($entered_size) && '*' === $entered_size):
+					$entered_size = $row['maximum'];
+					if(0 === $destination_media_capacity_reserved):
+						//	no reserved partitions left
+						$row['size'] = '*';
+					elseif($row['has_next']):
+						$row['size'] = $row['maximum'];
+					else:
+						$row['size'] = '*';
+					endif;
+					$nocigar = false;
+				else:
+					$nocigar = true;
+				endif;
+			} while ($nocigar);
+		else:
+			$entered_size = 0;
+		endif;
+		//	calculate remaining capacity
+		$entered_size_aligned = (($entered_size << $row['uom_powerof2']) + (1 << $base_align) - 1) >> $base_align << $base_align >> $base_uom_powerof2;
+		$destination_media_capacity_left -= $entered_size_aligned;
+		if(0 === $entered_size):
+			unset($partlayout[$key]);
+		endif;
+	endforeach;
+	return $partlayout;
+}
 ?>
