@@ -188,7 +188,7 @@ foreach ($a_user as $r_user):
 endforeach;
 $gt_auxparam = sprintf(gettext('These parameters will be added to [global] settings in %s.'),'rsyncd.conf')
 	. ' '
-	. '<a href="http://rsync.samba.org/ftp/rsync/rsyncd.conf.html" target="_blank">'
+	. '<a href="https://rsync.samba.org/ftp/rsync/rsyncd.conf.html" target="_blank">'
 	. gettext('Please check the documentation')
 	. '</a>.';
 $pgtitle = [gtext('Services'),gtext('Rsync'),gtext('Server'),gtext('Settings')];
