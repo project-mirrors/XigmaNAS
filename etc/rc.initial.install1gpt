@@ -44,8 +44,20 @@ $swapsize =  $g_install['default_swap'];
 
 // Default partition layout
 $partlayout = [
-	["partition" => 1, "fstype" => "boot", "size" => "512k", "volname" => "boot"],
-	["partition" => 2, "fstype" => "ufs",  "size" => $part1size, "volname" => "root"]
+	[
+		'partition' => 1,'fstype' => 'boot','size' => 512,'volname' => 'boot',
+		'uom' => 'k','minimum' => 512,'maximum' => 512,'recommended' => 512,
+		'allow_edit' => false,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
+		'friendly_name' => 'boot',
+		'has_next' => false
+	],
+	[
+		'partition' => 2,'fstype' => 'ufs','size' => $part1size,'volname' => 'root',
+		'uom' => 'M','minimum' => $part1size,'maximum' => PHP_INT_MAX,'recommended' => $part1size,
+		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
+		'friendly_name' => 'OS',
+		'has_next' => true
+	]
 ];
 
 // Get product information
@@ -90,18 +102,6 @@ $result = tui_display_menu("Choose installation media", "Select CD/DVD/USB drive
 if (0 != $result)
 	exit(0);
 
-// Get customized destination media size for root partition
-$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
-do {
-	$newpart1size = $part1size;
-	$result = tui_display_input($text, 60, 8, $newpart1size);
-	if (0 != $result)
-		exit(0);
-} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
-
-// Update the root slice/partition size.
-$partlayout[1]['size'] = $newpart1size;
-
 // Display destination medias
 $amenuitem = [];
 foreach ($disklist as $diskk => $diskv) {
@@ -118,9 +118,23 @@ if (0 != $result)
 
 // Check if destination drive is mounted
 if (disks_ismounted_ex($harddrive, "mdisk")) {
-	tui_wait_keypress("The destination drive is already in usage!");
+	tui_wait_keypress('The destination drive is already in use!');
 	exit(0);
 }
+
+//	collect destination media information
+$destination_media_capacity = 0;
+if(array_key_exists($harddrive,$disklist)):
+	if(array_key_exists('devicespecialfile',$disklist[$harddrive])):
+		$diskinfo = disks_get_diskinfo($disklist[$harddrive]['devicespecialfile']);
+		$destination_media_capacity = $diskinfo['mediasize_bytes'] ?? 0;
+	endif;
+endif;
+
+$partlayout = tui_partlayout($partlayout,$destination_media_capacity);
+if(false === $partlayout):
+	exit(0);
+endif;
 
 if (install_mount_cd($cdlist[$cdrom])) {
 	tui_wait_keypress("There was a problem while mounting the CDROM/USB drive.");

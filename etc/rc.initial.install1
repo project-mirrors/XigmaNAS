@@ -44,7 +44,15 @@ $part1min = $g_install['part1min_embedded'];
 $swapsize =  $g_install['default_swap'];
 
 // Default slice/partition layout
-$partlayout = [["slice" => 1, "fstype" => "4.2BSD", "size" => $part1size, "volname" => "root"]];
+$partlayout = [
+	[
+		'slice' => 1,'fstype' => '4.2BSD','size' => $part1size,'volname' => 'root',
+		'uom' => 'M','minimum' => $part1min,'maximum' => PHP_INT_MAX,'recommended' => $part1size,
+		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
+		'friendly_name' => 'OS',
+		'has_next' => false
+	]
+];
 
 // Get product information
 $productname = get_product_name();
@@ -88,20 +96,9 @@ foreach ($cdlist as $cdromk => $cdromv) {
 	$amenuitem[] = $menuitem;
 }
 $result = tui_display_menu("Choose installation media", "Select CD/DVD/USB drive for installation source.", 60, 10, 6, $amenuitem, $cdrom);
-if (0 != $result)
+if(0 != $result):
 	exit(0);
-
-// Get customized destination media size for root partition
-$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
-do {
-	$newpart1size = $part1size;
-	$result = tui_display_input($text, 60, 8, $newpart1size);
-	if (0 != $result)
-		exit(0);
-} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
-
-// Update the root slice/partition size.
-$partlayout[0]['size'] = $newpart1size;
+endif;
 
 // Display destination medias
 $amenuitem = [];
@@ -123,29 +120,36 @@ if (disks_ismounted_ex($harddrive, "mdisk")) {
 	exit(0);
 }
 
-// Check destination size
-$diskinfo = disks_get_diskinfo($harddrive);
-if ($diskinfo['mediasize_mbytes'] < $part1size) {
-	// limited for 500MB drive
-	$partlayout[0]['size'] = $part1min;
-}
+//	collect destination media information
+$destination_media_capacity = 0;
+if(array_key_exists($harddrive,$disklist)):
+	if(array_key_exists('devicespecialfile',$disklist[$harddrive])):
+		$diskinfo = disks_get_diskinfo($disklist[$harddrive]['devicespecialfile']);
+		$destination_media_capacity = $diskinfo['mediasize_bytes'] ?? 0;
+	endif;
+endif;
 
-if (install_mount_cd($cdlist[$cdrom])) {
+$partlayout = tui_partlayout($partlayout,$destination_media_capacity);
+if(false === $partlayout):
+	exit(0);
+endif;
+
+if(install_mount_cd($cdlist[$cdrom])):
 	tui_wait_keypress("There was a problem while mounting the CDROM/USB drive.");
 	exit(0);
-}
+endif;
 
-if (install_init_disk($harddrive, $partlayout)) {
+if(install_init_disk($harddrive, $partlayout)):
 	install_unmount_cd();
 	tui_wait_keypress("There was a problem during initializing the destination disk.");
 	exit(0);
-}
+endif;
 
-if (install_dd_image("{$harddrive}s1a")) {
+if(install_dd_image("{$harddrive}s1a")):
 	install_unmount_cd();
 	tui_wait_keypress("There was a problem while copying files.");
 	exit(0);
-}
+endif;
 
 /*
 if (add_default_swap($harddrive)) {
@@ -181,4 +185,3 @@ EOD;
 }
 
 tui_wait_keypress($text);
-?>
