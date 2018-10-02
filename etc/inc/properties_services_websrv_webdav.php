@@ -95,7 +95,7 @@ class websrv_webdav_edit_properties extends websrv_webdav_properties {
 		$property = parent::init_name();
 		$description = gettext('Name of the WebDAV Record.');
 		$placeholder = gettext('WebDAV Name');
-		$regexp = '/^\S{1,223}$/';
+		$regexp = '/^\S.{0,222}$/';
 		$property->
 			set_id('name')->
 			set_description($description)->
