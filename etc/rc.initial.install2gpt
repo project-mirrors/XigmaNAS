@@ -38,36 +38,36 @@ require_once 'install.inc';
 require_once 'util.inc';
 require_once 'tui.inc';
 
-//	default size of OS slice/partition
+//	default size of slice/partition 1 (used for OS)
 $part1size = $g_install['part1size_embedded'];
-//	default swap size
+$part1min = $g_install['part1min_embedded'];
 $swapsize =  $g_install['default_swap'];
 
-// default partition layout
+//	default slice/partition layout
 $partlayout = [
 	[
-		'partition' => 1,'volname' => 'boot','fstype' => 'boot','size' => 512,
+		'partition' => 1,'fstype' => 'boot','size' => 512,'volname' => 'boot',
 		'uom' => 'k','minimum' => 512,'maximum' => 512,'recommended' => 512,
 		'allow_edit' => false,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
 		'friendly_name' => 'boot',
 		'has_next' => true
 	],
 	[
-		'partition' => 2,'volname' => 'root','fstype' => 'ufs','size' => $part1size,
+		'partition' => 2,'fstype' => 'ufs','size' => $part1size,'volname' => 'root',
 		'uom' => 'M','minimum' => $part1size,'maximum' => PHP_INT_MAX,'recommended' => $part1size,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
 		'friendly_name' => 'OS',
 		'has_next' => true
 	],
 	[
-		'partition' => 3,'volname' => 'swap','fstype' => 'swap','size' => $swapsize,
+		'partition' => 3,'fstype' => 'swap','size' => $swapsize,'volname' => 'swap',
 		'uom' => 'M','minimum' => $swapsize >> 1,'maximum' => PHP_INT_MAX,'recommended' => $swapsize,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
 		'friendly_name' => 'swap',
 		'has_next' => true
 	],
  	[
-		'partition' => 4,'volname' => 'data','fstype' => 'ufs','size' => '*',
+		'partition' => 4,'fstype' => 'ufs','size' => '*','volname' => 'data',
 		'uom' => 'M','minimum' => 0,'maximum' => PHP_INT_MAX,'recommended' => PHP_INT_MAX,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => true,'allow_star' => true,
 		'friendly_name' => 'data',
@@ -75,10 +75,10 @@ $partlayout = [
 	]
 ];
 
-// Get product information
+//	get product information
 $productname = get_product_name();
 
-// Display information
+//	display information
 $text = <<<EOD
 
 {$productname} 'Embedded' installer for HDD, SSD, CF or USB flash drive.
@@ -93,17 +93,17 @@ WARNING: There will be some limitations:
 1. This will erase ALL partitions and data on the destination disk!
 
 EOD;
-$result = tui_display_message_ex(sprintf('%s Embedded Installation',$productname),$text,74,15);
+$result = tui_display_message_ex("{$productname} Embedded Installation",$text,74,15);
 if(0 != $result):
 	exit(0);
 endif;
 
-//	Detect hardware
+//	detect hardware
 $cdlist = get_install_source_drive();
 $disklist = get_physical_disks_list();
 
 if(0 == count($cdlist)):
-	tui_wait_keypress('Failed to detect any CDROM/USB.');
+	tui_wait_keypress('Failed to detect any CDROM/USB device.');
 	exit(0);
 endif;
 
@@ -112,7 +112,7 @@ $amenuitem = [];
 foreach($cdlist as $cdromk => $cdromv):
 	$amenuitem[] = ['tag' => $cdromk,'item' => $cdromv['desc']];
 endforeach;
-$result = tui_display_menu('Choose source media','Select CD/DVD/USB drive as installation source.',60,10,6,$amenuitem,$cdrom);
+$result = tui_display_menu('Choose Source','Select CD/DVD/USB drive.',60,10,6,$amenuitem,$cdrom);
 if(0 != $result):
 	exit(0);
 endif;
@@ -120,12 +120,11 @@ endif;
 //	display destination media
 $amenuitem = [];
 foreach($disklist as $diskk => $diskv):
-	if ($diskk === $cdrom):
-		continue;
+	if($diskk !== $cdrom):
+		$amenuitem[] = ['tag' => $diskk,'item' => "{$diskv['size']} <{$diskv['desc']}>"];
 	endif;
-	$amenuitem[] = ['tag' => $diskk,'item' => sprintf('%s <%s>',$diskv['size'],$diskv['desc'])];
 endforeach;
-$result = tui_display_menu('Choose destination media',sprintf('Select device where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
+$result = tui_display_menu('Choose Destination',sprintf('Select media where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
 if(0 != $result):
 	exit(0);
 endif;
@@ -161,14 +160,14 @@ if(install_init_gptdisk($harddrive,$partlayout)):
 	exit(0);
 endif;
 
-if(install_dd_image(sprintf('%sp2',$harddrive))):
+if(install_dd_image("{$harddrive}p2")):
 	install_unmount_cd();
 	tui_wait_keypress('There was a problem while copying files.');
 	exit(0);
 endif;
 
 /*
-if(add_default_swap(sprintf('%sp3',$harddrive))):
+if(add_default_swap("{$harddrive}p3")):
 	install_unmount_cd();
 	tui_wait_keypress('There was a problem while adding swap.');
 	exit(0);
@@ -185,7 +184,7 @@ $text = <<<EOD
 EOD;
 
 $boot_lowmem = trim(@file_get_contents('/etc/boot_lowmem'));
-if ('1' === $boot_lowmem):
+if('1' === $boot_lowmem):
 	// The lowmem version uses swap on it. Should not remove!!
 	$text .= <<<EOD
 

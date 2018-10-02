@@ -40,6 +40,7 @@ require_once 'tui.inc';
 
 //	default size of slice/partition 1 (used for OS)
 $part1size = $g_install['part1size_embedded'];
+$part1min = $g_install['part1min_embedded'];
 $swapsize =  $g_install['default_swap'];
 
 //	default slice/partition layout
@@ -77,7 +78,7 @@ WARNING: There will be some limitations:
 2. You can't use your destination disk for sharing data.
 
 EOD;
-$result = tui_display_message_ex("{$productname} Embedded Installation", $text, 74, 15);
+$result = tui_display_message_ex("{$productname} Embedded Installation",$text,74,15);
 if(0 != $result):
 	exit(0);
 endif;
@@ -91,12 +92,12 @@ if(0 == count($cdlist)):
 	exit(0);
 endif;
 
-//	display installation medias
+//	display source media
 $amenuitem = [];
 foreach($cdlist as $cdromk => $cdromv):
 	$amenuitem[] = ['tag' => $cdromk,'item' => $cdromv['desc']];
 endforeach;
-$result = tui_display_menu('Choose installation media','Select CD/DVD/USB drive for installation source.',60,10,6,$amenuitem,$cdrom);
+$result = tui_display_menu('Choose Source','Select CD/DVD/USB drive.',60,10,6,$amenuitem,$cdrom);
 if(0 != $result):
 	exit(0);
 endif;
@@ -108,7 +109,7 @@ foreach($disklist as $diskk => $diskv):
 		$amenuitem[] = ['tag' => $diskk,'item' => "{$diskv['size']} <{$diskv['desc']}>"];
 	endif;
 endforeach;
-$result = tui_display_menu('Choose destination media',"Select media where {$productname} OS should be installed.",60,14,10,$amenuitem,$harddrive);
+$result = tui_display_menu('Choose Destination',sprintf('Select media where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
 if(0 != $result):
 	exit(0);
 endif;
@@ -138,7 +139,7 @@ if(install_mount_cd($cdlist[$cdrom])):
 	exit(0);
 endif;
 
-if(install_init_gptdisk($harddrive, $partlayout)):
+if(install_init_gptdisk($harddrive,$partlayout)):
 	install_unmount_cd();
 	tui_wait_keypress('There was a problem during initializing the destination disk.');
 	exit(0);
@@ -167,8 +168,8 @@ $text = <<<EOD
 
 EOD;
 
-$boot_lowmem = trim(@file_get_contents("/etc/boot_lowmem"));
-if($boot_lowmem === '1'):
+$boot_lowmem = trim(@file_get_contents('/etc/boot_lowmem'));
+if('1' === $boot_lowmem):
 	// The lowmem version uses swap on it. Should not remove!!
 	$text .= <<<EOD
 

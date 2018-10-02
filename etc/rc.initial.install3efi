@@ -38,11 +38,11 @@ require_once 'install.inc';
 require_once 'util.inc';
 require_once 'tui.inc';
 
-// Default size of slice/partition 1 (used for OS)
+//	default size of slice/partition 1 (used for OS)
 $part1size = $g_install['part1size_full'];
 $swapsize =  $g_install['default_swap'];
 
-// Default partition layout
+//	default slice/partition layout
 $partlayout = [
 	[
 		'partition' => 1,'fstype' => 'efi','size' => 200,'volname' => 'boot',
@@ -74,10 +74,10 @@ $partlayout = [
 	]
 ];
 
-// Get product information
+//	get product information
 $productname = get_product_name();
 
-// Display information
+//	display information
 $text = <<<EOD
 
 {$productname} 'Full' installer for Hard Drives & Solid State Drives.
@@ -96,42 +96,38 @@ if(0 != $result):
 	exit(0);
 endif;
 
-// Detect hardware
+//	detect hardware
 $cdlist = get_install_source_drive();
 $disklist = get_physical_disks_list();
 
 if(0 == count($cdlist)):
-	tui_wait_keypress("Failed to detect any CDROM/USB.");
+	tui_wait_keypress('Failed to detect any CDROM/USB device.');
 	exit(0);
 endif;
 
-// Display installation medias
+//	display source media
 $amenuitem = [];
 foreach($cdlist as $cdromk => $cdromv):
 	$amenuitem[] = ['tag' => $cdromk,'item' => $cdromv['desc']];
-endif;
-$result = tui_display_menu('Choose installation media','Select CD/DVD/USB drive for installation source.',60,10,6,$amenuitem,$cdrom);
+endforeach;
+$result = tui_display_menu('Choose Source','Select CD/DVD/USB drive.',60,10,6,$amenuitem,$cdrom);
 if(0 != $result):
 	exit(0);
 endif;
 
-// Display destination medias
+//	display destination media
 $amenuitem = [];
 foreach($disklist as $diskk => $diskv):
-	if ($diskk === $cdrom):
-		continue;
+	if($diskk !== $cdrom):
+		$amenuitem[] = ['tag' => $diskk,'item' => "{$diskv['size']} <{$diskv['desc']}>"];
 	endif;
-	$menuitem = [];
-	$menuitem['tag'] = $diskk;
-	$menuitem['item'] = "{$diskv['size']} <{$diskv['desc']}>";
-	$amenuitem[] = $menuitem;
 endforeach;
-$result = tui_display_menu("Choose destination media", "Select media where {$productname} OS should be installed.", 60, 14, 10, $amenuitem, $harddrive);
+$result = tui_display_menu('Choose Destination',sprintf('Select media where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
 if(0 != $result):
 	exit(0);
 endif;
 
-// Check if destination drive is mounted
+//	check if destination drive is mounted
 if(disks_ismounted_ex($harddrive,'mdisk')):
 	tui_wait_keypress('The destination drive is already in use!');
 	exit(0);
@@ -152,54 +148,54 @@ if(false === $partlayout):
 endif;
 
 if(install_mount_cd($cdlist[$cdrom])):
-	tui_wait_keypress("There was a problem while mounting the CDROM/USB drive.");
+	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
 	exit(0);
 endif;
 
-if(install_init_gptdisk($harddrive, $partlayout)):
+if(install_init_gptdisk($harddrive,$partlayout)):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem during initializing the destination disk.");
+	tui_wait_keypress('There was a problem during initializing the destination disk.');
 	exit(0);
 endif;
 
 if(install_harddrive_image($harddrive)):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem while copying files.");
+	tui_wait_keypress('There was a problem while copying files.');
 	exit(0);
 endif;
 
 /*
-if (add_default_swap("{$harddrive}p3")) {
+if(add_default_swap("{$harddrive}p3")):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem while adding swap.");
+	tui_wait_keypress('There was a problem while adding swap.');
 	exit(0);
-}
+endif;
 */
 
 install_unmount_cd();
 
-// Display final message
+//	display final message
 $text = <<<EOD
 
 {$productname} has been installed on {$harddrive}p2.
 
 EOD;
 
-$boot_lowmem = trim(@file_get_contents("/etc/boot_lowmem"));
-if ($boot_lowmem === "1") {
+$boot_lowmem = trim(@file_get_contents('/etc/boot_lowmem'));
+if('1' === $boot_lowmem):
 	// The lowmem version uses swap on it. Should not remove!!
 	$text .= <<<EOD
 
 You can now reboot the server.
 
 EOD;
-} else {
+else:
 	$text .= <<<EOD
 
 You can now safely remove the LiveCD/USB and reboot the server.
 
 EOD;
-}
+endif;
 
 $text .= <<<EOD
 
