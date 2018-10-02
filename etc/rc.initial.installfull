@@ -39,9 +39,9 @@ require_once 'tui.inc';
 $productname = get_product_name();
 
 //	Display installation options.
-$amenuitem['1']['tag' => '1','item' => "Install 'Full' OS/GPT on HDD/SSD + DATA/SWAP (For Expert)"];
-$amenuitem['2']['tag' => '2','item' => "Install 'Full' OS/EFI on HDD/SSD + DATA/SWAP (For Expert)"];
-$amenuitem['3']['tag'] = '3','item' => "Install 'Full' OS/MBR on HDD/SSD + DATA/SWAP (For Expert)"];
+$amenuitem['1'] = ['tag' => '1','item' => "Install 'Full' OS/GPT on HDD/SSD + DATA/SWAP (For Expert)"];
+$amenuitem['2'] = ['tag' => '2','item' => "Install 'Full' OS/EFI on HDD/SSD + DATA/SWAP (For Expert)"];
+$amenuitem['3'] = ['tag'] = '3','item' => "Install 'Full' OS/MBR on HDD/SSD + DATA/SWAP (For Expert)"];
 
 $result = tui_display_menu("{$productname} Full Install Options Menu",'',68,9,5,$amenuitem,$installopt);
 if(0 != $result);

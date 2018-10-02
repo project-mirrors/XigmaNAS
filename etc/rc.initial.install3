@@ -192,7 +192,7 @@ To use the DATA partition:
 
 EOD;
 
-if (0 < $swapsize) {
+if(0 < $swapsize):
 	$text .= <<<EOD
 
 To use the SWAP partition:
@@ -201,12 +201,12 @@ To use the SWAP partition:
   Type: Device, Device: /dev/{$harddrive}s2b
 
 EOD;
-}
+endif;
 
 $text .= <<<EOD
 
 DO NOT format the drive {$harddrive}! The DATA partition has already been
-formated for you as part of the installation!
+formated as part of the installation!
 EOD;
 
 tui_wait_keypress($text);

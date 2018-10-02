@@ -65,7 +65,7 @@ $partlayout = [
 		'friendly_name' => 'swap',
 		'has_next' => true
 	],
- 	[
+	[
 		'partition' => 4,'fstype' => 'ufs','size' => '*', 'volname' => 'data',
 		'uom' => 'M','minimum' => 0,'maximum' => PHP_INT_MAX,'recommended' => PHP_INT_MAX,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => true,'allow_star' => true,
@@ -152,7 +152,7 @@ if(install_mount_cd($cdlist[$cdrom])):
 	exit(0);
 endif;
 
-if(install_init_gptdisk($harddrive, $partlayout)):
+if(install_init_gptdisk($harddrive,$partlayout)):
 	install_unmount_cd();
 	tui_wait_keypress('There was a problem during initializing the destination disk.');
 	exit(0);
@@ -208,7 +208,7 @@ To use the DATA partition:
 EOD;
 
 /*
-if (0 < $swapsize) {
+if(0 < $swapsize):
 	$text .= <<<EOD
 
 To use the SWAP partition:
@@ -217,13 +217,13 @@ To use the SWAP partition:
   Type: Device, Device: /dev/{$harddrive}p3
 
 EOD;
-}
+endif;
 */
 
 $text .= <<<EOD
 
 DO NOT format the drive {$harddrive}! The DATA partition has already been
-formated for you as part of the installation!
+formated as part of the installation!
 EOD;
 
 tui_wait_keypress($text);

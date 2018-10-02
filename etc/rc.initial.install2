@@ -59,7 +59,7 @@ $partlayout = [
 		'friendly_name' => 'swap',
 		'has_next' => true
 	],
- 	[
+	[
 		'slice' => 3,'fstype' => '4.2BSD','size' => '*','volname' => 'data',
 		'uom' => 'M','minimum' => 0,'maximum' => PHP_INT_MAX,'recommended' => 0,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => true,'allow_star' => true,
@@ -217,7 +217,7 @@ endif;
 $text .= <<<EOD
 
 DO NOT format the drive {$harddrive}! The DATA partition has already been
-formated for you as part of the installation!
+formated as part of the installation!
 EOD;
 
 tui_wait_keypress($text);

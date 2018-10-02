@@ -65,7 +65,7 @@ $partlayout = [
 		'friendly_name' => 'swap',
 		'has_next' => true
 	],
- 	[
+	[
 		'partition' => 4,'fstype' => 'ufs','size' => '*','volname' => 'data',
 		'uom' => 'M','minimum' => 0,'maximum' => PHP_INT_MAX,'recommended' => 0,
 		'allow_edit' => true,'allow_size' => true,'allow_zero' => true,'allow_star' => true,
@@ -91,7 +91,7 @@ WARNING: There will be some limitations:
 1. This will erase ALL partitions and data on the destination disk!
 
 EOD;
-$result = tui_display_message_ex("{$productname} Full Installation", $text, 74, 15);
+$result = tui_display_message_ex("{$productname} Full Installation",$text,74,15);
 if(0 != $result):
 	exit(0);
 endif;
@@ -208,7 +208,7 @@ To use the DATA partition:
 EOD;
 
 /*
-if (0 < $swapsize) {
+if(0 < $swapsize):
 	$text .= <<<EOD
 
 To use the SWAP partition:
@@ -217,13 +217,13 @@ To use the SWAP partition:
   Type: Device, Device: /dev/{$harddrive}p3
 
 EOD;
-}
+endif;
 */
 
 $text .= <<<EOD
 
 DO NOT format the drive {$harddrive}! The DATA partition has already been
-formated for you as part of the installation!
+formated as part of the installation!
 EOD;
 
 tui_wait_keypress($text);
