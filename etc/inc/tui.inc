@@ -201,8 +201,12 @@ function tui_partlayout(array $partlayout,int $destination_media_capacity,array 
 						$row['size'] = '*';
 					endif;
 					$nocigar = false;
-				else:
+				elseif($row['allow_edit']):
 					$nocigar = true;
+				else:
+					$no_cigar = true;
+					tui_wait_keypress('There is a problem with the partition configuration.');
+					return false;
 				endif;
 			} while ($nocigar);
 		else:
