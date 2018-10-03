@@ -12,12 +12,12 @@ Changes:
 - Upgrade msmtp to 1.8.0.
 - Upgrade e2fsprogs to 1.44.4.
 - Upgrade samba to 4.8.5.
-- Upgrade syncthing to 0.14.50.
 - Upgrade php to 7.2.10.
 - Upgrade dmidecode to 3.2.
 - Upgrade nano to 3.1.
 - Upgrade sudo to 1.8.25p1.
-- Upgrade devcpu-data to 1.20
+- Upgrade devcpu-data to 1.20.
+- Upgrade syncthing to 0.14.51.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
