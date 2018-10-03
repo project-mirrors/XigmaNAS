@@ -188,8 +188,9 @@ function tui_partlayout(array $partlayout,int $destination_media_capacity,array 
 					$row['size'] = $entered_size;
 					$nocigar = false;
 				elseif($row['allow_zero'] && is_numeric($entered_size) && 0 === $entered_size):
+					//	record will be unset
 //					$entered_size = 0;
-					$row['size'] = $entered_size;
+//					$row['size'] = $entered_size;
 					$nocigar = false;
 				elseif($row['allow_star'] && is_string($entered_size) && '*' === $entered_size):
 					$entered_size = $row['maximum'];
