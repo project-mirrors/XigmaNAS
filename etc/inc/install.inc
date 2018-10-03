@@ -633,54 +633,54 @@ function install_restore_config($disk) {
 
 	return 0;
 }
-
-// Create two partitions on the destination hard drive.
-// $disk - Disk name (e.g. ad0)
-// $partlayout - The layout description of the disk, e.g.
-// array(
-//   ["slice" => 1, "fstype" => "4.2BSD", "size" => 64, "volname" => "root"],
-//   ["slice" => 2, "fstype" => "4.2BSD", "size" => "*", "volname" => "data"],
-//   [("slice" => 3, "fstype" => "swap", "size" => 200, "volname" => ""]
-//   ["slice" => 4, "fstype" => "unused", "size" => 0, "volname" => ""]
-// )
-// Return 0 if successful, otherwise 1
-function install_init_disk($disk, $partlayout) {
+/**
+ *	Create two partitions on the destination hard drive.
+ *	@param string $disk Disk name (e.g. ad0)
+ *	@param array $partlayout The layout description of the disk, e.g.
+ *	[
+ *		['slice' => 1, "fstype" => "4.2BSD", "size" => 64, "volname" => "root"],
+ *		['slice' => 2, "fstype" => "4.2BSD", "size" => "*", "volname" => "data"],
+ *		['slice' => 3, "fstype" => "swap", "size" => 200, "volname" => ""]
+ *		['slice' => 4, "fstype" => "unused", "size" => 0, "volname" => ""]
+ *	]
+ *
+ *	@return int Return 0 when successful, otherwise 1
+ */
+function install_init_disk($disk,$partlayout) {
 	set_kern_geom_debugflags(0x10);
-	// force delete existing partitions (error is OK)
+	//	force delete existing partitions (error is OK)
 	mwexec("/sbin/gpart destroy -F {$disk}");
-	// Initialize the destination using fdisk.
+	//	initialize the destination using fdisk.
 	write_console("Create slice/partition table on device {$disk}.\n");
-	$slicesize = [0, 0, 0, 0];
+	$slicesize = [0,0,0,0];
 	foreach($partlayout as $partlayoutv):
-		// add 4MiB alignment
 		if($partlayoutv['size'] !== "*"):
-			$slicesize[$partlayoutv['slice'] - 1] = $partlayoutv['size'] + 4;
-		else:
-			$slicesize[$partlayoutv['slice'] - 1] = $partlayoutv['size'];
+			//	convert partition layout to MiB, align to 4MiB
+			$mib = $partlayoutv['size'] << $partlayoutv['uom_powerof2'] + (1 << 22 - 1) >> 22 << 2;
+			$partlayoutv['size'] = $mib;
 		endif;
+		$slicesize[$partlayoutv['slice'] - 1] = $partlayoutv['size'];
 	endforeach;
-	if(install_fdisk($disk, $slicesize)):
+	if(install_fdisk($disk,$slicesize)):
 		set_kern_geom_debugflags(0);
 		write_console("Error: Failed to create slice/partition table!\n");
 		return 1;
 	endif;
-
-	// Get partition information
-	$partinfo = disks_get_partition_info($disk);
-
-	// AFT support
-	//$alignsector = 8; // 4KB/AFT
-	$alignsector = 64; // 32KB/blocksize
+	//	get partition information
+//	$partinfo = disks_get_partition_info($disk);
+	//	AFT support
+//	$alignsector = 8; // 4KB/AFT
+//	$alignsector = 64; // 32KB/blocksize
 	$newfs_sector = 4096;
 	$newfs_fsize = 4096;
 	$newfs_bsize = $newfs_fsize * 8;
 
-	// Create disk labels.
+	//	create disk labels.
 	write_console("Create BSD label on slice/partition:\n");
 	foreach($partlayout as $partlayoutv):
 		$diskdevicename = "{$disk}s{$partlayoutv['slice']}";
-		$startsector = $partinfo[$partlayoutv['slice']]['start'];
-		$slicesize = $partinfo[$partlayoutv['slice']]['size'];
+//		$startsector = $partinfo[$partlayoutv['slice']]['start'];
+//		$slicesize = $partinfo[$partlayoutv['slice']]['size'];
 
 		write_console("  {$diskdevicename}\n");
 
@@ -693,8 +693,8 @@ function install_init_disk($disk, $partlayout) {
 			return 1;
 		endif;
 		if($partlayoutv['slice'] === 1):
-			// install boot code
-			//write_console("    /sbin/gpart bootcode -b /boot/boot {$diskdevicename}\n");
+			//	install boot code
+//			write_console("    /sbin/gpart bootcode -b /boot/boot {$diskdevicename}\n");
 			if(mwexec("/sbin/gpart bootcode -b /boot/boot {$diskdevicename}")):
 				set_kern_geom_debugflags(0);
 				write_console("Error: Failed to install boot on {$diskdevicename}!\n");
@@ -709,24 +709,21 @@ function install_init_disk($disk, $partlayout) {
 		if($partlayoutv['size'] !== "*"):
 			$flags .= " -s {$partlayoutv['size']}m";
 		endif;
-		//write_console("    /sbin/gpart add {$flags} {$diskdevicename}\n");
+		//	write_console("    /sbin/gpart add {$flags} {$diskdevicename}\n");
 		if(mwexec("/sbin/gpart add {$flags} {$diskdevicename}")):
 			set_kern_geom_debugflags(0);
 			write_console("\nError: Failed to add BSD label on {$diskdevicename}!\n");
 			return 1;
 		endif;
 	endforeach;
-
-	// Create file systems and set volume label.
+	// create file systems and set volume label.
 	write_console("Create file system on slice/partition:\n");
 	foreach($partlayout as $partlayoutv):
-		// Do not create a file system for swap/unused partitions.
-		if("swap" === $partlayoutv['fstype'] || "unused" === $partlayoutv['fstype']):
+		//	do not create a file system for swap/unused partitions.
+		if('swap' === $partlayoutv['fstype'] || 'unused' === $partlayoutv['fstype']):
 			continue;
 		endif;
-
 		$diskdevicename = "{$disk}s{$partlayoutv['slice']}a";
-
 		write_console("  {$diskdevicename}\n");
 		if(install_newfs($diskdevicename, $partlayoutv['volname'],$newfs_sector,$newfs_fsize,$newfs_bsize)):
 			set_kern_geom_debugflags(0);
@@ -735,49 +732,45 @@ function install_init_disk($disk, $partlayout) {
 		endif;
 	endforeach;
 	set_kern_geom_debugflags(0);
-
 	return 0;
 }
-
-// Create partitions on the destination hard drive.
-// $disk - Disk name (e.g. ad0)
-// $partlayout - The layout description of the disk, e.g.
-// array(
-//   ["partition" => 1, "fstype" => "boot", "size" => "512k", "volname" => "boot"],
-//   ["partition" => 2, "fstype" => "ufs",  "size" => 800, "volname" => "root"],
-//   ["partition" => 3, "fstype" => "swap", "size" => 1024, "volname" => "swap"],
-//   ["partition" => 4, "fstype" => "ufs",  "size" => "*", "volname" => "data"]
-// )
-// Return 0 if successful, otherwise 1
-function install_init_gptdisk($disk, $partlayout) {
+/**
+ *	Create partitions on the destination hard drive.
+ *	@param string $disk Disk name (e.g. ad0)
+ *	@param array $partlayout The layout description of the disk, e.g.
+ *	[
+ *		["partition" => 1, "fstype" => "boot", "size" => "512k", "volname" => "boot"],
+ *		["partition" => 2, "fstype" => "ufs",  "size" => 800, "volname" => "root"],
+ *		["partition" => 3, "fstype" => "swap", "size" => 1024, "volname" => "swap"],
+ *		["partition" => 4, "fstype" => "ufs",  "size" => "*", "volname" => "data"]
+ *	]
+ *	@return int Returns 0 when successful, otherwise 1
+ */
+function install_init_gptdisk($disk,$partlayout) {
 	set_kern_geom_debugflags(0x10);
-	// force delete existing partitions (error is OK)
+	//	force delete existing partitions (error is OK)
 	mwexec("/sbin/gpart destroy -F {$disk}");
-	// Initialize the destination
+	//	initialize the destination
 	if(mwexec("/sbin/gpart create -s gpt {$disk}")):
 		set_kern_geom_debugflags(0);
 		write_console("Error: Failed to create GPT partition table!\n");
 		return 1;
 	endif;
-
 	$newfs_sector = 4096;
 	$newfs_fsize = 4096;
 	$newfs_bsize = $newfs_fsize * 8;
-
 	write_console("Create partition table on device {$disk}.\n");
 	foreach($partlayout as $partlayoutv):
 		$diskdevicename = "{$disk}p{$partlayoutv['partition']}";
-		$partitionsize = $partlayoutv['size'];
-		// if don't have suffix, assume MB
-		if($partitionsize !== "*" && !preg_match('/[kmgt]$/i', $partitionsize)):
-			$partitionsize .= "m"; /* MB */
+		$partitionsize = sprintf('%d%s',$partlayoutv['size'],$partlayoutv['uom'] ?? '');
+		//	assume MiB if suffix is missing,
+		if($partitionsize !== "*" && !preg_match('/[kmgtpezy]$/i',$partitionsize)):
+			$partitionsize .= "M"; /* MiB */
 		endif;
-
 		write_console("  {$diskdevicename}\n");
-
-		// force delete existing partitions (error is OK)
+		//	force delete existing partitions (error is OK)
 		mwexec("/sbin/gpart destroy -F {$diskdevicename}");
-		// Create GPT partition with alignment (UFS or swap)
+		//	create GPT partition with alignment (UFS or swap)
 		if($partlayoutv['fstype'] === "boot"):
 			$flags = "-a 4k -t freebsd-boot -l gptboot";
 		elseif($partlayoutv['fstype'] === "efi"):
@@ -790,7 +783,7 @@ function install_init_gptdisk($disk, $partlayout) {
 				$flags .= " -l gptroot";
 			endif;
 		endif;
-		if($partitionsize !== "*"):
+		if($partitionsize !== '*'):
 			$flags .= " -s {$partitionsize}";
 		endif;
 		$flags .= " -i {$partlayoutv['partition']}";
@@ -799,15 +792,15 @@ function install_init_gptdisk($disk, $partlayout) {
 			write_console("\nError: Failed to add partition on {$disk}!\n");
 			return 1;
 		endif;
-		if($partlayoutv['fstype'] === "boot"):
-			// Install boot code
+		if($partlayoutv['fstype'] === 'boot'):
+			//	install boot code
 			if(mwexec("/sbin/gpart bootcode -b /boot/pmbr -p /boot/gptboot -i {$partlayoutv['partition']} {$disk}")):
 				set_kern_geom_debugflags(0);
 				write_console("Error: Failed to install gptboot on {$diskdevicename}!\n");
 				return 1;
 			endif;
 		elseif($partlayoutv['fstype'] === "efi"):
-			// Install efi code
+			//	install efi code
 			if(mwexec("/sbin/gpart bootcode -p /boot/boot1.efifat -i {$partlayoutv['partition']} {$disk}")):
 				set_kern_geom_debugflags(0);
 				write_console("Error: Failed to install efi on {$diskdevicename}!\n");
@@ -815,17 +808,14 @@ function install_init_gptdisk($disk, $partlayout) {
 			endif;
 		endif;
 	endforeach;
-
-	// Create file systems and set volume label.
+	//	create file systems and set volume label.
 	write_console("Create file system on partition:\n");
 	foreach($partlayout as $partlayoutv):
-		// Do not create a file system for efi swap or unused partitions.
+		//	do not create a file system for efi swap or unused partitions.
 		if("boot" === $partlayoutv['fstype'] || "swap" === $partlayoutv['fstype'] || "unused" === $partlayoutv['fstype'] || "efi" === $partlayoutv['fstype']):
 			continue;
 		endif;
-
 		$diskdevicename = "{$disk}p{$partlayoutv['partition']}";
-
 		write_console("  {$diskdevicename}\n");
 		if(install_newfs($diskdevicename, $partlayoutv['volname'],$newfs_sector,$newfs_fsize,$newfs_bsize)):
 			set_kern_geom_debugflags(0);
@@ -834,7 +824,6 @@ function install_init_gptdisk($disk, $partlayout) {
 		endif;
 	endforeach;
 	set_kern_geom_debugflags(0);
-
 	return 0;
 }
 
