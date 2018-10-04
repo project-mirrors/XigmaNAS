@@ -656,7 +656,7 @@ function install_init_disk($disk,$partlayout) {
 	foreach($partlayout as $partlayoutv):
 		if($partlayoutv['size'] !== "*"):
 			//	convert partition layout to MiB, align to 4MiB
-			$mib = $partlayoutv['size'] << $partlayoutv['uom_powerof2'] + (1 << 22 - 1) >> 22 << 2;
+			$mib = (($partlayoutv['size'] << $partlayoutv['uom_powerof2']) + (1 << 22) - 1) >> 22 << 2;
 			$partlayoutv['size'] = $mib;
 		endif;
 		$slicesize[$partlayoutv['slice'] - 1] = $partlayoutv['size'];
