@@ -762,10 +762,10 @@ function install_init_gptdisk($disk,$partlayout) {
 	write_console("Create partition table on device {$disk}.\n");
 	foreach($partlayout as $partlayoutv):
 		$diskdevicename = "{$disk}p{$partlayoutv['partition']}";
-		$partitionsize = sprintf('%d%s',$partlayoutv['size'],$partlayoutv['uom'] ?? '');
-		//	assume MiB if suffix is missing,
+		$partitionsize = $partlayoutv['size'];
 		if($partitionsize !== "*" && !preg_match('/[kmgtpezy]$/i',$partitionsize)):
-			$partitionsize .= "M"; /* MiB */
+			//	assume MiB if suffix is missing,
+			$partitionsize .= $partlayoutv['uom'] ?? 'M';
 		endif;
 		write_console("  {$diskdevicename}\n");
 		//	force delete existing partitions (error is OK)
@@ -799,7 +799,7 @@ function install_init_gptdisk($disk,$partlayout) {
 				write_console("Error: Failed to install gptboot on {$diskdevicename}!\n");
 				return 1;
 			endif;
-		elseif($partlayoutv['fstype'] === "efi"):
+		elseif($partlayoutv['fstype'] === 'efi'):
 			//	install efi code
 			if(mwexec("/sbin/gpart bootcode -p /boot/boot1.efifat -i {$partlayoutv['partition']} {$disk}")):
 				set_kern_geom_debugflags(0);
