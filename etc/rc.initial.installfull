@@ -44,7 +44,7 @@ $amenuitem['2'] = ['tag' => '2','item' => "Install 'Full' OS/EFI on HDD/SSD + DA
 $amenuitem['3'] = ['tag' => '3','item' => "Install 'Full' OS/MBR on HDD/SSD + DATA/SWAP (For Expert)"];
 
 $result = tui_display_menu("{$productname} Full Install Options Menu",'',68,9,5,$amenuitem,$installopt);
-if(0 != $result);
+if(0 != $result):
 	exit(0);
 endif;
 
