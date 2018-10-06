@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-09-27 21:27+0000\n"
-"PO-Revision-Date: 2018-09-25 17:06+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"PO-Revision-Date: 2018-10-03 20:37+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
-"X-Generator: Launchpad (build 18783)\n"
+"X-Launchpad-Export-Date: 2018-10-06 15:18+0000\n"
+"X-Generator: Launchpad (build 18785)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -2404,7 +2404,7 @@ msgid "Current Password"
 msgstr "Aktuelles Passwort"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "aktuelle Konfigurationseinstellung"
 
 msgid "Current Version"
 msgstr "Aktuelle Version"
@@ -2510,7 +2510,7 @@ msgid "Data Integrity"
 msgstr "Datenintegrität"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Datentyp"
 
 msgid "Data digest"
 msgstr "Datenauszug"
@@ -4518,7 +4518,7 @@ msgstr ""
 "Geben Sie eine Liste der 'Tap devices' ein  (separiert durch Leerzeichen)"
 
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Geben Sie  einen gültigen Wert ein !"
 
 msgid "Enter additional parameter"
 msgstr "Zusätzlichen Parameter eingeben"
@@ -5268,7 +5268,7 @@ msgid "HTTP Proxy"
 msgstr "HTTP Proxy"
 
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 msgid "HVM Guest"
 msgstr "HVM Gast"
@@ -6475,7 +6475,7 @@ msgid "Maintenance"
 msgstr "Verwaltung"
 
 msgid "Maintenance Tool Settings"
-msgstr ""
+msgstr "Einstellunn gen für das Wartungstool"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr ""
@@ -6530,7 +6530,7 @@ msgstr ""
 "ist nicht spezifiziert."
 
 msgid "MariaDB"
-msgstr ""
+msgstr "MariaDB"
 
 msgid "Masquerade Address"
 msgstr "Adresse Maskieren"
@@ -6637,6 +6637,9 @@ msgstr "Medien Verzeichnis"
 
 msgid "Media Library"
 msgstr "Medienbibliothek"
+
+msgid "Media Size"
+msgstr ""
 
 msgid "Media library"
 msgstr "Mediendatenbank"
@@ -7823,7 +7826,7 @@ msgid "Please note that blanks in path names are not allowed."
 msgstr "Bitte beachten, dass Leerstellen in Pfadnamen nicht erlaubt sind."
 
 msgid "Please read the documentation"
-msgstr ""
+msgstr "Bitte lesen sie das Handbuch !"
 
 msgid "Polling Time"
 msgstr "Abfrage Zeit"
@@ -8325,6 +8328,8 @@ msgid ""
 "Reading the configuration from the disks is slower than reading from cache "
 "file."
 msgstr ""
+"Die Konfigurationsdatei von der Festplatte zu laden erfolgt langsamer als "
+"vom Cache"
 
 msgid "Readonly"
 msgstr "Nur Lesen"
@@ -13142,6 +13147,9 @@ msgstr "iSCSI Target konnte nicht geladen/entladen werden"
 msgid "loader.conf"
 msgstr "loader.conf"
 
+msgid "missing"
+msgstr ""
+
 msgid "mount"
 msgstr "Einhängen"
 
@@ -13220,6 +13228,9 @@ msgstr "bis"
 
 msgid "umount"
 msgstr "aushängen"
+
+msgid "unknown"
+msgstr ""
 
 msgid "used of"
 msgstr "benutzt von"

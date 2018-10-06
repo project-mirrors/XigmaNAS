@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-09-27 21:27+0000\n"
-"PO-Revision-Date: 2018-09-23 17:39+0000\n"
+"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"PO-Revision-Date: 2018-09-30 18:10+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
-"X-Generator: Launchpad (build 18783)\n"
+"X-Launchpad-Export-Date: 2018-10-06 15:17+0000\n"
+"X-Generator: Launchpad (build 18785)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -681,7 +681,7 @@ msgid "Add self-test"
 msgstr "Önteszt hozzáadása"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "Sysctl változó hozzáadása"
 
 msgid "Add target"
 msgstr "Cél hozzáadása"
@@ -875,6 +875,8 @@ msgstr "Új állományok létrehozásának engedélyezése."
 
 msgid "Allow symlinks that point outside user-defined media folders."
 msgstr ""
+"A felhasználó által meghatározott médiamappákon kívülre mutató symlink "
+"engedélyezése."
 
 msgid "Allow to start UPS from battery"
 msgstr "Megengedi, hogy a szünetmentes elemről induljon."
@@ -2365,7 +2367,7 @@ msgid "Current Password"
 msgstr "Jelenlegi jelszó"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Jelenlegi beállítás"
 
 msgid "Current Version"
 msgstr "Jelenlegi verzió"
@@ -2470,7 +2472,7 @@ msgid "Data Integrity"
 msgstr "Adatintegritás"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Adattípus"
 
 msgid "Data digest"
 msgstr "Adat kivonat"
@@ -3944,7 +3946,7 @@ msgid "Edit self-test"
 msgstr "Önteszt szerkesztése"
 
 msgid "Edit sysctl variable"
-msgstr ""
+msgstr "Sysctl változó módosítása"
 
 msgid "Edit target"
 msgstr "Cél szerkesztése"
@@ -4315,7 +4317,7 @@ msgstr ""
 "Fehér hátterű diagramok bekapcsolása (alapértelmezetten a háttér fekete)"
 
 msgid "Enable wide-links support."
-msgstr ""
+msgstr "Széles link támogatás bekapcsolása."
 
 msgid "Enable write cache mode."
 msgstr "Írás cache engedélyezése."
@@ -4465,7 +4467,7 @@ msgstr ""
 "létrehozzuk és automatikusan a hídhoz adjuk."
 
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Írj be egy érvényes értéket."
 
 msgid "Enter additional parameter"
 msgstr "További paraméterek megadása"
@@ -4551,6 +4553,7 @@ msgstr ""
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
+"Add meg az adatbázis és konfigurációs fájlok home könyvtárának útvonalát."
 
 msgid ""
 "Enter the path to the database directory. The config files will be created "
@@ -5586,7 +5589,7 @@ msgstr ""
 #, php-format
 msgid ""
 "In this directory, you can create a %s file with your additional parameters."
-msgstr ""
+msgstr "Ebbe a könyvtárba hozhatod létre %s fájl a további paramétereiddel."
 
 msgid "In/Out Errors"
 msgstr "Be/Ki hiba"
@@ -6401,7 +6404,7 @@ msgid "Maintenance"
 msgstr "Karbantartás"
 
 msgid "Maintenance Tool Settings"
-msgstr ""
+msgstr "Karbantartási eszközök beállításai"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Győződjön meg arról, hogy optimális számú eszközt választott ki."
@@ -6559,6 +6562,9 @@ msgstr "Média könyvtár"
 
 msgid "Media Library"
 msgstr "Médiakönyvtár"
+
+msgid "Media Size"
+msgstr ""
 
 msgid "Media library"
 msgstr "Média library"
@@ -7310,7 +7316,7 @@ msgid "On"
 msgstr "Be"
 
 msgid "On-Disk Configuration"
-msgstr ""
+msgstr "Lemezes konfiguráció"
 
 msgid "Online Information"
 msgstr "Online információ"
@@ -7751,7 +7757,7 @@ msgstr ""
 "karaktert."
 
 msgid "Please read the documentation"
-msgstr ""
+msgstr "Kérem, olvasd el a dokumentációt"
 
 msgid "Polling Time"
 msgstr "Lekérdezési idő"
@@ -8212,7 +8218,7 @@ msgid "Read from lowest load"
 msgstr "Olvasás legkisebb terheléssel"
 
 msgid "Read on-disk configuration."
-msgstr ""
+msgstr "Olvasd el a lemezes konfigurációt."
 
 msgid "Read only"
 msgstr "Írásvédett"
@@ -8253,6 +8259,7 @@ msgid ""
 "Reading the configuration from the disks is slower than reading from cache "
 "file."
 msgstr ""
+"A konfiguráció beolvasása lemezről lassabb, mint a gyorsítótár fájljából."
 
 msgid "Readonly"
 msgstr "Írásvédett"
@@ -9807,13 +9814,13 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl variable is locked"
-msgstr ""
+msgstr "A sysctl változó zárolt"
 
 msgid "Sysctl variable is marked for deletion"
-msgstr ""
+msgstr "A sysctl változót megjelölték törlésre"
 
 msgid "Sysctl variable is unlocked"
-msgstr ""
+msgstr "A sysctl változó zárolását feloldották"
 
 msgid "Syslog Level"
 msgstr "Rendszernaplózási szint"
@@ -10377,6 +10384,10 @@ msgid ""
 "algorithm - you won't be prompted for this passphrase. The secret should be "
 "at least 32 or more characters long"
 msgstr ""
+"A sütialapú auth_type az AES algoritmust használja a jelszó kódolására. Adj "
+"meg egy tetszőleges kulcsszót. Ezt használjuk az AES algoritmus belsejében - "
+"ezt a kulcsszót nem kérjük többet. A titoknak legalább 32 karakterből kell "
+"állnia."
 
 msgid ""
 "The count of aborted operations due to HDD timeout. Normally this attribute "
@@ -10844,7 +10855,7 @@ msgstr ""
 "újraindul."
 
 msgid "The server will be started with the minimum required parameters."
-msgstr ""
+msgstr "A szerver újraindul a legkevesebb szükséges paraméterrel."
 
 msgid ""
 "The server will reboot after the configuration was successfully restored."
@@ -10996,7 +11007,7 @@ msgstr ""
 "induló szkript beállításainak módosítását."
 
 msgid "These parameter will be added to my.cnf"
-msgstr ""
+msgstr "Ezeket a paramétereket hozzáadjuk a my.cnf fájlhoz."
 
 msgid "These parameter will be added to the global section of ctl.conf"
 msgstr ""
@@ -11066,6 +11077,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
 "make changes to a running system."
 msgstr ""
+"Ezeket a változókat hozzá fogjuk adni a /etc/sysctl.conf fájlhoz. így "
+"módosítani tudsz a már futó rendszeren."
 
 msgid "Thin Provisioning"
 msgstr "Vékony ellátás"
@@ -12107,10 +12120,10 @@ msgid "Use PAM for user authentication."
 msgstr "PAM használata a felhasználói hitelesítéshez."
 
 msgid "Use Sqlite"
-msgstr ""
+msgstr "Sqlite használata"
 
 msgid "Use Sqlite for lockings and properties."
-msgstr ""
+msgstr "Sqlite használata zárolásokhoz és tulajdonságokhoz."
 
 msgid "Use TLS"
 msgstr "TLS használata"
@@ -12622,7 +12635,7 @@ msgid "Who"
 msgstr "Felhasználó"
 
 msgid "Wide Links"
-msgstr ""
+msgstr "Széles linkek"
 
 msgid "Wildcard"
 msgstr "Helyettesítő karakter"
@@ -12954,6 +12967,9 @@ msgstr "töltési hiba"
 msgid "loader.conf"
 msgstr "loader.conf"
 
+msgid "missing"
+msgstr ""
+
 msgid "mount"
 msgstr "csatolás"
 
@@ -13032,6 +13048,9 @@ msgstr "eddig:"
 
 msgid "umount"
 msgstr "leválasztás"
+
+msgid "unknown"
+msgstr ""
 
 msgid "used of"
 msgstr "használatban"

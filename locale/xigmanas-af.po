@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-09-27 21:27+0000\n"
+"POT-Creation-Date: 2018-10-06 15:49+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-09-29 14:01+0000\n"
-"X-Generator: Launchpad (build 18783)\n"
+"X-Launchpad-Export-Date: 2018-10-06 15:18+0000\n"
+"X-Generator: Launchpad (build 18785)\n"
 
 msgid " interfaces:"
 msgstr " koppelvlakke:"
@@ -6480,6 +6480,9 @@ msgstr "Media Lêergids"
 msgid "Media Library"
 msgstr "Media biblioteek"
 
+msgid "Media Size"
+msgstr ""
+
 msgid "Media library"
 msgstr "Media biblioteek"
 
@@ -12692,6 +12695,9 @@ msgstr "laai/aflaai het misluk."
 msgid "loader.conf"
 msgstr ""
 
+msgid "missing"
+msgstr ""
+
 msgid "mount"
 msgstr ""
 
@@ -12769,6 +12775,9 @@ msgid "to"
 msgstr "na"
 
 msgid "umount"
+msgstr ""
+
+msgid "unknown"
 msgstr ""
 
 msgid "used of"
