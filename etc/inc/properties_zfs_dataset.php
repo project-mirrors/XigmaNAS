@@ -87,24 +87,24 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_aclinherit = new property_list($this);
 		$property->
 			set_name('aclinherit')->
-			set_title(gtext('ACL Inherit'));
+			set_title(gettext('ACL Inherit'));
 		$options = [
-			'discard' => gtext('Discard - Do not inherit entries'),
-			'noallow' => gtext('Noallow - Only inherit deny entries'),
-			'restricted' => gtext('Restricted - Inherit all but "write ACL" and "change owner"'),
-			'passthrough' => gtext('Passthrough - Inherit all entries'),
-//			'secure' => gtext('Same as "Restricted" - kept for compatibility.'),
-			'passthrough-x' => gtext('Passthrough-X - Inherit all but "execute" when not specified')
+			'discard' => gettext('Discard - Do not inherit entries'),
+			'noallow' => gettext('Noallow - Only inherit deny entries'),
+			'restricted' => gettext('Restricted - Inherit all but "write ACL" and "change owner"'),
+			'passthrough' => gettext('Passthrough - Inherit all entries'),
+//			'secure' => gettext('Same as "Restricted" - kept for compatibility.'),
+			'passthrough-x' => gettext('Passthrough-X - Inherit all but "execute" when not specified')
 		];
 		$property->
 			set_id('aclinherit')->
-			set_description(gtext('This attribute determines the behavior of Access Control List inheritance.'))->
+			set_description(gettext('This attribute determines the behavior of Access Control List inheritance.'))->
 			set_defaultvalue('restricted')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_aclmode() {
@@ -114,22 +114,22 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_aclmode = new property_list($this);
 		$property->
 			set_name('aclmode')->
-			set_title(gtext('ACL Mode'));
+			set_title(gettext('ACL Mode'));
 		$options = [
-			'discard' => gtext('Discard - Discard ACL'),
-			'groupmask' => gtext('Groupmask - Mask ACL with mode'),
-			'passthrough' => gtext('Passthrough - Do not change ACL'),
-			'restricted' => gtext('Restricted')
+			'discard' => gettext('Discard - Discard ACL'),
+			'groupmask' => gettext('Groupmask - Mask ACL with mode'),
+			'passthrough' => gettext('Passthrough - Do not change ACL'),
+			'restricted' => gettext('Restricted')
 		];
 		$property->
 			set_id('aclmode')->
-			set_description(gtext('This attribute controls the ACL behavior when a file is created or whenever the mode of a file or a directory is modified.'))->
+			set_description(gettext('This attribute controls the ACL behavior when a file is created or whenever the mode of a file or a directory is modified.'))->
 			set_defaultvalue('discard')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_atime() {
@@ -139,20 +139,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_atime = new property_list($this);
 		$property->
 			set_name('atime')->
-			set_title(gtext('Access Time'));
+			set_title(gettext('Access Time'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('atime')->
-			set_description(gtext('Controls whether the access time for files is updated when they are read.'))->
+			set_description(gettext('Controls whether the access time for files is updated when they are read.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_canmount() {
@@ -162,21 +162,21 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_canmount = new property_list($this);
 		$property->
 			set_name('canmount')->
-			set_title(gtext('Can Mount'));
+			set_title(gettext('Can Mount'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
-			'noauto' => gtext('Noauto'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
+			'noauto' => gettext('Noauto'),
 		];
 		$property->
 			set_id('canmount')->
-			set_description(gtext('If this property is set to off, the file system cannot be mounted.'))->
+			set_description(gettext('If this property is set to off, the file system cannot be mounted.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_casesensitivity() {
@@ -186,21 +186,21 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_casesensitivity = new property_list($this);
 		$property->
 			set_name('casesensitivity')->
-			set_title(gtext('Case Sensitivity'));
+			set_title(gettext('Case Sensitivity'));
 		$options = [
-			'sensitive' => gtext('Sensitive'),
-			'insensitive' => gtext('Insensitive'),
-			'mixed' => gtext('Mixed'),
+			'sensitive' => gettext('Sensitive'),
+			'insensitive' => gettext('Insensitive'),
+			'mixed' => gettext('Mixed'),
 		];
 		$property->
 			set_id('casesensitivity')->
-			set_description(gtext('Indicates whether the file name matching algorithm used by the filesystem should be case-sensitive, case-insensitive, or allow a combination of both styles of matching.'))->
+			set_description(gettext('Indicates whether the file name matching algorithm used by the filesystem should be case-sensitive, case-insensitive, or allow a combination of both styles of matching.'))->
 			set_defaultvalue('sensitive')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_checksum() {
@@ -210,27 +210,27 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_checksum = new property_list($this);
 		$property->
 			set_name('checksum')->
-			set_title(gtext('Checksum'));
+			set_title(gettext('Checksum'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 			'fletcher2' => 'Fletcher 2',
 			'fletcher4' => 'Fletcher 4',
 			'sha256' => 'SHA-256',
-			'noparity' => gtext('No Parity'),
+			'noparity' => gettext('No Parity'),
 			'sha512' => 'SHA-512',
 			'skein' => 'Skein',
 //			'edonr' => 'Edon-R',
 		];
 		$property->
 			set_id('checksum')->
-			set_description(gtext('Defines the checksum algorithm.'))->
+			set_description(gettext('Defines the checksum algorithm.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_compression() {
@@ -240,10 +240,10 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_compression = new property_list($this);
 		$property->
 			set_name('compression')->
-			set_title(gtext('Compression'));
+			set_title(gettext('Compression'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 			'lz4' => 'lz4',
 			'lzjb' => 'lzjb',
 			'gzip' => 'gzip',
@@ -260,13 +260,13 @@ class properties_zfs_dataset extends co_property_container {
 		];
 		$property->
 			set_id('compression')->
-			set_description(gtext("Controls the compression algorithm. 'LZ4' is now the recommended compression algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if the feature flag lz4_compress is active, otherwise LZJB is used. You can specify the 'GZIP' level by using the value 'GZIP-N', where N is an integer from 1 (fastest) to 9 (best compression ratio). Currently, 'GZIP' is equivalent to 'GZIP-6'."))->
+			set_description(gettext("Controls the compression algorithm. 'LZ4' is now the recommended compression algorithm. Setting compression to 'On' uses the LZ4 compression algorithm if the feature flag lz4_compress is active, otherwise LZJB is used. You can specify the 'GZIP' level by using the value 'GZIP-N', where N is an integer from 1 (fastest) to 9 (best compression ratio). Currently, 'GZIP' is equivalent to 'GZIP-6'."))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_copies() {
@@ -276,21 +276,21 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_copies = new property_list($this);
 		$property->
 			set_name('copies')->
-			set_title(gtext('Copies'));
+			set_title(gettext('Copies'));
 		$options = [
-			'1' => gtext('1'),
-			'2' => gtext('2'),
-			'3' => gtext('3')
+			'1' => gettext('1'),
+			'2' => gettext('2'),
+			'3' => gettext('3')
 		];
 		$property->
 			set_id('copies')->
-			set_description(gtext('Controls the number of copies of data stored for this dataset.'))->
+			set_description(gettext('Controls the number of copies of data stored for this dataset.'))->
 			set_defaultvalue('1')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 /*
@@ -301,20 +301,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_devices = new property_list($this);
 		$property->
 			set_name('devices')->
-			set_title(gtext('Devices'));
+			set_title(gettext('Devices'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('devices')->
-			set_description(gtext('The devices property is currently not supported on FreeBSD.'))->
+			set_description(gettext('The devices property is currently not supported on FreeBSD.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
@@ -325,25 +325,25 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_dedup = new property_list($this);
 		$property->
 			set_name('dedup')->
-			set_title(gtext('Dedup Method'));
-		$description = '<div>' . gtext('Controls the dedup method.') . '</div>'
+			set_title(gettext('Dedup Method'));
+		$description = '<div>' . gettext('Controls the dedup method.') . '</div>'
 			. '<div><b>'
-			. '<font color="red">' . gtext('WARNING') . '</font>' . ': '
+			. '<font color="red">' . gettext('WARNING') . '</font>' . ': '
 			. '<a href="https://www.xigmanas.com/wiki/doku.php?id=documentation:setup_and_user_guide:disks_zfs_datasets_dataset" target="_blank">'
-			. gtext('See ZFS datasets & deduplication wiki article BEFORE using this feature.')
+			. gettext('See ZFS datasets & deduplication wiki article BEFORE using this feature.')
 			. '</a>'
 			. '</b></div>';
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
-			'verify' => gtext('Verify'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
+			'verify' => gettext('Verify'),
 			'sha256' => 'SHA-256',
-			'sha256,verify' => gtext('SHA-256, Verify'),
+			'sha256,verify' => gettext('SHA-256, Verify'),
 			'sha512' => 'SHA-512',
-			'sha512,verify' => gtext('SHA-512, Verify'),
+			'sha512,verify' => gettext('SHA-512, Verify'),
 			'skein' => 'Skein',
-			'skein,verify' => gtext('Skein, Verify'),
-//			'edonr,verify' => gtext('Edon-R, Verify')
+			'skein,verify' => gettext('Skein, Verify'),
+//			'edonr,verify' => gettext('Edon-R, Verify')
 		];
 		$property->
 			set_id('dedup')->
@@ -353,7 +353,7 @@ class properties_zfs_dataset extends co_property_container {
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_exec() {
@@ -363,20 +363,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_exec = new property_list($this);
 		$property->
 			set_name('exec')->
-			set_title(gtext('Exec'));
+			set_title(gettext('Exec'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('exec')->
-			set_description(gtext('Controls whether processes can be executed from within this file system.'))->
+			set_description(gettext('Controls whether processes can be executed from within this file system.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_jailed() {
@@ -386,20 +386,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_jailed = new property_list($this);
 		$property->
 			set_name('jailed')->
-			set_title(gtext('Jailed'));
+			set_title(gettext('Jailed'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('jailed')->
-			set_description(gtext('Controls whether the dataset is managed from a jail.'))->
+			set_description(gettext('Controls whether the dataset is managed from a jail.'))->
 			set_defaultvalue('off')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_logbias() {
@@ -409,20 +409,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_logbias = new property_list($this);
 		$property->
 			set_name('logbias')->
-			set_title(gtext('Logbias'));
+			set_title(gettext('Logbias'));
 		$options = [
-			'latency' => gtext('Latency'),
-			'throughput' => gtext('Throughput')
+			'latency' => gettext('Latency'),
+			'throughput' => gettext('Throughput')
 		];
 		$property->
 			set_id('logbias')->
-			set_description(gtext('Provide a hint to ZFS about handling of synchronous requests in this dataset.'))->
+			set_description(gettext('Provide a hint to ZFS about handling of synchronous requests in this dataset.'))->
 			set_defaultvalue('latency')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 /*
@@ -433,18 +433,18 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_name = new property_text($this);
 		$property->
 			name('name')->
-			title(gtext('Name'));
+			title(gettext('Name'));
 		$regexp = sprintf('/^[a-z\d][a-z\d%1$s]*(?:\/[a-z\d][a-z\d%1$s]*)*$/i',preg_quote('.:-_','/'));
 		$property->
 			id('name')->
-			description(gtext('The name of the dataset.'))->
+			description(gettext('The name of the dataset.'))->
 			defaultvalue('')->
 			editableonadd(true)->
 			editableonmodify(false)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
@@ -456,20 +456,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_nbmand = new property_list($this);
 		$property->
 			set_name('nbmand')->
-			set_title(gtext('NBMAND'));
+			set_title(gettext('NBMAND'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('nbmand')->
-			set_description(gtext('The nbmand property is currently not supported on FreeBSD.'))->
+			set_description(gettext('The nbmand property is currently not supported on FreeBSD.'))->
 			set_defaultvalue('off')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
@@ -480,9 +480,9 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_normalization = new property_list($this);
 		$property->
 			set_name('normalization')->
-			set_title(gtext('Normalization'));
+			set_title(gettext('Normalization'));
 		$options = [
-			'none' => gtext('None'),
+			'none' => gettext('None'),
 			'formC' => 'formC',
 			'formD' => 'formD',
 			'formKC' => 'formKC',
@@ -490,13 +490,13 @@ class properties_zfs_dataset extends co_property_container {
 		];
 		$property->
 			set_id('normalization')->
-			set_description(gtext('Indicates whether the file system should perform a unicode normalization of file names whenever two file names are compared, and which normalization algorithm should be used.'))->
+			set_description(gettext('Indicates whether the file system should perform a unicode normalization of file names whenever two file names are compared, and which normalization algorithm should be used.'))->
 			set_defaultvalue('none')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_primarycache() {
@@ -506,21 +506,21 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_primarycache = new property_list($this);
 		$property->
 			set_name('primarycache')->
-			set_title(gtext('Primary Cache'));
+			set_title(gettext('Primary Cache'));
 		$options = [
-			'all' => gtext('Both user data and metadata will be cached in ARC.'),
-			'metadata' => gtext('Only metadata will be cached in ARC.'),
-			'none' => gtext('Neither user data nor metadata will be cached in ARC.')
+			'all' => gettext('Both user data and metadata will be cached in ARC.'),
+			'metadata' => gettext('Only metadata will be cached in ARC.'),
+			'none' => gettext('Neither user data nor metadata will be cached in ARC.')
 		];
 		$property->
 			set_id('primarycache')->
-			set_description(gtext('Controls what is cached in the primary cache (ARC).'))->
+			set_description(gettext('Controls what is cached in the primary cache (ARC).'))->
 			set_defaultvalue('all')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_quota() {
@@ -530,17 +530,17 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_quota = new property_text($this);
 		$property->
 			set_name('quota')->
-			set_title(gtext('Quota'));
+			set_title(gettext('Quota'));
 		$property->
 			set_id('quota')->
-			set_description(gtext('Limits the amount of space a dataset and its descendents can consume.'))->
+			set_description(gettext('Limits the amount of space a dataset and its descendents can consume.'))->
 			set_defaultvalue('')->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $this::REGEXP_SIZEORNONEORNOTHING])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_readonly() {
@@ -550,20 +550,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_readonly = new property_list($this);
 		$property->
 			set_name('readonly')->
-			set_title(gtext('Read Only'));
+			set_title(gettext('Read Only'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('readonly')->
-			set_description(gtext('Controls whether this dataset can be modified.'))->
+			set_description(gettext('Controls whether this dataset can be modified.'))->
 			set_defaultvalue('off')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_redundant_metadata() {
@@ -573,20 +573,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_redundant_metadata = new property_list($this);
 		$property->
 			set_name('redundant_metadata')->
-			set_title(gtext('Redundant Metadata'));
+			set_title(gettext('Redundant Metadata'));
 		$options = [
-			'all' => gtext('All'),
-			'most' => gtext('Most')
+			'all' => gettext('All'),
+			'most' => gettext('Most')
 		];
 		$property->
 			set_id('redundant_metadata')->
-			set_description(gtext('Controls what types of metadata are stored redundantly.'))->
+			set_description(gettext('Controls what types of metadata are stored redundantly.'))->
 			set_defaultvalue('all')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_refquota() {
@@ -596,17 +596,17 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_refquota = new property_text($this);
 		$property->
 			set_name('refquota')->
-			set_title(gtext('Refquota'));
+			set_title(gettext('Refquota'));
 		$property->
 			set_id('refquota')->
-			set_description(gtext('Limits the amount of space a dataset can consume.'))->
+			set_description(gettext('Limits the amount of space a dataset can consume.'))->
 			set_defaultvalue('')->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $this::REGEXP_SIZEORNONEORNOTHING])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_refreservation() {
@@ -616,16 +616,16 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_refreservation = new property_text($this);
 		$property->
 			set_name('refreservation')->
-			set_title(gtext('Refreservation'));
+			set_title(gettext('Refreservation'));
 		$property->set_id('refreservation')->
-			set_description(gtext('The minimum amount of space guaranteed to a dataset, not including its descendents.'))->
+			set_description(gettext('The minimum amount of space guaranteed to a dataset, not including its descendents.'))->
 			set_defaultvalue('')->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $this::REGEXP_SIZEORNONEORNOTHING])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_reservation() {
@@ -635,17 +635,17 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_reservation = new property_text($this);
 		$property->
 			set_name('reservation')->
-			set_title(gtext('Reservation'));
+			set_title(gettext('Reservation'));
 		$property->
 			set_id('reservation')->
-			set_description(gtext('The minimum amount of space guaranteed to a dataset and its descendents.'))->
+			set_description(gettext('The minimum amount of space guaranteed to a dataset and its descendents.'))->
 			set_defaultvalue('')->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $this::REGEXP_SIZEORNONEORNOTHING])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_secondarycache() {
@@ -654,21 +654,21 @@ class properties_zfs_dataset extends co_property_container {
 	public function init_secondarycache() {
 		$property = $this->x_secondarycache = new property_list($this);
 		$property->set_name('secondarycache')->
-			set_title(gtext('Secondary Cache'));
+			set_title(gettext('Secondary Cache'));
 		$options = [
-			'all' => gtext('Both user data and metadata will be cached in L2ARC.'),
-			'metadata' => gtext('Only metadata will be cached in L2ARC.'),
-			'none' => gtext('Neither user data nor metadata will be cached in L2ARC.')
+			'all' => gettext('Both user data and metadata will be cached in L2ARC.'),
+			'metadata' => gettext('Only metadata will be cached in L2ARC.'),
+			'none' => gettext('Neither user data nor metadata will be cached in L2ARC.')
 		];
 		$property->
 			set_id('secondarycache')->
-			set_description(gtext('Controls what is cached in the secondary cache (L2ARC).'))->
+			set_description(gettext('Controls what is cached in the secondary cache (L2ARC).'))->
 			set_defaultvalue('all')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_setuid() {
@@ -678,20 +678,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_setuid = new property_list($this);
 		$property->
 			set_name('setuid')->
-			set_title(gtext('Set UID'));
+			set_title(gettext('Set UID'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('setuid')->
-			set_description(gtext('Controls whether the set-UID bit is respected for the file system.'))->
+			set_description(gettext('Controls whether the set-UID bit is respected for the file system.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 /*
@@ -702,20 +702,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_sharesmb = new property_list($this);
 		$property->
 			set_name('sharesmb')->
-			set_title(gtext('Share SMB'));
+			set_title(gettext('Share SMB'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('sharesmb')->
-			set_description(gtext('The sharesmb property currently has no effect on FreeBSD.'))->
+			set_description(gettext('The sharesmb property currently has no effect on FreeBSD.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
@@ -727,20 +727,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_sharenfs = new property_list($this);
 		$property->
 			set_name('sharenfs')->
-			set_title(gtext('Share NFS'));
+			set_title(gettext('Share NFS'));
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('sharenfs')->
-			set_description(gtext('Controls whether the file system is shared via NFS.'))->
+			set_description(gettext('Controls whether the file system is shared via NFS.'))->
 			set_defaultvalue('on')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd($editableonadd)->
 			set_editableonmodify($editableonmodify)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
@@ -751,20 +751,20 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_snapdir = new property_list($this);
 		$property->
 			set_name('snapdir')->
-			set_title(gtext('Snapdir'));
+			set_title(gettext('Snapdir'));
 		$options = [
-			'hidden' => gtext('Hidden'),
-			'visible' => gtext('Visible'),
+			'hidden' => gettext('Hidden'),
+			'visible' => gettext('Visible'),
 		];
 		$property->
 			set_id('snapdir')->
-			set_description(gtext('Controls whether the .zfs directory is hidden or visible in the root of the file system.'))->
+			set_description(gettext('Controls whether the .zfs directory is hidden or visible in the root of the file system.'))->
 			set_defaultvalue('hidden')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_sync() {
@@ -774,21 +774,21 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_sync = new property_list($this);
 		$property->
 			set_name('sync')->
-			set_title(gtext('Sync'));
+			set_title(gettext('Sync'));
 		$options = [
-			'standard' => gtext('Standard'),
-			'always' => gtext('Always'),
-			'disabled' => gtext('Disabled')
+			'standard' => gettext('Standard'),
+			'always' => gettext('Always'),
+			'disabled' => gettext('Disabled')
 		];
 		$property->
 			set_id('sync')->
-			set_description(gtext('Controls the behavior of synchronous requests.'))->
+			set_description(gettext('Controls the behavior of synchronous requests.'))->
 			set_defaultvalue('standard')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_type() {
@@ -798,22 +798,22 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_type = new property_list($this);
 		$property->
 			set_name('type')->
-			set_title(gtext('Dataset Type'));
+			set_title(gettext('Dataset Type'));
 		$options = [
-			'filesystem' => gtext('File System - can be mounted within the standard system namespace and behaves like other file systems.'),
-			'volume' => gtext('Volume - A logical volume. Can be exported as a raw or block device.')
-//			'snapshot' => gtext('Snapshot - A read-only version of a file system or volume at a given point in time.')
-//			'bookmark' => gtext('Bookmark - Creates a bookmark of a given snapshot.')
+			'filesystem' => gettext('File System - can be mounted within the standard system namespace and behaves like other file systems.'),
+			'volume' => gettext('Volume - A logical volume. Can be exported as a raw or block device.')
+//			'snapshot' => gettext('Snapshot - A read-only version of a file system or volume at a given point in time.')
+//			'bookmark' => gettext('Bookmark - Creates a bookmark of a given snapshot.')
 		];
 		$property->
 			set_id('type')->
-			set_description(gtext('Controls the type of the ZFS dataset.'))->
+			set_description(gettext('Controls the type of the ZFS dataset.'))->
 			set_defaultvalue('filesystem')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_utf8only() {
@@ -823,11 +823,11 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_utf8only = new property_list($this);
 		$property->
 			set_name('utf8only')->
-			set_title(gtext('UTF-8 Only'));
-		$description = gtext('Indicates whether the file system should reject file names that include characters that are not present in the UTF-8 character code set.');
+			set_title(gettext('UTF-8 Only'));
+		$description = gettext('Indicates whether the file system should reject file names that include characters that are not present in the UTF-8 character code set.');
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('utf8only')->
@@ -837,7 +837,7 @@ class properties_zfs_dataset extends co_property_container {
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_volblocksize() {
@@ -847,7 +847,7 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_volblocksize = new property_list($this);
 		$property->
 			set_name('volblocksize')->
-			set_title(gtext('Block Size'));
+			set_title(gettext('Block Size'));
 		$options = [
 			'512B' => '512B',
 			'1K' => '1K',
@@ -861,13 +861,13 @@ class properties_zfs_dataset extends co_property_container {
 		];
 		$property->
 			set_id('volblocksize')->
-			set_description(gtext('ZFS volume block size. This value can not be changed after creation.'))->
+			set_description(gettext('ZFS volume block size. This value can not be changed after creation.'))->
 			set_defaultvalue('8K')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_volmode() {
@@ -877,22 +877,22 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_volmode = new property_list($this);
 		$property->
 			set_name('volmode')->
-			set_title(gtext('Volume Mode'));
+			set_title(gettext('Volume Mode'));
 		$options = [
-			'default' => gtext('Default'),
+			'default' => gettext('Default'),
 			'geom' => 'geom',
 			'dev' => 'dev',
 			'none' => 'none'
 		];
 		$property->
 			set_id('volmode')->
-			set_description(gtext('Specifies how the volume should be exposed to the OS.'))->
+			set_description(gettext('Specifies how the volume should be exposed to the OS.'))->
 			set_defaultvalue('default')->
 			set_options($options)->
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_volsize() {
@@ -902,10 +902,10 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_volsize = new property_text($this);
 		$property->
 			set_name('volsize')->
-			set_title(gtext('Volume Size'));
+			set_title(gettext('Volume Size'));
 		$property->
 			set_id('volsize')->
-			set_description(gtext('ZFS volume size. You can use human-readable suffixes like K, KB, M, GB.'))->
+			set_description(gettext('ZFS volume size. You can use human-readable suffixes like K, KB, M, GB.'))->
 			set_defaultvalue('')->
 			set_size(20)->
 			set_maxlength(20)->
@@ -914,7 +914,7 @@ class properties_zfs_dataset extends co_property_container {
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $this::REGEXP_SIZE])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 /*
@@ -925,11 +925,11 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_vscan = new property_list($this);
 		$property->
 			set_name('vscan')->
-			set_title(gtext('Vscan'));
-		$description = gtext('The vscan property is currently not supported on FreeBSD.');
+			set_title(gettext('Vscan'));
+		$description = gettext('The vscan property is currently not supported on FreeBSD.');
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('vscan')->
@@ -939,7 +939,7 @@ class properties_zfs_dataset extends co_property_container {
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
@@ -951,11 +951,11 @@ class properties_zfs_dataset extends co_property_container {
 		$property = $this->x_attr = new property_list($this);
 		$property->
 			set_name('xattr')->
-			set_title(gtext('Xattr'));
-		$description = gtext('The xattr property is currently not supported on FreeBSD.');
+			set_title(gettext('Xattr'));
+		$description = gettext('The xattr property is currently not supported on FreeBSD.');
 		$options = [
-			'on' => gtext('On'),
-			'off' => gtext('Off'),
+			'on' => gettext('On'),
+			'off' => gettext('Off'),
 		];
 		$property->
 			set_id('xattr')->
@@ -965,7 +965,7 @@ class properties_zfs_dataset extends co_property_container {
 			filter_use_default()->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
  */
