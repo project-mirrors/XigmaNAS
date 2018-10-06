@@ -18,20 +18,22 @@ CONFIGURE_ENV=	CPPFLAGS="${CPPFLAGS}" LDFLAGS="${LDFLAGS}"
 OPTIONS_DEFINE=	DOCS GSASL NLS IDN LIBSECRET MSMTPQ
 OPTIONS_RADIO=	TLS
 OPTIONS_RADIO_TLS=      GNUTLS OPENSSL
-OPTIONS_DEFAULT=        MSMTPQ OPENSSL
+OPTIONS_DEFAULT=        GNUTLS MSMTPD MSMTPQ
 OPTIONS_SUB=    yes
 
 GSASL_DESC=     GSASL support
 LIBSECRET_DESC= GNOME password management
-MSMTPQ_DESC=    Install offline messaging scripts
+MSMTPQ_DESC=    Include minimal SMTP server that pipes mails to msmtp
 
 GSASL_CONFIGURE_WITH=	libgsasl
 GSASL_LIB_DEPENDS=	libgsasl.so:security/gsasl
 IDN_CONFIGURE_WITH=	libidn
-IDN_LIB_DEPENDS=	libidn.so:dns/libidn
+IDN_LIB_DEPENDS=	libidn2.so:dns/libidn2
 LIBSECRET_CONFIGURE_WITH=	libsecret
 LIBSECRET_LIB_DEPENDS=	libsecret-1.so:security/libsecret
+MSMTPD_CONFIGURE_WITH=	msmtpd
 MSMTPQ_PORTDOCS=	README.msmtpq
+MSMTPQ_RUN_DEPENDS=     bash:shells/bash
 NLS_CONFIGURE_ENABLE=	nls
 NLS_USES=		gettext
 
