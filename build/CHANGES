@@ -18,6 +18,7 @@ Changes:
 - Upgrade sudo to 1.8.25p1.
 - Upgrade devcpu-data to 1.20.
 - Upgrade syncthing to 0.14.51.
+- Upgrade mDNSResponder to 878.70.2.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
