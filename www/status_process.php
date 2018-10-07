@@ -42,7 +42,7 @@ function get_sphere_status_process() {
 	return $sphere;
 }
 function status_process_ajax() {
-	$cmd = 'top -d1 25';
+	$cmd = 'top -d1 27';
 	mwexec2($cmd,$rawdata);
 	return implode(PHP_EOL,$rawdata);
 }
