@@ -74,7 +74,7 @@ function get_install_source_drive() {
 	$imgfile = get_product_name(). "-{$g['arch']}-embedded.xz";
 	$cdlist = get_cdrom_list();
 	$dalist = get_scsi_disks_list();
-	$ptlist = ['a','s1a','s4a','p1','p2'];
+	$ptlist = ['a','s1a','s4a','p1','p2','p3'];
 
 	$disklist = $cdlist;
 	foreach ($dalist as $disk):

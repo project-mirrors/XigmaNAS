@@ -974,7 +974,7 @@ create_usb () {
 	[ -f ${XIGMANAS_WORKINGDIR}/usb-image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/usb-image.bin
 	[ -f ${XIGMANAS_WORKINGDIR}/usb-image.bin.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/usb-image.bin.gz
 
-	echo "USB: Generating the $XIGMANAS_PRODUCTNAME Image file:"
+	echo "USB: Generating the $XIGMANAS_PRODUCTNAME Image file for MBR:"
 	create_image;
 
 	# Set Platform Informations.
@@ -984,7 +984,7 @@ create_usb () {
 	# Set Revision.
 	echo ${XIGMANAS_REVISION} > ${XIGMANAS_ROOTFS}/etc/prd.revision
 
-	IMGFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-LiveUSB-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
+	IMGFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-LiveUSB-MBR-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
 
 	echo "USB: Generating temporary folder '$XIGMANAS_TMPDIR'"
 	mkdir $XIGMANAS_TMPDIR
@@ -1146,6 +1146,212 @@ create_usb () {
 	fi
 
 	# Xen
+	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
+		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
+		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
+		kldxref -R ${XIGMANAS_TMPDIR}/boot
+	fi
+
+	echo "USB: Copying IMG file to $XIGMANAS_TMPDIR"
+	cp ${XIGMANAS_WORKINGDIR}/image.bin.xz ${XIGMANAS_TMPDIR}/${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded.xz
+
+	echo "USB: Unmount memory disk"
+	umount $XIGMANAS_TMPDIR
+	echo "USB: Detach memory disk"
+	mdconfig -d -u ${md}
+	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
+	echo "Compress LiveUSB.img to LiveUSB.img.gz"
+	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
+
+	echo "Generating SHA512 CHECKSUM File"
+	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
+	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+
+	# Cleanup.
+	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
+	[ -f $XIGMANAS_WORKINGDIR/mfsroot ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot
+	[ -f $XIGMANAS_WORKINGDIR/mfsroot.gz ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.gz
+	[ -f $XIGMANAS_WORKINGDIR/mfsroot.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.uzip
+	[ -f $XIGMANAS_WORKINGDIR/mdlocal ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal
+	[ -f $XIGMANAS_WORKINGDIR/mdlocal.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.xz
+	[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
+	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz
+	[ -f $XIGMANAS_WORKINGDIR/image.bin.xz ] && rm -f $XIGMANAS_WORKINGDIR/image.bin.xz
+	[ -f $XIGMANAS_WORKINGDIR/usb-image.bin ] && rm -f $XIGMANAS_WORKINGDIR/usb-image.bin
+
+	return 0
+}
+
+create_usb_gpt() {
+	# Check if rootfs (contining OS image) exists.
+	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
+		echo "==> Error: ${XIGMANAS_ROOTFS} does not exist!."
+		return 1
+	fi
+
+	# Cleanup.
+	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
+	[ -f ${XIGMANAS_WORKINGDIR}/image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/image.bin
+	[ -f ${XIGMANAS_WORKINGDIR}/image.bin.xz ] && rm -f ${XIGMANAS_WORKINGDIR}/image.bin.xz
+	[ -f ${XIGMANAS_WORKINGDIR}/mfsroot.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/mfsroot.gz
+	[ -f ${XIGMANAS_WORKINGDIR}/mfsroot.uzip ] && rm -f ${XIGMANAS_WORKINGDIR}/mfsroot.uzip
+	[ -f ${XIGMANAS_WORKINGDIR}/mdlocal.xz ] && rm -f ${XIGMANAS_WORKINGDIR}/mdlocal.xz
+	[ -f ${XIGMANAS_WORKINGDIR}/mdlocal.uzip ] && rm -f ${XIGMANAS_WORKINGDIR}/mdlocal.uzip
+	[ -f ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz ] && rm -f ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz
+	[ -f ${XIGMANAS_WORKINGDIR}/usb-image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/usb-image.bin
+	[ -f ${XIGMANAS_WORKINGDIR}/usb-image.bin.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/usb-image.bin.gz
+
+	echo "USB: Generating the $XIGMANAS_PRODUCTNAME Image file for GPT:"
+	create_image;
+
+	# Set Platform Informations.
+	PLATFORM="${XIGMANAS_XARCH}-liveUSB"
+	echo $PLATFORM > ${XIGMANAS_ROOTFS}/etc/platform
+
+	# Set Revision.
+	echo ${XIGMANAS_REVISION} > ${XIGMANAS_ROOTFS}/etc/prd.revision
+
+	IMGFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-LiveUSB-GPT-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
+
+	echo "USB: Generating temporary folder '$XIGMANAS_TMPDIR'"
+	mkdir $XIGMANAS_TMPDIR
+	if [ -z "$FORCE_MFSROOT" -o "$FORCE_MFSROOT" != "0" ]; then
+		# Mount mfsroot/mdlocal created by create_image.
+		md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mfsroot`
+		mount /dev/${md} ${XIGMANAS_TMPDIR}
+		# Update mfsroot/mdlocal.
+		echo $PLATFORM > ${XIGMANAS_TMPDIR}/etc/platform
+		# Umount and update mfsroot/mdlocal.
+		umount $XIGMANAS_TMPDIR
+		mdconfig -d -u ${md}
+		update_mfsroot;
+	else
+		create_mfsroot;
+	fi
+
+	# For 1GB USB stick.
+	IMGSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/image.bin.xz)
+	MFSSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.gz)
+	#MFS2SIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.uzip)
+	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
+	MDLSIZE2=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz)
+	#IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MFS2SIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
+	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
+	UEFISIZE=16
+	BOOTSIZE=512
+	USBROOTM=768
+	#USBSWAPM=512
+	#USBDATAM=12
+	USB_SECTS=63
+	USB_HEADS=255
+
+	# 4MB alignment, 800M image.
+	#USBSYSSIZEM=$(expr $USBROOTM + $IMGSIZEM + 4)
+	USBEFISIZEM=$(expr $UEFISIZE + 4)
+	USBROOTSIZEM=$(expr $USBROOTM + 4)
+	USBIMGSIZEM=$(expr $USBEFISIZEM + $USBROOTSIZEM + 8)
+
+	# GPT labels.
+	UEFILABEL="usbefiboot"
+	BOOTLABEL="usbgptboot"
+	ROOTLABEL="usbsysdisk"
+
+	# 4MB aligned USB stick.
+	echo "USB: Creating Empty IMG File"
+	#dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m count=${USBIMGSIZEM}
+	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m seek=${USBIMGSIZEM} count=0
+	echo "USB: Use IMG as a memory disk"
+	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS}`
+	diskinfo -v /dev/${md}
+
+	echo "USB: Creating GPT partition on this memory disk"
+	gpart create -s gpt /dev/${md}
+
+	# Add P1 for UEFI.
+	gpart add -a 4k -s ${UEFISIZE}m -t efi -l ${UEFILABEL} /dev/${md}
+	# Add P2 for GPTBOOT.
+	gpart add -a 4k -s ${BOOTSIZE}k -t freebsd-boot -l ${BOOTLABEL} /dev/${md}
+	# Add P3 for UFS/SYSTEM.
+	gpart add -a 4m  -s ${USBROOTM}m -t freebsd-ufs -l ${ROOTLABEL} /dev/${md}
+
+	# Write boot code.
+	echo "USB: Writing boot code on this memory disk"
+	gpart bootcode -p /boot/boot1.efifat -i 1 /dev/${md}
+	gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 2 /dev/${md}
+	#gpart bootcode -p ${XIGMANAS_BOOTDIR}/boot1.efifat -i 1 /dev/${md}
+	#gpart bootcode -b ${XIGMANAS_BOOTDIR}/pmbr -p /boot/gptboot -i 2 /dev/${md}
+
+	# SYSTEM partition.
+	mdp=${md}p3
+
+	echo "USB: Formatting this memory disk using UFS"
+	newfs -S 4096 -b 32768 -f 4096 -O2 -U -j -o space -m 0 -L "liveboot" /dev/${mdp}
+
+	echo "USB: Mount this virtual disk on $XIGMANAS_TMPDIR"
+	mount /dev/${mdp} $XIGMANAS_TMPDIR
+
+	echo "USB: Copying previously generated MFSROOT file to memory disk"
+	cp $XIGMANAS_WORKINGDIR/mfsroot.gz $XIGMANAS_TMPDIR
+	#cp $XIGMANAS_WORKINGDIR/mfsroot.uzip $XIGMANAS_TMPDIR
+	cp $XIGMANAS_WORKINGDIR/mdlocal.xz $XIGMANAS_TMPDIR
+	cp $XIGMANAS_WORKINGDIR/mdlocal-mini.xz $XIGMANAS_TMPDIR
+	echo "${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-LiveUSB-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
+
+	echo "USB: Copying Bootloader File(s) to memory disk"
+	mkdir -p $XIGMANAS_TMPDIR/boot
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/conf
+	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
+	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
+	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
+	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/loader.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
+	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
+	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/delay.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu-commands.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/shortcuts.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/version.4th $XIGMANAS_TMPDIR/boot
+	fi
+	if [ 0 != $OPT_BOOTSPLASH ]; then
+		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
+		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+	fi
+	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
+		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+	fi
+	# iSCSI driver.
+	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
+	# Preload kernel drivers.
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	# Copy kernel modules.
+	copy_kmod
+
+	# Mellanox ConnectX EN.
+	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
+		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
+
+	# Xen.
 	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
 		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
@@ -2010,17 +2216,18 @@ ${XIGMANAS_PRODUCTNAME} Build Environment
 1  - Update XigmaNAS Source Files to CURRENT.
 2  - XigmaNAS Compile Menu.
 10 - Create 'Embedded.img.xz' File. (Firmware Update)
-11 - Create 'LiveUSB.img.gz' File. (Rawrite to USB Key)
-12 - Create 'LiveCD' (ISO) File.
-13 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
-14 - Create 'Full' (TGZ) Update File."
+11 - Create 'LiveUSB.img.gz MBR' File. (Rawrite to USB Key)
+12 - Create 'LiveUSB.img.gz GPT' File. (Rawrite to USB Key)
+13 - Create 'LiveCD' (ISO) File.
+14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
+15 - Create 'Full' (TGZ) Update File."
 	if [ "arm" = ${XIGMANAS_ARCH} ]; then
 		echo -n "
 20 - Create 'RPI SD (IMG) File.
 21 - Create 'RPI2 SD (IMG) File."
 	fi
 	echo -n "
-15 - Create 'xigmanas.pot' file from Source files.
+16 - Create 'xigmanas.pot' file from Source files.
 *  - Exit.
 
 Press # "
@@ -2030,10 +2237,11 @@ Press # "
 		2)	build_system;;
 		10)	create_embedded;;
 		11)	create_usb;;
-		12)	create_iso;;
-		13)	create_iso_tiny;;
-		14)	create_full;;
-		15)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
+		12) create_usb_gpt;;
+		13)	create_iso;;
+		14)	create_iso_tiny;;
+		15)	create_full;;
+		16)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
 		20)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpisd; fi;;
 		21)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpi2sd; fi;;
 		*)	exit 0;;
