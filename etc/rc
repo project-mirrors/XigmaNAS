@@ -106,10 +106,13 @@ case ${PLATFORM} in
 		case ${PLATFORM} in
 			*-liveUSB)
 				# To deal with "the secondary GPT header is not in the last LBA."
+				SYSUFS=$(glabel status | grep -q "ufs\/liveboot"; echo $?)
 				GPTUSB=$(glabel status | awk '/usbsysdisk/{print $3}' | tr -d 'p3')
-				if [ -n "${GPTUSB}" ]; then
-					if gpart show "${GPTUSB}" | grep -q "CORRUPT"; then
-						gpart recover ${GPTUSB} > /dev/null 2>&1
+				if [ "${SYSUFS}" -eq 0 ]; then
+					if [ -n "${GPTUSB}" ]; then
+						if gpart show "${GPTUSB}" | grep -q "CORRUPT"; then
+							gpart recover ${GPTUSB} > /dev/null 2>&1
+						fi
 					fi
 				fi
 
