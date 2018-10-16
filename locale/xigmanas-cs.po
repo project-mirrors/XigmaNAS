@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-10-06 15:49+0000\n"
-"PO-Revision-Date: 2018-09-05 11:43+0000\n"
-"Last-Translator: Pavel Borecki <Unknown>\n"
+"PO-Revision-Date: 2018-10-13 17:55+0000\n"
+"Last-Translator: hmaster20 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-08 15:20+0000\n"
-"X-Generator: Launchpad (build 18785)\n"
+"X-Launchpad-Export-Date: 2018-10-15 23:48+0000\n"
+"X-Generator: Launchpad (build 18790)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -638,7 +638,7 @@ msgid "Add WLAN"
 msgstr "Přidat WiFi síť"
 
 msgid "Add WebDAV Record"
-msgstr ""
+msgstr "Přidat záznam WebDAV"
 
 msgid "Add a cache device to a pool"
 msgstr "Přidat do fondu úložišť zařízení pro mezipaměť"
@@ -698,7 +698,7 @@ msgid "Add self-test"
 msgstr "Přidat samotest"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "Přidat proměnnou sysctl"
 
 msgid "Add target"
 msgstr "Přidat cíl"
@@ -894,7 +894,7 @@ msgid "Allow new files to be created."
 msgstr "Umožnit vytváření nových souborů."
 
 msgid "Allow symlinks that point outside user-defined media folders."
-msgstr ""
+msgstr "Povolit symbolické odkazy, které směřují mimo uživatelské složky."
 
 msgid "Allow to start UPS from battery"
 msgstr ""
@@ -1683,7 +1683,7 @@ msgstr ""
 "dat)."
 
 msgid "CTL LUN"
-msgstr ""
+msgstr "CTL LUN"
 
 msgid "Calibration Battery"
 msgstr "Kalibrace akumulátorů"
@@ -2421,7 +2421,7 @@ msgid "Current Password"
 msgstr "Stávající heslo"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Aktuální nastavení"
 
 msgid "Current Version"
 msgstr "Stávající verze"
@@ -2531,7 +2531,7 @@ msgid "Data Integrity"
 msgstr "Neporušenost dat"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Datový typ"
 
 msgid "Data digest"
 msgstr "Otisk dat"
@@ -2798,7 +2798,7 @@ msgid "Delete Selected WLANs"
 msgstr "Smazat označená Wifi rozhraní"
 
 msgid "Delete Selected WebDAV Records"
-msgstr ""
+msgstr "Odstranit vybrané záznamy služby WebDAV"
 
 msgid "Delete Selected iSNS Servers"
 msgstr "Smazat vyznačené iSNS servery"
@@ -2963,7 +2963,7 @@ msgstr ""
 "Výchozí je 1000000 (1 sekunda)."
 
 msgid "Determines which targets are returned during discovery."
-msgstr ""
+msgstr "Určuje cíle, které jsou vráceny během objevení."
 
 msgid "Device"
 msgstr "Zařízení"
@@ -3088,10 +3088,10 @@ msgid "Disable Selected Commands"
 msgstr "Vypnout označené příkazy"
 
 msgid "Disable Selected Initiator Names"
-msgstr ""
+msgstr "Zakázat vybrané názvy iniciátorů"
 
 msgid "Disable Selected Initiator Portals"
-msgstr ""
+msgstr "Zakázat vybrané názvy iniciátorů"
 
 msgid "Disable Selected Jobs"
 msgstr "Smazat označené úlohy"
