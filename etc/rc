@@ -107,7 +107,7 @@ case ${PLATFORM} in
 			*-liveUSB)
 				# To deal with "the secondary GPT header is not in the last LBA."
 				SYSUFS=$(glabel status | grep -q "ufs\/liveboot"; echo $?)
-				GPTUSB=$(glabel status | awk '/usbsysdisk/{print $3}' | tr -d 'p3')
+				GPTUSB=$(glabel status | awk '/gpt\/usbsysdisk/{print $3}' | tr -d 'p3')
 				if [ "${SYSUFS}" -eq 0 ]; then
 					if [ -n "${GPTUSB}" ]; then
 						if gpart show "${GPTUSB}" | grep -q "CORRUPT"; then
@@ -116,15 +116,15 @@ case ${PLATFORM} in
 					fi
 				fi
 
-				root=`/sbin/glabel status -s|/usr/bin/awk '/liveboot/{print $3;exit 0}'`
-				gptswap=`/sbin/glabel status -s|/usr/bin/awk '/gptswap/{print $3;exit 0}'`
+				root=`/sbin/glabel status -s | /usr/bin/awk '/liveboot/{print $3;exit 0}'`
+				gptswap=`/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}'`
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
 					sleep 30; halt
 				fi
 
 				# use default swap if exists
-				swap=`/bin/echo ${root}|/usr/bin/sed -e 's/s[1234]a$/s2b/'`
+				swap=`/bin/echo ${root} | /usr/bin/sed -e 's/s[1234]a$/s2b/'`
 				if [ -n "${gptswap}" -a -e "/dev/${gptswap}" ]; then
 					swap=$gptswap
 				elif [ "${swap}" = "${root}" ]; then
@@ -159,9 +159,9 @@ case ${PLATFORM} in
 				if  [ "${PLATFORM}" = "bpi-embedded" ]; then
 					root="md1s1a"
 				else
-					root=`/sbin/glabel status -s|/usr/bin/awk '/embboot/{print $3;exit 0}'`
+					root=`/sbin/glabel status -s | /usr/bin/awk '/embboot/{print $3;exit 0}'`
 				fi
-				gptswap=`/sbin/glabel status -s|/usr/bin/awk '/gptswap/{print $3;exit 0}'`
+				gptswap=`/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}'`
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
 					sleep 30; halt
@@ -171,7 +171,7 @@ case ${PLATFORM} in
 				fi
 
 				# use default swap if exists
-				swap=`/bin/echo ${root}|/usr/bin/sed -e 's/s[1234]a$/s2b/'`
+				swap=`/bin/echo ${root} | /usr/bin/sed -e 's/s[1234]a$/s2b/'`
 				if [ -n "${gptswap}" -a -e "/dev/${gptswap}" ]; then
 					swap=$gptswap
 				elif [ "${swap}" = "${root}" ]; then
@@ -205,7 +205,7 @@ case ${PLATFORM} in
 				;;
 			*-liveCD)
 				BOOT_LIVECD=1
-				root=`/sbin/glabel status -s|/usr/bin/awk '/LiveCD/{print $3;exit 0}'`
+				root=`/sbin/glabel status -s | /usr/bin/awk '/LiveCD/{print $3;exit 0}'`
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
 					sleep 30; halt
