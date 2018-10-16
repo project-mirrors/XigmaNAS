@@ -8,7 +8,6 @@ Changes:
 - Add mariadb and phpMyAdmin.
 - Upgrade iperf3 to 3.6.
 - Upgrade virtualbox-ose to 5.2.18.
-- Upgrade lighttpd to 1.4.50.
 - Upgrade msmtp to 1.8.0.
 - Upgrade e2fsprogs to 1.44.4.
 - Upgrade samba to 4.8.5.
@@ -19,6 +18,7 @@ Changes:
 - Upgrade syncthing to 0.14.51.
 - Upgrade mDNSResponder to 878.70.2.
 - Upgrade php to 7.2.11.
+- Upgrade lighttpd to 1.4.51.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
