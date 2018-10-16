@@ -105,6 +105,14 @@ case ${PLATFORM} in
 		md=`/sbin/mdconfig -t malloc -o compress -s ${MDLOCALSIZE}`
 		case ${PLATFORM} in
 			*-liveUSB)
+				# Deal with "the secondary GPT header, it's not in the last LBA section."
+				GPTUSB=$(glabel status | awk '/usbsysdisk/{print $3}' | tr -d 'p3')
+				if [ -n "${GPTUSB}" ]; then
+					if gpart show "${GPTUSB}" | grep -q "CORRUPT"; then
+						gpart recover ${GPTUSB} > /dev/null 2>&1
+					fi
+				fi
+
 				root=`/sbin/glabel status -s|/usr/bin/awk '/liveboot/{print $3;exit 0}'`
 				gptswap=`/sbin/glabel status -s|/usr/bin/awk '/gptswap/{print $3;exit 0}'`
 				if [ -z "${root}" ]; then
