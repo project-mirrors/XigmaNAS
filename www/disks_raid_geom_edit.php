@@ -76,7 +76,7 @@ else:
 	if((PAGE_MODE_EDIT == $mode_page) && isset($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
 		$sphere_record['uuid'] = $_GET['uuid'];
 	else:
-		$mode_page = PAGE_MODE_ADD; // Force ADD
+		$mode_page = PAGE_MODE_EDIT;
 		$sphere_record['uuid'] = uuid();
 	endif;
 endif;
