@@ -228,16 +228,17 @@ function tui_partlayout(array $partlayout,int $dst_capacity,array $base_settings
  *	TUI dialog for flexible partitions
  *		the partition layout is an array with partition records:
  *
+ *		'enable'        => true           // Process partition
  *		'partition'     => 4,             // Partition Number
  *		'volname'       => 'data',        // Volume Name
  *		'fstype'        => 'freebsd-ufs', // File System Type
- *		'size'          => '*',           // Size
- *		'uom'           => '',            // Unit of Measure
- *		'minimum'       => 0,             // Minimum Size
- *		'maximum'       =>                // Maximum Size
+ *		'align'         => '1m',          // Alignment
+ *		'size'          => '2g',          // Size
+ *		'minimum'       => '1g',          // Minimum Size
+ *		'maximum'       => '16g'          // Maximum Size
  *		'allow_edit'    => true,          // Is editing allowed?
  *		'allow_star'    => true,          // Allowed to enter *?
- *		'friendly_name' => 'data',        // Displayed Name
+ *		'friendly_name' => 'DATA',        // Displayed Name
  *
  *	@param string $destination The name of the device to install the partition scheme
  *	@param array $partlayout The preconfigured partition table
@@ -289,30 +290,21 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		if(is_bool($test = $row['enabled'] ?? false) ? $test : false):
 			$partition = [
 				'partition' => $row['partition'],
-				'fstype' => $row['fstype'] ?? NULL,
+				'fstype' => $row['fstype'] ?? 'freebsd-ufs',
 				'volname' => $row['volname'] ?? NULL,
 				'friendly_name' => $row['friendly_name'] ?? '',
-				'allow_edit' => $row['allow_edit'] ?? false,
-				'allow_star' => $row['allow_star'] ?? false,
+				'allow_edit' => is_bool($test = $row['allow_edit'] ?? false) ? $test : false,
+				'allow_star' => is_bool($test = $row['allow_star'] ?? false) ? $test : false,
 				'alignment' => NULL,
 				'minimum' => NULL,
 				'maximum' => NULL,
 				'size' => NULL,
 			];
 /*
- *			parameter align
- *			align can be
+ *			parameter align can be
  *			- empty,zero or missing
  *			- one of the following numbers: 1,2,4,8,16,32,64,128,256 or 512
  *			- one of the above numbers followed by a case insensitive SI prefix: k,m,g,t,p,e,z,y
- * 
- *			record layout:
- *			- size: the size of the alignment, must be a power of 2.
- *			- value: the value of size.
- *			- uom: uom of size.
- *			- shift: shift factor of uom for bitwise calculations.
- *			- bytes: number of bytes.
- *			- aligned: aligned number of bytes.
  */
 			$details = [];
 			$regexp = '/^(128|16|1|256|2|32|4|512|64|8)([kmgtpezy]?)$/i';
@@ -429,9 +421,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			if(mwexec($command)):
 				mwexec($command_geom_undo);
 				set_kern_geom_debugflags(0);
-				$message = sprintf('Error: Failed to create GPT on %s.',$destination);
+				$message = sprintf('Failed to create GPT on %s.',$destination);
 				write_console($message . PHP_EOL);
-				tui_wait_keypress($message);
+				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
 			unset($command);
@@ -448,9 +440,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			if(mwexec($command)):
 				mwexec($command_geom_undo);
 				set_kern_geom_debugflags(0);
-				$message = sprintf('Error: Failed to install PMBR on %s.',$destination);
+				$message = sprintf('Failed to install PMBR on %s.',$destination);
 				write_console($message . PHP_EOL);
-				tui_wait_keypress($message);
+				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
 			unset($command);
@@ -482,9 +474,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				if($virtual_first > ($last_available_sector + 1)):
 					mwexec($command_geom_undo);
 					set_kern_geom_debugflags(0);
-					$message = sprintf('Error: Not enough space available on device %s.',$destination);
+					$message = sprintf('Not enough space available on device %s.',$destination);
 					write_console($message . PHP_EOL);
-					tui_wait_keypress($message);
+					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
 //				determine minimum and maximum bytes
@@ -594,9 +586,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to add boot partition on %s.',$destination);
+							$message = sprintf('Failed to add boot partition on %s.',$destination);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -614,9 +606,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to install GPT bootcode on %s.',$destination);
+							$message = sprintf('Failed to install GPT bootcode on %s.',$destination);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -630,9 +622,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to add EFI boot partition on %s.',$destination);
+							$message = sprintf('Failed to add EFI boot partition on %s.',$destination);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -650,9 +642,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to install EFI bootcode on partition %sp%s.',$destination,$partition_index);
+							$message = sprintf('Failed to install EFI bootcode on partition %sp%s.',$destination,$partition_index);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -666,9 +658,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to add root partition on %s.',$destination);
+							$message = sprintf('Failed to add root partition on %s.',$destination);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -682,9 +674,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to add swap partition on %s.',$destination);
+							$message = sprintf('Failed to add swap partition on %s.',$destination);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -697,9 +689,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Error: Failed to add %s partition on %s.',$r_partition['friendly_name'] ?? $r_partition['friendly_name'] ?? $k_partition,$destination);
+							$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'] ?? $r_partition['friendly_name'] ?? $k_partition,$destination);
 							write_console($message . PHP_EOL);
-							tui_wait_keypress($message);
+							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
@@ -712,9 +704,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			if(mwexec($command_geom_commit)):
 				mwexec($command_geom_undo);
 				set_kern_geom_debugflags(0);
-				$message = sprintf('Error: Failed to commit changes on %s.' . PHP_EOL,$destination);
+				$message = sprintf('Failed to commit changes on %s.' . PHP_EOL,$destination);
 				write_console($message . PHP_EOL);
-				tui_wait_keypress($message);
+				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
 			unset($command_geom_commit,$command_geom_undo,$diskinfo,$geom);
@@ -764,9 +756,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			if(mwexec($command)):
 				mwexec($command_geom_undo);
 				set_kern_geom_debugflags(0);
-				$message = sprintf('Error: Failed to create MBR on %s.' . PHP_EOL,$destination);
+				$message = sprintf('Failed to create MBR on %s.' . PHP_EOL,$destination);
 				write_console($message . PHP_EOL);
-				tui_wait_keypress($message);
+				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
 			unset($command);
