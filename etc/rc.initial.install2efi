@@ -75,7 +75,7 @@ $partlayout = [
 //		'allow_star' => false,
 		'friendly_name' => 'EFI'
 	],
-	[
+	'root' => [
 		'enabled' => true,
 		'partition' => 2,
 		'fstype' => 'freebsd-ufs',
@@ -88,7 +88,7 @@ $partlayout = [
 //		'allow_star' => false,
 		'friendly_name' => 'OS'
 	],
-	[
+	'swap' => [
 		'enabled' => true,
 		'partition' => 3,
 		'fstype' => 'freebsd-swap',
@@ -100,7 +100,7 @@ $partlayout = [
 //		'allow_star' => false,
 		'friendly_name' => 'SWAP'
 	],
-	[
+	'data' => [
 		'enabled' => true,
 		'partition' => 4,
 		'fstype' => 'freebsd-ufs',
