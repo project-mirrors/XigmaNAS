@@ -39,39 +39,83 @@ require_once 'util.inc';
 require_once 'tui.inc';
 
 //	default size of slice/partition 1 (used for OS)
-$part1size = $g_install['part1size_embedded'];
-$part1min = $g_install['part1min_embedded'];
-$swapsize =  $g_install['default_swap'];
+$part1size = sprintf('%sM',$g_install['part1size_embedded']);
+//	$part1min = sprintf('%sM',$g_install['part1min_embedded']);
+$swapsize = sprintf('%sM',$g_install['default_swap']);
+$swapsizemin = sprintf('%sM',$g_install['default_swap'] >> 1);
 
 //	default slice/partition layout
+//	default slice/partition layout
+$schemelayout =
+	[
+		'scheme' => 'GPT',
+		'entries' => 128
+	];
 $partlayout = [
-	[
-		'partition' => 1,'fstype' => 'boot','size' => 512,'volname' => 'boot',
-		'uom' => 'k','minimum' => 512,'maximum' => 512,'recommended' => 512,
-		'allow_edit' => false,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
-		'friendly_name' => 'boot',
-		'has_next' => true
+	'boot' => [
+		'enabled' => true,
+		'partition' => 1,
+		'fstype' => 'freebsd-boot',
+		'volname' => 'gptboot',
+		'align' => '16k',
+		'size' => '512k',
+		'minimum' => '512k',
+//		'maximum' => '512k',
+//		'allow_edit' => false,
+//		'allow_star' => false,
+		'friendly_name' => 'BOOT'
 	],
-	[
-		'partition' => 2,'fstype' => 'ufs','size' => $part1size,'volname' => 'root',
-		'uom' => 'M','minimum' => $part1size,'maximum' => PHP_INT_MAX,'recommended' => $part1size,
-		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
-		'friendly_name' => 'OS',
-		'has_next' => true
+	'efi' => [
+		'enabled' => false,
+		'partition' => 42,
+		'fstype' => 'efi',
+		'volname' => 'efiboot',
+		'align' => '32k',
+		'size' => '200m',
+		'minimum' => '200m',
+//		'maximum' => '200m',
+//		'allow_edit' => false,
+//		'allow_star' => false,
+		'friendly_name' => 'EFI'
 	],
-	[
-		'partition' => 3,'fstype' => 'swap','size' => $swapsize,'volname' => 'swap',
-		'uom' => 'M','minimum' => $swapsize >> 1,'maximum' => PHP_INT_MAX,'recommended' => $swapsize,
-		'allow_edit' => true,'allow_size' => true,'allow_zero' => false,'allow_star' => false,
-		'friendly_name' => 'swap',
-		'has_next' => true
+	'root' => [
+		'enabled' => true,
+		'partition' => 2,
+		'fstype' => 'freebsd-ufs',
+		'volname' => 'gptroot',
+		'align' => '1m',
+		'size' => $part1size,
+		'minimum' => $part1size,
+//		'maximum' => '16g',
+		'allow_edit' => true,
+//		'allow_star' => false,
+		'friendly_name' => 'OS'
 	],
-	[
-		'partition' => 4,'fstype' => 'ufs','size' => '*','volname' => 'data',
-		'uom' => 'M','minimum' => 0,'maximum' => PHP_INT_MAX,'recommended' => PHP_INT_MAX,
-		'allow_edit' => true,'allow_size' => true,'allow_zero' => true,'allow_star' => true,
-		'friendly_name' => 'data',
-		'has_next' => false
+	'swap' => [
+		'enabled' => true,
+		'partition' => 3,
+		'fstype' => 'freebsd-swap',
+		'volname' => 'gptswap',
+		'size' => $swapsize,
+		'align' => '1m',
+		'minimum' => $swapsizemin,
+//		'maximum' => '*',
+		'allow_edit' => true,
+//		'allow_star' => false,
+		'friendly_name' => 'SWAP'
+	],
+	'data' => [
+		'enabled' => true,
+		'partition' => 4,
+		'fstype' => 'freebsd-ufs',
+		'volname' => 'data',
+		'align' => '1m',
+		'size' => '',
+		'minimum' => '256m',
+//		'maximum' => '*',
+		'allow_edit' => true,
+		'allow_star' => true,
+		'friendly_name' => 'DATA'
 	]
 ];
 
@@ -144,17 +188,12 @@ if(array_key_exists($harddrive,$disklist)):
 	endif;
 endif;
 
-$partlayout = tui_partlayout($partlayout,$destination_media_capacity);
-if(false === $partlayout):
-	exit(0);
-endif;
-
 if(install_mount_cd($cdlist[$cdrom])):
 	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
 	exit(0);
 endif;
 
-if(install_init_gptdisk($harddrive,$partlayout)):
+if(!tui_partition_layout($harddrive,$partlayout,$schemelayout)):
 	install_unmount_cd();
 	tui_wait_keypress('There was a problem during initializing the destination disk.');
 	exit(0);
