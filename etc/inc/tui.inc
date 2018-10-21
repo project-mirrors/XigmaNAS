@@ -491,6 +491,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				if($r_partition['allow_edit']):
 //					prepare info string
 					$input_text = sprintf('Enter the size of the %s partition',$r_partition['friendly_name']);
+					if($r_partition['allow_star']):
+						$input_text .= ' or enter \'ALL\' to take what\'s available';
+					endif;
 					$boundaries = [];
 					if(isset($r_partition['minimum']['size'])):
 						$boundaries[] = sprintf('minimum: %s',$r_partition['minimum']['size'] ?? 'n/a');
@@ -516,7 +519,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						else:
 							$enhanced_input_text = $input_text;
 						endif;
-						$result = tui_display_input($enhanced_input_text,60,10,$entered_size);
+						$result = tui_display_input($enhanced_input_text,60,11,$entered_size);
 						if(0 !== $result):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
