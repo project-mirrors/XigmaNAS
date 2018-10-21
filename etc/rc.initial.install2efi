@@ -42,6 +42,7 @@ require_once 'tui.inc';
 $part1size = sprintf('%sM',$g_install['part1size_embedded']);
 //	$part1min = sprintf('%sM',$g_install['part1min_embedded']);
 $swapsize = sprintf('%sM',$g_install['default_swap']);
+$swapsizemin = sprintf('%sM',$g_install['default_swap'] >> 1);
 
 //	default slice/partition layout
 $schemelayout =
@@ -67,7 +68,7 @@ $partlayout = [
 		'enabled' => true,
 		'partition' => 42,
 		'fstype' => 'efi',
-		'volname' => 'efiboot'
+		'volname' => 'efiboot',
 		'size' => '200m',
 		'minimum' => '200m',
 //		'maximum' => '200m',
@@ -94,7 +95,7 @@ $partlayout = [
 		'fstype' => 'freebsd-swap',
 		'volname' => 'gptswap',
 		'size' => $swapsize,
-		'minimum' => $swapsize >> 1,
+		'minimum' => $swapsizemin,
 //		'maximum' => '*',
 		'allow_edit' => true,
 //		'allow_star' => false,
