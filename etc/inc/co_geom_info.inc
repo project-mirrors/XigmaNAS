@@ -42,94 +42,99 @@ class co_geom_info {
 		return true;
 	}
 	public function scan() {
-		$c_xml = '';
+		unset($this->a_xml);
 		$cmd = 'sysctl -b kern.geom.confxml';
 		$a_row = [];
 		$retval = 0;
-		mwexec2($cmd, $a_row, $retval);
-		$c_xml = implode('', $a_row);
+		mwexec2($cmd,$a_row,$retval);
+		$c_xml = implode('',$a_row);
 		$this->a_xml = new SimpleXMLElement($c_xml);
+		unset($c_xml,$retval,$a_row,$cmd);
 		return true;
 	}
 	public function get_disk(&$a_ret = []) {
-		$r_ret = [];
-		$x_disk = '/mesh/class[name="DISK"]/geom';
-		if(false !== ($a_disk = $this->a_xml->xpath($x_disk))):
-			foreach($a_disk as $r_disk):
-				$r_ret['geom_id'] = (string)$r_disk['id'];
-				$r_ret['rank'] = (int)$r_disk->rank;
-				$r_ret['name'] = (string)$r_disk->name;
-				$a_ret[(string)$r_disk['id']] = $r_ret;
-				
+		$x_query_string = '/mesh/class[name="DISK"]/geom';
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result['id']] = [
+					'geom_id' => (string)$r_query_result['id'],
+					'rank' => (int)$r_query_result->rank,
+					'name' => (string)$r_query_result->name
+				];
 			endforeach;
 		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
 	public function get_dev(&$a_ret = []) {
-		$r_ret = [];
-		$x_dev = '/mesh/class[name="DEV"]/geom';
-		if(false !== ($a_dev = $this->a_xml->xpath($x_dev))):
-			foreach($a_dev as $r_dev):
-				$r_ret['geom.id'] = (string)$r_dev['id'];
-				$r_ret['rank'] = (int)$r_dev->rank;
-				$r_ret['name'] = (string)$r_dev->name;
-				$a_ret[(string)$r_dev['id']] = $r_ret;
+		$x_query_string = '/mesh/class[name="DEV"]/geom';
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result['id']] = [
+					'geom.id' => (string)$r_query_result['id'],
+					'rank' => (int)$r_query_result->rank,
+					'name' => (string)$r_query_result->name,
+				];
 			endforeach;
 		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function get_part(&$a_ret = []) {
-		$r_ret = [];
-		$x_part = '/mesh/class[name="PART"]/geom';
-		if(false !== ($a_result = $this->a_xml->xpath($x_part))):
-			foreach($a_part as $r_part):
-				$r_ret['geom.id'] = (string)$r_part['id'];
-				$r_ret['rank'] = (int)$r_part->rank;
-				$r_ret['name'] = (string)$r_part->name;
-				$a_ret[(string)$r_part['id']] = $r_ret;
+	public function get_part(array &$a_ret = []) {
+		$x_query_string = '/mesh/class[name="PART"]/geom';
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result['id']] = [
+					'geom.id' => (string)$r_query_result['id'],
+					'rank' => (int)$r_query_result->rank,
+					'name' => (string)$r_query_result->name
+				];
 			endforeach;
 		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function get_provider(&$a_ret = []) {
-		$r_ret = [];
-		$x_provider = '//provider[@id]';
-		if(false !== ($a_provider = $this->a_xml->xpath($x_provider))):
-			foreach($a_provider as $r_provider):
-				$r_ret['provider.id'] = (string)$r_provider['id'];
-				$r_ret['name'] = (string)$r_provider->name;
-				$r_ret['mediasize'] = (int)$r_provider->mediasize;
-				$r_ret['sectorsize'] = (int)$r_provider->sectorsize;
-				$r_ret['stripesize'] = (int)$r_provider->stripesize;
-				$r_ret['stripeoffset'] = (int)$r_provider->stripeoffset;
-				$a_ret[(string)$r_provider['id']] = $r_ret;
+	public function get_provider(array &$a_ret = []) {
+		$x_query_string = '//provider[@id]';
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result['id']] = [
+					'provider.id' => (string)$r_query_result['id'],
+					'name' => (string)$r_query_result->name,
+					'mediasize' => (int)$r_query_result->mediasize,
+					'sectorsize' => (int)$r_query_result->sectorsize,
+					'stripesize' => (int)$r_query_result->stripesize,
+					'stripeoffset' => (int)$r_query_result->stripeoffset
+				];
 			endforeach;
 		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function get_provider_by_name(&$a_ret = [],string $name = NULL) {
-		$r_ret = [];
+	public function get_provider_by_name(array &$a_ret = [],string $name = NULL) {
 		if(!is_null($name)):
-			$x_provider = sprintf('//provider[@id and name="%s"]',$name);
-			if(false !== ($a_provider = $this->a_xml->xpath($x_provider))):
-				foreach($a_provider as $r_provider):
-					$r_ret['provider.id'] = (string)$r_provider['id'];
-					$r_ret['name'] = (string)$r_provider->name;
-					$r_ret['mediasize'] = (int)$r_provider->mediasize;
-					$r_ret['sectorsize'] = (int)$r_provider->sectorsize;
-					$r_ret['stripesize'] = (int)$r_provider->stripesize;
-					$r_ret['stripeoffset'] = (int)$r_provider->stripeoffset;
-					$a_ret[(string)$r_provider['id']] = $r_ret;
+			$x_query_string = sprintf('//provider[@id and name="%s"]',$name);
+			if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+				foreach($a_query_result as $r_query_result):
+					$a_ret[(string)$r_query_result['id']] = [
+						'provider.id' => (string)$r_query_result['id'],
+						'name' => (string)$r_query_result->name,
+						'mediasize' => (int)$r_query_result->mediasize,
+						'sectorsize' => (int)$r_query_result->sectorsize,
+						'stripesize' => (int)$r_query_result->stripesize,
+						'stripeoffset' => (int)$r_query_result->stripeoffset
+					];
 				endforeach;
 			endif;
 		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
-	public function get_provider_ref(&$a_ret = []) {
-		$x_provider = '//provider[@ref]';
-		if(false !== ($a_provider = $this->a_xml->xpath($x_provider))):
-			foreach($a_provider as $r_provider):
-				$key = (string)$r_provider['ref'];
+	public function get_provider_ref(array &$a_ret = []) {
+		$x_query_string = '//provider[@ref]';
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$key = (string)$r_query_result['ref'];
 				if(array_key_exists($key,$a_ret)):
 					$a_ret[$key]['count']++;
 				else:
@@ -137,6 +142,7 @@ class co_geom_info {
 				endif;
 			endforeach;
 		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
 	/**
@@ -145,7 +151,7 @@ class co_geom_info {
 	 *	@param array $a_ret
 	 *	@return array
 	 */
-	function get_available_provider(&$a_ret = []) {
+	function get_available_provider(array &$a_ret = []) {
 		$a_ref = $this->get_provider_ref();
 		$a_provider = $this->get_provider();
 		foreach($a_ref as $r_ref_key => $r_ref_data):
@@ -153,6 +159,46 @@ class co_geom_info {
 				$a_ret[] = $a_provider[$r_ref_key];
 			endif;
 		endforeach;
+		return $a_ret;
+	}
+	public function get_class_names(array &$a_ret = []) {
+		$x_query_string = '/mesh/class[@id]';
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result->name] = (string)$r_query_result->name;
+			endforeach;
+		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
+		return $a_ret;
+	}
+	public function gather_part_by_name(string $name = NULL,array &$a_ret = []) {
+		$x_query_string = (is_null($name) ? '/mesh/class[name="PART"]/geom' : sprintf('/mesh/class[name="PART"]/geom[name="%s"]',$name));
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result->name] = $r_query_result;
+			endforeach;
+		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
+		return $a_ret;
+	}
+	public function gather_provider_by_name(string $name = NULL,array &$a_ret = []) {
+		$x_query_string = (is_null($name) ? sprintf('//provider[@id]"]') : sprintf('//provider[@id and name="%s"]',$name));
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result->name] = $r_query_result;
+			endforeach;
+		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
+		return $a_ret;
+	}
+	public function gather_disk_by_name(string $name = NULL,array &$a_ret = []) {
+		$x_query_string = (is_null($name) ? '/mesh/class[name="DISK"]/geom' : sprintf('/mesh/class[name="DISK"]/geom[name="%s"]',$name));
+		if(false !== ($a_query_result = $this->a_xml->xpath($x_query_string))):
+			foreach($a_query_result as $r_query_result):
+				$a_ret[(string)$r_query_result->name] = $r_query_result;
+			endforeach;
+		endif;
+		unset($r_query_result,$a_query_result,$x_query_string);
 		return $a_ret;
 	}
 }
