@@ -69,6 +69,7 @@ $partlayout = [
 		'partition' => 42,
 		'fstype' => 'efi',
 		'volname' => 'efiboot',
+		'align' => '32k',
 		'size' => '200m',
 		'minimum' => '200m',
 //		'maximum' => '200m',
