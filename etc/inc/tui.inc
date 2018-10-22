@@ -124,110 +124,6 @@ function tui_wait_keypress($message = "") {
  *	TUI dialog for flexible partitions
  *		the partition layout is an array with partition records:
  *
- *		'partition'     => 4,           // Partition Number
- *		'volname'       => 'data',      // Volume Name
- *		'fstype'        => 'ufs',       // File System Type
- *		'size'          => '*',         // Size
- *		'uom'           => 'M',         // Unit of Measure
- *		'minimum'       => 0,           // Minimum Size
- *		'maximum'       => PHP_INT_MAX, // Maximum Size
- *		'recommended'   => PHP_INT_MAX, // Recommended Size
- *		'allow_edit'    => true,        // Is editing allowed?
- *		'allow_size'    => true,        // Allowed changing size?
- *		'allow_zero'    => true,        // Allowed to enter 0?
- *		'allow_star'    => true,        // Allowed to enter *?
- *		'friendly_name' => 'data',      // Displayed Name
- *		'has_next'      => false        // End Of Table?
- *
- *	@param array $partlayout The preconfigured partition table
- *	@param int $dst_capacity Capacity of the destination media in bytes.
- *	@return array Updated partition layout or false on failure
- */
-function tui_partlayout(array $partlayout,int $dst_capacity,array $base_settings = []) {
-	$base_uom = $base_settings['uom'] ?? 'M';
-	$base_uom_powerof2 = $base_settings['uom_powerof2'] ?? 20; // MiB
-	$base_align = $base_uom_powerof2 + $base_settings['align'] ?? 2; // align partitions to 4MiB
-	$dst_capacity_left = $dst_capacity >> $base_uom_powerof2;
-	$dst_capacity_reserved = 0;
-	//	initialize variables
-	foreach($partlayout as $key => &$row):
-		$row['uom_powerof2'] = 10 * ((false !== ($test = stripos('kmgtpezy',$row['uom']))) ? 1 + $test : 0);
-		$row['minimum_aligned'] = (($row['minimum'] << $row['uom_powerof2']) + (1 << $base_align) - 1) >> $base_align << $base_align >> $base_uom_powerof2;
-		$dst_capacity_reserved += $row['minimum_aligned'];
-	endforeach;
-	//	test capacity
-	if($dst_capacity_reserved > $dst_capacity_left):
-		tui_wait_keypress('The capacity of the selected device is not sufficient enough.');
-		return false;
-	endif;
-	//	cycle through partitions
-	foreach($partlayout as $key => &$row):
-		$dst_capacity_reserved -= $row['minimum_aligned'];
-		$entered_size = $row['size'];
-		if($dst_capacity_left > 0):
-			if($row['allow_star']):
-				$row['maximum'] = $dst_capacity_left - $dst_capacity_reserved;
-			else:
-				$row['maximum'] = min($row['maximum'],$dst_capacity_left - $dst_capacity_reserved);
-			endif;
-			$row['recommended'] = max($row['recommended'],$row['minimum']); // recommended must be >= minimum
-			$row['recommended'] = min($row['recommended'],$row['maximum']); // recommended must be <= maximum
-			if('*' !== $entered_size):
-				$entered_size = min($entered_size,$row['recommended']);
-			endif;
-			if($row['allow_edit']):
-				$text = sprintf('Enter the size of the %1$s partition in %2$sB' . PHP_EOL . '(minimum: %3$s, maximum: %4$s, recommended: %5$s)',$row['friendly_name'],$row['uom'],$row['minimum'],$row['maximum'],$entered_size);
-			endif;
-			do {
-				if($row['allow_edit']):
-					$result = tui_display_input($text,60,8,$entered_size);
-					if(0 != $result):
-						return false;
-					endif;
-				endif;
-				if($row['allow_size'] && is_numeric($entered_size) && $entered_size >= $row['minimum'] && $entered_size <= $row['maximum']):
-					$row['size'] = $entered_size;
-					$nocigar = false;
-				elseif($row['allow_zero'] && is_numeric($entered_size) && 0 === $entered_size):
-					//	record will be unset
-//					$entered_size = 0;
-//					$row['size'] = $entered_size;
-					$nocigar = false;
-				elseif($row['allow_star'] && is_string($entered_size) && '*' === $entered_size):
-					$entered_size = $row['maximum'];
-					if(0 === $dst_capacity_reserved):
-						//	no reserved partitions left
-						$row['size'] = '*';
-					elseif($row['has_next']):
-						$row['size'] = $row['maximum'];
-					else:
-						$row['size'] = '*';
-					endif;
-					$nocigar = false;
-				elseif($row['allow_edit']):
-					$nocigar = true;
-				else:
-					$nocigar = true;
-					tui_wait_keypress('There is a problem with the partition configuration.');
-					return false;
-				endif;
-			} while ($nocigar);
-		else:
-			$entered_size = 0;
-		endif;
-		//	calculate remaining capacity
-		$entered_size_aligned = (($entered_size << $row['uom_powerof2']) + (1 << $base_align) - 1) >> $base_align << $base_align >> $base_uom_powerof2;
-		$dst_capacity_left -= $entered_size_aligned;
-		if(0 === $entered_size):
-			unset($partlayout[$key]);
-		endif;
-	endforeach;
-	return $partlayout;
-}
-/**
- *	TUI dialog for flexible partitions
- *		the partition layout is an array with partition records:
- *
  *		'enable'        => true           // Process partition
  *		'partition'     => 4,             // Partition Number
  *		'volname'       => 'data',        // Volume Name
@@ -290,9 +186,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		if(is_bool($test = $row['enabled'] ?? false) ? $test : false):
 			$partition = [
 				'partition' => $row['partition'],
-				'fstype' => $row['fstype'] ?? 'freebsd-ufs',
-				'volname' => $row['volname'] ?? NULL,
-				'friendly_name' => $row['friendly_name'] ?? '',
+				'fstype' => is_string($test = $row['fstype'] ?? NULL) ? $test : NULL,
+				'volname' => is_string($test = $row['volname'] ?? NULL) ? $test : NULL,
+				'friendly_name' => is_string($test = $row['friendly_name'] ?? 'unknown') ? $test : 'unknown',
 				'allow_edit' => is_bool($test = $row['allow_edit'] ?? false) ? $test : false,
 				'allow_star' => is_bool($test = $row['allow_star'] ?? false) ? $test : false,
 				'alignment' => NULL,
@@ -581,20 +477,44 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				$param['geom'] = escapeshellarg($destination);
 				switch($k_partition):
 					case 'boot':
+					case 'zfsboot':
 //						add boot partition
-//						$param['type'] = '-t freebsd-boot';
-						$param['type'] = (isset($r_partition['fstype']) ? sprintf('-t %s',$r_partition['fstype']) : '-t freebsd-boot');
-						$command = implode(' ',$param);
-						unset($param);
-						if(mwexec($command)):
-							mwexec($command_geom_undo);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to add boot partition on %s.',$destination);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
-						endif;
-						unset($command);
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-boot');
+						break;
+					case 'efi':
+//						add efi partition
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'efi');
+						break;
+					case 'root':
+//						add root partition
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
+						break;
+					case 'swap':
+//						add swap partition
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-swap');
+						break;
+					case 'zfsroot':
+//						add root partition
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-zfs');
+						break;
+					default:
+//						add other partitions
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
+						break;
+				endswitch;
+				$command = implode(' ',$param);
+				unset($param);
+				if(mwexec($command)):
+					mwexec($command_geom_undo);
+					set_kern_geom_debugflags(0);
+					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination);
+					write_console($message . PHP_EOL);
+					tui_display_message('Error',$message,60,5);
+					return false;
+				endif;
+				unset($command);
+				switch($k_partition):
+					case 'boot':
 //						install gpt boot code
 						$param = [];
 						$param['run'] = '/sbin/geom';
@@ -616,21 +536,29 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						endif;
 						unset($command);
 						break;
-					case 'efi':
-//						add efi partition
-//						$param['type'] = '-t efi';
-						$param['type'] = (isset($r_partition['fstype']) ? sprintf('-t %s',$r_partition['fstype']) : '-t efi');
+					case 'zfsboot':
+//						install gpt zfs boot code
+						$param = [];
+						$param['run'] = '/sbin/geom';
+						$param['class'] = 'part';
+						$param['command'] = 'bootcode';
+						$param['testmode'] = $test_mode;
+						$param['boot'] = '-p /boot/gptzfsboot';
+						$param['index'] = $partition_index;
+						$param['geom'] = escapeshellarg($destination);
 						$command = implode(' ',$param);
 						unset($param);
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to add EFI boot partition on %s.',$destination);
+							$message = sprintf('Failed to install GPT ZFS bootcode on %s.',$destination);
 							write_console($message . PHP_EOL);
 							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
 						unset($command);
+						break;
+					case 'efi':
 //						install efi boot code
 						$param = [];
 						$param['run'] = '/sbin/geom';
@@ -646,53 +574,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
 							$message = sprintf('Failed to install EFI bootcode on partition %sp%s.',$destination,$partition_index);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
-						endif;
-						unset($command);
-						break;
-					case 'root':
-//						add root partition
-//						$param['type'] = '-t freebsd-ufs';
-						$param['type'] = (isset($r_partition['fstype']) ? sprintf('-t %s',$r_partition['fstype']) : '-t freebsd-ufs');
-						$command = implode(' ',$param);
-						unset($param);
-						if(mwexec($command)):
-							mwexec($command_geom_undo);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to add root partition on %s.',$destination);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
-						endif;
-						unset($command);
-						break;
-					case 'swap':
-//						add swap partition
-//						$param['type'] = '-t freebsd-swap';
-						$param['type'] = (isset($r_partition['fstype']) ? sprintf('-t %s',$r_partition['fstype']) : '-t freebsd-swap');
-						$command = implode(' ',$param);
-						unset($param);
-						if(mwexec($command)):
-							mwexec($command_geom_undo);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to add swap partition on %s.',$destination);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
-						endif;
-						unset($command);
-						break;
-					default:
-//						add other partitions
-						$param['type'] = (isset($r_partition['fstype']) ? sprintf('-t %s',$r_partition['fstype']) : '-t freebsd-ufs');
-						$command = implode(' ',$param);
-						unset($param);
-						if(mwexec($command)):
-							mwexec($command_geom_undo);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'] ?? $r_partition['friendly_name'] ?? $k_partition,$destination);
 							write_console($message . PHP_EOL);
 							tui_display_message('Error',$message,60,5);
 							return false;
@@ -744,33 +625,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			endforeach;
 			set_kern_geom_debugflags(0);
 			unset($r_partition,$k_partition,$partition_layout);
-			break;
-		case 'mbr':
-			//	create partition scheme on the destination device
-			$param = [];
-			$param['run'] = '/sbin/geom';
-			$param['class'] = 'part';
-			$param['command'] = 'create';
-			$param['testmode'] = $test_mode;
-			$param['scheme'] = '-s mbr';
-			$param['geom'] = escapeshellarg($destination);
-			$command = implode(' ',$param);
-			unset($param);
-			if(mwexec($command)):
-				mwexec($command_geom_undo);
-				set_kern_geom_debugflags(0);
-				$message = sprintf('Failed to create MBR on %s.' . PHP_EOL,$destination);
-				write_console($message . PHP_EOL);
-				tui_display_message('Error',$message,60,5);
-				return false;
-			endif;
-			unset($command);
-			switch($base['efi']):
-				case true:
-					break;
-				case false:
-					break;
-			endswitch;
 			break;
 	endswitch;
 	set_kern_geom_debugflags(0);
