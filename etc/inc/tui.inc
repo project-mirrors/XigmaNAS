@@ -623,7 +623,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						break;
 				endswitch;
 			endforeach;
-			set_kern_geom_debugflags(0);
 			unset($r_partition,$k_partition,$partition_layout);
 			break;
 	endswitch;
