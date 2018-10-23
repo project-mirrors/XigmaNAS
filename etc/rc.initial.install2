@@ -93,18 +93,6 @@ if(0 != $result):
 	exit(0);
 endif;
 
-// Get customized destination media size for root partition
-$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
-do {
-	$newpart1size = $part1size;
-	$result = tui_display_input($text, 60, 8, $newpart1size);
-	if (0 != $result)
-		exit(0);
-} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
-
-// Update the root slice/partition size.
-$partlayout[0]['size'] = $newpart1size;
-
 // Display destination medias
 $amenuitem = [];
 foreach($disklist as $diskk => $diskv):
@@ -126,6 +114,19 @@ if(disks_ismounted_ex($harddrive, "mdisk")):
 	tui_wait_keypress("The destination drive is already in use!");
 	exit(0);
 endif;
+
+// Get customized destination media size for root partition
+$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
+do {
+	$newpart1size = $part1size;
+	$result = tui_display_input($text, 60, 8, $newpart1size);
+	if (0 != $result)
+		exit(0);
+} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
+
+// Update the root slice/partition size.
+$partlayout[0]['size'] = $newpart1size;
+
 //	get media size of destination media and estimate remaining space
 $available_swap_space = 0;
 if(array_key_exists($harddrive,$disklist)):
