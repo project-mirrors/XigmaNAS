@@ -126,7 +126,7 @@ $text = <<<EOD
 
 {$productname} 'Embedded' installer for HDD, SSD, CF or USB flash drive.
 
-- Create GPT partition 1, for nen-EFI boot
+- Create GPT partition 1, for non-EFI boot
 - Create GPT partition 42, for EFI-boot
 - Create GPT partition 2, using UFS, customizable size for OS image
 - Create GPT partition 3, SWAP partition, size is customizable
