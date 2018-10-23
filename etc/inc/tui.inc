@@ -270,7 +270,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			$partition_layout[$key] = $partition;
 		endif;
 	endforeach;
-//	mwexec('/sbin/swapoff -a');
 //	undo command
 	$param = [];
 	$param['run'] = '/sbin/geom';
@@ -287,7 +286,21 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 	$param['geom'] = escapeshellarg($destination);
 	$command_geom_commit = implode(' ',$param);
 	unset($param);
-//	
+//	switch off all swap partitions on the destination device, ignore errors
+	$command = '/sbin/swapctl -hl';
+	unset($output);
+	mwexec2($command,$output);
+	unset($command);
+	foreach($output as $row):
+		unset($matches);
+		if(preg_match(sprintf('~^(/dev/%s[a-z]\S*)~',$destination),$row,$matches)):
+			$command = sprintf('/sbin/swapoff %s',$matches[1]);
+			mwexec($command);
+			unset($command);
+		endif;
+	endforeach;
+	unset($matches,$row,$output);
+//	shields down
 	set_kern_geom_debugflags(0x10);
 //	force delete existing partitions (ignore errors)
 	$param = [];
@@ -626,6 +639,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			unset($r_partition,$k_partition,$partition_layout);
 			break;
 	endswitch;
+//	shields up
 	set_kern_geom_debugflags(0);
 return true;
 }
