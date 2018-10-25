@@ -19,6 +19,7 @@ Changes:
 - Upgrade php to 7.2.11.
 - Upgrade lighttpd to 1.4.51.
 - Upgrade virtualbox-ose to 5.2.20.
+- Upgrade tmux to 2.8.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
