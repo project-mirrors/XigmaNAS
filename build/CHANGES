@@ -20,6 +20,7 @@ Changes:
 - Upgrade lighttpd to 1.4.51.
 - Upgrade virtualbox-ose to 5.2.20.
 - Upgrade tmux to 2.8.
+- Upgrade tzdata to 2018g.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
