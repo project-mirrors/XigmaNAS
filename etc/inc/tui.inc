@@ -122,19 +122,19 @@ function tui_wait_keypress($message = "") {
 }
 /**
  *	TUI dialog for flexible partitions
- *		the partition layout is an array with partition records:
+ *	The partition layout is an array with partition records:
  *
- *		'enable'        => true           // Process partition
- *		'partition'     => 4,             // Partition Number
- *		'volname'       => 'data',        // Volume Name
- *		'fstype'        => 'freebsd-ufs', // File System Type
- *		'align'         => '1m',          // Alignment
- *		'size'          => '2g',          // Size
- *		'minimum'       => '1g',          // Minimum Size
- *		'maximum'       => '16g'          // Maximum Size
- *		'allow_edit'    => true,          // Is editing allowed?
- *		'allow_star'    => true,          // Allowed to enter *?
- *		'friendly_name' => 'DATA',        // Displayed Name
+ *	'enable'        => true           // Process partition
+ *	'partition'     => 4,             // Partition Number
+ *	'volname'       => 'data',        // Volume Name
+ *	'fstype'        => 'freebsd-ufs', // File System Type
+ *	'align'         => '1m',          // Alignment
+ *	'size'          => '2g',          // Size
+ *	'minimum'       => '1g',          // Minimum Size
+ *	'maximum'       => '16g'          // Maximum Size
+ *	'allow_edit'    => true,          // Is editing allowed?
+ *	'allow_star'    => true,          // Allowed to enter *?
+ *	'friendly_name' => 'DATA',        // Displayed Name
  *
  *	@param string $destination The name of the device to install the partition scheme
  *	@param array $partlayout The preconfigured partition table
@@ -143,6 +143,8 @@ function tui_wait_keypress($message = "") {
  */
 function tui_partition_layout(string $destination,array $partlayout,array $base_settings = []) {
 	$test_mode = '-f x';
+	$param_geom_part = ['run' => '/sbin/geom','class' => 'part'];
+	$base = [];
 //	geom object to gather information
 	$geom = new co_geom_info();
 	$diskinfo = $geom->gather_provider_by_name($destination);
@@ -152,22 +154,16 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		tui_wait_keypress($message);
 		return false;
 	endif;
-//	prepare base information
-	$base = [];
-	$base['scheme'] = strtolower(filter_var($base_settings['scheme'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'gpt','regexp' => '/^(gpt|mbr)$/i']]));
-	switch($base['scheme']):
-		case 'gpt':
-			$base['entries'] = filter_var($base_settings['entries'],FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '128','min_range' => 128,'max_range' => 4096]]);
-			break;
-		case 'mbr':
-			$base['entries'] = 4;
-			break;
-	endswitch;
 //	do the math for sectorsize
 	$base['sectorsize'] = [
 		'shift' => 0,
-		'bytes' => (int)$diskinfo[$destination]->sectorsize,
+		'bytes' => (int)$diskinfo[$destination]->sectorsize
 	];
+//	gather mediasize
+	$base['mediasize'] = [
+		'bytes' => (int)$diskinfo[$destination]->mediasize
+	];
+	unset($diskinfo);
 	if(0 === $base['sectorsize']['bytes']):
 		$message = 'The destination device reported a sector size of 0.';
 		write_console($message . PHP_EOL);
@@ -180,6 +176,16 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		$base['sectorsize']['shift']++;
 		$test >>= 1;
 	endwhile;
+//	prepare scheme information
+	$base['scheme'] = strtolower(filter_var($base_settings['scheme'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'gpt','regexp' => '/^(gpt|mbr)$/i']]));
+	switch($base['scheme']):
+		case 'gpt':
+			$base['entries'] = filter_var($base_settings['entries'],FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '128','min_range' => 128,'max_range' => 4096]]);
+			break;
+		case 'mbr':
+			$base['entries'] = 4;
+			break;
+	endswitch;
 //	initialize layout
 	$partition_layout = [];
 	foreach($partlayout as $key => $row):
@@ -195,6 +201,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				'minimum' => NULL,
 				'maximum' => NULL,
 				'size' => NULL,
+				'is_last' => false
 			];
 /*
  *			parameter align can be
@@ -211,6 +218,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				preg_match($regexp,$details['size'],$matches);
 				$details['value'] = $matches[1];
 				$details['uom'] = strtoupper($matches[2]);
+				unset($matches);
 				$details['shift'] = 0;
 				//	set shift from SI prefix
 				if(!empty($details['uom'])):
@@ -233,7 +241,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				$details['aligned'] = $details['bytes'];
 				$partition['alignment'] = $details;
 			endif;
-			unset($regexp,$details);
+			unset($details,$regexp);
 /*
  *			parameter minimum, maximum, size can be
  *			- invalid or missing
@@ -260,92 +268,133 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					$mask = isset($partition['alignment']) ? $partition['alignment']['bytes'] - 1 : $base['sectorsize']['bytes'] - 1;
 					$details['aligned'] = ~$mask & ($details['bytes'] + $mask);
 					$partition[$parameter] = $details;
-					unset($details);
 				endif;
+				unset($details);
 			endforeach;
+			unset($regexp);
 			if($partition['allow_edit']):
 			elseif(isset($partition['size'])):
 				$partition['minimum'] = $partition['size'];
 			endif;
 			$partition_layout[$key] = $partition;
+			unset($partition);
 		endif;
 	endforeach;
+	if(isset($key)):
+		$partition_layout[$key]['is_last'] = true;
+	endif;
 //	undo command
-	$param = [];
-	$param['run'] = '/sbin/geom';
-	$param['class'] = 'part';
+	$param = $param_geom_part;
 	$param['command'] = 'undo';
 	$param['geom'] = escapeshellarg($destination);
 	$command_geom_undo = implode(' ',$param);
-	unset($param);
 //	commit command
-	$param = [];
-	$param['run'] = '/sbin/geom';
-	$param['class'] = 'part';
+	$param = $param_geom_part;
 	$param['command'] = 'commit';
 	$param['geom'] = escapeshellarg($destination);
 	$command_geom_commit = implode(' ',$param);
-	unset($param);
 //	switch off all swap partitions on the destination device, ignore errors
 	$command = '/sbin/swapctl -hl';
 	unset($output);
 	mwexec2($command,$output);
-	unset($command);
 	foreach($output as $row):
 		unset($matches);
 		if(preg_match(sprintf('~^(/dev/%s[a-z]\S*)~',$destination),$row,$matches)):
 			$command = sprintf('/sbin/swapoff %s',$matches[1]);
 			mwexec($command);
-			unset($command);
 		endif;
 	endforeach;
 	unset($matches,$row,$output);
 //	shields down
 	set_kern_geom_debugflags(0x10);
 //	force delete existing partitions (ignore errors)
-	$param = [];
-	$param['run'] = '/sbin/geom';
-	$param['class'] = 'part';
+	$partition_info = $geom->gather_part_by_name($destination);
+	if(false !== $partition_info):
+		$current_scheme = (string)$partition_info[$destination]->config->scheme;
+	else:
+		$current_scheme = '';
+	endif;
+	unset($partition_info);
+	switch($current_scheme):
+		case 'GPT':
+//			nothing to do
+			break;
+		case 'MBR':
+//			destroy all 4 possible MBR partitions
+			$destroy_geom_list = [
+				sprintf('%ss4',$destination),
+				sprintf('%ss3',$destination),
+				sprintf('%ss2',$destination),
+				sprintf('%ss1',$destination)
+			];
+			$param = $param_geom_part;
+			$param['command'] = 'destroy';
+//			we must hard commit, otherwise we'll get a device busy error on top level in 11.2
+//			$param['testmode'] = $test_mode;
+			$param['force'] = '-F';
+			foreach($destroy_geom_list as $destroy_geom):
+				$param['geom'] = escapeshellarg($destroy_geom);
+				$command = implode(' ',$param);
+				$message = sprintf('Destroying partition %s.',$destroy_geom);
+				write_console($message . PHP_EOL);
+				mwexec($command);
+			endforeach;
+			unset($destroy_geom,$destroy_geom_list);
+			break;
+		default:
+//			wipe using dd
+//			count = mbr (lba 0) + gpt header (lba 1) + sectors for gpt-entries (max 4096, 128 bytes per entry)
+			$count = 2 + ((4096 * 128) >> $base['sectorsize']['shift']);
+			$param = [
+				'run' => '/bin/dd',
+				'if' => 'if=/dev/zero',
+				'of' => sprintf('of=/dev/%s',$destination),
+				'bs' => sprintf('bs=%s',$base['sectorsize']['bytes']),
+				'count' => sprintf('count=%s',$count)
+			];
+			$command = implode(' ',$param);
+			$message = sprintf('Wiping first %d sectors on %s.',$count,$destination);
+			write_console($message . PHP_EOL);
+			mwexec($command);
+			$param['seek'] = sprintf('seek=%d',($base['mediasize']['bytes'] >> $base['sectorsize']['shift']) - $count);
+			$command = implode(' ',$param);
+			$message = sprintf('Wiping last %d sectors on %s.',$count,$destination);
+			write_console($message . PHP_EOL);
+			mwexec($command);
+			break;
+	endswitch;
+	$param = $param_geom_part;
 	$param['command'] = 'destroy';
 	$param['testmode'] = $test_mode;
 	$param['force'] = '-F';
 	$param['geom'] = escapeshellarg($destination);
 	$command = implode(' ',$param);
-	unset($param);
 	mwexec($command);
-	unset($command);
 	switch($base['scheme']):
 		case 'gpt':
 //			create gpt scheme
-			$param = [];
-			$param['run'] = '/sbin/geom';
-			$param['class'] = 'part';
+			$param = $param_geom_part;
 			$param['command'] = 'create';
 			$param['testmode'] = $test_mode;
 			$param['scheme'] = '-s gpt';
 			$param['entries'] = sprintf('-n %s',$base['entries']);
 			$param['geom'] = escapeshellarg($destination);
 			$command = implode(' ',$param);
-			unset($param);
 			if(mwexec($command)):
 				mwexec($command_geom_undo);
 				set_kern_geom_debugflags(0);
-				$message = sprintf('Failed to create GPT on %s.',$destination);
+				$message = sprintf('Failed to create GPT partitioning scheme on %s.',$destination);
 				write_console($message . PHP_EOL);
 				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
-			unset($command);
 //			install pmbr
-			$param = [];
-			$param['run'] = '/sbin/geom';
-			$param['class'] = 'part';
+			$param = $param_geom_part;
 			$param['command'] = 'bootcode';
 			$param['testmode'] = $test_mode;
 			$param['pmbr'] = '-b /boot/pmbr';
 			$param['geom'] = escapeshellarg($destination);
 			$command = implode(' ',$param);
-			unset($param);
 			if(mwexec($command)):
 				mwexec($command_geom_undo);
 				set_kern_geom_debugflags(0);
@@ -354,126 +403,159 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
-			unset($command);
-			$partition_layout_index = 0;
-			foreach($partition_layout as $k_partition => &$r_partition):
-//				gather first and last sector from geom
-				$geom->scan();
-				$partition_info = $geom->gather_part_by_name($destination);
-				$first_available_sector = (int)$partition_info[$destination]->config->first;
-				$last_available_sector = (int)$partition_info[$destination]->config->last;
-//				walk through reported partitions and find the highest end-sector
-				foreach($partition_info[$destination]->provider as $r_partition_info):
-					$first_available_sector = max($first_available_sector,1 + (int)$r_partition_info->config->end);
-				endforeach;
-				$virtual_first = $first_available_sector;
-//				calculate minimum required sectors
-				foreach(array_slice($partition_layout,$partition_layout_index) as $r_slice):
-//					align start sector of the partition
-					if(isset($r_slice['alignment'])):
-						$mask = $r_slice['alignment']['bytes'] - 1;
-						$virtual_first = (~$mask & (($virtual_first << $base['sectorsize']['shift']) + $mask)) >> $base['sectorsize']['shift'];
-					endif;
-//					add required sectors of aligned minimum partition size
-					if(isset($r_slice['minimum'])):
-						$virtual_first += $r_slice['minimum']['aligned'] >> $base['sectorsize']['shift'];
-					endif;
-				endforeach;
-//				exit when all space is allocated
-				if($virtual_first > ($last_available_sector + 1)):
+			break;
+		case 'mbr':
+//			create mbr scheme
+			$param = $param_geom_part;
+			$param['command'] = 'create';
+			$param['testmode'] = $test_mode;
+			$param['scheme'] = '-s mbr';
+			$param['entries'] = sprintf('-n %s',$base['entries']);
+			$param['geom'] = escapeshellarg($destination);
+			$command = implode(' ',$param);
+			if(mwexec($command)):
+				mwexec($command_geom_undo);
+				set_kern_geom_debugflags(0);
+				$message = sprintf('Failed to create MBR partitioning scheme on %s.',$destination);
+				write_console($message . PHP_EOL);
+				tui_display_message('Error',$message,60,5);
+				return false;
+			endif;
+//			install bootcode
+			$param = $param_geom_part;
+			$param['command'] = 'bootcode';
+			$param['testmode'] = $test_mode;
+			$param['pmbr'] = '-b /boot/mbr';
+			$param['geom'] = escapeshellarg($destination);
+			$command = implode(' ',$param);
+			if(mwexec($command)):
+				mwexec($command_geom_undo);
+				set_kern_geom_debugflags(0);
+				$message = sprintf('Failed to install MBR bootcode on %s.',$destination);
+				write_console($message . PHP_EOL);
+				tui_display_message('Error',$message,60,5);
+				return false;
+			endif;
+			break;
+	endswitch;		
+	$partition_layout_index = 0;
+	foreach($partition_layout as $k_partition => &$r_partition):
+//		gather first and last sector from geom
+		$geom->scan();
+		$partition_info = $geom->gather_part_by_name($destination);
+		$first_available_sector = (int)$partition_info[$destination]->config->first;
+		$last_available_sector = (int)$partition_info[$destination]->config->last;
+//		walk through reported partitions and find the highest end-sector
+		foreach($partition_info[$destination]->provider as $r_partition_info):
+			$first_available_sector = max($first_available_sector,1 + (int)$r_partition_info->config->end);
+		endforeach;
+		unset($partition_info);
+		$virtual_first = $first_available_sector;
+//		calculate minimum required sectors
+		foreach(array_slice($partition_layout,$partition_layout_index) as $r_slice):
+//			align start sector of the partition
+			if(isset($r_slice['alignment'])):
+				$mask = $r_slice['alignment']['bytes'] - 1;
+				$virtual_first = (~$mask & (($virtual_first << $base['sectorsize']['shift']) + $mask)) >> $base['sectorsize']['shift'];
+			endif;
+//			add required sectors of aligned minimum partition size
+			if(isset($r_slice['minimum'])):
+				$virtual_first += $r_slice['minimum']['aligned'] >> $base['sectorsize']['shift'];
+			endif;
+		endforeach;
+//		exit when all space is allocated
+		if($virtual_first > ($last_available_sector + 1)):
+			mwexec($command_geom_undo);
+			set_kern_geom_debugflags(0);
+			$message = sprintf('Not enough space available on device %s.',$destination);
+			write_console($message . PHP_EOL);
+			tui_display_message('Error',$message,60,5);
+			return false;
+		endif;
+//		determine minimum and maximum bytes
+		if(isset($r_partition['minimum'])):
+			$minimum_bytes = $r_partition['minimum']['bytes'];
+			$maximum_bytes = $r_partition['minimum']['aligned'];
+			$maximum_bytes += ($last_available_sector - $virtual_first + 1) << $base['sectorsize']['shift'];
+		else:
+			$minimum_bytes = 0;
+			$maximum_bytes = ($last_available_sector - $virtual_first + 1) << $base['sectorsize']['shift'];
+		endif;
+		if($r_partition['allow_edit']):
+//			prepare info string
+			$input_text = sprintf('Enter the size of the %s partition',$r_partition['friendly_name']);
+			if($r_partition['is_last'] && $r_partition['allow_star']):
+				$input_text .= ' or enter \'ALL\' to take what\'s available';
+			endif;
+			$boundaries = [];
+			if(isset($r_partition['minimum']['size'])):
+				$boundaries[] = sprintf('minimum: %s',$r_partition['minimum']['size'] ?? 'n/a');
+			endif;
+			if(isset($r_partition['size']['size'])):
+				$boundaries[] = sprintf('recommended: %s',$r_partition['size']['size'] ?? 'n/a');
+			endif;
+			if(isset($r_partition['maximum']['size'])):
+				$boundaries[] = sprintf('maximum: %s',$r_partition['maximum']['size'] ?? 'n/a');
+			endif;
+			if(!empty($boundaries)):
+				$input_text .= PHP_EOL . '(' . implode(', ',$boundaries) . ')';
+			endif;
+//			user input
+			$nocigar = true;
+			$entered_size = $r_partition['size']['size'];
+			unset($error_message);
+			while($nocigar):
+				if(isset($error_message)):
+					$enhanced_input_text =  $error_message . PHP_EOL . PHP_EOL . $input_text;
+					unset($error_message);
+				else:
+					$enhanced_input_text = $input_text;
+				endif;
+				$result = tui_display_input($enhanced_input_text,60,11,$entered_size);
+				if(0 !== $result):
 					mwexec($command_geom_undo);
 					set_kern_geom_debugflags(0);
-					$message = sprintf('Not enough space available on device %s.',$destination);
-					write_console($message . PHP_EOL);
-					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
-//				determine minimum and maximum bytes
-				if(isset($r_partition['minimum'])):
-					$minimum_bytes = $r_partition['minimum']['bytes'];
-					$maximum_bytes = $r_partition['minimum']['aligned'];
-					$maximum_bytes += ($last_available_sector - $virtual_first + 1) << $base['sectorsize']['shift'];
+				$details = [];
+				$regexp = '/^([1-9][0-9]*)([kmgtpezy]?)$/i';
+				$details['size'] = filter_var($entered_size,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
+				if(isset($details['size'])):
+					unset($matches);
+					preg_match($regexp,$details['size'],$matches);
+					$details['value'] = $matches[1];
+					$details['uom'] = strtoupper($matches[2]);
+					$details['uomshift'] = 0;
+					if(!empty($details['uom'])):
+//						set power of 2 of SI prefix
+						if(false !== ($test = strpos('_KMGTPEZY',$details['uom']))):
+							$details['uomshift'] = 10 * $test;
+						endif;
+					endif;
+					$details['bytes'] = $details['value'] << $details['uomshift'];
+					if(($details['bytes'] >= $minimum_bytes) && ($details['bytes'] <= $maximum_bytes)):
+						$r_partition['size']['size'] = $entered_size;
+						$nocigar = false;
+					elseif($details['bytes'] < $minimum_bytes):
+						$error_message = 'Error: The entered value is too low.';
+					elseif($details['bytes'] > $maximum_bytes):
+						$error_message = 'Error: The entered value exceeds what\'s available.';
+					endif;
+				elseif($r_partition['is_last'] && $r_partition['allow_star'] && is_string($entered_size) && in_array(strtolower($entered_size),['*','all','max'])):
+					$r_partition['size']['size'] = '*';
+					$nocigar = false;
+				elseif('' === $entered_size):
+					$error_message = 'Error: No value was entered.';
 				else:
-					$minimum_bytes = 0;
-					$maximum_bytes = ($last_available_sector - $virtual_first + 1) << $base['sectorsize']['shift'];
+					$error_message = 'Error: The entered value contains invalid characters.';
 				endif;
-				if($r_partition['allow_edit']):
-//					prepare info string
-					$input_text = sprintf('Enter the size of the %s partition',$r_partition['friendly_name']);
-					if($r_partition['allow_star']):
-						$input_text .= ' or enter \'ALL\' to take what\'s available';
-					endif;
-					$boundaries = [];
-					if(isset($r_partition['minimum']['size'])):
-						$boundaries[] = sprintf('minimum: %s',$r_partition['minimum']['size'] ?? 'n/a');
-					endif;
-					if(isset($r_partition['size']['size'])):
-						$boundaries[] = sprintf('recommended: %s',$r_partition['size']['size'] ?? 'n/a');
-					endif;
-					if(isset($r_partition['maximum']['size'])):
-						$boundaries[] = sprintf('maximum: %s',$r_partition['maximum']['size'] ?? 'n/a');
-					endif;
-					if(!empty($boundaries)):
-						$input_text .= PHP_EOL . '(' . implode(', ',$boundaries) . ')';
-					endif;
-					unset($boundaries);
-//					user input
-					$nocigar = true;
-					$entered_size = $r_partition['size']['size'];
-					unset($error_message);
-					while($nocigar):
-						if(isset($error_message)):
-							$enhanced_input_text =  $error_message . PHP_EOL . PHP_EOL . $input_text;
-							unset($error_message);
-						else:
-							$enhanced_input_text = $input_text;
-						endif;
-						$result = tui_display_input($enhanced_input_text,60,11,$entered_size);
-						if(0 !== $result):
-							mwexec($command_geom_undo);
-							set_kern_geom_debugflags(0);
-							return false;
-						endif;
-						$details = [];
-						$regexp = '/^([1-9][0-9]*)([kmgtpezy]?)$/i';
-						$details['size'] = filter_var($entered_size,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
-						if(isset($details['size'])):
-							unset($matches);
-							preg_match($regexp,$details['size'],$matches);
-							$details['value'] = $matches[1];
-							$details['uom'] = strtoupper($matches[2]);
-							$details['uomshift'] = 0;
-							if(!empty($details['uom'])):
-//								set power of 2 of SI prefix
-								if(false !== ($test = strpos('_KMGTPEZY',$details['uom']))):
-									$details['uomshift'] = 10 * $test;
-								endif;
-							endif;
-							$details['bytes'] = $details['value'] << $details['uomshift'];
-							if(($details['bytes'] >= $minimum_bytes) && ($details['bytes'] <= $maximum_bytes)):
-								$r_partition['size']['size'] = $entered_size;
-								$nocigar = false;
-							elseif($details['bytes'] < $minimum_bytes):
-								$error_message = 'Error: The entered value is too low.';
-							elseif($details['bytes'] > $maximum_bytes):
-								$error_message = 'Error: The entered value exceeds what\'s available.';
-							endif;
-						elseif($r_partition['allow_star'] && is_string($entered_size) && in_array(strtolower($entered_size),['*','all','max'])):
-							$r_partition['size']['size'] = '*';
-							$nocigar = false;
-						elseif('' === $entered_size):
-							$error_message = 'Error: No value was entered.';
-						else:
-							$error_message = 'Error: The entered value contains invalid characters.';
-						endif;
-					endwhile;
-					unset($input_text);
-				endif;
-				unset($virtual_first);
+			endwhile;
+			unset($input_text);
+		endif;
+		switch($base['scheme']):
+			case 'gpt':
 				$partition_index = sprintf('-i %s',$r_partition['partition']);
-				$param = [];
-				$param['run'] = '/sbin/geom';
-				$param['class'] = 'part';
+				$param = $param_geom_part;
 				$param['command'] = 'add';
 				$param['testmode'] = $test_mode;
 				$param['type'] = '';
@@ -516,7 +598,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						break;
 				endswitch;
 				$command = implode(' ',$param);
-				unset($param);
 				if(mwexec($command)):
 					mwexec($command_geom_undo);
 					set_kern_geom_debugflags(0);
@@ -525,20 +606,16 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
-				unset($command);
 				switch($k_partition):
 					case 'boot':
 //						install gpt boot code
-						$param = [];
-						$param['run'] = '/sbin/geom';
-						$param['class'] = 'part';
+						$param = $param_geom_part;
 						$param['command'] = 'bootcode';
 						$param['testmode'] = $test_mode;
 						$param['boot'] = '-p /boot/gptboot';
 						$param['index'] = $partition_index;
 						$param['geom'] = escapeshellarg($destination);
 						$command = implode(' ',$param);
-						unset($param);
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
@@ -547,20 +624,16 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
-						unset($command);
 						break;
 					case 'zfsboot':
 //						install gpt zfs boot code
-						$param = [];
-						$param['run'] = '/sbin/geom';
-						$param['class'] = 'part';
+						$param = $param_geom_part;
 						$param['command'] = 'bootcode';
 						$param['testmode'] = $test_mode;
 						$param['boot'] = '-p /boot/gptzfsboot';
 						$param['index'] = $partition_index;
 						$param['geom'] = escapeshellarg($destination);
 						$command = implode(' ',$param);
-						unset($param);
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
@@ -569,20 +642,16 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
-						unset($command);
 						break;
 					case 'efi':
 //						install efi boot code
-						$param = [];
-						$param['run'] = '/sbin/geom';
-						$param['class'] = 'part';
+						$param = $param_geom_part;
 						$param['command'] = 'bootcode';
 						$param['testmode'] = $test_mode;
 						$param['boot'] = '-p /boot/boot1.efifat';
 						$param['index'] = $partition_index;
 						$param['geom'] = escapeshellarg($destination);
 						$command = implode(' ',$param);
-						unset($param);
 						if(mwexec($command)):
 							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
@@ -591,55 +660,167 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
-						unset($command);
 						break;
 				endswitch;
-				$partition_layout_index++;
-			endforeach;
-			unset($r_partition,$k_partition,$partition_index);
-//			commit changes
-			if(mwexec($command_geom_commit)):
-				mwexec($command_geom_undo);
-				set_kern_geom_debugflags(0);
-				$message = sprintf('Failed to commit changes on %s.' . PHP_EOL,$destination);
-				write_console($message . PHP_EOL);
-				tui_display_message('Error',$message,60,5);
-				return false;
-			endif;
-			unset($command_geom_commit,$command_geom_undo,$diskinfo,$geom);
-//			create file systems and set volume label.
-			$message = 'Create file system on partition:';
-			write_console($message . PHP_EOL);
-			foreach($partition_layout as $k_partition => $r_partition):
-				switch($r_partition['fstype']):
-					case 'freebsd-ufs':
-						$destination_partition = sprintf('%sp%s',$destination,$r_partition['partition']);
-						$message = sprintf('  %s:',$destination_partition);
-						write_console($message);
-						$param = ['/sbin/newfs','-U','-b 32768','-S 4096','-f 4096','-t'];
-						if(isset($r_partition['volname'])):
-							$param[] = sprintf('-L %s',$r_partition['volname']);
-						endif;
-						$param[] = sprintf('/dev/%s',$destination_partition);
+				break;
+			case 'mbr':
+				$partition_index = sprintf('-i %s',$r_partition['partition']);
+				$destination_slice = sprintf('%ss%s',$destination,$r_partition['partition']);
+				$param = $param_geom_part;
+				$param['command'] = 'add';
+				$param['testmode'] = $test_mode;
+				$param['type'] = '-t freebsd';
+				$param['index'] = $partition_index;
+				if(isset($r_partition['alignment'])):
+					$param['align'] = sprintf('-a %s',$r_partition['alignment']['size']);
+				endif;
+				if(isset($r_partition['size']) && ($r_partition['size']['size'] !== '*')):
+					$param['size'] = sprintf('-s %s',$r_partition['size']['size']);
+				endif;
+				$param['geom'] = escapeshellarg($destination);
+				$command = implode(' ',$param);
+				if(mwexec($command)):
+					mwexec($command_geom_undo);
+					set_kern_geom_debugflags(0);
+					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination);
+					write_console($message . PHP_EOL);
+					tui_display_message('Error',$message,60,5);
+					return false;
+				endif;
+//				Create BSD scheme on slice
+				$param = $param_geom_part;
+				$param['command'] = 'create';
+				$param['testmode'] = $test_mode;
+				$param['scheme'] = '-s BSD';
+				$param['geom'] = escapeshellarg($destination_slice);
+				$command = implode(' ',$param);
+				if(mwexec($command)):
+					mwexec($command_geom_undo);
+					set_kern_geom_debugflags(0);
+					$message = sprintf('Failed to create BSD scheme on %s.',$destination_slice);
+					write_console($message . PHP_EOL);
+					tui_display_message('Error',$message,60,5);
+					return false;
+				endif;
+				switch($k_partition):
+					case 'root':
+//						install boot code
+						$param = $param_geom_part;
+						$param['command'] = 'bootcode';
+						$param['testmode'] = $test_mode;
+						$param['boot'] = '-b /boot/boot';
+						$param['geom'] = escapeshellarg($destination_slice);
 						$command = implode(' ',$param);
-						unset($param);
 						if(mwexec($command)):
+							mwexec($command_geom_undo);
 							set_kern_geom_debugflags(0);
-							$message = ' error';
+							$message = sprintf('Failed to install bootcode on %s.',$destination_slice);
 							write_console($message . PHP_EOL);
+							tui_display_message('Error',$message,60,5);
 							return false;
-						else:
-							$message = ' success';
-							write_console($message . PHP_EOL);
 						endif;
-						unset($command);
+						$param = $param_geom_part;
+						$param['command'] = 'set';
+						$param['testmode'] = $test_mode;
+						$param['setting'] = '-a active';
+						$param['index'] = $partition_index;
+						$param['geom'] = escapeshellarg($destination);
+						$command = implode(' ',$param);
+						if(mwexec($command)):
+							mwexec($command_geom_undo);
+							set_kern_geom_debugflags(0);
+							$message = sprintf('Failed to activate partition on %s.',$destination);
+							write_console($message . PHP_EOL);
+							tui_display_message('Error',$message,60,5);
+							return false;
+						endif;
 						break;
 				endswitch;
-			endforeach;
-			unset($r_partition,$k_partition,$partition_layout);
-			break;
-	endswitch;
+				$param = $param_geom_part;
+				$param['command'] = 'add';
+				$param['testmode'] = $test_mode;
+				$param['type'] = '';
+				$param['geom'] = escapeshellarg($destination_slice);
+				switch($k_partition):
+					case 'root':
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
+						break;
+					case 'swap':
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-swap');
+						break;
+					default:
+						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
+						break;
+				endswitch;
+				$command = implode(' ',$param);
+				if(mwexec($command)):
+					mwexec($command_geom_undo);
+					set_kern_geom_debugflags(0);
+					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination_slice);
+					write_console($message . PHP_EOL);
+					tui_display_message('Error',$message,60,5);
+					return false;
+				endif;
+				break;
+		endswitch;
+		$partition_layout_index++;
+	endforeach;
+	unset($r_partition);
+//	commit changes
+	if(mwexec($command_geom_commit)):
+		mwexec($command_geom_undo);
+		set_kern_geom_debugflags(0);
+		$message = sprintf('Failed to commit changes on %s.' . PHP_EOL,$destination);
+		write_console($message . PHP_EOL);
+		tui_display_message('Error',$message,60,5);
+		return false;
+	endif;
+//	create file systems and set volume label.
+	$message = 'Create file system on partition:';
+	write_console($message . PHP_EOL);
+	foreach($partition_layout as $k_partition => $r_partition):
+		switch($base['scheme']):
+			case 'gpt':
+				$destination_partition = sprintf('%sp%s',$destination,$r_partition['partition']);
+				break;
+			case 'mbr':
+				$destination_partition = sprintf('%ss%sa',$destination,$r_partition['partition']);
+				break;
+		endswitch;
+		$message = sprintf('  %s:',$destination_partition);
+		write_console($message);
+		switch($r_partition['fstype']):
+			case 'freebsd-ufs':
+				$param = [];
+				$param['run'] = '/sbin/newfs';
+				$param['softupdates'] = '-U';
+				$param['blocksize'] = '-b 32768';
+				$param['sectorsize'] = '-S 4096';
+				$param['fragmentsize'] = '-f 4096';
+				$param['trim'] = '-t';
+				if(isset($r_partition['volname'])):
+					$param['label'] = sprintf('-L %s',$r_partition['volname']);
+				endif;
+				$param['geom'] = sprintf('/dev/%s',$destination_partition);
+				$command = implode(' ',$param);
+				if(mwexec($command)):
+					set_kern_geom_debugflags(0);
+					$message = ' error';
+					write_console($message . PHP_EOL);
+					return false;
+				else:
+					$message = ' success';
+					write_console($message . PHP_EOL);
+				endif;
+				break;
+			default:
+				$message = ' skipped';
+				write_console($message . PHP_EOL);
+				break;
+		endswitch;
+	endforeach;
 //	shields up
 	set_kern_geom_debugflags(0);
-return true;
+	unset($r_partition,$k_partition,$partition_layout,$command_geom_commit,$command_geom_undo,$geom);
+	return true;
 }
