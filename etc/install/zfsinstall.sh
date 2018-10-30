@@ -116,12 +116,13 @@ cleandisk_init()
 	for DISK in ${DISKS}
 	do
 		echo "Cleaning disk ${DISK}"
-		# Ignore errors here since they are expected.
-		# We need this section to try dealing with problematic disk metadata.
+		# Ignore errors here since they may be expected.
+		# We need this section to try to deal with problematic disk metadata.
 		set +e
 		gmirror clear ${DISK} > /dev/null 2>&1
 		zpool labelclear -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
 		zpool labelclear -f /dev/${DISK} > /dev/null 2>&1
+		gpart undo ${DISK} > /dev/null 2>&1
 		gpart destroy -F ${DISK} > /dev/null 2>&1
 		set -e
 
