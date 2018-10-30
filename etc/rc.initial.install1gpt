@@ -137,15 +137,6 @@ if(disks_ismounted_ex($harddrive,'mdisk')):
 	exit(0);
 endif;
 
-//	collect destination media information
-$destination_media_capacity = 0;
-if(array_key_exists($harddrive,$disklist)):
-	if(array_key_exists('devicespecialfile',$disklist[$harddrive])):
-		$diskinfo = disks_get_diskinfo($disklist[$harddrive]['devicespecialfile']);
-		$destination_media_capacity = $diskinfo['mediasize_bytes'] ?? 0;
-	endif;
-endif;
-
 if(install_mount_cd($cdlist[$cdrom])):
 	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
 	exit(0);
