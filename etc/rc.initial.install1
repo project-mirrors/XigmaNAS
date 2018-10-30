@@ -38,147 +38,128 @@ require_once 'install.inc';
 require_once 'util.inc';
 require_once 'tui.inc';
 
-// Default size of slice/partition 1 (used for OS)
-$part1size = $g_install['part1size_embedded'];
-$part1min = $g_install['part1min_embedded'];
-$swapsize =  $g_install['default_swap'];
-
-// Default slice/partition layout
-$partlayout = [["slice" => 1, "fstype" => "4.2BSD", "size" => $part1size, "volname" => "root"]];
-
-// Get product information
+//	default size of slice/partition 1 (used for OS)
+$part1size = sprintf('%sM',$g_install['part1size_embedded']);
+$part1min = sprintf('%sM',$g_install['part1min_embedded']);
+//	$swapsize = sprintf('%sM',$g_install['default_swap']);
+//	$swapsizemin = sprintf('%sM',$g_install['default_swap'] >> 1);
+//	default slice/partition layout
+$schemelayout = [
+	'scheme' => 'MBR',
+	'entries' => 4
+];
+$partlayout = [
+	'root' => [
+		'enabled' => true,
+		'partition' => 1,
+		'fstype' => 'freebsd-ufs',
+		'volname' => 'root',
+		'align' => '1m',
+		'size' => $part1size,
+		'minimum' => $part1min,
+//		'maximum' => '*',
+		'allow_edit' => true,
+		'allow_star' => true,
+		'friendly_name' => 'OS'
+	]
+];
+//	get product information
 $productname = get_product_name();
-
-// Display information
+//	display information
 $text = <<<EOD
 
 {$productname} 'Embedded' without swap installer for HDD, SSD, CF or USB flash drive.
 
 - Create MBR partition 1, using UFS, customizable size for OS image
-- Uses a RAM disk to limit read/write access to the device
+- Uses a RAM disk to reduce read/write access to the device
 
 WARNING: There will be some limitations:
-1. This will erase ALL partitions and data on the destination disk!
+1. This will erase ALL partitions and ALL data on the destination disk!
 2. You can't use your destination disk for sharing data.
-3. If the destination is too small, use limited support size of {$part1min}MB for 500MB disk.
+3. If the destination is too small, use limited support size of {$part1min}iB for 500MB disk.
 
 Installing on CF or USB Flash Drive is the preferred way:
-It saves you Power and a IDE/SATA/SCSI channel for more storage drives.
+It is energy saving and it doesn't require an IDE/SATA/SCSI port.
 
 EOD;
-$result = tui_display_message_ex("{$productname} Embedded Installation", $text, 74, 15);
-if (0 != $result)
-	exit(0);
 
-// Detect hardware
+$result = tui_display_message_ex("{$productname} Embedded Installation",$text,74,15);
+if(0 != $result):
+	exit(0);
+endif;
+
+//	detect hardware
 $cdlist = get_install_source_drive();
 $disklist = get_physical_disks_list();
 
-if (0 == count($cdlist)) {
-	tui_wait_keypress("Failed to detect any CDROM/USB drive.");
+if(0 == count($cdlist)):
+	tui_wait_keypress('Failed to detect any CDROM/USB device.');
 	exit(0);
-}
+endif;
 
-// Display installation medias
+//	display source media
 $amenuitem = [];
-foreach ($cdlist as $cdromk => $cdromv) {
-	$menuitem = [];
-	$menuitem['tag'] = $cdromk;
-	$menuitem['item'] = $cdromv['desc'];
-	$amenuitem[] = $menuitem;
-}
-$result = tui_display_menu("Choose installation media", "Select CD/DVD/USB drive for installation source.", 60, 10, 6, $amenuitem, $cdrom);
-if (0 != $result)
+foreach($cdlist as $cdromk => $cdromv):
+	$amenuitem[] = ['tag' => $cdromk,'item' => $cdromv['desc']];
+endforeach;
+$result = tui_display_menu('Choose Source','Select CD/DVD/USB drive.',60,10,6,$amenuitem,$cdrom);
+if(0 != $result):
 	exit(0);
+endif;
 
-// Get customized destination media size for root partition
-$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $part1size);
-do {
-	$newpart1size = $part1size;
-	$result = tui_display_input($text, 60, 8, $newpart1size);
-	if (0 != $result)
-		exit(0);
-} while (($part1size > $newpart1size) || !is_numeric($newpart1size));
-
-// Update the root slice/partition size.
-$partlayout[0]['size'] = $newpart1size;
-
-// Display destination medias
+//	display destination media
 $amenuitem = [];
-foreach ($disklist as $diskk => $diskv) {
-	if ($diskk === $cdrom)
-		continue;
-	$menuitem = [];
-	$menuitem['tag'] = $diskk;
-	$menuitem['item'] = "{$diskv['size']} <{$diskv['desc']}>";
-	$amenuitem[] = $menuitem;
-}
-$result = tui_display_menu("Choose destination media", "Select media where {$productname} OS should be installed.", 60, 14, 10, $amenuitem, $harddrive);
-if (0 != $result)
+foreach($disklist as $diskk => $diskv):
+	if($diskk !== $cdrom):
+		$amenuitem[] = ['tag' => $diskk,'item' => "{$diskv['size']} <{$diskv['desc']}>"];
+	endif;
+endforeach;
+$result = tui_display_menu('Choose Destination',sprintf('Select media where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
+if(0 != $result):
 	exit(0);
+endif;
 
-// Check if destination drive is mounted
-if (disks_ismounted_ex($harddrive, "mdisk")) {
-	tui_wait_keypress("The destination drive is already in usage!");
+//	check if destination drive is mounted
+if(disks_ismounted_ex($harddrive,'mdisk')):
+	tui_wait_keypress('The destination drive is already in use!');
 	exit(0);
-}
+endif;
 
-// Check destination size
-$diskinfo = disks_get_diskinfo($harddrive);
-if ($diskinfo['mediasize_mbytes'] < $part1size) {
-	// limited for 500MB drive
-	$partlayout[0]['size'] = $part1min;
-}
-
-if (install_mount_cd($cdlist[$cdrom])) {
-	tui_wait_keypress("There was a problem while mounting the CDROM/USB drive.");
+if(install_mount_cd($cdlist[$cdrom])):
+	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
 	exit(0);
-}
+endif;
 
-if (install_init_disk($harddrive, $partlayout)) {
+if(!tui_partition_layout($harddrive,$partlayout,$schemelayout)):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem during initializing the destination disk.");
+	tui_wait_keypress('There was a problem during initializing the destination disk.');
 	exit(0);
-}
+endif;
 
-if (install_dd_image("{$harddrive}s1a")) {
+if(install_dd_image("{$harddrive}s1a")):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem while copying files.");
+	tui_wait_keypress('There was a problem while copying files.');
 	exit(0);
-}
+endif;
 
 /*
-if (add_default_swap($harddrive)) {
+if(add_default_swap($harddrive)):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem while adding swap.");
+	tui_wait_keypress('There was a problem while adding swap.');
 	exit(0);
-}
-*/
+endif;
+ */
 
 install_unmount_cd();
 
-// Display final message
-$text = <<<EOD
-
-{$productname} has been installed on {$harddrive}.
-
-EOD;
-
-$boot_lowmem = trim(@file_get_contents("/etc/boot_lowmem"));
-if ($boot_lowmem === "1") {
+//	display final message
+$text = sprintf('%s has been installed on %s',$productname,$harddrive) . PHP_EOL;
+$boot_lowmem = trim(@file_get_contents('/etc/boot_lowmem'));
+if('1' === $boot_lowmem):
 	// The lowmem version uses swap on it. Should not remove!!
-	$text .= <<<EOD
-
-You can now reboot the server.
-
-EOD;
-} else {
-	$text .= <<<EOD
-
-You can now safely remove the LiveCD/USB and reboot the server.
-
-EOD;
-}
+	$text .= 'You can now reboot the server.';
+else:
+	$text .= 'You can now safely remove the LiveCD/USB and reboot the server.';
+endif;
 
 tui_wait_keypress($text);
-?>

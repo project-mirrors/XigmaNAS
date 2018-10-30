@@ -38,21 +38,60 @@ require_once 'install.inc';
 require_once 'util.inc';
 require_once 'tui.inc';
 
-// Minimum size of slice/partition 1 (used for OS)
-$minpart1size = $g_install['part1size_full'];
-$swapsize =  $g_install['default_swap'];
-
-// Default slice/partition layout
-$partlayout = [
-	["slice" => 1, "fstype" => "4.2BSD", "size" => $minpart1size, "volname" => "root"],
-	["slice" => 2, "fstype" => "swap", "size" => $swapsize, "volname" => "swap"],
-	["slice" => 3, "fstype" => "4.2BSD", "size" => "*", "volname" => "data"]
+//	default size of slice/partition 1 (used for OS)
+$part1size = sprintf('%sM',$g_install['part1size_full']);
+//	$part1min = sprintf('%sM',$g_install['part1min_embedded']);
+$swapsize = sprintf('%sM',$g_install['default_swap']);
+$swapsizemin = sprintf('%sM',$g_install['default_swap'] >> 1);
+//	default slice/partition layout
+$schemelayout = [
+	'scheme' => 'MBR',
+	'entries' => 4
 ];
-
-// Get product information
+$partlayout = [
+	'root' => [
+		'enabled' => true,
+		'partition' => 1,
+		'fstype' => 'freebsd-ufs',
+		'volname' => 'root',
+		'align' => '1m',
+		'size' => $part1size,
+		'minimum' => $part1size,
+//		'maximum' => '*',
+		'allow_edit' => true,
+		'allow_star' => false,
+		'friendly_name' => 'OS'
+	],
+	'swap' => [
+		'enabled' => true,
+		'partition' => 2,
+		'fstype' => 'freebsd-swap',
+		'volname' => 'swap',
+		'align' => '1m',
+		'size' => $swapsize,
+		'minimum' => $swapsizemin,
+//		'maximum' => '*',
+		'allow_edit' => true,
+		'allow_star' => false,
+		'friendly_name' => 'SWAP'
+	],
+	'data' => [
+		'enabled' => true,
+		'partition' => 3,
+		'fstype' => 'freebsd-ufs',
+		'volname' => 'data',
+		'align' => '1m',
+		'size' => '*',
+//		'minimum' => 0,
+//		'maximum' => '*',
+		'allow_edit' => true,
+		'allow_star' => true,
+		'friendly_name' => 'DATA'
+	]
+];
+//	get product information
 $productname = get_product_name();
-
-// Display information
+//	display information
 $text = <<<EOD
 
 {$productname} 'Full' installer for Hard Drives & Solid State Drives.
@@ -66,155 +105,91 @@ WARNING: There will be some limitations:
 1. This will erase ALL partitions and data on the destination disk!
 
 EOD;
-$result = tui_display_message_ex("{$productname} Full Installation", $text, 74, 15);
-if (0 != $result)
-	exit(0);
 
-// Detect hardware
+$result = tui_display_message_ex("{$productname} Full Installation",$text,74,15);
+if(0 != $result):
+	exit(0);
+endif;
+
+//	detect hardware
 $cdlist = get_install_source_drive();
 $disklist = get_physical_disks_list();
 
-if (0 == count($cdlist)) {
-	tui_wait_keypress("Failed to detect any CDROM/USB drive.");
+if(0 == count($cdlist)):
+	tui_wait_keypress('Failed to detect any CDROM/USB device.');
 	exit(0);
-}
+endif;
 
-// Display installation medias
+//	display source media
 $amenuitem = [];
-foreach ($cdlist as $cdromk => $cdromv) {
-	$menuitem = [];
-	$menuitem['tag'] = $cdromk;
-	$menuitem['item'] = $cdromv['desc'];
-	$amenuitem[] = $menuitem;
-}
-$result = tui_display_menu("Choose installation media", "Select CD/DVD/USB drive for installation source.", 60, 10, 6, $amenuitem, $cdrom);
-if (0 != $result)
+foreach($cdlist as $cdromk => $cdromv):
+	$amenuitem[] = ['tag' => $cdromk,'item' => $cdromv['desc']];
+endforeach;
+$result = tui_display_menu('Choose Source','Select CD/DVD/USB drive.',60,10,6,$amenuitem,$cdrom);
+if(0 != $result):
 	exit(0);
+endif;
 
-// Display destination medias
+//	display destination media
 $amenuitem = [];
-foreach ($disklist as $diskk => $diskv) {
-	if ($diskk === $cdrom)
-		continue;
-	$menuitem = [];
-	$menuitem['tag'] = $diskk;
-	$menuitem['item'] = "{$diskv['size']} <{$diskv['desc']}>";
-	$amenuitem[] = $menuitem;
-}
-$result = tui_display_menu("Choose destination media", "Select media where {$productname} OS should be installed.", 60, 14, 10, $amenuitem, $harddrive);
-if (0 != $result)
+foreach($disklist as $diskk => $diskv):
+	if($diskk !== $cdrom):
+		$amenuitem[] = ['tag' => $diskk,'item' => "{$diskv['size']} <{$diskv['desc']}>"];
+	endif;
+endforeach;
+$result = tui_display_menu('Choose Destination',sprintf('Select media where %s should be installed.',$productname),60,14,10,$amenuitem,$harddrive);
+if(0 != $result):
 	exit(0);
+endif;
 
-// Check if destination drive is mounted
-if (disks_ismounted_ex($harddrive, "mdisk")) {
-	tui_wait_keypress("The destination drive is already in usage!");
+//	check if destination drive is mounted
+if(disks_ismounted_ex($harddrive,'mdisk')):
+	tui_wait_keypress('The destination drive is already in use!');
 	exit(0);
-}
+endif;
 
-// Get customized destination media size for root partition
-$text = sprintf("Enter the size for OS partition in MB (min %dMB): ", $minpart1size);
-do {
-	$part1size = $minpart1size;
-	$result = tui_display_input($text, 60, 8, $part1size);
-	if (0 != $result)
-		exit(0);
-} while (($minpart1size > $part1size) || !is_numeric($part1size));
-
-// Update the root slice/partition size.
-$partlayout[0]['size'] = $part1size;
-
-// Add swap partition?
-//$result = tui_display_yesno("Do you want to add a swap partition?", 40, 5, false);
-$result = 0; // always adding swap
-if (0 == $result) {
-	do {
-		$raminfo = system_get_ram_info();
-		$swapsize = intval(ceil($raminfo['physical'] / 1024 / 1024 / 1024)); // Convert to GiB
-		$swapsize *= 1024; /* MiB */
-		$swapsize = max($swapsize,512); // suggested $swapsize should not be less than 512MiB
-		$swapsize = max($swapsize,intval($g_install['default_swap'] ?? 1024)); // suggested $swapsize should not be lower than recommended swap size.
-//		$swapsize = min($swapsize,$available_swap_space); // suggested $swapsize should not be higher than what's available.
-		$swapsize = min($swapsize,intval($g_install['default_max_swap'] ?? 2048)); // suggested $swapsize should not be greater than max recommended swap size.
-
-		$result = tui_display_input("Enter the size of the swap partition in MiB (min 512, recommended {$g_install['default_swap']}).", 47, 8, $swapsize);
-		if(0 != $result):
-			exit(0);
-		endif;
-	} while (!is_numeric($swapsize) || $swapsize < 512);
-
-	// Add swap slice/partition to the partition layout.
-	//$partlayout[] = ["slice" => 3, "fstype" => "swap", "size" => $swapsize, "volname" => ""];
-	$partlayout[1]['size'] = $swapsize;
-}
-
-if (install_mount_cd($cdlist[$cdrom])) {
-	tui_wait_keypress("There was a problem while mounting the CDROM/USB drive.");
+if(install_mount_cd($cdlist[$cdrom])):
+	tui_wait_keypress('There was a problem while mounting the CDROM/USB drive.');
 	exit(0);
-}
+endif;
 
-if (install_init_disk($harddrive, $partlayout)) {
+if(!tui_partition_layout($harddrive,$partlayout,$schemelayout)):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem during initializing the destination disk.");
+	tui_wait_keypress('There was a problem during initializing the destination disk.');
 	exit(0);
-}
+endif;
 
-if (install_harddrive_image($harddrive)) {
+if(install_harddrive_image($harddrive)):
 	install_unmount_cd();
-	tui_wait_keypress("There was a problem while copying files.");
+	tui_wait_keypress('There was a problem while copying files.');
 	exit(0);
-}
+endif;
 
 install_unmount_cd();
 
-// Display final message
-$text = <<<EOD
-
-{$productname} has been installed on {$harddrive}s1.
-
-EOD;
-
-$boot_lowmem = trim(@file_get_contents("/etc/boot_lowmem"));
-if ($boot_lowmem === "1") {
+//	display final message
+$text = sprintf('%s has been installed on %s',$productname,$harddrive) . PHP_EOL;
+$boot_lowmem = trim(@file_get_contents('/etc/boot_lowmem'));
+if('1' === $boot_lowmem):
 	// The lowmem version uses swap on it. Should not remove!!
-	$text .= <<<EOD
+	$text .= 'You can now reboot the server.';
+else:
+	$text .= 'You can now safely remove the LiveCD/USB and reboot the server.';
+endif;
 
-You can now reboot the server.
-
-EOD;
-} else {
-	$text .= <<<EOD
-
-You can now safely remove the LiveCD/USB and reboot the server.
-
-EOD;
-}
-
-$text .= <<<EOD
-
-To use the DATA partition:
-- Add the disk {$harddrive} on the 'Disks|Management' page.
-- Add the mount point on the 'Disks|Mount Point|Management' page.
-  Use the following parameters:
-  Disk {$harddrive}, Partition 3, Partition type MBR, Filesystem UFS
-
-EOD;
-
-if (0 < $swapsize) {
-	$text .= <<<EOD
-
-To use the SWAP partition:
-- Enable swap space usage on the 'System|Advanced|Swap' page.
-  Use the following parameters:
-  Type: Device, Device: /dev/{$harddrive}s2b
-
-EOD;
-}
-
-$text .= <<<EOD
-
-DO NOT format the drive {$harddrive}! The DATA partition has already been
-formated for you as part of the installation!
-EOD;
-
+$text .= PHP_EOL .
+	PHP_EOL . "To use the DATA partition:" .
+	PHP_EOL . "- Add the disk {$harddrive} on the 'Disks|Management' page." .
+	PHP_EOL . "- Add the mount point on the 'Disks|Mount Point|Management' page." .
+	PHP_EOL . "  Use the following parameters:" .
+	PHP_EOL . "  Disk {$harddrive}, Partition 3, Partition type MBR, Filesystem UFS";
+$text .= PHP_EOL .
+	PHP_EOL . "To use the SWAP partition:" .
+	PHP_EOL . "- Enable swap space usage on the 'System|Advanced|Swap' page." .
+	PHP_EOL . "  Use the following parameters:" .
+	PHP_EOL . "Type: Device, Device: /dev/{$harddrive}s2a";
+$text .= PHP_EOL . 
+	PHP_EOL . "DO NOT format the drive {$harddrive}! The DATA partition has already been" .
+	PHP_EOL . "formated as part of the installation!";
+	
 tui_wait_keypress($text);
-?>
