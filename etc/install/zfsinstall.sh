@@ -218,7 +218,10 @@ zroot_init()
 	zfs create -o mountpoint=none ${ZROOT}${DATASET}
 	zfs create -o mountpoint=/ ${ZROOT}${DATASET}${BOOTENV}
 	zfs create -o mountpoint=/tmp -o exec=on -o setuid=off ${ZROOT}/tmp
-	zfs create -o mountpoint=/var ${ZROOT}/var
+	#zfs create -o mountpoint=/var ${ZROOT}/var
+	zfs create -o mountpoint=/var -o canmount=off ${ZROOT}/var
+	zfs create -o exec=off -o setuid=off ${ZROOT}/var/log
+	zfs create -o setuid=off ${ZROOT}/var/tmp
 	zfs set mountpoint=/${ZROOT} ${ZROOT}
 	zpool set bootfs=${ZROOT}${DATASET}${BOOTENV} ${ZROOT}
 	zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}

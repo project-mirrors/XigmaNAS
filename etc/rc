@@ -76,13 +76,17 @@ case ${PLATFORM} in
 		# Mount required zfs datasets if system boots from zfs.
 		if zpool list -H -o bootfs | grep -qw "${ZROOT}/ROOT"; then
 			ZFSTMP=`zfs list ${ZROOT}/tmp 2> /dev/null`
-			ZFSVAR=`zfs list ${ZROOT}/var 2> /dev/null`
+			ZFSVARLOG=`zfs list ${ZROOT}/var/log 2> /dev/null`
+			ZFSVARTMP=`zfs list ${ZROOT}/var/tmp 2> /dev/null`
 			echo "Mounting ZFS datasets for RootOnZFS platform..."
 			if [ -n "${ZFSTMP}" ]; then
 				zfs mount ${ZROOT}/tmp
 			fi
-			if [ -n "${ZFSVAR}" ]; then
-				zfs mount ${ZROOT}/var
+			if [ -n "${ZFSVARLOG}" ]; then
+				zfs mount ${ZROOT}/var/log
+			fi
+			if [ -n "${ZFSVARTMP}" ]; then
+				zfs mount ${ZROOT}/var/tmp
 			fi
 		else
 			# Do a fsck on root file system.
