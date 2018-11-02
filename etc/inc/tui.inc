@@ -110,6 +110,7 @@ function tui_display_menu($title, $menutitle, $width, $height, $menuheight, $ame
 	@unlink($tmpfile);
 	return $retval;
 }
+
 // Wait until user has pressed 'RETURN'.
 function tui_wait_keypress($message = "") {
 	if (!empty($message))
@@ -226,6 +227,10 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			break;
 		case 'mbr':
 			$base['entries'] = 4;
+			$message = 'MBR partitioning scheme is not supported by this function.';
+			write_console($message . PHP_EOL);
+			tui_display_message('Error',$message,60,5);
+			return false;
 			break;
 	endswitch;
 //	initialize layout
@@ -424,6 +429,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				return false;
 			endif;
 			break;
+/*
 		case 'mbr':
 //			create mbr scheme
 			$param = $param_geom_part;
@@ -445,7 +451,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			$param = $param_geom_part;
 			$param['command'] = 'bootcode';
 			$param['testmode'] = $test_mode;
-			$param['pmbr'] = '-b /boot/mbr';
+			$param['mbr'] = '-b /boot/mbr';
 			$param['geom'] = escapeshellarg($destination);
 			$command = implode(' ',$param);
 			if(mwexec($command)):
@@ -457,6 +463,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				return false;
 			endif;
 			break;
+ */
 	endswitch;		
 	$partition_layout_index = 0;
 	foreach($partition_layout as $k_partition => &$r_partition):
@@ -567,7 +574,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				elseif('' === $entered_size):
 					$error_message = 'Error: No value was entered.';
 				else:
-					$error_message = 'Error: The entered value contains invalid characters.';
+					$error_message = 'Error: The entered value is invalid.';
 				endif;
 			endwhile;
 			unset($input_text);
@@ -592,28 +599,22 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				$param['geom'] = escapeshellarg($destination);
 				switch($k_partition):
 					case 'boot':
-					case 'zfsboot':
-//						add boot partition
+					case 'zfsboot':	//	add boot partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-boot');
 						break;
-					case 'efi':
-//						add efi partition
+					case 'efi':	//	add efi partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'efi');
 						break;
-					case 'root':
-//						add root partition
+					case 'root':	//	add root partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
 						break;
-					case 'swap':
-//						add swap partition
+					case 'swap':	//	add swap partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-swap');
 						break;
-					case 'zfsroot':
-//						add root partition
+					case 'zfsroot':	//	add root partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-zfs');
 						break;
-					default:
-//						add other partitions
+					default:	//	add other partitions
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
 						break;
 				endswitch;
@@ -683,6 +684,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						break;
 				endswitch;
 				break;
+/*
 			case 'mbr':
 				$partition_index = sprintf('-i %s',$r_partition['partition']);
 				$destination_slice = sprintf('%ss%s',$destination,$r_partition['partition']);
@@ -791,6 +793,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					return false;
 				endif;
 				break;
+ */
 		endswitch;
 		$partition_layout_index++;
 	endforeach;
@@ -812,9 +815,11 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			case 'gpt':
 				$destination_partition = sprintf('%sp%s',$destination,$r_partition['partition']);
 				break;
+/*
 			case 'mbr':
 				$destination_partition = sprintf('%ss%sa',$destination,$r_partition['partition']);
 				break;
+ */
 		endswitch;
 		$message = sprintf('  %s:',$destination_partition);
 		write_console($message);
