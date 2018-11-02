@@ -858,8 +858,8 @@ $(document).ready(function(){
 									if(isset($vminfo['vrde']) && $vminfo['vrde']['value'] == "on"):
 										$vncport = $vminfo['vrdeport']['value'];
 										$url = htmlspecialchars("/novnc/vnc.html?host={$vbox_ipaddr}&port={$vncport}");
-										echo " <a href='{$url}' target=_blank>";
-										echo htmlspecialchars("vnc://{$vbox_ipaddr}:{$vncport}/");
+										echo " VNC: <a href='{$url}' target=_blank>";
+										echo htmlspecialchars("/{$vbox_ipaddr}:{$vncport}/");
 										echo "</a>";
 									endif;
 									echo "</div></td></tr>\n";
@@ -930,7 +930,7 @@ $(document).ready(function(){
 											$vncport = $console['vnc-port']['value'];
 										endif;
 										echo " ";
-										echo htmlspecialchars("vnc://{$xen_ipaddr}:{$vncport}/");
+										echo htmlspecialchars("VNC:/{$xen_ipaddr}:{$vncport}/");
 									endif;
 									echo "</div></td></tr>\n";
 									if(++$index < count($vmlist3)):
