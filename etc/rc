@@ -77,7 +77,6 @@ case ${PLATFORM} in
 		# Keep backward compatibility here whenever possible.
 		if zpool list -H -o bootfs | grep -qw "${ZROOT}/ROOT"; then
 			ZFSTMP=`zfs list ${ZROOT}/tmp 2> /dev/null`
-			ZFSVAR=`zfs list ${ZROOT}/var 2> /dev/null`
 			ZFSVARLOG=`zfs list ${ZROOT}/var/log 2> /dev/null`
 			ZFSVARTMP=`zfs list ${ZROOT}/var/tmp 2> /dev/null`
 			echo "Mounting ZFS datasets for RootOnZFS platform..."
