@@ -218,10 +218,7 @@ zroot_init()
 	zfs create -o mountpoint=none ${ZROOT}${DATASET}
 	zfs create -o mountpoint=/ ${ZROOT}${DATASET}${BOOTENV}
 	zfs create -o mountpoint=/tmp -o exec=on -o setuid=off ${ZROOT}/tmp
-	#zfs create -o mountpoint=/var ${ZROOT}/var
-	zfs create -o mountpoint=/var -o canmount=off ${ZROOT}/var
-	zfs create -o exec=off -o setuid=off ${ZROOT}/var/log
-	zfs create -o setuid=off ${ZROOT}/var/tmp
+	zfs create -o mountpoint=/var ${ZROOT}/var
 	zfs set mountpoint=/${ZROOT} ${ZROOT}
 	zpool set bootfs=${ZROOT}${DATASET}${BOOTENV} ${ZROOT}
 	zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}
@@ -302,8 +299,11 @@ install_sys_files()
 	echo "Installing system files on ${ZROOT}..."
 
 	# Install system files and discard unwanted folders.
-	EXCLUDEDIRS="--exclude .snap/ --exclude resources/ --exclude zinstall.sh/ --exclude mnt/ --exclude dev/ --exclude var/ --exclude tmp/ --exclude cf/"
+	EXCLUDEDIRS="--exclude .snap/ --exclude resources/ --exclude mnt/ --exclude dev/ --exclude var/ --exclude tmp/ --exclude cf/"
 	tar ${EXCLUDEDIRS} -c -f - -C / . | tar -xpf - -C ${ALTROOT}
+	if [ ! -f "${ALTROOT}/etc/rc.d/var" ]; then
+		cp -r /etc/rc.d/var ${ALTROOT}/etc/rc.d/var
+	fi
 
 	# Copy files from live media source.
 	copy_media_files
