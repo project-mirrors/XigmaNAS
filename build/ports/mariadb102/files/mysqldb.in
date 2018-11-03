@@ -80,7 +80,7 @@ mysqldb_mkconf()
 		--match '//mariadb' \
 			--output '<?php' --nl \
 			--if 'string-length(phrasecookieauth) > 0' \
-				--output "\$cfg['blowfish_secret'] = '" --value-of "phrasecookieauth" --output "'" --nl \
+				--output "\$cfg['blowfish_secret'] = '" --value-of "phrasecookieauth" --output "';" --nl \
 			--break \
 			--output '$i = 0;' --nl \
 			--output '$i++;' --nl \
