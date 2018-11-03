@@ -237,6 +237,7 @@ function install_harddrive_image($harddrive) {
 	mwexec("/bin/cp -v /mnt/cdrom/boot/* {$mntpath}/boot");
 	mwexec("/bin/cp -v /mnt/cdrom/boot/defaults/* {$mntpath}/boot/defaults");
 	mwexec("/bin/cp -v /mnt/cdrom/boot/kernel/* {$mntpath}/boot/kernel");
+	mwexec("/bin/cp -v /etc/rc.d/var {$mntpath}/etc/rc.d/var");
 	
 	// Install configuration file
 	mwexec("/bin/mkdir -p {$mntpath}{$g['cf_conf_path']}");
