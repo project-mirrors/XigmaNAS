@@ -29,7 +29,7 @@ status_cmd="mysqldb_status"
 mkconf_cmd="mysqldb_mkconf"
 
 phpmyadmin_conf=${phpmyadmin_conf:-"/usr/local/www/phpMyAdmin/config.inc.php"}
-mysqldb_conf=${mysqldb_conf:-"/usr/local/etc/my.cnf"}
+mysqldb_conf=${mysqldb_conf:-"/var/db/mysql/my.cnf"}
 mysql_user=${mysql_user:-"mysql"}
 mysql_group=${mysql_group:-"mysql"}
 mysqldb_ipaddr=${mysqldb_ipaddr:-"127.0.0.1"}
