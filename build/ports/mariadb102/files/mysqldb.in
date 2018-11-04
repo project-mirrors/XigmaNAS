@@ -28,21 +28,19 @@ stop_cmd="mysqldb_stop"
 status_cmd="mysqldb_status"
 mkconf_cmd="mysqldb_mkconf"
 
+mariadbhomedir=`configxml_get "//mariadb/homedir"`
+if [ "$mariadbhomedir" = "" ]; then
+    mariadbhomedir="/nonexistent"
+fi
+
 phpmyadmin_conf=${phpmyadmin_conf:-"/usr/local/www/phpMyAdmin/config.inc.php"}
-mysqldb_conf=${mysqldb_conf:-"/var/db/mysql/my.cnf"}
+mysqldb_conf=${mysqldb_conf:-"${mariadbhomedir}/my.cnf"}
 mysql_user=${mysql_user:-"mysql"}
 mysql_group=${mysql_group:-"mysql"}
 mysqldb_ipaddr=${mysqldb_ipaddr:-"127.0.0.1"}
 
 mysqldb_mkconf()
 {
-	local _homedir
-
-	_homedir=`configxml_get "//mariadb/homedir"`
-	if [ "$_homedir" = "" ]; then
-	    _homedir="/nonexistent"
-	fi
-
 	# Create mysql config minimum
 	cat /dev/null > ${mysqldb_conf}
 	chmod 600 ${mysqldb_conf}
@@ -68,11 +66,11 @@ mysqldb_mkconf()
 
 	# Create symbolic link to homedir and create DB if not exist
 	unlink /var/db/mysql
-	ln -s "${_homedir}" /var/db/mysql
-	if [ ! -d "${_homedir}/mysql/." ]; then
-		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${_homedir} --force
+	ln -s "${mariadbhomedir}" /var/db/mysql
+	if [ ! -d "${mariadbhomedir}/mysql/." ]; then
+		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --force
 	fi
-	chown -R ${mysql_user}:${mysql_group} ${_homedir}
+	chown -R ${mysql_user}:${mysql_group} ${mariadbhomedir}
 
 	# Create phpMyAdmin config
 	cat /dev/null > ${phpmyadmin_conf}
