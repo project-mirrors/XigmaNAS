@@ -125,9 +125,6 @@ CONFIGURE_ARGS+=	--without-libusb --disable-libftdi --disable-libhid
 PLIST_SUB+=		USB="@comment " FTDI="@comment " HID="@comment "
 .endif
 
-
-
-
 do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/server/LCDd ${XIGMANAS_ROOTFS}/${PREFIX}/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/lcdexec/lcdexec ${XIGMANAS_ROOTFS}/${PREFIX}/bin
