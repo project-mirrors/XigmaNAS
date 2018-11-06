@@ -1010,20 +1010,21 @@ create_usb () {
 	MDLSIZE2=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz)
 	#IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MFS2SIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
 	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
-	USBROOTM=1192
-	USBSWAPM=512
-	USBDATAM=12
+	USBROOTM=768
+	#USBSWAPM=512
+	#USBDATAM=12
 	#USB_SECTS=64
 	#USB_HEADS=32
 	USB_SECTS=63
 	USB_HEADS=255
 
-	# 4MB alignment
+	# 4MB alignment 800M image.
 	#USBSYSSIZEM=$(expr $USBROOTM + $IMGSIZEM + 4)
 	USBSYSSIZEM=$(expr $USBROOTM + 4)
-	USBSWPSIZEM=$(expr $USBSWAPM + 4)
-	USBDATSIZEM=$(expr $USBDATAM + 4)
-	USBIMGSIZEM=$(expr $USBSYSSIZEM + $USBSWPSIZEM + $USBDATSIZEM + 1)
+	#USBSWPSIZEM=$(expr $USBSWAPM + 4)
+	#USBDATSIZEM=$(expr $USBDATAM + 4)
+	#USBIMGSIZEM=$(expr $USBSYSSIZEM + $USBSWPSIZEM + $USBDATSIZEM + 1)
+	USBIMGSIZEM=$(expr $USBSYSSIZEM + 28)
 
 	# 4MB aligned USB stick
 	echo "USB: Creating Empty IMG File"
@@ -1055,8 +1056,8 @@ create_usb () {
 
 	gpart create -s mbr ${md}
 	gpart add -s ${USBSYSSIZEM}m -t freebsd ${md}
-	gpart add -s ${USBSWPSIZEM}m -t freebsd ${md}
-	gpart add -s ${USBDATSIZEM}m -t freebsd ${md}
+	#gpart add -s ${USBSWPSIZEM}m -t freebsd ${md}
+	#gpart add -s ${USBDATSIZEM}m -t freebsd ${md}
 	gpart set -a active -i 1 ${md}
 	gpart bootcode -b ${XIGMANAS_BOOTDIR}/mbr ${md}
 
@@ -1065,11 +1066,11 @@ create_usb () {
 	gpart bootcode -b ${XIGMANAS_BOOTDIR}/boot ${md}s1
 	gpart add -a 4m -s ${USBROOTM}m -t freebsd-ufs ${md}s1
 	# s2 (SWAP)
-	gpart create -s bsd ${md}s2
-	gpart add -i2 -a 4m -s ${USBSWAPM}m -t freebsd-swap ${md}s2
+	#gpart create -s bsd ${md}s2
+	#gpart add -i2 -a 4m -s ${USBSWAPM}m -t freebsd-swap ${md}s2
 	# s3 (UFS/DATA) dummy
-	gpart create -s bsd ${md}s3
-	gpart add -a 4m -s ${USBDATAM}m -t freebsd-ufs ${md}s3
+	#gpart create -s bsd ${md}s3
+	#gpart add -a 4m -s ${USBDATAM}m -t freebsd-ufs ${md}s3
 	# SYSTEM partition
 	mdp=${md}s1a
 
