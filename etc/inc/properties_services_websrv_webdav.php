@@ -86,7 +86,7 @@ class websrv_webdav_properties extends co_property_container_param {
 		$property = $this->x_auxparam = new property_textarea($this);
 		$property->
 			set_name('auxparam')->
-			set_title(gettext('Additional Parameter'));
+			set_title(gettext('Additional Parameters'));
 		return $property;
 	}
 }
@@ -161,8 +161,8 @@ class websrv_webdav_edit_properties extends websrv_webdav_properties {
 	}
 	public function init_auxparam() {
 		$property = parent::init_auxparam();
-		$description = gettext('These parameter will be added to this WebDAV configuration.');
-		$placeholder = gettext('Enter additional parameter');
+		$description = gettext('These parameters will be added to this WebDAV configuration.');
+		$placeholder = gettext('Enter additional parameters');
 		$property->
 			set_id('auxparam')->
 			set_description($description)->
