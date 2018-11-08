@@ -143,6 +143,10 @@ $software = [
 		'A lighty fast webserver (<a href="http://www.lighttpd.net" target="_blank">http://www.lighttpd.net</a>).',
 		'Copyright © 2004 Jan Kneschke (<a href="mailto:jan@kneschke.de">jan@kneschke.de</a>). All Rights Reserved.'
 	]],
+	['MariaDB',[
+		'Multithreaded SQL database. (<a href="https://mariadb.org" target="_blank">https://mariadb.org</a>).',
+		'Copyright © 2018 MariaDB Foundation. All Rights Reserved.'
+	]],
 	['MiniDLNA',[
 		'Media server software, with the aim of being fully compliant with DLNA/UPnP-AV clients. (<a href="https://sourceforge.net/projects/minidlna/" target="_blank">https://sourceforge.net/projects/minidlna</a>).',
 		'Copyright © 2008-2017  Justin Maggard. All Rights Reserved.'
@@ -186,6 +190,10 @@ $software = [
 	['PHP',[
 		'A server-side scripting language (<a href="http://www.php.net" target="_blank">http://www.php.net</a>).',
 		'Copyright © 1999-2018 The PHP Group. All Rights Reserved.'
+	]],
+	['phpMyAdmin',[
+		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank">https://www.phpmyadmin.net</a>).',
+		'Copyright © 2003 - 2018 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="http://sourceforge.net/projects/phpvirtualbox/" target="_blank">http://sourceforge.net/projects/phpvirtualbox</a>).',
