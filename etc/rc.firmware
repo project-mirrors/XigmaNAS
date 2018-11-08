@@ -21,18 +21,17 @@
 # Gather upload folder
 load_rc_config_var lighttpd lighttpd_uploaddir
 
-SIZE="384M"
-PLATFORM=`cat /etc/platform`
-XARCH=`/bin/echo ${PLATFORM} | sed -e 's/-.*//'`
-ARCH=`/usr/bin/uname -m`
-CFDEVICE=`cat /etc/cfdevice`
-SKIP=`expr \( 1 \* 1024 \* 1024 \) / \( 32 \* 1024 \)`
+SIZEMFS="384M"
+PLATFORM=$(cat /etc/platform)
+XARCH=$(cat /etc/platform | cut -d'-' -f1)
+ARCH=$(/usr/bin/uname -m)
+CFDEVICE=$(cat /etc/cfdevice)
+SKIP=$(expr \( 1 \* 1024 \* 1024 \) / \( 32 \* 1024 \))
 FTMP="${lighttpd_uploaddir:-/var/tmp}/ftmp"
 ARG="$2"
 
 # Required for boot environment upgrade.
-ROOTFS=`mount | awk '/ \/ / {print $1}'`
-SYSBACKUP="/tmp/sysbackup"
+ROOTFS=$(mount | awk '/ \/ / {print $1}')
 ZROOT="zroot"
 BENAME="upgrade"
 BEPATH="/var/tmp/be_upgrade"
@@ -47,7 +46,14 @@ enable_upgrade() {
 	# Create efficient memory file system.
 	if ! df | grep -qw ${FTMP}; then
 		if [ -d ${FTMP} ]; then
-			/sbin/mount -t tmpfs -o size=${SIZE},mode=1777 tmpfs ${FTMP} > /dev/null 2>&1
+			# Set the memory file system size according the platform.
+			if [ "${PLATFORM}" = "x64-full" ]; then
+				# Available system memory is the only tmpfs limit.
+				/sbin/mount -t tmpfs -o mode=1777 tmpfs ${FTMP} > /dev/null 2>&1
+			else
+				# The tmpfs is limited by the predefined variable.
+				/sbin/mount -t tmpfs -o size=${SIZEMFS},mode=1777 tmpfs ${FTMP} > /dev/null 2>&1
+			fi
 			if [ $? -ne 0 ]; then
 				/usr/bin/logger -t "${program}" -p console.err "${topic} - mount command failed."
 				exit 1
@@ -72,7 +78,7 @@ disable_upgrade() {
 	/usr/bin/logger -t "${program}" -p console.debug "${topic} - processing."
 #
 	# Get the md device.
-	mdid=`/sbin/mount -p | /usr/bin/grep ${FTMP} | /usr/bin/awk '{print $1}'`
+	mdid=$(/sbin/mount -p | /usr/bin/grep ${FTMP} | /usr/bin/awk '{print $1}')
 #
 	# Umount in-memory file system.
 	if df | grep -qw ${FTMP}; then
@@ -143,7 +149,7 @@ embedded_upgrade() {
 		/usr/bin/logger -t "${program}" -p console.debug "${topic} - processing."
 #
 		if [ -f /conf/config.xml ]; then
-			CONFSUM=`sha256 /conf/config.xml | cut -d= -f2`
+			CONFSUM=$(sha256 /conf/config.xml | cut -d= -f2)
 			/usr/bin/logger -t "${program}" -p console.debug "${topic} - success."
 		else
 			/usr/bin/logger -t "${program}" -p console.debug "${topic} - skipped."
@@ -162,7 +168,7 @@ embedded_upgrade() {
 				RESULT=1
 			else
 				if [ -n ${CONFSUM} ]; then
-					CONFSUM_BK=`sha256 /tmp/configbak/config.xml | cut -d= -f2`
+					CONFSUM_BK=$(sha256 /tmp/configbak/config.xml | cut -d= -f2)
 				fi
 				/usr/bin/logger -t "${program}" -p console.debug "${topic} - success."
 			fi
@@ -417,7 +423,7 @@ embedded_upgrade() {
 		/usr/bin/logger -t "${program}" -p console.debug "${topic} - processing."
 #
 		if [ -n ${CONFSUM} ]; then
-			CONFSUM_NEW=`sha256 /conf/config.xml | cut -d= -f2`
+			CONFSUM_NEW=$(sha256 /conf/config.xml | cut -d= -f2)
 			/usr/bin/logger -t "${program}" -p console.debug "${topic} - success."
 		else
 			/usr/bin/logger -t "${program}" -p console.debug "${topic} - skipped."
@@ -458,57 +464,10 @@ embedded_upgrade() {
 	fi
 }
 
-backup_sys_files() {
-	# Backup common system configuration files.
-	msg="Backup system configuration..."
-	/usr/bin/logger -p console.info "UPGRADE: ${msg}"
-
-	if [ -f "${BEPATH}/boot/loader.conf" ]; then
-		cp -p ${BEPATH}/boot/loader.conf ${SYSBACKUP}
-	fi
-	if [ -f "/${BEPATH}/boot.config" ]; then
-		cp -p ${BEPATH}/boot.config ${SYSBACKUP}
-	fi
-	if [ -f "/${BEPATH}/boot/loader.conf.local" ]; then
-		cp -p ${BEPATH}/boot/loader.conf.local ${SYSBACKUP}
-	fi
-	if [ -f "/${BEPATH}/boot/zfs/zpool.cache" ]; then
-		cp -p ${BEPATH}/boot/zfs/zpool.cache ${SYSBACKUP}
-	fi
-
-	cp -p ${BEPATH}/etc/fstab ${SYSBACKUP}
-	cp -p ${BEPATH}/etc/cfdevice ${SYSBACKUP}
-	cp -p ${BEPATH}/etc/rc.conf ${SYSBACKUP}
-}
-
-restore_sys_files() {
-	# Restore previous backup files on the boot environment.
-	msg="Restore system configuration..."
-	/usr/bin/logger -p console.info "UPGRADE: ${msg}"
-
-	if [ -f "${SYSBACKUP}/loader.conf" ]; then
-		cp -pf ${SYSBACKUP}/loader.conf ${BEPATH}/boot
-	fi
-	if [ -f "${SYSBACKUP}/boot.config" ]; then
-		cp -pf ${SYSBACKUP}/boot.config ${BEPATH}
-	else
-		rm -f ${BEPATH}/boot.config
-	fi
-	if [ -f "${SYSBACKUP}/loader.conf.local" ]; then
-		cp -pf ${SYSBACKUP}/loader.conf.local ${BEPATH}/boot
-	fi
-	if [ -f "${SYSBACKUP}/zpool.cache" ]; then
-		cp -pf ${SYSBACKUP}/zpool.cache ${BEPATH}/boot/zfs
-	fi
-
-	cp -pf ${SYSBACKUP}/fstab ${BEPATH}/etc
-	cp -pf ${SYSBACKUP}/cfdevice ${BEPATH}/etc
-	cp -pf ${SYSBACKUP}/rc.conf ${BEPATH}/etc
-}
-
 upgrade_menuforth()
 {
 	# Update to latest loader manu files.
+	# This is for backward compatibility only.
 	if [ -d "${BEPATH}/etc/install/include/boot" ]; then
 		cp -pf ${BEPATH}/etc/install/include/boot/* ${BEPATH}/boot
 		chmod 444 ${BEPATH}/boot/menu.4th
@@ -567,7 +526,7 @@ full_upgrade() {
 	# Create and mount the new upgrade boot environment.
 	msg="Creating and mounting new boot environment..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
-	DATE=`date +%Y-%m-%d-%H%M%S`
+	DATE=$(date +%Y-%m-%d-%H%M%S)
 	/usr/local/sbin/beadm create ${BENAME}-${DATE}
 	/usr/local/sbin/beadm mount ${BENAME}-${DATE} ${BEPATH}
 	if [ 0 != $? ]; then
@@ -576,24 +535,14 @@ full_upgrade() {
 		exit 1
 	fi
 
-	# Create config backup directory.
-	mkdir -p ${SYSBACKUP}
-
-	# Backup system configuration.
-	backup_sys_files
-	if [ 0 != $? ]; then
-		msg="ERROR: Failed to backup configuration."
-		/usr/bin/logger -p console.err "UPGRADE ${msg}"
-		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
-		/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
-		disable_upgrade
-		exit 1
-	fi
-
 	# Remove chflags for protected files before upgrade process.
-	if [ -f ${BEPATH}/usr/lib/librt.so.1 ]; then
-		/bin/chflags 0 ${BEPATH}/usr/lib/librt.so.1
-	fi
+	# This list may be updated in future.
+	FILELIST="${BEPATH}/usr/lib/librt.so.1"
+	for file in ${FILELIST}; do
+		if [ -f "${file}" ]; then
+			/bin/chflags 0 ${file}
+		fi
+	done
 
 	# Start upgrade script to remove obsolete files. This should be done
 	# before system is updated because it may happen that some files
@@ -617,14 +566,12 @@ full_upgrade() {
 		disable_upgrade
 		exit 1
 	else
-		# Restore system configuration.
-		restore_sys_files
 
 		# Include latest loader menu files.
 		upgrade_menuforth
 
 		if [ 0 != $? ]; then
-			msg="ERROR: Failed restoring configuration."
+			msg="ERROR: Failed restoring/updating configuration."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
 			/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
@@ -651,7 +598,6 @@ full_upgrade() {
 	# Cleanup and sync.
 	rm -Rf ${BEPATH}
 	rm -Rf /tmp/BE-${BENAME}-${DATE}.*
-	rm -Rf ${SYSBACKUP}
 	sync; sleep 2
 
 	# Reboot system if upgrade was successfully.
@@ -673,7 +619,7 @@ full_upgrade() {
 	fi
 }
 
-case $1 in
+case ${1} in
 	enable) enable_upgrade ;;
 	disable) disable_upgrade ;;
 	upgrade) embedded_upgrade ;;
