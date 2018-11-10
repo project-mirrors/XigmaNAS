@@ -6,7 +6,7 @@
 #
 
 # Set environment.
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:${PATH}
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 export PATH
 
 # Set global variables.
@@ -74,7 +74,7 @@ umount_cdrom()
 manual_cdmount()
 {
 	DRIVES=$(camcontrol devlist)
-	cdialog --backtitle "$PRDNAME $APPNAME Installer" --title "Select the Install Media Source" \
+	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Select the Install Media Source" \
 	--form "${DRIVES}" 0 0 0 \
 	"Select CD/USB Drive e.g: cd0:" 1 1 "" 1 30 30 30 \
 	2>${tmpfile}
@@ -100,46 +100,54 @@ cleandisk_init()
 	sysctl kern.geom.debugflags=0x10
 	sleep 1
 
-	# Load geom_mirror kernel module.
-	if ! kldstat | grep -q geom_mirror; then
-		kldload /boot/kernel/geom_mirror.ko
-		# Destroy existing geom swap mirror.
-		if gmirror status | grep -q swap; then
+	# Ignore errors here since they may be expected.
+	# We need this section to try to deal with problematic disk metadata.
+	set +e
+
+	# Destroy existing geom mirror/swap.
+	if kldstat | grep -q geom_mirror; then
+		if gmirror status | grep -q "mirror/swap"; then
 			gmirror forget swap
-			gmirror destroy swap
+			gmirror destroy -f swap
 		fi
 	fi
 
 	DISKS=${DEVICE_LIST}
 	NUM="0"
-	WIPESECTORCOUNT=16384
+	WIPECOUNT="16384"
 	for DISK in ${DISKS}
 	do
 		echo "Cleaning disk ${DISK}"
-		# Ignore errors here since they may be expected.
-		# We need this section to try to deal with problematic disk metadata.
-		set +e
 		gmirror clear ${DISK} > /dev/null 2>&1
 		zpool labelclear -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
 		zpool labelclear -f /dev/${DISK} > /dev/null 2>&1
-		gpart undo ${DISK} > /dev/null 2>&1
 		gpart destroy -F ${DISK} > /dev/null 2>&1
-		set -e
 
+		# Gather some disk information and proceed with cleanup.
 		diskinfo ${DISK} | while read DISK sectorsize size sectors other
 			do
-				if [ ${WIPESECTORCOUNT} -gt ${sectors} ]; then
+				if [ "${WIPECOUNT}" -gt "${sectors}" ]; then
 					WIPESECTORS=${sectors}
 				else
-					WIPESECTORS=${WIPESECTORCOUNT}
+					WIPESECTORS=${WIPECOUNT}
 				fi
 				# Delete MBR, GPT Primary, ZFS(L0L1)/other partition table.
 				dd if=/dev/zero of=${DISK} bs=${sectorsize} count=${WIPESECTORS} > /dev/null 2>&1
-				# Delete GEOM metadata, GPT Secondary(L2L3).
-				dd if=/dev/zero of=${DISK} bs=${sectorsize} oseek=$(expr ${sectors} - ${WIPESECTORS}) count=${WIPESECTORS} > /dev/null 2>&1
+				# Delete GEOM metadata, GPT Secondary, ZFS(L2L3)/other partition table.
+				dd if=/dev/zero of=${DISK} bs=${sectorsize} seek=$(expr ${sectors} - ${WIPESECTORS}) count=${WIPESECTORS} > /dev/null 2>&1
 			done
 			NUM=$(expr $NUM + 1)
 	done
+	set -e
+}
+
+load_kmods()
+{
+	# Required kernel modules.
+	# Load geom_mirror kernel module.
+	if ! kldstat | grep -q geom_mirror; then
+		kldload /boot/kernel/geom_mirror.ko
+	fi
 }
 
 # Create GPT/Partition on disk.
@@ -160,10 +168,10 @@ gptpart_init()
 		fi
 		gpart add -a 4k -s 512K -t freebsd-boot -l sysboot${NUM} ${DISK} > /dev/null
 
-		if [ ! -z "${SWAP}" ]; then
+		if [ ! -z "${SWAP_SIZE}" ]; then
 			# Add swap partition to selected drives.
-			gpart add -a 4m -s ${SWAP} -t freebsd-swap -l swap${NUM} ${DISK} > /dev/null
-			# Generate explicit swap device list.
+			gpart add -a 4m -s ${SWAP_SIZE} -t freebsd-swap -l swap${NUM} ${DISK} > /dev/null
+			# Generate swap device list.
 			echo "/dev/gpt/swap${NUM}" >> ${swapdevlist}
 		fi
 		gpart add -a 4m ${ZROOT_SIZE} -t freebsd-zfs -l sysdisk${NUM} ${DISK} > /dev/null
@@ -172,8 +180,8 @@ gptpart_init()
 		NUM=$(expr $NUM + 1)
 	done
 
-	GLABEL_DEVLIST=$(cat ${tmpfile})
-	if [ ! -z "${SWAP}" ]; then
+	ZROOT_DEVLIST=$(cat ${tmpfile})
+	if [ ! -z "${SWAP_SIZE}" ]; then
 		SWAP_DEVLIST=$(cat ${swapdevlist})
 		rm -f ${swapdevlist}
 	fi
@@ -212,13 +220,16 @@ zroot_init()
 
 	# Create bootable zroot pool with boot environments support.
 	echo "Creating bootable ${ZROOT} pool"
-	zpool create -o altroot=${ALTROOT} -O compress=lz4 -O atime=off -m none -f ${ZROOT} ${RAID} ${GLABEL_DEVLIST}
+	zpool create -o altroot=${ALTROOT} -O compress=lz4 -O atime=off -m none -f ${ZROOT} ${RAID} ${ZROOT_DEVLIST}
 
 	# Create ZFS filesystem hierarchy.
 	zfs create -o mountpoint=none ${ZROOT}${DATASET}
 	zfs create -o mountpoint=/ ${ZROOT}${DATASET}${BOOTENV}
 	zfs create -o mountpoint=/tmp -o exec=on -o setuid=off ${ZROOT}/tmp
-	zfs create -o mountpoint=/var ${ZROOT}/var
+	#zfs create -o mountpoint=/var ${ZROOT}/var
+	zfs create -o mountpoint=/var -o canmount=off ${ZROOT}/var
+	zfs create -o exec=off -o setuid=off ${ZROOT}/var/log
+	zfs create -o setuid=off ${ZROOT}/var/tmp
 	zfs set mountpoint=/${ZROOT} ${ZROOT}
 	zpool set bootfs=${ZROOT}${DATASET}${BOOTENV} ${ZROOT}
 	zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}
@@ -254,7 +265,7 @@ zroot_init()
 	#echo "${ZROOT}/var /var zfs rw,noatime 0 0" >> ${ALTROOT}/etc/fstab
 
 	# Creating/adding the fixed swap devices.
-	if [ ! -z "${SWAP}" ]; then
+	if [ ! -z "${SWAP_SIZE}" ]; then
 		if [ "${SWAPMODE}" = 1 ]; then
 			echo "Creating/adding swap Mirror..."
 			if ! kldstat | grep -q geom_mirror; then
@@ -275,6 +286,9 @@ zroot_init()
 	# Unmount cd-rom.
 	umount_cdrom
 
+	# Create user Dataset on request.
+	create_user_dataset
+
 	# Creates system default snapshot after install.
 	create_default_snapshot
 
@@ -286,7 +300,7 @@ zroot_init()
 
 	# Final message.
 	if [ $? -eq 0 ]; then
-		cdialog --msgbox "$PRDNAME $APPNAME Successfully Installed!" 6 60
+		cdialog --msgbox "${PRDNAME} ${APPNAME} Successfully Installed!" 6 60
 		exit 0
 	else
 		echo "Error: A problem has occurred during the installation."
@@ -338,7 +352,7 @@ EOF
 	fi
 
 	if [ "${SWAPMODE}" = 1 ]; then
-		if [ ! -z "${SWAP}" ]; then
+		if [ ! -z "${SWAP_SIZE}" ]; then
 			echo 'geom_mirror_load="YES"' >> ${ALTROOT}/boot/loader.conf
 		fi
 	fi
@@ -347,10 +361,6 @@ EOF
 	#cat << EOF > ${ALTROOT}/etc/rc.conf
 
 #EOF
-
-	# Clear default router and netwait ip on new installs.
-	sysrc -f ${ALTROOT}/etc/rc.conf defaultrouter="" > /dev/null 2>&1
-	sysrc -f ${ALTROOT}/etc/rc.conf netwait_ip="" > /dev/null 2>&1
 
 	# Set the release type.
 	if [ "${PLATFORM}" = "amd64" ]; then
@@ -366,7 +376,7 @@ EOF
 EOF
 
 	# Generate /etc/swapdevice.
-	if [ ! -z "${SWAP}" ]; then
+	if [ ! -z "${SWAP_SIZE}" ]; then
 		cat << EOF > ${ALTROOT}/etc/swapdevice
 swapinfo
 EOF
@@ -382,6 +392,8 @@ ${disklist}
 EOF
 	fi
 
+	# Post install configuration.
+	post_install_config
 	echo "Done!"
 }
 
@@ -432,6 +444,41 @@ EOF
 	cd
 }
 
+post_install_config()
+{
+	# Configure some rc variables here before reboot.
+	# Clear default router and netwait ip on new installs.
+	if sysrc -f ${ALTROOT}/etc/rc.conf -qc defaultrouter; then
+		sysrc -f ${ALTROOT}/etc/rc.conf defaultrouter="" > /dev/null 2>&1
+	fi
+	if sysrc -f ${ALTROOT}/etc/rc.conf -qc netwait_ip; then
+		sysrc -f ${ALTROOT}/etc/rc.conf netwait_ip="" > /dev/null 2>&1
+	fi
+	# Disable /var md option as it may override our zroot/tmp dataset.
+	if sysrc -f ${ALTROOT}/etc/rc.conf -qc varmfs; then
+		sysrc -f ${ALTROOT}/etc/rc.conf varmfs="NO" > /dev/null 2>&1
+	fi
+}
+
+create_user_dataset()
+{
+	# Create user Dataset on request.
+	if [ ! -z "${DATASET_NAME}" ]; then
+		echo "Creating dataset ${DATASET_NAME}..."
+		# Prevent for dataset directory creation here.
+		# Users should never write data to this directory unless synced and mounted from WebGUI.
+		# So we will set canmount after dataset creation for safety.
+		zfs create -o compression=lz4 -o canmount=off -o atime=off -o mountpoint=${ALTROOT}/${DATASET_NAME} ${ZROOT}/${DATASET_NAME}
+		zfs set canmount=on ${ZROOT}/${DATASET_NAME}
+		if [ $? -eq 1 ]; then
+			echo "Error: A problem has occurred while creating ${DATASET_NAME} dataset."
+			exit 1
+		fi
+		echo "Done!"
+		sleep 1
+	fi
+}
+
 create_default_snapshot()
 {
 	echo "Creating system default snapshot..."
@@ -446,7 +493,7 @@ zpool_check()
 	echo "Check for existing ${ZROOT} pool..."
 	if zpool import | grep -qw ${ZROOT} || zpool status | grep -qw ${ZROOT}; then
 		printf '\033[1;37;43m WARNING \033[0m\033[1;37m A pool called '${ZROOT}' already exist.\033[0m\n'
-		while true
+		while :
 			do
 				read -p "Do you wish to proceed with the installation anyway? [y/N]:" yn
 				case ${yn} in
@@ -465,8 +512,8 @@ zpool_check()
 install_yesno()
 {
 	DISKS=$(echo ${disklist})
-	cdialog --title "Proceed with $PRDNAME $APPNAME Install" \
-	--backtitle "$PRDNAME $APPNAME Installer" \
+	cdialog --title "Proceed with ${PRDNAME} ${APPNAME} Install" \
+	--backtitle "${PRDNAME} ${APPNAME} Installer" \
 	--yesno "Continuing with the installation will destroy all data on <${DISKS}> device(s), do you really want to continue?" 0 0
 	if [ 0 -ne $? ]; then
 		exit 0
@@ -475,26 +522,34 @@ install_yesno()
 
 menu_swap()
 {
-	cdialog --backtitle "$PRDNAME $APPNAME Installer" --title "Enter a desired Swap size" \
-	--form "\nPlease enter a valid swap size, default size is 2G, leave empty for none." 0 0 0 \
+	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize Swap size" \
+	--form "\nEnter a desired SWAP size, default size is 2G, leave empty for none." 0 0 0 \
 	"Enter swap size:" 1 1 "2G" 1 25 25 25 \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
 		exit 0
 	fi
 
-	SWAP=$(cat ${tmpfile} | tr -d '"')
-	
-	if [ ! -z "${SWAP}" ]; then
+	swap_size=$(cat ${tmpfile})
+	if [ ! -z "${swap_size}" ]; then
+		# Perform some input validation.
+		if [ ! $(echo "${swap_size}" | egrep -o '^[1-9][0-9]*[kmgKMG]$') ]; then
+			echo ""
+			echo "ERROR: Invalid swap size specified, allowed suffixes are K,M,G."
+			read -p "Press Enter to retry." RETRY
+			menu_swap
+		fi
+
+		SWAP_SIZE="${swap_size}"
 		if [ "${choice}" = 2 ]; then
 			if [ "${NWAY_MIRROR}" != 0 ]; then
-				cdialog --backtitle "$PRDNAME $APPNAME Installer" --title "System Swap mode selection" \
+				cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "System Swap Mode" \
 				--radiolist "Select system Swap mode, (default mirrored)." 10 50 4 \
 				1 "Mirrored System Swap" on \
 				2 "Multiple System Swap" off \
 				2>${tmpfile}
 				if [ 0 -ne $? ]; then
-					exit 0;
+					exit 0
 				fi
 				SWAPMODE=$(cat ${tmpfile})
 			fi
@@ -504,7 +559,7 @@ menu_swap()
 
 menu_zrootsize()
 {
-	cdialog --backtitle "$PRDNAME $APPNAME Installer" --title "Customize zroot pool partition" \
+	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool partition" \
 	--radiolist "Would you like to customize the ${ZROOT} partition size?" 10 60 4 \
 	1 "Yes, I want to customize." off \
 	2 "No, leave the defaults." on \
@@ -515,24 +570,85 @@ menu_zrootsize()
 
 	CUSTOM_ROOT=$(cat ${tmpfile})
 	if [ "${CUSTOM_ROOT}" = 1 ]; then
-		cdialog --backtitle "$PRDNAME $APPNAME Installer" --title "Enter a desired zroot pool size" \
-		--form "\nPlease enter a valid zroot pool size in GB, for example 10G, or leave empty to use all remaining disk space (default empty)." 0 0 0 \
+		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool size" \
+		--form "\nEnter a desired zroot pool size, for example 10G, or leave empty to use all remaining disk space (default empty)." 0 0 0 \
 		"Enter zroot pool size:" 1 1 "" 1 25 25 25 \
 		2>${tmpfile}
 		if [ 0 -ne $? ]; then
 			exit 0
 		fi
 
-		rootsize=$(cat ${tmpfile})
-		if [ ! -z "${rootsize}" ]; then
-			ZROOT_SIZE="-s ${rootsize}"
+		root_size=$(cat ${tmpfile})
+		if [ ! -z "${root_size}" ]; then
+			# Perform some input validation.
+			if [ ! $(echo "${root_size}" | egrep -o '^[1-9][0-9]*[kmgKMG]$') ]; then
+				echo ""
+				echo "ERROR: Invalid zroot size specified, allowed suffixes are K,M,G."
+				read -p "Press Enter to retry." RETRY
+				menu_zrootsize
+			fi
+
+			ZROOT_SIZE="-s ${root_size}"
 		fi
+	fi
+}
+
+menu_dataset()
+{
+	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Create user Dataset" \
+	--radiolist "Would you like to create a ZFS Dataset for data store?" 10 60 4 \
+	1 "Yes, I want a Dataset." off \
+	2 "No, leave the defaults." on \
+	2>${tmpfile}
+	if [ 0 -ne $? ]; then
+		exit 0
+	fi
+
+	dataset=$(cat ${tmpfile})
+	if [ "${dataset}" = 1 ]; then
+		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Enter Dataset name" \
+		--form "\nEnter a desired Dataset name, or leave empty to cancel Dataset creation (default empty)." 0 0 0 \
+		"Enter Dataset name:" 1 1 "" 1 25 25 25 \
+		2>${tmpfile}
+		if [ 0 -ne $? ]; then
+			exit 0
+		fi
+
+		dataset_name=$(cat ${tmpfile})
+		if [ ! -z "${dataset_name}" ]; then
+			check_name
+			DATASET_NAME="${dataset_name}"
+		fi
+	fi
+}
+
+check_name()
+{
+	# Perform some input validation.
+	DATASETNAME="${dataset_name}"
+	CHECK_NAME=$(echo "${dataset_name}" | tr -c -d 'a-zA-Z0-9-_.:')
+	if [ "${DATASETNAME}" != "${CHECK_NAME}" ]; then
+
+		echo -e "
+ERROR: Can not create ZFS Dataset with '${DATASETNAME}' name.
+
+    Allowed characters for ZFS Datasets are:
+      Alphanumeric: (a-z) (A-Z) (0-9)
+      Hypen: (-)
+      Underscore: (_)
+      Dot: (.)
+      Colon: (:)
+
+    Name '${CHECK_NAME}' which uses only allowed characters can be used.
+"
+		read -p "Press Enter to retry." RETRY
+		menu_dataset
 	fi
 }
 
 menu_bootmode()
 {
-	cdialog --backtitle "$PRDNAME $APPNAME Installer" --title "Boot mode selection menu" \
+	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Boot mode selection menu" \
 	--radiolist "Select system boot mode, default is GPT BIOS." 10 50 4 \
 	1 "GPT BIOS System Boot" on \
 	2 "GPT BIOS+UEFI System Boot" off \
@@ -546,9 +662,11 @@ menu_bootmode()
 
 menu_zroot_create()
 {
+	load_kmods
 	menu_install
 	menu_swap
 	menu_zrootsize
+	menu_dataset
 	menu_bootmode
 	install_yesno
 	zroot_init
@@ -581,10 +699,10 @@ get_media_desc()
 	VAL=""
 	if [ -n "${media}" ]; then
 		# Try to get model information for each detected device.
-		description=$(camcontrol identify ${media} | grep 'model' | awk '{print $3, $4, $5}')
+		description=$(camcontrol identify ${media} | grep 'device model' | sed 's/device\ model\ *//g')
 	if [ -z "${description}" ] ; then
 		# Re-try with "camcontrol inquiry" instead.
-		description=$(camcontrol inquiry ${media} | grep -E '<*>' | cut -d '<' -f2 | cut -d '>' -f1)
+		description=$(camcontrol inquiry ${media} | awk 'NR==1' | cut -d '<' -f2 | cut -d '>' -f1)
 		if [ -z "${description}" ] ; then
 			description="Disk Drive"
 		fi
@@ -634,8 +752,8 @@ menu_install()
 		exit 1
 	fi
 
-	eval "cdialog --backtitle '$PRDNAME $APPNAME Installer'   --title 'Choose destination drive' \
-		--checklist 'Select (one) or (more) drives where $PRDNAME should be installed, use arrow keys to navigate to the drive(s) for installation then select a drive with the spacebar.' \
+	eval "cdialog --backtitle '${PRDNAME} ${APPNAME} Installer'   --title 'Choose destination drive' \
+		--checklist 'Select (one) or (more) drives where ${PRDNAME} should be installed, use arrow keys to navigate to the drive(s) for installation then select a drive with the spacebar.' \
 		${menuheight} 60 ${items} ${list}" 2>${tmpfile}
 	if [ 0 -ne $? ]; then
 		exit 0
@@ -705,12 +823,12 @@ menu_main()
 {
 	while :
 		do
-			cdialog --backtitle "$PRDNAME $APPNAME Installer" --clear --title "$PRDNAME Installer Options" --cancel-label "Exit" --menu "" 11 50 10 \
-			"1" "Install $PRDNAME $APPNAME on Stripe" \
-			"2" "Install $PRDNAME $APPNAME on Mirror" \
-			"3" "Install $PRDNAME $APPNAME on RAIDZ1" \
-			"4" "Install $PRDNAME $APPNAME on RAIDZ2" \
-			"5" "Install $PRDNAME $APPNAME on RAIDZ3" \
+			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --clear --title "${PRDNAME} Installer Options" --cancel-label "Exit" --menu "" 11 50 10 \
+			"1" "Install ${PRDNAME} ${APPNAME} on Stripe" \
+			"2" "Install ${PRDNAME} ${APPNAME} on Mirror" \
+			"3" "Install ${PRDNAME} ${APPNAME} on RAIDZ1" \
+			"4" "Install ${PRDNAME} ${APPNAME} on RAIDZ2" \
+			"5" "Install ${PRDNAME} ${APPNAME} on RAIDZ3" \
 			2>${tmpfile}
 			if [ 0 -ne $? ]; then
 				exit 0
