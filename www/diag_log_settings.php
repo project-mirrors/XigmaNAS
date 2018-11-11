@@ -97,8 +97,8 @@ switch($page_mode):
 		$referrer = $cop->get_nentries()->get_name();
 		$sphere->row[$referrer] = $cop->{$referrer}->validate_array_element($sphere->grid);
 		if(is_null($sphere->row[$referrer])):
-			$input_errors[] = $cop->{$referrer}->get_message_error();
 			if(array_key_exists($referrer,$sphere->grid) && is_scalar($sphere->grid[$referrer])): 
+				$input_errors[] = $cop->{$referrer}->get_message_error();
 				$sphere->row[$referrer] = $sphere->grid[$referrer];
 			else:
 				$sphere->row[$referrer] = $cop->{$referrer}->get_defaultvalue();
@@ -121,8 +121,12 @@ switch($page_mode):
 		$referrer = $cop->get_port()->get_name();
 		$sphere->row[$referrer] = $cop->{$referrer}->validate_array_element($sphere->grid['remote'],['ui','514','empty']);
 		if(is_null($sphere->row[$referrer])):
-			$sphere->row[$referrer] = $cop->{$referrer}->validate_array_element($sphere->grid['remote'],'scalar');
-			$input_errors[] = $cop->{$referrer}->get_message_error();
+			if(array_key_exists($referrer,$sphere->grid['remote']) && is_scalar($sphere->grid['remote'][$referrer])):
+				$input_errors[] = $cop->{$referrer}->get_message_error();
+				$sphere->row[$referrer] = $sphere->grid['remote'][$referrer];
+			else:
+				$sphere->row[$referrer] = $cop->{$referrer}->get_defaultvalue();
+			endif;
 		endif;
 		break;
 	case PAGE_MODE_POST:
