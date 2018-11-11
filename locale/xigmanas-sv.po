@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-10-22 17:07+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-23 15:32+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:11+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -4452,8 +4452,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Skriv ett korrekt värde"
 
-msgid "Enter additional parameter"
-msgstr "Mata in extra parametrar"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Mata in ett iSCSI initierarnamn."
@@ -10920,28 +10920,6 @@ msgstr ""
 "Dessa val kommer att läggas till i /etc/rc.conf. Detta låter dig skriva över "
 "val som används av diverse generiska uppstartskript."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Dessa parametrar kommer läggas till i my.cnf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-"Dessa parametrar kommer att läggas till i den globala delen av ctl.conf."
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Dessa parametrar kommer läggas till i denna WebDAV konfiguration."
-
-msgid "These parameter will be added to this auth-group."
-msgstr "Dessa parametrar kommer att läggas till denna autentiseringsgrupp."
-
-msgid "These parameter will be added to this lun."
-msgstr "Dessa parametrar kommer att läggas till detta LUN."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Dessa parametrar kommer att läggas till denna portalgrupp."
-
-msgid "These parameter will be added to this target."
-msgstr "Dessa parametrar kommer att läggas till detta mål."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Dessa värden kommer läggas till i %s."
@@ -10978,6 +10956,12 @@ msgstr "Dessa parametrar kommer att läggas till i avsnittet [global] i %s."
 msgid "These parameters will be added to global settings in %s."
 msgstr "Detta kommer att läggas till i de globala inställningarna i %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -10986,6 +10970,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Dessa parametrar kommer att läggas till pingkommandot."
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -12974,3 +12973,28 @@ msgstr "använt av"
 
 msgid "visible"
 msgstr "synlig"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Mata in extra parametrar"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr ""
+#~ "Dessa parametrar kommer att läggas till i den globala delen av ctl.conf."
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "Dessa parametrar kommer att läggas till denna autentiseringsgrupp."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Dessa parametrar kommer att läggas till detta LUN."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Dessa parametrar kommer att läggas till denna portalgrupp."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Dessa parametrar kommer att läggas till detta mål."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Dessa parametrar kommer läggas till i denna WebDAV konfiguration."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Dessa parametrar kommer läggas till i my.cnf"

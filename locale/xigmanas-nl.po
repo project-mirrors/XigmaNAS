@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
-"PO-Revision-Date: 2018-10-06 14:48+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"PO-Revision-Date: 2018-11-11 06:04+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:10+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -4564,8 +4564,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Vul een geldige waarde in."
 
-msgid "Enter additional parameter"
-msgstr "Voer optionele parameter in"
+msgid "Enter additional parameters"
+msgstr "Geef hier optionele parameters op"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Voeg een iSCSI initiator naam toe"
@@ -11166,28 +11166,6 @@ msgstr ""
 "verschillende opties te overschrijven die gebruikt worden door verschillende "
 "algemene opstartscripts."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Deze parameter wordt toegevoegd aan my.cnf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-"Deze parameters worden toegevoegd aan de algemene instellingen van ctl.conf"
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Deze parameter wordt toegevoegd aan deze WebDAV configuratie."
-
-msgid "These parameter will be added to this auth-group."
-msgstr "Deze parameters worden toegevoegd aan deze auth-groep."
-
-msgid "These parameter will be added to this lun."
-msgstr "Deze parameters worden toegevoegd aan deze lun."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Deze parameters worden toegevoegd aan deze portaal-groep."
-
-msgid "These parameter will be added to this target."
-msgstr "Deze parameters worden toegevoegd aan deze doel."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Deze parameters worden toegevoegd aan %s."
@@ -11228,6 +11206,13 @@ msgid "These parameters will be added to global settings in %s."
 msgstr ""
 "Deze parameters worden toegevoegd aan de algemene instellingen van %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr "Deze parameters worden toegevoegd aan my.cnf"
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+"Deze parameters worden toegevoegd aan de algemene instellingen van ctl.conf"
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -11236,6 +11221,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Deze parameters worden aan het commando ping toegevoegd."
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr "Deze parameters worden toegevoegd aan de WebDAV configuratie."
+
+msgid "These parameters will be added to this auth-group."
+msgstr "Deze parameters worden toegevoegd aan deze auth-groep."
+
+msgid "These parameters will be added to this lun."
+msgstr "Deze parameters worden toegevoegd aan deze lun."
+
+msgid "These parameters will be added to this portal-group."
+msgstr "Deze parameters worden toegevoegd aan deze portaal-groep."
+
+msgid "These parameters will be added to this target."
+msgstr "Deze parameters worden toegevoegd aan deze doel."
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13267,3 +13267,28 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Voer optionele parameter in"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr ""
+#~ "Deze parameters worden toegevoegd aan de algemene instellingen van ctl.conf"
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "Deze parameters worden toegevoegd aan deze auth-groep."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Deze parameters worden toegevoegd aan deze lun."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Deze parameters worden toegevoegd aan deze portaal-groep."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Deze parameters worden toegevoegd aan deze doel."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Deze parameter wordt toegevoegd aan deze WebDAV configuratie."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Deze parameter wordt toegevoegd aan my.cnf"

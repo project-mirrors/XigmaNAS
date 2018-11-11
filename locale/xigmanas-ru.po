@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-10-08 03:06+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:10+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -4510,8 +4510,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Введите действительное значение."
 
-msgid "Enter additional parameter"
-msgstr "Введите дополнительный параметр"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Введите имя инициатора iSCSI."
@@ -11073,27 +11073,6 @@ msgstr ""
 "Эти настройки будут добавлены к /etc/rc.conf и позволят вам переназначить "
 "переменные, используемые основными скриптами про запуске."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Этот параметр будет добавлен в my.cnf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr "Этот параметр будет добавлен в глобальный раздел ctl.conf"
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Этот параметр будет добавлен в конфигурацию WebDAV."
-
-msgid "These parameter will be added to this auth-group."
-msgstr "Этот параметр будет добавлен в эту группу аутентификации."
-
-msgid "These parameter will be added to this lun."
-msgstr "Этот параметр будет добавлен в этот LUN."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Этот параметр будет добавлен в эту группу портала."
-
-msgid "These parameter will be added to this target."
-msgstr "Этот параметр будет добавлен к этой цели."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Эти параметры добавляются к %s."
@@ -11128,12 +11107,33 @@ msgstr "Эти параметры будут добавлены к секции 
 msgid "These parameters will be added to global settings in %s."
 msgstr "Эти параметры будут добавлены к глобальным настройкам %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr "Эти параметры будут добавлены к настройкам модуля в rsyncd.conf."
 
 msgid "These parameters will be added to the ping command."
 msgstr "Эти параметры будут добавлены в команду ping."
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13161,3 +13161,27 @@ msgstr "использовано из"
 
 msgid "visible"
 msgstr "показать"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Введите дополнительный параметр"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr "Этот параметр будет добавлен в глобальный раздел ctl.conf"
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "Этот параметр будет добавлен в эту группу аутентификации."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Этот параметр будет добавлен в этот LUN."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Этот параметр будет добавлен в эту группу портала."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Этот параметр будет добавлен к этой цели."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Этот параметр будет добавлен в конфигурацию WebDAV."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Этот параметр будет добавлен в my.cnf"

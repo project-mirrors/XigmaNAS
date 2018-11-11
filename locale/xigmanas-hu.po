@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-10-12 14:41+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4469,8 +4469,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Írj be egy érvényes értéket."
 
-msgid "Enter additional parameter"
-msgstr "További paraméterek megadása"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Add meg a iSCSI kezdeményező nevet."
@@ -11006,29 +11006,6 @@ msgstr ""
 "Ezek az értékek a /etc/rc.conf-hoz adódnak hozzá. Ez lehetővé teszi számos "
 "induló szkript beállításainak módosítását."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Ezeket a paramétereket hozzáadjuk a my.cnf fájlhoz."
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-"A ctl.conf globális részéhez hozzá fogjuk adni ezeket a paramétereket."
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Ezeket a bejegyzéseket hozzáadjuk a WebDAV beállításaihoz."
-
-msgid "These parameter will be added to this auth-group."
-msgstr ""
-"Ehhez a hitelesítési-csoporthoz hozzá fogjuk adni ezeket a paramétereket."
-
-msgid "These parameter will be added to this lun."
-msgstr "Ehhez a LUN-hoz hozzá fogjuk adni ezeket a paramétereket."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Ehhez a portál-csoporthoz hozzá fogjuk adni ezeket a paramétereket."
-
-msgid "These parameter will be added to this target."
-msgstr "Ehhez a célhoz hozzá fogjuk adni ezeket a paramétereket."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Ezek a paraméterek hozzáadódnak a következőhöz: %s."
@@ -11065,6 +11042,12 @@ msgstr "Ezek a paraméterek hozzáadódnak a következő [global] részéhez: %s
 msgid "These parameters will be added to global settings in %s."
 msgstr "Ezek a paraméterek hozzáadódnak a következő global részéhez: %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -11072,6 +11055,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Ezeket a paramétereket a ping parancshoz adjuk."
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13057,3 +13055,29 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "További paraméterek megadása"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr ""
+#~ "A ctl.conf globális részéhez hozzá fogjuk adni ezeket a paramétereket."
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr ""
+#~ "Ehhez a hitelesítési-csoporthoz hozzá fogjuk adni ezeket a paramétereket."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Ehhez a LUN-hoz hozzá fogjuk adni ezeket a paramétereket."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Ehhez a portál-csoporthoz hozzá fogjuk adni ezeket a paramétereket."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Ehhez a célhoz hozzá fogjuk adni ezeket a paramétereket."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Ezeket a bejegyzéseket hozzáadjuk a WebDAV beállításaihoz."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Ezeket a paramétereket hozzáadjuk a my.cnf fájlhoz."

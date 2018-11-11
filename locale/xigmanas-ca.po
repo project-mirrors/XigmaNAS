@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-10-22 07:31+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-22 13:56+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "Language: ca_ES\n"
 
 msgid " interfaces:"
@@ -4544,8 +4544,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Introduïu un valor vàlid."
 
-msgid "Enter additional parameter"
-msgstr "Afegir paràmetre adicional"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Introduïu un nom de iniciador iSCSI."
@@ -11150,27 +11150,6 @@ msgstr ""
 "Aquests s'afegirà l'opció (s) en /etc/rc.conf. Això li permet sobreescriure "
 "les opcions utilitzades per diversos scripts d'inici genèrics."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Aquest paràmetre s'afegirà a my.cnf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr "Aquest paràmetre s'afegirà a la secció global de ctl.conf"
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Aquest paràmetre s'afegirà a aquesta configuració de WebDAV."
-
-msgid "These parameter will be added to this auth-group."
-msgstr "Aquest paràmetre s'afegirà a aquest grup d'autenticació."
-
-msgid "These parameter will be added to this lun."
-msgstr "Aquest paràmetre s'afegirà a aquest LUN."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Aquest paràmetre s'afegirà a aquest grup de portal."
-
-msgid "These parameter will be added to this target."
-msgstr "Aquest paràmetre s'afegirà a aquest objectiu."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Aquests paràmetres s'afegeixen a %s."
@@ -11208,6 +11187,12 @@ msgstr "Aquests paràmetres s'agreguen als ajustos [Global] a %s."
 msgid "These parameters will be added to global settings in %s."
 msgstr "Aquests paràmetres s'agreguen als ajustos globals en %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -11215,6 +11200,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Aquests paràmetres s'afegiran a la ordre ping."
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13240,3 +13240,27 @@ msgstr "usat de"
 
 msgid "visible"
 msgstr "visible"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Afegir paràmetre adicional"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr "Aquest paràmetre s'afegirà a la secció global de ctl.conf"
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "Aquest paràmetre s'afegirà a aquest grup d'autenticació."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Aquest paràmetre s'afegirà a aquest LUN."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Aquest paràmetre s'afegirà a aquest grup de portal."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Aquest paràmetre s'afegirà a aquest objectiu."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Aquest paràmetre s'afegirà a aquesta configuració de WebDAV."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Aquest paràmetre s'afegirà a my.cnf"

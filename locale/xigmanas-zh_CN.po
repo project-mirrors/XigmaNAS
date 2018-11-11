@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-10-08 02:20+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:56+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:11+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -4210,8 +4210,8 @@ msgstr "输入空格分隔的点设备列表。 设备将被创建并自动添�
 msgid "Enter a valid value."
 msgstr "输入有效值"
 
-msgid "Enter additional parameter"
-msgstr "输入附加参数"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "输入iSCSI启动器名称。"
@@ -10286,27 +10286,6 @@ msgid ""
 "options used by various generic startup scripts."
 msgstr "这些选项会加入 /etc/rc.conf。这样可以让您覆盖各种启动脚本（startup scripts）的选项。"
 
-msgid "These parameter will be added to my.cnf"
-msgstr "这些参数将添加到my.cnf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr "这些参数将被添加到ctl.conf的全局部分"
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "这些参数将添加到此WebDAV配置中。"
-
-msgid "These parameter will be added to this auth-group."
-msgstr "这些参数将被添加到此认证组。"
-
-msgid "These parameter will be added to this lun."
-msgstr "这些参数将被添加到这个lun中。"
-
-msgid "These parameter will be added to this portal-group."
-msgstr "这些参数将被添加到此门户组。"
-
-msgid "These parameter will be added to this target."
-msgstr "这些参数将被添加到这个目标。"
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "这些参数都被添加到 %s。"
@@ -10340,12 +10319,33 @@ msgstr "这些参数将被添加到 %s 的 [global] 设置。"
 msgid "These parameters will be added to global settings in %s."
 msgstr "这些参数将被添加到 %s 的全局设置。"
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr "这些参数将被添加到 rsyncd.conf 中的模块配置（module configuration） 。"
 
 msgid "These parameters will be added to the ping command."
 msgstr "这些参数将添加到ping命令。"
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -12149,3 +12149,27 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可见"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "输入附加参数"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr "这些参数将被添加到ctl.conf的全局部分"
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "这些参数将被添加到此认证组。"
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "这些参数将被添加到这个lun中。"
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "这些参数将被添加到此门户组。"
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "这些参数将被添加到这个目标。"
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "这些参数将添加到此WebDAV配置中。"
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "这些参数将添加到my.cnf"

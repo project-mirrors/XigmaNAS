@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-10-07 18:32+0000\n"
 "Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4510,8 +4510,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Introduzca un valor válido."
 
-msgid "Enter additional parameter"
-msgstr "Entrar parámetro adicional"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "introduzca nombre de iniciador iSCSI"
@@ -11083,30 +11083,6 @@ msgstr ""
 "Estas opciones seran agregadas a /etc/rc.conf. Esto le permite sobreescribir "
 "opciones usadas por varios scripts genericos de inicio."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Estos parámetros serán añadidos a my.conf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-"El tiempo de espera para las sesiones de inicio de sesión, después del cual "
-"la conexión se terminará a la fuerza. El valor predeterminado es 60. Una "
-"configuración de 0 desactiva el tiempo de espera."
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Estos parámetros serán añadidos a la configuración WebDAV."
-
-msgid "These parameter will be added to this auth-group."
-msgstr "Estos parámetros se agregarán a este grupo de autenticación."
-
-msgid "These parameter will be added to this lun."
-msgstr "Estos parámetros se agregarán a este LUN."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Estos parámetros se agregarán a este grupo de portal."
-
-msgid "These parameter will be added to this target."
-msgstr "Estos parámetros se agregarán a este objetivo."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Estos parámetros se han añadido a %s."
@@ -11144,6 +11120,12 @@ msgstr "Estos parametros serán agregados a la configuracion [global] en %s."
 msgid "These parameters will be added to global settings in %s."
 msgstr "Estos parametros se añadiran a las preferencias globales en %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -11151,6 +11133,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Estos parametros se añadirán al comando ping"
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13157,3 +13154,30 @@ msgstr "usados de"
 
 msgid "visible"
 msgstr "Visible"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Entrar parámetro adicional"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr ""
+#~ "El tiempo de espera para las sesiones de inicio de sesión, después del cual "
+#~ "la conexión se terminará a la fuerza. El valor predeterminado es 60. Una "
+#~ "configuración de 0 desactiva el tiempo de espera."
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "Estos parámetros se agregarán a este grupo de autenticación."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Estos parámetros se agregarán a este LUN."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Estos parámetros se agregarán a este grupo de portal."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Estos parámetros se agregarán a este objetivo."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Estos parámetros serán añadidos a la configuración WebDAV."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Estos parámetros serán añadidos a my.conf"

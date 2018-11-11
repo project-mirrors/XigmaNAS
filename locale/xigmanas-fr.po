@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
-"PO-Revision-Date: 2018-10-20 19:51+0000\n"
-"Last-Translator: Jean-Marc <Unknown>\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"PO-Revision-Date: 2018-11-08 15:04+0000\n"
+"Last-Translator: jlavau <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -1411,7 +1411,7 @@ msgid "Battery voltage"
 msgstr "Tension Batterie"
 
 msgid "Be careful with turning on these options."
-msgstr "Faites attention à activer ces options."
+msgstr "Faite attention lorsque vous activez ces options."
 
 msgid "Before - File-deletions will be done before the transfer starts."
 msgstr ""
@@ -4567,8 +4567,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr "Entrez une valeur valide."
 
-msgid "Enter additional parameter"
-msgstr "Entrez un paramètre supplémentaire"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Entrez un nom d'initiateur iSCSI."
@@ -6769,7 +6769,7 @@ msgid "Minutes"
 msgstr "Minutes"
 
 msgid "Minutes between the next network time synchronization."
-msgstr "Minutes entre la synchronisation de temps du réseau"
+msgstr "Délai entre deux synchronisations de l'heure"
 
 msgid "Missing a temporary folder."
 msgstr "Il manque un dossier temporaire."
@@ -8649,8 +8649,8 @@ msgstr "Restreint"
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
-"Limité - Hériter tous, mais \"droit d'écrire \" et \"propriétaire du "
-"changement\""
+"Limité - Hériter de tout, sauf \"droit d'écriture\" et \"changer de "
+"propriétaire\""
 
 msgid "Result of testjoin"
 msgstr "Résultat de testjoin"
@@ -9463,7 +9463,7 @@ msgid "Show Log Entries"
 msgstr "Afficher les entrées de journal"
 
 msgid "Show Process Information"
-msgstr "Afficher les information des processus"
+msgstr "Afficher les informations sur les Processus en cours"
 
 msgid "Show RAW UPS Info"
 msgstr "Voir les informations RAW de UPS"
@@ -11187,27 +11187,6 @@ msgstr ""
 "Ces options seront ajoutées au fichier /etc/rc.conf. Ceci permet de "
 "surcharger les options génériques utilisées par les scripts de démarrage."
 
-msgid "These parameter will be added to my.cnf"
-msgstr "Ces paramètres seront ajoutés à my.cnf"
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr "Ces paramètres seront ajoutés à la section globale de ctl.conf"
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr "Ces paramètres seront ajoutés à cette configuration WebDAV."
-
-msgid "These parameter will be added to this auth-group."
-msgstr "Ces paramètres seront ajoutés à ce groupe d'authentification."
-
-msgid "These parameter will be added to this lun."
-msgstr "Ces paramètres seront ajoutés à ce lun."
-
-msgid "These parameter will be added to this portal-group."
-msgstr "Ces paramètres seront ajoutés à ce groupe portail."
-
-msgid "These parameter will be added to this target."
-msgstr "Ces paramètres seront ajoutés à cette cible."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Ces paramètres sont ajoutés à %s."
@@ -11244,6 +11223,12 @@ msgstr "Ces paramètres seront ajoutés à la section [global] dans %s."
 msgid "These parameters will be added to global settings in %s."
 msgstr "Ces paramètres seront ajoutés à la configuration globale dans %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -11251,6 +11236,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Ces paramètres seront ajoutés à la commande ping"
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13286,3 +13286,27 @@ msgstr "utilisé de"
 
 msgid "visible"
 msgstr "visible"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Entrez un paramètre supplémentaire"
+
+#~ msgid "These parameter will be added to the global section of ctl.conf"
+#~ msgstr "Ces paramètres seront ajoutés à la section globale de ctl.conf"
+
+#~ msgid "These parameter will be added to this auth-group."
+#~ msgstr "Ces paramètres seront ajoutés à ce groupe d'authentification."
+
+#~ msgid "These parameter will be added to this lun."
+#~ msgstr "Ces paramètres seront ajoutés à ce lun."
+
+#~ msgid "These parameter will be added to this portal-group."
+#~ msgstr "Ces paramètres seront ajoutés à ce groupe portail."
+
+#~ msgid "These parameter will be added to this target."
+#~ msgstr "Ces paramètres seront ajoutés à cette cible."
+
+#~ msgid "These parameter will be added to this WebDAV configuration."
+#~ msgstr "Ces paramètres seront ajoutés à cette configuration WebDAV."
+
+#~ msgid "These parameter will be added to my.cnf"
+#~ msgstr "Ces paramètres seront ajoutés à my.cnf"

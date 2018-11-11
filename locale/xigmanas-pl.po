@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-07-06 10:33+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:10+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
 "X-Poedit-Language: Polish\n"
@@ -4360,7 +4360,7 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr ""
 
-msgid "Enter additional parameter"
+msgid "Enter additional parameters"
 msgstr ""
 
 msgid "Enter an iSCSI initiator name."
@@ -10572,27 +10572,6 @@ msgstr ""
 "Te opcje zostaną dodane do /etc/rc.conf. Pozwoli Co to na nadpisanie opcji "
 "używanych przez różne podstawowe skrypty startowe."
 
-msgid "These parameter will be added to my.cnf"
-msgstr ""
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr ""
-
-msgid "These parameter will be added to this auth-group."
-msgstr ""
-
-msgid "These parameter will be added to this lun."
-msgstr ""
-
-msgid "These parameter will be added to this portal-group."
-msgstr ""
-
-msgid "These parameter will be added to this target."
-msgstr ""
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Parametry te są dodawane do %s."
@@ -10626,11 +10605,32 @@ msgstr "Parametry te zostaną dodane do sekcji [global] w %s."
 msgid "These parameters will be added to global settings in %s."
 msgstr "Parametry te zostaną dodane do ustawień globalnych w pliku %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr "Parametry te zostaną dodane do ustawień modułów w pliku rsyncd.conf"
 
 msgid "These parameters will be added to the ping command."
+msgstr ""
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
 msgstr ""
 
 msgid ""

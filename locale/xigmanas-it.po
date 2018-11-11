@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: 2018-07-06 10:19+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-10-21 19:57+0000\n"
-"X-Generator: Launchpad (build 18801)\n"
+"X-Launchpad-Export-Date: 2018-11-11 06:10+0000\n"
+"X-Generator: Launchpad (build 18816)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -4537,8 +4537,8 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr ""
 
-msgid "Enter additional parameter"
-msgstr "Inserire parametri aggiuntivi"
+msgid "Enter additional parameters"
+msgstr ""
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Inserire un inizializzatore del nome iSCSI."
@@ -11016,27 +11016,6 @@ msgstr ""
 "Queste opzioni saranno aggiunte a /etc/rc.conf. Ciò consente di "
 "sovrascrivere le opzioni utilizzate da vari script generici di avvio."
 
-msgid "These parameter will be added to my.cnf"
-msgstr ""
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr ""
-
-msgid "These parameter will be added to this auth-group."
-msgstr ""
-
-msgid "These parameter will be added to this lun."
-msgstr ""
-
-msgid "These parameter will be added to this portal-group."
-msgstr ""
-
-msgid "These parameter will be added to this target."
-msgstr ""
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Questi parametri sono aggiunti a %s."
@@ -11074,6 +11053,12 @@ msgstr "Questi parametri verranno aggiunti al'impostazione [global] in %s."
 msgid "These parameters will be added to global settings in %s."
 msgstr "Questi parametri verranno aggiunti al'impostazione globale in %s."
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
@@ -11082,6 +11067,21 @@ msgstr ""
 
 msgid "These parameters will be added to the ping command."
 msgstr "Questo parametro sarà aggiunto al comando di ping."
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
+msgstr ""
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13095,3 +13095,6 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
+
+#~ msgid "Enter additional parameter"
+#~ msgstr "Inserire parametri aggiuntivi"
