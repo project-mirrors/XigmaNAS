@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2018-10-06 15:49+0000\n"
+"POT-Creation-Date: 2018-11-11 06:44+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -3916,7 +3916,7 @@ msgstr ""
 msgid "Enter a valid value."
 msgstr ""
 
-msgid "Enter additional parameter"
+msgid "Enter additional parameters"
 msgstr ""
 
 msgid "Enter an iSCSI initiator name."
@@ -9526,27 +9526,6 @@ msgstr ""
 msgid "These option(s) will be added to /etc/rc.conf. This allow you to overwrite options used by various generic startup scripts."
 msgstr ""
 
-msgid "These parameter will be added to my.cnf"
-msgstr ""
-
-msgid "These parameter will be added to the global section of ctl.conf"
-msgstr ""
-
-msgid "These parameter will be added to this WebDAV configuration."
-msgstr ""
-
-msgid "These parameter will be added to this auth-group."
-msgstr ""
-
-msgid "These parameter will be added to this lun."
-msgstr ""
-
-msgid "These parameter will be added to this portal-group."
-msgstr ""
-
-msgid "These parameter will be added to this target."
-msgstr ""
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr ""
@@ -9577,10 +9556,31 @@ msgstr ""
 msgid "These parameters will be added to global settings in %s."
 msgstr ""
 
+msgid "These parameters will be added to my.cnf"
+msgstr ""
+
+msgid "These parameters will be added to the global section of ctl.conf"
+msgstr ""
+
 msgid "These parameters will be added to the module configuration in rsyncd.conf."
 msgstr ""
 
 msgid "These parameters will be added to the ping command."
+msgstr ""
+
+msgid "These parameters will be added to this WebDAV configuration."
+msgstr ""
+
+msgid "These parameters will be added to this auth-group."
+msgstr ""
+
+msgid "These parameters will be added to this lun."
+msgstr ""
+
+msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this target."
 msgstr ""
 
 msgid "These sysctl variables will be added to /etc/sysctl.conf. This allows you to make changes to a running system."
