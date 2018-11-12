@@ -314,7 +314,10 @@ EOD;
 		write_console("Error: Failed to create '/etc/cfdevice'.\n");
 		return 1;
 	endif;
-	
+
+	// Disable /var md option as it may override default /var directory.
+	mwexec("if /usr/sbin/sysrc -f {$mntpath}/etc/rc.conf -qc varmfs; then /usr/sbin/sysrc -f {$mntpath}/etc/rc.conf varmfs=\"NO\" > /dev/null 2>&1; fi");
+
 	// Unmount disk containing OS
 	$retry = 10;
 	while($retry > 0):
