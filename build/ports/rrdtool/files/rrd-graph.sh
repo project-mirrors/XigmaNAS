@@ -93,6 +93,9 @@ fi
 if [ "$1" == "zfs_arc" ] || ( [ "$1" == "" ] && [ "${RUN_ARC}" == "1" ] ); then
     CREATE_GRAPHS "zfs_arc" "ZFS ARC Usage"
 fi
+if [ "$1" == "zfs_l2arc" ] || ( [ "$1" == "" ] && [ "${RUN_L2ARC}" == "1" ] ); then
+    CREATE_GRAPHS "zfs_l2arc" "ZFS L2ARC Usage"
+fi
 if [ "$1" == "ups" ] || ( [ "$1" == "" ] && [ "${RUN_UPS}" == "1" ] ); then
     CREATE_GRAPHS "ups"     "UPS ${UPS_AT}"
 fi

@@ -337,6 +337,22 @@ if [ $RUN_ARC -eq 1 ]; then
 	fi
 fi
 
+# ZFS L2ARC
+if [ $RUN_L2ARC -eq 1 ]; then 
+	L2_SIZE=`sysctl -q -n kstat.zfs.misc.arcstats.l2_size`;        # Uncompressed
+	L2_ASIZE=`sysctl -q -n kstat.zfs.misc.arcstats.l2_asize`;      # Compressed
+	FILE="${STORAGE_PATH}/rrd/zfs_l2arc.rrd"
+	if [ ! -f "$FILE" ]; then
+		/usr/local/bin/rrdtool create "$FILE" \
+			-s 300 \
+			'DS:L2_SIZE:GAUGE:600:U:U' 'DS:L2_ASIZE:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+	fi
+	if [ -f "$FILE" ]; then
+		/usr/local/bin/rrdtool update "$FILE" N:$L2_SIZE:$L2_ASIZE 2>> /tmp/rrdgraphs-error.log
+	fi
+fi
+
 # UPS
 if [ $RUN_UPS -eq 1 ]; then 
 	CMD=`/usr/local/bin/upsc ${UPS_AT}`

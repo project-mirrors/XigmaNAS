@@ -82,6 +82,8 @@ if(isset($config['rrdgraphs']['enable'])):
 	fwrite($rrdconfig, "RUN_UPT=".$txt."\n");
 	$txt = isset($config['rrdgraphs']['arc_usage']) ? "1" : "0";
 	fwrite($rrdconfig, "RUN_ARC=".$txt."\n");
+	$txt = isset($config['rrdgraphs']['l2arc_usage']) ? "1" : "0";
+	fwrite($rrdconfig, "RUN_L2ARC=".$txt."\n");
 	if(isset($config['rrdgraphs']['disk_usage'])):
 		if(isset($config["rrdgraphs"]["mounts"])):
 			unset($config["rrdgraphs"]["mounts"]);
@@ -312,6 +314,19 @@ if(isset($config['rrdgraphs']['enable'])):
 			" 'RRA:AVERAGE:0.5:144:1460'",
 			true);
 		exec('logger rrdgraphs service start collecting zfs arc statistics');
+	endif;
+	$rrd_name = 'zfs_l2arc.rrd';
+	if(isset($config['rrdgraphs']['l2arc_usage']) && !is_file("{$config['rrdgraphs']['storage_path']}/rrd/{$rrd_name}")):
+		$ret_val = mwexec("/usr/local/bin/rrdtool create {$config['rrdgraphs']['storage_path']}/rrd/{$rrd_name}" .
+			" -s 300" .
+			" 'DS:L2_SIZE:GAUGE:600:U:U'" .
+			" 'DS:L2_ASIZE:GAUGE:600:U:U" .
+			" 'RRA:AVERAGE:0.5:1:576'" .
+			" 'RRA:AVERAGE:0.5:6:672'" .
+			" 'RRA:AVERAGE:0.5:24:732'" .
+			" 'RRA:AVERAGE:0.5:144:1460'",
+			true);
+		exec('logger rrdgraphs service start collecting zfs l2arc statistics');
 	endif;
 	//	create graphs
 	$ret_val = mwexec("{$runtime_dir}/rrd-graph.sh",true);

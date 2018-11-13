@@ -75,4 +75,7 @@ if(isset($config['rrdgraphs']['enable'])):
 	if(isset($config['rrdgraphs']['arc_usage'])):
 		$tabnav->ins_tabnav_record('status_graph_zfs_arc.php',gettext('ZFS ARC'),isset($rrd_zfs_arc) ? $gt_reload_page : '',isset($rrd_zfs_arc));
 	endif;
+	if(isset($config['rrdgraphs']['l2arc_usage'])):
+		$tabnav->ins_tabnav_record('status_graph_zfs_l2arc.php',gettext('ZFS L2ARC'),isset($rrd_zfs_l2arc) ? $gt_reload_page : '',isset($rrd_zfs_l2arc));
+	endif;
 endif;

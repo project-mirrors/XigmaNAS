@@ -116,6 +116,7 @@ if (isset($_POST['save']) && $_POST['save']) {
 			$config['rrdgraphs']['cpu'] = isset($_POST['cpu']);
 			$config['rrdgraphs']['memory_usage'] = isset($_POST['memory_usage']);
 			$config['rrdgraphs']['arc_usage'] = isset($_POST['arc_usage']);
+			$config['rrdgraphs']['l2arc_usage'] = isset($_POST['l2arc_usage']);
 			$config['rrdgraphs']['latency'] = isset($_POST['latency']);
 			$config['rrdgraphs']['latency_host'] = !empty($_POST['latency_host']) ? $_POST['latency_host'] : "127.0.0.1";
 			$config['rrdgraphs']['latency_interface'] = $_POST['latency_interface'];
@@ -212,6 +213,12 @@ if (isset($_POST['reset_graphs']) && $_POST['reset_graphs']) {
 		exec("logger rrdgraphs service deleted zfs arc usage statistics");
 		$savemsg .= "<br />- ".gtext("ZFS ARC Usage");
 	}
+	$rrd_name = "{$config['rrdgraphs']['l2arc_usage']}.rrd";
+	if (isset($_POST['l2arc_usage']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/zfs_l2arc.rrd")) {
+		unlink("{$config['rrdgraphs']['storage_path']}/rrd/zfs_l2arc.rrd");
+		exec("logger rrdgraphs service deleted zfs l2arc usage statistics");
+		$savemsg .= "<br />- ".gtext("ZFS L2ARC Usage");
+	}
 	require_once '/usr/local/share/rrdgraphs/rrd-start.php';
 }
 
@@ -243,6 +250,7 @@ $pconfig['ups'] = isset($config['rrdgraphs']['ups']) ? true : false;
 $pconfig['ups_at'] = !empty($config['rrdgraphs']['ups_at']) ? $config['rrdgraphs']['ups_at'] : "identifier@host-ip-address";
 $pconfig['uptime'] = isset($config['rrdgraphs']['uptime']) ? true : false;
 $pconfig['arc_usage'] = isset($config['rrdgraphs']['arc_usage']) ? true : false;
+$pconfig['l2arc_usage'] = isset($config['rrdgraphs']['l2arc_usage']) ? true : false;
 
 $a_interface = get_interface_list();
 // Add VLAN interfaces
@@ -362,6 +370,7 @@ function enable_change(enable_change) {
 	document.iform.cpu_temperature.disabled = endis;
 	document.iform.memory_usage.disabled = endis;
 	document.iform.arc_usage.disabled = endis;
+	document.iform.l2arc_usage.disabled = endis;
 	document.iform.disk_usage.disabled = endis;
 	document.iform.lan_load.disabled = endis;
 	document.iform.latency.disabled = endis;
@@ -468,6 +477,7 @@ $document->render();
 			html_inputbox2('ups_at',gettext('UPS Identifier'),$pconfig['ups_at'],$helpinghand,false,60);
 			html_checkbox2('uptime', gettext('Uptime Statistics'), $pconfig['uptime'], gettext('Enable collecting uptime statistics.'), '', false);
 			html_checkbox2('arc_usage', gettext('ZFS ARC Usage'), $pconfig['arc_usage'], gettext('Enable collecting ZFS ARC usage statistics.'), '', false);
+			html_checkbox2('l2arc_usage', gettext('ZFS L2ARC Usage'), $pconfig['l2arc_usage'], gettext('Enable collecting ZFS L2ARC usage statistics.'), '', false);
 ?>
 		</tbody>
 	</table>
@@ -477,11 +487,11 @@ $document->render();
 	</div>
 	<div id="remarks">
 <?php
-		$helpinghand = sprintf(gtext("'%s' deletes all statistical data from the graphs!"), gtext('Reset Graphs'))
+		$helpinghand = sprintf(gettext("'%s' deletes all statistical data from the graphs!"), gettext('Reset Graphs'))
 			. '<div id="enumeration"><ul>'
-			. '<li>' . sprintf(gtext("If only specific statistics needs to be reset, clear all other check boxes before performing '%s'."), gtext('Reset Graphs')) . '</li>'
+			. '<li>' . sprintf(gettext("If only specific statistics needs to be reset, clear all other check boxes before performing '%s'."), gettext('Reset Graphs')) . '</li>'
 			. '</ul></div>';
-		html_remark("warning", gtext('Warning'), $helpinghand );
+		html_remark2("warning", gettext('Warning'), $helpinghand );
 ?>
 	</div>
 <?php
