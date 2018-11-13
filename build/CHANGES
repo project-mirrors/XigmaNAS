@@ -6,6 +6,7 @@ Changes:
 - Add UEFI support for Embedded and Full(UFS) platforms.
 - Add WebDAV.
 - Add mariadb and phpMyAdmin.
+- Add L2ARC size statistics to RRDGraph.
 - Downgrade virtualbox-ose to 5.2.18.
 - Upgrade iperf3 to 3.6.
 - Upgrade msmtp to 1.8.0.
