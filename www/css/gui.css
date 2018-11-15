@@ -894,3 +894,6 @@ input[type="radio"].rblo.dimassoctable:not(:checked) + span + table {
 	vertical-align: middle;
 	margin: 0em;
 }
+::placeholder {
+	font-style: italic;
+}
