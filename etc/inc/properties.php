@@ -487,6 +487,7 @@ abstract class properties {
 class property_text extends properties {
 	public $x_maxlength = 0;
 	public $x_placeholder = NULL;
+	public $x_placeholderv = NULL;
 	public $x_size = 40;
 
 	public function set_maxlength(int $maxlength = 0) {
@@ -502,6 +503,13 @@ class property_text extends properties {
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
+	}
+	public function set_placeholderv(string $placeholderv = NULL) {
+		$this->x_placeholderv = $placeholderv;
+		return $this;
+	}
+	public function get_placeholderv() {
+		return $this->x_placeholderv;
 	}
 	public function set_size(int $size = 40) {
 		$this->x_size = $size;
@@ -535,10 +543,28 @@ class property_text extends properties {
 		return $this;
 	}
 }
+abstract class property_text_callback extends property_text {
+	abstract public function validate($test);
+	public function validate_or_default($test) {
+		if(is_null($this->validate($test))):
+			return $this->get_defaultvalue();
+		else:
+			return $test;
+		endif;
+	}
+	public function filter_use_default() {
+		$filter_name = 'ui';
+		$this->
+			set_filter(FILTER_CALLBACK,$filter_name)->
+			set_filter_options([$this,'validate'],$filter_name);
+		return $this;
+	}
+}
 class property_textarea extends properties {
 	public $x_cols = 65;
 	public $x_maxlength = 0;
 	public $x_placeholder = NULL;
+	public $x_placeholderv = NULL;
 	public $x_rows = 5;
 	public $x_wrap = false;
 
@@ -562,6 +588,13 @@ class property_textarea extends properties {
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
+	}
+	public function set_placeholderv(string $placeholderv = NULL) {
+		$this->x_placeholderv = $placeholderv;
+		return $this;
+	}
+	public function get_placeholderv() {
+		return $this->x_placeholderv;
 	}
 	public function set_rows(int $rows = 5) {
 		$this->x_rows = $rows;
@@ -588,7 +621,7 @@ class property_ipaddress extends property_text {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
-			set_placeholder(gettext('Enter IP Address'))->
+			set_placeholder(gettext('IP Address'))->
 			set_size(60);
 		return $this;
 	}
@@ -606,7 +639,7 @@ class property_ipv4 extends property_text {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(15)->
-			set_placeholder(gettext('Enter IP Address'))->
+			set_placeholder(gettext('IPv4 Address'))->
 			set_size(20);
 		return $this;
 	}
@@ -624,7 +657,7 @@ class property_ipv6 extends property_text {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
-			set_placeholder(gettext('Enter IP Address'))->
+			set_placeholder(gettext('IPv6 Address'))->
 			set_size(60);
 		return $this;
 	}
@@ -635,6 +668,73 @@ class property_ipv6 extends property_text {
 			set_filter_flags(FILTER_REQUIRE_SCALAR | FILTER_FLAG_IPV6,$filter_name)->
 			set_filter_options(['default' => NULL],$filter_name);
 		return $this;
+	}
+}
+class property_cidr extends property_text_callback {
+	public function __construct($owner = NULL) {
+		parent::__construct($owner);
+		$this->
+			set_maxlength(49)->
+			set_placeholder(gettext('Network Address'))->
+			set_size(60);
+		return $this;
+	}
+	public function validate($cidr) {
+		if(is_string($cidr)):
+			list($ipaddress,$subnet) = explode('/',$cidr,2);
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+					return $cidr;
+				endif;
+			elseif(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
+					return $cidr;
+				endif;
+			endif;
+		endif;
+		return NULL;
+	}
+}
+class property_cidr_ipv4 extends property_text_callback {
+	public function __construct($owner = NULL) {
+		parent::__construct($owner);
+		$this->
+			set_maxlength(18)->
+			set_placeholder(gettext('Network Address'))->
+			set_size(60);
+		return $this;
+	}
+	public function validate($cidr) {
+		if(is_string($cidr)):
+			list($ipaddress,$subnet) = explode('/',$cidr,2);
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+					return $cidr;
+				endif;
+			endif;
+		endif;
+		return NULL;
+	}
+}
+class property_cidr_ipv6 extends property_text_callback {
+	public function __construct($owner = NULL) {
+		parent::__construct($owner);
+		$this->
+			set_maxlength(49)->
+			set_placeholder(gettext('Network Address'))->
+			set_size(60);
+		return $this;
+	}
+	public function validate($cidr) {
+		if(is_string($cidr)):
+			list($ipaddress,$subnet) = explode('/',$cidr,2);
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
+					return $cidr;
+				endif;
+			endif;
+		endif;
+		return NULL;
 	}
 }
 class property_int extends property_text {
@@ -722,7 +822,7 @@ class property_list extends properties {
 	public function get_options() {
 		return $this->x_options;
 	}
-	public function validate_option($option) {
+	public function validate($option) {
 		if(array_key_exists($option,$this->get_options())):
 			return $option;
 		else:
@@ -751,7 +851,7 @@ class property_list extends properties {
 		$filter_name = 'ui';
 		$this->
 			set_filter(FILTER_CALLBACK,$filter_name)->
-			set_filter_options([$this,'validate_option'],$filter_name);
+			set_filter_options([$this,'validate'],$filter_name);
 		return $this;
 	}
 }
