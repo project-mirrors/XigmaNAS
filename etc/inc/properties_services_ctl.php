@@ -35,19 +35,16 @@ require_once 'properties.php';
 
 class ctl_properties extends co_property_container {
 	protected $x_enable;
-	public function get_enable() {
-		return $this->x_enable ?? $this->init_enable();
-	}
 	public function init_enable() {
 		$property = $this->x_enable = new property_enable($this);
 		$property->
 			set_defaultvalue(false);
 		return $property;
 	}
-	protected $x_debug;
-	public function get_debug() {
-		return $this->x_debug ?? $this->init_debug();	
+	public function get_enable() {
+		return $this->x_enable ?? $this->init_enable();
 	}
+	protected $x_debug;
 	public function init_debug() {
 		$property = $this->x_debug = new property_int($this);
 		$description = gettext('The debug verbosity level. The default is 0.');
@@ -59,6 +56,7 @@ class ctl_properties extends co_property_container {
 			set_id('debug')->
 			set_description($description)->
 			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(4)->
 			set_editableonadd(true)->
@@ -70,10 +68,10 @@ class ctl_properties extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_maxproc;
-	public function get_maxproc() {
-		return $this->x_maxproc ?? $this->init_maxproc();
+	public function get_debug() {
+		return $this->x_debug ?? $this->init_debug();	
 	}
+	protected $x_maxproc;
 	public function init_maxproc() {
 		$property = $this->x_maxproc = new property_int($this);
 		$description = gettext('The limit for concurrently running child processes handling incoming connections. The default is 30. A setting of 0 disables the limit.');
@@ -85,6 +83,7 @@ class ctl_properties extends co_property_container {
 			set_id('maxproc')->
 			set_description($description)->
 			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
 			set_size(10)->
 			set_maxlength(5)->
 			set_editableonadd(true)->
@@ -96,10 +95,10 @@ class ctl_properties extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_timeout;
-	public function get_timeout() {
-		return $this->x_timeout ?? $this->init_timeout();
+	public function get_maxproc() {
+		return $this->x_maxproc ?? $this->init_maxproc();
 	}
+	protected $x_timeout;
 	public function init_timeout() {
 		$property = $this->x_timeout = new property_int($this);
 		$description = gettext('The timeout for login sessions, after which the connection will be forcibly terminated. The default is 60. A setting of 0 disables the timeout.');
@@ -111,6 +110,7 @@ class ctl_properties extends co_property_container {
 			set_id('timeout')->
 			set_description($description)->
 			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
 			set_size(10)->
 			set_maxlength(5)->
 			set_editableonadd(true)->
@@ -122,10 +122,10 @@ class ctl_properties extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_isns_period;
-	public function get_isns_period() {
-		return $this->x_isns_period ?? $this->init_isns_period();
+	public function get_timeout() {
+		return $this->x_timeout ?? $this->init_timeout();
 	}
+	protected $x_isns_period;
 	public function init_isns_period() {
 		$property = $this->x_isns_period = new property_int($this);
 		$description = gettext('iSNS registration period. Registered Network Entity not updated during this period will be unregistered. The default is 900.');
@@ -137,6 +137,7 @@ class ctl_properties extends co_property_container {
 			set_id('isns_period')->
 			set_description($description)->
 			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(10)->
 			set_editableonadd(true)->
@@ -148,10 +149,10 @@ class ctl_properties extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_isns_timeout;
-	public function get_isns_timeout() {
-		return $this->x_isns_timeout ?? $this->init_isns_timeout();
+	public function get_isns_period() {
+		return $this->x_isns_period ?? $this->init_isns_period();
 	}
+	protected $x_isns_timeout;
 	public function init_isns_timeout() {
 		$property = $this->x_isns_timeout = new property_int($this);
 		$description = gettext('Timeout for iSNS requests. The default is 5.');
@@ -163,6 +164,7 @@ class ctl_properties extends co_property_container {
 			set_id('isns_timeout')->
 			set_description($description)->
 			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(10)->
 			set_editableonadd(true)->
@@ -174,14 +176,15 @@ class ctl_properties extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_auxparam;
-	public function get_auxparam() {
-		return $this->x_auxparam ?? $this->init_auxparam();
+	public function get_isns_timeout() {
+		return $this->x_isns_timeout ?? $this->init_isns_timeout();
 	}
+	protected $x_auxparam;
 	public function init_auxparam() {
 		$property = $this->x_auxparam = new property_textarea($this);
 		$description = gettext('These parameters will be added to the global section of ctl.conf');
 		$placeholder = gettext('Enter additional parameters');
+		$placeholderv = gettext('No additional parameters');
 		$property->
 			set_name('auxparam')->
 			set_title(gettext('Additional Parameters'));
@@ -189,11 +192,15 @@ class ctl_properties extends co_property_container {
 			set_id('auxparam')->
 			set_description($description)->
 			set_placeholder($placeholder)->
+			set_placeholderv($placeholderv)->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			filter_use_default()->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
+	}
+	public function get_auxparam() {
+		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 }
