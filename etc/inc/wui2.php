@@ -2012,7 +2012,7 @@ trait co_DOMTools {
 			$input_attributes['disabled'] = 'disabled';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = NULL;
+			$placeholder = $p->get_placeholderv();
 		else:
 			$input_attributes['class'] = 'formfld';
 			$maxlength = $p->get_maxlength();
@@ -2113,7 +2113,7 @@ trait co_DOMTools {
 			$input_attributes['disabled'] = 'disabled';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = NULL;
+			$placeholder = $p->get_placeholderv();
 		else:
 			$input_attributes['class'] = 'formfld';
 			$maxlength = $p->get_maxlength();
@@ -2265,7 +2265,7 @@ EOJ;
 			$textarea_attributes['disabled'] = 'disabled';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = NULL;
+			$placeholder = $p->get_placeholderv();
 		else:
 			$textarea_attributes['class'] = 'formpre';
 			$maxlength = $p->get_maxlength();
