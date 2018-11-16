@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-11 06:10+0000\n"
-"X-Generator: Launchpad (build 18816)\n"
+"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
+"X-Generator: Launchpad (build 18824)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -13267,28 +13267,3 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
-
-#~ msgid "Enter additional parameter"
-#~ msgstr "Voer optionele parameter in"
-
-#~ msgid "These parameter will be added to the global section of ctl.conf"
-#~ msgstr ""
-#~ "Deze parameters worden toegevoegd aan de algemene instellingen van ctl.conf"
-
-#~ msgid "These parameter will be added to this auth-group."
-#~ msgstr "Deze parameters worden toegevoegd aan deze auth-groep."
-
-#~ msgid "These parameter will be added to this lun."
-#~ msgstr "Deze parameters worden toegevoegd aan deze lun."
-
-#~ msgid "These parameter will be added to this portal-group."
-#~ msgstr "Deze parameters worden toegevoegd aan deze portaal-groep."
-
-#~ msgid "These parameter will be added to this target."
-#~ msgstr "Deze parameters worden toegevoegd aan deze doel."
-
-#~ msgid "These parameter will be added to this WebDAV configuration."
-#~ msgstr "Deze parameter wordt toegevoegd aan deze WebDAV configuratie."
-
-#~ msgid "These parameter will be added to my.cnf"
-#~ msgstr "Deze parameter wordt toegevoegd aan my.cnf"

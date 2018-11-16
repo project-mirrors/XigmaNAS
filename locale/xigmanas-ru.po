@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-10-08 03:06+0000\n"
+"PO-Revision-Date: 2018-11-12 12:37+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-11 06:10+0000\n"
-"X-Generator: Launchpad (build 18816)\n"
+"X-Launchpad-Export-Date: 2018-11-16 16:44+0000\n"
+"X-Generator: Launchpad (build 18824)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -48,7 +48,7 @@ msgstr "%d год"
 
 #, php-format
 msgid "%d years"
-msgstr "%d года"
+msgstr "%d года(лет)"
 
 #, php-format
 msgid "%d%% of %s"
@@ -4511,7 +4511,7 @@ msgid "Enter a valid value."
 msgstr "Введите действительное значение."
 
 msgid "Enter additional parameters"
-msgstr ""
+msgstr "Введите дополнительные параметры"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Введите имя инициатора iSCSI."
@@ -11108,10 +11108,10 @@ msgid "These parameters will be added to global settings in %s."
 msgstr "Эти параметры будут добавлены к глобальным настройкам %s."
 
 msgid "These parameters will be added to my.cnf"
-msgstr ""
+msgstr "Эти параметры будут добавлены в my.cnf"
 
 msgid "These parameters will be added to the global section of ctl.conf"
-msgstr ""
+msgstr "Эти параметры будут добавлены в глобальный раздел ctl.conf"
 
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
@@ -11121,19 +11121,19 @@ msgid "These parameters will be added to the ping command."
 msgstr "Эти параметры будут добавлены в команду ping."
 
 msgid "These parameters will be added to this WebDAV configuration."
-msgstr ""
+msgstr "Эти параметры будут добавлены в эту конфигурацию WebDAV."
 
 msgid "These parameters will be added to this auth-group."
-msgstr ""
+msgstr "Эти параметры будут добавлены в эту auth-группу."
 
 msgid "These parameters will be added to this lun."
-msgstr ""
+msgstr "Эти параметры будут добавлены в этот лун."
 
 msgid "These parameters will be added to this portal-group."
-msgstr ""
+msgstr "Эти параметры будут добавлены в эту группу портала."
 
 msgid "These parameters will be added to this target."
-msgstr ""
+msgstr "Эти параметры будут добавлены к этой цели."
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13161,27 +13161,3 @@ msgstr "использовано из"
 
 msgid "visible"
 msgstr "показать"
-
-#~ msgid "Enter additional parameter"
-#~ msgstr "Введите дополнительный параметр"
-
-#~ msgid "These parameter will be added to the global section of ctl.conf"
-#~ msgstr "Этот параметр будет добавлен в глобальный раздел ctl.conf"
-
-#~ msgid "These parameter will be added to this auth-group."
-#~ msgstr "Этот параметр будет добавлен в эту группу аутентификации."
-
-#~ msgid "These parameter will be added to this lun."
-#~ msgstr "Этот параметр будет добавлен в этот LUN."
-
-#~ msgid "These parameter will be added to this portal-group."
-#~ msgstr "Этот параметр будет добавлен в эту группу портала."
-
-#~ msgid "These parameter will be added to this target."
-#~ msgstr "Этот параметр будет добавлен к этой цели."
-
-#~ msgid "These parameter will be added to this WebDAV configuration."
-#~ msgstr "Этот параметр будет добавлен в конфигурацию WebDAV."
-
-#~ msgid "These parameter will be added to my.cnf"
-#~ msgstr "Этот параметр будет добавлен в my.cnf"

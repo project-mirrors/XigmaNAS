@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-10-07 13:26+0000\n"
+"PO-Revision-Date: 2018-11-13 17:49+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
-"X-Generator: Launchpad (build 18816)\n"
+"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
+"X-Generator: Launchpad (build 18824)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -730,7 +730,7 @@ msgid "Additional Parameter"
 msgstr "Πρόσθετη Παράμετρος"
 
 msgid "Additional Parameters"
-msgstr "Βοηθητικές Παράμετροι"
+msgstr "Πρόσθετες Παράμετροι"
 
 msgid "Additional Storage"
 msgstr "Πρόσθετος Χώρος Αποθήκευσης"
@@ -4608,7 +4608,7 @@ msgid "Enter a valid value."
 msgstr "Εισάγετε μια έγκυρη τιμή."
 
 msgid "Enter additional parameters"
-msgstr ""
+msgstr "Εισάγετε πρόσθετες παραμέτρους"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Εισάγετε ένα όνομα εκκινητή iSCSI."
@@ -11339,10 +11339,10 @@ msgid "These parameters will be added to global settings in %s."
 msgstr "Αυτές οι παράμετροι θα προστεθούν ως καθολικές ρυθμίσεις στο %s."
 
 msgid "These parameters will be added to my.cnf"
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν στο my.cnf"
 
 msgid "These parameters will be added to the global section of ctl.conf"
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν στη γενική ενότητα του ctl.conf"
 
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
@@ -11355,18 +11355,19 @@ msgstr "Αυτοί οι παράμετροι θα προστεθούν στην 
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr ""
+"Αυτές οι παράμετροι θα προστεθούν σε αυτή την παραμετροποίηση του WebDAV."
 
 msgid "These parameters will be added to this auth-group."
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτή την ομάδα πιστοποίησης."
 
 msgid "These parameters will be added to this lun."
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτό το lun."
 
 msgid "These parameters will be added to this portal-group."
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτή την ομάδα portal."
 
 msgid "These parameters will be added to this target."
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτόν τον προορισμό."
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13437,27 +13438,3 @@ msgstr "χρήση από"
 
 msgid "visible"
 msgstr "ορατό"
-
-#~ msgid "Enter additional parameter"
-#~ msgstr "Εισάγετε πρόσθετη παράμετρο"
-
-#~ msgid "These parameter will be added to the global section of ctl.conf"
-#~ msgstr "Αυτοί οι παράμετροι θα προστεθούν στο τμήμα global του ctl.conf"
-
-#~ msgid "These parameter will be added to this auth-group."
-#~ msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτή την ομάδα πιστοποίησης."
-
-#~ msgid "These parameter will be added to this lun."
-#~ msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτό το LUN"
-
-#~ msgid "These parameter will be added to this portal-group."
-#~ msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτή την ομάδα portal."
-
-#~ msgid "These parameter will be added to this target."
-#~ msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτόν τον προορισμό."
-
-#~ msgid "These parameter will be added to this WebDAV configuration."
-#~ msgstr "Αυτοί οι παράμετροι θα προστεθούν σε αυτή τη ρύθμιση WebDAV."
-
-#~ msgid "These parameter will be added to my.cnf"
-#~ msgstr "Αυτές οι παράμετροι θα προστεθούν στο my.cnf"

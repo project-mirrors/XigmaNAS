@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-10-31 18:35+0000\n"
+"PO-Revision-Date: 2018-11-12 18:20+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-11 06:11+0000\n"
-"X-Generator: Launchpad (build 18816)\n"
+"X-Launchpad-Export-Date: 2018-11-16 16:44+0000\n"
+"X-Generator: Launchpad (build 18824)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -3073,7 +3073,7 @@ msgid "Disable Selected LUN Records"
 msgstr "Вимкнути обрані записи LUN"
 
 msgid "Disable Selected LUNs"
-msgstr "Вимкнути обрані LUNи"
+msgstr "Вимкнути обрані LUN'и"
 
 msgid "Disable Selected Listen Records"
 msgstr "Вимкнути обрані записи прослуховань"
@@ -3395,7 +3395,7 @@ msgid "Do you want to delete selected LUN records?"
 msgstr "Ви бажаєте видалити обрані записи LUN?"
 
 msgid "Do you want to delete selected LUNs?"
-msgstr "Ви бажаєте видалити обрані LUNи?"
+msgstr "Ви бажаєте видалити обрані LUN'и?"
 
 msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Ви бажаєте видалити обраних взаємних користувачів CHAP?"
@@ -3515,7 +3515,7 @@ msgid "Do you want to disable selected LUN records?"
 msgstr "Ви бажаєте заборонити обрані записи LUN?"
 
 msgid "Do you want to disable selected LUNs?"
-msgstr "Ви бажаєте заборонити обрані LUNи?"
+msgstr "Ви бажаєте заборонити обрані LUN'и?"
 
 msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr "Ви бажаєте заборонити обраних взаємних користувачів CHAP?"
@@ -3575,7 +3575,7 @@ msgid "Do you want to enable selected LUN records?"
 msgstr "Ви бажаєте дозволити обрані записи LUN?"
 
 msgid "Do you want to enable selected LUNs?"
-msgstr "Ви бажаєте дозволити обрані LUNи?"
+msgstr "Ви бажаєте дозволити обрані LUN'и?"
 
 msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "Ви бажаєте дозволити обраних взаємних користувачів CHAP?"
@@ -3644,7 +3644,7 @@ msgid "Do you want to toggle selected LUN records?"
 msgstr "Ви бажаєте перемкнути обрані записи LUN?"
 
 msgid "Do you want to toggle selected LUNs?"
-msgstr "Ви бажаєте перемкнути обрані LUNи?"
+msgstr "Ви бажаєте перемкнути обрані LUN'и?"
 
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Ви бажаєте перемкнути обраних взаємних користувачів CHAP?"
@@ -4081,7 +4081,7 @@ msgid "Enable Selected LUN Records"
 msgstr "Дозволити обрані записи LUN"
 
 msgid "Enable Selected LUNs"
-msgstr "Дозволити обрані LUNи"
+msgstr "Дозволити обрані LUN'и"
 
 msgid "Enable Selected Listen Records"
 msgstr "Дозволити обрані записи прослуховань"
@@ -4500,7 +4500,7 @@ msgid "Enter a valid value."
 msgstr "Введіть вірне значення."
 
 msgid "Enter additional parameters"
-msgstr ""
+msgstr "Введіть додаткові параметри"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Введіть ім'я ініціатора iSCSI."
@@ -6106,7 +6106,7 @@ msgid "LUN record is unlocked"
 msgstr "Запис LUN заблокований"
 
 msgid "LUNs"
-msgstr "LUN-и"
+msgstr "LUN'и"
 
 msgid "Language"
 msgstr "Мова"
@@ -9247,7 +9247,7 @@ msgid ""
 "Set to \"on\", blocks all media write operations to the LUN reporting it as "
 "write protected."
 msgstr ""
-"Встановлення в \"вкл\" блокує операції запису всіх носіїв, повідомляючи про "
+"Встановлення в \"вкл\" блокує операції запису всіх LUN'ів, повідомляючи про "
 "це як про \"захист від запису\"."
 
 msgid ""
@@ -11072,10 +11072,10 @@ msgid "These parameters will be added to global settings in %s."
 msgstr "Ці параметри будуть додані до загальних налаштувань в %s."
 
 msgid "These parameters will be added to my.cnf"
-msgstr ""
+msgstr "Ці параметри будуть додані до my.cnf"
 
 msgid "These parameters will be added to the global section of ctl.conf"
-msgstr ""
+msgstr "Ці параметри будуть додані до глобальної секції ctl.conf"
 
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
@@ -11085,19 +11085,19 @@ msgid "These parameters will be added to the ping command."
 msgstr "Ці параметри будуть додані в команду ping."
 
 msgid "These parameters will be added to this WebDAV configuration."
-msgstr ""
+msgstr "Ці параметри будуть додані до цієї конфігурації WebDAV."
 
 msgid "These parameters will be added to this auth-group."
-msgstr ""
+msgstr "Ці параметри будуть додані до цієї групи автентифікації."
 
 msgid "These parameters will be added to this lun."
-msgstr ""
+msgstr "Ці параметри будуть додані до цього LUN."
 
 msgid "These parameters will be added to this portal-group."
-msgstr ""
+msgstr "Ці параметри будуть додані до цієї групи порталу."
 
 msgid "These parameters will be added to this target."
-msgstr ""
+msgstr "Ці параметри будуть додані до цієї цілі."
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -11676,7 +11676,7 @@ msgid "Toggle Selected LUN Records"
 msgstr "Перемкнути обрані записи LUN"
 
 msgid "Toggle Selected LUNs"
-msgstr "Перемкнути обрані LUNи"
+msgstr "Перемкнути обрані LUN'и"
 
 msgid "Toggle Selected Listen Records"
 msgstr "Перемкнути обрані записи прослуховувань"
@@ -13117,27 +13117,3 @@ msgstr "використано з"
 
 msgid "visible"
 msgstr "видимий"
-
-#~ msgid "These parameter will be added to the global section of ctl.conf"
-#~ msgstr "Ці параметри будуть додані до глобального розділу ctl.conf"
-
-#~ msgid "These parameter will be added to this auth-group."
-#~ msgstr "Ці параметри будуть додані до цієї групи автентифіцакії."
-
-#~ msgid "These parameter will be added to this lun."
-#~ msgstr "Ці параметри будуть додані до цього LUN."
-
-#~ msgid "These parameter will be added to this portal-group."
-#~ msgstr "Ці параметри будуть додані до цієї групи порталу."
-
-#~ msgid "These parameter will be added to this target."
-#~ msgstr "Ці параметри будуть додані до цієї цілі."
-
-#~ msgid "These parameter will be added to my.cnf"
-#~ msgstr "Ці параметри будуть додані до my.cnf"
-
-#~ msgid "These parameter will be added to this WebDAV configuration."
-#~ msgstr "Ці параметри будуть додані до конфігурації цього WebDAV."
-
-#~ msgid "Enter additional parameter"
-#~ msgstr "Введіть додаткові параметри"

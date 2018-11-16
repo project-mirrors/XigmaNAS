@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-10-25 16:48+0000\n"
-"Last-Translator: Pavel Borecki <Unknown>\n"
+"PO-Revision-Date: 2018-11-16 14:57+0000\n"
+"Last-Translator: Tomáš Bednář <bednto@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
-"X-Generator: Launchpad (build 18816)\n"
+"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
+"X-Generator: Launchpad (build 18824)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4530,7 +4530,7 @@ msgid "Enter a valid value."
 msgstr "Zadejte platnou hodnotu."
 
 msgid "Enter additional parameters"
-msgstr ""
+msgstr "Zadejte další parametry"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Zadejte název iSCSI iniciátoru."
@@ -9604,6 +9604,7 @@ msgstr ""
 
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
+"Určuje název souboru nebo zařízení, pro požití k zálohování úložiště."
 
 msgid "Specifies how many servers to create."
 msgstr "Určuje kolik instancí serveru vytvořit."
@@ -11124,10 +11125,10 @@ msgid "These parameters will be added to global settings in %s."
 msgstr "Tyto parametry budou přidány do globálního nastavení v %s."
 
 msgid "These parameters will be added to my.cnf"
-msgstr ""
+msgstr "Tyto parametry budou přidány do souboru my.cnf"
 
 msgid "These parameters will be added to the global section of ctl.conf"
-msgstr ""
+msgstr "Tyto parametry budou přidány do globální části souboru my.cnf"
 
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
@@ -11137,7 +11138,7 @@ msgid "These parameters will be added to the ping command."
 msgstr "Tyto parametry budou přidány k příkazu ping."
 
 msgid "These parameters will be added to this WebDAV configuration."
-msgstr ""
+msgstr "Tyto parametry budou přidány do této konfigurace WebDAV."
 
 msgid "These parameters will be added to this auth-group."
 msgstr ""
@@ -12647,13 +12648,13 @@ msgid "WebDAV Name"
 msgstr "WebDAV název"
 
 msgid "WebDAV record is locked"
-msgstr ""
+msgstr "WebDAV záznam je uzamčený"
 
 msgid "WebDAV record is marked for deletion"
-msgstr ""
+msgstr "WebDAV záznam je označen pro smazání"
 
 msgid "WebDAV record is unlocked"
-msgstr ""
+msgstr "WebDAV záznam je odemknutý"
 
 msgid "WebGUI"
 msgstr "Webové správní rozhraní"
@@ -13178,21 +13179,3 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
-
-#~ msgid "Enter additional parameter"
-#~ msgstr "Zadejte další parametr"
-
-#~ msgid "These parameter will be added to the global section of ctl.conf"
-#~ msgstr "Tyto parametry budu přidány do globální sekce ctl.conf"
-
-#~ msgid "These parameter will be added to this auth-group."
-#~ msgstr "Tyto parametry budou přidány do této ověřovací skupiny."
-
-#~ msgid "These parameter will be added to this target."
-#~ msgstr "Tyto parametry budou přidány tomuto cíli."
-
-#~ msgid "These parameter will be added to my.cnf"
-#~ msgstr "Tyto parametry budou přidány do my.cnf"
-
-#~ msgid "These parameter will be added to this WebDAV configuration."
-#~ msgstr "Tyto parametry budou přidány do tohoto WebDAV nastavení."

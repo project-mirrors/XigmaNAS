@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-10-12 14:41+0000\n"
+"PO-Revision-Date: 2018-11-12 07:15+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-11 06:09+0000\n"
-"X-Generator: Launchpad (build 18816)\n"
+"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
+"X-Generator: Launchpad (build 18824)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4470,7 +4470,7 @@ msgid "Enter a valid value."
 msgstr "Írj be egy érvényes értéket."
 
 msgid "Enter additional parameters"
-msgstr ""
+msgstr "Add meg a további paramétereket"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Add meg a iSCSI kezdeményező nevet."
@@ -11043,10 +11043,10 @@ msgid "These parameters will be added to global settings in %s."
 msgstr "Ezek a paraméterek hozzáadódnak a következő global részéhez: %s."
 
 msgid "These parameters will be added to my.cnf"
-msgstr ""
+msgstr "Ezeket a paramétereket a my.cnf fájlhoz adjuk hozzá"
 
 msgid "These parameters will be added to the global section of ctl.conf"
-msgstr ""
+msgstr "Ezeket a paramétereket a ctl.conf fájl globális részéhez adjuk hozzá"
 
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
@@ -11057,19 +11057,19 @@ msgid "These parameters will be added to the ping command."
 msgstr "Ezeket a paramétereket a ping parancshoz adjuk."
 
 msgid "These parameters will be added to this WebDAV configuration."
-msgstr ""
+msgstr "Ezeket a paramétereket ehhez a WebDAV konfigurációhoz adjuk hozzá"
 
 msgid "These parameters will be added to this auth-group."
-msgstr ""
+msgstr "Ezeket a paramétereket ehhez a hitelesítő-csoporthoz adjuk hozzá"
 
 msgid "These parameters will be added to this lun."
-msgstr ""
+msgstr "Ezeket a paramétereket ehhez a lun-hoz adjuk hozzá"
 
 msgid "These parameters will be added to this portal-group."
-msgstr ""
+msgstr "Ezeket a paramétereket ehhez a portál-csoporthoz adjuk hozzá"
 
 msgid "These parameters will be added to this target."
-msgstr ""
+msgstr "Ezeket a paramétereket ehhez a célhoz adjuk hozzá"
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -13055,29 +13055,3 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
-
-#~ msgid "Enter additional parameter"
-#~ msgstr "További paraméterek megadása"
-
-#~ msgid "These parameter will be added to the global section of ctl.conf"
-#~ msgstr ""
-#~ "A ctl.conf globális részéhez hozzá fogjuk adni ezeket a paramétereket."
-
-#~ msgid "These parameter will be added to this auth-group."
-#~ msgstr ""
-#~ "Ehhez a hitelesítési-csoporthoz hozzá fogjuk adni ezeket a paramétereket."
-
-#~ msgid "These parameter will be added to this lun."
-#~ msgstr "Ehhez a LUN-hoz hozzá fogjuk adni ezeket a paramétereket."
-
-#~ msgid "These parameter will be added to this portal-group."
-#~ msgstr "Ehhez a portál-csoporthoz hozzá fogjuk adni ezeket a paramétereket."
-
-#~ msgid "These parameter will be added to this target."
-#~ msgstr "Ehhez a célhoz hozzá fogjuk adni ezeket a paramétereket."
-
-#~ msgid "These parameter will be added to this WebDAV configuration."
-#~ msgstr "Ezeket a bejegyzéseket hozzáadjuk a WebDAV beállításaihoz."
-
-#~ msgid "These parameter will be added to my.cnf"
-#~ msgstr "Ezeket a paramétereket hozzáadjuk a my.cnf fájlhoz."
