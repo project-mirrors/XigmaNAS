@@ -448,15 +448,27 @@ post_install_config()
 {
 	# Configure some rc variables here before reboot.
 	# Clear default router and netwait ip on new installs.
-	if sysrc -f ${ALTROOT}/etc/rc.conf -qc defaultrouter; then
+	if sysrc -f ${ALTROOT}/etc/rc.conf -qc defaultrouter=""; then
 		sysrc -f ${ALTROOT}/etc/rc.conf defaultrouter="" > /dev/null 2>&1
 	fi
-	if sysrc -f ${ALTROOT}/etc/rc.conf -qc netwait_ip; then
+	if sysrc -f ${ALTROOT}/etc/rc.conf -qc netwait_ip=""; then
 		sysrc -f ${ALTROOT}/etc/rc.conf netwait_ip="" > /dev/null 2>&1
 	fi
+
 	# Disable /var md option as it may override our zroot/tmp dataset.
-	if sysrc -f ${ALTROOT}/etc/rc.conf -qc varmfs; then
+	if sysrc -f ${ALTROOT}/etc/rc.conf -qc varmfs="YES"; then
 		sysrc -f ${ALTROOT}/etc/rc.conf varmfs="NO" > /dev/null 2>&1
+	fi
+
+	# Set zfs_enable to yes to automount our datasets on boot.
+	if [ -f "${ALTROOT}/etc/rc.conf.local" ]; then
+		if ! sysrc -f ${ALTROOT}/etc/rc.conf.local -qc zfs_enable="YES"; then
+			sysrc -f ${ALTROOT}/etc/rc.conf.local zfs_enable="YES" > /dev/null 2>&1
+		fi
+	else
+		touch ${ALTROOT}/etc/rc.conf.local
+		chmod 0644 ${ALTROOT}/etc/rc.conf.local
+		sysrc -f ${ALTROOT}/etc/rc.conf.local zfs_enable="YES" > /dev/null 2>&1
 	fi
 }
 

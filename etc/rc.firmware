@@ -488,6 +488,20 @@ EOF
 	fi
 }
 
+post_upgrade_config()
+{
+	# Check if zfs_enable is set to yes to automount our datasets on boot.
+	if [ -f "${BEPATH}/etc/rc.conf.local" ]; then
+		if ! sysrc -f ${BEPATH}/etc/rc.conf.local -qc zfs_enable="YES"; then
+			sysrc -f ${BEPATH}/etc/rc.conf.local zfs_enable="YES" > /dev/null 2>&1
+		fi
+	else
+		touch ${BEPATH}/etc/rc.conf.local
+		chmod 0644 ${BEPATH}/etc/rc.conf.local
+		sysrc -f ${BEPATH}/etc/rc.conf.local zfs_enable="YES" > /dev/null 2>&1
+	fi
+}
+
 full_upgrade() {
 	# Ensure the system is configured for boot environments.
 	if ! echo ${ROOTFS} | grep -qw "${ZROOT}/ROOT"; then
@@ -569,6 +583,9 @@ full_upgrade() {
 
 		# Include latest loader menu files.
 		upgrade_menuforth
+
+		# Post upgrade config checkings.
+		post_upgrade_config
 
 		if [ 0 != $? ]; then
 			msg="ERROR: Failed restoring/updating configuration."
