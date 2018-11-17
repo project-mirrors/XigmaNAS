@@ -283,10 +283,10 @@ $content->add_table_data_settings()->
 	pop()->
 	addTBODY()->
 		c2_input_text($cop->get_name(),$sphere->row[$cop->get_name()->get_name()],true,false)->
-		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false)->
 		c2_input_password($cop->get_secret(),$sphere->row[$cop->get_secret()->get_name()],false,false)->
 		c2_input_text($cop->get_mutual_name(),$sphere->row[$cop->get_mutual_name()->get_name()],true,false)->
 		c2_input_password($cop->get_mutual_secret(),$sphere->row[$cop->get_mutual_secret()->get_name()],false,false)->
+		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false)->
 		c2_checkbox_grid($cop->get_group(),$sphere->row[$cop->get_group()->get_name()],false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):

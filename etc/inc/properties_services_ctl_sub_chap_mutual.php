@@ -165,8 +165,6 @@ class ctl_sub_chap_mutual_edit_properties extends ctl_sub_chap_mutual_properties
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			filter_use_empty()->
-			set_filter_group('ui',['empty','ui'])->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
@@ -187,6 +185,8 @@ class ctl_sub_chap_mutual_edit_properties extends ctl_sub_chap_mutual_properties
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $regexp])->
+			filter_use_empty()->
+			set_filter_group('ui',['empty','ui'])->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
