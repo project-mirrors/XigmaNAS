@@ -35,9 +35,12 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $a_disk = &array_make_branch($config,'disks','disk');
-$pgtitle = [gtext('Diagnostics'),gtext('Information'),gtext('Disks (Info)')];
-include 'fbegin.inc';
-$document = new co_DOMDocument();
+$pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('Disks (Info)')];
+$document = new_page($pgtitle);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -58,66 +61,47 @@ $document->
 			ins_tabnav_record('diag_infos_sockets.php',gettext('Sockets'))->
 			ins_tabnav_record('diag_infos_ipmi.php',gettext('IPMI Stats'))->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
-$document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(empty($a_disk)):
-		print_info_box(gtext('No disks configured, please add disks to view diagnostic information!'));
-?>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php
-				html_titleline2(gettext('Disks (Info) Information'));
-?>
-			</thead>
-		</table>
-<?php
-	else:
-		$do_seperator = false;
-		foreach($a_disk as $diskk => $diskv):
-?>
-			<table class="area_data_settings">
-				<colgroup>
-					<col class="area_data_settings_col_tag">
-					<col class="area_data_settings_col_data">
-				</colgroup>
-				<thead>
-<?php
-					if($do_seperator):
-						html_separator2();
-					else:
-						$do_seperator = true;
-					endif;
-					html_titleline2(sprintf(gettext('Device /dev/%s - %s'),$diskv['name'],$diskv['desc']));
-?>
-				</thead>
-				<tbody>
-<?php
-					exec(sprintf('diskinfo -v %s', escapeshellarg($diskv['devicespecialfile'])),$rawdata);
-					$rawdata = array_slice($rawdata,1); // remove first line
-					foreach($rawdata as $line):
-						$a_line = explode('#',$line);
-						if(2 === count($a_line)):
-							echo '<tr>';
-							echo '<td class="celltag">',htmlspecialchars(ucfirst(trim($a_line[1]))),'</td>';
-							echo '<td class="celldata">',htmlspecialchars(trim($a_line[0])),'</td>';
-							echo "</tr>\n";
-						endif;
-					endforeach;
-					unset($rawdata);
-?>
-				</tbody>
-			</table>
-<?php
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if(empty($a_disk)):
+	$content->
+		add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_titleline(gettext('Disks (Info) Information'))->
+			pop()->
+			addTBODY()->
+				addTR()->
+					addTDwC('celltag',gettext('Information'))->
+					addTDwC('celldata',gettext('No configured disks found.'));
+else:
+	$do_separator = false;
+	foreach($a_disk as $diskk => $diskv):
+		$diskcontent = $content->
+			add_table_data_settings()->
+				ins_colgroup_data_settings();
+		$thead = $diskcontent->addTHEAD();
+		$tbody = $diskcontent->addTBODY();
+		if($do_separator):
+			$thead->c2_separator();
+		else:
+			$do_separator = true;
+		endif;
+		$thead->c2_titleline(sprintf(gettext('Device /dev/%s - %s'),$diskv['name'],$diskv['desc']));
+		exec(sprintf('diskinfo -v %s', escapeshellarg($diskv['devicespecialfile'])),$rawdata);
+		$rawdata = array_slice($rawdata,1); // remove first line
+		foreach($rawdata as $line):
+			$a_line = explode('#',$line);
+			if(2 === count($a_line)):
+				$tbody->
+					addTR()->
+						insTDwC('celltag',ucfirst(trim($a_line[1])))->
+						insTDwC('celldata',trim($a_line[0]));
+			endif;
 		endforeach;
+		unset($rawdata);
+	endforeach;
 endif;
-?>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
-?>
+$document->render();
