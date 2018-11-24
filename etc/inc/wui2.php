@@ -2737,11 +2737,9 @@ EOJ;
 		return $output;
 	}
 	public function ins_head(array $page_title = []) {
-		$codeset = system_get_language_codeset();
 		$head = $this->addElement('head',['id' => 'head']);
 		$head->
-			insElement('meta',['charset' => $codeset])->
-			insElement('meta',['http-equiv' => 'Content-Type','content' => sprintf('text/html; charset=%s',$codeset)])->
+			insElement('meta',['charset' => system_get_language_codeset()])->
 			insElement('meta',['name' => 'format-detection','content' => 'telephone=no'])->
 			insElement('meta',['name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'])->
 			insElement('title',[],$this->clc_html_page_title($page_title))->
