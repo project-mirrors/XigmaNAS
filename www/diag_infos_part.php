@@ -35,9 +35,12 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $a_disk = get_physical_disks_list();
-$pgtitle = [gtext('Diagnostics'),gtext('Information'),gtext('Partitions')];
-include 'fbegin.inc';
-$document = new co_DOMDocument();
+$pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('Partitions')];
+$document = new_page($pgtitle);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -58,90 +61,63 @@ $document->
 			ins_tabnav_record('diag_infos_sockets.php',gettext('Sockets'))->
 			ins_tabnav_record('diag_infos_ipmi.php',gettext('IPMI Stats'))->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if(empty($a_disk)):
+	$content->
+		add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_titleline(gettext('Disk Partition Information'))->
+			pop()->
+			addTBODY()->
+				addTR()->
+					addTDwC('celltag',gettext('Information'))->
+					addTDwC('celldata',gettext('No disks found.'));
+else:
+	$do_separator = false;
+	foreach($a_disk as $diskk => $diskv):
+		$diskcontent = $content->
+			add_table_data_settings()->
+				ins_colgroup_data_settings();
+		$thead = $diskcontent->addTHEAD();
+		$tbody = $diskcontent->addTBODY();
+		if($do_separator):
+			$thead->c2_separator();
+		else:
+			$do_separator = true;
+		endif;
+		$thead->c2_titleline(sprintf(gettext('Device /dev/%s - %s'),$diskv['name'],$diskv['desc']));
+		$cmd = sprintf('/sbin/gpart show %s',escapeshellarg($diskk));
+		unset($geom_rawdata);
+		exec($cmd,$geom_rawdata);
+		$geom_output = implode(PHP_EOL,$geom_rawdata);
+		unset($geom_rawdata);
+		if(preg_match('/\S/',$geom_output)):
+		else:
+			$geom_output = gettext('No GEOM partition information found.');
+		endif;
+		$tbody->
+			addTR()->
+				insTDwC('celltag',gettext('GEOM Partition Information'))->
+				addTDwC('celldata')->
+					insElement('pre',['class' => 'cmdoutput'],$geom_output);
+		$cmd = sprintf('/sbin/fdisk %s',escapeshellarg($diskk));
+		unset($fdisk_rawdata);
+		exec($cmd,$fdisk_rawdata);
+		$fdisk_output = implode(PHP_EOL,$fdisk_rawdata);
+		unset($fdisk_rawdata);
+		if(preg_match('/\S/',$fdisk_output)):
+		else:
+			$fdisk_output = gettext('No fdisk information found.');
+		endif;
+		$tbody->
+			addTR()->
+				insTDwC('celltag',gettext('Fdisk Partition Information'))->
+				addTDwC('celldata')->
+					insElement('pre',['class' => 'cmdoutput'],$fdisk_output);
+	endforeach;
+endif;
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(empty($a_disk)):
-		print_info_box(gtext('No disks found.'));
-?>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php
-				html_titleline2(gettext('Disk Partition Information'));
-?>
-			</thead>
-		</table>
-<?php
-	else:
-		$do_seperator = false;
-		foreach($a_disk as $diskk => $diskv):
-?>
-			<table class="area_data_settings">
-				<colgroup>
-					<col class="area_data_settings_col_tag">
-					<col class="area_data_settings_col_data">
-				</colgroup>
-				<thead>
-<?php
-					if($do_seperator):
-						html_separator2();
-					else:
-						$do_seperator = true;
-					endif;
-					html_titleline2(sprintf(gettext('Device /dev/%s - %s'),$diskk,$diskv['desc']));
-?>
-				</thead>
-				<tbody>
-					<tr>
-						<td class="celltag"><?=gtext('GEOM Partition Information');?></td>
-						<td class="celldata">
-<?php
-							echo '<pre>';
-							unset($rawdata);
-							$cmd = sprintf('/sbin/gpart show %s',escapeshellarg($diskk));
-							exec($cmd,$rawdata);
-							$output = htmlspecialchars(implode("\n",$rawdata));
-							if(preg_match('/\S/',$output)):
-								echo $output;
-							else:
-								echo gtext('No partition information found.');
-							endif;
-							unset($rawdata);
-							echo '</pre>';
-?>
-						</td>
-					</tr>
-					<tr>
-						<td class="celltag"><?=gtext('Fdisk Partition Information');?></td>
-						<td class="celldata">
-<?php
-							echo '<pre>';
-							unset($rawdata);
-							$cmd = sprintf('/sbin/fdisk %s',escapeshellarg($diskk));
-							exec($cmd,$rawdata);
-							$output = htmlspecialchars(implode("\n",$rawdata));
-							if(preg_match('/\S/',$output)):
-								echo $output;
-							else:
-								echo gtext('No fdisk information found.');
-							endif;
-							unset($rawdata);
-							echo '</pre>';
-?>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-<?php
-		endforeach;
-	endif;
-?>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
-?>
