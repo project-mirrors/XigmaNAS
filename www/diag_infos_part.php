@@ -74,8 +74,8 @@ if(empty($a_disk)):
 			pop()->
 			addTBODY()->
 				addTR()->
-					addTDwC('celltag',gettext('Information'))->
-					addTDwC('celldata',gettext('No disks found.'));
+					insTDwC('celltag',gettext('Information'))->
+					insTDwC('celldata',gettext('No disks found.'));
 else:
 	$do_separator = false;
 	foreach($a_disk as $diskk => $diskv):
