@@ -17,13 +17,13 @@ Changes:
 - Upgrade lighttpd to 1.4.51.
 - Upgrade tmux to 2.8.
 - Upgrade tzdata to 2018g.
-- Upgrade samba to 4.8.6.
 - Upgrade syncthing to 0.14.52.
 - Upgrade php to 7.2.12.
 - Upgrade nano to 3.2.
 - Upgrade dialog to 1.3-20181107.
 - Upgrade sudo to 1.8.26.
 - Upgrade APCu to 5.1.14.
+- Upgrade samba to 4.8.7.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
