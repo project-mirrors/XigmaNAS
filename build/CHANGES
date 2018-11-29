@@ -13,7 +13,6 @@ Changes:
 - Upgrade dmidecode to 3.2.
 - Upgrade devcpu-data to 1.20.
 - Upgrade mDNSResponder to 878.70.2.
-- Upgrade lighttpd to 1.4.51.
 - Upgrade tmux to 2.8.
 - Upgrade tzdata to 2018g.
 - Upgrade syncthing to 0.14.52.
@@ -24,6 +23,7 @@ Changes:
 - Upgrade APCu to 5.1.14.
 - Upgrade samba to 4.8.7.
 - Upgrade virtualbox-ose to 5.2.22.
+- Upgrade lighttpd to 1.4.52.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.

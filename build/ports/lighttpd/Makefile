@@ -1,9 +1,10 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.51
+PORTVERSION=	1.4.52
 PORTREVISION=	0
-CATEGORIES=		www
-COMMENT=		A secure, fast, compliant, and very flexible Web Server
-MAINTAINER=		zoon01@xigmanas.com
+CATEGORIES=	www
+
+COMMENT=	A secure, fast, compliant, and very flexible Web Server
+MAINTAINER=	zoon01@xigmanas.com
 
 MASTER_SITES=	http://download.lighttpd.net/lighttpd/releases-1.4.x/
 
