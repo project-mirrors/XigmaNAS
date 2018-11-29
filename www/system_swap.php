@@ -78,7 +78,7 @@ if($_POST):
 		$retval = 0;
 		if(!file_exists($d_sysrebootreqd_path)):
 			config_lock();
-			$retval |= rc_update_service('swap');
+			$retval |= rc_update_service('swaplate');
 			config_unlock();
 			if(isset($_POST['enable']) && (false !== preg_match('/\S/',$_POST['devicespecialfile']))):
 				$cmd = sprintf('swapon %s', escapeshellarg($_POST['devicespecialfile']));
