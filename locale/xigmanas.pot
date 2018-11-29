@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -3626,6 +3626,9 @@ msgstr ""
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr ""
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr ""
 
@@ -3841,9 +3844,6 @@ msgid "Enter Command"
 msgstr ""
 
 msgid "Enter Email Address(es)"
-msgstr ""
-
-msgid "Enter IP Address"
 msgstr ""
 
 msgid "Enter IP address prefix length."
@@ -4733,6 +4733,9 @@ msgid "IP type mismatch for network and gateway."
 msgstr ""
 
 msgid "IPMI Stats"
+msgstr ""
+
+msgid "IPv4 Address"
 msgstr ""
 
 msgid "IPv4 DNS Servers"
@@ -6076,6 +6079,9 @@ msgstr ""
 msgid "Network Adapter"
 msgstr ""
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr ""
 
@@ -6139,6 +6145,9 @@ msgstr ""
 msgid "No Extent has been configured."
 msgstr ""
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr ""
 
@@ -6172,6 +6181,9 @@ msgstr ""
 msgid "No RSYNC Client configured."
 msgstr ""
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr ""
 
@@ -6179,6 +6191,9 @@ msgid "No configured CARP interfaces."
 msgstr ""
 
 msgid "No configured bridge interfaces."
+msgstr ""
+
+msgid "No configured disks found."
 msgstr ""
 
 msgid "No configured pools."
@@ -6197,9 +6212,6 @@ msgid "No disk configured"
 msgstr ""
 
 msgid "No disks available."
-msgstr ""
-
-msgid "No disks configured, please add disks to view diagnostic information!"
 msgstr ""
 
 msgid "No disks found."
@@ -6221,9 +6233,6 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
-msgstr ""
-
-msgid "No partition information found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -10962,6 +10971,12 @@ msgid "ZFS Dataset Information & Status"
 msgstr ""
 
 msgid "ZFS Dataset Properties"
+msgstr ""
+
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
 msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
