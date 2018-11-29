@@ -18,7 +18,7 @@
 
 name="swap"
 desc="setup swap space"
-rcvar=swap_enable
+rcvar="swap_enable"
 
 load_rc_config "${name}"
 
