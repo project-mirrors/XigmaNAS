@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-11-11 07:40+0000\n"
-"Last-Translator: Victek <Unknown>\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"PO-Revision-Date: 2018-11-24 20:12+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:06+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4179,6 +4179,9 @@ msgstr "Habilita la estadistica de SAI"
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Habilita la estadistica de uso ARC de ZFS"
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Habilita la estadistica de la carga del sistema"
 
@@ -4417,9 +4420,6 @@ msgstr "Introduzca Comando"
 
 msgid "Enter Email Address(es)"
 msgstr "Introduzca dirección de e-mail"
-
-msgid "Enter IP Address"
-msgstr "Ingrese la dirección IP"
 
 msgid "Enter IP address prefix length."
 msgstr "Entrar la longitud del prefijo de la dirección IP."
@@ -5423,6 +5423,9 @@ msgstr "La IP no coincide con la red y la puerta de enlace"
 
 msgid "IPMI Stats"
 msgstr "Estado del IPMI"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "Servidores IPv4 DNS"
@@ -6986,6 +6989,9 @@ msgstr "Red"
 msgid "Network Adapter"
 msgstr "Adaptador de Red"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Network File System (NFS)"
 
@@ -7059,6 +7065,9 @@ msgstr "Sin Datos"
 msgid "No Extent has been configured."
 msgstr "No hay Extent configurado"
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr "No se encontró información de GEOM vinum."
 
@@ -7092,6 +7101,9 @@ msgstr "No se encontró información de RAID5."
 msgid "No RSYNC Client configured."
 msgstr "No está configurado el cliente RSYNC"
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "No configurado Grupo Auth"
 
@@ -7100,6 +7112,9 @@ msgstr "No hay configurados interfeces CARP."
 
 msgid "No configured bridge interfaces."
 msgstr "No configurado interfaces de puente"
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "No configurado pools."
@@ -7118,11 +7133,6 @@ msgstr "No hay discos configurados"
 
 msgid "No disks available."
 msgstr "No hay discos disponibles."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"No hay discos configurados, agregue discos para ver la información de "
-"diagnóstico!"
 
 msgid "No disks found."
 msgstr "No se encuentran discos"
@@ -7144,9 +7154,6 @@ msgstr "No se han encontrado nuevos discos encriptados."
 
 msgid "No new software RAID disk found."
 msgstr "No se han encontrado discos Soft RAID nuevos"
-
-msgid "No partition information found."
-msgstr "No se encuentra información de las particiones"
 
 msgid "No pool devices have been selected"
 msgstr "Ningún dispositivo de pool ha sido seleccionado"
@@ -9856,7 +9863,7 @@ msgid "Switch to %s/s"
 msgstr "Cambiar a %s/s"
 
 msgid "Sync"
-msgstr "Sincronizar"
+msgstr "Sync"
 
 msgid "Synchronization Time"
 msgstr "Hora de Sincronización"
@@ -12909,6 +12916,12 @@ msgstr "Info y estado de Dataset ZFS"
 msgid "ZFS Dataset Properties"
 msgstr "Propiedades del Dataset ZFS"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS Pool I/O Estadistica"
 
@@ -13154,3 +13167,14 @@ msgstr "usados de"
 
 msgid "visible"
 msgstr "Visible"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Ingrese la dirección IP"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "No hay discos configurados, agregue discos para ver la información de "
+#~ "diagnóstico!"
+
+#~ msgid "No partition information found."
+#~ msgstr "No se encuentra información de las particiones"

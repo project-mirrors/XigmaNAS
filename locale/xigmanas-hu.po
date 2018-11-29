@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-11-12 07:15+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:06+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4138,6 +4138,9 @@ msgstr "Szünetmentes statisztika gyűjtésének engedélyezése."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "ZFS ARC használat statisztika gyűjtésének engedélyezése."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Átlagos rendszerterhelés statisztika gyűjtésének engedélyezése."
 
@@ -4378,9 +4381,6 @@ msgstr "Parancs megadása"
 
 msgid "Enter Email Address(es)"
 msgstr "Add meg az e-mail cím(ek)et"
-
-msgid "Enter IP Address"
-msgstr "Adja meg az IP címet"
 
 msgid "Enter IP address prefix length."
 msgstr "Add meg az IP cím előtagjának a hosszát."
@@ -5377,6 +5377,9 @@ msgstr "IP típusú eltérés a hálózathoz és az átjáróhoz."
 
 msgid "IPMI Stats"
 msgstr "IPMI statisztikák"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS szerverek"
@@ -6928,6 +6931,9 @@ msgstr "Hálózat"
 msgid "Network Adapter"
 msgstr "Hálózati adapter"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Hálózati fájlrendszer"
 
@@ -7004,6 +7010,9 @@ msgstr "Nincs adat"
 msgid "No Extent has been configured."
 msgstr "Egy Extent sincs konfigurálva."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr "Semmilyen GEOM vinum információ nem található."
 
@@ -7037,6 +7046,9 @@ msgstr "Semmilyen RAID5 vinum információ nem található."
 msgid "No RSYNC Client configured."
 msgstr "RSYNC kliens nincs konfigurálva."
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Hitelesített csoport nincs konfigurálva."
 
@@ -7045,6 +7057,9 @@ msgstr "Nincs konfigurált CARP interfész."
 
 msgid "No configured bridge interfaces."
 msgstr "Egy konfigurált híd interfész sincs."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Egy konfigurált tároló sincs."
@@ -7063,11 +7078,6 @@ msgstr "Nincs lemez beállítva"
 
 msgid "No disks available."
 msgstr "Egy lemez sem érhető el."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Egy lemez sincs konfigurálva, a diagnosztikai információk megtekintéséhez "
-"adj hozzá lemezeket."
 
 msgid "No disks found."
 msgstr "Egy lemez sem található."
@@ -7089,9 +7099,6 @@ msgstr "Egy titkosított lemezt sem találtunk."
 
 msgid "No new software RAID disk found."
 msgstr "Egy új szoftveres RAID lemez sem található."
-
-msgid "No partition information found."
-msgstr "Semmilyen partícióinformáció nem található."
 
 msgid "No pool devices have been selected"
 msgstr "Egy tárolóeszközt sem választott ki"
@@ -12811,6 +12818,12 @@ msgstr "ZFS adattár-információ és -állapot"
 msgid "ZFS Dataset Properties"
 msgstr "ZFS adattár-tulajdonságok"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS tároló I/O statisztikái"
 
@@ -13055,3 +13068,14 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Adja meg az IP címet"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Egy lemez sincs konfigurálva, a diagnosztikai információk megtekintéséhez "
+#~ "adj hozzá lemezeket."
+
+#~ msgid "No partition information found."
+#~ msgstr "Semmilyen partícióinformáció nem található."

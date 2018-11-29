@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
-"PO-Revision-Date: 2018-11-11 06:04+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"PO-Revision-Date: 2018-11-29 00:57+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:05+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -4225,6 +4225,9 @@ msgstr "Inschakelen verzamelen van UPS statistieken."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Inschakelen verzamelen van ZFS ARC gebruik statistieken."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr "Inschakelen verzamelen van ZFS L2ARC gebruik statistieken."
+
 msgid "Enable collecting average system load statistics."
 msgstr ""
 "Inschakelen verzamelen van systeem gemiddelde belasting statistieken."
@@ -4472,9 +4475,6 @@ msgstr "Geef Commando"
 
 msgid "Enter Email Address(es)"
 msgstr "Vul de e-mailadres(sen) in"
-
-msgid "Enter IP Address"
-msgstr "Geef IP-Adres"
 
 msgid "Enter IP address prefix length."
 msgstr "Geef de prefixlengte van het IP-adres op."
@@ -5479,6 +5479,9 @@ msgstr "Het IP-adres komt niet overeen met het netwerk of de gateway."
 
 msgid "IPMI Stats"
 msgstr "IPMI Stats"
+
+msgid "IPv4 Address"
+msgstr "IPv4-adres"
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS Servers"
@@ -7044,6 +7047,9 @@ msgstr "Netwerk"
 msgid "Network Adapter"
 msgstr "Netwerkadapter"
 
+msgid "Network Address"
+msgstr "Netwerkadres"
+
 msgid "Network File System"
 msgstr "Netwerk Bestandssysteem"
 
@@ -7121,6 +7127,9 @@ msgstr "Geen Data"
 msgid "No Extent has been configured."
 msgstr "Er is geen Extent geconfigureerd."
 
+msgid "No GEOM partition information found."
+msgstr "Geen GEOM partitie informatie gevonden."
+
 msgid "No GEOM vinum information found."
 msgstr "Geen GEOM vinum informatie gevonden."
 
@@ -7154,6 +7163,9 @@ msgstr "Geen RAID5 informatie gevonden."
 msgid "No RSYNC Client configured."
 msgstr "Er is geen RSYNC Cliënt geconfigureerd."
 
+msgid "No additional parameters"
+msgstr "Geen extra parameters"
+
 msgid "No configured Auth Group."
 msgstr "Er is geen geconfigureerde Auth Groep."
 
@@ -7162,6 +7174,9 @@ msgstr "Er zijn geen geconfigureerde CARP netwerken."
 
 msgid "No configured bridge interfaces."
 msgstr "Er zijn geen bridge netwerken geconfigureerd."
+
+msgid "No configured disks found."
+msgstr "Geen geconfigureerde schijven gevonden."
 
 msgid "No configured pools."
 msgstr "Er zijn geen pools geconfigureerd."
@@ -7180,11 +7195,6 @@ msgstr "Er is geen schijf geconfigureerd"
 
 msgid "No disks available."
 msgstr "Er zijn geen schijven beschikbaar."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Geen schijven geconfigureerd, voeg schijven toe om diagnostische informatie "
-"te bekijken!"
 
 msgid "No disks found."
 msgstr "Er zijn geen schijven gevonden."
@@ -7206,9 +7216,6 @@ msgstr "Er zijn geen nieuwe gecodeerde schijven gevonden."
 
 msgid "No new software RAID disk found."
 msgstr "Er zijn geen nieuwe software raid schijven gevonden."
-
-msgid "No partition information found."
-msgstr "Er is geen partitie informatie gevonden."
 
 msgid "No pool devices have been selected"
 msgstr "Er zijn geen pool schijven geselecteerd"
@@ -13021,6 +13028,12 @@ msgstr "ZFS Dataset Informatie & Status"
 msgid "ZFS Dataset Properties"
 msgstr "ZFS Dataset Eigenschappen"
 
+msgid "ZFS L2ARC"
+msgstr "ZFS L2ARC"
+
+msgid "ZFS L2ARC Usage"
+msgstr "ZFS L2ARC Gebruik"
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS Pool I/U  Statistieken"
 
@@ -13267,3 +13280,14 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Geef IP-Adres"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Geen schijven geconfigureerd, voeg schijven toe om diagnostische informatie "
+#~ "te bekijken!"
+
+#~ msgid "No partition information found."
+#~ msgstr "Er is geen partitie informatie gevonden."

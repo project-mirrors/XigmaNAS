@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-09-13 11:48+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:05+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -4173,6 +4173,9 @@ msgstr "Activare colectare date statistice UPS."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Activare colectare date statistice ZFS ARC."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Activare colectare date statistice încărcare sistem."
 
@@ -4419,9 +4422,6 @@ msgstr "Introducere comandă"
 
 msgid "Enter Email Address(es)"
 msgstr "Introduceți adresa(adresele) de email"
-
-msgid "Enter IP Address"
-msgstr "Introducere adresă IP"
 
 msgid "Enter IP address prefix length."
 msgstr ""
@@ -5419,6 +5419,9 @@ msgstr "Tipul de adresă IP diferă pentru rețea și pentru gateway."
 
 msgid "IPMI Stats"
 msgstr "Stare IPMI"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "Server DNS IPv4"
@@ -6963,6 +6966,9 @@ msgstr "Rețea"
 msgid "Network Adapter"
 msgstr "Adaptor rețea"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Sistem Fișiere Rețea"
 
@@ -7039,6 +7045,9 @@ msgstr "Lipsă date"
 msgid "No Extent has been configured."
 msgstr "Nicio Extensie nu a fost configurată."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr ""
 
@@ -7072,6 +7081,9 @@ msgstr ""
 msgid "No RSYNC Client configured."
 msgstr "Nu există niciun client RSYNC configurat."
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Niciun Grup Auth nu a fost configurat."
 
@@ -7080,6 +7092,9 @@ msgstr "Nu există nicio interfață CARP configurată."
 
 msgid "No configured bridge interfaces."
 msgstr "Nicio interfață de tip bridge configurată."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Nu există nicio structură pool configurată."
@@ -7098,11 +7113,6 @@ msgstr "Niciun disc configurat"
 
 msgid "No disks available."
 msgstr "Niciun disc disponibil."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Nu aveți niciun disc configurat, va trebui să adăugați un disc pentru a "
-"vedea informațiile de diagnosticare!"
 
 msgid "No disks found."
 msgstr "Nu a fost găsit niciun disc."
@@ -7124,9 +7134,6 @@ msgstr "Nu a fost găsit niciun disc nou criptat."
 
 msgid "No new software RAID disk found."
 msgstr "Nu a fost găsit niciun disc RAID."
-
-msgid "No partition information found."
-msgstr "Nu au fost găsite informații despre partiție."
 
 msgid "No pool devices have been selected"
 msgstr "Niciun dispozitiv pool nu a fost selectat"
@@ -12801,6 +12808,12 @@ msgstr "Informații & Stare sistem ZFS"
 msgid "ZFS Dataset Properties"
 msgstr "Proprietăți sistem ZFS"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "Statistici ZFS Pool I/O"
 
@@ -13046,3 +13059,14 @@ msgstr "utilizat din"
 
 msgid "visible"
 msgstr "vizibil"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Introducere adresă IP"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Nu aveți niciun disc configurat, va trebui să adăugați un disc pentru a "
+#~ "vedea informațiile de diagnosticare!"
+
+#~ msgid "No partition information found."
+#~ msgstr "Nu au fost găsite informații despre partiție."

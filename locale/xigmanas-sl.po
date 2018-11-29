@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:44+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:05+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovenian\n"
@@ -3916,6 +3916,9 @@ msgstr ""
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr ""
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr ""
 
@@ -4143,9 +4146,6 @@ msgid "Enter Command"
 msgstr ""
 
 msgid "Enter Email Address(es)"
-msgstr ""
-
-msgid "Enter IP Address"
 msgstr ""
 
 msgid "Enter IP address prefix length."
@@ -5101,6 +5101,9 @@ msgid "IP type mismatch for network and gateway."
 msgstr "IP naslov se ne ujema z omrežjem in prehodom."
 
 msgid "IPMI Stats"
+msgstr ""
+
+msgid "IPv4 Address"
 msgstr ""
 
 msgid "IPv4 DNS Servers"
@@ -6564,6 +6567,9 @@ msgstr "Omrežje"
 msgid "Network Adapter"
 msgstr ""
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Omrežni datotečni sistem"
 
@@ -6637,6 +6643,9 @@ msgstr ""
 msgid "No Extent has been configured."
 msgstr ""
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr ""
 
@@ -6670,6 +6679,9 @@ msgstr ""
 msgid "No RSYNC Client configured."
 msgstr ""
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr ""
 
@@ -6677,6 +6689,9 @@ msgid "No configured CARP interfaces."
 msgstr ""
 
 msgid "No configured bridge interfaces."
+msgstr ""
+
+msgid "No configured disks found."
 msgstr ""
 
 msgid "No configured pools."
@@ -6697,9 +6712,6 @@ msgstr "Ni nastavljenih diskov"
 msgid "No disks available."
 msgstr "Diski niso na voljo."
 
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-
 msgid "No disks found."
 msgstr ""
 
@@ -6719,9 +6731,6 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
-msgstr ""
-
-msgid "No partition information found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -11976,6 +11985,12 @@ msgid "ZFS Dataset Information & Status"
 msgstr ""
 
 msgid "ZFS Dataset Properties"
+msgstr ""
+
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
 msgstr ""
 
 msgid "ZFS Pool I/O Statistics"

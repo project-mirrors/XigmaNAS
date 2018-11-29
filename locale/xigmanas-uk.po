@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-11-12 18:20+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:44+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:05+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -4165,6 +4165,9 @@ msgstr "Увімкнути збір статистики про ДБЖ."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Увімкнути збір статистики про використання ZFS ARC."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Увімкнути збір статистики про середнє завантаження системи."
 
@@ -4407,9 +4410,6 @@ msgstr "Уведіть команду"
 
 msgid "Enter Email Address(es)"
 msgstr "Додавання адреси(-ів) емайл."
-
-msgid "Enter IP Address"
-msgstr "Введіть IP адресу"
 
 msgid "Enter IP address prefix length."
 msgstr "Введіть довжину префікса IP адреси."
@@ -5407,6 +5407,9 @@ msgstr "Не співпадає тип ІР для підмережі і шлю�
 
 msgid "IPMI Stats"
 msgstr "IPMI статистика"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "Сервери DNS IPv4"
@@ -6965,6 +6968,9 @@ msgstr "Мережа"
 msgid "Network Adapter"
 msgstr "Мережевий адаптер"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Мережева файлова система"
 
@@ -7042,6 +7048,9 @@ msgstr "Немає даних"
 msgid "No Extent has been configured."
 msgstr "Жоден Extent не налаштований."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr "Інформації GEOM vinum не знайдено."
 
@@ -7075,6 +7084,9 @@ msgstr "Інформації RAID5 не знайдено."
 msgid "No RSYNC Client configured."
 msgstr "Немає сконфігурованого клієнту RSYNC."
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Немає сконфігурованої групи аутентифікації"
 
@@ -7083,6 +7095,9 @@ msgstr "Немає налаштованих CARP інтерфейсів."
 
 msgid "No configured bridge interfaces."
 msgstr "Немає налаштованих інтерфейсів моста."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Немає налаштованих пулів."
@@ -7101,11 +7116,6 @@ msgstr "Диск не зконфігурований"
 
 msgid "No disks available."
 msgstr "Немає доступних дисків."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Немає налаштованих дисків. Будь ласка, додайте диски для перегляду "
-"діагностичної інформації!"
 
 msgid "No disks found."
 msgstr "Жодного диску не знайдено."
@@ -7127,9 +7137,6 @@ msgstr "Жодного зашифрованого диску не знайден
 
 msgid "No new software RAID disk found."
 msgstr "Нових дисків програмного RAID не знайдено."
-
-msgid "No partition information found."
-msgstr "Не знайдено інформації про розділи."
 
 msgid "No pool devices have been selected"
 msgstr "Немає обраних пристроїв пулів"
@@ -12872,6 +12879,12 @@ msgstr "Інформація та Статус набору даних ZFS"
 msgid "ZFS Dataset Properties"
 msgstr "Властивості набору даних ZFS"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "Статистика введення/виведення для ZFS пулу"
 
@@ -13117,3 +13130,14 @@ msgstr "використано з"
 
 msgid "visible"
 msgstr "видимий"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Введіть IP адресу"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Немає налаштованих дисків. Будь ласка, додайте диски для перегляду "
+#~ "діагностичної інформації!"
+
+#~ msgid "No partition information found."
+#~ msgstr "Не знайдено інформації про розділи."

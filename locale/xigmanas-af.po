@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:46+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:06+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 
 msgid " interfaces:"
 msgstr " koppelvlakke:"
@@ -4113,6 +4113,9 @@ msgstr "Aktiveer insamel van UPS statistieke."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Aktiveer die insamel van ZFS ARC gebruik statistieke."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Aktiveer insamel van gemiddelde sisteem las statistieke."
 
@@ -4343,9 +4346,6 @@ msgid "Enter Command"
 msgstr "Insleutel die bevel"
 
 msgid "Enter Email Address(es)"
-msgstr ""
-
-msgid "Enter IP Address"
 msgstr ""
 
 msgid "Enter IP address prefix length."
@@ -5332,6 +5332,9 @@ msgstr "IP tipes vir netwerk en deurgang stem nie ooreen nie."
 
 msgid "IPMI Stats"
 msgstr "IPMI Statistieke"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr ""
@@ -6842,6 +6845,9 @@ msgstr "Netwerk"
 msgid "Network Adapter"
 msgstr "Netwerk Verwerker"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Netwerk Lêer Sisteem"
 
@@ -6916,6 +6922,9 @@ msgstr ""
 msgid "No Extent has been configured."
 msgstr "Geen Omvang is gekonfigureer nie"
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr ""
 
@@ -6949,6 +6958,9 @@ msgstr ""
 msgid "No RSYNC Client configured."
 msgstr ""
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Geen gekonfigureerde Auth Group"
 
@@ -6957,6 +6969,9 @@ msgstr "Geen gekonfigureerde CARP koppelings"
 
 msgid "No configured bridge interfaces."
 msgstr "Geen opgestelde brug koppelvlakke."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Geen gekonfigureerde poele"
@@ -6975,11 +6990,6 @@ msgstr "Geen skyf opgestel"
 
 msgid "No disks available."
 msgstr "Geen skywe beskikbaar."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Geen gekonfigureerde skywe nie, voeg asseblief skywe by om diagnostiek "
-"informasie te bekom"
 
 msgid "No disks found."
 msgstr ""
@@ -7000,9 +7010,6 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
-msgstr ""
-
-msgid "No partition information found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -12545,6 +12552,12 @@ msgstr "ZFS Datastel Inligting en Status"
 msgid "ZFS Dataset Properties"
 msgstr "ZFS Datastel Eienskappe"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr ""
 
@@ -12785,3 +12798,8 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Geen gekonfigureerde skywe nie, voeg asseblief skywe by om diagnostiek "
+#~ "informasie te bekom"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-07-06 10:19+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:06+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -4202,6 +4202,9 @@ msgstr "Attiva raccolta della statistica dell'UPS."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Attiva raccolta della statistica dell'utilizzo della ZFS ARC."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Attiva raccolta della statistica del carico medio del sistema."
 
@@ -4445,9 +4448,6 @@ msgstr "Inserisci comando"
 
 msgid "Enter Email Address(es)"
 msgstr "Inserire l'(gli) indirizzo(i) Email"
-
-msgid "Enter IP Address"
-msgstr "Inserire l'indirizzo IP"
 
 msgid "Enter IP address prefix length."
 msgstr "Inserire la lunghezza del prefisso dell'indirizzo IP."
@@ -5443,6 +5443,9 @@ msgstr "IP errato per la rete ed il gateway."
 
 msgid "IPMI Stats"
 msgstr "Statistiche IPMI"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "Lista Server DNS IPv4"
@@ -6981,6 +6984,9 @@ msgstr "Rete"
 msgid "Network Adapter"
 msgstr "Scheda di rete"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Network File System"
 
@@ -7056,6 +7062,9 @@ msgstr "Nessun dato"
 msgid "No Extent has been configured."
 msgstr "Nessun Extent configurato."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr ""
 
@@ -7089,6 +7098,9 @@ msgstr ""
 msgid "No RSYNC Client configured."
 msgstr "Nessun client RSYNC configurato"
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Nessun Auth Group configurato."
 
@@ -7097,6 +7109,9 @@ msgstr "Nessuna interfaccia CARP configurata."
 
 msgid "No configured bridge interfaces."
 msgstr "Nessuna interfaccia bridge configurata."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Nessun pool configurato."
@@ -7115,11 +7130,6 @@ msgstr "Nessun disco configurato"
 
 msgid "No disks available."
 msgstr "Nessun disco disponibile."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Nessun disco configurato: per favore aggiungere dischi per vedere le "
-"informazioni diagnostiche!"
 
 msgid "No disks found."
 msgstr "Nessun disco trovato"
@@ -7141,9 +7151,6 @@ msgstr "Nessun nuovo disco criptato."
 
 msgid "No new software RAID disk found."
 msgstr "Nessun nuovo disco RAID software."
-
-msgid "No partition information found."
-msgstr "Nessuna informazione sulla partizione"
 
 msgid "No pool devices have been selected"
 msgstr "Nessuna pool device selezionata."
@@ -12852,6 +12859,12 @@ msgstr "ZFS Dataset Informazioni e Stato"
 msgid "ZFS Dataset Properties"
 msgstr "ZFS Proprietà set di dati"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "Statistiche del ZFS Pool I/O"
 
@@ -13095,3 +13108,14 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Inserire l'indirizzo IP"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Nessun disco configurato: per favore aggiungere dischi per vedere le "
+#~ "informazioni diagnostiche!"
+
+#~ msgid "No partition information found."
+#~ msgstr "Nessuna informazione sulla partizione"

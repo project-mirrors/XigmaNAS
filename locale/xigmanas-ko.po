@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:06+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -3953,6 +3953,9 @@ msgstr "UPS 통계 수집을 사용합니다."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "ZFS ARC 사용 통계 수집을 사용합니다."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "시스템 부하 통계 수집 활성화."
 
@@ -4180,9 +4183,6 @@ msgstr "명령어 입력"
 
 msgid "Enter Email Address(es)"
 msgstr "전자우편 주소(들) 입력"
-
-msgid "Enter IP Address"
-msgstr "IP 주소 입력"
 
 msgid "Enter IP address prefix length."
 msgstr ""
@@ -5132,6 +5132,9 @@ msgstr "IP 타입이 네트워크, 게이트웨이와 일치하지 않습니다.
 
 msgid "IPMI Stats"
 msgstr "IPMI 통계"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS 서버"
@@ -6588,6 +6591,9 @@ msgstr "네트워크"
 msgid "Network Adapter"
 msgstr "네트워크 어댑터"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "네트워크 파일 시스템"
 
@@ -6658,6 +6664,9 @@ msgstr "데이터 없음"
 msgid "No Extent has been configured."
 msgstr "범위가 구성되지 않았습니다."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr ""
 
@@ -6691,6 +6700,9 @@ msgstr ""
 msgid "No RSYNC Client configured."
 msgstr "RSYNC 클라이언트가 구성되지 않았습니다."
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "인증 그룹이 구성되지 않았습니다."
 
@@ -6699,6 +6711,9 @@ msgstr "CARP 인터페이스가 구성되지 않았습니다."
 
 msgid "No configured bridge interfaces."
 msgstr "브릿지 인터페이스가 구성되지 않았습니다."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "풀이 구성되지 않았습니다."
@@ -6717,9 +6732,6 @@ msgstr "디스크가 구성되지 않았습니다"
 
 msgid "No disks available."
 msgstr "사용 가능한 디스크가 없습니다."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr "디스크가 구성되지 않았습니다, 진단 정보를 보려는 디스크를 추가해 주십시오."
 
 msgid "No disks found."
 msgstr "디스크를 찾을 수 없습니다."
@@ -6741,9 +6753,6 @@ msgstr "새 암호화 디스크를 찾지 못했습니다."
 
 msgid "No new software RAID disk found."
 msgstr "새 소프트웨어 RAID 디스크를 찾지 못했습니다."
-
-msgid "No partition information found."
-msgstr "분할 영역 정보를 찾을 수 없습니다."
 
 msgid "No pool devices have been selected"
 msgstr "풀 장치 선택되지 않음"
@@ -12031,6 +12040,12 @@ msgstr "ZFS 데이터셋 정보 및 상태"
 msgid "ZFS Dataset Properties"
 msgstr "ZFS 데이터셋 속성"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS 풀 I/O 통계"
 
@@ -12269,3 +12284,12 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Enter IP Address"
+#~ msgstr "IP 주소 입력"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr "디스크가 구성되지 않았습니다, 진단 정보를 보려는 디스크를 추가해 주십시오."
+
+#~ msgid "No partition information found."
+#~ msgstr "분할 영역 정보를 찾을 수 없습니다."

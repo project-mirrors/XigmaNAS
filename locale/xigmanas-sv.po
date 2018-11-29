@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-11-11 06:28+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:44+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:05+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -4119,6 +4119,9 @@ msgstr "Aktivera insamling av UPS-statistik."
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Aktivera insamling av ZFS ARC användningsstatistik."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Aktivera insamling av genomsnittlig systembelastningsstatistik."
 
@@ -4363,9 +4366,6 @@ msgstr "Mata in kommando"
 
 msgid "Enter Email Address(es)"
 msgstr "Mata in E-postadress(er)"
-
-msgid "Enter IP Address"
-msgstr "Mata in IP adress"
 
 msgid "Enter IP address prefix length."
 msgstr "Mata in IP adress förledslängd."
@@ -5355,6 +5355,9 @@ msgstr "IP adressen stämmer inte överens mellan nätverket och \"gateway\""
 
 msgid "IPMI Stats"
 msgstr "IPMI Stats"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS Servrar"
@@ -6877,6 +6880,9 @@ msgstr "Nätverk"
 msgid "Network Adapter"
 msgstr "Nätverksanslutning"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Network File System"
 
@@ -6953,6 +6959,9 @@ msgstr "Ingen data"
 msgid "No Extent has been configured."
 msgstr "Inga utökningar har konfigurerats."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr "Ingen GEOM vinum information hittad."
 
@@ -6986,6 +6995,9 @@ msgstr "Ingen RAID5 information hittad."
 msgid "No RSYNC Client configured."
 msgstr "Ingen RSYNC klient är konfigurerad."
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Ingen konfigurerad Autentiseringsgrupp."
 
@@ -6994,6 +7006,9 @@ msgstr "Inga konfigurerade CARP-gränssnitt."
 
 msgid "No configured bridge interfaces."
 msgstr "Inga konfigurerade bryggränsnitt."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Inga konfigurerade pooler."
@@ -7012,11 +7027,6 @@ msgstr "Ingen disk konfigurerad"
 
 msgid "No disks available."
 msgstr "Inga diskar tillgängliga."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Inga diskar konfigurerade, lägg till diskar för att se diagnostisk "
-"information!"
 
 msgid "No disks found."
 msgstr "Ninga diskar hittas."
@@ -7038,9 +7048,6 @@ msgstr "Inga nya krypterade diskar har hittats."
 
 msgid "No new software RAID disk found."
 msgstr "Inga nya mjukvaru RAID diskar hittades."
-
-msgid "No partition information found."
-msgstr "Ingen partitionsinformation hittas."
 
 msgid "No pool devices have been selected"
 msgstr "Inga poolenheter har valts"
@@ -12729,6 +12736,12 @@ msgstr "ZFS Dataset Information & Status"
 msgid "ZFS Dataset Properties"
 msgstr "ZFS Dataset Egenskaper"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS Pool I/O Statistik"
 
@@ -12973,3 +12986,14 @@ msgstr "använt av"
 
 msgid "visible"
 msgstr "synlig"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Mata in IP adress"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Inga diskar konfigurerade, lägg till diskar för att se diagnostisk "
+#~ "information!"
+
+#~ msgid "No partition information found."
+#~ msgstr "Ingen partitionsinformation hittas."

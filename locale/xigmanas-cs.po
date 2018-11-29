@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-11 06:44+0000\n"
+"POT-Creation-Date: 2018-11-29 01:40+0000\n"
 "PO-Revision-Date: 2018-11-16 14:57+0000\n"
 "Last-Translator: Tomáš Bednář <bednto@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-16 16:45+0000\n"
-"X-Generator: Launchpad (build 18824)\n"
+"X-Launchpad-Export-Date: 2018-11-29 01:06+0000\n"
+"X-Generator: Launchpad (build 18826)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -4202,6 +4202,9 @@ msgstr "Shromažďovat statistiky o zdroji nepřerušovaného napájení"
 msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Shromažďovat statistiky využití ZFS ARC."
 
+msgid "Enable collecting ZFS L2ARC usage statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Shromažďovat statistiky průměrného vytížení systému."
 
@@ -4443,9 +4446,6 @@ msgstr "Zadejte příkaz"
 
 msgid "Enter Email Address(es)"
 msgstr "Zadejte e-mailové adresy"
-
-msgid "Enter IP Address"
-msgstr "Zadejte IP adresu"
 
 msgid "Enter IP address prefix length."
 msgstr "Zadejte délku předpony IP adresy"
@@ -5445,6 +5445,9 @@ msgstr "Typ IP adresy sítě neodpovídá tomu u brány."
 
 msgid "IPMI Stats"
 msgstr "Statistiky z IPMI"
+
+msgid "IPv4 Address"
+msgstr ""
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS servery"
@@ -7015,6 +7018,9 @@ msgstr "Síť"
 msgid "Network Adapter"
 msgstr "Síťové rozhraní"
 
+msgid "Network Address"
+msgstr ""
+
 msgid "Network File System"
 msgstr "Síťový souborový systém"
 
@@ -7090,6 +7096,9 @@ msgstr "Žádná data"
 msgid "No Extent has been configured."
 msgstr "Není nastavená žádná úložná jednotka."
 
+msgid "No GEOM partition information found."
+msgstr ""
+
 msgid "No GEOM vinum information found."
 msgstr "Nebyly nalezeny žádné GEOM vinum informace."
 
@@ -7124,6 +7133,9 @@ msgstr "Nebyly nalezeny žádné informace o RAID5."
 msgid "No RSYNC Client configured."
 msgstr "Nebyl nastaven žádný RSYNC klient."
 
+msgid "No additional parameters"
+msgstr ""
+
 msgid "No configured Auth Group."
 msgstr "Nejsou nastavené žádné ověřovací skupiny."
 
@@ -7132,6 +7144,9 @@ msgstr "Nejsou nastavena žádná CARP rozhraní."
 
 msgid "No configured bridge interfaces."
 msgstr "Nejsou nastavená žádná síťová přemostění."
+
+msgid "No configured disks found."
+msgstr ""
 
 msgid "No configured pools."
 msgstr "Nejsou nastavené žádné fondy úložišť."
@@ -7150,11 +7165,6 @@ msgstr "Není nastaven žádný disk"
 
 msgid "No disks available."
 msgstr "Nejsou k dispozici žádné jednotky datových úložišť."
-
-msgid "No disks configured, please add disks to view diagnostic information!"
-msgstr ""
-"Nejsou nastavené žádné jednotky datového úložiště. Pro zobrazení "
-"diagnostických údajů nějaké přidejte."
 
 msgid "No disks found."
 msgstr "Nebyly nalezeny žádné jednotky datového úložiště."
@@ -7177,9 +7187,6 @@ msgstr "Nebyly nalezeny žádné nové šifrované jednotky datového úložišt
 msgid "No new software RAID disk found."
 msgstr ""
 "Nebyly nalezeny žádné nové jednotky datového úložiště softwarového RAID pole."
-
-msgid "No partition information found."
-msgstr "Nebyly nalezeny žádné informace o oddílu"
 
 msgid "No pool devices have been selected"
 msgstr "Nebyla vybrána žádná zařízení fondu"
@@ -12926,6 +12933,12 @@ msgstr "Stav a informace o ZFS datové sadě"
 msgid "ZFS Dataset Properties"
 msgstr "Vlastnosti ZFS datové sady"
 
+msgid "ZFS L2ARC"
+msgstr ""
+
+msgid "ZFS L2ARC Usage"
+msgstr ""
+
 msgid "ZFS Pool I/O Statistics"
 msgstr "Vst./výst. statistiky ZFS fondu úložišť"
 
@@ -13179,3 +13192,14 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
+
+#~ msgid "Enter IP Address"
+#~ msgstr "Zadejte IP adresu"
+
+#~ msgid "No disks configured, please add disks to view diagnostic information!"
+#~ msgstr ""
+#~ "Nejsou nastavené žádné jednotky datového úložiště. Pro zobrazení "
+#~ "diagnostických údajů nějaké přidejte."
+
+#~ msgid "No partition information found."
+#~ msgstr "Nebyly nalezeny žádné informace o oddílu"
