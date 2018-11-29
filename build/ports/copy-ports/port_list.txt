@@ -2,6 +2,4 @@ PORT					REASON
 ==============================================================================================================
 php72-APCu				Used for php 7.2.x series. devel/pecl-APCu port wants php56 not php72.
 
-virtualbox-ose				Downgrade to 5.2.18 because of broken VNC output in 5.2.20.
-virtualbox-ose-additions
-virtualbox-ose-kmod
+virtualbox-ose/files/patch		Fix VNC output in version5.2.20 and 5.2.22.
