@@ -68,7 +68,12 @@ mysqldb_mkconf()
 	unlink /var/db/mysql
 	ln -s "${mariadbhomedir}" /var/db/mysql
 	if [ ! -d "${mariadbhomedir}/mysql/." ]; then
-		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --force
+		if [ "$(df ${mariadbhomedir} | grep -E '/dev/x?md[0-9]|tmpfs')" ]; then
+			echo "Home folder on memory disk detected, unable to install core."
+			exit 1
+		else
+			/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --force
+		fi
 	fi
 	chown -R ${mysql_user}:${mysql_group} ${mariadbhomedir}
 
