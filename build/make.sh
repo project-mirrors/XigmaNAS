@@ -2070,26 +2070,9 @@ copy_files() {
 			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/php72-APCu /usr/ports/devel
 			echo "===> Copy new port files to /usr/ports/devel/php72-APCu done!"
 			echo ""
-			echo "===> Delete current virtualbox-ose from ports"
-			rm -rf /usr/ports/emulators/virtualbox-ose
-			echo "===> Delete completed!"
-			echo "===> Copy new port virtualbox-ose to ports/emulators/"
-			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose /usr/ports/emulators
-			echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose done!"
-			echo ""
-			echo "===> Delete current virtualbox-ose-additions from ports"
-			rm -rf /usr/ports/emulators/virtualbox-ose-additions
-			echo "===> Delete completed!"
-			echo "===> Copy new port virtualbox-ose-additions to ports/emulators/"
-			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-additions /usr/ports/emulators
-			echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-additions done!"
-			echo ""
-			echo "===> Delete current virtualbox-ose-kmod from ports"
-			rm -rf /usr/ports/emulators/virtualbox-ose-kmod
-			echo "===> Delete completed!"
-			echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
-			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-kmod /usr/ports/emulators
-			echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-kmod done!"
+			echo "===> Copy new patch to virtualbox-ose in ports/emulators/"
+			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose/files/patch-src_VBox_Main_src-client_ConsoleImpl.cpp /usr/ports/emulators/virtualbox-ose/files/
+			echo "===> Copy new patch to /usr/ports/emulators/virtualbox-ose done!"
 	return 0
 }
 build_ports() {
