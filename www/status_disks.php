@@ -63,28 +63,28 @@ function status_disks_render($root = NULL) {
 		$iostat_value = system_get_device_iostat($disk['name']);
 		$iostat_available = (false !== $iostat_value);
 		if($iostat_available):
-			$gt_iostat = htmlspecialchars(sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']));
+			$gt_iostat = sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
 		else:
 			$gt_iostat = gettext('n/a');
 		endif;
 		$temp_value = system_get_device_temp($disk['devicespecialfile']);
 		$temp_available = (false !== $temp_value);
 		if($temp_available):
-			$gt_temp = htmlspecialchars(sprintf("%s °C",$temp_value));
+			$gt_temp = sprintf("%s °C",$temp_value);
 		endif;
 		$gt_name = htmlspecialchars($disk['name']);
 		if($disk['type'] == 'HAST'):
 			$role = $a_phy_hast[$disk['name']]['role'];
-			$gt_size = htmlspecialchars($a_phy_hast[$disk['name']]['size']);
-			$gt_status = htmlspecialchars(sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING'),$role));
+			$gt_size = $a_phy_hast[$disk['name']]['size'];
+			$gt_status = sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING'),$role);
 		else:
-			$gt_size = htmlspecialchars($disk['size']);
+			$gt_size = $disk['size'];
 			$gt_status = (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING');
 		endif;
-		$gt_model = htmlspecialchars($disk['model']);
-		$gt_description = empty($disk['desc']) ? gettext('n/a') : htmlspecialchars($disk['desc']);
-		$gt_serial = empty($disk['serial']) ? gettext('n/a') : htmlspecialchars($disk['serial']);
-		$gt_fstype = empty($disk['fstype']) ? gettext('Unknown or unformatted') : htmlspecialchars(get_fstype_shortdesc($disk['fstype']));
+		$gt_model = $disk['model'];
+		$gt_description = empty($disk['desc']) ? gettext('n/a') : $disk['desc'];
+		$gt_serial = empty($disk['serial']) ? gettext('n/a') : $disk['serial'];
+		$gt_fstype = empty($disk['fstype']) ? gettext('Unknown or unformatted') : get_fstype_shortdesc($disk['fstype']);
 		$tr = $root->addTR();
 		$tr->
 			insTDwC('lcell',$gt_name)->
@@ -111,22 +111,22 @@ function status_disks_render($root = NULL) {
 		$iostat_value = system_get_device_iostat($diskk);
 		$iostat_available = (false !== $iostat_value);
 		if($iostat_available):
-			$gt_iostat = htmlspecialchars(sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']));
+			$gt_iostat = sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
 		else:
 			$gt_iostat = gettext('n/a');
 		endif;
 		$temp_value = system_get_device_temp($disk['devicespecialfile']);
 		$temp_available = (false !== $temp_value);
 		if($temp_available):
-			$gt_temp = htmlspecialchars(sprintf("%s °C",$temp_value));
+			$gt_temp = sprintf("%s °C",$temp_value);
 		endif;
-		$gt_name = htmlspecialchars($diskk);
-		$gt_size = htmlspecialchars($diskv['size']);
+		$gt_name = $diskk;
+		$gt_size = $diskv['size'];
 		$gt_model = gettext('n/a');
 		$gt_description = gettext('Software RAID');
 		$gt_serial = gettext('n/a');
 		$gt_fstype = empty($diskv['fstype']) ? gettext('UFS') : htmlspecialchars(get_fstype_shortdesc($diskv['fstype']));
-		$gt_status = htmlspecialchars($diskv['state']);
+		$gt_status = $diskv['state'];
 		$tr = $root->addTR();
 		$tr->
 			insTDwC('lcell',$gt_name)->
