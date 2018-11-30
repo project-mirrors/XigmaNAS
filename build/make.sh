@@ -2069,10 +2069,6 @@ copy_files() {
 			echo "===> Copy new port php72-APCu to ports/devel/"
 			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/php72-APCu /usr/ports/devel
 			echo "===> Copy new port files to /usr/ports/devel/php72-APCu done!"
-			echo ""
-			echo "===> Copy new patch to virtualbox-ose in ports/emulators/"
-			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose/files/patch-src_VBox_Main_src-client_ConsoleImpl.cpp /usr/ports/emulators/virtualbox-ose/files/
-			echo "===> Copy new patch to /usr/ports/emulators/virtualbox-ose done!"
 	return 0
 }
 build_ports() {
