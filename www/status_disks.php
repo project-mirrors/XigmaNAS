@@ -72,7 +72,7 @@ function status_disks_render($root = NULL) {
 		if($temp_available):
 			$gt_temp = sprintf("%s °C",$temp_value);
 		endif;
-		$gt_name = htmlspecialchars($disk['name']);
+		$gt_name = $disk['name'];
 		if($disk['type'] == 'HAST'):
 			$role = $a_phy_hast[$disk['name']]['role'];
 			$gt_size = $a_phy_hast[$disk['name']]['size'];
