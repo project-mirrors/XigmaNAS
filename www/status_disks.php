@@ -125,7 +125,7 @@ function status_disks_render($root = NULL) {
 		$gt_model = gettext('n/a');
 		$gt_description = gettext('Software RAID');
 		$gt_serial = gettext('n/a');
-		$gt_fstype = empty($diskv['fstype']) ? gettext('UFS') : htmlspecialchars(get_fstype_shortdesc($diskv['fstype']));
+		$gt_fstype = empty($diskv['fstype']) ? gettext('UFS') : get_fstype_shortdesc($diskv['fstype']);
 		$gt_status = $diskv['state'];
 		$tr = $root->addTR();
 		$tr->
