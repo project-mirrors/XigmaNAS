@@ -65,7 +65,7 @@ function status_disks_render($root = NULL) {
 		if($iostat_available):
 			$gt_iostat = htmlspecialchars(sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']));
 		else:
-			$gt_iostat = gtext('n/a');
+			$gt_iostat = gettext('n/a');
 		endif;
 		$temp_value = system_get_device_temp($disk['devicespecialfile']);
 		$temp_available = (false !== $temp_value);
@@ -76,15 +76,15 @@ function status_disks_render($root = NULL) {
 		if($disk['type'] == 'HAST'):
 			$role = $a_phy_hast[$disk['name']]['role'];
 			$gt_size = htmlspecialchars($a_phy_hast[$disk['name']]['size']);
-			$gt_status = htmlspecialchars(sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gtext('ONLINE') : gtext('MISSING'),$role));
+			$gt_status = htmlspecialchars(sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING'),$role));
 		else:
 			$gt_size = htmlspecialchars($disk['size']);
-			$gt_status = (0 == disks_exists($disk['devicespecialfile'])) ? gtext('ONLINE') : gtext('MISSING');
+			$gt_status = (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING');
 		endif;
 		$gt_model = htmlspecialchars($disk['model']);
-		$gt_description = empty($disk['desc']) ? gtext('n/a') : htmlspecialchars($disk['desc']);
-		$gt_serial = empty($disk['serial']) ? gtext('n/a') : htmlspecialchars($disk['serial']);
-		$gt_fstype = empty($disk['fstype']) ? gtext('Unknown or unformatted') : htmlspecialchars(get_fstype_shortdesc($disk['fstype']));
+		$gt_description = empty($disk['desc']) ? gettext('n/a') : htmlspecialchars($disk['desc']);
+		$gt_serial = empty($disk['serial']) ? gettext('n/a') : htmlspecialchars($disk['serial']);
+		$gt_fstype = empty($disk['fstype']) ? gettext('Unknown or unformatted') : htmlspecialchars(get_fstype_shortdesc($disk['fstype']));
 		$tr = $root->addTR();
 		$tr->
 			insTDwC('lcell',$gt_name)->
@@ -103,7 +103,7 @@ function status_disks_render($root = NULL) {
 				$tr->insTDwC('lcell',$gt_temp);
 			endif;  
 		else:
-			$tr->insTDwC('lcell',gtext('n/a'));
+			$tr->insTDwC('lcell',gettext('n/a'));
 		endif;
 		$tr->insTDwC('lcebld',$gt_status);
 	endforeach;
@@ -113,7 +113,7 @@ function status_disks_render($root = NULL) {
 		if($iostat_available):
 			$gt_iostat = htmlspecialchars(sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']));
 		else:
-			$gt_iostat = gtext('n/a');
+			$gt_iostat = gettext('n/a');
 		endif;
 		$temp_value = system_get_device_temp($disk['devicespecialfile']);
 		$temp_available = (false !== $temp_value);
@@ -122,10 +122,10 @@ function status_disks_render($root = NULL) {
 		endif;
 		$gt_name = htmlspecialchars($diskk);
 		$gt_size = htmlspecialchars($diskv['size']);
-		$gt_model = gtext('n/a');
-		$gt_description = gtext('Software RAID');
-		$gt_serial = gtext('n/a');
-		$gt_fstype = empty($diskv['fstype']) ? gtext('UFS') : htmlspecialchars(get_fstype_shortdesc($diskv['fstype']));
+		$gt_model = gettext('n/a');
+		$gt_description = gettext('Software RAID');
+		$gt_serial = gettext('n/a');
+		$gt_fstype = empty($diskv['fstype']) ? gettext('UFS') : htmlspecialchars(get_fstype_shortdesc($diskv['fstype']));
 		$gt_status = htmlspecialchars($diskv['state']);
 		$tr = $root->addTR();
 		$tr->
@@ -145,7 +145,7 @@ function status_disks_render($root = NULL) {
 				$tr->insTDwC('lcell',$gt_temp);
 			endif;  
 		else:
-			$tr->insTDwC('lcell',gtext('n/a'));
+			$tr->insTDwC('lcell',gettext('n/a'));
 		endif;
 		$tr->insTDwC('lcebld',$gt_status);
 	endforeach;
@@ -173,7 +173,7 @@ $(document).ready(function(){
 EOJ;
 $a_colwidth = ['5%','7%','15%','17%','13%','10%','18%','8%','7%'];
 $n_colwidth = count($a_colwidth);
-$document = new_page([gtext('Status'),gtext('Disks')],NULL,'tablesort');
+$document = new_page([gettext('Status'),gettext('Disks')],NULL,'tablesort');
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 $body->addJavaScript($jcode);
@@ -182,17 +182,17 @@ $tbody_inner = $content->
 	add_table_data_selection()->
 		ins_colgroup_with_styles('width',$a_colwidth)->
 		push()->addTHEAD()->
-			ins_titleline(gtext('Status & Information'),$n_colwidth)->
+			ins_titleline(gettext('Status & Information'),$n_colwidth)->
 			addTR()->
-				insTHwC('lhell',gtext('Device'))->
-				insTHwC('lhell',gtext('Size'))->
-				insTHwC('lhell',gtext('Device Model'))->
-				insTHwC('lhell',gtext('Description'))->
-				insTHwC('lhell',gtext('Serial Number'))->
-				insTHwC('lhell',gtext('Filesystem'))->
-				insTHwC('lhell sorter-false parser-false',gtext('I/O Statistics'))->
-				insTHwC('lhell',gtext('Temperature'))->
-				insTHwC('lhebl',gtext('Status'))->
+				insTHwC('lhell',gettext('Device'))->
+				insTHwC('lhell',gettext('Size'))->
+				insTHwC('lhell',gettext('Device Model'))->
+				insTHwC('lhell',gettext('Description'))->
+				insTHwC('lhell',gettext('Serial Number'))->
+				insTHwC('lhell',gettext('Filesystem'))->
+				insTHwC('lhell sorter-false parser-false',gettext('I/O Statistics'))->
+				insTHwC('lhell',gettext('Temperature'))->
+				insTHwC('lhebl',gettext('Status'))->
 		pop()->addTBODY(['id' => 'area_refresh']);
 status_disks_render($tbody_inner);
 $document->render();
