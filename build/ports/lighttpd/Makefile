@@ -6,7 +6,7 @@ CATEGORIES=	www
 COMMENT=	A secure, fast, compliant, and very flexible Web Server
 MAINTAINER=	zoon01@xigmanas.com
 
-MASTER_SITES=	http://download.lighttpd.net/lighttpd/releases-1.4.x/
+MASTER_SITES=	https://download.lighttpd.net/lighttpd/releases-1.4.x/
 
 LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre
 LIB_DEPENDS+=	libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
