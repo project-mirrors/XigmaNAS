@@ -65,7 +65,7 @@ switch($page_action):
 		exit;
 		break;
 endswitch;
-$pgtitle = [gtext('Diagnostics'),gtext('Updatenotifier')];
+$pgtitle = [gettext('Diagnostics'),gettext('Updatenotifier')];
 $record_exists = count($sphere->grid) > 0;
 $a_col_width = ['5%','20%','20%','20%','35%'];
 $n_col_width = count($a_col_width);
@@ -96,7 +96,7 @@ $table = $content->add_table_data_selection();
 $table->ins_colgroup_with_styles('width',$a_col_width);
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->ins_titleline(gtext('Overview'),$n_col_width);
+$thead->ins_titleline(gettext('Overview'),$n_col_width);
 if($record_exists):
 	$thead->
 		addTR()->
@@ -104,36 +104,36 @@ if($record_exists):
 			addTHwC('lhelc sorter-false parser-false')->
 				ins_cbm_checkbox_toggle($sphere)->
 			pop()->
-			insTHwC('lhell',gtext('Key'))->
-			insTHwC('lhell',gtext('Time Stamp'))->
-			insTHwC('lhell',gtext('Mode'))->
-			insTHwC('lhebl',gtext('Data'));
+			insTHwC('lhell',gettext('Key'))->
+			insTHwC('lhell',gettext('Time Stamp'))->
+			insTHwC('lhell',gettext('Mode'))->
+			insTHwC('lhebl',gettext('Data'));
 else:
 	$thead->
 		addTR()->
 			insTHwC('lhelc')->
-			insTHwC('lhell',gtext('Key'))->
-			insTHwC('lhell',gtext('Time Stamp'))->
-			insTHwC('lhell',gtext('Mode'))->
-			insTHwC('lhebl',gtext('Data'));
+			insTHwC('lhell',gettext('Key'))->
+			insTHwC('lhell',gettext('Time Stamp'))->
+			insTHwC('lhell',gettext('Mode'))->
+			insTHwC('lhebl',gettext('Data'));
 endif;
 if($record_exists):
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
 		switch($sphere->row['mode']):
 			case UPDATENOTIFY_MODE_NEW:
-				$mode = gtext('New');
+				$mode = gettext('New');
 				break;
 			case UPDATENOTIFY_MODE_MODIFIED:
-				$mode = gtext('Modify');
+				$mode = gettext('Modify');
 				break;
 			case UPDATENOTIFY_MODE_DIRTY:
-				$mode = gtext('Delete');
+				$mode = gettext('Delete');
 				break;
 			case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-				$mode = gtext('Remove');
+				$mode = gettext('Remove');
 				break;
 			case UPDATENOTIFY_MODE_UNKNOWN:
-				$mode = gtext('Unknown');
+				$mode = gettext('Unknown');
 				break;
 			default:
 				$mode = $sphere->row['mode'];
@@ -154,5 +154,7 @@ if($record_exists):
 else:
 	$tbody->ins_no_records_found($n_col_width);
 endif;
-$document->add_area_buttons()->ins_cbm_button_delete($sphere);
+$document->
+	add_area_buttons()->
+		ins_cbm_button_delete($sphere);
 $document->render();
