@@ -43,7 +43,7 @@ function get_sphere_diag_updatenotifier() {
 	$sphere->enadis(false);
 	$sphere->lock(false);
 	$sphere->cbm_delete(gettext('Delete Selected Notifier'));
-	$sphere->cbm_delete_confirm(gtext('Do you want to delete selected notifier?'));
+	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected notifier?'));
 	$sphere->grid = updatenotify_get_all();
 	return $sphere;
 }
