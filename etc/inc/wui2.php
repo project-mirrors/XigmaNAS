@@ -1531,7 +1531,7 @@ trait co_DOMTools {
 		if(preg_match('/\S/',$text)):
 			$node = $this->addElement('script');
 			if(false !== $node):
-				$opening = $node->ownerDocument->createTextNode(PHP_EOL . '//![CDATA[' . PHP_EOL);
+				$opening = $node->ownerDocument->createTextNode(PHP_EOL . '//<![CDATA[' . PHP_EOL);
 				$ending = $node->ownerDocument->createTextNode(PHP_EOL . '//]]>' . PHP_EOL);
 				if((false !== $opening) && (false !== $ending)):
 					$node->appendChild($opening);
