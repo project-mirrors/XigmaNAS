@@ -112,6 +112,9 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 		endif;
 		return $this->_enadis ?? false;
 	}
+	public function escape_javascript(string $data = '') {
+		return str_replace(['"',"'"],['\u0022','\u0027'],$data);
+	}
 	public function doj() {
 		$output = [];
 		$output[] = '';
@@ -561,19 +564,19 @@ class co_sphere_grid extends co_sphere_level2 {
 		if($this->enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->cbm_toggle_confirm() . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_toggle_confirm()) . '");';
 				$output[] = "\t" . '});';
 			else:
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->cbm_enable_confirm() . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_enable_confirm()) . '");';
 				$output[] = "\t" . '});';
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->cbm_disable_confirm() . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_disable_confirm()) . '");';
 				$output[] = "\t" . '});';
 			endif;
 		endif;
 		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
-		$output[] = "\t\t" . 'return confirm("' . $this->cbm_delete_confirm() . '");';
+		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_delete_confirm()) . '");';
 		$output[] = "\t" . '});';
 		//	Disable action buttons.
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
@@ -625,19 +628,19 @@ class co_sphere_grid extends co_sphere_level2 {
 		if($this->enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->cbm_toggle_confirm() . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_toggle_confirm()) . '");';
 				$output[] = "\t" . '});';
 			else:
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->cbm_enable_confirm() . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_enable_confirm()) . '");';
 				$output[] = "\t" . '});';
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->cbm_disable_confirm() . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_disable_confirm()) . '");';
 				$output[] = "\t" . '});';
 			endif;
 		endif;
 		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
-		$output[] = "\t\t" . 'return confirm("' . $this->cbm_delete_confirm() . '");';
+		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->cbm_delete_confirm()) . '");';
 		$output[] = "\t" . '});';
 		//	Disable action buttons.
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
