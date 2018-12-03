@@ -56,9 +56,9 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_allowfilecreation = new property_bool($this);
 		$property->
 			set_name('allowfilecreation')->
-			set_title(gtext('Allow New Files'));
-		$caption = gtext('Allow new files to be created.');
-		$description = gtext('By default, only already existing files can be uploaded.');
+			set_title(gettext('Allow New Files'));
+		$caption = gettext('Allow new files to be created.');
+		$description = gettext('By default, only already existing files can be uploaded.');
 		$property->
 			set_id('allowfilecreation')->
 			set_caption($caption)->
@@ -67,7 +67,7 @@ class properties_tftp extends co_property_container {
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_dir() {
@@ -79,12 +79,12 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_dir = new property_text($this);
 		$property->
 			set_name('dir')->
-			set_title(gtext('Directory'));
-		$description = gtext('The directory containing the files you want to publish. The remote host does not need to pass along the directory as part of the transfer.');
+			set_title(gettext('Directory'));
+		$description = gettext('The directory containing the files you want to publish. The remote host does not need to pass along the directory as part of the transfer.');
 		$property->
 			set_id('dir')->
 			set_description($description)->
-			set_placeholder(gtext('Enter a directory'))->
+			set_placeholder(gettext('Enter a directory'))->
 			set_defaultvalue($g['media_path'])->
 			set_size(60)->
 			set_maxlength(4096)->
@@ -93,7 +93,7 @@ class properties_tftp extends co_property_container {
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => $g['media_path']])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_enable() {
@@ -111,9 +111,9 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_extraoptions = new property_text($this);
 		$property->
 			set_name('extraoptions')->
-			set_title(gtext('Extra Options'));
-		$description = gtext('Extra options (usually empty).');
-		$placeholder = gtext('Enter extra options');
+			set_title(gettext('Extra Options'));
+		$description = gettext('Extra options (usually empty).');
+		$placeholder = gettext('Enter extra options');
 		$property->
 			set_id('extraoptions')->
 			set_description($description)->
@@ -126,7 +126,7 @@ class properties_tftp extends co_property_container {
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => ''])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_maxblocksize() {
@@ -149,14 +149,15 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_maxblocksize = new property_int($this);
 		$property->
 			set_name('maxblocksize')->
-			set_title(gtext('Max. Block Size'));
-		$description = gtext('Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464.');
+			set_title(gettext('Max. Block Size'));
+		$description = gettext('Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464.');
 		$property->
 			set_id('maxblocksize')->
 //			set_caption()->
 			set_description($description)->
-//			set_placeholder()->
-			set_defaultvalue(16384)->
+			set_placeholder('512')->
+			set_placeholderv('512')->
+			set_defaultvalue('512')->
 			set_size(6)->
 			set_maxlength(5)->
 			set_min(512)->
@@ -170,7 +171,7 @@ class properties_tftp extends co_property_container {
 			set_filter(FILTER_UNSAFE_RAW,'scalar')->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,'scalar')->
 			set_filter_options(['default' => ''],'scalar')->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_port() {
@@ -196,10 +197,10 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_port = new property_int($this);
 		$property->
 			set_name('port')->
-			set_title(gtext('Port'));
-		$caption = gtext('Port of the TFTP service. Leave blank to use the default port.');
-		$description = gtext('Enter a custom port number if you do not want to use default port 69.');
-		$placeholder = gtext('69');
+			set_title(gettext('Port'));
+		$caption = gettext('Port of the TFTP service. Leave blank to use the default port.');
+		$description = gettext('Enter a custom port number if you do not want to use default port 69.');
+		$placeholder = gettext('69');
 		$property->
 			set_id('port')->
 			set_caption($caption)->
@@ -222,7 +223,7 @@ class properties_tftp extends co_property_container {
 			set_filter(FILTER_UNSAFE_RAW,'scalar')->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,'scalar')->
 			set_filter_options(['default' => ''],'scalar')->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('Port number must be 69 or a number between 1024 and 49151.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Port number must be 69 or a number between 1024 and 49151.')));
 		return $property;
 	}
 	public function get_timeout() {
@@ -232,8 +233,8 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_timeout = new property_int($this);
 		$property->
 			set_name('timeout')->
-			set_title(gtext('Timeout'));
-		$description = gtext('Determine the default timeout, in microseconds, before the first packet is retransmitted. The default is 1000000 (1 second).');
+			set_title(gettext('Timeout'));
+		$description = gettext('Determine the default timeout, in microseconds, before the first packet is retransmitted. The default is 1000000 (1 second).');
 		$property->
 			set_id('timeout')->
 //			set_caption()->
@@ -253,7 +254,7 @@ class properties_tftp extends co_property_container {
 			set_filter(FILTER_UNSAFE_RAW,'scalar')->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,'scalar')->
 			set_filter_options(['default' => ''],'scalar')->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('Timeout must be a number between 10 and 255000000.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Timeout must be a number between 10 and 255000000.')));
 		return $property;
 	}
 	public function get_umask() {
@@ -263,8 +264,8 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_umask = new property_text($this);
 		$property->
 			set_name('umask')->
-			set_title(gtext('Umask'));
-		$description = gtext('Sets the umask for newly created files to the specified value. The default is zero (anyone can read or write).');
+			set_title(gettext('Umask'));
+		$description = gettext('Sets the umask for newly created files to the specified value. The default is zero (anyone can read or write).');
 		$property->
 			set_id('umask')->
 			set_description($description)->
@@ -277,7 +278,7 @@ class properties_tftp extends co_property_container {
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => '/^(?:[0..7]{1,3}?$/'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 	public function get_username() {
@@ -287,15 +288,15 @@ class properties_tftp extends co_property_container {
 		$property = $this->x_username = new property_list($this);
 		$property->
 			set_name('username')->
-			set_title(gtext('Username'));
-		$caption = gtext('Specifies the username under which the TFTP service should run.');
+			set_title(gettext('Username'));
+		$caption = gettext('Specifies the username under which the TFTP service should run.');
 		$property->
 			set_id('username')->
 			set_caption($caption)->
 //			set_description('')->
 			set_defaultvalue('nobody')->
 			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gtext('The value is invalid.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
 }
