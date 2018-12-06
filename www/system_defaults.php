@@ -33,94 +33,89 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'co_sphere.php';
+require_once 'co_request_method.php';
 
-$sphere_scriptname = basename(__FILE__);
-$sphere_header = 'Location: '.$sphere_scriptname;
-$sphere_header_parent = 'Location: index.php';
-$gt_defaults = gtext('The server is now reset to factory defaults and will reboot.');
-$gt_defaults_confirm = gtext('Are you sure you want to reset the server to factory defaults?');
-$gt_yes = gettext('Yes');
-$gt_no = gettext('No');
-$cmd_system_defaults = false;
-$gt_note_1 = gettext('The server will be reset to factory defaults and will reboot.');
-$gt_note_2 = gettext('The entire system configuration will be overwritten.');
-$gt_note_3 = gettext('The LAN IP address will be reset to') . ': <b>' . htmlspecialchars($g['default_ip']) . '</b>.';
-$gt_note_4 = gettext('The administrator password will be reset to') . ': "<b>' . htmlspecialchars($g['default_passwd']) . '</b>".';
-
-if($_POST) {
-	if($_POST['submit']) {
-		switch($_POST['submit']) {
-			case 'save':
-				$cmd_system_defaults = true;
-				break;
-			case 'cancel':
-				header($sphere_header_parent);
-				exit;
-				break;
-			default:
-				header($sphere_header_parent);
-				exit;
-				break;
-		}
-	}
+function system_defaults_sphere() {
+//	sphere structure
+	$sphere = new co_sphere_row('system_defaults','php');
+	$sphere->get_parent()->set_basename('index');
+	return $sphere;
 }
-$pgtitle = [gtext('System'),gtext('Factory Defaults')];
-include 'fbegin.inc';
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(window).on("load", function() {
-<?php // Init spinner onsubmit().?>
-	$("#iform").submit(function() { spinner(); });
-});
-//]]>
-</script>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
-<?php
-	if($cmd_system_defaults):
-		echo print_info_box($gt_defaults);
-	else:
-		echo print_warning_box($gt_defaults_confirm);
+$cmd_perform_action = false;
+//	init sphere
+$sphere = &system_defaults_sphere();
+$rmo = new co_request_method();
+$rmo->add('POST','save',PAGE_MODE_POST);
+$rmo->add('POST','cancel',PAGE_MODE_POST);
+$rmo->set_default('GET','view',PAGE_MODE_VIEW);
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+switch($page_method):
+	case 'POST':
+		switch($page_action):
+			case 'cancel': // cancel - nothing to do
+				header($sphere->get_parent()->get_location());
+				exit;
+			case 'save': // reboot
+				$cmd_perform_action = true;
+				if(file_exists($d_sysrebootreqd_path)):
+					unlink($d_sysrebootreqd_path);
+				endif;
+				break;
+		endswitch;
+		break;
+endswitch;
+$pgtitle = [gettext('System'),gettext('Factory Defaults')];
+$document = new_page($pgtitle,$sphere->get_scriptname());
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if($cmd_perform_action):
+	$content->ins_info_box(gettext('The system configuration is reset to factory defaults and the server is restarted.'));
+else:
+	$content->ins_warning_box(gettext('Are you sure you want to reset the system configuration to factory defaults?'));
+endif;
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(gettext('Factory Defaults'))->
+		pop()->
+		addTBODY(['class' => 'donothighlight'])->
+			c2_textinfo('note1',gettext('Note'),gettext('The system configuration is reset to factory defaults and the server is restarted.'))->
+			c2_textinfo('note2',gettext('Warning'),gettext('The entire system configuration will be overwritten.'))->
+			c2_textinfo('note3',gettext('IP Address'),$g['default_ip'])->
+			c2_textinfo('note4',gettext('Admin Password'),$g['default_passwd']);
+if($cmd_perform_action):
+else:
+	$buttons = $document->add_area_buttons();
+	$buttons->
+		ins_button_save(gettext('Yes'))->
+		ins_button_cancel(gettext('No'));
+	if('0401' == date('md')):
+		$buttons->ins_button_cancel(gettext('Maybe'));
 	endif;
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('Factory Defaults'),2);
-?>
-		</thead>
-		<tbody>
-<?php
-			html_textinfo2('note1',gettext('Note'),$gt_note_1);
-			html_textinfo2('note2',gettext('Warning'),$gt_note_2);
-			html_textinfo2('note3',gettext('IP Address'),$gt_note_3);
-			html_textinfo2('note4',gettext('Password'),$gt_note_4);
-?>
-		</tbody>
-	</table>
-<?php
-		if(!$cmd_system_defaults):;
-?>
-			<div id="submit">
-<?php
-			echo html_button('save',$gt_yes);
-			echo html_button('cancel',$gt_no);
-?>
-			</div>
-<?php
-		endif;
-	include 'formend.inc';
-?>
-</form></td></tr></tbody></table>
-<?php
-include 'fend.inc';
-if ($cmd_system_defaults) {
+endif;
+//	showtime
+if($cmd_perform_action):
+	ob_start();
+	$document->render();
+	header('Connection: close');
+	header('Content-Length: ' . ob_get_length());
+	while(ob_get_level() > 0):
+		ob_end_flush();
+	endwhile;
+	flush();
+	sleep(5);
 	reset_factory_defaults();
 	flush();
 	sleep(5);
 	system_reboot();
-}
+else:
+	$document->render();
+endif;
