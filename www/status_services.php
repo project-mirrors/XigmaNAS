@@ -47,40 +47,40 @@ function status_services_sphere() {
 		$ups_script = 'nut_upsmon';
 	endif;
 	if('dom0' !== $g['arch']):
-		$sphere->grid[] = ['name' => gtext('HAST'),'link' => 'services_hast.php','config' => 'hast','scriptname' => 'hastd'];
-		$sphere->grid[] = ['name' => gtext('CIFS/SMB'),'link' => 'services_samba.php','config' => 'samba','scriptname' => 'samba'];
-		$sphere->grid[] = ['name' => gtext('FTP'),'link' => 'services_ftp.php','config' => 'ftpd','scriptname' => 'proftpd'];
-		$sphere->grid[] = ['name' => gtext('TFTP'),'link' => 'services_tftp.php','config' => 'tftpd','scriptname' => 'tftpd'];
-		$sphere->grid[] = ['name' => gtext('SSH'),'link' => 'services_sshd.php','config' => 'sshd','scriptname' => 'sshd'];
-		$sphere->grid[] = ['name' => gtext('NFS'),'link' => 'services_nfs.php','config' => 'nfsd','scriptname' => 'nfsd'];
-		$sphere->grid[] = ['name' => gtext('AFP'),'link' => 'services_afp.php','config' => 'afp','scriptname' => 'netatalk'];
-		$sphere->grid[] = ['name' => gtext('RSYNC'),'link' => 'services_rsyncd.php','config' => 'rsyncd','scriptname' => 'rsyncd'];
-		$sphere->grid[] = ['name' => gtext('Syncthing'),'link' => 'services_syncthing.php','config' => 'syncthing','scriptname' => 'syncthing'];
-		$sphere->grid[] = ['name' => gtext('Unison'),'link' => 'services_unison.php','config' => 'unison','scriptname' => 'unison'];
-		$sphere->grid[] = ['name' => gtext('iSCSI Target'),'link' => 'services_iscsitarget.php','config' => 'iscsitarget','scriptname' => 'iscsi_target'];
-		$sphere->grid[] = ['name' => gtext('CAM Target Layer / iSCSI Target'),'link' => 'services_ctl.php','config' => 'ctld','scriptname' => 'ctld'];
-		$sphere->grid[] = ['name' => gtext('DLNA/UPnP Fuppes'),'link' => 'services_fuppes.php','config' => 'upnp','scriptname' => 'fuppes'];
-		$sphere->grid[] = ['name' => gtext('DLNA/UPnP MiniDLNA'),'link' => 'services_minidlna.php','config' => 'minidlna','scriptname' => 'minidlna'];
-		$sphere->grid[] = ['name' => gtext('iTunes/DAAP'),'link' => 'services_daap.php','config' => 'daap','scriptname' => 'mt-daapd'];
-		$sphere->grid[] = ['name' => gtext('Dynamic DNS'),'link' => 'services_dynamicdns.php','config' => 'dynamicdns','scriptname' => 'inadyn'];
-		$sphere->grid[] = ['name' => gtext('SNMP'),'link' => 'services_snmp.php','config' => 'snmpd','scriptname' => 'bsnmpd'];
-		$sphere->grid[] = ['name' => gtext('UPS'),'link' => 'services_ups.php','config' => 'ups','scriptname' => $ups_script];
-		$sphere->grid[] = ['name' => gtext('Webserver'),'link' => 'services_websrv.php','config' => 'websrv','scriptname' => 'websrv'];
-		$sphere->grid[] = ['name' => gtext('MariaDB'),'link' => 'services_mariadb.php','config' => 'mariadb','scriptname' => 'mysqldb'];
-		$sphere->grid[] = ['name' => gtext('BitTorrent'),'link' => 'services_bittorrent.php','config' => 'bittorrent','scriptname' => 'transmission'];
-		$sphere->grid[] = ['name' => gtext('LCDproc'),'link' => 'services_lcdproc.php','config' => 'lcdproc','scriptname' => 'LCDd'];
+		$sphere->grid[] = ['name' => gettext('HAST'),'link' => 'services_hast.php','config' => 'hast','scriptname' => 'hastd'];
+		$sphere->grid[] = ['name' => gettext('CIFS/SMB'),'link' => 'services_samba.php','config' => 'samba','scriptname' => 'samba'];
+		$sphere->grid[] = ['name' => gettext('FTP'),'link' => 'services_ftp.php','config' => 'ftpd','scriptname' => 'proftpd'];
+		$sphere->grid[] = ['name' => gettext('TFTP'),'link' => 'services_tftp.php','config' => 'tftpd','scriptname' => 'tftpd'];
+		$sphere->grid[] = ['name' => gettext('SSH'),'link' => 'services_sshd.php','config' => 'sshd','scriptname' => 'sshd'];
+		$sphere->grid[] = ['name' => gettext('NFS'),'link' => 'services_nfs.php','config' => 'nfsd','scriptname' => 'nfsd'];
+		$sphere->grid[] = ['name' => gettext('AFP'),'link' => 'services_afp.php','config' => 'afp','scriptname' => 'netatalk'];
+		$sphere->grid[] = ['name' => gettext('RSYNC'),'link' => 'services_rsyncd.php','config' => 'rsyncd','scriptname' => 'rsyncd'];
+		$sphere->grid[] = ['name' => gettext('Syncthing'),'link' => 'services_syncthing.php','config' => 'syncthing','scriptname' => 'syncthing'];
+		$sphere->grid[] = ['name' => gettext('Unison'),'link' => 'services_unison.php','config' => 'unison','scriptname' => 'unison'];
+		$sphere->grid[] = ['name' => gettext('iSCSI Target'),'link' => 'services_iscsitarget.php','config' => 'iscsitarget','scriptname' => 'iscsi_target'];
+		$sphere->grid[] = ['name' => gettext('CAM Target Layer / iSCSI Target'),'link' => 'services_ctl.php','config' => 'ctld','scriptname' => 'ctld'];
+		$sphere->grid[] = ['name' => gettext('DLNA/UPnP Fuppes'),'link' => 'services_fuppes.php','config' => 'upnp','scriptname' => 'fuppes'];
+		$sphere->grid[] = ['name' => gettext('DLNA/UPnP MiniDLNA'),'link' => 'services_minidlna.php','config' => 'minidlna','scriptname' => 'minidlna'];
+		$sphere->grid[] = ['name' => gettext('iTunes/DAAP'),'link' => 'services_daap.php','config' => 'daap','scriptname' => 'mt-daapd'];
+		$sphere->grid[] = ['name' => gettext('Dynamic DNS'),'link' => 'services_dynamicdns.php','config' => 'dynamicdns','scriptname' => 'inadyn'];
+		$sphere->grid[] = ['name' => gettext('SNMP'),'link' => 'services_snmp.php','config' => 'snmpd','scriptname' => 'bsnmpd'];
+		$sphere->grid[] = ['name' => gettext('UPS'),'link' => 'services_ups.php','config' => 'ups','scriptname' => $ups_script];
+		$sphere->grid[] = ['name' => gettext('Webserver'),'link' => 'services_websrv.php','config' => 'websrv','scriptname' => 'websrv'];
+		$sphere->grid[] = ['name' => gettext('MariaDB'),'link' => 'services_mariadb.php','config' => 'mariadb','scriptname' => 'mysqldb'];
+		$sphere->grid[] = ['name' => gettext('BitTorrent'),'link' => 'services_bittorrent.php','config' => 'bittorrent','scriptname' => 'transmission'];
+		$sphere->grid[] = ['name' => gettext('LCDproc'),'link' => 'services_lcdproc.php','config' => 'lcdproc','scriptname' => 'LCDd'];
 	else:
-		$sphere->grid[] = ['name' => gtext('SSH'),'link' => 'services_sshd.php','config' => 'sshd','scriptname' => 'sshd'];
-		$sphere->grid[] = ['name' => gtext('NFS'),'link' => 'services_nfs.php','config' => 'nfsd','scriptname' => 'nfsd'];
-		$sphere->grid[] = ['name' => gtext('iSCSI Target'),'link' => 'services_iscsitarget.php','config' => 'iscsitarget','scriptname' => 'iscsi_target'];
-		$sphere->grid[] = ['name' => gtext('CAM Target Layer / iSCSI Target'),'link' => 'services_ctl.php','config' => 'ctld','scriptname' => 'ctld'];
-		$sphere->grid[] = ['name' => gtext('UPS'),'link' => 'services_ups.php','config' => 'ups','scriptname' => $ups_script];
+		$sphere->grid[] = ['name' => gettext('SSH'),'link' => 'services_sshd.php','config' => 'sshd','scriptname' => 'sshd'];
+		$sphere->grid[] = ['name' => gettext('NFS'),'link' => 'services_nfs.php','config' => 'nfsd','scriptname' => 'nfsd'];
+		$sphere->grid[] = ['name' => gettext('iSCSI Target'),'link' => 'services_iscsitarget.php','config' => 'iscsitarget','scriptname' => 'iscsi_target'];
+		$sphere->grid[] = ['name' => gettext('CAM Target Layer / iSCSI Target'),'link' => 'services_ctl.php','config' => 'ctld','scriptname' => 'ctld'];
+		$sphere->grid[] = ['name' => gettext('UPS'),'link' => 'services_ups.php','config' => 'ups','scriptname' => $ups_script];
 	endif;
 	return $sphere;
 }
 $cop = new status_services_properties();
 $sphere = status_services_sphere();
-$pgtitle = [gtext('Status'),gtext('Services')];
+$pgtitle = [gettext('Status'),gettext('Services')];
 $a_col_width = ['70%','10%','10%','10%'];
 $n_col_width = count($a_col_width);
 $document = new_page($pgtitle,$sphere->get_scriptname(),'tablesort');
@@ -99,7 +99,7 @@ $table->ins_colgroup_with_styles('width',$a_col_width);
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $tfoot = $table->addTFOOT();
-$thead->ins_titleline(gtext('Overview'),$n_col_width);
+$thead->ins_titleline(gettext('Overview'),$n_col_width);
 $thead->addTR()->
 	insTHwC('lhell',$cop->get_name()->get_title())->
 	insTHwC('lhelc sorter-false parser-false',$cop->get_enabled()->get_title())->
