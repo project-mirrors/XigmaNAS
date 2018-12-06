@@ -42,7 +42,7 @@ class status_services_properties extends co_property_container_param {
 		$property = $this->x_name = new property_text($this);
 		$property->
 			set_name('name')->
-			set_title(gtext('Service'));
+			set_title(gettext('Service'));
 		return $property;
 	}
 	protected $x_enabled;
@@ -53,7 +53,7 @@ class status_services_properties extends co_property_container_param {
 		$property = $this->x_enabled = new property_text($this);
 		$property->
 			set_name('enabled')->
-			set_title(gtext('Enabled'));
+			set_title(gettext('Enabled'));
 		return $property;
 	}
 	protected $x_status;
@@ -64,7 +64,7 @@ class status_services_properties extends co_property_container_param {
 		$property = $this->x_status = new property_text($this);
 		$property->
 			set_name('status')->
-			set_title(gtext('Status'));
+			set_title(gettext('Status'));
 		return $property;
 	}
 	protected $x_toolbox;
@@ -75,7 +75,7 @@ class status_services_properties extends co_property_container_param {
 		$property = $this->x_toolbox = new property_text($this);
 		$property->
 			set_name('toolbox')->
-			set_title(gtext('Toolbox'));
+			set_title(gettext('Toolbox'));
 		return $property;
 	}
 }
