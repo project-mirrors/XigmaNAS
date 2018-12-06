@@ -146,8 +146,8 @@ ctld_mkconf()
 				--if 'string-length(discovery_auth_group) > 0' \
 					--value-of 'concat("discovery-auth-group ",discovery_auth_group)' --nl \
 				--break \
-				--if 'string-length(discovery_auth_filter) > 0' \
-					--value-of 'concat("discovery-auth-filter ",discovery_auth_filter)' --nl \
+				--if 'string-length(discovery_filter) > 0' \
+					--value-of 'concat("discovery-filter ",discovery_filter)' --nl \
 				--break \
 				--if 'string-length(offload) > 0' \
 					--value-of 'concat("offload ",offload)' --nl \
