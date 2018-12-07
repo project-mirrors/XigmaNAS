@@ -845,7 +845,7 @@ class ctl_lun_edit_properties extends ctl_lun_properties {
 		$property = parent::init_opt_naa();
 		$description = gettext('Specifies LUN NAA identifier.');
 		$placeholder = gettext('NAA Identifier');
-		$regexp = '/^(?:|[0-9a-f]{32})$/i';
+		$regexp = '/^(?:|(?:[0-9a-f]{16}){1,2})$/i';
 		$property->
 			set_id('opt_naa')->
 			set_description($description)->
