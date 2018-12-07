@@ -52,7 +52,8 @@ $g = [
 	'latest_config' => '40',
 	'wireless_regex' => '/^(ndis|wlan|an|ath|bwi|bwn|ipw|iwi|iwn|malo|mwl|ral|wi|wpi|rsu|rum|run|uath|upgt|ural|urtw|urtwn|usie|zyd)/',
 	'default_passwd' => 'xigmanas',
-	'default_ip' => '192.168.1.250'
+	'default_ip' => '192.168.1.250',
+	'zroot' => false
 ];
 //	directory of images.
 $g_img = [

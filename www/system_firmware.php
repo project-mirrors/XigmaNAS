@@ -229,11 +229,11 @@ $savemsg = '';
 $locale = $config['system']['language'] ?? 'en_US';
 
 // Rename firmware file extension regarding the platform.
-if('true' == $g['zroot']) {
+if($g['zroot']):
 	$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
-} else {
+else:
 	$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
-}
+endif;
 
 //	check boot partition
 $part1size = $g_install['part1size_embedded'];
@@ -320,7 +320,7 @@ switch($page_mode):
 					//	move the image so PHP won't delete it
 					move_uploaded_file($_FILES['ulfile']['tmp_name'],$firmware_file);
 					// Skip firmware verify on full, this is preformed by the rc.firmware for tgz file.
-					if('true' !== $g['zroot']):
+					if(!$g['zroot']):
 						if(!verify_xz_file($firmware_file)):
 							$input_errors[] = gtext('The firmware file is corrupt.');
 						endif;

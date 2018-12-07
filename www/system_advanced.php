@@ -407,7 +407,7 @@ $document->render();
 			$node = new co_DOMDocument();
 			$node->c2_checkbox($cop->get_zeroconf(),!empty($pconfig['zeroconf']));
 			$node->c2_checkbox($cop->get_disablefm(),!empty($pconfig['disablefm']));
-			if(('true' == $g['zroot']) || ('full' !== $g['platform'])):
+			if($g['zroot'] || ('full' !== $g['platform'])):
 				$node->c2_checkbox($cop->get_disablefirmwarecheck(),!empty($pconfig['disablefirmwarecheck']));
 			endif;
 			$node->c2_checkbox($cop->get_enabletogglemode(),!empty($pconfig['enabletogglemode']));
