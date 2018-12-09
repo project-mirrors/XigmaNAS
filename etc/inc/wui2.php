@@ -854,7 +854,7 @@ class HTMLMountComboBox2 extends HTMLComboBox2 {
 		$a_mounts = &array_make_branch($config,'mounts','mount');
 		array_sort_key($a_mounts,'devicespecialfile');
 		$options = [];
-		$options[''] = gtext('Must choose one');
+		$options[''] = gettext('Must choose one');
 		foreach($a_mounts as $r_mount):
 			$options[$r_mount['uuid']] = $r_mount['sharename'];
 		endforeach;
@@ -888,7 +888,7 @@ class HTMLLanguageComboBox2 extends HTMLComboBox2 {
 		$options = [];
 		foreach($g_languages as $key => $val):
 			if('auto' == $key):
-				$options[$key] = gtext('Autodetect');
+				$options[$key] = gettext('Autodetect');
 			else:
 				$options[$key] = locale_get_display_name($key,$key);
 			endif;
@@ -1230,7 +1230,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'id' => sprintf('%sdeletebtn',$ctrlname),
 			'name' => sprintf('%sdeletebtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => gtext('Delete'),
+			'value' => gettext('Delete'),
 			'onclick' => sprintf('onclick_delete_%s()',$ctrlname)
 		];
 		$div1->insINPUT($attributes);
@@ -1270,7 +1270,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'id' => sprintf('%saddbtn',$ctrlname),
 			'name' => sprintf('%saddbtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => gtext('Add'),
+			'value' => gettext('Add'),
 			'onclick' => sprintf('onclick_add_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
@@ -1280,7 +1280,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'id' => sprintf('%schangebtn',$ctrlname),
 			'name' => sprintf('%schangebtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => gtext('Change'),
+			'value' => gettext('Change'),
 			'onclick' => sprintf('onclick_change_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
@@ -1375,7 +1375,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'id' => sprintf('%sdeletebtn',$ctrlname),
 			'name' => sprintf('%sdeletebtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => gtext('Delete'),
+			'value' => gettext('Delete'),
 			'onclick' => sprintf('onclick_delete_%s()',$ctrlname)
 		];
 		$div1->insINPUT($attributes);
@@ -1385,13 +1385,13 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 		$attributes = ['id' => sprintf('%sfiletype',$ctrlname),'name' => sprintf('%sfiletype',$ctrlname),'class' => 'formfld'];
 		$select = $div2->addElement('select',$attributes);
 		$attributes = ['value' => '','selected' => 'selected'];
-		$select->addElement('option',$attributes,gtext('All'));
+		$select->addElement('option',$attributes,gettext('All'));
 		$attributes = ['value' => 'A'];
-		$select->addElement('option',$attributes,gtext('Audio'));
+		$select->addElement('option',$attributes,gettext('Audio'));
 		$attributes = ['value' => 'V'];
-		$select->addElement('option',$attributes,gtext('Video'));
+		$select->addElement('option',$attributes,gettext('Video'));
 		$attributes = ['value' => 'P'];
-		$select->addElement('option',$attributes,gtext('Pictures'));
+		$select->addElement('option',$attributes,gettext('Pictures'));
 		//	path input field
 		$attributes = [
 			'type' => 'text',
@@ -1426,7 +1426,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'id' => sprintf('%saddbtn',$ctrlname),
 			'name' => sprintf('%saddbtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => gtext('Add'),
+			'value' => gettext('Add'),
 			'onclick' => sprintf('onclick_add_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
@@ -1436,7 +1436,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'id' => sprintf('%schangebtn',$ctrlname),
 			'name' => sprintf('%schangebtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => gtext('Change'),
+			'value' => gettext('Change'),
 			'onclick' => sprintf('onclick_change_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
