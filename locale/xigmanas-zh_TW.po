@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-29 17:02+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
+"X-Generator: Launchpad (build 18831)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -12159,12 +12159,3 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可見"
-
-#~ msgid "Enter IP Address"
-#~ msgstr "輸入IP地址"
-
-#~ msgid "No disks configured, please add disks to view diagnostic information!"
-#~ msgstr "未配置磁片，請添加磁片以查看診斷資訊！"
-
-#~ msgid "No partition information found."
-#~ msgstr "未找到分區資訊。"

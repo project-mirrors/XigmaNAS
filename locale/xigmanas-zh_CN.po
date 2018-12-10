@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-11-13 01:33+0000\n"
+"PO-Revision-Date: 2018-11-29 17:48+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-29 17:02+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
+"X-Generator: Launchpad (build 18831)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -3903,7 +3903,7 @@ msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "启用收集ZFS ARC使用统计信息。"
 
 msgid "Enable collecting ZFS L2ARC usage statistics."
-msgstr ""
+msgstr "启用收集ZFS L2ARC使用情况统计信息。"
 
 msgid "Enable collecting average system load statistics."
 msgstr "启用收集平均系统负载统计。"
@@ -5075,7 +5075,7 @@ msgid "IPMI Stats"
 msgstr "IPMI统计"
 
 msgid "IPv4 Address"
-msgstr ""
+msgstr "IPv4 地址"
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS服务器"
@@ -6523,7 +6523,7 @@ msgid "Network Adapter"
 msgstr "网络适配器"
 
 msgid "Network Address"
-msgstr ""
+msgstr "网络地址"
 
 msgid "Network File System"
 msgstr "网络文件系统"
@@ -6595,7 +6595,7 @@ msgid "No Extent has been configured."
 msgstr "未配置Extent。"
 
 msgid "No GEOM partition information found."
-msgstr ""
+msgstr "未找到GEOM分区信息。"
 
 msgid "No GEOM vinum information found."
 msgstr "未找到GEOM vinum信息。"
@@ -6631,7 +6631,7 @@ msgid "No RSYNC Client configured."
 msgstr "未配置RSYNC客户端。"
 
 msgid "No additional parameters"
-msgstr ""
+msgstr "没有其他参数"
 
 msgid "No configured Auth Group."
 msgstr "未配置验证组。"
@@ -6643,7 +6643,7 @@ msgid "No configured bridge interfaces."
 msgstr "没有配置网桥接口。"
 
 msgid "No configured disks found."
-msgstr ""
+msgstr "找不到已配置的磁盘。"
 
 msgid "No configured pools."
 msgstr "没有配置池。"
@@ -11921,10 +11921,10 @@ msgid "ZFS Dataset Properties"
 msgstr "ZFS 数据集属性"
 
 msgid "ZFS L2ARC"
-msgstr ""
+msgstr "ZFS L2ARC"
 
 msgid "ZFS L2ARC Usage"
-msgstr ""
+msgstr "ZFS L2ARC使用率"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS池I/O统计"
@@ -12164,12 +12164,3 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可见"
-
-#~ msgid "Enter IP Address"
-#~ msgstr "输入IP地址"
-
-#~ msgid "No disks configured, please add disks to view diagnostic information!"
-#~ msgstr "未配置磁盘，请添加磁盘以查看诊断信息！"
-
-#~ msgid "No partition information found."
-#~ msgstr "未找到分区信息。"

@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-29 17:01+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
+"X-Generator: Launchpad (build 18831)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -13059,14 +13059,3 @@ msgstr "utilizat din"
 
 msgid "visible"
 msgstr "vizibil"
-
-#~ msgid "Enter IP Address"
-#~ msgstr "Introducere adresă IP"
-
-#~ msgid "No disks configured, please add disks to view diagnostic information!"
-#~ msgstr ""
-#~ "Nu aveți niciun disc configurat, va trebui să adăugați un disc pentru a "
-#~ "vedea informațiile de diagnosticare!"
-
-#~ msgid "No partition information found."
-#~ msgstr "Nu au fost găsite informații despre partiție."

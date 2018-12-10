@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-07-06 10:19+0000\n"
-"Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
+"PO-Revision-Date: 2018-12-08 15:16+0000\n"
+"Last-Translator: Franco Fabbri <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-11-29 17:01+0000\n"
-"X-Generator: Launchpad (build 18826)\n"
+"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
+"X-Generator: Launchpad (build 18831)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -106,10 +106,11 @@ msgstr "%s usato di %s"
 msgid ""
 "%s would like to thank the authors of this software for their efforts."
 msgstr ""
+"%s vorrebbe ringraziare gli autori di questo software per i loro sforzi."
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
-msgstr "%s%d %s è attualmente in uso da %s%d."
+msgstr "%s%d %s è già utilizzata da %s%d."
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -634,7 +635,7 @@ msgid "Add WLAN"
 msgstr "Aggiungi WLAN"
 
 msgid "Add WebDAV Record"
-msgstr ""
+msgstr "Aggiungi Record WebDAV"
 
 msgid "Add a cache device to a pool"
 msgstr "Aggiungi un dispositivo cache al pool"
@@ -694,7 +695,7 @@ msgid "Add self-test"
 msgstr "Aggiungi self-test"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "Aggiungi variabile sysctl"
 
 msgid "Add target"
 msgstr "Aggiungi target"
@@ -890,6 +891,8 @@ msgstr "Consenti di creare nuovi files."
 
 msgid "Allow symlinks that point outside user-defined media folders."
 msgstr ""
+"Permetti link simbolici che puntano fuori dalle cartelle definite "
+"dall'utente."
 
 msgid "Allow to start UPS from battery"
 msgstr "Permetti l'avvio da batteria dell'UPS"
@@ -987,6 +990,7 @@ msgstr "Indirizzo IPv4 o IPv6 di un inizializzatore del portale iSCSI"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
+"Un indirizzo IPv4 o IPv6 dove ascoltare per le connessioni in ingresso."
 
 msgid ""
 "An Initiator Group is identified by a tag number and defines authorised "
@@ -2423,7 +2427,7 @@ msgid "Current Password"
 msgstr "Password corrente"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Impostazioni Correnti"
 
 msgid "Current Version"
 msgstr "Versione Attuale"
@@ -2530,7 +2534,7 @@ msgid "Data Integrity"
 msgstr "Integrità dei dati"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tipo di dati"
 
 msgid "Data digest"
 msgstr "Digest dei dati"
@@ -2799,7 +2803,7 @@ msgid "Delete Selected WLANs"
 msgstr "Cancella le WLAN selezionate"
 
 msgid "Delete Selected WebDAV Records"
-msgstr ""
+msgstr "Cancella i Record WebDAV selezionati"
 
 msgid "Delete Selected iSNS Servers"
 msgstr "Cancella i Server iSNS selezionati"
@@ -2950,7 +2954,7 @@ msgid "Detected Language:"
 msgstr "Lingua rilevata:"
 
 msgid "Detected Remote Shares"
-msgstr ""
+msgstr "Condivisioni Remote rilevate"
 
 msgid "Detected an error while importing."
 msgstr "Si è verificato un errore durante l'import."
@@ -3135,7 +3139,7 @@ msgid "Disable Selected Targets"
 msgstr "Disabilita i Target selezionati"
 
 msgid "Disable Selected WebDAV Records"
-msgstr ""
+msgstr "Disabilita i Record WebDAV selezionati"
 
 msgid "Disable Selected iSNS Servers"
 msgstr "Disabilita i server iSNS selezionati"
@@ -3450,7 +3454,7 @@ msgid "Do you want to delete selected WLANs?"
 msgstr "Desideri cancellare le WLAN selezionate?"
 
 msgid "Do you want to delete selected WebDAV records?"
-msgstr ""
+msgstr "Vuoi cancellare i record WebDAV selezionati?"
 
 msgid "Do you want to delete selected auth groups?"
 msgstr "Desideri cancellare  i gruppi di autenticazione selezionati?"
@@ -3556,7 +3560,7 @@ msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr "Vuoi disabilitare gli utenti CHAP Mutual selezionati?"
 
 msgid "Do you want to disable selected WebDAV records?"
-msgstr ""
+msgstr "Vuoi disabilitare i record WebDAV selezionati?"
 
 msgid "Do you want to disable selected auth groups?"
 msgstr "Vuoi disabilitare i gruppi di autenticazione selezionati?"
@@ -3616,7 +3620,7 @@ msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "Desideri abilitare gli utenti Mutual CHAP selezionati?"
 
 msgid "Do you want to enable selected WebDAV records?"
-msgstr ""
+msgstr "Vuoi abilitare i record WebDAV selezionati?"
 
 msgid "Do you want to enable selected auth groups?"
 msgstr "Desideri abilitare i gruppi di autorizzazione selezionati?"
@@ -4535,7 +4539,7 @@ msgstr ""
 "saranno creati automaticamente e aggiunti al bridge."
 
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Inserisci un valore valido."
 
 msgid "Enter additional parameters"
 msgstr ""
@@ -5445,7 +5449,7 @@ msgid "IPMI Stats"
 msgstr "Statistiche IPMI"
 
 msgid "IPv4 Address"
-msgstr ""
+msgstr "Indirizzo IPv4"
 
 msgid "IPv4 DNS Servers"
 msgstr "Lista Server DNS IPv4"
@@ -6623,7 +6627,7 @@ msgid "Media Library"
 msgstr "Raccolta multimediale"
 
 msgid "Media Size"
-msgstr ""
+msgstr "Dimensione del supporto"
 
 msgid "Media library"
 msgstr "Libreria multimediale"
@@ -6985,7 +6989,7 @@ msgid "Network Adapter"
 msgstr "Scheda di rete"
 
 msgid "Network Address"
-msgstr ""
+msgstr "Indirizzo di rete"
 
 msgid "Network File System"
 msgstr "Network File System"
@@ -7141,7 +7145,7 @@ msgid "No file was uploaded."
 msgstr "Nessun file è stato caricato."
 
 msgid "No information available."
-msgstr ""
+msgstr "Nessuna informazione disponibile."
 
 msgid "No new disk found."
 msgstr "Nessun nuovo disco è stato trovato."
@@ -13108,14 +13112,3 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
-
-#~ msgid "Enter IP Address"
-#~ msgstr "Inserire l'indirizzo IP"
-
-#~ msgid "No disks configured, please add disks to view diagnostic information!"
-#~ msgstr ""
-#~ "Nessun disco configurato: per favore aggiungere dischi per vedere le "
-#~ "informazioni diagnostiche!"
-
-#~ msgid "No partition information found."
-#~ msgstr "Nessuna informazione sulla partizione"
