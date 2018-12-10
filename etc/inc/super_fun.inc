@@ -43,6 +43,29 @@ function gtext(string $data = '') {
 function gxmltext(string $data = '') {
 	return xmlspecialchars(gettext($data));
 }
+function unicode_escape_javascript(string $data = '',int $flags = JSON_HEX_QUOT | JSON_HEX_APOS): string {
+	$source = [];
+	$destination = [];
+	if($flags & JSON_HEX_QUOT):
+		$source[] = '"';
+		$destination[] = '\u0022';
+	endif;
+	if($flags & JSON_HEX_AMP):
+		$source[] = '&';
+		$destination[] = '\u0026';
+	endif;
+	if($flags & JSON_HEX_APOS):
+		$source[] = "'";
+		$destination[] = '\u0027';
+	endif;
+	if($flags & JSON_HEX_TAG):
+		$source[] = '<';
+		$destination[] = '\u003c';
+		$source[] = '>';
+		$destination[] = '\u003e';
+	endif;
+	return str_replace($source,$destination,$data);
+}
 function xmlspecialchars(string $data = '') {
 /*
  *	Convert or strip illegal XML characters from UTF-8 string
