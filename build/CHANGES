@@ -8,7 +8,6 @@ Changes:
 - Add mariadb and phpMyAdmin.
 - Add L2ARC size statistics to RRDGraph.
 - Upgrade iperf3 to 3.6.
-- Upgrade msmtp to 1.8.0.
 - Upgrade e2fsprogs to 1.44.4.
 - Upgrade dmidecode to 3.2.
 - Upgrade devcpu-data to 1.20.
@@ -24,6 +23,7 @@ Changes:
 - Upgrade samba to 4.8.7.
 - Upgrade virtualbox-ose to 5.2.22.
 - Upgrade lighttpd to 1.4.52.
+- Upgrade msmtp to 1.8.1.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
