@@ -1,5 +1,5 @@
-PORTNAME=		php72
-PORTVERSION=	7.2.12
+PORTNAME=		php73
+PORTVERSION=	7.3.0
 PORTREVISION=	0
 CATEGORIES=		lang
 COMMENT=		PHP7 Scripting Language
@@ -14,7 +14,7 @@ USE_CXXSTD=		gnu++11
 CPE_PRODUCT=		php
 NO_OPTIONS_SORT=	yes
 
-LIB_DEPENDS=		libpcre.so:devel/pcre
+LIB_DEPENDS=		libpcre2-8.so:devel/pcre2
 LIB_DEPENDS+=		libcurl.so:ftp/curl
 LIB_DEPENDS+=		libmcrypt.so:security/libmcrypt
 LIB_DEPENDS+=		libonig.so:devel/oniguruma
@@ -25,6 +25,7 @@ LIB_DEPENDS+=		libvpx.so:multimedia/libvpx
 LIB_DEPENDS+=		libgmp.so:math/gmp
 LIB_DEPENDS+=		libc-client4.so.9:mail/cclient
 LIB_DEPENDS+=		libicui18n.so:devel/icu
+LIB_DEPENDS+=		libzip.so:archivers/libzip
 
 CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
 USES+=          autoreconf:build
@@ -96,7 +97,7 @@ OPTIONS=	CLI "Build CLI version" on \
 		LINKTHR "Link thread lib (for threaded extensions)" on \
 		ZTS "Force Zend Thread Safety (ZTS) build" off
 
-CONFLICTS=	php56-* php70-* php72-*
+CONFLICTS=	php56-* php70-* php71-* php72-*
 
 .if defined(WITH_DTRACE)
 .if ${OSVERSION} < 900000
@@ -113,7 +114,7 @@ pre-configure:
 	@(cd ${WRKSRC} && ${SETENV} MAKE=${MAKE_CMD} ./buildconf --force)
 
 post-build:
-	@${ECHO_CMD} "PHP_VER=72" > ${WRKDIR}/php.conf
+	@${ECHO_CMD} "PHP_VER=73" > ${WRKDIR}/php.conf
 	@${ECHO_CMD} "PHP_VERSION=${PORTVERSION}" >> ${WRKDIR}/php.conf
 	@${ECHO_CMD} "PHP_SAPI=${PHP_SAPI}" >> ${WRKDIR}/php.conf
 	@${ECHO_CMD} "PHP_EXT_INC=pcre spl" >> ${WRKDIR}/php.conf
@@ -129,8 +130,8 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/php-cgi-websrv ${XIGMANAS_ROOTFS}/${PREFIX}/bin/
 	@${CP} -pv ${FILESDIR}/php.ini ${XIGMANAS_ROOTFS}/${PREFIX}/etc
 
-	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20170718
-	${INSTALL_DATA} ${WRKSRC}/ext/opcache/.libs/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20170718
+	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20180731
+	${INSTALL_DATA} ${WRKSRC}/ext/opcache/.libs/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20180731
 	@${CP} -pv ${FILESDIR}/opcache.ini ${XIGMANAS_ROOTFS}/${PREFIX}/etc/php
 
 .include <bsd.port.mk>
