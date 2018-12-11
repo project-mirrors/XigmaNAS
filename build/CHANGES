@@ -22,7 +22,7 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.22.
 - Upgrade lighttpd to 1.4.52.
 - Upgrade msmtp to 1.8.1.
-- Upgrade php to 7.3.0.
+- Upgrade php to 7.2.13.
 - Upgrade syncthing to 0.14.54.
 
 Fixes:
