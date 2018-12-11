@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2018-12-11 00:27+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -4015,9 +4015,6 @@ msgstr ""
 msgid "Erase Fail Count (chip). This parameter indicates a number of flash erase command failures."
 msgstr ""
 
-msgid "Erase MBR"
-msgstr ""
-
 msgid "Error"
 msgstr ""
 
@@ -5185,6 +5182,9 @@ msgid "Jun"
 msgstr ""
 
 msgid "June"
+msgstr ""
+
+msgid "Keep MBR"
 msgstr ""
 
 msgid "Kernel"
