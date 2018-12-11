@@ -595,10 +595,10 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 			endswitch;
 			switch($a_control['notinitmbr']):
 				case 2:
-					html_checkbox2('notinitmbr',gettext('Erase MBR'),$a_option['notinitmbr'],gettext('Do not erase the Master Boot Record (useful for some RAID controller cards).'),'',false,false);
+					html_checkbox2('notinitmbr',gettext('Keep MBR'),$a_option['notinitmbr'],gettext('Do not erase the Master Boot Record (useful for some RAID controller cards).'),'',false,false);
 					break;
 				case 1:
-					html_checkbox2('notinitmbr',gettext('Erase MBR'),$a_option['notinitmbr'],gettext('Do not erase the Master Boot Record (useful for some RAID controller cards).'),'',false,true);
+					html_checkbox2('notinitmbr',gettext('Keep MBR'),$a_option['notinitmbr'],gettext('Do not erase the Master Boot Record (useful for some RAID controller cards).'),'',false,true);
 				case 0:
 					if(true === $a_option['notinitmbr']):
 						echo '<tr><td></td><td><input name="notinitmbr" type="hidden" value="yes"/></td></tr>',"\n";
