@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-11-29 07:39+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"PO-Revision-Date: 2018-12-11 05:38+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:04+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1123,10 +1123,11 @@ msgstr "Archivmodus."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Sind Sie sicher, dass Sie den Server rebooten wollen?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
-"Sind Sie sicher, dass der Server auf Standard-Einstellungen zurückgesetzt "
-"werden soll?"
+"Sind Sie sicher, dass Sie die Systemeinstellungen auf die Werkseinstellungen "
+"zurücksetzen wollen?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Sind Sie sicher, dass Sie den Server herunterfahren wollen?"
@@ -4654,9 +4655,6 @@ msgid ""
 "command failures."
 msgstr "Anzahl der Flashspeicher Lösch-Fehlversuche"
 
-msgid "Erase MBR"
-msgstr "MBR löschen"
-
 msgid "Error"
 msgstr "Fehler"
 
@@ -6021,6 +6019,9 @@ msgstr "Jun."
 
 msgid "June"
 msgstr "Juni"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Kernel"
@@ -10181,9 +10182,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "Das LAGG Protokoll ist ungültig"
 
-msgid "The LAN IP address will be reset to"
-msgstr "Die Netzwerk-Adresse wird zurückgesetzt zu"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10234,9 +10232,6 @@ msgstr "Die aktuelle Größe hängt von deinen Laufwerken ab."
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "Der Administrator wurde benachrichtigt die Änderungen zu bestätigen."
-
-msgid "The administrator password will be reset to"
-msgstr "Das Administrator-Kennwort wird geändert in"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10965,19 +10960,11 @@ msgid "The server advertises itself as a time server to Windows clients."
 msgstr ""
 "Der Server deklariert sich gegenüber dem Windowsclient als Zeitserver"
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr ""
-"Der Server wird jetzt auf Default-Einstellungen zurückgesetzt und neustarten."
-
 msgid "The server is rebooting now."
 msgstr "Der Server wird jetzt neu gestartet."
 
 msgid "The server is shutting down now."
 msgstr "Der Server wird jetzt heruntergefahren"
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr ""
-"Der Server wird jetzt auf Default-Einstellungen zurückgesetzt und neustarten."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "Der Server wird mit minimale benötigten Parametern gestartet"
@@ -11008,6 +10995,13 @@ msgstr "Der Speicherbereich der der LUN%d abgebildet ist."
 
 msgid "The subject of the email."
 msgstr "Betreff des E-Mail."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
+"Die Systemeinstellungen werden auf die Werkseinstellungen zurückgesetzt und "
+"der Server neu gestartet."
 
 msgid "The tag range is invalid."
 msgstr "Der Eintrag ist ungültig (Wert außerhalb des gültigen Bereichs)"
@@ -13115,8 +13109,14 @@ msgstr "iSCSI Initiator Einstellungen"
 msgid "iSCSI Target"
 msgstr "iSCSI Target"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr "iSCSI Ziel CAM Zielebene"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI -logische ZFS-Partition"
+
+msgid "iSCSI Target istgt"
+msgstr "iSCSI Ziel istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI Zielinformationen und -status"
@@ -13262,3 +13262,22 @@ msgstr "benutzt von"
 
 msgid "visible"
 msgstr "sichtbar"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr ""
+#~ "Sind Sie sicher, dass der Server auf Standard-Einstellungen zurückgesetzt "
+#~ "werden soll?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "MBR löschen"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Das Administrator-Kennwort wird geändert in"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "Der Server wird jetzt auf Default-Einstellungen zurückgesetzt und neustarten."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "Der Server wird jetzt auf Default-Einstellungen zurückgesetzt und neustarten."

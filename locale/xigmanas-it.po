@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-12-08 15:16+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"PO-Revision-Date: 2018-12-10 23:48+0000\n"
 "Last-Translator: Franco Fabbri <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -1107,8 +1107,9 @@ msgstr "Modalità archivio"
 msgid "Are you sure you want to reboot the server?"
 msgstr "Sei sicuro di voler riavviare il server?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "Sei sicuro di voler ripristinare il server ai valori di fabbrica?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Sei sicuro di voler spegnere il server?"
@@ -3973,7 +3974,7 @@ msgid "Edit WLAN"
 msgstr "Modifica WLAN"
 
 msgid "Edit WebDAV Record"
-msgstr ""
+msgstr "Edita il record WebDav"
 
 msgid "Edit auth group"
 msgstr "Modifica auth group"
@@ -4012,7 +4013,7 @@ msgid "Edit self-test"
 msgstr "Modifica l'auto-test"
 
 msgid "Edit sysctl variable"
-msgstr ""
+msgstr "Edita la variabile sysctl"
 
 msgid "Edit target"
 msgstr "Modifica Target"
@@ -4155,7 +4156,7 @@ msgid "Enable Selected Targets"
 msgstr "Attiva gli obiettivi selezionati"
 
 msgid "Enable Selected WebDAV Records"
-msgstr ""
+msgstr "Abilita i record WebDav selezionati"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "Attiva i server iSNS selezionati"
@@ -4207,7 +4208,7 @@ msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Attiva raccolta della statistica dell'utilizzo della ZFS ARC."
 
 msgid "Enable collecting ZFS L2ARC usage statistics."
-msgstr ""
+msgstr "Abilita la raccolta delle statistiche d'uso di ZFS L2ARC"
 
 msgid "Enable collecting average system load statistics."
 msgstr "Attiva raccolta della statistica del carico medio del sistema."
@@ -4389,7 +4390,7 @@ msgid "Enable white background graphs. (black as default)"
 msgstr "Attiva lo sfondo binaco per i grafici. (nero di default)"
 
 msgid "Enable wide-links support."
-msgstr ""
+msgstr "Abilita il supporto per wide-links"
 
 msgid "Enable write cache mode."
 msgstr "Abilità la modalità write cache."
@@ -4542,7 +4543,7 @@ msgid "Enter a valid value."
 msgstr "Inserisci un valore valido."
 
 msgid "Enter additional parameters"
-msgstr ""
+msgstr "Inserisci parametri aggiuntivi"
 
 msgid "Enter an iSCSI initiator name."
 msgstr "Inserire un inizializzatore del nome iSCSI."
@@ -4625,6 +4626,8 @@ msgstr ""
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
 msgstr ""
+"Inserisci il percorso della directory Home per i database e i file di "
+"configurazione"
 
 msgid ""
 "Enter the path to the database directory. The config files will be created "
@@ -4672,9 +4675,6 @@ msgid ""
 msgstr ""
 "Numero di cancellazioni errate (del chip). Questo parametro indica quante "
 "volte il comando di cancellazione della flash non è andato a buon fine"
-
-msgid "Erase MBR"
-msgstr "Cancella MBR"
 
 msgid "Error"
 msgstr "Errore"
@@ -4896,6 +4896,8 @@ msgstr "File"
 msgid ""
 "File (default) - use a ._ AppleDouble file compatible with OS X and Netatalk."
 msgstr ""
+"File(default) - utilizzare  un file  ._AppleDouble  compatibile con OS X e "
+"Netatalk"
 
 msgid "File Editor"
 msgstr "Editor di file"
@@ -5642,7 +5644,7 @@ msgid "Import using GPT labels"
 msgstr "Importa usando le etichette GPT"
 
 msgid "Imported Users"
-msgstr ""
+msgstr "Utenti importati"
 
 msgid "In"
 msgstr "Ingresso"
@@ -5657,6 +5659,8 @@ msgstr "In modalità 'slave' è il nome (Identifier) dell'UPS 'master'."
 msgid ""
 "In this directory, you can create a %s file with your additional parameters."
 msgstr ""
+"In questa directory potete creare un file %s  con i vostri parametri "
+"aggiuntivi"
 
 msgid "In/Out Errors"
 msgstr "Errore In/Out"
@@ -6022,6 +6026,9 @@ msgstr "Giu"
 msgid "June"
 msgstr "Giugno"
 
+msgid "Keep MBR"
+msgstr ""
+
 msgid "Kernel"
 msgstr "Kernel"
 
@@ -6295,9 +6302,12 @@ msgid ""
 "Load driver automatically when GELI devices have been defined in the "
 "configuration file and the instruction set is supported."
 msgstr ""
+"carica il driver automaticamente quando i dispositivi GELI sono stati "
+"definiti nel file di configurazione e il set di istruzioni è supportato."
 
 msgid "Load driver during boot when the instruction set is supported."
 msgstr ""
+"Carica il driver durante il boot quando il set di istruzioni è supportato"
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr ""
@@ -6467,7 +6477,7 @@ msgid "Maintenance"
 msgstr "Manutenzione"
 
 msgid "Maintenance Tool Settings"
-msgstr ""
+msgstr "Configurazione dei tool di manutenzione"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Assicurarsi di selezionare il numero ottimale di devices"
@@ -6856,7 +6866,7 @@ msgid "Mutual User"
 msgstr ""
 
 msgid "NAA Identifier"
-msgstr ""
+msgstr "Identificatore NAA"
 
 msgid "NFS"
 msgstr "NFS"
@@ -6914,30 +6924,30 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Name of the Auth Group."
-msgstr ""
+msgstr "Name del gruppo Auth (autenticazione)"
 
 msgid "Name of the LUN."
-msgstr ""
+msgstr "Nome di LUN"
 
 #, php-format
 msgid "Name of the NAS host, without domain part e.g. %s."
 msgstr "Nome dell'host NAS, senza la parte del dominio es %s."
 
 msgid "Name of the Portal Group."
-msgstr ""
+msgstr "Nome del gruppo Portal"
 
 msgid "Name of the WebDAV Record."
-msgstr ""
+msgstr "Nome del  Record WebDAV"
 
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Nome della periferica usata per lo swap, ad es. %s."
 
 msgid "Name of the option."
-msgstr ""
+msgstr "Nome dell'opzione"
 
 msgid "Name of the port."
-msgstr ""
+msgstr "Nome della porta"
 
 msgid ""
 "Name of the server. If this field is left empty the default server is "
@@ -6947,7 +6957,7 @@ msgstr ""
 "default."
 
 msgid "Name of the target."
-msgstr ""
+msgstr "Nome del target"
 
 msgid "Name of the variable."
 msgstr "Nome della variabile"
@@ -6971,10 +6981,10 @@ msgid "NetBIOS Name"
 msgstr "Nome NetBIOS"
 
 msgid "Netatalk (default) - use Netatalk compatible xattr."
-msgstr ""
+msgstr "Netatalk (default) - utilizzare xattr compatibile con Netatalk"
 
 msgid "Netatalk - use cross protocol locking with Netatalk."
-msgstr ""
+msgstr "Netatalk - utilizzare cross protocol locking con Netatalk."
 
 msgid "Netgraph"
 msgstr "Netgraph"
@@ -7067,10 +7077,10 @@ msgid "No Extent has been configured."
 msgstr "Nessun Extent configurato."
 
 msgid "No GEOM partition information found."
-msgstr ""
+msgstr "Nessuna informazione di partizione GEOM è stata trovata"
 
 msgid "No GEOM vinum information found."
-msgstr ""
+msgstr "Nessuna informazione GEOM vinum è stata trovata"
 
 msgid "No IPMI FRU data available."
 msgstr "Nessun dato IPMI FRU disponibile"
@@ -7082,7 +7092,7 @@ msgid "No Initiator Group has been configured."
 msgstr "Nessun Initiatior Group configurato."
 
 msgid "No JBOD information found."
-msgstr ""
+msgstr "Nessuna informazione JOBD  è stata trovata"
 
 msgid "No Parity"
 msgstr "Nessuna parità"
@@ -7091,19 +7101,19 @@ msgid "No Portal Group has been configured."
 msgstr "Nessun Portal Group configurato."
 
 msgid "No RAID0 information found."
-msgstr ""
+msgstr "Nessuna informazione RAID0  è stata trovata"
 
 msgid "No RAID1 information found."
-msgstr ""
+msgstr "Nessuna informazione RAID1 è stata trovata"
 
 msgid "No RAID5 information found."
-msgstr ""
+msgstr "Nessuna informazione RAID5 è stata trovata"
 
 msgid "No RSYNC Client configured."
 msgstr "Nessun client RSYNC configurato"
 
 msgid "No additional parameters"
-msgstr ""
+msgstr "Nessun parametro addizionale"
 
 msgid "No configured Auth Group."
 msgstr "Nessun Auth Group configurato."
@@ -7115,7 +7125,7 @@ msgid "No configured bridge interfaces."
 msgstr "Nessuna interfaccia bridge configurata."
 
 msgid "No configured disks found."
-msgstr ""
+msgstr "Nessun disco configurato"
 
 msgid "No configured pools."
 msgstr "Nessun pool configurato."
@@ -7124,7 +7134,7 @@ msgid "No configured virtual devices."
 msgstr "Nessuna virtual device configurata."
 
 msgid "No dataset information available."
-msgstr ""
+msgstr "Nessuna informazione di dataset è disponibile."
 
 msgid "No devices have been selected"
 msgstr "Nessuna device selezionata."
@@ -7169,7 +7179,7 @@ msgid "No records found."
 msgstr "Nessuna registrazione trovata"
 
 msgid "No snapshot information available."
-msgstr ""
+msgstr "Nessuna informazione di snapshot."
 
 msgid "No softraid-formatted disks available."
 msgstr "Nessun disco formattato come softraid disponibile."
@@ -7187,7 +7197,7 @@ msgid "No virtual devices have been selected"
 msgstr "Nessuna virtual device selezionata."
 
 msgid "No volume information available."
-msgstr ""
+msgstr "Nessuna informazione di volume disponibile."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - eredita solo le voci deny"
@@ -7610,7 +7620,7 @@ msgid "Passthrough - Inherit all entries"
 msgstr "Passthrough - Eredita tutti gli elementi"
 
 msgid "Passthrough Address"
-msgstr ""
+msgstr "Indirizzo di Passthrough"
 
 msgid "Passthrough-X - Inherit all but \"execute\" when not specified"
 msgstr "Passthrough - X - Eredita tutte le proprietà tranne \"execute\""
@@ -7712,10 +7722,10 @@ msgid "Permit Root Login"
 msgstr "Consenti login come Root"
 
 msgid "Permit access without authentication"
-msgstr ""
+msgstr "Permetti accesso senza autenticazione"
 
 msgid "Permit discovery without authentication"
-msgstr ""
+msgstr "Permetti la ricerca senza autenticazione"
 
 msgid "Permit to do SSH Tunneling."
 msgstr "Permetti di fare tunneling SSH."
@@ -7817,7 +7827,7 @@ msgstr ""
 "Attenzione che gli spazi vuoti nei nomi di percorso non sono permessi."
 
 msgid "Please read the documentation"
-msgstr ""
+msgstr "Per favore leggi la documentazione"
 
 msgid "Polling Time"
 msgstr "Tempo di votazione"
@@ -7881,37 +7891,38 @@ msgid "Port Forwarding"
 msgstr "Inoltro porta"
 
 msgid "Port Name"
-msgstr ""
+msgstr "Nome della porta"
 
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr ""
 "Il numero porta deve essere 514 oppure un numero compreso tra 1024 e 49151."
 
 msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr ""
+msgstr "Il numero della porta deve essere 69 o un numero tra 1024 e 49151"
 
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "Il numero della porta deve essere tra %d e %d."
 
 msgid "Port number of the iSNS server."
-msgstr ""
+msgstr "Numero della porta del server iSNS"
 
 msgid "Port of the TFTP service. Leave blank to use the default port."
 msgstr ""
+"Porta del servizio TFTP. Lasciare vuoto per usare la porta di default"
 
 msgid ""
 "Port of the remote syslog server. Leave blank to use the default port."
 msgstr "Porta del syslog server remoto. Lasciare vuoto per la porta default."
 
 msgid "Port record is locked"
-msgstr ""
+msgstr "Il record della porta è bloccato"
 
 msgid "Port record is marked for deletion"
-msgstr ""
+msgstr "Il record della porta è segnato per essere cancellato"
 
 msgid "Port record is unlocked"
-msgstr ""
+msgstr "Il record della porta è sbloccato"
 
 #, php-format
 msgid "Port to listen for incoming peer connections. (Default is %d)."
@@ -7937,19 +7948,19 @@ msgid "Portal Group"
 msgstr "Gruppo portale"
 
 msgid "Portal Group Name"
-msgstr ""
+msgstr "Nome del gruppo Portal"
 
 msgid "Portal Group Settings"
 msgstr "Settaggi del gruppo Portale"
 
 msgid "Portal Group is locked"
-msgstr ""
+msgstr "Il gruppo Portal è bloccato"
 
 msgid "Portal Group is marked for deletion"
-msgstr ""
+msgstr "Il gruppo Portal è segnato per essere cancellato"
 
 msgid "Portal Group is unlocked"
-msgstr ""
+msgstr "Il gruppo della porta è sbloccato"
 
 msgid "Portal Groups"
 msgstr "Gruppi portale"
@@ -8040,6 +8051,8 @@ msgid ""
 "Private (default) - store characters as encoded by the OS X client: mapped "
 "to the Unicode private range."
 msgstr ""
+"Private (default) - memorizza caratteri così come codififcato dal client OS "
+"X: mappati sul private Range di Unicode"
 
 msgid "Private Key"
 msgstr "Chiave Privata"
@@ -10109,9 +10122,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "Il protocollo LAGG non è valido."
 
-msgid "The LAN IP address will be reset to"
-msgstr "L'indirizzo IP LAN sarà settato a"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10164,9 +10174,6 @@ msgstr "La dimensione attuale dipende dai dischi."
 msgid "The administrator has been notified to apply your changes."
 msgstr ""
 "L'amministratore è stato avvisato di apportare le modifiche richieste."
-
-msgid "The administrator password will be reset to"
-msgstr "La password amministratore sarà settata a"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10863,17 +10870,11 @@ msgstr "La porta seriale o USB dove il secondo UPS è conensso."
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "Il server si pubblica come time server per i client Windows."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "Il server è resettato ai valori iniziali e sarà riavviato."
-
 msgid "The server is rebooting now."
 msgstr "Il server si sta riavviando ora."
 
 msgid "The server is shutting down now."
 msgstr ""
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "Il server sarà resettato ai valori iniziali e sarà riavviato."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr ""
@@ -10902,6 +10903,11 @@ msgstr "L'area di immagazzinamento mappato verso il LUN%d."
 
 msgid "The subject of the email."
 msgstr "L'oggetto della email."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "Il valore del tag non è valido."
@@ -12968,8 +12974,14 @@ msgstr "Settaggi dell'inizializzatore iSCSI"
 msgid "iSCSI Target"
 msgstr "Target iSCSI"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Target Logical Unit Controller"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Informazioni e stato dell'obiettivo iSCSI"
@@ -13112,3 +13124,18 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "Sei sicuro di voler ripristinare il server ai valori di fabbrica?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Cancella MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "La password amministratore sarà settata a"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "Il server è resettato ai valori iniziali e sarà riavviato."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "Il server sarà resettato ai valori iniziali e sarà riavviato."

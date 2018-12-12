@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-07-06 09:53+0000\n"
 "Last-Translator: Stefan Vasilev <sadefa@abv.bg>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:04+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: BULGARIA\n"
 "Language: \n"
 "X-Poedit-Language: Bulgarian\n"
@@ -1049,7 +1049,8 @@ msgstr "Режим архив."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Сигурен ли сте, че искате да рестартирате сървъра?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
@@ -4436,9 +4437,6 @@ msgid ""
 "command failures."
 msgstr ""
 
-msgid "Erase MBR"
-msgstr ""
-
 msgid "Error"
 msgstr "Грешка"
 
@@ -5692,6 +5690,9 @@ msgid "Jun"
 msgstr ""
 
 msgid "June"
+msgstr ""
+
+msgid "Keep MBR"
 msgstr ""
 
 msgid "Kernel"
@@ -9583,9 +9584,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr ""
 
-msgid "The LAN IP address will be reset to"
-msgstr ""
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -9628,9 +9626,6 @@ msgid "The actual size is depend on your disks."
 msgstr ""
 
 msgid "The administrator has been notified to apply your changes."
-msgstr ""
-
-msgid "The administrator password will be reset to"
 msgstr ""
 
 #, php-format
@@ -10227,16 +10222,10 @@ msgstr ""
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr ""
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr ""
-
 msgid "The server is rebooting now."
 msgstr ""
 
 msgid "The server is shutting down now."
-msgstr ""
-
-msgid "The server will be reset to factory defaults and will reboot."
 msgstr ""
 
 msgid "The server will be started with the minimum required parameters."
@@ -10263,6 +10252,11 @@ msgid "The storage area mapped to LUN%d."
 msgstr ""
 
 msgid "The subject of the email."
+msgstr ""
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
 msgstr ""
 
 msgid "The tag range is invalid."
@@ -12087,7 +12081,13 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "iSCSI цел"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
+msgstr ""
+
+msgid "iSCSI Target istgt"
 msgstr ""
 
 msgid "iSCSI Targets Information & Status"

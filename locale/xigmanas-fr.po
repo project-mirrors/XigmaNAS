@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-12-03 18:34+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"PO-Revision-Date: 2018-12-11 05:10+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -1110,9 +1110,11 @@ msgstr "Mode archive."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Etes-vous sûr de vouloir redémarrer le serveur?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
-"Voulez-vous vraiment réinitialiser le serveur avec les valeurs par défaut?"
+"Êtes-vous sûr de vouloir réinitialiser la configuration du système avec les "
+"paramètres d'usine?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Êtes-vous sûr de vouloir arrêter le serveur?"
@@ -4701,9 +4703,6 @@ msgstr ""
 "Erase Fail Count (puce). Ce paramètre indique un certain nombre d'échecs de "
 "la commande d'effacement du flash."
 
-msgid "Erase MBR"
-msgstr "Effacer MBR"
-
 msgid "Error"
 msgstr "Erreur"
 
@@ -6075,6 +6074,9 @@ msgstr "Juin"
 
 msgid "June"
 msgstr "Juin"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Noyau (kernel)"
@@ -10239,9 +10241,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "Le protocole LAGG n'est pas valide."
 
-msgid "The LAN IP address will be reset to"
-msgstr "L'adresse IP du LAN sera réinitialisée à"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10295,9 +10294,6 @@ msgstr "La taille réelle dépend de vos disques."
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "L'administrateur a été notifié afin d'appliquer vos changements."
-
-msgid "The administrator password will be reset to"
-msgstr "Le mot de passe administrateur sera réinitialisé à"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -11022,18 +11018,11 @@ msgid "The server advertises itself as a time server to Windows clients."
 msgstr ""
 "Le serveur se présente comme un serveur de temps pour les clients Windows."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr ""
-"Le serveur est maintenant réinitialisé aux valeurs par défaut et redémarre."
-
 msgid "The server is rebooting now."
 msgstr "Le serveur redémarre maintenant"
 
 msgid "The server is shutting down now."
 msgstr "Le serveur s'arrête maintenant."
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "Le serveur sera réinitialisé aux valeurs par défaut et redémarrera."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "Le serveur sera démarré avec les paramètres minimum requis."
@@ -11061,6 +11050,13 @@ msgstr "La zone de stockage attachée à LUN%d."
 
 msgid "The subject of the email."
 msgstr "Sujet de l'e-mail."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
+"La configuration système est réinitialisée avec les paramètres d'usine et le "
+"serveur est redémarré."
 
 msgid "The tag range is invalid."
 msgstr "La valeur de tag est invalide."
@@ -13150,8 +13146,14 @@ msgstr "Paramètres de l'initiateur iSCSI"
 msgid "iSCSI Target"
 msgstr "Cible iSCSI"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr "Cible iscsi CAM"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Target Logical Unit Controller"
+
+msgid "iSCSI Target istgt"
+msgstr "Cible iscsi istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Information & Statut des cibles ISCSI"
@@ -13299,3 +13301,20 @@ msgstr "utilisé de"
 
 msgid "visible"
 msgstr "visible"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr ""
+#~ "Voulez-vous vraiment réinitialiser le serveur avec les valeurs par défaut?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Effacer MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Le mot de passe administrateur sera réinitialisé à"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "Le serveur est maintenant réinitialisé aux valeurs par défaut et redémarre."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "Le serveur sera réinitialisé aux valeurs par défaut et redémarrera."

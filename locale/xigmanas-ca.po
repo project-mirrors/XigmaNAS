@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-11-30 05:42+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:04+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: ca_ES\n"
 
 msgid " interfaces:"
@@ -1109,9 +1109,9 @@ msgstr "Modo arxiu"
 msgid "Are you sure you want to reboot the server?"
 msgstr "Esteu segur que voleu reiniciar el servidor?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
-"Esteu segur que voleu reiniciar el servidor als paràmetres de fàbrica?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Esteu segur que voleu apagar el servidor?"
@@ -4679,9 +4679,6 @@ msgstr ""
 "Esborrar recompte d'errors (xip). Aquest paràmetre indica el nombre d'errors "
 "del esborrat de la flash."
 
-msgid "Erase MBR"
-msgstr "Esborra MBR"
-
 msgid "Error"
 msgstr "Error"
 
@@ -6053,6 +6050,9 @@ msgstr "Jun"
 
 msgid "June"
 msgstr "Juny"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Nucli"
@@ -10217,9 +10217,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "El protocol Lagg no és vàlid."
 
-msgid "The LAN IP address will be reset to"
-msgstr "L'adreça IP de la LAN es restablirà a"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10273,9 +10270,6 @@ msgstr "La capacitat actual depen dels discos."
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "L'administrador ha estat notificat per aplicar els canvis."
-
-msgid "The administrator password will be reset to"
-msgstr "La contrasenya d'administrador es restablirà a"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10986,19 +10980,11 @@ msgid "The server advertises itself as a time server to Windows clients."
 msgstr ""
 "El servidor s'anuncia com un servidor de temps per als clients de Windows."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr ""
-"El servidor s'ha restablert als valors per defecte de fàbrica i es "
-"reiniciarà."
-
 msgid "The server is rebooting now."
 msgstr "El servidor es reinicia ara."
 
 msgid "The server is shutting down now."
 msgstr "El servidor s'està tancant ara."
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "El servidor es restablirà als valors de fàbrica i es reiniciarà."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "El servidor començarà amb els paràmetres mínims requerits."
@@ -11027,6 +11013,11 @@ msgstr "L'àrea d'emmagatzematge assignada a LUN %d."
 
 msgid "The subject of the email."
 msgstr "L'assumpte del correu electrònic."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "El rang de l'etiqueta no és vàlid."
@@ -13107,8 +13098,14 @@ msgstr "Configuració de l'iniciador iSCSI"
 msgid "iSCSI Target"
 msgstr "Objetiu iSCSI"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Controlador objectiu d'unitat lògica"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Informació destinacions iSCSI i estat"
@@ -13253,3 +13250,21 @@ msgstr "usat de"
 
 msgid "visible"
 msgstr "visible"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr ""
+#~ "Esteu segur que voleu reiniciar el servidor als paràmetres de fàbrica?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Esborra MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "La contrasenya d'administrador es restablirà a"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "El servidor s'ha restablert als valors per defecte de fàbrica i es "
+#~ "reiniciarà."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "El servidor es restablirà als valors de fàbrica i es reiniciarà."

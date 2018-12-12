@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-11-29 17:48+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:06+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1006,8 +1006,9 @@ msgstr "存档模式。"
 msgid "Are you sure you want to reboot the server?"
 msgstr "是否确定重启系统？"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "你确定要重置服务器到出厂设置？"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "是否确定关闭系统？"
@@ -4326,9 +4327,6 @@ msgid ""
 "command failures."
 msgstr "擦除失败计数（芯片）。 此参数指示闪存擦除命令失败的次数。"
 
-msgid "Erase MBR"
-msgstr "擦除MBR"
-
 msgid "Error"
 msgstr "错误"
 
@@ -5587,6 +5585,9 @@ msgstr "6月"
 
 msgid "June"
 msgstr "6 月"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "内核"
@@ -9499,9 +9500,6 @@ msgstr "由于接口名称已经存在，无法添加LAGG接口。"
 msgid "The LAGG protocol is invalid."
 msgstr "LAGG协议无效。"
 
-msgid "The LAN IP address will be reset to"
-msgstr "LAN IP地址将被重置为"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -9545,9 +9543,6 @@ msgstr "实际大小取决于您的磁盘。"
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "已通知管理员应用您的更改。"
-
-msgid "The administrator password will be reset to"
-msgstr "管理员密码将重置为"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10151,17 +10146,11 @@ msgstr "第二个UPS连接的串行或USB端口。"
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "向Windows客户端广播本时间服务器。"
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "服务器现在重置为出厂默认值，并将重新启动。"
-
 msgid "The server is rebooting now."
 msgstr "服务器正在重启。"
 
 msgid "The server is shutting down now."
 msgstr "服务器现在正在关闭。"
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "服务器将被重置为出厂默认值，并将重新启动。"
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "将使用所需的最低参数启动服务器。"
@@ -10188,6 +10177,11 @@ msgstr "储存区域映射到 LUN%d 。"
 
 msgid "The subject of the email."
 msgstr "电子邮件主题。"
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "此标签范围无效。"
@@ -12020,8 +12014,14 @@ msgstr "iSCSI启动器设置"
 msgid "iSCSI Target"
 msgstr "iSCSI 目标器"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 目标逻辑单元控制器（iSCSI Target Logical Unit Controller）"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI 目标器信息和状态"
@@ -12164,3 +12164,18 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可见"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "你确定要重置服务器到出厂设置？"
+
+#~ msgid "Erase MBR"
+#~ msgstr "擦除MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "管理员密码将重置为"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "服务器现在重置为出厂默认值，并将重新启动。"
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "服务器将被重置为出厂默认值，并将重新启动。"

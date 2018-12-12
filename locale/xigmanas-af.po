@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:04+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 
 msgid " interfaces:"
 msgstr " koppelvlakke:"
@@ -1088,9 +1088,9 @@ msgstr "Argief mode."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Is jy seker dat jy die bediener wil herlaai?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
-"Is jy seker dat jy die bediener na fabriek standaard toe wil herstel?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Is jy seker dat jy die bediener wil afsit?"
@@ -4561,9 +4561,6 @@ msgstr ""
 "Vee Probleem Telling uit (skyfie). Hierdie eienskap wys die hoeveelheid "
 "flits-uitvee opdrag mislukkings uit."
 
-msgid "Erase MBR"
-msgstr "Wis MBR uit"
-
 msgid "Error"
 msgstr "Fout"
 
@@ -5892,6 +5889,9 @@ msgstr "Jun"
 
 msgid "June"
 msgstr "Junie"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Kernel"
@@ -9936,9 +9936,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr ""
 
-msgid "The LAN IP address will be reset to"
-msgstr "Die LAN IP adres sal terug gestel word na"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -9990,9 +9987,6 @@ msgstr ""
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "Die adminstrateur is in kennis gestel om jou veranderinge toe te pas"
-
-msgid "The administrator password will be reset to"
-msgstr "Die adminstrateur wagwoord sal gestel word na"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10677,18 +10671,11 @@ msgid "The server advertises itself as a time server to Windows clients."
 msgstr ""
 "Die bediener adverteer homself aan Windows kliënte as 'n tyd bediener."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "Die bediener is nou herstel na fabriek standaard en sal nou herlaai."
-
 msgid "The server is rebooting now."
 msgstr "Die bediener herlaai tans."
 
 msgid "The server is shutting down now."
 msgstr ""
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr ""
-"Die bediener sal na fabriek standaard herstel word en sal dan herlaai."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr ""
@@ -10715,6 +10702,11 @@ msgstr "Die stoor area afgebeeld tot LUN%d"
 
 msgid "The subject of the email."
 msgstr "Die onderwerp van die epos."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "Die etiket omvangs is ongeldig."
@@ -12654,8 +12646,14 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "iSCSI Teiken"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Teiken Logiese Eenheid Beheerder"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI Teikens Inligting en Status"
@@ -12798,3 +12796,20 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr ""
+#~ "Is jy seker dat jy die bediener na fabriek standaard toe wil herstel?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Wis MBR uit"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Die adminstrateur wagwoord sal gestel word na"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "Die bediener is nou herstel na fabriek standaard en sal nou herlaai."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "Die bediener sal na fabriek standaard herstel word en sal dan herlaai."

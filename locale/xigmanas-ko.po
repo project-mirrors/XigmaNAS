@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -1025,8 +1025,9 @@ msgstr "보존 모드."
 msgid "Are you sure you want to reboot the server?"
 msgstr "서버를 재시동하시겠습니까?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "서버를 공장 초기값으로 설정하시겠습니까?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "서버를 종료하시겠습니까?"
@@ -4378,9 +4379,6 @@ msgid ""
 "command failures."
 msgstr "지우기 실패 횟수(칩). 이 인자는 플래시 지우기 명령 실패의 수를 표시합니다."
 
-msgid "Erase MBR"
-msgstr "MBR 지우기"
-
 msgid "Error"
 msgstr "에러"
 
@@ -5656,6 +5654,9 @@ msgstr "6월"
 
 msgid "June"
 msgstr "6월"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "커널"
@@ -9582,9 +9583,6 @@ msgstr "LAG 그룹 이름이 이미 존재해서 LAG 그룹을 추가할 수 없
 msgid "The LAGG protocol is invalid."
 msgstr "LAG 그룹 프로토콜이 올바르지 않습니다."
 
-msgid "The LAN IP address will be reset to"
-msgstr "LAN IP 주소가 다음으로 설정됩니다"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -9628,9 +9626,6 @@ msgstr "실제 크기는 디스크에 의존적입니다."
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "변경 내용을 적용하라는 당신의 공지를 관리자가 받았습니다."
-
-msgid "The administrator password will be reset to"
-msgstr "관리자 암호가 다음으로 설정됩니다"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10238,17 +10233,11 @@ msgstr "두 번째 UPS가 연결된 직렬 포트 또는 USB 포트."
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "Windows 클라이언트에 서버 자신을 시간 서버로 알립니다."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "지금 서버가 공장 초기값으로 재설정되고 재시동 됩니다."
-
 msgid "The server is rebooting now."
 msgstr "지금 서버가 재시동 중입니다."
 
 msgid "The server is shutting down now."
 msgstr ""
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "서버가 공장 초기값으로 재설정되고 재시동될 것입니다."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr ""
@@ -10275,6 +10264,11 @@ msgstr "저장 영역이 LUN%d으(로) mapping 되었습니다."
 
 msgid "The subject of the email."
 msgstr "전자우편의 제목."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "태그 범위가 무효합니다."
@@ -12140,8 +12134,14 @@ msgstr "iSCSI 초기자 설정"
 msgid "iSCSI Target"
 msgstr "iSCSI 타겟"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 타겟 논리 유닛 컨트롤러"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI 타겟 정보 및 상태"
@@ -12284,3 +12284,18 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "서버를 공장 초기값으로 설정하시겠습니까?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "MBR 지우기"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "관리자 암호가 다음으로 설정됩니다"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "지금 서버가 공장 초기값으로 재설정되고 재시동 됩니다."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "서버가 공장 초기값으로 재설정되고 재시동될 것입니다."

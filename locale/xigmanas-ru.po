@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-11-29 04:18+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:06+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -1100,8 +1100,9 @@ msgstr "Включить режим архивирования"
 msgid "Are you sure you want to reboot the server?"
 msgstr "Вы уверены, что хотите перезагрузить сервер?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "Вы уверены, что хотите сбросить сервер к заводским установкам?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Вы уверены, что хотите выключить сервер?"
@@ -4643,9 +4644,6 @@ msgstr ""
 "Erase Fail Count (chip). Этот параметр указывает на количество отказов "
 "команд стирания флэш."
 
-msgid "Erase MBR"
-msgstr "Стирание MBR"
-
 msgid "Error"
 msgstr "Ошибка"
 
@@ -6006,6 +6004,9 @@ msgstr "июн."
 
 msgid "June"
 msgstr "июня"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Ядро"
@@ -10147,9 +10148,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "Протокол LAGG недействителен."
 
-msgid "The LAN IP address will be reset to"
-msgstr "LAN IP-адрес будет сброшен в"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10201,9 +10199,6 @@ msgstr "Фактический размер зависит от ваших ди�
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "Администратор был уведомлен о применении изменений."
-
-msgid "The administrator password will be reset to"
-msgstr "Пароль администратора будет сброшен в"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10909,17 +10904,11 @@ msgstr "Последовательный или USB-порт, к котором�
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "Представляться сервером точного времени для Windows клиентов"
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "Сервер сейчас восстановит заводские настройки и перезагрузится."
-
 msgid "The server is rebooting now."
 msgstr "Сервер сейчас перезагружается."
 
 msgid "The server is shutting down now."
 msgstr "Сервер выключается."
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "Сервер будет возвращен к заводским установкам и перезагрузится."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "Сервер будет запущен с минимально необходимыми параметрами."
@@ -10946,6 +10935,11 @@ msgstr "Область хранилища, сопоставленная с LUN%d
 
 msgid "The subject of the email."
 msgstr "Тема письма."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "Диапазон меток задан некорректно."
@@ -13025,8 +13019,14 @@ msgstr "Настройки iSCSI инициатора"
 msgid "iSCSI Target"
 msgstr "iSCSI"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Цели iSCSI Logical Unit Controller"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Информация и статус iSCSI Targets"
@@ -13174,3 +13174,18 @@ msgstr "использовано из"
 
 msgid "visible"
 msgstr "показать"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "Вы уверены, что хотите сбросить сервер к заводским установкам?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Стирание MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Пароль администратора будет сброшен в"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "Сервер сейчас восстановит заводские настройки и перезагрузится."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "Сервер будет возвращен к заводским установкам и перезагрузится."

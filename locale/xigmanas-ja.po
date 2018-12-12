@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-07-07 23:17+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -1020,8 +1020,9 @@ msgstr "アーカイブモード"
 msgid "Are you sure you want to reboot the server?"
 msgstr "サーバを再起動してもよろしいですか？"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "工場出荷設定にリセットしてもよろしいですか？"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "サーバをシャットダウンしてもよろしいですか？"
@@ -4349,9 +4350,6 @@ msgid ""
 "command failures."
 msgstr ""
 
-msgid "Erase MBR"
-msgstr ""
-
 msgid "Error"
 msgstr "エラー"
 
@@ -5620,6 +5618,9 @@ msgstr ""
 
 msgid "June"
 msgstr "6月"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "カーネル"
@@ -9545,9 +9546,6 @@ msgstr "インタフェース名が既に存在するため、LAGGインタフ�
 msgid "The LAGG protocol is invalid."
 msgstr "LAGGプロトコルが無効です。"
 
-msgid "The LAN IP address will be reset to"
-msgstr ""
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -9591,9 +9589,6 @@ msgstr "実際のサイズは使用するディスクに依存します。"
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "貴方の変更が適用された事を管理者に通知しました。"
-
-msgid "The administrator password will be reset to"
-msgstr ""
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10205,17 +10200,11 @@ msgstr "シリアルポートまたはUSBポートに2番目のUPSが接続さ�
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "このサーバを Windows クライアントにタイムサーバとして公告します。"
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "サーバは初期状態にリセットし再起動します。"
-
 msgid "The server is rebooting now."
 msgstr "サーバを再起動中です。"
 
 msgid "The server is shutting down now."
 msgstr ""
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "サーバは初期状態にリセットされ再起動されます。"
 
 msgid "The server will be started with the minimum required parameters."
 msgstr ""
@@ -10242,6 +10231,11 @@ msgstr "LUN%dに割り当てるストレージ領域"
 
 msgid "The subject of the email."
 msgstr "メールの件名"
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "タグの値が範囲外です。"
@@ -12097,8 +12091,14 @@ msgstr "iSCSI イニシエータ設定"
 msgid "iSCSI Target"
 msgstr "iSCSI ターゲット"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI ターゲット論理装置コントローラ"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI ターゲット情報とステータス"
@@ -12241,3 +12241,12 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "工場出荷設定にリセットしてもよろしいですか？"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "サーバは初期状態にリセットし再起動します。"
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "サーバは初期状態にリセットされ再起動されます。"

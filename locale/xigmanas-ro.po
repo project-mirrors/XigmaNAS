@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-09-13 11:48+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1099,8 +1099,9 @@ msgstr "Mod arhivare."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Reporniți sistemul?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "Resetați serverul la setările inițiale?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Opriți serverul?"
@@ -4642,9 +4643,6 @@ msgstr ""
 "Contor erori ștergere (cip). Indică numărul de erori la comenzile de "
 "ștergere a memorie firmware."
 
-msgid "Erase MBR"
-msgstr "Ștergere MBR"
-
 msgid "Error"
 msgstr "Eroare"
 
@@ -5998,6 +5996,9 @@ msgstr "Iun"
 
 msgid "June"
 msgstr "Iunie"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Kernel"
@@ -10082,9 +10083,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "Protocolul LAGG este invalid."
 
-msgid "The LAN IP address will be reset to"
-msgstr "Adresa LAN va fi resetată la"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10136,9 +10134,6 @@ msgid "The administrator has been notified to apply your changes."
 msgstr ""
 "Administratorul sistemului a fost anunțat să aplice modificările "
 "dumneavoastră."
-
-msgid "The administrator password will be reset to"
-msgstr "Parola administratorului va fi resetată la"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10818,17 +10813,11 @@ msgstr "Portul serial sau USB la care este conectat UPS-ul secundar."
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "Sistemul se anunță ca server de timp pentru clienții Windows."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "Sistemul a revenit la setările inițiale și acum va reporni."
-
 msgid "The server is rebooting now."
 msgstr "Serverul va reporni acum."
 
 msgid "The server is shutting down now."
 msgstr ""
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "Sistemul va reveni la setările inițiale după care va reporni."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr ""
@@ -10855,6 +10844,11 @@ msgstr "Zona de stocare mapată la LUN%d."
 
 msgid "The subject of the email."
 msgstr "Subiectul emailului."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "Domeniul etichetei este invalid."
@@ -12913,8 +12907,14 @@ msgstr "Setări Inițiator iSCSI"
 msgid "iSCSI Target"
 msgstr "Destinație iSCSI"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Controler Logic Destinație iSCSI"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Informații & Stare destinații iSCSI"
@@ -13059,3 +13059,18 @@ msgstr "utilizat din"
 
 msgid "visible"
 msgstr "vizibil"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "Resetați serverul la setările inițiale?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Ștergere MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Parola administratorului va fi resetată la"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "Sistemul a revenit la setările inițiale și acum va reporni."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "Sistemul va reveni la setările inițiale după care va reporni."

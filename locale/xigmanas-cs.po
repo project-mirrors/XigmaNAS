@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
 "PO-Revision-Date: 2018-11-16 14:57+0000\n"
 "Last-Translator: Tomáš Bednář <bednto@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:04+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -1110,8 +1110,9 @@ msgstr "Režim archivace."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Opravdu chcete server restartovat?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
-msgstr "Opravdu chcete vrátit veškerá nastavení serveru do výchozího stavu?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
+msgstr ""
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Opravdu chcete server vypnout?"
@@ -4663,9 +4664,6 @@ msgstr ""
 "Počet nepodařených výmazů (čip). Tento parametr značí počet nezdařilých "
 "příkazů vymazání flash paměti."
 
-msgid "Erase MBR"
-msgstr "Vymazat hlavní zaváděcí záznam (MBR)"
-
 msgid "Error"
 msgstr "Chyba"
 
@@ -6020,6 +6018,9 @@ msgstr "čer"
 
 msgid "June"
 msgstr "červen"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Jádro systému"
@@ -10152,9 +10153,6 @@ msgstr "LAGG rozhraní není možné přidat protože název rozhraní je už po
 msgid "The LAGG protocol is invalid."
 msgstr "LAGG protokol není platný."
 
-msgid "The LAN IP address will be reset to"
-msgstr "IP adresa rozhraní do místní sítě bude resetována na"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10205,9 +10203,6 @@ msgstr "Skutečná velikost závisí na použité jednotce datového úložišt�
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "Správce systému byl upozorněn ohledně přijetí vámi navržených změn."
-
-msgid "The administrator password will be reset to"
-msgstr "Heslo správce bude resetováno na"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10923,17 +10918,11 @@ msgstr "Sériový nebo USB port, ke kterému je druhý UPS zdroj připojený."
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "Server se propaguje jako časový server pro Windows klienty."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr "Server je nyní resetován do továrního nastavení a bude restartován."
-
 msgid "The server is rebooting now."
 msgstr "Server se nyní restartuje."
 
 msgid "The server is shutting down now."
 msgstr "Server se nyní vypíná."
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr "Server bude resetován do továrního nastavení a následně restartován."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "Server bude restartován s minimem požadovaných parametrů."
@@ -10960,6 +10949,11 @@ msgstr "Úložná oblast mapována na LUN%d."
 
 msgid "The subject of the email."
 msgstr "Předmět e-mailu."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
 
 msgid "The tag range is invalid."
 msgstr "Rozsah značek není platný."
@@ -13044,8 +13038,14 @@ msgstr "Nastavení iSCSI iniciátoru"
 msgid "iSCSI Target"
 msgstr "iSCSI cíl"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Řadič logických jednotek iSCSI cíle"
+
+msgid "iSCSI Target istgt"
+msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI cíl – informace a stav"
@@ -13192,3 +13192,18 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr "Opravdu chcete vrátit veškerá nastavení serveru do výchozího stavu?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Vymazat hlavní zaváděcí záznam (MBR)"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Heslo správce bude resetováno na"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr "Server je nyní resetován do továrního nastavení a bude restartován."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr "Server bude resetován do továrního nastavení a následně restartován."

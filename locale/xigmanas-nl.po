@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-11-29 00:57+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"PO-Revision-Date: 2018-12-12 00:03+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:01+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -1116,9 +1116,11 @@ msgstr "Archief mode."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Weet u zeker dat u de server wilt herstarten?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
-"Weet u zeker dat u de server naar de fabrieksinstellingen wilt herstellen?"
+"Weet u zeker dat u de systeemconfiguratie wilt herstellen naar de "
+"fabrieksinstellingen?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Weet u zeker dat u de server wilt uitschakelen?"
@@ -4699,9 +4701,6 @@ msgstr ""
 "Wis Fout Telling (chip). Deze parameter geeft het aantal flash wissen "
 "opdracht fouten aan."
 
-msgid "Erase MBR"
-msgstr "Wissen MBR"
-
 msgid "Error"
 msgstr "Fout"
 
@@ -6061,6 +6060,9 @@ msgstr "Jun"
 
 msgid "June"
 msgstr "Juni"
+
+msgid "Keep MBR"
+msgstr "MBR Behouden"
 
 msgid "Kernel"
 msgstr "Kernel"
@@ -10227,9 +10229,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "Het LAGG protocol is ongeldig."
 
-msgid "The LAN IP address will be reset to"
-msgstr "De LAN IP-adres wordt teruggezet naar"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10284,9 +10283,6 @@ msgstr "De werkelijke grootte is afhankelijk van uw schijven."
 msgid "The administrator has been notified to apply your changes."
 msgstr ""
 "De beheerder is op de hoogte gebracht om uw veranderingen toe te passen."
-
-msgid "The administrator password will be reset to"
-msgstr "De administrator wachtwoord wordt teruggezet naar"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10998,20 +10994,11 @@ msgstr "De seriële of USB poort waar de tweede UPS mee verbonden is."
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "De server maakt zich kenbaar als tijdserver voor Windows cliënten."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr ""
-"De server is nu teruggezet naar de fabrieksinstellingen en start opnieuw op."
-
 msgid "The server is rebooting now."
 msgstr "De server is nu bezig met herstarten."
 
 msgid "The server is shutting down now."
 msgstr "De server wordt nu afgesloten."
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr ""
-"De server wordt teruggezet naar de fabrieksinstellingen en zal opnieuw "
-"worden opgestart."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "De server wordt gestart met de minimaal vereiste parameters."
@@ -11039,6 +11026,13 @@ msgstr "Het opslag bereik in kaart gebracht aan LUN%d."
 
 msgid "The subject of the email."
 msgstr "Het onderwerp van de e-mail."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
+"De configuratie van het systeem teruggezet naar de fabrieksinstellingen en "
+"de server is herstart."
 
 msgid "The tag range is invalid."
 msgstr "Het markerings bereik is ongeldig."
@@ -13134,8 +13128,14 @@ msgstr "iSCSI Initiator Instellingen"
 msgid "iSCSI Target"
 msgstr "iSCSI Doel"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr "iSCSI Doel CAM Doel Laag"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Doel Logical Unit Controller"
+
+msgid "iSCSI Target istgt"
+msgstr "iSCSI Doel istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI Doelen Informatie & Status"
@@ -13280,3 +13280,22 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr ""
+#~ "Weet u zeker dat u de server naar de fabrieksinstellingen wilt herstellen?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Wissen MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "De administrator wachtwoord wordt teruggezet naar"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "De server is nu teruggezet naar de fabrieksinstellingen en start opnieuw op."
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "De server wordt teruggezet naar de fabrieksinstellingen en zal opnieuw "
+#~ "worden opgestart."

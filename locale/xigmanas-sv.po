@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-11-29 01:40+0000\n"
-"PO-Revision-Date: 2018-11-30 04:37+0000\n"
+"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"PO-Revision-Date: 2018-12-11 18:32+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-10 13:02+0000\n"
-"X-Generator: Launchpad (build 18831)\n"
+"X-Launchpad-Export-Date: 2018-12-12 00:06+0000\n"
+"X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -1083,9 +1083,10 @@ msgstr "Arkiveringsläge."
 msgid "Are you sure you want to reboot the server?"
 msgstr "Är du säker att du vill starta om servern?"
 
-msgid "Are you sure you want to reset the server to factory defaults?"
+msgid ""
+"Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
-"Är du säker på att du vill återställa servern till fabriksinställningarna?"
+"Är du säker att du vill återställa systemet till fabriksinställningarna?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Är du säker att du vill stänga av servern?"
@@ -4585,9 +4586,6 @@ msgstr ""
 "Räknare raderingsfel (chip). Denna parameter visar antal felaktiga "
 "flashraderingskomandon."
 
-msgid "Erase MBR"
-msgstr "Radera MBR"
-
 msgid "Error"
 msgstr "Fel"
 
@@ -5929,6 +5927,9 @@ msgstr "Jun"
 
 msgid "June"
 msgstr "juni"
+
+msgid "Keep MBR"
+msgstr ""
 
 msgid "Kernel"
 msgstr "Kärna"
@@ -10011,9 +10012,6 @@ msgstr ""
 msgid "The LAGG protocol is invalid."
 msgstr "LAGG protokollet är felaktigt."
 
-msgid "The LAN IP address will be reset to"
-msgstr "Nätverkets IP-adress kommer också återställas"
-
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
@@ -10064,9 +10062,6 @@ msgstr "Den verkliga storleken beror på dina diskar."
 
 msgid "The administrator has been notified to apply your changes."
 msgstr "Administratören har blivit meddelad om att aktivera dina ändringar."
-
-msgid "The administrator password will be reset to"
-msgstr "Administratörslösenordet kommer också återställas"
 
 #, php-format
 msgid "The associated MIB files can be found at %s."
@@ -10758,19 +10753,11 @@ msgstr "Serie- eller USB-porten där UPS två är ansluten."
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr "Servern annonserar sig som tidserver för Windowsklienter."
 
-msgid "The server is now reset to factory defaults and will reboot."
-msgstr ""
-"Servern är nu återställd till fabriksinställningarna och kommer startas om"
-
 msgid "The server is rebooting now."
 msgstr "Servern startar om nu."
 
 msgid "The server is shutting down now."
 msgstr "Servern stoppas nu."
-
-msgid "The server will be reset to factory defaults and will reboot."
-msgstr ""
-"Servern kommer återställas till fabriksinställningarna och startas om."
 
 msgid "The server will be started with the minimum required parameters."
 msgstr "Servern kommer startas med minsta möjliga parametrar."
@@ -10797,6 +10784,13 @@ msgstr "Lagringsområdet är mappat till LUN%d."
 
 msgid "The subject of the email."
 msgstr "E-brevets ämnesrad."
+
+msgid ""
+"The system configuration is reset to factory defaults and the server is "
+"restarted."
+msgstr ""
+"Systeminställningarna återställs till fabriksinställningar och servern "
+"startar om."
 
 msgid "The tag range is invalid."
 msgstr "Etikettområdet är ogiltigt."
@@ -12840,8 +12834,14 @@ msgstr "iSCSI Initiator inställningar"
 msgid "iSCSI Target"
 msgstr "iSCSI Mål"
 
+msgid "iSCSI Target CAM Target Layer"
+msgstr "iSCSI Target CAM Mållager"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Logisk enhetshanterare för målet (TLUC)"
+
+msgid "iSCSI Target istgt"
+msgstr "iSCSI Mål istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI Mål Information & Status"
@@ -12986,3 +12986,21 @@ msgstr "använt av"
 
 msgid "visible"
 msgstr "synlig"
+
+#~ msgid "Are you sure you want to reset the server to factory defaults?"
+#~ msgstr ""
+#~ "Är du säker på att du vill återställa servern till fabriksinställningarna?"
+
+#~ msgid "Erase MBR"
+#~ msgstr "Radera MBR"
+
+#~ msgid "The administrator password will be reset to"
+#~ msgstr "Administratörslösenordet kommer också återställas"
+
+#~ msgid "The server is now reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "Servern är nu återställd till fabriksinställningarna och kommer startas om"
+
+#~ msgid "The server will be reset to factory defaults and will reboot."
+#~ msgstr ""
+#~ "Servern kommer återställas till fabriksinställningarna och startas om."
