@@ -548,22 +548,32 @@ EOD;
 	mwexec("/sbin/gvinum start {$vdisk['name']}",true);
 	return 0;
 }
-
-// Configure, create and start gmirror volume.
-// $uuid - UUID of the RAID to be configured.
-// Return 0 if successful, 1 if error
+/**
+ *	Configure, create and start gmirror volume.
+ * @global array $config The configuration file
+ * @param string $uuid UUID of the RAID to be configured.
+ * @return int Return 0 if successful, 1 if error
+ */
 function disks_raid_gmirror_configure($uuid) {
 	global $config;
+	
 	$sphere = 'gmirror';
 	array_make_branch($config,$sphere,'vdisk');
 	if(false !== ($index = array_search_ex($uuid,$config[$sphere]['vdisk'],'uuid'))):
 		$vdisk = $config[$sphere]['vdisk'][$index];
 		if(is_array($vdisk)):
-			// Create volume
-			$cmd = sprintf('/sbin/gmirror label -b %1$s %2$s ',$vdisk['balance'],escapeshellarg($vdisk['name'])); 
+			//	create volume
+			$param = [
+				'/sbin/gmirror',
+				'label',
+				'-b',
+				$vdisk['balance'],
+				escapeshellarg($vdisk['name'])
+			];
 			foreach($vdisk['device'] as $devicek => $devicev):
-				$cmd .= sprintf('%1$s ',$devicev);
+				$param[] = escapeshellarg($devicev);
 			endforeach;
+			$cmd = implode(' ',$param);
 			return mwexec($cmd,true);
 		endif;
 	endif;
