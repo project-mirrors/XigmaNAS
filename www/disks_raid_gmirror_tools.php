@@ -39,34 +39,42 @@ if(empty($a_raid)):
 else: 
 	array_sort_key($a_raid,'name');
 endif;
-
-if ($_POST) {
+if($_POST):
 	unset($input_errors);
 	unset($do_action);
-
-	/* input validation */
+	//	input validation
 	$reqdfields = ['action','raid','disk'];
 	$reqdfieldsn = [gtext('Command'),gtext('Volume Name'),gtext('Disk')];
-	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-
-if (empty($input_errors)) {
-	$do_action = true;
-	$action = $_POST['action'];
-	$raid = $_POST['raid'];
-	$disk = $_POST['disk'];
-	}
-}
-
-if (!isset($do_action)) {
+	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
+	if(empty($input_errors)):
+		$do_action = true;
+		$action = $_POST['action'];
+		$raid = $_POST['raid'];
+		$disk = $_POST['disk'];
+	endif;
+endif;
+if(!isset($do_action)):
 	$do_action = false;
-	$action = '';
+	$action = 'status';
 	$object = '';
 	$raid = '';
 	$disk = '';
-}
+endif;
+$l_action = [
+	'rebuild' => gettext('Rebuild the selected device forcibly.'),
+	'list' => gettext('Print detailed information.'),
+	'status' => gettext('Print general information.'),
+	'remove' => gettext('Remove the selected device from the mirror.'),
+	'activate' => gettext('Activate the selected device.'),
+	'deactivate' => gettext('Mark the selected device as inactive.'),
+	'forget' => gettext('Forget about devices which are not connected.'),
+	'insert' => gettext('Add the selected device to the existing mirror.'),
+	'clear' => gettext('Clear metadata on the selected device.'),
+	'stop' => gettext('Stop the selected mirror.')
+];
 $pgtitle = [gtext('Disks'),gtext('Software RAID'),gtext('RAID-1'),gtext('Maintenance')];
+include 'fbegin.inc';
 ?>
-<?php include 'fbegin.inc';?>
 <script type="text/javascript">
 //<![CDATA[
 $(window).on("load", function() {
@@ -75,148 +83,154 @@ $(window).on("load", function() {
 }); 
 function raid_change() {
 	var next = null;
+<?php
 	// Remove all entries from partition combobox.
+?>
 	document.iform.disk.length = 0;
-	// Insert entries for disk combobox.
+<?php
+	//	Insert entries for disk combobox.
+?>
 	switch(document.iform.raid.value) {
-		<?php foreach ($a_raid as $raidv): ?>
-			case "<?=$raidv['name'];?>":
-				<?php foreach($raidv['device'] as $devicen => $devicev): ?>
-					<?php $name = str_replace("/dev/","",$devicev);?>
-					if(document.all) // MS IE workaround.
-						next = document.iform.disk.length;
-					document.iform.disk.add(new Option("<?=$name;?>","<?=$name;?>",false,<?php if($name === $disk){echo "true";}else{echo "false";};?>), next);
-				<?php endforeach; ?>
-				break;
-		<?php endforeach;?>
+<?php
+	  foreach ($a_raid as $raidv):
+?>
+		case "<?=$raidv['name'];?>":
+<?php
+		  foreach($raidv['device'] as $devicen => $devicev):
+			$name = str_replace("/dev/","",$devicev);
+?>
+			if(document.all)<?php // MS IE workaround. ?>
+				next = document.iform.disk.length;
+			document.iform.disk.add(new Option("<?=$name;?>","<?=$name;?>",false,<?php if($name === $disk){echo "true";}else{echo "false";};?>),next);
+<?php
+		  endforeach;
+?>
+			break;
+<?php
+		endforeach;
+?>
 	}
 }
 //]]>
 </script>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tabnavtbl">
-			<ul id="tabnav">
-			<li class="tabact"><a href="disks_raid_geom.php" title="<?=gtext('Reload page');?>"><span><?=gtext('GEOM');?></span></a></li>
-			<li class="tabinact"><a href="disks_raid_gvinum.php"><span><?=gtext('RAID 0/1/5');?></span></a></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-		<td class="tabnavtbl">
-			<ul id="tabnav2">
-				<li class="tabinact"><a href="disks_raid_geom.php"><span><?=gtext('Management'); ?></span></a></li>
-				<li class="tabact"><a href="disks_raid_gmirror_tools.php" title="<?=gtext('Reload page');?>" ><span><?=gtext('Maintenance');?></span></a></li>
-				<li class="tabinact"><a href="disks_raid_gmirror_info.php"><span><?=gtext('Information'); ?></span></a></li>
-			</ul>
-		</td>
-	</tr>
-	<tr>
-	<tr>
-		<td class="tabcont">
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<?php html_titleline(gtext("RAID-1 Maintenance"));?>
-				<tr>
-					<td>
-						<?php if (!empty($input_errors)) print_input_errors($input_errors);?>
-						<form action="disks_raid_gmirror_tools.php" method="post" name="iform" id="iform">
-							<table width="100%" border="0" cellpadding="6" cellspacing="0">
-								<tr>
-									<td width="22%" valign="top" class="vncellreq"><?=gtext("Volume Name");?></td>
-									<td width="78%" class="vtable">
-										<select name="raid" class="formfld" id="raid" onchange="raid_change()">
-											<option value=""><?=gtext("Must choose one");?></option>
-											<?php foreach ($a_raid as $raidv):?>
-												<option value="<?=$raidv['name'];?>" <?php if ($raid === $raidv['name']) echo "selected=\"selected\"";?>>
-													<?php echo htmlspecialchars($raidv['name']);	?>
-												</option>
-											<?php endforeach;?>
-										</select>
-									</td>
-								</tr>
-								<tr>
-									<td width="22%" valign="top" class="vncellreq"><?=gtext("Disk");?></td>
-									<td width="78%" class="vtable">
-										<select name="disk" class="formfld" id="disk"></select>
-									</td>
-								</tr>
-								<tr>
-									<td width="22%" valign="top" class="vncellreq"><?=gtext("Command");?></td>
-									<td width="78%" class="vtable">
-										<select name="action" class="formfld" id="action">
-											<option value="rebuild" <?php if ($action == "rebuild") echo "selected=\"selected\""; ?>>rebuild</option>
-											<option value="list" <?php if ($action == "list") echo "selected=\"selected\""; ?>>list</option>
-											<option value="status" <?php if ($action == "status") echo "selected=\"selected\""; ?>>status</option>
-											<option value="remove" <?php if ($action == "remove") echo "selected=\"selected\""; ?>>remove</option>
-											<option value="activate" <?php if ($action == "activate") echo "selected=\"selected\""; ?>>activate</option>
-											<option value="deactivate" <?php if ($action == "deactivate") echo "selected=\"selected\""; ?>>deactivate</option>
-											<option value="forget" <?php if ($action == "forget") echo "selected=\"selected\""; ?>>forget</option>
-											<option value="insert" <?php if ($action == "insert") echo "selected=\"selected\""; ?>>insert</option>
-											<option value="clear" <?php if ($action == "clear") echo "selected=\"selected\""; ?>>clear</option>
-											<option value="stop" <?php if ($action == "stop") echo "selected=\"selected\""; ?>>stop</option>
-										</select>
-									</td>
-								</tr>
-							</table>
-							<div id="submit">
-								<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Send Command!");?>" />
-							</div>
-							<?php
-								if ($do_action) {
-									echo(sprintf("<div id='cmdoutput'>%s</div>", gtext("Command output:")));
-									echo('<pre class="cmdoutput">');
-										//ob_end_flush();
-										switch ($action) {
-											case "rebuild":
-												disks_geom_cmd("mirror", "rebuild -v", "{$raid} {$disk}", true);
-												break;
-											case "list":
-												disks_geom_cmd("mirror", "list", $raid, true);
-												break;
-											case "status":
-												disks_geom_cmd("mirror", "status", $raid, true);
-												break;
-											case "remove":
-												disks_geom_cmd("mirror", "remove -v", "{$raid} {$disk}", true);
-												break;
-											case "activate":
-												disks_geom_cmd("mirror", "activate -v", "{$raid} {$disk}", true);
-												break;
-											case "deactivate":
-												disks_geom_cmd("mirror", "deactivate -v", "{$raid} {$disk}", true);
-												break;
-											case "forget":
-												disks_geom_cmd("mirror", "forget -v", $raid, true);
-												break;
-											case "insert":
-												disks_geom_cmd("mirror", "insert -v", "{$raid} {$disk}", true);
-												break;
-											case "clear":
-												disks_geom_cmd("mirror", "clear -v", $disk, true);
-												break;
-											case "stop":
-												disks_geom_cmd("mirror", "stop -v", $raid, true);
-												break;
-										}
-									echo('</pre>');
-							};?>
-							<div id="remarks">
-								<?php
-								$helpinghand = '1. ' . gtext('Use these specials actions for debugging only!') . '<br />2. ' . gtext('There is no need to start a RAID volume from here (It starts automatically).');
-								html_remark('warning', gtext('Warning'), $helpinghand);
-								?>
-							</div>
-							<?php include 'formend.inc';?>
-						</form>
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-</table>
+<?php
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		push()->
+		add_tabnav_upper()->
+			ins_tabnav_record('disks_raid_geom.php',gettext('GEOM'),gettext('Reload page'),true)->
+			ins_tabnav_record('disks_raid_gvinum.php',gettext('RAID 0/1/5'))->
+		pop()->
+		add_tabnav_lower()->
+			ins_tabnav_record('disks_raid_geom.php',gettext('Management'))->
+			ins_tabnav_record('disks_raid_gmirror_tools.php',gettext('Maintenance'),gettext('Reload page'),true)->
+			ins_tabnav_record('disks_raid_gmirror_info.php',gettext('Information'));
+$document->render();
+?>
+<form action="disks_raid_gmirror_tools.php" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<?php
+	if(!empty($input_errors)):
+		print_input_errors($input_errors);
+	endif;
+?>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
+			html_titleline2(gettext('RAID-1 Maintenance'));
+?>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="celltagreq"><?=gtext('Volume Name');?></td>
+				<td class="celldatareq">
+					<select name="raid" class="formfld" id="raid" onchange="raid_change()">
+						<option value=""><?=gtext('Must choose one');?></option>
+<?php
+						foreach ($a_raid as $raidv):
+?>
+						<option value="<?=$raidv['name'];?>" <?php if ($raid === $raidv['name']) echo "selected=\"selected\"";?>><?=htmlspecialchars($raidv['name']);?></option>
+<?php
+						endforeach;
+?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="celltagreq"><?=gtext('Disk');?></td>
+				<td class="celldatareq">
+					<select name="disk" class="formfld" id="disk"></select>
+				</td>
+			</tr>
+<?php
+			html_radiobox2('action',gettext('Command'),$action,$l_action,'',true);
+?>
+		</tbody>
+	</table>
+	<div id="submit">
+		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Submit Command');?>" />
+	</div>
+<?php
+	if($do_action):
+		echo(sprintf("<div id='cmdoutput'>%s</div>",gtext('Command output:')));
+		echo('<pre class="cmdoutput">');
+			//	ob_end_flush();
+			switch($action):
+				case 'rebuild':
+					disks_geom_cmd('mirror','rebuild -v',"{$raid} {$disk}",true);
+					break;
+				case 'list':
+					disks_geom_cmd('mirror','list',$raid,true);
+					break;
+				case 'status':
+					disks_geom_cmd('mirror','status',$raid,true);
+					break;
+				case 'remove':
+					disks_geom_cmd('mirror','remove -v',"{$raid} {$disk}",true);
+					break;
+				case 'activate':
+					disks_geom_cmd('mirror','activate -v',"{$raid} {$disk}",true);
+					break;
+				case 'deactivate':
+					disks_geom_cmd('mirror','deactivate -v',"{$raid} {$disk}",true);
+					break;
+				case 'forget':
+					disks_geom_cmd('mirror','forget -v',$raid,true);
+					break;
+				case 'insert':
+					disks_geom_cmd('mirror','insert -v',"{$raid} {$disk}",true);
+					break;
+				case 'clear':
+					disks_geom_cmd('mirror','clear -v',$disk,true);
+					break;
+				case 'stop':
+					disks_geom_cmd('mirror','stop -v',$raid,true);
+					break;
+			endswitch;
+		echo('</pre>');
+	endif;
+?>
+	<div id="remarks">
+<?php
+		$helpinghand = 
+			'1. ' . gettext('Use these specials actions for debugging only!') .
+			'<br />' .
+			'2. ' . gettext('There is no need to start a RAID volume from here (It starts automatically).');
+		html_remark2('warning',gettext('Warning'),$helpinghand);
+?>
+	</div>
+<?php
+	include 'formend.inc';
+?>
+</td></tr></tbody></table></form>
 <script type="text/javascript">
 //<![CDATA[
 raid_change();
 //]]>
 </script>
-<?php include 'fend.inc';?>
+<?php
+include 'fend.inc';
