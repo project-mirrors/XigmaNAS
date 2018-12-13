@@ -176,42 +176,62 @@ $document->render();
 	</div>
 <?php
 	if($do_action):
-		echo(sprintf("<div id='cmdoutput'>%s</div>",gtext('Command output:')));
-		echo('<pre class="cmdoutput">');
-			//	ob_end_flush();
-			switch($action):
-				case 'rebuild':
-					disks_geom_cmd('mirror','rebuild -v',"{$raid} {$disk}",true);
-					break;
-				case 'list':
-					disks_geom_cmd('mirror','list',$raid,true);
-					break;
-				case 'status':
-					disks_geom_cmd('mirror','status',$raid,true);
-					break;
-				case 'remove':
-					disks_geom_cmd('mirror','remove -v',"{$raid} {$disk}",true);
-					break;
-				case 'activate':
-					disks_geom_cmd('mirror','activate -v',"{$raid} {$disk}",true);
-					break;
-				case 'deactivate':
-					disks_geom_cmd('mirror','deactivate -v',"{$raid} {$disk}",true);
-					break;
-				case 'forget':
-					disks_geom_cmd('mirror','forget -v',$raid,true);
-					break;
-				case 'insert':
-					disks_geom_cmd('mirror','insert -v',"{$raid} {$disk}",true);
-					break;
-				case 'clear':
-					disks_geom_cmd('mirror','clear -v',$disk,true);
-					break;
-				case 'stop':
-					disks_geom_cmd('mirror','stop -v',$raid,true);
-					break;
-			endswitch;
-		echo('</pre>');
+?>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
+<?php
+				html_separator2();
+				html_titleline2('Information');
+?>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="celltag"><?=gtext('Command Output');?></td>
+					<td class="celldata"><pre class="cmdoutput">
+<?php
+						//	ob_end_flush();
+						switch($action):
+							case 'rebuild':
+								disks_geom_cmd('mirror','rebuild -v',"{$raid} {$disk}",true);
+								break;
+							case 'list':
+								disks_geom_cmd('mirror','list',$raid,true);
+								break;
+							case 'status':
+								disks_geom_cmd('mirror','status',$raid,true);
+								break;
+							case 'remove':
+								disks_geom_cmd('mirror','remove -v',"{$raid} {$disk}",true);
+								break;
+							case 'activate':
+								disks_geom_cmd('mirror','activate -v',"{$raid} {$disk}",true);
+								break;
+							case 'deactivate':
+								disks_geom_cmd('mirror','deactivate -v',"{$raid} {$disk}",true);
+								break;
+							case 'forget':
+								disks_geom_cmd('mirror','forget -v',$raid,true);
+								break;
+							case 'insert':
+								disks_geom_cmd('mirror','insert -v',"{$raid} {$disk}",true);
+								break;
+							case 'clear':
+								disks_geom_cmd('mirror','clear -v',$disk,true);
+								break;
+							case 'stop':
+								disks_geom_cmd('mirror','stop -v',$raid,true);
+								break;
+						endswitch;
+?>
+					</pre></td>
+				</tr>
+			</tbody>
+		</table>
+<?php
 	endif;
 ?>
 	<div id="remarks">
