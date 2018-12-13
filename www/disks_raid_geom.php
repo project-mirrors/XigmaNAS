@@ -62,69 +62,73 @@ $img_path = [
 	'mai' => 'images/maintain.png',
 	'inf' => 'images/info.png'
 ];
-
-// sunrise: verify if setting exists, otherwise run init tasks
-geomraid_config_get($sphere_array);
-array_sort_key($sphere_array, 'name');
-// get mounts from config
-$a_config_mount = &array_make_branch($config,'mounts','mount');
-// get all softraids (cli)
-$a_system_sraid = get_sraid_disks_list();
-// collect geom additional information
+//	collect GEOM processing information
 $a_process = geomraid_processinfo_get();
-
-if ($_POST) {
-	if (isset($_POST['apply']) && $_POST['apply']) {
+//	count number of active GEOM options
+$active_button_count = 0;
+foreach($a_process as $r_process):
+	if(array_key_exists('show-create-button',$r_process) && is_bool($r_process['show-create-button']) && $r_process['show-create-button']):
+		$active_button_count++;
+	endif;
+endforeach;
+//	sunrise: verify if setting exists, otherwise run init tasks
+geomraid_config_get($sphere_array);
+array_sort_key($sphere_array,'name');
+//	get mounts from config
+$a_config_mount = &array_make_branch($config,'mounts','mount');
+//	get all softraids (cli)
+$a_system_sraid = get_sraid_disks_list();
+if($_POST):
+	if(isset($_POST['apply']) && $_POST['apply']):
 		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)) {
+		if(!file_exists($d_sysrebootreqd_path)):
 			// Process notifications
 			$savemsg = get_std_save_message($retval); // set default message
-			foreach ($a_process as $r_process) {
-				if ($retval == 0) {
-					$retval |= updatenotify_process($r_process['x-notifier'], $r_process['x-processor']);
-					if ($retval == 0) {
+			foreach($a_process as $r_process):
+				if($retval == 0):
+					$retval |= updatenotify_process($r_process['x-notifier'],$r_process['x-processor']);
+					if($retval == 0):
 						updatenotify_delete($r_process['x-notifier']);
-					} else {
+					else:
 						$savemsg = get_std_save_message($retval);
 						break;
-					}
-				} else {
+					endif;
+				else:
 					break;
-				}
-			}
-		}
+				endif;
+			endforeach;
+		endif;
 		header($sphere_header);
 		exit;
-	}
-	if (isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']) {
+	endif;
+	if(isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
-		foreach ($checkbox_member_array as $checkbox_member_record) {
-			if (false !== ($index = array_search_ex($checkbox_member_record, $sphere_array, 'uuid'))) {
-				if (!isset($sphere_array[$index]['protected'])) {
+		foreach($checkbox_member_array as $checkbox_member_record):
+			if(false !== ($index = array_search_ex($checkbox_member_record,$sphere_array,'uuid'))):
+				if(!isset($sphere_array[$index]['protected'])):
 					$sphere_notifier = $a_process[$sphere_array[$index]['type']]['x-notifier']; // get the notifier
-					$mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_array[$index]['uuid']);
-					switch ($mode_updatenotify) {
+					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
+					switch($mode_updatenotify):
 						case UPDATENOTIFY_MODE_NEW:  
-							updatenotify_clear($sphere_notifier, $sphere_array[$index]['uuid']);
-							updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_DIRTY_CONFIG, $sphere_array[$index]['uuid']);
+							updatenotify_clear($sphere_notifier,$sphere_array[$index]['uuid']);
+							updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere_array[$index]['uuid']);
 							break;
 						case UPDATENOTIFY_MODE_MODIFIED:
-							updatenotify_clear($sphere_notifier, $sphere_array[$index]['uuid']);
-							updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_DIRTY, $sphere_array[$index]['uuid']);
+							updatenotify_clear($sphere_notifier,$sphere_array[$index]['uuid']);
+							updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY,$sphere_array[$index]['uuid']);
 							break;
 						case UPDATENOTIFY_MODE_UNKNOWN:
-							updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_DIRTY, $sphere_array[$index]['uuid']);
+							updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY,$sphere_array[$index]['uuid']);
 							break;
-					}
-				}
-			}
-		}
+					endswitch;
+				endif;
+			endif;
+		endforeach;
 		header($sphere_header);
 		exit;
-	}
-}
-
-$pgtitle = [gtext('Disks'), gtext('Software RAID'), gtext('GEOM'), gtext('Management')];
+	endif;
+endif;
+$pgtitle = [gtext('Disks'),gtext('Software RAID'),gtext('GEOM'),gtext('Management')];
 include 'fbegin.inc';
 ?>
 <script type="text/javascript">
@@ -191,16 +195,20 @@ function controlactionbuttons(ego, triggerbyname) {
 		<li class="tabinact"><a href="disks_raid_gvinum.php"><span><?=gtext('RAID 0/1/5');?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
-		if (!empty($errormsg)) { print_error_box($errormsg); }
-		if (!empty($savemsg)) { print_info_box($savemsg); }
-		foreach ($a_process as $r_process) {
-			if (updatenotify_exists($r_process['x-notifier'])) {
-				print_config_change_box();
-				break;
-			}
-		}
+	if(!empty($errormsg)):
+		print_error_box($errormsg);
+	endif;
+	if(!empty($savemsg)):
+		print_info_box($savemsg);
+	endif;
+	foreach($a_process as $r_process):
+		if(updatenotify_exists($r_process['x-notifier'])):
+			print_config_change_box();
+			break;
+		endif;
+	endforeach;
 ?>
 	<table class="area_data_selection">
 		<colgroup>
@@ -214,7 +222,7 @@ function controlactionbuttons(ego, triggerbyname) {
 		</colgroup>
 		<thead>
 <?php
-			html_titleline2(gettext('Overview'), 7);
+			html_titleline2(gettext('Overview'),7);
 ?>
 			<tr>
 				<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="<?=gtext('Invert Selection');?>"/></th>
@@ -231,14 +239,14 @@ function controlactionbuttons(ego, triggerbyname) {
 			foreach ($sphere_array as $sphere_record):
 				$size = gtext('Unknown');
 				$status = gtext('Stopped');
-				if(is_array($a_system_sraid) && (false !== ($index = array_search_ex($sphere_record['name'], $a_system_sraid, 'name')))):
+				if(is_array($a_system_sraid) && (false !== ($index = array_search_ex($sphere_record['name'],$a_system_sraid,'name')))):
 					$size = $a_system_sraid[$index]['size'];
 					$status = $a_system_sraid[$index]['state'];
 				endif;
 				$notificationmode = UPDATENOTIFY_MODE_UNKNOWN;
 				foreach($a_process as $r_process):
 					if(UPDATENOTIFY_MODE_UNKNOWN === $notificationmode):
-						$notificationmode = updatenotify_get_mode($r_process['x-notifier'], $sphere_record['uuid']);
+						$notificationmode = updatenotify_get_mode($r_process['x-notifier'],$sphere_record['uuid']);
 					else:
 						break;
 					endif;
@@ -258,7 +266,7 @@ function controlactionbuttons(ego, triggerbyname) {
 				$status = strtoupper($status);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				$notprotected = !isset($sphere_record['protected']);
-				$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'], $a_config_mount);
+				$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
 				$normaloperation = $notprotected && $notmounted;
 ?>
 				<tr>
@@ -308,6 +316,18 @@ function controlactionbuttons(ego, triggerbyname) {
 			endforeach;
 ?>
 		</tbody>
+<?php
+		if($active_button_count > 0):
+?>
+			<tfoot>
+				<tr>
+					<th class="lcenl" colspan="6"></th>
+					<th class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$img_path['add'];?>" title="<?=$gt_record_add;?>" alt="<?=$gt_record_add;?>"/></a></th>
+				</tr>
+			</tfoot>
+<?php
+		endif;
+?>
 	</table>
 	<div id="submit">
 		<input name="delete_selected_rows" id="delete_selected_rows" type="submit" class="formbtn" value="<?=$gt_selection_delete;?>"/>
@@ -319,23 +339,23 @@ function controlactionbuttons(ego, triggerbyname) {
 		</colgroup>
 		<thead>
 <?php
-				html_separator2();
-				html_titleline2(gettext('Message Board'));
+			html_separator2();
+			html_titleline2(gettext('Message Board'));
 ?>
 		</thead>
 		<tbody>
 <?php
-				html_textinfo2("info", gettext('Info'), sprintf(gettext('%1$s is used to create %2$s volumes.'), 'GEOM', 'RAID'));
-				$link = sprintf('<a href="%1$s">%2$s</a>', 'disks_mount.php', gettext('mount point'));
-				$helpinghand = gettext('A mounted RAID volume cannot be deleted.') . ' ' . gettext('Remove the %s first before proceeding.');
-				$helpinghand = sprintf($helpinghand, $link);
-				html_textinfo2("warning", gettext('Warning'), $helpinghand);
+			html_textinfo2("info",gettext('Info'),sprintf(gettext('%1$s is used to create %2$s volumes.'),'GEOM','RAID'));
+			$link = sprintf('<a href="%1$s">%2$s</a>','disks_mount.php',gettext('mount point'));
+			$helpinghand = gettext('A mounted RAID volume cannot be deleted.') . ' ' . gettext('Remove the %s first before proceeding.');
+			$helpinghand = sprintf($helpinghand,$link);
+			html_textinfo2("warning",gettext('Warning'),$helpinghand);
 ?>
 		</tbody>
 	</table>
 <?php
 	include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</td></tr></tbody></table></form>
 <?php
 include 'fend.inc';

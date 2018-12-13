@@ -60,32 +60,44 @@ $img_path = [
 	'mai' => 'images/maintain.png',
 	'inf' => 'images/info.png'
 ];
-// detect page mode (GET, POST, ADD)
+//	collect GEOM processing information
+$a_process = geomraid_processinfo_get();
+//	count number of active GEOM options
+$active_button_count = 0;
+foreach($a_process as $r_process):
+	if(array_key_exists('show-create-button',$r_process) && is_bool($r_process['show-create-button']) && $r_process['show-create-button']):
+		$active_button_count++;
+	endif;
+endforeach;
+//	detect page mode (GET, POST, ADD)
 $mode_page = ($_POST) ? PAGE_MODE_POST : (($_GET) ? PAGE_MODE_EDIT : PAGE_MODE_ADD);
-// process cancel event, allow only submit or action
+//	process cancel event, allow only submit or action
 if(PAGE_MODE_POST == $mode_page): // POST is Cancel
 	if((isset($_POST['Cancel']) && $_POST['Cancel']) && !(isset($_POST['Submit']) && $_POST['Submit']) && !(isset($_POST['Action']) && $_POST['Action'])):
 		header($sphere_header_parent);
 		exit;
 	endif;
 endif;
-// get/set uuid based on page mode (GET, POST, ADD)
+//	get/set uuid based on page mode (GET, POST, ADD)
 if((PAGE_MODE_POST == $mode_page) && isset($_POST['uuid']) && is_uuid_v4($_POST['uuid'])):
 	$sphere_record['uuid'] = $_POST['uuid'];
 else:
 	if((PAGE_MODE_EDIT == $mode_page) && isset($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
 		$sphere_record['uuid'] = $_GET['uuid'];
 	else:
-		$mode_page = PAGE_MODE_EDIT;
+		if($active_button_count > 0):
+			$mode_page = PAGE_MODE_ADD;
+		else:
+			//	Nothing to add, switch to edit mode
+			$mode_page = PAGE_MODE_EDIT;
+		endif;
 		$sphere_record['uuid'] = uuid();
 	endif;
 endif;
 // read configuration data
 geomraid_config_get($sphere_array);
-// array_sort_key($sphere_array, 'name'); // no need to sort the array, we're in single record mode
-// get additional processing information
-$a_process = geomraid_processinfo_get();
-// scan for pending tasks
+//	array_sort_key($sphere_array, 'name'); // no need to sort the array, we're in single record mode
+//	scan for pending tasks
 $mode_updatenotify = UPDATENOTIFY_MODE_UNKNOWN;
 foreach($a_process as $r_process):
 	if(UPDATENOTIFY_MODE_UNKNOWN === $mode_updatenotify):
@@ -94,9 +106,9 @@ foreach($a_process as $r_process):
 		break;
 	endif;
 endforeach;
-// find index of uuid in the main array
+//	find index of uuid in the main array
 $index = array_search_ex($sphere_record['uuid'], $sphere_array, 'uuid');
-// determine record mode, exit page if information doesn't mke sense
+//	determine record mode, exit page if information doesn't mke sense
 $mode_record = RECORD_ERROR;
 if(false !== $index): // record for uuid found in configuration 
 	if((PAGE_MODE_POST == $mode_page || (PAGE_MODE_EDIT == $mode_page))): // POST or EDIT
@@ -110,7 +122,8 @@ if(false !== $index): // record for uuid found in configuration
 				break;
 		endswitch;
 	endif;
-else: // record for uuid not found in configuration
+else:
+	//	record for uuid not found in configuration
 	if((PAGE_MODE_POST == $mode_page) || (PAGE_MODE_ADD == $mode_page)): // POST or ADD
 		switch($mode_updatenotify):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -127,10 +140,10 @@ $isrecordnew = (RECORD_NEW === $mode_record);
 $isrecordnewmodify = (RECORD_NEW_MODIFY == $mode_record);
 $isrecordmodify = (RECORD_MODIFY === $mode_record);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
-// get all known softraids (config)
+//	get all known softraids (config)
 $a_config_sraid = get_conf_sraid_disks_list();
-// get all disks that are softraid-formatted 
-$a_sdisk = get_conf_disks_filtered_ex('fstype', 'softraid');
+//	get all disks that are softraid-formatted 
+$a_sdisk = get_conf_disks_filtered_ex('fstype','softraid');
 if(!sizeof($a_sdisk)):
 	$errormsg = gtext('No softraid-formatted disks available.');
 	$prerequisites_ok = false;
@@ -158,13 +171,13 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 		header($sphere_header_parent);
 		exit;
 	endif;
-	// start validation
+	//	start validation
 	unset($input_errors);
-	// input validation
+	//	input validation
 	$reqdfields = ['name'];
 	$reqdfieldsn = [gtext('RAID Name')];
-	do_input_validation($sphere_record, $reqdfields, $reqdfieldsn, $input_errors);
-	// logic validation
+	do_input_validation($sphere_record,$reqdfields,$reqdfieldsn,$input_errors);
+	//	logic validation
 	if($prerequisites_ok && empty($input_errors)): // check for a valid RAID name.
 		if(($sphere_record['name'] && !is_validaliasname($sphere_record['name']))):
 			$input_errors[] = gtext('The name of the RAID may only consist of the characters a-z, A-Z, 0-9.');
@@ -222,14 +235,15 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 				break;
 		endswitch;
 	endif;
-	// process POST
+	//	process POST
 	if($prerequisites_ok && empty($input_errors)):
 		$sphere_notifier = $a_process[$sphere_record['type']]['x-notifier'];
 		switch($mode_record):
 			case RECORD_NEW:
 				if($sphere_record['init']): // create new RAID
 					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_NEW, $sphere_record['uuid']);
-				else: // existing RAID
+				else:
+					//	existing RAID
 					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_record['uuid']);
 				endif;
 				unset($sphere_record['init']); // lifetime ends here
@@ -237,7 +251,8 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 				break;
 			case RECORD_NEW_MODIFY:
 				if($sphere_record['init']): // create new RAID
-				else: // existing RAID
+				else:
+					//	existing RAID
 					updatenotify_clear($sphere_notifier, $sphere_record['uuid']); // clear NEW
 					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_record['uuid']);
 				endif;
@@ -257,7 +272,8 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 		header($sphere_header_parent);
 		exit;
 	endif;
-else: // EDIT / ADD
+else:
+	//	EDIT / ADD
 	switch($mode_record):
 		case RECORD_NEW:
 			$sphere_record['name'] = '';
@@ -288,7 +304,7 @@ else: // EDIT / ADD
 			break;
 	endswitch;
 endif;
-// compile list of devices
+//	compile list of devices
 $a_device = [];
 foreach($a_sdisk as $r_sdisk):
 	$helpinghand = $r_sdisk['devicespecialfile'] . (isset($r_sdisk['zfsgpt']) ? $r_sdisk['zfsgpt'] : '');
@@ -309,14 +325,14 @@ foreach($a_sdisk as $r_sdisk):
 	$r_device['isinthissraid']     = (isset($sphere_record['device']) && is_array($sphere_record['device']) && in_array($r_device['devicespecialfile'], $sphere_record['device']));
 	$a_device[$helpinghand] = $r_device;
 endforeach;
-// prepare comboboxes
+//	prepare comboboxes
 $l_balance = [
 	'round-robin' => gettext('Round-robin read'),
 	'split' => gettext('Split request'),
 	'load' => gettext('Read from lowest load'),
 	'prefer' => gettext('Read from biggest priority')
 ];
-// give it a title
+//	give it a title
 $pgtitle = [gtext('Disks'),gtext('Software RAID'),gtext('GEOM'),($isrecordnew) ? gtext('Add') : gtext('Edit')];
 include 'fbegin.inc';
 if($isrecordnewornewmodify):
@@ -406,19 +422,6 @@ endif;
 	endif;
 	if(file_exists($d_sysrebootreqd_path)):
 		print_info_box(get_std_save_message(0));
-	endif;
-	if($isrecordnewornewmodify):
-?>
-		<div id="submit" style="margin-bottom:10px">
-<?php
-			foreach($a_process as $r_process):
-?>
-				<button name="Action" id="<?=$r_process['x-button'];?>" type="submit" class="formbtn" value="<?=$r_process['type'];?>"><?=$r_process['gt-type'];?></button>
-<?php
-			endforeach;
-?>
-		</div>
-<?php
 	endif;
 ?>
 	<table class="area_data_settings">
@@ -567,6 +570,15 @@ endif;
 ?>
 			<input name="Submit" id="submit_button" type="submit" class="formbtn" value="<?=gtext('Save');?>"/>
 <?php
+		endif;
+		if($isrecordnewornewmodify && ($active_button_count > 0)):
+			foreach($a_process as $r_process):
+				if($r_process['show-create-button'] ?? false):
+?>
+					<button name="Action" id="<?=$r_process['x-button'];?>" type="submit" class="formbtn" value="<?=$r_process['type'];?>"><?=$r_process['gt-type'];?></button>
+<?php
+				endif;
+			endforeach;
 		endif;
 ?>
 		<input name="Cancel" id="cancel_button" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
