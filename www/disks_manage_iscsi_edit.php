@@ -33,101 +33,209 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'co_sphere.php';
+require_once 'properties_iscsi_initiator.php';
+require_once 'co_request_method.php';
 
-if(isset($_GET['uuid'])):
-	$uuid = $_GET['uuid'];
+function iscsi_initiator_edit_sphere() {
+	global $config;
+
+//	sphere structure
+	$sphere = new co_sphere_row('disks_manage_iscsi_edit','php');
+	$sphere->get_parent()->set_basename('disks_manage_iscsi');
+	$sphere->set_notifier('iscsiinitiator');
+	$sphere->set_row_identifier('uuid');
+	$sphere->enadis(false);
+	$sphere->lock(false);
+	$sphere->grid = &array_make_branch($config,'iscsiinit','vdisk');
+	return $sphere;
+}
+//	init properties and sphere
+$cop = new iscsi_initiator_properties();
+$sphere = &iscsi_initiator_edit_sphere();
+$rmo = new co_request_method();
+$rmo->add('GET','add',PAGE_MODE_ADD);
+$rmo->add('GET','edit',PAGE_MODE_EDIT);
+$rmo->add('POST','add',PAGE_MODE_ADD);
+$rmo->add('POST','cancel',PAGE_MODE_POST);
+$rmo->add('POST','clone',PAGE_MODE_CLONE);
+$rmo->add('POST','edit',PAGE_MODE_EDIT);
+$rmo->add('POST','save',PAGE_MODE_POST);
+$rmo->set_default('POST','cancel',PAGE_MODE_POST);
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	determine page mode and validate resource id
+switch($page_method):
+	case 'GET':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->get_defaultvalue();
+				break;
+			case 'edit': // modify the data of the provided resource id and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->validate_input(INPUT_GET);
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->get_defaultvalue();
+				break;
+			case 'cancel': // cancel - nothing to do
+				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				break;
+			case 'clone':
+				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->get_defaultvalue();
+				break;
+			case 'edit': // edit requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->validate_input();
+				break;
+			case 'save': // modify requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->validate_input();
+				break;
+		endswitch;
+		break;
+endswitch;
+/*
+ *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ */
+if(is_null($sphere->get_row_identifier_value())):
+	header($sphere->get_parent()->get_location());
+	exit;
 endif;
-if(isset($_POST['uuid'])):
-	$uuid = $_POST['uuid'];
-endif;
-$pgtitle = [gtext('Disks'),gtext('Management'),gtext('iSCSI Initiator'),isset($uuid) ? gtext('Edit') : gtext('Add')];
-$a_iscsiinit = &array_make_branch($config,'iscsiinit','vdisk');
-if(empty($a_iscsiinit)):
-else:
-	array_sort_key($a_iscsiinit,'name');
-endif;
-if(isset($uuid) && (false !== ($cnid = array_search_ex($uuid,$a_iscsiinit,'uuid')))):
-	$pconfig['uuid'] = $a_iscsiinit[$cnid]['uuid'];
-	$pconfig['name'] = $a_iscsiinit[$cnid]['name'];
-	$pconfig['targetname'] = $a_iscsiinit[$cnid]['targetname'];
-	$pconfig['targetaddress'] = $a_iscsiinit[$cnid]['targetaddress'];
-	$pconfig['initiatorname'] = $a_iscsiinit[$cnid]['initiatorname'];
-else:
-	$pconfig['uuid'] = uuid();
-	$pconfig['name'] = '';
-	$pconfig['targetname'] = '';
-	$pconfig['targetaddress'] = '';
-	$pconfig['initiatorname'] = 'iqn.2018-02.org.xigmanas:xigmanas';
-endif;
-if(isset($config['iscsitarget']['nodebase']) && !empty($config['iscsitarget']['nodebase'])):
-	$ex_nodebase = $config['iscsitarget']['nodebase'];
-	$ex_disk = 'disk0';
-else:
-	$ex_nodebase = 'iqn.2007-09.jp.ne.peach.istgt';
-	$ex_disk = 'disk0';
-endif;
-$ex_iscsitarget = $ex_nodebase . ' : ' . $ex_disk;
-if($_POST):
-	unset($input_errors);
-	unset($errormsg);
-	unset($do_crypt);
-	$pconfig = $_POST;
-	if(isset($_POST['Cancel']) && $_POST['Cancel']):
-		header('Location: disks_manage_iscsi.php');
-		exit;
+/*
+ *	search resource id in sphere
+ */
+$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+/*
+ *	start determine record update mode
+ */
+$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$record_mode = RECORD_ERROR;
+if(false === $sphere->row_id): // record does not exist in config
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_NEW;
+				break;
+		endswitch;
 	endif;
-	// Check for duplicates.
-	foreach($a_iscsiinit as $iscsiinit):
-		if(isset($uuid) && (false !== $cnid) && ($iscsiinit['uuid'] === $uuid)):
-			continue;
-		endif;
-		if(($iscsiinit['targetname'] === $_POST['targetname']) && ($iscsiinit['targetaddress'] === $_POST['targetaddress'])):
-			$input_errors[] = gtext('This couple targetname/targetaddress already exists in the disk list.');
-			break;
-		endif;
-		if($iscsiinit['name'] == $_POST['name']):
-			$input_errors[] = gtext('This name already exists in the disk list.');
-			break;
-		endif;
-	endforeach;
-	// Input validation
-	$reqdfields = ['name','targetname','targetaddress','initiatorname'];
-	$reqdfieldsn = [gtext('Name'),gtext('Target Name'),gtext('Target Address'),gtext('Initiator Name')];
-	$reqdfieldst = ['alias','string','string','string'];
-	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
-	do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-	if(empty($input_errors)):
-		$iscsiinit = [];
-		$iscsiinit['uuid'] = $_POST['uuid'];
-		$iscsiinit['name'] = $_POST['name'];
-		$iscsiinit['targetname'] = $_POST['targetname'];
-		$iscsiinit['targetaddress'] = $_POST['targetaddress'];
-		$iscsiinit['initiatorname'] = $_POST['initiatorname'];
-		if(isset($uuid) && (false !== $cnid)):
-			$a_iscsiinit[$cnid] = $iscsiinit;
-			$mode = UPDATENOTIFY_MODE_MODIFIED;
-		else:
-			$a_iscsiinit[] = $iscsiinit;
-			$mode = UPDATENOTIFY_MODE_NEW;
-		endif;
-		updatenotify_set('iscsiinitiator',$mode,$iscsiinit['uuid']);
-		write_config();
-		header('Location: disks_manage_iscsi.php');
-		exit;
+else: // record found in configuration
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_NEW:
+				$record_mode = RECORD_NEW_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_MODIFIED:
+				$record_mode = RECORD_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_MODIFY;
+				break;
+		endswitch;
 	endif;
 endif;
-include 'fbegin.inc';
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(window).on("load",function() {
-	$("#iform").submit(function() { spinner(); });
-	$(".spin").click(function() { spinner(); });
-});
-//]]>
-</script>
-<?php
-$document = new co_DOMDocument();
+if(RECORD_ERROR === $record_mode): // oops, something went wrong
+	header($sphere->get_parent()->get_location());
+	exit;
+endif;
+$isrecordnew = (RECORD_NEW === $record_mode);
+$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
+$isrecordmodify = (RECORD_MODIFY === $record_mode);
+$isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
+/*
+ *	end determine record update mode
+ */
+$a_referer = [
+	$cop->get_name(),
+	$cop->get_targetname(),
+	$cop->get_targetaddress(),
+	$cop->get_initiatorname(),
+	$cop->get_authmethod(),
+	$cop->get_chapiname(),
+	$cop->get_chapsecret(),
+	$cop->get_tgtchapname(),
+	$cop->get_tgtchapsecret(),
+	$cop->get_headerdigest(),
+	$cop->get_datadigest(),
+	$cop->get_protocol(),
+	$cop->get_offload(),
+	$cop->get_auxparam()
+];
+switch($page_mode):
+	case PAGE_MODE_ADD:
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		endforeach;
+		break;
+	case PAGE_MODE_CLONE:
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		endforeach;
+		//	adjust page mode
+		$page_mode = PAGE_MODE_ADD;
+		break;
+	case PAGE_MODE_EDIT:
+		$source = $sphere->grid[$sphere->row_id];
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			switch($name):
+				case $cop->get_auxparam()->get_name():
+					if(array_key_exists($name,$source)):
+						if(is_array($source[$name])):
+							$source[$name] = implode(PHP_EOL,$source[$name]);
+						endif;
+					endif;
+					break;
+			endswitch;
+			$sphere->row[$name] = $referer->validate_config($source);
+		endforeach;
+		break;
+	case PAGE_MODE_POST:
+		// apply post values that are applicable for all record modes
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(!isset($sphere->row[$name])):
+				$sphere->row[$name] = $_POST[$name] ?? '';
+				$input_errors[] = $referer->get_message_error();
+			endif;
+		endforeach;
+		if($prerequisites_ok && empty($input_errors)):
+			$name = $cop->get_auxparam()->get_name();
+			$auxparam_grid = [];
+			if(array_key_exists($name,$sphere->row)):
+				foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
+					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
+				endforeach;
+				$sphere->row[$name] = $auxparam_grid;
+			endif;
+			if($isrecordnew):
+				$sphere->grid[] = $sphere->row;
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
+			else:
+				foreach($sphere->row as $key => $value):
+					$sphere->grid[$sphere->row_id][$key] = $value;
+				endforeach;
+				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
+				endif;
+			endif;
+			write_config();
+			header($sphere->get_parent()->get_location()); // cleanup
+			exit;
+		endif;
+		break;
+endswitch;
+$pgtitle = [gettext('Disks'),gettext('Management'),gettext('iSCSI Initiator'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$document = new_page($pgtitle,$sphere->get_scriptname());
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -135,43 +243,51 @@ $document->
 			ins_tabnav_record('disks_init.php',gettext('HDD Format'))->
 			ins_tabnav_record('disks_manage_smart.php',gettext('S.M.A.R.T.'))->
 			ins_tabnav_record('disks_manage_iscsi.php',gettext('iSCSI Initiator'),gettext('Reload page'),true);
-$document->
-	render();
-?>
-<form action="disks_manage_iscsi_edit.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(!empty($input_errors)):
-		print_input_errors($input_errors);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if(file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(get_std_save_message(0));
+endif;
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$content->add_table_data_settings()->
+	ins_colgroup_data_settings()->
+	push()->
+	addTHEAD()->
+		c2_titleline(gettext('iSCSI Initiator Settings'))->
+	pop()->
+	addTBODY()->
+		c2_input_text($cop->get_name(),$sphere->row[$cop->get_name()->get_name()],true)->
+		c2_input_text($cop->get_initiatorname(),$sphere->row[$cop->get_initiatorname()->get_name()])->
+		c2_input_text($cop->get_targetname(),$sphere->row[$cop->get_targetname()->get_name()],true)->
+		c2_input_text($cop->get_targetaddress(),$sphere->row[$cop->get_targetaddress()->get_name()],true)->
+		c2_radio_grid($cop->get_authmethod(),$sphere->row[$cop->get_authmethod()->get_name()])->
+		c2_input_text($cop->get_chapiname(),$sphere->row[$cop->get_chapiname()->get_name()])->
+		c2_input_password($cop->get_chapsecret(),$sphere->row[$cop->get_chapsecret()->get_name()])->
+		c2_input_text($cop->get_tgtchapname(),$sphere->row[$cop->get_tgtchapname()->get_name()])->
+		c2_input_password($cop->get_tgtchapsecret(),$sphere->row[$cop->get_tgtchapsecret()->get_name()])->
+		c2_radio_grid($cop->get_headerdigest(),$sphere->row[$cop->get_headerdigest()->get_name()])->
+		c2_radio_grid($cop->get_datadigest(),$sphere->row[$cop->get_datadigest()->get_name()])->
+		c2_radio_grid($cop->get_protocol(),$sphere->row[$cop->get_protocol()->get_name()])->
+		c2_input_text($cop->get_offload(),$sphere->row[$cop->get_offload()->get_name()])->
+		c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,false,60,$n_auxparam_rows);
+$buttons = $document->add_area_buttons();
+if($isrecordnew):
+	$buttons->ins_button_add();
+else:
+	$buttons->ins_button_save();
+	if($prerequisites_ok && empty($input_errors)):
+		$buttons->ins_button_clone();
 	endif;
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('iSCSI Initiator Settings'));
-?>
-		</thead>
-		<tbody>
-<?php
-		html_inputbox2('name',gettext('Name'),$pconfig['name'],gettext('This is for information only. (not used during iSCSI negotiation).'),true,20);
-		html_inputbox2('initiatorname',gettext('Initiator Name'),$pconfig['initiatorname'],gettext('This name is for example: iqn.2005-01.il.ac.huji.cs:somebody.'),true,60);
-		html_inputbox2('targetname',gettext('Target Name'),$pconfig['targetname'],sprintf(gettext('This name is for example: %s.'),$ex_iscsitarget),true,60);
-		html_inputbox2('targetaddress',gettext('Target Address'),$pconfig['targetaddress'],gettext('Enter the IP address or DNS name of the iSCSI target.'),true,20);
-?>
-		</tbody>
-	</table>
-	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (false !== $cnid)) ? gtext('Save') : gtext('Add')?>" />
-		<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>"/>
-		<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
-	</div>
-<?php
-	include 'formend.inc';
-?>
-</td></tr></tbody></table></form>
-<?php
-include 'fend.inc';
-?>
+endif;
+$buttons->ins_button_cancel();
+$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//	additional javascript code
+$body->addJavaScript($sphere->get_js());
+$body->add_js_on_load($sphere->get_js_on_load());
+$body->add_js_document_ready($sphere->get_js_document_ready());
+$document->render();
