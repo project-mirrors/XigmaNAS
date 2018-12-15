@@ -42,12 +42,12 @@ function get_sphere_status_process() {
 	return $sphere;
 }
 function status_process_ajax() {
-	$cmd = 'top -d1 27';
+	$cmd = 'top -b -d1 27';
 	mwexec2($cmd,$rawdata);
 	return implode(PHP_EOL,$rawdata);
 }
 if(is_ajax()):
-	$status = status_process_ajax();
+	$status['area_refresh'] = status_process_ajax();
 	render_ajax($status);
 endif;
 $sphere = &get_sphere_status_process();
@@ -56,7 +56,7 @@ $(document).ready(function(){
 	var gui = new GUI;
 	gui.recall(5000, 5000, 'status_process.php', null, function(data) {
 		if ($('#area_refresh').length > 0) {
-			$('#area_refresh').html(data.data);
+			$('#area_refresh').text(data.area_refresh);
 		}
 	});
 });
