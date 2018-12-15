@@ -616,6 +616,25 @@ class property_textarea extends properties {
 		return $this;
 	}
 }
+class property_auxparam extends property_textarea {
+	public function __construct($owner = NULL) {
+		parent::__construct($owner);
+		$this->
+			set_name('auxparam')->
+			set_title(gettext('Additional Parameters'))->
+			set_id('auxparam')->
+			set_description('')->
+			set_placeholder(gettext('Enter additional parameters'))->
+			set_placeholderv(gettext('No additional parameters'))->
+			set_editableonadd(true)->
+			set_editableonmodify(true)->
+			set_defaultvalue('')->
+			filter_use_default();
+		$this->
+			set_message_error(sprintf('%s: %s',$this->get_title(),gettext('The value is invalid.')));
+		return $this;
+	}
+}
 class property_ipaddress extends property_text {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
