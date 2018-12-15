@@ -1,6 +1,6 @@
 <?php
 /*
-	co_request_methods.php
+	co_request_method.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright (c) 2018 XigmaNAS <info@xigmanas.com>.
@@ -72,9 +72,14 @@ class co_request_method {
 //			endswitch;
 		endif;
 		//	check inputs
-		$this->_method = filter_input(INPUT_SERVER,'REQUEST_METHOD',FILTER_CALLBACK,['options' =>
-			function(string $value) { return array_key_exists($value,$this->_activities) ? $value : NULL; }
-		]);
+		$rm_name = 'REQUEST_METHOD';
+		if(array_key_exists($rm_name,$_SERVER)):
+			$this->_method = filter_var($_SERVER[$rm_name],FILTER_CALLBACK,['options' =>
+				function(string $value) { return array_key_exists($value,$this->_activities) ? $value : NULL; }
+			]);
+		else:
+			$this->_method = NULL;
+		endif;
 		if(isset($this->_method)):
 			switch($this->_method):
 				case 'POST': // Validate $_POST['submit']

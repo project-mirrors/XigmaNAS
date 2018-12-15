@@ -34,121 +34,132 @@
 require_once 'guiconfig.inc';
 
 unset($input_errors);
-if(filter_input(INPUT_SERVER,'REQUEST_METHOD',FILTER_CALLBACK,['options' =>	function($value) { return $value === 'POST'; }])):
-	$username = filter_input(INPUT_POST,'username',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/^[a-z\d\.\-_]+$/i']]);
-	$remote_addr = (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : '';
-	if(isset($username)):
-		Session::start();
-		array_make_branch($config,'system');
-		if(isset($config['system']['username']) && is_string($config['system']['username']) && ($username === $config['system']['username'])):
-			$success = true;
-			if($success):
-				$password = (isset($_POST['password']) && is_string($_POST['password'])) ? $_POST['password'] : NULL;
-				if(isset($password)):
+$rm_name = 'REQUEST_METHOD';
+$rm_activities = ['POST' => 'POST'];
+if(array_key_exists($rm_name,$_SERVER)):
+	$rm_value = filter_var($_SERVER[$rm_name],FILTER_CALLBACK,['options' =>
+		function(string $value) use ($rm_activities) { return array_key_exists($value,$rm_activities) ? $value : NULL; }
+	]);
+else:
+	$rm_value = NULL;
+endif;
+if(isset($rm_value)):
+	switch($rm_value):
+		case 'POST':
+			$username = filter_input(INPUT_POST,'username',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/^[a-z\d\.\-_]+$/i']]);
+			$remote_addr = (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : '';
+			if(isset($username)):
+				Session::start();
+				array_make_branch($config,'system');
+				if(isset($config['system']['username']) && is_string($config['system']['username']) && ($username === $config['system']['username'])):
+					$continue_checking = true;
+//					if($continue_checking):
+						$password = (isset($_POST['password']) && is_string($_POST['password'])) ? $_POST['password'] : NULL;
+						if(isset($password)):
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: No password provided for user: %s from %s',$username,$remote_addr));
+						endif;
+//					endif;
+					if($continue_checking):
+						if(isset($config['system']['password']) && is_string($config['system']['password'])):
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: No password configured for user: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
+					if($continue_checking):
+						if(password_verify($password,$config['system']['password'])):
+							Session::initAdmin();
+							header('Location: index.php');
+							exit;
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: Invalid password entererd for user: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
 				else:
-					$success = false;
-					write_log(sprintf('AUTH: No password provided for user: %s from %s',$username,$remote_addr));
+					$continue_checking = true;
+//					if($continue_checking):
+						//	Check if username is listed as a system user
+						$users = system_get_user_list();
+						$system_user_row_id = array_search_ex($username,$users,'name');
+						if(false !== $system_user_row_id):
+							$system_user = $users[$system_user_row_id];
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: Username not found: %s from %s',$username,$remote_addr));
+						endif;
+//					endif;
+					if($continue_checking):
+						//	Check if UID column exists
+						if(array_key_exists('uid',$system_user)):
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: UID for username not found: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
+					if($continue_checking):
+						//	Check if it is a local user
+						array_make_branch($config,'access','user');
+						$portal_user_row_id = array_search_ex($system_user['uid'],$config['access']['user'],'id');
+						if(false !== $portal_user_row_id):
+							$portal_user = $config['access']['user'][$portal_user_row_id];
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: Username not found in portal configuration: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
+					if($continue_checking):
+						//	check if a password has been received
+						$password = (isset($_POST['password']) && is_string($_POST['password'])) ? $_POST['password'] : NULL;
+						if(isset($password)):
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: No password provided for user: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
+					if($continue_checking):
+						//	Check if password has been configured for user
+						if(isset($system_user['password']) && is_string($system_user['password'])):
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: No password configured for user: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
+					if($continue_checking):
+						//	Verify password
+						if(password_verify($password,$system_user['password'])):
+						else:
+							write_log(sprintf('AUTH: Invalid password entererd for user: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
+					if($continue_checking):
+						//	Check if user is allowed to access the user portal
+						if(isset($portal_user['userportal'])):
+							Session::initUser($system_user['uid'],$system_user['name']);
+							header('Location: index.php');
+							exit;
+						else:
+							$continue_checking = false;
+							write_log(sprintf('AUTH: No portal access for username: %s from %s',$username,$remote_addr));
+						endif;
+					endif;
 				endif;
+				$input_errors = gettext('Invalid login credentials.');
+			else:
+				write_log(sprintf('AUTH: Username contains invalid character(s): %s from %s',$username,$remote_addr));
+				$input_errors = gettext('Invalid username or password.');
 			endif;
-			if($success):
-				if(isset($config['system']['password']) && is_string($config['system']['password'])):
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: No password configured for user: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				if(password_verify($password,$config['system']['password'])):
-					Session::initAdmin();
-					header('Location: index.php');
-					exit;
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: Invalid password entererd for user: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-		else:
-			$success = true;
-			if($success):
-				//	Check if username is listed as a system user
-				$users = system_get_user_list();
-				$system_user_row_id = array_search_ex($username,$users,'name');
-				if(false !== $system_user_row_id):
-					$system_user = $users[$system_user_row_id];
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: Username not found: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				//	Check if UID column exists
-				if(array_key_exists('uid',$system_user)):
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: UID for username not found: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				//	Check if it is a local user
-				array_make_branch($config,'access','user');
-				$portal_user_row_id = array_search_ex($system_user['uid'],$config['access']['user'],'id');
-				if(false !== $portal_user_row_id):
-					$portal_user = $config['access']['user'][$portal_user_row_id];
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: Username not found in portal configuration: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				//	check if a password has been received
-				$password = (isset($_POST['password']) && is_string($_POST['password'])) ? $_POST['password'] : NULL;
-				if(isset($password)):
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: No password provided for user: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				//	Check if password has been configured for user
-				if(isset($system_user['password']) && is_string($system_user['password'])):
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: No password configured for user: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				//	Verify password
-				if(password_verify($password,$system_user['password'])):
-				else:
-					write_log(sprintf('AUTH: Invalid password entererd for user: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-			if($success):
-				//	Check if user is allowed to access the user portal
-				if(isset($portal_user['userportal'])):
-					Session::initUser($system_user['uid'],$system_user['name']);
-					header('Location: index.php');
-					exit;
-				else:
-					$success = false;
-					write_log(sprintf('AUTH: No portal access for username: %s from %s',$username,$remote_addr));
-				endif;
-			endif;
-		endif;
-		$input_errors = gettext('Invalid login credentials.');
-	else:
-		write_log(sprintf('AUTH: Username contains invalid character(s): %s from %s',$username,$remote_addr));
-		$input_errors = gettext('Invalid username or password.');
-	endif;
+			break;
+	endswitch;
 endif;
 $document = new_page([],'login.php','login');
 $pagecontent = $document->getElementById('pagecontent');
-
 $loginpagedata = $pagecontent->
 	addDIV(['class' => 'loginpageworkspace'])->
 		addDIV(['class' => 'loginpageframe'])->
 			addDIV(['class' => 'loginpagedata']);
-
 $loginpagedata->
 	addElement('header',['class' => 'lph'])->
 		push()->
