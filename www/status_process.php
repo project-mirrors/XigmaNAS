@@ -61,7 +61,7 @@ $(document).ready(function(){
 	});
 });
 EOJ;
-$document = new_page([gtext('Status'),gtext('Processes')]);
+$document = new_page([gettext('Status'),gettext('Processes')]);
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 $body->addJavaScript($jcode);
@@ -71,13 +71,12 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline(gtext('Process State'))->
+			c2_titleline(gettext('Process State'))->
 		pop()->
 		addTBODY()->
 			addTR()->
-				insTDwC('celltag',gtext('Information'))->
+				insTDwC('celltag',gettext('Information'))->
 				addTDwC('celldata')->
 					addElement('pre')->
 						insSPAN(['id' => 'area_refresh'],status_process_ajax());
 $document->render();
-
