@@ -140,6 +140,9 @@ abstract class properties {
 		return $this;
 	}
 	public function get_message_error() {
+		if(is_null($this->x_message_error)):
+			return sprintf('%s: %s',$this->get_title() ?? gettext('Undefined'),gettext('The value is invalid.'));
+		endif;
 		return $this->x_message_error;
 	}
 	public function set_message_info(string $message_info = NULL) {
@@ -618,20 +621,21 @@ class property_textarea extends properties {
 }
 class property_auxparam extends property_textarea {
 	public function __construct($owner = NULL) {
+		$placeholder = gettext('Enter additional parameters');
+		$placeholderv = gettext('No additional parameters');
+		$title = gettext('Additional Parameters');
 		parent::__construct($owner);
 		$this->
-			set_name('auxparam')->
-			set_title(gettext('Additional Parameters'))->
-			set_id('auxparam')->
+			set_defaultvalue('')->
 			set_description('')->
-			set_placeholder(gettext('Enter additional parameters'))->
-			set_placeholderv(gettext('No additional parameters'))->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
-			set_defaultvalue('')->
+			set_id('auxparam')->
+			set_name('auxparam')->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholderv)->
+			set_title($title)->
 			filter_use_default();
-		$this->
-			set_message_error(sprintf('%s: %s',$this->get_title(),gettext('The value is invalid.')));
 		return $this;
 	}
 }
