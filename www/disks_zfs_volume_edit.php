@@ -66,16 +66,11 @@ $input_errors = [];
 $prerequisites_ok = true;
 //	request method
 $server_request_method_regexp = '/^(GET|POST)$/';
-$server_request_method = filter_input(
-	INPUT_SERVER,
-	'REQUEST_METHOD',
-	FILTER_VALIDATE_REGEXP,
-	[
-		'flags' => FILTER_REQUIRE_SCALAR,
-		'options' => [
-			'default' => NULL,
-			'regexp' => $server_request_method_regexp
-]]);
+if(array_key_exists('REQUEST_METHOD',$_SERVER)):
+	$server_request_method = filter_var($_SERVER['REQUEST_METHOD'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $server_request_method_regexp]]);
+else:
+	$server_request_method = NULL;
+endif;
 //	resource id
 $resource_id_filter_options = [
 	'flags' => FILTER_REQUIRE_SCALAR,
