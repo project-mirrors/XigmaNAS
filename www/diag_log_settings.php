@@ -52,7 +52,11 @@ $savemsg = '';
 //	request method
 $methods = ['GET','POST'];
 $methods_regexp = sprintf('/^(%s)$/',implode('|',array_map(function($element) { return preg_quote($element,'/'); },$methods)));
-$method = filter_input(INPUT_SERVER,'REQUEST_METHOD',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $methods_regexp]]);
+if(array_key_exists('REQUEST_METHOD',$_SERVER)):
+	$method = filter_var($_SERVER['REQUEST_METHOD'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $methods_regexp]]);
+else:
+	$method = NULL;
+endif;
 //	determine page mode
 $page_mode = PAGE_MODE_VIEW;
 switch($method):
