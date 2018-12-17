@@ -243,14 +243,6 @@ if(is_booting()):
 		$data = "proc /proc procfs rw 0 0\n";
 		@file_put_contents("{$g['etc_path']}/fstab",$data,FILE_TEXT | FILE_APPEND);
 	endif;
-	//	BananaPI
-	if($g['arch'] == "bpi" ):
-		if(mwexec("/usr/bin/grep ' /boot/msdos ' {$g['etc_path']}/fstab") != 0):
-			//	Append process file system to /etc/fstab
-			$data = "/dev/{$cfgdevice}s1 /boot/msdos  msdosfs ro 0 0\n";
-			@file_put_contents("{$g['etc_path']}/fstab",$data,FILE_TEXT | FILE_APPEND);
-		endif;
-	endif;
 	//	Mount all filesystems
 	mwexec('/sbin/mount -a');
 endif;
