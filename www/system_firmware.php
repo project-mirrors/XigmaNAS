@@ -240,17 +240,7 @@ $part1size = $g_install['part1size_embedded'];
 $cfdevice = trim(file_get_contents(sprintf('%s/cfdevice',$g['etc_path'])));
 $diskinfo = disks_get_diskinfo($cfdevice);
 $part1ok = true;
-//	determine part1min
-switch($g['arch']):
-	case 'rpi':
-	case 'rpi2':
-	case 'oc1':
-		$part1min = 320; //	rpi uses 320MB
-		break;
-	default:
-		$part1min = $g_install['part1min_embedded'];
-		break;
-endswitch;
+$part1min = $g_install['part1min_embedded'];
 switch($page_mode):
 	case 'default':
 		if(in_array($g['platform'],$fwupplatforms)):
