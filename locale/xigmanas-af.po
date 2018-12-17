@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-12 00:04+0000\n"
+"X-Launchpad-Export-Date: 2018-12-17 23:36+0000\n"
 "X-Generator: Launchpad (build 18837)\n"
 
 msgid " interfaces:"
@@ -12796,20 +12796,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "Are you sure you want to reset the server to factory defaults?"
-#~ msgstr ""
-#~ "Is jy seker dat jy die bediener na fabriek standaard toe wil herstel?"
-
-#~ msgid "Erase MBR"
-#~ msgstr "Wis MBR uit"
-
-#~ msgid "The administrator password will be reset to"
-#~ msgstr "Die adminstrateur wagwoord sal gestel word na"
-
-#~ msgid "The server is now reset to factory defaults and will reboot."
-#~ msgstr "Die bediener is nou herstel na fabriek standaard en sal nou herlaai."
-
-#~ msgid "The server will be reset to factory defaults and will reboot."
-#~ msgstr ""
-#~ "Die bediener sal na fabriek standaard herstel word en sal dan herlaai."

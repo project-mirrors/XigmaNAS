@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Launchpad-Export-Date: 2018-12-17 23:37+0000\n"
 "X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -13280,22 +13280,3 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
-
-#~ msgid "Are you sure you want to reset the server to factory defaults?"
-#~ msgstr ""
-#~ "Weet u zeker dat u de server naar de fabrieksinstellingen wilt herstellen?"
-
-#~ msgid "Erase MBR"
-#~ msgstr "Wissen MBR"
-
-#~ msgid "The administrator password will be reset to"
-#~ msgstr "De administrator wachtwoord wordt teruggezet naar"
-
-#~ msgid "The server is now reset to factory defaults and will reboot."
-#~ msgstr ""
-#~ "De server is nu teruggezet naar de fabrieksinstellingen en start opnieuw op."
-
-#~ msgid "The server will be reset to factory defaults and will reboot."
-#~ msgstr ""
-#~ "De server wordt teruggezet naar de fabrieksinstellingen en zal opnieuw "
-#~ "worden opgestart."
