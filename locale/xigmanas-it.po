@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-12-12 00:43+0000\n"
-"PO-Revision-Date: 2018-12-10 23:48+0000\n"
-"Last-Translator: Franco Fabbri <Unknown>\n"
+"PO-Revision-Date: 2018-12-17 23:34+0000\n"
+"Last-Translator: Enrico Pierazzi <enrico.pierazzi@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-12 00:05+0000\n"
+"X-Launchpad-Export-Date: 2018-12-17 23:36+0000\n"
 "X-Generator: Launchpad (build 18837)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
@@ -1110,6 +1110,8 @@ msgstr "Sei sicuro di voler riavviare il server?"
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
+"Sei sicuro di voler ripristinare la configurazione di sistema ai valori di "
+"fabbrica"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Sei sicuro di voler spegnere il server?"
@@ -3690,7 +3692,7 @@ msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Desideri rimuovere gli utenti Mutual CHAP selezionati?"
 
 msgid "Do you want to toggle selected WebDAV records?"
-msgstr ""
+msgstr "Vuoi inviare i record WebDav?"
 
 msgid "Do you want to toggle selected auth groups?"
 msgstr "Desideri rimuovere i gruppi di autorizzazione selezionati?"
@@ -5281,13 +5283,13 @@ msgid "HOT SPARE"
 msgstr "HOT SPARE"
 
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 msgid "HTTP Proxy"
 msgstr "Proxy HTTP"
 
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 msgid "HVM Guest"
 msgstr "HVM Guest"
@@ -6027,7 +6029,7 @@ msgid "June"
 msgstr "Giugno"
 
 msgid "Keep MBR"
-msgstr ""
+msgstr "Mantieni MBR"
 
 msgid "Kernel"
 msgstr "Kernel"
@@ -6323,7 +6325,7 @@ msgid "Local Master Browser"
 msgstr "Local Master Browser"
 
 msgid "Local Share"
-msgstr ""
+msgstr "Condivisione locale"
 
 msgid "Local Share (Destination)"
 msgstr "Condivisione Locale (Destinazione)"
@@ -6530,7 +6532,7 @@ msgstr ""
 "attributo non è specificata."
 
 msgid "MariaDB"
-msgstr ""
+msgstr "MariaDB"
 
 msgid "Masquerade Address"
 msgstr "Indirizzo mascherato"
@@ -6625,7 +6627,7 @@ msgid "May"
 msgstr "Maggio"
 
 msgid "Maybe"
-msgstr ""
+msgstr "Forse"
 
 msgid "Media"
 msgstr "Dischi"
@@ -8067,7 +8069,7 @@ msgid "Processes"
 msgstr "Processi"
 
 msgid "Processor"
-msgstr ""
+msgstr "Processore"
 
 msgid "Product ID"
 msgstr "ID Prodotto"
@@ -8106,10 +8108,10 @@ msgid "Proxy"
 msgstr "Proxy"
 
 msgid "Pull"
-msgstr ""
+msgstr "Pull"
 
 msgid "Push"
-msgstr ""
+msgstr "Push"
 
 msgid ""
 "Puts the disk into standby mode when the selected amount of time after the "
@@ -8200,28 +8202,28 @@ msgid "RAID0"
 msgstr "RAID0"
 
 msgid "RAID0 Information & Status"
-msgstr ""
+msgstr "RAID0 Informazioni & Stato"
 
 msgid "RAID1"
 msgstr "RAID1"
 
 msgid "RAID1 Information & Status"
-msgstr ""
+msgstr "RAID1 Informazioni & Stato"
 
 msgid "RAID5"
 msgstr "RAID5"
 
 msgid "RAID5 Information & Status"
-msgstr ""
+msgstr "RAID5 Informazioni & Stato"
 
 msgid "RAM Disk"
-msgstr ""
+msgstr "Disco RAM"
 
 msgid "RAW info"
 msgstr "Informazione RAW"
 
 msgid "RPM"
-msgstr ""
+msgstr "giri/min"
 
 #, php-format
 msgid ""
@@ -8272,7 +8274,7 @@ msgid "Read"
 msgstr "Lettura"
 
 msgid "Read Cache"
-msgstr ""
+msgstr "Lettura Cache"
 
 msgid "Read Only"
 msgstr "Sola lettura"
@@ -8296,10 +8298,10 @@ msgid "Read only"
 msgstr "Sola lettura"
 
 msgid "Read-Only"
-msgstr ""
+msgstr "Sola lettura"
 
 msgid "Read-Only Access."
-msgstr ""
+msgstr "Accesso in sola lettura"
 
 msgid "Read/Write"
 msgstr "Lettura/scrittura"
@@ -8380,7 +8382,7 @@ msgid "Recycle Bin"
 msgstr "Cestino"
 
 msgid "Redirect"
-msgstr ""
+msgstr "Reindirizzato"
 
 msgid "Redundant Metadata"
 msgstr "Metadati ridondanti"
@@ -8407,7 +8409,7 @@ msgid "Release Notes"
 msgstr "Note di rilascio"
 
 msgid "Reload"
-msgstr ""
+msgstr "Aggiorna"
 
 msgid "Reload Page"
 msgstr "Ricarica pagina"
@@ -8434,10 +8436,10 @@ msgid "Remote Rsync Server"
 msgstr "Server Remoto Rsync"
 
 msgid "Remote Server Address"
-msgstr ""
+msgstr "Indirizzo Server Remoto"
 
 msgid "Remote Share Name"
-msgstr ""
+msgstr "Nome Condivisione Remota"
 
 msgid "Remote Syslog Messages"
 msgstr "Messaggio Syslog remoto"
@@ -8483,7 +8485,7 @@ msgid "Remove the %s first before proceeding."
 msgstr "Rimuovere il %s prima di procedere."
 
 msgid "Reorder"
-msgstr ""
+msgstr "Riordina"
 
 msgid "Reorder Commands"
 msgstr "Comandi di riordino"
@@ -8568,7 +8570,7 @@ msgid "Resources"
 msgstr "Risorse"
 
 msgid "Restart"
-msgstr ""
+msgstr "Riavvia"
 
 msgid "Restore"
 msgstr "Ripristina"
@@ -9292,7 +9294,7 @@ msgstr ""
 "/mnt."
 
 msgid "Sets the authentication type."
-msgstr ""
+msgstr "Seleziona metodo di autenticazione"
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -9382,7 +9384,7 @@ msgid "Show UPS Information"
 msgstr "Mostra informazioni UPS"
 
 msgid "Show Used/Avail"
-msgstr ""
+msgstr "Mostra Usati/Disponibili"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Mostra le voci di log in ordine inverso (le più recenti in alto)."
@@ -9677,7 +9679,7 @@ msgid "Specify physical block offset of the device."
 msgstr ""
 
 msgid "Specify physical block size of the device."
-msgstr ""
+msgstr "Specifica la dimensione fisiceb del blocco del dispositivo."
 
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
@@ -10006,7 +10008,7 @@ msgid "Target Alias"
 msgstr "Alias del target"
 
 msgid "Target Group"
-msgstr ""
+msgstr "Gruppo Destinazione"
 
 msgid "Target Name"
 msgstr "Nome del Target"
@@ -10018,7 +10020,7 @@ msgid "Target information"
 msgstr "Informazioni del target"
 
 msgid "Target is locked"
-msgstr ""
+msgstr "Destinazione bloccata"
 
 msgid "Target is marked for deletion"
 msgstr ""
@@ -13124,18 +13126,3 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
-
-#~ msgid "Are you sure you want to reset the server to factory defaults?"
-#~ msgstr "Sei sicuro di voler ripristinare il server ai valori di fabbrica?"
-
-#~ msgid "Erase MBR"
-#~ msgstr "Cancella MBR"
-
-#~ msgid "The administrator password will be reset to"
-#~ msgstr "La password amministratore sarà settata a"
-
-#~ msgid "The server is now reset to factory defaults and will reboot."
-#~ msgstr "Il server è resettato ai valori iniziali e sarà riavviato."
-
-#~ msgid "The server will be reset to factory defaults and will reboot."
-#~ msgstr "Il server sarà resettato ai valori iniziali e sarà riavviato."
