@@ -7,7 +7,7 @@
 # All rights reserved.
 #
 # Purge /var directory
-# $FreeBSD: /etc/rc.d/cleanvar	Revision 332038
+# $FreeBSD: /releng/12.0/libexec/rc/rc.d/	Revision 340470
 # ---> Change: Skip over *.hints files, otherwise 'xml' cmd will fail!
 #
 

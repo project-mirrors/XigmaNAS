@@ -7,7 +7,6 @@
 # Unison Daemon
 #
 
-
 # PROVIDE: unison
 # REQUIRE: DAEMON
 # XQUERY: -i "count(//unison/enable) > 0" -o "0" -b

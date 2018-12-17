@@ -464,30 +464,6 @@ embedded_upgrade() {
 	fi
 }
 
-upgrade_menuforth()
-{
-	# Update to latest loader manu files.
-	# This is for backward compatibility only.
-	if [ -d "${BEPATH}/etc/install/include/boot" ]; then
-		cp -pf ${BEPATH}/etc/install/include/boot/* ${BEPATH}/boot
-		chmod 444 ${BEPATH}/boot/menu.4th
-	fi
-
-	if ! grep -q "beastie-start" ${BEPATH}/boot/loader.rc; then
-	# Generate/update our loader.rc if missing.
-	cat << EOF > ${BEPATH}/boot/loader.rc
-\ Loader.rc
-include /boot/loader.4th
-start
-initialize
-check-password
-include /boot/beastie.4th
-beastie-start
-EOF
-	chmod 444 ${BEPATH}/boot/loader.rc
-	fi
-}
-
 post_upgrade_config()
 {
 	# Check if zfs_enable is set to yes to automount our datasets on boot.
@@ -563,13 +539,13 @@ full_upgrade() {
 	# may be reintroduced in the system.
 	msg="Remove obsolete files..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
-	/etc/install/upgrade.sh clean ${BEPATH}
+	${BEPATH}/etc/install/upgrade.sh clean ${BEPATH}
 
 	# Install system files and discard unwanted folders/files.
 	msg="Upgrading system on new boot environment..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 	RESULT=1
-	EXCLUDED="--exclude=cf --exclude=conf --exclude=loader.rc --exclude=tmp --exclude=var --exclude=version"
+	EXCLUDED="--exclude=cf --exclude=conf --exclude=tmp --exclude=var --exclude=version"
 	/usr/bin/tar ${EXCLUDED} --keep-newer-files -v -x -U -P -f ${ARG} -C ${BEPATH} > /dev/null 2>&1
 	RESULT=$?
 	if [ 0 != ${RESULT} ]; then
@@ -580,9 +556,6 @@ full_upgrade() {
 		disable_upgrade
 		exit 1
 	else
-
-		# Include latest loader menu files.
-		upgrade_menuforth
 
 		# Post upgrade config checkings.
 		post_upgrade_config

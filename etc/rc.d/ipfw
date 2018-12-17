@@ -6,7 +6,7 @@
 #
 # Firewall, traffic shaper, packet scheduler, in-kernel NAT
 #
-# $FreeBSD: /etc/rc.d/ipfw		Revision 318965
+# $FreeBSD: /releng/12.0/libexec/rc/rc.d/ipfw		Revision 340470
 # Changes:	- Modify prereqs
 # 		- Add status command
 # 		- Add mkconf command to create firewall rules file

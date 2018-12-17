@@ -341,8 +341,9 @@ kern.geom.label.disk_ident.enable="0"
 kern.geom.label.gptid.enable="0"
 hint.acpi_throttle.0.disabled="0"
 hint.p4tcc.0.disabled="0"
+loader_brand="${PRDNAME}"
 autoboot_delay="3"
-isboot_load="YES"
+# isboot_load="YES"
 vfs.root.mountfrom="zfs:${ZROOT}${DATASET}${BOOTENV}"
 zfs_load="YES"
 EOF
@@ -409,26 +410,6 @@ copy_media_files()
 	cp -r ${CDPATH}/boot/* ${ALTROOT}/boot/
 	cp -r ${CDPATH}/boot/defaults/* ${ALTROOT}/boot/defaults/
 	cp -r ${CDPATH}/boot/kernel/* ${ALTROOT}/boot/kernel/
-
-	# Copy our boot loader menu files to /boot.
-	if [ -f "${INCLUDE}/menu.4th" ]; then
-		chmod 444 ${INCLUDE}/menu.4th
-		cp -pf ${INCLUDE}/menu.4th ${ALTROOT}/boot
-	fi
-
-	# Generate/update our loader.rc
-	if [ -f "${INCLUDE}/menu.4th" ]; then
-	cat << EOF > ${ALTROOT}/boot/loader.rc
-\ Loader.rc
-include /boot/loader.4th
-start
-initialize
-check-password
-include /boot/beastie.4th
-beastie-start
-EOF
-	fi
-	chmod 444 ${ALTROOT}/boot/loader.rc
 
 	# Decompress kernel.
 	gzip -d -f ${ALTROOT}/boot/kernel/kernel.gz

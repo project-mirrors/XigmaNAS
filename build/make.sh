@@ -40,20 +40,7 @@ if [ "amd64" = ${XIGMANAS_ARCH} ]; then
     fi
 elif [ "i386" = ${XIGMANAS_ARCH} ]; then
  echo "->> build script does not support 32-bit builds for the i386 architecture"
-exit
-elif [ "armv6" = ${XIGMANAS_ARCH} ]; then
-    XIGMANAS_ARCH="arm"
-    PLATFORM=$(sysctl -n hw.platform)
-    if [ "bcm2835" = ${PLATFORM} ]; then
-	XIGMANAS_XARCH="rpi"
-    elif [ "bcm2836" = ${PLATFORM} ]; then
-	XIGMANAS_XARCH="rpi2"
-    elif [ "meson8b" = ${PLATFORM} ]; then
-	XIGMANAS_XARCH="oc1"
-    else
-	XIGMANAS_XARCH=$XIGMANAS_ARCH
-    fi
-    XIGMANAS_KERNCONF="$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:lower:]' '[:upper:]')-${XIGMANAS_XARCH}"
+exit 1
 else
     XIGMANAS_XARCH=$XIGMANAS_ARCH
 fi
@@ -98,7 +85,7 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 # Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
 XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/trunk"
-XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/11.2"
+XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/12.0"
 
 # Size in MB of the MFS Root filesystem that will include all FreeBSD binary
 # and XIGMANAS WEbGUI/Scripts. Keep this file very small! This file is unzipped
@@ -112,17 +99,14 @@ XIGMANAS_MDLOCAL_MINI_SIZE=36
 XIGMANAS_IMG_SIZE=460
 if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_MFSROOT_SIZE=128
-	XIGMANAS_MDLOCAL_SIZE=1192
-	XIGMANAS_MDLOCAL_MINI_SIZE=38
-	XIGMANAS_IMG_SIZE=470
+	XIGMANAS_MDLOCAL_SIZE=1232
+	XIGMANAS_MDLOCAL_MINI_SIZE=40
+	XIGMANAS_IMG_SIZE=476
 fi
 # xz9->673MB/64MB, 8->369MB/32MB, 7->185MB/16MB, 6->93MB/8MB, 5->47MB/4MB
 # 4->24MB/2.1MB, 3->12.6MB/1.1MB, 2->4.8MB/576KB, 1->1.4MB/128KB
-if [ "arm" = ${XIGMANAS_ARCH} ]; then
-	XIGMANAS_COMPLEVEL=3
-else
-	XIGMANAS_COMPLEVEL=8
-fi
+XIGMANAS_COMPLEVEL=8
+
 XIGMANAS_XMD_SEGLEN=32768
 #XIGMANAS_XMD_SEGLEN=65536
 
@@ -386,7 +370,7 @@ build_kernel() {
 				# Compiling and compressing the kernel.
 				cd /usr/src;
 				env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j4 buildkernel KERNCONF=${XIGMANAS_KERNCONF};
-				gzip -9cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
+				gzip -9cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
 			install)
 				# Installing the modules.
 				echo "--------------------------------------------------------------";
@@ -396,7 +380,7 @@ build_kernel() {
 				[ -f ${XIGMANAS_WORKINGDIR}/modules.files ] && rm -f ${XIGMANAS_WORKINGDIR}/modules.files;
 				cp ${XIGMANAS_SVNDIR}/build/kernel-config/modules.files ${XIGMANAS_WORKINGDIR};
 
-				modulesdir=${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules;
+				modulesdir=${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules;
 				for module in $(cat ${XIGMANAS_WORKINGDIR}/modules.files | grep -v "^#"); do
 					install -v -o root -g wheel -m 555 ${modulesdir}/${module} ${XIGMANAS_ROOTFS}/boot/kernel
 				done
@@ -439,7 +423,6 @@ add_libs() {
 	done
 
 	# for compatibility
-	# install -c -s -v ${XIGMANAS_WORLD}/lib/libreadline.* ${XIGMANAS_ROOTFS}/lib
 	install -c -s -v ${XIGMANAS_WORLD}/usr/lib/libblacklist.so.* ${XIGMANAS_ROOTFS}/usr/lib
 	install -c -s -v ${XIGMANAS_WORLD}/usr/lib/libgssapi_krb5.so.* ${XIGMANAS_ROOTFS}/usr/lib
 	install -c -s -v ${XIGMANAS_WORLD}/usr/lib/libgssapi_ntlm.so.* ${XIGMANAS_ROOTFS}/usr/lib
@@ -587,9 +570,6 @@ create_mfsroot() {
 	#mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 	#chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
 	gzip -9kfnv $XIGMANAS_WORKINGDIR/mfsroot
-	if [ "arm" = ${XIGMANAS_ARCH} ]; then
-		mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mdlocal
-	fi
 	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	create_mdlocal_mini;
@@ -626,15 +606,15 @@ update_mfsroot() {
 copy_kmod() {
 	local kmodlist
 	echo "Copy kmod to $XIGMANAS_TMPDIR/boot/kernel"
-	kmodlist=`(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; find . -name '*.ko' | sed -e 's/\.\///')`
+	kmodlist=`(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; find . -name '*.ko' | sed -e 's/\.\///')`
 	for f in $kmodlist; do
 		if grep -q "^${f}" $XIGMANAS_SVNDIR/build/xigmanas.kmod.exclude > /dev/null; then
 			echo "skip: $f"
 			continue;
 		fi
 		b=`basename ${f}`
-		#(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -9 $XIGMANAS_TMPDIR/boot/kernel/${b})
-		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
+		#(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -9 $XIGMANAS_TMPDIR/boot/kernel/${b})
+		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
 	done
 	return 0;
 }
@@ -644,7 +624,7 @@ create_image() {
 	echo ">>> Generating ${XIGMANAS_PRODUCTNAME} IMG File (to be rawrite on CF/USB/HD/SSD)"
 	echo "--------------------------------------------------------------"
 
-	# Check if rootfs (contining OS image) exists.
+	# Check if rootfs (containing OS image) exists.
 	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
 		echo "==> Error: ${XIGMANAS_ROOTFS} does not exist."
 		return 1
@@ -706,12 +686,22 @@ create_image() {
 
 	echo "===> Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -720,14 +710,15 @@ create_image() {
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/beastie.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -740,18 +731,23 @@ create_image() {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
@@ -843,9 +839,20 @@ create_iso () {
 
 	echo "ISO: Copying Bootloader file(s) to $XIGMANAS_TMPDIR"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_lua.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/cdboot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
@@ -855,14 +862,15 @@ create_iso () {
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
 	if [ 0 != $OPT_BOOTMENU ]; then
-		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_ROOTFS/boot/beastie.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -875,18 +883,23 @@ create_iso () {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
@@ -1094,12 +1107,23 @@ create_usb () {
 
 	echo "USB: Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -1108,14 +1132,15 @@ create_usb () {
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/beastie.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1128,18 +1153,23 @@ create_usb () {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
@@ -1300,12 +1330,22 @@ create_usb_gpt() {
 
 	echo "USB: Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -1314,14 +1354,15 @@ create_usb_gpt() {
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/beastie.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1334,18 +1375,23 @@ create_usb_gpt() {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver.
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# Preload kernel drivers.
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# Copy kernel modules.
 	copy_kmod
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN.
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
@@ -1415,12 +1461,23 @@ create_full() {
 	echo "${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
 
 	echo "Copying bootloader file(s) to root filesystem"
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	#mkdir $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	gunzip $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.4th $XIGMANAS_TMPDIR/boot
@@ -1428,14 +1485,14 @@ create_full() {
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1448,16 +1505,16 @@ create_full() {
 	fi
 	if [ 0 != $OPT_BOOTSPLASH ]; then
 		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		cp ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
+		cp ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	if [ "amd64" != ${XIGMANAS_ARCH} ]; then
-		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && cp apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
+		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && cp apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
 	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
+	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
 
@@ -1474,12 +1531,14 @@ create_full() {
 	echo 'kern.geom.label.gptid.enable="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'hint.acpi_throttle.0.disabled="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'hint.p4tcc.0.disabled="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	#echo 'splash_bmp_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	#echo 'bitmap_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	#echo 'bitmap_name="/boot/splash.bmp"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'autoboot_delay="3"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	#echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'zfs_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
@@ -1513,455 +1572,6 @@ create_full() {
 	echo "Generating SHA512 CHECKSUM File"
 	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
 	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.tgz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
-
-	return 0
-}
-
-custom_rpi() {
-	# RPI settings
-	echo "kern.hz=100" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.pmap.sp_enabled=0" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.bcm2835.sdhci.hs=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.bcm2835.cpufreq.verbose=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.bcm2835.cpufreq.lowest_freq=400" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "vfs.zfs.arc_max=160m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.kmem_size=350m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.kmem_size_max=450m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "if_axe_load=YES" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#if_axge_load=YES" >>$XIGMANAS_TMPDIR/boot/loader.conf
-}
-
-custom_rpi2() {
-	# RPI2 settings
-	echo "kern.hz=100" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.pmap.sp_enabled=0" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.bcm2835.sdhci.hs=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.bcm2835.cpufreq.verbose=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#hw.bcm2835.cpufreq.lowest_freq=600" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#hw.bcm2835.cpufreq.highest_freq=900" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "vfs.zfs.arc_max=280m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.kmem_size=450m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.kmem_size_max=500m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "if_axe_load=YES" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#if_axge_load=YES" >>$XIGMANAS_TMPDIR/boot/loader.conf
-}
-
-custom_oc1() {
-	# OC1 settings
-	echo "kern.hz=100" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.pmap.sp_enabled=0" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#hw.m8b.sdhc.hs=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.m8b.sdhc.uhs=2" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.m8b.sdhc.hs200=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.m8b.sdhc.max_freq=200000000" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.m8b.cpufreq.verbose=1" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.m8b.cpufreq.lowest_freq=816" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "hw.m8b.cpufreq.highest_freq=1608" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "vfs.zfs.arc_max=550m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.kmem_size=750m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#vm.kmem_size_max=800m" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#if_axe_load=YES" >>$XIGMANAS_TMPDIR/boot/loader.conf
-	echo "#if_axge_load=YES" >>$XIGMANAS_TMPDIR/boot/loader.conf
-}
-
-create_arm_image() {
-	custom_cmd="$1"
-
-	# Check if rootfs (contining OS image) exists.
-	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
-		echo "==> Error: ${XIGMANAS_ROOTFS} does not exist!."
-		return 1
-	fi
-
-	# Cleanup.
-	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
-	[ -f ${XIGMANAS_WORKINGDIR}/image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/image.bin
-	[ -f ${XIGMANAS_WORKINGDIR}/image.bin.xz ] && rm -f ${XIGMANAS_WORKINGDIR}/image.bin.xz
-	[ -f ${XIGMANAS_WORKINGDIR}/mfsroot.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/mfsroot.gz
-	[ -f ${XIGMANAS_WORKINGDIR}/mfsroot.uzip ] && rm -f ${XIGMANAS_WORKINGDIR}/mfsroot.uzip
-	[ -f ${XIGMANAS_WORKINGDIR}/mdlocal.xz ] && rm -f ${XIGMANAS_WORKINGDIR}/mdlocal.xz
-	[ -f ${XIGMANAS_WORKINGDIR}/mdlocal.uzip ] && rm -f ${XIGMANAS_WORKINGDIR}/mdlocal.uzip
-	[ -f ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz ] && rm -f ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz
-
-	# Set Platform Informations.
-	PLATFORM="${XIGMANAS_XARCH}-embedded"
-	echo $PLATFORM > ${XIGMANAS_ROOTFS}/etc/platform
-
-	# Set build time.
-	date > ${XIGMANAS_ROOTFS}/etc/prd.version.buildtime
-	date "+%s" > ${XIGMANAS_ROOTFS}/etc/prd.version.buildtimestamp
-
-	# Set Revision.
-	echo ${XIGMANAS_REVISION} > ${XIGMANAS_ROOTFS}/etc/prd.revision
-
-	IMGFILENAME="${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
-	IMGSIZEM=320
-
-	echo "ARM: Generating temporary folder '$XIGMANAS_TMPDIR'"
-	mkdir $XIGMANAS_TMPDIR
-	create_mfsroot;
-
-	echo "ARM: Creating Empty IMG File"
-	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=1m seek=${IMGSIZEM} count=0
-	echo "ARM: Use IMG as a memory disk"
-	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin`
-	diskinfo -v ${md}
-
-	echo "ARM: Formatting this memory disk using UFS"
-	newfs -S 4096 -b 32768 -f 4096 -O2 -U -j -o space -m 0 -L "embboot" /dev/${md}
-
-	echo "ARM: Mount this virtual disk on $XIGMANAS_TMPDIR"
-	mount /dev/${md} $XIGMANAS_TMPDIR
-
-	echo "ARM: Copying previously generated MFSROOT file to memory disk"
-	#cp $XIGMANAS_WORKINGDIR/mfsroot.gz $XIGMANAS_TMPDIR
-	cp $XIGMANAS_WORKINGDIR/mfsroot.uzip $XIGMANAS_TMPDIR
-	#cp $XIGMANAS_WORKINGDIR/mdlocal.xz $XIGMANAS_TMPDIR
-	cp $XIGMANAS_WORKINGDIR/mdlocal.uzip $XIGMANAS_TMPDIR
-	echo "${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
-
-	echo "ARM: Copying Bootloader File(s) to memory disk"
-	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
-	mkdir -p $XIGMANAS_TMPDIR/conf
-	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
-	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	# ARM use uncompressed kernel
-	#gunzip $XIGMANAS_TMPDIR/mfsroot.gz 
-	gunzip $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
-	#cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
-	#cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/loader.4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
-	#cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
-	if [ 0 != $OPT_BOOTMENU ]; then
-		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/delay.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/menu-commands.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/shortcuts.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/version.4th $XIGMANAS_TMPDIR/boot
-	fi
-	if [ 0 != $OPT_BOOTSPLASH ]; then
-		cp $XIGMANAS_SVNDIR/boot/splash.bmp $XIGMANAS_TMPDIR/boot
-		install -v -o root -g wheel -m 555 ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules/splash/bmp/splash_bmp.ko $XIGMANAS_TMPDIR/boot/kernel
-	fi
-
-	# iSCSI driver
-	#install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
-	# preload kernel drivers
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
-	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
-	# copy kernel modules
-	copy_kmod
-
-	# copy boot-update
-	if [ -f ${XIGMANAS_WORKINGDIR}/boot-update.tar.xz ]; then
-		cp -p ${XIGMANAS_WORKINGDIR}/boot-update.tar.xz ${XIGMANAS_TMPDIR}
-	fi
-
-	# Platform customize
-	if [ -n "$custom_cmd" ]; then
-		eval "$custom_cmd"
-	fi
-
-	echo "ARM: Unmount memory disk"
-	umount $XIGMANAS_TMPDIR
-	echo "ARM: Detach memory disk"
-	mdconfig -d -u ${md}
-	echo "ARM: Compress the IMG file"
-	xz -${XIGMANAS_COMPLEVEL}v $XIGMANAS_WORKINGDIR/image.bin
-	cp $XIGMANAS_WORKINGDIR/image.bin.xz $XIGMANAS_ROOTDIR/${IMGFILENAME}.xz
-
-	# Cleanup.
-	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
-	#[ -f $XIGMANAS_WORKINGDIR/mfsroot.gz ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.gz
-	#[ -f $XIGMANAS_WORKINGDIR/mfsroot.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	#[ -f $XIGMANAS_WORKINGDIR/mdlocal.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.xz
-	#[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
-	#[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz
-	#[ -f $XIGMANAS_WORKINGDIR/image.bin.xz ] && rm -f $XIGMANAS_WORKINGDIR/image.bin.xz
-
-	return 0
-}
-
-create_rpisd() {
-	# Check if rootfs (contining OS image) exists.
-	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
-		echo "==> Error: ${XIGMANAS_ROOTFS} does not exist!."
-		return 1
-	fi
-
-	# Prepare boot files
-	RPI_BOOTFILES=${XIGMANAS_SVNDIR}/build/arm/boot-rpi.tar.xz
-	RPI_BOOTDIR=${XIGMANAS_WORKINGDIR}/boot
-	rm -rf ${RPI_BOOTDIR} ${XIGMANAS_WORKINGDIR}/boot-update.tar.xz
-	tar -C ${XIGMANAS_WORKINGDIR} -Jxvf ${RPI_BOOTFILES}
-
-	# Create boot-update
-	tar -C ${RPI_BOOTDIR} -Jcvf ${XIGMANAS_WORKINGDIR}/boot-update.tar.xz \
-	    bootversion bootcode.bin config.txt fixup.dat fixup_cd.dat fixup_x.dat \
-	    rpi.dtb start.elf start_cd.elf start_x.elf uboot.img uenv.txt ubldr
-
-	# Create embedded image
-	create_arm_image custom_rpi;
-
-	[ -f ${XIGMANAS_WORKINGDIR}/sd-image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/sd-image.bin
-	[ -f ${XIGMANAS_WORKINGDIR}/sd-image.bin.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/sd-image.bin.gz
-	mkdir -p ${XIGMANAS_TMPDIR}
-	mkdir -p ${XIGMANAS_TMPDIR}/usr/local
-
-	IMGFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-SD-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
-	FIRMWARENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
-
-	# for 1GB SD card
-	IMGSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/image.bin.xz)
-	MFSSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.uzip)
-	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
-	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE - 1 + 1024 \* 1024 \) / 1024 / 1024)
-	SDROOTM=320
-	SDSWAPM=512
-	SDDATAM=12
-
-	SDFATSIZEM=19
-	# 4MB alignment
-	#SDSYSSIZEM=$(expr $SDROOTM + $IMGSIZEM + 4)
-	SDSYSSIZEM=$(expr $SDROOTM + 4)
-	SDIMGSIZEM=$(expr $SDFATSIZEM + 4 + $SDSYSSIZEM + $SDSWAPM + 4)
-	SDSWPSIZEM=$(expr $SDSWAPM + 4)
-	SDDATSIZEM=$(expr $SDDATAM + 4)
-
-	#SDIMGSIZE=1802240
-	SDIMGSIZE=$(expr 8192 \* 20 \* 11)
-
-	# 4MB aligned SD card
-	echo "RPISD: Creating Empty IMG File"
-	#dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/sd-image.bin bs=1m seek=${SDIMGSIZEM} count=0
-	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/sd-image.bin bs=512 seek=${SDIMGSIZE} count=0
-	echo "RPISD: Use IMG as a memory disk"
-	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/sd-image.bin`
-	diskinfo -v ${md}
-
-	echo "RPISD: Creating BSD partition on this memory disk"
-	gpart create -s mbr ${md}
-	gpart add -b 63 -s ${SDFATSIZEM}m -t '!12' ${md}
-	gpart add -s ${SDSWPSIZEM}m -t freebsd ${md}
-	gpart add -s ${SDSYSSIZEM}m -t freebsd ${md}
-	gpart add -s ${SDDATSIZEM}m -t freebsd ${md}
-	gpart set -a active -i 1 ${md}
-
-	# mmcsd0s1 (FAT16)
-	newfs_msdos -L "BOOT" -F 16 ${md}s1
-	mount -t msdosfs /dev/${md}s1 ${XIGMANAS_TMPDIR}
-
-	# Install boot files
-	for f in bootcode.bin config.txt fixup.dat fixup_cd.dat fixup_x.dat rpi.dtb \
-	    start.elf start_cd.elf start_x.elf uboot.img uenv.txt; do
-		cp -p ${RPI_BOOTDIR}/$f ${XIGMANAS_TMPDIR}
-	done
-
-	# Install bootversion/ubldr
-	cp -p ${RPI_BOOTDIR}/bootversion ${XIGMANAS_TMPDIR}
-	cp -p ${RPI_BOOTDIR}/ubldr ${XIGMANAS_TMPDIR}
-
-	sync
-	cd ${XIGMANAS_WORKINGDIR}
-	umount ${XIGMANAS_TMPDIR}
-	rm -rf ${RPI_BOOTDIR}
-
-	# mmcsd0s2 (SWAP)
-	gpart create -s bsd ${md}s2
-	gpart add -i2 -a 4m -s ${SDSWAPM}m -t freebsd-swap ${md}s2
-
-	# mmcsd0s3 (UFS/SYSTEM)
-	gpart create -s bsd ${md}s3
-	gpart add -a 4m -s ${SDROOTM}m -t freebsd-ufs ${md}s3
-
-	# mmcsd0s4 (UFS/DATA)
-	gpart create -s bsd ${md}s4
-	gpart add -a 4m -s ${SDDATAM}m -t freebsd-ufs ${md}s4
-
-	# SYSTEM partition
-	mdp=${md}s3a
-
-	#echo "RPISD: Formatting this memory disk using UFS"
-	#newfs -S 4096 -b 32768 -f 4096 -O2 -U -j -o space -m 0 -L "embboot" /dev/${mdp}
-	echo "RPISD: Installing embedded image"
-	xz -dcv ${XIGMANAS_ROOTDIR}/${FIRMWARENAME}.xz | dd of=/dev/${mdp} bs=1m status=none
-
-	echo "RPISD: Mount this virtual disk on $XIGMANAS_TMPDIR"
-	mount /dev/${mdp} $XIGMANAS_TMPDIR
-
-	# Enable auto resize
-	touch ${XIGMANAS_TMPDIR}/req_resize
-
-	echo "RPISD: Unmount memory disk"
-	umount $XIGMANAS_TMPDIR
-	echo "RPISD: Detach memory disk"
-	mdconfig -d -u ${md}
-	echo "RPISD: Copy SD image"
-	cp $XIGMANAS_WORKINGDIR/sd-image.bin $XIGMANAS_ROOTDIR/${IMGFILENAME}
-
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img *.xz *.iso > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
-
-	# Cleanup.
-	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
-	[ -f $XIGMANAS_WORKINGDIR/mfsroot ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot
-	[ -f $XIGMANAS_WORKINGDIR/mfsroot.gz ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.gz
-	[ -f $XIGMANAS_WORKINGDIR/mfsroot.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.xz
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz
-	[ -f $XIGMANAS_WORKINGDIR/image.bin.xz ] && rm -f $XIGMANAS_WORKINGDIR/image.bin.xz
-	[ -f $XIGMANAS_WORKINGDIR/sd-image.bin ] && rm -f $XIGMANAS_WORKINGDIR/sd-image.bin
-
-	return 0
-}
-
-create_rpi2sd() {
-	# Check if rootfs (contining OS image) exists.
-	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
-		echo "==> Error: ${XIGMANAS_ROOTFS} does not exist!."
-		return 1
-	fi
-
-	# Prepare boot files
-	RPI_BOOTFILES=${XIGMANAS_SVNDIR}/build/arm/boot-rpi2.tar.xz
-	RPI_BOOTDIR=${XIGMANAS_WORKINGDIR}/boot
-	rm -rf ${RPI_BOOTDIR} ${XIGMANAS_WORKINGDIR}/boot-update.tar.xz
-	tar -C ${XIGMANAS_WORKINGDIR} -Jxvf ${RPI_BOOTFILES}
-
-	# Create boot-update
-	tar -C ${RPI_BOOTDIR} -Jcvf ${XIGMANAS_WORKINGDIR}/boot-update.tar.xz \
-	    bootversion bootcode.bin config.txt fixup.dat fixup_cd.dat fixup_x.dat \
-	    rpi2.dtb start.elf start_cd.elf start_x.elf u-boot.bin ubldr uboot.env
-
-	# Create embedded image
-	create_arm_image custom_rpi2;
-
-	[ -f ${XIGMANAS_WORKINGDIR}/sd-image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/sd-image.bin
-	[ -f ${XIGMANAS_WORKINGDIR}/sd-image.bin.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/sd-image.bin.gz
-	mkdir -p ${XIGMANAS_TMPDIR}
-	mkdir -p ${XIGMANAS_TMPDIR}/usr/local
-
-	IMGFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-SD-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
-	FIRMWARENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.img"
-
-	# for 2GB SD card
-	IMGSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/image.bin.xz)
-	MFSSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.uzip)
-	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
-	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE - 1 + 1024 \* 1024 \) / 1024 / 1024)
-	SDROOTM=320
-	SDSWAPM=1024
-	SDDATAM=12
-
-	SDFATSIZEM=19
-	# 4MB alignment
-	#SDSYSSIZEM=$(expr $SDROOTM + $IMGSIZEM + 4)
-	SDSYSSIZEM=$(expr $SDROOTM + 4)
-	SDIMGSIZEM=$(expr $SDFATSIZEM + 4 + $SDSYSSIZEM + $SDSWAPM + 4)
-	SDSWPSIZEM=$(expr $SDSWAPM + 4)
-	SDDATSIZEM=$(expr $SDDATAM + 4)
-
-	#SDIMGSIZE=3768320
-	SDIMGSIZE=$(expr 8192 \* 20 \* 18)
-
-	# 4MB aligned SD card
-	echo "RPISD: Creating Empty IMG File"
-	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/sd-image.bin bs=512 seek=${SDIMGSIZE} count=0
-	echo "RPISD: Use IMG as a memory disk"
-	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/sd-image.bin`
-	diskinfo -v ${md}
-
-	echo "RPISD: Creating BSD partition on this memory disk"
-	gpart create -s mbr ${md}
-	gpart add -b 63 -s ${SDFATSIZEM}m -t '!12' ${md}
-	gpart add -s ${SDSWPSIZEM}m -t freebsd ${md}
-	gpart add -s ${SDSYSSIZEM}m -t freebsd ${md}
-	gpart add -s ${SDDATSIZEM}m -t freebsd ${md}
-	gpart set -a active -i 1 ${md}
-
-	# mmcsd0s1 (FAT16)
-	newfs_msdos -L "BOOT" -F 16 ${md}s1
-	mount -t msdosfs /dev/${md}s1 ${XIGMANAS_TMPDIR}
-
-	# Install boot files
-	for f in bootcode.bin config.txt fixup.dat fixup_cd.dat fixup_x.dat rpi2.dtb \
-	    start.elf start_cd.elf start_x.elf u-boot.bin uboot.env; do
-		cp -p ${RPI_BOOTDIR}/$f ${XIGMANAS_TMPDIR}
-	done
-
-	# Install bootversion/ubldr
-	cp -p ${RPI_BOOTDIR}/bootversion ${XIGMANAS_TMPDIR}
-	cp -p ${RPI_BOOTDIR}/ubldr ${XIGMANAS_TMPDIR}
-
-	sync
-	cd ${XIGMANAS_WORKINGDIR}
-	umount ${XIGMANAS_TMPDIR}
-	rm -rf ${RPI_BOOTDIR}
-
-	# mmcsd0s2 (SWAP)
-	gpart create -s bsd ${md}s2
-	gpart add -i2 -a 4m -s ${SDSWAPM}m -t freebsd-swap ${md}s2
-
-	# mmcsd0s3 (UFS/SYSTEM)
-	gpart create -s bsd ${md}s3
-	gpart add -a 4m -s ${SDROOTM}m -t freebsd-ufs ${md}s3
-
-	# mmcsd0s4 (UFS/DATA)
-	gpart create -s bsd ${md}s4
-	gpart add -a 4m -s ${SDDATAM}m -t freebsd-ufs ${md}s4
-
-	# SYSTEM partition
-	mdp=${md}s3a
-
-	#echo "RPISD: Formatting this memory disk using UFS"
-	#newfs -S 4096 -b 32768 -f 4096 -O2 -U -j -o space -m 0 -L "embboot" /dev/${mdp}
-	echo "RPISD: Installing embedded image"
-	xz -dcv ${XIGMANAS_ROOTDIR}/${FIRMWARENAME}.xz | dd of=/dev/${mdp} bs=1m status=none
-
-	echo "RPISD: Mount this virtual disk on $XIGMANAS_TMPDIR"
-	mount /dev/${mdp} $XIGMANAS_TMPDIR
-
-	# Enable auto resize
-	touch ${XIGMANAS_TMPDIR}/req_resize
-
-	echo "RPISD: Unmount memory disk"
-	umount $XIGMANAS_TMPDIR
-	echo "RPISD: Detach memory disk"
-	mdconfig -d -u ${md}
-	echo "RPISD: Copy SD image"
-	cp $XIGMANAS_WORKINGDIR/sd-image.bin $XIGMANAS_ROOTDIR/${IMGFILENAME}
-
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img *.xz *.iso > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
-
-	# Cleanup.
-	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
-	[ -f $XIGMANAS_WORKINGDIR/mfsroot ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot
-	[ -f $XIGMANAS_WORKINGDIR/mfsroot.gz ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.gz
-	[ -f $XIGMANAS_WORKINGDIR/mfsroot.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.xz
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
-	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz
-	[ -f $XIGMANAS_WORKINGDIR/image.bin.xz ] && rm -f $XIGMANAS_WORKINGDIR/image.bin.xz
-	[ -f $XIGMANAS_WORKINGDIR/sd-image.bin ] && rm -f $XIGMANAS_WORKINGDIR/sd-image.bin
 
 	return 0
 }
@@ -2101,13 +1711,7 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 		[ ! -d "$s" ] && continue
 		port=`basename $s`
 		state=`cat $s/pkg-state`
-		if [ "arm" = ${XIGMANAS_ARCH} ]; then
-			for forceoff in arcconf isboot grub2-bhyve open-vm-tools tw_cli vbox vbox-additions vmxnet3 icu; do
-				if [ "$port" = "$forceoff" ]; then
-					state="OFF"; break;
-				fi
-			done
-		elif [ "i386" = ${XIGMANAS_ARCH} ]; then
+		if [ "i386" = ${XIGMANAS_ARCH} ]; then
 			for forceoff in grub2-bhyve novnc open-vm-tools phpvirtualbox vbox vbox-additions xmd; do
 				if [ "$port" = "$forceoff" ]; then
 					state="OFF"; break;
@@ -2226,11 +1830,6 @@ ${XIGMANAS_PRODUCTNAME} Build Environment
 13 - Create 'LiveCD' (ISO) File.
 14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
 15 - Create 'Full' (TGZ) Update File."
-	if [ "arm" = ${XIGMANAS_ARCH} ]; then
-		echo -n "
-20 - Create 'RPI SD (IMG) File.
-21 - Create 'RPI2 SD (IMG) File."
-	fi
 	echo -n "
 16 - Create 'xigmanas.pot' file from Source files.
 *  - Exit.
@@ -2247,8 +1846,6 @@ Press # "
 		14)	create_iso_tiny;;
 		15)	create_full;;
 		16)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
-		20)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpisd; fi;;
-		21)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpi2sd; fi;;
 		*)	exit 0;;
 	esac
 

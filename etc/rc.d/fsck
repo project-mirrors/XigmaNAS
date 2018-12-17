@@ -6,7 +6,7 @@
 #
 # Run file system checks
 #
-# $FreeBSD: /etc/rc.d/fsck	Revision 331216
+# $FreeBSD: /releng/12.0/libexec/rc/rc.d/fsck		Revision 340470
 #
 # XigmaNAS Changes: - Refactor fsck_start to process configured disks only.
 # 	   	    - Add fsck_start_root to check root file system on 'full' installations.

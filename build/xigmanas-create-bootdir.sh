@@ -5,6 +5,7 @@
 # All rights reserved.
 #
 
+XIGMANAS_PRODUCTNAME=$(cat $XIGMANAS_SVNDIR/etc/prd.name)
 MINIBSD_DIR=${XIGMANAS_ROOTDIR}/bootloader;
 
 # Initialize variables.
@@ -61,8 +62,11 @@ fi
 # Create the boot directory that will contain boot, and kernel
 mkdir $MINIBSD_DIR
 mkdir $MINIBSD_DIR/defaults
+mkdir $MINIBSD_DIR/dtb
+mkdir $MINIBSD_DIR/dtb/overlays
 mkdir $MINIBSD_DIR/firmware
 mkdir $MINIBSD_DIR/kernel
+mkdir $MINIBSD_DIR/lua
 mkdir $MINIBSD_DIR/modules
 mkdir $MINIBSD_DIR/zfs
 
@@ -70,6 +74,7 @@ mkdir $MINIBSD_DIR/zfs
 cp -v ${XIGMANAS_WORLD}/boot/defaults/loader.conf $MINIBSD_DIR/defaults
 cp -v ${XIGMANAS_WORLD}/boot/loader $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/boot $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/entropy $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/mbr $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/gptboot $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/pmbr $MINIBSD_DIR
@@ -77,31 +82,67 @@ cp -v ${XIGMANAS_WORLD}/boot/cdboot $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader.4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/support.4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/device.hints $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/lua/cli.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/color.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/config.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/core.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/drawer.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/hook.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/loader.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/menu.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/password.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/screen.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/efi.4th $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_4th $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_4th.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_lua $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_lua.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_simp $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_simp.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/userboot_4th.so $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/userboot_lua.so $MINIBSD_DIR
+
 # Copy files required by bootmenu
 if [ 0 != $opt_m ]; then
-#	cp -v ${XIGMANAS_WORLD}/boot/screen.4th $MINIBSD_DIR
-#	cp -v ${XIGMANAS_WORLD}/boot/frames.4th $MINIBSD_DIR
+	cp -v ${XIGMANAS_WORLD}/boot/beastie.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/brand.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/check-password.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/color.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/delay.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/frames.4th $MINIBSD_DIR
+	cp -v ${XIGMANAS_WORLD}/boot/menusets.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/menu-commands.4th $MINIBSD_DIR
+	cp -v ${XIGMANAS_WORLD}/boot/menu.rc $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/screen.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/shortcuts.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/version.4th $MINIBSD_DIR
 fi
 
-# Generate the loader.rc file used by bootloader
-echo "Generate $MINIBSD_DIR/loader.rc"
-echo 'include /boot/loader.4th
-start
-check-password' > $MINIBSD_DIR/loader.rc
-# Enable bootmenu
-if [ 0 != $opt_m ]; then
-	echo 'include /boot/menu.4th' >> $MINIBSD_DIR/loader.rc
-	echo 'menu-start' >> $MINIBSD_DIR/loader.rc
-fi
+# Generate the loader.rc file used by the default boot loader.
+cat << EOF > $MINIBSD_DIR/loader.rc
+\ Loader.rc
+
+\ Includes additional commands
+include /boot/loader.4th
+\ include /boot/efi.4th
+try-include /boot/loader.rc.local
+
+\ Reads and processes loader.conf variables
+initialize
+
+\ maybe-efi-resizecons
+
+\ Tests for password -- executes autoboot first if a password was defined
+check-password
+
+\ Load in the boot menu
+include /boot/beastie.4th
+
+\ Start the boot menu
+beastie-start
+EOF
+# Set proper permissions to the loader.rc file.
+chmod 444 $MINIBSD_DIR/loader.rc
 
 # Generate the loader.conf file using by bootloader
 echo "Generate $MINIBSD_DIR/loader.conf"
@@ -144,7 +185,7 @@ if [ 0 != $opt_a ]; then
   echo 'hint.acpi.0.disabled="1"' >> $MINIBSD_DIR/device.hints
 fi
 # iSCSI driver
-echo 'isboot_load="YES"' >> $MINIBSD_DIR/loader.conf
+# echo 'isboot_load="YES"' >> $MINIBSD_DIR/loader.conf
 # preload kernel drivers
 echo 'zfs_load="YES"' >> $MINIBSD_DIR/loader.conf
 

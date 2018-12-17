@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#This script does create the rootfs.
+#This script create the rootfs.
 #
 # Part of XigmaNAS (https://www.xigmanas.com).
 # Copyright (c) 2018 XigmaNAS <info@xigmanas.com>.
@@ -52,7 +52,10 @@ cd $MINIBSD_DIR ;
 # Create directories
 mkdir boot ;
 mkdir boot/defaults ;
+mkdir boot/dtb ;
+mkdir boot/dtb/overlays ;
 mkdir boot/kernel ;
+mkdir boot/lua ;
 mkdir boot/modules ;
 mkdir boot/zfs ;
 mkdir bin ;

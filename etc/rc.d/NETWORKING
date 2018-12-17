@@ -4,7 +4,7 @@
 # Copyright (c) 2018 XigmaNAS <info@xigmanas.com>.
 # All rights reserved.
 #
-# $FreeBSD: src/etc/rc.d/NETWORKING
+# $FreeBSD: rc.d/NETWORKING
 # Changes: added REQUIRE: resolv, Removed REQUIRE: ppp ipfw stf faith REQUIRE: static_arp static_ndp
 #
 
