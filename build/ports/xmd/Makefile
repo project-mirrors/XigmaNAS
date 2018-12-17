@@ -23,11 +23,6 @@ IGNORE=unsupported on ${ARCH}
 .endif
 
 .include <../xigmanas.mk>
-.if ${XIGMANAS_XARCH} == "rpi2" || ${XIGMANAS_XARCH} == "oc1"
-export CONF_CFLAGS=-march=armv7a -mtune=cortex-a7 -mcpu=cortex-a7
-.elif ${XIGMANAS_XARCH} == "rpi"
-export CONF_CFLAGS=-march=armv6z -mtune=arm1176jzf-s -mcpu=arm1176jzf-s -DCPU_ARM1176
-.endif
 
 post-build:
 	cd ${WRKSRC}/../xmdconfig && ${SETENV} ${MAKE_ENV} ${MAKE} ${MAKE_ARGS}
