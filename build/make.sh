@@ -1123,7 +1123,6 @@ create_usb () {
 	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -1334,6 +1333,7 @@ create_usb_gpt() {
 	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
+	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
@@ -1344,7 +1344,6 @@ create_usb_gpt() {
 	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
