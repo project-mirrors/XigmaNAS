@@ -737,7 +737,7 @@ create_image() {
 		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
-	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
+	#install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
@@ -889,7 +889,7 @@ create_iso () {
 		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
-	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
+	#install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
@@ -1158,7 +1158,7 @@ create_usb () {
 		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
-	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
+	#install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
@@ -1380,7 +1380,7 @@ create_usb_gpt() {
 		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver.
-	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
+	#install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# Preload kernel drivers.
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
@@ -1510,7 +1510,7 @@ create_full() {
 		cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && cp apm/apm.ko $XIGMANAS_TMPDIR/boot/kernel
 	fi
 	# iSCSI driver
-	install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
+	#install -v -o root -g wheel -m 555 ${XIGMANAS_ROOTFS}/boot/kernel/isboot.ko $XIGMANAS_TMPDIR/boot/kernel
 	# preload kernel drivers
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 opensolaris/opensolaris.ko $XIGMANAS_TMPDIR/boot/kernel
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
