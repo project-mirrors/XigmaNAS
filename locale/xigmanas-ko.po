@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"POT-Creation-Date: 2018-12-19 03:39+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-17 23:37+0000\n"
-"X-Generator: Launchpad (build 18837)\n"
+"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -456,6 +456,9 @@ msgstr ""
 "실패 상황이나 새 에러가 탐지 되거나 디스크에 대한 S.M.A.R.T. 명령이 실패했을 때 공지를 받고 싶으면 전자우편 보고서를 활성화 "
 "하십시오."
 
+msgid "Activate the selected device."
+msgstr ""
+
 msgid "Active"
 msgstr "활성"
 
@@ -627,11 +630,11 @@ msgstr "명령어 추가"
 msgid "Add extent"
 msgstr "범위 추가"
 
-msgid "Add iSNS Server"
+msgid "Add iSCSI Initiator"
 msgstr ""
 
-msgid "Add initiator"
-msgstr "초기자 추가"
+msgid "Add iSNS Server"
+msgstr ""
 
 msgid "Add initiator group"
 msgstr "초기자 그룹 추가"
@@ -659,6 +662,9 @@ msgstr ""
 
 msgid "Add target"
 msgstr "타겟 추가"
+
+msgid "Add the selected device to the existing mirror."
+msgstr ""
 
 msgid "Additional Group"
 msgstr "추가 그룹"
@@ -1481,6 +1487,12 @@ msgstr "변경됨"
 msgid "CHAP"
 msgstr "CHAP"
 
+msgid "CHAP Name"
+msgstr ""
+
+msgid "CHAP Secret"
+msgstr ""
+
 msgid "CHAP User is locked"
 msgstr ""
 
@@ -1569,6 +1581,9 @@ msgid ""
 "CRC Error Count. Counts the number of CRC error (read/write data FIS CRC "
 "error)."
 msgstr "CRC 오류 개수. CRC 오류의 개수(자료 읽기/쓰기 FIS CRC 오류)."
+
+msgid "CRC32C"
+msgstr ""
 
 msgid "CTL LUN"
 msgstr ""
@@ -1710,6 +1725,9 @@ msgstr "소프트웨어 RAID 디스크 불러오기 전 설정 정보 초기화"
 
 msgid "Clear device errors"
 msgstr "장치 오류 초기화"
+
+msgid "Clear metadata on the selected device."
+msgstr ""
 
 msgid "Client"
 msgstr "클라이언트"
@@ -2335,6 +2353,9 @@ msgstr "데몬 로그"
 msgid "Data"
 msgstr ""
 
+msgid "Data Digest"
+msgstr ""
+
 msgid "Data Integrity"
 msgstr "데이터 무결성"
 
@@ -2448,6 +2469,9 @@ msgstr "인증을 필요로 하는 디렉터리/URL을 정의합니다."
 msgid ""
 "Define iSCSI hardware offload driver to use for this portal-group. The "
 "default is \"none\"."
+msgstr ""
+
+msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
 
 msgid "Defines the checksum algorithm."
@@ -2601,6 +2625,9 @@ msgstr "선택된 무선 LAN 삭제"
 msgid "Delete Selected WebDAV Records"
 msgstr ""
 
+msgid "Delete Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Delete Selected iSNS Servers"
 msgstr ""
 
@@ -2633,9 +2660,6 @@ msgstr "범위 삭제"
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "수신 측에서 전송자에 존재하지 않는 파일들을 삭제합니다."
-
-msgid "Delete initiator"
-msgstr "초기자 삭제"
 
 msgid "Delete initiator group"
 msgstr "초기자 그룹 삭제"
@@ -2927,6 +2951,9 @@ msgstr ""
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
+msgid "Disable Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Disable Selected iSNS Servers"
 msgstr ""
 
@@ -3105,11 +3132,6 @@ msgid "Do you really want to delete this initiator group?"
 msgstr "정말로 이 초기자 그룹을 삭제하시겠습니까?"
 
 msgid ""
-"Do you really want to delete this initiator? All elements that still use it "
-"will become invalid (e.g. share)!"
-msgstr "정말로 이 초기자를 삭제하시겠습니까? 여전히 이것을 이용하는 모든 요소들은 무효화될 것입니다(예: 공유)!"
-
-msgid ""
 "Do you really want to delete this mount point? All elements that still use "
 "it will become invalid (e.g. share)!"
 msgstr "정말로 이 탑재 지점을 삭제하시겠습니까? 아직도 이것을 이용하는 모든 요소들은 무효화될 것입니다(예. 공유)!"
@@ -3235,6 +3257,9 @@ msgstr "선택된 암호화 볼륨들을 삭제하시겠습니까?"
 msgid "Do you want to delete selected groups?"
 msgstr "선택된 그룹들을 삭제하시겠습니까?"
 
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to delete selected iSNS servers?"
 msgstr ""
 
@@ -3325,6 +3350,9 @@ msgstr ""
 msgid "Do you want to disable selected commands?"
 msgstr "선택된 명령들을 사용하지 않으시겠습니까?"
 
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to disable selected iSNS servers?"
 msgstr ""
 
@@ -3384,6 +3412,9 @@ msgstr ""
 
 msgid "Do you want to enable selected commands?"
 msgstr "선택된 명령들을 사용하시겠습니까?"
+
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr ""
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr ""
@@ -3453,6 +3484,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected commands?"
 msgstr "선택된 명령들을 전환하시겠습니까?"
+
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr ""
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr ""
@@ -3740,11 +3774,11 @@ msgstr "명령 수정"
 msgid "Edit extent"
 msgstr "범위 편집"
 
-msgid "Edit iSNS Server"
+msgid "Edit iSCSI Initiator"
 msgstr ""
 
-msgid "Edit initiator"
-msgstr "초기자 편집"
+msgid "Edit iSNS Server"
+msgstr ""
 
 msgid "Edit initiator group"
 msgstr "초기자 그룹 편집"
@@ -3904,6 +3938,9 @@ msgid "Enable Selected Targets"
 msgstr ""
 
 msgid "Enable Selected WebDAV Records"
+msgstr ""
+
+msgid "Enable Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Enable Selected iSNS Servers"
@@ -4191,6 +4228,9 @@ msgstr ""
 msgid "Enter Identifier"
 msgstr "식별자 입력"
 
+msgid "Enter Name"
+msgstr ""
+
 msgid "Enter Password"
 msgstr "암호 입력"
 
@@ -4315,9 +4355,6 @@ msgstr ""
 
 msgid "Enter smartctl pass-through type."
 msgstr ""
-
-msgid "Enter the IP address or DNS name of the iSCSI target."
-msgstr "iSCSI 타겟의 IP 주소 또는 DNS 이름을 입력하십시오."
 
 msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
@@ -4727,6 +4764,9 @@ msgstr "vdev가 사용 중이거나 다른 크기를 지정하는 경우에도 �
 msgid "Foreign"
 msgstr ""
 
+msgid "Forget about devices which are not connected."
+msgstr ""
+
 msgid "Form Factor"
 msgstr ""
 
@@ -4983,6 +5023,9 @@ msgid "Hard Disk"
 msgstr "하드 디스크"
 
 msgid "Hardware AES"
+msgstr ""
+
+msgid "Header Digest"
 msgstr ""
 
 msgid "Header and Data digest"
@@ -6023,6 +6066,9 @@ msgstr "LUN에 mapping 된 로지컬 유닛 타입"
 msgid "Login"
 msgstr "로그인"
 
+msgid "Login for CHAP authentication."
+msgstr ""
+
 msgid "Logout"
 msgstr "로그아웃"
 
@@ -6135,6 +6181,9 @@ msgid ""
 msgstr "데이터 읽을 시의 채널 마진. 이 속성의 기능은 정해지지 않음."
 
 msgid "MariaDB"
+msgstr ""
+
+msgid "Mark the selected device as inactive."
 msgstr ""
 
 msgid "Masquerade Address"
@@ -6443,6 +6492,12 @@ msgstr ""
 msgid "Mutual CHAP"
 msgstr "상호 CHAP"
 
+msgid "Mutual CHAP Name"
+msgstr ""
+
+msgid "Mutual CHAP Secret"
+msgstr ""
+
 msgid "Mutual CHAP User is locked"
 msgstr ""
 
@@ -6518,6 +6573,11 @@ msgstr "NUT 내부 드라이버 정보"
 
 msgid "Name"
 msgstr "이름"
+
+msgid ""
+"Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
+"or \"iSCSI\". Default is \"iSCSI\"."
+msgstr ""
 
 msgid "Name of the Auth Group."
 msgstr ""
@@ -6960,6 +7020,9 @@ msgid "Offline Immediate Test"
 msgstr "즉각적 오프라인 테스트"
 
 msgid "Offload"
+msgstr ""
+
+msgid "Offload Driver"
 msgstr ""
 
 msgid "Old Passphrase"
@@ -7604,6 +7667,12 @@ msgstr "기본 그룹"
 msgid "Primary group is also selected in additional group."
 msgstr "기본 그룹이 추가 그룹에서도 선택되었습니다."
 
+msgid "Print detailed information."
+msgstr ""
+
+msgid "Print general information."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr ""
 
@@ -7893,6 +7962,9 @@ msgstr "재시동"
 msgid "Reboot Required"
 msgstr "재시동 필요"
 
+msgid "Rebuild the selected device forcibly."
+msgstr ""
+
 msgid "Receive Buffer"
 msgstr "수신 버퍼"
 
@@ -8021,6 +8093,9 @@ msgstr "ARP 테이블에서 모든 엔트리 제거"
 #, php-format
 msgid "Remove the %s first before proceeding."
 msgstr "처리하기 전에 먼저 %s를 제거하십시오."
+
+msgid "Remove the selected device from the mirror."
+msgstr ""
 
 msgid "Reorder"
 msgstr ""
@@ -8415,6 +8490,9 @@ msgstr "초"
 msgid "Secret"
 msgstr "비밀"
 
+msgid "Secret for CHAP authentication."
+msgstr ""
+
 msgid "Secure Shell"
 msgstr "보안 셸"
 
@@ -8790,6 +8868,24 @@ msgid "Sets an alternate mount point for the root dataset. Default is /mnt."
 msgstr "최상위 데이터 셋을 위한 다른 탑재 지점을 설정합니다. 기본 값은 /mnt입니다."
 
 msgid "Sets the authentication type."
+msgstr ""
+
+msgid ""
+"Sets the authentication type. Type can be either \"None\", or \"CHAP\". "
+"Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
+"defined."
+msgstr ""
+
+msgid ""
+"Sets the data digest; a checksum calculated over the Data Section of iSCSI "
+"PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
+"and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
 msgstr ""
 
 msgid ""
@@ -9211,6 +9307,9 @@ msgstr "정지"
 msgid "Stop after sending (and receiving) N packets."
 msgstr "N 패킷 전송(그리고 수신) 후 정지합니다."
 
+msgid "Stop the selected mirror."
+msgstr ""
+
 msgid "Stopped"
 msgstr "정지됨"
 
@@ -9246,6 +9345,9 @@ msgstr "범위의 문자열 식별자."
 
 msgid "Subject"
 msgstr "제목"
+
+msgid "Submit Command"
+msgstr ""
 
 msgid "Subnet Bit Count"
 msgstr "서브넷 비트 수"
@@ -9501,6 +9603,12 @@ msgstr ""
 msgid "Target list"
 msgstr "타겟 목록"
 
+msgid "Target login for Mutual CHAP authentication."
+msgstr ""
+
+msgid "Target secret for Mutual CHAP authentication."
+msgstr ""
+
 msgid "Target side secret."
 msgstr "타겟 측 암호."
 
@@ -9572,6 +9680,9 @@ msgstr "주 UPS의 IP 주소."
 
 msgid "The IP address of the device."
 msgstr "장치의 IP 주소."
+
+msgid "The IP address or the DNS name of the iSCSI target."
+msgstr ""
 
 msgid "The IP address that this hostname represents."
 msgstr "이 호스트 이름이 가리키는 IP 주소."
@@ -10121,6 +10232,11 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr ""
 
+msgid ""
+"The name of the initiator. By default, the name is concatenation of "
+"\"iqn.1994-09.org.freebsd:\" with the hostname."
+msgstr ""
+
 msgid "The name of the interface is wrong."
 msgstr "인터페이스의 이름이 잘못되었습니다."
 
@@ -10132,6 +10248,9 @@ msgstr "미디어 서버 이름이 없습니다."
 
 msgid "The name of the pool cannot be changed."
 msgstr "풀 이름은 변경할 수 없습니다."
+
+msgid "The name of the target."
+msgstr ""
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "이 가상 장치 이름은 변경할 수 없습니다."
@@ -10418,6 +10537,10 @@ msgstr "이 매개 변수들은 %s의 전역 설정에 추가될 것입니다."
 msgid "These parameters will be added to my.cnf"
 msgstr ""
 
+msgid ""
+"These parameters will be added to the configuration of this initiator."
+msgstr ""
+
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
 
@@ -10518,9 +10641,6 @@ msgid ""
 "a net view and in the browse list."
 msgstr "이것은 이 공유가 네트워크 보기와 브라우저 목록에 이용 가능한 공유 목록으로 보이는지 여부를 제어합니다."
 
-msgid "This couple targetname/targetaddress already exists in the disk list."
-msgstr "이 타겟 이름/타겟 주소 쌍은 디스크 목록에 이미 존재합니다."
-
 msgid "This disk already exists in the disk list."
 msgstr "이 디스크는 이미 디스크 리스트에 존재합니다."
 
@@ -10533,6 +10653,9 @@ msgstr "이 범위는 이용되고 있습니다."
 msgid "This group already exists in the group list."
 msgstr "이 그룹은 그룹 목록에 이미 존재합니다."
 
+msgid "This is a nickname and is for information only."
+msgstr ""
+
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "이 도구는 매우 강력한 도구입니다. 위험을 감수하고 사용하십시오."
 
@@ -10543,21 +10666,8 @@ msgstr ""
 "이것은 Zeroconf/B‫onjour/Rendezvous를 경유 해서 공지되는 서버의 이름이기도 하며 DAAP를 경유 해서 export "
 "되는 데이터베이스의 이름이기도 합니다."
 
-msgid "This is for information only. (not used during iSCSI negotiation)."
-msgstr "이것은 정보 제공 용입니다(iSCSI 협상시 사용되지 않음)."
-
 msgid "This is not a valid IP Address."
 msgstr "올바른 IP 주소가 아닙니다."
-
-msgid "This name already exists in the disk list."
-msgstr "이 이름은 디스크 리스트에 이미 존재합니다."
-
-#, php-format
-msgid "This name is for example: %s."
-msgstr "이 이름은 예를 든 것입니다: %s."
-
-msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-msgstr "이 이름은 예를 든 것입니다: iqn.2005-01.il.ac.huji.cs:somebody."
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr "이 이름은 시스템의 UPS를 유일하게 식별하는 이름입니다."
@@ -10963,6 +11073,9 @@ msgid "Toggle Selected Targets"
 msgstr ""
 
 msgid "Toggle Selected WebDAV Records"
+msgstr ""
+
+msgid "Toggle Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Toggle Selected iSNS Servers"
@@ -12125,11 +12238,23 @@ msgstr ""
 msgid "hidden"
 msgstr "숨김"
 
+msgid "iSCSI"
+msgstr ""
+
 msgid "iSCSI Initiator"
 msgstr "iSCSI 초기자"
 
 msgid "iSCSI Initiator Settings"
 msgstr "iSCSI 초기자 설정"
+
+msgid "iSCSI Initiator is locked"
+msgstr ""
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr ""
+
+msgid "iSCSI Initiator is unlocked"
+msgstr ""
 
 msgid "iSCSI Target"
 msgstr "iSCSI 타겟"
@@ -12152,6 +12277,9 @@ msgstr "iSCSI 초기 인자(기본 값은 %d)."
 
 msgid "iSCSI initiator disabled."
 msgstr "iSCSI 초기자 비활성화됨"
+
+msgid "iSER - iSCSI over RDMA"
+msgstr ""
 
 msgid "iSNS Period"
 msgstr ""
@@ -12284,3 +12412,36 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Add initiator"
+#~ msgstr "초기자 추가"
+
+#~ msgid "Delete initiator"
+#~ msgstr "초기자 삭제"
+
+#~ msgid ""
+#~ "Do you really want to delete this initiator? All elements that still use it "
+#~ "will become invalid (e.g. share)!"
+#~ msgstr "정말로 이 초기자를 삭제하시겠습니까? 여전히 이것을 이용하는 모든 요소들은 무효화될 것입니다(예: 공유)!"
+
+#~ msgid "Edit initiator"
+#~ msgstr "초기자 편집"
+
+#~ msgid "Enter the IP address or DNS name of the iSCSI target."
+#~ msgstr "iSCSI 타겟의 IP 주소 또는 DNS 이름을 입력하십시오."
+
+#~ msgid "This couple targetname/targetaddress already exists in the disk list."
+#~ msgstr "이 타겟 이름/타겟 주소 쌍은 디스크 목록에 이미 존재합니다."
+
+#~ msgid "This is for information only. (not used during iSCSI negotiation)."
+#~ msgstr "이것은 정보 제공 용입니다(iSCSI 협상시 사용되지 않음)."
+
+#~ msgid "This name already exists in the disk list."
+#~ msgstr "이 이름은 디스크 리스트에 이미 존재합니다."
+
+#, php-format
+#~ msgid "This name is for example: %s."
+#~ msgstr "이 이름은 예를 든 것입니다: %s."
+
+#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
+#~ msgstr "이 이름은 예를 든 것입니다: iqn.2005-01.il.ac.huji.cs:somebody."

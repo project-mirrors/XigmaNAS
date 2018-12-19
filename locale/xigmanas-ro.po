@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"POT-Creation-Date: 2018-12-19 03:39+0000\n"
 "PO-Revision-Date: 2018-09-13 11:48+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-17 23:37+0000\n"
-"X-Generator: Launchpad (build 18837)\n"
+"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -496,6 +496,9 @@ msgstr ""
 "Activați raportul prin email dacă doriți să fiți informat în cazul apariției "
 "unei erori sau unei defecțiuni la discuri (monitorizare S.M.A.R.T.)"
 
+msgid "Activate the selected device."
+msgstr ""
+
 msgid "Active"
 msgstr "Activ"
 
@@ -667,11 +670,11 @@ msgstr "Adăugare comandă"
 msgid "Add extent"
 msgstr "Adăugare extensie"
 
+msgid "Add iSCSI Initiator"
+msgstr ""
+
 msgid "Add iSNS Server"
 msgstr "Adauga Server iSNS"
-
-msgid "Add initiator"
-msgstr "Adăugare inițiator"
 
 msgid "Add initiator group"
 msgstr "Adăugare grup inițiator"
@@ -699,6 +702,9 @@ msgstr ""
 
 msgid "Add target"
 msgstr "Adăugare destinație"
+
+msgid "Add the selected device to the existing mirror."
+msgstr ""
 
 msgid "Additional Group"
 msgstr "Grup adițional"
@@ -1579,6 +1585,12 @@ msgstr "MODIFICAT"
 msgid "CHAP"
 msgstr "CHAP"
 
+msgid "CHAP Name"
+msgstr ""
+
+msgid "CHAP Secret"
+msgstr ""
+
 msgid "CHAP User is locked"
 msgstr "Utilizator CHAP blocat"
 
@@ -1669,6 +1681,9 @@ msgid ""
 msgstr ""
 "Număr erori CRC. Contorizează numărul erorilor CRC (erori FIS CRC la "
 "citire/scriere)."
+
+msgid "CRC32C"
+msgstr ""
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1820,6 +1835,9 @@ msgstr "Ștergere configurație înainte de importul discurilor RAID software."
 
 msgid "Clear device errors"
 msgstr "Ștergere erori dispozitiv"
+
+msgid "Clear metadata on the selected device."
+msgstr ""
 
 msgid "Client"
 msgstr "Client"
@@ -2517,6 +2535,9 @@ msgstr "Jurnal daemon"
 msgid "Data"
 msgstr "Date"
 
+msgid "Data Digest"
+msgstr ""
+
 msgid "Data Integrity"
 msgstr "Integritate date"
 
@@ -2636,6 +2657,9 @@ msgid ""
 msgstr ""
 "Definește driverul hardware iSCSI de utilizat cu acest grup portal. Valoarea "
 "implicită este \"none\"."
+
+msgid "Define iSCSI hardware offload driver. The default is \"None\"."
+msgstr ""
 
 msgid "Defines the checksum algorithm."
 msgstr "Definește algoritmul sumei de control."
@@ -2792,6 +2816,9 @@ msgstr "Ștergere rețele WLAN selectate"
 msgid "Delete Selected WebDAV Records"
 msgstr "Ștergere selecție înregistrări WebDAV"
 
+msgid "Delete Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Delete Selected iSNS Servers"
 msgstr "Ștergere servere iSNS seelctate"
 
@@ -2824,9 +2851,6 @@ msgstr "Ștergere extensie"
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Ștergerea fișierelor la destinație care nu apar și la sursă."
-
-msgid "Delete initiator"
-msgstr "Ștergere inițiator"
 
 msgid "Delete initiator group"
 msgstr "Ștergere grup inițiator"
@@ -3126,6 +3150,9 @@ msgstr "Dezactivare Destinații selectate"
 msgid "Disable Selected WebDAV Records"
 msgstr "Dezactivare selecție înregistrări WebDAV"
 
+msgid "Disable Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Disable Selected iSNS Servers"
 msgstr "Dezactivare servere iSNS selectate"
 
@@ -3316,13 +3343,6 @@ msgid "Do you really want to delete this initiator group?"
 msgstr "Doriți să ștergeți acest grup inițiator?"
 
 msgid ""
-"Do you really want to delete this initiator? All elements that still use it "
-"will become invalid (e.g. share)!"
-msgstr ""
-"Doriți să ștergeți acest inițiator? Toate elementele care îl folosesc vor "
-"deveni invalide (ex. partajările)!"
-
-msgid ""
 "Do you really want to delete this mount point? All elements that still use "
 "it will become invalid (e.g. share)!"
 msgstr ""
@@ -3453,6 +3473,9 @@ msgstr "Ștergeți volumele criptate selectate?"
 msgid "Do you want to delete selected groups?"
 msgstr "Ștergeți grupurile selectate?"
 
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to delete selected iSNS servers?"
 msgstr ""
 
@@ -3543,6 +3566,9 @@ msgstr ""
 msgid "Do you want to disable selected commands?"
 msgstr "Dezactivați comenzile selectate?"
 
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Dezactivați serverele iSNS selectate?"
 
@@ -3602,6 +3628,9 @@ msgstr ""
 
 msgid "Do you want to enable selected commands?"
 msgstr "Activați comenzile selectate?"
+
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr ""
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr ""
@@ -3671,6 +3700,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Schimbați starea comenzilor selectate?"
+
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr ""
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr ""
@@ -3960,11 +3992,11 @@ msgstr "Editare comandă"
 msgid "Edit extent"
 msgstr "Editare extensie"
 
-msgid "Edit iSNS Server"
+msgid "Edit iSCSI Initiator"
 msgstr ""
 
-msgid "Edit initiator"
-msgstr "Editare inițiator"
+msgid "Edit iSNS Server"
+msgstr ""
 
 msgid "Edit initiator group"
 msgstr "Editare grup inițiator"
@@ -4124,6 +4156,9 @@ msgid "Enable Selected Targets"
 msgstr ""
 
 msgid "Enable Selected WebDAV Records"
+msgstr ""
+
+msgid "Enable Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Enable Selected iSNS Servers"
@@ -4430,6 +4465,9 @@ msgstr ""
 msgid "Enter Identifier"
 msgstr "Introducere Identificator"
 
+msgid "Enter Name"
+msgstr ""
+
 msgid "Enter Password"
 msgstr "Introduceți parola"
 
@@ -4565,9 +4603,6 @@ msgstr ""
 
 msgid "Enter smartctl pass-through type."
 msgstr "Introducere tip parolă smartctl"
-
-msgid "Enter the IP address or DNS name of the iSCSI target."
-msgstr "Introducere adresă IP sau nume DNS pentru destinația iSCSI."
 
 msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
@@ -4999,6 +5034,9 @@ msgstr ""
 msgid "Foreign"
 msgstr ""
 
+msgid "Forget about devices which are not connected."
+msgstr ""
+
 msgid "Form Factor"
 msgstr ""
 
@@ -5261,6 +5299,9 @@ msgid "Hard Disk"
 msgstr "Hard disc"
 
 msgid "Hardware AES"
+msgstr ""
+
+msgid "Header Digest"
 msgstr ""
 
 msgid "Header and Data digest"
@@ -6382,6 +6423,9 @@ msgstr "Tip Unitate Logică mapat în LUN."
 msgid "Login"
 msgstr "Autentificare"
 
+msgid "Login for CHAP authentication."
+msgstr ""
+
 msgid "Logout"
 msgstr "Deautentificare"
 
@@ -6499,6 +6543,9 @@ msgstr ""
 "este specificată."
 
 msgid "MariaDB"
+msgstr ""
+
+msgid "Mark the selected device as inactive."
 msgstr ""
 
 msgid "Masquerade Address"
@@ -6814,6 +6861,12 @@ msgstr ""
 msgid "Mutual CHAP"
 msgstr "CHAP mutual"
 
+msgid "Mutual CHAP Name"
+msgstr ""
+
+msgid "Mutual CHAP Secret"
+msgstr ""
+
 msgid "Mutual CHAP User is locked"
 msgstr ""
 
@@ -6890,6 +6943,11 @@ msgstr "Informații driver intern NUT"
 
 msgid "Name"
 msgstr "Nume"
+
+msgid ""
+"Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
+"or \"iSCSI\". Default is \"iSCSI\"."
+msgstr ""
 
 msgid "Name of the Auth Group."
 msgstr ""
@@ -7347,6 +7405,9 @@ msgid "Offline Immediate Test"
 msgstr "Test offline imediat"
 
 msgid "Offload"
+msgstr ""
+
+msgid "Offload Driver"
 msgstr ""
 
 msgid "Old Passphrase"
@@ -8017,6 +8078,12 @@ msgstr "Grup Primar"
 msgid "Primary group is also selected in additional group."
 msgstr "Grupul primar este deja selectat în grupul adițional."
 
+msgid "Print detailed information."
+msgstr ""
+
+msgid "Print general information."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr ""
 
@@ -8319,6 +8386,9 @@ msgstr "Repornire"
 msgid "Reboot Required"
 msgstr "Necesită repornirea"
 
+msgid "Rebuild the selected device forcibly."
+msgstr ""
+
 msgid "Receive Buffer"
 msgstr "Bufer recepție"
 
@@ -8451,6 +8521,9 @@ msgstr "Șterge toate intrările din tabela ARP"
 #, php-format
 msgid "Remove the %s first before proceeding."
 msgstr "Ștergeți %s înainte de a merge mai departe."
+
+msgid "Remove the selected device from the mirror."
+msgstr ""
 
 msgid "Reorder"
 msgstr ""
@@ -8860,6 +8933,9 @@ msgstr "Secunde"
 msgid "Secret"
 msgstr "Secret"
 
+msgid "Secret for CHAP authentication."
+msgstr ""
+
 msgid "Secure Shell"
 msgstr "Shell Securizat"
 
@@ -9257,6 +9333,24 @@ msgstr ""
 "este /mnt."
 
 msgid "Sets the authentication type."
+msgstr ""
+
+msgid ""
+"Sets the authentication type. Type can be either \"None\", or \"CHAP\". "
+"Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
+"defined."
+msgstr ""
+
+msgid ""
+"Sets the data digest; a checksum calculated over the Data Section of iSCSI "
+"PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
+"and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
 msgstr ""
 
 msgid ""
@@ -9704,6 +9798,9 @@ msgstr "Stop"
 msgid "Stop after sending (and receiving) N packets."
 msgstr "Testul se va opri după trimiterea (și recepția) a N pachete."
 
+msgid "Stop the selected mirror."
+msgstr ""
+
 msgid "Stopped"
 msgstr "Oprit"
 
@@ -9739,6 +9836,9 @@ msgstr "Textul de identificare al extensiei."
 
 msgid "Subject"
 msgstr "Subiect"
+
+msgid "Submit Command"
+msgstr ""
 
 msgid "Subnet Bit Count"
 msgstr "Contorizare subnet"
@@ -9995,6 +10095,12 @@ msgstr ""
 msgid "Target list"
 msgstr "Lista Destinații"
 
+msgid "Target login for Mutual CHAP authentication."
+msgstr ""
+
+msgid "Target secret for Mutual CHAP authentication."
+msgstr ""
+
 msgid "Target side secret."
 msgstr "Secretul la destinație."
 
@@ -10071,6 +10177,9 @@ msgstr "Adresa IP a UPS-ului master."
 
 msgid "The IP address of the device."
 msgstr "Adresa IP a dispozitivului."
+
+msgid "The IP address or the DNS name of the iSCSI target."
+msgstr ""
 
 msgid "The IP address that this hostname represents."
 msgstr "Adresa IP corespunzătoare sistemului."
@@ -10692,6 +10801,11 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr ""
 
+msgid ""
+"The name of the initiator. By default, the name is concatenation of "
+"\"iqn.1994-09.org.freebsd:\" with the hostname."
+msgstr ""
+
 msgid "The name of the interface is wrong."
 msgstr "Numele interfeței este greșit."
 
@@ -10703,6 +10817,9 @@ msgstr "Lipsește numele serverului media."
 
 msgid "The name of the pool cannot be changed."
 msgstr "Numele structurii pool nu poate fi modificat."
+
+msgid "The name of the target."
+msgstr ""
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "Numele dispozitivului virtual nu poate fi modificat."
@@ -11017,6 +11134,10 @@ msgstr "Acești parametri vor fi adăugați la setările globale în %s."
 msgid "These parameters will be added to my.cnf"
 msgstr ""
 
+msgid ""
+"These parameters will be added to the configuration of this initiator."
+msgstr ""
+
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
 
@@ -11134,11 +11255,6 @@ msgstr ""
 "Stabilește dacă partajarea definită va fi vizibilă sau nu în modul Navigare "
 "(Browse)."
 
-msgid "This couple targetname/targetaddress already exists in the disk list."
-msgstr ""
-"Acest cuplu nume destinație/adresă destinație există deja în lista "
-"discurilor."
-
 msgid "This disk already exists in the disk list."
 msgstr "Acest disc este deja în lista discurilor."
 
@@ -11153,6 +11269,9 @@ msgstr "Această extensie este utilizată."
 msgid "This group already exists in the group list."
 msgstr "Acest grup există deja în lista grupurilor."
 
+msgid "This is a nickname and is for information only."
+msgstr ""
+
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "Această unealtă este foarte puternică. Utilizați-o cu grijă maximă!"
 
@@ -11163,23 +11282,8 @@ msgstr ""
 "Acesta reprezintă atît numele serverului anunțat prin serviciul "
 "Zeroconf/Bonjour/Rendezvous cît și numele bazei exportate prin DAAP."
 
-msgid "This is for information only. (not used during iSCSI negotiation)."
-msgstr ""
-"Acest mesaj este doar pentru informare (nu este utilizat la negocierea "
-"iSCSI)."
-
 msgid "This is not a valid IP Address."
 msgstr "Aceasta nu este o adresă IP validă."
-
-msgid "This name already exists in the disk list."
-msgstr "Acest nume există deja în lista discurilor."
-
-#, php-format
-msgid "This name is for example: %s."
-msgstr "Acest nume este pentru exemplu: %s."
-
-msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-msgstr "Exemplu: iqn.2005-01.il.ac.huji.cs:somebody."
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -11650,6 +11754,9 @@ msgid "Toggle Selected Targets"
 msgstr ""
 
 msgid "Toggle Selected WebDAV Records"
+msgstr ""
+
+msgid "Toggle Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Toggle Selected iSNS Servers"
@@ -12898,11 +13005,23 @@ msgstr "valoarea maximă punct de transfer tensiune joasă"
 msgid "hidden"
 msgstr "ascuns"
 
+msgid "iSCSI"
+msgstr ""
+
 msgid "iSCSI Initiator"
 msgstr "Inițiator iSCSI"
 
 msgid "iSCSI Initiator Settings"
 msgstr "Setări Inițiator iSCSI"
+
+msgid "iSCSI Initiator is locked"
+msgstr ""
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr ""
+
+msgid "iSCSI Initiator is unlocked"
+msgstr ""
 
 msgid "iSCSI Target"
 msgstr "Destinație iSCSI"
@@ -12925,6 +13044,9 @@ msgstr "Parametru inițial iSCSI (iniţial %d)."
 
 msgid "iSCSI initiator disabled."
 msgstr "Inițiatorul iSCSI este dezactivat."
+
+msgid "iSER - iSCSI over RDMA"
+msgstr ""
 
 msgid "iSNS Period"
 msgstr "Perioadă iSNS"
@@ -13059,3 +13181,42 @@ msgstr "utilizat din"
 
 msgid "visible"
 msgstr "vizibil"
+
+#~ msgid "Add initiator"
+#~ msgstr "Adăugare inițiator"
+
+#~ msgid "Delete initiator"
+#~ msgstr "Ștergere inițiator"
+
+#~ msgid ""
+#~ "Do you really want to delete this initiator? All elements that still use it "
+#~ "will become invalid (e.g. share)!"
+#~ msgstr ""
+#~ "Doriți să ștergeți acest inițiator? Toate elementele care îl folosesc vor "
+#~ "deveni invalide (ex. partajările)!"
+
+#~ msgid "Edit initiator"
+#~ msgstr "Editare inițiator"
+
+#~ msgid "Enter the IP address or DNS name of the iSCSI target."
+#~ msgstr "Introducere adresă IP sau nume DNS pentru destinația iSCSI."
+
+#~ msgid "This couple targetname/targetaddress already exists in the disk list."
+#~ msgstr ""
+#~ "Acest cuplu nume destinație/adresă destinație există deja în lista "
+#~ "discurilor."
+
+#~ msgid "This is for information only. (not used during iSCSI negotiation)."
+#~ msgstr ""
+#~ "Acest mesaj este doar pentru informare (nu este utilizat la negocierea "
+#~ "iSCSI)."
+
+#~ msgid "This name already exists in the disk list."
+#~ msgstr "Acest nume există deja în lista discurilor."
+
+#, php-format
+#~ msgid "This name is for example: %s."
+#~ msgstr "Acest nume este pentru exemplu: %s."
+
+#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
+#~ msgstr "Exemplu: iqn.2005-01.il.ac.huji.cs:somebody."

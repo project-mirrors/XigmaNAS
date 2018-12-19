@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"POT-Creation-Date: 2018-12-19 03:39+0000\n"
 "PO-Revision-Date: 2018-07-06 10:03+0000\n"
 "Last-Translator: Kim Bjoern Nielsen <launchpad.net@pjat.dk>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-17 23:36+0000\n"
-"X-Generator: Launchpad (build 18837)\n"
+"X-Launchpad-Export-Date: 2018-12-19 08:05+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
 "X-Poedit-Language: Danish\n"
@@ -470,6 +470,9 @@ msgstr ""
 "Aktiver email rapport hvis du vil informeres hvis et nedbrud eller eller en "
 "ny fejl opdages, eller hvis en S.M.A.R.T. kommando til en disk fejler."
 
+msgid "Activate the selected device."
+msgstr ""
+
 msgid "Active"
 msgstr "Aktive"
 
@@ -641,11 +644,11 @@ msgstr "Tilføj kommando"
 msgid "Add extent"
 msgstr "Tilføj extent"
 
-msgid "Add iSNS Server"
+msgid "Add iSCSI Initiator"
 msgstr ""
 
-msgid "Add initiator"
-msgstr "Tilføj initiator"
+msgid "Add iSNS Server"
+msgstr ""
 
 msgid "Add initiator group"
 msgstr "Tilføj Initiator gruppe"
@@ -673,6 +676,9 @@ msgstr ""
 
 msgid "Add target"
 msgstr "Tilføj mål"
+
+msgid "Add the selected device to the existing mirror."
+msgstr ""
 
 msgid "Additional Group"
 msgstr "Ekstra gruppe"
@@ -1501,6 +1507,12 @@ msgstr "ÆNDRET"
 msgid "CHAP"
 msgstr "CHAP"
 
+msgid "CHAP Name"
+msgstr ""
+
+msgid "CHAP Secret"
+msgstr ""
+
 msgid "CHAP User is locked"
 msgstr ""
 
@@ -1588,6 +1600,9 @@ msgstr "CPU belastning"
 msgid ""
 "CRC Error Count. Counts the number of CRC error (read/write data FIS CRC "
 "error)."
+msgstr ""
+
+msgid "CRC32C"
 msgstr ""
 
 msgid "CTL LUN"
@@ -1732,6 +1747,9 @@ msgid "Clear configuration information before importing software RAID disks."
 msgstr ""
 
 msgid "Clear device errors"
+msgstr ""
+
+msgid "Clear metadata on the selected device."
 msgstr ""
 
 msgid "Client"
@@ -2329,6 +2347,9 @@ msgstr "Dæmon log"
 msgid "Data"
 msgstr ""
 
+msgid "Data Digest"
+msgstr ""
+
 msgid "Data Integrity"
 msgstr ""
 
@@ -2437,6 +2458,9 @@ msgstr "Angiv mapper/URLs der kræver godkendelse."
 msgid ""
 "Define iSCSI hardware offload driver to use for this portal-group. The "
 "default is \"none\"."
+msgstr ""
+
+msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
 
 msgid "Defines the checksum algorithm."
@@ -2590,6 +2614,9 @@ msgstr ""
 msgid "Delete Selected WebDAV Records"
 msgstr ""
 
+msgid "Delete Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Delete Selected iSNS Servers"
 msgstr ""
 
@@ -2623,9 +2650,6 @@ msgstr "Slet extent"
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
 "Slet filer på den modtagende side der ikke eksisterer hos afsenderen."
-
-msgid "Delete initiator"
-msgstr "Slet initiator"
 
 msgid "Delete initiator group"
 msgstr "Slet Initiator gruppe"
@@ -2917,6 +2941,9 @@ msgstr ""
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
+msgid "Disable Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Disable Selected iSNS Servers"
 msgstr ""
 
@@ -3097,13 +3124,6 @@ msgid "Do you really want to delete this initiator group?"
 msgstr "Vil du virkelig slette denne Initiator gruppe?"
 
 msgid ""
-"Do you really want to delete this initiator? All elements that still use it "
-"will become invalid (e.g. share)!"
-msgstr ""
-"Vil du virkelig slette denne initiator? Alle elementer der bruger den bliver "
-"ugyldiggjort (f.eks. share)!"
-
-msgid ""
 "Do you really want to delete this mount point? All elements that still use "
 "it will become invalid (e.g. share)!"
 msgstr ""
@@ -3232,6 +3252,9 @@ msgstr ""
 msgid "Do you want to delete selected groups?"
 msgstr ""
 
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to delete selected iSNS servers?"
 msgstr ""
 
@@ -3322,6 +3345,9 @@ msgstr ""
 msgid "Do you want to disable selected commands?"
 msgstr ""
 
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to disable selected iSNS servers?"
 msgstr ""
 
@@ -3380,6 +3406,9 @@ msgid "Do you want to enable selected auth groups?"
 msgstr ""
 
 msgid "Do you want to enable selected commands?"
+msgstr ""
+
+msgid "Do you want to enable selected iSCSI initiators?"
 msgstr ""
 
 msgid "Do you want to enable selected iSNS servers?"
@@ -3449,6 +3478,9 @@ msgid "Do you want to toggle selected auth groups?"
 msgstr ""
 
 msgid "Do you want to toggle selected commands?"
+msgstr ""
+
+msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr ""
 
 msgid "Do you want to toggle selected iSNS servers?"
@@ -3737,11 +3769,11 @@ msgstr "Rediger kommando"
 msgid "Edit extent"
 msgstr "Rediger extent"
 
-msgid "Edit iSNS Server"
+msgid "Edit iSCSI Initiator"
 msgstr ""
 
-msgid "Edit initiator"
-msgstr "Rediger initiator"
+msgid "Edit iSNS Server"
+msgstr ""
 
 msgid "Edit initiator group"
 msgstr "Rediger Initiator gruppe"
@@ -3899,6 +3931,9 @@ msgid "Enable Selected Targets"
 msgstr ""
 
 msgid "Enable Selected WebDAV Records"
+msgstr ""
+
+msgid "Enable Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Enable Selected iSNS Servers"
@@ -4187,6 +4222,9 @@ msgstr ""
 msgid "Enter Identifier"
 msgstr ""
 
+msgid "Enter Name"
+msgstr ""
+
 msgid "Enter Password"
 msgstr ""
 
@@ -4314,9 +4352,6 @@ msgid "Enter secret."
 msgstr ""
 
 msgid "Enter smartctl pass-through type."
-msgstr ""
-
-msgid "Enter the IP address or DNS name of the iSCSI target."
 msgstr ""
 
 msgid ""
@@ -4736,6 +4771,9 @@ msgstr ""
 msgid "Foreign"
 msgstr ""
 
+msgid "Forget about devices which are not connected."
+msgstr ""
+
 msgid "Form Factor"
 msgstr ""
 
@@ -4988,6 +5026,9 @@ msgid "Hard Disk"
 msgstr ""
 
 msgid "Hardware AES"
+msgstr ""
+
+msgid "Header Digest"
 msgstr ""
 
 msgid "Header and Data digest"
@@ -6040,6 +6081,9 @@ msgstr "Logical Unit Type kortlagt til LUN."
 msgid "Login"
 msgstr "Log ind"
 
+msgid "Login for CHAP authentication."
+msgstr ""
+
 msgid "Logout"
 msgstr "Log ud"
 
@@ -6152,6 +6196,9 @@ msgid ""
 msgstr ""
 
 msgid "MariaDB"
+msgstr ""
+
+msgid "Mark the selected device as inactive."
 msgstr ""
 
 msgid "Masquerade Address"
@@ -6464,6 +6511,12 @@ msgstr ""
 msgid "Mutual CHAP"
 msgstr "Mutual CHAP"
 
+msgid "Mutual CHAP Name"
+msgstr ""
+
+msgid "Mutual CHAP Secret"
+msgstr ""
+
 msgid "Mutual CHAP User is locked"
 msgstr ""
 
@@ -6539,6 +6592,11 @@ msgstr ""
 
 msgid "Name"
 msgstr "Navn"
+
+msgid ""
+"Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
+"or \"iSCSI\". Default is \"iSCSI\"."
+msgstr ""
 
 msgid "Name of the Auth Group."
 msgstr ""
@@ -6986,6 +7044,9 @@ msgid "Offline Immediate Test"
 msgstr ""
 
 msgid "Offload"
+msgstr ""
+
+msgid "Offload Driver"
 msgstr ""
 
 msgid "Old Passphrase"
@@ -7638,6 +7699,12 @@ msgstr "Primær Gruppe"
 msgid "Primary group is also selected in additional group."
 msgstr "Den primære grupper bliver også valgt som en yderlig gruppe."
 
+msgid "Print detailed information."
+msgstr ""
+
+msgid "Print general information."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr ""
 
@@ -7931,6 +7998,9 @@ msgstr "Genstart"
 msgid "Reboot Required"
 msgstr ""
 
+msgid "Rebuild the selected device forcibly."
+msgstr ""
+
 msgid "Receive Buffer"
 msgstr ""
 
@@ -8058,6 +8128,9 @@ msgstr "Fjern alle posteringer i ARP tabellen"
 
 #, php-format
 msgid "Remove the %s first before proceeding."
+msgstr ""
+
+msgid "Remove the selected device from the mirror."
 msgstr ""
 
 msgid "Reorder"
@@ -8460,6 +8533,9 @@ msgstr ""
 msgid "Secret"
 msgstr "Hemmelighed"
 
+msgid "Secret for CHAP authentication."
+msgstr ""
+
 msgid "Secure Shell"
 msgstr "Sikker shell"
 
@@ -8834,6 +8910,24 @@ msgstr ""
 "Sætter et alternativt monterings punkt for rod datasættet. Standard er /mnt."
 
 msgid "Sets the authentication type."
+msgstr ""
+
+msgid ""
+"Sets the authentication type. Type can be either \"None\", or \"CHAP\". "
+"Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
+"defined."
+msgstr ""
+
+msgid ""
+"Sets the data digest; a checksum calculated over the Data Section of iSCSI "
+"PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
+"and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
 msgstr ""
 
 msgid ""
@@ -9261,6 +9355,9 @@ msgstr "Stop"
 msgid "Stop after sending (and receiving) N packets."
 msgstr "Stop efter afsendelse (og modtagelse) af N pakker."
 
+msgid "Stop the selected mirror."
+msgstr ""
+
 msgid "Stopped"
 msgstr "Stoppet"
 
@@ -9296,6 +9393,9 @@ msgstr "Streng identifikation af denne extent."
 
 msgid "Subject"
 msgstr "Emne"
+
+msgid "Submit Command"
+msgstr ""
 
 msgid "Subnet Bit Count"
 msgstr ""
@@ -9549,6 +9649,12 @@ msgstr ""
 msgid "Target list"
 msgstr "Mål liste"
 
+msgid "Target login for Mutual CHAP authentication."
+msgstr ""
+
+msgid "Target secret for Mutual CHAP authentication."
+msgstr ""
+
 msgid "Target side secret."
 msgstr "Mål-side hemmelighed."
 
@@ -9622,6 +9728,9 @@ msgid "The IP address of the UPS master."
 msgstr "UPS master IP adresse"
 
 msgid "The IP address of the device."
+msgstr ""
+
+msgid "The IP address or the DNS name of the iSCSI target."
 msgstr ""
 
 msgid "The IP address that this hostname represents."
@@ -10208,6 +10317,11 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr ""
 
+msgid ""
+"The name of the initiator. By default, the name is concatenation of "
+"\"iqn.1994-09.org.freebsd:\" with the hostname."
+msgstr ""
+
 msgid "The name of the interface is wrong."
 msgstr ""
 
@@ -10218,6 +10332,9 @@ msgid "The name of the media server is missing."
 msgstr ""
 
 msgid "The name of the pool cannot be changed."
+msgstr ""
+
+msgid "The name of the target."
 msgstr ""
 
 msgid "The name of this virtual device cannot be changed."
@@ -10515,6 +10632,10 @@ msgstr ""
 msgid "These parameters will be added to my.cnf"
 msgstr ""
 
+msgid ""
+"These parameters will be added to the configuration of this initiator."
+msgstr ""
+
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
 
@@ -10617,11 +10738,6 @@ msgstr ""
 "Dette styrer om dette share bliver vist i listet over tilgængelig shares på "
 "netværket og i gennemsøgnings listen."
 
-msgid "This couple targetname/targetaddress already exists in the disk list."
-msgstr ""
-"Dette par destinationsnavn/destinationsadresse eksisterer allerede på "
-"disklisten"
-
 msgid "This disk already exists in the disk list."
 msgstr "Denne disk eksisterer allerede i disk listen."
 
@@ -10634,6 +10750,9 @@ msgstr "Denne extent er brugt."
 msgid "This group already exists in the group list."
 msgstr "Denne gruppe eksisterer allerede i gruppe listen."
 
+msgid "This is a nickname and is for information only."
+msgstr ""
+
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr ""
 
@@ -10644,21 +10763,8 @@ msgstr ""
 "Dette er navnet på både serveren som proklameret af "
 "Zeroconf/Bonjour/Rendezvous, og navnet på databasen der eksporteres via DAAP."
 
-msgid "This is for information only. (not used during iSCSI negotiation)."
-msgstr ""
-
 msgid "This is not a valid IP Address."
 msgstr ""
-
-msgid "This name already exists in the disk list."
-msgstr "Dette navn eksisterer allerede i disk listen."
-
-#, php-format
-msgid "This name is for example: %s."
-msgstr "Dette navn er for eksempel: %s."
-
-msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-msgstr "Dette navn kan f.eks. være: iqn.2005-01.il.ac.huji.cs:somebody."
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr "Dette navn bruges til at unikt identificere din UPS på dette system."
@@ -11096,6 +11202,9 @@ msgid "Toggle Selected Targets"
 msgstr ""
 
 msgid "Toggle Selected WebDAV Records"
+msgstr ""
+
+msgid "Toggle Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Toggle Selected iSNS Servers"
@@ -12271,10 +12380,22 @@ msgstr ""
 msgid "hidden"
 msgstr ""
 
+msgid "iSCSI"
+msgstr ""
+
 msgid "iSCSI Initiator"
 msgstr "iSCSI initiator"
 
 msgid "iSCSI Initiator Settings"
+msgstr ""
+
+msgid "iSCSI Initiator is locked"
+msgstr ""
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr ""
+
+msgid "iSCSI Initiator is unlocked"
 msgstr ""
 
 msgid "iSCSI Target"
@@ -12297,6 +12418,9 @@ msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI start parameter (%d som standard)."
 
 msgid "iSCSI initiator disabled."
+msgstr ""
+
+msgid "iSER - iSCSI over RDMA"
 msgstr ""
 
 msgid "iSNS Period"
@@ -12430,3 +12554,34 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Add initiator"
+#~ msgstr "Tilføj initiator"
+
+#~ msgid "Delete initiator"
+#~ msgstr "Slet initiator"
+
+#~ msgid ""
+#~ "Do you really want to delete this initiator? All elements that still use it "
+#~ "will become invalid (e.g. share)!"
+#~ msgstr ""
+#~ "Vil du virkelig slette denne initiator? Alle elementer der bruger den bliver "
+#~ "ugyldiggjort (f.eks. share)!"
+
+#~ msgid "Edit initiator"
+#~ msgstr "Rediger initiator"
+
+#~ msgid "This couple targetname/targetaddress already exists in the disk list."
+#~ msgstr ""
+#~ "Dette par destinationsnavn/destinationsadresse eksisterer allerede på "
+#~ "disklisten"
+
+#~ msgid "This name already exists in the disk list."
+#~ msgstr "Dette navn eksisterer allerede i disk listen."
+
+#, php-format
+#~ msgid "This name is for example: %s."
+#~ msgstr "Dette navn er for eksempel: %s."
+
+#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
+#~ msgstr "Dette navn kan f.eks. være: iqn.2005-01.il.ac.huji.cs:somebody."

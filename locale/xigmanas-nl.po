@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-12 00:43+0000\n"
-"PO-Revision-Date: 2018-12-12 00:03+0000\n"
+"POT-Creation-Date: 2018-12-19 03:39+0000\n"
+"PO-Revision-Date: 2018-12-19 07:54+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-17 23:37+0000\n"
-"X-Generator: Launchpad (build 18837)\n"
+"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -503,6 +503,9 @@ msgstr ""
 "defect, of een error wordt gedetecteerd, of als een S.M.A.R.T. opdracht naar "
 "een schijf mislukt."
 
+msgid "Activate the selected device."
+msgstr "Activeer de geselecteerde schijf."
+
 msgid "Active"
 msgstr "Actief"
 
@@ -558,7 +561,7 @@ msgid "Add Initiator Name"
 msgstr "Voeg Initiator naam toe"
 
 msgid "Add Initiator Portal"
-msgstr "Voeg Initiator portaal toe"
+msgstr "Initiator Portaal Toevoegen"
 
 msgid "Add LAGG"
 msgstr "LAGG Toevoegen"
@@ -570,7 +573,7 @@ msgid "Add LUN Record"
 msgstr "Toevoegen LUN Item"
 
 msgid "Add Listen Record"
-msgstr "Toevoegen Luister Record"
+msgstr "Luister Record Toevoegen"
 
 msgid "Add Mutual CHAP User"
 msgstr "Voeg wederzijdse CHAP gebruiker toe"
@@ -674,11 +677,11 @@ msgstr "Opdracht toevoegen"
 msgid "Add extent"
 msgstr "Extent toevoegen"
 
+msgid "Add iSCSI Initiator"
+msgstr "iSCSI Initiator Toevoegen"
+
 msgid "Add iSNS Server"
 msgstr "iSNS Server Toevoegen"
-
-msgid "Add initiator"
-msgstr "Initiator toevoegen"
 
 msgid "Add initiator group"
 msgstr "Initiator groep toevoegen"
@@ -706,6 +709,9 @@ msgstr "Sysctl variable toevoegen"
 
 msgid "Add target"
 msgstr "Doel toevoegen"
+
+msgid "Add the selected device to the existing mirror."
+msgstr "Voeg de geselecteerde schijf toe aan de bestaande spiegel."
 
 msgid "Additional Group"
 msgstr "Extra Groep"
@@ -1608,6 +1614,12 @@ msgstr "VERANDERD"
 msgid "CHAP"
 msgstr "CHAP"
 
+msgid "CHAP Name"
+msgstr "CHAP Naam"
+
+msgid "CHAP Secret"
+msgstr "CHAP Wachtwoord"
+
 msgid "CHAP User is locked"
 msgstr "CHAP gebruiker is geblokkeerd"
 
@@ -1698,6 +1710,9 @@ msgid ""
 msgstr ""
 "CRC Fout Telling. Telt het aantal CRC-fouten (lees/schrijf data FIS CRC "
 "fout)."
+
+msgid "CRC32C"
+msgstr "CRC32C"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1851,6 +1866,9 @@ msgstr ""
 
 msgid "Clear device errors"
 msgstr "Wis schijf fouten"
+
+msgid "Clear metadata on the selected device."
+msgstr "Wis metadata op het geselecteerde apparaat."
 
 msgid "Client"
 msgstr "Werkstation"
@@ -2547,6 +2565,9 @@ msgstr "Daemon log"
 msgid "Data"
 msgstr "Data"
 
+msgid "Data Digest"
+msgstr "Gegevens Overzicht"
+
 msgid "Data Integrity"
 msgstr "Integriteit Data"
 
@@ -2664,8 +2685,11 @@ msgid ""
 "Define iSCSI hardware offload driver to use for this portal-group. The "
 "default is \"none\"."
 msgstr ""
-"Specificeer de iSCSI hardware driver welke gebruikt mag worden voor deze "
-"portaalgroep. Standaard is \"geen\"."
+"Definieer de iSCSI hardware offload stuurprogramma welke gebruikt mag worden "
+"voor deze portaalgroep. Standaard is \"geen\"."
+
+msgid "Define iSCSI hardware offload driver. The default is \"None\"."
+msgstr "Definieer iSCSI hardware offload driver. De standaard is \"Geen\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Definieert het controlesom algoritme"
@@ -2691,173 +2715,173 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 msgid "Delete ARP entry"
-msgstr "ARP regel verwijderen"
+msgstr "ARP Regel Verwijderen"
 
 msgid "Delete Algorithm"
-msgstr "Algoritme verwijderen"
+msgstr "Algoritme Verwijderen"
 
 msgid "Delete Host"
-msgstr "Host verwijderen"
+msgstr "Host Verwijderen"
 
 msgid "Delete Login Info"
-msgstr "Verwijder Inlog Info"
+msgstr "Inlog Info Verwijderen"
 
 msgid "Delete Selected Auth Groups"
-msgstr "Verwijder Geselecteerde Auth Groepen"
+msgstr "Geselecteerde Auth Groepen Verwijderen"
 
 msgid "Delete Selected Bridges"
-msgstr "Verwijder Geselecteerde Bridges"
+msgstr "Geselecteerde Bridges Verwijderen"
 
 msgid "Delete Selected CARPs"
-msgstr "Verwijder Geselecteerde CARPs"
+msgstr "Geselecteerde CARPs Verwijderen"
 
 msgid "Delete Selected CHAP Users"
-msgstr "Verwijder geselecteerde CHAP gebruikers"
+msgstr "Geselecteerde CHAP Gebruikers Verwijderen"
 
 msgid "Delete Selected Commands"
-msgstr "Verwijder Geselecteerde Opdrachten"
+msgstr "Geselecteerde Opdrachten Verwijderen"
 
 msgid "Delete Selected Datasets"
-msgstr "Verwijder Geselecteerde Datasets"
+msgstr "Geselecteerde Datasets Verwijderen"
 
 msgid "Delete Selected Disks"
-msgstr "Verwijder Geselecteerde Schijven"
+msgstr "Geselecteerde Schijven Verwijderen"
 
 msgid "Delete Selected Encrypted Volumes"
-msgstr "Verwijder Geselecteerde Gecodeerde Volumes"
+msgstr "Geselecteerde Gecodeerde Volumes Verwijderen"
 
 msgid "Delete Selected Groups"
-msgstr "Verwijder Geselecteerde Groepen"
+msgstr "Geselecteerde Groepen Verwijderen"
 
 msgid "Delete Selected Initiator Names"
-msgstr "Verwijder Geselecteerde Initiator Namen"
+msgstr "Geselecteerde Initiator Namen Verwijderen"
 
 msgid "Delete Selected Initiator Portals"
-msgstr "Verwijder Geselecteerde Initiator Portalen"
+msgstr "Geselecteerde Initiator Portalen Verwijderen"
 
 msgid "Delete Selected Jobs"
-msgstr "Verwijder Geselecteerde Taken"
+msgstr "Geselecteerde Taken Verwijderen"
 
 msgid "Delete Selected LAGGs"
-msgstr "Verwijder Geselecteerde LAGGs"
+msgstr "Geselecteerde LAGGs Verwijderen"
 
 msgid "Delete Selected LUN Records"
-msgstr "Verwijder Geselecteerde LUN Items"
+msgstr "Geselecteerde LUN Items Verwijderen"
 
 msgid "Delete Selected LUNs"
-msgstr "Verwijder Geselecteerde LUNs"
+msgstr "Geselecteerde LUNs Verwijderen"
 
 msgid "Delete Selected Listen Records"
-msgstr "Verwijder Geselecteerde Luister Items"
+msgstr "Geselecteerde Luister Items Verwijderen"
 
 msgid "Delete Selected Mutual CHAP Users"
-msgstr "Verwijder Geselecteerde Wederzijdse CHAP Gebruikers"
+msgstr "Geselecteerde Wederzijdse CHAP Gebruikers Verwijderen"
 
 msgid "Delete Selected NFS Shares"
-msgstr "Verwijder Geselecteerde NFS Delingen"
+msgstr "Geselecteerde NFS Delingen Verwijderen"
 
 msgid "Delete Selected Notifier"
-msgstr "Verwijder  Geselecteerd Kennisgeving"
+msgstr "Geselecteerd Kennisgeving Verwijderen"
 
 msgid "Delete Selected Option Records"
-msgstr "Verwijder Geselecteerde Optie Items"
+msgstr "Geselecteerde Optie Items Verwijderen"
 
 msgid "Delete Selected Options"
-msgstr "Verwijder Geselecteerde Opties"
+msgstr "Geselecteerde Opties Verwijderen"
 
 msgid "Delete Selected Pools"
-msgstr "Verwijder Geselecteerde Pools"
+msgstr "Geselecteerde Pools Verwijderen"
 
 msgid "Delete Selected Port Records"
-msgstr "Verwijder geselecteerde poort records"
+msgstr "Geselecteerde Poort Records Verwijderen"
 
 msgid "Delete Selected Portal Groups"
-msgstr "Verwijder Geselecteerde Portaal Groepen"
+msgstr "Geselecteerde Portaal Groepen Verwijderen"
 
 msgid "Delete Selected RAID Volumes"
-msgstr "Verwijder Geselecteerde RAID Volumes"
+msgstr "Geselecteerde RAID Volumes Verwijderen"
 
 msgid "Delete Selected Records"
-msgstr "Verwijder Geselecteerde Items"
+msgstr "Geselecteerde Items Verwijderen"
 
 msgid "Delete Selected Resources"
-msgstr "Verwijder Geselecteerde Bronnen"
+msgstr "Geselecteerde Bronnen Verwijderen"
 
 msgid "Delete Selected Routes"
-msgstr "Verwijder Geselecteerde Routes"
+msgstr "Geselecteerde Routes Verwijderen"
 
 msgid "Delete Selected Rsync Jobs"
-msgstr "Verwijder Geselecteerde Rsync Taken"
+msgstr "Geselecteerde Rsync Taken Verwijderen"
 
 msgid "Delete Selected Rsync Modules"
-msgstr "Verwijder Geselecteerde Rsync Modules"
+msgstr "Geselecteerde Rsync Modules Verwijderen"
 
 msgid "Delete Selected Samba Shares"
-msgstr "Verwijder Geselecteerde Samba Delingen"
+msgstr "Geselecteerde Samba Delingen Verwijderen"
 
 msgid "Delete Selected Shares"
-msgstr "Verwijder Geselecteerde Delingen"
+msgstr "Geselecteerde Delingen Verwijderen"
 
 msgid "Delete Selected Snapshots"
-msgstr "Verwijder Geselecteerde Snapshots"
+msgstr "Geselecteerde Snapshots Verwijderen"
 
 msgid "Delete Selected Targets"
-msgstr "Verwijder Geselecteerde Doelen"
+msgstr "Geselecteerde Doelen Verwijderen"
 
 msgid "Delete Selected User Accounts"
-msgstr "Verwijder Geselecteerde Gebruikersaccounts"
+msgstr "Geselecteerde Gebruikersaccounts Verwijderen"
 
 msgid "Delete Selected VLANs"
-msgstr "Verwijder Geselecteerde VLANs"
+msgstr "Geselecteerde VLANs Verwijderen"
 
 msgid "Delete Selected Virtual Devices"
-msgstr "Verwijder Geselecteerde Virtuele Schijven"
+msgstr "Geselecteerde Virtuele Schijven Verwijderen"
 
 msgid "Delete Selected Volumes"
-msgstr "Verwijder Geselecteerde Volumes"
+msgstr "Geselecteerde Volumes Verwijderen"
 
 msgid "Delete Selected WLANs"
-msgstr "Verwijder Geselecteerde WLANs"
+msgstr "Geselecteerde WLANs Verwijderen"
 
 msgid "Delete Selected WebDAV Records"
-msgstr "Verwijder Geselecteerde WebDAV items"
+msgstr "Geselecteerde WebDAV items Verwijderen"
+
+msgid "Delete Selected iSCSI Initiators"
+msgstr "Geselecteerde iSCSI Initiators Verwijderen"
 
 msgid "Delete Selected iSNS Servers"
-msgstr "Verwijder Geselecteerde iSNS Servers"
+msgstr "Geselecteerde iSNS Servers Verwijderen"
 
 msgid "Delete URL"
-msgstr "URL verwijderen"
+msgstr "URL Verwijderen"
 
 msgid "Delete VM"
-msgstr "Verwijder VM"
+msgstr "VM Verwijderen"
 
 msgid "Delete all rules"
 msgstr "Alle regels verwijderen"
 
 msgid "Delete all self-tests"
-msgstr "Verwijder alle zelf-testen"
+msgstr "Alle zelf-testen verwijderen"
 
 msgid "Delete auth group"
 msgstr "Auth groep verwijderen"
 
 msgid "Delete auto snapshot"
-msgstr "Verwijder automatisch snapshot"
+msgstr "Auto snapshot verwijderen"
 
 msgid "Delete clone"
-msgstr "Verwijder kloon"
+msgstr "Kloon verwijderen"
 
 msgid "Delete command"
 msgstr "Opdracht verwijderen"
 
 msgid "Delete extent"
-msgstr "Verwijder extent"
+msgstr "Extentie verwijderen"
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
 "Verwijder bestanden op de ontvangende zijde die niet bestaan op de zendzijde."
-
-msgid "Delete initiator"
-msgstr "Initiator verwijderen"
 
 msgid "Delete initiator group"
 msgstr "Initiator groep verwijderen"
@@ -2881,13 +2905,13 @@ msgid "Delete target"
 msgstr "Doel verwijderen"
 
 msgid "Deletes the recursive snapshot."
-msgstr "Verwijdert het recursieve snapshot"
+msgstr "Verwijdert het recursieve snapshot."
 
 msgid "Deleting"
 msgstr "Aan het verwijderen"
 
 msgid "Deleting GEOM metadata"
-msgstr "Verwijderen van de GEOM metadata"
+msgstr "GEOM metadata Verwijderen"
 
 msgid "Deleting MBR and partition table"
 msgstr "Verwijderen van de MBR en partitie tabel"
@@ -3158,6 +3182,9 @@ msgstr "Geselecteerde  Doelen Uitschakelen"
 msgid "Disable Selected WebDAV Records"
 msgstr "Uitschakelen Geselecteerde WebDAV Items"
 
+msgid "Disable Selected iSCSI Initiators"
+msgstr "Uitschakelen Geselecteerde iSCSI Initiators"
+
 msgid "Disable Selected iSNS Servers"
 msgstr "Geselecteerde iSNS Servers Uitschakelen"
 
@@ -3309,7 +3336,7 @@ msgstr ""
 "Niet op nieuwere firmware versies controleren wanneer u de pagina %s bezoekt."
 
 msgid "Do not load driver."
-msgstr "Laad het stuurprogramma niet."
+msgstr "Het stuurprogramma niet laden."
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -3351,13 +3378,6 @@ msgstr "Weet u zeker dat u deze host wil verwijderen?"
 
 msgid "Do you really want to delete this initiator group?"
 msgstr "Weet u zeker dat u deze initiator groep wilt verwijderen?"
-
-msgid ""
-"Do you really want to delete this initiator? All elements that still use it "
-"will become invalid (e.g. share)!"
-msgstr ""
-"Weet u zeker dat u deze initiator wilt verwijderen? Alle elementen die er "
-"nog steeds gebruik maken zullen ongeldig worden (bijv. delingen)!"
 
 msgid ""
 "Do you really want to delete this mount point? All elements that still use "
@@ -3453,7 +3473,7 @@ msgid "Do you want to delete selected LUN records?"
 msgstr "Wilt u de geselecteerde LUN items verwijderen?"
 
 msgid "Do you want to delete selected LUNs?"
-msgstr "Wilt u de geselecteerde LUNs verwijderen"
+msgstr "Wilt u de geselecteerde LUNs verwijderen?"
 
 msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Wilt u de geselecteerde wederzijdse CHAP gebruikers verwijderen?"
@@ -3496,6 +3516,9 @@ msgstr "Wilt u de geselecteerde gecodeerde volumes verwijderen?"
 
 msgid "Do you want to delete selected groups?"
 msgstr "Wilt u de geselecteerde groepen verwijderen?"
+
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr "Wilt u geselecteerde iSCSI initiators verwijderen?"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "Wilt u de geselecteerde iSNS servers verwijderen?"
@@ -3587,6 +3610,9 @@ msgstr "Wilt u de geselecteerde autorisatiegroepen uitschakelen?"
 msgid "Do you want to disable selected commands?"
 msgstr "Wilt u geselecteerde opdrachten uitschakelen?"
 
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr "Wilt u geselecteerde iSCSI initiators uitschakelen?"
+
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Wilt u de geselecteerde iSNS servers uitschakelen?"
 
@@ -3646,6 +3672,9 @@ msgstr "Wilt u de geselecteerde autorisatiegroepen inschakelen?"
 
 msgid "Do you want to enable selected commands?"
 msgstr "Wilt u de geselecteerde opdrachten inschakelen?"
+
+msgid "Do you want to enable selected iSCSI initiators?"
+msgstr "Wilt u geselecteerde iSCSI initiators inschakelen?"
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr "Wilt u de geselecteerde iSNS servers inschakelen?"
@@ -3715,6 +3744,9 @@ msgstr "Wilt u de geselecteerde autorisatiegroepen omkeren?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Wilt u de geselecteerde opdrachten omschakelen?"
+
+msgid "Do you want to toggle selected iSCSI initiators?"
+msgstr "Wilt u geselecteerde iSCSI initiators omkeren?"
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Wilt u de geselecteerde iSNS servers omschakelen?"
@@ -3833,10 +3865,10 @@ msgid "Driver Parameter"
 msgstr "Stuurprogramma Parameter"
 
 msgid "Driver used"
-msgstr "Huidig stuurprogramma"
+msgstr "Stuurprogramma gebruikt"
 
 msgid "Driver version"
-msgstr "Versie stuurprogramma"
+msgstr "Stuurprogramma versie"
 
 msgid "Driver version internal"
 msgstr "Versie interne stuurprogramma"
@@ -4007,11 +4039,11 @@ msgstr "Bewerk Opdracht"
 msgid "Edit extent"
 msgstr "Extent bewerken"
 
+msgid "Edit iSCSI Initiator"
+msgstr "iSCSI Initiator Bewerken"
+
 msgid "Edit iSNS Server"
 msgstr "iSNS Server Bewerken"
-
-msgid "Edit initiator"
-msgstr "Initiator bewerken"
 
 msgid "Edit initiator group"
 msgstr "Initiator groep bewerken"
@@ -4176,6 +4208,9 @@ msgstr "Activeer de geselecteerde doelen"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Inschakelen Geselecteerde WebDAV Items"
+
+msgid "Enable Selected iSCSI Initiators"
+msgstr "Inschakelen Geselecteerde iSCSI Initiators"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "Inschakelen Geselecteerde iSNS Servers"
@@ -4484,6 +4519,9 @@ msgstr "Geef de prefixlengte van het IP-adres op."
 msgid "Enter Identifier"
 msgstr "Geef identificator"
 
+msgid "Enter Name"
+msgstr "Naam Invoeren"
+
 msgid "Enter Password"
 msgstr "Geef Wachtwoord"
 
@@ -4620,9 +4658,6 @@ msgstr "Geef  wachtwoord."
 
 msgid "Enter smartctl pass-through type."
 msgstr "Geef smartctl pass-through type."
-
-msgid "Enter the IP address or DNS name of the iSCSI target."
-msgstr "Geef het IP-adres of de DNS-naam op van de iSCSI-doel."
 
 msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
@@ -5039,7 +5074,7 @@ msgid "Follow"
 msgstr "Volgen"
 
 msgid "Force Delete"
-msgstr "Verwijderen Forceren"
+msgstr "Geforceerd Verwijderen"
 
 msgid "Force Operation"
 msgstr "Forceer Opdracht"
@@ -5059,6 +5094,9 @@ msgstr ""
 
 msgid "Foreign"
 msgstr "Buitenlands"
+
+msgid "Forget about devices which are not connected."
+msgstr "Vergeet de schijven die niet verbonden zijn."
 
 msgid "Form Factor"
 msgstr "Vormfactor"
@@ -5325,6 +5363,9 @@ msgstr "Harde Schijf"
 
 msgid "Hardware AES"
 msgstr "Hardware AES"
+
+msgid "Header Digest"
+msgstr "Kop Overzicht"
 
 msgid "Header and Data digest"
 msgstr "Kop en Gegevens overzicht"
@@ -6095,8 +6136,8 @@ msgstr "LAGG Instellingen"
 msgid ""
 "LAGG cannot be deleted because it is still being used as an interface."
 msgstr ""
-"LAGG kan niet verwijderd worden omdat deze nog steeds als netwerk in "
-"gebruikt is."
+"LAGG kan niet verwijderd worden omdat deze nog steeds gebruikt wordt als "
+"netwerk."
 
 msgid "LAGG is marked for deletion"
 msgstr "LAGG is gemarkeerd voor verwijdering"
@@ -6459,6 +6500,9 @@ msgstr "Logical Unit Type in kaart gebracht aan LUN."
 msgid "Login"
 msgstr "Aanmelden"
 
+msgid "Login for CHAP authentication."
+msgstr "Inloggen voor CHAP authenticatie."
+
 msgid "Logout"
 msgstr "Uitloggen"
 
@@ -6578,6 +6622,9 @@ msgstr ""
 
 msgid "MariaDB"
 msgstr "MariaDB"
+
+msgid "Mark the selected device as inactive."
+msgstr "Markeer de geselecteerde schijf als inactief."
 
 msgid "Masquerade Address"
 msgstr "Masquerade Adres"
@@ -6895,6 +6942,12 @@ msgstr "Mag niet leeg gelaten zijn."
 msgid "Mutual CHAP"
 msgstr "Mutual CHAP"
 
+msgid "Mutual CHAP Name"
+msgstr "Mutual CHAP Naam"
+
+msgid "Mutual CHAP Secret"
+msgstr "Mutual CHAP Wachtwoord"
+
 msgid "Mutual CHAP User is locked"
 msgstr "Mutual CHAP Gebruiker is vergrendeld"
 
@@ -6970,6 +7023,13 @@ msgstr "NUT Intern Stuurprogramma Informatie"
 
 msgid "Name"
 msgstr "Naam"
+
+msgid ""
+"Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
+"or \"iSCSI\". Default is \"iSCSI\"."
+msgstr ""
+"Naam van de geselecteerd protocol. Dit kan \"iSER\" zijn voor iSCSI via RDMA "
+"of \"iSCSI\". Standaard is \"iSCSI\"."
 
 msgid "Name of the Auth Group."
 msgstr "Naam van de autorisatiegroep"
@@ -7433,6 +7493,9 @@ msgstr "Offline Onmiddellijke Test"
 
 msgid "Offload"
 msgstr "Offload"
+
+msgid "Offload Driver"
+msgstr "Offload Stuurprogramma"
 
 msgid "Old Passphrase"
 msgstr "Oud wachtwoordzin"
@@ -8101,6 +8164,12 @@ msgstr "Primaire Groep"
 msgid "Primary group is also selected in additional group."
 msgstr "Primaire groep is ook geselecteerd in een extra groep."
 
+msgid "Print detailed information."
+msgstr "Print gedetailleerde informatie."
+
+msgid "Print general information."
+msgstr "Print algemene informatie."
+
 msgid "Privacy Extension"
 msgstr "Privacy Extensie"
 
@@ -8408,6 +8477,9 @@ msgstr "Herstarten"
 msgid "Reboot Required"
 msgstr "Herstart Vereist"
 
+msgid "Rebuild the selected device forcibly."
+msgstr "Herbouw de geselecteerde schijf geforceerd."
+
 msgid "Receive Buffer"
 msgstr "Ontvangst Buffer"
 
@@ -8541,6 +8613,9 @@ msgstr "Alle ARP regels verwijderen uit de tabel"
 msgid "Remove the %s first before proceeding."
 msgstr "Verwijder de %s eerst voor u verder gaat."
 
+msgid "Remove the selected device from the mirror."
+msgstr "Geselecteerde schijf uit de spiegel verwijderen."
+
 msgid "Reorder"
 msgstr "Herschikken"
 
@@ -8639,11 +8714,11 @@ msgstr ""
 "Herstellen metadata van het opgegeven bestand naar de opgegeven provider."
 
 msgid "Restricted"
-msgstr "Restricted - Beperkt"
+msgstr "Beperkt"
 
 msgid "Restricted - Inherit all but \"write ACL\" and \"change owner\""
 msgstr ""
-"Restricted - Alle overnemen maar \"ACL schrijven\" en \"eigenaar veranderen\""
+"Beperkt - Alle overnemen maar \"ACL schrijven\" en \"eigenaar veranderen\""
 
 msgid "Result of testjoin"
 msgstr "Resultaat van testjoin"
@@ -8950,6 +9025,9 @@ msgstr "Seconden"
 
 msgid "Secret"
 msgstr "Wachtwoord"
+
+msgid "Secret for CHAP authentication."
+msgstr "Wachtwoord voor CHAP authenticatie."
 
 msgid "Secure Shell"
 msgstr "Secure Shell"
@@ -9366,6 +9444,33 @@ msgstr ""
 
 msgid "Sets the authentication type."
 msgstr "Bepaald het verificatietype"
+
+msgid ""
+"Sets the authentication type. Type can be either \"None\", or \"CHAP\". "
+"Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
+"defined."
+msgstr ""
+"Stel de authenticatie type in. Type kan \"Geen\" of \"CHAP\" zijn. Standaard "
+"is \"Geen\". Indien ingesteld op CHAP, moeten zowel chapINaam als "
+"chapWachtwoord worden gedefinieerd."
+
+msgid ""
+"Sets the data digest; a checksum calculated over the Data Section of iSCSI "
+"PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
+msgstr ""
+"Stel de data overzicht in; een controlesom berekend over de data sectie van "
+"iSCSI PDU's en geverifieerd bij ontvangst. Overzicht kan \"Geen\" of "
+"\"CRC32C\" zijn. Standaard is \"Geen\"."
+
+msgid ""
+"Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
+"and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
+msgstr ""
+"Stel de overzicht van de kop in; een controlesom berekend over de header van "
+"iSCSI PDU's en geverifieerd bij ontvangst. overzicht kan \"Geen\" of "
+"\"CRC32C\" zijn. Standaard is \"Geen\"."
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -9842,6 +9947,9 @@ msgstr "Stop"
 msgid "Stop after sending (and receiving) N packets."
 msgstr "Stop na het verzenden (en ontvangen) van X aantal pakketten."
 
+msgid "Stop the selected mirror."
+msgstr "Geselecteerde spiegel stoppen."
+
 msgid "Stopped"
 msgstr "Gestopt"
 
@@ -9881,6 +9989,9 @@ msgstr "Text identificator van de extent."
 
 msgid "Subject"
 msgstr "Onderwerp"
+
+msgid "Submit Command"
+msgstr "Opdracht Verzenden"
 
 msgid "Subnet Bit Count"
 msgstr "Subnet Bit Count"
@@ -10137,6 +10248,12 @@ msgstr "Doel is ontgrendeld"
 msgid "Target list"
 msgstr "Doel lijst"
 
+msgid "Target login for Mutual CHAP authentication."
+msgstr "Doel login voor wederzijdse CHAP authenticatie."
+
+msgid "Target secret for Mutual CHAP authentication."
+msgstr "Doel wachtwoord voor wederzijdse CHAP authenticatie."
+
 msgid "Target side secret."
 msgstr "Doel zijde wachtwoord."
 
@@ -10216,6 +10333,9 @@ msgstr "Het IP-adres van de UPS master."
 
 msgid "The IP address of the device."
 msgstr "Het IP-adres van het apparaat."
+
+msgid "The IP address or the DNS name of the iSCSI target."
+msgstr "Het IP-adres of de DNS naam van het iSCSI doel."
 
 msgid "The IP address that this hostname represents."
 msgstr "Het IP-adres dat deze hostnaam vertegenwoordigd."
@@ -10871,6 +10991,13 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr "De naam van de ZFS pool."
 
+msgid ""
+"The name of the initiator. By default, the name is concatenation of "
+"\"iqn.1994-09.org.freebsd:\" with the hostname."
+msgstr ""
+"De naam van de initiator. Standaard is de naam een aaneenschakeling van "
+"\"iqn.1994-09.org.freebsd:\" met de hostnaam."
+
 msgid "The name of the interface is wrong."
 msgstr "De naam van het netwerk is verkeerd."
 
@@ -10882,6 +11009,9 @@ msgstr "The naam van de media server ontbreekt."
 
 msgid "The name of the pool cannot be changed."
 msgstr "De naam van de pool kan niet worden gewijzigd."
+
+msgid "The name of the target."
+msgstr "De naam van het doel."
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "De naam van deze virtuele schijf kan niet worden gewijzigd."
@@ -11210,6 +11340,11 @@ msgstr ""
 msgid "These parameters will be added to my.cnf"
 msgstr "Deze parameters worden toegevoegd aan my.cnf"
 
+msgid ""
+"These parameters will be added to the configuration of this initiator."
+msgstr ""
+"Deze parameters worden toegevoegd aan de configuratie van deze initiator."
+
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
 "Deze parameters worden toegevoegd aan de algemene instellingen van ctl.conf"
@@ -11336,9 +11471,6 @@ msgstr ""
 "Dit bestuurd of de deling zichtbaar is in de lijst van beschikbare delingen "
 "in het netwerkoverzicht en in de blader lijst."
 
-msgid "This couple targetname/targetaddress already exists in the disk list."
-msgstr "De combinatie doelnaam/doeladres bestaat reeds in de schijf lijst."
-
 msgid "This disk already exists in the disk list."
 msgstr "Deze schijf bestaat al in de lijst met schijven."
 
@@ -11352,6 +11484,9 @@ msgstr "Deze extent wordt gebruikt."
 msgid "This group already exists in the group list."
 msgstr "Deze groep bestaat al in de groepenlijst."
 
+msgid "This is a nickname and is for information only."
+msgstr "Dit is een bijnaam en is alleen ter informatie."
+
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "Dit is een krachtig tool. Gebruik het op eigen risico!"
 
@@ -11362,22 +11497,8 @@ msgstr ""
 "Deze servernaam wordt bekendgemaakt voor Zeroconf/Bonjour/Rendezvous, als "
 "ook de naam van de database die voor DAAP wordt geëxporteerd."
 
-msgid "This is for information only. (not used during iSCSI negotiation)."
-msgstr ""
-"Dit is alleen ter informatie. (niet gebruikt tijdens iSCSI onderhandelingen)."
-
 msgid "This is not a valid IP Address."
 msgstr "Dit is geen geldig IP-adres."
-
-msgid "This name already exists in the disk list."
-msgstr "Deze naam bestaat reeds in de schijf lijst."
-
-#, php-format
-msgid "This name is for example: %s."
-msgstr "Deze naam is als voobeeld: %s."
-
-msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-msgstr "Deze naam is als voobeeld: iqn.2005-01.il.ac.huji.cs:iemand."
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -11858,6 +11979,9 @@ msgstr "Geselecteerde Doelen Omschakelen"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Geselecteerde  WebDAV Items Omschakelen"
+
+msgid "Toggle Selected iSCSI Initiators"
+msgstr "Geselecteerde iSCSI Initiators Omschakelen"
 
 msgid "Toggle Selected iSNS Servers"
 msgstr "Geselecteerde iSNS Servers omschakelen?"
@@ -12514,8 +12638,8 @@ msgstr "VLAN Tag"
 msgid ""
 "VLAN cannot be deleted because it is still being used as an interface."
 msgstr ""
-"VLAN kan niet verwijderd worden omdat deze nog steeds als netwerk in "
-"gebruikt is."
+"VLAN kan niet verwijderd worden omdat deze nog steeds gebruikt wordt als "
+"netwerk."
 
 msgid "VLAN is marked for deletion"
 msgstr "VLAN is gemarkeerd voor verwijdering"
@@ -12688,8 +12812,8 @@ msgstr "WLAN Instellingen"
 msgid ""
 "WLAN cannot be deleted because it is still being used as an interface."
 msgstr ""
-"WLAN kan niet verwijderd worden omdat deze nog steeds als netwerk in "
-"gebruikt is."
+"WLAN kan niet verwijderd worden omdat deze nog steeds gebruikt wordt als "
+"netwerk."
 
 msgid "WLAN is marked for deletion"
 msgstr "WLAN is gemarkeerd voor verwijdering"
@@ -13119,11 +13243,23 @@ msgstr "grootste instelbare laagspanning overschakelpunt"
 msgid "hidden"
 msgstr "verborgen"
 
+msgid "iSCSI"
+msgstr "iSCSI"
+
 msgid "iSCSI Initiator"
 msgstr "iSCSI Initiator"
 
 msgid "iSCSI Initiator Settings"
 msgstr "iSCSI Initiator Instellingen"
+
+msgid "iSCSI Initiator is locked"
+msgstr "iSCSI Initiator is vergrendeld"
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr "iSCSI Initiator is gemarkeerd voor verwijdering"
+
+msgid "iSCSI Initiator is unlocked"
+msgstr "iSCSI Initiator is ontgrendeld"
 
 msgid "iSCSI Target"
 msgstr "iSCSI Doel"
@@ -13146,6 +13282,9 @@ msgstr "iSCSI initiële parameter (standaard %d)."
 
 msgid "iSCSI initiator disabled."
 msgstr "iSCSI initiator is uitgeschakeld"
+
+msgid "iSER - iSCSI over RDMA"
+msgstr "iSER - iSCSI over RDMA"
 
 msgid "iSNS Period"
 msgstr "iSNS Periode"
@@ -13280,3 +13419,39 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
+
+#~ msgid "Add initiator"
+#~ msgstr "Initiator toevoegen"
+
+#~ msgid "Delete initiator"
+#~ msgstr "Initiator verwijderen"
+
+#~ msgid ""
+#~ "Do you really want to delete this initiator? All elements that still use it "
+#~ "will become invalid (e.g. share)!"
+#~ msgstr ""
+#~ "Weet u zeker dat u deze initiator wilt verwijderen? Alle elementen die er "
+#~ "nog steeds gebruik maken zullen ongeldig worden (bijv. delingen)!"
+
+#~ msgid "Edit initiator"
+#~ msgstr "Initiator bewerken"
+
+#~ msgid "Enter the IP address or DNS name of the iSCSI target."
+#~ msgstr "Geef het IP-adres of de DNS-naam op van de iSCSI-doel."
+
+#~ msgid "This couple targetname/targetaddress already exists in the disk list."
+#~ msgstr "De combinatie doelnaam/doeladres bestaat reeds in de schijf lijst."
+
+#~ msgid "This is for information only. (not used during iSCSI negotiation)."
+#~ msgstr ""
+#~ "Dit is alleen ter informatie. (niet gebruikt tijdens iSCSI onderhandelingen)."
+
+#~ msgid "This name already exists in the disk list."
+#~ msgstr "Deze naam bestaat reeds in de schijf lijst."
+
+#, php-format
+#~ msgid "This name is for example: %s."
+#~ msgstr "Deze naam is als voobeeld: %s."
+
+#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
+#~ msgstr "Deze naam is als voobeeld: iqn.2005-01.il.ac.huji.cs:iemand."
