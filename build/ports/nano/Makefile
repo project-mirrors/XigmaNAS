@@ -1,6 +1,6 @@
 PORTNAME=		nano
 PORTVERSION=	3.2
-PORTREVISION?=  0
+PORTREVISION?=  1
 CATEGORIES=	editors
 COMMENT=	Nano's ANOther editor, an enhanced free Pico clone
 MAINTAINER=	zoon01@xigmanas.com
@@ -26,6 +26,11 @@ NLS_CONFIGURE_ENABLE=	nls
 INFO=		nano
 
 PORTSCOUT=	limitw:1,even
+
+.ifdef QEMU_EMULATING
+# XXX bug 224740/231346: configure hangs
+CONFIGURE_ENV+=	gl_cv_func_printf_enomem=no
+.endif
 
 post-configure:
 	${REINPLACE_CMD} -e 's/update_revision//g' ${WRKSRC}/src/Makefile
