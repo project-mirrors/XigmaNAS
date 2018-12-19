@@ -43,7 +43,7 @@ mount_cdrom()
 			# Try to auto mount cd-rom.
 			mkdir -p ${CDPATH}
 			echo "Mounting CD-ROM Drive"
-			mount_cd9660 /dev/cd0 ${CDPATH} > /dev/null 2>&1 || mount_cd9660 /dev/cd1 ${CDPATH} > /dev/null 2>&1
+			mount_cd9660 /dev/cd[0-9] ${CDPATH} > /dev/null 2>&1
 		fi
 	elif [ "${LIVEUSB}" = 0 ]; then
 		# Check if liveusb is mounted else auto mount liveusb.
@@ -86,7 +86,8 @@ manual_cdmount()
 	mkdir -p ${CDPATH}
 	echo "Mounting CD/USB Drive"
 	DEVICE=$(cat ${tmpfile} | tr -d' ')
-	mount /dev/${DEVICE}s1a ${CDPATH} > /dev/null 2>&1 || mount_cd9660 /dev/${DEVICE} ${CDPATH} > /dev/null 2>&1
+	mount /dev/ufs/liveboot ${CDPATH} > /dev/null 2>&1 || mount /dev/${DEVICE}s1a ${CDPATH} > /dev/null 2>&1 || \
+	mount /dev/${DEVICE}p3 ${CDPATH} > /dev/null 2>&1 || mount_cd9660 /dev/${DEVICE} ${CDPATH} > /dev/null 2>&1
 	# Check if mounted cd/usb is accessible.
 	if [ ! -f "${CDPATH}/version" ]; then
 		# Re-try loop.
@@ -458,8 +459,8 @@ create_user_dataset()
 	# Create user Dataset on request.
 	if [ ! -z "${DATASET_NAME}" ]; then
 		echo "Creating dataset ${DATASET_NAME}..."
-		# Prevent for dataset directory creation here.
-		# Users should never write data to this directory unless synced and mounted from WebGUI.
+		# Prevent for dataset directory creation here(backward compatibility only).
+		# Users should never write data to this directory unless dataset mounted.
 		# So we will set canmount after dataset creation for safety.
 		zfs create -o compression=lz4 -o canmount=off -o atime=off -o mountpoint=${ALTROOT}/${DATASET_NAME} ${ZROOT}/${DATASET_NAME}
 		zfs set canmount=on ${ZROOT}/${DATASET_NAME}
