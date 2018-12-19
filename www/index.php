@@ -446,6 +446,36 @@ $(document).ready(function(){
 			$errormsg .= "<br />\n";
 		endif;
 	endif;
+	if(Session::isAdmin()):
+		$lastconfigbackupstate = 0;
+		if(isset($config['lastconfigbackup'])):
+			$lastconfigbackup = intval($config['lastconfigbackup']);
+			$now = time();
+			if(($lastconfigbackup > 0) && ($lastconfigbackup < $now)):
+				if(($now - $lastconfigbackup) > 28*24*60*60):
+					$lastconfigbackupstate = 1;
+				endif;
+			else:
+				$lastconfigbackupstate = 2;
+			endif;
+		else:
+			$lastconfigbackupstate = 3;
+		endif;
+		switch($lastconfigbackupstate):
+			case 1:
+				$errormsg .= gtext('Backup configuration. The last configuration backup is older than 4 weeks.');
+				$errormsg .= '<br />';
+				break;
+			case 2:
+				$errormsg .= gtext('Backup configuration. The date of the last configuration backup is invalid.');
+				$errormsg .= '<br />';
+				break;
+			case 3:
+				$errormsg .= gtext('Backup configuration. The date of the last configuration backup cannot be found.');
+				$errormsg .= '<br />';
+				break;
+		endswitch;
+	endif;
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
 	endif;
@@ -484,7 +514,7 @@ $(document).ready(function(){
 			html_textinfo2('system_uptime',gettext('System Uptime'),htmlspecialchars(system_get_uptime()));
 			if(Session::isAdmin()):
 				if($config['lastchange']):
-					html_textinfo2('last_config_change',gettext('System Config Change'),htmlspecialchars(get_datetime_locale($config['lastchange'])));
+					html_textinfo2('last_config_change',gettext('System Config Change'),get_datetime_locale($config['lastchange']));
 				endif;
 				if(empty($cpuinfo['temperature2'])):
 					if(!empty($cpuinfo['temperature'])):

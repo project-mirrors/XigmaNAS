@@ -74,6 +74,8 @@ if($_POST):
 		endif;
 	endif;
 	if(empty($input_errors)):
+		$config['lastconfigbackup'] = time();
+		write_config();
 		config_lock();
 		if(function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')):
 			@date_default_timezone_set(@date_default_timezone_get());
