@@ -97,7 +97,7 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 
 # Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
-XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/trunk"
+XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/branches/11.2.0.4"
 XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/11.2"
 
 # Size in MB of the MFS Root filesystem that will include all FreeBSD binary
