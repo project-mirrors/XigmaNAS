@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-12 00:43+0000\n"
+"POT-Creation-Date: 2018-12-19 03:39+0000\n"
 "PO-Revision-Date: 2018-07-07 23:17+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-17 23:37+0000\n"
-"X-Generator: Launchpad (build 18837)\n"
+"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
+"X-Generator: Launchpad (build 18843)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -455,6 +455,9 @@ msgstr ""
 "通知を受け取りたい場合はメール通知機能を有効にします。処理の失敗や新しいエラーの検出、またはディスクに対する S.M.A.R.T. "
 "コマンドが失敗した時に通知されます。"
 
+msgid "Activate the selected device."
+msgstr ""
+
 msgid "Active"
 msgstr "アクティブ"
 
@@ -626,11 +629,11 @@ msgstr "コマンドを追加"
 msgid "Add extent"
 msgstr "エクステントの追加"
 
-msgid "Add iSNS Server"
+msgid "Add iSCSI Initiator"
 msgstr ""
 
-msgid "Add initiator"
-msgstr "イニシエータの追加"
+msgid "Add iSNS Server"
+msgstr ""
 
 msgid "Add initiator group"
 msgstr "イニシエータグループの追加"
@@ -658,6 +661,9 @@ msgstr ""
 
 msgid "Add target"
 msgstr "ターゲットの追加"
+
+msgid "Add the selected device to the existing mirror."
+msgstr ""
 
 msgid "Additional Group"
 msgstr "追加のグループ"
@@ -1477,6 +1483,12 @@ msgstr "変更"
 msgid "CHAP"
 msgstr "CHAP"
 
+msgid "CHAP Name"
+msgstr ""
+
+msgid "CHAP Secret"
+msgstr ""
+
 msgid "CHAP User is locked"
 msgstr ""
 
@@ -1565,6 +1577,9 @@ msgid ""
 "CRC Error Count. Counts the number of CRC error (read/write data FIS CRC "
 "error)."
 msgstr "CRC エラー数。CRCエラーのカウント数。 (読込/書込データ FIS CRC エラー)"
+
+msgid "CRC32C"
+msgstr ""
 
 msgid "CTL LUN"
 msgstr ""
@@ -1706,6 +1721,9 @@ msgstr "コンフィグ消去とソフトウェアRAIDのインポート"
 
 msgid "Clear device errors"
 msgstr "デバイスラー消去"
+
+msgid "Clear metadata on the selected device."
+msgstr ""
 
 msgid "Client"
 msgstr "クライアント"
@@ -2317,6 +2335,9 @@ msgstr "デーモン ログ"
 msgid "Data"
 msgstr ""
 
+msgid "Data Digest"
+msgstr ""
+
 msgid "Data Integrity"
 msgstr ""
 
@@ -2425,6 +2446,9 @@ msgstr "認証が必要なディレクトリ/URLを指定して下さい。"
 msgid ""
 "Define iSCSI hardware offload driver to use for this portal-group. The "
 "default is \"none\"."
+msgstr ""
+
+msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
 
 msgid "Defines the checksum algorithm."
@@ -2578,6 +2602,9 @@ msgstr "選択したWLANの削除"
 msgid "Delete Selected WebDAV Records"
 msgstr ""
 
+msgid "Delete Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Delete Selected iSNS Servers"
 msgstr ""
 
@@ -2610,9 +2637,6 @@ msgstr "エクステントの削除"
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "送信側に存在しないファイルを受信側で削除します。"
-
-msgid "Delete initiator"
-msgstr "イニシエータを削除"
 
 msgid "Delete initiator group"
 msgstr "イニシエータグループの削除"
@@ -2900,6 +2924,9 @@ msgstr ""
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
+msgid "Disable Selected iSCSI Initiators"
+msgstr ""
+
 msgid "Disable Selected iSNS Servers"
 msgstr ""
 
@@ -3078,11 +3105,6 @@ msgid "Do you really want to delete this initiator group?"
 msgstr "このイニシエータグループを削除してもよろしいですか？"
 
 msgid ""
-"Do you really want to delete this initiator? All elements that still use it "
-"will become invalid (e.g. share)!"
-msgstr "このイニシエータを削除してもよろしいですか? それを使用している全ての要素が無効になります (例: share)!"
-
-msgid ""
 "Do you really want to delete this mount point? All elements that still use "
 "it will become invalid (e.g. share)!"
 msgstr "のマウントポイントを削除しても宜しいですか? これを使用する全ての要素 (例: share) は無効になります!"
@@ -3208,6 +3230,9 @@ msgstr ""
 msgid "Do you want to delete selected groups?"
 msgstr ""
 
+msgid "Do you want to delete selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to delete selected iSNS servers?"
 msgstr ""
 
@@ -3298,6 +3323,9 @@ msgstr ""
 msgid "Do you want to disable selected commands?"
 msgstr ""
 
+msgid "Do you want to disable selected iSCSI initiators?"
+msgstr ""
+
 msgid "Do you want to disable selected iSNS servers?"
 msgstr ""
 
@@ -3356,6 +3384,9 @@ msgid "Do you want to enable selected auth groups?"
 msgstr ""
 
 msgid "Do you want to enable selected commands?"
+msgstr ""
+
+msgid "Do you want to enable selected iSCSI initiators?"
 msgstr ""
 
 msgid "Do you want to enable selected iSNS servers?"
@@ -3425,6 +3456,9 @@ msgid "Do you want to toggle selected auth groups?"
 msgstr ""
 
 msgid "Do you want to toggle selected commands?"
+msgstr ""
+
+msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr ""
 
 msgid "Do you want to toggle selected iSNS servers?"
@@ -3713,11 +3747,11 @@ msgstr "コマンドを編集"
 msgid "Edit extent"
 msgstr "エクステントを編集"
 
-msgid "Edit iSNS Server"
+msgid "Edit iSCSI Initiator"
 msgstr ""
 
-msgid "Edit initiator"
-msgstr "イニシエータを編集"
+msgid "Edit iSNS Server"
+msgstr ""
 
 msgid "Edit initiator group"
 msgstr "イニシエータグループの編集"
@@ -3875,6 +3909,9 @@ msgid "Enable Selected Targets"
 msgstr ""
 
 msgid "Enable Selected WebDAV Records"
+msgstr ""
+
+msgid "Enable Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Enable Selected iSNS Servers"
@@ -4162,6 +4199,9 @@ msgstr ""
 msgid "Enter Identifier"
 msgstr ""
 
+msgid "Enter Name"
+msgstr ""
+
 msgid "Enter Password"
 msgstr ""
 
@@ -4285,9 +4325,6 @@ msgid "Enter secret."
 msgstr ""
 
 msgid "Enter smartctl pass-through type."
-msgstr ""
-
-msgid "Enter the IP address or DNS name of the iSCSI target."
 msgstr ""
 
 msgid ""
@@ -4697,6 +4734,9 @@ msgstr "仮想デバイスが使用中でも異なるサイズを指定しても
 msgid "Foreign"
 msgstr ""
 
+msgid "Forget about devices which are not connected."
+msgstr ""
+
 msgid "Form Factor"
 msgstr ""
 
@@ -4952,6 +4992,9 @@ msgid "Hard Disk"
 msgstr "ハードディスク"
 
 msgid "Hardware AES"
+msgstr ""
+
+msgid "Header Digest"
 msgstr ""
 
 msgid "Header and Data digest"
@@ -5993,6 +6036,9 @@ msgstr "LUN に割り当てる装置のタイプ。"
 msgid "Login"
 msgstr "ログイン"
 
+msgid "Login for CHAP authentication."
+msgstr ""
+
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -6105,6 +6151,9 @@ msgid ""
 msgstr "データ読み取り中のチャンネルのマージン。この属性の機能は指定されていません。"
 
 msgid "MariaDB"
+msgstr ""
+
+msgid "Mark the selected device as inactive."
 msgstr ""
 
 msgid "Masquerade Address"
@@ -6413,6 +6462,12 @@ msgstr ""
 msgid "Mutual CHAP"
 msgstr "双方向 CHAP"
 
+msgid "Mutual CHAP Name"
+msgstr ""
+
+msgid "Mutual CHAP Secret"
+msgstr ""
+
 msgid "Mutual CHAP User is locked"
 msgstr ""
 
@@ -6488,6 +6543,11 @@ msgstr "NUT 内部ドライバ情報"
 
 msgid "Name"
 msgstr "名前"
+
+msgid ""
+"Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
+"or \"iSCSI\". Default is \"iSCSI\"."
+msgstr ""
 
 msgid "Name of the Auth Group."
 msgstr ""
@@ -6928,6 +6988,9 @@ msgid "Offline Immediate Test"
 msgstr ""
 
 msgid "Offload"
+msgstr ""
+
+msgid "Offload Driver"
 msgstr ""
 
 msgid "Old Passphrase"
@@ -7572,6 +7635,12 @@ msgstr "プライマリグループ"
 msgid "Primary group is also selected in additional group."
 msgstr "プライマリグループは、追加のグループで再度選択出来ます。"
 
+msgid "Print detailed information."
+msgstr ""
+
+msgid "Print general information."
+msgstr ""
+
 msgid "Privacy Extension"
 msgstr ""
 
@@ -7861,6 +7930,9 @@ msgstr "リブート"
 msgid "Reboot Required"
 msgstr ""
 
+msgid "Rebuild the selected device forcibly."
+msgstr ""
+
 msgid "Receive Buffer"
 msgstr ""
 
@@ -7988,6 +8060,9 @@ msgstr "ARP テーブルの全てのエントリを削除"
 
 #, php-format
 msgid "Remove the %s first before proceeding."
+msgstr ""
+
+msgid "Remove the selected device from the mirror."
 msgstr ""
 
 msgid "Reorder"
@@ -8384,6 +8459,9 @@ msgstr ""
 msgid "Secret"
 msgstr "シークレット"
 
+msgid "Secret for CHAP authentication."
+msgstr ""
+
 msgid "Secure Shell"
 msgstr "Secure Shell"
 
@@ -8756,6 +8834,24 @@ msgid "Sets an alternate mount point for the root dataset. Default is /mnt."
 msgstr "ルートデータセット用に別のマウントポイントを設定します。デフォルトは /mnt です。"
 
 msgid "Sets the authentication type."
+msgstr ""
+
+msgid ""
+"Sets the authentication type. Type can be either \"None\", or \"CHAP\". "
+"Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
+"defined."
+msgstr ""
+
+msgid ""
+"Sets the data digest; a checksum calculated over the Data Section of iSCSI "
+"PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
+"and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
+"Default is \"None\"."
 msgstr ""
 
 msgid ""
@@ -9174,6 +9270,9 @@ msgstr "停止"
 msgid "Stop after sending (and receiving) N packets."
 msgstr "N パケットを送信/受信した後に停止します。"
 
+msgid "Stop the selected mirror."
+msgstr ""
+
 msgid "Stopped"
 msgstr "停止"
 
@@ -9209,6 +9308,9 @@ msgstr "このエクステントを識別する文字列を入力して下さい
 
 msgid "Subject"
 msgstr "件名"
+
+msgid "Submit Command"
+msgstr ""
 
 msgid "Subnet Bit Count"
 msgstr ""
@@ -9464,6 +9566,12 @@ msgstr ""
 msgid "Target list"
 msgstr "ターゲットリスト"
 
+msgid "Target login for Mutual CHAP authentication."
+msgstr ""
+
+msgid "Target secret for Mutual CHAP authentication."
+msgstr ""
+
 msgid "Target side secret."
 msgstr "ターゲット側シークレット。"
 
@@ -9535,6 +9643,9 @@ msgstr "UPSマスターのIPアドレス。"
 
 msgid "The IP address of the device."
 msgstr "デバイスのIPアドレス"
+
+msgid "The IP address or the DNS name of the iSCSI target."
+msgstr ""
 
 msgid "The IP address that this hostname represents."
 msgstr "このホストに割り当てられている IP アドレスを入力して下さい。"
@@ -10086,6 +10197,11 @@ msgstr ""
 msgid "The name of the ZFS pool."
 msgstr ""
 
+msgid ""
+"The name of the initiator. By default, the name is concatenation of "
+"\"iqn.1994-09.org.freebsd:\" with the hostname."
+msgstr ""
+
 msgid "The name of the interface is wrong."
 msgstr "インタフェースの名前が間違っています。"
 
@@ -10097,6 +10213,9 @@ msgstr "メディアサーバ名がありません。"
 
 msgid "The name of the pool cannot be changed."
 msgstr "プールの名前は変更できません。"
+
+msgid "The name of the target."
+msgstr ""
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "仮想デバイスの名前は変更できません。"
@@ -10383,6 +10502,10 @@ msgstr "ここで指定したパラメータは %s のグローバル設定に�
 msgid "These parameters will be added to my.cnf"
 msgstr ""
 
+msgid ""
+"These parameters will be added to the configuration of this initiator."
+msgstr ""
+
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
 
@@ -10483,9 +10606,6 @@ msgid ""
 "a net view and in the browse list."
 msgstr "共有が net view とブラウズリスト内の使用可能な共有リストの中で見つかるかにかかわらずにコントロールされます。"
 
-msgid "This couple targetname/targetaddress already exists in the disk list."
-msgstr "この ターゲット名/ターゲットアドレスは既にディスクリストに存在します。"
-
 msgid "This disk already exists in the disk list."
 msgstr "このディスクは既にディスクリストに存在しています。"
 
@@ -10498,6 +10618,9 @@ msgstr "このエクステントは使用されています。"
 msgid "This group already exists in the group list."
 msgstr "グループは既にグループリストに存在しています。"
 
+msgid "This is a nickname and is for information only."
+msgstr ""
+
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr ""
 
@@ -10507,21 +10630,8 @@ msgid ""
 msgstr ""
 "Zeroconf/Bonjour/Rendezvous 経由で広告されるサーバ名と、DAAP 経由でエクスポートされるデータベース名の両方で使用されます。"
 
-msgid "This is for information only. (not used during iSCSI negotiation)."
-msgstr ""
-
 msgid "This is not a valid IP Address."
 msgstr ""
-
-msgid "This name already exists in the disk list."
-msgstr "この名前は既にディスクリストに存在しています。"
-
-#, php-format
-msgid "This name is for example: %s."
-msgstr "この名前の例: %s."
-
-msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-msgstr "この名前の例: iqn.2005-01.il.ac.huji.cs:somebody."
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr "この名前は、独自にこのシステム上で UPS を識別する為に利用されます。"
@@ -10922,6 +11032,9 @@ msgid "Toggle Selected Targets"
 msgstr ""
 
 msgid "Toggle Selected WebDAV Records"
+msgstr ""
+
+msgid "Toggle Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Toggle Selected iSNS Servers"
@@ -12082,11 +12195,23 @@ msgstr "設定可能な最大切り替え電圧下限値"
 msgid "hidden"
 msgstr ""
 
+msgid "iSCSI"
+msgstr ""
+
 msgid "iSCSI Initiator"
 msgstr "iSCSI イニシエータ"
 
 msgid "iSCSI Initiator Settings"
 msgstr "iSCSI イニシエータ設定"
+
+msgid "iSCSI Initiator is locked"
+msgstr ""
+
+msgid "iSCSI Initiator is marked for deletion"
+msgstr ""
+
+msgid "iSCSI Initiator is unlocked"
+msgstr ""
 
 msgid "iSCSI Target"
 msgstr "iSCSI ターゲット"
@@ -12109,6 +12234,9 @@ msgstr "iSCSI 初期パラメータ(初期値:%d)"
 
 msgid "iSCSI initiator disabled."
 msgstr "iSCSIイニシエータが無効になりました。"
+
+msgid "iSER - iSCSI over RDMA"
+msgstr ""
 
 msgid "iSNS Period"
 msgstr ""
@@ -12241,3 +12369,30 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid "Add initiator"
+#~ msgstr "イニシエータの追加"
+
+#~ msgid "Delete initiator"
+#~ msgstr "イニシエータを削除"
+
+#~ msgid ""
+#~ "Do you really want to delete this initiator? All elements that still use it "
+#~ "will become invalid (e.g. share)!"
+#~ msgstr "このイニシエータを削除してもよろしいですか? それを使用している全ての要素が無効になります (例: share)!"
+
+#~ msgid "Edit initiator"
+#~ msgstr "イニシエータを編集"
+
+#~ msgid "This couple targetname/targetaddress already exists in the disk list."
+#~ msgstr "この ターゲット名/ターゲットアドレスは既にディスクリストに存在します。"
+
+#~ msgid "This name already exists in the disk list."
+#~ msgstr "この名前は既にディスクリストに存在しています。"
+
+#, php-format
+#~ msgid "This name is for example: %s."
+#~ msgstr "この名前の例: %s."
+
+#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
+#~ msgstr "この名前の例: iqn.2005-01.il.ac.huji.cs:somebody."
