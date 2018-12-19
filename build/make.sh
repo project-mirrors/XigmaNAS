@@ -710,7 +710,6 @@ create_image() {
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
@@ -723,11 +722,6 @@ create_image() {
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -845,7 +839,6 @@ create_iso () {
 	mkdir -p $XIGMANAS_TMPDIR/boot
 	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/cdboot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
@@ -858,11 +851,6 @@ create_iso () {
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1098,7 +1086,6 @@ create_usb () {
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
@@ -1111,11 +1098,6 @@ create_usb () {
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1304,7 +1286,6 @@ create_usb_gpt() {
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
@@ -1317,11 +1298,6 @@ create_usb_gpt() {
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1431,11 +1407,6 @@ create_full() {
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/beastie.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menu.rc $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_BOOTDIR/boot/menusets.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/screen.4th $XIGMANAS_TMPDIR/boot
-		#cp $XIGMANAS_BOOTDIR/frames.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
