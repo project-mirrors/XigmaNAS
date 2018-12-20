@@ -1,7 +1,7 @@
 XigmaNAS 11.2.0.4 - BETA
 ------------------------
 Changes:
-- Upgrade to FreeBSD 12.0-RELEASE P0.
+- Upgrade to FreeBSD 12.0-RELEASE P1.
 - isboot.ko driver not available.
 
 Fixes:
