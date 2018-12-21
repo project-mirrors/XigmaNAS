@@ -446,6 +446,40 @@ $(document).ready(function(){
 			$errormsg .= "<br />\n";
 		endif;
 	endif;
+	if(Session::isAdmin()):
+		$lastconfigbackupstate = 0;
+		if(isset($config['lastconfigbackup'])):
+			$lastconfigbackup = intval($config['lastconfigbackup']);
+			$now = time();
+			if(($lastconfigbackup > 0) && ($lastconfigbackup < $now)):
+				$test = $config['system']['backup']['settings']['reminderintervalshow'] ?? 28;
+				$reminderintervalshow = filter_var($test,FILTER_VALIDATE_INT,['options' => ['default' => 28,'min_range' => 0,'max_range' => 9999]]);
+				if($reminderintervalshow > 0):
+					if(($now - $lastconfigbackup) > $reminderintervalshow * 24 * 60 * 60):
+						$lastconfigbackupstate = 1;
+					endif;
+				endif;
+			else:
+				$lastconfigbackupstate = 2;
+			endif;
+		else:
+			$lastconfigbackupstate = 3;
+		endif;
+		switch($lastconfigbackupstate):
+			case 1:
+				$errormsg .= gtext('Backup configuration reminder. The last configuration backup is older than the configured interval.');
+				$errormsg .= '<br />';
+				break;
+			case 2:
+				$errormsg .= gtext('Backup configuration. The date of the last configuration backup is invalid.');
+				$errormsg .= '<br />';
+				break;
+			case 3:
+				$errormsg .= gtext('Backup configuration. The date of the last configuration backup cannot be found.');
+				$errormsg .= '<br />';
+				break;
+		endswitch;
+	endif;
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
 	endif;
@@ -484,7 +518,7 @@ $(document).ready(function(){
 			html_textinfo2('system_uptime',gettext('System Uptime'),htmlspecialchars(system_get_uptime()));
 			if(Session::isAdmin()):
 				if($config['lastchange']):
-					html_textinfo2('last_config_change',gettext('System Config Change'),htmlspecialchars(get_datetime_locale($config['lastchange'])));
+					html_textinfo2('last_config_change',gettext('System Config Change'),get_datetime_locale($config['lastchange']));
 				endif;
 				if(empty($cpuinfo['temperature2'])):
 					if(!empty($cpuinfo['temperature'])):
