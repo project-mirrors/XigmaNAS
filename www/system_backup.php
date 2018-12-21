@@ -102,7 +102,7 @@ else:
 	$pconfig['encrypt_password'] = '';
 	$pconfig['encrypt_password_confirm'] = '';
 endif;
-$pgtitle = [gtext('System'),gtext('Backup Configuration'),gettext('Backup')];
+$pgtitle = [gtext('System'),gtext('Backup Configuration'),gtext('Backup')];
 include 'fbegin.inc';
 ?>
 <script type="text/javascript">
