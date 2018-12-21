@@ -452,8 +452,12 @@ $(document).ready(function(){
 			$lastconfigbackup = intval($config['lastconfigbackup']);
 			$now = time();
 			if(($lastconfigbackup > 0) && ($lastconfigbackup < $now)):
-				if(($now - $lastconfigbackup) > 28*24*60*60):
-					$lastconfigbackupstate = 1;
+				$test = $config['system']['backup']['settings']['reminderintervalshow'] ?? 28;
+				$reminderintervalshow = filter_var($test,FILTER_VALIDATE_INT,['options' => ['default' => 28,'min_range' => 0,'max_range' => 9999]]);
+				if($reminderintervalshow > 0):
+					if(($now - $lastconfigbackup) > $reminderintervalshow * 24 * 60 * 60):
+						$lastconfigbackupstate = 1;
+					endif;
 				endif;
 			else:
 				$lastconfigbackupstate = 2;
@@ -463,7 +467,7 @@ $(document).ready(function(){
 		endif;
 		switch($lastconfigbackupstate):
 			case 1:
-				$errormsg .= gtext('Backup configuration. The last configuration backup is older than 4 weeks.');
+				$errormsg .= gtext('Backup configuration reminder. The last configuration backup is older than the configured interval.');
 				$errormsg .= '<br />';
 				break;
 			case 2:

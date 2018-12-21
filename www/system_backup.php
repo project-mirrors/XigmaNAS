@@ -132,12 +132,20 @@ $(document).ready(function(){
 });
 //]]>
 </script>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="system_backup.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Backup');?></span></a></li>
-		<li class="tabinact"><a href="system_restore.php"><span><?=gtext('Restore');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
+<?php
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		push()->
+		add_tabnav_upper()->
+			ins_tabnav_record('system_backup.php',gettext('Backup'),gettext('Reload page'),true)->
+			ins_tabnav_record('system_restore.php',gettext('Restore'))->
+		pop()->
+		add_tabnav_lower()->
+			ins_tabnav_record('system_backup.php',gettext('Backup'),gettext('Reload page'),true)->
+			ins_tabnav_record('system_backup_settings.php',gettext('Settings'));
+$document->render();
+?>
 <table id="area_data"><tbody><tr><td id="area_data_frame"><form action="system_backup.php" method="post" enctype="multipart/form-data" name="iform" id="iform">
 <?php
 	if(!empty($input_errors)):
