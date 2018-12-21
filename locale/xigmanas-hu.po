@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -13191,39 +13191,3 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
-
-#~ msgid "Add initiator"
-#~ msgstr "Kezdeményező létrehozása"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Kezdeményező törlése"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Biztos, hogy törlöd ezt a kezdeményezőt? Minden elem ami ezt használja "
-#~ "érvényes marad (pl. megosztás)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Kezdeményező szerkesztése"
-
-#~ msgid "Enter the IP address or DNS name of the iSCSI target."
-#~ msgstr "Add meg a iSCSI cél IP címét vagy DNS nevét."
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr "Az célnév/célcím páros már létezik a lemezlistában."
-
-#~ msgid "This is for information only. (not used during iSCSI negotiation)."
-#~ msgstr ""
-#~ "Csak tájékoztató jellegű (iSCSI egyeztetés alatt nem kerül felhasználásra)."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Ez a név már szerepel a lemezlistában."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "A név lehet például: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "A név például: iqn.2005-01.il.ac.huji.cs:valaki."

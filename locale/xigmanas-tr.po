@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:07+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -12287,28 +12287,3 @@ msgstr ""
 
 msgid "visible"
 msgstr "görünür"
-
-#~ msgid "Add initiator"
-#~ msgstr "Initiator Ekle"
-
-#~ msgid "Delete initiator"
-#~ msgstr "İnitiator'u sil"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Bu iniator'u gerçekten silmek istediğinize emin misiniz?  (Paylaşım gibi)"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Initiotr'u düzenle"
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Bu isim zaten disk listesinde mevcut."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "Örnek isim: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "Bu isim için örnek: iqn.2005-01.il.ac.huji.cs:somebody."

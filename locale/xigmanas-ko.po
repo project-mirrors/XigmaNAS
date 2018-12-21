@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -12412,36 +12412,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "Add initiator"
-#~ msgstr "초기자 추가"
-
-#~ msgid "Delete initiator"
-#~ msgstr "초기자 삭제"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr "정말로 이 초기자를 삭제하시겠습니까? 여전히 이것을 이용하는 모든 요소들은 무효화될 것입니다(예: 공유)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "초기자 편집"
-
-#~ msgid "Enter the IP address or DNS name of the iSCSI target."
-#~ msgstr "iSCSI 타겟의 IP 주소 또는 DNS 이름을 입력하십시오."
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr "이 타겟 이름/타겟 주소 쌍은 디스크 목록에 이미 존재합니다."
-
-#~ msgid "This is for information only. (not used during iSCSI negotiation)."
-#~ msgstr "이것은 정보 제공 용입니다(iSCSI 협상시 사용되지 않음)."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "이 이름은 디스크 리스트에 이미 존재합니다."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "이 이름은 예를 든 것입니다: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "이 이름은 예를 든 것입니다: iqn.2005-01.il.ac.huji.cs:somebody."

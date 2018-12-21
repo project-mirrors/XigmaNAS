@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-12-14 22:43+0000\n"
+"PO-Revision-Date: 2018-12-19 19:04+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -511,7 +511,7 @@ msgstr ""
 "S.M.A.R.T. στο δίσκο."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Ενεργοποίηση της επιλεγμένης συσκευής."
 
 msgid "Active"
 msgstr "Ενεργό"
@@ -685,7 +685,7 @@ msgid "Add extent"
 msgstr "Προσθήκη επέκτασης"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "Προσθήκη εκκινητή iSCSI"
 
 msgid "Add iSNS Server"
 msgstr "Προσθήκη Διακομιστή iSNS"
@@ -718,7 +718,7 @@ msgid "Add target"
 msgstr "Προσθήκη προορισμού"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "Προσθήκη της επιλεγμένης συσκευής στο υπάρχον mirror."
 
 msgid "Additional Group"
 msgstr "Πρόσθετη Ομάδα"
@@ -1632,10 +1632,10 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "Όνομα CHAP"
 
 msgid "CHAP Secret"
-msgstr ""
+msgstr "Μυστικό CHAP"
 
 msgid "CHAP User is locked"
 msgstr "Ο χρήστης CHAP είναι κλειδωμένος"
@@ -1729,7 +1729,7 @@ msgstr ""
 "ανάγνωσης/εγγραφής δεδομένων FIS CRC)."
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1885,7 +1885,7 @@ msgid "Clear device errors"
 msgstr "Εκκαθάριση σφαλμάτων συσκευής"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Εκκαθάριση μεταδεδομένων της επιλεγμένης συσκευής."
 
 msgid "Client"
 msgstr "Πελάτης"
@@ -2591,7 +2591,7 @@ msgid "Data"
 msgstr "Δεδομένα"
 
 msgid "Data Digest"
-msgstr ""
+msgstr "Digest δεδομένων"
 
 msgid "Data Integrity"
 msgstr "Ακεραιότητα Δεδομένων"
@@ -2600,7 +2600,7 @@ msgid "Data Type"
 msgstr "Τύπος Δεδομένων"
 
 msgid "Data digest"
-msgstr "Σύνοψη δεδομένων"
+msgstr "Digest δεδομένων"
 
 msgid "Database Directory"
 msgstr "Φάκελος βάσης δεδομένων"
@@ -2715,6 +2715,7 @@ msgstr ""
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
+"Ορισμός του οδηγού εκφόρτωσης υλικού  iSCSI. Η προεπιλογή είναι \"None\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Ορίζει τον αλγόριθμο checksum."
@@ -2872,7 +2873,7 @@ msgid "Delete Selected WebDAV Records"
 msgstr "Διαγραφή Επιλεγμένων Εγγραφών WebDAV"
 
 msgid "Delete Selected iSCSI Initiators"
-msgstr ""
+msgstr "Διαγραφή επιλεγμένων εκκινητών iSCSI"
 
 msgid "Delete Selected iSNS Servers"
 msgstr "Διαγραφή Επιλεγμένων Διακομιστών iSNS"
@@ -3210,7 +3211,7 @@ msgid "Disable Selected WebDAV Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών WebDAV"
 
 msgid "Disable Selected iSCSI Initiators"
-msgstr ""
+msgstr "Απενεργοποίηση των επιλεγμένων εκκινητών iSCSI"
 
 msgid "Disable Selected iSNS Servers"
 msgstr "Απενεργοποίηση Επιλεγμένων Διακομιστών iSNS"
@@ -3551,7 +3552,7 @@ msgid "Do you want to delete selected groups?"
 msgstr "Θέλετε να διαγράψετε τις επιλεγμένες ομάδες;"
 
 msgid "Do you want to delete selected iSCSI initiators?"
-msgstr ""
+msgstr "Θέλετε να διαγράψετε τους επιλεγμένους εκκινητές iSCSI;"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "Θέλετε να διαγράψετε τους επιλεγμένους διακομιστές iSNS;"
@@ -3644,7 +3645,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εντολές;"
 
 msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους εκκινητές iSCSI;"
 
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους διακομιστές iSNS;"
@@ -3708,7 +3709,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εντολές;"
 
 msgid "Do you want to enable selected iSCSI initiators?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους εκκινητές iSCSI;"
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους διακομιστές iSNS;"
@@ -3781,7 +3782,7 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Θέλετε να γίνει εναλλαγή των επιλεγμένων εντολών;"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr ""
+msgstr "Θέλετε να κάνετε αντιστροφή επιλογής εκκινητών iSCSI;"
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων διακομιστών iSNS;"
@@ -4077,7 +4078,7 @@ msgid "Edit extent"
 msgstr "Επεξεργασία επέκτασης"
 
 msgid "Edit iSCSI Initiator"
-msgstr ""
+msgstr "Επεξεργασία εκκινητή iSCSI"
 
 msgid "Edit iSNS Server"
 msgstr "Επεξεργασία Διακομιστή iSNS"
@@ -4246,7 +4247,7 @@ msgid "Enable Selected WebDAV Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών WebDAV"
 
 msgid "Enable Selected iSCSI Initiators"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων εκκινητών iSCSI"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "Ενεργοποίηση Επιλεγμένων Διακομιστών iSNS"
@@ -4561,7 +4562,7 @@ msgid "Enter Identifier"
 msgstr "Εισαγωγή Αναγνωριστικού"
 
 msgid "Enter Name"
-msgstr ""
+msgstr "Εισάγετε όνομα"
 
 msgid "Enter Password"
 msgstr "Εισαγωγή Κωδικού"
@@ -5144,7 +5145,7 @@ msgid "Foreign"
 msgstr "Ξένο"
 
 msgid "Forget about devices which are not connected."
-msgstr ""
+msgstr "Να ξεχαστούν οι συσκευές που δεν είναι συνδεμένες."
 
 msgid "Form Factor"
 msgstr "Τύπος Μορφής"
@@ -5414,13 +5415,13 @@ msgid "Hardware AES"
 msgstr "AES σε επίπεδο υλικού"
 
 msgid "Header Digest"
-msgstr ""
+msgstr "Digest κεφαλίδας"
 
 msgid "Header and Data digest"
-msgstr "Περίληψη Κεφαλίδας και Δεδομένων"
+msgstr "Digest κεφαλίδας και δεδομένων"
 
 msgid "Header digest"
-msgstr "Περίληψη κεφαλίδας"
+msgstr "Digest κεφαλίδας"
 
 msgid "Health"
 msgstr "Κατάσταση"
@@ -5877,7 +5878,7 @@ msgstr ""
 "/etc/exports."
 
 msgid "Initial Digest"
-msgstr "Αρχικό σετ ψηφίων (digest)"
+msgstr "Αρχικό digest"
 
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
@@ -6571,7 +6572,7 @@ msgid "Login"
 msgstr "Σύνδεση"
 
 msgid "Login for CHAP authentication."
-msgstr ""
+msgstr "Σύνδεση για πιστοποίηση CHAP."
 
 msgid "Logout"
 msgstr "Αποσύνδεση"
@@ -6695,7 +6696,7 @@ msgid "MariaDB"
 msgstr "MariaDB"
 
 msgid "Mark the selected device as inactive."
-msgstr ""
+msgstr "Σημείωση της επιλεγμένης συσκευής ως απενεργοποιημένη."
 
 msgid "Masquerade Address"
 msgstr "Διεύθυνση Μεταμφίεσης"
@@ -7017,10 +7018,10 @@ msgid "Mutual CHAP"
 msgstr "Αμοιβαίο CHAP"
 
 msgid "Mutual CHAP Name"
-msgstr ""
+msgstr "Αμοιβαίο όνομα CHAP"
 
 msgid "Mutual CHAP Secret"
-msgstr ""
+msgstr "Αμοιβαίο μυστικό CHAP"
 
 msgid "Mutual CHAP User is locked"
 msgstr "Ο χρήστης αμοιβαίου CHAP είναι κλειδωμένος"
@@ -7102,6 +7103,8 @@ msgid ""
 "Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
 "or \"iSCSI\". Default is \"iSCSI\"."
 msgstr ""
+"Όνομα του επιλεγμένου πρωτόκολλου. Μπορεί να είναι είτε \"iSER\", για iSCSI "
+"με χρήση RDMA, ή \"iSCSI\". Η προεπιλογή είναι \"iSCSI\"."
 
 msgid "Name of the Auth Group."
 msgstr "Όνομα της Ομάδας Πιστοποίησης"
@@ -7569,7 +7572,7 @@ msgid "Offload"
 msgstr "Εκφόρτωση"
 
 msgid "Offload Driver"
-msgstr ""
+msgstr "Οδηγός Εκφόρτωσης"
 
 msgid "Old Passphrase"
 msgstr "Παλιό Συνθηματικό"
@@ -8249,10 +8252,10 @@ msgid "Primary group is also selected in additional group."
 msgstr "Η κύρια ομάδα έχει επίσης επιλεγεί ως επιπλέον ομάδα."
 
 msgid "Print detailed information."
-msgstr ""
+msgstr "Εμφάνιση λεπτομερών πληροφοριών."
 
 msgid "Print general information."
-msgstr ""
+msgstr "Εμφάνιση γενικών πληροφοριών."
 
 msgid "Privacy Extension"
 msgstr "Επέκταση Απορρήτου"
@@ -8563,7 +8566,7 @@ msgid "Reboot Required"
 msgstr "Χρειάζεται Επανεκκίνηση"
 
 msgid "Rebuild the selected device forcibly."
-msgstr ""
+msgstr "Rebuild της επιλεγμένης συσκευής με το ζόρι."
 
 msgid "Receive Buffer"
 msgstr "Buffer Λήψης"
@@ -8699,7 +8702,7 @@ msgid "Remove the %s first before proceeding."
 msgstr "Αφαιρέστε πρώτα το %s πριν συνεχίσετε"
 
 msgid "Remove the selected device from the mirror."
-msgstr ""
+msgstr "Αφαίρεση της επιλεγμένης συσκευής από το mirror."
 
 msgid "Reorder"
 msgstr "Αναδιάταξη"
@@ -9114,7 +9117,7 @@ msgid "Secret"
 msgstr "Συνθηματικό"
 
 msgid "Secret for CHAP authentication."
-msgstr ""
+msgstr "Μυστικό για την πιστοποίηση CHAP."
 
 msgid "Secure Shell"
 msgstr "Ασφαλές κέλυφος (SSH)"
@@ -9543,6 +9546,9 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
+"Ορίσζει τον τύπο πιστοποίησης. Ο τύπος μπορεί να είναι είτε \"None\", είτε "
+"\"CHAP\". Η προεπιλογή είναι \"None\". Όταν οριστεί σε CHAP, πρέπει να "
+"οριστούν και το  chapIName και το chapSecret."
 
 msgid ""
 "Sets the data digest; a checksum calculated over the Data Section of iSCSI "
@@ -10031,7 +10037,7 @@ msgid "Stop after sending (and receiving) N packets."
 msgstr "Διακοπή μετά την αποστολή (και λήψη) Ν πακέτων."
 
 msgid "Stop the selected mirror."
-msgstr ""
+msgstr "Σταμάτημα του επιλεγμένου mirror."
 
 msgid "Stopped"
 msgstr "Σταματημένο"
@@ -10076,7 +10082,7 @@ msgid "Subject"
 msgstr "Θέμα"
 
 msgid "Submit Command"
-msgstr ""
+msgstr "Υποβολή Εντολής"
 
 msgid "Subnet Bit Count"
 msgstr "Αριθμός Bit Υποδικτύου"
@@ -10423,7 +10429,7 @@ msgid "The IP address of the device."
 msgstr "Η διεύθυνση IP της συσκευής."
 
 msgid "The IP address or the DNS name of the iSCSI target."
-msgstr ""
+msgstr "Η διεύθυνση IP ή το όνομα DNS του προορισμού iSCSI."
 
 msgid "The IP address that this hostname represents."
 msgstr "Η διεύθυνση IP που αντιπροσωπεύει αυτό το όνομα υπολογιστή."
@@ -11111,6 +11117,8 @@ msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
 msgstr ""
+"Το όνομα του εκκινητή. Από προεπιλογή, το όνομα είναι αλληλουχία του "
+"\"iqn.1994-09.org.freebsd:\" με το όνομα του υπολογιστή."
 
 msgid "The name of the interface is wrong."
 msgstr "Το όνομα της διασύνδεσης είναι λάθος."
@@ -11125,7 +11133,7 @@ msgid "The name of the pool cannot be changed."
 msgstr "Το όνομα του Pool δεν μπορεί να αλλαχτεί."
 
 msgid "The name of the target."
-msgstr ""
+msgstr "Το όνομα του προορισμού."
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "Το όνομα αυτής της εικονικής συσκευής δεν μπορεί να αλλαχτεί."
@@ -11458,7 +11466,7 @@ msgstr "Αυτές οι παράμετροι θα προστεθούν στο my
 
 msgid ""
 "These parameters will be added to the configuration of this initiator."
-msgstr ""
+msgstr "Αυτές οι παράμετροι θα προστεθούν στις ρυθμίσεις αυτού του εκκινητή."
 
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Αυτές οι παράμετροι θα προστεθούν στη γενική ενότητα του ctl.conf"
@@ -11609,7 +11617,7 @@ msgid "This group already exists in the group list."
 msgstr "Αυτή η ομάδα υπάρχει ήδη στη λίστα ομάδων."
 
 msgid "This is a nickname and is for information only."
-msgstr ""
+msgstr "Αυτό είναι ψευδώνυμο και είναι για πληροφοριακούς λόγους μόνο."
 
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr ""
@@ -12113,7 +12121,7 @@ msgid "Toggle Selected WebDAV Records"
 msgstr "Αντιστροφή Επιλογής των Επιλεγμένων Εγγραφών WebDAV"
 
 msgid "Toggle Selected iSCSI Initiators"
-msgstr ""
+msgstr "Αντιστροφή επιλογής εκκινητών iSCSI"
 
 msgid "Toggle Selected iSNS Servers"
 msgstr "Αντιστροφή Επιλογής Επιλεγμένων Διακομιστών iSNS"
@@ -13394,7 +13402,7 @@ msgid "hidden"
 msgstr "κρυφό"
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "Εκκινητής iSCSI"
@@ -13403,13 +13411,13 @@ msgid "iSCSI Initiator Settings"
 msgstr "Ρυθμίσεις Εκκινητή iSCSI"
 
 msgid "iSCSI Initiator is locked"
-msgstr ""
+msgstr "Ο εκκινητής iSCSI είναι κλειδωμένος"
 
 msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
+msgstr "Ο εκκινητής iSCSI έχει σημειωθεί προς διαγραφή"
 
 msgid "iSCSI Initiator is unlocked"
-msgstr ""
+msgstr "Ο εκκινητής iSCSI είναι ξεκλείδωτος"
 
 msgid "iSCSI Target"
 msgstr "Προορισμός iSCSI"
@@ -13434,7 +13442,7 @@ msgid "iSCSI initiator disabled."
 msgstr "Ο εκκινητής iSCI είναι απενεργοποιημένος."
 
 msgid "iSER - iSCSI over RDMA"
-msgstr ""
+msgstr "iSER - iSCSI με χρήση RDMA"
 
 msgid "iSNS Period"
 msgstr "Περίοδος iSNS"
@@ -13569,43 +13577,3 @@ msgstr "χρήση από"
 
 msgid "visible"
 msgstr "ορατό"
-
-#~ msgid "Add initiator"
-#~ msgstr "Προθήκη εκκινητή"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Διαγραφή εκκινητή"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Θέλετε πράγματι να διαγράψετε αυτό τον εκκινητή; Όλα τα στοιχεία που τον "
-#~ "χρησιμοποιούν ακόμα, θα γίνουν μη έγκυρα (πχ. κοινόχρηστα)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Επεξεργασία εκκινητή"
-
-#~ msgid "Enter the IP address or DNS name of the iSCSI target."
-#~ msgstr "Εισάγετε τη διεύθυνση IP ή το όνομα DNS του προορισμού iSCSI."
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr ""
-#~ "Αυτό το ζευγάρι ΌνομαΠροορισμού/ΔιεύθυνσηΠροορισμού υπάρχει ήδη στη λίστα "
-#~ "του δίσκου."
-
-#~ msgid "This is for information only. (not used during iSCSI negotiation)."
-#~ msgstr ""
-#~ "Αυτό είναι πληροφοριακό μόνο. (δεν χρησιμοποιείται κατά τη διαπραγμάτευση "
-#~ "iSCSI)."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Αυτό το όνομα υπάρχει ήδη στη λίστα των δίσκων."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "Το όνομα αυτό είναι για παράδειγμα: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr ""
-#~ "Αυτό το όνομα είναι για παράδειγμα: iqn.2005-01.il.ac.huji.cs:somebody."

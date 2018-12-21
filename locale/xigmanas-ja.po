@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -12369,30 +12369,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "Add initiator"
-#~ msgstr "イニシエータの追加"
-
-#~ msgid "Delete initiator"
-#~ msgstr "イニシエータを削除"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr "このイニシエータを削除してもよろしいですか? それを使用している全ての要素が無効になります (例: share)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "イニシエータを編集"
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr "この ターゲット名/ターゲットアドレスは既にディスクリストに存在します。"
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "この名前は既にディスクリストに存在しています。"
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "この名前の例: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "この名前の例: iqn.2005-01.il.ac.huji.cs:somebody."
