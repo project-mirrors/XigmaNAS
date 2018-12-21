@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -13249,41 +13249,3 @@ msgstr "utilizzo di"
 
 msgid "visible"
 msgstr "visibile"
-
-#~ msgid "Add initiator"
-#~ msgstr "Aggiungere iniziatore"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Elimina iniziatore"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Si desidera realmente cancellare questo iniziatore? Tutti gli elementi che "
-#~ "lo stanno usando diventeranno invalidi (es. condivisioni)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Modifica iniziatore"
-
-#~ msgid "Enter the IP address or DNS name of the iSCSI target."
-#~ msgstr "Inserisci l'indirizzo IP o il nome DNS del target iSCSI"
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr ""
-#~ "Questa coppia nome target/indirizzo target gia' esiste nella lista dei "
-#~ "dischi."
-
-#~ msgid "This is for information only. (not used during iSCSI negotiation)."
-#~ msgstr ""
-#~ "Questo è solo a scopo informativo. (non usato durante la negoziazione iSCSI)."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Questo nome esiste gia' nella lista dei dischi."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "Il nome è ad esempio: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "Questo nome è un esempio: iqn.2005-01.il.ac.huji.cs:somebody."

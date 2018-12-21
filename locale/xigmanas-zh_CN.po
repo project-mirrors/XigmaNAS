@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-11-29 17:48+0000\n"
+"PO-Revision-Date: 2018-12-20 06:14+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:07+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -444,7 +444,7 @@ msgid ""
 msgstr "如果你想在检测到新的错误或SMART命令失败时获得通知，请开启Email报告功能。"
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "激活选中设备"
 
 msgid "Active"
 msgstr "活动"
@@ -618,7 +618,7 @@ msgid "Add extent"
 msgstr "添加extent"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "添加iSCSI启动器"
 
 msgid "Add iSNS Server"
 msgstr "添加iSNS服务器"
@@ -651,7 +651,7 @@ msgid "Add target"
 msgstr "添加目标"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "将选中设备添加到已经存在的镜像中。"
 
 msgid "Additional Group"
 msgstr "附加组"
@@ -1014,7 +1014,7 @@ msgstr "是否确定重启系统？"
 
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
-msgstr ""
+msgstr "您确定要恢复系统默认设置吗？"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "是否确定关闭系统？"
@@ -1466,10 +1466,10 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "CHAP名称"
 
 msgid "CHAP Secret"
-msgstr ""
+msgstr "CHAP密钥"
 
 msgid "CHAP User is locked"
 msgstr "CHAP用户被锁定"
@@ -1561,7 +1561,7 @@ msgid ""
 msgstr "CRC错误计数。统计CRC错误数量（读写FIS数据CRC错误）。"
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1703,7 +1703,7 @@ msgid "Clear device errors"
 msgstr "清除设备错误"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "清除选中设备上的元数据"
 
 msgid "Client"
 msgstr "客户端"
@@ -2313,7 +2313,7 @@ msgid "Data"
 msgstr "数据"
 
 msgid "Data Digest"
-msgstr ""
+msgstr "数据摘要"
 
 msgid "Data Integrity"
 msgstr "数据的完整性"
@@ -2425,10 +2425,10 @@ msgstr "指定需要认证的目录/URL"
 msgid ""
 "Define iSCSI hardware offload driver to use for this portal-group. The "
 "default is \"none\"."
-msgstr "定义用于此门户组的iSCSI硬件卸载驱动。 默认值是“none”。"
+msgstr "定义用于此门户组的iSCSI硬件卸载驱动。 默认值是“无”。"
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
-msgstr ""
+msgstr "定义iSCSI硬件卸载驱动。 默认值为“无”。"
 
 msgid "Defines the checksum algorithm."
 msgstr "定义校验算法。"
@@ -2582,7 +2582,7 @@ msgid "Delete Selected WebDAV Records"
 msgstr "删除所选的WebDAV记录"
 
 msgid "Delete Selected iSCSI Initiators"
-msgstr ""
+msgstr "删除选中的iSCSI启动器"
 
 msgid "Delete Selected iSNS Servers"
 msgstr "删除选定的iSNS服务器"
@@ -2903,7 +2903,7 @@ msgid "Disable Selected WebDAV Records"
 msgstr "禁用所选的WebDAV记录"
 
 msgid "Disable Selected iSCSI Initiators"
-msgstr ""
+msgstr "禁用选中的iSCSI启动器"
 
 msgid "Disable Selected iSNS Servers"
 msgstr "禁用选定的iSNS服务器"
@@ -3209,7 +3209,7 @@ msgid "Do you want to delete selected groups?"
 msgstr "要删除选中的群组吗？"
 
 msgid "Do you want to delete selected iSCSI initiators?"
-msgstr ""
+msgstr "你想要删除选中的iSCSI启动器吗？"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "你是否要删除选定的iSNS服务器？"
@@ -3302,7 +3302,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "要禁用选中的命令吗？"
 
 msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
+msgstr "你想要禁用选中的iSCSI启动器吗？"
 
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "你想禁用选定的iSNS服务器吗？"
@@ -3365,7 +3365,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "是否要启用选中的命令？"
 
 msgid "Do you want to enable selected iSCSI initiators?"
-msgstr ""
+msgstr "你想要启用选中的iSCSI启动器吗？"
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr "你想启用选定的iSNS服务器吗？"
@@ -3437,7 +3437,7 @@ msgid "Do you want to toggle selected commands?"
 msgstr "是否要切换选中的命令？"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr ""
+msgstr "你想要切换选中的iSCSI启动器吗？"
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "你想切换选定的iSNS服务器吗？"
@@ -3726,7 +3726,7 @@ msgid "Edit extent"
 msgstr "编辑extent"
 
 msgid "Edit iSCSI Initiator"
-msgstr ""
+msgstr "编辑iSCSI启动器"
 
 msgid "Edit iSNS Server"
 msgstr "编辑iSNS服务器"
@@ -3890,7 +3890,7 @@ msgid "Enable Selected WebDAV Records"
 msgstr "启用选定的WebDAV记录"
 
 msgid "Enable Selected iSCSI Initiators"
-msgstr ""
+msgstr "启用选中的iSCSI启动器"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "启用选定的iSNS服务器"
@@ -4177,7 +4177,7 @@ msgid "Enter Identifier"
 msgstr "输入标识符"
 
 msgid "Enter Name"
-msgstr ""
+msgstr "输入名称"
 
 msgid "Enter Password"
 msgstr "输入密码"
@@ -4709,7 +4709,7 @@ msgid "Foreign"
 msgstr "国外"
 
 msgid "Forget about devices which are not connected."
-msgstr ""
+msgstr "忘记已经断开连接的设备"
 
 msgid "Form Factor"
 msgstr "构成因素"
@@ -4969,7 +4969,7 @@ msgid "Hardware AES"
 msgstr "硬件AES"
 
 msgid "Header Digest"
-msgstr ""
+msgstr "标题摘要"
 
 msgid "Header and Data digest"
 msgstr "头摘要和数据摘要"
@@ -5630,7 +5630,7 @@ msgid "June"
 msgstr "6 月"
 
 msgid "Keep MBR"
-msgstr ""
+msgstr "保留MBR分区表"
 
 msgid "Kernel"
 msgstr "内核"
@@ -6000,7 +6000,7 @@ msgid "Login"
 msgstr "登录"
 
 msgid "Login for CHAP authentication."
-msgstr ""
+msgstr "登陆以进行CHAP验证"
 
 msgid "Logout"
 msgstr "登出"
@@ -6115,7 +6115,7 @@ msgid "MariaDB"
 msgstr "MariaDB"
 
 msgid "Mark the selected device as inactive."
-msgstr ""
+msgstr "将选中设备标记为非活动设备"
 
 msgid "Masquerade Address"
 msgstr "伪装地址"
@@ -6424,10 +6424,10 @@ msgid "Mutual CHAP"
 msgstr "CHAP 相互验证"
 
 msgid "Mutual CHAP Name"
-msgstr ""
+msgstr "相互CHAP名称"
 
 msgid "Mutual CHAP Secret"
-msgstr ""
+msgstr "相互CHAP密钥"
 
 msgid "Mutual CHAP User is locked"
 msgstr "相互CHAP用户被锁定"
@@ -6508,7 +6508,7 @@ msgstr "名称"
 msgid ""
 "Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
 "or \"iSCSI\". Default is \"iSCSI\"."
-msgstr ""
+msgstr "选中协议的名称。可以是\"iSER\"， 表示 iSCSI over RDMA， 或者 “iSCSI”。 默认为 “iSCSI”。"
 
 msgid "Name of the Auth Group."
 msgstr "认证组的名称。"
@@ -6950,7 +6950,7 @@ msgid "Offload"
 msgstr "卸载"
 
 msgid "Offload Driver"
-msgstr ""
+msgstr "卸载驱动"
 
 msgid "Old Passphrase"
 msgstr "旧密码短语"
@@ -7593,10 +7593,10 @@ msgid "Primary group is also selected in additional group."
 msgstr "主要群组也会被加入到附加群组中。"
 
 msgid "Print detailed information."
-msgstr ""
+msgstr "打印详细信息。"
 
 msgid "Print general information."
-msgstr ""
+msgstr "打印一般信息。"
 
 msgid "Privacy Extension"
 msgstr "隐私扩展"
@@ -7891,7 +7891,7 @@ msgid "Reboot Required"
 msgstr "需要重启"
 
 msgid "Rebuild the selected device forcibly."
-msgstr ""
+msgstr "强制重建选中设备"
 
 msgid "Receive Buffer"
 msgstr "接收缓冲区"
@@ -8023,7 +8023,7 @@ msgid "Remove the %s first before proceeding."
 msgstr "先删除%s，然后再继续。"
 
 msgid "Remove the selected device from the mirror."
-msgstr ""
+msgstr "从镜像中删除所选设备。"
 
 msgid "Reorder"
 msgstr "重新排列"
@@ -8418,7 +8418,7 @@ msgid "Secret"
 msgstr "密钥"
 
 msgid "Secret for CHAP authentication."
-msgstr ""
+msgstr "CHAP身份验证的密钥。"
 
 msgid "Secure Shell"
 msgstr "安全系统壳(Secure Shell)"
@@ -8795,18 +8795,20 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
+"设置验证类型。可以设置为\"无\", 或者 \"CHAP\"。 默认为 \"无\". 当设置为 CHAP时,  chapIName 和 "
+"chapSecret 都必须要设置."
 
 msgid ""
 "Sets the data digest; a checksum calculated over the Data Section of iSCSI "
 "PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
-msgstr ""
+msgstr "设置数据摘要; 通过iSCSI PDU的数据部分计算的校验和，并在接收时进行验证。 摘要可以是“无”或“CRC32C”。 默认为“无”。"
 
 msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
-msgstr ""
+msgstr "设置标题摘要; 通过iSCSI PDU标头计算的校验和，并在接收时进行验证。 摘要可以是“无”或“CRC32C”。 默认为“无”。"
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -9225,7 +9227,7 @@ msgid "Stop after sending (and receiving) N packets."
 msgstr "在传送(与接收) N 个封包后停止。"
 
 msgid "Stop the selected mirror."
-msgstr ""
+msgstr "停止选定镜像"
 
 msgid "Stopped"
 msgstr "已停止"
@@ -9264,7 +9266,7 @@ msgid "Subject"
 msgstr "主题"
 
 msgid "Submit Command"
-msgstr ""
+msgstr "提交命令"
 
 msgid "Subnet Bit Count"
 msgstr "子网位计数"
@@ -9521,10 +9523,10 @@ msgid "Target list"
 msgstr "目标列表"
 
 msgid "Target login for Mutual CHAP authentication."
-msgstr ""
+msgstr "目标登录相互CHAP身份验证。"
 
 msgid "Target secret for Mutual CHAP authentication."
-msgstr ""
+msgstr "相互CHAP身份验证的目标密钥。"
 
 msgid "Target side secret."
 msgstr "目标端密钥"
@@ -9599,7 +9601,7 @@ msgid "The IP address of the device."
 msgstr "设备的IP地址"
 
 msgid "The IP address or the DNS name of the iSCSI target."
-msgstr ""
+msgstr "iSCSI目标的IP地址或DNS名称。"
 
 msgid "The IP address that this hostname represents."
 msgstr "主机名称所代表的IP地址。"
@@ -10088,12 +10090,12 @@ msgstr "最大上传频宽于 KB/s。空白表示没限制。"
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
 "authentication."
-msgstr "目标可以接受的方法。 “自动” 是指没有（none） 和认证（authentication）。"
+msgstr "目标可以接受的方法。 “自动” 是指无（none） 和认证（authentication）。"
 
 msgid ""
 "The method can be accepted in discovery session. Auto means both none and "
 "authentication."
-msgstr "此方法可以在目标搜索session 中接受。 “自动” 是指没有（none） 和认证（authentication）。"
+msgstr "此方法可以在目标搜索session 中接受。 “自动” 是指无（none） 和认证（authentication）。"
 
 msgid "The method can be accepted in the controller."
 msgstr "控制器（controller）可以接受此方法。"
@@ -10148,7 +10150,7 @@ msgstr "ZFS池的名称。"
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
-msgstr ""
+msgstr "启动器的名称。 默认情况下，名称是“iqn.1994-09.org.freebsd：”与主机名的串联。"
 
 msgid "The name of the interface is wrong."
 msgstr "接口的名称错误。"
@@ -10163,7 +10165,7 @@ msgid "The name of the pool cannot be changed."
 msgstr "无法更改池的名称。"
 
 msgid "The name of the target."
-msgstr ""
+msgstr "目标名称"
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "无法更改此虚拟设备的名称。"
@@ -10300,7 +10302,7 @@ msgstr "电子邮件主题。"
 msgid ""
 "The system configuration is reset to factory defaults and the server is "
 "restarted."
-msgstr ""
+msgstr "系统将重置设置并重新启动"
 
 msgid "The tag range is invalid."
 msgstr "此标签范围无效。"
@@ -10446,7 +10448,7 @@ msgstr "这些参数将添加到my.cnf"
 
 msgid ""
 "These parameters will be added to the configuration of this initiator."
-msgstr ""
+msgstr "这些参数将添加到此启动器的配置中。"
 
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "这些参数将添加到ctl.conf的全局部分"
@@ -10559,7 +10561,7 @@ msgid "This group already exists in the group list."
 msgstr "此群组已存在群组列表中。"
 
 msgid "This is a nickname and is for information only."
-msgstr ""
+msgstr "这是一个昵称，仅供参考。"
 
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "这是一个非常强大的工具。使用风险自担！"
@@ -10963,7 +10965,7 @@ msgid "Toggle Selected WebDAV Records"
 msgstr "切换选定的WebDAV记录"
 
 msgid "Toggle Selected iSCSI Initiators"
-msgstr ""
+msgstr "切换选定的iSCSI启动器"
 
 msgid "Toggle Selected iSNS Servers"
 msgstr "切换选定的iSNS服务器"
@@ -12119,7 +12121,7 @@ msgid "hidden"
 msgstr "已隐藏"
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "iSCSI 启动器"
@@ -12128,25 +12130,25 @@ msgid "iSCSI Initiator Settings"
 msgstr "iSCSI启动器设置"
 
 msgid "iSCSI Initiator is locked"
-msgstr ""
+msgstr "iSCSI Initiator已锁定"
 
 msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
+msgstr "iSCSI启动器标记为删除"
 
 msgid "iSCSI Initiator is unlocked"
-msgstr ""
+msgstr "iSCSI启动器已解锁"
 
 msgid "iSCSI Target"
 msgstr "iSCSI 目标器"
 
 msgid "iSCSI Target CAM Target Layer"
-msgstr ""
+msgstr "iSCSI目标CAM目标层"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 目标逻辑单元控制器（iSCSI Target Logical Unit Controller）"
 
 msgid "iSCSI Target istgt"
-msgstr ""
+msgstr "iSCSI目标istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI 目标器信息和状态"
@@ -12159,7 +12161,7 @@ msgid "iSCSI initiator disabled."
 msgstr "iSCSI启动器已禁用"
 
 msgid "iSER - iSCSI over RDMA"
-msgstr ""
+msgstr "iSER - iSCSI over RDMA"
 
 msgid "iSNS Period"
 msgstr "iSNS周期"
@@ -12292,36 +12294,3 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可见"
-
-#~ msgid "Add initiator"
-#~ msgstr "添加启动器"
-
-#~ msgid "Delete initiator"
-#~ msgstr "删除启动器"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr "你确定要删除这个启动器吗？所有存取这个初始器的元件都将失效！"
-
-#~ msgid "Edit initiator"
-#~ msgstr "编辑启动器"
-
-#~ msgid "Enter the IP address or DNS name of the iSCSI target."
-#~ msgstr "输入iSCSI目标的IP地址或DNS名称。"
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr "这组 targetname/targetaddress 已存在磁盘列表中。"
-
-#~ msgid "This is for information only. (not used during iSCSI negotiation)."
-#~ msgstr "这仅供参考。 （在iSCSI协商期间不使用）。"
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "硬盘列表已经有这个名称存在。"
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "名称范例： %s"
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "名称范例：iqn.2005-01.il.ac.huji.cs:somebody."

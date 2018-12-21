@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:05+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 
 msgid " interfaces:"
 msgstr " koppelvlakke:"
@@ -12922,32 +12922,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "Add initiator"
-#~ msgstr "Voeg  inisieerder by"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Wis inisieerder uit"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Wil jy regtig hierdie inisieerder uitwis? Al die elemente wat dit steeds "
-#~ "gebruik sal verval (bv. deling)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Redigeer inisieerder"
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr "Die koppel teikennaam/teikenadres bestaan alreeds in die skywe lys."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Hierdie naam bestaan reeds in die skyf lys."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "Hierdie naam is byvoorbeeld: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "Hierdie naam is byvoorbeeld: iqn.2005-01.il.ac.huji.cs:iemadn."

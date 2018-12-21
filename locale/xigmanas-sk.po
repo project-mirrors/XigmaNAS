@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovak\n"
@@ -12507,29 +12507,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "Add initiator"
-#~ msgstr "Pridať iniciátor"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Zmazať iniciátor"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Naozaj chcete zmazať tento inicátor? Všetky prvky, ktoré ho používajú, budú "
-#~ "zneplatnené (napr. zdieľania)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Upraviť inicátor"
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr ""
-#~ "Táto dvojica cieľový názov/cieľová adresa už v zozname diskov existuje."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Tento názov už v zozname diskov existuje."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "Tento názov je príklad: iqn.2005-01.il.ac.huji.cs:niekto."

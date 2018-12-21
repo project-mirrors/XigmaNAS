@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:05+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
 "X-Poedit-Language: Danish\n"
@@ -12554,34 +12554,3 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
-
-#~ msgid "Add initiator"
-#~ msgstr "Tilføj initiator"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Slet initiator"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Vil du virkelig slette denne initiator? Alle elementer der bruger den bliver "
-#~ "ugyldiggjort (f.eks. share)!"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Rediger initiator"
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr ""
-#~ "Dette par destinationsnavn/destinationsadresse eksisterer allerede på "
-#~ "disklisten"
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Dette navn eksisterer allerede i disk listen."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "Dette navn er for eksempel: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "Dette navn kan f.eks. være: iqn.2005-01.il.ac.huji.cs:somebody."

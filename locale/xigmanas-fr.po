@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-12-19 07:58+0000\n"
+"PO-Revision-Date: 2018-12-20 08:11+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-19 08:06+0000\n"
-"X-Generator: Launchpad (build 18843)\n"
+"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
+"X-Generator: Launchpad (build 18847)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -2046,7 +2046,7 @@ msgid "Controller Auth Group"
 msgstr "Groupe Auth du contrôleur"
 
 msgid "Controller Auth Method"
-msgstr "Méthode Auth du contrôleur"
+msgstr "Méthode d'authentification du contrôleur"
 
 msgid "Controller Authorised Network"
 msgstr "Réseau autorisé par le contrôleur"
@@ -2556,7 +2556,7 @@ msgid "Data"
 msgstr "Donnée"
 
 msgid "Data Digest"
-msgstr "Résumé des Données"
+msgstr "Contrôle des Données"
 
 msgid "Data Integrity"
 msgstr "Intégrité des données"
@@ -2565,7 +2565,7 @@ msgid "Data Type"
 msgstr "Type de Données"
 
 msgid "Data digest"
-msgstr "Digest des données"
+msgstr "contrôle des Données"
 
 msgid "Database Directory"
 msgstr "Répertoire de base de données"
@@ -3752,10 +3752,10 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Voulez-vous changer d'état les commandes sélectionnées?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Voulez-vous basculer les initiateurs iSCSI sélectionnés?"
+msgstr "Voulez-vous changer d'état les initiateurs iSCSI sélectionnés?"
 
 msgid "Do you want to toggle selected iSNS servers?"
-msgstr "Voulez-vous basculer les serveurs iSNS sélectionnés?"
+msgstr "Voulez-vous changer d'état les serveurs iSNS sélectionnés?"
 
 msgid "Do you want to toggle selected initiator names?"
 msgstr "Voulez-vous changer d'état les noms d'initiateurs sélectionnés?"
@@ -5370,13 +5370,13 @@ msgid "Hardware AES"
 msgstr "Accélération Matérielle AES"
 
 msgid "Header Digest"
-msgstr "Entête Résumé"
+msgstr "Contrôle de l'Entête"
 
 msgid "Header and Data digest"
-msgstr "Digest d'en-tête et des données"
+msgstr "Contrôle d'entête et des données"
 
 msgid "Header digest"
-msgstr "Digest d'en-tête"
+msgstr "contrôle d'entête"
 
 msgid "Health"
 msgstr "Etat"
@@ -5824,7 +5824,7 @@ msgstr ""
 "/etc/exports."
 
 msgid "Initial Digest"
-msgstr "Digest initial"
+msgstr "Contrôle Initial"
 
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
@@ -10848,7 +10848,7 @@ msgstr ""
 "L'identifiant signalé comme inconnu par smartctl y compris les parenthèses."
 
 msgid "The initial digest mode negotiated with the initiator."
-msgstr "Le mode de digest initial négocié avec l'initiateur."
+msgstr "Le mode de contrôle initial négocié avec l'initiateur."
 
 msgid ""
 "The initiator can access to the target via the portals by authorised "
@@ -13440,40 +13440,3 @@ msgstr "utilisé de"
 
 msgid "visible"
 msgstr "visible"
-
-#~ msgid "Add initiator"
-#~ msgstr "Ajouter un initiateur"
-
-#~ msgid "Delete initiator"
-#~ msgstr "Supprimer l'initiateur"
-
-#~ msgid ""
-#~ "Do you really want to delete this initiator? All elements that still use it "
-#~ "will become invalid (e.g. share)!"
-#~ msgstr ""
-#~ "Voulez-vous vraiment supprimer cet initiateur ? Tous les éléments "
-#~ "l'utilisant toujours deviendront invalides !"
-
-#~ msgid "Edit initiator"
-#~ msgstr "Modifier l'initiateur"
-
-#~ msgid "Enter the IP address or DNS name of the iSCSI target."
-#~ msgstr "Entrez l'adresse IP ou le nom DNS de la cible iSCSI."
-
-#~ msgid "This couple targetname/targetaddress already exists in the disk list."
-#~ msgstr ""
-#~ "Le couple nomcible/adressecible existe déjà dans la liste des disques."
-
-#~ msgid "This is for information only. (not used during iSCSI negotiation)."
-#~ msgstr ""
-#~ "C'est pour information seulement. (Non utilisé lors de la négociation iSCSI)."
-
-#~ msgid "This name already exists in the disk list."
-#~ msgstr "Ce nom existe déjà dans la liste des disques."
-
-#, php-format
-#~ msgid "This name is for example: %s."
-#~ msgstr "Ce nom est par exemple: %s."
-
-#~ msgid "This name is for example: iqn.2005-01.il.ac.huji.cs:somebody."
-#~ msgstr "Ce nom peut être de la forme: iqn.2005-01.il.ac.huji.cs:somebody."
