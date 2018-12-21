@@ -190,7 +190,7 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 //	create document
-$pgtitle = [gettext('System'),gettext('Backup'),gettext('Settings')];
+$pgtitle = [gettext('System'),gettext('Backup Configuration'),gettext('Settings')];
 $document = new_page($pgtitle,$sphere->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
@@ -200,8 +200,8 @@ $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('system_backup.php',gettext('Backup'),gettext('Reload page'),true)->
-			ins_tabnav_record('system_restore.php',gettext('Restore'))->
+			ins_tabnav_record('system_backup.php',gettext('Backup Configuration'),gettext('Reload page'),true)->
+			ins_tabnav_record('system_restore.php',gettext('Restore Configuration'))->
 		pop()->
 		add_tabnav_lower()->
 			ins_tabnav_record('system_backup.php',gettext('Backup'))->
@@ -219,7 +219,7 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline(gettext('System Backup Settings'))->
+			c2_titleline(gettext('Reminder Settings'))->
 		pop()->
 		addTBODY()->
 			c2_input_text($cop->get_reminderintervalshow(),$sphere->row[$cop->get_reminderintervalshow()->get_name()],false,$is_readonly);

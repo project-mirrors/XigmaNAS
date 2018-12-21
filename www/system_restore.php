@@ -95,15 +95,16 @@ if($_POST):
 		$errormsg = sprintf(gtext('The configuration could not be restored. No file was uploaded!'),$g_file_upload_error[$_FILES['conffile']['error']]);
 	endif;
 endif;
-$pgtitle = [gtext('System'),gtext('Restore')];
+$pgtitle = [gtext('System'),gtext('Restore Configuration')];
 include 'fbegin.inc';
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('system_backup.php',gettext('Backup Configuration'))->
+			ins_tabnav_record('system_restore.php',gettext('Restore Configuration'),gettext('Reload page'),true);
+$document->render();
 ?>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabinact"><a href="system_backup.php"><span><?=gtext('Backup');?></span></a></li>
-		<li class="tabact"><a href="system_restore.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Restore');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
 <table id="area_data"><tbody><tr><td id="area_data_frame"><form action="system_restore.php" method="post" enctype="multipart/form-data" name="iform" id="iform">
 <?php
 	if(!empty($input_errors)):

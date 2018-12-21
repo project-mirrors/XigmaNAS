@@ -102,7 +102,7 @@ else:
 	$pconfig['encrypt_password'] = '';
 	$pconfig['encrypt_password_confirm'] = '';
 endif;
-$pgtitle = [gtext('System'),gtext('Backup')];
+$pgtitle = [gtext('System'),gtext('Backup Configuration'),gettext('Backup')];
 include 'fbegin.inc';
 ?>
 <script type="text/javascript">
@@ -138,8 +138,8 @@ $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('system_backup.php',gettext('Backup'),gettext('Reload page'),true)->
-			ins_tabnav_record('system_restore.php',gettext('Restore'))->
+			ins_tabnav_record('system_backup.php',gettext('Backup Configuration'),gettext('Reload page'),true)->
+			ins_tabnav_record('system_restore.php',gettext('Restore Configuration'))->
 		pop()->
 		add_tabnav_lower()->
 			ins_tabnav_record('system_backup.php',gettext('Backup'),gettext('Reload page'),true)->
