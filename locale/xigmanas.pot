@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
+"POT-Creation-Date: 2018-12-21 17:58+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1111,6 +1111,15 @@ msgid "Backup Configuration"
 msgstr ""
 
 msgid "Backup File"
+msgstr ""
+
+msgid "Backup configuration reminder. The last configuration backup is older than the configured interval."
+msgstr ""
+
+msgid "Backup configuration. The date of the last configuration backup cannot be found."
+msgstr ""
+
+msgid "Backup configuration. The date of the last configuration backup is invalid."
 msgstr ""
 
 msgid "Backup/Restore"
@@ -8206,6 +8215,9 @@ msgstr ""
 msgid "Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions."
 msgstr ""
 
+msgid "Set the number of days until a reminder is shown to backup system configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
 
@@ -8309,6 +8321,9 @@ msgid "Short Self-Test"
 msgstr ""
 
 msgid "Show Default Groups"
+msgstr ""
+
+msgid "Show Interval"
 msgstr ""
 
 msgid "Show Log Entries"
@@ -8743,6 +8758,9 @@ msgid "System"
 msgstr ""
 
 msgid "System BIOS"
+msgstr ""
+
+msgid "System Backup Settings"
 msgstr ""
 
 msgid "System Config Change"
