@@ -77,118 +77,124 @@ endswitch;
 switch($page_mode):
 	case PAGE_MODE_VIEW:
 	case PAGE_MODE_EDIT:
-		$a_referrer = [
-			$cop->get_disablecomp()->get_name(),
-			$cop->get_disablesecure()->get_name(),
-			$cop->get_resolve()->get_name(),
-			$cop->get_reverse()->get_name(),
+		$a_referer = [
+			$cop->get_disablecomp(),
+			$cop->get_disablesecure(),
+			$cop->get_resolve(),
+			$cop->get_reverse()
 		];
-		foreach($a_referrer as $referrer):
-			$sphere->row[$referrer] = $cop->{$referrer}->validate_config($sphere->grid);
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->validate_config($sphere->grid);
 		endforeach;
-		$a_referrer = [
-			$cop->get_daemon()->get_name(),
-			$cop->get_enable()->get_name(),
-			$cop->get_ftp()->get_name(),
-			$cop->get_rsyncd()->get_name(),
-			$cop->get_smartd()->get_name(),
-			$cop->get_sshd()->get_name(),
-			$cop->get_system()->get_name(),
+		$a_referer = [
+			$cop->get_daemon(),
+			$cop->get_enable(),
+			$cop->get_ftp(),
+			$cop->get_rsyncd(),
+			$cop->get_smartd(),
+			$cop->get_sshd(),
+			$cop->get_system()
 		];
-		foreach($a_referrer as $referrer):
-			$sphere->row[$referrer] = $cop->{$referrer}->validate_config($sphere->grid['remote']);
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->validate_config($sphere->grid['remote']);
 		endforeach;
-		$referrer = $cop->get_nentries()->get_name();
-		$sphere->row[$referrer] = $cop->{$referrer}->validate_array_element($sphere->grid);
-		if(is_null($sphere->row[$referrer])):
-			if(array_key_exists($referrer,$sphere->grid) && is_scalar($sphere->grid[$referrer])): 
-				$input_errors[] = $cop->{$referrer}->get_message_error();
-				$sphere->row[$referrer] = $sphere->grid[$referrer];
+		$referer = $cop->get_nentries();
+		$referer_name = $referer->get_name();
+		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid);
+		if(is_null($sphere->row[$referer_name])):
+			if(array_key_exists($referer_name,$sphere->grid) && is_scalar($sphere->grid[$referer_name])): 
+				$input_errors[] = $referer->get_message_error();
+				$sphere->row[$referer_name] = $sphere->grid[$referer_name];
 			else:
-				$sphere->row[$referrer] = $cop->{$referrer}->get_defaultvalue();
+				$sphere->row[$referer_name] = $referer->get_defaultvalue();
 			endif;
 		endif;
-		$referrer = $cop->get_ipaddr()->get_name();
-		$sphere->row[$referrer] = $cop->{$referrer}->validate_array_element($sphere->grid['remote']);
-		if(is_null($sphere->row[$referrer])):
+		$referer = $cop->get_ipaddr();
+		$referer_name = $referer->get_name();
+		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid['remote']);
+		if(is_null($sphere->row[$referer_name])):
 			$throw_error = $sphere->row[$cop->get_enable()->get_name()];
-			if(array_key_exists($referrer,$sphere->grid['remote']) && is_string($sphere->grid['remote'][$referrer]) && preg_match('/\S/',$sphere->grid['remote'][$referrer])):
+			if(array_key_exists($referer_name,$sphere->grid['remote']) && is_string($sphere->grid['remote'][$referer_name]) && preg_match('/\S/',$sphere->grid['remote'][$referer_name])):
 				$throw_error = true;
-				$sphere->row[$referrer] = $sphere->grid['remote'][$referrer];
+				$sphere->row[$referer_name] = $sphere->grid['remote'][$referer_name];
 			else:
-				$sphere->row[$referrer] = $cop->{$referrer}->get_defaultvalue();
+				$sphere->row[$referer_name] = $referer->get_defaultvalue();
 			endif;
 			if($throw_error):
-				$input_errors[] = $cop->{$referrer}->get_message_error();
+				$input_errors[] = $referer->get_message_error();
 			endif;
 		endif;
-		$referrer = $cop->get_port()->get_name();
-		$sphere->row[$referrer] = $cop->{$referrer}->validate_array_element($sphere->grid['remote'],['ui','514','empty']);
-		if(is_null($sphere->row[$referrer])):
-			if(array_key_exists($referrer,$sphere->grid['remote']) && is_scalar($sphere->grid['remote'][$referrer])):
-				$input_errors[] = $cop->{$referrer}->get_message_error();
-				$sphere->row[$referrer] = $sphere->grid['remote'][$referrer];
+		$referer = $cop->get_port();
+		$referer_name = $referer->get_name();
+		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid['remote'],['ui','514','empty']);
+		if(is_null($sphere->row[$referer_name])):
+			if(array_key_exists($referer_name,$sphere->grid['remote']) && is_scalar($sphere->grid['remote'][$referer_name])):
+				$input_errors[] = $referer->get_message_error();
+				$sphere->row[$referer_name] = $sphere->grid['remote'][$referer_name];
 			else:
-				$sphere->row[$referrer] = $cop->{$referrer}->get_defaultvalue();
+				$sphere->row[$referer_name] = $referer_name->get_defaultvalue();
 			endif;
 		endif;
 		break;
 	case PAGE_MODE_POST:
-		$a_referrer = [
-			$cop->get_disablecomp()->get_name(),
-			$cop->get_disablesecure()->get_name(),
-			$cop->get_resolve()->get_name(),
-			$cop->get_reverse()->get_name(),
-			$cop->get_daemon()->get_name(),
-			$cop->get_enable()->get_name(),
-			$cop->get_ftp()->get_name(),
-			$cop->get_rsyncd()->get_name(),
-			$cop->get_smartd()->get_name(),
-			$cop->get_sshd()->get_name(),
-			$cop->get_system()->get_name(),
+		$a_referer = [
+			$cop->get_disablecomp(),
+			$cop->get_disablesecure(),
+			$cop->get_resolve(),
+			$cop->get_reverse(),
+			$cop->get_daemon(),
+			$cop->get_enable(),
+			$cop->get_ftp(),
+			$cop->get_rsyncd(),
+			$cop->get_smartd(),
+			$cop->get_sshd(),
+			$cop->get_system()
 		];
-		foreach($a_referrer as $referrer):
-			$sphere->row[$referrer] = $cop->{$referrer}->validate_input();
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->validate_input();
 		endforeach;
-		$referrer = $cop->get_nentries()->get_name();
-		$sphere->row[$referrer] = $cop->{$referrer}->validate_input();
-		if(is_null($sphere->row[$referrer])):
-			$input_errors[] = $cop->{$referrer}->get_message_error();
-			if(array_key_exists($referrer,$_POST) && is_scalar($_POST[$referrer])): 
-				$sphere->row[$referrer] = $_POST[$referrer];
+		$referer = $cop->get_nentries();
+		$referer_name = $referer->get_name();
+		$sphere->row[$referer_name] = $referer->validate_input();
+		if(is_null($sphere->row[$referer_name])):
+			$input_errors[] = $referer->get_message_error();
+			if(array_key_exists($referer_name,$_POST) && is_scalar($_POST[$referer_name])): 
+				$sphere->row[$referer_name] = $_POST[$referer_name];
 			else:
-				$sphere->row[$referrer] = $cop->{$referrer}->get_defaultvalue();
+				$sphere->row[$referer_name] = $referer->get_defaultvalue();
 			endif;
 		endif;
 		//	IP address must be valid when remote syslog is enabled
 		//	IP address can be empty or must be valid when remote syslog is disabled
-		$referrer = $cop->get_ipaddr()->get_name();
-		$sphere->row[$referrer] = $cop->{$referrer}->validate_input();
-		if(is_null($sphere->row[$referrer])):
-			$sphere->row[$referrer] = filter_input(INPUT_POST,$referrer,FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
-			if($sphere->row[$cop->get_enable()->get_name()] || preg_match('/\S/',$sphere->row[$referrer])):
-				$input_errors[] = $cop->{$referrer}->get_message_error();
+		$referer = $cop->get_ipaddr();
+		$referer_name = $referer->get_name();
+		$sphere->row[$referer_name] = $referer->validate_input();
+		if(is_null($sphere->row[$referer_name])):
+			$sphere->row[$referer_name] = filter_input(INPUT_POST,$referer_name,FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
+			if($sphere->row[$cop->get_enable()->get_name()] || preg_match('/\S/',$sphere->row[$referer_name])):
+				$input_errors[] = $referer->get_message_error();
 			endif;
 		endif;
 		//	Port must be empty or a valid port number
-		$referrer = $cop->get_port()->get_name();
-		$sphere->row[$referrer] = $cop->{$referrer}->validate_input(INPUT_POST,['ui','514','empty']);
-		if(is_null($sphere->row[$referrer])):
-			$sphere->row[$referrer] = $cop->{$referrer}->validate_input(INPUT_POST,'scalar');
-			$input_errors[] = $cop->{$referrer}->get_message_error();
+		$referer = $cop->get_port()->get_name();
+		$referer_name = $referer->get_name();
+		$sphere->row[$referer_name] = $referer->validate_input(INPUT_POST,['ui','514','empty']);
+		if(is_null($sphere->row[$referer_name])):
+			$sphere->row[$referer_name] = $referer->validate_input(INPUT_POST,'scalar');
+			$input_errors[] = $referer->get_message_error();
 		endif;
 		if(empty($input_errors)):
-			$a_referrer = [
+			$a_referer_name = [
 				$cop->get_disablecomp()->get_name(),
 				$cop->get_disablesecure()->get_name(),
 				$cop->get_nentries()->get_name(),
 				$cop->get_resolve()->get_name(),
 				$cop->get_reverse()->get_name()
 			];
-			foreach($a_referrer as $referrer):
-				$sphere->grid[$referrer] = $sphere->row[$referrer];
+			foreach($a_referer_name as $referer_name):
+				$sphere->grid[$referer_name] = $sphere->row[$referer_name];
 			endforeach;
-			$a_referrer = [
+			$a_referer_name = [
 				$cop->get_daemon()->get_name(),
 				$cop->get_enable()->get_name(),
 				$cop->get_ftp()->get_name(),
@@ -199,8 +205,8 @@ switch($page_mode):
 				$cop->get_sshd()->get_name(),
 				$cop->get_system()->get_name()
 			];
-			foreach($a_referrer as $referrer):
-				$sphere->grid['remote'][$referrer] = $sphere->row[$referrer];
+			foreach($a_referer_name as $referer_name):
+				$sphere->grid['remote'][$referer_name] = $sphere->row[$referer_name];
 			endforeach;
 			write_config();
 			$retval = 0;
