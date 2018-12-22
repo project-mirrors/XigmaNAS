@@ -107,11 +107,11 @@ switch($page_method):
 		switch($page_action):
 			case 'add':
 				//	bring up a form with default values and let the user modify it
-				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->get_defaultvalue();
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'edit':
 				//	modify the data of the provided resource id and let the user modify it
-				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->validate_input(INPUT_GET);
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
 				break;
 		endswitch;
 		break;
@@ -119,7 +119,7 @@ switch($page_method):
 		switch($page_action):
 			case 'add':
 				//	bring up a form with default values and let the user modify it
-				$sphere->row[$sphere->get_row_identifier()] =  $cop->{$sphere->get_row_identifier()}->get_defaultvalue();
+				$sphere->row[$sphere->get_row_identifier()] =  $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'cancel':
 				//	cancel - nothing to do
@@ -127,11 +127,11 @@ switch($page_method):
 				break;
 			case 'edit':
 				//	edit requires a resource id, get it from input and validate
-				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->validate_input();
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
 				break;
 			case 'save':
 				//	modify requires a resource id, get it from input and validate
-				$sphere->row[$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->validate_input();
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
 				break;
 		endswitch;
 		break;
@@ -396,7 +396,7 @@ $content->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_separator()->
-			c2_titleline(gettext('Additional Parameter'))->
+			c2_titleline(gettext('Additional Parameters'))->
 		pop()->
 		addTBODY()->
 			c2_textarea($cop->get_auxparam(),$sphere->row['auxparam'],false,false,65,$n_auxparam_rows);
