@@ -176,7 +176,7 @@ switch($page_mode):
 			endif;
 		endif;
 		//	Port must be empty or a valid port number
-		$referer = $cop->get_port()->get_name();
+		$referer = $cop->get_port();
 		$referer_name = $referer->get_name();
 		$sphere->row[$referer_name] = $referer->validate_input(INPUT_POST,['ui','514','empty']);
 		if(is_null($sphere->row[$referer_name])):
