@@ -1744,6 +1744,8 @@ trait co_DOMTools {
 	}
 	public function ins_error_box(string $message = '') {
 		if(preg_match('/\S/',$message)):
+//	xxx
+			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
 			$this->
 				addDIV(['id' => 'errorbox'])->
 					addTABLE(['style' => 'width:100%;border-spacing:0;'])->
@@ -1755,6 +1757,8 @@ trait co_DOMTools {
 	}
 	public function ins_info_box(string $message = '') {
 		if(preg_match('/\S/',$message)):
+//	xxx
+			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
 			$this->
 				addDIV(['id' => 'infobox'])->
 					addTABLE(['style' => 'width:100%;border-spacing:0;'])->
@@ -1766,6 +1770,8 @@ trait co_DOMTools {
 	}
 	public function ins_warning_box(string $message = '') {
 		if(preg_match('/\S/',$message)):
+//	xxx
+			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
 			$this->
 				addDIV(['id' => 'warningbox'])->
 					addTABLE(['style' => 'width:100%;border-spacing:0;'])->
@@ -1773,6 +1779,25 @@ trait co_DOMTools {
 							push()->addTDwC('icon')->insIMG(['src' => '/images/warn_box.png','alt' => ''])->
 							pop()->addTDwC('message',$message);
 		endif;
+		return $this;
+	}
+	public function ins_config_save_message_box($errorcode) {
+		global $d_sysrebootreqd_path;
+
+		if($errorcode == 0):
+			if(file_exists($d_sysrebootreqd_path)):
+				$message = sprintf(
+					'%s <a href="reboot.php">%s</a>',
+					gettext('The changes have been saved.'),
+					gettext('You have to reboot the system for the changes to take effect.')
+				);
+			else:
+				$message = gettext('The changes have been applied successfully.');
+			endif;
+		else:
+			$message = sprintf('%s: %s (%s %s).',gettext('Error'),gettext('The changes could not be applied'),gettext('Error Code'),$errorcode);
+		endif;
+		$this->ins_info_box($message);
 		return $this;
 	}
 	public function ins_config_has_changed_box() {
