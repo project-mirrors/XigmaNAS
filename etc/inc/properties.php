@@ -1082,4 +1082,7 @@ abstract class co_property_container_param extends co_property_container {
 	public function get_toolbox() {
 		return $this->x_toolbox ?? $this->init_toolbox();
 	}
+	public function get_row_identifier() {
+		return $this->get_uuid();
+	}
 }
