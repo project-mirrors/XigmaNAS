@@ -53,22 +53,6 @@ abstract class properties {
 		$this->set_owner($owner);
 		return $this;
 	}
-/**
- *	Lazy call via magic get
- *	@param string $name the name of the property
- *	@return value Returns the value of the property
- *	@throws BadMethodCallException
- */
-	public function &__get(string $name) {
-		$method_name = 'get_' . $name;
-		if(method_exists($this,$method_name)):
-			$return_data = $this->$method_name();
-		else:
-			$message = htmlspecialchars(sprintf("Method '%s' for '%s' not found",$method_name,$name));
-			throw new BadMethodCallException($message);
-		endif;
-		return $return_data;
-	}
 	abstract public function filter_use_default();
 	public function set_owner($owner = NULL) {
 		if(is_object($owner)):
