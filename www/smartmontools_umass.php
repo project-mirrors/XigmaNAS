@@ -201,8 +201,8 @@ if(false !== $sphere->get_row_identifier()):
 	$updateconfig = false;
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
 		if(is_array($sphere->row)):
-			if(is_null($cop->{$sphere->get_row_identifier()}->validate_array_element($sphere->row))):
-				$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()] = $cop->{$sphere->get_row_identifier()}->get_defaultvalue();
+			if(is_null($cop->get_row_identifier()->validate_array_element($sphere->row))):
+				$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				$updateconfig = true;
 			endif;
 		else:
