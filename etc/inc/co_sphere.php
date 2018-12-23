@@ -816,16 +816,16 @@ class co_sphere_grid extends co_sphere_level2 {
 		return implode(PHP_EOL,$output);
 	}
 	public function html_button_delete_rows() {
-		return $this->html_button($this->get_cbm_button_val_delete(),$this->cbm_delete(),$this->get_cbm_button_id_delete());
+		return $this->html_button($this->get_cbm_button_val_delete(),$this->getmsg_cbm_delete(),$this->get_cbm_button_id_delete());
 	}
 	public function html_button_disable_rows() {
-		return $this->html_button($this->get_cbm_button_val_disable(),$this->cbm_disable(),$this->get_cbm_button_id_disable());
+		return $this->html_button($this->get_cbm_button_val_disable(),$this->getmsg_cbm_disable(),$this->get_cbm_button_id_disable());
 	}
 	public function html_button_enable_rows() {
-		return $this->html_button($this->get_cbm_button_val_enable(),$this->cbm_enable(),$this->get_cbm_button_id_enable());
+		return $this->html_button($this->get_cbm_button_val_enable(),$this->getmsg_cbm_enable(),$this->get_cbm_button_id_enable());
 	}
 	public function html_button_toggle_rows() {
-		return $this->html_button($this->get_cbm_button_val_toggle(),$this->cbm_toggle(),$this->get_cbm_button_id_toggle());
+		return $this->html_button($this->get_cbm_button_val_toggle(),$this->getmsg_cbm_toggle(),$this->get_cbm_button_id_toggle());
 	}
 	public function html_checkbox_cbm(bool $disabled = false) {
 		$element = 'input';
