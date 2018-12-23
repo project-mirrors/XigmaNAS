@@ -105,14 +105,14 @@ abstract class properties {
 	public function get_defaultvalue() {
 		return $this->x_defaultvalue;
 	}
-	public function set_editableonadd(bool $editableonadd = NULL) {
+	public function set_editableonadd(bool $editableonadd = true) {
 		$this->x_editableonadd = $editableonadd;
 		return $this;
 	}
 	public function get_editableonadd() {
 		return $this->x_editableonadd;
 	}
-	public function set_editableonmodify(bool $editableonmodify = NULL) {
+	public function set_editableonmodify(bool $editableonmodify = true) {
 		$this->x_editableonmodify = $editableonmodify;
 		return $this;
 	}
