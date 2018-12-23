@@ -46,19 +46,20 @@ function smartmontools_umass_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Record'));
-	$sphere->sym_mod(gettext('Edit Record'));
-	$sphere->sym_del(gettext('Record is marked for deletion'));
-	$sphere->sym_loc(gettext('Record is locked'));
-	$sphere->sym_unl(gettext('Record is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Records'));
-	$sphere->cbm_disable(gettext('Disable Selected Records'));
-	$sphere->cbm_enable(gettext('Enable Selected Records'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Records'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected records?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected records?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected records?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected records?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Record'))->
+		setmsg_sym_mod(gettext('Edit Record'))->
+		setmsg_sym_del(gettext('Record is marked for deletion'))->
+		setmsg_sym_loc(gettext('Record is locked'))->
+		setmsg_sym_unl(gettext('Record is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Records'))->
+		setmsg_cbm_disable(gettext('Disable Selected Records'))->
+		setmsg_cbm_enable(gettext('Enable Selected Records'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Records'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected records?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected records?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected records?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected records?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'smartmontools','umass','param');
 	if(!empty($sphere->grid)):

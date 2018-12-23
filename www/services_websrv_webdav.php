@@ -46,19 +46,20 @@ function websrv_webdav_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add WebDAV Record'));
-	$sphere->sym_mod(gettext('Edit WebDAV Record'));
-	$sphere->sym_del(gettext('WebDAV record is marked for deletion'));
-	$sphere->sym_loc(gettext('WebDAV record is locked'));
-	$sphere->sym_unl(gettext('WebDAV record is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected WebDAV Records'));
-	$sphere->cbm_disable(gettext('Disable Selected WebDAV Records'));
-	$sphere->cbm_enable(gettext('Enable Selected WebDAV Records'));
-	$sphere->cbm_toggle(gettext('Toggle Selected WebDAV Records'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected WebDAV records?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected WebDAV records?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected WebDAV records?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected WebDAV records?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add WebDAV Record'))->
+		setmsg_sym_mod(gettext('Edit WebDAV Record'))->
+		setmsg_sym_del(gettext('WebDAV record is marked for deletion'))->
+		setmsg_sym_loc(gettext('WebDAV record is locked'))->
+		setmsg_sym_unl(gettext('WebDAV record is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected WebDAV Records'))->
+		setmsg_cbm_disable(gettext('Disable Selected WebDAV Records'))->
+		setmsg_cbm_enable(gettext('Enable Selected WebDAV Records'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected WebDAV Records'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected WebDAV records?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected WebDAV records?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected WebDAV records?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected WebDAV records?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'websrv','webdav','param');
 	if(!empty($sphere->grid)):
