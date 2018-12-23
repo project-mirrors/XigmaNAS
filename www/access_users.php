@@ -46,13 +46,14 @@ function access_users_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add User Account'));
-	$sphere->sym_mod(gettext('Edit User Account'));
-	$sphere->sym_del(gettext('User account is marked for deletion'));
-	$sphere->sym_loc(gettext('User account is protected'));
-	$sphere->sym_unl(gettext('User account is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected User Accounts'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected user accounts?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add User Account'))->
+		setmsg_sym_mod(gettext('Edit User Account'))->
+		setmsg_sym_del(gettext('User account is marked for deletion'))->
+		setmsg_sym_loc(gettext('User account is protected'))->
+		setmsg_sym_unl(gettext('User account is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected User Accounts'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected user accounts?'));
 	$sphere->grid = &array_make_branch($config,'access','user');
 	return $sphere;
 }
