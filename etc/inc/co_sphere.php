@@ -568,6 +568,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	}
 	public function setmsg_cbm_delete_confirm(string $message = NULL) {
 		$this->_cbm_delete_confirm = $message;
+		return $this;
 	}
 	public function setmsg_cbm_disable(string $message = NULL) {
 		$this->_cbm_disable = $message;
