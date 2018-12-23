@@ -49,15 +49,16 @@ function get_sphere_disks_zfs_volume() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Volume'));
-	$sphere->sym_mod(gettext('Edit Volume'));
-	$sphere->sym_del(gettext('Volume is marked for deletion'));
-	$sphere->sym_loc(gettext('Volume is locked'));
-	$sphere->sym_unl(gettext('Volume is unlocked'));
-	$sphere->sym_mai(gettext('Maintenance'));
-	$sphere->sym_inf(gettext('Information'));
-	$sphere->cbm_delete(gettext('Delete Selected Volumes'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected volumes?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Volume'))->
+		setmsg_sym_mod(gettext('Edit Volume'))->
+		setmsg_sym_del(gettext('Volume is marked for deletion'))->
+		setmsg_sym_loc(gettext('Volume is locked'))->
+		setmsg_sym_unl(gettext('Volume is unlocked'))->
+		setmsg_sym_mai(gettext('Maintenance'))->
+		setmsg_sym_inf(gettext('Information'))->
+		setmsg_cbm_delete(gettext('Delete Selected Volumes'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected volumes?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'zfs','volumes','volume');
 	array_sort_key($sphere->grid,'name');
