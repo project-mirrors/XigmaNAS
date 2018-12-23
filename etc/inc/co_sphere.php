@@ -499,40 +499,40 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		return $this->_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
-	public function getmsg_delete() {
+	public function getmsg_cbm_delete() {
 		return $this->_cbm_delete ?? gettext('Delete Selected Records');
 	}
-	public function getmsg_delete_confirm() {
+	public function getmsg_cbm_delete_confirm() {
 		return $this->_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
 	}
-	public function getmsg_disable() {
+	public function getmsg_cbm_disable() {
 		return $this->_cbm_disable ?? gettext('Disable Selected Records');
 	}
-	public function getmsg_disable_confirm() {
+	public function getmsg_cbm_disable_confirm() {
 		return $this->_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
 	}
-	public function getmsg_enable() {
+	public function getmsg_cbm_enable() {
 		return $this->_cbm_enable ?? gettext('Enable Selected Records');
 	}
-	public function getmsg_enable_confirm() {
+	public function getmsg_cbm_enable_confirm() {
 		return $this->_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
 	}
-	public function getmsg_lock() {
+	public function getmsg_cbm_lock() {
 		return $this->_cbm_lock ?? gettext('Lock Selected Records');
 	}
-	public function getmsg_lock_confirm() {
+	public function getmsg_cbm_lock_confirm() {
 		return $this->_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
 	}
-	public function getmsg_toggle() {
+	public function getmsg_cbm_toggle() {
 		return $this->_cbm_toggle ?? gettext('Toggle Selected Records');
 	}
-	public function getmsg_toggle_confirm() {
+	public function getmsg_cbm_toggle_confirm() {
 		return $this->_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
 	}
-	public function getmsg_unlock() {
+	public function getmsg_cbm_unlock() {
 		return $this->_cbm_unlock ?? gettext('Unlock Selected Records');
 	}
-	public function getmsg_unlock_confirm() {
+	public function getmsg_cbm_unlock_confirm() {
 		return $this->_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
 	public function getmsg_sym_add() {
@@ -562,50 +562,50 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function getmsg_sym_unl() {
 		return $this->_sym_unl ?? gettext('Record is unlocked');
 	}
-	public function setmsg_delete(string $message = NULL) {
+	public function setmsg_cbm_delete(string $message = NULL) {
 		$this->_cbm_delete = $message;
 		return $this;
 	}
-	public function setmsg_delete_confirm(string $message = NULL) {
+	public function setmsg_cbm_delete_confirm(string $message = NULL) {
 		$this->_cbm_delete_confirm = $message;
 	}
-	public function setmsg_disable(string $message = NULL) {
+	public function setmsg_cbm_disable(string $message = NULL) {
 		$this->_cbm_disable = $message;
 		return $this;
 	}
-	public function setmsg_disable_confirm(string $message = NULL) {
+	public function setmsg_cbm_disable_confirm(string $message = NULL) {
 		$this->_cbm_disable_confirm = $message;
 		return $this;
 	}
-	public function setmsg_enable(string $message = NULL) {
+	public function setmsg_cbm_enable(string $message = NULL) {
 		$this->_cbm_enable = $message;
 		return $this;
 	}
-	public function setmsg_enable_confirm(string $message = NULL) {
+	public function setmsg_cbm_enable_confirm(string $message = NULL) {
 		$this->_cbm_enable_confirm = $message;
 		return $this;
 	}
-	public function setmsg_lock(string $message = NULL) {
+	public function setmsg_cbm_lock(string $message = NULL) {
 		$this->_cbm_lock = $message;
 		return $this;
 	}
-	public function setmsg_lock_confirm(string $message = NULL) {
+	public function setmsg_cbm_lock_confirm(string $message = NULL) {
 		$this->_cbm_lock_confirm = $message;
 		return $this;
 	}
-	public function setmsg_toggle(string $message = NULL) {
+	public function setmsg_cbm_toggle(string $message = NULL) {
 		$this->_cbm_toggle = $message;
 		return $this;
 	}
-	public function setmsg_toggle_confirm(string $message = NULL) {
+	public function setmsg_cbm_toggle_confirm(string $message = NULL) {
 		$this->_cbm_toggle_confirm = $message;
 		return $this;
 	}
-	public function setmsg_unlock(string $message = NULL) {
+	public function setmsg_cbm_unlock(string $message = NULL) {
 		$this->_cbm_unlock = $message;
 		return $this;
 	}
-	public function setmsg_unlock_confirm(string $message = NULL) {
+	public function setmsg_cbm_unlock_confirm(string $message = NULL) {
 		$this->_cbm_unlock_confirm = $message;
 		return $this;
 	}
@@ -700,19 +700,19 @@ class co_sphere_grid extends co_sphere_level2 {
 		if($this->enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_toggle_confirm()) . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
 				$output[] = "\t" . '});';
 			else:
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_enable_confirm()) . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_enable_confirm()) . '");';
 				$output[] = "\t" . '});';
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_disable_confirm()) . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_disable_confirm()) . '");';
 				$output[] = "\t" . '});';
 			endif;
 		endif;
 		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
-		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_delete_confirm()) . '");';
+		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_delete_confirm()) . '");';
 		$output[] = "\t" . '});';
 		//	Disable action buttons.
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
@@ -764,19 +764,19 @@ class co_sphere_grid extends co_sphere_level2 {
 		if($this->enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_toggle_confirm()) . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
 				$output[] = "\t" . '});';
 			else:
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_enable_confirm()) . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_enable_confirm()) . '");';
 				$output[] = "\t" . '});';
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_disable_confirm()) . '");';
+				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_disable_confirm()) . '");';
 				$output[] = "\t" . '});';
 			endif;
 		endif;
 		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
-		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_delete_confirm()) . '");';
+		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_delete_confirm()) . '");';
 		$output[] = "\t" . '});';
 		//	Disable action buttons.
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
