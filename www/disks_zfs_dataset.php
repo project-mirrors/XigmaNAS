@@ -49,15 +49,16 @@ function get_sphere_disks_zfs_dataset() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Dataset'));
-	$sphere->sym_mod(gettext('Edit Dataset'));
-	$sphere->sym_del(gettext('Dataset is marked for deletion'));
-	$sphere->sym_loc(gettext('Dataset is locked'));
-	$sphere->sym_unl(gettext('Dataset is unlocked'));
-	$sphere->sym_mai(gettext('Maintenance'));
-	$sphere->sym_inf(gettext('Information'));
-	$sphere->cbm_delete(gettext('Delete Selected Datasets'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected datasets?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Dataset'))->
+		setmsg_sym_mod(gettext('Edit Dataset'))->
+		setmsg_sym_del(gettext('Dataset is marked for deletion'))->
+		setmsg_sym_loc(gettext('Dataset is locked'))->
+		setmsg_sym_unl(gettext('Dataset is unlocked'))->
+		setmsg_sym_mai(gettext('Maintenance'))->
+		setmsg_sym_inf(gettext('Information'))->
+		setmsg_cbm_delete(gettext('Delete Selected Datasets'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected datasets?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'zfs','datasets','dataset');
 	array_sort_key($sphere->grid,'name');
