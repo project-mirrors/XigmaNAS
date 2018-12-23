@@ -2407,13 +2407,13 @@ EOJ;
 			$link = sprintf('%s?%s',$sphere->modify->get_scriptname(),$querystring);
 			$this->addTD()->
 				addA(['href' => $link])->
-					insIMG(['src' => $g_img['mod'],'title' => $sphere->sym_mod(),'alt' => $sphere->sym_mod(),'class' => 'spin oneemhigh']);
+					insIMG(['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
 		elseif($notprotected): //record is dirty
 			$this->addTD()->
-				insIMG(['src' => $g_img['del'],'title' => $sphere->sym_del(),'alt' => $sphere->sym_del(),'class' => 'oneemhigh']);
+				insIMG(['src' => $g_img['del'],'title' => $sphere->getmsg_sym_del(),'alt' => $sphere->getmsg_sym_del(),'class' => 'oneemhigh']);
 		else: // record is protected
 			$this->addTD()->
-				insIMG(['src' => $g_img['loc'],'title' => $sphere->sym_loc(),'alt' => $sphere->sym_loc(),'class' => 'oneemhigh']);
+				insIMG(['src' => $g_img['loc'],'title' => $sphere->getmsg_sym_loc(),'alt' => $sphere->getmsg_sym_loc(),'class' => 'oneemhigh']);
 		endif;
 		return $this;
 	}
@@ -2428,7 +2428,7 @@ EOJ;
 		if($show_link): // show link
 			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->maintain->get_scriptname(),$querystring);
-			$td->addA(['href' => $link])->insIMG(['src' => $g_img['mai'],'title' => $sphere->sym_mai(),'alt' => $sphere->sym_mai(),'class' => 'spin oneemhigh']);
+			$td->addA(['href' => $link])->insIMG(['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
 		endif;
 		return $this;
 	}
@@ -2443,7 +2443,7 @@ EOJ;
 		if($show_link): // show link
 			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->inform->get_scriptname(),$querystring);
-			$td->addA(['href' => $link])->insIMG(['src' => $g_img['inf'],'title' => $sphere->sym_inf(),'alt' => $sphere->sym_inf(),'class' => 'spin oneemhigh']);
+			$td->addA(['href' => $link])->insIMG(['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
 		endif;
 		return $this;
 	}
@@ -2454,14 +2454,14 @@ EOJ;
 		if($show_arrows): // show up and down arrows
 			$image_attribute_mup = [
 				'src' => $g_img['mup'],
-				'title' => $sphere->sym_mup(),
-				'alt' => $sphere->sym_mup(),
+				'title' => $sphere->getmsg_sym_mup(),
+				'alt' => $sphere->getmsg_sym_mup(),
 				'class' => 'oneemhigh move up'
 			];
 			$image_attribute_mdn = [
 				'src' => $g_img['mdn'],
-				'title' => $sphere->sym_mdn(),
-				'alt' => $sphere->sym_mdn(),
+				'title' => $sphere->getmsg_sym_mdn(),
+				'alt' => $sphere->getmsg_sym_mdn(),
 				'class' => 'oneemhigh move down'
 			];
 			$td->insIMG($image_attribute_mup)->insIMG($image_attribute_mdn);
@@ -2490,7 +2490,7 @@ EOJ;
 		$tr->
 			addTHwC('lceadd')->
 				addA(['href' => $link])->
-					insIMG(['src' => $g_img['add'],'title' => $sphere->sym_add(),'alt' => $sphere->sym_add(),'class' => 'spin oneemhigh']);
+					insIMG(['src' => $g_img['add'],'title' => $sphere->getmsg_sym_add(),'alt' => $sphere->getmsg_sym_add(),'class' => 'spin oneemhigh']);
 		return $this;
 	}
 	public function ins_no_records_found(int $colspan = 0,string $message = NULL) {
@@ -2505,16 +2505,16 @@ EOJ;
 		return $this;
 	}
 	public function ins_cbm_button_delete($sphere) {
-		$this->ins_button_submit($sphere->get_cbm_button_val_delete(),$sphere->cbm_delete(),[],$sphere->get_cbm_button_id_delete());
+		$this->ins_button_submit($sphere->get_cbm_button_val_delete(),$sphere->getmsg_cbm_delete(),[],$sphere->get_cbm_button_id_delete());
 		return $this;
 	}
 	public function ins_cbm_button_enadis($sphere) {
 		if($sphere->enadis()):
 			if($sphere->toggle()):
-				$this->ins_button_submit($sphere->get_cbm_button_val_toggle(),$sphere->cbm_toggle(),[],$sphere->get_cbm_button_id_toggle());
+				$this->ins_button_submit($sphere->get_cbm_button_val_toggle(),$sphere->getmsg_cbm_toggle(),[],$sphere->get_cbm_button_id_toggle());
 			else:
-				$this->ins_button_submit($sphere->get_cbm_button_val_enable(),$sphere->cbm_enable(),[],$sphere->get_cbm_button_id_enable());
-				$this->ins_button_submit($sphere->get_cbm_button_val_disable(),$sphere->cbm_disable(),[],$sphere->get_cbm_button_id_disable());
+				$this->ins_button_submit($sphere->get_cbm_button_val_enable(),$sphere->getmsg_cbm_enable(),[],$sphere->get_cbm_button_id_enable());
+				$this->ins_button_submit($sphere->get_cbm_button_val_disable(),$sphere->getmsg_cbm_disable(),[],$sphere->get_cbm_button_id_disable());
 			endif;
 		endif;
 		return $this;
