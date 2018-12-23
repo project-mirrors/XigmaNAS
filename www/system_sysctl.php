@@ -46,19 +46,20 @@ function sysctl_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(true);
-	$sphere->sym_add(gettext('Add sysctl variable'));
-	$sphere->sym_mod(gettext('Edit sysctl variable'));
-	$sphere->sym_del(gettext('Sysctl variable is marked for deletion'));
-	$sphere->sym_loc(gettext('Sysctl variable is locked'));
-	$sphere->sym_unl(gettext('Sysctl variable is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Options'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected options?'));
-	$sphere->cbm_disable(gettext('Disable Selected Options'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected options?'));
-	$sphere->cbm_enable(gettext('Enable Selected Options'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected options?'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Options'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected options?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add sysctl variable'))->
+		setmsg_sym_mod(gettext('Edit sysctl variable'))->
+		setmsg_sym_del(gettext('Sysctl variable is marked for deletion'))->
+		setmsg_sym_loc(gettext('Sysctl variable is locked'))->
+		setmsg_sym_unl(gettext('Sysctl variable is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Options'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected options?'))->
+		setmsg_cbm_disable(gettext('Disable Selected Options'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected options?'))->
+		setmsg_cbm_enable(gettext('Enable Selected Options'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected options?'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Options'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected options?'));
 	$sphere->grid = &array_make_branch($config,'system','sysctl','param');
 	return $sphere;
 }
