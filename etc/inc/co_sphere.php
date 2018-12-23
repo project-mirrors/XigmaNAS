@@ -535,6 +535,33 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function getmsg_unlock_confirm() {
 		return $this->_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
+	public function getmsg_sym_add() {
+		return $this->_sym_add ?? gettext('Add Record');
+	}
+	public function getmsg_sym_del(string $message = NULL) {
+		return $this->_sym_del ?? gettext('Record is marked for deletion');
+	}
+	public function getmsg_sym_inf() {
+		return $this->_sym_inf ?? gettext('Record Information');
+	}
+	public function getmsg_sym_loc() {
+		return $this->_sym_loc ?? gettext('Record is protected');
+	}
+	public function getmsg_sym_mai() {
+		return $this->_sym_mai ?? gettext('Record Maintenance');
+	}
+	public function getmsg_sym_mdn() {
+		return $this->_sym_mdn ?? gettext('Move down');
+	}
+	public function getmsg_sym_mod() {
+		return $this->_sym_mod ?? gettext('Edit Record');
+	}
+	public function getmsg_sym_mup() {
+		return $this->_sym_mup ?? gettext('Move up');
+	}
+	public function getmsg_sym_unl() {
+		return $this->_sym_unl ?? gettext('Record is unlocked');
+	}
 	public function setmsg_delete(string $message = NULL) {
 		$this->_cbm_delete = $message;
 		return $this;
@@ -582,17 +609,43 @@ class co_sphere_grid extends co_sphere_level2 {
 		$this->_cbm_unlock_confirm = $message;
 		return $this;
 	}
+	public function setmsg_sym_add(string $message = NULL) {
+		$this->_sym_add = $message;
+		return $this;
+	}
+	public function setmsg_sym_del(string $message = NULL) {
+		$this->_sym_del = $message;
+		return $this;
+	}
+	public function setmsg_sym_inf(string $message = NULL) {
+		$this->_sym_inf = $message;
+		return $this;
+	}
+	public function setmsg_sym_mai(string $message = NULL) {
+		$this->_sym_mai = $message;
+		return $this;
+	}
+	public function setmsg_sym_mdn(string $message = NULL) {
+		$this->_sym_mdn = $message;
+		return $this;
+	}
+	public function setmsg_sym_mod(string $message = NULL) {
+		$this->_sym_mod = $message;
+		return $this;
+	}
+	public function setmsg_sym_mup(string $message = NULL) {
+		$this->_sym_mup = $message;
+		return $this;
+	}
+	public function setmsg_sym_unl(string $message = NULL) {
+		$this->_sym_unl = $message;
+		return $this;
+	}
 	public function sym_add(string $message = NULL) {
 		if(isset($message)):
 			$this->_sym_add = $message;
 		endif;
 		return $this->_sym_add ?? gettext('Add Record');
-	}
-	public function sym_mod(string $message = NULL) {
-		if(isset($message)):
-			$this->_sym_mod = $message;
-		endif;
-		return $this->_sym_mod ?? gettext('Edit Record');
 	}
 	public function sym_del(string $message = NULL) {
 		if(isset($message)):
@@ -600,17 +653,11 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		return $this->_sym_del ?? gettext('Record is marked for deletion');
 	}
-	public function sym_loc(string $message = NULL) {
+	public function sym_inf(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_loc = $message;
+			$this->_sym_inf = $message;
 		endif;
-		return $this->_sym_loc ?? gettext('Record is protected');
-	}
-	public function sym_unl(string $message = NULL) {
-		if(isset($message)):
-			$this->_sym_unl = $message;
-		endif;
-		return $this->_sym_unl ?? gettext('Record is unlocked');
+		return $this->_sym_inf ?? gettext('Record Information');
 	}
 	public function sym_mai(string $message = NULL) {
 		if(isset($message)):
@@ -618,11 +665,17 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		return $this->_sym_mai ?? gettext('Record Maintenance');
 	}
-	public function sym_inf(string $message = NULL) {
+	public function sym_mdn(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_inf = $message;
+			$this->_sym_mdn = $message;
 		endif;
-		return $this->_sym_inf ?? gettext('Record Information');
+		return $this->_sym_mdn ?? gettext('Move down');
+	}
+	public function sym_mod(string $message = NULL) {
+		if(isset($message)):
+			$this->_sym_mod = $message;
+		endif;
+		return $this->_sym_mod ?? gettext('Edit Record');
 	}
 	public function sym_mup(string $message = NULL) {
 		if(isset($message)):
@@ -630,11 +683,11 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		return $this->_sym_mup ?? gettext('Move up');
 	}
-	public function sym_mdn(string $message = NULL) {
+	public function sym_unl(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_mdn = $message;
+			$this->_sym_unl = $message;
 		endif;
-		return $this->_sym_mdn ?? gettext('Move down');
+		return $this->_sym_unl ?? gettext('Record is unlocked');
 	}
 	public function doj(bool $with_envelope = true) {
 		$output = [];
@@ -823,8 +876,8 @@ class co_sphere_grid extends co_sphere_level2 {
 			$link = sprintf('%s?submit=edit&%s=%s',$this->modify->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
 			$img_attributes = [
 				'src' => $g_img['mod'],
-				'title' => $this->sym_mod(),
-				'alt' => $this->sym_mod(),
+				'title' => $this->getmsg_sym_mod(),
+				'alt' => $this->getmsg_sym_mod(),
 				'class' => 'spin oneemhigh'
 			];
 			$o_td->
@@ -834,8 +887,8 @@ class co_sphere_grid extends co_sphere_level2 {
 			//	record is dirty
 			$img_attributes = [
 				'src' => $g_img['del'],
-				'title' => $this->sym_del(),
-				'alt' => $this->sym_del(),
+				'title' => $this->getmsg_sym_del(),
+				'alt' => $this->getmsg_sym_del(),
 				'class' => 'oneemhigh'
 			];
 			$o_td->insIMG($img_attributes);
@@ -843,8 +896,8 @@ class co_sphere_grid extends co_sphere_level2 {
 			//	record is protected
 			$img_attributes = [
 				'src' => $g_img['loc'],
-				'title' => $this->sym_loc(),
-				'alt' => $this->sym_loc(),
+				'title' => $this->getmsg_sym_loc(),
+				'alt' => $this->getmsg_sym_loc(),
 				'class' => 'oneemhigh'
 			];
 			$o_td->insIMG($img_attributes);
@@ -857,8 +910,8 @@ class co_sphere_grid extends co_sphere_level2 {
 		$link = sprintf('%s?%s=%s',$this->maintain->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
 		$img_attributes = [
 			'src' => $g_img['mai'],
-			'title' => $this->sym_mai(),
-			'alt' => $this->sym_mai(),
+			'title' => $this->getmsg_sym_mai(),
+			'alt' => $this->getmsg_sym_mai(),
 			'class' => 'spin oneemhigh'
 		];
 		$root = new co_DOMDocument();
@@ -874,8 +927,8 @@ class co_sphere_grid extends co_sphere_level2 {
 		$link = sprintf('%s?%s=%s',$this->inform->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
 		$img_attributes = [
 			'src' => $g_img['inf'],
-			'title' => $this->sym_inf(),
-			'alt' => $this->sym_inf(),
+			'title' => $this->getmsg_sym_inf(),
+			'alt' => $this->getmsg_sym_inf(),
 			'class' => 'spin oneemhigh'
 		];
 		$root = new co_DOMDocument();
@@ -899,8 +952,8 @@ class co_sphere_grid extends co_sphere_level2 {
 		
 		$img_attributes = [
 			'src' => $g_img['add'],
-			'title' => $this->sym_add(),
-			'alt' => $this->sym_add(),
+			'title' => $this->getmsg_sym_add(),
+			'alt' => $this->getmsg_sym_add(),
 			'class' => 'spin oneemhigh'
 		];
 		$link = sprintf('%s?submit=add',$this->modify->get_scriptname());
