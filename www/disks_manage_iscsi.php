@@ -46,19 +46,20 @@ function iscsi_initiator_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add iSCSI Initiator'));
-	$sphere->sym_mod(gettext('Edit iSCSI Initiator'));
-	$sphere->sym_del(gettext('iSCSI Initiator is marked for deletion'));
-	$sphere->sym_loc(gettext('iSCSI Initiator is locked'));
-	$sphere->sym_unl(gettext('iSCSI Initiator is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected iSCSI Initiators'));
-	$sphere->cbm_disable(gettext('Disable Selected iSCSI Initiators'));
-	$sphere->cbm_enable(gettext('Enable Selected iSCSI Initiators'));
-	$sphere->cbm_toggle(gettext('Toggle Selected iSCSI Initiators'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected iSCSI initiators?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected iSCSI initiators?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected iSCSI initiators?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected iSCSI initiators?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add iSCSI Initiator'))->
+		setmsg_sym_mod(gettext('Edit iSCSI Initiator'))->
+		setmsg_sym_del(gettext('iSCSI Initiator is marked for deletion'))->
+		setmsg_sym_loc(gettext('iSCSI Initiator is locked'))->
+		setmsg_sym_unl(gettext('iSCSI Initiator is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected iSCSI Initiators'))->
+		setmsg_cbm_disable(gettext('Disable Selected iSCSI Initiators'))->
+		setmsg_cbm_enable(gettext('Enable Selected iSCSI Initiators'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected iSCSI Initiators'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected iSCSI initiators?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected iSCSI initiators?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected iSCSI initiators?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected iSCSI initiators?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'iscsiinit','vdisk');
 	if(!empty($sphere->grid)):
