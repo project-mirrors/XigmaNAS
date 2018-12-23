@@ -46,19 +46,20 @@ function ctl_portal_group_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Portal Group'));
-	$sphere->sym_mod(gettext('Edit Portal Group'));
-	$sphere->sym_del(gettext('Portal Group is marked for deletion'));
-	$sphere->sym_loc(gettext('Portal Group is locked'));
-	$sphere->sym_unl(gettext('Portal Group is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Portal Groups'));
-	$sphere->cbm_disable(gettext('Disable Selected Portal Groups'));
-	$sphere->cbm_enable(gettext('Enable Selected Portal Groups'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Portal Groups'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected portal groups?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected portal groups?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected portal groups?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected portal groups?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Portal Group'))->
+		setmsg_sym_mod(gettext('Edit Portal Group'))->
+		setmsg_sym_del(gettext('Portal Group is marked for deletion'))->
+		setmsg_sym_loc(gettext('Portal Group is locked'))->
+		setmsg_sym_unl(gettext('Portal Group is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Portal Groups'))->
+		setmsg_cbm_disable(gettext('Disable Selected Portal Groups'))->
+		setmsg_cbm_enable(gettext('Enable Selected Portal Groups'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Portal Groups'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected portal groups?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected portal groups?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected portal groups?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected portal groups?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_portal_group','param');
 	if(!empty($sphere->grid)):

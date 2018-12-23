@@ -47,19 +47,20 @@ function ctl_sub_option_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Option Record'));
-	$sphere->sym_mod(gettext('Edit Option Record'));
-	$sphere->sym_del(gettext('Option record is marked for deletion'));
-	$sphere->sym_loc(gettext('Option record is locked'));
-	$sphere->sym_unl(gettext('Option record is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Option Records'));
-	$sphere->cbm_disable(gettext('Disable Selected Option Records'));
-	$sphere->cbm_enable(gettext('Enable Selected Option Records'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Option Records'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected option records?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected option records?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected option records?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected option records?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Option Record'))->
+		setmsg_sym_mod(gettext('Edit Option Record'))->
+		setmsg_sym_del(gettext('Option record is marked for deletion'))->
+		setmsg_sym_loc(gettext('Option record is locked'))->
+		setmsg_sym_unl(gettext('Option record is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Option Records'))->
+		setmsg_cbm_disable(gettext('Disable Selected Option Records'))->
+		setmsg_cbm_enable(gettext('Enable Selected Option Records'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Option Records'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected option records?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected option records?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected option records?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected option records?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_option','param');
 	if(!empty($sphere->grid)):
