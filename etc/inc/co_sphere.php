@@ -621,6 +621,10 @@ class co_sphere_grid extends co_sphere_level2 {
 		$this->_sym_inf = $message;
 		return $this;
 	}
+	public function setmsg_sym_loc(string $message = NULL) {
+		$this->_sym_loc = $message;
+		return $this;
+	}
 	public function setmsg_sym_mai(string $message = NULL) {
 		$this->_sym_mai = $message;
 		return $this;
@@ -658,6 +662,12 @@ class co_sphere_grid extends co_sphere_level2 {
 			$this->_sym_inf = $message;
 		endif;
 		return $this->_sym_inf ?? gettext('Record Information');
+	}
+	public function sym_loc(string $message = NULL) {
+		if(isset($message)):
+			$this->_sym_loc = $message;
+		endif;
+		return $this->_sym_loc ?? gettext('Record is protected');
 	}
 	public function sym_mai(string $message = NULL) {
 		if(isset($message)):
