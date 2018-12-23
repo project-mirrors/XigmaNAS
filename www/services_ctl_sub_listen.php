@@ -47,19 +47,20 @@ function ctl_sub_listen_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Listen Record'));
-	$sphere->sym_mod(gettext('Edit Listen Record'));
-	$sphere->sym_del(gettext('Listen record is marked for deletion'));
-	$sphere->sym_loc(gettext('Listen record is locked'));
-	$sphere->sym_unl(gettext('Listen record is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Listen Records'));
-	$sphere->cbm_disable(gettext('Disable Selected Listen Records'));
-	$sphere->cbm_enable(gettext('Enable Selected Listen Records'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Listen Records'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected listen records?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected listen records?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected listen records?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected listen records?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Listen Record'))->
+		setmsg_sym_mod(gettext('Edit Listen Record'))->
+		setmsg_sym_del(gettext('Listen record is marked for deletion'))->
+		setmsg_sym_loc(gettext('Listen record is locked'))->
+		setmsg_sym_unl(gettext('Listen record is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Listen Records'))->
+		setmsg_cbm_disable(gettext('Disable Selected Listen Records'))->
+		setmsg_cbm_enable(gettext('Enable Selected Listen Records'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Listen Records'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected listen records?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected listen records?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected listen records?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected listen records?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_listen','param');
 	if(!empty($sphere->grid)):

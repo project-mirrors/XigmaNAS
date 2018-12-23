@@ -46,19 +46,20 @@ function ctl_auth_group_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Auth Group'));
-	$sphere->sym_mod(gettext('Edit Auth Group'));
-	$sphere->sym_del(gettext('Auth Group is marked for deletion'));
-	$sphere->sym_loc(gettext('Auth Group is locked'));
-	$sphere->sym_unl(gettext('Auth Group is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Auth Groups'));
-	$sphere->cbm_disable(gettext('Disable Selected Auth Groups'));
-	$sphere->cbm_enable(gettext('Enable Selected Auth Groups'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Auth Groups'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected auth groups?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected auth groups?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected auth groups?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected auth groups?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Auth Group'))->
+		setmsg_sym_mod(gettext('Edit Auth Group'))->
+		setmsg_sym_del(gettext('Auth Group is marked for deletion'))->
+		setmsg_sym_loc(gettext('Auth Group is locked'))->
+		setmsg_sym_unl(gettext('Auth Group is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Auth Groups'))->
+		setmsg_cbm_disable(gettext('Disable Selected Auth Groups'))->
+		setmsg_cbm_enable(gettext('Enable Selected Auth Groups'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Auth Groups'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected auth groups?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected auth groups?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected auth groups?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected auth groups?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_auth_group','param');
 	if(!empty($sphere->grid)):

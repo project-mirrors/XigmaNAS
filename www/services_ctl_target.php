@@ -46,19 +46,20 @@ function ctl_target_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Target'));
-	$sphere->sym_mod(gettext('Edit Target'));
-	$sphere->sym_del(gettext('Target is marked for deletion'));
-	$sphere->sym_loc(gettext('Target is locked'));
-	$sphere->sym_unl(gettext('Target is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Targets'));
-	$sphere->cbm_disable(gettext('Disable Selected Targets'));
-	$sphere->cbm_enable(gettext('Enable Selected Targets'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Targets'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected targets?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected targets?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected targets?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected targets?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Target'))->
+		setmsg_sym_mod(gettext('Edit Target'))->
+		setmsg_sym_del(gettext('Target is marked for deletion'))->
+		setmsg_sym_loc(gettext('Target is locked'))->
+		setmsg_sym_unl(gettext('Target is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Targets'))->
+		setmsg_cbm_disable(gettext('Disable Selected Targets'))->
+		setmsg_cbm_enable(gettext('Enable Selected Targets'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Targets'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected targets?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected targets?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected targets?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected targets?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_target','param');
 	if(!empty($sphere->grid)):

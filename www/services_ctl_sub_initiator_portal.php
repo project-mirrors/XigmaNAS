@@ -47,19 +47,20 @@ function ctl_sub_initiator_portal_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Initiator Portal'));
-	$sphere->sym_mod(gettext('Edit Initiator Portal'));
-	$sphere->sym_del(gettext('Initiator Portal is marked for deletion'));
-	$sphere->sym_loc(gettext('Initiator Portal is locked'));
-	$sphere->sym_unl(gettext('Initiator Portal is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Initiator Portals'));
-	$sphere->cbm_disable(gettext('Disable Selected Initiator Portals'));
-	$sphere->cbm_enable(gettext('Enable Selected Initiator Portals'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Initiator Portals'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected initiator portals?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected initiator portals?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected initiator portals?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected initiator portals?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Initiator Portal'))->
+		setmsg_sym_mod(gettext('Edit Initiator Portal'))->
+		setmsg_sym_del(gettext('Initiator Portal is marked for deletion'))->
+		setmsg_sym_loc(gettext('Initiator Portal is locked'))->
+		setmsg_sym_unl(gettext('Initiator Portal is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Initiator Portals'))->
+		setmsg_cbm_disable(gettext('Disable Selected Initiator Portals'))->
+		setmsg_cbm_enable(gettext('Enable Selected Initiator Portals'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Initiator Portals'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected initiator portals?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected initiator portals?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected initiator portals?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected initiator portals?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_initiator_portal','param');
 	if(!empty($sphere->grid)):

@@ -47,19 +47,20 @@ function ctl_sub_chap_mutual_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Mutual CHAP User'));
-	$sphere->sym_mod(gettext('Edit Mutual CHAP User'));
-	$sphere->sym_del(gettext('Mutual CHAP User is marked for deletion'));
-	$sphere->sym_loc(gettext('Mutual CHAP User is locked'));
-	$sphere->sym_unl(gettext('Mutual CHAP User is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Mutual CHAP Users'));
-	$sphere->cbm_disable(gettext('Disable Selected Mutual CHAP Users'));
-	$sphere->cbm_enable(gettext('Enable Selected Mutual CHAP Users'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Mutual CHAP Users'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected Mutual CHAP users?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected Mutual CHAP users?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected Mutual CHAP users?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected Mutual CHAP users?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Mutual CHAP User'))->
+		setmsg_sym_mod(gettext('Edit Mutual CHAP User'))->
+		setmsg_sym_del(gettext('Mutual CHAP User is marked for deletion'))->
+		setmsg_sym_loc(gettext('Mutual CHAP User is locked'))->
+		setmsg_sym_unl(gettext('Mutual CHAP User is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Mutual CHAP Users'))->
+		setmsg_cbm_disable(gettext('Disable Selected Mutual CHAP Users'))->
+		setmsg_cbm_enable(gettext('Enable Selected Mutual CHAP Users'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Mutual CHAP Users'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected Mutual CHAP users?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected Mutual CHAP users?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected Mutual CHAP users?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected Mutual CHAP users?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_chap_mutual','param');
 	if(!empty($sphere->grid)):

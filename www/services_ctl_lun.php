@@ -46,19 +46,20 @@ function ctl_lun_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add LUN'));
-	$sphere->sym_mod(gettext('Edit LUN'));
-	$sphere->sym_del(gettext('LUN is marked for deletion'));
-	$sphere->sym_loc(gettext('LUN is locked'));
-	$sphere->sym_unl(gettext('LUN is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected LUNs'));
-	$sphere->cbm_disable(gettext('Disable Selected LUNs'));
-	$sphere->cbm_enable(gettext('Enable Selected LUNs'));
-	$sphere->cbm_toggle(gettext('Toggle Selected LUNs'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected LUNs?'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected LUNs?'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected LUNs?'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected LUNs?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add LUN'))->
+		setmsg_sym_mod(gettext('Edit LUN'))->
+		setmsg_sym_del(gettext('LUN is marked for deletion'))->
+		setmsg_sym_loc(gettext('LUN is locked'))->
+		setmsg_sym_unl(gettext('LUN is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected LUNs'))->
+		setmsg_cbm_disable(gettext('Disable Selected LUNs'))->
+		setmsg_cbm_enable(gettext('Enable Selected LUNs'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected LUNs'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected LUNs?'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected LUNs?'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected LUNs?'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected LUNs?'));
 //	sphere external content
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_lun','param');
 	if(!empty($sphere->grid)):
