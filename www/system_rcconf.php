@@ -105,27 +105,92 @@ if($_POST):
 	if(isset($_POST['submit'])):
 		switch( $_POST['submit']):
 			case $sphere->get_cbm_button_val_delete():
-				updatenotify_cbm_delete($sphere,$cop);
+				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
+				foreach($sphere->cbm_grid as $sphere->cbm_row):
+					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+						switch($mode_updatenotify):
+							case UPDATENOTIFY_MODE_NEW:  
+								updatenotify_clear($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+								break;
+							case UPDATENOTIFY_MODE_MODIFIED:
+								updatenotify_clear($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_DIRTY,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+								break;
+							case UPDATENOTIFY_MODE_UNKNOWN:
+								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_DIRTY,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+								break;
+						endswitch;
+					endif;
+				endforeach;
 				header($sphere->get_location());
 				exit;
 				break;
 			case $sphere->get_cbm_button_val_disable():
-				if(updatenotify_cbm_disable($sphere,$cop)):
+				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
+				$updateconfig = false;
+				foreach($sphere->cbm_grid as $sphere->cbm_row):
+					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+						if(isset($sphere->grid[$sphere->row_id]['enable'])):
+							unset($sphere->grid[$sphere->row_id]['enable']);
+							$updateconfig = true;
+							$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+							if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+							endif;
+						endif;
+					endif;
+				endforeach;
+				if($updateconfig):
 					write_config();
+					$updateconfig = false;
 				endif;
 				header($sphere->get_location());
 				exit;
 				break;
 			case $sphere->get_cbm_button_val_enable():
-				if(updatenotify_cbm_enable($sphere,$cop)):
+				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
+				$updateconfig = false;
+				foreach($sphere->cbm_grid as $sphere->cbm_row):
+					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+						if(!(isset($sphere->grid[$sphere->row_id]['enable']))):
+							$sphere->grid[$sphere->row_id]['enable'] = true;
+							$updateconfig = true;
+							$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+							if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+							endif;
+						endif;
+					endif;
+				endforeach;
+				if($updateconfig):
 					write_config();
+					$updateconfig = false;
 				endif;
 				header($sphere->get_location());
 				exit;
 				break;
 			case $sphere->get_cbm_button_val_toggle():
-				if(updatenotify_cbm_toggle($sphere,$cop)):
+				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
+				$updateconfig = false;
+				foreach($sphere->cbm_grid as $sphere->cbm_row):
+					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+						if(isset($sphere->grid[$sphere->row_id]['enable'])):
+							unset($sphere->grid[$sphere->row_id]['enable']);
+						else:
+							$sphere->grid[$sphere->row_id]['enable'] = true;
+						endif;
+						$updateconfig = true;
+						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+						if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+							updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
+						endif;
+					endif;
+				endforeach;
+				if($updateconfig):
 					write_config();
+					$updateconfig = false;
 				endif;
 				header($sphere->get_location());
 				exit;
