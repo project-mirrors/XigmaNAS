@@ -61,13 +61,14 @@ function access_users_groups_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false); // internally managed
 	$sphere->lock(true); // internally managed
-	$sphere->sym_add(gettext('Add Group'));
-	$sphere->sym_mod(gettext('Edit Group'));
-	$sphere->sym_del(gettext('Group is marked for deletion'));
-	$sphere->sym_loc(gettext('Group is protected'));
-	$sphere->sym_unl(gettext('Group is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Groups'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected groups?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Group'))->
+		setmsg_sym_mod(gettext('Edit Group'))->
+		setmsg_sym_del(gettext('Group is marked for deletion'))->
+		setmsg_sym_loc(gettext('Group is protected'))->
+		setmsg_sym_unl(gettext('Group is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Groups'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected groups?'));
 	$sphere->grid = &array_make_branch($config,'access','group');
 	return $sphere;
 }

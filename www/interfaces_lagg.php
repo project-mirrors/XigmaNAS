@@ -57,13 +57,14 @@ function interfaces_lagg_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add LAGG'));
-	$sphere->sym_mod(gettext('Edit LAGG'));
-	$sphere->sym_del(gettext('LAGG is marked for deletion'));
-	$sphere->sym_loc(gettext('LAGG is protected'));
-	$sphere->sym_unl(gettext('LAGG is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected LAGGs'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected LAGGs?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add LAGG'))->
+		setmsg_sym_mod(gettext('Edit LAGG'))->
+		setmsg_sym_del(gettext('LAGG is marked for deletion'))->
+		setmsg_sym_loc(gettext('LAGG is protected'))->
+		setmsg_sym_unl(gettext('LAGG is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected LAGGs'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected LAGGs?'));
 	$sphere->grid = &array_make_branch($config,'vinterfaces','lagg');
 	return $sphere;
 }

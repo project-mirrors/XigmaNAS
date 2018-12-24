@@ -61,13 +61,14 @@ function services_nfs_share_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add NFS Share'));
-	$sphere->sym_mod(gettext('Edit NFS Share'));
-	$sphere->sym_del(gettext('NFS share is marked for deletion'));
-	$sphere->sym_loc(gettext('NFS share is protected'));
-	$sphere->sym_unl(gettext('NFS share is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected NFS Shares'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected NFS shares?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add NFS Share'))->
+		setmsg_sym_mod(gettext('Edit NFS Share'))->
+		setmsg_sym_del(gettext('NFS share is marked for deletion'))->
+		setmsg_sym_loc(gettext('NFS share is protected'))->
+		setmsg_sym_unl(gettext('NFS share is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected NFS Shares'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected NFS shares?'));
 	$sphere->grid = &array_make_branch($config,'nfsd','share');
 	return $sphere;
 }

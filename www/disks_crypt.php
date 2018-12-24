@@ -70,13 +70,14 @@ function disks_crypt_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gtext('Add Encrypted Volume'));
-	$sphere->sym_mod(gtext('Edit Encrypted Volume'));
-	$sphere->sym_del(gtext('Encrypted volume is marked for deletion'));
-	$sphere->sym_loc(gtext('Encrypted volume is protected'));
-	$sphere->sym_unl(gtext('Encrypted volume is unlocked'));
-	$sphere->cbm_delete(gtext('Delete Selected Encrypted Volumes'));
-	$sphere->cbm_delete_confirm(gtext('Do you want to delete selected encrypted volumes?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Encrypted Volume'))->
+		setmsg_sym_mod(gettext('Edit Encrypted Volume'))->
+		setmsg_sym_del(gettext('Encrypted volume is marked for deletion'))->
+		setmsg_sym_loc(gettext('Encrypted volume is protected'))->
+		setmsg_sym_unl(gettext('Encrypted volume is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Encrypted Volumes'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected encrypted volumes?'));
 	$sphere->grid = &array_make_branch($config,'geli','vdisk');
 	return $sphere;
 }

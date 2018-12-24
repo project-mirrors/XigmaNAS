@@ -78,14 +78,15 @@ function disks_zfs_zpool_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Pool'));
-	$sphere->sym_mod(gettext('Edit Pool'));
-	$sphere->sym_inf(gettext('Pool Information'));
-	$sphere->sym_del(gettext('Pool is marked for deletion'));
-	$sphere->sym_loc(gettext('Pool is protected'));
-	$sphere->sym_unl(gettext('Pool is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Pools'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected pools?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Pool'))->
+		setmsg_sym_mod(gettext('Edit Pool'))->
+		setmsg_sym_inf(gettext('Pool Information'))->
+		setmsg_sym_del(gettext('Pool is marked for deletion'))->
+		setmsg_sym_loc(gettext('Pool is protected'))->
+		setmsg_sym_unl(gettext('Pool is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Pools'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected pools?'));
 	$sphere->grid = &array_make_branch($config,'zfs','pools','pool');
 	return $sphere;
 }

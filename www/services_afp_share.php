@@ -61,13 +61,14 @@ function services_afp_share_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Share'));
-	$sphere->sym_mod(gettext('Edit Share'));
-	$sphere->sym_del(gettext('Share is marked for deletion'));
-	$sphere->sym_loc(gettext('Share is protected'));
-	$sphere->sym_unl(gettext('Share is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Shares'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected shares?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Share'))->
+		setmsg_sym_mod(gettext('Edit Share'))->
+		setmsg_sym_del(gettext('Share is marked for deletion'))->
+		setmsg_sym_loc(gettext('Share is protected'))->
+		setmsg_sym_unl(gettext('Share is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Shares'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected shares?'));
 	$sphere->grid = &array_make_branch($config,'afp','share');
 	return $sphere;
 }

@@ -67,13 +67,14 @@ function system_routes_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Route'));
-	$sphere->sym_mod(gettext('Edit Route'));
-	$sphere->sym_del(gettext('Route is marked for deletion'));
-	$sphere->sym_loc(gettext('Route is protected'));
-	$sphere->sym_unl(gettext('Route is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Routes'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected routes?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Route'))->
+		setmsg_sym_mod(gettext('Edit Route'))->
+		setmsg_sym_del(gettext('Route is marked for deletion'))->
+		setmsg_sym_loc(gettext('Route is protected'))->
+		setmsg_sym_unl(gettext('Route is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Routes'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected routes?'));
 	$sphere->grid = &array_make_branch($config,'staticroutes','route');
 	return $sphere;
 }

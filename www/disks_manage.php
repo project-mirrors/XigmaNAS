@@ -62,13 +62,14 @@ function disks_manage_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Disk'));
-	$sphere->sym_mod(gettext('Edit Disk'));
-	$sphere->sym_del(gettext('Disk is marked for deletion'));
-	$sphere->sym_loc(gettext('Disk is locked'));
-	$sphere->sym_unl(gettext('Disk is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Disks'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected disks?') . '\n' . gettext('Any service using these disks might become invalid or inaccessible!'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Disk'))->
+		setmsg_sym_mod(gettext('Edit Disk'))->
+		setmsg_sym_del(gettext('Disk is marked for deletion'))->
+		setmsg_sym_loc(gettext('Disk is locked'))->
+		setmsg_sym_unl(gettext('Disk is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Disks'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected disks?') . '\n' . gettext('Any service using these disks might become invalid or inaccessible!'));
 	$sphere->grid = &array_make_branch($config,'disks','disk');
 	return $sphere;
 }

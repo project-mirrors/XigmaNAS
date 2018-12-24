@@ -58,13 +58,14 @@ function interfaces_vlan_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add VLAN'));
-	$sphere->sym_mod(gettext('Edit VLAN'));
-	$sphere->sym_del(gettext('VLAN is marked for deletion'));
-	$sphere->sym_loc(gettext('VLAN is protected'));
-	$sphere->sym_unl(gettext('VLAN is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected VLANs'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected VLANs?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add VLAN'))->
+		setmsg_sym_mod(gettext('Edit VLAN'))->
+		setmsg_sym_del(gettext('VLAN is marked for deletion'))->
+		setmsg_sym_loc(gettext('VLAN is protected'))->
+		setmsg_sym_unl(gettext('VLAN is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected VLANs'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected VLANs?'));
 	$sphere->grid = &array_make_branch($config,'vinterfaces','vlan');
 	return $sphere;
 }

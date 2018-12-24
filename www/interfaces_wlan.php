@@ -58,13 +58,14 @@ function interfaces_wlan_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add WLAN'));
-	$sphere->sym_mod(gettext('Edit WLAN'));
-	$sphere->sym_del(gettext('WLAN is marked for deletion'));
-	$sphere->sym_loc(gettext('WLAN is protected'));
-	$sphere->sym_unl(gettext('WLAN is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected WLANs'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected WLANs?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add WLAN'))->
+		setmsg_sym_mod(gettext('Edit WLAN'))->
+		setmsg_sym_del(gettext('WLAN is marked for deletion'))->
+		setmsg_sym_loc(gettext('WLAN is protected'))->
+		setmsg_sym_unl(gettext('WLAN is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected WLANs'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected WLANs?'));
 	$sphere->grid = &array_make_branch($config,'vinterfaces','wlan');
 	return $sphere;
 }
