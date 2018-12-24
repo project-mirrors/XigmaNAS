@@ -58,13 +58,14 @@ function interfaces_bridge_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Bridge'));
-	$sphere->sym_mod(gettext('Edit Bridge'));
-	$sphere->sym_del(gettext('Bridge is marked for deletion'));
-	$sphere->sym_loc(gettext('Bridge is protected'));
-	$sphere->sym_unl(gettext('Bridge is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Bridges'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected bridges?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Bridge'))->
+		setmsg_sym_mod(gettext('Edit Bridge'))->
+		setmsg_sym_del(gettext('Bridge is marked for deletion'))->
+		setmsg_sym_loc(gettext('Bridge is protected'))->
+		setmsg_sym_unl(gettext('Bridge is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Bridges'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected bridges?'));
 	$sphere->grid = &array_make_branch($config,'vinterfaces','bridge');
 	return $sphere;
 }

@@ -61,13 +61,14 @@ function services_hast_resource_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Resource'));
-	$sphere->sym_mod(gettext('Edit Resource'));
-	$sphere->sym_del(gettext('Resource is marked for deletion'));
-	$sphere->sym_loc(gettext('Resource is protected'));
-	$sphere->sym_unl(gettext('Resource is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Resources'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected resources?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Resource'))->
+		setmsg_sym_mod(gettext('Edit Resource'))->
+		setmsg_sym_del(gettext('Resource is marked for deletion'))->
+		setmsg_sym_loc(gettext('Resource is protected'))->
+		setmsg_sym_unl(gettext('Resource is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Resources'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected resources?'));
 	$sphere->grid = &array_make_branch($config,'hast','hastresource');
 	return $sphere;
 }

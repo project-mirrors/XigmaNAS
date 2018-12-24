@@ -58,13 +58,14 @@ function interfaces_carp_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add CARP'));
-	$sphere->sym_mod(gettext('Edit CARP'));
-	$sphere->sym_del(gettext('CARP is marked for deletion'));
-	$sphere->sym_loc(gettext('CARP is protected'));
-	$sphere->sym_unl(gettext('CARP is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected CARPs'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected CARPs?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add CARP'))->
+		setmsg_sym_mod(gettext('Edit CARP'))->
+		setmsg_sym_del(gettext('CARP is marked for deletion'))->
+		setmsg_sym_loc(gettext('CARP is protected'))->
+		setmsg_sym_unl(gettext('CARP is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected CARPs'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected CARPs?'));
 	$sphere->grid = &array_make_branch($config,'vinterfaces','carp');
 	return $sphere;
 }
