@@ -68,19 +68,20 @@ function services_rsyncd_client_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Rsync Job'));
-	$sphere->sym_mod(gettext('Edit Rsync Job'));
-	$sphere->sym_del(gettext('Rsync job is marked for deletion'));
-	$sphere->sym_loc(gettext('Rsync job is protected'));
-	$sphere->sym_unl(gettext('Rsync job is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Rsync Jobs'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected rsync jobs?'));
-	$sphere->cbm_disable(gettext('Disable Selected Rsync Jobs'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected rsync jobs?'));
-	$sphere->cbm_enable(gettext('Enable Selected Rsync Jobs'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected rsync jobs?'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Rsync Jobs'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected rsync jobs?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Rsync Job'))->
+		setmsg_sym_mod(gettext('Edit Rsync Job'))->
+		setmsg_sym_del(gettext('Rsync job is marked for deletion'))->
+		setmsg_sym_loc(gettext('Rsync job is protected'))->
+		setmsg_sym_unl(gettext('Rsync job is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Rsync Jobs'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected rsync jobs?'))->
+		setmsg_cbm_disable(gettext('Disable Selected Rsync Jobs'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected rsync jobs?'))->
+		setmsg_cbm_enable(gettext('Enable Selected Rsync Jobs'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected rsync jobs?'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Rsync Jobs'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected rsync jobs?'));
 	$sphere->grid = &array_make_branch($config,'rsync','rsyncclient');
 	return $sphere;
 }
