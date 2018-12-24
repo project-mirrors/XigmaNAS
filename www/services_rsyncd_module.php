@@ -61,19 +61,20 @@ function services_rsyncd_module_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Rsync Module'));
-	$sphere->sym_mod(gettext('Edit Rsync Module'));
-	$sphere->sym_del(gettext('Rsync Module is marked for deletion'));
-	$sphere->sym_loc(gettext('Rsync Module is protected'));
-	$sphere->sym_unl(gettext('Rsync Module is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Rsync Modules'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected rsync modules?'));
-	$sphere->cbm_disable(gettext('Disable Selected Rsync Modules'));
-	$sphere->cbm_disable_confirm(gettext('Do you want to disable selected rsync modules?'));
-	$sphere->cbm_enable(gettext('Enable Selected Rsync Modules'));
-	$sphere->cbm_enable_confirm(gettext('Do you want to enable selected rsync modules?'));
-	$sphere->cbm_toggle(gettext('Toggle Selected Rsync Modules'));
-	$sphere->cbm_toggle_confirm(gettext('Do you want to toggle selected rsync modules?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Rsync Module'))->
+		setmsg_sym_mod(gettext('Edit Rsync Module'))->
+		setmsg_sym_del(gettext('Rsync Module is marked for deletion'))->
+		setmsg_sym_loc(gettext('Rsync Module is protected'))->
+		setmsg_sym_unl(gettext('Rsync Module is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Rsync Modules'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected rsync modules?'))->
+		setmsg_cbm_disable(gettext('Disable Selected Rsync Modules'))->
+		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected rsync modules?'))->
+		setmsg_cbm_enable(gettext('Enable Selected Rsync Modules'))->
+		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected rsync modules?'))->
+		setmsg_cbm_toggle(gettext('Toggle Selected Rsync Modules'))->
+		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected rsync modules?'));
 	$sphere->grid = &array_make_branch($config,'rsyncd','module');
 	return $sphere;
 }
