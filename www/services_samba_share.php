@@ -61,13 +61,14 @@ function services_samba_share_get_sphere() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Samba Share'));
-	$sphere->sym_mod(gettext('Edit Samba Share'));
-	$sphere->sym_del(gettext('Samba Share is marked for deletion'));
-	$sphere->sym_loc(gettext('Samba Share is protected'));
-	$sphere->sym_unl(gettext('Samba Share is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Samba Shares'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected Samba shares?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Samba Share'))->
+		setmsg_sym_mod(gettext('Edit Samba Share'))->
+		setmsg_sym_del(gettext('Samba Share is marked for deletion'))->
+		setmsg_sym_loc(gettext('Samba Share is protected'))->
+		setmsg_sym_unl(gettext('Samba Share is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Samba Shares'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected Samba shares?'));
 	$sphere->grid = &array_make_branch($config,'samba','share');
 	return $sphere;
 }
