@@ -2984,11 +2984,11 @@ EOJ;
 	}
 	/**
 	 *
-	 * @global array $g
+	 * @global string $d_sysrebootreqd_path
 	 * @return $this
 	 */
 	public function ins_footer() {
-		global $g;
+		global $d_sysrebootreqd_path;
 
 		$g4fx = $this->
 			addElement('footer',['id' => 'g4f'])->
@@ -3000,7 +3000,7 @@ EOJ;
 							addTR();
 		$g4fl = $g4fx->addTDwC('g4fl');
 		if(Session::isAdmin()):
-			if(file_exists($g['varrun_path'] . DIRECTORY_SEPARATOR . 'sysreboot.reqd')):
+			if(file_exists($d_sysrebootreqd_path)):
 				$img_attributes = [
 					'src' => '/images/notify_reboot.png',
 					'title' => gettext('A reboot is required'),
