@@ -3,7 +3,7 @@
 	properties_services_ctl_sub_chap.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018 XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
