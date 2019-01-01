@@ -3,7 +3,7 @@
 	license.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018 by XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 by XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -169,7 +169,7 @@ $software = [
 	]],
 	['noVNC',[
 		'noVNC (<a href="http://kanaka.github.io/noVNC/" target="_blank">http://kanaka.github.io/noVNC/</a>).',
-		'Copyright © 2011-2017 Joel Martin (<a href="mailto:github@martintribe.org">github@martintribe.org</a>) Inc. All Rights Reserved.'
+		'Copyright © 2011-2018 Joel Martin (<a href="mailto:github@martintribe.org">github@martintribe.org</a>) Inc. All Rights Reserved.'
 	]],
 	['NTFS-3G',[
 		'NTFS-3G is a NTFS driver (<a href="http://www.tuxera.com/community/open-source-ntfs-3g/" target="_blank">http://www.tuxera.com/community/open-source-ntfs-3g</a>).',
@@ -193,11 +193,12 @@ $software = [
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003 - 2018 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2018 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
-		'phpVirtualBox (<a href="http://sourceforge.net/projects/phpvirtualbox/" target="_blank">http://sourceforge.net/projects/phpvirtualbox</a>).',
-		'Copyright © 2011-2018 Ian Moore, Inc. All Rights Reserved.'
+		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
+		'Copyright © 2011-2015 Ian Moore, Inc. All Rights Reserved.',
+		'Copyright © 2017-2019 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
 	]],
 	['ProFTPD',[
 		'A highly configurable FTP server (<a href="http://www.proftpd.org" target="_blank">http://www.proftpd.org</a>).',
@@ -297,7 +298,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY(['class' => 'donothighlight']);
 $thead->ins_titleline(gettext('License'),$n_col_width);
 $td = $tbody->addTR()->addTDwC('lcebl');
-$td->addP()->addElement('strong',[],'XigmaNAS® is copyright © 2018 XigmaNAS® (<a href="mailto:info@xigmanas.com">info@xigmanas.com</a>).<br />All Rights Reserved.');
+$td->addP()->addElement('strong',[],'XigmaNAS® is copyright © 2018-2019 XigmaNAS® (<a href="mailto:info@xigmanas.com">info@xigmanas.com</a>).<br />All Rights Reserved.');
 $td->addP()->addElement('strong',[],'XigmaNAS® is a registered trademark of Michael Zoon (<a href="mailto:zoon01@xigmanas.com">zoon01@xigmanas.com</a>).<br />All Rights Reserved.');
 $td->addP([],'The compilation of software, code and documentation known as XigmaNAS is distributed under the following terms:');
 $td->addP([],'Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:');
