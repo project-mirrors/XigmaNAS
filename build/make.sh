@@ -3,7 +3,7 @@
 # This script is designed to automate the assembly of XigmaNAS builds.
 #
 # Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018 by XigmaNAS <info@xigmanas.com>.
+# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 # All rights reserved.
 #
 # Debug script
