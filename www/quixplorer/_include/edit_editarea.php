@@ -3,7 +3,7 @@
 	edit_editarea.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018 XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Portions of Quixplorer (http://quixplorer.sourceforge.net).
