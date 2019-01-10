@@ -33,7 +33,7 @@
 */
 require_once 'properties.php';
 
-class properties_services_samba_share extends co_property_container {
+class properties_services_samba_share extends co_property_container_param {
 	protected $x_afpcompat;
 	protected $x_auxparam;
 	protected $x_inheritacls;
@@ -58,7 +58,6 @@ class properties_services_samba_share extends co_property_container {
 	protected $x_name;
 	protected $x_comment;
 	protected $x_path;
-	protected $x_uuid;
 
 	public function get_afpcompat() {
 		return $this->x_afpcompat ?? $this->init_afpcompat();
@@ -74,10 +73,7 @@ class properties_services_samba_share extends co_property_container {
 		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 	public function init_auxparam() {
-		$property = $this->x_auxparam = new property_textarea($this);
-		$property->
-			set_title(gettext('Additional Parameter'))->
-			set_name('auxparam');
+		$property = $this->x_auxparam = new property_auxparam($this);
 		return $property;
 	}
 	public function get_shadowformat() {
@@ -298,13 +294,6 @@ class properties_services_samba_share extends co_property_container {
 		$property->
 			set_title(gettext('Path'))->
 			set_name('path');
-		return $property;
-	}
-	public function get_uuid() {
-		return $this->x_uuid ?? $this->init_uuid();
-	}
-	public function init_uuid() {
-		$property = $this->x_uuid = new property_uuid($this);
 		return $property;
 	}
 }
