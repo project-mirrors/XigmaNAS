@@ -50,17 +50,11 @@ class properties_services_samba_share_edit extends properties_services_samba_sha
 	public function init_auxparam() {
 		$property = parent::init_auxparam();
 		$description = 
-			sprintf(gettext('These parameters are added to [Share] section of %s.'),'smb4.conf') .
+			sprintf(gettext('These parameters are added to the [Share] section of %s.'),'smb4.conf') .
 			' ' .
 			sprintf('<a href="%s" target="_blank">%s</a>.','http://us1.samba.org/samba/docs/man/manpages-3/smb.conf.5.html',gettext('Please check the documentation'));
 		$property->
-			set_id('auxparam')->
-			set_description($description)->
-			set_defaultvalue('')->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_description($description);
 		return $property;
 	}
 	public function init_shadowformat() {
