@@ -412,181 +412,183 @@ endif;
 		</td>
 	</tr>
 </table>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php 
-	if(!empty($errormsg)):
-		print_error_box($errormsg);
-	endif;
-	if(!empty($input_errors)):
-		print_input_errors($input_errors);
-	endif;
-	if(file_exists($d_sysrebootreqd_path)):
-		print_info_box(get_std_save_message(0));
-	endif;
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
+	<table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
-			html_titleline2(gettext('Settings'));
+		if(!empty($errormsg)):
+			print_error_box($errormsg);
+		endif;
+		if(!empty($input_errors)):
+			print_input_errors($input_errors);
+		endif;
+		if(file_exists($d_sysrebootreqd_path)):
+			print_info_box(get_std_save_message(0));
+		endif;
 ?>
-		</thead>
-		<tbody>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
 <?php
-			html_inputbox2('name', gettext('RAID Name'), $sphere_record['name'], '', true, 15, $isrecordmodify); // readonly if not new and not new-modify
-			if($isrecordmodify):
-				html_inputbox2('type', gettext('RAID Type'), $a_process[$sphere_record['type']]['gt-type'], '', false, 40, true);
-			endif;
-			$helpinghand = [
-				[gettext('Select read balance algorithm.')],
-				[gettext('This option applies to GEOM RAID-1 only.')]
-			];
-			html_combobox2('balance', gettext('Balance Algorithm'), $sphere_record['balance'], $l_balance, $helpinghand, false, $isrecordmodify);
-			$helpinghand = [
-				[gettext('Do not activate this option if you want to add an existing RAID.')],
-				[gettext('All data will be lost when you activate this option!'), 'red']
-			];
-			html_checkbox2('init', gettext('Initialize'), !empty($sphere_record['init']) ? true : false, gettext('Create and initialize RAID.'), $helpinghand, false, $isrecordmodify);
-			html_inputbox2('desc', gettext('Description'), $sphere_record['desc'], gettext('You may enter a description here for your reference.'), false, 48);
-			html_separator2();
+				html_titleline2(gettext('Settings'));
 ?>
-		</tbody>
-	</table>
-	<table class="area_data_selection">
-		<colgroup>
-			<col style="width:5%">
-			<col style="width:10%">
-			<col style="width:10%">
-			<col style="width:15%">
-			<col style="width:10%">
-			<col style="width:10%">
-			<col style="width:20%">
-			<col style="width:15%">
-			<col style="width:5%">
-		</colgroup>
-		<thead>
+			</thead>
+			<tbody>
 <?php
-			html_titleline2(gettext('Device List'),9);
-?>
-			<tr>
-				<th class="lhelc">
-<?php
-					if($isrecordnewornewmodify):
-?>
-						<input type="checkbox" id="togglebox" name="togglebox" title="<?=gtext('Invert Selection');?>"/>
-<?php
-					else:
-?>
-						<input type="checkbox" id="togglebox" name="togglebox" disabled="disabled"/>
-<?php
-					endif;
-?>
-				</th>
-				<th class="lhell"><?=gtext('Device');?></th>
-				<th class="lhell"><?=gtext('Partition');?></th>
-				<th class="lhell"><?=gtext('Model');?></th>
-				<th class="lhell"><?=gtext('Serial Number');?></th>
-				<th class="lhell"><?=gtext('Size');?></th>
-				<th class="lhell"><?=gtext('Controller');?></th>
-				<th class="lhell"><?=gtext('Name');?></th>
-				<th class="lhebl">&nbsp;</th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-			foreach($a_device as $r_device):
-				$isnotinasraid = $r_device['isnotinasraid'];
-				$isinthissraid = $r_device['isinthissraid'];
-				if($isrecordnewornewmodify):
-					if($isnotinasraid || $isinthissraid):
-?>
-						<tr>
-							<td class="lcelc">
-<?php
-								if($isinthissraid):
-?>
-									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>" checked="checked"/>
-<?php
-								else:
-?>
-									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>"/>
-<?php
-								endif;
-?>
-							</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['name']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['partition']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['model']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['serial']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['size']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['controller']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['desc']);?>&nbsp;</td>
-							<td class="lcebcd">
-<?php
-								if($isinthissraid):
-?>
-									<img src="<?=$img_path['unl'];?>" title="<?=$gt_record_opn;?>" alt="<?=$gt_record_opn;?>"/>
-<?php
-								else:
-									echo '&nbsp';
-								endif;
-?>
-							</td>
-						</tr>
-<?php
-					endif;
-				endif;
+				html_inputbox2('name', gettext('RAID Name'), $sphere_record['name'], '', true, 15, $isrecordmodify); // readonly if not new and not new-modify
 				if($isrecordmodify):
-					if($isinthissraid):
+					html_inputbox2('type', gettext('RAID Type'), $a_process[$sphere_record['type']]['gt-type'], '', false, 40, true);
+				endif;
+				$helpinghand = [
+					[gettext('Select read balance algorithm.')],
+					[gettext('This option applies to GEOM RAID-1 only.')]
+				];
+				html_combobox2('balance', gettext('Balance Algorithm'), $sphere_record['balance'], $l_balance, $helpinghand, false, $isrecordmodify);
+				$helpinghand = [
+					[gettext('Do not activate this option if you want to add an existing RAID.')],
+					[gettext('All data will be lost when you activate this option!'), 'red']
+				];
+				html_checkbox2('init', gettext('Initialize'), !empty($sphere_record['init']) ? true : false, gettext('Create and initialize RAID.'), $helpinghand, false, $isrecordmodify);
+				html_inputbox2('desc', gettext('Description'), $sphere_record['desc'], gettext('You may enter a description here for your reference.'), false, 48);
+				html_separator2();
 ?>
-						<tr>
-							<td class="lcelcd">
-								<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>" checked="checked" disabled="disabled"/>
-							</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['name']);?>&nbsp;</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['partition']);?>&nbsp;</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['model']);?>&nbsp;</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['serial']);?>&nbsp;</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['size']);?>&nbsp;</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['controller']);?>&nbsp;</td>
-							<td class="lcelld"><?=htmlspecialchars($r_device['desc']);?>&nbsp;</td>
-							<td class="lcebcd">
-								<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>" />
-							</td>
-						</tr>
+			</tbody>
+		</table>
+		<table class="area_data_selection">
+			<colgroup>
+				<col style="width:5%">
+				<col style="width:10%">
+				<col style="width:10%">
+				<col style="width:15%">
+				<col style="width:10%">
+				<col style="width:10%">
+				<col style="width:20%">
+				<col style="width:15%">
+				<col style="width:5%">
+			</colgroup>
+			<thead>
+<?php
+				html_titleline2(gettext('Device List'),9);
+?>
+				<tr>
+					<th class="lhelc">
+<?php
+						if($isrecordnewornewmodify):
+?>
+							<input type="checkbox" id="togglebox" name="togglebox" title="<?=gtext('Invert Selection');?>"/>
+<?php
+						else:
+?>
+							<input type="checkbox" id="togglebox" name="togglebox" disabled="disabled"/>
+<?php
+						endif;
+?>
+					</th>
+					<th class="lhell"><?=gtext('Device');?></th>
+					<th class="lhell"><?=gtext('Partition');?></th>
+					<th class="lhell"><?=gtext('Model');?></th>
+					<th class="lhell"><?=gtext('Serial Number');?></th>
+					<th class="lhell"><?=gtext('Size');?></th>
+					<th class="lhell"><?=gtext('Controller');?></th>
+					<th class="lhell"><?=gtext('Name');?></th>
+					<th class="lhebl">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+<?php
+				foreach($a_device as $r_device):
+					$isnotinasraid = $r_device['isnotinasraid'];
+					$isinthissraid = $r_device['isinthissraid'];
+					if($isrecordnewornewmodify):
+						if($isnotinasraid || $isinthissraid):
+?>
+							<tr>
+								<td class="lcelc">
+<?php
+									if($isinthissraid):
+?>
+										<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>" checked="checked"/>
+<?php
+									else:
+?>
+										<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>"/>
+<?php
+									endif;
+?>
+								</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['name']);?>&nbsp;</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['partition']);?>&nbsp;</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['model']);?>&nbsp;</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['serial']);?>&nbsp;</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['size']);?>&nbsp;</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['controller']);?>&nbsp;</td>
+								<td class="lcell"><?=htmlspecialchars($r_device['desc']);?>&nbsp;</td>
+								<td class="lcebcd">
+<?php
+									if($isinthissraid):
+?>
+										<img src="<?=$img_path['unl'];?>" title="<?=$gt_record_opn;?>" alt="<?=$gt_record_opn;?>"/>
+<?php
+									else:
+										echo '&nbsp';
+									endif;
+?>
+								</td>
+							</tr>
+<?php
+						endif;
+					endif;
+					if($isrecordmodify):
+						if($isinthissraid):
+?>
+							<tr>
+								<td class="lcelcd">
+									<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" id="<?=$r_device['uuid'];?>" checked="checked" disabled="disabled"/>
+								</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['name']);?>&nbsp;</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['partition']);?>&nbsp;</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['model']);?>&nbsp;</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['serial']);?>&nbsp;</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['size']);?>&nbsp;</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['controller']);?>&nbsp;</td>
+								<td class="lcelld"><?=htmlspecialchars($r_device['desc']);?>&nbsp;</td>
+								<td class="lcebcd">
+									<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>" />
+								</td>
+							</tr>
+<?php
+						endif;
+					endif;
+				endforeach;
+?>
+			</tbody>
+		</table>
+		<div id="submit">
+<?php
+			if($isrecordmodify):
+?>
+				<input name="Submit" id="submit_button" type="submit" class="formbtn" value="<?=gtext('Save');?>"/>
+<?php
+			endif;
+			if($isrecordnewornewmodify && ($active_button_count > 0)):
+				foreach($a_process as $r_process):
+					if($r_process['show-create-button'] ?? false):
+?>
+						<button name="Action" id="<?=$r_process['x-button'];?>" type="submit" class="formbtn" value="<?=$r_process['type'];?>"><?=$r_process['gt-type'];?></button>
 <?php
 					endif;
-				endif;
-			endforeach;
+				endforeach;
+			endif;
 ?>
-		</tbody>
-	</table>
-	<div id="submit">
-<?php
-		if($isrecordmodify):
-?>
-			<input name="Submit" id="submit_button" type="submit" class="formbtn" value="<?=gtext('Save');?>"/>
-<?php
-		endif;
-		if($isrecordnewornewmodify && ($active_button_count > 0)):
-			foreach($a_process as $r_process):
-				if($r_process['show-create-button'] ?? false):
-?>
-					<button name="Action" id="<?=$r_process['x-button'];?>" type="submit" class="formbtn" value="<?=$r_process['type'];?>"><?=$r_process['gt-type'];?></button>
-<?php
-				endif;
-			endforeach;
-		endif;
-?>
-		<input name="Cancel" id="cancel_button" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
-		<input name="uuid" type="hidden" value="<?=$sphere_record['uuid'];?>" />
-	</div>
+			<input name="Cancel" id="cancel_button" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
+			<input name="uuid" type="hidden" value="<?=$sphere_record['uuid'];?>" />
+		</div>
+	</td></tr></tbody></table>
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</form>
 <?php
 include 'fend.inc';
