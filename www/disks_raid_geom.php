@@ -195,167 +195,169 @@ function controlactionbuttons(ego, triggerbyname) {
 		<li class="tabinact"><a href="disks_raid_gvinum.php"><span><?=gtext('RAID 0/1/5');?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
+	<table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
-	if(!empty($errormsg)):
-		print_error_box($errormsg);
-	endif;
-	if(!empty($savemsg)):
-		print_info_box($savemsg);
-	endif;
-	foreach($a_process as $r_process):
-		if(updatenotify_exists($r_process['x-notifier'])):
-			print_config_change_box();
-			break;
+		if(!empty($errormsg)):
+			print_error_box($errormsg);
 		endif;
-	endforeach;
+		if(!empty($savemsg)):
+			print_info_box($savemsg);
+		endif;
+		foreach($a_process as $r_process):
+			if(updatenotify_exists($r_process['x-notifier'])):
+				print_config_change_box();
+				break;
+			endif;
+		endforeach;
 ?>
-	<table class="area_data_selection">
-		<colgroup>
-			<col style="width:5%">
-			<col style="width:20%">
-			<col style="width:10%">
-			<col style="width:15%">
-			<col style="width:30%">
-			<col style="width:10%">
-			<col style="width:10%">
-		</colgroup>
-		<thead>
+		<table class="area_data_selection">
+			<colgroup>
+				<col style="width:5%">
+				<col style="width:20%">
+				<col style="width:10%">
+				<col style="width:15%">
+				<col style="width:30%">
+				<col style="width:10%">
+				<col style="width:10%">
+			</colgroup>
+			<thead>
 <?php
-			html_titleline2(gettext('Overview'),7);
+				html_titleline2(gettext('Overview'),7);
 ?>
-			<tr>
-				<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="<?=gtext('Invert Selection');?>"/></th>
-				<th class="lhell"><?=gtext('Volume Name');?></th>
-				<th class="lhell"><?=gtext('Type');?></th>
-				<th class="lhell"><?=gtext('Size');?></th>
-				<th class="lhell"><?=gtext('Description');?></th>
-				<th class="lhell"><?=gtext('Status');?></th>
-				<th class="lhebl"><?=gtext('Toolbox');?></th>
-			</tr>
-		</thead>
-		<tbody>
+				<tr>
+					<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="<?=gtext('Invert Selection');?>"/></th>
+					<th class="lhell"><?=gtext('Volume Name');?></th>
+					<th class="lhell"><?=gtext('Type');?></th>
+					<th class="lhell"><?=gtext('Size');?></th>
+					<th class="lhell"><?=gtext('Description');?></th>
+					<th class="lhell"><?=gtext('Status');?></th>
+					<th class="lhebl"><?=gtext('Toolbox');?></th>
+				</tr>
+			</thead>
+			<tbody>
 <?php
-			foreach ($sphere_array as $sphere_record):
-				$size = gtext('Unknown');
-				$status = gtext('Stopped');
-				if(is_array($a_system_sraid) && (false !== ($index = array_search_ex($sphere_record['name'],$a_system_sraid,'name')))):
-					$size = $a_system_sraid[$index]['size'];
-					$status = $a_system_sraid[$index]['state'];
-				endif;
-				$notificationmode = UPDATENOTIFY_MODE_UNKNOWN;
-				foreach($a_process as $r_process):
-					if(UPDATENOTIFY_MODE_UNKNOWN === $notificationmode):
-						$notificationmode = updatenotify_get_mode($r_process['x-notifier'],$sphere_record['uuid']);
-					else:
-						break;
+				foreach ($sphere_array as $sphere_record):
+					$size = gtext('Unknown');
+					$status = gtext('Stopped');
+					if(is_array($a_system_sraid) && (false !== ($index = array_search_ex($sphere_record['name'],$a_system_sraid,'name')))):
+						$size = $a_system_sraid[$index]['size'];
+						$status = $a_system_sraid[$index]['state'];
 					endif;
-				endforeach;
-				switch($notificationmode):
-					case UPDATENOTIFY_MODE_NEW:
-						$status = $size = gtext('Initializing');
-						break;
-					case UPDATENOTIFY_MODE_MODIFIED:
-						$status = $size = gtext('Modifying');
-						break;
-					case UPDATENOTIFY_MODE_DIRTY:
-					case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-						$status = gtext('Deleting');
-						break;
-				endswitch;
-				$status = strtoupper($status);
-				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$notprotected = !isset($sphere_record['protected']);
-				$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
-				$normaloperation = $notprotected && $notmounted;
-?>
-				<tr>
-					<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>">
-<?php
-						if($notdirty && $notprotected && $notmounted):
-?>
-							<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$sphere_record['uuid'];?>" id="<?=$sphere_record['uuid'];?>"/>
-<?php
+					$notificationmode = UPDATENOTIFY_MODE_UNKNOWN;
+					foreach($a_process as $r_process):
+						if(UPDATENOTIFY_MODE_UNKNOWN === $notificationmode):
+							$notificationmode = updatenotify_get_mode($r_process['x-notifier'],$sphere_record['uuid']);
 						else:
-?>
-							<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$sphere_record['uuid'];?>" id="<?=$sphere_record['uuid'];?>" disabled="disabled"/>
-<?php
+							break;
 						endif;
+					endforeach;
+					switch($notificationmode):
+						case UPDATENOTIFY_MODE_NEW:
+							$status = $size = gtext('Initializing');
+							break;
+						case UPDATENOTIFY_MODE_MODIFIED:
+							$status = $size = gtext('Modifying');
+							break;
+						case UPDATENOTIFY_MODE_DIRTY:
+						case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+							$status = gtext('Deleting');
+							break;
+					endswitch;
+					$status = strtoupper($status);
+					$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
+					$notprotected = !isset($sphere_record['protected']);
+					$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
+					$normaloperation = $notprotected && $notmounted;
 ?>
-					</td>
-					<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['name']);?></td>
-					<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=htmlspecialchars($a_process[$sphere_record['type']]['gt-type']);?></td>
-					<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=$size;?>&nbsp;</td>
-					<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['desc']);?></td>
-					<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>"><?=$status;?>&nbsp;</td>
-					<td class="lcebld">
-						<table class="area_data_selection_toolbox"><tbody><tr>
-							<td>
+					<tr>
+						<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>">
 <?php
-								if($notdirty && $notprotected):
+							if($notdirty && $notprotected && $notmounted):
 ?>
-									<a href="<?=$sphere_scriptname_child;?>?uuid=<?=$sphere_record['uuid'];?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
+								<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$sphere_record['uuid'];?>" id="<?=$sphere_record['uuid'];?>"/>
 <?php
-								elseif($notprotected && $notmounted):
+							else:
 ?>
-									<img src="<?=$img_path['del'];?>" title="<?=$gt_record_del;?>" alt="<?=$gt_record_del;?>"/>
+								<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$sphere_record['uuid'];?>" id="<?=$sphere_record['uuid'];?>" disabled="disabled"/>
 <?php
-								else:
+							endif;
 ?>
-									<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
+						</td>
+						<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['name']);?></td>
+						<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=htmlspecialchars($a_process[$sphere_record['type']]['gt-type']);?></td>
+						<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=$size;?>&nbsp;</td>
+						<td class="<?=$normaloperation ? "lcell" : "lcelld";?>"><?=htmlspecialchars($sphere_record['desc']);?></td>
+						<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>"><?=$status;?>&nbsp;</td>
+						<td class="lcebld">
+							<table class="area_data_selection_toolbox"><tbody><tr>
+								<td>
 <?php
-								endif;
+									if($notdirty && $notprotected):
 ?>
-							</td>
-							<td><a href="<?=$a_process[$sphere_record['type']]['x-page-maintenance'];?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
-							<td><a href="<?=$a_process[$sphere_record['type']]['x-page-information'];?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
-						</tr></tbody></table>
-					</td>
-				</tr>
+										<a href="<?=$sphere_scriptname_child;?>?uuid=<?=$sphere_record['uuid'];?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
 <?php
-			endforeach;
+									elseif($notprotected && $notmounted):
 ?>
-		</tbody>
+										<img src="<?=$img_path['del'];?>" title="<?=$gt_record_del;?>" alt="<?=$gt_record_del;?>"/>
 <?php
-		if($active_button_count > 0):
+									else:
 ?>
-			<tfoot>
-				<tr>
-					<th class="lcenl" colspan="6"></th>
-					<th class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$img_path['add'];?>" title="<?=$gt_record_add;?>" alt="<?=$gt_record_add;?>"/></a></th>
-				</tr>
-			</tfoot>
+										<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
 <?php
-		endif;
+									endif;
 ?>
-	</table>
-	<div id="submit">
-		<input name="delete_selected_rows" id="delete_selected_rows" type="submit" class="formbtn" value="<?=$gt_selection_delete;?>"/>
-	</div>
-	<table class="area_data_messages">
-		<colgroup>
-			<col class="area_data_messages_col_tag">
-			<col class="area_data_messages_col_data">
-		</colgroup>
-		<thead>
+								</td>
+								<td><a href="<?=$a_process[$sphere_record['type']]['x-page-maintenance'];?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
+								<td><a href="<?=$a_process[$sphere_record['type']]['x-page-information'];?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
+							</tr></tbody></table>
+						</td>
+					</tr>
 <?php
-			html_separator2();
-			html_titleline2(gettext('Message Board'));
+				endforeach;
 ?>
-		</thead>
-		<tbody>
+			</tbody>
 <?php
-			html_textinfo2("info",gettext('Info'),sprintf(gettext('%1$s is used to create %2$s volumes.'),'GEOM','RAID'));
-			$link = sprintf('<a href="%1$s">%2$s</a>','disks_mount.php',gettext('mount point'));
-			$helpinghand = gettext('A mounted RAID volume cannot be deleted.') . ' ' . gettext('Remove the %s first before proceeding.');
-			$helpinghand = sprintf($helpinghand,$link);
-			html_textinfo2("warning",gettext('Warning'),$helpinghand);
+			if($active_button_count > 0):
 ?>
-		</tbody>
-	</table>
+				<tfoot>
+					<tr>
+						<th class="lcenl" colspan="6"></th>
+						<th class="lceadd"><a href="<?=$sphere_scriptname_child;?>"><img src="<?=$img_path['add'];?>" title="<?=$gt_record_add;?>" alt="<?=$gt_record_add;?>"/></a></th>
+					</tr>
+				</tfoot>
+<?php
+			endif;
+?>
+		</table>
+		<div id="submit">
+			<input name="delete_selected_rows" id="delete_selected_rows" type="submit" class="formbtn" value="<?=$gt_selection_delete;?>"/>
+		</div>
+		<table class="area_data_messages">
+			<colgroup>
+				<col class="area_data_messages_col_tag">
+				<col class="area_data_messages_col_data">
+			</colgroup>
+			<thead>
+<?php
+				html_separator2();
+				html_titleline2(gettext('Message Board'));
+?>
+			</thead>
+			<tbody>
+<?php
+				html_textinfo2("info",gettext('Info'),sprintf(gettext('%1$s is used to create %2$s volumes.'),'GEOM','RAID'));
+				$link = sprintf('<a href="%1$s">%2$s</a>','disks_mount.php',gettext('mount point'));
+				$helpinghand = gettext('A mounted RAID volume cannot be deleted.') . ' ' . gettext('Remove the %s first before proceeding.');
+				$helpinghand = sprintf($helpinghand,$link);
+				html_textinfo2("warning",gettext('Warning'),$helpinghand);
+?>
+			</tbody>
+		</table>
+	</td></tr></tbody></table>
 <?php
 	include 'formend.inc';
 ?>
-</td></tr></tbody></table></form>
+</form>
 <?php
 include 'fend.inc';

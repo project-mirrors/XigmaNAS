@@ -31,54 +31,69 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-
-/*
- * returns an array with additional geom vinum information
+/**
+ *	Returns an array with additional geom vinum information
+ *	@return array
  */
 function gvinum_processinfo_get() {
-	$a_return = [];
-	$a_return['1'] = [
-		'type' =>  '1',
-		'x-devdir' => '/dev/gvinum',
-		'x-notifier' => 'raid_gvinum',
-		'x-processor' => 'gvinum_process_updatenotification',
-		'x-page-maintenance' => 'disks_raid_gvinum_tools.php',
-		'x-page-information' => 'disks_raid_gvinum_info.php',
-		'x-button' => 'button_raid1',
-		'gt-type' => gtext('RAID-1')
-	];
-	$a_return['5'] = [
-		'type' =>  '5',
-		'x-devdir' => '/dev/gvinum',
-		'x-notifier' => 'raid_gvinum',
-		'x-processor' => 'gvinum_process_updatenotification',
-		'x-page-maintenance' => 'disks_raid_gvinum_tools.php',
-		'x-page-information' => 'disks_raid_gvinum_info.php',
-		'x-button' => 'button_raid5',
-		'gt-type' => gtext('RAID-5')
-	];
-	$a_return['0'] = [
-		'type' =>  '0',
-		'x-devdir' => '/dev/gvinum',
-		'x-notifier' => 'raid_gvinum',
-		'x-processor' => 'gvinum_process_updatenotification',
-		'x-page-maintenance' => 'disks_raid_gvinum_tools.php',
-		'x-page-information' => 'disks_raid_gvinum_info.php',
-		'x-button' => 'button_raid0',
-		'gt-type' => gtext('RAID-0')
+	$a_return = [
+		'1' => [
+			'type' =>  '1',
+			'x-devdir' => '/dev/gvinum',
+			'x-notifier' => 'raid_gvinum',
+			'x-processor' => 'gvinum_process_updatenotification',
+			'x-page-maintenance' => 'disks_raid_gvinum_tools.php',
+			'x-page-information' => 'disks_raid_gvinum_info.php',
+			'x-button' => 'button_raid1',
+			'gt-type' => gtext('RAID-1'),
+			'show-create-button' => false
+		],
+		'5' => [
+			'type' =>  '5',
+			'x-devdir' => '/dev/gvinum',
+			'x-notifier' => 'raid_gvinum',
+			'x-processor' => 'gvinum_process_updatenotification',
+			'x-page-maintenance' => 'disks_raid_gvinum_tools.php',
+			'x-page-information' => 'disks_raid_gvinum_info.php',
+			'x-button' => 'button_raid5',
+			'gt-type' => gtext('RAID-5'),
+			'show-create-button' => false
+		],
+		'0' => [
+			'type' =>  '0',
+			'x-devdir' => '/dev/gvinum',
+			'x-notifier' => 'raid_gvinum',
+			'x-processor' => 'gvinum_process_updatenotification',
+			'x-page-maintenance' => 'disks_raid_gvinum_tools.php',
+			'x-page-information' => 'disks_raid_gvinum_info.php',
+			'x-button' => 'button_raid0',
+			'gt-type' => gtext('RAID-0'),
+			'show-create-button' => false
+		]
 	];
 	return $a_return;
 }
-function is_gvinum_mounted($devicespecialfile, &$a_mount) {
-	return (false !== array_search_ex($devicespecialfile, $a_mount, 'mdisk'));
-}
-/*
- * GEOM vinum process update notifications
+/**
+ * 
+ *	@param string $devicespecialfile
+ *	@param array $a_mount
+ *	@return bool
  */
-function gvinum_process_updatenotification($mode, $data) {
+function is_gvinum_mounted($devicespecialfile,&$a_mount) {
+	return (false !== array_search_ex($devicespecialfile,$a_mount,'mdisk'));
+}
+/**
+ *	GEOM vinum process update notifications
+ *	@global array $config
+ *	@param int $mode
+ *	@param string $data
+ *	@return int
+ */
+function gvinum_process_updatenotification($mode,$data) {
 	global $config;
+	
 	$retval = 0;
-	switch ($mode) {
+	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			$retval |= disks_raid_gvinum_configure($data);
 			break;
@@ -86,24 +101,24 @@ function gvinum_process_updatenotification($mode, $data) {
 			$retval |= rc_exec_service('geom start vinum');
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if (is_array($config['gvinum']['vdisk'])) {
-				$index = array_search_ex($data, $config['gvinum']['vdisk'], 'uuid');
-				if (false !== $index) {
+			if(is_array($config['gvinum']['vdisk'])):
+				$index = array_search_ex($data,$config['gvinum']['vdisk'],'uuid');
+				if(false !== $index):
 					unset($config['gvinum']['vdisk'][$index]);
 					write_config();
-				}
-			}
+				endif;
+			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
 			$retval |= disks_raid_gvinum_delete($data);
-			if (is_array($config['gvinum']['vdisk'])) {
-				$index = array_search_ex($data, $config['gvinum']['vdisk'], 'uuid');
-				if (false !== $index) {
+			if(is_array($config['gvinum']['vdisk'])):
+				$index = array_search_ex($data,$config['gvinum']['vdisk'],'uuid');
+				if(false !== $index):
 					unset($config['gvinum']['vdisk'][$index]);
 					write_config();
-				}
-			}
+				endif;
+			endif;
 			break;
-	}
+	endswitch;
 	return $retval;
 }
