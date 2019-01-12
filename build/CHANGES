@@ -25,6 +25,7 @@ Changes:
 - Upgrade zoneinfo to 2018i.
 - Upgrade syncthing to 1.0.0.
 - Upgrade php to 7.2.14.
+- Upgrade bash to 5.0.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
