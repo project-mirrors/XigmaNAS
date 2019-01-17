@@ -1,7 +1,7 @@
 XigmaNAS 11.2.0.4 - Omnius
 --------------------------
 Changes:
-- Upgrade FreeBSD 11.2-RELEASE to P7.
+- Upgrade FreeBSD 11.2-RELEASE to P8.
 - Change syscons sc to vt virtual terminal console driver.
 - Add UEFI support for Embedded and Full(UFS) platforms.
 - Add WebDAV.
@@ -16,7 +16,6 @@ Changes:
 - Upgrade sudo to 1.8.26.
 - Upgrade APCu to 5.1.14.
 - Upgrade samba to 4.8.7.
-- Upgrade virtualbox-ose to 5.2.22.
 - Upgrade lighttpd to 1.4.52.
 - Upgrade msmtp to 1.8.1.
 - Upgrade mDNSResponder to 878.200.35.
@@ -26,6 +25,7 @@ Changes:
 - Upgrade syncthing to 1.0.0.
 - Upgrade php to 7.2.14.
 - Upgrade bash to 5.0.
+- Upgrade virtualbox-ose to 5.2.24.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
