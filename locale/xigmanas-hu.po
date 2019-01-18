@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-12-11 07:50+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2018-12-30 20:57+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -483,7 +483,7 @@ msgstr ""
 "szeretnél egy esetleges hibáról vagy a merevlemez S.M.A.R.T. hibaüzeneteiről."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "A kiválasztott eszköz aktiválása."
 
 msgid "Active"
 msgstr "Aktív"
@@ -657,7 +657,7 @@ msgid "Add extent"
 msgstr "extent hozzáadása"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "iSCSI Kezdeményező hozzáadása"
 
 msgid "Add iSNS Server"
 msgstr "iSNS szerver hozzáadása"
@@ -690,7 +690,7 @@ msgid "Add target"
 msgstr "Cél hozzáadása"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "A kiválasztott eszköz hozzáadása a már létező tükörhöz."
 
 msgid "Additional Group"
 msgstr "További csoport"
@@ -1097,7 +1097,7 @@ msgstr "Biztos, hogy újraindítod a szervert?"
 
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
-msgstr "Biztos, hogy visszaállítja a gyári alapértelmezett beállításokat?"
+msgstr "Biztos, hogy visszaállítod a gyári alapértelmezett beállításokat?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Biztos, hogy kikapcsolod a szervert?"
@@ -1319,6 +1319,22 @@ msgstr "Beállítások biztonsági mentése"
 
 msgid "Backup File"
 msgstr "Biztonsági mentés fájlja"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+"Biztonsági mentés emlékeztető. Az utolsó mentés régebbi, mint a jelenleg "
+"beállított."
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr "Biztonsági mentés. Az utolsó mentés dátuma nem található."
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr "Biztonsági mentés. Az utolsó mentés dátuma érvénytelen."
 
 msgid "Backup/Restore"
 msgstr "Mentés/Visszaállítás"
@@ -1574,10 +1590,10 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "CHAP név"
 
 msgid "CHAP Secret"
-msgstr ""
+msgstr "CHAP titok"
 
 msgid "CHAP User is locked"
 msgstr "A CHAP felhasználó zárolt"
@@ -1670,7 +1686,7 @@ msgstr ""
 "CRC hibaszám. CRC hibák (adat olvasás/írás FIS CRC hiba) számát számolja."
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1820,7 +1836,7 @@ msgid "Clear device errors"
 msgstr "Eszközhibák törlése"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Metaadat törléses a kiválasztott eszközön."
 
 msgid "Client"
 msgstr "Kliens"
@@ -2488,7 +2504,7 @@ msgid "Data"
 msgstr "Adat"
 
 msgid "Data Digest"
-msgstr ""
+msgstr "Adatkivonat"
 
 msgid "Data Integrity"
 msgstr "Adatintegritás"
@@ -2612,6 +2628,8 @@ msgstr ""
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
+"Az iSCSI hardver terhelésmentesítő illesztőprogram meghatározása. "
+"Alapértelmezett értéke \"nincs\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Az ellenőrzési algoritmust határozza meg."
@@ -2769,7 +2787,7 @@ msgid "Delete Selected WebDAV Records"
 msgstr "Kiválasztott WebDAV bejegyzések törlése"
 
 msgid "Delete Selected iSCSI Initiators"
-msgstr ""
+msgstr "A kiválasztott  iSCSI Kezdeményezők törlése"
 
 msgid "Delete Selected iSNS Servers"
 msgstr "A kiválasztott iSNS szerverek törlése"
@@ -3101,7 +3119,7 @@ msgid "Disable Selected WebDAV Records"
 msgstr "Kiválasztott WebDAV bejegyzések tiltása"
 
 msgid "Disable Selected iSCSI Initiators"
-msgstr ""
+msgstr "A kiválasztott  iSCSI Kezdeményezők kikapcsolása"
 
 msgid "Disable Selected iSNS Servers"
 msgstr "A kiválasztott iSNS szerverek kikapcsolása"
@@ -3264,19 +3282,19 @@ msgid "Do you really want to delete all data from the selected statistics?"
 msgstr "Biztos, hogy törlöd a kiválasztott statisztikák összes adatát?"
 
 msgid "Do you really want to delete all rules?"
-msgstr "Biztos, hogy minden szabályt töröl?"
+msgstr "Biztos, hogy törlöd az összes szabályt?"
 
 msgid "Do you really want to delete all scheduled self-tests?"
-msgstr "Biztos, hogy törli az összes ütemezett öntesztet?"
+msgstr "Biztos, hogy törlöd az összes ütemezett öntesztet?"
 
 msgid "Do you really want to delete this URL?"
-msgstr "Biztos, hogy törli ezt az URL-t?"
+msgstr "Biztos, hogy törlöd ezt az URL-t?"
 
 msgid "Do you really want to delete this VM?"
 msgstr "Biztos, hogy törlöd ezt a VM-et?"
 
 msgid "Do you really want to delete this auth group?"
-msgstr "Biztos, hogy törli ezt a Hitelesített csoportot?"
+msgstr "Biztos, hogy törlöd ezt a Hitelesített csoportot?"
 
 msgid "Do you really want to delete this auto snapshot?"
 msgstr "Valóban törölni kívánja ezt az automatikus pillanatképet?"
@@ -3436,7 +3454,7 @@ msgid "Do you want to delete selected groups?"
 msgstr "Biztos, hogy törli a kiválasztott csoportokat?"
 
 msgid "Do you want to delete selected iSCSI initiators?"
-msgstr ""
+msgstr "Biztos, hogy törlöd a kiválasztott  iSCSI Kezdeményezőket?"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "Biztos, hogy törlöd a kiválasztott iSNS szervereket?"
@@ -3529,7 +3547,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Biztos, hogy kikapcsolod a kijelölt parancsokat?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
+msgstr "Biztos, hogy kikapcsolod a kiválasztott  iSCSI Kezdeményezőket?"
 
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Biztos, hogy kikapcsolod a kiválasztott iSNS szervereket?"
@@ -3593,7 +3611,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Biztos, hogy engedélyezed a kijelölt parancsokat?"
 
 msgid "Do you want to enable selected iSCSI initiators?"
-msgstr ""
+msgstr "Biztos, hogy bekapcsolja a kiválasztott  iSCSI Kezdeményezőket?"
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr "Biztos, hogy bekapcsolod a kiválasztott iSNS szervereket?"
@@ -3665,7 +3683,7 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Biztos, hogy engedélyezed a kijelölt parancsokat?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr ""
+msgstr "Biztos, hogy átkapcsolja a kiválasztott  iSCSI Kezdeményezőket?"
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Biztos, hogy átkapcsolod a kiválasztott iSNS szervereket?"
@@ -3955,7 +3973,7 @@ msgid "Edit extent"
 msgstr "Extent szerkesztése"
 
 msgid "Edit iSCSI Initiator"
-msgstr ""
+msgstr "iSCSI Kezdeményező módosítás"
 
 msgid "Edit iSNS Server"
 msgstr "iSNS szerver módosítása"
@@ -4124,7 +4142,7 @@ msgid "Enable Selected WebDAV Records"
 msgstr "Kiválasztott WebDAV bejegyzések bekapcsolása"
 
 msgid "Enable Selected iSCSI Initiators"
-msgstr ""
+msgstr "A kiválasztott  iSCSI Kezdeményezők bekapcsolása"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "iSNS szerverek bekapcsolása"
@@ -4425,7 +4443,7 @@ msgid "Enter Identifier"
 msgstr "Adja meg az azonosítót"
 
 msgid "Enter Name"
-msgstr ""
+msgstr "Írja be a nevet"
 
 msgid "Enter Password"
 msgstr "Add meg a jelszót"
@@ -4996,7 +5014,7 @@ msgid "Foreign"
 msgstr "Idegen"
 
 msgid "Forget about devices which are not connected."
-msgstr ""
+msgstr "A nem csatlakozott eszközök elfelejtése."
 
 msgid "Form Factor"
 msgstr "Formai tényező"
@@ -5262,7 +5280,7 @@ msgid "Hardware AES"
 msgstr "Hardveres AES"
 
 msgid "Header Digest"
-msgstr ""
+msgstr "Fejléckivonat"
 
 msgid "Header and Data digest"
 msgstr "Fejléc és adat kivonat"
@@ -5993,7 +6011,7 @@ msgid "June"
 msgstr "Június"
 
 msgid "Keep MBR"
-msgstr ""
+msgstr "MBR megtartása"
 
 msgid "Kernel"
 msgstr "Kernel"
@@ -6387,7 +6405,7 @@ msgid "Login"
 msgstr "Bejelentkezés"
 
 msgid "Login for CHAP authentication."
-msgstr ""
+msgstr "Bejelentkezés CHAP hitelesítéshez."
 
 msgid "Logout"
 msgstr "Kijelentkezés"
@@ -6509,7 +6527,7 @@ msgid "MariaDB"
 msgstr "MariaDB"
 
 msgid "Mark the selected device as inactive."
-msgstr ""
+msgstr "A kiválasztott eszközök megjelölése inaktívként."
 
 msgid "Masquerade Address"
 msgstr "Álarc cím"
@@ -6827,10 +6845,10 @@ msgid "Mutual CHAP"
 msgstr "Kölcsönös CHAP"
 
 msgid "Mutual CHAP Name"
-msgstr ""
+msgstr "Kölcsönös CHAP név"
 
 msgid "Mutual CHAP Secret"
-msgstr ""
+msgstr "Kölcsönös CHAP titok"
 
 msgid "Mutual CHAP User is locked"
 msgstr "A kölcsönös CHAP felhasználókat zárolták"
@@ -6912,6 +6930,8 @@ msgid ""
 "Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
 "or \"iSCSI\". Default is \"iSCSI\"."
 msgstr ""
+"A kiválasztott protokoll neve. Lehet \"iSER\", \"RDMA feletti iSCSI\", vagy "
+"\"iSCSI\".  Alapértelmezetten \"iSCSI\"."
 
 msgid "Name of the Auth Group."
 msgstr "A hitelesítési csoport neve"
@@ -7376,7 +7396,7 @@ msgid "Offload"
 msgstr "Terhelésmentesítés"
 
 msgid "Offload Driver"
-msgstr ""
+msgstr "Terhelésmentesítő illesztőprogram"
 
 msgid "Old Passphrase"
 msgstr "Régi jelszó"
@@ -8043,10 +8063,10 @@ msgstr ""
 "Az elsődleges csoport szintén ki lett választva a további csoportban."
 
 msgid "Print detailed information."
-msgstr ""
+msgstr "Részletes információk nyomtatása."
 
 msgid "Print general information."
-msgstr ""
+msgstr "Általános információk nyomtatása."
 
 msgid "Privacy Extension"
 msgstr "Adatvédelem kiterjesztése"
@@ -8355,7 +8375,7 @@ msgid "Reboot Required"
 msgstr "Újraindítás szükséges"
 
 msgid "Rebuild the selected device forcibly."
-msgstr ""
+msgstr "A kiválasztott eszközök kierőszakolt újraépítése."
 
 msgid "Receive Buffer"
 msgstr "Fogadó puffer"
@@ -8426,6 +8446,9 @@ msgstr "Oldal újratöltése"
 msgid "Remaining battery runtime"
 msgstr "Hátralévő akkumulátor-kapacitás"
 
+msgid "Reminder Settings"
+msgstr "Emlékeztető beállításai"
+
 msgid "Remote Address"
 msgstr "Távoli cím"
 
@@ -8491,7 +8514,7 @@ msgid "Remove the %s first before proceeding."
 msgstr "Folytatás előtt távolítsd el: %s."
 
 msgid "Remove the selected device from the mirror."
-msgstr ""
+msgstr "A kiválasztott eszközök eltávolítása a tükörből."
 
 msgid "Reorder"
 msgstr "Újrarendezés"
@@ -8905,7 +8928,7 @@ msgid "Secret"
 msgstr "Titkos"
 
 msgid "Secret for CHAP authentication."
-msgstr ""
+msgstr "Titok a CHAP hitelesítéshez."
 
 msgid "Secure Shell"
 msgstr "Biztonságos parancsértelmező"
@@ -9271,6 +9294,13 @@ msgstr ""
 "méretét korlátozza. Nem minden interfész támogatja az MTU beállítást, és "
 "néhány interfészeknek van tiltott tartománya is."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+"Állítsd be, hány napig jelenjen meg az emlékeztető a biztonsági mentésre. 28 "
+"nap az alapértelmezett. A 0 kikapcsolja az emlékeztetőt."
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Állítsd be a figyelmeztetési küszöbértéket 80 és 89 közötti számra."
 
@@ -9327,18 +9357,27 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
+"Ez megadja a hitelesítés típusát. lehet \"Nincs\", vagy \"CHAP\". "
+"Alapértelmezett \"Nincs\". Ha CHAP az értéke, a meg kell adni a chapIName és "
+"chapSecret értékeit is."
 
 msgid ""
 "Sets the data digest; a checksum calculated over the Data Section of iSCSI "
 "PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
+"Az adatkivonatot határozza meg; az iSCSI PDU-k adatrészéből kiszámított "
+"ellenőrző összeg, és a fogadáson ellenőrizzük. A kivonat lehet \"Nincs\" "
+"vagy \"CRC32C\". Az alapértelmezett értéke \"Nincs\"."
 
 msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
+"Az fejléckivonatot határozza meg; az iSCSI PDU-k fejlécéből kiszámított "
+"ellenőrző összeg, és a fogadáson ellenőrizzük. A kivonat lehet \"Nincs\" "
+"vagy \"CRC32C\". Az alapértelmezett értéke \"Nincs\"."
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -9422,6 +9461,9 @@ msgstr "Rövid önteszt"
 
 msgid "Show Default Groups"
 msgstr "Alapértelmezett csoportok megjelenítése"
+
+msgid "Show Interval"
+msgstr "Időköz megjelenítése"
 
 msgid "Show Log Entries"
 msgstr "Naplóbejegyzések megjelenítése"
@@ -9807,7 +9849,7 @@ msgid "Stop after sending (and receiving) N packets."
 msgstr "Leáll, miután küldött (és fogadott) N csomagot."
 
 msgid "Stop the selected mirror."
-msgstr ""
+msgstr "A kiválasztott tükör leállítása."
 
 msgid "Stopped"
 msgstr "Leállítva"
@@ -9849,7 +9891,7 @@ msgid "Subject"
 msgstr "Tárgy"
 
 msgid "Submit Command"
-msgstr ""
+msgstr "Parancs elküldése"
 
 msgid "Subnet Bit Count"
 msgstr "Alhálózati bitszám"
@@ -10107,10 +10149,10 @@ msgid "Target list"
 msgstr "Cél lista"
 
 msgid "Target login for Mutual CHAP authentication."
-msgstr ""
+msgstr "Célbejelentkezés a kölcsönös CHAP hitelesítéshez."
 
 msgid "Target secret for Mutual CHAP authentication."
-msgstr ""
+msgstr "Céltitok a kölcsönös CHAP hitelesítéshez."
 
 msgid "Target side secret."
 msgstr "Cél oldali titok."
@@ -10190,7 +10232,7 @@ msgid "The IP address of the device."
 msgstr "Az eszköz IP címe."
 
 msgid "The IP address or the DNS name of the iSCSI target."
-msgstr ""
+msgstr "Az iSCSI cél IP címe vagy DNS neve."
 
 msgid "The IP address that this hostname represents."
 msgstr "Erre az állomásnévre mutató IP cím."
@@ -10831,6 +10873,8 @@ msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
 msgstr ""
+"a kezdeményező neve. Alapértelmezetten a  \"iqn.1994-09.org.freebsd:\" "
+"láncolata a kiszolgáló nevével."
 
 msgid "The name of the interface is wrong."
 msgstr "Az interfész neve nem érvényes."
@@ -10845,7 +10889,7 @@ msgid "The name of the pool cannot be changed."
 msgstr "Tárolók száma nem módosítható."
 
 msgid "The name of the target."
-msgstr ""
+msgstr "A cél neve."
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "Virtuális eszköz neve nem módosítható."
@@ -11163,7 +11207,7 @@ msgstr "Ezeket a paramétereket a my.cnf fájlhoz adjuk hozzá"
 
 msgid ""
 "These parameters will be added to the configuration of this initiator."
-msgstr ""
+msgstr "Ezek a paraméterek hozzáadódnak ezen kezdeményező beállításaihoz."
 
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Ezeket a paramétereket a ctl.conf fájl globális részéhez adjuk hozzá"
@@ -11298,7 +11342,7 @@ msgid "This group already exists in the group list."
 msgstr "Ez a csoport már szerepel a listában."
 
 msgid "This is a nickname and is for information only."
-msgstr ""
+msgstr "Ez egy becenév, ami csak tájékoztatásra szolgál."
 
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "Ez egy nagyon erőteljes eszköz, csak saját felelősségre használd!"
@@ -11780,7 +11824,7 @@ msgid "Toggle Selected WebDAV Records"
 msgstr "A kiválasztott WebDAV bejegyzések átkapcsolása"
 
 msgid "Toggle Selected iSCSI Initiators"
-msgstr ""
+msgstr "Kiválasztott iSCSI kezdeményezők átkapcsolása"
 
 msgid "Toggle Selected iSNS Servers"
 msgstr "A kiválasztott iSNS szerverek átkapcsolása"
@@ -13016,7 +13060,7 @@ msgid "hidden"
 msgstr "rejtett"
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "iSCSI Kezdeményező"
@@ -13025,13 +13069,13 @@ msgid "iSCSI Initiator Settings"
 msgstr "iSCSI Kezdeményező beállítások"
 
 msgid "iSCSI Initiator is locked"
-msgstr ""
+msgstr "Az iSCSI kezdeményező zárolt"
 
 msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
+msgstr "Az iSCSI kezdeményezőt megjelölték törlésre"
 
 msgid "iSCSI Initiator is unlocked"
-msgstr ""
+msgstr "Az iSCSI kezdeményező nincs zárolva"
 
 msgid "iSCSI Target"
 msgstr "iSCSI-cél (iSCSI Target)"
@@ -13056,7 +13100,7 @@ msgid "iSCSI initiator disabled."
 msgstr "iSCSI kezdeményező ki van kapcsolva."
 
 msgid "iSER - iSCSI over RDMA"
-msgstr ""
+msgstr "iSER - iSCSI RDMA felett"
 
 msgid "iSNS Period"
 msgstr "iSNS időköz"

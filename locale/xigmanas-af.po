@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 
 msgid " interfaces:"
 msgstr " koppelvlakke:"
@@ -1307,6 +1307,20 @@ msgid "Backup Configuration"
 msgstr "Rugsteun Instelling"
 
 msgid "Backup File"
+msgstr ""
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
 msgstr ""
 
 msgid "Backup/Restore"
@@ -8327,6 +8341,9 @@ msgstr "Herlaai bladsy"
 msgid "Remaining battery runtime"
 msgstr "Oorblywende battery looptyd"
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr "Afstand Adres"
 
@@ -9146,6 +9163,11 @@ msgstr ""
 "ondersteun die instelling van die MTU nie en ander koppelvlakke het omvang "
 "beperkings."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
 
@@ -9281,6 +9303,9 @@ msgstr ""
 
 msgid "Show Default Groups"
 msgstr "Vertoon die Verstek Groepe"
+
+msgid "Show Interval"
+msgstr ""
 
 msgid "Show Log Entries"
 msgstr ""

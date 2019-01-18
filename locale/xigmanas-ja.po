@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-07-07 23:17+0000\n"
-"Last-Translator: Victek <Unknown>\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2019-01-01 17:15+0000\n"
+"Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -1234,6 +1234,20 @@ msgstr "設定のバックアップ"
 
 msgid "Backup File"
 msgstr "バックアップファイル"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr ""
 
 msgid "Backup/Restore"
 msgstr "バックアップ/リストア"
@@ -2937,7 +2951,7 @@ msgid "Disable console menu."
 msgstr "コンソールメニューを無効"
 
 msgid "Disable file manager."
-msgstr ""
+msgstr "ファイルマネージャを無効にする。"
 
 msgid "Disable firmware version check."
 msgstr "ファームウェアのバージョンチェックを無効にする"
@@ -2946,7 +2960,7 @@ msgid "Disable scanning of folders for existing extension menus."
 msgstr ""
 
 msgid "Disable speaker beep on startup and shutdown."
-msgstr ""
+msgstr "スタートアップとシャットダウン時のビープ音を無効にする。"
 
 msgid "Disable the compression of repeating lines."
 msgstr ""
@@ -3048,7 +3062,7 @@ msgid "Distributed Hash Table"
 msgstr ""
 
 msgid "Do not abort the firmware upgrade process once it has started."
-msgstr ""
+msgstr "ファームウェアのアップグレード開始後に中断はしないでください。"
 
 msgid "Do not activate this option if you want to add an existing RAID."
 msgstr ""
@@ -3788,10 +3802,10 @@ msgid "Email Report"
 msgstr "レポートメール"
 
 msgid "Email Reports"
-msgstr ""
+msgstr "メールレポート"
 
 msgid "Email Reports Setup"
-msgstr ""
+msgstr "メールレポート設定"
 
 msgid "Email Setup"
 msgstr ""
@@ -3803,7 +3817,7 @@ msgid "Enable"
 msgstr "有効"
 
 msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr ""
+msgstr "「非同期の I/O (AIO)」を有効にする。"
 
 msgid "Enable 'Large read/write' switch."
 msgstr ""
@@ -3818,7 +3832,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr ""
 
 msgid "Enable Asynchronous I/O. (AIO)."
-msgstr ""
+msgstr "非同期の I/O (AIO) を有効にする。"
 
 msgid "Enable Challenge-Response Authentication"
 msgstr ""
@@ -3827,7 +3841,7 @@ msgid "Enable FXP protocol."
 msgstr "FXP プロトコルを有効にします。"
 
 msgid "Enable Firmware Upgrade"
-msgstr ""
+msgstr "ファームウェアのアップデートを有効にする"
 
 msgid "Enable IPv6 privacy extensions."
 msgstr ""
@@ -3948,43 +3962,43 @@ msgid "Enable checks of the server certificate."
 msgstr ""
 
 msgid "Enable collecting CPU frequency statistics."
-msgstr ""
+msgstr "CPU 周波数の統計を有効にする。"
 
 msgid "Enable collecting CPU temperature statistics."
-msgstr ""
+msgstr "CPU 温度の統計を有効にする。"
 
 msgid "Enable collecting CPU usage statistics."
-msgstr ""
+msgstr "CPU 使用率の統計を有効にする。"
 
 msgid "Enable collecting UPS statistics."
-msgstr ""
+msgstr "UPS (無停電電源装置) の統計を有効にする。"
 
 msgid "Enable collecting ZFS ARC usage statistics."
-msgstr ""
+msgstr "ZFS ARC の統計を有効にする。"
 
 msgid "Enable collecting ZFS L2ARC usage statistics."
-msgstr ""
+msgstr "ZFS L2ARC の統計を有効にする。"
 
 msgid "Enable collecting average system load statistics."
-msgstr ""
+msgstr "ロードアベレージの統計を有効にする。"
 
 msgid "Enable collecting disk space usage statistics."
-msgstr ""
+msgstr "ディスク使用率の統計を有効にする。"
 
 msgid "Enable collecting memory usage statistics."
-msgstr ""
+msgstr "メモリ使用率の統計を有効にする。"
 
 msgid "Enable collecting network latency statistics."
-msgstr ""
+msgstr "ネットワークレイテンシの統計を有効にする。"
 
 msgid "Enable collecting network traffic statistics."
-msgstr ""
+msgstr "ネットワークトラフィックの統計を有効にする。"
 
 msgid "Enable collecting system process statistics."
-msgstr ""
+msgstr "プロセス数の統計を有効にする。"
 
 msgid "Enable collecting uptime statistics."
-msgstr ""
+msgstr "稼働時間の統計を有効にする。"
 
 msgid "Enable compression."
 msgstr "圧縮を有効化"
@@ -4031,7 +4045,7 @@ msgid "Enable large read/write."
 msgstr ""
 
 msgid "Enable mapping DOS attributes."
-msgstr ""
+msgstr "DOS 属性マッピングを有効にする。"
 
 msgid "Enable module listing."
 msgstr "モジュールリストを有効にします。"
@@ -4080,7 +4094,7 @@ msgid "Enable shadow copy."
 msgstr ""
 
 msgid "Enable store DOS attributes."
-msgstr ""
+msgstr "DOS 属性の保存を有効にする。"
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Ident プロトコル (RFC1413) を有効にします。"
@@ -4108,10 +4122,10 @@ msgstr ""
 
 msgid ""
 "Enable this option to reduce the height of the page header to a minimum."
-msgstr ""
+msgstr "有効にするとこのセッション中 WebGUI のページヘッダの高さが最小になります。"
 
 msgid "Enable this option to update the CPU microcode on startup."
-msgstr ""
+msgstr "このオプションを有効にすると、起動時に CPU マイクロコードのアップデートを行います。"
 
 msgid "Enable to strictly adhere to DLNA standards."
 msgstr "厳密にDLNAに準拠します。"
@@ -4123,7 +4137,7 @@ msgid "Enable traps."
 msgstr "トラップを有効にします。"
 
 msgid "Enable tuning of some kernel variables."
-msgstr ""
+msgstr "カーネル変数のチューニングを有効にする。"
 
 msgid "Enable tuning switch"
 msgstr ""
@@ -4203,7 +4217,7 @@ msgid "Enter Name"
 msgstr ""
 
 msgid "Enter Password"
-msgstr ""
+msgstr "パスワードの入力"
 
 msgid "Enter Subject"
 msgstr ""
@@ -4412,7 +4426,7 @@ msgid "Execute"
 msgstr "実行"
 
 msgid "Execute Command"
-msgstr ""
+msgstr "コマンド実行"
 
 msgid "Execute now"
 msgstr "今すぐ実行"
@@ -4676,13 +4690,13 @@ msgid "Firmware Check"
 msgstr ""
 
 msgid "Firmware Information"
-msgstr ""
+msgstr "ファームウェア情報"
 
 msgid "Firmware Selection"
 msgstr ""
 
 msgid "Firmware Update"
-msgstr ""
+msgstr "ファームウェア アップデート"
 
 msgid "Firmware upgrade check has been disabled."
 msgstr ""
@@ -5549,7 +5563,7 @@ msgid "Internal Server Information"
 msgstr "内部サーバー情報"
 
 msgid "Internal Speaker"
-msgstr ""
+msgstr "内部スピーカ"
 
 msgid "Internal UPS clock date"
 msgstr "内部UPS日時"
@@ -5614,12 +5628,12 @@ msgstr "良好な状態でないプールまたはそれらに含まれる仮想
 
 msgid ""
 "It is recommended that you backup the server configuration before you upgrade"
-msgstr ""
+msgstr "アップグレードを実行する前に設定のバックアップを行うことを推奨します。"
 
 msgid ""
 "It is recommended to encrypt your configuration and store it in a safe "
 "location."
-msgstr ""
+msgstr "設定ファイルは、暗号化して安全なところに保存することが推奨されます。"
 
 msgid ""
 "It's recommended to change the default username and password for accessing "
@@ -6137,7 +6151,7 @@ msgid "Map to User"
 msgstr ""
 
 msgid "Mapping DOS Attributes"
-msgstr ""
+msgstr "DOS 属性マッピング"
 
 msgid "Mar"
 msgstr ""
@@ -6334,7 +6348,7 @@ msgid "Minutes"
 msgstr "分"
 
 msgid "Minutes between the next network time synchronization."
-msgstr ""
+msgstr "時間同期の間隔を分で指定"
 
 msgid "Missing a temporary folder."
 msgstr "テンポラリフォルダがありません。"
@@ -6385,10 +6399,10 @@ msgid "Monday"
 msgstr ""
 
 msgid "Monitoring"
-msgstr ""
+msgstr "モニタリング"
 
 msgid "Monitoring Setup"
-msgstr ""
+msgstr "モニタリング設定"
 
 msgid "Months"
 msgstr "月"
@@ -6527,7 +6541,7 @@ msgid "NTFS ACLs"
 msgstr ""
 
 msgid "NTP Time Server"
-msgstr ""
+msgstr "NTP サーバー"
 
 msgid "NTP is not enabled."
 msgstr "NTP が有効になっていません。"
@@ -6602,7 +6616,7 @@ msgid "NetBIOS Domain"
 msgstr ""
 
 msgid "NetBIOS Name"
-msgstr ""
+msgstr "NetBIOS 名"
 
 msgid "Netatalk (default) - use Netatalk compatible xattr."
 msgstr ""
@@ -6665,12 +6679,12 @@ msgid "New"
 msgstr ""
 
 msgid "New Password"
-msgstr ""
+msgstr "新しいパスワード"
 
 msgid ""
 "New Password does not match the confirmation password. Please ensure both "
 "passwords are the same."
-msgstr ""
+msgstr "新しいパスワードが確認と一致しませんでした。同じパスワードを正しく入力してください。"
 
 msgid "New password"
 msgstr "新しいパスワード"
@@ -7934,7 +7948,7 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
-msgstr ""
+msgstr "受信バッファ"
 
 msgid "Record Information"
 msgstr ""
@@ -8001,6 +8015,9 @@ msgstr "ページの再読込み"
 
 msgid "Remaining battery runtime"
 msgstr "残りバッテリー時間"
+
+msgid "Reminder Settings"
+msgstr ""
 
 msgid "Remote Address"
 msgstr "リモートアドレス"
@@ -8148,7 +8165,7 @@ msgid "Restart"
 msgstr ""
 
 msgid "Restore"
-msgstr ""
+msgstr "リストア"
 
 msgid "Restore Configuration"
 msgstr "設定のリストア"
@@ -8357,13 +8374,13 @@ msgstr ""
 msgid ""
 "Samba will read from file asynchronously when size of request is bigger than "
 "this value. (%d by default)."
-msgstr ""
+msgstr "要求サイズがこの値より大きい場合、Sambaはファイルを非同期で読み込む。(デフォルトは %d)。"
 
 #, php-format
 msgid ""
 "Samba will write to file asynchronously when size of request is bigger than "
 "this value. (%d by default)."
-msgstr ""
+msgstr "要求サイズがこの値より大きい場合、Sambaはファイルに非同期で書き込む。(デフォルトは %d)。"
 
 msgid "Sat"
 msgstr "土曜"
@@ -8709,10 +8726,10 @@ msgid "Server"
 msgstr "サーバ"
 
 msgid "Server Max. Protocol"
-msgstr ""
+msgstr "サーバー最大プロトコル"
 
 msgid "Server Min. Protocol"
-msgstr ""
+msgstr "サーバー最小プロトコル"
 
 msgid "Server Name"
 msgstr "サーバ名"
@@ -8794,6 +8811,11 @@ msgstr ""
 "インタフェースの最大転送ユニットサイズ (MTU) を指定して下さい。デフォルトはインタフェース固有の値です。MTU "
 "はインタフェース上に転送されるパケットのサイズを制限する為に使用されます。インタフェースによっては MTU "
 "の設定をサポートしないものや、指定可能な範囲に制限があるものがあります。"
+
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
@@ -8927,6 +8949,9 @@ msgstr ""
 msgid "Show Default Groups"
 msgstr "デフォルトグループを表示"
 
+msgid "Show Interval"
+msgstr ""
+
 msgid "Show Log Entries"
 msgstr ""
 
@@ -8952,7 +8977,7 @@ msgid ""
 msgstr ""
 
 msgid "Shrink Page Header"
-msgstr ""
+msgstr "ページヘッダの縮小"
 
 msgid "Shutdown"
 msgstr "シャットダウン"
@@ -9280,7 +9305,7 @@ msgid "Storage"
 msgstr "ストレージ"
 
 msgid "Store DOS Attributes"
-msgstr ""
+msgstr "DOS 属性の保存"
 
 msgid "Store NTFS ACLs in Extended Attributes."
 msgstr ""
@@ -10622,7 +10647,7 @@ msgid "This is a nickname and is for information only."
 msgstr ""
 
 msgid "This is a very powerful tool. Use at your own risk!"
-msgstr ""
+msgstr "これは非常に強力なツールです。自己責任でご利用ください。"
 
 msgid ""
 "This is both the name of the server as advertised via "
@@ -10651,7 +10676,7 @@ msgstr ""
 msgid ""
 "This option allows you to set the file system of already formatted disks "
 "containing data."
-msgstr ""
+msgstr "このオプションで既にデータが記録されたフォーマット済みディスクのファイルシステムを指定することができます。"
 
 msgid "This option applies to GEOM RAID-1 only."
 msgstr ""
@@ -10761,12 +10786,12 @@ msgstr "このパラメータは、イベント中が与えられた時間内に
 msgid ""
 "This parameter sets the highest protocol level that will be supported by the "
 "client."
-msgstr ""
+msgstr "クライアントがサポートするプロトコルの最大バージョンを指定します。"
 
 msgid ""
 "This parameter sets the highest protocol level that will be supported by the "
 "server."
-msgstr ""
+msgstr "サーバーがサポートするプロトコルの最大バージョンを指定します。"
 
 #, php-format
 msgid ""
@@ -10793,10 +10818,10 @@ msgid ""
 msgstr "ユーザで使用されるサフィックスを指定します。例) %s"
 
 msgid "This password is required to access the admin web interface."
-msgstr ""
+msgstr "このパスワードはウェブインターフェースにアクセスするために必要です。"
 
 msgid "This password is the root password of the system."
-msgstr ""
+msgstr "このパスワードはシステムのrootパスワードです。"
 
 msgid "This pool name already exists."
 msgstr "このプール名は既に存在しています。"
@@ -10816,12 +10841,12 @@ msgstr ""
 msgid ""
 "This setting controls the minimum protocol version that the client will "
 "attempt to use."
-msgstr ""
+msgstr "クライアントが使用するプロトコルの最小バージョンを指定します。"
 
 msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
-msgstr ""
+msgstr "サーバーが使用を許可するプロトコルの最小バージョンを指定します。"
 
 msgid "This tag already exists."
 msgstr "このタグはすでに存在しています。"
@@ -10892,13 +10917,13 @@ msgid "Time Machine"
 msgstr "Time Machine"
 
 msgid "Time Server"
-msgstr ""
+msgstr "タイムサーバ"
 
 msgid "Time Stamp"
 msgstr ""
 
 msgid "Time Synchronization"
-msgstr ""
+msgstr "時間同期"
 
 msgid "Time Zone"
 msgstr "タイムゾーン"
@@ -10962,7 +10987,7 @@ msgid ""
 msgstr ""
 
 msgid "To increase CIFS performance try the following:"
-msgstr ""
+msgstr "CIFS のパフォーマンスを上げるには、以下をお試しください。"
 
 msgid "To match any IP address leave this field empty."
 msgstr "全ての IP アドレスにマッチさせる場合は、このフィールドを空にして下さい。"
@@ -10975,7 +11000,7 @@ msgid "To use subdirectories, you must mount each directories. (e.g. %s)"
 msgstr "サブディレクトリを使用するには、各ディレクトリーをマウントしなければいけません。(例 %s)"
 
 msgid "Toggle Mode"
-msgstr ""
+msgstr "トグルモード"
 
 msgid "Toggle Selected Auth Groups"
 msgstr ""
@@ -11412,7 +11437,7 @@ msgid "Up"
 msgstr "Up"
 
 msgid "Update Period"
-msgstr ""
+msgstr "アップデート間隔"
 
 msgid "Update period"
 msgstr "アップデート間隔"
@@ -11888,7 +11913,7 @@ msgid "Week Days"
 msgstr ""
 
 msgid "Weekdays"
-msgstr ""
+msgstr "週"
 
 msgid "Western Digital attribute."
 msgstr "ウエスタンデジタルの属性。"

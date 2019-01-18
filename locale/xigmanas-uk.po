@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-12-13 18:40+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2019-01-07 19:10+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1326,6 +1326,20 @@ msgstr "Налаштування резервного зберігання"
 msgid "Backup File"
 msgstr "Файл архіву"
 
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr ""
+
 msgid "Backup/Restore"
 msgstr "Резервування / Відновлення"
 
@@ -1684,7 +1698,7 @@ msgstr ""
 "помилок CRC FIS)."
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -8459,6 +8473,9 @@ msgstr "Перезавантажити сторінку"
 msgid "Remaining battery runtime"
 msgstr "Залишок роботи від батареї"
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr "Віддалена адреса"
 
@@ -9304,6 +9321,11 @@ msgstr ""
 "установку розміру MTU і деякі інтерфейси мають обмеження на інтервал "
 "настройки параметра."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Задайте значення порогу попередження між 80 та 89."
 
@@ -9456,6 +9478,9 @@ msgstr "Коротке самотестування (Short Self-Test)"
 
 msgid "Show Default Groups"
 msgstr "Показати групи за замовчуванням"
+
+msgid "Show Interval"
+msgstr ""
 
 msgid "Show Log Entries"
 msgstr "Показувати записи журналу"
@@ -13079,7 +13104,7 @@ msgid "hidden"
 msgstr "прихований"
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "iSCSI ініціатор"

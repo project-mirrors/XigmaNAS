@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -1239,6 +1239,20 @@ msgstr "백업 설정"
 
 msgid "Backup File"
 msgstr "백업 파일"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr ""
 
 msgid "Backup/Restore"
 msgstr "백업/복원"
@@ -8034,6 +8048,9 @@ msgstr "페이지 다시 읽기"
 msgid "Remaining battery runtime"
 msgstr "남은 베터리 가동 시간"
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr "원격 주소"
 
@@ -8829,6 +8846,11 @@ msgstr ""
 "인터페이스의 최대 전송 유닛을 n으로 설정합니다. 기본 값은 인터페이스에 따라 다릅니다. MTU는 인터페이스에 전송되는 패킷의 크기를 "
 "제한하는 데에 이용됩니다. 모든 인터페이스가 MTU 설정을 지원하지는 않으며 몇몇 인터페이스는 범위가 제한됩니다."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
 
@@ -8960,6 +8982,9 @@ msgstr "단기 자체 테스트."
 
 msgid "Show Default Groups"
 msgstr "기본 그룹 보기"
+
+msgid "Show Interval"
+msgstr ""
 
 msgid "Show Log Entries"
 msgstr "로그 항목 보기"

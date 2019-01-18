@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
 "PO-Revision-Date: 2018-07-06 10:03+0000\n"
 "Last-Translator: Kim Bjoern Nielsen <launchpad.net@pjat.dk>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
 "X-Poedit-Language: Danish\n"
@@ -1259,6 +1259,20 @@ msgstr ""
 
 msgid "Backup File"
 msgstr "Sikkerhedskopi fil"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr ""
 
 msgid "Backup/Restore"
 msgstr "Backup/Gendan"
@@ -8070,6 +8084,9 @@ msgstr "Genindlæs siden"
 msgid "Remaining battery runtime"
 msgstr "Tilbageværende batteri tid"
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr ""
 
@@ -8870,6 +8887,11 @@ msgstr ""
 "pakkerne der sendes på grænsefladen. Ikke alle grænseflader understøtter "
 "justering af MTUen, og nogle grænseflader fra område begrænsninger."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
 
@@ -9003,6 +9025,9 @@ msgid "Short Self-Test"
 msgstr ""
 
 msgid "Show Default Groups"
+msgstr ""
+
+msgid "Show Interval"
 msgstr ""
 
 msgid "Show Log Entries"

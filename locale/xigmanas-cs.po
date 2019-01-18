@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-11-16 14:57+0000\n"
-"Last-Translator: Tomáš Bednář <bednto@gmail.com>\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2019-01-18 20:28+0000\n"
+"Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:02+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -103,7 +103,7 @@ msgstr "využito %s z %s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts."
-msgstr "%s by rád poděkoval všem autorům tohoto software za jejich úsilí."
+msgstr "%s by rád(a) poděkoval(a) autorům tohoto software za jejich úsilí."
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -500,7 +500,7 @@ msgstr ""
 "hlášení e-mailem."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Aktivovat vybrané zařízení."
 
 msgid "Active"
 msgstr "Aktivní"
@@ -674,7 +674,7 @@ msgid "Add extent"
 msgstr "Přidat úložnou jednotku"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "Přidat zavaděč iSCSI"
 
 msgid "Add iSNS Server"
 msgstr "Přidat iSNS server"
@@ -707,7 +707,7 @@ msgid "Add target"
 msgstr "Přidat cíl"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "Přidat vybrané zařízení k již vytvořenému zrcadlu."
 
 msgid "Additional Group"
 msgstr "Další skupina"
@@ -1118,7 +1118,7 @@ msgstr "Opravdu chcete server restartovat?"
 
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
-msgstr ""
+msgstr "Obnovit konfiguraci do výchozího nastavení ?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Opravdu chcete server vypnout?"
@@ -1339,6 +1339,22 @@ msgstr "Záloha nastavení"
 
 msgid "Backup File"
 msgstr "Soubor se zálohou"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+"Nastavení připomínky zálohy. Poslední záloha je starší oproti nastavenému "
+"intervalu."
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr "Nastavení zálohy. Nelze najít datum poslední zálohy."
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr "Nastavení zálohy. Datum poslední zálohy je neplatné."
 
 msgid "Backup/Restore"
 msgstr "Zálohovat/obnovit"
@@ -1599,10 +1615,10 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "CHAP Name"
 
 msgid "CHAP Secret"
-msgstr ""
+msgstr "CHAP Secret"
 
 msgid "CHAP User is locked"
 msgstr "Uživatel CHAP protokolu je uzamčen"
@@ -1696,7 +1712,7 @@ msgstr ""
 "dat)."
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1853,7 +1869,7 @@ msgid "Clear device errors"
 msgstr "Vyčistit chyby zařízení"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Smazat metadata na vybraném zařízení."
 
 msgid "Client"
 msgstr "Klient"
@@ -2547,7 +2563,7 @@ msgid "Data"
 msgstr "Data"
 
 msgid "Data Digest"
-msgstr ""
+msgstr "Otisk dat"
 
 msgid "Data Integrity"
 msgstr "Neporušenost dat"
@@ -2668,7 +2684,7 @@ msgstr ""
 "který má být použit pro tuto skupinu portálu. Výchozí je „žádný“."
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
-msgstr ""
+msgstr "Vybrat iSCSI hardwarový ovladač. Výchozí je \"Žádný\""
 
 msgid "Defines the checksum algorithm."
 msgstr "Určuje algoritmus vytváření kontrolních součtů."
@@ -2826,7 +2842,7 @@ msgid "Delete Selected WebDAV Records"
 msgstr "Odstranit vybrané záznamy služby WebDAV"
 
 msgid "Delete Selected iSCSI Initiators"
-msgstr ""
+msgstr "Smazat vybrané iSCSO iniciátory."
 
 msgid "Delete Selected iSNS Servers"
 msgstr "Smazat vyznačené iSNS servery"
@@ -3162,7 +3178,7 @@ msgid "Disable Selected WebDAV Records"
 msgstr "Vypnout označené WebDAV záznamy"
 
 msgid "Disable Selected iSCSI Initiators"
-msgstr ""
+msgstr "Vypnout vybrané iSCSI iniciátory"
 
 msgid "Disable Selected iSNS Servers"
 msgstr "Přestat používat vyznačené iSNS servery"
@@ -3489,7 +3505,7 @@ msgid "Do you want to delete selected groups?"
 msgstr "Opravdu smazat označené skupiny?"
 
 msgid "Do you want to delete selected iSCSI initiators?"
-msgstr ""
+msgstr "Chcete smazat vybrané iSCSI iniciátory ?"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "Opravdu chcete smazat označené iSNS servery?"
@@ -3586,7 +3602,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Opravdu vypnout označené příkazy?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
+msgstr "Chcete vypnout vybrané iSCSI iniciátory ?"
 
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Opravdu chcete nepoužívat označené iSNS servery?"
@@ -3652,7 +3668,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Opravdu zapnout označené příkazy?"
 
 msgid "Do you want to enable selected iSCSI initiators?"
-msgstr ""
+msgstr "Chcete zapnout vybrané iSCSI iniciátory ?"
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr "Opravdu chcete používat označené iSNS servery?"
@@ -3728,7 +3744,7 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Opravdu přepnout označené příkazy?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr ""
+msgstr "Chcete přepnout vybrané iSCSI iniciátory ?"
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Opravdu chcete přepnout označené iSNS servery?"
@@ -4019,7 +4035,7 @@ msgid "Edit extent"
 msgstr "Upravit úložnou jednotku"
 
 msgid "Edit iSCSI Initiator"
-msgstr ""
+msgstr "Upravit iSCSI iniciátor"
 
 msgid "Edit iSNS Server"
 msgstr "Upravit iSNS server"
@@ -4187,7 +4203,7 @@ msgid "Enable Selected WebDAV Records"
 msgstr "Zapnout označené záznamy pro WebDAV"
 
 msgid "Enable Selected iSCSI Initiators"
-msgstr ""
+msgstr "Zapnout označené iSCSI iniciátory"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "Používat označené iSNS servery"
@@ -4239,7 +4255,7 @@ msgid "Enable collecting ZFS ARC usage statistics."
 msgstr "Shromažďovat statistiky využití ZFS ARC."
 
 msgid "Enable collecting ZFS L2ARC usage statistics."
-msgstr ""
+msgstr "Shromažďovat statistiky využívání ZFS L2ARC mezipaměti."
 
 msgid "Enable collecting average system load statistics."
 msgstr "Shromažďovat statistiky průměrného vytížení systému."
@@ -4490,7 +4506,7 @@ msgid "Enter Identifier"
 msgstr "Zadejte identifikátor"
 
 msgid "Enter Name"
-msgstr ""
+msgstr "Zadejte název"
 
 msgid "Enter Password"
 msgstr "Zadejte heslo"
@@ -5060,7 +5076,7 @@ msgid "Foreign"
 msgstr "Cizí"
 
 msgid "Forget about devices which are not connected."
-msgstr ""
+msgstr "Zapomenout zařízení, která nejsou připojená."
 
 msgid "Form Factor"
 msgstr "Typ skříně"
@@ -5129,7 +5145,7 @@ msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM softwarové RAID pole"
 
 msgid "GEOM vinum"
-msgstr ""
+msgstr "GEOM vinum"
 
 msgid "GID"
 msgstr "Identifikátor skupiny (GID)"
@@ -5326,7 +5342,7 @@ msgid "Hardware AES"
 msgstr "Hardwarové AES"
 
 msgid "Header Digest"
-msgstr ""
+msgstr "Otisk hlavičky"
 
 msgid "Header and Data digest"
 msgstr "Kontrolní otisk (digest) hlavičky a dat"
@@ -5486,7 +5502,7 @@ msgid "IPMI Stats"
 msgstr "Statistiky z IPMI"
 
 msgid "IPv4 Address"
-msgstr ""
+msgstr "IPv4 adresa"
 
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS servery"
@@ -5505,12 +5521,19 @@ msgid ""
 "initiators attempting to connect to portal belonging to this portal-group "
 "will get redirected using \"Target moved temporarily\" login response."
 msgstr ""
+"IPv4 nebo IPv6 adresa na kterou přesměrovat iniciátory. Pokud je nastaveno, "
+"všechny iniciátory, které se snaží připojit k portálu, spadajícího do této "
+"skupiny portálu, budou přesměrovány pomocí odpovědi na přihlášení typu „Cíl "
+"dočasně přesunut“."
 
 msgid ""
 "IPv4 or IPv6 address to redirect initiators to. When configured, all "
 "initiators attempting to connect to this target will get redirected using "
 "\"Target moved temporarily\" login response."
 msgstr ""
+"IPv4 nebo IPv6 adresa na kterou přesměrovat iniciátory. Pokud je nastaveno, "
+"všechny iniciátory, které se snaží připojit k tomuto portálu, budou "
+"přesměrovány pomocí odpovědi na přihlášení typu „Cíl dočasně přesunut“."
 
 msgid "IPv6 Address"
 msgstr "IPv6 adresa"
@@ -5816,7 +5839,7 @@ msgid "Initiator Name is unlocked"
 msgstr "Název iniciátoru je odemčen"
 
 msgid "Initiator Names"
-msgstr ""
+msgstr "Názvy iniciátorů"
 
 msgid "Initiator Portal"
 msgstr "Portál iniciátoru"
@@ -6061,7 +6084,7 @@ msgid "June"
 msgstr "červen"
 
 msgid "Keep MBR"
-msgstr ""
+msgstr "Zachovat MBR"
 
 msgid "Kernel"
 msgstr "Jádro systému"
@@ -6463,7 +6486,7 @@ msgid "Login"
 msgstr "Přihlásit"
 
 msgid "Login for CHAP authentication."
-msgstr ""
+msgstr "Přihlášení pro CHAP ověřování."
 
 msgid "Logout"
 msgstr "Odhlásit se"
@@ -6587,7 +6610,7 @@ msgid "MariaDB"
 msgstr "MariaDB"
 
 msgid "Mark the selected device as inactive."
-msgstr ""
+msgstr "Označit vybrané zařízení jako neaktivní."
 
 msgid "Masquerade Address"
 msgstr "Maškarádovací adresa"
@@ -6912,10 +6935,10 @@ msgid "Mutual CHAP"
 msgstr "Vzájemné ověření CHAP"
 
 msgid "Mutual CHAP Name"
-msgstr ""
+msgstr "Název pro vzájemný CHAP protokol"
 
 msgid "Mutual CHAP Secret"
-msgstr ""
+msgstr "Heslo vzájemného CHAP"
 
 msgid "Mutual CHAP User is locked"
 msgstr "Uživatelský účet ověřování protokolem vzájemný CHAP je uzamčen"
@@ -7001,6 +7024,8 @@ msgid ""
 "Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
 "or \"iSCSI\". Default is \"iSCSI\"."
 msgstr ""
+"Název vybraného protokolu. Může být buď „iSER“ pro iSCSI prostřednictvím "
+"RDMA, nebo „iSCSI“. Výchozí je „iSCSI“."
 
 msgid "Name of the Auth Group."
 msgstr "Název ověřovací skupiny."
@@ -7078,7 +7103,7 @@ msgid "Network Adapter"
 msgstr "Síťové rozhraní"
 
 msgid "Network Address"
-msgstr ""
+msgstr "Síťová adresa"
 
 msgid "Network File System"
 msgstr "Síťový souborový systém"
@@ -7156,7 +7181,7 @@ msgid "No Extent has been configured."
 msgstr "Není nastavená žádná úložná jednotka."
 
 msgid "No GEOM partition information found."
-msgstr ""
+msgstr "Nebyly nalezeny žádné informace o GEOM oddílu"
 
 msgid "No GEOM vinum information found."
 msgstr "Nebyly nalezeny žádné GEOM vinum informace."
@@ -7193,7 +7218,7 @@ msgid "No RSYNC Client configured."
 msgstr "Nebyl nastaven žádný RSYNC klient."
 
 msgid "No additional parameters"
-msgstr ""
+msgstr "Žádné další parametry"
 
 msgid "No configured Auth Group."
 msgstr "Nejsou nastavené žádné ověřovací skupiny."
@@ -7205,7 +7230,7 @@ msgid "No configured bridge interfaces."
 msgstr "Nejsou nastavená žádná síťová přemostění."
 
 msgid "No configured disks found."
-msgstr ""
+msgstr "Nebyly nalezeny žádné nastavené disky."
 
 msgid "No configured pools."
 msgstr "Nejsou nastavené žádné fondy úložišť."
@@ -7464,7 +7489,7 @@ msgid "Offload"
 msgstr "Převzetí zátěže"
 
 msgid "Offload Driver"
-msgstr ""
+msgstr "Ovladač předání na hardware"
 
 msgid "Old Passphrase"
 msgstr "Původní heslová fráze"
@@ -8132,10 +8157,10 @@ msgid "Primary group is also selected in additional group."
 msgstr "Hlavní skupina je vybrána i mezi dalšími skupinami."
 
 msgid "Print detailed information."
-msgstr ""
+msgstr "Vypsat podrobné informace."
 
 msgid "Print general information."
-msgstr ""
+msgstr "Vypsat obecné informace."
 
 msgid "Privacy Extension"
 msgstr "Rozšíření pro soukromí"
@@ -8449,7 +8474,7 @@ msgid "Reboot Required"
 msgstr "Je třeba restart"
 
 msgid "Rebuild the selected device forcibly."
-msgstr ""
+msgstr "Vynutit znovusestavení označeného zařízení."
 
 msgid "Receive Buffer"
 msgstr "Vyrovnávací paměť příjmu"
@@ -8521,6 +8546,9 @@ msgstr "Načíst stránku znovu"
 msgid "Remaining battery runtime"
 msgstr "Zbývající doba provozu z akumulátorů"
 
+msgid "Reminder Settings"
+msgstr "Nastavení připomínky"
+
 msgid "Remote Address"
 msgstr "Adresa protějšku"
 
@@ -8586,7 +8614,7 @@ msgid "Remove the %s first before proceeding."
 msgstr "Pokračovat bude možné až po odebrání %s."
 
 msgid "Remove the selected device from the mirror."
-msgstr ""
+msgstr "Odebrat označené zařízení ze zrcadla."
 
 msgid "Reorder"
 msgstr "Přeuspořádat"
@@ -8997,7 +9025,7 @@ msgid "Secret"
 msgstr "Heslo"
 
 msgid "Secret for CHAP authentication."
-msgstr ""
+msgstr "Tajemství pro CHAP ověřování."
 
 msgid "Secure Shell"
 msgstr "Zabezpečený shell"
@@ -9358,6 +9386,14 @@ msgstr ""
 "přenášených rozhraním. Ne všechna rozhraní umožňují změnu MTU a některá jen "
 "v určitém rozsahu."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+"Nastavit počet dnů, po kterých uplynutí je zobrazena připomínka provedení "
+"zálohy nastavení systému. Výchozí je 28 dnů. Hodnota 0 (nula) toto "
+"připomínání vypne."
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Nastavit hranici varování na hodnotu z rozmezí 80 až 89."
 
@@ -9375,19 +9411,25 @@ msgid ""
 "Set to \"off\", disables write caching for the LUN, if supported by the "
 "backend."
 msgstr ""
+"Nastavení na „vypnuto“ vypne mezipaměť zápisu pro LUN, pokud je podporováno "
+"podpůrnou vrstvou."
 
 msgid "Set to \"on\" makes LUN removable."
-msgstr ""
+msgstr "Nastavení na „zapnuto“ udělá LUN odebíratelné."
 
 msgid ""
 "Set to \"on\", blocks all media write operations to the LUN reporting it as "
 "write protected."
 msgstr ""
+"Nastavení na „zapnuto“ bude blokovat veškeré operace zápisu na médium a LUN "
+"bude hlášeno jako chráněno proti zápisu."
 
 msgid ""
 "Set to \"unrestricted\", allows target to process commands with SIMPLE task "
 "attribute in arbitrary order."
 msgstr ""
+"Nastavení na „neomezeno“ umožní cílům zpracovávat příkazy s atributem úlohy "
+"SIMPLE v libovolném pořadí."
 
 msgid "Set user login shell."
 msgstr "Nastavit přihlašovací shell uživatele."
@@ -9408,18 +9450,27 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
+"Nastaví typ ověřování. Ten může být buď „žádné“, nebo „CHAP“. Výchozí je "
+"„žádné“. Pokud je nastaveno na CHAP, je třeba zadat jak chapIName, tak "
+"chapSecret."
 
 msgid ""
 "Sets the data digest; a checksum calculated over the Data Section of iSCSI "
 "PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
+"Nastaví otisk dat; kontrolní součet vypočítaný přes datovou sekci iSCSI PDU "
+"a ověřovaný při přijetí. Otisk může být buď „žádný“ nebo „CRC32C“. Výchozí "
+"je „žádný“."
 
 msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
+"Nastaví otisk hlavičky, kontrolní součet vypočítaný z hlavičky iSCSI PDU a "
+"ověřovaný při přijetí. Otisk může být buď „žádný“, nebo „CRC32C“. Výchozí je "
+"„žádný“."
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -9434,11 +9485,18 @@ msgid ""
 "between different iSCSI targets residing on the same host in trusted "
 "environments."
 msgstr ""
+"Nastavení na „zapnuto“ umožní příkazu EXTENDED COPY (rozšířená kopie), "
+"poslanému tomuto LUN, přistupovat k ostatním LUN na tomto hostiteli, které "
+"nejsou jinak dostupné. To umožňuje přesunout kopírování mezi různými iSCSI "
+"cíli, nacházejícími se na stejném hostiteli v důvěryhodných prostředích."
 
 msgid ""
 "Setting to \"on\" or \"off\" controls UNMAP support for the logical unit. "
 "Default value is \"on\" if supported by the backend."
 msgstr ""
+"Nastavení na „zapnuto“ nebo „vypnuto“ řídí podporu UNMAP pro logickou "
+"jednotku. Výchozí hodnota je „zapnuto“, pokud je podporováno podpůrnou "
+"vrstvou."
 
 msgid ""
 "Setting to \"primary\" or \"secondary\" overrides default role of the node "
@@ -9497,6 +9555,9 @@ msgstr "Krátký samotest"
 
 msgid "Show Default Groups"
 msgstr "Zobrazit výchozí skupiny"
+
+msgid "Show Interval"
+msgstr "Zobrazit interval"
 
 msgid "Show Log Entries"
 msgstr "Zobrazit položky záznamu událostí (log)"
@@ -9681,28 +9742,33 @@ msgid "Specifies LUN EUI-64 identifier."
 msgstr "Určuje LUN EUI-64 identifikátor."
 
 msgid "Specifies LUN NAA identifier."
-msgstr ""
+msgstr "Určuje NAA identifikátor daného LUN"
 
 msgid "Specifies LUN SCSI name string."
-msgstr ""
+msgstr "Určuje řetězec LUN SCSI názvu."
 
 msgid "Specifies LUN locally assigned RFC 4122 UUID."
 msgstr ""
+"Určuje lokálně přiřazený nikde se neopakující identifikátor LUN dle normy "
+"RFC 4122."
 
 msgid "Specifies LUN product string up to 16 chars."
-msgstr ""
+msgstr "Určuje řetězec produktu LUN, dlouhý až 16 znaků."
 
 msgid "Specifies LUN revision string up to 4 chars."
-msgstr ""
+msgstr "Určuje řetězec revize LUN, dlouhý až 4 znaky."
 
 msgid "Specifies LUN vendor string up to 8 chars."
-msgstr ""
+msgstr "Určuje řetězec výrobce LUN, dlouhý až 8 znaků."
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
 "value is zero, that disables backing store completely, making all writes go "
 "to nowhere, while all reads return zeroes."
 msgstr ""
+"Určuje kapacitu uložení, na kterém je založeno (kolik RAM pro data nejvíce). "
+"Výchozí hodnota je nula, což takové ukládání zcela vypíná a způsobuje, že "
+"veškeré zápisy jdou do nikam, zatímco čtení vrací nuly."
 
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
@@ -9718,10 +9784,10 @@ msgid "Specifies medium rotation rate of the device."
 msgstr "Popisuje otáčky média v zařízení."
 
 msgid "Specifies nominal form factor of the device."
-msgstr ""
+msgstr "Určuje nominální faktor tvaru zařízení."
 
 msgid "Specifies number of backend threads to use for this LUN."
-msgstr ""
+msgstr "Určuje počet vláken podpůrné vrstvy které pro použít pro toto LUN."
 
 msgid "Specifies that the file system should be exported read-only."
 msgstr "Určuje, že souborový systém má být exportován pouze pro čtení."
@@ -9730,6 +9796,8 @@ msgid ""
 "Specifies that this portal-group is listened by some other host. This host "
 "will announce it on discovery stage, but won't listen."
 msgstr ""
+"Určuje že tato skupina portálu je očekávána spojení některým hostitelem. "
+"Tento hostitel ji oznámí ve fázi objevování ale neočekává spojení."
 
 msgid "Specifies the command to be run."
 msgstr "Určuje příkaz, který má být spuštěn."
@@ -9779,25 +9847,31 @@ msgstr ""
 "této hodnoty může negativně ovlivnit výkon a automatickou defragmentaci."
 
 msgid "Specify UNMAP block offset of the device."
-msgstr ""
+msgstr "Určuje posun UNMAP bloku zařízení."
 
 msgid "Specify UNMAP block size of the device."
-msgstr ""
+msgstr "Zadejte velikost UNMAP bloku zařízení."
 
 msgid ""
 "Specify maximum allowed number of LBAs per UNMAP command to report in Block "
 "Limits VPD page."
 msgstr ""
+"Zadejte nejvyšší umožněný počet LBA na UNMAP příkaz, který hlásit na stránce "
+"Block Limits VPD."
 
 msgid ""
 "Specify maximum allowed number of LBAs per WRITE SAME command to report in "
 "Block Limits VPD page."
 msgstr ""
+"Zadejte nejvyšší umožněný počet LBA na příkaz WRITE SAME který hlásit na "
+"stránce Block Limits VPD."
 
 msgid ""
 "Specify maximum allowed number of block descriptors per UNMAP command to "
 "report in Block Limits VPD page."
 msgstr ""
+"Zadejte nejvyšší umožněný počet popisovačů bloků na UNMAP příkaz, který "
+"hlásit na stránce Block Limits VPD."
 
 msgid "Specify physical block offset of the device."
 msgstr "Zadejte posun fyzického bloku zařízení."
@@ -9806,7 +9880,7 @@ msgid "Specify physical block size of the device."
 msgstr "Zadejte velikost fyzického bloku zařízení."
 
 msgid "Specify the SCSI device type to use when creating the LUN."
-msgstr ""
+msgstr "Zadejte jaký typ SCSI zařízení použít při vytváření LUN."
 
 msgid "Split request"
 msgstr "Rozdělit požadavek"
@@ -9864,7 +9938,7 @@ msgid "Stop after sending (and receiving) N packets."
 msgstr "Zastavit po odeslání (a přijmutí) N paketů."
 
 msgid "Stop the selected mirror."
-msgstr ""
+msgstr "Zastavit označené zrcadlení."
 
 msgid "Stopped"
 msgstr "Zastaveno"
@@ -9906,7 +9980,7 @@ msgid "Subject"
 msgstr "Předmět"
 
 msgid "Submit Command"
-msgstr ""
+msgstr "Odeslat příkaz"
 
 msgid "Subnet Bit Count"
 msgstr "Počet bitů masky podsítě"
@@ -9982,10 +10056,10 @@ msgid "Sysctl variable is locked"
 msgstr "Sysctl proměnná je uzamčena"
 
 msgid "Sysctl variable is marked for deletion"
-msgstr ""
+msgstr "Sysctl proměnná je označena pro smazání"
 
 msgid "Sysctl variable is unlocked"
-msgstr ""
+msgstr "Systctl proměnná je odemčena"
 
 msgid "Syslog Level"
 msgstr "Úroveň podrobností pro syslog"
@@ -10164,10 +10238,10 @@ msgid "Target list"
 msgstr "Seznam cílů"
 
 msgid "Target login for Mutual CHAP authentication."
-msgstr ""
+msgstr "Přihlašovací jméno pro ověřování protokolem vzájemného CHAP."
 
 msgid "Target secret for Mutual CHAP authentication."
-msgstr ""
+msgstr "Heslo pro cíl pro ověřování protokolem vzájemného CHAP."
 
 msgid "Target side secret."
 msgstr "Heslo na straně cíle."
@@ -10236,7 +10310,7 @@ msgstr ""
 "stroje."
 
 msgid "The CTL backend to use for a given LUN."
-msgstr ""
+msgstr "CTL podpůrná vrstva kterou použít pro dané LUN."
 
 msgid "The HAST volumes can not be accessed until HAST node becomes Primary."
 msgstr ""
@@ -10250,7 +10324,7 @@ msgid "The IP address of the device."
 msgstr "IP adresa zařízení."
 
 msgid "The IP address or the DNS name of the iSCSI target."
-msgstr ""
+msgstr "IP adresa nebo DNS název iSCSI cíle."
 
 msgid "The IP address that this hostname represents."
 msgstr "IP adresa kterou představuje tento název stroje."
@@ -10280,10 +10354,10 @@ msgstr ""
 "inicializace při výrobě."
 
 msgid "The SCSI Device Identification string presented to the initiator."
-msgstr ""
+msgstr "Řetězec SCSI identifikátoru zařízení prezentovaný iniciátoru."
 
 msgid "The SCSI serial number presented to the initiator."
-msgstr ""
+msgstr "SCSI sériové číslo přezentované iniciátoru."
 
 msgid "The TCP Port must be a valid port number."
 msgstr "Je třeba, aby TCP port bylo platné číslo portu."
@@ -10301,6 +10375,7 @@ msgstr ""
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
+"Nastavení WebDAV je uplatněno na všechny složky odpovídající tomuto vzoru."
 
 msgid ""
 "The action which will be executed when the packet match the criteria "
@@ -10508,7 +10583,7 @@ msgid "The changes have been saved."
 msgstr "Změny byly uloženy."
 
 msgid "The check will include both initiator-portal and initiator-name."
-msgstr ""
+msgstr "Kontrola bude zahrnovat jak portál iniciátoru, tak název iniciátoru."
 
 msgid ""
 "The check will include initiator-portal, initiator-name, and authentication "
@@ -10516,6 +10591,10 @@ msgid ""
 "authentication, or if the CHAP user and secret used during discovery match "
 "those used by the target."
 msgstr ""
+"Tato kontrola zahrnuje portál iniciátoru, název iniciátoru a přihlašovací "
+"údaje pro ověření. Pokud nevyžaduje CHAP ověření, je vrácen cíl, nebo pokud "
+"CHAP uživatel a tajemství použité při objevování se shodují s těmi "
+"používanými cílem."
 
 msgid "The cleartext credentials with which to bind."
 msgstr ""
@@ -10560,6 +10639,10 @@ msgid ""
 "algorithm - you won't be prompted for this passphrase. The secret should be "
 "at least 32 or more characters long"
 msgstr ""
+"Typ ověřování založený na cookie používá pro šifrování hesla algoritmus AES. "
+"Zadejte jakou chcete náhodnou heslovou frázi. Bude použita vnitřně AES "
+"algoritmem – nebudete na ni tázáni. Tajemství by mělo být dlouhé alespoň 32 "
+"znaků"
 
 msgid ""
 "The count of aborted operations due to HDD timeout. Normally this attribute "
@@ -10786,6 +10869,8 @@ msgid ""
 "The limit for concurrently running child processes handling incoming "
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
+"Limit souběžně spuštěných podřízených procesů obsluhujících příchozí "
+"spojení. Výchozí je 30. Nastavení na 0 (nula) tento limit vypíná."
 
 msgid "The location of the \"Database Directory\" is not a valid location."
 msgstr "Umístění uvedené v kolonce „Databázová složka“ není platné."
@@ -10911,6 +10996,8 @@ msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
 msgstr ""
+"Název iniciátoru. Výchozí je název vzniklý spojením „iqn.1994-"
+"09.org.freebsd:“ a názvu stroje."
 
 msgid "The name of the interface is wrong."
 msgstr "Název rozhraní není správný."
@@ -10925,7 +11012,7 @@ msgid "The name of the pool cannot be changed."
 msgstr "Název fondu úložišť není možné měnit."
 
 msgid "The name of the target."
-msgstr ""
+msgstr "Název cíle."
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "Název tohoto virtuálního zařízení není možné měnit."
@@ -10971,6 +11058,8 @@ msgstr "Umístění „%s“ není složka."
 msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
+"Popis umístění souboru, uzlu zařízení, nebo zfs svazku na kterém je LUN "
+"založen."
 
 msgid "The peer connection encryption mode."
 msgstr "Režim šifrování při spojení s protějškem."
@@ -11071,6 +11160,7 @@ msgid ""
 "The system configuration is reset to factory defaults and the server is "
 "restarted."
 msgstr ""
+"Nastavení systému je resetováno do výchozího a server je restartován."
 
 msgid "The tag range is invalid."
 msgstr "Rozsah značek není platný."
@@ -11247,7 +11337,7 @@ msgstr "Tyto parametry budou přidány do souboru my.cnf"
 
 msgid ""
 "These parameters will be added to the configuration of this initiator."
-msgstr ""
+msgstr "Tyto parametry budou přidány do nastavení tohoto iniciátoru."
 
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr "Tyto parametry budou přidány do globální části souboru my.cnf"
@@ -11263,16 +11353,16 @@ msgid "These parameters will be added to this WebDAV configuration."
 msgstr "Tyto parametry budou přidány do této konfigurace WebDAV."
 
 msgid "These parameters will be added to this auth-group."
-msgstr ""
+msgstr "Tyto parametry budou přidány do této skupiny ověření."
 
 msgid "These parameters will be added to this lun."
-msgstr ""
+msgstr "Tyto parametry budou přidány do tohoto LUN."
 
 msgid "These parameters will be added to this portal-group."
-msgstr ""
+msgstr "Tyto parametry budou přidány do této skupiny portálu."
 
 msgid "These parameters will be added to this target."
-msgstr ""
+msgstr "Tyto parametry budou přidány do tohoto cíle."
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. This allows you to "
@@ -11282,7 +11372,7 @@ msgstr ""
 "změny za chodu systému."
 
 msgid "Thin Provisioning"
-msgstr ""
+msgstr "Poskytování dle potřeby"
 
 msgid "This URL is already configured."
 msgstr "Tato URL adresa je už nastavena."
@@ -11379,7 +11469,7 @@ msgid "This group already exists in the group list."
 msgstr "Tato skupina už v seznamu skupin existuje."
 
 msgid "This is a nickname and is for information only."
-msgstr ""
+msgstr "Toto je přezdívka a slouží pouze pro informaci."
 
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "Toto je velmi mocný nástroj. Použijte pouze na vlastní nebezpečí!"
@@ -11816,46 +11906,46 @@ msgid "Toggle Mode"
 msgstr "Přepnout režim"
 
 msgid "Toggle Selected Auth Groups"
-msgstr ""
+msgstr "Vyp/zap označené skupiny ověřování"
 
 msgid "Toggle Selected CHAP Users"
-msgstr ""
+msgstr "Vyp/zap označené CHAP uživatele"
 
 msgid "Toggle Selected Commands"
 msgstr "Přepnout označené příkazy"
 
 msgid "Toggle Selected Initiator Names"
-msgstr ""
+msgstr "Vyp/zap označené názvy iniciátoru"
 
 msgid "Toggle Selected Initiator Portals"
-msgstr ""
+msgstr "Vyp/zap označené portály iniciátoru"
 
 msgid "Toggle Selected Jobs"
 msgstr "Přepnout označené úlohy"
 
 msgid "Toggle Selected LUN Records"
-msgstr ""
+msgstr "Vyp/zap označené LUN záznamy"
 
 msgid "Toggle Selected LUNs"
-msgstr ""
+msgstr "Vyp/zap označené LUN"
 
 msgid "Toggle Selected Listen Records"
-msgstr ""
+msgstr "Vyp/zap označené záznamy očekávání spojení"
 
 msgid "Toggle Selected Mutual CHAP Users"
-msgstr ""
+msgstr "Vyp/zap označené uživatele vzájemného CHAP"
 
 msgid "Toggle Selected Option Records"
-msgstr ""
+msgstr "Vyp/zap označené záznamy voleb"
 
 msgid "Toggle Selected Options"
 msgstr "Přepnout označené předvolby"
 
 msgid "Toggle Selected Port Records"
-msgstr ""
+msgstr "Vyp/zap označené záznamy portálu"
 
 msgid "Toggle Selected Portal Groups"
-msgstr ""
+msgstr "Vyp/zap označené skupiny portálu"
 
 msgid "Toggle Selected Records"
 msgstr "Přepnout označené záznamy"
@@ -11867,16 +11957,16 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Přepnout označené Rsync moduly"
 
 msgid "Toggle Selected Targets"
-msgstr ""
+msgstr "Vyp/zap označené cíle"
 
 msgid "Toggle Selected WebDAV Records"
-msgstr ""
+msgstr "Vyp/zap označené WebDAV záznamy"
 
 msgid "Toggle Selected iSCSI Initiators"
-msgstr ""
+msgstr "Vyp/zap označené iSCSI iniciátory"
 
 msgid "Toggle Selected iSNS Servers"
-msgstr ""
+msgstr "Vyp/zap označené iSNS servery"
 
 msgid "Tolerated"
 msgstr "Tolerováno"
@@ -12001,7 +12091,7 @@ msgid "Trivial File Transfer Protocol"
 msgstr "Trivial File Transfer Protocol (Jednoduchý protokol přenosu souborů)"
 
 msgid "Trust Account Status"
-msgstr ""
+msgstr "Stav účtu důvěry"
 
 msgid "Trusted Domains"
 msgstr "Důvěryhodné domény"
@@ -12066,19 +12156,19 @@ msgid "UID"
 msgstr "Identifikátor uživatele (UID)"
 
 msgid "UNMAP"
-msgstr ""
+msgstr "UNMAP"
 
 msgid "UNMAP Block Offset"
-msgstr ""
+msgstr "Posun UNMAP bloku"
 
 msgid "UNMAP Block Size"
 msgstr "Velikost UNMAP bloku"
 
 msgid "UNMAP Maximum Descriptors"
-msgstr ""
+msgstr "UNMAP nejvýše popisovačů"
 
 msgid "UNMAP Maximum LBA"
-msgstr ""
+msgstr "UNMAP nejvýše LBA"
 
 msgid "UPS"
 msgstr "Zdroj nepřeruš. napájení (UPS)"
@@ -12216,6 +12306,8 @@ msgid ""
 "Unique 16-bit tag value of this portal-group. If not specified, the value is "
 "generated automatically."
 msgstr ""
+"Neopakující se 16 bitová hodnota štítku této skupiny portálu. Pokud není "
+"zadáno, hodnota je vytvořena automaticky."
 
 msgid "Unison"
 msgstr "Unison"
@@ -12821,6 +12913,7 @@ msgstr ""
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
 msgstr ""
+"Když je zapnutá podpora pro UNMAP, tato volba určuje typ poskytování."
 
 msgid "When UPS switches to Low Battery"
 msgstr "Kdy UPS zdroj začne hlásit téměř vybité akumulátory"
@@ -12854,7 +12947,7 @@ msgid "Who"
 msgstr "Spouštět jako"
 
 msgid "Wide Links"
-msgstr ""
+msgstr "Široké odkazy"
 
 msgid "Wildcard"
 msgstr "Zástupný znak"
@@ -12878,7 +12971,7 @@ msgid "Write Cache"
 msgstr "Mezipaměť zápisu"
 
 msgid "Write Same Maximum LBA"
-msgstr ""
+msgstr "Zapsat stejné maximální LBA"
 
 msgid "Write only"
 msgstr "Pouze zápis"
@@ -13039,10 +13132,10 @@ msgid "ZFS Dataset Properties"
 msgstr "Vlastnosti ZFS datové sady"
 
 msgid "ZFS L2ARC"
-msgstr ""
+msgstr "ZFS L2ARC"
 
 msgid "ZFS L2ARC Usage"
-msgstr ""
+msgstr "Využití ZFS L2ARC"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Vst./výst. statistiky ZFS fondu úložišť"
@@ -13141,7 +13234,7 @@ msgid "hidden"
 msgstr "skryté"
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "iSCSI iniciátor"
@@ -13150,25 +13243,25 @@ msgid "iSCSI Initiator Settings"
 msgstr "Nastavení iSCSI iniciátoru"
 
 msgid "iSCSI Initiator is locked"
-msgstr ""
+msgstr "iSCSI iniciátor je uzamčen"
 
 msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
+msgstr "iSCSI iniciátor je označen ke smazání"
 
 msgid "iSCSI Initiator is unlocked"
-msgstr ""
+msgstr "iSCSI iniciátor je odemčen"
 
 msgid "iSCSI Target"
 msgstr "iSCSI cíl"
 
 msgid "iSCSI Target CAM Target Layer"
-msgstr ""
+msgstr "Vrstva CAM cíle iSCSI cíle"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Řadič logických jednotek iSCSI cíle"
 
 msgid "iSCSI Target istgt"
-msgstr ""
+msgstr "istgt iSCSI cíle"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI cíl – informace a stav"
@@ -13181,22 +13274,22 @@ msgid "iSCSI initiator disabled."
 msgstr "iSCSI iniciátor je vypnutý."
 
 msgid "iSER - iSCSI over RDMA"
-msgstr ""
+msgstr "iSER – iSCSI přes RDMA"
 
 msgid "iSNS Period"
-msgstr ""
+msgstr "iSNS období"
 
 msgid "iSNS Server"
 msgstr "iSNS server"
 
 msgid "iSNS Server is locked"
-msgstr ""
+msgstr "iSNS server je uzamčen"
 
 msgid "iSNS Server is marked for deletion"
 msgstr "iSNS server je označen pro smazání"
 
 msgid "iSNS Server is unlocked"
-msgstr ""
+msgstr "iSNS server je odemčen"
 
 msgid "iSNS Servers"
 msgstr "iSNS servery"
@@ -13208,6 +13301,8 @@ msgid ""
 "iSNS registration period. Registered Network Entity not updated during this "
 "period will be unregistered. The default is 900."
 msgstr ""
+"Období iSNS registrace. Registrace síťové entity, která nebyla v tomto "
+"období aktualizována, bude zrušena. Výchozí je 900."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"
