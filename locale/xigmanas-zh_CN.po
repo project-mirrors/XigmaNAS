@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-12-20 06:14+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2018-12-27 13:34+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1218,6 +1218,20 @@ msgstr "备份设置"
 
 msgid "Backup File"
 msgstr "备份文件"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr "备份配置提醒。 最后一次配置备份早于已配置的时间间隔。"
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr "备份配置。 无法找到上次配置备份的日期。"
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr "备份配置。 上次配置备份的日期无效。"
 
 msgid "Backup/Restore"
 msgstr "备份/还原"
@@ -7962,6 +7976,9 @@ msgstr "刷新页面"
 msgid "Remaining battery runtime"
 msgstr "电池剩余时间"
 
+msgid "Reminder Settings"
+msgstr "提醒设置"
+
 msgid "Remote Address"
 msgstr "远程地址"
 
@@ -8749,6 +8766,11 @@ msgid ""
 msgstr ""
 "设置接口的最大传输单位为n，默认为指定的接口。 MTU用于限制在接口上传输的数据包的大小。 并非所有接口都支持设置MTU，并且一些接口具有范围限制。"
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr "设置提醒显示为备份系统配置的天数。 默认值为28天。 值为0将禁用此提醒。"
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "将警告阈值设置为80到89之间的值。"
 
@@ -8884,6 +8906,9 @@ msgstr "短自检"
 
 msgid "Show Default Groups"
 msgstr "显示默认组"
+
+msgid "Show Interval"
+msgstr "显示间隔"
 
 msgid "Show Log Entries"
 msgstr "显示日志条目"

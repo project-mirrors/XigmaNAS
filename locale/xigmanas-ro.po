@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
-"PO-Revision-Date: 2018-09-13 11:48+0000\n"
-"Last-Translator: Laurentiu Bubuianu <Unknown>\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"PO-Revision-Date: 2019-01-17 22:04+0000\n"
+"Last-Translator: peter <peterswebdesign2010@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -497,7 +497,7 @@ msgstr ""
 "unei erori sau unei defecțiuni la discuri (monitorizare S.M.A.R.T.)"
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Activeaza dispozitivul selectionat."
 
 msgid "Active"
 msgstr "Activ"
@@ -1108,6 +1108,7 @@ msgstr "Reporniți sistemul?"
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
+"Santeti sigur ca doriti reconfigurarea sistemului cu parametrii originali?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Opriți serverul?"
@@ -1328,6 +1329,26 @@ msgstr "Configurație backup"
 
 msgid "Backup File"
 msgstr "Fișier backup"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+"Aviz configuratie copie de securitate.Ultima copie de securitate a "
+"parametrilor este mai veche decat intervalul stabilit."
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+"Configuratie copie de securitate. Data ultimei copii de securitate nu se "
+"gaseste."
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr ""
+"Configuratie copie de securitate. Data ultimei copii de securitate este "
+"incorecta."
 
 msgid "Backup/Restore"
 msgstr "Salvare/Restaurare"
@@ -1586,7 +1607,7 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "Nume CHAP"
 
 msgid "CHAP Secret"
 msgstr ""
@@ -2433,7 +2454,7 @@ msgid "Current Password"
 msgstr "Parolă curentă"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Configuratie Actuala"
 
 msgid "Current Version"
 msgstr "Versiunea curentă"
@@ -3558,7 +3579,7 @@ msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr ""
 
 msgid "Do you want to disable selected WebDAV records?"
-msgstr ""
+msgstr "Doriți să dezactivați înregistrările WebDAV selectate?"
 
 msgid "Do you want to disable selected auth groups?"
 msgstr ""
@@ -3567,7 +3588,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Dezactivați comenzile selectate?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
+msgstr "Doriți să dezactivați inițiatorii iSCSI selectați?"
 
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Dezactivați serverele iSNS selectate?"
@@ -3582,7 +3603,7 @@ msgid "Do you want to disable selected jobs?"
 msgstr "Dezactivați activitățile selectate?"
 
 msgid "Do you want to disable selected listen records?"
-msgstr ""
+msgstr "Doriți să dezactivați înregistrările de ascultare selectate?"
 
 msgid "Do you want to disable selected option records?"
 msgstr ""
@@ -8458,6 +8479,9 @@ msgstr "Reîncărcare pagină"
 msgid "Remaining battery runtime"
 msgstr "Timp rămas acumulator"
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr "Adresă sistem remote"
 
@@ -9292,6 +9316,11 @@ msgstr ""
 "valorii MTU, unele dintre ele putînd avea restricții privind valorile "
 "posibile."
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
 
@@ -9427,6 +9456,9 @@ msgstr "Auto-test rapid"
 
 msgid "Show Default Groups"
 msgstr "Afișare grupuri implicite"
+
+msgid "Show Interval"
+msgstr ""
 
 msgid "Show Log Entries"
 msgstr "Afișare înregistrări log"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-19 03:39+0000\n"
+"POT-Creation-Date: 2018-12-21 21:52+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-12-21 08:01+0000\n"
-"X-Generator: Launchpad (build 18847)\n"
+"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
+"X-Generator: Launchpad (build 18856)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1218,6 +1218,20 @@ msgstr "備份設置"
 
 msgid "Backup File"
 msgstr "備份檔"
+
+msgid ""
+"Backup configuration reminder. The last configuration backup is older than "
+"the configured interval."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup cannot be "
+"found."
+msgstr ""
+
+msgid ""
+"Backup configuration. The date of the last configuration backup is invalid."
+msgstr ""
 
 msgid "Backup/Restore"
 msgstr "備份/還原"
@@ -7962,6 +7976,9 @@ msgstr "刷新頁面"
 msgid "Remaining battery runtime"
 msgstr "電池剩餘時間"
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr "遠程地址"
 
@@ -8749,6 +8766,11 @@ msgid ""
 msgstr ""
 "設置介面的最大傳輸單位為n，默認為指定的介面。 MTU用於限制在介面上傳輸的數據包的大小。 並非所有介面都支持設置MTU，並且一些介面具有範圍限制。"
 
+msgid ""
+"Set the number of days until a reminder is shown to backup system "
+"configuration. The default is 28 days. A value of 0 disables this reminder."
+msgstr ""
+
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "將警告閾值設置為80到89之間的值。"
 
@@ -8880,6 +8902,9 @@ msgstr "短自檢"
 
 msgid "Show Default Groups"
 msgstr "顯示默認組"
+
+msgid "Show Interval"
+msgstr ""
 
 msgid "Show Log Entries"
 msgstr "顯示日誌條目"
