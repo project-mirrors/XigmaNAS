@@ -189,7 +189,7 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="http://www.php.net" target="_blank">http://www.php.net</a>).',
-		'Copyright © 1999-2018 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2019 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank">https://www.phpmyadmin.net</a>).',
@@ -226,7 +226,7 @@ $software = [
 	]],
 	['smartmontools',[
 		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="http://sourceforge.net/projects/smartmontools/" target="_blank">http://sourceforge.net/projects/smartmontools</a>).',
-		'Copyright © 2002-2017 Bruce Allen, Christian Franke. All Rights Reserved.',
+		'Copyright © 2002-2018 Bruce Allen, Christian Franke. All Rights Reserved.',
 	]],
 	['Spinner.js',[
 		'A spinning activity indicator (<a href="https://github.com/fgnass/spin.js" target="_blank">https://github.com/fgnass/spin.js</a>).',
