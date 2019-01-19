@@ -182,112 +182,248 @@ function cli_zfs_info($name = '',$options = '') {
 	return $a_return;
 }
 /**
- * Configure, create and start a zpool.
- * @param[in] uuid	The UUID of the zpool.
- * @return Return 0 if successful, otherwise 1
+ *	Configure, create and start a zpool.
+ *	@global array $config
+ *	@param string $uuid The UUID of the zpool.
+ *	@return int Return 0 if successful, otherwise 1
  */
 function zfs_zpool_configure($uuid) {
 	global $config;
-	$param = '';
-	// get pool
-	if (!(isset($config['zfs']) && isset($config['zfs']['pools']) && isset($config['zfs']['pools']['pool']) && is_array($config['zfs']['pools']['pool']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['pools']['pool'], 'uuid'))) { return 1; }
+
+	$zpool_features = [
+//		FreeBSD 8.4, 9.2
+		'async_destroy',
+		'empty_bpobj',
+		'lz4_compress',
+//		FreeBSD 9.3
+		'multi_vdev_crash_dump',
+		'spacemap_histogram',
+		'enabled_txg',
+		'hole_birth',
+		'extensible_dataset',
+		'bookmarks',
+		'filesystem_limits',
+//		FreeBSD 10.2
+		'embedded_data',
+		'large_blocks',
+//		FreeBSD 11.0
+		'sha512',
+		'skein',
+//		FreeBSD 11.2
+		'zpool_checkpoint',
+		'device_removal',
+		'obsolete_counts',
+//		FreeBSD 12
+// 		'spacemap_v2'
+	];
+	$pool_devices = [
+		'stripe' => [],
+		'mirror' => [],
+		'raidz1' => [],
+		'raidz2' => [],
+		'raidz3' => [],
+		'l2arc' => [],
+		'log' => [],
+		'log-mirror' => [],
+		'spare' => []
+	];
+	$running_index = 0;
+	$a_param = [];
+	//	get pool
+	array_make_branch($config,'zfs','pools','pool');
+	$index = array_search_ex($uuid, $config['zfs']['pools']['pool'],'uuid');
+	if(false === $index):
+		return 1;
+	endif;
 	$pool = $config['zfs']['pools']['pool'][$index];
-	if (!is_array($pool)) { return 1; }
-	// get pool name
-	if (!(isset($pool['name']) && preg_match('/\S/', $pool['name']))) { return 1; }
+	if(!is_array($pool)):
+		return 1;
+	endif;
+	//	get pool name
+	if(!(isset($pool['name']) && preg_match('/\S/',$pool['name']))):
+		return 1;
+	endif;
 	$poolname = ltrim($pool['name']);
-	// get mount point
-	$mountpoint = sprintf('/mnt/%1$s', $poolname); // default mountmoint
-	if (isset($pool['mountpoint']) && preg_match('/\S/', $pool['mountpoint'])) { // alternative mountpoint replaces default mountpoint
+	//	get mount point
+	if(isset($pool['mountpoint']) && preg_match('/\S/',$pool['mountpoint'])):
+		//	alternative mountpoint
 		$mountpoint = ltrim($pool['mountpoint']);
-	}
-	$param .= sprintf('-m %1$s ', escapeshellarg($mountpoint));
-	// add force parameter if set
-	if (isset($pool['force'])) {
-		$param .= '-f ';
-	}
-	// add root parameter if set
-	if (isset($pool['root']) && preg_match('/\S/', $pool['root'])) {
-		$param .= sprintf('-R %1$s ', escapeshellarg($pool['root']));
-	}
-	// create the pool, keep blank - more parameters to follow
-	$cmd = sprintf('zpool create %1$s %2$s ', $param, escapeshellarg($pool['name']));
-	// Load nop class
-	if (@mwexec("/sbin/kldstat -q -m g_nop") != 0) {
-		write_log("Load NOP GEOM class");
-		@mwexec("/sbin/kldload geom_nop.ko");
-	}
-	$dev_cache = "";
-	$dev_log = "";
-	foreach ($pool['vdevice'] as $vdevicev) {
-		$index = array_search_ex($vdevicev, $config['zfs']['vdevices']['vdevice'], "name");
-		if (false === $index) { continue; }
-
+	else:
+		//	set default mountpoint
+		$mountpoint = sprintf('/mnt/%s',$poolname);
+	endif;
+	//	compose command
+	$a_param[] = 'zpool';
+	$a_param[] = 'create';
+	//	add force parameter if set
+	if(isset($pool['force'])):
+		$a_param[] = '-f';
+	endif;
+	//	do not enable all available features
+	$a_param[] = '-d';
+	//	enable selected feature flags
+	foreach($zpool_features as $zpool_feature):
+		$a_param[] = sprintf('-o feature@%s=enabled',$zpool_feature);
+	endforeach;
+	$a_param[] = '-m';
+	$a_param[] = escapeshellarg($mountpoint);
+	//	add root parameter if set
+	if(isset($pool['root']) && preg_match('/\S/',$pool['root'])):
+		$a_param[] = '-R';
+		$a_param[] = escapeshellarg($pool['root']);
+	endif;
+	//	add poolname
+	$a_param[] = escapeshellarg($poolname);
+	//	add pool vdevs
+	foreach($pool['vdevice'] as $vdevicev):
+		$index = array_search_ex($vdevicev,$config['zfs']['vdevices']['vdevice'],'name');
+		if(false === $index):
+			return 1;
+		endif;
 		$vdevice = $config['zfs']['vdevices']['vdevice'][$index];
-
-		switch ($vdevice['type']) {
-			case "stripe":
-			case "disk":
-				break;
-
-			case "cache":
-				$dev_cache = "{$vdevice['type']} ";
-				if (is_array($vdevice['device'])) {
-					foreach ($vdevice['device'] as $vdevicev) {
-						$dev_cache .= "{$vdevicev} ";
-					}
-				}
-				continue 2;
-
-			case "log":
-				$dev_log = "{$vdevice['type']} ";
-				if (is_array($vdevice['device'])) {
-					foreach ($vdevice['device'] as $vdevicev) {
-						$dev_log .= "{$vdevicev} ";
-					}
-				}
-				continue 2;
-
-			case "log-mirror":
-				$dev_log = "log mirror ";
-				if (is_array($vdevice['device'])) {
-					foreach ($vdevice['device'] as $vdevicev) {
-						$dev_log .= "{$vdevicev} ";
-					}
-				}
-				continue 2;
-
-			default:
-				$cmd .= "{$vdevice['type']} ";
-				break;
-		}
-
-		if (is_array($vdevice['device'])) {
-			foreach ($vdevice['device'] as $vdevicev) {
-				if (isset($vdevice['aft4k'])) {
-					$gnop_cmd = "gnop create -S 4096 {$vdevicev}";
-					write_log("$gnop_cmd");
-					$result = mwexec($gnop_cmd, true);
-					if ($result != 0) { return 1; }
-					$cmd .= "{$vdevicev}.nop ";
-				} else {
-					$cmd .= "{$vdevicev} ";
-				}
-			}
-		}
-	}
-	$cmd .= "{$dev_cache} ";
-	$cmd .= "{$dev_log} ";
-
+		if(array_key_exists('device',$vdevice) && is_array($vdevice['device']) && (count($vdevice['device']) > 0)):
+			switch($vdevice['type']):
+				case 'stripe':
+				case 'disk':
+				case 'file':
+					//	we can have as many data devices, collect them in a single row
+					$referer = 'stripe';
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'mirror':
+				case 'raidz1':
+				case 'raidz2':
+				case 'raidz3':
+					//	we can have as many vdevs, collect them in separate rows
+					$referer = $vdevice['type'];
+					$pool_devices[$referer][$running_index] = [];
+					$pool_devices[$referer][$running_index][] = $referer;
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][$running_index][] = escapeshellarg($device_name);
+					endforeach;
+					$running_index++;
+					break;
+				case 'cache':
+					//	we can have as many cache devices, collect them in a single row
+					$referer = 'l2arc';
+					if(count($pool_devices[$referer]) === 0):
+						$pool_devices[$referer][] = 'cache';
+					endif;
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'log':
+					//	only one log or log-mirror vdev definition allowed
+					$referer = 'log';
+					if(count($pool_devices['log-mirror']) !== 0):
+						return 1;
+					endif;
+					if(count($pool_devices[$referer]) !== 0):
+						return 1;
+					endif;
+					$pool_devices[$referer][] = 'log';
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'log-mirror':
+					//	only one log or log-mirror vdev definition allowed
+					$referer = 'log-mirror';
+					if(count($pool_devices['log']) !== 0):
+						return 1;
+					endif;
+					if(count($pool_devices[$referer]) !== 0):
+						return 1;
+					endif;
+					$pool_devices[$referer][] = 'log';
+					$pool_devices[$referer][] = 'mirror';
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'spare':
+					//	we can have as many spare devices, collect them in a sinle row
+					$referer = 'spare';
+					if(count($pool_devices[$referer]) === 0):
+						$pool_devices[$referer][] = 'spare';
+					endif;
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				default:
+					return 1;
+					break;
+			endswitch;
+		endif;
+	endforeach;
+	//	add stripe to command string
+	$referer = 'stripe';
+	if(count($pool_devices[$referer]) > 0):
+		$a_param[] = implode(' ',$pool_devices[$referer]);
+	endif;
+	//	add mirror(s) to command string
+	$referer = 'mirror';
+	if(count($pool_devices[$referer]) > 0):
+		foreach($pool_devices[$referer] as $row):
+			$a_param[] = implode(' ',$row);
+		endforeach;
+	endif;
+	//	add raidz1(s) to command string
+	$referer = 'raidz1';
+	if(count($pool_devices[$referer]) > 0):
+		foreach($pool_devices[$referer] as $row):
+			$a_param[] = implode(' ',$row);
+		endforeach;
+	endif;
+	//	add raidz2(s) to command string
+	$referer = 'raidz2';
+	if(count($pool_devices[$referer]) > 0):
+		foreach($pool_devices[$referer] as $row):
+			$a_param[] = implode(' ',$row);
+		endforeach;
+	endif;
+	//	add raidz3(s) to command string
+	$referer = 'raidz3';
+	if(count($pool_devices[$referer]) > 0):
+		foreach($pool_devices[$referer] as $row):
+			$a_param[] = implode(' ',$row);
+		endforeach;
+	endif;
+	//	add log(s) to command string
+	$referer = 'log';
+	if(count($pool_devices[$referer]) > 0):
+		$a_param[] = implode(' ',$pool_devices[$referer]);
+	endif;
+	//	add log-mirror(s) to command string
+	$referer = 'log-mirror';
+	if(count($pool_devices[$referer]) > 0):
+		$a_param[] = implode(' ',$pool_devices[$referer]);
+	endif;
+	//	add cache(s) to command string
+	$referer = 'l2arc';
+	if(count($pool_devices[$referer]) > 0):
+		$a_param[] = implode(' ',$pool_devices[$referer]);
+	endif;
+	//	add spare(s) to command string
+	$referer = 'spare';
+	if(count($pool_devices[$referer]) > 0):
+		$a_param[] = implode(' ',$pool_devices[$referer]);
+	endif;
+	//	execute command
+	$cmd = implode(' ',$a_param);
 	write_log($cmd);
-	$result = mwexec($cmd, true);
-	if (0 != $result) { return 1; }
-	// Modify access restrictions.
-	@chmod($mountpoint, octdec(777));
+	$result = mwexec($cmd,true);
+	if(0 != $result):
+		return 1;
+	endif;
+	//	Modify access restrictions.
+	@chmod($mountpoint,octdec(777));
 	return 0;
 }
-
 /**
  * Destroy a zpool.
  * @param[in] uuid	The UUID of the zpool.
@@ -417,18 +553,23 @@ function zfs_zpool_cmd($command, $param, $verbose = false, $stderr = true, $out 
 }
 
 /**
- * Configure, create and start a ZFS dataset.
- * @param[in] uuid	The UUID of the dataset to be configured.
- * @return Return 0 if successful, otherwise 1.
+ *	Configure, create and start a ZFS dataset.
+ *	@param[in] uuid	The UUID of the dataset to be configured.
+ *	@return Return 0 if successful, otherwise 1.
  */
 function zfs_dataset_configure($uuid) {
 	global $config;
-	// get dataset
-	if (!(isset($config['zfs']) && isset($config['zfs']['datasets']) && isset($config['zfs']['datasets']['dataset']) && is_array($config['zfs']['datasets']['dataset']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['datasets']['dataset'], "uuid"))) { return 1; }
+	//	get dataset
+	array_make_branch($config,'zfs','datasets','dataset');
+	$index = array_search_ex($uuid,$config['zfs']['datasets']['dataset'],'uuid');
+	if(false === $index):
+		return 1;
+	endif;
 	$dataset = $config['zfs']['datasets']['dataset'][$index];
-	if (!is_array($dataset)) { return 1; }
-	// get pool name
+	if(!is_array($dataset)):
+		return 1;
+	endif;
+	//	get pool name
 	if (!(isset($dataset['pool']) && is_array($dataset['pool']) && (0 < count($dataset['pool'])) && preg_match('/\S/', $dataset['pool'][0]))) { return 1; }
 	$poolname = ltrim($dataset['pool'][0]);
 	// get dataset name
