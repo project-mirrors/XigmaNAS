@@ -45,6 +45,8 @@ function get_sphere_services_samba_share_edit() {
 	$sphere->parent->set_basename('services_samba_share');
 	$sphere->set_notifier('smbshare');
 	$sphere->set_row_identifier('uuid');
+	$sphere->enadis(false);
+	$sphere->lock(false);
 	$sphere->grid = &array_make_branch($config,'samba','share');
 	if(!empty($sphere->grid)):
 		array_sort_key($sphere->grid,'name');
