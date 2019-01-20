@@ -308,32 +308,8 @@ function system_get_cpu_info() {
 	$cpuinfo = [];
 	$cpuinfo['number'] = chop(`/sbin/sysctl -n hw.ncpu`);
 	$cpuinfo['model'] = chop(`/sbin/sysctl -n hw.model`);
-	if(empty($cpuinfo['model'])):
-		$platform = chop(`/sbin/sysctl -n hw.platform`);
-		switch($platform):
-			case 'bcm2835':
-				$cpuinfo['model'] = 'Broadcom BCM2835';
-				break;
-			case 'bcm2836':
-				$cpuinfo['model'] = 'Broadcom BCM2836';
-				break;
-			case 'meson8b':
-				$cpuinfo['model'] = 'Amlogic S805';
-				break;
-			case 'a20':
-				$cpuinfo['model'] = 'Allwinner a20';
-				break;
-			default:
-				$cpuinfo['model'] = $platform;
-				break;
-		endswitch;
-	endif;
 	$cpuinfo['clockrate'] = chop(`/sbin/sysctl -n hw.clockrate`);
-	if($platform == 'a20'):
-		$cpuinfo['temperature'] = chop(`/sbin/sysctl -n dev.axp209_pmu.0.temp`);
-	else:
-		$cpuinfo['temperature'] = chop(`/sbin/sysctl -n hw.acpi.thermal.tz0.temperature`);
-	endif;
+	$cpuinfo['temperature'] = chop(`/sbin/sysctl -n hw.acpi.thermal.tz0.temperature`);
 	$cpus = system_get_cpus();
 	$cpuinfo['temperature2'] = [];
 	$temp = @exec("/sbin/sysctl -q -n dev.cpu.0.temperature");
