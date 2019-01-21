@@ -1,20 +1,6 @@
---- config-top.h.orig	2018-10-12 21:35:23.000000000 +0200
-+++ config-top.h	2019-01-12 21:58:22.000000000 +0100
-@@ -63,7 +63,7 @@
- /* The default value of the PATH variable. */
- #ifndef DEFAULT_PATH_VALUE
- #define DEFAULT_PATH_VALUE \
--  "/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:."
-+  "/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:%%LOCALBASE%%/sbin:%%LOCALBASE%%/bin"
- #endif
- 
- /* If you want to unconditionally set a value for PATH in every restricted
-@@ -74,11 +74,11 @@
-    the Posix.2 confstr () function, or CS_PATH define are not present. */
- #ifndef STANDARD_UTILS_PATH
- #define STANDARD_UTILS_PATH \
--  "/bin:/usr/bin:/sbin:/usr/sbin:/etc:/usr/etc"
-+  "/sbin:/bin:/usr/sbin:/usr/bin:/usr/games"
+--- config-top.h.orig	2016-05-19 18:34:02 UTC
++++ config-top.h
+@@ -74,7 +74,7 @@
  #endif
  
  /* Default primary and secondary prompt strings. */
