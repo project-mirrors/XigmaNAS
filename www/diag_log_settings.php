@@ -132,7 +132,7 @@ switch($page_mode):
 				$input_errors[] = $referer->get_message_error();
 				$sphere->row[$referer_name] = $sphere->grid['remote'][$referer_name];
 			else:
-				$sphere->row[$referer_name] = $referer_name->get_defaultvalue();
+				$sphere->row[$referer_name] = $referer->get_defaultvalue();
 			endif;
 		endif;
 		break;
