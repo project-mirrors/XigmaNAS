@@ -36,9 +36,31 @@ require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 require_once 'co_sphere.php';
 
-function zfspool_process_updatenotification($mode,$data) {
+function disks_zfs_zpool_get_sphere() {
 	global $config;
+	
+	$sphere = new co_sphere_grid('disks_zfs_zpool','php');
+	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->inform->set_basename($sphere->get_basename() . '_info');
+	$sphere->set_notifier('zfspool');
+	$sphere->set_row_identifier('uuid');
+	$sphere->enadis(false);
+	$sphere->lock(false);
+	$sphere->
+		setmsg_sym_add(gettext('Add Pool'))->
+		setmsg_sym_mod(gettext('Edit Pool'))->
+		setmsg_sym_inf(gettext('Pool Information'))->
+		setmsg_sym_del(gettext('Pool is marked for deletion'))->
+		setmsg_sym_loc(gettext('Pool is protected'))->
+		setmsg_sym_unl(gettext('Pool is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Pools'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected pools?'));
+	$sphere->grid = &array_make_branch($config,'zfs','pools','pool');
+	return $sphere;
+}
+function zfspool_process_updatenotification($mode,$data) {
 	global $g;
+	
 	$retval = 0;
 	$sphere = &disks_zfs_zpool_get_sphere();
 	switch($mode):
@@ -49,52 +71,47 @@ function zfspool_process_updatenotification($mode,$data) {
 			$retval |= zfs_zpool_properties($data);
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if(false !== $sphere->row_id):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
-				$retval |= zfs_zpool_destroy($data);
-				if($retval === 0):
+			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if(false !== $sphere->row_id):
+				$sphere->row = $sphere->grid[$sphere->row_id];
+				//	check if pool exists
+				$a_pools = [];
+				if(array_key_exists('name',$sphere->row)):
+					$a_pools = cli_zpool_info($sphere->row['name'],'name');
+				endif;
+				if(0 < count($a_pools)):
+					//	delete pool
+					$retval |= zfs_zpool_destroy($data);
+					if($retval === 0):
+						unset($sphere->grid[$sphere->row_id]);
+						write_config();
+						//	remove existing pool cache
+						conf_mount_rw();
+						unlink_if_exists(sprintf('%s/boot/zfs/zpool.cache',$g['cf_path']));
+						conf_mount_ro();
+					endif;
+				else:
+					//	delete orphaned config record
 					unset($sphere->grid[$sphere->row_id]);
 					write_config();
-					conf_mount_rw(); // remove existing pool cache
-					unlink_if_exists(sprintf('%s/boot/zfs/zpool.cache',$g['cf_path']));
-					conf_mount_ro();
 				endif;
 			endif;
 			break;
 	endswitch;
 	return $retval;
 }
-function disks_zfs_zpool_get_sphere() {
-	global $config;
-	$sphere = new co_sphere_grid('disks_zfs_zpool','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
-	$sphere->inform->set_basename($sphere->get_basename() . '_info');
-	$sphere->set_notifier('zfspool');
-	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Pool'));
-	$sphere->sym_mod(gettext('Edit Pool'));
-	$sphere->sym_inf(gettext('Pool Information'));
-	$sphere->sym_del(gettext('Pool is marked for deletion'));
-	$sphere->sym_loc(gettext('Pool is protected'));
-	$sphere->sym_unl(gettext('Pool is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Pools'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected pools?'));
-	$sphere->grid = &array_make_branch($config,'zfs','pools','pool');
-	return $sphere;
-}
 $sphere = &disks_zfs_zpool_get_sphere();
 if(empty($sphere->grid)):
 else:
 	array_sort_key($sphere->grid,'name');
 endif;
-
 if($_POST):
 	if(isset($_POST['apply']) && $_POST['apply']):
 		$retval = 0;
@@ -138,6 +155,7 @@ if($_POST):
 endif;
 $sphere_addon_grid = zfs_get_pool_list();
 $showusedavail = isset($config['zfs']['settings']['showusedavail']);
+$use_si = is_sidisksizevalues();
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Pools'),gtext('Management')];
 include 'fbegin.inc';
 echo $sphere->doj();
@@ -218,7 +236,6 @@ $document->render();
 		</thead>
 		<tbody>
 <?php
-			$use_si = is_sidisksizevalues();
 			foreach($sphere->grid as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
