@@ -94,6 +94,9 @@ $a_newdev = [];
 foreach($a_geom_available_provider as $potential_device):
 	if(false !== array_search($potential_device['name'],$a_reserved_devices)):
 		//	skip reserved devices
+		//	search provider id with name of reserved device
+		//	get geom id from geom ref
+		//	get consumer id -> provider ref from geom id	
 	elseif(0 === ($potential_device['mediasize'] ?? 0)):
 		//	skip read-only devices
 	else:
@@ -116,7 +119,6 @@ $b_remove_cache = $b_test || ($b_pool && (0 < count($a_pool_for_remove_cache)));
 $b_remove_log = $b_test || ($b_pool && (0 < count($a_pool_for_remove_log)));
 $b_remove_spare = $b_test || ($b_pool && (0 < count($a_pool_for_remove_spare)));
 $b_replace_data = $b_test || ($b_pool && (0 < count($a_pool_for_replace_data))); // (0 < count($a_newdev)) && 
-
 $l_command = [
 	'add.data' => ['name' => 'activity','value' => 'add.data','show' => $b_add_data,'default' => false,'longname' => gettext('Add a virtual device to a pool')],
 	'add.cache' => ['name' => 'activity','value' => 'add.cache','show' => $b_add_cache,'default' => false,'longname' => gettext('Add a cache device to a pool')],
@@ -160,7 +162,6 @@ $l_option = [
 	'stop' => ['name' => 'option','value' => 'stop','show' => true,'default' => false,'longname' => gettext('Stop')],
 	'view' => ['name' => 'option','value' => 'view','show' => true,'default' => false,'longname' => gettext('Display')],
 	'force' => ['name' => 'flag','value' => 'force','show' => true,'default' => false,'longname' => gettext('Force Operation')],
-	'sfaiapf' => ['name' => 'flag','value' => 'sfaiapf','show' => true,'default' => false,'longname' => gettext('Search for and import all disks found')],
 	'test' => ['name' => 'flag','value' => 'test','show' => true,'default' => false,'longname' => gettext('Test Mode')]
 ];
 $sphere_array['submit'] = false;
@@ -989,7 +990,7 @@ $document->render();
 					break;
 				case 'import':
 					$subcommand = 'import';
-					$o_flags = new co_zpool_flags(['force','sfaiapf','gptlabel','gptid'],$sphere_array['flag']);
+					$o_flags = new co_zpool_flags(['sfaiapf','force','gptlabel','import.autoexpand','import.readonly','gptid'],$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2: // import page: get flags
 							render_set_start();
@@ -1022,6 +1023,12 @@ $document->render();
 											if(is_dir('/dev/gptid')):
 												$a_param[] = '-d /dev/gptid';
 											endif;
+											break;
+										case 'import.readonly':
+											$a_param[]= '-o readonly=on';
+											break;
+										case 'import.autoexpand':
+											$a_param[]= '-o autoexpand=on';
 											break;
 										case 'sfaiapf':
 											$a_param[] = '-a';
