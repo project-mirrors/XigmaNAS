@@ -33,7 +33,10 @@
  */
 require_once 'util.inc';
 
-abstract class properties {
+/**
+ *	Adds additional characteristics to a variable
+ */
+abstract class property {
 	protected $x_owner = NULL;
 	protected $x_id = NULL;
 	protected $x_name = NULL;
@@ -144,10 +147,10 @@ abstract class properties {
 		return $this->x_message_warning;
 	}
 /**
- * Method to set filter type.
- * @param int $value Filter type.
- * @param string $filter_name Name of the filter, default is 'ui'.
- * @return object Returns $this.
+ *	Method to set filter type.
+ *	@param int $value Filter type.
+ *	@param string $filter_name Name of the filter, default is 'ui'.
+ *	@return object Returns $this.
  */
 	public function set_filter($value = NULL,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
@@ -159,10 +162,10 @@ abstract class properties {
 		return $this;
 	}
 /**
- * Method to set filter flags.
- * @param type $value Flags for filter.
- * @param string $filter_name Name of the filter, default is 'ui'.
- * @return object Returns $this.
+ *	Method to set filter flags.
+ *	@param type $value Flags for filter.
+ *	@param string $filter_name Name of the filter, default is 'ui'.
+ *	@return object Returns $this.
  */
 	public function set_filter_flags($value = NULL,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
@@ -174,10 +177,10 @@ abstract class properties {
 		return $this;
 	}
 /**
- * Method to set filter options.
- * @param array $value Filter options.
- * @param string $filter_name Name of the filter, default is 'ui'.
- * @return object Returns $this.
+ *	Method to set filter options.
+ *	@param array $value Filter options.
+ *	@param string $filter_name Name of the filter, default is 'ui'.
+ *	@return object Returns $this.
  */
 	public function set_filter_options($value = NULL,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
@@ -189,9 +192,9 @@ abstract class properties {
 		return $this;
 	}
 /**
- * Method returns the filter settings of $filter_name:
- * @param string $filter_name Name of the filter, default is 'ui'.
- * @return array If $filter_name exists the filter configuration is returned, otherwise NULL is returned.
+ *	Method returns the filter settings of $filter_name:
+ *	@param string $filter_name Name of the filter, default is 'ui'.
+ *	@return array If $filter_name exists the filter configuration is returned, otherwise NULL is returned.
  */
 	public function get_filter(string $filter_name = 'ui') {
 		if(array_key_exists($filter_name,$this->x_filter)):
@@ -199,22 +202,28 @@ abstract class properties {
 		endif;
 		return NULL;
 	}
+/**
+ *	Method to set a filter group
+ *	@param string $root_filter_name
+ *	@param array $filter_names
+ *	@return object Returns $this.
+ */
 	public function set_filter_group(string $root_filter_name = 'ui', array $filter_names) {
 		$this->x_filter_group[$root_filter_name] = $filter_names;
 		return $this;
 	}
 /**
- *
- * @param string $root_filter_name Name of the filter group
- * @return array Array with group members
+ *	Method to get a previously defined filter group
+ *	@param string $root_filter_name Name of the filter group
+ *	@return array Array with group members
  */
 	public function get_filter_group(string $root_filter_name = 'ui') {
 		return array_key_exists($root_filter_name,$this->x_filter_group) ? $this->x_filter_group[$root_filter_name] : [$root_filter_name];
 	}
 /**
- *
- * @param type $filter
- * @return array Array of filter names
+ *	Get a list of filter names og a group
+ *	@param type $filter
+ *	@return array Array of filter names
  */
 	public function get_filter_names($filter = 'ui') {
 		$filter_names = [];
@@ -471,7 +480,7 @@ abstract class properties {
 		return $return_data;
 	}
 }
-class property_text extends properties {
+class property_text extends property {
 	public $x_maxlength = 0;
 	public $x_placeholder = NULL;
 	public $x_placeholderv = NULL;
@@ -547,7 +556,7 @@ abstract class property_text_callback extends property_text {
 		return $this;
 	}
 }
-class property_textarea extends properties {
+class property_textarea extends property {
 	public $x_cols = 65;
 	public $x_maxlength = 0;
 	public $x_placeholder = NULL;
@@ -816,7 +825,7 @@ class property_uuid extends property_text {
 		return uuid();
 	}
 }
-class property_list extends properties {
+class property_list extends property {
 	public $x_options = NULL;
 
 	public function set_options(array $options = NULL) {
@@ -887,7 +896,7 @@ class property_list_multi extends property_list {
 		return $this;
 	}
 }
-class property_bool extends properties {
+class property_bool extends property {
 	public function filter_use_default() {
 		$filter_name = 'ui';
 		$this->
