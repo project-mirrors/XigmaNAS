@@ -27,7 +27,8 @@ Changes:
 - Upgrade msmtp to 1.8.2.
 - Upgrade sudo to 1.8.27.
 - Upgrade beadm to 1.3.0.
-- Upgrade bash to 5.0.
+- Upgrade bash to 5.0 p2.
+- Upgrade phpmyadmin to 4.8.5.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
