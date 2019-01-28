@@ -351,6 +351,10 @@ EOF
 				\$HTTP["remoteip"] == "$h" { url.access-deny = ( "~", ".inc", ".htpasswd" ) }
 			EOF
 		done
+	else
+		cat <<-EOF >> ${lighttpd_conf}
+			url.access-deny = ( "~", ".inc", ".htpasswd" )
+		EOF
 	fi
 	# set temporary directory
 	cat <<-EOF >> ${lighttpd_conf}
