@@ -27,7 +27,6 @@
     SUBDIR += ipmitool
     SUBDIR += isboot
     SUBDIR += istgt
-    SUBDIR += libvncserver
     SUBDIR += lighttpd
     SUBDIR += lcdproc
     SUBDIR += locale

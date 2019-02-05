@@ -28,6 +28,7 @@ Changes:
 - Upgrade bash to 5.0 p2.
 - Upgrade phpmyadmin to 4.8.5.
 - Upgrade lighttpd to 1.4.53.
+- Upgrade libvncserver to 0.9.12.
 - Upgrade virtualbox-ose to 5.2.26.
 
 Fixes:
