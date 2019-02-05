@@ -887,16 +887,14 @@ $(document).ready(function(){
 									endif;
 									$vminfo = get_vbox_vminfo($vbox_user, $uuid);
 									$vram = $vminfo['memory']['value'];
-									echo "<tr><td><div id='vminfo2_$index'>";
+									echo '<tr><td>';
 									echo htmlspecialchars("$vmtype: $vm ($vram MiB)");
-									if(isset($vminfo['vrde']) && $vminfo['vrde']['value'] == "on"):
+									if(isset($vminfo['vrde']) && $vminfo['vrde']['value'] == 'on'):
+										echo ' VNC: ';
 										$vncport = $vminfo['vrdeport']['value'];
-										$url = htmlspecialchars("/novnc/vnc.html?host={$vbox_ipaddr}&port={$vncport}");
-										echo " VNC: <a href='{$url}' target=_blank>";
-										echo htmlspecialchars("/{$vbox_ipaddr}:{$vncport}/");
-										echo "</a>";
+										echo htmlspecialchars(sprintf('%s:%s',$vbox_ipaddr,$vncport));
 									endif;
-									echo "</div></td></tr>\n";
+									echo '</td></tr>',PHP_EOL;
 									if(++$index < count($vmlist2)):
 										echo "<tr><td><hr size='1' /></td></tr>\n";
 									endif;

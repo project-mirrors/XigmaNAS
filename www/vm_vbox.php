@@ -108,7 +108,7 @@ $(window).on("load", function() {
 	//	Init spinner on submit for id iform.
 ?>
 	$("#iform").submit(function() { spinner(); });
-}); 
+});
 //]]>
 </script>
 <form action="vm_vbox.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
@@ -180,27 +180,6 @@ $(window).on("load", function() {
 				$url = '/phpvirtualbox/index.html';
 				$link = sprintf('<a href="%1$s" id="a_url1" target="_blank">%1$s</a>',$url);
 				html_text2('url1',gettext('URL'),$link);
-?>
-			</tbody>
-		</table>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php			
-				html_separator2();
-				html_titleline2(sprintf('%s (%s)',gettext('Administrative WebGUI'),gettext('noVNC')));
-?>
-			</thead>
-			<tbody>
-<?php
-				$if = get_ifname($config['interfaces']['lan']['if']);
-				$ipaddr = get_ipaddr($if);
-				$url = '/novnc/vnc.html';
-				$link = sprintf('<a href="%1$s?host=%2$s" id="a_url2" target="_blank">%1$s</a>',$url,$ipaddr);
-				html_text2('url2',gettext('URL'),$link);
 ?>
 			</tbody>
 		</table>
