@@ -37,7 +37,6 @@
     SUBDIR += msmtp
     SUBDIR += nano
     SUBDIR += netatalk3
-    SUBDIR += novnc
     SUBDIR += nss-ldap
     SUBDIR += nut
     SUBDIR += open-vm-tools
