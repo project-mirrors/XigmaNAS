@@ -1710,19 +1710,7 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 		[ ! -d "$s" ] && continue
 		port=`basename $s`
 		state=`cat $s/pkg-state`
-		if [ "i386" = ${XIGMANAS_ARCH} ]; then
-			for forceoff in grub2-bhyve novnc open-vm-tools phpvirtualbox vbox vbox-additions xmd; do
-				if [ "$port" = "$forceoff" ]; then
-					state="OFF"; break;
-				fi
-			done
-		elif [ "amd64" = ${XIGMANAS_ARCH} ]; then
-			for forceoff in xmd; do
-				if [ "$port" = "$forceoff" ]; then
-					state="OFF"; break;
-				fi
-			done
-		elif [ "dom0" = ${XIGMANAS_XARCH} ]; then
+		if [ "dom0" = ${XIGMANAS_XARCH} ]; then
 			for forceoff in firefly fuppes grub2-bhyve inadyn-mt minidlna netatalk3 open-vm-tools phpvirtualbox samba42 transmission vbox vbox-additions; do
 				if [ "$port" = "$forceoff" ]; then
 					state="OFF"; break;
