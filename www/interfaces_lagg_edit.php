@@ -39,7 +39,7 @@ function interfaces_lagg_edit_get_sphere() {
 	global $config;
 	$sphere = new co_sphere_row('interfaces_lagg_edit','php');
 	$sphere->set_row_identifier('uuid');
-	$sphere->parent->set_basename('interfaces_lagg','php');
+	$sphere->get_parent()->set_basename('interfaces_lagg','php');
 	$sphere->row_default = [
 		'enable' => true,
 		'protected' => false,
@@ -66,7 +66,7 @@ $hide_button_save = false;
 if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]))):
 	switch($action):
 		case 'cancel':
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 			break;
 		case 'clone':
@@ -76,18 +76,18 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 		case 'save':
 			$id = filter_input(INPUT_POST,$sphere->get_row_identifier(),FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 			if(false === $id):
-				header($sphere->parent->get_location());
+				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
 			if(!is_uuid_v4($id)):
-				header($sphere->parent->get_location());
+				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
 			$sphere->row[$sphere->get_row_identifier()] = $id;
 			$mode_page = PAGE_MODE_POST;
 			break;
 		default:
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 			break;
 	endswitch;
@@ -100,23 +100,23 @@ elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['
 		case 'edit':
 			$id = filter_input(INPUT_GET,$sphere->get_row_identifier(),FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 			if(false === $id):
-				header($sphere->parent->get_location());
+				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
 			if(!is_uuid_v4($id)):
-				header($sphere->parent->get_location());
+				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
 			$sphere->row[$sphere->get_row_identifier()] = $id;
 			$mode_page = PAGE_MODE_EDIT;
 			break;
 		default:
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 			break;
 	endswitch;
 else:
-	header($sphere->parent->get_location());
+	header($sphere->get_parent()->get_location());
 	exit;
 endif;
 $sphere->row_id = array_search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
@@ -124,7 +124,7 @@ $isrecordnew = (false === $sphere->row_id);
 switch($mode_page):
 	case PAGE_MODE_ADD:
 		if(!$isrecordnew): // add cannot have an uuid in config
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 		endif;	
 		$sphere->row['enable'] = $sphere->row_default['enable'];
@@ -142,7 +142,7 @@ switch($mode_page):
 		break;
 	case PAGE_MODE_CLONE: // clone cannot have an uuid in config
 		if(!$isrecordnew):
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 		endif;
 		$sphere->row['enable'] = filter_input(INPUT_POST,'enable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
@@ -162,7 +162,7 @@ switch($mode_page):
 		break;
 	case PAGE_MODE_EDIT:
 		if($isrecordnew): // edit relies on an existing record
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 		endif;
 		$sphere->row['enable'] = isset($sphere->grid[$sphere->row_id]['enable']) && (is_bool($sphere->grid[$sphere->row_id]['enable']) ? $sphere->grid[$sphere->row_id]['enable'] : true);
@@ -213,7 +213,7 @@ switch($mode_page):
 			$sphere->upsert();
 			write_config();
 			touch($d_sysrebootreqd_path);
-			header($sphere->parent->get_location());
+			header($sphere->get_parent()->get_location());
 			exit;
 		endif;
 		break;
