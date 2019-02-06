@@ -95,7 +95,7 @@ if (isset($_POST['save']) && $_POST['save']) {
 				change_perms("{$_POST['storage_path']}/rrd");	// check/set permissions
 			}
 			$config['rrdgraphs']['storage_path'] = $_POST['storage_path'];
-			$_POST['graph_h'] = trim($_POST['graph_h']);  
+			$_POST['graph_h'] = trim($_POST['graph_h']);
 			$config['rrdgraphs']['graph_h'] = !empty($_POST['graph_h']) ? $_POST['graph_h'] : 200;
 			$config['rrdgraphs']['refresh_time'] = !empty($_POST['refresh_time']) ? $_POST['refresh_time'] : 300;
 			$config['rrdgraphs']['autoscale'] = isset($_POST['autoscale']);
