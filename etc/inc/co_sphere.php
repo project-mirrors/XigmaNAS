@@ -331,7 +331,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	}
 	public function toggle() {
 		global $config;
-		return $this->get_enadis() && isset($config['system']['enabletogglemode']) && (is_bool($config['system']['enabletogglemode']) ? $config['system']['enabletogglemode'] : true);
+		return $this->is_enadis_enabled() && isset($config['system']['enabletogglemode']) && (is_bool($config['system']['enabletogglemode']) ? $config['system']['enabletogglemode'] : true);
 	}
 	public function get_cbm_suffix() {
 		return $this->x_cbm_suffix;
@@ -713,7 +713,7 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		$output[] = '$(window).on("load", function() {';
 		//	Init action buttons.
-		if($this->get_enadis()):
+		if($this->is_enadis_enabled()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
 				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
@@ -747,7 +747,7 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		$output[] = '});';
 		$output[] = 'function ab_disable' . $this->get_cbm_suffix() . '(flag) {';
-		if($this->get_enadis()):
+		if($this->is_enadis_enabled()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").prop("disabled",flag);';
 			else:
@@ -777,7 +777,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function get_js_on_load() {
 		$output = [];
 		//	Init action buttons.
-		if($this->get_enadis()):
+		if($this->is_enadis_enabled()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
 				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
@@ -809,7 +809,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function get_js() {
 		$output = [];
 		$output[] = 'function ab_disable' . $this->get_cbm_suffix() . '(flag) {';
-		if($this->get_enadis()):
+		if($this->is_enadis_enabled()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").prop("disabled",flag);';
 			else:
