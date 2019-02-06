@@ -56,11 +56,11 @@ function smbshare_process_updatenotification($mode,$data) {
 function services_samba_share_get_sphere() {
 	global $config;
 	$sphere = new co_sphere_grid('services_samba_share','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('smbshare');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_sym_add(gettext('Add Samba Share'))->
 		setmsg_sym_mod(gettext('Edit Samba Share'))->
@@ -241,8 +241,8 @@ echo $sphere->doj();
 			foreach($sphere->grid as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$enabled = $sphere->enadis() ? isset($sphere->row['enable']) : true;
-				$notprotected = $sphere->lock() ? !isset($sphere->row['protected']) : true;
+				$enabled = $sphere->get_enadis() ? isset($sphere->row['enable']) : true;
+				$notprotected = $sphere->get_lock() ? !isset($sphere->row['protected']) : true;
 ?>
 				<tr>
 					<td class="<?=$enabled ? "lcelc" : "lcelcd";?>">
@@ -281,7 +281,7 @@ echo $sphere->doj();
 	</table>
 	<div id="submit">
 <?php
-		if($sphere->enadis()):
+		if($sphere->get_enadis()):
 			if($sphere->toggle()):
 				echo $sphere->html_button_toggle_rows();
 			else:
