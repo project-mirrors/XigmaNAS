@@ -62,18 +62,19 @@ function routes_process_updatenotification($mode,$data) {
 function system_routes_get_sphere() {
 	global $config;
 	$sphere = new co_sphere_grid('system_routes','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('routes');
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(false);
 	$sphere->lock(false);
-	$sphere->sym_add(gettext('Add Route'));
-	$sphere->sym_mod(gettext('Edit Route'));
-	$sphere->sym_del(gettext('Route is marked for deletion'));
-	$sphere->sym_loc(gettext('Route is protected'));
-	$sphere->sym_unl(gettext('Route is unlocked'));
-	$sphere->cbm_delete(gettext('Delete Selected Routes'));
-	$sphere->cbm_delete_confirm(gettext('Do you want to delete selected routes?'));
+	$sphere->
+		setmsg_sym_add(gettext('Add Route'))->
+		setmsg_sym_mod(gettext('Edit Route'))->
+		setmsg_sym_del(gettext('Route is marked for deletion'))->
+		setmsg_sym_loc(gettext('Route is protected'))->
+		setmsg_sym_unl(gettext('Route is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Routes'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected routes?'));
 	$sphere->grid = &array_make_branch($config,'staticroutes','route');
 	return $sphere;
 }
@@ -100,7 +101,7 @@ if($_POST):
 					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						switch ($mode_updatenotify):
-							case UPDATENOTIFY_MODE_NEW:  
+							case UPDATENOTIFY_MODE_NEW:
 								updatenotify_clear($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 								break;
