@@ -31,56 +31,30 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
  */
-/*
- *	require_once 'wui2.php';
- *	global $config;
- *	global $g_img;
- */
-
 class co_sphere_scriptname {
-	protected $_basename = NULL;
-	protected $_extension = NULL;
+	protected $x_basename = NULL;
+	protected $x_extension = NULL;
 //	methods
 	public function __construct(string $basename = NULL,string $extension = NULL) {
 		$this->set_basename($basename);
 		$this->set_extension($extension);
 	}
-	public function basename(string $basename = NULL) {
-		if(isset($basename) && (1 === preg_match('/^[\w]+$/',$basename))):
-			//	allow [0..9A-Za-z_] for filename
-			$this->_basename = $basename;
-		endif;
-		return $this->_basename ?? false;
-	}
-	public function set_basename(string $basename = NULL) {
-		$this->_basename = $basename;
-		return $this->get_basename();
+	public function set_basename(string $basename) {
+		$this->x_basename = $basename;
+		return $this;
 	}
 	public function get_basename() {
-		return $this->_basename ?? false;
+		return $this->x_basename;
 	}
-	public function extension(string $extension = NULL) {
-		if(isset($extension) && (1 === preg_match('/^[\w]+$/',$extension))):
-			//	allow [0..9A-Za-z_] for extension
-			$this->_extension = $extension;
-		endif;
-		return $this->_extension ?? false;
-	}
-	public function set_extension(string $extension = NULL) {
-		$this->_extension = $extension;
-		return $this->get_extension();
+	public function set_extension(string $extension) {
+		$this->x_extension = $extension;
+		return $this;
 	}
 	public function get_extension() {
-		return $this->_extension ?? false;
-	}
-	public function scriptname() {
-		return sprintf('%s.%s',$this->get_basename(),$this->get_extension());
+		return $this->x_extension;
 	}
 	public function get_scriptname() {
 		return sprintf('%s.%s',$this->get_basename(),$this->get_extension());
-	}
-	public function header() {
-		return sprintf('Location: %s.%s',$this->get_basename(),$this->get_extension());
 	}
 	public function get_location() {
 		return sprintf('Location: %s',$this->get_scriptname());
@@ -89,14 +63,11 @@ class co_sphere_scriptname {
 class co_sphere_level1 extends co_sphere_scriptname { // for settings, services, row and grid
 //	parent
 	public $parent = NULL;
-//	grid related
 	public $grid = [];
 	public $row = [];
 	public $row_default = [];
-//	modes
-	protected $_enadis = NULL;
-//	html class tags
-	protected $_class_button = 'formbtn';
+	protected $x_enadis = false;
+	protected $x_class_button = 'formbtn';
 //	constructor
 	public function __construct(string $basename = NULL,string $extension = NULL) {
 		parent::__construct($basename,$extension);
@@ -104,13 +75,32 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	}
 //	methods
 	public function get_parent() {
+		if(!is_object($this->parent)):
+			$this->parent = new co_sphere_scriptname($this->get_basename(),$this->get_extension());
+		endif;
 		return $this->parent;
+	}
+	/**
+	 *	Enable/disable enable/disable option
+	 *	@param bool $flag
+	 *	@return $this
+	 */
+	public function set_enadis(bool $flag = false) {
+		$this->x_enadis = $flag;
+		return $this;
+	}
+	/**
+	 *	Returns the status of the enable/disable option.
+	 *	@return bool
+	 */
+	public function get_enadis() {
+		return $this->x_enadis;
 	}
 	public function enadis(bool $flag = NULL) {
 		if(isset($flag)):
-			$this->_enadis = $flag;
+			$this->x_enadis = $flag;
 		endif;
-		return $this->_enadis ?? false;
+		return $this->x_enadis ?? false;
 	}
 	public function escape_javascript(string $data = '') {
 		return str_replace(['"',"'"],['\u0022','\u0027'],$data);
@@ -143,7 +133,7 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 		$button_attributes = [
 			'name' => 'submit',
 			'type' => 'submit',
-			'class' => $this->_class_button,
+			'class' => $this->x_class_button,
 			'value' => $value,
 			'id' => $id
 		];
@@ -156,59 +146,79 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	}
 }
 class co_sphere_level2 extends co_sphere_level1 { // for row and grid
-//	transaction manager
-	protected $_notifier = NULL;
-//	grid related
+	protected $x_notifier = NULL;
 	public $row_id = NULL;
-	protected $_row_identifier = NULL;
-//	modes
-	protected $_lock = NULL;
+	protected $x_row_identifier = NULL;
+	protected $x_lock = false;
 //	methods
+	/**
+	 *	Enable/disable record lock support
+	 *	@param bool $flag
+	 *	@return $this
+	 */
+	public function set_lock(bool $flag = false) {
+		$this->x_lock = $flag;
+		return $this;
+	}
+	/**
+	 *	Returns true when record lock support is enabled
+	 *	@return bool
+	 */
+	public function get_lock() {
+		return $this->x_lock;
+	}
 	public function lock(bool $flag = NULL) {
 		if(isset($flag)):
-			$this->_lock = $flag;
+			$this->x_lock = $flag;
 		endif;
-		return $this->_lock ?? false;
+		return $this->x_lock ?? false;
 	}
 	public function notifier(string $notifier = NULL) {
 		if(isset($notifier)):
 			if(1 === preg_match('/^[\w]+$/',$notifier)):
-				$this->_notifier = $notifier;
-				$this->_notifier_processor = $notifier . '_process_updatenotification';
+				$this->x_notifier = $notifier;
+				$this->x_notifier_processor = $notifier . '_process_updatenotification';
 			endif;
 		endif;
-		return $this->_notifier ?? false;
+		return $this->x_notifier ?? false;
 	}
 	public function set_notifier(string $notifier = NULL) {
 		if(isset($notifier)):
-			$this->_notifier = $notifier;
-			$this->_notifier_processor = $notifier . '_process_updatenotification';
+			$this->x_notifier = $notifier;
+			$this->x_notifier_processor = $notifier . '_process_updatenotification';
 		else:
-			$this->_notifier = $notifier;
-			$this->_notifier_processor = '_process_updatenotification';
+			$this->x_notifier = $notifier;
+			$this->x_notifier_processor = '_process_updatenotification';
 		endif;
 		return $this->get_notifier();
 	}
 	public function get_notifier() {
-		return $this->_notifier ?? false;
+		return $this->x_notifier ?? false;
 	}
 	public function row_identifier(string $row_identifier = NULL) {
 		if(isset($row_identifier)):
 			if(1 === preg_match('/^[a-z]+$/',$row_identifier)):
-				$this->_row_identifier = $row_identifier;
+				$this->x_row_identifier = $row_identifier;
 			endif;
 		endif;
-		return $this->_row_identifier ?? false;
+		return $this->x_row_identifier ?? false;
 	}
-	public function set_row_identifier(string $row_identifier = NULL) {
-		$this->_row_identifier = $row_identifier;
-		return $this->get_row_identifier();
+	public function set_row_key($key = NULL) {
+		$this->row_id = $key;
+		return $this;
+	}
+	public function get_row_key() {
+		return $this->row_id;
 	}
 	public function get_row_identifier() {
-		return $this->_row_identifier ?? false;
+		return $this->x_row_identifier ?? false;
+	}
+	public function set_row_identifier(string $row_identifier = NULL) {
+		$this->x_row_identifier = $row_identifier;
+		return $this->get_row_identifier();
 	}
 	public function get_row_identifier_value() {
-		return $this->row[$this->_row_identifier] ?? NULL;
+		return $this->row[$this->x_row_identifier] ?? NULL;
 	}
 }
 class co_sphere_settings extends co_sphere_level1 {
@@ -221,15 +231,7 @@ class co_sphere_settings extends co_sphere_level1 {
 	}
 }
 class co_sphere_row extends co_sphere_level2 {
-//	modes
-	protected $_protectable;
 //	methods
-	public function protectable(bool $flag = NULL) {
-		if(isset($flag)):
-			$this->_protectable = $flag;
-		endif;
-		return $this->_protectable ?? false;
-	}
 	public function doj(bool $with_envelope = true) {
 		$output = [];
 		if($with_envelope):
@@ -265,45 +267,45 @@ class co_sphere_grid extends co_sphere_level2 {
 	public $maintain = NULL; // maintenance
 	public $inform = NULL; // information
 //	transaction manager
-	protected $_notifier_processor = NULL;
-	protected $_cbm_suffix = '';
+	protected $x_notifier_processor = NULL;
+	protected $x_cbm_suffix = '';
 //	checkbox member array
-	protected $_cbm_name = 'cbm_grid';
+	protected $x_cbm_name = 'cbm_grid';
 	public $cbm_grid = [];
 	public $cbm_row = [];
 //	gtext
-	protected $_cbm_delete = NULL;
-	protected $_cbm_disable = NULL;
-	protected $_cbm_enable = NULL;
-	protected $_cbm_lock = NULL;
-	protected $_cbm_toggle = NULL;
-	protected $_cbm_unlock = NULL;
-	protected $_cbm_delete_confirm = NULL;
-	protected $_cbm_disable_confirm = NULL;
-	protected $_cbm_enable_confirm = NULL;
-	protected $_cbm_lock_confirm = NULL;
-	protected $_cbm_toggle_confirm = NULL;
-	protected $_cbm_unlock_confirm = NULL;
-	protected $_sym_add = NULL;
-	protected $_sym_mod = NULL;
-	protected $_sym_del = NULL;
-	protected $_sym_loc = NULL;
-	protected $_sym_unl = NULL;
-	protected $_sym_mai = NULL;
-	protected $_sym_inf = NULL;
-	protected $_sym_mup = NULL;
-	protected $_sym_mdn = NULL;
+	protected $x_cbm_delete = NULL;
+	protected $x_cbm_disable = NULL;
+	protected $x_cbm_enable = NULL;
+	protected $x_cbm_lock = NULL;
+	protected $x_cbm_toggle = NULL;
+	protected $x_cbm_unlock = NULL;
+	protected $x_cbm_delete_confirm = NULL;
+	protected $x_cbm_disable_confirm = NULL;
+	protected $x_cbm_enable_confirm = NULL;
+	protected $x_cbm_lock_confirm = NULL;
+	protected $x_cbm_toggle_confirm = NULL;
+	protected $x_cbm_unlock_confirm = NULL;
+	protected $x_sym_add = NULL;
+	protected $x_sym_mod = NULL;
+	protected $x_sym_del = NULL;
+	protected $x_sym_loc = NULL;
+	protected $x_sym_unl = NULL;
+	protected $x_sym_mai = NULL;
+	protected $x_sym_inf = NULL;
+	protected $x_sym_mup = NULL;
+	protected $x_sym_mdn = NULL;
 //	html id tags
-	protected $_cbm_button_id_delete = 'delete_selected_rows';
-	protected $_cbm_button_id_disable = 'disable_selected_rows';
-	protected $_cbm_button_id_enable = 'enable_selected_rows';
-	protected $_cbm_button_id_toggle = 'toggle_selected_rows';
-	protected $_cbm_checkbox_id_toggle = 'togglemembers';
+	protected $x_cbm_button_id_delete = 'delete_selected_rows';
+	protected $x_cbm_button_id_disable = 'disable_selected_rows';
+	protected $x_cbm_button_id_enable = 'enable_selected_rows';
+	protected $x_cbm_button_id_toggle = 'toggle_selected_rows';
+	protected $x_cbm_checkbox_id_toggle = 'togglemembers';
 //	html value tags
-	protected $_cbm_button_val_delete = 'rows.delete';
-	protected $_cbm_button_val_disable = 'rows.disable';
-	protected $_cbm_button_val_enable = 'rows.enable';
-	protected $_cbm_button_val_toggle = 'rows.toggle';
+	protected $x_cbm_button_val_delete = 'rows.delete';
+	protected $x_cbm_button_val_disable = 'rows.disable';
+	protected $x_cbm_button_val_enable = 'rows.enable';
+	protected $x_cbm_button_val_toggle = 'rows.toggle';
 //	constructor
 	public function __construct(string $basename = NULL,string $extension = NULL) {
 		parent::__construct($basename,$extension);
@@ -313,392 +315,401 @@ class co_sphere_grid extends co_sphere_level2 {
 	}
 //	methods
 	public function get_modify() {
+		if(!is_object($this->modify)):
+			$this->modify = new co_sphere_scriptname($this->get_basename(),$this->get_extension());
+		endif;
 		return $this->modify;
 	}
 	public function get_maintain() {
+		if(!is_object($this->maintain)):
+			$this->maintain = new co_sphere_scriptname($this->get_basename(),$this->get_extension());
+		endif;
 		return $this->maintain;
 	}
 	public function get_inform() {
+		if(!is_object($this->inform)):
+			$this->inform = new co_sphere_scriptname($this->get_basename(),$this->get_extension());
+		endif;
 		return $this->inform;
 	}
 	public function get_notifier_processor() {
-		return $this->_notifier_processor ?? false;
+		return $this->x_notifier_processor ?? false;
 	}
 	public function toggle() {
 		global $config;
-		return $this->enadis() && isset($config['system']['enabletogglemode']) && (is_bool($config['system']['enabletogglemode']) ? $config['system']['enabletogglemode'] : true);
+		return $this->get_enadis() && isset($config['system']['enabletogglemode']) && (is_bool($config['system']['enabletogglemode']) ? $config['system']['enabletogglemode'] : true);
 	}
 	public function get_cbm_suffix() {
-		return $this->_cbm_suffix;
+		return $this->x_cbm_suffix;
 	}
 	public function set_cbm_suffix(string $value) {
 		if(preg_match('/^[a-z\d_]+$/i',$value)):
-			$this->_cbm_suffix = $value;
+			$this->x_cbm_suffix = $value;
 		endif;
 		return $this;
 	}
 	public function get_cbm_name() {
-		return $this->_cbm_name . $this->get_cbm_suffix();
+		return $this->x_cbm_name . $this->get_cbm_suffix();
 	}
 	public function set_cbm_name(string $value) {
 		if(preg_match('/^\S+$/i',$value)):
-			$this->_cbm_name = $value;
+			$this->x_cbm_name = $value;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_id_delete() {
-		return $this->_cbm_button_id_delete . $this->get_cbm_suffix();
+		return $this->x_cbm_button_id_delete . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_delete(string $id) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_id_delete = $id;
+			$this->x_cbm_button_id_delete = $id;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_id_disable() {
-		return $this->_cbm_button_id_disable . $this->get_cbm_suffix();
+		return $this->x_cbm_button_id_disable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_disable(string $id) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_id_disable = $id;
+			$this->x_cbm_button_id_disable = $id;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_id_enable() {
-		return $this->_cbm_button_id_enable . $this->get_cbm_suffix();
+		return $this->x_cbm_button_id_enable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_enable(string $id) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_id_enable = $id;
+			$this->x_cbm_button_id_enable = $id;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_id_toggle() {
-		return $this->_cbm_button_id_toggle . $this->get_cbm_suffix();
+		return $this->x_cbm_button_id_toggle . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_toggle(string $id) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_id_toggle = $id;
+			$this->x_cbm_button_id_toggle = $id;
 		endif;
 		return $this;
 	}
 	public function get_cbm_checkbox_id_toggle() {
-		return $this->_cbm_checkbox_id_toggle . $this->get_cbm_suffix();
+		return $this->x_cbm_checkbox_id_toggle . $this->get_cbm_suffix();
 	}
 	public function set_cbm_checkbox_id_toggle(string $id) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_checkbox_id_toggle = $id;
+			$this->x_cbm_checkbox_id_toggle = $id;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_val_delete() {
-		return $this->_cbm_button_val_delete . $this->get_cbm_suffix();
+		return $this->x_cbm_button_val_delete . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_delete(string $value) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_val_delete = $value;
+			$this->x_cbm_button_val_delete = $value;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_val_disable() {
-		return $this->_cbm_button_val_disable . $this->get_cbm_suffix();
+		return $this->x_cbm_button_val_disable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_disable(string $value) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_val_disable = $value;
+			$this->x_cbm_button_val_disable = $value;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_val_enable() {
-		return $this->_cbm_button_val_enable . $this->get_cbm_suffix();
+		return $this->x_cbm_button_val_enable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_enable(string $value) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_val_enable = $value;
+			$this->x_cbm_button_val_enable = $value;
 		endif;
 		return $this;
 	}
 	public function get_cbm_button_val_toggle() {
-		return $this->_cbm_button_val_toggle . $this->get_cbm_suffix();
+		return $this->x_cbm_button_val_toggle . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_toggle(string $value) {
 		if(preg_match('/^\S+$/',$id)):
-			$this->_cbm_button_val_toggle = $value;
+			$this->x_cbm_button_val_toggle = $value;
 		endif;
 		return $this;
 	}
 	public function cbm_delete(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_delete = $message;
+			$this->x_cbm_delete = $message;
 		endif;
-		return $this->_cbm_delete ?? gettext('Delete Selected Records');
+		return $this->x_cbm_delete ?? gettext('Delete Selected Records');
 	}
 	public function cbm_delete_confirm(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_delete_confirm = $message;
+			$this->x_cbm_delete_confirm = $message;
 		endif;
-		return $this->_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
+		return $this->x_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
 	}
 	public function cbm_disable(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_disable = $message;
+			$this->x_cbm_disable = $message;
 		endif;
-		return $this->_cbm_disable ?? gettext('Disable Selected Records');
+		return $this->x_cbm_disable ?? gettext('Disable Selected Records');
 	}
 	public function cbm_disable_confirm(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_disable_confirm = $message;
+			$this->x_cbm_disable_confirm = $message;
 		endif;
-		return $this->_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
+		return $this->x_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
 	}
 	public function cbm_enable(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_enable = $message;
+			$this->x_cbm_enable = $message;
 		endif;
-		return $this->_cbm_enable ?? gettext('Enable Selected Records');
+		return $this->x_cbm_enable ?? gettext('Enable Selected Records');
 	}
 	public function cbm_enable_confirm(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_enable_confirm = $message;
+			$this->x_cbm_enable_confirm = $message;
 		endif;
-		return $this->_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
+		return $this->x_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
 	}
 	public function cbm_lock(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_lock = $message;
+			$this->x_cbm_lock = $message;
 		endif;
-		return $this->_cbm_lock ?? gettext('Lock Selected Records');
+		return $this->x_cbm_lock ?? gettext('Lock Selected Records');
 	}
 	public function cbm_lock_confirm(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_lock_confirm = $message;
+			$this->x_cbm_lock_confirm = $message;
 		endif;
-		return $this->_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
+		return $this->x_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
 	}
 	public function cbm_toggle(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_toggle = $message;
+			$this->x_cbm_toggle = $message;
 		endif;
-		return $this->_cbm_toggle ?? gettext('Toggle Selected Records');
+		return $this->x_cbm_toggle ?? gettext('Toggle Selected Records');
 	}
 	public function cbm_toggle_confirm(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_toggle_confirm = $message;
+			$this->x_cbm_toggle_confirm = $message;
 		endif;
-		return $this->_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
+		return $this->x_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
 	}
 	public function cbm_unlock(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_unlock = $message;
+			$this->x_cbm_unlock = $message;
 		endif;
-		return $this->_cbm_unlock ?? gettext('Unlock Selected Records');
+		return $this->x_cbm_unlock ?? gettext('Unlock Selected Records');
 	}
 	public function cbm_unlock_confirm(string $message = NULL) {
 		if(isset($message)):
-			$this->_cbm_unlock_confirm = $message;
+			$this->x_cbm_unlock_confirm = $message;
 		endif;
-		return $this->_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
+		return $this->x_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
 	public function getmsg_cbm_delete() {
-		return $this->_cbm_delete ?? gettext('Delete Selected Records');
+		return $this->x_cbm_delete ?? gettext('Delete Selected Records');
 	}
 	public function getmsg_cbm_delete_confirm() {
-		return $this->_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
+		return $this->x_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
 	}
 	public function getmsg_cbm_disable() {
-		return $this->_cbm_disable ?? gettext('Disable Selected Records');
+		return $this->x_cbm_disable ?? gettext('Disable Selected Records');
 	}
 	public function getmsg_cbm_disable_confirm() {
-		return $this->_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
+		return $this->x_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
 	}
 	public function getmsg_cbm_enable() {
-		return $this->_cbm_enable ?? gettext('Enable Selected Records');
+		return $this->x_cbm_enable ?? gettext('Enable Selected Records');
 	}
 	public function getmsg_cbm_enable_confirm() {
-		return $this->_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
+		return $this->x_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
 	}
 	public function getmsg_cbm_lock() {
-		return $this->_cbm_lock ?? gettext('Lock Selected Records');
+		return $this->x_cbm_lock ?? gettext('Lock Selected Records');
 	}
 	public function getmsg_cbm_lock_confirm() {
-		return $this->_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
+		return $this->x_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
 	}
 	public function getmsg_cbm_toggle() {
-		return $this->_cbm_toggle ?? gettext('Toggle Selected Records');
+		return $this->x_cbm_toggle ?? gettext('Toggle Selected Records');
 	}
 	public function getmsg_cbm_toggle_confirm() {
-		return $this->_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
+		return $this->x_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
 	}
 	public function getmsg_cbm_unlock() {
-		return $this->_cbm_unlock ?? gettext('Unlock Selected Records');
+		return $this->x_cbm_unlock ?? gettext('Unlock Selected Records');
 	}
 	public function getmsg_cbm_unlock_confirm() {
-		return $this->_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
+		return $this->x_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
 	public function getmsg_sym_add() {
-		return $this->_sym_add ?? gettext('Add Record');
+		return $this->x_sym_add ?? gettext('Add Record');
 	}
 	public function getmsg_sym_del(string $message = NULL) {
-		return $this->_sym_del ?? gettext('Record is marked for deletion');
+		return $this->x_sym_del ?? gettext('Record is marked for deletion');
 	}
 	public function getmsg_sym_inf() {
-		return $this->_sym_inf ?? gettext('Record Information');
+		return $this->x_sym_inf ?? gettext('Record Information');
 	}
 	public function getmsg_sym_loc() {
-		return $this->_sym_loc ?? gettext('Record is protected');
+		return $this->x_sym_loc ?? gettext('Record is protected');
 	}
 	public function getmsg_sym_mai() {
-		return $this->_sym_mai ?? gettext('Record Maintenance');
+		return $this->x_sym_mai ?? gettext('Record Maintenance');
 	}
 	public function getmsg_sym_mdn() {
-		return $this->_sym_mdn ?? gettext('Move down');
+		return $this->x_sym_mdn ?? gettext('Move down');
 	}
 	public function getmsg_sym_mod() {
-		return $this->_sym_mod ?? gettext('Edit Record');
+		return $this->x_sym_mod ?? gettext('Edit Record');
 	}
 	public function getmsg_sym_mup() {
-		return $this->_sym_mup ?? gettext('Move up');
+		return $this->x_sym_mup ?? gettext('Move up');
 	}
 	public function getmsg_sym_unl() {
-		return $this->_sym_unl ?? gettext('Record is unlocked');
+		return $this->x_sym_unl ?? gettext('Record is unlocked');
 	}
 	public function setmsg_cbm_delete(string $message = NULL) {
-		$this->_cbm_delete = $message;
+		$this->x_cbm_delete = $message;
 		return $this;
 	}
 	public function setmsg_cbm_delete_confirm(string $message = NULL) {
-		$this->_cbm_delete_confirm = $message;
+		$this->x_cbm_delete_confirm = $message;
 		return $this;
 	}
 	public function setmsg_cbm_disable(string $message = NULL) {
-		$this->_cbm_disable = $message;
+		$this->x_cbm_disable = $message;
 		return $this;
 	}
 	public function setmsg_cbm_disable_confirm(string $message = NULL) {
-		$this->_cbm_disable_confirm = $message;
+		$this->x_cbm_disable_confirm = $message;
 		return $this;
 	}
 	public function setmsg_cbm_enable(string $message = NULL) {
-		$this->_cbm_enable = $message;
+		$this->x_cbm_enable = $message;
 		return $this;
 	}
 	public function setmsg_cbm_enable_confirm(string $message = NULL) {
-		$this->_cbm_enable_confirm = $message;
+		$this->x_cbm_enable_confirm = $message;
 		return $this;
 	}
 	public function setmsg_cbm_lock(string $message = NULL) {
-		$this->_cbm_lock = $message;
+		$this->x_cbm_lock = $message;
 		return $this;
 	}
 	public function setmsg_cbm_lock_confirm(string $message = NULL) {
-		$this->_cbm_lock_confirm = $message;
+		$this->x_cbm_lock_confirm = $message;
 		return $this;
 	}
 	public function setmsg_cbm_toggle(string $message = NULL) {
-		$this->_cbm_toggle = $message;
+		$this->x_cbm_toggle = $message;
 		return $this;
 	}
 	public function setmsg_cbm_toggle_confirm(string $message = NULL) {
-		$this->_cbm_toggle_confirm = $message;
+		$this->x_cbm_toggle_confirm = $message;
 		return $this;
 	}
 	public function setmsg_cbm_unlock(string $message = NULL) {
-		$this->_cbm_unlock = $message;
+		$this->x_cbm_unlock = $message;
 		return $this;
 	}
 	public function setmsg_cbm_unlock_confirm(string $message = NULL) {
-		$this->_cbm_unlock_confirm = $message;
+		$this->x_cbm_unlock_confirm = $message;
 		return $this;
 	}
 	public function setmsg_sym_add(string $message = NULL) {
-		$this->_sym_add = $message;
+		$this->x_sym_add = $message;
 		return $this;
 	}
 	public function setmsg_sym_del(string $message = NULL) {
-		$this->_sym_del = $message;
+		$this->x_sym_del = $message;
 		return $this;
 	}
 	public function setmsg_sym_inf(string $message = NULL) {
-		$this->_sym_inf = $message;
+		$this->x_sym_inf = $message;
 		return $this;
 	}
 	public function setmsg_sym_loc(string $message = NULL) {
-		$this->_sym_loc = $message;
+		$this->x_sym_loc = $message;
 		return $this;
 	}
 	public function setmsg_sym_mai(string $message = NULL) {
-		$this->_sym_mai = $message;
+		$this->x_sym_mai = $message;
 		return $this;
 	}
 	public function setmsg_sym_mdn(string $message = NULL) {
-		$this->_sym_mdn = $message;
+		$this->x_sym_mdn = $message;
 		return $this;
 	}
 	public function setmsg_sym_mod(string $message = NULL) {
-		$this->_sym_mod = $message;
+		$this->x_sym_mod = $message;
 		return $this;
 	}
 	public function setmsg_sym_mup(string $message = NULL) {
-		$this->_sym_mup = $message;
+		$this->x_sym_mup = $message;
 		return $this;
 	}
 	public function setmsg_sym_unl(string $message = NULL) {
-		$this->_sym_unl = $message;
+		$this->x_sym_unl = $message;
 		return $this;
 	}
 	public function sym_add(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_add = $message;
+			$this->x_sym_add = $message;
 		endif;
-		return $this->_sym_add ?? gettext('Add Record');
+		return $this->x_sym_add ?? gettext('Add Record');
 	}
 	public function sym_del(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_del = $message;
+			$this->x_sym_del = $message;
 		endif;
-		return $this->_sym_del ?? gettext('Record is marked for deletion');
+		return $this->x_sym_del ?? gettext('Record is marked for deletion');
 	}
 	public function sym_inf(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_inf = $message;
+			$this->x_sym_inf = $message;
 		endif;
-		return $this->_sym_inf ?? gettext('Record Information');
+		return $this->x_sym_inf ?? gettext('Record Information');
 	}
 	public function sym_loc(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_loc = $message;
+			$this->x_sym_loc = $message;
 		endif;
-		return $this->_sym_loc ?? gettext('Record is protected');
+		return $this->x_sym_loc ?? gettext('Record is protected');
 	}
 	public function sym_mai(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_mai = $message;
+			$this->x_sym_mai = $message;
 		endif;
-		return $this->_sym_mai ?? gettext('Record Maintenance');
+		return $this->x_sym_mai ?? gettext('Record Maintenance');
 	}
 	public function sym_mdn(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_mdn = $message;
+			$this->x_sym_mdn = $message;
 		endif;
-		return $this->_sym_mdn ?? gettext('Move down');
+		return $this->x_sym_mdn ?? gettext('Move down');
 	}
 	public function sym_mod(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_mod = $message;
+			$this->x_sym_mod = $message;
 		endif;
-		return $this->_sym_mod ?? gettext('Edit Record');
+		return $this->x_sym_mod ?? gettext('Edit Record');
 	}
 	public function sym_mup(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_mup = $message;
+			$this->x_sym_mup = $message;
 		endif;
-		return $this->_sym_mup ?? gettext('Move up');
+		return $this->x_sym_mup ?? gettext('Move up');
 	}
 	public function sym_unl(string $message = NULL) {
 		if(isset($message)):
-			$this->_sym_unl = $message;
+			$this->x_sym_unl = $message;
 		endif;
-		return $this->_sym_unl ?? gettext('Record is unlocked');
+		return $this->x_sym_unl ?? gettext('Record is unlocked');
 	}
 	public function doj(bool $with_envelope = true) {
 		$output = [];
@@ -708,7 +719,7 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		$output[] = '$(window).on("load", function() {';
 		//	Init action buttons.
-		if($this->enadis()):
+		if($this->get_enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
 				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
@@ -742,7 +753,7 @@ class co_sphere_grid extends co_sphere_level2 {
 		endif;
 		$output[] = '});';
 		$output[] = 'function ab_disable' . $this->get_cbm_suffix() . '(flag) {';
-		if($this->enadis()):
+		if($this->get_enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").prop("disabled",flag);';
 			else:
@@ -772,7 +783,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function get_js_on_load() {
 		$output = [];
 		//	Init action buttons.
-		if($this->enadis()):
+		if($this->get_enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
 				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
@@ -884,7 +895,7 @@ class co_sphere_grid extends co_sphere_level2 {
 		$o_td = $root->addTD();
 		if($notdirty && $notprotected):
 			//	record is editable
-			$link = sprintf('%s?submit=edit&%s=%s',$this->modify->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
+			$link = sprintf('%s?submit=edit&%s=%s',$this->get_modify()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
 			$img_attributes = [
 				'src' => $g_img['mod'],
 				'title' => $this->getmsg_sym_mod(),
@@ -918,7 +929,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function html_maintainbox() {
 		global $g_img;
 
-		$link = sprintf('%s?%s=%s',$this->maintain->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
+		$link = sprintf('%s?%s=%s',$this->get_maintain()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
 		$img_attributes = [
 			'src' => $g_img['mai'],
 			'title' => $this->getmsg_sym_mai(),
@@ -935,7 +946,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function html_informbox() {
 		global $g_img;
 
-		$link = sprintf('%s?%s=%s',$this->inform->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
+		$link = sprintf('%s?%s=%s',$this->get_inform()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
 		$img_attributes = [
 			'src' => $g_img['inf'],
 			'title' => $this->getmsg_sym_inf(),
@@ -967,7 +978,7 @@ class co_sphere_grid extends co_sphere_level2 {
 			'alt' => $this->getmsg_sym_add(),
 			'class' => 'spin oneemhigh'
 		];
-		$link = sprintf('%s?submit=add',$this->modify->get_scriptname());
+		$link = sprintf('%s?submit=add',$this->get_modify()->get_scriptname());
 		$root = new co_DOMDocument();
 		$o_tr = $root->addTR();
 		if($colspan > 1):
