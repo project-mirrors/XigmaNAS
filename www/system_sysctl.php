@@ -41,7 +41,7 @@ function sysctl_sphere() {
 	global $config;
 
 	$sphere = new co_sphere_grid('system_sysctl','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('sysctl');
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);

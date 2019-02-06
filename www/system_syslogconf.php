@@ -61,7 +61,7 @@ function system_syslogconf_get_sphere() {
 	global $config;
 
 	$sphere = new co_sphere_grid('system_syslogconf','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('syslogconf');
 	$sphere->set_row_identifier('uuid');
 	$sphere->enadis(true);
