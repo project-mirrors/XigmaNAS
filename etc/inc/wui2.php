@@ -2404,7 +2404,7 @@ EOJ;
  */
 		if($notdirty && $notprotected): // record is editable
 			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
-			$link = sprintf('%s?%s',$sphere->modify->get_scriptname(),$querystring);
+			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 			$this->addTD()->
 				addA(['href' => $link])->
 					insIMG(['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
@@ -2427,7 +2427,7 @@ EOJ;
 		$td = $this->addTD();
 		if($show_link): // show link
 			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
-			$link = sprintf('%s?%s',$sphere->maintain->get_scriptname(),$querystring);
+			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
 			$td->addA(['href' => $link])->insIMG(['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
 		endif;
 		return $this;
@@ -2442,7 +2442,7 @@ EOJ;
 		$td = $this->addTD();
 		if($show_link): // show link
 			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
-			$link = sprintf('%s?%s',$sphere->inform->get_scriptname(),$querystring);
+			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
 			$td->addA(['href' => $link])->insIMG(['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
 		endif;
 		return $this;
@@ -2481,7 +2481,7 @@ EOJ;
  *	</tr>
  */
 		$querystring = http_build_query(['submit' => 'add'],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
-		$link = sprintf('%s?%s',$sphere->modify->get_scriptname(),$querystring);
+		$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 		//	PHP_QUERY_RFC3986
 		$tr = $this->addTR();
 		if($colspan > 1):
@@ -2509,7 +2509,7 @@ EOJ;
 		return $this;
 	}
 	public function ins_cbm_button_enadis($sphere) {
-		if($sphere->enadis()):
+		if($sphere->get_enadis()):
 			if($sphere->toggle()):
 				$this->ins_button_submit($sphere->get_cbm_button_val_toggle(),$sphere->getmsg_cbm_toggle(),[],$sphere->get_cbm_button_id_toggle());
 			else:
@@ -2767,6 +2767,7 @@ EOJ;
 			insElement('meta',['charset' => system_get_language_codeset()])->
 			insElement('meta',['name' => 'format-detection','content' => 'telephone=no'])->
 			insElement('meta',['name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'])->
+			insElement('meta',['name' => 'robots','content' => 'noindex,nofollow'])->
 			insElement('title',[],$this->clc_html_page_title($page_title))->
 			insElement('link',['href' => '/css/gui.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement('link',['href' => '/css/navbar.css.php','rel' => 'stylesheet','type' => 'text/css'])->
