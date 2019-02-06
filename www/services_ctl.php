@@ -41,7 +41,7 @@ function ctl_sphere() {
 	global $config;
 
 	$sphere = new co_sphere_row('services_ctl','php');
-	$sphere->enadis(true);
+	$sphere->set_enadis(true);
 	$sphere->grid = &array_make_branch($config,'ctld');
 	return $sphere;
 }
@@ -63,7 +63,7 @@ $rmo = new co_request_method();
 $rmo->add('GET','edit',PAGE_MODE_EDIT);
 $rmo->add('GET','view',PAGE_MODE_VIEW);
 $rmo->add('POST','edit',PAGE_MODE_EDIT);
-if($sphere->enadis()):
+if($sphere->is_enadis_enabled()):
 	$rmo->add('POST','enable',PAGE_MODE_VIEW);
 	$rmo->add('POST','disable',PAGE_MODE_VIEW);
 endif;
