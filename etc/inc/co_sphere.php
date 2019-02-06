@@ -68,11 +68,6 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	public $row_default = [];
 	protected $x_enadis = false;
 	protected $x_class_button = 'formbtn';
-//	constructor
-	public function __construct(string $basename = NULL,string $extension = NULL) {
-		parent::__construct($basename,$extension);
-		$this->parent = new co_sphere_scriptname($basename,$extension);
-	}
 //	methods
 	public function get_parent() {
 		if(!is_object($this->parent)):
@@ -96,11 +91,14 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	public function get_enadis() {
 		return $this->x_enadis;
 	}
+	public function is_enadis_enabled() {
+		return $this->x_enadis;
+	}
 	public function enadis(bool $flag = NULL) {
 		if(isset($flag)):
 			$this->x_enadis = $flag;
 		endif;
-		return $this->x_enadis ?? false;
+		return $this->x_enadis;
 	}
 	public function escape_javascript(string $data = '') {
 		return str_replace(['"',"'"],['\u0022','\u0027'],$data);
@@ -167,11 +165,14 @@ class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 	public function get_lock() {
 		return $this->x_lock;
 	}
+	public function is_lock_enabled() {
+		return $this->x_lock;
+	}
 	public function lock(bool $flag = NULL) {
 		if(isset($flag)):
 			$this->x_lock = $flag;
 		endif;
-		return $this->x_lock ?? false;
+		return $this->x_lock;
 	}
 	public function notifier(string $notifier = NULL) {
 		if(isset($notifier)):
@@ -306,13 +307,6 @@ class co_sphere_grid extends co_sphere_level2 {
 	protected $x_cbm_button_val_disable = 'rows.disable';
 	protected $x_cbm_button_val_enable = 'rows.enable';
 	protected $x_cbm_button_val_toggle = 'rows.toggle';
-//	constructor
-	public function __construct(string $basename = NULL,string $extension = NULL) {
-		parent::__construct($basename,$extension);
-		$this->modify = new co_sphere_scriptname($basename,$extension);
-		$this->maintain = new co_sphere_scriptname($basename,$extension);
-		$this->inform = new co_sphere_scriptname($basename,$extension);
-	}
 //	methods
 	public function get_modify() {
 		if(!is_object($this->modify)):
