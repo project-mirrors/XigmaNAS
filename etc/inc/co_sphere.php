@@ -93,9 +93,6 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	 *	Returns the status of the enable/disable option.
 	 *	@return bool
 	 */
-	public function get_enadis() {
-		return $this->x_enadis;
-	}
 	public function is_enadis_enabled() {
 		return $this->x_enadis;
 	}
@@ -167,9 +164,6 @@ class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 	 *	Returns true when record lock support is enabled
 	 *	@return bool
 	 */
-	public function get_lock() {
-		return $this->x_lock;
-	}
 	public function is_lock_enabled() {
 		return $this->x_lock;
 	}
