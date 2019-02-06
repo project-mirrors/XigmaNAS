@@ -56,11 +56,11 @@ function userdb_group_process_updatenotification($mode,$data) {
 function access_users_groups_get_sphere() {
 	global $config;
 	$sphere = new co_sphere_grid('access_users_groups','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('userdb_group');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false); // internally managed
-	$sphere->lock(true); // internally managed
+	$sphere->set_enadis(false); // internally managed
+	$sphere->set_lock(true); // internally managed
 	$sphere->
 		setmsg_sym_add(gettext('Add Group'))->
 		setmsg_sym_mod(gettext('Edit Group'))->
@@ -98,7 +98,7 @@ if($_POST):
 					if(false !== ($index_uuid = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$index_uuid][$sphere->get_row_identifier()]);
 						switch ($mode_updatenotify):
-							case UPDATENOTIFY_MODE_NEW:  
+							case UPDATENOTIFY_MODE_NEW:
 								updatenotify_clear($sphere->get_notifier(),$sphere->grid[$index_uuid][$sphere->get_row_identifier()]);
 								updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere->grid[$index_uuid][$sphere->get_row_identifier()]);
 								break;
@@ -167,13 +167,14 @@ array_sort_key($l_group,'name');
 $pgtitle = [gtext('Access'), gtext('Groups')];
 include 'fbegin.inc';
 echo $sphere->doj();
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('access_users.php',gettext('Users'))->
+			ins_tabnav_record('access_users_groups.php',gettext('Groups'),gettext('Reload page'),true);
+$document->render();
 ?>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabinact"><a href="access_users.php"><span><?=gtext('Users');?></span></a></li>
-		<li class="tabact"><a href="<?=$sphere->get_scriptname();?>" title="<?=gtext('Reload page');?>"><span><?=gtext('Groups');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
 <form action="<?=$sphere->get_scriptname();?>" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if(file_exists($d_sysrebootreqd_path)):
@@ -211,9 +212,9 @@ echo $sphere->doj();
 			foreach($l_group as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				// $enabled = $sphere->enadis() ? isset($sphere->row['enable']) : true;
+				// $enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
 				$enabled = $sphere->row['enable']; 
-				$notprotected = $sphere->lock() ? !$sphere->row['protected'] : true;
+				$notprotected = $sphere->is_lock_enabled() ? !$sphere->row['protected'] : true;
 ?>
 				<tr>
 					<td class="<?=$enabled ? "lcelc" : "lcelcd";?>">
@@ -250,7 +251,7 @@ echo $sphere->doj();
 	</table>
 	<div id="submit">
 <?php
-		if($sphere->enadis()):
+		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
 				echo $sphere->html_button_toggle_rows();
 			else:
@@ -272,4 +273,3 @@ echo $sphere->doj();
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
