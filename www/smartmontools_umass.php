@@ -162,8 +162,8 @@ function smartmontools_umass_selection($cop,$sphere) {
 		foreach($sphere->grid as $sphere->row_id => $sphere->row):
 			$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 			$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-			$is_enabled = $sphere->get_enadis() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
-			$is_notprotected = $sphere->get_lock() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+			$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
+			$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 			$dc = $is_enabled ? '' : 'd';
 			$tbody->
 				addTR()->
@@ -219,7 +219,7 @@ endif;
 $rmo = new co_request_method();
 $rmo->add('POST','apply',PAGE_MODE_VIEW);
 $rmo->add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST);
-if($sphere->get_enadis() && method_exists($cop,'get_enable')):
+if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
 	if($sphere->toggle()):
 		$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
 	else:

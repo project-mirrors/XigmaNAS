@@ -241,8 +241,8 @@ echo $sphere->doj();
 			foreach($sphere->grid as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$enabled = $sphere->get_enadis() ? isset($sphere->row['enable']) : true;
-				$notprotected = $sphere->get_lock() ? !isset($sphere->row['protected']) : true;
+				$enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
+				$notprotected = $sphere->is_lock_enabled() ? !isset($sphere->row['protected']) : true;
 ?>
 				<tr>
 					<td class="<?=$enabled ? "lcelc" : "lcelcd";?>">
@@ -281,7 +281,7 @@ echo $sphere->doj();
 	</table>
 	<div id="submit">
 <?php
-		if($sphere->get_enadis()):
+		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
 				echo $sphere->html_button_toggle_rows();
 			else:
