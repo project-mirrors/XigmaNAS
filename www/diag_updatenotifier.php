@@ -40,8 +40,8 @@ function get_sphere_diag_updatenotifier() {
 //	sphere structure
 	$sphere = new co_sphere_grid('diag_updatenotifier','php');
 	$sphere->set_row_identifier('id');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_cbm_delete(gettext('Delete Selected Notifier'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected notifier?'));
