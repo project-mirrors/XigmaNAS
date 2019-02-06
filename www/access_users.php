@@ -41,11 +41,11 @@ function access_users_get_sphere() {
 	global $config;
 
 	$sphere = new co_sphere_grid('access_users','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('userdb_user');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_sym_add(gettext('Add User Account'))->
 		setmsg_sym_mod(gettext('Edit User Account'))->
@@ -147,8 +147,8 @@ function access_users_selection($cop,$sphere) {
 		foreach($sphere->grid as $sphere->row_id => $sphere->row):
 			$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 			$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-			$is_enabled = $sphere->enadis() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
-			$is_notprotected = $sphere->lock() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+			$is_enabled = $sphere->get_enadis() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
+			$is_notprotected = $sphere->get_lock() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 			$dc = $is_enabled ? '' : 'd';
 			//	identify group membership
 			$a_group_key = [];
@@ -204,7 +204,7 @@ array_sort_key($sphere->grid,$cop->get_user()->get_name());
 $rmo = new co_request_method();
 $rmo->add('POST','apply',PAGE_MODE_VIEW);
 $rmo->add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST);
-if($sphere->enadis() && method_exists($cop,'get_enable')):
+if($sphere->get_enadis() && method_exists($cop,'get_enable')):
 	if($sphere->toggle()):
 		$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
 	else:
