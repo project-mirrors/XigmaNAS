@@ -42,11 +42,11 @@ function diag_infos_rsync_client_get_sphere() {
 	
 	$sphere = new co_sphere_grid('diag_infos_rsync_client','php');
 /*
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	sphere->set_notifier('rsyncclient');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_sym_add(gettext('Add Rsync Job'))->
 		setmsg_sym_mod(gettext('Edit Rsync Job'))->
@@ -166,8 +166,8 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 /*
 			$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 			$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-			$is_enabled = $sphere->enadis() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
-			$is_notprotected = $sphere->lock() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+			$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
+			$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 			$dc = $is_enabled ? '' : 'd';
  */
 			$remoteserverips = [];
@@ -187,7 +187,7 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 				endforeach;
 				$detected_shares = $remoteserverips[$rsyncserverip];
 			endif;
-			$tr = $table_detected = $tbody->addTR();
+			$tr = $tbody->addTR();
 			$tr->
 				insTDwC('lcell',$rsyncserverip)->
 				insTDwC('lcell',$remoteshare);
