@@ -2509,7 +2509,7 @@ EOJ;
 		return $this;
 	}
 	public function ins_cbm_button_enadis($sphere) {
-		if($sphere->get_enadis()):
+		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
 				$this->ins_button_submit($sphere->get_cbm_button_val_toggle(),$sphere->getmsg_cbm_toggle(),[],$sphere->get_cbm_button_id_toggle());
 			else:
