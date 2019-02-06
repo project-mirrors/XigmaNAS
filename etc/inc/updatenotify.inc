@@ -330,7 +330,7 @@ function updatenotify_cbm_delete(&$sphere,&$cop) {
 	foreach($sphere->cbm_grid as $sphere->cbm_row):
 		if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$id_name))):
 			$sphere->row = &$sphere->grid[$sphere->row_id];
-			if($sphere->lock() && method_exists($cop,'get_protected')):
+			if($sphere->is_lock_enabled() && method_exists($cop,'get_protected')):
 				$is_protected = is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true;
 			else:
 				$is_protected = false;
