@@ -815,7 +815,7 @@ class co_sphere_grid extends co_sphere_level2 {
 	public function get_js() {
 		$output = [];
 		$output[] = 'function ab_disable' . $this->get_cbm_suffix() . '(flag) {';
-		if($this->enadis()):
+		if($this->get_enadis()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").prop("disabled",flag);';
 			else:
