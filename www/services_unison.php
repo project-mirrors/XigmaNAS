@@ -106,7 +106,7 @@ function enable_change(enable_change) {
 		<td class="tabcont">
 			<form action="services_unison.php" method="post" name="iform" id="iform" onsubmit="spinner()">
 				<?php if (!empty($input_errors)) print_input_errors($input_errors);?>
-				<?php if (!empty($savemsg)) print_info_box($savemsg);?>	    
+				<?php if (!empty($savemsg)) print_info_box($savemsg);?>	
 				<table width="100%" border="0" cellpadding="6" cellspacing="0">
 					<?php
 					html_titleline_checkbox('enable', gtext("Unison File Synchronisation"), !empty($pconfig['enable']) ? true : false, gtext("Enable"), "enable_change(false)");
