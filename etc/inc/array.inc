@@ -31,8 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-
-// Search in a multidimensional array.
+/**
+ *	Search in a multidimensional array.
+ *	@param mixed $needle String or array of needles to search for.
+ *	@param array $haystack The array to search.
+ *	@param mixed $key String or array of keys to search.
+ *	@return mixed Key on success or FALSE on failure.
+ */
 function array_search_ex($needle,$haystack,$key) {
 	if(is_array($haystack)):
 		if($needle !== '' && $key !== ''):
@@ -60,10 +65,12 @@ function array_search_ex($needle,$haystack,$key) {
 	endif;
 	return false;
 }
-// Sort an array by values using a user-defined key.
-// Returns TRUE on success or FALSE on failure.
-// array - The array to sort
-// key - the key used as sort criteria
+/**
+ *	Sort an array by values using a user-defined key.
+ *	@param array $array The array to sort.
+ *	@param string $key The key used as sort criteria.
+ *	@return boolean TRUE on success or FALSE on failure.
+ */
 function array_sort_key(array &$array,$key) {
 	if(empty($array) || ($key === '')):
 		$result = true;
@@ -72,9 +79,12 @@ function array_sort_key(array &$array,$key) {
 	endif;
 	return $result;
 }
-// Remove duplicate values by user-defined key.
-// array - The array to be processed
-// key - The key used as filter criteria
+/**
+ *	Remove duplicate values by user-defined key.
+ *	@param array $array The array to be processed.
+ *	@param string $key The key used as filter criteria.
+ *	@return mixed Array or FALSE on failure.
+ */
 function array_remove_duplicate($array,$key) {
 	$result = [];
 	if(!is_array($array)):
@@ -89,15 +99,21 @@ function array_remove_duplicate($array,$key) {
 	endforeach;
 	return $result;
 }
+/**
+ *	Create a chain of arrays in a given array if it doesnn't exist.
+ *	array_make_branch($config,'zfs','datasets','dataset') will create
+ *	- $config['zfs'] = [] if zfs doesn't exist or is not an array.
+ *	- $config['zfs']['datasets'] = [] if datasets doesn't exist or is not an array.
+ *	- $config['zfs']['datasets']['dataset'] = [] if dataset doesn't exist or is not an array.
+ *	- the last leaf of the chain is returned as reference.
+ *	@param array $branch
+ *	@param string $leaves
+ *	@return array
+ */
 function &array_make_branch(array &$branch,string ...$leaves) {
-// this function creates a chain of arrays in a given array if they don't exist
-// array_make_branch($config,'vinterfaces','carp') will create
-// - $config['vinterfaces'] = [] if vinterfaces doesn't exist or if it is not an array
-// - $config['vinterfaces']['carp'] = [] if carp doesn't exist or if it is not an array
-// - the last leaf of the chain of leaves is returned by reference.
 	$active_leaf = &$branch;
 	foreach($leaves as $leaf):
-		if(!(isset($active_leaf[$leaf]) && is_array($active_leaf[$leaf]))):
+		if(!(array_key_exists($leaf,$active_leaf) && is_array($active_leaf[$leaf]))):
 			$active_leaf[$leaf] = [];
 		endif;
 		$next_leaf = &$active_leaf[$leaf];
@@ -107,4 +123,3 @@ function &array_make_branch(array &$branch,string ...$leaves) {
 	endforeach;
 	return $active_leaf;
 }
-?>
