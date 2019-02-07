@@ -36,7 +36,7 @@ require_once 'properties_disks_zfs_volume.php';
 class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 	const REGEXP_SIZE = '/^(0*[1-9][\d]*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?$/i';
 	const REGEXP_SIZEORNONE = '/^((0*[1-9]\d*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?|none)$/i';
-	const REGEXP_SIZEORNONEORNOTHING = '/^((0*[1-9][\d]*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?|none|^$)$/i';	
+	const REGEXP_SIZEORNONEORNOTHING = '/^((0*[1-9][\d]*(\.\d*)?|0*\.0*[1-9]\d*)[kmgtpezy]?b?|none|^$)$/i';
 
 	public function init_description() {
 		$property = parent::init_description();
@@ -115,7 +115,7 @@ class properties_disks_zfs_volume_edit extends properties_disks_zfs_volume {
 	}
 	public function init_dedup() {
 		$property = parent::init_dedup();
-		$description = 
+		$description =
 			sprintf('<div>%s</div>',gettext('Controls the dedup method.')) .
 			'<div style="font-weight: bold;">' .
 			sprintf('<span style="color: red;">%s</span>: ',gettext('WARNING')) .
