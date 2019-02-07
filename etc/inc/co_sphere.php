@@ -91,12 +91,6 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	public function is_enadis_enabled() {
 		return $this->x_enadis;
 	}
-	public function enadis(bool $flag = NULL) {
-		if(isset($flag)):
-			$this->x_enadis = $flag;
-		endif;
-		return $this->x_enadis;
-	}
 	public function escape_javascript(string $data = '') {
 		return str_replace(['"',"'"],['\u0022','\u0027'],$data);
 	}
@@ -162,21 +156,6 @@ class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 	public function is_lock_enabled() {
 		return $this->x_lock;
 	}
-	public function lock(bool $flag = NULL) {
-		if(isset($flag)):
-			$this->x_lock = $flag;
-		endif;
-		return $this->x_lock;
-	}
-	public function notifier(string $notifier = NULL) {
-		if(isset($notifier)):
-			if(1 === preg_match('/^[\w]+$/',$notifier)):
-				$this->x_notifier = $notifier;
-				$this->x_notifier_processor = $notifier . '_process_updatenotification';
-			endif;
-		endif;
-		return $this->x_notifier ?? false;
-	}
 	public function set_notifier(string $notifier = NULL) {
 		if(isset($notifier)):
 			$this->x_notifier = $notifier;
@@ -185,7 +164,7 @@ class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 			$this->x_notifier = $notifier;
 			$this->x_notifier_processor = '_process_updatenotification';
 		endif;
-		return $this->get_notifier();
+		return $this;
 	}
 	public function get_notifier() {
 		return $this->x_notifier ?? false;
