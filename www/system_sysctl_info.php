@@ -40,8 +40,8 @@ require_once 'co_request_method.php';
 function sysctl_info_sphere() {
 	$sphere = new co_sphere_grid('system_sysctl_info','php');
 	$sphere->set_row_identifier('name');
-	$sphere->enadis(true);
-	$sphere->lock(true);
+	$sphere->set_enadis(true);
+	$sphere->set_lock(true);
 	$sphere->grid = [];
 	return $sphere;
 }
