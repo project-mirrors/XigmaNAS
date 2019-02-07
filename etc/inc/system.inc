@@ -243,7 +243,7 @@ function get_smbios_info() {
 			elseif($revision == 0x0010 || $revision == 0x0013): $model = 'Model B+';
 			elseif($revision == 0x0011 || $revision == 0x0014): $model = 'Compute Module';
 			elseif($revision == 0x0012): $model = 'Model A+';
-			else: 
+			else:
 				$model = sprintf('rev. 0x%04x',$revision);
 			endif;
 		elseif(!empty($revision) && $scheme != 0):
@@ -651,7 +651,7 @@ function system_get_controller($devicespecialfile) {
 	$devlist = [];
 	$device = '';
 	$controller = '';
-	$controller_id = ''; 
+	$controller_id = '';
 	$target_id = '';
 	$lun_id = '';
 	mwexec2("/sbin/camcontrol devlist -v 2> /dev/null",$rawdata);

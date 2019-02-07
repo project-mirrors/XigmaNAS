@@ -35,7 +35,7 @@
  * super_fun contains replacements for system functions
  */
 /*
- *	Replacement for gettext, converts html characters <>"' into their character codes 
+ *	Replacement for gettext, converts html characters <>"' into their character codes
  */
 function gtext(string $data = '') {
 	return htmlspecialchars(gettext($data),ENT_QUOTES|ENT_HTML5,'UTF-8',false);
