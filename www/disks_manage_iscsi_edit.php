@@ -45,8 +45,8 @@ function iscsi_initiator_edit_sphere() {
 	$sphere->get_parent()->set_basename('disks_manage_iscsi');
 	$sphere->set_notifier('iscsiinitiator');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->grid = &array_make_branch($config,'iscsiinit','vdisk');
 	return $sphere;
 }

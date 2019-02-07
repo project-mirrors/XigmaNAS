@@ -42,11 +42,11 @@ function get_sphere_services_samba_share_edit() {
 	
 //	sphere structure
 	$sphere = new co_sphere_row('services_samba_share_edit','php');
-	$sphere->parent->set_basename('services_samba_share');
+	$sphere->get_parent()->set_basename('services_samba_share');
 	$sphere->set_notifier('smbshare');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->grid = &array_make_branch($config,'samba','share');
 	if(!empty($sphere->grid)):
 		array_sort_key($sphere->grid,'name');
@@ -142,7 +142,7 @@ endswitch;
  *	exit if $sphere->row[$sphere->row_identifier()] is NULL
  */
 if(is_null($sphere->get_row_identifier_value())):
-	header($sphere->parent->get_location());
+	header($sphere->get_parent()->get_location());
 	exit;
 endif;
 /*
@@ -181,7 +181,7 @@ else:
 endif;
 if(RECORD_ERROR === $record_mode):
 	//	oops, something went wrong
-	header($sphere->parent->get_location());
+	header($sphere->get_parent()->get_location());
 	exit;
 endif;
 $isrecordnew = (RECORD_NEW === $record_mode);
@@ -284,7 +284,7 @@ switch($page_mode):
 				endif;
 			endif;
 			write_config();
-			header($sphere->parent->get_location()); // cleanup
+			header($sphere->get_parent()->get_location()); // cleanup
 			exit;
 		endif;
 		break;

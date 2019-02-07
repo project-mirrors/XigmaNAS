@@ -43,12 +43,12 @@ function get_sphere_disks_zfs_dataset() {
 	
 //	sphere structure
 	$sphere = new co_sphere_grid('disks_zfs_dataset','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
-	$sphere->inform->set_basename($sphere->get_basename() . '_info');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_inform()->set_basename($sphere->get_basename() . '_info');
 	$sphere->set_notifier('zfsdataset');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_sym_add(gettext('Add Dataset'))->
 		setmsg_sym_mod(gettext('Edit Dataset'))->
@@ -206,8 +206,8 @@ if($record_exists):
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
 		$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 		$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-		$is_enabled = $sphere->enadis() ? (is_bool($test = $sphere->row[$cop->get_enabled()->get_name()] ?? false) ? $test : true): true;
-		$is_notprotected = $sphere->lock() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+		$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enabled()->get_name()] ?? false) ? $test : true): true;
+		$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 		if($is_enabled):
 			$src = $g_img['ena'];
 			$title = gettext('Enabled');
