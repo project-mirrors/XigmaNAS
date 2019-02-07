@@ -45,8 +45,8 @@ function ctl_portal_group_edit_sphere() {
 	$sphere->get_parent()->set_basename('services_ctl_portal_group');
 	$sphere->set_notifier('ctl_portal_group');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_portal_group','param');
 	return $sphere;
 }

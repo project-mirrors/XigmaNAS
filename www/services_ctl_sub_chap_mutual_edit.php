@@ -45,8 +45,8 @@ function ctl_sub_chap_mutual_edit_sphere() {
 	$sphere->get_parent()->set_basename('services_ctl_sub_chap_mutual');
 	$sphere->set_notifier('ctl_sub_chap_mutual');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_chap_mutual','param');
 	return $sphere;
 }
