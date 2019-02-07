@@ -189,7 +189,7 @@ class co_sphere_level2 extends co_sphere_level1 { // for row and grid
 	}
 	public function set_row_identifier(string $row_identifier = NULL) {
 		$this->x_row_identifier = $row_identifier;
-		return $this->get_row_identifier();
+		return $this;
 	}
 	public function get_row_identifier_value() {
 		return $this->row[$this->x_row_identifier] ?? NULL;
