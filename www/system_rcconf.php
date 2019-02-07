@@ -41,8 +41,8 @@ function system_rcconf_get_sphere() {
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('rcconf');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(true);
-	$sphere->lock(false);
+	$sphere->set_enadis(true);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_sym_add(gettext('Add Option'))->
 		setmsg_sym_mod(gettext('Edit Option'))->
@@ -263,8 +263,8 @@ $document->render();
 			foreach ($sphere->grid as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$is_enabled = $sphere->enadis() ? isset($sphere->row['enable']) : true;
-				$is_notprotected = $sphere->lock() ? !isset($sphere->row['protected']) : true;
+				$is_enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
+				$is_notprotected = $sphere->is_lock_enabled() ? !isset($sphere->row['protected']) : true;
 				$src = ($is_enabled) ? $g_img['ena'] : $g_img['dis'];
 				$title = ($is_enabled) ? gtext('Enabled') : gtext('Disabled');
 ?>
@@ -313,7 +313,7 @@ $document->render();
 	</table>
 	<div id="submit">
 <?php
-		if($sphere->enadis()):
+		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
 				echo $sphere->html_button_toggle_rows();
 			else:
@@ -325,7 +325,7 @@ $document->render();
 ?>
 	</div>
 	<div id="remarks">
-<?php 
+<?php
 		html_remark2('note',gettext('Note'),gettext('These option(s) will be added to /etc/rc.conf. This allow you to overwrite options used by various generic startup scripts.'));
 ?>
 	</div>

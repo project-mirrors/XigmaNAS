@@ -53,11 +53,11 @@ function carp_inuse($ifn) {
 function interfaces_carp_get_sphere() {
 	global $config;
 	$sphere = new co_sphere_grid('interfaces_carp','php');
-	$sphere->modify->set_basename($sphere->get_basename() . '_edit');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('ifcarp');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->
 		setmsg_sym_add(gettext('Add CARP'))->
 		setmsg_sym_mod(gettext('Edit CARP'))->
@@ -155,8 +155,8 @@ $document->render();
 			$notificationmode = false;
 			$notdirty = true;
 			foreach($sphere->grid as $sphere->row):
-				$enabled = $sphere->enadis() ? isset($sphere->row['enable']) : true;
-				$notprotected = $sphere->lock() ? !isset($sphere->row['protected']) : true;
+				$enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
+				$notprotected = $sphere->is_lock_enabled() ? !isset($sphere->row['protected']) : true;
 ?>
 				<tr>
 					<td class="<?=$enabled ? "lcelc" : "lcelcd";?>">
@@ -195,7 +195,7 @@ $document->render();
 	</table>
 	<div id="submit">
 <?php
-		if($sphere->enadis()):
+		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
 				echo $sphere->html_button_toggle_rows();
 			else:

@@ -68,11 +68,6 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	public $row_default = [];
 	protected $x_enadis = false;
 	protected $x_class_button = 'formbtn';
-//	constructor
-	public function __construct(string $basename = NULL,string $extension = NULL) {
-		parent::__construct($basename,$extension);
-		$this->parent = new co_sphere_scriptname($basename,$extension);
-	}
 //	methods
 	public function get_parent() {
 		if(!is_object($this->parent)):
@@ -306,13 +301,6 @@ class co_sphere_grid extends co_sphere_level2 {
 	protected $x_cbm_button_val_disable = 'rows.disable';
 	protected $x_cbm_button_val_enable = 'rows.enable';
 	protected $x_cbm_button_val_toggle = 'rows.toggle';
-//	constructor
-	public function __construct(string $basename = NULL,string $extension = NULL) {
-		parent::__construct($basename,$extension);
-		$this->modify = new co_sphere_scriptname($basename,$extension);
-		$this->maintain = new co_sphere_scriptname($basename,$extension);
-		$this->inform = new co_sphere_scriptname($basename,$extension);
-	}
 //	methods
 	public function get_modify() {
 		if(!is_object($this->modify)):

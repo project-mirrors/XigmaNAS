@@ -45,8 +45,8 @@ function websrv_webdav_edit_sphere() {
 	$sphere->get_parent()->set_basename('services_websrv_webdav');
 	$sphere->set_notifier('websrv_webdav');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(false);
-	$sphere->lock(false);
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
 	$sphere->grid = &array_make_branch($config,'websrv','webdav','param');
 	return $sphere;
 }

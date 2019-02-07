@@ -45,8 +45,8 @@ function smartmontools_umass_edit_sphere_() {
 	$sphere->get_parent()->set_basename('smartmontools_umass');
 	$sphere->set_notifier('smartmontools_umass');
 	$sphere->set_row_identifier('uuid');
-	$sphere->enadis(true);
-	$sphere->lock(false);
+	$sphere->set_enadis(true);
+	$sphere->set_lock(false);
 	$sphere->grid = &array_make_branch($config,'smartmontools','umass','param');
 	return $sphere;
 }
