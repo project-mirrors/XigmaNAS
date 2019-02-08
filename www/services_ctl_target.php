@@ -69,7 +69,7 @@ function ctl_target_sphere() {
 }
 function ctl_target_process_updatenotification($mode,$data) {
 	$retval = 0;
-	$sphere = &ctl_target_sphere();
+	$sphere = ctl_target_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
@@ -204,7 +204,7 @@ function ctl_target_selection($cop,$sphere) {
 }
 //	init properties and sphere
 $cop = new ctl_target_properties();
-$sphere = &ctl_target_sphere();
+$sphere = ctl_target_sphere();
 //	determine request method
 $rmo = new co_request_method();
 $rmo->add('POST','apply',PAGE_MODE_VIEW);

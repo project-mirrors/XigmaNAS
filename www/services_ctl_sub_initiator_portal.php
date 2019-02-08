@@ -70,7 +70,7 @@ function ctl_sub_initiator_portal_sphere() {
 }
 function ctl_sub_initiator_portal_process_updatenotification($mode,$data) {
 	$retval = 0;
-	$sphere = &ctl_sub_initiator_portal_sphere();
+	$sphere = ctl_sub_initiator_portal_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
@@ -204,7 +204,7 @@ function ctl_sub_initiator_portal_selection($cop,$sphere) {
 }
 //	init properties and sphere
 $cop = new ctl_sub_initiator_portal_properties();
-$sphere = &ctl_sub_initiator_portal_sphere();
+$sphere = ctl_sub_initiator_portal_sphere();
 //	determine request method
 $rmo = new co_request_method();
 $rmo->add('GET','view',PAGE_MODE_VIEW);

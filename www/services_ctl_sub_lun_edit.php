@@ -52,7 +52,7 @@ function ctl_sub_lun_edit_sphere() {
 }
 //	init properties and sphere
 $cop = new ctl_sub_lun_edit_properties();
-$sphere = &ctl_sub_lun_edit_sphere();
+$sphere = ctl_sub_lun_edit_sphere();
 //	part 1: collect all defined targets
 $all_parents = [];
 $known_parents = &array_make_branch($config,'ctld','ctl_target','param');

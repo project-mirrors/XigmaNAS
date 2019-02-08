@@ -52,7 +52,7 @@ function ctl_portal_group_edit_sphere() {
 }
 //	init properties and sphere
 $cop = new ctl_portal_group_edit_properties();
-$sphere = &ctl_portal_group_edit_sphere();
+$sphere = ctl_portal_group_edit_sphere();
 $rmo = new co_request_method();
 $rmo->add('GET','add',PAGE_MODE_ADD);
 $rmo->add('GET','edit',PAGE_MODE_EDIT);

@@ -47,7 +47,7 @@ function ctl_sphere() {
 }
 //	init properties and sphere
 $cop = new ctl_properties();
-$sphere = &ctl_sphere();
+$sphere = ctl_sphere();
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_debug(),
