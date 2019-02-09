@@ -32,41 +32,59 @@
 	of XigmaNAS, either expressed or implied.
  */
 class co_request_method {
-	public $_activities;
-	public $_default;
-	public $_method;
-	public $_action;
-	
-	public function __construct() {
-		$this->_activities = [];
-		$this->_default = [NULL,NULL,NULL];
-	}
+	protected $x_activities = [];
+	protected $x_default = [NULL,NULL,NULL];
+	protected $x_method;
+	protected $x_action;
+
+	/**
+	 *	Add request method
+	 *	@param string $method The name of the method ('GET', 'POST' or 'SESSIOn').
+	 *	@param string $submit The value of the submit parameter.
+	 *	@param mixed $value An additional value on return, usually a PAGE_MODE constant.
+	 *	@return $this
+	 */
 	public function add(string $method,string $submit,$value = NULL) {
-		if(array_key_exists($method,$this->_activities)):
-			$this->_activities[$method][$submit] = $value;
+		if(array_key_exists($method,$this->x_activities)):
+			$this->x_activities[$method][$submit] = $value;
 		else:
-			$this->_activities[$method] = [$submit => $value];
+			$this->x_activities[$method] = [$submit => $value];
 		endif;
 		return $this;
 	}
+	/**
+	 *	Set the default method when validation failed
+	 *	@param string $method The name of the method ('GET', 'POST' or 'SESSIOn').
+	 *	@param string $submit The value of the submit parameter.
+	 *	@param mixed $value An additional value on return, usually a PAGE_MODE constant.
+	 *	@return $this
+	 */
 	public function set_default(string $method = NULL,string $submit = NULL,$value = NULL) {
-		$this->_default = [$method,$submit,$value];
+		$this->x_default = [$method,$submit,$value];
 		return $this;
 	}
+	/**
+	 *	Returns the default method
+	 *	@return array
+	 */
 	public function get_default() : array {
-		return $this->_default;
+		return $this->x_default;
 	}
+	/**
+	 *	Validate request method and submit parameter
+	 *	@return array
+	 */
 	public function validate() : array {
 		//	check $_SESSION settings first
-		$this->_method = 'SESSION';
-		if(array_key_exists($this->_method,$this->_activities) && array_key_exists('submit',$_SESSION)):
-//			switch($this->_method):
+		$this->x_method = 'SESSION';
+		if(array_key_exists($this->x_method,$this->x_activities) && array_key_exists('submit',$_SESSION)):
+//			switch($this->x_method):
 //				case 'SESSION': // Validate $_SESSION['submit']
-					$this->_action = filter_var($_SESSION['submit'],FILTER_CALLBACK,['options' =>
-						function(string $value) { return array_key_exists($value,$this->_activities[$this->_method]) ? $value : NULL; }
+					$this->x_action = filter_var($_SESSION['submit'],FILTER_CALLBACK,['options' =>
+						function(string $value) { return array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
 					]);
-					if(isset($this->_action)):
-						return [$this->_method,$this->_action,$this->_activities[$this->_method][$this->_action]];
+					if(isset($this->x_action)):
+						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
 					endif;
 //					break;
 //			endswitch;
@@ -74,28 +92,28 @@ class co_request_method {
 		//	check inputs
 		$rm_name = 'REQUEST_METHOD';
 		if(array_key_exists($rm_name,$_SERVER)):
-			$this->_method = filter_var($_SERVER[$rm_name],FILTER_CALLBACK,['options' =>
-				function(string $value) { return array_key_exists($value,$this->_activities) ? $value : NULL; }
+			$this->x_method = filter_var($_SERVER[$rm_name],FILTER_CALLBACK,['options' =>
+				function(string $value) { return array_key_exists($value,$this->x_activities) ? $value : NULL; }
 			]);
 		else:
-			$this->_method = NULL;
+			$this->x_method = NULL;
 		endif;
-		if(isset($this->_method)):
-			switch($this->_method):
+		if(isset($this->x_method)):
+			switch($this->x_method):
 				case 'POST': // Validate $_POST['submit']
-					$this->_action = filter_input(INPUT_POST,'submit',FILTER_CALLBACK,['options' =>
-						function(string $value) { return array_key_exists($value,$this->_activities[$this->_method]) ? $value : NULL; }
+					$this->x_action = filter_input(INPUT_POST,'submit',FILTER_CALLBACK,['options' =>
+						function(string $value) { return array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
 					]);
-					if(isset($this->_action)):
-						return [$this->_method,$this->_action,$this->_activities[$this->_method][$this->_action]];
+					if(isset($this->x_action)):
+						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
 					endif;
 					break;
 				case 'GET': // Validate $_GET['submit']
-					$this->_action = filter_input(INPUT_GET,'submit',FILTER_CALLBACK,['options' =>
-						function(string $value) { return array_key_exists($value,$this->_activities[$this->_method]) ? $value : NULL; }
+					$this->x_action = filter_input(INPUT_GET,'submit',FILTER_CALLBACK,['options' =>
+						function(string $value) { return array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
 					]);
-					if(isset($this->_action)):
-						return [$this->_method,$this->_action,$this->_activities[$this->_method][$this->_action]];
+					if(isset($this->x_action)):
+						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
 					endif;
 					break;
 /*
