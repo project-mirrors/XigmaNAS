@@ -68,14 +68,15 @@ foreach($known_parents as $known_parent):
 endforeach;
 $cop->get_group()->set_options($all_parents);
 $rmo = new co_request_method();
-$rmo->add('GET','add',PAGE_MODE_ADD);
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','add',PAGE_MODE_ADD);
-$rmo->add('POST','cancel',PAGE_MODE_POST);
-$rmo->add('POST','clone',PAGE_MODE_CLONE);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->set_default('POST','cancel',PAGE_MODE_POST);
+$rmo->
+	add('GET','add',PAGE_MODE_ADD)->
+	add('GET','edit',PAGE_MODE_EDIT)->
+	add('POST','add',PAGE_MODE_ADD)->
+	add('POST','cancel',PAGE_MODE_POST)->
+	add('POST','clone',PAGE_MODE_CLONE)->
+	add('POST','edit',PAGE_MODE_EDIT)->
+	add('POST','save',PAGE_MODE_POST)->
+	set_default('POST','cancel',PAGE_MODE_POST);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	init indicators
 $input_errors = [];
