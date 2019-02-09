@@ -40,19 +40,20 @@ require_once 'co_request_method.php';
 function ctl_sub_initiator_portal_edit_sphere() {
 	global $config;
 
-//	sphere structure
+//	sphere configuration
 	$sphere = new co_sphere_row('services_ctl_sub_initiator_portal_edit','php');
 	$sphere->get_parent()->set_basename('services_ctl_sub_initiator_portal');
-	$sphere->set_notifier('ctl_sub_initiator_portal');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
+	$sphere->
+		set_notifier('ctl_sub_initiator_portal')->
+		set_row_identifier('uuid')->
+		set_enadis(false)->set_lock(false);
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_initiator_portal','param');
 	return $sphere;
 }
 //	init properties and sphere
 $cop = new ctl_sub_initiator_portal_edit_properties();
-$sphere = &ctl_sub_initiator_portal_edit_sphere();
+$sphere = ctl_sub_initiator_portal_edit_sphere();
 //	part 1: collect all defined auth groups
 $all_parents = [];
 $known_parents = &array_make_branch($config,'ctld','ctl_auth_group','param');
@@ -267,13 +268,13 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,false,gettext('Configuration'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_ipaddress(),$sphere->row[$cop->get_ipaddress()->get_name()],true,false)->
-		c2_input_text($cop->get_prefixlen(),$sphere->row[$cop->get_prefixlen()->get_name()],false,false)->
-		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false)->
-		c2_checkbox_grid($cop->get_group(),$sphere->row[$cop->get_group()->get_name()],false,false);
+		c2_input_text($cop->get_ipaddress(),$sphere,true,false)->
+		c2_input_text($cop->get_prefixlen(),$sphere,false,false)->
+		c2_input_text($cop->get_description(),$sphere,false,false)->
+		c2_checkbox_grid($cop->get_group(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();

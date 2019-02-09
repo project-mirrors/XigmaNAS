@@ -40,13 +40,14 @@ require_once 'co_request_method.php';
 function ctl_auth_group_sphere() {
 	global $config;
 
+//	sphere configuration
 	$sphere = new co_sphere_grid('services_ctl_auth_group','php');
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
-	$sphere->set_notifier('ctl_auth_group');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(true);
-	$sphere->set_lock(false);
 	$sphere->
+		set_notifier('ctl_auth_group')->
+		set_row_identifier('uuid')->
+		set_enadis(true)->
+		set_lock(false)->
 		setmsg_sym_add(gettext('Add Auth Group'))->
 		setmsg_sym_mod(gettext('Edit Auth Group'))->
 		setmsg_sym_del(gettext('Auth Group is marked for deletion'))->
@@ -60,7 +61,7 @@ function ctl_auth_group_sphere() {
 		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected auth groups?'))->
 		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected auth groups?'))->
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected auth groups?'));
-//	sphere external content
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_auth_group','param');
 	if(!empty($sphere->grid)):
 		array_sort_key($sphere->grid,'name');
@@ -69,7 +70,7 @@ function ctl_auth_group_sphere() {
 }
 function ctl_auth_group_process_updatenotification($mode,$data) {
 	$retval = 0;
-	$sphere = &ctl_auth_group_sphere();
+	$sphere = ctl_auth_group_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
@@ -200,7 +201,7 @@ function ctl_auth_group_selection($cop,$sphere) {
 }
 //	init properties and sphere
 $cop = new ctl_auth_group_properties();
-$sphere = &ctl_auth_group_sphere();
+$sphere = ctl_auth_group_sphere();
 //	determine request method
 $rmo = new co_request_method();
 $rmo->add('POST','apply',PAGE_MODE_VIEW);

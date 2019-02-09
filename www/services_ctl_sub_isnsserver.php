@@ -40,14 +40,15 @@ require_once 'co_request_method.php';
 function ctl_sub_isnsserver_sphere() {
 	global $config;
 
+//	sphere configuration
 	$sphere = new co_sphere_grid('services_ctl_sub_isnsserver','php');
 	$sphere->get_modify()->set_basename('services_ctl_sub_isnsserver_edit');
 	$sphere->get_parent()->set_basename('services_ctl');
-	$sphere->set_notifier('ctl_sub_isnsserver');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(true);
-	$sphere->set_lock(false);
 	$sphere->
+		set_notifier('ctl_sub_isnsserver')->
+		set_row_identifier('uuid')->
+		set_enadis(true)->
+		set_lock(false)->
 		setmsg_sym_add(gettext('Add iSNS Server'))->
 		setmsg_sym_mod(gettext('Edit iSNS Server'))->
 		setmsg_sym_del(gettext('iSNS Server is marked for deletion'))->
@@ -61,7 +62,7 @@ function ctl_sub_isnsserver_sphere() {
 		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected iSNS servers?'))->
 		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected iSNS servers?'))->
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected iSNS servers?'));
-//	sphere external content
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_isnsserver','param');
 	if(!empty($sphere->grid)):
 		array_sort_key($sphere->grid,'name');
@@ -70,7 +71,7 @@ function ctl_sub_isnsserver_sphere() {
 }
 function ctl_sub_isnsserver_process_updatenotification($mode,$data) {
 	$retval = 0;
-	$sphere = &ctl_sub_isnsserver_sphere();
+	$sphere = ctl_sub_isnsserver_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
@@ -201,7 +202,7 @@ function ctl_sub_isnsserver_selection($cop,$sphere) {
 }
 //	init properties and sphere
 $cop = new ctl_sub_isnsserver_properties();
-$sphere = &ctl_sub_isnsserver_sphere();
+$sphere = ctl_sub_isnsserver_sphere();
 //	determine request method
 $rmo = new co_request_method();
 $rmo->add('GET','view',PAGE_MODE_VIEW);

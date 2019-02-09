@@ -40,14 +40,16 @@ require_once 'co_request_method.php';
 function ctl_sphere() {
 	global $config;
 
+//	sphere configuration
 	$sphere = new co_sphere_row('services_ctl','php');
 	$sphere->set_enadis(true);
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld');
 	return $sphere;
 }
 //	init properties and sphere
 $cop = new ctl_properties();
-$sphere = &ctl_sphere();
+$sphere = ctl_sphere();
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_debug(),
