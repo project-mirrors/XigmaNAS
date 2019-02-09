@@ -40,13 +40,14 @@ require_once 'co_request_method.php';
 function ctl_lun_sphere() {
 	global $config;
 
+//	sphere configuration
 	$sphere = new co_sphere_grid('services_ctl_lun','php');
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
-	$sphere->set_notifier('ctl_lun');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(true);
-	$sphere->set_lock(false);
 	$sphere->
+		set_notifier('ctl_lun')->
+		set_row_identifier('uuid')->
+		set_enadis(true)->
+		set_lock(false)->
 		setmsg_sym_add(gettext('Add LUN'))->
 		setmsg_sym_mod(gettext('Edit LUN'))->
 		setmsg_sym_del(gettext('LUN is marked for deletion'))->
@@ -60,7 +61,7 @@ function ctl_lun_sphere() {
 		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected LUNs?'))->
 		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected LUNs?'))->
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected LUNs?'));
-//	sphere external content
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_lun','param');
 	if(!empty($sphere->grid)):
 		array_sort_key($sphere->grid,'name');

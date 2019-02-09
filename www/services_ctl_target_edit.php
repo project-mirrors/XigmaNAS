@@ -40,13 +40,15 @@ require_once 'co_request_method.php';
 function ctl_target_edit_sphere() {
 	global $config;
 
-//	sphere structure
+//	sphere configuration
 	$sphere = new co_sphere_row('services_ctl_target_edit','php');
 	$sphere->get_parent()->set_basename('services_ctl_target');
-	$sphere->set_notifier('ctl_target');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
+	$sphere->
+		set_notifier('ctl_target')->
+		set_row_identifier('uuid')->
+		set_enadis(false)->
+		set_lock(false);
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_target','param');
 	return $sphere;
 }
@@ -287,16 +289,16 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,false,gettext('Configuration'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere->row[$cop->get_name()->get_name()],true,false)->
-		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false)->
-		c2_input_text($cop->get_alias(),$sphere->row[$cop->get_alias()->get_name()],false,false)->
-		c2_select($cop->get_auth_group(),$sphere->row[$cop->get_auth_group()->get_name()],false,false)->
-		c2_select($cop->get_portal_group(),$sphere->row[$cop->get_portal_group()->get_name()],false,false)->
-		c2_input_text($cop->get_redirect(),$sphere->row[$cop->get_redirect()->get_name()],false,false)->
-		c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,false,60,$n_auxparam_rows);
+		c2_input_text($cop->get_name(),$sphere,true,false)->
+		c2_input_text($cop->get_description(),$sphere,false,false)->
+		c2_input_text($cop->get_alias(),$sphere,false,false)->
+		c2_select($cop->get_auth_group(),$sphere,false,false)->
+		c2_select($cop->get_portal_group(),$sphere,false,false)->
+		c2_input_text($cop->get_redirect(),$sphere,false,false)->
+		c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
 $buttons = $document->
 	add_area_buttons();
 if($isrecordnew):

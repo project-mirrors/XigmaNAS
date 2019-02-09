@@ -40,13 +40,15 @@ require_once 'co_request_method.php';
 function ctl_sub_isnsserver_edit_sphere() {
 	global $config;
 
-//	sphere structure
+//	sphere configuration
 	$sphere = new co_sphere_row('services_ctl_sub_isnsserver_edit','php');
 	$sphere->get_parent()->set_basename('services_ctl_sub_isnsserver');
-	$sphere->set_notifier('ctl_sub_isnsserver');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
+	$sphere->
+		set_notifier('ctl_sub_isnsserver')->
+		set_row_identifier('uuid')->
+		set_enadis(false)->
+		set_lock(false);
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_isnsserver','param');
 	return $sphere;
 }
@@ -241,12 +243,12 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,false,gettext('Configuration'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_ipaddress(),$sphere->row[$cop->get_ipaddress()->get_name()],true,false)->
-		c2_input_text($cop->get_port(),$sphere->row[$cop->get_port()->get_name()],false,false)->
-		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false);
+		c2_input_text($cop->get_ipaddress(),$sphere,true,false)->
+		c2_input_text($cop->get_port(),$sphere,false,false)->
+		c2_input_text($cop->get_description(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();

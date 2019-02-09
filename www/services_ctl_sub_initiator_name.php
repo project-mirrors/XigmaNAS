@@ -40,14 +40,15 @@ require_once 'co_request_method.php';
 function ctl_sub_initiator_name_sphere() {
 	global $config;
 
+//	sphere configuration
 	$sphere = new co_sphere_grid('services_ctl_sub_initiator_name','php');
 	$sphere->get_modify()->set_basename('services_ctl_sub_initiator_name_edit');
 	$sphere->get_parent()->set_basename('services_ctl_auth_group');
-	$sphere->set_notifier('ctl_sub_initiator_name');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(true);
-	$sphere->set_lock(false);
 	$sphere->
+		set_notifier('ctl_sub_initiator_name')->
+		set_row_identifier('uuid')->
+		set_enadis(true)->
+		set_lock(false)->
 		setmsg_sym_add(gettext('Add Initiator Name'))->
 		setmsg_sym_mod(gettext('Edit Initiator Name'))->
 		setmsg_sym_del(gettext('Initiator Name is marked for deletion'))->
@@ -61,7 +62,7 @@ function ctl_sub_initiator_name_sphere() {
 		setmsg_cbm_disable_confirm(gettext('Do you want to disable selected initiator names?'))->
 		setmsg_cbm_enable_confirm(gettext('Do you want to enable selected initiator names?'))->
 		setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected initiator names?'));
-//	sphere external content
+//	sphere data
 	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_initiator_name','param');
 	if(!empty($sphere->grid)):
 		array_sort_key($sphere->grid,'name');
