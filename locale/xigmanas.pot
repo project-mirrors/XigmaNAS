@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-09 04:00+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -611,9 +611,6 @@ msgid "Additional Options for Block Backend"
 msgstr ""
 
 msgid "Additional Options for RAM Disk Backend"
-msgstr ""
-
-msgid "Additional Parameter"
 msgstr ""
 
 msgid "Additional Parameters"
@@ -4914,6 +4911,9 @@ msgstr ""
 msgid "Import on-disk ZFS config"
 msgstr ""
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr ""
 
@@ -7582,6 +7582,9 @@ msgstr ""
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr ""
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr ""
 
@@ -9661,7 +9664,7 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr ""
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
+msgid "These parameters are added to the [Share] section of %s."
 msgstr ""
 
 msgid "These parameters are added to the hardware-specific part of the driver for the second UPS."
@@ -10103,6 +10106,9 @@ msgid "Tolerated"
 msgstr ""
 
 msgid "Toolbox"
+msgstr ""
+
+msgid "Toold"
 msgstr ""
 
 msgid "Tools"
@@ -11276,9 +11282,6 @@ msgid "network traffic"
 msgstr ""
 
 msgid "no pools available"
-msgstr ""
-
-msgid "noVNC"
 msgstr ""
 
 msgid "none"
