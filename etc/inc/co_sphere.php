@@ -69,6 +69,9 @@ class co_sphere_level1 extends co_sphere_scriptname { // for settings, services,
 	protected $x_enadis = false;
 	protected $x_class_button = 'formbtn';
 //	methods
+	public function __destruct() {
+		unset($this->parent);
+	}
 	public function get_parent() {
 		if(!is_object($this->parent)):
 			$this->parent = new co_sphere_scriptname($this->get_basename(),$this->get_extension());
@@ -281,6 +284,10 @@ class co_sphere_grid extends co_sphere_level2 {
 	protected $x_cbm_button_val_enable = 'rows.enable';
 	protected $x_cbm_button_val_toggle = 'rows.toggle';
 //	methods
+	public function __destruct() {
+		unset($this->inform,$this->maintain,$this->modify);
+		parent::__destruct();
+	}
 	public function get_modify() {
 		if(!is_object($this->modify)):
 			$this->modify = new co_sphere_scriptname($this->get_basename(),$this->get_extension());
