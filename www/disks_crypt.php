@@ -236,7 +236,7 @@ $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
 			ins_tabnav_record('disks_crypt.php',gettext('Management'),gettext('Reload page',true))->
-			ins_tabnav_record('disks_crypt_tools.php',gettext('Toold'));
+			ins_tabnav_record('disks_crypt_tools.php',gettext('Tools'));
 $document->render();
 ?>
 <form action="disks_crypt.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
