@@ -33,23 +33,13 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_ctl.php';
-require_once 'co_request_method.php';
 
-function ctl_sphere() {
-	global $config;
+spl_autoload_register();
+use services\ctld\toolbox_row as toolbox;
 
-//	sphere configuration
-	$sphere = new co_sphere_row('services_ctl','php');
-	$sphere->set_enadis(true);
-//	sphere data
-	$sphere->grid = &array_make_branch($config,'ctld');
-	return $sphere;
-}
 //	init properties and sphere
-$cop = new ctl_properties();
-$sphere = ctl_sphere();
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_debug(),
@@ -61,20 +51,7 @@ $a_referer = [
 ];
 $input_errors = [];
 //	determine request method
-$rmo = new co_request_method();
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('GET','view',PAGE_MODE_VIEW);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-if($sphere->is_enadis_enabled()):
-	$rmo->add('POST','enable',PAGE_MODE_VIEW);
-	$rmo->add('POST','disable',PAGE_MODE_VIEW);
-endif;
-$rmo->add('POST','reload',PAGE_MODE_VIEW);
-$rmo->add('POST','restart',PAGE_MODE_VIEW);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->add('POST','view',PAGE_MODE_VIEW);
-$rmo->add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
+$rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	catch error code
 switch($page_action):
