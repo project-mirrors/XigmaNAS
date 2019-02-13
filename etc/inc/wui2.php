@@ -1858,7 +1858,7 @@ trait co_DOMTools {
 		$this->addTR($tr_attributes)->addTH($th_attributes)->addSPAN($spanleft_attributes,$title);
 		return $this;
 	}
-	public function ins_titleline_with_checkbox(property $p,$value,bool $is_required = false,bool $is_readonly = false,string $title = '',int $colspan = 0) {
+	public function ins_titleline_with_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false,string $title = '',int $colspan = 0) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$tr_attributes = [];
 		$th_attributes = [];
@@ -1901,7 +1901,7 @@ trait co_DOMTools {
 							addSPAN($span_attributes,$p->get_caption());
 		return $this;
 	}
-	public function ins_description(property $p) {
+	public function ins_description($p) {
 		//	description can be:
 		//	string
 		//	[string, ...]
@@ -1990,7 +1990,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_checkbox(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$input_attributes = [
 			'type' => 'checkbox',
@@ -2018,7 +2018,7 @@ trait co_DOMTools {
 		$div->addElement('label',['for' => $p->get_id()],$p->get_caption());
 		return $this;
 	}
-	public function ins_input(property $p,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
+	public function ins_input($p,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$id = $p->get_id();
 		$caption = $p->get_caption();
@@ -2084,7 +2084,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_checkbox_grid(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$input_attributes = [
 			'name' => sprintf('%s[]',$p->get_name()),
@@ -2128,7 +2128,7 @@ trait co_DOMTools {
 		endforeach;
 		return $this;
 	}
-	public function ins_filechooser(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$id = $p->get_id();
 		$name = $p->get_name();
@@ -2196,7 +2196,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_radio_grid(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$table = $this->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',['5%','95%']);
@@ -2237,7 +2237,7 @@ EOJ;
 		endforeach;
 		return $this;
 	}
-	public function ins_select(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$caption = $p->get_caption();
 		$select_attributes = [
@@ -2285,7 +2285,7 @@ EOJ;
 		$this->addTR($tr_attributes)->addTD($td_attributes);
 		return $this;
 	}
-	public function ins_textarea(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_textarea($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$id = $p->get_id();
 		$caption = $p->get_caption();
@@ -2528,7 +2528,7 @@ EOJ;
 		return $this;
 	}
 	//	c2 blocks
-	public function c2_row(property $p,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
+	public function c2_row($p,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
 		if($is_readonly):
 			$class_tag = 'celltag';
 			$class_data = 'celldata';
@@ -2550,49 +2550,49 @@ EOJ;
 		$subnode = $tr->addTDwC($class_data);
 		return $subnode;
 	}
-	public function c2_checkbox(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,true)->
 				ins_checkbox($p,$value,$is_required,$is_readonly)->
 				ins_description($p);
 		return $this;
 	}
-	public function c2_checkbox_grid(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,false)->
 				ins_checkbox_grid($p,$value,$is_required,$is_readonly)->
 				ins_description($p);
 		return $this;
 	}
-	public function c2_filechooser(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,true)->
 				ins_filechooser($p,$value,$is_required,$is_readonly)->
 				ins_description($p);
 		return $this;
 	}
-	public function c2_input_text(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_input_text($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,true)->
 				ins_input($p,$value,$is_required,$is_readonly,0)->
 				ins_description($p);
 		return $this;
 	}
-	public function c2_input_password(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_input_password($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,true)->
 				ins_input($p,$value,$is_required,$is_readonly,1)->
 				ins_description($p);
 		return $this;
 	}
-	public function c2_radio_grid(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,false)->
 				ins_radio_grid($p,$value,$is_required,$is_readonly)->
 				ins_description($p);
 		return $this;
 	}
-	public function c2_select(property $p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,true)->
 				ins_select($p,$value,$is_required,$is_readonly)->
@@ -2603,7 +2603,7 @@ EOJ;
 		$this->ins_separator(2);
 		return $this;
 	}
-	public function c2_textarea(property $p,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
+	public function c2_textarea($p,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
 		if($n_cols > 0):
 			$p->set_cols($n_cols);
 		endif;
@@ -2630,7 +2630,7 @@ EOJ;
 		$this->ins_titleline($title,2);
 		return $this;
 	}
-	public function c2_titleline_with_checkbox(property $p,$value,bool $is_required = false,bool $is_readonly = false,string $title = '') {
+	public function c2_titleline_with_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false,string $title = '') {
 		$this->ins_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title,2);
 		return $this;
 	}
