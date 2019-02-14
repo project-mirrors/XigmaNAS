@@ -345,7 +345,6 @@ hint.p4tcc.0.disabled="0"
 loader_brand="${PRDNAME}"
 autoboot_delay="3"
 # isboot_load="YES"
-vfs.root.mountfrom="zfs:${ZROOT}${DATASET}${BOOTENV}"
 zfs_load="YES"
 EOF
 
