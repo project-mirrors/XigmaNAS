@@ -37,14 +37,18 @@ require_once 'guiconfig.inc';
 spl_autoload_register();
 use services\ctld\lun\toolbox_row as toolbox;
 
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	init indicators
-$input_errors = [];
-$prerequisites_ok = true;
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -265,9 +269,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->

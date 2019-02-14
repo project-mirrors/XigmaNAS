@@ -34,10 +34,12 @@
 namespace services\ctld\sub\isnsserver;
 use common\rmo as myr;
 use common\sphere as mys;
+use services\ctld\utilities as myu;
 /**
  *	Wrapper class for autoloading functions
  */
 class toolbox_grid {
+	const NOTIFICATION_PROCESSOR = 'process_notification';
 /**
  *	Create the sphere object
  *	@global array $config
@@ -51,7 +53,7 @@ class toolbox_grid {
 		$sphere->get_parent()->set_basename('services_ctl');
 		$sphere->
 			set_notifier(__NAMESPACE__)->
-			set_notifier_processor(__NAMESPACE__ . '\toolbox_grid::process_notification')->
+			set_notifier_processor(sprintf('%s::%s',static::class,static::NOTIFICATION_PROCESSOR))->
 			set_row_identifier('uuid')->
 			set_enadis(true)->
 			set_lock(false)->
@@ -152,9 +154,6 @@ class toolbox_grid {
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		if(file_exists($d_sysrebootreqd_path)):
-			$content->ins_info_box(get_std_save_message(0));
-		endif;
 		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
@@ -232,21 +231,9 @@ class toolbox_grid {
  *	@param string $data
  *	@return int
  */
-	public static function process_notification($mode,$data) {
-		$retval = 0;
+	public static function process_notification(int $mode,string $data) {
 		$sphere = self::init_sphere();
-		switch($mode):
-			case UPDATENOTIFY_MODE_NEW:
-			case UPDATENOTIFY_MODE_MODIFIED:
-				break;
-			case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			case UPDATENOTIFY_MODE_DIRTY:
-				if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
-					unset($sphere->grid[$sphere->row_id]);
-					write_config();
-				endif;
-				break;
-		endswitch;
+		$retval = myu::process_notification_row($mode,$data,$sphere);
 		return $retval;
 	}
 }

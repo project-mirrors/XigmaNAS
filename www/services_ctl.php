@@ -37,6 +37,12 @@ require_once 'guiconfig.inc';
 spl_autoload_register();
 use services\ctld\toolbox_row as toolbox;
 
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
@@ -49,7 +55,6 @@ $a_referer = [
 	$cop->get_isns_timeout(),
 	$cop->get_auxparam()
 ];
-$input_errors = [];
 //	determine request method
 $rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
@@ -224,7 +229,8 @@ $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
 //	add content
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->
@@ -232,15 +238,15 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$is_enabled,false,$is_readonly,gettext('CAM Target Layer'))->
+			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('CAM Target Layer'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_debug(),$sphere->row[$cop->get_debug()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_maxproc(),$sphere->row[$cop->get_maxproc()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_timeout(),$sphere->row[$cop->get_timeout()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_isns_period(),$sphere->row[$cop->get_isns_period()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_isns_timeout(),$sphere->row[$cop->get_isns_timeout()->get_name()],false,$is_readonly)->
-			c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,$is_readonly,60,$n_auxparam_rows);
+			c2_input_text($cop->get_debug(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_maxproc(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_isns_period(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
+			c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 switch($page_mode):
 	case PAGE_MODE_VIEW:

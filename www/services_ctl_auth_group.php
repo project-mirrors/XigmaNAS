@@ -37,6 +37,10 @@ require_once 'guiconfig.inc';
 spl_autoload_register();
 use services\ctld\auth_group\toolbox_grid as toolbox;
 
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
@@ -49,35 +53,21 @@ switch($page_method):
 			case $sphere->get_basename():
 				//	catch error code
 				$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-				unset($_SESSION['submit']);
-				unset($_SESSION[$sphere->get_basename()]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_basename()]);
 				$savemsg = get_std_save_message($retval);
-				toolbox::render($cop,$sphere);
 				break;
 		endswitch;
 		break;
 	case 'GET':
 		switch($page_action):
 			case 'view':
-				toolbox::render($cop,$sphere);
 				break;
 		endswitch;
 		break;
 	case 'POST':
 		switch($page_action):
 			case 'apply':
-				$retval = 0;
-				if(!file_exists($d_sysrebootreqd_path)):
-					$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
-					config_lock();
-					$retval |= rc_update_reload_service('ctld');
-					config_unlock();
-					$_SESSION['submit'] = $sphere->get_basename();
-					$_SESSION[$sphere->get_basename()] = $retval;
-				endif;
-				if($retval == 0):
-					updatenotify_delete($sphere->get_notifier());
-				endif;
+				updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 				header($sphere->get_location());
 				exit;
 				break;
@@ -110,3 +100,4 @@ switch($page_method):
 		endswitch;
 		break;
 endswitch;
+toolbox::render($cop,$sphere);

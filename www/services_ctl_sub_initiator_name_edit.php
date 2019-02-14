@@ -37,8 +37,13 @@ require_once 'guiconfig.inc';
 spl_autoload_register();
 use services\ctld\sub\initiator_name\toolbox_row as toolbox;
 
-function ctl_sub_initiator_name_edit_sphere() {
-}
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
@@ -56,9 +61,6 @@ endforeach;
 $cop->get_group()->set_options($all_parents);
 $rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	init indicators
-$input_errors = [];
-$prerequisites_ok = true;
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -240,9 +242,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
