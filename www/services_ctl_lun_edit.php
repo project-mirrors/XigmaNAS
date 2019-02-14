@@ -35,7 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\lun as toolbox;
+use services\ctld\lun\toolbox_row as toolbox;
 
 //	init properties and sphere
 $cop = toolbox::init_properties();
