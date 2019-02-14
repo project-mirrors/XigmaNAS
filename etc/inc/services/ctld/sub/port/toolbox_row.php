@@ -46,7 +46,7 @@ class toolbox_row {
 	public static function init_sphere() {
 		global $config;
 
-		$sphere = new mys\grid('services_ctl_sub_port_edit','php');
+		$sphere = new mys\row('services_ctl_sub_port_edit','php');
 		$sphere->get_parent()->set_basename('services_ctl_sub_port');
 		$sphere->
 			set_notifier(__NAMESPACE__)->
