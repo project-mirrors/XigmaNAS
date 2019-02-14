@@ -50,7 +50,8 @@ class toolbox_grid {
 		$sphere->get_modify()->set_basename('services_ctl_sub_listen_edit');
 		$sphere->get_parent()->set_basename('services_ctl_auth_group');
 		$sphere->
-			set_notifier('ctl_sub_listen')->
+			set_notifier(__NAMESPACE__)->
+			set_notifier_processor(__NAMESPACE__ . '\toolbox_grid::process_notification')->
 			set_row_identifier('uuid')->
 			set_enadis(true)->
 			set_lock(false)->
