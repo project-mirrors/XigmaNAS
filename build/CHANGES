@@ -20,7 +20,6 @@ Changes:
 - Upgrade netatalk to 3.1.12.
 - Upgrade zoneinfo to 2018i.
 - Upgrade syncthing to 1.0.0.
-- Upgrade php to 7.2.14.
 - Upgrade bash to 5.0 patch 2.
 - Upgrade sudo to 1.8.27.
 - Upgrade beadm to 1.3.0.
@@ -30,6 +29,7 @@ Changes:
 - Upgrade libvncserver to 0.9.12.
 - Upgrade virtualbox-ose to 5.2.26.
 - Upgrade msmtp to 1.8.3.
+- Upgrade php to 7.2.15.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
