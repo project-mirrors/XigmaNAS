@@ -35,7 +35,6 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\target as origin;
 use services\ctld\target\toolbox_row as toolbox;
 
 //	init indicators
