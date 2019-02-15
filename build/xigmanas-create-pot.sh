@@ -34,7 +34,9 @@ cd ${XIGMANAS_SVNDIR}/www/quixplorer/_include
 xgettext ${PARAMETERS} --join-existing *.*
 
 cd ${XIGMANAS_SVNDIR}/etc/inc
-xgettext ${PARAMETERS} --join-existing *.*
+# xgettext ${PARAMETERS} --join-existing *.*
+find . -iname "*.php" | xargs xgettext ${PARAMETERS} --join-existing
+find . -iname "*.inc" | xargs xgettext ${PARAMETERS} --join-existing
 
 DATE="$(date "+%Y-%m-%d %H:%M")+0000"
 echo "msgid \"\"
