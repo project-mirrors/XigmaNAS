@@ -110,17 +110,17 @@ class toolbox_grid {
 	}
 /**
  *	Render the page
- *	@global string $d_sysrebootreqd_path
- *	@global stringtype $savemsg
+ *	@global array $input_errors
+ *	@global string $errormsg
+ *	@global string $savemsg
  *	@param \services\ctld\sub\chap\basic_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(basic_properties $cop,mys\grid $sphere) {
-		global $d_sysrebootreqd_path;
+		global $input_errors;
+		global $errormsg;
 		global $savemsg;
-
-		$input_errors = [];
-		$errormsg = '';
+		
 		$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Auth Groups'),gettext('CHAP')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
