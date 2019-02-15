@@ -79,10 +79,6 @@ $document->
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
-if($cmd_perform_action):
-elseif(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $content->
 	add_table_data_settings()->
 		push()->

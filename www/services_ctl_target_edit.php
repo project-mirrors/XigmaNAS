@@ -33,42 +33,22 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_ctl_target.php';
-require_once 'co_request_method.php';
 
-function ctl_target_edit_sphere() {
-	global $config;
+spl_autoload_register();
+use services\ctld\target\toolbox_row as toolbox;
 
-//	sphere configuration
-	$sphere = new co_sphere_row('services_ctl_target_edit','php');
-	$sphere->get_parent()->set_basename('services_ctl_target');
-	$sphere->
-		set_notifier('ctl_target')->
-		set_row_identifier('uuid')->
-		set_enadis(false)->
-		set_lock(false);
-//	sphere data
-	$sphere->grid = &array_make_branch($config,'ctld','ctl_target','param');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new ctl_target_edit_properties();
-$sphere = ctl_target_edit_sphere();
-$rmo = new co_request_method();
-$rmo->
-	add('GET','add',PAGE_MODE_ADD)->
-	add('GET','edit',PAGE_MODE_EDIT)->
-	add('POST','add',PAGE_MODE_ADD)->
-	add('POST','cancel',PAGE_MODE_POST)->
-	add('POST','clone',PAGE_MODE_CLONE)->
-	add('POST','edit',PAGE_MODE_EDIT)->
-	add('POST','save',PAGE_MODE_POST)->
-	set_default('POST','cancel',PAGE_MODE_POST);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -282,9 +262,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
@@ -303,25 +280,17 @@ $content->add_table_data_settings()->
 $buttons = $document->
 	add_area_buttons();
 if($isrecordnew):
-	$buttons->
-		ins_button_add();
+	$buttons->ins_button_add();
 else:
-	$buttons->
-		ins_button_save();
+	$buttons->ins_button_save();
 	if($prerequisites_ok && empty($input_errors)):
 		$buttons->ins_button_clone();
 	endif;
 endif;
-$buttons->
-	ins_button_cancel();
-$buttons->
-	addElement('input',['name' => $sphere->get_row_identifier(),'type' => 'hidden','value' => $sphere->get_row_identifier_value()]);
+$buttons->ins_button_cancel();
+$buttons->addElement('input',['name' => $sphere->get_row_identifier(),'type' => 'hidden','value' => $sphere->get_row_identifier_value()]);
 //	additional javascript code
-$body->
-	addJavaScript($sphere->get_js());
-$body->
-	add_js_on_load($sphere->get_js_on_load());
-$body->
-	add_js_document_ready($sphere->get_js_document_ready());
-$document->
-	render();
+$body->addJavaScript($sphere->get_js());
+$body->add_js_on_load($sphere->get_js_on_load());
+$body->add_js_document_ready($sphere->get_js_document_ready());
+$document->render();

@@ -33,23 +33,19 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_ctl.php';
-require_once 'co_request_method.php';
 
-function ctl_sphere() {
-	global $config;
+spl_autoload_register();
+use services\ctld\toolbox_row as toolbox;
 
-//	sphere configuration
-	$sphere = new co_sphere_row('services_ctl','php');
-	$sphere->set_enadis(true);
-//	sphere data
-	$sphere->grid = &array_make_branch($config,'ctld');
-	return $sphere;
-}
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
 //	init properties and sphere
-$cop = new ctl_properties();
-$sphere = ctl_sphere();
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_debug(),
@@ -59,22 +55,8 @@ $a_referer = [
 	$cop->get_isns_timeout(),
 	$cop->get_auxparam()
 ];
-$input_errors = [];
 //	determine request method
-$rmo = new co_request_method();
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('GET','view',PAGE_MODE_VIEW);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-if($sphere->is_enadis_enabled()):
-	$rmo->add('POST','enable',PAGE_MODE_VIEW);
-	$rmo->add('POST','disable',PAGE_MODE_VIEW);
-endif;
-$rmo->add('POST','reload',PAGE_MODE_VIEW);
-$rmo->add('POST','restart',PAGE_MODE_VIEW);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->add('POST','view',PAGE_MODE_VIEW);
-$rmo->add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
+$rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	catch error code
 switch($page_action):
@@ -247,7 +229,8 @@ $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
 //	add content
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->
@@ -255,15 +238,15 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$is_enabled,false,$is_readonly,gettext('CAM Target Layer'))->
+			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('CAM Target Layer'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_debug(),$sphere->row[$cop->get_debug()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_maxproc(),$sphere->row[$cop->get_maxproc()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_timeout(),$sphere->row[$cop->get_timeout()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_isns_period(),$sphere->row[$cop->get_isns_period()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_isns_timeout(),$sphere->row[$cop->get_isns_timeout()->get_name()],false,$is_readonly)->
-			c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,$is_readonly,60,$n_auxparam_rows);
+			c2_input_text($cop->get_debug(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_maxproc(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_isns_period(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
+			c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 switch($page_mode):
 	case PAGE_MODE_VIEW:

@@ -33,28 +33,20 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_ctl_sub_option.php';
-require_once 'co_request_method.php';
 
-function ctl_sub_option_edit_sphere() {
-	global $config;
+spl_autoload_register();
+use services\ctld\sub\option\toolbox_row as toolbox;
 
-//	sphere configuration
-	$sphere = new co_sphere_row('services_ctl_sub_option_edit','php');
-	$sphere->get_parent()->set_basename('services_ctl_sub_option');
-	$sphere->
-		set_notifier('ctl_sub_option')->
-		set_row_identifier('uuid')->
-		set_enadis(false)->
-		set_lock(false);
-//	sphere data
-	$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_option','param');
-	return $sphere;
-}
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
 //	init properties and sphere
-$cop = new ctl_sub_option_edit_properties();
-$sphere = ctl_sub_option_edit_sphere();
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
 //	part 1: collect all defined portal groups
 $all_parents = [];
 $known_parents = &array_make_branch($config,'ctld','ctl_portal_group','param');
@@ -67,20 +59,8 @@ foreach($known_parents as $known_parent):
 	endif;
 endforeach;
 $cop->get_group()->set_options($all_parents);
-$rmo = new co_request_method();
-$rmo->
-	add('GET','add',PAGE_MODE_ADD)->
-	add('GET','edit',PAGE_MODE_EDIT)->
-	add('POST','add',PAGE_MODE_ADD)->
-	add('POST','cancel',PAGE_MODE_POST)->
-	add('POST','clone',PAGE_MODE_CLONE)->
-	add('POST','edit',PAGE_MODE_EDIT)->
-	add('POST','save',PAGE_MODE_POST)->
-	set_default('POST','cancel',PAGE_MODE_POST);
+$rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	init indicators
-$input_errors = [];
-$prerequisites_ok = true;
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -261,9 +241,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
