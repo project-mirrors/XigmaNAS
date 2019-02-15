@@ -22,7 +22,6 @@ Changes:
 - Upgrade syncthing to 1.0.0.
 - Upgrade php to 7.2.14.
 - Upgrade bash to 5.0 patch 2.
-- Upgrade msmtp to 1.8.2.
 - Upgrade sudo to 1.8.27.
 - Upgrade beadm to 1.3.0.
 - Upgrade bash to 5.0 p2.
@@ -30,6 +29,7 @@ Changes:
 - Upgrade lighttpd to 1.4.53.
 - Upgrade libvncserver to 0.9.12.
 - Upgrade virtualbox-ose to 5.2.26.
+- Upgrade msmtp to 1.8.3.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
