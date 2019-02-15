@@ -33,7 +33,7 @@
 */
 namespace services\ctld\sub\initiator_portal;
 
-class extended_properties extends basic_properties {
+final class extended_properties extends basic_properties {
 	public function init_ipaddress() {
 		$property = parent::init_ipaddress();
 		$description = gettext('An IPv4 or IPv6 address of an iSCSI initiator portal.');

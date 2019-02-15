@@ -33,7 +33,7 @@
 */
 namespace services\ctld\sub\initiator_name;
 
-class extended_properties extends basic_properties {
+final class extended_properties extends basic_properties {
 	public function init_name() {
 		$property = parent::init_name();
 		$description = gettext('Enter an iSCSI initiator name.');

@@ -37,13 +37,13 @@ use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-class toolbox_row {
+final class toolbox_row {
 /**
  *	Create the sphere object
  *	@global array $config
  *	@return \common\sphere\row The sphere object
  */
-	static function init_sphere() {
+	public static function init_sphere() {
 		global $config;
 		
 		$sphere = new mys\row('services_ctl','php');
@@ -57,7 +57,7 @@ class toolbox_row {
  *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	static function init_rmo(extended_properties $cop,mys\row $sphere) {
+	public static function init_rmo(extended_properties $cop,mys\row $sphere) {
 		$rmo = new myr\rmo();
 		if($sphere->is_enadis_enabled()):
 			$rmo->
@@ -80,7 +80,7 @@ class toolbox_row {
  *	Creates the property object
  *	@return \services\ctld\extended_properties
  */
-	static function init_properties() {
+	public static function init_properties() {
 		$cop = new extended_properties();
 		return $cop;
 	}

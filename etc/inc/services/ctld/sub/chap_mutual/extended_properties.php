@@ -33,7 +33,7 @@
 */
 namespace services\ctld\sub\chap_mutual;
 
-class extended_properties extends basic_properties {
+final class extended_properties extends basic_properties {
 	public function init_name() {
 		$property = parent::init_name();
 		$description = gettext('Enter user name.');

@@ -38,8 +38,8 @@ use services\ctld\utilities as myu;
 /**
  *	Wrapper class for autoloading functions
  */
-class toolbox_grid {
-	const NOTIFICATION_PROCESSOR = 'process_notification';
+final class toolbox_grid {
+	private const NOTIFICATION_PROCESSOR = 'process_notification';
 /**
  *	Create the sphere object
  *	@global array $config
@@ -53,7 +53,7 @@ class toolbox_grid {
 		$sphere->get_parent()->set_basename('services_ctl');
 		$sphere->
 			set_notifier(__NAMESPACE__)->
-			set_notifier_processor(sprintf('%s::%s',static::class,static::NOTIFICATION_PROCESSOR))->
+			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier('uuid')->
 			set_enadis(true)->
 			set_lock(false)->

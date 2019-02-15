@@ -33,7 +33,7 @@
 */
 namespace services\ctld\sub\lun;
 
-class extended_properties extends basic_properties {
+final class extended_properties extends basic_properties {
 	public function init_number() {
 		$property = parent::init_number();
 		$description = gettext('LUN number');

@@ -33,7 +33,7 @@
 */
 namespace services\ctld\sub\listen;
 
-class extended_properties extends basic_properties {
+final class extended_properties extends basic_properties {
 	public function init_ipaddress() {
 		$property = parent::init_ipaddress();
 		$description = gettext('An IPv4 or IPv6 address to listen on for incoming connections.');

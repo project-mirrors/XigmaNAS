@@ -38,7 +38,7 @@ use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-class toolbox_row {
+final class toolbox_row {
 /**
  *	Create the sphere object
  *	@global array $config

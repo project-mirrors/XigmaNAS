@@ -34,7 +34,7 @@
 namespace services\ctld;
 use common\properties as myp;
 
-class extended_properties extends myp\container {
+final class extended_properties extends myp\container {
 	protected $x_enable;
 	public function init_enable() {
 		$property = $this->x_enable = new myp\property_enable($this);

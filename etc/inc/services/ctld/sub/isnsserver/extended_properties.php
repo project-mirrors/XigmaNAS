@@ -33,7 +33,7 @@
 */
 namespace services\ctld\sub\isnsserver;
 
-class extended_properties extends basic_properties {
+final class extended_properties extends basic_properties {
 	public function init_ipaddress() {
 		$property = parent::init_ipaddress();
 		$description = gettext('IPv4 or IPv6 address of an iSNS server to register on.');
