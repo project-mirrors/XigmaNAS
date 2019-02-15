@@ -57,6 +57,8 @@ final class utilities {
 					break;
 				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 					$reload = false;
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
 					break;
 				case UPDATENOTIFY_MODE_DIRTY:
 					$reload = true;
