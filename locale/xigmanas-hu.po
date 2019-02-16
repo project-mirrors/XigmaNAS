@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
 "PO-Revision-Date: 2018-12-30 20:57+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -703,9 +703,6 @@ msgstr "Blokkháttér egyéni beállításai lehetőségei"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Memórialemez-háttér egyéni beállításai lehetőségei"
-
-msgid "Additional Parameter"
-msgstr "További paraméter"
 
 msgid "Additional Parameters"
 msgstr "További paraméterek"
@@ -5627,6 +5624,9 @@ msgstr "Lemezek importálása a beállítások alapján."
 msgid "Import on-disk ZFS config"
 msgstr "Lemezen levő ZFS beállítás importálása"
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr "Importálás GPT azonosító használatával"
 
@@ -8574,6 +8574,9 @@ msgstr ""
 "Működés közben a mechanikus alkatrészekben fellépő ellenállás okozta "
 "súrlódás."
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr "IP feloldása"
 
@@ -11175,8 +11178,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Ezek a paraméterek hozzáadódnak a következő [Global] részéhez: %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Ezek a paraméterek hozzáadódnak a következő [Share] részéhez: %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13169,9 +13172,6 @@ msgstr "Hálózati forgalom"
 
 msgid "no pools available"
 msgstr "Egy tároló sem érhető el"
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "nincs"

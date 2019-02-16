@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:44+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -664,9 +664,6 @@ msgstr ""
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr ""
-
-msgid "Additional Parameter"
-msgstr "附加參數"
 
 msgid "Additional Parameters"
 msgstr "附加參數"
@@ -5288,6 +5285,9 @@ msgstr "導入磁片的配置。"
 msgid "Import on-disk ZFS config"
 msgstr "從硬碟上導入ZFS設置"
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr "使用GPT ID導入"
 
@@ -8094,6 +8094,9 @@ msgstr "重置圖表"
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr "機械部件在操作時由摩擦引起的阻力。"
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr "解析IP"
 
@@ -10436,8 +10439,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "這些參數將被添加到 %s 的[Global] 區域。"
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "這些參數將被添加到 %s 的 [Share] 區域。"
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -12246,9 +12249,6 @@ msgstr "網路流量"
 
 msgid "no pools available"
 msgstr ""
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "無"

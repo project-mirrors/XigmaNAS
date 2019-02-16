@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
-"PO-Revision-Date: 2018-12-21 21:15+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"PO-Revision-Date: 2019-02-15 21:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -724,9 +724,6 @@ msgstr "Extra opties voor het Blok Achtergrondsysteem"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Extra opties voor RAM Schijf Achtergrondsysteem"
-
-msgid "Additional Parameter"
-msgstr "Extra Parameter"
 
 msgid "Additional Parameters"
 msgstr "Extra Parameters"
@@ -5733,6 +5730,9 @@ msgstr "Importeer schijfen gebruikt in de configuratie."
 msgid "Import on-disk ZFS config"
 msgstr "Importeer op-schijf ZFS config"
 
+msgid "Import pool in read-only mode"
+msgstr "Importeer pool in alleen-lezen mode"
+
 msgid "Import using GPT ID"
 msgstr "Importeer gebruikte GPT ID"
 
@@ -8695,6 +8695,9 @@ msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr ""
 "Weerstand veroorzaakt door wrijving in mechanische delen terwijl in werking."
 
+msgid "Resize pool to the maximum possible size"
+msgstr "Wijzig de pool grootte tot de maximaal mogelijke grootte"
+
 msgid "Resolve IP"
 msgstr "Omzetten IP"
 
@@ -11340,8 +11343,8 @@ msgstr ""
 "Deze parameters worden toegevoegd aan de [Algemene] instellingen van %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Deze parameters zijn toegevoegd aan [Deling] een sectie van %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr "Deze parameters worden toegevoegd aan de [Deling] sectie van %s."
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13386,9 +13389,6 @@ msgstr "Netwerkverkeer"
 
 msgid "no pools available"
 msgstr "geen pools beschikbaar"
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "geen"

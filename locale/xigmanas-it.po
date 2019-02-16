@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
 "PO-Revision-Date: 2019-01-02 00:57+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -717,9 +717,6 @@ msgstr "Opzioni aggiunti per blocco del backend"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Opzioni aggiunti per il disk RAM di backend"
-
-msgid "Additional Parameter"
-msgstr "Parametri Aggiuntivi"
 
 msgid "Additional Parameters"
 msgstr "Parametri Addizionali"
@@ -5694,6 +5691,9 @@ msgstr "Importa dischi usati nella configurazione."
 msgid "Import on-disk ZFS config"
 msgstr "Importa la configurazione ZFS che risiede sui dischi."
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr "Importa utilizzando GPT ID"
 
@@ -8632,6 +8632,9 @@ msgstr ""
 "Resistenza causata da frizioni delle parti meccaniche durante il "
 "funzionamento"
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr "Risoluzione IP"
 
@@ -11186,8 +11189,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Questi parametri sono aggiunti alla sezione [Global] di %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Questi parametri sono aggiunti alla sezione [Share] di %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13208,9 +13211,6 @@ msgstr "traffico di rete"
 
 msgid "no pools available"
 msgstr ""
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "nessuno"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
-"PO-Revision-Date: 2019-01-07 19:10+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"PO-Revision-Date: 2019-02-04 17:05+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:44+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -709,9 +709,6 @@ msgstr "Розширені параметри для Block Backend"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Розширені параметри для RAM Disk Backend"
-
-msgid "Additional Parameter"
-msgstr "Додаткові параметри"
 
 msgid "Additional Parameters"
 msgstr "Додаткові параметри"
@@ -3070,7 +3067,8 @@ msgstr "Маска каталогу"
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
-"Каталог для недокачаних файлів. Не вказано означає не використовувати."
+"Каталог для незавершених файлів. Не заповнене поле означає не "
+"використовувати."
 
 msgid "Directory listing"
 msgstr "Список каталогів"
@@ -3079,7 +3077,9 @@ msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Каталог, що містить змінний носій (наприклад /mnt/iscsi/)."
 
 msgid "Directory to watch for new .torrent files."
-msgstr "Каталог очікування нових .torrent-файлів."
+msgstr ""
+"Каталог очікування нових .torrent-файлів. Не заповнене поле означає не "
+"використовувати."
 
 msgid "Disable"
 msgstr "Заборонити"
@@ -4882,7 +4882,7 @@ msgid "Failover"
 msgstr "Перехоплення"
 
 msgid "Fast"
-msgstr "Швидкий"
+msgstr "Швидке"
 
 msgid "Fatal"
 msgstr "Критична помилка"
@@ -5085,7 +5085,7 @@ msgid "Fsck"
 msgstr "Fsck"
 
 msgid "Full"
-msgstr "Повний"
+msgstr "Повне"
 
 msgid "Full Name"
 msgstr "Повне ім'я"
@@ -5654,6 +5654,9 @@ msgstr "Імпортувати диски, що використані в кон
 msgid "Import on-disk ZFS config"
 msgstr "Імпортувати конфігурацію з дисків ZFS"
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr "Імпортування з використанням GPT ID"
 
@@ -5688,7 +5691,7 @@ msgid "Incoming Line/Power Information"
 msgstr "Інформація про вхідну лінію/потужність"
 
 msgid "Incomplete Directory"
-msgstr "Каталог Незавершених"
+msgstr "Каталог незавершених"
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -8056,7 +8059,7 @@ msgid "Preallocation"
 msgstr "Попереднє виділення простору"
 
 msgid "Preferred"
-msgstr "Бажаний"
+msgstr "Бажано"
 
 msgid "Prefix"
 msgstr "Префікс"
@@ -8577,7 +8580,7 @@ msgid "Require authentication."
 msgstr "Вимагати автентифікацію."
 
 msgid "Required"
-msgstr "Вимагається"
+msgstr "Вимагати"
 
 msgid "Rescan"
 msgstr "Пересканувати"
@@ -8599,6 +8602,9 @@ msgstr "Скинути графіки"
 
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr "Опір спричинений тертям механічних частин під час роботи"
+
+msgid "Resize pool to the maximum possible size"
+msgstr ""
 
 msgid "Resolve IP"
 msgstr "Перетворення IP адрес"
@@ -9059,8 +9065,7 @@ msgid "Select portal groups."
 msgstr "Оберіть групи порталу."
 
 msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr ""
-"Оберіть режим попереднього розподілу файлів (за замовчуванням Швидкий)"
+msgstr "Визначте виділення простору для файлів (за замовчуванням Швидке)"
 
 msgid "Select read balance algorithm."
 msgstr "Виберіть алгоритм балансування читання."
@@ -11190,8 +11195,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Ці параметри додаються в розділ [Global] файлу %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Ці параметри додаються в розділ [Share] файлу %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13214,9 +13219,6 @@ msgstr "Мережевий трафік"
 
 msgid "no pools available"
 msgstr "немає доступних полів"
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "немає"

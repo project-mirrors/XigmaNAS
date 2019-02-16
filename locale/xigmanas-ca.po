@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
-"PO-Revision-Date: 2018-12-22 09:24+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"PO-Revision-Date: 2019-02-14 07:20+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:46+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "Language: ca_ES\n"
 
 msgid " interfaces:"
@@ -717,9 +717,6 @@ msgstr "Opcions addicionals per bloc de Backend"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Opcions addicionals per Disc RAM de Backend"
-
-msgid "Additional Parameter"
-msgstr "Paràmetre addicional"
 
 msgid "Additional Parameters"
 msgstr "Paràmetres addicionals"
@@ -5727,6 +5724,9 @@ msgstr "Importar discos utilitzats en la configuració."
 msgid "Import on-disk ZFS config"
 msgstr "Importar configuració ZFS del disc"
 
+msgid "Import pool in read-only mode"
+msgstr "Importar grup en mode de només lectura"
+
 msgid "Import using GPT ID"
 msgstr "Importa fent servir el ID de GPT"
 
@@ -8694,6 +8694,9 @@ msgstr ""
 "La resistència causada per la fricció en les parts mecàniques durant el "
 "funcionament."
 
+msgid "Resize pool to the maximum possible size"
+msgstr "Canvieu la mida del grup a la mida màxima possible"
+
 msgid "Resolve IP"
 msgstr "Resoldre IP"
 
@@ -11327,8 +11330,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Aquests paràmetres s'agreguen a la secció [Global] de %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Aquests paràmetres s'agreguen a la secció [Recurs] de %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr "Aquests paràmetres s'afegeixen a la secció [Compartir] de%s."
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13362,9 +13365,6 @@ msgstr "Tràfic de xarxa"
 msgid "no pools available"
 msgstr "no hi ha piscines disponibles"
 
-msgid "noVNC"
-msgstr "noVNC"
-
 msgid "none"
 msgstr "cap"
 
@@ -13427,3 +13427,6 @@ msgstr "usat de"
 
 msgid "visible"
 msgstr "visible"
+
+#~ msgid "Toold"
+#~ msgstr "L'eina"
