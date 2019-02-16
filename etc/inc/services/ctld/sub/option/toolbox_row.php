@@ -32,8 +32,8 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\sub\option;
-use common\rmo as myr;
 use common\sphere as mys;
+use services\ctld\utilities as myu;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,16 +63,7 @@ final class toolbox_row {
  *	@return \common\rmo\rmo The request method object
  */
 	public static function init_rmo(extended_properties $cop,mys\row $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			add('GET','add',PAGE_MODE_ADD)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('POST','add',PAGE_MODE_ADD)->
-			add('POST','cancel',PAGE_MODE_POST)->
-			add('POST','clone',PAGE_MODE_CLONE)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','save',PAGE_MODE_POST)->
-			set_default('POST','cancel',PAGE_MODE_POST);
+		$rmo =  myu::get_std_rmo_row();
 		return $rmo;
 	}
 /**

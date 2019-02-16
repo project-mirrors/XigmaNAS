@@ -32,7 +32,6 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\auth_group;
-use common\rmo as myr;
 use common\sphere as mys;
 use services\ctld\utilities as myu;
 /**
@@ -82,22 +81,7 @@ final class toolbox_grid {
  *	@return \common\rmo\rmo The request method object
  */
 	public static function init_rmo(basic_properties $cop,mys\grid $sphere) {
-		$rmo = new myr\rmo();
-		if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
-			if($sphere->toggle()):
-				$rmo->
-					add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
-			else:
-				$rmo->
-					add('POST',$sphere->get_cbm_button_val_enable(),PAGE_MODE_POST)->
-					add('POST',$sphere->get_cbm_button_val_disable(),PAGE_MODE_POST);
-			endif;
-		endif;
-		$rmo->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST)->
-			add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW)->
-			set_default('GET','view',PAGE_MODE_VIEW);
+		$rmo = myu::get_std_rmo_grid($cop,$sphere);
 		return $rmo;
 	}
 /**
@@ -120,7 +104,7 @@ final class toolbox_grid {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
-		
+
 		$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Auth Groups')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
