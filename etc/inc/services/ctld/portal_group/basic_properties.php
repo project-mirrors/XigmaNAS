@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
 	public function init_name() {
 		$property = $this->x_name = new myp\property_text($this);
 		$property->
@@ -46,10 +43,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Portal Group Name'));
 		return $property;
 	}
-	protected $x_discovery_auth_group;
-	public function get_discovery_auth_group() {
-		return $this->x_discovery_auth_group ?? $this->init_discovery_auth_group();
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
+	protected $x_discovery_auth_group;
 	public function init_discovery_auth_group() {
 		$property = $this->x_discovery_auth_group = new myp\property_list($this);
 		$property->
@@ -57,10 +54,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Discovery Auth Group'));
 		return $property;
 	}
-	protected $x_discovery_filter;
-	public function get_discovery_filter() {
-		return $this->x_discovery_filter ?? $this->init_discovery_filter();
+	final public function get_discovery_auth_group() {
+		return $this->x_discovery_auth_group ?? $this->init_discovery_auth_group();
 	}
+	protected $x_discovery_filter;
 	public function init_discovery_filter() {
 		$property = $this->x_discovery_filter = new myp\property_list($this);
 		$property->
@@ -68,10 +65,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Discovery Filter'));
 		return $property;
 	}
-	protected $x_offload;
-	public function get_offload() {
-		return $this->x_offload ?? $this->init_offload();
+	final public function get_discovery_filter() {
+		return $this->x_discovery_filter ?? $this->init_discovery_filter();
 	}
+	protected $x_offload;
 	public function init_offload() {
 		$property = $this->x_offload = new myp\property_text($this);
 		$property->
@@ -79,10 +76,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Offload'));
 		return $property;
 	}
-	protected $x_redirect;
-	public function get_redirect() {
-		return $this->x_redirect ?? $this->init_redirect();
+	final public function get_offload() {
+		return $this->x_offload ?? $this->init_offload();
 	}
+	protected $x_redirect;
 	public function init_redirect() {
 		$property = $this->x_redirect = new myp\property_ipaddress($this);
 		$property->
@@ -90,10 +87,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Redirect'));
 		return $property;
 	}
-	protected $x_tag;
-	public function get_tag() {
-		return $this->x_tag ?? $this->init_tag();
+	final public function get_redirect() {
+		return $this->x_redirect ?? $this->init_redirect();
 	}
+	protected $x_tag;
 	public function init_tag() {
 		$property = $this->x_tag = new myp\property_int($this);
 		$property->
@@ -101,10 +98,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Tag'));
 		return $property;
 	}
-	protected $x_foreign;
-	public function get_foreign() {
-		return $this->x_foreign ?? $this->init_foreign();
+	final public function get_tag() {
+		return $this->x_tag ?? $this->init_tag();
 	}
+	protected $x_foreign;
 	public function init_foreign() {
 		$property = $this->x_foreign = new myp\property_bool($this);
 		$property->
@@ -112,15 +109,15 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Foreign'));
 		return $property;
 	}
-	protected $x_auxparam;
-	public function get_auxparam() {
-		return $this->x_auxparam ?? $this->init_auxparam();
+	final public function get_foreign() {
+		return $this->x_foreign ?? $this->init_foreign();
 	}
+	protected $x_auxparam;
 	public function init_auxparam() {
-		$property = $this->x_auxparam = new myp\property_textarea($this);
-		$property->
-			set_name('auxparam')->
-			set_title(gettext('Additional Parameters'));
+		$property = $this->x_auxparam = new myp\property_auxparam($this);
 		return $property;
+	}
+	final public function get_auxparam() {
+		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 }

@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_ipaddress;
-	public function get_ipaddress() {
-		return $this->x_ipaddress ?? $this->init_ipaddress();
-	}
 	public function init_ipaddress() {
 		$property = $this->x_ipaddress = new myp\property_ipaddress($this);
 		$property->
@@ -46,10 +43,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('IP Address'));
 		return $property;
 	}
-	protected $x_prefixlen;
-	public function get_prefixlen() {
-		return $this->x_prefixlen ?? $this->init_prefixlen();
+	final public function get_ipaddress() {
+		return $this->x_ipaddress ?? $this->init_ipaddress();
 	}
+	protected $x_prefixlen;
 	public function init_prefixlen() {
 		$property = $this->x_prefixlen = new myp\property_int($this);
 		$property->
@@ -57,15 +54,18 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('IP Address Prefix'));
 		return $property;
 	}
-	protected $x_group;
-	public function get_group() {
-		return $this->x_group ?? $this->init_group();
+	final public function get_prefixlen() {
+		return $this->x_prefixlen ?? $this->init_prefixlen();
 	}
+	protected $x_group;
 	public function init_group() {
 		$property = $this->x_group = new myp\property_list_multi($this);
 		$property->
 			set_name('group')->
 			set_title(gettext('Auth Group'));
 		return $property;
+	}
+	final public function get_group() {
+		return $this->x_group ?? $this->init_group();
 	}
 }

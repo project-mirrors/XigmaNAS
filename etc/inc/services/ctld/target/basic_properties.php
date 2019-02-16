@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
 	public function init_name() {
 		$property = $this->x_name = new myp\property_text($this);
 		$property->
@@ -46,10 +43,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Target Name'));
 		return $property;
 	}
-	protected $x_alias;
-	public function get_alias() {
-		return $this->x_alias ?? $this->init_alias();
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
+	protected $x_alias;
 	public function init_alias() {
 		$property = $this->x_alias = new myp\property_text($this);
 		$property->
@@ -57,10 +54,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Alias'));
 		return $property;
 	}
-	protected $x_auth_group;
-	public function get_auth_group() {
-		return $this->x_auth_group ?? $this->init_auth_group();
+	final public function get_alias() {
+		return $this->x_alias ?? $this->init_alias();
 	}
+	protected $x_auth_group;
 	public function init_auth_group() {
 		$property = $this->x_auth_group = new myp\property_list($this);
 		$property->
@@ -68,10 +65,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Auth Group'));
 		return $property;
 	}
-	protected $x_portal_group;
-	public function get_portal_group() {
-		return $this->x_portal_group ?? $this->init_portal_group();
+	final public function get_auth_group() {
+		return $this->x_auth_group ?? $this->init_auth_group();
 	}
+	protected $x_portal_group;
 	public function init_portal_group() {
 		$property = $this->x_portal_group = new myp\property_list($this);
 		$property->
@@ -79,10 +76,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Portal Group'));
 		return $property;
 	}
-	protected $x_redirect;
-	public function get_redirect() {
-		return $this->x_redirect ?? $this->init_redirect();
+	final public function get_portal_group() {
+		return $this->x_portal_group ?? $this->init_portal_group();
 	}
+	protected $x_redirect;
 	public function init_redirect() {
 		$property = $this->x_redirect = new myp\property_ipaddress($this);
 		$property->
@@ -90,15 +87,15 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Redirect'));
 		return $property;
 	}
-	protected $x_auxparam;
-	public function get_auxparam() {
-		return $this->x_auxparam ?? $this->init_auxparam();
+	final public function get_redirect() {
+		return $this->x_redirect ?? $this->init_redirect();
 	}
+	protected $x_auxparam;
 	public function init_auxparam() {
-		$property = $this->x_auxparam = new myp\property_textarea($this);
-		$property->
-			set_name('auxparam')->
-			set_title(gettext('Additional Parameters'));
+		$property = $this->x_auxparam = new myp\property_auxparam($this);
 		return $property;
+	}
+	final public function get_auxparam() {
+		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 }

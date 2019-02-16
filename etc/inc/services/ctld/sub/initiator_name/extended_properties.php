@@ -35,10 +35,10 @@ namespace services\ctld\sub\initiator_name;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Enter an iSCSI initiator name.');
 		$placeholder = gettext('Name');
 		$regexp = '/^\S{1,223}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('user')->
 			set_description($description)->
@@ -46,27 +46,23 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_group() {
-		$property = parent::init_group();
-		$description = gettext('Select auth groups.');
+		$description = gettext('Link initiator-name to auth-groups. An Initiator with this name will be allowed to connect to the selected auth-groups.');
+		$message_info = gettext('No auth groups found.');
 		$options = [];
+		$property = parent::init_group();
 		$property->
 			set_id('group')->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default()->			
+			set_message_info($message_info);
 		return $property;
 	}
 }

@@ -104,7 +104,7 @@ final class toolbox_grid {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
-		
+
 		$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('LUNs')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;

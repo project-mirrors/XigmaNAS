@@ -75,4 +75,3 @@ final class toolbox_row {
 		return $cop;
 	}
 }
-

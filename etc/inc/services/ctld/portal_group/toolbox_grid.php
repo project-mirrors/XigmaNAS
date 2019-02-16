@@ -46,7 +46,7 @@ final class toolbox_grid {
  */
 	public static function init_sphere() {
 		global $config;
-		
+
 		$sphere = new mys\grid('services_ctl_portal_group','php');
 		$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 		$sphere->
@@ -104,7 +104,7 @@ final class toolbox_grid {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
-		
+
 		$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Portal Groups')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;

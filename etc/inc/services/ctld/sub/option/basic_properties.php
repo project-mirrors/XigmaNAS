@@ -36,7 +36,7 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_name;
-	public function get_name() {
+	final public function get_name() {
 		return $this->x_name ?? $this->init_name();
 	}
 	public function init_name() {
@@ -47,7 +47,7 @@ class basic_properties extends myp\container_row {
 		return $property;
 	}
 	protected $x_value;
-	public function get_value() {
+	final public function get_value() {
 		return $this->x_value ?? $this->init_value();
 	}
 	public function init_value() {
@@ -58,7 +58,7 @@ class basic_properties extends myp\container_row {
 		return $property;
 	}
 	protected $x_group;
-	public function get_group() {
+	final public function get_group() {
 		return $this->x_group ?? $this->init_group();
 	}
 	public function init_group() {

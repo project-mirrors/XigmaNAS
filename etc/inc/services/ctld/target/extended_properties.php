@@ -35,10 +35,10 @@ namespace services\ctld\target;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Name of the target.');
 		$placeholder = gettext('Name');
 		$regexp = '/^(?:iqn|eui|naa)\.\S{1,219}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
@@ -46,34 +46,22 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auxparam() {
-		$property = parent::init_auxparam();
 		$description = gettext('These parameters will be added to this target.');
-		$placeholder = gettext('Enter additional parameters');
-		$property->
-			set_id('auxparam')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_defaultvalue('')->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		$property = parent::init_auxparam();
+		$property->set_description($description);
 		return $property;
 	}
 	public function init_alias() {
-		$property = parent::init_alias();
 		$description = gettext('Assign a human-readable description to the target.');
 		$placeholder = gettext('Alias');
 		$regexp = '/^.{0,128}$/';
+		$property = parent::init_alias();
 		$property->
 			set_id('alias')->
 			set_description($description)->
@@ -81,62 +69,50 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(128)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auth_group() {
-		$property = parent::init_auth_group();
 		$description = gettext('Assign a previously defined authentication group to the target.');
 		$options = [
 			'' => gettext('Deny discovery'),
 			'no-authentication' => gettext('Permit access without authentication')
 		];
+		$property = parent::init_auth_group();
 		$property->
 			set_id('auth_group')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_portal_group() {
-		$property = parent::init_portal_group();
 		$description = gettext('Assign a previously defined portal group to the target.');
 		$options = [
 			'' => gettext('Default')
 		];
+		$property = parent::init_portal_group();
 		$property->
 			set_id('portal_group')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_redirect() {
-		$property = parent::init_redirect();
 		$description = gettext('IPv4 or IPv6 address to redirect initiators to. When configured, all initiators attempting to connect to this target will get redirected using "Target moved temporarily" login response.');
+		$property = parent::init_redirect();
 		$property->
 			set_id('redirect')->
 			set_description($description)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			filter_use_default()->
 			filter_use_empty()->
-			set_filter_group('ui',['empty','ui'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_group('ui',['empty','ui']);
 		return $property;
 	}
 }

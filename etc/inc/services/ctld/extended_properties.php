@@ -38,18 +38,17 @@ final class extended_properties extends myp\container {
 	protected $x_enable;
 	public function init_enable() {
 		$property = $this->x_enable = new myp\property_enable($this);
-		$property->
-			set_defaultvalue(false);
+		$property->set_defaultvalue(false);
 		return $property;
 	}
-	public function get_enable() {
+	final public function get_enable() {
 		return $this->x_enable ?? $this->init_enable();
 	}
 	protected $x_debug;
 	public function init_debug() {
-		$property = $this->x_debug = new myp\property_int($this);
 		$description = gettext('The debug verbosity level. The default is 0.');
 		$placeholder = '0';
+		$property = $this->x_debug = new myp\property_int($this);
 		$property->
 			set_name('debug')->
 			set_title(gettext('Debug Level'));
@@ -60,23 +59,20 @@ final class extended_properties extends myp\container {
 			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(4)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(99)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
-	public function get_debug() {
+	final public function get_debug() {
 		return $this->x_debug ?? $this->init_debug();	
 	}
 	protected $x_maxproc;
 	public function init_maxproc() {
-		$property = $this->x_maxproc = new myp\property_int($this);
 		$description = gettext('The limit for concurrently running child processes handling incoming connections. The default is 30. A setting of 0 disables the limit.');
 		$placeholder = '30';
+		$property = $this->x_maxproc = new myp\property_int($this);
 		$property->
 			set_name('maxproc')->
 			set_title(gettext('Max Processes'));
@@ -87,23 +83,20 @@ final class extended_properties extends myp\container {
 			set_placeholderv($placeholder)->
 			set_size(10)->
 			set_maxlength(5)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(65535)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
-	public function get_maxproc() {
+	final public function get_maxproc() {
 		return $this->x_maxproc ?? $this->init_maxproc();
 	}
 	protected $x_timeout;
 	public function init_timeout() {
-		$property = $this->x_timeout = new myp\property_int($this);
 		$description = gettext('The timeout for login sessions, after which the connection will be forcibly terminated. The default is 60. A setting of 0 disables the timeout.');
 		$placeholder = '60';
+		$property = $this->x_timeout = new myp\property_int($this);
 		$property->
 			set_name('timeout')->
 			set_title(gettext('Timeout'));
@@ -114,23 +107,20 @@ final class extended_properties extends myp\container {
 			set_placeholderv($placeholder)->
 			set_size(10)->
 			set_maxlength(5)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(65535)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
-	public function get_timeout() {
+	final public function get_timeout() {
 		return $this->x_timeout ?? $this->init_timeout();
 	}
 	protected $x_isns_period;
 	public function init_isns_period() {
-		$property = $this->x_isns_period = new myp\property_int($this);
 		$description = gettext('iSNS registration period. Registered Network Entity not updated during this period will be unregistered. The default is 900.');
 		$placeholder = '900';
+		$property = $this->x_isns_period = new myp\property_int($this);
 		$property->
 			set_name('isns_period')->
 			set_title(gettext('iSNS Period'));
@@ -141,23 +131,20 @@ final class extended_properties extends myp\container {
 			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(10)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(65535)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
-	public function get_isns_period() {
+	final public function get_isns_period() {
 		return $this->x_isns_period ?? $this->init_isns_period();
 	}
 	protected $x_isns_timeout;
 	public function init_isns_timeout() {
-		$property = $this->x_isns_timeout = new myp\property_int($this);
 		$description = gettext('Timeout for iSNS requests. The default is 5.');
 		$placeholder = '5';
+		$property = $this->x_isns_timeout = new myp\property_int($this);
 		$property->
 			set_name('isns_timeout')->
 			set_title(gettext('iSNS Timeout'));
@@ -168,40 +155,23 @@ final class extended_properties extends myp\container {
 			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(10)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(65535)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
-	public function get_isns_timeout() {
+	final public function get_isns_timeout() {
 		return $this->x_isns_timeout ?? $this->init_isns_timeout();
 	}
 	protected $x_auxparam;
 	public function init_auxparam() {
-		$property = $this->x_auxparam = new myp\property_textarea($this);
 		$description = gettext('These parameters will be added to the global section of ctl.conf');
-		$placeholder = gettext('Enter additional parameters');
-		$placeholderv = gettext('No additional parameters');
-		$property->
-			set_name('auxparam')->
-			set_title(gettext('Additional Parameters'));
-		$property->
-			set_id('auxparam')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_placeholderv($placeholderv)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_defaultvalue('')->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		$property = $this->x_auxparam = new myp\property_auxparam($this);
+		$property->set_description($description);
 		return $property;
 	}
-	public function get_auxparam() {
+	final public function get_auxparam() {
 		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 }

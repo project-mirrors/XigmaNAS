@@ -35,10 +35,10 @@ namespace services\ctld\lun;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Name of the LUN.');
 		$placeholder = gettext('LUN Name');
 		$regexp = '/^\S{1,223}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
@@ -46,16 +46,12 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_backend() {
-		$property = parent::init_backend();
 		$description = gettext('The CTL backend to use for a given LUN.');
 		$options = [
 			'' => gettext('Default'),
@@ -63,19 +59,16 @@ final class extended_properties extends basic_properties {
 //			'passthrough' => gettext('Passthrough'),
 			'ramdisk' => gettext('RAM Disk')
 		];
+		$property = parent::init_backend();
 		$property->
 			set_id('backend')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_blocksize() {
-		$property = $property = parent::init_blocksize();
 		$description = gettext('The blocksize visible to the initiator.');
 		$options = [
 			'' => gettext('Default'),
@@ -87,42 +80,37 @@ final class extended_properties extends basic_properties {
 			'32738' => gettext('32 KiB'),
 			'65536' => gettext('64 KiB')
 		];
+		$property = $property = parent::init_blocksize();
 		$property->
 			set_id('blocksize')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_ctl_lun() {
-		$property = parent::init_ctl_lun();
 		$description = gettext('Global numeric identifier to use for a given LUN inside CTL.');
 		$regexp = '/^(?:|[0-9]|[1-9][0-9]{1,2}|10[01][0-9]|102[0-3])$/';
+		$property = parent::init_ctl_lun();
 		$property->
 			set_id('ctl_lun')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(5)->
 			set_maxlength(4)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_device_id() {
 		//	The device-id shall be 48 characters width,
 		//	Compatibility istgt: 16 bytes "iSCSI Disk     " + 32 bytes aligned serial number
-		$property = parent::init_device_id();
 		$description = gettext('The SCSI Device Identification string presented to the initiator.');
 		$placeholder = gettext('Device ID');
 		$regexp = '/^\S{0,48}$/';
+		$property = parent::init_device_id();
 		$property->
 			set_id('device_id')->
 			set_description($description)->
@@ -130,16 +118,12 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(48)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_device_type() {
-		$property = parent::init_device_type();
 		$description = gettext('Specify the SCSI device type to use when creating the LUN.');
 		$options = [
 			'' => gettext('Undefined'),
@@ -169,94 +153,80 @@ final class extended_properties extends basic_properties {
 			'15' => gettext('15'),
  */
 		];
+		$property = parent::init_device_type();
 		$property->
 			set_id('device_type')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_passthrough_address() {
-		$property = parent::init_passthrough_address();
 		$description = gettext('Enter passthrough device address bus:path:lun');
 		$regexp = '/^(?:|[0-9]+:[0-9]+:[0-9]+)$/';
+		$property = parent::init_passthrough_address();
 		$property->
 			set_id('passthrough_address')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(20)->
 			set_maxlength(18)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_path() {
-		$property = parent::init_path();
 		$description = gettext('The path to the file, device node, or zfs volume used to back the LUN.');
 		$regexp = '/^(?:|.{1,223})$/';
+		$property = parent::init_path();
 		$property->
 			set_id('path')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_serial() {
-		$property = parent::init_serial();
 		$description = gettext('The SCSI serial number presented to the initiator.');
 		$regexp = '/^(?:|.{1,40})$/';
+		$property = parent::init_serial();
 		$property->
 			set_id('serial')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(40)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_size() {
-		$property = parent::init_size();
 		$description = gettext('The size of the LUN.');
 		$regexp = '/^(?:|0|[1-9][0-9]{0,16}[kmgtpezy]b?)$/i';
+		$property = parent::init_size();
 		$property->
 			set_id('size')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(40)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_vendor() {
-		$property = parent::init_opt_vendor();
 		$description = gettext('Specifies LUN vendor string up to 8 chars.');
 		$placeholder = 'FreeBSD';
 		$regexp = '/^.{0,8}$/';
+		$property = parent::init_opt_vendor();
 		$property->
 			set_id('opt_vendor')->
 			set_description($description)->
@@ -265,19 +235,16 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(10)->
 			set_maxlength(8)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_product() {
-		$property = parent::init_opt_product();
 		$description = gettext('Specifies LUN product string up to 16 chars.');
 		$placeholder = 'iSCSI Disk';
 		$regexp = '/^.{0,16}$/';
+		$property = parent::init_opt_product();
 		$property->
 			set_id('opt_product')->
 			set_description($description)->
@@ -286,19 +253,16 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_revision() {
-		$property = parent::init_opt_revision();
 		$description = gettext('Specifies LUN revision string up to 4 chars.');
 		$placeholder = '0123';
 		$regexp = '/^.{0,4}$/';
+		$property = parent::init_opt_revision();
 		$property->
 			set_id('opt_revision')->
 			set_description($description)->
@@ -307,19 +271,16 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(6)->
 			set_maxlength(4)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_scsiname() {
-		$property = parent::init_opt_scsiname();
 		$description = gettext('Specifies LUN SCSI name string.');
 		$placeholder = gettext('SCSI Name');
 		$regexp = '/^\S{0,223}$/';
+		$property = parent::init_opt_scsiname();
 		$property->
 			set_id('opt_scsiname')->
 			set_description($description)->
@@ -327,19 +288,16 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_eui() {
-		$property = parent::init_opt_eui();
 		$description = gettext('Specifies LUN EUI-64 identifier.');
 		$placeholder = gettext('EUI-64');
 		$regexp = '/^(?:|[0-9a-f]{16})$/i';
+		$property = parent::init_opt_eui();
 		$property->
 			set_id('opt_eui')->
 			set_description($description)->
@@ -347,19 +305,16 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_naa() {
-		$property = parent::init_opt_naa();
 		$description = gettext('Specifies LUN NAA identifier.');
 		$placeholder = gettext('NAA Identifier');
 		$regexp = '/^(?:|(?:[0-9a-f]{16}){1,2})$/i';
+		$property = parent::init_opt_naa();
 		$property->
 			set_id('opt_naa')->
 			set_description($description)->
@@ -367,19 +322,16 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(34)->
 			set_maxlength(32)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_uuid() {
-		$property = parent::init_opt_uuid();
 		$description = gettext('Specifies LUN locally assigned RFC 4122 UUID.');
 		$placeholder = gettext('UUID');
 		$regexp = '/^(?:|[0-9a-f]{4}(?:[0-9a-f]{4}-){4}[0-9a-f]{12})$/i';
+		$property = parent::init_opt_uuid();
 		$property->
 			set_id('opt_uuid')->
 			set_description($description)->
@@ -389,123 +341,101 @@ final class extended_properties extends basic_properties {
 			set_maxlength(36)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_editableonadd(false)->
-			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_ha_role() {
-		$property = parent::init_opt_ha_role();
 		$description = gettext('Setting to "primary" or "secondary" overrides default role of the node in HA cluster.');
 		$options = [
 			'' => gettext('Default'),
 			'primary' => gettext('Primary'),
 			'secondary' => gettext('Secondary')
 		];
+		$property = parent::init_opt_ha_role();
 		$property->
 			set_id('opt_ha_role')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_insecure_tpc() {
-		$property = parent::init_opt_insecure_tpc();
 		$description = gettext('Setting to "on" allows EXTENDED COPY command sent to this LUN access other LUNs on this host, not accessible otherwise. This allows to offload copying between different iSCSI targets residing on the same host in trusted environments.');
 		$options = [
 			'' => gettext('Off'),
 			'on' => gettext('On')
 		];
+		$property = parent::init_opt_insecure_tpc();
 		$property->
 			set_id('opt_insecure_tpc')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_readcache() {
-		$property = parent::init_opt_readcache();
 		$description = gettext('Set to "off", disables read caching for the LUN, if supported by the backend.');
 		$options = [
 			'' => gettext('On'),
 			'off' => gettext('Off')
 		];
+		$property = parent::init_opt_readcache();
 		$property->
 			set_id('opt_readcache')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_readonly() {
-		$property = parent::init_opt_readonly();
 		$description = gettext('Set to "on", blocks all media write operations to the LUN reporting it as write protected.');
 		$options = [
 			'' => gettext('Off'),
 			'on' => gettext('On')
 		];
+		$property = parent::init_opt_readonly();
 		$property->
 			set_id('opt_readonly')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_removable() {
-		$property = parent::init_opt_removable();
 		$description = gettext('Set to "on" makes LUN removable.');
 		$options = [
 			'' => gettext('Off'),
 			'on' => gettext('On')
 		];
+		$property = parent::init_opt_removable();
 		$property->
 			set_id('opt_removable')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_reordering() {
-		$property = parent::init_opt_reordering();
 		$description = gettext('Set to "unrestricted", allows target to process commands with SIMPLE task attribute in arbitrary order.');
 		$options = [
 			'' => gettext('Restricted'),
 			'unrestricted' => gettext('Unrestricted')
 		];
+		$property = parent::init_opt_reordering();
 		$property->
 			set_id('opt_reordering')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_serseq() {
-		$property = parent::init_opt_serseq();
 		$description = '';
 		$options = [
 			'' => gettext('Default'),
@@ -513,113 +443,95 @@ final class extended_properties extends basic_properties {
 			'on' => gettext('Serialize consecutive reads/writes'),
 			'read' => gettext('Serialize consecutive reads')
 		];
+		$property = parent::init_opt_serseq();
 		$property->
 			set_id('opt_serseq')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_pblocksize() {
-		$property = parent::init_opt_pblocksize();
 		$description = gettext('Specify physical block size of the device.');
 		$regexp = '/^(?:|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
+		$property = parent::init_opt_pblocksize();
 		$property->
 			set_id('opt_pblocksize')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_pblockoffset() {
-		$property = parent::init_opt_pblockoffset();
 		$description = gettext('Specify physical block offset of the device.');
 		$regexp = '/^(?:|0|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
+		$property = parent::init_opt_pblockoffset();
 		$property->
 			set_id('opt_pblockoffset')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_ublocksize() {
-		$property = parent::init_opt_ublocksize();
 		$description = gettext('Specify UNMAP block size of the device.');
 		$regexp = '/^(?:|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
+		$property = parent::init_opt_ublocksize();
 		$property->
 			set_id('opt_ublocksize')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_ublockoffset() {
-		$property = parent::init_opt_ublockoffset();
 		$description = gettext('Specify UNMAP block offset of the device.');
 		$regexp = '/^(?:|0|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
+		$property = parent::init_opt_ublockoffset();
 		$property->
 			set_id('opt_ublockoffset')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_rpm() {
-		$property = parent::init_opt_rpm();
 		$description = gettext('Specifies medium rotation rate of the device.');
 		//	0: not reported
 		//	1: non-rotating (SSD)
 		//	>1024: value in	revolutions per minute
 		//	99999: max rpm
 		$regexp = '/^(?:|[01]|102[5-9]|10[3-9][0-9]|1[1-9][0-9]{2}|[2-9][0-9]{3}|[1-9][0-9]{4})$/';
+		$property = parent::init_opt_rpm();
 		$property->
 			set_id('opt_rpm')->
 			set_defaultvalue('')->
 			set_description($description)->
 			set_size(7)->
 			set_maxlength(5)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_formfactor() {
-		$property = parent::init_opt_formfactor();
 		$description = gettext('Specifies nominal form factor of the device.');
 		$options = [
 			'' => gettext('Undefined'),
@@ -630,19 +542,16 @@ final class extended_properties extends basic_properties {
 			'4' => gettext('1.8"'),
 			'5' => gettext('less then 1.8".')
 		];
+		$property = parent::init_opt_formfactor();
 		$property->
 			set_id('opt_formfactor')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_provisioning_type() {
-		$property = parent::init_opt_provisioning_type();
 		$description = gettext('When UNMAP support is enabled, this option specifies provisioning type.');
 		$options = [
 			'' => gettext('Default'),
@@ -650,245 +559,198 @@ final class extended_properties extends basic_properties {
 			'thin' => gettext('Thin Provisioning'),
 			'unknown' => gettext('Unknown')
 		];
+		$property = parent::init_opt_provisioning_type();
 		$property->
 			set_id('opt_provisioning_type')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_unmap() {
-		$property = parent::init_opt_unmap();
 		$description = gettext('Setting to "on" or "off" controls UNMAP support for the logical unit. Default value is "on" if supported by the backend.');
 		$options = [
 			'' => gettext('Default'),
 			'on' => gettext('On'),
 			'off' => gettext('Off')
 		];
+		$property = parent::init_opt_unmap();
 		$property->
 			set_id('opt_unmap')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_unmap_max_lba() {
-		$property = parent::init_opt_unmap_max_lba();
 		$description = gettext('Specify maximum allowed number of LBAs per UNMAP command to report in Block Limits VPD page.');
 		$regexp = '/^(?:|0|[1-9][0-9]*)$/';
+		$property = parent::init_opt_unmap_max_lba();
 		$property->
 			set_id('opt_unmap_max_lba')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_unmap_max_descr() {
-		$property = parent::init_opt_unmap_max_descr();
 		$description = gettext('Specify maximum allowed number of block descriptors per UNMAP command to report in Block Limits VPD page.');
 		$regexp = '/^(?:|0|[1-9][0-9]*)$/';
+		$property = parent::init_opt_unmap_max_descr();
 		$property->
 			set_id('opt_unmap_max_descr')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_write_same_max_lba() {
-		$property = parent::init_opt_write_same_max_lba();
 		$description = gettext('Specify maximum allowed number of LBAs per WRITE SAME command to report in Block Limits VPD page.');
 		$regexp = '/^(?:|0|[1-9][0-9]*)$/';
+		$property = parent::init_opt_write_same_max_lba();
 		$property->
 			set_id('opt_write_same_max_lba')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_avail_threshold() {
-		$property = parent::init_opt_avail_threshold();
 		$description = gettext('Set per-LUN/per-pool thin provisioning soft threshold.');
 		$regexp = '/^(?:|0|[1-9][0-9]*)$/';
+		$property = parent::init_opt_avail_threshold();
 		$property->
 			set_id('opt_avail_threshold')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_used_threshold() {
-		$property = parent::init_opt_used_threshold();
 		$description = gettext('Set per-LUN/per-pool thin provisioning soft threshold.');
 		$regexp = '/^(?:|0|[1-9][0-9]*)$/';
+		$property = parent::init_opt_used_threshold();
 		$property->
 			set_id('opt_used_threshold')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_pool_avail_threshold() {
-		$property = parent::init_opt_pool_avail_threshold();
 		$description = gettext('Set per-LUN/per-pool thin provisioning soft threshold.');
 		$regexp = '/^(?:|0|[1-9][0-9]*)$/';
+		$property = parent::init_opt_pool_avail_threshold();
 		$property->
 			set_id('opt_pool_avail_threshold')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(18)->
 			set_maxlength(16)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_pool_used_threshold() {
-		$property = parent::init_opt_pool_used_threshold();
 		$description = gettext('Set per-LUN/per-pool thin provisioning soft threshold.');
 		$regexp = '/^(?:|0|[1-9][0-9]{0,8})$/';
+		$property = parent::init_opt_pool_used_threshold();
 		$property->
 			set_id('opt_pool_used_threshold')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(12)->
 			set_maxlength(10)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_writecache() {
-		$property = parent::init_opt_writecache();
 		$description = gettext('Set to "off", disables write caching for the LUN, if supported by the backend.');
 		$options = [
 			'' => gettext('On'),
 			'off' => gettext('Off')
 		];
+		$property = parent::init_opt_writecache();
 		$property->
 			set_id('opt_writecache')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_opt_file() {
-		$property = parent::init_opt_file();
 		$description = gettext('Specifies file or device name to use for backing store.');
 		$regexp = '/^\S{0,223}$/';
+		$property = parent::init_opt_file();
 		$property->
 			set_id('opt_file')->
 			set_description($description)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_num_threads() {
-		$property = parent::init_opt_num_threads();
 		$description = gettext('Specifies number of backend threads to use for this LUN.');
 		$regexp = '/^(?:|0|[1-9][0-9]{0,8})$/';
+		$property = parent::init_opt_num_threads();
 		$property->
 			set_id('opt_num_threads')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(12)->
 			set_maxlength(10)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_capacity() {
-		$property = parent::init_opt_capacity();
 		$description = gettext('Specifies capacity of backing store (maximum RAM for data). The default value is zero, that disables backing store completely, making all writes go to nowhere, while all reads return zeroes.');
 		$regexp = '/^(?:|0|[1-9][0-9]{0,8}[kmgtpezy]b?)$/i';
+		$property = parent::init_opt_capacity();
 		$property->
 			set_id('opt_capacity')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(14)->
 			set_maxlength(12)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auxparam() {
-		$property = parent::init_auxparam();
 		$description = gettext('These parameters will be added to this lun.');
-		$placeholder = gettext('Enter additional parameters');
-		$property->
-			set_id('auxparam')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_defaultvalue('')->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		$property = parent::init_auxparam();
+		$property->set_description($description);
 		return $property;
 	}
 }

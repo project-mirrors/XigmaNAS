@@ -35,49 +35,44 @@ namespace services\ctld\sub\lun;
 
 final class extended_properties extends basic_properties {
 	public function init_number() {
-		$property = parent::init_number();
 		$description = gettext('LUN number');
+		$property = parent::init_number();
 		$property->
 			set_id('number')->
 			set_description($description)->
 			set_size(10)->
 			set_maxlength(4)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(1023)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Name of the LUN.');
+		$message_info = gettext('No LUNs found.');
 		$options = [];
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default()->			
+			set_message_info($message_info);
 		return $property;
 	}
 	public function init_group() {
-		$property = parent::init_group();
-		$description = gettext('Select target groups.');
+		$description = gettext('Select targets.');
+		$message_info = gettext('No targets found.');
 		$options = [];
+		$property = parent::init_group();
 		$property->
 			set_id('group')->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default()->			
+			set_message_info($message_info);
 		return $property;
 	}
 }

@@ -35,24 +35,21 @@ namespace services\ctld\sub\isnsserver;
 
 final class extended_properties extends basic_properties {
 	public function init_ipaddress() {
-		$property = parent::init_ipaddress();
 		$description = gettext('IPv4 or IPv6 address of an iSNS server to register on.');
 		$placeholder = gettext('IP Address');
+		$property = parent::init_ipaddress();
 		$property->
 			set_id('ipaddress')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_placeholder($placeholder)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_port() {
-		$property = parent::init_port();
 		$description = gettext('Port number of the iSNS server.');
 		$placeholder = '';
+		$property = parent::init_port();
 		$property->
 			set_id('port')->
 			set_description($description)->
@@ -60,12 +57,9 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(10)->
 			set_maxlength(5)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_min(1024)->
 			set_max(65464)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
 }

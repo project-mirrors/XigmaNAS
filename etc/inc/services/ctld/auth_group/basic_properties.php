@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
 	public function init_name() {
 		$property = $this->x_name = new myp\property_text($this);
 		$property->
@@ -46,10 +43,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Auth Group Name'));
 		return $property;
 	}
-	protected $x_auth_type;
-	public function get_auth_type() {
-		return $this->x_auth_type ?? $this->init_auth_type();
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
+	protected $x_auth_type;
 	public function init_auth_type() {
 		$property = $this->x_auth_type = new myp\property_list($this);
 		$property->
@@ -57,15 +54,15 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Auth Type'));
 		return $property;
 	}
-	protected $x_auxparam;
-	public function get_auxparam() {
-		return $this->x_auxparam ?? $this->init_auxparam();
+	final public function get_auth_type() {
+		return $this->x_auth_type ?? $this->init_auth_type();
 	}
+	protected $x_auxparam;
 	public function init_auxparam() {
-		$property = $this->x_auxparam = new myp\property_textarea($this);
-		$property->
-			set_name('auxparam')->
-			set_title(gettext('Additional Parameters'));
+		$property = $this->x_auxparam = new myp\property_auxparam($this);
 		return $property;
+	}
+	final public function get_auxparam() {
+		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 }

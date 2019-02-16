@@ -35,24 +35,21 @@ namespace services\ctld\sub\initiator_portal;
 
 final class extended_properties extends basic_properties {
 	public function init_ipaddress() {
-		$property = parent::init_ipaddress();
 		$description = gettext('An IPv4 or IPv6 address of an iSCSI initiator portal.');
 		$placeholder = gettext('IP Address');
+		$property = parent::init_ipaddress();
 		$property->
 			set_id('ipaddress')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_placeholder($placeholder)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_prefixlen() {
-		$property = parent::init_prefixlen();
 		$description = gettext('Enter IP address prefix length.');
 		$placeholder = '';
+		$property = parent::init_prefixlen();
 		$property->
 			set_id('prefixlen')->
 			set_description($description)->
@@ -60,27 +57,23 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(10)->
 			set_maxlength(3)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_min(0)->
 			set_max(128)->
-			filter_use_default_or_empty()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default_or_empty();
 		return $property;
 	}
 	public function init_group() {
-		$property = parent::init_group();
-		$description = gettext('Select auth groups.');
+		$description = gettext('Link initiator-portal to auth-groups. An Initiator matching this address will be allowed to connect to the selected auth-groups.');
+		$message_info = gettext('No auth groups found.');
 		$options = [];
+		$property = parent::init_group();
 		$property->
 			set_id('group')->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default()->			
+			set_message_info($message_info);
 		return $property;
 	}
 }
