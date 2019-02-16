@@ -59,21 +59,21 @@ final class toolbox_row {
  */
 	public static function init_rmo(extended_properties $cop,mys\row $sphere) {
 		$rmo = new myr\rmo();
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','enable',PAGE_MODE_VIEW)->
-				add('POST','disable',PAGE_MODE_VIEW);
-		endif;
 		$rmo->
+			set_default('GET','view',PAGE_MODE_VIEW)->
 			add('GET','edit',PAGE_MODE_EDIT)->
-			add('POST','edit',PAGE_MODE_EDIT)->
 			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','view',PAGE_MODE_VIEW)->
+			add('POST','edit',PAGE_MODE_EDIT)->
 			add('POST','reload',PAGE_MODE_VIEW)->
 			add('POST','restart',PAGE_MODE_VIEW)->
 			add('POST','save',PAGE_MODE_POST)->
-			add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW)->
-			set_default('GET','view',PAGE_MODE_VIEW);
+			add('POST','view',PAGE_MODE_VIEW)->
+			add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
+		if($sphere->is_enadis_enabled()):
+			$rmo->
+				add('POST','disable',PAGE_MODE_VIEW)->
+				add('POST','enable',PAGE_MODE_VIEW);
+		endif;
 		return $rmo;
 	}
 /**

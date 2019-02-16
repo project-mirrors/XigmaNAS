@@ -32,7 +32,6 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\lun;
-use common\rmo as myr;
 use common\sphere as mys;
 use services\ctld\utilities as myu;
 /**
@@ -81,23 +80,8 @@ final class toolbox_grid {
  *	@param mys\grid $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	public static function init_rmo($cop,$sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST);
-		if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
-			if($sphere->toggle()):
-				$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
-			else:
-				$rmo->
-					add('POST',$sphere->get_cbm_button_val_enable(),PAGE_MODE_POST)->
-					add('POST',$sphere->get_cbm_button_val_disable(),PAGE_MODE_POST);
-			endif;
-		endif;
-		$rmo->
-			add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW)->
-			set_default('GET','view',PAGE_MODE_VIEW);
+	public static function init_rmo(basic_properties $cop,mys\grid $sphere) {
+		$rmo = myu::get_std_rmo_grid($cop,$sphere);
 		return $rmo;
 	}
 /**
