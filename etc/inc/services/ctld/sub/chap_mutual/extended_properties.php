@@ -35,10 +35,10 @@ namespace services\ctld\sub\chap_mutual;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Enter user name.');
 		$placeholder = gettext('User');
 		$regexp = '/^\S{1,32}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
@@ -46,19 +46,16 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(40)->
 			set_maxlength(32)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_secret() {
-		$property = parent::init_secret();
 		$description = gettext('Enter secret.');
 		$placeholder = gettext('Secret');
 		$regexp = '/^[^"]{1,32}$/';
+		$property = parent::init_secret();
 		$property->
 			set_id('secret')->
 			set_description($description)->
@@ -66,36 +63,32 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(40)->
 			set_maxlength(32)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $regexp])->
 			filter_use_empty()->
-			set_filter_group('ui',['empty','ui'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_group('ui',['empty','ui']);
 		return $property;
 	}
 	public function init_group() {
-		$property = parent::init_group();
-		$description = gettext('Select auth groups.');
+		$description = gettext('Link mutual-chap configuration to auth-groups. Note that an auth-group may contain either chap or chap-mutual entries, but not both.');
+		$message_info = gettext('No auth groups found.');
 		$options = [];
+		$property = parent::init_group();
 		$property->
 			set_id('group')->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default()->			
+			set_message_info($message_info);
 		return $property;
 	}
 	public function init_mutual_name() {
-		$property = parent::init_mutual_name();
 		$description = gettext('Enter mutual user name.');
 		$placeholder = gettext('Mutual User');
 		$regexp = '/^\S{1,32}$/';
+		$property = parent::init_mutual_name();
 		$property->
 			set_id('mutual_name')->
 			set_description($description)->
@@ -103,19 +96,16 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(40)->
 			set_maxlength(32)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_mutual_secret() {
-		$property = parent::init_mutual_secret();
 		$description = 'Enter mutual secret';
 		$placeholder = gettext('Mutual Secret');
 		$regexp = '/^[^"]{1,32}$/';
+		$property = parent::init_mutual_secret();
 		$property->
 			set_id('secret')->
 			set_description($description)->
@@ -123,14 +113,11 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(40)->
 			set_maxlength(32)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => NULL,'regexp' => $regexp])->
 			filter_use_empty()->
-			set_filter_group('ui',['empty','ui'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_group('ui',['empty','ui']);
 		return $property;
 	}
 }

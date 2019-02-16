@@ -45,7 +45,7 @@ final class toolbox_row {
  */
 	public static function init_sphere() {
 		global $config;
-		
+
 		$sphere = new mys\row('services_ctl_lun_edit','php');
 		$sphere->get_parent()->set_basename('services_ctl_lun');
 		$sphere->

@@ -35,54 +35,47 @@ namespace services\ctld\sub\option;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Name of the option.');
 		$regexp = '/^\S{1,223}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_value() {
-		$property = parent::init_value();
 		$description = gettext('Value of the option.');
 		$regexp = '/^.{1,223}$/';
+		$property = parent::init_value();
 		$property->
 			set_id('value')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_group() {
-		$property = parent::init_group();
-		$description = gettext('Select portal groups.');
+		$description = gettext('Link this option to selected portal-groups.');
+		$message_info = gettext('No portal groups found.');
 		$options = [];
+		$property = parent::init_group();
 		$property->
 			set_id('group')->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default()->			
+			set_message_info($message_info);
 		return $property;
 	}
 }

@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_ipaddress;
-	public function get_ipaddress() {
-		return $this->x_ipaddress ?? $this->init_ipaddress();
-	}
 	public function init_ipaddress() {
 		$property = $this->x_ipaddress = new myp\property_ipaddress($this);
 		$property->
@@ -46,15 +43,18 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('IP Address'));
 		return $property;
 	}
-	protected $x_port;
-	public function get_port() {
-		return $this->x_port ?? $this->init_port();
+	final public function get_ipaddress() {
+		return $this->x_ipaddress ?? $this->init_ipaddress();
 	}
+	protected $x_port;
 	public function init_port() {
 		$property = $this->x_port = new myp\property_int($this);
 		$property->
 			set_name('port')->
 			set_title(gettext('Port'));
 		return $property;
+	}
+	final public function get_port() {
+		return $this->x_port ?? $this->init_port();
 	}
 }

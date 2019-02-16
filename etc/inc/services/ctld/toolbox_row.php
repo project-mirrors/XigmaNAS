@@ -45,7 +45,7 @@ final class toolbox_row {
  */
 	public static function init_sphere() {
 		global $config;
-		
+
 		$sphere = new mys\row('services_ctl','php');
 		$sphere->set_enadis(true);
 		$sphere->grid = &array_make_branch($config,'ctld');

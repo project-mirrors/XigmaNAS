@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_number;
-	public function get_number() {
-		return $this->x_number ?? $this->init_number();
-	}
 	public function init_number() {
 		$property = $this->x_number = new myp\property_int($this);
 		$property->
@@ -46,10 +43,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('LUN Number'));
 		return $property;
 	}
-	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
+	final public function get_number() {
+		return $this->x_number ?? $this->init_number();
 	}
+	protected $x_name;
 	public function init_name() {
 		$property = $this->x_name = new myp\property_list($this);
 		$property->
@@ -57,15 +54,18 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('LUN Name'));
 		return $property;
 	}
-	protected $x_group;
-	public function get_group() {
-		return $this->x_group ?? $this->init_group();
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
+	protected $x_group;
 	public function init_group() {
 		$property = $this->x_group = new myp\property_list_multi($this);
 		$property->
 			set_name('group')->
-			set_title(gettext('Target Group'));
+			set_title(gettext('Target'));
 		return $property;
+	}
+	final public function get_group() {
+		return $this->x_group ?? $this->init_group();
 	}
 }

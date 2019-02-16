@@ -36,9 +36,6 @@ use common\properties as myp;
 
 class basic_properties extends myp\container_row {
 	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
 	public function init_name() {
 		$property = $this->x_name = new myp\property_text($this);
 		$property->
@@ -46,10 +43,10 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('User'));
 		return $property;
 	}
-	protected $x_secret;
-	public function get_secret() {
-		return $this->x_secret ?? $this->init_secret();
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
+	protected $x_secret;
 	public function init_secret() {
 		$property = $this->x_secret = new myp\property_text($this);
 		$property->
@@ -57,15 +54,18 @@ class basic_properties extends myp\container_row {
 			set_title(gettext('Secret'));
 		return $property;
 	}
-	protected $x_group;
-	public function get_group() {
-		return $this->x_group ?? $this->init_group();
+	final public function get_secret() {
+		return $this->x_secret ?? $this->init_secret();
 	}
+	protected $x_group;
 	public function init_group() {
 		$property = $this->x_group = new myp\property_list_multi($this);
 		$property->
 			set_name('group')->
 			set_title(gettext('Auth Group'));
 		return $property;
+	}
+	final public function get_group() {
+		return $this->x_group ?? $this->init_group();
 	}
 }

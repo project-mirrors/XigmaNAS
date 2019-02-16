@@ -35,10 +35,10 @@ namespace services\ctld\auth_group;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Name of the Auth Group.');
 		$placeholder = gettext('Auth Group Name');
 		$regexp = '/^\S{1,223}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
@@ -46,16 +46,12 @@ final class extended_properties extends basic_properties {
 			set_placeholder($placeholder)->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auth_type() {
-		$property = parent::init_auth_type();
 		$description = gettext('Sets the authentication type.');
 		$options = [
 			'' => gettext('Undefined'),
@@ -64,30 +60,19 @@ final class extended_properties extends basic_properties {
 			'chap' => gettext('CHAP'),
 			'chap-mutual' => gettext('CHAP-Mutual')
 		];
+		$property = parent::init_auth_type();
 		$property->
 			set_id('auth_type')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_options($options)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_auxparam() {
-		$property = parent::init_auxparam();
 		$description = gettext('These parameters will be added to this auth-group.');
-		$placeholder = gettext('Enter additional parameters');
-		$property->
-			set_id('auxparam')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_defaultvalue('')->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		$property = parent::init_auxparam();
+		$property->set_description($description);
 		return $property;
 	}
 }

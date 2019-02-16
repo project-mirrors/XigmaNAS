@@ -35,10 +35,10 @@ namespace services\ctld\portal_group;
 
 final class extended_properties extends basic_properties {
 	public function init_name() {
-		$property = parent::init_name();
 		$description = gettext('Name of the Portal Group.');
 		$placeholder = gettext('Portal Group Name');
 		$regexp = '/^\S{1,223}$/';
+		$property = parent::init_name();
 		$property->
 			set_id('name')->
 			set_description($description)->
@@ -46,49 +46,33 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(223)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auxparam() {
-		$property = parent::init_auxparam();
 		$description = gettext('These parameters will be added to this portal-group.');
-		$placeholder = gettext('Enter additional parameters');
-		$property->
-			set_id('auxparam')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_defaultvalue('')->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		$property = parent::init_auxparam();
+		$property->set_description($description);
 		return $property;
 	}
 	public function init_discovery_auth_group() {
-		$property = parent::init_discovery_auth_group();
 		$description = gettext('Assign a previously defined authentication group to the portal group, to be used for target discovery.');
 		$options = [
 			'' => gettext('Deny discovery'),
 			'no-authentication' => gettext('Permit discovery without authentication')
 		];
+		$property = parent::init_discovery_auth_group();
 		$property->
 			set_id('discovery_auth_group')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_discovery_filter() {
-		$property = parent::init_discovery_filter();
 		$description = gettext('Determines which targets are returned during discovery.');
 		$options = [
 			'' => gettext('Discovery will return all targets assigned to this portal group.'),
@@ -96,35 +80,30 @@ final class extended_properties extends basic_properties {
 			'portal-name' => gettext('The check will include both initiator-portal and initiator-name.'),
 			'portal-name-auth' => gettext('The check will include initiator-portal, initiator-name, and authentication credentials. The target is returned if it does not require CHAP authentication, or if the CHAP user and secret used during discovery match those used by the target.')
 		];
+		$property = parent::init_discovery_filter();
 		$property->
 			set_id('discovery_filter')->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_foreign() {
-		$property = parent::init_foreign();
 		$caption = gettext('Specifies that this portal-group is listened by some other host. This host will announce it on discovery stage, but won\'t listen.');
+		$property = parent::init_foreign();
 		$property->
 			set_id('foreign')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_offload() {
-		$property = parent::init_offload();
 		$description = gettext('Define iSCSI hardware offload driver to use for this portal-group. The default is "none".');
 		$placeholder = gettext('Driver');
 		$regexp = '/^\S{0,60}$/';
+		$property = parent::init_offload();
 		$property->
 			set_id('offload')->
 			set_description($description)->
@@ -132,47 +111,38 @@ final class extended_properties extends basic_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(60)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_redirect() {
-		$property = parent::init_redirect();
 		$description = gettext('IPv4 or IPv6 address to redirect initiators to. When configured, all initiators attempting to connect to portal belonging to this portal-group will get redirected using "Target moved temporarily" login response.');
+		$property = parent::init_redirect();
 		$property->
 			set_id('redirect')->
 			set_description($description)->
 			set_defaultvalue('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			filter_use_default()->
 			filter_use_empty()->
-			set_filter_group('ui',['empty','ui'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_group('ui',['empty','ui']);
 		return $property;
 	}
 	public function init_tag() {
-		$property = parent::init_tag();
 		$description = gettext('Unique 16-bit tag value of this portal-group. If not specified, the value is generated automatically.');
 		$placeholder = gettext('Tag');
+		$property = parent::init_tag();
 		$property->
 			set_id('tag')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_size(20)->
 			set_maxlength(20)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_min(0)->
 			set_max(65535)->
 			filter_use_default()->
 			filter_use_empty()->
-			set_filter_group('ui',['empty','ui'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_group('ui',['empty','ui']);
 		return $property;
 	}
 }
