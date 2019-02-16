@@ -33,9 +33,12 @@
 */
 namespace common\properties;
 /**
- *	auxparam field
+ *	auxparam property
+ * 
+ *	property description is empty
+ *  @param object $owner The owner of this object or NULL
  */
-class property_auxparam extends property_textarea {
+final class property_auxparam extends property_textarea {
 	public function __construct($owner = NULL) {
 		$placeholder = gettext('Enter additional parameters');
 		$placeholderv = gettext('No additional parameters');
@@ -44,8 +47,6 @@ class property_auxparam extends property_textarea {
 		$this->
 			set_defaultvalue('')->
 			set_description('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_id('auxparam')->
 			set_name('auxparam')->
 			set_placeholder($placeholder)->
