@@ -58,12 +58,14 @@ switch($page_method):
 				break;
 		endswitch;
 		break;
+/*
 	case 'GET':
 		switch($page_action):
 			case 'view':
 				break;
 		endswitch;
 		break;
+ */
 	case 'POST':
 		switch($page_action):
 			case 'apply':

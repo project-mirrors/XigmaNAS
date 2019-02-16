@@ -354,7 +354,7 @@ $content->add_table_data_settings()->
 		c2_titleline(gettext('Additional Options for Passthrough Backend'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_passthrough_address(),$sphere->row[$cop->get_passthrough_address()->get_name()],false,false);
+		c2_input_text($cop->get_passthrough_address(),$sphere,false,false);
  */
 //	add buttons
 $buttons = $document->add_area_buttons();
