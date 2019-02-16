@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
 "PO-Revision-Date: 2019-01-18 20:28+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:46+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -720,9 +720,6 @@ msgstr "Další předvolby pro blokovou podpůrnou vrstvu"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Další předvolby pro podpůrnou vrstvu úložiště v operační paměti"
-
-msgid "Additional Parameter"
-msgstr "Další parametr"
 
 msgid "Additional Parameters"
 msgstr "Dodatečné parametry"
@@ -5694,6 +5691,9 @@ msgstr "Importovat disky uvedené v nastavení."
 msgid "Import on-disk ZFS config"
 msgstr "Import nastavení ZFS přímo z disku"
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr "Importovat pomocí GPT identifikátoru"
 
@@ -8672,6 +8672,9 @@ msgstr "Resetovat grafy"
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr "Zvýšený třecí odpor mezi mechanickými částmi během provozu."
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr "Zjistit název k IP adrese"
 
@@ -11306,8 +11309,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Tyto parametry jsou přidány do sekce [Global] v %s"
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Tyto parametry jsou přidány do sekce [Share] v %s"
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13343,9 +13346,6 @@ msgstr "síťový provoz"
 
 msgid "no pools available"
 msgstr "žádné fondy k dispozici"
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "žádné"

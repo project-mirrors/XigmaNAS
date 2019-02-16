@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
-"PO-Revision-Date: 2018-12-30 16:53+0000\n"
-"Last-Translator: jlavau <Unknown>\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"PO-Revision-Date: 2019-02-09 05:39+0000\n"
+"Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -721,9 +721,6 @@ msgstr "Options supplémentaires pour le bloc d'arrière-plan"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Options supplémentaires pour le RAM Disk d'arrière-plan"
-
-msgid "Additional Parameter"
-msgstr "Paramètre supplémentaire"
 
 msgid "Additional Parameters"
 msgstr "Paramètres Supplémentaires"
@@ -5738,6 +5735,9 @@ msgstr "Importer les disques utilisés dans la configuration"
 msgid "Import on-disk ZFS config"
 msgstr "Importer la configuration ZFS du disque"
 
+msgid "Import pool in read-only mode"
+msgstr "Importer le pool en lecture seule"
+
 msgid "Import using GPT ID"
 msgstr "Importer en utilisant les ID GPT"
 
@@ -8713,6 +8713,9 @@ msgstr "Réinitialiser les graphiques"
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr "Résistance due à la friction des pièces mécaniques en opération."
 
+msgid "Resize pool to the maximum possible size"
+msgstr "Redimensionner le pool à la taille maximale possible"
+
 msgid "Resolve IP"
 msgstr "Resoudre l'IP"
 
@@ -11365,7 +11368,7 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Ces paramètres sont ajoutés à la section [Global] de %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
+msgid "These parameters are added to the [Share] section of %s."
 msgstr "Ces paramètres sont ajoutés à la section [Share] de %s."
 
 msgid ""
@@ -13407,9 +13410,6 @@ msgstr "trafic réseau"
 msgid "no pools available"
 msgstr "pas de pools disponibles"
 
-msgid "noVNC"
-msgstr "noVNC"
-
 msgid "none"
 msgstr "aucun"
 
@@ -13474,3 +13474,6 @@ msgstr "utilisé de"
 
 msgid "visible"
 msgstr "visible"
+
+#~ msgid "Toold"
+#~ msgstr "Toold"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
-"PO-Revision-Date: 2018-12-23 11:41+0000\n"
-"Last-Translator: Victek <Unknown>\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"PO-Revision-Date: 2019-02-13 15:53+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:46+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -711,9 +711,6 @@ msgstr "Opciones adicionales para bloque del motor"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Opciones adicionales para el disco RAM del motor"
-
-msgid "Additional Parameter"
-msgstr "Parametros adicionales"
 
 msgid "Additional Parameters"
 msgstr "Parametros adicionales"
@@ -5679,6 +5676,9 @@ msgstr "Importar los discos usados en la configuracion."
 msgid "Import on-disk ZFS config"
 msgstr "Importar la configuración ZFS de los discos"
 
+msgid "Import pool in read-only mode"
+msgstr "Importar el pool en modo solo-lectura"
+
 msgid "Import using GPT ID"
 msgstr "Importar usando su ID GPT"
 
@@ -8632,6 +8632,9 @@ msgstr ""
 "Resistencia causada por la fricción de las partes mecanicas, mientras se "
 "encuentra en uso."
 
+msgid "Resize pool to the maximum possible size"
+msgstr "Redimensionar el pool al tamaño máximo posible."
+
 msgid "Resolve IP"
 msgstr "Resolver la IP"
 
@@ -11257,8 +11260,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Estos parámetros son agregados a la sección [Global] de %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Estos parámetros son agregados a la sección [Compartir] de %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr "Estos parametros serán añadidos en la sección [Share] de %s."
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13275,9 +13278,6 @@ msgstr "Tráfico de Red"
 msgid "no pools available"
 msgstr "No hay piscinas disponibles"
 
-msgid "noVNC"
-msgstr "noVNC"
-
 msgid "none"
 msgstr "ninguno"
 
@@ -13340,3 +13340,6 @@ msgstr "usados de"
 
 msgid "visible"
 msgstr "Visible"
+
+#~ msgid "Toold"
+#~ msgstr "Herramientas"

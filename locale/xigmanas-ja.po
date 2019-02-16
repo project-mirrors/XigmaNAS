@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
 "PO-Revision-Date: 2019-01-01 17:15+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:21+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -675,9 +675,6 @@ msgid "Additional Options for Block Backend"
 msgstr ""
 
 msgid "Additional Options for RAM Disk Backend"
-msgstr ""
-
-msgid "Additional Parameter"
 msgstr ""
 
 msgid "Additional Parameters"
@@ -5319,6 +5316,9 @@ msgstr "この設定で利用されているディスクをインポートしま
 msgid "Import on-disk ZFS config"
 msgstr "ディスク上のZFS設定をインポート"
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr ""
 
@@ -8134,6 +8134,9 @@ msgstr ""
 msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr "操作中の機械的な部分で摩擦によって生じた抵抗。"
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr ""
 
@@ -10500,8 +10503,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "ここで指定したパラメータは %s の [Global] セクションに追加されます。"
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "ここで指定したパラメータは %s の [Share] セクションに追加されます。"
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -12328,9 +12331,6 @@ msgstr "ネットワークトラフィック"
 
 msgid "no pools available"
 msgstr ""
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "none"

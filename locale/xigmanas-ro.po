@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-21 21:52+0000\n"
+"POT-Creation-Date: 2019-02-15 23:19+0000\n"
 "PO-Revision-Date: 2019-01-17 22:04+0000\n"
 "Last-Translator: peter <peterswebdesign2010@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-01-18 23:22+0000\n"
-"X-Generator: Launchpad (build 18856)\n"
+"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
+"X-Generator: Launchpad (build 18878)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -717,9 +717,6 @@ msgstr "Opțiuni suplimentare pentru Block Backend"
 
 msgid "Additional Options for RAM Disk Backend"
 msgstr "Opțiuni suplimentare pentru RAM Disk Backend"
-
-msgid "Additional Parameter"
-msgstr "Parametri suplimentari"
 
 msgid "Additional Parameters"
 msgstr "Parametri adiționali"
@@ -5668,6 +5665,9 @@ msgstr "Import discuri utilizate în configurație."
 msgid "Import on-disk ZFS config"
 msgstr "Import configuraţie ZFS"
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr "Import folosind GPT ID"
 
@@ -8606,6 +8606,9 @@ msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr ""
 "Rezistența cauzată de frecarea între părțile mecanice în timpul funcționării."
 
+msgid "Resize pool to the maximum possible size"
+msgstr ""
+
 msgid "Resolve IP"
 msgstr "Rezolvare IP"
 
@@ -11137,8 +11140,8 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr "Acești parametri sînt adăugați la secțiunea [Global] a %s."
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
-msgstr "Acești parametri sînt adăugați la secțiunea [Partajare] a %s."
+msgid "These parameters are added to the [Share] section of %s."
+msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13147,9 +13150,6 @@ msgstr "trafic rețea"
 
 msgid "no pools available"
 msgstr ""
-
-msgid "noVNC"
-msgstr "noVNC"
 
 msgid "none"
 msgstr "nimic"
