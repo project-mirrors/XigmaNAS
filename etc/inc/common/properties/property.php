@@ -43,8 +43,8 @@ abstract class property {
 	protected $x_description = NULL;
 	protected $x_caption = NULL;
 	protected $x_defaultvalue = NULL;
-	protected $x_editableonadd = NULL;
-	protected $x_editableonmodify = NULL;
+	protected $x_editableonadd = true;
+	protected $x_editableonmodify = true;
 	protected $x_filter = [];
 	protected $x_filter_group = [];
 	protected $x_message_error = NULL;
