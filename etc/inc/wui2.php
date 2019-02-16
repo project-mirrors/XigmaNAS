@@ -2112,6 +2112,7 @@ trait co_DOMTools {
 			insTHwC($cb_class)->
 			insTHwC('lhebl',$p->get_title());
 		$tbody = $table->addTBODY();
+		$n_options = 0;
 		foreach($p->get_options() as $option_tag => $option_val):
 			//	create a unique identifier for each row and use label tag for text
 			//	column to allow toggling the checkbox button by clicking on the text.
@@ -2125,7 +2126,14 @@ trait co_DOMTools {
 			$tr = $tbody->addTR();
 			$tr->addTDwC('lcelc')->insINPUT($input_attributes);
 			$tr->addTDwC('lcebl')->addElement('label',['for' => $input_attributes['id'],'style' => 'white-space:pre-wrap;'],$option_val);
+			$n_options++;
 		endforeach;
+		if(0 === $n_options):
+			$message_info = $p->get_message_info();
+			if(!is_null($message_info)):
+				$tbody->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
+			endif;
+		endif;
 		return $this;
 	}
 	public function ins_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
@@ -2222,6 +2230,7 @@ EOJ;
 		if($is_required):
 			$input_attributes['required'] = 'required';
 		endif;
+		$n_options = 0;
 		foreach($p->get_options() as $option_tag => $option_val):
 			//	use label tag for text column to allow enabling the radio button by clicking on the text
 			$input_attributes['value'] = $option_tag;
@@ -2234,7 +2243,14 @@ EOJ;
 			$tr = $tbody->addTR();
 			$tr->addTDwC('lcelc')->insINPUT($input_attributes);
 			$tr->addTDwC('lcebl')->addElement('label',['for' => $input_attributes['id'],'style' => 'white-space:pre-wrap;'],$option_val);
+			$n_options++;
 		endforeach;
+		if(0 === $n_options):
+			$message_info = $p->get_message_info();
+			if(!is_null($message_info)):
+				$tbody->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
+			endif;
+		endif;
 		return $this;
 	}
 	public function ins_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
@@ -3086,9 +3102,7 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 		return array_pop($this->stack);
 	}
 	public function last() {
-		$element = end($this->stack);
-		reset($this->stack);
-		return $element;
+		return $this->stack[array_key_last($this->stack)];
 	}
 	public function add_js_on_load(string $jcode = '',string $key = NULL) {
 		if(preg_match('/\S/',$jcode)):
