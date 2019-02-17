@@ -73,10 +73,10 @@ final class utilities {
 				$retval |= rc_update_reload_service('ctld');
 				config_unlock();
 			endif;
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
 		endif;
-		updatenotify_delete($sphere->get_notifier());
+		$_SESSION['submit'] = $sphere->get_basename();
+		$_SESSION[$sphere->get_basename()] = $retval;
+		updatenotify_clear($sphere->get_notifier(),$data,true);
 		return $retval;
 	}
 	final public static function get_std_rmo_grid(myp\container $cop, mys\grid $sphere) {
