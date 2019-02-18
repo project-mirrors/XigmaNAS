@@ -2095,13 +2095,21 @@ function disks_import_all_encrypted_disks(bool $clear_config_before_import = fal
 	global $config;
 	$grid_cfg_disks = &array_make_branch($config,'disks','disk');
 	$grid_cfg_geli = &array_make_branch($config,'geli','vdisk');
+	$a_aalgo = [
+	'hmac/md5' => 'HMAC/MD5',
+	'hmac/sha1' => 'HMAC/SHA1',
+	'hmac/ripemd160' => 'HMAC/RIPEMD160',
+	'hmac/sha256' => 'HMAC/SHA256',
+	'hmac/sha384' => 'HMAC/SHA384',
+	'hmac/sha512' => 'HMAC/SHA512'
+	];
 	$a_ealgo = [
-		'AES-XTS' => 'AES',
-		'AES-CBC' => 'AES',
-		'Blowfish-CBC' => 'Blowfish',
-		'CAMELLIA-CBC' => 'Camellia',
-		'3DES-CBC' => '3DES'
-		];
+		'aes-xts' => 'AES-XTS',
+		'aes-cbc' => 'AES-CBC',
+		'blowfish-cbc' => 'Blowfish-CBC',
+		'camellia-cbc' => 'Camellia-CBC',
+		'3des-cbc' => '3DES-CBC'
+	];
 	$num = 0;
 	$error = 0;
 	exec('/sbin/gconcat load');
@@ -2110,7 +2118,7 @@ function disks_import_all_encrypted_disks(bool $clear_config_before_import = fal
 	exec('/sbin/graid5 load');
 	exec('/sbin/gvinum load');
 	if($clear_config_before_import):
-		$grid_cfg_geli = []; // OK
+		$grid_cfg_geli = [];
 		$need_write_config = true;
 	else:
 		$need_write_config = false;
@@ -2123,27 +2131,39 @@ function disks_import_all_encrypted_disks(bool $clear_config_before_import = fal
 		if(empty($rawdata)):
 			continue;
 		endif;
-		$ealgo = $keylen = '';
+		$aalgo_lower = $ealgo_lower = $keylen = $sectorsize = '';
 		foreach($rawdata as $line):
-			if(preg_match('/^\s*ealgo\s*:\s*(.+)$/',$line,$m)):
-				$ealgo = $m[1];
-			elseif(preg_match('/^\s*keylen\s*:\s*(.+)$/',$line,$m)):
-				$keylen = $m[1];
+			if(preg_match('/^\s*aalgo\s*:\s*(.+)$/i',$line,$m)):
+				$aalgo_lower = strtolower(trim($m[1]));
+			elseif(preg_match('/^\s*ealgo\s*:\s*(.+)$/i',$line,$m)):
+				$ealgo_lower = strtolower(trim($m[1]));
+			elseif(preg_match('/^\s*keylen\s*:\s*(.+)$/i',$line,$m)):
+				$keylen = trim($m[1]);
+			elseif(preg_match('/^\s*sectorsize\s*:\s*(.+)$/i',$line,$m)):
+				$sectorsize = trim($m[1]);
 			endif;
 		endforeach;
-		if(empty($ealgo) || empty($keylen)):
+		if(empty($keylen)):
 			$error++;
 			continue;
 		endif;
-		if(!array_key_exists($ealgo,$a_ealgo)):
+		if(array_key_exists($ealgo_lower,$a_ealgo)):
+			$ealgo = $a_ealgo[$ealgo_lower];
+		else:
+			$ealgo = '';
 			$error++;
 			continue;
 		endif;
-		$ealgo = $a_ealgo[$ealgo];
-		//	exist geli?
+		if(array_key_exists($aalgo_lower,$a_aalgo)):
+			$aalgo = $a_aalgo[$aalgo_lower];
+		else:
+			$aalgo = '';
+		endif;
+		//	does geli config record exist?
 		$index = array_search_ex($dev,$grid_cfg_geli,'device');
 		if(false === $index):
-			$num++; // detected
+			 // a new geli was detected
+			$num++;
 			$geli = [];
 			$geli['uuid'] = uuid();
 			$geli['name'] = $row_os_disk['name'];
@@ -2151,13 +2171,11 @@ function disks_import_all_encrypted_disks(bool $clear_config_before_import = fal
 			$geli['devicespecialfile'] = "{$geli['device']}.eli";
 			$geli['desc'] = 'Encrypted disk';
 			$geli['size'] = $row_os_disk['size'];
-			$geli['aalgo'] = 'none';
+			$geli['sectorsize'] = $sectorsize;
+			$geli['aalgo'] = $aalgo;
 			$geli['ealgo'] = $ealgo;
 			$grid_cfg_geli[] = $geli;
 			$need_write_config = true;
-		else:
-			//	already exist in config
-			//	Do we need to update anything?
 		endif;
 		//	exist disks?
 		$index = array_search_ex($dev,$grid_cfg_disks,'devicespecialfile');
