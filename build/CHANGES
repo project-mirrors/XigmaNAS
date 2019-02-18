@@ -12,7 +12,6 @@ Changes:
 - Upgrade devcpu-data to 1.20.
 - Upgrade tmux to 2.8.
 - Upgrade nano to 3.2.
-- Upgrade dialog to 1.3-20181107.
 - Upgrade mDNSResponder to 878.200.35.
 - Upgrade e2fsprogs to 1.44.5.
 - Upgrade netatalk to 3.1.12.
@@ -30,6 +29,7 @@ Changes:
 - Upgrade php to 7.3.2.
 - Upgrade samba to 4.8.9.
 - Upgrade APCu to 5.1.17.
+- Upgrade dialog to 1.3-20190211.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
