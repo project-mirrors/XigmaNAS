@@ -1,6 +1,6 @@
 <?php
 /*
-	common\sphere\level2.php
+	hub.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -35,57 +35,13 @@ namespace common\sphere;
 /**
  *	sphere object basement for row and grid
  */
-class level2 extends level1 {
+class hub extends root {
 	public $row_id = NULL;
-	protected $x_notifier = NULL;
-	protected $x_row_identifier = NULL;
-	protected $x_lock = false;
-/**
- *	Enable/disable record lock support
- *	@param bool $flag
- *	@return $this
- */
-	public function set_lock(bool $flag = false) {
-		$this->x_lock = $flag;
-		return $this;
-	}
-/**
- *	Returns true when record lock support is enabled
- *	@return bool
- */
-	public function is_lock_enabled() {
-		return $this->x_lock;
-	}
-	public function set_notifier(string $notifier = NULL) {
-		$this->x_notifier = $notifier;
-		return $this;
-	}
-	public function get_notifier() {
-		return $this->x_notifier;
-	}
-	public function row_identifier(string $row_identifier = NULL) {
-		if(isset($row_identifier)):
-			if(1 === preg_match('/^[a-z]+$/',$row_identifier)):
-				$this->x_row_identifier = $row_identifier;
-			endif;
-		endif;
-		return $this->x_row_identifier ?? false;
-	}
 	public function set_row_key($key = NULL) {
 		$this->row_id = $key;
 		return $this;
 	}
 	public function get_row_key() {
 		return $this->row_id;
-	}
-	public function get_row_identifier() {
-		return $this->x_row_identifier ?? false;
-	}
-	public function set_row_identifier(string $row_identifier = NULL) {
-		$this->x_row_identifier = $row_identifier;
-		return $this;
-	}
-	public function get_row_identifier_value() {
-		return $this->row[$this->x_row_identifier] ?? NULL;
 	}
 }

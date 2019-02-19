@@ -35,8 +35,8 @@ namespace common\sphere;
 /**
  *	sphere object for row pages
  */
-class row extends level2 {
-	public function doj(bool $with_envelope = true) {
+class row extends hub {
+	public function doj(bool $with_envelope = true): string {
 		$output = [];
 		if($with_envelope):
 			$output[] = '<script type="text/javascript">';
