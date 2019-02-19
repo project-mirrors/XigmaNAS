@@ -68,7 +68,7 @@ switch($page_action):
 endswitch;
 $pgtitle = [gettext('Diagnostics'),gettext('Updatenotifier')];
 $record_exists = count($sphere->grid) > 0;
-$a_col_width = ['5%','20%','20%','20%','35%'];
+$a_col_width = ['5%','15%','15%','10%','30%','25%'];
 $n_col_width = count($a_col_width);
 //	prepare additional javascript code
 $jcode = $sphere->doj(false);
@@ -108,7 +108,8 @@ if($record_exists):
 			insTHwC('lhell',gettext('Key'))->
 			insTHwC('lhell',gettext('Time Stamp'))->
 			insTHwC('lhell',gettext('Mode'))->
-			insTHwC('lhebl',gettext('Data'));
+			insTHwC('lhell',gettext('Data'))->
+			insTHwC('lhebl',gettext('Processor'));
 else:
 	$thead->
 		addTR()->
@@ -116,7 +117,8 @@ else:
 			insTHwC('lhell',gettext('Key'))->
 			insTHwC('lhell',gettext('Time Stamp'))->
 			insTHwC('lhell',gettext('Mode'))->
-			insTHwC('lhebl',gettext('Data'));
+			insTHwC('lhell',gettext('Data'))->
+			insTHwC('lhebl',gettext('Processor'));
 endif;
 if($record_exists):
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
@@ -150,7 +152,8 @@ if($record_exists):
 				insTDwC('lcell',$sphere->row['key'])->
 				insTDwC('lcell',$ts)->
 				insTDwC('lcell',$mode)->
-				insTDwC('lcebl',$sphere->row['data']);
+				insTDwC('lcell',$sphere->row['data'])->
+				insTDwC('lcebl',$sphere->row['processor']);
 	endforeach;
 else:
 	$tbody->ins_no_records_found($n_col_width);

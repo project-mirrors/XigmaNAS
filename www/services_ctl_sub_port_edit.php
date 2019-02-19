@@ -35,7 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\sub\port\toolbox_row as toolbox;
+use services\ctld\sub\port\row_toolbox as toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -183,13 +183,13 @@ switch($page_mode):
 		if($prerequisites_ok && empty($input_errors)):
 			if($isrecordnew):
 				$sphere->grid[] = $sphere->row;
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			else:
 				foreach($sphere->row as $key => $value):
 					$sphere->grid[$sphere->row_id][$key] = $value;
 				endforeach;
 				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
+					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 				endif;
 			endif;
 			write_config();
@@ -211,11 +211,11 @@ $cop->get_group()->set_options($all_parents);
 $use_tablesort = count($all_parents) > 1;
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Targets'),gettext('Port'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
 if($use_tablesort):
-	$document = new_page($pgtitle,$sphere->get_scriptname(),'tablesort');
+	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
 else:
-	$document = new_page($pgtitle,$sphere->get_scriptname());
+	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 endif;
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
