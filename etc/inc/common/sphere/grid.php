@@ -35,19 +35,13 @@ namespace common\sphere;
 /**
  *	sphere object for grid pages
  */
-class grid extends level2 {
-//	children
-	public $modify = NULL; // modify
-	public $maintain = NULL; // maintenance
-	public $inform = NULL; // information
-//	transaction manager
-	protected $x_notifier_processor = NULL;
+class grid extends hub {
 	protected $x_cbm_suffix = '';
 //	checkbox member array
 	protected $x_cbm_name = 'cbm_grid';
 	public $cbm_grid = [];
 	public $cbm_row = [];
-//	gtext
+//	gettext
 	protected $x_cbm_delete = NULL;
 	protected $x_cbm_disable = NULL;
 	protected $x_cbm_enable = NULL;
@@ -81,39 +75,6 @@ class grid extends level2 {
 	protected $x_cbm_button_val_enable = 'rows.enable';
 	protected $x_cbm_button_val_toggle = 'rows.toggle';
 //	methods
-	public function __destruct() {
-		unset($this->inform,$this->maintain,$this->modify);
-		parent::__destruct();
-	}
-	public function get_modify() {
-		if(!is_object($this->modify)):
-			$this->modify = new scriptname($this->get_basename(),$this->get_extension());
-		endif;
-		return $this->modify;
-	}
-	public function get_maintain() {
-		if(!is_object($this->maintain)):
-			$this->maintain = new scriptname($this->get_basename(),$this->get_extension());
-		endif;
-		return $this->maintain;
-	}
-	public function get_inform() {
-		if(!is_object($this->inform)):
-			$this->inform = new scriptname($this->get_basename(),$this->get_extension());
-		endif;
-		return $this->inform;
-	}
-	public function set_notifier_processor(string $notifier_processor) {
-		$this->x_notifier_processor = $notifier_processor;
-		return $this;
-	}
-	public function get_notifier_processor() {
-		return $this->x_notifier_processor;
-	}
-	public function toggle() {
-		global $config;
-		return $this->is_enadis_enabled() && isset($config['system']['enabletogglemode']) && (is_bool($config['system']['enabletogglemode']) ? $config['system']['enabletogglemode'] : true);
-	}
 	public function get_cbm_suffix() {
 		return $this->x_cbm_suffix;
 	}
@@ -432,130 +393,7 @@ class grid extends level2 {
 		$this->x_sym_unl = $message;
 		return $this;
 	}
-	public function sym_add(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_add = $message;
-		endif;
-		return $this->x_sym_add ?? gettext('Add Record');
-	}
-	public function sym_del(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_del = $message;
-		endif;
-		return $this->x_sym_del ?? gettext('Record is marked for deletion');
-	}
-	public function sym_inf(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_inf = $message;
-		endif;
-		return $this->x_sym_inf ?? gettext('Record Information');
-	}
-	public function sym_loc(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_loc = $message;
-		endif;
-		return $this->x_sym_loc ?? gettext('Record is protected');
-	}
-	public function sym_mai(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_mai = $message;
-		endif;
-		return $this->x_sym_mai ?? gettext('Record Maintenance');
-	}
-	public function sym_mdn(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_mdn = $message;
-		endif;
-		return $this->x_sym_mdn ?? gettext('Move down');
-	}
-	public function sym_mod(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_mod = $message;
-		endif;
-		return $this->x_sym_mod ?? gettext('Edit Record');
-	}
-	public function sym_mup(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_mup = $message;
-		endif;
-		return $this->x_sym_mup ?? gettext('Move up');
-	}
-	public function sym_unl(string $message = NULL) {
-		if(isset($message)):
-			$this->x_sym_unl = $message;
-		endif;
-		return $this->x_sym_unl ?? gettext('Record is unlocked');
-	}
-	public function doj(bool $with_envelope = true) {
-		$output = [];
-		if($with_envelope):
-			$output[] = '<script type="text/javascript">';
-			$output[] = '//<![CDATA[';
-		endif;
-		$output[] = '$(window).on("load", function() {';
-		//	Init action buttons.
-		if($this->is_enadis_enabled()):
-			if($this->toggle()):
-				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_toggle_confirm()) . '");';
-				$output[] = "\t" . '});';
-			else:
-				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_enable_confirm()) . '");';
-				$output[] = "\t" . '});';
-				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_disable_confirm()) . '");';
-				$output[] = "\t" . '});';
-			endif;
-		endif;
-		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
-		$output[] = "\t\t" . 'return confirm("' . $this->escape_javascript($this->getmsg_cbm_delete_confirm()) . '");';
-		$output[] = "\t" . '});';
-		//	Disable action buttons.
-		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
-		//	Init toggle checkbox.
-		$output[] = "\t" . '$("#' . $this->get_cbm_checkbox_id_toggle() . '").click(function() {';
-		$output[] = "\t\t" . 'cb_tbn' . $this->get_cbm_suffix() . '(this,"' . $this->get_cbm_name() . '[]");';
-		$output[] = "\t" . '});';
-		//	Init member checkboxes.
-		$output[] = "\t" . '$("input[name=\'' . $this->get_cbm_name() . '[]\']").click(function() {';
-		$output[] = "\t\t" . 'ab_control' . $this->get_cbm_suffix() . '(this,"' . $this->get_cbm_name() . '[]");';
-		$output[] = "\t" . '});';
-		//	Init spinner.
-		if($with_envelope):
-			$output[] = "\t" . '$("#iform").submit(function() { spinner(); });';
-			$output[] = "\t" . '$(".spin").click(function() { spinner(); });';
-		endif;
-		$output[] = '});';
-		$output[] = 'function ab_disable' . $this->get_cbm_suffix() . '(flag) {';
-		if($this->is_enadis_enabled()):
-			if($this->toggle()):
-				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").prop("disabled",flag);';
-			else:
-				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").prop("disabled",flag);';
-				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").prop("disabled",flag);';
-			endif;
-		endif;
-		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").prop("disabled",flag);';
-		$output[] = '}';
-		$output[] = 'function cb_tbn' . $this->get_cbm_suffix() . '(ego,tbn) {';
-		$output[] = "\t" . 'var cba = $("input[name=\'"+tbn+"\']").filter(":enabled");';
-		$output[] = "\t" . 'cba.prop("checked", function(_, checked) { return !checked; });';
-		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(1 > cba.filter(":checked").length);';
-		$output[] = "\t" . 'ego.checked = false;';
-		$output[] = '}';
-		$output[] = 'function ab_control' . $this->get_cbm_suffix() . '(ego,tbn) {';
-		$output[] = "\t" . 'var cba = $("input[name=\'"+tbn+"\']").filter(":enabled");';
-		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(1 > cba.filter(":checked").length);';
-		$output[] = '}';
-		if($with_envelope):
-			$output[] = '//]]>';
-			$output[] = '</script>';
-			$output[] = '';
-		endif;
-		return implode(PHP_EOL,$output);
-	}
-	public function get_js_on_load() {
+	public function get_js_on_load(): string {
 		$output = [];
 		//	Init action buttons.
 		if($this->is_enadis_enabled()):
@@ -587,7 +425,7 @@ class grid extends level2 {
 		$output[] = "\t" . '});';
 		return implode(PHP_EOL,$output);
 	}
-	public function get_js() {
+	public function get_js(): string {
 		$output = [];
 		$output[] = 'function ab_disable' . $this->get_cbm_suffix() . '(flag) {';
 		if($this->is_enadis_enabled()):
@@ -611,158 +449,5 @@ class grid extends level2 {
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(1 > cba.filter(":checked").length);';
 		$output[] = '}';
 		return implode(PHP_EOL,$output);
-	}
-	public function html_button_delete_rows() {
-		return $this->html_button($this->get_cbm_button_val_delete(),$this->getmsg_cbm_delete(),$this->get_cbm_button_id_delete());
-	}
-	public function html_button_disable_rows() {
-		return $this->html_button($this->get_cbm_button_val_disable(),$this->getmsg_cbm_disable(),$this->get_cbm_button_id_disable());
-	}
-	public function html_button_enable_rows() {
-		return $this->html_button($this->get_cbm_button_val_enable(),$this->getmsg_cbm_enable(),$this->get_cbm_button_id_enable());
-	}
-	public function html_button_toggle_rows() {
-		return $this->html_button($this->get_cbm_button_val_toggle(),$this->getmsg_cbm_toggle(),$this->get_cbm_button_id_toggle());
-	}
-	public function html_checkbox_cbm(bool $disabled = false) {
-		$element = 'input';
-		$identifier = $this->get_row_identifier_value();
-		$input_attributes = [
-			'type' => 'checkbox',
-			'name' => $this->get_cbm_name() . '[]',
-			'value' => $identifier,
-			'id' => $identifier,
-			'class' => 'oneemhigh'
-		];
-		if($disabled):
-			$input_attributes['disabled'] = 'disabled';
-		endif;
-		$root = new \co_DOMDocument();
-		$o_input = $root->addElement($element,$input_attributes);
-		return $root->get_html();
-	}
-	public function html_checkbox_toggle_cbm() {
-		$element = 'input';
-		$input_attributes = [
-			'type' => 'checkbox',
-			'name' => $this->get_cbm_checkbox_id_toggle(),
-			'id' => $this->get_cbm_checkbox_id_toggle(),
-			'title' => gettext('Invert Selection'),
-			'class' => 'oneemhigh'
-		];
-		$root = new \co_DOMDocument();
-		$o_input = $root->addElement($element,$input_attributes);
-		return $root->get_html();
-	}
-	public function html_toolbox(bool $notprotected = true,bool $notdirty = true) {
-/*
- *	<td>
- *		<a href="scriptname_edit.php?submit=edit&uuid=12345678-1234-1234-1234-1234567890AB"><img="images/edit.png" title="Edit Record" alt="Edit Record" class="spin"/></a>
- *		or
- *		<img src="images/delete.png" title="Record is marked for deletion" alt="Record is marked for deletion"/>
- *		or
- *		<img src="images/locked.png" title="Record is protected" alt="Record is protected"/>
- *	</td>
- */
-		global $g_img;
-
-		$root = new \co_DOMDocument();
-		$o_td = $root->addTD();
-		if($notdirty && $notprotected):
-			//	record is editable
-			$link = sprintf('%s?submit=edit&%s=%s',$this->get_modify()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
-			$img_attributes = [
-				'src' => $g_img['mod'],
-				'title' => $this->getmsg_sym_mod(),
-				'alt' => $this->getmsg_sym_mod(),
-				'class' => 'spin oneemhigh'
-			];
-			$o_td->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
-		elseif($notprotected):
-			//	record is dirty
-			$img_attributes = [
-				'src' => $g_img['del'],
-				'title' => $this->getmsg_sym_del(),
-				'alt' => $this->getmsg_sym_del(),
-				'class' => 'oneemhigh'
-			];
-			$o_td->insIMG($img_attributes);
-		else:
-			//	record is protected
-			$img_attributes = [
-				'src' => $g_img['loc'],
-				'title' => $this->getmsg_sym_loc(),
-				'alt' => $this->getmsg_sym_loc(),
-				'class' => 'oneemhigh'
-			];
-			$o_td->insIMG($img_attributes);
-		endif;
-		return $root->get_html();
-	}
-	public function html_maintainbox() {
-		global $g_img;
-
-		$link = sprintf('%s?%s=%s',$this->get_maintain()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
-		$img_attributes = [
-			'src' => $g_img['mai'],
-			'title' => $this->getmsg_sym_mai(),
-			'alt' => $this->getmsg_sym_mai(),
-			'class' => 'spin oneemhigh'
-		];
-		$root = new \co_DOMDocument();
-		$root->
-			addTD()->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
-		return $root->get_html();
-	}
-	public function html_informbox() {
-		global $g_img;
-
-		$link = sprintf('%s?%s=%s',$this->get_inform()->get_scriptname(),$this->get_row_identifier(),$this->get_row_identifier_value());
-		$img_attributes = [
-			'src' => $g_img['inf'],
-			'title' => $this->getmsg_sym_inf(),
-			'alt' => $this->getmsg_sym_inf(),
-			'class' => 'spin oneemhigh'
-		];
-		$root = new \co_DOMDocument();
-		$root->
-			addTD()->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
-		return $root->get_html();
-	}
-	public function html_footer_add(int $colspan = 2) {
-/*
- *	<tr>
- *		<th class="lcenl" colspan="1">
- *		</th>
- *		<th class="lceadd">
- *			<a href="scriptname_edit.php?submit=add"><img src="images/add.png" title="Add Record" alt="Add Record" class="spin"/></a>
- *		</th>
- *	</tr>
- */
-		global $g_img;
-		
-		$img_attributes = [
-			'src' => $g_img['add'],
-			'title' => $this->getmsg_sym_add(),
-			'alt' => $this->getmsg_sym_add(),
-			'class' => 'spin oneemhigh'
-		];
-		$link = sprintf('%s?submit=add',$this->get_modify()->get_scriptname());
-		$root = new \co_DOMDocument();
-		$o_tr = $root->addTR();
-		if($colspan > 1):
-			$o_tr->insTH(['class' => 'lcenl','colspan' => $colspan - 1]);
-		endif;
-		$o_tr->
-			addTH(['class' => 'lceadd'])->
-				addA(['href' => $link])->
-					insIMG($img_attributes);
-		return $root->get_html();
 	}
 }

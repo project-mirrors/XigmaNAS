@@ -35,7 +35,7 @@ namespace common\sphere;
 /**
  *	sphere object for settings pages
  */
-class settings extends level1 {
+class settings extends root {
 	public function update() {
 //		settings uses one record, therefore row can be soft-copied to grid
 		foreach($this->row as $row_key => $row_val):

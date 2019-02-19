@@ -33,24 +33,23 @@
 */
 namespace common\sphere;
 /**
- *	Class containing information about the name of the script
+ *	Class containing information about the name of a script
  */
-class scriptname {
-	protected $x_basename = NULL;
-	protected $x_extension = NULL;
-//	methods
-	public function __construct(string $basename = NULL,string $extension = NULL) {
+final class scriptname {
+	protected $x_basename;
+	protected $x_extension;
+	public function __construct(string $basename,string $extension = 'php') {
 		$this->set_basename($basename);
 		$this->set_extension($extension);
 	}
-	public function set_basename(string $basename) {
+	private function set_basename(string $basename) {
 		$this->x_basename = $basename;
 		return $this;
 	}
 	public function get_basename() {
 		return $this->x_basename;
 	}
-	public function set_extension(string $extension) {
+	private function set_extension(string $extension) {
 		$this->x_extension = $extension;
 		return $this;
 	}
@@ -58,9 +57,9 @@ class scriptname {
 		return $this->x_extension;
 	}
 	public function get_scriptname() {
-		return sprintf('%s.%s',$this->get_basename(),$this->get_extension());
+		return sprintf('%s.%s',$this->x_basename,$this->x_extension);
 	}
 	public function get_location() {
-		return sprintf('Location: %s',$this->get_scriptname());
+		return sprintf('Location: %s.%s',$this->x_basename,$this->x_extension);
 	}
 }
