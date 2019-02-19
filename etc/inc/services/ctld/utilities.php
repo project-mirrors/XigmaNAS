@@ -1,6 +1,6 @@
 <?php
 /*
-	services\ctld\toolbox.php
+	utilities.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -46,39 +46,34 @@ final class utilities {
  *	@param object $sphere
  *	@return int
  */
-	final public static function process_notification_row(int $mode,string $data,mys\grid $sphere) {
+	final public static function process_notification_hub(int $mode,string $data,mys\grid $sphere) {
 		$retval = 0;
 		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
-					$reload = true;
 					break;
 				case UPDATENOTIFY_MODE_MODIFIED:
-					$reload = true;
 					break;
 				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-					$reload = false;
 					unset($sphere->grid[$sphere->row_id]);
 					write_config();
 					break;
 				case UPDATENOTIFY_MODE_DIRTY:
-					$reload = true;
 					unset($sphere->grid[$sphere->row_id]);
 					write_config();
 					break;
 			endswitch;
-			if($reload):
-				config_lock();
-				$retval |= rc_update_reload_service('ctld');
-				config_unlock();
-			endif;
 		endif;
-		$_SESSION['submit'] = $sphere->get_basename();
-		$_SESSION[$sphere->get_basename()] = $retval;
-		updatenotify_clear($sphere->get_notifier(),$data,true);
+		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
+/**
+ *	Create a standard request method object for grid
+ *	@param \common\properties\container $cop
+ *	@param \common\sphere\grid $sphere
+ *	@return \common\rmo\rmo
+ */
 	final public static function get_std_rmo_grid(myp\container $cop, mys\grid $sphere) {
 		$rmo = new myr\rmo();
 		$rmo->
@@ -86,7 +81,7 @@ final class utilities {
 			add('GET','view',PAGE_MODE_VIEW)->
 			add('POST','apply',PAGE_MODE_VIEW)->
 			add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST)->
-			add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
+			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
 		if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
 			if($sphere->toggle()):
 				$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
@@ -116,5 +111,78 @@ final class utilities {
 			add('POST','edit',PAGE_MODE_EDIT)->
 			add('POST','save',PAGE_MODE_POST);
 		return $rmo;
+	}
+	final public static function looper_grid(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+		global $d_sysrebootreqd_path;
+		global $input_errors;
+		global $errormsg;
+		global $savemsg;
+		
+//		preset $savemsg in case a reboot is pending
+		if(file_exists($d_sysrebootreqd_path)):
+			$savemsg = get_std_save_message(0);
+		endif;
+		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		switch($page_method):
+			case 'SESSION':
+				switch($page_action):
+					case $sphere->get_script()->get_basename():
+						//	catch error code
+						$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+						unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+						$savemsg = get_std_save_message($retval);
+						break;
+				endswitch;
+				break;
+/*
+			case 'GET':
+				switch($page_action):
+					case 'view':
+						break;
+				endswitch;
+				break;
+ */
+			case 'POST':
+				switch($page_action):
+					case 'apply':
+						$retval = 0;
+						$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+						config_lock();
+						$retval |= rc_update_reload_service('ctld');
+						config_unlock();
+						$_SESSION['submit'] = $sphere->get_script()->get_basename();
+						$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+						header($sphere->get_script()->get_location());
+						exit;
+						break;
+					case $sphere->get_cbm_button_val_delete():
+						updatenotify_cbm_delete($sphere,$cop);
+						header($sphere->get_script()->get_location());
+						exit;
+						break;
+					case $sphere->get_cbm_button_val_toggle():
+						if(updatenotify_cbm_toggle($sphere,$cop)):
+							write_config();
+						endif;
+						header($sphere->get_script()->get_location());
+						exit;
+						break;
+					case $sphere->get_cbm_button_val_enable():
+						if(updatenotify_cbm_enable($sphere,$cop)):
+							write_config();
+						endif;
+						header($sphere->get_script()->get_location());
+						exit;
+						break;
+					case $sphere->get_cbm_button_val_disable():
+						if(updatenotify_cbm_disable($sphere,$cop)):
+							write_config();
+						endif;
+						header($sphere->get_script()->get_location());
+						exit;
+						break;
+				endswitch;
+				break;
+		endswitch;
 	}
 }
