@@ -35,71 +35,12 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\sub\option\toolbox_grid as toolbox;
+use services\ctld\sub\option\grid_toolbox as toolbox;
+use services\ctld\utilities as myu;
 
-//	preset $savemsg when a reboot is pending
-if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
-endif;
-//	init properties and sphere
+//	init properties, sphere and rmo
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
-//	determine request method
 $rmo = toolbox::init_rmo($cop,$sphere);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
-switch($page_method):
-	case 'SESSION':
-		switch($page_action):
-			case $sphere->get_basename():
-				//	catch error code
-				$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-				unset($_SESSION['submit'],$_SESSION[$sphere->get_basename()]);
-				$savemsg = get_std_save_message($retval);
-				break;
-		endswitch;
-		break;
-/*
-	case 'GET':
-		switch($page_action):
-			case 'view':
-				break;
-		endswitch;
-		break;
- */
-	case 'POST':
-		switch($page_action):
-			case 'apply':
-				updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
-				header($sphere->get_location());
-				exit;
-				break;
-			case $sphere->get_cbm_button_val_delete():
-				updatenotify_cbm_delete($sphere,$cop);
-				header($sphere->get_location());
-				exit;
-				break;
-			case $sphere->get_cbm_button_val_toggle():
-				if(updatenotify_cbm_toggle($sphere,$cop)):
-					write_config();
-				endif;
-				header($sphere->get_location());
-				exit;
-				break;
-			case $sphere->get_cbm_button_val_enable():
-				if(updatenotify_cbm_enable($sphere,$cop)):
-					write_config();
-				endif;
-				header($sphere->get_location());
-				exit;
-				break;
-			case $sphere->get_cbm_button_val_disable():
-				if(updatenotify_cbm_disable($sphere,$cop)):
-					write_config();
-				endif;
-				header($sphere->get_location());
-				exit;
-				break;
-		endswitch;
-		break;
-endswitch;
+myu::looper_grid($cop,$sphere,$rmo);
 toolbox::render($cop,$sphere);

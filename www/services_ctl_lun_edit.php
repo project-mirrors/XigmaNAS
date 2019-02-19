@@ -35,7 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\lun\toolbox_row as toolbox;
+use services\ctld\lun\row_toolbox as toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -233,13 +233,13 @@ switch($page_mode):
 			endif;
 			if($isrecordnew):
 				$sphere->grid[] = $sphere->row;
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			else:
 				foreach($sphere->row as $key => $value):
 					$sphere->grid[$sphere->row_id][$key] = $value;
 				endforeach;
 				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
+					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 				endif;
 			endif;
 			write_config();
@@ -249,7 +249,7 @@ switch($page_mode):
 		break;
 endswitch;
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('LUN'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');

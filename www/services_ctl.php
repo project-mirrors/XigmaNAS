@@ -35,7 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\toolbox_row as toolbox;
+use services\ctld\setting_toolbox as toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -60,10 +60,10 @@ $rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	catch error code
 switch($page_action):
-	case $sphere->get_basename():
-		$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+	case $sphere->get_script()->get_basename():
+		$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 		unset($_SESSION['submit']);
-		unset($_SESSION[$sphere->get_basename()]);
+		unset($_SESSION[$sphere->get_script()->get_basename()]);
 		$savemsg = get_std_save_message($retval);
 		if($retval !== 0):
 			$page_action = 'edit';
@@ -157,9 +157,9 @@ switch($page_action):
 		config_lock();
 		$retval |= rc_reload_service_if_running_and_enabled('ctld');
 		config_unlock();
-		$_SESSION['submit'] = $sphere->get_basename();
-		$_SESSION[$sphere->get_basename()] = $retval;
-		header($sphere->get_location());
+		$_SESSION['submit'] = $sphere->get_script()->get_basename();
+		$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+		header($sphere->get_script()->get_location());
 		exit;
 		break;
 	case 'restart':
@@ -167,9 +167,9 @@ switch($page_action):
 		config_lock();
 		$retval |= rc_restart_service_if_running_and_enabled('ctld');
 		config_unlock();
-		$_SESSION['submit'] = $sphere->get_basename();
-		$_SESSION[$sphere->get_basename()] = $retval;
-		header($sphere->get_location());
+		$_SESSION['submit'] = $sphere->get_script()->get_basename();
+		$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+		header($sphere->get_script()->get_location());
 		exit;
 		break;
 	case 'save':
@@ -192,9 +192,9 @@ switch($page_action):
 			config_lock();
 			$retval |= rc_update_reload_service('ctld');
 			config_unlock();
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
-			header($sphere->get_location());
+			$_SESSION['submit'] = $sphere->get_script()->get_basename();
+			$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+			header($sphere->get_script()->get_location());
 			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
@@ -206,7 +206,7 @@ list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 //	create document
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -231,6 +231,9 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
+if(updatenotify_exists($sphere->get_notifier())):
+	$content->ins_config_has_changed_box();
+endif;
 //	add content
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->
