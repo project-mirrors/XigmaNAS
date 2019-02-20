@@ -43,9 +43,10 @@ $input_errors = [];
 if(file_exists($d_sysrebootreqd_path)):
 	$savemsg = get_std_save_message(0);
 endif;
-//	init properties and sphere
+//	init properties, sphere and rmo
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_debug(),
@@ -55,23 +56,38 @@ $a_referer = [
 	$cop->get_isns_timeout(),
 	$cop->get_auxparam()
 ];
-//	determine request method
-$rmo = toolbox::init_rmo($cop,$sphere);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	catch error code
-switch($page_action):
-	case $sphere->get_script()->get_basename():
-		$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-		unset($_SESSION['submit']);
-		unset($_SESSION[$sphere->get_script()->get_basename()]);
-		$savemsg = get_std_save_message($retval);
-		if($retval !== 0):
-			$page_action = 'edit';
-			$page_mode = PAGE_MODE_EDIT;
-		else:
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		endif;
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_update_reload_service('ctld');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+		endswitch;
 		break;
 endswitch;
 //	validate
@@ -187,13 +203,8 @@ switch($page_action):
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
 			endforeach;
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
 			write_config();
-			$retval = 0;
-			config_lock();
-			$retval |= rc_update_reload_service('ctld');
-			config_unlock();
-			$_SESSION['submit'] = $sphere->get_script()->get_basename();
-			$_SESSION[$sphere->get_script()->get_basename()] = $retval;
 			header($sphere->get_script()->get_location());
 			exit;
 		else:
@@ -267,6 +278,7 @@ switch($page_mode):
 				ins_button_cancel();
 		break;
 endswitch;
+/*
 //	additional javascript code
 $js_code = [];
 $js_code[PAGE_MODE_VIEW] = '';
@@ -283,5 +295,6 @@ $js_document_ready[PAGE_MODE_VIEW] = '';
 $body->addJavaScript($js_code[$page_mode]);
 $body->add_js_on_load($js_on_load[$page_mode]);
 $body->add_js_document_ready($js_document_ready[$page_mode]);
+ */
 //	showtime
 $document->render();

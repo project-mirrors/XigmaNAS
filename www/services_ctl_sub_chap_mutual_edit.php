@@ -35,7 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\sub\chap_mutual\row_toolbox as toolbox;
+use services\ctld\hub\sub\chap_mutual\row_toolbox as toolbox;
 
 function ctl_sub_chap_mutual_edit_sphere() {
 }
