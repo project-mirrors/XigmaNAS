@@ -1,9 +1,9 @@
 <?php
 /*
-	grid_properties.php
+	shared_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,38 +31,38 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld\auth_group;
-use common\properties as myp;
+namespace services\ctld\hub\auth_group;
+use common\sphere as mys;
+use services\ctld\hub\shared_hub as hub;
+/**
+ *	Wrapper class for autoloading functions
+ */
+final class shared_toolbox {
+	private const NOTIFICATION_PROCESSOR = 'process_notification';
+/**
+ *	Process notifications
+ *	@param int $mode
+ *	@param string $data
+ *	@return int
+ */
+	public static function process_notification(int $mode,string $data) {
+		$sphere = grid_toolbox::init_sphere();
+		$retval = hub::process_notification($mode,$data,$sphere);
+		return $retval;
+	}
+/**
+ *	Configure shared sphere settings
+ *	@global array $config
+ *	@param \common\sphere\root $sphere
+ */
+	public static function init_sphere(mys\root $sphere) {
+		global $config;
 
-class grid_properties extends myp\container_row {
-	protected $x_name;
-	public function init_name() {
-		$property = $this->x_name = new myp\property_text($this);
-		$property->
-			set_name('name')->
-			set_title(gettext('Auth Group Name'));
-		return $property;
-	}
-	final public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
-	protected $x_auth_type;
-	public function init_auth_type() {
-		$property = $this->x_auth_type = new myp\property_list($this);
-		$property->
-			set_name('auth_type')->
-			set_title(gettext('Auth Type'));
-		return $property;
-	}
-	final public function get_auth_type() {
-		return $this->x_auth_type ?? $this->init_auth_type();
-	}
-	protected $x_auxparam;
-	public function init_auxparam() {
-		$property = $this->x_auxparam = new myp\property_auxparam($this);
-		return $property;
-	}
-	final public function get_auxparam() {
-		return $this->x_auxparam ?? $this->init_auxparam();
+		$sphere->
+			set_notifier('services\ctld')->
+			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
+			set_row_identifier('uuid')->
+			set_enadis(true);
+		$sphere->grid = &array_make_branch($config,'ctld','ctl_auth_group','param');
 	}
 }

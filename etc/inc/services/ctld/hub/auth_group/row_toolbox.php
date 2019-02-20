@@ -1,6 +1,6 @@
 <?php
 /*
-	shared_toolbox.php
+	row_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,38 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld\auth_group;
+namespace services\ctld\hub\auth_group;
 use common\sphere as mys;
-use services\ctld\utilities as myu;
+use services\ctld\hub\row_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
-	private const NOTIFICATION_PROCESSOR = 'process_notification';
+final class row_toolbox {
 /**
- *	Process notifications
- *	@param int $mode
- *	@param string $data
- *	@return int
+ *	Create the sphere object
+ *	@return \common\sphere\row The sphere object
  */
-	public static function process_notification(int $mode,string $data) {
-		$sphere = grid_toolbox::init_sphere();
-		$retval = myu::process_notification_hub($mode,$data,$sphere);
-		return $retval;
+	public static function init_sphere() {
+		$sphere = new mys\row();
+		shared_toolbox::init_sphere($sphere);
+		$sphere->
+			set_script('services_ctl_auth_group_edit')->
+			set_parent('services_ctl_auth_group');
+		return $sphere;
 	}
 /**
- *	Configure shared sphere settings
- *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	Create the request method object
+ *	@param \services\ctld\hub\auth_group\row_properties $cop
+ *	@param \common\sphere\row $sphere
+ *	@return \common\rmo\rmo The request method object
  */
-	public static function init_sphere_shared(mys\root $sphere) {
-		global $config;
-
-		$sphere->
-			set_notifier('services\ctld')->
-			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_row_identifier('uuid')->
-			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'ctld','ctl_auth_group','param');
+	public static function init_rmo(row_properties $cop,mys\row $sphere) {
+		$rmo = hub::get_std_rmo($cop,$sphere);
+		return $rmo;
+	}
+/**
+ *	Create the properties object
+ *	@return \services\ctld\hub\auth_group\row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
 	}
 }
