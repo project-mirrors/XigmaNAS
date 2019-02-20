@@ -31,9 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld\target;
+namespace services\ctld\hub\portal_group;
 use common\sphere as mys;
-use services\ctld\utilities as myu;
+use services\ctld\hub\row_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -44,25 +44,25 @@ final class row_toolbox {
  */
 	public static function init_sphere() {
 		$sphere = new mys\row;
-		shared_toolbox::init_sphere_shared($sphere);
+		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('services_ctl_target_edit')->
-			set_parent('services_ctl_target');
+			set_script('services_ctl_portal_group_edit')->
+			set_parent('services_ctl_portal_group');
 		return $sphere;
 	}
 /**
  *	Create the request method object
- *	@param \services\ctld\target\row_properties $cop
+ *	@param \services\ctld\hub\portal_group\row_properties $cop
  *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
 	public static function init_rmo(row_properties $cop,mys\row $sphere) {
-		$rmo = myu::get_std_rmo_row();
+		$rmo = hub::get_std_rmo($cop,$sphere);
 		return $rmo;
 	}
 /**
  *	Create the properties object
- *	@return \services\ctld\target\row_properties The properties object
+ *	@return \services\ctld\hub\portal_group\row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();

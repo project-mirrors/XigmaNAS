@@ -31,9 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld\portal_group;
+namespace services\ctld\hub\portal_group;
 use common\sphere as mys;
-use services\ctld\utilities as myu;
+use services\ctld\hub\grid_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -44,7 +44,7 @@ final class grid_toolbox {
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
-		shared_toolbox::init_sphere_shared($sphere);
+		shared_toolbox::init_sphere($sphere);
 		$sphere->
 			set_script('services_ctl_portal_group')->
 			set_modify('services_ctl_portal_group_edit')->
@@ -73,12 +73,12 @@ final class grid_toolbox {
  *	@return \common\rmo\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
-		$rmo = myu::get_std_rmo_grid($cop,$sphere);
+		$rmo = hub::get_std_rmo($cop,$sphere);
 		return $rmo;
 	}
 /**
  *	Create the property object
- *	@return \services\ctld\portal_group\grid_properties
+ *	@return \services\ctld\hub\portal_group\grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -89,7 +89,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\ctld\portal_group\grid_properties $cop
+ *	@param \services\ctld\hub\portal_group\grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {

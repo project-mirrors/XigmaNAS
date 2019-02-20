@@ -31,7 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld\target;
+namespace services\ctld\hub\target;
 
 final class row_properties extends grid_properties {
 	public function init_name() {

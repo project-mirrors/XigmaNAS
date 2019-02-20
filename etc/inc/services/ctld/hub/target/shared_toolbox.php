@@ -31,9 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld\portal_group;
+namespace services\ctld\hub\target;
 use common\sphere as mys;
-use services\ctld\utilities as myu;
+use services\ctld\hub\shared_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -47,7 +47,7 @@ final class shared_toolbox {
  */
 	public static function process_notification(int $mode,string $data) {
 		$sphere = grid_toolbox::init_sphere();
-		$retval = myu::process_notification_hub($mode,$data,$sphere);
+		$retval = hub::process_notification($mode,$data,$sphere);
 		return $retval;
 	}
 /**
@@ -55,7 +55,7 @@ final class shared_toolbox {
  *	@global array $config
  *	@param \common\sphere\root $sphere
  */
-	public static function init_sphere_shared(mys\root $sphere) {
+	public static function init_sphere(mys\root $sphere) {
 		global $config;
 
 		$sphere->
@@ -63,6 +63,6 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier('uuid')->
 			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'ctld','ctl_portal_group','param');
+		$sphere->grid = &array_make_branch($config,'ctld','ctl_target','param');
 	}
 }
