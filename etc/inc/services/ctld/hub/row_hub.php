@@ -1,6 +1,6 @@
 <?php
 /*
-	setting_toolbox.php
+	row_hub.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,56 +31,31 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
+namespace services\ctld\hub;
+use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox {
+final class row_hub {
 /**
- *	Create the sphere object
- *	@return \common\sphere\row The sphere object
- */
-	public static function init_sphere() {
-		$sphere = new mys\settings();
-		shared_toolbox::init_sphere($sphere);
-		$sphere->
-			set_script('services_ctl');
-		return $sphere;
-	}
-/**
- *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
+ *	Create a standard request method object for row
+ *	@param \common\properties\container $cop
  *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return \common\rmo\rmo
  */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
+	final public static function get_std_rmo(myp\container $cop,mys\row $sphere) {
 		$rmo = new myr\rmo();
 		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
+			set_default('POST','cancel',PAGE_MODE_POST)->
+			add('GET','add',PAGE_MODE_ADD)->
 			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
+			add('POST','add',PAGE_MODE_ADD)->
+			add('POST','cancel',PAGE_MODE_POST)->
+			add('POST','clone',PAGE_MODE_CLONE)->
 			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
-		endif;
+			add('POST','save',PAGE_MODE_POST);
 		return $rmo;
-	}
-/**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
 	}
 }

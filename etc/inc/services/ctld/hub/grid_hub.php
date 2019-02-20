@@ -1,6 +1,6 @@
 <?php
 /*
-	utilities.php
+	grid_hub.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,50 +31,21 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
+namespace services\ctld\hub;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class utilities {
-/**
- *	Helper function to process row update notifications
- *	@param int $mode
- *	@param string $data
- *	@param object $sphere
- *	@return int
- */
-	final public static function process_notification_hub(int $mode,string $data,mys\grid $sphere) {
-		$retval = 0;
-		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
-			switch($mode):
-				case UPDATENOTIFY_MODE_NEW:
-					break;
-				case UPDATENOTIFY_MODE_MODIFIED:
-					break;
-				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-					unset($sphere->grid[$sphere->row_id]);
-					write_config();
-					break;
-				case UPDATENOTIFY_MODE_DIRTY:
-					unset($sphere->grid[$sphere->row_id]);
-					write_config();
-					break;
-			endswitch;
-		endif;
-		updatenotify_clear($sphere->get_notifier(),$data);
-		return $retval;
-	}
+final class grid_hub {
 /**
  *	Create a standard request method object for grid
  *	@param \common\properties\container $cop
  *	@param \common\sphere\grid $sphere
  *	@return \common\rmo\rmo
  */
-	final public static function get_std_rmo_grid(myp\container $cop, mys\grid $sphere) {
+	final public static function get_std_rmo(myp\container $cop,mys\grid $sphere) {
 		$rmo = new myr\rmo();
 		$rmo->
 			set_default('GET','view',PAGE_MODE_VIEW)->
@@ -93,26 +64,7 @@ final class utilities {
 		endif;
 		return $rmo;
 	}
-/**
- *	Create a standard request method object for row
- *	@param \common\properties\container $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo
- */
-	final public static function get_std_rmo_row() {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('POST','cancel',PAGE_MODE_POST)->
-			add('GET','add',PAGE_MODE_ADD)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('POST','add',PAGE_MODE_ADD)->
-			add('POST','cancel',PAGE_MODE_POST)->
-			add('POST','clone',PAGE_MODE_CLONE)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','save',PAGE_MODE_POST);
-		return $rmo;
-	}
-	final public static function looper_grid(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;

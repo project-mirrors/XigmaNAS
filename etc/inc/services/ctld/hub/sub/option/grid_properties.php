@@ -1,9 +1,9 @@
 <?php
 /*
-	setting_toolbox.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,56 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
-use common\rmo as myr;
-use common\sphere as mys;
-/**
- *	Wrapper class for autoloading functions
- */
-final class setting_toolbox {
-/**
- *	Create the sphere object
- *	@return \common\sphere\row The sphere object
- */
-	public static function init_sphere() {
-		$sphere = new mys\settings();
-		shared_toolbox::init_sphere($sphere);
-		$sphere->
-			set_script('services_ctl');
-		return $sphere;
+namespace services\ctld\hub\sub\option;
+use common\properties as myp;
+
+class grid_properties extends myp\container_row {
+	protected $x_name;
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
-/**
- *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
- */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
-		endif;
-		return $rmo;
+	public function init_name() {
+		$property = $this->x_name = new myp\property_text($this);
+		$property->
+			set_name('name')->
+			set_title(gettext('Option Name'));
+		return $property;
 	}
-/**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
+	protected $x_value;
+	final public function get_value() {
+		return $this->x_value ?? $this->init_value();
+	}
+	public function init_value() {
+		$property = $this->x_value = new myp\property_text($this);
+		$property->
+			set_name('value')->
+			set_title(gettext('Option Value'));
+		return $property;
+	}
+	protected $x_group;
+	final public function get_group() {
+		return $this->x_group ?? $this->init_group();
+	}
+	public function init_group() {
+		$property = $this->x_group = new myp\property_list_multi($this);
+		$property->
+			set_name('group')->
+			set_title(gettext('Portal Group'));
+		return $property;
 	}
 }

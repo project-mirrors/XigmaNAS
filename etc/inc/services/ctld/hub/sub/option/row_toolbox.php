@@ -1,6 +1,6 @@
 <?php
 /*
-	setting_toolbox.php
+	row_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,56 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
-use common\rmo as myr;
+namespace services\ctld\hub\sub\option;
 use common\sphere as mys;
+use services\ctld\hub\row_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox {
+final class row_toolbox {
 /**
  *	Create the sphere object
  *	@return \common\sphere\row The sphere object
  */
 	public static function init_sphere() {
-		$sphere = new mys\settings();
+		$sphere = new mys\row;
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('services_ctl');
+			set_script('services_ctl_sub_option_edit')->
+			set_parent('services_ctl_sub_option');
 		return $sphere;
 	}
 /**
  *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
+ *	@param \services\ctld\hub\sub\option\row_properties $cop
  *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
-		endif;
+	public static function init_rmo(row_properties $cop,mys\row $sphere) {
+		$rmo = hub::get_std_rmo($cop,$sphere);
 		return $rmo;
 	}
 /**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
+ *	Create the properties object
+ *	@return \services\ctld\hub\sub\option\row_properties The properties object
  */
 	public static function init_properties() {
-		$cop = new setting_properties();
+		$cop = new row_properties();
 		return $cop;
 	}
 }

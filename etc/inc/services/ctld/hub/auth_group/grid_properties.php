@@ -1,9 +1,9 @@
 <?php
 /*
-	setting_toolbox.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,56 +31,38 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
-use common\rmo as myr;
-use common\sphere as mys;
-/**
- *	Wrapper class for autoloading functions
- */
-final class setting_toolbox {
-/**
- *	Create the sphere object
- *	@return \common\sphere\row The sphere object
- */
-	public static function init_sphere() {
-		$sphere = new mys\settings();
-		shared_toolbox::init_sphere($sphere);
-		$sphere->
-			set_script('services_ctl');
-		return $sphere;
+namespace services\ctld\hub\auth_group;
+use common\properties as myp;
+
+class grid_properties extends myp\container_row {
+	protected $x_name;
+	public function init_name() {
+		$property = $this->x_name = new myp\property_text($this);
+		$property->
+			set_name('name')->
+			set_title(gettext('Auth Group Name'));
+		return $property;
 	}
-/**
- *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
- */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
-		endif;
-		return $rmo;
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
 	}
-/**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
+	protected $x_auth_type;
+	public function init_auth_type() {
+		$property = $this->x_auth_type = new myp\property_list($this);
+		$property->
+			set_name('auth_type')->
+			set_title(gettext('Auth Type'));
+		return $property;
+	}
+	final public function get_auth_type() {
+		return $this->x_auth_type ?? $this->init_auth_type();
+	}
+	protected $x_auxparam;
+	public function init_auxparam() {
+		$property = $this->x_auxparam = new myp\property_auxparam($this);
+		return $property;
+	}
+	final public function get_auxparam() {
+		return $this->x_auxparam ?? $this->init_auxparam();
 	}
 }

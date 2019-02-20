@@ -1,9 +1,9 @@
 <?php
 /*
-	setting_toolbox.php
+	row_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,56 +31,48 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
-use common\rmo as myr;
-use common\sphere as mys;
-/**
- *	Wrapper class for autoloading functions
- */
-final class setting_toolbox {
-/**
- *	Create the sphere object
- *	@return \common\sphere\row The sphere object
- */
-	public static function init_sphere() {
-		$sphere = new mys\settings();
-		shared_toolbox::init_sphere($sphere);
-		$sphere->
-			set_script('services_ctl');
-		return $sphere;
+namespace services\ctld\hub\sub\lun;
+
+final class row_properties extends grid_properties {
+	public function init_number() {
+		$description = gettext('LUN number');
+		$property = parent::init_number();
+		$property->
+			set_id('number')->
+			set_description($description)->
+			set_size(10)->
+			set_maxlength(4)->
+			set_defaultvalue('')->
+			set_min(0)->
+			set_max(1023)->
+			filter_use_default();
+		return $property;
 	}
-/**
- *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
- */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
-		endif;
-		return $rmo;
+	public function init_name() {
+		$description = gettext('Name of the LUN.');
+		$message_info = gettext('No LUNs found.');
+		$options = [];
+		$property = parent::init_name();
+		$property->
+			set_id('name')->
+			set_description($description)->
+			set_options($options)->
+			filter_use_default()->			
+			set_message_info($message_info);
+		return $property;
 	}
-/**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
+	public function init_group() {
+		$description = gettext('Select targets.');
+		$message_info = gettext('No targets found.');
+		$options = [];
+		$property = parent::init_group();
+		$property->
+			set_id('group')->
+			set_description($description)->
+			set_defaultvalue([])->
+			set_options($options)->
+			filter_use_default()->			
+			set_message_info($message_info);
+		return $property;
 	}
 }

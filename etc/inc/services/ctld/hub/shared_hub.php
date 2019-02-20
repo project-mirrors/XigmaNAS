@@ -1,6 +1,6 @@
 <?php
 /*
-	setting_toolbox.php
+	shared_hub.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,56 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
+namespace services\ctld\hub;
+use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox {
+final class shared_hub {
 /**
- *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	Helper function to process row update notifications
+ *	@param int $mode
+ *	@param string $data
+ *	@param object $sphere
+ *	@return int
  */
-	public static function init_sphere() {
-		$sphere = new mys\settings();
-		shared_toolbox::init_sphere($sphere);
-		$sphere->
-			set_script('services_ctl');
-		return $sphere;
-	}
-/**
- *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
- */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
+	final public static function process_notification(int $mode,string $data,mys\grid $sphere) {
+		$retval = 0;
+		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		if(false !== $sphere->row_id):
+			switch($mode):
+				case UPDATENOTIFY_MODE_NEW:
+					break;
+				case UPDATENOTIFY_MODE_MODIFIED:
+					break;
+				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+				case UPDATENOTIFY_MODE_DIRTY:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+			endswitch;
 		endif;
-		return $rmo;
-	}
-/**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
+		updatenotify_clear($sphere->get_notifier(),$data);
+		return $retval;
 	}
 }

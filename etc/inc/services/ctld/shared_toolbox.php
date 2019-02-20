@@ -1,6 +1,6 @@
 <?php
 /*
-	setting_toolbox.php
+	shared_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -32,55 +32,34 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld;
-use common\rmo as myr;
 use common\sphere as mys;
+
+final class shared_toolbox {
+	private const NOTIFICATION_PROCESSOR = 'process_notification';
 /**
- *	Wrapper class for autoloading functions
+ *	Process notifications
+ *	@param int $mode
+ *	@param string $data
+ *	@return int
  */
-final class setting_toolbox {
+	public static function process_notification(int $mode,string $data) {
+		$retval = 0;
+		$sphere = setting_toolbox::init_sphere();
+		updatenotify_clear($sphere->get_notifier(),$data);
+		return $retval;
+	}
 /**
- *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	Configure shared sphere settings
+ *	@global array $config
+ *	@param \common\sphere\root $sphere
  */
-	public static function init_sphere() {
-		$sphere = new mys\settings();
-		shared_toolbox::init_sphere($sphere);
+	public static function init_sphere(mys\root $sphere) {
+		global $config;
+
 		$sphere->
-			set_script('services_ctl');
-		return $sphere;
-	}
-/**
- *	Create the request method object
- *	@param \services\ctld\setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
- */
-	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-			add('POST','restart',PAGE_MODE_VIEW)->
-			add('POST','save',PAGE_MODE_POST)->
-			add('POST','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled()):
-			$rmo->
-				add('POST','disable',PAGE_MODE_VIEW)->
-				add('POST','enable',PAGE_MODE_VIEW);
-		endif;
-		return $rmo;
-	}
-/**
- *	Creates the property object
- *	@return \services\ctld\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
+			set_notifier('services\ctld')->
+			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
+			set_enadis(true);
+		$sphere->grid = &array_make_branch($config,'ctld');
 	}
 }
