@@ -35,12 +35,12 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\sub\initiator_portal\grid_toolbox as toolbox;
-use services\ctld\utilities as myu;
+use services\ctld\hub\sub\initiator_portal\grid_toolbox as toolbox;
+use services\ctld\hub\grid_hub as hub;
 
 //	init properties, sphere and rmo
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-myu::looper_grid($cop,$sphere,$rmo);
+hub::looper($cop,$sphere,$rmo);
 toolbox::render($cop,$sphere);

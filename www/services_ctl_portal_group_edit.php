@@ -35,7 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 spl_autoload_register();
-use services\ctld\portal_group\row_toolbox as toolbox;
+use services\ctld\hub\portal_group\row_toolbox as toolbox;
 
 //	init indicators
 $input_errors = [];
