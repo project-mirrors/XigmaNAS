@@ -826,8 +826,8 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Rsync'),'link' => '/services_rsyncd.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Syncthing'),'link' => '/services_syncthing.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Unison'),'link' => '/services_unison.php'];
-			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iSCSI Target'),'link' => '/services_iscsitarget.php'];
-			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('CAM Target Layer'),'link' => '/services_ctl.php'];
+			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iSCSI Target CTL'),'link' => '/services_ctl.php'];
+			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iSCSI Target ISTGT'),'link' => '/services_iscsitarget.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('DLNA/UPnP'),'link' => '/services_fuppes.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iTunes/DAAP'),'link' => '/services_daap.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Dynamic DNS'),'link' => '/services_dynamicdns.php'];

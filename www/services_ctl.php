@@ -224,6 +224,7 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running_message = (0 === rc_is_service_running('ctld')) ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Settings')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
@@ -256,20 +257,26 @@ if($pending_changes):
 endif;
 //	add content
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
-$content->
-	add_table_data_settings()->
-		ins_colgroup_data_settings()->
-		push()->
-		addTHEAD()->
-			c2_titleline(gettext('CAM Target Layer'))->
-		pop()->
-		addTBODY()->
-			c2_input_text($cop->get_debug(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_maxproc(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_isns_period(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
-			c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+$tds = $content->add_table_data_settings();
+$tds->ins_colgroup_data_settings();
+$thead = $tds->addTHEAD();
+$tbody = $tds->addTBODY();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$thead->c2_titleline(gettext('CAM Target Layer'));
+		break;
+	case PAGE_MODE_EDIT:
+		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('CAM Target Layer'));
+		break;
+endswitch;
+$tbody->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2_input_text($cop->get_debug(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_maxproc(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_isns_period(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
+	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
