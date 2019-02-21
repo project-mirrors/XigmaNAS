@@ -8,6 +8,7 @@ Changes:
 - Upgrade samba to 4.8.9.
 - Upgrade APCu to 5.1.17.
 - Upgrade dialog to 1.3-20190211.
+- Upgrade arcconf to 3.00.23488.
 
 Fixes:
 
