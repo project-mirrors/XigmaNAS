@@ -38,9 +38,10 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $contributors = [
-	['Daisuke Aoyama','aoyama@xigmanas.com','Developer'],
-	['Michael Schneider','ms49434@xigmanas.com','Developer'],
-	['Michael Zoon','zoon01@xigmanas.com','Developer & Project Lead'],
+	['Michael Zoon','zoon01@xigmanas.com','Active Developer & Project Lead since 2011'],
+	['Michael Schneider','ms49434@xigmanas.com','Active Developer since 2016'],
+	['Daisuke Aoyama','aoyama@peach.ne.jp','Developer between 2008 and 2017'],
+	['Volker Theile','votdev@gmx.de','Developer between 2006 and 2009'],
 	['José Rivera','joserprg@gmail.com','Contributor'],
 	['Andreas Schmidhuber','a.schmidhuber@gmail.com','Contributor'],
 	['Tony Cat','tony1@xigmanas.com','User guide and Live support on irc #xigmanas (tony1)'],
@@ -61,7 +62,6 @@ $contributors = [
 	['Laurentiu Bubuianu','laurfb@yahoo.com','Romanian translator of the WebGUI'],
 	['Raul Fernandez Garcia','raulfg3@gmail.com','Spanish translator of the WebGUI'],
 	['Mucahid Zeyrek','mucahid.zeyrek@dhl.com','Turkish translator of the WebGUI'],
-	['Volker Theile','votdev@gmx.de','Developer between 2006 and 2009'],
 	['Samuel Tunis','killermist@gmail.com','User guide and Live support on irc between 2012 and 2015']
 ];
 $software = [
