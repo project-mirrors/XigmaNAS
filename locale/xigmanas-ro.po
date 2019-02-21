@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-01-17 22:04+0000\n"
 "Last-Translator: peter <peterswebdesign2010@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -6154,6 +6154,9 @@ msgstr ""
 msgid "LUN SCSI Name"
 msgstr ""
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr ""
 
@@ -6294,6 +6297,34 @@ msgstr "Dezactivare conexiune"
 
 msgid "Link Up Action"
 msgstr "Activare conexiune"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "Listă"
@@ -7143,6 +7174,9 @@ msgstr "Niciun Grup inițiator nu a fost configurat."
 msgid "No JBOD information found."
 msgstr ""
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Fără paritate"
 
@@ -7162,6 +7196,9 @@ msgid "No RSYNC Client configured."
 msgstr "Nu există niciun client RSYNC configurat."
 
 msgid "No additional parameters"
+msgstr ""
+
+msgid "No auth groups found."
 msgstr ""
 
 msgid "No configured Auth Group."
@@ -7224,6 +7261,9 @@ msgstr "Nu a fost găsită nicio structură (pool)."
 msgid "No pools have been selected"
 msgstr "Niciun pool nu a fost selectat"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "Nu a fost găsită nicio înregistrare."
 
@@ -7241,6 +7281,9 @@ msgstr "Niciun pool corespunzător nu a fost găsit."
 
 msgid "No suitable virtual devices found."
 msgstr "Niciun dispozitiv virtual corespunzător nu a fost găsit."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "Nu a fost selectat niciun dispozitiv virtual"
@@ -9037,9 +9080,6 @@ msgstr "Selectați algortimul de criptare de utilizat."
 msgid "Select at which stage the command should be executed."
 msgstr "Selectați momentul în care va fi executată comanda."
 
-msgid "Select auth groups."
-msgstr ""
-
 msgid "Select configuration file:"
 msgstr "Selectare fișier configurare:"
 
@@ -9067,17 +9107,11 @@ msgstr ""
 "Selectați opțiunea 'Neformatat' pentru discuri neformatate și formatați-le "
 "folosind"
 
-msgid "Select portal groups."
-msgstr ""
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "Selectare mod prealocare pentru fișiere (implicit rapid)."
 
 msgid "Select read balance algorithm."
 msgstr "Selectați algoritmul de balans."
-
-msgid "Select target groups."
-msgstr ""
 
 msgid "Select targets."
 msgstr ""
@@ -9247,6 +9281,9 @@ msgstr "Servere"
 
 msgid "Service"
 msgstr "Serviciu"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "Serviciu activ"
@@ -10102,9 +10139,6 @@ msgstr "Adresă țintă"
 
 msgid "Target Alias"
 msgstr "Alias Destinație"
-
-msgid "Target Group"
-msgstr ""
 
 msgid "Target Name"
 msgstr "Nume Destinație"
@@ -13061,14 +13095,14 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "Destinație iSCSI"
 
-msgid "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Controler Logic Destinație iSCSI"
-
-msgid "iSCSI Target istgt"
-msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Informații & Stare destinații iSCSI"

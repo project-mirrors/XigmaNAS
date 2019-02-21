@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-02-04 17:05+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:44+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -6143,6 +6143,9 @@ msgstr "Версія LUN"
 msgid "LUN SCSI Name"
 msgstr "Ім'я LUN SCSI"
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr "Постачальник LUN"
 
@@ -6287,6 +6290,34 @@ msgstr "Дія при Зникненні З'єднання"
 
 msgid "Link Up Action"
 msgstr "Дія при Появі З'єднання"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "Список"
@@ -7142,6 +7173,9 @@ msgstr "Жодна група ініціаторів не налаштована
 msgid "No JBOD information found."
 msgstr "Інформації JBOD не знайдено."
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "немає парності"
 
@@ -7162,6 +7196,9 @@ msgstr "Немає сконфігурованого клієнту RSYNC."
 
 msgid "No additional parameters"
 msgstr "Немає додаткових параметрів"
+
+msgid "No auth groups found."
+msgstr ""
 
 msgid "No configured Auth Group."
 msgstr "Немає сконфігурованої групи аутентифікації"
@@ -7223,6 +7260,9 @@ msgstr "Жодного пула не знайдено."
 msgid "No pools have been selected"
 msgstr "Немає обраних пулів"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "Не знайдено записів."
 
@@ -7240,6 +7280,9 @@ msgstr "Відповідних пулів не знайдено."
 
 msgid "No suitable virtual devices found."
 msgstr "Відповідних віртуальних пристроїв не знайдено."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "Немає обраних віртуальних пристроїв"
@@ -9031,9 +9074,6 @@ msgstr "Оберіть алгоритм шифрування."
 msgid "Select at which stage the command should be executed."
 msgstr "Оберіть на якому етапі команда повинна бути виконана."
 
-msgid "Select auth groups."
-msgstr "Оберіть групи автентифікації."
-
 msgid "Select configuration file:"
 msgstr "Оберіть файл конфігураціії:"
 
@@ -9061,17 +9101,11 @@ msgstr ""
 "Виберіть варіант \"Неформатований\" для неформатованих дисків і "
 "відформатуйте їх за допомогою"
 
-msgid "Select portal groups."
-msgstr "Оберіть групи порталу."
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "Визначте виділення простору для файлів (за замовчуванням Швидке)"
 
 msgid "Select read balance algorithm."
 msgstr "Виберіть алгоритм балансування читання."
-
-msgid "Select target groups."
-msgstr "Оберіть групи цілі."
 
 msgid "Select targets."
 msgstr "Оберіть цілі."
@@ -9252,6 +9286,9 @@ msgstr "Сервери"
 
 msgid "Service"
 msgstr "Служба"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "Сервіс дозволений"
@@ -10135,9 +10172,6 @@ msgstr "Цільова Адреса"
 
 msgid "Target Alias"
 msgstr "Псевдонім призначення"
-
-msgid "Target Group"
-msgstr "Група цілі"
 
 msgid "Target Name"
 msgstr "Ім'я призначення"
@@ -13129,14 +13163,14 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "iSCSI ціль"
 
-msgid "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Цілі iSCSI Logical Unit Controller"
-
-msgid "iSCSI Target istgt"
-msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Інформація та статус цілей iSCSI"
@@ -13282,3 +13316,15 @@ msgstr "використано з"
 
 msgid "visible"
 msgstr "видимий"
+
+#~ msgid "Select auth groups."
+#~ msgstr "Оберіть групи автентифікації."
+
+#~ msgid "Select portal groups."
+#~ msgstr "Оберіть групи порталу."
+
+#~ msgid "Select target groups."
+#~ msgstr "Оберіть групи цілі."
+
+#~ msgid "Target Group"
+#~ msgstr "Група цілі"

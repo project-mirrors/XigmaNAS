@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-02-14 07:20+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:46+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:38+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "Language: ca_ES\n"
 
 msgid " interfaces:"
@@ -6212,6 +6212,9 @@ msgstr "Revisió LUN"
 msgid "LUN SCSI Name"
 msgstr "Nom LUN SCSI"
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr "Venedor LUN"
 
@@ -6354,6 +6357,34 @@ msgstr "Acció de enllaç desconectat"
 
 msgid "Link Up Action"
 msgstr "Acció de enllaç connectat"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "Llista"
@@ -7220,6 +7251,9 @@ msgstr "Grup iniciador no s'ha configurat."
 msgid "No JBOD information found."
 msgstr "No s'ha trobat cap informació de JBOD."
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Sense paritat"
 
@@ -7240,6 +7274,9 @@ msgstr "Sense RSYNC client configurat."
 
 msgid "No additional parameters"
 msgstr "No hi ha paràmetres addicionals"
+
+msgid "No auth groups found."
+msgstr ""
 
 msgid "No configured Auth Group."
 msgstr "No s'ha configurat grup d'autenticació."
@@ -7301,6 +7338,9 @@ msgstr "No s'ha trobat piscina."
 msgid "No pools have been selected"
 msgstr "No s'han seleccionat piscines"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "No s'ha trobat cap registre."
 
@@ -7318,6 +7358,9 @@ msgstr "No es van trobar piscines adequades."
 
 msgid "No suitable virtual devices found."
 msgstr "No s'han trobat dispositius virtuals adequats."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "No s'han seleccionat dispositius virtuals"
@@ -9123,9 +9166,6 @@ msgstr "Seleccionar el algoritme de xifrat a utilitzar."
 msgid "Select at which stage the command should be executed."
 msgstr "Selecciona en quina etapa s'ha d'executar l'ordre."
 
-msgid "Select auth groups."
-msgstr "Seleccioneu grups d'auttenticació."
-
 msgid "Select configuration file:"
 msgstr "Selecciona arxiu de configuració:"
 
@@ -9153,18 +9193,12 @@ msgstr ""
 "Seleccionar l'opció \"sense format\" per als discos sense format i donar-los "
 "format amb el"
 
-msgid "Select portal groups."
-msgstr "Seleccioneu grups de portal."
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr ""
 "Seleccioneu el mode de pre-assignació d'arxius. (Per defecte és ràpid)."
 
 msgid "Select read balance algorithm."
 msgstr "Seleccionar algoritme d'equilibri de lectura."
-
-msgid "Select target groups."
-msgstr "Seleccioneu grups objectius."
 
 msgid "Select targets."
 msgstr "Seleccioneu objectius."
@@ -9343,6 +9377,9 @@ msgstr "Servidors"
 
 msgid "Service"
 msgstr "Servei"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "Servei habilitat"
@@ -10251,9 +10288,6 @@ msgstr "Adreça destí"
 
 msgid "Target Alias"
 msgstr "Àlies TCP"
-
-msgid "Target Group"
-msgstr "Grup objectiu"
 
 msgid "Target Name"
 msgstr "Nom de destinació"
@@ -13275,14 +13309,14 @@ msgstr "Iniciador iSCSI està desbloquejat"
 msgid "iSCSI Target"
 msgstr "Objetiu iSCSI"
 
-msgid "iSCSI Target CAM Target Layer"
-msgstr "Objectiu iSCSI i Capa de destinació CAM"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
+msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Controlador objectiu d'unitat lògica"
-
-msgid "iSCSI Target istgt"
-msgstr "Destí iSCSI istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Informació destinacions iSCSI i estat"
@@ -13428,5 +13462,20 @@ msgstr "usat de"
 msgid "visible"
 msgstr "visible"
 
-#~ msgid "Toold"
-#~ msgstr "L'eina"
+#~ msgid "Select auth groups."
+#~ msgstr "Seleccioneu grups d'auttenticació."
+
+#~ msgid "Select portal groups."
+#~ msgstr "Seleccioneu grups de portal."
+
+#~ msgid "Select target groups."
+#~ msgstr "Seleccioneu grups objectius."
+
+#~ msgid "Target Group"
+#~ msgstr "Grup objectiu"
+
+#~ msgid "iSCSI Target istgt"
+#~ msgstr "Destí iSCSI istgt"
+
+#~ msgid "iSCSI Target CAM Target Layer"
+#~ msgstr "Objectiu iSCSI i Capa de destinació CAM"

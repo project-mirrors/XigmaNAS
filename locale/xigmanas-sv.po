@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-02-09 05:04+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:44+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -6082,6 +6082,9 @@ msgstr "LUN Revision"
 msgid "LUN SCSI Name"
 msgstr "LUN SCSI Namn"
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr "LUN tillverkare"
 
@@ -6210,6 +6213,34 @@ msgstr "Åtgärd när länken går ner"
 
 msgid "Link Up Action"
 msgstr "Åtgärd när länken kommer upp"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "Lista"
@@ -7055,6 +7086,9 @@ msgstr "Ingen Intierargrupp har konfigurerats."
 msgid "No JBOD information found."
 msgstr "Ingen JBOD information hittad."
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Ingen paritet"
 
@@ -7075,6 +7109,9 @@ msgstr "Ingen RSYNC klient är konfigurerad."
 
 msgid "No additional parameters"
 msgstr "Inga extra parametrar"
+
+msgid "No auth groups found."
+msgstr ""
 
 msgid "No configured Auth Group."
 msgstr "Ingen konfigurerad Autentiseringsgrupp."
@@ -7136,6 +7173,9 @@ msgstr "Ingen pool finns."
 msgid "No pools have been selected"
 msgstr "Inga pooler har valts"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "Inga poster hittades."
 
@@ -7153,6 +7193,9 @@ msgstr "Inga passande pooler hittades."
 
 msgid "No suitable virtual devices found."
 msgstr "Inga passande virtuella enheter hittades."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "Inga virtuella enheter har valts"
@@ -8935,9 +8978,6 @@ msgstr "Välj en krypteringsalgoritm att använda."
 msgid "Select at which stage the command should be executed."
 msgstr "Välj i vilket steg kommandot skall köras."
 
-msgid "Select auth groups."
-msgstr "Välj autentiseringsgrupper."
-
 msgid "Select configuration file:"
 msgstr "Välj konfigurationsfil:"
 
@@ -8963,17 +9003,11 @@ msgid ""
 msgstr ""
 "Välj alternativet 'Oformaterad' för oformaterade diskar och formatera dem med"
 
-msgid "Select portal groups."
-msgstr "Välj portalgrupper."
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "Välj förallokeringsläge för filer. (Standard är Snabb)."
 
 msgid "Select read balance algorithm."
 msgstr "Välj läsbalanseringsalgoritm"
-
-msgid "Select target groups."
-msgstr "Välj målgrupper."
 
 msgid "Select targets."
 msgstr "Välj mål."
@@ -9149,6 +9183,9 @@ msgstr "Servrar"
 
 msgid "Service"
 msgstr "Tjänst"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "Tjänsten aktiverad"
@@ -10042,9 +10079,6 @@ msgstr "Måladress"
 
 msgid "Target Alias"
 msgstr "Målalias"
-
-msgid "Target Group"
-msgstr "Målgrupp"
 
 msgid "Target Name"
 msgstr "Målnamn"
@@ -13004,14 +13038,14 @@ msgstr "iSCSI initerare är olåst"
 msgid "iSCSI Target"
 msgstr "iSCSI Mål"
 
-msgid "iSCSI Target CAM Target Layer"
-msgstr "iSCSI Target CAM Mållager"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
+msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Logisk enhetshanterare för målet (TLUC)"
-
-msgid "iSCSI Target istgt"
-msgstr "iSCSI Mål istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI Mål Information & Status"
@@ -13157,5 +13191,20 @@ msgstr "använt av"
 msgid "visible"
 msgstr "synlig"
 
-#~ msgid "Toold"
-#~ msgstr "Toold"
+#~ msgid "Select auth groups."
+#~ msgstr "Välj autentiseringsgrupper."
+
+#~ msgid "Select portal groups."
+#~ msgstr "Välj portalgrupper."
+
+#~ msgid "Select target groups."
+#~ msgstr "Välj målgrupper."
+
+#~ msgid "Target Group"
+#~ msgstr "Målgrupp"
+
+#~ msgid "iSCSI Target istgt"
+#~ msgstr "iSCSI Mål istgt"
+
+#~ msgid "iSCSI Target CAM Target Layer"
+#~ msgstr "iSCSI Target CAM Mållager"

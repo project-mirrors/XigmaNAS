@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-01-18 20:28+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:46+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:38+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -6180,6 +6180,9 @@ msgstr "Revize LUN"
 msgid "LUN SCSI Name"
 msgstr "SCSI název LUN"
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr "Výrobce LUN"
 
@@ -6329,6 +6332,34 @@ msgstr "Akce při výpadku spojení"
 
 msgid "Link Up Action"
 msgstr "Akce při navázání spojení"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "Seznam"
@@ -7199,6 +7230,9 @@ msgstr "Není nastavená žádná skupina iniciátoru."
 msgid "No JBOD information found."
 msgstr "Nebyly nalezeny žádné informace o JBOD."
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Bez parity"
 
@@ -7219,6 +7253,9 @@ msgstr "Nebyl nastaven žádný RSYNC klient."
 
 msgid "No additional parameters"
 msgstr "Žádné další parametry"
+
+msgid "No auth groups found."
+msgstr ""
 
 msgid "No configured Auth Group."
 msgstr "Nejsou nastavené žádné ověřovací skupiny."
@@ -7281,6 +7318,9 @@ msgstr "Nebyl nalezen žádný fond."
 msgid "No pools have been selected"
 msgstr "Nebyly vybrány žádné fondy"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "Nebyly nalezeny žádné záznamy."
 
@@ -7298,6 +7338,9 @@ msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
 
 msgid "No suitable virtual devices found."
 msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "Nebyla vybrána žádná virtuální zařízení"
@@ -9103,9 +9146,6 @@ msgstr "Vyberte který šifrovací algoritmus používat."
 msgid "Select at which stage the command should be executed."
 msgstr "Vyberte která fáze příkazu má být vykonána."
 
-msgid "Select auth groups."
-msgstr "Vybrat skupinu ověřování."
-
 msgid "Select configuration file:"
 msgstr "Vyberte soubor s nastaveními:"
 
@@ -9133,17 +9173,11 @@ msgstr ""
 "V případě předem nepřipravených disků vyberte možnost „nenaformátovaný“ a "
 "připravte je tak pomocí"
 
-msgid "Select portal groups."
-msgstr "Vybrat skupiny portálu."
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "Vyberte řežim předpřidělení pro soubory (výchozí je Rychlé)."
 
 msgid "Select read balance algorithm."
 msgstr "Vyberte vyvažovací algoritmus pro čtení."
-
-msgid "Select target groups."
-msgstr "Vybrat skupiny cílů."
 
 msgid "Select targets."
 msgstr "Vybrat cíle."
@@ -9321,6 +9355,9 @@ msgstr "Servery"
 
 msgid "Service"
 msgstr "Služba"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "Služba poskytována"
@@ -10212,9 +10249,6 @@ msgstr "Cílová adresa"
 
 msgid "Target Alias"
 msgstr "Alternativní název cíle"
-
-msgid "Target Group"
-msgstr "Skupina cíle"
 
 msgid "Target Name"
 msgstr "Název cíle"
@@ -13257,14 +13291,14 @@ msgstr "iSCSI iniciátor je odemčen"
 msgid "iSCSI Target"
 msgstr "iSCSI cíl"
 
-msgid "iSCSI Target CAM Target Layer"
-msgstr "Vrstva CAM cíle iSCSI cíle"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
+msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Řadič logických jednotek iSCSI cíle"
-
-msgid "iSCSI Target istgt"
-msgstr "istgt iSCSI cíle"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI cíl – informace a stav"
@@ -13413,3 +13447,21 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
+
+#~ msgid "Target Group"
+#~ msgstr "Skupina cíle"
+
+#~ msgid "Select auth groups."
+#~ msgstr "Vybrat skupinu ověřování."
+
+#~ msgid "Select portal groups."
+#~ msgstr "Vybrat skupiny portálu."
+
+#~ msgid "Select target groups."
+#~ msgstr "Vybrat skupiny cílů."
+
+#~ msgid "iSCSI Target CAM Target Layer"
+#~ msgstr "Vrstva CAM cíle iSCSI cíle"
+
+#~ msgid "iSCSI Target istgt"
+#~ msgstr "istgt iSCSI cíle"

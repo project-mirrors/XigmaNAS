@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -5807,6 +5807,9 @@ msgstr ""
 msgid "LUN SCSI Name"
 msgstr ""
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr ""
 
@@ -5933,6 +5936,34 @@ msgstr "링크 다운 동작"
 
 msgid "Link Up Action"
 msgstr "링크 업 동작"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "리스트"
@@ -6757,6 +6788,9 @@ msgstr "초기자 그룹이 설정되어 있지 않습니다."
 msgid "No JBOD information found."
 msgstr ""
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "패리티 없음"
 
@@ -6776,6 +6810,9 @@ msgid "No RSYNC Client configured."
 msgstr "RSYNC 클라이언트가 구성되지 않았습니다."
 
 msgid "No additional parameters"
+msgstr ""
+
+msgid "No auth groups found."
 msgstr ""
 
 msgid "No configured Auth Group."
@@ -6838,6 +6875,9 @@ msgstr "풀을 찾을 수 없습니다."
 msgid "No pools have been selected"
 msgstr "풀 선택되지 않음"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "항목을 찾을 수 없음."
 
@@ -6855,6 +6895,9 @@ msgstr "적절한 풀을 찾을 수 없습니다."
 
 msgid "No suitable virtual devices found."
 msgstr "적절한 가상 장치를 찾을 수 없습니다."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "가상 장치 선택되지 않음"
@@ -8581,9 +8624,6 @@ msgstr "사용할 암호화 알고리듬을 선택하십시오."
 msgid "Select at which stage the command should be executed."
 msgstr ""
 
-msgid "Select auth groups."
-msgstr ""
-
 msgid "Select configuration file:"
 msgstr "설정 파일 선택:"
 
@@ -8607,17 +8647,11 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "포맷하지 않은 디스크의 경우 '포맷되지 않음' 옵션을 선택하고 다음 방식으로 포맷:"
 
-msgid "Select portal groups."
-msgstr ""
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "파일 선할당 모드를 선택하십시오(기본 값은 빠름)"
 
 msgid "Select read balance algorithm."
 msgstr "읽기 균형 알고리듬을 선택하십시오."
-
-msgid "Select target groups."
-msgstr ""
 
 msgid "Select targets."
 msgstr ""
@@ -8784,6 +8818,9 @@ msgstr "서버"
 
 msgid "Service"
 msgstr "서비스"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "서비스 사용 함"
@@ -9603,9 +9640,6 @@ msgstr "대상 주소"
 
 msgid "Target Alias"
 msgstr "타겟 별칭"
-
-msgid "Target Group"
-msgstr ""
 
 msgid "Target Name"
 msgstr "타겟 이름"
@@ -12287,14 +12321,14 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "iSCSI 타겟"
 
-msgid "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 타겟 논리 유닛 컨트롤러"
-
-msgid "iSCSI Target istgt"
-msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI 타겟 정보 및 상태"

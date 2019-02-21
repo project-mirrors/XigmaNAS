@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2018-07-06 10:12+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: FINLAND\n"
 "X-Poedit-Language: Finnish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -5750,6 +5750,9 @@ msgstr ""
 msgid "LUN SCSI Name"
 msgstr ""
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr ""
 
@@ -5872,6 +5875,34 @@ msgid "Link Down Action"
 msgstr ""
 
 msgid "Link Up Action"
+msgstr ""
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
 msgstr ""
 
 msgid "List"
@@ -6695,6 +6726,9 @@ msgstr ""
 msgid "No JBOD information found."
 msgstr ""
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr ""
 
@@ -6714,6 +6748,9 @@ msgid "No RSYNC Client configured."
 msgstr ""
 
 msgid "No additional parameters"
+msgstr ""
+
+msgid "No auth groups found."
 msgstr ""
 
 msgid "No configured Auth Group."
@@ -6776,6 +6813,9 @@ msgstr ""
 msgid "No pools have been selected"
 msgstr ""
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr ""
 
@@ -6792,6 +6832,9 @@ msgid "No suitable pools found."
 msgstr ""
 
 msgid "No suitable virtual devices found."
+msgstr ""
+
+msgid "No targets found."
 msgstr ""
 
 msgid "No virtual devices have been selected"
@@ -8507,9 +8550,6 @@ msgstr ""
 msgid "Select at which stage the command should be executed."
 msgstr ""
 
-msgid "Select auth groups."
-msgstr ""
-
 msgid "Select configuration file:"
 msgstr ""
 
@@ -8533,16 +8573,10 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
 
-msgid "Select portal groups."
-msgstr ""
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr ""
 
 msgid "Select read balance algorithm."
-msgstr ""
-
-msgid "Select target groups."
 msgstr ""
 
 msgid "Select targets."
@@ -8709,6 +8743,9 @@ msgstr ""
 
 msgid "Service"
 msgstr "Palvelu"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr ""
@@ -9513,9 +9550,6 @@ msgid "Target Address"
 msgstr ""
 
 msgid "Target Alias"
-msgstr ""
-
-msgid "Target Group"
 msgstr ""
 
 msgid "Target Name"
@@ -12139,13 +12173,13 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "iSCSI kohde"
 
-msgid "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
-msgstr ""
-
-msgid "iSCSI Target istgt"
 msgstr ""
 
 msgid "iSCSI Targets Information & Status"
