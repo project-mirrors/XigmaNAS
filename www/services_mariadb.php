@@ -33,69 +33,135 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_mariadb.php';
-require_once 'co_request_method.php';
 
-function mariadb_sphere() {
-	global $config;
+spl_autoload_register();
+use services\mariadb\setting_toolbox as toolbox;
 
-	$sphere = new co_sphere_row('services_mariadb','php');
-	$sphere->set_enadis(true);
-	$sphere->grid = &array_make_branch($config,'mariadb');
-	return $sphere;
-}
-//	get some environment variables
-//	$mysql_user = rc_getenv_ex('mysql_user','mysql');
-//	$mysql_group = rc_getenv_ex('mysql_group','mysql');
-//	init properties and sphere
-$cop = new mariadb_properties();
-$sphere = &mariadb_sphere();
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_homedir(),
 	$cop->get_auxparam(),
 	$cop->get_phrasecookieauth()
 ];
-$input_errors = [];
-//	determine request method
-$rmo = new co_request_method();
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('GET','view',PAGE_MODE_VIEW);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-if($sphere->is_enadis_enabled()):
-	$rmo->add('POST','enable',PAGE_MODE_VIEW);
-	$rmo->add('POST','disable',PAGE_MODE_VIEW);
-endif;
-$rmo->add('POST','restart',PAGE_MODE_VIEW);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->add('POST','view',PAGE_MODE_VIEW);
-$rmo->add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
+$pending_changes = updatenotify_exists($sphere->get_notifier());
 list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	catch error code
-switch($page_action):
-	case $sphere->get_basename():
-		$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-		unset($_SESSION['submit']);
-		unset($_SESSION[$sphere->get_basename()]);
-		$savemsg = get_std_save_message($retval);
-		if($retval !== 0):
-			$page_action = 'edit';
-			$page_mode = PAGE_MODE_EDIT;
-		else:
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		endif;
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_exec_service('userdb');
+				$retval |= rc_update_service('mysqldb');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+/*
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('mysqldb',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				exit;
+				break;
+ */
+			case 'restart':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('mysqldb');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('mysqldb');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('mysqldb');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
 		break;
 endswitch;
 //	validate
 switch($page_action):
 	case 'edit':
 	case 'view':
-	case 'disable':
-	case 'enable':
-	case 'restart':
 		$source = $sphere->grid;
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
@@ -111,11 +177,6 @@ switch($page_action):
 			$sphere->row[$name] = $referer->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
-					switch($page_action):
-						case 'enable':
-							$input_errors[] = $referer->get_message_error();
-							break;
-					endswitch;
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -137,46 +198,6 @@ switch($page_action):
 				endif;
 			endif;
 		endforeach;
-		break;
-endswitch;
-//	reclassify
-switch($page_action):
-	case 'enable':
-		$name = $cop->get_enable()->get_name();
-		if($sphere->row[$name]):
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		else:
-			$sphere->row[$name] = true;
-			$page_action = 'save';
-			$page_mode = PAGE_MODE_POST;
-		endif;
-		break;
-	case 'disable':
-		$name = $cop->get_enable()->get_name();
-		if($sphere->row[$name]):
-			$sphere->row[$name] = false;
-			$page_action = 'save';
-			$page_mode = PAGE_MODE_POST;
-		else:
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		endif;
-		break;
-endswitch;
-//	save configuration
-switch($page_action):
-	case 'restart':
-		$retval = 0;
-		config_lock();
-		$retval |= rc_restart_service_if_running_and_enabled('mysqldb');
-		config_unlock();
-		$_SESSION['submit'] = $sphere->get_basename();
-		$_SESSION[$sphere->get_basename()] = $retval;
-		header($sphere->get_location());
-		exit;
-		break;
-	case 'save':
 		if(empty($input_errors)):
 			foreach($a_referer as $referer):
 				$name = $referer->get_name();
@@ -209,16 +230,8 @@ switch($page_action):
 				endif;
 			endif;
 			write_config();
-			$retval = 0;
-			config_lock();
-			if($extraoptions_changed):
-				$retval |= rc_exec_service('userdb');
-			endif;
-			$retval |= rc_update_service('mysqldb');
-			config_unlock();
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
-			header($sphere->get_location());
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
 			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
@@ -228,9 +241,11 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = (0 === rc_is_service_running('mysqldb'));
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('MariaDB'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -244,51 +259,57 @@ $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes):
+	$content->ins_config_has_changed_box();
+endif;
 //	add content
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
-/* @var $content co_DOMElement */
-$content->
-	add_table_data_settings()->
-		ins_colgroup_data_settings()->
-		push()->
-		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$is_enabled,false,$is_readonly,gettext('MariaDB'))->
-		last()->
-		addTBODY()->
-			c2_filechooser($cop->get_homedir(),$sphere->row[$cop->get_homedir()->get_name()],true,$is_readonly)->
-			c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,$is_readonly,60,$n_auxparam_rows)->
-		pop()->
-		addTFOOT()->
-			c2_separator();
-$tbody = $content->
-	add_table_data_settings()->
-		ins_colgroup_data_settings()->
-		push()->
-		addTHEAD()->
-			c2_titleline(sprintf('%s (%s)',gettext('Administrative WebGUI'),gettext('phpMyAdmin')))->
-		pop()->
-		addTBODY();
-$tbody->c2_input_password($cop->get_phrasecookieauth(),$sphere->row[$cop->get_phrasecookieauth()->get_name()],false,$is_readonly);
-if($is_enabled):
-	$tbody->c2_textinfo('url1',gettext('URL'),sprintf('<a href="%1$s" id="a_url1" target="_blank">%1$s</a>',htmlspecialchars('/phpMyAdmin/index.php')));
-endif;
-//	add buttons
+$tds1 = $content->add_table_data_settings();
+$tds1->ins_colgroup_data_settings();
+$thead1 = $tds1->addTHEAD();
+$tbody1 = $tds1->addTBODY();
+$tfoot1 = $tds1->addTFOOT()->c2_separator();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$document->
-			add_area_buttons()->
-				ins_button_edit()->
-				ins_button_enadis(!$is_enabled)->
-				ins_button_restart($is_enabled);
+		$thead1->c2_titleline(gettext('MariaDB'));
 		break;
 	case PAGE_MODE_EDIT:
-		$document->
-			add_area_buttons()->
-				ins_button_save()->
-				ins_button_cancel();
+		$thead1->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('MariaDB'));
 		break;
 endswitch;
+$tbody1->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2_filechooser($cop->get_homedir(),$sphere->row[$cop->get_homedir()->get_name()],true,$is_readonly)->
+	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+$tds2 = $content->add_table_data_settings();
+$tds2->ins_colgroup_data_settings();
+$thead2 = $tds2->addTHEAD()->c2_titleline(sprintf('%s (%s)',gettext('Administrative WebGUI'),gettext('phpMyAdmin')));
+$tbody2 = $tds2->addTBODY();
+$tbody2->c2_input_password($cop->get_phrasecookieauth(),$sphere,false,$is_readonly);
+if($is_running):
+	$tbody2->c2_textinfo('url1',gettext('URL'),sprintf('<a href="%1$s" id="a_url1" target="_blank">%1$s</a>',htmlspecialchars('/phpMyAdmin/index.php')));
+endif;
+//	add buttons
+$buttons = $document->add_area_buttons();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->ins_button_enadis(!$is_enabled);
+			$buttons->ins_button_restart($is_enabled);
+//			$buttons->ins_button_reload($is_enabled);
+		endif;
+		break;
+	case PAGE_MODE_EDIT:
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
+		break;
+endswitch;
+/*
 //	additional javascript code
 $js_code = [];
 $js_code[PAGE_MODE_VIEW] = '';
@@ -305,5 +326,6 @@ $js_document_ready[PAGE_MODE_VIEW] = '';
 $body->addJavaScript($js_code[$page_mode]);
 $body->add_js_on_load($js_on_load[$page_mode]);
 $body->add_js_document_ready($js_document_ready[$page_mode]);
+ */
 //	showtime
 $document->render();
