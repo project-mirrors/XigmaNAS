@@ -46,6 +46,7 @@ $contributors = [
 	['Andreas Schmidhuber','a.schmidhuber@gmail.com','Contributor'],
 	['Tony Cat','tony1@xigmanas.com','User guide and Live support on irc #xigmanas (tony1)'],
 	['Rhett Hillary','siftu@xigmanas.com','User guide and Live support on irc #xigmanas (siftu)'],
+	['Samuel Tunis','killermist@gmail.com','User guide and Live support on irc between 2012 and 2015'],
 	['Vicente Soriano Navarro','victek@gmail.com','Catalan translator of the WebGUI'],
 	['Alex Lin','linuxant@gmail.com','Chinese translator of the WebGUI'],
 	['Zhu Yan','tianmotrue@163.com','Chinese translator of the WebGUI'],
@@ -61,8 +62,7 @@ $contributors = [
 	['Frederico Tavares','frederico-tavares@sapo.pt','Portuguese translator of the WebGUI'],
 	['Laurentiu Bubuianu','laurfb@yahoo.com','Romanian translator of the WebGUI'],
 	['Raul Fernandez Garcia','raulfg3@gmail.com','Spanish translator of the WebGUI'],
-	['Mucahid Zeyrek','mucahid.zeyrek@dhl.com','Turkish translator of the WebGUI'],
-	['Samuel Tunis','killermist@gmail.com','User guide and Live support on irc between 2012 and 2015']
+	['Mucahid Zeyrek','mucahid.zeyrek@dhl.com','Turkish translator of the WebGUI']
 ];
 $software = [
 	['ataidle',[
