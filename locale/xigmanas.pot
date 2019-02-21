@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2018-12-19 09:03+0000\n"
+"POT-Creation-Date: 2019-02-21 20:03+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -613,9 +613,6 @@ msgstr ""
 msgid "Additional Options for RAM Disk Backend"
 msgstr ""
 
-msgid "Additional Parameter"
-msgstr ""
-
 msgid "Additional Parameters"
 msgstr ""
 
@@ -1111,6 +1108,15 @@ msgid "Backup Configuration"
 msgstr ""
 
 msgid "Backup File"
+msgstr ""
+
+msgid "Backup configuration reminder. The last configuration backup is older than the configured interval."
+msgstr ""
+
+msgid "Backup configuration. The date of the last configuration backup cannot be found."
+msgstr ""
+
+msgid "Backup configuration. The date of the last configuration backup is invalid."
 msgstr ""
 
 msgid "Backup/Restore"
@@ -4905,6 +4911,9 @@ msgstr ""
 msgid "Import on-disk ZFS config"
 msgstr ""
 
+msgid "Import pool in read-only mode"
+msgstr ""
+
 msgid "Import using GPT ID"
 msgstr ""
 
@@ -5323,6 +5332,9 @@ msgstr ""
 msgid "LUN SCSI Name"
 msgstr ""
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr ""
 
@@ -5431,6 +5443,24 @@ msgid "Link Down Action"
 msgstr ""
 
 msgid "Link Up Action"
+msgstr ""
+
+msgid "Link chap configuration to auth-groups. Note that an auth-group may contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link initiator-name to auth-groups. An Initiator with this name will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid "Link initiator-portal to auth-groups. An Initiator matching this address will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid "Link listener to portal groups. Selected portal groups will listen on this address for incoming connections."
+msgstr ""
+
+msgid "Link mutual-chap configuration to auth-groups. Note that an auth-group may contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
 msgstr ""
 
 msgid "List"
@@ -6223,6 +6253,9 @@ msgstr ""
 msgid "No JBOD information found."
 msgstr ""
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr ""
 
@@ -6242,6 +6275,9 @@ msgid "No RSYNC Client configured."
 msgstr ""
 
 msgid "No additional parameters"
+msgstr ""
+
+msgid "No auth groups found."
 msgstr ""
 
 msgid "No configured Auth Group."
@@ -6304,6 +6340,9 @@ msgstr ""
 msgid "No pools have been selected"
 msgstr ""
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr ""
 
@@ -6320,6 +6359,9 @@ msgid "No suitable pools found."
 msgstr ""
 
 msgid "No suitable virtual devices found."
+msgstr ""
+
+msgid "No targets found."
 msgstr ""
 
 msgid "No virtual devices have been selected"
@@ -7461,6 +7503,9 @@ msgstr ""
 msgid "Remaining battery runtime"
 msgstr ""
 
+msgid "Reminder Settings"
+msgstr ""
+
 msgid "Remote Address"
 msgstr ""
 
@@ -7568,6 +7613,9 @@ msgid "Reset Graphs"
 msgstr ""
 
 msgid "Resistance caused by friction in mechanical parts while operating."
+msgstr ""
+
+msgid "Resize pool to the maximum possible size"
 msgstr ""
 
 msgid "Resolve IP"
@@ -7962,9 +8010,6 @@ msgstr ""
 msgid "Select at which stage the command should be executed."
 msgstr ""
 
-msgid "Select auth groups."
-msgstr ""
-
 msgid "Select configuration file:"
 msgstr ""
 
@@ -7986,16 +8031,10 @@ msgstr ""
 msgid "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
 
-msgid "Select portal groups."
-msgstr ""
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr ""
 
 msgid "Select read balance algorithm."
-msgstr ""
-
-msgid "Select target groups."
 msgstr ""
 
 msgid "Select targets."
@@ -8154,6 +8193,9 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
+msgid "Service Active"
+msgstr ""
+
 msgid "Service Enabled"
 msgstr ""
 
@@ -8204,6 +8246,9 @@ msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
 msgid "Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions."
+msgstr ""
+
+msgid "Set the number of days until a reminder is shown to backup system configuration. The default is 28 days. A value of 0 disables this reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -8309,6 +8354,9 @@ msgid "Short Self-Test"
 msgstr ""
 
 msgid "Show Default Groups"
+msgstr ""
+
+msgid "Show Interval"
 msgstr ""
 
 msgid "Show Log Entries"
@@ -8874,9 +8922,6 @@ msgid "Target Address"
 msgstr ""
 
 msgid "Target Alias"
-msgstr ""
-
-msgid "Target Group"
 msgstr ""
 
 msgid "Target Name"
@@ -9643,7 +9688,7 @@ msgid "These parameters are added to [Global] section of %s."
 msgstr ""
 
 #, php-format
-msgid "These parameters are added to [Share] section of %s."
+msgid "These parameters are added to the [Share] section of %s."
 msgstr ""
 
 msgid "These parameters are added to the hardware-specific part of the driver for the second UPS."
@@ -11174,13 +11219,13 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr ""
 
-msgid "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
-msgstr ""
-
-msgid "iSCSI Target istgt"
 msgstr ""
 
 msgid "iSCSI Targets Information & Status"
@@ -11258,9 +11303,6 @@ msgid "network traffic"
 msgstr ""
 
 msgid "no pools available"
-msgstr ""
-
-msgid "noVNC"
 msgstr ""
 
 msgid "none"
