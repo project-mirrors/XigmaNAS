@@ -121,6 +121,7 @@ switch($page_method):
 				endif;
 				break;
 			case 'disable':
+				$retval = 0;
 				$name = $cop->get_enable()->get_name();
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
@@ -137,6 +138,7 @@ switch($page_method):
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
 			case 'enable':
+				$retval = 0;
 				$name = $cop->get_enable()->get_name();
 				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
