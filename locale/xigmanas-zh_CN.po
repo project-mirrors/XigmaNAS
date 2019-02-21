@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-02-10 09:22+0000\n"
 "Last-Translator: zhenhai song <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:44+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -5738,6 +5738,9 @@ msgstr "LUN修订"
 msgid "LUN SCSI Name"
 msgstr "LUN SCSI名称"
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr "LUN供应商"
 
@@ -5867,6 +5870,34 @@ msgstr "链接关闭操作"
 
 msgid "Link Up Action"
 msgstr "链接操作"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "列表"
@@ -6687,6 +6718,9 @@ msgstr "未配置启动器组。"
 msgid "No JBOD information found."
 msgstr "未找到JBOD信息。"
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "不相等"
 
@@ -6707,6 +6741,9 @@ msgstr "未配置RSYNC客户端。"
 
 msgid "No additional parameters"
 msgstr "没有其他参数"
+
+msgid "No auth groups found."
+msgstr ""
 
 msgid "No configured Auth Group."
 msgstr "未配置验证组。"
@@ -6768,6 +6805,9 @@ msgstr "找不到池。"
 msgid "No pools have been selected"
 msgstr "未选择池"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "未找到记录。"
 
@@ -6785,6 +6825,9 @@ msgstr "找不到合适的池。"
 
 msgid "No suitable virtual devices found."
 msgstr "未找到合适的虚拟设备。"
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "未选择任何虚拟设备"
@@ -8505,9 +8548,6 @@ msgstr "选择要使用的加密算法。"
 msgid "Select at which stage the command should be executed."
 msgstr "选择命令应在哪个阶段执行。"
 
-msgid "Select auth groups."
-msgstr "选择认证组。"
-
 msgid "Select configuration file:"
 msgstr "选择配置文件："
 
@@ -8531,17 +8571,11 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "为未格式化的磁盘选择“未格式化”选项，并用右边的工具格式化它们:"
 
-msgid "Select portal groups."
-msgstr "选择门户组。"
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "选择文件的预分配模式。 （默认为快速）。"
 
 msgid "Select read balance algorithm."
 msgstr "选择读取平衡算法。"
-
-msgid "Select target groups."
-msgstr "选择目标组。"
 
 msgid "Select targets."
 msgstr "选择目标。"
@@ -8707,6 +8741,9 @@ msgstr "服务器"
 
 msgid "Service"
 msgstr "服务"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "服务被启用"
@@ -9522,9 +9559,6 @@ msgstr "目标地址"
 
 msgid "Target Alias"
 msgstr "目標別名"
-
-msgid "Target Group"
-msgstr "目标组"
 
 msgid "Target Name"
 msgstr "目标名称"
@@ -12169,14 +12203,14 @@ msgstr "iSCSI启动器已解锁"
 msgid "iSCSI Target"
 msgstr "iSCSI 目标器"
 
-msgid "iSCSI Target CAM Target Layer"
-msgstr "iSCSI目标CAM目标层"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
+msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 目标逻辑单元控制器（iSCSI Target Logical Unit Controller）"
-
-msgid "iSCSI Target istgt"
-msgstr "iSCSI目标istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI 目标器信息和状态"
@@ -12319,3 +12353,21 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可见"
+
+#~ msgid "Select auth groups."
+#~ msgstr "选择认证组。"
+
+#~ msgid "Select portal groups."
+#~ msgstr "选择门户组。"
+
+#~ msgid "Select target groups."
+#~ msgstr "选择目标组。"
+
+#~ msgid "Target Group"
+#~ msgstr "目标组"
+
+#~ msgid "iSCSI Target istgt"
+#~ msgstr "iSCSI目标istgt"
+
+#~ msgid "iSCSI Target CAM Target Layer"
+#~ msgstr "iSCSI目标CAM目标层"

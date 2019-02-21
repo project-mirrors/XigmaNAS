@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
-"PO-Revision-Date: 2019-02-15 21:46+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"PO-Revision-Date: 2019-02-21 19:35+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -6218,6 +6218,9 @@ msgstr "LUN Revisie"
 msgid "LUN SCSI Name"
 msgstr "LUN SCSI Naam"
 
+msgid "LUN UUID"
+msgstr "LUN UUID"
+
 msgid "LUN Vendor"
 msgstr "LUN Leverancier"
 
@@ -6360,6 +6363,44 @@ msgstr "Link Down Actie"
 
 msgid "Link Up Action"
 msgstr "Link Up Actie"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+"Koppel chap configuratie naar auth-groepen. Merk op dat een auth-groep ofwel "
+"chap of chap-mutual entries kan bevatten, maar niet beide."
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+"Koppel initiator-naam aan auth-groepen. Een initiator met deze naam kan "
+"verbinding maken met de geselecteerde auth-groepen."
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+"Koppel initiator-portaal naar auth-groepen. Een initiator passend bij dit "
+"adres kan verbinding maken met de geselecteerde auth-groepen."
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+"Koppel luisteraar aan portaal groepen. Geselecteerde portaal groepen zullen "
+"op dit adres luisteren naar inkomende verbindingen."
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+"Koppel mutual-chap configuratie aan auth-groepen. Merk op dat een auth-groep "
+"ofwel chap of chap-mutual entries kan bevatten, maar niet beide."
+
+msgid "Link this option to selected portal-groups."
+msgstr "Koppel deze optie aan geselecteerde portaal-groepen."
 
 msgid "List"
 msgstr "Lijst"
@@ -7226,6 +7267,9 @@ msgstr "Er is geen Initiator Groep geconfigureerd."
 msgid "No JBOD information found."
 msgstr "Geen JBOD informatie gevonden."
 
+msgid "No LUNs found."
+msgstr "Geen LUNs gevonden."
+
 msgid "No Parity"
 msgstr "Geen Pariteit"
 
@@ -7246,6 +7290,9 @@ msgstr "Er is geen RSYNC Cliënt geconfigureerd."
 
 msgid "No additional parameters"
 msgstr "Geen extra parameters"
+
+msgid "No auth groups found."
+msgstr "No auth groepen gevonden."
 
 msgid "No configured Auth Group."
 msgstr "Er is geen geconfigureerde Auth Groep."
@@ -7307,6 +7354,9 @@ msgstr "Er is geen pool gevonden."
 msgid "No pools have been selected"
 msgstr "Er zijn geen pools geselecteerd"
 
+msgid "No portal groups found."
+msgstr "Geen portaal groepen gevonden."
+
 msgid "No records found."
 msgstr "Geen records gevonden."
 
@@ -7324,6 +7374,9 @@ msgstr "Er zijn geen geschikte pools gevonden."
 
 msgid "No suitable virtual devices found."
 msgstr "Er zijn geen geschikte virtuele schijven gevonden."
+
+msgid "No targets found."
+msgstr "Geen doelen gevonden."
 
 msgid "No virtual devices have been selected"
 msgstr "Er zijn geen virtuele schijven geselecteerd"
@@ -7439,7 +7492,7 @@ msgstr ""
 msgid ""
 "Note: Ctrl-click (or command-click on the Mac) to select multiple entries."
 msgstr ""
-"Tip: Ctrl-klik (of opdracht-klik op de Mac) om verschilende toegangen te "
+"Tip: Ctrl-klik (of opdracht-klik op de Mac) om verschilende entries te "
 "selecteren."
 
 msgid "Nothing to synchronize"
@@ -9127,9 +9180,6 @@ msgstr "Selecteer een encryptiealgoritme om te gebruiken."
 msgid "Select at which stage the command should be executed."
 msgstr "Selecteer in welk stadium de opdracht moet worden uitgevoerd."
 
-msgid "Select auth groups."
-msgstr "Selecteer auth groepen."
-
 msgid "Select configuration file:"
 msgstr "Selecteer configuratiebestand:"
 
@@ -9158,17 +9208,11 @@ msgstr ""
 "Selecteer de optie 'Ongeformatteerd' voor  ongeformatteerde schijven en "
 "formatteer deze met de"
 
-msgid "Select portal groups."
-msgstr "Selecteer portaal groepen."
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "Selecteer pre-allocation mode voor bestanden. (Standaard is Snel)."
 
 msgid "Select read balance algorithm."
 msgstr "Selecteer lees balans algoritme."
-
-msgid "Select target groups."
-msgstr "Selecteer doel groepen."
 
 msgid "Select targets."
 msgstr "Selecteer doelen."
@@ -9348,6 +9392,9 @@ msgstr "Servers"
 
 msgid "Service"
 msgstr "Service"
+
+msgid "Service Active"
+msgstr "Service Actief"
 
 msgid "Service Enabled"
 msgstr "Service Ingeschakeld"
@@ -10256,9 +10303,6 @@ msgstr "Doel Adres"
 
 msgid "Target Alias"
 msgstr "Doel Alias"
-
-msgid "Target Group"
-msgstr "Doel Groep"
 
 msgid "Target Name"
 msgstr "Doelnaam"
@@ -13300,14 +13344,14 @@ msgstr "iSCSI Initiator is ontgrendeld"
 msgid "iSCSI Target"
 msgstr "iSCSI Doel"
 
-msgid "iSCSI Target CAM Target Layer"
-msgstr "iSCSI Doel CAM Doel Laag"
+msgid "iSCSI Target CTL"
+msgstr "iSCSI Doel CTL"
+
+msgid "iSCSI Target ISTGT"
+msgstr "iSCSI Doel ISTGT"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Doel Logical Unit Controller"
-
-msgid "iSCSI Target istgt"
-msgstr "iSCSI Doel istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI Doelen Informatie & Status"
@@ -13452,3 +13496,21 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
+
+#~ msgid "Select auth groups."
+#~ msgstr "Selecteer auth groepen."
+
+#~ msgid "Select portal groups."
+#~ msgstr "Selecteer portaal groepen."
+
+#~ msgid "Select target groups."
+#~ msgstr "Selecteer doel groepen."
+
+#~ msgid "Target Group"
+#~ msgstr "Doel Groep"
+
+#~ msgid "iSCSI Target istgt"
+#~ msgstr "iSCSI Doel istgt"
+
+#~ msgid "iSCSI Target CAM Target Layer"
+#~ msgstr "iSCSI Doel CAM Doel Laag"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:44+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:36+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -5738,6 +5738,9 @@ msgstr ""
 msgid "LUN SCSI Name"
 msgstr ""
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr ""
 
@@ -5867,6 +5870,34 @@ msgstr "鏈接關閉操作"
 
 msgid "Link Up Action"
 msgstr "鏈接操作"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "列表"
@@ -6687,6 +6718,9 @@ msgstr "未配置啟動器組。"
 msgid "No JBOD information found."
 msgstr ""
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "不相等"
 
@@ -6706,6 +6740,9 @@ msgid "No RSYNC Client configured."
 msgstr "未配置RSYNC客戶端。"
 
 msgid "No additional parameters"
+msgstr ""
+
+msgid "No auth groups found."
 msgstr ""
 
 msgid "No configured Auth Group."
@@ -6768,6 +6805,9 @@ msgstr "找不到池。"
 msgid "No pools have been selected"
 msgstr "未選擇池"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "沒有找到記錄。"
 
@@ -6785,6 +6825,9 @@ msgstr "找不到合適的池。"
 
 msgid "No suitable virtual devices found."
 msgstr "未找到合適的虛擬設備。"
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "未選擇任何虛擬設備"
@@ -8505,9 +8548,6 @@ msgstr "選擇要使用的加密演算法。"
 msgid "Select at which stage the command should be executed."
 msgstr "選擇命令應在哪個階段執行。"
 
-msgid "Select auth groups."
-msgstr ""
-
 msgid "Select configuration file:"
 msgstr "選擇配置文件："
 
@@ -8531,17 +8571,11 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "為未格式化的磁片選擇“未格式化”選項，並用右邊的工具格式化它們:"
 
-msgid "Select portal groups."
-msgstr ""
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr "選擇檔的預分配模式。 （默認為快速）。"
 
 msgid "Select read balance algorithm."
 msgstr "選擇讀取平衡演算法。"
-
-msgid "Select target groups."
-msgstr ""
 
 msgid "Select targets."
 msgstr ""
@@ -8707,6 +8741,9 @@ msgstr "伺服器"
 
 msgid "Service"
 msgstr "服務"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "服務被啟用"
@@ -9518,9 +9555,6 @@ msgstr "目標地址"
 
 msgid "Target Alias"
 msgstr "目標別名"
-
-msgid "Target Group"
-msgstr ""
 
 msgid "Target Name"
 msgstr "目標名稱"
@@ -12162,14 +12196,14 @@ msgstr ""
 msgid "iSCSI Target"
 msgstr "iSCSI 目標器"
 
-msgid "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 目標邏輯單元控制器（iSCSI Target Logical Unit Controller）"
-
-msgid "iSCSI Target istgt"
-msgstr ""
 
 msgid "iSCSI Targets Information & Status"
 msgstr "iSCSI 目標器資訊和狀態"

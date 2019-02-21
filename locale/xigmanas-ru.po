@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-15 23:19+0000\n"
+"POT-Creation-Date: 2019-02-21 20:01+0000\n"
 "PO-Revision-Date: 2019-02-09 05:35+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-15 22:45+0000\n"
-"X-Generator: Launchpad (build 18878)\n"
+"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -6166,6 +6166,9 @@ msgstr "Ревизия LUN"
 msgid "LUN SCSI Name"
 msgstr "Имя LUN SCSI"
 
+msgid "LUN UUID"
+msgstr ""
+
 msgid "LUN Vendor"
 msgstr "Поставщик LUN"
 
@@ -6310,6 +6313,34 @@ msgstr "Действие при отключении соединения"
 
 msgid "Link Up Action"
 msgstr "Действие при установке соединения"
+
+msgid ""
+"Link chap configuration to auth-groups. Note that an auth-group may contain "
+"either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid ""
+"Link initiator-name to auth-groups. An Initiator with this name will be "
+"allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link initiator-portal to auth-groups. An Initiator matching this address "
+"will be allowed to connect to the selected auth-groups."
+msgstr ""
+
+msgid ""
+"Link listener to portal groups. Selected portal groups will listen on this "
+"address for incoming connections."
+msgstr ""
+
+msgid ""
+"Link mutual-chap configuration to auth-groups. Note that an auth-group may "
+"contain either chap or chap-mutual entries, but not both."
+msgstr ""
+
+msgid "Link this option to selected portal-groups."
+msgstr ""
 
 msgid "List"
 msgstr "Список"
@@ -7172,6 +7203,9 @@ msgstr "Ни одна группа инициаторов не сконфигу�
 msgid "No JBOD information found."
 msgstr "Информация о JBOD не найдена."
 
+msgid "No LUNs found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Нет четности"
 
@@ -7192,6 +7226,9 @@ msgstr "RSYNC Клиент не сконфигурирован."
 
 msgid "No additional parameters"
 msgstr "Нет дополнительных параметров"
+
+msgid "No auth groups found."
+msgstr ""
 
 msgid "No configured Auth Group."
 msgstr "Не сконфигурированы группы аутентификации"
@@ -7253,6 +7290,9 @@ msgstr "Пул не обнаружен."
 msgid "No pools have been selected"
 msgstr "Не выбраны пулы"
 
+msgid "No portal groups found."
+msgstr ""
+
 msgid "No records found."
 msgstr "Записей не найдено."
 
@@ -7270,6 +7310,9 @@ msgstr "Подходящих пулов не найдено."
 
 msgid "No suitable virtual devices found."
 msgstr "Подходящих виртуальных устройств не найдено."
+
+msgid "No targets found."
+msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "Не выбраны виртуальные устройства"
@@ -9063,9 +9106,6 @@ msgstr "Выберите используемый алгоритм шифров�
 msgid "Select at which stage the command should be executed."
 msgstr "Выберите, на каком этапе должна выполняться команда."
 
-msgid "Select auth groups."
-msgstr "Выберите группы аутентификации."
-
 msgid "Select configuration file:"
 msgstr "Выберите файл конфигурации:"
 
@@ -9093,9 +9133,6 @@ msgstr ""
 "Выберите вариант “Unformatted” для не форматированных дисков и "
 "отформатируйте их с помощью"
 
-msgid "Select portal groups."
-msgstr "Выберите группы портала."
-
 msgid "Select pre-allocation mode for files. (Default is Fast)."
 msgstr ""
 "Выберите режим предварительного распределения для файлов. (По умолчанию "
@@ -9103,9 +9140,6 @@ msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "Выберите алгоритм баланса для чтения."
-
-msgid "Select target groups."
-msgstr "Выберите группы цели."
 
 msgid "Select targets."
 msgstr "Выберите цели."
@@ -9282,6 +9316,9 @@ msgstr "Серверы"
 
 msgid "Service"
 msgstr "Служба"
+
+msgid "Service Active"
+msgstr ""
 
 msgid "Service Enabled"
 msgstr "Сервис включен"
@@ -10182,9 +10219,6 @@ msgstr "Целевой адрес"
 
 msgid "Target Alias"
 msgstr "Псевдоним цели"
-
-msgid "Target Group"
-msgstr "Группа цели"
 
 msgid "Target Name"
 msgstr "Имя цели"
@@ -13196,14 +13230,14 @@ msgstr "Инициатор iSCSI разблокирован"
 msgid "iSCSI Target"
 msgstr "iSCSI"
 
-msgid "iSCSI Target CAM Target Layer"
-msgstr "iSCSI Target CAM Target Layer"
+msgid "iSCSI Target CTL"
+msgstr ""
+
+msgid "iSCSI Target ISTGT"
+msgstr ""
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Цели iSCSI Logical Unit Controller"
-
-msgid "iSCSI Target istgt"
-msgstr "iSCSI Target istgt"
 
 msgid "iSCSI Targets Information & Status"
 msgstr "Информация и статус iSCSI Targets"
@@ -13351,3 +13385,21 @@ msgstr "использовано из"
 
 msgid "visible"
 msgstr "показать"
+
+#~ msgid "Select auth groups."
+#~ msgstr "Выберите группы аутентификации."
+
+#~ msgid "Select portal groups."
+#~ msgstr "Выберите группы портала."
+
+#~ msgid "Select target groups."
+#~ msgstr "Выберите группы цели."
+
+#~ msgid "Target Group"
+#~ msgstr "Группа цели"
+
+#~ msgid "iSCSI Target istgt"
+#~ msgstr "iSCSI Target istgt"
+
+#~ msgid "iSCSI Target CAM Target Layer"
+#~ msgstr "iSCSI Target CAM Target Layer"
