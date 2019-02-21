@@ -1,6 +1,6 @@
 PORTNAME=		smartmontools
-PORTVERSION=	6.6
-PORTREVISION?=	1
+PORTVERSION=	7.0
+PORTREVISION?=	0
 CATEGORIES=		sysutils
 COMMENT=		S.M.A.R.T. disk monitoring tools
 MAINTAINER=		zoon01@xigmanas.com
