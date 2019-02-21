@@ -31,7 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
+namespace services\mariadb;
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
@@ -59,9 +59,9 @@ final class shared_toolbox {
 		global $config;
 
 		$sphere->
-			set_notifier('services\ctld')->
+			set_notifier('services\mariadb')->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'ctld');
+		$sphere->grid = &array_make_branch($config,'mariadb');
 	}
 }

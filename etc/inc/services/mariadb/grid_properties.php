@@ -1,6 +1,6 @@
 <?php
 /*
-	shared_toolbox.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,37 +31,46 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\ctld;
-use common\sphere as mys;
-/**
- *	Wrapper class for autoloading functions
- */
-final class shared_toolbox {
-	private const NOTIFICATION_PROCESSOR = 'process_notification';
-/**
- *	Process notifications
- *	@param int $mode
- *	@param string $data
- *	@return int
- */
-	public static function process_notification(int $mode,string $data) {
-		$retval = 0;
-		$sphere = setting_toolbox::init_sphere();
-		updatenotify_clear($sphere->get_notifier(),$data);
-		return $retval;
-	}
-/**
- *	Configure shared sphere settings
- *	@global array $config
- *	@param \common\sphere\root $sphere
- */
-	public static function init_sphere(mys\root $sphere) {
-		global $config;
+namespace services\mariadb;
+use common\properties as myp;
 
-		$sphere->
-			set_notifier('services\ctld')->
-			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'ctld');
+class grid_properties extends myp\container {
+	protected $x_enable;
+	public function init_enable() {
+		$property = $this->x_enable = new myp\property_enable($this);
+		return $property;
+	}
+	final public function get_enable() {
+		return $this->x_enable ?? $this->init_enable();
+	}
+	protected $x_homedir;
+	public function init_homedir() {
+		$property = $this->x_homedir = new myp\property_text($this);
+		$property->
+			set_name('homedir')->
+			set_title(gettext('Home Directory'));
+		return $property;
+	}
+	final public function get_homedir() {
+		return $this->x_homedir ?? $this->init_homedir();
+	}
+	protected $x_auxparam;
+	public function init_auxparam() {
+		$property = $this->x_auxparam = new myp\property_auxparam($this);
+		return $property;
+	}
+	final public function get_auxparam() {
+		return $this->x_auxparam ?? $this->init_auxparam();
+	}
+	protected $x_phrasecookieauth;
+	public function init_phrasecookieauth() {
+		$property = $this->x_phrasecookieauth = new myp\property_text($this);
+		$property->
+			set_name('phrasecookieauth')->
+			set_title(gettext('Passphrase'));
+		return $property;
+	}
+	final public function get_phrasecookieauth() {
+		return $this->x_phrasecookieauth ?? $this->init_phrasecookieauth();
 	}
 }
