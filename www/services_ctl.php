@@ -224,7 +224,8 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running_message = (0 === rc_is_service_running('ctld')) ? gettext('Yes') : gettext('No');
+$is_running = (0 === rc_is_service_running('mysqldb'));
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Settings')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
@@ -283,19 +284,16 @@ switch($page_mode):
 	case PAGE_MODE_VIEW:
 		$buttons->ins_button_edit();
 		if($pending_changes && $is_enabled):
-			$buttons->
-				ins_button_enadis(!$is_enabled);
+			$buttons->ins_button_enadis(!$is_enabled);
 		elseif(!$pending_changes):
-			$buttons->
-				ins_button_enadis(!$is_enabled)->
-				ins_button_restart($is_enabled)->
-				ins_button_reload($is_enabled);
+			$buttons->ins_button_enadis(!$is_enabled);
+			$buttons->ins_button_restart($is_enabled);
+			$buttons->ins_button_reload($is_enabled);
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
-		$buttons->
-			ins_button_save()->
-			ins_button_cancel();
+		$buttons->ins_button_save()->
+		$buttons->ins_button_cancel();
 		break;
 endswitch;
 /*
