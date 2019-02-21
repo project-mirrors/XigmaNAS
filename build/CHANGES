@@ -31,6 +31,7 @@ Changes:
 - Upgrade APCu to 5.1.17.
 - Upgrade dialog to 1.3-20190211.
 - Upgrade arcconf to 3.00.23488.
+- Upgrade smartmontools to 7.0.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
