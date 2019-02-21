@@ -56,6 +56,7 @@ $a_referer = [
 	$cop->get_isns_timeout(),
 	$cop->get_auxparam()
 ];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
@@ -80,12 +81,77 @@ switch($page_method):
 				$retval = 0;
 				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 				config_lock();
-				$retval |= rc_update_reload_service('ctld');
+				$retval |= rc_update_service_ex('ctld',true);
 				config_unlock();
 				$_SESSION['submit'] = $sphere->get_script()->get_basename();
 				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
 				header($sphere->get_script()->get_location());
 				exit;
+				break;
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service_ex('ctld',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				exit;
+				break;
+			case 'restart':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service_ex('ctld');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'disable':
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service_ex('ctld');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+			case 'enable':
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service_ex('ctld');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
 				break;
 		endswitch;
 		break;
@@ -94,10 +160,6 @@ endswitch;
 switch($page_action):
 	case 'edit':
 	case 'view':
-	case 'disable':
-	case 'enable':
-	case 'reload':
-	case 'restart':
 		$source = $sphere->grid;
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
@@ -113,11 +175,6 @@ switch($page_action):
 			$sphere->row[$name] = $referer->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
-					switch($page_action):
-						case 'enable':
-							$input_errors[] = $referer->get_message_error();
-							break;
-					endswitch;
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -139,56 +196,6 @@ switch($page_action):
 				endif;
 			endif;
 		endforeach;
-		break;
-endswitch;
-//	reclassify
-switch($page_action):
-	case 'enable':
-		$name = $cop->get_enable()->get_name();
-		if($sphere->row[$name]):
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		else:
-			$sphere->row[$name] = true;
-			$page_action = 'save';
-			$page_mode = PAGE_MODE_POST;
-		endif;
-		break;
-	case 'disable':
-		$name = $cop->get_enable()->get_name();
-		if($sphere->row[$name]):
-			$sphere->row[$name] = false;
-			$page_action = 'save';
-			$page_mode = PAGE_MODE_POST;
-		else:
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		endif;
-		break;
-endswitch;
-//	save configuration
-switch($page_action):
-	case 'reload':
-		$retval = 0;
-		config_lock();
-		$retval |= rc_reload_service_if_running_and_enabled('ctld');
-		config_unlock();
-		$_SESSION['submit'] = $sphere->get_script()->get_basename();
-		$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-		header($sphere->get_script()->get_location());
-		exit;
-		break;
-	case 'restart':
-		$retval = 0;
-		config_lock();
-		$retval |= rc_restart_service_if_running_and_enabled('ctld');
-		config_unlock();
-		$_SESSION['submit'] = $sphere->get_script()->get_basename();
-		$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-		header($sphere->get_script()->get_location());
-		exit;
-		break;
-	case 'save':
 		if(empty($input_errors)):
 			foreach($a_referer as $referer):
 				$name = $referer->get_name();
@@ -203,8 +210,8 @@ switch($page_action):
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
 			endforeach;
-			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
 			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
 			header($sphere->get_script()->get_location());
 			exit;
 		else:
@@ -242,7 +249,7 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(updatenotify_exists($sphere->get_notifier())):
+if($pending_changes):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
@@ -252,7 +259,7 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('CAM Target Layer'))->
+			c2_titleline(gettext('CAM Target Layer'))->
 		pop()->
 		addTBODY()->
 			c2_input_text($cop->get_debug(),$sphere,false,$is_readonly)->
@@ -262,20 +269,24 @@ $content->
 			c2_input_text($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
 			c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
+$buttons = $document->add_area_buttons();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$document->
-			add_area_buttons()->
-				ins_button_edit()->
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->
+				ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->
 				ins_button_enadis(!$is_enabled)->
 				ins_button_restart($is_enabled)->
 				ins_button_reload($is_enabled);
+		endif;
 		break;
 	case PAGE_MODE_EDIT:
-		$document->
-			add_area_buttons()->
-				ins_button_save()->
-				ins_button_cancel();
+		$buttons->
+			ins_button_save()->
+			ins_button_cancel();
 		break;
 endswitch;
 /*
