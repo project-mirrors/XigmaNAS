@@ -224,7 +224,7 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === rc_is_service_running('mysqldb'));
+$is_running = (0 === rc_is_service_running('ctld'));
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Settings')];
