@@ -196,16 +196,11 @@ switch($page_mode):
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
+			$sphere->upsert();
 			if($isrecordnew):
-				$sphere->grid[] = $sphere->row;
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			else:
-				foreach($sphere->row as $key => $value):
-					$sphere->grid[$sphere->row_id][$key] = $value;
-				endforeach;
-				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-				endif;
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
 			header($sphere->get_parent()->get_location()); // cleanup
