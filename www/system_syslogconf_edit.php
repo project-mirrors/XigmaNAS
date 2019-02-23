@@ -33,38 +33,22 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_syslogconf.php';
-require_once 'co_request_method.php';
 
-function system_syslogconf_edit_get_sphere() {
-	global $config;
+spl_autoload_register();
+use system\syslogconf\row_toolbox as toolbox;
 
-//	sphere structure
-	$sphere = new co_sphere_row('system_syslogconf_edit','php');
-	$sphere->get_parent()->set_basename('system_syslogconf');
-	$sphere->set_notifier('syslogconf');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
-	$sphere->grid = &array_make_branch($config,'system','syslogconf','param');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new properties_syslogconf_edit();
-$sphere = &system_syslogconf_edit_get_sphere();
-$rmo = new co_request_method();
-$rmo->add('GET','add',PAGE_MODE_ADD);
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','add',PAGE_MODE_ADD);
-$rmo->add('POST','cancel',PAGE_MODE_POST);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->set_default('POST','cancel',PAGE_MODE_POST);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -84,6 +68,9 @@ switch($page_method):
 				break;
 			case 'cancel': // cancel - nothing to do
 				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				break;
+			case 'clone':
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'edit': // edit requires a resource id, get it from input and validate
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
@@ -111,7 +98,7 @@ $sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->g
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
 if(false === $sphere->row_id): // record does not exist in config
-	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_POST],true)): // ADD or POST
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
 				$record_mode = RECORD_NEW;
@@ -157,10 +144,19 @@ switch($page_mode):
 			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
 		endforeach;
 		break;
+	case PAGE_MODE_CLONE:
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		endforeach;
+		//	adjust page mode
+		$page_mode = PAGE_MODE_ADD;
+		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
 		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->validate_config($source);
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
@@ -174,16 +170,11 @@ switch($page_mode):
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
+			$sphere->upsert();
 			if($isrecordnew):
-				$sphere->grid[] = $sphere->row;
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
-			else:
-				foreach($sphere->row as $key => $value):
-					$sphere->grid[$sphere->row_id][$key] = $value;
-				endforeach;
-				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
-				endif;
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
 			header($sphere->get_parent()->get_location()); // cleanup
@@ -192,15 +183,10 @@ switch($page_mode):
 		break;
 endswitch;
 $pgtitle = [gettext('System'),gettext('Advanced'),gettext('syslog.conf'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$jcode = NULL;
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add additional javascript code
-if(isset($jcode)):
-	$body->addJavaScript($jcode);
-endif;
 //	add tab navigation
 $document->
 	add_area_tabnav()->
@@ -230,19 +216,26 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,false,gettext('Configuration'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_facility(),$sphere->row[$cop->get_facility()->get_name()],true,false)->
-		c2_input_text($cop->get_level(),$sphere->row[$cop->get_level()->get_name()],false,false)->
-		c2_input_text($cop->get_value(),$sphere->row[$cop->get_value()->get_name()],false,false)->
-		c2_input_text($cop->get_comment(),$sphere->row[$cop->get_comment()->get_name()],false,false);
+		c2_input_text($cop->get_facility(),$sphere,true,false)->
+		c2_input_text($cop->get_level(),$sphere,false,false)->
+		c2_input_text($cop->get_value(),$sphere,false,false)->
+		c2_input_text($cop->get_comment(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
 else:
 	$buttons->ins_button_save();
+	if($prerequisites_ok && empty($input_errors)):
+		$buttons->ins_button_clone();
+	endif;
 endif;
 $buttons->ins_button_cancel();
-$buttons->addElement('input',['name' => $sphere->get_row_identifier(),'type' => 'hidden','value' => $sphere->get_row_identifier_value()]);
+$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//	additional javascript code
+$body->addJavaScript($sphere->get_js());
+$body->add_js_on_load($sphere->get_js_on_load());
+$body->add_js_document_ready($sphere->get_js_document_ready());
 $document->render();

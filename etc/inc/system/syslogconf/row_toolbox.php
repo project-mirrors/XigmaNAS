@@ -1,9 +1,9 @@
 <?php
 /*
-	system_syslogconf.php
+	row_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,37 +31,53 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace system\syslogconf;
+use common\rmo as myr;
+use common\sphere as mys;
+/**
+ *	Wrapper class for autoloading functions
+ */
+final class row_toolbox {
+/**
+ *	Create the sphere object
+ *	@global array $config
+ *	@return \common\sphere\row The sphere object
+ */
+	public static function init_sphere() {
+		global $config;
 
-spl_autoload_register();
-use system\syslogconf\grid_toolbox as toolbox;
-
-//	preset $savemsg when a reboot is pending
-if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
-endif;
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-//	silent fix identifier
-if(false !== $sphere->get_row_identifier()):
-	$updateconfig = false;
-	foreach($sphere->grid as $sphere->row_id => $sphere->row):
-		if(is_array($sphere->row)):
-			if(is_null($cop->get_row_identifier()->validate_array_element($sphere->row))):
-				$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
-				$updateconfig = true;
-			endif;
-		else:
-			unset($sphere->grid[$sphere->row_id]);
-			$updateconfig = true;
-		endif;
-	endforeach;
-	if($updateconfig):
-		write_config();
-	endif;
-endif;
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+		$sphere = new mys\row();
+		shared_toolbox::init_sphere($sphere);
+		$sphere->
+			set_script('system_syslogconf_edit')->
+			set_parent('system_syslogconf');
+		return $sphere;
+	}
+/**
+ *	Create the request method object
+ *	@param \system\syslogconf\row_properties $cop
+ *	@param \common\sphere\row $sphere
+ *	@return \common\rmo\rmo The request method object
+ */
+	public static function init_rmo(row_properties $cop,mys\row $sphere) {
+		$rmo = new myr\rmo();
+		$rmo->
+			set_default('POST','cancel',PAGE_MODE_POST)->
+			add('GET','add',PAGE_MODE_ADD)->
+			add('GET','edit',PAGE_MODE_EDIT)->
+			add('POST','add',PAGE_MODE_ADD)->
+			add('POST','cancel',PAGE_MODE_POST)->
+			add('POST','clone',PAGE_MODE_CLONE)->
+			add('POST','edit',PAGE_MODE_EDIT)->
+			add('POST','save',PAGE_MODE_POST);
+		return $rmo;
+	}
+/**
+ *	Create the properties object
+ *	@return \system\syslogconf\row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
+	}
+}

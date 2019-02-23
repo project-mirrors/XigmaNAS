@@ -1,9 +1,9 @@
 <?php
 /*
-	system_syslogconf.php
+	shared_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,37 +31,56 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
-
-spl_autoload_register();
-use system\syslogconf\grid_toolbox as toolbox;
-
-//	preset $savemsg when a reboot is pending
-if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
-endif;
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-//	silent fix identifier
-if(false !== $sphere->get_row_identifier()):
-	$updateconfig = false;
-	foreach($sphere->grid as $sphere->row_id => $sphere->row):
-		if(is_array($sphere->row)):
-			if(is_null($cop->get_row_identifier()->validate_array_element($sphere->row))):
-				$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
-				$updateconfig = true;
-			endif;
-		else:
-			unset($sphere->grid[$sphere->row_id]);
-			$updateconfig = true;
+namespace system\syslogconf;
+use common\sphere as mys;
+/**
+ *	Wrapper class for autoloading functions
+ */
+final class shared_toolbox {
+	private const NOTIFICATION_PROCESSOR = 'process_notification';
+/**
+ *	Process notifications
+ *	@param int $mode
+ *	@param string $data
+ *	@return int
+ */
+	public static function process_notification(int $mode,string $data) {
+		$retval = 0;
+		$sphere = grid_toolbox::init_sphere();
+		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		if(false !== $sphere->row_id):
+			switch($mode):
+				case UPDATENOTIFY_MODE_NEW:
+					break;
+				case UPDATENOTIFY_MODE_MODIFIED:
+					break;
+				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+				case UPDATENOTIFY_MODE_DIRTY:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+			endswitch;
 		endif;
-	endforeach;
-	if($updateconfig):
-		write_config();
-	endif;
-endif;
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+		updatenotify_clear($sphere->get_notifier(),$data);
+		return $retval;
+	}
+/**
+ *	Configure shared sphere settings
+ *	@global array $config
+ *	@param \common\sphere\root $sphere
+ */
+	public static function init_sphere(mys\root $sphere) {
+		global $config;
+
+		$sphere->
+			set_notifier('system\syslogconf')->
+			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
+			set_row_identifier('uuid')->
+			set_enadis(true)->
+			set_lock(true);
+		$sphere->grid = &array_make_branch($config,'system','syslogconf','param');
+	}
+}
