@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
 "X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -13508,21 +13508,3 @@ msgstr "utilisé de"
 
 msgid "visible"
 msgstr "visible"
-
-#~ msgid "Select auth groups."
-#~ msgstr "Sélectionnez les groupes d'authentification."
-
-#~ msgid "Select portal groups."
-#~ msgstr "Sélectionnez des groupes de portails."
-
-#~ msgid "Select target groups."
-#~ msgstr "Sélectionnez les groupes cibles."
-
-#~ msgid "Target Group"
-#~ msgstr "Groupe Cible"
-
-#~ msgid "iSCSI Target istgt"
-#~ msgstr "Cible iscsi istgt"
-
-#~ msgid "iSCSI Target CAM Target Layer"
-#~ msgstr "Cible iscsi CAM"

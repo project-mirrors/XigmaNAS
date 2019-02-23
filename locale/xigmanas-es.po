@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-02-21 20:01+0000\n"
-"PO-Revision-Date: 2019-02-13 15:53+0000\n"
+"PO-Revision-Date: 2019-02-21 20:27+0000\n"
 "Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
 "X-Generator: Launchpad (build 18886)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -6165,7 +6165,7 @@ msgid "LUN SCSI Name"
 msgstr "Nombre LUN SCSI"
 
 msgid "LUN UUID"
-msgstr ""
+msgstr "LUN UUID"
 
 msgid "LUN Vendor"
 msgstr "Vendedor LUN"
@@ -6338,7 +6338,7 @@ msgid ""
 msgstr ""
 
 msgid "Link this option to selected portal-groups."
-msgstr ""
+msgstr "Seleccionar esta opción para los grupos-Portales"
 
 msgid "List"
 msgstr "Lista"
@@ -7194,7 +7194,7 @@ msgid "No JBOD information found."
 msgstr "No se encontró información de JBOD."
 
 msgid "No LUNs found."
-msgstr ""
+msgstr "No se encuentran  LUNs"
 
 msgid "No Parity"
 msgstr "Sin Paridad"
@@ -7218,7 +7218,7 @@ msgid "No additional parameters"
 msgstr "No hay parámetros adicionales"
 
 msgid "No auth groups found."
-msgstr ""
+msgstr "No se encuentran grupos auth."
 
 msgid "No configured Auth Group."
 msgstr "No configurado Grupo Auth"
@@ -7281,7 +7281,7 @@ msgid "No pools have been selected"
 msgstr "Ningún pool ha sido seleccionado"
 
 msgid "No portal groups found."
-msgstr ""
+msgstr "No se encuentran grupos portales"
 
 msgid "No records found."
 msgstr "No se encontraron registros."
@@ -7302,7 +7302,7 @@ msgid "No suitable virtual devices found."
 msgstr "No ha sido encontrado ningún dispositivo virtual adecuado"
 
 msgid "No targets found."
-msgstr ""
+msgstr "No se encuentran targets."
 
 msgid "No virtual devices have been selected"
 msgstr "Ningún dispositivo virtual ha sido seleccionado"
@@ -9315,7 +9315,7 @@ msgid "Service"
 msgstr "Servicio"
 
 msgid "Service Active"
-msgstr ""
+msgstr "Servicio Activo"
 
 msgid "Service Enabled"
 msgstr "Servicio habilitado"
@@ -13223,10 +13223,10 @@ msgid "iSCSI Target"
 msgstr "Destino iSCSI"
 
 msgid "iSCSI Target CTL"
-msgstr ""
+msgstr "iSCSI Target CTL"
 
 msgid "iSCSI Target ISTGT"
-msgstr ""
+msgstr "iSCSI Target ISTGT"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Controlador de unidad lógica objetivo iSCSI"
@@ -13374,21 +13374,3 @@ msgstr "usados de"
 
 msgid "visible"
 msgstr "Visible"
-
-#~ msgid "Select auth groups."
-#~ msgstr "Seleccionar grupo de Autorizados"
-
-#~ msgid "Select portal groups."
-#~ msgstr "Seleccionar Grupo del portal"
-
-#~ msgid "Select target groups."
-#~ msgstr "Seleccionar grupos objetivos."
-
-#~ msgid "Target Group"
-#~ msgstr "Grupo objetivo"
-
-#~ msgid "iSCSI Target istgt"
-#~ msgstr "iSCSI Target istgt"
-
-#~ msgid "iSCSI Target CAM Target Layer"
-#~ msgstr "iSCSI Target CAM Target Layer"

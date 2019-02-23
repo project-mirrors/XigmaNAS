@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-02-21 20:01+0000\n"
-"PO-Revision-Date: 2019-02-09 05:04+0000\n"
+"PO-Revision-Date: 2019-02-22 18:03+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Launchpad-Export-Date: 2019-02-23 17:16+0000\n"
 "X-Generator: Launchpad (build 18886)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -1598,7 +1598,7 @@ msgid "CHAP Users"
 msgstr "CHAP Användare"
 
 msgid "CHAP-Mutual"
-msgstr "CHAP-ömsesidig"
+msgstr "Gemensam CHAP"
 
 msgid "CIFS/SMB"
 msgstr "CIFS/SMB"
@@ -4549,7 +4549,7 @@ msgid "Enter login name of the user."
 msgstr "Mata in inloggningsnamnet för användaren."
 
 msgid "Enter mutual user name."
-msgstr "Mata in ett ömsesidigt användarnamn."
+msgstr "Mata in ett gemensamt användarnamn."
 
 msgid "Enter passthrough device address bus:path:lun"
 msgstr "Mata in \"passthrough\"-enhetens adress bus:path:lun"
@@ -5770,10 +5770,10 @@ msgstr ""
 "ett namn eller 'ALL' för alla Initierare."
 
 msgid "Initiator side secret. (for mutual CHAP authentication)"
-msgstr "Initierarsidans hemlighet. (för ömsesidig CHAP autentisering)"
+msgstr "Initierarsidans hemlighet. (för gemensam CHAP autentisering)"
 
 msgid "Initiator side user name. (for mutual CHAP authentication)"
-msgstr "Initierarsidans användarnamn. (för ömsesidig CHAP autentisering)"
+msgstr "Initierarsidans användarnamn. (för gemensam CHAP autentisering)"
 
 msgid "Initiators"
 msgstr "Initierare"
@@ -6083,7 +6083,7 @@ msgid "LUN SCSI Name"
 msgstr "LUN SCSI Namn"
 
 msgid "LUN UUID"
-msgstr ""
+msgstr "LUN UUID"
 
 msgid "LUN Vendor"
 msgstr "LUN tillverkare"
@@ -6218,29 +6218,41 @@ msgid ""
 "Link chap configuration to auth-groups. Note that an auth-group may contain "
 "either chap or chap-mutual entries, but not both."
 msgstr ""
+"Chap länk konfiguration för autentiseringsgrupper. Notera att en "
+"autentiseringsgrupp kan innehålla endera en chap eller chap-gemensamma "
+"poster, men inte båda."
 
 msgid ""
 "Link initiator-name to auth-groups. An Initiator with this name will be "
 "allowed to connect to the selected auth-groups."
 msgstr ""
+"Länk initierarnamn för autentiseringsgrupper. En initierare med detta namn "
+"tillåts ansluta till den valda autentiseringsgruppen."
 
 msgid ""
 "Link initiator-portal to auth-groups. An Initiator matching this address "
 "will be allowed to connect to the selected auth-groups."
 msgstr ""
+"Länkinitierarportal till autentiseringsgrupper. En initierare som matchar "
+"denna adress tillåts ansluta till den valda Autentiseringsgruppen."
 
 msgid ""
 "Link listener to portal groups. Selected portal groups will listen on this "
 "address for incoming connections."
 msgstr ""
+"Länklyssnare för portalgrupper. Valda portalgrupper kommer lyssna på denna "
+"adress efter inkommande anslutningar."
 
 msgid ""
 "Link mutual-chap configuration to auth-groups. Note that an auth-group may "
 "contain either chap or chap-mutual entries, but not both."
 msgstr ""
+"Gemensam chap länk konfiguration för autentiseringsgrupper. Notera att en "
+"autentiseringsgrupp kan innehålla endera en chap eller gemensamma chap "
+"poster, men inte båda."
 
 msgid "Link this option to selected portal-groups."
-msgstr ""
+msgstr "Länka denna option till valda portalgrupper."
 
 msgid "List"
 msgstr "Lista"
@@ -7087,7 +7099,7 @@ msgid "No JBOD information found."
 msgstr "Ingen JBOD information hittad."
 
 msgid "No LUNs found."
-msgstr ""
+msgstr "Inga LUN hittades."
 
 msgid "No Parity"
 msgstr "Ingen paritet"
@@ -7111,7 +7123,7 @@ msgid "No additional parameters"
 msgstr "Inga extra parametrar"
 
 msgid "No auth groups found."
-msgstr ""
+msgstr "Inga autentiseringsgrupper hittades."
 
 msgid "No configured Auth Group."
 msgstr "Ingen konfigurerad Autentiseringsgrupp."
@@ -7174,7 +7186,7 @@ msgid "No pools have been selected"
 msgstr "Inga pooler har valts"
 
 msgid "No portal groups found."
-msgstr ""
+msgstr "Inga portalgrupper hittades."
 
 msgid "No records found."
 msgstr "Inga poster hittades."
@@ -7195,7 +7207,7 @@ msgid "No suitable virtual devices found."
 msgstr "Inga passande virtuella enheter hittades."
 
 msgid "No targets found."
-msgstr ""
+msgstr "Inga mål hittades."
 
 msgid "No virtual devices have been selected"
 msgstr "Inga virtuella enheter har valts"
@@ -9185,7 +9197,7 @@ msgid "Service"
 msgstr "Tjänst"
 
 msgid "Service Active"
-msgstr ""
+msgstr "Tjänsten aktiv"
 
 msgid "Service Enabled"
 msgstr "Tjänsten aktiverad"
@@ -13039,10 +13051,10 @@ msgid "iSCSI Target"
 msgstr "iSCSI Mål"
 
 msgid "iSCSI Target CTL"
-msgstr ""
+msgstr "iSCSI mål CTL"
 
 msgid "iSCSI Target ISTGT"
-msgstr ""
+msgstr "iSCSI mål ISTGT"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Logisk enhetshanterare för målet (TLUC)"
@@ -13190,21 +13202,3 @@ msgstr "använt av"
 
 msgid "visible"
 msgstr "synlig"
-
-#~ msgid "Select auth groups."
-#~ msgstr "Välj autentiseringsgrupper."
-
-#~ msgid "Select portal groups."
-#~ msgstr "Välj portalgrupper."
-
-#~ msgid "Select target groups."
-#~ msgstr "Välj målgrupper."
-
-#~ msgid "Target Group"
-#~ msgstr "Målgrupp"
-
-#~ msgid "iSCSI Target istgt"
-#~ msgstr "iSCSI Mål istgt"
-
-#~ msgid "iSCSI Target CAM Target Layer"
-#~ msgstr "iSCSI Target CAM Mållager"

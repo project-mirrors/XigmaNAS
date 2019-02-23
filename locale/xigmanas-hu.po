@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-02-21 20:01+0000\n"
-"PO-Revision-Date: 2018-12-30 20:57+0000\n"
+"PO-Revision-Date: 2019-02-22 17:08+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-21 19:37+0000\n"
+"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
 "X-Generator: Launchpad (build 18886)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -5625,7 +5625,7 @@ msgid "Import on-disk ZFS config"
 msgstr "Lemezen levő ZFS beállítás importálása"
 
 msgid "Import pool in read-only mode"
-msgstr ""
+msgstr "Tároló importálás írásvédett módban"
 
 msgid "Import using GPT ID"
 msgstr "Importálás GPT azonosító használatával"
@@ -6108,7 +6108,7 @@ msgid "LUN SCSI Name"
 msgstr "LUN SCSI név"
 
 msgid "LUN UUID"
-msgstr ""
+msgstr "LUN UUID"
 
 msgid "LUN Vendor"
 msgstr "LUN vendor"
@@ -6259,29 +6259,42 @@ msgid ""
 "Link chap configuration to auth-groups. Note that an auth-group may contain "
 "either chap or chap-mutual entries, but not both."
 msgstr ""
+"Chap konfiguráció linkelés hitelesítési csoportokra. Figyeljen arra, hogy "
+"egy hitelesítési csoport tartalmazhat chap-et vagy chap-kölcsönösséget, de "
+"mindkettőt nem."
 
 msgid ""
 "Link initiator-name to auth-groups. An Initiator with this name will be "
 "allowed to connect to the selected auth-groups."
 msgstr ""
+"Kezdeményező-név linkelése hitelesítési csoportokra. Egy kezdeményező evvel "
+"a névvel csatlakozhat majd a kiválasztott hitelesítési csoportokhoz."
 
 msgid ""
 "Link initiator-portal to auth-groups. An Initiator matching this address "
 "will be allowed to connect to the selected auth-groups."
 msgstr ""
+"Kezdeményező-portál linkelése hitelesítési csoportokra. Egy evvel a címmel "
+"egyező kezdeményező csatlakozhat majd a kiválasztott hitelesítési "
+"csoportokhoz."
 
 msgid ""
 "Link listener to portal groups. Selected portal groups will listen on this "
 "address for incoming connections."
 msgstr ""
+"Figyelő linkelés portál csoportokhoz. A kiválasztott portál csoportok ezen a "
+"címen figyelik majd a bejövő kapcsolatokat."
 
 msgid ""
 "Link mutual-chap configuration to auth-groups. Note that an auth-group may "
 "contain either chap or chap-mutual entries, but not both."
 msgstr ""
+"Chap-kölcsönösség linkelés hitelesítési csoportokra. Figyeljen arra, hogy "
+"egy hitelesítési csoport tartalmazhat chap-et vagy chap-kölcsönösséget, de "
+"mindkettőt nem."
 
 msgid "Link this option to selected portal-groups."
-msgstr ""
+msgstr "Ezen lehetőség linkelése a kiválasztott portál csoportokra."
 
 msgid "List"
 msgstr "Lista"
@@ -7139,7 +7152,7 @@ msgid "No JBOD information found."
 msgstr "Semmilyen JBOD vinum információ nem található."
 
 msgid "No LUNs found."
-msgstr ""
+msgstr "Egy LUN sem található"
 
 msgid "No Parity"
 msgstr "Nincs paritás"
@@ -7163,7 +7176,7 @@ msgid "No additional parameters"
 msgstr "Egy további paraméter sincs"
 
 msgid "No auth groups found."
-msgstr ""
+msgstr "Egy hitelesítési csoport sem található"
 
 msgid "No configured Auth Group."
 msgstr "Hitelesített csoport nincs konfigurálva."
@@ -7226,7 +7239,7 @@ msgid "No pools have been selected"
 msgstr "Egy tárolót sem választott ki"
 
 msgid "No portal groups found."
-msgstr ""
+msgstr "Egy portál csoport sem található."
 
 msgid "No records found."
 msgstr "Egy bejegyzés sem található."
@@ -7247,7 +7260,7 @@ msgid "No suitable virtual devices found."
 msgstr "Egy megfelelő virtuális eszköz sem található."
 
 msgid "No targets found."
-msgstr ""
+msgstr "Egy cél sem található"
 
 msgid "No virtual devices have been selected"
 msgstr "Egy virtuális eszközt sem választott ki"
@@ -8618,7 +8631,7 @@ msgstr ""
 "súrlódás."
 
 msgid "Resize pool to the maximum possible size"
-msgstr ""
+msgstr "Tároló átméretezése a lehető legnagyobb méretűre"
 
 msgid "Resolve IP"
 msgstr "IP feloldása"
@@ -9261,7 +9274,7 @@ msgid "Service"
 msgstr "Szolgáltatás"
 
 msgid "Service Active"
-msgstr ""
+msgstr "A szolgáltatás aktív"
 
 msgid "Service Enabled"
 msgstr "Szolgáltatás bekacsolva"
@@ -11213,7 +11226,7 @@ msgstr "Ezek a paraméterek hozzáadódnak a következő [Global] részéhez: %s
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
-msgstr ""
+msgstr "Ezeket a paramétereket hozzáadtuk %s [Share] részéhez."
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13118,10 +13131,10 @@ msgid "iSCSI Target"
 msgstr "iSCSI-cél (iSCSI Target)"
 
 msgid "iSCSI Target CTL"
-msgstr ""
+msgstr "iSCSI Cél CTL"
 
 msgid "iSCSI Target ISTGT"
-msgstr ""
+msgstr "iSCSI Cél ISTGT"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI -cél Logikai Egység Vezérlő"
@@ -13269,21 +13282,3 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
-
-#~ msgid "Select auth groups."
-#~ msgstr "Válaszd ki a Hitelesítési csoportokat."
-
-#~ msgid "Select portal groups."
-#~ msgstr "Válaszd ki a Portálcsoportokat."
-
-#~ msgid "Select target groups."
-#~ msgstr "Válaszd ki a célcsoportokat."
-
-#~ msgid "Target Group"
-#~ msgstr "Célcsoportok"
-
-#~ msgid "iSCSI Target istgt"
-#~ msgstr "iSCSI Cél istgt"
-
-#~ msgid "iSCSI Target CAM Target Layer"
-#~ msgstr "iSCSI Cél CAM Célréteg"
