@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-21 19:38+0000\n"
+"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
 "X-Generator: Launchpad (build 18886)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -13447,21 +13447,3 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
-
-#~ msgid "Target Group"
-#~ msgstr "Skupina cíle"
-
-#~ msgid "Select auth groups."
-#~ msgstr "Vybrat skupinu ověřování."
-
-#~ msgid "Select portal groups."
-#~ msgstr "Vybrat skupiny portálu."
-
-#~ msgid "Select target groups."
-#~ msgstr "Vybrat skupiny cílů."
-
-#~ msgid "iSCSI Target CAM Target Layer"
-#~ msgstr "Vrstva CAM cíle iSCSI cíle"
-
-#~ msgid "iSCSI Target istgt"
-#~ msgstr "istgt iSCSI cíle"
