@@ -1,9 +1,9 @@
 <?php
 /*
-	system_syslogconf.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,37 +31,52 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace system\syslogconf;
+use common\properties as myp;
 
-spl_autoload_register();
-use system\syslogconf\grid_toolbox as toolbox;
-
-//	preset $savemsg when a reboot is pending
-if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
-endif;
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-//	silent fix identifier
-if(false !== $sphere->get_row_identifier()):
-	$updateconfig = false;
-	foreach($sphere->grid as $sphere->row_id => $sphere->row):
-		if(is_array($sphere->row)):
-			if(is_null($cop->get_row_identifier()->validate_array_element($sphere->row))):
-				$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
-				$updateconfig = true;
-			endif;
-		else:
-			unset($sphere->grid[$sphere->row_id]);
-			$updateconfig = true;
-		endif;
-	endforeach;
-	if($updateconfig):
-		write_config();
-	endif;
-endif;
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+class grid_properties extends myp\container_row {
+	protected $x_comment;
+	public function init_comment() {
+		$property = $this->x_comment = new myp\property_text($this);
+		$property->
+			set_name('comment')->
+			set_title(gettext('Description'));
+		return $property;
+	}
+	final public function get_comment() {
+		return $this->x_comment ?? $this->init_comment();
+	}
+	protected $x_facility;
+	public function init_facility() {
+		$property = $this->x_facility= new myp\property_text($this);
+		$property->
+			set_name('facility')->
+			set_title(gettext('Facility'));
+		return $property;
+	}
+	final public function get_facility() {
+		return $this->x_facility ?? $this->init_facility();
+	}
+	protected $x_level;
+	public function init_level() {
+		$property = $this->x_level = new myp\property_text($this);
+		$property->
+			set_name('level')->
+			set_title(gettext('Level'));
+		return $property;
+	}
+	final public function get_level() {
+		return $this->x_level ?? $this->init_level();
+	}
+	protected $x_value;
+	public function init_value() {
+		$property = $this->x_value = new myp\property_text($this);
+		$property->
+			set_name('value')->
+			set_title(gettext('Destination'));
+		return $property;
+	}
+	final public function get_value() {
+		return $this->x_value ?? $this->init_value();
+	}
+}
