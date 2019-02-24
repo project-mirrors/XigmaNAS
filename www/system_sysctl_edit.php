@@ -229,6 +229,7 @@ $pagecontent = $document->getElementById('pagecontent');
 //	add tab navigation
 $document->
 	add_area_tabnav()->
+		push()->
 		add_tabnav_upper()->
 			ins_tabnav_record('system_advanced.php',gettext('Advanced'))->
 			ins_tabnav_record('system_email.php',gettext('Email'))->
@@ -240,7 +241,11 @@ $document->
 			ins_tabnav_record('system_loaderconf.php',gettext('loader.conf'))->
 			ins_tabnav_record('system_rcconf.php',gettext('rc.conf'))->
 			ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'),gettext('Reload page'),true)->
-			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
+			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'))->
+		pop()->
+		add_tabnav_lower()->
+			ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'),gettext('Reload page'),true)->
+			ins_tabnav_record('system_sysctl_info.php',gettext('Information'));
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
