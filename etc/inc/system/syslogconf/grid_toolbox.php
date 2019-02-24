@@ -39,7 +39,6 @@ use common\sphere as mys;
  *	Wrapper class for autoloading functions
  */
 final class grid_toolbox {
-	private const NOTIFICATION_PROCESSOR = 'process_notification';
 /**
  *	Create the sphere object
  *	@global array $config
