@@ -13,3 +13,21 @@ usr/local/www/images/navbar_active.png
 usr/local/www/images/navbar_default.png
 etc/install/include/boot/menu.4th
 etc/install/include/boot
+# 6536
+etc/inc/properties_services_ctl.php
+etc/inc/properties_services_ctl_auth_group.php
+etc/inc/properties_services_ctl_lun.php
+etc/inc/properties_services_ctl_portal_group.php
+etc/inc/properties_services_ctl_sub_chap.php
+etc/inc/properties_services_ctl_sub_chap_mutual.php
+etc/inc/properties_services_ctl_sub_initiator_name.php
+etc/inc/properties_services_ctl_sub_initiator_portal.php
+etc/inc/properties_services_ctl_sub_isnsserver.php
+etc/inc/properties_services_ctl_sub_listen.php
+etc/inc/properties_services_ctl_sub_lun.php
+etc/inc/properties_services_ctl_sub_option.php
+etc/inc/properties_services_ctl_sub_port.php
+etc/inc/properties_services_ctl_target.php
+etc/inc/properties_services_mariadb.php
+etc/inc/properties_syslogconf.php
+#
