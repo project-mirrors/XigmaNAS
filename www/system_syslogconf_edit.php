@@ -36,6 +36,7 @@ require_once 'guiconfig.inc';
 
 spl_autoload_register();
 use system\syslogconf\row_toolbox as toolbox;
+use system\syslogconf\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -184,24 +185,11 @@ switch($page_mode):
 endswitch;
 $pgtitle = [gettext('System'),gettext('Advanced'),gettext('syslog.conf'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		add_tabnav_upper()->
-			ins_tabnav_record('system_advanced.php',gettext('Advanced'))->
-			ins_tabnav_record('system_email.php',gettext('Email'))->
-			ins_tabnav_record('system_email_reports.php',gettext('Email Reports'))->
-			ins_tabnav_record('system_monitoring.php',gettext('Monitoring'))->
-			ins_tabnav_record('system_swap.php',gettext('Swap'))->
-			ins_tabnav_record('system_rc.php',gettext('Command Scripts'))->
-			ins_tabnav_record('system_cron.php',gettext('Cron'))->
-			ins_tabnav_record('system_loaderconf.php',gettext('loader.conf'))->
-			ins_tabnav_record('system_rcconf.php',gettext('rc.conf'))->
-			ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'))->
-			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors

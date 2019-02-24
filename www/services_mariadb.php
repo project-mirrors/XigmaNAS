@@ -36,6 +36,7 @@ require_once 'guiconfig.inc';
 
 spl_autoload_register();
 use services\mariadb\setting_toolbox as toolbox;
+use services\mariadb\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -246,14 +247,11 @@ $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('MariaDB'),gettext('Settings')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		add_tabnav_upper()->
-			ins_tabnav_record('services_mariadb.php',gettext('Global Settings'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
