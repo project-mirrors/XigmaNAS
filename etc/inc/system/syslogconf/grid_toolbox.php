@@ -66,7 +66,6 @@ final class grid_toolbox {
 			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected options?'))->
 			setmsg_cbm_toggle(gettext('Toggle Selected Options'))->
 			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected options?'));
-		$sphere->grid = &array_make_branch($config,'system','syslogconf','param');
 		return $sphere;
 	}
 /**
