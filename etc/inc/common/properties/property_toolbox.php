@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	Toolbox property
  */
-class property_toolbox extends property_text {
+final class property_toolbox extends property_text {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->set_title(gettext('Toolbox'));

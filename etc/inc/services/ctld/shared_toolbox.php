@@ -64,4 +64,26 @@ final class shared_toolbox {
 			set_enadis(true);
 		$sphere->grid = &array_make_branch($config,'ctld');
 	}
+/**
+ *	Add the tab navigation menu of this sphere
+ *	@param \co_DOMDocument $document
+ *	@return int
+ */
+	public static function add_tabnav(\co_DOMDocument $document) {
+		$retval = 0;
+		$document->
+			add_area_tabnav()->
+				push()->
+				add_tabnav_upper()->
+					ins_tabnav_record('services_ctl.php',gettext('Global Settings'),gettext('Reload page'),true)->
+					ins_tabnav_record('services_ctl_target.php',gettext('Targets'))->
+					ins_tabnav_record('services_ctl_lun.php',gettext('LUNs'))->
+					ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'))->
+					ins_tabnav_record('services_ctl_auth_group.php',gettext('Auth Groups'))->
+				pop()->
+				add_tabnav_lower()->
+					ins_tabnav_record('services_ctl.php',gettext('Settings'),gettext('Reload page'),true)->
+					ins_tabnav_record('services_ctl_sub_isnsserver.php',gettext('iSNS Servers'));
+		return $retval;
+	}
 }

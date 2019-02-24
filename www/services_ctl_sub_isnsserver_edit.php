@@ -36,6 +36,7 @@ require_once 'guiconfig.inc';
 
 spl_autoload_register();
 use services\ctld\hub\sub\isnsserver\row_toolbox as toolbox;
+use services\ctld\hub\sub\isnsserver\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -188,23 +189,11 @@ if($use_tablesort):
 else:
 	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 endif;
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		push()->
-		add_tabnav_upper()->
-			ins_tabnav_record('services_ctl.php',gettext('Global Settings'),gettext('Reload page'),true)->
-			ins_tabnav_record('services_ctl_target.php',gettext('Targets'))->
-			ins_tabnav_record('services_ctl_lun.php',gettext('LUNs'))->
-			ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'))->
-			ins_tabnav_record('services_ctl_auth_group.php',gettext('Auth Groups'))->
-		pop()->
-		add_tabnav_lower()->
-			ins_tabnav_record('services_ctl.php',gettext('Settings'))->
-			ins_tabnav_record('services_ctl_sub_isnsserver.php',gettext('iSNS Server'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors

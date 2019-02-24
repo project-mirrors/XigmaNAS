@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	Protected property
  */
-class property_protected extends property_bool {
+final class property_protected extends property_bool {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->

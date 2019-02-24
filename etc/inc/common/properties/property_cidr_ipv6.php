@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	IPv6 CIDR property
  */
-class property_cidr_ipv6 extends property_text_callback {
+final class property_cidr_ipv6 extends property_text_callback {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->
