@@ -41,12 +41,9 @@ use common\sphere as mys;
 final class grid_toolbox {
 /**
  *	Create the sphere object
- *	@global array $config
  *	@return \common\sphere\grid
  */
 	public static function init_sphere() {
-		global $config;
-
 		$sphere = new mys\grid();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
