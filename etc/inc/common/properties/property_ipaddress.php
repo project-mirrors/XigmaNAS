@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	IP adddress property
  */
-class property_ipaddress extends property_text {
+final class property_ipaddress extends property_text {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->

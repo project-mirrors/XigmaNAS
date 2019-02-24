@@ -107,24 +107,11 @@ final class grid_toolbox {
 		else:
 			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 		endif;
+		//	add tab navigation
+		shared_toolbox::add_tabnav($document);
 		//	get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	add tab navigation
-		$document->
-			add_area_tabnav()->
-				push()->
-				add_tabnav_upper()->
-					ins_tabnav_record('services_ctl.php',gettext('Global Settings'))->
-					ins_tabnav_record('services_ctl_target.php',gettext('Targets'),gettext('Reload page'),true)->
-					ins_tabnav_record('services_ctl_lun.php',gettext('LUNs'))->
-					ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'))->
-					ins_tabnav_record('services_ctl_auth_group.php',gettext('Auth Groups'))->
-				pop()->
-				add_tabnav_lower()->
-					ins_tabnav_record('services_ctl_target.php',gettext('Targets'),gettext('Reload page'),true)->
-					ins_tabnav_record('services_ctl_sub_port.php',gettext('Ports'))->
-					ins_tabnav_record('services_ctl_sub_lun.php',gettext('LUNs'));
 		//	create data area
 		$content = $pagecontent->add_area_data();
 		//	display information, warnings and errors

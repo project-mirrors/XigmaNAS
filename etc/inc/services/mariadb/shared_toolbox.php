@@ -64,4 +64,17 @@ final class shared_toolbox {
 			set_enadis(true);
 		$sphere->grid = &array_make_branch($config,'mariadb');
 	}
+/**
+ *	Add the tab navigation menu of this sphere
+ *	@param \co_DOMDocument $document
+ *	@return int
+ */
+	public static function add_tabnav(\co_DOMDocument $document) {
+		$retval = 0;
+		$document->
+			add_area_tabnav()->
+				add_tabnav_upper()->
+					ins_tabnav_record('services_mariadb.php',gettext('Global Settings'),gettext('Reload page'),true);
+		return $retval;
+	}
 }

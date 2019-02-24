@@ -35,7 +35,7 @@ namespace common\sphere;
 /**
  *	sphere object for grid pages
  */
-class grid extends hub {
+final class grid extends hub {
 	protected $x_cbm_suffix = '';
 //	checkbox member array
 	protected $x_cbm_name = 'cbm_grid';

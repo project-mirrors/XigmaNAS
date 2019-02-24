@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	UUID property
  */
-class property_uuid extends property_text {
+final class property_uuid extends property_text {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->

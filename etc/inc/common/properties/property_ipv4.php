@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	IPv4 property
  */
-class property_ipv4 extends property_text {
+final class property_ipv4 extends property_text {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->

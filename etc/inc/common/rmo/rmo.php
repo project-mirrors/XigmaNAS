@@ -35,7 +35,7 @@ namespace common\rmo;
 /**
  *	Request Method Object
  */
-class rmo {
+final class rmo {
 	protected $x_activities = [];
 	protected $x_default = [NULL,NULL,NULL];
 	protected $x_method;

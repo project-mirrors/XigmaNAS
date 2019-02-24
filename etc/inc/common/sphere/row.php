@@ -35,7 +35,7 @@ namespace common\sphere;
 /**
  *	sphere object for row pages
  */
-class row extends hub {
+final class row extends hub {
 	public function doj(bool $with_envelope = true): string {
 		$output = [];
 		if($with_envelope):

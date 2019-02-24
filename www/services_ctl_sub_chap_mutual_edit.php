@@ -36,6 +36,7 @@ require_once 'guiconfig.inc';
 
 spl_autoload_register();
 use services\ctld\hub\sub\chap_mutual\row_toolbox as toolbox;
+use services\ctld\hub\sub\chap_mutual\shared_toolbox;
 
 function ctl_sub_chap_mutual_edit_sphere() {
 }
@@ -225,26 +226,11 @@ if($use_tablesort):
 else:
 	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 endif;
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		push()->
-		add_tabnav_upper()->
-			ins_tabnav_record('services_ctl.php',gettext('Global Settings'))->
-			ins_tabnav_record('services_ctl_target.php',gettext('Targets'))->
-			ins_tabnav_record('services_ctl_lun.php',gettext('LUNs'))->
-			ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'))->
-			ins_tabnav_record('services_ctl_auth_group.php',gettext('Auth Groups'),gettext('Reload page'),true)->
-		pop()->
-		add_tabnav_lower()->
-			ins_tabnav_record('services_ctl_auth_group.php',gettext('Auth Groups'))->
-			ins_tabnav_record('services_ctl_sub_chap.php',gettext('CHAP'))->
-			ins_tabnav_record('services_ctl_sub_chap_mutual.php',gettext('Mutual CHAP'),gettext('Reload page'),true)->
-			ins_tabnav_record('services_ctl_sub_initiator_name.php',gettext('Initiator Names'))->
-			ins_tabnav_record('services_ctl_sub_initiator_portal.php',gettext('Initiator Portals'));
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors

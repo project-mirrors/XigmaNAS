@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	Enable property
  */
-class property_enable extends property_bool {
+final class property_enable extends property_bool {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->

@@ -35,7 +35,7 @@ namespace common\properties;
 /**
  *	CIDR property
  */
-class property_cidr extends property_text_callback {
+final class property_cidr extends property_text_callback {
 	public function __construct($owner = NULL) {
 		parent::__construct($owner);
 		$this->
