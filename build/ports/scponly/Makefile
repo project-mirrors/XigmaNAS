@@ -1,6 +1,6 @@
 PORTNAME=		scponly
 PORTVERSION=	4.8.20110526
-PORTREVISION= 0
+PORTREVISION= 1
 CATEGORIES=		shells security
 COMMENT=		A tiny shell that only permits scp and sftp
 MAINTAINER= 		zoon01@xigmanas.com
