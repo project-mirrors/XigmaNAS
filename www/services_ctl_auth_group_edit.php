@@ -201,7 +201,7 @@ switch($page_mode):
 		break;
 endswitch;
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Auth Group'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort','sorter-checkbox');
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -226,6 +226,28 @@ $content->add_table_data_settings()->
 		c2_input_text($cop->get_description(),$sphere,false,false)->
 		c2_radio_grid($cop->get_auth_type(),$sphere,false,false)->
 		c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+if($isrecordmodify):
+	$table = $content->add_table_data_settings();
+	$table->ins_colgroup_data_settings();
+	$thead = $table->addTHEAD();
+	$tbody = $table->addTBODY();
+	$thead->
+		c2_separator()->
+		c2_titleline(gettext('Additional Information'));
+	$iam = $sphere->row[$cop->get_name()->get_name()];
+	$ai1 = toolbox::get_chap_info($iam);
+	$tbody->c2_checkbox_grid($ai1['property'],$ai1['selected'],false,true,true);
+	unset($ai1);
+	$ai2 = toolbox::get_chap_mutual_info($iam);
+	$tbody->c2_checkbox_grid($ai2['property'],$ai2['selected'],false,true,true);
+	unset($ai2);
+	$ai3 = toolbox::get_initiator_name_info($iam);
+	$tbody->c2_checkbox_grid($ai3['property'],$ai3['selected'],false,true,true);
+	unset($ai3);
+	$ai4 = toolbox::get_initiator_portal_info($iam);
+	$tbody->c2_checkbox_grid($ai4['property'],$ai4['selected'],false,true,true);
+	unset($ai4);
+endif;
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
