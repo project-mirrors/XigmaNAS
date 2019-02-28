@@ -2084,8 +2084,11 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+		if(2 > count($p->get_options())):
+			$use_sorter = false;
+		endif;
 		$input_attributes = [
 			'name' => sprintf('%s[]',$p->get_name()),
 			'type' => 'checkbox',
@@ -2100,16 +2103,21 @@ trait co_DOMTools {
 		endif;
 		$table = $this->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',['5%','95%']);
-		$cb_class = 'lhelc';
+		$tr_attributes = [];
+		$box_class = 'lhelc';
 		if($this->option_exists('tablesort')):
-			if($this->option_exists('sorter-checkbox')):
-				$cb_class .= ' sorter-checkbox';
+			if($use_sorter):
+				if($this->option_exists('sorter-checkbox')):
+					$box_class .= ' sorter-checkbox';
+				else:
+					$box_class .= ' sorter-false parser-false';
+				endif;
 			else:
-				$cb_class .= ' sorter-false parser-false';
+				$tr_attributes['class'] = 'tablesorter-ignoreRow';
 			endif;
 		endif;
-		$table->addTHEAD()->addTR()->
-			insTHwC($cb_class)->
+		$table->addTHEAD()->addTR($tr_attributes)->
+			insTHwC($box_class)->
 			insTHwC('lhebl',$p->get_title());
 		$tbody = $table->addTBODY();
 		$n_options = 0;
@@ -2131,7 +2139,7 @@ trait co_DOMTools {
 		if(0 === $n_options):
 			$message_info = $p->get_message_info();
 			if(!is_null($message_info)):
-				$tbody->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
+				$table->addTFOOT()->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
 			endif;
 		endif;
 		return $this;
@@ -2204,19 +2212,29 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+		if(2 > count($p->get_options())):
+			$use_sorter = false;
+		endif;
 		$table = $this->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',['5%','95%']);
+		$tr_attributes = [];
+		$box_class = 'lhelc';
 		if($this->option_exists('tablesort')):
-			$table->addTHEAD()->addTR()->
-				insTHwC('lhelc sorter-false parser-false')->
-				insTHwC('lhebl',$p->get_title());
-		else:
-			$table->addTHEAD()->addTR()->
-				insTHwC('lhelc')->
-				insTHwC('lhebl',$p->get_title());
+			if($use_sorter):
+				if($this->option_exists('sorter-radio')):
+					$box_class .= ' sorter-radio';
+				else:
+					$box_class .= ' sorter-false parser-false';
+				endif;
+			else:
+				$tr_attributes['class'] = 'tablesorter-ignoreRow';
+			endif;
 		endif;
+		$table->addTHEAD()->addTR($tr_attributes)->
+			insTHwC($box_class)->
+			insTHwC('lhebl',$p->get_title());
 		$tbody = $table->addTBODY();
 		$input_attributes = [
 			'name' => $p->get_name(),
@@ -2248,7 +2266,7 @@ EOJ;
 		if(0 === $n_options):
 			$message_info = $p->get_message_info();
 			if(!is_null($message_info)):
-				$tbody->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
+				$table->addTFOOT()->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
 			endif;
 		endif;
 		return $this;
@@ -2573,10 +2591,10 @@ EOJ;
 				ins_description($p);
 		return $this;
 	}
-	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,false)->
-				ins_checkbox_grid($p,$value,$is_required,$is_readonly)->
+				ins_checkbox_grid($p,$value,$is_required,$is_readonly,$use_sorter)->
 				ins_description($p);
 		return $this;
 	}
@@ -2601,10 +2619,10 @@ EOJ;
 				ins_description($p);
 		return $this;
 	}
-	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,false)->
-				ins_radio_grid($p,$value,$is_required,$is_readonly)->
+				ins_radio_grid($p,$value,$is_required,$is_readonly,$use_sorter)->
 				ins_description($p);
 		return $this;
 	}
@@ -2819,6 +2837,9 @@ EOJ;
 			endif;
 			if($this->option_exists('sorter-checkbox')):
 				$head->insElement('script',['src' => '/js/parser-checkbox.js']);
+			endif;
+			if($this->option_exists('sorter-radio')):
+				$head->insElement('script',['src' => '/js/parser-radio.js']);
 			endif;
 		endif;
 		if($this->option_exists('datechooser')):
@@ -3175,6 +3196,7 @@ interface ci_DOM {
  *		tablesort-widgets
  *		sorter-bytestring
  *		sorter-checkbox
+ *		sorter-radio
  */
 function new_page(array $page_title = [],string $action_url = NULL,string ...$options) {
 	$document = new co_DOMDocument();
