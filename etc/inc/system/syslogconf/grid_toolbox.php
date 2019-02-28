@@ -137,15 +137,11 @@ final class grid_toolbox {
 		$table = $content->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',$a_col_width);
 		$thead = $table->addTHEAD();
-		if($record_exists):
-			$tbody = $table->addTBODY();
-		else:
-			$tbody = $table->addTBODY(['class' => 'donothighlight']);
-		endif;
+		$tbody = $table->addTBODY();
 		$tfoot = $table->addTFOOT();
 		$thead->ins_titleline(gettext('Overview'),$n_col_width);
 		$tr = $thead->addTR();
-		if($record_exists):
+		if($use_tablesort):
 			$tr->
 				push()->
 				addTHwC('lhelc sorter-false parser-false')->
@@ -191,7 +187,7 @@ final class grid_toolbox {
 							ins_informbox($sphere,false);
 			endforeach;
 		else:
-			$tbody->ins_no_records_found($n_col_width);
+			$tfoot->ins_no_records_found($n_col_width);
 		endif;
 		$tfoot->ins_record_add($sphere,$n_col_width);
 		$document->
