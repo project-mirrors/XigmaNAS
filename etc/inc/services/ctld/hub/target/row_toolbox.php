@@ -32,8 +32,11 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\hub\target;
+use common\properties as myp;
 use common\sphere as mys;
 use services\ctld\hub\row_hub as hub;
+use services\ctld\hub\sub\port\grid_toolbox as tbp;
+use services\ctld\hub\sub\lun\grid_toolbox as tbl;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -67,5 +70,84 @@ final class row_toolbox {
 	public static function init_properties() {
 		$cop = new row_properties();
 		return $cop;
+	}
+/**
+ *	Collects information from subordinate
+ *	@param string $needle
+ *	@param object $cop
+ *	@param object $sphere
+ *	@param object $property
+ *	@return array
+ */
+	private static function get_additional_info(string $needle,string $key_enabled,string $key_option,string $key_selected,$sphere,$property): array {
+		$options = [];
+		$selected = [];
+		foreach($sphere->grid as $sphere->row_id => $sphere->row):
+			if(array_key_exists($key_enabled,$sphere->row)):
+				$enabled = is_bool($sphere->row[$key_enabled]) ? $sphere->row[$key_enabled] : true;
+//				process enabled entries
+				if($enabled):
+//					add name to options
+					if(array_key_exists($key_option,$sphere->row)):
+						$name = $sphere->row[$key_option];
+						if(is_string($name)):
+							$options[$name] = $name;
+//							add name to selected when group contains needle
+							if(array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
+								$selected[$name] = $name;
+							endif;
+						endif;
+					endif;
+				endif;
+			endif;
+		endforeach;
+		$property->set_options($options);
+		$retval = [
+			'selected' => $selected,
+			'property' => $property
+		];
+		return $retval;
+	}
+/**
+ *	collect information about defined and selected port records
+ *	@param string $needle the auth_group to search for
+ *	@return array returns the property object with options populated and the array containing the selected options
+ */
+	public static function get_port_info(string $needle): array {
+		$cop = tbp::init_properties();
+		$key_enable = $cop->get_enable()->get_name();
+		$key_option = $cop->get_name()->get_name();
+		$key_selected = $cop->get_group()->get_name();
+		unset($cop);
+		$sphere = tbp::init_sphere();
+		$property = new myp\property_list_multi();
+		$property->
+			set_id('gridport')->
+			set_title(gettext('Port'))->
+			set_name('gridport')->
+			set_message_info(gettext('No ports found.'));
+		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
+		return $retval;
+	}
+/**
+ *	collect information about defined and selected lun records
+ *	@param string $needle the auth_group to search for
+ *	@return array returns the property object with options populated and the array containing the selected options
+ */
+	public static function get_lun_info(string $needle): array {
+		$cop = tbl::init_properties();
+		$key_enable = $cop->get_enable()->get_name();
+		$key_option = $cop->get_name()->get_name();
+		$key_selected = $cop->get_group()->get_name();
+		unset($cop);
+		$sphere = tbl::init_sphere();
+		$property = new myp\property_list_multi();
+		$property->
+			set_id('gridlun')->
+			set_title(gettext('LUN'))->
+			set_name('gridlun')->
+			set_message_info(gettext('No LUNs found.'));
+		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
+		return $retval;
 	}
 }
