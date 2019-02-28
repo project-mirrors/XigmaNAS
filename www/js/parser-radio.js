@@ -1,8 +1,8 @@
 /*
-	parser-checkbox.js
+	parser-radio.js
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -32,7 +32,7 @@
  */
 ( function( $ ) {
 	$.tablesorter.addParser({
-		id: 'checkbox',
+		id: 'radio',
 		is: function( ) {
 			return false;
 		},
@@ -40,7 +40,7 @@
 			var $cell = $( cell ),
 				wo = table.config.widgetOptions,
 				status = wo.group_checkbox ? wo.group_checkbox : [ 'checked', 'unchecked' ],
-				$input = $cell.find( 'input[type="checkbox"]' ),
+				$input = $cell.find( 'input[type="radio"]' ),
 				isChecked = $input.length ? $input[ 0 ].checked : '';
 			return $input.length ? status[ isChecked ? 0 : 1 ] : txt;
 		},
