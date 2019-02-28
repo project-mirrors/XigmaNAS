@@ -250,7 +250,7 @@ $content->add_table_data_settings()->
 		c2_input_text($cop->get_mutual_name(),$sphere,true,false)->
 		c2_input_password($cop->get_mutual_secret(),$sphere,false,false)->
 		c2_input_text($cop->get_description(),$sphere,false,false)->
-		c2_checkbox_grid($cop->get_group(),$sphere,false,false);
+		c2_checkbox_grid($cop->get_group(),$sphere,false,false,true);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
