@@ -37,10 +37,6 @@ require_once 'guiconfig.inc';
 spl_autoload_register();
 use system\syslogconf\grid_toolbox as toolbox;
 
-//	preset $savemsg when a reboot is pending
-if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
-endif;
 //	init properties, sphere and rmo
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();

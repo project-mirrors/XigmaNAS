@@ -71,7 +71,7 @@ foreach($defined_luns as $defined_lun):
 	endif;
 endforeach;
 $cop->get_name()->set_options($all_luns);
-$rmo = toolbox::init_rmo($cop,$sphere);
+$rmo = toolbox::init_rmo();
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):

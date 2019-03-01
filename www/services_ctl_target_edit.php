@@ -48,7 +48,7 @@ endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
+$rmo = toolbox::init_rmo();
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
