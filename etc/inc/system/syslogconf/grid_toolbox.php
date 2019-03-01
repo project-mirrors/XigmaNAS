@@ -200,6 +200,16 @@ final class grid_toolbox {
 		$body->add_js_document_ready($sphere->get_js_document_ready());
 		$document->render();
 	}
+/**
+ *	process request method
+ *	@global string $d_sysrebootreqd_path
+ *	@global array $input_errors
+ *	@global string $errormsg
+ *	@global string $savemsg
+ *	@param \common\properties\container $cop
+ *	@param \common\sphere\root $sphere
+ *	@param \common\rmo\rmo $rmo
+ */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;

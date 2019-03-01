@@ -55,22 +55,10 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \system\syslogconf\row_properties $cop
- *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	public static function init_rmo(row_properties $cop,mys\row $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('POST','cancel',PAGE_MODE_POST)->
-			add('GET','add',PAGE_MODE_ADD)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('POST','add',PAGE_MODE_ADD)->
-			add('POST','cancel',PAGE_MODE_POST)->
-			add('POST','clone',PAGE_MODE_CLONE)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','save',PAGE_MODE_POST);
-		return $rmo;
+	public static function init_rmo() {
+		return myr\rmo_row_templates::rmo_with_clone();
 	}
 /**
  *	Create the properties object
