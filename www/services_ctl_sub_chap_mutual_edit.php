@@ -62,7 +62,7 @@ foreach($known_parents as $known_parent):
 	endif;
 endforeach;
 $cop->get_group()->set_options($all_parents);
-$rmo = toolbox::init_rmo($cop,$sphere);
+$rmo = toolbox::init_rmo();
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
