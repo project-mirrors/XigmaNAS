@@ -32,30 +32,8 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\hub;
-use common\properties as myp;
-use common\rmo as myr;
-use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
 final class row_hub {
-/**
- *	Create a standard request method object for row
- *	@param \common\properties\container $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo
- */
-	final public static function get_std_rmo(myp\container $cop,mys\row $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('POST','cancel',PAGE_MODE_POST)->
-			add('GET','add',PAGE_MODE_ADD)->
-			add('GET','edit',PAGE_MODE_EDIT)->
-			add('POST','add',PAGE_MODE_ADD)->
-			add('POST','cancel',PAGE_MODE_POST)->
-			add('POST','clone',PAGE_MODE_CLONE)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','save',PAGE_MODE_POST);
-		return $rmo;
-	}
 }

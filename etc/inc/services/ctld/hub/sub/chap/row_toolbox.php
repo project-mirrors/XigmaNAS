@@ -32,8 +32,8 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\hub\sub\chap;
+use common\rmo as myr;
 use common\sphere as mys;
-use services\ctld\hub\row_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -52,13 +52,10 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \services\ctld\hub\sub\chap\row_properties $cop
- *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	public static function init_rmo(row_properties $cop,mys\row $sphere) {
-		$rmo = hub::get_std_rmo($cop,$sphere);
-		return $rmo;
+	public static function init_rmo() {
+		return myr\rmo_row_templates::rmo_with_clone();
 	}
 /**
  *	Create the properties object

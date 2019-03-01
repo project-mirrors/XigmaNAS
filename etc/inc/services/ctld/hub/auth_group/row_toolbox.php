@@ -33,8 +33,8 @@
 */
 namespace services\ctld\hub\auth_group;
 use common\properties as myp;
+use common\rmo as myr;
 use common\sphere as mys;
-use services\ctld\hub\row_hub as hub;
 use services\ctld\hub\sub\chap\grid_toolbox as tbc;
 use services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm;
 use services\ctld\hub\sub\initiator_name\grid_toolbox as tbin;
@@ -57,13 +57,10 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \services\ctld\hub\auth_group\row_properties $cop
- *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	public static function init_rmo(row_properties $cop,mys\row $sphere) {
-		$rmo = hub::get_std_rmo($cop,$sphere);
-		return $rmo;
+	public static function init_rmo() {
+		return myr\rmo_row_templates::rmo_with_clone();
 	}
 /**
  *	Create the properties object
