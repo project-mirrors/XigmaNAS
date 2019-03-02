@@ -33,7 +33,7 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-
+spl_autoload_extensions('.php');
 spl_autoload_register();
 use system\syslogconf\row_toolbox as toolbox;
 use system\syslogconf\shared_toolbox;
