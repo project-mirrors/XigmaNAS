@@ -33,7 +33,7 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-spl_autoload_extensions('.php');
+spl_autoload_extensions('.php,.inc');
 spl_autoload_register();
 use services\ctld\hub\sub\listen\row_toolbox as toolbox;
 use services\ctld\hub\sub\listen\shared_toolbox;
