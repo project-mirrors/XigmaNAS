@@ -33,8 +33,8 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-spl_autoload_extensions('.php,.inc');
-spl_autoload_register();
+require_once 'autoload.php';
+
 use services\mariadb\setting_toolbox as toolbox;
 use services\mariadb\shared_toolbox;
 
