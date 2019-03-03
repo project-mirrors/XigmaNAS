@@ -32,8 +32,8 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld\hub\portal_group;
+use common\rmo as myr;
 use common\sphere as mys;
-use services\ctld\hub\grid_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
@@ -73,7 +73,7 @@ final class grid_toolbox {
  *	@return \common\rmo\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
-		$rmo = hub::get_std_rmo($cop,$sphere);
+		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
 	}
 /**
