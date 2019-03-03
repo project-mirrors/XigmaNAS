@@ -37,7 +37,7 @@ use common\sphere as mys;
 /**
  *	Request Method Object Templates
  */
-final class rmo_row_templates {
+final class rmo_grid_templates {
 /**
 /**
  *	create and return RMO object with
