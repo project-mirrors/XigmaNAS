@@ -173,9 +173,9 @@ switch($page_mode):
 		if($prerequisites_ok && empty($input_errors)):
 			$sphere->upsert();
 			if($isrecordnew):
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
 			header($sphere->get_parent()->get_location()); // cleanup
