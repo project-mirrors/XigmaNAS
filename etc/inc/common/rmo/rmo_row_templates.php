@@ -37,10 +37,10 @@ namespace common\rmo;
  */
 final class rmo_row_templates {
 /**
- *	create and return RMO object with
- *	GET: add & edit
- *	POST: add, edit, save & cancel
- *	POST>cancel is the default
+ *	create and return RMO object with<br/>
+ *	<b>GET</b>: add & edit<br/>
+ *	<b>POST</b>: add, edit, save & cancel<br/>
+ *	<b>POST</b>: cancel is the default
  *	@return \common\rmo\rmo
  */
 	public static function rmo_base() {
