@@ -39,11 +39,12 @@ use common\sphere as mys;
  */
 final class rmo_grid_templates {
 /**
-/**
- *	create and return RMO object with
- *	SESSION: basename of the script file
- *	POST: apply, delete, toggle or enable/disable
- *	GET>view is the default
+ *	create and return RMO object with<br/>
+ *	<b>SESSION</b>: basename of the script file<br/>
+ *	<b>POST</b>: apply, delete, toggle or enable/disable<br/>
+ *	<b>GET</b>: view is the default.
+ *	@param \common\properties\container $cop the property object
+ *	@param \common\sphere\grid $sphere the sphere object
  *	@return \common\rmo\rmo
  */
 	public static function rmo_base(myp\container $cop,mys\grid $sphere) {
