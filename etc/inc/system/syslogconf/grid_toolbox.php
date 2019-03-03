@@ -71,20 +71,7 @@ final class grid_toolbox {
  *	@return \common\rmo\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_POST)->
-			add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST);
-		if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
-			if($sphere->toggle()):
-				$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
-			else:
-				$rmo->add('POST',$sphere->get_cbm_button_val_enable(),PAGE_MODE_POST);
-				$rmo->add('POST',$sphere->get_cbm_button_val_disable(),PAGE_MODE_POST);
-			endif;
-		endif;
+		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
 	}
 /**

@@ -40,31 +40,6 @@ use common\sphere as mys;
  */
 final class grid_hub {
 /**
- *	Create a standard request method object for grid
- *	@param \common\properties\container $cop
- *	@param \common\sphere\grid $sphere
- *	@return \common\rmo\rmo
- */
-	final public static function get_std_rmo(myp\container $cop,mys\grid $sphere) {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('GET','view',PAGE_MODE_VIEW)->
-			add('GET','view',PAGE_MODE_VIEW)->
-			add('POST','apply',PAGE_MODE_VIEW)->
-			add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST)->
-			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
-		if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
-			if($sphere->toggle()):
-				$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
-			else:
-				$rmo->
-					add('POST',$sphere->get_cbm_button_val_enable(),PAGE_MODE_POST)->
-					add('POST',$sphere->get_cbm_button_val_disable(),PAGE_MODE_POST);
-			endif;
-		endif;
-		return $rmo;
-	}
-/**
  *	process request method
  *	@global string $d_sysrebootreqd_path
  *	@global array $input_errors
