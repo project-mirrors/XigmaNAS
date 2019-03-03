@@ -33,39 +33,23 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_smartmontools_umass.php';
-require_once 'co_request_method.php';
+require_once 'autoload.php';
 
-function smartmontools_umass_edit_sphere_() {
-	global $config;
+use disks\smartmontools\umass\row_toolbox as toolbox;
+use disks\smartmontools\umass\shared_toolbox;
 
-//	sphere structure
-	$sphere = new co_sphere_row('smartmontools_umass_edit','php');
-	$sphere->get_parent()->set_basename('smartmontools_umass');
-	$sphere->set_notifier('smartmontools_umass');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(true);
-	$sphere->set_lock(false);
-	$sphere->grid = &array_make_branch($config,'smartmontools','umass','param');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new smartmontools_umass_edit_properties();
-$sphere = &smartmontools_umass_edit_sphere_();
-$rmo = new co_request_method();
-$rmo->add('GET','add',PAGE_MODE_ADD);
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','add',PAGE_MODE_ADD);
-$rmo->add('POST','cancel',PAGE_MODE_POST);
-$rmo->add('POST','clone',PAGE_MODE_CLONE);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->set_default('POST','cancel',PAGE_MODE_POST);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -187,16 +171,11 @@ switch($page_mode):
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
+			$sphere->upsert();
 			if($isrecordnew):
-				$sphere->grid[] = $sphere->row;
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
-			else:
-				foreach($sphere->row as $key => $value):
-					$sphere->grid[$sphere->row_id][$key] = $value;
-				endforeach;
-				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
-				endif;
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
 			endif;
 			write_config();
 			header($sphere->get_parent()->get_location()); // cleanup
@@ -205,23 +184,12 @@ switch($page_mode):
 		break;
 endswitch;
 $pgtitle = [gettext('Disks'),gettext('Management'),gettext('S.M.A.R.T.'),gettext('USB Mass Storage Devices'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 //	add tab navigation
-$document->
-	add_area_tabnav()->
-		push()->
-		add_tabnav_upper()->
-			ins_tabnav_record('disks_manage.php',gettext('HDD Management'))->
-			ins_tabnav_record('disks_init.php',gettext('HDD Format'))->
-			ins_tabnav_record('disks_manage_smart.php',gettext('S.M.A.R.T.'),gettext('Reload Page'),true)->
-			ins_tabnav_record('disks_manage_iscsi.php',gettext('iSCSI Initiator'))->
-		pop()->
-		add_tabnav_lower()->
-			ins_tabnav_record('disks_manage_smart.php',gettext('Settings'))->
-			ins_tabnav_record('smartmontools_umass.php',gettext('USB Mass Storage Devices'),gettext('Reload Page'),true);
+shared_toolbox::add_tabnav($document);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
@@ -229,19 +197,16 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,false,gettext('Settings'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Settings'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere->row[$cop->get_name()->get_name()],true,false)->
-		c2_input_text($cop->get_type(),$sphere->row[$cop->get_type()->get_name()],false,false)->
-		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false);
+		c2_input_text($cop->get_name(),$sphere,true,false)->
+		c2_input_text($cop->get_type(),$sphere,false,false)->
+		c2_input_text($cop->get_description(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();

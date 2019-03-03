@@ -1,9 +1,9 @@
 <?php
 /*
-	smartmontools_umass.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,33 +31,30 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
-require_once 'autoload.php';
+namespace disks\smartmontools\umass;
+use common\properties as myp;
 
-use disks\smartmontools\umass\grid_toolbox as toolbox;
-
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-//	silent fix identifier
-if(false !== $sphere->get_row_identifier()):
-	$updateconfig = false;
-	foreach($sphere->grid as $sphere->row_id => $sphere->row):
-		if(is_array($sphere->row)):
-			if(is_null($cop->get_row_identifier()->validate_array_element($sphere->row))):
-				$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
-				$updateconfig = true;
-			endif;
-		else:
-			unset($sphere->grid[$sphere->row_id]);
-			$updateconfig = true;
-		endif;
-	endforeach;
-	if($updateconfig):
-		write_config();
-	endif;
-endif;
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+class grid_properties extends myp\container_row {
+	protected $x_name;
+	public function init_name() {
+		$property = $this->x_name = new myp\property_text($this);
+		$property->
+			set_name('name')->
+			set_title(gettext('Identifier'));
+		return $property;
+	}
+	final public function get_name() {
+		return $this->x_name ?? $this->init_name();
+	}
+	protected $x_type;
+	public function init_type() {
+		$property = $this->x_type = new myp\property_text($this);
+		$property->
+			set_name('type')->
+			set_title(gettext('Type'));
+		return $property;
+	}
+	final public function get_type() {
+		return $this->x_type ?? $this->init_type();
+	}
+}

@@ -30,4 +30,6 @@ etc/inc/properties_services_ctl_sub_port.php
 etc/inc/properties_services_ctl_target.php
 etc/inc/properties_services_mariadb.php
 etc/inc/properties_syslogconf.php
+# 6570
+etc/inc/properties_smartmontoold_umass.php
 #

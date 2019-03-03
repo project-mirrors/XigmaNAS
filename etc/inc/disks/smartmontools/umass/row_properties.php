@@ -1,9 +1,9 @@
 <?php
 /*
-	properties_smartmontools_umass.php
+	row_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -30,50 +30,26 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
- */
-require_once 'properties.php';
+*/
+namespace disks\smartmontools\umass;
 
-class smartmontools_umass_properties extends co_property_container_param {
-	protected $x_name;
-	public function get_name() {
-		return $this->x_name ?? $this->init_name();
-	}
+final class row_properties extends grid_properties {
 	public function init_name() {
-		$property = $this->x_name = new property_text($this);
-		$property->
-			set_name('name')->
-			set_title(gettext('Identifier'));
-		return $property;
-	}
-	protected $x_type;
-	public function get_type() {
-		return $this->x_type ?? $this->init_type();
-	}
-	public function init_type() {
-		$property = $this->x_type = new property_text($this);
-		$property->
-			set_name('type')->
-			set_title(gettext('Type'));
-		return $property;
-	}
-}
-class smartmontools_umass_edit_properties extends smartmontools_umass_properties {
-	public function init_name() {
+		$description = gettext('The identifier reported as unknown by smartctl, including brackets.');
+		$placeholder = gettext('Enter Identifier');
 		$property = parent::init_name();
 		$property->
 			set_id('name')->
-			set_description(gettext('The identifier reported as unknown by smartctl including brackets.'))->
+			set_description($description)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(64)->
-			set_placeholder(gettext('Enter Identifier'))->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_placeholder($placeholder)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_type() {
+		$placeholder = gettext('Enter smartctl pass-through type.');
 		$property = parent::init_type();
 		$property->
 			set_id('type')->
@@ -81,13 +57,10 @@ class smartmontools_umass_edit_properties extends smartmontools_umass_properties
 			set_defaultvalue('sat')->
 			set_size(60)->
 			set_maxlength(64)->
-			set_placeholder(gettext('Enter smartctl pass-through type.'))->
+			set_placeholder($placeholder)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/.*/'])->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => NULL,'regexp' => '/.*/']);
 		return $property;
 	}
 }

@@ -185,11 +185,11 @@ switch($page_mode):
 endswitch;
 $pgtitle = [gettext('System'),gettext('Advanced'),gettext('syslog.conf'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
-//	add tab navigation
-shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
@@ -197,9 +197,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
