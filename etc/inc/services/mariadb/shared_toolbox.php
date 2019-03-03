@@ -37,6 +37,7 @@ use common\sphere as mys;
  *	Wrapper class for autoloading functions
  */
 final class shared_toolbox {
+	private const NOTIFICATION_NAME = __NAMESPACE__;
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 /**
  *	Process notifications
@@ -59,7 +60,7 @@ final class shared_toolbox {
 		global $config;
 
 		$sphere->
-			set_notifier('services\mariadb')->
+			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(true);
 		$sphere->grid = &array_make_branch($config,'mariadb');

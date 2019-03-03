@@ -38,7 +38,9 @@ use services\ctld\hub\shared_hub as hub;
  *	Wrapper class for autoloading functions
  */
 final class shared_toolbox {
+	private const NOTIFICATION_NAME = 'services\ctld';
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
+	private const ROW_IDENTIFIER = 'uuid';
 /**
  *	Process notifications
  *	@param int $mode
@@ -59,9 +61,9 @@ final class shared_toolbox {
 		global $config;
 
 		$sphere->
-			set_notifier('services\ctld')->
+			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_row_identifier('uuid')->
+			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true);
 		$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_isnsserver','param');
 	}
