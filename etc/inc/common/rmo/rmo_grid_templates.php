@@ -1,6 +1,6 @@
 <?php
 /*
-	rmo_row_templates.php
+	rmo_grid_templates.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -32,39 +32,35 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace common\rmo;
+use common\properties as myp;
+use common\sphere as mys;
 /**
  *	Request Method Object Templates
  */
 final class rmo_row_templates {
 /**
- *	create and return RMO object with
- *	GET: add & edit
- *	POST: add, edit, save & cancel
- *	POST>cancel is the default
- *	@return \common\rmo\rmo
- */
-	public static function rmo_base() {
-		$rmo = new rmo();
-		$rmo->
-			set_default('POST','cancel',PAGE_MODE_POST)->
-			add('GET' ,'add',PAGE_MODE_ADD)->
-			add('POST','add',PAGE_MODE_ADD)->
-			add('POST','cancel',PAGE_MODE_POST)->
-			add('GET' ,'edit',PAGE_MODE_EDIT)->
-			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','save',PAGE_MODE_POST);
-		return $rmo;
-	}
 /**
  *	create and return RMO object with
- *	GET: add & edit
- *	POST: add, edit, clone, save & cancel
- *	POST>cancel is the default
- *	@return \common\rmo
+ *	SESSION: basename of the script file
+ *	POST: apply, delete, toggle or enable/disable
+ *	GET>view is the default
+ *	@return \common\rmo\rmo
  */
-	public static function rmo_with_clone() {
-		$rmo = self::rmo_base();
-		$rmo->add('POST','clone',PAGE_MODE_CLONE);
+	public static function rmo_base(myp\container $cop,mys\grid $sphere) {
+		$rmo = new rmo();
+		$rmo->
+			set_default('GET','view',PAGE_MODE_VIEW)->
+			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW)->
+			add('POST','apply',PAGE_MODE_POST)->
+			add('POST',$sphere->get_cbm_button_val_delete(),PAGE_MODE_POST);
+		if($sphere->is_enadis_enabled() && method_exists($cop,'get_enable')):
+			if($sphere->toggle()):
+				$rmo->add('POST',$sphere->get_cbm_button_val_toggle(),PAGE_MODE_POST);
+			else:
+				$rmo->add('POST',$sphere->get_cbm_button_val_enable(),PAGE_MODE_POST);
+				$rmo->add('POST',$sphere->get_cbm_button_val_disable(),PAGE_MODE_POST);
+			endif;
+		endif;
 		return $rmo;
 	}
 }
