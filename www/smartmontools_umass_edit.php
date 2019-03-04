@@ -138,7 +138,6 @@ $a_referer = [
 	$cop->get_type(),
 	$cop->get_description()
 ];
-$a_referrer = ['description','enable','name','type'];
 switch($page_mode):
 	case PAGE_MODE_ADD:
 		foreach($a_referer as $referer):
