@@ -90,7 +90,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \disks\smartmontools_umass\grid_properties $cop
+ *	@param \disks\smartmontools\umass\grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {

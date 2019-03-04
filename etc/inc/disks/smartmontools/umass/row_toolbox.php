@@ -60,7 +60,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \disks\smartmontools_umass\row_properties The properties object
+ *	@return \disks\smartmontools\umass\row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
