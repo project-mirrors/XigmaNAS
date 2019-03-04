@@ -281,7 +281,7 @@ switch($page_mode):
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
-		$buttons->ins_button_save()->
+		$buttons->ins_button_save();
 		$buttons->ins_button_cancel();
 		break;
 endswitch;
