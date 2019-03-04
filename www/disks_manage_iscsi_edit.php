@@ -33,39 +33,23 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_iscsi_initiator.php';
-require_once 'co_request_method.php';
+require_once 'autoload.php';
 
-function iscsi_initiator_edit_sphere() {
-	global $config;
+use services\iscsid\row_toolbox as toolbox;
+use services\iscsid\shared_toolbox;
 
-//	sphere structure
-	$sphere = new co_sphere_row('disks_manage_iscsi_edit','php');
-	$sphere->get_parent()->set_basename('disks_manage_iscsi');
-	$sphere->set_notifier('iscsiinitiator');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
-	$sphere->grid = &array_make_branch($config,'iscsiinit','vdisk');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new iscsi_initiator_properties();
-$sphere = &iscsi_initiator_edit_sphere();
-$rmo = new co_request_method();
-$rmo->add('GET','add',PAGE_MODE_ADD);
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','add',PAGE_MODE_ADD);
-$rmo->add('POST','cancel',PAGE_MODE_POST);
-$rmo->add('POST','clone',PAGE_MODE_CLONE);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->set_default('POST','cancel',PAGE_MODE_POST);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -149,6 +133,8 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
  *	end determine record update mode
  */
 $a_referer = [
+	$cop->get_sessionenable(),
+	$cop->get_sessiontype(),
 	$cop->get_name(),
 	$cop->get_targetname(),
 	$cop->get_targetaddress(),
@@ -213,16 +199,11 @@ switch($page_mode):
 				endforeach;
 				$sphere->row[$name] = $auxparam_grid;
 			endif;
+			$sphere->upsert();
 			if($isrecordnew):
-				$sphere->grid[] = $sphere->row;
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
-			else:
-				foreach($sphere->row as $key => $value):
-					$sphere->grid[$sphere->row_id][$key] = $value;
-				endforeach;
-				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
-				endif;
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
 			header($sphere->get_parent()->get_location()); // cleanup
@@ -231,18 +212,12 @@ switch($page_mode):
 		break;
 endswitch;
 $pgtitle = [gettext('Disks'),gettext('Management'),gettext('iSCSI Initiator'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 //	add tab navigation
-$document->
-	add_area_tabnav()->
-		add_tabnav_upper()->
-			ins_tabnav_record('disks_manage.php',gettext('HDD Management'))->
-			ins_tabnav_record('disks_init.php',gettext('HDD Format'))->
-			ins_tabnav_record('disks_manage_smart.php',gettext('S.M.A.R.T.'))->
-			ins_tabnav_record('disks_manage_iscsi.php',gettext('iSCSI Initiator'),gettext('Reload page'),true);
+shared_toolbox::add_tabnav($document);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
@@ -250,9 +225,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
@@ -261,20 +233,22 @@ $content->add_table_data_settings()->
 		c2_titleline(gettext('iSCSI Initiator Settings'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere->row[$cop->get_name()->get_name()],true)->
-		c2_input_text($cop->get_initiatorname(),$sphere->row[$cop->get_initiatorname()->get_name()])->
-		c2_input_text($cop->get_targetname(),$sphere->row[$cop->get_targetname()->get_name()],true)->
-		c2_input_text($cop->get_targetaddress(),$sphere->row[$cop->get_targetaddress()->get_name()],true)->
-		c2_radio_grid($cop->get_authmethod(),$sphere->row[$cop->get_authmethod()->get_name()])->
-		c2_input_text($cop->get_chapiname(),$sphere->row[$cop->get_chapiname()->get_name()])->
-		c2_input_password($cop->get_chapsecret(),$sphere->row[$cop->get_chapsecret()->get_name()])->
-		c2_input_text($cop->get_tgtchapname(),$sphere->row[$cop->get_tgtchapname()->get_name()])->
-		c2_input_password($cop->get_tgtchapsecret(),$sphere->row[$cop->get_tgtchapsecret()->get_name()])->
-		c2_radio_grid($cop->get_headerdigest(),$sphere->row[$cop->get_headerdigest()->get_name()])->
-		c2_radio_grid($cop->get_datadigest(),$sphere->row[$cop->get_datadigest()->get_name()])->
-		c2_radio_grid($cop->get_protocol(),$sphere->row[$cop->get_protocol()->get_name()])->
-		c2_input_text($cop->get_offload(),$sphere->row[$cop->get_offload()->get_name()])->
-		c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,false,60,$n_auxparam_rows);
+		c2_input_text($cop->get_name(),$sphere,true)->
+		c2_radio_grid($cop->get_sessionenable(),$sphere)->
+		c2_radio_grid($cop->get_sessiontype(),$sphere)->
+		c2_input_text($cop->get_initiatorname(),$sphere)->
+		c2_input_text($cop->get_targetname(),$sphere,true)->
+		c2_input_text($cop->get_targetaddress(),$sphere,true)->
+		c2_radio_grid($cop->get_authmethod(),$sphere)->
+		c2_input_text($cop->get_chapiname(),$sphere)->
+		c2_input_password($cop->get_chapsecret(),$sphere)->
+		c2_input_text($cop->get_tgtchapname(),$sphere)->
+		c2_input_password($cop->get_tgtchapsecret(),$sphere)->
+		c2_radio_grid($cop->get_headerdigest(),$sphere)->
+		c2_radio_grid($cop->get_datadigest(),$sphere)->
+		c2_radio_grid($cop->get_protocol(),$sphere)->
+		c2_input_text($cop->get_offload(),$sphere)->
+		c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();

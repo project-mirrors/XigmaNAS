@@ -30,4 +30,6 @@ etc/inc/properties_services_mariadb.php
 etc/inc/properties_syslogconf.php
 # 6570
 etc/inc/properties_smartmontoold_umass.php
+# 6575
+etc/inc/properties_iscsi_initiator.php
 #
