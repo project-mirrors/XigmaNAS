@@ -1,9 +1,9 @@
 <?php
 /*
-	system_rcconf.php
+	row_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,15 +31,53 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
-require_once 'autoload.php';
+namespace system\rcconf;
 
-use system\rcconf\grid_toolbox as toolbox;
-
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+final class row_properties extends grid_properties {
+	public function init_name() {
+		$description = gettext('Name of the variable.');
+		$placeholder = gettext('Name');
+		$property = parent::init_name();
+		$property->
+			set_id('name')->
+			set_description($description)->
+			set_placeholder($placeholder)->
+			set_defaultvalue('')->
+			set_size(60)->
+			set_maxlength(256)->
+			set_filter(FILTER_UNSAFE_RAW)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR)->
+			set_filter_options(['default' => '']);
+		return $property;
+	}
+	public function init_comment() {
+		$description = '';
+		$placeholder = gettext('Enter a description');
+		$property = parent::init_comment();
+		$property->
+			set_id('comment')->
+			set_description($description)->
+			set_placeholder($placeholder)->
+			set_defaultvalue('')->
+			set_size(60)->
+			set_maxlength(256)->
+			set_filter(FILTER_UNSAFE_RAW)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR)->
+			set_filter_options(['default' => '']);
+		return $property;
+	}
+	public function init_value() {
+		$property = parent::init_value();
+		$description = '';
+		$placeholder = gettext('Enter Value');
+		$property->
+			set_id('value')->
+			set_description($description)->
+			set_placeholder($placeholder)->
+			set_defaultvalue('')->
+			set_size(60)->
+			set_maxlength(256)->
+			filter_use_default();
+		return $property;
+	}
+}
