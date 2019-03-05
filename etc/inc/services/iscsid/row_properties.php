@@ -241,18 +241,18 @@ final class row_properties extends grid_properties {
 			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
-	public function init_sessionenable() {
+	public function init_sessionstate() {
 		$description = gettext('Enable or disable the session. State can be either "On" or "Off". Default is "On".');
 		$options = [
 			'' => gettext('Default'),
 			'on' => gettext('On'),
 			'off' => gettext('Off')
 		];
-		$property = parent::init_sessionenable();
+		$property = parent::init_sessionstate();
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->
-			set_id('sessionenable')->
+			set_id('sessionstate')->
 			set_options($options)->
 			filter_use_default();
 		return $property;

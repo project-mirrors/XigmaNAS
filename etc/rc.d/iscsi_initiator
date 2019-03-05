@@ -44,7 +44,7 @@ iscsi_initiator_mkconf()
 			--if 'string-length(name) > 0' \
 				--value-of 'normalize-space(name)' \
 				--output ' {' --nl \
-				--if 'string-length(sessionenable) > 0 and sessionenable="off"' \
+				--if 'string-length(sessionstate) > 0 and sessionstate="off"' \
 					--output 'enable = off' --nl \
 				--else \
 					--output 'enable = on' --nl \

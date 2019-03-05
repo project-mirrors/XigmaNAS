@@ -199,17 +199,17 @@ class grid_properties extends myp\container_row {
 	final public function get_offload() {
 		return $this->x_offload ?? $this->init_offload();
 	}
-	protected $x_sessionenable;
-	public function init_sessionenable() {
+	protected $x_sessionstate;
+	public function init_sessionstate() {
 		$title = gettext('Session Enable');
-		$property = $this->x_sessionenable = new myp\property_list($this);
+		$property = $this->x_sessionstate = new myp\property_list($this);
 		$property->
-			set_name('sessionenable')->
+			set_name('sessionstate')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_sessionenable() {
-		return $this->x_sessionenable ?? $this->init_sessionenable();
+	final public function get_sessionstate() {
+		return $this->x_sessionstate ?? $this->init_sessionstate();
 	}
 	protected $x_sessiontype;
 	public function init_sessiontype() {

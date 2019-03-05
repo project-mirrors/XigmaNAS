@@ -140,7 +140,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_targetname()->get_title())->
 				insTHwC('lhell',$cop->get_targetaddress()->get_title())->
-				insTHwC('lhelc sorter-image',$cop->get_sessionenable()->get_title())->
+				insTHwC('lhelc sorter-image',$cop->get_sessionstate()->get_title())->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 		else:
 			$tr->
@@ -148,7 +148,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_targetname()->get_title())->
 				insTHwC('lhell',$cop->get_targetaddress()->get_title())->
-				insTHwC('lhelc',$cop->get_sessionenable()->get_title())->
+				insTHwC('lhelc',$cop->get_sessionstate()->get_title())->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
 		if($record_exists):
@@ -167,7 +167,7 @@ final class grid_toolbox {
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_targetname()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_targetaddress()->get_name()] ?? '')->
-						ins_enadis_icon('off' !== strtolower($sphere->row[$cop->get_sessionenable()->get_name()] ?? 'on'))->
+						ins_enadis_icon('off' !== strtolower($sphere->row[$cop->get_sessionstate()->get_name()] ?? 'on'))->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
 							ins_maintainbox($sphere,false)->
