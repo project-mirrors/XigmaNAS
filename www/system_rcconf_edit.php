@@ -33,197 +33,195 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-$sphere_scriptname = basename(__FILE__);
-$sphere_header = 'Location: '.$sphere_scriptname;
-$sphere_header_parent = 'Location: system_rcconf.php';
-$sphere_notifier = 'rcconf';
-$sphere_array = [];
-$sphere_record = [];
+use system\rcconf\row_toolbox as toolbox;
+use system\rcconf\shared_toolbox;
+
+//	init indicators
+$input_errors = [];
 $prerequisites_ok = true;
-
-$mode_page = ($_POST) ? PAGE_MODE_POST : (($_GET) ? PAGE_MODE_EDIT : PAGE_MODE_ADD); // detect page mode
-if (PAGE_MODE_POST == $mode_page) { // POST is Cancel or not Submit => cleanup
-	if(isset($_POST['submit'])) {
-		switch($_POST['submit']) {
-			case 'save':
-				break;
-			case 'cancel':
-				header($sphere_header_parent);
-				exit;
-				break;
-			default:
-				header($sphere_header_parent);
-				exit;
-				break;
-		}
-	}
-}
-
-if ((PAGE_MODE_POST == $mode_page) && isset($_POST['uuid']) && is_uuid_v4($_POST['uuid'])) {
-	$sphere_record['uuid'] = $_POST['uuid'];
-} else {
-	if ((PAGE_MODE_EDIT == $mode_page) && isset($_GET['uuid']) && is_uuid_v4($_GET['uuid'])) {
-		$sphere_record['uuid'] = $_GET['uuid'];
-	} else {
-		$mode_page = PAGE_MODE_ADD; // Force ADD
-		$sphere_record['uuid'] = uuid();
-	}
-}
-
-$sphere_array = &array_make_branch($config,'system','rcconf','param');
-if(empty($sphere_array)):
-else:
-	array_sort_key($config['system']['rcconf']['param'],'name');
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-
-$index_uuid = array_search_ex($sphere_record['uuid'], $sphere_array, "uuid");
-$mode_updatenotify = updatenotify_get_mode("rcconf", $sphere_record['uuid']); // get updatenotify mode for uuid
-$mode_record = RECORD_ERROR;
-if (false !== $index_uuid) { // uuid found
-	if ((PAGE_MODE_POST == $mode_page || (PAGE_MODE_EDIT == $mode_page))) { // POST or EDIT
-		switch ($mode_updatenotify) {
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+//	determine page mode and validate resource id
+switch($page_method):
+	case 'GET':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // modify the data of the provided resource id and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'cancel': // cancel - nothing to do
+				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				break;
+			case 'clone':
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // edit requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+			case 'save': // modify requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+		endswitch;
+		break;
+endswitch;
+/*
+ *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ */
+if(is_null($sphere->get_row_identifier_value())):
+	header($sphere->get_parent()->get_location());
+	exit;
+endif;
+/*
+ *	search resource id in sphere
+ */
+$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+/*
+ *	start determine record update mode
+ */
+$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$record_mode = RECORD_ERROR;
+if(false === $sphere->row_id): // record does not exist in config
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_NEW;
+				break;
+		endswitch;
+	endif;
+else: // record found in configuration
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_NEW:
-				$mode_record = RECORD_NEW_MODIFY;
+				$record_mode = RECORD_NEW_MODIFY;
 				break;
 			case UPDATENOTIFY_MODE_MODIFIED:
-			case UPDATENOTIFY_MODE_UNKNOWN:
-				$mode_record = RECORD_MODIFY;
+				$record_mode = RECORD_MODIFY;
 				break;
-		}
-	}
-} else { // uuid not found
-	if ((PAGE_MODE_POST == $mode_page) || (PAGE_MODE_ADD == $mode_page)) { // POST or ADD
-		switch ($mode_updatenotify) {
 			case UPDATENOTIFY_MODE_UNKNOWN:
-				$mode_record = RECORD_NEW;
+				$record_mode = RECORD_MODIFY;
 				break;
-		}
-	}
-}
-if (RECORD_ERROR == $mode_record) { // oops, someone tries to cheat, over and out
-	header($sphere_header_parent);
+		endswitch;
+	endif;
+endif;
+if(RECORD_ERROR === $record_mode): // oops, something went wrong
+	header($sphere->get_parent()->get_location());
 	exit;
-}
-$isrecordnew = (RECORD_NEW === $mode_record);
-$isrecordnewmodify = (RECORD_NEW_MODIFY === $mode_record);
-$isrecordmodify = (RECORD_MODIFY === $mode_record);
+endif;
+$isrecordnew = (RECORD_NEW === $record_mode);
+$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
+$isrecordmodify = (RECORD_MODIFY === $record_mode);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
-
-if (PAGE_MODE_POST == $mode_page) {  // We know POST is "Submit", already checked
-	unset($input_errors);
-	$sphere_record['enable'] = isset($_POST['enable']);
-	$sphere_record['name'] = isset($_POST['name']) ? trim($_POST['name']) : '';
-	$sphere_record['value'] = $_POST['value'] ?? '';
-	$sphere_record['comment'] = $_POST['comment'] ?? '';
-
-	// Input validation.
-	$reqdfields = ['name', 'value'];
-	$reqdfieldsn = [gtext('Name'), gtext('Value')];
-	$reqdfieldst = ['string', 'string'];
-
-	do_input_validation($sphere_record, $reqdfields, $reqdfieldsn, $input_errors);
-	do_input_validation_type($sphere_record, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
-
-	if ($prerequisites_ok && empty($input_errors)) {
-		if ($isrecordnew) {
-			$sphere_array[] = $sphere_record;
-			updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_NEW, $sphere_record['uuid']);
-		} else {
-			$sphere_array[$index_uuid] = $sphere_record;
-			if (UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify) {
-				updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_record['uuid']);
-			}
-		}
-		write_config();
-		header($sphere_header_parent);
-		exit;
-	}
-} else { // EDIT / ADD
-	switch ($mode_record) {
-		case RECORD_NEW:
-			$sphere_record['enable'] = true;
-			$sphere_record['name'] = '';
-			$sphere_record['value'] = '';
-			$sphere_record['comment'] = '';
-			break;
-		case RECORD_NEW_MODIFY:
-		case RECORD_MODIFY:
-			$sphere_record['enable'] = isset($sphere_array[$index_uuid]['enable']);
-			$sphere_record['name'] = isset($sphere_array[$index_uuid]['name']) ? trim($sphere_array[$index_uuid]['name']) : '';
-			$sphere_record['value'] = $sphere_array[$index_uuid]['value'] ?? '';
-			$sphere_record['comment'] = $sphere_array[$index_uuid]['comment'] ?? '';
-			break;
-	}
-}
-$pgtitle = [gtext('System'), gtext('Advanced'), gtext('rc.conf'), $isrecordnew ? gtext('Add') : gtext('Edit')];
-include 'fbegin.inc';
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(window).on("load", function() {
-<?php	// Init spinner onsubmit()?>
-	$("#iform").submit(function() { spinner(); });
-});
-//]]>
-</script>
-<?php
-$document = new co_DOMDocument();
-$document->
-	add_area_tabnav()->
-		add_tabnav_upper()->
-			ins_tabnav_record('system_advanced.php',gettext('Advanced'))->
-			ins_tabnav_record('system_email.php',gettext('Email'))->
-			ins_tabnav_record('system_email_reports.php',gettext('Email Reports'))->
-			ins_tabnav_record('system_monitoring.php',gettext('Monitoring'))->
-			ins_tabnav_record('system_swap.php',gettext('Swap'))->
-			ins_tabnav_record('system_rc.php',gettext('Command Scripts'))->
-			ins_tabnav_record('system_cron.php',gettext('Cron'))->
-			ins_tabnav_record('system_loaderconf.php',gettext('loader.conf'))->
-			ins_tabnav_record('system_rcconf.php',gettext('rc.conf'),gettext('Reload page'),true)->
-			ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'))->
-			ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
+/*
+ *	end determine record update mode
+ */
+$a_referer = [
+	$cop->get_enable(),
+	$cop->get_name(),
+	$cop->get_value(),
+	$cop->get_comment()
+];
+switch($page_mode):
+	case PAGE_MODE_ADD:
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		endforeach;
+		break;
+	case PAGE_MODE_CLONE:
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		endforeach;
+		//	adjust page mode
+		$page_mode = PAGE_MODE_ADD;
+		break;
+	case PAGE_MODE_EDIT:
+		$source = $sphere->grid[$sphere->row_id];
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_config($source);
+		endforeach;
+		break;
+	case PAGE_MODE_POST:
+		// apply post values that are applicable for all record modes
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(!isset($sphere->row[$name])):
+				$sphere->row[$name] = $_POST[$name] ?? '';
+				$input_errors[] = $referer->get_message_error();
+			endif;
+		endforeach;
+		if($prerequisites_ok && empty($input_errors)):
+			$sphere->upsert();
+			if($isrecordnew):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			endif;
+			write_config();
+			header($sphere->get_parent()->get_location()); // cleanup
+			exit;
+		endif;
+		break;
+endswitch;
+$pgtitle = [gettext('System'), gettext('Advanced'), gettext('rc.conf'), $isrecordnew ? gettext('Add') : gettext('Edit')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if(file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(get_std_save_message(0));
+endif;
+$content->add_table_data_settings()->
+	ins_colgroup_data_settings()->
+	push()->
+	addTHEAD()->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+	pop()->
+	addTBODY()->
+		c2_input_text($cop->get_name(),$sphere,true)->
+		c2_input_text($cop->get_value(),$sphere,true)->
+		c2_input_text($cop->get_comment(),$sphere);
+$buttons = $document->add_area_buttons();
+if($isrecordnew):
+	$buttons->ins_button_add();
+else:
+	$buttons->ins_button_save();
+	if($prerequisites_ok && empty($input_errors)):
+		$buttons->ins_button_clone();
+	endif;
+endif;
+$buttons->ins_button_cancel();
+$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//	additional javascript code
+$body->addJavaScript($sphere->get_js());
+$body->add_js_on_load($sphere->get_js_on_load());
+$body->add_js_document_ready($sphere->get_js_document_ready());
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
-<?php
-		if(!empty($errormsg)):
-			print_error_box($errormsg);
-		endif;
-		if(!empty($input_errors)):
-			print_input_errors($input_errors);
-		endif;
-		if(file_exists($d_sysrebootreqd_path)):
-			print_info_box(get_std_save_message(0));
-		endif;
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline_checkbox2('enable', gettext('Configuration'), $sphere_record['enable'], gettext('Enable'));
-?>
-		</thead>
-		<tbody>
-<?php
-			html_inputbox2('name', gettext('Name'), $sphere_record['name'], gettext('Name of the variable.'), true, 60);
-			html_inputbox2('value', gettext('Value'), $sphere_record['value'], gettext('The value of the variable.'), true, 60);
-			html_inputbox2('comment', gettext('Comment'), $sphere_record['comment'], gettext('You may enter a description here for your reference.'), false, 60);
-?>
-		</tbody>
-	</table>
-	<div id="submit">
-<?php
-		echo html_button('save',$isrecordnew ? gettext('Add') : gettext('Save'));
-		echo html_button('cancel',gettext('Cancel'));
-?>
-		<input name="uuid" type="hidden" value="<?=$sphere_record['uuid'];?>"/>
-	</div>
-<?php
-	include 'formend.inc';
-?>
-</form></td></tr></tbody></table>
-<?php include 'fend.inc';?>
