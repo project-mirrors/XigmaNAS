@@ -133,7 +133,7 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
  *	end determine record update mode
  */
 $a_referer = [
-	$cop->get_sessionenable(),
+	$cop->get_sessionstate(),
 	$cop->get_sessiontype(),
 	$cop->get_name(),
 	$cop->get_targetname(),
@@ -234,7 +234,7 @@ $content->add_table_data_settings()->
 	pop()->
 	addTBODY()->
 		c2_input_text($cop->get_name(),$sphere,true)->
-		c2_radio_grid($cop->get_sessionenable(),$sphere)->
+		c2_radio_grid($cop->get_sessionstate(),$sphere)->
 		c2_radio_grid($cop->get_sessiontype(),$sphere)->
 		c2_input_text($cop->get_initiatorname(),$sphere)->
 		c2_input_text($cop->get_targetname(),$sphere,true)->
