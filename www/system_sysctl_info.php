@@ -51,7 +51,9 @@ unset($output);
 mwexec2('/sbin/sysctl -adeot',$output);
 foreach($output as $row):
 	list($sysctl_name,$sysctl_type,$sysctl_info) = explode('=',$row,3);
-	$sphere->grid[$sysctl_name] = ['sysctltype' => $sysctl_type,'sysctlinfo' => $sysctl_info];
+	if(preg_match('/\S/',$sysctl_type)):
+		$sphere->grid[$sysctl_name] = ['sysctltype' => $sysctl_type,'sysctlinfo' => $sysctl_info];
+	endif;
 endforeach;
 unset($output);
 mwexec2('/sbin/sysctl -ae',$output);
