@@ -18,64 +18,62 @@ name="userdb"
 desc="Configure userdb"
 load_rc_config "$name"
 
-# Defaults
+#	defaults
 userdb_group=${userdb_group:-"/etc/group"}
 userdb_passwd=${userdb_passwd:-"/etc/passwd"}
 userdb_masterpasswd=${userdb_masterpasswd:-"/etc/master.passwd"}
 
 echo "Generating user database(s)."
 
-# Create the /etc/group file
-/usr/local/bin/xml sel -t \
-	-o "wheel:*:0:root" -n \
-	-o "daemon:*:1:" -n \
-	-o "kmem:*:2:" -n \
-	-o "sys:*:3:" -n \
-	-o "tty:*:4:" -n \
-	-o "operator:*:5:root" -n \
-	-o "mail:*:6:" -n \
-	-o "bin:*:7:" -n \
-	-o "news:*:8:" -n \
-	-o "man:*:9:" -n \
-	-o "games:*:13:" -n \
-	-o "staff:*:20:" -n \
-	-o "sshd:*:22:" -n \
-	-o "smmsp:*:25:" -n \
-	-o "mailnull:*:26:" -n \
-	-o "guest:*:31:" -n \
-	-o "bind:*:53:" -n \
-	-o "unbound:*:59:" -n \
-	-o "proxy:*:62:" -n \
-	-o "authpf:*:63:" -n \
-	-o "_pflogd:*:64:" -n \
-	-o "_dhcp:*:65:" -n \
-	-o "uucp:*:66:" -n \
-	-o "dialer:*:68:" -n \
-	-o "network:*:69:" -n \
-	-o "audit:*:77:" -n \
-	-o "www:*:80:" -n \
-	-o "hast:*:845:" -n \
-	-o "nogroup:*:65533:" -n \
-	-o "nobody:*:65534:" -n \
-	-o "ftp:*:50:" -n \
-	-m "//system/usermanagement/group" \
-		-v "concat(name,':*:',id,':')" -n \
-	-b \
-	-m "//access/group" \
-		-v "concat(name,':*:',id,':')" -n \
-	-b \
+#	create the /etc/group file
+/usr/local/bin/xml sel --template \
+	--output 'wheel:*:0:root' --nl \
+	--output 'daemon:*:1:' --nl \
+	--output 'kmem:*:2:' --nl \
+	--output 'sys:*:3:' --nl \
+	--output 'tty:*:4:' --nl \
+	--output 'operator:*:5:root' --nl \
+	--output 'mail:*:6:' --nl \
+	--output 'bin:*:7:' --nl \
+	--output 'news:*:8:' --nl \
+	--output 'man:*:9:' --nl \
+	--output 'games:*:13:' --nl \
+	--output 'staff:*:20:' --nl \
+	--output 'sshd:*:22:' --nl \
+	--output 'smmsp:*:25:' --nl \
+	--output 'mailnull:*:26:' --nl \
+	--output 'guest:*:31:' --nl \
+	--output 'bind:*:53:' --nl \
+	--output 'unbound:*:59:' --nl \
+	--output 'proxy:*:62:' --nl \
+	--output 'authpf:*:63:' --nl \
+	--output '_pflogd:*:64:' --nl \
+	--output '_dhcp:*:65:' --nl \
+	--output 'uucp:*:66:' --nl \
+	--output 'dialer:*:68:' --nl \
+	--output 'network:*:69:' --nl \
+	--output 'audit:*:77:' --nl \
+	--output 'www:*:80:' --nl \
+	--output 'hast:*:845:' --nl \
+	--output 'nogroup:*:65533:' --nl \
+	--output 'nobody:*:65534:' --nl \
+	--output 'ftp:*:50:' --nl \
+	--match '//system/usermanagement/group' \
+		--value-of "concat(name,':*:',id,':')" --nl \
+	--break \
+	--match '//access/group' \
+		--value-of "concat(name,':*:',id,':')" --nl \
+	--break \
 	 ${configxml_file} | /usr/local/bin/xml unesc > ${userdb_group}
 
-# Clean /etc/passwd file
+#	wipe /etc/passwd file
 cat /dev/null > ${userdb_passwd}
 
-# Encrypt password
+#	get encrypted root password
 _password=`configxml_get "//system/password"`
-_password_md5=`/usr/sbin/mkpw -e md5 "${_password}"`
-_password_sha=`configxml_get "//system/password"`
 
-# Create the /etc/master.passwd file
-echo "root:${_password_sha}:0:0::0:0:Charlie &:/root:/bin/tcsh
+#	create the /etc/master.passwd file
+echo "root:${_password}:0:0::0:0:Charlie &:/root:/bin/tcsh
 toor:*:0:0::0:0:Bourne-again Superuser:/root:
 daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin
 operator:*:2:5::0:0:System &:/:/usr/sbin/nologin
@@ -100,46 +98,77 @@ nobody:*:65534:65534::0:0:Unprivileged user:/nonexistent:/usr/sbin/nologin
 ftp:*:21:50::0:0:FTP user:/mnt:/sbin/nologin
 uucp:*:66:66::0:0:UUCP pseudo-user:/var/empty:/usr/sbin/nologin" > ${userdb_masterpasswd}
 
-# Generate the /etc/passwd, pwd.db and spwd.db files
+#	generate the /etc/passwd, pwd.db and spwd.db files
 /usr/sbin/pwd_mkdb -p ${userdb_masterpasswd} > /dev/null 2>&1
 
-# Add system users
-_index=`configxml_get_count "//system/usermanagement/user"`
+#	add system users
+_index=`configxml_get_count '//system/usermanagement/user'`
 while [ ${_index} -gt 0 ]
 do
-	_cmdarg=`/usr/local/bin/xml sel -t -m "//system/usermanagement/user[${_index}]" \
-		-v "concat('-n ',name,' -u ',id,' -g ',primarygroup)" \
-		-i "count(group) > 0" -o " -G " -b \
-		-m "group" \
-			-i "position() > 1" -o "," -b \
-			-v "." \
-		-b \
-		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+	_cmdarg=`/usr/local/bin/xml sel --template \
+		--match "//system/usermanagement/user[${_index}]" \
+			--value-of "concat('-n ',name,' -u ',id,' -g ',primarygroup)" \
+				--if 'count(group) > 0' \
+					--output ' -G ' \
+					--match 'group' \
+						--if 'position() > 1' \
+							--output ',' \
+						--break \
+						--value-of  '.' \
+					--break \
+				--break \
+			--if 'string-length(extraoptions) > 0' \
+				--value-of "concat(' ',extraoptions)" \
+			--break \
+		--break \
 		${configxml_file} | /usr/local/bin/xml unesc`
-
 	eval "/usr/sbin/pw user add -q ${_cmdarg} > /dev/null"
-
 	_index=$(( ${_index} - 1 ))
 done
 
-# Add configured users
-_index=`configxml_get_count "//access/user"`
+#	add configured users
+#	pw user add
+#	-n login
+#	-u id
+#	-g primarygroup
+#	-c full name [quoted]
+#	-G secondary groups [comma separated]
+#	-s shell
+#	-m [attempt to create home directory]
+#	-d homedir [quoted]
+#	-H 0 [read encrypted password from stdin]
+_index=`configxml_get_count '//access/user'`
 while [ ${_index} -gt 0 ]
 do
-	_cmdarg=`/usr/local/bin/xml sel -t -m "//access/user[${_index}]" \
-		-v "concat('-n ',login,' -u ',id,' -g ',primarygroup,' -c \"',fullname,'\"')" \
-		-i "count(group) > 0" -o " -G " -b \
-		-m "group" \
-			-i "position() > 1" -o "," -b \
-			-v "." \
-		-b \
-		-i "string-length(shell) > 0" -v "concat(' -s ',shell)" -b \
-		-i "string-length(shell) = 0" -o " -s nologin" -b \
-		-i "string-length(homedir) = 0" -o " -d /mnt" -b \
-		-i "string-length(homedir) > 0" \
-			-i "homedir[.!='/mnt']" -o " -m " -b \
-			-v "concat(' -d ',homedir)" -b \
-		-i "string-length(passwordsha) > 0" -o " -H 0" -b \
+	_cmdarg=`/usr/local/bin/xml sel --template \
+		--match "//access/user[${_index}]" \
+			--value-of "concat('-n ',login,' -u ',id,' -g ',primarygroup,' -c \"',fullname,'\"')" \
+			--if "count(group) > 0" \
+				--output ' -G ' \
+				--match 'group' \
+					--if 'position() > 1' \
+						--output ',' \
+					--break \
+					--value-of '.' \
+				--break \
+			--break \
+			--if 'string-length(shell) > 0' \
+				--value-of "concat(' -s ',shell)" \
+			--else \
+				--output ' -s nologin' \
+			--break \
+			--if 'string-length(homedir) > 0' \
+				--if "homedir[.!='/mnt']" \
+					--output ' -m' \
+				--break \
+				--value-of "concat(' -d \"',str:replace(homedir,'\"',''),'\"')" \
+			--else \
+				--output ' -d /mnt' \
+			--break \
+			--if 'string-length(passwordsha) > 0' \
+				--output ' -H 0' \
+			--break \
+		--break \
 		${configxml_file} | /usr/local/bin/xml unesc`
 	_password=`configxml_get "//access/user[${_index}]/passwordsha"`
 	eval "(/bin/echo "'${_password}'") | /usr/sbin/pw user add -q ${_cmdarg} > /dev/null"	
