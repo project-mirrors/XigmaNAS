@@ -26,12 +26,12 @@ Changes:
 - Upgrade libvncserver to 0.9.12.
 - Upgrade virtualbox-ose to 5.2.26.
 - Upgrade msmtp to 1.8.3.
-- Upgrade php to 7.3.2.
 - Upgrade samba to 4.8.9.
 - Upgrade APCu to 5.1.17.
 - Upgrade dialog to 1.3-20190211.
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
+- Upgrade php to 7.3.3.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
