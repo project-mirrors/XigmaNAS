@@ -37,72 +37,34 @@
 	background: -moz-linear-gradient(#9c9c9c, #777777 4%, #000000); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#9c9c9c, #777777 4%, #000000); /* Standard syntax */
 }
+#navhdr ul {
+	list-style: none;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
 #navhdr ul ul {
 	display: none;
-}
-#navhdr > ul > li:hover > ul,
-#navhdr > ul > li:focus > ul {
-/*	unfold submenu on event */
-	display: block;
-}
-#navhdr > ul {
-	list-style: none;
-	position: relative;
-	display: inline-table;
-	margin: 0;
-	padding: 0em 2em;
-	z-index: 5;
-}
-#navhdr > ul:after {
-	content: "";
-	clear: both;
-	display: block;
-}
-#navhdr > ul > li {
-	float: left;
-	font-weight: bold;
-	font-size: 13px;
-	position: relative;
-}
-#navhdr > ul > li:hover > a {
-/*	color of top menu when hovered */
-	background: transparent;
-	color: black;
-}
-#navhdr > ul > li:hover > a > img {
-/*	invert image colors when hovered */
-	-webkit-filter: invert(100%);
-	filter: invert(100%);
-}
-#navhdr > ul > li > a {
-	display: block;
-	text-decoration: none;
-	padding: 0.3em 0.5em;
-	color: white;
-}
-#navhdr > ul > li > a > img {
-	vertical-align: text-bottom;
-}
-#navhdr ul ul {
+	flex-direction: column;
+	align-items: stretch;
 	padding: 0;
 	position: absolute;
-	top: 100%;
 	background: #101010;
 	background: -webkit-linear-gradient(#101010, #95a7c0 70%);
 	background: -o-linear-gradient(#101010, #95a7c0 70%);
 	background: -moz-linear-gradient(#101010, #95a7c0 70%);
 	background: linear-gradient(#101010, #95a7c0 70%);
 	opacity: 0.98;
-	border: 1px solid black;
-	font-size: 11px;
+	border: 0.091em solid black;
+	font-size: 1em;
 	font-weight: normal;
 	min-width: 14em;
-	list-style: none;
 	z-index: 10;
 }
-#navhdr ul ul li {
-	float: none; 
-	position: relative;
+#navhdr ul ul span.tabseparator {
+	background: #aaaaaa;
+	display: block;
+	line-height: 0.091em;
+	height: 0.091em;
 }
 #navhdr ul ul li a {
 	display: block;
@@ -114,19 +76,50 @@
 	text-decoration: none;
 	color: white;
 }
+#navhdr > ul {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin: 0;
+	padding: 0em 2em;
+	z-index: 5;
+}
+#navhdr > ul > li {
+	font-weight: bold;
+	font-size: 1.182em;
+}
+#navhdr > ul > li > a {
+	display: block;
+	text-decoration: none;
+	padding: 0.3em 0.5em;
+	color: #cccccc;
+}
+#navhdr > ul:hover > li > a {
+	color: #ffffff;
+}
+#navhdr > ul > li > a > img {
+	vertical-align: text-bottom;
+	-webkit-filter: brightness(80%);
+	filter:brightness(80%);
+}
+#navhdr > ul:hover > li > a > img{
+	-webkit-filter: brightness(100%);
+	filter:brightness(100%);
+}
+#navhdr > ul > li:hover > a > img {
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+#navhdr > ul > li:hover > ul,
+#navhdr > ul > li:focus > ul {
+	display: flex;
+}
+#navhdr > ul > li:hover > a,
 #navhdr ul ul li a:hover {
 	color: black;
-}
-/*	background of top menu when hovered */
-#navhdr > ul > li:hover > a, #navhdr ul ul li a:hover {
+	background: white;
 	background: -webkit-linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
 	background: -o-linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
 	background: -moz-linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
 	background: linear-gradient(#ffffff 34%, #cccccc 78%, #e1e1e1);
-}
-#navhdr ul span.tabseparator {
-	background: #AAAAAA;
-	display: block;
-	line-height: 1px;
-	height: 1px;
 }
