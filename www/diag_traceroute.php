@@ -54,9 +54,9 @@ if($_POST):
 		$resolve = isset($_POST['resolve']);
 		$max_ttl = $_POST['max_ttl'];
 		if($resolve):
-			$cmd = sprintf('/usr/sbin/traceroute -w 2 -m %1$s %2$s',escapeshellarg($max_ttl),escapeshellarg($target));
+			$cmd = sprintf('/usr/sbin/traceroute -w 2 -m %1$s %2$s 2>&1',escapeshellarg($max_ttl),escapeshellarg($target));
 		else:
-			$cmd = sprintf('/usr/sbin/traceroute -n -w 2 -m %1$s %2$s',escapeshellarg($max_ttl),escapeshellarg($target));
+			$cmd = sprintf('/usr/sbin/traceroute -n -w 2 -m %1$s %2$s 2>&1',escapeshellarg($max_ttl),escapeshellarg($target));
 		endif;
 	endif;
 endif;
@@ -67,13 +67,14 @@ if(!$do_traceroute):
 endif;
 $pgtitle = [gtext('Diagnostics'),gtext('Traceroute')];
 include 'fbegin.inc';
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('diag_ping.php',gettext('Ping'))->
+			ins_tabnav_record('diag_traceroute.php',gettext('Traceroute'),gettext('Reload page'),true);
+$document->render();
 ?>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabinact"><a href="diag_ping.php"><span><?=gtext('Ping');?></span></a></li>
-		<li class="tabact"><a href="diag_traceroute.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Traceroute');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
 <form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
@@ -128,9 +129,8 @@ include 'fbegin.inc';
 				<td class="celldata">
 <?php
 					echo '<pre class="cmdoutput">';
-					mwexec2($cmd,$rawdata);
-					echo htmlspecialchars(implode(PHP_EOL,$rawdata));
-					unset($rawdata);
+					flush();
+					system($cmd);
 					echo '</pre>';
 ?>
 				</td>
@@ -143,4 +143,3 @@ include 'fbegin.inc';
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
