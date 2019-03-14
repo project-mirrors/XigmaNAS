@@ -62,9 +62,9 @@ if($_POST):
 		$count = $_POST['count'];
 		$ifaddr = get_interface_addr($interface);
 		if($ifaddr):
-			$cmd = sprintf('/sbin/ping -S %3$s -c %1$s %2$s',$count,escapeshellarg($target),$ifaddr);
+			$cmd = sprintf('/sbin/ping -S %3$s -c %1$s %2$s 2>&1',$count,escapeshellarg($target),$ifaddr);
 		else:
-			$cmd = sprintf('/sbin/ping -c %1$s %2$s',$count,escapeshellarg($target));
+			$cmd = sprintf('/sbin/ping -c %1$s %2$s 2>&1',$count,escapeshellarg($target));
 		endif;
 	endif;
 endif;
@@ -75,13 +75,14 @@ if(!$do_ping):
 endif;
 $pgtitle = [gtext('Diagnostics'),gtext('Ping')];
 include 'fbegin.inc';
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('diag_ping.php',gettext('Ping'),gettext('Reload page'),true)->
+			ins_tabnav_record('diag_traceroute.php',gettext('Traceroute'));
+$document->render();
 ?>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="diag_ping.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Ping');?></span></a></li>
-		<li class="tabinact"><a href="diag_traceroute.php"><span><?=gtext('Traceroute');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
 <form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if (!empty($input_errors)):
@@ -115,7 +116,7 @@ include 'fbegin.inc';
 	</div>
 	<div id="remarks">
 <?php
-		html_remark('note',gtext('Note'),gtext('Ping may take a while, please be patient.'));
+		html_remark2('note',gettext('Note'),gettext('Ping may take a while, please be patient.'));
 ?>
 	</div>
 <?php
@@ -137,9 +138,8 @@ include 'fbegin.inc';
 				<td class="celldata">
 <?php
 					echo '<pre class="cmdoutput">';
-					mwexec2($cmd,$rawdata);
-					echo implode(PHP_EOL,$rawdata);
-					unset($rawdata);
+					flush();
+					system($cmd);
 					echo '</pre>';
 ?>
 				</td>
@@ -152,4 +152,3 @@ include 'fbegin.inc';
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
