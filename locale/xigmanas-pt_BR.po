@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
-"PO-Revision-Date: 2019-01-14 16:01+0000\n"
-"Last-Translator: Pablo Andres Andalaft Tarodo <Unknown>\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"PO-Revision-Date: 2019-03-13 18:14+0000\n"
+"Last-Translator: Andre Luis Mendes <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:26+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "X-Poedit-Country: Brazilian Portuguese\n"
 "Language: \n"
 "X-Poedit-Language: Brazilian Portuguese\n"
@@ -106,6 +106,7 @@ msgstr "%s usado de %s"
 msgid ""
 "%s would like to thank the authors of this software for their efforts."
 msgstr ""
+"%s gostaria de agradecer aos autores deste programa pelo seus esforços"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -204,16 +205,16 @@ msgid "1 or more disks are required to build a RAID-1 volume."
 msgstr "1 ou mais discos são necessários para construir um volume RAID-1."
 
 msgid "1.8\""
-msgstr ""
+msgstr "1.8 polegadas"
 
 msgid "16 KiB"
-msgstr ""
+msgstr "16 KiB"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 KiB"
-msgstr ""
+msgstr "2 KiB"
 
 msgid "2 or more disks are required to build a RAID-0 volume."
 msgstr "2 ou mais discos são necessários para construir um volume RAID-0"
@@ -222,7 +223,7 @@ msgid "2 or more disks are required to build a RAID-1 volume."
 msgstr "2 ou mais discos são necessários para construir um volume RAID-1"
 
 msgid "2.5\""
-msgstr ""
+msgstr "2.5 polegadas"
 
 msgid "3"
 msgstr "3"
@@ -231,34 +232,34 @@ msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "3 ou mais discos são necessários para construir um volume RAID-5."
 
 msgid "3.5\""
-msgstr ""
+msgstr "3.5 polegadas"
 
 msgid "32 KiB"
-msgstr ""
+msgstr "32 KiB"
 
 msgid "4 KiB"
-msgstr ""
+msgstr "4 KiB"
 
 msgid "4KB wrapper"
 msgstr "4KB wrapper"
 
 msgid "5.25\""
-msgstr ""
+msgstr "5.25 polegadas"
 
 msgid "512 Bytes"
-msgstr ""
+msgstr "512 Bytes"
 
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
-msgstr ""
+msgstr "64 KiB"
 
 msgid "69"
 msgstr "69"
 
 msgid "8 KiB"
-msgstr ""
+msgstr "8 KiB"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Tag da VLAN 802.1Q (Entre 1 e 4094)."
@@ -428,6 +429,9 @@ msgid ""
 "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
 "the x86 instruction set architecture for microprocessors."
 msgstr ""
+"AES-NI (do inglês - Advanced Encryption Standard New Instructions, em "
+"português - Padrão Avançado de Encriptação - Instruções Novas) é uma "
+"extensão ao conjunto de instruções da arquitetura de microprocessadores x86."
 
 msgid "AFP"
 msgstr "AFP"
@@ -494,7 +498,7 @@ msgstr ""
 "erro foi detectado, ou se um comando S.M.A.R.T. para um disco falhar."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Ativa o dispositivo selecionado"
 
 msgid "Active"
 msgstr "Ativo"
@@ -521,7 +525,7 @@ msgid "Add"
 msgstr "Adicionar"
 
 msgid "Add Auth Group"
-msgstr ""
+msgstr "Adiciona o grupo Auth"
 
 msgid "Add Bridge"
 msgstr "Adicionar Bridge"
@@ -530,7 +534,7 @@ msgid "Add CARP"
 msgstr "Adicionar CARP"
 
 msgid "Add CHAP User"
-msgstr ""
+msgstr "Adiciona o usuário CHAP"
 
 msgid "Add Dataset"
 msgstr "Adicionar Conjunto de Dados"
@@ -548,25 +552,25 @@ msgid "Add Host"
 msgstr "Adicionar máquina"
 
 msgid "Add Initiator Name"
-msgstr ""
+msgstr "Adiciona o nome do Iniciador"
 
 msgid "Add Initiator Portal"
-msgstr ""
+msgstr "Adiciona o portal do Iniciador"
 
 msgid "Add LAGG"
 msgstr "Adicionar LAGG"
 
 msgid "Add LUN"
-msgstr ""
+msgstr "Adiciona o LUN"
 
 msgid "Add LUN Record"
-msgstr ""
+msgstr "Adiciona o registro do LUN"
 
 msgid "Add Listen Record"
-msgstr ""
+msgstr "Adiciona o registro do Escutador"
 
 msgid "Add Mutual CHAP User"
-msgstr ""
+msgstr "Adiciona o usuário mútuo CHAP"
 
 msgid "Add NFS Share"
 msgstr "Adicionar Compartilhamento NFS"
@@ -575,16 +579,16 @@ msgid "Add Option"
 msgstr "Adicionar Opção"
 
 msgid "Add Option Record"
-msgstr ""
+msgstr "Adiciona o registro opcional"
 
 msgid "Add Pool"
 msgstr "Adicionar Pool"
 
 msgid "Add Port Record"
-msgstr ""
+msgstr "Adiciona o registro porta"
 
 msgid "Add Portal Group"
-msgstr ""
+msgstr "Adiciona o grupo portal"
 
 msgid "Add RAID"
 msgstr "Adicionar RAID"
@@ -614,7 +618,7 @@ msgid "Add Snapshot"
 msgstr "Adicionar Snapshot"
 
 msgid "Add Target"
-msgstr ""
+msgstr "Adiciona alvo"
 
 msgid "Add URL"
 msgstr "Adicionar URL"
@@ -635,7 +639,7 @@ msgid "Add WLAN"
 msgstr "Adicionar WLAN"
 
 msgid "Add WebDAV Record"
-msgstr ""
+msgstr "Adiciona o registro WebDAV"
 
 msgid "Add a cache device to a pool"
 msgstr "Adicionar um dispositivo de cache ao pool"
@@ -668,10 +672,10 @@ msgid "Add extent"
 msgstr "Adicionar 'extent'"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "Adiciona o iniciador iSCSI"
 
 msgid "Add iSNS Server"
-msgstr ""
+msgstr "Adiciona o servidor iSNS"
 
 msgid "Add initiator group"
 msgstr "Adicionar grupo iniciador"
@@ -695,16 +699,19 @@ msgid "Add self-test"
 msgstr "Adicionar auto-teste"
 
 msgid "Add sysctl variable"
-msgstr ""
+msgstr "Adiciona uma variável sysctl"
 
 msgid "Add target"
 msgstr "Adicionar destino"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "Adiciona o dispositivo selecionado a um espelho existente"
 
 msgid "Additional Group"
 msgstr "Adicionar Grupo"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "Adicionar Rede"
@@ -803,7 +810,7 @@ msgid "Algorithm"
 msgstr "Algoritmo"
 
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 msgid "All"
 msgstr "Todos"
@@ -882,7 +889,7 @@ msgstr ""
 "downloads)."
 
 msgid "Allow consecutive read/writes to be issued in parallel"
-msgstr ""
+msgstr "Permite leitura/escrita consecutivas sejam iniciadas em paralelo."
 
 msgid "Allow new files to be created."
 msgstr "Permitir a criação de novos arquivos."
@@ -1180,19 +1187,19 @@ msgid "Auth Group"
 msgstr "Grupo de Autenticação"
 
 msgid "Auth Group Name"
-msgstr ""
+msgstr "Nome do grupo Auth"
 
 msgid "Auth Group Settings"
 msgstr "Configurações de Autenticação de Grupo"
 
 msgid "Auth Group is locked"
-msgstr ""
+msgstr "Grupo Auth está bloqueado"
 
 msgid "Auth Group is marked for deletion"
-msgstr ""
+msgstr "Grupo Auth foi marcado para remoção"
 
 msgid "Auth Group is unlocked"
-msgstr ""
+msgstr "Grupo Auth foi desbloqueado"
 
 msgid "Auth Groups"
 msgstr "Grupos de Autenticação"
@@ -1206,7 +1213,7 @@ msgid "Auth Method"
 msgstr "Método de Autenticação"
 
 msgid "Auth Type"
-msgstr ""
+msgstr "Tipo Auth"
 
 msgid "Authenticate Path & Realm"
 msgstr "Autenticar caminho e domínio"
@@ -1284,7 +1291,7 @@ msgid "Avail"
 msgstr "Dispon."
 
 msgid "Avail Threshold"
-msgstr ""
+msgstr "Limite disponível"
 
 msgid "Available"
 msgstr "Disponível"
@@ -1310,7 +1317,7 @@ msgid "Back"
 msgstr "Voltar"
 
 msgid "Backend"
-msgstr ""
+msgstr "Programa subordinado"
 
 msgid "Background"
 msgstr "Plano de Fundo"
@@ -1458,7 +1465,7 @@ msgid "Blank Time"
 msgstr "Horário Vazio"
 
 msgid "Block"
-msgstr ""
+msgstr "Bloco"
 
 msgid "Block Size"
 msgstr "Tamanho do Block"
@@ -1551,10 +1558,10 @@ msgid "CACHE"
 msgstr "CACHE"
 
 msgid "CAM Target Layer"
-msgstr ""
+msgstr "Camada alvo CAM"
 
 msgid "CAM Target Layer / iSCSI Target"
-msgstr ""
+msgstr "Camada alvo CAM / Alvo iSCSI"
 
 msgid "CARP"
 msgstr "CARP"
@@ -1583,10 +1590,10 @@ msgid "CCMP TKIP"
 msgstr "CCMP TKIP"
 
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
@@ -1601,25 +1608,25 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "Nome do CHAP"
 
 msgid "CHAP Secret"
-msgstr ""
+msgstr "Segredo do CHAP"
 
 msgid "CHAP User is locked"
-msgstr ""
+msgstr "Usuário CHAP está bloqueado"
 
 msgid "CHAP User is marked for deletion"
-msgstr ""
+msgstr "Usuário CHAP foi marcado para remoção"
 
 msgid "CHAP User is unlocked"
-msgstr ""
+msgstr "Usuário CHAP foi desbloqueado"
 
 msgid "CHAP Users"
 msgstr "Usuários CHAP"
 
 msgid "CHAP-Mutual"
-msgstr ""
+msgstr "CHAP Mútuo"
 
 msgid "CIFS/SMB"
 msgstr "CIFS/SMB"
@@ -1698,10 +1705,10 @@ msgstr ""
 "leitura/escrita)"
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CTL LUN"
-msgstr ""
+msgstr "CTL LUN"
 
 msgid "Calibration Battery"
 msgstr "Calibração da Bateria"
@@ -1852,7 +1859,7 @@ msgid "Clear device errors"
 msgstr "apagar erros de dispositivos"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Limpar os metadados do dispositivo selecionado"
 
 msgid "Client"
 msgstr "Cliente"
@@ -2403,7 +2410,7 @@ msgid "Current Password"
 msgstr "Senha Atual"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Configuração corrente"
 
 msgid "Current Version"
 msgstr "Versão Atual"
@@ -2491,7 +2498,7 @@ msgid "DVD"
 msgstr "DVD"
 
 msgid "DVD-ROM"
-msgstr ""
+msgstr "DVD-ROM"
 
 msgid "Daemon"
 msgstr "Daemon"
@@ -2512,7 +2519,7 @@ msgid "Data Integrity"
 msgstr "Integridade de Dados"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tipo de dados"
 
 msgid "Data digest"
 msgstr "Resumo de dados"
@@ -2663,7 +2670,7 @@ msgid "Delete Login Info"
 msgstr "Excluir informações de login"
 
 msgid "Delete Selected Auth Groups"
-msgstr ""
+msgstr "Remover grupos Auth selecionados"
 
 msgid "Delete Selected Bridges"
 msgstr "Excluir Pontes Selecionadas"
@@ -2672,7 +2679,7 @@ msgid "Delete Selected CARPs"
 msgstr "Excluir CARPs selecionados"
 
 msgid "Delete Selected CHAP Users"
-msgstr ""
+msgstr "Remover usuários CHAP selecionados"
 
 msgid "Delete Selected Commands"
 msgstr "Excluir comandos selecionados"
@@ -2690,10 +2697,10 @@ msgid "Delete Selected Groups"
 msgstr "Excluir grupos selecionados"
 
 msgid "Delete Selected Initiator Names"
-msgstr ""
+msgstr "Remover os nomes de iniciadores selecionados"
 
 msgid "Delete Selected Initiator Portals"
-msgstr ""
+msgstr "Remover os portais de iniciadores selecionados"
 
 msgid "Delete Selected Jobs"
 msgstr "Excluir tarefas selecionadas"
@@ -2702,10 +2709,10 @@ msgid "Delete Selected LAGGs"
 msgstr "Excluir LAGGs selecionados"
 
 msgid "Delete Selected LUN Records"
-msgstr ""
+msgstr "Remover os registros de LUN selecionados"
 
 msgid "Delete Selected LUNs"
-msgstr ""
+msgstr "Remover os LUNs selecionados"
 
 msgid "Delete Selected Listen Records"
 msgstr ""
@@ -2720,7 +2727,7 @@ msgid "Delete Selected Notifier"
 msgstr "Excluir notificador selecionado"
 
 msgid "Delete Selected Option Records"
-msgstr ""
+msgstr "Remover os registros opcionais selecionados"
 
 msgid "Delete Selected Options"
 msgstr "Excluir opções selecionadas"
@@ -2729,7 +2736,7 @@ msgid "Delete Selected Pools"
 msgstr "Excluir pools selecionadas"
 
 msgid "Delete Selected Port Records"
-msgstr ""
+msgstr "Remover os registros de portas selecionados"
 
 msgid "Delete Selected Portal Groups"
 msgstr ""
@@ -2762,7 +2769,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Excluir Snapshots Selecionadas"
 
 msgid "Delete Selected Targets"
-msgstr ""
+msgstr "Remover os alvos selecionados"
 
 msgid "Delete Selected User Accounts"
 msgstr "Excluir contas de usuários selecionadas"
@@ -3144,6 +3151,9 @@ msgstr "Desative a compactação de linhas repetitivas."
 msgid "Disabled"
 msgstr "Desativado(a)"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Descartar - Descartar ACL"
 
@@ -3153,6 +3163,9 @@ msgstr "Descartar - Não herdar entradas"
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Alvo iSCSI identificado para %s"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "Grupo de Autenticação de Descoberta"
@@ -3789,6 +3802,9 @@ msgstr "Controlador"
 msgid "Driver List"
 msgstr "Lista de Drivers"
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr "Parâmetro do Driver"
 
@@ -4266,6 +4282,11 @@ msgstr "Habilitar a listagem de módulos."
 msgid "Enable nested virtualization"
 msgstr "Ativar virtualização aninhada"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "Habilitar a troca com associado (PEX)."
 
@@ -4376,6 +4397,9 @@ msgstr "Habilitar o modo de escrita em cache."
 msgid "Enabled"
 msgstr "Habilitado"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4445,6 +4469,9 @@ msgid "Enter Subject"
 msgstr ""
 
 msgid "Enter Universally Unique Identifier"
+msgstr ""
+
+msgid "Enter Value"
 msgstr ""
 
 msgid "Enter Volume Name"
@@ -6796,6 +6823,9 @@ msgstr ""
 msgid "Mutual User"
 msgstr ""
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -6999,6 +7029,9 @@ msgstr "Não"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr ""
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr ""
 
@@ -7032,7 +7065,13 @@ msgstr ""
 msgid "No LUNs found."
 msgstr ""
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
+msgstr ""
+
+msgid "No Placeholder"
 msgstr ""
 
 msgid "No Portal Group has been configured."
@@ -7098,6 +7137,15 @@ msgstr "Nenhum arquivo foi enviado."
 msgid "No information available."
 msgstr ""
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "Novo disco não foi encontrado."
 
@@ -7105,6 +7153,9 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
+msgstr ""
+
+msgid "No options found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -7117,6 +7168,9 @@ msgid "No pools have been selected"
 msgstr ""
 
 msgid "No portal groups found."
+msgstr ""
+
+msgid "No ports found."
 msgstr ""
 
 msgid "No records found."
@@ -7367,9 +7421,6 @@ msgid "Option is locked"
 msgstr ""
 
 msgid "Option is marked for deletion"
-msgstr ""
-
-msgid "Option is protected"
 msgstr ""
 
 msgid "Option is unlocked"
@@ -9092,6 +9143,12 @@ msgstr ""
 msgid "Services"
 msgstr "Serviços"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr ""
 
@@ -9216,6 +9273,14 @@ msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
 msgstr ""
 
 msgid ""
@@ -10471,7 +10536,7 @@ msgstr ""
 "O nome de host só pode conter caracteres de a-z, A-Z e 0-9, \"-\" , \"_\" e "
 "\".\"."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
 
 msgid "The initial digest mode negotiated with the initiator."
@@ -10900,13 +10965,6 @@ msgstr ""
 "Estas opções serão adicionadas a /boot/loader.conf.local. Isto permitirá "
 "especificar parâmetros a serem passados ao kernel, e módulos adicionais a "
 "serem carregados."
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Esta opcões serão adicionadas ao /etc/rc.conf. Isto permitirá sobrescrever "
-"as opções usadas por vários scripts genéricos de inicialização."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -12874,3 +12932,10 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Esta opcões serão adicionadas ao /etc/rc.conf. Isto permitirá sobrescrever "
+#~ "as opções usadas por vários scripts genéricos de inicialização."

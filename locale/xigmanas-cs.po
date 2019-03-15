@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
-"PO-Revision-Date: 2019-01-18 20:28+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"PO-Revision-Date: 2019-03-13 13:48+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:25+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -711,6 +711,9 @@ msgstr "Přidat vybrané zařízení k již vytvořenému zrcadlu."
 
 msgid "Additional Group"
 msgstr "Další skupina"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "Další síť"
@@ -3204,6 +3207,9 @@ msgstr "Vypnout kompresi opakujících se řádků."
 msgid "Disabled"
 msgstr "Vypnuto"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Zahodit – zahodit ACL seznam"
 
@@ -3213,6 +3219,9 @@ msgstr "Zahodit – nepřebírat položky"
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Zjištěn iSCSI cíl pro %s"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "Skupina pověřených pro zjišťování (discovery)"
@@ -3855,6 +3864,9 @@ msgstr "Ovladač"
 msgid "Driver List"
 msgstr "Seznam ovladačů"
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr "Parametry ovladače"
 
@@ -4330,6 +4342,11 @@ msgstr "Umožnit výpisování modulů."
 msgid "Enable nested virtualization"
 msgstr "Zapnout vnořenou virtualizaci"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "Umožnit výměnu stran (PEX)."
 
@@ -4441,6 +4458,9 @@ msgstr "Zapnout režim zápisu s mezipamětí."
 msgid "Enabled"
 msgstr "Zapnuto"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4513,6 +4533,9 @@ msgstr "Zadejte předmět"
 
 msgid "Enter Universally Unique Identifier"
 msgstr "Zadejte univerzálně neopakující se identifikátor"
+
+msgid "Enter Value"
+msgstr ""
 
 msgid "Enter Volume Name"
 msgstr "Zadejte název svazku"
@@ -5692,7 +5715,7 @@ msgid "Import on-disk ZFS config"
 msgstr "Import nastavení ZFS přímo z disku"
 
 msgid "Import pool in read-only mode"
-msgstr ""
+msgstr "Importovat fond v režimu pouze pro čtení"
 
 msgid "Import using GPT ID"
 msgstr "Importovat pomocí GPT identifikátoru"
@@ -6337,29 +6360,40 @@ msgid ""
 "Link chap configuration to auth-groups. Note that an auth-group may contain "
 "either chap or chap-mutual entries, but not both."
 msgstr ""
+"Spojit chap ověřování se skupinami ověřování. Poznamenejme, že skupina "
+"ověření může obsahovat buď položky chap nebo vzájemného chap, ale ne obojí."
 
 msgid ""
 "Link initiator-name to auth-groups. An Initiator with this name will be "
 "allowed to connect to the selected auth-groups."
 msgstr ""
+"Spojit název iniciátoru se skupinami ověření. Iniciátoru s tímto názvem bude "
+"umožněno připojení k vybraným skupinám ověření."
 
 msgid ""
 "Link initiator-portal to auth-groups. An Initiator matching this address "
 "will be allowed to connect to the selected auth-groups."
 msgstr ""
+"Spojit portál iniciátoru se skupinami ověření. Iniciátoru odpovídajícímu "
+"této adrese bude umožněno připojení k vybraným skupinám ověření."
 
 msgid ""
 "Link listener to portal groups. Selected portal groups will listen on this "
 "address for incoming connections."
 msgstr ""
+"Spojit očekávaní spojení se skupinou portálu. Označené skupiny portálu budou "
+"očekávat příchozí spojení na této adrese."
 
 msgid ""
 "Link mutual-chap configuration to auth-groups. Note that an auth-group may "
 "contain either chap or chap-mutual entries, but not both."
 msgstr ""
+"Spojit nastavení vzájemného chap se skupinami ověření. Poznamenejme, že "
+"skupina ověření může obsahovat buď položky chap nebo vzájemného chap "
+"ověřování, ale ne obojí."
 
 msgid "Link this option to selected portal-groups."
-msgstr ""
+msgstr "Připojit tuto volbu k vybraným skupinám portálu."
 
 msgid "List"
 msgstr "Seznam"
@@ -6991,6 +7025,9 @@ msgstr "Tajemství pro vzájemné"
 msgid "Mutual User"
 msgstr "Uživatel pro vzájemné"
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA identifikátor"
 
@@ -7199,6 +7236,9 @@ msgstr "Ne"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr "Ne (výchozí) – vypne propagování podporu Time Machine."
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr "Není nastavený žádný DNS server."
 
@@ -7231,10 +7271,16 @@ msgid "No JBOD information found."
 msgstr "Nebyly nalezeny žádné informace o JBOD."
 
 msgid "No LUNs found."
+msgstr "Nenalezeny žádné LUN."
+
+msgid "No Mutual-CHAP users found."
 msgstr ""
 
 msgid "No Parity"
 msgstr "Bez parity"
+
+msgid "No Placeholder"
+msgstr ""
 
 msgid "No Portal Group has been configured."
 msgstr "Není nastavená žádná skupina portálu."
@@ -7255,7 +7301,7 @@ msgid "No additional parameters"
 msgstr "Žádné další parametry"
 
 msgid "No auth groups found."
-msgstr ""
+msgstr "Nenalezeny žádné skupiny ověření"
 
 msgid "No configured Auth Group."
 msgstr "Nejsou nastavené žádné ověřovací skupiny."
@@ -7299,6 +7345,15 @@ msgstr "Nebyl nahrán žádný soubor."
 msgid "No information available."
 msgstr "Nejsou dostupné žádné informace."
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "Nebyly nalezeny žádné nové disky."
 
@@ -7308,6 +7363,9 @@ msgstr "Nebyly nalezeny žádné nové šifrované jednotky datového úložišt
 msgid "No new software RAID disk found."
 msgstr ""
 "Nebyly nalezeny žádné nové jednotky datového úložiště softwarového RAID pole."
+
+msgid "No options found."
+msgstr ""
 
 msgid "No pool devices have been selected"
 msgstr "Nebyla vybrána žádná zařízení fondu"
@@ -7319,6 +7377,9 @@ msgid "No pools have been selected"
 msgstr "Nebyly vybrány žádné fondy"
 
 msgid "No portal groups found."
+msgstr "Nebyly nalezeny žádné skupiny portálu."
+
+msgid "No ports found."
 msgstr ""
 
 msgid "No records found."
@@ -7340,7 +7401,7 @@ msgid "No suitable virtual devices found."
 msgstr "Nebyla nalezena žádná vhodná virtuální zařízení."
 
 msgid "No targets found."
-msgstr ""
+msgstr "Nebyly nalezeny žádné cíle."
 
 msgid "No virtual devices have been selected"
 msgstr "Nebyla vybrána žádná virtuální zařízení"
@@ -7578,9 +7639,6 @@ msgstr "Předvolba je uzamčena"
 
 msgid "Option is marked for deletion"
 msgstr "Předvolba je označena k vymazání"
-
-msgid "Option is protected"
-msgstr "Předvolba je chráněna"
 
 msgid "Option is unlocked"
 msgstr "Předvolba je odemčena"
@@ -8716,7 +8774,7 @@ msgid "Resistance caused by friction in mechanical parts while operating."
 msgstr "Zvýšený třecí odpor mezi mechanickými částmi během provozu."
 
 msgid "Resize pool to the maximum possible size"
-msgstr ""
+msgstr "Zvětšit fond na největší možnou velikost"
 
 msgid "Resolve IP"
 msgstr "Zjistit název k IP adrese"
@@ -9357,13 +9415,19 @@ msgid "Service"
 msgstr "Služba"
 
 msgid "Service Active"
-msgstr ""
+msgstr "Služba aktivní"
 
 msgid "Service Enabled"
 msgstr "Služba poskytována"
 
 msgid "Services"
 msgstr "Služby"
+
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
 
 msgid "Set UID"
 msgstr "Nastavit spouštění jako uživatel (set-UID)"
@@ -9511,6 +9575,14 @@ msgstr ""
 "Nastaví otisk hlavičky, kontrolní součet vypočítaný z hlavičky iSCSI PDU a "
 "ověřovaný při přijetí. Otisk může být buď „žádný“, nebo „CRC32C“. Výchozí je "
 "„žádný“."
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
+msgstr ""
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -10857,10 +10929,8 @@ msgstr ""
 "čárek!) – „a“ až „z“ a „A“ až „Z“ – arabských číslic „0“ (nula) až „9“ a "
 "dále znaků „-“ (spojovník), „_“ (podtržítko) a „.“ (tečka)."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
-"Identifikátor (včetně hranatých závorek) je hlášen nástrojem smartctl jako "
-"neznámý."
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr ""
@@ -11327,13 +11397,6 @@ msgstr ""
 "Tyto volby budou přidány do souboru /boot/loader.conf.local. Takto je možné "
 "zadat parametry, které mají být předány jádru a zavádět tak další moduly."
 
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Tyto předvolby budou přidány do /etc/rc.conf. Toto umožňuje přepsat "
-"předvolby použité různými obecnými zaváděcími skripty."
-
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Tyto parametry jsou přidány k %s."
@@ -11344,7 +11407,7 @@ msgstr "Tyto parametry jsou přidány do sekce [Global] v %s"
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
-msgstr ""
+msgstr "Tyto parametry jsou přidány do sekce [Share] %s."
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -13292,10 +13355,10 @@ msgid "iSCSI Target"
 msgstr "iSCSI cíl"
 
 msgid "iSCSI Target CTL"
-msgstr ""
+msgstr "CTL iSCSI cíle"
 
 msgid "iSCSI Target ISTGT"
-msgstr ""
+msgstr "iSTGT iSCSI cíle"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Řadič logických jednotek iSCSI cíle"
@@ -13447,3 +13510,18 @@ msgstr "využito z"
 
 msgid "visible"
 msgstr "viditelné"
+
+#~ msgid "Option is protected"
+#~ msgstr "Předvolba je chráněna"
+
+#~ msgid "The identifier reported as unknown by smartctl including brackets."
+#~ msgstr ""
+#~ "Identifikátor (včetně hranatých závorek) je hlášen nástrojem smartctl jako "
+#~ "neznámý."
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Tyto předvolby budou přidány do /etc/rc.conf. Toto umožňuje přepsat "
+#~ "předvolby použité různými obecnými zaváděcími skripty."

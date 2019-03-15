@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
 "PO-Revision-Date: 2019-02-23 14:10+0000\n"
 "Last-Translator: lijinbiao <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:16+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:27+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -655,6 +655,9 @@ msgstr "将选中设备添加到已经存在的镜像中。"
 
 msgid "Additional Group"
 msgstr "附加组"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "附加网络"
@@ -2943,6 +2946,9 @@ msgstr "禁用重复行的压缩。"
 msgid "Disabled"
 msgstr "关闭"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "丢弃 - 丢弃ACL"
 
@@ -2952,6 +2958,9 @@ msgstr "丢弃 - 不继承条目"
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "搜寻到 %s 的 iSCSI 目标。"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "目标搜索认证组"
@@ -3561,6 +3570,9 @@ msgstr "驱动程式"
 msgid "Driver List"
 msgstr "驱动器列表"
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr "驱动器参数"
 
@@ -4028,6 +4040,11 @@ msgstr "开启模块列表。"
 msgid "Enable nested virtualization"
 msgstr "启用嵌套虚拟化"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "启用对等交换(PEX)"
 
@@ -4128,6 +4145,9 @@ msgstr "开启写入缓存模式。"
 msgid "Enabled"
 msgstr "已启用"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr "启用此选项可能会使系统面临额外的安全隐患！"
@@ -4198,6 +4218,9 @@ msgstr "输入主题"
 
 msgid "Enter Universally Unique Identifier"
 msgstr "输入通用唯一标识符"
+
+msgid "Enter Value"
+msgstr ""
 
 msgid "Enter Volume Name"
 msgstr "输入卷名称"
@@ -6494,6 +6517,9 @@ msgstr "相互秘密"
 msgid "Mutual User"
 msgstr "相互用户"
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA标识符"
 
@@ -6690,6 +6716,9 @@ msgstr "否"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr "否（默认） - 禁用广播Time Machine支持。"
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr "未配置DNS服务器。"
 
@@ -6723,8 +6752,14 @@ msgstr "未找到JBOD信息。"
 msgid "No LUNs found."
 msgstr "找不到LUN"
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "不相等"
+
+msgid "No Placeholder"
+msgstr ""
 
 msgid "No Portal Group has been configured."
 msgstr "未配置任何门户组。"
@@ -6789,6 +6824,15 @@ msgstr "没有文件被上传。"
 msgid "No information available."
 msgstr "无可用信息。"
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "没有发现新的硬盘。"
 
@@ -6797,6 +6841,9 @@ msgstr "未找到新的加密磁盘。"
 
 msgid "No new software RAID disk found."
 msgstr "没找到新的软RAID磁盘"
+
+msgid "No options found."
+msgstr ""
 
 msgid "No pool devices have been selected"
 msgstr "未选择池设备"
@@ -6809,6 +6856,9 @@ msgstr "未选择池"
 
 msgid "No portal groups found."
 msgstr "找不到门户组。"
+
+msgid "No ports found."
+msgstr ""
 
 msgid "No records found."
 msgstr "未找到记录。"
@@ -7051,9 +7101,6 @@ msgstr "选项被锁定"
 
 msgid "Option is marked for deletion"
 msgstr "选项被标记为删除"
-
-msgid "Option is protected"
-msgstr "选项被保护"
 
 msgid "Option is unlocked"
 msgstr "选项已解锁"
@@ -8753,6 +8800,12 @@ msgstr "服务被启用"
 msgid "Services"
 msgstr "服务"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr "设置 UID"
 
@@ -8873,6 +8926,14 @@ msgid ""
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr "设置标题摘要; 通过iSCSI PDU标头计算的校验和，并在接收时进行验证。 摘要可以是“无”或“CRC32C”。 默认为“无”。"
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
+msgstr ""
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -10080,8 +10141,8 @@ msgid ""
 "."
 msgstr "主机名称只可以由a-z , A-Z , 0-9 , \"-\" 和\".\" 组成。"
 
-msgid "The identifier reported as unknown by smartctl including brackets."
-msgstr "标识符由smartctl报告为未知，包括括号。"
+msgid "The identifier reported as unknown by smartctl, including brackets."
+msgstr ""
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr "最初与启动器谈判的摘要模式。"
@@ -10468,11 +10529,6 @@ msgid ""
 "specify parameters to be passed to kernel, and additional modules to be "
 "loaded."
 msgstr "这些选项将被添加到在 /boot/loader.conf.local 文件。这可以让您指定的参数被传递到内核，并加载额外的模组。"
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr "这些选项会加入 /etc/rc.conf。这样可以让您覆盖各种启动脚本（startup scripts）的选项。"
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -12355,3 +12411,14 @@ msgstr "已用的"
 
 msgid "visible"
 msgstr "可见"
+
+#~ msgid "Option is protected"
+#~ msgstr "选项被保护"
+
+#~ msgid "The identifier reported as unknown by smartctl including brackets."
+#~ msgstr "标识符由smartctl报告为未知，包括括号。"
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr "这些选项会加入 /etc/rc.conf。这样可以让您覆盖各种启动脚本（startup scripts）的选项。"

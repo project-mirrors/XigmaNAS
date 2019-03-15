@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
-"PO-Revision-Date: 2019-02-21 19:35+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"PO-Revision-Date: 2019-03-15 15:10+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:26+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -715,6 +715,9 @@ msgstr "Voeg de geselecteerde schijf toe aan de bestaande spiegel."
 
 msgid "Additional Group"
 msgstr "Extra Groep"
+
+msgid "Additional Information"
+msgstr "Aanvullende Informatie"
 
 msgid "Additional Network"
 msgstr "Bijkomend Netwerk"
@@ -3229,6 +3232,10 @@ msgstr "Uitschakelen compressie van herhaalde regels."
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+"Uitgeschakelde variabele namen zullen worden verwijderd uit /etc/rc.conf."
+
 msgid "Discard - Discard ACL"
 msgstr "Discard - Negeer ACL"
 
@@ -3238,6 +3245,9 @@ msgstr "Discard - Entries niet overnemen"
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Gevonden iSCSI doel voor %s"
+
+msgid "Discovery"
+msgstr "Ontdekking"
 
 msgid "Discovery Auth Group"
 msgstr "Ontdek Auth Groep"
@@ -3877,6 +3887,9 @@ msgstr "Stuurprogramma"
 msgid "Driver List"
 msgstr "Stuurprogramma lijst"
 
+msgid "Driver Name"
+msgstr "Stuurprogramma Naam"
+
 msgid "Driver Parameter"
 msgstr "Stuurprogramma Parameter"
 
@@ -4358,6 +4371,13 @@ msgstr "Inschakelen modulenlijst."
 msgid "Enable nested virtualization"
 msgstr "Inschakelen geneste virtualisatie"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+"In of uitschakelen van de sessie. De staat kan \"Aan\" of \"Uit\" zijn. "
+"Standaard is \"Aan\"."
+
 msgid "Enable peer exchange (PEX)."
 msgstr ""
 "Inschakelen peer exchange (PEX). (Hierbij verbindt de verbonden peer u met "
@@ -4474,6 +4494,9 @@ msgstr "Inschakelen schrijf cache mode."
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr "Ingeschakelde opties worden toegevoegd aan/etc/rc.conf."
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4546,6 +4569,9 @@ msgstr "Vul het onderwerp in"
 
 msgid "Enter Universally Unique Identifier"
 msgstr "Geef Universeel Unieke Identificator op"
+
+msgid "Enter Value"
+msgstr "Voer waarde in"
 
 msgid "Enter Volume Name"
 msgstr "Geef Volume Naam op"
@@ -6396,8 +6422,8 @@ msgid ""
 "Link mutual-chap configuration to auth-groups. Note that an auth-group may "
 "contain either chap or chap-mutual entries, but not both."
 msgstr ""
-"Koppel mutual-chap configuratie aan auth-groepen. Merk op dat een auth-groep "
-"ofwel chap of chap-mutual entries kan bevatten, maar niet beide."
+"Koppel wederzijds-chap configuratie aan auth-groepen. Merk op dat een auth-"
+"groep ofwel chap of chap-wederzijds entries kan bevatten, maar niet beide."
 
 msgid "Link this option to selected portal-groups."
 msgstr "Koppel deze optie aan geselecteerde portaal-groepen."
@@ -7026,6 +7052,9 @@ msgstr "Wederzijds Wachtwoord"
 msgid "Mutual User"
 msgstr "Wederzijds Gebruiker"
 
+msgid "Mutual-CHAP"
+msgstr "Wederzijds-CHAP"
+
 msgid "NAA Identifier"
 msgstr "NAA identificatie"
 
@@ -7237,6 +7266,9 @@ msgid "No (default) - Disables advertising Time Machine support."
 msgstr ""
 "Nee (standaard) - Uitschakelen kenbaar maken Time Machine ondersteuning."
 
+msgid "No CHAP users found."
+msgstr "Er zijn geen CHAP gebruikers gevonden."
+
 msgid "No DNS server have been configured."
 msgstr "Er zijn geen DNS-server geconfigureerd."
 
@@ -7270,8 +7302,14 @@ msgstr "Geen JBOD informatie gevonden."
 msgid "No LUNs found."
 msgstr "Geen LUNs gevonden."
 
+msgid "No Mutual-CHAP users found."
+msgstr "Er is geen Wederzijds-CHAP gebruiker gevonden."
+
 msgid "No Parity"
 msgstr "Geen Pariteit"
+
+msgid "No Placeholder"
+msgstr "Geen Aanduiding"
 
 msgid "No Portal Group has been configured."
 msgstr "Er is geen Portaal Groep geconfigureerd."
@@ -7336,6 +7374,15 @@ msgstr "Er is geen bestand geupload."
 msgid "No information available."
 msgstr "Geen informatie beschikbaar."
 
+msgid "No initiator names found."
+msgstr "Er zijn geen initiator namen gevonden."
+
+msgid "No initiator portals found."
+msgstr "Er zijn geen initiator portalen gevonden."
+
+msgid "No listeners found."
+msgstr "Er zijn geen luisteraars gevonden."
+
 msgid "No new disk found."
 msgstr "Er zijn geen nieuwe schijven gevonden."
 
@@ -7344,6 +7391,9 @@ msgstr "Er zijn geen nieuwe gecodeerde schijven gevonden."
 
 msgid "No new software RAID disk found."
 msgstr "Er zijn geen nieuwe software raid schijven gevonden."
+
+msgid "No options found."
+msgstr "Er zijn geen opties gevonden."
 
 msgid "No pool devices have been selected"
 msgstr "Er zijn geen pool schijven geselecteerd"
@@ -7356,6 +7406,9 @@ msgstr "Er zijn geen pools geselecteerd"
 
 msgid "No portal groups found."
 msgstr "Geen portaal groepen gevonden."
+
+msgid "No ports found."
+msgstr "Er zijn geen porten gevonden."
 
 msgid "No records found."
 msgstr "Geen records gevonden."
@@ -7613,9 +7666,6 @@ msgstr "Optie is vergrendeld"
 
 msgid "Option is marked for deletion"
 msgstr "Optie is gemarkeerd voor verwijdering"
-
-msgid "Option is protected"
-msgstr "Optie is beschermd"
 
 msgid "Option is unlocked"
 msgstr "Optie is ontgrendeld"
@@ -9402,6 +9452,12 @@ msgstr "Service Ingeschakeld"
 msgid "Services"
 msgstr "Services"
 
+msgid "Session State"
+msgstr "Sessie Staat"
+
+msgid "Session Type"
+msgstr "Sessie Type"
+
 msgid "Set UID"
 msgstr "UID (Instellen"
 
@@ -9551,6 +9607,19 @@ msgstr ""
 "Stel de overzicht van de kop in; een controlesom berekend over de header van "
 "iSCSI PDU's en geverifieerd bij ontvangst. overzicht kan \"Geen\" of "
 "\"CRC32C\" zijn. Standaard is \"Geen\"."
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
+msgstr ""
+"Stel het sessie type in. Het type kan \"Ontdekking\", of \"Normaal\" zijn. "
+"De standaard is \"Normaal\". Voor normale sessies, moet de Doelnaam worden "
+"gedefinieerd. Ontdekking sessies negeren de Doelnaam en zal resulteren dat "
+"de initiator zal verbinden met alle doelstellingen geretourneerd door "
+"Stuurdoelen iSCSI-ontdekking met de gedefinieerde Doeladres."
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -10299,7 +10368,7 @@ msgid "Target"
 msgstr "Doel"
 
 msgid "Target Address"
-msgstr "Doel Adres"
+msgstr "Doeladres"
 
 msgid "Target Alias"
 msgstr "Doel Alias"
@@ -10901,9 +10970,9 @@ msgid ""
 msgstr ""
 "De hostnaam mag enkel bestaan uit de tekens a-z, A-Z en 0-9, - , _ en ."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
-"De identificator gemeld als onbekend door smartctl met inbegrip van haakjes."
+"De identificator gerapporteerd als onbekend door smartctl, inclusief haken."
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr "De aanvankelijke overzicht die met de initiator wordt besproken."
@@ -11368,14 +11437,6 @@ msgstr ""
 "Deze optie(s) word toegevoegd aan /boot/loader.conf.local. Dit staat u toe "
 "verschillende parameters op te geven aan de kernel en extra modules te "
 "gebruiken tijdens het opstarten."
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Deze optie(s) word toegevoegd aan /etc/rc.conf. Dit staat u toe om "
-"verschillende opties te overschrijven die gebruikt worden door verschillende "
-"algemene opstartscripts."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13496,3 +13557,21 @@ msgstr "gebruikt van"
 
 msgid "visible"
 msgstr "zichtbaar"
+
+#~ msgid "Option is protected"
+#~ msgstr "Optie is beschermd"
+
+#~ msgid "The identifier reported as unknown by smartctl including brackets."
+#~ msgstr ""
+#~ "De identificator gemeld als onbekend door smartctl met inbegrip van haakjes."
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Deze optie(s) word toegevoegd aan /etc/rc.conf. Dit staat u toe om "
+#~ "verschillende opties te overschrijven die gebruikt worden door verschillende "
+#~ "algemene opstartscripts."
+
+#~ msgid "Disabled variable names be removed from /etc/rc.conf."
+#~ msgstr "uitgeschakelde opties worden verwijderd van /etc/rc.conf."

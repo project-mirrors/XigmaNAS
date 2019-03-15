@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
 "PO-Revision-Date: 2019-02-22 17:08+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:25+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -694,6 +694,9 @@ msgstr "A kiválasztott eszköz hozzáadása a már létező tükörhöz."
 
 msgid "Additional Group"
 msgstr "További csoport"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "Kiegészítő hálózat"
@@ -3145,6 +3148,9 @@ msgstr "Ismétlődő sorok tömörítésének tiltása."
 msgid "Disabled"
 msgstr "Tiltva"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Elvetés - ACL elvetése"
 
@@ -3154,6 +3160,9 @@ msgstr "Elvetés - Bejegyzések ne öröklődjenek"
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Felfedezett iSCSI-cél a következőnek: %s"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "Felfeldező Hitelesített Csoport"
@@ -3794,6 +3803,9 @@ msgstr "Illesztőprogram"
 msgid "Driver List"
 msgstr "Illesztőprogram-lista"
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr "Illesztőprogram paramétere"
 
@@ -4267,6 +4279,11 @@ msgstr "Modulok listázásának engedélyezése."
 msgid "Enable nested virtualization"
 msgstr "Egymásba ágyazott virtualizáció engedélyezése"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "Peer csere engedélyezése (PEX)."
 
@@ -4379,6 +4396,9 @@ msgstr "Írás cache engedélyezése."
 msgid "Enabled"
 msgstr "Engedélyezve"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4450,6 +4470,9 @@ msgstr "Tárgy megadása"
 
 msgid "Enter Universally Unique Identifier"
 msgstr "Adja meg az univerzálisan egyedi azonosítót"
+
+msgid "Enter Value"
+msgstr ""
 
 msgid "Enter Volume Name"
 msgstr "Add meg a kötet nevét"
@@ -6912,6 +6935,9 @@ msgstr "Kölcsönös titok"
 msgid "Mutual User"
 msgstr "Kölcsönös felhasználó"
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA azonosító"
 
@@ -7121,6 +7147,9 @@ msgstr "Nem"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr "Nem (alapértelmezett) - hirdető Időgéptámogatás kikapcsolása"
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr "Nincs beállítva DNS szerver."
 
@@ -7154,8 +7183,14 @@ msgstr "Semmilyen JBOD vinum információ nem található."
 msgid "No LUNs found."
 msgstr "Egy LUN sem található"
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Nincs paritás"
+
+msgid "No Placeholder"
+msgstr ""
 
 msgid "No Portal Group has been configured."
 msgstr "Egy Portal csoport sincs konfigurálva."
@@ -7220,6 +7255,15 @@ msgstr "Nem lett fájl feltöltve."
 msgid "No information available."
 msgstr "Nem érhető el információ."
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "Nincs új lemez."
 
@@ -7228,6 +7272,9 @@ msgstr "Egy titkosított lemezt sem találtunk."
 
 msgid "No new software RAID disk found."
 msgstr "Egy új szoftveres RAID lemez sem található."
+
+msgid "No options found."
+msgstr ""
 
 msgid "No pool devices have been selected"
 msgstr "Egy tárolóeszközt sem választott ki"
@@ -7240,6 +7287,9 @@ msgstr "Egy tárolót sem választott ki"
 
 msgid "No portal groups found."
 msgstr "Egy portál csoport sem található."
+
+msgid "No ports found."
+msgstr ""
 
 msgid "No records found."
 msgstr "Egy bejegyzés sem található."
@@ -7498,9 +7548,6 @@ msgstr "Beállítás zárolva"
 
 msgid "Option is marked for deletion"
 msgstr "Beállítás törlésre megjelölve"
-
-msgid "Option is protected"
-msgstr "Opció védett"
 
 msgid "Option is unlocked"
 msgstr "Opció zárolása feloldva"
@@ -9282,6 +9329,12 @@ msgstr "Szolgáltatás bekacsolva"
 msgid "Services"
 msgstr "Szolgáltatások"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr "UID beállítása"
 
@@ -9431,6 +9484,14 @@ msgstr ""
 "Az fejléckivonatot határozza meg; az iSCSI PDU-k fejlécéből kiszámított "
 "ellenőrző összeg, és a fogadáson ellenőrizzük. A kivonat lehet \"Nincs\" "
 "vagy \"CRC32C\". Az alapértelmezett értéke \"Nincs\"."
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
+msgstr ""
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -10753,9 +10814,8 @@ msgstr ""
 "Az állomásnév csak a következő karaktereket tartalmazhatja: a-z, A-Z, 0-9, - "
 "és _."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
-"Az azonosítót ismeretlennek jelentette a smartctl, beleértve a zárójeleket."
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr "A kezdeti kivonat mód egyeztetett a kezdeményezővel."
@@ -11208,13 +11268,6 @@ msgid ""
 msgstr ""
 "Ezek a beállítások a /boot/loader.conf.local fájlba kerülnek. Evvel "
 "lehetőség nyílik a kernel paramétereit illetve modulok betöltését beállítani."
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Ezek az értékek a /etc/rc.conf-hoz adódnak hozzá. Ez lehetővé teszi számos "
-"induló szkript beállításainak módosítását."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13282,3 +13335,17 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
+
+#~ msgid "Option is protected"
+#~ msgstr "Opció védett"
+
+#~ msgid "The identifier reported as unknown by smartctl including brackets."
+#~ msgstr ""
+#~ "Az azonosítót ismeretlennek jelentette a smartctl, beleértve a zárójeleket."
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Ezek az értékek a /etc/rc.conf-hoz adódnak hozzá. Ez lehetővé teszi számos "
+#~ "induló szkript beállításainak módosítását."

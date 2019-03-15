@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
 "PO-Revision-Date: 2019-02-21 17:23+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:25+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
 "X-Poedit-Language: Danish\n"
@@ -684,6 +684,9 @@ msgstr ""
 
 msgid "Additional Group"
 msgstr "Ekstra gruppe"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "Ekstra netværk"
@@ -2984,6 +2987,9 @@ msgstr ""
 msgid "Disabled"
 msgstr "Deaktiveret"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr ""
 
@@ -2993,6 +2999,9 @@ msgstr ""
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Fandt iSCSI mål for %s"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "Discovery Auth gruppe"
@@ -3607,6 +3616,9 @@ msgstr "Driver"
 msgid "Driver List"
 msgstr ""
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr ""
 
@@ -4074,6 +4086,11 @@ msgstr "Aktiver modul liste"
 msgid "Enable nested virtualization"
 msgstr ""
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "Aktiver peer exchange (PEX)."
 
@@ -4176,6 +4193,9 @@ msgstr "Anvend skrive cache."
 msgid "Enabled"
 msgstr "Aktiveret"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4245,6 +4265,9 @@ msgid "Enter Subject"
 msgstr ""
 
 msgid "Enter Universally Unique Identifier"
+msgstr ""
+
+msgid "Enter Value"
 msgstr ""
 
 msgid "Enter Volume Name"
@@ -6582,6 +6605,9 @@ msgstr ""
 msgid "Mutual User"
 msgstr ""
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -6783,6 +6809,9 @@ msgstr "Nej"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr ""
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr ""
 
@@ -6816,7 +6845,13 @@ msgstr ""
 msgid "No LUNs found."
 msgstr ""
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
+msgstr ""
+
+msgid "No Placeholder"
 msgstr ""
 
 msgid "No Portal Group has been configured."
@@ -6882,6 +6917,15 @@ msgstr "Ingen fil blev oploaded."
 msgid "No information available."
 msgstr ""
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "Ingen ny disk fundet"
 
@@ -6889,6 +6933,9 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
+msgstr ""
+
+msgid "No options found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -6901,6 +6948,9 @@ msgid "No pools have been selected"
 msgstr ""
 
 msgid "No portal groups found."
+msgstr ""
+
+msgid "No ports found."
 msgstr ""
 
 msgid "No records found."
@@ -7149,9 +7199,6 @@ msgid "Option is locked"
 msgstr ""
 
 msgid "Option is marked for deletion"
-msgstr ""
-
-msgid "Option is protected"
 msgstr ""
 
 msgid "Option is unlocked"
@@ -8871,6 +8918,12 @@ msgstr ""
 msgid "Services"
 msgstr "Tjenester"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr ""
 
@@ -8992,6 +9045,14 @@ msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
 msgstr ""
 
 msgid ""
@@ -10232,7 +10293,7 @@ msgid ""
 "."
 msgstr "Værtsnavnet må kun bestå af tegnene a-z, A-Z, 0-9, -, _ og ."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
 
 msgid "The initial digest mode negotiated with the initiator."
@@ -10650,14 +10711,6 @@ msgid ""
 "specify parameters to be passed to kernel, and additional modules to be "
 "loaded."
 msgstr ""
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Disse indstillinger bliver tilføjet til /etc/rc.conf. Dette gør dig i stand "
-"til at overskrive indstillinger, der bruges af diverse generiske opstarts "
-"scripts."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -12615,3 +12668,11 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Disse indstillinger bliver tilføjet til /etc/rc.conf. Dette gør dig i stand "
+#~ "til at overskrive indstillinger, der bruges af diverse generiske opstarts "
+#~ "scripts."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
 "PO-Revision-Date: 2019-01-01 17:15+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:25+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -667,6 +667,9 @@ msgstr ""
 
 msgid "Additional Group"
 msgstr "追加のグループ"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "追加のネットワーク"
@@ -2965,6 +2968,9 @@ msgstr ""
 msgid "Disabled"
 msgstr "無効"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr ""
 
@@ -2974,6 +2980,9 @@ msgstr ""
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "iSCSI ターゲット %s を発見しました。"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "探索 認証グループ"
@@ -3583,6 +3592,9 @@ msgstr "ドライバ"
 msgid "Driver List"
 msgstr ""
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr ""
 
@@ -4050,6 +4062,11 @@ msgstr "モジュールリストを有効にします。"
 msgid "Enable nested virtualization"
 msgstr "ネストされた仮想化を許可します。"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "ピアエクスチェンジ(PEX)を有効にする。"
 
@@ -4151,6 +4168,9 @@ msgstr "書き込みキャッシュモードを有効にします。"
 msgid "Enabled"
 msgstr "有効"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4220,6 +4240,9 @@ msgid "Enter Subject"
 msgstr ""
 
 msgid "Enter Universally Unique Identifier"
+msgstr ""
+
+msgid "Enter Value"
 msgstr ""
 
 msgid "Enter Volume Name"
@@ -6531,6 +6554,9 @@ msgstr ""
 msgid "Mutual User"
 msgstr ""
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -6729,6 +6755,9 @@ msgstr "No"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr ""
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr ""
 
@@ -6762,7 +6791,13 @@ msgstr ""
 msgid "No LUNs found."
 msgstr ""
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
+msgstr ""
+
+msgid "No Placeholder"
 msgstr ""
 
 msgid "No Portal Group has been configured."
@@ -6828,6 +6863,15 @@ msgstr "ファイルはアップロードされていませんでした。"
 msgid "No information available."
 msgstr ""
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "新しいディスクがありません。"
 
@@ -6835,6 +6879,9 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
+msgstr ""
+
+msgid "No options found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -6847,6 +6894,9 @@ msgid "No pools have been selected"
 msgstr ""
 
 msgid "No portal groups found."
+msgstr ""
+
+msgid "No ports found."
 msgstr ""
 
 msgid "No records found."
@@ -7089,9 +7139,6 @@ msgid "Option is locked"
 msgstr ""
 
 msgid "Option is marked for deletion"
-msgstr ""
-
-msgid "Option is protected"
 msgstr ""
 
 msgid "Option is unlocked"
@@ -8795,6 +8842,12 @@ msgstr ""
 msgid "Services"
 msgstr "サービス"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr ""
 
@@ -8914,6 +8967,14 @@ msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
 msgstr ""
 
 msgid ""
@@ -10123,7 +10184,7 @@ msgid ""
 "."
 msgstr "ホスト名には英数字(a-z,A-Z,0-9)と一部の記号( - , _ , . )のみが使用できます。"
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
 
 msgid "The initial digest mode negotiated with the initiator."
@@ -10520,13 +10581,6 @@ msgid ""
 "loaded."
 msgstr ""
 "これらのオプションは /boot/loader.conf.local に追加されます。カーネルパラメータの指定や追加モジュールのロードに利用できます。"
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"これらのオプションは /etc/rc.conf "
-"に追加されます。これは、様々な一般的なスタートアップスクリプトによって使われるオプションを上書きすることを可能にします。"
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -12428,3 +12482,10 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "これらのオプションは /etc/rc.conf "
+#~ "に追加されます。これは、様々な一般的なスタートアップスクリプトによって使われるオプションを上書きすることを可能にします。"
