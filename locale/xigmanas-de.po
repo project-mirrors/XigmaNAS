@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
 "PO-Revision-Date: 2019-02-22 06:59+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:24+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -717,6 +717,9 @@ msgstr "Füge das gewählte Gerät zum bestehenden Spiegel hinzu."
 
 msgid "Additional Group"
 msgstr "Weitere Gruppe"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "Zusätzliches Netzwerk"
@@ -3190,6 +3193,9 @@ msgstr "Sich wiederholende Meldungen nicht unterdrücken."
 msgid "Disabled"
 msgstr "Deaktiviert"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr "Verwerfen - ACL verwerfen"
 
@@ -3199,6 +3205,9 @@ msgstr "Verwerfen - Einträge nicht vererben"
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Ermitteltes iSCSI-Ziel für %s"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "Entdecke Authentifikationsgruppe"
@@ -3841,6 +3850,9 @@ msgstr "Treiber"
 msgid "Driver List"
 msgstr "Treiberliste"
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr "Laufwerksparameter"
 
@@ -4318,6 +4330,11 @@ msgstr "Modulauflistung aktivieren."
 msgid "Enable nested virtualization"
 msgstr "verschachtelte Virtualisierung aktivieren"
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "Peer-Austausch (PEX) aktivieren."
 
@@ -4433,6 +4450,9 @@ msgstr "Schreibpuffermodus aktivieren."
 msgid "Enabled"
 msgstr "Aktiviert"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4505,6 +4525,9 @@ msgstr "Betreff eingeben"
 
 msgid "Enter Universally Unique Identifier"
 msgstr "Universally Unique Identifier eingeben"
+
+msgid "Enter Value"
+msgstr ""
 
 msgid "Enter Volume Name"
 msgstr "Volumen Namen eingeben"
@@ -6992,6 +7015,9 @@ msgstr "Gegenseitiges Geheimnis"
 msgid "Mutual User"
 msgstr "Gegenseitiger Benutzer"
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA Kennzeichen"
 
@@ -7200,6 +7226,9 @@ msgstr ""
 "Nein (standardmäßig) - Schaltet das Anbieten der Unterstützung von Time "
 "Machine ab."
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr "Es wurde kein DNS Server eingetragen."
 
@@ -7233,8 +7262,14 @@ msgstr "Keine JBOD Informationen gefunden."
 msgid "No LUNs found."
 msgstr "Keine LUNs gefunden."
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
 msgstr "Keine Parität"
+
+msgid "No Placeholder"
+msgstr ""
 
 msgid "No Portal Group has been configured."
 msgstr "Es wurde keine Portal Gruppe konfiguriert."
@@ -7299,6 +7334,15 @@ msgstr "Es wurde keine Datei hochgeladen."
 msgid "No information available."
 msgstr "Keine Informationen verfügbar."
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr "Keine neuen Festplatten gefunden."
 
@@ -7307,6 +7351,9 @@ msgstr "Es wurden keine neuen verschlüsselten Datenträger gefunden."
 
 msgid "No new software RAID disk found."
 msgstr "Keine neuen Software RAID Platten gefunden."
+
+msgid "No options found."
+msgstr ""
 
 msgid "No pool devices have been selected"
 msgstr "Es wurden keine Pool Geräte ausgewählt"
@@ -7319,6 +7366,9 @@ msgstr "Es wurden keine Pools ausgewählt"
 
 msgid "No portal groups found."
 msgstr "Keine Protalgruppen gefunden."
+
+msgid "No ports found."
+msgstr ""
 
 msgid "No records found."
 msgstr "Keine Einträge gefunden. (records)"
@@ -7575,9 +7625,6 @@ msgstr "Einstellung ist gesperrt"
 
 msgid "Option is marked for deletion"
 msgstr "Einstellung ist zum Löschen markiert"
-
-msgid "Option is protected"
-msgstr "Möglichkeit ist geschützt"
 
 msgid "Option is unlocked"
 msgstr "Option ist freigeschaltet"
@@ -9363,6 +9410,12 @@ msgstr "Dienst aktiviert"
 msgid "Services"
 msgstr "Dienste"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr "Benutzer-ID (UID) setzen"
 
@@ -9515,6 +9568,14 @@ msgstr ""
 "der  iSCSI PDUs berechnet und beim Empfang überprüft. Übersicht kann "
 "entweder auf \"Keine\" oder \"CRC32C\" gesetzt werden. Voreingestellt ist "
 "\"Keine\"."
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
+msgstr ""
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -10868,10 +10929,8 @@ msgstr ""
 "Der Hostname darf nur folgende Zeichen enthalten: a-z, A-Z und 0-9, - , _ "
 "sowie ."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
-"Die Kennung (identifier) wurde durch smartctl brackets  als unbekannt "
-"gemeldet."
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr "Der zu Beginn mit dem Initiator ausgehandelte Verarbeitungsmodus."
@@ -11344,14 +11403,6 @@ msgstr ""
 "Diese Konfigurationsoptionen werden zu \"/boot/loader.conf.local\" "
 "hinzugefügt. Dadurch können Parameter an den Systemkern weitergegeben und "
 "zusätzliche Programmmodule können geladen werden."
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Diese Option(en) werden zu /etc/rc.conf hinzugefügt. Dies erlaubt ein "
-"Überschreiben von Optionen, welche von verschiedenen generischen Startup-"
-"Skripten benutzt werden."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13480,3 +13531,19 @@ msgstr "benutzt von"
 
 msgid "visible"
 msgstr "sichtbar"
+
+#~ msgid "Option is protected"
+#~ msgstr "Möglichkeit ist geschützt"
+
+#~ msgid "The identifier reported as unknown by smartctl including brackets."
+#~ msgstr ""
+#~ "Die Kennung (identifier) wurde durch smartctl brackets  als unbekannt "
+#~ "gemeldet."
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Diese Option(en) werden zu /etc/rc.conf hinzugefügt. Dies erlaubt ein "
+#~ "Überschreiben von Optionen, welche von verschiedenen generischen Startup-"
+#~ "Skripten benutzt werden."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-02-21 20:01+0000\n"
+"POT-Creation-Date: 2019-03-15 15:49+0000\n"
 "PO-Revision-Date: 2019-01-20 17:40+0000\n"
 "Last-Translator: Lukas Vescicik <lukas.vescicik@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-02-23 17:17+0000\n"
-"X-Generator: Launchpad (build 18886)\n"
+"X-Launchpad-Export-Date: 2019-03-15 15:26+0000\n"
+"X-Generator: Launchpad (build 18905)\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovak\n"
@@ -696,6 +696,9 @@ msgstr "Pridať zvolené zariadenie do už existujúceho zrkadleného zväzku."
 
 msgid "Additional Group"
 msgstr "Ďaľšia skupina"
+
+msgid "Additional Information"
+msgstr ""
 
 msgid "Additional Network"
 msgstr "Ďalšia sieť"
@@ -3017,6 +3020,9 @@ msgstr ""
 msgid "Disabled"
 msgstr "Vypnuté"
 
+msgid "Disabled variable names will be removed from /etc/rc.conf."
+msgstr ""
+
 msgid "Discard - Discard ACL"
 msgstr ""
 
@@ -3026,6 +3032,9 @@ msgstr ""
 #, php-format
 msgid "Discovered iSCSI target for %s"
 msgstr "Bol objavený iSCSI cieľ %s"
+
+msgid "Discovery"
+msgstr ""
 
 msgid "Discovery Auth Group"
 msgstr "Autentif. skupina objavovania"
@@ -3638,6 +3647,9 @@ msgstr "Ovládač"
 msgid "Driver List"
 msgstr ""
 
+msgid "Driver Name"
+msgstr ""
+
 msgid "Driver Parameter"
 msgstr ""
 
@@ -4107,6 +4119,11 @@ msgstr "Zapnúť výpis modulov."
 msgid "Enable nested virtualization"
 msgstr ""
 
+msgid ""
+"Enable or disable the session. State can be either \"On\" or \"Off\". "
+"Default is \"On\"."
+msgstr ""
+
 msgid "Enable peer exchange (PEX)."
 msgstr "Povoliť Peer exchange (PEX)."
 
@@ -4209,6 +4226,9 @@ msgstr ""
 msgid "Enabled"
 msgstr "Zapnuté"
 
+msgid "Enabled options will be added to /etc/rc.conf."
+msgstr ""
+
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
@@ -4278,6 +4298,9 @@ msgid "Enter Subject"
 msgstr ""
 
 msgid "Enter Universally Unique Identifier"
+msgstr ""
+
+msgid "Enter Value"
 msgstr ""
 
 msgid "Enter Volume Name"
@@ -6596,6 +6619,9 @@ msgstr ""
 msgid "Mutual User"
 msgstr ""
 
+msgid "Mutual-CHAP"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -6796,6 +6822,9 @@ msgstr "Nie"
 msgid "No (default) - Disables advertising Time Machine support."
 msgstr ""
 
+msgid "No CHAP users found."
+msgstr ""
+
 msgid "No DNS server have been configured."
 msgstr ""
 
@@ -6829,7 +6858,13 @@ msgstr ""
 msgid "No LUNs found."
 msgstr ""
 
+msgid "No Mutual-CHAP users found."
+msgstr ""
+
 msgid "No Parity"
+msgstr ""
+
+msgid "No Placeholder"
 msgstr ""
 
 msgid "No Portal Group has been configured."
@@ -6895,6 +6930,15 @@ msgstr ""
 msgid "No information available."
 msgstr ""
 
+msgid "No initiator names found."
+msgstr ""
+
+msgid "No initiator portals found."
+msgstr ""
+
+msgid "No listeners found."
+msgstr ""
+
 msgid "No new disk found."
 msgstr ""
 
@@ -6902,6 +6946,9 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
+msgstr ""
+
+msgid "No options found."
 msgstr ""
 
 msgid "No pool devices have been selected"
@@ -6914,6 +6961,9 @@ msgid "No pools have been selected"
 msgstr ""
 
 msgid "No portal groups found."
+msgstr ""
+
+msgid "No ports found."
 msgstr ""
 
 msgid "No records found."
@@ -7164,9 +7214,6 @@ msgid "Option is locked"
 msgstr ""
 
 msgid "Option is marked for deletion"
-msgstr ""
-
-msgid "Option is protected"
 msgstr ""
 
 msgid "Option is unlocked"
@@ -8878,6 +8925,12 @@ msgstr ""
 msgid "Services"
 msgstr "Služby"
 
+msgid "Session State"
+msgstr ""
+
+msgid "Session Type"
+msgstr ""
+
 msgid "Set UID"
 msgstr ""
 
@@ -8999,6 +9052,14 @@ msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
+msgstr ""
+
+msgid ""
+"Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
+"Default is \"Normal\". For normal sessions, the TargetName must be defined. "
+"Discovery sessions ignore the TargetName and will result in the initiator "
+"connecting to all the targets returned by SendTargets iSCSI discovery with "
+"the defined TargetAddress."
 msgstr ""
 
 msgid ""
@@ -10217,7 +10278,7 @@ msgid ""
 "."
 msgstr "Názov hostiteľa môže obsahovať iba znaky a-z, A-Z a 0-9, - , _ a ."
 
-msgid "The identifier reported as unknown by smartctl including brackets."
+msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
 
 msgid "The initial digest mode negotiated with the initiator."
@@ -10618,13 +10679,6 @@ msgid ""
 "specify parameters to be passed to kernel, and additional modules to be "
 "loaded."
 msgstr ""
-
-msgid ""
-"These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-"options used by various generic startup scripts."
-msgstr ""
-"Tieto MIB sa pridajú do /etc/rc.conf. To vám umožní prepisovať voľby, ktoré "
-"používajú rozne všeobecné štartovacie skripty."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -12573,3 +12627,10 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+#~ msgid ""
+#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
+#~ "options used by various generic startup scripts."
+#~ msgstr ""
+#~ "Tieto MIB sa pridajú do /etc/rc.conf. To vám umožní prepisovať voľby, ktoré "
+#~ "používajú rozne všeobecné štartovacie skripty."
