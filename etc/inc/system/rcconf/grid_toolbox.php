@@ -185,7 +185,7 @@ final class grid_toolbox {
 		$tfoot->ins_record_add($sphere,$n_col_width);
 		$content->
 			add_area_remarks()->
-				ins_remark('note1',gettext('Note'),gettext('Disabled variable names be removed from /etc/rc.conf.'))->
+				ins_remark('note1',gettext('Note'),gettext('Disabled variable names will be removed from /etc/rc.conf.'))->
 				ins_remark('note2','',gettext('Enabled options will be added to /etc/rc.conf.'));
 		$document->
 			add_area_buttons()->
