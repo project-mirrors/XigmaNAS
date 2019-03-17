@@ -838,6 +838,9 @@ pre.cmdoutput {
 	text-overflow: ellipsis;
 	color: #FFFFFF;
 }
+td > label {
+	display: block;
+}
 input[type="checkbox"].cblo {
 	display: none;
 }
