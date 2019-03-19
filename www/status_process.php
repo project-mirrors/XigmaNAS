@@ -50,7 +50,7 @@ if(is_ajax()):
 	$status['area_refresh'] = status_process_ajax();
 	render_ajax($status);
 endif;
-$sphere = &get_sphere_status_process();
+$sphere = get_sphere_status_process();
 $jcode = <<<EOJ
 $(document).ready(function(){
 	var gui = new GUI;
@@ -77,6 +77,6 @@ $content->
 			addTR()->
 				insTDwC('celltag',gettext('Information'))->
 				addTDwC('celldata')->
-					addElement('pre')->
+					addElement('pre',['class' => 'cmdoutput'])->
 						insSPAN(['id' => 'area_refresh'],status_process_ajax());
 $document->render();
