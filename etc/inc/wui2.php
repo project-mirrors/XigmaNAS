@@ -1444,8 +1444,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 }
 trait co_DOMTools {
 /**
- *	Appends a child node to an element and returns $subnode
- *	LoadHTML is called when $value contains sequence /> or /[letters]>
+ *	Appends a child node to an element and returns the new node.
  *	@param string $name
  *	@param array $attributes
  *	@param string $value
@@ -1454,19 +1453,12 @@ trait co_DOMTools {
  */
 	public function addElement(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
 		$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
-		if(!is_null($value)):
-			//	rough check if value contains html code, if found try to import as HTML, otherwise add as text
-			if(!(preg_match('~/[a-z]*>~i',$value) && $subnode->import_soup($value))):
-				$document = $this->ownerDocument ?? $this;
-				$subnode->appendChild($document->createTextNode($value));
-			endif;
-		endif;
+		$subnode->import_soup($value);
 		$subnode->addAttributes($attributes);
 		return $subnode;
 	}
 /**
- *	Appends a child node to an element and returns $this
- *	LoadHTML is called when $value contains sequence /> or /[letters]>
+ *	Appends a child node to an element and returns the element.
  *	@param string $name
  *	@param array $attributes
  *	@param string $value
@@ -1474,12 +1466,13 @@ trait co_DOMTools {
  *	@return DOMNode $this
  */
 	public function insElement(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
-		$this->addElement($name,$attributes,$value,$namespaceURI);
+		$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
+		$subnode->import_soup($value);
+		$subnode->addAttributes($attributes);
 		return $this;
 	}
 /**
- *	Inserts a child node on top of the children
- *	LoadHTML is called when $value contains sequence /> or /[letters]>
+ *	Inserts a child node on top of the children of an element and returns the new node.
  *	@param string $name
  *	@param array $attributes
  *	@param string $value
@@ -1492,35 +1485,45 @@ trait co_DOMTools {
 		else:
 			$subnode = $this->insertBefore(new co_DOMElement($name,NULL,$namespaceURI),$this->firstChild);
 		endif;
-		if(!is_null($value)):
-			//	rough check if value contains html code, if found try to import as HTML, otherwise add as text
-			if(!(preg_match('~/[a-z]*>~i',$value) && $subnode->import_soup($value))):
-				$document = $this->ownerDocument ?? $this;
-				$subnode->appendChild($document->createTextNode($value));
-			endif;
-		endif;
+		$subnode->import_soup($value);
 		$subnode->addAttributes($attributes);
 		return $subnode;
 	}
-	public function import_soup(string $value = '') {
-		$backup_use_internal_errors = libxml_use_internal_errors(true);
-		$backup_disable_entity_loader = libxml_disable_entity_loader(true);
-		$document = $this->ownerDocument ?? $this;
-		$htmldocument = new DOMDocument('1.0', 'UTF-8');
-		$successfully_loaded = $htmldocument->loadHTML('<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' . $value . '</body></html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-		libxml_clear_errors();
-		libxml_disable_entity_loader($backup_disable_entity_loader);
-		libxml_use_internal_errors($backup_use_internal_errors);
-		if($successfully_loaded):
-			$items = $htmldocument->getElementsByTagName('body');
-			foreach($items as $item):
-				foreach($item->childNodes as $childnode):
-					$newnode = $document->importNode($childnode,true);
-					$this->appendChild($newnode);
+/**
+ *	Appends a child node to an element and returns the element.<br/>
+ *	If the string contains html tags, loadHTML is called, otherwise a<br/>
+ *	text node is created.
+ *	@param string $value The text/html string
+ *	@return $this
+ */
+	public function import_soup(string $value = NULL) {
+		if(!is_null($value)):
+//			rough check if value contains html code, if found try to import as HTML, otherwise add as text
+			$html_import_successful = false;
+			if(preg_match('~/[a-z]*>~i',$value)):
+				$backup_use_internal_errors = libxml_use_internal_errors(true);
+				$backup_disable_entity_loader = libxml_disable_entity_loader(true);
+				$document = $this->ownerDocument ?? $this;
+				$htmldocument = new DOMDocument('1.0','UTF-8');
+				$html_import_successful = $htmldocument->loadHTML('<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' . $value . '</body></html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+				libxml_clear_errors();
+				libxml_disable_entity_loader($backup_disable_entity_loader);
+				libxml_use_internal_errors($backup_use_internal_errors);
+			endif;
+			if($html_import_successful):
+				$items = $htmldocument->getElementsByTagName('body');
+				foreach($items as $item):
+					foreach($item->childNodes as $childnode):
+						$newnode = $document->importNode($childnode,true);
+						$this->appendChild($newnode);
+					endforeach;
 				endforeach;
-			endforeach;
+			else:
+				$document = $this->ownerDocument ?? $this;
+				$this->appendChild($document->createTextNode($value));
+			endif;
 		endif;
-		return $successfully_loaded;
+		return $this;
 	}
 /**
  *	Appends a JavaScript node to the DOM
@@ -1742,7 +1745,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_error_box(string $message = '') {
+	public function ins_error_box(string $message = NULL) {
 		if(preg_match('/\S/',$message)):
 //	xxx
 			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
@@ -1755,7 +1758,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_info_box(string $message = '') {
+	public function ins_info_box(string $message = NULL) {
 		if(preg_match('/\S/',$message)):
 //	xxx
 			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
@@ -1768,7 +1771,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_warning_box(string $message = '') {
+	public function ins_warning_box(string $message = NULL) {
 		if(preg_match('/\S/',$message)):
 //	xxx
 			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
@@ -1991,6 +1994,7 @@ trait co_DOMTools {
 		return $this;
 	}
 	public function ins_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->reset_grid_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$input_attributes = [
 			'type' => 'checkbox',
@@ -2013,9 +2017,9 @@ trait co_DOMTools {
 			$class_checkbox = 'celldatacheckbox';
 			$input_attributes['required'] = 'required';
 		endif;
-		$div = $this->addDIV(['class' => $class_checkbox]);
-		$div->insINPUT($input_attributes);
-		$div->addElement('label',['for' => $p->get_id()],$p->get_caption());
+		$hook = $this->addDIV(['class' => $class_checkbox])->addELEMENT('label',['for' => $p->get_id()]);
+		$hook->insINPUT($input_attributes)->import_soup($p->get_caption());
+		$this->add_grid_hook($hook,$p->get_id());
 		return $this;
 	}
 	public function ins_input($p,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
@@ -2084,11 +2088,15 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
+	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
-		if(2 > count($p->get_options())):
-			$use_sorter = false;
+		$table = $this->add_table_data_selection();
+		$tr_attributes = [];
+		if($this->option_exists('tablesort') && !$use_tablesort):
+			$tr_attributes['class'] = 'tablesorter-ignoreRow';
 		endif;
+		$table->addTHEAD()->addTR($tr_attributes)->insTHwC('lhebl',$p->get_title());
+		$tbody = $table->addTBODY();
 		$input_attributes = [
 			'name' => sprintf('%s[]',$p->get_name()),
 			'type' => 'checkbox',
@@ -2101,29 +2109,9 @@ trait co_DOMTools {
 		if($is_required):
 			$input_attributes['required'] = 'required';
 		endif;
-		$table = $this->add_table_data_selection();
-		$table->ins_colgroup_with_styles('width',['5%','95%']);
-		$tr_attributes = [];
-		$box_class = 'lhelc';
-		if($this->option_exists('tablesort')):
-			if($use_sorter):
-				if($this->option_exists('sorter-checkbox')):
-					$box_class .= ' sorter-checkbox';
-				else:
-					$box_class .= ' sorter-false parser-false';
-				endif;
-			else:
-				$tr_attributes['class'] = 'tablesorter-ignoreRow';
-			endif;
-		endif;
-		$table->addTHEAD()->addTR($tr_attributes)->
-			insTHwC($box_class)->
-			insTHwC('lhebl',$p->get_title());
-		$tbody = $table->addTBODY();
 		$n_options = 0;
-		foreach($p->get_options() as $option_tag => $option_val):
-			//	create a unique identifier for each row and use label tag for text
-			//	column to allow toggling the checkbox button by clicking on the text.
+		foreach($p->get_options() as $option_key => $option_val):
+			$option_tag = (string)$option_key;
 			$input_attributes['value'] = $option_tag;
 			$input_attributes['id'] = sprintf('checkbox_%s',uuid());
 			if(is_array($preset) && in_array($option_tag,$preset)):
@@ -2131,15 +2119,15 @@ trait co_DOMTools {
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$tr = $tbody->addTR();
-			$tr->addTDwC('lcelc')->insINPUT($input_attributes);
-			$tr->addTDwC('lcebl')->addElement('label',['for' => $input_attributes['id'],'style' => 'white-space:pre-wrap;'],$option_val);
+			$hook = $tbody->addTR()->addTDwC('lcebl')->addELEMENT('label',['for' => $input_attributes['id']]);
+			$hook->insINPUT($input_attributes)->import_soup($option_val);
+			$this->add_grid_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
 		if(0 === $n_options):
 			$message_info = $p->get_message_info();
 			if(!is_null($message_info)):
-				$table->addTFOOT()->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
+				$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
 			endif;
 		endif;
 		return $this;
@@ -2212,29 +2200,14 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
+	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
-		if(2 > count($p->get_options())):
-			$use_sorter = false;
-		endif;
 		$table = $this->add_table_data_selection();
-		$table->ins_colgroup_with_styles('width',['5%','95%']);
 		$tr_attributes = [];
-		$box_class = 'lhelc';
-		if($this->option_exists('tablesort')):
-			if($use_sorter):
-				if($this->option_exists('sorter-radio')):
-					$box_class .= ' sorter-radio';
-				else:
-					$box_class .= ' sorter-false parser-false';
-				endif;
-			else:
-				$tr_attributes['class'] = 'tablesorter-ignoreRow';
-			endif;
+		if($this->option_exists('tablesort') && !$use_tablesort):
+			$tr_attributes['class'] = 'tablesorter-ignoreRow';
 		endif;
-		$table->addTHEAD()->addTR($tr_attributes)->
-			insTHwC($box_class)->
-			insTHwC('lhebl',$p->get_title());
+		$table->addTHEAD()->addTR($tr_attributes)->insTHwC('lhebl',$p->get_title());
 		$tbody = $table->addTBODY();
 		$input_attributes = [
 			'name' => $p->get_name(),
@@ -2249,24 +2222,24 @@ EOJ;
 			$input_attributes['required'] = 'required';
 		endif;
 		$n_options = 0;
-		foreach($p->get_options() as $option_tag => $option_val):
-			//	use label tag for text column to allow enabling the radio button by clicking on the text
+		foreach($p->get_options() as $option_key => $option_val):
+			$option_tag = (string)$option_key;
 			$input_attributes['value'] = $option_tag;
 			$input_attributes['id'] = sprintf('radio_%s',uuid());
-			if($preset === (string)$option_tag):
+			if($preset === $option_tag):
 				$input_attributes['checked'] = 'checked';
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$tr = $tbody->addTR();
-			$tr->addTDwC('lcelc')->insINPUT($input_attributes);
-			$tr->addTDwC('lcebl')->addElement('label',['for' => $input_attributes['id'],'style' => 'white-space:pre-wrap;'],$option_val);
+			$hook = $tbody->addTR()->addTDwC('lcebl')->addELEMENT('label',['for' => $input_attributes['id']]);
+			$hook->insINPUT($input_attributes)->import_soup($option_val);
+			$this->add_grid_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
 		if(0 === $n_options):
 			$message_info = $p->get_message_info();
 			if(!is_null($message_info)):
-				$table->addTFOOT()->addTR()->addTD(['class' => 'lcebl','colspan' => 2],$message_info);
+				$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
 			endif;
 		endif;
 		return $this;
@@ -2591,10 +2564,10 @@ EOJ;
 				ins_description($p);
 		return $this;
 	}
-	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
+	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,false)->
-				ins_checkbox_grid($p,$value,$is_required,$is_readonly,$use_sorter)->
+				ins_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->
 				ins_description($p);
 		return $this;
 	}
@@ -2619,10 +2592,10 @@ EOJ;
 				ins_description($p);
 		return $this;
 	}
-	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_sorter = false) {
+	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,false)->
-				ins_radio_grid($p,$value,$is_required,$is_readonly,$use_sorter)->
+				ins_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->
 				ins_description($p);
 		return $this;
 	}
@@ -3085,6 +3058,17 @@ class co_DOMElement extends \DOMElement implements ci_DOM {
 	public function last() {
 		return $this->ownerDocument->last();
 	}
+	public function reset_grid_hooks() {
+		$this->ownerDocument->reset_grid_hooks();
+		return $this;
+	}
+	public function add_grid_hook($dom_element,string $identifier) {
+		$this->ownerDocument->add_grid_hook($dom_element,$identifier);
+		return $this;
+	}
+	public function get_grid_hooks() {
+		return $this->ownerDocument->get_grid_hooks();
+	}
 	public function add_js_on_load(string $jcode = '',string $key = NULL) {
 		return $this->ownerDocument->add_js_on_load($jcode,$key);
 	}
@@ -3095,6 +3079,7 @@ class co_DOMElement extends \DOMElement implements ci_DOM {
 class co_DOMDocument extends \DOMDocument implements ci_DOM {
 	use co_DOMTools;
 
+	protected $grid_hooks = [];
 	protected $stack = [];
 	protected $options = [];
 	protected $js_on_load = [];
@@ -3124,6 +3109,16 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 	}
 	public function last() {
 		return $this->stack[array_key_last($this->stack)];
+	}
+	public function reset_grid_hooks() {
+		$this->grid_hooks = [];
+	}
+	public function add_grid_hook($dom_element,string $identifier) {
+		$this->grid_hooks[$identifier] = $dom_element;
+		return $this;
+	}
+	public function get_grid_hooks() {
+		return $this->grid_hooks;
 	}
 	public function add_js_on_load(string $jcode = '',string $key = NULL) {
 		if(preg_match('/\S/',$jcode)):
