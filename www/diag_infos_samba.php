@@ -40,7 +40,7 @@ function diag_infos_samba_1_ajax() {
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -b | grep -v 'Samba version'";
 		mwexec2($cmd,$rawdata);
-		return implode(PHP_EOL,$rawdata);
+		return trim(implode(PHP_EOL,$rawdata));
 	else:
 		return gettext('CIFS/SMB is disabled.');
 	endif;
@@ -51,7 +51,7 @@ function diag_infos_samba_2_ajax() {
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -S";
 		mwexec2($cmd,$rawdata);
-		return implode(PHP_EOL,$rawdata);
+		return trim(implode(PHP_EOL,$rawdata));
 	else:
 		return gettext('No information available.');
 	endif;
@@ -62,7 +62,7 @@ function diag_infos_samba_3_ajax() {
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -L | grep -v 'Locked files'";
 		mwexec2($cmd,$rawdata);
-		return implode(PHP_EOL,$rawdata);
+		return trim(implode(PHP_EOL,$rawdata));
 	else:
 		return gettext('No information available.');
 	endif;
