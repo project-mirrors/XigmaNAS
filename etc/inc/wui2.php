@@ -2089,13 +2089,10 @@ trait co_DOMTools {
 		return $this;
 	}
 	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->reset_grid_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$table = $this->add_table_data_selection();
-		$tr_attributes = [];
-		if($this->option_exists('tablesort') && !$use_tablesort):
-			$tr_attributes['class'] = 'tablesorter-ignoreRow';
-		endif;
-		$table->addTHEAD()->addTR($tr_attributes)->insTHwC('lhebl',$p->get_title());
+		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$input_attributes = [
 			'name' => sprintf('%s[]',$p->get_name()),
@@ -2123,13 +2120,28 @@ trait co_DOMTools {
 			$hook->insINPUT($input_attributes)->import_soup($option_val);
 			$this->add_grid_hook($hook,$option_tag);
 			$n_options++;
-		endforeach;
-		if(0 === $n_options):
-			$message_info = $p->get_message_info();
-			if(!is_null($message_info)):
-				$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
-			endif;
+		endforeach;	
+		switch($n_options <=> 1):
+			case -1:
+				$message_info = $p->get_message_info();
+				if(!is_null($message_info)):
+					$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
+				endif;
+				$suppress_tablesort = $this->option_exists('tablesort');
+				break;
+			case 0:
+				$suppress_tablesort = $this->option_exists('tablesort');
+				break;
+			case 1:
+				$suppress_tablesort = ($this->option_exists('tablesort') && !$use_tablesort);
+				break;
+		endswitch;
+		if($suppress_tablesort):
+			$tr = $thead->addTR(['class' => 'tablesorter-ignoreRow']);
+		else:
+			$tr = $thead->addTR();
 		endif;
+		$tr->insTHwC('lhebl',$p->get_title());
 		return $this;
 	}
 	public function ins_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
@@ -2201,13 +2213,10 @@ EOJ;
 		return $this;
 	}
 	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->reset_grid_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$table = $this->add_table_data_selection();
-		$tr_attributes = [];
-		if($this->option_exists('tablesort') && !$use_tablesort):
-			$tr_attributes['class'] = 'tablesorter-ignoreRow';
-		endif;
-		$table->addTHEAD()->addTR($tr_attributes)->insTHwC('lhebl',$p->get_title());
+		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$input_attributes = [
 			'name' => $p->get_name(),
@@ -2236,12 +2245,27 @@ EOJ;
 			$this->add_grid_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
-		if(0 === $n_options):
-			$message_info = $p->get_message_info();
-			if(!is_null($message_info)):
-				$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
-			endif;
+		switch($n_options <=> 1):
+			case -1:
+				$message_info = $p->get_message_info();
+				if(!is_null($message_info)):
+					$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
+				endif;
+				$suppress_tablesort = $this->option_exists('tablesort');
+				break;
+			case 0:
+				$suppress_tablesort = $this->option_exists('tablesort');
+				break;
+			case 1:
+				$suppress_tablesort = ($this->option_exists('tablesort') && !$use_tablesort);
+				break;
+		endswitch;
+		if($suppress_tablesort):
+			$tr = $thead->addTR(['class' => 'tablesorter-ignoreRow']);
+		else:
+			$tr = $thead->addTR();
 		endif;
+		$tr->insTHwC('lhebl',$p->get_title());
 		return $this;
 	}
 	public function ins_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
