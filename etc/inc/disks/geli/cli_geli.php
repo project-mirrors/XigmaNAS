@@ -89,34 +89,24 @@ final class cli_geli {
 	private $command_composer = [];
 	private $command = '';
 	private $provider = [];
-	private $passphrase = NULL;
-	private $key = NULL;
-	private $passphrase_new = NULL;
-	private $key_new = NULL;
-	private $aalgo = NULL;
-	private $ealgo = NULL;
-	private $keylen = NULL;
-	private $sectorsize = NULL;
-	private $decrypt_before_loading_rootfs = NULL;
-	private $enable_boot_rootfs = NULL;
-	private $passthru_trim = NULL;
+	private $passphrase = null;
+	private $key = null;
+	private $passphrase_new = null;
+	private $key_new = null;
+	private $aalgo = null;
+	private $ealgo = null;
+	private $keylen = null;
+	private $sectorsize = null;
+	private $decrypt_before_loading_rootfs = null;
+	private $enable_boot_rootfs = null;
+	private $passthru_trim = null;
 	private $tmp_filename_passphrase = false;
 	private $tmp_filename_key = false;
 	private $tmp_filename_passphrase_new = false;
 	private $tmp_filename_key_new = false;
-/**
- *	Ensure to delete all temporary files.
- */	
 	public function __destruct() {
+//		Ensure to delete all temporary files.
 		$this->delete_temporary_files();
-	}
-/**
- *	Initialize command composer.
- *	@return $this
- */
-	private function init_command_composer() {
-		$this->command_composer = ['/sbin/geli',$this->action];
-		return $this;
 	}
 /**
  *	Add a provider to the list of providers.
@@ -215,7 +205,7 @@ final class cli_geli {
  *	@param string $aalgo Data integrity verification algorithm
  *	@return $this
  */
-	public function set_aalgo(string $aalgo = NULL) {
+	public function set_aalgo(string $aalgo = null) {
 		if(is_null($aalgo)):
 			$this->aalgo = $aalgo;
 		else:
@@ -223,7 +213,7 @@ final class cli_geli {
 			if(array_key_exists($test_aalgo,self::$cli2cfg_aalgo)):
 				$this->aalgo = self::$cli2cfg_aalgo[$test_aalgo];
 			else:
-				$this->aalgo = NULL;
+				$this->aalgo = null;
 			endif;
 		endif;
 		return $this;
@@ -238,29 +228,29 @@ final class cli_geli {
  *	@param string $keylen Encryption key length
  *	@return $this
  */
-	public function set_ealgo(string $ealgo = NULL,string $keylen = NULL) {
+	public function set_ealgo(string $ealgo = null,string $keylen = null) {
 		if(is_null($ealgo)):
-			$this->ealgo = NULL;
+			$this->ealgo = null;
 		else:
 			$test_ealgo = strtolower($ealgo);
 			if(array_key_exists($test_ealgo,self::$cli2cfg_ealgo)):
 				$this->ealgo = self::$cli2cfg_ealgo[$test_ealgo];
 			else:
-				$this->ealgo = NULL;
+				$this->ealgo = null;
 			endif;
 		endif;
 		if(is_null($keylen)):
-			$this->keylen = NULL;
+			$this->keylen = null;
 		else:
 			$test_keylen = strtolower($keylen);
 			if(array_key_exists($test_keylen,self::$cli2cfg_keylen)):
 				$this->keylen = self::$cli2cfg_keylen[$test_keylen];
 			else:
-				$this->keylen = NULL;
+				$this->keylen = null;
 			endif;
 		endif;
 		if(is_null($this->keylen) || is_null($this->ealgo) || !in_array($this->keylen,self::$valid_ealgo_keylen[$this->ealgo])):
-			$this->keylen = NULL;
+			$this->keylen = null;
 		endif;
 		return $this;
 	}
@@ -269,15 +259,15 @@ final class cli_geli {
  *	@param string $sectorsize Sector size
  *	@return $this
  */
-	public function set_sectorsize(string $sectorsize = NULL) {
+	public function set_sectorsize(string $sectorsize = null) {
 		if(is_null($sectorsize)):
-			$this->sectorsize = NULL;
+			$this->sectorsize = null;
 		else:
 			$test_sectorsize = strtolower($sectorsize);
 			if(array_key_exists($test_sectorsize,self::$cli2cfg_sectorsize)):
 				$this->sectorsize = self::$cli2cfg_sectorsize[$test_sectorsize];
 			else:
-				$this->sectorsize = NULL;
+				$this->sectorsize = null;
 			endif;
 		endif;
 		return $this;
@@ -289,7 +279,7 @@ final class cli_geli {
  *	@param bool $decrypt_before_loading_rootfs Set to true to decrypt
  *	@return $this
  */
-	public function set_decrypt_before_loading_rootfs(bool $decrypt_before_loading_rootfs = NULL) {
+	public function set_decrypt_before_loading_rootfs(bool $decrypt_before_loading_rootfs = null) {
 		$this->decrypt_before_loading_rootfs = $decrypt_before_loading_rootfs;
 		return $this;
 	}
@@ -300,7 +290,7 @@ final class cli_geli {
  *	@param bool $enable_boot_rootfs Set to true to enable boot
  *	@return $this
  */
-	public function set_enable_boot_rootfs(bool $enable_boot_rootfs = NULL) {
+	public function set_enable_boot_rootfs(bool $enable_boot_rootfs = null) {
 		$this->enable_boot_rootfs = $enable_boot_rootfs;
 		return $this;
 	}
@@ -309,13 +299,22 @@ final class cli_geli {
  *	@param bool $passthru_trim Set to true to enable passthru
  *	@return $this
  */
-	public function set_passthru_trim(bool $passthru_trim = NULL) {
+	public function set_passthru_trim(bool $passthru_trim = null) {
 		$this->passthru_trim = $passthru_trim;
 		return $this;
 	}
 /**
+ *	Initialize command composer.
+ *	@return int Return 0 if successful, 1 if error
+ */
+	private function cmd_new(string $action) {
+		$this->action = $action;
+		$this->command_composer = ['/sbin/geli',$this->action];
+		return 0;
+	}
+/**
  *	Helper function to add all providers to the command composer.
- *	@param bool $single_provider_mode Some commands allow a single provider only.
+ *	@param bool $single_provider_mode Some commands expect one provider only.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_providers(bool $single_provider_mode = false): int {
@@ -472,7 +471,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Add the aalgo parameter to the command composer.
+ *	Helper function to add the aalgo parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_aalgo(): int {
@@ -487,7 +486,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Add the ealgo parameter to the command composer.
+ *	Helper function to add the ealgo parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_ealgo(): int {
@@ -505,7 +504,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Add the sectorsize parameter to the command composer.
+ *	Helper function to add the sectorsize parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_sectorsize(): int {
@@ -520,7 +519,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Add the decrypt before loading rootfs parameter to the command composer.
+ *	Helper function to add the decrypt before loading rootfs parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_decrypt_before_loading_rootfs(): int {
@@ -539,7 +538,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Add the boot rootfs parameter to the command composer.
+ *	Helper function to add the boot rootfs parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_enable_boot_rootfs(): int {
@@ -558,7 +557,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Add the trim passthru parameter to the command composer.
+ *	Helper function to add the trim passthru parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_passthru_trim(): int {
@@ -578,7 +577,7 @@ final class cli_geli {
 		return 0;
 	}
 /**
- *	Delete all temporary files.
+ *	Helper function, delete all temporary files.
  */
 	private function delete_temporary_files() {
 		if(is_string($this->tmp_filename_passphrase)):
@@ -597,6 +596,7 @@ final class cli_geli {
 			@unlink($this->tmp_filename_key_new);
 			$this->tmp_filename_key_new = false;
 		endif;
+		return 0;
 	}
 /**
  *	Attach the given provider. The master key will be decrypted using<br/>
@@ -607,8 +607,7 @@ final class cli_geli {
  */
 	public function attach(bool $be_verbose = false) {
 		$result = 1;
-		$this->action = 'attach';
-		$this->init_command_composer();
+		$this->cmd_new('attach');
 		if($be_verbose):
 			$this->command_composer[] = '-v';
 		endif;
@@ -626,12 +625,10 @@ final class cli_geli {
  */
 	public function configure() {
 		$result = 1;
-		$this->action = 'configure';
-		$this->
-			init_command_composer()->
-			cmd_add_decrypt_before_loading_rootfs()->
-			cmd_add_enable_boot_rootfs()->
-			cmd_add_passthru_trim();
+		$this->cmd_new('configure');
+		$this->cmd_add_decrypt_before_loading_rootfs();
+		$this->cmd_add_enable_boot_rootfs();
+		$this->cmd_add_passthru_trim();
 		if(0 === $this->cmd_add_providers()):
 			$this->command = implode(' ',$this->command_composer);
 			system($this->command,$result);
@@ -647,8 +644,7 @@ final class cli_geli {
  */
 	public function detach(bool $be_forceful = false,bool $be_verbose = false) {
 		$result = 1;
-		$this->action = 'detach';
-		$this->init_command_composer();
+		$this->cmd_new('detach');
 		if($be_forceful):
 			$this->command_composer[] = '-f';
 		endif;
@@ -674,20 +670,17 @@ final class cli_geli {
  */
 	public function init(bool $be_verbose = false) {
 		$result = 1;
-		$this->action = 'init';
-		$this->init_command_composer();;
+		$this->cmd_new('init');
 		if($be_verbose):
 			$this->command_composer[] = '-v';
 		endif;
 //		inhibit metadata backup
 		$this->command_composer[] = '-B none';
-		$this->
-			cmd_add_aalgo()->
-			cmd_add_ealgo()->
-			cmd_add_sectorsize();
+		$this->cmd_add_aalgo();
+		$this->cmd_add_ealgo();
+		$this->cmd_add_sectorsize();
 		$this->cmd_add_decrypt_before_loading_rootfs();
 		$this->cmd_add_enable_boot_rootfs();
-		
 		if((0 === $this->cmd_add_userkeys()) && (0 === $this->cmd_add_providers())):
 			$this->command_composer[] = '2>&1';
 			$this->command = implode(' ',$this->command_composer);
@@ -705,8 +698,7 @@ final class cli_geli {
  */
 	public function kill(bool $be_verbose = false) {
 		$result = 1;
-		$this->action = 'kill';
-		$this->init_command_composer();
+		$this->cmd_new('kill');
 		if($be_verbose):
 			$this->command_composer[] = '-v';
 		endif;
@@ -723,13 +715,11 @@ final class cli_geli {
  */
 	public function onetime() {
 		$result = 1;
-		$this->action = 'onetime';
-		$this->init_command_composer();
-		$this->
-			cmd_add_aalgo()->
-			cmd_add_ealgo()->
-			cmd_add_sectorsize()->
-			cmd_add_passthru_trim();
+		$this->cmd_new('onetime');
+		$this->cmd_add_aalgo();
+		$this->cmd_add_ealgo();
+		$this->cmd_add_sectorsize();
+		$this->cmd_add_passthru_trim();
 		if(0 === $this->cmd_add_providers()):
 			$this->command = implode(' ',$this->command_composer);
 			system($this->command,$result);
@@ -745,18 +735,17 @@ final class cli_geli {
  *	is initialized. The User Key can be changed at any time: for an<br/>
  *	attached provider, for a detached provider, or on the backup<br/>
  *	file.
- *	@param int $slot The key index, 0, 1 or NULL
+ *	@param int $slot The key index, 0, 1 or null
  *	@param bool $be_verbose Be verbose, default is false
  *	@return int Return 0 if successful, 1 if error
  */
-	public function setkey(int $slot = NULL,bool $be_verbose = false) {
+	public function setkey(int $slot = null,bool $be_verbose = false) {
 		$result = 1;
-		$this->action = 'setkey';
-		$this->init_command_composer();
+		$this->cmd_new('setkey');
 		if($be_verbose):
 			$this->command_composer[] = '-v';
 		endif;
-		$test_slot = filter_var($slot,FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'min_range' => 0,'max_range' => 1]]);
+		$test_slot = filter_var($slot,FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'min_range' => 0,'max_range' => 1]]);
 		if(!is_null($test_slot)):
 			$this->command_composer[] = sprintf('-n %d',$test_slot);
 		endif;
