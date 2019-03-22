@@ -1,6 +1,6 @@
 <?php
 /*
-	libutil.php
+	cli_geli.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -36,7 +36,7 @@ namespace disks\geli;
  *	Class to compose and execute geli commands
  */
 final class cli_geli {
-	static $str2aalgo = [
+	static $cli2cfg_aalgo = [
 		'hmac/md5' => 'hmac/md5',
 		'hmac/sha1' => 'hmac/sha1',
 		'hmac/ripemd160' => 'hmac/ripemd160',
@@ -44,7 +44,7 @@ final class cli_geli {
 		'hmac/sha384' => 'hmac/sha384',
 		'hmac/sha512' => 'hmac/sha512'
 	];
-	static $str2ealgo = [
+	static $cli2cfg_ealgo = [
 		'null' => 'null-cbc',
 		'null-cbc' => 'null-cbc',
 		'aes' => 'aes-xts',
@@ -57,7 +57,7 @@ final class cli_geli {
 		'3des' => '3des-cbc',
 		'3des-cbc' => '3des-cbc'
 	];
-	static $str2keylen = [
+	static $cli2cfg_keylen = [
 		'128' => '128',
 		'160' => '160',
 		'192' => '192',
@@ -70,7 +70,7 @@ final class cli_geli {
 		'416' => '416',
 		'448' => '448'
 	];
-	static $valid_ealgo_keylength = [
+	static $valid_ealgo_keylen = [
 		'null-cbc' => [],
 		'aes-xts' => ['128','256'],
 		'aes-cbc' => ['128','192','256'],
@@ -78,7 +78,7 @@ final class cli_geli {
 		'camellia-cbc' => ['128','192','256'],
 		'3des-cbc' => ['192']
 	];
-	static $str2sectorsize = [
+	static $cli2cfg_sectorsize = [
 		'512' => '512',
 		'1024' => '1024',
 		'2048' => '2048',
@@ -220,8 +220,8 @@ final class cli_geli {
 			$this->aalgo = $aalgo;
 		else:
 			$test_aalgo = strtolower($aalgo);
-			if(array_key_exists($test_aalgo,self::$str2aalgo)):
-				$this->aalgo = self::$str2aalgo[$test_aalgo];
+			if(array_key_exists($test_aalgo,self::$cli2cfg_aalgo)):
+				$this->aalgo = self::$cli2cfg_aalgo[$test_aalgo];
 			else:
 				$this->aalgo = NULL;
 			endif;
@@ -243,8 +243,8 @@ final class cli_geli {
 			$this->ealgo = NULL;
 		else:
 			$test_ealgo = strtolower($ealgo);
-			if(array_key_exists($test_ealgo,self::$str2ealgo)):
-				$this->ealgo = self::$str2ealgo[$test_ealgo];
+			if(array_key_exists($test_ealgo,self::$cli2cfg_ealgo)):
+				$this->ealgo = self::$cli2cfg_ealgo[$test_ealgo];
 			else:
 				$this->ealgo = NULL;
 			endif;
@@ -253,13 +253,13 @@ final class cli_geli {
 			$this->keylen = NULL;
 		else:
 			$test_keylen = strtolower($keylen);
-			if(array_key_exists($test_keylen,self::$str2keylen)):
-				$this->keylen = self::$str2keylen[$test_keylen];
+			if(array_key_exists($test_keylen,self::$cli2cfg_keylen)):
+				$this->keylen = self::$cli2cfg_keylen[$test_keylen];
 			else:
 				$this->keylen = NULL;
 			endif;
 		endif;
-		if(is_null($this->keylen) || is_null($this->ealgo) || !in_array($this->keylen,self::$valid_ealgo_keylength[$this->ealgo])):
+		if(is_null($this->keylen) || is_null($this->ealgo) || !in_array($this->keylen,self::$valid_ealgo_keylen[$this->ealgo])):
 			$this->keylen = NULL;
 		endif;
 		return $this;
@@ -274,8 +274,8 @@ final class cli_geli {
 			$this->sectorsize = NULL;
 		else:
 			$test_sectorsize = strtolower($sectorsize);
-			if(array_key_exists($test_sectorsize,self::$str2sectorsize)):
-				$this->sectorsize = self::$str2sectorsize[$test_sectorsize];
+			if(array_key_exists($test_sectorsize,self::$cli2cfg_sectorsize)):
+				$this->sectorsize = self::$cli2cfg_sectorsize[$test_sectorsize];
 			else:
 				$this->sectorsize = NULL;
 			endif;
@@ -508,7 +508,6 @@ final class cli_geli {
  *	Add the sectorsize parameter to the command composer.
  *	@return int Return 0 if successful, 1 if error
  */
-
 	private function cmd_add_sectorsize(): int {
 		switch($this->action):
 			case 'init':
