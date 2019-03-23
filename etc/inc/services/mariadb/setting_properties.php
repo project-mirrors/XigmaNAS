@@ -32,7 +32,6 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\mariadb;
-use common\properties as myp;
 
 final class setting_properties extends grid_properties {
 	public function init_enable() {
