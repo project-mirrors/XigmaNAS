@@ -77,7 +77,7 @@ final class setting_toolbox {
 	}
 /**
  *	Creates the property object
- *	@return \services\ctld\setting_properties
+ *	@return \services\mariadb\setting_properties
  */
 	public static function init_properties() {
 		$cop = new setting_properties();
