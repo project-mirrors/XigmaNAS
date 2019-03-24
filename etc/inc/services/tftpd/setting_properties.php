@@ -42,7 +42,7 @@ final class setting_properties extends grid_properties {
 			set_id('allowfilecreation')->
 			set_caption($caption)->
 			set_description($description)->
-			set_defaultvalue(true)->
+			set_defaultvalue(false)->
 			set_editableonadd(true)->
 			set_editableonmodify(true)->
 			filter_use_default();
