@@ -379,6 +379,12 @@ abstract class property {
 		$result = NULL;
 		$filter_names = $this->get_filter_names($filter);
 		$key = $this->get_name();
+//		fix for boolean
+		if(!array_key_exists($key,$variable)):
+			if(false !== strpos(get_class($this),'property_bool')):
+				$variable[$key] = false;
+			endif;
+		endif;
 		if(array_key_exists($key,$variable)):
 			$content = $variable[$key];
 			switch(true):
