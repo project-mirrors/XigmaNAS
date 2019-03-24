@@ -32,4 +32,6 @@ etc/inc/properties_syslogconf.php
 etc/inc/properties_smartmontoold_umass.php
 # 6575
 etc/inc/properties_iscsi_initiator.php
+# 6601
+etc/inc/properties_services_tftp.php
 #
