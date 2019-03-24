@@ -244,6 +244,7 @@ list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (0 === rc_is_service_running('mysqldb'));
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
+$input_errors_found = count($input_errors) > 0;
 //	create document
 $pgtitle = [gettext('Services'),gettext('MariaDB'),gettext('Settings')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
@@ -259,7 +260,7 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if($pending_changes):
+if($pending_changes && !$input_errors_found):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
