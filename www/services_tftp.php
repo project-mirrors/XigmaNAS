@@ -33,150 +33,215 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_tftp.php';
-require_once 'co_request_method.php';
+require_once 'autoload.php';
 
-function services_tftp_get_sphere() {
-	global $config;
-	$sphere = new co_sphere_settings('services_tftp','php');
-	$sphere->row_default = [
-		'enable' => false,
-		'dir' => $g['media_path'],
-		'allowfilecreation' => true,
-		'port' => 69,
-		'username' => 'nobody',
-		'umask' => 0,
-		'timeout' => 1000000,
-		'maxblocksize' => 16384,
-		'extraoptions' => ''
-	];
-	$sphere->grid = &array_make_branch($config,'tftpd');
-	if(empty($sphere->grid)):
-		$sphere->grid = $sphere->row_default;
-		write_config();
-		header($sphere->get_location());
-		exit;
-	endif;
-	return $sphere;
-}
-$sphere = &services_tftp_get_sphere();
-$cop = new properties_tftp();			
+use services\tftpd\setting_toolbox as toolbox;
+use services\tftpd\shared_toolbox;
+
+//	init indicators
 $input_errors = [];
-$a_message = [];
-//	determine request method
-$rmo = new co_request_method();
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('GET','view',PAGE_MODE_VIEW);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','enable',PAGE_MODE_VIEW);
-$rmo->add('POST','disable',PAGE_MODE_VIEW);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->add('POST','view',PAGE_MODE_VIEW);
-$rmo->add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	get configuration data, depending on the source
-switch($page_mode):
-	case PAGE_MODE_POST:
-		$source = $_POST;
-		break;
-	default:
-		$source = $sphere->grid;
-		break;
-endswitch;
-$sphere->row['enable'] = isset($source['enable']) ? (is_bool($source['enable']) ? $source['enable'] : true) : false;
-$sphere->row['dir'] = $source['dir'] ?? $sphere->row_default['dir'];
-$sphere->row['allowfilecreation'] = isset($source['allowfilecreation']);
-$sphere->row['port'] = $source['port'] ?? $sphere->row_default['port'];
-$sphere->row['username'] = $source['username'] ?? $sphere->row_default['username'];
-$sphere->row['umask'] = $source['umask'] ?? $sphere->row_default['umask'];
-$sphere->row['timeout'] = $source['timeout'] ?? $sphere->row_default['timeout'];
-$sphere->row['maxblocksize'] = $source['maxblocksize'] ?? $sphere->row_default['maxblocksize'];
-$sphere->row['extraoptions'] = $source['extraoptions'] ?? $sphere->row_default['extraoptions'];
-//	set defaults
-if(preg_match('/\S/',$sphere->row['username'])):
-else:
-	$sphere->row['username'] = $sphere->row_default['username'];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-//	process enable
-switch($page_action):
-	case 'enable':
-		if($sphere->row['enable']):
-			$page_mode = PAGE_MODE_VIEW;
-			$page_action = 'view';
-		else: // enable and run a full validation
-			$sphere->row['enable'] = true;
-			$page_action = 'save'; // continue with save procedure
-		endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$a_referer = [
+	$cop->get_allowfilecreation(),
+	$cop->get_dir(),
+	$cop->get_enable(),
+	$cop->get_extraoptions(),
+	$cop->get_maxblocksize(),
+	$cop->get_port(),
+	$cop->get_timeout(),
+	$cop->get_umask(),
+	$cop->get_username()
+];
+$a_system_user = [];
+foreach(system_get_user_list() as $key => $val):
+	$a_system_user[strtolower($key)] = $key;
+endforeach;
+ksort($a_system_user);
+$cop->get_username()->set_options($a_system_user);
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_update_service('tftpd');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+/*
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('tftpd',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				exit;
+				break;
+ */
+			case 'restart':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('tftpd');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('tftpd');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('tftpd');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
 		break;
 endswitch;
-//	process save and disable
+//	validate
 switch($page_action):
-	case $sphere->get_basename():
-		$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-		unset($_SESSION['submit']);
-		unset($_SESSION[$sphere->get_basename()]);
-		$savemsg = get_std_save_message($retval);
-		$page_mode = PAGE_MODE_VIEW;
-//		$page_action = 'view';
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			switch($name):
+				case 'auxparam':
+					if(array_key_exists($name,$source)):
+						if(is_array($source[$name])):
+							$source[$name] = implode(PHP_EOL,$source[$name]);
+						endif;
+					endif;
+					break;
+			endswitch;
+			$sphere->row[$name] = $referer->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
 		break;
 	case 'save':
-		// Input validation.
-		$reqdfields = ['dir'];
-		$reqdfieldsn = [gettext('Directory')];
-		$reqdfieldst = ['string'];
-		do_input_validation($sphere->row,$reqdfields,$reqdfieldsn,$input_errors);
-		$reqdfields = array_merge($reqdfields,['port','umask','timeout','maxblocksize']);
-		$reqdfieldsn = array_merge($reqdfieldsn,[gettext('Port'),gettext('Umask'),gettext('Timeout'),gettext('Max. Block Size')]);
-		$reqdfieldst = array_merge($reqdfieldst,['port','numeric','numeric','numeric']);
-		do_input_validation_type($sphere->row,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-		if((512 > $sphere->row['maxblocksize']) || (65464 < $sphere->row['maxblocksize'])):
-			$input_errors[] = sprintf(gettext('Invalid maximum block size! It must be in the range from %d to %d.'),512,65464);
-		endif;
+		$source = $_POST;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $referer->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
 		if(empty($input_errors)):
-			$sphere->copyrowtogrid();
+			foreach($a_referer as $referer):
+				$name = $referer->get_name();
+				switch($name):
+					case 'auxparam':
+						$auxparam_grid = [];
+						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
+							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
+						endforeach;
+						$sphere->row[$name] = $auxparam_grid;
+						break;
+				endswitch;
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
 			write_config();
-			$retval = 0;
-			config_lock();
-			$retval |= rc_update_service('tftpd');
-			config_unlock();
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
-			header($sphere->get_location());
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
 			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
-//			$page_action = 'edit';
 		endif;
-		break;
-	case 'disable':
-		if($sphere->row['enable']): // if enabled, disable it
-			$sphere->row['enable'] = false;
-			$sphere->grid['enable'] = $sphere->row['enable'];
-			write_config();
-			$retval = 0;
-			config_lock();
-			$retval |= rc_update_service('tftpd');
-			config_unlock();
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
-			header($sphere->get_location());
-			exit;
-		endif;
-		$page_mode = PAGE_MODE_VIEW;
-//		$page_action = 'view';
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
-$l_user = [];
-foreach(system_get_user_list() as $key => $val):
-	$l_user[$key] = $key;
-endforeach;
-$cop->get_username()->set_options($l_user);
+$is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = (0 === rc_is_service_running('tftpd'));
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+$input_errors_found = count($input_errors) > 0;
 $pgtitle = [gettext('Services'),gettext('TFTP')];
-$document = new_page($pgtitle,$sphere->get_scriptname(),'notabnav');
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -185,46 +250,50 @@ $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes && !$input_errors_found):
+	$content->ins_config_has_changed_box();
+endif;
 //	add content
-$content->
-	add_table_data_settings()->
-		ins_colgroup_data_settings()->
-		push()->
-		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,$is_readonly,gettext('Trivial File Transfer Protocol'))->
-		pop()->
-		addTBODY()->
-			c2_filechooser($cop->get_dir(),$sphere->row[$cop->get_dir()->get_name()],true,$is_readonly)->
-			c2_checkbox($cop->get_allowfilecreation(),$sphere->row[$cop->get_allowfilecreation()->get_name()],false,$is_readonly);
-$content->
-	add_table_data_settings()->
-		ins_colgroup_data_settings()->
-		push()->
-		addTHEAD()->
-			c2_separator()->
-			c2_titleline(gettext('Advanced Settings'))->
-		pop()->
-		addTBODY()->
-			c2_input_text($cop->get_port(),$sphere->row[$cop->get_port()->get_name()],false,$is_readonly)->
-			c2_select($cop->get_username(),$sphere->row[$cop->get_username()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_umask(),$sphere->row[$cop->get_umask()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_timeout(),$sphere->row[$cop->get_timeout()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_maxblocksize(),$sphere->row[$cop->get_maxblocksize()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_extraoptions(),$sphere->row[$cop->get_extraoptions()->get_name()],false,$is_readonly);
-//	add buttons
+$tds = $content->add_table_data_settings();
+$tds->ins_colgroup_data_settings();
+$thead = $tds->addTHEAD();
+$title = gettext('Trivial File Transfer Protocol');
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$document->
-			add_area_buttons()->
-				ins_button_edit()->
-				ins_button_enadis(!$sphere->row[$cop->get_enable()->get_name()]);
+		$thead->c2_titleline($title);
 		break;
 	case PAGE_MODE_EDIT:
-		$document->
-			add_area_buttons()->
-				ins_button_save()->
-				ins_button_cancel();
+		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,$title);
+		break;
+endswitch;
+$tds->addTBODY()->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2_filechooser($cop->get_dir(),$sphere,true,$is_readonly)->
+	c2_checkbox($cop->get_allowfilecreation(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
+	c2_select($cop->get_username(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_umask(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_maxblocksize(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_extraoptions(),$sphere,false,$is_readonly);
+//	add buttons
+$buttons = $document->add_area_buttons();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->ins_button_enadis(!$is_enabled);
+			$buttons->ins_button_restart($is_enabled);
+//			$buttons->ins_button_reload($is_enabled);
+		endif;
+		break;
+	case PAGE_MODE_EDIT:
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
 		break;
 endswitch;
 $document->render();
