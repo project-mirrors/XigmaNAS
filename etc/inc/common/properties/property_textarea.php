@@ -36,13 +36,7 @@ namespace common\properties;
  *	Textarea property
  */
 class property_textarea extends property {
-	public $x_cols = 65;
-	public $x_maxlength = 0;
-	public $x_placeholder = NULL;
-	public $x_placeholderv = NULL;
-	public $x_rows = 5;
-	public $x_wrap = false;
-
+	protected $x_cols = 65;
 	public function set_cols(int $cols = 65) {
 		$this->x_cols = $cols;
 		return $this;
@@ -50,6 +44,7 @@ class property_textarea extends property {
 	public function get_cols() {
 		return $this->x_cols;
 	}
+	protected $x_maxlength = 0;
 	public function set_maxlength(int $maxlength = 0) {
 		$this->x_maxlength = $maxlength;
 		return $this;
@@ -57,20 +52,23 @@ class property_textarea extends property {
 	public function get_maxlength() {
 		return $this->x_maxlength;
 	}
-	public function set_placeholder(string $placeholder = NULL) {
+	protected $x_placeholder = null;
+	public function set_placeholder(string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
 	}
-	public function set_placeholderv(string $placeholderv = NULL) {
+	protected $x_placeholderv = null;
+	public function set_placeholderv(string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
 	public function get_placeholderv() {
 		return $this->x_placeholderv;
 	}
+	protected $x_rows = 5;
 	public function set_rows(int $rows = 5) {
 		$this->x_rows = $rows;
 		return $this;
@@ -78,6 +76,7 @@ class property_textarea extends property {
 	public function get_rows() {
 		return $this->x_rows;
 	}
+	protected $x_wrap = false;
 	public function set_wrap(bool $wrap = false) {
 		$this->x_wrap = $wrap;
 		return $this;
