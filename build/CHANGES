@@ -10,6 +10,7 @@ Changes:
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
 - Upgrade php to 7.3.3.
+- Upgrade nano to 4.0.
 
 Fixes:
 
