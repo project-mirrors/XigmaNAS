@@ -2041,7 +2041,7 @@ trait co_DOMTools {
 		endswitch;
 		if($is_readonly):
 			$input_attributes['class'] = 'formfldro';
-			$input_attributes['disabled'] = 'disabled';
+			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $p->get_placeholderv();
@@ -2156,7 +2156,7 @@ trait co_DOMTools {
 		];
 		if($is_readonly):
 			$input_attributes['class'] = 'formfldro';
-			$input_attributes['disabled'] = 'disabled';
+			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $p->get_placeholderv();
@@ -2326,7 +2326,7 @@ EOJ;
 		];
 		if($is_readonly):
 			$textarea_attributes['class'] = 'formprero';
-			$textarea_attributes['disabled'] = 'disabled';
+			$textarea_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
 			$placeholder = $p->get_placeholderv();
