@@ -36,11 +36,7 @@ namespace common\properties;
  *	Text property
  */
 class property_text extends property {
-	public $x_maxlength = 0;
-	public $x_placeholder = NULL;
-	public $x_placeholderv = NULL;
-	public $x_size = 40;
-
+	protected $x_maxlength = 0;
 	public function set_maxlength(int $maxlength = 0) {
 		$this->x_maxlength = $maxlength;
 		return $this;
@@ -48,20 +44,23 @@ class property_text extends property {
 	public function get_maxlength() {
 		return $this->x_maxlength;
 	}
-	public function set_placeholder(string $placeholder = NULL) {
+	protected $x_placeholder = null;
+	public function set_placeholder(string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
 	}
-	public function set_placeholderv(string $placeholderv = NULL) {
+	protected $x_placeholderv = null;
+	public function set_placeholderv(string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
 	public function get_placeholderv() {
 		return $this->x_placeholderv;
 	}
+	protected $x_size = 40;
 	public function set_size(int $size = 40) {
 		$this->x_size = $size;
 		return $this;
