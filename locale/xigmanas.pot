@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-26 00:43+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -141,6 +141,9 @@ msgstr ""
 msgid "*** Imported duplicate ***"
 msgstr ""
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr ""
 
@@ -156,7 +159,13 @@ msgstr ""
 msgid "1.8\""
 msgstr ""
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
+msgstr ""
+
+msgid "16384"
 msgstr ""
 
 msgid "2"
@@ -2697,10 +2706,6 @@ msgstr ""
 msgid "Discard - Do not inherit entries"
 msgstr ""
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr ""
-
 msgid "Discovery"
 msgstr ""
 
@@ -5195,10 +5200,6 @@ msgstr ""
 msgid "Invalid login credentials."
 msgstr ""
 
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr ""
-
 msgid "Invalid username or password."
 msgstr ""
 
@@ -7060,7 +7061,7 @@ msgstr ""
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr ""
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
+msgid "Port number must be a value between 1024 and 65535. Default port is 69."
 msgstr ""
 
 #, php-format
@@ -8347,7 +8348,7 @@ msgstr ""
 msgid "Sets the session type. Type can be either \"Discovery\", or \"Normal\". Default is \"Normal\". For normal sessions, the TargetName must be defined. Discovery sessions ignore the TargetName and will result in the initiator connecting to all the targets returned by SendTargets iSCSI discovery with the defined TargetAddress."
 msgstr ""
 
-msgid "Sets the umask for newly created files to the specified value. The default is zero (anyone can read or write)."
+msgid "Sets the umask for newly created files. The default is 000 (anyone can read or write)."
 msgstr ""
 
 msgid "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other LUNs on this host, not accessible otherwise. This allows to offload copying between different iSCSI targets residing on the same host in trusted environments."
@@ -10071,7 +10072,7 @@ msgstr ""
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 
-msgid "Timeout must be a number between 10 and 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
 msgstr ""
 
 msgid "Times"
@@ -11276,17 +11277,14 @@ msgstr ""
 msgid "iSCSI Target ISTGT"
 msgstr ""
 
-msgid "iSCSI Target Logical Unit Controller"
+msgid "iSCSI Target Information & Status"
 msgstr ""
 
-msgid "iSCSI Targets Information & Status"
+msgid "iSCSI Target Logical Unit Controller"
 msgstr ""
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
-msgstr ""
-
-msgid "iSCSI initiator disabled."
 msgstr ""
 
 msgid "iSER - iSCSI over RDMA"
