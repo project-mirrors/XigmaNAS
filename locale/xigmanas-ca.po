@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2019-03-15 15:49+0000\n"
-"PO-Revision-Date: 2019-03-01 20:54+0000\n"
+"PO-Revision-Date: 2019-03-18 08:11+0000\n"
 "Last-Translator: Victek <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-15 15:24+0000\n"
-"X-Generator: Launchpad (build 18905)\n"
+"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Generator: Launchpad (build 18910)\n"
 "Language: ca_ES\n"
 
 msgid " interfaces:"
@@ -710,7 +710,7 @@ msgid "Additional Group"
 msgstr "Grup addicional"
 
 msgid "Additional Information"
-msgstr ""
+msgstr "Informació addicional"
 
 msgid "Additional Network"
 msgstr "Xarxa adicional"
@@ -3220,6 +3220,7 @@ msgstr "Desactivat"
 
 msgid "Disabled variable names will be removed from /etc/rc.conf."
 msgstr ""
+"Els noms de les variables deshabilitats s’eliminaran del fitxer /etc/rc.conf."
 
 msgid "Discard - Discard ACL"
 msgstr "Descarta - Descartar ACL"
@@ -3232,7 +3233,7 @@ msgid "Discovered iSCSI target for %s"
 msgstr "Destinació iSCSI descobert per% s"
 
 msgid "Discovery"
-msgstr ""
+msgstr "Descobriment"
 
 msgid "Discovery Auth Group"
 msgstr "Descobriment Grup d'autenticació"
@@ -3872,7 +3873,7 @@ msgid "Driver List"
 msgstr "Llista de controladors"
 
 msgid "Driver Name"
-msgstr ""
+msgstr "Nom del controlador"
 
 msgid "Driver Parameter"
 msgstr "Paràmetres del controlador"
@@ -4357,6 +4358,8 @@ msgid ""
 "Enable or disable the session. State can be either \"On\" or \"Off\". "
 "Default is \"On\"."
 msgstr ""
+"Habiliteu o inhabiliteu la sessió. L'estat pot ser \"activat\" o \"apagat\". "
+"El valor per defecte és \"Activat\"."
 
 msgid "Enable peer exchange (PEX)."
 msgstr "Activar l'intercanvi entre parells (PEX)."
@@ -4475,7 +4478,7 @@ msgid "Enabled"
 msgstr "Activat"
 
 msgid "Enabled options will be added to /etc/rc.conf."
-msgstr ""
+msgstr "Les opcions habilitades s’afegiran a /etc/rc.conf."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -4551,7 +4554,7 @@ msgid "Enter Universally Unique Identifier"
 msgstr "Introduïu l'identificador únic universal"
 
 msgid "Enter Value"
-msgstr ""
+msgstr "Introduïu el valor"
 
 msgid "Enter Volume Name"
 msgstr "Introduïu el nom del volum"
@@ -7043,7 +7046,7 @@ msgid "Mutual User"
 msgstr "Usuari mutu"
 
 msgid "Mutual-CHAP"
-msgstr ""
+msgstr "CHAP mutu"
 
 msgid "NAA Identifier"
 msgstr "Identificador NAA"
@@ -7260,7 +7263,7 @@ msgstr ""
 "No (per defecte): inhabilita la publicitat del suport de Time Machine."
 
 msgid "No CHAP users found."
-msgstr ""
+msgstr "No s’han trobat usuaris de CHAP."
 
 msgid "No DNS server have been configured."
 msgstr "No s'ha configurat servidor DNS."
@@ -7296,13 +7299,13 @@ msgid "No LUNs found."
 msgstr "No s'ha trobat cap LUN."
 
 msgid "No Mutual-CHAP users found."
-msgstr ""
+msgstr "No s’han trobat usuaris de CHAP mutu."
 
 msgid "No Parity"
 msgstr "Sense paritat"
 
 msgid "No Placeholder"
-msgstr ""
+msgstr "Sense marcador de lloc"
 
 msgid "No Portal Group has been configured."
 msgstr "Grup portal no s'ha configurat."
@@ -7368,13 +7371,13 @@ msgid "No information available."
 msgstr "No hi ha informació disponible."
 
 msgid "No initiator names found."
-msgstr ""
+msgstr "No s’han trobat noms d’iniciador."
 
 msgid "No initiator portals found."
-msgstr ""
+msgstr "No s’han trobat portals d’iniciadors."
 
 msgid "No listeners found."
-msgstr ""
+msgstr "No s’ha trobat cap receptor."
 
 msgid "No new disk found."
 msgstr "Sense disc nou trobat."
@@ -7386,7 +7389,7 @@ msgid "No new software RAID disk found."
 msgstr "No s'ha trobat nou programari de disc RAID."
 
 msgid "No options found."
-msgstr ""
+msgstr "No s’ha trobat cap opció."
 
 msgid "No pool devices have been selected"
 msgstr "No s'han seleccionat dispositius de la piscina"
@@ -7401,7 +7404,7 @@ msgid "No portal groups found."
 msgstr "No s'han trobat grups de portal."
 
 msgid "No ports found."
-msgstr ""
+msgstr "No s’ha trobat cap port."
 
 msgid "No records found."
 msgstr "No s'ha trobat cap registre."
@@ -9447,10 +9450,10 @@ msgid "Services"
 msgstr "Serveis"
 
 msgid "Session State"
-msgstr ""
+msgstr "Estat de la sessió"
 
 msgid "Session Type"
-msgstr ""
+msgstr "Tipus de sessió"
 
 msgid "Set UID"
 msgstr "Estableix UID"
@@ -9614,6 +9617,12 @@ msgid ""
 "connecting to all the targets returned by SendTargets iSCSI discovery with "
 "the defined TargetAddress."
 msgstr ""
+"Estableix el tipus de sessió. El tipus pot ser \"Discovery\" o \"Normal\". "
+"El valor per defecte és \"Normal\". Per a sessions normals, s'ha de definir "
+"el TargetName. Les sessions de descobriment ignoren el nom de destinatari i "
+"donaran com a resultat que l'iniciador es connecti a tots els objectius "
+"retornats pel descobriment iSCSI de SendTargets amb l'adreça de destinació "
+"definida."
 
 msgid ""
 "Sets the umask for newly created files to the specified value. The default "
@@ -10957,6 +10966,8 @@ msgstr ""
 
 msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
+"L’identificador descrit com a desconegut per smartctl, inclosos els "
+"claudàtors."
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr "El mode inicial de compendi negociat amb l'iniciador."
@@ -13526,17 +13537,3 @@ msgstr "usat de"
 
 msgid "visible"
 msgstr "visible"
-
-#~ msgid "Option is protected"
-#~ msgstr "Opció protegida"
-
-#~ msgid "The identifier reported as unknown by smartctl including brackets."
-#~ msgstr ""
-#~ "L'identificador informa que es desconegut per smartctl incloent parèntesis."
-
-#~ msgid ""
-#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-#~ "options used by various generic startup scripts."
-#~ msgstr ""
-#~ "Aquests s'afegirà l'opció (s) en /etc/rc.conf. Això li permet sobreescriure "
-#~ "les opcions utilitzades per diversos scripts d'inici genèrics."
