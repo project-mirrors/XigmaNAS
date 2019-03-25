@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-15 15:25+0000\n"
-"X-Generator: Launchpad (build 18905)\n"
+"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Generator: Launchpad (build 18910)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -13335,17 +13335,3 @@ msgstr "használatban"
 
 msgid "visible"
 msgstr "látható"
-
-#~ msgid "Option is protected"
-#~ msgstr "Opció védett"
-
-#~ msgid "The identifier reported as unknown by smartctl including brackets."
-#~ msgstr ""
-#~ "Az azonosítót ismeretlennek jelentette a smartctl, beleértve a zárójeleket."
-
-#~ msgid ""
-#~ "These option(s) will be added to /etc/rc.conf. This allow you to overwrite "
-#~ "options used by various generic startup scripts."
-#~ msgstr ""
-#~ "Ezek az értékek a /etc/rc.conf-hoz adódnak hozzá. Ez lehetővé teszi számos "
-#~ "induló szkript beállításainak módosítását."
