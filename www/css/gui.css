@@ -1284,7 +1284,7 @@ pre.cmdoutput
 	color: #FFFFFF;
 }
 
-td > label
+td[class^="lce"] > label
 {
 	display: block;
 }
