@@ -101,7 +101,7 @@ final class setting_properties extends grid_properties {
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
 			set_defaultvalue('')->
-			set_size(6)->
+			set_size(10)->
 			set_maxlength(5)->
 			set_min(512)->
 			set_max(65464)->
@@ -122,7 +122,7 @@ final class setting_properties extends grid_properties {
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
 			set_defaultvalue('')->
-			set_size(6)->
+			set_size(10)->
 			set_maxlength(5)->
 			set_min(1024)->
 			set_max(65535)->
@@ -133,8 +133,7 @@ final class setting_properties extends grid_properties {
 			set_filter(FILTER_VALIDATE_INT,'69')->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,'69')->
 			set_filter_options(['default' => null,'min_range' => 69,'max_range' => 69],'69')->
-			set_filter_group('ui',['empty','ui','69'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Port number must be a value between 1024 and 65535. Default port is 69.')));
+			set_filter_group('ui',['empty','ui','69']);
 		return $property;
 	}
 	public function init_timeout() {
