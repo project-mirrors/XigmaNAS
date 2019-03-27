@@ -14,7 +14,7 @@
 # PROVIDE: mountd
 # REQUIRE: NETWORKING rpcbind
 # KEYWORD: nojail shutdown
-# XQUERY: -i "count(//nfsd/enable) > 0" -o "0" -b
+# XQUERY: --if 'count(//nfsd/enable) > 0' --output '0' --else --output '1'  --break
 # RCVAR: mountd
 
 . /etc/rc.subr
@@ -33,58 +33,76 @@ start_precmd="mountd_precmd"
 reload_cmd="mountd_prereload"
 mkconf_cmd="mountd_mkconf"
 extra_commands="reload mkconf"
-
-# Clear existing file
+# clear existing exports file
 cat /dev/null > ${mountd_config}
 
 mountd_mkconf()
 {
-	local _index _ipaddr _network _mask
-
-	# Create /var/etc/exports file
-	_index=`configxml_get_count "//nfsd/share"`
-	while [ ${_index} -gt 0 ]
-	do
-		_ipaddr=`configxml_get "//nfsd/share[position()=${_index}]/network"`
-		_network=${_ipaddr%/*}
-		_mask=`get_subnetmask ${_ipaddr}`
-
-		if configxml_isset "//nfsd/share[position()=${_index}]/v4rootdir"; then
-			/usr/local/bin/xml sel -t -m "//nfsd/share[position()=${_index}]" \
-				-i "count(v4rootdir) > 0" -o "V4: " -b \
-				-v "path" \
-				-o " -network ${_network} -mask ${_mask}" -n \
-			${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
-		else
-			/usr/local/bin/xml sel -t -m "//nfsd/share[position()=${_index}]" \
-				-v "path" \
-				-i "count(options/*) > 0" -o " -" -b \
-				-m "options/*" \
-					-i "position() > 1" -o "," -b \
-					-v "local-name()" \
-				-b \
-				-i "mapall[. = 'yes']" -o " -mapall=root" -b \
-				-i "mapall[. != 'yes']" -o " -maproot=root" -b \
-				-o " -network ${_network} -mask ${_mask}" -n \
-			${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
-		fi
-
-		_index=$(( ${_index} - 1 ))
-	done
+#	create exports file from config
+	/usr/local/bin/xml sel --template \
+		--match '//nfsd/share' \
+			--if 'count(v4rootdir) > 0' \
+				--if 'string-length(path) > 0 and string-length(network) > 0' \
+					--value-of 'concat("V4: ",path)' \
+					--value-of 'concat(" -network ",network)' \
+					--nl \
+				--break \
+			--else \
+				--if 'string-length(path) > 0 and string-length(network) > 0' \
+					--value-of 'path' \
+					--if 'count(options/alldirs) > 0' \
+						--output ' -alldirs' \
+					--break \
+					--if 'count(options/quiet) > 0' \
+						--output ' -quiet' \
+					--break \
+					--if 'count(options/ro) > 0' \
+						--output ' -ro' \
+					--break \
+					--if 'mapall="yes"' \
+						--output ' -mapall=' \
+					--elif 'mapall="no"' \
+						--output ' -maproot=' \
+					--break \
+					--if 'mapall="yes" or mapall="no"' \
+						--if 'string-length(maptouser) > 0' \
+							--value-of "concat('\"',str:replace(maptouser,'\"',''),'\"')" \
+							--if 'maptogroups="nogroupcredentials"' \
+								--output ':' \
+							--elif 'maptogroups="specificgroupcredentials"' \
+								--match 'group' \
+									--if 'string-length(.) > 0' \
+										--value-of "concat(':\"',str:replace(.,'\"',''),'\"')" \
+									--break \
+								--break \
+							--break \
+						--else \
+							--output 'root' \
+						--break \
+					--break \
+					--value-of 'concat(" -network ",network)' \
+					--nl \
+				--break \
+			--break \
+		--break \
+	${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
+#	append auxparam to exports file
+	/usr/local/bin/xml sel --template \
+		--match '//nfsd/auxparam' \
+			--if 'position() < last() or string-length(.) > 0' \
+				--value-of '.' --nl \
+			--break \
+		--break \
+	${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
 }
 
 mountd_precmd()
 {
 	mountd_mkconf
-
-	if ! checkyesno rpcbind_enable  && \
-	    ! /etc/rc.d/rpcbind forcestatus 1>/dev/null 2>&1
-	then
+	if ! checkyesno rpcbind_enable  && ! /etc/rc.d/rpcbind forcestatus 1>/dev/null 2>&1; then
 		force_depend rpcbind || return 1
 	fi
-
-	# mountd flags will differ depending on rc.conf settings
-	#
+#	mountd flags will differ depending on rc.conf settings
 	if checkyesno nfs_server_enable ; then
 		if checkyesno weak_mountd_authentication; then
 			rc_flags="${mountd_flags} -n"
@@ -94,11 +112,9 @@ mountd_precmd()
 			checkyesno weak_mountd_authentication && rc_flags="-n"
 		fi
 	fi
-
 	if checkyesno zfs_enable; then
 		rc_flags="${rc_flags} /etc/exports /etc/zfs/exports"
 	fi
-
 	rm -f /var/db/mountdtab
 	( umask 022 ; > /var/db/mountdtab )
 	return 0
@@ -106,10 +122,9 @@ mountd_precmd()
 
 mountd_prereload()
 {
-	# Clear existing file
+#	clear existing file
 	cat /dev/null > ${mountd_config}
-
-	# Create configuration file
+#	create configuration file
 	mountd_mkconf
 }
 
