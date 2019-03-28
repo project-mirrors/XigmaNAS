@@ -298,8 +298,7 @@ endswitch;
 $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
 	c2_checkbox($cop->get_support_nfs_v4(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_numproc(),$sphere,false,$is_readonly)->
-	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2_input_text($cop->get_numproc(),$sphere,false,$is_readonly);
 $tfoot->c2_separator();
 $tds_exports = $content->add_table_data_settings();
 $tds_exports->ins_colgroup_data_settings();
