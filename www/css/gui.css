@@ -846,9 +846,9 @@ main#g4m
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	width: 100%;
-	-webkit-flex: 1 1 0;
-	-ms-flex: 1 1 0;
-	flex: 1 1 0;
+	-webkit-flex: 1 1 0em;
+	-ms-flex: 1 1 0em;
+	flex: 1 1 0em;
 	overflow-y: auto;
 	background-color: transparent;
 }
