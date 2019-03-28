@@ -12,6 +12,7 @@ Changes:
 - Upgrade php to 7.3.3.
 - Upgrade nano to 4.0.
 - Upgrade bash to 5.0 p3.
+- Upgrade zoneinfo to 2019a.
 
 Fixes:
 
