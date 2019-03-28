@@ -33,279 +33,315 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
+require_once 'autoload.php';
 
-function services_nfs_get_sphere() {
-	global $config;
-	$sphere = new co_sphere_settings('services_nfs','php');
-	$sphere->row_default = [
-		'enable' => false,
-		'v4enable' => false,
-		'numproc' => 4,
-		'share' => []
-	];
-	$sphere->grid = &array_make_branch($config,'nfsd');
-	if(empty($sphere->grid)):
-		$sphere->grid = $sphere->row_default;
-		write_config();
-		header($sphere->get_location());
-		exit;
-	endif;
-	array_make_branch($config,'nfsd','share');
-	return $sphere;
-}
-$sphere = &services_nfs_get_sphere();
-/*
-$a_share = &array_make_branch($config,'nfsd','share');
-if(empty($a_share)):
-else:
-	array_sort_key($a_share,'path');
-endif;
-*/
-$gt_button_apply_confirm = gettext('Do you want to apply these settings?');
+use services\nfsd\setting_toolbox as toolbox;
+use services\nfsd\shared_toolbox;
+
+//	init indicators
 $input_errors = [];
-$a_message = [];
-//	identify page mode
-$mode_page = ($_POST) ? PAGE_MODE_POST : PAGE_MODE_VIEW;
-switch($mode_page):
-	case PAGE_MODE_POST:
-		if(isset($_POST['submit'])):
-			$page_action = $_POST['submit'];
-			switch($page_action):
-				case 'edit':
-					$mode_page = PAGE_MODE_EDIT;
-					break;
-				case 'save':
-					break;
-				case 'enable':
-					break;
-				case 'disable':
-					break;
-				default:
-					$mode_page = PAGE_MODE_VIEW;
-					$page_action = 'view';
-					break;
-			endswitch;
-		else:
-			$mode_page = PAGE_MODE_VIEW;
-			$page_action = 'view';
-		endif;
-		break;
-	case PAGE_MODE_VIEW:
-		$page_action = 'view';
-		break;
-endswitch;
-//	get configuration data, depending on the source
-switch($page_action):
-	case 'save':
-		$source = $_POST;
-		break;
-	default:
-		$source = $sphere->grid;
-		break;
-endswitch;
-$sphere->row['enable'] = isset($source['enable']);
-$sphere->row['v4enable'] = isset($source['v4enable']);
-$sphere->row['numproc'] = $source['numproc'] ?? $sphere->row_default['numproc'];
-//	process enable
-switch($page_action):
-	case 'enable':
-		if($sphere->row['enable']):
-			$mode_page = PAGE_MODE_VIEW;
-			$page_action = 'view';
-		else: // enable and run a full validation
-			$sphere->row['enable'] = true;
-			$page_action = 'save'; // continue with save procedure
-		endif;
-		break;
-endswitch;
-//	process save and disable
-switch($page_action):
-	case 'save':
-		// Input validation.
-		$reqdfields = ['numproc'];
-		$reqdfieldsn = [gtext('Servers')];
-		$reqdfieldst = ['numeric'];
-		do_input_validation($sphere->row,$reqdfields,$reqdfieldsn,$input_errors);
-		do_input_validation_type($sphere->row,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-		if(empty($input_errors)):
-			$sphere->copyrowtogrid();
-			write_config();
-			$retval = 0;
-			config_lock();
-			rc_exec_script('/etc/rc.d/nfsuserd forcestop');
-			if($sphere->row['v4enable']):
-				$retval |= mwexec('/usr/local/sbin/rconf service enable nfsv4_server');
-				$retval |= mwexec('/usr/local/sbin/rconf service enable nfsuserd');
-				if($sphere->row['enable']):
-					$retval |= rc_exec_script("/etc/rc.d/nfsuserd start");
-				endif;
-			else:
-				$retval |= mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
-				$retval |= mwexec('/usr/local/sbin/rconf service disable nfsuserd');
-			endif;
-			$retval |= rc_update_service('rpcbind'); // !!! Do
-			$retval |= rc_update_service('mountd');  // !!! not
-			$retval |= rc_update_service('nfsd');    // !!! change
-			$retval |= rc_update_service('statd');   // !!! this
-			$retval |= rc_update_service('lockd');   // !!! order
-			$retval |= rc_update_service('mdnsresponder');
-			config_unlock();
-			header($sphere->get_location());
-			exit;
-		else:
-			$mode_page = PAGE_MODE_EDIT;
-			$page_action = 'edit';
-		endif;
-		break;
-	case 'disable':
-/*
-	Feb 17 10:25:29	xigmanas	root: Failed to stop service nfsd
-	Feb 17 10:25:29	xigmanas	nfsd[2856]: rpcb_unset failed
-	Feb 17 10:25:28	xigmanas	root: mountd service stopped
-	Feb 17 10:25:28	xigmanas	root: rpcbind service stopped
- */
-		if($sphere->row['enable']): // if enabled, disable it
-			$sphere->row['enable'] = false;
-			$sphere->grid['enable'] = $sphere->row['enable'];
-			write_config();
-			$retval = 0;
-			config_lock();
-			rc_exec_script('/etc/rc.d/nfsuserd forcestop');
-			$retval |= rc_update_service('rpcbind'); // !!! Do
-			$retval |= rc_update_service('mountd');  // !!! not
-			$retval |= rc_update_service('nfsd');    // !!! change
-			$retval |= rc_update_service('statd');   // !!! this
-			$retval |= rc_update_service('lockd');   // !!! order
-			$retval |= rc_update_service('mdnsresponder');
-			config_unlock();
-			header($sphere->get_location());
-			exit;
-		endif;
-		$mode_page = PAGE_MODE_VIEW;
-		$page_action = 'view';
-		break;
-endswitch;
-//	determine final page mode
-switch($mode_page):
-	case PAGE_MODE_EDIT:
-		break;
-	default:
-		if(isset($config['system']['skipviewmode'])):
-			$mode_page = PAGE_MODE_EDIT;
-			$page_action = 'edit';
-		else:
-			$mode_page = PAGE_MODE_VIEW;
-			$page_action = 'view';
-		endif;
-		break;
-endswitch;
-//  prepare lookups
-//	nothing to do
-$pgtitle = [gtext('Services'),gtext('NFS')];
-include 'fbegin.inc';
-switch($mode_page):
-	case PAGE_MODE_VIEW:
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(window).on("load", function() {
-	$("#iform").submit(function() { spinner(); });
-	$(".spin").click(function() { spinner(); });
-});
-//]]>
-</script>
-<?php
-		break;
-	case PAGE_MODE_EDIT:
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(window).on("load", function() {
-	$("#iform").submit(function() {	spinner(); });
-	$(".spin").click(function() { spinner(); });
-	$("#button_save").click(function () {
-		return confirm("<?=$gt_button_apply_confirm;?>");
-	});
-});
-//]]>
-</script>
-<?php
-		break;
-endswitch;	
-?>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="<?=$sphere->get_scriptname();?>" title="<?=gtext('Reload page');?>"><span><?=gtext('Settings');?></span></a></li>
-		<li class="tabinact"><a href="services_nfs_share.php"><span><?=gtext('Shares');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
-<form action="<?=$sphere->get_scriptname();?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(file_exists($d_sysrebootreqd_path)):
-		print_info_box(get_std_save_message(0));
-	endif;
-	if(!empty($input_errors)):
-		print_input_errors($input_errors);
-	endif;
-	foreach($a_message as $r_message):
-		print_info_box($r_message);
-	endforeach;
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			switch($mode_page):
-				case PAGE_MODE_VIEW:
-					html_titleline2(gettext('Network File System'));
-					break;
-				case PAGE_MODE_EDIT:
-					html_titleline_checkbox2('enable',gettext('Network File System'),$sphere->row['enable'],gettext('Enable'));
-					break;
-			endswitch;
-?>
-		</thead>
-		<tbody>
-<?php
-			switch($mode_page):
-				case PAGE_MODE_VIEW:
-					html_textinfo2('enable',gettext('Service Enabled'),$sphere->row['enable'] ? gettext('Yes') : gettext('No'));
-					html_textinfo2('numproc',gettext('Servers'), $sphere->row['numproc']);
-					html_checkbox2('v4enable',gettext('NFSv4'),$sphere->row['v4enable'],'','',false,true);
-					break;
-				case PAGE_MODE_EDIT:
-					html_inputbox2('numproc',gettext('Servers'),$sphere->row['numproc'],gettext('Specifies how many servers to create.') . ' ' . gettext('There should be enough to handle the maximum level of concurrency from its clients, typically four to six.'),false,2);
-					html_checkbox2('v4enable',gettext('NFSv4'),$sphere->row['v4enable'],gettext('Enable NFSv4 server.'),'',false);
-					break;
-			endswitch;
-?>
-		</tbody>
-	</table>
-	<div id="submit">
-<?php
-		switch($mode_page):
-			case PAGE_MODE_VIEW:
-				echo $sphere->html_button('edit',gettext('Edit'));
-				if($sphere->row['enable']):
-					echo $sphere->html_button('disable',gettext('Disable'));
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$a_referer = [
+	$cop->get_enable(),
+	$cop->get_support_nfs_v4(),
+	$cop->get_numproc(),
+	$cop->get_auxparam()
+];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
 				else:
-					echo $sphere->html_button('enable',gettext('Enable'));
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
 				endif;
-				break;
-			case PAGE_MODE_EDIT:
-				echo $sphere->html_button('save',gettext('Apply'));
-				echo $sphere->html_button('cancel',gettext('Cancel'));
 				break;
 		endswitch;
-?>
-	</div>
-<?php
-	include 'formend.inc';
-?>
-</td></tr></table></form>
-<?php
-include 'fend.inc';
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				rc_exec_script('/etc/rc.d/nfsuserd forcestop');
+				if($sphere->grid[$cop->get_support_nfs_v4()->get_name()]):
+					$retval |= mwexec('/usr/local/sbin/rconf service enable nfsv4_server');
+					$retval |= mwexec('/usr/local/sbin/rconf service enable nfsuserd');
+					if($sphere->grid[$cop->get_enable()->get_name()]):
+						$retval |= rc_exec_script("/etc/rc.d/nfsuserd start");
+					endif;
+				else:
+					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
+					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsuserd');
+				endif;
+				$retval |= rc_update_service('rpcbind'); // !!! Do
+				$retval |= rc_update_service('mountd');  // !!! not
+				$retval |= rc_update_service('nfsd');    // !!! change
+				$retval |= rc_update_service('statd');   // !!! this
+				$retval |= rc_update_service('lockd');   // !!! order
+				$retval |= rc_update_service('mdnsresponder');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+/*
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service_ex('nfsd',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				exit;
+				break;
+			case 'restart':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service_ex('nfsd');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+ */
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					rc_exec_script('/etc/rc.d/nfsuserd forcestop');
+					$retval |= rc_update_service('rpcbind'); // !!! Do
+					$retval |= rc_update_service('mountd');  // !!! not
+					$retval |= rc_update_service('nfsd');    // !!! change
+					$retval |= rc_update_service('statd');   // !!! this
+					$retval |= rc_update_service('lockd');   // !!! order
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					rc_exec_script('/etc/rc.d/nfsuserd forcestop');
+					if($sphere->grid[$cop->get_support_nfs_v4()->get_name()]):
+						$retval |= mwexec('/usr/local/sbin/rconf service enable nfsv4_server');
+						$retval |= mwexec('/usr/local/sbin/rconf service enable nfsuserd');
+						$retval |= rc_exec_script("/etc/rc.d/nfsuserd start");
+					else:
+						$retval |= mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
+						$retval |= mwexec('/usr/local/sbin/rconf service disable nfsuserd');
+					endif;
+					$retval |= rc_update_service('rpcbind'); // !!! Do
+					$retval |= rc_update_service('mountd');  // !!! not
+					$retval |= rc_update_service('nfsd');    // !!! change
+					$retval |= rc_update_service('statd');   // !!! this
+					$retval |= rc_update_service('lockd');   // !!! order
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
+		break;
+endswitch;
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			switch($name):
+				case 'auxparam':
+					if(array_key_exists($name,$source)):
+						if(is_array($source[$name])):
+							$source[$name] = implode(PHP_EOL,$source[$name]);
+						endif;
+					endif;
+					break;
+			endswitch;
+			$sphere->row[$name] = $referer->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		break;
+	case 'save':
+		$source = $_POST;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $referer->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		if(empty($input_errors)):
+			foreach($a_referer as $referer):
+				$name = $referer->get_name();
+				switch($name):
+					case 'auxparam':
+						$auxparam_grid = [];
+						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
+							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
+						endforeach;
+						$sphere->row[$name] = $auxparam_grid;
+						break;
+				endswitch;
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
+			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
+			exit;
+		else:
+			$page_mode = PAGE_MODE_EDIT;
+		endif;
+		break;
+endswitch;
+//	determine final page mode and calculate readonly flag
+list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+$is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = (0 === rc_is_service_running('nfsd'));
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+//	create document
+$pgtitle = [gettext('Services'),gettext('NFS'),gettext('Settings')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes):
+	$content->ins_config_has_changed_box();
+endif;
+//	add content
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$tds = $content->add_table_data_settings();
+$tds->ins_colgroup_data_settings();
+$thead = $tds->addTHEAD();
+$tbody = $tds->addTBODY();
+$tfoot = $tds->addTFOOT();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$thead->c2_titleline(gettext('Network File System'));
+		break;
+	case PAGE_MODE_EDIT:
+		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Network File System'));
+		break;
+endswitch;
+$tbody->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2_checkbox($cop->get_support_nfs_v4(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_numproc(),$sphere,false,$is_readonly)->
+	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+$tfoot->c2_separator();
+$tds_exports = $content->add_table_data_settings();
+$tds_exports->ins_colgroup_data_settings();
+$thead_exports = $tds_exports->addTHEAD();
+$tbody_exports = $tds_exports->addTBODY();
+$thead_exports->c2_titleline(gettext('Exports Configuration File'));
+$tbody_exports->c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+//	add buttons
+$buttons = $document->add_area_buttons();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->ins_button_enadis(!$is_enabled);
+//			$buttons->ins_button_restart($is_enabled);
+//			$buttons->ins_button_reload($is_enabled);
+		endif;
+		break;
+	case PAGE_MODE_EDIT:
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
+		break;
+endswitch;
+/*
+//	additional javascript code
+$js_code = [];
+$js_code[PAGE_MODE_VIEW] = '';
+$js_code[PAGE_MODE_EDIT] = '';
+//	additional javascript code
+$js_on_load = [];
+$js_on_load[PAGE_MODE_EDIT] = '';
+$js_on_load[PAGE_MODE_VIEW] = '';
+//	additional javascript code
+$js_document_ready = [];
+$js_document_ready[PAGE_MODE_EDIT] = '';
+$js_document_ready[PAGE_MODE_VIEW] = '';
+//	add additional javascript code
+$body->addJavaScript($js_code[$page_mode]);
+$body->add_js_on_load($js_on_load[$page_mode]);
+$body->add_js_document_ready($js_document_ready[$page_mode]);
+ */
+//	showtime
+$document->render();
