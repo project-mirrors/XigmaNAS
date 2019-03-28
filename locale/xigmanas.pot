@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-03-26 00:43+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -4140,6 +4140,9 @@ msgstr ""
 msgid "Exported"
 msgstr ""
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr ""
 
@@ -7061,9 +7064,6 @@ msgstr ""
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr ""
 
-msgid "Port number must be a value between 1024 and 65535. Default port is 69."
-msgstr ""
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr ""
@@ -8598,7 +8598,7 @@ msgstr ""
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
 
-msgid "Specifies how many servers to create."
+msgid "Specifies how many servers to create. There should be enough to handle the maximum level of concurrency from its clients, typically four to six."
 msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
@@ -9722,9 +9722,6 @@ msgstr ""
 msgid "There must be at least 4 disks in a raidz3."
 msgstr ""
 
-msgid "There should be enough to handle the maximum level of concurrency from its clients, typically four to six."
-msgstr ""
-
 msgid "These commands will be executed pre or post system initialization (booting) or before system shutdown."
 msgstr ""
 
@@ -9747,6 +9744,9 @@ msgid "These parameters are added to the hardware-specific part of the driver fo
 msgstr ""
 
 msgid "These parameters are added to the hardware-specific part of the driver."
+msgstr ""
+
+msgid "These parameters are appended to the exports file."
 msgstr ""
 
 #, php-format
