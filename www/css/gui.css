@@ -330,15 +330,33 @@ td > label > input[type='checkbox']
 	margin: 0.27em 0.5em 0.27em 0.2em;
 }
 
-.subsetting
+.showifchecked,
+.hideifchecked
 {
-	display: none;
 	padding: 0.5em 0em 0.5em 1.7em;
 }
 
-input[type='radio']:checked ~ div.subsetting
+.showifchecked
+{
+	display: none;
+}
+
+.hideifchecked
 {
 	display: block;
+	
+}
+
+input[type='radio']:checked ~ div.showifchecked,
+input[type='checkbox']:checked ~ div.showifchecked
+{
+	display: block;
+}
+
+input[type='radio']:checked ~ div.hideifchecked,
+input[type='checkbox']:checked ~ div.hideifchecked
+{
+	display: none;
 }
 
 .formfld
