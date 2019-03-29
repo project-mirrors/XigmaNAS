@@ -1994,11 +1994,12 @@ trait co_DOMTools {
 		return $this;
 	}
 	public function ins_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->reset_grid_hooks();
+		$this->reset_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+		$id = $p->get_id();
 		$input_attributes = [
 			'type' => 'checkbox',
-			'id' => $p->get_id(),
+			'id' => $id,
 			'name' => $p->get_name(),
 			'value' => 'yes',
 			'class' => 'oneemhigh'
@@ -2017,9 +2018,10 @@ trait co_DOMTools {
 			$class_checkbox = 'celldatacheckbox';
 			$input_attributes['required'] = 'required';
 		endif;
-		$hook = $this->addDIV(['class' => $class_checkbox])->addELEMENT('label',['for' => $p->get_id()]);
-		$hook->insINPUT($input_attributes)->import_soup($p->get_caption());
-		$this->add_grid_hook($hook,$p->get_id());
+		$hook = $this->addDIV(['class' => $class_checkbox])->addELEMENT('label',['for' => $id]);
+		$hook->insINPUT($input_attributes);
+		$hook->import_soup($p->get_caption());
+		$this->add_hook($hook,$id);
 		return $this;
 	}
 	public function ins_input($p,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
@@ -2089,7 +2091,7 @@ trait co_DOMTools {
 		return $this;
 	}
 	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->reset_grid_hooks();
+		$this->reset_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$table = $this->add_table_data_selection();
 		$thead = $table->addTHEAD();
@@ -2117,8 +2119,9 @@ trait co_DOMTools {
 				unset($input_attributes['checked']);
 			endif;
 			$hook = $tbody->addTR()->addTDwC('lcebl')->addELEMENT('label',['for' => $input_attributes['id']]);
-			$hook->insINPUT($input_attributes)->import_soup($option_val);
-			$this->add_grid_hook($hook,$option_tag);
+			$hook->insINPUT($input_attributes);
+			$hook->import_soup($option_val);
+			$this->add_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;	
 		switch($n_options <=> 1):
@@ -2213,7 +2216,7 @@ EOJ;
 		return $this;
 	}
 	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->reset_grid_hooks();
+		$this->reset_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$table = $this->add_table_data_selection();
 		$thead = $table->addTHEAD();
@@ -2241,8 +2244,9 @@ EOJ;
 				unset($input_attributes['checked']);
 			endif;
 			$hook = $tbody->addTR()->addTDwC('lcebl')->addELEMENT('label',['for' => $input_attributes['id']]);
-			$hook->insINPUT($input_attributes)->import_soup($option_val);
-			$this->add_grid_hook($hook,$option_tag);
+			$hook->insINPUT($input_attributes);
+			$hook->import_soup($option_val);
+			$this->add_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
 		switch($n_options <=> 1):
@@ -2845,9 +2849,9 @@ EOJ;
 				insElement('script',['src' => 'js/datechooser.js']);
 		endif;
 		$head->
-			insElement('link',['href' => '/images/info_box.png','rel' => 'preload','as' => 'image'])->
-			insElement('link',['href' => '/images/warn_box.png','rel' => 'preload','as' => 'image'])->
-			insElement('link',['href' => '/images/error_box.png','rel' => 'preload','as' => 'image']);
+			insElement('link',['href' => '/images/info_box.png','rel' => 'prefetch','as' => 'image'])->
+			insElement('link',['href' => '/images/warn_box.png','rel' => 'prefetch','as' => 'image'])->
+			insElement('link',['href' => '/images/error_box.png','rel' => 'prefetch','as' => 'image']);
 		return $this;
 	}
 	/**
@@ -3082,16 +3086,16 @@ class co_DOMElement extends \DOMElement implements ci_DOM {
 	public function last() {
 		return $this->ownerDocument->last();
 	}
-	public function reset_grid_hooks() {
-		$this->ownerDocument->reset_grid_hooks();
+	public function reset_hooks() {
+		$this->ownerDocument->reset_hooks();
 		return $this;
 	}
-	public function add_grid_hook($dom_element,string $identifier) {
-		$this->ownerDocument->add_grid_hook($dom_element,$identifier);
+	public function add_hook($dom_element,string $identifier) {
+		$this->ownerDocument->add_hook($dom_element,$identifier);
 		return $this;
 	}
-	public function get_grid_hooks() {
-		return $this->ownerDocument->get_grid_hooks();
+	public function get_hooks() {
+		return $this->ownerDocument->get_hooks();
 	}
 	public function add_js_on_load(string $jcode = '',string $key = NULL) {
 		return $this->ownerDocument->add_js_on_load($jcode,$key);
@@ -3103,7 +3107,7 @@ class co_DOMElement extends \DOMElement implements ci_DOM {
 class co_DOMDocument extends \DOMDocument implements ci_DOM {
 	use co_DOMTools;
 
-	protected $grid_hooks = [];
+	protected $hook_stack = [];
 	protected $stack = [];
 	protected $options = [];
 	protected $js_on_load = [];
@@ -3134,15 +3138,15 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 	public function last() {
 		return $this->stack[array_key_last($this->stack)];
 	}
-	public function reset_grid_hooks() {
-		$this->grid_hooks = [];
+	public function reset_hooks() {
+		$this->hook_stack = [];
 	}
-	public function add_grid_hook($dom_element,string $identifier) {
-		$this->grid_hooks[$identifier] = $dom_element;
+	public function add_hook($dom_element,string $identifier) {
+		$this->hook_stack[$identifier] = $dom_element;
 		return $this;
 	}
-	public function get_grid_hooks() {
-		return $this->grid_hooks;
+	public function get_hooks() {
+		return $this->hook_stack;
 	}
 	public function add_js_on_load(string $jcode = '',string $key = NULL) {
 		if(preg_match('/\S/',$jcode)):
