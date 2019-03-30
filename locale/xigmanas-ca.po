@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
-"PO-Revision-Date: 2019-03-18 08:11+0000\n"
-"Last-Translator: Victek <Unknown>\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
+"PO-Revision-Date: 2019-03-28 21:05+0000\n"
+"Last-Translator: Vicente Soriano <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:38+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "Language: ca_ES\n"
 
@@ -193,6 +193,9 @@ msgstr "(defecte %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** Duplicat importat ***"
 
+msgid "000"
+msgstr "000"
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr ""
 "0 = desactivat, 1-255 = comanda permèssa de cua amb la profunditat "
@@ -210,8 +213,14 @@ msgstr "Es requereix 1 o més discos per crear un volum RAID-1."
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr "10000"
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr "16384"
 
 msgid "2"
 msgstr "2"
@@ -3228,10 +3237,6 @@ msgstr "Descarta - Descartar ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "Descarta - No hereten les entrades"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "Destinació iSCSI descobert per% s"
-
 msgid "Discovery"
 msgstr "Descobriment"
 
@@ -4815,6 +4820,9 @@ msgstr "Exportar tots els directoris en la ruta especificada."
 msgid "Exported"
 msgstr "Exportat"
 
+msgid "Exports Configuration File"
+msgstr "Exporta el fitxer de configuració"
+
 msgid "Extended Attributes"
 msgstr "Atributs estesos"
 
@@ -6055,10 +6063,6 @@ msgstr "Format de fitxer no vàlid."
 
 msgid "Invalid login credentials."
 msgstr "Credencials d'inici de sessió no vàlides."
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr "Mida màxima de bloc invàlid! ha de ésser en el rang de %d a %d."
 
 msgid "Invalid username or password."
 msgstr "Nom d'usuari o contrasenya incorrectes."
@@ -8134,9 +8138,6 @@ msgstr "Nom del port"
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "El número de port ha de ser 514 o un número entre 1024 i 49151."
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr "El número de port ha de ser de 69 o un número entre 1024 i 49151."
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "El número de port ha d'estar en el rang entre %d i %d."
@@ -9625,11 +9626,11 @@ msgstr ""
 "definida."
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
 msgstr ""
-"Estableix la màscara d'usuari per als arxius acabats de crear al valor "
-"especificat. Per omissió és zero (qualsevol pot llegir o escriure)."
+"Estableix la umask per als fitxers de nova creació. El valor per defecte és "
+"000 (qualsevol pot llegir o escriure)."
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9927,8 +9928,13 @@ msgid "Specifies file or device name to use for backing store."
 msgstr ""
 "Especifica l'arxiu o nom de dispositiu a fer servir per emmagatzematge cau."
 
-msgid "Specifies how many servers to create."
-msgstr "Especifica el nombre de servidors per crear."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
+"Especifica el nombre de servidors a crear. Hauria d’haver prou per gestionar "
+"el nivell màxim de concurrència dels seus clients, normalment de quatre a "
+"sis."
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "Especifica com el volum s'ha d'exposar al sistema operatiu."
@@ -11409,13 +11415,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "Hi ha d'haver almenys 4 discos en un raidz3."
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr ""
-"Hauria de ser suficient per manejar el màxim nivell de concurrència dels "
-"seus clients, generalment de quatre a sis."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr ""
@@ -11455,6 +11454,9 @@ msgid ""
 msgstr ""
 "Aquests paràmetres s'agreguen a la part específica del maquinari del "
 "controlador."
+
+msgid "These parameters are appended to the exports file."
+msgstr "Aquests paràmetres s’afegeixen al fitxer d'exportacions."
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -11992,8 +11994,8 @@ msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 "Temps d'espera per a les sol·licituds d'iSNS. El valor predeterminat és 5."
 
-msgid "Timeout must be a number between 10 and 255000000."
-msgstr "El temps d'espera ha de ser un número entre 10 i 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
+msgstr "El temps d'espera ha de ser un nombre entre 10000 i 255000000."
 
 msgid "Times"
 msgstr "Hores"
@@ -13391,18 +13393,15 @@ msgstr "iSCSI objectiu CTL"
 msgid "iSCSI Target ISTGT"
 msgstr "iSCSI objectiu ISTGT"
 
+msgid "iSCSI Target Information & Status"
+msgstr "Informació i estat de la destinació iSCSI"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Controlador objectiu d'unitat lògica"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "Informació destinacions iSCSI i estat"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI paràmetre inicial (% d per defecte)."
-
-msgid "iSCSI initiator disabled."
-msgstr "Iniciador iSCSI deshabilitat."
 
 msgid "iSER - iSCSI over RDMA"
 msgstr "iSER - iSCSI sobre RDMA"

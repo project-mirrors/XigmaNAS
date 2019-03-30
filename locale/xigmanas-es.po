@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
-"PO-Revision-Date: 2019-03-22 07:18+0000\n"
-"Last-Translator: Victek <Unknown>\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
+"PO-Revision-Date: 2019-03-28 21:08+0000\n"
+"Last-Translator: Vicente Soriano <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -186,6 +186,9 @@ msgstr "por defecto %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** Importación duplicada ***"
 
+msgid "000"
+msgstr "000"
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr ""
 "0=deshabilitado, 1-255=habilitado, cola de comandos con profundidad "
@@ -203,8 +206,14 @@ msgstr "1 o más discos son necesarios para crear un volumen RAID-1."
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr "10000"
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr "16384"
 
 msgid "2"
 msgstr "2"
@@ -3204,10 +3213,6 @@ msgstr "Descartar ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "Descartar - No se heredan las propiedades"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "Descubierto objetivo iSCSI para %s"
-
 msgid "Discovery"
 msgstr "Descubrimiento"
 
@@ -4776,6 +4781,9 @@ msgstr "Exportar todos los directorios en la ruta especificada."
 msgid "Exported"
 msgstr "Exportado"
 
+msgid "Exports Configuration File"
+msgstr "Exporta el archivo de configuración"
+
 msgid "Extended Attributes"
 msgstr "Atributos extendidos"
 
@@ -6010,10 +6018,6 @@ msgstr "Formato de archivo inválido."
 
 msgid "Invalid login credentials."
 msgstr "Credenciales de acceso inválidas."
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr "Tamaño de bloque invalido. Debe estar en el rango de %d a %d."
 
 msgid "Invalid username or password."
 msgstr "Nombre de usuario o contraseña incorrectos."
@@ -8078,9 +8082,6 @@ msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr ""
 "El puerto debe ser el 514 o un número comprendido entre el 1024 y el 49151"
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr "El puereto debe ser 69 o un valor comprendido entre 1024 y 49151."
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "El número de puerto debe encontrarse en el rango entre %d y %d."
@@ -9556,12 +9557,11 @@ msgstr ""
 "descubrimiento iSCSI de SendTargets con la TargetAddress definida."
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
 msgstr ""
-"Asigne el valor umask para los archivos creados recientemente al valor "
-"especificado. El valor predeterminado es 000=(cualquiera puede leer y "
-"escribir), Ej: 777=nadie puede escribir ni leer."
+"Definir la Umask para nuevos archivos. Por defecto se usa  000 (Todo el "
+"mundo puede leer y escribir)."
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9861,8 +9861,12 @@ msgstr ""
 "Especifica el nombre del archivo o dispositivo que se usará para respaldar "
 "el almacenamiento."
 
-msgid "Specifies how many servers to create."
-msgstr "Especifica cuántos servidores crear."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
+"Especifica cuántos servidores crear. Debe haber suficiente para manejar el "
+"máximo nivel de concurrencia de los clientes, generalmente de cuatro a seis."
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "Especifica como debe ser mostrado el volumen al S.O."
@@ -11339,13 +11343,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "Debe haber almenos 4 discos en un raidz3"
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr ""
-"Deberia haber suficiente para manejar el nivel máximo de concurrencias desde "
-"sus clientes, tipicamente de cuatro a seis."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr ""
@@ -11384,6 +11381,9 @@ msgid ""
 msgstr ""
 "Estos parametros son añadidos en la parte especifica del hardware en el "
 "driver de la SAI principal."
+
+msgid "These parameters are appended to the exports file."
+msgstr "Estos parámetros se adjuntarán al archivo de exportaciones."
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -11911,8 +11911,8 @@ msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 "Tiempo de espera para solicitudes iSNS. El valor predeterminado es 5."
 
-msgid "Timeout must be a number between 10 and 255000000."
-msgstr "debe ser un numero entre 10 y 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
+msgstr "El Timeout debe ser un numero entre 10000 y 255000000ms."
 
 msgid "Times"
 msgstr "Veces"
@@ -13303,18 +13303,15 @@ msgstr "iSCSI Target CTL"
 msgid "iSCSI Target ISTGT"
 msgstr "iSCSI Target ISTGT"
 
+msgid "iSCSI Target Information & Status"
+msgstr "Información y Estado del destino  iSCSI"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Controlador de unidad lógica objetivo iSCSI"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "Información y Estado de los targets iSCSI"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "Parámetro inicial iSCSI (%d por defecto)."
-
-msgid "iSCSI initiator disabled."
-msgstr "Iniciador iSCSI deshabilitado."
 
 msgid "iSER - iSCSI over RDMA"
 msgstr "iSER - iSCSI sobre RDMA"

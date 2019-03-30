@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: 2019-01-17 22:04+0000\n"
 "Last-Translator: peter <peterswebdesign2010@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:32+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -190,6 +190,9 @@ msgstr "(implicit %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** Duplicat importat ***"
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=dezactivat, 1-255=listă activă de comenzi cu lungimea specificată."
 
@@ -205,8 +208,14 @@ msgstr "Este nevoie de cel puțin un disc pentru a crea un volum RAID-1."
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr ""
 
 msgid "2"
 msgstr "2"
@@ -3210,10 +3219,6 @@ msgstr "Elimină - Elimină ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "Elimină - Fără moștenirea intrărilor"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "Destinații iSCSI descoperite pentru %s"
-
 msgid "Discovery"
 msgstr ""
 
@@ -4773,6 +4778,9 @@ msgstr "Exportă toate directoarele din calea specificată."
 msgid "Exported"
 msgstr "Exportat"
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr "Atribute extinse"
 
@@ -5993,12 +6001,6 @@ msgstr "Format invalid fișier."
 
 msgid "Invalid login credentials."
 msgstr "Nume de utilizator/parolă incorecte"
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr ""
-"Dimensiune maximă bloc invalidă. Valorile permise se încadrează între %d și "
-"%d."
 
 msgid "Invalid username or password."
 msgstr "Nume utilizator sau parolă invalide."
@@ -8038,9 +8040,6 @@ msgstr ""
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "Portul trebuie să fie 514 sau un număr din intervalul 1024-49151."
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr ""
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "Portul trebuie să fie în intervalul %d - %d."
@@ -9484,11 +9483,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
 msgstr ""
-"Stabilire mască utilizator (umask) pentru crearea de fișiere. Valoarea "
-"implicită este zero (oricine poate citi sau scrie)."
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9774,8 +9771,10 @@ msgstr ""
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
 
-msgid "Specifies how many servers to create."
-msgstr "Specifică câte servere vor fi create."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr ""
@@ -11195,13 +11194,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "Trebuie să aveți cel puțin 4 discuri pentru un raidz3."
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr ""
-"Numărul specificat trebuie să fie suficient pentru a gestiona nivelul maxim "
-"de concurență al clienților, de obicei se alege de la patru pînă la șase."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr ""
@@ -11239,6 +11231,9 @@ msgstr ""
 msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "Acești parametri vor fi atașați la partea hardware a driverului."
+
+msgid "These parameters are appended to the exports file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -11762,7 +11757,7 @@ msgstr "Timeout"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 
-msgid "Timeout must be a number between 10 and 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
 msgstr ""
 
 msgid "Times"
@@ -13153,18 +13148,15 @@ msgstr ""
 msgid "iSCSI Target ISTGT"
 msgstr ""
 
+msgid "iSCSI Target Information & Status"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Controler Logic Destinație iSCSI"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "Informații & Stare destinații iSCSI"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "Parametru inițial iSCSI (iniţial %d)."
-
-msgid "iSCSI initiator disabled."
-msgstr "Inițiatorul iSCSI este dezactivat."
 
 msgid "iSER - iSCSI over RDMA"
 msgstr ""

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: 2019-03-25 15:17+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:32+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -169,6 +169,9 @@ msgstr "默认 %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** 重复导入 ***"
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=禁用, 1-255=指令排序的深度。"
 
@@ -184,8 +187,14 @@ msgstr "一个或更多磁盘需要建立为RAID-1卷"
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr ""
 
 msgid "2"
 msgstr "2"
@@ -2955,10 +2964,6 @@ msgstr "丢弃 - 丢弃ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "丢弃 - 不继承条目"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "搜寻到 %s 的 iSCSI 目标。"
-
 msgid "Discovery"
 msgstr "发现"
 
@@ -4452,6 +4457,9 @@ msgstr "导出指定的路径中的所有目录。"
 msgid "Exported"
 msgstr "已导出"
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr "扩展属性"
 
@@ -5590,10 +5598,6 @@ msgstr "文件格式无效。"
 
 msgid "Invalid login credentials."
 msgstr "无效的登录凭证。"
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr "最大块大小无效！ 它必须在%d到%d的范围内。"
 
 msgid "Invalid username or password."
 msgstr "无效的用户名或密码。"
@@ -7557,9 +7561,6 @@ msgstr "端口名称"
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "端口号必须是514或1024到49151之间的数字。"
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr "端口号必须是69或1024到49151之间的数字。"
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "端口号必须在%d和%d之间的范围内。"
@@ -8938,9 +8939,9 @@ msgstr ""
 "发现会话忽略TargetName，并导致启动器连接到SendTargets iSCSI发现返回的所有目标，并使用定义的TargetAddress。"
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
-msgstr "设置新文件的 umask 预设值。默认值是 0（任何人都可读写）。"
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
+msgstr ""
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9214,8 +9215,10 @@ msgstr "指定后备存储的容量（数据的最大RAM）。 默认值为零�
 msgid "Specifies file or device name to use for backing store."
 msgstr "指定用于后备存储的文件或设备名称。"
 
-msgid "Specifies how many servers to create."
-msgstr "输入预建立服务器的数量。"
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "指定卷应如何向操作系统公开。"
@@ -10517,11 +10520,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "raidz3 必须有至少 4 个磁盘。"
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr "应该有足够处理最高的客户端并发，通常为4至6。"
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr "这些命令将在系统初始化（启动）之前或之后或者系统关闭之前执行。"
@@ -10552,6 +10550,9 @@ msgstr "这些参数将添加到第二台UPS的驱动程序的硬件特定部分
 msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "这些参数添加到驱动程序的硬件特定部分。"
+
+msgid "These parameters are appended to the exports file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -10980,8 +10981,8 @@ msgstr "失效时间"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr "iSNS请求超时。 默认值是5。"
 
-msgid "Timeout must be a number between 10 and 255000000."
-msgstr "超时值必须是10到255000000之间的数字。"
+msgid "Timeout must be a number between 10000 and 255000000."
+msgstr ""
 
 msgid "Times"
 msgstr "次数"
@@ -12269,18 +12270,15 @@ msgstr "iSCSI Target CTL"
 msgid "iSCSI Target ISTGT"
 msgstr "iSCSI Target ISTGT"
 
+msgid "iSCSI Target Information & Status"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 目标逻辑单元控制器（iSCSI Target Logical Unit Controller）"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "iSCSI 目标器信息和状态"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI 的初始参数（默认值为 %d）"
-
-msgid "iSCSI initiator disabled."
-msgstr "iSCSI启动器已禁用"
 
 msgid "iSER - iSCSI over RDMA"
 msgstr "iSER - iSCSI over RDMA"

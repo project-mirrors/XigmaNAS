@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:32+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:36+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -169,6 +169,9 @@ msgstr "默認 %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** 重複導入 ***"
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=禁用, 1-255=指令排序的深度。"
 
@@ -184,8 +187,14 @@ msgstr "一個或更多磁片需要建立為RAID-1卷"
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr ""
 
 msgid "2"
 msgstr "2"
@@ -2955,10 +2964,6 @@ msgstr "丟棄 - 丟棄ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "丟棄 - 不繼承條目"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "搜尋到 %s 的 iSCSI 目標。"
-
 msgid "Discovery"
 msgstr ""
 
@@ -4452,6 +4457,9 @@ msgstr "導出指定的路徑中的所有目錄。"
 msgid "Exported"
 msgstr "已導出"
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr "擴展屬性"
 
@@ -5590,10 +5598,6 @@ msgstr "檔格式無效。"
 
 msgid "Invalid login credentials."
 msgstr "無效的登錄憑證。"
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr "最大塊大小無效！ 它必須在%d到%d的範圍內。"
 
 msgid "Invalid username or password."
 msgstr "無效的用戶名或密碼。"
@@ -7555,9 +7559,6 @@ msgstr ""
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "端口號必須是514或1024到49151之間的數字。"
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr "端口號必須是69或1024到49151之間的數字。"
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "端口號必須在%d和%d之間的範圍內。"
@@ -8932,9 +8933,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
-msgstr "設置新檔的 umask 預設值。默認值是 0（任何人都可讀寫）。"
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
+msgstr ""
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9206,8 +9207,10 @@ msgstr ""
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
 
-msgid "Specifies how many servers to create."
-msgstr "輸入預建立伺服器的數量。"
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "指定卷應如何向操作系統公開。"
@@ -10505,11 +10508,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "raidz3 必須有至少 4 個磁片。"
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr "應該有足夠處理最高的客戶端併發，通常為4至6。"
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr "這些命令將在系統初始化（啟動）之前或之後或者系統關閉之前執行。"
@@ -10540,6 +10538,9 @@ msgstr "這些參數將添加到第二臺UPS的驅動程式的硬體特定部分
 msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "這些參數添加到驅動程式的硬體特定部分。"
+
+msgid "These parameters are appended to the exports file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -10968,8 +10969,8 @@ msgstr "失效時間"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 
-msgid "Timeout must be a number between 10 and 255000000."
-msgstr "超時值必須是10到255000000之間的數字。"
+msgid "Timeout must be a number between 10000 and 255000000."
+msgstr ""
 
 msgid "Times"
 msgstr "次數"
@@ -12258,18 +12259,15 @@ msgstr ""
 msgid "iSCSI Target ISTGT"
 msgstr ""
 
+msgid "iSCSI Target Information & Status"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 目標邏輯單元控制器（iSCSI Target Logical Unit Controller）"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "iSCSI 目標器資訊和狀態"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI 的初始參數（默認值為 %d）"
-
-msgid "iSCSI initiator disabled."
-msgstr "iSCSI啟動器已禁用"
 
 msgid "iSER - iSCSI over RDMA"
 msgstr ""
