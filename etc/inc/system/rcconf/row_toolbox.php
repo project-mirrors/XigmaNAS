@@ -55,11 +55,9 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \system\rcconf\row_properties $cop
- *	@param \common\sphere\row $sphere
  *	@return \common\rmo\rmo The request method object
  */
-	public static function init_rmo(row_properties $cop,mys\row $sphere) {
+	public static function init_rmo() {
 		$rmo = myr\rmo_row_templates::rmo_with_clone();
 		return $rmo;
 	}
