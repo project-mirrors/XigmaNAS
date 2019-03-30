@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -174,6 +174,9 @@ msgstr "(기본값 %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** 불러들인 복사본 ***"
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=비활성화, 1-255=지정 된 깊이로 command queue 활성화."
 
@@ -189,7 +192,13 @@ msgstr "RAID-1 볼륨을 만들기 위해서는 1개 이상의 디스크가 필�
 msgid "1.8\""
 msgstr ""
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
+msgstr ""
+
+msgid "16384"
 msgstr ""
 
 msgid "2"
@@ -3004,10 +3013,6 @@ msgstr "Discard - ACL 버림"
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - 항목을 상속하지 않음"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "%s을(를) 위한 발견된 iSCSI 타겟"
-
 msgid "Discovery"
 msgstr ""
 
@@ -4504,6 +4509,9 @@ msgstr "명시된 경로의 모든 디렉터리를 내보냅니다."
 msgid "Exported"
 msgstr "내보내기 됨"
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr "확장 속성"
 
@@ -5659,10 +5667,6 @@ msgstr "무효한 파일 포맷."
 
 msgid "Invalid login credentials."
 msgstr "로그인 정보가 올바르지 않습니다."
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr "블록 크기가 올바르지 않습니다! 이 값은 %d에서 %d 범위 안에 있어야 합니다."
 
 msgid "Invalid username or password."
 msgstr "사용자 이름 또는 암호가 올바르지 않습니다."
@@ -7630,9 +7634,6 @@ msgstr ""
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "포트 번호는 514 또는 1024에서 49151 사이의 숫자여야 합니다."
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr ""
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "포트 번호는 %d와 %d 범위 내에 있어야 합니다."
@@ -9012,9 +9013,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
-msgstr "새로 생성된 파일들을 위한 umask를 특정 값으로 설정합니다. 기본 값은 0입니다(누구나 읽고 쓸 수 있습니다)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
+msgstr ""
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9288,8 +9289,10 @@ msgstr ""
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
 
-msgid "Specifies how many servers to create."
-msgstr "몇 개의 서버를 생성할 지를 명세 합니다."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "볼륨을 어떻게 OS에 알릴지 설정합니다."
@@ -10600,11 +10603,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "RAIDZ3은 적어도 4개의 디스크가 있어야 합니다."
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr "클라이언트에서 최대 레벨의 병행 처리를 충분히 처리할 수 있어야 하며 전형적으로 4에서 6입니다."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr "이 명령들은 시스템 초기화(부팅) 전후나 시스템이 꺼지기 전에 실행될 것입니다."
@@ -10637,6 +10635,9 @@ msgstr "이 매개 변수는 두 번째 UPS 용 드라이버의 하드웨어 관
 msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "이 매개 변수는 드라이버의 하드웨어 관련 부분에 추가됩니다."
+
+msgid "These parameters are appended to the exports file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -11085,7 +11086,7 @@ msgstr "시간 초과"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 
-msgid "Timeout must be a number between 10 and 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
 msgstr ""
 
 msgid "Times"
@@ -12381,18 +12382,15 @@ msgstr ""
 msgid "iSCSI Target ISTGT"
 msgstr ""
 
+msgid "iSCSI Target Information & Status"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI 타겟 논리 유닛 컨트롤러"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "iSCSI 타겟 정보 및 상태"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI 초기 인자(기본 값은 %d)."
-
-msgid "iSCSI initiator disabled."
-msgstr "iSCSI 초기자 비활성화됨"
 
 msgid "iSER - iSCSI over RDMA"
 msgstr ""

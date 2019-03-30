@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: 2019-02-04 17:05+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:32+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -189,6 +189,9 @@ msgstr "(за замовчуванням %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** Імпортований дублікат ***"
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=вимкнено, 1-255=увімкнено чергу команд із зазначеною глибиною."
 
@@ -204,8 +207,14 @@ msgstr "Для побудови RAID-1 потрібно 1 чи більше ди
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 КіБ"
+
+msgid "16384"
+msgstr ""
 
 msgid "2"
 msgstr "2"
@@ -3189,10 +3198,6 @@ msgstr "Discard - не наслідувати ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - не наслідувати записи"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "Виявлений об'єкт iSCSI для %s"
-
 msgid "Discovery"
 msgstr ""
 
@@ -4758,6 +4763,9 @@ msgstr "Експортувати всі каталоги за вказаним �
 msgid "Exported"
 msgstr "Експортовано"
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr "Додаткові атрибути"
 
@@ -5983,12 +5991,6 @@ msgstr "Неправильний формат файла."
 
 msgid "Invalid login credentials."
 msgstr "Недозволені повноваження логіну."
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr ""
-"Неправильний максимальний розмір блоку! Він повинен бути у діапазоні від  %d "
-"до %d."
 
 msgid "Invalid username or password."
 msgstr "Неправильне ім'я користувача або пароль."
@@ -8034,9 +8036,6 @@ msgstr "Ім'я порту"
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "Номер порту повинен бути 514 або числом між 1024 та 49151."
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr "Номер порта повинен бути 69 або числом між 1024 та 49151."
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "Номер порту повинен бути у діапазоні між %d та %d."
@@ -9499,11 +9498,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
 msgstr ""
-"Використовувати задане значення umask при створенні нових файлів. За "
-"замовчуванням 0 (будь-який користувач може читати або записувати)."
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9800,8 +9797,10 @@ msgid "Specifies file or device name to use for backing store."
 msgstr ""
 "Визначає ім'я файлу чи пристрою для використання в резервному сховище."
 
-msgid "Specifies how many servers to create."
-msgstr "Вказує скільки серверів потрібно створити."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "Визначає, як обсяг повинен бути виділений для ОС."
@@ -11252,13 +11251,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "Повинно бути принаймні 4 диска в RAIDZ3."
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr ""
-"Їх повинно бути достатньо для підтримки максимального рівня доступності для "
-"клієнтів, зазвичай від 4 до 6."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr ""
@@ -11294,6 +11286,9 @@ msgstr "Ці параметри додаються до апаратної ча�
 msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "Ці параметри додаються до апаратно-специфічної частини драйвера."
+
+msgid "These parameters are appended to the exports file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -11822,8 +11817,8 @@ msgstr "Тайм-аут"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr "Затримка для запитів iSNS. За замовчуванням - 5."
 
-msgid "Timeout must be a number between 10 and 255000000."
-msgstr "Тайм-аут повинен бути від 10 до 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
+msgstr ""
 
 msgid "Times"
 msgstr "Час"
@@ -13223,18 +13218,15 @@ msgstr ""
 msgid "iSCSI Target ISTGT"
 msgstr ""
 
+msgid "iSCSI Target Information & Status"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "Цілі iSCSI Logical Unit Controller"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "Інформація та статус цілей iSCSI"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "параметр iSCSI ініціатора (%d за замовчуванням)."
-
-msgid "iSCSI initiator disabled."
-msgstr "iSCSI ініціатор заборонений."
 
 msgid "iSER - iSCSI over RDMA"
 msgstr ""

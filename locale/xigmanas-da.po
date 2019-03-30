@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
 "PO-Revision-Date: 2019-02-21 17:23+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:38+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
@@ -185,6 +185,9 @@ msgstr "(standard %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** Importeret dublet ***"
 
+msgid "000"
+msgstr ""
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=deaktiveret, 1-255=aktiveret kommando kø med angivet dybde."
 
@@ -200,8 +203,14 @@ msgstr "2 eller flere diske kræves for at danne RAID-1 volume"
 msgid "1.8\""
 msgstr "1.8 tomme"
 
+msgid "10000"
+msgstr ""
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr ""
 
 msgid "2"
 msgstr "2"
@@ -2996,10 +3005,6 @@ msgstr ""
 msgid "Discard - Do not inherit entries"
 msgstr ""
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "Fandt iSCSI mål for %s"
-
 msgid "Discovery"
 msgstr ""
 
@@ -4508,6 +4513,9 @@ msgstr "Eksporter alle foldere i den angivne sti."
 msgid "Exported"
 msgstr ""
 
+msgid "Exports Configuration File"
+msgstr ""
+
 msgid "Extended Attributes"
 msgstr ""
 
@@ -5671,10 +5679,6 @@ msgid "Invalid file format."
 msgstr "Ugyldigt fil format."
 
 msgid "Invalid login credentials."
-msgstr ""
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
 msgstr ""
 
 msgid "Invalid username or password."
@@ -7662,9 +7666,6 @@ msgstr ""
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr ""
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr ""
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr ""
@@ -9056,11 +9057,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
 msgstr ""
-"Sætter umask for nye filer til en specifik værdi. Standard er nul (alle kan "
-"læse og skrive)."
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9332,8 +9331,10 @@ msgstr ""
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
 
-msgid "Specifies how many servers to create."
-msgstr "Angiver hvor mange servere der skal oprettes."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr ""
@@ -10693,13 +10694,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "Der skal være mindst 4 diske i et raidz3."
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr ""
-"Der bør være nok til at kunne håndtere det højeste niveau af samtidige "
-"klienter, typisk fire til seks."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr ""
@@ -10731,6 +10725,9 @@ msgstr ""
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver."
+msgstr ""
+
+msgid "These parameters are appended to the exports file."
 msgstr ""
 
 #, php-format
@@ -11215,7 +11212,7 @@ msgstr "Timeout"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr ""
 
-msgid "Timeout must be a number between 10 and 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
 msgstr ""
 
 msgid "Times"
@@ -12524,18 +12521,15 @@ msgstr ""
 msgid "iSCSI Target ISTGT"
 msgstr ""
 
+msgid "iSCSI Target Information & Status"
+msgstr ""
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Target Logical Unit Controller"
-
-msgid "iSCSI Targets Information & Status"
-msgstr ""
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI start parameter (%d som standard)."
-
-msgid "iSCSI initiator disabled."
-msgstr ""
 
 msgid "iSER - iSCSI over RDMA"
 msgstr ""

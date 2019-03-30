@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-15 15:49+0000\n"
-"PO-Revision-Date: 2019-03-15 15:10+0000\n"
+"POT-Creation-Date: 2019-03-28 17:51+0000\n"
+"PO-Revision-Date: 2019-03-28 17:18+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-25 23:33+0000\n"
+"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
 "X-Generator: Launchpad (build 18910)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -190,6 +190,9 @@ msgstr "(standaard %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** Geïmporteerde duplicaat ***"
 
+msgid "000"
+msgstr "000"
+
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr ""
 "0=uitgeschakeld, 1-255=ingeschakelde command queuing met de gespecificeerde "
@@ -209,8 +212,14 @@ msgstr ""
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "10000"
+msgstr "10000"
+
 msgid "16 KiB"
 msgstr "16 KiB"
+
+msgid "16384"
+msgstr "16384"
 
 msgid "2"
 msgstr "2"
@@ -3242,10 +3251,6 @@ msgstr "Discard - Negeer ACL"
 msgid "Discard - Do not inherit entries"
 msgstr "Discard - Entries niet overnemen"
 
-#, php-format
-msgid "Discovered iSCSI target for %s"
-msgstr "Gevonden iSCSI doel voor %s"
-
 msgid "Discovery"
 msgstr "Ontdekking"
 
@@ -4832,6 +4837,9 @@ msgstr "Exporteer alle mappen in de opgegeven locatie."
 msgid "Exported"
 msgstr "Geëxporteerd"
 
+msgid "Exports Configuration File"
+msgstr "Exporteer Configuratiebestand"
+
 msgid "Extended Attributes"
 msgstr "Uitgebreide Attributen"
 
@@ -6058,11 +6066,6 @@ msgstr "Ongeldig bestandsformaat."
 
 msgid "Invalid login credentials."
 msgstr "Ongeldige inloggegevens."
-
-#, php-format
-msgid "Invalid maximum block size! It must be in the range from %d to %d."
-msgstr ""
-"Ongeldige maximum blokgrootte! Dit moet in het bereik zijn van %d tot %d."
 
 msgid "Invalid username or password."
 msgstr "Gebruikersnaam of wachtwoord onjuist."
@@ -8137,9 +8140,6 @@ msgstr "Poort Naam"
 msgid "Port number must be 514 or a number between 1024 and 49151."
 msgstr "Poortnummer moet 514 zijn of een getal tussen 1024 en 49151."
 
-msgid "Port number must be 69 or a number between 1024 and 49151."
-msgstr "Poortnummer moet 69 zijn of een getal tussen 1024 en 49151."
-
 #, php-format
 msgid "Port number must be in the range between %d and %d."
 msgstr "Poortnummer moet in het gebied tussen %d en %d zijn."
@@ -9622,11 +9622,11 @@ msgstr ""
 "Stuurdoelen iSCSI-ontdekking met de gedefinieerde Doeladres."
 
 msgid ""
-"Sets the umask for newly created files to the specified value. The default "
-"is zero (anyone can read or write)."
+"Sets the umask for newly created files. The default is 000 (anyone can read "
+"or write)."
 msgstr ""
-"Zet de umask waarde voor nieuw aangemaakte bestanden. Standaard 0 (iedereen "
-"kan lezen of schrijven)."
+"Stel de bestandsrechten in voor nieuw gecreëerde bestanden. Standaard 000 "
+"(iedereen kan lezen of schrijven)."
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -9928,8 +9928,13 @@ msgstr ""
 "Hiermee geeft u de bestands of schijf naam op die moet worden gebruikt voor "
 "back-up opslag"
 
-msgid "Specifies how many servers to create."
-msgstr "Vul het aantal servers in die je wil creëren."
+msgid ""
+"Specifies how many servers to create. There should be enough to handle the "
+"maximum level of concurrency from its clients, typically four to six."
+msgstr ""
+"Geeft op hoeveel servers moeten worden gemaakt. Er dienen genoeg servers "
+"opgegeven te zijn om het maximum aantal processen van de cliënten af te "
+"handelen, doorgaans vier tot zes."
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "Specificeer hoe de volume moet worden blootgesteld aan de OS."
@@ -11416,13 +11421,6 @@ msgid "There must be at least 4 disks in a raidz3."
 msgstr "Een RAID-Z3 moet tenminste uit 4 schijven bestaan"
 
 msgid ""
-"There should be enough to handle the maximum level of concurrency from its "
-"clients, typically four to six."
-msgstr ""
-"Er dienen genoeg servers opgegeven te zijn om het maximum aantal processen "
-"van de cliënten af te handelen, typisch vier tot zes."
-
-msgid ""
 "These commands will be executed pre or post system initialization (booting) "
 "or before system shutdown."
 msgstr ""
@@ -11463,6 +11461,9 @@ msgid ""
 msgstr ""
 "Deze parameters worden toegevoegd aan het hardware-specifieke gedeelte van "
 "het stuurprogramma."
+
+msgid "These parameters are appended to the exports file."
+msgstr "Deze parameters worden toegevoegd aan het exportbestand."
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12006,8 +12007,8 @@ msgstr "Tijdsoverschrijding"
 msgid "Timeout for iSNS requests. The default is 5."
 msgstr "Timeout voor iSNS aanvragen. De standaardwaarde is 5."
 
-msgid "Timeout must be a number between 10 and 255000000."
-msgstr "Timeout moet een nummer zijn tussen 10 en 255000000."
+msgid "Timeout must be a number between 10000 and 255000000."
+msgstr "Timeout moet een nummer zijn tussen 10000 en 255000000."
 
 msgid "Times"
 msgstr "Aantal keer"
@@ -13411,18 +13412,15 @@ msgstr "iSCSI Doel CTL"
 msgid "iSCSI Target ISTGT"
 msgstr "iSCSI Doel ISTGT"
 
+msgid "iSCSI Target Information & Status"
+msgstr "iSCSI Doel Informatie & Status"
+
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Doel Logical Unit Controller"
-
-msgid "iSCSI Targets Information & Status"
-msgstr "iSCSI Doelen Informatie & Status"
 
 #, php-format
 msgid "iSCSI initial parameter (%d by default)."
 msgstr "iSCSI initiële parameter (standaard %d)."
-
-msgid "iSCSI initiator disabled."
-msgstr "iSCSI initiator is uitgeschakeld"
 
 msgid "iSER - iSCSI over RDMA"
 msgstr "iSER - iSCSI over RDMA"
