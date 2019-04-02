@@ -39,7 +39,7 @@ tftpd_prestart()
 	_command_args=`/usr/local/bin/xml sel --template \
 		--match '//tftpd' \
 			--if 'count(allowfilecreation) > 0' \
-				--output ' -c \
+				--output ' -c' \
 			--break \
 			--if 'string-length(port) > 0' \
 				--value-of "concat(' -a :',port)" \
