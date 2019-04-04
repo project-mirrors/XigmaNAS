@@ -1534,6 +1534,7 @@ function config_upgrade_40() {
 	$a_root = &array_make_branch($config,'nfsd','root','param');
 	foreach($a_share as $r_share):
 		$r_param = [];
+		$r_param['enable'] = true;
 		$r_param['uuid'] = $r_share['uuid'] ?? uuid();
 		$r_param['path'] = $r_share['path'] ?? '/';
 		$r_param['network'] = $r_share['network'] ?? '';
