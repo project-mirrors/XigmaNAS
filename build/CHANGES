@@ -14,6 +14,7 @@ Changes:
 - Upgrade bash to 5.0 p3.
 - Upgrade zoneinfo to 2019a.
 - Upgrade e2fsprogs to 1.45.0.
+- Upgrade syncthing to 1.1.1.
 
 Fixes:
 
