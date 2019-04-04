@@ -31,7 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\nfsd;
+namespace services\nfsd\root;
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
@@ -39,6 +39,7 @@ use common\sphere as mys;
 final class shared_toolbox {
 	private const NOTIFICATION_NAME = __NAMESPACE__;
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
+	private const ROW_IDENTIFIER = 'uuid';
 /**
  *	Process notifications
  *	@param int $mode
@@ -47,7 +48,24 @@ final class shared_toolbox {
  */
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
-		$sphere = setting_toolbox::init_sphere();
+		$sphere = grid_toolbox::init_sphere();
+		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		if(false !== $sphere->row_id):
+			switch($mode):
+				case UPDATENOTIFY_MODE_NEW:
+					break;
+				case UPDATENOTIFY_MODE_MODIFIED:
+					break;
+				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+				case UPDATENOTIFY_MODE_DIRTY:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+			endswitch;
+		endif;
 		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
@@ -62,8 +80,10 @@ final class shared_toolbox {
 		$sphere->
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'nfsd');
+			set_row_identifier(self::ROW_IDENTIFIER)->
+			set_enadis(true)->
+			set_lock(false);
+		$sphere->grid = &array_make_branch($config,'nfsd','root','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -75,9 +95,9 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('services_nfs.php',gettext('Settings'),gettext('Reload page'),true)->
+					ins_tabnav_record('services_nfs.php',gettext('Settings'))->
 					ins_tabnav_record('services_nfs_export.php',gettext('Export'))->
-					ins_tabnav_record('services_nfs_root.php',gettext('Root Directory'));
+					ins_tabnav_record('services_nfs_root.php',gettext('Root Directory'),gettext('Reload page'),true);
 		return $retval;
 	}
 }

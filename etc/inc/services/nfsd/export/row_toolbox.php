@@ -1,6 +1,6 @@
 <?php
 /*
-	shared_toolbox.php
+	row_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,53 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\nfsd;
+namespace services\nfsd\export;
+use common\properties as myp;
+use common\rmo as myr;
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
-	private const NOTIFICATION_NAME = __NAMESPACE__;
-	private const NOTIFICATION_PROCESSOR = 'process_notification';
+final class row_toolbox {
 /**
- *	Process notifications
- *	@param int $mode
- *	@param string $data
- *	@return int
+ *	Create the sphere object
+ *	@return \common\sphere\row
  */
-	public static function process_notification(int $mode,string $data) {
-		$retval = 0;
-		$sphere = setting_toolbox::init_sphere();
-		updatenotify_clear($sphere->get_notifier(),$data);
-		return $retval;
-	}
-/**
- *	Configure shared sphere settings
- *	@global array $config
- *	@param \common\sphere\root $sphere
- */
-	public static function init_sphere(mys\root $sphere) {
+	public static function init_sphere() {
 		global $config;
 
+		$sphere = new mys\row();
+		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_notifier(self::NOTIFICATION_NAME)->
-			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'nfsd');
+			set_script('services_nfs_export_edit')->
+			set_parent('services_nfs_export');
+		return $sphere;
 	}
 /**
- *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
- *	@return int
+ *	Create the request method object
+ *	@return \common\rmo\rmo The request method object
  */
-	public static function add_tabnav(\co_DOMDocument $document) {
-		$retval = 0;
-		$document->
-			add_area_tabnav()->
-				add_tabnav_upper()->
-					ins_tabnav_record('services_nfs.php',gettext('Settings'),gettext('Reload page'),true)->
-					ins_tabnav_record('services_nfs_export.php',gettext('Export'))->
-					ins_tabnav_record('services_nfs_root.php',gettext('Root Directory'));
-		return $retval;
+	public static function init_rmo() {
+		return myr\rmo_row_templates::rmo_with_clone();
+	}
+/**
+ *	Create the properties object
+ *	@return \system\syslogconf\row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
 	}
 }

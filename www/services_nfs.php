@@ -92,7 +92,7 @@ switch($page_method):
 				endif;
 				$retval |= rc_update_service('rpcbind'); // !!! Do
 				$retval |= rc_update_service('mountd');  // !!! not
-				$retval |= rc_update_service('nfsd');    // !!! change
+				rc_update_service('nfsd');               // !!! change
 				$retval |= rc_update_service('statd');   // !!! this
 				$retval |= rc_update_service('lockd');   // !!! order
 				$retval |= rc_update_service('mdnsresponder');
@@ -102,40 +102,6 @@ switch($page_method):
 				header($sphere->get_script()->get_location());
 				exit;
 				break;
-/*
-			case 'reload':
-				$retval = 0;
-				$name = $cop->get_enable()->get_name();
-				if($sphere->grid[$name] && !$pending_changes):
-					config_lock();
-					$retval |= rc_update_service_ex('nfsd',true);
-					config_unlock();
-					$_SESSION['submit'] = $sphere->get_script()->get_basename();
-					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					header($sphere->get_script()->get_location());
-				else:
-					$page_action = 'view';
-					$page_mode = PAGE_MODE_VIEW;
-				endif;
-				exit;
-				break;
-			case 'restart':
-				$retval = 0;
-				$name = $cop->get_enable()->get_name();
-				if($sphere->grid[$name] && !$pending_changes):
-					config_lock();
-					$retval |= rc_update_service_ex('nfsd');
-					config_unlock();
-					$_SESSION['submit'] = $sphere->get_script()->get_basename();
-					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					header($sphere->get_script()->get_location());
-					exit;
-				else:
-					$page_action = 'view';
-					$page_mode = PAGE_MODE_VIEW;
-				endif;
-				break;
- */
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
@@ -146,7 +112,7 @@ switch($page_method):
 					rc_exec_script('/etc/rc.d/nfsuserd forcestop');
 					$retval |= rc_update_service('rpcbind'); // !!! Do
 					$retval |= rc_update_service('mountd');  // !!! not
-					$retval |= rc_update_service('nfsd');    // !!! change
+					rc_update_service('nfsd');               // !!! change
 					$retval |= rc_update_service('statd');   // !!! this
 					$retval |= rc_update_service('lockd');   // !!! order
 					$retval |= rc_update_service('mdnsresponder');
