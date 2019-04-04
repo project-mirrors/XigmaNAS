@@ -146,12 +146,4 @@ class grid_properties extends myp\container_row {
 	final public function get_opt_sec(): myp\property_list_multi {
 		return $this->x_opt_sec ?? $this->init_opt_sec();
 	}
-	public function init_description(): myp\property_text {
-		$property = parent::init_description();
-		$property->
-			set_name('comment')->
-			set_title(gettext('Comment'))->
-			set_id('comment');
-		return $property;
-	}
 }
