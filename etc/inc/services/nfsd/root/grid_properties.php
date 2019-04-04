@@ -1,6 +1,6 @@
 <?php
 /*
-	shared_toolbox.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,53 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\nfsd;
-use common\sphere as mys;
-/**
- *	Wrapper class for autoloading functions
- */
-final class shared_toolbox {
-	private const NOTIFICATION_NAME = __NAMESPACE__;
-	private const NOTIFICATION_PROCESSOR = 'process_notification';
-/**
- *	Process notifications
- *	@param int $mode
- *	@param string $data
- *	@return int
- */
-	public static function process_notification(int $mode,string $data) {
-		$retval = 0;
-		$sphere = setting_toolbox::init_sphere();
-		updatenotify_clear($sphere->get_notifier(),$data);
-		return $retval;
-	}
-/**
- *	Configure shared sphere settings
- *	@global array $config
- *	@param \common\sphere\root $sphere
- */
-	public static function init_sphere(mys\root $sphere) {
-		global $config;
+namespace services\nfsd\root;
+use common\properties as myp;
 
-		$sphere->
-			set_notifier(self::NOTIFICATION_NAME)->
-			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'nfsd');
+class grid_properties extends myp\container_row {
+	protected $x_filesystem;
+	public function init_filesystem(): myp\property_text {
+		$property = $this->x_filesystem = new myp\property_text($this);
+		$property->
+			set_name('path')->
+			set_title(gettext('Path'));
+		return $property;
 	}
-/**
- *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
- *	@return int
- */
-	public static function add_tabnav(\co_DOMDocument $document) {
-		$retval = 0;
-		$document->
-			add_area_tabnav()->
-				add_tabnav_upper()->
-					ins_tabnav_record('services_nfs.php',gettext('Settings'),gettext('Reload page'),true)->
-					ins_tabnav_record('services_nfs_export.php',gettext('Export'))->
-					ins_tabnav_record('services_nfs_root.php',gettext('Root Directory'));
-		return $retval;
+	final public function get_filesystem(): myp\property_text {
+		return $this->x_filesystem ?? $this->init_filesystem();
+	}
+	protected $x_client;
+	public function init_client(): myp\property_cidr {
+		$property = $this->x_client = new myp\property_cidr($this);
+		$property->
+			set_name('network')->
+			set_title(gettext('Network'));
+		return $property;
+	}
+	final public function get_client(): myp\property_cidr {
+		return $this->x_client ?? $this->init_client();
+	}
+	protected $x_sec_param;
+	public function init_sec_param(): myp\property_list_multi {
+		$property = $this->x_sec_param = new myp\property_list_multi($this);
+		$property->
+			set_name('param')->
+			set_title(gettext('Security Flavor'));
+		return $property;
+	}
+	final public function get_sec_param(): myp\property_list_multi {
+		return $this->x_sec_param ?? $this->init_sec_param();
 	}
 }

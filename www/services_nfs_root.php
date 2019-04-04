@@ -1,6 +1,6 @@
 <?php
 /*
-	shared_toolbox.php
+	services_nfs_root.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,53 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace services\nfsd;
-use common\sphere as mys;
-/**
- *	Wrapper class for autoloading functions
- */
-final class shared_toolbox {
-	private const NOTIFICATION_NAME = __NAMESPACE__;
-	private const NOTIFICATION_PROCESSOR = 'process_notification';
-/**
- *	Process notifications
- *	@param int $mode
- *	@param string $data
- *	@return int
- */
-	public static function process_notification(int $mode,string $data) {
-		$retval = 0;
-		$sphere = setting_toolbox::init_sphere();
-		updatenotify_clear($sphere->get_notifier(),$data);
-		return $retval;
-	}
-/**
- *	Configure shared sphere settings
- *	@global array $config
- *	@param \common\sphere\root $sphere
- */
-	public static function init_sphere(mys\root $sphere) {
-		global $config;
+require_once 'auth.inc';
+require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-		$sphere->
-			set_notifier(self::NOTIFICATION_NAME)->
-			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'nfsd');
-	}
-/**
- *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
- *	@return int
- */
-	public static function add_tabnav(\co_DOMDocument $document) {
-		$retval = 0;
-		$document->
-			add_area_tabnav()->
-				add_tabnav_upper()->
-					ins_tabnav_record('services_nfs.php',gettext('Settings'),gettext('Reload page'),true)->
-					ins_tabnav_record('services_nfs_export.php',gettext('Export'))->
-					ins_tabnav_record('services_nfs_root.php',gettext('Root Directory'));
-		return $retval;
-	}
-}
+use services\nfsd\root\grid_toolbox as toolbox;
+
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+toolbox::looper($cop,$sphere,$rmo);
+toolbox::render($cop,$sphere);

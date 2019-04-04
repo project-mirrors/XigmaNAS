@@ -38,51 +38,97 @@ cat /dev/null > ${mountd_config}
 
 mountd_mkconf()
 {
-#	create exports file from config
+#	create export from config
 	/usr/local/bin/xml sel --template \
-		--match '//nfsd/share' \
-			--if 'count(v4rootdir) > 0' \
-				--if 'string-length(path) > 0 and string-length(network) > 0' \
-					--value-of 'concat("V4: ",path)' \
-					--value-of 'concat(" -network ",network)' \
-					--nl \
+		--match '//nfsd/export/param[enable]' \
+			--if 'string-length(path) > 0' \
+				--value-of 'path' \
+				--if 'count(opt_public) > 0' \
+					--output ' -public' \
 				--break \
-			--else \
-				--if 'string-length(path) > 0 and string-length(network) > 0' \
-					--value-of 'path' \
-					--if 'count(options/alldirs) > 0' \
-						--output ' -alldirs' \
-					--break \
-					--if 'count(options/quiet) > 0' \
-						--output ' -quiet' \
-					--break \
-					--if 'count(options/ro) > 0' \
-						--output ' -ro' \
-					--break \
-					--if 'mapall="yes"' \
-						--output ' -mapall=' \
-					--elif 'mapall="no"' \
-						--output ' -maproot=' \
-					--break \
-					--if 'mapall="yes" or mapall="no"' \
-						--if 'string-length(maptouser) > 0' \
-							--value-of "concat('\"',str:replace(maptouser,'\"',''),'\"')" \
-							--if 'maptogroups="nogroupcredentials"' \
-								--output ':' \
-							--elif 'maptogroups="specificgroupcredentials"' \
-								--match 'group' \
-									--if 'string-length(.) > 0' \
-										--value-of "concat(':\"',str:replace(.,'\"',''),'\"')" \
-									--break \
+				--if 'count(opt_alldirs) > 0' \
+					--output ' -alldirs' \
+				--break \
+				--if 'count(opt_quiet) > 0' \
+					--output ' -quiet' \
+				--break \
+				--if 'count(opt_readonly) > 0' \
+					--output ' -ro' \
+				--break \
+				--if 'mapall="yes"' \
+					--output ' -mapall=' \
+				--elif 'mapall="no"' \
+					--output ' -maproot=' \
+				--break \
+				--if 'mapall="yes"' \
+					--if 'string-length(mapalltouser) > 0' \
+						--value-of "concat('\"',str:replace(mapalltouser,'\"',''),'\"')" \
+						--if 'mapalltogroups="nogroupcredentials"' \
+							--output ':' \
+						--elif 'mapalltogroups="specificgroupcredentials"' \
+							--match 'group' \
+								--if 'string-length(.) > 0' \
+									--value-of "concat(':\"',str:replace(.,'\"',''),'\"')" \
 								--break \
 							--break \
-						--else \
-							--output 'root' \
+						--break \
+					--else \
+						--output 'root' \
+					--break \
+				--elif 'mapall="no"' \
+					--if 'string-length(maproottouser) > 0' \
+						--value-of "concat('\"',str:replace(maproottouser,'\"',''),'\"')" \
+						--if 'maproottogroups="nogroupcredentials"' \
+							--output ':' \
+						--elif 'maproottogroups="specificgroupcredentials"' \
+							--match 'group' \
+								--if 'string-length(.) > 0' \
+									--value-of "concat(':\"',str:replace(.,'\"',''),'\"')" \
+								--break \
+							--break \
+						--break \
+					--else \
+						--output 'root' \
+					--break \
+				--break \
+				--if 'count(param) > 0' \
+					--output ' -sec=' \
+					--match 'param' \
+						--if 'string-length(.) > 0' \
+							--if 'position() > 1' \
+								--output ':' \
+							--break \
+							--value-of '.' \
 						--break \
 					--break \
-					--value-of 'concat(" -network ",network)' \
-					--nl \
 				--break \
+				--if 'string-length(network) > 0' \
+					--value-of 'concat(" -network ",network)' \
+				--break \
+				--nl \
+			--break \
+		--break \
+	${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
+#	create root from config
+	/usr/local/bin/xml sel --template \
+		--match '//nfsd/root/param[enable]' \
+			--if 'string-length(path) > 0' \
+				--value-of 'concat("V4: ",path)' \
+				--if 'count(param) > 0' \
+					--output ' -sec=' \
+					--match 'param' \
+						--if 'string-length(.) > 0' \
+							--if 'position() > 1' \
+								--output ':' \
+							--break \
+							--value-of '.' \
+						--break \
+					--break \
+				--break \
+				--if 'string-length(network) > 0' \
+					--value-of 'concat(" -network ",network)' \
+				--break \
+				--nl \
 			--break \
 		--break \
 	${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
