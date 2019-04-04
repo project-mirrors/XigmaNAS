@@ -1523,6 +1523,34 @@ function config_upgrade_39() {
 	endif;
 }
 /**
+ *	Upgrade configuration from 40
+ *	@global type $config
+ */
+function config_upgrade_40() {
+	global $config;
+	
+	$a_share = &array_make_branch($config,'nfsd','share');
+	$a_export = &array_make_branch($config,'nfsd','export','param');
+	$a_root = &array_make_branch($config,'nfsd','root','param');
+	foreach($a_share as $r_share):
+		$r_param = [];
+		$r_param['uuid'] = $r_share['uuid'] ?? uuid();
+		$r_param['path'] = $r_share['path'] ?? '/';
+		$r_param['network'] = $r_share['network'] ?? '';
+		$r_param['description'] = $r_share['comment'] ?? '';
+		if(array_key_exists('v4rootdir',$r_share)):
+			$a_root[] = $r_param;
+		else:
+			$r_param['mapall'] = $r_share['mapall'] ?? 'nomap';
+			$r_param['opt_alldirs'] = isset($r_share['options']['alldirs']);
+			$r_param['opt_readonly'] = isset($r_share['options']['ro']);
+			$r_param['opt_quiet'] = isset($r_share['options']['quiet']);
+			$a_export[] = $r_param;
+		endif;
+	endforeach;
+	unset($config['nfsd']['share']);
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1566,7 +1594,8 @@ function config_upgrade() {
 		'37' => [$kf => 'config_upgrade_37',$kv => '38'],
 		'38' => [$kf => 'config_upgrade_38',$kv => '39'],
 		'39' => [$kf => 'config_upgrade_39',$kv => '40'],
-		'40' => [$kf => NULL,$kv => NULL]
+		'40' => [$kf => 'config_upgrade_40',$kv => '41'],
+		'41' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
