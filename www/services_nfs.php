@@ -80,12 +80,10 @@ switch($page_method):
 				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 				config_lock();
 				rc_exec_script('/etc/rc.d/nfsuserd forcestop');
-				if($sphere->grid[$cop->get_support_nfs_v4()->get_name()]):
+				if($sphere->grid[$cop->get_support_nfs_v4()->get_name()] && $sphere->grid[$cop->get_enable()->get_name()]):
 					$retval |= mwexec('/usr/local/sbin/rconf service enable nfsv4_server');
 					$retval |= mwexec('/usr/local/sbin/rconf service enable nfsuserd');
-					if($sphere->grid[$cop->get_enable()->get_name()]):
-						$retval |= rc_exec_script("/etc/rc.d/nfsuserd start");
-					endif;
+					$retval |= rc_exec_script("/etc/rc.d/nfsuserd start");
 				else:
 					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
 					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsuserd');
@@ -110,6 +108,8 @@ switch($page_method):
 					write_config();
 					config_lock();
 					rc_exec_script('/etc/rc.d/nfsuserd forcestop');
+					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
+					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsuserd');
 					$retval |= rc_update_service('rpcbind'); // !!! Do
 					$retval |= rc_update_service('mountd');  // !!! not
 					rc_update_service('nfsd');               // !!! change
