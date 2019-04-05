@@ -34,4 +34,7 @@ etc/inc/properties_smartmontoold_umass.php
 etc/inc/properties_iscsi_initiator.php
 # 6601
 etc/inc/properties_services_tftp.php
+# 6632
+/usr/local/www/services_nfs_share.php
+/usr/local/www/services_nfs_share_edit.php
 #
