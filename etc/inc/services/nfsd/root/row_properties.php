@@ -65,7 +65,7 @@ final class row_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_sec_param(): myp\property_list_multi {
+	public function init_opt_sec(): myp\property_list_multi {
 		$description = gettext('Specify a list of acceptable security flavors to be used for remote access. The	default	security flavor	is sys.');
 		$options = [
 			'sys' => gettext('sys - Use AUTH_SYS authentication.'),
@@ -73,7 +73,7 @@ final class row_properties extends grid_properties {
 			'krb5i' => gettext('krb5i - Use Kerberos V5 authentication with data integrity checksums.'),
 			'krb5p' => gettext('krb5p - User Kerberos V5 authentication with data integrity checksums and data encryption.')
 		];
-		$property = parent::init_sec_param();
+		$property = parent::init_opt_sec();
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->

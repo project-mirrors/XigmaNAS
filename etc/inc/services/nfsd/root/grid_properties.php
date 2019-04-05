@@ -57,15 +57,15 @@ class grid_properties extends myp\container_row {
 	final public function get_client(): myp\property_cidr {
 		return $this->x_client ?? $this->init_client();
 	}
-	protected $x_sec_param;
-	public function init_sec_param(): myp\property_list_multi {
-		$property = $this->x_sec_param = new myp\property_list_multi($this);
+	protected $x_opt_sec;
+	public function init_opt_sec(): myp\property_list_multi {
+		$property = $this->x_opt_sec = new myp\property_list_multi($this);
 		$property->
 			set_name('param')->
 			set_title(gettext('Security Flavor'));
 		return $property;
 	}
-	final public function get_sec_param(): myp\property_list_multi {
-		return $this->x_sec_param ?? $this->init_sec_param();
+	final public function get_opt_sec(): myp\property_list_multi {
+		return $this->x_opt_sec ?? $this->init_opt_sec();
 	}
 }
