@@ -39,43 +39,50 @@ minidlna_config_dir="/var/etc"
 scanner_indicator="/var/run/${name}/upnp-av.scan"
 minidlna_config=${minidlna_config_dir}/${name}.conf
 minidlna_logdir=${minidlna_logdir-"/var/log"}
+minidlna_rescan_timeout=${minidlna_rescan_timeout-"3600"}
 
 pidfile="/var/run/${name}/${name}.pid"
 command_args=" -P $pidfile -u $minidlna_uid -f $minidlna_config"
 
 minidlna_mkconf()
 {
-
-		_name=`configxml_get "//minidlna/name"`
-		_if=`configxml_get "//minidlna/if"`
-		_port=`configxml_get "//minidlna/port"`
-		_serial=`cat /etc/prd.revision`
-		_model=`/usr/local/sbin/minidlnad -V | awk '{print$2}'`
-		_container=`configxml_get "//minidlna/container"`
-		_notifyinterval=`configxml_get "//minidlna/notify_int"`
-		_loglevel=`configxml_get "//minidlna/loglevel"`
-		_ip_adress=`configxml_get "//interfaces/lan/ipaddr"`
-		if [ "${_ip_adress}" = "dhcp" ]; then
-			_ip_adress=`get_ipaddr inet ${_if}`
-		fi
-	cat << EOF > ${minidlna_config}
-friendly_name=${_name}
-network_interface=${_if}
-port=${_port}
-serial=${_serial}
-model_number=${_model}
-notify_interval=${_notifyinterval}
-root_container=${_container}
-db_dir=${minidlna_home}
-log_dir=${minidlna_logdir}
-log_level=general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=${_loglevel}
-album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
-minissdpdsocket=/var/run/minissdpd.sock
-presentation_url=http://${_ip_adress}:${_port}/status
-EOF
-
+	_if=`configxml_get "//minidlna/if"`
+	_port=`configxml_get "//minidlna/port"`
+	_serial=`cat /etc/prd.revision`
+	_model=`/usr/local/sbin/minidlnad -V | awk '{print$2}'`
+	_ip_adress=`configxml_get "//interfaces/lan/ipaddr"`
+	if [ "${_ip_adress}" = "dhcp" ]; then
+		_ip_adress=`get_ipaddr inet ${_if}`
+	fi
 	/usr/local/bin/xml sel --template \
 		--match '//minidlna' \
+			--if 'string-length(name) > 0' \
+				--value-of 'concat("friendly_name=",name)' --nl \
+			--else \
+				--output 'friendly_name=minidlna' --nl \
+			--break \
+			--output "network_interface=${_if}" --nl \
+			--output "port=${_port}" --nl \
+			--output "serial=${_serial}" --nl \
+			--output "model_number=${_model}" --nl \
+			--if 'string-length(notify_int) > 0' \
+				--value-of 'concat("notify_interval=",notify_int)' --nl \
+			--break \
+			--if 'string-length(container) > 0' \
+				--value-of 'concat("root_container=",container)' --nl \
+			--break \
+			--if 'string-length(home) > 0' \
+				--value-of 'concat("db_dir=",home)' --nl \
+			--break \
+			--output "log_dir=${minidlna_logdir}" --nl \
+			--output 'log_level=general,artwork,database,inotify,scanner,metadata,http,ssdp' \
+			--if 'string-length(loglevel) > 0' \
+				--value-of 'concat(",tivo=",loglevel)' \
+			--break \
+			--nl \
+			--output 'album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg' --nl \
+			--output 'minissdpdsocket=/var/run/minissdpd.sock' --nl \
+			--output "presentation_url=http://${_ip_adress}:${_port}/status" --nl \
 			--if 'count(strict) > 0' \
 				--output 'strict_dlna=yes' --nl \
 			--else \
@@ -96,8 +103,22 @@ EOF
 			--else \
 				--output 'wide_links=no' --nl \
 			--break \
+			--if 'string-length(force_sort_criteria) > 0' \
+				--value-of 'concat("force_sort_criteria=",force_sort_criteria)' --nl \
+			--break \
 			--match 'content' \
-				--output 'media_dir=' --value-of '.' --nl \
+				--if 'string-length(.) > 0' \
+					--value-of 'concat("media_dir=",.)' --nl \
+				--break \
+			--break \
+			--match '//minidlna/media_folder/param[enable]' \
+				--if 'string-length(media_dir) > 0' \
+					--output 'media_dir=' \
+					--if 'string-length(media_type) > 0' \
+						--value-of 'concat(media_type,",")' \
+					--break \
+					--value-of 'media_dir' --nl \
+				--break \
 			--break \
 			--match 'auxparam' \
 				--if 'position() < last() or string-length(.) > 0' \
@@ -105,7 +126,7 @@ EOF
 				--break \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc >> ${minidlna_config}
+		${configxml_file} | /usr/local/bin/xml unesc > ${minidlna_config}
 }
 
 minidlna_prestart()
@@ -145,7 +166,7 @@ minidlna_rescan()
 	$command $command_args
 	logger "rescan minidlna"
 	sleep 5
-	wait_on -t 3600 $scanner_indicator
+	wait_on -t ${minidlna_rescan_timeout} $scanner_indicator
 	case $? in
 		0)
 		    logger "minidlna rescan timeout"
