@@ -32,7 +32,9 @@
 	of XigmaNAS, either expressed or implied.
 */
 require_once 'super_fun.inc';
-//	system configuration parameter
+/*	
+ *	system configuration parameter
+ */
 $g = [
 	'varrun_path' => '/var/run',
 	'varetc_path' => '/var/etc',
@@ -49,13 +51,19 @@ $g = [
 	'www_path' => '/usr/local/www',
 	'xml_rootobj' => 'xigmanas',
 	'debug' => false,
-	'latest_config' => '41',
-	'wireless_regex' => '/^(ndis|wlan|an|ath|bwi|bwn|ipw|iwi|iwn|malo|mwl|ral|wi|wpi|rsu|rum|run|uath|upgt|ural|urtw|urtwn|usie|zyd)/',
+	'latest_config' => '42',
 	'default_passwd' => 'xigmanas',
 	'default_ip' => '192.168.1.250',
 	'zroot' => false
 ];
-//	directory of images.
+/*	
+ *	wireless_regex is based on https://www.freebsd.org/releases/12.0R/hardware.html#wlan
+ *	devd.conf has its own regex
+ */
+	$g['wireless_regex'] = '/^(ndis|wlan|an|ath|bwi|bwn|ipw|iwi|iwm|iwn|malo|mwl|otus|ral|rsu|rtwn|rum|run|uath|upgt|ural|urtw|wi|wpi|zyd)/';
+/*
+ *	directory of images.
+ */
 $g_img = [
 	'add' => 'images/add.png',
 	'mod' => 'images/edit.png',
@@ -74,7 +82,9 @@ $g_img = [
 	'box.info' => 'images/info_box.png',
 	'box.warning' => 'images/warn_box.png'
 ];
-//	installation parameter
+/*
+ *	installation parameter
+ */
 $g_install = [
 	'default_swap' => '1024',
 	'default_max_swap' => '2048',   /* maximum recommended swap */
@@ -82,7 +92,9 @@ $g_install = [
 	'part1size_embedded' => '2048',
 	'part1size_full' => '3072'
 ];
-//	available languages/locales. Function array_flip is used in system.inc
+/*
+ *	available languages/locales. Function array_flip is used in system.inc
+ */
 $g_languages = [
 	'auto'	=> 'auto',
 	'af'    => 'af',
@@ -207,7 +219,9 @@ $g_weekdays_en_short = [
 	6 => 'Sat',
 	7 => 'Sun'
 ];
-//	supported filesystems
+/*
+ *	supported filesystems
+ */
 $g_filesystems = [
 	'' => gtext('Unformatted'),
 	'ufs' => gtext('UFS with Soft Updates'),
@@ -223,7 +237,9 @@ $g_filesystems = [
 	'geli' => 'Encrypted',
 	'zfs' => 'ZFS Storage Pool'
 ];
-//	upload status messages
+/*
+ *	upload status messages
+ */
 $g_file_upload_error = [
 	UPLOAD_ERR_OK => gtext('There is no error, the file uploaded with success.'),
 	UPLOAD_ERR_INI_SIZE => gtext('The uploaded file exceeds the upload_max_filesize directive in php.ini.'),
@@ -234,4 +250,3 @@ $g_file_upload_error = [
 	UPLOAD_ERR_CANT_WRITE => gtext('Failed to write file to disk.'),
 	UPLOAD_ERR_EXTENSION => gtext('File upload stopped by extension.')
 ];
-?>

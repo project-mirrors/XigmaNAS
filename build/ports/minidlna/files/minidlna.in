@@ -48,6 +48,9 @@ minidlna_mkconf()
 {
 	_if=`configxml_get "//minidlna/if"`
 	_port=`configxml_get "//minidlna/port"`
+	if [ -z "${_port}" ]; then
+		_port="8200"
+	fi
 	_serial=`cat /etc/prd.revision`
 	_model=`/usr/local/sbin/minidlnad -V | awk '{print$2}'`
 	_ip_adress=`configxml_get "//interfaces/lan/ipaddr"`
@@ -106,18 +109,13 @@ minidlna_mkconf()
 			--if 'string-length(force_sort_criteria) > 0' \
 				--value-of 'concat("force_sort_criteria=",force_sort_criteria)' --nl \
 			--break \
-			--match 'content' \
-				--if 'string-length(.) > 0' \
-					--value-of 'concat("media_dir=",.)' --nl \
-				--break \
-			--break \
-			--match '//minidlna/media_folder/param[enable]' \
-				--if 'string-length(media_dir) > 0' \
+			--match '//minidlna/media/param[enable]' \
+				--if 'string-length(path) > 0' \
 					--output 'media_dir=' \
-					--if 'string-length(media_type) > 0' \
-						--value-of 'concat(media_type,",")' \
+					--if 'string-length(type) > 0' \
+						--value-of 'concat(type,",")' \
 					--break \
-					--value-of 'media_dir' --nl \
+					--value-of 'path' --nl \
 				--break \
 			--break \
 			--match 'auxparam' \
@@ -158,10 +156,10 @@ minidlna_rescan()
 	minidlna_poststop
 	rm -f $pidfile
 	if [ -f ${minidlna_home}/files.db ]; then
-	    rm -f ${minidlna_home}/files.db
+		rm -f ${minidlna_home}/files.db
 	fi
 	if [ -d ${minidlna_home}/art_cache ]; then
-	    rm -fr ${minidlna_home}/art_cache
+		rm -fr ${minidlna_home}/art_cache
 	fi
 	$command $command_args
 	logger "rescan minidlna"
@@ -169,17 +167,17 @@ minidlna_rescan()
 	wait_on -t ${minidlna_rescan_timeout} $scanner_indicator
 	case $? in
 		0)
-		    logger "minidlna rescan timeout"
-		    ;;
+			logger "minidlna rescan timeout"
+			;;
 		1)
-		    logger "minidlna rescan completed"
-		    sleep 5
-		    #clean wrong daemons
-		    process=`ps ax | grep sbin/minidlna | grep -v grep | awk '{print$1}'`
-		    kill -s KILL ${process}
-		    minidlna_prestart
-		    $command $command_args	   
-		    ;;
+			logger "minidlna rescan completed"
+			sleep 5
+			#clean wrong daemons
+			process=`ps ax | grep sbin/minidlna | grep -v grep | awk '{print$1}'`
+			kill -s KILL ${process}
+			minidlna_prestart
+			$command $command_args
+			;;
 	esac
 }
 

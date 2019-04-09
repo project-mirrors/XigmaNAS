@@ -1576,6 +1576,30 @@ function config_upgrade_40() {
 	unset($config['nfsd']['share']);
 }
 /**
+ *	Upgrade configuration from 41
+ *	@global type $config
+ */
+function config_upgrade_41() {
+	global $config;
+	
+	$a_source = &array_make_branch($config,'minidlna','content');
+	$a_destination = &array_make_branch($config,'minidlna','media','param');
+	$r_param = [
+		'enable' => true,
+		'description' => ''
+	];
+	foreach($a_source as $r_source):
+		unset($matches);
+		if(is_string($r_source) && (1 === preg_match('/^(?:(A|P|V|PV),)?(.*)$/',$r_source,$matches))):
+			$r_param['uuid'] = uuid();
+			$r_param['type'] = $matches[1];
+			$r_param['path'] = $matches[2];
+			$a_destination[] = $r_param;
+		endif;	
+	endforeach;
+	unset($config['minidlna']['content']);
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1620,7 +1644,8 @@ function config_upgrade() {
 		'38' => [$kf => 'config_upgrade_38',$kv => '39'],
 		'39' => [$kf => 'config_upgrade_39',$kv => '40'],
 		'40' => [$kf => 'config_upgrade_40',$kv => '41'],
-		'41' => [$kf => NULL,$kv => NULL]
+		'41' => [$kf => 'config_upgrade_40',$kv => '42'],
+		'42' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
