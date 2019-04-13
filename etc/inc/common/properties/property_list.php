@@ -36,14 +36,13 @@ namespace common\properties;
  *	List property
  */
 class property_list extends property {
-	public $x_options = NULL;
-
-	public function set_options(array $options = NULL) {
+	protected $x_options = [];
+	public function set_options(array $options) {
 		$this->x_options = $options;
 		return $this;
 	}
-	public function upsert_option(string $key = '',string $value = '') {
-		$this->x_options[$key] = isset($this->x_options) ? $value : [$key => $value];
+	public function upsert_option(string $key,string $value) {
+		$this->x_options[$key] = $value;
 	}
 	public function get_options() {
 		return $this->x_options;
