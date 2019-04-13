@@ -484,4 +484,12 @@ abstract class property {
 		endif;
 		return $return_data;
 	}
+/**
+ *	Calculate if field value is readonly
+ *	@param bool $check_editableonadd true will evaluate editableonadd, false will evaluate editableonmodify
+ *	@return bool true when readonly, false otherwise.
+ */
+	public function is_readonly_rowmode(bool $check_editableonadd): bool {
+		return !($check_editableonadd ? $this->x_editableonadd : $this->x_editableonmodify);
+	}
 }
