@@ -140,37 +140,39 @@ done
 _index=`configxml_get_count '//access/user'`
 while [ ${_index} -gt 0 ]
 do
-	_cmdarg=`/usr/local/bin/xml sel --template \
-		--match "//access/user[${_index}]" \
-			--value-of "concat('-n ',login,' -u ',id,' -g ',primarygroup,' -c \"',fullname,'\"')" \
-			--if "count(group) > 0" \
-				--output ' -G ' \
-				--match 'group' \
-					--if 'position() > 1' \
-						--output ',' \
+	if ! configxml_isset "//access/user[${_index}]/inactive"; then
+		_cmdarg=`/usr/local/bin/xml sel --template \
+			--match "//access/user[${_index}]" \
+				--value-of "concat('-n ',login,' -u ',id,' -g ',primarygroup,' -c \"',fullname,'\"')" \
+				--if "count(group) > 0" \
+					--output ' -G ' \
+					--match 'group' \
+						--if 'position() > 1' \
+							--output ',' \
+						--break \
+						--value-of '.' \
 					--break \
-					--value-of '.' \
+				--break \
+				--if 'string-length(shell) > 0' \
+					--value-of "concat(' -s ',shell)" \
+				--else \
+					--output ' -s nologin' \
+				--break \
+				--if 'string-length(homedir) > 0' \
+					--if "homedir[. != '/mnt']" \
+						--output ' -m' \
+					--break \
+					--value-of "concat(' -d \"',str:replace(homedir,'\"',''),'\"')" \
+				--else \
+					--output ' -d /mnt' \
+				--break \
+				--if 'string-length(passwordsha) > 0' \
+					--output ' -H 0' \
 				--break \
 			--break \
-			--if 'string-length(shell) > 0' \
-				--value-of "concat(' -s ',shell)" \
-			--else \
-				--output ' -s nologin' \
-			--break \
-			--if 'string-length(homedir) > 0' \
-				--if "homedir[.!='/mnt']" \
-					--output ' -m' \
-				--break \
-				--value-of "concat(' -d \"',str:replace(homedir,'\"',''),'\"')" \
-			--else \
-				--output ' -d /mnt' \
-			--break \
-			--if 'string-length(passwordsha) > 0' \
-				--output ' -H 0' \
-			--break \
-		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
-	_password=`configxml_get "//access/user[${_index}]/passwordsha"`
-	eval "(/bin/echo "'${_password}'") | /usr/sbin/pw user add -q ${_cmdarg} > /dev/null"	
+			${configxml_file} | /usr/local/bin/xml unesc`
+		_password=`configxml_get "//access/user[${_index}]/passwordsha"`
+		eval "(/bin/echo "'${_password}'") | /usr/sbin/pw user add -q ${_cmdarg} > /dev/null"
+	fi
 	_index=$(( ${_index} - 1 ))
 done
