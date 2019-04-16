@@ -32,7 +32,7 @@
 	of XigmaNAS, either expressed or implied.
 */
 require_once 'super_fun.inc';
-/*	
+/*
  *	system configuration parameter
  */
 $g = [
@@ -51,12 +51,12 @@ $g = [
 	'www_path' => '/usr/local/www',
 	'xml_rootobj' => 'xigmanas',
 	'debug' => false,
-	'latest_config' => '42',
+	'latest_config' => '43',
 	'default_passwd' => 'xigmanas',
 	'default_ip' => '192.168.1.250',
 	'zroot' => false
 ];
-/*	
+/*
  *	wireless_regex is based on https://www.freebsd.org/releases/12.0R/hardware.html#wlan
  *	devd.conf has its own regex
  */

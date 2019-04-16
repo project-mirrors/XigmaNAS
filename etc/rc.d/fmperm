@@ -25,20 +25,18 @@ fmperm_user_active=${fmperm_user_active:-"1"}
 
 echo "Preparing web-based file-management."
 
-#	generate .htusers.php file and export User accounts
+#	generate .htusers.php file and export user accounts
+echo '<?php' > ${fmperm_htusers}
 
 #	option to disable/enable 'File Manager' by WebGUI
 if [ `configxml_get_count "//system/disablefm"` -gt 0 ]; then
-	echo '<?php' > ${fmperm_htusers}
 	echo '$GLOBALS["users"] = [];' >> ${fmperm_htusers}
-    echo '?>' >> ${fmperm_htusers}
-    exit 0;
 else
-	echo '<?php' > ${fmperm_htusers}
 	echo '$GLOBALS["users"] = [' >> ${fmperm_htusers}
-#	export and set Users account
+
+#	process configured users
 	/usr/local/bin/xml sel --template \
-		--match '//access/user[not(inactive)]' \
+		--match '//access/user[enable]' \
 			--output "  ['" \
 			--value-of 'login' \
 			--output "','" \
@@ -53,13 +51,16 @@ else
 			--nl \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${fmperm_htusers}
-#	export and set Administrator and Root account
+
+#	process administrator and root user
 	/usr/local/bin/xml sel --template \
 		--match '//system' \
 			--output "  ['" --value-of 'username' --output "','" --value-of 'password' --output "','/','http://localhost',1,'',32847,1]," --nl \
-			--output "  ['root','"                               --value-of 'password' --output "','/','http://localhost',1,'',32847,1]" --nl \
+			--output "  ['root','" --value-of 'password' --output "','/','http://localhost',1,'',32847,1]" --nl \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${fmperm_htusers}
 	echo '];' >> ${fmperm_htusers}
-	echo '?>' >> ${fmperm_htusers}
 fi
+
+#	PHP closing tag
+echo '?>' >> ${fmperm_htusers}
