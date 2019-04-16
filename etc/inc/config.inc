@@ -403,7 +403,7 @@ function write_config() {
 	config_unlock();
 }
 /**
- * 
+ *
  *	@global array $g
  *	@global array $config
  */
@@ -470,7 +470,7 @@ function write_loader_config(){
 	endif;
 }
 /**
- * 
+ *
  * @global array $g
  * @return int Returns 0 on success or 1 on failure.
  */
@@ -614,7 +614,7 @@ function config_upgrade_blacklisted() {
  */
 function config_upgrade_0dot9() {
 	global $config;
-	
+
 	array_make_branch($config,'system');
 	$config['system']['hostname'] = 'xigmanas';
 	array_make_branch($config,'samba');
@@ -633,7 +633,7 @@ function config_upgrade_1dot0() {
  */
 function config_upgrade_1dot1() {
 	global $config;
-	
+
 	array_make_branch($config,'lcdproc','param');
 	unset($config['lcdproc']['param']);
 	$params = [
@@ -660,7 +660,7 @@ function config_upgrade_1dot1() {
  */
 function config_upgrade_1dot2() {
 	global $config;
-	
+
 	array_make_branch($config,'samba');
 	if($config['samba']['aiorsize'] < 4096):
 		$config['samba']['aiorsize'] = 4096;
@@ -731,7 +731,7 @@ function config_upgrade_1dot2() {
  */
 function config_upgrade_1dot3() {
 	global $config;
-	
+
 	//	add missing values
 	array_make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
@@ -750,7 +750,7 @@ function config_upgrade_1dot3() {
  */
 function config_upgrade_1dot4() {
 	global $config;
-	
+
 	// add missing values
 	array_make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
@@ -867,7 +867,7 @@ function config_upgrade_1dot7() {
  */
 function config_upgrade_1dot8() {
 	global $config;
-	
+
 	array_make_branch($config,'system','rcconf','param');
 	$index = array_search_ex('varsize',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
@@ -913,7 +913,7 @@ function config_upgrade_1dot8() {
  */
 function config_upgrade_1dot9() {
 	global $config;
-	
+
 	array_make_branch($config,'system','firewall','rule');
 	array_sort_key($config['system']['firewall']['rule'],'ruleno');
 	$ruleno = 10100;
@@ -988,7 +988,7 @@ function config_upgrade_2dot0() {
  */
 function config_upgrade_2dot1() {
 	global $config;
-	
+
 	$user = [
 		'uuid' => uuid(),
 		'name' => 'vboxusers',
@@ -1024,7 +1024,7 @@ function config_upgrade_2dot1() {
  */
 function config_upgrade_2dot2() {
 	global $config;
-	
+
 	$user = [
 		'uuid' => uuid(),
 		'name' => 'syncthing',
@@ -1069,7 +1069,7 @@ function config_upgrade_2dot2() {
  */
 function config_upgrade_2dot3() {
 	global $config;
-	
+
 	$user_tmp = [];
 	$user_syncthing_found = false;
 	array_make_branch($config,'system','usermanagement','user');
@@ -1144,7 +1144,7 @@ function config_upgrade_2dot3() {
  */
 function config_upgrade_2dot4() {
 	global $config;
-	
+
 	array_make_branch($config,'ups');
 	if($config['ups']['upsname'] === 'ups'):
 		$config['ups']['upsname'] = 'ups1';
@@ -1194,7 +1194,7 @@ function config_upgrade_2dot5() {
  */
 function config_upgrade_2dot6() {
 	global $config;
-	
+
 	array_make_branch($config,'system','loaderconf','param');
 	$index = array_search_ex('arcsas_load',$config['system']['loaderconf']['param'],'name');
 	if(false !== $index):
@@ -1207,7 +1207,7 @@ function config_upgrade_2dot6() {
  */
 function config_upgrade_2dot7() {
 	global $config;
-	
+
 	//	convert command scripts
 	array_make_branch($config,'rc','param');
 	array_make_branch($config,'rc','preinit','cmd');
@@ -1256,7 +1256,7 @@ function config_upgrade_2dot7() {
  */
 function config_upgrade_2dot8() {
 	global $config;
-	
+
 	$grid = &array_make_branch($config,'bittorrent');
 	if(!isset($grid['preallocation'])):
 		$grid['preallocation'] = '1';
@@ -1325,7 +1325,7 @@ function config_upgrade_3dot2() {
  */
 function config_upgrade_3dot3() {
 	global $config;
-	
+
 	//	netatalk authentication methods
 	$grid = &array_make_branch($config,'afp');
 	array_make_branch($grid,'auxparam');
@@ -1348,7 +1348,7 @@ function config_upgrade_3dot3() {
  */
 function config_upgrade_3dot4() {
 	global $config;
-	
+
 	//	syslogd parameter
 	//	find existing console records, skip configuration when found
 	$record_not_found = true;
@@ -1379,7 +1379,7 @@ function config_upgrade_3dot4() {
  */
 function config_upgrade_3dot5() {
 	global $config;
-	
+
 	//	email parameter
 	$grid = &array_make_branch($config,'system','email');
 	$grid['security'] = $grid['security'] ?? true;
@@ -1407,7 +1407,7 @@ function config_upgrade_3dot5() {
  */
 function config_upgrade_36() {
 	global $config;
-	
+
 	//	ZFS Settings
 	$grid = &array_make_branch($config,'zfs','settings');
 	if(!array_key_exists('showusedavail',$grid)):
@@ -1426,7 +1426,7 @@ function config_upgrade_36() {
  */
 function config_upgrade_37() {
 	global $config;
-	
+
 	//	Update WebGUI certificate and private key.
 	$grid_webgui = &array_make_branch($config,'system','webgui');
 	$install_new_cert = false;
@@ -1456,7 +1456,7 @@ function config_upgrade_37() {
  */
 function config_upgrade_38() {
 	global $config;
-	
+
 	//	Encode ftp welcome message
 	array_make_branch($config,'ftpd');
 	$banner = $config['ftpd']['banner'] ?? '';
@@ -1496,7 +1496,7 @@ function config_upgrade_38() {
  */
 function config_upgrade_39() {
 	global $config;
-	
+
 	$groups = &array_make_branch($config,'system','usermanagement','group');
 	$group_name = 'mysql';
 	$index = array_search_ex($group_name,$groups,'name');
@@ -1528,7 +1528,7 @@ function config_upgrade_39() {
  */
 function config_upgrade_40() {
 	global $config;
-	
+
 	$a_share = &array_make_branch($config,'nfsd','share');
 	$a_export = &array_make_branch($config,'nfsd','export','param');
 	$a_root = &array_make_branch($config,'nfsd','root','param');
@@ -1557,7 +1557,7 @@ function config_upgrade_40() {
  */
 function config_upgrade_41() {
 	global $config;
-	
+
 	$a_source = &array_make_branch($config,'minidlna','content');
 	$a_destination = &array_make_branch($config,'minidlna','media','param');
 	$r_param = [
@@ -1571,9 +1571,26 @@ function config_upgrade_41() {
 			$r_param['type'] = $matches[1];
 			$r_param['path'] = $matches[2];
 			$a_destination[] = $r_param;
-		endif;	
+		endif;
 	endforeach;
 	unset($config['minidlna']['content']);
+}
+/**
+ *	Upgrade configuration from 42
+ *	@global type $config
+ */
+function config_upgrade_42() {
+	global $config;
+
+	$a_source = &array_make_branch($config,'access','user');
+	foreach($a_source as $r_source):
+		if(array_key_exists('enable',$r_source)):
+			return;
+		endif;
+	endforeach;
+	foreach($a_source as &$r_source):
+		$r_source['enable'] = true;
+	endforeach;
 }
 /**
  *	Upgrade the configuration file to the latest version.
@@ -1620,8 +1637,9 @@ function config_upgrade() {
 		'38' => [$kf => 'config_upgrade_38',$kv => '39'],
 		'39' => [$kf => 'config_upgrade_39',$kv => '40'],
 		'40' => [$kf => 'config_upgrade_40',$kv => '41'],
-		'41' => [$kf => 'config_upgrade_40',$kv => '42'],
-		'42' => [$kf => NULL,$kv => NULL]
+		'41' => [$kf => 'config_upgrade_41',$kv => '42'],
+		'42' => [$kf => 'config_upgrade_42',$kv => '43'],
+		'43' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
@@ -1633,7 +1651,7 @@ function config_upgrade() {
 				$new_version = $config_upgrade_matrix[$version][$kv];
 				if(isset($function_name) && isset($new_version) && function_exists($function_name)): // handler and new version set?
 					if(is_booting()):
-						echo 'Configuration upgrading from version ',$version,' to version ',$new_version,':';
+						echo 'Configuration upgrade from version ',$version,' to version ',$new_version,':';
 						call_user_func($function_name); // call conversion
 						echo ' completed.',PHP_EOL;
 					else:
@@ -1698,7 +1716,7 @@ function config_postinit() {
  */
 function config_encrypt($password) {
 	global $g;
-	
+
 	$config = file_get_contents("{$g['conf_path']}/config.xml");
 	if (false === $config):
 		return false;

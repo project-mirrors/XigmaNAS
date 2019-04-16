@@ -101,18 +101,30 @@ uucp:*:66:66::0:0:UUCP pseudo-user:/var/empty:/usr/sbin/nologin" > ${userdb_mast
 #	generate the /etc/passwd, pwd.db and spwd.db files
 /usr/sbin/pwd_mkdb -p ${userdb_masterpasswd} > /dev/null 2>&1
 
-#	add system users
+#	pw user add
+#	-n login
+#	-u id
+#	-g primarygroup
+#	-c full name [quoted]
+#	-G secondary groups [comma separated], logic skips primary group
+#	-s shell
+#	-m [attempt to create home directory]
+#	-d homedir [quoted]
+#	-H 0 [read encrypted password from stdin]
+
+#	process system users
 _index=`configxml_get_count '//system/usermanagement/user'`
-while [ ${_index} -gt 0 ]
-do
+while [ ${_index} -gt 0 ]; do
 	_cmdarg=`/usr/local/bin/xml sel --template \
 		--match "//system/usermanagement/user[${_index}]" \
+			--var filteruser='.' \
 			--value-of "concat('-n ',name,' -u ',id,' -g ',primarygroup)" \
 				--if 'count(group) > 0' \
-					--output ' -G ' \
-					--match 'group' \
+					--match 'group[not(.=$filteruser/primarygroup)]' \
 						--if 'position() > 1' \
 							--output ',' \
+						--else \
+							--output ' -G ' \
 						--break \
 						--value-of  '.' \
 					--break \
@@ -126,29 +138,20 @@ do
 	_index=$(( ${_index} - 1 ))
 done
 
-#	add configured users
-#	pw user add
-#	-n login
-#	-u id
-#	-g primarygroup
-#	-c full name [quoted]
-#	-G secondary groups [comma separated]
-#	-s shell
-#	-m [attempt to create home directory]
-#	-d homedir [quoted]
-#	-H 0 [read encrypted password from stdin]
+#	process configured users
 _index=`configxml_get_count '//access/user'`
-while [ ${_index} -gt 0 ]
-do
-	if ! configxml_isset "//access/user[${_index}]/inactive"; then
+while [ ${_index} -gt 0 ]; do
+	if configxml_isset "//access/user[${_index}]/enable"; then
 		_cmdarg=`/usr/local/bin/xml sel --template \
 			--match "//access/user[${_index}]" \
+				--var filteruser='.' \
 				--value-of "concat('-n ',login,' -u ',id,' -g ',primarygroup,' -c \"',fullname,'\"')" \
 				--if "count(group) > 0" \
-					--output ' -G ' \
-					--match 'group' \
+					--match 'group[not(.=$filteruser/primarygroup)]' \
 						--if 'position() > 1' \
 							--output ',' \
+						--else \
+							--output ' -G ' \
 						--break \
 						--value-of '.' \
 					--break \
