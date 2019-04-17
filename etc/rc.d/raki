@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# Part of XigmaNAS (https://www.xigmanas.com).
+# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# All rights reserved.
+#
+# raki: r)oot a)uthorized k)ey i)nstaller
+# populate authorized keys into root's authorized_keys file
+#
+
+# PROVIDE: raki
+# BEFORE: LOGIN
+
+. /etc/rc.subr
+. /etc/configxml.subr
+
+#	prepare variables
+root_homedir=`/usr/bin/getent passwd root | cut -d : -f 6`
+root_sshdir=${root_sshdir:-"${root_homedir}/.ssh"}
+raki_file=${raki_file:-"${root_sshdir}/authorized_keys"}
+
+#	process only when homedir exists
+if [ -d "${root_homedir}" ]; then
+
+#	create .ssh folder if it doesn't exist
+	[ ! -d "${root_sshdir}" ] && mkdir -m 4700 "${root_sshdir}" && chown root:wheel "${root_sshdir}"
+
+#	prepare authorized_keys file
+	cat /dev/null > "${raki_file}" && chmod 0600 "${raki_file}"
+
+#	populate public keys for root into authorized_keys file
+	/usr/local/bin/xml sel --template \
+		--match '//access/publickey/param[enable and login="root"]' \
+			--if 'string-length(publickey) > 0' \
+				--value-of 'publickey' --nl \
+			--break \
+		--break \
+		${configxml_file} | /usr/local/bin/xml unesc >> "${raki_file}"
+fi
