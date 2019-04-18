@@ -39,4 +39,6 @@ etc/inc/properties_services_tftp.php
 # 6632
 usr/local/www/services_nfs_share.php
 usr/local/www/services_nfs_share_edit.php
+# 6651
+etc/inc/properties_access_users.php
 #
