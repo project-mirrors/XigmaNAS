@@ -146,35 +146,48 @@ function get_nextgroup_id() {
 
 	return $id;
 }
+include 'fbegin.inc';
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('access_users.php',gettext('Users'))->
+			ins_tabnav_record('access_publickey.php',gettext('Public Keys'))->
+			ins_tabnav_record('access_users_groups.php',gettext('Groups'),gettext('Reload page'),true);
+$document->render();
 ?>
-<?php include 'fbegin.inc';?>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tabnavtbl">
-		<ul id="tabnav">
-			<li class="tabinact"><a href="access_users.php"><span><?=gtext("Users");?></span></a></li>
-			<li class="tabact"><a href="access_users_groups.php" title="<?=gtext('Reload page');?>"><span><?=gtext("Groups");?></span></a></li>
-		</ul>
-	</td>
-</tr>
-	<tr>
-		<td class="tabcont">
-		<form action="access_users_groups_edit.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-		<?php if (!empty($input_errors)) print_input_errors($input_errors); ?>
-			<table width="100%" border="0" cellpadding="6" cellspacing="0">
-			<?php html_titleline(gtext("Group Settings"));?>
-			<?php html_inputbox("name", gtext("Name"), $pconfig['name'], gtext("Enter a group name."), true, 28, isset($uuid) && (FALSE !== $cnid));?>
-			<?php html_inputbox("groupid", gtext("Group ID"), $pconfig['groupid'], gtext("Group numeric id."), true, 12, isset($uuid) && (FALSE !== $cnid));?>
-			<?php html_inputbox("desc", gtext("Description"), $pconfig['desc'], gtext("Enter a group description."), true, 28);?>
-		</table>
-		<div id="submit">
-			<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (FALSE !== $cnid)) ? gtext("Save") : gtext("Add")?>" />
-			<input name="Cancel" type="submit" class="formbtn" value="<?=gtext("Cancel");?>" />
-			<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
-		</div>
-		<?php include 'formend.inc';?>
-		</form>
-	</td>
-</tr>
-</table>
-<?php include 'fend.inc';?>
+<form action="access_users_groups_edit.php" method="post" name="iform" id="iform" onsubmit="spinner()"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<?php
+	if(!empty($input_errors)):
+		print_input_errors($input_errors);
+	endif;
+?>
+	<table class="area_data_settings">
+		<colgroup>
+			<col class="area_data_settings_col_tag">
+			<col class="area_data_settings_col_data">
+		</colgroup>
+		<thead>
+<?php
+			html_titleline2(gettext("Group Settings"));
+?>
+		</thead>
+		<tbody>
+<?php
+			html_inputbox2('name',gettext('Name'),$pconfig['name'],gettext('Enter a group name.'),true,28,isset($uuid) && (false !== $cnid));
+			html_inputbox2('groupid',gettext('Group ID'),$pconfig['groupid'],gettext('Group numeric id.'),true,12,isset($uuid) && (false !== $cnid));
+			html_inputbox2('desc',gettext('Description'),$pconfig['desc'],gettext('Enter a group description.'),true,28);
+?>
+		</tbody>
+	</table>
+	<div id="submit">
+		<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (false !== $cnid)) ? gtext('Save') : gtext('Add')?>" />
+		<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>" />
+		<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
+	</div>
+<?php
+	include 'formend.inc';
+?>
+</td></tr></tbody></table></form>
+<?php
+include 'fend.inc';

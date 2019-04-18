@@ -1,9 +1,9 @@
 <?php
 /*
-	access_publickey_edit.php
+	access_users_maintain.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -35,9 +35,8 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
-use system\access\publickey\row_toolbox as toolbox;
-use system\access\publickey\shared_toolbox;
-use system\access\user\grid_toolbox as toolbox_user;
+use system\access\user\maintain_toolbox as toolbox;
+use system\access\user\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -49,8 +48,6 @@ endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
-$cop_user = toolbox_user::init_properties();
-$sphere_user = toolbox_user::init_sphere();
 $rmo = toolbox::init_rmo();
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
@@ -61,6 +58,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'edit': // modify the data of the provided resource id and let the user modify it
+			case 'maintain':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
 				break;
 		endswitch;
@@ -77,6 +75,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'edit': // edit requires a resource id, get it from input and validate
+			case 'maintain':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
 				break;
 			case 'save': // modify requires a resource id, get it from input and validate
@@ -136,17 +135,8 @@ $isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
  *	end determine record update mode
  */
 $a_referer = [
-	$cop->get_enable(),
-	$cop->get_login(),
-	$cop->get_publickey(),
-	$cop->get_description()
+	$cop->get_password(),
 ];
-$a_user = ['root' => 'root'];
-foreach($sphere_user->grid as $sphere_user->row):
-	$value = $sphere_user->row[$cop_user->get_login()->get_name()] ?? '';
-	$a_user[$value] = $value;
-endforeach;
-$cop->get_login()->set_options($a_user);
 switch($page_mode):
 	case PAGE_MODE_ADD:
 		foreach($a_referer as $referer):
@@ -162,7 +152,7 @@ switch($page_mode):
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
-		$source = $sphere->grid[$sphere->row_id];
+		$source = $sphere->row = $sphere->grid[$sphere->row_id];
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_config($source);
@@ -190,6 +180,12 @@ switch($page_mode):
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
+			$password_fieldname = $cop->get_password()->get_name();
+			if(!$isrecordnewornewmodify):
+				$sphere->row[$cop->get_passwordmd4()->get_name()] = mkpasswdmd4($sphere->row[$password_fieldname]);
+				$sphere->row[$cop->get_passwordsha()->get_name()] = mkpasswd($sphere->row[$password_fieldname]);
+			endif;
+			unset($sphere->row[$password_fieldname]);
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
@@ -202,7 +198,7 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Access'),gettext('Public Key'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$pgtitle = [gettext('Access'),gettext('Users'),gettext('Password')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
@@ -220,19 +216,16 @@ $table = $content->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Public Key Settings'));
+$thead->c2_titleline(gettext('Set User Password'));
 $tbody->
-	c2_select($cop->get_login(),$sphere,true,$cop->get_login()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_publickey(),$sphere,true,$cop->get_publickey()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2_input_text($cop->get_login(),$sphere,false,$cop->get_login()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_fullname(),$sphere,false,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
 else:
 	$buttons->ins_button_save();
-	if($prerequisites_ok && empty($input_errors)):
-		$buttons->ins_button_clone();
-	endif;
 endif;
 $buttons->ins_button_cancel();
 $buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());

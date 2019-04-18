@@ -33,234 +33,246 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-//	Return next available user id.
-function get_nextuser_id() {
+use system\access\user\row_toolbox as toolbox;
+use system\access\user\shared_toolbox;
+
+function get_next_uid() {
 	global $config;
 
-	//	Get next free user id.
+//	Get next available uid.
 	exec('/usr/sbin/pw nextuser',$output);
 	$output = explode(':',$output[0]);
-	$id = intval($output[0]);
-	//	Check if id is already in use. If the user does not press the 'Apply'
-	//	button 'pw' does not recognize that there are already several new users
-	//	configured because the user db is not updated until 'Apply' is pressed.
+	$result = intval($output[0]);
+//	Check if id is already in use. If the user does not press the 'Apply'
+//	button 'pw' does not recognize that there are already several new users
+//	configured because the user db is not updated until 'Apply' is pressed.
 	$a_user = array_make_branch($config,'access','user');
-	while(false !== array_search_ex(strval($id),$a_user,'id')):
-		$id++;
+	while(false !== array_search_ex(strval($result),$a_user,'id')):
+		$result++;
 	endwhile;
-	return $id;
+	return $result;
 }
-
-if (isset($_GET['uuid'])):
-	$uuid = $_GET['uuid'];
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-if(isset($_POST['uuid'])):
-	$uuid = $_POST['uuid'];
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+//	determine page mode and validate resource id
+switch($page_method):
+	case 'GET':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // modify the data of the provided resource id and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'cancel': // cancel - nothing to do
+				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				break;
+			case 'clone':
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // edit requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+			case 'save': // modify requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+		endswitch;
+		break;
+endswitch;
+/*
+ *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ */
+if(is_null($sphere->get_row_identifier_value())):
+	header($sphere->get_parent()->get_location());
+	exit;
 endif;
-
-$a_user = &array_make_branch($config,'access','user');
-if(empty($a_user)):
-else:
-	array_sort_key($a_user,'login');
+/*
+ *	search resource id in sphere
+ */
+$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+/*
+ *	start determine record update mode
+ */
+$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$record_mode = RECORD_ERROR;
+if(false === $sphere->row_id): // record does not exist in config
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_NEW;
+				break;
+		endswitch;
+	endif;
+else: // record found in configuration
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_NEW:
+				$record_mode = RECORD_NEW_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_MODIFIED:
+				$record_mode = RECORD_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_MODIFY;
+				break;
+		endswitch;
+	endif;
 endif;
-
-$a_user_system = system_get_user_list();
-$a_group = system_get_group_list();
-
-$cnid = array_search_ex($uuid, $a_user,'uuid');
-if(isset($uuid) && (false !== $cnid)):
-	$mode_page = PAGE_MODE_EDIT;
-	$pconfig['uuid'] = $a_user[$cnid]['uuid'];
-	$pconfig['login'] = $a_user[$cnid]['login'];
-	$pconfig['fullname'] = $a_user[$cnid]['fullname'];
-	$pconfig['password'] = '';
-	$pconfig['passwordconf'] = '';
-	$pconfig['userid'] = $a_user[$cnid]['id'];
-	$pconfig['primarygroup'] = $a_user[$cnid]['primarygroup'];
-	$pconfig['group'] = !empty($a_user[$cnid]['group']) ? $a_user[$cnid]['group'] : [];
-	$pconfig['shell'] = $a_user[$cnid]['shell'];
-	$pconfig['homedir'] = $a_user[$cnid]['homedir'];
-	$pconfig['userportal'] = isset($a_user[$cnid]['userportal']);
-else:
-	$mode_page = PAGE_MODE_ADD;
-	$pconfig['uuid'] = uuid();
-	$pconfig['login'] = '';
-	$pconfig['fullname'] = '';
-	$pconfig['password'] = '';
-	$pconfig['passwordconf'] = '';
-	$pconfig['userid'] = get_nextuser_id();
-	$pconfig['primarygroup'] = $a_group['guest'];
-	$pconfig['group'] = [];
-	$pconfig['shell'] = 'nologin';
-	$pconfig['homedir'] = '';
-	$pconfig['userportal'] = false;
+if(RECORD_ERROR === $record_mode): // oops, something went wrong
+	header($sphere->get_parent()->get_location());
+	exit;
 endif;
-
-if($_POST):
-	unset($input_errors);
-	$pconfig = $_POST;
-	if(isset($_POST['Cancel']) && $_POST['Cancel']):
-		header('Location: access_users.php');
-		exit;
-	endif;
-	// Input validation
-	switch($mode_page):
-		case PAGE_MODE_ADD:
-			$reqdfields = ['login','fullname','password','primarygroup','userid','shell'];
-			$reqdfieldsn = [gtext('Name'),gtext('Full Name'),gtext('Password'),gtext('Primary Group'),gtext('User ID'),gtext('Shell')];
-			$reqdfieldst = ['string','string','string','numeric','numeric','string'];
-			break;
-		case PAGE_MODE_EDIT:
-			$reqdfields = ['login','fullname','primarygroup','userid','shell'];
-			$reqdfieldsn = [gtext('Name'),gtext('Full Name'),gtext('Primary Group'),gtext('User ID'),gtext('Shell')];
-			$reqdfieldst = ['string','string','numeric','numeric','string'];
-			break;
-	endswitch;
-	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
-	do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-	//	Check for valid login name.
-	if(($_POST['login'] && !is_validlogin($_POST['login']))):
-		$input_errors[] = gtext('The login name contains invalid characters.');
-	endif;
-	if(($_POST['login'] && strlen($_POST['login']) > 16)):
-		$input_errors[] = gtext('The login name is limited to 16 characters.');
-	endif;
-	if(($_POST['login'] && in_array($_POST['login'],$reservedlogin))):
-		$input_errors[] = gtext("The login name is a reserved login name.");
-	endif;
-	//	Check for valid Full name.
-	if(($_POST['fullname'] && !is_validdesc($_POST['fullname']))):
-		$input_errors[] = gtext('The full name contains invalid characters.');
-	endif;
-	//	Check for name conflicts. Only check if user is created.
-	if(!(isset($uuid) && (false !== $cnid)) && ((is_array($a_user_system) && array_key_exists($_POST['login'],$a_user_system)) || (false !== array_search_ex($_POST['login'],$a_user,'login')))):
-		$input_errors[] = gtext('This user already exists in the user list.');
-	endif;
-	//	Check for a password mismatch.
-	if($_POST['password'] !== $_POST['passwordconf']):
-		$input_errors[] = gtext("Passwords don't match.");
-	endif;
-	//	Check if primary group is also selected in additional group.
-	if(isset($_POST['group']) && is_array($_POST['group']) && in_array($_POST['primarygroup'],$_POST['group'])):
-		$input_errors[] = gtext('Primary group is also selected in additional group.');
-	endif;
-	//	Check additional group count. Max=15 (Primary+14) 
-	if(isset($_POST['group']) && is_array($_POST['group']) && count($_POST['group']) > 14):
-		$input_errors[] = gtext('There are too many additional groups.');
-	endif;
-	//	Validate if ID is unique. Only check if user is created.
-	if(!(isset($uuid) && (false !== $cnid)) && (false !== array_search_ex($_POST['userid'],$a_user,'id'))):
-		$input_errors[] = gtext('The unique user ID is already used.');
-	endif;
-	//	Check Webserver document root if auth is required
-	if(isset($config['websrv']['enable']) && isset($config['websrv']['authentication']['enable']) && !is_dir($config['websrv']['documentroot'])):
-		$input_errors[] = gtext('Webserver document root is missing.');
-	endif;
-	if(empty($input_errors)):
-		$user = [];
-		$user['uuid'] = $_POST['uuid'];
-		$user['login'] = $_POST['login'];
-		$user['fullname'] = $_POST['fullname'];
-		if($_POST['password'] !== ''):
-			$user['passwordsha'] = mkpasswd($_POST['password']);
-			$user['passwordmd4'] = mkpasswdmd4($_POST['password']);
-		elseif(PAGE_MODE_EDIT === $mode_page):
-			$user['passwordsha'] = $a_user[$cnid]['passwordsha'] ?? mkpasswd($a_user[$cnid]['password'] ?? '');
-			$user['passwordmd4'] = $a_user[$cnid]['passwordmd4'] ?? mkpasswdmd4($a_user[$cnid]['password'] ?? '');
+$isrecordnew = RECORD_NEW === $record_mode;
+$isrecordnewmodify = RECORD_NEW_MODIFY === $record_mode;
+$isrecordmodify = RECORD_MODIFY === $record_mode;
+$isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
+/*
+ *	end determine record update mode
+ */
+$a_referer = [
+	$cop->get_enable(),
+	$cop->get_login(),
+	$cop->get_fullname(),
+	$cop->get_password(),
+	$cop->get_description(),
+	$cop->get_uid(),
+	$cop->get_usershell(),
+	$cop->get_primary_group(),
+	$cop->get_additional_groups(),
+	$cop->get_homedir(),
+	$cop->get_user_portal_access(),
+];
+$a_group = array_flip(system_get_group_list());
+$next_available_uid =
+$cop->get_primary_group()->set_options($a_group);
+$cop->get_additional_groups()->set_options($a_group);
+$cop->get_uid()->set_defaultvalue(get_next_uid());
+switch($page_mode):
+	case PAGE_MODE_ADD:
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		endforeach;
+		break;
+	case PAGE_MODE_CLONE:
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		endforeach;
+//		adjust page mode
+		$page_mode = PAGE_MODE_ADD;
+		break;
+	case PAGE_MODE_EDIT:
+		$source = $sphere->grid[$sphere->row_id];
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_config($source);
+		endforeach;
+		break;
+	case PAGE_MODE_POST:
+		if($isrecordmodify):
+			$source = $sphere->grid[$sphere->row_id];
 		endif;
-		$user['shell'] = $_POST['shell'];
-		$user['primarygroup'] = $_POST['primarygroup'];
-		if (isset($_POST['group']) && is_array($_POST['group']))
-			$user['group'] = $_POST['group'];
-		$user['homedir'] = $_POST['homedir'];
-		$user['id'] = $_POST['userid'];
-		$user['userportal'] = isset($_POST['userportal']) ? true : false;
-		if(isset($uuid) && (false !== $cnid)):
-			$a_user[$cnid] = $user;
-			$mode = UPDATENOTIFY_MODE_MODIFIED;
-		else:
-			$a_user[] = $user;
-			$mode = UPDATENOTIFY_MODE_NEW;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			if($isrecordmodify && !$referer->get_editableonmodify()):
+//				validate protected items from config
+				$sphere->row[$name] = $referer->validate_config($source);
+				if(is_null($sphere->row[$name])):
+					$sphere->row[$name] = $source[$name] ?? '';
+					$input_errors[] = $referer->get_message_error();
+				endif;
+			else:
+				$sphere->row[$name] = $referer->validate_input();
+				if(is_null($sphere->row[$name])):
+					$sphere->row[$name] = filter_input(INPUT_POST,$name,FILTER_DEFAULT) ?? '';
+					$input_errors[] = $referer->get_message_error();
+				endif;
+			endif;
+		endforeach;
+		if($prerequisites_ok && empty($input_errors)):
+			$password_fieldname = $cop->get_password()->get_name();
+			if($isrecordnewornewmodify):
+				$sphere->row[$cop->get_passwordmd4()->get_name()] = mkpasswdmd4($sphere->row[$password_fieldname]);
+				$sphere->row[$cop->get_passwordsha()->get_name()] = mkpasswd($sphere->row[$password_fieldname]);
+			endif;
+			unset($sphere->row[$password_fieldname]);
+			$sphere->upsert();
+			if($isrecordnew):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			endif;
+			write_config();
+			header($sphere->get_parent()->get_location()); // cleanup
+			exit;
 		endif;
-		updatenotify_set('userdb_user',$mode,$user['uuid']);
-		write_config();
-		header('Location: access_users.php');
-		exit;
+		break;
+endswitch;
+$pgtitle = [gettext('Access'),gettext('Users'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+$table = $content->add_table_data_settings();
+$table->ins_colgroup_data_settings();
+$thead = $table->addTHEAD();
+$tbody = $table->addTBODY();
+$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('User Settings'));
+$tbody->
+	c2_input_text($cop->get_login(),$sphere,true,$cop->get_login()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_fullname(),$sphere,true,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify));
+if($isrecordnewornewmodify):
+	$tbody->c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
+endif;
+$tbody->
+	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_uid(),$sphere,true,$cop->get_uid()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_radio_grid($cop->get_usershell(),$sphere,true,$cop->get_usershell()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_filechooser($cop->get_homedir(),$sphere,false,$cop->get_homedir()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_select($cop->get_primary_group(),$sphere,true,$cop->get_primary_group()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox_grid($cop->get_additional_groups(),$sphere,false,$cop->get_additional_groups()->is_readonly_rowmode($isrecordnewornewmodify));
+$buttons = $document->add_area_buttons();
+if($isrecordnew):
+	$buttons->ins_button_add();
+else:
+	$buttons->ins_button_save();
+	if($prerequisites_ok && empty($input_errors)):
+		$buttons->ins_button_clone();
 	endif;
 endif;
-$pgtitle = [gtext('Access'),gtext('Users'),isset($uuid) ? gtext('Edit') : gtext('Add')];
-include 'fbegin.inc';
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(window).on("load",function() {
-<?php // Init spinner.?>
-	$("#iform").submit(function() { spinner(); });
-	$(".spin").click(function() { spinner(); });
-});
-//]]>
-</script>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="access_users.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Users');?></span></a></li>
-		<li class="tabinact"><a href="access_users_groups.php"><span><?=gtext('Groups');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
-<form action="access_users_edit.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(!empty($nogroup_errors)):
-		print_input_errors($nogroup_errors);
-	endif;
-	if(!empty($input_errors)):
-		print_input_errors($input_errors);
-	endif;
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('User Settings'));
-?>
-		</thead>
-		<tbody>
-<?php
-
-			html_inputbox2('login',gettext('Name'),$pconfig['login'],gettext('Enter login name of the user.'),true,28,isset($uuid) && (false !== $cnid),false,0,gettext('Enter login name'));
-			html_inputbox2('fullname',gettext('Full Name'),$pconfig['fullname'],gettext('Enter full name of the user.'),true,28,false,false,0,gettext('Enter full user name'));
-			html_passwordconfbox2('password','passwordconf',gettext('Password'),'','',gettext('Set or reset user password.'),($mode_page === PAGE_MODE_ADD));
-			html_inputbox2('userid',gettext('User ID'),$pconfig['userid'],gettext('User numeric id.'),true,12,isset($uuid) && (false !== $cnid));
-			$l_shell = [
-				'nologin' => 'nologin',
-				'scponly' => 'scponly',
-				'sh' => 'sh',
-				'bash' => 'bash',
-				'csh' => 'csh',
-				'tcsh' => 'tcsh'
-			];
-			html_radiobox2('shell',gettext('Shell'),$pconfig['shell'],$l_shell,gettext('Set user login shell.'),true);
-			$l_grouplist = [];
-			foreach($a_group as $groupk => $groupv):
-				$l_grouplist[$groupv] = $groupk;
-			endforeach;
-			html_combobox2('primarygroup',gettext('Primary Group'),$pconfig['primarygroup'],$l_grouplist,gettext("Set the account's primary group to the given group."),true);
-			html_listbox2('group',gettext('Additional Group'),!empty($pconfig['group']) ? $pconfig['group'] : [],$l_grouplist,gettext('Set additional group memberships for this account.')."<br />".gettext('Note: Ctrl-click (or command-click on the Mac) to select and deselect groups.'));
-			html_filechooser2('homedir',gettext('Home Directory'),$pconfig['homedir'],gettext('Enter the path to the home directory of that user. Leave this field empty to use default path /mnt.'),$g['media_path'],false,60);
-			html_checkbox2('userportal',gettext('User Portal'),!empty($pconfig['userportal']) ? true : false,gettext('Grant access to the user portal.'),'',false);
-?>
-		</tbody>
-	</table>
-	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (false !== $cnid)) ? gtext('Save') : gtext('Add')?>"/>
-		<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>"/>
-		<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>"/>
-	</div>
-<?php
-	include 'formend.inc';
-?>
-</td></tr></tbody></table></form>
-<?php
-include 'fend.inc';
+$buttons->ins_button_cancel();
+$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//	additional javascript code
+$body->addJavaScript($sphere->get_js());
+$body->add_js_on_load($sphere->get_js_on_load());
+$body->add_js_document_ready($sphere->get_js_document_ready());
+$document->render();
