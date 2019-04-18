@@ -172,6 +172,7 @@ $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
 			ins_tabnav_record('access_users.php',gettext('Users'))->
+			ins_tabnav_record('access_publickey.php',gettext('Public Keys'))->
 			ins_tabnav_record('access_users_groups.php',gettext('Groups'),gettext('Reload page'),true);
 $document->render();
 ?>
@@ -213,7 +214,7 @@ $document->render();
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				// $enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
-				$enabled = $sphere->row['enable']; 
+				$enabled = $sphere->row['enable'];
 				$notprotected = $sphere->is_lock_enabled() ? !$sphere->row['protected'] : true;
 ?>
 				<tr>
@@ -261,13 +262,13 @@ $document->render();
 		endif;
 		echo $sphere->html_button_delete_rows();
 		if($showsystemgroups):
-			echo html_button('hide',gettext('Hide Default Groups'));
+			echo html_button('hide',gettext('Hide System Groups'));
 		else:
-			echo html_button('show',gettext('Show Default Groups'));
+			echo html_button('show',gettext('Show System Groups'));
 		endif;
 ?>
 	</div>
-<?php 
+<?php
 	include 'formend.inc';
 ?>
 </td></tr></tbody></table></form>
