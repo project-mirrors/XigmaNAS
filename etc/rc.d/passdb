@@ -62,7 +62,7 @@ if [ -z "${_logname}" ]; then
 fi
 
 #	builtin admin
-LOGNAME="${_logname}" /usr/local/bin/net groupmap add ntgroup="admin" unixgroup="admin" type=l > /dev/null
+LOGNAME="${_logname}" net groupmap add ntgroup="admin" unixgroup="admin" type=l > /dev/null
 
 #	process configured groups
 _index=`configxml_get_count "//access/group"`
@@ -70,7 +70,7 @@ while [ ${_index} -gt 0 ]; do
 	_groupname=`configxml_get "//access/group[position()=${_index}]/name"`
 	_gid=`configxml_get "//access/group[position()=${_index}]/id"`
 	if [ ${_gid} -ge ${passdb_mingid} ]; then
-		LOGNAME="${_logname}" /usr/local/bin/net groupmap add ntgroup="${_groupname}" unixgroup="${_groupname}" type=l > /dev\null
+		LOGNAME="${_logname}" net groupmap add ntgroup="${_groupname}" unixgroup="${_groupname}" type=l > /dev\null
 	fi
 	_index=$(( ${_index} - 1 ))
 done
