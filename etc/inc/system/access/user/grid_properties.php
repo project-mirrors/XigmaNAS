@@ -66,7 +66,7 @@ class grid_properties extends myp\container_row {
 			set_title(gettext('User ID'));
 		return $property;
 	}
-	final public function get_uid(): myp\property_text {
+	final public function get_uid(): myp\property_int {
 		return $this->x_uid ?? $this->init_uid();
 	}
 	protected $x_password;
