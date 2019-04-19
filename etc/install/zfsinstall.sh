@@ -370,9 +370,7 @@ zroot_init()
 
 	# Check for existing bootpool pool.
 	if [ "${BOOT_MODE}" = 3 ]; then
-		if echo ${GELI_MODE} | grep -qw "DISK+GELI"; then
-			bootpool_check
-		fi
+		bootpool_check
 	fi
 
 	# Get rid of any metadata on selected disk.
@@ -513,26 +511,24 @@ zroot_init()
 	# Creating/adding the fixed swap devices.
 	if [ ! -z "${SWAP_SIZE}" ]; then
 		if [ "${SWAPMODE}" = 1 ]; then
+			echo "Creating/adding swap mirror..."
 			if ! kldstat | grep -q geom_mirror; then
 				kldload /boot/kernel/geom_mirror.ko
 			fi
 			gmirror label -b ${GMIRRORBAL} swap ${SWAP_DEVLIST}
 			# Add swap mirror to fstab.
 			if echo ${GELI_MODE} | grep -qw "SWAP+GELI"; then
-				echo "Creating/adding encrypted swap Mirror..."
 				echo "/dev/mirror/swap.eli none swap sw 0 0" >> ${ALTROOT}/etc/fstab
 			else
-				echo "Creating/adding swap Mirror..."
 				echo "/dev/mirror/swap none swap sw 0 0" >> ${ALTROOT}/etc/fstab
 			fi
 		else
 			# Add swap device to fstab.
+			echo "Adding swap devices to fstab..."
 			for swapdev in ${SWAP_DEVLIST}; do
 				if echo ${GELI_MODE} | grep -qw "SWAP+GELI"; then
-					echo "Adding encrypted swap devices to fstab..."
 					echo "${swapdev}.eli none swap sw 0 0" >> ${ALTROOT}/etc/fstab
 				else
-					echo "Adding swap devices to fstab..."
 					echo "${swapdev} none swap sw 0 0" >> ${ALTROOT}/etc/fstab
 				fi
 			done

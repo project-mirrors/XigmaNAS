@@ -489,6 +489,31 @@ backup_sys_files() {
 	if [ -f "${BEPATH}/etc/rc.conf" ]; then
 		cp -p ${BEPATH}/etc/rc.conf ${SYSBACKUP}/
 	fi
+
+	# Keep a copy of the previous kernel on each upgrade.
+	if [ -d "${BOOTPATH}/boot/kernel" ]; then
+		if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+
+			# Backup required files for geli on mbr installs,
+			# as well as for any custom geli files if any.
+			cd ${BOOTPATH}/boot
+			for FILE in *.eli *.key
+			do
+				cp -p ${FILE} ${SYSBACKUP}/
+			done
+			cd
+
+			# Keep a copy of the previous kernel and append the date on mbr installs.
+			KDATE=$(date +%Y-%m-%d-%H%M)
+			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old.${KDATE}
+		else
+			if [ -d "${BOOTPATH}/boot/kernel.old" ]; then
+				# Keep only the current kernel per boot environment.
+				rm -rf ${BOOTPATH}/boot/kernel.old
+			fi
+			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old
+		fi
+	fi
 }
 
 restore_sys_files() {
@@ -512,6 +537,15 @@ restore_sys_files() {
 	if [ -f "${SYSBACKUP}/rc.conf" ]; then
 		cp -pf ${SYSBACKUP}/rc.conf ${BEPATH}/etc/
 	fi
+
+	# Restore required files for geli on mbr installs,
+	# as well as for any custom geli files if any.
+	cd ${SYSBACKUP}
+	for FILE in *.eli *.key
+	do
+		cp -p ${FILE} ${BOOTPATH}/boot/
+	done
+	cd
 }
 
 post_upgrade_config()

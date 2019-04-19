@@ -101,6 +101,7 @@ cp -v ${XIGMANAS_WORLD}/boot/loader_simp $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_simp.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/userboot_4th.so $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/userboot_lua.so $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/kernel/linker.hints $MINIBSD_DIR/kernel
 
 # Copy files required by bootmenu
 if [ 0 != $opt_m ]; then

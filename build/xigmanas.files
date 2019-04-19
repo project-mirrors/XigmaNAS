@@ -277,6 +277,9 @@ sbin/mksnap_ffs
 ## devd -- device state change daemon
 sbin/devd
 
+# devmatch -- device state change daemon
+sbin/devmatch -- print information about unattached devices(devd dependency)
+
 ## ipfw -- IP firewall and traffic shaper control program
 sbin/ipfw
 
@@ -746,6 +749,9 @@ usr/sbin/cron
 ## daemon -- run detached from the controlling terminal
 usr/sbin/daemon
 
+## devctl -- device control utility (devd dependency)
+usr/sbin/devctl
+
 ##
 usr/sbin/kldxref
 
@@ -1092,6 +1098,9 @@ boot/loader_simp.efi
 boot/userboot_4th.so
 boot/userboot_lua.so
 boot/entropy
+
+####### Hints for the kernel loader
+boot/kernel/linker.hints
 
 ####### contents of /etc
 etc/rc.shutdown
