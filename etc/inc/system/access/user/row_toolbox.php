@@ -69,4 +69,25 @@ final class row_toolbox {
 		$cop = new row_properties();
 		return $cop;
 	}
+/**
+ *	Get the next available uid from system
+ *	@global array $config System configuration
+ *	@return int uid
+ */
+	public static function get_next_uid(): int {
+		global $config;
+
+//		Get next available uid.
+		exec('/usr/sbin/pw nextuser',$output);
+		$output = explode(':',$output[0]);
+		$result = intval($output[0]);
+//		Check if id is already in use. If the user does not press the 'Apply'
+//		button 'pw' does not recognize that there are already several new users
+//		configured because the user db is not updated until 'Apply' is pressed.
+		$a_user = array_make_branch($config,'access','user');
+		while(false !== array_search_ex(strval($result),$a_user,'id')):
+			$result++;
+		endwhile;
+		return $result;
+	}
 }

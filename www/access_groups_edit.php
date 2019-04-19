@@ -1,6 +1,6 @@
 <?php
 /*
-	access_users_edit.php
+	access_groups_edit.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -35,8 +35,8 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
-use system\access\user\row_toolbox as toolbox;
-use system\access\user\shared_toolbox;
+use system\access\group\row_toolbox as toolbox;
+use system\access\group\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -133,22 +133,11 @@ $isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
  *	end determine record update mode
  */
 $a_referer = [
-	$cop->get_enable(),
 	$cop->get_name(),
-	$cop->get_fullname(),
-	$cop->get_password(),
 	$cop->get_description(),
-	$cop->get_uid(),
-	$cop->get_usershell(),
-	$cop->get_primary_group(),
-	$cop->get_additional_groups(),
-	$cop->get_homedir(),
-	$cop->get_user_portal_access()
+	$cop->get_gid()
 ];
-$a_group = array_flip(system_get_group_list());
-$cop->get_primary_group()->set_options($a_group);
-$cop->get_additional_groups()->set_options($a_group);
-$cop->get_uid()->set_defaultvalue(toolbox::get_next_uid());
+$cop->get_gid()->set_defaultvalue(toolbox::get_next_gid());
 switch($page_mode):
 	case PAGE_MODE_ADD:
 		foreach($a_referer as $referer):
@@ -160,8 +149,8 @@ switch($page_mode):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
 		endforeach;
-//		overwrite uid with next uid
-		$sphere->row[$cop->get_uid()->get_name()] = $cop->get_uid()->get_defaultvalue();
+//		overwrite gid with next gid
+		$sphere->row[$cop->get_gid()->get_name()] = $cop->get_gid()->get_defaultvalue();
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
@@ -194,12 +183,6 @@ switch($page_mode):
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
-			$password_fieldname = $cop->get_password()->get_name();
-			if($isrecordnewornewmodify):
-				$sphere->row[$cop->get_passwordmd4()->get_name()] = mkpasswdmd4($sphere->row[$password_fieldname]);
-				$sphere->row[$cop->get_passwordsha()->get_name()] = mkpasswd($sphere->row[$password_fieldname]);
-			endif;
-			unset($sphere->row[$password_fieldname]);
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
@@ -212,7 +195,7 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Access'),gettext('Users'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$pgtitle = [gettext('Access'),gettext('Groups'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
@@ -230,21 +213,11 @@ $table = $content->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('User Settings'));
+$thead->c2_titleline(gettext('Group Settings'));
 $tbody->
 	c2_input_text($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_fullname(),$sphere,true,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify));
-if($isrecordnewornewmodify):
-	$tbody->c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
-endif;
-$tbody->
 	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_uid(),$sphere,true,$cop->get_uid()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_radio_grid($cop->get_usershell(),$sphere,true,$cop->get_usershell()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_filechooser($cop->get_homedir(),$sphere,false,$cop->get_homedir()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_checkbox($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_select($cop->get_primary_group(),$sphere,true,$cop->get_primary_group()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_checkbox_grid($cop->get_additional_groups(),$sphere,false,$cop->get_additional_groups()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2_input_text($cop->get_gid(),$sphere,true,$cop->get_gid()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();

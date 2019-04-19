@@ -31,7 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace system\access\publickey;
+namespace system\access\group;
 
 use common\properties as myp;
 use common\rmo as myr;
@@ -48,21 +48,21 @@ final class grid_toolbox {
 		$sphere = new mys\grid();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('access_publickey')->
-			set_modify('access_publickey_edit')->
-			setmsg_sym_add(gettext('Add Public Key'))->
-			setmsg_sym_mod(gettext('Edit Public Key'))->
-			setmsg_sym_del(gettext('Public key is marked for deletion'))->
-			setmsg_sym_loc(gettext('Public key is protected'))->
-			setmsg_sym_unl(gettext('Public key is unlocked'))->
-			setmsg_cbm_delete(gettext('Delete Selected Public Keys'))->
-			setmsg_cbm_delete_confirm(gettext('Do you want to delete selected public keys?'))->
-			setmsg_cbm_disable(gettext('Disable Selected Public Keys'))->
-			setmsg_cbm_disable_confirm(gettext('Do you want to disable selected public keys?'))->
-			setmsg_cbm_enable(gettext('Enable Selected Public Keys'))->
-			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected public keys?'))->
-			setmsg_cbm_toggle(gettext('Toggle Selected Public Keys'))->
-			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected public keys?'));
+			set_script('access_groups')->
+			set_modify('access_groups_edit')->
+			setmsg_sym_add(gettext('Add Group'))->
+			setmsg_sym_mod(gettext('Edit Group'))->
+			setmsg_sym_del(gettext('Group is marked for deletion'))->
+			setmsg_sym_loc(gettext('Group is protected'))->
+			setmsg_sym_unl(gettext('Group is unlocked'))->
+			setmsg_cbm_delete(gettext('Delete Selected Groups'))->
+			setmsg_cbm_delete_confirm(gettext('Do you want to delete selected groups?'))->
+			setmsg_cbm_disable(gettext('Disable Selected Groups'))->
+			setmsg_cbm_disable_confirm(gettext('Do you want to disable selected groups?'))->
+			setmsg_cbm_enable(gettext('Enable Selected Groups'))->
+			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected groups?'))->
+			setmsg_cbm_toggle(gettext('Toggle Selected Groups'))->
+			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected groups?'));
 		return $sphere;
 	}
 /**
@@ -73,34 +73,39 @@ final class grid_toolbox {
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
-		$rmo->add('POST','reload',PAGE_MODE_POST);
+		$rmo->add('POST','show',PAGE_MODE_POST);
+		$rmo->add('POST','hide',PAGE_MODE_POST);
 		return $rmo;
 	}
 /**
  *	Create the property object
- *	@return \system\access\publickey\grid_properties
+ *	@return \system\access\group\grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
 		return $cop;
 	}
-/**
+	/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \system\access\publickey\grid_properties $cop
+ *	@param \system\access\group\grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
+		global $config;
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Access'),gettext('Public Keys')];
-		$record_exists = count($sphere->grid) > 0;
-		$use_tablesort = count($sphere->grid) > 1;
-		$a_col_width = ['5%','20%','10%','55%','10%'];
+		$hidesystemgroups = $_SESSION['access.hidesystemgroups'] ?? false;
+		$known_groups = ($hidesystemgroups ? [] : \system_get_group_list());
+		$pgtitle = [gettext('Access'),gettext('Groups')];
+		$row_count = count($sphere->grid) + count($known_groups);
+		$row_exists = ($row_count > 0);
+		$use_tablesort = ($row_count > 1);
+		$a_col_width = ['5%','25%','25%','35%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
 			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
@@ -119,8 +124,7 @@ final class grid_toolbox {
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		$pending_changes = updatenotify_exists($sphere->get_notifier());
-		if($pending_changes):
+		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
 //		add content
@@ -130,33 +134,33 @@ final class grid_toolbox {
 		$tbody = $table->addTBODY();
 		$tfoot = $table->addTFOOT();
 		$thead->ins_titleline(gettext('Overview'),$n_col_width);
-		$tr = $thead->addTR();
 		if($use_tablesort):
-			$tr->
-				push()->
-				addTHwC('lhelc sorter-false parser-false')->
-					ins_cbm_checkbox_toggle($sphere)->
-				pop()->
-				insTHwC('lhell',$cop->get_name()->get_title())->
-				insTHwC('lhelc sorter-image',gettext('Active'))->
-				insTHwC('lhell',$cop->get_description()->get_title())->
-				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
+			$thead->
+				addTR()->
+					push()->
+					addTHwC('lhelc sorter-false parser-false')->
+						ins_cbm_checkbox_toggle($sphere)->
+					pop()->
+					insTHwC('lhell',$cop->get_name()->get_title())->
+					insTHwC('lhell',$cop->get_gid()->get_title())->
+					insTHwC('lhell',$cop->get_description()->get_title())->
+					insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		else:
-			$tr->
-				insTHwC('lhelc')->
-				insTHwC('lhell',$cop->get_name()->get_title())->
-				insTHwC('lhelc',gettext('Active'))->
-				insTHwC('lhell',$cop->get_description()->get_title())->
-				insTHwC('lhebl',$cop->get_toolbox()->get_title());
+			$thead->
+				addTR()->
+					insTHwC('lhelc')->
+					insTHwC('lhell',$cop->get_name()->get_title())->
+					insTHwC('lhell',$cop->get_gid()->get_title())->
+					insTHwC('lhell',$cop->get_description()->get_title())->
+					insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
-		if($record_exists):
+		if($row_exists):
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 				$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
 				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
-//				identify group membership
 				$tbody->
 					addTR()->
 						push()->
@@ -164,11 +168,28 @@ final class grid_toolbox {
 							ins_cbm_checkbox($sphere,!($is_notdirty && $is_notprotected))->
 						pop()->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
-						ins_enadis_icon($is_enabled)->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_gid()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
-							ins_maintainbox($sphere,false)->
+							ins_maintainbox(false)->
+							ins_informbox($sphere,false);
+				unset($known_groups[$sphere->row[$cop->get_name()->get_name()]]);
+			endforeach;
+			$gettext_system_group = gettext('System Group');
+			$is_notdirty = true;
+			$is_enabled = true;
+			$is_notprotected = false;
+			foreach($known_groups as $k_name => $v_gid):
+				$tbody->
+					addTR()->
+						insTDwC('lcelc')->
+						insTDwC('lcell',$k_name ?? '')->
+						insTDwC('lcell',$v_gid ?? '')->
+						insTDwC('lcell',$gettext_system_group)->
+						add_toolbox_area()->
+							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
+							ins_maintainbox(false)->
 							ins_informbox($sphere,false);
 			endforeach;
 		else:
@@ -179,8 +200,10 @@ final class grid_toolbox {
 		$buttons->
 			ins_cbm_button_enadis($sphere)->
 			ins_cbm_button_delete($sphere);
-		if(!$pending_changes):
-			$buttons->ins_button_reload(true,gettext('Reload'));
+		if($hidesystemgroups):
+			$buttons->ins_button_submit('show',gettext('Show System Groups'));
+		else:
+			$buttons->ins_button_submit('hide',gettext('Hide System Groups'));
 		endif;
 //		additional javascript code
 		$body->addJavaScript($sphere->get_js());
@@ -227,7 +250,7 @@ final class grid_toolbox {
 						$retval = 0;
 						$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 						config_lock();
-						$retval |= rc_exec_service('raki');
+						$retval |= rc_exec_service('userdb');
 						config_unlock();
 						$_SESSION['submit'] = $sphere->get_script()->get_basename();
 						$_SESSION[$sphere->get_script()->get_basename()] = $retval;
@@ -259,6 +282,24 @@ final class grid_toolbox {
 						endif;
 						header($sphere->get_script()->get_location());
 						exit;
+						break;
+					case 'show':
+						$referer = 'access.hidesystemgroups';
+						$hidesystemgroups = $_SESSION[$referer] ?? false;
+						if($hidesystemgroups):
+							$_SESSION[$referer] = false;
+							header($sphere->get_script()->get_location());
+							exit;
+						endif;
+						break;
+					case 'hide':
+						$referer = 'access.hidesystemgroups';
+						$hidesystemgroups = $_SESSION[$referer] ?? false;
+						if(!$hidesystemgroups):
+							$_SESSION[$referer] = true;
+							header($sphere->get_script()->get_location());
+							exit;
+						endif;
 						break;
 				endswitch;
 				break;

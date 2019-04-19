@@ -1,6 +1,6 @@
 <?php
 /*
-	grid_properties.php
+	row_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,32 +31,55 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace system\access\publickey;
+namespace system\access\group;
 
 use common\properties as myp;
 
-class grid_properties extends myp\container_row {
-	protected $x_name;
-	public function init_name(): myp\property_list {
-		$property = $this->x_name = new myp\property_list($this);
+final class row_properties extends grid_properties {
+	public function init_name(): myp\property_text {
+		$description = gettext('Enter group name.');
+		$placeholder = gettext('Group Name');
+		$property = parent::init_name();
 		$property->
-			set_name('login')->
-			set_title(gettext('Login Name'));
+			set_defaultvalue('')->
+			set_description($description)->
+			set_editableonmodify(false)->
+			set_id('id')->
+			set_maxlength(16)->
+			set_placeholder($placeholder)->
+			set_size(18)->
+			set_filter(FILTER_CALLBACK)->
+			set_filter_options(function($subject) {
+//				FreeBSD reference for regular expression: usr.sbin/pw/pw_user.c -> pw_checkname
+				$regexp = '/^[0-9A-Za-z\.;\[\]_\{\}][0-9A-Za-z\-\.;\[\]_\{\}]*\$?$/';
+				$result = null;
+				if(is_string($subject)):
+					if(strlen($subject) > 0 && strlen($subject) < 17):
+						if(1 === preg_match($regexp,$subject)):
+							return $subject;
+						endif;
+					endif;
+				endif;
+				return $result;
+			});
 		return $property;
 	}
-	final public function get_name(): myp\property_list {
-		return $this->x_name ?? $this->init_name();
-	}
-	protected $x_publickey;
-	public function init_publickey(): myp\property_text {
-		$property = $this->x_publickey = new myp\property_text($this);
+	public function init_gid(): myp\property_int {
+		$caption = gettext('Specify the group numeric id.');
+		$description = gettext('The recommended range for the group id is between 1000 and 32000.');
+		$placeholder = gettext('1000');
+		$property = parent::init_gid();
 		$property->
-			set_name('publickey')->
-			set_title(gettext('Public Key'));
+			set_caption($caption)->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('id')->
+			set_maxlength(10)->
+			set_min(0)->
+			set_max(2147483647)->
+			set_placeholder($placeholder)->
+			set_size(12)->
+			filter_use_default();
 		return $property;
-	}
-	final public function get_publickey(): myp\property_text {
-		return $this->x_publickey ?? $this->init_publickey();
 	}
 }
-

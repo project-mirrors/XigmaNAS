@@ -36,8 +36,8 @@ namespace system\access\publickey;
 use common\properties as myp;
 
 final class row_properties extends grid_properties {
-	public function init_login(): myp\property_list {
-		$property = parent::init_login();
+	public function init_name(): myp\property_list {
+		$property = parent::init_name();
 		$property->
 			set_defaultvalue('root')->
 			set_id('login')->
