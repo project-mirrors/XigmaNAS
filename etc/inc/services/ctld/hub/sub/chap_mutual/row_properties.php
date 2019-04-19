@@ -80,7 +80,7 @@ final class row_properties extends grid_properties {
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
-			filter_use_default()->			
+			filter_use_default()->
 			set_message_info($message_info);
 		return $property;
 	}

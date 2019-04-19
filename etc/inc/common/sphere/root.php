@@ -45,14 +45,12 @@ class root {
 	protected $x_script_modify = NULL;
 	protected $x_script_parent = NULL;
 	protected $x_script_this = NULL;
-	
 	protected $x_enadis = false;
 	protected $x_lock = false;
 	protected $x_notifier = NULL;
 	protected $x_notifier_processor = NULL;
-	
 	protected $x_row_identifier = NULL;
-	
+
 	public function __destruct() {
 		unset(
 			$this->x_script_inform,
@@ -125,7 +123,7 @@ class root {
 	}
 	public function toggle(): bool {
 		global $config;
-		
+
 		$test = $config['system']['enabletogglemode'] ?? false;
 		return $this->is_enadis_enabled() && (is_bool($test) ? $test : true);
 	}

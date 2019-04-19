@@ -40,7 +40,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_homedir() {
-		$description = 
+		$description =
 			gettext('Enter the path of the home directory for databases and configuration files.') .
 			'<br />' .
 			gettext('The server will be started with the minimum required parameters.') .

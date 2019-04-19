@@ -34,7 +34,7 @@
 namespace common\properties;
 /**
  *	auxparam property
- * 
+ *
  *	property description is empty
  *  @param object $owner The owner of this object or NULL
  */

@@ -350,7 +350,7 @@ final class cli_geli {
  *	flag will be set to prevent geli asking for the passphrase on the<br/>
  *	command line.
  *	@global array $g The global array
- *	@param bool $setkey_new_key Set to true to create 2nd parameter 
+ *	@param bool $setkey_new_key Set to true to create 2nd parameter
  *	@return int Return 0 if successful, 1 if error
  */
 	private function cmd_add_userkeys(bool $setkey_new_key = false): int {
@@ -390,7 +390,7 @@ final class cli_geli {
 		endswitch;
 //		user key passphrase
 		if(is_string($this->passphrase)):
-//			write string to a temporary file			
+//			write string to a temporary file
 			$tmp_filename_passphrase = tempnam($g['varrun_path'],'ukp');
 			if($setkey_new_key):
 				$this->tmp_filename_passphrase_new = $tmp_filename_passphrase;
