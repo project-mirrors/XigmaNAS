@@ -75,6 +75,8 @@ final class grid_toolbox {
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
+		$rmo->add('POST','show',PAGE_MODE_POST);
+		$rmo->add('POST','hide',PAGE_MODE_POST);
 		return $rmo;
 	}
 /**
@@ -98,9 +100,12 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
+		$hidesystemusers = $_SESSION['access.hidesystemusers'];
+		$known_users = ($hidesystemusers ? [] : \system_get_user_list());
 		$pgtitle = [gettext('Access'),gettext('Users')];
-		$record_exists = count($sphere->grid) > 0;
-		$use_tablesort = count($sphere->grid) > 1;
+		$row_count = count($sphere->grid) + count($known_users);
+		$row_exists = $row_count > 0;
+		$use_tablesort = $row_count > 1;
 		$a_col_width = ['5%','20%','20%','10%','10%','25%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
@@ -137,23 +142,23 @@ final class grid_toolbox {
 				addTHwC('lhelc sorter-false parser-false')->
 					ins_cbm_checkbox_toggle($sphere)->
 				pop()->
-				insTHwC('lhell',$cop->get_login()->get_title())->
+				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_fullname()->get_title())->
 				insTHwC('lhell',$cop->get_uid()->get_title())->
 				insTHwC('lhelc sorter-image',gettext('Active'))->
 				insTHwC('lhell',$cop->get_additional_groups()->get_title())->
-				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
+				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		else:
 			$tr->
 				insTHwC('lhelc')->
-				insTHwC('lhell',$cop->get_login()->get_title())->
+				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_fullname()->get_title())->
 				insTHwC('lhell',$cop->get_uid()->get_title())->
 				insTHwC('lhelc',gettext('Active'))->
 				insTHwC('lhell',$cop->get_additional_groups()->get_title())->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
-		if($record_exists):
+		if($row_exists):
 			$a_group = system_get_group_list();
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
@@ -184,7 +189,7 @@ final class grid_toolbox {
 						addTDwC('lcelc' . $dc)->
 							ins_cbm_checkbox($sphere,!($is_notdirty && $is_notprotected))->
 						pop()->
-						insTDwC('lcell' . $dc,$sphere->row[$cop->get_login()->get_name()] ?? '')->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_fullname()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_uid()->get_name()] ?? '')->
 						ins_enadis_icon($is_enabled)->
@@ -193,15 +198,39 @@ final class grid_toolbox {
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
 							ins_maintainbox($sphere,$is_notprotected && $is_notdirty)->
 							ins_informbox($sphere,false);
+				unset($known_users[$sphere->row[$cop->get_name()->get_name()]]);
+			endforeach;
+			$gettext_system_user = gettext('System User');
+			$is_notdirty = true;
+			$is_enabled = true;
+			$is_notprotected = false;
+			foreach($known_users as $k_name => $v_row):
+				$tbody->
+					addTR()->
+						insTDwC('lcelc')->
+						insTDwC('lcell',$k_name ?? '')->
+						insTDwC('lcell',$v_row['gecos'] ?? '')->
+						insTDwC('lcell',$v_row['uid'] ?? '')->
+						ins_enadis_icon($is_enabled)->
+						insTDwC('lcell',$gettext_system_user)->
+						add_toolbox_area()->
+							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
+							ins_maintainbox(false)->
+							ins_informbox($sphere,false);
 			endforeach;
 		else:
 			$tfoot->ins_no_records_found($n_col_width);
 		endif;
 		$tfoot->ins_record_add($sphere,$n_col_width);
-		$document->
-			add_area_buttons()->
-				ins_cbm_button_enadis($sphere)->
-				ins_cbm_button_delete($sphere);
+		$buttons = $document->add_area_buttons();
+		$buttons->
+			ins_cbm_button_enadis($sphere)->
+			ins_cbm_button_delete($sphere);
+		if($hidesystemusers):
+			$buttons->ins_button_submit('show',gettext('Show System Users'));
+		else:
+			$buttons->ins_button_submit('hide',gettext('Hide System Users'));
+		endif;
 //		additional javascript code
 		$body->addJavaScript($sphere->get_js());
 		$body->add_js_on_load($sphere->get_js_on_load());
@@ -286,6 +315,23 @@ final class grid_toolbox {
 						header($sphere->get_script()->get_location());
 						exit;
 						break;
+					case 'show':
+						$referer = 'access.hidesystemusers';
+						$hidesystemusers = $_SESSION[$referer] ?? false;
+						if($hidesystemusers):
+							$_SESSION[$referer] = false;
+							header($sphere->get_script()->get_location());
+							exit;
+						endif;
+						break;
+					case 'hide':
+						$referer = 'access.hidesystemusers';
+						$hidesystemusers = $_SESSION[$referer] ?? false;
+						if(!$hidesystemusers):
+							$_SESSION[$referer] = true;
+							header($sphere->get_script()->get_location());
+							exit;
+						endif;
 				endswitch;
 				break;
 		endswitch;

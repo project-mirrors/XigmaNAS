@@ -143,7 +143,7 @@ $a_referer = [
 ];
 $a_user = ['root' => 'root'];
 foreach($sphere_user->grid as $sphere_user->row):
-	$value = $sphere_user->row[$cop_user->get_login()->get_name()] ?? '';
+	$value = $sphere_user->row[$cop_user->get_name()->get_name()] ?? '';
 	$a_user[$value] = $value;
 endforeach;
 $cop->get_login()->set_options($a_user);

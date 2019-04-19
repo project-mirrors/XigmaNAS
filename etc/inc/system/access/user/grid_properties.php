@@ -36,16 +36,16 @@ namespace system\access\user;
 use common\properties as myp;
 
 class grid_properties extends myp\container_row {
-	protected $x_login;
-	public function init_login(): myp\property_text {
-		$property = $this->x_login = new myp\property_text($this);
+	protected $x_name;
+	public function init_name(): myp\property_text {
+		$property = $this->x_name = new myp\property_text($this);
 		$property->
 			set_name('login')->
 			set_title(gettext('Login Name'));
 		return $property;
 	}
-	final public function get_login(): myp\property_text {
-		return $this->x_login ?? $this->init_login();
+	final public function get_name(): myp\property_text {
+		return $this->x_name ?? $this->init_name();
 	}
 	protected $x_fullname;
 	public function init_fullname(): myp\property_text {
