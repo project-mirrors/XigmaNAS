@@ -150,7 +150,7 @@ $isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
  */
 $a_referer = [
 	$cop->get_enable(),
-	$cop->get_login(),
+	$cop->get_name(),
 	$cop->get_fullname(),
 	$cop->get_password(),
 	$cop->get_description(),
@@ -247,7 +247,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('User Settings'));
 $tbody->
-	c2_input_text($cop->get_login(),$sphere,true,$cop->get_login()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_input_text($cop->get_fullname(),$sphere,true,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify));
 if($isrecordnewornewmodify):
 	$tbody->c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));

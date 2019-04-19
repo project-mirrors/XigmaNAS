@@ -218,7 +218,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $thead->c2_titleline(gettext('Set User Password'));
 $tbody->
-	c2_input_text($cop->get_login(),$sphere,false,$cop->get_login()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_name(),$sphere,false,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_input_text($cop->get_fullname(),$sphere,false,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();

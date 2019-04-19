@@ -74,7 +74,7 @@ final class maintain_toolbox {
  */
 	public static function init_properties() {
 		$cop = new row_properties();
-		$cop->get_login()->
+		$cop->get_name()->
 			set_editableonadd(false)->
 			set_editableonmodify(false);
 		$cop->get_fullname()->
