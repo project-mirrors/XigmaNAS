@@ -156,7 +156,7 @@ final class setting_properties extends grid_properties {
 	}
 	public function init_home(): myp\property_text {
 		global $g;
-		
+
 		$description = gettext('Location of the media content database.');
 		$placeholder = gettext('Path');
 		$property = parent::init_home();

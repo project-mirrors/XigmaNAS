@@ -212,7 +212,7 @@ final class grid_toolbox {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
-		
+
 //		preset $savemsg in case a reboot is pending
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);

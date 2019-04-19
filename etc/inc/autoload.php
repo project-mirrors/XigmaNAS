@@ -31,7 +31,8 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-/*	default extension string is '.inc,.php', main file extension is .php 
+/*
+ *	default extension string is '.inc,.php', main file extension is .php
  *	register the default implementation of spl_autoload()
  *	subfolder structure matches namespaces of classes, therefore it is not
  *	required to define an autoloader

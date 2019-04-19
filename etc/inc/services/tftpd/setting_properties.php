@@ -50,7 +50,7 @@ final class setting_properties extends grid_properties {
 	}
 	public function init_dir() {
 		global $g;
-		
+
 		$description = gettext('The directory containing the files you want to publish. The remote host does not need to pass along the directory as part of the transfer.');
 		$placeholder = gettext('Enter a directory');
 		$property = parent::init_dir();

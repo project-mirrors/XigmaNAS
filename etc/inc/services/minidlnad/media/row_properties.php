@@ -38,7 +38,7 @@ use common\properties as myp;
 final class row_properties extends grid_properties {
 	public function init_filesystem(): myp\property_text {
 		global $g;
-		
+
 		$description = gettext('Path to be included.');
 		$placeholder = $placeholderv = gettext('Path');
 		$property = parent::init_filesystem();

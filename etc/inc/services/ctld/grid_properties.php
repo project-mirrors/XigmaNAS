@@ -52,7 +52,7 @@ class grid_properties extends myp\container {
 		return $property;
 	}
 	final public function get_debug() {
-		return $this->x_debug ?? $this->init_debug();	
+		return $this->x_debug ?? $this->init_debug();
 	}
 	protected $x_maxproc;
 	public function init_maxproc() {
