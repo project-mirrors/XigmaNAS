@@ -99,7 +99,7 @@ final class shared_toolbox {
 				add_tabnav_upper()->
 					ins_tabnav_record('access_users.php',gettext('Users'),gettext('Reload page'),true)->
 					ins_tabnav_record('access_publickey.php',gettext('Public Keys'))->
-					ins_tabnav_record('access_users_groups.php',gettext('Groups'));
+					ins_tabnav_record('access_groups.php',gettext('Groups'));
 		return $retval;
 	}
 }

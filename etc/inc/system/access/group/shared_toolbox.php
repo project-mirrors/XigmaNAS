@@ -31,7 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace system\access\publickey;
+namespace system\access\group;
 
 use common\sphere as mys;
 /**
@@ -82,9 +82,9 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
-			set_enadis(true)->
+			set_enadis(false)->
 			set_lock(false);
-		$sphere->grid = &array_make_branch($config,'access','publickey','param');
+		$sphere->grid = &array_make_branch($config,'access','group');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -97,8 +97,8 @@ final class shared_toolbox {
 			add_area_tabnav()->
 				add_tabnav_upper()->
 					ins_tabnav_record('access_users.php',gettext('Users'))->
-					ins_tabnav_record('access_publickey.php',gettext('Public Keys'),gettext('Reload page'),true)->
-					ins_tabnav_record('access_groups.php',gettext('Groups'));
+					ins_tabnav_record('access_publickey.php',gettext('Public Keys'))->
+					ins_tabnav_record('access_groups.php',gettext('Groups'),gettext('Reload page'),true);
 		return $retval;
 	}
 }

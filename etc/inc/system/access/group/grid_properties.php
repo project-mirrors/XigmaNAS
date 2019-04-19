@@ -3,7 +3,7 @@
 	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,32 +31,37 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace system\access\publickey;
-
+namespace system\access\group;
 use common\properties as myp;
 
 class grid_properties extends myp\container_row {
 	protected $x_name;
-	public function init_name(): myp\property_list {
-		$property = $this->x_name = new myp\property_list($this);
+	public function init_name(): myp\property_text {
+		$property = $this->x_name = new myp\property_text($this);
 		$property->
-			set_name('login')->
-			set_title(gettext('Login Name'));
+			set_name('name')->
+			set_title(gettext('Group'));
 		return $property;
 	}
-	final public function get_name(): myp\property_list {
+	final public function get_name(): myp\property_text {
 		return $this->x_name ?? $this->init_name();
 	}
-	protected $x_publickey;
-	public function init_publickey(): myp\property_text {
-		$property = $this->x_publickey = new myp\property_text($this);
+	protected $x_gid;
+	public function init_gid(): myp\property_int {
+		$property = $this->x_gid = new myp\property_int($this);
 		$property->
-			set_name('publickey')->
-			set_title(gettext('Public Key'));
+			set_name('id')->
+			set_title(gettext('Group ID'));
 		return $property;
 	}
-	final public function get_publickey(): myp\property_text {
-		return $this->x_publickey ?? $this->init_publickey();
+	final public function get_gid(): myp\property_int {
+		return $this->x_gid ?? $this->init_gid();
+	}
+	public function init_description(): myp\property_text {
+		$property = parent::init_description();
+		$property->
+			set_id('desc')->
+			set_name('desc');
+		return $property;
 	}
 }
-

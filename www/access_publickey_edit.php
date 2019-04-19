@@ -137,7 +137,7 @@ $isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
  */
 $a_referer = [
 	$cop->get_enable(),
-	$cop->get_login(),
+	$cop->get_name(),
 	$cop->get_publickey(),
 	$cop->get_description()
 ];
@@ -146,7 +146,7 @@ foreach($sphere_user->grid as $sphere_user->row):
 	$value = $sphere_user->row[$cop_user->get_name()->get_name()] ?? '';
 	$a_user[$value] = $value;
 endforeach;
-$cop->get_login()->set_options($a_user);
+$cop->get_name()->set_options($a_user);
 switch($page_mode):
 	case PAGE_MODE_ADD:
 		foreach($a_referer as $referer):
@@ -222,7 +222,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Public Key Settings'));
 $tbody->
-	c2_select($cop->get_login(),$sphere,true,$cop->get_login()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_select($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_input_text($cop->get_publickey(),$sphere,true,$cop->get_publickey()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();

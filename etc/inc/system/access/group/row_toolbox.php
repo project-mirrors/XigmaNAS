@@ -1,6 +1,6 @@
 <?php
 /*
-	grid_properties.php
+	row_toolbox.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -31,32 +31,63 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-namespace system\access\publickey;
+namespace system\access\group;
 
-use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+/**
+ *	Wrapper class for autoloading functions
+ */
+final class row_toolbox {
+/**
+ *	Create the sphere object
+ *	@global array $config
+ *	@return \common\sphere\row The sphere object
+ */
+	public static function init_sphere() {
+		global $config;
 
-class grid_properties extends myp\container_row {
-	protected $x_name;
-	public function init_name(): myp\property_list {
-		$property = $this->x_name = new myp\property_list($this);
-		$property->
-			set_name('login')->
-			set_title(gettext('Login Name'));
-		return $property;
+		$sphere = new mys\row();
+		shared_toolbox::init_sphere($sphere);
+		$sphere->
+			set_script('access_groups_edit')->
+			set_parent('access_groups');
+		return $sphere;
 	}
-	final public function get_name(): myp\property_list {
-		return $this->x_name ?? $this->init_name();
+/**
+ *	Create the request method object
+ *	@return \common\rmo\rmo The request method object
+ */
+	public static function init_rmo() {
+		return myr\rmo_row_templates::rmo_with_clone();
 	}
-	protected $x_publickey;
-	public function init_publickey(): myp\property_text {
-		$property = $this->x_publickey = new myp\property_text($this);
-		$property->
-			set_name('publickey')->
-			set_title(gettext('Public Key'));
-		return $property;
+/**
+ *	Create the properties object
+ *	@return \system\access\group\row_properties The properties object
+ */
+	public static function init_properties() {
+		$cop = new row_properties();
+		return $cop;
 	}
-	final public function get_publickey(): myp\property_text {
-		return $this->x_publickey ?? $this->init_publickey();
+/**
+ *	Get the next available gid from system
+ *	@global array $config System configuration
+ *	@return	type int
+ */
+	public static function get_next_gid(): int {
+		global $config;
+
+//		Get next available gid.
+		exec('/usr/sbin/pw nextgroup',$output);
+		$output = explode(':',$output[0]);
+		$result = intval($output[0]);
+//		Check if gid is already in use. If the user does not press the 'Apply'
+//		button 'pw' does not recognize that there are already several new users
+//		configured because the user db is not updated until 'Apply' is pressed.
+		$a_group = array_make_branch($config,'access','group');
+		while(false !== array_search_ex(strval($result),$a_group,'id')):
+			$result++;
+		endwhile;
+		return $result;
 	}
 }
-
