@@ -32,7 +32,10 @@ ARG="$2"
 
 # Required for boot environment upgrade.
 ROOTFS=$(mount | awk '/ \/ / {print $1}')
+SYSBACKUP="/tmp/sysbackup"
 ZROOT="zroot"
+DATASET="/ROOT"
+BOOTPOOL="bootpool"
 BENAME="upgrade"
 BEPATH="/var/tmp/be_upgrade"
 
@@ -464,6 +467,87 @@ embedded_upgrade() {
 	fi
 }
 
+backup_sys_files() {
+	# Backup common system configuration files.
+	# Only files present in the firmware upgrade file are affected.
+	msg="Backup system configuration..."
+	/usr/bin/logger -p console.info "UPGRADE: ${msg}"
+
+	if [ ! -d "${SYSBACKUP}" ]; then
+		mkdir -p ${SYSBACKUP}
+	fi
+
+	# Set the proper boot path for backup.
+	BOOTPATH=${BEPATH}
+	if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+		BOOTPATH=/${BOOTPOOL}
+	fi
+
+	if [ -f "${BOOTPATH}/boot/loader.conf" ]; then
+		cp -p ${BOOTPATH}/boot/loader.conf ${SYSBACKUP}/
+	fi
+	if [ -f "${BEPATH}/etc/rc.conf" ]; then
+		cp -p ${BEPATH}/etc/rc.conf ${SYSBACKUP}/
+	fi
+
+	# Keep a copy of the previous kernel on each upgrade.
+	if [ -d "${BOOTPATH}/boot/kernel" ]; then
+		if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+
+			# Backup required files for geli on mbr installs,
+			# as well as for any custom geli files if any.
+			cd ${BOOTPATH}/boot
+			for FILE in *.eli *.key
+			do
+				cp -p ${FILE} ${SYSBACKUP}/
+			done
+			cd
+
+			# Keep a copy of the previous kernel and append the date on mbr installs.
+			KDATE=$(date +%Y-%m-%d-%H%M)
+			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old.${KDATE}
+		else
+			if [ -d "${BOOTPATH}/boot/kernel.old" ]; then
+				# Keep only the current kernel per boot environment.
+				rm -rf ${BOOTPATH}/boot/kernel.old
+			fi
+			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old
+		fi
+	fi
+}
+
+restore_sys_files() {
+	# Restore previous backup files on the boot environment.
+	# Only files present in the firmware upgrade file are affected.
+	msg="Restore system configuration..."
+	/usr/bin/logger -p console.info "UPGRADE: ${msg}"
+
+	# Set the proper boot path for restore.
+	BOOTPATH=${BEPATH}
+	if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+		BOOTPATH=/${BOOTPOOL}
+	fi
+
+	if [ -f "${SYSBACKUP}/loader.conf" ]; then
+		cp -pf ${SYSBACKUP}/loader.conf ${BOOTPATH}/boot/
+	fi
+	if [ -f "${SYSBACKUP}/cfdevice" ]; then
+		cp -pf ${SYSBACKUP}/cfdevice ${BEPATH}/etc/
+	fi
+	if [ -f "${SYSBACKUP}/rc.conf" ]; then
+		cp -pf ${SYSBACKUP}/rc.conf ${BEPATH}/etc/
+	fi
+
+	# Restore required files for geli on mbr installs,
+	# as well as for any custom geli files if any.
+	cd ${SYSBACKUP}
+	for FILE in *.eli *.key
+	do
+		cp -p ${FILE} ${BOOTPATH}/boot/
+	done
+	cd
+}
+
 upgrade_menuforth()
 {
 	# Update to latest loader manu files.
@@ -500,6 +584,13 @@ post_upgrade_config()
 		chmod 0644 ${BEPATH}/etc/rc.conf.local
 		sysrc -f ${BEPATH}/etc/rc.conf.local zfs_enable="YES" > /dev/null 2>&1
 	fi
+}
+
+disable_bootenv()
+{
+	# Unmount/destroy boot environment if upgrade failed.
+	/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
+	/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
 }
 
 full_upgrade() {
@@ -549,6 +640,16 @@ full_upgrade() {
 		exit 1
 	fi
 
+	# Backup system configuration.
+	backup_sys_files
+	if [ 0 != $? ]; then
+		msg="ERROR: Failed to backup configuration."
+		/usr/bin/logger -p console.err "UPGRADE ${msg}"
+		disable_bootenv
+		disable_upgrade
+		exit 1
+	fi
+
 	# Remove chflags for protected files before upgrade process.
 	# This list may be updated in future.
 	FILELIST="${BEPATH}/usr/lib/librt.so.1"
@@ -568,18 +669,40 @@ full_upgrade() {
 	# Install system files and discard unwanted folders/files.
 	msg="Upgrading system on new boot environment..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
+
+	EXCLUDEBOOT=""
+	if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+		msg="Extracting files for ${BOOTPOOL}..."
+		/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
+		RESULT=1
+		EXCLUDEBOOT="--exclude=boot"
+		# Extract boot to /bootpool on ZFS/MBR installs since boot is a symlink.
+		/usr/bin/tar --keep-newer-files -v -x -U -P -f ${ARG} -C /${BOOTPOOL} boot > /dev/null 2>&1
+		RESULT=$?
+		if [ 0 != ${RESULT} ]; then
+			msg="ERROR: Failed to upgrade ${BOOTPOOL}."
+			/usr/bin/logger -p console.err "UPGRADE ${msg}"
+			disable_bootenv
+			disable_upgrade
+			exit 1
+		fi
+	fi
+
+	msg="Extracting files for ${ZROOT}..."
+	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 	RESULT=1
-	EXCLUDED="--exclude=cf --exclude=conf --exclude=loader.rc --exclude=tmp --exclude=var --exclude=version"
+	EXCLUDED="${EXCLUDEBOOT} --exclude=cf --exclude=conf --exclude=tmp --exclude=var --exclude=version"
 	/usr/bin/tar ${EXCLUDED} --keep-newer-files -v -x -U -P -f ${ARG} -C ${BEPATH} > /dev/null 2>&1
 	RESULT=$?
 	if [ 0 != ${RESULT} ]; then
 		msg="ERROR: Failed to upgrade system."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
-		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
-		/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
+		disable_bootenv
 		disable_upgrade
 		exit 1
 	else
+		# Restore system configuration.
+		restore_sys_files
 
 		# Include latest loader menu files.
 		upgrade_menuforth
@@ -590,8 +713,7 @@ full_upgrade() {
 		if [ 0 != $? ]; then
 			msg="ERROR: Failed restoring/updating configuration."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
-			/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
-			/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
+			disable_bootenv
 			disable_upgrade
 			exit 1
 		fi
@@ -599,12 +721,23 @@ full_upgrade() {
 		msg="Unmount and activate new boot environment..."
 		/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
-		/usr/local/sbin/beadm activate ${BENAME}-${DATE}
+
+		if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+			# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
+			# this is due a known bug and/or limitation in the beadm utility.
+			zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
+
+			# Update current loader.conf on ZFS/MBR since bootpool is shared across boot environments by default.
+			/usr/bin/sed -i '' -E 's|vfs.root.mountfrom="zfs:'${ROOTFS}'"|vfs.root.mountfrom="zfs:'${ZROOT}${DATASET}/${BENAME}-${DATE}'"|g' \
+			/${BOOTPOOL}/boot/loader.conf
+		else
+			/usr/local/sbin/beadm activate ${BENAME}-${DATE}
+		fi
+
 		if [ 0 != $? ]; then
 			msg="ERROR: Failed to unmount/activate boot environment."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
-			/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
-			/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
+			disable_bootenv
 			disable_upgrade
 			exit 1
 		fi

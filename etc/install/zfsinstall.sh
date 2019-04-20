@@ -13,13 +13,14 @@ export PATH
 PLATFORM=$(uname -m)
 PRDNAME=$(cat /etc/prd.name)
 CDPATH="/tmp/cdrom"
-SYSBACKUP="/tmp/sysbackup"
 INCLUDE="/etc/install/include/boot"
 APPNAME="RootOnZFS"
 ALTROOT="/mnt"
 DATASET="/ROOT"
 BOOTENV="/default-install"
 ZROOT="zroot"
+BOOTPOOL="bootpool"
+GMIRRORBAL="load"
 
 tmpfile=/tmp/zfsinstall.$$
 trap "rm -f ${tmpfile}" 0 1 2 3 5 6 9 15
@@ -119,6 +120,19 @@ cleandisk_init()
 	for DISK in ${DISKS}
 	do
 		echo "Cleaning disk ${DISK}"
+
+		# Destroy previous geli providers.
+		# Detach pervious geli providers for glabel.
+		if geli status | grep -qw gpt/sysdisk${NUM}; then
+			geli detach -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
+		fi
+
+		# Detach pervious geli providers for diskid.
+		if geli status | grep -q ${DISK}; then
+			GELIDEV=$(geli status | grep ${DISK} | awk '{print $3}')
+			geli detach -f /dev/${GELIDEV} > /dev/null 2>&1
+		fi
+
 		gmirror clear ${DISK} > /dev/null 2>&1
 		zpool labelclear -f /dev/gpt/sysdisk${NUM} > /dev/null 2>&1
 		zpool labelclear -f /dev/${DISK} > /dev/null 2>&1
@@ -133,9 +147,9 @@ cleandisk_init()
 					WIPESECTORS=${WIPECOUNT}
 				fi
 				# Delete MBR, GPT Primary, ZFS(L0L1)/other partition table.
-				dd if=/dev/zero of=${DISK} bs=${sectorsize} count=${WIPESECTORS} > /dev/null 2>&1
+				dd if="/dev/zero" of="/dev/${DISK}" bs=${sectorsize} count=${WIPESECTORS} > /dev/null 2>&1
 				# Delete GEOM metadata, GPT Secondary, ZFS(L2L3)/other partition table.
-				dd if=/dev/zero of=${DISK} bs=${sectorsize} seek=$(expr ${sectors} - ${WIPESECTORS}) count=${WIPESECTORS} > /dev/null 2>&1
+				dd if="/dev/zero" of="/dev/${DISK}" bs=${sectorsize} seek=$(expr ${sectors} - ${WIPESECTORS}) count=${WIPESECTORS} > /dev/null 2>&1
 			done
 			NUM=$(expr $NUM + 1)
 	done
@@ -188,6 +202,59 @@ gptpart_init()
 	fi
 }
 
+# Create MBR/Partition on disk.
+mbrpart_init()
+{
+	DISKS=${DEVICE_LIST}
+	swapdevlist=/tmp/swapdevlist.$$
+	bootdevlist=/tmp/bootdevlist.$$
+	cat /dev/null > ${tmpfile}
+	#NUM="0"
+	for DISK in ${DISKS}
+	do
+		echo "Creating MBR/Partition on ${DISK}"
+		gpart create -s mbr ${DISK} > /dev/null
+
+		# Create active partition partition.
+		if [ "${BOOT_MODE}" = 3 ]; then
+			gpart add -a 4k -t freebsd ${DISK} > /dev/null
+			gpart set -a active -i 1 ${DISK} > /dev/null
+		fi
+
+		# Create zfs boot partition.
+		gpart create -s BSD "${DISK}s1" > /dev/null
+		gpart add  -i 1 -t freebsd-zfs -s 2147483648b "${DISK}s1" > /dev/null
+
+		if [ ! -z "${SWAP_SIZE}" ]; then
+			# Add swap partition to selected drives.
+			gpart add -a 4k -s ${SWAP_SIZE} -i 2 -t freebsd-swap "${DISK}s1" > /dev/null
+			# Generate swap device list.
+			echo "/dev/${DISK}s1b" >> ${swapdevlist}
+		fi
+
+		# Create zfs os partition.
+		gpart add -a 4k ${ZROOT_SIZE} -i 4 -t freebsd-zfs "${DISK}s1" > /dev/null
+
+		# Write bootcode for ZFS on BIOS
+		dd if="/boot/zfsboot" of="/dev/${DISK}s1" count=1 > /dev/null 2>&1
+
+		# Generate the bootpool device list.
+		echo "/dev/${DISK}s1a" >> ${bootdevlist}
+
+		# Generate the mbr device list.
+		echo "${DISK}s1d" >> ${tmpfile}
+
+		#NUM=$(expr $NUM + 1)
+	done
+
+	ZROOT_DEVLIST=$(cat ${tmpfile})
+	BOOTPOOL_DEVLIST=$(cat ${bootdevlist})
+	if [ ! -z "${SWAP_SIZE}" ]; then
+		SWAP_DEVLIST=$(cat ${swapdevlist})
+		rm -f ${swapdevlist}
+	fi
+}
+
 # Install RootOnZFS.
 zroot_init()
 {
@@ -200,16 +267,27 @@ zroot_init()
 	# Check for existing zroot pool.
 	zpool_check
 
+	# Check for existing bootpool pool.
+	if [ "${BOOT_MODE}" = 3 ]; then
+		bootpool_check
+	fi
+
 	# Get rid of any metadata on selected disk.
 	cleandisk_init
 
-	# Create GPT/Partition on disk.
-	gptpart_init
+	# Create MBR/GPT/Partition on disk.
+	if [ "${BOOT_MODE}" = 3 ]; then
+		mbrpart_init
+	else
+		gptpart_init
+	fi
 
 	# Set the raid type.
 	if [ "${STRIPE}" = 0 ]; then
 		RAID=""
 	elif [ "${MIRROR}" = 0 ]; then
+		RAID="mirror"
+	elif [ "${RAID10}" = 0 ]; then
 		RAID="mirror"
 	elif [ "${RAIDZ1}" = 0 ]; then
 		RAID="raidz1"
@@ -219,9 +297,40 @@ zroot_init()
 		RAID="raidz3"
 	fi
 
+	if [ "${BOOT_MODE}" = 3 ]; then
+		# Create bootable bootpool pool for mbr.
+		echo "Setting up boot pool..."
+		mount -t tmpfs "none" ${ALTROOT}
+
+		if [ "${RAID10}" = 0 ]; then
+			# Generate raid10 list in groups of two(fixed to four disk).
+			echo ${BOOTPOOL_DEVLIST} | xargs -n 2 | split -d -l 1 - ${tmpfile}.disks
+			BOOTPOOL_DEVLIST1=$(cat ${tmpfile}.disks00)
+			BOOTPOOL_DEVLIST2=$(cat ${tmpfile}.disks01)
+			zpool create -o altroot=${ALTROOT}  -m /${BOOTPOOL} -f ${BOOTPOOL} ${RAID} ${BOOTPOOL_DEVLIST1} ${RAID} ${BOOTPOOL_DEVLIST2}
+			rm -rf ${tmpfile}.disks*
+		else
+			zpool create -o altroot=${ALTROOT}  -m /${BOOTPOOL} -f ${BOOTPOOL} ${RAID} ${BOOTPOOL_DEVLIST}
+		fi
+
+		mkdir -p ${ALTROOT}/${BOOTPOOL}/boot
+		zfs unmount ${BOOTPOOL}
+		umount ${ALTROOT}
+	fi
+
 	# Create bootable zroot pool with boot environments support.
 	echo "Creating bootable ${ZROOT} pool"
-	zpool create -o altroot=${ALTROOT} -O compress=lz4 -O atime=off -m none -f ${ZROOT} ${RAID} ${ZROOT_DEVLIST}
+
+	if [ "${RAID10}" = 0 ]; then
+		# Generate raid10 list in groups of two(fixed to four disk).
+		echo ${ZROOT_DEVLIST} | xargs -n 2 | split -d -l 1 - ${tmpfile}.disks
+		ZROOT_DEVLIST1=$(cat ${tmpfile}.disks00)
+		ZROOT_DEVLIST2=$(cat ${tmpfile}.disks01)
+		zpool create -o altroot=${ALTROOT} -O compress=lz4 -O atime=off -m none -f ${ZROOT} ${RAID} ${ZROOT_DEVLIST1} ${RAID} ${ZROOT_DEVLIST2}
+		rm -rf ${tmpfile}.disks*
+	else
+		zpool create -o altroot=${ALTROOT} -O compress=lz4 -O atime=off -m none -f ${ZROOT} ${RAID} ${ZROOT_DEVLIST}
+	fi
 
 	# Create ZFS filesystem hierarchy.
 	zfs create -o mountpoint=none ${ZROOT}${DATASET}
@@ -233,7 +342,7 @@ zroot_init()
 	zfs create -o setuid=off ${ZROOT}/var/tmp
 	zfs set mountpoint=/${ZROOT} ${ZROOT}
 	zpool set bootfs=${ZROOT}${DATASET}${BOOTENV} ${ZROOT}
-	zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}
+	#zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}
 	if [ $? -eq 1 ]; then
 		echo "Error: A problem has occurred while creating ${ZROOT} pool."
 		exit 1
@@ -242,21 +351,49 @@ zroot_init()
 	# Install system files.
 	install_sys_files
 
-	# Set the zpool.cache file.
-	zpool set cachefile=${ALTROOT}/boot/zfs/zpool.cache ${ZROOT}
+	if [ "${BOOT_MODE}" = 3 ]; then
+		# Temporarily exporting ZFS pool(s)...
+		zpool export ${ZROOT}
+		zpool export ${BOOTPOOL}
+	fi
 
 	# Write bootcode.
 	echo "Writing bootcode..."
 	DISKS=${DEVICE_LIST}
 	for DISK in ${DISKS}
 	do
-		if [ "${BOOT_MODE}" = 2 ]; then
+		if [ "${BOOT_MODE}" = 3 ]; then
+			gpart bootcode -b /boot/mbr ${DISK}
+			echo "Updating MBR boot loader on ${DISK}"
+			dd if="/boot/zfsboot" of="/dev/${DISK}s1a" skip=1 seek=1024 > /dev/null 2>&1
+		elif [ "${BOOT_MODE}" = 2 ]; then
 			gpart bootcode -p /boot/boot1.efifat -i 1 ${DISK}
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 2 ${DISK}
 		else
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${DISK}
 		fi
 	done
+
+	if [ "${BOOT_MODE}" = 3 ]; then
+		# Re-importing ZFS pool(s)...
+		zpool import -o altroot=${ALTROOT} ${ZROOT}
+		zpool import -o altroot=${ALTROOT} -N ${BOOTPOOL}
+		zfs mount ${BOOTPOOL}
+
+		echo "Copying ${BOOTPOOL} content..."
+		rsync -a ${ALTROOT}/boot/ ${ALTROOT}/${BOOTPOOL}/boot/
+		rm -rf ${ALTROOT}/boot
+
+		echo "Creating /boot symlink for ${BOOTPOOL}..."
+		ln -sf ${BOOTPOOL}/boot ${ALTROOT}/boot
+		mkdir -p ${ALTROOT}/boot/zfs
+	fi
+
+	# Set the zpool.cache file.
+	zpool set cachefile=${ALTROOT}/boot/zfs/zpool.cache ${ZROOT}
+
+	# Set canmount=noauto for the boot environment.
+	zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}
 
 	sysctl kern.geom.debugflags=0
 	sleep 1
@@ -272,7 +409,7 @@ zroot_init()
 			if ! kldstat | grep -q geom_mirror; then
 				kldload /boot/kernel/geom_mirror.ko
 			fi
-			gmirror label -b prefer swap ${SWAP_DEVLIST}
+			gmirror label -b ${GMIRRORBAL} swap ${SWAP_DEVLIST}
 			# Add swap mirror to fstab.
 			echo "/dev/mirror/swap none swap sw 0 0" >> ${ALTROOT}/etc/fstab
 		else
@@ -296,6 +433,12 @@ zroot_init()
 	# Flush disk cache and wait 1 second.
 	sync; sleep 1
 	if zpool status | grep -q ${ZROOT}; then
+		if [ "${BOOT_MODE}" = 3 ]; then
+			if zpool status | grep -q ${BOOTPOOL}; then
+				zpool export ${BOOTPOOL}
+			fi
+		fi
+
 		zpool export ${ZROOT}
 	fi
 
@@ -346,6 +489,9 @@ autoboot_delay="3"
 isboot_load="YES"
 zfs_load="YES"
 EOF
+	if [ "${BOOT_MODE}" = 3 ]; then
+		echo "vfs.root.mountfrom=\"zfs:${ZROOT}${DATASET}${BOOTENV}\"" >> ${ALTROOT}/boot/loader.conf
+	fi
 
 	if [ "${PLATFORM}" = "amd64" ]; then
 		echo 'mlx4en_load="YES"' >> ${ALTROOT}/boot/loader.conf
@@ -477,8 +623,8 @@ create_user_dataset()
 	# Create user Dataset on request.
 	if [ ! -z "${DATASET_NAME}" ]; then
 		echo "Creating dataset ${DATASET_NAME}..."
-		# Prevent for dataset directory creation here.
-		# Users should never write data to this directory unless synced and mounted from WebGUI.
+		# Prevent for dataset directory creation here(backward compatibility only).
+		# Users should never write data to this directory unless dataset mounted.
 		# So we will set canmount after dataset creation for safety.
 		zfs create -o compression=lz4 -o canmount=off -o atime=off -o mountpoint=${ALTROOT}/${DATASET_NAME} ${ZROOT}/${DATASET_NAME}
 		zfs set canmount=on ${ZROOT}/${DATASET_NAME}
@@ -497,6 +643,13 @@ create_default_snapshot()
 	zfs snapshot ${ZROOT}${DATASET}${BOOTENV}@factory-defaults
 	echo "Done!"
 	sleep 1
+
+	if [ "${BOOT_MODE}" = 3 ]; then
+		echo "Creating ${BOOTPOOL} default snapshot..."
+		zfs snapshot ${BOOTPOOL}@factory-defaults
+		echo "Done!"
+		sleep 1
+	fi
 }
 
 zpool_check()
@@ -517,6 +670,28 @@ zpool_check()
 		# Export existing zroot pool.
 		if zpool status | grep -q ${ZROOT}; then
 			zpool export -f ${ZROOT} > /dev/null 2>&1
+		fi
+	fi
+}
+
+bootpool_check()
+{
+	# Check if a bootpool pool already exist and/or mounted.
+	echo "Check for existing ${BOOTPOOL} pool..."
+	if zpool import | grep -qw ${BOOTPOOL} || zpool status | grep -qw ${BOOTPOOL}; then
+		printf '\033[1;37;43m WARNING \033[0m\033[1;37m A pool called '${BOOTPOOL}' already exist.\033[0m\n'
+		while :
+			do
+				read -p "Do you wish to proceed with the installation anyway? [y/N]:" yn
+				case ${yn} in
+				[Yy]) break;;
+				[Nn]) exit 0;;
+				esac
+			done
+		echo "Proceeding..."
+		# Export existing zroot pool.
+		if zpool status | grep -q ${BOOTPOOL}; then
+			zpool export -f ${BOOTPOOL} > /dev/null 2>&1
 		fi
 	fi
 }
@@ -553,18 +728,16 @@ menu_swap()
 		fi
 
 		SWAP_SIZE="${swap_size}"
-		if [ "${choice}" = 2 ]; then
-			if [ "${NWAY_MIRROR}" != 0 ]; then
-				cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "System Swap Mode" \
-				--radiolist "Select system Swap mode, (default mirrored)." 10 50 4 \
-				1 "Mirrored System Swap" on \
-				2 "Multiple System Swap" off \
-				2>${tmpfile}
-				if [ 0 -ne $? ]; then
-					exit 0
-				fi
-				SWAPMODE=$(cat ${tmpfile})
+		if [ "${choice}" -ge 2 ]; then
+			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "System Swap Mode" \
+			--radiolist "Select system Swap mode, (default is mirrored)." 10 50 4 \
+			1 "Mirrored System Swap" on \
+			2 "Multiple System Swap" off \
+			2>${tmpfile}
+			if [ 0 -ne $? ]; then
+				exit 0
 			fi
+			SWAPMODE=$(cat ${tmpfile})
 		fi
 	fi
 }
@@ -664,6 +837,7 @@ menu_bootmode()
 	--radiolist "Select system boot mode, default is GPT BIOS." 10 50 4 \
 	1 "GPT BIOS System Boot" on \
 	2 "GPT BIOS+UEFI System Boot" off \
+	3 "MBR BIOS System Boot (Legacy)" off \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
 		exit 0
@@ -790,11 +964,13 @@ menu_install()
 		elif [ "${choice}" = 2 ]; then
 			cdialog --msgbox "Notice: You need to select at least two disks!" 6 55; exit 1
 		elif [ "${choice}" = 3 ]; then
-			cdialog --msgbox "Notice: You need to select at least two disks!" 6 55; exit 1
+			cdialog --msgbox "Notice: You need to select at least four disks!" 6 55; exit 1
 		elif [ "${choice}" = 4 ]; then
 			cdialog --msgbox "Notice: You need to select at least three disks!" 6 55; exit 1
 		elif [ "${choice}" = 5 ]; then
 			cdialog --msgbox "Notice: You need to select at least four disks!" 6 55; exit 1
+		elif [ "${choice}" = 6 ]; then
+			cdialog --msgbox "Notice: You need to select at least five disks!" 6 55; exit 1
 		fi
 	fi
 
@@ -803,14 +979,10 @@ menu_install()
 		if [ "${choice}" = 2 ]; then
 			if [ "${DEV_COUNT}" -le 1 ]; then
 				cdialog --msgbox "Notice: You need to select a minimum of two disks!" 6 60; exit 1
-			else
-				if [ "${DEV_COUNT}" -ge 3 ]; then
-					NWAY_MIRROR="0"
-				fi
 			fi
 		elif [ "${choice}" = 3 ]; then
-			if [ "${DEV_COUNT}" -le 1 ]; then
-				cdialog --msgbox "Notice: You need to select a minimum of two disks!" 6 60; exit 1
+			if [ "${DEV_COUNT}" -le 3 ]; then
+				cdialog --msgbox "Notice: You need to select a minimum of four disks!" 6 60; exit 1
 			fi
 		elif [ "${choice}" = 4 ]; then
 			if [ "${DEV_COUNT}" -le 2 ]; then
@@ -820,11 +992,16 @@ menu_install()
 			if [ "${DEV_COUNT}" -le 3 ]; then
 				cdialog --msgbox "Notice: You need to select a minimum of four disks!" 6 60; exit 1
 			fi
+		elif [ "${choice}" = 6 ]; then
+			if [ "${DEV_COUNT}" -le 4 ]; then
+				cdialog --msgbox "Notice: You need to select a minimum of five disks!" 6 60; exit 1
+			fi
 		fi
 	fi
 	cat /dev/null > ${tmplist}
 	for disk in ${disklist}; do
-		echo "/dev/${disk}" >> ${tmplist}
+		#echo "/dev/${disk}" >> ${tmplist}
+		echo "${disk}" >> ${tmplist}
 	done
 
 	DEVICE_LIST=$(cat ${tmplist})
@@ -835,12 +1012,13 @@ menu_main()
 {
 	while :
 		do
-			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --clear --title "${PRDNAME} Installer Options" --cancel-label "Exit" --menu "" 11 50 10 \
+			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --clear --title "${PRDNAME} Installer Options" --cancel-label "Exit" --menu "" 12 50 10 \
 			"1" "Install ${PRDNAME} ${APPNAME} on Stripe" \
 			"2" "Install ${PRDNAME} ${APPNAME} on Mirror" \
-			"3" "Install ${PRDNAME} ${APPNAME} on RAIDZ1" \
-			"4" "Install ${PRDNAME} ${APPNAME} on RAIDZ2" \
-			"5" "Install ${PRDNAME} ${APPNAME} on RAIDZ3" \
+			"3" "Install ${PRDNAME} ${APPNAME} on RAID10" \
+			"4" "Install ${PRDNAME} ${APPNAME} on RAIDZ1" \
+			"5" "Install ${PRDNAME} ${APPNAME} on RAIDZ2" \
+			"6" "Install ${PRDNAME} ${APPNAME} on RAIDZ3" \
 			2>${tmpfile}
 			if [ 0 -ne $? ]; then
 				exit 0
@@ -849,9 +1027,10 @@ menu_main()
 			case "${choice}" in
 				1) STRIPE="0" && menu_zroot_create ;;
 				2) MIRROR="0" && menu_zroot_create ;;
-				3) RAIDZ1="0" && menu_zroot_create ;;
-				4) RAIDZ2="0" && menu_zroot_create ;;
-				5) RAIDZ3="0" && menu_zroot_create ;;
+				3) RAID10="0" && menu_zroot_create ;;
+				4) RAIDZ1="0" && menu_zroot_create ;;
+				5) RAIDZ2="0" && menu_zroot_create ;;
+				6) RAIDZ3="0" && menu_zroot_create ;;
 			esac
 		done
 }
