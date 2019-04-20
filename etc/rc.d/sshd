@@ -9,7 +9,7 @@
 
 # PROVIDE: sshd
 # REQUIRE: LOGIN FILESYSTEMS
-# XQUERY: -i "count(//sshd/enable) > 0" -o "0" -b
+# XQUERY: --if "count(//sshd/enable) > 0" --output "0" --break
 # RCVAR: sshd
 
 . /etc/rc.subr
@@ -40,28 +40,57 @@ sshd_mkconf()
 	local _privatekey
 
 	# Create sshd_config file
-	/usr/local/bin/xml sel -t \
-		-m "(//sshd[enable])[1]" \
-			-o "HostKeyAlgorithms ssh-ed25519,ssh-rsa,ssh-dss" -n \
-			-o "HostKey /var/etc/ssh/ssh_host_rsa_key" -n \
-			-o "SyslogFacility LOCAL3" -n \
-			-o "Protocol 2" -n \
-			-o "UseDNS no" -n \
-			-i "string-length(subsystem) > 0" -v "concat('Subsystem ',subsystem)" -n -b \
-			-i "string-length(subsystem) = 0" -v "concat('Subsystem ','sftp /usr/libexec/sftp-server')" -n -b \
-			-i "count(challengeresponseauthentication) = 0" -o "ChallengeResponseAuthentication no" -n -b \
-			-i "count(challengeresponseauthentication) > 0" -o "ChallengeResponseAuthentication yes" -n -b \
-			-i "count(port) > 0" -v "concat('Port ',port)" -n -b \
-			-i "count(permitrootlogin) > 0" -o "PermitRootLogin yes" -n -b \
-			-i "count(tcpforwarding) = 0" -o "AllowTcpForwarding no" -n -b \
-			-i "count(tcpforwarding) > 0" -o "AllowTcpForwarding yes" -n -b \
-			-i "count(compression) > 0" -o "Compression yes" -n -b \
-			-i "count(passwordauthentication) > 0" -o "PasswordAuthentication yes" -n -b \
-			-i "count(pubkeyauthentication) > 0" -o "PubkeyAuthentication yes" -n -b \
-			-m "auxparam" \
-				-v "." -n \
-			-b \
-		-b \
+	/usr/local/bin/xml sel --template \
+		--match '(//sshd[enable])[1]' \
+			--output 'HostKeyAlgorithms ssh-ed25519,ssh-rsa,ssh-dss' --nl \
+			--output 'HostKey /var/etc/ssh/ssh_host_rsa_key' --nl \
+			--output 'SyslogFacility LOCAL3' --nl \
+			--output 'Protocol 2' --nl \
+			--output 'UseDNS no' --nl \
+			--if 'string-length(subsystem) > 0' \
+				--value-of 'concat("Subsystem ",subsystem)' --nl \
+			--else \
+				--output 'Subsystem sftp /usr/libexec/sftp-server' --nl \
+			--break \
+			--if 'count(challengeresponseauthentication) > 0' \
+				--output 'ChallengeResponseAuthentication yes' --nl \
+			--else \
+				--output "ChallengeResponseAuthentication no" --nl \
+			--break \
+			--if 'string-length(port) > 0' \
+				--value-of 'concat("Port ",port)' --nl \
+			--break \
+			--if 'count(permitrootlogin) > 0' \
+				--output 'PermitRootLogin yes' --nl \
+			--else \
+				--output 'PermitRootLogin no' --nl \
+			--break \
+			--if 'count(tcpforwarding) > 0' \
+				--output 'AllowTcpForwarding yes' --nl \
+			--else \
+				--output "AllowTcpForwarding no" --nl \
+			--break \
+			--if 'count(compression) > 0' \
+				--output 'Compression yes' --nl \
+			--else \
+				--output 'Compression no' \
+			--break \
+			--if 'count(passwordauthentication) > 0' \
+				--output 'PasswordAuthentication yes' --nl \
+			--else \
+				--output 'PasswordAuthentication no' --nl \
+			--break \
+			--if 'count(pubkeyauthentication) > 0' \
+				--output 'PubkeyAuthentication yes' --nl \
+			--else \
+				--output 'PubkeyAuthentication no' --nl \
+			--break \
+			--match 'auxparam' \
+				--if 'position() < last() or string-length(.) > 0' \
+					--value-of '.' --nl \
+				--break \
+			--break \
+		--break \
 		${configxml_file} | /usr/local/bin/xml unesc > ${sshd_config}
 
 	# Create private key

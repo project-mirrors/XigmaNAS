@@ -33,168 +33,289 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'sshd','auxparam');
-$os_release = exec('uname -r | cut -d - -f1');
-$pconfig['challengeresponseauthentication'] = isset($config['sshd']['challengeresponseauthentication']);
-$pconfig['port'] = $config['sshd']['port'];
-$pconfig['permitrootlogin'] = isset($config['sshd']['permitrootlogin']);
-$pconfig['tcpforwarding'] = isset($config['sshd']['tcpforwarding']);
-$pconfig['enable'] = isset($config['sshd']['enable']);
-$pconfig['key'] = !empty($config['sshd']['private-key']) ? base64_decode($config['sshd']['private-key']) : "";
-$pconfig['passwordauthentication'] = isset($config['sshd']['passwordauthentication']);
-$pconfig['compression'] = isset($config['sshd']['compression']);
-$pconfig['subsystem'] = !empty($config['sshd']['subsystem']) ? $config['sshd']['subsystem'] : "";
-if(isset($config['sshd']['auxparam']) && is_array($config['sshd']['auxparam'])):
-	$pconfig['auxparam'] = implode("\n", $config['sshd']['auxparam']);
+use services\sshd\setting_toolbox as toolbox;
+use services\sshd\shared_toolbox;
+
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-
-if ($_POST) {
-	unset($input_errors);
-	$pconfig = $_POST;
-
-	/* input validation */
-	$reqdfields = [];
-	$reqdfieldsn = [];
-
-	if (isset($_POST['enable']) && $_POST['enable']) {
-		$reqdfields = array_merge($reqdfields,['port']);
-		$reqdfieldsn = [gtext('TCP Port')];
-		$reqdfieldst = ['port'];
-		
-		if (!empty($_POST['key'])) {
-			$reqdfields = array_merge($reqdfields, ['key']);
-			$reqdfieldsn = array_merge($reqdfieldsn,[gtext('Private Key')]);
-			$reqdfieldst = array_merge($reqdfieldst, ['privatekey']);
-		}
-	}
-
-	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-	do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
-
-	if (empty($input_errors)) {
-		$config['sshd']['port'] = $_POST['port'];
-		$config['sshd']['challengeresponseauthentication'] = isset($_POST['challengeresponseauthentication']);
-		$config['sshd']['permitrootlogin'] = isset($_POST['permitrootlogin']) ? true : false;
-		$config['sshd']['tcpforwarding'] = isset($_POST['tcpforwarding']) ? true : false;
-		$config['sshd']['enable'] = isset($_POST['enable']) ? true : false;
-		$config['sshd']['private-key'] = base64_encode($_POST['key']);
-		$config['sshd']['passwordauthentication'] = isset($_POST['passwordauthentication']) ? true : false;
-		$config['sshd']['compression'] = isset($_POST['compression']) ? true : false;
-		$config['sshd']['subsystem'] = $_POST['subsystem'];
-
-		# Write additional parameters.
-		unset($config['sshd']['auxparam']);
-		foreach (explode("\n", $_POST['auxparam']) as $auxparam) {
-			$auxparam = trim($auxparam, "\t\n\r");
-			if (!empty($auxparam))
-				$config['sshd']['auxparam'][] = $auxparam;
-		}
-
-		write_config();
-
-		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)) {
-			config_lock();
-			$retval |= rc_update_service("sshd");
-			$retval |= rc_update_service("mdnsresponder");
-			config_unlock();
-		}
-		$savemsg = get_std_save_message($retval);
-	}
-}
-$pgtitle = [gtext('Services'),gtext('SSH')];
-?>
-<?php include 'fbegin.inc';?>
-<script type="text/javascript">
-<!--
-function enable_change(enable_change) {
-	var endis = !(document.iform.enable.checked || enable_change);
-	document.iform.port.disabled = endis;
-	document.iform.challengeresponseauthentication.disabled = endis;
-	document.iform.key.disabled = endis;
-	document.iform.permitrootlogin.disabled = endis;
-	document.iform.passwordauthentication.disabled = endis;
-	document.iform.tcpforwarding.disabled = endis;
-	document.iform.compression.disabled = endis;
-	document.iform.subsystem.disabled = endis;
-	document.iform.auxparam.disabled = endis;
-}
-//-->
-</script>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tabcont">
-			<form action="services_sshd.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-				<?php if (!empty($input_errors)) print_input_errors($input_errors);?>
-				<?php if (!empty($savemsg)) print_info_box($savemsg);?>
-				<table width="100%" border="0" cellpadding="6" cellspacing="0">
-					<?php html_titleline_checkbox("enable", gtext("Secure Shell"), !empty($pconfig['enable']) ? true : false, gtext("Enable"), "enable_change(false)");?>
-					<tr>
-						<td width="22%" valign="top" class="vncellreq"><?=gtext("TCP port");?></td>
-						<td width="78%" class="vtable">
-							<input name="port" type="text" class="formfld" id="port" size="20" value="<?=htmlspecialchars($pconfig['port']);?>" />
-							<br /><?=gtext("Enter a custom port number if you want to override the default port. (Default is 22).");?>
-						</td>
-					</tr>
-					<tr>
-						<td width="22%" valign="top" class="vncell"><?=gtext("Enable Challenge-Response Authentication");?></td>
-						<td width="78%" class="vtable">
-							<input name="challengeresponseauthentication" type="checkbox" id="challengeresponseauthentication" value="yes" <?php if (!empty($pconfig['challengeresponseauthentication'])) echo "checked=\"checked\""; ?> />
-							<?=gtext("Specifies the usage of Challenge-Response Authentication.");?>
-						</td>
-					</tr>
-					<tr>
-						<td width="22%" valign="top" class="vncell"><?=gtext("Permit Root Login");?></td>
-						<td width="78%" class="vtable">
-						<input name="permitrootlogin" type="checkbox" id="permitrootlogin" value="yes" <?php if (!empty($pconfig['permitrootlogin'])) echo "checked=\"checked\""; ?> />
-							<?=gtext("Specifies whether it is allowed to login as superuser (root) directly.");?>
-						</td>
-					</tr>
-					<tr>
-						<td width="22%" valign="top" class="vncell"><?=gtext("Password Authentication");?></td>
-						<td width="78%" class="vtable">
-							<input name="passwordauthentication" type="checkbox" id="passwordauthentication" value="yes" <?php if (!empty($pconfig['passwordauthentication'])) echo "checked=\"checked\""; ?> />
-							<?=gtext("Enable keyboard-interactive authentication.");?>
-						</td>
-					</tr>
-					<tr>
-					<td width="22%" valign="top" class="vncell"><?=gtext("TCP Forwarding");?></td>
-						<td width="78%" class="vtable">
-							<input name="tcpforwarding" type="checkbox" id="tcpforwarding" value="yes" <?php if (!empty($pconfig['tcpforwarding'])) echo "checked=\"checked\""; ?> />
-							<?=gtext("Permit to do SSH Tunneling.");?>
-						</td>
-					</tr>
-					<tr>
-						<td width="22%" valign="top" class="vncell"><?=gtext("Compression");?></td>
-						<td width="78%" class="vtable">
-							<input name="compression" type="checkbox" id="compression" value="yes" <?php if (!empty($pconfig['compression'])) echo "checked=\"checked\""; ?> />
-							<?=gtext("Enable compression.");?><br />
-							<span class="vexpl"><?=gtext("Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only.");?></span>
-						</td>
-					</tr>
-					<?php html_textarea("key", gtext("Private Key"), $pconfig['key'], gtext("Paste a RSA PRIVATE KEY in PEM format here."), false, 65, 7, false, false);?>
-					<?php html_inputbox("subsystem", gtext("Subsystem"), $pconfig['subsystem'], gtext("Leave this field empty to use default settings."), false, 40);?>
-					<?php
-					$helpinghand = '<a href="' .
-							'https://www.freebsd.org/cgi/man.cgi?query=sshd_config&amp;apropos=0&amp;sektion=0&amp;manpath=FreeBSD+' . $os_release . '-RELEASE&amp;format=html' .
-							'" target="_blank">' .
-							gtext('Please check the documentation').
-							'</a>.';
-					html_textarea("auxparam", gtext("Additional Parameters"), !empty($pconfig['auxparam']) ? $pconfig['auxparam'] : "", gtext("Extra options to /etc/ssh/sshd_config (usually empty). Note, incorrect entered options prevent SSH service to be started.") . " " . $helpinghand, false, 65, 5, false, false);
-					?>
-				</table>
-				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save & Restart");?>" onclick="enable_change(true)" />
-				</div>
-				<?php include 'formend.inc';?>
-			</form>
-		</td>
-	</tr>
-</table>
-<script type="text/javascript">
-<!--
-enable_change(false);
-//-->
-</script>
-<?php include 'fend.inc';?>
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$a_referer = [
+	$cop->get_enable(),
+	$cop->get_port(),
+	$cop->get_allowpa(),
+	$cop->get_allowcra(),
+	$cop->get_allowkia(),
+	$cop->get_allowpka(),
+	$cop->get_permitrootlogin(),
+	$cop->get_allowtcpforwarding(),
+	$cop->get_compression(),
+	$cop->get_rawprivatekey(),
+	$cop->get_subsystem(),
+	$cop->get_auxparam()
+];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_update_service('sshd');
+				$retval |= rc_update_service('mdnsresponder');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+/*
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('sshd',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				exit;
+				break;
+ */
+			case 'restart':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('sshd');
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('sshd');
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('sshd');
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
+		break;
+endswitch;
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			switch($name):
+				case $cop->get_auxparam()->get_name():
+					if(array_key_exists($name,$source)):
+						if(is_array($source[$name])):
+							$source[$name] = implode(PHP_EOL,$source[$name]);
+						endif;
+					endif;
+					break;
+				case $cop->get_rawprivatekey()->get_name():
+//					decode value from privatekey
+					$rawprivatekey = base64_decode($source[$cop->get_privatekey()->get_name()] ?? '');
+					if(false !== $rawprivatekey):
+						$source[$name] = $rawprivatekey;
+					else:
+						$source[$name] = '';
+					endif;
+					break;
+			endswitch;
+			$sphere->row[$name] = $referer->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		break;
+	case 'save':
+		$source = $_POST;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $referer->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		if(empty($input_errors)):
+			foreach($a_referer as $referer):
+				$name = $referer->get_name();
+				switch($name):
+					case $cop->get_auxparam()->get_name():
+						$auxparam_grid = [];
+						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
+							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
+						endforeach;
+						$sphere->row[$name] = $auxparam_grid;
+						break;
+					case $cop->get_rawprivatekey()->get_name():
+						$privatekey = base64_encode($sphere->row[$name]);
+//						switch to privatekey field
+						$name = $cop->get_privatekey()->get_name();
+						$sphere->row[$name] = $privatekey;
+						break;
+				endswitch;
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
+			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
+			exit;
+		else:
+			$page_mode = PAGE_MODE_EDIT;
+		endif;
+		break;
+endswitch;
+//	determine final page mode and calculate readonly flag
+list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+$is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = (0 === rc_is_service_running('sshd'));
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+$input_errors_found = count($input_errors) > 0;
+$pgtitle = [gettext('Services'),gettext('SSH')];
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$n_rawprivatekey_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_rawprivatekey()->get_name()],PHP_EOL)));
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes && !$input_errors_found):
+	$content->ins_config_has_changed_box();
+endif;
+//	add content
+$tds = $content->add_table_data_settings();
+$tds->ins_colgroup_data_settings();
+$thead = $tds->addTHEAD();
+$title = gettext('SSH');
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$thead->c2_titleline($title);
+		break;
+	case PAGE_MODE_EDIT:
+		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,$title);
+		break;
+endswitch;
+$tbody = $tds->addTBODY();
+$tbody->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_allowpa(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_allowcra(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_allowkia(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_allowpka(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_permitrootlogin(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_allowtcpforwarding(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_compression(),$sphere,false,$is_readonly)->
+	c2_textarea($cop->get_rawprivatekey(),$sphere,false,$is_readonly,60,$n_rawprivatekey_rows)->
+	c2_input_text($cop->get_subsystem(),$sphere,false,$is_readonly)->
+	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+//	add buttons
+$buttons = $document->add_area_buttons();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->ins_button_enadis(!$is_enabled);
+			$buttons->ins_button_restart($is_enabled);
+//			$buttons->ins_button_reload($is_enabled);
+		endif;
+		break;
+	case PAGE_MODE_EDIT:
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
+		break;
+endswitch;
+$document->render();
