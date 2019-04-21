@@ -167,11 +167,15 @@ final class setting_properties extends grid_properties {
 	}
 	public function init_subsystem(): myp\property_text {
 		$description = gettext('Configures an external subsystem (e.g. file transfer daemon). Arguments should be a subsystem name and a command (with optional arguments) to execute upon subsystem request. Leave this field empty to use the default settings.');
+		$placeholder = gettext('Subsystem');
+		$placeholderv = gettext('Using defaults');
 		$property = parent::init_subsystem();
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('subsystem')->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholderv)->
 			set_size(60)->
 			filter_use_default_or_empty();
 		return $property;
