@@ -748,7 +748,7 @@ div#infobox,
 div#errorbox,
 div#warningbox
 {
-	margin-bottom: 0.5em;
+	padding-bottom: 0.5em;
 }
 
 div#infobox,
@@ -760,6 +760,7 @@ div#warningbox
 	justify-content: flex-start;
 	align-content: flex-start;
 	align-items: stretch;
+	padding-top: 0.5em;
 }
 
 div#infobox div.icon,
