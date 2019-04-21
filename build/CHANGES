@@ -10,11 +10,11 @@ Changes:
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
 - Upgrade nano to 4.0.
-- Upgrade bash to 5.0 p3.
 - Upgrade zoneinfo to 2019a.
 - Upgrade e2fsprogs to 1.45.0.
 - Upgrade syncthing to 1.1.1.
 - Upgrade php to 7.3.4.
+- Upgrade bash to 5.0 p7.
 
 Fixes:
 
