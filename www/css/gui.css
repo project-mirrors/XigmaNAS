@@ -743,11 +743,10 @@ table#area_data_settings_submit
 	font-weight: bold;
 }
 
+div#applybox,
 div#infobox,
 div#errorbox,
-div#warningbox,
-div#applybox input,
-div#applybox button
+div#warningbox
 {
 	margin-bottom: 0.5em;
 }
@@ -796,18 +795,20 @@ div#warningbox table tr td.icon
 	width: 3.27em;
 }
 
-div#infobox table tr td.icon, div#infobox div.icon,
-div#infobox table tr td.message, div#infobox div.message
+div#applybox,
+div#infobox
 {
-	background-color: #D9DEE8;
+	background-color: #d9dee8;
 }
 
-div#errorbox table tr td.icon, div#errorbox div.icon,
-div#errorbox table tr td.message, div#errorbox div.message,
-div#warningbox table tr td.icon, div#warningbox div.icon,
-div#warningbox table tr td.message, div#warningbox div.message
+div#errorbox
 {
-	background-color: #FFD9D1;
+	background-color: #ffd9d1;
+}
+
+div#warningbox
+{
+	background-color: #f7f2b9;
 }
 
 div#infobox table tr td.message, div#infobox div.message,

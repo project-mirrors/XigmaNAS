@@ -1722,67 +1722,92 @@ trait co_DOMTools {
 		return $subnode;
 	}
 	public function ins_input_errors(array $input_errors = []) {
-		foreach($input_errors as $input_error):
-			if(is_string($input_error)):
-				if(preg_match('/\S/',$input_error)):
-					$messages[] = $input_error;
-				endif;
-			endif;
-		endforeach;
-		if(!empty($messages)):
-			$ul = $this->
-				addDIV(['id' => 'errorbox'])->
-					addTABLE(['border' => '0','cellspacing' => '0','cellpadding' => '1','width' => '100%'])->
-						addTR()->
-							push()->addTD(['class' => 'icon','align' => 'center','valign' => 'center'])->
-								insIMG(['src' => '/images/error_box.png','alt' => ''])->
-							pop()->addTDwC('message')->
+		global $g_img;
+
+		$id = 'errorbox';
+		$src = $g_img['box.error'];
+		$alt = '';
+		$firstrowtrigger = true;
+		foreach($input_errors as $rowvalue):
+			if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
+				if($firstrowtrigger):
+					$hook_id = $this->addDIV(['id' => $id])->
+					$hook_id->
+						addDIV(['class' => 'icon'])->
+							insIMG(['src' => $src,'alt' => $alt]);
+					$hook_messages = $hook_id->
+						addDIV(['class' => 'message'])->
+							addDIV(['class' => 'messagecontainer'])->
 								addDIV([],sprintf('%s:',gettext('The following errors were detected'),':'))->
 									addUL();
-			foreach($messages as $message):
-				$ul->addLI([],$message);
+					$firstrowtrigger = false;
+				endif;
+				$hook_messages->addLI([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
+//				$hook_messages->addLI([],$rowvalue);
+			endif;
+		endforeach;
+		return $this;
+	}
+/**
+ *	Show error, info or warning messages
+ *	@param mixed $message The message(s) to be shown
+ *	@param string $message_type e)rror, i)info, w)arning
+ *	@return $this
+ */
+	private function ins_message_box($message,string $message_type = NULL) {
+		global $g_img;
+
+		if(is_string($message)):
+			$grid = [$message];
+		elseif(is_array($message)):
+			$grid = $message;
+		endif;
+		if(is_array($grid)):
+			switch($message_type):
+				default:
+					$id = 'errorbox';
+					$src = $g_img['box.error'];
+					$alt = '';
+					break;
+				case 'i':
+					$id = 'infobox';
+					$src = $g_img['box.info'];
+					$alt = '';
+					break;
+				case 'w':
+					$id = 'warningbox';
+					$src = $g_img['box.warning'];
+					$alt = '';
+					break;
+			endswitch;
+			$firstrowtrigger = true;
+			foreach($grid as $rowvalue):
+				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
+					if($firstrowtrigger):
+						$hook_id = $this->addDIV(['id' => $id]);
+						$hook_id->
+							addDIV(['class' => 'icon'])->
+								insIMG(['src' => $src,'alt' => $alt]);
+						$hook_messages = $hook_id->
+							addDIV(['class' => 'message'])->
+								addDIV(['class' => 'messagecontainer']);
+						$firstrowtrigger = false;
+					endif;
+					$hook_messages->insDIV([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
+//					$hook_messages->insDIV([],$rowvalue);
+				endif;
 			endforeach;
 		endif;
 		return $this;
 	}
-	public function ins_error_box(string $message = NULL) {
-		if(preg_match('/\S/',$message)):
-//	xxx
-			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
-			$this->
-				addDIV(['id' => 'errorbox'])->
-					addTABLE(['style' => 'width:100%;border-spacing:0;'])->
-						addTR()->
-							push()->addTDwC('icon')->insIMG(['src' => '/images/error_box.png','alt' => ''])->
-							pop()->addTDwC('message',$message);
-		endif;
-		return $this;
+	public function ins_error_box($message = NULL) {
+		return $this->ins_message_box($message,'e');
 	}
-	public function ins_info_box(string $message = NULL) {
-		if(preg_match('/\S/',$message)):
-//	xxx
-			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
-			$this->
-				addDIV(['id' => 'infobox'])->
-					addTABLE(['style' => 'width:100%;border-spacing:0;'])->
-						addTR()->
-							push()->addTDwC('icon')->insIMG(['src' => '/images/info_box.png','alt' => ''])->
-							pop()->addTDwC('message',$message);
-		endif;
-		return $this;
+	public function ins_info_box($message = NULL) {
+		return $this->ins_message_box($message,'i');
 	}
-	public function ins_warning_box(string $message = NULL) {
-		if(preg_match('/\S/',$message)):
-//	xxx
-			$message = htmlspecialchars_decode($message,ENT_QUOTES|ENT_HTML5);
-			$this->
-				addDIV(['id' => 'warningbox'])->
-					addTABLE(['style' => 'width:100%;border-spacing:0;'])->
-						addTR()->
-							push()->addTDwC('icon')->insIMG(['src' => '/images/warn_box.png','alt' => ''])->
-							pop()->addTDwC('message',$message);
-		endif;
-		return $this;
+	public function ins_warning_box($message = NULL) {
+		return $this->ins_message_box($message,'w');
 	}
 	public function ins_config_save_message_box($errorcode) {
 		global $d_sysrebootreqd_path;
@@ -2123,7 +2148,7 @@ trait co_DOMTools {
 			$hook->import_soup($option_val);
 			$this->add_hook($hook,$option_tag);
 			$n_options++;
-		endforeach;	
+		endforeach;
 		switch($n_options <=> 1):
 			case -1:
 				$message_info = $p->get_message_info();
@@ -2963,7 +2988,7 @@ EOJ;
 		$hard_link_regex = '~^[a-z]+://~';
 		$menu = get_headermenu();
 		make_headermenu_extensions($menu); // function cares about access rights itself
-		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];	
+		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 		$ul_h = $this->addDIV(['id' => 'area_navhdr'])->addElement('nav',['id' => 'navhdr'])->addUL();
 		foreach($menu_list as $menuid):
 			if($menu[$menuid]['visible']): // render menu when visible
