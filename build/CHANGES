@@ -7,6 +7,7 @@ Changes:
 - Add WebDAV.
 - Add mariadb and phpMyAdmin.
 - Add L2ARC size statistics to RRDGraph.
+- Add public key management for SSH.
 - Upgrade iperf3 to 3.6.
 - Upgrade dmidecode to 3.2.
 - Upgrade devcpu-data to 1.20.
