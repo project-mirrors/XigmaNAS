@@ -47,7 +47,7 @@ final class setting_toolbox {
 		$sphere = new mys\settings();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('services_sshd_new');
+			set_script('services_sshd');
 		return $sphere;
 	}
 /**
