@@ -344,7 +344,6 @@ td > label > input[type='checkbox']
 .hideifchecked
 {
 	display: block;
-	
 }
 
 input[type='radio']:checked ~ div.showifchecked,
@@ -747,45 +746,75 @@ table#area_data_settings_submit
 div#infobox,
 div#errorbox,
 div#warningbox,
-div#applybox input
+div#applybox input,
+div#applybox button
 {
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 div#infobox,
 div#errorbox,
-div#warningbox,
-div#applybox button
+div#warningbox
 {
-	margin-bottom: 1em;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+	align-items: stretch;
 }
 
-div#infobox table tr td.icon
+div#infobox div.icon,
+div#errorbox div.icon,
+div#warningbox div.icon,
+div.messagecontainer div
 {
-	background-color: #D9DEE8;
-	width: 3.27em;
+	flex: 0 0 auto;
 }
 
-div#infobox table tr td.message
+div#infobox div.message,
+div#errorbox div.message,
+div#warningbox div.message
 {
-	color: #000000;
-	background-color: #D9DEE8;
-	padding-left: 0.73em;
-	font-weight: bold;
+	flex: 1 1 auto;
 }
 
+div#infobox div.messagecontainer,
+div#errorbox div.messagecontainer,
+div#warningbox div.messagecontainer
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	height: 100%;
+}
+
+div#infobox table tr td.icon,
 div#errorbox table tr td.icon,
 div#warningbox table tr td.icon
 {
-	background-color: #FFD9D1;
 	width: 3.27em;
 }
 
-div#errorbox table tr td.message,
-div#warningbox table tr td.message
+div#infobox table tr td.icon, div#infobox div.icon,
+div#infobox table tr td.message, div#infobox div.message
+{
+	background-color: #D9DEE8;
+}
+
+div#errorbox table tr td.icon, div#errorbox div.icon,
+div#errorbox table tr td.message, div#errorbox div.message,
+div#warningbox table tr td.icon, div#warningbox div.icon,
+div#warningbox table tr td.message, div#warningbox div.message
+{
+	background-color: #FFD9D1;
+}
+
+div#infobox table tr td.message, div#infobox div.message,
+div#errorbox table tr td.message, div#errorbox div.message,
+div#warningbox table tr td.message, div#warningbox div.message
 {
 	color: #000000;
-	background-color: #FFD9D1;
 	padding-left: 0.73em;
 	font-weight: bold;
 }
