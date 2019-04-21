@@ -17,6 +17,7 @@ Changes:
 - Upgrade bash to 5.0 p7.
 - Upgrade jQuery to 3.4.0.
 - Upgrade nano to 4.1.
+- Add public key management for SSH.
 
 Fixes:
 
