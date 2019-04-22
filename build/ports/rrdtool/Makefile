@@ -14,7 +14,7 @@ NO_PKG_REGISTER=	yes
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=		${NONEXISTENT}:databases/rrdtool
-DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py27/stage
+DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py36/stage
 PANGO_MODULES=		${PREFIX}/lib/pango/1.8.0/modules
 
 do-install:
