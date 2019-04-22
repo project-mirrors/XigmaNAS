@@ -1,6 +1,6 @@
 PORTNAME?=			${SAMBA4_BASENAME}48
 PORTVERSION?=			${SAMBA4_VERSION}
-PORTREVISION?=			0
+PORTREVISION?=			1
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -23,7 +23,7 @@ EXTRA_PATCHES+=			${PATCHDIR}/0001-audit.patch:-p1
 EXTRA_PATCHES+=			${PATCHDIR}/0001-bug-228462.patch:-p1
 SAMBA4_BASENAME=		samba
 SAMBA4_PORTNAME=		${SAMBA4_BASENAME}4
-SAMBA4_VERSION=			4.8.9
+SAMBA4_VERSION=			4.8.11
 SAMBA4_DISTNAME=		${SAMBA4_BASENAME}-${SAMBA4_VERSION:S|.p|pre|:S|.r|rc|:S|.t|tp|:S|.a|alpha|}
 
 WRKSRC?=			${WRKDIR}/${DISTNAME}
@@ -67,8 +67,9 @@ CONFIGURE_ARGS+=		--mandir="${MANPREFIX}/man" \
 # XXX: Flags
 CONFIGURE_ENV+=			PTHREAD_LDFLAGS="-lpthread"
 
-USES=				compiler:c++11-lang cpe iconv \
-				localbase:ldflags perl5 pkgconfig shebangfix waf
+USES=				compiler:c++11-lang cpe iconv gettext-runtime \
+				localbase:ldflags perl5 pkgconfig shebangfix \
+				ssl waf
 USE_PERL5=			build
 USE_LDCONFIG=			${SAMBA4_LIBDIR}
 WAF_CMD=			buildtools/bin/waf
@@ -104,7 +105,7 @@ OPTIONS_SINGLE=                 GSSAPI
 OPTIONS_SINGLE_GSSAPI=          GSSAPI_BUILTIN GSSAPI_MIT
 
 OPTIONS_RADIO=			DNS ZEROCONF
-OPTIONS_RADIO_DNS=		NSUPDATE BIND911 BIND912 BIND913
+OPTIONS_RADIO_DNS=		NSUPDATE BIND911 BIND912 BIND913 BIND914
 OPTIONS_RADIO_ZEROCONF=		MDNSRESPONDER AVAHI
 ##############################################################################
 AD_DC_DESC=                     Active Directory Domain Controller
@@ -131,13 +132,14 @@ GSSAPI_BUILTIN_DESC=            GSSAPI support via bundled Heimdal
 BIND911_DESC=			Use Bind 9.11 as AD DC DNS server frontend
 BIND912_DESC=			Use Bind 9.12 as AD DC DNS server frontend
 BIND913_DESC=			Use Bind 9.13 as AD DC DNS server frontend
+BIND914_DESC=                   Use Bind 9.14 as AD DC DNS server frontend
 NSUPDATE_DESC=			Use samba NSUPDATE utility for AD DC
 ##############################################################################
 # XXX: Unconditional dependencies which can't be switched off(if present in
 # the system)
 # Readline(sponsored by Python)
 # XXX: USES=readline pollutes CPPFLAGS, so we explicitly put dependency
-LIB_DEPENDS+=			libreadline.so.7:devel/readline
+LIB_DEPENDS+=			libreadline.so.8:devel/readline
 # popt
 LIB_DEPENDS+=			libpopt.so:devel/popt
 # inotify
@@ -161,7 +163,7 @@ SAMBA4_BUNDLED_CMOCKA=		no
 SAMBA4_BUNDLED_TALLOC=		no
 SAMBA4_BUNDLED_TEVENT=		no
 SAMBA4_BUNDLED_TDB=		no
-SAMBA4_BUNDLED_LDB=		no
+SAMBA4_BUNDLED_LDB=		yes
 SAMBA4_LDB=			13
 # cmocka
 .if defined(SAMBA4_BUNDLED_CMOCKA) && ${SAMBA4_BUNDLED_CMOCKA} == yes
@@ -275,6 +277,7 @@ CONFIGURE_ARGS+=		\
 BIND911_RUN_DEPENDS=		bind911>=9.11.0.0:dns/bind911
 BIND912_RUN_DEPENDS=		bind912>=9.12.0.0:dns/bind912
 BIND913_RUN_DEPENDS=		bind913>=9.13.0.0:dns/bind913
+BIND914_RUN_DEPENDS=            bind914>=9.14.0.0:dns/bind914
 NSUPDATE_RUN_DEPENDS=		samba-nsupdate:dns/samba-nsupdate
 
 AVAHI_CONFIGURE_ENABLE=		avahi
