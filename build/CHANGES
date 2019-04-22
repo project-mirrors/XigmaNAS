@@ -33,6 +33,7 @@ Changes:
 - Upgrade bash to 5.0 p7.
 - Upgrade jQuery to 3.4.0.
 - Upgrade nano to 4.1.
+- Upgrade samba to 4.8.11.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
