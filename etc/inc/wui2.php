@@ -1724,28 +1724,34 @@ trait co_DOMTools {
 	public function ins_input_errors(array $input_errors = []) {
 		global $g_img;
 
-		$id = 'errorbox';
-		$src = $g_img['box.error'];
-		$alt = '';
-		$firstrowtrigger = true;
-		foreach($input_errors as $rowvalue):
-			if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
-				if($firstrowtrigger):
-					$hook_id = $this->addDIV(['id' => $id])->
-					$hook_id->
-						addDIV(['class' => 'icon'])->
-							insIMG(['src' => $src,'alt' => $alt]);
-					$hook_messages = $hook_id->
-						addDIV(['class' => 'message'])->
-							addDIV(['class' => 'messagecontainer'])->
-								addDIV([],sprintf('%s:',gettext('The following errors were detected'),':'))->
-									addUL();
-					$firstrowtrigger = false;
+		$this->reset_hooks();
+		if(is_array($input_errors)):
+			$id = 'errorbox';
+			$src = $g_img['box.error'];
+			$alt = '';
+			$firstrowtrigger = true;
+			foreach($input_errors as $rowvalue):
+				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
+					if($firstrowtrigger):
+						$hook_id = $this->addDIV(['id' => $id]);
+						$mbcl1 = $hook_id->addDIV(['class' => 'mbcl-1']);
+						$this->add_hook($mbcl1,'mbcl-1');
+						$mbcl2 = $mbcl1->addDIV(['class' => 'mbcl-2 mbci-min']);
+						$mbcl2i1 = $mbcl2->addDIV(['class' => 'icon mbci-min']);
+						$mbcl2i2 = $mbcl2->addDIV(['class' => 'message mbci-max']);
+						$mbcl3 = $mbcl2i2->addDIV(['class' => 'mbcl-3 mbci-min']);
+						$mbcl2i1->insIMG(['src' => $src,'alt' => $alt]);
+						$hook_messages = $mbcl3->
+							addDIV([],sprintf('%s:',gettext('The following errors were detected'),':'))->
+								addUL();
+						$this->add_hook($hook_messages,'messages');
+						$firstrowtrigger = false;
+					endif;
+					$hook_messages->addLI([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
+//					$hook_messages->addLI([],$rowvalue);
 				endif;
-				$hook_messages->addLI([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
-//				$hook_messages->addLI([],$rowvalue);
-			endif;
-		endforeach;
+			endforeach;
+		endif;
 		return $this;
 	}
 /**
@@ -1757,6 +1763,7 @@ trait co_DOMTools {
 	private function ins_message_box($message,string $message_type = NULL) {
 		global $g_img;
 
+		$this->reset_hooks();
 		if(is_string($message)):
 			$grid = [$message];
 		elseif(is_array($message)):
@@ -1769,12 +1776,12 @@ trait co_DOMTools {
 					$src = $g_img['box.error'];
 					$alt = '';
 					break;
-				case 'i':
+				case 'info':
 					$id = 'infobox';
 					$src = $g_img['box.info'];
 					$alt = '';
 					break;
-				case 'w':
+				case 'warning':
 					$id = 'warningbox';
 					$src = $g_img['box.warning'];
 					$alt = '';
@@ -1785,40 +1792,41 @@ trait co_DOMTools {
 				if(is_string($rowvalue) && preg_match('/\S/',$rowvalue)):
 					if($firstrowtrigger):
 						$hook_id = $this->addDIV(['id' => $id]);
-						$hook_id->
-							addDIV(['class' => 'icon'])->
-								insIMG(['src' => $src,'alt' => $alt]);
-						$hook_messages = $hook_id->
-							addDIV(['class' => 'message'])->
-								addDIV(['class' => 'messagecontainer']);
+						$mbcl1 = $hook_id->addDIV(['class' => 'mbcl-1']);
+						$this->add_hook($mbcl1,'mbcl-1');
+						$mbcl2 = $mbcl1->addDIV(['class' => 'mbcl-2 mbci-min']);
+						$mbcl2i1 = $mbcl2->addDIV(['class' => 'icon mbci-min']);
+						$mbcl2i1->insIMG(['src' => $src,'alt' => $alt]);
+						$mbcl2i2 = $mbcl2->addDIV(['class' => 'message mbci-max']);
+						$hook_messages = $mbcl2i2->addDIV(['class' => 'mbcl-3 mbci-min']);
+						$this->add_hook($hook_messages,'messages');
 						$firstrowtrigger = false;
 					endif;
 					$hook_messages->insDIV([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
-//					$hook_messages->insDIV([],$rowvalue);
+//					$mbcl3->insDIV([],$rowvalue);
 				endif;
 			endforeach;
 		endif;
 		return $this;
 	}
 	public function ins_error_box($message = NULL) {
-		return $this->ins_message_box($message,'e');
+		return $this->ins_message_box($message,'error');
 	}
 	public function ins_info_box($message = NULL) {
-		return $this->ins_message_box($message,'i');
+		return $this->ins_message_box($message,'info');
 	}
 	public function ins_warning_box($message = NULL) {
-		return $this->ins_message_box($message,'w');
+		return $this->ins_message_box($message,'warning');
 	}
 	public function ins_config_save_message_box($errorcode) {
 		global $d_sysrebootreqd_path;
 
 		if($errorcode == 0):
 			if(file_exists($d_sysrebootreqd_path)):
-				$message = sprintf(
-					'%s <a href="reboot.php">%s</a>',
+				$message = [
 					gettext('The changes have been saved.'),
-					gettext('You have to reboot the system for the changes to take effect.')
-				);
+					sprintf('<a href="reboot.php">%s</a>',gettext('You have to reboot the system for the changes to take effect.'))
+				];
 			else:
 				$message = gettext('The changes have been applied successfully.');
 			endif;
@@ -1829,16 +1837,16 @@ trait co_DOMTools {
 		return $this;
 	}
 	public function ins_config_has_changed_box() {
-		$gt_info = sprintf(
-			'%s<br />%s<br /><b><a href="diag_log.php">%s</a></b>',
+		$gt_info = [
 			gettext('The configuration has been changed.'),
 			gettext('You must apply the changes in order for them to take effect.'),
-			gettext('If this message persists take a look at the system log for more information.')
-		);
-		$this->
-			addDIV(['id' => 'applybox'])->
-				ins_info_box($gt_info)->
-				ins_button_apply();
+			sprintf('<a href="diag_log.php">%s</a>',gettext('If this message persists take a look at the system log for more information.'))
+		];
+		$this->addDIV(['id' => 'applybox'])->ins_info_box($gt_info);
+		$hooks = $this->get_hooks();
+		if(array_key_exists('mbcl-1',$hooks)):
+			$hooks['mbcl-1']->addDIV(['class' => 'mbci-min'])->ins_button_apply();
+		endif;
 		return $this;
 	}
 	//	data settings table macros
