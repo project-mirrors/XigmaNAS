@@ -235,22 +235,31 @@ function do_input_validate_synctime($postdata,&$input_errors) {
 }
 
 function print_input_errors($input_errors) {
-	echo '  <div id="errorbox">',PHP_EOL;
-	echo '    <table border="0" cellspacing="0" cellpadding="1" width="100%">',PHP_EOL;
-	echo '      <tr>',PHP_EOL;
-	echo '        <td class="icon" align="center" valign="center"><img src="images/error_box.png" alt=""/></td>',PHP_EOL;
-	echo '        <td class="message">',PHP_EOL;
-	echo '          <div>',gtext('The following input errors were detected'),':',PHP_EOL;
-	echo '            <ul>',PHP_EOL;
+	global $g_img;
+
+	$id = 'errorbox';
+	$src = $g_img['box.error'];
+	$alt = '';
+	echo '<div id="',$id,'">',PHP_EOL;
+	echo '<div class="mbcl-1">',PHP_EOL;
+	echo '<div class="mbcl-2 mbci-min">',PHP_EOL;
+	echo '<div class="icon mbci-min">',PHP_EOL;
+	echo '<img src="',$src,'" alt="',$alt,'">',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '<div class="message mbci-max">',PHP_EOL;
+	echo '<div class="mbcl-3 mbci-min">',PHP_EOL;
+	echo '<div>',gtext('The following input errors were detected'),':',PHP_EOL;
+	echo '<ul>',PHP_EOL;
 	foreach($input_errors as $msg):
-		echo '              <li>',$msg,'</li>',PHP_EOL;
+		echo '<li>',$msg,'</li>',PHP_EOL;
 	endforeach;
-	echo '            </ul>',PHP_EOL;
-	echo '          </div>',PHP_EOL;
-	echo '        </td>',PHP_EOL;
-	echo '      </tr>',PHP_EOL;
-	echo '    </table>',PHP_EOL;
-	echo '  </div>',PHP_EOL;
+	echo '</ul>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
 }
 
 function verify_xz_file($fname) {
@@ -271,46 +280,61 @@ function verify_gzip_file($fname) {
 	endif;
 }
 
-function print_core_box($type,$msg) {
+function print_core_box($type,$msg,$mbcl1i2 = NULL) {
+	global $g_img;
+
 	switch ($type):
-		case "info":
-			$id = "infobox";
-			$img = "images/info_box.png";
+		case 'error':
+			$id = 'errorbox';
+			$src = $g_img['box.error'];
+			$alt = '';
 			break;
-		case "warning":
-			$id = "warningbox";
-			$img = "images/warn_box.png";
+		case 'info':
+			$id = 'infobox';
+			$src = $g_img['box.info'];
+			$alt = '';
 			break;
-		case "error":
-			$id = "errorbox";
-			$img = "images/error_box.png";
+		case 'warning':
+			$id = 'warningbox';
+			$src = $g_img['box.warning'];
+			$alt = '';
 			break;
 	endswitch;
-
 	echo '<div id="',$id,'">',PHP_EOL;
-	echo '  <table border="0" cellspacing="0" cellpadding="1" width="100%">',PHP_EOL;
-	echo '    <tr>',PHP_EOL;
-	echo '      <td class="icon" align="center" valign="center"><img src="/',$img,'" alt=""/></td>',PHP_EOL;
-	echo '      <td class="message">',$msg,'</td>',PHP_EOL;
-	echo '    </tr>',PHP_EOL;
-	echo '  </table>',PHP_EOL;
+	echo '<div class="mbcl-1">',PHP_EOL;
+	echo '<div class="mbcl-2 mbci-min">',PHP_EOL;
+	echo '<div class="icon mbci-min">',PHP_EOL;
+	echo '<img src="',$src,'" alt="',$alt,'">',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '<div class="message mbci-max">',PHP_EOL;
+	echo '<div class="mbcl-3 mbci-min">',PHP_EOL;
+	echo '<div>',$msg,'</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	echo '</div>',PHP_EOL;
+	if(is_string($mbcl1i2)):
+		echo '<div class="mbci-min">',PHP_EOL;
+		echo '<div>',$mbcl1i2,'</div>',PHP_EOL;
+		echo '</div>',PHP_EOL;
+	endif;
+	echo '</div>',PHP_EOL;
 	echo '</div>',PHP_EOL;
 }
 
-function print_info_box($msg) {
-	print_core_box('info',$msg);
+function print_info_box($msg,$mbcl1i2 = NULL) {
+	print_core_box('info',$msg,$mbcl1i2);
 }
 
-function print_error_box($msg) {
-	print_core_box('error',$msg);
+function print_error_box($msg,$mbcl1i2 = NULL) {
+	print_core_box('error',$msg,$mbcl1i2);
 }
 
-function print_warning_box($msg) {
-	print_core_box('warning',$msg);
+function print_warning_box($msg,$mbcl1i2 = NULL) {
+	print_core_box('warning',$msg,$mbcl1i2);
 }
 
 function print_config_change_box() {
-	$message = gtext("Apply changes");
+	$message = gtext('Apply changes');
 	$gt_info = gtext('The configuration has been changed.')
 		. '<br />'
 		. gtext('You must apply the changes in order for them to take effect.')
@@ -320,10 +344,10 @@ function print_config_change_box() {
 		. gtext('If this message persist take a look at the system log for more information.')
 		. '</a>'
 		. '</b>';
-	echo "<div id='applybox'>";
-	print_info_box($gt_info);
-	echo "<input name=\"apply\" type=\"submit\" class=\"formbtn\" id=\"apply\" value=\"{$message}\" />";
-	echo "</div>";
+	$ab_info = sprintf('<input name="apply" type="submit" class="formbtn" id="apply" value="%s"/>',$message);
+	echo '<div id="applybox">';
+	print_info_box($gt_info,$ab_info);
+	echo '</div>';
 }
 function get_std_save_message($ok) {
 	global $d_sysrebootreqd_path;
@@ -352,7 +376,7 @@ function get_std_save_message($ok) {
 }
 function calc_skipviewmode($page_mode) : array {
 	global $config;
-	
+
 	switch($page_mode):
 		case PAGE_MODE_EDIT:
 			$new_page_mode = PAGE_MODE_EDIT;
@@ -718,7 +742,7 @@ function html_row_toolbox(string $link = '',string $gt_record_mod = '',string $g
 }
 function get_weekday_names(bool $longnames = true,bool $localized = true) {
 	global $g_weekdays,$g_weekdays_short,$g_weekdays_en,$g_weekdays_en_short;
-	
+
 	return $longnames ? ($localized ? $g_weekdays : $g_weekdays_en) : ($localized ? $g_weekdays_short : $g_weekdays_en_short);
 }
 
@@ -919,7 +943,7 @@ function get_headermenu(): array {
 function make_headermenu_extensions(array &$menu) {
 	global $g;
 	global $config;
-	
+
 	$isAdminSession = Session::isAdmin();
 	if(!$isAdminSession): // only admins allowed
 		return;
@@ -985,7 +1009,7 @@ function make_headermenu_extensions(array &$menu) {
 								$ext_menu_item = ['visible' => $isAdminSession,'description' => $description,'type' => 'internal','link' => sprintf('/%s',$link)];
 							endif;
 							$menu_items[] = $ext_menu_item;
-							$menu[$menu_name]['visible'] = $isAdminSession; // extension menu found, make extension menu header visible 
+							$menu[$menu_name]['visible'] = $isAdminSession; // extension menu found, make extension menu header visible
 						endif;
 					endforeach;
 				endif;
@@ -1002,7 +1026,7 @@ function make_headermenu() {
 	$output = [];
 	$menu = get_headermenu();
 	make_headermenu_extensions($menu); // function cares about access rights itself
-	$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];	
+	$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 	$output[] = '<nav id="navhdr">';
 	$output[] = '<ul>';
 	foreach($menu_list as $menuid):
