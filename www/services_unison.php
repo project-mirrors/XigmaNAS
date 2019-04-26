@@ -51,90 +51,227 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'unison');
-$pconfig['enable'] = isset($config['unison']['enable']);
-$pconfig['workdir'] = $config['unison']['workdir'];
-$pconfig['mkdir'] = isset($config['unison']['mkdir']);
+use services\unisond\setting_toolbox as toolbox;
+use services\unisond\shared_toolbox;
 
-if ($_POST) {
-	unset($input_errors);
-	$pconfig = $_POST;
-	// Input validation
-	$reqdfields = [];
-	$reqdfieldsn = [];
-	if (isset($_POST['enable']) && $_POST['enable']) {
-		$reqdfields = array_merge($reqdfields, ['workdir']);
-		$reqdfieldsn = array_merge($reqdfieldsn,[gtext('Work Directory')]);
-		do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-		// Check if working directory exists
-		if (empty($_POST['mkdir']) && !file_exists($_POST['workdir'])) {
-			$input_errors[] = gtext("The work directory does not exist.");
-		}
-	}
-	if (empty($input_errors)) {
-		$config['unison']['workdir'] = $_POST['workdir'];
-		$config['unison']['enable'] = isset($_POST['enable']) ? true : false;
-		$config['unison']['mkdir'] = isset($_POST['mkdir']) ? true : false;
-		write_config();
-		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)) {
-			config_lock();
-			$retval |= rc_update_service("unison");
-			config_unlock();
-		}
-		$savemsg = get_std_save_message($retval);
-	}
-}
-array_make_branch($config,'mounts','mount');
-array_sort_key($config['mounts']['mount'], "devicespecialfile");
-$a_mount = &$config['mounts']['mount'];
-$pgtitle = [gtext('Services'),gtext('Unison')];
-?>
-<?php include 'fbegin.inc';?>
-<script type="text/javascript">
-<!--
-function enable_change(enable_change) {
-	var endis = !(document.iform.enable.checked || enable_change);
-	document.iform.workdir.disabled = endis;
-	document.iform.mkdir.disabled = endis;
-}
-//-->
-</script>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tabcont">
-			<form action="services_unison.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-				<?php if (!empty($input_errors)) print_input_errors($input_errors);?>
-				<?php if (!empty($savemsg)) print_info_box($savemsg);?>	
-				<table width="100%" border="0" cellpadding="6" cellspacing="0">
-					<?php
-					html_titleline_checkbox('enable', gtext("Unison File Synchronisation"), !empty($pconfig['enable']) ? true : false, gtext("Enable"), "enable_change(false)");
-					html_filechooser("workdir", gtext("Work Directory"), $pconfig['workdir'], sprintf(gtext("Location where the work files will be stored, e.g. %s/backup/.unison"), $g['media_path']), $g['media_path'], true, 60);
-					html_checkbox("mkdir", "", !empty($pconfig['mkdir']) ? true : false, gtext("Create work directory if it doesn't exist."), "", false);
-					?>
-				</table>
-				<div id="submit">
-				<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save and Restart");?>" onclick="enable_change(true)" />
-				</div>
-				<div id="remarks">
-					<?php
-					$helpinghand = gtext('Before a Unison Client can start to work, you need to perform the following:')
-					. '<div id="enumeration"><ul>'
-					. '<li>' . '<a href="' . 'services_sshd.php' . '">' . gtext('Enable service SSH when disabled') . '</a>.' . '</li>'
-					. '<li>' . '<a href="' . 'access_users.php' . '">' . gtext('Setup user to get shell access') . '</a>.' . '</li>'
-					. '</ul></div>';
-					html_remark("note", gtext('Note'), $helpinghand );
-					?>
-				</div>
-				<?php include 'formend.inc';?>
-			</form>
-		</td>
-	</tr>
-</table>
-<script type="text/javascript">
-<!--
-enable_change(false);
-//-->
-</script>
-<?php include 'fend.inc';?>
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$a_referer = [
+	$cop->get_enable(),
+	$cop->get_workdir(),
+	$cop->get_mkdir()
+];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+//	catch error code
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_update_service('unison');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('unison');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				exit;
+				break;
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('unison');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('unison');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
+		break;
+endswitch;
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					switch($page_action):
+						case 'enable':
+							$input_errors[] = $referer->get_message_error();
+							break;
+					endswitch;
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		break;
+	case 'save':
+		$source = $_POST;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $referer->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		if(empty($input_errors)):
+			foreach($a_referer as $referer):
+				$name = $referer->get_name();
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
+			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
+			exit;
+		else:
+			$page_mode = PAGE_MODE_EDIT;
+		endif;
+		break;
+endswitch;
+//	determine final page mode and calculate readonly flag
+list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+$is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = (0 === rc_is_service_running('unison'));
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+$remark = gettext('Before a Unison client can start to work, you need to perform the following:')
+	. '<div id="enumeration"><ul>'
+	. '<li><a href="services_sshd.php">' . gettext('Enable SSH service') . '</a>.</li>'
+	. '<li><a href="access_users.php">' . gettext('Grant shell access to user') . '</a>.</li>'
+	. '</ul></div>';
+//	create document
+$pgtitle = [gettext('Services'),gettext('Unison'),gettext('Settings')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes && !$input_errors_found):
+	$content->ins_config_has_changed_box();
+endif;
+//	add content
+$tds = $content->add_table_data_settings();
+$tds->ins_colgroup_data_settings();
+$thead = $tds->addTHEAD();
+$tbody = $tds->addTBODY();
+$tfoot = $tds->addTFOOT();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$thead->c2_titleline(gettext('Unison'));
+		break;
+	case PAGE_MODE_EDIT:
+		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Unison'));
+		break;
+endswitch;
+$tbody->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2_filechooser($cop->get_workdir(),$sphere,true,$is_readonly)->
+	c2_checkbox($cop->get_mkdir(),$sphere,false,$is_readonly);
+$content->
+	add_area_remarks()->
+		ins_remark('note',gettext('Note'),$remark);
+//	add buttons
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$document->
+			add_area_buttons()->
+				ins_button_edit()->
+				ins_button_enadis(!$is_enabled)->
+				ins_button_reload($is_enabled);
+		break;
+	case PAGE_MODE_EDIT:
+		$document->
+			add_area_buttons()->
+				ins_button_save()->
+				ins_button_cancel();
+		break;
+endswitch;
+//	showtime
+$document->render();

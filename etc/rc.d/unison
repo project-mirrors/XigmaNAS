@@ -7,10 +7,9 @@
 # Unison Daemon
 #
 
-
 # PROVIDE: unison
 # REQUIRE: DAEMON
-# XQUERY: -i "count(//unison/enable) > 0" -o "0" -b
+# XQUERY: --if "count(//unison/enable) > 0" --output "0" --break
 # RCVAR: unison
 
 . /etc/rc.subr
@@ -57,7 +56,7 @@ unison_start()
 
 	# Add workdir to login.conf UNISON environment variable
 	_workdir=`echo ${_workdir} | /usr/bin/sed 's/\//\\\\\//g'`
-	/usr/bin/sed "s/UNISON=[a-zA-Z0-9/.=+-]*/UNISON=${_workdir}/" ${unison_config} > ${unison_config}.tmp
+	/usr/bin/sed "s/UNISON=[^:,]*/UNISON=${_workdir}/" ${unison_config} > ${unison_config}.tmp
 	mv -f ${unison_config}.tmp ${unison_config}
 }
 
