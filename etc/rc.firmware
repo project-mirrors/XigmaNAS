@@ -531,9 +531,6 @@ restore_sys_files() {
 	if [ -f "${SYSBACKUP}/loader.conf" ]; then
 		cp -pf ${SYSBACKUP}/loader.conf ${BOOTPATH}/boot/
 	fi
-	if [ -f "${SYSBACKUP}/cfdevice" ]; then
-		cp -pf ${SYSBACKUP}/cfdevice ${BEPATH}/etc/
-	fi
 	if [ -f "${SYSBACKUP}/rc.conf" ]; then
 		cp -pf ${SYSBACKUP}/rc.conf ${BEPATH}/etc/
 	fi
