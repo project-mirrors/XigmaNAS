@@ -37,13 +37,14 @@ require_once 'system.inc';
 
 /**
  *	Checks if email settings are valid.
- * @global array $config
- * @return int Return 0 if successful, otherwise 1.
+ *	@global array $config
+ *	@return int Return 0 if successful, otherwise 1.
  */
 function email_validate_settings() {
 	global $config;
+
 	$email = array_make_branch($config,'system','email');
-	if(empty($email['server']) || empty($email['port']) || empty($email['security']) || empty($email['from'])):
+	if(empty($email['server']) || empty($email['port']) || empty($email['from'])):
 		return 1;
 	endif;
 	if(isset($email['auth'])):
@@ -81,57 +82,67 @@ function get_email_header_from() {
 }
 /**
  *	Send an email.
- *	@global array $config
- *	@param string $address The email adress
+ *	@global array $g
+ *	@param string $address The email adress(es)
  *	@param string $subject The email subject
  *	@param string $message The message
  *	@param string $error Contains an error message if submission fails.
  *	@return int Return 0 if successful, otherwise 1.
  */
 function email_send($address,$subject,$message,&$error) {
-	$msgfilepath = '/tmp/message';
-	//	Get date in RFC 2882 format.
-	$rfcdate = date('r');
-	//	Get the language configured.
-	$preferences = [
-		'input-charset' => 'UTF-8',
-		'output-charset' => 'UTF-8',
-		'line-length' => 76,
-		'line-break-chars' => PHP_EOL
-	];
-	$email_from = get_email_header_from();
-	//	Substitute special characters in subject.
-	$subject = str_replace('%d',trim(shell_exec('date')),$subject);
-	$subject = str_replace('%h',system_get_hostname(),$subject); 
-	$subject = iconv_mime_encode('Subject',$subject,$preferences);
-	//	Convert adresses for msmtp.
-	$address = strtr($address, [';' => ' ',',' => ' ']);
-	//	Generate message content.
-	$data = '';
-	foreach(explode(' ',$address) as $addressv):
-		$data .= 'To: ' . $addressv . PHP_EOL;
-	endforeach;
-	$data .= 'From: ' . $email_from . PHP_EOL;
-	$data .= $subject . PHP_EOL;
-	$data .= 'Date: ' . $rfcdate . PHP_EOL;
-	$data .= 'MIME-Version: 1.0' . PHP_EOL;
-	$data .= 'Content-Type: text/plain; charset=UTF-8' . PHP_EOL;
-	$data .= 'Content-Transfer-Encoding: 8bit' . PHP_EOL;
-	$data .= PHP_EOL;
-	$data .= $message;
-	$data .= PHP_EOL;
-	//	Write message to file.
-	if(false === file_put_contents($msgfilepath,$data)):
-		write_log(sprintf("Error: Failed to create '%s'",$msgfilepath));
-		return 1;
+	global $g;
+
+	$retval = 0;
+	$msgfilepath = tempnam($g['tmp_path'],'msg');
+	if(false !== $msgfilepath):
+//		get date in RFC 2882 format
+		$rfcdate = date('r');
+//		get the language configured
+		$preferences = [
+			'input-charset' => 'UTF-8',
+			'output-charset' => 'UTF-8',
+			'line-length' => 76,
+			'line-break-chars' => PHP_EOL
+		];
+		$email_from = get_email_header_from();
+//		substitute special characters in subject
+		$replace_needle = $replace_with = [];
+		$replace_needle[] = '%d';$replace_with[] = trim(shell_exec('date'));
+		$replace_needle[] = '%h';$replace_with[] = system_get_hostname();
+		$subject_substituted = str_replace($replace_needle,$replace_with,$subject);
+		$subject_final = iconv_mime_encode('Subject',$subject_substituted,$preferences);
+//		convert adresses for msmtp
+		$address = strtr($address,[';' => ' ',',' => ' ']);
+//		generate message content
+		$data = '';
+		foreach(explode(' ',$address) as $addressv):
+			$data .= 'To: ' . $addressv . PHP_EOL;
+		endforeach;
+		$data .= 'From: ' . $email_from . PHP_EOL;
+		$data .= $subject_final . PHP_EOL;
+		$data .= 'Date: ' . $rfcdate . PHP_EOL;
+		$data .= 'MIME-Version: 1.0' . PHP_EOL;
+		$data .= 'Content-Type: text/plain; charset=UTF-8' . PHP_EOL;
+		$data .= 'Content-Transfer-Encoding: 8bit' . PHP_EOL;
+		$data .= PHP_EOL;
+		$data .= $message;
+		$data .= PHP_EOL;
+//		write message to file
+		if(false !== file_put_contents($msgfilepath,$data)):
+//			send email via external SMTP client
+			$cmd = sprintf('/usr/local/bin/msmtp -C /var/etc/msmtp.conf -t < %s',escapeshellarg($msgfilepath));
+			mwexec2($cmd,$output,$retval);
+			if(0 !== $retval):
+				$error = $output;
+			endif;
+		else:
+			write_log(sprintf("Error: Failed to write '%s'",$msgfilepath));
+			$retval = 1;
+		endif;
+//		cleanup message
+		@unlink($msgfilepath);
+	else:
+		$retval = 1;
 	endif;
-	//	Send email via external SMTP client.
-	$cmd = sprintf('/usr/local/bin/msmtp --file=/var/etc/msmtp.conf %s < %s',$address,$msgfilepath);
-	mwexec2($cmd,$output,$retval);
-	if(0 !== $retval):
-		$error = $output;
-	endif;
-	//	Cleanup message.
-	@unlink($msgfilepath);
 	return $retval;
 }
