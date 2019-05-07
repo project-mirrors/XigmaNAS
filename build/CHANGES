@@ -16,9 +16,9 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.26.
 - Upgrade bash to 5.0 p7.
 - Upgrade jQuery to 3.4.0.
-- Upgrade nano to 4.1.
 - Upgrade samba to 4.8.11.
 - Upgrade msmtp to 1.8.4.
+- Upgrade nano to 4.2.
 
 Fixes:
 
