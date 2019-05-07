@@ -27,13 +27,13 @@ Changes:
 - Upgrade zoneinfo to 2019a.
 - Upgrade e2fsprogs to 1.45.0.
 - Upgrade syncthing to 1.1.1.
-- Upgrade php to 7.3.4.
 - Upgrade virtualbox-ose to 5.2.26.
 - Upgrade bash to 5.0 p7.
 - Upgrade jQuery to 3.4.0.
 - Upgrade samba to 4.8.11.
 - Upgrade msmtp to 1.8.4.
 - Upgrade nano to 4.2.
+- Upgrade php to 7.3.5.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
