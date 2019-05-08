@@ -19,6 +19,7 @@ Changes:
 - Upgrade msmtp to 1.8.4.
 - Upgrade nano to 4.2.
 - Upgrade php to 7.3.5.
+- Upgrade tmux to 2.9a.
 
 Fixes:
 
