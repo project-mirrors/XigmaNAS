@@ -25,7 +25,6 @@ Changes:
 - Upgrade smartmontools to 7.0.
 - Upgrade zoneinfo to 2019a.
 - Upgrade e2fsprogs to 1.45.0.
-- Upgrade syncthing to 1.1.1.
 - Upgrade virtualbox-ose to 5.2.26.
 - Upgrade bash to 5.0 p7.
 - Upgrade jQuery to 3.4.0.
@@ -34,6 +33,7 @@ Changes:
 - Upgrade nano to 4.2.
 - Upgrade php to 7.3.5.
 - Upgrade tmux to 2.9a.
+- Upgrade syncthing to 1.1.3.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
