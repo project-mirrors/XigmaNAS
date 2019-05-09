@@ -57,26 +57,26 @@ nut_upsmon_mkconf()
 	local _shutdownmode _shutdowntimer
 
 	_shutdownmode=`configxml_get "//ups/shutdownmode"`
-    _upsmode=`configxml_get "//ups/mode"`
-    if [ "master" = "${_upsmode}" ]; then
-        _ups_user=`configxml_get "//ups/user"`
-        _ups_password=`configxml_get "//ups/password"`
-    else
-        _ups_user=`configxml_get "//ups/monitoruser"`
-        _ups_password=`configxml_get "//ups/monitorpassword"`
-    fi
+	_upsmode=`configxml_get "//ups/mode"`
+	if [ "master" = "${_upsmode}" ]; then
+		_ups_user=`configxml_get "//ups/masteruser"`
+		_ups_password=`configxml_get "//ups/masterpassword"`
+	else
+		_ups_user=`configxml_get "//ups/monitoruser"`
+		_ups_password=`configxml_get "//ups/monitorpassword"`
+	fi
 
 	############################
 	# Create upsmon.conf
-        /usr/local/bin/xml sel -t \
-            -v "concat('MONITOR ',//ups/upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" -n \
-            ${configxml_file} | /usr/local/bin/xml unesc > ${nut_upsmon_conf}
-        if configxml_isset //ups/ups2; then
-            /usr/local/bin/xml sel -t \
-                -v "concat('MONITOR ',//ups/ups2_upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" -n \
-                ${configxml_file} | /usr/local/bin/xml unesc >> ${nut_upsmon_conf}
-        fi
-    
+		/usr/local/bin/xml sel -t \
+			-v "concat('MONITOR ',//ups/upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" -n \
+			${configxml_file} | /usr/local/bin/xml unesc > ${nut_upsmon_conf}
+		if configxml_isset //ups/ups2; then
+			/usr/local/bin/xml sel -t \
+				-v "concat('MONITOR ',//ups/ups2_upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" -n \
+				${configxml_file} | /usr/local/bin/xml unesc >> ${nut_upsmon_conf}
+		fi
+
 	cat <<EOF >> ${nut_upsmon_conf}
 MINSUPPLIES ${nut_upsmon_minsupplies}
 SHUTDOWNCMD "${nut_upsmon_shutdowncmd}"

@@ -39,8 +39,8 @@ array_make_branch($config,'ups','auxparam');
 array_make_branch($config,'ups','ups2_auxparam');
 $pconfig['enable'] = isset($config['ups']['enable']);
 $pconfig['mode'] = $config['ups']['mode'];
-$pconfig['user'] = empty($config['ups']['user']) ? 'root' : $config['ups']['user']; // local master user
-$pconfig['password'] = empty($config['ups']['password']) ? '' : $config['ups']['password']; // local master user password
+$pconfig['masteruser'] = empty($config['ups']['masteruser']) ? 'root' : $config['ups']['masteruser']; // local master user
+$pconfig['masterpassword'] = empty($config['ups']['masterpassword']) ? '' : $config['ups']['masterpassword']; // local master user password
 $pconfig['upsname'] = $config['ups']['upsname'];
 $pconfig['driver'] = !empty($config['ups']['driver']) ? $config['ups']['driver'] : '-----';
 $pconfig['port'] = !empty($config['ups']['port']) ? $config['ups']['port'] : 'auto';
@@ -92,8 +92,8 @@ if($_POST):
 	if(empty($input_errors)):
 		$config['ups']['enable'] = isset($_POST['enable']);
 		$config['ups']['mode'] = $_POST['mode'];
-		$config['ups']['user'] = $_POST['user'] ?? $config['ups']['user'] ?? 'root'; // local master user, usually root
-		$config['ups']['password'] = $_POST['password'] ?? $config['ups']['password'] ?? ''; // local master user password
+		$config['ups']['masteruser'] = $_POST['masteruser'] ?? $config['ups']['masteruser'] ?? 'root'; // local master user, usually root
+		$config['ups']['masterpassword'] = $_POST['masterpassword'] ?? $config['ups']['masterpassword'] ?? ''; // local master user password
 		$config['ups']['upsname'] = $_POST['upsname'];
 		$config['ups']['driver'] = $_POST['driver'];
 		$config['ups']['port'] = $_POST['port'];
@@ -160,8 +160,8 @@ function enable_change(enable_change) {
 		document.iform.email_subject.disabled = endis;
 	} else {
 		document.iform.mode.disabled = endis;
-		document.iform.user.disabled = endis;
-		document.iform.password.disabled = endis;
+		document.iform.masteruser.disabled = endis;
+		document.iform.masterpassword.disabled = endis;
 		document.iform.upsname.disabled = endis;
 		document.iform.driver.disabled = endis;
 		document.iform.port.disabled = endis;
@@ -200,8 +200,8 @@ function shutdownmode_change() {
 function mode_change() {
 	switch(document.iform.mode.value) {
 		case "slave":
-			showElementById('user_tr','hide');
-			showElementById('password_tr','hide');
+			showElementById('masteruser_tr','hide');
+			showElementById('masterpassword_tr','hide');
 			showElementById('upsname_tr','show');
 			showElementById('driver_tr','hide');
 			showElementById('port_tr','hide');
@@ -221,8 +221,8 @@ function mode_change() {
 			showElementById('monitorpassword_tr','show');
 			break;
 		default:
-			showElementById('user_tr','show');
-			showElementById('password_tr','show');
+			showElementById('masteruser_tr','show');
+			showElementById('masterpassword_tr','show');
 			showElementById('upsname_tr','show');
 			showElementById('driver_tr','show');
 			showElementById('port_tr','show');
@@ -308,8 +308,8 @@ function ups2_change() {
 						'slave'=> gettext('Slave')
 					];
 					html_combobox2('mode',gettext('Mode'),!empty($config['ups']['mode']) ? $config['ups']['mode'] : 'Master',$l_mode,gettext('Choose UPS mode.'),true,false,'mode_change()');
-					html_inputbox2('user',gettext('Master User'),$pconfig['user'],gettext('Enter the name of the master user account.'),false,25,false);
-					html_passwordbox2('password',gettext('Master Password'),$pconfig['password'],gettext('Enter the password of the master user account.'),false,25);
+					html_inputbox2('masteruser',gettext('Master User'),$pconfig['masteruser'],gettext('Enter the name of the master user account.'),false,25,false);
+					html_passwordbox2('masterpassword',gettext('Master Password'),$pconfig['masterpassword'],gettext('Enter the password of the master user account.'),false,25);
 					html_inputbox2('upsname',gettext('Identifier'),$pconfig['upsname'],gettext('This name is used to uniquely identify your UPS on this system.') . ' ' . gettext('In slave mode it is the UPS name (Identifier) at the UPS master.'),true,30);
 					$helpinghand = gettext('The driver used to communicate with your UPS.')
 						. ' '
