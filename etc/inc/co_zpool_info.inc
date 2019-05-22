@@ -35,12 +35,12 @@ require_once 'config.inc';
 require_once 'util.inc';
 
 class co_zpool_info {
-/* 
+/*
  *	object to collect and provide the current zpool configuration.
  *	Several get methods return filtered information from the configuration.
  *	This object uses SimpleXML to store configuration information and
  *	it makes heavily use of xpath.
- * 
+ *
  */
 	private $a_xml;
 	private $poolname_filter;
@@ -48,7 +48,7 @@ class co_zpool_info {
 	private $devicepath_strip_regex;
 	private $is_devicepath_strip_regex;
 	private $exclude_devices_not_present;
-	
+
 	public function __construct() {
 		$this->scan();
 		$this->set_poolname_filter();
@@ -508,11 +508,13 @@ class co_zpool_info {
 	}
 
 	public function get_pools_for_online_data(&$a_ret = []) {
+		$this->get_pools_with_single_data_devices($a_ret);
 		$this->get_pools_with_mirrored_data_devices($a_ret);
 		$this->get_pools_with_raidz_data_devices($a_ret);
 		return $a_ret;
 	}
 	public function get_pool_devices_for_online_data(&$a_ret = []) {
+		$this->get_single_data_devices($a_ret);
 		$this->get_mirrored_data_devices($a_ret);
 		$this->get_raidz_data_devices($a_ret);
 		return $a_ret;
@@ -626,7 +628,7 @@ class co_zpool_info {
 	private function adjust_is_log() {
 		// vdev_tree: set is_log = 0 on all vdev that are not log vdevs or single log disks
 		if($this->configuration_loaded()):
-			$x_device = '/pools/pool/vdev_tree/children[is_log="0"]/.//children[not(is_log)]';		
+			$x_device = '/pools/pool/vdev_tree/children[is_log="0"]/.//children[not(is_log)]';
 			$a_device = $this->a_xml->xpath($x_device);
 			if(false !== $a_device):
 				foreach($a_device as $r_device):
@@ -636,7 +638,7 @@ class co_zpool_info {
 		endif;
 		// vdev_tree: set is_log = 1 on all vdev that are log vdevs or single log disks
 		if($this->configuration_loaded()):
-			$x_device = '/pools/pool/vdev_tree/children[is_log="1"]/.//children[not(is_log)]';		
+			$x_device = '/pools/pool/vdev_tree/children[is_log="1"]/.//children[not(is_log)]';
 			$a_device = $this->a_xml->xpath($x_device);
 			if(false !== $a_device):
 				foreach($a_device as $r_device):
