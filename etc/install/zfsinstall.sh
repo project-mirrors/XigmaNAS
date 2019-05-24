@@ -966,7 +966,7 @@ menu_bootmode()
 menu_encryption()
 {
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Encryption option menu" \
-	--checklist "Select the desired items to be encrypted (optional), if you don't know about GELI/Encryption, please disregard this and press Enter to continue." 11 55 8 \
+	--checklist "Select the desired items to be encrypted (optional), if you don't know about GELI/Encryption, please disregard this and press Enter to continue." 12 55 8 \
 	"DISK+GELI" "Encrypt Disks?" off \
 	"SWAP+GELI" "Encrypt Swap?" off \
 	2>${tmpfile}
