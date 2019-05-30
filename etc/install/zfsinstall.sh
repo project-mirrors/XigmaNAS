@@ -533,8 +533,13 @@ EOF
 	# generated with 'liveCD' and 'embedded' during startup, but need to be
 	# created during install of 'full'.
 	if [ ! -z "${disklist}" ]; then
+		if [ "${RAID10}" = 0 ]; then
+			CFDEVS="${ZROOT_DEVLIST1} ${ZROOT_DEVLIST2}"
+		else
+			CFDEVS="${ZROOT_DEVLIST}"
+		fi
 		cat << EOF > ${ALTROOT}/etc/cfdevice
-${disklist}
+${CFDEVS}
 EOF
 	fi
 
