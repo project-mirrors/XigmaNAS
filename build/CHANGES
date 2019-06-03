@@ -9,7 +9,6 @@ Changes:
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
 - Upgrade zoneinfo to 2019a.
-- Upgrade e2fsprogs to 1.45.0.
 - Upgrade bash to 5.0 p7.
 - Upgrade mariadb to 10.2.23.
 - Upgrade msmtp to 1.8.4.
@@ -21,6 +20,7 @@ Changes:
 - Upgrade lighttpd to 1.4.54.
 - Upgrade php to 7.3.6.
 - Upgrade virtualbox-ose to 5.2.30.
+- Upgrade e2fsprogs to 1.45.2.
 
 Fixes:
 
