@@ -1,6 +1,6 @@
 PORTNAME?=			${SAMBA4_BASENAME}48
 PORTVERSION?=			${SAMBA4_VERSION}
-PORTREVISION?=			1
+PORTREVISION?=			0
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -23,7 +23,7 @@ EXTRA_PATCHES+=			${PATCHDIR}/0001-audit.patch:-p1
 EXTRA_PATCHES+=			${PATCHDIR}/0001-bug-228462.patch:-p1
 SAMBA4_BASENAME=		samba
 SAMBA4_PORTNAME=		${SAMBA4_BASENAME}4
-SAMBA4_VERSION=			4.8.11
+SAMBA4_VERSION=			4.8.12
 SAMBA4_DISTNAME=		${SAMBA4_BASENAME}-${SAMBA4_VERSION:S|.p|pre|:S|.r|rc|:S|.t|tp|:S|.a|alpha|}
 
 WRKSRC?=			${WRKDIR}/${DISTNAME}
@@ -105,7 +105,7 @@ OPTIONS_SINGLE=                 GSSAPI
 OPTIONS_SINGLE_GSSAPI=          GSSAPI_BUILTIN GSSAPI_MIT
 
 OPTIONS_RADIO=			DNS ZEROCONF
-OPTIONS_RADIO_DNS=		NSUPDATE BIND911 BIND912 BIND913 BIND914
+OPTIONS_RADIO_DNS=		NSUPDATE BIND911 BIND913 BIND914
 OPTIONS_RADIO_ZEROCONF=		MDNSRESPONDER AVAHI
 ##############################################################################
 AD_DC_DESC=                     Active Directory Domain Controller
@@ -130,7 +130,6 @@ UTMP_DESC=			UTMP accounting
 GSSAPI_BUILTIN_DESC=            GSSAPI support via bundled Heimdal
 
 BIND911_DESC=			Use Bind 9.11 as AD DC DNS server frontend
-BIND912_DESC=			Use Bind 9.12 as AD DC DNS server frontend
 BIND913_DESC=			Use Bind 9.13 as AD DC DNS server frontend
 BIND914_DESC=                   Use Bind 9.14 as AD DC DNS server frontend
 NSUPDATE_DESC=			Use samba NSUPDATE utility for AD DC
@@ -163,7 +162,7 @@ SAMBA4_BUNDLED_CMOCKA=		no
 SAMBA4_BUNDLED_TALLOC=		no
 SAMBA4_BUNDLED_TEVENT=		no
 SAMBA4_BUNDLED_TDB=		no
-SAMBA4_BUNDLED_LDB=		yes
+SAMBA4_BUNDLED_LDB=		no
 SAMBA4_LDB=			13
 # cmocka
 .if defined(SAMBA4_BUNDLED_CMOCKA) && ${SAMBA4_BUNDLED_CMOCKA} == yes
@@ -225,7 +224,10 @@ CONFLICTS+=			ldb-1.* ldb1[23]-1.*
 PLIST_SUB+=			SAMBA4_BUNDLED_LDB=""
 SUB_LIST+=			SAMBA4_BUNDLED_LDB=""
 .else
-.       if ${SAMBA4_LDB} == 13
+.       if ${SAMBA4_LDB} == 14
+BUILD_DEPENDS+=			ldb14>=1.4.4:databases/ldb14
+RUN_DEPENDS+=			ldb14>=1.4.4:databases/ldb14
+.       elif ${SAMBA4_LDB} == 13
 BUILD_DEPENDS+=			ldb13>=1.3.6:databases/ldb13
 RUN_DEPENDS+=			ldb13>=1.3.6:databases/ldb13
 .       elif ${SAMBA4_LDB} == 12
@@ -248,12 +250,12 @@ SAMBA4_BUNDLED_LIBS+=		replace
 # Don't use external libcom_err
 SAMBA4_BUNDLED_LIBS+=		com_err
 # Set the test environment variables
+TEST_USES=                      python
 TEST_ENV+=			PYTHON="${PYTHON_CMD}" \
 				SHA1SUM=/sbin/sha1 \
 				SHA256SUM=/sbin/sha256 \
 				MD5SUM=/sbin/md5
-TEST_DEPENDS+=			python:lang/python \
-				bash:shells/bash \
+TEST_DEPENDS+=			bash:shells/bash \
 				tshark:net/tshark
 ##############################################################################
 CONFIGURE_ARGS+=		\
@@ -275,7 +277,6 @@ CONFIGURE_ARGS+=		\
 				${ICONV_CONFIGURE_BASE}
 ##############################################################################
 BIND911_RUN_DEPENDS=		bind911>=9.11.0.0:dns/bind911
-BIND912_RUN_DEPENDS=		bind912>=9.12.0.0:dns/bind912
 BIND913_RUN_DEPENDS=		bind913>=9.13.0.0:dns/bind913
 BIND914_RUN_DEPENDS=            bind914>=9.14.0.0:dns/bind914
 NSUPDATE_RUN_DEPENDS=		samba-nsupdate:dns/samba-nsupdate
