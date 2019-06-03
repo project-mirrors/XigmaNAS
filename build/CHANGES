@@ -4,7 +4,6 @@ Changes:
 - Upgrade to FreeBSD 12.0-RELEASE P3.
 - isboot.ko driver not available.
 - Add public key management for SSH.
-- Upgrade samba to 4.8.9.
 - Upgrade APCu to 5.1.17.
 - Upgrade dialog to 1.3-20190211.
 - Upgrade arcconf to 3.00.23488.
@@ -12,7 +11,6 @@ Changes:
 - Upgrade zoneinfo to 2019a.
 - Upgrade e2fsprogs to 1.45.0.
 - Upgrade bash to 5.0 p7.
-- Upgrade jQuery to 3.4.0.
 - Upgrade virtualbox-ose to 5.2.28.
 - Upgrade mariadb to 10.2.23.
 - Upgrade msmtp to 1.8.4.
@@ -22,6 +20,7 @@ Changes:
 - Upgrade syncthing to 1.1.3.
 - Upgrade samba to 4.8.12.
 - Upgrade jQuery to 3.4.1.
+- Upgrade lighttpd to 1.4.54.
 
 Fixes:
 
