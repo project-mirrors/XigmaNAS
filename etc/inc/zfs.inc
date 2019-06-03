@@ -34,34 +34,35 @@
 require_once 'config.inc';
 require_once 'util.inc';
 require_once 'properties_zfs_dataset.php';
-/*
- * Get list of available zpools
- * @return An array containg the requested informations:
- * @code
- * [poolname] => array(
- *   [name] => pool
- *   [size] => 4.66G
- *   [alloc]
- *   [free]
- *   [expandsz]
- *   [frag] => 0%
- *   [cap] => 0%
- *   [dedup] => 1.00x
- *   [health] => ONLINE
- *   [altroot] => -)
- *   [used] => 112K
- *   [avail] => 4.66G
- * @endcode
+
+/**
+ *	Get list of available zpools
+ *	@return array An array containg the requested informations:
+ *	@code
+ *	[poolname] => array(
+ *		[name] => pool
+ *		[size] => 4.66G
+ *		[alloc]
+ *		[free]
+ *		[expandsz]
+ *		[frag] => 0%
+ *		[cap] => 0%
+ *		[dedup] => 1.00x
+ *		[health] => ONLINE
+ *		[altroot] => -)
+ *		[used] => 112K
+ *		[avail] => 4.66G
+ *	@endcode
  */
 function zfs_get_pool_list() {
 	$a_result = [];
 	$a_zpool = cli_zpool_info();
-	if (!empty($a_zpool)) {
-		foreach ($a_zpool as $r_pool) {
-			// map names of zpool list -o options to local options
-			$poolname = $r_pool['name'];
+	if(!empty($a_zpool)):
+		foreach($a_zpool as $r_pool):
+//			map names of zpool list -o options to local options
+			$pool_name = $r_pool['name'];
 			$r_poolinfo = [];
-			$r_poolinfo['name'] = $poolname;
+			$r_poolinfo['name'] = $pool_name;
 			$r_poolinfo['size'] = $r_pool['size'];
 			$r_poolinfo['alloc'] = $r_pool['alloc'];
 			$r_poolinfo['free'] = $r_pool['free'];
@@ -71,58 +72,70 @@ function zfs_get_pool_list() {
 			$r_poolinfo['dedup'] = $r_pool['dedup'];
 			$r_poolinfo['health'] = $r_pool['health'];
 			$r_poolinfo['altroot'] = $r_pool['altroot'];
-			$a_zfs = cli_zfs_info($poolname, 'used,avail');
-			if (!empty($a_zfs)) {
-				foreach ($a_zfs as $r_zfs) { // there should be only one row
-					$r_poolinfo['used'] = $r_zfs['used'];
-					$r_poolinfo['avail'] = $r_zfs['avail'];
-				}
-			} else { // populate a complete set
+			$a_zfs = cli_zfs_info($pool_name,'used,avail');
+			if(empty($a_zfs)):
 				$r_poolinfo['used'] = 'Unknown';
 				$r_poolinfo['avail'] = 'Unknown';
-			}
-			$a_result[$poolname] = $r_poolinfo;
-		}
-	}
+			else:
+				foreach($a_zfs as $r_zfs):
+//					there should be only one row
+					$r_poolinfo['used'] = $r_zfs['used'];
+					$r_poolinfo['avail'] = $r_zfs['avail'];
+				endforeach;
+			endif;
+			$a_result[$pool_name] = $r_poolinfo;
+		endforeach;
+	endif;
 	return $a_result;
 }
-/*
- * Get zpool information via cli
- * If you don't specify options the preset options will be returned.
- * If you specify options they must be separated with a comma. Whitespaces are ignored
- * Option keys returned are lowercase.
- * The function returns an empty array on error or when the zpool is unknown to zfs.
+/**
+ *	Get zpool information via cli
+ *	If you don't specify options the preset options will be returned.
+ *	If you specify options they must be separated with a comma. Whitespaces are ignored
+ *	Option keys returned are lowercase.
+ *	The function returns an empty array on error or when the zpool is unknown to zfs.
+ *	@param string $name
+ *	@param string $options
+ *	@return array
  */
 function cli_zpool_info($name = '',string $options = '') {
 	$a_return = [];
-	$a_key = [];
 	$a_val = [];
-	$cliname = '';
 	if(preg_match('/\S/',$name)):
 		$name = ltrim($name);
 		$cliname = escapeshellarg($name);
+	else:
+		$cliname = '';
 	endif;
-	$clioptions = preg_replace('/\s/','',$options); // remove all whitespaces
-	if(empty($options)): // options must not be blank
+//	remove all whitespaces
+	$clioptions = preg_replace('/\s/','',$options);
+	if(empty($options)):
+//		use default options
 		$clioptions = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot';
 	endif;
-	$a_key = explode(',',$clioptions); // get the key fields
-	if(false !== array_search('all',$a_key)): // has the all option been selected?
-		$clioptions = 'all'; // reset other options, they are included in 'all'
-		$a_key = []; // undetermined
-		$clicmd = sprintf('zpool list -p -o %1$s %2$s',$clioptions,$cliname);
+//	get the key fields
+	$a_key = explode(',',$clioptions);
+//	has the all option been selected?
+	if(false !== array_search('all',$a_key)):
+//		reset other options, they are included in 'all'
+		$clioptions = 'all';
+		$a_key = [];
+		$clicmd = sprintf('zpool list -p -o %s %s',$clioptions,$cliname);
 		unset($a_line);
 		mwexec2($clicmd,$a_line,$exitcode);
-		if((0 == $exitcode) && (0 < count($a_line))): // we need the first line to collect the header names
+//		we need the first line to collect the header names
+		if((0 == $exitcode) && (0 < count($a_line))):
 			preg_match_all('/S+/',$a_line[0],$a_key);
 		endif;
 	endif;
 	if(!empty($a_key)):
-		$a_key = array_map('strtolower',$a_key); // $a_key to lowercase
-		$clicmd = sprintf('zpool list -pH -o %1$s %2$s',$clioptions,$cliname);
+//		$a_key to lowercase
+		$a_key = array_map('strtolower',$a_key);
+		$clicmd = sprintf('zpool list -pH -o %s %s',$clioptions,$cliname);
 		unset($a_line);
 		mwexec2($clicmd,$a_line,$exitcode);
-		if((0 == $exitcode) && (0 < count($a_line))): // at least 1 line must be returned
+//		at least 1 line must be returned
+		if((0 == $exitcode) && (0 < count($a_line))):
 			foreach($a_line as $r_line):
 				$a_val = explode("\t",$r_line);
 				if(count($a_key) === count($a_val)):
@@ -133,44 +146,54 @@ function cli_zpool_info($name = '',string $options = '') {
 	endif;
 	return $a_return;
 }
-
-/*
- * Get zfs option information via cli
- * If you don't specify options the preset options will be returned.
- * If you specify options they must be separated with a comma. Whitespaces are ignored
- * Option keys returned are lowercase.
- * The function returns an empty array on error or when the zpool is unknown to zfs.
+/**
+ *	Get zfs option information via cli
+ *	If you don't specify options the preset options will be returned.
+ *	If you specify options they must be separated with a comma. Whitespaces are ignored
+ *	Option keys returned are lowercase.
+ *	The function returns an empty array on error or when the zpool is unknown to zfs.
+ *	@param string $name
+ *	@param string $options
+ *	@return array
  */
 function cli_zfs_info($name = '',$options = '') {
 	$a_return = [];
-	$a_key = [];
 	$a_val = [];
-	$cliname = '';
 	if(preg_match('/\S/',$name)):
 		$name = ltrim($name);
 		$cliname = escapeshellarg($name);
+	else:
+		$cliname = '';
 	endif;
-	$clioptions = preg_replace('/\s/','',$options); // remove all whitespaces
-	if(empty($options)): // options must not be blank
+//	remove all whitespaces
+	$clioptions = preg_replace('/\s/','',$options);
+//	options must not be blank
+	if(empty($options)):
 		$options = 'name,used,avail,refer,mountpoint';
 	endif;
-	$a_key = explode(',',$clioptions); // get the key fields
-	if(false !== array_search('all',$a_key)): // has the all option been selected?
-		$clioptions = 'all'; // reset other options, they are included in 'all'
-		$a_key = []; // undetermined
-		$clicmd = sprintf('zfs list -o %1$s %2$s',$clioptions,$cliname);
+//	get the key fields
+	$a_key = explode(',',$clioptions);
+//	has the all option been selected?
+	if(false !== array_search('all',$a_key)):
+//		reset other options, they are included in 'all'
+		$clioptions = 'all';
+		$a_key = [];
+		$clicmd = sprintf('zfs list -o %s %s',$clioptions,$cliname);
 		unset($a_line);
 		mwexec2($clicmd,$a_line,$exitcode);
-		if((0 == $exitcode) && (0 < count($a_line))): // we need the first line to collect the header names
+//		we need the first line to collect the header names
+		if((0 == $exitcode) && (0 < count($a_line))):
 			preg_match_all('/S+/',$a_line[0],$a_key);
 		endif;
 	endif;
 	if(!empty($a_key)):
-		$a_key = array_map('strtolower',$a_key); // $a_key to lowercase
-		$clicmd = sprintf('zfs list -pH -o %1$s %2$s',$clioptions,$cliname);
+//		$a_key to lowercase
+		$a_key = array_map('strtolower',$a_key);
+		$clicmd = sprintf('zfs list -pH -o %s %s',$clioptions,$cliname);
 		unset($a_line);
 		mwexec2($clicmd,$a_line,$exitcode);
-		if((0 == $exitcode) && (0 < count($a_line))): // at least 1 line must be returned
+//		at least 1 line must be returned
+		if((0 == $exitcode) && (0 < count($a_line))):
 			foreach($a_line as $r_line):
 				$a_val = explode("\t",$r_line);
 				if(count($a_key) === count($a_val)):
@@ -182,333 +205,515 @@ function cli_zfs_info($name = '',$options = '') {
 	return $a_return;
 }
 /**
- * Configure, create and start a zpool.
- * @param[in] uuid	The UUID of the zpool.
- * @return Return 0 if successful, otherwise 1
+ *	Configure, create and start a zpool.
+ *	@global array $config
+ *	@param string $uuid The UUID of the zpool.
+ *	@return int Return 0 if successful, otherwise 1
  */
-function zfs_zpool_configure($uuid) {
+function zfs_zpool_configure(string $uuid) {
 	global $config;
-	$param = '';
-	// get pool
-	if (!(isset($config['zfs']) && isset($config['zfs']['pools']) && isset($config['zfs']['pools']['pool']) && is_array($config['zfs']['pools']['pool']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['pools']['pool'], 'uuid'))) { return 1; }
-	$pool = $config['zfs']['pools']['pool'][$index];
-	if (!is_array($pool)) { return 1; }
-	// get pool name
-	if (!(isset($pool['name']) && preg_match('/\S/', $pool['name']))) { return 1; }
-	$poolname = ltrim($pool['name']);
-	// get mount point
-	$mountpoint = sprintf('/mnt/%1$s', $poolname); // default mountmoint
-	if (isset($pool['mountpoint']) && preg_match('/\S/', $pool['mountpoint'])) { // alternative mountpoint replaces default mountpoint
+
+	$zpool_features = [
+//		FreeBSD 8.4
+//		FreeBSD 9.2
+		'async_destroy',
+		'empty_bpobj',
+		'lz4_compress',
+//		FreeBSD 9.3
+		'multi_vdev_crash_dump',
+		'spacemap_histogram',
+		'enabled_txg',
+		'hole_birth',
+		'extensible_dataset',
+		'bookmarks',
+		'filesystem_limits',
+//		FreeBSD 10.2
+		'embedded_data',
+		'large_blocks',
+//		FreeBSD 11.0
+		'sha512',
+		'skein',
+//		FreeBSD 11.2
+		'zpool_checkpoint',
+		'device_removal',
+		'obsolete_counts',
+//		FreeBSD 12
+//		'large_dnode'
+//		'spacemap_v2'
+	];
+	$pool_devices = [
+		'stripe' => [],
+		'mirror' => [],
+		'raidz1' => [],
+		'raidz2' => [],
+		'raidz3' => [],
+		'l2arc' => [],
+		'log' => [],
+		'log-mirror' => [],
+		'spare' => []
+	];
+	$running_index = 0;
+	$a_param = [];
+	$sphere_grid = array_make_branch($config,'zfs','pools','pool');
+	$a_vdevices = array_make_branch($config,'zfs','vdevices','vdevice');
+//	get pool
+	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	if(false === $sphere_row_id):
+		return 1;
+	endif;
+	$pool = $sphere_grid[$sphere_row_id];
+	if(!is_array($pool)):
+		return 1;
+	endif;
+//	get pool name
+	if(!(isset($pool['name']) && preg_match('/\S/',$pool['name']))):
+		return 1;
+	endif;
+	$pool_name = ltrim($pool['name']);
+//	get mount point
+	if(isset($pool['mountpoint']) && preg_match('/\S/',$pool['mountpoint'])):
+//		alternative mountpoint
 		$mountpoint = ltrim($pool['mountpoint']);
-	}
-	$param .= sprintf('-m %1$s ', escapeshellarg($mountpoint));
-	// add force parameter if set
-	if (isset($pool['force'])) {
-		$param .= '-f ';
-	}
-	// add root parameter if set
-	if (isset($pool['root']) && preg_match('/\S/', $pool['root'])) {
-		$param .= sprintf('-R %1$s ', escapeshellarg($pool['root']));
-	}
-	// create the pool, keep blank - more parameters to follow
-	$cmd = sprintf('zpool create %1$s %2$s ', $param, escapeshellarg($pool['name']));
-	// Load nop class
-	if (@mwexec("/sbin/kldstat -q -m g_nop") != 0) {
-		write_log("Load NOP GEOM class");
-		@mwexec("/sbin/kldload geom_nop.ko");
-	}
-	$dev_cache = "";
-	$dev_log = "";
-	foreach ($pool['vdevice'] as $vdevicev) {
-		$index = array_search_ex($vdevicev, $config['zfs']['vdevices']['vdevice'], "name");
-		if (false === $index) { continue; }
-
-		$vdevice = $config['zfs']['vdevices']['vdevice'][$index];
-
-		switch ($vdevice['type']) {
-			case "stripe":
-			case "disk":
-				break;
-
-			case "cache":
-				$dev_cache = "{$vdevice['type']} ";
-				if (is_array($vdevice['device'])) {
-					foreach ($vdevice['device'] as $vdevicev) {
-						$dev_cache .= "{$vdevicev} ";
-					}
-				}
-				continue 2;
-
-			case "log":
-				$dev_log = "{$vdevice['type']} ";
-				if (is_array($vdevice['device'])) {
-					foreach ($vdevice['device'] as $vdevicev) {
-						$dev_log .= "{$vdevicev} ";
-					}
-				}
-				continue 2;
-
-			case "log-mirror":
-				$dev_log = "log mirror ";
-				if (is_array($vdevice['device'])) {
-					foreach ($vdevice['device'] as $vdevicev) {
-						$dev_log .= "{$vdevicev} ";
-					}
-				}
-				continue 2;
-
-			default:
-				$cmd .= "{$vdevice['type']} ";
-				break;
-		}
-
-		if (is_array($vdevice['device'])) {
-			foreach ($vdevice['device'] as $vdevicev) {
-				if (isset($vdevice['aft4k'])) {
-					$gnop_cmd = "gnop create -S 4096 {$vdevicev}";
-					write_log("$gnop_cmd");
-					$result = mwexec($gnop_cmd, true);
-					if ($result != 0) { return 1; }
-					$cmd .= "{$vdevicev}.nop ";
-				} else {
-					$cmd .= "{$vdevicev} ";
-				}
-			}
-		}
-	}
-	$cmd .= "{$dev_cache} ";
-	$cmd .= "{$dev_log} ";
-
+	else:
+//		set default mountpoint
+		$mountpoint = sprintf('/mnt/%s',$pool_name);
+	endif;
+//	compose command
+	$a_param[] = 'zpool';
+	$a_param[] = 'create';
+//	add force parameter if set
+	if(isset($pool['force'])):
+		$a_param[] = '-f';
+	endif;
+//	do not enable all available features
+	$a_param[] = '-d';
+//	enable selected feature flags
+	foreach($zpool_features as $zpool_feature):
+		$a_param[] = sprintf('-o feature@%s=enabled',$zpool_feature);
+	endforeach;
+	$a_param[] = '-m';
+	$a_param[] = escapeshellarg($mountpoint);
+//	add root parameter if set
+	if(isset($pool['root']) && preg_match('/\S/',$pool['root'])):
+		$a_param[] = '-R';
+		$a_param[] = escapeshellarg($pool['root']);
+	endif;
+//	add pool name
+	$a_param[] = escapeshellarg($pool_name);
+//	add pool vdevs
+	foreach($pool['vdevice'] as $vdevicev):
+		$index = array_search_ex($vdevicev,$a_vdevices,'name');
+		if(false === $index):
+			return 1;
+		endif;
+		$vdevice = $a_vdevices[$index];
+		if(array_key_exists('device',$vdevice) && is_array($vdevice['device']) && (count($vdevice['device']) > 0)):
+			switch($vdevice['type']):
+				case 'stripe':
+				case 'disk':
+				case 'file':
+//					we can have many data devices, collect them in a single row
+					$referer = 'stripe';
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'mirror':
+				case 'raidz1':
+				case 'raidz2':
+				case 'raidz3':
+//					we can have many vdevs, collect them in separate rows
+					$referer = $vdevice['type'];
+					$pool_devices[$referer][$running_index] = [];
+					$pool_devices[$referer][$running_index][] = $referer;
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][$running_index][] = escapeshellarg($device_name);
+					endforeach;
+					$running_index++;
+					break;
+				case 'cache':
+//					we can have many cache devices, collect them in a single row
+					$referer = 'l2arc';
+					if(count($pool_devices[$referer]) === 0):
+						$pool_devices[$referer][] = 'cache';
+					endif;
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'log':
+//					only one log or log-mirror vdev definition allowed
+					$referer = 'log';
+					if(count($pool_devices['log-mirror']) !== 0):
+						return 1;
+					endif;
+					if(count($pool_devices[$referer]) !== 0):
+						return 1;
+					endif;
+					$pool_devices[$referer][] = 'log';
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'log-mirror':
+//					only one log or log-mirror vdev definition allowed
+					$referer = 'log-mirror';
+					if(count($pool_devices['log']) !== 0):
+						return 1;
+					endif;
+					if(count($pool_devices[$referer]) !== 0):
+						return 1;
+					endif;
+					$pool_devices[$referer][] = 'log';
+					$pool_devices[$referer][] = 'mirror';
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				case 'spare':
+//					we can have many spare devices, collect them in a sinle row
+					$referer = 'spare';
+					if(count($pool_devices[$referer]) === 0):
+						$pool_devices[$referer][] = 'spare';
+					endif;
+					foreach($vdevice['device'] as $device_name):
+						$pool_devices[$referer][] = escapeshellarg($device_name);
+					endforeach;
+					break;
+				default:
+					return 1;
+					break;
+			endswitch;
+		endif;
+	endforeach;
+//	calculate parameter groups, stripe must be in first place
+	foreach(['stripe','mirror','raidz1','raidz2','raidz3','log','log-mirror','l2arc','spare'] as $referer):
+		if(count($pool_devices[$referer]) > 0):
+			switch($referer):
+				case 'mirror':
+				case 'raidz1':
+				case 'raidz2':
+				case 'raidz3':
+					foreach($pool_devices[$referer] as $row):
+						$a_param[] = implode(' ',$row);
+					endforeach;
+					break;
+				case 'stripe':
+				case 'log':
+				case 'log-mirror':
+				case 'l2arc':
+				case 'spare':
+					$a_param[] = implode(' ',$pool_devices[$referer]);
+					break;
+			endswitch;
+		endif;
+	endforeach;
+	$cmd = implode(' ',$a_param);
+//	execute command
 	write_log($cmd);
-	$result = mwexec($cmd, true);
-	if (0 != $result) { return 1; }
-	// Modify access restrictions.
-	@chmod($mountpoint, octdec(777));
+	$result = mwexec($cmd,true);
+	if(0 != $result):
+		return 1;
+	endif;
+//	modify access restrictions.
+	@chmod($mountpoint,octdec(777));
 	return 0;
 }
-
 /**
- * Destroy a zpool.
- * @param[in] uuid	The UUID of the zpool.
- * @return 0 if successful, otherwise 1
+ *	Destroy a zpool by uuid.
+ *	@global array $config System configuration
+ *	@param string $uuid The UUID of the zpool.
+ *	@return int Returns 0 if successful, otherwise 1
  */
-function zfs_zpool_destroy($uuid) {
+function zfs_zpool_destroy(string $uuid) {
 	global $config;
-	// get pool
-	if (!(isset($config['zfs']) && isset($config['zfs']['pools']) && isset($config['zfs']['pools']['pool']) && is_array($config['zfs']['pools']['pool']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['pools']['pool'], 'uuid'))) { return 1; }
-	$pool = $config['zfs']['pools']['pool'][$index];
-	if (!is_array($pool)) { return 1; }
-	// get pool name
-	if (!(isset($pool['name']) && preg_match('/\S/', $pool['name']))) { return 1; }
-	$poolname = ltrim($pool['name']);
-	// get mount point
-	$mountpoint = sprintf('/mnt/%1$s', $poolname);
-	if (isset($pool['mountpoint']) && preg_match('/\S/', $pool['mountpoint'])) {
-		$mountpoint = ltrim($pool['mountpoint']);
-	}
-	// try to unmount first
-	// XXX
-	// XXX
-	// XXX
-	// destroy pool
-	$cmd = sprintf('zpool destroy %1$s', escapeshellarg($poolname));
-	write_log($cmd);
-	$result = mwexec($cmd, true);
-	// remove mount moint
-	@rmdir($mountpoint);
-	// destroy gnop devices
-	if ($result == 0) {
-		foreach ($pool['vdevice'] as $vdevicev) {
-			$index = array_search_ex($vdevicev, $config['zfs']['vdevices']['vdevice'], "name");
-			if (false === $index)
-				continue;
-			$vdevice = $config['zfs']['vdevices']['vdevice'][$index];
-			if (is_array($vdevice['device'])) {
-				foreach ($vdevice['device'] as $vdevicev) {
-					if (isset($vdevice['aft4k'])) {
-						$gnop_cmd = "gnop destroy {$vdevicev}.nop";
-						write_log("$gnop_cmd");
-						$result = mwexec($gnop_cmd, true);
-					}
-				}
-			}
-		}
-	}
-	return $result;
-}
 
-/**
- * Update properties of a zpool.
- * @param[in] uuid	The UUID of the zpool to be updated.
- * @return Return 0 if successful, otherwise 1.
- */
-function zfs_zpool_properties($uuid) {
-	global $config;
-	// get pool
-	if (!(isset($config['zfs']) && isset($config['zfs']['pools']) && isset($config['zfs']['pools']['pool']) && is_array($config['zfs']['pools']['pool']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['pools']['pool'], 'uuid'))) { return 1; }
-	$pool = $config['zfs']['pools']['pool'][$index];
-	if (!is_array($pool)) { return 1; }
-	// get pool name
-	if (!(isset($pool['name']) && preg_match('/\S/', $pool['name']))) { return 1; }
-	$poolname = ltrim($pool['name']);
-	// get mount point
-	$mountpoint = sprintf('/mnt/%1$s', $poolname);
-	if (isset($pool['mountpoint']) && preg_match('/\S/', $pool['mountpoint'])) {
-		$mountpoint = ltrim($pool['mountpoint']);
-	}
-
-	$result = 0;
-
-	// unmount the pool
-	$cmd = 'zfs umount -a';
-	write_log($cmd);
-	$result |= mwexec($cmd, true);
-	// update properties
-	foreach (explode(' ', 'mountpoint') as $attr) {
-		$param = '';
-		switch ($attr) {
-			case "mountpoint":
-				if (!empty($mountpoint))
-					$param = sprintf('mountpoint=%1$s', escapeshellarg($mountpoint));
-				break;
-		}
-
-		// Update zpool properties
-		if (!empty($param)) {
-			$cmd = sprintf('zfs set %1$s %2$s', $param, escapeshellarg($poolname));
-			write_log($cmd);
-			$result |= mwexec($cmd, true);
-		}
-	}
-	// remount the pool
-	$cmd = 'zfs mount -a';
-	write_log($cmd);
-	$result |= mwexec($cmd, true);
-	return $result;
-}
-
-// Wrapper to execute zpool commands.
-// $command - Command to execute (e.g. upgrade).
-// $param   - The command parameter.
-// $verbose - Display command results or hide them.
-// $stderr  - Redirect stderr to stdout to display error messages too.
-// Return 0 if successful, 1 if error.
-function zfs_zpool_cmd($command, $param, $verbose = false, $stderr = true, $out = false, &$output = []) {
 	$result = 1;
-	$cmd = "zpool {$command} {$param}";
-	write_log($cmd);
-
-	if (true === $verbose) {
-		if (true === $stderr)
-			$cmd .= " 2>&1"; // Redirect error message to stdout
-		system($cmd, $result);
-	}	else {
-		if (true === $out) {
-			mwexec2($cmd, $output, $result);
-		} else {
-			$result = mwexec($cmd, true);
-		}
-	}
-
+	if(is_uuid_v4($uuid)):
+		$sphere_grid = array_make_branch($config,'zfs','pools','pool');
+		$a_vdevices = array_make_branch($config,'zfs','vdevices','vdevice');
+//		get pool configuration
+		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		if(false !== $sphere_row_id):
+			$sphere_row = $sphere_grid[$sphere_row_id];
+			if(is_array($sphere_row)):
+//				get pool name and mountpoint
+				$pool_filter = [
+					'name' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']],
+					'mountpoint' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]
+				];
+				$pool_filtered = filter_var_array($sphere_row,$pool_filter,true);
+				if(!is_null($pool_filtered['name'])):
+					$pool_name = ltrim($pool_filtered['name']);
+//					get mount point
+					if(is_null($pool_filtered['mountpoint'])):
+						$mountpoint = sprintf('/mnt/%s',$pool_name);
+					else:
+						$mountpoint = ltrim($pool_filtered['mountpoint']);
+					endif;
+//					try to unmount first
+//					...
+//					destroy pool
+					$cmd_zpool = sprintf('zpool destroy %s',escapeshellarg($pool_name));
+					write_log($cmd_zpool);
+					$result = mwexec($cmd_zpool,true);
+//					remove mount moint
+					@rmdir($mountpoint);
+					if($result == 0):
+//					destroy gnop devices
+						array_make_branch($sphere_row,'vdevice');
+						foreach($sphere_row['vdevice'] as $vdevice_name):
+							$a_vdevices_row_key = array_search_ex($vdevice_name,$a_vdevices,'name');
+							if(false !== $a_vdevices_row_key):
+								$a_vdevice = $a_vdevices[$a_vdevices_row_key];
+								if(isset($a_vdevice['aft4k'])):
+									array_make_branch($a_vdevice,'device');
+									foreach($a_vdevice['device'] as $device_name):
+										$device_name_nop = sprintf('%s.nop',$device_name);
+										$cmd_gnop = sprintf('gnop destroy %s',escapeshellarg($device_name_nop));
+										write_log($cmd_gnop);
+										$result = mwexec($cmd_gnop,true);
+									endforeach;
+								endif;
+							endif;
+						endforeach;
+//					else:
+//						zpool destroy command returned an error
+					endif;
+//				else:
+//					pool name invalid or does not exist in pool configuration record
+				endif;
+//			else:
+//				pool configuration record error
+			endif;
+//		else:
+//			uuid not found
+		endif;
+//	else:
+//		invalid uuid format
+	endif;
 	return $result;
 }
-
 /**
- * Configure, create and start a ZFS dataset.
- * @param[in] uuid	The UUID of the dataset to be configured.
- * @return Return 0 if successful, otherwise 1.
+ *	Update properties of a zpool.
+ *	@global array $config
+ *	@param string $uuid The UUID of the zpool to be updated.
+ *	@return int Returns 0 if successful, otherwise 1.
  */
-function zfs_dataset_configure($uuid) {
+function zfs_zpool_properties(string $uuid) {
 	global $config;
-	// get dataset
-	if (!(isset($config['zfs']) && isset($config['zfs']['datasets']) && isset($config['zfs']['datasets']['dataset']) && is_array($config['zfs']['datasets']['dataset']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['datasets']['dataset'], "uuid"))) { return 1; }
-	$dataset = $config['zfs']['datasets']['dataset'][$index];
-	if (!is_array($dataset)) { return 1; }
-	// get pool name
-	if (!(isset($dataset['pool']) && is_array($dataset['pool']) && (0 < count($dataset['pool'])) && preg_match('/\S/', $dataset['pool'][0]))) { return 1; }
-	$poolname = ltrim($dataset['pool'][0]);
-	// get dataset name
-	if (!(isset($dataset['name']) && preg_match('/\S/', $dataset['name']))) { return 1; }
-	$datasetname = ltrim($dataset['name']);
-	$relpath = sprintf('%1$s/%2$s', $poolname, $datasetname);
-	// additional parameter
-	$param = '';
-	if (isset($dataset['aclinherit']) && preg_match('/\S/', $dataset['aclinherit'])) {
-		$param .= sprintf('-o aclinherit=%1$s ', trim($dataset['aclinherit']));
-	}
-	if (isset($dataset['aclmode']) && preg_match('/\S/', $dataset['aclmode'])) {
-		$param .= sprintf('-o aclmode=%1$s ', trim($dataset['aclmode']));
-	}
-	if (isset($dataset['atime']) && preg_match('/\S/', $dataset['atime'])) {
-		$param .= sprintf('-o atime=%1$s ', trim($dataset['atime']));
-	}
-	if (!isset($dataset['canmount'])) {
-		$param .= '-o canmount=off ';
-	}
-	if (isset($dataset['casesensitivity']) && preg_match('/\S/', $dataset['casesensitivity'])) {
-		$param .= sprintf('-o casesensitivity=%1$s ', trim($dataset['casesensitivity']));
-	}
-	if (isset($dataset['compression']) && preg_match('/\S/', $dataset['compression'])) {
-		$param .= sprintf('-o compression=%1$s ', trim($dataset['compression']));
-	}
-	if (isset($dataset['dedup']) && preg_match('/\S/', $dataset['dedup'])) {
-		$param .= sprintf('-o dedup=%1$s ', trim($dataset['dedup']));
-	}
-	if (isset($dataset['quota']) && preg_match('/\S/', $dataset['quota'])) {
-		$param .= sprintf('-o quota=%1$s ', trim($dataset['quota']));
-	}
-	if (isset($dataset['readonly'])) {
-		$param .= '-o readonly=on ';
-	}
-	if (isset($dataset['reservation']) && preg_match('/\S/', $dataset['reservation'])) {
-		$param .= sprintf('-o reservation=%1$s ', trim($dataset['reservation']));
-	}
-	if (isset($dataset['snapdir'])) {
-		$param .= '-o snapdir=visible ';
-	}
-	if (isset($dataset['sync']) && preg_match('/\S/', $dataset['sync'])) {
-		$param .= sprintf('-o sync=%1$s ', trim($dataset['sync']));
-	}
-/* // not supported in freeBSD 
-	if (!isset($dataset['xattr']))
-		$param .= "-o xattr=off ";
-*/
-	// options
-	$mounted = isset($dataset['canmount']) ? true : false;
-	// create dataset
-	$result = 0;
-	$cmd = sprintf('zfs create  %1$s %2$s', $param, escapeshellarg($relpath));
+
+	$result = 1;
+	$supported_properties = [
+		'mountpoint'
+	];
+	if(is_uuid_v4($uuid)):
+		$sphere_grid = array_make_branch($config,'zfs','pools','pool');
+		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		if(false !== $sphere_row_id):
+			$sphere_row = $sphere_grid[$sphere_row_id];
+			if(is_array($sphere_row)):
+//				get pool name and mountpoint
+				$pool_filter = [
+					'name' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']],
+					'mountpoint' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]
+				];
+				$pool_filtered = filter_var_array($sphere_row,$pool_filter,true);
+				if(!is_null($pool_filtered['name'])):
+					$result = 0;
+					$pool_name = ltrim($pool_filtered['name']);
+//					get mount point
+					if(is_null($pool_filtered['mountpoint'])):
+						$mountpoint = sprintf('/mnt/%s',$pool_name);
+					else:
+						$mountpoint = ltrim($pool_filtered['mountpoint']);
+					endif;
+//					unmount pools
+					$cmd = 'zfs umount -a';
+					write_log($cmd);
+					$result |= mwexec($cmd,true);
+//					update zpool properties
+					foreach($supported_properties as $property):
+						$param = '';
+						switch($property):
+							case 'mountpoint':
+								$param = sprintf('mountpoint=%s',escapeshellarg($mountpoint));
+								break;
+						endswitch;
+//						update zpool property
+						if(!empty($param)):
+							$cmd = sprintf('zfs set %s %s',$param,escapeshellarg($pool_name));
+							write_log($cmd);
+							$result |= mwexec($cmd,true);
+						endif;
+					endforeach;
+//					remount pools
+					$cmd = 'zfs mount -a';
+					write_log($cmd);
+					$result |= mwexec($cmd,true);
+//				else:
+//					pool name invalid or does not exist in pool configuration record
+				endif;
+//			else:
+//				pool configuration record error
+			endif;
+//		else:
+//			uuid not found
+		endif;
+//	else:
+//		invalid uuid format
+	endif;
+	return $result;
+}
+/**
+ *	Wrapper to execute zpool commands.
+ *	@param string $command Command to execute (e.g. upgrade).
+ *	@param string $param The command parameter.
+ *	@param bool $verbose Display command results or hide them.
+ *	@param bool $stderr Redirect stderr to stdout to display error messages too.
+ *	@param bool $out Catch command output
+ *	@param array $output
+ *	@return int Returns 0 if successful, 1 if error.
+ */
+function zfs_zpool_cmd(string $command,string $param,bool $verbose = false,bool $stderr = true,bool $out = false,array &$output = []) {
+	$result = 1;
+	$cmd = sprintf('zpool %s %s',$command,$param);
 	write_log($cmd);
-	$result |= mwexec($cmd, true);
-	if ($result != 0) {
-		write_log(sprintf('Error: Failed to create dataset %1$s', $relpath));
+	if(true === $verbose):
+		if(true === $stderr):
+//			redirect error message to stdout
+			$cmd .= ' 2>&1';
+		endif;
+		system($cmd,$result);
+	else:
+		if(true === $out):
+			mwexec2($cmd,$output,$result);
+		else:
+			$result = mwexec($cmd,true);
+		endif;
+	endif;
+	return $result;
+}
+/**
+ *	Configure, create and start a ZFS dataset.
+ *	@global array $config
+ *	@param string $uuid The UUID of the dataset to be configured.
+ *	@return int Return 0 if successful, otherwise 1.
+ */
+function zfs_dataset_configure(string $uuid) {
+	global $config;
+
+//	get dataset
+	$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
+	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	if(false === $sphere_row_id):
+		return 1;
+	endif;
+	$sphere_row = $sphere_grid[$sphere_row_id];
+	if(!is_array($sphere_row)):
+		return 1;
+	endif;
+//	get pool name
+	if(!(array_key_exists('pool',$sphere_row) && is_array($sphere_row['pool']) && (0 < count($sphere_row['pool'])) && preg_match('/\S/',$sphere_row['pool'][0]))):
+		return 1;
+	endif;
+	$pool_name = ltrim($sphere_row['pool'][0]);
+//	get dataset name
+	if(!(array_key_exists('name',$sphere_row) && preg_match('/\S/',$sphere_row['name']))):
+		return 1;
+	endif;
+	$filesystem_name = ltrim($sphere_row['name']);
+	$fq_filesystem_name = sprintf('%s/%s',$pool_name,$filesystem_name);
+	$a_param = [
+		'zfs',
+		'create'
+	];
+//	additional parameter
+	$supported_options = [
+		'aclinherit',
+		'aclmode',
+		'atime',
+		'canmount',
+		'casesensitivity',
+		'compression',
+		'dedup',
+		'quota',
+		'readonly',
+		'reservation',
+		'snapdir',
+		'sync'
+	];
+	foreach($supported_options as $referer):
+		switch($referer):
+			case 'aclinherit':
+			case 'aclmode':
+			case 'atime':
+			case 'casesensitivity':
+			case 'compression':
+			case 'dedup':
+			case 'quota':
+			case 'reservation':
+			case 'sync':
+				if(array_key_exists($referer,$sphere_row) && preg_match('/\S/',$sphere_row[$referer])):
+					$a_param[] = '-o';
+					$a_param[] = sprintf('%s=%s',$referer,trim($sphere_row[$referer]));
+				endif;
+				break;
+			case 'canmount':
+//			case 'xattr': // not supported in FreeBSD
+				if(!array_key_exists($referer,$sphere_row)):
+					$a_param[] = '-o';
+					$a_param[] = sprintf('%s=off',$referer);
+				endif;
+				break;
+			case 'readonly':
+				if(array_key_exists($referer,$sphere_row)):
+					$a_param[] = '-o';
+					$a_param[] = sprintf('%s=on',$referer);
+				endif;
+				break;
+			case 'snapdir':
+				if(array_key_exists($referer,$sphere_row)):
+					$a_param[] = '-o';
+					$a_param[] = sprintf('%s=visible',$referer);
+				endif;
+				break;
+		endswitch;
+	endforeach;
+//	options
+	$mounted = isset($sphere_row['canmount']) ? true : false;
+//	add filesystem name
+	$a_param[] = escapeshellarg($fq_filesystem_name);
+//	create dataset
+	$result = 0;
+	$cmd = implode(' ',$a_param);
+	write_log($cmd);
+	$result |= mwexec($cmd,true);
+	if($result != 0):
+		write_log(sprintf('Error: Failed to create dataset %s',$fq_filesystem_name));
 		return $result;
-	}
-	// Check mountpoint
-	$mountpoint = sprintf('/mnt/%1$s', $relpath);
-	$cmd = sprintf('zfs list -H -t filesystem -o mountpoint %1$s', escapeshellarg($relpath));
-	mwexec2($cmd, $rawdata2);
-	if (!empty($rawdata2) && ($rawdata2[0] != 'none') && ($rawdata2[0] != 'legacy')) {
+	endif;
+//	check mountpoint
+	$mountpoint = sprintf('/mnt/%s',$fq_filesystem_name);
+	$cmd = sprintf('zfs list -H -t filesystem -o mountpoint %s',escapeshellarg($fq_filesystem_name));
+	mwexec2($cmd,$rawdata2);
+	if(!empty($rawdata2) && ($rawdata2[0] != 'none') && ($rawdata2[0] != 'legacy')):
 		$mountpoint = $rawdata2[0];
-	}
-	// set access restrictions
-	if (!empty($mountpoint) && isset($dataset['canmount'])) {
-		if (is_array($dataset['accessrestrictions'])) {
-			$mode = $dataset['accessrestrictions']['mode'];
-			$owner = $dataset['accessrestrictions']['owner'];
-			$group = $dataset['accessrestrictions']['group'][0];
-			write_log(sprintf('Access restrictions to be set: %1$s %2$s %3$s %4$s', $mountpoint, $mode, $owner, $group));
-			if (file_exists($mountpoint) && is_writable($mountpoint)) {
-				if (!@chmod($mountpoint, octdec($mode)) || !@chown($mountpoint, $owner) || !@chgrp($mountpoint, $group)) {
-					write_log(sprintf('Error: Failed to set access restrictions on directory %1$s', $mountpoint));
-				}
-			}
-		}
-	}
+	endif;
+//	set access restrictions
+	if(!empty($mountpoint) && isset($sphere_row['canmount'])):
+		if(is_array($sphere_row['accessrestrictions'])):
+			$mode = $sphere_row['accessrestrictions']['mode'];
+			$owner = $sphere_row['accessrestrictions']['owner'];
+			$group = $sphere_row['accessrestrictions']['group'][0];
+			write_log(sprintf('Access restrictions to be set: %s %s %s %s',$mountpoint,$mode,$owner,$group));
+			if(file_exists($mountpoint) && is_writable($mountpoint)):
+				if(!@chmod($mountpoint,octdec($mode)) || !@chown($mountpoint,$owner) || !@chgrp($mountpoint,$group)):
+					write_log(sprintf('Error: Failed to set access restrictions on directory %s',$mountpoint));
+				endif;
+			endif;
+		endif;
+	endif;
 	return $result;
 }
 /**
@@ -520,29 +725,37 @@ function zfs_dataset_configure($uuid) {
  */
 function zfs_dataset_destroy(string $uuid,bool $recursively = false) {
 	global $config;
-	
+
 	if(is_uuid_v4($uuid)):
-		//	get dataset
-		$grid = array_make_branch($config,'zfs','datasets','dataset');
-		if(false !== ($index = array_search_ex($uuid,$grid,'uuid'))):
-			$filesystem_config = $grid[$index];
-			if(is_array($filesystem_config)):
-				//	get pool and filesystem name
-				$pool_name = ltrim($filesystem_config['pool'][0] ?? '');
-				$filesystem_name = ltrim($filesystem_config['name'] ?? '');
+//		get dataset
+		$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
+		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		if(false !== $sphere_row_id):
+			$sphere_row = $sphere_grid[$sphere_row_id];
+			if(is_array($sphere_row)):
+//				get pool and filesystem name
+				$pool_name = ltrim($sphere_row['pool'][0] ?? '');
+				$filesystem_name = ltrim($sphere_row['name'] ?? '');
 				if(preg_match('/\S/',$pool_name) && preg_match('/\S/',$filesystem_name)):
-					$fqn_filesystem = sprintf('%s/%s',$pool_name,$filesystem_name);
-					//	destroy filesystem
+					$fq_filesystem_name = sprintf('%s/%s',$pool_name,$filesystem_name);
+					$a_param = [
+						'zfs',
+						'destroy',
+						'-f'
+					];
+//					additional parameter
 					if($recursively):
-						$cmd = sprintf('zfs destroy -f -r %s',escapeshellarg($fqn_filesystem));
-					else:
-						$cmd = sprintf('zfs destroy -f %s',escapeshellarg($fqn_filesystem));
+						$a_param[] = '-r';
 					endif;
+//					add filesystem name
+					$a_param[] = escapeshellarg($fq_filesystem_name);
+					$cmd = implode(' ',$a_param);
 					write_log($cmd);
+//					destroy filesystem
 					$result = 0;
 					$result |= mwexec($cmd,true);
 					if($result != 0):
-						write_log(sprintf('Error: Failed to destroy filesystem %s',$fqn_filesystem));
+						write_log(sprintf('Error: Failed to destroy filesystem %s',$fq_filesystem_name));
 					endif;
 					return $result;
 				endif;
@@ -551,156 +764,162 @@ function zfs_dataset_destroy(string $uuid,bool $recursively = false) {
 	endif;
 	return 1;
 }
-
 /**
- * Update properties of a ZFS dataset.
- * @param[in] uuid	The UUID of the dataset to be updated.
- * @return Return 0 if successful, otherwise 1.
+ *	Update properties of a ZFS dataset.
+ *	@global array $config
+ *	@param string $uuid The UUID of the dataset to be updated.
+ *	@return int Return 0 if successful, otherwise 1.
  */
-function zfs_dataset_properties($uuid) {
+function zfs_dataset_properties(string $uuid) {
 	global $config;
-	// get dataset
-	if (!(isset($config['zfs']) && isset($config['zfs']['datasets']) && isset($config['zfs']['datasets']['dataset']) && is_array($config['zfs']['datasets']['dataset']))) { return 1; }
-	if (false === ($index = array_search_ex($uuid, $config['zfs']['datasets']['dataset'], "uuid"))) { return 1; }
-	$dataset = $config['zfs']['datasets']['dataset'][$index];
-	if (!is_array($dataset)) { return 1; }
-	// get pool name
-	if (!(isset($dataset['pool']) && is_array($dataset['pool']) && (0 < count($dataset['pool'])) && preg_match('/\S/', $dataset['pool'][0]))) { return 1; }
-	$poolname = ltrim($dataset['pool'][0]);
-	// get dataset name
-	if (!(isset($dataset['name']) && preg_match('/\S/', $dataset['name']))) { return 1; }
-	$datasetname = ltrim($dataset['name']);
-	$relpath = sprintf('%1$s/%2$s', $poolname, $datasetname);
-	// is the dataset mounted?
+
+	$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
+//	get dataset
+	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	if(false === $sphere_row_id):
+		return 1;
+	endif;
+	$sphere_row = $sphere_grid[$sphere_row_id];
+	if(!is_array($sphere_row)):
+		return 1;
+	endif;
+//	get pool name
+	if(!(isset($sphere_row['pool']) && is_array($sphere_row['pool']) && (0 < count($sphere_row['pool'])) && preg_match('/\S/',$sphere_row['pool'][0]))):
+		return 1;
+	endif;
+	$pool_name = ltrim($sphere_row['pool'][0]);
+//	get dataset name
+	if(!(isset($sphere_row['name']) && preg_match('/\S/',$sphere_row['name']))):
+		return 1;
+	endif;
+	$filesystem_name = ltrim($sphere_row['name']);
+	$fq_filesystem_name = sprintf('%s/%s',$pool_name,$filesystem_name);
+//	is the dataset mounted?
 	$mounted = false;
-	$cmd = sprintf('zfs list -H -t filesystem -o mounted %1$s', escapeshellarg($relpath));
-	mwexec2($cmd, $rawdata);
-	if (!empty($rawdata) && $rawdata[0] == "yes") {
+	$cmd = sprintf('zfs list -H -t filesystem -o mounted %s',escapeshellarg($fq_filesystem_name));
+	mwexec2($cmd,$rawdata);
+	if(!empty($rawdata) && $rawdata[0] == 'yes'):
 		$mounted = true;
-	}
-	// determine mountpoint
-	$mountpoint = sprintf('/mnt/%1$s', $relpath);
-	$cmd = sprintf('zfs list -H -t filesystem -o mountpoint %1$s', escapeshellarg($relpath));
-	mwexec2($cmd, $rawdata2);
-	if (!empty($rawdata2) && ($rawdata2[0] != 'none') && ($rawdata2[0] != 'legacy')) {
+	endif;
+//	determine mountpoint
+	$mountpoint = sprintf('/mnt/%s',$fq_filesystem_name);
+	$cmd = sprintf('zfs list -H -t filesystem -o mountpoint %s',escapeshellarg($fq_filesystem_name));
+	mwexec2($cmd,$rawdata2);
+	if(!empty($rawdata2) && ($rawdata2[0] != 'none') && ($rawdata2[0] != 'legacy')):
 		$mountpoint = ltrim($rawdata2[0]);
-	}
-	// properties 
+	endif;
+//	properties
 	$result = 0;
-	foreach (explode(' ', 'compression dedup sync atime aclinherit aclmode canmount readonly reservation quota xattr snapdir') as $attr) {
+	$supported_options = [
+		'aclinherit',
+		'aclmode',
+		'atime',
+		'canmount',
+		'compression',
+		'dedup',
+		'quota',
+		'readonly',
+		'reservation',
+		'snapdir',
+		'sync',
+		'xattr'
+	];
+	foreach($supported_options as $referer):
 		$param = '';
-		switch ($attr) {
+		switch($referer):
 			case 'aclinherit':
-				if (isset($dataset['aclinherit']) && preg_match('/\S/', $dataset['aclinherit'])) {
-					$param = sprintf('aclinherit=%1$s', trim($dataset['aclinherit']));
-				} 
-				break;
 			case 'aclmode':
-				if (isset($dataset['aclmode']) && preg_match('/\S/', $dataset['aclmode'])) {
-					$param = sprintf('aclmode=%1$s', trim($dataset['aclmode']));
-				}
-				break;
 			case 'atime':
-				if (isset($dataset['atime']) && preg_match('/\S/', $dataset['atime'])) {
-					$param = sprintf('atime=%1$s', trim($dataset['atime']));
-				}
+			case 'compression':
+			case 'dedup':
+			case 'sync':
+				if(isset($sphere_row[$referer]) && preg_match('/\S/',$sphere_row[$referer])):
+					$param = sprintf('%s=%s',$referer,trim($sphere_row[$referer]));
+				endif;
 				break;
 			case 'canmount':
-				if (!isset($dataset['canmount'])) {
+				if(!isset($sphere_row['canmount'])):
 					$param = 'canmount=off';
-				} else {
+				else:
 					$param = 'canmount=on';
-				}
-				break;
-			case 'compression':
-				if (isset($dataset['compression']) && preg_match('/\S/', $dataset['compression'])) {
-					$param = sprintf('compression=%1$s', trim($dataset['compression']));
-				}
-				break;
-			case 'dedup':
-				if (isset($dataset['dedup']) && preg_match('/\S/', $dataset['dedup'])) {
-					$param = sprintf('dedup=%1$s', trim($dataset['dedup']));
-				}
+				endif;
 				break;
 			case 'quota':
-				if (isset($dataset['quota']) && preg_match('/\S/', $dataset['quota'])) {
-					$param = sprintf('quota=%1$s', trim($dataset['quota']));
-				} else {
+				if(isset($sphere_row['quota']) && preg_match('/\S/',$sphere_row['quota'])):
+					$param = sprintf('quota=%s',trim($sphere_row['quota']));
+				else:
 					$param = 'quota=none';
-				}
+				endif;
 				break;
 			case 'readonly':
-				if (isset($dataset['readonly'])) {
+				if(isset($sphere_row['readonly'])):
 					$param = 'readonly=on';
-				} else {
+				else:
 					$param = 'readonly=off';
-				}
+				endif;
 				break;
-			case 'reservation': 
-				if (isset($dataset['reservation']) && preg_match('/\S/', $dataset['reservation'])) {
-					$param = sprintf('reservation=%1$s', trim($dataset['reservation']));
-				} else {
+			case 'reservation':
+				if(isset($sphere_row['reservation']) && preg_match('/\S/',$sphere_row['reservation'])):
+					$param = sprintf('reservation=%s',trim($sphere_row['reservation']));
+				else:
 					$param = 'reservation=none';
-				}
+				endif;
 				break;
 			case 'snapdir':
-				if (!isset($dataset['snapdir'])) {
+				if(!isset($sphere_row['snapdir'])):
 					$param = 'snapdir=hidden';
-				} else {
+				else:
 					$param = 'snapdir=visible';
-				}
-				break;
-			case 'sync':
-				if (isset($dataset['sync']) && preg_match('/\S/', $dataset['sync'])) {
-					$param = sprintf('sync=%1$s', trim($dataset['sync']));
-				}
+				endif;
 				break;
 			case 'xattr':
-				/*
-				if (!isset($dataset['xattr'])) {
+/*
+				if(!isset($sphere_row['xattr'])):
 					$param = 'xattr=off';
-				} else {
-					$param = 'xattr=on";
-				}
-				*/
+				else:
+					$param = 'xattr=on';
+				endif;
+ */
 				break;
-		}
-		// Update dataset properties
-		if (!empty($param)) {
-			$cmd = sprintf('zfs set %1$s %2$s', $param, escapeshellarg($relpath));
+		endswitch;
+//		update dataset properties
+		if(!empty($param)):
+			$cmd = sprintf('zfs set %s %s',$param,escapeshellarg($fq_filesystem_name));
 			write_log($cmd);
-			$result |= mwexec($cmd, true);
-		}
-	}
-	if (isset($dataset['canmount']) && !$mounted) {
-		$cmd = sprintf('zfs mount %1$s', escapeshellarg($relpath));
+			$result |= mwexec($cmd,true);
+		endif;
+	endforeach;
+	if(isset($sphere_row['canmount']) && !$mounted):
+		$cmd = sprintf('zfs mount %s',escapeshellarg($fq_filesystem_name));
 		write_log($cmd);
-		$result |= mwexec($cmd, true);
-	}
-	// set access restrictions
-	if (!empty($mountpoint) && isset($dataset['canmount'])) {
-		if (is_array($dataset['accessrestrictions'])) {
-			$mode = $dataset['accessrestrictions']['mode'];
-			$owner = $dataset['accessrestrictions']['owner'];
-			$group = $dataset['accessrestrictions']['group'][0];
-			write_log(sprintf('Access restrictions to be set: %1$s %2$s %3$s %4$s', $mountpoint, $mode, $owner, $group));
-			if (file_exists($mountpoint) && is_writable($mountpoint)) {
-				if (!@chmod($mountpoint, octdec($mode)) || !@chown($mountpoint, $owner) || !@chgrp($mountpoint, $group)) {
-					write_log(sprintf('Error: Failed to set access restrictions on directory %1$s', $mountpoint));
-				}
-			}
-		}
-	}
+		$result |= mwexec($cmd,true);
+	endif;
+//	set access restrictions
+	if(!empty($mountpoint) && isset($sphere_row['canmount'])):
+		if(is_array($sphere_row['accessrestrictions'])):
+			$mode = $sphere_row['accessrestrictions']['mode'];
+			$owner = $sphere_row['accessrestrictions']['owner'];
+			$group = $sphere_row['accessrestrictions']['group'][0];
+			write_log(sprintf('Access restrictions to be set: %s %s %s %s',$mountpoint,$mode,$owner,$group));
+			if(file_exists($mountpoint) && is_writable($mountpoint)):
+				if(!@chmod($mountpoint,octdec($mode)) || !@chown($mountpoint,$owner) || !@chgrp($mountpoint,$group)):
+					write_log(sprintf('Error: Failed to set access restrictions on directory %s',$mountpoint));
+				endif;
+			endif;
+		endif;
+	endif;
 	return $result;
 }
 /**
- * Configure, create and start a ZFS volume.
- * @param[in] uuid	The UUID of the volume to be configured.
- * @return Return 0 if successful, otherwise 1.
+ *	Configure, create and start a ZFS volume.
+ *	@global array $config
+ *	@param string $uuid The UUID of the volume to be configured.
+ *	@return int Return 0 if successful, otherwise 1.
  */
-function zfs_volume_configure($uuid) {
+function zfs_volume_configure(string $uuid) {
 	global $config;
-	array_make_branch($config,'zfs','volumes','volume');
+
+	$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
 	$prop = new properties_zfs_dataset();
 	$supported_properties = [
 		'sparse',
@@ -715,40 +934,44 @@ function zfs_volume_configure($uuid) {
 		'volmode',
 		'volsize'
 	];
-	// get volume
-	$index = array_search_ex($uuid,$config['zfs']['volumes']['volume'],'uuid');
-	if(false === $index):
+//	get volume
+	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	if(false === $sphere_row_id):
 		return 1;
 	endif;
-	$volume = $config['zfs']['volumes']['volume'][$index];
-	if(!is_array($volume)):
+	$sphere_row = $sphere_grid[$sphere_row_id];
+	if(!is_array($sphere_row)):
 		return 1;
 	endif;
-	// get pool name
-	if(!(isset($volume['pool']) && is_array($volume['pool']) && (0 < count($volume['pool'])) && preg_match('/\S/', $volume['pool'][0]))):
+//	get pool name
+	if(!(isset($sphere_row['pool']) && is_array($sphere_row['pool']) && (0 < count($sphere_row['pool'])) && preg_match('/\S/',$sphere_row['pool'][0]))):
 		return 1;
 	endif;
-	$poolname = ltrim($volume['pool'][0]);
-	// get volume name
-	if(!(isset($volume['name']) && preg_match('/\S/',$volume['name']))):
+	$pool_name = ltrim($sphere_row['pool'][0]);
+//	get volume name
+	if(!(isset($sphere_row['name']) && preg_match('/\S/',$sphere_row['name']))):
 		return 1;
 	endif;
-	$volumename = ltrim($volume['name']);
-	$relpath = sprintf('%1$s/%2$s',$poolname,$volumename);
-	// Additional parameter
-	$a_param = [];
+	$volume_name = ltrim($sphere_row['name']);
+	$fq_volume_name = sprintf('%s/%s',$pool_name,$volume_name);
+	$a_param = [
+		'zfs',
+		'create'
+	];
+//	additional parameter
 	$required_properties = 1;
 	foreach($supported_properties as $ref):
 		switch($ref):
 			case 'sparse':
-				if(isset($volume[$ref])):
+				if(isset($sphere_row[$ref])):
 					$a_param[] = '-s';
 				endif;
 				break;
 			case 'volsize':
-				$val = $prop->$ref->validate_value($volume[$ref]);
+				$val = $prop->$ref->validate_value($sphere_row[$ref]);
 				if(isset($val) && preg_match('/\S/',$val)):
-					$a_param[] = sprintf('-V %s',$val);
+					$a_param[] = '-V';
+					$a_param[] = $val;
 					$required_properties--;
 				endif;
 				break;
@@ -761,9 +984,10 @@ function zfs_volume_configure($uuid) {
 			case 'sync':
 			case 'volblocksize':
 			case 'volmode':
-				$val = $prop->$ref->validate_value($volume[$ref]);
+				$val = $prop->$ref->validate_value($sphere_row[$ref]);
 				if(isset($val) && preg_match('/\S/',$val)):
-					$a_param[] = sprintf('-o %s=%s',$ref,$val);
+					$a_param[] = '-o';
+					$a_param[] = sprintf('%s=%s',$ref,$val);
 				endif;
 				break;
 		endswitch;
@@ -771,9 +995,10 @@ function zfs_volume_configure($uuid) {
 	if(0 < $required_properties):
 		return 1;
 	endif;
-	$param = implode(' ',$a_param);
-	// create volume
-	$cmd = sprintf('zfs create %1$s %2$s',$param,escapeshellarg($relpath));
+//	add volume name
+	$a_param[] = escapeshellarg($fq_volume_name);
+	$cmd = implode(' ',$a_param);
+//	create volume
 	write_log($cmd);
 	return mwexec($cmd,true);
 }
@@ -786,29 +1011,36 @@ function zfs_volume_configure($uuid) {
  */
 function zfs_volume_destroy(string $uuid,bool $recursively = false) {
 	global $config;
-	
+
 	if(is_uuid_v4($uuid)):
-		//	get volume
-		$grid = array_make_branch($config,'zfs','volumes','volume');
-		if(false !== ($index = array_search_ex($uuid,$grid,'uuid'))):
-			$volume_config = $grid[$index];
-			if(is_array($volume_config)):
-				//	get pool and volume name
-				$pool_name = ltrim($volume_config['pool'][0] ?? '');
-				$volume_name =  ltrim($volume_config['name'] ?? '');
-				if(preg_match('/\S/',$pool_name) && preg_match('/\S/', $volume_name)):
-					$fqn_volume = sprintf('%s/%s',$pool_name,$volume_name);
-					//	destroy volume
+//		get volume
+		$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
+		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+		if(false !== $sphere_row_id):
+			$sphere_row = $sphere_grid[$sphere_row_id];
+			if(is_array($sphere_row)):
+//				get pool and volume name
+				$pool_name = ltrim($sphere_row['pool'][0] ?? '');
+				$volume_name =  ltrim($sphere_row['name'] ?? '');
+				if(preg_match('/\S/',$pool_name) && preg_match('/\S/',$volume_name)):
+					$fq_volume_name = sprintf('%s/%s',$pool_name,$volume_name);
+					$a_param = [
+						'zfs',
+						'destroy'
+					];
+//					additional parameter
 					if($recursively):
-						$cmd = sprintf('zfs destroy -r %s',escapeshellarg($fqn_volume));
-					else:
-						$cmd = sprintf('zfs destroy %s',escapeshellarg($fqn_volume));
+						$a_param[] = '-r';
 					endif;
+//					add volume name
+					$a_param[] = escapeshellarg($fq_volume_name);
+					$cmd = implode(' ',$a_param);
 					write_log($cmd);
+//					destroy volume
 					$result = 0;
 					$result |= mwexec($cmd,true);
 					if($result != 0):
-						write_log(sprintf('Error: Failed to destroy volume %s',$fqn_volume));
+						write_log(sprintf('Error: Failed to destroy volume %s',$fq_volume_name));
 					endif;
 					return $result;
 				endif;
@@ -817,51 +1049,61 @@ function zfs_volume_destroy(string $uuid,bool $recursively = false) {
 	endif;
 	return 1;
 }
+/**
+ *	Calculates the reservation value
+ *	@param string $volsize
+ *	@return boolean|string
+ */
 function zfs_get_volume_reservation($volsize) {
 	if(empty($volsize)):
 		return '';
 	endif;
-	if(preg_match("/^(\d+(\.\d+)?)(.*)$/",$volsize,$m)):
-		$size = (float)$m[1] * 1.03;
-		$suffix = $m[3];
-		if(preg_match("/(m|k|^$)/", $suffix, $m)):
+	unset($matches);
+	if(preg_match('/^([0-9]+(?:\.[0-9]+)?)(.*)$/',$volsize,$matches)):
+//		increase by 3%
+		$size = (float)$matches[1] * 1.03;
+		$uom = $matches[2];
+//		round up small values
+		if(preg_match('/(m|k|^$)/',$uom)):
 			$size = ceil($size);
 		endif;
-		return "{$size}{$suffix}";
+		return sprintf('%s%s',trim($size),trim($uom));
 	endif;
 	return false;
 }
 /**
- * Update properties of a ZFS volume.
- * @param[in] uuid	The UUID of the volume to be updated.
- * @return Return 0 if successful, otherwise 1.
+ *	Update properties of a ZFS volume.
+ *	@global array $config
+ *	@param string $uuid The UUID of the volume to be updated.
+ *	@return int Return 0 if successful, otherwise 1.
  */
-function zfs_volume_properties($uuid) {
+function zfs_volume_properties(string $uuid) {
 	global $config;
-	array_make_branch($config,'zfs','volumes','volume');
+
+	$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
 	$prop = new properties_zfs_dataset();
-	// get volume
-	$index = array_search_ex($uuid,$config['zfs']['volumes']['volume'],'uuid');
-	if(false === $index):
+//	get volume
+	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
+	if(false === $sphere_row_id):
 		return 1;
 	endif;
-	$volume = $config['zfs']['volumes']['volume'][$index];
-	if(!is_array($volume)):
+	$sphere_row = $sphere_grid[$sphere_row_id];
+	if(!is_array($sphere_row)):
 		return 1;
 	endif;
-	// get pool name
-	if(!(isset($volume['pool']) && is_array($volume['pool']) && (0 < count($volume['pool'])) && preg_match('/\S/', $volume['pool'][0]))):
+//	get pool name
+	if(!(isset($sphere_row['pool']) && is_array($sphere_row['pool']) && (0 < count($sphere_row['pool'])) && preg_match('/\S/',$sphere_row['pool'][0]))):
 		return 1;
 	endif;
-	$poolname = ltrim($volume['pool'][0]);
-	// get volume name
-	if(!(isset($volume['name']) && preg_match('/\S/',$volume['name']))):
+	$pool_name = ltrim($sphere_row['pool'][0]);
+//	get volume name
+	if(!(isset($sphere_row['name']) && preg_match('/\S/',$sphere_row['name']))):
 		return 1;
 	endif;
-	$volumename = ltrim($volume['name']);
-	$relpath = sprintf('%1$s/%2$s',$poolname,$volumename);
+	$volume_name = ltrim($sphere_row['name']);
+	$fq_volume_name = sprintf('%s/%s',$pool_name,$volume_name);
 	$ref = 'volsize';
-	$volsize = $prop->$ref->validate_value($volume[$ref]);
+	$volsize = $prop->$ref->validate_value($sphere_row[$ref]);
 	if(isset($volsize)):
 		if(false === ($reservation = zfs_get_volume_reservation($volsize))):
 			return 1;
@@ -884,10 +1126,10 @@ function zfs_volume_properties($uuid) {
 	foreach($supported_properties as $ref):
 		switch($ref):
 			case 'sparse':
-				if(isset($volume['sparse'])):
+				if(isset($sphere_row['sparse'])):
 					$a_param[] = sprintf('%s=%s','refreservation','none');
 				elseif(isset($volsize)):
-					// this might fail
+//					this might fail
 					$a_param[] = sprintf('%s=%s','refreservation',$volsize);
 				endif;
 				break;
@@ -899,7 +1141,7 @@ function zfs_volume_properties($uuid) {
 			case 'secondarycache':
 			case 'sync':
 			case 'volmode':
-				$val = $prop->$ref->validate_value($volume[$ref]);
+				$val = $prop->$ref->validate_value($sphere_row[$ref]);
 				if(isset($val) && preg_match('/\S/',$val)):
 					$a_param[] = sprintf('%s=%s',$ref,$val);
 				endif;
@@ -909,264 +1151,287 @@ function zfs_volume_properties($uuid) {
 					$a_param[] = sprintf('%s=%s',$ref,$volsize);
 				endif;
 				break;
-		endswitch;	
+		endswitch;
 	endforeach;
 	if(0 < $required_properties):
 		return 1;
 	endif;
 	$param = implode(' ',$a_param);
-	// Update volume properties
+//	Update volume properties
 	if(empty($param)):
 		return 1;
 	endif;
-	$cmd = sprintf('zfs set %1$s %2$s',$param,escapeshellarg($relpath));
+	$cmd = sprintf('zfs set %s %s',$param,escapeshellarg($fq_volume_name));
 	write_log($cmd);
 	return mwexec($cmd,true);
 }
-
 /**
- * Configure, create and start a ZFS snapshot.
- * @param[in] snapshot	The name of the snapshot to be configured.
- * @return An array containg the result:
- * @code
- * [output] => ['lines']
- * [retval] => 0 if successful, otherwise 1
- * @endcode
+ *	Configure, create and start a ZFS snapshot.
+ *	@param array snapshot The name of the snapshot to be configured.
+ *	@return array An array containg the result:
+ *	@code
+ *	[output] => ['lines']
+ *	[retval] => 0 if successful, otherwise 1
+ *	@endcode
  */
 function zfs_snapshot_configure($snapshot) {
-	global $config;
 	$result = ['output' => ['error'],'retval' => -1];
-
-	if (empty($snapshot) || empty($snapshot['snapshot']))
+	if(empty($snapshot) || empty($snapshot['snapshot'])):
 		return $result;
-	if (!preg_match('/.+\@.+/', $snapshot['snapshot']))
+	endif;
+	if(!preg_match('/.+\@.+/',$snapshot['snapshot'])):
 		return $result;
-
-	// Additional parameter
-	$param = "";
-
-	if (!empty($snapshot['recursive']))
-		$param .= "-r ";
-
-	// Create the snapshot
-	$cmd = "zfs snapshot {$param} {$snapshot['snapshot']}";
+	endif;
+//	prepare command
+	$a_param = [
+		'zfs',
+		'snapshot'
+	];
+//	additional parameter
+	if(!empty($snapshot['recursive'])):
+		$a_param[] = '-r ';
+	endif;
+//	add snapshot name
+	$a_param[] = escapeshellarg($snapshot['snapshot']);
+//	redirect stderr to stdout
+	$a_param[] = '2>&1';
+//	compile command
+	$cmd = implode(' ',$a_param);
 	write_log($cmd);
-
-//	return mwexec($cmd, true);
-	// Execute the command, and save the log.
-	$redirect = "2>&1";
-	exec("{$cmd} {$redirect}", $output, $retval);
+//	execute the command and save the log
+	exec($cmd,$output,$retval);
 	$result['output'] = $output;
 	$result['retval'] = $retval;
 	return $result;
 }
-
 /**
- * Delete a ZFS snapshot.
- * @param[in] snapshot	The name of the snapshot to be deleted.
- * @return An array containg the result:
- * @code
- * [output] => ['lines']
- * [retval] => 0 if successful, otherwise 1
- * @endcode
+ *	Delete a ZFS snapshot.
+ *	@param array $snapshot The name of the snapshot to be deleted.
+ *	@return array An array containg the result:
+ *	@code
+ *	[output] => ['lines']
+ *	[retval] => 0 if successful, otherwise 1
+ *	@endcode
  */
 function zfs_snapshot_destroy($snapshot) {
-	global $config;
 	$result = ['output' => ['error'],'retval' => -1];
-
-	if (empty($snapshot) || empty($snapshot['snapshot']))
+	if(empty($snapshot) || empty($snapshot['snapshot'])):
 		return $result;
-	if (!preg_match('/.+\@.+/', $snapshot['snapshot']))
+	endif;
+	if(!preg_match('/.+\@.+/',$snapshot['snapshot'])):
 		return $result;
-
-	// Additional parameter
-	$param = "";
-
-	if (!empty($snapshot['recursive']))
-		$param .= "-r ";
-
-	// Destroy the snapshot
-	$cmd = "zfs destroy {$param} {$snapshot['snapshot']}";
+	endif;
+//	prepare command
+	$a_param = [
+		'zfs',
+		'destroy'
+	];
+//	additional parameter
+	if(!empty($snapshot['recursive'])):
+		$a_param[] = '-r';
+	endif;
+//	add snapshot name
+	$a_param[] = escapeshellarg($snapshot['snapshot']);
+//	redirect stderr to stdout
+	$a_param[] = '2>&1';
+//	compile command
+	$cmd = implode(' ',$a_param);
 	write_log($cmd);
-
-//	return mwexec($cmd, true);
-	// Execute the command, and save the log.
-	$redirect = "2>&1";
-	exec("{$cmd} {$redirect}", $output, $retval);
+//	execute the command, and save the log
+	exec($cmd,$output,$retval);
 	$result['output'] = $output;
 	$result['retval'] = $retval;
 	return $result;
 }
-
-function zfs_snapshot_rollback($snapshot) {
-	global $config;
-	$result = ['output' => ['error'],'retval' => -1];
-
-	if (empty($snapshot) || empty($snapshot['snapshot'])) {
-		return $result;
-	}
-	if (!preg_match('/.+\@.+/', $snapshot['snapshot'])) {
-		return $result;
-	}
-
-	// Additional parameter
-	$param = "";
-
-	if (!empty($snapshot['force_delete'])) {
-		$param .= "-r ";
-	}
-
-	// Rollback snapshot
-	$cmd = "zfs rollback {$param} {$snapshot['snapshot']}";
-	write_log($cmd);
-
-//	return mwexec($cmd, true);
-	// Execute the command, and save the log.
-	$redirect = "2>&1";
-	exec("{$cmd} {$redirect}", $output, $retval);
-	$result['output'] = $output;
-	$result['retval'] = $retval;
-	return $result;
-}
-
 /**
- * Clone from a ZFS snapshot.
- * @param[in] snapshot	The name of the snapshot to be cloned.
- * @return An array containg the result:
- * @code
- * [output] => ['lines']
- * [retval] => 0 if successful, otherwise 1
- * @endcode
+ *	Rollback a ZFS snapshot.
+ *	@param array $snapshot
+ *	@return array
+ */
+function zfs_snapshot_rollback($snapshot) {
+	$result = ['output' => ['error'],'retval' => -1];
+	if(empty($snapshot) || empty($snapshot['snapshot'])):
+		return $result;
+	endif;
+	if(!preg_match('/.+\@.+/',$snapshot['snapshot'])):
+		return $result;
+	endif;
+//	prepare command
+	$a_param = [
+		'zfs',
+		'rollback'
+	];
+//	additional parameter
+	if(!empty($snapshot['force_delete'])):
+		$a_param[] = '-r';
+	endif;
+//	add snapshot name
+	$a_param[] = escapeshellarg($snapshot['snapshot']);
+//	redirect stderr to stdout
+	$a_param[] = '2>&1';
+//	compile command
+	$cmd = implode(' ',$a_param);
+	write_log($cmd);
+//	execute the command and save the log
+	exec($cmd,$output,$retval);
+	$result['output'] = $output;
+	$result['retval'] = $retval;
+	return $result;
+}
+/**
+ *	Clone a ZFS snapshot.
+ *	@param array $snapshot The name of the snapshot to be cloned.
+ *	@return array An array containg the result:
+ *	@code
+ *	[output] => ['lines']
+ *	[retval] => 0 if successful, otherwise 1
+ *	@endcode
  */
 function zfs_snapshot_clone($snapshot) {
-	global $config;
-	$result = ['output' => ['error'], 'retval' => -1];
-
-	if (empty($snapshot) || empty($snapshot['snapshot']))
+	$result = ['output' => ['error'],'retval' => -1];
+	if(empty($snapshot) || empty($snapshot['snapshot'])):
 		return $result;
-	if (!preg_match('/.+\@.+/', $snapshot['snapshot']))
+	endif;
+	if(!preg_match('/.+\@.+/',$snapshot['snapshot'])):
 		return $result;
-	//if (empty($snapshot['pool']) || empty($snapshot['name']))
-	//	return $result;
-	if (empty($snapshot['path']))
+	endif;
+	if(empty($snapshot['path'])):
 		return $result;
-
-	// Additional parameter
-	$param = "";
-
-	// Clone the snapshot
-	$cmd = "zfs clone {$param} {$snapshot['snapshot']} {$snapshot['path']}";
+	endif;
+//	prepare command
+	$a_param = [
+		'zfs',
+		'clone'
+	];
+//	additional parameter
+//	add snapshot name
+	$a_param[] = escapeshellarg($snapshot['snapshot']);
+//	add path
+	$a_param[] = escapeshellarg($snapshot['path']);
+//	redirect stderr to stdout
+	$a_param[] = '2>&1';
+//	compile command
+	$cmd = implode(' ',$a_param);
 	write_log($cmd);
-
-//	return mwexec($cmd, true);
-	// Execute the command, and save the log.
-	$redirect = "2>&1";
-	exec("{$cmd} {$redirect}", $output, $retval);
+//	execute the command and save the log
+	exec($cmd,$output,$retval);
 	$result['output'] = $output;
 	$result['retval'] = $retval;
 	return $result;
 }
-
 /**
- * Update properties of a ZFS snapshot.
- * @param[in] snapshot	The name of the snapshot to be updated.
- * @return Return 0 if successful, otherwise 1.
+ *	Update properties of a ZFS snapshot.
+ *	@param array $snapshot The name of the snapshot to be updated.
+ *	@return int Return 0 if successful, otherwise 1.
  */
 function zfs_snapshot_properties($snapshot) {
-	global $config;
-
-	if (empty($snapshot) || empty($snapshot['snapshot']))
+	if(empty($snapshot) || empty($snapshot['snapshot'])):
 		return -1;
-	if (!preg_match('/.+\@.+/', $snapshot['snapshot']))
+	endif;
+	if(!preg_match('/.+\@.+/',$snapshot['snapshot'])):
 		return -1;
-
+	endif;
 	$result = 0;
-
-	foreach (explode(" ", "dummy") as $attr) {
-		$param = "";
-
-		switch ($attr) {
-		}
-
-		// Update snapshot properties
-		if (!empty($param)) {
-			$cmd = "zfs set {$param} {$snapshot['snapshot']}";
+	foreach(explode(' ','dummy') as $referer):
+		$param = '';
+		switch($referer):
+		endswitch;
+//		update snapshot properties
+		if(!empty($param)):
+//			prepare command
+			$a_param = [
+				'zfs',
+				'set'
+			];
+//			additional parameter
+			$a_param[] = $param;
+//			add snapshot name
+			$a_param[] = escapeshellarg($snapshot['snapshot']);
+//			compile command
+			$cmd = implode(' ',$a_param);
 			write_log($cmd);
-			$result |= mwexec($cmd, true);
-		}
-	}
-
+			$result |= mwexec($cmd,true);
+		endif;
+	endforeach;
 	return $result;
 }
-
 /**
- * Delete a ZFS clone filesystem, volume.
- * @param[in] dataset	The name of the dataset to be deleted.
- * @return An array containg the result:
- * @code
- * [output] => ['lines']
- * [retval] => 0 if successful, otherwise 1
- * @endcode
+ *	Delete a ZFS clone filesystem, volume.
+ *	@param string $clone dataset The name of the dataset to be deleted.
+ *	@return array An array containg the result:
+ *	@code
+ *	[output] => ['lines']
+ *	[retval] => 0 if successful, otherwise 1
+ *	@endcode
  */
 function zfs_clone_destroy($clone) {
-	global $config;
 	$result = ['output' => ['error'],'retval' => -1];
-
-	if (empty($clone) || empty($clone['path']))
+	if(empty($clone) || empty($clone['path'])):
 		return $result;
-	if (!preg_match('/.+\/.+/', $clone['path']))
+	endif;
+	if(!preg_match('/.+\/.+/',$clone['path'])):
 		return $result;
-
-	// Additional parameter
-	$param = "";
-
-	// Destroy the snapshot
-	$cmd = "zfs destroy {$param} {$clone['path']}";
+	endif;
+//	prepare command
+	$a_param = [
+		'zfs',
+		'destroy'
+	];
+//	additional parameter
+//	add clone name
+	$a_param[] = escapeshellarg($clone['path']);
+//	redirect stderr to stdout
+	$a_param[] = '2>&1';
+//	compile command
+	$cmd = implode(' ',$a_param);
 	write_log($cmd);
-
-//	return mwexec($cmd, true);
-	// Execute the command, and save the log.
-	$redirect = "2>&1";
-	exec("{$cmd} {$redirect}", $output, $retval);
+//	execute the command and save the log
+	exec($cmd,$output,$retval);
 	$result['output'] = $output;
 	$result['retval'] = $retval;
 	return $result;
 }
-
-// Update notify for ZFS functions
-function zfs_updatenotify_process($key, $function) {
-	$result = ['output' => ['error'],'retval' => -1];
+/**
+ *	update notify for ZFS functions
+ *	@param string $key
+ *	@param string $function
+ *	@return mixed
+ */
+function zfs_updatenotify_process($key,$function) {
 	$a_notification = updatenotify_get($key);
-	if (!is_array($a_notification)) {
+	if(!is_array($a_notification)):
 		$result = ['output' => ['empty'],'retval' => 0];
 		return $result;
-	}
-
-	foreach ($a_notification as $notificationv) {
-		$ret = call_user_func($function, $notificationv['mode'], $notificationv['data']);
-		if (0 != $ret['retval']) {
+	endif;
+	foreach($a_notification as $notificationv):
+		$ret = call_user_func($function,$notificationv['mode'],$notificationv['data']);
+		if(0 != $ret['retval']):
 			return $ret;
-		}
-	}
-	$result = ['output' => [], 'retval' => 0];
+		endif;
+	endforeach;
+	$result = ['output' => [],'retval' => 0];
 	return $result;
 }
-
-// Returns true if $name is valid.
+/**
+ *	Validate the name for a ZFS pool..
+ *	- Pool name must be of type string.
+ *	- An empty pool name is not allowed.
+ *	- The pool name must begin with a letter, followed by alphanumeric,
+ *	  underscore, dash, blank and period characters.
+ *	- The length of the pool name must be less than 256 characters.
+ *	@param string $name ZFS pool name
+ *	@return boolean
+ */
 function zfs_is_valid_poolname($name) {
-	// Pool name must be of type string
-	// An empty pool name is not allowed.
-	// The pool name must begin with a letter, and can only contain
-	// alphanumeric characters as well as underscore, dash, blank and period.
-	// Length of the pool name must be less than 256 characters.
-	$regexp = '/^[a-z][a-z\d\.\-_: ]*$/i';
+	$helpinghand = preg_quote('.-_: ','/');
+	$regexp = '/^[A-Za-z][0-9A-Za-z' . $helpinghand . '.-_: ]*$/';
 	$result = filter_var($name,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
 	if(isset($result)):
-		// Pool names beginning with "mirror", "raidz" and "spare" are not allowed, as are names beginning with the pattern "c[0-9]".
+//		pool names beginning with "mirror", "raidz" and "spare" are not allowed, as are names beginning with the pattern "c[0-9]".
 		if(preg_match('/^(mirror|raidz|spare|c[0-9])/',$name)):
 			return false;
 		endif;
-		// log is a reserved word
+//		log is a reserved word
 		if(0 == strcmp('log',$name)):
 			return false;
 		endif;
@@ -1177,30 +1442,36 @@ function zfs_is_valid_poolname($name) {
 	endif;
 	return false;
 }
-/*
- * The dataset name must begin with an alphanumeric character.
- * Following characters must be alphanumeric, underscore ("_"), dash ("-"), blank (" ") or period (".").
+/**
+ *	Validate the name for a ZFS filesystem.
+ *	The name must begin with an alphanumeric character, followed by alphanumeric,
+ *	underscore ("_"), dash ("-"), blank (" ") or period (".") characters.
+ *	@param string $name ZFS filesystem name
+ *	@return boolean
  */
 function zfs_is_valid_dataset_name($name) {
-	if (is_string($name) && preg_match('/\S/', $name)) { // only string with at least one non-whitespace characters allowed
-		$helpinghand = preg_quote('.-_ ', '/');
-		if (false !==  preg_match('/^[a-z\d][a-z\d'.$helpinghand.']*(?:\/[a-z\d][a-z\d'.$helpinghand.']*)*$/i', $name)) {
+//	only string with at least one non-whitespace character is allowed
+	if(is_string($name) && preg_match('/\S/',$name)):
+		$helpinghand = preg_quote('.-_ ','/');
+		if(false !==  preg_match('/^[0-9a-z][0-9a-z' . $helpinghand . ']*(?:\/[0-9a-z][0-9a-z' . $helpinghand . ']*)*$/i',$name)):
 			return true;
-		}
-	}
+		endif;
+	endif;
 	return false;
 }
-/*
- * The volume name must begin with an alphanumeric character.
- * Following characters must be alphanumeric, underscore ("_"), dash ("-"), blank (" ") or period (".").
+/**
+ *	The volume name must begin with an alphanumeric character.
+ *	Following characters must be alphanumeric, underscore ("_"), dash ("-"), blank (" ") or period (".").
+ *	@param string $name ZFS volume name
+ *	@return boolean
  */
 function zfs_is_valid_volume_name($name) {
-	if (is_string($name) && preg_match('/\S/', $name)) { // only string with at least one non-whitespace characters allowed
+//	only string with at least one non-whitespace characters allowed
+	if(is_string($name) && preg_match('/\S/',$name)):
 		$helpinghand = preg_quote('.-_ ', '/');
-		if (false !==  preg_match('/^[a-z\d][a-z\d'.$helpinghand.']*(?:\/[a-z\d][a-z\d'.$helpinghand.']*)*$/i', $name)) {
+		if(false !==  preg_match('/^[0-9a-z][0-9a-z' . $helpinghand . ']*(?:\/[0-9a-z][0-9a-z' . $helpinghand . ']*)*$/i',$name)):
 			return true;
-		}
-	}
+		endif;
+	endif;
 	return false;
 }
-?>
