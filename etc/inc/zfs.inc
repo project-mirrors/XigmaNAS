@@ -960,15 +960,15 @@ function zfs_volume_configure(string $uuid) {
 	];
 //	additional parameter
 	$required_properties = 1;
-	foreach($supported_properties as $ref):
-		switch($ref):
+	foreach($supported_properties as $referer):
+		switch($referer):
 			case 'sparse':
-				if(isset($sphere_row[$ref])):
+				if(isset($sphere_row[$referer])):
 					$a_param[] = '-s';
 				endif;
 				break;
 			case 'volsize':
-				$val = $prop->$ref->validate_value($sphere_row[$ref]);
+				$val = $prop->$referer->validate_value($sphere_row[$referer]);
 				if(isset($val) && preg_match('/\S/',$val)):
 					$a_param[] = '-V';
 					$a_param[] = $val;
@@ -984,10 +984,10 @@ function zfs_volume_configure(string $uuid) {
 			case 'sync':
 			case 'volblocksize':
 			case 'volmode':
-				$val = $prop->$ref->validate_value($sphere_row[$ref]);
+				$val = $prop->$referer->validate_value($sphere_row[$referer]);
 				if(isset($val) && preg_match('/\S/',$val)):
 					$a_param[] = '-o';
-					$a_param[] = sprintf('%s=%s',$ref,$val);
+					$a_param[] = sprintf('%s=%s',$referer,$val);
 				endif;
 				break;
 		endswitch;
@@ -1102,8 +1102,8 @@ function zfs_volume_properties(string $uuid) {
 	endif;
 	$volume_name = ltrim($sphere_row['name']);
 	$fq_volume_name = sprintf('%s/%s',$pool_name,$volume_name);
-	$ref = 'volsize';
-	$volsize = $prop->$ref->validate_value($sphere_row[$ref]);
+	$referer = 'volsize';
+	$volsize = $prop->$referer->validate_value($sphere_row[$referer]);
 	if(isset($volsize)):
 		if(false === ($reservation = zfs_get_volume_reservation($volsize))):
 			return 1;
@@ -1123,8 +1123,8 @@ function zfs_volume_properties(string $uuid) {
 	];
 	$a_param = [];
 	$required_properties = 0;
-	foreach($supported_properties as $ref):
-		switch($ref):
+	foreach($supported_properties as $referer):
+		switch($referer):
 			case 'sparse':
 				if(isset($sphere_row['sparse'])):
 					$a_param[] = sprintf('%s=%s','refreservation','none');
@@ -1141,14 +1141,14 @@ function zfs_volume_properties(string $uuid) {
 			case 'secondarycache':
 			case 'sync':
 			case 'volmode':
-				$val = $prop->$ref->validate_value($sphere_row[$ref]);
+				$val = $prop->$referer->validate_value($sphere_row[$referer]);
 				if(isset($val) && preg_match('/\S/',$val)):
-					$a_param[] = sprintf('%s=%s',$ref,$val);
+					$a_param[] = sprintf('%s=%s',$referer,$val);
 				endif;
 				break;
 			case 'volsize':
 				if(isset($volsize)):
-					$a_param[] = sprintf('%s=%s',$ref,$volsize);
+					$a_param[] = sprintf('%s=%s',$referer,$volsize);
 				endif;
 				break;
 		endswitch;
