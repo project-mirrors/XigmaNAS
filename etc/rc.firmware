@@ -467,6 +467,20 @@ embedded_upgrade() {
 	fi
 }
 
+set_boot_path()
+{
+	BOOTPATH=${BEPATH}
+	MBRPART=0
+	if [ -L '/boot' ] && [ -d '/boot' ]; then
+    	BOOTPOOL=$(readlink '/boot' | awk -F '/' '{print $1}')
+    	BOOTPROP=$(zpool list -H -o bootfs ${BOOTPOOL})
+    	if [ "${BOOTPROP}" = "-" ]; then
+        	BOOTPATH=/${BOOTPOOL}
+			MBRPART=1
+    	fi
+	fi
+}
+
 backup_sys_files() {
 	# Backup common system configuration files.
 	# Only files present in the firmware upgrade file are affected.
@@ -475,12 +489,6 @@ backup_sys_files() {
 
 	if [ ! -d "${SYSBACKUP}" ]; then
 		mkdir -p ${SYSBACKUP}
-	fi
-
-	# Set the proper boot path for backup.
-	BOOTPATH=${BEPATH}
-	if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
-		BOOTPATH=/${BOOTPOOL}
 	fi
 
 	if [ -f "${BOOTPATH}/boot/loader.conf" ]; then
@@ -492,7 +500,7 @@ backup_sys_files() {
 
 	# Keep a copy of the previous kernel on each upgrade.
 	if [ -d "${BOOTPATH}/boot/kernel" ]; then
-		if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+		if [ "${MBRPART}" = 1 ]; then
 
 			# Backup required files for geli on mbr installs,
 			# as well as for any custom geli files if any.
@@ -522,12 +530,6 @@ restore_sys_files() {
 	msg="Restore system configuration..."
 	/usr/bin/logger -p console.info "UPGRADE: ${msg}"
 
-	# Set the proper boot path for restore.
-	BOOTPATH=${BEPATH}
-	if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
-		BOOTPATH=/${BOOTPOOL}
-	fi
-
 	if [ -f "${SYSBACKUP}/loader.conf" ]; then
 		cp -pf ${SYSBACKUP}/loader.conf ${BOOTPATH}/boot/
 	fi
@@ -549,14 +551,18 @@ upgrade_menuforth()
 {
 	# Update to latest loader manu files.
 	# This is for backward compatibility only.
+	BOOTPATH=${BEPATH}
+	if [ "${MBRPART}" = 1 ]; then
+		BOOTPATH=/${BOOTPOOL}
+	fi
 	if [ -d "${BEPATH}/etc/install/include/boot" ]; then
-		cp -pf ${BEPATH}/etc/install/include/boot/* ${BEPATH}/boot
-		chmod 444 ${BEPATH}/boot/menu.4th
+		cp -pf ${BEPATH}/etc/install/include/boot/* ${BOOTPATH}/boot
+		chmod 444 ${BOOTPATH}/boot/menu.4th
 	fi
 
 	if ! grep -q "beastie-start" ${BEPATH}/boot/loader.rc; then
 	# Generate/update our loader.rc if missing.
-	cat << EOF > ${BEPATH}/boot/loader.rc
+	cat << EOF > ${BOOTPATH}/boot/loader.rc
 \ Loader.rc
 include /boot/loader.4th
 start
@@ -565,7 +571,7 @@ check-password
 include /boot/beastie.4th
 beastie-start
 EOF
-	chmod 444 ${BEPATH}/boot/loader.rc
+	chmod 444 ${BOOTPATH}/boot/loader.rc
 	fi
 }
 
@@ -604,6 +610,9 @@ full_upgrade() {
 
 	# Wait 2 seconds before proceed.
 	sleep 2
+
+	# Set the proper boot path for backup.
+	set_boot_path
 
 	msg="System upgrade in progress. Please wait..."
 	/usr/bin/logger -p console.info "UPGRADE: ${msg}"
@@ -668,7 +677,7 @@ full_upgrade() {
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 
 	EXCLUDEBOOT=""
-	if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+	if [ "${MBRPART}" = 1 ]; then
 		msg="Extracting files for ${BOOTPOOL}..."
 		/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 		RESULT=1
@@ -719,7 +728,7 @@ full_upgrade() {
 		/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
 
-		if /sbin/gpart show ${CFDEVICE} | grep -qw MBR; then
+		if [ "${MBRPART}" = 1 ]; then
 			# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
 			# this is due a known bug and/or limitation in the beadm utility.
 			zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
