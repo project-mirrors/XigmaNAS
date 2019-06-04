@@ -32,15 +32,16 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\ctld;
+
 use common\properties as myp;
 
 final class setting_properties extends grid_properties {
-	public function init_enable() {
+	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->set_defaultvalue(false);
 		return $property;
 	}
-	public function init_debug() {
+	public function init_debug(): myp\property_int {
 		$description = gettext('The debug verbosity level. The default is 0.');
 		$placeholder = '0';
 		$property = parent::init_debug();
@@ -57,7 +58,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_maxproc() {
+	public function init_maxproc(): myp\property_int {
 		$description = gettext('The limit for concurrently running child processes handling incoming connections. The default is 30. A setting of 0 disables the limit.');
 		$placeholder = '30';
 		$property = parent::init_maxproc();
@@ -74,7 +75,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_timeout() {
+	public function init_timeout(): myp\property_int {
 		$description = gettext('The timeout for login sessions, after which the connection will be forcibly terminated. The default is 60. A setting of 0 disables the timeout.');
 		$placeholder = '60';
 		$property = parent::init_timeout();
@@ -91,7 +92,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_isns_period() {
+	public function init_isns_period(): myp\property_int {
 		$description = gettext('iSNS registration period. Registered Network Entity not updated during this period will be unregistered. The default is 900.');
 		$placeholder = '900';
 		$property = parent::init_isns_period();
@@ -108,7 +109,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_isns_timeout() {
+	public function init_isns_timeout(): myp\property_int {
 		$description = gettext('Timeout for iSNS requests. The default is 5.');
 		$placeholder = '5';
 		$property = parent::init_isns_timeout();
@@ -125,7 +126,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_auxparam() {
+	public function init_auxparam(): myp\property_auxparam {
 		$description = gettext('These parameters will be added to the global section of ctl.conf');
 		$property = parent::init_auxparam();
 		$property->set_description($description);
