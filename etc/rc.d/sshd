@@ -55,7 +55,7 @@ sshd_mkconf()
 			--if 'count(challengeresponseauthentication) > 0' \
 				--output 'ChallengeResponseAuthentication yes' --nl \
 			--else \
-				--output "ChallengeResponseAuthentication no" --nl \
+				--output 'ChallengeResponseAuthentication no' --nl \
 			--break \
 			--if 'string-length(port) > 0' \
 				--value-of 'concat("Port ",port)' --nl \
@@ -68,12 +68,12 @@ sshd_mkconf()
 			--if 'count(tcpforwarding) > 0' \
 				--output 'AllowTcpForwarding yes' --nl \
 			--else \
-				--output "AllowTcpForwarding no" --nl \
+				--output 'AllowTcpForwarding no' --nl \
 			--break \
 			--if 'count(compression) > 0' \
 				--output 'Compression yes' --nl \
 			--else \
-				--output 'Compression no' \
+				--output 'Compression no' --nl \
 			--break \
 			--if 'count(passwordauthentication) > 0' \
 				--output 'PasswordAuthentication yes' --nl \
