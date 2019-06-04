@@ -945,7 +945,7 @@ class co_sphere_grid extends co_sphere_level2 {
  *	</tr>
  */
 		global $g_img;
-		
+
 		$img_attributes = [
 			'src' => $g_img['add'],
 			'title' => $this->getmsg_sym_add(),

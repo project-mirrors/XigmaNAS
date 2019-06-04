@@ -36,7 +36,7 @@ require_once 'util.inc';
 
 class co_geom_info {
 	private $a_xml;
-	
+
 	public function __construct() {
 		$this->scan();
 		return true;
