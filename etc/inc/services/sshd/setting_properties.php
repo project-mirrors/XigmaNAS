@@ -116,7 +116,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_permitrootlogin(): myp\property_bool {
-		$caption = gettext('Allow root to log in via ssh.');
+		$caption = gettext('Allow root to login via ssh.');
 		$property = parent::init_permitrootlogin();
 		$property->
 			set_id('permitrootlogin')->
