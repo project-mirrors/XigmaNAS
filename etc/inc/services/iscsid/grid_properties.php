@@ -201,7 +201,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_sessionstate;
 	public function init_sessionstate() {
-		$title = gettext('Session Enable');
+		$title = gettext('Session State');
 		$property = $this->x_sessionstate = new myp\property_list($this);
 		$property->
 			set_name('sessionstate')->
