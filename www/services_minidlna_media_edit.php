@@ -108,7 +108,7 @@ if(false === $sphere->row_id):
 				break;
 		endswitch;
 	endif;
-else: 
+else:
 //	record found in configuration
 	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)):
 //		EDIT or POST or VIEW
