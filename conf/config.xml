@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>43</version>
+	<version>44</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -176,6 +176,12 @@
 				<value>/var/log/rsync_local.log</value>
 				<comment>Default log file</comment>
 				<enable/>
+			</param>
+			<param>
+				<uuid>2a97da6d-ce94-4fd6-b914-1ea002133ae4</uuid>
+				<name>netwait_enable</name>
+				<value>YES</value>
+				<comment>Wait for interface and gateway</comment>
 			</param>
 		</rcconf>
 		<sysctl>
