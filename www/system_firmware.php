@@ -254,8 +254,8 @@ endswitch;
 switch($page_mode):
 	case 'default':
 		if(in_array($g['platform'],$fwupplatforms)):
-			//	check boot partition size
-			if($diskinfo['mediasize_mbytes'] < $part1min):
+//			check boot partition size except for zfs platforms
+			if(!$g['zroot'] && $diskinfo['mediasize_mbytes'] < $part1min):
 				$part1ok = false;
 				$errormsg = sprintf(gtext("Boot partition is too small. You need to reinstall from LiveCD/LiveUSB or resize boot partition of %s.\n"),$cfdevice);
 				$page_mode = 'info';
@@ -477,7 +477,7 @@ include 'fbegin.inc';
 			</form>
 <?php
 			break;
-	endswitch;				
+	endswitch;
 ?>
 </td></tr></tbody></table>
 <?php
