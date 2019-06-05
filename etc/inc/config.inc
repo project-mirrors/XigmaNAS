@@ -1617,6 +1617,26 @@ function config_upgrade_42() {
 	endforeach;
 }
 /**
+ *	Upgrade configuration from 43
+ *	@global array $config
+ */
+function config_upgrade_43() {
+	global $config;
+
+	$a_source = &array_make_branch($config,'system','rcconf','param');
+	$rcconf_param_name = 'netwait_enable';
+	$index = array_search_ex($rcconf_param_name,$a_source,'name');
+	if(false === $index):
+		$rcconf_param = [
+			'uuid' => uuid(),
+			'name' => $rcconf_param_name,
+			'value' => 'YES',
+			'comment' => 'Wait for interface and gateway'
+		];
+		$a_source[] = $rcconf_param;
+	endif;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1663,7 +1683,8 @@ function config_upgrade() {
 		'40' => [$kf => 'config_upgrade_40',$kv => '41'],
 		'41' => [$kf => 'config_upgrade_41',$kv => '42'],
 		'42' => [$kf => 'config_upgrade_42',$kv => '43'],
-		'43' => [$kf => NULL,$kv => NULL]
+		'43' => [$kf => 'config_upgrade_43',$kv => '44'],
+		'44' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
