@@ -669,8 +669,12 @@ EOF
 	# This file is used by the firmware and mount check and is normally
 	# generated with 'liveCD' and 'embedded' during startup, but need to be
 	# created during install of 'full'.
+	# This is for backward compatibility only.
 	if [ ! -z "${disklist}" ]; then
-		if [ "${RAID10}" = 0 ]; then
+		if echo ${GELI_MODE} | grep -qw "DISK+GELI"; then
+			# Use diskid if encryption enabled.
+			CFDEVS=${disklist}
+		elif [ "${RAID10}" = 0 ]; then
 			CFDEVS="${ZROOT_DEVLIST1} ${ZROOT_DEVLIST2}"
 		else
 			CFDEVS="${ZROOT_DEVLIST}"
