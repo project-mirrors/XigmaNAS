@@ -149,7 +149,7 @@ setifconfig()
 	if [ "${_ipaddr}" != "dhcp" -a -n "${_gateway}" ]; then
 		eval /usr/local/sbin/rconf attribute set "defaultrouter" "${_gateway}"
 		# wait response of LAN
-		eval /usr/local/sbin/rconf attribute set netwait_enable "YES"
+		# eval /usr/local/sbin/rconf attribute set netwait_enable "YES"
 		eval /usr/local/sbin/rconf attribute set netwait_ip "${_gateway}"
 		eval /usr/local/sbin/rconf attribute set netwait_if "${_ifn}"
 	fi
@@ -652,7 +652,7 @@ resizepartition()
 			/usr/sbin/chown 0:5 /mnt/.snap
 			/sbin/umount /mnt
 			echo "${_dev}s3a: resize done."
-		else	
+		else
 			/sbin/mount -uw /cf
 			/bin/rm -f /cf/req_resize
 			/sbin/umount /cf
