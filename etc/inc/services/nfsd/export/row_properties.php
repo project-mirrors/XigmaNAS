@@ -146,7 +146,7 @@ final class row_properties extends grid_properties {
 			'sys' => gettext('sys - Use AUTH_SYS authentication.'),
 			'krb5' => gettext('krb5 - Use Kerberos V5 protocol to authenticate users before granting access to the shared filesystem.'),
 			'krb5i' => gettext('krb5i - Use Kerberos V5 authentication with data integrity checksums.'),
-			'krb5p' => gettext('krb5p - User Kerberos V5 authentication with data integrity checksums and data encryption.')
+			'krb5p' => gettext('krb5p - Use Kerberos V5 authentication with data integrity checksums and data encryption.')
 		];
 		$property = parent::init_opt_sec();
 		$property->
