@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-06-04 21:43+0000\n"
+"POT-Creation-Date: 2019-06-06 01:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11641,7 +11641,7 @@ msgstr ""
 msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
 msgstr ""
 
-msgid "krb5p - User Kerberos V5 authentication with data integrity checksums and data encryption."
+msgid "krb5p - Use Kerberos V5 authentication with data integrity checksums and data encryption."
 msgstr ""
 
 msgid "less then 1.8\"."
