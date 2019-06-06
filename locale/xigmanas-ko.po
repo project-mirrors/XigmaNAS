@@ -2,17 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-28 17:51+0000\n"
+"POT-Creation-Date: 2019-06-06 01:26+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-30 20:37+0000\n"
-"X-Generator: Launchpad (build 18910)\n"
+"X-Launchpad-Export-Date: 2019-06-05 23:57+0000\n"
+"X-Generator: Launchpad (build 18978)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
+
+msgid " No private key"
+msgstr ""
 
 msgid " interfaces:"
 msgstr " 인터페이스:"
@@ -174,6 +177,12 @@ msgstr "(기본값 %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** 불러들인 복사본 ***"
 
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr ""
+
+msgid "/mnt"
+msgstr ""
+
 msgid "000"
 msgstr ""
 
@@ -192,6 +201,9 @@ msgstr "RAID-1 볼륨을 만들기 위해서는 1개 이상의 디스크가 필�
 msgid "1.8\""
 msgstr ""
 
+msgid "1000"
+msgstr ""
+
 msgid "10000"
 msgstr ""
 
@@ -199,6 +211,9 @@ msgid "16 KiB"
 msgstr ""
 
 msgid "16384"
+msgstr ""
+
+msgid "192.168.0.0/24"
 msgstr ""
 
 msgid "2"
@@ -216,6 +231,9 @@ msgstr "RAID-1 볼륨을 만들기 위해서는 2개 이상의 디스크가 필�
 msgid "2.5\""
 msgstr ""
 
+msgid "22"
+msgstr ""
+
 msgid "3"
 msgstr "3"
 
@@ -223,6 +241,9 @@ msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "RAID-5 볼륨을 만들기 위해서는 3개 이상의 디스크가 필요합니다."
 
 msgid "3.5\""
+msgstr ""
+
+msgid "300"
 msgstr ""
 
 msgid "32 KiB"
@@ -254,6 +275,9 @@ msgstr ""
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN 태그(1에서 4094까지)."
+
+msgid "8200"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -537,11 +561,17 @@ msgstr ""
 msgid "Add Listen Record"
 msgstr ""
 
+msgid "Add Media Folder"
+msgstr ""
+
 msgid "Add Mutual CHAP User"
 msgstr ""
 
-msgid "Add NFS Share"
-msgstr "NFS 공유 추가"
+msgid "Add NFS Export"
+msgstr ""
+
+msgid "Add NFS Root"
+msgstr ""
 
 msgid "Add Option"
 msgstr "옵션 추가"
@@ -556,6 +586,9 @@ msgid "Add Port Record"
 msgstr ""
 
 msgid "Add Portal Group"
+msgstr ""
+
+msgid "Add Public Key"
 msgstr ""
 
 msgid "Add RAID"
@@ -675,8 +708,8 @@ msgstr "타겟 추가"
 msgid "Add the selected device to the existing mirror."
 msgstr ""
 
-msgid "Additional Group"
-msgstr "추가 그룹"
+msgid "Add user to additional groups."
+msgstr ""
 
 msgid "Additional Information"
 msgstr ""
@@ -778,9 +811,6 @@ msgstr ""
 msgid "All"
 msgstr "모두"
 
-msgid "All Dirs"
-msgstr "모든 디렉터리"
-
 msgid "All data from the following statistics have been deleted:"
 msgstr "아래 통계에 의한 모든 자료가 삭제되었습니다:"
 
@@ -792,10 +822,6 @@ msgstr ""
 
 msgid "All data will be lost when you activate this option!"
 msgstr "이 옵션을 활성화하면 모든 자료를 잃게 됩니다!"
-
-#, php-format
-msgid "All dirs requires mounted path, but Path %s is not mounted."
-msgstr "'모든 디렉터리'는 탑재된 경로를 필요로 하는데 경로 %s은(는) 탑재 되지 않았습니다."
 
 msgid "All disks are imported."
 msgstr "모든 디스크를 불러들였습니다."
@@ -819,11 +845,17 @@ msgstr "할당됨"
 msgid "Allow"
 msgstr "허용"
 
+msgid "Allow GSSAPI authentication."
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "새 파일 허용"
 
 msgid "Allow Serial Ports"
 msgstr "직렬 포트 허용"
+
+msgid "Allow TCP forwarding."
+msgstr ""
 
 msgid "Allow TLS connections only."
 msgstr "TLS 연결만 허용"
@@ -833,6 +865,9 @@ msgstr "USB 허용"
 
 msgid "Allow USB Serial Ports"
 msgstr "USB 직렬 포트 허용"
+
+msgid "Allow challenge-response authentication."
+msgstr ""
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "암호가 없는 계정으로 클라이언트가 접근하는 것 허용."
@@ -847,10 +882,22 @@ msgstr "클라이언트가 중단된 업로드와 다운로드를 계속 진행�
 msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr ""
 
+msgid "Allow keyboard-interactive authentication."
+msgstr ""
+
 msgid "Allow new files to be created."
 msgstr "새 파일 생성 허용."
 
-msgid "Allow symlinks that point outside user-defined media folders."
+msgid "Allow password authentication."
+msgstr ""
+
+msgid "Allow public key authentication."
+msgstr ""
+
+msgid "Allow root to login via ssh."
+msgstr ""
+
+msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
 msgid "Allow to start UPS from battery"
@@ -989,11 +1036,6 @@ msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
 "issues."
 msgstr "다른 DLNA/UPnP 서비스가 이미 실행 중입니다.  Fuppes 사용이 원인일 수 있습니다."
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling MiniDLNA might cause "
-"issues."
-msgstr "다른 DLNA/UPnP 서비스가 이미 실행 중입니다. MiniDLNA 사용이 원인일 수 있습니다."
 
 msgid "Any"
 msgstr "모두"
@@ -1171,9 +1213,6 @@ msgstr "인증 방법 비활성화됨."
 msgid "Authorised Network"
 msgstr "인증된 네트워크"
 
-msgid "Authorised network"
-msgstr "인증된 네트워크"
-
 msgid "Auths"
 msgstr "인증"
 
@@ -1337,6 +1376,9 @@ msgstr "베터리 온도"
 msgid "Battery voltage"
 msgstr "배터리 전압"
 
+msgid "Be Quiet"
+msgstr ""
+
 msgid "Be careful with turning on these options."
 msgstr "이 옵션들을 켤 때 주의하십시오."
 
@@ -1347,8 +1389,8 @@ msgid "Before - File-deletions will be performed before the transfer starts."
 msgstr "Before - 전송 시작 전에 파일 삭제가 진행됩니다."
 
 msgid ""
-"Before a Unison Client can start to work, you need to perform the following:"
-msgstr "Unison Client가 작동하려면 먼저 다음을 수행해야합니다:"
+"Before a Unison client can start to work, you need to perform the following:"
+msgstr ""
 
 msgid "Best available"
 msgstr "가장 적합한 것"
@@ -1439,12 +1481,9 @@ msgid "Broadcast Interval"
 msgstr "브로드케스트 간격"
 
 msgid ""
-"Broadcasts its availability every N seconds on the network. (Default 300 "
-"seconds)"
-msgstr "사용 가능 여부를 매 N초 마다 브로드케스트 합니다.(기본값은 300초)"
-
-msgid "Browse Directory"
-msgstr "디렉터리 탐색"
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
 
 msgid "Browseable"
 msgstr "검색 가능 여부"
@@ -1673,6 +1712,9 @@ msgid ""
 "certificates."
 msgstr ""
 
+msgid "Challenge-Response Authentication"
+msgstr ""
+
 msgid "Change"
 msgstr "변경"
 
@@ -1849,13 +1891,6 @@ msgstr "전송하는 동안 파일 데이터를 압축합니다."
 msgid "Compression"
 msgstr "압축"
 
-msgid ""
-"Compression is worth using if your connection is slow. The efficiency of the "
-"compression depends on the type of the file, and varies widely. Useful for "
-"internet transfer only."
-msgstr ""
-"연결이 느리다면 압축을 이용할 가치가 있습니다. 압축의 효율은 파일의 종류에 따라 많이 달라집니다. 인터넷 전송에서만 유용합니다."
-
 msgid "Configuration"
 msgstr "설정"
 
@@ -1869,6 +1904,13 @@ msgid ""
 msgstr ""
 "장치에 대한 설정 정보와 물리 장치간 차이가 있습니다. 이 장치들을 제거하고 다시 추가하거나 설정 초기화가 활성화 된 상태에서 디스크 "
 "불러오기를 다시 실행해 주십시오."
+
+msgid ""
+"Configures an external subsystem (e.g. file transfer daemon). Arguments "
+"should be a subsystem name and a command (with optional arguments) to "
+"execute upon subsystem request. Leave this field empty to use the default "
+"settings."
+msgstr ""
 
 msgid "Configuring"
 msgstr "설정 중"
@@ -2195,6 +2237,9 @@ msgstr "마스크 생성"
 
 msgid "Create PV Guest"
 msgstr "PV Guest 생성"
+
+msgid "Create Work Directory"
+msgstr ""
 
 msgid "Create ZFS on a GPT partition."
 msgstr "GPT 분할 영역 위에 ZFS 를 만듭니다."
@@ -2576,11 +2621,17 @@ msgstr ""
 msgid "Delete Selected Listen Records"
 msgstr ""
 
+msgid "Delete Selected Media Folders"
+msgstr ""
+
 msgid "Delete Selected Mutual CHAP Users"
 msgstr ""
 
-msgid "Delete Selected NFS Shares"
-msgstr "선택된 NFS 공유 삭제"
+msgid "Delete Selected NFS Exports"
+msgstr ""
+
+msgid "Delete Selected NFS Root Directories"
+msgstr ""
 
 msgid "Delete Selected Notifier"
 msgstr ""
@@ -2598,6 +2649,9 @@ msgid "Delete Selected Port Records"
 msgstr ""
 
 msgid "Delete Selected Portal Groups"
+msgstr ""
+
+msgid "Delete Selected Public Keys"
 msgstr ""
 
 msgid "Delete Selected RAID Volumes"
@@ -2926,6 +2980,9 @@ msgstr ""
 msgid "Disable Selected Commands"
 msgstr "선택된 명령들 사용 안 함"
 
+msgid "Disable Selected Groups"
+msgstr ""
+
 msgid "Disable Selected Initiator Names"
 msgstr ""
 
@@ -2944,7 +3001,16 @@ msgstr ""
 msgid "Disable Selected Listen Records"
 msgstr ""
 
+msgid "Disable Selected Media Folders"
+msgstr ""
+
 msgid "Disable Selected Mutual CHAP Users"
+msgstr ""
+
+msgid "Disable Selected NFS Exports"
+msgstr ""
+
+msgid "Disable Selected NFS Root Directories"
 msgstr ""
 
 msgid "Disable Selected Option Records"
@@ -2959,6 +3025,9 @@ msgstr ""
 msgid "Disable Selected Portal Groups"
 msgstr ""
 
+msgid "Disable Selected Public Keys"
+msgstr ""
+
 msgid "Disable Selected Records"
 msgstr "선택된 항목 사용 안 함"
 
@@ -2971,6 +3040,9 @@ msgstr "선택된 rsync 모듈들 사용 안 함"
 msgid "Disable Selected Targets"
 msgstr ""
 
+msgid "Disable Selected Users"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
@@ -2978,6 +3050,9 @@ msgid "Disable Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Disable Selected iSNS Servers"
+msgstr ""
+
+msgid "Disable Subtitles"
 msgstr ""
 
 msgid "Disable TCP wrapper (mod_wrap module)."
@@ -2997,6 +3072,9 @@ msgstr "기존 확장 메뉴의 폴더 검색을 비활성화합니다."
 
 msgid "Disable speaker beep on startup and shutdown."
 msgstr "시동 및 종료 시 스피커 비프음 비활성화."
+
+msgid "Disable subtitle support on unknown clients."
+msgstr ""
 
 msgid "Disable the compression of repeating lines."
 msgstr "반복되는 줄의 압축 비활성화."
@@ -3243,8 +3321,11 @@ msgstr ""
 msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr ""
 
-msgid "Do you want to delete selected NFS shares?"
-msgstr "선택된 NFS 공유를 삭제하시겠습니까?"
+msgid "Do you want to delete selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to delete selected NFS root directories?"
+msgstr ""
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "선택된 RAID 볼륨들을 삭제하시겠습니까?"
@@ -3300,6 +3381,9 @@ msgstr "선택된 작업들을 삭제하시겠습니까?"
 msgid "Do you want to delete selected listen records?"
 msgstr ""
 
+msgid "Do you want to delete selected media folders?"
+msgstr ""
+
 msgid "Do you want to delete selected notifier?"
 msgstr ""
 
@@ -3316,6 +3400,9 @@ msgid "Do you want to delete selected port records?"
 msgstr ""
 
 msgid "Do you want to delete selected portal groups?"
+msgstr ""
+
+msgid "Do you want to delete selected public keys?"
 msgstr ""
 
 msgid "Do you want to delete selected records?"
@@ -3366,6 +3453,12 @@ msgstr ""
 msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr ""
 
+msgid "Do you want to disable selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to disable selected NFS root directories?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -3374,6 +3467,9 @@ msgstr ""
 
 msgid "Do you want to disable selected commands?"
 msgstr "선택된 명령들을 사용하지 않으시겠습니까?"
+
+msgid "Do you want to disable selected groups?"
+msgstr ""
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr ""
@@ -3393,6 +3489,9 @@ msgstr "선택된 작업들을 사용하지 않으시겠습니까?"
 msgid "Do you want to disable selected listen records?"
 msgstr ""
 
+msgid "Do you want to disable selected media folders?"
+msgstr ""
+
 msgid "Do you want to disable selected option records?"
 msgstr ""
 
@@ -3403,6 +3502,9 @@ msgid "Do you want to disable selected port records?"
 msgstr ""
 
 msgid "Do you want to disable selected portal groups?"
+msgstr ""
+
+msgid "Do you want to disable selected public keys?"
 msgstr ""
 
 msgid "Do you want to disable selected records?"
@@ -3417,6 +3519,9 @@ msgstr "선택된 rsync 모듈들을 사용하지 않으시겠습니까?"
 msgid "Do you want to disable selected targets?"
 msgstr ""
 
+msgid "Do you want to disable selected users?"
+msgstr ""
+
 msgid "Do you want to enable selected CHAP users?"
 msgstr ""
 
@@ -3429,6 +3534,12 @@ msgstr ""
 msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr ""
 
+msgid "Do you want to enable selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
 msgid "Do you want to enable selected WebDAV records?"
 msgstr ""
 
@@ -3437,6 +3548,9 @@ msgstr ""
 
 msgid "Do you want to enable selected commands?"
 msgstr "선택된 명령들을 사용하시겠습니까?"
+
+msgid "Do you want to enable selected groups?"
+msgstr ""
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr ""
@@ -3456,6 +3570,9 @@ msgstr "선택된 작업들을 사용하시겠습니까?"
 msgid "Do you want to enable selected listen records?"
 msgstr ""
 
+msgid "Do you want to enable selected media folders?"
+msgstr ""
+
 msgid "Do you want to enable selected option records?"
 msgstr ""
 
@@ -3468,6 +3585,9 @@ msgstr ""
 msgid "Do you want to enable selected portal groups?"
 msgstr ""
 
+msgid "Do you want to enable selected public keys?"
+msgstr ""
+
 msgid "Do you want to enable selected records?"
 msgstr "선택된 항목을 사용하시겠습니까?"
 
@@ -3478,6 +3598,9 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "선택된 rsync 모듈들을 사용하시겠습니까?"
 
 msgid "Do you want to enable selected targets?"
+msgstr ""
+
+msgid "Do you want to enable selected users?"
 msgstr ""
 
 msgid "Do you want to import disks?"
@@ -3501,6 +3624,12 @@ msgstr ""
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr ""
 
+msgid "Do you want to toggle selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr ""
 
@@ -3509,6 +3638,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected commands?"
 msgstr "선택된 명령들을 전환하시겠습니까?"
+
+msgid "Do you want to toggle selected groups?"
+msgstr ""
 
 msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr ""
@@ -3528,6 +3660,9 @@ msgstr "선택된 작업들을 전환하시겠습니까?"
 msgid "Do you want to toggle selected listen records?"
 msgstr ""
 
+msgid "Do you want to toggle selected media folders?"
+msgstr ""
+
 msgid "Do you want to toggle selected option records?"
 msgstr ""
 
@@ -3540,6 +3675,9 @@ msgstr ""
 msgid "Do you want to toggle selected portal groups?"
 msgstr ""
 
+msgid "Do you want to toggle selected public keys?"
+msgstr ""
+
 msgid "Do you want to toggle selected records?"
 msgstr "선택된 항목의 상태를 전환하시겠습니까?"
 
@@ -3550,6 +3688,9 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "선택된 rsync 모듈들을 전환하시겠습니까?"
 
 msgid "Do you want to toggle selected targets?"
+msgstr ""
+
+msgid "Do you want to toggle selected users?"
 msgstr ""
 
 msgid "Do you want to unlock selected records?"
@@ -3715,11 +3856,17 @@ msgstr ""
 msgid "Edit Listen Record"
 msgstr ""
 
+msgid "Edit Media Folder"
+msgstr ""
+
 msgid "Edit Mutual CHAP User"
 msgstr ""
 
-msgid "Edit NFS Share"
-msgstr "NFS 공유 수정"
+msgid "Edit NFS Export"
+msgstr ""
+
+msgid "Edit NFS Root"
+msgstr ""
 
 msgid "Edit Option"
 msgstr "옵션 수정"
@@ -3734,6 +3881,9 @@ msgid "Edit Port Record"
 msgstr ""
 
 msgid "Edit Portal Group"
+msgstr ""
+
+msgid "Edit Public Key"
 msgstr ""
 
 msgid "Edit RAID"
@@ -3875,9 +4025,6 @@ msgstr "고급 포맷 사용 함(4KB 섹터 크기)"
 msgid "Enable Asynchronous I/O. (AIO)."
 msgstr "비동기 I/O 사용 함(AIO)"
 
-msgid "Enable Challenge-Response Authentication"
-msgstr "시도 응답 인증 사용"
-
 msgid "Enable FXP protocol."
 msgstr "FXP 프로토콜 활성화."
 
@@ -3901,6 +4048,9 @@ msgstr "S.M.A.R.T. 사용 함. S.M.A.R.T. 지원 장치가 구성에 추가 되�
 msgid "Enable SMTP authentication."
 msgstr "SMTP 인증 활성화"
 
+msgid "Enable SSH service"
+msgstr ""
+
 msgid ""
 "Enable SSL/TLS for secured connections. You also need to configure the TLS "
 "trust file. For some servers you may need to disable STARTTLS."
@@ -3920,6 +4070,9 @@ msgstr ""
 msgid "Enable Selected Commands"
 msgstr "선택된 명령들 사용 함"
 
+msgid "Enable Selected Groups"
+msgstr ""
+
 msgid "Enable Selected Initiator Names"
 msgstr ""
 
@@ -3938,7 +4091,16 @@ msgstr ""
 msgid "Enable Selected Listen Records"
 msgstr ""
 
+msgid "Enable Selected Media Folders"
+msgstr ""
+
 msgid "Enable Selected Mutual CHAP Users"
+msgstr ""
+
+msgid "Enable Selected NFS Exports"
+msgstr ""
+
+msgid "Enable Selected NFS Root Directories"
 msgstr ""
 
 msgid "Enable Selected Option Records"
@@ -3953,6 +4115,9 @@ msgstr ""
 msgid "Enable Selected Portal Groups"
 msgstr ""
 
+msgid "Enable Selected Public Keys"
+msgstr ""
+
 msgid "Enable Selected Records"
 msgstr "선택된 항목 사용"
 
@@ -3963,6 +4128,9 @@ msgid "Enable Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 사용 함"
 
 msgid "Enable Selected Targets"
+msgstr ""
+
+msgid "Enable Selected Users"
 msgstr ""
 
 msgid "Enable Selected WebDAV Records"
@@ -4043,8 +4211,8 @@ msgstr "시스템 프로세스 통계 수집을 사용합니다."
 msgid "Enable collecting uptime statistics."
 msgstr "가동 시간 통계 수집을 사용합니다."
 
-msgid "Enable compression."
-msgstr "압축 활성화."
+msgid "Enable compression after the user has authenticated successfully."
+msgstr ""
 
 msgid "Enable console screensaver."
 msgstr "콘솔 화면 보호기를 사용합니다."
@@ -4080,9 +4248,6 @@ msgstr "guest 접근 활성화."
 
 msgid "Enable inotify."
 msgstr "inotify를 사용합니다."
-
-msgid "Enable keyboard-interactive authentication."
-msgstr "키보드 대화형 인증 활성화."
 
 msgid "Enable large read/write."
 msgstr "대형 읽기/쓰기를 사용합니다."
@@ -4134,9 +4299,6 @@ msgstr "직접 연결된 두번째 UPS를 사용합니다."
 
 msgid "Enable serial console."
 msgstr "직렬 콘솔을 사용합니다."
-
-msgid "Enable service SSH when disabled"
-msgstr "고장 시 SSH 서비스 활성화"
 
 msgid "Enable shadow copy."
 msgstr "쉐도 복사본을 사용합니다."
@@ -4192,9 +4354,6 @@ msgstr "최적화 스위치 사용 함"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "흰색 배경 그래프를 사용합니다. (검정색이 기본입니다.)"
-
-msgid "Enable wide-links support."
-msgstr ""
 
 msgid "Enable write cache mode."
 msgstr "쓰기 캐시 모드를 사용합니다."
@@ -4290,6 +4449,9 @@ msgid ""
 "default (80 for HTTP, 443 for HTTPS)."
 msgstr "기본값을 사용하지 않으려는 경우 사용자 정의 WebGUI 포트 번호를 입력하십시오(HTTP는 80, HTTPS는 443)."
 
+msgid "Enter a custom port number if you do not want to use default port 22."
+msgstr ""
+
 msgid "Enter a custom port number if you do not want to use default port 69."
 msgstr ""
 
@@ -4298,11 +4460,6 @@ msgid ""
 "Enter a custom port number if you want to override the default port. "
 "(Default is %s)."
 msgstr "기본 포트를 사용하지 않으려는 경우 사용자 정의 포트 번호를 입력하십시오(기본 값은 %s입니다)."
-
-msgid ""
-"Enter a custom port number if you want to override the default port. "
-"(Default is 22)."
-msgstr "기본 포트를 사용하지 않으려는 경우 사용자 정의 포트 번호를 입력하십시오(기본 값은 22입니다)."
 
 msgid "Enter a description"
 msgstr "설명 입력"
@@ -4365,11 +4522,8 @@ msgstr ""
 msgid "Enter facility name"
 msgstr ""
 
-msgid "Enter full name of the user."
-msgstr "사용자의 전체 이름을 입력하십시오."
-
-msgid "Enter full user name"
-msgstr "사용자 전체 이름 입력"
+msgid "Enter group name."
+msgstr ""
 
 msgid "Enter hostname or IP address."
 msgstr "호스트 이름 또는 IP 주소를 입력하십시오."
@@ -4377,11 +4531,8 @@ msgstr "호스트 이름 또는 IP 주소를 입력하십시오."
 msgid "Enter level name"
 msgstr "레벨 이름 입력"
 
-msgid "Enter login name"
-msgstr "로그인 이름 입력"
-
-msgid "Enter login name of the user."
-msgstr "사용자의 로그인 이름을 입력하십시오."
+msgid "Enter login name."
+msgstr ""
 
 msgid "Enter mutual user name."
 msgstr ""
@@ -4403,16 +4554,28 @@ msgstr "UPS의 식별자와 UPS가 연결된 장치의 IP 주소를 입력하십
 msgid "Enter the command"
 msgstr "명령 입력"
 
+msgid "Enter the full user name."
+msgstr ""
+
 msgid "Enter the location of the share"
 msgstr ""
 
+msgid "Enter the name of the master user account."
+msgstr ""
+
 msgid "Enter the name of the share"
+msgstr ""
+
+msgid "Enter the network that is authorised to access the NFS share."
 msgstr ""
 
 msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
 "8 and 63 characters long."
 msgstr "WPA-PSK 모드에서 사용할 암호를 입력하십시오. 이것은 8자에서 63자 사이의 길이여야 합니다."
+
+msgid "Enter the password of the master user account."
+msgstr ""
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
@@ -4429,9 +4592,9 @@ msgid ""
 msgstr "Virtualbox 홈 디렉터리 경로를 입력하십시오. VM 설정과 HDD 이미지는 명시된 디렉터리에 생성될 것입니다."
 
 msgid ""
-"Enter the path to the home directory of that user. Leave this field empty to "
+"Enter the path to the home directory of the user. Leave this field empty to "
 "use default path /mnt."
-msgstr "이 사용자의 홈 디렉터리 경로를 입력하십시오. 기본 경로인 /mnt를 이용하려면 이 난을 비워 두십시오."
+msgstr ""
 
 msgid ""
 "Enter the path to the home directory. This directory will store the "
@@ -4500,11 +4663,20 @@ msgstr "내보내기"
 msgid "Export Rules"
 msgstr "규칙 내보내기"
 
+msgid "Export Subfolders"
+msgstr ""
+
 msgid "Export a pool from the system"
 msgstr "시스템에서 풀을 내보내기"
 
 msgid "Export all the directories in the specified path."
 msgstr "명시된 경로의 모든 디렉터리를 내보냅니다."
+
+msgid "Export as WebNFS."
+msgstr ""
+
+msgid "Export the file system in read-only mode."
+msgstr ""
 
 msgid "Exported"
 msgstr "내보내기 됨"
@@ -4552,13 +4724,6 @@ msgstr "추가 옵션"
 
 msgid "Extra options (usually empty)."
 msgstr "추가 옵션(보통 비워 둠)."
-
-msgid ""
-"Extra options to /etc/ssh/sshd_config (usually empty). Note, incorrect "
-"entered options prevent SSH service to be started."
-msgstr ""
-"/etc/ssh/sshd_config에 대한 추가 옵션(보통은 비워 둠). 주의 - 잘못 입력된 옵션은 SSH 서비스가 시작하는 것을 "
-"방해합니다."
 
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "ifconfig에 대한 추가 옵션(보통 비워 둠)."
@@ -4899,6 +5064,9 @@ msgstr "GPT 분할 영역"
 msgid "GPT partition"
 msgstr "GPT 분할 영역"
 
+msgid "GSSAPI Authentication"
+msgstr ""
+
 msgid "Gateway"
 msgstr "게이트웨이"
 
@@ -4941,6 +5109,9 @@ msgstr ""
 msgid "Grant access to the user portal."
 msgstr "사용자 포털에 대해 접근 권한 부여."
 
+msgid "Grant shell access to user"
+msgstr ""
+
 msgid "Graph shows last 120 seconds"
 msgstr "그래프는 지난 1백20초을 보여줍니다"
 
@@ -4965,6 +5136,9 @@ msgstr "그룹 컴파일"
 
 msgid "Group ID"
 msgstr "그룹 ID"
+
+msgid "Group Name"
+msgstr ""
 
 msgid "Group Settings"
 msgstr "그룹 설정"
@@ -5100,11 +5274,14 @@ msgstr "고적응(고성능)"
 msgid "Hidden"
 msgstr "숨김"
 
-msgid "Hide Default Groups"
-msgstr "기본 그룹들 숨김"
-
 msgid "Hide Dot Files"
 msgstr "점파일(역주: .으로 시작되는 파일명의 파일들) 숨기기"
+
+msgid "Hide System Groups"
+msgstr ""
+
+msgid "Hide System Users"
+msgstr ""
 
 msgid "High voltage boosting transfer point"
 msgstr "고전압 승압 변환지점"
@@ -5222,6 +5399,9 @@ msgstr ""
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS 서버"
 
+msgid "IPv4 Routes"
+msgstr ""
+
 msgid "IPv4 Settings"
 msgstr "IPv4 설정"
 
@@ -5254,6 +5434,9 @@ msgstr "IPv6 게이트웨이"
 
 msgid "IPv6 Prefix"
 msgstr "IPv6 접두사"
+
+msgid "IPv6 Routes"
+msgstr ""
 
 msgid "IPv6 Settings"
 msgstr "IPv6 설정"
@@ -5758,6 +5941,9 @@ msgstr "키 길이"
 msgid "Key Management Protocol"
 msgstr "키 관리 프로토콜"
 
+msgid "Keyboard-Interactive Authentication"
+msgstr ""
+
 msgid "L2 Cache"
 msgstr "L2 캐시"
 
@@ -5901,9 +6087,6 @@ msgstr "이미 설정된 자동화 스냅샷은 남겨 둡니다."
 
 msgid "Leave auto snapshot configuration"
 msgstr "자동화 스냅샷 설정 남겨두기"
-
-msgid "Leave this field empty to use default settings."
-msgstr "기본 설정을 사용하려면 이 필드를 비워 두십시오."
 
 msgid "Level"
 msgstr "수준"
@@ -6077,9 +6260,8 @@ msgstr "미디어 자료 데이터베이스의 위치."
 msgid "Location where the content database file will be stored."
 msgstr "컨텐츠 데이터베이스 파일이 저장될 위치."
 
-#, php-format
-msgid "Location where the work files will be stored, e.g. %s/backup/.unison"
-msgstr "작업 파일이 저장될 위치, 예를 들어 %s/backup/.unison"
+msgid "Location where work files will be stored."
+msgstr ""
 
 msgid "Lock Selected Records"
 msgstr "선택된 항목 잠금"
@@ -6138,6 +6320,9 @@ msgstr "LUN에 mapping 된 로지컬 유닛 타입"
 msgid "Login"
 msgstr "로그인"
 
+msgid "Login Name"
+msgstr ""
+
 msgid "Login for CHAP authentication."
 msgstr ""
 
@@ -6171,6 +6356,9 @@ msgstr "MAC 주소"
 
 msgid "MBR partition"
 msgstr "MBR 분할 영역"
+
+msgid "MD4 Password"
+msgstr ""
 
 msgid "MIRROR"
 msgstr "MIRROR"
@@ -6214,9 +6402,6 @@ msgstr "장치의 S.M.A.R.T.를 활성화했는지 확인하십시오."
 msgid "Make sure you have already configured your email settings"
 msgstr "이미 전자 우편 설정이 되어 있는지 확인하십시오."
 
-msgid "Manage content locations."
-msgstr "자료 위치 관리."
-
 msgid "Management"
 msgstr "관리"
 
@@ -6226,17 +6411,23 @@ msgstr "제조자"
 msgid "Manufacturing date"
 msgstr "제조 일자"
 
-msgid "Map all users to root, all users will have root privileges."
-msgstr "모든 사용자가 root로 매핑되면 모든 사용자는 root의 권한을 갖게 됩니다."
+msgid "Map All To User"
+msgstr ""
+
+msgid "Map Root To User"
+msgstr ""
 
 msgid "Map to Guest"
 msgstr "손님으로 매핑"
 
-msgid "Map to Root"
-msgstr "root로 매핑"
-
 msgid "Map to User"
 msgstr "사용자로 매핑"
+
+msgid "Map users or map root to the specified user."
+msgstr ""
+
+msgid "Mapping"
+msgstr ""
 
 msgid "Mapping DOS Attributes"
 msgstr "DOS 속성 매핑"
@@ -6260,6 +6451,15 @@ msgstr ""
 
 msgid "Masquerade Address"
 msgstr "Masquerade 주소"
+
+msgid "Master"
+msgstr ""
+
+msgid "Master Password"
+msgstr ""
+
+msgid "Master User"
+msgstr ""
 
 msgid "Max Processes"
 msgstr ""
@@ -6354,10 +6554,28 @@ msgstr "매체"
 msgid "Media Directory"
 msgstr "매체 디렉터리"
 
+msgid "Media Folder"
+msgstr ""
+
+msgid "Media Folder is locked"
+msgstr ""
+
+msgid "Media Folder is marked for deletion"
+msgstr ""
+
+msgid "Media Folder is unlocked"
+msgstr ""
+
 msgid "Media Library"
 msgstr "미디어 라이브러리"
 
+msgid "Media Server Name."
+msgstr ""
+
 msgid "Media Size"
+msgstr ""
+
+msgid "Media Type"
 msgstr ""
 
 msgid "Media library"
@@ -6398,9 +6616,6 @@ msgstr "최소 Passive 포트"
 
 msgid "MiniDLNA"
 msgstr "MiniDLNA"
-
-msgid "MiniDLNA A/V Media Server"
-msgstr "MiniDLNA A/V Media Server"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA Media Server WebGUI"
@@ -6489,8 +6704,14 @@ msgstr "월요일"
 msgid "Monitoring"
 msgstr "감시"
 
+msgid "Monitoring Password"
+msgstr ""
+
 msgid "Monitoring Setup"
 msgstr "감시 설정"
+
+msgid "Monitoring User"
+msgstr ""
 
 msgid "Months"
 msgstr "월"
@@ -6543,9 +6764,6 @@ msgstr "위로 이동"
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr ""
 
-msgid "Music"
-msgstr "음악"
-
 msgid "Must be a number between 5 and 1000."
 msgstr "5에서 1000 사이의 섯자여야 함."
 
@@ -6597,14 +6815,23 @@ msgstr ""
 msgid "NFS"
 msgstr "NFS"
 
-msgid "NFS share is marked for deletion"
-msgstr "NFS 공유 삭제 표시됨"
+msgid "NFS Export is locked"
+msgstr ""
 
-msgid "NFS share is protected"
-msgstr "NFS 공유 보호됨"
+msgid "NFS Export is marked for deletion"
+msgstr ""
 
-msgid "NFS share is unlocked"
-msgstr "NFS 공유 잠금 해제됨"
+msgid "NFS Export is unlocked"
+msgstr ""
+
+msgid "NFS Root is locked"
+msgstr ""
+
+msgid "NFS Root is marked for deletion"
+msgstr ""
+
+msgid "NFS Root is unlocked"
+msgstr ""
 
 msgid "NFSv4"
 msgstr "NFSv4"
@@ -6709,6 +6936,9 @@ msgstr "NetBIOS 도메인"
 msgid "NetBIOS Name"
 msgstr "NetBIOS 이름"
 
+msgid "NetIf"
+msgstr ""
+
 msgid "Netatalk (default) - use Netatalk compatible xattr."
 msgstr ""
 
@@ -6745,14 +6975,8 @@ msgid ""
 msgstr ""
 "iSCSI 타겟에 대한 접근 권한을 부여 받은 네트워크. IP나 CIDR 주소 또는 모든 IP를 설정할 경우 'ALL'을 이용합니다."
 
-msgid "Network mask"
-msgstr "네트워크 마스크"
-
 msgid "Network port"
 msgstr "네트워크 포트"
-
-msgid "Network that is authorised to access the NFS share."
-msgstr "NFS 공유의 접근 권한을 부여 받은 네트워크."
 
 msgid "Networks"
 msgstr "네트워크"
@@ -6815,6 +7039,12 @@ msgstr "IPMI FRU 자료 없음."
 msgid "No IPMI Sensor data available."
 msgstr "IPMI 센서 자료 없음."
 
+msgid "No IPv4 routing information found."
+msgstr ""
+
+msgid "No IPv6 routing information found."
+msgstr ""
+
 msgid "No Initiator Group has been configured."
 msgstr "초기자 그룹이 설정되어 있지 않습니다."
 
@@ -6822,6 +7052,9 @@ msgid "No JBOD information found."
 msgstr ""
 
 msgid "No LUNs found."
+msgstr ""
+
+msgid "No Login"
 msgstr ""
 
 msgid "No Mutual-CHAP users found."
@@ -7055,9 +7288,8 @@ msgstr "부착되지 않음"
 msgid "Note"
 msgstr "참조"
 
-msgid ""
-"Note: Ctrl-click (or command-click on the Mac) to select and deselect groups."
-msgstr "참조: Ctrl-클릭(맥의 경우에는 command-클릭)을 하여 그룹을 선택하거나 선택 해제합니다."
+msgid "Note that only one file system can be WebNFS exported on a server."
+msgstr ""
 
 msgid ""
 "Note: Ctrl-click (or command-click on the Mac) to select multiple entries."
@@ -7249,6 +7481,9 @@ msgstr "이미 설정된 디스크를 덮어씁니다(파일 시스템 값만 �
 msgid "Overwrite disks configuration"
 msgstr "디스크 설정 덮어쓰기"
 
+msgid "Overwrite the sort criteria passed by the client."
+msgstr ""
+
 msgid "Owner"
 msgstr "소유자"
 
@@ -7404,11 +7639,8 @@ msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr "암호 서버 이름 또는 IP 주소(예: Active Directory 도메인 컨트롤러)."
 
-msgid "Passwords don't match."
-msgstr "암호가 일치하지 않습니다."
-
-msgid "Paste a RSA PRIVATE KEY in PEM format here."
-msgstr "이 곳에 PEM 형식의 RSA 비밀키를 붙여 넣으십시오."
+msgid "Paste a RSA PRIVATE KEY in PEM format"
+msgstr ""
 
 msgid "Paste a private key in PEM format here."
 msgstr "이곳에 PEM 형식의 비밀키를 붙여 넣으십시오."
@@ -7427,6 +7659,9 @@ msgstr "경로를 찾을 수 없습니다."
 
 msgid "Path of the URL relative to document root."
 msgstr "문서 루트에 대한 URL의 상대 경로."
+
+msgid "Path to be included."
+msgstr ""
 
 msgid "Path to be shared to be synchronized."
 msgstr "동기화 공유 경로."
@@ -7465,9 +7700,6 @@ msgstr ""
 
 msgid "Permit discovery without authentication"
 msgstr ""
-
-msgid "Permit to do SSH Tunneling."
-msgstr "SSH 터널링 허용."
 
 msgid "Physical Block Offset"
 msgstr ""
@@ -7555,15 +7787,6 @@ msgstr "문서를 확인해 주십시오."
 msgid "Please check the log files"
 msgstr "로그 파일을 확인해 주십시오"
 
-msgid "Please define one or more content locations."
-msgstr "하나 이상의 위치를 정의해 주십시오."
-
-msgid "Please define the location for the database directory."
-msgstr "데이터베이스용 디렉터리 위치를 정의해 주십시오."
-
-msgid "Please note that blanks in path names are not allowed."
-msgstr "경로 명에서 공백 문자는 허용되지 않는다는 것에 주의하십시오."
-
 msgid "Please read the documentation"
 msgstr ""
 
@@ -7641,6 +7864,9 @@ msgstr "포트 번호는 %d와 %d 범위 내에 있어야 합니다."
 msgid "Port number of the iSNS server."
 msgstr ""
 
+msgid "Port of the SSH service. Leave blank to use the default port."
+msgstr ""
+
 msgid "Port of the TFTP service. Leave blank to use the default port."
 msgstr ""
 
@@ -7673,6 +7899,11 @@ msgid ""
 "Port to listen on. Only dynamic or private ports can be used (from %d "
 "through %d). Default port is %d."
 msgstr "listen 할 포트. 동적 포트나 개인 포트들만 이용할 수 있습니다(%d에서 %d까지). 기본 포트는 %d입니다."
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
 
 msgid "Portal Group"
 msgstr "포털 그룹"
@@ -7769,9 +8000,6 @@ msgstr "주 캐시"
 msgid "Primary Group"
 msgstr "기본 그룹"
 
-msgid "Primary group is also selected in additional group."
-msgstr "기본 그룹이 추가 그룹에서도 선택되었습니다."
-
 msgid "Print detailed information."
 msgstr ""
 
@@ -7834,6 +8062,30 @@ msgstr ""
 
 msgid "Proxy"
 msgstr "프록시"
+
+msgid "Public Key"
+msgstr ""
+
+msgid "Public Key Authentication"
+msgstr ""
+
+msgid "Public Key Settings"
+msgstr ""
+
+msgid "Public Keys"
+msgstr ""
+
+msgid "Public key information."
+msgstr ""
+
+msgid "Public key is marked for deletion"
+msgstr ""
+
+msgid "Public key is protected"
+msgstr ""
+
+msgid "Public key is unlocked"
+msgstr ""
 
 msgid "Pull"
 msgstr ""
@@ -8170,6 +8422,11 @@ msgid "Remote Syslog Server"
 msgstr "원격 syslog 서버"
 
 msgid ""
+"Remote accesses by root will result in using a credential of 65534:65533. "
+"All other users will be mapped to their remote credential."
+msgstr ""
+
+msgid ""
 "Remote monitoring password. Must be equal on both master and slave system."
 msgstr "원격지 감시 암호. 주, 보조 시스템이 동일해야 함."
 
@@ -8299,6 +8556,9 @@ msgstr "설정 복원"
 msgid "Restore metadata from the given file to the given provider."
 msgstr "주어진 파일의 메타 데이터를 주어진 제공자에게 복구합니다."
 
+msgid "Restrict folder to a specific media type."
+msgstr ""
+
 msgid "Restricted"
 msgstr "제한된"
 
@@ -8340,6 +8600,12 @@ msgstr "최상위 바인드 DN"
 
 msgid "Root Bind Password"
 msgstr "최상위 바인드 암호"
+
+msgid "Root Directory"
+msgstr ""
+
+msgid "Root Login"
+msgstr ""
 
 msgid "Rotation Rate"
 msgstr "회전 속도"
@@ -8428,6 +8694,9 @@ msgid "S.M.A.R.T. log"
 msgstr "S.M.A.R.T. 로그"
 
 msgid "SCSI Name"
+msgstr ""
+
+msgid "SHA Password"
 msgstr ""
 
 msgid "SHA-256, Verify"
@@ -8544,6 +8813,21 @@ msgstr ""
 "파일이 추가되었거나 삭제되었는지 보기 위해 N 초 간격으로 파일 시스템을 확인 합니다. 0으로 설정하면 background 확인이 "
 "비활성화 됩니다. background 재확인이 비활성화 되더라도 관리 웹 인터페이스의 상태 페이지에서는 여전히 확인이 감제될 수 있습니다."
 
+msgid "Scan folder for all media types."
+msgstr ""
+
+msgid "Scan folder for audio files."
+msgstr ""
+
+msgid "Scan folder for image files."
+msgstr ""
+
+msgid "Scan folder for video and image files."
+msgstr ""
+
+msgid "Scan folder for video files."
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "예약된 시간"
 
@@ -8604,8 +8888,8 @@ msgstr "비밀"
 msgid "Secret for CHAP authentication."
 msgstr ""
 
-msgid "Secure Shell"
-msgstr "보안 셸"
+msgid "Security Flavor"
+msgstr ""
 
 msgid "Security Warning"
 msgstr "보안 경고"
@@ -8659,6 +8943,9 @@ msgstr "풀 선택"
 
 msgid "Select Spare Device"
 msgstr "예비 장치 선택"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr ""
 
 msgid "Select a date format."
 msgstr "날자 형식을 선택하십시오."
@@ -8885,8 +9172,8 @@ msgstr ""
 msgid "Set UID"
 msgstr "UID 설정"
 
-msgid "Set additional group memberships for this account."
-msgstr "이 계정에 추가적인 그룹 멤버십을 설정합니다."
+msgid "Set User Password"
+msgstr ""
 
 msgid "Set browseable."
 msgstr "탐색 설정"
@@ -8896,8 +9183,8 @@ msgid ""
 "10."
 msgstr "디스크 검사 사이의 간격을 N으로 설정합니다. 허용되는 최소 값은 10 입니다."
 
-msgid "Set or reset user password."
-msgstr "사용자 암호 설정/재설정"
+msgid "Set password"
+msgstr ""
 
 msgid "Set per-LUN/per-pool thin provisioning soft threshold."
 msgstr ""
@@ -8916,8 +9203,8 @@ msgstr ""
 "마운트 지점 %s2 중 %s1의 경우 읽기(Read)와 실행(Execute)의 비트 권한을 기타(Others)로 설정한 후 이 설정을 "
 "유효화하기 위해 저장(Save)버튼을 누르시오."
 
-msgid "Set the account's primary group to the given group."
-msgstr "주어진 그룹으로 계정의 기본 그룹을 설정합니다."
+msgid "Set the account's primary group."
+msgstr ""
 
 msgid "Set the content location(s) to or from the media library."
 msgstr "미디어 라이브러리에 내용물을 저장할 또는 저장한 위치를 설정"
@@ -8976,6 +9263,9 @@ msgstr ""
 
 msgid "Set user login shell."
 msgstr "사용자 로그인 쉘 설정."
+
+msgid "Set user password."
+msgstr ""
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -9037,9 +9327,6 @@ msgstr ""
 msgid "Settings"
 msgstr "설정"
 
-msgid "Setup user to get shell access"
-msgstr "쉘 접근 사용자 설정"
-
 msgid "Shadow Copy"
 msgstr "쉐도 복사본"
 
@@ -9082,9 +9369,6 @@ msgstr "쓰기 중 충격."
 msgid "Short Self-Test"
 msgstr "단기 자체 테스트."
 
-msgid "Show Default Groups"
-msgstr "기본 그룹 보기"
-
 msgid "Show Interval"
 msgstr ""
 
@@ -9096,6 +9380,12 @@ msgstr "프로세스 정보 보기"
 
 msgid "Show RAW UPS Info"
 msgstr "RAW UPS 정보 보기"
+
+msgid "Show System Groups"
+msgstr ""
+
+msgid "Show System Users"
+msgstr ""
 
 msgid "Show UPS Information"
 msgstr "UPS 정보 보기"
@@ -9157,6 +9447,9 @@ msgstr "최초 검사 건너뛰기"
 
 msgid "Skip View Mode"
 msgstr "보기 모드 건너뛰기"
+
+msgid "Slave"
+msgstr ""
 
 msgid "Sleep - Check the device unless it is in SLEEP mode."
 msgstr "휴면 - 휴면 모드가 아닐 경우 장치를 검사합니다."
@@ -9256,9 +9549,6 @@ msgstr ""
 "수치가 이 드라이브의 잔여 헬륨 상태입니다. 이 수치는 pre-fail 속성이기에 드라이브의 내부 환경에 대한 아무런 세부사항이 없을 "
 "경우 한 번 체크합니다."
 
-msgid "Specified path is NFSv4 root directory."
-msgstr "명시된 경로는 NFSv4 최상위 디렉터리입니다."
-
 msgid "Specifies LUN EUI-64 identifier."
 msgstr ""
 
@@ -9306,9 +9596,6 @@ msgstr ""
 msgid "Specifies number of backend threads to use for this LUN."
 msgstr ""
 
-msgid "Specifies that the file system should be exported read-only."
-msgstr "파일 시스템이 읽기 전용으로 export 되어야 하는 지를 명세 합니다."
-
 msgid ""
 "Specifies that this portal-group is listened by some other host. This host "
 "will announce it on discovery stage, but won't listen."
@@ -9335,9 +9622,6 @@ msgid ""
 "occurrences must happen to add the ban."
 msgstr "발생 횟수가 설정 횟수를 넘어 추방에 추가하게 될 시간 간격을 hh:mm:ss 형식으로 명세 합니다."
 
-msgid "Specifies the usage of Challenge-Response Authentication."
-msgstr "시도 응답 인증을 지정하십시오."
-
 msgid "Specifies the username under which the TFTP service should run."
 msgstr ""
 
@@ -9357,6 +9641,11 @@ msgid "Specify UNMAP block offset of the device."
 msgstr ""
 
 msgid "Specify UNMAP block size of the device."
+msgstr ""
+
+msgid ""
+"Specify a list of acceptable security flavors to be used for remote access. "
+"The\tdefault\tsecurity flavor\tis sys."
 msgstr ""
 
 msgid ""
@@ -9381,6 +9670,12 @@ msgid "Specify physical block size of the device."
 msgstr ""
 
 msgid "Specify the SCSI device type to use when creating the LUN."
+msgstr ""
+
+msgid "Specify the group numeric id."
+msgstr ""
+
+msgid "Specify the user/account numeric id."
 msgstr ""
 
 msgid "Split request"
@@ -9586,6 +9881,9 @@ msgstr "시스템 전자우편 설정"
 msgid "System Events"
 msgstr "시스템 이벤트"
 
+msgid "System Group"
+msgstr ""
+
 msgid "System Information"
 msgstr "시스템 정보"
 
@@ -9610,6 +9908,9 @@ msgstr "시스템 시간"
 msgid "System Uptime"
 msgstr "시스템 가동 시간"
 
+msgid "System User"
+msgstr ""
+
 msgid "System info"
 msgstr "시스템 정보"
 
@@ -9630,9 +9931,6 @@ msgstr "TCP 포트"
 
 msgid "TCP Wrapper"
 msgstr "TCP Wrapper"
-
-msgid "TCP port"
-msgstr "TCP 포트"
 
 msgid "TCP port is 5900+N, where N is VNC display number."
 msgstr "TCP 포트 번호는 5900+N이고 N은 VNC 디스플레이 번호입니다."
@@ -10207,9 +10505,6 @@ msgstr "다음 사람들이 %s에 공헌함:"
 msgid "The following services will use AD authentication:"
 msgstr "다음 서비스들은 AD 인증을 사용하게 됩니다:"
 
-msgid "The full name contains invalid characters."
-msgstr "전체 이름이 무효한 문자를 포함하고 있습니다."
-
 msgid "The group description contains invalid characters."
 msgstr "그룹 설명이 무효한 문자를 포함하고 있습니다."
 
@@ -10249,9 +10544,6 @@ msgid ""
 "specific Auth Group."
 msgstr "초기자는 특정 인증 그룹의 사용자 이름과 암호로 타겟을 감지할 수 있습니다."
 
-msgid "The interface is unknown."
-msgstr "인터페이스를 알 수 없습니다."
-
 msgid ""
 "The istgtcontrol can access the targets with correct user and secret in "
 "specific Auth Group."
@@ -10261,18 +10553,6 @@ msgid ""
 "The limit for concurrently running child processes handling incoming "
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
-
-msgid "The location of the \"Database Directory\" is not a valid location."
-msgstr "\"데이터베이스 디렉터리\" 위치는 올바른 위치가 아닙니다."
-
-msgid "The login name contains invalid characters."
-msgstr "로그인 명이 무효한 문자를 포함하고 있습니다."
-
-msgid "The login name is a reserved login name."
-msgstr "이 로그인 명은 예약된 로그인 명입니다."
-
-msgid "The login name is limited to 16 characters."
-msgstr "로그인 명은 16자로 제한되어 있습니다."
 
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
@@ -10366,12 +10646,6 @@ msgstr ""
 msgid "The name of the interface is wrong."
 msgstr "인터페이스의 이름이 잘못되었습니다."
 
-msgid "The name of the media server cannot be empty."
-msgstr "미디어 서버 이름은 비어 있을 수 없습니다."
-
-msgid "The name of the media server is missing."
-msgstr "미디어 서버 이름이 없습니다."
-
 msgid "The name of the pool cannot be changed."
 msgstr "풀 이름은 변경할 수 없습니다."
 
@@ -10462,6 +10736,12 @@ msgstr "큐 깊이 범위가 무효합니다."
 msgid "The recommended queue depth is %d."
 msgstr "권장되는 큐 깊이는 %d입니다."
 
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr ""
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr ""
+
 #, php-format
 msgid "The removable area mapped to LUN%d."
 msgstr "이동 가능 영역이 LUN%d으(로) mapping 되었습니다."
@@ -10551,9 +10831,6 @@ msgstr "유일해야 할 그룹 ID가 이미 이용되고 있습니다."
 msgid "The unique rule number is already used."
 msgstr "유일해야 할 규칙 번호가 이미 이용되고 있습니다."
 
-msgid "The unique user ID is already used."
-msgstr "유일해야 할 사용자 ID가 이미 이용되고 있습니다."
-
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -10572,16 +10849,10 @@ msgstr "값이 올바르지 않음."
 msgid "The value of the variable."
 msgstr "변수의 값."
 
-msgid "The work directory does not exist."
-msgstr "작업 디렉터리가 없습니다."
-
 msgid ""
 "The workgroup in which the server will appear when queried by Windows or SMB "
 "clients. (maximum 15 characters)."
 msgstr "Windows 또는 SMB 클라이언트가 질의할 때 서버가 표시하는 작업 그룹 입니다(최대 15자)."
-
-msgid "There are too many additional groups."
-msgstr "추가적인 그룹이 너무 많이 존재합니다."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "오류가 없습니다. 파일이 성공적으로 업로드 되었습니다."
@@ -10636,6 +10907,9 @@ msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "이 매개 변수는 드라이버의 하드웨어 관련 부분에 추가됩니다."
 
+msgid "These parameters are appended to /etc/ssh/sshd_config."
+msgstr ""
+
 msgid "These parameters are appended to the exports file."
 msgstr ""
 
@@ -10650,6 +10924,9 @@ msgstr "이 매개 변수들이 %s의 [global] 섹션에 추가될 것입니다.
 #, php-format
 msgid "These parameters will be added to global settings in %s."
 msgstr "이 매개 변수들은 %s의 전역 설정에 추가될 것입니다."
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr ""
 
 msgid "These parameters will be added to my.cnf"
 msgstr ""
@@ -10985,9 +11262,6 @@ msgstr "이 태그는 이미 존재합니다."
 msgid "This tag is used."
 msgstr "이 태그는 이용되고 있습니다."
 
-msgid "This user already exists in the user list."
-msgstr "이 사용자는 이미 사용자 목록에 존재합니다."
-
 msgid "This user already exists."
 msgstr "이 사용자는 이미 존재합니다."
 
@@ -10996,10 +11270,8 @@ msgstr "이 가상 장치 명은 이미 존재합니다."
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA products."
+"impact JPEG serving performance on some DLNA devices."
 msgstr ""
-"이렇게 하면 매우 큰 JPEG 이미지를 서버 측에서 축소 할 수 있으므로 일부 DLNA 제품에서 JPEG 서비스 성능에 영향을 줄 수 "
-"있습니다."
 
 msgid "This will create a recycle bin on the share."
 msgstr "이것은 공유에 휴지통을 생성할 것입니다."
@@ -11128,9 +11400,8 @@ msgstr "모든 IP 주소로 설정하려면 이 난을 비워 두십시오."
 msgid "To use Active Directory the CIFS/SMB service will enabled as well."
 msgstr "Active Directory를 사용하기 위해 CIFS/SMB 서비스도 활성화 됩니다."
 
-#, php-format
-msgid "To use subdirectories, you must mount each directories. (e.g. %s)"
-msgstr "하위 디렉터리를 사용하려면 각 디렉터리를 탑제해야 합니다. (예: %s)"
+msgid "To use subdirectories, you must mount each directory."
+msgstr ""
 
 msgid "Toggle Mode"
 msgstr "모드 전환"
@@ -11143,6 +11414,9 @@ msgstr ""
 
 msgid "Toggle Selected Commands"
 msgstr "선택된 명령들 전환"
+
+msgid "Toggle Selected Groups"
+msgstr ""
 
 msgid "Toggle Selected Initiator Names"
 msgstr ""
@@ -11162,7 +11436,16 @@ msgstr ""
 msgid "Toggle Selected Listen Records"
 msgstr ""
 
+msgid "Toggle Selected Media Folders"
+msgstr ""
+
 msgid "Toggle Selected Mutual CHAP Users"
+msgstr ""
+
+msgid "Toggle Selected NFS Exports"
+msgstr ""
+
+msgid "Toggle Selected NFS Root Directories"
 msgstr ""
 
 msgid "Toggle Selected Option Records"
@@ -11177,6 +11460,9 @@ msgstr ""
 msgid "Toggle Selected Portal Groups"
 msgstr ""
 
+msgid "Toggle Selected Public Keys"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "선택된 항목 상태 전환"
 
@@ -11187,6 +11473,9 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 전환"
 
 msgid "Toggle Selected Targets"
+msgstr ""
+
+msgid "Toggle Selected Users"
 msgstr ""
 
 msgid "Toggle Selected WebDAV Records"
@@ -11360,9 +11649,6 @@ msgstr "UFS와 변형은 FreeBSD(%s의 기본 OS)의 기본 파일 형식입니�
 msgid "UFS with Soft Updates"
 msgstr "소프트 업데이트 지원 UFS"
 
-msgid "UID"
-msgstr "UID"
-
 msgid "UNMAP"
 msgstr ""
 
@@ -11518,9 +11804,6 @@ msgstr ""
 msgid "Unison"
 msgstr "Unison"
 
-msgid "Unison File Synchronisation"
-msgstr "Unison 파일 동기화"
-
 msgid "Universally Unique Identifier"
 msgstr "범용 고유 식별자"
 
@@ -11606,6 +11889,9 @@ msgstr "가동 시간"
 msgid "Uptime Statistics"
 msgstr "가동 시간 통계"
 
+msgid "Use"
+msgstr ""
+
 msgid "Use Bytes/sec instead of Bits/sec for network throughput display."
 msgstr "네트워크 처리량 표시에서 bit/초 대신 byte/초를 사용합니다."
 
@@ -11640,11 +11926,8 @@ msgstr ""
 msgid "Use default TLS trust file /usr/local/etc/ssl/cert.pem."
 msgstr ""
 
-msgid "Use different container as root of the tree."
-msgstr "트리의 최상위로 다른 컨테이너를 사용합니다."
-
-msgid "Use inotify monitoring to automatically discover new files."
-msgstr "새 파일 자동 강지를 위해 inotify 감시를 사용합니다."
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr ""
 
 msgid "Use local user authentication."
 msgstr "로컬 사용자 인증을 사용합니다."
@@ -11655,6 +11938,18 @@ msgid ""
 "positive/negative y-axis range)"
 msgstr ""
 
+msgid "Use the \"Browse Directory\" container"
+msgstr ""
+
+msgid "Use the \"Music\" container"
+msgstr ""
+
+msgid "Use the \"Pictures\" container"
+msgstr ""
+
+msgid "Use the \"Video\" container"
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -11662,6 +11957,9 @@ msgstr "Windows 2000에서 도입 된 새로운 64K 스트리밍 읽기 및 쓰�
 
 msgid "Use the specified NTP server."
 msgstr "명세 된 NTP 서버를 이용합니다."
+
+msgid "Use the standard container (this is the default)"
+msgstr ""
 
 msgid "Use these specials actions for debugging only!"
 msgstr "디버깅 전용 특수 옵션을 사용합니다!"
@@ -11745,9 +12043,6 @@ msgstr "사용자 계정 보호됨"
 msgid "User account is unlocked"
 msgstr "사용자 계정 잠금 해제됨"
 
-msgid "User numeric id."
-msgstr "사용자 숫자 id."
-
 msgid "Username"
 msgstr "사용자 이름"
 
@@ -11768,6 +12063,9 @@ msgstr "파일 시스템 검사가 실행되는 동안 이 탑제 지점에 접�
 #, php-format
 msgid "Using %s bytes fragment size."
 msgstr "%s 바이트 조각 크기 사용."
+
+msgid "Using defaults"
+msgstr ""
 
 msgid "VCPUs"
 msgstr "VCPU"
@@ -11837,6 +12135,9 @@ msgstr "변수"
 
 msgid "Vendor ID"
 msgstr "공급자 아이디"
+
+msgid "Verbosity of information that is logged."
+msgstr ""
 
 msgid "Verify"
 msgstr "검증"
@@ -12032,6 +12333,9 @@ msgstr "WebGUI"
 
 msgid "WebGUI and Root Password"
 msgstr "WebGUI 및 root 암호"
+
+msgid "WebNFS"
+msgstr ""
 
 msgid "Webserver"
 msgstr "웹서버"
@@ -12322,11 +12626,17 @@ msgstr "사용 가능"
 msgid "available of"
 msgstr ""
 
+msgid "bash - Bourne Again Shell"
+msgstr ""
+
 msgid "change failed."
 msgstr "변경이 실패했습니다."
 
 msgid "chroot() everyone, but root."
 msgstr "root를 제외한 모두에게 chroot()."
+
+msgid "csh - C Shell"
+msgstr ""
 
 msgid ""
 "decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = "
@@ -12427,6 +12737,19 @@ msgstr "iTunes/DAAP"
 msgid "infinity"
 msgstr "무한"
 
+msgid ""
+"krb5 - Use Kerberos V5 protocol to authenticate users before granting access "
+"to the shared filesystem."
+msgstr ""
+
+msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
+msgstr ""
+
+msgid ""
+"krb5p - Use Kerberos V5 authentication with data integrity checksums and "
+"data encryption."
+msgstr ""
+
 msgid "less then 1.8\"."
 msgstr ""
 
@@ -12435,6 +12758,14 @@ msgstr "로드/언로드가 실패했습니다."
 
 msgid "loader.conf"
 msgstr "loader.conf"
+
+msgid "mapall - Specifies a mapping for all client UIDs (including root)"
+msgstr ""
+
+msgid ""
+"maproot - The credential of the specified user is used for remote access by "
+"root."
+msgstr ""
 
 msgid "missing"
 msgstr ""
@@ -12491,8 +12822,14 @@ msgstr "개정판"
 msgid "scan target failed."
 msgstr "타겟 확인이 실패했습니다."
 
+msgid "scponly - Secure Copy Protocol only"
+msgstr ""
+
 msgid "seconds)"
 msgstr "초)"
+
+msgid "sh - Bourne Shell"
+msgstr ""
 
 msgid "smallest settable high voltage transfer point"
 msgstr ""
@@ -12503,10 +12840,16 @@ msgstr ""
 msgid "successfully."
 msgstr "성공적으로."
 
+msgid "sys - Use AUTH_SYS authentication."
+msgstr ""
+
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
 
 msgid "syslog.conf"
+msgstr ""
+
+msgid "tcsh - TENEX C Shell"
 msgstr ""
 
 msgid "to"
