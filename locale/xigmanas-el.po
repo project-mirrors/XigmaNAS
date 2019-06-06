@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-06-04 18:16+0000\n"
+"PO-Revision-Date: 2019-06-06 12:15+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-05 23:56+0000\n"
+"X-Launchpad-Export-Date: 2019-06-06 19:53+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Δεν υπάρχει προσωπικό κλειδί"
 
 msgid " interfaces:"
 msgstr " διασυνδέσεις:"
@@ -616,16 +616,16 @@ msgid "Add Listen Record"
 msgstr "Προσθήκη Εγγραφής Αναμονής Σύνδεσης"
 
 msgid "Add Media Folder"
-msgstr ""
+msgstr "Προσθήκη Φακέλου Μέσων"
 
 msgid "Add Mutual CHAP User"
 msgstr "Προσθήκη χρήστη αμοιβαίου CHAP"
 
 msgid "Add NFS Export"
-msgstr ""
+msgstr "Προσθήκη NFS Export"
 
 msgid "Add NFS Root"
-msgstr ""
+msgstr "Προσθήκη Ριζικού φακέλου NFS"
 
 msgid "Add Option"
 msgstr "Προσθήκη Επιλογής"
@@ -643,7 +643,7 @@ msgid "Add Portal Group"
 msgstr "Προσθήκη Ομάδας Portal"
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Προσθήκη Δημόσιου Κλειδιού"
 
 msgid "Add RAID"
 msgstr "Προσθήκη RAID"
@@ -763,7 +763,7 @@ msgid "Add the selected device to the existing mirror."
 msgstr "Προσθήκη της επιλεγμένης συσκευής στο υπάρχον mirror."
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "Προσθήκη χρήστη σε πρόσθετες ομάδες."
 
 msgid "Additional Information"
 msgstr "Πρόσθετες Πληροφορίες"
@@ -912,7 +912,7 @@ msgid "Allow"
 msgstr "Επιτρέπονται"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "Να επιτρέπεται πιστοποίηση GSSAPI."
 
 msgid "Allow New Files"
 msgstr "Να Επτρέπονται Νέα αρχεία"
@@ -921,7 +921,7 @@ msgid "Allow Serial Ports"
 msgstr "Να επιτρέπονται σειριακές θύρες"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "Να επιτρέπεται προώθηση TCP."
 
 msgid "Allow TLS connections only."
 msgstr "Να επιτρέπονται μόνο συνδέσεις TLS."
@@ -933,7 +933,7 @@ msgid "Allow USB Serial Ports"
 msgstr "Να επιτρέπονται USB σειριακές θύρες"
 
 msgid "Allow challenge-response authentication."
-msgstr ""
+msgstr "Να επιτρέπεται πιστοποίηση challenge-response."
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr ""
@@ -954,22 +954,24 @@ msgstr ""
 "Να επιτρέπεται διαδοχικές αναγνώσεις/εγγραφές να εκτελούνται παράλληλα"
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "Να επιτρέπεται πιστοποίηση με διαδραστική χρήση πληκτρολογίου."
 
 msgid "Allow new files to be created."
 msgstr "Να επιτρέπεται η δημιουργία νέων αρχείων."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Να επιτρέπεται πιστοποίηση με κωδικό."
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Να επιτρέπεται πιστοποίηση με δημόσιο κλειδί."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Να επιτρέπεται η σύνδεση του root μέσω ssh."
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
+"Να επιτρέπονται συντομεύσεις που κατευθύνουν εκτός των ορισμένων φακέλων "
+"μέσων."
 
 msgid "Allow to start UPS from battery"
 msgstr "Να επιτρέπεται η εκκίνηση του UPS από τη μπαταρία"
@@ -1508,7 +1510,7 @@ msgid "Battery voltage"
 msgstr "Τάση Μπαταρίας"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Σίγαση"
 
 msgid "Be careful with turning on these options."
 msgstr "Να είστε προσεκτικοί όταν ενεργοποιείτε αυτές τις επιλογές."
@@ -1522,6 +1524,7 @@ msgstr "Πριν - Οι διαγραφές αρχείων θα γίνουν πρ
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
 msgstr ""
+"Πριν αρχίσει να λειτουργεί ένας πελάτης Unison, πρέπει να κάνετε τα ακόλουθα:"
 
 msgid "Best available"
 msgstr "Οι βέλτιστες διαθέσιμες"
@@ -1623,6 +1626,8 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
+"Μεταδίδει τη διαθεσιμότητά του στο δίκτυο κάθε x δευτερόλεπτα, η προεπιλογή "
+"είναι 300 δευτερόλεπτα."
 
 msgid "Browseable"
 msgstr "Περιηγήσιμα"
@@ -1861,7 +1866,7 @@ msgstr ""
 "πιστοποιητικά που έχουν ανακληθεί."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Πιστοποίηση Challenge-Response"
 
 msgid "Change"
 msgstr "Τροποποίηση"
@@ -2070,6 +2075,10 @@ msgid ""
 "execute upon subsystem request. Leave this field empty to use the default "
 "settings."
 msgstr ""
+"Ρυθμίζει ένα εξωτερικό υποσύστημα (π.χ. δαίμονα μεταφοράς αρχείων). Οι "
+"παράμετροι πρέπει να είναι όνομα υποσυστήματος και εντολή (με προαιρετικές "
+"παραμέτρους) που θα εκτελεστεί όταν τη ζητήσει το υποσύστημα. Αφήστε το "
+"πεδίο αυτό κενό για να χρησιμοποιηθούν οι προεπιλεγμένες ρυθμίσεις."
 
 msgid "Configuring"
 msgstr "Ρύθμιση"
@@ -2462,7 +2471,7 @@ msgid "Create PV Guest"
 msgstr "Δημιουργία PV Guest"
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Δημιουργία Φακέλου Εργασίας"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Δημιουργία ZFS σε κατάτμηση GPT."
@@ -2864,16 +2873,16 @@ msgid "Delete Selected Listen Records"
 msgstr "Διαγραφή Επιλεγμένων Εγγραφών Αναμονής Σύνδεσης"
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "Διαγραφή Επιλεγμένων Φακέλων Μέσων"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr "Διαγραφή Επιλεγμένων Χρηστών Αμοιβαίου CHAP"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "Διαγραφή Επιλεγμένων NFS Exports"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "Διαγραφή Επιλεγμένων Ριζικών Φακέλων NFS"
 
 msgid "Delete Selected Notifier"
 msgstr "Διαγραφή Επιλεγμένου Ειδοποιητή"
@@ -2894,7 +2903,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Διαγραφή Επιλεγμένων Ομάδων Portal"
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "Διαγραφή Επιλεγμένων Δημόσιων Κλειδιών"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Διαγραφή Επιλεγμένων τόμων RAID"
@@ -3235,7 +3244,7 @@ msgid "Disable Selected Commands"
 msgstr "Απενεργοποίηση Επιλεγμένων Εντολών"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Ομάδων"
 
 msgid "Disable Selected Initiator Names"
 msgstr "Απενεργοποίηση Επιλεγμένων Ονομάτων Εκκινητών"
@@ -3256,16 +3265,16 @@ msgid "Disable Selected Listen Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών Αναμονής Σύνδεσης"
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Φακέλων Μέσων"
 
 msgid "Disable Selected Mutual CHAP Users"
 msgstr "Απενεργοποίηση Επιλεγμένων Χρηστών CHAP"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων NFS Exports"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Ριζικών Φακέλων NFS"
 
 msgid "Disable Selected Option Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών Επιλογών"
@@ -3280,7 +3289,7 @@ msgid "Disable Selected Portal Groups"
 msgstr "Απενεργοποίηση Επιλεγμένων Ομάδων Portal"
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Δημόσιων Κλειδιών"
 
 msgid "Disable Selected Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών"
@@ -3295,7 +3304,7 @@ msgid "Disable Selected Targets"
 msgstr "Απενεργοποίηση Επιλεγμένων Προορισμών"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Χρηστών"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών WebDAV"
@@ -3307,7 +3316,7 @@ msgid "Disable Selected iSNS Servers"
 msgstr "Απενεργοποίηση Επιλεγμένων Διακομιστών iSNS"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Απενεργοποίηση Υποτίτλων"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "Απενεργοποίηση TCP wrapper (άρθρωμα mod_wrap)."
@@ -3330,7 +3339,7 @@ msgstr ""
 "Απενεργοποίση του βομβητή του ηχείου κατά την εκκίνηση και τον τερματισμό."
 
 msgid "Disable subtitle support on unknown clients."
-msgstr ""
+msgstr "Απενεργοποίηση υποστήριξης υποτίτλων σε άγνωστους πελάτες."
 
 msgid "Disable the compression of repeating lines."
 msgstr "Απενεργοποίηση συμπίεσης επαναλαμβανόμενων γραμμών."
@@ -3613,10 +3622,10 @@ msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Θέλετε να διαγράψετε τους επιλεγμένους χρήστες αμοιβαίου CHAP;"
 
 msgid "Do you want to delete selected NFS exports?"
-msgstr ""
+msgstr "Θέλετε να διαγράψετε τα επιλεγμένα NFS exports;"
 
 msgid "Do you want to delete selected NFS root directories?"
-msgstr ""
+msgstr "Θέλετε να διαγράψετε τους επιλεγμένους ριζικούς φακέλους NFS;"
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "Θέλετε να διαγράψετε τους επιλεγμένους τόμους RAID;"
@@ -3673,7 +3682,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr "Θέλετε να διαγράψετε τις επιλεγμένες εγγραφές αναμονής σύνδεσης;"
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "Θέλετε να διαγράψετε τους επιλεγμένους φακέλους μέσων;"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "Θέλετε να διαγράψετε τον επιλεγμένο ειδοποιητή;"
@@ -3694,7 +3703,7 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Θέλετε να διαγράψετε τις επιλεγμένες ομάδες portal;"
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "Θέλετε να διαγράψετε τα επιλεγμένα δημόσια κλειδιά;"
 
 msgid "Do you want to delete selected records?"
 msgstr "Θέλετε να διαγράψετε τις επιλεγμένες εγγραφές;"
@@ -3745,10 +3754,10 @@ msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους χρήστες αμοιβαίου CHAP;"
 
 msgid "Do you want to disable selected NFS exports?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα NFS exports;"
 
 msgid "Do you want to disable selected NFS root directories?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους ριζικούς φακέλους NFS;"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Θέλετε να επενεργοποιήσετε τις επιλεγμένες εγγραφές WebDAV;"
@@ -3760,7 +3769,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εντολές;"
 
 msgid "Do you want to disable selected groups?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες ομάδες;"
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους εκκινητές iSCSI;"
@@ -3782,7 +3791,7 @@ msgstr ""
 "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εγγραφές αναμονής σύνδεσης;"
 
 msgid "Do you want to disable selected media folders?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους φακέλους μέσων;"
 
 msgid "Do you want to disable selected option records?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εγγραφές επιλογής;"

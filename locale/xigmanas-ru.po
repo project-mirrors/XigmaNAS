@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-04-01 12:13+0000\n"
+"PO-Revision-Date: 2019-06-06 15:21+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-05 23:57+0000\n"
+"X-Launchpad-Export-Date: 2019-06-06 19:52+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Нет закрытого ключа"
 
 msgid " interfaces:"
 msgstr " интерфейсы:"
@@ -193,10 +193,10 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Импортирован дубликат ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "000"
 msgstr "000"
@@ -218,7 +218,7 @@ msgid "1.8\""
 msgstr "1.8\""
 
 msgid "1000"
-msgstr ""
+msgstr "1000"
 
 msgid "10000"
 msgstr "10000"
@@ -230,7 +230,7 @@ msgid "16384"
 msgstr "16384"
 
 msgid "192.168.0.0/24"
-msgstr ""
+msgstr "192.168.0.0/24"
 
 msgid "2"
 msgstr "2"
@@ -248,7 +248,7 @@ msgid "2.5\""
 msgstr "2.5\""
 
 msgid "22"
-msgstr ""
+msgstr "22"
 
 msgid "3"
 msgstr "3"
@@ -260,7 +260,7 @@ msgid "3.5\""
 msgstr "3.5\""
 
 msgid "300"
-msgstr ""
+msgstr "300"
 
 msgid "32 KiB"
 msgstr "32 КиБ"
@@ -293,7 +293,7 @@ msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Метка 802.1Q VLAN (между 1 и 4094)."
 
 msgid "8200"
-msgstr ""
+msgstr "8200"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -598,16 +598,16 @@ msgid "Add Listen Record"
 msgstr "Добавить запись"
 
 msgid "Add Media Folder"
-msgstr ""
+msgstr "Добавить папку мультимедиа"
 
 msgid "Add Mutual CHAP User"
 msgstr "Добавить взаимного пользователя CHAP"
 
 msgid "Add NFS Export"
-msgstr ""
+msgstr "Добавить экспорт NFS"
 
 msgid "Add NFS Root"
-msgstr ""
+msgstr "Добавить корневую директорию NFS"
 
 msgid "Add Option"
 msgstr "Добавить опцию"
@@ -625,7 +625,7 @@ msgid "Add Portal Group"
 msgstr "Добавить группу портала"
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Добавить публичный ключ"
 
 msgid "Add RAID"
 msgstr "Добавить RAID-массив"
@@ -745,7 +745,7 @@ msgid "Add the selected device to the existing mirror."
 msgstr "Добавить выбранное устройство к существующему зеркалу."
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "Добавить пользователя в дополнительные группы."
 
 msgid "Additional Information"
 msgstr "Дополнительная информация"
@@ -892,7 +892,7 @@ msgid "Allow"
 msgstr "Разрешить"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "Разрешить аутентификацию GSSAPI."
 
 msgid "Allow New Files"
 msgstr "Разрешить новые файлы"
@@ -901,7 +901,7 @@ msgid "Allow Serial Ports"
 msgstr "Разрешить serial-порты"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "Разрешить пересылку TCP."
 
 msgid "Allow TLS connections only."
 msgstr "Разрешить только TLS соединения."
@@ -913,7 +913,7 @@ msgid "Allow USB Serial Ports"
 msgstr "Разрешить USB serial-порты"
 
 msgid "Allow challenge-response authentication."
-msgstr ""
+msgstr "Разрешить проверку подлинности по запросу."
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "Разрешить клиентский доступ к учетным записям без пароля"
@@ -929,22 +929,24 @@ msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr "Разрешить последовательность чтение/запись осуществить параллельно"
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "Разрешить клавиатурно-интерактивную аутентификацию."
 
 msgid "Allow new files to be created."
 msgstr "Позволять создание новых файлов"
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Разрешить аутентификацию по паролю."
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Разрешить аутентификацию с публичным ключом."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Разрешить root войти через ssh."
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
+"Разрешить символические ссылки, которые указывают за пределы определенных "
+"папок мультимедиа."
 
 msgid "Allow to start UPS from battery"
 msgstr "Разрешить включение ИБП от батареи"
@@ -1473,7 +1475,7 @@ msgid "Battery voltage"
 msgstr "Напряжение батареи"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Будь спокоен"
 
 msgid "Be careful with turning on these options."
 msgstr "Будьте осторожны, включив эти параметры."
@@ -1487,6 +1489,8 @@ msgstr "Перед - File-deletions будет выполнено до нача�
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
 msgstr ""
+"Прежде чем клиент Unison сможет начать работать, вам необходимо выполнить "
+"следующее:"
 
 msgid "Best available"
 msgstr "Наилучший доступный"
@@ -1585,6 +1589,8 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
+"Настройка времени трансляции доступности в сети в секундах, по умолчанию 300 "
+"секунд."
 
 msgid "Browseable"
 msgstr "Просматриваемый"
@@ -1821,7 +1827,7 @@ msgstr ""
 "отозванных сертификатов."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Аутентификация по запросу-ответу"
 
 msgid "Change"
 msgstr "Изменить"
@@ -2027,6 +2033,10 @@ msgid ""
 "execute upon subsystem request. Leave this field empty to use the default "
 "settings."
 msgstr ""
+"Настраивает внешнюю подсистему (например, демон передачи файлов). Аргументы "
+"должны быть именем подсистемы и командой (с необязательными аргументами) для "
+"выполнения по запросу подсистемы. Оставьте это поле пустым, чтобы "
+"использовать настройки по умолчанию."
 
 msgid "Configuring"
 msgstr "Настраивается"
@@ -2400,7 +2410,7 @@ msgid "Create PV Guest"
 msgstr "Создать гостевую систему PV"
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Создать рабочий каталог"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Создание ZFS на раздел GPT."
@@ -2801,16 +2811,16 @@ msgid "Delete Selected Listen Records"
 msgstr "Удалить выбранные записи прослушивания"
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "Удалить выбранные папки мультимедиа"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr "Удалить выбранных взаимных пользователей CHAP"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "Удалить выбранные экспорты NFS"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "Удалить выбранные корневые каталоги NFS"
 
 msgid "Delete Selected Notifier"
 msgstr "Удалить выбранное уведомление"
@@ -2831,7 +2841,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Удалить выбранные группы портала"
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "Удалить выбранные публичные ключи"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Удалить выбранные RAID тома"
@@ -3167,7 +3177,7 @@ msgid "Disable Selected Commands"
 msgstr "Отключить выбранные команды"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Отключить выбранные группы"
 
 msgid "Disable Selected Initiator Names"
 msgstr "Отключить выбранные имена инициаторов"
@@ -3188,16 +3198,16 @@ msgid "Disable Selected Listen Records"
 msgstr "Отключить выбранные записи прослушивания"
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "Отключить выбранные папки мультимедиа"
 
 msgid "Disable Selected Mutual CHAP Users"
 msgstr "Отключить выбранных взаимных пользователей CHAP"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "Отключить выбранный экспорт NFS"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "Отключить выбранные корневые каталоги NFS"
 
 msgid "Disable Selected Option Records"
 msgstr "Отключить выбранные записи параметров"
@@ -3212,7 +3222,7 @@ msgid "Disable Selected Portal Groups"
 msgstr "Отключить выбранные группы портала"
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "Отключить выбранные публичные ключи"
 
 msgid "Disable Selected Records"
 msgstr "Отключить выбранные записи"
@@ -3227,7 +3237,7 @@ msgid "Disable Selected Targets"
 msgstr "Отключить выбранные цели"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Отключить выбранных пользователей"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Отключить выбранные WebDAV записи"
@@ -3239,7 +3249,7 @@ msgid "Disable Selected iSNS Servers"
 msgstr "Отключить выбранные серверы iSNS"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Отключить субтитры"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "Отключить TCP wrapper (mod_wrap module)."
@@ -3260,7 +3270,7 @@ msgid "Disable speaker beep on startup and shutdown."
 msgstr "Отключите звуковой сигнал при запуске и выключении."
 
 msgid "Disable subtitle support on unknown clients."
-msgstr ""
+msgstr "Отключить поддержку субтитров на неизвестных клиентах."
 
 msgid "Disable the compression of repeating lines."
 msgstr "Отключите сжатие повторяющихся строк."
@@ -3532,10 +3542,10 @@ msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Вы хотите удалить выбранных взаимных пользователей CHAP?"
 
 msgid "Do you want to delete selected NFS exports?"
-msgstr ""
+msgstr "Вы хотите удалить выбранные экспорты NFS?"
 
 msgid "Do you want to delete selected NFS root directories?"
-msgstr ""
+msgstr "Вы хотите удалить выбранные корневые каталоги NFS?"
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "Вы действительно хотите удалить выбранные тома RAID?"
@@ -3592,7 +3602,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr "Вы хотите удалить выбранные записи прослушивания?"
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "Вы хотите удалить выбранные папки мультимедиа?"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "Вы хотите удалить выбранные уведомления?"
@@ -3613,7 +3623,7 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Вы хотите удалить выбранные группы портала?"
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "Вы хотите удалить выбранные публичные ключи?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Вы хотите удалить выбранные записи?"
@@ -3665,10 +3675,10 @@ msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr "Вы хотите отключить выбранных взаимных пользователей CHAP?"
 
 msgid "Do you want to disable selected NFS exports?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные экспорты NFS?"
 
 msgid "Do you want to disable selected NFS root directories?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные корневые каталоги NFS?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Вы действительно хотите отключить выбранные WebDAV записи?"
@@ -3680,7 +3690,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Вы уверены, что хотите отключить выбранные команды?"
 
 msgid "Do you want to disable selected groups?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные группы?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr "Вы хотите отключить выбранные инициаторы iSCSI?"
@@ -3701,7 +3711,7 @@ msgid "Do you want to disable selected listen records?"
 msgstr "Вы хотите отключить выбранные записи прослушивания?"
 
 msgid "Do you want to disable selected media folders?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные папки мультимедиа?"
 
 msgid "Do you want to disable selected option records?"
 msgstr "Вы хотите отключить выбранные записи параметров?"
@@ -3716,7 +3726,7 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Вы хотите отключить выбранные группы портала?"
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные публичные ключи?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Вы хотите отключить выбранные записи?"
@@ -3731,7 +3741,7 @@ msgid "Do you want to disable selected targets?"
 msgstr "Вы хотите отключить выбранные цели?"
 
 msgid "Do you want to disable selected users?"
-msgstr ""
+msgstr "Вы хотите отключить выбранных пользователей?"
 
 msgid "Do you want to enable selected CHAP users?"
 msgstr "Вы хотите включить выбранных пользователей CHAP?"
@@ -3746,10 +3756,10 @@ msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "Вы хотите включить выбранных взаимных пользователей CHAP?"
 
 msgid "Do you want to enable selected NFS exports?"
-msgstr ""
+msgstr "Вы хотите включить выбранные экспорты NFS?"
 
 msgid "Do you want to enable selected NFS root directories?"
-msgstr ""
+msgstr "Вы хотите включить выбранные корневые каталоги NFS?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Вы действительно хотите включить выбранные WebDAV записи?"
@@ -3761,7 +3771,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Вы уверены, что желаете включить выбранные команды?"
 
 msgid "Do you want to enable selected groups?"
-msgstr ""
+msgstr "Вы хотите включить выбранные группы?"
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr "Вы хотите включить выбранные инициаторы iSCSI?"
@@ -3782,7 +3792,7 @@ msgid "Do you want to enable selected listen records?"
 msgstr "Вы хотите включить выбранные записи прослушивания?"
 
 msgid "Do you want to enable selected media folders?"
-msgstr ""
+msgstr "Вы хотите включить выбранные папки мультимедиа?"
 
 msgid "Do you want to enable selected option records?"
 msgstr "Вы хотите включить выбранные записи параметров?"
@@ -3797,7 +3807,7 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Вы хотите включить выбранные группы портала?"
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "Вы хотите включить выбранные публичные ключи?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Вы хотите включить выбранные записи?"
@@ -3812,7 +3822,7 @@ msgid "Do you want to enable selected targets?"
 msgstr "Вы хотите включить выбранные цели?"
 
 msgid "Do you want to enable selected users?"
-msgstr ""
+msgstr "Вы хотите включить выбранных пользователей?"
 
 msgid "Do you want to import disks?"
 msgstr "Вы хотите импортировать диски?"
@@ -3836,10 +3846,10 @@ msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Вы хотите переключить выбранных взаимных пользователей CHAP?"
 
 msgid "Do you want to toggle selected NFS exports?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные экспорты NFS?"
 
 msgid "Do you want to toggle selected NFS root directories?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные корневые каталоги NFS?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Вы действительно хотите переключить выбранные WebDAV записи?"
@@ -3851,7 +3861,7 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Вы уверены, что желаете переключить выбранные команды?"
 
 msgid "Do you want to toggle selected groups?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные группы?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr "Вы хотите переключить выбранные инициаторы iSCSI?"
@@ -3872,7 +3882,7 @@ msgid "Do you want to toggle selected listen records?"
 msgstr "Вы хотите переключить выбранные записи прослушивания?"
 
 msgid "Do you want to toggle selected media folders?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные папки мультимедиа?"
 
 msgid "Do you want to toggle selected option records?"
 msgstr "Вы хотите переключить выбранные записи параметров?"
@@ -3887,7 +3897,7 @@ msgid "Do you want to toggle selected portal groups?"
 msgstr "Вы хотите переключать выбранные группы портала?"
 
 msgid "Do you want to toggle selected public keys?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные публичные ключи?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Вы хотите инвертировать выбранные записи?"
@@ -3902,7 +3912,7 @@ msgid "Do you want to toggle selected targets?"
 msgstr "Вы хотите переключать выбранные цели?"
 
 msgid "Do you want to toggle selected users?"
-msgstr ""
+msgstr "Вы хотите переключить выбранных пользователей?"
 
 msgid "Do you want to unlock selected records?"
 msgstr "Вы хотите разблокировать выбранные записи?"
@@ -4073,16 +4083,16 @@ msgid "Edit Listen Record"
 msgstr "Изменить запись"
 
 msgid "Edit Media Folder"
-msgstr ""
+msgstr "Редактировать папку мультимедиа"
 
 msgid "Edit Mutual CHAP User"
 msgstr "Изменить взаимного пользователь CHAP"
 
 msgid "Edit NFS Export"
-msgstr ""
+msgstr "Редактировать экспорт NFS"
 
 msgid "Edit NFS Root"
-msgstr ""
+msgstr "Редактировать корневой каталог NFS"
 
 msgid "Edit Option"
 msgstr "Редактировать опцию"
@@ -4100,7 +4110,7 @@ msgid "Edit Portal Group"
 msgstr "Изменить группу портала"
 
 msgid "Edit Public Key"
-msgstr ""
+msgstr "Редактировать корневой каталог NFS"
 
 msgid "Edit RAID"
 msgstr "Изменить RAID-массив"
@@ -4267,7 +4277,7 @@ msgid "Enable SMTP authentication."
 msgstr "Включить SMTP-авторизацию"
 
 msgid "Enable SSH service"
-msgstr ""
+msgstr "Включить службу SSH"
 
 msgid ""
 "Enable SSL/TLS for secured connections. You also need to configure the TLS "
@@ -4290,7 +4300,7 @@ msgid "Enable Selected Commands"
 msgstr "Включить выбранные команды"
 
 msgid "Enable Selected Groups"
-msgstr ""
+msgstr "Включить выбранные группы"
 
 msgid "Enable Selected Initiator Names"
 msgstr "Включить выбранные имена инициаторов"
@@ -4311,16 +4321,16 @@ msgid "Enable Selected Listen Records"
 msgstr "Включить выбранные записи прослушивания"
 
 msgid "Enable Selected Media Folders"
-msgstr ""
+msgstr "Включить выбранные папки мультимедиа"
 
 msgid "Enable Selected Mutual CHAP Users"
 msgstr "Включить выбранных взаимных пользователей CHAP"
 
 msgid "Enable Selected NFS Exports"
-msgstr ""
+msgstr "Включить выбранные экспорты NFS"
 
 msgid "Enable Selected NFS Root Directories"
-msgstr ""
+msgstr "Включить выбранные корневые каталоги NFS"
 
 msgid "Enable Selected Option Records"
 msgstr "Включить выбранные записи параметров"
@@ -4335,7 +4345,7 @@ msgid "Enable Selected Portal Groups"
 msgstr "Включить выбранные группы портала"
 
 msgid "Enable Selected Public Keys"
-msgstr ""
+msgstr "Включить выбранные публичные ключи"
 
 msgid "Enable Selected Records"
 msgstr "Включить выбранные записи"
@@ -4350,7 +4360,7 @@ msgid "Enable Selected Targets"
 msgstr "Включить выбранные цели"
 
 msgid "Enable Selected Users"
-msgstr ""
+msgstr "Включить выбранных пользователей"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Включить выбранные WebDAV записи"
@@ -4431,7 +4441,7 @@ msgid "Enable collecting uptime statistics."
 msgstr "Включение сбора статистики бесперебойной работы."
 
 msgid "Enable compression after the user has authenticated successfully."
-msgstr ""
+msgstr "Включить сжатие после успешной аутентификации пользователя."
 
 msgid "Enable console screensaver."
 msgstr "Включить хранитель экрана консоли."
@@ -4689,6 +4699,8 @@ msgstr ""
 
 msgid "Enter a custom port number if you do not want to use default port 22."
 msgstr ""
+"Введите пользовательский номер порта, если вы не хотите использовать порт по "
+"умолчанию 22."
 
 msgid "Enter a custom port number if you do not want to use default port 69."
 msgstr ""
@@ -4769,7 +4781,7 @@ msgid "Enter facility name"
 msgstr "Введите название объекта"
 
 msgid "Enter group name."
-msgstr ""
+msgstr "Введите название группы."
 
 msgid "Enter hostname or IP address."
 msgstr "Введите имя хоста или IP-адрес."
@@ -4778,7 +4790,7 @@ msgid "Enter level name"
 msgstr "Введите имя уровня"
 
 msgid "Enter login name."
-msgstr ""
+msgstr "Введите логин."
 
 msgid "Enter mutual user name."
 msgstr "Введите имя взаимного пользователя."
@@ -4803,19 +4815,19 @@ msgid "Enter the command"
 msgstr "Введите команду"
 
 msgid "Enter the full user name."
-msgstr ""
+msgstr "Введите полное имя пользователя."
 
 msgid "Enter the location of the share"
 msgstr "Введите местоположение ресурса"
 
 msgid "Enter the name of the master user account."
-msgstr ""
+msgstr "Введите имя основной учетной записи пользователя."
 
 msgid "Enter the name of the share"
 msgstr "Введите имя ресурса"
 
 msgid "Enter the network that is authorised to access the NFS share."
-msgstr ""
+msgstr "Введите сеть, авторизованную для доступа к общему ресурсу NFS."
 
 msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
@@ -4825,7 +4837,7 @@ msgstr ""
 "между 8 и 63 символами."
 
 msgid "Enter the password of the master user account."
-msgstr ""
+msgstr "Введите пароль основной учетной записи пользователя."
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
@@ -4850,6 +4862,8 @@ msgid ""
 "Enter the path to the home directory of the user. Leave this field empty to "
 "use default path /mnt."
 msgstr ""
+"Введите путь к домашнему каталогу пользователя. Оставьте это поле пустым, "
+"чтобы использовать путь по умолчанию /mnt."
 
 msgid ""
 "Enter the path to the home directory. This directory will store the "
@@ -4923,7 +4937,7 @@ msgid "Export Rules"
 msgstr "Экспортировать правила"
 
 msgid "Export Subfolders"
-msgstr ""
+msgstr "Экспорт подпапок"
 
 msgid "Export a pool from the system"
 msgstr "Экспорт пула из системы (Export a pool from the system)"
@@ -4932,10 +4946,10 @@ msgid "Export all the directories in the specified path."
 msgstr "Экспорт всех каталогов по указанному пути"
 
 msgid "Export as WebNFS."
-msgstr ""
+msgstr "Экспортировать как WebNFS."
 
 msgid "Export the file system in read-only mode."
-msgstr ""
+msgstr "Экспорт файловой системы в режиме только для чтения."
 
 msgid "Exported"
 msgstr "Экспортированно"
@@ -5338,7 +5352,7 @@ msgid "GPT partition"
 msgstr "Раздел GPT"
 
 msgid "GSSAPI Authentication"
-msgstr ""
+msgstr "GSSAPI аутентификация"
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5386,7 +5400,7 @@ msgid "Grant access to the user portal."
 msgstr "Предоставить доступ к порталу пользователя"
 
 msgid "Grant shell access to user"
-msgstr ""
+msgstr "Предоставить пользователю доступ к оболочке"
 
 msgid "Graph shows last 120 seconds"
 msgstr "График показывает последние 120 секунд"
@@ -5414,7 +5428,7 @@ msgid "Group ID"
 msgstr "ID группы"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Имя группы"
 
 msgid "Group Settings"
 msgstr "Параметры группы"
@@ -5559,10 +5573,10 @@ msgid "Hide Dot Files"
 msgstr "Не показывать скрытые файлы (начинающиеся с точки)"
 
 msgid "Hide System Groups"
-msgstr ""
+msgstr "Скрыть системные группы"
 
 msgid "Hide System Users"
-msgstr ""
+msgstr "Скрыть системных пользователей"
 
 msgid "High voltage boosting transfer point"
 msgstr "Верхняя граница напряжения для режима подпитки (boosting)"
@@ -5685,7 +5699,7 @@ msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS-серверы"
 
 msgid "IPv4 Routes"
-msgstr ""
+msgstr "Маршруты IPv4"
 
 msgid "IPv4 Settings"
 msgstr "Настройки IPv4"
@@ -5728,7 +5742,7 @@ msgid "IPv6 Prefix"
 msgstr "Префикс IPv6"
 
 msgid "IPv6 Routes"
-msgstr ""
+msgstr "Маршруты IPv6"
 
 msgid "IPv6 Settings"
 msgstr "Настройки IPv6"
@@ -6284,7 +6298,7 @@ msgid "Key Management Protocol"
 msgstr "Протокол управления ключом"
 
 msgid "Keyboard-Interactive Authentication"
-msgstr ""
+msgstr "Клавиатурно-интерактивная аутентификация"
 
 msgid "L2 Cache"
 msgstr "L2 Cache"
@@ -6639,7 +6653,7 @@ msgid "Location where the content database file will be stored."
 msgstr "Размещение для хранения содержимого базы данных."
 
 msgid "Location where work files will be stored."
-msgstr ""
+msgstr "Место, где будут храниться рабочие файлы."
 
 msgid "Lock Selected Records"
 msgstr "Заблокировать выбранные записи"
@@ -6700,7 +6714,7 @@ msgid "Login"
 msgstr "Вход"
 
 msgid "Login Name"
-msgstr ""
+msgstr "Имя пользователя"
 
 msgid "Login for CHAP authentication."
 msgstr "Логин для проверки подлинности CHAP."
@@ -6738,7 +6752,7 @@ msgid "MBR partition"
 msgstr "Раздел MBR"
 
 msgid "MD4 Password"
-msgstr ""
+msgstr "Пароль MD4"
 
 msgid "MIRROR"
 msgstr "ЗЕРКАЛО"
@@ -6792,10 +6806,10 @@ msgid "Manufacturing date"
 msgstr "Дата изготовления"
 
 msgid "Map All To User"
-msgstr ""
+msgstr "Сопоставить всех в пользователя"
 
 msgid "Map Root To User"
-msgstr ""
+msgstr "Сопоставить пользователя в root"
 
 msgid "Map to Guest"
 msgstr "Преобразовывать в Гостя"
@@ -6805,9 +6819,10 @@ msgstr "Преобразовывать в пользователя"
 
 msgid "Map users or map root to the specified user."
 msgstr ""
+"Сопоставить пользователей или привязать root к указанному пользователю."
 
 msgid "Mapping"
-msgstr ""
+msgstr "Соответствие"
 
 msgid "Mapping DOS Attributes"
 msgstr "Преобразование DOS атрибутов"
@@ -6834,13 +6849,13 @@ msgid "Masquerade Address"
 msgstr "Маскарадный адрес"
 
 msgid "Master"
-msgstr ""
+msgstr "Master"
 
 msgid "Master Password"
-msgstr ""
+msgstr "Мастер Пароль"
 
 msgid "Master User"
-msgstr ""
+msgstr "Мастер пользователь"
 
 msgid "Max Processes"
 msgstr "Макс. процессов"
@@ -6945,28 +6960,28 @@ msgid "Media Directory"
 msgstr "Каталог носителей"
 
 msgid "Media Folder"
-msgstr ""
+msgstr "Папка мультимедиа"
 
 msgid "Media Folder is locked"
-msgstr ""
+msgstr "Папка мультимедиа заблокирована"
 
 msgid "Media Folder is marked for deletion"
-msgstr ""
+msgstr "Папка мультимедиа помечена для удаления"
 
 msgid "Media Folder is unlocked"
-msgstr ""
+msgstr "Папка мультимедиа разблокирована"
 
 msgid "Media Library"
 msgstr "Библиотека медиафайлов"
 
 msgid "Media Server Name."
-msgstr ""
+msgstr "Имя медиа-сервера."
 
 msgid "Media Size"
 msgstr "Размер носителя"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Тип данных"
 
 msgid "Media library"
 msgstr "Медиабиблиотека"
@@ -7096,13 +7111,13 @@ msgid "Monitoring"
 msgstr "Мониторинг"
 
 msgid "Monitoring Password"
-msgstr ""
+msgstr "Пароль мониторинга"
 
 msgid "Monitoring Setup"
 msgstr "Настройки мониторинга"
 
 msgid "Monitoring User"
-msgstr ""
+msgstr "Пользователь мониторинга"
 
 msgid "Months"
 msgstr "Месяцы"
@@ -7211,22 +7226,22 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NFS Export is locked"
-msgstr ""
+msgstr "Экспорт NFS заблокирован"
 
 msgid "NFS Export is marked for deletion"
-msgstr ""
+msgstr "Экспорт NFS помечен для удаления"
 
 msgid "NFS Export is unlocked"
-msgstr ""
+msgstr "Экспорт NFS разблокирован"
 
 msgid "NFS Root is locked"
-msgstr ""
+msgstr "Корневая папка NFS заблокирована"
 
 msgid "NFS Root is marked for deletion"
-msgstr ""
+msgstr "Корневая папка NFS помечена для удаления"
 
 msgid "NFS Root is unlocked"
-msgstr ""
+msgstr "Корневая папка NFS разблокирована"
 
 msgid "NFSv4"
 msgstr "NFSv4"
@@ -7338,7 +7353,7 @@ msgid "NetBIOS Name"
 msgstr "NetBIOS имя"
 
 msgid "NetIf"
-msgstr ""
+msgstr "Интерфейс"
 
 msgid "Netatalk (default) - use Netatalk compatible xattr."
 msgstr "Netatalk (по умолчанию) - используйте совместимый с Netatalk xattr."
@@ -7447,10 +7462,10 @@ msgid "No IPMI Sensor data available."
 msgstr "Нет доступных данных IPMI датчиков."
 
 msgid "No IPv4 routing information found."
-msgstr ""
+msgstr "Информация о маршрутизации IPv4 не найдена."
 
 msgid "No IPv6 routing information found."
-msgstr ""
+msgstr "Информация о маршрутизации IPv6 не найдена."
 
 msgid "No Initiator Group has been configured."
 msgstr "Ни одна группа инициаторов не сконфигурирована."
@@ -7462,7 +7477,7 @@ msgid "No LUNs found."
 msgstr "LUN не найдены."
 
 msgid "No Login"
-msgstr ""
+msgstr "Вход не выполнен"
 
 msgid "No Mutual-CHAP users found."
 msgstr "Пользователи Mutual-CHAP не найдены."
@@ -7699,6 +7714,8 @@ msgstr "Примечание"
 
 msgid "Note that only one file system can be WebNFS exported on a server."
 msgstr ""
+"Обратите внимание, что только одна файловая система может быть "
+"экспортирована в WebNFS на сервере."
 
 msgid ""
 "Note: Ctrl-click (or command-click on the Mac) to select multiple entries."
@@ -7902,7 +7919,7 @@ msgid "Overwrite disks configuration"
 msgstr "Перезаписывать конфигурацию дисков"
 
 msgid "Overwrite the sort criteria passed by the client."
-msgstr ""
+msgstr "Перезаписать критерии сортировки, переданные клиентом."
 
 msgid "Owner"
 msgstr "Владелец"
@@ -8067,7 +8084,7 @@ msgstr ""
 "Directory)"
 
 msgid "Paste a RSA PRIVATE KEY in PEM format"
-msgstr ""
+msgstr "Вставьте RSA PRIVATE KEY в формате PEM"
 
 msgid "Paste a private key in PEM format here."
 msgstr "Вставьте сюда частный ключ в формате PEM."
@@ -8088,7 +8105,7 @@ msgid "Path of the URL relative to document root."
 msgstr "Путь URL относительно корневой папки документов."
 
 msgid "Path to be included."
-msgstr ""
+msgstr "Путь, который будет включен."
 
 msgid "Path to be shared to be synchronized."
 msgstr "Путь, который будет общим для синхронизации."
@@ -8293,6 +8310,7 @@ msgstr "Номер порта сервера iSNS."
 
 msgid "Port of the SSH service. Leave blank to use the default port."
 msgstr ""
+"Порт службы SSH. Оставьте пустым, чтобы использовать порт по умолчанию."
 
 msgid "Port of the TFTP service. Leave blank to use the default port."
 msgstr ""
@@ -8336,6 +8354,8 @@ msgid ""
 "Port to listen on. Port number must be between 1024 and 65535. Default port "
 "is 8200."
 msgstr ""
+"Порт для прослушивания. Номер порта должен быть между 1024 и 65535. Порт по "
+"умолчанию - 8200."
 
 msgid "Portal Group"
 msgstr "Группа порталов"
@@ -8502,28 +8522,28 @@ msgid "Proxy"
 msgstr "Настройки прокси"
 
 msgid "Public Key"
-msgstr ""
+msgstr "Публичный ключ"
 
 msgid "Public Key Authentication"
-msgstr ""
+msgstr "Аутентификация с публичным ключом"
 
 msgid "Public Key Settings"
-msgstr ""
+msgstr "Настройки публичного ключа"
 
 msgid "Public Keys"
-msgstr ""
+msgstr "Публичные ключи"
 
 msgid "Public key information."
-msgstr ""
+msgstr "Информация публичного ключа."
 
 msgid "Public key is marked for deletion"
-msgstr ""
+msgstr "Публичный ключ помечен для удаления"
 
 msgid "Public key is protected"
-msgstr ""
+msgstr "Публичный ключ защищен"
 
 msgid "Public key is unlocked"
-msgstr ""
+msgstr "Публичный ключ разблокирован"
 
 msgid "Pull"
 msgstr "Принять"
@@ -8879,6 +8899,9 @@ msgid ""
 "Remote accesses by root will result in using a credential of 65534:65533. "
 "All other users will be mapped to their remote credential."
 msgstr ""
+"Удаленный доступ с правами root приведет к использованию учетных данных "
+"65534: 65533. Все остальные пользователи будут сопоставлены с их удаленными "
+"учетными данными."
 
 msgid ""
 "Remote monitoring password. Must be equal on both master and slave system."
@@ -9019,7 +9042,7 @@ msgid "Restore metadata from the given file to the given provider."
 msgstr "Восстановить метаданные из выбранного файла в выбранное место."
 
 msgid "Restrict folder to a specific media type."
-msgstr ""
+msgstr "Ограничить папку определенным типом носителя."
 
 msgid "Restricted"
 msgstr "Restricted"
@@ -9065,10 +9088,10 @@ msgid "Root Bind Password"
 msgstr "Пароль администратора каталогов"
 
 msgid "Root Directory"
-msgstr ""
+msgstr "Корневой каталог"
 
 msgid "Root Login"
-msgstr ""
+msgstr "Логин Root"
 
 msgid "Rotation Rate"
 msgstr "Скорость вращения"
@@ -9162,7 +9185,7 @@ msgid "SCSI Name"
 msgstr "Имя SCSI"
 
 msgid "SHA Password"
-msgstr ""
+msgstr "Пароль SHA"
 
 msgid "SHA-256, Verify"
 msgstr "SHA-256, сравнение"
@@ -9284,19 +9307,19 @@ msgstr ""
 "вручную запустить сканирование на странице статуса интерфейса управления."
 
 msgid "Scan folder for all media types."
-msgstr ""
+msgstr "Сканирование папки для всех типов содержимого."
 
 msgid "Scan folder for audio files."
-msgstr ""
+msgstr "Сканирование папки на наличие аудиофайлов."
 
 msgid "Scan folder for image files."
-msgstr ""
+msgstr "Сканирование папки для файлов изображений."
 
 msgid "Scan folder for video and image files."
-msgstr ""
+msgstr "Сканирование папки для видео и файлов изображений."
 
 msgid "Scan folder for video files."
-msgstr ""
+msgstr "Сканирование папки на наличие видеофайлов."
 
 msgid "Schedule Time"
 msgstr "Время расписаний"
@@ -9359,7 +9382,7 @@ msgid "Secret for CHAP authentication."
 msgstr "Секретная фраза для проверки подлинности CHAP."
 
 msgid "Security Flavor"
-msgstr ""
+msgstr "Вкладка безопасности"
 
 msgid "Security Warning"
 msgstr "Предупреждение безопасности"
@@ -9417,7 +9440,7 @@ msgid "Select Spare Device"
 msgstr "Выберите запасное устройство"
 
 msgid "Select a container as the root of the tree exposed to clients."
-msgstr ""
+msgstr "Выберите контейнер в качестве корня дерева, доступного для клиентов."
 
 msgid "Select a date format."
 msgstr "Выберите формат даты"
@@ -9661,7 +9684,7 @@ msgid "Set UID"
 msgstr "Бит SUID"
 
 msgid "Set User Password"
-msgstr ""
+msgstr "Установить пароль пользователя"
 
 msgid "Set browseable."
 msgstr "Установить как просматриваемый"
@@ -9674,7 +9697,7 @@ msgstr ""
 "допустимое значение 10."
 
 msgid "Set password"
-msgstr ""
+msgstr "Установить пароль"
 
 msgid "Set per-LUN/per-pool thin provisioning soft threshold."
 msgstr "Устанавливает мягкий порог для минимальной настройки LUN/пула."
@@ -9695,7 +9718,7 @@ msgstr ""
 "чтобы применить."
 
 msgid "Set the account's primary group."
-msgstr ""
+msgstr "Установите основную группу учетной записи."
 
 msgid "Set the content location(s) to or from the media library."
 msgstr ""
@@ -9774,7 +9797,7 @@ msgid "Set user login shell."
 msgstr "Установите командную оболочку пользователя."
 
 msgid "Set user password."
-msgstr ""
+msgstr "Установите пароль пользователя."
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -9917,10 +9940,10 @@ msgid "Show RAW UPS Info"
 msgstr "Показать исходные данные о ИБП (RAW data)"
 
 msgid "Show System Groups"
-msgstr ""
+msgstr "Показать системные группы"
 
 msgid "Show System Users"
-msgstr ""
+msgstr "Показать системных пользователей"
 
 msgid "Show UPS Information"
 msgstr "Показать информацию ИБП"
@@ -9988,7 +10011,7 @@ msgid "Skip View Mode"
 msgstr "Пропустить режим просмотра"
 
 msgid "Slave"
-msgstr ""
+msgstr "Slave"
 
 msgid "Sleep - Check the device unless it is in SLEEP mode."
 msgstr "Sleep - проверять устройство, пока оно не в режиме сна (SLEEP)."
@@ -10212,6 +10235,9 @@ msgid ""
 "Specify a list of acceptable security flavors to be used for remote access. "
 "The\tdefault\tsecurity flavor\tis sys."
 msgstr ""
+"Укажите список допустимых вариантов безопасности, которые будут "
+"использоваться для удаленного доступа. \t по умолчанию  \t вкладка "
+"безопасности \t - это sys."
 
 msgid ""
 "Specify maximum allowed number of LBAs per UNMAP command to report in Block "
@@ -10245,10 +10271,10 @@ msgstr ""
 "Укажите тип устройства SCSI, который будет использоваться при создании LUN."
 
 msgid "Specify the group numeric id."
-msgstr ""
+msgstr "Укажите числовой идентификатор группы."
 
 msgid "Specify the user/account numeric id."
-msgstr ""
+msgstr "Укажите числовой идентификатор пользователя / учетной записи."
 
 msgid "Split request"
 msgstr "Разделение запросов (split request)"
@@ -10459,7 +10485,7 @@ msgid "System Events"
 msgstr "Системные события"
 
 msgid "System Group"
-msgstr ""
+msgstr "Системная группа"
 
 msgid "System Information"
 msgstr "Информация о системе"
@@ -10486,7 +10512,7 @@ msgid "System Uptime"
 msgstr "Время работы системы"
 
 msgid "System User"
-msgstr ""
+msgstr "Системный пользователь"
 
 msgid "System info"
 msgstr "Информация о системе"
@@ -11428,9 +11454,12 @@ msgstr "Рекомендуемая глубина очереди - %d."
 
 msgid "The recommended range for the group id is between 1000 and 32000."
 msgstr ""
+"Рекомендуемый диапазон для идентификатора группы составляет от 1000 до 32000."
 
 msgid "The recommended range for the user id is between 1000 and 32000."
 msgstr ""
+"Рекомендуемый диапазон для идентификатора пользователя составляет от 1000 до "
+"32000."
 
 #, php-format
 msgid "The removable area mapped to LUN%d."
@@ -11620,7 +11649,7 @@ msgid ""
 msgstr "Эти параметры добавляются к аппаратной части драйвера."
 
 msgid "These parameters are appended to /etc/ssh/sshd_config."
-msgstr ""
+msgstr "Эти параметры добавляются в /etc/ssh/sshd_config."
 
 msgid "These parameters are appended to the exports file."
 msgstr "Эти параметры добавляются в файл экспорта."
@@ -11638,7 +11667,7 @@ msgid "These parameters will be added to global settings in %s."
 msgstr "Эти параметры будут добавлены к глобальным настройкам %s."
 
 msgid "These parameters will be added to minidlna.conf"
-msgstr ""
+msgstr "Эти параметры будут добавлены в minidlna.conf"
 
 msgid "These parameters will be added to my.cnf"
 msgstr "Эти параметры будут добавлены в my.cnf"
@@ -12052,6 +12081,9 @@ msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
 "impact JPEG serving performance on some DLNA devices."
 msgstr ""
+"Это позволит на стороне сервера уменьшать масштаб очень больших изображений "
+"JPEG, это может повлиять на производительность отображения JPEG на некоторых "
+"устройствах DLNA."
 
 msgid "This will create a recycle bin on the share."
 msgstr "Создает 'корзину' на данном общем ресурсе."
@@ -12198,6 +12230,7 @@ msgstr "Чтобы использовать Active Directory CIFS/SMB так ж�
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr ""
+"Чтобы использовать подкаталоги, вы должны смонтировать каждый каталог."
 
 msgid "Toggle Mode"
 msgstr "Режим переключения"
@@ -12212,7 +12245,7 @@ msgid "Toggle Selected Commands"
 msgstr "Переключить выбранные команды"
 
 msgid "Toggle Selected Groups"
-msgstr ""
+msgstr "Переключить выбранные группы"
 
 msgid "Toggle Selected Initiator Names"
 msgstr "Переключить выбранные имена инициаторов"
@@ -12233,16 +12266,16 @@ msgid "Toggle Selected Listen Records"
 msgstr "Переключить выбранные записи прослушивания"
 
 msgid "Toggle Selected Media Folders"
-msgstr ""
+msgstr "Переключить выбранные папки мультимедиа"
 
 msgid "Toggle Selected Mutual CHAP Users"
 msgstr "Переключить выбранных взаимных пользователей CHAP"
 
 msgid "Toggle Selected NFS Exports"
-msgstr ""
+msgstr "Переключить выбранные экспорты NFS"
 
 msgid "Toggle Selected NFS Root Directories"
-msgstr ""
+msgstr "Переключить выбранные корневые каталоги NFS"
 
 msgid "Toggle Selected Option Records"
 msgstr "Переключить выбранные записи параметров"
@@ -12257,7 +12290,7 @@ msgid "Toggle Selected Portal Groups"
 msgstr "Переключить выбранные группы портала"
 
 msgid "Toggle Selected Public Keys"
-msgstr ""
+msgstr "Переключить выбранные публичные ключи"
 
 msgid "Toggle Selected Records"
 msgstr "Переключение выбранных записей"
@@ -12272,7 +12305,7 @@ msgid "Toggle Selected Targets"
 msgstr "Переключить выбранные цели"
 
 msgid "Toggle Selected Users"
-msgstr ""
+msgstr "Переключить выбранных пользователей"
 
 msgid "Toggle Selected WebDAV Records"
 msgstr "Переключить выбранные WebDAV записи"
@@ -12712,7 +12745,7 @@ msgid "Uptime Statistics"
 msgstr "Статистика продолжительности работы"
 
 msgid "Use"
-msgstr ""
+msgstr "Использование"
 
 msgid "Use Bytes/sec instead of Bits/sec for network throughput display."
 msgstr ""
@@ -12754,6 +12787,8 @@ msgstr ""
 
 msgid "Use inotify monitoring to automatically discover new media files."
 msgstr ""
+"Использовать мониторинг inotify для автоматического обнаружения новых медиа-"
+"файлов."
 
 msgid "Use local user authentication."
 msgstr "Использовать аутентификацию локального пользователя."
@@ -12768,16 +12803,16 @@ msgstr ""
 "у)"
 
 msgid "Use the \"Browse Directory\" container"
-msgstr ""
+msgstr "Использовать контейнер «Просмотр каталога»"
 
 msgid "Use the \"Music\" container"
-msgstr ""
+msgstr "Использовать контейнер \"Музыка\""
 
 msgid "Use the \"Pictures\" container"
-msgstr ""
+msgstr "Использовать контейнер \"Картинки\""
 
 msgid "Use the \"Video\" container"
-msgstr ""
+msgstr "Использовать контейнер \"Видео\""
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -12790,7 +12825,7 @@ msgid "Use the specified NTP server."
 msgstr "Использовать указанный NTP-сервер"
 
 msgid "Use the standard container (this is the default)"
-msgstr ""
+msgstr "Использовать стандартный контейнер (это по умолчанию)"
 
 msgid "Use these specials actions for debugging only!"
 msgstr "Используйте эти функции только для отладки!"
@@ -12913,7 +12948,7 @@ msgid "Using %s bytes fragment size."
 msgstr "Использовать резмер фрагмента в %s байт."
 
 msgid "Using defaults"
-msgstr ""
+msgstr "Использовать значения по умолчанию"
 
 msgid "VCPUs"
 msgstr "Вирт. CPUs"
@@ -12989,7 +13024,7 @@ msgid "Vendor ID"
 msgstr "ID поставщика"
 
 msgid "Verbosity of information that is logged."
-msgstr ""
+msgstr "Детализация информации, которая регистрируется."
 
 msgid "Verify"
 msgstr "Проверить"
@@ -13193,7 +13228,7 @@ msgid "WebGUI and Root Password"
 msgstr "Пароль WebGUI и пользователя root"
 
 msgid "WebNFS"
-msgstr ""
+msgstr "WebNFS"
 
 msgid "Webserver"
 msgstr "Web Server"
@@ -13522,7 +13557,7 @@ msgid "available of"
 msgstr "доступно из"
 
 msgid "bash - Bourne Again Shell"
-msgstr ""
+msgstr "bash - Bourne Again Shell"
 
 msgid "change failed."
 msgstr "неудачное изменение."
@@ -13531,7 +13566,7 @@ msgid "chroot() everyone, but root."
 msgstr "Использовать chroot() для всех, кроме root"
 
 msgid "csh - C Shell"
-msgstr ""
+msgstr "csh - C Shell"
 
 msgid ""
 "decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = "
@@ -13643,14 +13678,20 @@ msgid ""
 "krb5 - Use Kerberos V5 protocol to authenticate users before granting access "
 "to the shared filesystem."
 msgstr ""
+"krb5 - использовать протокол Kerberos V5 для аутентификации пользователей "
+"перед предоставлением доступа к общей файловой системе."
 
 msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
 msgstr ""
+"krb5i - использовать аутентификацию Kerberos V5 с контрольными суммами "
+"целостности данных."
 
 msgid ""
 "krb5p - Use Kerberos V5 authentication with data integrity checksums and "
 "data encryption."
 msgstr ""
+"krb5p - использовать аутентификацию Kerberos V5 с контрольными суммами "
+"целостности данных и шифрованием данных."
 
 msgid "less then 1.8\"."
 msgstr "менее 1.8\"."
@@ -13663,11 +13704,14 @@ msgstr "loader.conf"
 
 msgid "mapall - Specifies a mapping for all client UIDs (including root)"
 msgstr ""
+"mapall - определяет сопоставление для всех клиентских UID (включая root)"
 
 msgid ""
 "maproot - The credential of the specified user is used for remote access by "
 "root."
 msgstr ""
+"maproot - учетные данные указанного пользователя используются для удаленного "
+"доступа root."
 
 msgid "missing"
 msgstr "отсутствует"
@@ -13725,13 +13769,13 @@ msgid "scan target failed."
 msgstr "неудачное сканирование цели."
 
 msgid "scponly - Secure Copy Protocol only"
-msgstr ""
+msgstr "scponly - только протокол защищенного копирования"
 
 msgid "seconds)"
 msgstr "секунд)"
 
 msgid "sh - Bourne Shell"
-msgstr ""
+msgstr "sh - Bourne Shell"
 
 msgid "smallest settable high voltage transfer point"
 msgstr ""
@@ -13745,7 +13789,7 @@ msgid "successfully."
 msgstr "успешно."
 
 msgid "sys - Use AUTH_SYS authentication."
-msgstr ""
+msgstr "sys - использовать аутентификацию AUTH_SYS."
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
@@ -13754,7 +13798,7 @@ msgid "syslog.conf"
 msgstr "syslog.conf"
 
 msgid "tcsh - TENEX C Shell"
-msgstr ""
+msgstr "tcsh - TENEX C Shell"
 
 msgid "to"
 msgstr "к"
