@@ -2,18 +2,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-03-28 17:51+0000\n"
+"POT-Creation-Date: 2019-06-06 01:26+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-03-30 20:36+0000\n"
-"X-Generator: Launchpad (build 18910)\n"
+"X-Launchpad-Export-Date: 2019-06-05 23:57+0000\n"
+"X-Generator: Launchpad (build 18978)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
+
+msgid " No private key"
+msgstr ""
 
 msgid " interfaces:"
 msgstr " 介面："
@@ -169,6 +172,12 @@ msgstr "默認 %s %s"
 msgid "*** Imported duplicate ***"
 msgstr "*** 重複導入 ***"
 
+msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
+msgstr ""
+
+msgid "/mnt"
+msgstr ""
+
 msgid "000"
 msgstr ""
 
@@ -187,6 +196,9 @@ msgstr "一個或更多磁片需要建立為RAID-1卷"
 msgid "1.8\""
 msgstr "1.8\""
 
+msgid "1000"
+msgstr ""
+
 msgid "10000"
 msgstr ""
 
@@ -194,6 +206,9 @@ msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
+msgstr ""
+
+msgid "192.168.0.0/24"
 msgstr ""
 
 msgid "2"
@@ -211,6 +226,9 @@ msgstr "創建一個Raid-1 分區需要2個或更多的磁片"
 msgid "2.5\""
 msgstr "2.5\""
 
+msgid "22"
+msgstr ""
+
 msgid "3"
 msgstr "3"
 
@@ -219,6 +237,9 @@ msgstr "創建一個Raid-5 分區需要2個或更多的磁片"
 
 msgid "3.5\""
 msgstr "3.5\""
+
+msgid "300"
+msgstr ""
 
 msgid "32 KiB"
 msgstr "32 KiB"
@@ -249,6 +270,9 @@ msgstr ""
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN 標籤 （介於1和4094之間）。"
+
+msgid "8200"
+msgstr ""
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -524,11 +548,17 @@ msgstr ""
 msgid "Add Listen Record"
 msgstr ""
 
+msgid "Add Media Folder"
+msgstr ""
+
 msgid "Add Mutual CHAP User"
 msgstr ""
 
-msgid "Add NFS Share"
-msgstr "添加NFS共用"
+msgid "Add NFS Export"
+msgstr ""
+
+msgid "Add NFS Root"
+msgstr ""
 
 msgid "Add Option"
 msgstr "添加選項"
@@ -543,6 +573,9 @@ msgid "Add Port Record"
 msgstr ""
 
 msgid "Add Portal Group"
+msgstr ""
+
+msgid "Add Public Key"
 msgstr ""
 
 msgid "Add RAID"
@@ -662,8 +695,8 @@ msgstr "添加目標"
 msgid "Add the selected device to the existing mirror."
 msgstr ""
 
-msgid "Additional Group"
-msgstr "附加組"
+msgid "Add user to additional groups."
+msgstr ""
 
 msgid "Additional Information"
 msgstr ""
@@ -764,9 +797,6 @@ msgstr ""
 msgid "All"
 msgstr "全部"
 
-msgid "All Dirs"
-msgstr "所有目錄"
-
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下統計的所有數據已經被刪除："
 
@@ -777,10 +807,6 @@ msgstr "路徑中的全部數據都將被覆蓋，推薦使用空的UFS目錄以
 
 msgid "All data will be lost when you activate this option!"
 msgstr "當你啟動此選項所有的數據將會丟失"
-
-#, php-format
-msgid "All dirs requires mounted path, but Path %s is not mounted."
-msgstr "所有目錄都需要已掛載的路徑，但路徑 %s 尚未掛載。"
 
 msgid "All disks are imported."
 msgstr "已經導入所有硬碟。"
@@ -802,11 +828,17 @@ msgstr "分派"
 msgid "Allow"
 msgstr "允許"
 
+msgid "Allow GSSAPI authentication."
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "允許新檔"
 
 msgid "Allow Serial Ports"
 msgstr "允許串行端口"
+
+msgid "Allow TCP forwarding."
+msgstr ""
 
 msgid "Allow TLS connections only."
 msgstr "只允許TLS連接。"
@@ -816,6 +848,9 @@ msgstr "允許USB"
 
 msgid "Allow USB Serial Ports"
 msgstr "允許USB串行端口"
+
+msgid "Allow challenge-response authentication."
+msgstr ""
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "允許沒有設置密碼的帳號連接。"
@@ -830,10 +865,22 @@ msgstr "允許客戶端在上傳和下載時中斷點續傳"
 msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr ""
 
+msgid "Allow keyboard-interactive authentication."
+msgstr ""
+
 msgid "Allow new files to be created."
 msgstr "允許創建新檔."
 
-msgid "Allow symlinks that point outside user-defined media folders."
+msgid "Allow password authentication."
+msgstr ""
+
+msgid "Allow public key authentication."
+msgstr ""
+
+msgid "Allow root to login via ssh."
+msgstr ""
+
+msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
 msgid "Allow to start UPS from battery"
@@ -970,11 +1017,6 @@ msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
 "issues."
 msgstr "另一個 DLNA/UPnP 服務已在運行。開啟 Fuppes 可能導致問題。"
-
-msgid ""
-"Another DLNA/UPnP service is already running. Enabling MiniDLNA might cause "
-"issues."
-msgstr "另一個 DLNA/UPnP 服務已在運行。開啟 MiniDLNA 可能導致問題。"
 
 msgid "Any"
 msgstr "任何"
@@ -1150,9 +1192,6 @@ msgstr "身份驗證方法被禁用。"
 msgid "Authorised Network"
 msgstr "授權網路"
 
-msgid "Authorised network"
-msgstr "通過認證的網路"
-
 msgid "Auths"
 msgstr "認證（Auths）"
 
@@ -1316,6 +1355,9 @@ msgstr "電池溫度"
 msgid "Battery voltage"
 msgstr "電池電壓"
 
+msgid "Be Quiet"
+msgstr ""
+
 msgid "Be careful with turning on these options."
 msgstr "開啟這些選項時要小心。"
 
@@ -1326,8 +1368,8 @@ msgid "Before - File-deletions will be performed before the transfer starts."
 msgstr "之前 - 檔刪除將在傳輸開始之前執行。"
 
 msgid ""
-"Before a Unison Client can start to work, you need to perform the following:"
-msgstr "在Unison客戶端可以開始工作之前，您需要執行以下操作："
+"Before a Unison client can start to work, you need to perform the following:"
+msgstr ""
 
 msgid "Best available"
 msgstr "現有最佳"
@@ -1417,12 +1459,9 @@ msgid "Broadcast Interval"
 msgstr "廣播間隔"
 
 msgid ""
-"Broadcasts its availability every N seconds on the network. (Default 300 "
-"seconds)"
-msgstr "每N秒在網路上廣播其可用性。（默認為300秒）"
-
-msgid "Browse Directory"
-msgstr "流覽目錄"
+"Broadcasts its availability every configured seconds on the network, the "
+"default is 300 seconds."
+msgstr ""
 
 msgid "Browseable"
 msgstr "可流覽"
@@ -1649,6 +1688,9 @@ msgid ""
 "certificates."
 msgstr "TLS的證書吊銷列表（CRL）文件，用於檢查吊銷的證書。"
 
+msgid "Challenge-Response Authentication"
+msgstr ""
+
 msgid "Change"
 msgstr "更改"
 
@@ -1825,12 +1867,6 @@ msgstr "傳輸時壓縮檔案資料。"
 msgid "Compression"
 msgstr "資料壓縮"
 
-msgid ""
-"Compression is worth using if your connection is slow. The efficiency of the "
-"compression depends on the type of the file, and varies widely. Useful for "
-"internet transfer only."
-msgstr "如果你的連接很慢，壓縮是值得使用的。 壓縮的效率取決於檔的類型，並且變化很大。 僅適用於互聯網傳輸。"
-
 msgid "Configuration"
 msgstr "配置"
 
@@ -1842,6 +1878,13 @@ msgid ""
 "Please remove those devices and re-add them or run import disks with clear "
 "configuration option enabled."
 msgstr "設備的配置信息與物理設備不同。請移除這些設備并重新添加它們或運行導入磁碟并啟用清除配置選項。"
+
+msgid ""
+"Configures an external subsystem (e.g. file transfer daemon). Arguments "
+"should be a subsystem name and a command (with optional arguments) to "
+"execute upon subsystem request. Leave this field empty to use the default "
+"settings."
+msgstr ""
 
 msgid "Configuring"
 msgstr "設置中"
@@ -2154,6 +2197,9 @@ msgstr "創建掩碼"
 
 msgid "Create PV Guest"
 msgstr "創建PV客戶機"
+
+msgid "Create Work Directory"
+msgstr ""
 
 msgid "Create ZFS on a GPT partition."
 msgstr "在GPT分區上創建ZFS。"
@@ -2532,11 +2578,17 @@ msgstr ""
 msgid "Delete Selected Listen Records"
 msgstr ""
 
+msgid "Delete Selected Media Folders"
+msgstr ""
+
 msgid "Delete Selected Mutual CHAP Users"
 msgstr ""
 
-msgid "Delete Selected NFS Shares"
-msgstr "刪除選中的NFS共用"
+msgid "Delete Selected NFS Exports"
+msgstr ""
+
+msgid "Delete Selected NFS Root Directories"
+msgstr ""
 
 msgid "Delete Selected Notifier"
 msgstr "刪除選定的通知"
@@ -2554,6 +2606,9 @@ msgid "Delete Selected Port Records"
 msgstr ""
 
 msgid "Delete Selected Portal Groups"
+msgstr ""
+
+msgid "Delete Selected Public Keys"
 msgstr ""
 
 msgid "Delete Selected RAID Volumes"
@@ -2877,6 +2932,9 @@ msgstr ""
 msgid "Disable Selected Commands"
 msgstr "禁用選中的命令"
 
+msgid "Disable Selected Groups"
+msgstr ""
+
 msgid "Disable Selected Initiator Names"
 msgstr ""
 
@@ -2895,7 +2953,16 @@ msgstr ""
 msgid "Disable Selected Listen Records"
 msgstr ""
 
+msgid "Disable Selected Media Folders"
+msgstr ""
+
 msgid "Disable Selected Mutual CHAP Users"
+msgstr ""
+
+msgid "Disable Selected NFS Exports"
+msgstr ""
+
+msgid "Disable Selected NFS Root Directories"
 msgstr ""
 
 msgid "Disable Selected Option Records"
@@ -2910,6 +2977,9 @@ msgstr ""
 msgid "Disable Selected Portal Groups"
 msgstr ""
 
+msgid "Disable Selected Public Keys"
+msgstr ""
+
 msgid "Disable Selected Records"
 msgstr "禁用選中的記錄"
 
@@ -2922,6 +2992,9 @@ msgstr "禁用選中的Rsync模組"
 msgid "Disable Selected Targets"
 msgstr ""
 
+msgid "Disable Selected Users"
+msgstr ""
+
 msgid "Disable Selected WebDAV Records"
 msgstr ""
 
@@ -2929,6 +3002,9 @@ msgid "Disable Selected iSCSI Initiators"
 msgstr ""
 
 msgid "Disable Selected iSNS Servers"
+msgstr ""
+
+msgid "Disable Subtitles"
 msgstr ""
 
 msgid "Disable TCP wrapper (mod_wrap module)."
@@ -2948,6 +3024,9 @@ msgstr "禁用對現有擴展菜單的檔夾掃描。"
 
 msgid "Disable speaker beep on startup and shutdown."
 msgstr "禁用揚聲器啟動和關機時發出蜂鳴聲。"
+
+msgid "Disable subtitle support on unknown clients."
+msgstr ""
 
 msgid "Disable the compression of repeating lines."
 msgstr "禁用重複行的壓縮。"
@@ -3194,8 +3273,11 @@ msgstr ""
 msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr ""
 
-msgid "Do you want to delete selected NFS shares?"
-msgstr "您要刪除選中的NFS共用嗎？"
+msgid "Do you want to delete selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to delete selected NFS root directories?"
+msgstr ""
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "是否要刪除所選的RAID卷？"
@@ -3251,6 +3333,9 @@ msgstr "您要刪除所選的任務嗎？"
 msgid "Do you want to delete selected listen records?"
 msgstr ""
 
+msgid "Do you want to delete selected media folders?"
+msgstr ""
+
 msgid "Do you want to delete selected notifier?"
 msgstr "你想刪除選定的通知？"
 
@@ -3267,6 +3352,9 @@ msgid "Do you want to delete selected port records?"
 msgstr ""
 
 msgid "Do you want to delete selected portal groups?"
+msgstr ""
+
+msgid "Do you want to delete selected public keys?"
 msgstr ""
 
 msgid "Do you want to delete selected records?"
@@ -3317,6 +3405,12 @@ msgstr ""
 msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr ""
 
+msgid "Do you want to disable selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to disable selected NFS root directories?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -3325,6 +3419,9 @@ msgstr ""
 
 msgid "Do you want to disable selected commands?"
 msgstr "您要禁用所選命令嗎？"
+
+msgid "Do you want to disable selected groups?"
+msgstr ""
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr ""
@@ -3344,6 +3441,9 @@ msgstr "您要禁用所選任務嗎？"
 msgid "Do you want to disable selected listen records?"
 msgstr ""
 
+msgid "Do you want to disable selected media folders?"
+msgstr ""
+
 msgid "Do you want to disable selected option records?"
 msgstr ""
 
@@ -3354,6 +3454,9 @@ msgid "Do you want to disable selected port records?"
 msgstr ""
 
 msgid "Do you want to disable selected portal groups?"
+msgstr ""
+
+msgid "Do you want to disable selected public keys?"
 msgstr ""
 
 msgid "Do you want to disable selected records?"
@@ -3368,6 +3471,9 @@ msgstr "是否要禁用所選的rsync模組？"
 msgid "Do you want to disable selected targets?"
 msgstr ""
 
+msgid "Do you want to disable selected users?"
+msgstr ""
+
 msgid "Do you want to enable selected CHAP users?"
 msgstr ""
 
@@ -3380,6 +3486,12 @@ msgstr ""
 msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr ""
 
+msgid "Do you want to enable selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
 msgid "Do you want to enable selected WebDAV records?"
 msgstr ""
 
@@ -3388,6 +3500,9 @@ msgstr ""
 
 msgid "Do you want to enable selected commands?"
 msgstr "是否要啟用所選命令？"
+
+msgid "Do you want to enable selected groups?"
+msgstr ""
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr ""
@@ -3407,6 +3522,9 @@ msgstr "您要啟用所選任務嗎？"
 msgid "Do you want to enable selected listen records?"
 msgstr ""
 
+msgid "Do you want to enable selected media folders?"
+msgstr ""
+
 msgid "Do you want to enable selected option records?"
 msgstr ""
 
@@ -3419,6 +3537,9 @@ msgstr ""
 msgid "Do you want to enable selected portal groups?"
 msgstr ""
 
+msgid "Do you want to enable selected public keys?"
+msgstr ""
+
 msgid "Do you want to enable selected records?"
 msgstr "您要啟用所選記錄嗎？"
 
@@ -3429,6 +3550,9 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "是否要啟用所選的rsync模組？"
 
 msgid "Do you want to enable selected targets?"
+msgstr ""
+
+msgid "Do you want to enable selected users?"
 msgstr ""
 
 msgid "Do you want to import disks?"
@@ -3452,6 +3576,12 @@ msgstr ""
 msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr ""
 
+msgid "Do you want to toggle selected NFS exports?"
+msgstr ""
+
+msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr ""
 
@@ -3460,6 +3590,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected commands?"
 msgstr "是否要切換所選命令？"
+
+msgid "Do you want to toggle selected groups?"
+msgstr ""
 
 msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr ""
@@ -3479,6 +3612,9 @@ msgstr "要切換所選任務嗎？"
 msgid "Do you want to toggle selected listen records?"
 msgstr ""
 
+msgid "Do you want to toggle selected media folders?"
+msgstr ""
+
 msgid "Do you want to toggle selected option records?"
 msgstr ""
 
@@ -3491,6 +3627,9 @@ msgstr ""
 msgid "Do you want to toggle selected portal groups?"
 msgstr ""
 
+msgid "Do you want to toggle selected public keys?"
+msgstr ""
+
 msgid "Do you want to toggle selected records?"
 msgstr "您要切換所選的記錄嗎？"
 
@@ -3501,6 +3640,9 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "您要切換所選的rsync模組嗎？"
 
 msgid "Do you want to toggle selected targets?"
+msgstr ""
+
+msgid "Do you want to toggle selected users?"
 msgstr ""
 
 msgid "Do you want to unlock selected records?"
@@ -3666,11 +3808,17 @@ msgstr ""
 msgid "Edit Listen Record"
 msgstr ""
 
+msgid "Edit Media Folder"
+msgstr ""
+
 msgid "Edit Mutual CHAP User"
 msgstr ""
 
-msgid "Edit NFS Share"
-msgstr "編輯NFS共用"
+msgid "Edit NFS Export"
+msgstr ""
+
+msgid "Edit NFS Root"
+msgstr ""
 
 msgid "Edit Option"
 msgstr "編輯選項"
@@ -3685,6 +3833,9 @@ msgid "Edit Port Record"
 msgstr ""
 
 msgid "Edit Portal Group"
+msgstr ""
+
+msgid "Edit Public Key"
 msgstr ""
 
 msgid "Edit RAID"
@@ -3826,9 +3977,6 @@ msgstr "啟用高級格式（4KB扇區大小）"
 msgid "Enable Asynchronous I/O. (AIO)."
 msgstr "啟用非同步I/O（AIO）"
 
-msgid "Enable Challenge-Response Authentication"
-msgstr "啟用質詢 - 回應認證"
-
 msgid "Enable FXP protocol."
 msgstr "啟用 FXP 協議。"
 
@@ -3852,6 +4000,9 @@ msgstr "當它們被添加到配置時，啟用S.M.A.R.T. 監測。"
 msgid "Enable SMTP authentication."
 msgstr "啟用 SMTP 認證。"
 
+msgid "Enable SSH service"
+msgstr ""
+
 msgid ""
 "Enable SSL/TLS for secured connections. You also need to configure the TLS "
 "trust file. For some servers you may need to disable STARTTLS."
@@ -3868,6 +4019,9 @@ msgstr ""
 
 msgid "Enable Selected Commands"
 msgstr "啟用選中的命令"
+
+msgid "Enable Selected Groups"
+msgstr ""
 
 msgid "Enable Selected Initiator Names"
 msgstr ""
@@ -3887,7 +4041,16 @@ msgstr ""
 msgid "Enable Selected Listen Records"
 msgstr ""
 
+msgid "Enable Selected Media Folders"
+msgstr ""
+
 msgid "Enable Selected Mutual CHAP Users"
+msgstr ""
+
+msgid "Enable Selected NFS Exports"
+msgstr ""
+
+msgid "Enable Selected NFS Root Directories"
 msgstr ""
 
 msgid "Enable Selected Option Records"
@@ -3902,6 +4065,9 @@ msgstr ""
 msgid "Enable Selected Portal Groups"
 msgstr ""
 
+msgid "Enable Selected Public Keys"
+msgstr ""
+
 msgid "Enable Selected Records"
 msgstr "啟用選中的記錄"
 
@@ -3912,6 +4078,9 @@ msgid "Enable Selected Rsync Modules"
 msgstr "啟用選中的Rsync模組"
 
 msgid "Enable Selected Targets"
+msgstr ""
+
+msgid "Enable Selected Users"
 msgstr ""
 
 msgid "Enable Selected WebDAV Records"
@@ -3992,8 +4161,8 @@ msgstr "啟用收集系統進程統計資訊。"
 msgid "Enable collecting uptime statistics."
 msgstr "啟用收集正常運行時間統計資訊。"
 
-msgid "Enable compression."
-msgstr "啟用資料壓縮。"
+msgid "Enable compression after the user has authenticated successfully."
+msgstr ""
 
 msgid "Enable console screensaver."
 msgstr "啟用控制臺螢幕保護。"
@@ -4029,9 +4198,6 @@ msgstr "啟用訪客訪問。"
 
 msgid "Enable inotify."
 msgstr "啟用inotify。"
-
-msgid "Enable keyboard-interactive authentication."
-msgstr "啟用鍵盤互動式身份驗證。"
 
 msgid "Enable large read/write."
 msgstr "啟用大型讀/寫。"
@@ -4082,9 +4248,6 @@ msgstr "啟用第二個本地連接的UPS。"
 
 msgid "Enable serial console."
 msgstr "啟用串口控制臺"
-
-msgid "Enable service SSH when disabled"
-msgstr "禁用時啟用服務SSH"
 
 msgid "Enable shadow copy."
 msgstr "啟用卷影複製。"
@@ -4140,9 +4303,6 @@ msgstr "啟用調諧開關"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "啟用白色背景圖形。 （默認為黑色）"
-
-msgid "Enable wide-links support."
-msgstr ""
 
 msgid "Enable write cache mode."
 msgstr "開啟寫入緩存模式。"
@@ -4238,6 +4398,9 @@ msgid ""
 "default (80 for HTTP, 443 for HTTPS)."
 msgstr "如果要覆蓋默認值（HTTP為80，HTTPS為443），請輸入WebGUI的自定義端口號。"
 
+msgid "Enter a custom port number if you do not want to use default port 22."
+msgstr ""
+
 msgid "Enter a custom port number if you do not want to use default port 69."
 msgstr "如果您不想使用默認端口69，請輸入自定義端口號。"
 
@@ -4246,11 +4409,6 @@ msgid ""
 "Enter a custom port number if you want to override the default port. "
 "(Default is %s)."
 msgstr "如果要覆蓋默認端口，請輸入自定義端口號。 （默認為%s）。"
-
-msgid ""
-"Enter a custom port number if you want to override the default port. "
-"(Default is 22)."
-msgstr "如果要覆蓋默認端口，請輸入自定義端口號。 （默認值為22）。"
 
 msgid "Enter a description"
 msgstr "輸入描述"
@@ -4313,11 +4471,8 @@ msgstr "輸入額外的選項"
 msgid "Enter facility name"
 msgstr "輸入設備名稱"
 
-msgid "Enter full name of the user."
-msgstr "輸入用戶的全名。"
-
-msgid "Enter full user name"
-msgstr "輸入完整的用戶名"
+msgid "Enter group name."
+msgstr ""
 
 msgid "Enter hostname or IP address."
 msgstr "輸入主機名或IP地址"
@@ -4325,11 +4480,8 @@ msgstr "輸入主機名或IP地址"
 msgid "Enter level name"
 msgstr "輸入級別名稱"
 
-msgid "Enter login name"
-msgstr "輸入登錄名"
-
-msgid "Enter login name of the user."
-msgstr "輸入用戶的登錄名。"
+msgid "Enter login name."
+msgstr ""
 
 msgid "Enter mutual user name."
 msgstr ""
@@ -4351,16 +4503,28 @@ msgstr "輸入UPS所連接的機器的UPS識別字和主機IP地址。 （這也
 msgid "Enter the command"
 msgstr "輸入命令"
 
+msgid "Enter the full user name."
+msgstr ""
+
 msgid "Enter the location of the share"
 msgstr "輸入共享的位置"
 
+msgid "Enter the name of the master user account."
+msgstr ""
+
 msgid "Enter the name of the share"
 msgstr "輸入共享的名稱"
+
+msgid "Enter the network that is authorised to access the NFS share."
+msgstr ""
 
 msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
 "8 and 63 characters long."
 msgstr "請輸入在 WPA-PSK 模式中使用的密碼短語。這個密語長度必須在 8 到 63 個字元之間。"
+
+msgid "Enter the password of the master user account."
+msgstr ""
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
@@ -4377,9 +4541,9 @@ msgid ""
 msgstr "輸入VirtualBox的主目錄的路徑。 將在指定的目錄下創建VM配置和HDD映像。"
 
 msgid ""
-"Enter the path to the home directory of that user. Leave this field empty to "
+"Enter the path to the home directory of the user. Leave this field empty to "
 "use default path /mnt."
-msgstr "請輸入該用戶的主目錄的路徑。將此字段留空以使用默認的路徑到 /mnt。"
+msgstr ""
 
 msgid ""
 "Enter the path to the home directory. This directory will store the "
@@ -4448,11 +4612,20 @@ msgstr "導出"
 msgid "Export Rules"
 msgstr "導出規則"
 
+msgid "Export Subfolders"
+msgstr ""
+
 msgid "Export a pool from the system"
 msgstr "從系統導出池"
 
 msgid "Export all the directories in the specified path."
 msgstr "導出指定的路徑中的所有目錄。"
+
+msgid "Export as WebNFS."
+msgstr ""
+
+msgid "Export the file system in read-only mode."
+msgstr ""
 
 msgid "Exported"
 msgstr "已導出"
@@ -4500,11 +4673,6 @@ msgstr "額外選項"
 
 msgid "Extra options (usually empty)."
 msgstr "額外選項（通常為空白）。"
-
-msgid ""
-"Extra options to /etc/ssh/sshd_config (usually empty). Note, incorrect "
-"entered options prevent SSH service to be started."
-msgstr "用於/etc/ssh/sshd_config 中的額外選項（通常為空白）。注意，輸入錯誤的選項會導致 SSH 服務無法啟動。"
 
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "ifconfig 的額外選項（通常為空白）。"
@@ -4843,6 +5011,9 @@ msgstr "GPT分區"
 msgid "GPT partition"
 msgstr "GPT 分區"
 
+msgid "GSSAPI Authentication"
+msgstr ""
+
 msgid "Gateway"
 msgstr "網關（Gateway）"
 
@@ -4885,6 +5056,9 @@ msgstr ""
 msgid "Grant access to the user portal."
 msgstr "授予用戶門戶網站的訪問權。"
 
+msgid "Grant shell access to user"
+msgstr ""
+
 msgid "Graph shows last 120 seconds"
 msgstr "圖表顯示最近120秒"
 
@@ -4909,6 +5083,9 @@ msgstr "群組編制"
 
 msgid "Group ID"
 msgstr "群組 ID"
+
+msgid "Group Name"
+msgstr ""
 
 msgid "Group Settings"
 msgstr "群組設置"
@@ -5041,11 +5218,14 @@ msgstr "Hiadaptive（高性能）"
 msgid "Hidden"
 msgstr "隱藏的"
 
-msgid "Hide Default Groups"
-msgstr "隱藏默認群組"
-
 msgid "Hide Dot Files"
 msgstr "隱藏點檔"
+
+msgid "Hide System Groups"
+msgstr ""
+
+msgid "Hide System Users"
+msgstr ""
 
 msgid "High voltage boosting transfer point"
 msgstr "高升壓轉換點"
@@ -5163,6 +5343,9 @@ msgstr ""
 msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS伺服器"
 
+msgid "IPv4 Routes"
+msgstr ""
+
 msgid "IPv4 Settings"
 msgstr "IPv4 設置"
 
@@ -5195,6 +5378,9 @@ msgstr "IPv6 網關"
 
 msgid "IPv6 Prefix"
 msgstr "IPv6 首碼"
+
+msgid "IPv6 Routes"
+msgstr ""
 
 msgid "IPv6 Settings"
 msgstr "IPv6 設置"
@@ -5689,6 +5875,9 @@ msgstr "密鑰長度"
 msgid "Key Management Protocol"
 msgstr "密鑰管理協議"
 
+msgid "Keyboard-Interactive Authentication"
+msgstr ""
+
 msgid "L2 Cache"
 msgstr "２級緩存"
 
@@ -5836,9 +6025,6 @@ msgstr "保留已經配置的自動快照。"
 
 msgid "Leave auto snapshot configuration"
 msgstr "保留自動快照的配置"
-
-msgid "Leave this field empty to use default settings."
-msgstr "將此字段留空以使用默認的設置。"
 
 msgid "Level"
 msgstr "級別"
@@ -6010,9 +6196,8 @@ msgstr "媒體內容資料庫的位置。"
 msgid "Location where the content database file will be stored."
 msgstr "儲存內容資料庫檔的位置。"
 
-#, php-format
-msgid "Location where the work files will be stored, e.g. %s/backup/.unison"
-msgstr "將存儲工作檔的位置，例如 %s/backup/.unison"
+msgid "Location where work files will be stored."
+msgstr ""
 
 msgid "Lock Selected Records"
 msgstr "鎖定選中的記錄"
@@ -6071,6 +6256,9 @@ msgstr "映射到 LUN 的邏輯單元類型。"
 msgid "Login"
 msgstr "登錄"
 
+msgid "Login Name"
+msgstr ""
+
 msgid "Login for CHAP authentication."
 msgstr ""
 
@@ -6102,6 +6290,9 @@ msgstr "MAC地址"
 
 msgid "MBR partition"
 msgstr "MBR 分區"
+
+msgid "MD4 Password"
+msgstr ""
 
 msgid "MIRROR"
 msgstr "鏡像"
@@ -6145,9 +6336,6 @@ msgstr "請確定您已經啟用裝置的 S.M.A.R.T.。"
 msgid "Make sure you have already configured your email settings"
 msgstr "確保您已配置電子郵件設置"
 
-msgid "Manage content locations."
-msgstr "管理內容位置。"
-
 msgid "Management"
 msgstr "管理"
 
@@ -6157,17 +6345,23 @@ msgstr "製造商"
 msgid "Manufacturing date"
 msgstr "製造日期"
 
-msgid "Map all users to root, all users will have root privileges."
-msgstr "將所有用戶映射到root，所有用戶都將具有root許可權。"
+msgid "Map All To User"
+msgstr ""
+
+msgid "Map Root To User"
+msgstr ""
 
 msgid "Map to Guest"
 msgstr "映射到Guest"
 
-msgid "Map to Root"
-msgstr "映射到Root"
-
 msgid "Map to User"
 msgstr "映射到用戶"
+
+msgid "Map users or map root to the specified user."
+msgstr ""
+
+msgid "Mapping"
+msgstr ""
 
 msgid "Mapping DOS Attributes"
 msgstr "映射DOS屬性"
@@ -6191,6 +6385,15 @@ msgstr ""
 
 msgid "Masquerade Address"
 msgstr "偽裝地址"
+
+msgid "Master"
+msgstr ""
+
+msgid "Master Password"
+msgstr ""
+
+msgid "Master User"
+msgstr ""
 
 msgid "Max Processes"
 msgstr ""
@@ -6285,10 +6488,28 @@ msgstr "介質（Media）"
 msgid "Media Directory"
 msgstr "媒體目錄"
 
+msgid "Media Folder"
+msgstr ""
+
+msgid "Media Folder is locked"
+msgstr ""
+
+msgid "Media Folder is marked for deletion"
+msgstr ""
+
+msgid "Media Folder is unlocked"
+msgstr ""
+
 msgid "Media Library"
 msgstr "媒體庫"
 
+msgid "Media Server Name."
+msgstr ""
+
 msgid "Media Size"
+msgstr ""
+
+msgid "Media Type"
 msgstr ""
 
 msgid "Media library"
@@ -6329,9 +6550,6 @@ msgstr "最小被動端口"
 
 msgid "MiniDLNA"
 msgstr "MiniDLNA"
-
-msgid "MiniDLNA A/V Media Server"
-msgstr "MiniDLNA A/V 媒體伺服器"
 
 msgid "MiniDLNA Media Server WebGUI"
 msgstr "MiniDLNA媒體伺服器WEB介面"
@@ -6420,8 +6638,14 @@ msgstr "星期一"
 msgid "Monitoring"
 msgstr "監控"
 
+msgid "Monitoring Password"
+msgstr ""
+
 msgid "Monitoring Setup"
 msgstr "監控設置"
+
+msgid "Monitoring User"
+msgstr ""
 
 msgid "Months"
 msgstr "月"
@@ -6474,9 +6698,6 @@ msgstr "上移"
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla公共許可證2.0版（MPLv2）"
 
-msgid "Music"
-msgstr "音樂"
-
 msgid "Must be a number between 5 and 1000."
 msgstr "必須是5到1000之間的數字。"
 
@@ -6528,14 +6749,23 @@ msgstr ""
 msgid "NFS"
 msgstr "NFS"
 
-msgid "NFS share is marked for deletion"
-msgstr "NFS共用被標記為刪除"
+msgid "NFS Export is locked"
+msgstr ""
 
-msgid "NFS share is protected"
-msgstr "NFS共用被保護"
+msgid "NFS Export is marked for deletion"
+msgstr ""
 
-msgid "NFS share is unlocked"
-msgstr "NFS共用被解鎖"
+msgid "NFS Export is unlocked"
+msgstr ""
+
+msgid "NFS Root is locked"
+msgstr ""
+
+msgid "NFS Root is marked for deletion"
+msgstr ""
+
+msgid "NFS Root is unlocked"
+msgstr ""
 
 msgid "NFSv4"
 msgstr "NFSv4"
@@ -6640,6 +6870,9 @@ msgstr "NetBIO域"
 msgid "NetBIOS Name"
 msgstr "NetBIOS名"
 
+msgid "NetIf"
+msgstr ""
+
 msgid "Netatalk (default) - use Netatalk compatible xattr."
 msgstr "Netatalk（默認） - 使用Netatalk兼容的xattr。"
 
@@ -6675,14 +6908,8 @@ msgid ""
 "addresses or 'ALL' for any IPs."
 msgstr "網路授權可訪問 iSCSI 目標。它需要IP 地址或CIDR 地址或 “ALL” （任何IP地址）。"
 
-msgid "Network mask"
-msgstr "網路掩碼"
-
 msgid "Network port"
 msgstr "網路端口"
-
-msgid "Network that is authorised to access the NFS share."
-msgstr "授權可使用NFS分享區的域。"
 
 msgid "Networks"
 msgstr "網路"
@@ -6745,6 +6972,12 @@ msgstr "沒有IPMI FRU數據可用。"
 msgid "No IPMI Sensor data available."
 msgstr "無IPMI感測器數據可用。"
 
+msgid "No IPv4 routing information found."
+msgstr ""
+
+msgid "No IPv6 routing information found."
+msgstr ""
+
 msgid "No Initiator Group has been configured."
 msgstr "未配置啟動器組。"
 
@@ -6752,6 +6985,9 @@ msgid "No JBOD information found."
 msgstr ""
 
 msgid "No LUNs found."
+msgstr ""
+
+msgid "No Login"
 msgstr ""
 
 msgid "No Mutual-CHAP users found."
@@ -6983,9 +7219,8 @@ msgstr "尚未連結"
 msgid "Note"
 msgstr "提示"
 
-msgid ""
-"Note: Ctrl-click (or command-click on the Mac) to select and deselect groups."
-msgstr "注意：按住Ctrl鍵（或在Mac上按住command鍵）可以選擇和取消選擇多個群組。"
+msgid "Note that only one file system can be WebNFS exported on a server."
+msgstr ""
 
 msgid ""
 "Note: Ctrl-click (or command-click on the Mac) to select multiple entries."
@@ -7176,6 +7411,9 @@ msgstr "覆蓋硬碟配置（僅影響檔系統值）。"
 msgid "Overwrite disks configuration"
 msgstr "覆蓋硬碟配置"
 
+msgid "Overwrite the sort criteria passed by the client."
+msgstr ""
+
 msgid "Owner"
 msgstr "擁有者"
 
@@ -7329,11 +7567,8 @@ msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr "密碼伺服器的名稱或IP 地址（例如Active Directory域控制器）。"
 
-msgid "Passwords don't match."
-msgstr "密碼不匹配"
-
-msgid "Paste a RSA PRIVATE KEY in PEM format here."
-msgstr "在此處以PEM格式粘貼RSA PRIVATE KEY。"
+msgid "Paste a RSA PRIVATE KEY in PEM format"
+msgstr ""
 
 msgid "Paste a private key in PEM format here."
 msgstr "在此處以PEM格式粘貼私鑰。"
@@ -7352,6 +7587,9 @@ msgstr "路徑未找到。"
 
 msgid "Path of the URL relative to document root."
 msgstr "URL 相對路徑（從根目錄開始）。"
+
+msgid "Path to be included."
+msgstr ""
 
 msgid "Path to be shared to be synchronized."
 msgstr "要同步的共用路徑"
@@ -7390,9 +7628,6 @@ msgstr ""
 
 msgid "Permit discovery without authentication"
 msgstr ""
-
-msgid "Permit to do SSH Tunneling."
-msgstr "允許 SSH Tunneling"
 
 msgid "Physical Block Offset"
 msgstr ""
@@ -7480,15 +7715,6 @@ msgstr "請查看文檔。"
 msgid "Please check the log files"
 msgstr "請查看日誌檔"
 
-msgid "Please define one or more content locations."
-msgstr "請定義一個或多個內容位置。"
-
-msgid "Please define the location for the database directory."
-msgstr "請定義資料庫目錄的位置。"
-
-msgid "Please note that blanks in path names are not allowed."
-msgstr "請注意在路徑中不可以有空白字符。"
-
 msgid "Please read the documentation"
 msgstr ""
 
@@ -7566,6 +7792,9 @@ msgstr "端口號必須在%d和%d之間的範圍內。"
 msgid "Port number of the iSNS server."
 msgstr ""
 
+msgid "Port of the SSH service. Leave blank to use the default port."
+msgstr ""
+
 msgid "Port of the TFTP service. Leave blank to use the default port."
 msgstr "TFTP服務的端口。 留空以使用默認端口。"
 
@@ -7598,6 +7827,11 @@ msgid ""
 "Port to listen on. Only dynamic or private ports can be used (from %d "
 "through %d). Default port is %d."
 msgstr "監聽端口。只有動態或私有端口可以使用（從 %d 到 %d  ）項。默認端口是 %d 。"
+
+msgid ""
+"Port to listen on. Port number must be between 1024 and 65535. Default port "
+"is 8200."
+msgstr ""
 
 msgid "Portal Group"
 msgstr "門戶組（Portal Group）"
@@ -7694,9 +7928,6 @@ msgstr "主緩存"
 msgid "Primary Group"
 msgstr "主要群組"
 
-msgid "Primary group is also selected in additional group."
-msgstr "主要群組也會被加入到附加群組中。"
-
 msgid "Print detailed information."
 msgstr ""
 
@@ -7759,6 +7990,30 @@ msgstr ""
 
 msgid "Proxy"
 msgstr "代理伺服器"
+
+msgid "Public Key"
+msgstr ""
+
+msgid "Public Key Authentication"
+msgstr ""
+
+msgid "Public Key Settings"
+msgstr ""
+
+msgid "Public Keys"
+msgstr ""
+
+msgid "Public key information."
+msgstr ""
+
+msgid "Public key is marked for deletion"
+msgstr ""
+
+msgid "Public key is protected"
+msgstr ""
+
+msgid "Public key is unlocked"
+msgstr ""
 
 msgid "Pull"
 msgstr ""
@@ -8098,6 +8353,11 @@ msgid "Remote Syslog Server"
 msgstr "遠程Syslog伺服器"
 
 msgid ""
+"Remote accesses by root will result in using a credential of 65534:65533. "
+"All other users will be mapped to their remote credential."
+msgstr ""
+
+msgid ""
 "Remote monitoring password. Must be equal on both master and slave system."
 msgstr "遠程監控密碼。 在主系統和從系統上必須相等。"
 
@@ -8227,6 +8487,9 @@ msgstr "還原配置"
 msgid "Restore metadata from the given file to the given provider."
 msgstr "從檔還原元數據給指定提供者。"
 
+msgid "Restrict folder to a specific media type."
+msgstr ""
+
 msgid "Restricted"
 msgstr "受限"
 
@@ -8268,6 +8531,12 @@ msgstr "Root綁定DN"
 
 msgid "Root Bind Password"
 msgstr "Root綁定密碼"
+
+msgid "Root Directory"
+msgstr ""
+
+msgid "Root Login"
+msgstr ""
 
 msgid "Rotation Rate"
 msgstr "旋轉速率"
@@ -8356,6 +8625,9 @@ msgid "S.M.A.R.T. log"
 msgstr "S.M.A.R.T. 記錄"
 
 msgid "SCSI Name"
+msgstr ""
+
+msgid "SHA Password"
 msgstr ""
 
 msgid "SHA-256, Verify"
@@ -8471,6 +8743,21 @@ msgid ""
 msgstr ""
 "每N秒掃描檔系統，以查看是否已添加或刪除任何檔。 設置為0以禁用後臺掃描。 如果禁用了背景重新掃描，仍可以從管理Web介面的狀態頁面強制執行掃描。"
 
+msgid "Scan folder for all media types."
+msgstr ""
+
+msgid "Scan folder for audio files."
+msgstr ""
+
+msgid "Scan folder for image files."
+msgstr ""
+
+msgid "Scan folder for video and image files."
+msgstr ""
+
+msgid "Scan folder for video files."
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "排程時間"
 
@@ -8531,8 +8818,8 @@ msgstr "密鑰"
 msgid "Secret for CHAP authentication."
 msgstr ""
 
-msgid "Secure Shell"
-msgstr "安全系統殼(Secure Shell)"
+msgid "Security Flavor"
+msgstr ""
 
 msgid "Security Warning"
 msgstr "安全警告"
@@ -8583,6 +8870,9 @@ msgstr "選擇池"
 
 msgid "Select Spare Device"
 msgstr "選擇備用設備"
+
+msgid "Select a container as the root of the tree exposed to clients."
+msgstr ""
 
 msgid "Select a date format."
 msgstr "選擇一個日期格式"
@@ -8808,8 +9098,8 @@ msgstr ""
 msgid "Set UID"
 msgstr "設定 UID"
 
-msgid "Set additional group memberships for this account."
-msgstr "設置此帳戶的其他群組資格。"
+msgid "Set User Password"
+msgstr ""
 
 msgid "Set browseable."
 msgstr "設為可流覽。"
@@ -8819,8 +9109,8 @@ msgid ""
 "10."
 msgstr "將磁片檢查的間隔設置為N秒。 最小允許值為10。"
 
-msgid "Set or reset user password."
-msgstr "設置或重置用戶密碼。"
+msgid "Set password"
+msgstr ""
 
 msgid "Set per-LUN/per-pool thin provisioning soft threshold."
 msgstr ""
@@ -8837,8 +9127,8 @@ msgid ""
 "Mode) for the mount point %s in %s and hit Save in order to take them effect."
 msgstr "為其他人設置讀取和執行位許可權（訪問限制|模式）用於%s中的掛載點%s，並單擊保存以使其生效。"
 
-msgid "Set the account's primary group to the given group."
-msgstr "設置帳號的主要群組。"
+msgid "Set the account's primary group."
+msgstr ""
 
 msgid "Set the content location(s) to or from the media library."
 msgstr "設置從或到媒體庫的內容位置。"
@@ -8896,6 +9186,9 @@ msgstr ""
 
 msgid "Set user login shell."
 msgstr "設置用戶登錄shell。"
+
+msgid "Set user password."
+msgstr ""
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -8957,9 +9250,6 @@ msgstr ""
 msgid "Settings"
 msgstr "設置"
 
-msgid "Setup user to get shell access"
-msgstr "設置用戶以獲取shell訪問許可權"
-
 msgid "Shadow Copy"
 msgstr "陰影複製"
 
@@ -9002,9 +9292,6 @@ msgstr "寫入時震動。"
 msgid "Short Self-Test"
 msgstr "短自檢"
 
-msgid "Show Default Groups"
-msgstr "顯示默認組"
-
 msgid "Show Interval"
 msgstr ""
 
@@ -9016,6 +9303,12 @@ msgstr "顯示進程資訊"
 
 msgid "Show RAW UPS Info"
 msgstr "顯示RAW UPS的資訊"
+
+msgid "Show System Groups"
+msgstr ""
+
+msgid "Show System Users"
+msgstr ""
 
 msgid "Show UPS Information"
 msgstr "顯示UPS資訊"
@@ -9077,6 +9370,9 @@ msgstr "跳過第一次掃描"
 
 msgid "Skip View Mode"
 msgstr "跳過查看模式"
+
+msgid "Slave"
+msgstr ""
 
 msgid "Sleep - Check the device unless it is in SLEEP mode."
 msgstr "睡眠 - 設備除了在睡眠模式之外都將檢查。"
@@ -9174,9 +9470,6 @@ msgstr ""
 "指定氦水準。 氦氣，字面上說，允許驅動器運行更冷，更安靜，並降低功耗。 這是驅動器中氦的狀態。 它是一個pre-"
 "fail屬性，當驅動器檢測到內部環境超出規範時跳閘。"
 
-msgid "Specified path is NFSv4 root directory."
-msgstr "指定的路徑是NFSv4的根目錄。"
-
 msgid "Specifies LUN EUI-64 identifier."
 msgstr ""
 
@@ -9224,9 +9517,6 @@ msgstr ""
 msgid "Specifies number of backend threads to use for this LUN."
 msgstr ""
 
-msgid "Specifies that the file system should be exported read-only."
-msgstr "指定檔系統導出為唯讀。"
-
 msgid ""
 "Specifies that this portal-group is listened by some other host. This host "
 "will announce it on discovery stage, but won't listen."
@@ -9253,9 +9543,6 @@ msgid ""
 "occurrences must happen to add the ban."
 msgstr "添加禁令前在指定時間發生次數的間隔（hh:mm:ss）。"
 
-msgid "Specifies the usage of Challenge-Response Authentication."
-msgstr "指定質詢 - 回應認證的使用"
-
 msgid "Specifies the username under which the TFTP service should run."
 msgstr "指定TFTP服務應運行的用戶名。"
 
@@ -9273,6 +9560,11 @@ msgid "Specify UNMAP block offset of the device."
 msgstr ""
 
 msgid "Specify UNMAP block size of the device."
+msgstr ""
+
+msgid ""
+"Specify a list of acceptable security flavors to be used for remote access. "
+"The\tdefault\tsecurity flavor\tis sys."
 msgstr ""
 
 msgid ""
@@ -9297,6 +9589,12 @@ msgid "Specify physical block size of the device."
 msgstr ""
 
 msgid "Specify the SCSI device type to use when creating the LUN."
+msgstr ""
+
+msgid "Specify the group numeric id."
+msgstr ""
+
+msgid "Specify the user/account numeric id."
 msgstr ""
 
 msgid "Split request"
@@ -9501,6 +9799,9 @@ msgstr "系統Email設置"
 msgid "System Events"
 msgstr "系統事件"
 
+msgid "System Group"
+msgstr ""
+
 msgid "System Information"
 msgstr "系統資料"
 
@@ -9525,6 +9826,9 @@ msgstr "系統時間"
 msgid "System Uptime"
 msgstr "系統運行時間"
 
+msgid "System User"
+msgstr ""
+
 msgid "System info"
 msgstr "系統資訊"
 
@@ -9545,9 +9849,6 @@ msgstr "TCP 端口"
 
 msgid "TCP Wrapper"
 msgstr "TCP包裝器"
-
-msgid "TCP port"
-msgstr "TCP 端口"
 
 msgid "TCP port is 5900+N, where N is VNC display number."
 msgstr "TCP端口為5900 + N，其中N為VNC顯示數。"
@@ -10117,9 +10418,6 @@ msgstr "以下人員貢獻了%s："
 msgid "The following services will use AD authentication:"
 msgstr "以下服務將使用AD身份驗證："
 
-msgid "The full name contains invalid characters."
-msgstr "全名含有無效的字元。"
-
 msgid "The group description contains invalid characters."
 msgstr "群組描述含有無效的字元。"
 
@@ -10158,9 +10456,6 @@ msgid ""
 "specific Auth Group."
 msgstr "啟動器可以在特定的認證組中使用正確的用戶和密鑰發現目標。"
 
-msgid "The interface is unknown."
-msgstr "介面未知"
-
 msgid ""
 "The istgtcontrol can access the targets with correct user and secret in "
 "specific Auth Group."
@@ -10170,18 +10465,6 @@ msgid ""
 "The limit for concurrently running child processes handling incoming "
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
-
-msgid "The location of the \"Database Directory\" is not a valid location."
-msgstr "“資料庫目錄”的位置不是有效的位置。"
-
-msgid "The login name contains invalid characters."
-msgstr "登錄名包含無效字元。"
-
-msgid "The login name is a reserved login name."
-msgstr "登錄帳號是一個保留帳號。"
-
-msgid "The login name is limited to 16 characters."
-msgstr "登錄名最多只能有 16 個字元。"
 
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
@@ -10273,12 +10556,6 @@ msgstr ""
 msgid "The name of the interface is wrong."
 msgstr "接口的名稱錯誤。"
 
-msgid "The name of the media server cannot be empty."
-msgstr "媒體伺服器的名稱不能為空。"
-
-msgid "The name of the media server is missing."
-msgstr "媒體伺服器的名稱丟失。"
-
 msgid "The name of the pool cannot be changed."
 msgstr "無法更改池的名稱。"
 
@@ -10369,6 +10646,12 @@ msgstr "佇列深度（queuedepth）範圍無效。"
 msgid "The recommended queue depth is %d."
 msgstr "建議的佇列深度是 %d。"
 
+msgid "The recommended range for the group id is between 1000 and 32000."
+msgstr ""
+
+msgid "The recommended range for the user id is between 1000 and 32000."
+msgstr ""
+
 #, php-format
 msgid "The removable area mapped to LUN%d."
 msgstr "可移動區域映射到 LUN%d。"
@@ -10456,9 +10739,6 @@ msgstr "這個 GID 已經被使用。"
 msgid "The unique rule number is already used."
 msgstr "規則編號已經被使用。"
 
-msgid "The unique user ID is already used."
-msgstr "這個 UID 已經被使用。"
-
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -10477,16 +10757,10 @@ msgstr "該值無效。"
 msgid "The value of the variable."
 msgstr "變數的數值。"
 
-msgid "The work directory does not exist."
-msgstr "工作目錄不存在。"
-
 msgid ""
 "The workgroup in which the server will appear when queried by Windows or SMB "
 "clients. (maximum 15 characters)."
 msgstr "Windows或SMB客戶端查詢時將顯示伺服器的工作組。 （最多15個字元）。"
-
-msgid "There are too many additional groups."
-msgstr "有太多的附加組。"
 
 msgid "There is no error, the file uploaded with success."
 msgstr "檔上傳成功，沒有任何錯誤。"
@@ -10539,6 +10813,9 @@ msgid ""
 "These parameters are added to the hardware-specific part of the driver."
 msgstr "這些參數添加到驅動程式的硬體特定部分。"
 
+msgid "These parameters are appended to /etc/ssh/sshd_config."
+msgstr ""
+
 msgid "These parameters are appended to the exports file."
 msgstr ""
 
@@ -10553,6 +10830,9 @@ msgstr "這些參數將被添加到 %s 的 [global] 設置。"
 #, php-format
 msgid "These parameters will be added to global settings in %s."
 msgstr "這些參數將被添加到 %s 的全局設置。"
+
+msgid "These parameters will be added to minidlna.conf"
+msgstr ""
 
 msgid "These parameters will be added to my.cnf"
 msgstr ""
@@ -10870,9 +11150,6 @@ msgstr "此標籤已經存在。"
 msgid "This tag is used."
 msgstr "此標籤在使用中。"
 
-msgid "This user already exists in the user list."
-msgstr "用戶列表中已經有此用戶存在。"
-
 msgid "This user already exists."
 msgstr "此用戶已經存在。"
 
@@ -10881,8 +11158,8 @@ msgstr "此虛擬設備的名稱已經存在。"
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
-"impact JPEG serving performance on some DLNA products."
-msgstr "這將允許伺服器端縮減非常大的JPEG圖像，它可能影響某些DLNA產品的JPEG服務性能。"
+"impact JPEG serving performance on some DLNA devices."
+msgstr ""
 
 msgid "This will create a recycle bin on the share."
 msgstr "在分享區創建回收站。"
@@ -11011,9 +11288,8 @@ msgstr "要匹配任何IP地址的話，請保留此字段為空白。"
 msgid "To use Active Directory the CIFS/SMB service will enabled as well."
 msgstr "要使用Active Directory，也將啟用CIFS / SMB服務。"
 
-#, php-format
-msgid "To use subdirectories, you must mount each directories. (e.g. %s)"
-msgstr "您必須掛載每個目錄才能使用子目錄。 （如 %s）"
+msgid "To use subdirectories, you must mount each directory."
+msgstr ""
 
 msgid "Toggle Mode"
 msgstr "切換模式"
@@ -11026,6 +11302,9 @@ msgstr ""
 
 msgid "Toggle Selected Commands"
 msgstr "切換所選命令"
+
+msgid "Toggle Selected Groups"
+msgstr ""
 
 msgid "Toggle Selected Initiator Names"
 msgstr ""
@@ -11045,7 +11324,16 @@ msgstr ""
 msgid "Toggle Selected Listen Records"
 msgstr ""
 
+msgid "Toggle Selected Media Folders"
+msgstr ""
+
 msgid "Toggle Selected Mutual CHAP Users"
+msgstr ""
+
+msgid "Toggle Selected NFS Exports"
+msgstr ""
+
+msgid "Toggle Selected NFS Root Directories"
 msgstr ""
 
 msgid "Toggle Selected Option Records"
@@ -11060,6 +11348,9 @@ msgstr ""
 msgid "Toggle Selected Portal Groups"
 msgstr ""
 
+msgid "Toggle Selected Public Keys"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "切換所選記錄"
 
@@ -11070,6 +11361,9 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "切換所選Rsync模組"
 
 msgid "Toggle Selected Targets"
+msgstr ""
+
+msgid "Toggle Selected Users"
 msgstr ""
 
 msgid "Toggle Selected WebDAV Records"
@@ -11243,9 +11537,6 @@ msgstr "UFS和變體是FreeBSD（%s的基礎操作系統）的自有檔格式。
 msgid "UFS with Soft Updates"
 msgstr "帶軟更新的UFS"
 
-msgid "UID"
-msgstr "UID"
-
 msgid "UNMAP"
 msgstr ""
 
@@ -11401,9 +11692,6 @@ msgstr ""
 msgid "Unison"
 msgstr "Unison"
 
-msgid "Unison File Synchronisation"
-msgstr "Unison 檔同步機制"
-
 msgid "Universally Unique Identifier"
 msgstr "通用唯一標識符"
 
@@ -11489,6 +11777,9 @@ msgstr "運行時間"
 msgid "Uptime Statistics"
 msgstr "運行時間統計"
 
+msgid "Use"
+msgstr ""
+
 msgid "Use Bytes/sec instead of Bits/sec for network throughput display."
 msgstr "使用位元組/秒而不是位/秒來進行網路吞吐量顯示。"
 
@@ -11521,11 +11812,8 @@ msgstr "用作稀疏卷（精簡配置）。"
 msgid "Use default TLS trust file /usr/local/etc/ssl/cert.pem."
 msgstr "使用默認的TLS信任文件/usr/local/etc/ssl/cert.pem。"
 
-msgid "Use different container as root of the tree."
-msgstr "使用不同的容器作為樹的根。"
-
-msgid "Use inotify monitoring to automatically discover new files."
-msgstr "使用inotify監控以自動發現新檔。"
+msgid "Use inotify monitoring to automatically discover new media files."
+msgstr ""
 
 msgid "Use local user authentication."
 msgstr "使用本地用戶認證。"
@@ -11536,6 +11824,18 @@ msgid ""
 "positive/negative y-axis range)"
 msgstr "對%s圖使用對數y軸縮放。 （不能與正/負y軸範圍一起使用）"
 
+msgid "Use the \"Browse Directory\" container"
+msgstr ""
+
+msgid "Use the \"Music\" container"
+msgstr ""
+
+msgid "Use the \"Pictures\" container"
+msgstr ""
+
+msgid "Use the \"Video\" container"
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -11543,6 +11843,9 @@ msgstr "啟用自從Windows 2000 新增的64k 讀寫串流的SMB 詢問。"
 
 msgid "Use the specified NTP server."
 msgstr "使用指定的 NTP 伺服器。"
+
+msgid "Use the standard container (this is the default)"
+msgstr ""
 
 msgid "Use these specials actions for debugging only!"
 msgstr "使用這些特殊操作僅用於調試！"
@@ -11625,9 +11928,6 @@ msgstr "用戶帳戶被保護"
 msgid "User account is unlocked"
 msgstr "用戶帳號被解鎖"
 
-msgid "User numeric id."
-msgstr "用戶的數字 ID"
-
 msgid "Username"
 msgstr "用戶名"
 
@@ -11648,6 +11948,9 @@ msgstr "當檔系統檢查正在運行時，用戶會在嘗試訪問此掛載時
 #, php-format
 msgid "Using %s bytes fragment size."
 msgstr "%s 位元組的片段大小（fragment size）。"
+
+msgid "Using defaults"
+msgstr ""
 
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -11717,6 +12020,9 @@ msgstr "變數"
 
 msgid "Vendor ID"
 msgstr "供應商 ID"
+
+msgid "Verbosity of information that is logged."
+msgstr ""
 
 msgid "Verify"
 msgstr "驗證"
@@ -11910,6 +12216,9 @@ msgstr "WebGUI"
 
 msgid "WebGUI and Root Password"
 msgstr "WebGUI和Root密碼"
+
+msgid "WebNFS"
+msgstr ""
 
 msgid "Webserver"
 msgstr "網頁伺服器"
@@ -12199,11 +12508,17 @@ msgstr "可用的"
 msgid "available of"
 msgstr "可用的"
 
+msgid "bash - Bourne Again Shell"
+msgstr ""
+
 msgid "change failed."
 msgstr "更改失敗。"
 
 msgid "chroot() everyone, but root."
 msgstr "chroot() 所有用戶，除了 root。"
+
+msgid "csh - C Shell"
+msgstr ""
 
 msgid ""
 "decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = "
@@ -12304,6 +12619,19 @@ msgstr "iTunes/DAAP"
 msgid "infinity"
 msgstr "無限制"
 
+msgid ""
+"krb5 - Use Kerberos V5 protocol to authenticate users before granting access "
+"to the shared filesystem."
+msgstr ""
+
+msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
+msgstr ""
+
+msgid ""
+"krb5p - Use Kerberos V5 authentication with data integrity checksums and "
+"data encryption."
+msgstr ""
+
 msgid "less then 1.8\"."
 msgstr ""
 
@@ -12312,6 +12640,14 @@ msgstr "加載/卸載失敗。"
 
 msgid "loader.conf"
 msgstr "loader.conf"
+
+msgid "mapall - Specifies a mapping for all client UIDs (including root)"
+msgstr ""
+
+msgid ""
+"maproot - The credential of the specified user is used for remote access by "
+"root."
+msgstr ""
 
 msgid "missing"
 msgstr ""
@@ -12368,8 +12704,14 @@ msgstr "修訂版本"
 msgid "scan target failed."
 msgstr "掃描目標失敗"
 
+msgid "scponly - Secure Copy Protocol only"
+msgstr ""
+
 msgid "seconds)"
 msgstr "秒）"
+
+msgid "sh - Bourne Shell"
+msgstr ""
 
 msgid "smallest settable high voltage transfer point"
 msgstr "最小可設定高電壓轉換點"
@@ -12380,11 +12722,17 @@ msgstr "最小可設定的低電壓轉換點"
 msgid "successfully."
 msgstr "成功。"
 
+msgid "sys - Use AUTH_SYS authentication."
+msgstr ""
+
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
 
 msgid "syslog.conf"
 msgstr "syslog.conf"
+
+msgid "tcsh - TENEX C Shell"
+msgstr ""
 
 msgid "to"
 msgstr "到"
