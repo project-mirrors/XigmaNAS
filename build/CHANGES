@@ -21,6 +21,7 @@ Changes:
 - Upgrade php to 7.3.6.
 - Upgrade virtualbox-ose to 5.2.30.
 - Upgrade e2fsprogs to 1.45.2.
+- Upgrade beadm to 1.3.0.
 
 Fixes:
 

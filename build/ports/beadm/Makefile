@@ -12,7 +12,7 @@ COMMENT=	Solaris-like utility to manage Boot Environments on ZFS
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	vermaden
-GH_TAGNAME=	2665f52786a12aadbe8984731b8a64d1249692f4
+GH_TAGNAME=	14e2700b0369876d5288cc6a11fdc146b2e267ac
 
 NO_BUILD=	YES
 
