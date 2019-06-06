@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-06-05 14:37+0000\n"
+"PO-Revision-Date: 2019-06-06 13:28+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-05 23:56+0000\n"
+"X-Launchpad-Export-Date: 2019-06-06 19:54+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -186,7 +186,7 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Importált duplikátum ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:osztály,+upnp:erefetiSzám,+dc:cím"
 
 msgid "/mnt"
 msgstr "/mnt"
@@ -588,16 +588,16 @@ msgid "Add Listen Record"
 msgstr "Figyelendő port hozzáadása"
 
 msgid "Add Media Folder"
-msgstr ""
+msgstr "Médiamappa hozzáadása"
 
 msgid "Add Mutual CHAP User"
 msgstr "Kölcsönös CHAP felhasználó hozzáadása"
 
 msgid "Add NFS Export"
-msgstr ""
+msgstr "NFS export hozzáadása"
 
 msgid "Add NFS Root"
-msgstr ""
+msgstr "NFGS root hozzáadása"
 
 msgid "Add Option"
 msgstr "Opció hozzáadása"
@@ -615,7 +615,7 @@ msgid "Add Portal Group"
 msgstr "Portál csoport hozzáadása"
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Nyilvános kulcs hozzáadása"
 
 msgid "Add RAID"
 msgstr "RAID hozzáadása"
@@ -879,7 +879,7 @@ msgid "Allow"
 msgstr "Engedélyez"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "GSSAPI hitelesítés bekapcsolása"
 
 msgid "Allow New Files"
 msgstr "Új fájlok engedélyezése"
@@ -888,7 +888,7 @@ msgid "Allow Serial Ports"
 msgstr "Soros port engedélyezése"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "TCP továbbítás bekapcsolása."
 
 msgid "Allow TLS connections only."
 msgstr "Csak TLS kapcsolat engedélyezése."
@@ -900,7 +900,7 @@ msgid "Allow USB Serial Ports"
 msgstr "USB soros port engedélyezése"
 
 msgid "Allow challenge-response authentication."
-msgstr ""
+msgstr "A kihívás-válasz hitelesítés engedélyezése."
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "Engedélyezés a klienseknek a jelszó nélküli hozzáféréshez."
@@ -919,19 +919,19 @@ msgstr ""
 "Engedélyezze az egymást követő párhuzamos olvasási/írási feladatokat."
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "A billentyűzet-interaktív hitelesítés engedélyezése."
 
 msgid "Allow new files to be created."
 msgstr "Új állományok létrehozásának engedélyezése."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Jelszó hitelesítés engedélyezése."
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Nyilvános kulcs hitelesítés engedélyezése."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "A root bejelentkezhet ssh-n."
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
@@ -1454,7 +1454,7 @@ msgid "Battery voltage"
 msgstr "Akkumulátor feszültsége"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Maradj csöndben"
 
 msgid "Be careful with turning on these options."
 msgstr "Ezen lehetőségek bekapcsolásával óvatosan bánjon."
@@ -1797,7 +1797,7 @@ msgstr ""
 "tanúsítványok ellenőrzéséhez."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Kihívás-válasz hitelesítés"
 
 msgid "Change"
 msgstr "Módosítás"
@@ -2359,7 +2359,7 @@ msgid "Create PV Guest"
 msgstr "PV vendég létrehozása"
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Munka könyvtár létrehozása"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "ZFS létrehozása GPT partíción"
@@ -2759,16 +2759,16 @@ msgid "Delete Selected Listen Records"
 msgstr "A kiválasztott figyelendő portok törlése"
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "A kiválasztott médiamappa törlése"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr "A kiválasztott kölcsönös CHAP felhasználó törlése"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "A kiválasztott NFS exportok törlése"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "A kiválasztott NFS root mappák törlése"
 
 msgid "Delete Selected Notifier"
 msgstr "Kijelölt értesítő törlése"
@@ -2789,7 +2789,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Kiválasztott Portál csoportok törlése"
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "A kiválasztott nyilvános kulcsok törlése"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Kiválasztott RAID kötetek törlése"
@@ -3124,7 +3124,7 @@ msgid "Disable Selected Commands"
 msgstr "Kijelölt parancsok tiltása"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Kiválasztott csoportok kikapcsolása"
 
 msgid "Disable Selected Initiator Names"
 msgstr "A kiválasztott Kezdeményező nevek tiltása"
@@ -3145,16 +3145,16 @@ msgid "Disable Selected Listen Records"
 msgstr "A kiválasztott figyelendő portok tiltása"
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "A kiválasztott médiamappák tiltása"
 
 msgid "Disable Selected Mutual CHAP Users"
 msgstr "A kiválasztott kölcsönös CHAP felhasználó tiltása"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "A kiválasztott NFS exportok tiltása"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "A kiválasztott NFS root mappák tiltása"
 
 msgid "Disable Selected Option Records"
 msgstr "A kiválasztott lehetőségbejegyzések tiltása"
@@ -3169,7 +3169,7 @@ msgid "Disable Selected Portal Groups"
 msgstr "Kiválasztott Portál csoportok tiltása"
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "A kiválasztott nyilvános kulcsok tiltása"
 
 msgid "Disable Selected Records"
 msgstr "Kijelölt bejegyzések tiltása"
@@ -3184,7 +3184,7 @@ msgid "Disable Selected Targets"
 msgstr "Kiválasztott célok tiltása"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "A kiválasztott felhasználók tiltása"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Kiválasztott WebDAV bejegyzések tiltása"
@@ -3196,7 +3196,7 @@ msgid "Disable Selected iSNS Servers"
 msgstr "A kiválasztott iSNS szerverek kikapcsolása"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Feliratok letiltása"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "TCP csomagolás tiltása (mod_wrap module)."

@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-06-04 19:31+0000\n"
+"PO-Revision-Date: 2019-06-06 19:12+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-05 23:56+0000\n"
+"X-Launchpad-Export-Date: 2019-06-06 19:53+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -189,7 +189,7 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Importierte Duplikate ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/mnt"
 msgstr "/mnt"
@@ -960,7 +960,7 @@ msgid "Allow public key authentication."
 msgstr "Authentifikation mit öffentlichem Schlüssel erlauben."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Erlaube, dass Root sich über ssh einloggen darf."
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
@@ -1614,6 +1614,8 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
+"Zeige seine Verfügbarkeit im eingestellten Sekundenintervall im Netzwerk an "
+"(Broadcast), voreingestellt ist 300 Sekunden."
 
 msgid "Browseable"
 msgstr "Sichtbar"
@@ -3267,7 +3269,7 @@ msgid "Disable speaker beep on startup and shutdown."
 msgstr "Speaker-Piepen beim Hoch- und Herunterfahren deaktivieren."
 
 msgid "Disable subtitle support on unknown clients."
-msgstr ""
+msgstr "Schalte Untertitelunterstützung auf unbekannten Clienten ab."
 
 msgid "Disable the compression of repeating lines."
 msgstr "Sich wiederholende Meldungen nicht unterdrücken."
@@ -3546,10 +3548,10 @@ msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Möchten Sie die ausgewählten gegenseitigen CHAP Benutzer löschen?"
 
 msgid "Do you want to delete selected NFS exports?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Exporte löschen?"
 
 msgid "Do you want to delete selected NFS root directories?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Wurzelverzeichnisse löschen?"
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "Möchten Sie die ausgewählte RAID Konfiguration löschen?"
@@ -3606,7 +3608,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr "Möchten Sie die ausgewählten Abhöraufzeichnungen löschen?"
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Medienverzeichnisse löschen?"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "Wollen Sie die ausgewählten Benachrichtigungen löschen?"
@@ -3627,7 +3629,7 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Möchten Sie die ausgewählten Portalgruppen löschen?"
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel löschen?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Möchten Sie die gewählten Einträge löschen?"
@@ -3679,10 +3681,10 @@ msgstr ""
 "Möchten Sie die ausgewählten gegenseitigen CHAP Benutzer deaktivieren?"
 
 msgid "Do you want to disable selected NFS exports?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Exporte abschalten?"
 
 msgid "Do you want to disable selected NFS root directories?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Wurzelverzeichnisse abschalten?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge abschalten?"
@@ -3694,7 +3696,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Möchten Sie die ausgewählten Kommandos deaktivieren?"
 
 msgid "Do you want to disable selected groups?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Gruppen abschalten?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren deaktivieren?"
@@ -3715,7 +3717,7 @@ msgid "Do you want to disable selected listen records?"
 msgstr "Möchten Sie die ausgewählten Abhöraufzeichnungen deaktivieren?"
 
 msgid "Do you want to disable selected media folders?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Medienverzeichnisse abschalten?"
 
 msgid "Do you want to disable selected option records?"
 msgstr "Möchten Sie die ausgewählten Auswahlaufzeichnungen deaktivieren?"
@@ -3730,7 +3732,7 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Möchten Sie die ausgewählten Portaufzeichnungen deaktivieren?"
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel abschalten?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Möchten Sie die ausgewählten Portalgruppen deaktivieren?"
@@ -3745,7 +3747,7 @@ msgid "Do you want to disable selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele deaktivieren?"
 
 msgid "Do you want to disable selected users?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Benutzer abschalten?"
 
 msgid "Do you want to enable selected CHAP users?"
 msgstr "Möchten Sie die ausgewählten CHAP Benutzer aktivieren?"
@@ -3760,10 +3762,10 @@ msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "Möchten Sie die ausgewählten gegenseitigen CHAP Benutzer aktivieren?"
 
 msgid "Do you want to enable selected NFS exports?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Exporte einschalten?"
 
 msgid "Do you want to enable selected NFS root directories?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Wurzelverzeichnisse einschalten?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge einschalten?"
@@ -3775,7 +3777,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Möchten Sie die ausgewählten Kommandos aktivieren?"
 
 msgid "Do you want to enable selected groups?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Gruppen einschalten?"
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren aktivieren?"
@@ -3796,7 +3798,7 @@ msgid "Do you want to enable selected listen records?"
 msgstr "Möchten Sie die ausgewählten Abhöraufzeichnungen aktivieren?"
 
 msgid "Do you want to enable selected media folders?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Medienverzeichnisse einschalten?"
 
 msgid "Do you want to enable selected option records?"
 msgstr "Möchten Sie die ausgewählten Auswahlaufzeichnungen aktivieren?"
@@ -3811,7 +3813,7 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Möchten Sie die ausgewählten Portalgruppen aktivieren?"
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel einschalten?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Möchten Sie die gewählten Einträge aktivieren?"
@@ -3826,7 +3828,7 @@ msgid "Do you want to enable selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele aktivieren?"
 
 msgid "Do you want to enable selected users?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Benutzer aktivieren?"
 
 msgid "Do you want to import disks?"
 msgstr "Möchten Sie Platten importieren?"
@@ -3850,10 +3852,10 @@ msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Möchten Sie die ausgewählten gegenseitigen CHAP Benutzer umschalten?"
 
 msgid "Do you want to toggle selected NFS exports?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Exporte umschalten?"
 
 msgid "Do you want to toggle selected NFS root directories?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten NFS Wurzelverzeichnisse umschalten?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Möchten Sie die ausgewählten WebDAV Einträge umschalten?"
@@ -3865,7 +3867,7 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Möchten Sie die ausgewählten Kommandos umschalten?"
 
 msgid "Do you want to toggle selected groups?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Gruppen umschalten?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
 msgstr "Möchten Sie die ausgewählten iSCSI Initiatoren umschalten?"
@@ -3886,7 +3888,7 @@ msgid "Do you want to toggle selected listen records?"
 msgstr "Möchten Sie die ausgewählten Abhöraufzeichnungen umschalten?"
 
 msgid "Do you want to toggle selected media folders?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Medienverzeichnisse umschalten?"
 
 msgid "Do you want to toggle selected option records?"
 msgstr "Möchten Sie die ausgewählten Auswahlaufzeichnungen umschalten?"
@@ -3901,7 +3903,7 @@ msgid "Do you want to toggle selected portal groups?"
 msgstr "Möchten Sie die ausgewählten Portalgruppen umschalten?"
 
 msgid "Do you want to toggle selected public keys?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel umschalten?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Möchten Sie die ausgewählten Einträge umschalten?"
@@ -3916,7 +3918,7 @@ msgid "Do you want to toggle selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele umschalten?"
 
 msgid "Do you want to toggle selected users?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Benutzer umschalten?"
 
 msgid "Do you want to unlock selected records?"
 msgstr "Möchten Sie die gewählten Einträge entsperren?"
@@ -4086,7 +4088,7 @@ msgid "Edit Listen Record"
 msgstr "Abhöraufzeichnungen bearbeiten"
 
 msgid "Edit Media Folder"
-msgstr ""
+msgstr "Medienverzeichnis bearbeiten"
 
 msgid "Edit Mutual CHAP User"
 msgstr "Gegenseitigen CHAP Benutzer bearbeiten"
@@ -4302,7 +4304,7 @@ msgid "Enable Selected Commands"
 msgstr "Ausgewählten Kommandos aktivieren"
 
 msgid "Enable Selected Groups"
-msgstr ""
+msgstr "Ausgewählte Gruppen aktivieren"
 
 msgid "Enable Selected Initiator Names"
 msgstr "Ausgewählte Initiatornamen aktivieren"
@@ -4323,7 +4325,7 @@ msgid "Enable Selected Listen Records"
 msgstr "Ausgewählte Abhöraufzeichnungen aktivieren"
 
 msgid "Enable Selected Media Folders"
-msgstr ""
+msgstr "Ausgewählte Medienverzeichnisse aktivieren"
 
 msgid "Enable Selected Mutual CHAP Users"
 msgstr "Ausgewählte gegenseitige CHAP Benutzer aktivieren"
