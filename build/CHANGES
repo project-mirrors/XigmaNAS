@@ -23,6 +23,7 @@ Changes:
 - Upgrade beadm to 1.3.0.
 - Upgrade phpmyadmin to 4.9.0.
 - Upgrade syncthing to 1.1.4.
+- Upgrade devcpu-data to 1.22.
 
 Fixes:
 
