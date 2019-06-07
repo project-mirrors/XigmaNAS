@@ -1,5 +1,5 @@
-XigmaNAS 12.0.0.4 - BETA
-------------------------
+XigmaNAS 12.0.0.4 - Reticulus
+-----------------------------
 Changes:
 - Upgrade to FreeBSD 12.0-RELEASE P5.
 - isboot.ko driver not available.
