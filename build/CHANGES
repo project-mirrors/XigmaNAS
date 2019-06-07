@@ -14,7 +14,6 @@ Changes:
 - Upgrade msmtp to 1.8.4.
 - Upgrade nano to 4.2.
 - Upgrade tmux to 2.9a.
-- Upgrade syncthing to 1.1.3.
 - Upgrade samba to 4.8.12.
 - Upgrade jQuery to 3.4.1.
 - Upgrade lighttpd to 1.4.54.
@@ -23,6 +22,7 @@ Changes:
 - Upgrade e2fsprogs to 1.45.2.
 - Upgrade beadm to 1.3.0.
 - Upgrade phpmyadmin to 4.9.0.
+- Upgrade syncthing to 1.1.4.
 
 Fixes:
 
