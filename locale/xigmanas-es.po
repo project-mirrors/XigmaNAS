@@ -3,19 +3,19 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-03-28 21:08+0000\n"
-"Last-Translator: Vicente Soriano <Unknown>\n"
+"PO-Revision-Date: 2019-06-07 12:30+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-05 23:56+0000\n"
+"X-Launchpad-Export-Date: 2019-06-07 19:32+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " No private key"
 
 msgid " interfaces:"
 msgstr " interfaces:"
@@ -190,10 +190,10 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Importación duplicada ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "000"
 msgstr "000"
@@ -216,7 +216,7 @@ msgid "1.8\""
 msgstr "1.8\""
 
 msgid "1000"
-msgstr ""
+msgstr "1000"
 
 msgid "10000"
 msgstr "10000"
@@ -228,7 +228,7 @@ msgid "16384"
 msgstr "16384"
 
 msgid "192.168.0.0/24"
-msgstr ""
+msgstr "192.168.0.0/24"
 
 msgid "2"
 msgstr "2"
@@ -246,7 +246,7 @@ msgid "2.5\""
 msgstr "2.5\""
 
 msgid "22"
-msgstr ""
+msgstr "22"
 
 msgid "3"
 msgstr "3"
@@ -258,7 +258,7 @@ msgid "3.5\""
 msgstr "3.5\""
 
 msgid "300"
-msgstr ""
+msgstr "300"
 
 msgid "32 KiB"
 msgstr "32 KiB"
@@ -291,7 +291,7 @@ msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "etiqueta VLAN 802.1Q (entre 1 y 4094)"
 
 msgid "8200"
-msgstr ""
+msgstr "8200"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -596,16 +596,16 @@ msgid "Add Listen Record"
 msgstr "Añadir campo de escucha"
 
 msgid "Add Media Folder"
-msgstr ""
+msgstr "Añadir carpeta multimedia"
 
 msgid "Add Mutual CHAP User"
 msgstr "Añadir usuario CHAP mutuo"
 
 msgid "Add NFS Export"
-msgstr ""
+msgstr "Añadir export NFS"
 
 msgid "Add NFS Root"
-msgstr ""
+msgstr "Añadir NFS Root"
 
 msgid "Add Option"
 msgstr "Agregar Opción"
@@ -623,7 +623,7 @@ msgid "Add Portal Group"
 msgstr "Añadir grupo portal"
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Añadir clave pública"
 
 msgid "Add RAID"
 msgstr "Añadir RAID"
@@ -743,7 +743,7 @@ msgid "Add the selected device to the existing mirror."
 msgstr "Añadir el dispositivo al espejo existente."
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "Añadir usuario a grupos adicionales"
 
 msgid "Additional Information"
 msgstr "Información adicional"
@@ -889,7 +889,7 @@ msgid "Allow"
 msgstr "Permitir"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "Permitir autentificación GSSAPI"
 
 msgid "Allow New Files"
 msgstr "Permitir archivos nuevos"
@@ -898,7 +898,7 @@ msgid "Allow Serial Ports"
 msgstr "Permitir puerto serie"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "Permitir TCP forwarding."
 
 msgid "Allow TLS connections only."
 msgstr "Permitir conexiones TSL únicamente"
@@ -910,7 +910,7 @@ msgid "Allow USB Serial Ports"
 msgstr "Permitir puertos USB"
 
 msgid "Allow challenge-response authentication."
-msgstr ""
+msgstr "Permitir autentificación desafio-respuesta"
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "Permitir acceso de clientes a cuentas que tienen contraseñas nulas."
@@ -929,22 +929,22 @@ msgstr ""
 "Permite que lecturas/escrituras consecutivas sean realizadas en paralelo"
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "Permitir autentificación usando teclado"
 
 msgid "Allow new files to be created."
 msgstr "Permitir crear nuevos archivos."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Permitir autentificación por contraseña"
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Permitir autentificación de clave pública"
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Permitir login de Root via SSH"
 
 msgid "Allow symlinks that point outside defined media folders."
-msgstr ""
+msgstr "permitir enlaces a carpetas fuera de la ruta multmedia"
 
 msgid "Allow to start UPS from battery"
 msgstr "Permitir arrancar el SAI desde las baterías"
@@ -1472,7 +1472,7 @@ msgid "Battery voltage"
 msgstr "Tensión d ela batería"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Silencio"
 
 msgid "Be careful with turning on these options."
 msgstr "Precaución al habilitar estas opciones."
@@ -1490,6 +1490,7 @@ msgstr ""
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
 msgstr ""
+"Antes de que el cliente Unison pueda arrancar, necesita hacer lo siguiente:"
 
 msgid "Best available"
 msgstr "Mejor disponible"
@@ -1589,6 +1590,8 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
+"El broadcast esta disponible para ser ejecutado cada x segundos en la red, "
+"por defecto cada 300 segundos"
 
 msgid "Browseable"
 msgstr "Visible"
@@ -1826,7 +1829,7 @@ msgstr ""
 "certificados revocados."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Autentificación Desafio-Respuesta"
 
 msgid "Change"
 msgstr "Modificar"
@@ -2031,6 +2034,10 @@ msgid ""
 "execute upon subsystem request. Leave this field empty to use the default "
 "settings."
 msgstr ""
+"Configura un subsistema externo (Por ejemplo: el demonio ftp). Los "
+"argumentos deben ser; nombre del subsistema y el comando (puede incluir "
+"argumentos opcionales) a ejecutar. Deje este campo vacío para la config. por "
+"defecto"
 
 msgid "Configuring"
 msgstr "Configurando"
@@ -2415,7 +2422,7 @@ msgid "Create PV Guest"
 msgstr "Crear un invitado PV"
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Crear carpeta de trabajo"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Crear ZFS en particiones GPT"
@@ -2809,16 +2816,16 @@ msgid "Delete Selected Listen Records"
 msgstr "Borrar las grabaciones de escucha seleccionadas"
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "Borrar la carpeta multimedia seleccionada"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr "Borrar usuariosCHAP mutuos seleccionados"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "Borrar el export NFS seleccionado"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "Borrar la carpeta Root NFS seleccionada"
 
 msgid "Delete Selected Notifier"
 msgstr "Borrar el siguiente notificador"
@@ -2839,7 +2846,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Borrar los grupos de portal seleccionados"
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "Borrar las claves públicas seleccionadas"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Borrar los volúmenes RAID seleccionados"
@@ -3174,7 +3181,7 @@ msgid "Disable Selected Commands"
 msgstr "Deshabilitar los Comandos Seleccionados"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Deshabilitar grupos seleccionados"
 
 msgid "Disable Selected Initiator Names"
 msgstr "Deshabilitar Nombres de iniciador seleccionados"
@@ -3195,16 +3202,16 @@ msgid "Disable Selected Listen Records"
 msgstr "Deshabilitar Grabaciones de escucha seleccionadas"
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "Deshabilitar carpetas multimedia seleccionadas"
 
 msgid "Disable Selected Mutual CHAP Users"
 msgstr "Deshabilitar usuarios CHAP mutuos seleccionados"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "Deshabilitar  exports NFS seleccionados"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "Deshabilitar Root NFS seleccionados"
 
 msgid "Disable Selected Option Records"
 msgstr "Deshabilitar opciones seleccionadas"
@@ -3219,7 +3226,7 @@ msgid "Disable Selected Portal Groups"
 msgstr "Deshabilitar los grupos de portal seleccionados"
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "Deshabilitar claves públicas seleccionadas"
 
 msgid "Disable Selected Records"
 msgstr "Deshabilitar registros seleccionados"
@@ -3234,7 +3241,7 @@ msgid "Disable Selected Targets"
 msgstr "Deshabilitar los objetivos seleccionados"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Deshabilitar usuarios seleccionados"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Desactivar registros seleccionados WebDAV"
@@ -3246,7 +3253,7 @@ msgid "Disable Selected iSNS Servers"
 msgstr "Deshabilitar servidores iSNS seleccionados"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Deshabilitar Subtítulos"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "Deshabilitar TCP wrapper (mod_wrap )."
@@ -3267,7 +3274,7 @@ msgid "Disable speaker beep on startup and shutdown."
 msgstr "Deshabilitar altavoz en arranques y apagados."
 
 msgid "Disable subtitle support on unknown clients."
-msgstr ""
+msgstr "Deshabilitar subtitulos en clientes desconocidos"
 
 msgid "Disable the compression of repeating lines."
 msgstr "Deshabilitar la compresión de lineas repetidas"
@@ -3537,10 +3544,10 @@ msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "¿Desea borrar los usuarios CHAP seleccionados?"
 
 msgid "Do you want to delete selected NFS exports?"
-msgstr ""
+msgstr "¿Desea borrar los exports NFS seleccionados?"
 
 msgid "Do you want to delete selected NFS root directories?"
-msgstr ""
+msgstr "¿Desea borrar los directorios root NFS seleccionados?"
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "Desea borrar los volúmenes RAID seleccionados?"
@@ -3597,7 +3604,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr "¿Desea borrar las grabaciones de escucha seleccionadas?"
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "¿Desea borrar las carpetas multimedia seleccionadas?"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "¿Desea borrar el notificador seleccionado?"
@@ -3618,7 +3625,7 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Quieres borrar los grupos de portal seleccionados?"
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "¿Desea borrar las claves públicas seleccionadas?"
 
 msgid "Do you want to delete selected records?"
 msgstr "¿Desea borrar los registros seleccionados?"
@@ -3669,10 +3676,10 @@ msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr "¿Desea deshabilitar los usuarios CHAP mutuos seleccionados?"
 
 msgid "Do you want to disable selected NFS exports?"
-msgstr ""
+msgstr "¿Desea deshabilitar los exports NFS seleccionados?"
 
 msgid "Do you want to disable selected NFS root directories?"
-msgstr ""
+msgstr "¿Desea deshabilitar los directorios root NFS seleccionados?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Quieres desactivar los registros seleccionados WebDAV?"
@@ -3684,7 +3691,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "¿Desea deshabilitar estas ordenes?"
 
 msgid "Do you want to disable selected groups?"
-msgstr ""
+msgstr "¿Desea deshabilitar los grupos seleccionados?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr "¿Desea deshabilitar los iniciadores iSCSI seleccionados?"
@@ -3705,7 +3712,7 @@ msgid "Do you want to disable selected listen records?"
 msgstr "¿Desea deshabilitar las grabaciones de escucha seleccionadas?"
 
 msgid "Do you want to disable selected media folders?"
-msgstr ""
+msgstr "¿Desea deshabilitarlas carpetas multimedia seleccionadas?"
 
 msgid "Do you want to disable selected option records?"
 msgstr "¿Desea deshabilitar las opciones seleccionadas?"
@@ -3720,7 +3727,7 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Quieres deshabilitar los grupos de portal seleccionados?"
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "¿Desea deshabilitar las claves públicas seleccionadas?"
 
 msgid "Do you want to disable selected records?"
 msgstr "¿Desea deshabilitar los registros seleccionados?"
@@ -3735,7 +3742,7 @@ msgid "Do you want to disable selected targets?"
 msgstr "Quieres deshabilitar los objetivos seleccionados?"
 
 msgid "Do you want to disable selected users?"
-msgstr ""
+msgstr "¿Desea deshabilitar los usuarios seleccionados"
 
 msgid "Do you want to enable selected CHAP users?"
 msgstr "¿Desea habilitar los usuarios CHAP seleccionados?"
@@ -3750,10 +3757,10 @@ msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "¿Desea habilitar los usuarios CHAP mutuos seleccionados?"
 
 msgid "Do you want to enable selected NFS exports?"
-msgstr ""
+msgstr "¿Desea habilitar los export NFS seleccionados?"
 
 msgid "Do you want to enable selected NFS root directories?"
-msgstr ""
+msgstr "¿Desea habilitar los directorios root NFS seleccionados?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Quieres habilitar los registros seleccionados WebDAV?"
@@ -3765,7 +3772,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "¿Desea habilitar estas ordenes?"
 
 msgid "Do you want to enable selected groups?"
-msgstr ""
+msgstr "¿Desea habilitar los grupos seleccionados"
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr "¿Desea habilitar los iniciadores iSCSI seleccionados?"
@@ -3786,7 +3793,7 @@ msgid "Do you want to enable selected listen records?"
 msgstr "¿Desea habilitar las grabaciones de escucha seleccionadas?"
 
 msgid "Do you want to enable selected media folders?"
-msgstr ""
+msgstr "¿Desea habilitar las carpetas multimedia seleccionadas?"
 
 msgid "Do you want to enable selected option records?"
 msgstr "¿Desea habilitar las opciones seleccionadas?"
@@ -3801,7 +3808,7 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Quieres habilitar los grupos de portal seleccionados?"
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "¿Desea habilitar las claves públicas seleccionadas?"
 
 msgid "Do you want to enable selected records?"
 msgstr "¿Desea habilitar los registros seleccionados?"
@@ -3816,7 +3823,7 @@ msgid "Do you want to enable selected targets?"
 msgstr "Quieres habilitar los objetivos seleccionados?"
 
 msgid "Do you want to enable selected users?"
-msgstr ""
+msgstr "¿Desea habilitar los usuarios seleccionados?"
 
 msgid "Do you want to import disks?"
 msgstr "¿Desea importar los discos seleccionados?"
@@ -4075,16 +4082,16 @@ msgid "Edit Listen Record"
 msgstr "Editar grabaciones de escucha"
 
 msgid "Edit Media Folder"
-msgstr ""
+msgstr "Editar carpeta multimedia"
 
 msgid "Edit Mutual CHAP User"
 msgstr "Editar usuarios CHAP mutuos"
 
 msgid "Edit NFS Export"
-msgstr ""
+msgstr "Editar NFS Export"
 
 msgid "Edit NFS Root"
-msgstr ""
+msgstr "Editar NFS Root"
 
 msgid "Edit Option"
 msgstr "Editar Opciones"
@@ -4102,7 +4109,7 @@ msgid "Edit Portal Group"
 msgstr "Editar grupo portal"
 
 msgid "Edit Public Key"
-msgstr ""
+msgstr "Editar clave pública"
 
 msgid "Edit RAID"
 msgstr "Editar RAID"
@@ -4271,7 +4278,7 @@ msgid "Enable SMTP authentication."
 msgstr "Activar autentificación SMTP."
 
 msgid "Enable SSH service"
-msgstr ""
+msgstr "Habilitar servicio SSH"
 
 msgid ""
 "Enable SSL/TLS for secured connections. You also need to configure the TLS "
@@ -4294,7 +4301,7 @@ msgid "Enable Selected Commands"
 msgstr "Habilitar las ordenes seleccionadas"
 
 msgid "Enable Selected Groups"
-msgstr ""
+msgstr "Habilitar grupos seleccionados"
 
 msgid "Enable Selected Initiator Names"
 msgstr "Habilitar nombres de iniciador seleccionados"
@@ -4315,16 +4322,16 @@ msgid "Enable Selected Listen Records"
 msgstr "Habilitar grabaciones de escucha seleccionados"
 
 msgid "Enable Selected Media Folders"
-msgstr ""
+msgstr "Habilitar  carpetas multimedia seleccionadas"
 
 msgid "Enable Selected Mutual CHAP Users"
 msgstr "Habilitar usuarios CHAP mutuos seleccionados"
 
 msgid "Enable Selected NFS Exports"
-msgstr ""
+msgstr "Habilitar exports NFS seleccionados"
 
 msgid "Enable Selected NFS Root Directories"
-msgstr ""
+msgstr "Habilitar directorios root NFS seleccionados"
 
 msgid "Enable Selected Option Records"
 msgstr "Habilitar opciones seleccionadas"
@@ -4339,7 +4346,7 @@ msgid "Enable Selected Portal Groups"
 msgstr "Habilitar los grupos de portal seleccionados"
 
 msgid "Enable Selected Public Keys"
-msgstr ""
+msgstr "Habilitar claves públicas seleccionads"
 
 msgid "Enable Selected Records"
 msgstr "Habilitar los registros seleccionados."
@@ -4354,7 +4361,7 @@ msgid "Enable Selected Targets"
 msgstr "Habilitar los objetivos seleccionados"
 
 msgid "Enable Selected Users"
-msgstr ""
+msgstr "Habilitar usuarios seleccionados"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Activar registros WebDAV seleccionados"
@@ -5411,7 +5418,7 @@ msgid "Group ID"
 msgstr "ID de grupo"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Nombre del grupo"
 
 msgid "Group Settings"
 msgstr "Ajustes del Grupo"
@@ -6709,7 +6716,7 @@ msgid "Login"
 msgstr "Iniciar Sesión"
 
 msgid "Login Name"
-msgstr ""
+msgstr "Nombre de Usuario"
 
 msgid "Login for CHAP authentication."
 msgstr "Login para autentificación CHAP"
@@ -6843,10 +6850,10 @@ msgid "Masquerade Address"
 msgstr "Máscara"
 
 msgid "Master"
-msgstr ""
+msgstr "Maestro"
 
 msgid "Master Password"
-msgstr ""
+msgstr "Contraseña maestra"
 
 msgid "Master User"
 msgstr ""
@@ -6972,7 +6979,7 @@ msgid "Media Size"
 msgstr "Tamaño del medio"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Tipo de multimedia"
 
 msgid "Media library"
 msgstr "Biblioteca multimedia"

@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-06-06 12:15+0000\n"
+"PO-Revision-Date: 2019-06-07 07:32+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-06 19:53+0000\n"
+"X-Launchpad-Export-Date: 2019-06-07 19:32+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -3806,7 +3806,7 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες ομάδες portal;"
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα δημόσια κλειδιά;"
 
 msgid "Do you want to disable selected records?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εγγραφές;"
@@ -3821,7 +3821,7 @@ msgid "Do you want to disable selected targets?"
 msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους προορισμούς;"
 
 msgid "Do you want to disable selected users?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους χρήστες;"
 
 msgid "Do you want to enable selected CHAP users?"
 msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους χρήστες CHAP;"
@@ -3836,10 +3836,10 @@ msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους χρήστες αμοιβαίου CHAP;"
 
 msgid "Do you want to enable selected NFS exports?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα NFS exports;"
 
 msgid "Do you want to enable selected NFS root directories?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους ριζικούς φακέλους NFS;"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές WebDAV;"
@@ -3851,7 +3851,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εντολές;"
 
 msgid "Do you want to enable selected groups?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες ομάδες;"
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους εκκινητές iSCSI;"
@@ -3872,7 +3872,7 @@ msgid "Do you want to enable selected listen records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές αναμονής σύνδεσης;"
 
 msgid "Do you want to enable selected media folders?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους φακέλους μέσων;"
 
 msgid "Do you want to enable selected option records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές επιλογών;"
@@ -3887,7 +3887,7 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες ομάδες portal;"
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα δημόσια κλειδιά;"
 
 msgid "Do you want to enable selected records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές;"
@@ -3902,7 +3902,7 @@ msgid "Do you want to enable selected targets?"
 msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους προορισμούς;"
 
 msgid "Do you want to enable selected users?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους χρήστες;"
 
 msgid "Do you want to import disks?"
 msgstr "Θέλετε να εισάγετε τους δίσκους;"
@@ -3914,87 +3914,85 @@ msgid "Do you want to lock selected records?"
 msgstr "Θέλετε να κλειδώσετε τις επιλεγμένες εγγραφές;"
 
 msgid "Do you want to toggle selected CHAP users?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων χρηστών CHAP;"
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους χρήστες CHAP;"
 
 msgid "Do you want to toggle selected LUN records?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων εγγραφών LUN;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές LUN;"
 
 msgid "Do you want to toggle selected LUNs?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων LUN;"
+msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα LUN;"
 
 msgid "Do you want to toggle selected Mutual CHAP users?"
-msgstr ""
-"Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων χρηστών αμοιβαίου CHAP;"
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους χρήστες αμοιβαίου CHAP;"
 
 msgid "Do you want to toggle selected NFS exports?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα NFS exports;"
 
 msgid "Do you want to toggle selected NFS root directories?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους ριζικούς φακέλους NFS;"
 
 msgid "Do you want to toggle selected WebDAV records?"
-msgstr "Θέλετε να αντστρέψετε την επιλογή των επιλεγμένων εγγραφών WebDAV;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές WebDAV;"
 
 msgid "Do you want to toggle selected auth groups?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων ομάδων πιστοποίησης;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες ομάδες πιστοποίησης;"
 
 msgid "Do you want to toggle selected commands?"
-msgstr "Θέλετε να γίνει εναλλαγή των επιλεγμένων εντολών;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εντολές;"
 
 msgid "Do you want to toggle selected groups?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες ομάδες;"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Θέλετε να κάνετε αντιστροφή επιλογής εκκινητών iSCSI;"
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους εκκινητές iSCSI;"
 
 msgid "Do you want to toggle selected iSNS servers?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων διακομιστών iSNS;"
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους διακομιστές iSNS;"
 
 msgid "Do you want to toggle selected initiator names?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων ονομάτων εκκινητών;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες ομάδες εκκινητών;"
 
 msgid "Do you want to toggle selected initiator portals?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων portal εκκινητών;"
+msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα portal εκκινητών;"
 
 msgid "Do you want to toggle selected jobs?"
-msgstr "Θέλετε να εναλλάξετε τις επιλεγμένες εργασίες;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εργασίες;"
 
 msgid "Do you want to toggle selected listen records?"
-msgstr ""
-"Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων εγγραφών αναμονής σύνδεσης;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές αναμονής σύνδεσης;"
 
 msgid "Do you want to toggle selected media folders?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους φακέλους μέσων;"
 
 msgid "Do you want to toggle selected option records?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων εγγραφών επιλογής;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές επιλογής;"
 
 msgid "Do you want to toggle selected options?"
-msgstr "Θέλετε να εναλλάξετε τις επιλεγμένες επιλογές;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες επιλογές;"
 
 msgid "Do you want to toggle selected port records?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων εγγραφών θυρών;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές θυρών;"
 
 msgid "Do you want to toggle selected portal groups?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων ομάδων portal;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες ομάδες portal;"
 
 msgid "Do you want to toggle selected public keys?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα δημόσια κλειδιά;"
 
 msgid "Do you want to toggle selected records?"
-msgstr "Θέλετε να εναλλάξετε τις επιλεγμένες εγγραφές;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές;"
 
 msgid "Do you want to toggle selected rsync jobs?"
-msgstr "Θέλετε να εναλλάξετε τις επιλεγμένες εργασίες rsync;"
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εργασίες rsync;"
 
 msgid "Do you want to toggle selected rsync modules?"
-msgstr "Θέλετε να εναλλάξετε τα επιλεγμένα αρθρώματα rsync;"
+msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα αρθρώματα rsync;"
 
 msgid "Do you want to toggle selected targets?"
-msgstr "Θέλετε να αντιστραφεί η επιλογή των επιλεγμένων προορισμών;"
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους προορισμούς;"
 
 msgid "Do you want to toggle selected users?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τους επιλεγμένους χρήστες;"
 
 msgid "Do you want to unlock selected records?"
 msgstr "Θέλετε να ξεκλειδώσετε τις επιλεγμένες εγγραφές;"
@@ -4175,7 +4173,7 @@ msgid "Edit NFS Export"
 msgstr ""
 
 msgid "Edit NFS Root"
-msgstr ""
+msgstr "Επεξεργασία Ρίζας NFS"
 
 msgid "Edit Option"
 msgstr "Επεξεργασία Επιλογής"
@@ -4193,7 +4191,7 @@ msgid "Edit Portal Group"
 msgstr "Επεξεργασία Ομάδας Portal"
 
 msgid "Edit Public Key"
-msgstr ""
+msgstr "Επεξεργασία Δημόσιου Κλειδιού"
 
 msgid "Edit RAID"
 msgstr "Επεξεργασία RAID"
@@ -4360,7 +4358,7 @@ msgid "Enable SMTP authentication."
 msgstr "Ενεργοποίηση πιστοποίησης SMTP."
 
 msgid "Enable SSH service"
-msgstr ""
+msgstr "Ενεργοποίηση υπηρεσίας SSH"
 
 msgid ""
 "Enable SSL/TLS for secured connections. You also need to configure the TLS "
@@ -4383,7 +4381,7 @@ msgid "Enable Selected Commands"
 msgstr "Ενεργοποίηση Επιλεγμένων Εντολών"
 
 msgid "Enable Selected Groups"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων Ομάδων"
 
 msgid "Enable Selected Initiator Names"
 msgstr "Ενεργοποίηση Επιλεγμένων Ονομάτων Εκκινητών"
@@ -4404,16 +4402,16 @@ msgid "Enable Selected Listen Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών Αναμονής Σύνδεσης"
 
 msgid "Enable Selected Media Folders"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων Φακέλων Μέσων"
 
 msgid "Enable Selected Mutual CHAP Users"
 msgstr "Ενεργοποίηση Επιλεγμένων Χρηστών Αμοιβαίου CHAP"
 
 msgid "Enable Selected NFS Exports"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων NFS Exports"
 
 msgid "Enable Selected NFS Root Directories"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων Ριζικών Φακέλων NFS"
 
 msgid "Enable Selected Option Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών Επιλογών"
@@ -4428,7 +4426,7 @@ msgid "Enable Selected Portal Groups"
 msgstr "Ενεργοποίηση Επιλεγμένων Ομάδων Portal"
 
 msgid "Enable Selected Public Keys"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων Δημόσιων Κλειδιών"
 
 msgid "Enable Selected Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών"
@@ -4443,7 +4441,7 @@ msgid "Enable Selected Targets"
 msgstr "Ενεργοποίηση Επιλεγμένων Προορισμών"
 
 msgid "Enable Selected Users"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων Χρηστών"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών WebDAV"
@@ -4528,7 +4526,7 @@ msgid "Enable collecting uptime statistics."
 msgstr "Ενεργοποίηση συλλογής στατιστικών συνεχής λειτουργίας."
 
 msgid "Enable compression after the user has authenticated successfully."
-msgstr ""
+msgstr "Ενεργοποίηση συμπίεσης αφού ο χρήστης πιστοποιηθεί επιτυχώς."
 
 msgid "Enable console screensaver."
 msgstr "Ενεργοποίηση προφύλαξης οθόνης κονσόλας."
@@ -4794,6 +4792,8 @@ msgstr ""
 
 msgid "Enter a custom port number if you do not want to use default port 22."
 msgstr ""
+"Εισάγετε έναν προσαρμοσμένο αριθμό θύρας αν δεν θέλετε να χρησιμοποιήσετε "
+"την προεπιλεγμένη θύρα 22."
 
 msgid "Enter a custom port number if you do not want to use default port 69."
 msgstr ""
@@ -4874,7 +4874,7 @@ msgid "Enter facility name"
 msgstr "Εισαγωγή ονόματος διευκόλυνσης"
 
 msgid "Enter group name."
-msgstr ""
+msgstr "Εισάγετε όνομα ομάδες."
 
 msgid "Enter hostname or IP address."
 msgstr "Εισάγετε όνομα υπολογιστή ή διεύθυνση IP."
@@ -4883,7 +4883,7 @@ msgid "Enter level name"
 msgstr "Εισαγωγή ονόματος επιπέδου"
 
 msgid "Enter login name."
-msgstr ""
+msgstr "Εισάγετε όνομα χρήστη."
 
 msgid "Enter mutual user name."
 msgstr "Εισάγετε όνομα αμοιβαίου χρήστη"
@@ -4909,7 +4909,7 @@ msgid "Enter the command"
 msgstr "Εισάγετε μια εντολή"
 
 msgid "Enter the full user name."
-msgstr ""
+msgstr "Εισάγετε το πλήρες όνομα του χρήστη."
 
 msgid "Enter the location of the share"
 msgstr "Εισάγετε την τοποθεσία του κοινόχρηστου"
@@ -4922,6 +4922,7 @@ msgstr "Εισάγετε το όνομα του κοινόχρηστου"
 
 msgid "Enter the network that is authorised to access the NFS share."
 msgstr ""
+"Εισάγετε το δίκτυο που θα επιτρέπεται να έχει πρόσβαση στο κοινόχρηστο NFS."
 
 msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
@@ -4958,6 +4959,8 @@ msgid ""
 "Enter the path to the home directory of the user. Leave this field empty to "
 "use default path /mnt."
 msgstr ""
+"Εισάγετε τη διαδρομή για τον αρχικό φάκελο του χρήστη. Αφήστε αυτό το πεδίο "
+"κενό για χρήση της προεπιλεγμένης διαδρομής /mnt."
 
 msgid ""
 "Enter the path to the home directory. This directory will store the "
@@ -12471,85 +12474,85 @@ msgid "Toggle Mode"
 msgstr "Λειτουργία Εναλλαγής"
 
 msgid "Toggle Selected Auth Groups"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Ομάδων Πιστοποίησης"
+msgstr "Μεταβολή Επιλεγμένων Ομάδων Πιστοποίησης"
 
 msgid "Toggle Selected CHAP Users"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Χρηστών CHAP"
+msgstr "Μεταβολή Επιλεγμένων Χρηστών CHAP"
 
 msgid "Toggle Selected Commands"
-msgstr "Εναλλαγή Επιλεγμένων Εντολών"
+msgstr "Μεταβολή Επιλεγμένων Εντολών"
 
 msgid "Toggle Selected Groups"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων Ομάδων"
 
 msgid "Toggle Selected Initiator Names"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Ονομάτων Εκκινητών"
+msgstr "Μεταβολή Επιλεγμένων Ονομάτων Εκκινητών"
 
 msgid "Toggle Selected Initiator Portals"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Portal Εκκινητών"
+msgstr "Μεταβολή Επιλεγμένων Portal Εκκινητών"
 
 msgid "Toggle Selected Jobs"
-msgstr "Εναλλαγή Επιλεγμένων Εργασιών"
+msgstr "Μεταβολή Επιλεγμένων Εργασιών"
 
 msgid "Toggle Selected LUN Records"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Εγγραφών LUN"
+msgstr "Μεταβολή Επιλεγμένων Εγγραφών LUN"
 
 msgid "Toggle Selected LUNs"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων LUN"
+msgstr "Μεταβολή Επιλεγμένων LUN"
 
 msgid "Toggle Selected Listen Records"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Εγγραφών Αναμονής Σύνδεσης"
+msgstr "Μεταβολή Επιλεγμένων Εγγραφών Αναμονής Σύνδεσης"
 
 msgid "Toggle Selected Media Folders"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων Φακέλων Μέσων"
 
 msgid "Toggle Selected Mutual CHAP Users"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Χρηστών Αμοιβαίου CHAP"
+msgstr "Μεταβολή Επιλεγμένων Χρηστών Αμοιβαίου CHAP"
 
 msgid "Toggle Selected NFS Exports"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων NFS Exports"
 
 msgid "Toggle Selected NFS Root Directories"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων Ριζικών Φακέλων NFS"
 
 msgid "Toggle Selected Option Records"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Εγγραφών Επιλογής"
+msgstr "Μεταβολή Επιλεγμένων Εγγραφών Επιλογής"
 
 msgid "Toggle Selected Options"
-msgstr "Εναλλαγή Επιλεγμένων Επιλογών"
+msgstr "Μεταβολή Επιλεγμένων Επιλογών"
 
 msgid "Toggle Selected Port Records"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Εγγραφών Θυρών"
+msgstr "Μεταβολή Επιλεγμένων Εγγραφών Θυρών"
 
 msgid "Toggle Selected Portal Groups"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Ομάδων Portal"
+msgstr "Μεταβολή Επιλεγμένων Ομάδων Portal"
 
 msgid "Toggle Selected Public Keys"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων Δημόσιων Κλειδιών"
 
 msgid "Toggle Selected Records"
-msgstr "Εναλλαγή Επιλεγμένων Εγγραφών"
+msgstr "Μεταβολή Επιλεγμένων Εγγραφών"
 
 msgid "Toggle Selected Rsync Jobs"
-msgstr "Εναλλαγή Επιλεγμένων Εργασιών rsync"
+msgstr "Μεταβολή Επιλεγμένων Εργασιών rsync"
 
 msgid "Toggle Selected Rsync Modules"
-msgstr "Εναλλαγή Επιλεγμένων Αρθρωμάτων rsync"
+msgstr "Μεταβολή Επιλεγμένων Αρθρωμάτων rsync"
 
 msgid "Toggle Selected Targets"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Προορισμών"
+msgstr "Μεταβολή Επιλεγμένων Προορισμών"
 
 msgid "Toggle Selected Users"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων Χρηστών"
 
 msgid "Toggle Selected WebDAV Records"
-msgstr "Αντιστροφή Επιλογής των Επιλεγμένων Εγγραφών WebDAV"
+msgstr "Μεταβολή Επιλεγμένων Εγγραφών WebDAV"
 
 msgid "Toggle Selected iSCSI Initiators"
-msgstr "Αντιστροφή επιλογής εκκινητών iSCSI"
+msgstr "Μεταβολή εκκινητών iSCSI"
 
 msgid "Toggle Selected iSNS Servers"
-msgstr "Αντιστροφή Επιλογής Επιλεγμένων Διακομιστών iSNS"
+msgstr "Μεταβολή Επιλεγμένων Διακομιστών iSNS"
 
 msgid "Tolerated"
 msgstr "Ανεκτή"
@@ -13111,7 +13114,7 @@ msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
-"Χρήση του κουμπιού εναλλαγής αντί για τα κουμπιά "
+"Χρήση του κουμπιού μεταβολής αντί για τα κουμπιά "
 "ενεργοποίησης/απενεργοποίησης."
 
 msgid "Used"
