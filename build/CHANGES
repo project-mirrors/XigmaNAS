@@ -14,7 +14,6 @@ Changes:
 - Upgrade mDNSResponder to 878.200.35.
 - Upgrade netatalk to 3.1.12.
 - Upgrade sudo to 1.8.27.
-- Upgrade phpmyadmin to 4.8.5.
 - Upgrade libvncserver to 0.9.12.
 - Upgrade APCu to 5.1.17.
 - Upgrade dialog to 1.3-20190211.
@@ -34,6 +33,7 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.30.
 - Upgrade e2fsprogs to 1.45.2.
 - Upgrade beadm to 1.3.0.
+- Upgrade phpmyadmin to 4.9.0.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
