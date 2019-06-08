@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-06-06 01:26+0000\n"
-"PO-Revision-Date: 2019-06-07 07:32+0000\n"
+"PO-Revision-Date: 2019-06-08 11:09+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-06-07 19:32+0000\n"
+"X-Launchpad-Export-Date: 2019-06-08 18:48+0000\n"
 "X-Generator: Launchpad (build 18978)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -4164,13 +4164,13 @@ msgid "Edit Listen Record"
 msgstr "Επεξεργασία Εγγραφής Αναμονής Σύνδεσης"
 
 msgid "Edit Media Folder"
-msgstr ""
+msgstr "Επεξεργασία Φακέλου Μέσων"
 
 msgid "Edit Mutual CHAP User"
 msgstr "Επεξεργασία Χρήστη Αμοιβαίου CHAP"
 
 msgid "Edit NFS Export"
-msgstr ""
+msgstr "Επεξεργασία NFS Export"
 
 msgid "Edit NFS Root"
 msgstr "Επεξεργασία Ρίζας NFS"
@@ -5454,7 +5454,7 @@ msgid "GPT partition"
 msgstr "Κατάτμηση GPT"
 
 msgid "GSSAPI Authentication"
-msgstr ""
+msgstr "Πιστοποίηση GSSAPI"
 
 msgid "Gateway"
 msgstr "Πύλη"
@@ -5499,7 +5499,7 @@ msgid "Grant access to the user portal."
 msgstr "Παραχώρηση πρόσβασης στην πύλη των χρήστών."
 
 msgid "Grant shell access to user"
-msgstr ""
+msgstr "Εκχώρηση πρόσβασης κέλυφους στο χρήστη"
 
 msgid "Graph shows last 120 seconds"
 msgstr "Το γράφημα δείχνει τα τελευταία 120 δευτερόλεπτα"
@@ -5529,7 +5529,7 @@ msgid "Group ID"
 msgstr "ID Ομάδας"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Όνομα Ομάδας"
 
 msgid "Group Settings"
 msgstr "Ρυθμίσεις Oμάδας"
@@ -5675,10 +5675,10 @@ msgid "Hide Dot Files"
 msgstr "Απόκρυψη Κρυφών Αρχείων"
 
 msgid "Hide System Groups"
-msgstr ""
+msgstr "Απόκρυψη Ομάδων Συστήματος"
 
 msgid "Hide System Users"
-msgstr ""
+msgstr "Απόκρυψη Χρηστών Συστήματος"
 
 msgid "High voltage boosting transfer point"
 msgstr "Σημείο για μεταφορά σε ενίσχυση υψηλής τάσης"
@@ -6842,7 +6842,7 @@ msgid "Login"
 msgstr "Σύνδεση"
 
 msgid "Login Name"
-msgstr ""
+msgstr "Όνομα Χρήστη"
 
 msgid "Login for CHAP authentication."
 msgstr "Σύνδεση για πιστοποίηση CHAP."
@@ -6880,7 +6880,7 @@ msgid "MBR partition"
 msgstr "MBR κατάτμηση"
 
 msgid "MD4 Password"
-msgstr ""
+msgstr "Κωδικός MD4"
 
 msgid "MIRROR"
 msgstr "MIRROR"
@@ -6951,7 +6951,7 @@ msgid "Map users or map root to the specified user."
 msgstr ""
 
 msgid "Mapping"
-msgstr ""
+msgstr "Αντιστοίχηση"
 
 msgid "Mapping DOS Attributes"
 msgstr "Αντιστοίχιση Χαρακτηριστικών DOS"
