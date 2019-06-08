@@ -54,7 +54,7 @@ tftpd_prestart()
 				--value-of "concat(' -T ',timeout)" \
 			--break \
 			--if 'string-length(maxblocksize) > 0' \
-				--value-of "concat(' -b ',maxblocksize)" \
+				--value-of "concat(' -B ',maxblocksize)" \
 			--break \
 			--if 'string-length(extraoptions) > 0' \
 				--value-of "concat(' ',extraoptions)" \
