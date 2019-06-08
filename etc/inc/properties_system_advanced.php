@@ -133,7 +133,7 @@ class properties_system_advanced extends co_property_container {
 			set_name('disablefirmwarecheck')->
 			set_title(gettext('Firmware Check'));
 		$link = '<a href="system_firmware.php">' . gettext('System') . ': ' . gettext('Firmware Update') . '</a>';
-		$description = sprintf(gettext('Do not let the server check for newer firmware versions when the %s page gets loaded.'),$link);		
+		$description = sprintf(gettext('Do not let the server check for newer firmware versions when the %s page gets loaded.'),$link);
 		$property->
 			set_id('disablefirmwarecheck')->
 			set_caption(gettext('Disable firmware version check.'))->
@@ -257,26 +257,6 @@ class properties_system_advanced extends co_property_container {
 		$property->
 			set_id('disableextensionmenu')->
 			set_caption(gettext('Disable scanning of folders for existing extension menus.'))->
-			set_description('')->
-			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
-	protected $x_tune_enable;
-	public function get_tune_enable() {
-		return $this->x_tune_enable ?? $this->init_tune_enable();
-	}
-	public function init_tune_enable() {
-		$property = $this->x_tune_enable = new property_bool($this);
-		$property->
-			set_name('tune_enable')->
-			set_title(gettext('Tuning'));
-		$property->
-			set_id('tune_enable')->
-			set_caption(gettext('Enable tuning of some kernel variables.'))->
 			set_description('')->
 			set_defaultvalue(false)->
 			filter_use_default()->

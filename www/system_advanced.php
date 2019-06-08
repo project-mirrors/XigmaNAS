@@ -36,85 +36,12 @@ require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 require_once 'properties_system_advanced.php';
 
-function sysctl_tune($mode) {
-	global $config;
-
-	$a_sysctlvar = &array_make_branch($config,'system','sysctl','param');
-	if(empty($a_sysctlvar)):
-	else:
-		array_sort_key($a_sysctlvar,'name');
-	endif;
-	$a_mib = [
-		'kern.maxvnodes' => 3339551,
-		'kern.maxfiles' =>  65536,
-		'kern.ipc.nmbclusters' =>  12255534,
-		'kern.ipc.nmbjumbop' =>  6127766,
-		'kern.ipc.nmbjumbo9' =>  5446902,
-		'kern.ipc.nmbjumbo16' =>  4085176,
-		'kern.ipc.maxsockets' =>  1035072,
-		'kern.ipc.maxsockbuf' =>  2097152,
-		'kern.ipc.somaxconn' =>  2048,
-		'net.inet.tcp.sendbuf_auto' =>  1,
-		'net.inet.tcp.recvbuf_auto' =>  1,
-		'net.inet.tcp.sendspace' =>  32768,
-		'net.inet.tcp.recvspace' =>  65536,
-		'net.inet.tcp.sendbuf_max' =>  2097152,
-		'net.inet.tcp.recvbuf_max' =>  2097152,
-		'net.inet.tcp.sendbuf_inc' =>  8192,
-		'net.inet.tcp.recvbuf_inc' =>  16384,
-		'net.inet.tcp.tcbhashsize' =>  2097152,
-		'net.inet.ip.intr_queue_maxlen' =>  256,
-		'net.route.netisr_maxqlen' =>  256,
-		'hw.igb.max_interrupt_rate' =>  8000,
-		'hw.ix.max_interrupt_rate' =>  31250,
-		'hw.igb.rxd' =>  1024,
-		'hw.igb.txd' =>  1024,
-		'hw.ix.txd' =>  2048,
-		'hw.ix.rxd' =>  2048,
-		'hw.igb.num_queues' =>  0,
-		'hw.ix.num_queues' =>  8,
-		'net.inet.tcp.delayed_ack' => 1,
-		'net.inet.tcp.rfc1323' => 1,
-		'net.inet.udp.recvspace' => 65536,
-		'net.inet.udp.maxdgram' => 57344,
-		'net.local.stream.recvspace' => 65536,
-		'net.local.stream.sendspace' => 65536,
-		'net.inet.icmp.icmplim' => 300,
-		'net.inet.icmp.icmplim_output' => 1,
-		'net.inet.tcp.path_mtu_discovery' => 0,
-		'hw.intr_storm_threshold' => 9000,
-	];
-	switch($mode):
-		case 0: // Remove system tune MIB's.
-			foreach($a_mib as $name => $value):
-				$id = array_search_ex($name,$a_sysctlvar,'name');
-				if(false !== $id):
-					unset($a_sysctlvar[$id]);
-				endif;
-			endforeach;
-			break;
-		case 1: // Add system tune MIB's.
-			foreach($a_mib as $name => $value):
-				$id = array_search_ex($name,$a_sysctlvar,'name');
-				if(false === $id):
-					$param = [];
-					$param['uuid'] = uuid();
-					$param['name'] = $name;
-					$param['value'] = $value;
-					$param['comment'] = gtext('System tuning');
-					$param['enable'] = true;
-					$a_sysctlvar[] = $param;
-				endif;
-			endforeach;
-			break;
-	endswitch;
-}
 function get_sysctl_kern_vty() {
 	return trim(`/sbin/sysctl -n kern.vty`);
 }
 function get_sphere_system_advanced() {
 	global $config;
-	
+
 	$sphere = new co_sphere_settings('system_advanced','php');
 	$sphere->grid = &array_make_branch($config,'system');
 	return $sphere;
@@ -137,7 +64,6 @@ $pconfig['enabletogglemode'] = isset($config['system']['enabletogglemode']);
 $pconfig['nonsidisksizevalues'] = isset($config['system']['nonsidisksizevalues']);
 $pconfig['skipviewmode'] = isset($config['system']['skipviewmode']);
 $pconfig['disableextensionmenu'] = isset($config['system']['disableextensionmenu']);
-$pconfig['tune_enable'] = isset($config['system']['tune']);
 $pconfig['zeroconf'] = isset($config['system']['zeroconf']);
 $pconfig['powerd'] = isset($config['system']['powerd']);
 $pconfig['pwmode'] = $config['system']['pwmode'];
@@ -177,18 +103,6 @@ if($_POST):
 		do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 	endif;
 	if(empty($input_errors)):
-		// Process system tuning.
-		if($_POST['tune_enable']):
-			sysctl_tune(1);
-		elseif(isset($config['system']['tune']) && (!$_POST['tune_enable'])):
-			// Simply force a reboot to reset to default values.
-			// This makes programming easy :-) Also we are sure that
-			// system will use origin values (maybe default values
-			// change from one FreeBSD release to the next. This will
-			// reduce maintenance).
-			sysctl_tune(0);
-			touch($d_sysrebootreqd_path);
-		endif;
 		$bootconfig="boot.config";
 		if(!isset($_POST['enableserialconsole'])):
 			if(file_exists("/$bootconfig")):
@@ -249,7 +163,6 @@ if($_POST):
 			touch($d_sysrebootreqd_path);
 		endif;
 		$config['system']['microcode_update'] = $helpinghand;
-		$config['system']['tune'] = $cop->get_tune_enable()->validate_input();
 		$config['system']['zeroconf'] = $cop->get_zeroconf()->validate_input();
 		$config['system']['powerd'] = $cop->get_powerd()->validate_input();
 		$config['system']['pwmode'] = $cop->get_pwmode()->validate_input() ?? $cop->get_pwmode()->get_defaultvalue();
@@ -293,9 +206,6 @@ if($_POST):
 			$retval |= rc_update_service('powerd');
 			$retval |= rc_update_service('mdnsresponder');
 			$retval |= rc_exec_service('motd');
-			if(isset($config['system']['tune'])):
-				$retval |= rc_update_service('sysctl');
-			endif;
 			$retval |= rc_update_service('syscons');
 			$retval |= rc_update_service('fmperm');
 			config_unlock();
@@ -436,7 +346,6 @@ $document->render();
 			$node = new co_DOMDocument();
 			$node->c2_checkbox($cop->get_disablebeep(),!empty($pconfig['disablebeep']));
 			$node->c2_checkbox($cop->get_microcode_update(),!empty($pconfig['microcode_update']));
-			$node->c2_checkbox($cop->get_tune_enable(),!empty($pconfig['tune_enable']));
 			$node->c2_checkbox($cop->get_powerd(),!empty($pconfig['powerd']));
 			$node->c2_radio_grid($cop->get_pwmode(),$pconfig['pwmode']);
 			$node->render();
