@@ -761,7 +761,7 @@ full_upgrade() {
 		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
 
 		if [ "${MBRPART}" = 1 ]; then
-			if ! grep -qw "${BOOTPOOL}" /usr/local/sbin/beadm; then
+			if ! grep -qw '${BOOTPOOL}' /usr/local/sbin/beadm; then
 				# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
 				# this is due a known bug in the beadm utility prior to version 1.3.0.
 				zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
