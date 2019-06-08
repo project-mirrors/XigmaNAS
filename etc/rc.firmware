@@ -501,16 +501,6 @@ backup_sys_files() {
 	# Keep a copy of the previous kernel on each upgrade.
 	if [ -d "${BOOTPATH}/boot/kernel" ]; then
 		if [ "${MBRPART}" = 1 ]; then
-
-			# Backup required files for geli on mbr installs,
-			# as well as for any custom geli files if any.
-			cd ${BOOTPATH}/boot
-			for FILE in *.eli *.key
-			do
-				cp -p ${FILE} ${SYSBACKUP}/
-			done
-			cd
-
 			# Keep a copy of the previous kernel and append the date on mbr installs.
 			KDATE=$(date +%Y-%m-%d-%H%M)
 			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old.${KDATE}
@@ -536,15 +526,6 @@ restore_sys_files() {
 	if [ -f "${SYSBACKUP}/rc.conf" ]; then
 		cp -pf ${SYSBACKUP}/rc.conf ${BEPATH}/etc/
 	fi
-
-	# Restore required files for geli on mbr installs,
-	# as well as for any custom geli files if any.
-	cd ${SYSBACKUP}
-	for FILE in *.eli *.key
-	do
-		cp -p ${FILE} ${BOOTPATH}/boot/
-	done
-	cd
 }
 
 upgrade_menuforth()
@@ -709,33 +690,52 @@ full_upgrade() {
 	else
 		# Restore system configuration.
 		restore_sys_files
-
-		# Include latest loader menu files.
-		upgrade_menuforth
-
-		# Post upgrade config checkings.
-		post_upgrade_config
-
 		if [ 0 != $? ]; then
-			msg="ERROR: Failed restoring/updating configuration."
+			msg="ERROR: Failed to restore configuration."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			disable_bootenv
 			disable_upgrade
 			exit 1
 		fi
+
+		# Include latest loader menu files.
+		upgrade_menuforth
+		if [ 0 != ${RESULT} ]; then
+			msg="ERROR: Failed to upgrade menu boot module."
+			/usr/bin/logger -p console.err "UPGRADE ${msg}"
+			disable_bootenv
+			disable_upgrade
+			exit 1
+		fi
+
+		# Post upgrade config checkings.
+		post_upgrade_config
+		if [ 0 != $? ]; then
+			msg="ERROR: Failed post upgrade configuration."
+			/usr/bin/logger -p console.err "UPGRADE ${msg}"
+			disable_bootenv
+			disable_upgrade
+			exit 1
+		fi
+
 		# Unmount and activate the new boot environment.
 		msg="Unmount and activate new boot environment..."
 		/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
 
 		if [ "${MBRPART}" = 1 ]; then
-			# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
-			# this is due a known bug and/or limitation in the beadm utility.
-			zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
+			if ! grep -qw "{BOOTPOOL}" /usr/local/sbin/beadm; then
+				# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
+				# this is due a known bug in the beadm utility prior to version 1.3.0.
+				zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
 
-			# Update current loader.conf on ZFS/MBR since bootpool is shared across boot environments by default.
-			/usr/bin/sed -i '' -E 's|vfs.root.mountfrom="zfs:'${ROOTFS}'"|vfs.root.mountfrom="zfs:'${ZROOT}${DATASET}/${BENAME}-${DATE}'"|g' \
-			/${BOOTPOOL}/boot/loader.conf
+				# Update current loader.conf on ZFS/MBR since bootpool is shared across boot environments by default.
+				/usr/bin/sed -i '' -E 's|vfs.root.mountfrom="zfs:'${ROOTFS}'"|vfs.root.mountfrom="zfs:'${ZROOT}${DATASET}/${BENAME}-${DATE}'"|g' \
+				/${BOOTPOOL}/boot/loader.conf
+			else
+				# Use the beadm utility by default.
+				/usr/local/sbin/beadm activate ${BENAME}-${DATE}
+			fi
 		else
 			/usr/local/sbin/beadm activate ${BENAME}-${DATE}
 		fi
@@ -753,6 +753,7 @@ full_upgrade() {
 
 	# Cleanup and sync.
 	rm -Rf ${BEPATH}
+	rm -Rf ${SYSBACKUP}
 	rm -Rf /tmp/BE-${BENAME}-${DATE}.*
 	sync; sleep 2
 
@@ -771,6 +772,8 @@ full_upgrade() {
 		/usr/bin/logger -p console.info "${msg}"
 		/sbin/shutdown -r now > /dev/null 2>&1
 	else
+		msg="System upgraded failed."
+		/usr/bin/logger -p console.err "${msg}"
 		exit 1
 	fi
 }
