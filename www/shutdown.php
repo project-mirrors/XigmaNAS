@@ -48,19 +48,34 @@ $sphere = &shutdown_sphere();
 $rmo = new co_request_method();
 $rmo->add('POST','save',PAGE_MODE_POST);
 $rmo->add('POST','cancel',PAGE_MODE_POST);
+$rmo->add('SESSION',$sphere->get_scriptname(),PAGE_MODE_VIEW);
 $rmo->set_default('GET','view',PAGE_MODE_VIEW);
 list($page_method,$page_action,$page_mode) = $rmo->validate();
 switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_scriptname():
+				$retval = filter_var($_SESSION[$sphere->get_scriptname()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_scriptname()]);
+				if($retval !== 0):
+					$cmd_perform_action = true;
+					if(file_exists($d_sysrebootreqd_path)):
+						unlink($d_sysrebootreqd_path);
+					endif;
+				endif;
+				break;
+		endswitch;
+		break;
 	case 'POST':
 		switch($page_action):
 			case 'cancel': // cancel - nothing to do
 				header($sphere->get_parent()->get_location());
 				exit;
 			case 'save': // shutdown
-				$cmd_perform_action = true;
-				if(file_exists($d_sysrebootreqd_path)):
-					unlink($d_sysrebootreqd_path);
-				endif;
+				$_SESSION['submit'] = $sphere->get_scriptname();
+				$_SESSION[$sphere->get_scriptname()] = '1';
+				header($sphere->get_location());
+				exit;
 				break;
 		endswitch;
 		break;
