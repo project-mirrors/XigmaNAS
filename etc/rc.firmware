@@ -38,6 +38,7 @@ DATASET="/ROOT"
 BOOTPOOL="bootpool"
 BENAME="upgrade"
 BEPATH="/var/tmp/be_upgrade"
+DIRNOSCHG="bin lib libexec sbin usr"
 
 enable_upgrade() {
 	program="FW_Enable"
@@ -467,8 +468,8 @@ embedded_upgrade() {
 	fi
 }
 
-set_boot_path()
-{
+set_boot_path() {
+	# Set the proper boot path for zfs/mbr.
 	BOOTPATH=${BEPATH}
 	MBRPART=0
 	if [ -L '/boot' ] && [ -d '/boot' ]; then
@@ -478,6 +479,46 @@ set_boot_path()
         	BOOTPATH=/${BOOTPOOL}
 			MBRPART=1
     	fi
+	fi
+}
+
+backup_chflags() {
+	# Dump chflag from common directories to files.
+	cd ${BEPATH}
+ 	for FILES in ${DIRNOSCHG}; do
+ 		/usr/sbin/mtree -q -P -c -p ${FILES} | /usr/bin/gzip > ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz
+ 	done
+	if [ 0 != $? ]; then
+		msg="ERROR: Failed to backup chflags."
+		/usr/bin/logger -p console.err "UPGRADE ${msg}"
+		exit 1
+	fi
+}
+
+remove_chflags() {
+	# Remove chflag from common directories.
+	cd ${BEPATH}
+ 	for FILES in ${DIRNOSCHG}; do
+ 		/bin/chflags -R noschg ${FILES}
+ 		/bin/chmod -R u+rw ${FILES}
+ 	done
+	if [ 0 != $? ]; then
+		msg="ERROR: Failed to remove chflags."
+		/usr/bin/logger -p console.err "UPGRADE ${msg}"
+		exit 1
+	fi
+}
+
+restore_chflags() {
+	# Restore chflag from previous files.
+	cd ${BEPATH}
+ 	for FILES in ${DIRNOSCHG}; do
+		/usr/bin/zcat ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz | /usr/sbin/mtree -q -P -U -p /${FILES}
+ 	done
+	if [ 0 != $? ]; then
+		msg="ERROR: Failed to restore chflags."
+		/usr/bin/logger -p console.err "UPGRADE ${msg}"
+		exit 1
 	fi
 }
 
@@ -528,8 +569,7 @@ restore_sys_files() {
 	fi
 }
 
-post_upgrade_config()
-{
+post_upgrade_config() {
 	# Check if zfs_enable is set to yes to automount our datasets on boot.
 	if [ -f "${BEPATH}/etc/rc.conf.local" ]; then
 		if ! sysrc -f ${BEPATH}/etc/rc.conf.local -qc zfs_enable="YES"; then
@@ -542,8 +582,7 @@ post_upgrade_config()
 	fi
 }
 
-disable_bootenv()
-{
+disable_bootenv() {
 	# Unmount/destroy boot environment if upgrade failed.
 	/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
 	/usr/local/sbin/beadm destroy -F ${BENAME}-${DATE}
@@ -551,11 +590,11 @@ disable_bootenv()
 
 full_upgrade() {
 	# Ensure the system is configured for boot environments.
-	if ! echo ${ROOTFS} | grep -qw "${ZROOT}/ROOT"; then
+	if ! echo ${ROOTFS} | /usr/bin/grep -qw "${ZROOT}/ROOT"; then
 		msg="ERROR: This system does not boot from ZFS pool."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
 		exit 1
-	elif ! zpool list -H -o bootfs | grep -qw "${ZROOT}/ROOT"; then
+	elif ! zpool list -H -o bootfs | /usr/bin/grep -qw "${ZROOT}/ROOT"; then
 		msg="ERROR: This system is not configured for boot environments."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
 		exit 1
@@ -609,21 +648,18 @@ full_upgrade() {
 		exit 1
 	fi
 
-	# Remove chflags for protected files before upgrade process.
-	# This list may be updated in future.
-	FILELIST="${BEPATH}/usr/lib/librt.so.1"
-	for file in ${FILELIST}; do
-		if [ -f "${file}" ]; then
-			/bin/chflags 0 ${file}
-		fi
-	done
-
 	# Start upgrade script to remove obsolete files. This should be done
 	# before system is updated because it may happen that some files
 	# may be reintroduced in the system.
 	msg="Remove obsolete files..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 	${BEPATH}/etc/install/upgrade.sh clean ${BEPATH}
+
+	# Backup chflags before removal.
+	backup_chflags
+
+	# Remove chflags for protected files before upgrade process.
+	remove_chflags
 
 	# Install system files and discard unwanted folders/files.
 	msg="Upgrading system on new boot environment..."
@@ -639,7 +675,7 @@ full_upgrade() {
 		/usr/bin/tar --keep-newer-files -v -x -U -P -f ${ARG} -C /${BOOTPOOL} boot > /dev/null 2>&1
 		RESULT=$?
 		if [ 0 != ${RESULT} ]; then
-			msg="ERROR: Failed to upgrade ${BOOTPOOL}."
+			msg="ERROR: Failed file extraction for ${BOOTPOOL}."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			disable_bootenv
 			disable_upgrade
@@ -654,7 +690,7 @@ full_upgrade() {
 	/usr/bin/tar ${EXCLUDED} --keep-newer-files -v -x -U -P -f ${ARG} -C ${BEPATH} > /dev/null 2>&1
 	RESULT=$?
 	if [ 0 != ${RESULT} ]; then
-		msg="ERROR: Failed to upgrade system."
+		msg="ERROR: Failed file extraction for ${ZROOT}."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
 		disable_bootenv
 		disable_upgrade
@@ -669,6 +705,9 @@ full_upgrade() {
 			disable_upgrade
 			exit 1
 		fi
+
+		# Restore chflags after files extraction.
+		restore_chflags
 
 		# Post upgrade config checkings.
 		post_upgrade_config
@@ -686,7 +725,7 @@ full_upgrade() {
 		/usr/local/sbin/beadm unmount -f ${BENAME}-${DATE}
 
 		if [ "${MBRPART}" = 1 ]; then
-			if ! grep -qw "{BOOTPOOL}" /usr/local/sbin/beadm; then
+			if ! /usr/bin/grep -qw "${BOOTPOOL}" /usr/local/sbin/beadm; then
 				# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
 				# this is due a known bug and/or limitation in the beadm utility.
 				zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
@@ -734,7 +773,7 @@ full_upgrade() {
 		/usr/bin/logger -p console.info "${msg}"
 		/sbin/shutdown -r now > /dev/null 2>&1
 	else
-		msg="System upgraded failed."
+		msg="System upgrade failed."
 		/usr/bin/logger -p console.err "${msg}"
 		exit 1
 	fi
