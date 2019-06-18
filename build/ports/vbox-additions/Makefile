@@ -2,7 +2,7 @@ PORTNAME=		xigmanas-virtualbox-ose-additions
 PORTVERSION=	1.0
 #PORTREVISION=	1
 CATEGORIES=		emulators
-MAINTAINER=		aoyama@peach.ne.jp
+MAINTAINER=		zoon01@xigmanas.com
 COMMENT=		VirtualBox additions for FreeBSD guests
 
 DISTFILES=
