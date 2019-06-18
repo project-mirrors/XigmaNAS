@@ -34,6 +34,7 @@ Changes:
 - Upgrade syncthing to 1.1.4.
 - Upgrade devcpu-data to 1.22.
 - Upgrade nano to 4.3.
+- Upgrade bsnmp-ucd to 0.4.3.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
