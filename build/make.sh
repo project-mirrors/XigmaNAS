@@ -434,6 +434,15 @@ add_libs() {
 	return 0
 }
 
+#	Create checksum file
+create_checksum_file() {
+	echo "Generating SHA512 CHECKSUM File"
+	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
+	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.tgz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+
+	return 0
+}
+
 #	Creating mdlocal-mini
 create_mdlocal_mini() {
 	echo "--------------------------------------------------------------"
@@ -516,6 +525,7 @@ create_mdlocal_mini() {
 #	Detach memory disk
 	mdconfig -d -u ${md}
 
+	echo "Compressing mdlocal-mini"
 	xz -${XIGMANAS_COMPLEVEL}v $XIGMANAS_WORKINGDIR/mdlocal-mini
 
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files
@@ -559,6 +569,9 @@ create_mfsroot() {
 	cd $XIGMANAS_TMPDIR
 	tar -cf - -C $XIGMANAS_ROOTFS ./ | tar -xvpf -
 
+	echo "Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
+
 	cd $XIGMANAS_WORKINGDIR
 #	Umount memory disk
 	umount $XIGMANAS_TMPDIR/usr/local
@@ -569,7 +582,9 @@ create_mfsroot() {
 
 #	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 #	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
+	echo "Compressing mfsroot"
 	gzip -9kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	echo "Compressing mdlocal"
 	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	create_mdlocal_mini;
@@ -709,7 +724,7 @@ create_image() {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
+#	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
@@ -761,8 +776,8 @@ create_image() {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
-#	Create linker.hints
-	kldxref -R ${XIGMANAS_TMPDIR}/boot
+	echo "===> Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	echo "===> Unmount memory disk"
 	umount $XIGMANAS_TMPDIR
@@ -864,7 +879,7 @@ create_iso () {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
+#	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
@@ -916,8 +931,8 @@ create_iso () {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
-#	Create linker.hints
-	kldxref -R ${XIGMANAS_TMPDIR}/boot
+	echo "ISO: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	if [ ! $TINY_ISO ]; then
 		echo "ISO: Copying IMG file to $XIGMANAS_TMPDIR"
@@ -934,9 +949,7 @@ create_iso () {
 	fi
 	[ 0 != $? ] && return 1 # successful?
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -956,11 +969,14 @@ create_iso_tiny() {
 	TINY_ISO=1
 	create_iso;
 	unset TINY_ISO
+
 	return 0
 }
 
 create_embedded() {
+	echo "Embedded: Start generating the $XIGMANAS_PRODUCTNAME Image file"
 	create_image;
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -972,6 +988,9 @@ create_embedded() {
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz
 	[ -f $XIGMANAS_WORKINGDIR/image.bin.xz ] && rm -f $XIGMANAS_WORKINGDIR/image.bin.xz
+	echo "Embedded: Finished generating the $XIGMANAS_PRODUCTNAME Image file"
+
+	return 0
 }
 
 create_usb () {
@@ -1136,7 +1155,7 @@ create_usb () {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
+#	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
@@ -1188,8 +1207,8 @@ create_usb () {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
-#	Create linker.hints
-	kldxref -R ${XIGMANAS_TMPDIR}/boot
+	echo "USB: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	echo "USB: Copying IMG file to $XIGMANAS_TMPDIR"
 	cp ${XIGMANAS_WORKINGDIR}/image.bin.xz ${XIGMANAS_TMPDIR}/${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded.xz
@@ -1202,9 +1221,7 @@ create_usb () {
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
 	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -1361,7 +1378,7 @@ create_usb_gpt() {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
+#	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
@@ -1413,8 +1430,8 @@ create_usb_gpt() {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
-#	Create linker.hints
-	kldxref -R ${XIGMANAS_TMPDIR}/boot
+	echo "USB: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	echo "USB: Copying IMG file to $XIGMANAS_TMPDIR"
 	cp ${XIGMANAS_WORKINGDIR}/image.bin.xz ${XIGMANAS_TMPDIR}/${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded.xz
@@ -1427,9 +1444,7 @@ create_usb_gpt() {
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
 	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -1495,7 +1510,7 @@ create_full() {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
+#	cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
@@ -1563,8 +1578,8 @@ create_full() {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
-#	Create linker.hints
-	kldxref -R ${XIGMANAS_TMPDIR}/boot
+	echo "FULL: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 #	Check that there is no /etc/fstab file! This file can be generated only during install, and must be kept
 	[ -f $XIGMANAS_TMPDIR/etc/fstab ] && rm -f $XIGMANAS_TMPDIR/etc/fstab
@@ -1583,9 +1598,7 @@ create_full() {
 	fi
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.tgz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 	return 0
 }
