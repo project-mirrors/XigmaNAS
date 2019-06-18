@@ -24,7 +24,7 @@ ARCH_DIR=	freebsd.x86
 .endif
 
 do-install:
-	@${INSTALL_DATA} -v ${BLDSRC}/out/${ARCH_DIR}/release/bin/additions/src/vboxguest.ko ${XIGMANAS_ROOTFS}/boot/modules
+	@${INSTALL_KLD} -v ${BLDSRC}/out/${ARCH_DIR}/release/bin/additions/src/vboxguest.ko ${XIGMANAS_ROOTFS}/boot/modules
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/out/${ARCH_DIR}/release/bin/additions/VBoxControl ${XIGMANAS_ROOTFS}/${PREFIX}/sbin
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/out/${ARCH_DIR}/release/bin/additions/VBoxService ${XIGMANAS_ROOTFS}/${PREFIX}/sbin
 
