@@ -188,7 +188,7 @@ class grid_properties extends myp\container {
 		$property = $this->x_disablesubtitles = new myp\property_bool();
 		$property->
 			set_name('disablesubtitles')->
-			set_title(gtext('Disable Subtitles'));
+			set_title(gettext('Disable Subtitles'));
 		return $property;
 	}
 	final public function get_disablesubtitles(): myp\property_bool {
