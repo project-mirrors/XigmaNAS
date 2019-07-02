@@ -214,7 +214,7 @@ function tblrow($name,$value,$symbol = null,$id = null) {
 		$value = sprintf('%d',$value);
 	endif;
 	if($symbol == 'pre'):
-		$value = '<pre>'.$value;
+		$value = '<pre class="cmdoutput">' . $value;
 		$symbol = '</pre>';
 	endif;
 	print(<<<EOD
@@ -242,7 +242,10 @@ function tblrowbar($id,$name,$value) {
 	<td>
 		<div id='ups_status'>
 			<span name='ups_status_name' id='ups_status_{$id}_name' class='name'><b>{$name}</b></span><br />
-			<img src="images/bar_left.gif" class="progbarl" alt="" /><img src="images/bar_blue.gif" name="ups_status_bar_used" id="ups_status_{$id}_bar_used" width="{$value}" class="progbarcf" title="{$tooltip_used}" alt="" /><img src="images/bar_gray.gif" name="ups_status_bar_free" id="ups_status_{$id}_bar_free" width="{$available}" class="progbarc" title="{$tooltip_available}" alt="" /><img src="images/bar_right.gif" class="progbarr" alt="" />
+			<img src="images/bar_left.gif" class="progbarl" alt="" />
+			<img src="images/bar_blue.gif" name="ups_status_bar_used" id="ups_status_{$id}_bar_used" width="{$value}" class="progbarcf" title="{$tooltip_used}" alt="" />
+			<img src="images/bar_gray.gif" name="ups_status_bar_free" id="ups_status_{$id}_bar_free" width="{$available}" class="progbarc" title="{$tooltip_available}" alt="" />
+			<img src="images/bar_right.gif" class="progbarr" alt="" />
 			{$span_used}
 		</div>
 	</td>
@@ -747,85 +750,67 @@ $(document).ready(function(){
 						</table>
 					</td>
 				</tr>
-				<tr>
-					<td class="celltag"><?=gtext("UPS Status")." ".$config["ups"]["upsname"];?></td>
-					<td class="celldata">
-						<table width="100%" border="0" cellspacing="0" cellpadding="2">
 <?php
-							if(!isset($config['ups']['enable'])):
+				if(isset($config['ups']['enable'])):
 ?>
-								<tr>
-									<td>
-										<input style="padding:0;border:0;background-color:transparent" readonly="readonly" name="upsstatus" id="upsstatus" value="<?=gtext("UPS disabled");?>" />
-									</td>
-								</tr>
+					<tr>
+						<td class="celltag"><?=gtext('UPS Status') . ' ' . $config['ups']['upsname'];?></td>
+						<td class="celldata">
+							<table width="100%" border="0" cellspacing="0" cellpadding="2">
 <?php
-							else:
 								$cmd = "/usr/local/bin/upsc {$config['ups']['upsname']}@{$config['ups']['ip']}";
-								$handle = popen($cmd, 'r');
+								$handle = popen($cmd,'r');
 								if($handle):
-									$read = fread($handle, 4096);
+									$read = fread($handle,4096);
 									pclose($handle);
-									$lines = explode("\n", $read);
+									$lines = explode("\n",$read);
 									$ups = [];
 									foreach($lines as $line):
-										$line = explode(':', $line);
+										$line = explode(':',$line);
 										$ups[$line[0]] = trim($line[1]);
 									endforeach;
 									if(count($lines) == 1):
-										tblrow('ERROR:', 'Data stale!');
+										tblrow('ERROR:','Data stale!');
 									endif;
 									$disp_status = get_ups_disp_status($ups['ups.status']);
-									tblrow(gtext('Status'), '<span id="ups_status_disp_status">'.$disp_status."</span>". "  <small>[<a href='diag_infos_ups.php'>" . gtext("Show UPS Information")."</a></small>]");
-									tblrowbar("load", gtext('Load'), $ups['ups.load'], '%', '100-80', '79-60', '59-0');
-									tblrowbar("battery", gtext('Battery Level'), $ups['battery.charge'], '%', '0-29' ,'30-79', '80-100');
+									tblrow(gtext('Status'),'<span id="ups_status_disp_status">' . $disp_status . "</span>" . "  <small>[<a href='diag_infos_ups.php'>" . gtext('Show UPS Information') . "</a></small>]");
+									tblrowbar('load',gtext('Load'),$ups['ups.load'],'%','100-80','79-60','59-0');
+									tblrowbar('battery',gtext('Battery Level'),$ups['battery.charge'],'%','0-29','30-79','80-100');
 								endif;
-								unset($handle);
-								unset($read);
-								unset($lines);
-								unset($status);
-								unset($disp_status);
-								unset($ups);
-								unset($cmd);
-							endif;
+								unset($handle,$read,$lines,$status,$disp_status,$ups,$cmd);
 ?>
-						</table>
-					</td>
-				</tr>
+							</table>
+						</td>
+					</tr>
 <?php
+				endif;
 				if(isset($config['ups']['enable']) && isset($config['ups']['ups2'])):
 ?>
 					<tr>
-						<td class="celltag"><?=gtext("UPS Status")." ".$config["ups"]["ups2_upsname"];?></td>
+						<td class="celltag"><?=gtext('UPS Status') . ' ' . $config["ups"]["ups2_upsname"];?></td>
 						<td class="celldata">
 							<table width="100%" border="0" cellspacing="0" cellpadding="2">
 <?php
 								$cmd = "/usr/local/bin/upsc {$config['ups']['ups2_upsname']}@{$config['ups']['ip']}";
-								$handle = popen($cmd, 'r');
+								$handle = popen($cmd,'r');
 								if($handle):
-									$read = fread($handle, 4096);
+									$read = fread($handle,4096);
 									pclose($handle);
-									$lines = explode("\n", $read);
+									$lines = explode("\n",$read);
 									$ups = [];
 									foreach($lines as $line):
-										$line = explode(':', $line);
+										$line = explode(':',$line);
 										$ups[$line[0]] = trim($line[1]);
 									endforeach;
 									if(count($lines) == 1):
-										tblrow('ERROR:', 'Data stale!');
+										tblrow('ERROR:','Data stale!');
 									endif;
 									$disp_status = get_ups_disp_status($ups['ups.status']);
-									tblrow(gtext('Status'), '<span id="ups_status_disp_status2">'.$disp_status."</span>". "  <small>[<a href='diag_infos_ups.php'>" . gtext("Show UPS Information")."</a></small>]");
-									tblrowbar("load2", gtext('Load'), $ups['ups.load'], '%', '100-80', '79-60', '59-0');
-									tblrowbar("battery2", gtext('Battery Level'), $ups['battery.charge'], '%', '0-29' ,'30-79', '80-100');
+									tblrow(gtext('Status'),'<span id="ups_status_disp_status2">' . $disp_status . "</span>" . "  <small>[<a href='diag_infos_ups.php'>" . gtext('Show UPS Information') . "</a></small>]");
+									tblrowbar('load2',gtext('Load'),$ups['ups.load'],'%','100-80','79-60','59-0');
+									tblrowbar('battery2',gtext('Battery Level'),$ups['battery.charge'],'%','0-29','30-79','80-100');
 								endif;
-								unset($handle);
-								unset($read);
-								unset($lines);
-								unset($status);
-								unset($disp_status);
-								unset($ups);
-								unset($cmd);
+								unset($handle,$read,$lines,$status,$disp_status,$ups,$cmd);
 ?>
 							</table>
 						</td>
