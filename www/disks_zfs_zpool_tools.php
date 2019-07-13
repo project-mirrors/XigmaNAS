@@ -96,7 +96,7 @@ foreach($a_geom_available_provider as $potential_device):
 		//	skip reserved devices
 		//	search provider id with name of reserved device
 		//	get geom id from geom ref
-		//	get consumer id -> provider ref from geom id	
+		//	get consumer id -> provider ref from geom id
 	elseif(0 === ($potential_device['mediasize'] ?? 0)):
 		//	skip read-only devices
 	else:
@@ -118,7 +118,7 @@ $b_online_data = $b_test || ($b_pool && (0 < count($a_pool_for_online_data)));
 $b_remove_cache = $b_test || ($b_pool && (0 < count($a_pool_for_remove_cache)));
 $b_remove_log = $b_test || ($b_pool && (0 < count($a_pool_for_remove_log)));
 $b_remove_spare = $b_test || ($b_pool && (0 < count($a_pool_for_remove_spare)));
-$b_replace_data = $b_test || ($b_pool && (0 < count($a_pool_for_replace_data))); // (0 < count($a_newdev)) && 
+$b_replace_data = $b_test || ($b_pool && (0 < count($a_pool_for_replace_data))); // (0 < count($a_newdev)) &&
 $l_command = [
 	'add.data' => ['name' => 'activity','value' => 'add.data','show' => $b_add_data,'default' => false,'longname' => gettext('Add a virtual device to a pool')],
 	'add.cache' => ['name' => 'activity','value' => 'add.cache','show' => $b_add_cache,'default' => false,'longname' => gettext('Add a cache device to a pool')],
@@ -146,12 +146,15 @@ $l_command = [
 	'remove.spare' => ['name' => 'activity','value' => 'remove.spare','show' => $b_remove_spare,'default' => false,'longname' => gettext('Remove a spare device from a pool')],
 //	'reopen' => ['name' => 'activity','value' => 'reopen','show' => $b_pool && false,'default' => false,'longname' => gettext('Reopen all virtual devices of a pool')],
 	'replace' => ['name' => 'activity','value' => 'replace','show' => $b_replace_data,'default' => false,'longname' => gettext('Replace a device')],
-	'scrub' => ['name' => 'activity','value' => 'scrub','show' => $b_pool,'default' => false,'longname' => gettext('Scrub a pool')],
+	'scrub' => ['name' => 'activity','value' => 'scrub','show' => $b_pool,'default' => false,'longname' => gettext('Scrub a pool')]
 //	'set' => ['name' => 'activity','value' => 'set','show' => $b_pool && false,'default' => false,'longname' => gettext('Set property of a pool')],
 //	'split' => ['name' => 'activity','value' => 'split','show' => $b_pool && false,'default' => false,'longname' => gettext('Split off a device from mirrored virtual devices')],
 //	'status' => ['name' => 'activity','value' => 'status','show' => true && false,'default' => false,'longname' => gettext('Displays the health status of a pool')],
-	'upgrade' => ['name' => 'activity','value' => 'upgrade','show' => $b_pool,'default' => false,'longname' => gettext('Upgrade ZFS and add all supported feature flags on a pool')]
 ];
+//	Don't show upgrade option when running FreeBSD 11.3. It has feature flag spacemap_v2 which is not compatible with 11.2 and 12.0
+if(1 !== preg_match('/^11\.3/',get_product_version())):
+	$l_command['upgrade'] = ['name' => 'activity','value' => 'upgrade','show' => $b_pool,'default' => false,'longname' => gettext('Upgrade ZFS and add all supported feature flags on a pool')];
+endif;
 $lcommand = array_sort_key($l_command,'longname');
 $l_option = [
 	'all' => ['name' => 'option','value' => 'all','show' => true,'default' => false,'longname' => gettext('All')],
@@ -990,7 +993,7 @@ $document->render();
 					break;
 				case 'import':
 					$subcommand = 'import';
-					$o_flags = new co_zpool_flags(['force','sfaiapf','gptlabel','gptid'],$sphere_array['flag']);
+					$o_flags = new co_zpool_flags(['sfaiapf','force','gptlabel','import.autoexpand','import.readonly','gptid'],$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2: // import page: get flags
 							render_set_start();
@@ -1491,7 +1494,7 @@ $document->render();
 						switch($sphere_array['pageindex']):
 							case 2: // scrub page 2: select option and pool
 								$ll_option = [];
-								$ll_option['start'] = $l_option['start']; 
+								$ll_option['start'] = $l_option['start'];
 								$ll_option['stop'] = $l_option['stop'];
 								$ll_option['start']['default'] = true;
 								render_set_start();
