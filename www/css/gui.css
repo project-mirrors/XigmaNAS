@@ -646,15 +646,6 @@ a
 	padding-bottom: 0.45em;
 }
 
-.listcontent
-{
-	padding: 0;
-	border: 0;
-	background-color: #EEEEEE;
-	font-family: 'Courier New', Courier, monospace;
-	font-size: 1.09em;
-}
-
 .optsect_t
 {
 	background-image: url("/images/listtopic_bg.png");
