@@ -297,7 +297,7 @@ $(window).on("load", function() {
 	$("#ntp_enable_tr").click(function () {
 		ntp_change();
 	});
-}); 
+});
 function ntp_change() {
 	switch(document.iform.ntp_enable.checked) {
 		case false:
@@ -347,7 +347,7 @@ function webguiproto_change() {
 			<col class="area_data_settings_col_data">
 		</colgroup>
 		<thead>
-<?php 
+<?php
 			html_titleline2(gettext('WebGUI'));
 ?>
 		</thead>
@@ -363,7 +363,11 @@ function webguiproto_change() {
 			html_textarea2('certificate',gettext('Certificate'),$pconfig['certificate'],gettext('Paste a signed certificate in X.509 PEM format here.'),true,65,7,false,false);
 			html_textarea2('privatekey',gettext('Private Key'),$pconfig['privatekey'],gettext('Paste a private key in PEM format here.'),true,65,7,false,false);
 			html_languagecombobox2('language',gettext('Language'),$pconfig['language'],gettext('Select the language of the WebGUI.'),'',false);
-			$helpinghand = '<a href="http://redmine.lighttpd.net/projects/lighttpd/wiki" target="_blank">'
+			$helpinghand = '<a'
+				. ' href="http://redmine.lighttpd.net/projects/lighttpd/wiki"'
+				. ' target="_blank"'
+				. ' rel="noreferrer"'
+				. '>'
 				. gettext('Please check the documentation')
 				. '</a>.';
 			html_textarea2('auxparam',gettext('Additional Parameters'),!empty($pconfig['auxparam']) ? $pconfig['auxparam'] : '',sprintf(gettext('These parameters will be added to %s.'),'lighttpd.conf')  . ' ' . $helpinghand,false,85,7,false,false);
@@ -382,7 +386,7 @@ function webguiproto_change() {
 ?>
 		</thead>
 		<tbody>
-<?php			
+<?php
 			html_timezonecombobox2('timezone',gettext('Time Zone'),$pconfig['timezone'],gettext('Select the location closest to you.'),false);
 			html_combobox2('datetimeformat',gettext('Date Format'),$pconfig['datetimeformat'],get_datetime_locale_samples(),gettext('Select a date format.'),false);
 ?>
@@ -414,8 +418,7 @@ function webguiproto_change() {
 ?>
 		</thead>
 		<tbody>
-<?php			
-			
+<?php
 			html_inputbox2('hostname',gettext('Hostname'),$pconfig['hostname'],sprintf(gettext('Name of the NAS host, without domain part e.g. %s.'),'<em>' . strtolower(get_product_name()) .'</em>'),true,40);
 			html_inputbox2('domain',gettext('Domain'),$pconfig['domain'],sprintf(gettext('e.g. %s'),'<em>com, local</em>'),false,40);
 ?>
