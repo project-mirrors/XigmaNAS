@@ -1,5 +1,6 @@
+<?php
 /*
-	style.css
+	style.css.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
@@ -30,49 +31,34 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-.rowdata {
-	background-color: #D9DCE1;
-}
-td, input, textarea, select {
-        font-family: verdana, arial, helvetica, sans-serif;
-        font-size: 11px;
-        color: #000000;
-}
-.rowdatasel {
-	background-color: #F2F2C6;
-}
-td {
-	vertical-align: middle;
-}
-td.header {
-	background-image: url(tablebg.png);
-	vertical-align: middle;
-}
-td.title {
-	background-repeat: repeat-x;
-	background-image: url(tablebg.png);
-	font-weight: bold;
-	font-size: 13px;
-    	color: #FFFFFF;
-	text-align: left;
-}
-td.title_version {
-        background-repeat: repeat-x;
-        background-image: url(tablebg.png);
-        font-size: 10px;
-        color: #FFFFFF;
-		text-align: right;
-}
-div.main_tbl {
-		height: auto;
-		width: 98.5%;
-		margin-left: 45px;
-}
-a, a:link, a:visited {
-        color: #000;
-        text-decoration: none;
-}
-a:hover, a:active {
-        color: #000;
-        text-decoration: none;
-}
+require_once 'config.inc';
+
+header('Content-type: text/css');
+echo '/*',PHP_EOL;
+$config_subkey = 'cssstylefile';
+$css_default_filename = sprintf('%s/quixplorer/_style/%s',$g['www_path'],'style.css');
+$webgui_settings = &array_make_branch($config,'system','webgui');
+$css_override_filename = filter_var($webgui_settings[$config_subkey],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]);
+$css_content = NULL;
+if(is_null($css_content) && isset($css_override_filename) && file_exists($css_override_filename)):
+	$css_content = file_get_contents($css_override_filename);
+	if(false === $css_content):
+		$css_content = NULL;
+	else:
+		echo "\t",'Using custom CSS file.',PHP_EOL;
+	endif;
+endif;
+if(is_null($css_content) && isset($css_default_filename) && file_exists($css_default_filename)):
+	$css_content = file_get_contents($css_default_filename);
+	if(false === $css_content):
+		$css_content = NULL;
+	else:
+		echo "\t",'Using default CSS file.',PHP_EOL;
+	endif;
+endif;
+if(is_null($css_content)):
+	$css_content = '';
+	echo "\t",'No CSS file found.',PHP_EOL;
+endif;
+echo '*/',PHP_EOL;
+echo $css_content;
