@@ -1410,7 +1410,9 @@ div.rrdgraphs
 	justify-content: space-evenly;
 }
 
-img.rrdgraphs
+img.rrdgraphs,
+object.rrdgraphs
 {
 	margin-top: 1em;
+	flex: 0 0 auto;
 }
