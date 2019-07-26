@@ -1,6 +1,6 @@
 <?php
 /*
-	services_mariadb.php
+	system_webgui.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
 	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
