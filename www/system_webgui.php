@@ -49,6 +49,11 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
+/*
+	$cop->get_enabletogglemode(),
+	$cop->get_skipviewmode(),
+	$cop->get_adddivsubmittodataframe(),
+ */
 	$cop->get_cssfcfile(),
 	$cop->get_cssguifile(),
 	$cop->get_cssloginfile(),
@@ -155,7 +160,7 @@ endswitch;
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $input_errors_found = count($input_errors) > 0;
 //	create document
-$pgtitle = [gettext('System'),gettext('WebGUI')];
+$pgtitle = [gettext('System'),gettext('Advanced'),gettext('WebGUI')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
@@ -173,18 +178,36 @@ if($pending_changes && !$input_errors_found):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
-$tds = $content->add_table_data_settings();
-$tds->ins_colgroup_data_settings();
-$thead = $tds->addTHEAD();
-$tbody = $tds->addTBODY();
-$thead->c2_titleline(gettext('CSS Settings'));
-$tbody->
-	c2_filechooser($cop->get_cssfcfile(),$sphere->row[$cop->get_cssfcfile()->get_name()],false,$is_readonly)->
-	c2_filechooser($cop->get_cssguifile(),$sphere->row[$cop->get_cssguifile()->get_name()],false,$is_readonly)->
-	c2_filechooser($cop->get_cssloginfile(),$sphere->row[$cop->get_cssloginfile()->get_name()],false,$is_readonly)->
-	c2_filechooser($cop->get_cssnavbarfile(),$sphere->row[$cop->get_cssnavbarfile()->get_name()],false,$is_readonly)->
-	c2_filechooser($cop->get_csstabsfile(),$sphere->row[$cop->get_csstabsfile()->get_name()],false,$is_readonly)->
-	c2_filechooser($cop->get_cssstylefile(),$sphere->row[$cop->get_cssstylefile()->get_name()],false,$is_readonly);
+/*
+$content->
+	add_table_data_settings()->
+		push()->
+		ins_colgroup_data_settings()->
+		addTHEAD()->
+			c2_titleline(gettext('Button Settings'))->
+		last()->
+		addTBODY()->
+			c2_checkbox($cop->get_enabletogglemode(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_skipviewmode(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_adddivsubmittodataframe(),$sphere,false,$is_readonly)->
+		pop()->
+		addTFOOT()->
+			c2_separator();
+ */
+$content->
+	add_table_data_settings()->
+		push()->
+		ins_colgroup_data_settings()->
+		addTHEAD()->
+			c2_titleline(gettext('CSS Settings'))->
+		pop()->
+		addTBODY()->
+			c2_filechooser($cop->get_cssfcfile(),$sphere,false,$is_readonly)->
+			c2_filechooser($cop->get_cssguifile(),$sphere,false,$is_readonly)->
+			c2_filechooser($cop->get_cssloginfile(),$sphere,false,$is_readonly)->
+			c2_filechooser($cop->get_cssnavbarfile(),$sphere,false,$is_readonly)->
+			c2_filechooser($cop->get_csstabsfile(),$sphere,false,$is_readonly)->
+			c2_filechooser($cop->get_cssstylefile(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):

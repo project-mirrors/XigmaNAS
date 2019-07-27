@@ -32,9 +32,10 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace system\webgui;
+use common\properties as myp;
 
 final class setting_properties extends grid_properties {
-	public function init_cssfcfile() {
+	public function init_cssfcfile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom File Chooser CSS file.');
 		$placeholder = '/usr/local/www/css/fc.css';
 		$property = parent::init_cssfcfile();
@@ -47,7 +48,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_cssguifile() {
+	public function init_cssguifile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom GUI CSS file.');
 		$placeholder = '/usr/local/www/css/gui.css';
 		$property = parent::init_cssguifile();
@@ -60,7 +61,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_cssloginfile() {
+	public function init_cssloginfile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom Login CSS file.');
 		$placeholder = '/usr/local/www/css/login.css';
 		$property = parent::init_cssloginfile();
@@ -73,7 +74,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_cssnavbarfile() {
+	public function init_cssnavbarfile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom NavBar CSS file.');
 		$placeholder = '/usr/local/www/css/navbar.css';
 		$property = parent::init_cssnavbarfile();
@@ -86,7 +87,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_csstabsfile() {
+	public function init_csstabsfile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom Tabs CSS file.');
 		$placeholder = '/usr/local/www/css/tabs.css';
 		$property = parent::init_csstabsfile();
@@ -99,7 +100,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_cssstylefile() {
+	public function init_cssstylefile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom Quixplorer CSS file.');
 		$placeholder = '/usr/local/www/quixplorer/_style/style.css';
 		$property = parent::init_cssstylefile();
@@ -110,6 +111,36 @@ final class setting_properties extends grid_properties {
 			set_placeholderv($placeholder)->
 			set_defaultvalue('')->
 			filter_use_default_or_empty();
+		return $property;
+	}
+	public function init_enabletogglemode(): myp\property_bool {
+		$caption = gettext('Use toggle button instead of enable/disable buttons.');
+		$property = parent::init_enabletogglemode();
+		$property->
+			set_id('enabletogglemode')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_skipviewmode(): myp\property_bool {
+		$caption = gettext('Enable this option if you want to edit configuration pages directly without the need to switch to edit mode.');
+		$property = parent::init_skipviewmode();
+		$property->
+			set_id('skipviewmode')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_adddivsubmittodataframe(): myp\property_bool {
+		$caption = gettext('Display action buttons in the scrollable area instead of the footer area.');
+		$property = parent::init_adddivsubmittodataframe();
+		$property->
+			set_id('adddivsubmittodataframe')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
 		return $property;
 	}
 }
