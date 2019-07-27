@@ -120,7 +120,7 @@ class grid_properties extends myp\container {
 			set_title(gettext('Skip View Mode'));
 		return $property;
 	}
-	public function get_skipviewmode(): myp\property_bool {
+	final public function get_skipviewmode(): myp\property_bool {
 		return $this->x_skipviewmode ?? $this->init_skipviewmode();
 	}
 	protected $x_adddivsubmittodataframe;
@@ -131,7 +131,7 @@ class grid_properties extends myp\container {
 			set_title(gettext('Button Location'));
 		return $property;
 	}
-	public function get_adddivsubmittodataframe(): myp\property_bool {
+	final public function get_adddivsubmittodataframe(): myp\property_bool {
 		return $this->x_adddivsubmittodataframe ?? $this->init_adddivsubmittodataframe();
 	}
 }
