@@ -46,7 +46,9 @@ endif;
 if(isset($rm_value)):
 	switch($rm_value):
 		case 'POST':
-			$username = filter_input(INPUT_POST,'username',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/^[a-z\d\.\-_]+$/i']]);
+//			FreeBSD reference for regular expression: usr.sbin/pw/pw_user.c -> pw_checkname
+			$regexp = '/^[0-9A-Za-z\.;\[\]_\{\}][0-9A-Za-z\-\.;\[\]_\{\}]*\$?$/';
+			$username = filter_input(INPUT_POST,'username',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
 			$remote_addr = (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : '';
 			if(isset($username)):
 				Session::start();
@@ -176,7 +178,7 @@ if(isset($rm_value)):
 				endif;
 				$input_errors = gettext('Invalid login credentials.');
 			else:
-				write_log(sprintf('AUTH: Username %s contains invalid character(s) from IP address %s',$username,$remote_addr));
+				write_log(sprintf('AUTH: Empty or invalid username %s from IP address %s',$username,$remote_addr));
 				$input_errors = gettext('Invalid login credentials.');
 			endif;
 			break;
