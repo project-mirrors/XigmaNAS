@@ -30,6 +30,61 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
+:root
+{
+/*
+	bgc-: background color
+	txc-: text color
+	boc-: border color
+	bos-: border style
+	bow-: border width
+	bop-: border properties => [border width] [border style] [border color]
+*/
+	--bgc-root: #D9DCE1;
+	--txc-page-title: #777777;
+
+	--bgc-area-data: #EEEEEE;
+/*	box */
+	--bgc-box-info: #D9DEE8;
+	--bgc-box-error: #FFD9D1;
+	--bgc-box-warning: #F7F2B9;
+/*	tag column */
+	--bgc-setting-tag: #D6D6D6;
+/*	topic */
+	--bgc-topic-std: #95A7C0;
+	--bgc-topic-stop1: #95A7C0;
+	--bgc-topic-stop2: #97AAC2;
+	--bgc-topic-stop3: #8197B4;
+	--bgc-topic-lgr: linear-gradient(var(--bgc-topic-stop1),var(--bgc-topic-stop2),var(--bgc-topic-stop3));
+	--txc-topic: #FFFFFF;
+/*	list header element */
+	--bgc-lhe-std: #BBBBBB;
+	--bgc-lhe-stop1: #CBCBCB;
+	--bgc-lhe-stop2: #FAFAFA;
+	--bgc-lhe-stop3: #E9E9E9;
+	--bgc-lhe-lgr: linear-gradient(var(--bgc-lhe-stop1),var(--bgc-lhe-stop2) 4%,var(--bgc-lhe-stop3));
+/*	list cell element */
+	--bgc-lce-std: #FCFCFC;
+	--bgc-lce-dark: #E0E0E0;
+	--bgc-lce-hover: #CCCCCC;
+/*	cell */
+	--boc-cell: #999999;
+	--bos-cell: solid;
+	--bow-cell: 1px;
+	--bop-cell: var(--bow-cell) var(--bos-cell) var(--boc-cell);
+/*	cron scheduler */
+	--bgc-cblo: mediumseagreen;
+	--txc-cblo: white;
+	--bgc-rblo: lightcoral;
+	--tcx-rblo: white;
+/*	footer */
+	--bgc-footer-std: #000000;
+	--bgc-footer-stop1: #9c9c9c;
+	--bgc-footer-stop2: #000000;
+	--bgc-footer-lgr: linear-gradient(var(--bgc-footer-stop1),var(--bgc-footer-stop2));
+	--txc-footer: #FFFFFF;
+}
+
 body,
 td,
 th,
@@ -65,7 +120,7 @@ body,
 div#gapheader,
 div#gapfooter
 {
-	background: #D9DCE1;
+	background-color: var(--bgc-root);
 }
 
 body a:link,
@@ -132,18 +187,22 @@ p
 
 pre
 {
-	border: 0 solid #95A7C0;
-	background: #EEEEEE;
+	border: 0;
 	font-family: 'Courier New', Courier, monospace;
 	white-space: pre-wrap;
 	line-height: 1.2em;
 	font-size: 1em;
 }
 
+pre.cmdoutput
+{
+	margin: 0;
+}
+
 .pgtitle
 {
 	font-size: 1.27em;
-	color: #777777;
+	color: var(--txc-page-title);
 	font-weight: bold;
 }
 
@@ -151,10 +210,7 @@ pre
 .vncellreq,
 .vncellt
 {
-	background-color: #D6D6D6;
-/*
-	background: #DCDCDC url("/images/vncell_bg.png") repeat-x scroll left top;
-*/
+	background-color: var(--bgc-setting-tag);
 	padding-right: 1.82em;
 	padding-left: 0.73em;
 }
@@ -163,7 +219,7 @@ pre
 .vncellreq,
 .vncellt
 {
-	border-bottom: 1px solid #999999;
+	border-bottom: var(--bop-cell);
 }
 
 .vncellreq,
@@ -198,7 +254,9 @@ pre
 	width: 90%;
 }
 
-.area_data_selection
+.area_data_selection,
+.area_data_selection_toolbox,
+.area_data_settings
 {
 	margin: 0;
 	border: 0;
@@ -210,27 +268,7 @@ pre
 
 .area_data_selection tbody:not(.donothighlight) tr:hover > td
 {
-	background-color:#CCCCCC;
-}
-
-.area_data_selection_toolbox
-{
-	border: 0;
-	border-spacing: 0;
-	border-collapse: separate;
-	margin: 0;
-	width: 100%;
-	table-layout: fixed;
-}
-
-.area_data_settings
-{
-	border: 0;
-	border-spacing: 0;
-	border-collapse: separate;
-	margin: 0;
-	width: 100%;
-	table-layout: fixed;
+	background-color: var(--bgc-lce-hover);
 }
 
 .area_data_settings_col_tag
@@ -248,7 +286,7 @@ pre
 .celltagalt,
 .celltagreqalt
 {
-	background-color: #D6D6D6;
+	background-color: var(--bgc-setting-tag);
 }
 
 .celltag,
@@ -293,7 +331,7 @@ pre
 	padding-left: 0.7em;
 	padding-right: 0.5em;
 	vertical-align: top;
-	border-bottom: 1px solid #999999;
+	border-bottom: var(--bop-cell);
 	text-overflow: ellipsis;
 	overflow-x: hidden;
 	white-space: normal;
@@ -368,11 +406,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	width: 56em;
 }
 
-.formfldalias
-{
-	background-color: #e7edf9;
-}
-
 .formfldadditionalinfo
 {
 	margin-top: 0.3em;
@@ -404,13 +437,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	transform: scale(0.99,0.98);
 }
 
-.formbtns
-{
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-size: 0.91em;
-	font-weight: bold;
-}
-
 .g4fl,
 .g4fc,
 .g4fr,
@@ -424,7 +450,7 @@ input[type='checkbox']:checked ~ div.hideifchecked
 .g4fr
 {
 	font-size: 0.91em;
-	color: #FFFFFF;
+	color: var(--txc-footer);
 }
 
 .g4fl
@@ -447,11 +473,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	color: #CC0000;
 }
 
-.gray
-{
-	color: #A0A0A0;
-}
-
 .vexpl
 {
 	font-size: 1em;
@@ -462,25 +483,17 @@ a
 	text-decoration: none;
 }
 
-.tblnk
-{
-	color: #FFFFFF;
-	text-decoration: none;
-}
-
 .vtable
 {
-	border-bottom: 1px solid #999999;
+	border-bottom: var(--bop-cell);
 }
 
 .listr,
-.listrc,
-.listrd,
-.listrcd
+.listrc
 {
-	background-color: #FCFCFC;
-	border-right: 1px solid #999999;
-	border-bottom: 1px solid #999999;
+	background-color: var(--bgc-lce-std);
+	border-right: var(--bop-cell);
+	border-bottom: var(--bop-cell);
 	font-size: 1em;
 	padding-right: 0.55em;
 	padding-left: 0.55em;
@@ -488,24 +501,11 @@ a
 	padding-bottom: 0.35em;
 }
 
-.listrc,
-.listrcd
+.listrc
 {
 	text-align: center;
 }
 
-.listrpad
-{
-	border-right: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	font-size: 1em;
-	padding-right: 1.45em;
-	padding-left: 0.91em;
-	padding-top: 0.73em;
-	padding-bottom: 0.73em;
-}
-
-.listn,
 .listbg
 {
 	font-size: 1em;
@@ -513,13 +513,9 @@ a
 	padding-left: 0.55em;
 	padding-top: 0.35em;
 	padding-bottom: 0.35em;
-}
-
-.listbg
-{
-	border-right: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	background-color: #D9DEE8;
+	border-right: var(--bop-cell);
+	border-bottom: var(--bop-cell);
+	background-color: var(--bgc-lce-dark);
 }
 
 .listhdr,
@@ -527,11 +523,12 @@ a
 .listhdrr,
 .listhdrc
 {
-	background: #BBBBBB url("/images/gradient_listhdr.png") repeat-x scroll left top;
+	background-color: var(--bgc-lhe-std);
+	background-image: var(--bgc-lhe-lgr);
 	padding-right: 1.45em;
 	padding-left: 0.55em;
 	font-weight: bold;
-	border-bottom: 1px solid #999999;
+	border-bottom: var(--bop-cell);
 	font-size: 1em;
 	padding-top: 0.45em;
 	padding-bottom: 0.45em;
@@ -541,13 +538,13 @@ a
 .listhdrr,
 .listhdrc
 {
-	border-right: 1px solid #999999;
+	border-right: var(--bop-cell);
 	vertical-align: top;
 }
 
 .listhdrlr
 {
-	border-left: 1px solid #BBBBBB;
+	border-left: var(--bop-cell);
 	margin-left: 1px;
 }
 
@@ -566,31 +563,17 @@ a
 	color: #000000;
 }
 
-.listlrns,
-.listlr,
-.listlrd
+.listlr
 {
-	background-color: #FCFCFC;
-	border-right: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	border-left: 1px solid #999999;
+	background-color: var(--bgc-lce-std);
+	border-right: var(--bop-cell);
+	border-bottom: var(--bop-cell);
+	border-left: var(--bop-cell);
 	font-size: 1em;
 	padding-top: 0.35em;
 	padding-bottom: 0.35em;
-}
-
-.listlr,
-.listlrd
-{
 	padding-right: 0.55em;
 	padding-left: 0.55em;
-}
-
-.listlrd,
-.listrd,
-.listrcd
-{
-	background-color: #E0E0E0;
 }
 
 .list
@@ -609,33 +592,14 @@ a
 	height: 1.09em;
 }
 
-.listt
-{
-	font-size: 1em;
-	padding-top: 0.45em;
-}
-
-.listhdrrns
-{
-	background-color: #BBBBBB;
-	padding-left: 0.55em;
-	padding-top: 0.45em;
-	padding-bottom: 0.45em;
-	padding-right: 0.55em;
-	font-weight: bold;
-	border-right: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	font-size: 1em;
-}
-
 .listtopic
 {
+	background-color: var(--bgc-topic-std);
+	background-image: var(--bgc-topic-lgr);
 	font-size: 1em;
-	background-image: url("/images/listtopic_bg.png");
-	background-color: #95A7C0;
 	padding-right: 1.45em;
 	padding-left: 0.55em;
-	color: #FFFFFF;
+	color: var(--txc-topic);
 	font-weight: bold;
 	padding-top: 0.45em;
 	padding-bottom: 0.45em;
@@ -643,8 +607,8 @@ a
 
 .optsect_t
 {
-	background-image: url("/images/listtopic_bg.png");
-	background-color: #95A7C0;
+	background-color: var(--bgc-topic-std);
+	background-image: var(--bgc-topic-lgr);
 	padding-right: 0.55em;
 	padding-left: 0.55em;
 	padding-top: 0.18em;
@@ -654,7 +618,7 @@ a
 .optsect_s
 {
 	font-size: 1em;
-	color: #FFFFFF;
+	color: var(--txc-topic);
 	font-weight: bold;
 }
 
@@ -687,7 +651,7 @@ td#area_data_frame
 {
 	border: 0;
 	padding: 1.5em;
-	background-color: #EEEEEE;
+	background-color: var(--bgc-area-data);
 }
 
 table#area_data_settings_submit
@@ -717,17 +681,17 @@ div#warningbox
 
 div#infobox
 {
-	background-color: #d9dee8;
+	background-color: var(--bgc-box-info);
 }
 
 div#errorbox
 {
-	background-color: #ffd9d1;
+	background-color: var(--bgc-box-error);
 }
 
 div#warningbox
 {
-	background-color: #f7f2b9;
+	background-color: var(--bgc-box-warning);
 }
 
 div#infobox div.message,
@@ -769,29 +733,34 @@ div#warningbox div.message
 	align-content: flex-start;
 }
 
-.mbcl-1 {
+.mbcl-1
+{
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;
 }
 /*	message box container level 2 */
-.mbcl-2 {
+.mbcl-2
+{
 	flex-flow: row nowrap;
 	justify-content: flex-start;
 	align-items: center;
 }
 /*	message box container level 3 */
-.mbcl-3 {
+.mbcl-3
+{
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;
 }
 /*	message box container item minimum size */
-.mbci-min {
+.mbci-min
+{
 	flex: 0 0 auto;
 }
 /*	message box container item maximum size */
-.mbci-max {
+.mbci-max
+{
 	flex: 1 1 auto;
 }
 
@@ -799,7 +768,10 @@ div#header
 {
 	height: 7.27em;
 	width: 100%;
-	background: #171717 url("/images/header_bg.png") top left no-repeat;
+	background-color: #171717;
+	background-image: url("/images/header_bg.png");
+	background-position: top left;
+	background-repeat: no-repeat;
 }
 
 div#headerlogo
@@ -904,16 +876,13 @@ div#pagefooter
 {
 	margin: 0;
 	text-align: center;
-	background: #000000;
-	background: -webkit-linear-gradient(#9c9c9c, #000000); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#9c9c9c, #000000); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#9c9c9c, #000000); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#9c9c9c, #000000); /* Standard syntax */
+	background-color: var(--bgc-footer-std);
+	background-image: var(--bgc-footer-lgr);
 	width: 100%;
 	font-size: 0.91em;
 	padding-top: 0.35em;
 	padding-bottom: 0.35em;
-	color: #FFFFFF;
+	color: var(--txc-footer);
 	white-space: nowrap;
 }
 
@@ -927,14 +896,6 @@ div#pagefooter span a:visited
 div#pagefooter span a:hover
 {
 	color: #999999;
-}
-
-div#loginfooter
-{
-	position: fixed;
-	bottom: 0;
-	margin: 0.45em 0 0 0;
-	text-align: center;
 }
 
 div#pagecontent
@@ -1026,67 +987,23 @@ div#swapusage .capofsize
 	width: 0.18em;
 }
 
-div#loginpage
-{
-	position: relative;
-	left: 42.5%;
-	width: 15%;
-	height: auto;
-}
-
-div#loginboxheader
-{
-	background-image: url("/images/tablebg.png");
-	height: 1.82em;
-	text-align: left;
-	padding: 0.45em 0 0 0.91em;
-	border-top: 1px solid #000000;
-	border-left: 1px solid #000000;
-	border-right: 1px solid #000000;
-}
-
-div#loginbox
-{
-	background-image: url("/images/vncell_bg.png");
-	border-left: 1px solid #000000;
-	border-right: 1px solid #000000;
-	border-bottom: 1px solid #000000;
-	padding: 0.45em 0.91em 0.91em 0.91em;
-}
-
-div#loginbox table td
-{
-	white-space: nowrap;
-}
-
 .shadow
 {
 	-moz-box-shadow: 0.27em 0.27em 0.35em #000;
 	-webkit-box-shadow: 0.27em 0.27em 0.35em #000;
 	box-shadow: 0.27em 0.27em 0.35em #000;
-	/* For IE 8 & 9 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"; /* For IE 8 & 9 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000'); /* For IE 5.5 - 7 */
 }
 
-pre.cmdoutput
+.warningtext
 {
-	margin: 0;
-	border: 0 solid #95A7C0;
-	background: #F0F0F0;
-	font-family: 'Courier New', Courier, monospace;
-	white-space: pre-wrap;
-	line-height: 1.2em;
-	font-size: 1em;
-}
-
-.warningtext{
 	color: orange;
 	font-weight: bold;
 }
 
-.errortext{
+.errortext
+{
 	color: red;
 	font-weight: bold;
 }
@@ -1099,6 +1016,7 @@ pre.cmdoutput
 		l: left border only
 		b: both left and right border
 		r: right border only
+		f: all borders
 		n: no border
 	5 - horizontal alignment
 		l: left
@@ -1113,84 +1031,66 @@ pre.cmdoutput
 	.lceadd: cell containing the add icon, default .lcebld
 */
 
-.lhell,
-.lhebl,
-.lhelc,
-.lhebc,
-.lhelr,
-.lhebr
+.lhell,.lhelc,.lhelr,
+.lhebl,.lhebc,.lhebr
+{
+	background-color: var(--bgc-lhe-std);
+	background-image: var(--bgc-lhe-lgr);
+	border-top: var(--bop-cell);
+	padding: 0.3em 0.3em;
+	font-weight: bold;
+}
+
+.lhetop,
+.lhell,.lhelc,.lhelr,
+.lhebl,.lhebc,.lhebr,
+.lcell,.lcelc,.lcelr,
+.lcebl,.lcebc,.lcebr,
+.lcelld,.lcelcd,.lcelrd,
+.lcebld,.lcebcd,.lcebrd,
+.lceadd,
+.lcenl,
+.lcefl
 {
 	margin: 0;
-	border-top: 1px solid #999999;
-	border-bottom: 1px solid #999999;
-	padding: 0.3em 0.3em;
-	background: #BBBBBB;
-	background: -webkit-linear-gradient(#cbcbcb, #fafafa 4%, #e9e9e9); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#cbcbcb, #fafafa 4%, #e9e9e9); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#cbcbcb, #fafafa 4%, #e9e9e9); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#cbcbcb, #fafafa 4%, #e9e9e9);
 	font-size: 1em;
-	font-weight: bold;
 	white-space: normal;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.lcell,
-.lcebl,
-.lcelc,
-.lcebc,
-.lcelld,
-.lcebld,
-.lcelcd,
-.lcebcd,
-.lcelr,
-.lcebr,
-.lcelrd,
-.lcebrd,
+.lcell,.lcelc,.lcelr,
+.lcebl,.lcebc,.lcebr,
+.lcelld,.lcelcd,.lcelrd,
+.lcebld,.lcebcd,.lcebrd,
 .lceadd,
 .lcenl
 {
-	margin: 0;
 	border-top-width: 0;
 	padding: 0.2em 0.3em;
-	vertical-align: middle;
-	font-size: 1em;
 	font-weight: normal;
-	white-space: normal;
-	overflow: hidden;
-	text-overflow: ellipsis;
+	vertical-align: middle;
 }
 
 .lcefl
 {
-	margin: 0;
-	border: 1px solid #999999;
-	background-color: #FCFCFC;
+	border: var(--bop-cell);
+	background-color: var(--bgc-lce-std);
 	padding: 0.1em;
+	font-weight: normal;
 	vertical-align: top;
 	text-align: left;
-	font-size: 1em;
-	font-weight: normal;
-	white-space: normal;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
-.lcell,
-.lcebl,
-.lcelc,
-.lcebc,
-.lcelld,
-.lcebld,
-.lcelcd,
-.lcebcd,
-.lcelr,
-.lcebr,
-.lcelrd,
+.lhell,.lhelc,.lhelr,
+.lhebl,.lhebc,.lhebr,
+.lcell,.lcelc,.lcelr,
+.lcebl,.lcebc,.lcebr,
+.lcelld,.lcelcd,.lcelrd,
+.lcebld,.lcebcd,.lcebrd,
 .lceadd
 {
-	border-bottom: 1px solid #999999;
+	border-bottom: var(--bop-cell);
 }
 
 .lcenl
@@ -1198,113 +1098,71 @@ pre.cmdoutput
 	border-bottom-width: 0;
 }
 
-.lhell,
-.lhebl,
-.lhelc,
-.lhebc,
-.lhelr,
-.lhebr,
-.lcell,
-.lcebl,
-.lcelc,
-.lcebc,
-.lcelr,
-.lcebr,
-.lcelld,
-.lcebld,
+.lhell,.lhelc,.lhelr,
+.lhebl,.lhebc,.lhebr,
+.lcell,.lcelc,.lcelr,
+.lcebl,.lcebc,.lcebr,
+.lcelld,.lcelcd,.lcelrd,
+.lcebld,.lcebcd,.lcebrd,
+.lceadd
+{
+	border-left: var(--bop-cell);
+}
+
+.lhebl,.lhebc,.lhebr,
+.lcebl,.lcebc,.lcebr,
+.lcebld,.lcebcd,.lcebrd,
+.lceadd
+{
+	border-right: var(--bop-cell);
+}
+
+.lhell,.lhebl,
+.lcell,.lcebl,
+.lcelld,.lcebld,
 .lceadd,
-.lcelcd,
-.lcebcd,
-.lcelrd,
-.lcebrd
-{
-	border-left: 1px solid #999999;
-}
-
-.lhebl,
-.lhebc,
-.lhebr,
-.lcebl,
-.lcebc,
-.lcebr,
-.lcebld,
-.lcebcd,
-.lcebrd,
-.lceadd
-{
-	border-right: 1px solid #999999;
-}
-
-.lhell,
-.lhebl,
-.lcell,
-.lcebl,
-.lcelld,
-.lcebld,
-.lceadd
+.lcenl
 {
 	text-align: left;
 }
 
-.lhelc,
-.lhebc,
-.lcelc,
-.lcebc,
-.lcelcd,
-.lcebcd
+.lhelc,.lhebc,
+.lcelc,.lcebc,
+.lcelcd,.lcebcd
 {
 	text-align: center;
 }
 
-.lhelr,
-.lhebr,
-.lcelr,
-.lcebr,
-.lcelrd,
-.lcebrd
+.lhelr,.lhebr,
+.lcelr,.lcebr,
+.lcelrd,.lcebrd
 {
 	text-align: right;
 }
 
-.lcell,
-.lcebl,
-.lcelc,
-.lcebc,
-.lcelr,
-.lcebr
+.lcell,.lcelc,.lcelr,
+.lcebl,.lcebc,.lcebr
 {
-	background-color: #FCFCFC;
+	background-color: var(--bgc-lce-std);
 }
 
-.lcelld,
-.lcebld,
-.lceadd,
-.lcelcd,
-.lcebcd,
-.lcelrd,
-.lcebrd
+.lcelld,.lcelcd,.lcelrd,
+.lcebld,.lcebcd,.lcebrd,
+.lceadd
 {
-	background-color: #E0E0E0;
+	background-color: var(--bgc-lce-dark);
 }
 
 .lhetop
 {
-	margin: 0;
+	background-color: var(--bgc-topic-std);
+	background-image: var(--bgc-topic-lgr);
 	border: 0;
 	padding: 0.4em 0.5em;
-	background: #95A7C0;
-	background: -webkit-linear-gradient(#95a7c0, #97aac2, #8197b4); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#95a7c0, #97aac2, #8197b4); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#95a7c0, #97aac2, #8197b4); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#95a7c0, #97aac2, #8197b4); /* Standard syntax */
 	vertical-align: middle;
 	text-align: left;
-	font-size: 1em;
 	font-weight: bold;
-	white-space: normal;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	color: #FFFFFF;
+	color: var(--txc-topic);
 }
 
 td[class^="lce"] > label
@@ -1319,8 +1177,8 @@ input[type="checkbox"].cblo
 
 input[type="checkbox"].cblo:checked + span
 {
-	background-color: mediumseagreen;
-	color: white;
+	background-color: var(--bgc-cblo);
+	color: var(--txc-cblo);
 }
 
 div.cblo
@@ -1346,8 +1204,8 @@ input[type="radio"].rblo
 
 input[type="radio"].rblo:checked + span
 {
-	background-color: lightcoral;
-	color: white;
+	background-color: var(--bgc-rblo);
+	color: var(--txc-rblo);
 }
 
 div.rblo
