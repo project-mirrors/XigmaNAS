@@ -34,6 +34,7 @@
 {
 /*
 	bgc-: background color
+	bgi-: background image
 	txc-: text color
 	boc-: border color
 	bos-: border style
@@ -51,20 +52,20 @@
 /*	tag column */
 	--bgc-setting-tag: #D6D6D6;
 /*	topic */
-	--bgc-topic-std: #95A7C0;
+	--bgc-topic: #95A7C0;
 	--bgc-topic-stop1: #95A7C0;
 	--bgc-topic-stop2: #97AAC2;
 	--bgc-topic-stop3: #8197B4;
-	--bgc-topic-lgr: linear-gradient(var(--bgc-topic-stop1),var(--bgc-topic-stop2),var(--bgc-topic-stop3));
+	--bgi-topic: linear-gradient(var(--bgc-topic-stop1),var(--bgc-topic-stop2),var(--bgc-topic-stop3));
 	--txc-topic: #FFFFFF;
 /*	list header element */
-	--bgc-lhe-std: #BBBBBB;
+	--bgc-lhe: #BBBBBB;
 	--bgc-lhe-stop1: #CBCBCB;
 	--bgc-lhe-stop2: #FAFAFA;
 	--bgc-lhe-stop3: #E9E9E9;
-	--bgc-lhe-lgr: linear-gradient(var(--bgc-lhe-stop1),var(--bgc-lhe-stop2) 4%,var(--bgc-lhe-stop3));
+	--bgi-lhe: linear-gradient(var(--bgc-lhe-stop1),var(--bgc-lhe-stop2) 4%,var(--bgc-lhe-stop3));
 /*	list cell element */
-	--bgc-lce-std: #FCFCFC;
+	--bgc-lce: #FCFCFC;
 	--bgc-lce-dark: #E0E0E0;
 	--bgc-lce-hover: #CCCCCC;
 /*	cell */
@@ -78,10 +79,10 @@
 	--bgc-rblo: lightcoral;
 	--tcx-rblo: white;
 /*	footer */
-	--bgc-footer-std: #000000;
+	--bgc-footer: #000000;
 	--bgc-footer-stop1: #9c9c9c;
 	--bgc-footer-stop2: #000000;
-	--bgc-footer-lgr: linear-gradient(var(--bgc-footer-stop1),var(--bgc-footer-stop2));
+	--bgi-footer: linear-gradient(var(--bgc-footer-stop1),var(--bgc-footer-stop2));
 	--txc-footer: #FFFFFF;
 }
 
@@ -491,7 +492,7 @@ a
 .listr,
 .listrc
 {
-	background-color: var(--bgc-lce-std);
+	background-color: var(--bgc-lce);
 	border-right: var(--bop-cell);
 	border-bottom: var(--bop-cell);
 	font-size: 1em;
@@ -523,8 +524,8 @@ a
 .listhdrr,
 .listhdrc
 {
-	background-color: var(--bgc-lhe-std);
-	background-image: var(--bgc-lhe-lgr);
+	background-color: var(--bgc-lhe);
+	background-image: var(--bgi-lhe);
 	padding-right: 1.45em;
 	padding-left: 0.55em;
 	font-weight: bold;
@@ -565,7 +566,7 @@ a
 
 .listlr
 {
-	background-color: var(--bgc-lce-std);
+	background-color: var(--bgc-lce);
 	border-right: var(--bop-cell);
 	border-bottom: var(--bop-cell);
 	border-left: var(--bop-cell);
@@ -594,8 +595,8 @@ a
 
 .listtopic
 {
-	background-color: var(--bgc-topic-std);
-	background-image: var(--bgc-topic-lgr);
+	background-color: var(--bgc-topic);
+	background-image: var(--bgi-topic);
 	font-size: 1em;
 	padding-right: 1.45em;
 	padding-left: 0.55em;
@@ -607,8 +608,8 @@ a
 
 .optsect_t
 {
-	background-color: var(--bgc-topic-std);
-	background-image: var(--bgc-topic-lgr);
+	background-color: var(--bgc-topic);
+	background-image: var(--bgi-topic);
 	padding-right: 0.55em;
 	padding-left: 0.55em;
 	padding-top: 0.18em;
@@ -876,8 +877,8 @@ div#pagefooter
 {
 	margin: 0;
 	text-align: center;
-	background-color: var(--bgc-footer-std);
-	background-image: var(--bgc-footer-lgr);
+	background-color: var(--bgc-footer);
+	background-image: var(--bgi-footer);
 	width: 100%;
 	font-size: 0.91em;
 	padding-top: 0.35em;
@@ -1034,8 +1035,8 @@ div#swapusage .capofsize
 .lhell,.lhelc,.lhelr,
 .lhebl,.lhebc,.lhebr
 {
-	background-color: var(--bgc-lhe-std);
-	background-image: var(--bgc-lhe-lgr);
+	background-color: var(--bgc-lhe);
+	background-image: var(--bgi-lhe);
 	border-top: var(--bop-cell);
 	padding: 0.3em 0.3em;
 	font-weight: bold;
@@ -1075,7 +1076,7 @@ div#swapusage .capofsize
 .lcefl
 {
 	border: var(--bop-cell);
-	background-color: var(--bgc-lce-std);
+	background-color: var(--bgc-lce);
 	padding: 0.1em;
 	font-weight: normal;
 	vertical-align: top;
@@ -1143,7 +1144,7 @@ div#swapusage .capofsize
 .lcell,.lcelc,.lcelr,
 .lcebl,.lcebc,.lcebr
 {
-	background-color: var(--bgc-lce-std);
+	background-color: var(--bgc-lce);
 }
 
 .lcelld,.lcelcd,.lcelrd,
@@ -1155,8 +1156,8 @@ div#swapusage .capofsize
 
 .lhetop
 {
-	background-color: var(--bgc-topic-std);
-	background-image: var(--bgc-topic-lgr);
+	background-color: var(--bgc-topic);
+	background-image: var(--bgi-topic);
 	border: 0;
 	padding: 0.4em 0.5em;
 	vertical-align: middle;
