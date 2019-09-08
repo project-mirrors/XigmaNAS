@@ -43,14 +43,18 @@
 	bow-: border width
 	bop-: border properties => [border width] [border style] [border color]
 */
+/*	global */
+	--bow-tnt-global: 0px;
+	--bos-tnt-global: solid;
+	--boc-tnt-global: #444444;
 /*	inactive */
 	--bgc-tnt: darkgray;
 	--bgc-tnt-stop1: #9C9C9C;
 	--bgc-tnt-stop2: black;
 	--bgi-tnt: linear-gradient(var(--bgc-tnt-stop1),var(--bgc-tnt-stop2));
-	--bow-tnt: 0px;
-	--bos-tnt: solid;
-	--boc-tnt: #444444;
+	--bow-tnt: var(--bow-tnt-global);
+	--bos-tnt: var(--bos-tnt-global);
+	--boc-tnt: var(--boc-tnt-global);
 	--bop-tnt: var(--bow-tnt) var(--bos-tnt) var(--boc-tnt);
 	--txc-tnt: grey;
 /*	active */
@@ -58,9 +62,9 @@
 	--bgc-tnt-active-stop1: #9C9C9C;
 	--bgc-tnt-active-stop2: black;
 	--bgi-tnt-active: linear-gradient(var(--bgc-tnt-active-stop1),var(--bgc-tnt-active-stop2));
-	--bow-tnt-active: 0px;
-	--bos-tnt-active: solid;
-	--boc-tnt-active: #444444;
+	--bow-tnt-active: var(--bow-tnt-global);
+	--bos-tnt-active: var(--bos-tnt-global);
+	--boc-tnt-active: var(--boc-tnt-global);
 	--bop-tnt-active: var(--bow-tnt-active) var(--bos-tnt-active) var(--boc-tnt-active);
 	--txc-tnt-active: white;
 /*	inactive hovered */
@@ -69,9 +73,9 @@
 	--bgc-tnt-hovered-stop2: #CCCCCC;
 	--bgc-tnt-hovered-stop3: #E1E1E1;
 	--bgi-tnt-hovered: linear-gradient(var(--bgc-tnt-hovered-stop1) 34%,var(--bgc-tnt-hovered-stop2) 78%,var(--bgc-tnt-hovered-stop3));
-	--bow-tnt-hovered: 0px;
-	--bos-tnt-hovered: solid;
-	--boc-tnt-hovered: #444444;
+	--bow-tnt-hovered: var(--bow-tnt-global);
+	--bos-tnt-hovered: var(--bos-tnt-global);
+	--boc-tnt-hovered: var(--boc-tnt-global);
 	--bop-tnt-hovered: var(--bow-tnt-hovered) var(--bos-tnt-hovered) var(--boc-tnt-hovered);
 	--txc-tnt-hovered: black;
 /*	active hovered */
@@ -80,11 +84,15 @@
 	--bgc-tnt-active-hovered-stop2: #CCCCCC;
 	--bgc-tnt-active-hovered-stop3: #E1E1E1;
 	--bgi-tnt-active-hovered: linear-gradient(var(--bgc-tnt-active-hovered-stop1) 34%,var(--bgc-tnt-active-hovered-stop2) 78%,var(--bgc-tnt-active-hovered-stop3));
-	--bow-tnt-active-hovered: 0px;
-	--bos-tnt-active-hovered: solid;
-	--boc-tnt-active-hovered: #444444;
+	--bow-tnt-active-hovered: var(--bow-tnt-global);
+	--bos-tnt-active-hovered: var(--bos-tnt-global);
+	--boc-tnt-active-hovered: var(--boc-tnt-global);
 	--bop-tnt-active-hovered: var(--bow-tnt-active-hovered) var(--bos-tnt-active-hovered) var(--boc-tnt-active-hovered);
 	--txc-tnt-active-hovered: gray;
+}
+div#area_tabnav
+{
+	padding: 0em 2em;
 }
 td.tabnavtbl
 {
@@ -102,7 +110,8 @@ td.tabnavtbl li
 {
 	display: inline;
 }
-td.tabnavtbl a {
+td.tabnavtbl a
+{
 	float: left;
 	font-size: 10px;
 	font-weight: bold;
