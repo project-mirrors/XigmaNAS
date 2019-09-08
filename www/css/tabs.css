@@ -34,6 +34,15 @@
 */
 :root
 {
+/*
+	bgc-: background color
+	bgi-: background image
+	txc-: text color
+	boc-: border color
+	bos-: border style
+	bow-: border width
+	bop-: border properties => [border width] [border style] [border color]
+*/
 /*	inactive */
 	--bgc-tnt: darkgray;
 	--bgc-tnt-stop1: #9C9C9C;
@@ -77,17 +86,20 @@
 	--bop-tnt-active-hovered: var(--bow-tnt-active-hovered) var(--bos-tnt-active-hovered) var(--boc-tnt-active-hovered);
 	--txc-tnt-active-hovered: gray;
 }
-td.tabnavtbl {
+td.tabnavtbl
+{
 	float: left;
 	width: 100%;
 	padding: 0;
 }
-td.tabnavtbl ul {
+td.tabnavtbl ul
+{
 	margin: 0;
 	padding-left: 0;
 	list-style: none;
 }
-td.tabnavtbl li {
+td.tabnavtbl li
+{
 	display: inline;
 }
 td.tabnavtbl a {
@@ -96,14 +108,16 @@ td.tabnavtbl a {
 	font-weight: bold;
 	text-decoration: none;
 }
-td.tabnavtbl span {
+td.tabnavtbl span
+{
 	float: left;
 	display: block;
 	padding: 3px 7px 1px 7px;
 	white-space: nowrap;
 	height: 16px;
 }
-td.tabnavtbl td {
+td.tabnavtbl td
+{
 	font-size: 10px;
 	font-weight: bold;
 	text-decoration: none;
