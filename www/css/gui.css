@@ -1275,3 +1275,14 @@ object.rrdgraphs
 	margin-top: 1em;
 	flex: 0 0 auto;
 }
+
+meter.cpuusage,
+meter.memusage,
+meter.swapusage,
+meter.diskusage,
+meter.poolusage
+{
+	height: 1.27em;
+	width: 100px;
+	margin-right: 1em;
+}
