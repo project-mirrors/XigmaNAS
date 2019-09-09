@@ -825,6 +825,7 @@ function system_get_sysinfo() {
 	$value['loadaverage'] = substr(strrchr($result[0],'load averages:'),15);
 //	Get up-to-date CPU informations.
 	$cpuinfo = system_get_cpu_info();
+	$value['cpumodel'] = $cpuinfo['model'];
 	$value['cputemp'] = $cpuinfo['temperature'];
 	$value['cpufreq'] = $cpuinfo['freq'];
 	if(!empty($cpuinfo['temperature2'])):
