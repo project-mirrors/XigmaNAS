@@ -926,6 +926,8 @@ function system_get_sysinfo() {
 	$value['cpufreq'] = $cpuinfo['freq'];
 	if(!empty($cpuinfo['temperature2'])):
 		$value['cputemp2'] = $cpuinfo['temperature2'];
+	else:
+		$value['cputemp2'] = [$value['cputemp']];
 	endif;
 //	Get CPU usage.
 	if($cpus > 1):
