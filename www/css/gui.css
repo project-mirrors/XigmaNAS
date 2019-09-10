@@ -1280,7 +1280,8 @@ meter.cpuusage,
 meter.memusage,
 meter.swapusage,
 meter.diskusage,
-meter.poolusage
+meter.poolusage,
+meter.upsusage
 {
 	height: 1.27em;
 	width: 100px;
