@@ -45,40 +45,56 @@
 	--txc-page-title: #777777;
 
 	--bgc-area-data: #EEEEEE;
-/*	box */
+/*
+	box
+*/
 	--bgc-box-info: #D9DEE8;
 	--bgc-box-error: #FFD9D1;
 	--bgc-box-warning: #F7F2B9;
-/*	tag column */
+/*
+	tag column
+*/
 	--bgc-setting-tag: #D6D6D6;
-/*	topic */
+/*
+	topic
+*/
 	--bgc-topic: #95A7C0;
 	--bgc-topic-stop1: #95A7C0;
 	--bgc-topic-stop2: #97AAC2;
 	--bgc-topic-stop3: #8197B4;
 	--bgi-topic: linear-gradient(var(--bgc-topic-stop1),var(--bgc-topic-stop2),var(--bgc-topic-stop3));
 	--txc-topic: #FFFFFF;
-/*	list header element */
+/*
+	list header element
+*/
 	--bgc-lhe: #BBBBBB;
 	--bgc-lhe-stop1: #CBCBCB;
 	--bgc-lhe-stop2: #FAFAFA;
 	--bgc-lhe-stop3: #E9E9E9;
 	--bgi-lhe: linear-gradient(var(--bgc-lhe-stop1),var(--bgc-lhe-stop2) 4%,var(--bgc-lhe-stop3));
-/*	list cell element */
+/*
+	list cell element
+*/
 	--bgc-lce: #FCFCFC;
 	--bgc-lce-dark: #E0E0E0;
 	--bgc-lce-hover: #CCCCCC;
-/*	cell */
+/*
+	cell
+*/
 	--boc-cell: #999999;
 	--bos-cell: solid;
 	--bow-cell: 1px;
 	--bop-cell: var(--bow-cell) var(--bos-cell) var(--boc-cell);
-/*	cron scheduler */
+/*
+	cron scheduler
+*/
 	--bgc-cblo: mediumseagreen;
 	--txc-cblo: white;
 	--bgc-rblo: lightcoral;
 	--tcx-rblo: white;
-/*	footer */
+/*
+	footer
+*/
 	--bgc-footer: #000000;
 	--bgc-footer-stop1: #9c9c9c;
 	--bgc-footer-stop2: #000000;
@@ -670,6 +686,7 @@ table#area_data_settings_submit
 	font-size: 1em;
 	font-weight: bold;
 }
+
 /*
 	message box layout
  */
@@ -703,6 +720,7 @@ div#warningbox div.message
 	padding-left: 0.73em;
 	font-weight: bold;
 }
+
 /*
 	message box container layout
 
@@ -740,26 +758,38 @@ div#warningbox div.message
 	justify-content: flex-start;
 	align-items: flex-start;
 }
-/*	message box container level 2 */
+
+/*
+	message box container level 2
+*/
 .mbcl-2
 {
 	flex-flow: row nowrap;
 	justify-content: flex-start;
 	align-items: center;
 }
-/*	message box container level 3 */
+
+/*
+	message box container level 3
+*/
 .mbcl-3
 {
 	flex-flow: column nowrap;
 	justify-content: flex-start;
 	align-items: flex-start;
 }
-/*	message box container item minimum size */
+
+/*
+	message box container item minimum size
+*/
 .mbci-min
 {
 	flex: 0 0 auto;
 }
-/*	message box container item maximum size */
+
+/*
+	message box container item maximum size
+*/
 .mbci-max
 {
 	flex: 1 1 auto;
@@ -813,7 +843,6 @@ div#headerrlogo .hostname
 header#g4h
 {
 	min-width: inherit;
-	width: 100%;
 	-webkit-box-flex: 0;
 	-moz-box-flex: 0;
 	width: 100%;
@@ -826,7 +855,6 @@ header#g4h
 header#g4l
 {
 	min-width: inherit;
-	width: 100%;
 	-webkit-box-flex: 0;
 	-moz-box-flex: 0;
 	width: 100%;
@@ -1286,4 +1314,33 @@ meter.upsusage
 	height: 1.27em;
 	width: 100px;
 	margin-right: 1em;
+}
+
+img.meter
+{
+	padding-right: 1em;
+}
+
+/*
+	support for css table-layout: auto, used by index.php
+*/
+td.nopad,
+td.nopad100
+{
+	padding: 0em;
+}
+
+td.nopad100
+{
+	width: 100%;
+}
+
+td.padr03
+{
+	padding: 0em 0.3em 0em 0em;
+}
+
+td.padr1
+{
+	padding: 0em 1em 0em 0em;
 }
