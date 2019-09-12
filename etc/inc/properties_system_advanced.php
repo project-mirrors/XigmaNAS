@@ -133,7 +133,7 @@ class properties_system_advanced extends co_property_container {
 			set_name('disablefirmwarecheck')->
 			set_title(gettext('Firmware Check'));
 		$link = '<a href="system_firmware.php">' . gettext('System') . ': ' . gettext('Firmware Update') . '</a>';
-		$description = sprintf(gettext('Do not let the server check for newer firmware versions when the %s page gets loaded.'),$link);		
+		$description = sprintf(gettext('Do not let the server check for newer firmware versions when the %s page gets loaded.'),$link);
 		$property->
 			set_id('disablefirmwarecheck')->
 			set_caption(gettext('Disable firmware version check.'))->
@@ -237,6 +237,27 @@ class properties_system_advanced extends co_property_container {
 		$property->
 			set_id('skipviewmode')->
 			set_caption(gettext('Enable this option if you want to edit configuration pages directly without the need to switch to edit mode.'))->
+			set_description('')->
+			set_defaultvalue(false)->
+			filter_use_default()->
+			set_editableonadd(true)->
+			set_editableonmodify(true)->
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		return $property;
+	}
+	protected $x_showcolorfulmeter;
+	public function get_showcolorfulmeter() {
+		return $this->x_showcolorfulmeter ?? $this->init_showcolorfulmeter();
+	}
+	public function init_showcolorfulmeter() {
+		$caption = gettext('Enable this option if you want to display colorful meter states.');
+		$property = $this->x_showcolorfulmeter = new property_bool($this);
+		$property->
+			set_name('showcolorfulmeter')->
+			set_title(gettext('Colorful Meters'));
+		$property->
+			set_id('showcolorfulmeter')->
+			set_caption($caption)->
 			set_description('')->
 			set_defaultvalue(false)->
 			filter_use_default()->
