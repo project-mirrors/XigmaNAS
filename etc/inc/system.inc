@@ -364,17 +364,10 @@ function system_get_cpuid($cpuidx,$level) {
 	$a['edx'] = $r[3];
 	return $a;
 }
-
-// Get various CPU informations.
-// Result:
-//  Array (
-//    [number] => 1
-//    [model] => AMD Athlon(tm) 64 Processor 3200+
-//    [clockrate] => 1994
-//    [temperature] => 65C !!! May be empty if sensor is not available. !!!
-//    [freq] => 995
-//    [freqlevels] => 1990/67000 1791/64700 995/28600
-//  )
+/**
+ *	Get various CPU informations.
+ *	@return array Array with CPU information
+ */
 function system_get_cpu_info() {
 	$platform = '';
 	$cpuinfo = [];
@@ -424,10 +417,9 @@ function system_get_cpu_info() {
 	$cpuinfo['freqlevels'] = chop(`/sbin/sysctl -n dev.cpu.0.freq_levels`);
 	return $cpuinfo;
 }
-
 /**
- * Get the system uptime (how long the system is already running).
- * @return The current uptime as string.
+ *	Get the system uptime (how long the system is already running).
+ *	@return The current uptime as string.
  */
 function system_get_uptime() {
 	exec("/sbin/sysctl -n kern.boottime",$boottime);
@@ -445,10 +437,10 @@ function system_get_uptime() {
 	$upmins = (int)($uptime / 60);
 	$upsecs = $uptime % 60;
 
-	$gt_seconds = (1 === $upsecs) ? gtext('Second') : gtext('Seconds');
-	$gt_minutes = (1 === $upmins) ? gtext('Minute') : gtext('Minutes');
-	$gt_hours = (1 === $uphours) ? gtext('Hour') : gtext('Hours');
-	$gt_days = (1 === $updays) ? gtext('Day') : gtext('Days');
+	$gt_seconds = (1 === $upsecs) ? gettext('Second') : gettext('Seconds');
+	$gt_minutes = (1 === $upmins) ? gettext('Minute') : gettext('Minutes');
+	$gt_hours = (1 === $uphours) ? gettext('Hour') : gettext('Hours');
+	$gt_days = (1 === $updays) ? gettext('Day') : gettext('Days');
 
 	if(($updays < 1) && ($uphours < 1)):
 		$uptime = sprintf('%d %s %d %s',$upmins,$gt_minutes,$upsecs,$gt_seconds);
@@ -457,9 +449,8 @@ function system_get_uptime() {
 	else:
 		$uptime = sprintf('%d %s %d %s %d %s %d %s',$updays,$gt_days,$uphours,$gt_hours,$upmins,$gt_minutes,$upsecs,$gt_seconds);
 	endif;
-	return $uptime;
+	return htmlspecialchars($uptime);
 }
-
 /**
  * Get the system date/time for conversion strings.
  * @return The current uptime as string.
@@ -805,7 +796,173 @@ function system_get_mount_usage() {
 	endforeach;
 	return $result;
 }
+/*
+ *	supporting functions for index.php
+ */
+function get_vip_status() {
+	global $config;
 
+	if(empty($config['vinterfaces']['carp'])):
+		return '';
+	endif;
+	$a_vipaddrs = [];
+	foreach($config['vinterfaces']['carp'] as $carp):
+		$ifinfo = get_carp_info($carp['if']);
+		//$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']},{$ifinfo['advskew']})";
+		$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']})";
+	endforeach;
+	return implode(', ',$a_vipaddrs);
+}
+function get_vbox_vminfo($user,$uuid) {
+	$vminfo = [];
+	unset($rawdata);
+	mwexec2("/usr/local/bin/sudo -u {$user} /usr/local/bin/VBoxManage showvminfo --machinereadable {$uuid}",$rawdata);
+	foreach($rawdata as $line):
+		if(preg_match("/^([^=]+)=(\"([^\"]+)\"|[^\"]+)/",$line,$match)):
+			$a = [];
+			$a['raw'] = $match[0];
+			$a['key'] = $match[1];
+			$a['value'] = isset($match[3]) ? $match[3] : $match[2];
+			$vminfo[$a['key']] = $a;
+		endif;
+	endforeach;
+	return $vminfo;
+}
+function get_xen_info() {
+	$info = [];
+	unset($rawdata);
+	mwexec2("/usr/local/sbin/xl info",$rawdata);
+	foreach($rawdata as $line):
+		if(preg_match("/^([^:]+)\s+:\s+(.+)\s*$/",$line,$match)):
+			$a = [];
+			$a['raw'] = $match[0];
+			$a['key'] = trim($match[1]);
+			$a['value'] = trim($match[2]);
+			$info[$a['key']] = $a;
+		endif;
+	endforeach;
+	return $info;
+}
+function get_xen_console($domid) {
+	$info = [];
+	unset($rawdata);
+	mwexec2("/usr/local/bin/xenstore-ls /local/domain/{$domid}/console",$rawdata);
+	foreach($rawdata as $line):
+		if(preg_match("/^([^=]+)\s+=\s+\"(.+)\"$/",$line,$match)):
+			$a = [];
+			$a['raw'] = $match[0];
+			$a['key'] = trim($match[1]);
+			$a['value'] = trim($match[2]);
+			$info[$a['key']] = $a;
+		endif;
+	endforeach;
+	return $info;
+}
+/**
+ *	Translates the UPS status code into a human readable string
+ *	@param type $ups_status
+ *	@return string
+ */
+function get_ups_disp_status($ups_status) {
+	if(empty($ups_status)):
+		return '';
+	endif;
+	$upstodisplay = [
+		'WAIT' => gtext('UPS Waiting'),
+		'OFF' => gtext('UPS Off Line'),
+		'OL' => gtext('UPS On Line'),
+		'OB' => gtext('UPS On Battery'),
+		'TRIM' => gtext('SmartTrim'),
+		'BOOST' => gtext('SmartBoost'),
+		'OVER' => gtext('Overload'),
+		'LB' => gtext('Battery Low'),
+		'RB' => gtext('Replace Battery UPS'),
+		'CAL' => gtext('Calibration Battery'),
+		'CHRG' => gtext('Charging Battery')
+	];
+	$status = explode(' ',$ups_status);
+	$disp_status = [];
+	foreach($status as $condition):
+		$disp_status[] = $upstodisplay[$condition] ?? $condition;
+	endforeach;
+	return implode(', ',$disp_status);
+}
+/**
+ *	Collects UPS status information from UPS 1 and UPS 2
+ *	@global array $config
+ *	@return array Array with UPS information
+ */
+function get_upsinfo() {
+	global $config;
+
+	array_make_branch($config,'ups');
+	$retval = [];
+	foreach([1,2] as $ups_index):
+		$ups_record = [];
+		$ups_fqn = null;
+		switch($ups_index):
+			case 1:
+				if(isset($config['ups']['enable'])):
+					$ups_name = $config['ups']['upsname'];
+					$ups_fqn = sprintf('%s@%s',$ups_name,$config['ups']['ip']);
+				endif;
+				break;
+			case 2:
+				if(isset($config['ups']['enable']) && isset($config['ups']['ups2'])):
+					$ups_name = $config['ups']['ups2_upsname'];
+					$ups_fqn = sprintf('%s@%s',$ups_name,$config['ups']['ip']);
+				endif;
+				break;
+		endswitch;
+		if(is_null($ups_fqn)):
+		else:
+			$ups_record['id'] = $ups_index;
+			$ups_record['name'] = $ups_name;
+			$ups_query = [];
+			$cmd = sprintf('/usr/local/bin/upsc %s',escapeshellarg($ups_fqn));
+			unset($rawdata);
+			exec($cmd,$rawdata);
+			foreach($rawdata as $line):
+				$line = explode(':',$line);
+				$ups_query[$line[0]] = trim($line[1]);
+			endforeach;
+			if(array_key_exists('ups.load',$ups_query) && !empty($ups_query['ups.load'])):
+				$load_pct = $ups_query['ups.load'];
+			else:
+				$load_pct = 0;
+			endif;
+			$ups_record['load'] = [
+				'percentage' => $load_pct,
+				'used' => sprintf('%u',$load_pct),
+				'tooltip_used' => sprintf('%s%%',$load_pct),
+				'tooltip_available' => sprintf('%s%% %s',100 - $load_pct,gtext('available'))
+			];
+			if(array_key_exists('battery.charge',$ups_query) && !empty($ups_query['battery.charge'])):
+				$battery_charge_pct = $ups_query['battery.charge'];
+			else:
+				$battery_charge_pct = 0;
+			endif;
+			$ups_record['battery'] = [
+				'percentage' => $battery_charge_pct,
+				'used' => sprintf('%u',$battery_charge_pct),
+				'tooltip_used' => sprintf('%s%%',$battery_charge_pct),
+				'tooltip_available' => sprintf('%s%% %s',100 - $battery_charge_pct,gtext('available'))
+			];
+			if(array_key_exists('ups.status',$ups_query)):
+				$disp_status = get_ups_disp_status($ups_query['ups.status']);
+			else:
+				$disp_status = gtext('Communication Error');
+			endif;
+			$ups_record['disp_status'] = $disp_status;
+			$retval[] = $ups_record;
+		endif;
+	endforeach;
+	return $retval;
+}
+/**
+ *	Collect disk usage information
+ *	@return array Array with disk usage information
+ */
 function get_disk_usage() {
 	$retval = [];
 	$a_diskusage = [];
@@ -832,9 +989,14 @@ function get_disk_usage() {
 	endif;
 	return $retval;
 }
-
+/**
+ *	Collect pool usage information
+ *	@global array $config
+ *	@return array Array containing pool usage information
+ */
 function get_pool_usage() {
 	global $config;
+
  	$retval = [];
 	$a_poolusage = [];
 	$use_si = is_sidisksizevalues();
@@ -874,7 +1036,10 @@ function get_pool_usage() {
 	endif;
 	return $retval;
 }
-
+/**
+ *	Collect swap usage information
+ *	@return array Array containing swap usage information
+ */
 function get_swap_usage() {
 	$retval = [];
 	$a_swapusage = [];
@@ -900,48 +1065,51 @@ function get_swap_usage() {
 	endif;
 	return $retval;
 }
-
 /**
- * Get various system informations.
- * @return An array containing the system informations.
+ *	Collect various system information.
+ *	@return array Array containing system information.
  */
 function system_get_sysinfo() {
-	$value = [];
-	$value['hostname'] = system_get_hostname();
-//	Get CPU counts.
+	$sysinfo = [];
+	$sysinfo['hostname'] = system_get_hostname();
+//	get number of CPU's
 	$cpus = system_get_cpus();
-	$value['cpus'] = $cpus;
-//	Get RAM usage.
+	$sysinfo['cpus'] = $cpus;
+//	get RAM usage.
 	$raminfo = system_get_ram_info();
-	$value['memusage']['caption'] = $raminfo['caption'];
-	$value['memusage']['usedpct'] = $raminfo['usedpct'];
-	$value['memusage']['freepct'] = $raminfo['freepct'];
-//	Get load average.
-	exec('uptime',$result);
-	$value['loadaverage'] = substr(strrchr($result[0],'load averages:'),15);
-//	Get up-to-date CPU informations.
+	$sysinfo['memusage']['caption'] = $raminfo['caption'];
+	$sysinfo['memusage']['usedpct'] = $raminfo['usedpct'];
+	$sysinfo['memusage']['freepct'] = $raminfo['freepct'];
+//	get load average
+	exec('/sbin/sysctl -n vm.loadavg',$result);
+	$sysinfo['loadaverage'] = trim(str_replace(['{','}'],'',$result[0]));
+//	get up-to-date CPU informations.
 	$cpuinfo = system_get_cpu_info();
-	$value['cpumodel'] = $cpuinfo['model'];
-	$value['cputemp'] = $cpuinfo['temperature'];
-	$value['cpufreq'] = $cpuinfo['freq'];
+	$sysinfo['cpumodel'] = $cpuinfo['model'];
+	$sysinfo['cputemp'] = $cpuinfo['temperature'];
+	$sysinfo['cpufreq'] = $cpuinfo['freq'];
 	if(!empty($cpuinfo['temperature2'])):
-		$value['cputemp2'] = $cpuinfo['temperature2'];
+		$sysinfo['cputemp2'] = $cpuinfo['temperature2'];
 	else:
-		$value['cputemp2'] = [$value['cputemp']];
+		$sysinfo['cputemp2'] = [$sysinfo['cputemp']];
 	endif;
-//	Get CPU usage.
+//	get CPU usage
 	if($cpus > 1):
-		$value['cpuusage2'] = system_get_smp_cpu_usage();
-		$value['cpuusage'] = floor(array_sum($value['cpuusage2']) / $cpus);
+		$sysinfo['cpuusage2'] = system_get_smp_cpu_usage();
+		$sysinfo['cpuusage'] = floor(array_sum($sysinfo['cpuusage2']) / $cpus);
 	else:
-		$value['cpuusage'] = system_get_cpu_usage();
-		$value['cpuusage2'] = [$value['cpuusage']];
+		$sysinfo['cpuusage'] = system_get_cpu_usage();
+		$sysinfo['cpuusage2'] = [$sysinfo['cpuusage']];
 	endif;
-	$value['diskusage'] = get_disk_usage(); // Get disk usage.
-	$value['poolusage'] = get_pool_usage(); // Get pool info.
-	$value['swapusage'] = get_swap_usage(); // Get swap info.
-//	Get uptime and date.
-	$value['uptime'] = system_get_uptime();
-	$value['date'] = get_datetime_locale();
-	return $value;
+//	get storage usage
+	$sysinfo['diskusage'] = get_disk_usage();
+	$sysinfo['poolusage'] = get_pool_usage();
+	$sysinfo['swapusage'] = get_swap_usage();
+//	get UPS status
+	$sysinfo['upsinfo'] = get_upsinfo();
+//	get CARP status
+	$sysinfo['vipstatus'] = get_vip_status();
+	$sysinfo['uptime'] = system_get_uptime();
+	$sysinfo['date'] = get_datetime_locale();
+	return $sysinfo;
 }

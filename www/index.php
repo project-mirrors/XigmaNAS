@@ -32,226 +32,240 @@
 	of XigmaNAS, either expressed or implied.
 */
 // Configure page permission
-$pgperm['allowuser'] = TRUE;
+$pgperm['allowuser'] = true;
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 
-$gt_core = gtext('Core');
-$gt_temp = gtext('Temp');
+$use_meter_tag = (is_bool($test = $config['system']['showcolorfulmeter'] ?? false) ? $test : true);
 $pgtitle = [gtext('System Information')];
 $pgtitle_omit = true;
-
 array_make_branch($config,'vinterfaces','carp');
-
-$smbios = get_smbios_info();
-$cpuinfo = system_get_cpu_info();
-
-function get_vip_status() {
-	global $config;
-
-	if(empty($config['vinterfaces']['carp'])):
-		return '';
-	endif;
-	$a_vipaddrs = [];
-	foreach($config['vinterfaces']['carp'] as $carp):
-		$ifinfo = get_carp_info($carp['if']);
-		//$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']},{$ifinfo['advskew']})";
-		$a_vipaddrs[] = $carp['vipaddr']." ({$ifinfo['state']})";
-	endforeach;
-	return implode(', ',$a_vipaddrs);
-}
-function get_ups_disp_status($ups_status) {
-	if(empty($ups_status)):
-		return '';
-	endif;
-	$upstodisplay = [
-		'WAIT' => gtext('UPS Waiting'),
-		'OFF' => gtext('UPS Off Line'),
-		'OL' => gtext('UPS On Line'),
-		'OB' => gtext('UPS On Battery'),
-		'TRIM' => gtext('SmartTrim'),
-		'BOOST' => gtext('SmartBoost'),
-		'OVER' => gtext('Overload'),
-		'LB' => gtext('Battery Low'),
-		'RB' => gtext('Replace Battery UPS'),
-		'CAL' => gtext('Calibration Battery'),
-		'CHRG' => gtext('Charging Battery')
-	];
-	$status = explode(' ',$ups_status);
-	$disp_status = [];
-	foreach($status as $condition):
-		$disp_status[] = $upstodisplay[$condition] ?? $condition;
-	endforeach;
-	return implode(', ',$disp_status);
-}
-function get_upsinfo() {
-	global $config;
-
-	if(!isset($config['ups']['enable'])):
-		return NULL;
-	endif;
-	$ups = [];
-	$cmd = sprintf('/usr/local/bin/upsc %s@%s',$config['ups']['upsname'],$config['ups']['ip']);
-	exec($cmd,$rawdata);
-	foreach($rawdata as $line):
-		$line = explode(':',$line);
-		$ups[$line[0]] = trim($line[1]);
-	endforeach;
-	$disp_status = get_ups_disp_status($ups['ups.status']);
-	$ups['disp_status'] = $disp_status;
-	$value = !empty($ups['ups.load']) ? $ups['ups.load'] : 0;
-	$ups['load'] = [
-		'percentage' => $value,
-		'used' => sprintf('%.1f',$value),
-		'tooltip_used' => sprintf('%s%%',$value),
-		'tooltip_available' => sprintf('%s%% %s',100 - $value,gtext('available'))
-	];
-	$value = !empty($ups['battery.charge']) ? $ups['battery.charge'] : 0;
-	$ups['battery'] = [
-		'percentage' => $value,
-		'used' => sprintf('%.1f',$value),
-		'tooltip_used' => sprintf('%s%%',$value),
-		'tooltip_available' => sprintf('%s%% %s',100 - $value,gtext('available'))
-	];
-	return $ups;
-}
-function get_upsinfo2() {
-	global $config;
-
-	if(!isset($config['ups']['enable']) || !isset($config['ups']['ups2'])):
-		return NULL;
-	endif;
-	$ups = [];
-	$cmd = sprintf('/usr/local/bin/upsc %s@%s',$config['ups']['ups2_upsname'],$config['ups']['ip']);
-	exec($cmd,$rawdata);
-	foreach($rawdata as $line):
-		$line = explode(':',$line);
-		$ups[$line[0]] = trim($line[1]);
-	endforeach;
-	$disp_status = get_ups_disp_status($ups['ups.status']);
-	$ups['disp_status'] = $disp_status;
-	$value = !empty($ups['ups.load']) ? $ups['ups.load'] : 0;
-	$ups['load'] = [
-		'percentage' => $value,
-		'used' => sprintf('%.1f',$value),
-		'tooltip_used' => sprintf('%s%%',$value),
-		'tooltip_available' => sprintf('%s%% %s',100 - $value,gtext('available'))
-	];
-	$value = !empty($ups['battery.charge']) ? $ups['battery.charge'] : 0;
-	$ups['battery'] = [
-		'percentage' => $value,
-		'used' => sprintf('%.1f',$value),
-		'tooltip_used' => sprintf('%s%%',$value),
-		'tooltip_available' => sprintf('%s%% %s',100 - $value,gtext('available'))
-	];
-	return $ups;
-}
-function get_vbox_vminfo($user,$uuid) {
-	$vminfo = [];
-	unset($rawdata);
-	mwexec2("/usr/local/bin/sudo -u {$user} /usr/local/bin/VBoxManage showvminfo --machinereadable {$uuid}",$rawdata);
-	foreach($rawdata as $line):
-		if(preg_match("/^([^=]+)=(\"([^\"]+)\"|[^\"]+)/",$line,$match)):
-			$a = [];
-			$a['raw'] = $match[0];
-			$a['key'] = $match[1];
-			$a['value'] = isset($match[3]) ? $match[3] : $match[2];
-			$vminfo[$a['key']] = $a;
-		endif;
-	endforeach;
-	return $vminfo;
-}
-function get_xen_info() {
-	$info = [];
-	unset($rawdata);
-	mwexec2("/usr/local/sbin/xl info",$rawdata);
-	foreach($rawdata as $line):
-		if(preg_match("/^([^:]+)\s+:\s+(.+)\s*$/",$line,$match)):
-			$a = [];
-			$a['raw'] = $match[0];
-			$a['key'] = trim($match[1]);
-			$a['value'] = trim($match[2]);
-			$info[$a['key']] = $a;
-		endif;
-	endforeach;
-	return $info;
-}
-function get_xen_console($domid) {
-	$info = [];
-	unset($rawdata);
-	mwexec2("/usr/local/bin/xenstore-ls /local/domain/{$domid}/console",$rawdata);
-	foreach($rawdata as $line):
-		if(preg_match("/^([^=]+)\s+=\s+\"(.+)\"$/",$line,$match)):
-			$a = [];
-			$a['raw'] = $match[0];
-			$a['key'] = trim($match[1]);
-			$a['value'] = trim($match[2]);
-			$info[$a['key']] = $a;
-		endif;
-	endforeach;
-	return $info;
-}
+$sysinfo = system_get_sysinfo();
 if(is_ajax()) {
-	$sysinfo = system_get_sysinfo();
-	$vipstatus = get_vip_status();
-	$sysinfo['vipstatus'] = $vipstatus;
-	$upsinfo = get_upsinfo();
-	$upsinfo2 = get_upsinfo2();
-	$sysinfo['upsinfo'] = $upsinfo;
-	$sysinfo['upsinfo2'] = $upsinfo2;
 	render_ajax($sysinfo);
 }
-function tblrow($name,$value,$symbol = null,$id = null) {
-	if(!$value):
-		return;
+function render_disk_usage(array $a_diskusage) {
+	global $use_meter_tag;
+
+	$a_diskusage_elements = count($a_diskusage);
+	if($a_diskusage_elements > 0):
+		echo '<tr>','<td class="celltag">',gtext('Disk Space Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
+		$index = 0;
+		foreach($a_diskusage as $r_diskusage):
+			$ctrlid = sprintf('diskusage_%s',$r_diskusage['id']);
+			$percent_used = $r_diskusage['percentage'];
+			$percent_free = 100 - $percent_used;
+			$tooltip_used = $r_diskusage['tooltip']['used'];
+			$tooltip_free = $r_diskusage['tooltip']['avail'];
+			echo '<tr><td class="nopad"><div id="',$ctrlid,'">';
+			echo '<span id="',$ctrlid,'_name" class="name">',$r_diskusage['name'],'</span>';
+			echo '<br />';
+			if($use_meter_tag):
+				echo '<meter id="',$ctrlid,'_v" class="diskusage" min="0" max="100" value="',$percent_used,'" title="',$tooltip_used,'">';
+			endif;
+			echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+				'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$percent_used,'" class="progbarcf" title="',$tooltip_used,'" alt="" />',
+				'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$percent_free,'" class="progbarc" title="',$tooltip_free,'" alt=""/>',
+				'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+			if($use_meter_tag):
+				echo '</meter>';
+			endif;
+			echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$r_diskusage['capofsize'],'</span>';
+			echo '<br />';
+			echo sprintf(gtext('Total: %s | Used: %s | Free: %s'),
+				sprintf('<span id="%s_size" class="size">%s</span>',$ctrlid,$r_diskusage['size']),
+				sprintf('<span id="%s_used" class="used">%s</span>',$ctrlid,$r_diskusage['used']),
+				sprintf('<span id="%s_avail" class="avail">%s</span>',$ctrlid,$r_diskusage['avail']));
+			echo '</div></td></tr>',"\n";
+			$index++;
+			if($index < $a_diskusage_elements):
+				echo '<tr><td class="nopad"><hr /></td></tr>',"\n";
+			endif;
+		endforeach;
+		echo '</tbody>','</table>','</td>','</tr>';
 	endif;
-	if($symbol == '&deg;'):
-		$value = sprintf('%.1f',$value);
-	endif;
-	if($symbol == 'Hz'):
-		$value = sprintf('%d',$value);
-	endif;
-	if($symbol == 'pre'):
-		$value = '<pre class="cmdoutput">' . $value;
-		$symbol = '</pre>';
-	endif;
-	print(<<<EOD
-<tr id='{$id}'>
-	<td>
-		<div id='ups_status'>
-			<span name='ups_status_name' id='ups_status_name' class='name'><b>{$name}</b></span><br />
-			{$value}{$symbol}
-		</div>
-	</td>
-</tr>
-EOD
-	. PHP_EOL);
+	return;
 }
-function tblrowbar($id,$name,$value) {
-	if(is_null($value)):
-		return;
+function render_pool_usage(array $a_poolusage) {
+	global $config,$use_meter_tag;
+
+	$a_poolusage_elements = count($a_poolusage);
+	if($a_poolusage_elements > 0):
+		echo '<tr>','<td class="celltag">',gtext('Pool Space Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
+		$index = 0;
+		foreach($a_poolusage as $r_poolusage):
+			$ctrlid = sprintf('poolusage_%s',$r_poolusage['id']);
+			echo '<tr><td class="nopad"><div id="',$ctrlid,'">';
+			$percent_used = $r_poolusage['percentage'];
+			$percent_free = 100 - $percent_used;
+			$tooltip_used = $r_poolusage['tooltip']['used'];
+			$tooltip_free = $r_poolusage['tooltip']['avail'];
+			echo '<span id="',$ctrlid,'_name" class="name">',$r_poolusage['name'],'</span>';
+			echo '<br />';
+			$zfs_settings = &array_make_branch($config,'zfs','settings');
+			if(array_key_exists('capacity_warning',$zfs_settings)):
+				$zfs_warning = filter_var($zfs_settings['capacity_warning'],FILTER_VALIDATE_INT,['options' => ['default' => 80,'min' => 80,'max' => 89]]);
+			else:
+				$zfs_warning = 80;
+			endif;
+			if(array_key_exists('capacity_critical',$zfs_settings)):
+				$zfs_critical = filter_var($zfs_settings['capacity_critical'],FILTER_VALIDATE_INT,['options' => ['default' => 90,'min' => 90,'max' => 95]]);
+			else:
+				$zfs_critical = 90;
+			endif;
+			if($use_meter_tag):
+				echo '<meter id="',$ctrlid,'_v" class="poolusage" min="0" max="100" optimum="40" low="',$zfs_warning,'" high="',$zfs_critical,'" value="',$percent_used,'" title="',$tooltip_used,'">';
+			endif;
+			echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+				'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$percent_used,'" class="progbarcf" title="',$tooltip_used,'" alt=""/>',
+				'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$percent_free,'" class="progbarc" title="',$tooltip_free,'" alt=""/>',
+				'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+			if($use_meter_tag):
+				echo '</meter>';
+			endif;
+			echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$r_poolusage['capofsize'],'</span>';
+			echo '<br />',"\n";
+			echo sprintf(gtext('Total: %s | %s: %s | %s: %s | State: %s'),
+				sprintf('<span id="%s_size" class="size">%s</span>',$ctrlid,$r_poolusage['size']),
+				sprintf('<span id="%s_gt_used">%s</span>',$ctrlid,$r_poolusage['gt_used']),
+				sprintf('<span id="%s_used" class="used">%s</span>',$ctrlid,$r_poolusage['used']),
+				sprintf('<span id="%s_gt_avail">%s</span>',$ctrlid,$r_poolusage['gt_avail']),
+				sprintf('<span id="%s_avail" class="avail">%s</span>',$ctrlid,$r_poolusage['avail']),
+				sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $r_poolusage['name']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$r_poolusage['health']));
+			echo '</div></td></tr>',"\n";
+			$index++;
+			if($index < $a_poolusage_elements):
+				echo '<tr><td class="nopad"><hr /></td></tr>',"\n";
+			endif;
+		endforeach;
+		echo '</tbody>','</table>','</td>','</tr>';
 	endif;
-	$available = 100 - $value;
-	$tooltip_used = sprintf('%s%%',$value);
-	$tooltip_available = sprintf('%s%% %s',$available,gtext('available'));
-	$span_used = sprintf('<span name="ups_status_used" id="ups_status_%s_used" class="capacity">%s%%</span>',$id,$value);
-	print(<<<EOD
-<tr>
-	<td>
-		<div id='ups_status'>
-			<span name='ups_status_name' id='ups_status_{$id}_name' class='name'><b>{$name}</b></span><br />
-			<img src="images/bar_left.gif" class="progbarl" alt="" />
-			<img src="images/bar_blue.gif" name="ups_status_bar_used" id="ups_status_{$id}_bar_used" width="{$value}" class="progbarcf" title="{$tooltip_used}" alt="" />
-			<img src="images/bar_gray.gif" name="ups_status_bar_free" id="ups_status_{$id}_bar_free" width="{$available}" class="progbarc" title="{$tooltip_available}" alt="" />
-			<img src="images/bar_right.gif" class="progbarr" alt="" />
-			{$span_used}
-		</div>
-	</td>
-</tr>
-EOD
-	. PHP_EOL);
+	return;
+}
+function render_swap_usage(array $a_swapusage) {
+	global $use_meter_tag;
+
+	$a_swapusage_elements = count($a_swapusage);
+	if($a_swapusage_elements > 0):
+		echo '<tr>','<td class="celltag">',gtext('Swap Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
+		$index = 0;
+		foreach($a_swapusage as $r_swapusage):
+			$ctrlid = sprintf('swapusage_%s',$r_swapusage['id']);
+			echo '<tr><td class="nopad"><div id="',$ctrlid,'">';
+			$percent_used = $r_swapusage['percentage'];
+			$percent_free = 100 - $percent_used;
+			$tooltip_used = $r_swapusage['tooltip']['used'];
+			$tooltip_free = $r_swapusage['tooltip']['avail'];
+			if($use_meter_tag):
+				echo '<meter id="',$ctrlid,'_v" class="swapusage" min="0" max="100" high="95" value="',$percent_used,'" title="',$tooltip_used,'">';
+			endif;
+			echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+				'<img src="images/bar_blue.gif" id="',$ctrlid,'_bar_used" width="',$percent_used,'" class="progbarcf" title="',$tooltip_used,'" alt=""/>',
+				'<img src="images/bar_gray.gif" id="',$ctrlid,'_bar_free" width="',$percent_free,'" class="progbarc" title="',$tooltip_free,'" alt=""/>',
+				'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+			if($use_meter_tag):
+				echo '</meter>';
+			endif;
+			echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$r_swapusage['capofsize'],'</span>';
+			echo '<br />';
+			echo sprintf(gtext('Device: %s | Total: %s | Used: %s | Free: %s'),
+				sprintf('<span id="%s_name" class="name">%s</span>',$ctrlid,$r_swapusage['name']),
+				sprintf('<span id="%s_size" class="size">%s</span>',$ctrlid,$r_swapusage['size']),
+				sprintf('<span id="%s_used" class="used">%s</span>',$ctrlid,$r_swapusage['used']),
+				sprintf('<span id="%s_avail" class="avail">%s</span>',$ctrlid,$r_swapusage['avail']));
+			echo '</div></td></tr>',"\n";
+			$index++;
+			if($index < $a_swapusage_elements):
+				echo '<tr><td class="nopad"><hr /></td></tr>',"\n";
+			endif;
+		endforeach;
+		echo '</tbody>','</table>','</td>','</tr>';
+	endif;
+	return;
+}
+function render_ups_info(array $a_upsinfo) {
+	global $use_meter_tag;
+
+	$a_upsinfo_elements = count($a_upsinfo);
+	if($a_upsinfo_elements > 0):
+		echo '<tr>',
+			'<td class="celltag">',gtext('UPS Status'),'</td>',
+			'<td class="celldata">','<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;">','<tbody>';
+		$index = 0;
+		foreach($a_upsinfo as $ui):
+			$id = sprintf('ups_status_%s_',$ui['id']);
+			echo '<tr>',
+				'<td class="padr03">',gtext('Identifier:'),'</td>',
+				'<td class="padr1" id="',$id,'name">',htmlspecialchars($ui['name']),'</td>',
+				'<td class="nopad"><a href="diag_infos_ups.php">',gtext('Show UPS Information'),'</a></td>',
+				'<td class="nopad100"></td>',
+				'</tr>';
+			echo '<tr>';
+			echo '<td class="padr03">',gtext('Status:'),'</td>',
+				'<td class="nopad" colspan="2" id="',$id,'disp_status">',$ui['disp_status'],'</td>',
+				'<td class="nopad100"></td>';
+				'</tr>';
+//			load
+			$idl = $id . 'load_';
+			$uil = $ui['load'];
+			$percent_used = (int)$uil['percentage'];
+			$percent_free = 100 - $percent_used;
+			$tooltip_used = sprintf('%s%%',$percent_used);
+			$tooltip_free = sprintf('%s%% %s',$percent_free,gettext('available'));
+			echo '<tr>';
+			echo '<td class="padr03">',gtext('Load:'),'</td>';
+			echo '<td class="nopad">';
+			if($use_meter_tag):
+				echo '<meter id="',$idl,'v" class="upsusage" min="0" optimum="30" low="60" high="80" max="100" value="',$percent_used,'" title="',$tooltip_used,'">';
+			endif;
+			echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+				'<img src="images/bar_blue.gif" id="',$idl,'bar_used" width="',$percent_used,'" class="progbarcf" title="',$tooltip_used,'" alt=""/>',
+				'<img src="images/bar_gray.gif" id="',$idl,'bar_free" width="',$percent_free,'" class="progbarc" title="',$tooltip_free,'" alt=""/>',
+				'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+			if($use_meter_tag):
+				echo '</meter>';
+			endif;
+			echo '</td>';
+			echo '<td class="nopad">',
+				'<span id="',$idl,'used" class="capacity">',$percent_used,'%</span>',
+				'</td>';
+			echo '<td class="nopad100"></td>';
+			echo '</tr>';
+//			battery charge level
+			$idb = $id . 'battery_';
+			$uib = $ui['battery'];
+			$percent_used = (int)$uib['percentage'];
+			$percent_free = 100 - $percent_used;
+			$tooltip_used = sprintf('%s%%',$percent_used);
+			$tooltip_free = sprintf('%s%% %s',$percent_free,gtext('available'));
+			echo '<tr>';
+			echo '<td class="padr03">',gtext('Battery Level:'),'</td>';
+			echo '<td class="nopad">';
+			if($use_meter_tag):
+				echo '<meter id="',$idb,'v" class="upsusage" min="0" low="30" high="80" optimum="90" max="100" value="',$percent_used,'" title="',$tooltip_used,'">';
+			endif;
+			echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+				'<img src="images/bar_blue.gif" id="',$idb,'bar_used" width="',$percent_used,'" class="progbarcf" title="',$tooltip_used,'" alt=""/>',
+				'<img src="images/bar_gray.gif" id="',$idb,'bar_free" width="',$percent_free,'" class="progbarc" title="',$tooltip_free,'" alt=""/>',
+				'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+			if($use_meter_tag):
+				echo '</meter>';
+			endif;
+			echo '</td>';
+			echo '<td class="nopad">',
+				'<span id="',$idb,'used" class="capacity">',$percent_used,'%</span>',
+				'</td>';
+			echo '<td class="nopad100"></td>';
+			echo '</tr>',"\n";
+			$index++;
+			if($index < $a_upsinfo_elements):
+				echo '<tr><td class="nopad" colspan="4"><hr /></td></tr>',"\n";
+			endif;
+		endforeach;
+		echo '</tbody>','</table>','</td>','</tr>';
+	endif;
 }
 if(function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')):
 	@date_default_timezone_set(@date_default_timezone_get());
@@ -272,155 +286,224 @@ $(document).ready(function(){
 		if ($('#system_datetime').length > 0) {
 			$('#system_datetime').text(data.date);
 		}
-		if ($('#memusage').length > 0) {
-			$('#memusage').text(data.memusage.caption);
+		if ($('#memusagev').length > 0) {
+			$('#memusagev').attr('value', data.memusage.usedpct);
 		}
 		if ($('#memusageu').length > 0) {
-			$('#memusageu').attr('width', data.memusage.usedpct + 'px');
+			$('#memusageu').attr('width', data.memusage.usedpct);
 		}
 		if ($('#memusagef').length > 0) {
-			$('#memusagef').attr('width', data.memusage.freepct + 'px');
+			$('#memusagef').attr('width', data.memusage.freepct);
+		}
+		if ($('#memusagep').length > 0) {
+			$('#memusagep').text(data.memusage.caption);
 		}
 		if ($('#loadaverage').length > 0) {
-			$('#loadaverage').val(data.loadaverage);
+			$('#loadaverage').text(data.loadaverage);
 		}
-		if (typeof(data.cputemp) != 'undefined') {
+		if (typeof(data.cputemp) !== 'undefined') {
 			if ($('#cputemp').length > 0) {
 				$('#cputemp').text(data.cputemp);
 			}
 		}
-		if (typeof(data.cputemp2) != 'undefined') {
+		if (typeof(data.cputemp2) !== 'undefined') {
 			for (var idx = 0; idx < data.cputemp2.length; idx++) {
 				if ($('#cputemp'+idx).length > 0) {
 					$('#cputemp'+idx).text(data.cputemp2[idx]);
 				}
 			}
 		}
-		if (typeof(data.cpufreq) != 'undefined') {
+		if (typeof(data.cpufreq) !== 'undefined') {
 			if ($('#cpufreq').length > 0) {
 				$('#cpufreq').text(data.cpufreq + 'MHz');
 			}
 		}
-		if (typeof(data.cpuusage) != 'undefined') {
+		if (typeof(data.cpuusage) !== 'undefined') {
+			if ($('#cpuusagev').length > 0) {
+				$('#cpuusagev').attr('value',data.cpuusage);
+			}
+			if ($('#cpuusageu').length > 0) {
+				$('#cpuusageu').attr('width',data.cpuusage);
+			}
+			if ($('#cpuusagef').length > 0) {
+				$('#cpuusagef').attr('width',(100 - data.cpuusage));
+			}
 			if ($('#cpuusagep').length > 0) {
 				$('#cpuusagep').text(data.cpuusage + '%');
 			}
-			if ($('#cpuusageu').length > 0) {
-				$('#cpuusageu').attr('width',data.cpuusage + 'px');
-			}
-			if ($('#cpuusagef').length > 0) {
-				$('#cpuusagef').attr('width',(100 - data.cpuusage) + 'px');
-			}
 		}
-		if (typeof(data.cpuusage2) != 'undefined') {
+		if (typeof(data.cpuusage2) !== 'undefined') {
 			for (var idx = 0; idx < data.cpuusage2.length; idx++) {
+				if ($('#cpuusagev'+idx).length > 0) {
+					$('#cpuusagev'+idx).attr('value', data.cpuusage2[idx]);
+				}
 				if ($('#cpuusagep'+idx).length > 0) {
 					$('#cpuusagep'+idx).text(data.cpuusage2[idx] + '%');
 				}
 				if ($('#cpuusageu'+idx).length > 0) {
-					$('#cpuusageu'+idx).attr('width', data.cpuusage2[idx] + 'px');
+					$('#cpuusageu'+idx).attr('width', data.cpuusage2[idx]);
 				}
 				if ($('#cpuusagef'+idx).length > 0) {
-					$('#cpuusagef'+idx).attr('width', (100 - data.cpuusage2[idx]) + 'px');
+					$('#cpuusagef'+idx).attr('width', (100 - data.cpuusage2[idx]));
 				}
 			}
 		}
-		if (typeof(data.diskusage) != 'undefined') {
+		if (typeof(data.diskusage) !== 'undefined') {
 			for (var idx = 0; idx < data.diskusage.length; idx++) {
 				var du = data.diskusage[idx];
-				if ($('#diskusage_'+du.id+'_bar_used').length > 0) {
-					$('#diskusage_'+du.id+'_name').text(du.name);
-					$('#diskusage_'+du.id+'_bar_used').attr('width', du.percentage + 'px');
-					$('#diskusage_'+du.id+'_bar_used').attr('title', du['tooltip'].used);
-					$('#diskusage_'+du.id+'_bar_free').attr('width', (100 - du.percentage) + 'px');
-					$('#diskusage_'+du.id+'_bar_free').attr('title', du['tooltip'].avail);
-					$('#diskusage_'+du.id+'_capacity').text(du.capacity);
-					$('#diskusage_'+du.id+'_capofsize').text(du.capofsize);
-					$('#diskusage_'+du.id+'_size').text(du.size);
-					$('#diskusage_'+du.id+'_used').text(du.used);
-					$('#diskusage_'+du.id+'_avail').text(du.avail);
+				var id_prefix = '#diskusage_'+du.id+'_';
+				if ($(id_prefix+'name').length > 0) {
+					$(id_prefix+'name').text(du.name);
+				}
+				if ($(id_prefix+'v').length > 0) {
+					$(id_prefix+'v').attr('value', du.percentage);
+				}
+				if ($(id_prefix+'bar_used').length > 0) {
+					$(id_prefix+'bar_used').attr('width', du.percentage);
+					$(id_prefix+'bar_used').attr('title', du['tooltip'].used);
+				}
+				if ($(id_prefix+'bar_free').length > 0) {
+					$(id_prefix+'bar_free').attr('width', (100 - du.percentage));
+					$(id_prefix+'bar_free').attr('title', du['tooltip'].avail);
+				}
+				if ($(id_prefix+'capacity').length > 0) {
+					$(id_prefix+'capacity').text(du.capacity);
+				}
+				if ($(id_prefix+'capofsize').length > 0) {
+					$(id_prefix+'capofsize').text(du.capofsize);
+				}
+				if ($(id_prefix+'size').length > 0) {
+					$(id_prefix+'size').text(du.size);
+				}
+				if ($(id_prefix+'used').length > 0) {
+					$(id_prefix+'used').text(du.used);
+				}
+				if ($(id_prefix+'avail').length > 0) {
+					$(id_prefix+'avail').text(du.avail);
 				}
 			}
 		}
-		if (typeof(data.poolusage) != 'undefined') {
+		if (typeof(data.poolusage) !== 'undefined') {
 			for (var idx = 0; idx < data.poolusage.length; idx++) {
 				var pu = data.poolusage[idx];
-				if ($('#poolusage_'+pu.id+'_bar_used').length > 0) {
-					$('#poolusage_'+pu.id+'_name').text(pu.name);
-					$('#poolusage_'+pu.id+'_bar_used').attr('width', pu.percentage + 'px');
-					$('#poolusage_'+pu.id+'_bar_used').attr('title', pu['tooltip'].used);
-					$('#poolusage_'+pu.id+'_bar_free').attr('width', (100 - pu.percentage) + 'px');
-					$('#poolusage_'+pu.id+'_bar_free').attr('title', pu['tooltip'].avail);
-					$('#poolusage_'+pu.id+'_capacity').text(pu.capacity);
-					$('#poolusage_'+pu.id+'_capofsize').text(pu.capofsize);
-					$('#poolusage_'+pu.id+'_size').text(pu.size);
-					$('#poolusage_'+pu.id+'_gt_used').text(pu.gt_used);
-					$('#poolusage_'+pu.id+'_used').text(pu.used);
-					$('#poolusage_'+pu.id+'_gt_avail').text(pu.gt_avail);
-					$('#poolusage_'+pu.id+'_avail').text(pu.avail);
-					$('#poolusage_'+pu.id+'_state').children().text(pu.health);
+				var id_prefix = '#poolusage_'+pu.id+'_';
+				if ($(id_prefix+'name').length > 0) {
+					$(id_prefix+'name').text(pu.name);
+				}
+				if ($(id_prefix+'v').length > 0) {
+					$(id_prefix+'v').attr('value', pu.percentage);
+				}
+				if ($(id_prefix+'bar_used').length > 0) {
+					$(id_prefix+'bar_used').attr('width', pu.percentage);
+					$(id_prefix+'bar_used').attr('title', pu['tooltip'].used);
+				}
+				if ($(id_prefix+'bar_free').length > 0) {
+					$(id_prefix+'bar_free').attr('width', (100 - pu.percentage));
+					$(id_prefix+'bar_free').attr('title', pu['tooltip'].avail);
+				}
+				if ($(id_prefix+'capacity').length > 0) {
+					$(id_prefix+'capacity').text(pu.capacity);
+				}
+				if ($(id_prefix+'capofsize').length > 0) {
+					$(id_prefix+'capofsize').text(pu.capofsize);
+				}
+				if ($(id_prefix+'size').length > 0) {
+					$(id_prefix+'size').text(pu.size);
+				}
+				if ($(id_prefix+'gt_used').length > 0) {
+					$(id_prefix+'gt_used').text(pu.gt_used);
+				}
+				if ($(id_prefix+'used').length > 0) {
+					$(id_prefix+'used').text(pu.used);
+				}
+				if ($(id_prefix+'gt_avail').length > 0) {
+					$(id_prefix+'gt_avail').text(pu.gt_avail);
+				}
+				if ($(id_prefix+'avail').length > 0) {
+					$(id_prefix+'avail').text(pu.avail);
+				}
+				if ($(id_prefix+'state').length > 0) {
+					$(id_prefix+'state').children().text(pu.health);
 				}
 			}
 		}
-		if (typeof(data.swapusage) != 'undefined') {
+		if (typeof(data.swapusage) !== 'undefined') {
 			for (var idx = 0; idx < data.swapusage.length; idx++) {
 				var su = data.swapusage[idx];
-				if ($('#swapusage_'+su.id+'_bar_used').length > 0) {
-					$('#swapusage_'+su.id+'_name').text(su.name);
-					$('#swapusage_'+su.id+'_bar_used').attr('width', su.percentage + 'px');
-					$('#swapusage_'+su.id+'_bar_used').attr('title', su['tooltip'].used);
-					$('#swapusage_'+su.id+'_bar_free').attr('width', (100 - su.percentage) + 'px');
-					$('#swapusage_'+su.id+'_bar_free').attr('title', su['tooltip'].avail);
-					$('#swapusage_'+su.id+'_capacity').text(su.capacity);
-					$('#swapusage_'+su.id+'_capofsize').text(su.capofsize);
-					$('#swapusage_'+su.id+'_size').text(su.size);
-					$('#swapusage_'+su.id+'_used').text(su.used);
-					$('#swapusage_'+su.id+'_avail').text(su.avail);
+				var id_prefix = '#swapusage_'+su.id+'_';
+				if ($(id_prefix+'name').length > 0) {
+					$(id_prefix+'name').text(su.name);
+				}
+				if ($(id_prefix+'v').length > 0) {
+					$(id_prefix+'v').attr('value', su.percentage);
+				}
+				if ($(id_prefix+'bar_used').length > 0) {
+					$(id_prefix+'bar_used').attr('width', su.percentage);
+					$(id_prefix+'bar_used').attr('title', su['tooltip'].used);
+				}
+				if ($(id_prefix+'bar_free').length > 0) {
+					$(id_prefix+'bar_free').attr('width', (100 - su.percentage));
+					$(id_prefix+'bar_free').attr('title', su['tooltip'].avail);
+				}
+				if ($(id_prefix+'capacity').length > 0) {
+					$(id_prefix+'capacity').text(su.capacity);
+				}
+				if ($(id_prefix+'capofsize').length > 0) {
+					$(id_prefix+'capofsize').text(su.capofsize);
+				}
+				if ($(id_prefix+'size').length > 0) {
+					$(id_prefix+'size').text(su.size);
+				}
+				if ($(id_prefix+'used').length > 0) {
+					$(id_prefix+'used').text(su.used);
+				}
+				if ($(id_prefix+'avail').length > 0) {
+					$(id_prefix+'avail').text(su.avail);
 				}
 			}
 		}
-		if (typeof(data.upsinfo) != 'undefined' && data.upsinfo !== null) {
-			if ($('#ups_status_disp_status').length > 0)
-				$('#ups_status_disp_status').text(data.upsinfo.disp_status);
-			var ups_id = "load";
-			var ui = data.upsinfo[ups_id];
-			if ($('#ups_status_'+ups_id+'_bar_used').length > 0) {
-				$('#ups_status_'+ups_id+'_bar_used').attr('width', ui.percentage + 'px');
-				$('#ups_status_'+ups_id+'_bar_used').attr('title', ui.tooltip_used);
-				$('#ups_status_'+ups_id+'_bar_free').attr('width', (100 - ui.percentage) + 'px');
-				$('#ups_status_'+ups_id+'_bar_free').attr('title', ui.tooltip_available);
-				$('#ups_status_'+ups_id+'_used').text(ui.used);
-			}
-			var ups_id = "battery";
-			var ui = data.upsinfo[ups_id];
-			if ($('#ups_status_'+ups_id+'_bar_used').length > 0) {
-				$('#ups_status_'+ups_id+'_bar_used').attr('width', ui.percentage + 'px');
-				$('#ups_status_'+ups_id+'_bar_used').attr('title', ui.tooltip_used);
-				$('#ups_status_'+ups_id+'_bar_free').attr('width', (100 - ui.percentage) + 'px');
-				$('#ups_status_'+ups_id+'_bar_free').attr('title', ui.tooltip_available);
-				$('#ups_status_'+ups_id+'_used').text(ui.used);
-			}
-		}
-		if (typeof(data.upsinfo2) != 'undefined' && data.upsinfo2 !== null) {
-			if ($('#ups_status_disp_status2').length > 0)
-				$('#ups_status_disp_status2').text(data.upsinfo2.disp_status);
-			var ups_id = "load2";
-			var ui = data.upsinfo2["load"];
-			if ($('#ups_status_'+ups_id+'_bar_used').length > 0) {
-				$('#ups_status_'+ups_id+'_bar_used').attr('width', ui.percentage + 'px');
-				$('#ups_status_'+ups_id+'_bar_used').attr('title', ui.tooltip_used);
-				$('#ups_status_'+ups_id+'_bar_free').attr('width', (100 - ui.percentage) + 'px');
-				$('#ups_status_'+ups_id+'_bar_free').attr('title', ui.tooltip_available);
-				$('#ups_status_'+ups_id+'_used').text(ui.used);
-			}
-			var ups_id = "battery2";
-			var ui = data.upsinfo2["battery"];
-			if ($('#ups_status_'+ups_id+'_bar_used').length > 0) {
-				$('#ups_status_'+ups_id+'_bar_used').attr('width', ui.percentage + 'px');
-				$('#ups_status_'+ups_id+'_bar_used').attr('title', ui.tooltip_used);
-				$('#ups_status_'+ups_id+'_bar_free').attr('width', (100 - ui.percentage) + 'px');
-				$('#ups_status_'+ups_id+'_bar_free').attr('title', ui.tooltip_available);
-				$('#ups_status_'+ups_id+'_used').text(ui.used);
+		if (typeof(data.upsinfo) !== 'undefined') {
+			for (var idx = 0; idx < data.upsinfo.length; idx++) {
+				var ui = data.upsinfo[idx];
+				var id_prefix = '#ups_status_'+ui.id+'_';
+				if ($(id_prefix+'name').length > 0) {
+					$(id_prefix+'name').text(ui.name);
+				}
+				if ($(id_prefix+'disp_status').length > 0) {
+					$(id_prefix+'disp_status').text(ui.disp_status);
+				}
+				var uil = ui['load'];
+				var id_prefix = '#ups_status_'+ui.id+'_load_';
+				if ($(id_prefix+'v').length > 0) {
+					$(id_prefix+'v').attr('value', uil.percentage);
+				}
+				if ($(id_prefix+'bar_used').length > 0) {
+					$(id_prefix+'bar_used').attr('width', uil.percentage);
+					$(id_prefix+'bar_used').attr('title', uil.tooltip_used);
+				}
+				if ($(id_prefix+'bar_free').length > 0) {
+					$(id_prefix+'bar_free').attr('width', (100 - uil.percentage));
+					$(id_prefix+'bar_free').attr('title', uil.tooltip_available);
+				}
+				if ($(id_prefix+'used').length > 0) {
+					$(id_prefix+'used').text(uil.used+'%');
+				}
+				var uib = ui['battery'];
+				var id_prefix = '#ups_status_'+ui.id+'_battery_';
+				if ($(id_prefix+'v').length > 0) {
+					$(id_prefix+'v').attr('value', uib.percentage);
+				}
+				if ($(id_prefix+'bar_used').length > 0) {
+					$(id_prefix+'bar_used').attr('width', uib.percentage);
+					$(id_prefix+'bar_used').attr('title', uib.tooltip_used);
+				}
+				if ($(id_prefix+'bar_free').length > 0) {
+					$(id_prefix+'bar_free').attr('width', (100 - uib.percentage));
+					$(id_prefix+'bar_free').attr('title', uib.tooltip_available);
+				}
+				if ($(id_prefix+'used').length > 0) {
+					$(id_prefix+'used').text(uib.used+'%');
+				}
 			}
 		}
 	});
@@ -428,7 +511,7 @@ $(document).ready(function(){
 //]]>
 </script>
 <?php
-	// make sure normal user such as www can write to temporary
+//	make sure normal user such as www can write to temporary
 	$perms = fileperms("/tmp");
 	if(($perms & 01777) != 01777):
 		$errormsg .= sprintf(gtext("Wrong permission on %s."), "/tmp");
@@ -439,7 +522,7 @@ $(document).ready(function(){
 		$errormsg .= sprintf(gtext("Wrong permission on %s."), "/var/tmp");
 		$errormsg .= "<br />\n";
 	endif;
-	// check DNS
+//	check DNS
 	list($v4dns1,$v4dns2) = get_ipv4dnsserver();
 	list($v6dns1,$v6dns2) = get_ipv6dnsserver();
 	if(empty($v4dns1) && empty($v4dns2) && empty($v6dns1) && empty($v6dns2)):
@@ -501,115 +584,122 @@ $(document).ready(function(){
 		<tbody>
 <?php
 			if(!empty($config['vinterfaces']['carp'])):
-				html_textinfo2('vipstatus',gettext('Virtual IP address'),htmlspecialchars(get_vip_status()));
+				html_textinfo2('vipstatus',gettext('Virtual IP address'),$sysinfo['vipstatus']);
 			endif;
 			html_textinfo2('hostname',gettext('Hostname'),system_get_hostname());
 			html_textinfo2('version',gettext('Version'),sprintf('<strong>%s %s</strong> (%s %s)',get_product_version(),get_product_versionname(),gettext('revision'),get_product_revision()));
-			html_textinfo2('builddate',gettext('Compiled'),htmlspecialchars(get_datetime_locale(get_product_buildtimestamp())));
+			html_textinfo2('builddate',gettext('Compiled'),get_datetime_locale(get_product_buildtimestamp()));
 			exec('/sbin/sysctl -n kern.version',$osversion);
 			html_textinfo2('platform_os',gettext('Platform OS'),sprintf('%s', $osversion[0]));
-			html_textinfo2('platform',gettext('Platform'),sprintf(gettext('%s on %s'),$g['fullplatform'],$cpuinfo['model']));
+			html_textinfo2('platform',gettext('Platform'),sprintf(gettext('%s on %s'),$g['fullplatform'],$sysinfo['cpumodel']));
 			if(isset($smbios['planar']) && is_array($smbios['planar'])):
-				html_textinfo2('system',gettext('System'),sprintf('%s %s',htmlspecialchars($smbios['planar']['maker'] ?? ''),htmlspecialchars($smbios['planar']['product'] ?? '')));
+				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['planar']['maker'] ?? '',$smbios['planar']['product'] ?? ''));
 			elseif(isset($smbios['system']) && is_array($smbios['system'])):
-				html_textinfo2('system',gettext('System'),sprintf('%s %s',htmlspecialchars($smbios['system']['maker'] ?? ''),htmlspecialchars($smbios['system']['product'] ?? '')));
+				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['system']['maker'] ?? '',$smbios['system']['product'] ?? ''));
 			endif;
 			if(isset($smbios['bios']) && is_array($smbios['bios'])):
 				html_textinfo2('system_bios',gettext('System BIOS'),sprintf('%s %s %s %s',xmlspecialchars($smbios['bios']['vendor'] ?? ''),gettext('Version:'),xmlspecialchars($smbios['bios']['version'] ?? ''),xmlspecialchars($smbios['bios']['reldate'] ?? '')));
 			endif;
-			html_textinfo2('system_datetime',gettext('System Time'),htmlspecialchars(get_datetime_locale()));
-			html_textinfo2('system_uptime',gettext('System Uptime'),htmlspecialchars(system_get_uptime()));
+			html_textinfo2('system_datetime',gettext('System Time'),get_datetime_locale());
+			html_textinfo2('system_uptime',gettext('System Uptime'),$sysinfo['uptime']);
 			if(Session::isAdmin()):
 				if($config['lastchange']):
 					html_textinfo2('last_config_change',gettext('System Config Change'),get_datetime_locale($config['lastchange']));
 				endif;
-				if(empty($cpuinfo['temperature2'])):
-					if(!empty($cpuinfo['temperature'])):
-						html_textinfo2('cputemp',gettext('CPU Temperature'),sprintf('%s°C',htmlspecialchars($cpuinfo['temperature'])));
+				if(empty($sysinfo['cputemp2'])):
+					if(!empty($sysinfo['cputemp'])):
+						html_textinfo2('cputemp',gettext('CPU Temperature'),sprintf('%s°C',$sysinfo['cputemp']));
 					endif;
 				endif;
-				if(!empty($cpuinfo['freq'])):
-					html_textinfo2('cpufreq',gettext('CPU Frequency'),sprintf('%sMHz',htmlspecialchars($cpuinfo['freq'])));
+				if(!empty($sysinfo['cpufreq'])):
+					html_textinfo2('cpufreq',gettext('CPU Frequency'),sprintf('%sMHz',$sysinfo['cpufreq']));
 				endif;
+				$percentage = $sysinfo['cpuusage'];
+				if(is_numeric($percentage)):
 ?>
-				<tr>
-					<td class="celltag"><?=gtext('CPU Usage');?></td>
-					<td class="celldata">
-						<table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td>
+					<tr>
+						<td class="celltag"><?=gtext('CPU Usage');?></td>
+						<td class="celldata">
 <?php
-							$percentage = 0;
-							echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>';
-							echo '<img src="images/bar_blue.gif" name="cpuusageu" id="cpuusageu" width="',$percentage,'" class="progbarcf" alt="" />';
-							echo '<img src="images/bar_gray.gif" name="cpuusagef" id="cpuusagef" width="',(100 - $percentage),'" class="progbarc" alt=""/>';
-							echo '<img src="images/bar_right.gif" class="progbarr" alt="" style="padding-right:8px"/>';
-							echo '<span id="cpuusagep"></span>';
+							if($use_meter_tag):
+								echo '<meter id="cpuusagev" class="cpuusage" min="0" max="100" optimum="45" low="90" high="95" value="',$percentage,'" title="',$percentage,'%">';
+							endif;
+							echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+								'<img src="images/bar_blue.gif" id="cpuusageu" width="',$percentage,'" class="progbarcf" alt="" />',
+								'<img src="images/bar_gray.gif" id="cpuusagef" width="',100 - $percentage,'" class="progbarc" alt=""/>',
+								'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+							if($use_meter_tag):
+								echo '</meter>';
+							endif;
+							echo '<span id="cpuusagep">',$percentage,'%</span>';
 ?>
-						</td></tr></table>
-					</td>
-				</tr>
+						</td>
+					</tr>
 <?php
-				$cpus = min(system_get_cpus(),16); // limit the number of CPU usage to 16 cpus
+				endif;
+ //				limit the number of CPU's shown to 16 cpus
+				$cpus = min($sysinfo['cpus'],16);
 				if($cpus > 1):
 ?>
 					<tr>
 						<td class="celltag"><?=gtext('CPU Core Usage');?></td>
 						<td class="celldata">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;"><tbody>
+
 <?php
-								$row_is_open = false; // ensure any open <tr> tag gets closed at the end of this section
-								$col_actual = 0; // start value to force initial <tr>
 								if($cpus > 4):
-									$col_max = 2; // set max number of columns here for high number of CPUs
+									$col_max = 2; // set max number of columns for high number of CPUs
 								else:
-									$col_max = 1; // set max number of columns here for low number of CPUs
+									$col_max = 1; // set max number of columns for low number of CPUs
 								endif;
-								for($idx = 1;$idx <= $col_max;$idx++):
-									echo '<col style="width:1px">'; // image
-									echo '<col style="width:1px">'; // "Core n: "
-									echo '<col style="width:38px">'; // usage%
-									echo '<col style="width:1px">'; // "Temp: "
-									echo '<col style="width:25px">'; // temperature
-									echo '<col style="width:1px">'; // "°C"
-								endfor;
-								echo '<col>'; // remaining of table
-								echo '<tbody>';
-									for($idx = 0;$idx < $cpus;$idx++):
-										$col_actual++;
-										if(1 === $col_actual): // start a new row
-											echo '<tr>';
-											$row_is_open = true;
-										endif;
-										$percentage = 0;
-										echo '<td style="white-space:nowrap;padding-right:8px">';
-										echo '<img src="images/bar_left.gif" class="progbarl" alt="" style="display:inline"/>';
-										echo '<img src="images/bar_blue.gif" name="cpuusageu',$idx,'" id="cpuusageu',$idx,'" width="',$percentage,'" class="progbarcf" alt="" style="display:inline"/>';
-										echo '<img src="images/bar_gray.gif" name="cpuusagef',$idx,'" id="cpuusagef',$idx,'" width="',(100 - $percentage),'" class="progbarc" alt="" style="display:inline"/>';
-										echo '<img src="images/bar_right.gif" class="progbarr" alt="" style="display:inline"/>';
-										echo '</td>';
-										echo '<td style="white-space:nowrap">',sprintf('%s %s:&nbsp;',$gt_core,$idx),'</td>';
-										echo '<td style="text-align:right;white-space:nowrap;padding-right:8px" id="',sprintf('cpuusagep%s',$idx),'">???</td>';
-										if(!empty($cpuinfo['temperature2'][$idx])):
-											echo '<td style="white-space:nowrap">',sprintf('%s:&nbsp;',$gt_temp),'</td>';
-											echo '<td style="text-align:right;white-space:nowrap" id="',sprintf('cputemp%s',$idx),'">???</td>';
-											echo '<td style="white-space:nowrap;padding-right:20px">°C</td>';
+								$tr_count = intdiv($cpus + $col_max - 1,$col_max);
+								$cpu_index = 0;
+								for($tr_counter = 0;$tr_counter < $tr_count;$tr_counter++):
+									echo '<tr>';
+									for($td_counter = 0;$td_counter < $col_max;$td_counter++):
+										if($cpu_index < $cpus):
+//											action
+											$percentage = $sysinfo['cpuusage2'][$cpu_index] ?? 0;
+											$temperature = $sysinfo['cputemp2'][$cpu_index] ?? 0;
+											echo '<td class="nopad">';
+											if($use_meter_tag):
+												echo '<meter id="cpuusagev',$cpu_index,'" class="cpuusage" min="0" max="100" optimum="45" low="90" high="95" value="',$percentage,'" title="',$percentage,'%">';
+											endif;
+											echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+												'<img src="images/bar_blue.gif" id="cpuusageu',$cpu_index,'" width="',$percentage,'" class="progbarcf" alt=""/>',
+												'<img src="images/bar_gray.gif" id="cpuusagef',$cpu_index,'" width="',100 - $percentage,'" class="progbarc" alt=""/>',
+												'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+											if($use_meter_tag):
+												echo '</meter>';
+											endif;
+											echo '</td>';
+											echo '<td class="padr03">',htmlspecialchars(sprintf('%s %s:',gettext('Core'),$cpu_index)),'</td>';
+											echo '<td class="padr1" style="text-align:right;" id="',sprintf('cpuusagep%s',$cpu_index),'">',$percentage,'%</td>';
+											if(!empty($sysinfo['cputemp2'][$cpu_index])):
+												echo '<td class="padr03">',htmlspecialchars(sprintf('%s:',gettext('Temp'))),'</td>';
+												echo '<td class="nopad" style="text-align:right;" id="',sprintf('cputemp%s',$cpu_index),'">',$temperature,'</td>';
+												echo '<td class="padr1">°C</td>';
+											else:
+												echo '<td class="padr03"></td>';
+												echo '<td class="nopad"></td>';
+												echo '<td class="padr1"></td>';
+											endif;
+											$cpu_index++;
 										else:
-											echo '<td></td>';
-											echo '<td></td>';
-											echo '<td></td>';
-										endif;
-										if($col_actual === $col_max): // we reached the end of the row, we must close it
-											echo '<td></td>';
-											echo '</tr>';
-											$row_is_open = false;
-											$col_actual = 0; // reset
+//											fill empty space
+											echo '<td class="nopad"></td>';
+											echo '<td class="padr03"></td>';
+											echo '<td class="padr1"></td>';
+											echo '<td class="padr03"></td>';
+											echo '<td class="nopad"></td>';
+											echo '<td class="padr1"></td>';
 										endif;
 									endfor;
-									if($row_is_open):
-										echo '</tr>';
-									endif;
-								echo '</tbody>';
+									echo '<td class="nopad100">';
+									echo '</tr>';
+								endfor;
 ?>
-							</table>
+							</tbody></table>
 						</td>
 					</tr>
 <?php
@@ -619,204 +709,42 @@ $(document).ready(function(){
 					<td class="celltag"><?=gtext('Memory Usage');?></td>
 					<td class="celldata">
 <?php
-						$raminfo = system_get_ram_info();
-						echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>';
-						echo '<img src="images/bar_blue.gif" name="memusageu" id="memusageu" width="',$raminfo['usedpct'],'" class="progbarcf" alt=""/>';
-						echo '<img src="images/bar_gray.gif" name="memusagef" id="memusagef" width="',$raminfo['freepct'],'" class="progbarc" alt="" />';
-						echo '<img src="images/bar_right.gif" class="progbarr" alt="" style="padding-right:8px"/>';
-						echo '<span id="memusage">',$raminfo['caption'],'</span>';
+						$raminfo = $sysinfo['memusage'];
+						if($use_meter_tag):
+							echo '<meter id="memusagev" class="memusage" min="0" max="100" high="98" value="',$raminfo['usedpct'],'" title="',$raminfo['caption'],'">';
+						endif;
+						echo '<img src="images/bar_left.gif" class="progbarl" alt=""/>',
+							'<img src="images/bar_blue.gif" id="memusageu" width="',$raminfo['usedpct'],'" class="progbarcf" alt=""/>',
+							'<img src="images/bar_gray.gif" id="memusagef" width="',$raminfo['freepct'],'" class="progbarc" alt="" />',
+							'<img src="images/bar_right.gif" class="progbarr meter" alt=""/>';
+						if($use_meter_tag):
+							echo '</meter>';
+						endif;
+						echo '<span id="memusagep">',$raminfo['caption'],'</span>';
 ?>
 					</td>
 				</tr>
 <?php
-				$a_swapusage = get_swap_usage();
-				if(!empty($a_swapusage)):
-?>
-					<tr>
-						<td class="celltag"><?=gtext('Swap Usage');?></td>
-						<td class="celldata">
-							<table width="100%" border="0" cellspacing="0" cellpadding="1">
-<?php
-								$index = 0;
-								foreach($a_swapusage as $r_swapusage):
-									$ctrlid = $r_swapusage['id'];
-									$percent_used = $r_swapusage['percentage'];
-									$tooltip_used = $r_swapusage['tooltip']['used'];
-									$tooltip_avail = $r_swapusage['tooltip']['avail'];
-									echo "<tr><td><div id='swapusage'>";
-									echo "<img src='images/bar_left.gif' class='progbarl' alt='' />";
-									echo "<img src='images/bar_blue.gif' name='swapusage_{$ctrlid}_bar_used' id='swapusage_{$ctrlid}_bar_used' width='{$percent_used}' class='progbarcf' title='{$tooltip_used}' alt='' />";
-									echo "<img src='images/bar_gray.gif' name='swapusage_{$ctrlid}_bar_free' id='swapusage_{$ctrlid}_bar_free' width='" . (100 - $percent_used) . "' class='progbarc' title='{$tooltip_avail}' alt='' />";
-									echo "<img src='images/bar_right.gif' class='progbarr' alt='' /> ";
-									echo "<span name='swapusage_{$ctrlid}_capofsize' id='swapusage_{$ctrlid}_capofsize' class='capofsize'>{$r_swapusage['capofsize']}</span>";
-									echo "<br />";
-									echo sprintf(gtext("Device: %s | Total: %s | Used: %s | Free: %s"),
-										"<span name='swapusage_{$ctrlid}_name' id='swapusage_{$ctrlid}_name' class='name'>{$r_swapusage['name']}</span>",
-										"<span name='swapusage_{$ctrlid}_size' id='swapusage_{$ctrlid}_size' class='size'>{$r_swapusage['size']}</span>",
-										"<span name='swapusage_{$ctrlid}_used' id='swapusage_{$ctrlid}_used' class='used'>{$r_swapusage['used']}</span>",
-										"<span name='swapusage_{$ctrlid}_avail' id='swapusage_{$ctrlid}_avail' class='avail'>{$r_swapusage['avail']}</span>");
-									echo "</div></td></tr>";
-									if(++$index < count($a_swapusage)):
-										echo "<tr><td><hr size='1' /></td></tr>\n";
-									endif;
-								endforeach;
-?>
-							</table>
-						</td>
-					</tr>
-<?php
-				endif;
+				render_swap_usage($sysinfo['swapusage']);
 ?>
 				<tr>
 					<td class="celltag"><?=gtext('Load Averages');?></td>
 					<td class="celldata">
-<?php
-						exec('uptime', $result);
-						$loadaverage = substr(strrchr($result[0], "load averages:"), 15);
-?>
-						<input style="padding:0;border:0;background-color:transparent" readonly="readonly" name="loadaverage" id="loadaverage" value="<?=$loadaverage;?>" />
-						<?="<small>[<a href='status_process.php'>".gtext("Show Process Information")."</a></small>]";?>
-					</td>
-				</tr>
-				<tr>
-					<td class="celltag"><?=gtext("Disk Space Usage");?></td>
-					<td class="celldata">
-						<table width="100%" border="0" cellspacing="0" cellpadding="1">
-<?php
-							$a_diskusage = get_disk_usage();
-							if(!empty($a_diskusage)):
-								$index = 0;
-								foreach($a_diskusage as $r_diskusage):
-									$ctrlid = $r_diskusage['id'];
-									$percent_used = $r_diskusage['percentage'];
-									$tooltip_used = $r_diskusage['tooltip']['used'];
-									$tooltip_avail = $r_diskusage['tooltip']['avail'];
-									echo "<tr><td><div id='diskusage'>";
-									echo "<span name='diskusage_{$ctrlid}_name' id='diskusage_{$ctrlid}_name' class='name'>{$r_diskusage['name']}</span><br />";
-									echo "<img src='images/bar_left.gif' class='progbarl' alt='' />";
-									echo "<img src='images/bar_blue.gif' name='diskusage_{$ctrlid}_bar_used' id='diskusage_{$ctrlid}_bar_used' width='{$percent_used}' class='progbarcf' title='{$tooltip_used}' alt='' />";
-									echo "<img src='images/bar_gray.gif' name='diskusage_{$ctrlid}_bar_free' id='diskusage_{$ctrlid}_bar_free' width='" . (100 - $percent_used) . "' class='progbarc' title='{$tooltip_avail}' alt='' />";
-									echo "<img src='images/bar_right.gif' class='progbarr' alt='' /> ";
-									echo "<span name='diskusage_{$ctrlid}_capofsize' id='diskusage_{$ctrlid}_capofsize' class='capofsize'>{$r_diskusage['capofsize']}</span>";
-									echo "<br />";
-									echo sprintf(gtext("Total: %s | Used: %s | Free: %s"),
-										"<span name='diskusage_{$ctrlid}_size' id='diskusage_{$ctrlid}_size' class='size'>{$r_diskusage['size']}</span>",
-										"<span name='diskusage_{$ctrlid}_used' id='diskusage_{$ctrlid}_used' class='used'>{$r_diskusage['used']}</span>",
-										"<span name='diskusage_{$ctrlid}_avail' id='diskusage_{$ctrlid}_avail' class='avail'>{$r_diskusage['avail']}</span>");
-									echo "</div></td></tr>";
-									if(++$index < count($a_diskusage)):
-										echo "<tr><td><hr size='1' /></td></tr>\n";
-									endif;
-								endforeach;
-							endif;
-							$a_poolusage = get_pool_usage();
-							if(!empty($a_poolusage)):
-								$index = 0;
-								if(!empty($a_diskusage)):
-									echo "<tr><td><hr size='1' /></td></tr>\n";
-								endif;
-								foreach($a_poolusage as $r_poolusage):
-									$ctrlid = $r_poolusage['id'];
-									$percent_used = $r_poolusage['percentage'];
-									$tooltip_used = $r_poolusage['tooltip']['used'];
-									$tooltip_avail = $r_poolusage['tooltip']['avail'];
-									echo "<tr><td><div id='poolusage'>";
-									echo "<span name='poolusage_{$ctrlid}_name' id='poolusage_{$ctrlid}_name' class='name'>{$r_poolusage['name']}</span><br />";
-									echo "<img src='images/bar_left.gif' class='progbarl' alt='' />";
-									echo "<img src='images/bar_blue.gif' name='poolusage_{$ctrlid}_bar_used' id='poolusage_{$ctrlid}_bar_used' width='{$percent_used}' class='progbarcf' title='{$tooltip_used}' alt='' />";
-									echo "<img src='images/bar_gray.gif' name='poolusage_{$ctrlid}_bar_free' id='poolusage_{$ctrlid}_bar_free' width='" . (100 - $percent_used) . "' class='progbarc' title='{$tooltip_avail}' alt='' />";
-									echo "<img src='images/bar_right.gif' class='progbarr' alt='' /> ";
-									echo "<span name='poolusage_{$ctrlid}_capofsize' id='poolusage_{$ctrlid}_capofsize' class='capofsize'>{$r_poolusage['capofsize']}</span>";
-									echo "<br />";
-									echo sprintf(gtext("Total: %s | %s: %s | %s: %s | State: %s"),
-										"<span name='poolusage_{$ctrlid}_size' id='poolusage_{$ctrlid}_size' class='size'>{$r_poolusage['size']}</span>",
-										"<span name='poolusage_{$ctrlid}_gt_used' id='poolusage_{$ctrlid}_gt_used'>{$r_poolusage['gt_used']}</span>",
-										"<span name='poolusage_{$ctrlid}_used' id='poolusage_{$ctrlid}_used' class='used'>{$r_poolusage['used']}</span>",
-										"<span name='poolusage_{$ctrlid}_gt_avail' id='poolusage_{$ctrlid}_gt_avail'>{$r_poolusage['gt_avail']}</span>",
-										"<span name='poolusage_{$ctrlid}_avail' id='poolusage_{$ctrlid}_avail' class='avail'>{$r_poolusage['avail']}</span>",
-										"<span name='poolusage_{$ctrlid}_state' id='poolusage_{$ctrlid}_state' class='state'><a href='disks_zfs_zpool_info.php?pool={$r_poolusage['name']}'>{$r_poolusage['health']}</a></span>");
-									echo "</div></td></tr>";
-									if(++$index < count($a_poolusage)):
-										echo "<tr><td><hr size='1' /></td></tr>\n";
-									endif;
-								endforeach;
-							endif;
-							if(empty($a_diskusage) && empty($a_poolusage)):
-								echo "<tr><td>";
-								echo gtext("No disk configured");
-								echo "</td></tr>";
-							endif;
-?>
+						<table class="area_data_settings" style="table-layout:auto;white-space:nowrap;">
+							<tbody>
+								<tr>
+									<td class="padr1"><span id="loadaverage"><?=$sysinfo['loadaverage'];?></span></td>
+									<td class="nopad"><a href="status_process.php"><?=gtext('Show Process Information');?></a></td>
+									<td class="nopad100"></td>
+								</tr>
+							</tbody>
 						</table>
 					</td>
 				</tr>
 <?php
-				if(isset($config['ups']['enable'])):
-?>
-					<tr>
-						<td class="celltag"><?=gtext('UPS Status') . ' ' . $config['ups']['upsname'];?></td>
-						<td class="celldata">
-							<table width="100%" border="0" cellspacing="0" cellpadding="2">
-<?php
-								$cmd = "/usr/local/bin/upsc {$config['ups']['upsname']}@{$config['ups']['ip']}";
-								$handle = popen($cmd,'r');
-								if($handle):
-									$read = fread($handle,4096);
-									pclose($handle);
-									$lines = explode("\n",$read);
-									$ups = [];
-									foreach($lines as $line):
-										$line = explode(':',$line);
-										$ups[$line[0]] = trim($line[1]);
-									endforeach;
-									if(count($lines) == 1):
-										tblrow('ERROR:','Data stale!');
-									endif;
-									$disp_status = get_ups_disp_status($ups['ups.status']);
-									tblrow(gtext('Status'),'<span id="ups_status_disp_status">' . $disp_status . "</span>" . "  <small>[<a href='diag_infos_ups.php'>" . gtext('Show UPS Information') . "</a></small>]");
-									tblrowbar('load',gtext('Load'),$ups['ups.load'],'%','100-80','79-60','59-0');
-									tblrowbar('battery',gtext('Battery Level'),$ups['battery.charge'],'%','0-29','30-79','80-100');
-								endif;
-								unset($handle,$read,$lines,$status,$disp_status,$ups,$cmd);
-?>
-							</table>
-						</td>
-					</tr>
-<?php
-				endif;
-				if(isset($config['ups']['enable']) && isset($config['ups']['ups2'])):
-?>
-					<tr>
-						<td class="celltag"><?=gtext('UPS Status') . ' ' . $config["ups"]["ups2_upsname"];?></td>
-						<td class="celldata">
-							<table width="100%" border="0" cellspacing="0" cellpadding="2">
-<?php
-								$cmd = "/usr/local/bin/upsc {$config['ups']['ups2_upsname']}@{$config['ups']['ip']}";
-								$handle = popen($cmd,'r');
-								if($handle):
-									$read = fread($handle,4096);
-									pclose($handle);
-									$lines = explode("\n",$read);
-									$ups = [];
-									foreach($lines as $line):
-										$line = explode(':',$line);
-										$ups[$line[0]] = trim($line[1]);
-									endforeach;
-									if(count($lines) == 1):
-										tblrow('ERROR:','Data stale!');
-									endif;
-									$disp_status = get_ups_disp_status($ups['ups.status']);
-									tblrow(gtext('Status'),'<span id="ups_status_disp_status2">' . $disp_status . "</span>" . "  <small>[<a href='diag_infos_ups.php'>" . gtext('Show UPS Information') . "</a></small>]");
-									tblrowbar('load2',gtext('Load'),$ups['ups.load'],'%','100-80','79-60','59-0');
-									tblrowbar('battery2',gtext('Battery Level'),$ups['battery.charge'],'%','0-29','30-79','80-100');
-								endif;
-								unset($handle,$read,$lines,$status,$disp_status,$ups,$cmd);
-?>
-							</table>
-						</td>
-					</tr>
-<?php
-				endif;
+				render_disk_usage($sysinfo['diskusage']);
+				render_pool_usage($sysinfo['poolusage']);
+				render_ups_info($sysinfo['upsinfo']);
 				unset($vmlist);
 				mwexec2("/usr/bin/find /dev/vmm -type c", $vmlist);
 				unset($vmlist2);
@@ -842,7 +770,7 @@ $(document).ready(function(){
 					<tr>
 						<td class="celltag"><?=gtext("Virtual Machine");?></td>
 						<td class="celldata">
-							<table width="100%" border="0" cellspacing="0" cellpadding="1">
+							<table class="area_data_settings">
 <?php
 								$vmtype = "BHyVe";
 								$index = 0;
@@ -853,9 +781,9 @@ $(document).ready(function(){
 									$vram = $temp[0] / 1024 / 1024;
 									echo "<tr><td><div id='vminfo_$index'>";
 									echo htmlspecialchars("$vmtype: $vm ($vram MiB)");
-									echo "</div></td></tr>\n";
+									echo '</div></td></tr>';
 									if(++$index < count($vmlist)):
-										echo "<tr><td><hr size='1' /></td></tr>\n";
+										echo '<tr><td><hr size="1" /></td></tr>';
 									endif;
 								endforeach;
 								$vmtype = "VBox";
@@ -880,7 +808,7 @@ $(document).ready(function(){
 									endif;
 									echo '</td></tr>',PHP_EOL;
 									if(++$index < count($vmlist2)):
-										echo "<tr><td><hr size='1' /></td></tr>\n";
+										echo '<tr><td><hr size="1" /></td></tr>';
 									endif;
 								endforeach;
 								$vmtype = "Xen";
@@ -948,9 +876,9 @@ $(document).ready(function(){
 										echo " ";
 										echo htmlspecialchars("VNC:/{$xen_ipaddr}:{$vncport}/");
 									endif;
-									echo "</div></td></tr>\n";
+									echo '</div></td></tr>';
 									if(++$index < count($vmlist3)):
-										echo "<tr><td><hr size='1' /></td></tr>\n";
+										echo '<tr><td><hr size="1" /></td></tr>';
 									endif;
 								endforeach;
 ?>
