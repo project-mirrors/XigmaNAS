@@ -702,12 +702,14 @@ div#infobox
 	background-color: var(--bgc-box-info);
 }
 
-div#errorbox
+div#errorbox,
+tr.error
 {
 	background-color: var(--bgc-box-error);
 }
 
-div#warningbox
+div#warningbox,
+tr.warning
 {
 	background-color: var(--bgc-box-warning);
 }
