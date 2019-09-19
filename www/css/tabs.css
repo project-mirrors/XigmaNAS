@@ -134,32 +134,48 @@ td.tabnavtbl td
 /*	inactive */
 td.tabnavtbl li.tabinact span
 {
+	color: grey;
 	color: var(--txc-tnt);
+	background-color: darkgray;
 	background-color: var(--bgc-tnt);
+	background-image: linear-gradient(#9C9C9C,black);
 	background-image: var(--bgi-tnt);
+	border: 0px solid #444444;
 	border: var(--bop-tnt);
 }
 /*	active */
 td.tabnavtbl li.tabact span
 {
+	color: white;
 	color: var(--txc-tnt-active);
+	background-color: lightgray;
 	background-color: var(--bgc-tnt-active);
+	background-image: linear-gradient(#9C9C9C,black);
 	background-image: var(--bgi-tnt-active);
+	border: 0px solid #444444;
 	border: var(--bop-tnt-active);
 }
 /*	inactive hovered */
 td.tabnavtbl li.tabinact a:hover span
 {
-	color: var(--bgc-tnt-hovered);
+	color: black;
+	color: var(--txc-tnt-hovered);
+	background-color: black;
 	background-color: var(--bgc-tnt-hovered);
+	background-image: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	background-image: var(--bgi-tnt-hovered);
+	border: 0px solid #444444;
 	border: var(--bop-tnt-hovered);
 }
 /*	active hovered */
 td.tabnavtbl li.tabact a:hover span
 {
+	color: gray;
 	color: var(--txc-tnt-active-hovered);
+	background-color: black;
 	background-color: var(--bgc-tnt-active-hovered);
+	background-image: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	background-image: var(--bgi-tnt-active-hovered);
+	border: 0px solid #444444;
 	border: var(--bop-tnt-active-hovered);
 }
