@@ -8,7 +8,6 @@ Changes:
 - Upgrade dialog to 1.3-20190211.
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
-- Upgrade zoneinfo to 2019a.
 - Upgrade msmtp to 1.8.4.
 - Upgrade tmux to 2.9a.
 - Upgrade samba to 4.8.12.
@@ -26,6 +25,7 @@ Changes:
 - Upgrade mariadb to 10.2.26.
 - Upgrade virtualbox-ose to 5.2.32.
 - Upgrade syncthing to 1.2.2.
+- Upgrade zoneinfo to 2019c.
 
 Fixes:
 
