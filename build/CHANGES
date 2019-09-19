@@ -9,7 +9,6 @@ Changes:
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
 - Upgrade zoneinfo to 2019a.
-- Upgrade bash to 5.0 p7.
 - Upgrade msmtp to 1.8.4.
 - Upgrade tmux to 2.9a.
 - Upgrade samba to 4.8.12.
@@ -26,6 +25,7 @@ Changes:
 - Upgrade bsnmp-ucd to 0.4.3.
 - Upgrade mariadb to 10.2.25.
 - Upgrade iperf3 to 3.7.
+- Upgrade bash to 5.0 P11.
 
 Fixes:
 
