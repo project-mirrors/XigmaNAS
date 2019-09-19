@@ -13,7 +13,6 @@ Changes:
 - Upgrade sudo to 1.8.27.
 - Upgrade libvncserver to 0.9.12.
 - Upgrade APCu to 5.1.17.
-- Upgrade dialog to 1.3-20190211.
 - Upgrade arcconf to 3.00.23488.
 - Upgrade smartmontools to 7.0.
 - Upgrade msmtp to 1.8.4.
@@ -36,6 +35,7 @@ Changes:
 - Upgrade zoneinfo to 2019c.
 - Upgrade rrdtool to 1.7.2.
 - Upgrade mDNSResponder to 878.260.1.
+- Upgrade dialog to 1.3-20190808.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
