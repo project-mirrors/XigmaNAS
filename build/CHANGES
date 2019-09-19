@@ -20,12 +20,12 @@ Changes:
 - Upgrade phpmyadmin to 4.9.0.
 - Upgrade syncthing to 1.1.4.
 - Upgrade devcpu-data to 1.22.
-- Upgrade nano to 4.3.
 - Upgrade bsnmp-ucd to 0.4.3.
 - Upgrade mariadb to 10.2.25.
 - Upgrade iperf3 to 3.7.
 - Upgrade bash to 5.0 P11.
 - Upgrade e2fsprogs to 1.45.3.
+- Upgrade nano to 4.4.
 
 Fixes:
 
