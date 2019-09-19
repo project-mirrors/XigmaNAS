@@ -27,6 +27,7 @@ Changes:
 - Upgrade syncthing to 1.2.2.
 - Upgrade zoneinfo to 2019c.
 - Upgrade rrdtool to 1.7.2.
+- Upgrade mDNSResponder to 878.260.1.
 
 Fixes:
 
