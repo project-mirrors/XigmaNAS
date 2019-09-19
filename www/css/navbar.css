@@ -71,7 +71,9 @@
 }
 #navhdr
 {
+	background-color: gray;
 	background-color: var(--bgc-nav);
+	background-image: linear-gradient(#9C9C9C,#777777 4%,black);
 	background-image: var(--bgi-nav);
 }
 #navhdr ul
@@ -87,9 +89,12 @@
 	align-items: stretch;
 	padding: 0;
 	position: absolute;
+	background-color: #101010;
 	background-color: var(--bgc-nav-sub);
+	background-image: linear-gradient(#101010,#95A7C0 70%);
 	background-image: var(--bgi-nav-sub);
 	opacity: 0.98;
+	border: 0.091em solid black;
 	border: var(--bop-nav);
 	font-size: 1em;
 	font-weight: normal;
@@ -98,6 +103,7 @@
 }
 #navhdr ul ul span.tabseparator
 {
+	background-color: #AAAAAA;
 	background-color: var(--bgc-nav-sub-separator);
 	display: block;
 	line-height: 0.091em;
@@ -112,6 +118,7 @@
 	white-space: nowrap;
 	text-align: left;
 	text-decoration: none;
+	color: white;
 	color: var(--txc-nav-sub);
 }
 #navhdr > ul
@@ -133,10 +140,12 @@
 	display: block;
 	text-decoration: none;
 	padding: 0.3em 0.5em;
+	color: #CCCCCC;
 	color: var(--txc-nav);
 }
 #navhdr > ul:hover > li > a
 {
+	color: white;
 	color: var(--txc-nav-hovered);
 }
 #navhdr > ul > li > a > img
@@ -163,6 +172,8 @@
 #navhdr ul ul li a:hover
 {
 	color: var(--txc-nav-sub-hovered);
+	background-color: white;
 	background-color: var(--bgc-nav-sub-hovered);
+	background-image: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	background-image: var(--bgi-nav-sub-hovered);
 }
