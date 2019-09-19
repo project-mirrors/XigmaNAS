@@ -35,6 +35,7 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.32.
 - Upgrade syncthing to 1.2.2.
 - Upgrade zoneinfo to 2019c.
+- Upgrade rrdtool to 1.7.2.
 
 Fixes:
 - Fix Import/Export doesn't work phpvirtualbox.
