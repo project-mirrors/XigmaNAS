@@ -49,9 +49,7 @@
 	--boc-tnt-global: #444444;
 /*	inactive */
 	--bgc-tnt: darkgray;
-	--bgc-tnt-stop1: #9C9C9C;
-	--bgc-tnt-stop2: black;
-	--bgi-tnt: linear-gradient(var(--bgc-tnt-stop1),var(--bgc-tnt-stop2));
+	--bgi-tnt: linear-gradient(#9C9C9C,black);
 	--bow-tnt: var(--bow-tnt-global);
 	--bos-tnt: var(--bos-tnt-global);
 	--boc-tnt: var(--boc-tnt-global);
@@ -59,9 +57,7 @@
 	--txc-tnt: grey;
 /*	active */
 	--bgc-tnt-active: lightgray;
-	--bgc-tnt-active-stop1: #9C9C9C;
-	--bgc-tnt-active-stop2: black;
-	--bgi-tnt-active: linear-gradient(var(--bgc-tnt-active-stop1),var(--bgc-tnt-active-stop2));
+	--bgi-tnt-active: linear-gradient(#9C9C9C,black);
 	--bow-tnt-active: var(--bow-tnt-global);
 	--bos-tnt-active: var(--bos-tnt-global);
 	--boc-tnt-active: var(--boc-tnt-global);
@@ -69,10 +65,7 @@
 	--txc-tnt-active: white;
 /*	inactive hovered */
 	--bgc-tnt-hovered: black;
-	--bgc-tnt-hovered-stop1: white;
-	--bgc-tnt-hovered-stop2: #CCCCCC;
-	--bgc-tnt-hovered-stop3: #E1E1E1;
-	--bgi-tnt-hovered: linear-gradient(var(--bgc-tnt-hovered-stop1) 34%,var(--bgc-tnt-hovered-stop2) 78%,var(--bgc-tnt-hovered-stop3));
+	--bgi-tnt-hovered: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	--bow-tnt-hovered: var(--bow-tnt-global);
 	--bos-tnt-hovered: var(--bos-tnt-global);
 	--boc-tnt-hovered: var(--boc-tnt-global);
@@ -80,10 +73,7 @@
 	--txc-tnt-hovered: black;
 /*	active hovered */
 	--bgc-tnt-active-hovered: black;
-	--bgc-tnt-active-hovered-stop1: white;
-	--bgc-tnt-active-hovered-stop2: #CCCCCC;
-	--bgc-tnt-active-hovered-stop3: #E1E1E1;
-	--bgi-tnt-active-hovered: linear-gradient(var(--bgc-tnt-active-hovered-stop1) 34%,var(--bgc-tnt-active-hovered-stop2) 78%,var(--bgc-tnt-active-hovered-stop3));
+	--bgi-tnt-active-hovered: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	--bow-tnt-active-hovered: var(--bow-tnt-global);
 	--bos-tnt-active-hovered: var(--bos-tnt-global);
 	--boc-tnt-active-hovered: var(--boc-tnt-global);
