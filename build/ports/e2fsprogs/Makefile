@@ -277,6 +277,7 @@ do-install:
 	@${LN} -s -f -v /usr/local/sbin/e2fsck ${XIGMANAS_ROOTFS}/sbin/e2fsck
 	@${LN} -s -f -v /usr/local/sbin/fsck_ext2fs ${XIGMANAS_ROOTFS}/sbin/fsck_ext2fs
 # lib
+	@${CP} -Rpv ${WRKSRC}/lib/libe2p.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${CP} -Rpv ${WRKSRC}/lib/libext2fs.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${CP} -Rpv ${WRKSRC}/lib/libcom_err.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 
