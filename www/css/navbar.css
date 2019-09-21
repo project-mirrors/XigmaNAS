@@ -42,29 +42,18 @@
 	bop-: border properties => [border width] [border style] [border color]
 */
 	--bgc-nav: gray;
-	--bgc-nav-stop1: #9C9C9C;
-	--bgc-nav-stop2: #777777;
-	--bgc-nav-stop3: black;
-	--bgi-nav: linear-gradient(var(--bgc-nav-stop1),var(--bgc-nav-stop2) 4%,var(--bgc-nav-stop3));
+	--bgi-nav: linear-gradient(#9C9C9C,#777777 4%,black);
 	--txc-nav: #CCCCCC;
-	--bow-nav: 0.091em;
-	--bos-nav: solid;
-	--boc-nav: black;
-	--bop-nav: var(--bow-nav) var(--bos-nav) var(--boc-nav);
+	--bop-nav: 0.091em solid black;
 
 	--txc-nav-hovered: white;
 
 	--bgc-nav-sub: #101010;
-	--bgc-nav-sub-stop1: #101010;
-	--bgc-nav-sub-stop2: #95A7C0;
-	--bgi-nav-sub: linear-gradient(var(--bgc-nav-sub-stop1),var(--bgc-nav-sub-stop2) 70%);
+	--bgi-nav-sub: linear-gradient(#101010,#95A7C0 70%);
 	--txc-nav-sub: white;
 
 	--bgc-nav-sub-hovered: white;
-	--bgc-nav-sub-hovered-stop1: white;
-	--bgc-nav-sub-hovered-stop2: #CCCCCC;
-	--bgc-nav-sub-hovered-stop3: #E1E1E1;
-	--bgi-nav-sub-hovered: linear-gradient(var(--bgc-nav-sub-hovered-stop1) 34%,var(--bgc-nav-sub-hovered-stop2) 78%,var(--bgc-nav-sub-hovered-stop3));
+	--bgi-nav-sub-hovered: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	--txc-nav-sub-hovered: black;
 
 	--bgc-nav-sub-separator: #AAAAAA;

@@ -59,19 +59,13 @@
 	topic
 */
 	--bgc-topic: #95A7C0;
-	--bgc-topic-stop1: #95A7C0;
-	--bgc-topic-stop2: #97AAC2;
-	--bgc-topic-stop3: #8197B4;
-	--bgi-topic: linear-gradient(var(--bgc-topic-stop1),var(--bgc-topic-stop2),var(--bgc-topic-stop3));
+	--bgi-topic: linear-gradient(#95A7C0,#97AAC2,#8197B4);
 	--txc-topic: #FFFFFF;
 /*
 	list header element
 */
 	--bgc-lhe: #BBBBBB;
-	--bgc-lhe-stop1: #CBCBCB;
-	--bgc-lhe-stop2: #FAFAFA;
-	--bgc-lhe-stop3: #E9E9E9;
-	--bgi-lhe: linear-gradient(var(--bgc-lhe-stop1),var(--bgc-lhe-stop2) 4%,var(--bgc-lhe-stop3));
+	--bgi-lhe: linear-gradient(#CBCBCB,#FAFAFA 4%,#E9E9E9);
 /*
 	list cell element
 */
@@ -81,10 +75,7 @@
 /*
 	cell
 */
-	--boc-cell: #999999;
-	--bos-cell: solid;
-	--bow-cell: 1px;
-	--bop-cell: var(--bow-cell) var(--bos-cell) var(--boc-cell);
+	--bop-cell: 1px solid #999999;
 /*
 	cron scheduler
 */
@@ -96,9 +87,7 @@
 	footer
 */
 	--bgc-footer: #000000;
-	--bgc-footer-stop1: #9c9c9c;
-	--bgc-footer-stop2: #000000;
-	--bgi-footer: linear-gradient(var(--bgc-footer-stop1),var(--bgc-footer-stop2));
+	--bgi-footer: linear-gradient(#9c9c9c,#000000);
 	--txc-footer: #FFFFFF;
 }
 
