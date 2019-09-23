@@ -98,7 +98,7 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 # Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
 XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/branches/11.2.0.4"
-XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/11.2"
+XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/11.3"
 
 # Size in MB of the MFS Root filesystem that will include all FreeBSD binary
 # and XIGMANAS WEbGUI/Scripts. Keep this file very small! This file is unzipped
@@ -2018,28 +2018,36 @@ Press # '
 }
 # Copy files/ports. Copying required files from 'distfiles & copy-ports'.
 copy_files() {
-			# Copy required sources to FreeBSD distfiles directory.
-			echo;
-			echo "-------------------------------------------------------------------";
-			echo ">>> Copy needed sources to distfiles directory usr/ports/distfiles.";
-			echo "-------------------------------------------------------------------";
-			echo "===> Start copy sources"
-			cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/amd64-microcode_3.20171205.1.tar.xz /usr/ports/distfiles
-			echo "===> Copy amd64-microcode_3.20171205.1.tar.xz done!"
-			cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
-			echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
-			cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
-			echo "===> Copy istgt-20180521.tar.gz done!"
-			cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
-			echo "===> Copy fuppes-0.692.tar.gz done!"
-			# Copy required ports to FreeBSD ports directory.
-			echo;
-			echo "----------------------------------------------------------";
-			echo ">>> Copy new files to ports directory FreeBSD usr/ports/*.";
-			echo "----------------------------------------------------------";
-			echo "===> Copy new port php73-APCu to ports/devel/"
-			cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/php73-APCu /usr/ports/devel
-			echo "===> Copy new port files to /usr/ports/devel/php73-APCu done!"
+	# Copy required sources to FreeBSD distfiles directory.
+	echo;
+	echo "-------------------------------------------------------------------";
+	echo ">>> Copy needed sources to distfiles directory usr/ports/distfiles.";
+	echo "-------------------------------------------------------------------";
+	echo "===> Start copy sources"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/amd64-microcode_3.20171205.1.tar.xz /usr/ports/distfiles
+	echo "===> Copy amd64-microcode_3.20171205.1.tar.xz done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
+	echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
+	echo "===> Copy istgt-20180521.tar.gz done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
+	echo "===> Copy fuppes-0.692.tar.gz done!"
+	# Copy required ports to FreeBSD ports directory.
+	echo;
+	echo "----------------------------------------------------------";
+	echo ">>> Copy new files to ports directory FreeBSD usr/ports/*.";
+	echo "----------------------------------------------------------";
+	echo "===> Copy new port php73-APCu to ports/devel/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/php73-APCu /usr/ports/devel
+	echo "===> Copy new port files to /usr/ports/devel/php73-APCu done!"
+	echo ""
+	echo "===> Delete current virtualbox-ose from ports"
+	rm -rf /usr/ports/emulators/virtualbox-ose
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port virtualbox-ose to ports/emulators/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose /usr/ports/emulators
+	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose done!"
 	return 0
 }
 build_ports() {
