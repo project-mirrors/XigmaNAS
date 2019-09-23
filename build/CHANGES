@@ -3,6 +3,7 @@ XigmaNAS 11.3.0.4 - Parmentier
 Changes:
 - Upgrade FreeBSD 11.3-RELEASE to P3.
 - Upgrade bsnmp-ucd to 0.4.4.
+- Upgrade samba to 4.10.8.
 
 Fixes:
 
