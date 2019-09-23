@@ -1,48 +1,10 @@
-XigmaNAS 11.2.0.4 - Omnius
---------------------------
+XigmaNAS 11.3.0.4 - Parmentier
+------------------------------
 Changes:
-- Upgrade FreeBSD 11.2-RELEASE to P14.
-- Change syscons sc to vt virtual terminal console driver.
-- Add UEFI support for Embedded and Full(UFS) platforms.
-- Add WebDAV.
-- Add mariadb and phpMyAdmin.
-- Add L2ARC size statistics to RRDGraph.
-- Add public key management for SSH.
-- Upgrade dmidecode to 3.2.
-- Upgrade netatalk to 3.1.12.
-- Upgrade sudo to 1.8.27.
-- Upgrade libvncserver to 0.9.12.
-- Upgrade APCu to 5.1.17.
-- Upgrade arcconf to 3.00.23488.
-- Upgrade smartmontools to 7.0.
-- Upgrade tmux to 2.9a.
-- Upgrade samba to 4.8.12.
-- Upgrade jQuery to 3.4.1.
-- Upgrade lighttpd to 1.4.54.
-- Upgrade beadm to 1.3.0.
-- Upgrade phpmyadmin to 4.9.0.
-- Upgrade iperf3 to 3.7.
-- Upgrade bash to 5.0 P11.
-- Upgrade e2fsprogs to 1.45.3.
-- Upgrade nano to 4.4.
-- Upgrade php to 7.3.9.
-- Upgrade mariadb to 10.2.26.
-- Upgrade virtualbox-ose to 5.2.32.
-- Upgrade syncthing to 1.2.2.
-- Upgrade zoneinfo to 2019c.
-- Upgrade rrdtool to 1.7.2.
-- Upgrade mDNSResponder to 878.260.1.
-- Upgrade dialog to 1.3-20190808.
-- Upgrade msmtp to 1.8.5.
-- Upgrade devcpu-data to 1.24.
+- Upgrade FreeBSD 11.3-RELEASE to P3.
 - Upgrade bsnmp-ucd to 0.4.4.
 
 Fixes:
-- Fix Import/Export doesn't work phpvirtualbox.
-- Fix /dev/md2 creation on boot.
-- Fix iconf issue with empty inbound charset. (BR 378)
-- Fix typo in phpmyadmin passwordphrase
-- Fix my.cnf default location if not defined by user
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
