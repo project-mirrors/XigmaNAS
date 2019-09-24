@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-09-20 04:19+0000\n"
-"PO-Revision-Date: 2019-06-20 06:56+0000\n"
+"PO-Revision-Date: 2019-09-23 06:10+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-22 18:49+0000\n"
+"X-Launchpad-Export-Date: 2019-09-23 20:33+0000\n"
 "X-Generator: Launchpad (build 19048)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -762,7 +762,7 @@ msgid "Add self-test"
 msgstr "Προσθήκη αυτοεξέτασης"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "Προσθήκη ρύθμισης sysctl"
 
 msgid "Add target"
 msgstr "Προσθήκη προορισμού"
@@ -807,7 +807,7 @@ msgid "Admin Password"
 msgstr "Κωδικός Διαχειριστή"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Πρόσβαση διαχειριστή"
 
 msgid "Administration Password"
 msgstr "Κωδικός Διαχειριστή"
@@ -1157,7 +1157,7 @@ msgstr ""
 "άκυρη ή μη προσβάσιμη!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Προσθήκη περιεχομένου στο προεπιλεγμένο αρχείο CSS"
 
 msgid "Append user defined shares"
 msgstr "Προσάρτηση κοινόχρηστων φακέλων των χρηστών."
@@ -1479,7 +1479,7 @@ msgid "Battery Details"
 msgstr "Λεπτομέρειες μπαταρίας"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Επίπεδο μπαταρίας:"
 
 msgid "Battery Low"
 msgstr "Στάθμη μπαταρίας χαμηλή"
@@ -1807,7 +1807,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Ρυθμίσεις CSS"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -2050,7 +2050,7 @@ msgid "Common Internet File System"
 msgstr "Κοινό διαδικτυακό σύστημα αρχείων (CIFS)"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Σφάλμα Επικοινωνίας"
 
 msgid "Community"
 msgstr "Κοινότητα"
@@ -2585,10 +2585,10 @@ msgid "Current Version"
 msgstr "Τρέχουσα Έκδοση"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Τρέχον και προηγούμενος μήνας"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Τρέχον και προηγούμενο έτος"
 
 msgid "Current internal temperature."
 msgstr "Τρέχουσα εσωτερική θερμοκρασία."
@@ -2600,7 +2600,7 @@ msgid "Current password is incorrectly entered."
 msgstr "Ο τρέχων κωδικός εισάχθηκε λανθασμένα."
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Τρέχον τρίμηνο"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr ""
@@ -2620,7 +2620,7 @@ msgid "Current value of real power (Watts)"
 msgstr "Τρέχουσα τιμή πραγματικής ισχύος (Watts)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Τρέχον έτος"
 
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
@@ -2977,7 +2977,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Διαγραφή Επιλεγμένων Στιγμιότυπων"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Διαγραφή Επιλεγμένων Ρυθμίσεων Sysctl"
 
 msgid "Delete Selected Targets"
 msgstr "Διαγραφή Επιλεγμένων Προορισμών"
@@ -3348,7 +3348,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Απενεργοποίηση Επιλεγμένων Αρθρωμάτων Rsync"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Ρυθμίσεων Sysctl"
 
 msgid "Disable Selected Targets"
 msgstr "Απενεργοποίηση Επιλεγμένων Προορισμών"
@@ -3777,7 +3777,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "Θέλετε να διαγράψετε τα επιλεγμένα στιγμιότυπα;"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "Θέλετε να διαγράψετε τις επιλεγμένες ρυθμίσεις sysctl;"
 
 msgid "Do you want to delete selected targets?"
 msgstr "Θέλετε να διαγράψετε τους επιλεγμένους προορισμούς;"
@@ -3871,7 +3871,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα αρθρώματα rsync;"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες ρυθμίσεις sysctl;"
 
 msgid "Do you want to disable selected targets?"
 msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους προορισμούς;"
@@ -3955,7 +3955,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα αρθρώματα rsync;"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες ρυθμίσεις sysctl;"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους προορισμούς;"
@@ -4349,7 +4349,7 @@ msgid "Edit self-test"
 msgstr "Επεξεργασία αυτοεξέτασης"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "Επεξεργασία ρύθμισης sysctl"
 
 msgid "Edit target"
 msgstr "Επεξεργασία προορισμού"
@@ -4503,7 +4503,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Ενεργοποίηση Επιλεγμένων Αρθρωμάτων Rsync"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "Ενεργοποίηση Επιλεγμένων Ρυθμίσεων Sysctl"
 
 msgid "Enable Selected Targets"
 msgstr "Ενεργοποίηση Επιλεγμένων Προορισμών"
@@ -5289,7 +5289,7 @@ msgstr ""
 "OS X και Netatalk."
 
 msgid "File Chooser"
-msgstr ""
+msgstr "Επιλογέας Αρχείων"
 
 msgid "File Editor"
 msgstr "Επεξεργαστής αρχείων"
@@ -5301,7 +5301,7 @@ msgid "File Mask"
 msgstr "Μάσκα Αρχείων"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Λειτουργία Αρχείων"
 
 msgid "File Path"
 msgstr "Διαδρομή αρχείου"
@@ -5549,7 +5549,7 @@ msgid "GSSAPI Authentication"
 msgstr "Πιστοποίηση GSSAPI"
 
 msgid "GUI"
-msgstr ""
+msgstr "GUI"
 
 msgid "Gateway"
 msgstr "Πύλη"
@@ -5607,7 +5607,7 @@ msgstr "Το γράφημα δείχνει τα τελευταία 120 δευτ�
 
 #, php-format
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "Το γράφημα δείχνει τα τελευταία 120 δευτερόλεπτα."
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5993,7 +5993,7 @@ msgid "Identifier"
 msgstr "Αναγνωριστικό"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Αναγνωριστικό:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6650,7 +6650,7 @@ msgid "Large Read/Write"
 msgstr "Μεγάλη Ανάγνωση/Εγγραφή"
 
 msgid "Last month"
-msgstr ""
+msgstr "Προηγούμενος μήνας"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6677,7 +6677,7 @@ msgstr ""
 "συνθήκες  υπερβολικής θερμοκρασίας, αλλιώς είναι 100."
 
 msgid "Last week"
-msgstr ""
+msgstr "Προηγούμενη βδομάδα"
 
 msgid "Latency"
 msgstr "Καθυστέρηση"
@@ -6855,7 +6855,7 @@ msgstr ""
 "Φορτίο όταν το UPS μεταβαίνει σε κατάσταση υπερφόρτωσης (\"ΥΠΕΡΦΟΡΤΩΣΗ\")"
 
 msgid "Load:"
-msgstr ""
+msgstr "Φόρτος:"
 
 msgid "Loadbalance"
 msgstr "Εξισορρόπηση φόρτου"
@@ -7583,7 +7583,7 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Ατόφιο - αποθήκευση χαρακτήρων με την ατόφια τιμή ASCII."
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "Μπάρα Πλοήγησης"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr ""
@@ -8056,19 +8056,19 @@ msgid "Old Passphrase"
 msgstr "Παλιό Συνθηματικό"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "Παλιότερα του προηγούμενου μήνα"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "Παλιότερα της προηγούμενης εβδομάδας"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "Παλιότερα του προηγούμενου τριμήνου"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "Παλιότερα του προηγούμενου έτους"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "Παλιότερα από εχθές"
 
 msgid "On"
 msgstr "Ενεργό"
@@ -8733,10 +8733,10 @@ msgid "Prevent deep discharge of battery"
 msgstr "Αποτροπή πλήρους αποφόρτισης μπαταρίας"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Προηγούμενο τρίμηνο"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Προηγούμενο έτος"
 
 msgid "Primary"
 msgstr "Πρωτεύων"
@@ -9374,7 +9374,7 @@ msgid "Replace a device"
 msgstr "Αντικατάσταση μιας συσκευής"
 
 msgid "Replace the default CSS file"
-msgstr ""
+msgstr "Αντικατάσταση του προεπιλεγμένου αρχείου CSS"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -9980,7 +9980,7 @@ msgid "Selected"
 msgstr "Επιλεγμένο"
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "Επιλεγμένο UPS"
 
 msgid "Selected device or label does not exist."
 msgstr "Η επιλεγμένη συσκευή ή ετικέτα δεν υπάρχουν."
@@ -10771,7 +10771,7 @@ msgid "Start TLS from within the session."
 msgstr "Εκκίνηση TLS από μέσα από τη συνεδρία."
 
 msgid "State: "
-msgstr ""
+msgstr "Κατάσταση: "
 
 msgid "Static"
 msgstr "Στατική"
@@ -10792,7 +10792,7 @@ msgid "Status report successfully sent."
 msgstr "Η αναφορά της κατάστασης στάλθηκε με επιτυχία."
 
 msgid "Status:"
-msgstr ""
+msgstr "Κατάσταση:"
 
 msgid "Step"
 msgstr "Βήμα"
@@ -10922,16 +10922,16 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Ρύθμιση Sysctl"
 
 msgid "Sysctl setting is locked"
-msgstr ""
+msgstr "Η ρύθμιση sysctl είναι κλειδωμένη"
 
 msgid "Sysctl setting is marked for deletion"
-msgstr ""
+msgstr "Η ρύθμιση sysctl είναι σημειωμένη προς διαγραφή"
 
 msgid "Sysctl setting is unlocked"
-msgstr ""
+msgstr "Η ρύθμιση sysctl είναι ξεκλείδωτη"
 
 msgid "Syslog Level"
 msgstr "Επίπεδο Syslog"
@@ -11051,7 +11051,7 @@ msgid "TLS Trust File"
 msgstr "Αρχείο TLS Trust"
 
 msgid "Tabs"
-msgstr ""
+msgstr "Καρτέλες"
 
 msgid "Tag"
 msgstr "Ετικέτα"
@@ -12110,7 +12110,7 @@ msgid "The value is invalid."
 msgstr "Η τιμή δεν είναι έγκυρη."
 
 msgid "The value of the setting."
-msgstr ""
+msgstr "Η τιμή της ρύθμισης."
 
 msgid "The value of the variable."
 msgstr "Η τιμή της μεταβλητής."
@@ -12245,6 +12245,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
 "make changes to a running system."
 msgstr ""
+"Αυτές οι μεταβλητές sysctl θα προστεθούν στο /etc/sysctl.conf. Σας επιτρέπει "
+"να κάνετε αλλαγές σε ένα σύστημα που είναι σε λειτουργία."
 
 msgid "Thin Provisioning"
 msgstr "Thin Provisioning"
@@ -12378,7 +12380,7 @@ msgid "This is not a valid IP Address."
 msgstr "Αυτή δεν είναι έγκυρη διεύθυνση IP."
 
 msgid "This month"
-msgstr ""
+msgstr "Αυτό το μήνα"
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -12646,7 +12648,7 @@ msgid "This virtual device name already exists."
 msgstr "Το όνομα της εικονικής συσκευής υπάρχει ήδη."
 
 msgid "This week"
-msgstr ""
+msgstr "Αυτή την εβδομάδα"
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
@@ -12807,7 +12809,7 @@ msgstr ""
 "Για να χρησιμοποιήσετε υποφακέλους, πρέπει να προσαρτήσετε τον κάθε φάκελο."
 
 msgid "Today"
-msgstr ""
+msgstr "Σήμερα"
 
 msgid "Toggle Mode"
 msgstr "Λειτουργία Εναλλαγής"
