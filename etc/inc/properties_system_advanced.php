@@ -81,6 +81,28 @@ class properties_system_advanced extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
+	protected $x_consoleautologin;
+	public function init_consoleautologin() {
+		$property = $this->x_consoleautologin = new property_bool($this);
+		$property->
+			set_name('consoleautologin')->
+			set_title(gettext('Console Autologin'));
+		$caption = gettext('Login user root automatically into console on boot.');
+		$description = gettext("Enabling this option may be a security risk. Anyone who can physically obtain access to this computer can gain access to all the computer's contents, including any networks it is connected to.");
+		$property->
+			set_id('consoleautologin')->
+			set_caption($caption)->
+			set_description($description)->
+			set_defaultvalue(false)->
+			filter_use_default()->
+			set_editableonadd(true)->
+			set_editableonmodify(true)->
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+		return $property;
+	}
+	public function get_consoleautologin() {
+		return $this->x_consoleautologin ?? $this->init_consoleautologin();
+	}
 	protected $x_disableconsolemenu;
 	public function get_disableconsolemenu() {
 		return $this->x_disableconsolemenu ?? $this->init_disableconsolemenu();
