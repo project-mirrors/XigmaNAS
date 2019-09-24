@@ -1745,6 +1745,13 @@ function config_preinit() {
 	endif;
 	if(stristr($g['platform'],'livecd') || stristr($g['platform'],'liveusb')):
 		exec('/usr/bin/sed -i.bak -e "/^ttyv0/ s/Pc/autologin/" -e "/^ttyu0/ s/3wire/autologin/" /etc/ttys');
+	else:
+		$consoleautologin = is_bool($test = ($config['system']['consoleautologin'] ?? false)) ? $test : true;
+		if($consoleautologin):
+			exec('/usr/bin/sed -i.bak -e "/^ttyv0/ s/Pc/autologin/" /etc/ttys');
+		else:
+			exec('/usr/bin/sed -i.bak -e "/^ttyv0/ s/autologin/Pc/" /etc/ttys');
+		endif;
 	endif;
 }
 /**
