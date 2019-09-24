@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-09-20 04:19+0000\n"
+"POT-Creation-Date: 2019-09-24 20:53+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1784,6 +1784,9 @@ msgid "Connect to hidden network"
 msgstr ""
 
 msgid "Consider replacing this drive"
+msgstr ""
+
+msgid "Console Autologin"
 msgstr ""
 
 msgid "Console Menu"
@@ -4091,6 +4094,9 @@ msgstr ""
 msgid "Enabled options will be added to /etc/rc.conf."
 msgstr ""
 
+msgid "Enabling this option may be a security risk. Anyone who can physically obtain access to this computer can gain access to all the computer's contents, including any networks it is connected to."
+msgstr ""
+
 msgid "Enabling this option may expose your system to additional security risk!"
 msgstr ""
 
@@ -5929,6 +5935,9 @@ msgid "Login Name"
 msgstr ""
 
 msgid "Login for CHAP authentication."
+msgstr ""
+
+msgid "Login user root automatically into console on boot."
 msgstr ""
 
 msgid "Logout"
