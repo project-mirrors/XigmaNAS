@@ -128,6 +128,7 @@ $is_sc = 'sc' == get_sysctl_kern_vty();
 //	set value to true if the parameter exists and is not NULL
 //	set value to false if the parameter doesn't exist or is NULL
 $pconfig['adddivsubmittodataframe'] = $cop->get_adddivsubmittodataframe()->validate_config($config['system']);
+$pconfig['consoleautologin'] = $cop->get_consoleautologin()->validate_config($config['system']);
 $pconfig['disableconsolemenu'] = $cop->get_disableconsolemenu()->validate_config($config['system']);
 $pconfig['disablefm'] = isset($config['system']['disablefm']);
 $pconfig['disablefirmwarecheck'] = isset($config['system']['disablefirmwarecheck']);
@@ -219,6 +220,7 @@ if($_POST):
 			endif;
 		endif;
 		$config['system']['adddivsubmittodataframe'] = $cop->get_adddivsubmittodataframe()->validate_input();
+		$config['system']['consoleautologin'] = $cop->get_consoleautologin()->validate_input();
 		$helpinghand = $cop->get_disableconsolemenu()->validate_input();
 		if(isset($config['system']['disableconsolemenu']) !== $helpinghand):
 			//	server needs to be restarted to activate setting.
@@ -473,6 +475,7 @@ $document->render();
 		<tbody>
 <?php
 			$node = new co_DOMDocument();
+			$node->c2_checkbox($cop->get_consoleautologin(),!empty($pconfig['consoleautologin']));
 			$node->c2_checkbox($cop->get_disableconsolemenu(),!empty($pconfig['disableconsolemenu']));
 			$node->c2_checkbox($cop->get_enableserialconsole(),!empty($pconfig['enableserialconsole']));
 			if($is_sc):
