@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-09-20 04:19+0000\n"
-"PO-Revision-Date: 2019-07-25 08:50+0000\n"
+"PO-Revision-Date: 2019-09-23 01:05+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-22 18:48+0000\n"
+"X-Launchpad-Export-Date: 2019-09-23 20:32+0000\n"
 "X-Generator: Launchpad (build 19048)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -30,19 +30,19 @@ msgstr "%1$s已被用于创建%2$s卷。"
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s已管理，%2$s已使用， %3$s可用"
 
 #, php-format
 msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
+msgstr "总计%1$s，已分配%2$s，空闲%3$s"
 
 #, php-format
 msgid "%1$s total, %2$s used, %3$s available"
-msgstr ""
+msgstr "总计%1$s，已使用%2$s，可用 %3$s"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "已使用%2$s，可用%3$s"
 
 #, php-format
 msgid "%d days"
@@ -695,7 +695,7 @@ msgid "Add self-test"
 msgstr "添加自检"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "添加sysctl设置"
 
 msgid "Add target"
 msgstr "添加目标"
@@ -737,7 +737,7 @@ msgid "Admin Password"
 msgstr "管理密码"
 
 msgid "Admin access"
-msgstr ""
+msgstr "管理员权限"
 
 msgid "Administration Password"
 msgstr "管理员密码"
@@ -1033,7 +1033,7 @@ msgid "Any service using these disks might become invalid or inaccessible!"
 msgstr "使用这些磁盘的任何服务可能会变得无效或无法访问！"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "将内容附加到默认CSS文件"
 
 msgid "Append user defined shares"
 msgstr "追加用户自定义的用户共享"
@@ -1327,7 +1327,7 @@ msgid "Battery Details"
 msgstr "电池信息"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "电池电量："
 
 msgid "Battery Low"
 msgstr "电力不足"
@@ -1637,7 +1637,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "CSS设置"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1806,7 +1806,7 @@ msgid "Collisions"
 msgstr "封包冲撞"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "彩色仪表"
 
 msgid "Cols"
 msgstr "栏"
@@ -1864,7 +1864,7 @@ msgid "Common Internet File System"
 msgstr "通用网络文件系统(CIFS)"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "通讯错误"
 
 msgid "Community"
 msgstr "社群"
@@ -2307,10 +2307,10 @@ msgid "Current Version"
 msgstr "当前版本"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "本月及上个月"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "今年及去年"
 
 msgid "Current internal temperature."
 msgstr "当前的内部温度。"
@@ -2322,7 +2322,7 @@ msgid "Current password is incorrectly entered."
 msgstr "输入的当前密码错误"
 
 msgid "Current quarter"
-msgstr ""
+msgstr "本季度"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr "基于寿命曲线的驱动器操作的当前状态。"
@@ -2339,7 +2339,7 @@ msgid "Current value of real power (Watts)"
 msgstr "当前的实际功率（瓦特）"
 
 msgid "Current year"
-msgstr ""
+msgstr "今年"
 
 msgid "Custom"
 msgstr "自定"
@@ -2683,7 +2683,7 @@ msgid "Delete Selected Snapshots"
 msgstr "删除选中的快照"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "删除选定的Sysctl设置"
 
 msgid "Delete Selected Targets"
 msgstr "删除选定的目标"
@@ -3037,7 +3037,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "禁用选中的Rsync模块"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "禁用选定的Sysctl设置"
 
 msgid "Disable Selected Targets"
 msgstr "禁用选定的目标"
@@ -3429,7 +3429,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "要删除选中的快照吗？"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "是否要删除选定的sysctl设置？"
 
 msgid "Do you want to delete selected targets?"
 msgstr "你想删除选定的目标？"
@@ -3522,7 +3522,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "是否要禁用选中的rsync模块？"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "是否要禁用选定的sysctl设置？"
 
 msgid "Do you want to disable selected targets?"
 msgstr "你想禁用选定的目标？"
@@ -3606,7 +3606,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "是否要启用选中的rsync模块？"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "是否要启用选定的sysctl设置？"
 
 msgid "Do you want to enable selected targets?"
 msgstr "你想启用选定的目标？"
@@ -3699,7 +3699,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "要切换选中的rsync模块吗？"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
+msgstr "是否要切换选定的sysctl设置？"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "你想切换选定的目标吗？"
@@ -3994,7 +3994,7 @@ msgid "Edit self-test"
 msgstr "编辑自我检测流程"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "编辑sysctl设置"
 
 msgid "Edit target"
 msgstr "编辑目标"
@@ -4143,7 +4143,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "启用选中的Rsync模块"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "启用选定的sysctl设置"
 
 msgid "Enable Selected Targets"
 msgstr "启用选定的目标"
@@ -4330,7 +4330,7 @@ msgid "Enable the server power control utility."
 msgstr "启用服务器电源控制工具。"
 
 msgid "Enable this option if you want to display colorful meter states."
-msgstr ""
+msgstr "如果要显示彩色仪表状态，请启用此选项。"
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -4858,7 +4858,7 @@ msgid ""
 msgstr "文件（默认） - 使用与OS X和Netatalk兼容的._ AppleDouble文件。"
 
 msgid "File Chooser"
-msgstr ""
+msgstr "文件选择器"
 
 msgid "File Editor"
 msgstr "文件编辑器"
@@ -4870,7 +4870,7 @@ msgid "File Mask"
 msgstr "文件掩码"
 
 msgid "File Mode"
-msgstr ""
+msgstr "文件模式"
 
 msgid "File Path"
 msgstr "文件路径"
@@ -5041,22 +5041,22 @@ msgid "Full Name"
 msgstr "全名"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
+msgstr "自定义GUI CSS文件的全限定文件名。"
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr ""
+msgstr "自定义文件选择器CSS文件的全限定文件名。"
 
 msgid "Fully qualified file name of a custom file manager CSS file."
-msgstr ""
+msgstr "自定义文件管理器CSS文件的全限定文件名。"
 
 msgid "Fully qualified file name of a custom login CSS file."
-msgstr ""
+msgstr "自定义登录CSS文件的全限定文件名。"
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr ""
+msgstr "自定义导航栏CSS文件的全限定文件名。"
 
 msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
+msgstr "自定义标签CSS文件的全限定文件名。"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5107,7 +5107,7 @@ msgid "GSSAPI Authentication"
 msgstr "GSSAPI身份验证"
 
 msgid "GUI"
-msgstr ""
+msgstr "用户图形界面"
 
 msgid "Gateway"
 msgstr "网关（Gateway）"
@@ -5162,7 +5162,7 @@ msgstr "图表显示最近120秒"
 
 #, php-format
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "该图显示最近的120秒。"
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5519,7 +5519,7 @@ msgid "Identifier"
 msgstr "识别码"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "标识符："
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6099,7 +6099,7 @@ msgid "Large Read/Write"
 msgstr "大型读/写"
 
 msgid "Last month"
-msgstr ""
+msgstr "上个月"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6118,7 +6118,7 @@ msgstr ""
 "标准化值在测试失败时设置为1，如果电容器在过高的温度条件下测试，则设置为11，否则设置为100。"
 
 msgid "Last week"
-msgstr ""
+msgstr "上周"
 
 msgid "Latency"
 msgstr "延时"
@@ -6272,7 +6272,7 @@ msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "UPS切换到超载的情况时的加载（“OVER”）"
 
 msgid "Load:"
-msgstr ""
+msgstr "负荷："
 
 msgid "Loadbalance"
 msgstr "负载平衡"
@@ -6972,7 +6972,7 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "原生 - 使用其原生ASCII值存储字符。"
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "导航栏"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "用户数据和元数据都不会缓存在ARC中。"
@@ -7134,7 +7134,7 @@ msgid "No RSYNC Client configured."
 msgstr "未配置RSYNC客户端。"
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "无法访问用户门户"
 
 msgid "No additional parameters"
 msgstr "没有其他参数"
@@ -7421,19 +7421,19 @@ msgid "Old Passphrase"
 msgstr "旧密码短语"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "早于上个月"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "早于上周"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "早于上个季度"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "早于去年"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "早于昨天"
 
 msgid "On"
 msgstr "开"
@@ -7853,7 +7853,7 @@ msgid "Please read the documentation"
 msgstr "请阅读文档"
 
 msgid "Please update your browser or use Internet Explorer 10 or higher."
-msgstr ""
+msgstr "请更新您的浏览器或使用Internet Explorer 10或更高版本。"
 
 msgid "Polling Time"
 msgstr "轮询时间"
@@ -7874,7 +7874,7 @@ msgid "Pool Information & Status"
 msgstr "存储池信息和状态"
 
 msgid "Pool Space Usage"
-msgstr ""
+msgstr "池空间使用率"
 
 msgid "Pool State"
 msgstr "池状态"
@@ -8060,10 +8060,10 @@ msgid "Prevent deep discharge of battery"
 msgstr "防止电池深度漏电"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "上个季度"
 
 msgid "Previous year"
-msgstr ""
+msgstr "去年"
 
 msgid "Primary"
 msgstr "主要"
@@ -8281,124 +8281,124 @@ msgid "RPM"
 msgstr "每分钟转速"
 
 msgid "RRDGraphs Daily ARC Graph"
-msgstr ""
+msgstr "RRDGraphs每日ARC图"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs每日CPU频率图"
 
 msgid "RRDGraphs Daily CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs每日CPU温度图"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs每日CPU使用率图"
 
 msgid "RRDGraphs Daily L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs每日L2ARC图"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs日平均负荷图"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs每日网络延迟图"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr ""
+msgstr "RRDGraphs每日进程图"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr ""
+msgstr "RRDGraphs每日UPS图"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs每日正常运行时间图"
 
 msgid "RRDGraphs Monthly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs月度ARC图"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs每月CPU频率图"
 
 msgid "RRDGraphs Monthly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs每月CPU温度图"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs每月CPU使用率图"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs每月L2ARC图"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs每月平均负荷图"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs每月网络延迟图"
 
 msgid "RRDGraphs Monthly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs每月进程图"
 
 msgid "RRDGraphs Monthly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs每月UPS图"
 
 msgid "RRDGraphs Monthly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs每月正常运行时间图"
 
 msgid "RRDGraphs Weekly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs每周ARC图"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs每周CPU频率图"
 
 msgid "RRDGraphs Weekly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs每周CPU温度图"
 
 msgid "RRDGraphs Weekly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs每周CPU使用率图"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs每周L2ARC图"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs每周平均负荷图"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs每周网络延迟图"
 
 msgid "RRDGraphs Weekly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs每周进程图"
 
 msgid "RRDGraphs Weekly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs每周UPS图"
 
 msgid "RRDGraphs Weekly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs每周正常运行时间图"
 
 msgid "RRDGraphs Yearly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs年度ARC图"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs年度CPU频率图"
 
 msgid "RRDGraphs Yearly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs年度CPU温度曲线图"
 
 msgid "RRDGraphs Yearly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs年度CPU使用率图"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs年度L2ARC图"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs年度平均负荷图"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs年度网络延迟图"
 
 msgid "RRDGraphs Yearly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs年度进程图"
 
 msgid "RRDGraphs Yearly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs年度UPS图"
 
 msgid "RRDGraphs Yearly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs年度正常运行时间图"
 
 #, php-format
 msgid ""
@@ -8678,7 +8678,7 @@ msgid "Replace a device"
 msgstr "更换设备"
 
 msgid "Replace the default CSS file"
-msgstr ""
+msgstr "替换默认的CSS文件"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -9162,22 +9162,22 @@ msgid "Select configuration file:"
 msgstr "选择配置文件："
 
 msgid "Select file mode of the custom GUI CSS file."
-msgstr ""
+msgstr "选择自定义GUI CSS文件的文件模式。"
 
 msgid "Select file mode of the custom file chooser CSS file."
-msgstr ""
+msgstr "选择自定义文件选择器CSS文件的文件模式"
 
 msgid "Select file mode of the custom file manager CSS file."
-msgstr ""
+msgstr "选择自定义文件管理器CSS文件的文件模式。"
 
 msgid "Select file mode of the custom login CSS file."
-msgstr ""
+msgstr "选择自定义登录CSS文件的文件模式。"
 
 msgid "Select file mode of the custom navigation bar CSS file."
-msgstr ""
+msgstr "选择自定义导航栏CSS文件的文件模式。"
 
 msgid "Select file mode of the custom tabs CSS file."
-msgstr ""
+msgstr "选择自定义选项卡CSS文件的文件模式。"
 
 msgid "Select file system format."
 msgstr "选择文件系统格式。"
@@ -9240,7 +9240,7 @@ msgid "Selected"
 msgstr "已选择"
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "选中的UPS"
 
 msgid "Selected device or label does not exist."
 msgstr "选定的设备或标签不存在。"
@@ -9925,7 +9925,7 @@ msgid "Start TLS from within the session."
 msgstr "从会话中启动TLS。"
 
 msgid "State: "
-msgstr ""
+msgstr "状态： "
 
 msgid "Static"
 msgstr "静态"
@@ -9946,7 +9946,7 @@ msgid "Status report successfully sent."
 msgstr "状态报告已成功传送。"
 
 msgid "Status:"
-msgstr ""
+msgstr "状态："
 
 msgid "Step"
 msgstr "Step"
@@ -10070,16 +10070,16 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Sysctl设置"
 
 msgid "Sysctl setting is locked"
-msgstr ""
+msgstr "Sysctl设置已锁定"
 
 msgid "Sysctl setting is marked for deletion"
-msgstr ""
+msgstr "Sysctl设置被标记为删除"
 
 msgid "Sysctl setting is unlocked"
-msgstr ""
+msgstr "Sysctl设置已解锁"
 
 msgid "Syslog Level"
 msgstr "Syslog级别"
@@ -10198,7 +10198,7 @@ msgid "TLS Trust File"
 msgstr "TLS信任文件"
 
 msgid "Tabs"
-msgstr ""
+msgstr "标签页"
 
 msgid "Tag"
 msgstr "标签"
@@ -11073,7 +11073,7 @@ msgid "The value is invalid."
 msgstr "该值无效。"
 
 msgid "The value of the setting."
-msgstr ""
+msgstr "设置的值。"
 
 msgid "The value of the variable."
 msgstr "变量的值。"
@@ -11190,7 +11190,7 @@ msgstr "这些参数将添加到此目标。"
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
 "make changes to a running system."
-msgstr ""
+msgstr "这些sysctl变量将添加到/etc/sysctl.conf中。 它允许你对正在运行的系统进行更改。"
 
 msgid "Thin Provisioning"
 msgstr "精简配置"
@@ -11287,7 +11287,7 @@ msgid "This is not a valid IP Address."
 msgstr "这不是有效的IP地址。"
 
 msgid "This month"
-msgstr ""
+msgstr "本月"
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr "此名称用来识别这个系统的 UPS。"
@@ -11481,7 +11481,7 @@ msgid "This virtual device name already exists."
 msgstr "此虚拟设备的名称已经存在。"
 
 msgid "This week"
-msgstr ""
+msgstr "本周"
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
@@ -11619,7 +11619,7 @@ msgid "To use subdirectories, you must mount each directory."
 msgstr "要使用子目录，必须挂载每个目录。"
 
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 msgid "Toggle Mode"
 msgstr "切换模式"
@@ -11691,7 +11691,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "切换选中的Rsync模块"
 
 msgid "Toggle Selected Sysctl Settings"
-msgstr ""
+msgstr "切换选中的Sysctl设置。"
 
 msgid "Toggle Selected Targets"
 msgstr "切换选定的目标"
@@ -12238,7 +12238,7 @@ msgid "User Suffix"
 msgstr "用户后缀"
 
 msgid "User access"
-msgstr ""
+msgstr "用户访问"
 
 msgid "User account is marked for deletion"
 msgstr "用户帐户标记为删除"
@@ -12250,7 +12250,7 @@ msgid "User account is unlocked"
 msgstr "用户账号已解锁"
 
 msgid "User portal permission."
-msgstr ""
+msgstr "用户门户权限。"
 
 msgid "Username"
 msgstr "用户名"
@@ -12664,7 +12664,7 @@ msgid "Yes - Enables Time Machine support for this share."
 msgstr "是 - 启用此共享的Time Machine支持。"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -12775,7 +12775,7 @@ msgid "ZFS ARC Usage"
 msgstr "ZFS ARC使用"
 
 msgid "ZFS Adaptive Replacement Cache (ARC)"
-msgstr ""
+msgstr "ZFS自适应替换缓存（ARC）"
 
 msgid "ZFS Dataset Information & Status"
 msgstr "ZFS 数据集信息和状态"
@@ -12790,7 +12790,7 @@ msgid "ZFS L2ARC Usage"
 msgstr "ZFS L2ARC使用率"
 
 msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
-msgstr ""
+msgstr "ZFS 2级自适应替换缓存（L2ARC）"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS池I/O统计"
