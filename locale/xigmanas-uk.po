@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-09-20 04:19+0000\n"
-"PO-Revision-Date: 2019-07-28 11:58+0000\n"
-"Last-Translator: uniss <uniss@ua.fm>\n"
+"PO-Revision-Date: 2019-09-23 08:20+0000\n"
+"Last-Translator: Oleg <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-22 18:48+0000\n"
+"X-Launchpad-Export-Date: 2019-09-23 20:32+0000\n"
 "X-Generator: Launchpad (build 19048)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -30,19 +30,19 @@ msgstr "%1$s використовується для створення томі
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s управляється, %2$s використано, %3$s доступно"
 
 #, php-format
 msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
+msgstr "%1$s всього, %2$s виділено, %3$s вільно"
 
 #, php-format
 msgid "%1$s total, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s всього, %2$s використвно, %3$s доступно"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s використано, %3$s доступно"
 
 #, php-format
 msgid "%d days"
@@ -740,7 +740,7 @@ msgid "Add self-test"
 msgstr "Додати самотест"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "Додати налаштування sysctl"
 
 msgid "Add target"
 msgstr "Додати ціль"
@@ -782,7 +782,7 @@ msgid "Admin Password"
 msgstr "Пароль адміністратора"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Доступ адміна"
 
 msgid "Administration Password"
 msgstr "Пароль для адміністрування"
@@ -1122,7 +1122,7 @@ msgstr ""
 "недоступними!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Додати вміст до CSS файлу за замовчуванням"
 
 msgid "Append user defined shares"
 msgstr "Додати визначені користувачем спільні ресурси"
@@ -1439,7 +1439,7 @@ msgid "Battery Details"
 msgstr "Інформація про батарею"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Рівень акумулятора"
 
 msgid "Battery Low"
 msgstr "Низький заряд батареї"
@@ -1763,7 +1763,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Налаштування CSS"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1941,7 +1941,7 @@ msgid "Collisions"
 msgstr "Колізії"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Кольорові індикатори стану"
 
 msgid "Cols"
 msgstr "Стовпчики"
@@ -2001,7 +2001,7 @@ msgid "Common Internet File System"
 msgstr "Загальна Міжмережева Файлова Система (CIFS)"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Помилка зв'язку"
 
 msgid "Community"
 msgstr "Спільнота"
@@ -2515,10 +2515,10 @@ msgid "Current Version"
 msgstr "Поточна версія"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Поточний та попередній місяць"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Поточний та попередній рік"
 
 msgid "Current internal temperature."
 msgstr "Поточна внутрішня температура."
@@ -2530,7 +2530,7 @@ msgid "Current password is incorrectly entered."
 msgstr "Поточний пароль введений невірно."
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Поточний квартал"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr "Поточний стан роботи приводу заснований на кривій життя."
@@ -2549,7 +2549,7 @@ msgid "Current value of real power (Watts)"
 msgstr "Поточне значення діючої потужності (Вт)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Поточний рік"
 
 msgid "Custom"
 msgstr "Користувацький"
@@ -2907,7 +2907,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Видалити обрані знімки"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Видалити обрані налаштування Sysctl"
 
 msgid "Delete Selected Targets"
 msgstr "Видалити обрані цілі"
@@ -3276,7 +3276,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Вимкнути обрані модулі Rsync"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "Вимкнути обрані налаштування Sysctl"
 
 msgid "Disable Selected Targets"
 msgstr "Вимкнути обрані цілі"
@@ -3692,7 +3692,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "Ви підтверджуєте видалення обраних знімків?"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "Ви дійсно хочете видалити обрані налаштування Sysctl?"
 
 msgid "Do you want to delete selected targets?"
 msgstr "Ви підтверджуєте видалення обраних цілей?"
@@ -3785,7 +3785,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Ви підтверджуєте вимкнення обраних модулів RSYNC?"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "Ви дійсно хочете вимкнути обрані налаштування Sysctl?"
 
 msgid "Do you want to disable selected targets?"
 msgstr "Ви підтверджуєте вимкнення обраних цілей?"
@@ -3869,7 +3869,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Ви підтверджуєте увімкнення обраних модулів RSYNC?"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "Ви дійсно хочете увімкнути обрані налаштування Sysctl?"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Ви підтверджуєте увімкнення обраних цілей?"
@@ -3962,7 +3962,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Ви підтверджуєте перемикання обраних модулів RSYNC?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
+msgstr "Ви дійсно хочете переключити вибрані налаштування sysctl?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Ви підтверджуєте перемикання обраних цілей?"
@@ -4260,7 +4260,7 @@ msgid "Edit self-test"
 msgstr "Редагувати самотест"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "Змінити налаштування sysctl"
 
 msgid "Edit target"
 msgstr "Редагувати ціль"
@@ -4414,7 +4414,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Дозволити Обрані Модулі Rsync"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "Увімкнути вибрані налаштування sysctl"
 
 msgid "Enable Selected Targets"
 msgstr "Дозволити обрані цілі"
@@ -4610,6 +4610,7 @@ msgstr "Увімкнути утиліту управління живлення�
 
 msgid "Enable this option if you want to display colorful meter states."
 msgstr ""
+"Увімкніть цю опцію, якщо потрібно відобразити кольорові індикатори стану."
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -5181,7 +5182,7 @@ msgstr ""
 "X та Netatalk."
 
 msgid "File Chooser"
-msgstr ""
+msgstr "Вибір файлу"
 
 msgid "File Editor"
 msgstr "Редактор файлів"
@@ -5193,7 +5194,7 @@ msgid "File Mask"
 msgstr "Файлова Маска"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Режим файлу"
 
 msgid "File Path"
 msgstr "Шлях до файла"
@@ -5373,21 +5374,24 @@ msgstr "Повне ім'я"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
 msgstr ""
+"Повністю кваліфікована назва користувацького графічного інтерфейсу CSS  файлу"
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr ""
+msgstr "Повністю кваліфікована назва користувацького вибору файлів CSS файлу"
 
 msgid "Fully qualified file name of a custom file manager CSS file."
 msgstr ""
+"Повністю кваліфікована назва користувацького менеджера файлів CSS файлу"
 
 msgid "Fully qualified file name of a custom login CSS file."
-msgstr ""
+msgstr "Повністю кваліфікована назва користувацького логіну CSS файлу"
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
 msgstr ""
+"Повністю кваліфікована назва користувацького поля навігації CSS файлу"
 
 msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
+msgstr "Повністю кваліфікована назва користувацьких вкладок CSS файлу"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5438,7 +5442,7 @@ msgid "GSSAPI Authentication"
 msgstr "Автентифікація GSSAPI"
 
 msgid "GUI"
-msgstr ""
+msgstr "Графічний інтерфейс"
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5497,7 +5501,7 @@ msgstr "Графік показує останні 120 секунд"
 
 #, php-format
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "Графік показує останні 120 секунд."
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5874,7 +5878,7 @@ msgid "Identifier"
 msgstr "Ідентифікатор"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Ідентифікатор:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6513,7 +6517,7 @@ msgid "Large Read/Write"
 msgstr "Велике Читання/Запис"
 
 msgid "Last month"
-msgstr ""
+msgstr "Минулого місяця"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6539,7 +6543,7 @@ msgstr ""
 "випробуваний в надмірному температурному режимі, в іншому випадку 100."
 
 msgid "Last week"
-msgstr ""
+msgstr "Минулого тижня"
 
 msgid "Latency"
 msgstr "Затримка"
@@ -6715,7 +6719,7 @@ msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Навантаження, при якому ДБЖ перемикається в режим \"ПЕРЕВАНТАЖЕННЯ\""
 
 msgid "Load:"
-msgstr ""
+msgstr "Навантаження:"
 
 msgid "Loadbalance"
 msgstr "Балансування навантаження"
@@ -7435,7 +7439,7 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Native - зберігати символи з їх рідним значенням ASCII."
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "Панель навігації"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Ні користувацькі дані, ні метадані не будуть кешуватися в ARC."
@@ -7608,7 +7612,7 @@ msgid "No RSYNC Client configured."
 msgstr "Немає сконфігурованого клієнту RSYNC."
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "Немає доступу до порталу користувача"
 
 msgid "No additional parameters"
 msgstr "Немає додаткових параметрів"
@@ -7904,19 +7908,19 @@ msgid "Old Passphrase"
 msgstr "Старий пароль"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "Старіше за минулий місяць"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "Старіше за минулий тиждень"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "Старіше за попередню чверть"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "Старіше за минулий рік"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "Старіше за вчора"
 
 msgid "On"
 msgstr "Увімкнено"
@@ -8352,6 +8356,8 @@ msgstr "Будь ласка, ознайомтеся з документаціє�
 
 msgid "Please update your browser or use Internet Explorer 10 or higher."
 msgstr ""
+"Оновіть веб-переглядач або скористайтеся Internet Explorer 10 або новішою "
+"версією."
 
 msgid "Polling Time"
 msgstr "Час опитування"
@@ -8372,7 +8378,7 @@ msgid "Pool Information & Status"
 msgstr "Статус та інформація про пул"
 
 msgid "Pool Space Usage"
-msgstr ""
+msgstr "Використання простору пула"
 
 msgid "Pool State"
 msgstr "Стан пулу"
@@ -8570,10 +8576,10 @@ msgid "Prevent deep discharge of battery"
 msgstr "Не дозволяти глибокий розряд батареї"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Попередній квартал"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Попередній рік"
 
 msgid "Primary"
 msgstr "Первинна"
@@ -8794,67 +8800,67 @@ msgid "RPM"
 msgstr "об/хв"
 
 msgid "RRDGraphs Daily ARC Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік ARC"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік частоти CPU"
 
 msgid "RRDGraphs Daily CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік температури CPU"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік використання CPU"
 
 msgid "RRDGraphs Daily L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік L2ARC"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs графік середньогодобового навантаження"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік затримки в мережі"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік процесів"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік ББЖ"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік часу роботи"
 
 msgid "RRDGraphs Monthly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік ARC"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік частоти CPU"
 
 msgid "RRDGraphs Monthly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік температури CPU"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік використання CPU"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік середнього навантаження"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік затримки в мережі"
 
 msgid "RRDGraphs Monthly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік процесів"
 
 msgid "RRDGraphs Monthly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік ББЖ"
 
 msgid "RRDGraphs Monthly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs щомісячний графік часу роботи"
 
 msgid "RRDGraphs Weekly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік ARC"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
