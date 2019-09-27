@@ -28,6 +28,7 @@ Changes:
 - Upgrade samba to 4.10.8.
 - Upgrade bsnmp-ucd to 0.4.4.
 - Upgrade php to 7.3.10.
+- Upgrade phpmyadmin to 4.9.1.
 
 Fixes:
 
