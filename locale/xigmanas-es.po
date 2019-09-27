@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-20 04:19+0000\n"
-"PO-Revision-Date: 2019-06-25 11:03+0000\n"
-"Last-Translator: Vicente Soriano <Unknown>\n"
+"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"PO-Revision-Date: 2019-09-25 15:19+0000\n"
+"Last-Translator: Carlos Lozano <carlos@carloslozano.es>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-23 20:33+0000\n"
-"X-Generator: Launchpad (build 19048)\n"
+"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
+"X-Generator: Launchpad (build 19056)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr " No private key"
+msgstr " Sin clave privada"
 
 msgid " interfaces:"
 msgstr " interfaces:"
@@ -29,23 +29,23 @@ msgstr "%1$s es usado para crear el volumen(es) %2$s"
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s gestionado, %2$s usado, %3$s disponible"
 
 #, php-format
 msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
+msgstr "%1$s total, %2$s asignado, %3$s libre"
 
 #, php-format
 msgid "%1$s total, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s total, %2$s usado, %3$s disponible"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s usado, %3$s disponible"
 
 #, php-format
 msgid "%d days"
-msgstr "%d días"
+msgstr "%d dias"
 
 #, php-format
 msgid "%d week"
@@ -571,7 +571,7 @@ msgid "Add CHAP User"
 msgstr "Añadir usuario CHAP"
 
 msgid "Add Dataset"
-msgstr "Añadir Dataset"
+msgstr "Añadir conjunto de datos(dataset)"
 
 msgid "Add Disk"
 msgstr "Añadir Disco"
@@ -622,7 +622,7 @@ msgid "Add Option Record"
 msgstr "Añadir campo opción"
 
 msgid "Add Pool"
-msgstr "Añadir Pool"
+msgstr "Añadir agrupación de dispositivos de datos(Pool)"
 
 msgid "Add Port Record"
 msgstr "Añadir puerto de grabación"
@@ -685,16 +685,22 @@ msgid "Add WebDAV Record"
 msgstr "Añadir registro WebDAV"
 
 msgid "Add a cache device to a pool"
-msgstr "Agrega un dispositivo cache al grupo"
+msgstr ""
+"Agrega un dispositivo para CACHÉ a la agrupación de dispositivos de "
+"datos(Pool)"
 
 msgid "Add a log device to a pool"
-msgstr "Agrega un dispositivo de log al grupo"
+msgstr ""
+"Agrega un dispositivo para LOG a la agrupación de dispositivos de datos(Pool)"
 
 msgid "Add a spare device to a pool"
-msgstr "Agrega un dispositivo de reserve al grupo"
+msgstr ""
+"Agrega un dispositivo de reserva a la agrupación de dispositivos de "
+"datos(Pool)"
 
 msgid "Add a virtual device to a pool"
-msgstr "Agrega un dispositivo virtual al grupo"
+msgstr ""
+"Agrega un dispositivo VIRTUAL a la agrupación de dispositivos de datos(Pool)"
 
 msgid "Add additional scheduled self-test."
 msgstr "Añadir autocomprobación planeada adicional."
@@ -742,7 +748,7 @@ msgid "Add self-test"
 msgstr "Añadir autocomprobación"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "Añadir opciones a sysctl"
 
 msgid "Add target"
 msgstr "Añadir destino"
@@ -785,7 +791,7 @@ msgid "Admin Password"
 msgstr "Contraseña de administrador"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Acceso de administrador"
 
 msgid "Administration Password"
 msgstr "Contraseña de Administrador"
@@ -1064,15 +1070,15 @@ msgid ""
 "An alert email is sent when the capacity of a pool exceeds the critical "
 "threshold."
 msgstr ""
-"Se enviará un e-mail de alerta cuando la capacidad del pool sobrepase la "
-"marca crítica."
+"Se enviará un e-mail de alerta cuando el espacio de almacenamiento de la "
+"agrupación de dispositivos(Pool) sea crítico."
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the warning "
 "threshold."
 msgstr ""
-"Se enviará un e-mail de alerta cuando la capacidad del pool sobrepase la "
-"marca de precaución."
+"Se enviará un e-mail de alerta cuando el espacio de almacenamiento de la "
+"agrupación de dispositivos(Pool) sobrepase la marca de precaución."
 
 msgid "An empty field is default."
 msgstr "Vacio por defecto"
@@ -1123,7 +1129,7 @@ msgstr ""
 "inaccesible."
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Añadir al archivo CSS por defecto"
 
 msgid "Append user defined shares"
 msgstr "Añadir compartidos definidos por el usuario"
@@ -1442,7 +1448,7 @@ msgid "Battery Details"
 msgstr "Detalles de las baterías"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Nivel de Batería:"
 
 msgid "Battery Low"
 msgstr "Batería baja"
@@ -1769,7 +1775,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Opciones CSS"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1950,7 +1956,7 @@ msgid "Collisions"
 msgstr "Colisiones"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Medidores a color"
 
 msgid "Cols"
 msgstr "Columnas"
@@ -2010,7 +2016,7 @@ msgid "Common Internet File System"
 msgstr "Common Internet File System"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Error de comunicación"
 
 msgid "Community"
 msgstr "Comunidad"
@@ -2076,6 +2082,9 @@ msgstr "Conectarse a una red oculta"
 
 msgid "Consider replacing this drive"
 msgstr "Considere el remplazar este Disco"
+
+msgid "Console Autologin"
+msgstr "Inicio de sesión automático en la consola"
 
 msgid "Console Menu"
 msgstr "Menú de consola"
@@ -2160,12 +2169,13 @@ msgid ""
 "where N is an integer from 1 (fastest) to 9 (best compression ratio). "
 "Currently, 'GZIP' is equivalent to 'GZIP-6'."
 msgstr ""
-"Controla el algoritmo de compresión utilizado para este Dataset. 'LZ4' es "
-"ahora el algoritmo de compresión recomendado. Ajustar la compresión a 'On' "
-"utiliza el algoritmo de compresión LZ4 si el atributo lz4_compress está "
-"activo, de lo contrario usará LZJB. Puede especificar el nivel 'GZIP' "
-"utilizando el valor 'GZIP-N', donde N es un entero a partir de 1 (más "
-"rápido) a 9 (más comprimido). Actualmente, 'GZIP' es equivalente a 'GZIP-6'."
+"Controla el algoritmo de compresión utilizado para este conjunto de "
+"datos(Dataset). 'LZ4' es el algoritmo de compresión recomendado. Ajustar la "
+"compresión en 'On' utiliza el algoritmo de compresión LZ4 si el atributo "
+"lz4_compress está activo, de lo contrario usará LZJB. Puede especificar el "
+"nivel 'GZIP' utilizando el valor 'GZIP-N', donde N es un entero a partir de "
+"1 (más rápido) a 9 (más comprimido). Por defecto, 'GZIP' es equivalente a "
+"'GZIP-6'."
 
 msgid ""
 "Controls the compression algorithm. 'LZ4' is now the recommended compression "
@@ -2186,13 +2196,15 @@ msgid "Controls the dedup method."
 msgstr "Controla el metodo de Deduplicado"
 
 msgid "Controls the number of copies of data stored for this dataset."
-msgstr "Controla el numero de copias almacenadas para este dataset"
+msgstr ""
+"Controla la cantidad de copias de los datos almacenadas para este conjunto "
+"de datos(dataset)"
 
 msgid "Controls the power consumption mode."
 msgstr "Controlar el modo de consumo"
 
 msgid "Controls the type of the ZFS dataset."
-msgstr "Controla el tipo de dataset"
+msgstr "Controla el tipo de conjunto de datos(dataset)"
 
 msgid "Controls what is cached in the primary cache (ARC)."
 msgstr "Controla que será cacheado en la caché primaria (ARC)"
@@ -2237,13 +2249,15 @@ msgstr ""
 "leer archivos y puede ofrecer ganancias de rendimiento significativas."
 
 msgid "Controls whether the dataset is managed from a jail."
-msgstr "Controla que un dataset pueda ser leido desde una jail."
+msgstr ""
+"Controla si un conjunto de datos(dataset) puede ser leido desde una "
+"jaula(jail)."
 
 msgid "Controls whether the set-UID bit is respected for the file system."
 msgstr "Controla si se debe respetar el bit set-UID del sistema de archivos"
 
 msgid "Controls whether this dataset can be modified."
-msgstr "Controla si este Dataset puede ser modificado."
+msgstr "Controla si este conjunto de datos(Dataset) puede ser modificado."
 
 msgid ""
 "Convert DOS attributes to UNIX execution bits when Store DOS attributes is "
@@ -2489,7 +2503,11 @@ msgid "Created UFS file system:"
 msgstr "Crear un sistema de ficheros UFS"
 
 msgid "Creates the pool with an alternate root."
-msgstr "Crea un \"pool\" con un \"root\" alternativo."
+msgstr ""
+"Crea una agrupación de dispositivos de datos(Pool) con una raiz "
+"alternativa(root) dentro del sistema de archivos, la razón más común para "
+"crear una agrupación en una ubicación alternativa es para usarse con medios "
+"extraíbles o poder realizar el montaje de directorios desde el raiz."
 
 msgid "Creating filesystem"
 msgstr "Creando el sistema de archivos"
@@ -2531,10 +2549,10 @@ msgid "Current Version"
 msgstr "Versión Actual"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Este y el siguiente mes."
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Este y el siguiente año"
 
 msgid "Current internal temperature."
 msgstr "Temperatura interna actual"
@@ -2546,7 +2564,7 @@ msgid "Current password is incorrectly entered."
 msgstr "Contraseña incorrecta"
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Este trimestre"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr "Estado actual de operacion de disco basado en la curva de vida util"
@@ -2563,7 +2581,7 @@ msgid "Current value of real power (Watts)"
 msgstr "Potencia actual en (W)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Año actual"
 
 msgid "Custom"
 msgstr "Personalizado"
@@ -2669,22 +2687,22 @@ msgid "Database directory"
 msgstr "Directorio de la base de datos"
 
 msgid "Dataset"
-msgstr "Dataset"
+msgstr "Conjunto de datos(Dataset)"
 
 msgid "Dataset Type"
-msgstr "Tipo de dataset"
+msgstr "Tipo de conjunto de datos(dataset)"
 
 msgid "Dataset is locked"
-msgstr "El Dataset está bloqueado"
+msgstr "El conjunto de datos(Dataset) está bloqueado"
 
 msgid "Dataset is marked for deletion"
-msgstr "El Dataset ha sido marcado para borrado"
+msgstr "El conjunto de datos(Dataset) ha sido marcado para borrado"
 
 msgid "Dataset is unlocked"
-msgstr "El Dataset está desbloqueado"
+msgstr "El conjunto de datos(Dataset) está desbloqueado"
 
 msgid "Datasets"
-msgstr "Datasets"
+msgstr "Conjuntos de datos(Datasets)"
 
 msgid "Date"
 msgstr "Fecha"
@@ -2827,7 +2845,7 @@ msgid "Delete Selected Commands"
 msgstr "Borrar los Comandos Seleccionados"
 
 msgid "Delete Selected Datasets"
-msgstr "Borrar los Dataset seleccionados"
+msgstr "Borrar el/los conjunto/s de datos(Datasets) seleccionados"
 
 msgid "Delete Selected Disks"
 msgstr "Borrar los discos seleccionados"
@@ -2881,7 +2899,8 @@ msgid "Delete Selected Options"
 msgstr "Borrar las opciones seleccionadas"
 
 msgid "Delete Selected Pools"
-msgstr "Borrar los pools seleccionados"
+msgstr ""
+"borrar la(s) agrupación(es) de dispositivos de datos seleccionada(s)."
 
 msgid "Delete Selected Port Records"
 msgstr "Borrar puerto seleccionados"
@@ -2920,7 +2939,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Borrar los snapshot seleccionados"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Borrar las opciones seleccionada del sysctl"
 
 msgid "Delete Selected Targets"
 msgstr "Borrar los objetivos seleccionados"
@@ -3058,7 +3077,7 @@ msgid "Destination port"
 msgstr "Puerto de destino"
 
 msgid "Destroy a pool"
-msgstr "Elimina un grupo"
+msgstr "Elimina una agrupación de dispositivos de datos(Pool)."
 
 msgid ""
 "Destroy any snapshots and bookmarks more recent than the one specified."
@@ -3285,7 +3304,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Deshabilitar los módulos Rsync seleccionados"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "Deshabilitarlas opciones seleccionada del sysctl"
 
 msgid "Disable Selected Targets"
 msgstr "Deshabilitar los objetivos seleccionados"
@@ -3411,7 +3430,9 @@ msgstr "Pantalla"
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
 "information from the pool."
-msgstr "Mostrar Usado/Disponible en lugar de Alloc/Libre para el pool ZFS"
+msgstr ""
+"Mostrar Usado/Disponible en lugar de Asignado/Libre para la agrupación de "
+"dispositivos(Pool) ZFS"
 
 msgid "Display ZFS command history"
 msgstr "Desplegar la historia de comandos ZFS"
@@ -3624,7 +3645,7 @@ msgid "Do you want to delete selected commands?"
 msgstr "¿Quiere eliminar los comandos seleccionados?"
 
 msgid "Do you want to delete selected datasets?"
-msgstr "Desea borrar los Dataset seleccionados?"
+msgstr "¿Desea borrar los conjuntos de datos(Dataset) seleccionados?"
 
 msgid "Do you want to delete selected disks?"
 msgstr "¿Desea borrar los discos seleccionados?"
@@ -3666,7 +3687,8 @@ msgid "Do you want to delete selected options?"
 msgstr "Desea borrar las opciones seleccionadas?"
 
 msgid "Do you want to delete selected pools?"
-msgstr "¿Desea eliminar piscinas seleccionadas?"
+msgstr ""
+"¿Desea ELIMINAR la agrupación de dispositivos(pool) ZFS seleccionada?"
 
 msgid "Do you want to delete selected port records?"
 msgstr "¿Desea borrar los puertos seleccionados?"
@@ -3699,7 +3721,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "¿Quieres borrar las instantaneas seleccionadas?"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "¿Desea eliminar la configuración de sysctl seleccionada?"
 
 msgid "Do you want to delete selected targets?"
 msgstr "Quieres borrar los objetivos seleccionados?"
@@ -3792,7 +3814,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "¿Desea deshabillitar los módulos Rsync seleccionados?"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "¿Desea deshabilitar la configuración de sysctl seleccionada?"
 
 msgid "Do you want to disable selected targets?"
 msgstr "Quieres deshabilitar los objetivos seleccionados?"
@@ -3876,7 +3898,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "¿Desea habillitar los módulos Rsync seleccionados?"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "¿Desea habilitar la configuración de sysctl seleccionada?"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Quieres habilitar los objetivos seleccionados?"
@@ -3969,7 +3991,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "¿Desea cambiar el estado de los módulos Rsync seleccionados?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
+msgstr "¿Desea alternar la configuración de sysctl seleccionada?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Quieres cambiar los objetivos seleccionados?"
@@ -4114,7 +4136,7 @@ msgid "Edit CHAP User"
 msgstr "Editar usuario CHAP"
 
 msgid "Edit Dataset"
-msgstr "Editar Dataset"
+msgstr "Editar conjunto de datos(Dataset)"
 
 msgid "Edit Disk"
 msgstr "Editar Disco"
@@ -4165,7 +4187,7 @@ msgid "Edit Option Record"
 msgstr "Editar opciones"
 
 msgid "Edit Pool"
-msgstr "Editar Pool"
+msgstr "Editar la agrupación de dispositivos(pool) ZFS"
 
 msgid "Edit Port Record"
 msgstr "Editar puertos"
@@ -4267,7 +4289,7 @@ msgid "Edit self-test"
 msgstr "Editar autocomprobación"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "Editar la configuración de Sysctl seleccionada"
 
 msgid "Edit target"
 msgstr "Editar objetivo"
@@ -4423,7 +4445,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Habilitar los módulos Rsync seleccionados"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "Habilitar la configuracion de sysctl seleccionada"
 
 msgid "Enable Selected Targets"
 msgstr "Habilitar los objetivos seleccionados"
@@ -4619,7 +4641,7 @@ msgid "Enable the server power control utility."
 msgstr "Habilitar la utilidad de control de alimentación del servidor"
 
 msgid "Enable this option if you want to display colorful meter states."
-msgstr ""
+msgstr "Habilite esta opción si desea mostrar los medidores a color."
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -4674,6 +4696,15 @@ msgstr "Habilitado"
 
 msgid "Enabled options will be added to /etc/rc.conf."
 msgstr "Las opciones habilitadas se agregarán a /etc/rc.conf."
+
+msgid ""
+"Enabling this option may be a security risk. Anyone who can physically "
+"obtain access to this computer can gain access to all the computer's "
+"contents, including any networks it is connected to."
+msgstr ""
+"Habilitar esta opción puede ser un riesgo de seguridad. Cualquier persona "
+"que obtenga acceso físico a este ordenador puede acceder a todos los "
+"contenidos del mismo, incluyendo las redes a las que esté conectado."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -4798,7 +4829,7 @@ msgid "Enter a name for the command."
 msgstr "Introduzca un nombre de la orden"
 
 msgid "Enter a name for this dataset"
-msgstr "Nombre del Dataset"
+msgstr "Nombre del conjunto de datos(Dataset)"
 
 msgid "Enter a name for this volume"
 msgstr "Introduca un nombre para este volumen"
@@ -5003,7 +5034,7 @@ msgid "Export Subfolders"
 msgstr "Exportar subcarpetas"
 
 msgid "Export a pool from the system"
-msgstr "Exportar un pool desde el sistema"
+msgstr "Exportar una agrupación de dispositivos(pool) ZFS desde el sistema"
 
 msgid "Export all the directories in the specified path."
 msgstr "Exportar todos los directorios en la ruta especificada."
@@ -5186,7 +5217,7 @@ msgstr ""
 "Por defecto usar  ._ AppleDouble para compatibilidad con OS X y Netatalk."
 
 msgid "File Chooser"
-msgstr ""
+msgstr "Selector de archivos"
 
 msgid "File Editor"
 msgstr "Editor de archivos"
@@ -5198,7 +5229,7 @@ msgid "File Mask"
 msgstr "Máscara de archivos"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Modo archivo"
 
 msgid "File Path"
 msgstr "Ruta del archivo"
@@ -5374,22 +5405,32 @@ msgid "Full Name"
 msgstr "Nombre Completo"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
+msgstr "Nombre de archivo completo de un archivo CSS personalizado para GUI."
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
 msgstr ""
+"Nombre de archivo completo de un archivo CSS personalizado para el selector "
+"de archivos"
 
 msgid "Fully qualified file name of a custom file manager CSS file."
 msgstr ""
+"Nombre de archivo completo de un archivo CSS personalizado para el "
+"administrador de ficheros"
 
 msgid "Fully qualified file name of a custom login CSS file."
 msgstr ""
+"Nombre de archivo completo de un archivo CSS personalizado para el inicio de "
+"sesión"
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
 msgstr ""
+"Nombre de archivo completo de un archivo CSS personalizado para la barra de "
+"navegación"
 
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
+"Nombre de archivo completo de un archivo CSS personalizado para las pestañas "
+"de datos"
 
 msgid "Fuppes"
 msgstr "Servidor multimedia"
@@ -5440,7 +5481,7 @@ msgid "GSSAPI Authentication"
 msgstr "Autentificación GSSAPI"
 
 msgid "GUI"
-msgstr ""
+msgstr "interfaz gráfica de usuario"
 
 msgid "Gateway"
 msgstr "Puerta de Enlace"
@@ -5455,7 +5496,8 @@ msgid "General Setup"
 msgstr "Configuracion general"
 
 msgid "Generate a new unique identifier for a pool"
-msgstr "Generar un identificador unico para la 'pool'"
+msgstr ""
+"Generar un identificador unico para la agrupación de dispositivos(pool)"
 
 msgid "Generate password if left empty."
 msgstr "Generar una contraseña si se deja en blanco."
@@ -5498,7 +5540,7 @@ msgstr "El gráfico muestra los últimos 120 segundos"
 
 #, php-format
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "El grafico muestra los 120 segundos actuales"
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5881,7 +5923,7 @@ msgid "Identifier"
 msgstr "Identificador"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Identificador:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6004,7 +6046,7 @@ msgid "Import on-disk ZFS config"
 msgstr "Importar la configuración ZFS de los discos"
 
 msgid "Import pool in read-only mode"
-msgstr "Importar el pool en modo solo-lectura"
+msgstr "Importar agrupación de dispositivos(pool) en modo solo-lectura"
 
 msgid "Import using GPT ID"
 msgstr "Importar usando su ID GPT"
@@ -6333,8 +6375,9 @@ msgid ""
 "It is not recommanded to import non healthy pools nor virtual devices that "
 "are part of a non healthy pool."
 msgstr ""
-"No está recomendado la importación de pools dañados o de dispositivos "
-"virtuales que sean parte de un pool dañado."
+"No está recomendado la importación de una agrupación de dispositivos(pool) "
+"dañado o de dispositivos virtuales que sean parte de una agrupación de "
+"dispositivos(pool) dañado."
 
 msgid ""
 "It is recommended that you backup the server configuration before you upgrade"
@@ -6527,7 +6570,7 @@ msgid "Large Read/Write"
 msgstr "Lectura Escritura Grande"
 
 msgid "Last month"
-msgstr ""
+msgstr "Último mes"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6553,7 +6596,7 @@ msgstr ""
 "ser 100."
 
 msgid "Last week"
-msgstr ""
+msgstr "Última semana"
 
 msgid "Latency"
 msgstr "Latencia"
@@ -6618,19 +6661,20 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
-"Limita la cantidad de espacio que un Dataset y sus descendientes puede usar. "
-"Esta propiedad refuerza el límite en la cantidad de espacio usado. Este "
-"límite incluye todo el espacio utilizado por los descendientes, incluyendo "
-"el sistema de archivos y las instantáneas. Para especificar el tamaño "
-"utilice los siguientes sufijos reconocibles por humanos (por ejemplo, 'k', "
+"Limita la cantidad de espacio que un conjunto de datos(Dataset) y sus "
+"descendientes pueden usar. Esta propiedad refuerza el límite en la cantidad "
+"de espacio usado. Este límite incluye todo el espacio utilizado por los "
+"descendientes, incluyendo el sistema de archivos y las instantáneas. Para "
+"especificar el tamaño utilice los sufijos estandarizados (por ejemplo, 'k', "
 "'KB', 'M', 'Gb', etc.)."
 
 msgid "Limits the amount of space a dataset and its descendents can consume."
 msgstr ""
-"Limita el espacio que un dataset y sus descendientes pueden consumir."
+"Limita el espacio que un conjunto de datos(dataset) y sus descendientes "
+"pueden usar."
 
 msgid "Limits the amount of space a dataset can consume."
-msgstr "Limita el espacio que un dataset puede consumir."
+msgstr "Limita el espacio que un conjunto de datos(dataset) puede usar."
 
 msgid "Link Down Action"
 msgstr "Acción en caso de caida del enlace"
@@ -6692,7 +6736,7 @@ msgstr ""
 "(Protocolo de Integridad de clave temporal, IEEE 802.11i/D7.0)."
 
 msgid "List or import pools"
-msgstr "Listar o importar pools"
+msgstr "Listar o importar agrupaciónes de dispositivos(pools)"
 
 msgid "Listen"
 msgstr "Escuchar"
@@ -6732,7 +6776,7 @@ msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Carga para la condición de sobrecarga (\"OVER\")"
 
 msgid "Load:"
-msgstr ""
+msgstr "Carga:"
 
 msgid "Loadbalance"
 msgstr "Balance de carga"
@@ -6839,6 +6883,11 @@ msgstr "Nombre de Usuario"
 
 msgid "Login for CHAP authentication."
 msgstr "Login para autentificación CHAP"
+
+msgid "Login user root automatically into console on boot."
+msgstr ""
+"Al arrancar, la sesion se Inicia de forma automática como usuario root en la "
+"consola."
 
 msgid "Logout"
 msgstr "Finalizar sesión"
@@ -7453,7 +7502,7 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Nativo - Almacena los cáracteres como valores ASCII."
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "Barra de navegación"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Ni el dato de usuario ni los metadatos serán cacheados en la ARC"
@@ -7619,7 +7668,7 @@ msgid "No RSYNC Client configured."
 msgstr "No está configurado el cliente RSYNC"
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "Sin acceso al portal de usuario"
 
 msgid "No additional parameters"
 msgstr "No hay parámetros adicionales"
@@ -7640,13 +7689,13 @@ msgid "No configured disks found."
 msgstr "No se encontraron discos configurados."
 
 msgid "No configured pools."
-msgstr "No configurado pools."
+msgstr "no se encuentran agrupaciónes de dispositivos(pools) configuradas."
 
 msgid "No configured virtual devices."
 msgstr "No configurado dispositivos virtuales"
 
 msgid "No dataset information available."
-msgstr "No hay información disponible del Dataset"
+msgstr "No hay información disponible del conjunto de datos(Dataset)"
 
 msgid "No devices have been selected"
 msgstr "Ningún dispositivo ha sido seleccionado"
@@ -7688,13 +7737,13 @@ msgid "No options found."
 msgstr "No se han encontrado opciones"
 
 msgid "No pool devices have been selected"
-msgstr "Ningún dispositivo de pool ha sido seleccionado"
+msgstr "Ninguna agrupación de dispositivos(pool) ha sido seleccionada"
 
 msgid "No pool was found."
-msgstr "Ningun poll fue encontrado."
+msgstr "No se encontró ninguna agrupación de dispositivos(pool)"
 
 msgid "No pools have been selected"
-msgstr "Ningún pool ha sido seleccionado"
+msgstr "Ninguna agrupación de dispositivos(pool) ha sido seleccionada"
 
 msgid "No portal groups found."
 msgstr "No se encuentran grupos portales"
@@ -7715,7 +7764,7 @@ msgid "No suitable devices found."
 msgstr "No ha sido encontrado ningún dispositivo adecuado"
 
 msgid "No suitable pools found."
-msgstr "No ha sido encontrado ningún pool"
+msgstr "No se ha encontrado ninguna agrupación de dispositivos(pool) valida."
 
 msgid "No suitable virtual devices found."
 msgstr "No ha sido encontrado ningún dispositivo virtual adecuado"
@@ -7914,19 +7963,19 @@ msgid "Old Passphrase"
 msgstr "Contraseña antigua"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "Más antiguo que el mes pasado."
 
 msgid "Older than last week"
-msgstr ""
+msgstr "Más antiguo que la semana pasada"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "Más antiguo que el anterior cuatrimestre"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "Más antiguo que el año anterior"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "Más antiguo de ayer"
 
 msgid "On"
 msgstr "Encendido"
@@ -8336,7 +8385,7 @@ msgid "Please add a new disk first."
 msgstr "Por favor añada primero un nuevo disco"
 
 msgid "Please add a pool first."
-msgstr "Añada un Pool primero"
+msgstr "Debe añadir antes una agrupación de dispositivos(pool)"
 
 msgid "Please add a virtual device first."
 msgstr "Por favor primero agregue un dispositivo virtual"
@@ -8346,7 +8395,7 @@ msgid "Please add new %s first."
 msgstr "Por favor primero agregue un %s"
 
 msgid "Please add new pools first."
-msgstr "Por favor agregue primero un nuevo pool"
+msgstr "Debe añadir antes una NUEVA agrupación de dispositivos(pool)"
 
 #, php-format
 msgid "Please check the %sdocumentation%s."
@@ -8366,57 +8415,58 @@ msgstr "Por favor, lea la documentación."
 
 msgid "Please update your browser or use Internet Explorer 10 or higher."
 msgstr ""
+"Por favor, actualice su navegador o utilice Internet Explorer 10 o superior."
 
 msgid "Polling Time"
 msgstr "Tiempo entre comprobaciones"
 
 msgid "Pool"
-msgstr "Pool"
+msgstr "Agrupación de dispositivos(pool)"
 
 msgid "Pool Avail Threshold"
-msgstr "Limite disponible de piscina"
+msgstr "Umbral del espacio disponible en la agrupación de dispositivos(pool)"
 
 msgid "Pool Devices"
-msgstr "Dispositivos del Pool"
+msgstr "Agrupación de dispositivos(pool)"
 
 msgid "Pool Information"
-msgstr "Información del Pool"
+msgstr "Información sobre la agrupación de dispositivos(pool)"
 
 msgid "Pool Information & Status"
-msgstr "Información y estado del Pool"
+msgstr "Información y estado de la agrupación de dispositivos(pool)"
 
 msgid "Pool Space Usage"
-msgstr ""
+msgstr "Espacio usado en la agrupación de dispositivos(pool)"
 
 msgid "Pool State"
-msgstr "Estado del Pool"
+msgstr "Estado de la agrupación de dispositivos(pool)"
 
 msgid "Pool Status"
-msgstr "Estado del Pool"
+msgstr "Estado de la agrupación de dispositivos(pool)"
 
 msgid "Pool Used Threshold"
-msgstr "Limite usado de piscina"
+msgstr "Umbral de uso en la agrupación de dispositivos(pool)"
 
 msgid "Pool Version"
-msgstr "Versión del  Pool"
+msgstr "Versión de la agrupación de dispositivos(pool)"
 
 msgid "Pool cannot be changed."
-msgstr "El Pool no puede ser cambiado."
+msgstr "La agrupación de dispositivos(pool) no se puede cambiar."
 
 msgid "Pool is marked for deletion"
-msgstr "Pool marcado para borrado"
+msgstr "La agrupación de dispositivos(pool) está marcada para borrado"
 
 msgid "Pool is protected"
-msgstr "El Pool está protegido"
+msgstr "la agrupación de dispositivos(pool) está protegida"
 
 msgid "Pool is unlocked"
-msgstr "Pool esta desbloqueada"
+msgstr "la agrupación de dispositivos(pool) está desbloqueada"
 
 msgid "Pool name cannot be modified."
-msgstr "El nombre del pool no puede ser modificado."
+msgstr "la agrupación de dispositivos(pool) no se puede modificar."
 
 msgid "Pools"
-msgstr "Pools"
+msgstr "Agrupaciónes de dispositivos(pools)"
 
 msgid "Port"
 msgstr "Puerto"
@@ -8582,10 +8632,10 @@ msgid "Prevent deep discharge of battery"
 msgstr "Evitar descarga profunda de la batería"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Cuatrimestre anterior"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Año anterior"
 
 msgid "Primary"
 msgstr "Primario"
@@ -8651,7 +8701,8 @@ msgstr "Protocolo"
 msgid ""
 "Provide a hint to ZFS about handling of synchronous requests in this dataset."
 msgstr ""
-"Indica al sistema ZFS como tratar las peticiones sincronas de este dataset"
+"Indica al sistema ZFS como tratar las peticiones sincronas de este conjunto "
+"de datos(dataset)"
 
 msgid "Provider"
 msgstr "Proveedor"
@@ -8808,124 +8859,124 @@ msgid "RPM"
 msgstr "RPM"
 
 msgid "RRDGraphs Daily ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de ARC"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de la Frecuencia del procesador"
 
 msgid "RRDGraphs Daily CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de la temperatura del procesador"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario del uso del procesador"
 
 msgid "RRDGraphs Daily L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de L2ARC"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de la carga media del sistema"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de la latencia en la red"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario de los procesos"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario del SAI"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico diario del tiempo activo"
 
 msgid "RRDGraphs Monthly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de ARC"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de la frecuencia del procesador"
 
 msgid "RRDGraphs Monthly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de la temperatura del procesador"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual del uso del procesador"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de la carga media del sistema"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de la latencia en la red"
 
 msgid "RRDGraphs Monthly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual de los procesos"
 
 msgid "RRDGraphs Monthly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual del SAI"
 
 msgid "RRDGraphs Monthly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico mensual del tiempo activo"
 
 msgid "RRDGraphs Weekly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de ARC"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de la frecuencia del procesador"
 
 msgid "RRDGraphs Weekly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de la temperatura del procesador"
 
 msgid "RRDGraphs Weekly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal del uso del procesador"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de L2ARC"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de la carga media del sistema"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de la latencia en la red"
 
 msgid "RRDGraphs Weekly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal de los procesos"
 
 msgid "RRDGraphs Weekly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal del SAI"
 
 msgid "RRDGraphs Weekly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico semanal del tiempo activo"
 
 msgid "RRDGraphs Yearly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de ARC"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de la frecuencia del procesador"
 
 msgid "RRDGraphs Yearly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de la temperatura del procesador"
 
 msgid "RRDGraphs Yearly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual del uso del procesador"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de L2ARC"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de la carga media del sistema"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de la latencia en la red"
 
 msgid "RRDGraphs Yearly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual de los procesos"
 
 msgid "RRDGraphs Yearly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual del SAI"
 
 msgid "RRDGraphs Yearly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs: Grafico anual del tiempo activo"
 
 #, php-format
 msgid ""
@@ -9186,13 +9237,16 @@ msgid "Remove ZFS label information from a device"
 msgstr "Eliminar la etiqueta ZFS del dispositivo"
 
 msgid "Remove a cache device from a pool"
-msgstr "Eliminar el dispositivo de caché del Pool"
+msgstr ""
+"Eliminar el dispositivo de CACHÉ de la agrupación de dispositivos(pool)"
 
 msgid "Remove a log device from a pool"
-msgstr "Eliminar el dispositivo de log del Pool"
+msgstr ""
+"Eliminar el dispositivo de LOG de la agrupación de dispositivos(pool)"
 
 msgid "Remove a spare device from a pool"
-msgstr "Eliminar el dispositivo de remplazo del Pool"
+msgstr ""
+"Eliminar el dispositivo de RESERVA de la agrupación de dispositivos(pool)"
 
 msgid "Remove all entries from ARP table"
 msgstr "Borrar todas las entradas de la tabla ARP"
@@ -9220,7 +9274,7 @@ msgid "Replace a device"
 msgstr "Reemplazar un dispositivo"
 
 msgid "Replace the default CSS file"
-msgstr ""
+msgstr "Sustituir el CSS por defecto"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -9266,7 +9320,8 @@ msgstr ""
 "encuentra en uso."
 
 msgid "Resize pool to the maximum possible size"
-msgstr "Redimensionar el pool al tamaño máximo posible."
+msgstr ""
+"Redimensionar la agrupación de dispositivos(pool) al tamaño máximo posible."
 
 msgid "Resolve IP"
 msgstr "Resolver la IP"
@@ -9624,7 +9679,7 @@ msgid "Script has been uploaded."
 msgstr "El Script se ha subido."
 
 msgid "Scrub a pool"
-msgstr "Revisar el Pool (Scrub)"
+msgstr "Revisar (Scrub) la agrupación de dispositivos(pool)"
 
 msgid "Search"
 msgstr "Buscar..."
@@ -9662,7 +9717,8 @@ msgstr "Advertencia de Seguridad"
 msgid ""
 "See ZFS datasets & deduplication wiki article BEFORE using this feature."
 msgstr ""
-"Ver artículo de wiki sobre deduplication ANTES de usar esta característica"
+"Ver artículo de wiki sobre conjuntos de datos y deduplication ANTES de usar "
+"esta característica"
 
 msgid "See attribute E8."
 msgstr "Ver el atributo E8."
@@ -9701,13 +9757,13 @@ msgid "Select Log Device"
 msgstr "Seleccione el dispositivo de registro"
 
 msgid "Select Pool"
-msgstr "Seleccione piscina."
+msgstr "Seleccione una agrupación de dispositivos(pool)"
 
 msgid "Select Pool Device"
-msgstr "Seleccione dispositivo de piscina"
+msgstr "Seleccione un dispositivo en la agrupación de dispositivos(pool)"
 
 msgid "Select Pools"
-msgstr "Seleccione piscinas"
+msgstr "Seleccione una o varias agrupaciónes de dispositivos(pools)"
 
 msgid "Select Spare Device"
 msgstr "Seleccione dispositivo de recambio"
@@ -9733,21 +9789,32 @@ msgstr "Seleccione el archivo de configuración:"
 
 msgid "Select file mode of the custom GUI CSS file."
 msgstr ""
+"Seleccione desde el modo de archivo el CSS personalizado para el GUI."
 
 msgid "Select file mode of the custom file chooser CSS file."
 msgstr ""
+"Seleccione desde el modo de archivo el CSS personalizado para el selector de "
+"ficheros."
 
 msgid "Select file mode of the custom file manager CSS file."
 msgstr ""
+"Seleccione desde el modo de archivo el CSS personalizado para el "
+"administrador de archivos."
 
 msgid "Select file mode of the custom login CSS file."
 msgstr ""
+"Seleccione desde el modo de archivo el CSS personalizado para el inicio de "
+"sesion en el GUI."
 
 msgid "Select file mode of the custom navigation bar CSS file."
 msgstr ""
+"Seleccione desde el modo de archivo el CSS personalizado para la barra de "
+"navegación."
 
 msgid "Select file mode of the custom tabs CSS file."
 msgstr ""
+"Seleccione desde el modo de archivo el CSS personalizado para las pestañas "
+"de datos."
 
 msgid "Select file system format."
 msgstr "Seleccionar formato de sistema de archivo"
@@ -9819,7 +9886,7 @@ msgid "Selected"
 msgstr "Seleccionado"
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "SAI seleccionado"
 
 msgid "Selected device or label does not exist."
 msgstr "El dispositivo o la etiqueta , no existe."
@@ -9991,7 +10058,9 @@ msgid "Set password"
 msgstr "Establecer contraseña"
 
 msgid "Set per-LUN/per-pool thin provisioning soft threshold."
-msgstr "Establecer el umbral suave de aprovisionamiento por LUN / por grupo."
+msgstr ""
+"Establecer un umbral FLEXIBLE de aprovisionamiento DINAMICO por Unidad "
+"Lógica(LUN) o por agrupacion de dispositivos(Pool)"
 
 msgid "Set read only."
 msgstr "Solo Lectura"
@@ -10091,8 +10160,8 @@ msgstr "Definir Key"
 
 msgid "Sets an alternate mount point for the root dataset. Default is /mnt."
 msgstr ""
-"Definir un punto de montaje alternativo para la raiz del Dataset (root). El "
-"predeterminado es /mnt."
+"Definir un punto de montaje alternativo para la raiz(root) del conjunto de "
+"datos(Dataset). El predeterminado es /mnt."
 
 msgid "Sets the authentication type."
 msgstr "Establece el tipo de autenticación."
@@ -10593,7 +10662,7 @@ msgid "Start TLS from within the session."
 msgstr "Comenzar a usar TLS en esta sesión"
 
 msgid "State: "
-msgstr ""
+msgstr "Estado: "
 
 msgid "Static"
 msgstr "Estático"
@@ -10614,7 +10683,7 @@ msgid "Status report successfully sent."
 msgstr "El informe de estado se ha enviado exitosamente."
 
 msgid "Status:"
-msgstr ""
+msgstr "Estado:"
 
 msgid "Step"
 msgstr "Paso"
@@ -10741,16 +10810,16 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Configuracion de Sysctl"
 
 msgid "Sysctl setting is locked"
-msgstr ""
+msgstr "La configuración de Sysctl está bloqueada"
 
 msgid "Sysctl setting is marked for deletion"
-msgstr ""
+msgstr "La configuración de Sysctl está marcada para borrado"
 
 msgid "Sysctl setting is unlocked"
-msgstr ""
+msgstr "La configuración de Sysctl está desbloqueada"
 
 msgid "Syslog Level"
 msgstr "Nivel de syslog"
@@ -10869,7 +10938,7 @@ msgid "TLS Trust File"
 msgstr "Archivo de confianza TLS"
 
 msgid "Tabs"
-msgstr ""
+msgstr "Pestañas"
 
 msgid "Tag"
 msgstr "Etiqueta"
@@ -11602,19 +11671,22 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
-"El minimo spacio garantizado a un Dataset (normalmente vacío). Para "
-"especificar el tamaño use alguno de los siguientes sufijos. (Ej: 'k', 'KB', "
-"'M', 'Gb', etc.)."
+"El espacio mínimo garantizado para un conjunto de datos(Dataset) "
+"(normalmente vacío). Para especificar el tamaño use alguno de los siguientes "
+"sufijos. (Ej: 'k', 'KB', 'M', 'Gb', etc.)."
 
 msgid ""
 "The minimum amount of space guaranteed to a dataset and its descendents."
-msgstr "El espacio mínimo garantizado para un dataset y sus descendientes."
+msgstr ""
+"El espacio mínimo garantizado para un conjunto de datos(Dataset), INCLUYENDO "
+"sus descendientes."
 
 msgid ""
 "The minimum amount of space guaranteed to a dataset, not including its "
 "descendents."
 msgstr ""
-"El espacio mínimo garantizado para un dataset sin incluir sus descendientes."
+"El espacio mínimo garantizado para un conjunto de datos(Dataset), SIN "
+"INCLUIR sus descendientes."
 
 msgid ""
 "The minimum port to allocate for PASV style data connections (0 = use any "
@@ -11652,7 +11724,7 @@ msgstr ""
 "uno o más certificados de Autoridades de Certificación (CA's)"
 
 msgid "The name of the ZFS pool."
-msgstr "El nombre del grupo de almacenamiento ZFS."
+msgstr "El nombre de la agrupacion de dispositivos(Pool) ZFS."
 
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
@@ -11665,7 +11737,7 @@ msgid "The name of the interface is wrong."
 msgstr "El nombre de la interfaz es incorrecto."
 
 msgid "The name of the pool cannot be changed."
-msgstr "El nombre del Pool no puede ser cambiado"
+msgstr "El nombre de la agrupacion de dispositivos(Pool) no se puede cambiar"
 
 msgid "The name of the target."
 msgstr "Nombre del objetivo."
@@ -11890,7 +11962,7 @@ msgid "The value is invalid."
 msgstr "Valor no válido"
 
 msgid "The value of the setting."
-msgstr ""
+msgstr "El valor configurado."
 
 msgid "The value of the variable."
 msgstr "El valor de la variable."
@@ -12022,6 +12094,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
 "make changes to a running system."
 msgstr ""
+"Las variables sysctl aquí mostradas se añadiran a /etc/sysctl.conf. esto le "
+"permite realizar cambios al sistema en ejecución."
 
 msgid "Thin Provisioning"
 msgstr "Aprovisionamiento ligero."
@@ -12140,7 +12214,7 @@ msgid "This is not a valid IP Address."
 msgstr "Esta no es una dirección IP válida."
 
 msgid "This month"
-msgstr ""
+msgstr "Mes actual"
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -12354,7 +12428,7 @@ msgid "This password is the root password of the system."
 msgstr "Esta contraseña es la de root del sistema"
 
 msgid "This pool name already exists."
-msgstr "Este nombre de pool ya existe."
+msgstr "El nombre de la agrupacion de dispositivos(Pool) ya existe"
 
 msgid ""
 "This property indicates whether the file name matching algorithm used by the "
@@ -12397,7 +12471,7 @@ msgid "This virtual device name already exists."
 msgstr "Este nombre de dispositivo virtual ya existe."
 
 msgid "This week"
-msgstr ""
+msgstr "Semana actual"
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
@@ -12552,7 +12626,7 @@ msgid "To use subdirectories, you must mount each directory."
 msgstr "Para usar subcarpetas, primero debe montar cada carpeta"
 
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 msgid "Toggle Mode"
 msgstr "Modo intercambio"
@@ -12624,7 +12698,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Cambiar el estado de módulos Rsync"
 
 msgid "Toggle Selected Sysctl Settings"
-msgstr ""
+msgstr "Cambiar las configuraciones Sysctl seleccionadas"
 
 msgid "Toggle Selected Targets"
 msgstr "Alternar grupos de portal seleccionados"
@@ -13027,7 +13101,9 @@ msgid "Upgrade Firmware"
 msgstr "Actualizar Firmware"
 
 msgid "Upgrade ZFS and add all supported feature flags on a pool"
-msgstr "Actualizar el nucleo ZFS y añadir soporte de nuevos flags al pool"
+msgstr ""
+"Actualizar el nucleo ZFS y añadir soporte de nuevas caracteristicas a la "
+"agrupacion de dispositivos(Pool)"
 
 msgid "Upload Bandwidth"
 msgstr "Ancho de banda de carga"
@@ -13189,10 +13265,11 @@ msgid ""
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
 "lists the raw storage information of a pool."
 msgstr ""
-"Usado / Disponible lista la información de almacenamiento después de tener "
-"en cuenta toda la redundancia, pero está afectada por la compresión, "
-"deduplicación y cuotas. Asignado / Libre enumera la información de "
-"almacenamiento sin procesar de un grupo."
+"la información de almacenamiento de una agrupación de dispositivos(Pool) se "
+"puede mostrar de dos formas: Usado/Disponible lista la información después "
+"de tener en cuenta la redundancia, pero contando con la compresión, "
+"deduplicación y las cuotas. Asignado/Libre enumera esta información sin "
+"tener en cuenta nada de esto, es decir, sin procesar."
 
 msgid "User"
 msgstr "Usuario"
@@ -13219,7 +13296,7 @@ msgid "User Suffix"
 msgstr "Sufijo de usuario"
 
 msgid "User access"
-msgstr ""
+msgstr "Acceso de usuario"
 
 msgid "User account is marked for deletion"
 msgstr "La cuenta de usuario está marcada para eliminar"
@@ -13231,7 +13308,7 @@ msgid "User account is unlocked"
 msgstr "Cuenta de usuario desprotegida"
 
 msgid "User portal permission."
-msgstr ""
+msgstr "Pemisos del usuario para el portal"
 
 msgid "Username"
 msgstr "Usuario"
@@ -13671,7 +13748,7 @@ msgid "Yes - Enables Time Machine support for this share."
 msgstr "Si - Habilita soporte Time Machine para este compartido"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -13798,13 +13875,13 @@ msgid "ZFS ARC Usage"
 msgstr "Uso de ZFS ARC"
 
 msgid "ZFS Adaptive Replacement Cache (ARC)"
-msgstr ""
+msgstr "ZFS Caché de reemplazo adaptable (ARC)"
 
 msgid "ZFS Dataset Information & Status"
-msgstr "Info y estado de Dataset ZFS"
+msgstr "Info y estado del conj. de datos(Dataset) ZFS"
 
 msgid "ZFS Dataset Properties"
-msgstr "Propiedades del Dataset ZFS"
+msgstr "Propiedades del conj. de datos(Dataset) ZFS"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -13813,16 +13890,16 @@ msgid "ZFS L2ARC Usage"
 msgstr "Uso de ZFS L2ARC"
 
 msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
-msgstr ""
+msgstr "ZFS Caché de reemplazo adaptable de segundo nivel (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
-msgstr "ZFS Pool I/O Estadistica"
+msgstr "Estadisticas de I/O del ZFS de la agrupación de dispositivos(Pool)."
 
 msgid "ZFS Pool Properties"
-msgstr "Propiedades ZFS"
+msgstr "Propiedades ZFS de la agrupación de dispositivos(Pool)."
 
 msgid "ZFS Pool Tools"
-msgstr "Herramientas ZFS"
+msgstr "Herramientas ZFS para la agrupación de dispositivos(Pool)."
 
 msgid "ZFS Settings"
 msgstr "Opciones ZFS"
@@ -13834,7 +13911,7 @@ msgid "ZFS Snapshot Properties"
 msgstr "Propiedades Snapshot ZFS"
 
 msgid "ZFS Storage Pool"
-msgstr "ZFS Storage Pool"
+msgstr "Almacenamiento ZFS en la agrupación de dispositivos(Pool)."
 
 msgid "ZFS Volume Information & Status"
 msgstr "Info y estado de Volumenes ZFS"
@@ -14035,7 +14112,7 @@ msgid "network traffic"
 msgstr "Tráfico de Red"
 
 msgid "no pools available"
-msgstr "No hay piscinas disponibles"
+msgstr "No hay disponible ninguna agrupación de dispositivos(Pool)."
 
 msgid "none"
 msgstr "ninguno"
@@ -14053,7 +14130,7 @@ msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
 
 msgid "pools"
-msgstr "pools"
+msgstr "Agrupaciónes de dispositivos(Pools)."
 
 msgid "rc.conf"
 msgstr "rc.conf"
