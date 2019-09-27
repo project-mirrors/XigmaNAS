@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-20 04:19+0000\n"
-"PO-Revision-Date: 2019-06-23 14:13+0000\n"
+"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"PO-Revision-Date: 2019-09-24 10:50+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-23 20:33+0000\n"
-"X-Generator: Launchpad (build 19048)\n"
+"X-Launchpad-Export-Date: 2019-09-27 01:36+0000\n"
+"X-Generator: Launchpad (build 19056)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -29,19 +29,19 @@ msgstr "%1$s wird benutzt, um %2$s Volumes zu erstellen."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s verwaltet, %2$s verwendet, %3$s verfügbar"
 
 #, php-format
 msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
+msgstr "%1$s gesamt, %2$s zugeteilt, %3$s frei"
 
 #, php-format
 msgid "%1$s total, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s gesamt, %2$s verwendet, %3$s verfügbar"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s verwendet, %3$s verfügbar"
 
 #, php-format
 msgid "%d days"
@@ -757,7 +757,7 @@ msgid "Add self-test"
 msgstr "Selbsttest hinzufügen"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "Sysctl Einstellung hinzufügen"
 
 msgid "Add target"
 msgstr "Target hinzufügen"
@@ -800,7 +800,7 @@ msgid "Admin Password"
 msgstr "Admin Passwort"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Administratorzugriff"
 
 msgid "Administration Password"
 msgstr "Administrator Passwort"
@@ -1147,7 +1147,7 @@ msgstr ""
 "werden!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Inhalt an die voreingestellte CSS-Datei anfügen"
 
 msgid "Append user defined shares"
 msgstr "Benutzerdefinierte freigaben hinzufügen"
@@ -1466,7 +1466,7 @@ msgid "Battery Details"
 msgstr "Akkudetails"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Batterie-Ladezustand:"
 
 msgid "Battery Low"
 msgstr "Schwacher Akku"
@@ -1797,7 +1797,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "CSS Einstellungen"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1978,7 +1978,7 @@ msgid "Collisions"
 msgstr "Kollisionen"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Farbenfrohe Anzeigen"
 
 msgid "Cols"
 msgstr "Spalten"
@@ -2038,7 +2038,7 @@ msgid "Common Internet File System"
 msgstr "Gemeinsames Internet Dateisystem"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Übermittlungsfehler"
 
 msgid "Community"
 msgstr "Gemeinschaft"
@@ -2104,6 +2104,9 @@ msgstr "Verbinden mit einem verstecktem Netzwerk"
 
 msgid "Consider replacing this drive"
 msgstr "Ein Wechsel dieser Festplatte wird empfohlen !"
+
+msgid "Console Autologin"
+msgstr ""
 
 msgid "Console Menu"
 msgstr "Konsolenmenü"
@@ -2526,10 +2529,10 @@ msgid "Current Version"
 msgstr "Aktuelle Version"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Aktueller und vorheriger Monat"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Aktuelles und vorheriges Jahr"
 
 msgid "Current internal temperature."
 msgstr "Aktuelle interne Temperatur."
@@ -2541,7 +2544,7 @@ msgid "Current password is incorrectly entered."
 msgstr "Aktuelles Passwort ungültig"
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Aktuelles Quartal"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr "aktueller Status basierend auf der Lebensdauererwartung"
@@ -2560,7 +2563,7 @@ msgid "Current value of real power (Watts)"
 msgstr "Aktuelle Wirkleistung (W)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Aktuelles Jahr"
 
 msgid "Custom"
 msgstr "Benutzerdefiniert"
@@ -2917,7 +2920,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Ausgewählte Schnappschüsse löschen"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Ausgewählte Sysctl Einstellungen löschen"
 
 msgid "Delete Selected Targets"
 msgstr "Ausgewählte Ziele löschen"
@@ -3284,7 +3287,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Ausgewählte Rsync Module deaktivieren"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "Ausgewählte Sysctl Einstellungen deaktivieren"
 
 msgid "Disable Selected Targets"
 msgstr "Ausgewählte Ziele deaktivieren"
@@ -3707,7 +3710,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "Möchten Sie die ausgewählten Schnappschüsse löschen?"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Sysctl Einstellungen löschen?"
 
 msgid "Do you want to delete selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele löschen?"
@@ -3801,7 +3804,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Möchten Sie die ausgewählten RSYNC-Module deaktivieren?"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Sysctl Einstellungen deaktivieren?"
 
 msgid "Do you want to disable selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele deaktivieren?"
@@ -3885,7 +3888,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Möchten Sie die ausgewählten RSYNC-Module aktivieren?"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Sysctl Einstellungen aktivieren?"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele aktivieren?"
@@ -3978,7 +3981,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Möchten Sie die ausgewählten rsync Module umschalten?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Sysctl Einstellungen umschalten?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Möchten Sie die ausgewählten Ziele umschalten?"
@@ -4277,7 +4280,7 @@ msgid "Edit self-test"
 msgstr "Selbsttest bearbeiten"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "Sysctl Einstellungen Bearbeiten"
 
 msgid "Edit target"
 msgstr "Target bearbeiten"
@@ -4430,7 +4433,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Ausgewählte RSYNC-Module aktivieren"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "Ausgewählte Sysctl Einstellungen aktivieren"
 
 msgid "Enable Selected Targets"
 msgstr "Ausgewählte Ziele aktivieren"
@@ -4627,7 +4630,7 @@ msgid "Enable the server power control utility."
 msgstr "Server Energieverwaltung aktivieren"
 
 msgid "Enable this option if you want to display colorful meter states."
-msgstr ""
+msgstr "Aktivieren Sie diese Option, wenn Sie farbenfrohe Anzeigen möchten."
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -4689,6 +4692,12 @@ msgstr "Aktiviert"
 
 msgid "Enabled options will be added to /etc/rc.conf."
 msgstr "Erlaubte Optionen weden  /etc/rc.conf hinzugefügt."
+
+msgid ""
+"Enabling this option may be a security risk. Anyone who can physically "
+"obtain access to this computer can gain access to all the computer's "
+"contents, including any networks it is connected to."
+msgstr ""
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -5203,7 +5212,7 @@ msgstr ""
 "mit OS X und Netatalk ist."
 
 msgid "File Chooser"
-msgstr ""
+msgstr "Dateiauswahl"
 
 msgid "File Editor"
 msgstr "Dateieditor"
@@ -5215,7 +5224,7 @@ msgid "File Mask"
 msgstr "Dateimaske"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Dateimodus"
 
 msgid "File Path"
 msgstr "Dateipfad"
@@ -5392,22 +5401,30 @@ msgid "Full Name"
 msgstr "Vollständiger Name"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
+msgstr "Vollständiger Dateiname einer benutzerdefinierten GUI-CSS-Datei"
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
 msgstr ""
+"Vollständiger Dateiname einer benutzerdefinierten CSS-Datei für die "
+"Dateiauswahl."
 
 msgid "Fully qualified file name of a custom file manager CSS file."
 msgstr ""
+"Vollständiger Dateiname einer benutzerdefinierten CSS-Datei für den "
+"Dateimanager."
 
 msgid "Fully qualified file name of a custom login CSS file."
-msgstr ""
+msgstr "Vollständiger Dateiname einer benutzerdefinierten Anmelde-CSS-Datei."
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
 msgstr ""
+"Vollständiger Dateiname einer benutzerdefinierten Navigationsleisten-CSS-"
+"Datei."
 
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
+"Vollständiger Dateiname einer CSS-Datei mit benutzerdefinierten "
+"Registerkarten."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5458,7 +5475,7 @@ msgid "GSSAPI Authentication"
 msgstr "GSSAPI Authentifikation"
 
 msgid "GUI"
-msgstr ""
+msgstr "Grafische Benutzeroberfläche"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5519,7 +5536,7 @@ msgstr "Graph zeigt die letzten 120 Sekunden"
 
 #, php-format
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "Die Grafik zeigt die letzten 120 Sekunden."
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5898,7 +5915,7 @@ msgid "Identifier"
 msgstr "Bezeichner"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Identifikator:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6545,7 +6562,7 @@ msgid "Large Read/Write"
 msgstr "'Large Read/Write'"
 
 msgid "Last month"
-msgstr ""
+msgstr "Letzter Monat"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6572,7 +6589,7 @@ msgstr ""
 "ansonsten auf 100."
 
 msgid "Last week"
-msgstr ""
+msgstr "Letzte Woche"
 
 msgid "Latency"
 msgstr "Latenzzeit"
@@ -6752,7 +6769,7 @@ msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Last, bei der die USV zur Überlast Bedingung schaltet (\"OVER\")"
 
 msgid "Load:"
-msgstr ""
+msgstr "Auslastung:"
 
 msgid "Loadbalance"
 msgstr "Loadbalance"
@@ -6862,6 +6879,9 @@ msgstr "Benutzername"
 
 msgid "Login for CHAP authentication."
 msgstr "Einloggen für CHAP Authentifizierung."
+
+msgid "Login user root automatically into console on boot."
+msgstr ""
 
 msgid "Logout"
 msgstr "Abmelden"
@@ -7480,7 +7500,7 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Native - speichere Zeichen mit ihren ursprünglichen ASCII-werten."
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "Navigationsleiste"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Weder Benutzerdaten noch Metadaten werden gecached im ARC ."
@@ -7650,7 +7670,7 @@ msgid "No RSYNC Client configured."
 msgstr "Es wurde kein RSYNC Client konfiguriert."
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "Kein Zugriff auf das Benutzerportal"
 
 msgid "No additional parameters"
 msgstr "Keine zusätzlichen Parameter"
@@ -7947,19 +7967,19 @@ msgid "Old Passphrase"
 msgstr "Bisheriges Passwort"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "Älter als letzten Monat"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "Älter als letzte Woche"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "Älter als im Vorquartal"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "Älter als im Vorjahr"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "Älter als gestern"
 
 msgid "On"
 msgstr "Aktiviert"
@@ -8397,6 +8417,8 @@ msgstr "Bitte lesen sie das Handbuch !"
 
 msgid "Please update your browser or use Internet Explorer 10 or higher."
 msgstr ""
+"Bitte aktualisieren Sie Ihren Browser oder verwenden Sie Internet Explorer "
+"10 oder höher."
 
 msgid "Polling Time"
 msgstr "Abfrage Zeit"
@@ -8613,10 +8635,10 @@ msgid "Prevent deep discharge of battery"
 msgstr "Tiefentladung der Batttierie verhindern"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Vorheriges Quartal"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Vorheriges Jahr"
 
 msgid "Primary"
 msgstr "Primärer"
@@ -8839,55 +8861,55 @@ msgid "RPM"
 msgstr "U/min (RPM)"
 
 msgid "RRDGraphs Daily ARC Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches ARC-Diagramm"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches CPU-Frequenzdiagramm"
 
 msgid "RRDGraphs Daily CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches CPU-Temperaturdiagramm"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches CPU-Nutzungsdiagramm"
 
 msgid "RRDGraphs Daily L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches L2ARC-Diagramm"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliche Lastdurchschnittskurve"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches Netzwerklatenzdiagramm"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches Prozessanzahldiagramm"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches USV Diagramm"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs Tägliches Betriebszeit-Diagramm (Uptime)"
 
 msgid "RRDGraphs Monthly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches ARC-Diagramm"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches CPU-Frequenzdiagramm"
 
 msgid "RRDGraphs Monthly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches CPU-Temperaturdiagramm"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches CPU-Nutzungsdiagramm"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches L2ARC-Diagramm"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches Lastdurchschnittsdiagramm"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs Monatliches Netzwerklatenzdiagramm"
 
 msgid "RRDGraphs Monthly Processes Graph"
 msgstr ""
@@ -9252,7 +9274,7 @@ msgid "Replace a device"
 msgstr "Ein Gerät ersetzen"
 
 msgid "Replace the default CSS file"
-msgstr ""
+msgstr "Ersetzen Sie die Standard-CSS-Datei"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -9767,22 +9789,31 @@ msgid "Select configuration file:"
 msgstr "Wählen Sie die Konfigurationsdatei aus."
 
 msgid "Select file mode of the custom GUI CSS file."
-msgstr ""
+msgstr "Wählen Sie den Dateimodus der benutzerdefinierten GUI-CSS-Datei aus."
 
 msgid "Select file mode of the custom file chooser CSS file."
 msgstr ""
+"Wählen Sie den Dateimodus der benutzerdefinierten CSS-Datei für die "
+"Dateiauswahl."
 
 msgid "Select file mode of the custom file manager CSS file."
 msgstr ""
+"Wählen Sie den Dateimodus der benutzerdefinierten CSS-Datei für den "
+"Dateimanager aus."
 
 msgid "Select file mode of the custom login CSS file."
 msgstr ""
+"Wählen Sie den Dateimodus der benutzerdefinierten Anmelde-CSS-Datei aus."
 
 msgid "Select file mode of the custom navigation bar CSS file."
 msgstr ""
+"Wählen Sie den Dateimodus der benutzerdefinierten Navigationsleisten-CSS-"
+"Datei aus."
 
 msgid "Select file mode of the custom tabs CSS file."
 msgstr ""
+"Wählen Sie den Dateimodus der CSS-Datei mit benutzerdefinierten "
+"Registerkarten."
 
 msgid "Select file system format."
 msgstr "Wählen Sie das Dateisystem Format"
@@ -9860,7 +9891,7 @@ msgid "Selected"
 msgstr "Ausgewählt"
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "Ausgewählte USV"
 
 msgid "Selected device or label does not exist."
 msgstr "Das ausgewählte Gerät oder die Bezeichnung existieren nicht."
@@ -10641,7 +10672,7 @@ msgid "Start TLS from within the session."
 msgstr "Starte TLS aus dem Inneren der Sitzung."
 
 msgid "State: "
-msgstr ""
+msgstr "Status: "
 
 msgid "Static"
 msgstr "Statisch"
@@ -10662,7 +10693,7 @@ msgid "Status report successfully sent."
 msgstr "Statusreport wurde erfolgreich versandt."
 
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 msgid "Step"
 msgstr "Schritt"
@@ -10791,16 +10822,16 @@ msgid "Syncthing"
 msgstr "Synchronisation"
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Sysctl Einstellung"
 
 msgid "Sysctl setting is locked"
-msgstr ""
+msgstr "Sysctl Einstellung ist gesperrt"
 
 msgid "Sysctl setting is marked for deletion"
-msgstr ""
+msgstr "Die Sysctl Einstellung ist zum Löschen vorgemerkt"
 
 msgid "Sysctl setting is unlocked"
-msgstr ""
+msgstr "Sysctl Einstellung ist entsperrt"
 
 msgid "Syslog Level"
 msgstr "Syslog Umgebung"
@@ -10920,7 +10951,7 @@ msgid "TLS Trust File"
 msgstr "TLS Trust File"
 
 msgid "Tabs"
-msgstr ""
+msgstr "Reiter"
 
 msgid "Tag"
 msgstr "Tag"
@@ -11963,7 +11994,7 @@ msgid "The value is invalid."
 msgstr "Der Wert ist ungültig."
 
 msgid "The value of the setting."
-msgstr ""
+msgstr "Der Wert der Einstellung."
 
 msgid "The value of the variable."
 msgstr "Der Wert der Variable."
@@ -12097,6 +12128,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
 "make changes to a running system."
 msgstr ""
+"Diese sysctl-Variablen werden zu /etc/sysctl.conf hinzugefügt. Hiermit "
+"können Sie Änderungen an einem laufenden System vornehmen."
 
 msgid "Thin Provisioning"
 msgstr "Schlanke Speicherzuweisung"
@@ -12224,7 +12257,7 @@ msgid "This is not a valid IP Address."
 msgstr "Das ist keine gültige IP Adrresse"
 
 msgid "This month"
-msgstr ""
+msgstr "Aktueller Monat"
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -12490,7 +12523,7 @@ msgid "This virtual device name already exists."
 msgstr "Der virtuelle Gerätename existiert bereits."
 
 msgid "This week"
-msgstr ""
+msgstr "Diese Woche"
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
@@ -12651,7 +12684,7 @@ msgstr ""
 "(mount)."
 
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 msgid "Toggle Mode"
 msgstr "Modus umschalten"
@@ -12723,7 +12756,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Ausgewählte Rsync Jobs umschalten"
 
 msgid "Toggle Selected Sysctl Settings"
-msgstr ""
+msgstr "Ausgewählte Sysctl Einstellungen umschalten"
 
 msgid "Toggle Selected Targets"
 msgstr "Ausgewählte Ziele umschalten"
@@ -13321,7 +13354,7 @@ msgid "User Suffix"
 msgstr "Benutzer Suffix"
 
 msgid "User access"
-msgstr ""
+msgstr "Benutzerzugriff"
 
 msgid "User account is marked for deletion"
 msgstr "Benutzerkonto ist zur Löschung markiert"
@@ -13333,7 +13366,7 @@ msgid "User account is unlocked"
 msgstr "Benutzerkonto ist entsperrt"
 
 msgid "User portal permission."
-msgstr ""
+msgstr "Benutzerportal-Berechtigung."
 
 msgid "Username"
 msgstr "Benutzername"
@@ -13775,7 +13808,7 @@ msgstr ""
 "Ja - Schaltet die Unterstützung für Time Machine für diese Freigabe an."
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gestern"
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -13912,7 +13945,7 @@ msgid "ZFS ARC Usage"
 msgstr "ZFS ARC Benutzung"
 
 msgid "ZFS Adaptive Replacement Cache (ARC)"
-msgstr ""
+msgstr "ZFS Adaptiver Ersetzungs-Cache  (ARC)"
 
 msgid "ZFS Dataset Information & Status"
 msgstr "ZFS Dataset Informationen & Status"
@@ -13927,7 +13960,7 @@ msgid "ZFS L2ARC Usage"
 msgstr "ZFS L2ARC Verwendung"
 
 msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
-msgstr ""
+msgstr "ZFS Level 2 Adaptiver Ersetzungs-Cache  (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS Pool I/O Statistik"
