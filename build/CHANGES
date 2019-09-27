@@ -16,7 +16,6 @@ Changes:
 - Upgrade bash to 5.0 P11.
 - Upgrade e2fsprogs to 1.45.3.
 - Upgrade nano to 4.4.
-- Upgrade php to 7.3.9.
 - Upgrade mariadb to 10.2.26.
 - Upgrade virtualbox-ose to 5.2.32.
 - Upgrade syncthing to 1.2.2.
@@ -28,6 +27,7 @@ Changes:
 - Upgrade devcpu-data to 1.24.
 - Upgrade samba to 4.10.8.
 - Upgrade bsnmp-ucd to 0.4.4.
+- Upgrade php to 7.3.10.
 
 Fixes:
 
