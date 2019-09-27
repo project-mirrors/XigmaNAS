@@ -4,6 +4,7 @@ Changes:
 - Upgrade FreeBSD 11.3-RELEASE to P3.
 - Upgrade bsnmp-ucd to 0.4.4.
 - Upgrade samba to 4.10.8.
+- Upgrade php to 7.3.10.
 
 Fixes:
 
