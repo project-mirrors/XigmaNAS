@@ -189,4 +189,64 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_fm_enable(): myp\property_bool {
+		$caption = gettext('Grant access to the file manager.');
+		$property = parent::init_fm_enable();
+		$property->
+			set_id('fm_enable')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_fmp_show_hidden_items(): myp\property_bool {
+		$caption = gettext('Show hidden items');
+		$property = parent::init_fmp_show_hidden_items();
+		$property->
+			set_id('fmp_show_hidden_items')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_fmp_read(): myp\property_bool {
+		$caption = gettext('Grant read permission');
+		$property = parent::init_fmp_read();
+		$property->
+			set_id('fmp_read')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_fmp_create(): myp\property_bool {
+		$caption = gettext('Grant create permission');
+		$property = parent::init_fmp_create();
+		$property->
+			set_id('fmp_create')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_fmp_change(): myp\property_bool {
+		$caption = gettext('Grant modify permission');
+		$property = parent::init_fmp_change();
+		$property->
+			set_id('fmp_change')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_fmp_delete(): myp\property_bool {
+		$caption = gettext('Grant delete permission');
+		$property = parent::init_fmp_delete();
+		$property->
+			set_id('fmp_delete')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
 }

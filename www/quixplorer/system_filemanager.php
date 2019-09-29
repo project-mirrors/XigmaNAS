@@ -57,7 +57,7 @@ switch($action): // Execute action
 		del_items($current_dir);
 		break;
 	case 'copy': // COPY/MOVE FILE(S)/DIR(S)
-	case 'move': 
+	case 'move':
 		require './_include/copy_move.php';
 		copy_move_items($current_dir);
 		break;
@@ -101,10 +101,12 @@ switch($action): // Execute action
 		require './_include/archive.php';
 		archive_items($current_dir);
 		break;
+/*
 	case 'admin': // USER-ADMINISTRATION
 		require './_include/admin.php';
 		show_admin($current_dir);
 		break;
+ */
 	case 'login':
 	    login();
 	    require './_include/list.php';
@@ -120,4 +122,3 @@ switch($action): // Execute action
 		break;
 endswitch;
 show_footer();
-?>

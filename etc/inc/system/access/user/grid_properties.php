@@ -156,4 +156,70 @@ class grid_properties extends myp\container_row {
 	final public function get_user_portal_access(): myp\property_list {
 		return $this->x_user_portal_access ?? $this->init_user_portal_access();
 	}
+	protected $x_fm_enable;
+	public function init_fm_enable(): myp\property_bool {
+		$property = $this->x_fm_enable = new myp\property_bool();
+		$property->
+			set_name('fm_enable')->
+			set_title(gettext('File Manager Access'));
+		return $property;
+	}
+	final public function get_fm_enable(): myp\property_bool {
+		return $this->x_fm_enable ?? $this->init_fm_enable();
+	}
+	protected $x_fmp_show_hidden_items;
+	public function init_fmp_show_hidden_items(): myp\property_bool {
+		$property = $this->x_fmp_show_hidden_items = new myp\property_bool();
+		$property->
+			set_name('fmp_show_hidden_items')->
+			set_title(gettext('Hidden Items'));
+		return $property;
+	}
+	final public function get_fmp_show_hidden_items(): myp\property_bool {
+		return $this->x_fmp_show_hidden_items ?? $this->init_fmp_show_hidden_items();
+	}
+	protected $x_fmp_read;
+	public function init_fmp_read(): myp\property_bool {
+		$property = $this->x_fmp_read = new myp\property_bool();
+		$property->
+			set_name('fmp_read')->
+			set_title(gettext('Read Permission'));
+		return $property;
+	}
+	final public function get_fmp_read(): myp\property_bool {
+		return $this->x_fmp_read ?? $this->init_fmp_read();
+	}
+	protected $x_fmp_create;
+	public function init_fmp_create(): myp\property_bool {
+		$property = $this->x_fmp_create = new myp\property_bool();
+		$property->
+			set_name('fmp_create')->
+			set_title(gettext('Create Permission'));
+		return $property;
+	}
+	final public function get_fmp_create(): myp\property_bool {
+		return $this->x_fmp_create ?? $this->init_fmp_create();
+	}
+	protected $x_fmp_change;
+	public function init_fmp_change(): myp\property_bool {
+		$property = $this->x_fmp_change = new myp\property_bool();
+		$property->
+			set_name('fmp_change')->
+			set_title(gettext('Change Permission'));
+		return $property;
+	}
+	final public function get_fmp_change(): myp\property_bool {
+		return $this->x_fmp_change ?? $this->init_fmp_change();
+	}
+	protected $x_fmp_delete;
+	public function init_fmp_delete(): myp\property_bool {
+		$property = $this->x_fmp_delete = new myp\property_bool();
+		$property->
+			set_name('fmp_delete')->
+			set_title(gettext('Delete Permission'));
+		return $property;
+	}
+	final public function get_fmp_delete(): myp\property_bool {
+		return $this->x_fmp_delete ?? $this->init_fmp_delete();
+	}
 }

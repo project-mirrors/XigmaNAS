@@ -20,7 +20,7 @@ load_rc_config "$name"
 #	defaults
 fmperm_configdir=${fmperm_configdir:-"/usr/local/www/quixplorer/_config"}
 fmperm_htusers=${fmperm_htusers:-"${fmperm_configdir}/.htusers.php"}
-fmperm_user_permissions=${fmperm_user_permissions:-"17"}
+fmperm_user_permissions=${fmperm_user_permissions:-"1"}
 fmperm_user_active=${fmperm_user_active:-"1"}
 
 echo "Preparing web-based file-management."
@@ -46,7 +46,15 @@ if [ `configxml_get_count "//system/disablefm"` -eq 0 ]; then
 			--else \
 				--output '/mnt' \
 			--break \
-			--output "','http://localhost',0,'^.ht',${fmperm_user_permissions},${fmperm_user_active}" \
+			--output "','http://localhost'," \
+			--if 'count(fmp_show_hidden_items) > 0' --output "1" --else --output "0" --break \
+			--output ",'^.ht',0b" \
+			--if 'count(fmp_delete) > 0' --output '1' --else --output '0' --break \
+			--if 'count(fmp_create) > 0' --output '1' --else --output '0' --break \
+			--if 'count(fmp_change) > 0' --output '1' --else --output '0' --break \
+			--if 'count(fmp_read) > 0' --output '1' --else --output '0' --break \
+			--output "," \
+			--if 'count(fm_enable) > 0' --output '1' --else --output '0' --break \
 			--output '];' \
 			--nl \
 		--break \
