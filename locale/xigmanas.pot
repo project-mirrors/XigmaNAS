@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1580,6 +1580,9 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr ""
 
@@ -1993,6 +1996,9 @@ msgstr ""
 msgid "Create PV Guest"
 msgstr ""
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr ""
 
@@ -2330,6 +2336,9 @@ msgid "Delete Host"
 msgstr ""
 
 msgid "Delete Login Info"
+msgstr ""
+
+msgid "Delete Permission"
 msgstr ""
 
 msgid "Delete Selected Auth Groups"
@@ -4553,6 +4562,9 @@ msgstr ""
 msgid "File Manager"
 msgstr ""
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr ""
 
@@ -4834,6 +4846,21 @@ msgstr ""
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr ""
 
@@ -4985,6 +5012,9 @@ msgid "Hiadaptive (High Performance)"
 msgstr ""
 
 msgid "Hidden"
+msgstr ""
+
+msgid "Hidden Items"
 msgstr ""
 
 msgid "Hide Dot Files"
@@ -7952,6 +7982,9 @@ msgstr ""
 msgid "Read Only Access"
 msgstr ""
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr ""
 
@@ -9019,6 +9052,9 @@ msgid "Show UPS Information"
 msgstr ""
 
 msgid "Show Used/Avail"
+msgstr ""
+
+msgid "Show hidden items"
 msgstr ""
 
 msgid "Show log entries in reverse order (newest entries on top)."
