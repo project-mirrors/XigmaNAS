@@ -50,8 +50,8 @@ if [ `configxml_get_count "//system/disablefm"` -eq 0 ]; then
 			--if 'count(fmp_show_hidden_items) > 0' --output "1" --else --output "0" --break \
 			--output ",'^.ht',0b" \
 			--if 'count(fmp_delete) > 0' --output '1' --else --output '0' --break \
-			--if 'count(fmp_create) > 0' --output '1' --else --output '0' --break \
 			--if 'count(fmp_change) > 0' --output '1' --else --output '0' --break \
+			--if 'count(fmp_create) > 0' --output '1' --else --output '0' --break \
 			--if 'count(fmp_read) > 0' --output '1' --else --output '0' --break \
 			--output "," \
 			--if 'count(fm_enable) > 0' --output '1' --else --output '0' --break \
