@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-25 21:23+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"PO-Revision-Date: 2019-10-01 01:50+0000\n"
 "Last-Translator: Vicente Soriano <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -1857,6 +1857,9 @@ msgstr "Autenticació repte-resposta"
 msgid "Change"
 msgstr "Canvia-ho"
 
+msgid "Change Permission"
+msgstr "Canvia permisos"
+
 msgid "Change below file"
 msgstr "Canvia arxiu a continuació"
 
@@ -2459,6 +2462,9 @@ msgstr "Crea una màscara"
 msgid "Create PV Guest"
 msgstr "Crea un hoste PV"
 
+msgid "Create Permission"
+msgstr "Crea permisos"
+
 msgid "Create Work Directory"
 msgstr "Crea un directori de treball"
 
@@ -2831,6 +2837,9 @@ msgstr "Suprimeix servidor"
 
 msgid "Delete Login Info"
 msgstr "Suprimeix informació d'inici"
+
+msgid "Delete Permission"
+msgstr "Elimina permisos"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Elimineu els grups d'autenticació seleccionats"
@@ -5251,6 +5260,9 @@ msgstr "Editor de fitxers"
 msgid "File Manager"
 msgstr "Gestor de fitxers"
 
+msgid "File Manager Access"
+msgstr "Access al gestor d'arxius"
+
 msgid "File Mask"
 msgstr "Màscara d'arxiu"
 
@@ -5565,6 +5577,21 @@ msgstr ""
 "Identificador numèric global que s'utilitzarà per a un LUN determinat dins "
 "del CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Permetre access al gestor d'arxius"
+
+msgid "Grant create permission"
+msgstr "Concediu permís per crear"
+
+msgid "Grant delete permission"
+msgstr "Concediu permís per eliminar"
+
+msgid "Grant modify permission"
+msgstr "Concedir permís per modificar"
+
+msgid "Grant read permission"
+msgstr "Concediu permís de lectura"
+
 msgid "Grant shell access to user"
 msgstr "Permetre l’accés al shell dels usuaris"
 
@@ -5741,6 +5768,9 @@ msgstr "Hiadaptive (alt rendiment)"
 
 msgid "Hidden"
 msgstr "Ocult"
+
+msgid "Hidden Items"
+msgstr "Elements ocults"
 
 msgid "Hide Dot Files"
 msgstr "ocultar arxius amb punt"
@@ -9079,6 +9109,9 @@ msgstr "Només lectura (ro)"
 msgid "Read Only Access"
 msgstr "Accés només de lectura"
 
+msgid "Read Permission"
+msgstr "Permís de lectura"
+
 msgid "Read from biggest priority"
 msgstr "Llegit des de la prioritat més alta"
 
@@ -10346,6 +10379,9 @@ msgstr "Mostra l'informació del SAI"
 
 msgid "Show Used/Avail"
 msgstr "Mostra Utilitzat / Disponible"
+
+msgid "Show hidden items"
+msgstr "Mostra els elements ocults"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""

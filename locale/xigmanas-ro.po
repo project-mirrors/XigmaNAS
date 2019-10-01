@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1839,6 +1839,9 @@ msgstr ""
 msgid "Change"
 msgstr "Modificare"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "Modificare fișier"
 
@@ -2439,6 +2442,9 @@ msgstr "Creare Mască"
 msgid "Create PV Guest"
 msgstr "Creare cont PV Guest"
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Creare Work Directory"
 
@@ -2810,6 +2816,9 @@ msgstr "Ștergere Sistem"
 
 msgid "Delete Login Info"
 msgstr "Ștergere date de autentificare"
+
+msgid "Delete Permission"
+msgstr ""
 
 msgid "Delete Selected Auth Groups"
 msgstr "Ștergere Grupuri autorizate selectate"
@@ -5189,6 +5198,9 @@ msgstr "Editor Fișiere"
 msgid "File Manager"
 msgstr "Manager de Fișiere"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr "Mască fișier"
 
@@ -5483,6 +5495,21 @@ msgstr ""
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr ""
 
@@ -5658,6 +5685,9 @@ msgstr "Hiadaptive (Înaltă performanță)"
 
 msgid "Hidden"
 msgstr "Ascuns"
+
+msgid "Hidden Items"
+msgstr ""
 
 msgid "Hide Dot Files"
 msgstr "Ascundere fișiere Dot"
@@ -8945,6 +8975,9 @@ msgstr "Doar Citire (ro)"
 msgid "Read Only Access"
 msgstr "Acces Doar Citire"
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr "Citire cu prioritate maximă"
 
@@ -10148,6 +10181,9 @@ msgid "Show UPS Information"
 msgstr "Afișare informații UPS"
 
 msgid "Show Used/Avail"
+msgstr ""
+
+msgid "Show hidden items"
 msgstr ""
 
 msgid "Show log entries in reverse order (newest entries on top)."

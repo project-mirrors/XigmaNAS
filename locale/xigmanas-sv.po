@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-25 03:48+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"PO-Revision-Date: 2019-09-30 03:30+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:38+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:32+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -1814,6 +1814,9 @@ msgstr "Fråga-svar autentisering"
 msgid "Change"
 msgstr "Ändra"
 
+msgid "Change Permission"
+msgstr "Ändra rättigheter"
+
 msgid "Change below file"
 msgstr "Ändra filen nedan"
 
@@ -2387,6 +2390,9 @@ msgstr "Skapa mask"
 msgid "Create PV Guest"
 msgstr "Skapa PV gäst"
 
+msgid "Create Permission"
+msgstr "Skapa rättigheter"
+
 msgid "Create Work Directory"
 msgstr "Skapa arbetskatalog"
 
@@ -2758,6 +2764,9 @@ msgstr "Ta bort värd"
 
 msgid "Delete Login Info"
 msgstr "Radera Inloggnings Information"
+
+msgid "Delete Permission"
+msgstr "Ta bort rättigheter"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Ta bort valda autentiseringsgrupper"
@@ -5145,6 +5154,9 @@ msgstr "Filredigerare"
 msgid "File Manager"
 msgstr "Filhanterare"
 
+msgid "File Manager Access"
+msgstr "Filhanteraråtkomst"
+
 msgid "File Mask"
 msgstr "Filmask"
 
@@ -5441,6 +5453,21 @@ msgstr "Globala inställningar"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Global numerisk identitet att använda för en given LUN i CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Ge åtkomst till filhanteraren"
+
+msgid "Grant create permission"
+msgstr "Ge skaparättigheter"
+
+msgid "Grant delete permission"
+msgstr "Ge borttagningsrättigheter"
+
+msgid "Grant modify permission"
+msgstr "Ge ändrarättigheter"
+
+msgid "Grant read permission"
+msgstr "Ge läsrättigheter"
+
 msgid "Grant shell access to user"
 msgstr "Ge komandoskalaccess till användaren"
 
@@ -5612,6 +5639,9 @@ msgstr "Högadaptiv (Hög prestanda)"
 
 msgid "Hidden"
 msgstr "Dold"
+
+msgid "Hidden Items"
+msgstr "Dolda objekt"
 
 msgid "Hide Dot Files"
 msgstr "Dölj punktfiler"
@@ -8888,6 +8918,9 @@ msgstr "Endast-läsning"
 msgid "Read Only Access"
 msgstr "Tillgänglig endast för läsning"
 
+msgid "Read Permission"
+msgstr "Läsrättigheter"
+
 msgid "Read from biggest priority"
 msgstr "Läs från den högsta prioriteringen"
 
@@ -10125,6 +10158,9 @@ msgstr "Visa UPS information"
 
 msgid "Show Used/Avail"
 msgstr "Visa Använt/Tillgängligt"
+
+msgid "Show hidden items"
+msgstr "Visa dolda objekt"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Visa loggposter i omvänd ordning (senaste högst upp)."

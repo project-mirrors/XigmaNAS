@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-26 16:15+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"PO-Revision-Date: 2019-09-29 22:53+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -1866,6 +1866,9 @@ msgstr "Challenge-Response Verificatie"
 msgid "Change"
 msgstr "Wijzigen"
 
+msgid "Change Permission"
+msgstr "Toestemming Wijzigen"
+
 msgid "Change below file"
 msgstr "Verander het bestand hieronder"
 
@@ -2470,6 +2473,9 @@ msgstr "Creëer Machtigingen"
 msgid "Create PV Guest"
 msgstr "Creëer PV Gast"
 
+msgid "Create Permission"
+msgstr "Toestemming Creëren"
+
 msgid "Create Work Directory"
 msgstr "Werkmap Maken"
 
@@ -2841,6 +2847,9 @@ msgstr "Host Verwijderen"
 
 msgid "Delete Login Info"
 msgstr "Inlog Info Verwijderen"
+
+msgid "Delete Permission"
+msgstr "Toestemming Verwijderen"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Geselecteerde Auth Groepen Verwijderen"
@@ -5264,6 +5273,9 @@ msgstr "Bestand Bewerker"
 msgid "File Manager"
 msgstr "Bestands Manager"
 
+msgid "File Manager Access"
+msgstr "Toegang Bestandsbeheer"
+
 msgid "File Mask"
 msgstr "Bestandsmachtiging"
 
@@ -5573,6 +5585,21 @@ msgstr ""
 "Globaal numerieke identificatie te gebruiken voor een bepaalde LUN binnen "
 "CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Verleen toegang tot de bestandsbeheer."
+
+msgid "Grant create permission"
+msgstr "Verleen toestemming om te creëren"
+
+msgid "Grant delete permission"
+msgstr "Verleen toestemming om te verwijderen"
+
+msgid "Grant modify permission"
+msgstr "Verleen toestemming om te wijzigen"
+
+msgid "Grant read permission"
+msgstr "Verleen toestemming om te lezen"
+
 msgid "Grant shell access to user"
 msgstr "Verleen Shell toegang aan gebruiker"
 
@@ -5748,6 +5775,9 @@ msgstr "Hiadaptief"
 
 msgid "Hidden"
 msgstr "Verborgen"
+
+msgid "Hidden Items"
+msgstr "Verborgen Items"
 
 msgid "Hide Dot Files"
 msgstr "Verberg Punt Bestanden"
@@ -9079,6 +9109,9 @@ msgstr "Alleen Lezen  (ro)"
 msgid "Read Only Access"
 msgstr "Alleen-Lezen Toegang"
 
+msgid "Read Permission"
+msgstr "Toestemming lezen"
+
 msgid "Read from biggest priority"
 msgstr "Lees van de grootste prioriteit"
 
@@ -10342,6 +10375,9 @@ msgstr "UPS Informatie Weergeven"
 
 msgid "Show Used/Avail"
 msgstr "Gebruikt/Beschikbaar Weergeven"
+
+msgid "Show hidden items"
+msgstr "Verborgen items weergeven"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""

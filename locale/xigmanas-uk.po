@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-23 08:20+0000\n"
-"Last-Translator: Oleg <Unknown>\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"PO-Revision-Date: 2019-09-29 18:57+0000\n"
+"Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:38+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:32+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1439,7 +1439,7 @@ msgid "Battery Details"
 msgstr "Інформація про батарею"
 
 msgid "Battery Level:"
-msgstr "Рівень акумулятора"
+msgstr "Рівень батареї"
 
 msgid "Battery Low"
 msgstr "Низький заряд батареї"
@@ -1839,6 +1839,9 @@ msgstr "Автентифікація за запитом-відповіддю"
 msgid "Change"
 msgstr "Змінити"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "Змінити наведений нижче файл"
 
@@ -2069,7 +2072,7 @@ msgid "Consider replacing this drive"
 msgstr "Розгляньте можливість заміни цього диска"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Автоматична автентифікація у консолі"
 
 msgid "Console Menu"
 msgstr "Консольне меню"
@@ -2426,6 +2429,9 @@ msgstr "Створити маску"
 
 msgid "Create PV Guest"
 msgstr "Створює PV Гістя"
+
+msgid "Create Permission"
+msgstr ""
 
 msgid "Create Work Directory"
 msgstr "Створення робочого каталогу"
@@ -2800,6 +2806,9 @@ msgstr "Видалити хост"
 
 msgid "Delete Login Info"
 msgstr "Видалити інформацію про вхід"
+
+msgid "Delete Permission"
+msgstr ""
 
 msgid "Delete Selected Auth Groups"
 msgstr "Видалити обрані групи автентифікації"
@@ -3965,7 +3974,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Ви підтверджуєте перемикання обраних модулів RSYNC?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr "Ви дійсно хочете переключити вибрані налаштування sysctl?"
+msgstr "Ви підтверджуєте перемикання обраних налаштувань sysctl?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Ви підтверджуєте перемикання обраних цілей?"
@@ -4396,7 +4405,7 @@ msgid "Enable Selected Option Records"
 msgstr "Дозволити обрані записи параметра"
 
 msgid "Enable Selected Options"
-msgstr "Увімкнути вибрані налаштування"
+msgstr "Дозволити обрані налаштування"
 
 msgid "Enable Selected Port Records"
 msgstr "Дозволити обрані записи порта"
@@ -4408,16 +4417,16 @@ msgid "Enable Selected Public Keys"
 msgstr "Дозволити обрані публічні ключі"
 
 msgid "Enable Selected Records"
-msgstr "Дозволити Обрані Записи"
+msgstr "Дозволити обрані записи"
 
 msgid "Enable Selected Rsync Jobs"
-msgstr "Дозволити Обрані Завдання Rsync"
+msgstr "Дозволити обрані завдання Rsync"
 
 msgid "Enable Selected Rsync Modules"
-msgstr "Дозволити Обрані Модулі Rsync"
+msgstr "Дозволити обрані модулі Rsync"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr "Увімкнути вибрані налаштування sysctl"
+msgstr "Дозволити обрані налаштування sysctl"
 
 msgid "Enable Selected Targets"
 msgstr "Дозволити обрані цілі"
@@ -4679,6 +4688,9 @@ msgid ""
 "obtain access to this computer can gain access to all the computer's "
 "contents, including any networks it is connected to."
 msgstr ""
+"Увімкнення цієї опції може бути небезпечним та ризикованим. Будь-хто, маючи "
+"фізичний доступ до цього комп'ютера, може отримати доступ до всього вмісту "
+"комп'ютера, включаючи всі мережі до яких він під'єднаний."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -5199,6 +5211,9 @@ msgstr "Редактор файлів"
 msgid "File Manager"
 msgstr "Менеджер файлів"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr "Файлова Маска"
 
@@ -5382,25 +5397,22 @@ msgid "Full Name"
 msgstr "Повне ім'я"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
-"Повністю кваліфікована назва користувацького графічного інтерфейсу CSS  файлу"
+msgstr "Повне ім'я користувацького CSS файлу GUI."
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr "Повністю кваліфікована назва користувацького вибору файлів CSS файлу"
+msgstr "Повне ім'я користувацького CSS файлу вибору файлів."
 
 msgid "Fully qualified file name of a custom file manager CSS file."
-msgstr ""
-"Повністю кваліфікована назва користувацького менеджера файлів CSS файлу"
+msgstr "Повне ім'я користувацького CSS файлу менеджера файлів."
 
 msgid "Fully qualified file name of a custom login CSS file."
-msgstr "Повністю кваліфікована назва користувацького логіну CSS файлу"
+msgstr "Повне ім'я користувацького CSS файлу сторінки автентифікації."
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr ""
-"Повністю кваліфікована назва користувацького поля навігації CSS файлу"
+msgstr "Повне ім'я користувацького CSS файлу панелі навігації."
 
 msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr "Повністю кваліфікована назва користувацьких вкладок CSS файлу"
+msgstr "Повне ім'я користувацького CSS файлу вкладок."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5501,6 +5513,21 @@ msgstr "Загальні налаштування"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Загальний числовий ідентифікатор для використання даного LUN усередині CTL."
+
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
 
 msgid "Grant shell access to user"
 msgstr "Надати користувачеві доступ до оболонки"
@@ -5676,6 +5703,9 @@ msgstr "Hiadaptive (висока ефективність)"
 
 msgid "Hidden"
 msgstr "Прихований"
+
+msgid "Hidden Items"
+msgstr ""
 
 msgid "Hide Dot Files"
 msgstr "Приховати файли, що починаються з точки (вважаються системними)."
@@ -6837,7 +6867,7 @@ msgid "Login for CHAP authentication."
 msgstr "Логін для автентифікації CHAP."
 
 msgid "Login user root automatically into console on boot."
-msgstr ""
+msgstr "Автоматична коренева автентифікація до консолі під час завантаження."
 
 msgid "Logout"
 msgstr "Вийти"
@@ -8812,124 +8842,124 @@ msgid "RPM"
 msgstr "об/хв"
 
 msgid "RRDGraphs Daily ARC Graph"
-msgstr "RRDGraphs щоденний графік ARC"
+msgstr "RRDGraphs денний графік ARC"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
-msgstr "RRDGraphs щоденний графік частоти CPU"
+msgstr "RRDGraphs денний графік частоти ЦП"
 
 msgid "RRDGraphs Daily CPU Temperature Graph"
-msgstr "RRDGraphs щоденний графік температури CPU"
+msgstr "RRDGraphs денний графік температури ЦП"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr "RRDGraphs щоденний графік використання CPU"
+msgstr "RRDGraphs денний графік використання ЦП"
 
 msgid "RRDGraphs Daily L2ARC Graph"
-msgstr "RRDGraphs щоденний графік L2ARC"
+msgstr "RRDGraphs денний графік L2ARC"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr "RRDGraphs графік середньогодобового навантаження"
+msgstr "RRDGraphs денний графік середнього навантаження"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr "RRDGraphs щоденний графік затримки в мережі"
+msgstr "RRDGraphs денний графік затримки мережі"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr "RRDGraphs щоденний графік процесів"
+msgstr "RRDGraphs денний графік процесів"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr "RRDGraphs щоденний графік ББЖ"
+msgstr "RRDGraphs денний графік ДБЖ"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr "RRDGraphs щоденний графік часу роботи"
+msgstr "RRDGraphs денний графік часу роботи"
 
 msgid "RRDGraphs Monthly ARC Graph"
-msgstr "RRDGraphs щомісячний графік ARC"
+msgstr "RRDGraphs місячний графік ARC"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
-msgstr "RRDGraphs щомісячний графік частоти CPU"
+msgstr "RRDGraphs місячний графік частоти ЦП"
 
 msgid "RRDGraphs Monthly CPU Temperature Graph"
-msgstr "RRDGraphs щомісячний графік температури CPU"
+msgstr "RRDGraphs місячний графік температури ЦП"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr "RRDGraphs щомісячний графік використання CPU"
+msgstr "RRDGraphs місячний графік використання ЦП"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
-msgstr "RRDGraphs щомісячний графік L2ARC"
+msgstr "RRDGraphs місячний графік L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr "RRDGraphs щомісячний графік середнього навантаження"
+msgstr "RRDGraphs місячний графік середнього навантаження"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr "RRDGraphs щомісячний графік затримки в мережі"
+msgstr "RRDGraphs місячний графік затримки мережі"
 
 msgid "RRDGraphs Monthly Processes Graph"
-msgstr "RRDGraphs щомісячний графік процесів"
+msgstr "RRDGraphs місячний графік процесів"
 
 msgid "RRDGraphs Monthly UPS Graph"
-msgstr "RRDGraphs щомісячний графік ББЖ"
+msgstr "RRDGraphs місячний графік ДБЖ"
 
 msgid "RRDGraphs Monthly Uptime Graph"
-msgstr "RRDGraphs щомісячний графік часу роботи"
+msgstr "RRDGraphs місячний графік часу роботи"
 
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs тижневий графік ARC"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік частоти ЦП"
 
 msgid "RRDGraphs Weekly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік температури ЦП"
 
 msgid "RRDGraphs Weekly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік використання ЦП"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік L2ARC"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік середнього навантаження"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік затримок мережі"
 
 msgid "RRDGraphs Weekly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік процесів"
 
 msgid "RRDGraphs Weekly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік ДБЖ"
 
 msgid "RRDGraphs Weekly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік часу роботи"
 
 msgid "RRDGraphs Yearly ARC Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік ARC"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік частоти ЦП"
 
 msgid "RRDGraphs Yearly CPU Temperature Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік температури ЦП"
 
 msgid "RRDGraphs Yearly CPU Usage Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік використання ЦП"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік L2ARC"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік середнього навантаження"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік затримки мережі"
 
 msgid "RRDGraphs Yearly Processes Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік процесів"
 
 msgid "RRDGraphs Yearly UPS Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік ДБЖ"
 
 msgid "RRDGraphs Yearly Uptime Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік часу роботи"
 
 #, php-format
 msgid ""
@@ -8990,6 +9020,9 @@ msgstr "Тільки для читання (RO)"
 
 msgid "Read Only Access"
 msgstr "Доступ тільки для читання"
+
+msgid "Read Permission"
+msgstr ""
 
 msgid "Read from biggest priority"
 msgstr "Читання із найбільшим приоритетом"
@@ -9225,7 +9258,7 @@ msgid "Replace a device"
 msgstr "Замінити пристрій"
 
 msgid "Replace the default CSS file"
-msgstr ""
+msgstr "Замінити файл CSS за замовчуванням"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -9730,22 +9763,22 @@ msgid "Select configuration file:"
 msgstr "Оберіть файл конфігураціії:"
 
 msgid "Select file mode of the custom GUI CSS file."
-msgstr ""
+msgstr "Оберіть режим користувацького CSS файлу для GUI."
 
 msgid "Select file mode of the custom file chooser CSS file."
-msgstr ""
+msgstr "Оберіть режим користувацького CSS файлу для вибору файла."
 
 msgid "Select file mode of the custom file manager CSS file."
-msgstr ""
+msgstr "Оберіть режим користувацького CSS файлу для файлового менеджера."
 
 msgid "Select file mode of the custom login CSS file."
-msgstr ""
+msgstr "Оберіть режим користувацького CSS файлу для сторінки автентифікації."
 
 msgid "Select file mode of the custom navigation bar CSS file."
-msgstr ""
+msgstr "Оберіть режим користувацького CSS файлу для навігаційної панелі."
 
 msgid "Select file mode of the custom tabs CSS file."
-msgstr ""
+msgstr "Оберіть режим користувацького CSS файлу для вкладок."
 
 msgid "Select file system format."
 msgstr "Виберіть формат файлової системи."
@@ -9822,7 +9855,7 @@ msgid "Selected"
 msgstr "Вибрано"
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "Обраний ДБЖ"
 
 msgid "Selected device or label does not exist."
 msgstr "Вибраний пристрій або мітка не існує."
@@ -10243,6 +10276,9 @@ msgstr "Показати інформацію про ДБЖ"
 msgid "Show Used/Avail"
 msgstr "Показувати Використано/Доступно"
 
+msgid "Show hidden items"
+msgstr ""
+
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Показати записи журналу в зворотному порядку (нові записи зверху)."
 
@@ -10592,7 +10628,7 @@ msgid "Start TLS from within the session."
 msgstr "Використовувати TLS у сеансі."
 
 msgid "State: "
-msgstr ""
+msgstr "Стан: "
 
 msgid "Static"
 msgstr "Статичний"
@@ -10613,7 +10649,7 @@ msgid "Status report successfully sent."
 msgstr "Звіт про статус успішно надіслано."
 
 msgid "Status:"
-msgstr ""
+msgstr "Статус:"
 
 msgid "Step"
 msgstr "Крок"
@@ -10741,16 +10777,16 @@ msgid "Syncthing"
 msgstr "Синхронізація"
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Налаштування Sysctl"
 
 msgid "Sysctl setting is locked"
-msgstr ""
+msgstr "Налаштування Sysctl заблоковано"
 
 msgid "Sysctl setting is marked for deletion"
-msgstr ""
+msgstr "Налаштування Sysctl позначене для видалення"
 
 msgid "Sysctl setting is unlocked"
-msgstr ""
+msgstr "Налаштування Sysctl дозволено"
 
 msgid "Syslog Level"
 msgstr "Рівень системного логування"
@@ -10870,7 +10906,7 @@ msgid "TLS Trust File"
 msgstr "Файл довіри TLS"
 
 msgid "Tabs"
-msgstr ""
+msgstr "Вкладки"
 
 msgid "Tag"
 msgstr "Мітка"
@@ -11874,7 +11910,7 @@ msgid "The value is invalid."
 msgstr "Помилкове значення."
 
 msgid "The value of the setting."
-msgstr ""
+msgstr "Значення налаштування."
 
 msgid "The value of the variable."
 msgstr "Значення змінної."
@@ -12000,6 +12036,8 @@ msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
 "make changes to a running system."
 msgstr ""
+"Ці змінні sysctl будуть додані до /etc/sysctl.conf. Це дозволить вам зробити "
+"зміни на працюючий системі."
 
 msgid "Thin Provisioning"
 msgstr "Thin Provisioning"
@@ -12120,7 +12158,7 @@ msgid "This is not a valid IP Address."
 msgstr "Ця ip-адреса не є правильною."
 
 msgid "This month"
-msgstr ""
+msgstr "Цього місяця"
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -12377,7 +12415,7 @@ msgid "This virtual device name already exists."
 msgstr "Таке ім'я віртуального пристрою вже існує."
 
 msgid "This week"
-msgstr ""
+msgstr "Цього тижня"
 
 msgid ""
 "This will allow server-side downscaling of very large JPEG images, it can "
@@ -12534,7 +12572,7 @@ msgid "To use subdirectories, you must mount each directory."
 msgstr "Щоб використовувати підкаталоги, потрібно змонтувати кожен каталог."
 
 msgid "Today"
-msgstr ""
+msgstr "Сьогодні"
 
 msgid "Toggle Mode"
 msgstr "Режим перемикача"
@@ -12606,7 +12644,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Перемикання Обраних Модулів Rsync"
 
 msgid "Toggle Selected Sysctl Settings"
-msgstr ""
+msgstr "Перемкнути обрані налаштування Sysctl"
 
 msgid "Toggle Selected Targets"
 msgstr "Перемкнути обрані цілі"
@@ -13207,7 +13245,7 @@ msgid "User Suffix"
 msgstr "Суфікс Користувача"
 
 msgid "User access"
-msgstr ""
+msgstr "Доступ користувача"
 
 msgid "User account is marked for deletion"
 msgstr "Обліковий запис користувача позначений для видалення"
@@ -13219,7 +13257,7 @@ msgid "User account is unlocked"
 msgstr "Обліковий запис користувача розблокований"
 
 msgid "User portal permission."
-msgstr ""
+msgstr "Дозволи порталу користувача."
 
 msgid "Username"
 msgstr "Ім'я користувача"
@@ -13659,7 +13697,7 @@ msgid "Yes - Enables Time Machine support for this share."
 msgstr "Так - Вмикає підтримку Time Machine для цього спільного ресурсу."
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчора"
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -13790,7 +13828,7 @@ msgid "ZFS ARC Usage"
 msgstr "Використання ZFS ARC"
 
 msgid "ZFS Adaptive Replacement Cache (ARC)"
-msgstr ""
+msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
 msgid "ZFS Dataset Information & Status"
 msgstr "Інформація та Статус набору даних ZFS"
@@ -13805,7 +13843,7 @@ msgid "ZFS L2ARC Usage"
 msgstr "Використання ZFS L2ARC"
 
 msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
-msgstr ""
+msgstr "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Статистика введення/виведення для ZFS пулу"

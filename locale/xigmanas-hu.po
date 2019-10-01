@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
 "PO-Revision-Date: 2019-06-26 07:03+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -1819,6 +1819,9 @@ msgstr "Kihívás-válasz hitelesítés"
 msgid "Change"
 msgstr "Módosítás"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "Változás az alábbi fájlt"
 
@@ -2388,6 +2391,9 @@ msgstr "Maszk létrehozása"
 msgid "Create PV Guest"
 msgstr "PV vendég létrehozása"
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Munkamappa létrehozása"
 
@@ -2763,6 +2769,9 @@ msgstr "Állomás törlése"
 
 msgid "Delete Login Info"
 msgstr "Törlés Belépés Információk"
+
+msgid "Delete Permission"
+msgstr ""
 
 msgid "Delete Selected Auth Groups"
 msgstr "Kiválasztott Hitelesítési csoportok törlése"
@@ -5155,6 +5164,9 @@ msgstr "Fájlszerkesztő"
 msgid "File Manager"
 msgstr "Fájlkezelő"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr "Fájlmaszk"
 
@@ -5450,6 +5462,21 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Globális numerikus azonosító, amelyet egy CTL-en belüli LUN-hoz használandó."
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr "A felhasználónak a shell hozzáférés engedélyezése"
 
@@ -5623,6 +5650,9 @@ msgstr "Nagy teljesítményű (Nagy teljesítmény)"
 
 msgid "Hidden"
 msgstr "Rejtett"
+
+msgid "Hidden Items"
+msgstr ""
 
 msgid "Hide Dot Files"
 msgstr "Pontfájlok elrejtése"
@@ -8935,6 +8965,9 @@ msgstr "Csak olvasható (ro)"
 msgid "Read Only Access"
 msgstr "Csak olvasható hozzáférés"
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr "Olvasás legnagyobb prioritással"
 
@@ -10189,6 +10222,9 @@ msgstr "Szünetmentes információk megjelenítése"
 
 msgid "Show Used/Avail"
 msgstr "Használt/Elérhető megjelenítése"
+
+msgid "Show hidden items"
+msgstr ""
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""

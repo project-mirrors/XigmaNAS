@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
 "PO-Revision-Date: 2019-08-30 15:52+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -1845,6 +1845,9 @@ msgstr ""
 msgid "Change"
 msgstr "Cambia"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "Modifica i file sottostanti"
 
@@ -2443,6 +2446,9 @@ msgstr "Crea maschera"
 msgid "Create PV Guest"
 msgstr "Crea PV Guest"
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr ""
 
@@ -2814,6 +2820,9 @@ msgstr "Cancella host"
 
 msgid "Delete Login Info"
 msgstr "Elimina le informazioni di login"
+
+msgid "Delete Permission"
+msgstr ""
 
 msgid "Delete Selected Auth Groups"
 msgstr "Elimina i gruppi Auth selezionati"
@@ -5213,6 +5222,9 @@ msgstr "Editor di file"
 msgid "File Manager"
 msgstr "Gestore file"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr "Maschera file"
 
@@ -5509,6 +5521,21 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Identificatore numerico globale da usare per uno specifico LUN entro CTL."
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr ""
 
@@ -5682,6 +5709,9 @@ msgstr "Alto adattativo (Alte prestazioni)"
 
 msgid "Hidden"
 msgstr "Invisibile"
+
+msgid "Hidden Items"
+msgstr ""
 
 msgid "Hide Dot Files"
 msgstr "Nascondi file punto"
@@ -8967,6 +8997,9 @@ msgstr "Sola lettura (ro)"
 msgid "Read Only Access"
 msgstr "Accesso in Sola Lettura"
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr "Leggi dalla priorità più alta"
 
@@ -10176,6 +10209,9 @@ msgstr "Mostra informazioni UPS"
 
 msgid "Show Used/Avail"
 msgstr "Mostra Usati/Disponibili"
+
+msgid "Show hidden items"
+msgstr ""
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Mostra le voci di log in ordine inverso (le più recenti in alto)."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-25 15:19+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"PO-Revision-Date: 2019-09-30 17:40+0000\n"
 "Last-Translator: Carlos Lozano <carlos@carloslozano.es>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -1854,6 +1854,9 @@ msgstr "Autentificación Desafio-Respuesta"
 msgid "Change"
 msgstr "Modificar"
 
+msgid "Change Permission"
+msgstr "Cambiar permisos"
+
 msgid "Change below file"
 msgstr "Cambiar archivo inferior"
 
@@ -2455,6 +2458,9 @@ msgstr "Crear máscara"
 msgid "Create PV Guest"
 msgstr "Crear un invitado PV"
 
+msgid "Create Permission"
+msgstr "Crear permisos"
+
 msgid "Create Work Directory"
 msgstr "Crear carpeta de trabajo"
 
@@ -2828,6 +2834,9 @@ msgstr "Borrar Máquina"
 
 msgid "Delete Login Info"
 msgstr "Borrar informacion de incio de sesion"
+
+msgid "Delete Permission"
+msgstr "Eliminar permisos"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Borrar los grupos de autenticación seleccionados"
@@ -5225,6 +5234,9 @@ msgstr "Editor de archivos"
 msgid "File Manager"
 msgstr "Administrador de Archivos"
 
+msgid "File Manager Access"
+msgstr "Acceso al administrador de ficheros"
+
 msgid "File Mask"
 msgstr "Máscara de archivos"
 
@@ -5532,6 +5544,21 @@ msgstr "Ajustes globales"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Identificador numérico global para usar para un LUN dentro de CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Permitir acceso al administrador de ficheros"
+
+msgid "Grant create permission"
+msgstr "Conceder el permiso de creación"
+
+msgid "Grant delete permission"
+msgstr "Conceder el permiso de borrado"
+
+msgid "Grant modify permission"
+msgstr "Conceder el permiso de modificación"
+
+msgid "Grant read permission"
+msgstr "Conceder el permiso de lectura"
+
 msgid "Grant shell access to user"
 msgstr "Dar acceso shell al usuario"
 
@@ -5708,6 +5735,9 @@ msgstr "Hiadaptive (Alto Rendimiento)"
 
 msgid "Hidden"
 msgstr "Oculto"
+
+msgid "Hidden Items"
+msgstr "Elementos ocultos"
 
 msgid "Hide Dot Files"
 msgstr "Ocultar archivos que empiecen por punto \".\""
@@ -7969,7 +7999,7 @@ msgid "Older than last week"
 msgstr "Más antiguo que la semana pasada"
 
 msgid "Older than previous quarter"
-msgstr "Más antiguo que el anterior cuatrimestre"
+msgstr "Más antiguo que el trimestre pasado"
 
 msgid "Older than previous year"
 msgstr "Más antiguo que el año anterior"
@@ -8632,7 +8662,7 @@ msgid "Prevent deep discharge of battery"
 msgstr "Evitar descarga profunda de la batería"
 
 msgid "Previous quarter"
-msgstr "Cuatrimestre anterior"
+msgstr "trimestre anterior"
 
 msgid "Previous year"
 msgstr "Año anterior"
@@ -9037,6 +9067,9 @@ msgstr "Solo lectura (ro)"
 
 msgid "Read Only Access"
 msgstr "Acceso de solo lectura"
+
+msgid "Read Permission"
+msgstr "Permisos de lectura"
 
 msgid "Read from biggest priority"
 msgstr "Leído desde la prioridad más grande"
@@ -10308,6 +10341,9 @@ msgstr "Mostrar info. dela SAI"
 
 msgid "Show Used/Avail"
 msgstr "Mostar Usado/Disponible"
+
+msgid "Show hidden items"
+msgstr "Mostrar elementos ocultos"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Mostrar el log en orden inverso (entradas nuevas arriba)"

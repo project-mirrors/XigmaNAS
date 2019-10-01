@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
 "PO-Revision-Date: 2019-09-25 17:33+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -1846,6 +1846,9 @@ msgstr "Аутентификация по запросу-ответу"
 msgid "Change"
 msgstr "Изменить"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "Заменить файлом, указанным ниже"
 
@@ -2432,6 +2435,9 @@ msgstr "Маска при создании"
 msgid "Create PV Guest"
 msgstr "Создать гостевую систему PV"
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Создать рабочий каталог"
 
@@ -2808,6 +2814,9 @@ msgstr "Удалить хост"
 
 msgid "Delete Login Info"
 msgstr "Удалить сведения входа"
+
+msgid "Delete Permission"
+msgstr ""
 
 msgid "Delete Selected Auth Groups"
 msgstr "Удалить выбранные группы аутентификации"
@@ -5210,6 +5219,9 @@ msgstr "Файловый редактор"
 msgid "File Manager"
 msgstr "Файловый менеджер"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr "Маска файла"
 
@@ -5513,6 +5525,21 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Глобальный числовой идентификатор для использования данного LUN внутри CTL."
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr "Предоставить пользователю доступ к оболочке"
 
@@ -5686,6 +5713,9 @@ msgstr "Hiadaptive (высокая производительность)"
 
 msgid "Hidden"
 msgstr "Скрыто"
+
+msgid "Hidden Items"
+msgstr ""
 
 msgid "Hide Dot Files"
 msgstr "Не показывать скрытые файлы (начинающиеся с точки)"
@@ -9014,6 +9044,9 @@ msgstr "Только чтение (RO)"
 msgid "Read Only Access"
 msgstr "Доступ только для чтения"
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr "Чтение с наиболее приоритетного (biggest priority)"
 
@@ -10262,6 +10295,9 @@ msgstr "Показать информацию ИБП"
 
 msgid "Show Used/Avail"
 msgstr "Показывать Использовано/Доступно"
+
+msgid "Show hidden items"
+msgstr ""
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Показать записи журнала в обратном порядке (новые записи сверху)."

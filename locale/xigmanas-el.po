@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-26 07:59+0000\n"
+"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"PO-Revision-Date: 2019-09-30 11:41+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
+"X-Generator: Launchpad (build 19066)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -1885,6 +1885,9 @@ msgstr "Πιστοποίηση Challenge-Response"
 msgid "Change"
 msgstr "Τροποποίηση"
 
+msgid "Change Permission"
+msgstr "Αλλαγή Πρόσβασης"
+
 msgid "Change below file"
 msgstr "Αλλαγή κάτω από το αρχείο"
 
@@ -2493,6 +2496,9 @@ msgstr "Δημιουργία Μάσκας"
 msgid "Create PV Guest"
 msgstr "Δημιουργία PV Guest"
 
+msgid "Create Permission"
+msgstr "Δημιουργία Πρόσβασης"
+
 msgid "Create Work Directory"
 msgstr "Δημιουργία Φακέλου Εργασίας"
 
@@ -2870,6 +2876,9 @@ msgstr "Διαγραφή υπολογιστή"
 
 msgid "Delete Login Info"
 msgstr "Διαγραφή πληροφοριών εισόδου"
+
+msgid "Delete Permission"
+msgstr "Διαγραφή Πρόσβασης"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Διαγραφή Επιλεγμένων Ομάδων Πιστοποίησης"
@@ -5312,6 +5321,9 @@ msgstr "Επεξεργαστής αρχείων"
 msgid "File Manager"
 msgstr "Διαχειριστής Αρχείων"
 
+msgid "File Manager Access"
+msgstr "Πρόσβαση Διαχειριστή Αρχείων"
+
 msgid "File Mask"
 msgstr "Μάσκα Αρχείων"
 
@@ -5620,6 +5632,21 @@ msgstr "Γενικές ρυθμίσεις"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Γενικό αριθμητικό αναγνωριστικό για χρήση σε κάθε LUN μέσα στο CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Εκχώρηση πρόσβασης στον διαχειριστή αρχείων."
+
+msgid "Grant create permission"
+msgstr "Εκχώρηση δικαιώματος δημιουργίας πρόσβασης"
+
+msgid "Grant delete permission"
+msgstr "Εκχώρηση δικαιώματος διαγραφής πρόσβασης"
+
+msgid "Grant modify permission"
+msgstr "Εκχώρηση δικαιώματος τροποποίησης πρόσβασης"
+
+msgid "Grant read permission"
+msgstr "Εκχώρηση πρόσβασης ανάγνωσης"
+
 msgid "Grant shell access to user"
 msgstr "Εκχώρηση πρόσβασης κέλυφους στο χρήστη"
 
@@ -5796,6 +5823,9 @@ msgstr "Hiadaptive (Υψηλές Επιδόσεις)"
 
 msgid "Hidden"
 msgstr "Κρυφό"
+
+msgid "Hidden Items"
+msgstr "Κρυφά αντικείμενα"
 
 msgid "Hide Dot Files"
 msgstr "Απόκρυψη Κρυφών Αρχείων"
@@ -9165,6 +9195,9 @@ msgstr "Μόνο για ανάγνωση"
 msgid "Read Only Access"
 msgstr "Προσπέλαση Μόνο για Ανάγνωση"
 
+msgid "Read Permission"
+msgstr "Πρόσβαση Ανάγνωσης"
+
 msgid "Read from biggest priority"
 msgstr "Ανάγνωση από αυτό με τη μεγαλύτερη προτεραιότητα"
 
@@ -10445,6 +10478,9 @@ msgstr "Προβολή πληροφοριών UPS"
 
 msgid "Show Used/Avail"
 msgstr "Προβολή Σε χρήση/Διαθέσιμο"
+
+msgid "Show hidden items"
+msgstr "Προβολή κρυφών αντικειμένων"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""
