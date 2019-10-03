@@ -117,7 +117,7 @@ $software = [
 	]],
 	['iperf3',[
 		'A tool to measure TCP and UDP bandwidth. (<a href="http://software.es.net/iperf/" target="_blank" rel="noreferrer">http://software.es.net/iperf</a>).',
-		'Copyright © 2014-2018 ESnet. All Rights Reserved.'
+		'Copyright © 2014-2019 ESnet. All Rights Reserved.'
 	]],
 	['ipmitool',[
 		'IPMItool provides a simple command-line interface to v1.5 & v2.0 IPMI-enabled devices. (<a href="http://sourceforge.net/projects/ipmitool/" target="_blank" rel="noreferrer">http://sourceforge.net/projects/ipmitool</a>).',
@@ -133,7 +133,7 @@ $software = [
 	]],
 	['jQuery',[
 		'A fast, small, and feature-rich JavaScript library (<a href="http://jquery.com" target="_blank" rel="noreferrer">http://jquery.com</a>).',
-		'Copyright © 2018 jQuery Foundation. All Rights Reserved.'
+		'Copyright © 2019 jQuery Foundation. All Rights Reserved.'
 	]],
 	['LCDproc',[
 		'A client/server suite for LCD devices (<a href="http://lcdproc.org" target="_blank" rel="noreferrer">http://lcdproc.org</a>).',
@@ -189,7 +189,7 @@ $software = [
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2018 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2019 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
@@ -202,7 +202,7 @@ $software = [
 	]],
 	['Python',[
 		'A programming language (<a href="http://www.python.org" target="_blank" rel="noreferrer">http://www.python.org</a>).',
-		'Copyright © 2001-2018 Python Software Foundation. All Rights Reserved.'
+		'Copyright © 2001-2019 Python Software Foundation. All Rights Reserved.'
 	]],
 	['QuiXplorer',[
 		'A Web-based file-management browser (<a href="https://github.com/realtimeprojects/quixplorer" target="_blank" rel="noreferrer">https://github.com/realtimeprojects/quixplorer</a>).',
@@ -230,7 +230,7 @@ $software = [
 	]],
 	['sudo',[
 		'A tool to allow a sysadmin to give limited root privileges. (<a href="http://www.sudo.ws" target="_blank" rel="noreferrer">http://www.sudo.ws</a>).',
-		'Copyright © 1994-1996, 1998-2018 Todd C. Miller. All Rights Reserved.'
+		'Copyright © 1994-1996, 1998-2019 Todd C. Miller. All Rights Reserved.'
 	]],
 	['Syncthing',[
 		'Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. (<a href="https://syncthing.net" target="_blank" rel="noreferrer">https://syncthing.net</a>).',
@@ -259,7 +259,7 @@ $software = [
 	]],
 	['VirtualBox',[
 		'Open Source Edition (OSE) & (Guest Additions) (<a href="http://www.virtualbox.org" target="_blank" rel="noreferrer">http://www.virtualbox.org</a>).',
-		'Copyright © 2010-2018, Oracle and/or its affiliates. All Rights Reserved.'
+		'Copyright © 2010-2019, Oracle and/or its affiliates. All Rights Reserved.'
 	]],
 	['VMXNET3',[
 		'A NIC driver for FreeBSD (<a href="http://www.vmware.com" target="_blank" rel="noreferrer">http://www.vmware.com</a>).',
