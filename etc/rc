@@ -331,4 +331,7 @@ BOOTING=0
 
 echo ''
 date
+echo ''
+/etc/rc.banner
+echo ''
 exit 0
