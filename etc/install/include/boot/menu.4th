@@ -24,7 +24,7 @@
 \ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 \ SUCH DAMAGE.
 \ 
-\ $FreeBSD: releng/11.1/sys/boot/forth/menu.4th 298831 2016-04-30 02:47:41Z pfg $
+\ $FreeBSD: releng/11.3/stand/forth/menu.4th 298831 2016-04-30 02:47:41Z pfg $
 
 marker task-menu.4th
 
@@ -487,8 +487,7 @@ also menu-infrastructure definitions
 		drop ( getenv cruft )
 	then
 	if ( use default center alignement? )
-		\ menuX @ 19 + over 2 / - menuY @ 1-
-		menuX @ 9 + over 2 / - menuY @ 1- \ Custom alignment
+		menuX @ 19 + over 2 / - menuY @ 1-
 	then
 	at-xy type 
 
@@ -1034,8 +1033,7 @@ only forth definitions also menu-infrastructure
 		drop FALSE \ don't draw a box
 	( 4 ) then ( 3 ) then ( 2 )  then ( 1 ) then
 	if
-		\ 42 13 menuX @ 3 - menuY @ 1- box \ Draw frame (w,h,x,y)
-		77 20 2 2 box \ Custom box alignment
+		42 13 menuX @ 3 - menuY @ 1- box \ Draw frame (w,h,x,y)
 	then
 
 	0 25 at-xy \ Move cursor to the bottom for output
