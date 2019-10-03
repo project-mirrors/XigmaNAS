@@ -61,8 +61,11 @@ fi
 # Create the boot directory that will contain boot, and kernel
 mkdir $MINIBSD_DIR
 mkdir $MINIBSD_DIR/defaults
+mkdir $MINIBSD_DIR/dtb
+mkdir $MINIBSD_DIR/dtb/overlays
 mkdir $MINIBSD_DIR/firmware
 mkdir $MINIBSD_DIR/kernel
+mkdir $MINIBSD_DIR/lua
 mkdir $MINIBSD_DIR/modules
 mkdir $MINIBSD_DIR/zfs
 
@@ -77,6 +80,27 @@ cp -v ${XIGMANAS_WORLD}/boot/cdboot $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader.4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/support.4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/device.hints $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/lua/cli.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/color.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/config.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/core.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/drawer.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/hook.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/loader.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/menu.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/password.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/lua/screen.lua $MINIBSD_DIR/lua
+cp -v ${XIGMANAS_WORLD}/boot/efi.4th $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_4th $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_4th.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_lua $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_lua.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_simp $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/loader_simp.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/userboot_4th.so $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/userboot_lua.so $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/kernel/linker.hints $MINIBSD_DIR/kernel
+
 # Copy files required by bootmenu
 if [ 0 != $opt_m ]; then
 #	cp -v ${XIGMANAS_WORLD}/boot/screen.4th $MINIBSD_DIR

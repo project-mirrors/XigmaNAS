@@ -706,11 +706,22 @@ create_image() {
 
 	echo "===> Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -718,8 +729,15 @@ create_image() {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
+	#cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/beastie.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
@@ -837,7 +855,19 @@ create_iso () {
 
 	echo "ISO: Copying Bootloader file(s) to $XIGMANAS_TMPDIR"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/cdboot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
@@ -847,10 +877,17 @@ create_iso () {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
+	#cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
-		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
-		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_ROOTFS/boot/beastie.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/check-password.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/color.4th $XIGMANAS_TMPDIR/boot
@@ -1082,11 +1119,22 @@ create_usb () {
 
 	echo "USB: Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -1094,8 +1142,15 @@ create_usb () {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
+	#cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/beastie.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
@@ -1282,11 +1337,22 @@ create_usb_gpt() {
 
 	echo "USB: Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.conf $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
@@ -1294,8 +1360,15 @@ create_usb_gpt() {
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
+	#cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/beastie.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot
@@ -1391,20 +1464,37 @@ create_full() {
 	echo "${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
 
 	echo "Copying bootloader file(s) to root filesystem"
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
-	#mkdir $XIGMANAS_TMPDIR/conf
+	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+#	mkdir $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
+	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
+	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
+	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
 	gunzip $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
-	cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.rc $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/support.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/defaults/loader.conf $XIGMANAS_TMPDIR/boot/defaults/
 	cp $XIGMANAS_BOOTDIR/device.hints $XIGMANAS_TMPDIR/boot
+	#cp $XIGMANAS_BOOTDIR/kernel/linker.hints $XIGMANAS_TMPDIR/boot/kernel/
 	if [ 0 != $OPT_BOOTMENU ]; then
+		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
+		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
+		cp $XIGMANAS_BOOTDIR/menusets.4th $XIGMANAS_TMPDIR/boot
+		#cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/efiboot.img $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/brand.4th $XIGMANAS_TMPDIR/boot

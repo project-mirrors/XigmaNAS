@@ -52,7 +52,10 @@ cd $MINIBSD_DIR ;
 # Create directories
 mkdir boot ;
 mkdir boot/defaults ;
+mkdir boot/dtb ;
+mkdir boot/dtb/overlays ;
 mkdir boot/kernel ;
+mkdir boot/lua ;
 mkdir boot/modules ;
 mkdir boot/zfs ;
 mkdir bin ;
