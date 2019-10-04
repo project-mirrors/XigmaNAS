@@ -1,9 +1,9 @@
 <?php
 /*
-	system_routes.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -30,16 +30,49 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
-*/
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
-require_once 'autoload.php';
+ */
+namespace system\route;
+use common\properties as myp;
 
-use system\route\grid_toolbox as toolbox;
-
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+class grid_properties extends myp\container_row {
+	public function init_description(): myp\property_text {
+		$property = parent::init_description();
+		$property->
+			set_id('descr')->
+			set_name('descr');
+		return $property;
+	}
+	protected $x_interface;
+	public function init_interface(): myp\property_list {
+		$property = $this->x_interface = new myp\property_list();
+		$property->
+			set_name('interface')->
+			set_title(gettext('Interface'));
+		return $property;
+	}
+	final public function get_interface(): myp\property_list {
+		return $this->x_interface ?? $this->init_interface();
+	}
+	protected $x_network;
+	public function init_network(): myp\property_cidr {
+		$property = $this->x_network = new myp\property_cidr($this);
+		$property->
+			set_name('network')->
+			set_title(gettext('Destination Network'));
+		return $property;
+	}
+	final public function get_network(): myp\property_cidr {
+		return $this->x_network ?? $this->init_network();
+	}
+	protected $x_gateway;
+	public function init_gateway(): myp\property_ipaddress {
+		$property = $this->x_gateway = new myp\property_ipaddress($this);
+		$property->
+			set_name('gateway')->
+			set_title(gettext('Gateway'));
+		return $property;
+	}
+	final public function get_gateway(): myp\property_ipaddress {
+		return $this->x_gateway ?? $this->init_gateway();
+	}
+}
