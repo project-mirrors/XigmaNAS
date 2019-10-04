@@ -231,7 +231,7 @@ echo "${BOOT_LOWMEM}" > /etc/boot_lowmem
 
 # Create required directories in /var
 for dir in /var/run /var/log /var/etc /var/etc/ssh /var/etc/ssl/private /var/etc/private /var/etc/iscsi /var/etc/netatalk /var/db /var/mount /var/empty /var/backups /var/cron /var/cron/tabs /var/spool /var/spool/lock; do
-	[ ! -d "${dir}" ] && mkdir -p ${dir} 
+	[ ! -d "${dir}" ] && mkdir -p ${dir}
 done
 chmod 0750 /var/backups /var/cron /var/cron/tabs
 if [ ! -d /var/tmp ]; then
@@ -331,4 +331,7 @@ BOOTING=0
 
 echo ''
 date
+echo ''
+/etc/rc.banner
+echo ''
 exit 0
