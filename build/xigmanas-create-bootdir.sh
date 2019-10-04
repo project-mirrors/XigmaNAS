@@ -120,6 +120,7 @@ if [ 0 != $opt_m ]; then
 fi
 
 # Generate the loader.rc file used by the default boot loader.
+echo "Generate $MINIBSD_DIR/loader.rc"
 cat << EOF > $MINIBSD_DIR/loader.rc
 \ Loader.rc
 

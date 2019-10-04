@@ -1070,7 +1070,6 @@ boot/userboot.so
 boot/boot1.efi
 boot/boot1.efifat
 #boot/loader.efi
-boot/loader_4th.efi
 
 ####### ZFS boot
 boot/gptzfsboot
@@ -1096,11 +1095,11 @@ boot/lua/password.lua
 boot/lua/screen.lua
 boot/efi.4th
 boot/loader_4th
-boot/loader_4th.efi
+#boot/loader_4th.efi
 boot/loader_lua
-boot/loader_lua.efi
+#boot/loader_lua.efi
 boot/loader_simp
-boot/loader_simp.efi
+#boot/loader_simp.efi
 boot/userboot_4th.so
 boot/userboot_lua.so
 boot/entropy
