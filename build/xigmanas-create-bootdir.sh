@@ -5,6 +5,7 @@
 # All rights reserved.
 #
 
+XIGMANAS_PRODUCTNAME=$(cat $XIGMANAS_SVNDIR/etc/prd.name)
 MINIBSD_DIR=${XIGMANAS_ROOTDIR}/bootloader;
 
 # Initialize variables.
@@ -73,6 +74,7 @@ mkdir $MINIBSD_DIR/zfs
 cp -v ${XIGMANAS_WORLD}/boot/defaults/loader.conf $MINIBSD_DIR/defaults
 cp -v ${XIGMANAS_WORLD}/boot/loader $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/boot $MINIBSD_DIR
+cp -v ${XIGMANAS_WORLD}/boot/entropy $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/mbr $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/gptboot $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/pmbr $MINIBSD_DIR
@@ -103,29 +105,46 @@ cp -v ${XIGMANAS_WORLD}/boot/kernel/linker.hints $MINIBSD_DIR/kernel
 
 # Copy files required by bootmenu
 if [ 0 != $opt_m ]; then
-#	cp -v ${XIGMANAS_WORLD}/boot/screen.4th $MINIBSD_DIR
-#	cp -v ${XIGMANAS_WORLD}/boot/frames.4th $MINIBSD_DIR
+	cp -v ${XIGMANAS_WORLD}/boot/beastie.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/brand.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/check-password.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/color.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/delay.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/frames.4th $MINIBSD_DIR
+	cp -v ${XIGMANAS_WORLD}/boot/menusets.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/menu-commands.4th $MINIBSD_DIR
+	cp -v ${XIGMANAS_WORLD}/boot/menu.rc $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/screen.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/shortcuts.4th $MINIBSD_DIR
 	cp -v ${XIGMANAS_WORLD}/boot/version.4th $MINIBSD_DIR
 fi
 
-# Generate the loader.rc file used by bootloader
+# Generate the loader.rc file used by the default boot loader.
 echo "Generate $MINIBSD_DIR/loader.rc"
-echo 'include /boot/loader.4th
-start
-check-password' > $MINIBSD_DIR/loader.rc
-# Enable bootmenu
-if [ 0 != $opt_m ]; then
-	echo 'include /boot/menu.4th' >> $MINIBSD_DIR/loader.rc
-	echo 'menu-start' >> $MINIBSD_DIR/loader.rc
-fi
+cat << EOF > $MINIBSD_DIR/loader.rc
+\ Loader.rc
+
+\ Includes additional commands
+include /boot/loader.4th
+\ include /boot/efi.4th
+try-include /boot/loader.rc.local
+
+\ Reads and processes loader.conf variables
+initialize
+
+\ maybe-efi-resizecons
+
+\ Tests for password -- executes autoboot first if a password was defined
+check-password
+
+\ Load in the boot menu
+include /boot/beastie.4th
+
+\ Start the boot menu
+beastie-start
+EOF
+# Set proper permissions to the loader.rc file.
+chmod 444 $MINIBSD_DIR/loader.rc
 
 # Generate the loader.conf file using by bootloader
 echo "Generate $MINIBSD_DIR/loader.conf"

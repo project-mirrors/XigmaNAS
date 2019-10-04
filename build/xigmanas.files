@@ -1064,7 +1064,6 @@ boot/userboot.so
 boot/boot1.efi
 boot/boot1.efifat
 #boot/loader.efi
-boot/loader_4th.efi
 
 ####### ZFS boot
 boot/gptzfsboot
@@ -1073,8 +1072,10 @@ boot/zfsloader
 
 ####### Loader
 boot/beastie.4th
+boot/brand.4th
 boot/menu.rc
 boot/menusets.4th
+boot/menu-commands.4th
 
 ####### New loader content
 boot/lua/cli.lua
@@ -1088,14 +1089,17 @@ boot/lua/password.lua
 boot/lua/screen.lua
 boot/efi.4th
 boot/loader_4th
-boot/loader_4th.efi
+#boot/loader_4th.efi
 boot/loader_lua
-boot/loader_lua.efi
+#boot/loader_lua.efi
 boot/loader_simp
-boot/loader_simp.efi
+#boot/loader_simp.efi
 boot/userboot_4th.so
 boot/userboot_lua.so
 boot/entropy
+
+####### Hints for the kernel loader
+boot/kernel/linker.hints
 
 ####### contents of /etc
 etc/rc.shutdown

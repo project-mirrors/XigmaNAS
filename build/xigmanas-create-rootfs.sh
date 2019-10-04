@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#This script does create the rootfs.
+#This script create the rootfs.
 #
 # Part of XigmaNAS (https://www.xigmanas.com).
 # Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.

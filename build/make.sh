@@ -715,11 +715,11 @@ create_image() {
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
@@ -860,11 +860,11 @@ create_iso () {
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
@@ -1128,11 +1128,11 @@ create_usb () {
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/loader $XIGMANAS_TMPDIR/boot
@@ -1345,11 +1345,11 @@ create_usb_gpt() {
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
@@ -1471,11 +1471,11 @@ create_full() {
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_4th.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_lua $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_lua.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_simp $XIGMANAS_TMPDIR/boot
-	cp $XIGMANAS_ROOTFS/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
+	cp $XIGMANAS_SVNDIR/boot/loader_simp.efi $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_4th.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/userboot_lua.so $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
