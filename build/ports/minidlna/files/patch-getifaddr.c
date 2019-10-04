@@ -1,6 +1,6 @@
---- getifaddr.c.orig	2013-11-01 23:06:41.000000000 -0200
-+++ getifaddr.c	2013-11-05 13:51:05.978629077 -0200
-@@ -82,7 +82,7 @@
+--- ./getifaddr.c.orig	2018-12-20 04:06:26.000000000 +0100
++++ ./getifaddr.c	2019-10-04 03:43:29.000000000 +0200
+@@ -87,7 +87,7 @@
  		if (ifname && strcmp(p->ifa_name, ifname) != 0)
  			continue;
  		addr_in = (struct sockaddr_in *)p->ifa_addr;

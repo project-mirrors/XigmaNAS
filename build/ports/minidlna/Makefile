@@ -1,8 +1,8 @@
 PORTNAME=	minidlna
 PORTVERSION=	1.2.1
-PORTEPOCH=	0
+PORTREVISION=   6
+PORTEPOCH=      1
 CATEGORIES=	net multimedia www
-MASTER_SITES=	SF
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Media-server compatible with "Digital Life Network Alliance"
@@ -23,6 +23,11 @@ CFLAGS+=	-DXigmaNAS
 LIBS+=		-L${LOCALBASE}/lib
 USES=		autoreconf gettext-tools iconv jpeg
 
+USE_GITHUB=     yes 
+GH_ACCOUNT=     glebius 
+GH_TAGNAME=     f06964a 
+
+
 PKGMESSAGE=	${WRKSRC}/pkg-message
 SUB_FILES+=	pkg-message
 USE_RC_SUBR=	minidlna
@@ -31,19 +36,13 @@ SUB_LIST+=	USER=${USERS}
 USERS=	dlna
 GROUPS=	dlna
 
-OPTIONS_DEFINE=	DEBUG KQUEUE NLS
-OPTIONS_DEFAULT=KQUEUE
+OPTIONS_DEFINE=	DEBUG NLS
 OPTIONS_SUB=	yes
 
 DEBUG_CFLAGS=	-DDEBUG
-KQUEUE_DESC=	Experimental patch for automatic rescan using kqueue(2)
 NLS_USES=	gettext-runtime
 
 .include <bsd.port.options.mk>
-
-.if ${PORT_OPTIONS:MKQUEUE}
-EXTRA_PATCHES+=	${PATCHDIR}/extra-patch-kqueue-xigmanas
-.endif
 
 # XigmaNAS
 NO_PKG_REGISTER=	yes
