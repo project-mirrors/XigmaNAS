@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 	system_routes_edit.php
 
@@ -31,164 +31,211 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require 'auth.inc';
-require 'guiconfig.inc';
+require_once 'auth.inc';
+require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-if (isset($_GET['uuid']))
-	$uuid = $_GET['uuid'];
-if (isset($_POST['uuid']))
-	$uuid = $_POST['uuid'];
+use system\route\row_toolbox as toolbox;
+use system\route\shared_toolbox;
 
-$pgtitle = [gtext('Network'),gtext('Static Routes'), isset($uuid) ? gtext('Edit') : gtext('Add')];
-
-$a_routes = &array_make_branch($config,'staticroutes','route');
-array_sort_key($config['staticroutes']['route'],'network');
-$a_routes = &$config['staticroutes']['route'];
-
-if (isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid, $a_routes, "uuid")))) {
-	$pconfig['uuid'] = $a_routes[$cnid]['uuid'];
-	$pconfig['interface'] = $a_routes[$cnid]['interface'];
-	list($pconfig['network'],$pconfig['network_subnet']) = 
-		explode('/', $a_routes[$cnid]['network']);
-	$pconfig['gateway'] = $a_routes[$cnid]['gateway'];
-	$pconfig['descr'] = $a_routes[$cnid]['descr'];
-} else {
-	$pconfig['uuid'] = uuid();
-	$pconfig['gateway'] = "";
-	$pconfig['descr'] = "";
-}
-
-if ($_POST) {
-	unset($input_errors);
-	$pconfig = $_POST;
-
-	if (isset($_POST['Cancel']) && $_POST['Cancel']) {
-		header("Location: system_routes.php");
-		exit;
-	}
-
-	// Input validation
-	$reqdfields = ['interface','network','network_subnet','gateway'];
-	$reqdfieldsn = [gtext('Interface'),gtext('Destination Network'),gtext('Destination network bit count'),gtext('Gateway')];
-	
-	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-	
-	if (($_POST['network'] && !is_ipaddr($_POST['network']))) {
-		$input_errors[] = gtext("A valid destination network must be specified.");
-	}
-	
-	if (($_POST['network'] && is_ipv4addr($_POST['network'])) && $_POST['network_subnet'])  {
-		if (filter_var($_POST['network_subnet'], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 32]]) == false)
-			$input_errors[] = gtext("A valid IPv4 network bit count must be specified.");
-	}
-
-	if (($_POST['network'] && is_ipv6addr($_POST['network'])) && $_POST['network_subnet'])  {
-		if (filter_var($_POST['network_subnet'], FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 128]]) == false)
-			$input_errors[] = gtext("A valid IPv6 prefix must be specified.");
-	}
-
-	if (($_POST['gateway'] && !is_ipaddr($_POST['gateway']))) {
-		$input_errors[] = gtext("A valid gateway IP address must be specified.");
-	}
-	
-	if ($_POST['gateway'] && $_POST['network']) {
-		if (is_ipv4addr($_POST['gateway']) && !is_ipv4addr($_POST['network'])) {
-			$input_errors[] = gtext("You must enter the same IP type for network and gateway.");
-		} else if (is_ipv6addr($_POST['gateway']) && !is_ipv6addr($_POST['network'])) {
-			$input_errors[] = gtext("IP type mismatch for network and gateway.");
-		}
-	}
-	
-	// Check for overlaps
-	// gen_subnet work for IPv4 only... This function permit to fix user input error for network number.
-	if (is_ipv4addr($_POST['network'])) {
-		$osn = gen_subnet($_POST['network'], $_POST['network_subnet']) . "/" . $_POST['network_subnet'];
-	} else {
-		$osn = $_POST['network'] . "/" . $_POST['network_subnet'] ;
-	}
-
-	$index = array_search_ex($osn, $a_routes, "network");
-	if (FALSE !== $index) {
-		if (!((FALSE !== $cnid) && ($a_routes[$cnid]['uuid'] === $a_routes[$index]['uuid']))) {
-			$input_errors[] = gtext("A route to this destination network already exists.");
-		}
-	}
-
-	if (empty($input_errors)) {
-		$route = [];
-		$route['uuid'] = $_POST['uuid'];
-		$route['interface'] = $_POST['interface'];
-		$route['network'] = $osn;
-		$route['gateway'] = $_POST['gateway'];
-		$route['descr'] = $_POST['descr'];
-
-		if (isset($uuid) && (FALSE !== $cnid)) {
-			$a_routes[$cnid] = $route;
-			$mode = UPDATENOTIFY_MODE_MODIFIED;
-		} else {
-			$a_routes[] = $route;
-			$mode = UPDATENOTIFY_MODE_NEW;
-		}
-		
-		updatenotify_set("routes", $mode, $route['uuid']);
-		write_config();
-		
-		header("Location: system_routes.php");
-		exit;
-	}
-}
-include 'fbegin.inc';
-?>
-<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="tabcont">
-	<form action="system_routes_edit.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-<?php
-		if(!empty($input_errors)):
-			print_input_errors($input_errors); 
+//	init indicators
+$input_errors = [];
+$prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+//	determine page mode and validate resource id
+switch($page_method):
+	case 'GET':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // modify the data of the provided resource id and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'add': // bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'cancel': // cancel - nothing to do
+				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				break;
+			case 'clone':
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+				break;
+			case 'edit': // edit requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+			case 'save': // modify requires a resource id, get it from input and validate
+				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
+				break;
+		endswitch;
+		break;
+endswitch;
+/*
+ *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ */
+if(is_null($sphere->get_row_identifier_value())):
+	header($sphere->get_parent()->get_location());
+	exit;
+endif;
+/*
+ *	search resource id in sphere
+ */
+$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+/*
+ *	start determine record update mode
+ */
+$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$record_mode = RECORD_ERROR;
+if(false === $sphere->row_id): // record does not exist in config
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_NEW;
+				break;
+		endswitch;
+	endif;
+else: // record found in configuration
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+		switch($updatenotify_mode):
+			case UPDATENOTIFY_MODE_NEW:
+				$record_mode = RECORD_NEW_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_MODIFIED:
+				$record_mode = RECORD_MODIFY;
+				break;
+			case UPDATENOTIFY_MODE_UNKNOWN:
+				$record_mode = RECORD_MODIFY;
+				break;
+		endswitch;
+	endif;
+endif;
+if(RECORD_ERROR === $record_mode): // oops, something went wrong
+	header($sphere->get_parent()->get_location());
+	exit;
+endif;
+$isrecordnew = RECORD_NEW === $record_mode;
+$isrecordnewmodify = RECORD_NEW_MODIFY === $record_mode;
+$isrecordmodify = RECORD_MODIFY === $record_mode;
+$isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
+/*
+ *	end determine record update mode
+ */
+$a_referer = [
+	$cop->get_enable(),
+	$cop->get_interface(),
+	$cop->get_gateway(),
+	$cop->get_network(),
+	$cop->get_description()
+];
+$options = ['lan' => 'LAN'];
+for($i = 1;isset($config['interfaces']['opt' . $i]);$i++):
+	$options['opt' . $i] = $config['interfaces']['opt' . $i]['descr'];
+endfor;
+$cop->get_interface()->set_options($options);
+switch($page_mode):
+	case PAGE_MODE_ADD:
+		foreach($a_referer as $referer):
+			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		endforeach;
+		break;
+	case PAGE_MODE_CLONE:
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		endforeach;
+//		adjust page mode
+		$page_mode = PAGE_MODE_ADD;
+		break;
+	case PAGE_MODE_EDIT:
+		$source = $sphere->grid[$sphere->row_id];
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_config($source);
+		endforeach;
+		break;
+	case PAGE_MODE_POST:
+		if($isrecordmodify):
+			$source = $sphere->grid[$sphere->row_id];
 		endif;
-?>
-		<table width="100%" border="0" cellpadding="6" cellspacing="0">
-<?php
-			html_titleline2(gettext('Static Routes Settings'), 2);
-			$interfaces = ['lan' => 'LAN'];
-			for($i = 1;isset($config['interfaces']['opt' . $i]);$i++):
-				$interfaces['opt' . $i] = $config['interfaces']['opt' . $i]['descr'];
-			endfor;
-			html_combobox("interface", gtext("Interface"), !empty($pconfig['interface']) ? $pconfig['interface'] : "", $interfaces, gtext("Choose which interface this route applies to."), true);
-?>
-			<tr>
-				<td width="22%" valign="top" class="vncellreq"><?=gtext("Destination Network");?></td>
-				<td width="78%" class="vtable"> 
-					<input name="network" type="text" class="formfld" id="network" size="20" value="<?=htmlspecialchars(!empty($pconfig['network']) ? $pconfig['network'] : "");?>" />
-<?php
-					echo ' / ';
-?>
-					<select name="network_subnet" class="formfld" id="network_subnet">
-<?php
-						for($i = 32; $i > 0; $i--):
-?>
-							<option value="<?=$i;?>" <?php if($i == $pconfig['network_subnet']) echo 'selected="selected"';?>><?=$i;?></option>
-<?php
-						endfor;
-?>
-					</select>
-					<br />
-					<span class="vexpl"><?=gtext("Destination network for this static route.");?></span>
-				</td>
-			</tr>
-<?php
-			html_inputbox("gateway", gtext("Gateway"), $pconfig['gateway'], gtext("Gateway to be used to reach the destination network."), true, 40);
-			html_inputbox("descr", gtext("Description"), $pconfig['descr'], gtext("You may enter a description here for your reference."), false, 40);
-?>
-		</table>
-		<div id="submit">
-			<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (FALSE !== $cnid)) ? gtext("Save") : gtext("Add")?>" />
-			<input name="Cancel" type="submit" class="formbtn" value="<?=gtext("Cancel");?>" />
-			<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>" />
-		</div>
-<?php
-		include 'formend.inc';
-?>
-	</form>
-</td></tr></table>
-<?php
-include 'fend.inc';
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			if($isrecordmodify && !$referer->get_editableonmodify()):
+//				validate protected items from config
+				$sphere->row[$name] = $referer->validate_config($source);
+				if(is_null($sphere->row[$name])):
+					$sphere->row[$name] = $source[$name] ?? '';
+					$input_errors[] = $referer->get_message_error();
+				endif;
+			else:
+				$sphere->row[$name] = $referer->validate_input();
+				if(is_null($sphere->row[$name])):
+					$sphere->row[$name] = filter_input(INPUT_POST,$name,FILTER_DEFAULT) ?? '';
+					$input_errors[] = $referer->get_message_error();
+				endif;
+			endif;
+		endforeach;
+		if($prerequisites_ok && empty($input_errors)):
+			$sphere->upsert();
+			if($isrecordnew):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			endif;
+			write_config();
+			header($sphere->get_parent()->get_location()); // cleanup
+			exit;
+		endif;
+		break;
+endswitch;
+$pgtitle = [gettext('Network'),gettext('Static Routes'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+$table = $content->add_table_data_settings();
+$table->ins_colgroup_data_settings();
+$thead = $table->addTHEAD();
+$tbody = $table->addTBODY();
+$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Static Routes Settings'));
+$tbody->
+	c2_radio_grid($cop->get_interface(),$sphere,true,$cop->get_interface()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_gateway(),$sphere,true,$cop->get_gateway()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_network(),$sphere,true,$cop->get_network()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
+$buttons = $document->add_area_buttons();
+if($isrecordnew):
+	$buttons->ins_button_add();
+else:
+	$buttons->ins_button_save();
+	if($prerequisites_ok && empty($input_errors)):
+		$buttons->ins_button_clone();
+	endif;
+endif;
+$buttons->ins_button_cancel();
+$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//	additional javascript code
+$body->addJavaScript($sphere->get_js());
+$body->add_js_on_load($sphere->get_js_on_load());
+$body->add_js_document_ready($sphere->get_js_document_ready());
+$document->render();
