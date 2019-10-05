@@ -765,6 +765,11 @@ create_image() {
 	# copy kernel modules
 	copy_kmod
 
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
+
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
@@ -912,6 +917,11 @@ create_iso () {
 	cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules && install -v -o root -g wheel -m 555 zfs/zfs.ko $XIGMANAS_TMPDIR/boot/kernel
 	# copy kernel modules
 	copy_kmod
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
@@ -1178,6 +1188,11 @@ create_usb () {
 	# copy kernel modules
 	copy_kmod
 
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
+
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
@@ -1396,6 +1411,11 @@ create_usb_gpt() {
 	# Copy kernel modules.
 	copy_kmod
 
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
+
 	# Mellanox ConnectX EN.
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
@@ -1541,6 +1561,11 @@ create_full() {
 	echo 'autoboot_delay="3"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'zfs_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+
+	# Custom company brand(fallback).
+	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
+		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
+	fi
 
 	# Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
