@@ -57,7 +57,7 @@ function render_cpuusage() {
 
 	if(Session::isAdmin()):
 		$sphere = $sysinfo['cpuusage'];
-		$o = new co_DOMDocument();
+		$o = new \co_DOMDocument();
 		$td = $o->addTR()->insTDwC('celltag',gettext('CPU Usage'))->addTDwC('celldata');
 		if($use_meter_tag):
 			$inner = $td->addElement('meter',['id' => 'cpuusagev','class' => 'cpuusage','min' => 0,'optimum' => 45,'low' => 90,'high' => 95,'max' => 100,'value' => $sphere['pu'],'title' => $sphere['tu']]);
@@ -198,6 +198,7 @@ function render_swapusage() {
 				if($use_meter_tag):
 					echo '</meter>';
 				endif;
+				echo '<br />';
 				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
 				echo '</div></td></tr>';
 				$index++;
@@ -258,6 +259,7 @@ function render_diskusage() {
 				if($use_meter_tag):
 					echo '</meter>';
 				endif;
+				echo '<br />';
 				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
 				echo '</div></td></tr>';
 				$index++;
@@ -318,9 +320,9 @@ function render_poolusage() {
 				if($use_meter_tag):
 					echo '</meter>';
 				endif;
-				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
 				echo '<br />';
-				echo gtext('State: '),sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
+				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
+				echo '<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
 				echo '</div></td></tr>';
 				$index++;
 				if($index < $sphere_elements):

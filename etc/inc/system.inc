@@ -693,7 +693,7 @@ function system_get_mount_usage() {
 						$row['pfh'] = sprintf('%u%%',$row['pf']);
 						$row['tu'] = $row['puh'];
 						$row['tf'] = $row['pfh'];
-						$row['tt'] = sprintf(gettext('%1$s total, %2$s used, %3$s available'),$row['vth'],$row['vuh'],$row['vfh']);
+						$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
 						$sphere[$r_rawdata['mounted-on']] = $row;
 					endif;
 				endforeach;
@@ -935,7 +935,7 @@ function get_pool_usage() {
 				$row['vth'] = format_bytes($row['vt'],2,false,$use_si);
 				$row['vuh'] = format_bytes($row['vu'],2,false,$use_si);
 				$row['vfh'] = format_bytes($row['vf'],2,false,$use_si);
-				$row['tt'] = sprintf(gettext('%1$s total, %2$s used, %3$s available'),$row['vth'],$row['vuh'],$row['vfh']);
+				$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
 			else: // this is the default setting
 				$row['vu'] = $r_poolinfo['alloc'];
 				$row['vf'] = $r_poolinfo['free'];
@@ -943,7 +943,7 @@ function get_pool_usage() {
 				$row['vth'] = format_bytes($row['vt'],2,false,$use_si);
 				$row['vuh'] = format_bytes($row['vu'],2,false,$use_si);
 				$row['vfh'] = format_bytes($row['vf'],2,false,$use_si);
-				$row['tt'] = sprintf(gettext('%1$s total, %2$s allocated, %3$s free'),$row['vth'],$row['vuh'],$row['vfh']);
+				$row['tt'] = sprintf(gettext('Total: %1$s | Allocated: %2$s | Free: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
 			endif;
 			$row['health'] = $r_poolinfo['health'];
 			$sphere[] = $row;
@@ -978,7 +978,7 @@ function get_swap_usage() {
 			$row['pfh'] = sprintf('%u%%',$row['pf']);
 			$row['tu'] = $row['puh'];
 			$row['tf'] = $row['pfh'];
-			$row['tt'] = sprintf(gettext('%1$s total, %2$s used, %3$s available'),$row['vth'],$row['vuh'],$row['vfh']);
+			$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
 			$sphere[] = $row;
 			unset($row);
 		endforeach;
