@@ -15,7 +15,6 @@ Changes:
 - Upgrade iperf3 to 3.7.
 - Upgrade bash to 5.0 P11.
 - Upgrade e2fsprogs to 1.45.3.
-- Upgrade nano to 4.4.
 - Upgrade mariadb to 10.2.26.
 - Upgrade virtualbox-ose to 5.2.32.
 - Upgrade zoneinfo to 2019c.
@@ -29,6 +28,7 @@ Changes:
 - Upgrade phpmyadmin to 4.9.1.
 - Upgrade msmtp to 1.8.6.
 - Upgrade syncthing to 1.3.0.
+- Upgrade nano to 4.5.
 
 Fixes:
 - Fix display HW Address on status page minidlna.
