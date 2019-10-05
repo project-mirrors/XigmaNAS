@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,20 +21,15 @@ msgstr ""
 msgid " was assigned to "
 msgstr ""
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr ""
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -294,9 +289,6 @@ msgstr ""
 msgid "A rescan has been issued."
 msgstr ""
 
-msgid "A route to this destination network already exists."
-msgstr ""
-
 msgid "A sysvol folder was found."
 msgstr ""
 
@@ -318,9 +310,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr ""
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr ""
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr ""
 
@@ -331,15 +320,6 @@ msgid "A valid IPv6 address must be specified for the secondary DNS server."
 msgstr ""
 
 msgid "A valid IPv6 address must be specified."
-msgstr ""
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr ""
-
-msgid "A valid destination network must be specified."
-msgstr ""
-
-msgid "A valid gateway IP address must be specified."
 msgstr ""
 
 msgid "A valid mtu size must be specified."
@@ -2572,9 +2552,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr ""
 
-msgid "Destination network bit count"
-msgstr ""
-
 msgid "Destination network for this static route."
 msgstr ""
 
@@ -2783,6 +2760,9 @@ msgid "Disable Selected Public Keys"
 msgstr ""
 
 msgid "Disable Selected Records"
+msgstr ""
+
+msgid "Disable Selected Routes"
 msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
@@ -3254,6 +3234,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr ""
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr ""
 
@@ -3336,6 +3319,9 @@ msgid "Do you want to enable selected public keys?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
+msgstr ""
+
+msgid "Do you want to enable selected routes?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
@@ -3429,6 +3415,9 @@ msgid "Do you want to toggle selected public keys?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
+msgstr ""
+
+msgid "Do you want to toggle selected routes?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
@@ -3867,6 +3856,9 @@ msgid "Enable Selected Public Keys"
 msgstr ""
 
 msgid "Enable Selected Records"
+msgstr ""
+
+msgid "Enable Selected Routes"
 msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
@@ -5127,9 +5119,6 @@ msgid "IP addresses are resolved to hostnames when the following option is enabl
 msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
-msgstr ""
-
-msgid "IP type mismatch for network and gateway."
 msgstr ""
 
 msgid "IPMI Stats"
@@ -8334,10 +8323,10 @@ msgstr ""
 msgid "Roundrobin"
 msgstr ""
 
-msgid "Route is marked for deletion"
+msgid "Route is locked"
 msgstr ""
 
-msgid "Route is protected"
+msgid "Route is marked for deletion"
 msgstr ""
 
 msgid "Route is unlocked"
@@ -9323,9 +9312,6 @@ msgid "Start"
 msgstr ""
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -10811,6 +10797,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr ""
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
@@ -10866,6 +10855,14 @@ msgid "Total number of Flash program operation failures since the drive was depl
 msgstr ""
 
 msgid "Total time of loading on the magnetic heads actuator (time not spent in parking area)."
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
 msgstr ""
 
 msgid "Traceroute"
@@ -11784,9 +11781,6 @@ msgid "You must add disks first."
 msgstr ""
 
 msgid "You must apply the changes in order for them to take effect."
-msgstr ""
-
-msgid "You must enter the same IP type for network and gateway."
 msgstr ""
 
 #, php-format
