@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:56+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 
 msgid " No private key"
 msgstr ""
@@ -26,20 +26,15 @@ msgstr " koppelvlakke:"
 msgid " was assigned to "
 msgstr " was toegeken aan "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s is gebruik om %2$s volumes te skep."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -369,9 +364,6 @@ msgstr "'n Herlaai versoek is na die agtergrond proses gestuur."
 msgid "A rescan has been issued."
 msgstr "A hershandering is aangevrae"
 
-msgid "A route to this destination network already exists."
-msgstr "Daar bestaan reeds 'n roete wat na hierdie netwerk lei."
-
 msgid "A sysvol folder was found."
 msgstr ""
 
@@ -404,9 +396,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "'n Geldige IPv4 adres moet gespesifiseer word."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "'n Geldige IPv4 netwerk bis telling moet gespesifiseer word."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "'n Geldige IPv6 Deurgang adres moet gespesifiseer word."
 
@@ -418,15 +407,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "'n Geldige IPv6 adres moet gespesifiseer word."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "'n Geldige IPv6 voorvoegsel moet gespesifiseer word."
-
-msgid "A valid destination network must be specified."
-msgstr "'n Geldige eindpunt netwerk moet gespesifiseer word."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "'n Geldige deurgang IP adres moet gespesifiseer word."
 
 msgid "A valid mtu size must be specified."
 msgstr "'n Geldige MTU grootte moet gespesifiseer word."
@@ -2986,9 +2966,6 @@ msgstr "Bestemming epos adres. Skei epos adresse met 'n kommapunt."
 msgid "Destination host name or IP address."
 msgstr "Doelwit gasheer naam of IP adres"
 
-msgid "Destination network bit count"
-msgstr "Bestemming netwerk bis telling"
-
 msgid "Destination network for this static route."
 msgstr ""
 
@@ -3214,6 +3191,9 @@ msgid "Disable Selected Public Keys"
 msgstr ""
 
 msgid "Disable Selected Records"
+msgstr ""
+
+msgid "Disable Selected Routes"
 msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
@@ -3718,6 +3698,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr ""
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr ""
 
@@ -3800,6 +3783,9 @@ msgid "Do you want to enable selected public keys?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
+msgstr ""
+
+msgid "Do you want to enable selected routes?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
@@ -3893,6 +3879,9 @@ msgid "Do you want to toggle selected public keys?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
+msgstr ""
+
+msgid "Do you want to toggle selected routes?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
@@ -4344,6 +4333,9 @@ msgid "Enable Selected Public Keys"
 msgstr ""
 
 msgid "Enable Selected Records"
+msgstr ""
+
+msgid "Enable Selected Routes"
 msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
@@ -5717,9 +5709,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP of FQDN adres van afgeleë Rsnyc bediener"
-
-msgid "IP type mismatch for network and gateway."
-msgstr "IP tipes vir netwerk en deurgang stem nie ooreen nie."
 
 msgid "IPMI Stats"
 msgstr "IPMI Statistieke"
@@ -9220,10 +9209,10 @@ msgstr "Rondomtalie lees"
 msgid "Roundrobin"
 msgstr "Rondomtalie"
 
-msgid "Route is marked for deletion"
+msgid "Route is locked"
 msgstr ""
 
-msgid "Route is protected"
+msgid "Route is marked for deletion"
 msgstr ""
 
 msgid "Route is unlocked"
@@ -10371,9 +10360,6 @@ msgid "Start"
 msgstr "Begin"
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -12295,6 +12281,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr ""
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
@@ -12366,6 +12355,14 @@ msgstr ""
 msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
 msgstr ""
 
 msgid "Traceroute"
@@ -13379,9 +13376,6 @@ msgstr "Jy moet eers skywe byvoeg."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "Jy moet die veranderinge toepas sodat hulle in werking kan tree."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Jy moet dieselfde IP tipe vir netwerk en deurgang insleutel."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

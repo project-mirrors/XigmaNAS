@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2019-09-30 03:30+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:32+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -25,6 +25,9 @@ msgstr " gränssnitt:"
 msgid " was assigned to "
 msgstr " tilldelades "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s används för att skapa %2$s volumer."
@@ -32,14 +35,6 @@ msgstr "%1$s används för att skapa %2$s volumer."
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
 msgstr "%1$s hanterat, %2$s använt, %3$s tillgängligt"
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr "%1$s totalt, %2$s allokerat, %3$s ledigt"
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
-msgstr "%1$s totalt, %2$s använt, %3$stillgängligt"
 
 #, php-format
 msgid "%2$s used, %3$s available"
@@ -366,9 +361,6 @@ msgstr "En omladdningbegäran har sänts till demonen."
 msgid "A rescan has been issued."
 msgstr "En omskanning har gjorts."
 
-msgid "A route to this destination network already exists."
-msgstr "Nätverks destinationen finns redan."
-
 msgid "A sysvol folder was found."
 msgstr "En sysvol mapp hittades."
 
@@ -397,9 +389,6 @@ msgstr "En giltig IPv4 adress måste anges för den sekundära DNS servern."
 msgid "A valid IPv4 address must be specified."
 msgstr "En giltig IPv4-adress måste anges"
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Ett giltigt bitantal för IPv4-nätverk måste anges."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "En giltig IPv6 gateway adress måste anges."
 
@@ -411,15 +400,6 @@ msgstr "En giltig IPv6 adress måste anges för den sekundära DNS servern."
 
 msgid "A valid IPv6 address must be specified."
 msgstr "En giltig IPv6-adress måste anges"
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Ett giltigt IPv6-prefix måste anges"
-
-msgid "A valid destination network must be specified."
-msgstr "Ett giltigt målnätverk måste anges."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "En giltig gateway IP adress måste anges."
 
 msgid "A valid mtu size must be specified."
 msgstr "En giltig mtu-storlek måste anges."
@@ -3003,9 +2983,6 @@ msgstr "Måle-postadresser, separera adresser med semikolon."
 msgid "Destination host name or IP address."
 msgstr "Destinationens värdnamn eller IP adress."
 
-msgid "Destination network bit count"
-msgstr "Biträknare för destinationsnätverk"
-
 msgid "Destination network for this static route."
 msgstr "Destinationsnätverk för denna statiska rutt."
 
@@ -3234,6 +3211,9 @@ msgstr "Inaktivera valda publika nycklar"
 
 msgid "Disable Selected Records"
 msgstr "Inaktivera valda rutter"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Inaktivera valda Rsync jobb"
@@ -3738,6 +3718,9 @@ msgstr "Vill du inaktivera valda publika nycklar?"
 msgid "Do you want to disable selected records?"
 msgstr "Vill du inaktivera valda poster?"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Vill du inaktivera valda rsync jobb?"
 
@@ -3821,6 +3804,9 @@ msgstr "Vill du aktivera valda publika nyckalr?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Vill du aktivera valda poster?"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Vill du aktivera valda rsync jobb?"
@@ -3914,6 +3900,9 @@ msgstr "Vill du växla valda publika nycklar?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Vill du växla valda poster?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Vill du växla valda rsync jobb?"
@@ -4363,6 +4352,9 @@ msgstr "Aktivera valda publika nycklar"
 
 msgid "Enable Selected Records"
 msgstr "Aktivera valda poster"
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Aktivera valda Rsync jbb"
@@ -5762,9 +5754,6 @@ msgstr "IP adresser konverteras till hostnamn när följande val är aktivt:"
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP eller FQDN adress på den fjärranslutna rsync-servern."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "IP adressen stämmer inte överens mellan nätverket och \"gateway\""
 
 msgid "IPMI Stats"
 msgstr "IPMI Stats"
@@ -9298,11 +9287,11 @@ msgstr "'Round-robin' läsning"
 msgid "Roundrobin"
 msgstr "Roundrobin"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "Rutten är markerad för borttagning"
-
-msgid "Route is protected"
-msgstr "Rutten är skyddad"
 
 msgid "Route is unlocked"
 msgstr "Rutten är olåst"
@@ -10511,9 +10500,6 @@ msgstr "Starta"
 
 msgid "Start TLS from within the session."
 msgstr "Starta TLS inifrån sessionen."
-
-msgid "State: "
-msgstr "Tillstånd: "
 
 msgid "Static"
 msgstr "Statisk"
@@ -12501,6 +12487,9 @@ msgstr "Växla valda publika nycklar"
 msgid "Toggle Selected Records"
 msgstr "Växla valda poster"
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Växla valda Rsync jobb"
 
@@ -12583,6 +12572,14 @@ msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
 msgstr "Total tid när magnethuvudena inte varit i parkeringsarean."
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "Traceroute"
@@ -13625,9 +13622,6 @@ msgstr "Du måste lägga till diskar först."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "Du måste godkänna ändringarna innan de slår igenom."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Du måste ange samma IP-typ för nät och gateway."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

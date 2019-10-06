@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2019-01-01 17:15+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -25,20 +25,15 @@ msgstr " インターフェース:"
 msgid " was assigned to "
 msgstr " は次の項目にアサインされています "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s はボリューム %2$s の作成に利用されます。"
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -347,9 +342,6 @@ msgstr "デーモンのリロードをリクエストしました。"
 msgid "A rescan has been issued."
 msgstr "再スキャンを実施します。"
 
-msgid "A route to this destination network already exists."
-msgstr "この宛て先ネットワークへの経路情報は既に存在します。"
-
 msgid "A sysvol folder was found."
 msgstr ""
 
@@ -376,9 +368,6 @@ msgstr "セカンダリDNSサーバは有効なIPv4アドレスを指定する�
 msgid "A valid IPv4 address must be specified."
 msgstr "有効な IPv4 アドレスを指定してください。"
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "有効な IPv4 ネットワークのビット数を指定してください。"
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "有効な IPv6 ゲートウェイアドレスを指定してください。"
 
@@ -390,15 +379,6 @@ msgstr "セカンダリのDNSサーバに有効な IPv6 アドレスを指定し
 
 msgid "A valid IPv6 address must be specified."
 msgstr "有効な IPv6 アドレスを指定してください。"
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "有効な IPv6 アドレスプレフィックスを指定してください。"
-
-msgid "A valid destination network must be specified."
-msgstr "有効な宛て先ネットワークを指定して下さい。"
-
-msgid "A valid gateway IP address must be specified."
-msgstr "有効なゲートウェイ IP アドレスを指定して下さい。"
 
 msgid "A valid mtu size must be specified."
 msgstr "有効な MTU サイズを指定して下さい。"
@@ -2838,9 +2818,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr ""
 
-msgid "Destination network bit count"
-msgstr "宛て先ネットワークのビット数"
-
 msgid "Destination network for this static route."
 msgstr ""
 
@@ -3061,6 +3038,9 @@ msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "選択したレコードを無効"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr ""
@@ -3547,6 +3527,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr ""
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr ""
 
@@ -3629,6 +3612,9 @@ msgid "Do you want to enable selected public keys?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
+msgstr ""
+
+msgid "Do you want to enable selected routes?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
@@ -3722,6 +3708,9 @@ msgid "Do you want to toggle selected public keys?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
+msgstr ""
+
+msgid "Do you want to toggle selected routes?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
@@ -4166,6 +4155,9 @@ msgid "Enable Selected Public Keys"
 msgstr ""
 
 msgid "Enable Selected Records"
+msgstr ""
+
+msgid "Enable Selected Routes"
 msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
@@ -5497,9 +5489,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "リモート Rsync サーバの IP もしくは FQDN を入力します。"
-
-msgid "IP type mismatch for network and gateway."
-msgstr "ネットワークとゲートウェイの IP タイプが違います。"
 
 msgid "IPMI Stats"
 msgstr ""
@@ -8899,10 +8888,10 @@ msgstr "ラウンドロビンでの読み出し"
 msgid "Roundrobin"
 msgstr "ラウンドロビン"
 
-msgid "Route is marked for deletion"
+msgid "Route is locked"
 msgstr ""
 
-msgid "Route is protected"
+msgid "Route is marked for deletion"
 msgstr ""
 
 msgid "Route is unlocked"
@@ -10007,9 +9996,6 @@ msgid "Start"
 msgstr "開始"
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -11793,6 +11779,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr ""
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
@@ -11863,6 +11852,14 @@ msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
 msgstr "磁気ヘッドアクチュエータのローディング総時間（パーキングエリアで費やされた時間を除く）。"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "Traceroute"
@@ -12846,9 +12843,6 @@ msgstr "始めにディスクを追加して下さい。"
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "変更を反映するには適用する必要があります。適用するまで変更は有効になりません。"
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "ネットワークとゲートウェイには同じ IP 形式を入力して下さい。"
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

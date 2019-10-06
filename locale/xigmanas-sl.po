@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:32+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovenian\n"
@@ -25,20 +25,15 @@ msgstr " vmesniki:"
 msgid " was assigned to "
 msgstr " je bila pripeta k "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr ""
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -343,9 +338,6 @@ msgstr ""
 msgid "A rescan has been issued."
 msgstr ""
 
-msgid "A route to this destination network already exists."
-msgstr "Pot do ciljnega omrežja že obstaja."
-
 msgid "A sysvol folder was found."
 msgstr ""
 
@@ -372,9 +364,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "Določen mora biti veljaven IPv4 naslov."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Vnešeno mora biti veljavno IPv4 omrežje."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Določen mora biti veljaven naslov IPv6 prehoda."
 
@@ -386,15 +375,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Določen mora biti veljaven IPv6 naslov."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Določena mora biti veljavna IPv6 predpona."
-
-msgid "A valid destination network must be specified."
-msgstr "Navedeno mora biti veljavno ciljno omrežje."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Naveden mora biti veljaven IP naslov."
 
 msgid "A valid mtu size must be specified."
 msgstr "Nastavljena mora biti pravila mtu velikost."
@@ -2821,9 +2801,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr ""
 
-msgid "Destination network bit count"
-msgstr "Omrežna maska clija"
-
 msgid "Destination network for this static route."
 msgstr ""
 
@@ -3047,6 +3024,9 @@ msgid "Disable Selected Public Keys"
 msgstr ""
 
 msgid "Disable Selected Records"
+msgstr ""
+
+msgid "Disable Selected Routes"
 msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
@@ -3536,6 +3516,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr ""
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr ""
 
@@ -3618,6 +3601,9 @@ msgid "Do you want to enable selected public keys?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
+msgstr ""
+
+msgid "Do you want to enable selected routes?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
@@ -3711,6 +3697,9 @@ msgid "Do you want to toggle selected public keys?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
+msgstr ""
+
+msgid "Do you want to toggle selected routes?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
@@ -4155,6 +4144,9 @@ msgid "Enable Selected Public Keys"
 msgstr ""
 
 msgid "Enable Selected Records"
+msgstr ""
+
+msgid "Enable Selected Routes"
 msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
@@ -5494,9 +5486,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP ali FQDN naslov oddaljenega Rsync serverja."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "IP naslov se ne ujema z omrežjem in prehodom."
 
 msgid "IPMI Stats"
 msgstr ""
@@ -8916,10 +8905,10 @@ msgstr "Round-robin branje"
 msgid "Roundrobin"
 msgstr "Roundrobin"
 
-msgid "Route is marked for deletion"
+msgid "Route is locked"
 msgstr ""
 
-msgid "Route is protected"
+msgid "Route is marked for deletion"
 msgstr ""
 
 msgid "Route is unlocked"
@@ -10030,9 +10019,6 @@ msgid "Start"
 msgstr "Zaženi"
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -11782,6 +11768,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr ""
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
@@ -11851,6 +11840,14 @@ msgstr ""
 msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
 msgstr ""
 
 msgid "Traceroute"
@@ -12828,9 +12825,6 @@ msgid "You must add disks first."
 msgstr "Najprej morate dodati diske."
 
 msgid "You must apply the changes in order for them to take effect."
-msgstr ""
-
-msgid "You must enter the same IP type for network and gateway."
 msgstr ""
 
 #, php-format

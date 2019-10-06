@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -23,20 +23,15 @@ msgstr " 인터페이스:"
 msgid " was assigned to "
 msgstr " 가 할당된 "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s 이(가)  %2$s 볼륨을 만드는 데 사용됩니다."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -346,9 +341,6 @@ msgstr "환경설정 다시 읽기 요청을 데몬에 전달했습니다."
 msgid "A rescan has been issued."
 msgstr "재확인을 시도했습니다."
 
-msgid "A route to this destination network already exists."
-msgstr "이 목적지 네트워크에 대한 경로가 이미 존재합니다."
-
 msgid "A sysvol folder was found."
 msgstr "sysvol 폴더를 찾았습니다."
 
@@ -377,9 +369,6 @@ msgstr "두번째 DNS 서버로 올바른 IPv4 주소를 명시해야 합니다.
 msgid "A valid IPv4 address must be specified."
 msgstr "올바른 IPv4 주소를 명시해야 합니다."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "올바른 IPv4 네트워크 bit 수를 명시해야 합니다."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "올바른 IPv6 게이트웨이 주소를 명시해야 합니다."
 
@@ -391,15 +380,6 @@ msgstr "두번째 DNS 서버로 올바른 IPv6 주소를 명시해야 합니다.
 
 msgid "A valid IPv6 address must be specified."
 msgstr "올바른 IPv6 주소를 명시해야 합니다."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "올바른 IPv6 접두사를 명시해야 합니다."
-
-msgid "A valid destination network must be specified."
-msgstr "올바른 대상 네트워크를 명시해야 합니다."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "올바른 게이트웨이 IP 주소를 명시해야 합니다."
 
 msgid "A valid mtu size must be specified."
 msgstr "올바른 MTU 크기를 명시해야 합니다."
@@ -2864,9 +2844,6 @@ msgstr "대상 전자우편 주소. 세미콜론(';')으로 전자우편 주소�
 msgid "Destination host name or IP address."
 msgstr "대상 호스트 이름 또는 IP 주소."
 
-msgid "Destination network bit count"
-msgstr "목적지 네트워크 비트 카운트"
-
 msgid "Destination network for this static route."
 msgstr "이 고정 경로를 위한 대상 네트워크."
 
@@ -3089,6 +3066,9 @@ msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "선택된 항목 사용 안 함"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "선택된 rsync 작업들 사용 안 함"
@@ -3575,6 +3555,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr "선택된 항목을 사용하지 않으시겠습니까?"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "선택된 rsync 작업들을 사용하지 않으시겠습니까?"
 
@@ -3658,6 +3641,9 @@ msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "선택된 항목을 사용하시겠습니까?"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "선택된 rsync 작업들을 사용하시겠습니까?"
@@ -3751,6 +3737,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "선택된 항목의 상태를 전환하시겠습니까?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "선택된 rsync 작업들을 전환하시겠습니까?"
@@ -4197,6 +4186,9 @@ msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "선택된 항목 사용"
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "선택된 rsync 작업들 사용 함"
@@ -5530,9 +5522,6 @@ msgstr "다음 옵션을 사용하면 IP 주소가 호스트 이름으로 확인
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "원격 Rsync 서버의 IP나 FQDN 주소."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "IP 타입이 네트워크, 게이트웨이와 일치하지 않습니다."
 
 msgid "IPMI Stats"
 msgstr "IPMI 통계"
@@ -8931,11 +8920,11 @@ msgstr "라운드 로빈 읽기"
 msgid "Roundrobin"
 msgstr "라운드 로빈"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "경로 삭제 표시됨"
-
-msgid "Route is protected"
-msgstr "경로 보호됨"
 
 msgid "Route is unlocked"
 msgstr "경로 잠금 해제됨"
@@ -10044,9 +10033,6 @@ msgid "Start"
 msgstr "시작"
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -11832,6 +11818,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr "선택된 항목 상태 전환"
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "선택된 rsync 작업 전환"
 
@@ -11901,6 +11890,14 @@ msgstr "드라이브가 배포 된 이후의 총 플래시 프로그램 작동 �
 msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
 msgstr ""
 
 msgid "Traceroute"
@@ -12887,9 +12884,6 @@ msgstr "먼저 디스크를 추가해야 합니다."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "적용해야 변경 사항이 적용됩니다."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "네트워크와 게이트웨이에 동일한 IP 타입을 입력해야 합니다."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

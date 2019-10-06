@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2019-09-30 17:40+0000\n"
 "Last-Translator: Carlos Lozano <carlos@carloslozano.es>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:56+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -23,6 +23,9 @@ msgstr " interfaces:"
 msgid " was assigned to "
 msgstr " fue asignada a "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s es usado para crear el volumen(es) %2$s"
@@ -30,14 +33,6 @@ msgstr "%1$s es usado para crear el volumen(es) %2$s"
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
 msgstr "%1$s gestionado, %2$s usado, %3$s disponible"
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr "%1$s total, %2$s asignado, %3$s libre"
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
-msgstr "%1$s total, %2$s usado, %3$s disponible"
 
 #, php-format
 msgid "%2$s used, %3$s available"
@@ -370,9 +365,6 @@ msgstr "Una petición de recarga ha sido enviada al demonio."
 msgid "A rescan has been issued."
 msgstr "Ha ocurrido una incidencia en el re-escaneo"
 
-msgid "A route to this destination network already exists."
-msgstr "Ya existe una ruta a esta red de destino."
-
 msgid "A sysvol folder was found."
 msgstr "Una carpeta de sysvol ha sido encontrada."
 
@@ -406,9 +398,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "Se debe especificar una dirección IPv4 válida."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Debe ser especificada un cantidad de bits válida para redes IPv4"
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Debe especificar una dirección IPv6 de gateway válida"
 
@@ -421,16 +410,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Se debe especificar una dirección IPv6 válida"
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Se debe especificar un prefijo IPv6 válido."
-
-msgid "A valid destination network must be specified."
-msgstr "Se debe especificar una red de destino válida."
-
-msgid "A valid gateway IP address must be specified."
-msgstr ""
-"Se debe especificar una dirección IP válida para la puerta de enlace."
 
 msgid "A valid mtu size must be specified."
 msgstr "Se debe indicar un tamaño de MTU válido."
@@ -3076,9 +3055,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr "Nombre de host o IP"
 
-msgid "Destination network bit count"
-msgstr "cuenta de bit de la red de destino."
-
 msgid "Destination network for this static route."
 msgstr "Red de destino para esta ruta estática."
 
@@ -3305,6 +3281,9 @@ msgstr "Deshabilitar claves públicas seleccionadas"
 
 msgid "Disable Selected Records"
 msgstr "Deshabilitar registros seleccionados"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Deshabilitar los trabajos Rsync seleccionados"
@@ -3816,6 +3795,9 @@ msgstr "¿Desea deshabilitar las claves públicas seleccionadas?"
 msgid "Do you want to disable selected records?"
 msgstr "¿Desea deshabilitar los registros seleccionados?"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "¿Desea deshabillitar los trabajos Rsync seleccionados?"
 
@@ -3899,6 +3881,9 @@ msgstr "¿Desea habilitar las claves públicas seleccionadas?"
 
 msgid "Do you want to enable selected records?"
 msgstr "¿Desea habilitar los registros seleccionados?"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "¿Desea habillitar los trabajos Rsync seleccionados?"
@@ -3992,6 +3977,9 @@ msgstr "¿Desea intercambiar las claves publicas seleccionadas?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "¿Desea cambiar el estado de los registros seleccionados?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "¿Desea cambiar el estado de los trabajos Rsync seleccionados?"
@@ -4446,6 +4434,9 @@ msgstr "Habilitar claves públicas seleccionads"
 
 msgid "Enable Selected Records"
 msgstr "Habilitar los registros seleccionados."
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Habilitar los trabajos Rsync seleccionados"
@@ -5861,9 +5852,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Dirección IP o FQDN del servidor Rsync remoto."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "La IP no coincide con la red y la puerta de enlace"
 
 msgid "IPMI Stats"
 msgstr "Estado del IPMI"
@@ -9457,11 +9445,11 @@ msgstr "Round-Robin leido"
 msgid "Roundrobin"
 msgstr "Round-Robin"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "La ruta ha sido marcada para borrado"
-
-msgid "Route is protected"
-msgstr "La ruta está protegida"
 
 msgid "Route is unlocked"
 msgstr "La ruta está desbloqueado"
@@ -10696,9 +10684,6 @@ msgstr "Iniciar"
 
 msgid "Start TLS from within the session."
 msgstr "Comenzar a usar TLS en esta sesión"
-
-msgid "State: "
-msgstr "Estado: "
 
 msgid "Static"
 msgstr "Estático"
@@ -12727,6 +12712,9 @@ msgstr "Intercambiar claves públicas seleccionadas"
 msgid "Toggle Selected Records"
 msgstr "Cambiar el estado de los registros seleccionados."
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Cambiar el estado de trabajos Rsync"
 
@@ -12809,6 +12797,14 @@ msgid ""
 msgstr ""
 "Tiempo total que tarda los cabezales magneticos en aparcar (descontando el "
 "tiempo que permanecen aparcados)"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "Rastrear ruta (treceroute)"
@@ -13866,9 +13862,6 @@ msgstr "Se deben añadir discos primero."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "Debe aplicar los cambios en orden para que surtan efecto"
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Debe introducir el mismo tipo de IP para la red y el gateway"
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
-"PO-Revision-Date: 2019-09-25 17:33+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"PO-Revision-Date: 2019-10-06 03:13+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -25,20 +25,15 @@ msgstr " интерфейсы:"
 msgid " was assigned to "
 msgstr " был присвоен "
 
+msgid " | State: "
+msgstr " | Состояние: "
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s используется для создания %2$s тома."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s всего, %2$s использовано, %3$s доступно"
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr "%1$s всего, %2$s распределено, %3$s своболно"
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr "%1$s всего, %2$s использовано, %3$s доступно"
 
 #, php-format
@@ -373,9 +368,6 @@ msgstr "Запрос перезагрузки отправлен демону."
 msgid "A rescan has been issued."
 msgstr "Повторное сканирование было выполнено."
 
-msgid "A route to this destination network already exists."
-msgstr "Маршрут к этой сети уже существует."
-
 msgid "A sysvol folder was found."
 msgstr "Была найдена папка sysvol."
 
@@ -409,9 +401,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "Должен быть указан верный IPv4-адрес."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Должна быть указана правильная маска сети IPv4."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Должен быть указан верный IPv6-адрес шлюза."
 
@@ -425,15 +414,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Должен быть указан верный IPv6-адрес."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Должен быть указан корректный префикс IPv6."
-
-msgid "A valid destination network must be specified."
-msgstr "Должна быть указана верная сеть назначения."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Должен быть указан верный IP-адрес шлюза."
 
 msgid "A valid mtu size must be specified."
 msgstr "Должен быть указан корректный размер MTU."
@@ -1847,7 +1827,7 @@ msgid "Change"
 msgstr "Изменить"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "Изменить разрешения"
 
 msgid "Change below file"
 msgstr "Заменить файлом, указанным ниже"
@@ -2436,7 +2416,7 @@ msgid "Create PV Guest"
 msgstr "Создать гостевую систему PV"
 
 msgid "Create Permission"
-msgstr ""
+msgstr "Создать разрешения"
 
 msgid "Create Work Directory"
 msgstr "Создать рабочий каталог"
@@ -2816,7 +2796,7 @@ msgid "Delete Login Info"
 msgstr "Удалить сведения входа"
 
 msgid "Delete Permission"
-msgstr ""
+msgstr "Удалить разрешения"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Удалить выбранные группы аутентификации"
@@ -3055,9 +3035,6 @@ msgstr "Адрес email почты назначения. Отдельные ema
 msgid "Destination host name or IP address."
 msgstr "Имя или IP адрес целевого хоста"
 
-msgid "Destination network bit count"
-msgstr "Маска сети назначения"
-
 msgid "Destination network for this static route."
 msgstr "Сеть назначения для этого статического маршрута."
 
@@ -3285,6 +3262,9 @@ msgstr "Отключить выбранные публичные ключи"
 
 msgid "Disable Selected Records"
 msgstr "Отключить выбранные записи"
+
+msgid "Disable Selected Routes"
+msgstr "Отключить выбранные маршруты"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Отключить выбранные задания RSYNC"
@@ -3796,6 +3776,9 @@ msgstr "Вы хотите отключить выбранные публичны
 msgid "Do you want to disable selected records?"
 msgstr "Вы хотите отключить выбранные записи?"
 
+msgid "Do you want to disable selected routes?"
+msgstr "Вы хотите отключить выбранные маршруты?"
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Вы хотите отключить выбранные задания rsync?"
 
@@ -3879,6 +3862,9 @@ msgstr "Вы хотите включить выбранные публичные
 
 msgid "Do you want to enable selected records?"
 msgstr "Вы хотите включить выбранные записи?"
+
+msgid "Do you want to enable selected routes?"
+msgstr "Вы хотите включить выбранные маршруты?"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Вы хотите включить выбранные задания rsync?"
@@ -3972,6 +3958,9 @@ msgstr "Вы хотите переключить выбранные публич
 
 msgid "Do you want to toggle selected records?"
 msgstr "Вы хотите инвертировать выбранные записи?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "Вы хотите переключать выбранные маршруты?"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Вы хотите переключить выбранные задания rsync?"
@@ -4426,6 +4415,9 @@ msgstr "Включить выбранные публичные ключи"
 
 msgid "Enable Selected Records"
 msgstr "Включить выбранные записи"
+
+msgid "Enable Selected Routes"
+msgstr "Включить выбранные маршруты"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Включить выбранные задания Rsync"
@@ -5220,7 +5212,7 @@ msgid "File Manager"
 msgstr "Файловый менеджер"
 
 msgid "File Manager Access"
-msgstr ""
+msgstr "Доступ к диспетчеру файлов"
 
 msgid "File Mask"
 msgstr "Маска файла"
@@ -5526,19 +5518,19 @@ msgstr ""
 "Глобальный числовой идентификатор для использования данного LUN внутри CTL."
 
 msgid "Grant access to the file manager."
-msgstr ""
+msgstr "Предоставление доступа к файловому менеджеру."
 
 msgid "Grant create permission"
-msgstr ""
+msgstr "Предоставить разрешение на создание"
 
 msgid "Grant delete permission"
-msgstr ""
+msgstr "Предоставить разрешение на удаление"
 
 msgid "Grant modify permission"
-msgstr ""
+msgstr "Предоставить разрешение на изменение"
 
 msgid "Grant read permission"
-msgstr ""
+msgstr "Предоставить разрешение на чтение"
 
 msgid "Grant shell access to user"
 msgstr "Предоставить пользователю доступ к оболочке"
@@ -5715,7 +5707,7 @@ msgid "Hidden"
 msgstr "Скрыто"
 
 msgid "Hidden Items"
-msgstr ""
+msgstr "Скрытые объекты"
 
 msgid "Hide Dot Files"
 msgstr "Не показывать скрытые файлы (начинающиеся с точки)"
@@ -5836,9 +5828,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP- или FQDN-адрес удаленного сервера Rsync."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "Несовпадение IP для подсети и шлюза"
 
 msgid "IPMI Stats"
 msgstr "IPMI"
@@ -9045,7 +9034,7 @@ msgid "Read Only Access"
 msgstr "Доступ только для чтения"
 
 msgid "Read Permission"
-msgstr ""
+msgstr "Разрешение на чтение"
 
 msgid "Read from biggest priority"
 msgstr "Чтение с наиболее приоритетного (biggest priority)"
@@ -9426,11 +9415,11 @@ msgstr "Последовательное чтение (round-robin)"
 msgid "Roundrobin"
 msgstr "Round-robin"
 
+msgid "Route is locked"
+msgstr "Маршрут заблокирован"
+
 msgid "Route is marked for deletion"
 msgstr "Маршрут помечен для удаления"
-
-msgid "Route is protected"
-msgstr "Маршрут защищен"
 
 msgid "Route is unlocked"
 msgstr "Маршрут разблокирован"
@@ -10297,7 +10286,7 @@ msgid "Show Used/Avail"
 msgstr "Показывать Использовано/Доступно"
 
 msgid "Show hidden items"
-msgstr ""
+msgstr "Показать скрытые объекты"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Показать записи журнала в обратном порядке (новые записи сверху)."
@@ -10653,9 +10642,6 @@ msgstr "Старт"
 
 msgid "Start TLS from within the session."
 msgstr "Использовать TLS в сеансе."
-
-msgid "State: "
-msgstr "Состояние: "
 
 msgid "Static"
 msgstr "Static"
@@ -12670,6 +12656,9 @@ msgstr "Переключить выбранные публичные ключи"
 msgid "Toggle Selected Records"
 msgstr "Переключение выбранных записей"
 
+msgid "Toggle Selected Routes"
+msgstr "Переключить выбранные маршруты"
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Переключить выбранные задания Rsync"
 
@@ -12752,6 +12741,14 @@ msgid ""
 msgstr ""
 "Время, за которое привод выгружает магнитные головки из парковочной области "
 "на рабочую поверхность диска."
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "Всего: %1$s | Выделено: %2$s | Свободно: %3$s"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "Всего: %1$s | Использовано: %2$s | Доступно: %3$s"
 
 msgid "Traceroute"
 msgstr "Команда traceroute"
@@ -13815,9 +13812,6 @@ msgstr "Вначале необходимо добавить диски."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "Вам следует применить изменения для того, чтобы они вступили в силу."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Вы должны указать одинаковый тип IP для подсети и шлюза."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

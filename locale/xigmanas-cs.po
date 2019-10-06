@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-29 22:40+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2019-08-08 13:31+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-01 18:33+0000\n"
-"X-Generator: Launchpad (build 19066)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:56+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -23,20 +23,15 @@ msgstr " rozhraní:"
 msgid " was assigned to "
 msgstr " bylo přiřazeno k "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "Z %1$s je vytvořeno %2$s svazků."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -379,9 +374,6 @@ msgstr ""
 msgid "A rescan has been issued."
 msgstr "Bylo vyvoláno opětovné skenování."
 
-msgid "A route to this destination network already exists."
-msgstr "Trasa do této cílové sítě už existuje."
-
 msgid "A sysvol folder was found."
 msgstr "Byla nalezena složka sysvol."
 
@@ -414,9 +406,6 @@ msgstr "Je třeba zadat platnou IPv4 adresu záložního DNS jmenného serveru."
 msgid "A valid IPv4 address must be specified."
 msgstr "Je třeba zadat platnou IPv4 adresu."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Je třeba zadat platný počet bitů masky IPv4 sítě."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Je třeba zadat platnou adresu IPv6 výchozí brány."
 
@@ -428,15 +417,6 @@ msgstr "Je třeba zadat platnou IPv6 adresu záložního DNS jmenného serveru."
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Je třeba zadat platnou IPv6 adresu."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Je třeba zadat platnou IPv6 předponu."
-
-msgid "A valid destination network must be specified."
-msgstr "Je třeba zadat platnou cílovou síť."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Je třeba zadat platnou IP adresu brány."
 
 msgid "A valid mtu size must be specified."
 msgstr ""
@@ -3063,9 +3043,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr "Název nebo IP adresa cílového stroje."
 
-msgid "Destination network bit count"
-msgstr "Počet bitů masky cílové sítě"
-
 msgid "Destination network for this static route."
 msgstr "Cílová síť pro toto statické směrování."
 
@@ -3293,6 +3270,9 @@ msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Vypnout označené záznamy"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Vypnout označené Rsync úlohy"
@@ -3804,6 +3784,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr "Opravdu vypnout označené záznamy?"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Opravdu vypnout označené rsync úlohy?"
 
@@ -3890,6 +3873,9 @@ msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Opravdu zapnout označené záznamy?"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Opravdu zapnout označené rsync úlohy?"
@@ -3987,6 +3973,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "Opravdu přepnout označené záznamy?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Opravdu přepnout označené rsync úlohy?"
@@ -4437,6 +4426,9 @@ msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "Zapnout označené záznamy"
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Provádět označené Rsync úlohy"
@@ -5835,9 +5827,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP adresa nebo úplný doménový název (FQDN) vzdáleného Rsync serveru."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "Typ IP adresy sítě neodpovídá tomu u brány."
 
 msgid "IPMI Stats"
 msgstr "Statistiky z IPMI"
@@ -9431,11 +9420,11 @@ msgstr "Čtení algoritmem Round-robin"
 msgid "Roundrobin"
 msgstr "Round-Robin"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "Trasa je označena ke smazání"
-
-msgid "Route is protected"
-msgstr "Trasa je ochráněna"
 
 msgid "Route is unlocked"
 msgstr "Trasa"
@@ -10647,9 +10636,6 @@ msgstr "Spustit"
 
 msgid "Start TLS from within the session."
 msgstr "Spustit TLS ze sezení"
-
-msgid "State: "
-msgstr ""
 
 msgid "Static"
 msgstr "Statické"
@@ -12681,6 +12667,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr "Přepnout označené záznamy"
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Přepnout označené Rsync úlohy"
 
@@ -12766,6 +12755,14 @@ msgid ""
 msgstr ""
 "Celková doba, po kterou hlavičky byly v pracovní poloze (tj. doba strávená "
 "mimo parkovací oblast)."
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "Sledování směrování na síti (traceroute)"
@@ -13825,9 +13822,6 @@ msgstr "Nejprve je třeba přidat jednotky datového úložiště."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "Aby se změny projevily, je třeba je promítnout (použít)."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Pro síť i bránu je třeba zadat IP adresu stejné generace (v4/v6)."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."
