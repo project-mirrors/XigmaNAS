@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-26 17:06+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"PO-Revision-Date: 2019-09-30 01:36+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:38+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -24,6 +24,9 @@ msgstr " 接口："
 msgid " was assigned to "
 msgstr " 被指派为 "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s已被用于创建%2$s卷。"
@@ -31,14 +34,6 @@ msgstr "%1$s已被用于创建%2$s卷。"
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
 msgstr "%1$s已管理，%2$s已使用， %3$s可用"
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr "总计%1$s，已分配%2$s，空闲%3$s"
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
-msgstr "总计%1$s，已使用%2$s，可用 %3$s"
 
 #, php-format
 msgid "%2$s used, %3$s available"
@@ -336,9 +331,6 @@ msgstr "已重新发送需求至守护进程。"
 msgid "A rescan has been issued."
 msgstr "已经进行重复扫描"
 
-msgid "A route to this destination network already exists."
-msgstr "到目标网段的路由设置已经存在。"
-
 msgid "A sysvol folder was found."
 msgstr "找到了sysvol文件夹。"
 
@@ -366,9 +358,6 @@ msgstr "必须为辅助DNS服务器指定有效的IPv4地址。"
 msgid "A valid IPv4 address must be specified."
 msgstr "必须指定有效的IPv4地址。"
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "必须指定有效的IPv4网络位数。"
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "请输入一个有效的 IPv6 网关地址。"
 
@@ -380,15 +369,6 @@ msgstr "必须为辅助DNS服务器指定有效的IPv6地址。"
 
 msgid "A valid IPv6 address must be specified."
 msgstr "请输入一个有效的 IPv6 地址。"
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "请输入一个有效的IPv6前缀。"
-
-msgid "A valid destination network must be specified."
-msgstr "请输入一个有效的目标网络。"
-
-msgid "A valid gateway IP address must be specified."
-msgstr "请输入一个有效的网关IP地址。"
 
 msgid "A valid mtu size must be specified."
 msgstr "请输入一个有效的MTU大小。"
@@ -1708,6 +1688,9 @@ msgstr "挑战 - 响应认证"
 msgid "Change"
 msgstr "更改"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "更改下列文件"
 
@@ -2221,6 +2204,9 @@ msgstr "创建掩码"
 msgid "Create PV Guest"
 msgstr "创建PV客户机"
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "创建工作目录"
 
@@ -2577,6 +2563,9 @@ msgstr "删除主机"
 msgid "Delete Login Info"
 msgstr "删除登录信息"
 
+msgid "Delete Permission"
+msgstr "删除权限"
+
 msgid "Delete Selected Auth Groups"
 msgstr "删除选定的身份验证组"
 
@@ -2810,9 +2799,6 @@ msgstr "目的地邮件地址。多个邮件地址用分号分开。"
 msgid "Destination host name or IP address."
 msgstr "目标主机名和IP地址"
 
-msgid "Destination network bit count"
-msgstr "目的端网络位数"
-
 msgid "Destination network for this static route."
 msgstr "此静态路由的目的网络"
 
@@ -3032,6 +3018,9 @@ msgstr "禁用所选公钥"
 
 msgid "Disable Selected Records"
 msgstr "禁用选中的记录"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "禁用选中的Rsync任务"
@@ -3518,6 +3507,9 @@ msgstr "要禁用所选公钥吗？"
 msgid "Do you want to disable selected records?"
 msgstr "要禁用选中的记录吗？"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "是否要禁用选中的rsync任务？"
 
@@ -3601,6 +3593,9 @@ msgstr "要启用所选公钥吗？"
 
 msgid "Do you want to enable selected records?"
 msgstr "要启用选中的记录吗？"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "是否要启用选中的rsync任务？"
@@ -3694,6 +3689,9 @@ msgstr "要切换选定的公钥吗？"
 
 msgid "Do you want to toggle selected records?"
 msgstr "要切换选中的记录吗？"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "要切换选中的rsync任务吗？"
@@ -4138,6 +4136,9 @@ msgstr "启用选定的公钥"
 
 msgid "Enable Selected Records"
 msgstr "启用选中的记录"
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "启用选中的Rsync任务"
@@ -4875,6 +4876,9 @@ msgstr "文件编辑器"
 msgid "File Manager"
 msgstr "文件管理器"
 
+msgid "File Manager Access"
+msgstr "文件管理器访问"
+
 msgid "File Mask"
 msgstr "文件掩码"
 
@@ -5163,6 +5167,21 @@ msgstr "全局设置"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "用于CTL内给定LUN的全局数字标识符。"
 
+msgid "Grant access to the file manager."
+msgstr "授予对文件管理器的访问权限。"
+
+msgid "Grant create permission"
+msgstr "授予创建权限"
+
+msgid "Grant delete permission"
+msgstr "授予删除权限"
+
+msgid "Grant modify permission"
+msgstr "授予修改权限"
+
+msgid "Grant read permission"
+msgstr "授予读取权限"
+
 msgid "Grant shell access to user"
 msgstr "授予对用户的shell访问权限"
 
@@ -5329,6 +5348,9 @@ msgstr "Hiadaptive（高性能）"
 msgid "Hidden"
 msgstr "隐藏的"
 
+msgid "Hidden Items"
+msgstr "隐藏的项目"
+
 msgid "Hide Dot Files"
 msgstr "隐藏点文件"
 
@@ -5444,9 +5466,6 @@ msgstr "当启用以下选项时，IP地址将解析为主机名："
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Rsync 的远程服务器的 IP 或 FQDN 地址"
-
-msgid "IP type mismatch for network and gateway."
-msgstr "IP地址类型和网关不匹配。"
 
 msgid "IPMI Stats"
 msgstr "IPMI统计"
@@ -8469,6 +8488,9 @@ msgstr "只读 (ro)"
 msgid "Read Only Access"
 msgstr "只读访问"
 
+msgid "Read Permission"
+msgstr "读取权限"
+
 msgid "Read from biggest priority"
 msgstr "从最优先起开始读取"
 
@@ -8831,11 +8853,11 @@ msgstr "轮替式读"
 msgid "Roundrobin"
 msgstr "轮替式"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "路由被标记为删除"
-
-msgid "Route is protected"
-msgstr "路由被保护"
 
 msgid "Route is unlocked"
 msgstr "路由已解锁"
@@ -9627,6 +9649,9 @@ msgstr "显示UPS信息"
 msgid "Show Used/Avail"
 msgstr "显示已用/可用"
 
+msgid "Show hidden items"
+msgstr "显示隐藏的项目"
+
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "以相反的顺序显示日志条目（新条目在最上面）。"
 
@@ -9935,9 +9960,6 @@ msgstr "启动"
 
 msgid "Start TLS from within the session."
 msgstr "从会话中启动TLS。"
-
-msgid "State: "
-msgstr "状态： "
 
 msgid "Static"
 msgstr "静态"
@@ -11696,6 +11718,9 @@ msgstr "切换选定的公钥"
 msgid "Toggle Selected Records"
 msgstr "切换选中的记录"
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "切换选中的Rsync任务"
 
@@ -11766,6 +11791,14 @@ msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
 msgstr "磁头致动器上的总加载时间（停止区域不花费时间）。"
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "路由追踪（Traceroute）"
@@ -12744,9 +12777,6 @@ msgstr "请先加入硬盘。"
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr "您必须应用更改才能使其生效。"
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "您必须输入与网络和网关相同的 IP 类型。"
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

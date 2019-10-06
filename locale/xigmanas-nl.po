@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-26 16:15+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"PO-Revision-Date: 2019-10-06 03:43+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -25,6 +25,9 @@ msgstr " netwerken"
 msgid " was assigned to "
 msgstr " werd toegewezen aan "
 
+msgid " | State: "
+msgstr " | Staat: "
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s wordt gebruikt om %2$s volumes te maken."
@@ -32,14 +35,6 @@ msgstr "%1$s wordt gebruikt om %2$s volumes te maken."
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
 msgstr "%1$s beheerd, %2$s gebruikt, %3$s beschikbaar"
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr "%1$s totaal, %2$s toegewezen, %3$s vrij"
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
-msgstr "%1$s totaal, %2$s gebruikt, %3$s beschikbaar"
 
 #, php-format
 msgid "%2$s used, %3$s available"
@@ -381,9 +376,6 @@ msgstr "Een herlaad verzoek is verstuurd naar de daemon."
 msgid "A rescan has been issued."
 msgstr "Een herscan wordt uitgevoerd."
 
-msgid "A route to this destination network already exists."
-msgstr "Een route naar dit bestemmingsnetwerk bestaat reeds."
-
 msgid "A sysvol folder was found."
 msgstr "Een sysvol-map is gevonden."
 
@@ -419,9 +411,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "Een geldig IPv4 adres moet worden opgegeven."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Een geldige IPv4 netwerk bit aantal moet worden opgegeven."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Een geldig IPv6 Gateway adres moet worden opgegeven."
 
@@ -435,15 +424,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Een geldig IPv6 adres moet worden opgegeven."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Een geldige IPv6 voorvoegsel moet worden opgegeven."
-
-msgid "A valid destination network must be specified."
-msgstr "Een geldig bestemmingsnetwerk moet worden opgegeven."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Een geldig gateway IP-adres moet worden opgegeven."
 
 msgid "A valid mtu size must be specified."
 msgstr "Een geldige mtu grootte moet worden opgegeven."
@@ -1866,6 +1846,9 @@ msgstr "Challenge-Response Verificatie"
 msgid "Change"
 msgstr "Wijzigen"
 
+msgid "Change Permission"
+msgstr "Toestemming Wijzigen"
+
 msgid "Change below file"
 msgstr "Verander het bestand hieronder"
 
@@ -2470,6 +2453,9 @@ msgstr "Creëer Machtigingen"
 msgid "Create PV Guest"
 msgstr "Creëer PV Gast"
 
+msgid "Create Permission"
+msgstr "Toestemming Creëren"
+
 msgid "Create Work Directory"
 msgstr "Werkmap Maken"
 
@@ -2842,6 +2828,9 @@ msgstr "Host Verwijderen"
 msgid "Delete Login Info"
 msgstr "Inlog Info Verwijderen"
 
+msgid "Delete Permission"
+msgstr "Toestemming Verwijderen"
+
 msgid "Delete Selected Auth Groups"
 msgstr "Geselecteerde Auth Groepen Verwijderen"
 
@@ -3081,9 +3070,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr "Bestemming hostnaam of het IP-adres."
 
-msgid "Destination network bit count"
-msgstr "Bestemmingsnetwerk bit aantal"
-
 msgid "Destination network for this static route."
 msgstr "Bestemmingsnetwerk voor deze statische route."
 
@@ -3312,6 +3298,9 @@ msgstr "Geselecteerde Publieke Sleutels Uitschakelen"
 
 msgid "Disable Selected Records"
 msgstr "Geselecteerde Items Uitschakelen"
+
+msgid "Disable Selected Routes"
+msgstr "Uitschakelen Geselecteerde Routes"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Geselecteerde Rsync Taken Uitschakelen"
@@ -3828,6 +3817,9 @@ msgstr "Wilt u de geselecteerde publieke sleutels uitschakelen?"
 msgid "Do you want to disable selected records?"
 msgstr "Wilt u de geselecteerde items uitschakelen?"
 
+msgid "Do you want to disable selected routes?"
+msgstr "Wilt u de geselecteerde routes uitschakelen?"
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Wilt u de geselecteerde rsync taken uitschakelen?"
 
@@ -3912,6 +3904,9 @@ msgstr "Wilt u de geselecteerde publieke sleutels inschakelen?"
 msgid "Do you want to enable selected records?"
 msgstr "Wilt u de geselecteerde items inschakelen?"
 
+msgid "Do you want to enable selected routes?"
+msgstr "Wilt u de geselecteerde routes inschakelen?"
+
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Wilt u de geselecteerde rsync taken inschakelen?"
 
@@ -3937,88 +3932,91 @@ msgid "Do you want to lock selected records?"
 msgstr "Wilt u de geselecteerde items vergrendelen?"
 
 msgid "Do you want to toggle selected CHAP users?"
-msgstr "Wilt u de geselecteerde CHAP gebruikers omkeren?"
+msgstr "Wilt u de geselecteerde CHAP gebruikers omschakelen?"
 
 msgid "Do you want to toggle selected LUN records?"
-msgstr "Wilt u de geselecteerde LUN records omkeren?"
+msgstr "Wilt u de geselecteerde LUN records omschakelen?"
 
 msgid "Do you want to toggle selected LUNs?"
-msgstr "Wilt u de geselecteerde LUNs omkeren?"
+msgstr "Wilt u de geselecteerde LUNs omschakelen?"
 
 msgid "Do you want to toggle selected Mutual CHAP users?"
-msgstr "Wilt u de geselecteerde wederzijdse CHAP gebruikers omkeren?"
+msgstr "Wilt u de geselecteerde wederzijdse CHAP gebruikers omschakelen?"
 
 msgid "Do you want to toggle selected NFS exports?"
-msgstr "Wilt u de geselecteerde NFS exports omkeren?"
+msgstr "Wilt u de geselecteerde NFS exports omschakelen?"
 
 msgid "Do you want to toggle selected NFS root directories?"
-msgstr "Wilt u de geselecteerde NFS root mappen omkeren?"
+msgstr "Wilt u de geselecteerde NFS root mappen omschakelen?"
 
 msgid "Do you want to toggle selected WebDAV records?"
-msgstr "Wilt u de geselecteerde WebDAV items omkeren?"
+msgstr "Wilt u de geselecteerde WebDAV items omschakelen?"
 
 msgid "Do you want to toggle selected auth groups?"
-msgstr "Wilt u de geselecteerde autorisatiegroepen omkeren?"
+msgstr "Wilt u de geselecteerde autorisatiegroepen omschakelen?"
 
 msgid "Do you want to toggle selected commands?"
 msgstr "Wilt u de geselecteerde opdrachten omschakelen?"
 
 msgid "Do you want to toggle selected groups?"
-msgstr "Wilt u de geselecteerde groepen omkeren?"
+msgstr "Wilt u de geselecteerde groepen omschakelen?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr "Wilt u geselecteerde iSCSI initiators omkeren?"
+msgstr "Wilt u geselecteerde iSCSI initiators omschakelen?"
 
 msgid "Do you want to toggle selected iSNS servers?"
-msgstr "Wilt u de geselecteerde iSNS servers omkeren?"
+msgstr "Wilt u de geselecteerde iSNS servers omschakelen?"
 
 msgid "Do you want to toggle selected initiator names?"
-msgstr "Wilt u de geselecteerde initiator namen omkeren?"
+msgstr "Wilt u de geselecteerde initiator namen omschakelen?"
 
 msgid "Do you want to toggle selected initiator portals?"
-msgstr "Wilt u de geselecteerde initiator portalen omkeren?"
+msgstr "Wilt u de geselecteerde initiator portalen omschakelen?"
 
 msgid "Do you want to toggle selected jobs?"
-msgstr "Wilt u de geselecteerde taken omkeren?"
+msgstr "Wilt u de geselecteerde taken omschakelen?"
 
 msgid "Do you want to toggle selected listen records?"
-msgstr "Wilt u de geselecteerde luister records omkeren?"
+msgstr "Wilt u de geselecteerde luister records omschakelen?"
 
 msgid "Do you want to toggle selected media folders?"
-msgstr "Wilt u de geselecteerde media folders omkeren?"
+msgstr "Wilt u de geselecteerde media folders omschakelen?"
 
 msgid "Do you want to toggle selected option records?"
-msgstr "Wilt u de geselecteerde optie records omkeren?"
+msgstr "Wilt u de geselecteerde optie records omschakelen?"
 
 msgid "Do you want to toggle selected options?"
-msgstr "Wilt u de geselecteerde opties omkeren?"
+msgstr "Wilt u de geselecteerde opties omschakelen?"
 
 msgid "Do you want to toggle selected port records?"
-msgstr "Wilt u de geselecteerde poort records omkeren?"
+msgstr "Wilt u de geselecteerde poort records omschakelen?"
 
 msgid "Do you want to toggle selected portal groups?"
-msgstr "Wilt u de geselecteerde portaalgroepen omkeren?"
+msgstr "Wilt u de geselecteerde portaalgroepen omschakelen?"
 
 msgid "Do you want to toggle selected public keys?"
-msgstr "Wilt u de geselecteerde publieke sleutels omkeren?"
+msgstr "Wilt u de geselecteerde publieke sleutels omschakelen?"
 
 msgid "Do you want to toggle selected records?"
-msgstr "Wilt u de geselecteerde items omkeren?"
+msgstr "Wilt u de geselecteerde items omschakelen?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr "Wilt u de geselecteerde routes omschakelen?"
 
 msgid "Do you want to toggle selected rsync jobs?"
-msgstr "Wilt u de geselecteerde rsync taken omkeren?"
+msgstr "Wilt u de geselecteerde rsync taken omschakelen?"
 
 msgid "Do you want to toggle selected rsync modules?"
-msgstr "Wilt u de geselecteerde rsync modules omkeren?"
+msgstr "Wilt u de geselecteerde rsync modules omschakelen?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr "Wilt u de geselecteerde sysctl instellingen omkeren?"
+msgstr "Wilt u de geselecteerde sysctl instellingen omschakelen?"
 
 msgid "Do you want to toggle selected targets?"
-msgstr "Wilt u de geselecteerde doelen omkeren?"
+msgstr "Wilt u de geselecteerde doelen omschakelen?"
 
 msgid "Do you want to toggle selected users?"
-msgstr "Wilt u de geselecteerde gebruikers omkeren?"
+msgstr "Wilt u de geselecteerde gebruikers omschakelen?"
 
 msgid "Do you want to unlock selected records?"
 msgstr "Wilt u de geselecteerde items ontgrendelen?"
@@ -4401,10 +4399,10 @@ msgid "Enable STARTTLS"
 msgstr "Inschakelen STARTTLS"
 
 msgid "Enable Selected Auth Groups"
-msgstr "Activeer de geselecteerde autorisatiegroepen"
+msgstr "Inschakelen Geselecteerde Autorisatiegroepen"
 
 msgid "Enable Selected CHAP Users"
-msgstr "Activeer geselecteerde CHAP gebruikers"
+msgstr "Inschakelen geselecteerde CHAP gebruikers"
 
 msgid "Enable Selected Commands"
 msgstr "Geselecteerde Opdrachten Inschakelen"
@@ -4413,19 +4411,19 @@ msgid "Enable Selected Groups"
 msgstr "Geselecteerde Groepen Inschakelen"
 
 msgid "Enable Selected Initiator Names"
-msgstr "Activeer geselecteerde initiator namen"
+msgstr "Inschakelen Geselecteerde Initiator Namen"
 
 msgid "Enable Selected Initiator Portals"
-msgstr "Activeer geselecteerde initiator portalen"
+msgstr "Activeer Geselecteerde Initiator Portalen"
 
 msgid "Enable Selected Jobs"
 msgstr "Geselecteerde Taken Inschakelen"
 
 msgid "Enable Selected LUN Records"
-msgstr "Activeer geselecteerde LUN records"
+msgstr "Inschakelen Geselecteerde LUN Records"
 
 msgid "Enable Selected LUNs"
-msgstr "Activeer de geselecteerde LUNs"
+msgstr "Inschakelen Geselecteerde LUNs"
 
 msgid "Enable Selected Listen Records"
 msgstr "Inschakelen Geselecteerde Luister Records"
@@ -4434,7 +4432,7 @@ msgid "Enable Selected Media Folders"
 msgstr "Geselecteerde Media Folders Inschakelen"
 
 msgid "Enable Selected Mutual CHAP Users"
-msgstr "Activeer geselecteerde wederzijdse CHAP gebruikers"
+msgstr "Inschakelen Geselecteerde Wederzijdse CHAP Gebruikers"
 
 msgid "Enable Selected NFS Exports"
 msgstr "Geselecteerde NFS Exports Inschakelen"
@@ -4460,6 +4458,9 @@ msgstr "Geselecteerde Publieke Sleutels Inschakelen"
 msgid "Enable Selected Records"
 msgstr "Geselecteerde Items Inschakelen"
 
+msgid "Enable Selected Routes"
+msgstr "Geselecteerde Routes Inschakelen"
+
 msgid "Enable Selected Rsync Jobs"
 msgstr "Geselecteerde Rsync Taken Inschakelen"
 
@@ -4470,10 +4471,10 @@ msgid "Enable Selected Sysctl Settings"
 msgstr "Geselecteerde Sysctl Instellingen Inschakelen"
 
 msgid "Enable Selected Targets"
-msgstr "Activeer de geselecteerde doelen"
+msgstr "Inschakelen Geselecteerde Doelen"
 
 msgid "Enable Selected Users"
-msgstr "Geselecteerde Gebruikers Inschakelen"
+msgstr "Inschakelen Geselecteerde Gebruikers"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Inschakelen Geselecteerde WebDAV Items"
@@ -5264,6 +5265,9 @@ msgstr "Bestand Bewerker"
 msgid "File Manager"
 msgstr "Bestands Manager"
 
+msgid "File Manager Access"
+msgstr "Toegang Bestandsbeheer"
+
 msgid "File Mask"
 msgstr "Bestandsmachtiging"
 
@@ -5573,6 +5577,21 @@ msgstr ""
 "Globaal numerieke identificatie te gebruiken voor een bepaalde LUN binnen "
 "CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Verleen toegang tot de bestandsbeheer."
+
+msgid "Grant create permission"
+msgstr "Verleen toestemming om te creëren"
+
+msgid "Grant delete permission"
+msgstr "Verleen toestemming om te verwijderen"
+
+msgid "Grant modify permission"
+msgstr "Verleen toestemming om te wijzigen"
+
+msgid "Grant read permission"
+msgstr "Verleen toestemming om te lezen"
+
 msgid "Grant shell access to user"
 msgstr "Verleen Shell toegang aan gebruiker"
 
@@ -5749,6 +5768,9 @@ msgstr "Hiadaptief"
 msgid "Hidden"
 msgstr "Verborgen"
 
+msgid "Hidden Items"
+msgstr "Verborgen Items"
+
 msgid "Hide Dot Files"
 msgstr "Verberg Punt Bestanden"
 
@@ -5870,9 +5892,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP of FQDN adres van de remote Rsync server."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "Het IP-adres komt niet overeen met het netwerk of de gateway."
 
 msgid "IPMI Stats"
 msgstr "IPMI Stats"
@@ -9079,6 +9098,9 @@ msgstr "Alleen Lezen  (ro)"
 msgid "Read Only Access"
 msgstr "Alleen-Lezen Toegang"
 
+msgid "Read Permission"
+msgstr "Toestemming lezen"
+
 msgid "Read from biggest priority"
 msgstr "Lees van de grootste prioriteit"
 
@@ -9461,11 +9483,11 @@ msgstr "Round-robin lezen"
 msgid "Roundrobin"
 msgstr "Roundrobin"
 
+msgid "Route is locked"
+msgstr "Route is vergrendeld"
+
 msgid "Route is marked for deletion"
 msgstr "Route is gemarkeerd voor verwijdering"
-
-msgid "Route is protected"
-msgstr "Route wordt beschermd"
 
 msgid "Route is unlocked"
 msgstr "Route is ontgrendeld"
@@ -10343,6 +10365,9 @@ msgstr "UPS Informatie Weergeven"
 msgid "Show Used/Avail"
 msgstr "Gebruikt/Beschikbaar Weergeven"
 
+msgid "Show hidden items"
+msgstr "Verborgen items weergeven"
+
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""
 "Logboek in omgekeerde volgorde weergeven (nieuwste logregels bovenaan)."
@@ -10704,9 +10729,6 @@ msgstr "Start"
 
 msgid "Start TLS from within the session."
 msgstr "Start TLS vanuit de sessie."
-
-msgid "State: "
-msgstr "Staat: "
 
 msgid "Static"
 msgstr "Statisch"
@@ -12754,6 +12776,9 @@ msgstr "Geselecteerde Publieke Sleutels Omschakelen"
 msgid "Toggle Selected Records"
 msgstr "Geselecteerde Items Omschakelen"
 
+msgid "Toggle Selected Routes"
+msgstr "Geselecteerde  Routes Omschakelen"
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Geselecteerde Rsync Taken Omschakelen"
 
@@ -12837,6 +12862,14 @@ msgid ""
 msgstr ""
 "Totale tijd van laden op de magneetkoppen actuator (tijd niet doorgebracht "
 "in het parkeer gebied)."
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr "Totaal: %1$s | Toegewezen: %2$s | Vrij: %3$s"
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr "Totaal: %1$s | Gebruikt: %2$s | Beschikbaar: %3$s"
 
 msgid "Traceroute"
 msgstr "Traceer route"
@@ -13898,10 +13931,6 @@ msgstr "U moet eerst de hardeschijven toevoegen."
 msgid "You must apply the changes in order for them to take effect."
 msgstr ""
 "U dient de wijzigingen toe te passen voordat deze effect zullen hebben."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr ""
-"U moet voor de het netwerk en de gateway het zelfde IP-nummer invullen."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

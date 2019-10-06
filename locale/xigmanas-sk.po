@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2019-01-20 17:40+0000\n"
 "Last-Translator: Lukas Vescicik <lukas.vescicik@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:38+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovak\n"
@@ -25,20 +25,15 @@ msgstr " rozhrania:"
 msgid " was assigned to "
 msgstr " bol priradený k "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "Z %1$s je vytvorených %2$s logických oddielov"
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -368,9 +363,6 @@ msgstr "Žiadosť o znovunačítanie bola zaslaná procesu služby.."
 msgid "A rescan has been issued."
 msgstr "Prehľadávanie bolo spustené"
 
-msgid "A route to this destination network already exists."
-msgstr "Cesta k tejto sieti už existuje."
-
 msgid "A sysvol folder was found."
 msgstr "Zložka sysvol bola nájdená."
 
@@ -402,10 +394,6 @@ msgstr "Je potrebné zadať platnú IPv4 adresu pre sekundárny server DNS."
 msgid "A valid IPv4 address must be specified."
 msgstr "Musí byť uvedená platná IPv4 adresa."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr ""
-"Musí byť uvedená platná IPv4 sieťová maska (bity sieťovej časti IPv4 adresy)."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Musí byť uvedená platná IPv6 brána."
 
@@ -417,15 +405,6 @@ msgstr "Je potrebné zadať platnú IPvž adresu pre sekundárny server DNS."
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Musí byť uvedená platná IPv6 adresa."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Musí byť uvedený platný IPv6 prefix."
-
-msgid "A valid destination network must be specified."
-msgstr "Musí byť uvedená platná cieľová sieť."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Musí byť uvedená platná IP adresa brány."
 
 msgid "A valid mtu size must be specified."
 msgstr "Musí byť uvedená platná veľkosť MTU."
@@ -1785,6 +1764,9 @@ msgstr ""
 msgid "Change"
 msgstr "Zmeniť"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr ""
 
@@ -2285,6 +2267,9 @@ msgstr ""
 msgid "Create PV Guest"
 msgstr ""
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr ""
 
@@ -2639,6 +2624,9 @@ msgstr "Zmazať stroj"
 msgid "Delete Login Info"
 msgstr ""
 
+msgid "Delete Permission"
+msgstr ""
+
 msgid "Delete Selected Auth Groups"
 msgstr ""
 
@@ -2873,9 +2861,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr ""
 
-msgid "Destination network bit count"
-msgstr "Počet bitov cieľovej siete"
-
 msgid "Destination network for this static route."
 msgstr ""
 
@@ -3099,6 +3084,9 @@ msgid "Disable Selected Public Keys"
 msgstr ""
 
 msgid "Disable Selected Records"
+msgstr ""
+
+msgid "Disable Selected Routes"
 msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
@@ -3588,6 +3576,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr ""
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr ""
 
@@ -3670,6 +3661,9 @@ msgid "Do you want to enable selected public keys?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
+msgstr ""
+
+msgid "Do you want to enable selected routes?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
@@ -3763,6 +3757,9 @@ msgid "Do you want to toggle selected public keys?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
+msgstr ""
+
+msgid "Do you want to toggle selected routes?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
@@ -4208,6 +4205,9 @@ msgid "Enable Selected Public Keys"
 msgstr ""
 
 msgid "Enable Selected Records"
+msgstr ""
+
+msgid "Enable Selected Routes"
 msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
@@ -4958,6 +4958,9 @@ msgstr "Editor súborov"
 msgid "File Manager"
 msgstr "Správca súborov"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr ""
 
@@ -5246,6 +5249,21 @@ msgstr ""
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr ""
 
@@ -5409,6 +5427,9 @@ msgstr ""
 msgid "Hidden"
 msgstr ""
 
+msgid "Hidden Items"
+msgstr ""
+
 msgid "Hide Dot Files"
 msgstr ""
 
@@ -5527,9 +5548,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP alebo FQDN adresa vzdialeného rsync servera."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "Nezhoda v type IP siete a brány"
 
 msgid "IPMI Stats"
 msgstr ""
@@ -8575,6 +8593,9 @@ msgstr ""
 msgid "Read Only Access"
 msgstr "Prístup iba na čítanie"
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr ""
 
@@ -8941,10 +8962,10 @@ msgstr ""
 msgid "Roundrobin"
 msgstr "Roundrobin"
 
-msgid "Route is marked for deletion"
+msgid "Route is locked"
 msgstr ""
 
-msgid "Route is protected"
+msgid "Route is marked for deletion"
 msgstr ""
 
 msgid "Route is unlocked"
@@ -9738,6 +9759,9 @@ msgstr ""
 msgid "Show Used/Avail"
 msgstr ""
 
+msgid "Show hidden items"
+msgstr ""
+
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""
 
@@ -10051,9 +10075,6 @@ msgid "Start"
 msgstr ""
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -11880,6 +11901,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr ""
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
@@ -11949,6 +11973,14 @@ msgstr ""
 msgid ""
 "Total time of loading on the magnetic heads actuator (time not spent in "
 "parking area)."
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
 msgstr ""
 
 msgid "Traceroute"
@@ -12942,9 +12974,6 @@ msgstr "Najprv musíte pridať disky."
 
 msgid "You must apply the changes in order for them to take effect."
 msgstr ""
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Musíte zadať rovnaký typ IP pre sieť a bránu."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

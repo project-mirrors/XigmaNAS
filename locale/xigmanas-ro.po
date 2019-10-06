@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -23,20 +23,15 @@ msgstr " interfețe:"
 msgid " was assigned to "
 msgstr " a fost alocat la "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "%1$s este utilizat pentru a crea %2$s volumele."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr ""
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
 msgstr ""
 
 #, php-format
@@ -376,9 +371,6 @@ msgstr "O cerere de reâncărcare a fost trimisă la daemon."
 msgid "A rescan has been issued."
 msgstr "S-a pornit o rescanare"
 
-msgid "A route to this destination network already exists."
-msgstr "Exista deja o rută către această destinație."
-
 msgid "A sysvol folder was found."
 msgstr "A fost găsit un folder sysvol."
 
@@ -413,9 +405,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "Trebuie să introduceți o adresă IPv4 validă."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Trebuie să introduceți o mască de rețea IPv4 validă."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Trebuie să introduceți o adresă de gateway IPv6 validă."
 
@@ -429,15 +418,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Trebuie să introduceți o adresă IPv6 validă."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Trebuie să introduceți un prefix IPv6."
-
-msgid "A valid destination network must be specified."
-msgstr "Trebuie specificată o rețea destinație validă."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Trebuie specificată o adresă IP validă pentru gateway."
 
 msgid "A valid mtu size must be specified."
 msgstr "Trebuie introdusă o valoare MTU validă."
@@ -1839,6 +1819,9 @@ msgstr ""
 msgid "Change"
 msgstr "Modificare"
 
+msgid "Change Permission"
+msgstr ""
+
 msgid "Change below file"
 msgstr "Modificare fișier"
 
@@ -2439,6 +2422,9 @@ msgstr "Creare Mască"
 msgid "Create PV Guest"
 msgstr "Creare cont PV Guest"
 
+msgid "Create Permission"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Creare Work Directory"
 
@@ -2811,6 +2797,9 @@ msgstr "Ștergere Sistem"
 msgid "Delete Login Info"
 msgstr "Ștergere date de autentificare"
 
+msgid "Delete Permission"
+msgstr ""
+
 msgid "Delete Selected Auth Groups"
 msgstr "Ștergere Grupuri autorizate selectate"
 
@@ -3048,9 +3037,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr "Nume destinație sau adresă IP."
 
-msgid "Destination network bit count"
-msgstr "Mască rețea destinație"
-
 msgid "Destination network for this static route."
 msgstr "Rețea destinație pentru această rută statică."
 
@@ -3279,6 +3265,9 @@ msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Dezactivare înregistrări selectate"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Dezactivare joburi Rsync selectate"
@@ -3782,6 +3771,9 @@ msgstr ""
 msgid "Do you want to disable selected records?"
 msgstr "Dezactivați înregistrările selectate?"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Dezactivați joburile rsync selectate?"
 
@@ -3865,6 +3857,9 @@ msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Activați înregistrările selectate?"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Activați joburile rsync selectate?"
@@ -3958,6 +3953,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "Inversați starea înregistrărilor selectate?"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Inversați starea joburilor rsync selectate?"
@@ -4406,6 +4404,9 @@ msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "Activare înregistrări selectate"
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Activare joburi Rsync selectate"
@@ -5189,6 +5190,9 @@ msgstr "Editor Fișiere"
 msgid "File Manager"
 msgstr "Manager de Fișiere"
 
+msgid "File Manager Access"
+msgstr ""
+
 msgid "File Mask"
 msgstr "Mască fișier"
 
@@ -5483,6 +5487,21 @@ msgstr ""
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 
+msgid "Grant access to the file manager."
+msgstr ""
+
+msgid "Grant create permission"
+msgstr ""
+
+msgid "Grant delete permission"
+msgstr ""
+
+msgid "Grant modify permission"
+msgstr ""
+
+msgid "Grant read permission"
+msgstr ""
+
 msgid "Grant shell access to user"
 msgstr ""
 
@@ -5659,6 +5678,9 @@ msgstr "Hiadaptive (Înaltă performanță)"
 msgid "Hidden"
 msgstr "Ascuns"
 
+msgid "Hidden Items"
+msgstr ""
+
 msgid "Hide Dot Files"
 msgstr "Ascundere fișiere Dot"
 
@@ -5781,9 +5803,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP sau adresă FQDN a serverului Rsync."
-
-msgid "IP type mismatch for network and gateway."
-msgstr "Tipul de adresă IP diferă pentru rețea și pentru gateway."
 
 msgid "IPMI Stats"
 msgstr "Stare IPMI"
@@ -8945,6 +8964,9 @@ msgstr "Doar Citire (ro)"
 msgid "Read Only Access"
 msgstr "Acces Doar Citire"
 
+msgid "Read Permission"
+msgstr ""
+
 msgid "Read from biggest priority"
 msgstr "Citire cu prioritate maximă"
 
@@ -9322,11 +9344,11 @@ msgstr "Citire Round-robin"
 msgid "Roundrobin"
 msgstr "Roundrobin"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "Ruta este marcată pentru ștergere"
-
-msgid "Route is protected"
-msgstr "Ruta este protejată"
 
 msgid "Route is unlocked"
 msgstr "Ruta este deblocată"
@@ -10150,6 +10172,9 @@ msgstr "Afișare informații UPS"
 msgid "Show Used/Avail"
 msgstr ""
 
+msgid "Show hidden items"
+msgstr ""
+
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""
 "Afișare jurnal în ordine inversă (ultima înregistrare este afișată prima)"
@@ -10484,9 +10509,6 @@ msgid "Start"
 msgstr "Start"
 
 msgid "Start TLS from within the session."
-msgstr ""
-
-msgid "State: "
 msgstr ""
 
 msgid "Static"
@@ -12457,6 +12479,9 @@ msgstr ""
 msgid "Toggle Selected Records"
 msgstr "Inversare stare selecție înregistrări"
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Inversare stare selecție joburi Rsync"
 
@@ -12538,6 +12563,14 @@ msgid ""
 msgstr ""
 "Numărul total de încărcare a capetelor magnetice (timp în afara zonei de "
 "parcare)."
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "Trasare Ruta"
@@ -13584,11 +13617,6 @@ msgstr "Mai întâi trebuie să adăugați discuri."
 msgid "You must apply the changes in order for them to take effect."
 msgstr ""
 "Va trebui să aplicați modificările pentru ca acestea să devină active."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr ""
-"Trebuie folosit același tip de adresă IP pentru rețea și pentru poarta de "
-"acces."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."

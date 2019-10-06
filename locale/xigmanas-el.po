@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-09-24 20:53+0000\n"
-"PO-Revision-Date: 2019-09-26 07:59+0000\n"
+"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"PO-Revision-Date: 2019-09-30 11:41+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-09-27 01:37+0000\n"
-"X-Generator: Launchpad (build 19056)\n"
+"X-Launchpad-Export-Date: 2019-10-06 03:56+0000\n"
+"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -25,6 +25,9 @@ msgstr " διασυνδέσεις:"
 msgid " was assigned to "
 msgstr " έχει ανατεθεί σε "
 
+msgid " | State: "
+msgstr ""
+
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
 msgstr "Το %1$s χρησιμοποιείται για δημιουργία %2$s τόμων."
@@ -32,14 +35,6 @@ msgstr "Το %1$s χρησιμοποιείται για δημιουργία %2$
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
 msgstr "%1$s διαθέσιμα, %2$s σε χρήση, %3$s διαθέσιμα"
-
-#, php-format
-msgid "%1$s total, %2$s allocated, %3$s free"
-msgstr "%1$s συνολικά, %2$s κατανεμημένα, %3$s ελεύθερα"
-
-#, php-format
-msgid "%1$s total, %2$s used, %3$s available"
-msgstr "%1$s συνολικά, %2$s σε χρήση, %3$s διαθέσιμα"
 
 #, php-format
 msgid "%2$s used, %3$s available"
@@ -386,9 +381,6 @@ msgstr "Ένα αίτημα επαναφόρτωσης έχει σταλεί σ�
 msgid "A rescan has been issued."
 msgstr "Δόθηκε εντολή για επανασάρωση."
 
-msgid "A route to this destination network already exists."
-msgstr "Υπάρχει ήδη μια διαδρομή προς αυτόν τον προορισμό δικτύου."
-
 msgid "A sysvol folder was found."
 msgstr "Βρέθηκε ένας φάκελος sysvol."
 
@@ -425,9 +417,6 @@ msgstr ""
 msgid "A valid IPv4 address must be specified."
 msgstr "Πρέπει να καθοριστεί μια έγκυρη IPv4 διεύθυνση."
 
-msgid "A valid IPv4 network bit count must be specified."
-msgstr "Πρέπει να καθοριστεί μια έγκυρη IPv4 bit αρίθμηση δικτύου."
-
 msgid "A valid IPv6 Gateway address must be specified."
 msgstr "Πρέπει να καθοριστεί μια έγκυρη IPv6 διεύθυνση προεπιλεγμένης πύλης."
 
@@ -442,15 +431,6 @@ msgstr ""
 
 msgid "A valid IPv6 address must be specified."
 msgstr "Πρέπει να καθοριστεί μια έγκυρη IPv6 διεύθυνση."
-
-msgid "A valid IPv6 prefix must be specified."
-msgstr "Πρέπει να καθοριστεί ένα έγκυρο πρόθεμα IPv6."
-
-msgid "A valid destination network must be specified."
-msgstr "Πρέπει να καθοριστεί ένα έγκυρο δίκτυο προορισμού."
-
-msgid "A valid gateway IP address must be specified."
-msgstr "Πρέπει να καθοριστεί μία έγκυρη διεύθυνση IP πύλης."
 
 msgid "A valid mtu size must be specified."
 msgstr "Πρέπει να καθοριστεί ένα έγκυρο μέγεθος mtu."
@@ -1885,6 +1865,9 @@ msgstr "Πιστοποίηση Challenge-Response"
 msgid "Change"
 msgstr "Τροποποίηση"
 
+msgid "Change Permission"
+msgstr "Αλλαγή Πρόσβασης"
+
 msgid "Change below file"
 msgstr "Αλλαγή κάτω από το αρχείο"
 
@@ -2493,6 +2476,9 @@ msgstr "Δημιουργία Μάσκας"
 msgid "Create PV Guest"
 msgstr "Δημιουργία PV Guest"
 
+msgid "Create Permission"
+msgstr "Δημιουργία Πρόσβασης"
+
 msgid "Create Work Directory"
 msgstr "Δημιουργία Φακέλου Εργασίας"
 
@@ -2871,6 +2857,9 @@ msgstr "Διαγραφή υπολογιστή"
 msgid "Delete Login Info"
 msgstr "Διαγραφή πληροφοριών εισόδου"
 
+msgid "Delete Permission"
+msgstr "Διαγραφή Πρόσβασης"
+
 msgid "Delete Selected Auth Groups"
 msgstr "Διαγραφή Επιλεγμένων Ομάδων Πιστοποίησης"
 
@@ -3111,9 +3100,6 @@ msgstr ""
 msgid "Destination host name or IP address."
 msgstr "Όνομα υπολογιστή προορισμού ή διεύθυνση IP."
 
-msgid "Destination network bit count"
-msgstr "Βit αρίθμησης δικτύου προορισμού"
-
 msgid "Destination network for this static route."
 msgstr "Δίκτυο προορισμού για αυτή τη στατική δρομολόγηση."
 
@@ -3343,6 +3329,9 @@ msgstr "Απενεργοποίηση Επιλεγμένων Δημόσιων Κ�
 
 msgid "Disable Selected Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών"
+
+msgid "Disable Selected Routes"
+msgstr ""
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Απενεργοποίηση Επιλεγμένων Εργασιών Rsync"
@@ -3867,6 +3856,9 @@ msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμέ
 msgid "Do you want to disable selected records?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εγγραφές;"
 
+msgid "Do you want to disable selected routes?"
+msgstr ""
+
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εργασίες rsync;"
 
@@ -3950,6 +3942,9 @@ msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα
 
 msgid "Do you want to enable selected records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές;"
+
+msgid "Do you want to enable selected routes?"
+msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εργασίες rsync;"
@@ -4043,6 +4038,9 @@ msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα δη�
 
 msgid "Do you want to toggle selected records?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές;"
+
+msgid "Do you want to toggle selected routes?"
+msgstr ""
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εργασίες rsync;"
@@ -4498,6 +4496,9 @@ msgstr "Ενεργοποίηση Επιλεγμένων Δημόσιων Κλε�
 
 msgid "Enable Selected Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών"
+
+msgid "Enable Selected Routes"
+msgstr ""
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Ενεργοποίηση Επιλεγμένων Εργασιών Rsync"
@@ -5312,6 +5313,9 @@ msgstr "Επεξεργαστής αρχείων"
 msgid "File Manager"
 msgstr "Διαχειριστής Αρχείων"
 
+msgid "File Manager Access"
+msgstr "Πρόσβαση Διαχειριστή Αρχείων"
+
 msgid "File Mask"
 msgstr "Μάσκα Αρχείων"
 
@@ -5620,6 +5624,21 @@ msgstr "Γενικές ρυθμίσεις"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Γενικό αριθμητικό αναγνωριστικό για χρήση σε κάθε LUN μέσα στο CTL."
 
+msgid "Grant access to the file manager."
+msgstr "Εκχώρηση πρόσβασης στον διαχειριστή αρχείων."
+
+msgid "Grant create permission"
+msgstr "Εκχώρηση δικαιώματος δημιουργίας πρόσβασης"
+
+msgid "Grant delete permission"
+msgstr "Εκχώρηση δικαιώματος διαγραφής πρόσβασης"
+
+msgid "Grant modify permission"
+msgstr "Εκχώρηση δικαιώματος τροποποίησης πρόσβασης"
+
+msgid "Grant read permission"
+msgstr "Εκχώρηση πρόσβασης ανάγνωσης"
+
 msgid "Grant shell access to user"
 msgstr "Εκχώρηση πρόσβασης κέλυφους στο χρήστη"
 
@@ -5797,6 +5816,9 @@ msgstr "Hiadaptive (Υψηλές Επιδόσεις)"
 msgid "Hidden"
 msgstr "Κρυφό"
 
+msgid "Hidden Items"
+msgstr "Κρυφά αντικείμενα"
+
 msgid "Hide Dot Files"
 msgstr "Απόκρυψη Κρυφών Αρχείων"
 
@@ -5918,11 +5940,6 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Διεύθυνση IP ή FQDN του απομακρυσμένου διακομιστή Rsync."
-
-msgid "IP type mismatch for network and gateway."
-msgstr ""
-"Ασυμφωνία του τύπου της IP διεύθυνσης με το δίκτυο και την προεπιλεγμένη "
-"πύλη."
 
 msgid "IPMI Stats"
 msgstr "Στατιστικά IPMI"
@@ -9165,6 +9182,9 @@ msgstr "Μόνο για ανάγνωση"
 msgid "Read Only Access"
 msgstr "Προσπέλαση Μόνο για Ανάγνωση"
 
+msgid "Read Permission"
+msgstr "Πρόσβαση Ανάγνωσης"
+
 msgid "Read from biggest priority"
 msgstr "Ανάγνωση από αυτό με τη μεγαλύτερη προτεραιότητα"
 
@@ -9549,11 +9569,11 @@ msgstr "Ανάγνωση Round-robin"
 msgid "Roundrobin"
 msgstr "Round-robin"
 
+msgid "Route is locked"
+msgstr ""
+
 msgid "Route is marked for deletion"
 msgstr "Η δρομολόγηση έχει σημειωθεί προς διαγραφή"
-
-msgid "Route is protected"
-msgstr "Η δρομολόγηση είναι προστατευμένη"
 
 msgid "Route is unlocked"
 msgstr "Η δρομολόγηση είναι ξεκλείδωτη"
@@ -10446,6 +10466,9 @@ msgstr "Προβολή πληροφοριών UPS"
 msgid "Show Used/Avail"
 msgstr "Προβολή Σε χρήση/Διαθέσιμο"
 
+msgid "Show hidden items"
+msgstr "Προβολή κρυφών αντικειμένων"
+
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""
 "Εμφάνιση των καταχωρήσεων καταγραφής με αντίστροφη ταξινόμηση (νεώτερες "
@@ -10804,9 +10827,6 @@ msgstr "Έναρξη"
 
 msgid "Start TLS from within the session."
 msgstr "Εκκίνηση TLS από μέσα από τη συνεδρία."
-
-msgid "State: "
-msgstr "Κατάσταση: "
 
 msgid "Static"
 msgstr "Στατική"
@@ -12909,6 +12929,9 @@ msgstr "Μεταβολή Επιλεγμένων Δημόσιων Κλειδιώ�
 msgid "Toggle Selected Records"
 msgstr "Μεταβολή Επιλεγμένων Εγγραφών"
 
+msgid "Toggle Selected Routes"
+msgstr ""
+
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Μεταβολή Επιλεγμένων Εργασιών rsync"
 
@@ -12994,6 +13017,14 @@ msgid ""
 msgstr ""
 "Συνολικός χρόνος φόρτωσης  του ενεργοποιητή των μαγνητικών κεφαλών (ο χρόνος "
 "που δεν βρίσκονταν στην περιοχή στάθμευσης)."
+
+#, php-format
+msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
+msgstr ""
+
+#, php-format
+msgid "Total: %1$s | Used: %2$s | Available: %3$s"
+msgstr ""
 
 msgid "Traceroute"
 msgstr "Traceroute"
@@ -14069,9 +14100,6 @@ msgstr "Πρέπει πρώτα να προσθέσετε δίσκους."
 msgid "You must apply the changes in order for them to take effect."
 msgstr ""
 "Πρέπει να πατήσετε εφαρμογή των ρυμίσεων ώστε αυτές να γίνουν ενεργές."
-
-msgid "You must enter the same IP type for network and gateway."
-msgstr "Πρέπει να εισάγετε τον ίδιο τύπο IP δικτύων και πύλης."
 
 #, php-format
 msgid "You must have a minimum of %dMiB RAM for using iSCSI target."
