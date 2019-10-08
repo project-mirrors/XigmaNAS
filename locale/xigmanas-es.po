@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-09-30 17:40+0000\n"
-"Last-Translator: Carlos Lozano <carlos@carloslozano.es>\n"
+"PO-Revision-Date: 2019-10-07 09:52+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-06 03:56+0000\n"
+"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -24,7 +24,7 @@ msgid " was assigned to "
 msgstr " fue asignada a "
 
 msgid " | State: "
-msgstr ""
+msgstr " | estado: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -3283,7 +3283,7 @@ msgid "Disable Selected Records"
 msgstr "Deshabilitar registros seleccionados"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Deshabilitar rutas seleccionadas"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Deshabilitar los trabajos Rsync seleccionados"
@@ -3796,7 +3796,7 @@ msgid "Do you want to disable selected records?"
 msgstr "¿Desea deshabilitar los registros seleccionados?"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "¿Desea deshabilitar las rutas seleccionadas?"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "¿Desea deshabillitar los trabajos Rsync seleccionados?"
@@ -3883,7 +3883,7 @@ msgid "Do you want to enable selected records?"
 msgstr "¿Desea habilitar los registros seleccionados?"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "¿Desea habilitar las rutas seleccionadas?"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "¿Desea habillitar los trabajos Rsync seleccionados?"
@@ -3979,7 +3979,7 @@ msgid "Do you want to toggle selected records?"
 msgstr "¿Desea cambiar el estado de los registros seleccionados?"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "¿Desea intercambiar las rutas seleccionadas?"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "¿Desea cambiar el estado de los trabajos Rsync seleccionados?"
@@ -4436,7 +4436,7 @@ msgid "Enable Selected Records"
 msgstr "Habilitar los registros seleccionados."
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "Habilitar rutas seleccionadas"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Habilitar los trabajos Rsync seleccionados"
@@ -9446,7 +9446,7 @@ msgid "Roundrobin"
 msgstr "Round-Robin"
 
 msgid "Route is locked"
-msgstr ""
+msgstr "Ruta bloqueada"
 
 msgid "Route is marked for deletion"
 msgstr "La ruta ha sido marcada para borrado"
@@ -12713,7 +12713,7 @@ msgid "Toggle Selected Records"
 msgstr "Cambiar el estado de los registros seleccionados."
 
 msgid "Toggle Selected Routes"
-msgstr ""
+msgstr "Intercambiar rutas"
 
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Cambiar el estado de trabajos Rsync"
@@ -12800,11 +12800,11 @@ msgstr ""
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "Total: %1$s | Allocated: %2$s | Free: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "Total: %1$s | Used: %2$s | Available: %3$s"
 
 msgid "Traceroute"
 msgstr "Rastrear ruta (treceroute)"
