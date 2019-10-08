@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-09-30 03:30+0000\n"
+"PO-Revision-Date: 2019-10-06 04:59+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -26,7 +26,7 @@ msgid " was assigned to "
 msgstr " tilldelades "
 
 msgid " | State: "
-msgstr ""
+msgstr " | Status: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -3213,7 +3213,7 @@ msgid "Disable Selected Records"
 msgstr "Inaktivera valda rutter"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Inaktivera valda rutter"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Inaktivera valda Rsync jobb"
@@ -3719,7 +3719,7 @@ msgid "Do you want to disable selected records?"
 msgstr "Vill du inaktivera valda poster?"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "Vill du inaktivera valda rutter?"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Vill du inaktivera valda rsync jobb?"
@@ -3806,7 +3806,7 @@ msgid "Do you want to enable selected records?"
 msgstr "Vill du aktivera valda poster?"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "Vill du aktivera valda rutter?"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Vill du aktivera valda rsync jobb?"
@@ -3902,7 +3902,7 @@ msgid "Do you want to toggle selected records?"
 msgstr "Vill du växla valda poster?"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "Vill du växla valda rutter?"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Vill du växla valda rsync jobb?"
@@ -4354,7 +4354,7 @@ msgid "Enable Selected Records"
 msgstr "Aktivera valda poster"
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "Aktivera valda rutter"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Aktivera valda Rsync jbb"
@@ -9288,7 +9288,7 @@ msgid "Roundrobin"
 msgstr "Roundrobin"
 
 msgid "Route is locked"
-msgstr ""
+msgstr "Rutten är låst"
 
 msgid "Route is marked for deletion"
 msgstr "Rutten är markerad för borttagning"
@@ -12488,7 +12488,7 @@ msgid "Toggle Selected Records"
 msgstr "Växla valda poster"
 
 msgid "Toggle Selected Routes"
-msgstr ""
+msgstr "Växla valda rutter"
 
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Växla valda Rsync jobb"
@@ -12575,11 +12575,11 @@ msgstr "Total tid när magnethuvudena inte varit i parkeringsarean."
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "Totalt: %1$s | Allokerat: %2$s | Ledigt: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "Totalt: %1$s | Använt: %2$s | Tillgängligt: %3$s"
 
 msgid "Traceroute"
 msgstr "Traceroute"

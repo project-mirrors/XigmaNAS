@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-09-30 01:36+0000\n"
+"PO-Revision-Date: 2019-10-08 09:00+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -25,7 +25,7 @@ msgid " was assigned to "
 msgstr " 被指派为 "
 
 msgid " | State: "
-msgstr ""
+msgstr " | 状态： "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -1689,7 +1689,7 @@ msgid "Change"
 msgstr "更改"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "更改权限"
 
 msgid "Change below file"
 msgstr "更改下列文件"
@@ -2205,7 +2205,7 @@ msgid "Create PV Guest"
 msgstr "创建PV客户机"
 
 msgid "Create Permission"
-msgstr ""
+msgstr "创建权限"
 
 msgid "Create Work Directory"
 msgstr "创建工作目录"
@@ -3020,7 +3020,7 @@ msgid "Disable Selected Records"
 msgstr "禁用选中的记录"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "禁用所选路由"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "禁用选中的Rsync任务"
@@ -3508,7 +3508,7 @@ msgid "Do you want to disable selected records?"
 msgstr "要禁用选中的记录吗？"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "你要禁用选定的路由吗？"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "是否要禁用选中的rsync任务？"
@@ -3595,7 +3595,7 @@ msgid "Do you want to enable selected records?"
 msgstr "要启用选中的记录吗？"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "你要启用选中的路由吗？"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "是否要启用选中的rsync任务？"
@@ -3691,7 +3691,7 @@ msgid "Do you want to toggle selected records?"
 msgstr "要切换选中的记录吗？"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "你要切换选中的路由吗？"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "要切换选中的rsync任务吗？"
@@ -4138,7 +4138,7 @@ msgid "Enable Selected Records"
 msgstr "启用选中的记录"
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "启用选中的路由"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "启用选中的Rsync任务"
@@ -8854,7 +8854,7 @@ msgid "Roundrobin"
 msgstr "轮替式"
 
 msgid "Route is locked"
-msgstr ""
+msgstr "路由被锁定"
 
 msgid "Route is marked for deletion"
 msgstr "路由被标记为删除"
@@ -11719,7 +11719,7 @@ msgid "Toggle Selected Records"
 msgstr "切换选中的记录"
 
 msgid "Toggle Selected Routes"
-msgstr ""
+msgstr "切换选中的路由"
 
 msgid "Toggle Selected Rsync Jobs"
 msgstr "切换选中的Rsync任务"
@@ -11794,11 +11794,11 @@ msgstr "磁头致动器上的总加载时间（停止区域不花费时间）。
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "全部：%1$s | 已分配：%2$s | 空闲：%3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "全部： %1$s | 已使用：%2$s | 可用：%3$s"
 
 msgid "Traceroute"
 msgstr "路由追踪（Traceroute）"

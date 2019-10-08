@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-09-30 11:41+0000\n"
+"PO-Revision-Date: 2019-10-07 06:42+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-06 03:56+0000\n"
+"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -26,7 +26,7 @@ msgid " was assigned to "
 msgstr " έχει ανατεθεί σε "
 
 msgid " | State: "
-msgstr ""
+msgstr " |Κατάσταση: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -643,7 +643,7 @@ msgid "Add Resource"
 msgstr "Εισαγωγή Πόρου"
 
 msgid "Add Route"
-msgstr "Προσθήκη Διαδρομής"
+msgstr "Προσθήκη Δρομολόγησης"
 
 msgid "Add Rsync Job"
 msgstr "Προσθήκη Εργασίας Rsync"
@@ -1920,7 +1920,7 @@ msgstr ""
 "Επιλέξτε οποίο πρωτόκολλο IP θα πρέπει να ταιριάζει με αυτόν τον κανόνα."
 
 msgid "Choose which interface this route applies to."
-msgstr "Επιλέξτε για ποια διασύνδεση ισχύει αυτή η διαδρομή."
+msgstr "Επιλέξτε για ποια διασύνδεση ισχύει αυτή η δρομολόγηση."
 
 msgid "Choose..."
 msgstr "Επιλογή..."
@@ -3331,7 +3331,7 @@ msgid "Disable Selected Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Απενεργοποίηση Επιλεγμένων Δρομολογήσεων"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Απενεργοποίηση Επιλεγμένων Εργασιών Rsync"
@@ -3857,7 +3857,7 @@ msgid "Do you want to disable selected records?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εγγραφές;"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες δρομολογήσεις;"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εργασίες rsync;"
@@ -3944,7 +3944,7 @@ msgid "Do you want to enable selected records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές;"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες δρομολογήσεις;"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εργασίες rsync;"
@@ -4040,7 +4040,7 @@ msgid "Do you want to toggle selected records?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές;"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες δρομολογήσεις;"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εργασίες rsync;"
@@ -4269,7 +4269,7 @@ msgid "Edit Resource"
 msgstr "Επεξεργασία Πόρου"
 
 msgid "Edit Route"
-msgstr "Επεξεργασία Διαδρομής"
+msgstr "Επεξεργασία Δρομολόγησης"
 
 msgid "Edit Rsync Job"
 msgstr "Επεξεργασία Εργασίας Rsync"
@@ -4498,7 +4498,7 @@ msgid "Enable Selected Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών"
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "Eνεργοποίηση Επιλεγμένων Δρομολογήσεων"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Ενεργοποίηση Επιλεγμένων Εργασιών Rsync"
@@ -9570,7 +9570,7 @@ msgid "Roundrobin"
 msgstr "Round-robin"
 
 msgid "Route is locked"
-msgstr ""
+msgstr "Η δρομολόγηση είναι κλειδωμένη"
 
 msgid "Route is marked for deletion"
 msgstr "Η δρομολόγηση έχει σημειωθεί προς διαγραφή"
@@ -12930,7 +12930,7 @@ msgid "Toggle Selected Records"
 msgstr "Μεταβολή Επιλεγμένων Εγγραφών"
 
 msgid "Toggle Selected Routes"
-msgstr ""
+msgstr "Μεταβολή Επιλεγμένων Δρομολογήσεων"
 
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Μεταβολή Επιλεγμένων Εργασιών rsync"
@@ -13020,11 +13020,11 @@ msgstr ""
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "Σύνολο: %1$s | Κατανεμημένα: %2$s | Ελεύθερα: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "Σύνολο: %1$s | Σε χρήση: %2$s | Διαθέσιμα: %3$s"
 
 msgid "Traceroute"
 msgstr "Traceroute"

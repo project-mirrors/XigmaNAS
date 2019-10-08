@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-10-03 18:28+0000\n"
+"PO-Revision-Date: 2019-10-06 14:39+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-06 03:57+0000\n"
+"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -25,11 +25,11 @@ msgid " was assigned to "
 msgstr " було присвоєно "
 
 msgid " | State: "
-msgstr ""
+msgstr " | Стан: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
-msgstr "%1$s використовується для створення томів %2$s."
+msgstr "%1$s використовується для створення %2$s томів."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
@@ -3259,7 +3259,7 @@ msgid "Disable Selected Records"
 msgstr "Вимкнути обрані записи"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Заборонити обрані маршрути"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Вимкнути обрані завдання Rsync"
@@ -3771,7 +3771,7 @@ msgid "Do you want to disable selected records?"
 msgstr "Ви підтверджуєте вимкнення обраних записів?"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "Ви дійсно бажаєте заборонити обрані маршрути?"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Ви підтверджуєте вимкнення обраних завдань RSYNC?"
@@ -3858,7 +3858,7 @@ msgid "Do you want to enable selected records?"
 msgstr "Ви підтверджуєте увімкнення обраних записів?"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "Ви дійсно бажаєте дозволити обрані маршрути?"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Ви підтверджуєте увімкнення обраних завдань RSYNC?"
@@ -3954,7 +3954,7 @@ msgid "Do you want to toggle selected records?"
 msgstr "Ви підтверджуєте перемикання обраних записів?"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "Ви дійсно бажаєте перемкнути обрані маршрути?"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Ви підтверджуєте перемикання обраних завдань RSYNC?"
@@ -4409,7 +4409,7 @@ msgid "Enable Selected Records"
 msgstr "Дозволити обрані записи"
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "Дозволити обрані маршрути"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Дозволити обрані завдання Rsync"
@@ -9395,7 +9395,7 @@ msgid "Roundrobin"
 msgstr "Round-robin"
 
 msgid "Route is locked"
-msgstr ""
+msgstr "Маршрут заблокований"
 
 msgid "Route is marked for deletion"
 msgstr "Маршрут позначений для видалення"
@@ -12624,7 +12624,7 @@ msgid "Toggle Selected Records"
 msgstr "Перемикання Обраних Записів"
 
 msgid "Toggle Selected Routes"
-msgstr ""
+msgstr "Перемкнути обрані маршрути"
 
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Перемикання Обраних Завдань Rsync"
@@ -12712,11 +12712,11 @@ msgstr ""
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "Всього: %1$s | Виділено: %2$s | Вільно: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "Всього: %1$s | Використано: %2$s | Доступно: %3$s"
 
 msgid "Traceroute"
 msgstr "Трасування"
