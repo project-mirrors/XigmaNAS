@@ -43,4 +43,6 @@ usr/local/www/services_nfs_share_edit.php
 etc/inc/properties_access_users.php
 # 6767
 /usr/local/libexec/in.tftpd
-#
+# 6942
+etc/inc/properties_services_samba_share.php
+etc/inc/properties_services_samba_share_edit.php
