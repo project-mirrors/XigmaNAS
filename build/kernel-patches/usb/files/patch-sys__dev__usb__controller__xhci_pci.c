@@ -1,5 +1,5 @@
---- usb/controller/xhci_pci.c.orig	2019-09-23 17:46:15.566018000 +0200
-+++ usb/controller/xhci_pci.c	2019-09-23 18:04:12.000000000 +0200
+--- usb/controller/xhci_pci.c.orig	2019-10-13 13:47:17.668583000 +0200
++++ usb/controller/xhci_pci.c	2019-10-13 14:04:36.000000000 +0200
 @@ -147,7 +147,7 @@
  		return ("Intel Lewisburg USB 3.0 controller");
  	case 0xa2af8086:
