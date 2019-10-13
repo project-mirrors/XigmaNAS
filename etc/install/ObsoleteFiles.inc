@@ -1,16 +1,16 @@
-/etc/inc/XMLRPC
-/etc/rc.beupgrade
-/usr/local/etc/php/ext-20-intl.ini
-/usr/local/www/diag_infos.php
-/usr/local/www/diag_infos_ata.php
-/usr/local/www/diag_infos_disksinfo.php
-/usr/local/www/graph.php
-/usr/local/www/graph_cpu.php
-/usr/local/www/status_report.php
-/usr/local/www/system_rrdgraphs.php
-/usr/local/www/xmlrpc.php
-/usr/local/www/images/navbar_active.png
-/usr/local/www/images/navbar_default.png
+etc/inc/XMLRPC
+etc/rc.beupgrade
+usr/local/etc/php/ext-20-intl.ini
+usr/local/www/diag_infos.php
+usr/local/www/diag_infos_ata.php
+usr/local/www/diag_infos_disksinfo.php
+usr/local/www/graph.php
+usr/local/www/graph_cpu.php
+usr/local/www/status_report.php
+usr/local/www/system_rrdgraphs.php
+usr/local/www/xmlrpc.php
+usr/local/www/images/navbar_active.png
+usr/local/www/images/navbar_default.png
 # 6536
 etc/inc/properties_services_ctl.php
 etc/inc/properties_services_ctl_auth_group.php
@@ -40,5 +40,5 @@ usr/local/www/services_nfs_share_edit.php
 # 6651
 etc/inc/properties_access_users.php
 # 6767
-/usr/local/libexec/in.tftpd
+usr/local/libexec/in.tftpd
 #
