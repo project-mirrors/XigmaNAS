@@ -99,7 +99,7 @@ else:
 	$errormsg .= '<br/>';
 endif;
 if(isset($config['samba']['enable'])):
-	$errormsg .= gtext('CIFS/SMB is enabled.');
+	$errormsg .= gtext('SMB is enabled.');
 	$errormsg .= '<br/>';
 endif;
 if($_POST):
@@ -164,7 +164,7 @@ if($_POST):
 			config_unlock();
 		endif;
 		if(file_exists('/var/etc/smb4.conf')):
-			if (unlink('/var/etc/smb4.conf') == false):
+			if(unlink('/var/etc/smb4.conf') == false):
 				$input_errors[] = sprintf(gtext('Failed to remove: %s'),'/var/etc/smb4.conf');
 			endif;
 		endif;
@@ -224,8 +224,8 @@ $(document).ready(function(){
 		</thead>
 		<tbody>
 <?php
-			html_text2('hostname',gettext('Hostname'),htmlspecialchars($hostname));
-			html_text2('netbiosname',gettext('NetBIOS Name'),htmlspecialchars($netbiosname));
+			html_text2('hostname',gettext('Hostname'),$hostname);
+			html_text2('netbiosname',gettext('NetBIOS Name'),$netbiosname);
 			html_inputbox2('dns_forwarder',gettext('DNS Forwarder'),$pconfig['dns_forwarder'],'',true,40);
 			html_inputbox2('dns_domain',gettext('DNS Domain'),$pconfig['dns_domain'],'',true,40);
 			html_inputbox2('netbios_domain',gettext('NetBIOS Domain'),$pconfig['netbios_domain'],'',true,40);
@@ -269,8 +269,8 @@ $(document).ready(function(){
 ?>
 	<div id="remarks">
 <?php
-		$helpinghand = '<a href="system.php">' . gtext('Check System|General Setup before initializing') . '</a>.';
-		html_remark('note', gtext('Note'), sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li></ul></div>", gtext("All data in the path is overwritten. To avoid invalid data/permission, using an empty UFS directory is recommended."), $helpinghand));
+		$helpinghand = '<a href="system.php">' . gettext('Check System|General Setup before initializing') . '</a>.';
+		html_remark2('note', gettext('Note'), sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li></ul></div>", gettext("All data in the path is overwritten. To avoid invalid data/permission, using an empty UFS directory is recommended."), $helpinghand));
 ?>
 	</div>
 <?php
@@ -279,4 +279,3 @@ $(document).ready(function(){
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
