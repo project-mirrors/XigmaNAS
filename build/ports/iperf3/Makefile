@@ -1,7 +1,7 @@
 PORTNAME=		iperf
 PORTVERSION=	3.7
-PORTREVISION?=  0
-CATEGORIES=	benchmarks ipv6
+PORTREVISION=  0
+CATEGORIES=	benchmarks
 COMMENT=	Improved tool to measure TCP and UDP bandwidth
 MAINTAINER=	zoon01@xigmanas.com
 

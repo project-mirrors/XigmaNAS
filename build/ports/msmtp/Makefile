@@ -1,7 +1,7 @@
 PORTNAME=		msmtp
 PORTVERSION=	1.8.6
 PORTREVISION=	0
-CATEGORIES=		mail ipv6
+CATEGORIES=		mail
 COMMENT=		SMTP client
 MAINTAINER=		zoon01@xigmanas.com
 
