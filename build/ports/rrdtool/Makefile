@@ -11,6 +11,8 @@ USES=			perl5 python
 DISTFILES=
 NO_BUILD=		yes
 NO_PKG_REGISTER=	yes
+DISABLE_VULNERABILITIES=yes
+
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=		${NONEXISTENT}:databases/rrdtool
