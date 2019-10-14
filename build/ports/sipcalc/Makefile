@@ -1,6 +1,6 @@
 PORTNAME=		sipcalc
 PORTVERSION=	1.1.6
-CATEGORIES=		net-mgmt ipv6
+CATEGORIES=		net-mgmt
 COMMENT=		IP subnet calculator with IPv6 support
 MAINTAINER=		zoon01@xigmanas.com
 
