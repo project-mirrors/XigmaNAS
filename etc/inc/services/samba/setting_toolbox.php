@@ -47,7 +47,7 @@ final class setting_toolbox {
 		$sphere = new mys\settings();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('services_samba_new');
+			set_script('services_samba');
 		return $sphere;
 	}
 /**

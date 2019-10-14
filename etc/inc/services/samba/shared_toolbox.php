@@ -76,8 +76,7 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('services_samba.php',gettext('Settings'))->
-					ins_tabnav_record('services_samba_new.php',gettext('Settings'),gettext('Reload page'),true)->
+					ins_tabnav_record('services_samba.php',gettext('Settings'),gettext('Reload page'),true)->
 					ins_tabnav_record('services_samba_share.php',gettext('Shares'));
 		return $retval;
 	}
