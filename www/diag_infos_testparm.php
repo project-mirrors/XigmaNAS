@@ -38,7 +38,7 @@ function diag_infos_testparm() {
 	global $config;
 
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
-		$cmd = '/usr/local/bin/testparm -sv /var/etc/smb4.conf';
+		$cmd = '/usr/local/bin/testparm -sv /var/etc/smb4.conf 2>&1';
 		mwexec2($cmd,$rawdata);
 		return trim(implode(PHP_EOL,$rawdata));
 	else:
