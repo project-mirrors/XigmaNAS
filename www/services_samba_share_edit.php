@@ -298,7 +298,7 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Services'),gettext('CIFS/SMB'),gettext('Share'),$isrecordnew ? gettext('Add') : gettext('Edit')];
+$pgtitle = [gettext('Services'),gettext('SMB'),gettext('Share'),$isrecordnew ? gettext('Add') : gettext('Edit')];
 if(is_bool($test = $config['system']['showdisabledsections'] ?? false) ? $test : true):
 	$jdr = '';
 else:
