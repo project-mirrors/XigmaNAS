@@ -841,7 +841,7 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('HAST'),'link' => '/services_hast.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Samba AD'),'link' => '/services_samba_ad.php'];
 			$menu_items[] = ['type' => 'separator','visible' => $isAdminSession,'description' => '','link' => '/index.php'];
-			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('CIFS/SMB'),'link' => '/services_samba.php'];
+			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('SMB'),'link' => '/services_samba.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('FTP'),'link' => '/services_ftp.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('TFTP'),'link' => '/services_tftp.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('SSH'),'link' => '/services_sshd.php'];
