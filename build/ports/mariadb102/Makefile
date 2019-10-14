@@ -1,7 +1,7 @@
 PORTNAME=		xigmanas-mariadb
 PORTVERSION=		1.0
 PORTREVISION=		0
-CATEGORIES=		databases ipv6
+CATEGORIES=		databases
 
 COMMENT=		Multithreaded SQL database
 MAINTAINER=		zoon01@xigmanas.com
