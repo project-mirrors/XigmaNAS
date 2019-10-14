@@ -42,7 +42,7 @@ function diag_infos_testparm() {
 		mwexec2($cmd,$rawdata);
 		return trim(implode(PHP_EOL,$rawdata));
 	else:
-		return gettext('No information available.');
+		return gettext('SMB is disabled.');
 	endif;
 }
 $pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('testparm')];
