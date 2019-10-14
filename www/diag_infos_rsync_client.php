@@ -39,7 +39,7 @@ require_once 'co_sphere.php';
 
 function diag_infos_rsync_client_get_sphere() {
 	global $config;
-	
+
 	$sphere = new co_sphere_grid('diag_infos_rsync_client','php');
 /*
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
@@ -102,7 +102,8 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 				ins_tabnav_record('diag_infos_raid.php',gettext('Software RAID'))->
 				ins_tabnav_record('diag_infos_iscsi.php',gettext('iSCSI Initiator'))->
 				ins_tabnav_record('diag_infos_ad.php',gettext('MS Domain'))->
-				ins_tabnav_record('diag_infos_samba.php',gettext('CIFS/SMB'))->
+				ins_tabnav_record('diag_infos_samba.php',gettext('SMB'))->
+				ins_tabnav_record('diag_infos_testparm.php',gettext('testparm'))->
 				ins_tabnav_record('diag_infos_ftpd.php',gettext('FTP'))->
 				ins_tabnav_record('diag_infos_rsync_client.php',gettext('RSYNC Client'),gettext('Reload page'),true)->
 				ins_tabnav_record('diag_infos_netstat.php',gettext('Netstat'))->

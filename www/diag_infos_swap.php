@@ -36,7 +36,7 @@ require_once 'guiconfig.inc';
 
 function diag_infos_swap_ajax() {
 	global $g,$config;
-	
+
 	$swapdevice = 'NONE';
 	$swapinfo = sprintf('%s/swapdevice',$g['etc_path']);
 	if(file_exists($swapinfo)):
@@ -74,7 +74,8 @@ $document->
 			ins_tabnav_record('diag_infos_raid.php',gettext('Software RAID'))->
 			ins_tabnav_record('diag_infos_iscsi.php',gettext('iSCSI Initiator'))->
 			ins_tabnav_record('diag_infos_ad.php',gettext('MS Domain'))->
-			ins_tabnav_record('diag_infos_samba.php',gettext('CIFS/SMB'))->
+			ins_tabnav_record('diag_infos_samba.php',gettext('SMB'))->
+			ins_tabnav_record('diag_infos_testparm.php',gettext('testparm'))->
 			ins_tabnav_record('diag_infos_ftpd.php',gettext('FTP'))->
 			ins_tabnav_record('diag_infos_rsync_client.php',gettext('RSYNC Client'))->
 			ins_tabnav_record('diag_infos_netstat.php',gettext('Netstat'))->
