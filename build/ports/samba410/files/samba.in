@@ -333,7 +333,6 @@ samba_mkconf_cmd()
 			--output "store dos attributes = yes" --nl \
 		--break \
 		--if "count(//samba/storedosattributes) = 0 and count(//samba/mapdosattributes) > 0" \
-			--output 'create mask = 0755' --nl \
 			--output 'map hidden = yes' --nl \
 			--output 'map system = yes' --nl \
 		--break \
