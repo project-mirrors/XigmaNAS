@@ -131,27 +131,37 @@ final class setting_properties extends grid_properties {
 	}
 	public function init_netbiosname(): myp\property_text {
 		$description = gettext('The NetBIOS name of this Samba server.');
+		$regexp = '/^([a-z0-9_\-]+\.?)*$/i';
 		$placeholder = gettext('Name');
 		$property = parent::init_netbiosname();
 		$property->
 			set_description($description)->
 			set_id('netbiosname')->
+			set_maxlength(15)->
 			set_placeholder($placeholder)->
-			filter_use_default();
+			set_size(20)->
+			filter_use_default()->
+			set_filter(FILTER_VALIDATE_REGEXP)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR)->
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_workgroup(): myp\property_text {
 		$description = gettext('The workgroup in which the server will appear when queried by Windows or SMB clients. (maximum 15 characters).');
+		$placeholder = gettext('WORKGROUP');
+		$regexp = '/^[\w0-9][\w0-9\!\@\#\$\%\^\&\(\)\_\-\;\:\'\"\,\.]{0,14}$/';
 		$property = parent::init_workgroup();
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('workgroup')->
 			set_maxlength(15)->
-			filter_use_default();
-/*
-			<input name="workgroup" type="text" class="formfld" id="" size="30" value="<?=htmlspecialchars($pconfig['workgroup']);?>" />
- */
+			set_placeholder($placeholder)->
+			set_size(20)->
+			filter_use_default()->
+			set_filter(FILTER_VALIDATE_REGEXP)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR)->
+			set_filter_options(['default' => NULL,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_if(): myp\property_list {
@@ -292,6 +302,8 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('winssrv')->
+			set_size(60)->
+			set_maxlength(1024)->
 			filter_use_default_or_empty();
 		return $property;
 	}
