@@ -48,7 +48,7 @@ function status_services_sphere() {
 	endif;
 	if('dom0' !== $g['arch']):
 		$sphere->grid[] = ['name' => gettext('HAST'),'link' => 'services_hast.php','config' => 'hast','scriptname' => 'hastd'];
-		$sphere->grid[] = ['name' => gettext('CIFS/SMB'),'link' => 'services_samba.php','config' => 'samba','scriptname' => 'samba'];
+		$sphere->grid[] = ['name' => gettext('SMB'),'link' => 'services_samba.php','config' => 'samba','scriptname' => 'samba'];
 		$sphere->grid[] = ['name' => gettext('FTP'),'link' => 'services_ftp.php','config' => 'ftpd','scriptname' => 'proftpd'];
 		$sphere->grid[] = ['name' => gettext('TFTP'),'link' => 'services_tftp.php','config' => 'tftpd','scriptname' => 'tftpd'];
 		$sphere->grid[] = ['name' => gettext('SSH'),'link' => 'services_sshd.php','config' => 'sshd','scriptname' => 'sshd'];
