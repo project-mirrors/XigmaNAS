@@ -56,6 +56,56 @@ final class row_properties extends grid_properties {
 			set_description($description);
 		return $property;
 	}
+	public function init_createmask(): myp\property_text {
+		$description = gettext('Use this option to override the file creation mask (0666 by default).');
+		$property = parent::init_createmask();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('createmask')->
+			set_maxlength(4)->
+			set_size(5)->
+			filter_use_default_or_empty()->
+			set_filter(FILTER_VALIDATE_REGEXP)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR)->
+			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+		return $property;
+	}
+	public function init_directorymask(): myp\property_text {
+		$description = gettext('Use this option to override the directory creation mask (0777 by default).');
+		$property = parent::init_directorymask();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('directorymask')->
+			set_maxlength(4)->
+			set_size(5)->
+			filter_use_default_or_empty()->
+			set_filter(FILTER_VALIDATE_REGEXP)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR)->
+			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+		return $property;
+	}
+	public function init_forcegroup(): myp\property_list {
+		$description = gettext('This specifies a UNIX group name that will be assigned as the default primary group for all users connecting to this service. This is useful for sharing files by ensuring that all access to files on service will use the named group for their permissions checking.');
+		$property = parent::init_forcegroup();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('forcegroup')->
+			filter_use_default();
+		return $property;
+	}
+	public function init_forceuser(): myp\property_list {
+		$description = gettext('This specifies a UNIX user name that will be assigned as the default user for all users connecting to this service. This is useful for sharing files. You should also use it carefully as using it incorrectly can cause security problems.');
+		$property = parent::init_forceuser();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('forceuser')->
+			filter_use_default();
+		return $property;
+	}
 	public function init_shadowformat(): myp\property_text {
 		$default_shadowformat = "auto-%Y%m%d-%H%M%S";
 		$description = sprintf(gettext('The custom format of the snapshot for shadow copy service can be specified. The default format is %s used for ZFS auto snapshot.'),$default_shadowformat);

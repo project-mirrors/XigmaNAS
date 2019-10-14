@@ -235,6 +235,18 @@ samba_mkconf_user_shares()
 				--if 'string-length(hostsdeny) > 0' \
 					--value-of 'concat("hosts deny = ",hostsdeny)' --nl \
 				--break \
+				--if 'string-length(forceuser) > 0' \
+					--value-of "concat('force user = ',forceuser)" --nl \
+				--break \
+				--if 'string-length(forcegroup) > 0' \
+					--value-of "concat('force group = ',forcegroup)" --nl \
+				--break \
+				--if 'string-length(createmask) > 0' \
+					--value-of "concat('create mask = ',createmask)" --nl \
+				--break \
+				--if 'string-length(directorymask) > 0' \
+					--value-of "concat('directory mask = ',directorymask)" --nl \
+				--break \
 				--match 'auxparam' \
 					--value-of '.' --nl \
 				--break \
@@ -346,6 +358,22 @@ samba_mkconf_cmd()
 		--break \
 		--if 'string-length(//samba/maptoguest) > 0' \
 			--value-of "concat('map to guest = ',//samba/maptoguest)" --nl \
+		--break \
+		--if 'string-length(//samba/forceuser) > 0' \
+			--value-of "concat('force user = ',//samba/forceuser)" --nl \
+		--break \
+		--if 'string-length(//samba/forcegroup) > 0' \
+			--value-of "concat('force group = ',//samba/forcegroup)" --nl \
+		--break \
+		--if 'string-length(//samba/createmask) > 0' \
+			--value-of "concat('create mask = ',//samba/createmask)" --nl \
+		--else \
+			--output "create mask = ${samba_create_mask}" --nl \
+		--break \
+		--if 'string-length(//samba/directorymask) > 0' \
+			--value-of "concat('directory mask = ',//samba/directorymask)" --nl \
+		--else \
+			--output "directory mask = ${samba_directory_mask}" --nl \
 		--break \
 		--if 'count(//samba/nullpasswords) > 0' \
 			--output 'null passwords = yes' --nl \

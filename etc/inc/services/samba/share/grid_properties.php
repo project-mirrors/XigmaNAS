@@ -55,6 +55,50 @@ class grid_properties extends myp\container_row {
 	final public function get_auxparam(): myp\property_auxparam {
 		return $this->x_auxparam ?? $this->init_auxparam();
 	}
+	protected $x_createmask;
+	public function init_createmask(): myp\property_text {
+		$property = $this->x_createmask = new myp\property_text($this);
+		$property->
+			set_name('createmask')->
+			set_title(gettext('Create Mask'));
+		return $property;
+	}
+	final public function get_createmask(): myp\property_text {
+		return $this->x_createmask ?? $this->init_createmask();
+	}
+	protected $x_directorymask;
+	public function init_directorymask(): myp\property_text {
+		$property = $this->x_directorymask = new myp\property_text($this);
+		$property->
+			set_name('directorymask')->
+			set_title(gettext('Directory Mask'));
+		return $property;
+	}
+	final public function get_directorymask(): myp\property_text {
+		return $this->x_directorymask ?? $this->init_directorymask();
+	}
+	protected $x_forcegroup;
+	public function init_forcegroup(): myp\property_list {
+		$property = $this->x_forcegroup = new myp\property_list($this);
+		$property->
+			set_name('forcegroup')->
+			set_title(gettext('Force Group'));
+		return $property;
+	}
+	final public function get_forcegroup(): myp\property_list {
+		return $this->x_forcegroup ?? $this->init_forcegroup();
+	}
+	protected $x_forceuser;
+	public function init_forceuser(): myp\property_list {
+		$property = $this->x_forceuser = new myp\property_list($this);
+		$property->
+			set_name('forceuser')->
+			set_title(gettext('Force User'));
+		return $property;
+	}
+	final public function get_forceuser(): myp\property_list {
+		return $this->x_forceuser ?? $this->init_forceuser();
+	}
 	protected $x_shadowformat;
 	public function init_shadowformat(): myp\property_text {
 		$property = $this->x_shadowformat = new myp\property_text($this);

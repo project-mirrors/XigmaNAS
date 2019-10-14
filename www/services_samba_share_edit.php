@@ -199,8 +199,27 @@ $a_referer = [
 	$cop->get_vfs_fruit_encoding(),
 	$cop->get_hostsallow(),
 	$cop->get_hostsdeny(),
+	$cop->get_createmask(),
+	$cop->get_directorymask(),
+	$cop->get_forcegroup(),
+	$cop->get_forceuser(),
 	$cop->get_auxparam()
 ];
+$a_user = [];
+$a_user[''] = gettext('Default');
+foreach(system_get_user_list() as $key => $val):
+	$a_user[strtolower($key)] = $key;
+endforeach;
+ksort($a_user);
+$cop->get_forceuser()->set_options($a_user);
+unset($val,$key,$a_user);
+$a_group = [];
+$a_group[''] = gettext('Default');
+foreach(system_get_group_list() as $key => $val):
+	$a_group[$key] = $key;
+endforeach;
+$cop->get_forcegroup()->set_options($a_group);
+unset($val,$key,$a_group);
 switch($page_mode):
 	case PAGE_MODE_ADD:
 		foreach($a_referer as $referer):
@@ -343,6 +362,8 @@ $content->
 			c2_checkbox($cop->get_readonly(),$sphere)->
 			c2_checkbox($cop->get_browseable(),$sphere)->
 			c2_checkbox($cop->get_guest(),$sphere)->
+			c2_select($cop->get_forceuser(),$sphere)->
+			c2_select($cop->get_forcegroup(),$sphere)->
 			c2_checkbox($cop->get_inheritpermissions(),$sphere)->
 			c2_checkbox($cop->get_recyclebin(),$sphere)->
 			c2_checkbox($cop->get_hidedotfiles(),$sphere)->
@@ -352,6 +373,8 @@ $content->
 			c2_checkbox($cop->get_inheritacls(),$sphere)->
 			c2_checkbox($cop->get_storealternatedatastreams(),$sphere)->
 			c2_checkbox($cop->get_storentfsacls(),$sphere)->
+			c2_input_text($cop->get_createmask(),$sphere)->
+			c2_input_text($cop->get_directorymask(),$sphere)->
 			c2_input_text($cop->get_hostsallow(),$sphere)->
 			c2_input_text($cop->get_hostsdeny(),$sphere);
 $content->
