@@ -576,6 +576,9 @@ create_mfsroot() {
 	cd $XIGMANAS_TMPDIR
 	tar -cf - -C $XIGMANAS_ROOTFS ./ | tar -xvpf -
 
+	echo "Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
+
 	cd $XIGMANAS_WORKINGDIR
 	# Umount memory disk
 	umount $XIGMANAS_TMPDIR/usr/local
@@ -782,6 +785,9 @@ create_image() {
 		kldxref -R ${XIGMANAS_TMPDIR}/boot
 	fi
 
+	echo "===> Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
+
 	echo "===> Unmount memory disk"
 	umount $XIGMANAS_TMPDIR
 	echo "===> Detach memory disk"
@@ -934,6 +940,9 @@ create_iso () {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 		kldxref -R ${XIGMANAS_TMPDIR}/boot
 	fi
+
+	echo "ISO: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	if [ ! $TINY_ISO ]; then
 		echo "ISO: Copying IMG file to $XIGMANAS_TMPDIR"
@@ -1205,6 +1214,9 @@ create_usb () {
 		kldxref -R ${XIGMANAS_TMPDIR}/boot
 	fi
 
+	echo "USB: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
+
 	echo "USB: Copying IMG file to $XIGMANAS_TMPDIR"
 	cp ${XIGMANAS_WORKINGDIR}/image.bin.xz ${XIGMANAS_TMPDIR}/${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded.xz
 
@@ -1428,6 +1440,9 @@ create_usb_gpt() {
 		kldxref -R ${XIGMANAS_TMPDIR}/boot
 	fi
 
+	echo "USB: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
+
 	echo "USB: Copying IMG file to $XIGMANAS_TMPDIR"
 	cp ${XIGMANAS_WORKINGDIR}/image.bin.xz ${XIGMANAS_TMPDIR}/${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded.xz
 
@@ -1578,6 +1593,9 @@ create_full() {
 		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 		kldxref -R ${XIGMANAS_TMPDIR}/boot
 	fi
+
+	echo "FULL: Creating linker.hints"
+	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	#Check that there is no /etc/fstab file! This file can be generated only during install, and must be kept
 	[ -f $XIGMANAS_TMPDIR/etc/fstab ] && rm -f $XIGMANAS_TMPDIR/etc/fstab
