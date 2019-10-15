@@ -235,6 +235,18 @@ samba_mkconf_user_shares()
 				--if 'string-length(hostsdeny) > 0' \
 					--value-of 'concat("hosts deny = ",hostsdeny)' --nl \
 				--break \
+				--if 'string-length(forceuser) > 0' \
+					--value-of 'concat("force user = ",forceuser)' --nl \
+				--break \
+				--if 'string-length(forcegroup) > 0' \
+					--value-of 'concat("force group = ",forcegroup)' --nl \
+				--break \
+				--if 'string-length(createmask) > 0' \
+					--value-of 'concat("create mask = ",createmask)' --nl \
+				--break \
+				--if 'string-length(directorymask) > 0' \
+					--value-of 'concat("directory mask = ",directorymask)' --nl \
+				--break \
 				--match 'auxparam' \
 					--value-of '.' --nl \
 				--break \
@@ -248,32 +260,32 @@ samba_mkconf_cmd()
 {
 	# Create smb4.conf file
 	/usr/local/bin/xml sel --template \
-		--output "[global]" --nl \
-		--output "server role = standalone" --nl \
-		--output "encrypt passwords = yes" --nl \
+		--output '[global]' --nl \
+		--output 'server role = standalone' --nl \
+		--output 'encrypt passwords = yes' --nl \
 		--if 'string-length(//samba/netbiosname) > 0' \
-			--value-of "concat('netbios name = ',//samba/netbiosname)" --nl \
+			--value-of 'concat("netbios name = ",//samba/netbiosname)' --nl \
 		--break \
 		--if 'string-length(//samba/workgroup) > 0' \
-			--value-of "concat('workgroup = ',//samba/workgroup)" --nl \
+			--value-of 'concat("workgroup = ",//samba/workgroup)' --nl \
 		--break \
 		--if 'string-length(//samba/serverdesc) > 0' \
-			--value-of "concat('server string = ',//samba/serverdesc)" --nl \
+			--value-of 'concat("server string = ",//samba/serverdesc)' --nl \
 		--break \
 		--if 'string-length(//samba/security) > 0' \
-			--value-of "concat('security = ',//samba/security)" --nl \
+			--value-of 'concat("security = ",//samba/security)' --nl \
 		--break \
-		--if "string-length(//samba/maxprotocol) > 0" \
-			--value-of "concat('server max protocol = ',//samba/maxprotocol)" --nl \
+		--if 'string-length(//samba/maxprotocol) > 0' \
+			--value-of 'concat("server max protocol = ",//samba/maxprotocol)' --nl \
 		--break \
-		--if "string-length(//samba/minprotocol) > 0" \
-			--value-of "concat('server min protocol = ',//samba/minprotocol)" --nl \
+		--if 'string-length(//samba/minprotocol) > 0' \
+			--value-of 'concat("server min protocol = ",//samba/minprotocol)' --nl \
 		--break \
-		--if "string-length(//samba/clientmaxprotocol) > 0" \
-			--value-of "concat('client max protocol = ',//samba/clientmaxprotocol)" --nl \
+		--if 'string-length(//samba/clientmaxprotocol) > 0' \
+			--value-of 'concat("client max protocol = ",//samba/clientmaxprotocol)' --nl \
 		--break \
-		--if "string-length(//samba/clientminprotocol) > 0" \
-			--value-of "concat('client min protocol = ',//samba/clientminprotocol)" --nl \
+		--if 'string-length(//samba/clientminprotocol) > 0' \
+			--value-of 'concat("client min protocol = ",//samba/clientminprotocol)' --nl \
 		--break \
 		--output 'dns proxy = no' --nl \
 		--output '# Settings to enhance performance:' --nl \
@@ -300,28 +312,26 @@ samba_mkconf_cmd()
 		--nl \
 		--output '# End of performance section' --nl \
 		--if 'string-length(//samba/pwdsrv) > 0' \
-			--value-of "concat('password server = ',//samba/pwdsrv)" --nl \
+			--value-of 'concat("password server = ",//samba/pwdsrv)' --nl \
 		--break \
 		--if 'string-length(//samba/winssrv) > 0' \
-			--value-of "concat('wins server = ',//samba/winssrv)" --nl \
+			--value-of 'concat("wins server = ",//samba/winssrv)' --nl \
 		--break \
 		--if 'string-length(//samba/unixcharset) > 0' \
-			--value-of "concat('unix charset = ',//samba/unixcharset)" --nl \
+			--value-of 'concat("unix charset = ",//samba/unixcharset)' --nl \
 		--break \
-		--if "string-length(//samba/unixcharset) = 0" \
-			--output "unix charset = UTF-8" --nl \
+		--if 'string-length(//samba/unixcharset) = 0' \
+			--output 'unix charset = UTF-8' --nl \
 		--break \
-		--if "count(//samba/largereadwrite) = 0" \
-			--output "large readwrite = no" --nl \
+		--if 'count(//samba/largereadwrite) = 0' \
+			--output 'large readwrite = no' --nl \
 		--break \
-		--if "count(//samba/easupport) > 0" \
-			--output "ea support = yes" --nl \
+		--if 'count(//samba/easupport) > 0' \
+			--output 'ea support = yes' --nl \
 		--break \
-		--if "count(//samba/storedosattributes) > 0" \
-			--output "store dos attributes = yes" --nl \
-		--break \
-		--if "count(//samba/storedosattributes) = 0 and count(//samba/mapdosattributes) > 0" \
-			--output 'create mask = 0755' --nl \
+		--if 'count(//samba/storedosattributes) > 0' \
+			--output 'store dos attributes = yes' --nl \
+		--elif 'count(//samba/mapdosattributes) > 0' \
 			--output 'map hidden = yes' --nl \
 			--output 'map system = yes' --nl \
 		--break \
@@ -337,7 +347,7 @@ samba_mkconf_cmd()
 			--output 'os level = 0' --nl \
 		--break \
 		--if 'string-length(//samba/timesrv) > 0' \
-			--value-of "concat('time server = ',//samba/timesrv)" --nl \
+			--value-of 'concat("time server = ",//samba/timesrv)' --nl \
 		--break \
 		--if 'string-length(//samba/guestaccount) > 0' \
 			--value-of 'concat("guest account = ",//samba/guestaccount)' --nl \
@@ -345,7 +355,23 @@ samba_mkconf_cmd()
 			--output 'guest account = ftp' --nl \
 		--break \
 		--if 'string-length(//samba/maptoguest) > 0' \
-			--value-of "concat('map to guest = ',//samba/maptoguest)" --nl \
+			--value-of 'concat("map to guest = ",//samba/maptoguest)' --nl \
+		--break \
+		--if 'string-length(//samba/forceuser) > 0' \
+			--value-of 'concat("force user = ",//samba/forceuser)' --nl \
+		--break \
+		--if 'string-length(//samba/forcegroup) > 0' \
+			--value-of 'concat("force group = ",//samba/forcegroup)' --nl \
+		--break \
+		--if 'string-length(//samba/createmask) > 0' \
+			--value-of 'concat("create mask = ",//samba/createmask)' --nl \
+		--else \
+			--output "create mask = ${samba_create_mask}" --nl \
+		--break \
+		--if 'string-length(//samba/directorymask) > 0' \
+			--value-of 'concat("directory mask = ",//samba/directorymask)' --nl \
+		--else \
+			--output "directory mask = ${samba_directory_mask}" --nl \
 		--break \
 		--if 'count(//samba/nullpasswords) > 0' \
 			--output 'null passwords = yes' --nl \
@@ -361,26 +387,25 @@ samba_mkconf_cmd()
 		--output 'printcap name = /dev/null' --nl \
 		--output 'disable spoolss = yes' --nl \
 		--if 'string-length(//samba/doscharset) > 0' \
-			--value-of "concat('dos charset = ',//samba/doscharset)" --nl \
+			--value-of 'concat("dos charset = ",//samba/doscharset)' --nl \
 		--break \
-		--output "smb passwd file = /var/etc/private/smbpasswd" --nl \
-		--output "private dir = /var/etc/private" --nl \
+		--output 'smb passwd file = /var/etc/private/smbpasswd' --nl \
+		--output 'private dir = /var/etc/private' --nl \
 		--if '//samba/security[. = "ads"]' \
-			--output "passdb backend = tdbsam" --nl \
-			--if "count(//samba/trusteddomains) > 0" \
-				--output "allow trusted domains = yes" --nl \
+			--output 'passdb backend = tdbsam' --nl \
+			--if 'count(//samba/trusteddomains) > 0' \
+				--output 'allow trusted domains = yes' --nl \
+			--else \
+				--output 'allow trusted domains = no' --nl \
 			--break \
-			--if "count(//samba/trusteddomains) = 0" \
-				--output "allow trusted domains = no" --nl \
-			--break \
-			--output "idmap config * : backend = tdb" --nl \
+			--output 'idmap config * : backend = tdb' --nl \
 			--output "idmap config * : range = ${samba_idmap_range}" --nl \
 			--if 'string-length(//ad/domainname_netbios) > 0' \
-				--value-of "concat('idmap config ',//ad/domainname_netbios,' : backend = rid')" --nl \
-				--value-of "concat('idmap config ',//ad/domainname_netbios,' : range = ${samba_idmap_range}')" --nl \
+				--value-of 'concat("idmap config ",//ad/domainname_netbios," : backend = rid")' --nl \
+				--value-of 'concat("idmap config ",//ad/domainname_netbios," : range = ")' --output "$samba_idmap_range}" --nl \
 			--break \
 			--if 'string-length(//ad/domainname_dns) > 0' \
-				--value-of "concat('realm = ',//ad/domainname_dns)" --nl \
+				--value-of 'concat("realm = ",//ad/domainname_dns)' --nl \
 			--break \
 			--output 'winbind enum users = yes' --nl \
 			--output 'winbind enum groups = yes' --nl \
@@ -391,22 +416,22 @@ samba_mkconf_cmd()
 		--elif '//samba/security[. = "user"]' \
 			--if 'count(//ldap/enable) > 0' \
 				--if 'string-length(//ldap/hostname) > 0' \
-					--value-of "concat('passdb backend = ldapsam:\"',//ldap/hostname,'\"')" --nl \
+					--output 'passdb backend = ldapsam:"' --value-of '//ldap/hostname' --output '"' --nl \
 				--break \
 				--if 'string-length(//ldap/rootbinddn) > 0' \
-					--value-of "concat('ldap admin dn = ',//ldap/rootbinddn)" --nl \
+					--value-of 'concat("ldap admin dn = ",//ldap/rootbinddn)' --nl \
 				--break \
 				--if 'string-length(//ldap/base) > 0' \
-					--value-of "concat('ldap suffix = ',//ldap/base)" --nl \
+					--value-of 'concat("ldap suffix = ",//ldap/base)' --nl \
 				--break \
 				--if 'string-length(//ldap/user_suffix) > 0' \
-					--value-of "concat('ldap user suffix = ',//ldap/user_suffix)" --nl \
+					--value-of 'concat("ldap user suffix = ",//ldap/user_suffix)' --nl \
 				--break \
 				--if 'string-length(//ldap/group_suffix) > 0' \
-					--value-of "concat('ldap group suffix = ',//ldap/group_suffix)" --nl \
+					--value-of 'concat("ldap group suffix = ",//ldap/group_suffix)' --nl \
 				--break \
 				--if 'string-length(//ldap/machine_suffix) > 0 ' \
-					--value-of "concat('ldap machine suffix = ',//ldap/machine_suffix)" --nl \
+					--value-of 'concat("ldap machine suffix = ",//ldap/machine_suffix)' --nl \
 				--break \
 				--output 'ldap replication sleep = 1000' --nl \
 				--output 'ldap passwd sync = yes' --nl \
@@ -428,7 +453,7 @@ samba_mkconf_cmd()
 				--value-of "concat('aio write size = ',//samba/aiowsize)" --nl \
 			--break \
 		--break \
-		--if "//samba/if[. = 'lan']" \
+		--if '//samba/if[. = "lan"]' \
 			--output 'bind interfaces only = yes' --nl \
 			--output 'interfaces =' \
 				--match '//interfaces/lan/if' \
@@ -438,17 +463,17 @@ samba_mkconf_cmd()
 					--break \
 				--break \
 			--nl \
-		--elif "//samba/if[. = 'opt']" \
+		--elif '//samba/if[. = "opt"]' \
 			--output 'bind interfaces only = yes' --nl \
 			--output 'interfaces =' \
-				--match "//interfaces/*[contains(name(),'opt')]/if" \
+				--match '//interfaces/*[contains(name(),"opt")]/if' \
 					--if 'string-length() > 0' \
 						--output ' ' \
 						--value-of '.' \
 					--break \
 				--break \
 			--nl \
-		--elif "//samba/if[. = 'carp']" \
+		--elif '//samba/if[. = "carp"]' \
 			--output 'bind interfaces only = yes' --nl \
 			--output 'interfaces =' \
 				--match '//vinterfaces/carp/if' \
@@ -481,8 +506,8 @@ sambaad_mkconf_cmd()
 
 	# Create smb4.conf file
 	/usr/local/bin/xml sel -t \
-		--output "[global]" --nl \
-		--output "server role = active directory domain controller" --nl \
+		--output '[global]' --nl \
+		--output 'server role = active directory domain controller' --nl \
 		--output "workgroup = ${_domain}" --nl \
 		--output "realm = ${_realm}" --nl \
 		--output "netbios name = ${_name}" --nl \
@@ -493,18 +518,18 @@ sambaad_mkconf_cmd()
 		--output "smb passwd file = ${_path}/private/smbpasswd" --nl \
 		--output "usershare path = ${_path}/usershares" --nl \
 		--if 'string-length(//sambaad/dns_forwarder) > 0' \
-			--value-of "concat('dns forwarder = ',//sambaad/dns_forwarder)" --nl \
+			--value-of 'concat("dns forwarder = ",//sambaad/dns_forwarder)' --nl \
 		--break \
-		--output "idmap_ldb:use rfc2307 = yes" --nl \
-		--output "nsupdate command = /usr/local/bin/samba-nsupdate -g" --nl \
+		--output 'idmap_ldb:use rfc2307 = yes' --nl \
+		--output 'nsupdate command = /usr/local/bin/samba-nsupdate -g' --nl \
 		--nl \
-		--match "//sambaad/auxparam" \
+		--match '//sambaad/auxparam' \
 			--value-of '.' --nl \
 		--break \
 		--nl \
-		--output "[netlogon]" --nl \
+		--output '[netlogon]' --nl \
 		--output "path = ${_path}/sysvol/${_dns_domain}/scripts" --nl \
-		--output "read only = No" --nl \
+		--output 'read only = No' --nl \
 		--nl \
 		--output '[sysvol]' --nl \
 		--output "path = ${_path}/sysvol" --nl \
@@ -529,16 +554,16 @@ sambaad_resolv() {
 			--output 'domain ' \
 			--value-of '//system/domain' \
 			--nl \
-			--match "//system/dnsserver" \
-				--if "string-length() > 0" \
+			--match '//system/dnsserver' \
+				--if 'string-length() > 0' \
 					--output 'nameserver ' \
 					--value-of '.' \
 					--nl \
 				--break \
 			--break \
-			--if "count(//interfaces/*[enable]/ipv6_enable) > 0" \
-				--match "//system/ipv6dnsserver" \
-					--if "string-length() > 0" \
+			--if 'count(//interfaces/*[enable]/ipv6_enable) > 0' \
+				--match '//system/ipv6dnsserver' \
+					--if 'string-length() > 0' \
 						--output 'nameserver ' \
 						--value-of '.' \
 						--nl \
