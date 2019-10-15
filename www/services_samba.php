@@ -134,6 +134,22 @@ switch($page_method):
 				header($sphere->get_script()->get_location());
 				exit;
 				break;
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service_ex('samba',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
@@ -361,7 +377,7 @@ switch($page_mode):
 		elseif(!$pending_changes):
 			$buttons->ins_button_enadis(!$is_enabled);
 //			$buttons->ins_button_restart($is_enabled);
-//			$buttons->ins_button_reload($is_enabled);
+			$buttons->ins_button_reload($is_enabled);
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
