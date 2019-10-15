@@ -146,7 +146,8 @@ $document->
 			ins_tabnav_record('diag_infos_raid.php',gettext('Software RAID'))->
 			ins_tabnav_record('diag_infos_iscsi.php',gettext('iSCSI Initiator'))->
 			ins_tabnav_record('diag_infos_ad.php',gettext('MS Domain'))->
-			ins_tabnav_record('diag_infos_samba.php',gettext('CIFS/SMB'))->
+			ins_tabnav_record('diag_infos_samba.php',gettext('SMB'))->
+			ins_tabnav_record('diag_infos_testparm.php',gettext('testparm'))->
 			ins_tabnav_record('diag_infos_ftpd.php',gettext('FTP'))->
 			ins_tabnav_record('diag_infos_rsync_client.php',gettext('RSYNC Client'))->
 			ins_tabnav_record('diag_infos_netstat.php',gettext('Netstat'))->
@@ -167,7 +168,7 @@ $document->render();
 				<col class="area_data_settings_col_data">
 			</colgroup>
 			<thead>
-<?php 
+<?php
 				if($do_seperator):
 					html_separator2();
 				else:
@@ -245,7 +246,7 @@ $document->render();
 <?php
 										if($haserror):
 ?>
-							
+
 											<td class="lcell errortext"><?=$match[7];?></td>
 <?php
 										else:

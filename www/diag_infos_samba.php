@@ -36,18 +36,18 @@ require_once 'guiconfig.inc';
 
 function diag_infos_samba_1_ajax() {
 	global $config;
-	
+
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -b | grep -v 'Samba version'";
 		mwexec2($cmd,$rawdata);
 		return trim(implode(PHP_EOL,$rawdata));
 	else:
-		return gettext('CIFS/SMB is disabled.');
+		return gettext('SMB is disabled.');
 	endif;
 }
 function diag_infos_samba_2_ajax() {
 	global $config;
-	
+
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -S";
 		mwexec2($cmd,$rawdata);
@@ -58,7 +58,7 @@ function diag_infos_samba_2_ajax() {
 }
 function diag_infos_samba_3_ajax() {
 	global $config;
-	
+
 	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -L | grep -v 'Locked files'";
 		mwexec2($cmd,$rawdata);
@@ -73,7 +73,7 @@ if(is_ajax()):
 	$status['area_refresh_3'] = diag_infos_samba_3_ajax();
 	render_ajax($status);
 endif;
-$pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('CIFS/SMB')];
+$pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('SMB')];
 $document = new_page($pgtitle);
 //	get areas
 $body = $document->getElementById('main');
@@ -92,7 +92,8 @@ $document->
 			ins_tabnav_record('diag_infos_raid.php',gettext('Software RAID'))->
 			ins_tabnav_record('diag_infos_iscsi.php',gettext('iSCSI Initiator'))->
 			ins_tabnav_record('diag_infos_ad.php',gettext('MS Domain'))->
-			ins_tabnav_record('diag_infos_samba.php',gettext('CIFS/SMB'),gettext('Reload page'),true)->
+			ins_tabnav_record('diag_infos_samba.php',gettext('SMB'),gettext('Reload page'),true)->
+			ins_tabnav_record('diag_infos_testparm.php',gettext('testparm'))->
 			ins_tabnav_record('diag_infos_ftpd.php',gettext('FTP'))->
 			ins_tabnav_record('diag_infos_rsync_client.php',gettext('RSYNC Client'))->
 			ins_tabnav_record('diag_infos_netstat.php',gettext('Netstat'))->
