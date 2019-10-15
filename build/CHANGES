@@ -5,6 +5,8 @@ Changes:
 - isboot.ko driver not available.
 - Add public key management for SSH.
 - Add sesutil.
+- Add sas2ircu.
+- Add sas3ircu.
 - Upgrade APCu to 5.1.17.
 - Upgrade smartmontools to 7.0.
 - Upgrade tmux to 2.9a.
