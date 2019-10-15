@@ -99,11 +99,11 @@ switch($page_method):
 					$_SESSION['submit'] = $sphere->get_script()->get_basename();
 					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
 					header($sphere->get_script()->get_location());
+					exit;
 				else:
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
-				exit;
 				break;
 			case 'restart':
 				$retval = 0;
