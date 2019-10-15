@@ -187,9 +187,9 @@ if [ 0 != $opt_a ]; then
   echo 'hint.acpi.0.disabled="1"' >> $MINIBSD_DIR/device.hints
 fi
 # iSCSI driver
-# echo 'isboot_load="YES"' >> $MINIBSD_DIR/loader.conf
+  echo 'isboot_load="YES"' >> $MINIBSD_DIR/loader.conf
 # preload kernel drivers
-echo 'zfs_load="YES"' >> $MINIBSD_DIR/loader.conf
+  echo 'zfs_load="YES"' >> $MINIBSD_DIR/loader.conf
 
 # Xen
 if [ "dom0" == ${XIGMANAS_XARCH} ]; then
