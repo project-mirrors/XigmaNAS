@@ -1694,6 +1694,8 @@ copy_files() {
 	echo "===> Copy amd64-microcode_3.20171205.1.tar.xz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
 	echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.2.13.tar.gz /usr/ports/distfiles
+	echo "===> Copy isboot-0.2.13.tar.gz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
 	echo "===> Copy istgt-20180521.tar.gz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
