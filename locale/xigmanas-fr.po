@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-10-05 20:18+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"PO-Revision-Date: 2019-10-15 06:05+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
+"X-Launchpad-Export-Date: 2019-10-15 10:17+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -468,9 +468,6 @@ msgstr "Taille de lecture AIO"
 msgid "AIO Write Size"
 msgstr "Taille d'écriture AIO"
 
-msgid "ALL Interfaces"
-msgstr "Toutes les interfaces"
-
 msgid "AP mode"
 msgstr "mode AP"
 
@@ -479,6 +476,9 @@ msgstr "Tables ARP"
 
 msgid "ARP Tables List"
 msgstr "Liste des tables ARP"
+
+msgid "ASCII"
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Accepter les messages syslog distants."
@@ -794,6 +794,9 @@ msgstr "Format avancé"
 msgid "Advanced Options"
 msgstr "Options avancées"
 
+msgid "Advanced SMB Settings"
+msgstr "Paramètres SMB Avancés"
+
 msgid "Advanced Settings"
 msgstr "Configuration avancée"
 
@@ -850,6 +853,9 @@ msgstr "Pseudonyme"
 
 msgid "All"
 msgstr "Tous"
+
+msgid "All Interfaces"
+msgstr "Toutes les interfaces"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Toutes les données des statistiques suivantes ont été effacées:"
@@ -946,6 +952,10 @@ msgstr ""
 "Autoriser les liens symboliques pointant hors des dossiers multimédias "
 "définis."
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+"Autorisez le serveur à essayer de devenir un maître explorateur local."
+
 msgid "Allow to start UPS from battery"
 msgstr "Autoriser UPS a démarrer sur batterie"
 
@@ -965,10 +975,6 @@ msgid ""
 msgstr ""
 "Permet à certains utilisateurs et à certains groupes l'accès à un partage en "
 "mode lecture seule. Ceci suit le format  de l'option Autoriser."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr ""
-"Permet au serveur d'essayer de s'enregistrer comme maître explorateur local."
 
 msgid "Allows to connect to a hidden network"
 msgstr "Permet de se connecter à un réseau caché"
@@ -1082,9 +1088,6 @@ msgstr "Connexion anonyme"
 
 msgid "Anonymous Users"
 msgstr "Utilisateurs Anonymes"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "L'accès anonyme a été déconseillé à partir de SMB2."
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1686,15 +1689,6 @@ msgstr "Utilisateurs CHAP"
 msgid "CHAP-Mutual"
 msgstr "CHAP-Mutuel"
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS / SMB est désactivé."
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB est activé"
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cyrillique)"
 
@@ -2007,9 +2001,6 @@ msgstr "Résultat de la commande:"
 
 msgid "Comment"
 msgstr "Commentaire"
-
-msgid "Common Internet File System"
-msgstr "Common Internet File System (CIFS)"
 
 msgid "Communication Error"
 msgstr "Erreur de communication"
@@ -2641,6 +2632,17 @@ msgstr "Transitaire DNS"
 
 msgid "DNS server is empty."
 msgstr "Seveur DNS est vide"
+
+msgid "DOS Charset"
+msgstr "Jeu de Caractères DOS"
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+"Les clients DOS SMB supposent que le serveur a le même jeu de caractères "
+"qu’ils utilisent. Cette option spécifie quel jeu de caractères Samba doit "
+"indiquer aux clients DOS."
 
 msgid "DVD"
 msgstr "DVD"
@@ -3304,6 +3306,9 @@ msgstr "Désactiver les travaux Rsync sélectionnés"
 msgid "Disable Selected Rsync Modules"
 msgstr "Désactiver les modules Rsync sélectionnés"
 
+msgid "Disable Selected Samba Shares"
+msgstr "Désactiver les Partages Samba Sélectionnés"
+
 msgid "Disable Selected Sysctl Settings"
 msgstr "Désactiver les paramètres Sysctl sélectionnés"
 
@@ -3772,6 +3777,9 @@ msgstr "Voulez-vous désactiver les exportations NFS sélectionnées?"
 msgid "Do you want to disable selected NFS root directories?"
 msgstr "Voulez-vous désactiver les répertoires racine NFS sélectionnés?"
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr "Voulez-vous désactiver les partages Samba sélectionnés?"
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Voulez-vous désactiver les enregistrements WebDAV sélectionnés?"
 
@@ -3859,6 +3867,9 @@ msgstr "Voulez-vous activer les exportations NFS sélectionnées?"
 
 msgid "Do you want to enable selected NFS root directories?"
 msgstr "Voulez-vous activer les répertoires racine NFS sélectionnés?"
+
+msgid "Do you want to enable selected Samba shares?"
+msgstr "Voulez-vous activer les partages Samba sélectionnés?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Voulez-vous activer les enregistrements WebDAV sélectionnés?"
@@ -3956,6 +3967,9 @@ msgstr "Voulez-vous changer d'état les exportations NFS sélectionnées?"
 
 msgid "Do you want to toggle selected NFS root directories?"
 msgstr "Voulez-vous changer d'état les répertoires racine NFS sélectionnés?"
+
+msgid "Do you want to toggle selected Samba shares?"
+msgstr "Voulez-vous changer d'état les partages Samba sélectionnés?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Voulez-vous changer d'état les enregistrements WebDAV sélectionnés?"
@@ -4074,9 +4088,6 @@ msgstr "Terminé!"
 
 msgid "Done."
 msgstr "Terminé."
-
-msgid "Dos Charset"
-msgstr "Jeu de caractères DOS"
 
 msgid "Download"
 msgstr "Téléchargement"
@@ -4350,12 +4361,6 @@ msgstr "Niveau d'urgence"
 msgid "Enable"
 msgstr "Activer"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "Activez 'E / S asynchrones (AIO).' (bascule)."
-
-msgid "Enable 'Large read/write' switch."
-msgstr "Cochez : 'Activer la lecture/écriture élargie'."
-
 msgid "Enable ACL inheritance."
 msgstr "Activer l'héritage ACL."
 
@@ -4365,8 +4370,8 @@ msgstr "Activer AFP"
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Activer le format avancé (Secteurs de 4KB)"
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "Activer les E / S Asynchrones. (AIO)."
+msgid "Enable Asynchronous I/O."
+msgstr "Activer les E / S Asynchrones."
 
 msgid "Enable FXP protocol."
 msgstr "Activer le protocole FXP."
@@ -4475,6 +4480,9 @@ msgstr "Activer les tâches Rsync sélectionnées"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "Activer les modules Rsync sélectionnés"
+
+msgid "Enable Selected Samba Shares"
+msgstr "Activer les Partages Samba Sélectionnés"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Activer les paramètres Sysctl sélectionnés"
@@ -4724,9 +4732,6 @@ msgstr "Activer le transcodage."
 
 msgid "Enable traps."
 msgstr "Activer les traps."
-
-msgid "Enable tuning switch"
-msgstr "Cochez  -  Activer le réglage de certaines variables du noyau."
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Activer le fond blanc des graphiques . (Noir par défaut)"
@@ -5392,11 +5397,17 @@ msgstr "Suivre"
 msgid "Force Delete"
 msgstr "Forcer la suppression"
 
+msgid "Force Group"
+msgstr "Groupe Public"
+
 msgid "Force Operation"
 msgstr "Forcer l'opération"
 
 msgid "Force Use"
 msgstr "Forcer l'usage"
+
+msgid "Force User"
+msgstr "Utilisateur Public"
 
 msgid "Forced Update Period"
 msgstr "Période de mise à jour forcée"
@@ -9601,6 +9612,18 @@ msgstr "SHA-512,  Contrôle"
 msgid "SHA256, Verify"
 msgstr "Vérification SHA256"
 
+msgid "SMB"
+msgstr "SMB"
+
+msgid "SMB Settings"
+msgstr "Paramètres SMB"
+
+msgid "SMB is disabled."
+msgstr "SMB est désactivé."
+
+msgid "SMB is enabled."
+msgstr "SMB est activé."
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9643,17 +9666,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE (Bande)"
 
+msgid "Samba"
+msgstr "Samba"
+
 msgid "Samba AD"
 msgstr "Samba Active Directory"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Controleur de domaine Samba Active Directory"
 
+msgid "Samba Share is locked"
+msgstr "Le Partage Samba  est verrouillé"
+
 msgid "Samba Share is marked for deletion"
 msgstr "Le Partage Samba est marqué pour suppression"
-
-msgid "Samba Share is protected"
-msgstr "Le Partage Samba est protégé"
 
 msgid "Samba Share is unlocked"
 msgstr "Le Partage Samba est déverrouillé"
@@ -10630,6 +10656,9 @@ msgstr ""
 "Indique que ce groupe de portails est écouté par un autre hôte. Cet hôte "
 "l'annoncera à l'étape de la découverte, mais ne l'écoutera pas."
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr "Spécifie le jeu de caractères de la machine unix que Samba utilise."
+
 msgid "Specifies the command to be run."
 msgstr "Indiquer la commande à exécuter."
 
@@ -11200,6 +11229,9 @@ msgstr ""
 "L'attribut \"Minimum Spares Remaining\" (restant minimum de réserve) indique "
 "le nombre de blocs de réserve restant comme un pourcentage du nombre total "
 "de blocs de réserve disponibles."
+
+msgid "The NetBIOS name of this Samba server."
+msgstr "Le nom NetBIOS de ce serveur Samba."
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12333,6 +12365,13 @@ msgstr ""
 "système."
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+"Cette option affecte la réponse des clients à Samba et constitue l'un des "
+"paramètres les plus importants du fichier smb.conf."
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -12566,6 +12605,30 @@ msgstr ""
 "Ce paramètre contrôle la version de protocole minimum que le serveur "
 "permettra au client d'utiliser."
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+"Ceci spécifie un nom de groupe UNIX qui sera attribué en tant que groupe "
+"principal par défaut pour tous les utilisateurs se connectant à ce service. "
+"Ceci est utile pour partager des fichiers en s'assurant que tous les accès "
+"aux fichiers du service utilisent le groupe nommé pour la vérification de "
+"leurs autorisations."
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+"Ceci spécifie un nom d'utilisateur UNIX qui sera attribué en tant "
+"qu'utilisateur par défaut pour tous les utilisateurs se connectant à ce "
+"service. Ceci est utile pour partager des fichiers. Vous devez également "
+"l'utiliser avec précaution car une utilisation incorrecte peut entraîner des "
+"problèmes de sécurité."
+
 msgid "This tag already exists."
 msgstr "Le tag existe déjà."
 
@@ -12723,9 +12786,6 @@ msgstr ""
 "Pour obtenir plus d'informations pour configurer votre onduleur s'il vous "
 "plaît vérifier la Documentation NUT (Network UPS Tools)"
 
-msgid "To increase CIFS performance try the following:"
-msgstr "Pour augmenter les performances CIFS essayez ce qui suit:"
-
 msgid "To match any IP address leave this field empty."
 msgstr ""
 "Laisser ce champ vide pour signifier toutes les adresses IP (ie any)."
@@ -12812,6 +12872,9 @@ msgstr "Changer d'état les Travaux Rsync Sélectionnés"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "Changer d'état les Modules Rsync Sélectionnés"
+
+msgid "Toggle Selected Samba Shares"
+msgstr "Changer d'état les partages Samba sélectionnés"
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Changer d'état les paramètres sysctl sélectionnés"
@@ -13366,17 +13429,18 @@ msgstr ""
 "(077 par défaut)."
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"Utilisez cette option pour imposer le nom d'utilisateur ('ftp' par défaut) "
-"qui va être utilisé pour accéder aux services spécifiés comme invités. Tout "
-"privilège accordé à cet utilisateur sera disponible pour chaque client se "
-"connectant au service d'invités. Cet utilisateur doit exister dans le "
-"répertoire des mots de passe, mais n'a pas besoin d'une connexion valide."
+"Utilisez cette option pour remplacer le nom d'utilisateur (\"ftp\" par "
+"défaut) qui sera utilisé pour accéder aux services spécifiés en tant "
+"qu'invité. Quels que soient les privilèges de cet utilisateur, ils seront "
+"disponibles pour tout client se connectant au service invité. Cet "
+"utilisateur doit exister dans le fichier de mots de passe, mais ne nécessite "
+"pas de connexion valide."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
@@ -13690,6 +13754,9 @@ msgstr "Le WLAN est protégé"
 msgid "WLAN is unlocked"
 msgstr "Le WLAN est déverrouillé"
 
+msgid "WORKGROUP"
+msgstr "GROUPE DE TRAVAIL"
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -13784,9 +13851,9 @@ msgstr ""
 "additionnels ne supportant pas le volume HAST ne pourront pas être utilisés."
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
-"Quand Samba Active Directory est activé le partage local CIFS/SMB ne peut "
+"Lorsque Samba AD est activé, le partage de fichiers SMB autonome ne peut pas "
 "être utilisé."
 
 msgid ""
@@ -14245,6 +14312,9 @@ msgstr "n/a"
 msgid "network traffic"
 msgstr "trafic réseau"
 
+msgid "no"
+msgstr "aucun"
+
 msgid "no pools available"
 msgstr "pas de pools disponibles"
 
@@ -14307,6 +14377,9 @@ msgstr "Configuration du journal système"
 msgid "tcsh - TENEX C Shell"
 msgstr "tcsh - TENEX C Shell"
 
+msgid "testparm"
+msgstr "testparm (test config Samba)"
+
 msgid "to"
 msgstr "à"
 
@@ -14318,3 +14391,68 @@ msgstr "inconnu"
 
 msgid "visible"
 msgstr "visible"
+
+msgid "yes"
+msgstr "oui"
+
+#~ msgid "ALL Interfaces"
+#~ msgstr "Toutes les interfaces"
+
+#~ msgid "Allows the server to try and become a local master browser."
+#~ msgstr ""
+#~ "Permet au serveur d'essayer de s'enregistrer comme maître explorateur local."
+
+#~ msgid "Anonymous access has been deprecated starting from SMB2."
+#~ msgstr "L'accès anonyme a été déconseillé à partir de SMB2."
+
+#~ msgid "CIFS/SMB"
+#~ msgstr "CIFS/SMB"
+
+#~ msgid "CIFS/SMB is disabled."
+#~ msgstr "CIFS / SMB est désactivé."
+
+#~ msgid "CIFS/SMB is enabled."
+#~ msgstr "CIFS/SMB est activé"
+
+#~ msgid "Common Internet File System"
+#~ msgstr "Common Internet File System (CIFS)"
+
+#~ msgid "Dos Charset"
+#~ msgstr "Jeu de caractères DOS"
+
+#~ msgid "Enable 'Asynchronous I/O (AIO).' switch."
+#~ msgstr "Activez 'E / S asynchrones (AIO).' (bascule)."
+
+#~ msgid "Enable 'Large read/write' switch."
+#~ msgstr "Cochez : 'Activer la lecture/écriture élargie'."
+
+#~ msgid "Enable Asynchronous I/O. (AIO)."
+#~ msgstr "Activer les E / S Asynchrones. (AIO)."
+
+#~ msgid "Enable tuning switch"
+#~ msgstr "Cochez  -  Activer le réglage de certaines variables du noyau."
+
+#~ msgid "Samba Share is protected"
+#~ msgstr "Le Partage Samba est protégé"
+
+#~ msgid "To increase CIFS performance try the following:"
+#~ msgstr "Pour augmenter les performances CIFS essayez ce qui suit:"
+
+#~ msgid ""
+#~ "Use this option to override the username ('ftp' by default) which will be "
+#~ "used for access to services which are specified as guest. Whatever "
+#~ "privileges this user has will be available to any client connecting to the "
+#~ "guest service. This user must exist in the password file, but does not "
+#~ "require a valid login."
+#~ msgstr ""
+#~ "Utilisez cette option pour imposer le nom d'utilisateur ('ftp' par défaut) "
+#~ "qui va être utilisé pour accéder aux services spécifiés comme invités. Tout "
+#~ "privilège accordé à cet utilisateur sera disponible pour chaque client se "
+#~ "connectant au service d'invités. Cet utilisateur doit exister dans le "
+#~ "répertoire des mots de passe, mais n'a pas besoin d'une connexion valide."
+
+#~ msgid ""
+#~ "When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+#~ msgstr ""
+#~ "Quand Samba Active Directory est activé le partage local CIFS/SMB ne peut "
+#~ "être utilisé."

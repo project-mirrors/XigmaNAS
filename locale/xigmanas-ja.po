@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2019-01-01 17:15+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
+"X-Launchpad-Export-Date: 2019-10-15 10:17+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
@@ -424,9 +424,6 @@ msgstr "AIO 読み込みサイズ"
 msgid "AIO Write Size"
 msgstr "AIO 書き込みサイズ"
 
-msgid "ALL Interfaces"
-msgstr "全てのインターフェース"
-
 msgid "AP mode"
 msgstr "AP モード"
 
@@ -435,6 +432,9 @@ msgstr "ARP テーブル"
 
 msgid "ARP Tables List"
 msgstr "ARP テーブルリスト"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "リモートの SysLog メッセージを受け付ける"
@@ -749,6 +749,9 @@ msgstr "アドバンスドフォーマット(AF)"
 msgid "Advanced Options"
 msgstr "高度なオプション"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "高度な設定"
 
@@ -796,6 +799,9 @@ msgstr ""
 
 msgid "All"
 msgstr "全て"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下の全ての統計データが削除されます:"
@@ -884,6 +890,9 @@ msgstr ""
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "バッテリーでのUPS起動の可否"
 
@@ -899,9 +908,6 @@ msgid ""
 "Allows certain users and groups to have read-only  access  to  a share. This "
 "follows the allow option format."
 msgstr "特定のユーザ、グループが共有への読取り専用アクセス権を持つ事を可能にします。これは許可オプションのフォーマットに追従します。"
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "このサーバがローカルマスタブラウザの選出に参加する事を可能にします。"
 
 msgid "Allows to connect to a hidden network"
 msgstr "隠しネットワークの接続を許可"
@@ -1002,9 +1008,6 @@ msgstr "匿名接続"
 
 msgid "Anonymous Users"
 msgstr "匿名ユーザ"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "匿名によるアクセスはSMB2から非推奨になっています。"
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1556,15 +1559,6 @@ msgstr "CHAP ユーザ"
 msgid "CHAP-Mutual"
 msgstr ""
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB が無効になっています。"
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB が有効になっています。"
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (キリル)"
 
@@ -1861,9 +1855,6 @@ msgstr "コマンド出力:"
 
 msgid "Comment"
 msgstr "コメント"
-
-msgid "Common Internet File System"
-msgstr "Common Internet File System"
 
 msgid "Communication Error"
 msgstr ""
@@ -2416,6 +2407,14 @@ msgstr "DNSフォワーダ"
 
 msgid "DNS server is empty."
 msgstr "DNS サーバが空欄です。"
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3048,6 +3047,9 @@ msgstr ""
 msgid "Disable Selected Rsync Modules"
 msgstr ""
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3476,6 +3478,9 @@ msgstr ""
 msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -3561,6 +3566,9 @@ msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -3657,6 +3665,9 @@ msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -3772,9 +3783,6 @@ msgstr ""
 
 msgid "Done."
 msgstr "完了"
-
-msgid "Dos Charset"
-msgstr ""
 
 msgid "Download"
 msgstr "ダウンロード"
@@ -4045,12 +4053,6 @@ msgstr ""
 msgid "Enable"
 msgstr "有効"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "「非同期の I/O (AIO)」を有効にする。"
-
-msgid "Enable 'Large read/write' switch."
-msgstr ""
-
 msgid "Enable ACL inheritance."
 msgstr ""
 
@@ -4060,8 +4062,8 @@ msgstr ""
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr ""
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "非同期の I/O (AIO) を有効にする。"
+msgid "Enable Asynchronous I/O."
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "FXP プロトコルを有効にします。"
@@ -4164,6 +4166,9 @@ msgid "Enable Selected Rsync Jobs"
 msgstr ""
 
 msgid "Enable Selected Rsync Modules"
+msgstr ""
+
+msgid "Enable Selected Samba Shares"
 msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
@@ -4390,9 +4395,6 @@ msgstr "トランスコーディングを有効にします。"
 
 msgid "Enable traps."
 msgstr "トラップを有効にします。"
-
-msgid "Enable tuning switch"
-msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -5011,10 +5013,16 @@ msgstr "フロー"
 msgid "Force Delete"
 msgstr ""
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr ""
 
 msgid "Force Use"
+msgstr ""
+
+msgid "Force User"
 msgstr ""
 
 msgid "Forced Update Period"
@@ -8980,6 +8988,18 @@ msgstr ""
 msgid "SHA256, Verify"
 msgstr ""
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9022,16 +9042,19 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr ""
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Active Directory ドメインコントローラ"
 
-msgid "Samba Share is marked for deletion"
+msgid "Samba Share is locked"
 msgstr ""
 
-msgid "Samba Share is protected"
+msgid "Samba Share is marked for deletion"
 msgstr ""
 
 msgid "Samba Share is unlocked"
@@ -9896,6 +9919,9 @@ msgid ""
 "will announce it on discovery stage, but won't listen."
 msgstr ""
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "実行するコマンドを指定します。"
 
@@ -10425,6 +10451,9 @@ msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
 msgstr "最小スペア残数の属性は使用可能なスペアブロックの合計数の割合として予備ブロックの残数を示します。"
+
+msgid "The NetBIOS name of this Samba server."
+msgstr ""
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -11381,6 +11410,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -11563,6 +11597,20 @@ msgid ""
 "allow the client to use."
 msgstr "サーバーが使用を許可するプロトコルの最小バージョンを指定します。"
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr "このタグはすでに存在しています。"
 
@@ -11701,9 +11749,6 @@ msgid ""
 "(Network UPS Tools) documentation"
 msgstr ""
 
-msgid "To increase CIFS performance try the following:"
-msgstr "CIFS のパフォーマンスを上げるには、以下をお試しください。"
-
 msgid "To match any IP address leave this field empty."
 msgstr "全ての IP アドレスにマッチさせる場合は、このフィールドを空にして下さい。"
 
@@ -11786,6 +11831,9 @@ msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
 msgid "Toggle Selected Rsync Modules"
+msgstr ""
+
+msgid "Toggle Selected Samba Shares"
 msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
@@ -12297,15 +12345,12 @@ msgid "Use this option to override the file creation mask (077 by default)."
 msgstr "ファイルの creation mask (デフォルトは 077) を上書きする際は、このオプションを使用します。"
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"ゲストとして指定されたサービスへのアクセスを行った際に使用されるユーザ名 (デフォルトは 'ftp') "
-"を変更したい場合はこのオプションを使用して下さい。このユーザが持つ権限をゲストサービスとして接続している全てのクライアントは使用可能になります。このユーザ"
-"はパスワードファイル内に存在している必要がありますが、ログイン可能である必要はありません。"
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "有効/無効ボタンの代わりにトグルボタンを使用してください。"
@@ -12599,6 +12644,9 @@ msgstr ""
 msgid "WLAN is unlocked"
 msgstr ""
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -12689,8 +12737,8 @@ msgstr ""
 "HASTを有効にすると、HASTボリュームをサポートしていないローカルデバイス、ローカルサービス、追加パッケージは利用することが出来なくなります。"
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
-msgstr "Samba ADを有効にすると、スタンドアローンのCIFS/ SMBファイル共有を一緒に使用することはできません。"
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
+msgstr ""
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13103,6 +13151,9 @@ msgstr "n/a"
 msgid "network traffic"
 msgstr "ネットワークトラフィック"
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13163,6 +13214,9 @@ msgstr ""
 msgid "tcsh - TENEX C Shell"
 msgstr ""
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr "から"
 
@@ -13174,3 +13228,51 @@ msgstr ""
 
 msgid "visible"
 msgstr ""
+
+msgid "yes"
+msgstr ""
+
+#~ msgid "ALL Interfaces"
+#~ msgstr "全てのインターフェース"
+
+#~ msgid "Allows the server to try and become a local master browser."
+#~ msgstr "このサーバがローカルマスタブラウザの選出に参加する事を可能にします。"
+
+#~ msgid "Anonymous access has been deprecated starting from SMB2."
+#~ msgstr "匿名によるアクセスはSMB2から非推奨になっています。"
+
+#~ msgid "CIFS/SMB"
+#~ msgstr "CIFS/SMB"
+
+#~ msgid "CIFS/SMB is disabled."
+#~ msgstr "CIFS/SMB が無効になっています。"
+
+#~ msgid "CIFS/SMB is enabled."
+#~ msgstr "CIFS/SMB が有効になっています。"
+
+#~ msgid "Common Internet File System"
+#~ msgstr "Common Internet File System"
+
+#~ msgid ""
+#~ "Use this option to override the username ('ftp' by default) which will be "
+#~ "used for access to services which are specified as guest. Whatever "
+#~ "privileges this user has will be available to any client connecting to the "
+#~ "guest service. This user must exist in the password file, but does not "
+#~ "require a valid login."
+#~ msgstr ""
+#~ "ゲストとして指定されたサービスへのアクセスを行った際に使用されるユーザ名 (デフォルトは 'ftp') "
+#~ "を変更したい場合はこのオプションを使用して下さい。このユーザが持つ権限をゲストサービスとして接続している全てのクライアントは使用可能になります。このユーザ"
+#~ "はパスワードファイル内に存在している必要がありますが、ログイン可能である必要はありません。"
+
+#~ msgid ""
+#~ "When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+#~ msgstr "Samba ADを有効にすると、スタンドアローンのCIFS/ SMBファイル共有を一緒に使用することはできません。"
+
+#~ msgid "Enable Asynchronous I/O. (AIO)."
+#~ msgstr "非同期の I/O (AIO) を有効にする。"
+
+#~ msgid "To increase CIFS performance try the following:"
+#~ msgstr "CIFS のパフォーマンスを上げるには、以下をお試しください。"
+
+#~ msgid "Enable 'Asynchronous I/O (AIO).' switch."
+#~ msgstr "「非同期の I/O (AIO)」を有効にする。"

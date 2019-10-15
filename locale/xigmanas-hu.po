@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2019-06-26 07:03+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
+"X-Launchpad-Export-Date: 2019-10-15 10:17+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -451,9 +451,6 @@ msgstr "AIO olvasási méret"
 msgid "AIO Write Size"
 msgstr "AIO írási méret"
 
-msgid "ALL Interfaces"
-msgstr "Összes interfész"
-
 msgid "AP mode"
 msgstr "AP mód"
 
@@ -462,6 +459,9 @@ msgstr "ARP Tables"
 
 msgid "ARP Tables List"
 msgstr "ARP táblák felsorolása"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Távoli rendszernapló-üzenetek fogadása"
@@ -776,6 +776,9 @@ msgstr "Fejlett formázás"
 msgid "Advanced Options"
 msgstr "Speciális beállítások"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "Haladó beállítások"
 
@@ -830,6 +833,9 @@ msgstr "Álnév"
 
 msgid "All"
 msgstr "Minden"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "A következő statisztikák összes adatát sikeresen törölted:"
@@ -924,6 +930,9 @@ msgstr "A root bejelentkezhet ssh-n."
 msgid "Allow symlinks that point outside defined media folders."
 msgstr "A megadott médiamappákon kívülre mutató symlinkek engedélyezése."
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "Megengedi, hogy a szünetmentes elemről induljon."
 
@@ -943,9 +952,6 @@ msgid ""
 msgstr ""
 "Több felhasználónak és csoportnak megengedi, hogy csak olvasási hozzáférése "
 "legyen egy megosztáshoz. A megengedő formulát követi."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "Megengedi, hogy a szerver megpróbáljon local master browser lenni."
 
 msgid "Allows to connect to a hidden network"
 msgstr "Rejtett hálózathoz kapcsolódás engedélyezése"
@@ -1058,9 +1064,6 @@ msgstr "Névtelen kötés"
 
 msgid "Anonymous Users"
 msgstr "Névtelen felhasználók"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "Anonim hozzáférés SMB2-tól kezdve elavult."
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1644,15 +1647,6 @@ msgstr "CHAP Felhasználók"
 msgid "CHAP-Mutual"
 msgstr "CHAP-kölcsönösség"
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB ki van kapcsolva."
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB engedélyezve van."
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (cirill)"
 
@@ -1958,9 +1952,6 @@ msgstr "Parancs kimenet:"
 
 msgid "Comment"
 msgstr "Megjegyzés"
-
-msgid "Common Internet File System"
-msgstr "Common Internet File System"
 
 msgid "Communication Error"
 msgstr ""
@@ -2568,6 +2559,14 @@ msgstr "DNS továbbító"
 
 msgid "DNS server is empty."
 msgstr "DNS szerver üres."
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3226,6 +3225,9 @@ msgstr "Kijelölt Rsync feladatok törlése"
 msgid "Disable Selected Rsync Modules"
 msgstr "Kijelölt Rsync modulok törlése"
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3683,6 +3685,9 @@ msgstr "Biztos, hogy kikapcsolod a kiválasztott NFS exportokat?"
 msgid "Do you want to disable selected NFS root directories?"
 msgstr "Biztos, hogy kikapcsolod a kiválasztott NFS gyökérmappákat?"
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Biztos, hogy letiltod a kiválasztott WebDAV bejegyzéseket?"
 
@@ -3770,6 +3775,9 @@ msgstr "Biztos, hogy bekapcsolod a kiválasztott NFS exportokat?"
 
 msgid "Do you want to enable selected NFS root directories?"
 msgstr "Biztos, hogy bekapcsolod a kiválasztott NFS gyökérmappákat?"
+
+msgid "Do you want to enable selected Samba shares?"
+msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Biztos, hogy engedélyezed a kiválasztott WebDAV bejegyzéseket?"
@@ -3866,6 +3874,9 @@ msgstr "Biztos, hogy ki-, bekapcsolod a kiválasztott NFS exportokat?"
 
 msgid "Do you want to toggle selected NFS root directories?"
 msgstr "Biztos, hogy ki-, bekapcsolod a kiválasztott NFS gyökérmappákat?"
+
+msgid "Do you want to toggle selected Samba shares?"
+msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Biztos, hogy átkapcsolod a kiválasztott WebDAV bejegyzéseket?"
@@ -3981,9 +3992,6 @@ msgstr "Kész!"
 
 msgid "Done."
 msgstr "Kész."
-
-msgid "Dos Charset"
-msgstr "Dos karaktergyűjtemény"
 
 msgid "Download"
 msgstr "Letöltés"
@@ -4254,12 +4262,6 @@ msgstr "Sürgős szint"
 msgid "Enable"
 msgstr "Engedélyezés"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "'Aszinkron I/O (AIO).' kapcsoló engedélyezése."
-
-msgid "Enable 'Large read/write' switch."
-msgstr "'Óriás írás/olvasás' bekapcsolásának engedélyezése"
-
 msgid "Enable ACL inheritance."
 msgstr "ACL örökítés bekapcsolása"
 
@@ -4269,8 +4271,8 @@ msgstr "AFP bekapcsolása"
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Fejlett formázás bekapcsolása (4KB-os szektorméret)"
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "Aszinkron I/O (AIO) bekapcsolása"
+msgid "Enable Asynchronous I/O."
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "FXP protokoll engedélyezése."
@@ -4379,6 +4381,9 @@ msgstr "Kijelölt Rsync feladatok bekapcsolása"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "Kijelölt Rsync modulok bekapcsolása"
+
+msgid "Enable Selected Samba Shares"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr ""
@@ -4617,9 +4622,6 @@ msgstr "Transcoding engedélyezése."
 
 msgid "Enable traps."
 msgstr "Csapdák engedélyezése."
-
-msgid "Enable tuning switch"
-msgstr "Tuning kapcsoló engedélyezése"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -5270,11 +5272,17 @@ msgstr "Követés"
 msgid "Force Delete"
 msgstr "Törlés kikényszerítése"
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr "Művelet kikényszerrítése"
 
 msgid "Force Use"
 msgstr "Használat kierőszakolása"
+
+msgid "Force User"
+msgstr ""
 
 msgid "Forced Update Period"
 msgstr "Kierőszakolt frissítés időköze."
@@ -9436,6 +9444,18 @@ msgstr "SHA-512, Ellenőrzés"
 msgid "SHA256, Verify"
 msgstr "SHA256, ellenőrzés"
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9478,17 +9498,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "CSÍKOZÁS"
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Címtárszolgáltató Tartományvezérlő"
 
+msgid "Samba Share is locked"
+msgstr ""
+
 msgid "Samba Share is marked for deletion"
 msgstr "Samba megosztás törlésre megjelölve"
-
-msgid "Samba Share is protected"
-msgstr "Samba megosztás védett"
 
 msgid "Samba Share is unlocked"
 msgstr "A Samba megosztás zárolását feloldottad"
@@ -10448,6 +10471,9 @@ msgstr ""
 "figyelje. Ez a kiszolgáló bejelenti a portál-csoportot a felderítési "
 "szakaszban, de nem figyel rá."
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "Megadja a futtatandó parancsot."
 
@@ -11010,6 +11036,9 @@ msgstr ""
 "A 'Minimum Spares Remaining' (Minimális Hátralévő Tartalékok) attribútum "
 "jelzi a fennmaradó tartalék blokkok számát százalékban az összes "
 "rendelkezésre álló tartalék blokkhoz viszonyítva."
+
+msgid "The NetBIOS name of this Samba server."
+msgstr ""
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12099,6 +12128,11 @@ msgstr ""
 "Ez a név egyedileg azonosítja a másik szünetmentest ezen a rendszeren."
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -12327,6 +12361,20 @@ msgstr ""
 "Ez a minimális protokollverziót állítja be, amit a szerver megenged, hogy a "
 "kliens használjon."
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr "Ez az elem már létezik."
 
@@ -12482,9 +12530,6 @@ msgstr ""
 "További információért a szünetmentes beállításához olvasd el a NUT (Network "
 "UPS Tools=Hálózati Szünetmentes Eszközök) dokumentációját."
 
-msgid "To increase CIFS performance try the following:"
-msgstr "CIFS teljesítményének növeléséhez próbáld ki a következőket:"
-
 msgid "To match any IP address leave this field empty."
 msgstr "Hagyd üresen, ha minden IP címre szeretnéd ezt a szabályt."
 
@@ -12569,6 +12614,9 @@ msgstr "Kijelölt Rsync feladatok átkapcsolása"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "Kijelölt Rsync modulok átkapcsolása"
+
+msgid "Toggle Selected Samba Shares"
+msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
@@ -13114,17 +13162,12 @@ msgstr ""
 "Ezzel az opcióval felülírhatja a fájl létrehozási maszkot (alapból 077)."
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"Ezzel a beállítással felülírja a felhasználónevet ('ftp' alapértelmezés "
-"szerint), ami vendégként csatlakozik a szolgáltatásokhoz. Bármilyen joggal "
-"bír ez a felhasználó, azokkal fog csatlakozni a kliens a szolgáltatáshoz. "
-"Ennek a felhasználónak léteznie kell a jelszó fájlban, de nem szükséges, "
-"hogy legyen neki érvényes login-ja."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "Átkapcsoló gomb használata az engedélyezés/tiltás helyett."
@@ -13428,6 +13471,9 @@ msgstr "WLAN védett"
 msgid "WLAN is unlocked"
 msgstr "A WLAN zárolását feloldottad"
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -13523,10 +13569,8 @@ msgstr ""
 "használatát, nem lehet használni."
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
-"Amennyiben a Samba  AD be van kapcsolva, különálló CIFS/SMB fájlmegosztás "
-"nem használható."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13973,6 +14017,9 @@ msgstr "nem elérhető"
 msgid "network traffic"
 msgstr "Hálózati forgalom"
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr "Egy tároló sem érhető el"
 
@@ -14033,6 +14080,9 @@ msgstr "syslog.conf"
 msgid "tcsh - TENEX C Shell"
 msgstr "tcsh - TENEX C Shell"
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr "eddig:"
 
@@ -14044,3 +14094,67 @@ msgstr "ismeretlen"
 
 msgid "visible"
 msgstr "látható"
+
+msgid "yes"
+msgstr ""
+
+#~ msgid "ALL Interfaces"
+#~ msgstr "Összes interfész"
+
+#~ msgid "Allows the server to try and become a local master browser."
+#~ msgstr "Megengedi, hogy a szerver megpróbáljon local master browser lenni."
+
+#~ msgid "Anonymous access has been deprecated starting from SMB2."
+#~ msgstr "Anonim hozzáférés SMB2-tól kezdve elavult."
+
+#~ msgid "CIFS/SMB"
+#~ msgstr "CIFS/SMB"
+
+#~ msgid "CIFS/SMB is disabled."
+#~ msgstr "CIFS/SMB ki van kapcsolva."
+
+#~ msgid "CIFS/SMB is enabled."
+#~ msgstr "CIFS/SMB engedélyezve van."
+
+#~ msgid "Common Internet File System"
+#~ msgstr "Common Internet File System"
+
+#~ msgid "Dos Charset"
+#~ msgstr "Dos karaktergyűjtemény"
+
+#~ msgid "Enable 'Asynchronous I/O (AIO).' switch."
+#~ msgstr "'Aszinkron I/O (AIO).' kapcsoló engedélyezése."
+
+#~ msgid "Enable 'Large read/write' switch."
+#~ msgstr "'Óriás írás/olvasás' bekapcsolásának engedélyezése"
+
+#~ msgid "Enable Asynchronous I/O. (AIO)."
+#~ msgstr "Aszinkron I/O (AIO) bekapcsolása"
+
+#~ msgid "Enable tuning switch"
+#~ msgstr "Tuning kapcsoló engedélyezése"
+
+#~ msgid "Samba Share is protected"
+#~ msgstr "Samba megosztás védett"
+
+#~ msgid "To increase CIFS performance try the following:"
+#~ msgstr "CIFS teljesítményének növeléséhez próbáld ki a következőket:"
+
+#~ msgid ""
+#~ "Use this option to override the username ('ftp' by default) which will be "
+#~ "used for access to services which are specified as guest. Whatever "
+#~ "privileges this user has will be available to any client connecting to the "
+#~ "guest service. This user must exist in the password file, but does not "
+#~ "require a valid login."
+#~ msgstr ""
+#~ "Ezzel a beállítással felülírja a felhasználónevet ('ftp' alapértelmezés "
+#~ "szerint), ami vendégként csatlakozik a szolgáltatásokhoz. Bármilyen joggal "
+#~ "bír ez a felhasználó, azokkal fog csatlakozni a kliens a szolgáltatáshoz. "
+#~ "Ennek a felhasználónak léteznie kell a jelszó fájlban, de nem szükséges, "
+#~ "hogy legyen neki érvényes login-ja."
+
+#~ msgid ""
+#~ "When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+#~ msgstr ""
+#~ "Amennyiben a Samba  AD be van kapcsolva, különálló CIFS/SMB fájlmegosztás "
+#~ "nem használható."

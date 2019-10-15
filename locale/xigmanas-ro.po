@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
+"X-Launchpad-Export-Date: 2019-10-15 10:17+0000\n"
 "X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -465,9 +465,6 @@ msgstr "Dimensiune AIO la citire"
 msgid "AIO Write Size"
 msgstr "Dimensiune AIO la scriere"
 
-msgid "ALL Interfaces"
-msgstr "TOATE interfețele"
-
 msgid "AP mode"
 msgstr "Mod AP"
 
@@ -476,6 +473,9 @@ msgstr "Tabele ARP"
 
 msgid "ARP Tables List"
 msgstr "Lista tabele ARP"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Acceptă mesaje remote syslog."
@@ -790,6 +790,9 @@ msgstr "Format avansat"
 msgid "Advanced Options"
 msgstr "Opțiuni Avansate"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "Setări avansate"
 
@@ -845,6 +848,9 @@ msgstr "Alias"
 
 msgid "All"
 msgstr "Toate"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Toate datele pentru următoarele statistici au fost șterse:"
@@ -937,6 +943,9 @@ msgstr "Permisiune autentificare root via ssh."
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "Permisiune pornire UPS pe acumulator"
 
@@ -956,9 +965,6 @@ msgid ""
 msgstr ""
 "Permite unor utilizatori și grupuri accesul la resursa partajată în mod "
 "citire. Conform cu formatul opțiunii allow."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "Permite serverului să încerce să devină un Master Browser local."
 
 msgid "Allows to connect to a hidden network"
 msgstr "Permite conectarea la o rețea ascunsă"
@@ -1073,9 +1079,6 @@ msgstr "Legare anonimă"
 
 msgid "Anonymous Users"
 msgstr "Utilizatori anonimi"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "Accesul anonim a fost depreciat începând cu SMB2."
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1661,15 +1664,6 @@ msgstr "Utilizator CHAP"
 msgid "CHAP-Mutual"
 msgstr "CHAP-Mutual"
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB este dezactictivată."
-
-msgid "CIFS/SMB is enabled."
-msgstr "Serviciu CIFS/SMS activat."
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Chirilică)"
 
@@ -1980,9 +1974,6 @@ msgstr "Rezultat comandă:"
 
 msgid "Comment"
 msgstr "Comentariu"
-
-msgid "Common Internet File System"
-msgstr "Sistemul de Fișiere utilizat"
 
 msgid "Communication Error"
 msgstr ""
@@ -2617,6 +2608,14 @@ msgstr "Forwarder DNS"
 
 msgid "DNS server is empty."
 msgstr "Serverul DNS este nul."
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3275,6 +3274,9 @@ msgstr "Dezactivare joburi Rsync selectate"
 msgid "Disable Selected Rsync Modules"
 msgstr "Dezactivare module Rsync selectate"
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3720,6 +3722,9 @@ msgstr ""
 msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Doriți să dezactivați înregistrările WebDAV selectate?"
 
@@ -3805,6 +3810,9 @@ msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -3901,6 +3909,9 @@ msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -4016,9 +4027,6 @@ msgstr "Gata!"
 
 msgid "Done."
 msgstr "Gata."
-
-msgid "Dos Charset"
-msgstr "Set de caractere Dos"
 
 msgid "Download"
 msgstr "Descărcare"
@@ -4291,12 +4299,6 @@ msgstr "Nivel de urgență"
 msgid "Enable"
 msgstr "Activare"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "Activare opțiune ”I/O asincrone”."
-
-msgid "Enable 'Large read/write' switch."
-msgstr "Avtivare opțiune 'Citire/Scriere blocuri mari'"
-
 msgid "Enable ACL inheritance."
 msgstr "Activare propagare ACL."
 
@@ -4306,8 +4308,8 @@ msgstr ""
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Activare Advanced Format (sectoare de 4KB)."
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "Activare I/O asincrone (AIO)."
+msgid "Enable Asynchronous I/O."
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "Activare protocol FXP."
@@ -4413,6 +4415,9 @@ msgstr "Activare joburi Rsync selectate"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "Activare module Rsync selectate"
+
+msgid "Enable Selected Samba Shares"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr ""
@@ -4655,9 +4660,6 @@ msgstr "Activare transcodare."
 
 msgid "Enable traps."
 msgstr "Activare capcane software (traps)."
-
-msgid "Enable tuning switch"
-msgstr "Activare opțiuni optimizare"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Activare fundal alb (implicit fundalul este negru)."
@@ -5305,11 +5307,17 @@ msgstr "Urmărire"
 msgid "Force Delete"
 msgstr "Forțare ștergere"
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr "Forțare operațiune"
 
 msgid "Force Use"
 msgstr "Forțare utilizare"
+
+msgid "Force User"
+msgstr ""
 
 msgid "Forced Update Period"
 msgstr "Perioadă actualizare forțată"
@@ -9438,6 +9446,18 @@ msgstr "SHA-512, Verificare"
 msgid "SHA256, Verify"
 msgstr "SHA256, Verificare"
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9480,17 +9500,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Active Directory Domain Controller"
 
+msgid "Samba Share is locked"
+msgstr ""
+
 msgid "Samba Share is marked for deletion"
 msgstr "Partajarea Samba este marcată pentru ștergere"
-
-msgid "Samba Share is protected"
-msgstr "Partajarea Samba este protejată"
 
 msgid "Samba Share is unlocked"
 msgstr "Partajarea Samba este deblocată"
@@ -10399,6 +10422,9 @@ msgid ""
 "will announce it on discovery stage, but won't listen."
 msgstr ""
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "Introduceți aici comanda de executat."
 
@@ -10947,6 +10973,9 @@ msgid ""
 msgstr ""
 "Numărul minim de zone de rezervă pentru remapare rămase indicat ca procent "
 "raportat la numărul total de zone de rezervă."
+
+msgid "The NetBIOS name of this Samba server."
+msgstr ""
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12017,6 +12046,11 @@ msgstr ""
 "Acest nume este folosit pentru a identifica în mod unic UPS-ul secundar."
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -12247,6 +12281,20 @@ msgstr ""
 "Această opțiune stabilește protocolul minim pe care serverul îl va permite "
 "clientului să-l utilizeze."
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr "Această etichetă există deja."
 
@@ -12399,9 +12447,6 @@ msgstr ""
 "Pentru a obține informații detaliate despre cum poate fi configurat UPS-ul "
 "verificați documentația NUT (Network UPS Tools)"
 
-msgid "To increase CIFS performance try the following:"
-msgstr "Pentru a crește performanța CIFS incercați următoarele:"
-
 msgid "To match any IP address leave this field empty."
 msgstr "Pentru a permite orice adresă IP lăsați acest cîmp necompletat."
 
@@ -12487,6 +12532,9 @@ msgstr "Inversare stare selecție joburi Rsync"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "Inversare stare selecție module Rsync"
+
+msgid "Toggle Selected Samba Shares"
+msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
@@ -13031,18 +13079,12 @@ msgstr ""
 "fișierelor (implicit 0777)."
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"Folosiți această opțiune pentru a suprascrie utilizatorul implicit ('ftp'), "
-"utilizatorul specificat fiind folosit pentru accesarea serviciilor ca "
-"utilizator de tip vizitator. Toate privilegiile acestui utilizator vor fi "
-"disponibile oricărui client care se conectează la acest serviciu. "
-"Utilizatorul trebuie să fie deja definit în lista utilizatorilor cu parole "
-"dar nu este obligatoriu să aibă date valide de autentificare."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
@@ -13347,6 +13389,9 @@ msgstr "Conexiunea WLAN este protejată"
 msgid "WLAN is unlocked"
 msgstr "Conexiunea WLAN este deblocată"
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -13440,10 +13485,8 @@ msgstr ""
 "pachetele adiționale care nu suportă HAST nu pot fi folosite."
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
-"Când se activează modul Samba AD partajările de sine-stătătoare CIFS/SMB nu "
-"pot fi utilizate."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13888,6 +13931,9 @@ msgstr "n/a"
 msgid "network traffic"
 msgstr "trafic rețea"
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13948,6 +13994,9 @@ msgstr "syslog.conf"
 msgid "tcsh - TENEX C Shell"
 msgstr ""
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr "către"
 
@@ -13959,3 +14008,68 @@ msgstr ""
 
 msgid "visible"
 msgstr "vizibil"
+
+msgid "yes"
+msgstr ""
+
+#~ msgid "ALL Interfaces"
+#~ msgstr "TOATE interfețele"
+
+#~ msgid "Allows the server to try and become a local master browser."
+#~ msgstr "Permite serverului să încerce să devină un Master Browser local."
+
+#~ msgid "Anonymous access has been deprecated starting from SMB2."
+#~ msgstr "Accesul anonim a fost depreciat începând cu SMB2."
+
+#~ msgid "CIFS/SMB"
+#~ msgstr "CIFS/SMB"
+
+#~ msgid "CIFS/SMB is disabled."
+#~ msgstr "CIFS/SMB este dezactictivată."
+
+#~ msgid "CIFS/SMB is enabled."
+#~ msgstr "Serviciu CIFS/SMS activat."
+
+#~ msgid "Common Internet File System"
+#~ msgstr "Sistemul de Fișiere utilizat"
+
+#~ msgid "Dos Charset"
+#~ msgstr "Set de caractere Dos"
+
+#~ msgid "Enable 'Asynchronous I/O (AIO).' switch."
+#~ msgstr "Activare opțiune ”I/O asincrone”."
+
+#~ msgid "Enable 'Large read/write' switch."
+#~ msgstr "Avtivare opțiune 'Citire/Scriere blocuri mari'"
+
+#~ msgid "Enable Asynchronous I/O. (AIO)."
+#~ msgstr "Activare I/O asincrone (AIO)."
+
+#~ msgid "Enable tuning switch"
+#~ msgstr "Activare opțiuni optimizare"
+
+#~ msgid "Samba Share is protected"
+#~ msgstr "Partajarea Samba este protejată"
+
+#~ msgid "To increase CIFS performance try the following:"
+#~ msgstr "Pentru a crește performanța CIFS incercați următoarele:"
+
+#~ msgid ""
+#~ "Use this option to override the username ('ftp' by default) which will be "
+#~ "used for access to services which are specified as guest. Whatever "
+#~ "privileges this user has will be available to any client connecting to the "
+#~ "guest service. This user must exist in the password file, but does not "
+#~ "require a valid login."
+#~ msgstr ""
+#~ "Folosiți această opțiune pentru a suprascrie utilizatorul implicit ('ftp'), "
+#~ "utilizatorul specificat fiind folosit pentru accesarea serviciilor ca "
+#~ "utilizator de tip vizitator. Toate privilegiile acestui utilizator vor fi "
+#~ "disponibile oricărui client care se conectează la acest serviciu. "
+#~ "Utilizatorul trebuie să fie deja definit în lista utilizatorilor cu parole "
+#~ "dar nu este obligatoriu să aibă date valide de autentificare."
+
+#~ msgid ""
+#~ "When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+#~ msgstr ""
+#~ "Când se activează modul Samba AD partajările de sine-stătătoare CIFS/SMB nu "
+#~ "pot fi utilizate."
