@@ -93,12 +93,15 @@ $(window).on("load",function() {
 });
 //]]>
 </script>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="diag_log.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Log');?></span></a></li>
-		<li class="tabinact"><a href="diag_log_settings.php"><span><?=gtext('Settings');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
+<?php
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('diag_log.php',gettext('Log'),gettext('Reload page'),true)->
+			ins_tabnav_record('diag_log_settings.php',gettext('Settings'));
+$document->render();
+?>
 <form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 	<table class="area_data_selection">
 		<colgroup>
@@ -112,7 +115,7 @@ $(window).on("load",function() {
 		</thead>
 		<tbody class="donothighlight"><tr><td>
 			<select id="log" class="formfld" name="log">
-<?php 
+<?php
 				foreach($loginfo as $loginfo_key => $loginfo_val):
 					if(false !== $loginfo_val['visible']):
 						echo '<option value="',$loginfo_key,'"';
@@ -146,7 +149,6 @@ $(window).on("load",function() {
 			echo '</colgroup>';
 		endif;
 ?>
-		
 		<thead>
 <?php
 			$columns = 0;
@@ -170,14 +172,14 @@ $(window).on("load",function() {
 <?php
 			$content_array = log_get_contents($loginfo[$log]['logfile'],$loginfo[$log]['type']);
 			if(!empty($content_array)):
-				// Create table data
+//				Create table data
 				foreach ($content_array as $content_record):
-					// Skip invalid pattern matches
+//					Skip invalid pattern matches
 					$result = preg_match($loginfo[$log]['pattern'],$content_record,$matches);
 					if((false === $result) || (0 == $result)):
 						continue;
 					endif;
-					// Skip empty lines
+//					Skip empty lines
 					if(count($loginfo[$log]['columns']) == 1 && empty($matches[1])):
 						continue;
 					endif;
@@ -198,4 +200,3 @@ $(window).on("load",function() {
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
