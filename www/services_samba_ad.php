@@ -58,7 +58,7 @@ if(!isset($config['system']['ntp']['enable'])):
 endif;
 /*
 if (isset($config['samba']['enable'])) {
-	$errormsg .= gtext("CIFS/SMB is enabled.");
+	$errormsg .= gtext("SMB is enabled.");
 	$errormsg .= "<br/>";
 }
 */
@@ -192,7 +192,7 @@ $(document).ready(function(){
 	</div>
 	<div id="remarks">
 <?php
-		html_remark2('note',gettext('Note'),sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li><li>%s</li></ul></div>",gettext('When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used.'),gettext('NTP must be enabled.'),gettext('DHCP cannot be used for LAN interface.')));
+		html_remark2('note',gettext('Note'),sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li><li>%s</li></ul></div>",gettext('When Samba AD is enabled, stand-alone SMB file sharing cannot be used.'),gettext('NTP must be enabled.'),gettext('DHCP cannot be used for LAN interface.')));
 ?>
 	</div>
 <?php
