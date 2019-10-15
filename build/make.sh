@@ -1698,6 +1698,8 @@ copy_files() {
 	echo "===> Copy isboot-0.2.13.tar.gz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
 	echo "===> Copy istgt-20180521.tar.gz done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/SAS3IRCU_P16.zip /usr/ports/distfiles
+	echo "===> Copy SAS3IRCU_P16.zip done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
 	echo "===> Copy fuppes-0.692.tar.gz done!"
 #	Copy required ports to FreeBSD ports directory.
