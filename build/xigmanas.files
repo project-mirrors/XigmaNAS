@@ -770,6 +770,9 @@ usr/sbin/pwd_mkdb
 ## rtsold -- router solicitation daemon
 usr/sbin/rtsold:sbin/rtsol
 
+## sesutil -- Utility for managing SCSI Enclosure Services (SES) device
+usr/sbin/sesutil
+
 ##  traceroute -- print the route packets take to network host
 usr/sbin/traceroute
 
