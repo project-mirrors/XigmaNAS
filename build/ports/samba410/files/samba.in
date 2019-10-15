@@ -236,16 +236,16 @@ samba_mkconf_user_shares()
 					--value-of 'concat("hosts deny = ",hostsdeny)' --nl \
 				--break \
 				--if 'string-length(forceuser) > 0' \
-					--value-of "concat('force user = ',forceuser)" --nl \
+					--value-of 'concat("force user = ",forceuser)' --nl \
 				--break \
 				--if 'string-length(forcegroup) > 0' \
-					--value-of "concat('force group = ',forcegroup)" --nl \
+					--value-of 'concat("force group = ",forcegroup)' --nl \
 				--break \
 				--if 'string-length(createmask) > 0' \
-					--value-of "concat('create mask = ',createmask)" --nl \
+					--value-of 'concat("create mask = ",createmask)' --nl \
 				--break \
 				--if 'string-length(directorymask) > 0' \
-					--value-of "concat('directory mask = ',directorymask)" --nl \
+					--value-of 'concat("directory mask = ",directorymask)' --nl \
 				--break \
 				--match 'auxparam' \
 					--value-of '.' --nl \
