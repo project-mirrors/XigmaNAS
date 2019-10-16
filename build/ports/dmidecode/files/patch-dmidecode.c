@@ -1,5 +1,5 @@
 --- dmidecode.c.orig	2018-09-14 15:52:12.000000000 +0200
-+++ dmidecode.c	2019-10-02 00:31:11.000000000 +0200
++++ dmidecode.c	2019-10-16 17:12:44.000000000 +0200
 @@ -2,7 +2,7 @@
   * DMI Decode
   *
@@ -17,7 +17,22 @@
  
  #ifdef __FreeBSD__
  #include <errno.h>
-@@ -2469,10 +2470,11 @@
+@@ -1900,10 +1901,12 @@
+ 		"Other", /* 0x01 */
+ 		"Unknown",
+ 		"Short",
+-		"Long" /* 0x04 */
++		"Long",
++		"2.5\" drive form factor",
++		"3.5\" drive form factor" /* 0x06 */
+ 	};
+ 
+-	if (code >= 0x01 && code <= 0x04)
++	if (code >= 0x01 && code <= 0x06)
+ 		return length[code - 0x01];
+ 	return out_of_spec;
+ }
+@@ -2469,10 +2472,11 @@
  		"LPDDR",
  		"LPDDR2",
  		"LPDDR3",
@@ -31,7 +46,7 @@
  		return type[code - 0x01];
  	return out_of_spec;
  }
-@@ -3609,7 +3611,7 @@
+@@ -3609,7 +3613,7 @@
  		hname = out_of_spec;
  		hlen = strlen(out_of_spec);
  	}
@@ -40,7 +55,7 @@
  }
  
  /*
-@@ -4990,7 +4992,7 @@
+@@ -4990,7 +4994,7 @@
  			printf("\tVendor ID:");
  			dmi_tpm_vendor_id(data + 0x04);
  			printf("\n");
@@ -49,7 +64,7 @@
  			switch (data[0x08])
  			{
  				case 0x01:
-@@ -5013,7 +5015,7 @@
+@@ -5013,7 +5017,7 @@
  					 */
  					break;
  			}
@@ -58,7 +73,7 @@
  			printf("\tCharacteristics:\n");
  			dmi_tpm_characteristics(QWORD(data + 0x13), "\t\t");
  			if (h->length < 0x1F) break;
-@@ -5534,7 +5536,7 @@
+@@ -5534,7 +5538,7 @@
  	off_t fp;
  	size_t size;
  	int efi;
@@ -67,7 +82,7 @@
  
  	/*
  	 * We don't want stdout and stderr to be mixed up if both are
-@@ -5638,7 +5640,7 @@
+@@ -5638,7 +5642,7 @@
  			printf("Failed to get SMBIOS data from sysfs.\n");
  	}
  
@@ -76,7 +91,7 @@
  	efi = address_from_efi(&fp);
  	switch (efi)
  	{
-@@ -5671,6 +5673,7 @@
+@@ -5671,6 +5675,7 @@
  	goto done;
  
  memory_scan:
@@ -84,7 +99,7 @@
  	if (!(opt.flags & FLAG_QUIET))
  		printf("Scanning %s for entry point.\n", opt.devmem);
  	/* Fallback to memory scan (x86, x86_64) */
-@@ -5713,6 +5716,7 @@
+@@ -5713,6 +5718,7 @@
  			}
  		}
  	}
