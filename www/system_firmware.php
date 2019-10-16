@@ -108,117 +108,148 @@ function simplexml_load_file_from_url($url,$timeout = 5) {
 	endif;
 	return false;
 }
-function get_path_version($rss) {
-	$version = get_product_version();
-	$resp = "$version";
-	// e.g. version = 9.1.0.1 -> 9001, 0001
-	if(preg_match("/^.*(\d+)\.(\d+)\.(\d)\.(\d).*$/",$version,$m)):
-		$os_ver = $m[1] * 1000 + $m[2];
-		$pd_ver = $m[3] * 1000 + $m[4];
+function check_firmware_version_rss($locale) {
+	$resp = [
+		'osmajor' => [],
+		'osminor' => [],
+		'productmajor' => [],
+		'productminor' => [],
+		'productrevision' => [],
+		'beta' => [],
+		'nightly' => []
+	];
+	$current_version = trim(get_product_version());
+	if(preg_match('/^([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)$/',$current_version,$current_version_grid)):
+		$os_major = $current_version_grid[1];
+		$os_minor = $current_version_grid[2];
+		$product_major = $current_version_grid[3];
+		$product_minor = $current_version_grid[4];
 	else:
 		return $resp;
 	endif;
-	$xml = simplexml_load_file_from_url($rss);
+	$product_revision = get_product_revision();
+	$rss_url = 'https://sourceforge.net/projects/xigmanas/rss?path=/';
+	$xml = simplexml_load_file_from_url($rss_url);
 	if(empty($xml)):
+		$resp['productrevision'][] = gettext('No online information available.');
 		return $resp;
 	endif;
 	if(empty($xml->channel)):
+		$resp['productrevision'][] = gettext('No online information available.');
 		return $resp;
 	endif;
+	$product_name_regex = preg_quote(get_product_name());
+	$platform_type_regex = preg_quote(get_platform_type());
+	$dir_release_regex = sprintf('%s\-([1-9][0-9]*)\.([0-9]+)\.([0-9]+)\.([0-9]+)',$product_name_regex);
+	$dir_beta_regex = sprintf('%s\-Beta',$product_name_regex);
+	$dir_nightly_regex = sprintf('%s\-Nightly_Builds',$product_name_regex);
+	$dir_2_regex = '([1-9][0-9]*)\.([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]+)';
+	$file_regex = sprintf('%s\-%s\-%s.*',$product_name_regex,$platform_type_regex,$dir_2_regex);
+	$releases_regex = '/^\/' . $dir_release_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';
+	$beta_regex = '/^\/' . $dir_beta_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';;
+	$nightly_regex = '/^\/' . $dir_nightly_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';;
+/*
+	offset for regular, subtract 4 for beta and nightly
+	01,05,10: Operating system major version
+	02,06,11: Operating system minor version
+	03,07,12: Product major version
+	04,08,13: Product minor version
+	09,14: Product revision
+ */
 	foreach($xml->channel->item as $item):
-		$title = $item->title;
-		$parts = pathinfo($title);
-		if($parts['dirname'] === "/"):
-			if(preg_match("/^.*(\d+)\.(\d+)\.(\d)\.(\d).*$/",$parts['basename'],$m)):
-				$os_ver2 = $m[1] * 1000 + $m[2];
-				$pd_ver2 = $m[3] * 1000 + $m[4];
-				$rss_version = sprintf("%d.%d.%d.%d",$m[1],$m[2],$m[3],$m[4]);
-				// Compare with rss version, equal or greater?
-				if($os_ver2 > $os_ver || ($os_ver2 == $os_ver && $pd_ver2 >= $pd_ver)):
-					$resp = $rss_version;
-					break;
-				endif;
-			endif;
-		endif;
-	endforeach;
-	return $resp;
-}
-function get_latest_file($rss) {
-	global $g;
-	$product = get_product_name();
-	$platform = $g['fullplatform'];
-	$version = get_product_version();
-	$revision = get_product_revision();
-	if(preg_match("/^(.*?)(\d+)$/",$revision,$m)):
-		$revision = $m[2];
-	endif;
-	$ext = 'img';
-	$ext2 = 'xz';
-	$ext3 = 'tgz';
-	$resp = '';
-	$xml = simplexml_load_file_from_url($rss); // @simplexml_load_file($rss);
-	if(empty($xml)):
-		return $resp;
-	endif;
-	if(empty($xml->channel)):
-		return $resp;
-	endif;
-	foreach($xml->channel->item as $item):
-		$link = $item->link;
-		$title = $item->title;
-		$pubdate = $item->pubDate;
-		$parts = pathinfo($title);
-		//	convert to local time
-		$date = preg_replace('/UT$/','GMT',$pubdate);
-		$time = strtotime($date);
-		if($time === false):
-			//	convert error
-			$date = $pubdate;
-		else:
-			$date = get_datetime_locale($time);
-		endif;
-		if(empty($parts['extension'])):
-			continue;
-		endif;
-		if(strcasecmp($parts['extension'],$ext) != 0 && strcasecmp($parts['extension'],$ext2) != 0 && strcasecmp($parts['extension'],$ext3) != 0):
-			continue;
-		endif;
-		$filename = $parts['filename'];
-		$fullname = $parts['filename'] . '.' . $parts['extension'];
-		if(preg_match("/^{$product}-{$platform}-(.*?)\.(\d+)(\.img)?$/",$filename,$m)):
-			$filever = $m[1];
-			$filerev = $m[2];
-			if($version < $filever || ($version == $filever && $revision < $filerev)):
-				$resp .= sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
+//		scan releases
+		unset($grid);
+		if(preg_match($releases_regex,$item->title,$grid)):
+			$link = $item->link;
+			$title = $item->title;
+			$fqfn = pathinfo($title);
+			$fullname = $fqfn['basename'];
+			$pubdate = $item->pubDate;
+//			try to convert to local time
+			$date = preg_replace('/UT$/','GMT',$pubdate);
+			$time = strtotime($date);
+			if($time === false):
+				$date = $pubdate;
 			else:
-				$resp .= sprintf('%s (%s)',htmlspecialchars($fullname),htmlspecialchars($date));
+				$date = get_datetime_locale($time);
 			endif;
-			break;
+			$release = sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
+			switch($os_major <=> $grid[10]):
+				case -1:
+					$resp['osmajor'][$fullname] = $release;
+					break;
+				case 0:
+					switch($os_minor <=> $grid[11]):
+						case -1:
+							$resp['osminor'][$fullname] = $release;
+							break;
+						case 0:
+							switch($product_major <=> $grid[12]):
+								case -1:
+									$resp['productmajor'][$fullname] = $release;
+									break;
+								case 0:
+									switch($product_minor <=> $grid[13]):
+										case -1:
+											$resp['productminor'][$fullname] = $release;
+											break;
+										case 0:
+											switch($product_revision <=> $grid[14]):
+												case -1:
+													$resp['productrevision'][$fullname] = $release;
+													break;
+											endswitch;
+											break;
+									endswitch;
+									break;
+							endswitch;
+							break;
+					endswitch;
+					break;
+			endswitch;
+		elseif(preg_match($beta_regex,$item->title,$grid)):
+//			scan beta
+			$link = $item->link;
+			$title = $item->title;
+			$fqfn = pathinfo($title);
+			$fullname = $fqfn['basename'];
+			$pubdate = $item->pubDate;
+//			try to convert to local time
+			$date = preg_replace('/UT$/','GMT',$pubdate);
+			$time = strtotime($date);
+			if($time === false):
+				$date = $pubdate;
+			else:
+				$date = get_datetime_locale($time);
+			endif;
+			$beta = sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
+			$resp['beta'][$fullname] = $beta;
+		elseif(preg_match($nightly_regex,$item->title,$grid)):
+//			scan nightly
+			$link = $item->link;
+			$title = $item->title;
+			$fqfn = pathinfo($title);
+			$fullname = $fqfn['basename'];
+			$pubdate = $item->pubDate;
+//			try to convert to local time
+			$date = preg_replace('/UT$/','GMT',$pubdate);
+			$time = strtotime($date);
+			if($time === false):
+				$date = $pubdate;
+			else:
+				$date = get_datetime_locale($time);
+			endif;
+			$nightly = sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
+			$resp['nightly'][$fullname] = $nightly;
 		endif;
 	endforeach;
-	return $resp;
-}
-function check_firmware_version_rss($locale) {
-	$rss_path = 'https://sourceforge.net/projects/xigmanas/rss?limit=40';
-	$rss_release = 'https://sourceforge.net/projects/xigmanas/rss?path=/XigmaNAS-@@VERSION@@&limit=20';
-	$rss_beta = 'https://sourceforge.net/projects/xigmanas/rss?path=/XigmaNAS-Beta&limit=20';
-	//	replace with existing version
-	$path_version = get_path_version($rss_path);
-	if(empty($path_version)):
-		return '';
-	endif;
-	$rss_release = str_replace('@@VERSION@@',$path_version,$rss_release);
-	$release = get_latest_file($rss_release);
-	$beta = get_latest_file($rss_beta);
-	$resp = '';
-	if(!empty($release)):
-		$resp .= sprintf(gtext('Latest Release: %s'),$release);
-		$resp .= "<br />\n";
-	endif;
-	if(!empty($beta)):
-		$resp .= sprintf(gtext('Latest Beta Release: %s'),$beta);
-		$resp .= "<br />\n";
-	endif;
+	krsort($resp['osmajor']);
+	krsort($resp['osminor']);
+	krsort($resp['productmajor']);
+	krsort($resp['productminor']);
+	krsort($resp['productrevision']);
+	krsort($resp['beta']);
+	krsort($resp['nightly']);
 	return $resp;
 }
 $fwupplatforms = ['embedded','full']; // platforms that support firmware updating
@@ -400,12 +431,52 @@ include 'fbegin.inc';
 				<tbody>
 <?php
 					html_text2('currentversion',gettext('Current Version'),sprintf('%s %s (%s)',get_product_name(),get_product_version(),get_product_revision()));
+?>
+				</tbody>
+			</table>
+			<table class="area_data_settings">
+				<colgroup>
+					<col class="area_data_settings_col_tag">
+					<col class="area_data_settings_col_data">
+				</colgroup>
+				<thead>
+<?php
+					html_separator2();
+					html_titleline2(gettext('Online Information'));
+?>
+				</thead>
+				<tbody>
+<?php
 					if(isset($config['system']['disablefirmwarecheck'])):
 						html_text2('onlineversion',gettext('Online Information'),gettext('Firmware upgrade check has been disabled.'));
-					else:
-						if(preg_match('/\S/',$fw_info_current_osver)):
-							html_text2('onlineversion',gettext('Online Information'),$fw_info_current_osver);
+					elseif(is_string($fw_info_current_osver) && preg_match('/\S/',$fw_info_current_osver)):
+						html_text2('onlineversion',gettext('Online Information'),$fw_info_current_osver);
+					elseif(is_array($fw_info_current_osver)):
+						if(empty($fw_info_current_osver['productrevision'])):
+							html_text2('onlineversion',gettext('Regular Product Updates'),gettext('There are no regular product updates available.'));
+						else:
+							html_text2('onlineversion',gettext('Regular Product Updates'),implode('<br />',$fw_info_current_osver['productrevision']));
 						endif;
+						if(!empty($fw_info_current_osver['productminor'])):
+							html_text2('productminor',gettext('Product Version Updates'),implode('<br />',$fw_info_current_osver['productminor']));
+						endif;
+						if(!empty($fw_info_current_osver['productmajor'])):
+							html_text2('productmajor',gettext('Major Product Version Updates'),implode('<br />',$fw_info_current_osver['productmajor']));
+						endif;
+						if(!empty($fw_info_current_osver['osminor'])):
+							html_text2('osminor',gettext('OS Version Upgrade'),implode('<br />',$fw_info_current_osver['osminor']));
+						endif;
+						if(!empty($fw_info_current_osver['osmajor'])):
+							html_text2('osmajor',gettext('Major OS Version Upgrades'),implode('<br />',$fw_info_current_osver['osmajor']));
+						endif;
+						if(!empty($fw_info_current_osver['beta'])):
+							html_text2('beta',gettext('Beta Versions'),implode('<br />',$fw_info_current_osver['beta']));
+						endif;
+						if(!empty($fw_info_current_osver['nightly'])):
+							html_text2('nightly',gettext('Nightly Builds'),implode('<br />',$fw_info_current_osver['nightly']));
+						endif;
+					else:
+						html_text2('onlineversion',gettext('Online Information'),gettext('No online information available.'));
 					endif;
 ?>
 				</tbody>
