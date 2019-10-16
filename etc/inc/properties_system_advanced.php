@@ -88,7 +88,7 @@ class properties_system_advanced extends co_property_container {
 			set_name('consoleautologin')->
 			set_title(gettext('Console Autologin'));
 		$caption = gettext('Login user root automatically into console on boot.');
-		$description = gettext("Enabling this option may be a security risk. Anyone who can physically obtain access to this computer can gain access to all the computer's contents, including any networks it is connected to.");
+		$description = gettext("Enabling this option may be a security risk. Anyone who can physically obtain access to this server can gain access to all it's data contents, including any network it is connected to.");
 		$property->
 			set_id('consoleautologin')->
 			set_caption($caption)->
