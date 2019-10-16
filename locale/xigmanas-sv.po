@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
-"PO-Revision-Date: 2019-10-06 04:59+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"PO-Revision-Date: 2019-10-15 03:45+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -447,9 +447,6 @@ msgstr "AIO Lässtorlek"
 msgid "AIO Write Size"
 msgstr "AIO Skrivstorlek"
 
-msgid "ALL Interfaces"
-msgstr "Alla gränssnitt"
-
 msgid "AP mode"
 msgstr "AP läge"
 
@@ -458,6 +455,9 @@ msgstr "ARP Tabeller"
 
 msgid "ARP Tables List"
 msgstr "Lista ARP Tabell"
+
+msgid "ASCII"
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Acceptera externa syslogmeddelanden"
@@ -774,6 +774,9 @@ msgstr "Avancerat format"
 msgid "Advanced Options"
 msgstr "Avancerade alternativ"
 
+msgid "Advanced SMB Settings"
+msgstr "Avancerade SMB inställningar"
+
 msgid "Advanced Settings"
 msgstr "Avancerade inställningar"
 
@@ -827,6 +830,9 @@ msgstr "Alias"
 
 msgid "All"
 msgstr "Alla"
+
+msgid "All Interfaces"
+msgstr "Alla gränssnitt"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "All data från följande statistik har tagits bort"
@@ -921,6 +927,9 @@ msgstr "Tillåt rootinloggning via ssh."
 msgid "Allow symlinks that point outside defined media folders."
 msgstr "Tillåt symlänkar som pekar utanför definierad mediakatalog."
 
+msgid "Allow the server to try and become a local master browser."
+msgstr "Låt servern försöka bli en lokal master browser."
+
 msgid "Allow to start UPS from battery"
 msgstr "Tillåt att UPS:en startar på batteri"
 
@@ -940,9 +949,6 @@ msgid ""
 msgstr ""
 "Tillåt vissa användare och grupper skrivskyddad tillgång till en utdelning. "
 "Valet följer samma format som optionen 'tillåt'."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "Tillåter att servern försöker bli en \"local master browser\""
 
 msgid "Allows to connect to a hidden network"
 msgstr "Tillåt anslutning till ett dolt nätverk"
@@ -1056,9 +1062,6 @@ msgstr "Anonym koppling"
 
 msgid "Anonymous Users"
 msgstr "Anonym användare"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "Anonym åtkomst har tagits bort f.o.m. SMB2."
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1640,15 +1643,6 @@ msgstr "CHAP Användare"
 msgid "CHAP-Mutual"
 msgstr "Gemensam CHAP"
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB är inaktiverat"
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB är aktiverat."
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Kyrilliskt)"
 
@@ -1953,9 +1947,6 @@ msgstr "Kommandoutmatning:"
 
 msgid "Comment"
 msgstr "Kommentar"
-
-msgid "Common Internet File System"
-msgstr "Vanligt internet filsystem"
 
 msgid "Communication Error"
 msgstr "Kommunikationsfel"
@@ -2565,6 +2556,16 @@ msgstr "DNS vidarebefodrare"
 
 msgid "DNS server is empty."
 msgstr "DNS-server är tom."
+
+msgid "DOS Charset"
+msgstr "DOS Teckensnitt"
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+"DOS SMB klienter antar att servern har samma teckensnitt som de har. Detta "
+"alternativ anger vilket teckensnitt Samba skall prata med DOS klienter med."
 
 msgid "DVD"
 msgstr "DVD"
@@ -3221,6 +3222,9 @@ msgstr "Inaktivera valda Rsync jobb"
 msgid "Disable Selected Rsync Modules"
 msgstr "Inaktivera valda Rsync moduler"
 
+msgid "Disable Selected Samba Shares"
+msgstr "Inaktivera valda Samba utdelningar"
+
 msgid "Disable Selected Sysctl Settings"
 msgstr "Inaktivera vald Sysctl inställning"
 
@@ -3667,6 +3671,9 @@ msgstr "Vill du inaktivera valda NFS Exporter?"
 msgid "Do you want to disable selected NFS root directories?"
 msgstr "Vill du inaktivera valda NFS rootkataloger?"
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr "Vill du inaktivera valda Samba utdelningar?"
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Vill du inaktivera valda WebDAV poster?"
 
@@ -3753,6 +3760,9 @@ msgstr "Vill du aktivera valda NFS Exporter?"
 
 msgid "Do you want to enable selected NFS root directories?"
 msgstr "Vill du aktivera valda NFS rootkataloger?"
+
+msgid "Do you want to enable selected Samba shares?"
+msgstr "Vill du aktivera valda Samba utdelningar?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Vill du aktivera valda WebDAV poster?"
@@ -3849,6 +3859,9 @@ msgstr "Vill du växla valda NFS Exporter?"
 
 msgid "Do you want to toggle selected NFS root directories?"
 msgstr "Vill du växla valda NFS rootkataloger?"
+
+msgid "Do you want to toggle selected Samba shares?"
+msgstr "Vill du växla valda Samba utdelningar?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Vill du växla valda WebDAV poster?"
@@ -3963,9 +3976,6 @@ msgstr "Klar!"
 
 msgid "Done."
 msgstr "Klart."
-
-msgid "Dos Charset"
-msgstr "Dos teckenuppsättning"
 
 msgid "Download"
 msgstr "Ladda ner"
@@ -4237,12 +4247,6 @@ msgstr "Nödnivå"
 msgid "Enable"
 msgstr "Aktivera"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "Aktivera 'Asynkron I/O (AIO)' valet."
-
-msgid "Enable 'Large read/write' switch."
-msgstr "Aktivera 'Stor läs/skriv' val."
-
 msgid "Enable ACL inheritance."
 msgstr "Aktiera ACL arv. (åtkomsträttogheter)"
 
@@ -4252,8 +4256,8 @@ msgstr "Aktivera AFP"
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Aktivera avancerat format (4KB sektorstorlek)"
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "Aktivera Asynkron I/O (AIO)."
+msgid "Enable Asynchronous I/O."
+msgstr "Aktivera Asynkkron I/O."
 
 msgid "Enable FXP protocol."
 msgstr "Aktivera FXP-protokoll."
@@ -4361,6 +4365,9 @@ msgstr "Aktivera valda Rsync jbb"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "Aktivera valda Rsynk moduler"
+
+msgid "Enable Selected Samba Shares"
+msgstr "Aktivera valda Samba utdelningar"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Aktivera vald Sysctl inställning?"
@@ -4605,9 +4612,6 @@ msgstr "Aktivera omkodning."
 
 msgid "Enable traps."
 msgstr "Aktivera fällor."
-
-msgid "Enable tuning switch"
-msgstr "Aktivera tunings val"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Aktivera vit bakgrund för grafer. (svart som standard)"
@@ -5261,11 +5265,17 @@ msgstr "Följ"
 msgid "Force Delete"
 msgstr "Tvinga radering"
 
+msgid "Force Group"
+msgstr "Tvinga Grupp"
+
 msgid "Force Operation"
 msgstr "Tvinga operationen"
 
 msgid "Force Use"
 msgstr "Kräv användning"
+
+msgid "Force User"
+msgstr "Tvinga Användare"
 
 msgid "Forced Update Period"
 msgstr "Tvingande uppdateringsperiod"
@@ -9381,6 +9391,18 @@ msgstr "SHA-512, Verifiera"
 msgid "SHA256, Verify"
 msgstr "SHA256, verifiera"
 
+msgid "SMB"
+msgstr "SMB"
+
+msgid "SMB Settings"
+msgstr "SMB inställningar"
+
+msgid "SMB is disabled."
+msgstr "SMB är inaktiverat."
+
+msgid "SMB is enabled."
+msgstr "SMB är aktiverat."
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9423,17 +9445,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
+msgid "Samba"
+msgstr "Samba"
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Active Directory Domänkontrollant"
 
+msgid "Samba Share is locked"
+msgstr "Samba utdelning är låst"
+
 msgid "Samba Share is marked for deletion"
 msgstr "Sambautdelning är markerad för borttagning"
-
-msgid "Samba Share is protected"
-msgstr "Sambautdelning är skyddad"
 
 msgid "Samba Share is unlocked"
 msgstr "Sambautdelning är olåst"
@@ -10378,6 +10403,9 @@ msgstr ""
 "Anger att denna portalgrupp lyssnas på av någon annan värd. Denna värd "
 "kommer att visa den vid sökningar men inte lyssna."
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr "Anger teckensnittet som unixmaskinen som Samba körs på använder."
+
 msgid "Specifies the command to be run."
 msgstr "Specificerar kommandot som ska köras."
 
@@ -10940,6 +10968,9 @@ msgid ""
 msgstr ""
 "Minsta kvarvarande reserv attributet visar antalet kvarvarande reservblock i "
 "procent av totala antalet reservblock."
+
+msgid "The NetBIOS name of this Samba server."
+msgstr "NetBIOS namnet på denna Sambaserver."
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12028,6 +12059,13 @@ msgstr ""
 "Detta namn används för att unikt identifiera UPS två på detta system."
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+"Detta alternativ påverkar hur klienter svarar till Samba och är en av de "
+"viktigaste inställningarna i smb.conf filen."
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -12257,6 +12295,28 @@ msgstr ""
 "Denna parameter sätter den lägsta protokollnivån som servern tillåter "
 "klienten att använda."
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+"Detta anger ett UNIX gruppnamn som kommer sättas som standard primärgrupp "
+"för alla användare som ansluter till denna tjänst. Detta är användbart för "
+"delning av filer genom att säkerställa att all åtkomst till filer i tjänsten "
+"kommer använda den angivna gruppen för rättighetskontroll."
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+"Detta anger ett UNIX användarnamn som kommer sättas som standard primärgrupp "
+"för alla användare som ansluter till denna tjänst. Detta är användbart för "
+"delning av filer. Du skall använda detta med försiktighet eftersom felaktig "
+"användning kan skapa säkerhetsproblem."
+
 msgid "This tag already exists."
 msgstr "Etiketten finns redan."
 
@@ -12409,9 +12469,6 @@ msgstr ""
 "För mer information hur du konfigurerar din UPS hänvisas till NUTs (Network "
 "UPS Tools) dokumentation."
 
-msgid "To increase CIFS performance try the following:"
-msgstr "Prova följande för att öka CIFS prestanda:"
-
 msgid "To match any IP address leave this field empty."
 msgstr "För att matcha varje IP-adress lämna detta fält tomt."
 
@@ -12495,6 +12552,9 @@ msgstr "Växla valda Rsync jobb"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "Växla valda Rsync moduler"
+
+msgid "Toggle Selected Samba Shares"
+msgstr "Växla valda Sambautdelningar"
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Växla vald Sysctl inställningar"
@@ -13041,18 +13101,17 @@ msgstr ""
 "standard)."
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"Använd detta alternativ för att åsidosätta användarnamn (\"FTP\" som "
-"standard) som kommer att användas för tillgång till tjänster som "
-"specificeras för gäst. Alla privilegier den här användaren har kommer att "
-"vara tillgängliga för alla klienter som ansluter till gäst-tjänsten. Denna "
-"användare måste finnas i lösenords-filen, men kräver inte en giltig "
-"inloggning."
+"Använd detta alternativ för att överrida användarnamnet (\"ftp\" som "
+"standard) som kommer användas för åtkomst till tjänster som är angivna som "
+"gäst. Alla rättigheter som denna användare har kommer att vara tillgängliga "
+"för alla klienter som ansluter till gästtjänsten. Denna användare måste "
+"finnas med i lösenordsfilen, men behöver inte ha en giltig inloggning."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "Använd växlade knappar i stället för aktivera-/inaktiveraknappar."
@@ -13358,6 +13417,9 @@ msgstr "WLAN är skyddat"
 msgid "WLAN is unlocked"
 msgstr "WLAN är olåst"
 
+msgid "WORKGROUP"
+msgstr "ARBETSGRUPP"
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -13451,9 +13513,9 @@ msgstr ""
 "som inte stödjer HAST-volymer inte användas."
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
-"När Samba AD är aktiverat kan inte fristående CIFS/SMB fildelning användas."
+"När Samba AD är aktiverat kan inte fristående SMB fildelning användas."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13902,6 +13964,9 @@ msgstr "ej tillgängligt"
 msgid "network traffic"
 msgstr "nätverlstrafik"
 
+msgid "no"
+msgstr "nej"
+
 msgid "no pools available"
 msgstr "inga pooler tillgängliga"
 
@@ -13962,6 +14027,9 @@ msgstr "syslog.conf"
 msgid "tcsh - TENEX C Shell"
 msgstr "tcsh - TENEX C Shell"
 
+msgid "testparm"
+msgstr "testparametrar"
+
 msgid "to"
 msgstr "till"
 
@@ -13973,3 +14041,6 @@ msgstr "okänd"
 
 msgid "visible"
 msgstr "synlig"
+
+msgid "yes"
+msgstr "ja"

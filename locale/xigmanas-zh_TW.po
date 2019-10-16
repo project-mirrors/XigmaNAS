@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:36+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -414,9 +414,6 @@ msgstr "AIO讀取大小"
 msgid "AIO Write Size"
 msgstr "AIO寫入大小"
 
-msgid "ALL Interfaces"
-msgstr "全部介面"
-
 msgid "AP mode"
 msgstr "AP 模式"
 
@@ -425,6 +422,9 @@ msgstr "ARP 表"
 
 msgid "ARP Tables List"
 msgstr "ARP列表"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "接受遠程syslog消息。"
@@ -737,6 +737,9 @@ msgstr "高級格式化"
 msgid "Advanced Options"
 msgstr "高級選項"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "高級設置"
 
@@ -784,6 +787,9 @@ msgstr ""
 
 msgid "All"
 msgstr "全部"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下統計的所有數據已經被刪除："
@@ -871,6 +877,9 @@ msgstr ""
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "允許 UPS 從電池啟動"
 
@@ -886,9 +895,6 @@ msgid ""
 "Allows certain users and groups to have read-only  access  to  a share. This "
 "follows the allow option format."
 msgstr "允許特定用戶與群組可唯讀某個分享區。此選項和允許選項格式相同。"
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "允許伺服器嘗試成為本局域網主流覽器（local master browser）。"
 
 msgid "Allows to connect to a hidden network"
 msgstr "允許連接隱藏網路"
@@ -989,9 +995,6 @@ msgstr "匿名綁定"
 
 msgid "Anonymous Users"
 msgstr "匿名用戶"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "從SMB2開始匿名訪問已被廢除。"
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1539,15 +1542,6 @@ msgstr "CHAP 用戶"
 msgid "CHAP-Mutual"
 msgstr ""
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB/網上鄰居"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB被禁用"
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/ SMB 已啟用。"
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (斯拉夫文)"
 
@@ -1842,9 +1836,6 @@ msgstr "命令輸出："
 
 msgid "Comment"
 msgstr "注釋"
-
-msgid "Common Internet File System"
-msgstr "通用網路檔系統(CIFS)"
 
 msgid "Communication Error"
 msgstr ""
@@ -2395,6 +2386,14 @@ msgstr "DNS轉發器"
 
 msgid "DNS server is empty."
 msgstr "DNS伺服器是空白的。"
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3028,6 +3027,9 @@ msgstr "禁用選中的Rsync任務"
 msgid "Disable Selected Rsync Modules"
 msgstr "禁用選中的Rsync模組"
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3456,6 +3458,9 @@ msgstr ""
 msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -3541,6 +3546,9 @@ msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -3637,6 +3645,9 @@ msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -3752,9 +3763,6 @@ msgstr "完成！"
 
 msgid "Done."
 msgstr "完成。"
-
-msgid "Dos Charset"
-msgstr "Dos Charset"
 
 msgid "Download"
 msgstr "下載"
@@ -4025,12 +4033,6 @@ msgstr "緊急級別"
 msgid "Enable"
 msgstr "啟用"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "啟用“非同步I/O（AIO）”開關"
-
-msgid "Enable 'Large read/write' switch."
-msgstr "啟用“大型讀/寫”開關"
-
 msgid "Enable ACL inheritance."
 msgstr "啟用ACL繼承"
 
@@ -4040,8 +4042,8 @@ msgstr "啟用AFP"
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "啟用高級格式（4KB扇區大小）"
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "啟用非同步I/O（AIO）"
+msgid "Enable Asynchronous I/O."
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "啟用 FXP 協議。"
@@ -4145,6 +4147,9 @@ msgstr "啟用選中的Rsync任務"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "啟用選中的Rsync模組"
+
+msgid "Enable Selected Samba Shares"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr ""
@@ -4369,9 +4374,6 @@ msgstr "啟用轉碼功能。"
 
 msgid "Enable traps."
 msgstr "啟用 traps。"
-
-msgid "Enable tuning switch"
-msgstr "啟用調諧開關"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "啟用白色背景圖形。 （默認為黑色）"
@@ -4988,11 +4990,17 @@ msgstr "跟隨"
 msgid "Force Delete"
 msgstr "強制刪除"
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr "強制操作"
 
 msgid "Force Use"
 msgstr "強制使用"
+
+msgid "Force User"
+msgstr ""
 
 msgid "Forced Update Period"
 msgstr "強制更新週期"
@@ -8943,6 +8951,18 @@ msgstr "SHA-512，驗證"
 msgid "SHA256, Verify"
 msgstr "SHA256，驗證"
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -8985,17 +9005,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "條帶"
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Active Directory域控制器"
 
+msgid "Samba Share is locked"
+msgstr ""
+
 msgid "Samba Share is marked for deletion"
 msgstr "Samba共用標記為刪除"
-
-msgid "Samba Share is protected"
-msgstr "Samba共用被保護"
 
 msgid "Samba Share is unlocked"
 msgstr "Samba共用被解鎖"
@@ -9853,6 +9876,9 @@ msgid ""
 "will announce it on discovery stage, but won't listen."
 msgstr ""
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "運行指定命令。"
 
@@ -10380,6 +10406,9 @@ msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
 msgstr "“Minimum Spares Remaining”屬性指示剩餘空閒塊的數量占可用空閒塊總數的百分比。"
+
+msgid "The NetBIOS name of this Samba server."
+msgstr ""
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -11319,6 +11348,11 @@ msgid ""
 msgstr "此名稱用於唯一標識此系統上的第二個UPS。"
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -11490,6 +11524,20 @@ msgid ""
 "allow the client to use."
 msgstr "此設置控制伺服器將允許客戶端使用的最小協議版本。"
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr "此標籤已經存在。"
 
@@ -11628,9 +11676,6 @@ msgid ""
 "(Network UPS Tools) documentation"
 msgstr "要獲得有關如何配置UPS的更多資訊，請查看NUT（網路UPS工具）文檔"
 
-msgid "To increase CIFS performance try the following:"
-msgstr "要增加CIFS性能，請嘗試以下操作："
-
 msgid "To match any IP address leave this field empty."
 msgstr "要匹配任何IP地址的話，請保留此字段為空白。"
 
@@ -11714,6 +11759,9 @@ msgstr "切換所選Rsync任務"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "切換所選Rsync模組"
+
+msgid "Toggle Selected Samba Shares"
+msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
@@ -12223,14 +12271,12 @@ msgid "Use this option to override the file creation mask (077 by default)."
 msgstr "使用此選項來覆蓋新創建的檔的默認掩碼（默認為077）。"
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"設置用戶名稱（默認為'ftp'），默認許可權為guest。這個用戶所擁有的許可權也會應用在其他的服務上。您可以取消這個用戶的登錄許可權，但是千萬不能將他刪"
-"除。"
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "使用切換按鈕而不是啟用/禁用按鈕。"
@@ -12524,6 +12570,9 @@ msgstr "WALN被保護"
 msgid "WLAN is unlocked"
 msgstr "WLAN被解鎖"
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -12613,8 +12662,8 @@ msgid ""
 msgstr "當HAST 啟用時，不支援HAST 卷的本地裝置、本地服務和附加套件將不能使用。"
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
-msgstr "啟用Samba AD時，無法使用獨立的CIFS / SMB檔共用。"
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
+msgstr ""
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13026,6 +13075,9 @@ msgstr "無資料"
 msgid "network traffic"
 msgstr "網路流量"
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13086,6 +13138,9 @@ msgstr "syslog.conf"
 msgid "tcsh - TENEX C Shell"
 msgstr ""
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr "到"
 
@@ -13097,3 +13152,6 @@ msgstr ""
 
 msgid "visible"
 msgstr "可見"
+
+msgid "yes"
+msgstr ""

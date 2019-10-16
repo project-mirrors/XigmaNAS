@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -425,9 +425,6 @@ msgstr "AIO 읽기 크기"
 msgid "AIO Write Size"
 msgstr "AIO 쓰기 크기"
 
-msgid "ALL Interfaces"
-msgstr "모든 인터페이스"
-
 msgid "AP mode"
 msgstr "AP 모드"
 
@@ -436,6 +433,9 @@ msgstr "ARP 테이블"
 
 msgid "ARP Tables List"
 msgstr "ARP 테이블 리스트"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "원격 syslog 메시지 허용."
@@ -750,6 +750,9 @@ msgstr "고급 포맷"
 msgid "Advanced Options"
 msgstr "고급 옵션"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "고급 설정"
 
@@ -798,6 +801,9 @@ msgstr ""
 
 msgid "All"
 msgstr "모두"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "아래 통계에 의한 모든 자료가 삭제되었습니다:"
@@ -888,6 +894,9 @@ msgstr ""
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "베터리 상태에서 UPS 시작 허용"
 
@@ -903,9 +912,6 @@ msgid ""
 "Allows certain users and groups to have read-only  access  to  a share. This "
 "follows the allow option format."
 msgstr "특정 사용자와 그룹이 공유에 대한 읽기 전용 권한을 가지도록 합니다. 이것은 허용 옵션 포맷을 따릅니다."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "서버가 지역 마스터 브라우저가 되려고 시도하는 것을 허용"
 
 msgid "Allows to connect to a hidden network"
 msgstr "숨겨진 네트워크에 연결하는 것을 허용"
@@ -1008,9 +1014,6 @@ msgstr "익명 연결"
 
 msgid "Anonymous Users"
 msgstr "익명 사용자"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "익명 계정은 SMB2 부터 제거 예고 되었습니다."
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1561,15 +1564,6 @@ msgstr "CHAP 사용자"
 msgid "CHAP-Mutual"
 msgstr ""
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB 비활성화됨."
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB 활성화됨"
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (키릴 문자)"
 
@@ -1866,9 +1860,6 @@ msgstr "명령 출력:"
 
 msgid "Comment"
 msgstr "설명"
-
-msgid "Common Internet File System"
-msgstr "공용 인터넷 파일 시스텡"
 
 msgid "Communication Error"
 msgstr ""
@@ -2435,6 +2426,14 @@ msgstr "DNS 전달자"
 
 msgid "DNS server is empty."
 msgstr "DNS 서버가 비어 있습니다."
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3076,6 +3075,9 @@ msgstr "선택된 rsync 작업들 사용 안 함"
 msgid "Disable Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 사용 안 함"
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3504,6 +3506,9 @@ msgstr ""
 msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -3589,6 +3594,9 @@ msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -3685,6 +3693,9 @@ msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -3800,9 +3811,6 @@ msgstr ""
 
 msgid "Done."
 msgstr "완료."
-
-msgid "Dos Charset"
-msgstr "DOS 문자셋"
 
 msgid "Download"
 msgstr "다운로드"
@@ -4073,12 +4081,6 @@ msgstr "깅급 레렐"
 msgid "Enable"
 msgstr "활성화"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "비동기 I/O 사용 함(AIO)"
-
-msgid "Enable 'Large read/write' switch."
-msgstr "'대량 읽기/쓰기' 스위치 사용 함"
-
 msgid "Enable ACL inheritance."
 msgstr "ACL 상속 사용 함"
 
@@ -4088,8 +4090,8 @@ msgstr ""
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "고급 포맷 사용 함(4KB 섹터 크기)"
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "비동기 I/O 사용 함(AIO)"
+msgid "Enable Asynchronous I/O."
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "FXP 프로토콜 활성화."
@@ -4195,6 +4197,9 @@ msgstr "선택된 rsync 작업들 사용 함"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 사용 함"
+
+msgid "Enable Selected Samba Shares"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr ""
@@ -4420,9 +4425,6 @@ msgstr "트랜스코딩 활성화."
 
 msgid "Enable traps."
 msgstr "트랩 활성화."
-
-msgid "Enable tuning switch"
-msgstr "최적화 스위치 사용 함"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "흰색 배경 그래프를 사용합니다. (검정색이 기본입니다.)"
@@ -5041,11 +5043,17 @@ msgstr "Follow"
 msgid "Force Delete"
 msgstr "강제로 삭제"
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr "강제 동작"
 
 msgid "Force Use"
 msgstr "강제로 사용"
+
+msgid "Force User"
+msgstr ""
 
 msgid "Forced Update Period"
 msgstr "강제 갱신 주기"
@@ -9012,6 +9020,18 @@ msgstr "SHA-512, 검증"
 msgid "SHA256, Verify"
 msgstr "SHA256, 검증"
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9054,17 +9074,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "분산"
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Active Directory 도메인 컨트롤러"
 
+msgid "Samba Share is locked"
+msgstr ""
+
 msgid "Samba Share is marked for deletion"
 msgstr "Samba 공유 삭제 표시됨"
-
-msgid "Samba Share is protected"
-msgstr "Samba 공유 보호됨"
 
 msgid "Samba Share is unlocked"
 msgstr "Samba 공유 잠금 해제됨"
@@ -9932,6 +9955,9 @@ msgid ""
 "will announce it on discovery stage, but won't listen."
 msgstr ""
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "실행될 명령을 지정 합니다."
 
@@ -10462,6 +10488,9 @@ msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
 msgstr "최소 예비 여유 속성은 총 사용가능한 공간 중 남은 예비 블록의 수를 백분율로 나타냅니다."
+
+msgid "The NetBIOS name of this Samba server."
+msgstr ""
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -11417,6 +11446,11 @@ msgid ""
 msgstr "이 이름은 시스템의 두번째 UPS를 유일하게 식별하는 이름입니다."
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -11602,6 +11636,20 @@ msgid ""
 "allow the client to use."
 msgstr "이 설정은 서버가 허용할 클라이언트가 사용하는 최소 프로토콜 버전을 제어합니다."
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr "이 태그는 이미 존재합니다."
 
@@ -11740,9 +11788,6 @@ msgid ""
 "(Network UPS Tools) documentation"
 msgstr "UPS를 어떻게 설정하는지에 대한 더 많은 정보를 얻으려면 NUT(Network UPS Tools) 문서를 확인하십시오."
 
-msgid "To increase CIFS performance try the following:"
-msgstr "CIFS의 성능을 향상시키려면 다음을 시도하십시오:"
-
 msgid "To match any IP address leave this field empty."
 msgstr "모든 IP 주소로 설정하려면 이 난을 비워 두십시오."
 
@@ -11826,6 +11871,9 @@ msgstr "선택된 rsync 작업 전환"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 전환"
+
+msgid "Toggle Selected Samba Shares"
+msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
@@ -12337,15 +12385,12 @@ msgid "Use this option to override the file creation mask (077 by default)."
 msgstr "이 옵션을 이용해서 파일 생성 마스크를 override 합니다(기본 값은 077)."
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"손님에게 제공된 서비스에 접근하기 위해 이용될 사용자 이름(기본 값은 'ftp')을 바꿀 경우 이 옵션을 이용하십시오. 이 사용자가 가진 "
-"권한들은 손님 서비스에 연결한 클라이언트가 그대로 이용할 수 있게 될 것입니다. 이 사용자는 암호 파일에는 존재해야 하지만 유효한 "
-"로그인을 필요로 하지는 않습니다."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "사용/사용 안함 버튼 대신 전환 버튼을 사용합니다."
@@ -12641,6 +12686,9 @@ msgstr "무선 LAN 보호됨"
 msgid "WLAN is unlocked"
 msgstr "무선 LAN 잠금 해제됨"
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -12730,8 +12778,8 @@ msgid ""
 msgstr "HAST를 사용하게 되면, HAST를 지원하지 않는 로컬 장치, 로컬 서비스 및 추가 꾸러미는 사용할 수 없게 됩니다."
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
-msgstr "Samba AD를 사용하게 되면, 독립적인 CIFS/SMB 파일 공유는 사용할 수 없게 됩니다."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
+msgstr ""
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13144,6 +13192,9 @@ msgstr "n/a"
 msgid "network traffic"
 msgstr "네트워크 트래픽"
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13204,6 +13255,9 @@ msgstr ""
 msgid "tcsh - TENEX C Shell"
 msgstr ""
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr ""
 
@@ -13214,4 +13268,7 @@ msgid "unknown"
 msgstr ""
 
 msgid "visible"
+msgstr ""
+
+msgid "yes"
 msgstr ""

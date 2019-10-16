@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2019-08-30 15:52+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:28+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -465,9 +465,6 @@ msgstr "Dimensioni in lettura AIO"
 msgid "AIO Write Size"
 msgstr "Dimensioni scrittura AIO"
 
-msgid "ALL Interfaces"
-msgstr "Tutte le interfacce"
-
 msgid "AP mode"
 msgstr "modalità AP"
 
@@ -476,6 +473,9 @@ msgstr "Tabelle ARP"
 
 msgid "ARP Tables List"
 msgstr "ARP Lista tabelle"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "accettare i messaggi remoti syslog"
@@ -791,6 +791,9 @@ msgstr "Advanced Format"
 msgid "Advanced Options"
 msgstr "Opzioni Avanzate"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "Impostazioni Avanzate"
 
@@ -846,6 +849,9 @@ msgstr "Nome alternativo"
 
 msgid "All"
 msgstr "Tutto"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "I seguenti dati statistici sono stati cancellati:"
@@ -940,6 +946,9 @@ msgstr ""
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "Permetti l'avvio da batteria dell'UPS"
 
@@ -959,9 +968,6 @@ msgid ""
 msgstr ""
 "Consenti a certi utenti e gruppi di avere accesso in sola lettura ad una "
 "condivisione. Questo segue il formato dell'opzione consenti."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr "Permetti al server di diventare local master browser."
 
 msgid "Allows to connect to a hidden network"
 msgstr "Permette di collegarsi ad una network nascosta"
@@ -1076,9 +1082,6 @@ msgstr "Legame Anonimo"
 
 msgid "Anonymous Users"
 msgstr "Utente Anonimo"
-
-msgid "Anonymous access has been deprecated starting from SMB2."
-msgstr "L'accesso anonimo è stato reso obsoleto a partire da SMB2."
 
 msgid ""
 "Anonymous user download bandwith in KB/s. An empty field means infinity."
@@ -1669,15 +1672,6 @@ msgstr "Utente CHAP"
 msgid "CHAP-Mutual"
 msgstr "CHAP mutuo"
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr "CIFS/SMB è disabilitato"
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB è  attivato."
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cirillico)"
 
@@ -1988,9 +1982,6 @@ msgstr "Output del comando:"
 
 msgid "Comment"
 msgstr "Commento"
-
-msgid "Common Internet File System"
-msgstr "File System di Internet Comuni"
 
 msgid "Communication Error"
 msgstr ""
@@ -2621,6 +2612,14 @@ msgstr "Gestore ricorsivo DNS"
 
 msgid "DNS server is empty."
 msgstr "Server DNS vuoto."
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3281,6 +3280,9 @@ msgstr "Disattiva i lavori Rsync selezionati"
 msgid "Disable Selected Rsync Modules"
 msgstr "Disattiva i moduli Rsync selezionati"
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3736,6 +3738,9 @@ msgstr ""
 msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Vuoi disabilitare i record WebDAV selezionati?"
 
@@ -3821,6 +3826,9 @@ msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -3917,6 +3925,9 @@ msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -4034,9 +4045,6 @@ msgstr "Fatto!"
 
 msgid "Done."
 msgstr "Finito."
-
-msgid "Dos Charset"
-msgstr "Set di Caratteri Dos"
 
 msgid "Download"
 msgstr "Download"
@@ -4310,12 +4318,6 @@ msgstr "Livello Emergenza"
 msgid "Enable"
 msgstr "Abilita"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr "Abilita controllo 'I/O Asincrono (AIO)'"
-
-msgid "Enable 'Large read/write' switch."
-msgstr "Abilita controllo 'Large read/write'"
-
 msgid "Enable ACL inheritance."
 msgstr "Abilita ereditarietà ACL"
 
@@ -4325,8 +4327,8 @@ msgstr "Abilita AFP"
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Attiva Advanced Format (Settori da 4KB)."
 
-msgid "Enable Asynchronous I/O. (AIO)."
-msgstr "Abilita I/O Asincrono (AIO)."
+msgid "Enable Asynchronous I/O."
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "Abilita il protocollo FXP."
@@ -4435,6 +4437,9 @@ msgstr "Attiva lavori rsync selezionati"
 
 msgid "Enable Selected Rsync Modules"
 msgstr "Attiva moduli rsync selezionati"
+
+msgid "Enable Selected Samba Shares"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr ""
@@ -4674,9 +4679,6 @@ msgstr "Abilita il transcoding"
 
 msgid "Enable traps."
 msgstr "Attivare traps"
-
-msgid "Enable tuning switch"
-msgstr "Attiva il tuning"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Attiva lo sfondo binaco per i grafici. (nero di default)"
@@ -5330,11 +5332,17 @@ msgstr "Segui"
 msgid "Force Delete"
 msgstr "Forza l'eliminazione"
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr "Forzare l'operazione"
 
 msgid "Force Use"
 msgstr "Forzare l'uso"
+
+msgid "Force User"
+msgstr ""
 
 msgid "Forced Update Period"
 msgstr "Forzare il periodo di aggiornamento"
@@ -9461,6 +9469,18 @@ msgstr "SHA-512, Verifica"
 msgid "SHA256, Verify"
 msgstr "SHA256, Verifica"
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9503,17 +9523,20 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "AD samba"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr "Controller domain Active Directory di Samba"
 
+msgid "Samba Share is locked"
+msgstr ""
+
 msgid "Samba Share is marked for deletion"
 msgstr "La condivisione Samba è segnalata per la cancellazione"
-
-msgid "Samba Share is protected"
-msgstr "La condivisione Samba è protetta"
 
 msgid "Samba Share is unlocked"
 msgstr "La condivisione Samba è sbloccata"
@@ -10423,6 +10446,9 @@ msgid ""
 "will announce it on discovery stage, but won't listen."
 msgstr ""
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "Specifica il comando da eseguire."
 
@@ -10980,6 +11006,9 @@ msgstr ""
 "L'attributo Minima Scorta Rimanente indica il numero di blocchi di scorta "
 "rimanenti come percentuale del numero totale di blocchi di scorta "
 "disponibili."
+
+msgid "The NetBIOS name of this Samba server."
+msgstr ""
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12074,6 +12103,11 @@ msgstr ""
 "Questo nome è usato unicamente per identificare il secondo UPS nel sistema."
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -12311,6 +12345,20 @@ msgstr ""
 "Questo settaggio controlla la minima versione di protocollo che il server "
 "consente di usare ai client."
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr "Questo tag esiste già."
 
@@ -12463,9 +12511,6 @@ msgstr ""
 "Per ottenere maggiori informazioni sulla configurazione del UPS, controllare "
 "la documentazioen di NUT (Network UPS Tools)"
 
-msgid "To increase CIFS performance try the following:"
-msgstr "Per incrementare le prestazioni CIFS provare le seguenti:"
-
 msgid "To match any IP address leave this field empty."
 msgstr "Lasciando il campo vuoto si includono tutto gli indirizzi IP."
 
@@ -12549,6 +12594,9 @@ msgstr "Attiva le operazioni Rsync selezionate"
 
 msgid "Toggle Selected Rsync Modules"
 msgstr "Attiva i moduli Rsync selezionati"
+
+msgid "Toggle Selected Samba Shares"
+msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
@@ -13091,18 +13139,12 @@ msgstr ""
 "base)."
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
-"Utilizzare questa opzione per sostituire il nome utente ( 'ftp' per "
-"default), che viene utilizzato per l'accesso ai servizi che sono specificati "
-"come ospite. Qualunque utente con questi privilegi avra' la disponibilita' "
-"da qualsiasi client, di connettersi al servizio ospite. Questo utente deve "
-"essere presente nel file delle password,anche se non verra' richiesta "
-"nessuna autenticazione per l'accesso."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "Utilizzare l'interruttore invece che attivare/disattivare i bottoni."
@@ -13406,6 +13448,9 @@ msgstr "WLAN protetta"
 msgid "WLAN is unlocked"
 msgstr "WLAN è sbloccata"
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr "WPA"
 
@@ -13501,10 +13546,8 @@ msgstr ""
 "utilizzati."
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
-"Se Samba AD è attivato, non si può utilizzare la condivisione CIFS/SMB stand-"
-"alone."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13951,6 +13994,9 @@ msgstr "n.d."
 msgid "network traffic"
 msgstr "traffico di rete"
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -14011,6 +14057,9 @@ msgstr "syslog.conf"
 msgid "tcsh - TENEX C Shell"
 msgstr ""
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr "verso"
 
@@ -14022,3 +14071,6 @@ msgstr ""
 
 msgid "visible"
 msgstr "visibile"
+
+msgid "yes"
+msgstr ""

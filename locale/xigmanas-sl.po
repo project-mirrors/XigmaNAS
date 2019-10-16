@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-05 21:51+0000\n"
+"POT-Creation-Date: 2019-10-15 01:47+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-08 20:29+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovenian\n"
@@ -420,9 +420,6 @@ msgstr ""
 msgid "AIO Write Size"
 msgstr ""
 
-msgid "ALL Interfaces"
-msgstr "VSI vmesniki"
-
 msgid "AP mode"
 msgstr "AP način"
 
@@ -431,6 +428,9 @@ msgstr "ARP tabele"
 
 msgid "ARP Tables List"
 msgstr "ARP tabela"
+
+msgid "ASCII"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr ""
@@ -745,6 +745,9 @@ msgstr "Napreden format"
 msgid "Advanced Options"
 msgstr "Napredne možnosti"
 
+msgid "Advanced SMB Settings"
+msgstr ""
+
 msgid "Advanced Settings"
 msgstr "Napredne Nastavitve"
 
@@ -794,6 +797,9 @@ msgstr ""
 
 msgid "All"
 msgstr "Vse"
+
+msgid "All Interfaces"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr ""
@@ -883,6 +889,9 @@ msgstr ""
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
 
+msgid "Allow the server to try and become a local master browser."
+msgstr ""
+
 msgid "Allow to start UPS from battery"
 msgstr "Dovoli, da se UPS zažene na baterije."
 
@@ -898,9 +907,6 @@ msgid ""
 "Allows certain users and groups to have read-only  access  to  a share. This "
 "follows the allow option format."
 msgstr "Dovoli določenim uporabnikom in skupinam le branje deljene mape."
-
-msgid "Allows the server to try and become a local master browser."
-msgstr ""
 
 msgid "Allows to connect to a hidden network"
 msgstr ""
@@ -997,9 +1003,6 @@ msgid "Anonymous Bind"
 msgstr ""
 
 msgid "Anonymous Users"
-msgstr ""
-
-msgid "Anonymous access has been deprecated starting from SMB2."
 msgstr ""
 
 msgid ""
@@ -1554,15 +1557,6 @@ msgstr "CHAP uporabniki"
 msgid "CHAP-Mutual"
 msgstr ""
 
-msgid "CIFS/SMB"
-msgstr "CIFS/SMB"
-
-msgid "CIFS/SMB is disabled."
-msgstr ""
-
-msgid "CIFS/SMB is enabled."
-msgstr "CIFS/SMB je omogočen."
-
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (cirilica)"
 
@@ -1862,9 +1856,6 @@ msgstr "Izpis ukaza:"
 
 msgid "Comment"
 msgstr "Opomba"
-
-msgid "Common Internet File System"
-msgstr "Splošen internetni datotečni sistem (CIFS)"
 
 msgid "Communication Error"
 msgstr ""
@@ -2399,6 +2390,14 @@ msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS strežnik je prazen."
+
+msgid "DOS Charset"
+msgstr ""
+
+msgid ""
+"DOS SMB clients assume the server has the same charset as they do. This "
+"option specifies which charset Samba should talk to DOS clients."
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -3035,6 +3034,9 @@ msgstr ""
 msgid "Disable Selected Rsync Modules"
 msgstr ""
 
+msgid "Disable Selected Samba Shares"
+msgstr ""
+
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
@@ -3465,6 +3467,9 @@ msgstr ""
 msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
+msgid "Do you want to disable selected Samba shares?"
+msgstr ""
+
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
 
@@ -3550,6 +3555,9 @@ msgid "Do you want to enable selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to enable selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to enable selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to enable selected WebDAV records?"
@@ -3646,6 +3654,9 @@ msgid "Do you want to toggle selected NFS exports?"
 msgstr ""
 
 msgid "Do you want to toggle selected NFS root directories?"
+msgstr ""
+
+msgid "Do you want to toggle selected Samba shares?"
 msgstr ""
 
 msgid "Do you want to toggle selected WebDAV records?"
@@ -3761,9 +3772,6 @@ msgstr ""
 
 msgid "Done."
 msgstr "Opravljeno."
-
-msgid "Dos Charset"
-msgstr ""
 
 msgid "Download"
 msgstr "Prenos"
@@ -4034,12 +4042,6 @@ msgstr ""
 msgid "Enable"
 msgstr "Omogoči"
 
-msgid "Enable 'Asynchronous I/O (AIO).' switch."
-msgstr ""
-
-msgid "Enable 'Large read/write' switch."
-msgstr "Omogoči stikalo 'veliko branje/pisanje'"
-
 msgid "Enable ACL inheritance."
 msgstr ""
 
@@ -4049,7 +4051,7 @@ msgstr ""
 msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr ""
 
-msgid "Enable Asynchronous I/O. (AIO)."
+msgid "Enable Asynchronous I/O."
 msgstr ""
 
 msgid "Enable FXP protocol."
@@ -4153,6 +4155,9 @@ msgid "Enable Selected Rsync Jobs"
 msgstr ""
 
 msgid "Enable Selected Rsync Modules"
+msgstr ""
+
+msgid "Enable Selected Samba Shares"
 msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
@@ -4380,9 +4385,6 @@ msgstr "Omogoči transkodiranje."
 
 msgid "Enable traps."
 msgstr "Omogoči pasti."
-
-msgid "Enable tuning switch"
-msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -5008,10 +5010,16 @@ msgstr "Sledi"
 msgid "Force Delete"
 msgstr ""
 
+msgid "Force Group"
+msgstr ""
+
 msgid "Force Operation"
 msgstr ""
 
 msgid "Force Use"
+msgstr ""
+
+msgid "Force User"
 msgstr ""
 
 msgid "Forced Update Period"
@@ -8997,6 +9005,18 @@ msgstr ""
 msgid "SHA256, Verify"
 msgstr ""
 
+msgid "SMB"
+msgstr ""
+
+msgid "SMB Settings"
+msgstr ""
+
+msgid "SMB is disabled."
+msgstr ""
+
+msgid "SMB is enabled."
+msgstr ""
+
 msgid "SMB2"
 msgstr "SMB2"
 
@@ -9039,16 +9059,19 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
+msgid "Samba"
+msgstr ""
+
 msgid "Samba AD"
 msgstr "Samba AD"
 
 msgid "Samba Active Directory Domain Controller"
 msgstr ""
 
-msgid "Samba Share is marked for deletion"
+msgid "Samba Share is locked"
 msgstr ""
 
-msgid "Samba Share is protected"
+msgid "Samba Share is marked for deletion"
 msgstr ""
 
 msgid "Samba Share is unlocked"
@@ -9914,6 +9937,9 @@ msgid ""
 "will announce it on discovery stage, but won't listen."
 msgstr ""
 
+msgid "Specifies the charset the unix machine Samba runs on uses."
+msgstr ""
+
 msgid "Specifies the command to be run."
 msgstr "Določi ukaz, ki se naj izvede."
 
@@ -10448,6 +10474,9 @@ msgstr ""
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
 "spare blocks as a percentage of the total number of spare blocks available."
+msgstr ""
+
+msgid "The NetBIOS name of this Samba server."
 msgstr ""
 
 msgid ""
@@ -11388,6 +11417,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"This option affects how clients respond to Samba and is one of the most "
+"important settings in the smb.conf file."
+msgstr ""
+
+msgid ""
 "This option allows the users and groups that access a share to be specified. "
 "Users and groups are specified, delimited by commas. Groups are designated "
 "by a @ prefix."
@@ -11552,6 +11586,20 @@ msgid ""
 "allow the client to use."
 msgstr ""
 
+msgid ""
+"This specifies a UNIX group name that will be assigned as the default "
+"primary group for all users connecting to this service. This is useful for "
+"sharing files by ensuring that all access to files on service will use the "
+"named group for their permissions checking."
+msgstr ""
+
+msgid ""
+"This specifies a UNIX user name that will be assigned as the default user "
+"for all users connecting to this service. This is useful for sharing files. "
+"You should also use it carefully as using it incorrectly can cause security "
+"problems."
+msgstr ""
+
 msgid "This tag already exists."
 msgstr ""
 
@@ -11690,9 +11738,6 @@ msgid ""
 "(Network UPS Tools) documentation"
 msgstr ""
 
-msgid "To increase CIFS performance try the following:"
-msgstr ""
-
 msgid "To match any IP address leave this field empty."
 msgstr ""
 
@@ -11775,6 +11820,9 @@ msgid "Toggle Selected Rsync Jobs"
 msgstr ""
 
 msgid "Toggle Selected Rsync Modules"
+msgstr ""
+
+msgid "Toggle Selected Samba Shares"
 msgstr ""
 
 msgid "Toggle Selected Sysctl Settings"
@@ -12285,7 +12333,7 @@ msgid "Use this option to override the file creation mask (077 by default)."
 msgstr ""
 
 msgid ""
-"Use this option to override the username ('ftp' by default) which will be "
+"Use this option to override the username (\"ftp\" by default) which will be "
 "used for access to services which are specified as guest. Whatever "
 "privileges this user has will be available to any client connecting to the "
 "guest service. This user must exist in the password file, but does not "
@@ -12584,6 +12632,9 @@ msgstr ""
 msgid "WLAN is unlocked"
 msgstr ""
 
+msgid "WORKGROUP"
+msgstr ""
+
 msgid "WPA"
 msgstr ""
 
@@ -12673,7 +12724,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
+"When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
 
 msgid ""
@@ -13086,6 +13137,9 @@ msgstr "ni na voljo"
 msgid "network traffic"
 msgstr ""
 
+msgid "no"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13146,6 +13200,9 @@ msgstr ""
 msgid "tcsh - TENEX C Shell"
 msgstr ""
 
+msgid "testparm"
+msgstr ""
+
 msgid "to"
 msgstr ""
 
@@ -13156,4 +13213,7 @@ msgid "unknown"
 msgstr ""
 
 msgid "visible"
+msgstr ""
+
+msgid "yes"
 msgstr ""
