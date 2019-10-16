@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-15 10:16+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -13154,15 +13154,3 @@ msgstr "görünür"
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "ALL Interfaces"
-#~ msgstr "Tüm Arayüzler"
-
-#~ msgid "CIFS/SMB"
-#~ msgstr "CIFS/SMB"
-
-#~ msgid "Common Internet File System"
-#~ msgstr "Ortak İnternet Dosya Sistemi"
-
-#~ msgid "Allows the server to try and become a local master browser."
-#~ msgstr "Sunucunun yerel ana tarayıcı olmaya çalışmasına izin ver."

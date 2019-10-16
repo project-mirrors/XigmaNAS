@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-15 10:17+0000\n"
-"X-Generator: Launchpad (build af2eefe214bd95389a09b7c956720881bab16807)\n"
+"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -14533,67 +14533,3 @@ msgstr "ορατό"
 
 msgid "yes"
 msgstr "ναι"
-
-#~ msgid "ALL Interfaces"
-#~ msgstr "ΟΛΕΣ οι διασυνδέσεις"
-
-#~ msgid "Allows the server to try and become a local master browser."
-#~ msgstr ""
-#~ "Επιτρέπει στο διακομιστή να προσπαθήσει να γίνει κεντρικός τοπικός "
-#~ "περιηγητής."
-
-#~ msgid "Anonymous access has been deprecated starting from SMB2."
-#~ msgstr "Η ανώνυμη πρόσβαση έχει καταργηθεί ξεκινώντας από το SMB2."
-
-#~ msgid "CIFS/SMB"
-#~ msgstr "CIFS/SMB"
-
-#~ msgid "CIFS/SMB is disabled."
-#~ msgstr "Το CIFS/SMB είναι απενεργοποιημένο."
-
-#~ msgid "CIFS/SMB is enabled."
-#~ msgstr "To CIFS/SMB είναι ενεργό."
-
-#~ msgid "Common Internet File System"
-#~ msgstr "Κοινό διαδικτυακό σύστημα αρχείων (CIFS)"
-
-#~ msgid "Dos Charset"
-#~ msgstr "Κωδικοποίηση Dos"
-
-#~ msgid "Enable 'Asynchronous I/O (AIO).' switch."
-#~ msgstr "Ενεργοποίηση διακόπτη 'Ασύγχρονο I/O (AIO).'."
-
-#~ msgid "Enable 'Large read/write' switch."
-#~ msgstr "Ενεργοποίηση του διακόπτη 'Μεγάλη ανάγνωση/εγγραφή'"
-
-#~ msgid "Enable Asynchronous I/O. (AIO)."
-#~ msgstr "Ενεργοποίηση Ασύγχρονου I/O. (AIO)."
-
-#~ msgid "Enable tuning switch"
-#~ msgstr "Ενεργοποίηση του διακόπτη βελτιστοποίησης"
-
-#~ msgid "Samba Share is protected"
-#~ msgstr "Το Κοινόχρηστο Samba είναι προστατευμένο"
-
-#~ msgid "To increase CIFS performance try the following:"
-#~ msgstr "Για να αυξήσετε τις επιδόσεις του CIFS, δοκιμάστε τα ακόλουθα!"
-
-#~ msgid ""
-#~ "Use this option to override the username ('ftp' by default) which will be "
-#~ "used for access to services which are specified as guest. Whatever "
-#~ "privileges this user has will be available to any client connecting to the "
-#~ "guest service. This user must exist in the password file, but does not "
-#~ "require a valid login."
-#~ msgstr ""
-#~ "Χρησιμοποιήστε αυτή την επιλογή για να παρακάμψετε το όνομα χρήστη ('ftp' η "
-#~ "προεπιλογή), το οποίο θα χρησιμοποιηθεί για την πρόσβαση σε υπηρεσίες που "
-#~ "προσδιορίζονται  ως επισκέπτες. Όποια και αν είναι τα προνόμια που έχουν "
-#~ "οριστεί  σε αυτό το  χρήστη, θα είναι διαθέσιμα σε κάθε σύνδεση πελάτη που "
-#~ "συνδέεται σε μια υπηρεσία ως επισκέπτης. Αυτός ο χρήστης πρέπει να υπάρχει "
-#~ "στο αρχείο των κωδικών πρόσβασης, αλλά δεν απαιτεί μια έγκυρη σύνδεση."
-
-#~ msgid ""
-#~ "When Samba AD is enabled, stand-alone CIFS/SMB file sharing cannot be used."
-#~ msgstr ""
-#~ "Όταν το samba AD είναι ενεργό, η αυτόνομη κοινή χρήση CIFS/SMB δεν μπορεί να "
-#~ "χρησιμοποιηθεί."
