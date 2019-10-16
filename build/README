@@ -1,5 +1,5 @@
 # Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Copyright (c) 2018-2019 XigmaNAS (r) <info@xigmanas.com>.
 # All rights reserved.
 #
 
@@ -80,10 +80,11 @@ Execute all menus in '2' - Compile XigmaNAS from Scratch' to compile your XigmaN
 When all is done, use one of the following options:
 
 10 - Create 'Embedded.img.xz' File. (Firmware Update)
-11 - Create 'LiveUSB.img.gz' File. (Rawrite to USB Key)
-12 - Create 'LiveCD' (ISO) File.
-13 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
-14 - Create 'Full' (TGZ) Update File.
+11 - Create 'LiveUSB.img.gz MBR' File. (Rawrite to USB Key)
+12 - Create 'LiveUSB.img.gz GPT' File. (Rawrite to USB Key)
+13 - Create 'LiveCD' (ISO) File.
+14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
+15 - Create 'Full' (TGZ) Update File.
 
 =================================
 4. Building kernel
