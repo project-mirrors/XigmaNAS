@@ -417,7 +417,7 @@ include 'fbegin.inc';
 							html_text2('productmajor',gettext('Major Product Version Updates'),implode('<br />',$fw_info_current_osver['productmajor']));
 						endif;
 						if(!empty($fw_info_current_osver['osminor'])):
-							html_text2('osminor',gettext('OS Version Upgrade'),implode('<br />',$fw_info_current_osver['osminor']));
+							html_text2('osminor',gettext('OS Version Upgrades'),implode('<br />',$fw_info_current_osver['osminor']));
 						endif;
 						if(!empty($fw_info_current_osver['osmajor'])):
 							html_text2('osmajor',gettext('Major OS Version Upgrades'),implode('<br />',$fw_info_current_osver['osmajor']));
