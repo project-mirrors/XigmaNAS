@@ -108,8 +108,14 @@ function simplexml_load_file_from_url($url,$timeout = 5) {
 	endif;
 	return false;
 }
+/**
+ *	Read and scan rss feed for available updates, upgrades, betas and nightlies
+ *	@param	string $locale
+ *	@return	array
+ */
 function check_firmware_version_rss($locale) {
-	$resp = [
+	$rss_url = 'https://sourceforge.net/projects/xigmanas/rss?path=/';
+	$retval = [
 		'osmajor' => [],
 		'osminor' => [],
 		'productmajor' => [],
@@ -118,139 +124,89 @@ function check_firmware_version_rss($locale) {
 		'beta' => [],
 		'nightly' => []
 	];
-	$current_version = trim(get_product_version());
-	if(preg_match('/^([0-9]+)\.([0-9]+)\.([0-9]+)\.([0-9]+)$/',$current_version,$current_version_grid)):
-		$os_major = $current_version_grid[1];
-		$os_minor = $current_version_grid[2];
-		$product_major = $current_version_grid[3];
-		$product_minor = $current_version_grid[4];
-	else:
-		return $resp;
-	endif;
-	$product_revision = get_product_revision();
-	$rss_url = 'https://sourceforge.net/projects/xigmanas/rss?path=/';
+//	load rss into xml
 	$xml = simplexml_load_file_from_url($rss_url);
+	unset($rss_url);
 	if(empty($xml)):
-		$resp['productrevision'][] = gettext('No online information available.');
-		return $resp;
+		$retval['productrevision'][] = gettext('No online information available.');
+		return $retval;
 	endif;
 	if(empty($xml->channel)):
-		$resp['productrevision'][] = gettext('No online information available.');
-		return $resp;
+		$retval['productrevision'][] = gettext('No online information available.');
+		return $retval;
 	endif;
+//	gather installed product version
+	$productversion = trim(get_product_version());
+	if(preg_match('/^(?P<osmajor>[0-9]+)\.(?P<osminor>[0-9]+)\.(?P<productmajor>[0-9]+)\.(?P<productminor>[0-9]+)$/',$productversion,$productinfo)):
+	else:
+//		fallback if regex fails to validate product version
+		$productinfo = [
+			'osmajor' => 0,
+			'osminor' => 0,
+			'productmajor' => 0,
+			'productminor' => 0
+		];
+	endif;
+	unset($productversion);
+//	gather installed product revision
+	$productinfo['productrevision'] = get_product_revision();
+//	prepare regex support for filtering
 	$product_name_regex = preg_quote(get_product_name());
 	$platform_type_regex = preg_quote(get_platform_type());
-	$dir_release_regex = sprintf('%s\-([1-9][0-9]*)\.([0-9]+)\.([0-9]+)\.([0-9]+)',$product_name_regex);
+	$dir_release_regex = sprintf('%s\-(?P<osmajor_d1>[0-9]+)\.(?P<osminor_d1>[0-9]+)\.(?P<productmajor_d1>[0-9]+)\.(?P<productminor_d1>[0-9]+)',$product_name_regex);
 	$dir_beta_regex = sprintf('%s\-Beta',$product_name_regex);
 	$dir_nightly_regex = sprintf('%s\-Nightly_Builds',$product_name_regex);
-	$dir_2_regex = '([1-9][0-9]*)\.([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]+)';
-	$file_regex = sprintf('%s\-%s\-%s.*',$product_name_regex,$platform_type_regex,$dir_2_regex);
-	$releases_regex = '/^\/' . $dir_release_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';
-	$beta_regex = '/^\/' . $dir_beta_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';;
-	$nightly_regex = '/^\/' . $dir_nightly_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';;
-/*
-	offset for regular, subtract 4 for beta and nightly
-	01,05,10: Operating system major version
-	02,06,11: Operating system minor version
-	03,07,12: Product major version
-	04,08,13: Product minor version
-	09,14: Product revision
- */
+	$dir_2_regex = '(?P<osmajor_d2>[0-9]+)\.(?P<osminor_d2>[0-9]+)\.(?P<productmajor_d2>[0-9]+)\.(?P<productminor_d2>[0-9]+)\.(?P<productrevision_d2>[0-9]+)';
+	$file_1_regex = '(?P<osmajor>[0-9]+)\.(?P<osminor>[0-9]+)\.(?P<productmajor>[0-9]+)\.(?P<productminor>[0-9]+)\.(?P<productrevision>[0-9]+)';
+	$file_regex = sprintf('%s\-%s\-%s.*',$product_name_regex,$platform_type_regex,$file_1_regex);
+//	final regex for filtering
+	$release_regex = '/^\/' . $dir_release_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';
+	$beta_regex = '/^\/' . $dir_beta_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';
+	$nightly_regex = '/^\/' . $dir_nightly_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';
+	unset($dir_release_regex,$dir_beta_regex,$dir_nightly_regex,$dir_2_regex,$file_1_regex,$file_regex);
+//	scan rss feed
 	foreach($xml->channel->item as $item):
-//		scan releases
-		unset($grid);
-		if(preg_match($releases_regex,$item->title,$grid)):
-			$link = $item->link;
-			$title = $item->title;
-			$fqfn = pathinfo($title);
+		unset($info_release,$info_beta,$info_nightly,$destination);
+		if(preg_match($release_regex,$item->title,$info_release)):
+//			release found
+			foreach(['osmajor','osminor','productmajor','productminor','productrevision'] as $test):
+				switch($productinfo[$test] <=> $info_release[$test]):
+					case -1:
+						$destination = $test;
+					case 1:
+						break 2;
+				endswitch;
+			endforeach;
+		elseif(preg_match($beta_regex,$item->title,$info_beta)):
+//			beta found
+			$destination = 'beta';
+		elseif(preg_match($nightly_regex,$item->title,$info_nightly)):
+//			nightly found
+			$destination = 'nightly';
+		endif;
+		if(isset($destination)):
+			$fqfn = pathinfo($item->title);
 			$fullname = $fqfn['basename'];
-			$pubdate = $item->pubDate;
 //			try to convert to local time
-			$date = preg_replace('/UT$/','GMT',$pubdate);
-			$time = strtotime($date);
+			$rss_date = preg_replace('/UT$/','GMT',$item->pubDate);
+			$time = strtotime($rss_date);
 			if($time === false):
-				$date = $pubdate;
+				$date = $item->pubDate;
 			else:
 				$date = get_datetime_locale($time);
 			endif;
-			$release = sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
-			switch($os_major <=> $grid[10]):
-				case -1:
-					$resp['osmajor'][$fullname] = $release;
-					break;
-				case 0:
-					switch($os_minor <=> $grid[11]):
-						case -1:
-							$resp['osminor'][$fullname] = $release;
-							break;
-						case 0:
-							switch($product_major <=> $grid[12]):
-								case -1:
-									$resp['productmajor'][$fullname] = $release;
-									break;
-								case 0:
-									switch($product_minor <=> $grid[13]):
-										case -1:
-											$resp['productminor'][$fullname] = $release;
-											break;
-										case 0:
-											switch($product_revision <=> $grid[14]):
-												case -1:
-													$resp['productrevision'][$fullname] = $release;
-													break;
-											endswitch;
-											break;
-									endswitch;
-									break;
-							endswitch;
-							break;
-					endswitch;
-					break;
-			endswitch;
-		elseif(preg_match($beta_regex,$item->title,$grid)):
-//			scan beta
-			$link = $item->link;
-			$title = $item->title;
-			$fqfn = pathinfo($title);
-			$fullname = $fqfn['basename'];
-			$pubdate = $item->pubDate;
-//			try to convert to local time
-			$date = preg_replace('/UT$/','GMT',$pubdate);
-			$time = strtotime($date);
-			if($time === false):
-				$date = $pubdate;
-			else:
-				$date = get_datetime_locale($time);
-			endif;
-			$beta = sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
-			$resp['beta'][$fullname] = $beta;
-		elseif(preg_match($nightly_regex,$item->title,$grid)):
-//			scan nightly
-			$link = $item->link;
-			$title = $item->title;
-			$fqfn = pathinfo($title);
-			$fullname = $fqfn['basename'];
-			$pubdate = $item->pubDate;
-//			try to convert to local time
-			$date = preg_replace('/UT$/','GMT',$pubdate);
-			$time = strtotime($date);
-			if($time === false):
-				$date = $pubdate;
-			else:
-				$date = get_datetime_locale($time);
-			endif;
-			$nightly = sprintf('<a href="%s" title="%s" target="_blank">%s</a> (%s)',htmlspecialchars($link),htmlspecialchars($title),htmlspecialchars($fullname),htmlspecialchars($date));
-			$resp['nightly'][$fullname] = $nightly;
+			$release = sprintf('<a href="%s" title="%s" target="_blank">%s (%s)</a>',htmlspecialchars($item->link),htmlspecialchars($item->title),htmlspecialchars($fullname),htmlspecialchars($date));
+			$retval[$destination][$fullname] = $release;
 		endif;
 	endforeach;
-	krsort($resp['osmajor']);
-	krsort($resp['osminor']);
-	krsort($resp['productmajor']);
-	krsort($resp['productminor']);
-	krsort($resp['productrevision']);
-	krsort($resp['beta']);
-	krsort($resp['nightly']);
-	return $resp;
+	krsort($retval['osmajor']);
+	krsort($retval['osminor']);
+	krsort($retval['productmajor']);
+	krsort($retval['productminor']);
+	krsort($retval['productrevision']);
+	krsort($retval['beta']);
+	krsort($retval['nightly']);
+	return $retval;
 }
 $fwupplatforms = ['embedded','full']; // platforms that support firmware updating
 $page_mode = 'default';
