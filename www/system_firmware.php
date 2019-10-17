@@ -165,11 +165,12 @@ function check_firmware_version_rss($locale) {
 	$nightly_regex = '/^\/' . $dir_nightly_regex . '\/' . $dir_2_regex . '\/' . $file_regex . '/i';
 	unset($dir_release_regex,$dir_beta_regex,$dir_nightly_regex,$dir_2_regex,$file_1_regex,$file_regex);
 //	scan rss feed
+	$tests = ['osmajor','osminor','productmajor','productminor','productrevision'];
 	foreach($xml->channel->item as $item):
 		unset($info_release,$info_beta,$info_nightly,$destination);
 		if(preg_match($release_regex,$item->title,$info_release)):
 //			release found
-			foreach(['osmajor','osminor','productmajor','productminor','productrevision'] as $test):
+			foreach($tests as $test):
 				switch($productinfo[$test] <=> $info_release[$test]):
 					case -1:
 						$destination = $test;
@@ -179,10 +180,24 @@ function check_firmware_version_rss($locale) {
 			endforeach;
 		elseif(preg_match($beta_regex,$item->title,$info_beta)):
 //			beta found
-			$destination = 'beta';
+			foreach($tests as $test):
+				switch($productinfo[$test] <=> $info_beta[$test]):
+					case -1:
+						$destination = 'beta';
+					case 1:
+						break 2;
+				endswitch;
+			endforeach;
 		elseif(preg_match($nightly_regex,$item->title,$info_nightly)):
 //			nightly found
-			$destination = 'nightly';
+			foreach($tests as $test):
+				switch($productinfo[$test] <=> $info_nightly[$test]):
+					case -1:
+						$destination = 'nightly';
+					case 1:
+						break 2;
+				endswitch;
+			endforeach;
 		endif;
 		if(isset($destination)):
 			$fqfn = pathinfo($item->title);
