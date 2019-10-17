@@ -32,6 +32,7 @@
 	of XigmaNAS, either expressed or implied.
 */
 namespace services\nfsd\export;
+
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
@@ -62,7 +63,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\syslogconf\row_properties The properties object
+ *	@return \services\nfsd\export\row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
