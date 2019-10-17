@@ -199,13 +199,10 @@ function check_firmware_version_rss($locale) {
 			$retval[$destination][$fullname] = $release;
 		endif;
 	endforeach;
-	krsort($retval['osmajor']);
-	krsort($retval['osminor']);
-	krsort($retval['productmajor']);
-	krsort($retval['productminor']);
-	krsort($retval['productrevision']);
-	krsort($retval['beta']);
-	krsort($retval['nightly']);
+//	sort results
+	foreach(['osmajor','osminor','productmajor','productminor','productrevision','beta','nightly'] as $index):
+		krsort($retval[$index]);
+	endforeach;
 	return $retval;
 }
 $fwupplatforms = ['embedded','full']; // platforms that support firmware updating
