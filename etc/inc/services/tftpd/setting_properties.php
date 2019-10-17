@@ -139,7 +139,7 @@ final class setting_properties extends grid_properties {
 	}
 	public function init_timeout(): myp\property_int {
 		$description = gettext('Determine the default timeout, in microseconds, before the first packet is retransmitted. The default is 1000000 (1 second).');
-		$placeholder = gettext('10000');
+		$placeholder = gettext('1000000');
 		$property = parent::init_timeout();
 		$property->
 			set_id('timeout')->
