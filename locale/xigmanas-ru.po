@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
-"PO-Revision-Date: 2019-10-15 16:52+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"PO-Revision-Date: 2019-10-18 02:16+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:16+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -223,8 +223,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 КиБ"
@@ -1487,6 +1487,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Наилучший доступный"
+
+msgid "Beta Versions"
+msgstr "Бета-версии"
 
 msgid "Binary Prefix"
 msgstr "Бинарный префикс"
@@ -4687,12 +4690,12 @@ msgstr "Включенные параметры будут добавлены в
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
 "Включение этой опции может быть угрозой безопасности. Любой, кто может "
-"физически получить доступ к этому компьютеру, может получить доступ ко всему "
-"содержимому компьютера, включая любые сети, к которым он подключен."
+"физически получить доступ к этому серверу, может получить доступ ко всему "
+"его содержимому данных, включая любую сеть, к которой он подключен."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -6599,14 +6602,6 @@ msgstr "На прошлой неделе"
 msgid "Latency"
 msgstr "Задержка"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "Последний бета-релиз: %s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "Последний Релиз:  %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "Оставить уже сконфигурированные автоматические снимки."
 
@@ -6948,6 +6943,12 @@ msgstr "Обслуживание"
 
 msgid "Maintenance Tool Settings"
 msgstr "Настройки инструментов обслуживания"
+
+msgid "Major OS Version Upgrades"
+msgstr "Основные обновления версий ОС"
+
+msgid "Major Product Version Updates"
+msgstr "Основные обновления версий продукта"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Убедитесь, что выбрано оптимальное число устройств"
@@ -7593,6 +7594,9 @@ msgstr "Новый пароль"
 msgid "Next"
 msgstr "Далее"
 
+msgid "Nightly Builds"
+msgstr "Ночные сборки"
+
 msgid "No"
 msgstr "Нет"
 
@@ -7733,6 +7737,9 @@ msgstr "Новых зашифрованных дисков не было най�
 
 msgid "No new software RAID disk found."
 msgstr "Новые программные RAID-диски не найдены."
+
+msgid "No online information available."
+msgstr "Нет онлайн-информации."
 
 msgid "No options found."
 msgstr "Опции не найдены."
@@ -7937,6 +7944,9 @@ msgstr "ONLINE"
 
 msgid "OPT Only"
 msgstr "Только OPT"
+
+msgid "OS Version Upgrades"
+msgstr "Обновление версии ОС"
 
 msgid "Object name"
 msgstr "Имя объекта"
@@ -8682,6 +8692,9 @@ msgstr "Процессор"
 msgid "Product ID"
 msgstr "ID продукта"
 
+msgid "Product Version Updates"
+msgstr "Обновления версии продукта"
+
 msgid "Profile"
 msgstr "Профиль"
 
@@ -9160,6 +9173,9 @@ msgstr "Refreservation"
 
 msgid "Refresh"
 msgstr "Обновить"
+
+msgid "Regular Product Updates"
+msgstr "Регулярные обновления продукта"
 
 msgid "Reject"
 msgstr "Отклонить"
@@ -11972,6 +11988,9 @@ msgid ""
 msgstr ""
 "Рабочая группа, в которой сервер будет отображаться при запросе клиентами "
 "Windows, или SMB. (не более 15 символов)."
+
+msgid "There are no regular product updates available."
+msgstr "Нет доступных регулярных обновлений продукта."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "&=&Загрузка файлов произошла успешно, ошибок не обнаружено."
