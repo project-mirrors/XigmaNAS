@@ -44,3 +44,5 @@ usr/local/libexec/in.tftpd
 # 6942
 etc/inc/properties_services_samba_share.php
 etc/inc/properties_services_samba_share_edit.php
+# 7010
+etc/inc/properties_sysctl.php

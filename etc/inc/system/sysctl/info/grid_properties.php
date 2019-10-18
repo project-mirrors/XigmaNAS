@@ -1,9 +1,9 @@
 <?php
 /*
-	system_sysctl_info.php
+	grid_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,30 +31,32 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
-require_once 'autoload.php';
+namespace system\sysctl\info;
 
-use system\sysctl\info\grid_toolbox as toolbox;
+use system\sysctl as myparent;
+use common\properties as myp;
 
-//	init properties and sphere
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-unset($output);
-mwexec2('/sbin/sysctl -adet',$output);
-foreach($output as $row):
-	list($sysctl_name,$sysctl_type,$sysctl_info) = explode('=',$row,3);
-	if(!empty($sysctl_type)):
-		$sphere->grid[$sysctl_name] = ['sysctltype' => $sysctl_type,'sysctlinfo' => $sysctl_info];
-	endif;
-endforeach;
-unset($row,$output,$sysctl_name,$sysctl_type,$sysctl_info);
-mwexec2('/sbin/sysctl -ae',$output);
-foreach($output as $row):
-	list($sysctl_name,$sysctl_value) = explode('=',$row,2);
-	if(array_key_exists($sysctl_name,$sphere->grid)):
-		$sphere->grid[$sysctl_name]['value'] = $sysctl_value;
-	endif;
-endforeach;
-unset($row,$output,$sysctl_name,$sysctl_value);
-toolbox::render($cop,$sphere);
+class grid_properties extends myparent\grid_properties {
+	protected $x_sysctlinfo;
+	public function init_sysctlinfo(): myp\property_text {
+		$property = $this->x_sysctlinfo = new myp\property_text($this);
+		$property->
+			set_name('sysctlinfo')->
+			set_title(gettext('Description'));
+		return $property;
+	}
+	public function get_sysctlinfo(): myp\property_text {
+		return $this->x_sysctlinfo ?? $this->init_sysctlinfo();
+	}
+	protected $x_sysctltype;
+	public function init_sysctltype(): myp\property_text {
+		$property = $this->x_sysctltype = new myp\property_text($this);
+		$property->
+			set_name('sysctltype')->
+			set_title(gettext('Type'));
+		return $property;
+	}
+	public function get_sysctltype(): myp\property_text {
+		return $this->x_sysctltype ?? $this->init_sysctltype();
+	}
+}
