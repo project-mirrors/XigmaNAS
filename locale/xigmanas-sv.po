@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
-"PO-Revision-Date: 2019-10-15 03:45+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"PO-Revision-Date: 2019-10-18 03:26+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:16+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -217,8 +217,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -1459,6 +1459,9 @@ msgstr "Innan en Unisonklient börjar fungera måste du genomföra följande:"
 
 msgid "Best available"
 msgstr "Bästa tillgängliga"
+
+msgid "Beta Versions"
+msgstr "Betaversioner"
 
 msgid "Binary Prefix"
 msgstr "Binärt prefix"
@@ -4627,12 +4630,12 @@ msgstr "Aktiverade optioner kommer att läggas till i /etc/rc.conf."
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
-"Att aktivera detta alternativ kan vara en säkerhetsrisk. Vem som helst som "
-"har fysisk åtkomst till datorn får tillgång allt dess innehåll och "
-"eventuella nätverksresurser den är ansluten till."
+"Att aktivera detta kan innebära en säkerhetsrisk. Alla som kan få fysisk "
+"åtkomst till denna server få tillgång till all dess datainnehåll inklusive "
+"alla nätverk den är ansluten till."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -6506,14 +6509,6 @@ msgstr "Förra veckan"
 msgid "Latency"
 msgstr "Accesstid"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "Senaste Betaversion:%s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "Senast utgåva: %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "Lämna redan konfigurerade automatiska avbilder."
 
@@ -6847,6 +6842,12 @@ msgstr "Underhåll"
 
 msgid "Maintenance Tool Settings"
 msgstr "Underhållsverktygsintällningar"
+
+msgid "Major OS Version Upgrades"
+msgstr "Större OS versionsuppgraderingar"
+
+msgid "Major Product Version Updates"
+msgstr "Större produktversionsuppgraderingar"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Försäkra dig om att välja optimalt antal enheter"
@@ -7481,6 +7482,9 @@ msgstr "Nytt lösenord"
 msgid "Next"
 msgstr "Nästa"
 
+msgid "Nightly Builds"
+msgstr "Nattliga byggen"
+
 msgid "No"
 msgstr "Nej"
 
@@ -7621,6 +7625,9 @@ msgstr "Inga nya krypterade diskar har hittats."
 
 msgid "No new software RAID disk found."
 msgstr "Inga nya mjukvaru RAID diskar hittades."
+
+msgid "No online information available."
+msgstr "Ingen information tillgänglig."
 
 msgid "No options found."
 msgstr "Inga optoner hittades."
@@ -7821,6 +7828,9 @@ msgstr "ONLINE"
 
 msgid "OPT Only"
 msgstr "Endast OPT"
+
+msgid "OS Version Upgrades"
+msgstr "OS Versionsuppgraderingar"
 
 msgid "Object name"
 msgstr "Objektnamn"
@@ -8561,6 +8571,9 @@ msgstr "Processor"
 msgid "Product ID"
 msgstr "Produkt-ID"
 
+msgid "Product Version Updates"
+msgstr "Produktversionsuppdateringar"
+
 msgid "Profile"
 msgstr "Profil"
 
@@ -9034,6 +9047,9 @@ msgstr "Refreservation"
 
 msgid "Refresh"
 msgstr "Uppdatera"
+
+msgid "Regular Product Updates"
+msgstr "Vanliga produktuppdateringar"
 
 msgid "Reject"
 msgstr "Avböj"
@@ -11808,6 +11824,9 @@ msgid ""
 msgstr ""
 "Arbetsgruppen i vilken servern visas vid sökning från Windows- eller SMB-"
 "klienter. (max 15 tecken)"
+
+msgid "There are no regular product updates available."
+msgstr "Det finns inga vanliga produktuppdateringar tillgängliga."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "Inget fel inträffade, filen laddades upp med lyckat resultat."

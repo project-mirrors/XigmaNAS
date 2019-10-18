@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:17+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -207,7 +207,7 @@ msgstr ""
 msgid "1000"
 msgstr ""
 
-msgid "10000"
+msgid "1000000"
 msgstr ""
 
 msgid "16 KiB"
@@ -1388,6 +1388,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "가장 적합한 것"
+
+msgid "Beta Versions"
+msgstr ""
 
 msgid "Binary Prefix"
 msgstr "이진 접미사"
@@ -4440,8 +4443,8 @@ msgstr ""
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
 
 msgid ""
@@ -6221,14 +6224,6 @@ msgstr ""
 msgid "Latency"
 msgstr "지연율"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "최신 베타 릴리즈: %s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "최신 릴리즈: %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "이미 설정된 자동화 스냅샷은 남겨 둡니다."
 
@@ -6544,6 +6539,12 @@ msgid "Maintenance"
 msgstr "유지보수"
 
 msgid "Maintenance Tool Settings"
+msgstr ""
+
+msgid "Major OS Version Upgrades"
+msgstr ""
+
+msgid "Major Product Version Updates"
 msgstr ""
 
 msgid "Make sure to select the optimal number of devices"
@@ -7162,6 +7163,9 @@ msgstr "새 암호"
 msgid "Next"
 msgstr "다음"
 
+msgid "Nightly Builds"
+msgstr ""
+
 msgid "No"
 msgstr "아니오"
 
@@ -7302,6 +7306,9 @@ msgstr "새 암호화 디스크를 찾지 못했습니다."
 
 msgid "No new software RAID disk found."
 msgstr "새 소프트웨어 RAID 디스크를 찾지 못했습니다."
+
+msgid "No online information available."
+msgstr ""
 
 msgid "No options found."
 msgstr ""
@@ -7499,6 +7506,9 @@ msgstr "온라인"
 
 msgid "OPT Only"
 msgstr "OPT 전용"
+
+msgid "OS Version Upgrades"
+msgstr ""
 
 msgid "Object name"
 msgstr "객체 명"
@@ -8215,6 +8225,9 @@ msgstr ""
 msgid "Product ID"
 msgstr "제품 ID"
 
+msgid "Product Version Updates"
+msgstr ""
+
 msgid "Profile"
 msgstr "프로파일"
 
@@ -8675,6 +8688,9 @@ msgstr "참조 예약"
 
 msgid "Refresh"
 msgstr "갱신"
+
+msgid "Regular Product Updates"
+msgstr ""
 
 msgid "Reject"
 msgstr "기각"
@@ -11225,6 +11241,9 @@ msgid ""
 "The workgroup in which the server will appear when queried by Windows or SMB "
 "clients. (maximum 15 characters)."
 msgstr "Windows 또는 SMB 클라이언트가 질의할 때 서버가 표시하는 작업 그룹 입니다(최대 15자)."
+
+msgid "There are no regular product updates available."
+msgstr ""
 
 msgid "There is no error, the file uploaded with success."
 msgstr "오류가 없습니다. 파일이 성공적으로 업로드 되었습니다."

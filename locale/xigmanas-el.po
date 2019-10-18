@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
-"PO-Revision-Date: 2019-10-15 06:48+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"PO-Revision-Date: 2019-10-18 08:47+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:17+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -229,8 +229,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -1522,6 +1522,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Οι βέλτιστες διαθέσιμες"
+
+msgid "Beta Versions"
+msgstr "Δοκιμαστικές Εκδόσεις"
 
 msgid "Binary Prefix"
 msgstr "Δυαδικό Πρόθεμα"
@@ -4781,13 +4784,13 @@ msgstr "Οι ενεργοποιημένες επιλογές θα προστεθ
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
-"Η ενεργοποίηση αυτής της επιλογής μπορεί να είναι ρίσκο ασφαλείας. "
-"Οποιοσδήποτε μπορεί να αποκτήσει φυσική πρόσβαση σε συτόν τον υπολογιστή "
-"μπορεί να αποκτήσει πρόσβαση σε όλα τα περιεχόμενα του υπολογιστή, "
-"συμπεριλαμβανομένων και όποιον δικτύων στα οποία είναι αυτός συνδεμένος."
+"Η ενεργοποίηση αυτής της επιλογής μπορεί να είναι κίνδυνος ασφαλείας. "
+"Οποιοσδήποτε μπορεί να αποκτήσει φυσική πρόσβαση σε αυτό το διακομιστή θα "
+"έχει πρόσβαση σε όλα τα δεδομένα του, συμπεριλαμβανομένων και των δισκτύων "
+"στον οποίο είναι συνδεμένος."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -6731,14 +6734,6 @@ msgstr "Προηγούμενη βδομάδα"
 msgid "Latency"
 msgstr "Καθυστέρηση"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "Τελευταία Δομικαστική Έκδοση: %s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "Τελευταία έκδοση: %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "Αφήστε τα ήδη αυτόματα ρυθμισμένα στιγμιότυπα."
 
@@ -7083,6 +7078,12 @@ msgstr "Συντήρηση"
 
 msgid "Maintenance Tool Settings"
 msgstr "Ρυθμίσεις Εργαλείου Συντήρησης"
+
+msgid "Major OS Version Upgrades"
+msgstr "Μείζονες Ενημερώσεις Έκδοσης Λειτουργικού"
+
+msgid "Major Product Version Updates"
+msgstr "Μείζονες Ενημερώσεις Έκδοσης Προϊόντος"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Σιγουρευτείτε ότι επιλέγετε το βέλτιστο αριθμό συσκευών"
@@ -7732,6 +7733,9 @@ msgstr "Νέος κωδικός"
 msgid "Next"
 msgstr "Επόμενο"
 
+msgid "Nightly Builds"
+msgstr "Nightly Builds"
+
 msgid "No"
 msgstr "Όχι"
 
@@ -7873,6 +7877,9 @@ msgstr "Δεν βρέθηκαν νέοι κρυπτογραφημένοι δίσ
 
 msgid "No new software RAID disk found."
 msgstr "Δεν βρέθηκε κάποιος νέος δίσκος με RAID μέσω λογισμικού."
+
+msgid "No online information available."
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες στο διαδίκτυο."
 
 msgid "No options found."
 msgstr "Δεν βρέθηκαν επιλογές."
@@ -8079,6 +8086,9 @@ msgstr "ΣΕ ΣΥΝΔΕΣΗ"
 
 msgid "OPT Only"
 msgstr "Μόνο OPT"
+
+msgid "OS Version Upgrades"
+msgstr "Ενημερώσεις Έκδοσης Λειτουργικού"
 
 msgid "Object name"
 msgstr "Όνομα αντικειμένου"
@@ -8835,6 +8845,9 @@ msgstr "Επεξεργαστής"
 msgid "Product ID"
 msgstr "ID Προϊόντος"
 
+msgid "Product Version Updates"
+msgstr "Ενημερώσεις Έκδοσης Προϊόντος"
+
 msgid "Profile"
 msgstr "Προφίλ"
 
@@ -9312,6 +9325,9 @@ msgstr "Refreservation"
 
 msgid "Refresh"
 msgstr "Ανανέωση"
+
+msgid "Regular Product Updates"
+msgstr "Τακτικές Ενημερώσεις Προϊόντος"
 
 msgid "Reject"
 msgstr "Απόρριψη"
@@ -12210,6 +12226,9 @@ msgid ""
 msgstr ""
 "Η ομάδα εργασίας στην οποία θα εμφανίζεται ο διακομιστής όταν θα ερωτάται "
 "από πελάτες Windows ή SMB. (μέγιστο 15 χαρακτήρες)."
+
+msgid "There are no regular product updates available."
+msgstr "Δεν υπάρχουν διαθέσιμες τακτικές ενημερώσεις προϊόντος."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "Δεν υπάρχει σφάλμα, το αρχείο ανέβηκε με επιτυχία."

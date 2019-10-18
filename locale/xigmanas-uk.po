@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
 "PO-Revision-Date: 2019-10-15 19:07+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:36+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:16+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -222,8 +222,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr ""
 
 msgid "16 KiB"
 msgstr "16 КіБ"
@@ -1480,6 +1480,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Найкраще з доступного"
+
+msgid "Beta Versions"
+msgstr ""
 
 msgid "Binary Prefix"
 msgstr "Бінарний префікс"
@@ -4681,12 +4684,9 @@ msgstr "Увімкнені параметри будуть додані до /et
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
-"Увімкнення цієї опції може бути небезпечним та ризикованим. Будь-хто, маючи "
-"фізичний доступ до цього комп'ютера, може отримати доступ до всього вмісту "
-"комп'ютера, включаючи всі мережі до яких він під'єднаний."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -6586,14 +6586,6 @@ msgstr "Минулого тижня"
 msgid "Latency"
 msgstr "Затримка"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "Останній бета реліз: <b>%s</b>"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "Останній реліз: %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "Залишити вже сконфігуровані знімки."
 
@@ -6935,6 +6927,12 @@ msgstr "Обслуговування"
 
 msgid "Maintenance Tool Settings"
 msgstr "Налаштування інструмента обслуговування"
+
+msgid "Major OS Version Upgrades"
+msgstr ""
+
+msgid "Major Product Version Updates"
+msgstr ""
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Переконайтеся в тому, щоб вибрати оптимальну кількість пристроїв"
@@ -7577,6 +7575,9 @@ msgstr "Новий пароль"
 msgid "Next"
 msgstr "Наступне"
 
+msgid "Nightly Builds"
+msgstr ""
+
 msgid "No"
 msgstr "Ні"
 
@@ -7717,6 +7718,9 @@ msgstr "Жодного зашифрованого диску не знайден
 
 msgid "No new software RAID disk found."
 msgstr "Нових дисків програмного RAID не знайдено."
+
+msgid "No online information available."
+msgstr ""
 
 msgid "No options found."
 msgstr "Жодних параметрів не знайдено."
@@ -7920,6 +7924,9 @@ msgstr "ОНЛАЙН"
 
 msgid "OPT Only"
 msgstr "Тільки OPT"
+
+msgid "OS Version Upgrades"
+msgstr ""
 
 msgid "Object name"
 msgstr "Назва об'єкта"
@@ -8665,6 +8672,9 @@ msgstr "Процесор"
 msgid "Product ID"
 msgstr "Ідентифікатор продукту"
 
+msgid "Product Version Updates"
+msgstr ""
+
 msgid "Profile"
 msgstr "Профіль"
 
@@ -9138,6 +9148,9 @@ msgstr "Refreservation"
 
 msgid "Refresh"
 msgstr "Оновити"
+
+msgid "Regular Product Updates"
+msgstr ""
 
 msgid "Reject"
 msgstr "Відхилити"
@@ -11938,6 +11951,9 @@ msgid ""
 msgstr ""
 "Робоча група, в якій сервер буде відображатися при запиті клієнтами Windows, "
 "або SMB (не більш ніж 15 символів)."
+
+msgid "There are no regular product updates available."
+msgstr ""
 
 msgid "There is no error, the file uploaded with success."
 msgstr "Файл вивантажено без помилок."

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
-"PO-Revision-Date: 2019-10-07 09:52+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"PO-Revision-Date: 2019-10-18 09:30+0000\n"
 "Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:17+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -221,8 +221,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -467,7 +467,7 @@ msgid "ARP Tables List"
 msgstr "Tabla ARP"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Aceptar mensajes remotos syslog."
@@ -791,7 +791,7 @@ msgid "Advanced Options"
 msgstr "Opciones avanzadas"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "Configuración avanzada de SMB"
 
 msgid "Advanced Settings"
 msgstr "Configuración avanzada"
@@ -850,7 +850,7 @@ msgid "All"
 msgstr "Todos"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Todas las interfaces"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Todos los datos de esta estadistica serán borrados:"
@@ -947,6 +947,7 @@ msgstr "permitir enlaces a carpetas fuera de la ruta multmedia"
 
 msgid "Allow the server to try and become a local master browser."
 msgstr ""
+"Permitir al servidor que intente convertirse en buscador maestro local."
 
 msgid "Allow to start UPS from battery"
 msgstr "Permitir arrancar el SAI desde las baterías"
@@ -1493,6 +1494,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Mejor disponible"
+
+msgid "Beta Versions"
+msgstr "Versiones beta"
 
 msgid "Binary Prefix"
 msgstr "prefijo binario"
@@ -2627,12 +2631,15 @@ msgid "DNS server is empty."
 msgstr "El servidor DNS está en blanco"
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "Juego de caracteres DOS"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
 msgstr ""
+"Los clientes SMB de DOS asumen que el servidor tiene el mismo juego de "
+"caracteres que ellos. Esta opción especifica qué juego de caracteres debe "
+"hablar Samba con los clientes DOS."
 
 msgid "DVD"
 msgstr "DVD"
@@ -3291,7 +3298,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Deshabilitar los módulos Rsync seleccionados"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "Deshabilitar recursos compartidos de samba seleccionados"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Deshabilitarlas opciones seleccionada del sysctl"
@@ -3747,7 +3754,7 @@ msgid "Do you want to disable selected NFS root directories?"
 msgstr "¿Desea deshabilitar los directorios root NFS seleccionados?"
 
 msgid "Do you want to disable selected Samba shares?"
-msgstr ""
+msgstr "¿Desea deshabilitar los recursos compartidos seleccionados de Samba?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Quieres desactivar los registros seleccionados WebDAV?"
@@ -3837,7 +3844,7 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr "¿Desea habilitar los directorios root NFS seleccionados?"
 
 msgid "Do you want to enable selected Samba shares?"
-msgstr ""
+msgstr "¿Desea habilitar los recursos compartidos seleccionados de Samba?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Quieres habilitar los registros seleccionados WebDAV?"
@@ -3936,7 +3943,7 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr "¿Desea intercambiar los directorios root NFS seleccionados?"
 
 msgid "Do you want to toggle selected Samba shares?"
-msgstr ""
+msgstr "¿Desea cambiar los recursos compartidos seleccionados de Samba?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Quieres cambiar los registros seleccionados WebDAV?"
@@ -4336,7 +4343,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Habilitar Formateo Avanzado (Tamaño del Sector 4KB)"
 
 msgid "Enable Asynchronous I/O."
-msgstr ""
+msgstr "Habilitar la E/S asíncrona."
 
 msgid "Enable FXP protocol."
 msgstr "Habilitar el protocolo FXP."
@@ -4447,7 +4454,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Habilitar los módulos Rsync seleccionados"
 
 msgid "Enable Selected Samba Shares"
-msgstr ""
+msgstr "habilitar los recursos compartidos seleccionados de Samba"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Habilitar la configuracion de sysctl seleccionada"
@@ -4701,12 +4708,12 @@ msgstr "Las opciones habilitadas se agregarán a /etc/rc.conf."
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
-"Habilitar esta opción puede ser un riesgo de seguridad. Cualquier persona "
-"que obtenga acceso físico a este ordenador puede acceder a todos los "
-"contenidos del mismo, incluyendo las redes a las que esté conectado."
+"Habilitar esta opción puede ser un riesgo de seguridad. Cualquiera que pueda "
+"obtener acceso físico al servidor puede obtener acceso a todos los datos "
+"contenidos en él, incluida cualquier red a la que esté conectado."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -5343,7 +5350,7 @@ msgid "Force Delete"
 msgstr "Forzar eliminar"
 
 msgid "Force Group"
-msgstr ""
+msgstr "Forzar Grupo"
 
 msgid "Force Operation"
 msgstr "Forzar la operacion"
@@ -5352,7 +5359,7 @@ msgid "Force Use"
 msgstr "Forzar su uso"
 
 msgid "Force User"
-msgstr ""
+msgstr "Forzar usuario"
 
 msgid "Forced Update Period"
 msgstr "Periodo de actualización forzada."
@@ -6627,14 +6634,6 @@ msgstr "Última semana"
 msgid "Latency"
 msgstr "Latencia"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "Ultima versión Beta: %s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "Ultima Versión: %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "Dejar como está la configuración de Snapshot automaticos"
 
@@ -6981,6 +6980,12 @@ msgstr "Mantenimiento"
 
 msgid "Maintenance Tool Settings"
 msgstr "Opciones d ela herramienta de mantenimiento"
+
+msgid "Major OS Version Upgrades"
+msgstr "Actualizaciones principales de versión para el sistema operativo"
+
+msgid "Major Product Version Updates"
+msgstr "Actualizaciones principales de versión para el sistema"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Asegúrese de seleccionar el numero de dispositivos optimos"
@@ -7618,6 +7623,9 @@ msgstr "Nueva contraseña"
 msgid "Next"
 msgstr "Siguiente"
 
+msgid "Nightly Builds"
+msgstr "Compilaciones de última hora"
+
 msgid "No"
 msgstr "No"
 
@@ -7758,6 +7766,9 @@ msgstr "No se han encontrado nuevos discos encriptados."
 
 msgid "No new software RAID disk found."
 msgstr "No se han encontrado discos Soft RAID nuevos"
+
+msgid "No online information available."
+msgstr "No hay información disponible en línea."
 
 msgid "No options found."
 msgstr "No se han encontrado opciones"
@@ -7960,6 +7971,9 @@ msgstr "CONECTADO"
 
 msgid "OPT Only"
 msgstr "Solo OPT"
+
+msgid "OS Version Upgrades"
+msgstr "Actualizaciones del S.O."
 
 msgid "Object name"
 msgstr "Nombre del objeto"
@@ -8706,6 +8720,9 @@ msgstr "Procesador"
 msgid "Product ID"
 msgstr "ID del producto"
 
+msgid "Product Version Updates"
+msgstr "Actualización de la versión del sistema"
+
 msgid "Profile"
 msgstr "Perfil"
 
@@ -9183,6 +9200,9 @@ msgstr "Refreservation"
 msgid "Refresh"
 msgstr "Actualizar"
 
+msgid "Regular Product Updates"
+msgstr "Actualizaciones periodicas del sistema"
+
 msgid "Reject"
 msgstr "Rechazar"
 
@@ -9550,16 +9570,16 @@ msgid "SHA256, Verify"
 msgstr "SHA256, Verificar"
 
 msgid "SMB"
-msgstr ""
+msgstr "SMB"
 
 msgid "SMB Settings"
-msgstr ""
+msgstr "Comfiguraciones SMB"
 
 msgid "SMB is disabled."
-msgstr ""
+msgstr "SMB está deshabilitado"
 
 msgid "SMB is enabled."
-msgstr ""
+msgstr "SMB está habilitado"
 
 msgid "SMB2"
 msgstr "SMB2"
@@ -9604,7 +9624,7 @@ msgid "STRIPE"
 msgstr "STRIPE"
 
 msgid "Samba"
-msgstr ""
+msgstr "Samba"
 
 msgid "Samba AD"
 msgstr "Directorio Activo Samba"
@@ -9613,7 +9633,7 @@ msgid "Samba Active Directory Domain Controller"
 msgstr "Controlador de dominio del AD Samba"
 
 msgid "Samba Share is locked"
-msgstr ""
+msgstr "El recurso compartido Samba está bloqueado"
 
 msgid "Samba Share is marked for deletion"
 msgstr "Compartido Samba marcado para borrado"
@@ -10589,6 +10609,8 @@ msgstr ""
 
 msgid "Specifies the charset the unix machine Samba runs on uses."
 msgstr ""
+"Especifica el juego de caracteres que utiliza la máquina Unix donde se "
+"ejecuta Samba."
 
 msgid "Specifies the command to be run."
 msgstr "Especifica la orden a ejecutar."
@@ -11157,7 +11179,7 @@ msgstr ""
 "libres como porcentaje del total delnúemro de bloques libres disponible."
 
 msgid "The NetBIOS name of this Samba server."
-msgstr ""
+msgstr "El nombre NetBIOS de este servidor Samba."
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12024,6 +12046,9 @@ msgstr ""
 "El Grupo de trabajo (WORKGROUP) en el que aparece el servidor cuando sea "
 "interrogado por windows o clientes SMB. (Max. 15 caracteres)."
 
+msgid "There are no regular product updates available."
+msgstr "No hay actualizaciones del sistema disponibles."
+
 msgid "There is no error, the file uploaded with success."
 msgstr "No hay error, el archivo fue subido con exito."
 
@@ -12278,6 +12303,8 @@ msgid ""
 "This option affects how clients respond to Samba and is one of the most "
 "important settings in the smb.conf file."
 msgstr ""
+"Esta opción afecta en cómo responden a Samba los clientes y es una de las "
+"configuraciones más importantes del archivo smb.conf."
 
 msgid ""
 "This option allows the users and groups that access a share to be specified. "
@@ -12519,6 +12546,11 @@ msgid ""
 "sharing files by ensuring that all access to files on service will use the "
 "named group for their permissions checking."
 msgstr ""
+"Esto especifica un nombre de grupo UNIX, que se asignará como el grupo "
+"primario, de forma predeterminada, para todos los usuarios que se conectan a "
+"este servicio. Esto es útil a la hora de compartir archivos, pues garantiza "
+"que el acceso a los mismos utilizará el grupo especificado para controlar "
+"sus permisos."
 
 msgid ""
 "This specifies a UNIX user name that will be assigned as the default user "
@@ -12526,6 +12558,10 @@ msgid ""
 "You should also use it carefully as using it incorrectly can cause security "
 "problems."
 msgstr ""
+"Esto especifica un nombre de usuario UNIX que se asignará como usuario "
+"predeterminado para todos los usuarios que se conectan a este servicio. Esto "
+"es útil para compartir archivos. sin embargo, debe usarse con cuidado, ya "
+"que si se hace de forma incorrecta puede provocar problemas de seguridad."
 
 msgid "This tag already exists."
 msgstr "Esta etiqueta ya existe."
@@ -12767,7 +12803,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Cambiar el estado de módulos Rsync"
 
 msgid "Toggle Selected Samba Shares"
-msgstr ""
+msgstr "Cambiar recursos compartidos de samba seleccionados"
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Cambiar las configuraciones Sysctl seleccionadas"
@@ -13324,6 +13360,12 @@ msgid ""
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
+"Use esta opción para cambiar el usuario (\"ftp\" de forma predeterminada) "
+"que se usará para acceder a los recursos compartidos con acceso de invitado. "
+"Cualesquiera privilegios que tenga este usuario estarán disponibles para "
+"cualquier cliente que se conecte como invitado. Este usuario debe existir "
+"como tal en el archivo de contraseñas, pero no requiere que su inicio de "
+"sesión sea válido."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
@@ -13636,7 +13678,7 @@ msgid "WLAN is unlocked"
 msgstr "WLAN desprotegida"
 
 msgid "WORKGROUP"
-msgstr ""
+msgstr "Grupo de trabajo"
 
 msgid "WPA"
 msgstr "WPA"
@@ -13733,6 +13775,8 @@ msgstr ""
 msgid ""
 "When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
+"Cuando el Directorio Activo de Samba está habilitado, no se puede utilizar "
+"el uso compartido de archivos SMB independiente."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -14185,7 +14229,7 @@ msgid "network traffic"
 msgstr "Tráfico de Red"
 
 msgid "no"
-msgstr ""
+msgstr "no"
 
 msgid "no pools available"
 msgstr "No hay disponible ninguna agrupación de dispositivos(Pool)."
@@ -14248,7 +14292,7 @@ msgid "tcsh - TENEX C Shell"
 msgstr "tcsh - TENEX C Shell"
 
 msgid "testparm"
-msgstr ""
+msgstr "testparm"
 
 msgid "to"
 msgstr "hasta"
@@ -14263,4 +14307,4 @@ msgid "visible"
 msgstr "Visible"
 
 msgid "yes"
-msgstr ""
+msgstr "si"

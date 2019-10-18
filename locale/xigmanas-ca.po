@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
-"PO-Revision-Date: 2019-10-06 06:13+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"PO-Revision-Date: 2019-10-17 21:15+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:17+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: ca_ES\n"
 
@@ -228,8 +228,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -474,7 +474,7 @@ msgid "ARP Tables List"
 msgstr "Index de taules ARP"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Acceptar missatges de registre del sistema remot."
@@ -792,7 +792,7 @@ msgid "Advanced Options"
 msgstr "Avançat"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "Configuració avançada de SMB"
 
 msgid "Advanced Settings"
 msgstr "Paràmetres avançats"
@@ -852,7 +852,7 @@ msgid "All"
 msgstr "Tot"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Totes les interfícies"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "S'han eliminat totes les dades de les estadístiques següents:"
@@ -952,6 +952,7 @@ msgstr ""
 
 msgid "Allow the server to try and become a local master browser."
 msgstr ""
+"Permet al servidor provar i convertir-se en un navegador mestre local."
 
 msgid "Allow to start UPS from battery"
 msgstr "Permet iniciar el SAI  des de la bateria"
@@ -1495,6 +1496,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "el millor disponible"
+
+msgid "Beta Versions"
+msgstr "Versions Beta"
 
 msgid "Binary Prefix"
 msgstr "Prefix binari"
@@ -2631,12 +2635,15 @@ msgid "DNS server is empty."
 msgstr "Servidor DNS està buida."
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "Joc de caràcters DOS"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
 msgstr ""
+"Els clients de DOS SMB assumeixen que el servidor té el mateix joc de "
+"caràcters que ells. Aquesta opció especifica amb quin caràcters Samba ha de "
+"parlar amb els clients de DOS."
 
 msgid "DVD"
 msgstr "DVD"
@@ -3297,7 +3304,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Eliminar mòduls seleccionats Rsync"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "Desactiva les accions de Samba seleccionades"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Desactiva la configuració de Sysctl seleccionada"
@@ -3758,7 +3765,7 @@ msgid "Do you want to disable selected NFS root directories?"
 msgstr "Voleu desactivar els directoris arrel seleccionats de NFS?"
 
 msgid "Do you want to disable selected Samba shares?"
-msgstr ""
+msgstr "Voleu desactivar les accions de Samba seleccionades?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Voleu desactivar els registres WebDAV seleccionats?"
@@ -3848,7 +3855,7 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr "Voleu habilitar els directoris arrel NFS seleccionats?"
 
 msgid "Do you want to enable selected Samba shares?"
-msgstr ""
+msgstr "Voleu activar les accions de Samba seleccionades?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Voleu activar els registres seleccionats WebDAV?"
@@ -3947,7 +3954,7 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr "Voleu canviar els directoris arrel NFS seleccionats?"
 
 msgid "Do you want to toggle selected Samba shares?"
-msgstr ""
+msgstr "Voleu canviar les accions de Samba seleccionades?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Voleu canviar els registres seleccionats de WebDAV?"
@@ -4347,7 +4354,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Habilitar el format avançat (Mida de sector de 4 KB)."
 
 msgid "Enable Asynchronous I/O."
-msgstr ""
+msgstr "Activa E/S asíncrones."
 
 msgid "Enable FXP protocol."
 msgstr "Habilitar protocol FXP."
@@ -4458,7 +4465,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Activar els mòduls Rsync seleccionats"
 
 msgid "Enable Selected Samba Shares"
-msgstr ""
+msgstr "Activa les accions de Samba seleccionades"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Activa la configuració de Sysctl seleccionada"
@@ -4721,13 +4728,12 @@ msgstr "Les opcions habilitades s’afegiran a /etc/rc.conf."
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
 "Habilitar aquesta opció pot suposar un risc per a la seguretat. Qualsevol "
-"persona que pugui obtenir accés físic a aquest ordinador pot accedir a tots "
-"els continguts de l'ordinador, incloses les xarxes a les quals estigui "
-"connectat."
+"que pugui obtenir accés físic a aquest servidor pot accedir a tots els "
+"continguts de les seves dades, inclosa la xarxa a la qual estigui connectat."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -5373,7 +5379,7 @@ msgid "Force Delete"
 msgstr "Forçar esborrat"
 
 msgid "Force Group"
-msgstr ""
+msgstr "Força el grup"
 
 msgid "Force Operation"
 msgstr "Força operació"
@@ -5382,7 +5388,7 @@ msgid "Force Use"
 msgstr "forçar l'ús"
 
 msgid "Force User"
-msgstr ""
+msgstr "Força l'usuari"
 
 msgid "Forced Update Period"
 msgstr "Període d'actualització forçada"
@@ -6658,14 +6664,6 @@ msgstr "Darrera setmana"
 msgid "Latency"
 msgstr "Latència"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "Darrera versió Beta: %s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "Darrera versió: %s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "Deixa les instantànies ja configurades."
 
@@ -7008,6 +7006,12 @@ msgstr "Manteniment"
 
 msgid "Maintenance Tool Settings"
 msgstr "Configuració de l'eina de manteniment"
+
+msgid "Major OS Version Upgrades"
+msgstr "Principals actualitzacions de la versió del sistema operatiu"
+
+msgid "Major Product Version Updates"
+msgstr "Principals actualitzacions del producte"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Assegureu-vos de seleccionar el nombre òptim de dispositius"
@@ -7654,6 +7658,9 @@ msgstr "Nova contrasenya"
 msgid "Next"
 msgstr "Següent"
 
+msgid "Nightly Builds"
+msgstr "Versions inestables"
+
 msgid "No"
 msgstr "No"
 
@@ -7795,6 +7802,9 @@ msgstr "No s'han trobat nous discos xifrats."
 
 msgid "No new software RAID disk found."
 msgstr "No s'ha trobat nou programari de disc RAID."
+
+msgid "No online information available."
+msgstr "No hi ha informació disponible en línia."
 
 msgid "No options found."
 msgstr "No s’ha trobat cap opció."
@@ -7999,6 +8009,9 @@ msgstr "En línea"
 
 msgid "OPT Only"
 msgstr "Només OPT"
+
+msgid "OS Version Upgrades"
+msgstr "Actualitzacions de la versió del sistema operatiu"
 
 msgid "Object name"
 msgstr "Nom d'objecte"
@@ -8748,6 +8761,9 @@ msgstr "Processador"
 msgid "Product ID"
 msgstr "ID del producte"
 
+msgid "Product Version Updates"
+msgstr "Actualitzacions de la versió del producte"
+
 msgid "Profile"
 msgstr "Perfil"
 
@@ -9226,6 +9242,9 @@ msgstr "Refreservation"
 msgid "Refresh"
 msgstr "Actualitza"
 
+msgid "Regular Product Updates"
+msgstr "Actualitzacions periòdiques de productes"
+
 msgid "Reject"
 msgstr "Rebutja"
 
@@ -9587,16 +9606,16 @@ msgid "SHA256, Verify"
 msgstr "SHA256, Verificar"
 
 msgid "SMB"
-msgstr ""
+msgstr "SMB"
 
 msgid "SMB Settings"
-msgstr ""
+msgstr "Configuració SMB"
 
 msgid "SMB is disabled."
-msgstr ""
+msgstr "SMB desactivat."
 
 msgid "SMB is enabled."
-msgstr ""
+msgstr "SMB activat."
 
 msgid "SMB2"
 msgstr "SMB2"
@@ -9641,7 +9660,7 @@ msgid "STRIPE"
 msgstr "RATLLA"
 
 msgid "Samba"
-msgstr ""
+msgstr "Samba"
 
 msgid "Samba AD"
 msgstr "Samba AD"
@@ -9650,7 +9669,7 @@ msgid "Samba Active Directory Domain Controller"
 msgstr "Controlador de domini d'Active Directory Samba"
 
 msgid "Samba Share is locked"
-msgstr ""
+msgstr "Samba share està bloquejada"
 
 msgid "Samba Share is marked for deletion"
 msgstr "El recurs Samba està marcat per esborrar"
@@ -10628,6 +10647,7 @@ msgstr ""
 
 msgid "Specifies the charset the unix machine Samba runs on uses."
 msgstr ""
+"Especifica el joc de caràcters que la màquina Unix Samba executa en usos."
 
 msgid "Specifies the command to be run."
 msgstr "Especifica la comanda a executar."
@@ -11201,7 +11221,7 @@ msgstr ""
 "com un percentatge del nombre total de blocs de recanvi disponibles."
 
 msgid "The NetBIOS name of this Samba server."
-msgstr ""
+msgstr "El nom NetBios del servidor Samba."
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -12067,6 +12087,9 @@ msgstr ""
 "El grup de treball en què apareixerà el servidor quan se li pregunta pels "
 "clients de Windows o SMB. (Màxim 15 caràcters)."
 
+msgid "There are no regular product updates available."
+msgstr "No hi ha actualitzacions de productes habituals disponibles."
+
 msgid "There is no error, the file uploaded with success."
 msgstr "No hi ha cap error, l'arxiu ha sigut carregat amb èxit."
 
@@ -12324,6 +12347,8 @@ msgid ""
 "This option affects how clients respond to Samba and is one of the most "
 "important settings in the smb.conf file."
 msgstr ""
+"Aquesta opció afecta com responen els clients al Samba i és una de les "
+"configuracions més importants del fitxer smb.conf."
 
 msgid ""
 "This option allows the users and groups that access a share to be specified. "
@@ -12570,6 +12595,10 @@ msgid ""
 "sharing files by ensuring that all access to files on service will use the "
 "named group for their permissions checking."
 msgstr ""
+"Això especifica un nom de grup UNIX que s'assignarà com a grup principal "
+"predeterminat per a tots els usuaris que es connectin a aquest servei. Això "
+"és útil per compartir fitxers garantint que tot l’accés als fitxers del "
+"servei utilitzarà el grup nomenat per a la seva verificació de permisos."
 
 msgid ""
 "This specifies a UNIX user name that will be assigned as the default user "
@@ -12577,6 +12606,10 @@ msgid ""
 "You should also use it carefully as using it incorrectly can cause security "
 "problems."
 msgstr ""
+"Això especifica un nom d'usuari UNIX que s'assignarà com a usuari "
+"predeterminat per a tots els usuaris que es connectin a aquest servei. Això "
+"és útil per compartir fitxers. També l’heu d’utilitzar amb cura ja que l’ús "
+"incorrecte pot causar problemes de seguretat."
 
 msgid "This tag already exists."
 msgstr "Aquesta etiqueta ja existeix."
@@ -12820,7 +12853,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Alternar mòduls Rsync seleccionats"
 
 msgid "Toggle Selected Samba Shares"
-msgstr ""
+msgstr "Activeu les accions de Samba seleccionades"
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Commuta la configuració de Sysctl seleccionada"
@@ -13382,6 +13415,12 @@ msgid ""
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
+"Utilitzeu aquesta opció per substituir el nom d'usuari (\"ftp\" per defecte) "
+"que s'utilitzarà per accedir a serveis que s'especifiquen com a convidat. "
+"Qualsevol privilegi que tingui aquest usuari estarà disponible per a "
+"qualsevol client que es connecti al servei d’atenció al client. Aquest "
+"usuari ha d'existir al fitxer de contrasenya, però no requereix un inici de "
+"sessió vàlid."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
@@ -13694,7 +13733,7 @@ msgid "WLAN is unlocked"
 msgstr "WLAN està desbloquejat"
 
 msgid "WORKGROUP"
-msgstr ""
+msgstr "Grup de Treball"
 
 msgid "WPA"
 msgstr "WPA"
@@ -13793,6 +13832,8 @@ msgstr ""
 msgid ""
 "When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
+"Quan Samba AD està habilitat, no es pot utilitzar l’ús compartit de fitxers "
+"SMB."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -14242,7 +14283,7 @@ msgid "network traffic"
 msgstr "Tràfic de xarxa"
 
 msgid "no"
-msgstr ""
+msgstr "no"
 
 msgid "no pools available"
 msgstr "no hi ha piscines disponibles"
@@ -14305,7 +14346,7 @@ msgid "tcsh - TENEX C Shell"
 msgstr "tcsh - TENEX C Shell"
 
 msgid "testparm"
-msgstr ""
+msgstr "Paràmetres de prova"
 
 msgid "to"
 msgstr "cap a"
@@ -14320,4 +14361,4 @@ msgid "visible"
 msgstr "visible"
 
 msgid "yes"
-msgstr ""
+msgstr "sí"

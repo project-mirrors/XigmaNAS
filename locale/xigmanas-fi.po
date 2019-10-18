@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
 "PO-Revision-Date: 2018-07-06 10:12+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:37+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:17+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "X-Poedit-Country: FINLAND\n"
 "X-Poedit-Language: Finnish\n"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "1000"
 msgstr ""
 
-msgid "10000"
+msgid "1000000"
 msgstr ""
 
 msgid "16 KiB"
@@ -1402,6 +1402,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "Paras saatavilla oleva"
+
+msgid "Beta Versions"
+msgstr ""
 
 msgid "Binary Prefix"
 msgstr ""
@@ -4405,8 +4408,8 @@ msgstr ""
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
 
 msgid ""
@@ -6167,14 +6170,6 @@ msgstr ""
 msgid "Latency"
 msgstr ""
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr ""
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr ""
-
 msgid "Leave already configured auto snapshots."
 msgstr ""
 
@@ -6484,6 +6479,12 @@ msgid "Maintenance"
 msgstr ""
 
 msgid "Maintenance Tool Settings"
+msgstr ""
+
+msgid "Major OS Version Upgrades"
+msgstr ""
+
+msgid "Major Product Version Updates"
 msgstr ""
 
 msgid "Make sure to select the optimal number of devices"
@@ -7103,6 +7104,9 @@ msgstr "Uusi salasana"
 msgid "Next"
 msgstr ""
 
+msgid "Nightly Builds"
+msgstr ""
+
 msgid "No"
 msgstr "Ei"
 
@@ -7242,6 +7246,9 @@ msgid "No new encrypted disks have been found."
 msgstr ""
 
 msgid "No new software RAID disk found."
+msgstr ""
+
+msgid "No online information available."
 msgstr ""
 
 msgid "No options found."
@@ -7434,6 +7441,9 @@ msgid "ONLINE"
 msgstr ""
 
 msgid "OPT Only"
+msgstr ""
+
+msgid "OS Version Upgrades"
 msgstr ""
 
 msgid "Object name"
@@ -8149,6 +8159,9 @@ msgstr ""
 msgid "Product ID"
 msgstr "Tuotteen ID"
 
+msgid "Product Version Updates"
+msgstr ""
+
 msgid "Profile"
 msgstr "Profiili"
 
@@ -8609,6 +8622,9 @@ msgstr ""
 
 msgid "Refresh"
 msgstr "Päivitä"
+
+msgid "Regular Product Updates"
+msgstr ""
 
 msgid "Reject"
 msgstr "Hylkää"
@@ -11119,6 +11135,9 @@ msgstr "Muuttujan arvo."
 msgid ""
 "The workgroup in which the server will appear when queried by Windows or SMB "
 "clients. (maximum 15 characters)."
+msgstr ""
+
+msgid "There are no regular product updates available."
 msgstr ""
 
 msgid "There is no error, the file uploaded with success."

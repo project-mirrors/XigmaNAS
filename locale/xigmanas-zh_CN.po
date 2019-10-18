@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
 "PO-Revision-Date: 2019-10-08 09:00+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:36+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:16+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -202,8 +202,8 @@ msgstr "1.8\""
 msgid "1000"
 msgstr "1000"
 
-msgid "10000"
-msgstr "10000"
+msgid "1000000"
+msgstr ""
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -1367,6 +1367,9 @@ msgstr "在Unison客户端开始工作之前，你需要执行以下操作："
 
 msgid "Best available"
 msgstr "现有最佳"
+
+msgid "Beta Versions"
+msgstr ""
 
 msgid "Binary Prefix"
 msgstr "二进制前缀"
@@ -4389,9 +4392,9 @@ msgstr "启用的选项将添加到/etc/rc.conf中。"
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
-msgstr "启用此选项可能会带来安全风险。 任何可以物理访问此计算机的人都可以访问该计算机的所有内容，包括其连接的任何网络。"
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
+msgstr ""
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -6159,14 +6162,6 @@ msgstr "上周"
 msgid "Latency"
 msgstr "延时"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "最新测试版：%s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "最新版本：%s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "保留已经配置的自动快照。"
 
@@ -6481,6 +6476,12 @@ msgstr "维护"
 
 msgid "Maintenance Tool Settings"
 msgstr "维护工具设置"
+
+msgid "Major OS Version Upgrades"
+msgstr ""
+
+msgid "Major Product Version Updates"
+msgstr ""
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "确保选择最佳设备数量"
@@ -7097,6 +7098,9 @@ msgstr "新密码"
 msgid "Next"
 msgstr "下一步"
 
+msgid "Nightly Builds"
+msgstr ""
+
 msgid "No"
 msgstr "否"
 
@@ -7237,6 +7241,9 @@ msgstr "未找到新的加密磁盘。"
 
 msgid "No new software RAID disk found."
 msgstr "没找到新的软RAID磁盘"
+
+msgid "No online information available."
+msgstr ""
 
 msgid "No options found."
 msgstr "找不到选项。"
@@ -7431,6 +7438,9 @@ msgstr "在线"
 
 msgid "OPT Only"
 msgstr "仅OPT"
+
+msgid "OS Version Upgrades"
+msgstr ""
 
 msgid "Object name"
 msgstr "对象名称"
@@ -8145,6 +8155,9 @@ msgstr "处理器"
 msgid "Product ID"
 msgstr "产品编号"
 
+msgid "Product Version Updates"
+msgstr ""
+
 msgid "Profile"
 msgstr "配置文件"
 
@@ -8608,6 +8621,9 @@ msgstr "Refreservation"
 
 msgid "Refresh"
 msgstr "刷新"
+
+msgid "Regular Product Updates"
+msgstr ""
 
 msgid "Reject"
 msgstr "拒绝"
@@ -11145,6 +11161,9 @@ msgid ""
 "The workgroup in which the server will appear when queried by Windows or SMB "
 "clients. (maximum 15 characters)."
 msgstr "Windows或SMB客户端查询时将显示服务器的工作组。 （最多15个字符）。"
+
+msgid "There are no regular product updates available."
+msgstr ""
 
 msgid "There is no error, the file uploaded with success."
 msgstr "文件上传成功，没有任何错误。"

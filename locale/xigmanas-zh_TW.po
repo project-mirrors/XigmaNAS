@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-15 01:47+0000\n"
+"POT-Creation-Date: 2019-10-17 21:40+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-16 14:36+0000\n"
+"X-Launchpad-Export-Date: 2019-10-18 22:16+0000\n"
 "X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -202,7 +202,7 @@ msgstr "1.8\""
 msgid "1000"
 msgstr ""
 
-msgid "10000"
+msgid "1000000"
 msgstr ""
 
 msgid "16 KiB"
@@ -1367,6 +1367,9 @@ msgstr ""
 
 msgid "Best available"
 msgstr "現有最佳"
+
+msgid "Beta Versions"
+msgstr ""
 
 msgid "Binary Prefix"
 msgstr "二進制前綴"
@@ -4389,8 +4392,8 @@ msgstr ""
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
-"obtain access to this computer can gain access to all the computer's "
-"contents, including any networks it is connected to."
+"obtain access to this server can gain access to all it's data contents, "
+"including any network it is connected to."
 msgstr ""
 
 msgid ""
@@ -6159,14 +6162,6 @@ msgstr ""
 msgid "Latency"
 msgstr "延遲"
 
-#, php-format
-msgid "Latest Beta Release: %s"
-msgstr "最新測試版：%s"
-
-#, php-format
-msgid "Latest Release: %s"
-msgstr "最新版本：%s"
-
 msgid "Leave already configured auto snapshots."
 msgstr "保留已經配置的自動快照。"
 
@@ -6478,6 +6473,12 @@ msgid "Maintenance"
 msgstr "維護"
 
 msgid "Maintenance Tool Settings"
+msgstr ""
+
+msgid "Major OS Version Upgrades"
+msgstr ""
+
+msgid "Major Product Version Updates"
 msgstr ""
 
 msgid "Make sure to select the optimal number of devices"
@@ -7095,6 +7096,9 @@ msgstr "新密碼"
 msgid "Next"
 msgstr "下一個"
 
+msgid "Nightly Builds"
+msgstr ""
+
 msgid "No"
 msgstr "否"
 
@@ -7235,6 +7239,9 @@ msgstr "未找到新的加密磁片。"
 
 msgid "No new software RAID disk found."
 msgstr "沒找到新的軟體RAID磁碟"
+
+msgid "No online information available."
+msgstr ""
 
 msgid "No options found."
 msgstr ""
@@ -7429,6 +7436,9 @@ msgstr "線上"
 
 msgid "OPT Only"
 msgstr "僅OPT"
+
+msgid "OS Version Upgrades"
+msgstr ""
 
 msgid "Object name"
 msgstr "對象名稱"
@@ -8143,6 +8153,9 @@ msgstr ""
 msgid "Product ID"
 msgstr "產品編號"
 
+msgid "Product Version Updates"
+msgstr ""
+
 msgid "Profile"
 msgstr "配置檔"
 
@@ -8606,6 +8619,9 @@ msgstr "Refreservation"
 
 msgid "Refresh"
 msgstr "刷新"
+
+msgid "Regular Product Updates"
+msgstr ""
 
 msgid "Reject"
 msgstr "拒絕"
@@ -11133,6 +11149,9 @@ msgid ""
 "The workgroup in which the server will appear when queried by Windows or SMB "
 "clients. (maximum 15 characters)."
 msgstr "Windows或SMB客戶端查詢時將顯示伺服器的工作組。 （最多15個字元）。"
+
+msgid "There are no regular product updates available."
+msgstr ""
 
 msgid "There is no error, the file uploaded with success."
 msgstr "檔上傳成功，沒有任何錯誤。"
