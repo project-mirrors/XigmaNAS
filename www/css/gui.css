@@ -865,14 +865,18 @@ div#headerrlogo
 	width: 350px;
 	background-image: url("/images/header_rlogo.png");
 	margin-left: -350px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
 }
 
-div#headerrlogo .hostname
+div#headerrlogo .hostname,
+div#headerrlogo .announcement
 {
+	flex: 0 0 auto;
 	font-size: 1em;
 	color: #FFFFFF;
 	text-align: right;
-	margin-top: 5.73em;
 	margin-right: 2em;
 }
 
