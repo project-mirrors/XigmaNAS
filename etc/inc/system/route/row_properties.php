@@ -32,6 +32,7 @@
   of XigmaNAS, either expressed or implied.
  */
 namespace system\route;
+
 use common\properties as myp;
 
 final class row_properties extends grid_properties {

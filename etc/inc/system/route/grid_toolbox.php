@@ -32,6 +32,7 @@
   of XigmaNAS, either expressed or implied.
  */
 namespace system\route;
+
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
