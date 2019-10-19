@@ -32,6 +32,7 @@
   of XigmaNAS, either expressed or implied.
  */
 namespace system\route;
+
 use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
