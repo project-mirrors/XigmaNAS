@@ -2965,6 +2965,8 @@ EOJ;
 		return $this;
 	}
 	public function ins_header_logo() {
+		global $config;
+
 		if(!$_SESSION['g']['shrinkpageheader']):
 			$a_attributes = [
 				'title' => sprintf('www.%s',get_product_url()),
@@ -2976,16 +2978,24 @@ EOJ;
 				'src' => '/images/header_logo.png',
 				'alt' => 'logo'
 			];
-			$this->addElement('header',['id' => 'g4l'])->
-				addDIV(['id' => 'header'])->
-					push()->
-					addDIV(['id' => 'headerrlogo'])->
-						addDIV(['class' => 'hostname'])->
-							addSPAN([],system_get_hostname())->
-					pop()->
-					addDIV(['id' => 'headerlogo'])->
-						addA($a_attributes)->
-							insIMG($img_attributes);
+			$id_header = $this->
+				addElement('header',['id' => 'g4l'])->
+					addDIV(['id' => 'header']);
+			$id_header_right = $id_header->addDIV(['id' => 'headerrlogo']);
+			if(!isset($config['system']['hideannouncements'])):
+				if('1216' < date('md')):
+					$id_header_right->
+						addDIV(['class' => 'announcement'])->
+							insIMG(['src' => '/images/announcement12.gif','alt' => '','title' => 'Merry Christmas!']);
+				endif;
+			endif;
+			$id_header_right->
+				addDIV(['class' => 'hostname'])->
+					addSPAN([],system_get_hostname());
+			$id_header_left = $id_header->
+				addDIV(['id' => 'headerlogo'])->
+					addA($a_attributes)->
+						insIMG($img_attributes);
 		endif;
 		return $this;
 	}
