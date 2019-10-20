@@ -681,7 +681,7 @@ post-install:
 #		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb; \
 #	done
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb
-	for file in ${PREFIX}/lib/modules/ldb/*; do \
+	for file in ${PREFIX}/lib/shared-modules/ldb/*; do \
 		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb; \
 	done
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/ldb
