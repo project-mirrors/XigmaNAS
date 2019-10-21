@@ -36,59 +36,52 @@ require_once 'guiconfig.inc';
 
 function services_hast_info_ajax() {
 	global $config;
+
 	if(!isset($config['hast']['enable'])):
-		return gtext('HAST is disabled.');
+		return gettext('HAST is disabled.');
 	endif;
-	$cmd = '/sbin/hastctl status';
-	$cmd .= " 2>&1";
+	$cmd = '/sbin/hastctl status 2>&1';
 	mwexec2($cmd,$rawdata);
 	return implode(PHP_EOL,$rawdata);
 }
-array_make_branch($config,'hast');
 if(is_ajax()):
-	$status = services_hast_info_ajax();
+	$status['area_refresh'] = services_hast_info_ajax();
 	render_ajax($status);
 endif;
-$pgtitle = [gtext('Services'),gtext('HAST'),gtext('Information')];
-include 'fbegin.inc';
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(document).ready(function(){
+$pgtitle = [gettext('Services'),gettext('HAST'),gettext('Information')];
+$document = new_page($pgtitle);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('services_hast.php',gettext('Settings'))->
+			ins_tabnav_record('services_hast_resource.php',gettext('Resources'))->
+			ins_tabnav_record('services_hast_info.php',gettext('Information'),gettext('Reload page'),true);
+$pagecontent->
+	add_area_data()->
+		add_table_data_settings()->
+			push()->
+			ins_colgroup_data_settings()->
+			addTHEAD()->
+				c2_titleline(gettext('HAST Information & Status Configured Resources'))->
+			pop()->
+			addTBODY()->
+				addTR()->
+					insTDwC('celltag',gettext('Information'))->
+					addTDwC('celldata')->
+						addElement('pre',['class' => 'cmdoutput'])->
+							addElement('span',['id' => 'area_refresh'],services_hast_info_ajax());
+//	add additional javascript code
+$js_document_ready = <<<'EOJ'
 	var gui = new GUI;
-	gui.recall(5000, 5000, 'services_hast_info.php', null, function(data) {
-		if ($('#area_refresh').length > 0) {
-			$('#area_refresh').text(data.data);
+	gui.recall(5000,5000,'services_hast_info.php',null,function(data) {
+		if($('#area_refresh').length > 0) {
+			$('#area_refresh').text(data.area_refresh);
 		}
 	});
-});
-//]]>
-</script>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabinact"><a href="services_hast.php"><span><?=gtext('Settings');?></span></a></li>
-		<li class="tabinact"><a href="services_hast_resource.php"><span><?=gtext('Resources');?></span></a></li>
-		<li class="tabact"><a href="services_hast_info.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Information');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php 
-			html_titleline2(gettext('HAST Information & Status Configured Resources'));
-?>
-		</thead>
-		<tbody><tr>
-			<td class="celltag"><?=gtext('Information');?></td>
-			<td class="celldata">
-				<pre><span id="area_refresh"><?=services_hast_info_ajax();?></span></pre>
-			</td>
-		</tr></tbody>
-	</table>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
+EOJ;
+$body->add_js_document_ready($js_document_ready);
+$document->render();
