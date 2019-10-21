@@ -663,8 +663,6 @@ post-install:
 #	for file in ldb.so; do \
 #		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.6/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.6/site-packages; \
 #	done
-
-
 	@${CP} -Rpv ${PREFIX}/lib/python3.6/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.6/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
 
