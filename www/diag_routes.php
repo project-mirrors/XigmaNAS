@@ -36,36 +36,36 @@ require_once 'guiconfig.inc';
 
 function diag_routes_get(string $family,bool $resolve): array {
 	$sphere_grid = [];
-	$a_command = ['netstat','-r','-W'];
+	$a_cmd = ['netstat','--libxo:J','-r','-W'];
 	if(!$resolve):
-		$a_command[] = '-n';
+		$a_cmd[] = '-n';
 	endif;
+	$a_cmd[] = '-f';
 	if('inet6' === $family):
-		$a_command[] = '-f inet6';
+		$a_cmd[] = 'inet6';
 	else:
-		$a_command[] = '-f inet';
+		$a_cmd[] = 'inet';
 	endif;
-	$command = implode(' ',$a_command);
-	$command_output = explode(PHP_EOL,shell_exec($command));
-	$skip = 4;
-	foreach($command_output as $command_output_row):
-		if($skip > 0):
-			$skip--;
-		else:
-			list($destination,$gateway,$flags,$use,$mtu,$netif,$expire) = preg_split('/\s+/',$command_output_row,7);
-			if('' !== $destination):
-				$sphere_row = [
-					'destination' => $destination,
-					'gateway' => $gateway,
-					'flags' => $flags,
-					'use' => $use,
-					'mtu' => $mtu,
-					'netif' => $netif,
-					'expire' => $expire
-				];
-				$sphere_grid[] = $sphere_row;
-			endif;
-		endif;
+	$cmd = implode(' ',$a_cmd);
+	$json_string = shell_exec($cmd);
+	$rawdata = json_decode($json_string,true);
+	$rt_family = array_make_branch($rawdata,'statistics','route-information','route-table','rt-family');
+	foreach($rt_family as $r_rt_family):
+		$address_family = $r_rt_family['address-family'] ?? '';
+		$rt_entry = array_make_branch($r_rt_family,'rt-entry');
+		foreach($rt_entry as $r_rt_entry):
+			$sphere_row = [
+				'address-family' => $address_family,
+				'destination' => $r_rt_entry['destination'] ?? '',
+				'gateway' => $r_rt_entry['gateway'] ?? '',
+				'flags' => $r_rt_entry['flags'] ?? '',
+				'use' => $r_rt_entry['use'] ?? '',
+				'mtu' => $r_rt_entry['mtu'] ?? '',
+				'netif' => $r_rt_entry['interface-name'] ?? '',
+				'expire' => $r_rt_entry['expire-time'] ?? ''
+			];
+			$sphere_grid[] = $sphere_row;
+		endforeach;
 	endforeach;
 	return $sphere_grid;
 }
@@ -75,7 +75,7 @@ function diag_routes_selection() {
 	$ipv4_grid = diag_routes_get('inet',$resolve);
 	$ipv4_record_exists = count($ipv4_grid) > 0;
 	$ipv4_use_tablesort = count($ipv4_grid) > 1;
-//	IPv6	
+//	IPv6
 	$ipv6_grid = diag_routes_get('inet6',$resolve);
 	$ipv6_record_exists = count($ipv6_grid) > 0;
 	$ipv6_use_tablesort = count($ipv6_grid) > 1;
