@@ -141,7 +141,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_value()->get_title())->
 				insTHwC('lhelc sorter-image',gettext('Status'))->
-				insTHwC('lhell',$cop->get_comment()->get_title())->
+				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhell',$cop->get_typeid()->get_title())->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 		else:
@@ -150,7 +150,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_value()->get_title())->
 				insTHwC('lhelc',gettext('Status'))->
-				insTHwC('lhell',$cop->get_comment()->get_title())->
+				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhell',$cop->get_typeid()->get_title())->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
@@ -177,7 +177,7 @@ final class grid_toolbox {
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_value()->get_name()] ?? '')->
 						ins_enadis_icon($is_enabled)->
-						insTDwC('lcell' . $dc,$sphere->row[$cop->get_comment()->get_name()] ?? '')->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$typeid_value)->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->

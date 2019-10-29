@@ -58,16 +58,13 @@ class grid_properties extends myp\container_row {
 	final public function get_value(): myp\property_text {
 		return $this->x_value ?? $this->init_value();
 	}
-	protected $x_comment;
-	public function init_comment(): myp\property_text {
-		$property = $this->x_comment = new myp\property_text($this);
+	public function init_description(): myp\property_text {
+		$property = parent::init_description();
 		$property->
+			set_id('comment')->
 			set_name('comment')->
-			set_title(gettext('Comment'));
+			set_title(gettext('Description'));
 		return $property;
-	}
-	final public function get_comment(): myp\property_text {
-		return $this->x_comment ?? $this->init_comment();
 	}
 	protected $x_typeid;
 	public function init_typeid(): myp\property_list {
