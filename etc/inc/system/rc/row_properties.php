@@ -64,20 +64,6 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_comment(): myp\property_text {
-		$description = '';
-		$placeholder = gettext('Enter a description');
-		$property = parent::init_comment();
-		$property->
-			set_id('comment')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_defaultvalue('')->
-			set_size(60)->
-			set_maxlength(256)->
-			filter_use_default_or_empty();
-		return $property;
-	}
 	public function init_typeid(): myp\property_list {
 		$description = gettext('Select at which stage the command should be executed.');
 		$property = parent::init_typeid();

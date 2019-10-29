@@ -140,7 +140,7 @@ $a_referer = [
 	$cop->get_name(),
 	$cop->get_value(),
 	$cop->get_typeid(),
-	$cop->get_comment()
+	$cop->get_description()
 ];
 switch($page_mode):
 	case PAGE_MODE_ADD:
@@ -209,7 +209,7 @@ $content->
 		addTBODY()->
 			c2_input_text($cop->get_name(),$sphere,false)->
 			c2_input_text($cop->get_value(),$sphere,true)->
-			c2_input_text($cop->get_comment(),$sphere,false)->
+			c2_input_text($cop->get_description(),$sphere,false)->
 			c2_radio_grid($cop->get_typeid(),$sphere,true);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
