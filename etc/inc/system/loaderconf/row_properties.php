@@ -1,9 +1,9 @@
 <?php
 /*
-	system_loaderconf.php
+	row_properties.php
 
 	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Copyright © 2018-2019 XigmaNAS <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,15 +31,37 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS, either expressed or implied.
 */
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
-require_once 'autoload.php';
+namespace system\loaderconf;
 
-use system\loaderconf\grid_toolbox as toolbox;
+use common\properties as myp;
 
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+final class row_properties extends grid_properties {
+	public function init_name(): myp\property_text {
+		$property = parent::init_name();
+		$description = gettext('The name of the variable.');
+		$placeholder = gettext('Name');
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('name')->
+			set_maxlength(128)->
+			set_placeholder($placeholder)->
+			set_size(60)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_value(): myp\property_text {
+		$property = parent::init_value();
+		$description = gettext('The value of the variable.');
+		$placeholder = gettext('Value');
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('value')->
+			set_maxlength(1024)->
+			set_placeholder($placeholder)->
+			set_size(60)->
+			filter_use_default();
+		return $property;
+	}
+}
