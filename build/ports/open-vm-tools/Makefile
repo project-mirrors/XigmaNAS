@@ -1,6 +1,6 @@
 PORTNAME=		xigmanas-open-vm-tools
 PORTVERSION=	1.0
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=		emulators
 MAINTAINER=		zoon01@xigmanas.com
 COMMENT=		Open VMware tools for FreeBSD VMware guests
@@ -19,6 +19,8 @@ WRKSRC=${WRKDIR}/open-vm-tools-nox11
 do-install:
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libguestlib/.libs/libguestlib.so.0 ${XIGMANAS_ROOTFS}/${PREFIX}/lib
 	@${LN} -f -v -s libguestlib.so.0 ${XIGMANAS_ROOTFS}/${PREFIX}/lib/libguestlib.so
+	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libhgfs/.libs/libhgfs.so.0 ${XIGMANAS_ROOTFS}/${PREFIX}/lib
+	@${LN} -f -v -s libhgfs.so.0 ${XIGMANAS_ROOTFS}/${PREFIX}/lib/libhgfs.so
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libvmtools/.libs/libvmtools.so.0 ${XIGMANAS_ROOTFS}/${PREFIX}/lib
 	@${LN} -f -v -s libvmtools.so.0 ${XIGMANAS_ROOTFS}/${PREFIX}/lib/libvmtools.so
 
@@ -34,7 +36,6 @@ do-install:
 	@${MKDIR} ${XIGMANAS_ROOTFS}/${PREFIX}/lib/vmware-tools/modules/drivers
 	@${INSTALL_KLD} -v ${BLDSRC}/open-vm-tools/modules/freebsd/vmblock.ko ${XIGMANAS_ROOTFS}/${PREFIX}/lib/vmware-tools/modules/drivers/vmblock.ko
 	@${INSTALL_KLD} -v ${BLDSRC}/open-vm-tools/modules/freebsd/vmmemctl.ko ${XIGMANAS_ROOTFS}/${PREFIX}/lib/vmware-tools/modules/drivers/vmmemctl.ko
-	@${INSTALL_KLD} -v ${BLDSRC}/open-vm-tools/modules/freebsd/vmxnet.ko ${XIGMANAS_ROOTFS}/${PREFIX}/lib/vmware-tools/modules/drivers/vmxnet.ko
 
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/services/vmtoolsd/.libs/vmtoolsd ${XIGMANAS_ROOTFS}/${PREFIX}/bin
 	@${INSTALL_SCRIPT} -v ${BLDSRC}/open-vm-tools/checkvm/vmware-checkvm ${XIGMANAS_ROOTFS}/${PREFIX}/bin
