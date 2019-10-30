@@ -2,8 +2,8 @@
 # $FreeBSD: head/emulators/virtualbox-ose/Makefile 511620 2019-09-09 11:01:13Z tobik $
 
 PORTNAME=	virtualbox-ose
-PORTVERSION=	5.2.32
-PORTREVISION=	1
+PORTVERSION=	5.2.34
+PORTREVISION=	0
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.oracle.com/virtualbox/${PORTVERSION}/
 DISTFILES=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX} ${GUESTADDITIONS}
@@ -202,12 +202,12 @@ KMK_FLAGS+=	-j${MAKE_JOBS_NUMBER}
 .include <bsd.port.pre.mk>
 
 .if ${COMPILER_TYPE} == clang
-.if ${COMPILER_VERSION} == 80
-# XXX PR236616: Clang 8.0 caused runtime problems.
+.if ${COMPILER_VERSION} >= 80
+# XXX PR236616: Clang 8 & 9 caused runtime problems.
 BUILD_DEPENDS+=	${LOCALBASE}/bin/clang${VBOX_LLVM_VER}:devel/llvm${VBOX_LLVM_VER}
 CC=		${LOCALBASE}/bin/clang${VBOX_LLVM_VER}
 CXX=		${LOCALBASE}/bin/clang++${VBOX_LLVM_VER}
-VBOX_LLVM_VER?=	60
+VBOX_LLVM_VER?= 70
 .endif
 PATCH_DEPENDS+=	${LOCALBASE}/share/kBuild/tools/GXX3.kmk:devel/kBuild
 EXTRA_PATCHES+=	${PATCHDIR}/extrapatch-Config.kmk \
