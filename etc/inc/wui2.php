@@ -2050,9 +2050,8 @@ trait co_DOMTools {
 			$class_checkbox = 'celldatacheckbox';
 			$input_attributes['required'] = 'required';
 		endif;
-		$hook = $this->addDIV(['class' => $class_checkbox])->addELEMENT('label',['for' => $id]);
-		$hook->insINPUT($input_attributes);
-		$hook->import_soup($p->get_caption());
+		$hook = $this->addDIV(['class' => $class_checkbox]);
+		$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $id],$p->get_caption());
 		$this->add_hook($hook,$id);
 		return $this;
 	}
