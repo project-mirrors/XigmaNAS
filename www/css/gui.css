@@ -378,6 +378,7 @@ pre.cmdoutput
 {
 	display: block;
 	font-size: 1em;
+	padding-left: 1.7em;
 }
 
 td > label > input[type='radio'],
