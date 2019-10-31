@@ -604,7 +604,7 @@ hint.acpi_throttle.0.disabled="0"
 hint.p4tcc.0.disabled="0"
 loader_brand="${PRDNAME}"
 autoboot_delay="3"
-#isboot_load="YES"
+isboot_load="YES"
 zfs_load="YES"
 EOF
 	if [ "${BOOT_MODE}" = 3 ]; then
