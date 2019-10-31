@@ -361,12 +361,14 @@ pre.cmdoutput
 	white-space: normal;
 }
 
-.celldatacheckbox
+.celldatacheckbox,
+.celldataradio
 {
 	display: block;
 }
 
-.celldatacheckbox input[type='checkbox']
+.celldatacheckbox input[type='checkbox'],
+.celldataradio input[type='radio']
 {
 	float: left;
 	margin: 0 0.4em 0 0;
@@ -374,7 +376,8 @@ pre.cmdoutput
 	height: 1.2em;
 }
 
-.celldatacheckbox label
+.celldatacheckbox label,
+.celldataradio label
 {
 	display: block;
 	font-size: 1em;
