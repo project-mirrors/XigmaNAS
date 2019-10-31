@@ -2149,9 +2149,8 @@ trait co_DOMTools {
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$hook = $tbody->addTR()->addTDwC('lcebl')->addELEMENT('label',['for' => $input_attributes['id']]);
-			$hook->insINPUT($input_attributes);
-			$hook->import_soup($option_val);
+			$hook = $tbody->addTR()->addTDwC('lcebl celldatacheckbox');
+			$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $input_attributes['id']],$option_val);
 			$this->add_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
@@ -2274,9 +2273,8 @@ EOJ;
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
 			endif;
-			$hook = $tbody->addTR()->addTDwC('lcebl')->addELEMENT('label',['for' => $input_attributes['id']]);
-			$hook->insINPUT($input_attributes);
-			$hook->import_soup($option_val);
+			$hook = $tbody->addTR()->addTDwC('lcebl celldataradio');
+			$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $input_attributes['id']],$option_val);
 			$this->add_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
