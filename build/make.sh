@@ -1575,6 +1575,7 @@ create_full() {
 	#echo 'bitmap_name="/boot/splash.bmp"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'autoboot_delay="3"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	echo 'if_atlantic_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'zfs_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 
 	# Custom company brand(fallback).
