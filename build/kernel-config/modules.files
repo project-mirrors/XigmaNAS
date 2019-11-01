@@ -47,6 +47,7 @@ ctl/ctl.ko
 cfiscsi/cfiscsi.ko
 syscons/green/green_saver.ko
 ipmi/ipmi.ko
+aqtion/if_atlantic.ko
 
 # Wireless
 wpifw/wpifw.ko
