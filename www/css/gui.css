@@ -371,7 +371,6 @@ pre.cmdoutput
 .celldataradio input[type='radio']
 {
 	float: left;
-	margin: 0 0.4em 0 0;
 	width: 1.2em;
 	height: 1.2em;
 }
@@ -381,19 +380,20 @@ pre.cmdoutput
 {
 	display: block;
 	font-size: 1em;
-	padding-left: 1.7em;
-}
-
-td > label > input[type='radio'],
-td > label > input[type='checkbox']
-{
-	margin: 0.27em 0.5em 0.27em 0.2em;
 }
 
 .showifchecked,
 .hideifchecked
 {
-	padding: 0.5em 0em 0.5em 1.7em;
+	padding-top: 0.3em;
+}
+
+.celldatacheckbox label,
+.celldataradio label,
+.showifchecked,
+.hideifchecked
+{
+	padding-left: 1.7em;
 }
 
 .showifchecked
