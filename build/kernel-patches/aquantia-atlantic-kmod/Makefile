@@ -13,7 +13,7 @@ SRCDIR=			${XIGMANAS_WORKINGDIR}/aquantia
 
 
 install:
-#	patch -i files/aquantia-aqtion.patch /usr/src/sys/modules/Makefile
+	patch -i files/aquantia-aqtion.patch /usr/src/sys/modules/Makefile
 
 	@mkdir -pv ${SRCDIR}
 	@tar -zxvf ${.CURDIR}/files/${ARCHIVE} -C ${SRCDIR}
