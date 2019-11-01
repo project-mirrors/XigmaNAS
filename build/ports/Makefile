@@ -1,6 +1,5 @@
     COMMENT = XigmaNAS ports
 
-    SUBDIR += aquantia-atlantic-kmod
     SUBDIR += arcconf
     SUBDIR += ataidle
     SUBDIR += autosnapshot
