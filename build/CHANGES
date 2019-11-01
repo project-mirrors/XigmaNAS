@@ -25,7 +25,6 @@ Changes:
 - Upgrade mDNSResponder to 878.260.1.
 - Upgrade dialog to 1.3-20190808.
 - Upgrade devcpu-data to 1.24.
-- Upgrade samba to 4.10.8.
 - Upgrade bsnmp-ucd to 0.4.4.
 - Upgrade phpmyadmin to 4.9.1.
 - Upgrade msmtp to 1.8.6.
@@ -36,6 +35,7 @@ Changes:
 - Upgrade proftpd to 1.3.6b.
 - Upgrade php to 7.3.11.
 - Upgrade sudo to 1.8.29.
+- Upgrade samba to 4.10.10.
 
 Fixes:
 - Fix display HW Address on status page minidlna.
