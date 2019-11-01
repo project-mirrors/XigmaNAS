@@ -103,7 +103,7 @@ td.tabnavtbl li
 td.tabnavtbl a
 {
 	float: left;
-	font-size: 10px;
+	font-size: 0.91em;
 	font-weight: bold;
 	text-decoration: none;
 }
@@ -111,13 +111,13 @@ td.tabnavtbl span
 {
 	float: left;
 	display: block;
-	padding: 3px 7px 1px 7px;
+	padding: 0.27em 0.64em 0.09em 0.64em;
 	white-space: nowrap;
-	height: 16px;
+	height: 1.45em;
 }
 td.tabnavtbl td
 {
-	font-size: 10px;
+	font-size: 0.91em;
 	font-weight: bold;
 	text-decoration: none;
 }
