@@ -1,0 +1,10 @@
+--- Makefile.orig	2019-10-31 01:38:19.000000000 +0100
++++ Makefile
+@@ -41,6 +41,7 @@
+ 	amr \
+ 	${_an} \
+ 	${_aout} \
++	aqtion \
+ 	${_apm} \
+ 	${_arcmsr} \
+ 	${_allwinner} \
