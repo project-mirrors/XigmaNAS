@@ -837,7 +837,7 @@ div#warningbox div.message
 
 div#header
 {
-	height: 7.27em;
+	height: 100%;
 	width: 100%;
 	background-color: #171717;
 	background-image: url("/images/header_bg.png");
@@ -857,8 +857,9 @@ div#headerlogo a
 
 div#headerlogo a img
 {
-	margin-top: 0.55em;
-	margin-left: 3.09em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: 2em;
 	border: 0;
 }
 
