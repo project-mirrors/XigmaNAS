@@ -774,13 +774,13 @@ function get_headermenu(): array {
  *	'visible': visible, boolean
  */
 	if(empty($_SESSION['g']['headermenu'])):
-		//	create new menu
+//		create new menu
 		$menu = [];
 		$isAdminSession = Session::isAdmin();
-		//	home
+//		home
 		$menu_name = 'home';
-		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '/images/home.png','description' => gettext('Home'),'link' => '/index.php','menuitem' => []];
-		//	system
+		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','description' => '⌂','link' => '/index.php','menuitem' => []];
+//		system
 		$menu_name = 'system';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','description' => gettext('System'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -804,7 +804,7 @@ function get_headermenu(): array {
 		$menu_items[] = ['type' => 'separator','visible' => true,'description' => '','link' => '/index.php'];
 		$menu_items[] = ['type' => 'internal','visible' => true,'description' => gettext('Logout'),'link' => '/logout.php'];
 		unset($menu_items);
-		//	network
+//		network
 		$menu_name = 'network';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','description' => gettext('Network'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -822,7 +822,7 @@ function get_headermenu(): array {
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Proxy'),'link' => '/system_proxy.php'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Firewall'),'link' => '/system_firewall.php'];
 		unset($menu_items);
-		//	disks
+//		disks
 		$menu_name = 'disks';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','description' => gettext('Disks'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -833,7 +833,7 @@ function get_headermenu(): array {
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Encryption'),'link' => '/disks_crypt.php'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Mount Point'),'link' => '/disks_mount.php'];
 		unset($menu_items);
-		//	services
+//		services
 		$menu_name = 'services';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','description' => gettext('Services'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -868,7 +868,7 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('UPS'),'link' => '/services_ups.php'];
 		endif;
 		unset($menu_items);
-		//	virtualization
+//		virtualization
 		if('x64' == $g['arch']):
 			$menu_name = 'vm';
 			$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','description' => gettext('Virtualization'),'link' => '','menuitem' => []];
@@ -876,7 +876,7 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('VirtualBox'),'link' => '/vm_vbox.php'];
 			unset($menu_items);
 		endif;
-		//	access
+//		access
 		$menu_name = 'access';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','description' => gettext('Access'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -887,7 +887,7 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => false,'description' => gettext('NIS'),'link' => '/notavailable.php'];
 		endif;
 		unset($menu_items);
-		//	status
+//		status
 		$menu_name = 'status';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','description' => gettext('Status'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -898,7 +898,7 @@ function get_headermenu(): array {
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Disks'),'link' => '/status_disks.php'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Monitoring'),'link' => '/status_graph.php'];
 		unset($menu_items);
-		//	tools
+//		tools
 		$menu_name = 'tools';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','description' => gettext('Tools'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
@@ -924,9 +924,9 @@ function get_headermenu(): array {
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('ARP Tables'),'link' => '/diag_arp.php'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Routes'),'link' => '/diag_routes.php'];
 		unset($menu_items);
-		//	help
+//		help
 		$menu_name = 'help';
-		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','description' => gettext('Help'),'link' => ''];
+		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','description' => gettext('Help'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
 		$menu_items[] = ['type' => 'external','visible' => true,'description' => gettext('Forum'),'link' => 'https://www.xigmanas.com/forums/'];
 		$menu_items[] = ['type' => 'external','visible' => true,'description' => gettext('Information & Manual'),'link' => 'https://www.xigmanas.com/wiki/doku.php'];
