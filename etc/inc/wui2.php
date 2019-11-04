@@ -3003,6 +3003,9 @@ EOJ;
 		return $this;
 	}
 	public function ins_header_menu() {
+		global $config;
+
+		$navbartoplevelstyle = $config['system']['navbartoplevelstyle'] ?? '';
 		$hard_link_regex = '~^[a-z]+://~';
 		$menu = get_headermenu();
 		make_headermenu_extensions($menu); // function cares about access rights itself
@@ -3028,8 +3031,18 @@ EOJ;
 				endswitch;
 //				$tags = implode(' ',$a_tag);
 				if(empty($menu[$menuid]['img'])):
-					$li_h->
-						addA($attributes,$menu[$menuid]['description']);
+					switch($navbartoplevelstyle):
+						case 'symbols':
+							$value = $menu[$menuid]['symbol'] ?? $menu[$menuid]['description'];
+							break;
+						case 'symbolsanddescription':
+							$value = $menu[$menuid]['symbol'] . ' ' . $menu[$menuid]['description'];
+							break;
+						default:
+							$value = $menu[$menuid]['description'];
+							break;
+					endswitch;
+					$li_h->addA($attributes,$value);
 				else:
 					$li_h->
 						addA($attributes)->insIMG(['src' => $menu[$menuid]['img'],'title' => $menu[$menuid]['description'],'alt' => $menu[$menuid]['description']]);
