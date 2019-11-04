@@ -779,7 +779,7 @@ function get_headermenu(): array {
 		$isAdminSession = Session::isAdmin();
 //		home
 		$menu_name = 'home';
-		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','description' => '⌂','link' => '/index.php','menuitem' => []];
+		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','description' => "\u{1F3E0}",'link' => '/index.php','menuitem' => []];
 //		system
 		$menu_name = 'system';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','description' => gettext('System'),'link' => '','menuitem' => []];
