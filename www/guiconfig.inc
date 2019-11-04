@@ -1057,7 +1057,7 @@ function make_headermenu() {
 						$value = $menu[$menuid]['symbol'] ?? htmlspecialchars($menu[$menuid]['description']);
 						break;
 					case 'symbolsanddescription':
-						$value = $menu[$menuid]['symbol'] . ' ' . htmlspecialchars($menu[$menuid]['description']);
+						$value = ($menu[$menuid]['symbol'] ? $menu[$menuid]['symbol'] . ' ' : '') . htmlspecialchars($menu[$menuid]['description']);
 						break;
 					default:
 						$value = htmlspecialchars($menu[$menuid]['description']);

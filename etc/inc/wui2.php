@@ -3036,7 +3036,7 @@ EOJ;
 							$value = $menu[$menuid]['symbol'] ?? $menu[$menuid]['description'];
 							break;
 						case 'symbolsanddescription':
-							$value = $menu[$menuid]['symbol'] . ' ' . $menu[$menuid]['description'];
+							$value = ($menu[$menuid]['symbol'] ? $menu[$menuid]['symbol'] . ' ' : '') . $menu[$menuid]['description'];
 							break;
 						default:
 							$value = $menu[$menuid]['description'];
