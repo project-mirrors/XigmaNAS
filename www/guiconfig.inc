@@ -911,7 +911,7 @@ $menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => ''
 		unset($menu_items);
 //		extensions
 		$menu_name = 'extensions';
-		$menu[$menu_name] = ['type' => 'nolink','visible' => false,'img' => '','symbol' => "\u{1F488}",'description' => gettext('Extensions'),'link' => '','menuitem' => []];
+		$menu[$menu_name] = ['type' => 'nolink','visible' => false,'img' => '','symbol' => "\u{1F9E9}",'description' => gettext('Extensions'),'link' => '','menuitem' => []];
 //		diagnostics
 		$menu_name = 'diagnostics';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{2695}\u{FE0F}",'description' => gettext('Diagnostics'),'link' => '','menuitem' => []];
