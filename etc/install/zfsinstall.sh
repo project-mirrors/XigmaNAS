@@ -278,8 +278,8 @@ mbrpart_init()
 		echo "${DISK}s1d" >> ${tmpfile}
 
 		if echo ${GELI_MODE} | grep -qw "DISK+GELI"; then
-			# Generate the geli device list.
-			echo "/dev/${DISK}s1d.eli" >> ${gelidevlist}
+		# Generate the geli device list.
+		echo "/dev/${DISK}s1d.eli" >> ${gelidevlist}
 		fi
 
 		#NUM=$(expr $NUM + 1)
@@ -605,6 +605,7 @@ hint.p4tcc.0.disabled="0"
 loader_brand="${PRDNAME}"
 autoboot_delay="3"
 isboot_load="YES"
+if_atlantic_load="YES"
 zfs_load="YES"
 EOF
 	if [ "${BOOT_MODE}" = 3 ]; then

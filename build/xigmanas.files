@@ -1006,6 +1006,7 @@ usr/share/misc/usb_hid_usages
 usr/share/misc/usbdevs
 
 ####### contents of /usr/share/locale
+usr/share/locale/C.UTF-8/
 usr/share/locale/en_US.ISO8859-1/
 usr/share/locale/en_US.ISO8859-15/
 usr/share/locale/en_US.US-ASCII/

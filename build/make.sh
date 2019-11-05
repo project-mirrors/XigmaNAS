@@ -85,7 +85,7 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 #	Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
 XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/trunk"
-XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/12.0"
+XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/12.1"
 
 #	Size in MB of the MFS Root filesystem that will include all FreeBSD binary
 #	and XIGMANAS WEbGUI/Scripts. Keep this file very small! This file is unzipped
@@ -99,9 +99,9 @@ XIGMANAS_MDLOCAL_MINI_SIZE=36
 XIGMANAS_IMG_SIZE=460
 if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_MFSROOT_SIZE=128
-	XIGMANAS_MDLOCAL_SIZE=1232
+	XIGMANAS_MDLOCAL_SIZE=1312
 	XIGMANAS_MDLOCAL_MINI_SIZE=40
-	XIGMANAS_IMG_SIZE=476
+	XIGMANAS_IMG_SIZE=480
 fi
 #	xz9->673MB/64MB, 8->369MB/32MB, 7->185MB/16MB, 6->93MB/8MB, 5->47MB/4MB
 #	4->24MB/2.1MB, 3->12.6MB/1.1MB, 2->4.8MB/576KB, 1->1.4MB/128KB
@@ -673,7 +673,7 @@ create_image() {
 	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin -x ${XIGMANAS_IMG_SECTS} -y ${XIGMANAS_IMG_HEADS}`
 	diskinfo -v ${md}
 
-	IMGSIZEM=450
+	IMGSIZEM=460
 
 #	create 1MB aligned MBR image
 	echo "===> Creating MBR partition on this memory disk"
@@ -1559,6 +1559,7 @@ create_full() {
 	echo 'hint.acpi_throttle.0.disabled="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'hint.p4tcc.0.disabled="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'autoboot_delay="3"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	echo 'if_atlantic_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'zfs_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 
