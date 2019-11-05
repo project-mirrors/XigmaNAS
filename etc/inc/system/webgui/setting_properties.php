@@ -239,4 +239,20 @@ final class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_navbartoplevelstyle(): myp\property_list {
+		$description = gettext('Select the display mode of the top-level items in the navigation bar.');
+		$options = [
+			'text' => gettext('Show text only'),
+			'symbol' => gettext('Show symbol only'),
+			'symbolandtext' => gettext('Show symbol and text')
+		];
+		$property = parent::init_navbartoplevelstyle();
+		$property->
+			set_id('navbartoplevelstyle')->
+			set_description($description)->
+			set_defaultvalue('')->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
 }

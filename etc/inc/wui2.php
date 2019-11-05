@@ -3005,7 +3005,7 @@ EOJ;
 	public function ins_header_menu() {
 		global $config;
 
-		$navbartoplevelstyle = $config['system']['navbartoplevelstyle'] ?? '';
+		$navbartoplevelstyle = $config['system']['webgui']['navbartoplevelstyle'] ?? '';
 		$hard_link_regex = '~^[a-z]+://~';
 		$menu = get_headermenu();
 		make_headermenu_extensions($menu); // function cares about access rights itself
@@ -3032,10 +3032,10 @@ EOJ;
 //				$tags = implode(' ',$a_tag);
 				if(empty($menu[$menuid]['img'])):
 					switch($navbartoplevelstyle):
-						case 'symbols':
+						case 'symbol':
 							$value = $menu[$menuid]['symbol'] ?? $menu[$menuid]['description'];
 							break;
-						case 'symbolsanddescription':
+						case 'symbolandtext':
 							$value = ($menu[$menuid]['symbol'] ? $menu[$menuid]['symbol'] . ' ' : '') . $menu[$menuid]['description'];
 							break;
 						default:
