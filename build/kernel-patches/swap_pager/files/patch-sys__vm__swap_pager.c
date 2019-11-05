@@ -1,6 +1,6 @@
---- sys/vm/swap_pager.c.orig	2018-12-12 16:50:25.545053000 +0100
-+++ sys/vm/swap_pager.c	2018-12-12 17:07:52.000000000 +0100
-@@ -895,7 +895,7 @@
+--- sys/vm/swap_pager.c.orig	2019-11-05 23:02:47.065992000 +0100
++++ sys/vm/swap_pager.c	2019-11-05 23:09:49.000000000 +0100
+@@ -896,7 +896,7 @@
  	VM_OBJECT_WLOCK(object);
  	while (size) {
  		if (n == 0) {
