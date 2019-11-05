@@ -49,6 +49,7 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
+	$cop->get_navbartoplevelstyle(),
 /*
 	$cop->get_enabletogglemode(),
 	$cop->get_skipviewmode(),
@@ -184,6 +185,18 @@ if($pending_changes && !$input_errors_found):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
+$content->
+	add_table_data_settings()->
+		push()->
+		ins_colgroup_data_settings()->
+		addTHEAD()->
+			c2_titleline(gettext('Navigation Menu'))->
+		last()->
+		addTBODY()->
+			c2_radio_grid($cop->get_navbartoplevelstyle(),$sphere,false,$is_readonly)->
+		pop()->
+		addTFOOT()->
+			c2_separator();
 /*
 $content->
 	add_table_data_settings()->

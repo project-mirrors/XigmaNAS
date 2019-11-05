@@ -871,14 +871,14 @@ function get_headermenu(): array {
 //		virtualization
 		if('x64' == $g['arch']):
 			$menu_name = 'vm';
-			$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F52E}",'description' => gettext('Virtualization'),'link' => '','menuitem' => []];
+			$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F3D7}\u{FE0F}",'description' => gettext('Virtualization'),'link' => '','menuitem' => []];
 			$menu_items = &$menu[$menu_name]['menuitem'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('VirtualBox'),'link' => '/vm_vbox.php'];
 			unset($menu_items);
 		endif;
 //		access
 		$menu_name = 'access';
-$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F510}",'description' => gettext('Access'),'link' => '','menuitem' => []];
+		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{1F510}",'description' => gettext('Access'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Users & Groups'),'link' => '/access_users.php'];
 		if('dom0' !== $g['arch']):
@@ -1024,7 +1024,7 @@ function make_headermenu_extensions(array &$menu) {
 function make_headermenu() {
 	global $config;
 
-	$navbartoplevelstyle = $config['system']['navbartoplevelstyle'] ?? '';
+	$navbartoplevelstyle = $config['system']['webgui']['navbartoplevelstyle'] ?? '';
 	$hard_link_regex = '~^[a-z]+://~';
 	$output = [];
 	$menu = get_headermenu();
@@ -1053,10 +1053,10 @@ function make_headermenu() {
 			$tags = implode(' ',$a_tag);
 			if(empty($menu[$menuid]['img'])):
 				switch($navbartoplevelstyle):
-					case 'symbols':
+					case 'symbol':
 						$value = $menu[$menuid]['symbol'] ?? htmlspecialchars($menu[$menuid]['description']);
 						break;
-					case 'symbolsanddescription':
+					case 'symbolandtext':
 						$value = ($menu[$menuid]['symbol'] ? $menu[$menuid]['symbol'] . ' ' : '') . htmlspecialchars($menu[$menuid]['description']);
 						break;
 					default:

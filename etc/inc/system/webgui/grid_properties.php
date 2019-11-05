@@ -200,4 +200,15 @@ class grid_properties extends myp\container {
 	final public function get_adddivsubmittodataframe(): myp\property_bool {
 		return $this->x_adddivsubmittodataframe ?? $this->init_adddivsubmittodataframe();
 	}
+	protected $x_navbartoplevelstyle;
+	public function init_navbartoplevelstyle(): myp\property_list {
+		$property = $this->x_navbartoplevelstyle = new myp\property_list($this);
+		$property->
+			set_name('navbartoplevelstyle')->
+			set_title(gettext('Navbar Style'));
+		return $property;
+	}
+	final public function get_navbartoplevelstyle(): myp\property_list {
+		return $this->x_navbartoplevelstyle ?? $this->init_navbartoplevelstyle();
+	}
 }
