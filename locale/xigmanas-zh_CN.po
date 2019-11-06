@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-10-17 21:40+0000\n"
-"PO-Revision-Date: 2019-10-08 09:00+0000\n"
+"PO-Revision-Date: 2019-10-29 01:03+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-10-18 22:16+0000\n"
-"X-Generator: Launchpad (build 186023fa645d8be19d403a76064f0643f510db2f)\n"
+"X-Launchpad-Export-Date: 2019-11-06 00:28+0000\n"
+"X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -203,7 +203,7 @@ msgid "1000"
 msgstr "1000"
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -424,7 +424,7 @@ msgid "ARP Tables List"
 msgstr "ARP列表"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "接受远程syslog消息。"
@@ -738,7 +738,7 @@ msgid "Advanced Options"
 msgstr "高级选项"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "高级SMB设置"
 
 msgid "Advanced Settings"
 msgstr "高级设置"
@@ -789,7 +789,7 @@ msgid "All"
 msgstr "全部"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "所有接口"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下统计的所有数据已经被删除："
@@ -878,7 +878,7 @@ msgid "Allow symlinks that point outside defined media folders."
 msgstr "允许指向外部已定义媒体文件夹的符号链接。"
 
 msgid "Allow the server to try and become a local master browser."
-msgstr ""
+msgstr "允许服务器尝试成为本地主浏览器。"
 
 msgid "Allow to start UPS from battery"
 msgstr "允许 UPS 从电池启动"
@@ -1369,7 +1369,7 @@ msgid "Best available"
 msgstr "现有最佳"
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Beta版本"
 
 msgid "Binary Prefix"
 msgstr "二进制前缀"
@@ -2391,12 +2391,12 @@ msgid "DNS server is empty."
 msgstr "DNS服务器是空白的。"
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "DOS字符集"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
-msgstr ""
+msgstr "DOS SMB客户端假定服务器具有与它们相同的字符集。 此选项指定Samba应该与DOS客户端对话的字符集。"
 
 msgid "DVD"
 msgstr "DVD"
@@ -3031,7 +3031,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr "禁用选中的Rsync模块"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "禁用选定的Samba共享"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "禁用选定的Sysctl设置"
@@ -3462,7 +3462,7 @@ msgid "Do you want to disable selected NFS root directories?"
 msgstr "是否要禁用所选的NFS根目录？"
 
 msgid "Do you want to disable selected Samba shares?"
-msgstr ""
+msgstr "你要禁用选定的Samba共享吗？"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "是否要禁用所选的WebDAV记录？"
@@ -3552,7 +3552,7 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr "是否要启用选定的NFS根目录？"
 
 msgid "Do you want to enable selected Samba shares?"
-msgstr ""
+msgstr "你要启用选定的Samba共享吗？"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "是否要启用所选的WebDAV记录？"
@@ -3651,7 +3651,7 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr "是否要切换选定的NFS根目录？"
 
 msgid "Do you want to toggle selected Samba shares?"
-msgstr ""
+msgstr "你要切换选定的Samba共享吗？"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "是否要切换选定的WebDAV记录？"
@@ -4046,7 +4046,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "启用高级格式（4KB扇区大小）"
 
 msgid "Enable Asynchronous I/O."
-msgstr ""
+msgstr "启用异步I/O。"
 
 msgid "Enable FXP protocol."
 msgstr "启用 FXP 协议。"
@@ -4152,7 +4152,7 @@ msgid "Enable Selected Rsync Modules"
 msgstr "启用选中的Rsync模块"
 
 msgid "Enable Selected Samba Shares"
-msgstr ""
+msgstr "启用选定的Samba共享"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "启用选定的sysctl设置"
@@ -4394,7 +4394,7 @@ msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
 "obtain access to this server can gain access to all it's data contents, "
 "including any network it is connected to."
-msgstr ""
+msgstr "启用此选项可能会带来安全风险。 任何可以物理访问该服务器的人都可以访问其所有数据内容，包括与其连接的任何网络。"
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -4994,7 +4994,7 @@ msgid "Force Delete"
 msgstr "强制删除"
 
 msgid "Force Group"
-msgstr ""
+msgstr "Force组"
 
 msgid "Force Operation"
 msgstr "强制操作"
@@ -5003,7 +5003,7 @@ msgid "Force Use"
 msgstr "强制使用"
 
 msgid "Force User"
-msgstr ""
+msgstr "Force用户"
 
 msgid "Forced Update Period"
 msgstr "强制更新周期"
@@ -6478,10 +6478,10 @@ msgid "Maintenance Tool Settings"
 msgstr "维护工具设置"
 
 msgid "Major OS Version Upgrades"
-msgstr ""
+msgstr "主要OS版本升级"
 
 msgid "Major Product Version Updates"
-msgstr ""
+msgstr "主要产品版本更新"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "确保选择最佳设备数量"
@@ -7099,7 +7099,7 @@ msgid "Next"
 msgstr "下一步"
 
 msgid "Nightly Builds"
-msgstr ""
+msgstr "每晚构建"
 
 msgid "No"
 msgstr "否"
@@ -7243,7 +7243,7 @@ msgid "No new software RAID disk found."
 msgstr "没找到新的软RAID磁盘"
 
 msgid "No online information available."
-msgstr ""
+msgstr "没有可用的在线信息。"
 
 msgid "No options found."
 msgstr "找不到选项。"
@@ -7440,7 +7440,7 @@ msgid "OPT Only"
 msgstr "仅OPT"
 
 msgid "OS Version Upgrades"
-msgstr ""
+msgstr "操作系统版本升级"
 
 msgid "Object name"
 msgstr "对象名称"
@@ -8156,7 +8156,7 @@ msgid "Product ID"
 msgstr "产品编号"
 
 msgid "Product Version Updates"
-msgstr ""
+msgstr "产品版本更新"
 
 msgid "Profile"
 msgstr "配置文件"
@@ -8623,7 +8623,7 @@ msgid "Refresh"
 msgstr "刷新"
 
 msgid "Regular Product Updates"
-msgstr ""
+msgstr "定期产品更新"
 
 msgid "Reject"
 msgstr "拒绝"
@@ -8970,16 +8970,16 @@ msgid "SHA256, Verify"
 msgstr "SHA256，验证"
 
 msgid "SMB"
-msgstr ""
+msgstr "SMB"
 
 msgid "SMB Settings"
-msgstr ""
+msgstr "SMB设置"
 
 msgid "SMB is disabled."
-msgstr ""
+msgstr "SMB已禁用。"
 
 msgid "SMB is enabled."
-msgstr ""
+msgstr "SMB已启用。"
 
 msgid "SMB2"
 msgstr "SMB2"
@@ -9024,7 +9024,7 @@ msgid "STRIPE"
 msgstr "条带"
 
 msgid "Samba"
-msgstr ""
+msgstr "Samba"
 
 msgid "Samba AD"
 msgstr "Samba AD"
@@ -9033,7 +9033,7 @@ msgid "Samba Active Directory Domain Controller"
 msgstr "Samba Active Directory域控制器"
 
 msgid "Samba Share is locked"
-msgstr ""
+msgstr "Samba共享被锁定"
 
 msgid "Samba Share is marked for deletion"
 msgstr "Samba共享标记为删除"
@@ -9901,7 +9901,7 @@ msgid ""
 msgstr "指定此门户组由其他主机侦听。 该主机将在发现阶段声明它，但不会侦听。"
 
 msgid "Specifies the charset the unix machine Samba runs on uses."
-msgstr ""
+msgstr "指定Samba运行时使用的unix机器的字符集。"
 
 msgid "Specifies the command to be run."
 msgstr "运行指定命令。"
@@ -10432,7 +10432,7 @@ msgid ""
 msgstr "“Minimum Spares Remaining”属性指示剩余空闲块的数量占可用空闲块总数的百分比。"
 
 msgid "The NetBIOS name of this Samba server."
-msgstr ""
+msgstr "此Samba服务器的NetBIOS名称。"
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -11163,7 +11163,7 @@ msgid ""
 msgstr "Windows或SMB客户端查询时将显示服务器的工作组。 （最多15个字符）。"
 
 msgid "There are no regular product updates available."
-msgstr ""
+msgstr "没有常规的产品更新。"
 
 msgid "There is no error, the file uploaded with success."
 msgstr "文件上传成功，没有任何错误。"
@@ -11381,7 +11381,7 @@ msgstr "此名称用于唯一标识此系统上的第二个UPS。"
 msgid ""
 "This option affects how clients respond to Samba and is one of the most "
 "important settings in the smb.conf file."
-msgstr ""
+msgstr "此选项影响客户端对Samba的响应方式，并且是smb.conf文件中最重要的设置之一。"
 
 msgid ""
 "This option allows the users and groups that access a share to be specified. "
@@ -11561,6 +11561,8 @@ msgid ""
 "sharing files by ensuring that all access to files on service will use the "
 "named group for their permissions checking."
 msgstr ""
+"这指定了一个UNIX组名称，该名称将分配给所有连接到该服务的用户的默认主要组。 "
+"通过确保对服务中文件的所有访问都将使用命名组进行权限检查，这对于共享文件很有用。"
 
 msgid ""
 "This specifies a UNIX user name that will be assigned as the default user "
@@ -11568,6 +11570,8 @@ msgid ""
 "You should also use it carefully as using it incorrectly can cause security "
 "problems."
 msgstr ""
+"这指定了一个UNIX用户名，该用户名将分配给所有连接到该服务的用户的默认用户。 这对于共享文件很有用。 "
+"您还应该小心使用它，因为不正确使用它会导致安全问题。"
 
 msgid "This tag already exists."
 msgstr "此标签已经存在。"
@@ -11792,7 +11796,7 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "切换选中的Rsync模块"
 
 msgid "Toggle Selected Samba Shares"
-msgstr ""
+msgstr "切换选定的Samba共享"
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr "切换选中的Sysctl设置。"
@@ -12308,6 +12312,8 @@ msgid ""
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
+"使用此选项可以覆盖用户名（默认情况下为“ ftp”），该用户名将用于访问指定为来宾的服务。 该用户拥有的任何特权将对连接到客户服务的任何客户端可用。 "
+"该用户必须存在于密码文件中，但不需要有效的登录名。"
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "使用切换按钮而不是启用/禁用按钮。"
@@ -12602,7 +12608,7 @@ msgid "WLAN is unlocked"
 msgstr "WLAN已解锁"
 
 msgid "WORKGROUP"
-msgstr ""
+msgstr "工作组"
 
 msgid "WPA"
 msgstr "WPA"
@@ -12694,7 +12700,7 @@ msgstr "当HAST 启用时，不支援HAST 卷的本地装置、本地服务和�
 
 msgid ""
 "When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
-msgstr ""
+msgstr "启用Samba AD后，将无法使用独立的SMB文件共享。"
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -13107,7 +13113,7 @@ msgid "network traffic"
 msgstr "网络流量"
 
 msgid "no"
-msgstr ""
+msgstr "否"
 
 msgid "no pools available"
 msgstr "没有可用的池"
@@ -13170,7 +13176,7 @@ msgid "tcsh - TENEX C Shell"
 msgstr "tcsh - TENEX C Shell"
 
 msgid "testparm"
-msgstr ""
+msgstr "测试参数"
 
 msgid "to"
 msgstr "到"
@@ -13185,4 +13191,4 @@ msgid "visible"
 msgstr "可见"
 
 msgid "yes"
-msgstr ""
+msgstr "是"
