@@ -385,7 +385,7 @@ build_kernel() {
 				rm -f -r ${XIGMANAS_OBJDIRPREFIX};
 				# Compiling and compressing the kernel.
 				cd /usr/src;
-				env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j4 buildkernel KERNCONF=${XIGMANAS_KERNCONF};
+				env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j 4 buildkernel KERNCONF=${XIGMANAS_KERNCONF};
 				gzip -9cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
 			install)
 				# Installing the modules.
