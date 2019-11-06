@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -451,6 +451,9 @@ msgstr ""
 msgid "Add CHAP User"
 msgstr ""
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr ""
 
@@ -587,9 +590,6 @@ msgid "Add auth group"
 msgstr ""
 
 msgid "Add auto snapshot"
-msgstr ""
-
-msgid "Add command"
 msgstr ""
 
 msgid "Add extent"
@@ -1691,10 +1691,10 @@ msgstr ""
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr ""
 
-msgid "Command is marked for removal"
+msgid "Command is locked"
 msgstr ""
 
-msgid "Command is protected"
+msgid "Command is marked for deletion"
 msgstr ""
 
 msgid "Command is unlocked"
@@ -3492,6 +3492,9 @@ msgstr ""
 msgid "Done."
 msgstr ""
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr ""
 
@@ -3574,6 +3577,9 @@ msgid "Edit CARP"
 msgstr ""
 
 msgid "Edit CHAP User"
+msgstr ""
+
+msgid "Edit Command"
 msgstr ""
 
 msgid "Edit Dataset"
@@ -3697,9 +3703,6 @@ msgid "Edit auth group"
 msgstr ""
 
 msgid "Edit auto snapshot"
-msgstr ""
-
-msgid "Edit command"
 msgstr ""
 
 msgid "Edit extent"
@@ -4174,9 +4177,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr ""
 
-msgid "Enter a comment"
-msgstr ""
-
 msgid "Enter a custom port number for the WebGUI if you want to override the default (80 for HTTP, 443 for HTTPS)."
 msgstr ""
 
@@ -4205,12 +4205,6 @@ msgstr ""
 msgid "Enter a group name."
 msgstr ""
 
-msgid "Enter a name"
-msgstr ""
-
-msgid "Enter a name for the command."
-msgstr ""
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -4221,9 +4215,6 @@ msgid "Enter a name for this volume."
 msgstr ""
 
 msgid "Enter a space-separated list of tap devices. The devices will be created and automatically added it to the bridge."
-msgstr ""
-
-msgid "Enter a valid value."
 msgstr ""
 
 msgid "Enter additional parameters"
@@ -4272,9 +4263,6 @@ msgid "Enter smartctl pass-through type."
 msgstr ""
 
 msgid "Enter the UPS identifier and host IP address of the machine where the UPS is connected to. (this also can be a remote host)"
-msgstr ""
-
-msgid "Enter the command"
 msgstr ""
 
 msgid "Enter the full user name."
@@ -5040,9 +5028,6 @@ msgid "Highlighting"
 msgstr ""
 
 msgid "Hint"
-msgstr ""
-
-msgid "Home"
 msgstr ""
 
 msgid "Home Directory"
@@ -6523,6 +6508,9 @@ msgstr ""
 msgid "Name of the WebDAV Record."
 msgstr ""
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr ""
@@ -6545,7 +6533,13 @@ msgstr ""
 msgid "Native - store characters with their native ASCII value."
 msgstr ""
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -8195,9 +8189,6 @@ msgstr ""
 msgid "Reorder"
 msgstr ""
 
-msgid "Reorder Commands"
-msgstr ""
-
 msgid "Reordering"
 msgstr ""
 
@@ -8734,6 +8725,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr ""
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid "Select the interface (only selectable if your server has more than one) to use for the source IP address in outgoing packets."
 msgstr ""
 
@@ -9088,6 +9082,15 @@ msgstr ""
 
 #, php-format
 msgid "Show positive/negative values for %s graphs. (can not be used together with logarithmic scaling)"
+msgstr ""
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
 msgstr ""
 
 msgid "Shrink Page Header"
@@ -10188,6 +10191,9 @@ msgstr ""
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr ""
 
@@ -10382,7 +10388,7 @@ msgstr ""
 msgid "These commands will be executed pre or post system initialization (booting) or before system shutdown."
 msgstr ""
 
-msgid "These option(s) will be added to /boot/loader.conf.local. This allows you to specify parameters to be passed to kernel, and additional modules to be loaded."
+msgid "These option(s) will be added to /boot/loader.conf.local. This allows you to specify parameters to be passed to the kernel and additional modules to be loaded."
 msgstr ""
 
 #, php-format
