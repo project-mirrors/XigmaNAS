@@ -175,6 +175,7 @@
 #navhdr > ul > li:hover > a,
 #navhdr ul ul li a:hover
 {
+	color: black;
 	color: var(--txc-nav-sub-hovered);
 	background-color: white;
 	background-color: var(--bgc-nav-sub-hovered);
