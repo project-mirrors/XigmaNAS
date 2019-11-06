@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2019-06-26 07:03+0000\n"
 "Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -542,6 +542,9 @@ msgstr "CARP hozzáadása"
 msgid "Add CHAP User"
 msgstr "CHAP felhasználó hozzáadása"
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Adattár hozzáadása"
 
@@ -679,9 +682,6 @@ msgstr "Hitelesített csoport létrehozása"
 
 msgid "Add auto snapshot"
 msgstr "Automatikus pillanatkép hozzáadása"
-
-msgid "Add command"
-msgstr "Parancs hozzáadása"
 
 msgid "Add extent"
 msgstr "extent hozzáadása"
@@ -1938,11 +1938,11 @@ msgstr "LINK_DOWN esemény utasítása (pl. %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "LINK_UP esemény utasítása (pl. %s)."
 
-msgid "Command is marked for removal"
-msgstr "A parancs eltávolításra megjelölve"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "A parancs védett"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "A parancs zárolását feloldottad"
@@ -3996,6 +3996,9 @@ msgstr "Kész!"
 msgid "Done."
 msgstr "Kész."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Letöltés"
 
@@ -4080,6 +4083,9 @@ msgstr "CARP módosítása"
 
 msgid "Edit CHAP User"
 msgstr "CHAP felhasználó módosítása"
+
+msgid "Edit Command"
+msgstr ""
 
 msgid "Edit Dataset"
 msgstr "Adattár módosítása"
@@ -4203,9 +4209,6 @@ msgstr "Hitelesített csoport módosítása"
 
 msgid "Edit auto snapshot"
 msgstr "Automatikus pillanatkép beállításai"
-
-msgid "Edit command"
-msgstr "Parancs szerkesztése"
 
 msgid "Edit extent"
 msgstr "Extent szerkesztése"
@@ -4720,9 +4723,6 @@ msgstr "Adj meg egy értéket"
 msgid "Enter Volume Name"
 msgstr "Add meg a kötet nevét"
 
-msgid "Enter a comment"
-msgstr "Írj egy hozzászólást"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4760,12 +4760,6 @@ msgstr "Add meg a csoport leírását."
 msgid "Enter a group name."
 msgstr "Add meg a csoport nevét."
 
-msgid "Enter a name"
-msgstr "Adj meg egy nevet"
-
-msgid "Enter a name for the command."
-msgstr "Add meg a parancs nevét."
-
 msgid "Enter a name for this dataset"
 msgstr "Adj nevet ennek az adattárnak"
 
@@ -4781,9 +4775,6 @@ msgid ""
 msgstr ""
 "Add meg az érintőeszközöket szóközökkel elválasztva. Az eszközöket "
 "létrehozzuk és automatikusan a hídhoz adjuk."
-
-msgid "Enter a valid value."
-msgstr "Írj be egy érvényes értéket."
 
 msgid "Enter additional parameters"
 msgstr "Add meg a további paramétereket"
@@ -4840,9 +4831,6 @@ msgid ""
 msgstr ""
 "Add meg a gép szünetmentesének azonosítóját és kiszolgálójának IP címét "
 "ahová a szünetmentes csatlakozik (ez egy távoli kiszolgáló is lehet)."
-
-msgid "Enter the command"
-msgstr "Adj meg egy parancsot"
 
 msgid "Enter the full user name."
 msgstr "Add meg a felhasználó teljes nevét."
@@ -5680,9 +5668,6 @@ msgstr "Kiemelés"
 
 msgid "Hint"
 msgstr "Tipp"
-
-msgid "Home"
-msgstr "Saját mappa"
 
 msgid "Home Directory"
 msgstr "Saját mappa"
@@ -7398,6 +7383,9 @@ msgstr "A portál csoport neve"
 msgid "Name of the WebDAV Record."
 msgstr "A WebDAV bejegyzés megnevezése."
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "A cserehelyként (swap) használandó eszköz neve, pl.: %s."
@@ -7424,7 +7412,13 @@ msgstr "A változó neve."
 msgid "Native - store characters with their native ASCII value."
 msgstr "Natív - karakterek tárolása saját natív ASCII értékükkel."
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -9202,9 +9196,6 @@ msgstr "A kiválasztott eszközök eltávolítása a tükörből."
 msgid "Reorder"
 msgstr "Újrarendezés"
 
-msgid "Reorder Commands"
-msgstr "Parancsok sorrendjének megváltoztatása"
-
 msgid "Reordering"
 msgstr "Újrarendezés"
 
@@ -9794,6 +9785,9 @@ msgstr "Válaszd ki a célokat"
 msgid "Select the FreeBSD package to be installed."
 msgstr "Válaszd ki a telepítendő FreeBSD csomagot."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10265,6 +10259,15 @@ msgid ""
 msgstr ""
 "%s diagram pozitív/negatív értékeinek megjelenítése (logaritmikus skálával "
 "együtt nem használható)."
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "Oldal fejlécének csökkentése"
@@ -11671,6 +11674,9 @@ msgstr "Tárolók száma nem módosítható."
 msgid "The name of the target."
 msgstr "A cél neve."
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Virtuális eszköz neve nem módosítható."
 
@@ -11931,11 +11937,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Ezek a beállítások a /boot/loader.conf.local fájlba kerülnek. Evvel "
-"lehetőség nyílik a kernel paramétereit illetve modulok betöltését beállítani."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14116,3 +14120,44 @@ msgstr "látható"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Parancs hozzáadása"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "A parancs eltávolításra megjelölve"
+
+#~ msgid "Command is protected"
+#~ msgstr "A parancs védett"
+
+#~ msgid "Edit command"
+#~ msgstr "Parancs szerkesztése"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Írj egy hozzászólást"
+
+#~ msgid "Enter a name"
+#~ msgstr "Adj meg egy nevet"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Add meg a parancs nevét."
+
+#~ msgid "Enter the command"
+#~ msgstr "Adj meg egy parancsot"
+
+#~ msgid "Home"
+#~ msgstr "Saját mappa"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Parancsok sorrendjének megváltoztatása"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Ezek a beállítások a /boot/loader.conf.local fájlba kerülnek. Evvel "
+#~ "lehetőség nyílik a kernel paramétereit illetve modulok betöltését beállítani."
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Írj be egy érvényes értéket."

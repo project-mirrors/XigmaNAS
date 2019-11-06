@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2019-08-08 13:31+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -559,6 +559,9 @@ msgstr "Přidat CARP"
 msgid "Add CHAP User"
 msgstr "Přidat CHAP uživatele"
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Přidat datovou sadu"
 
@@ -696,9 +699,6 @@ msgstr "Přidat skupinu pověřených"
 
 msgid "Add auto snapshot"
 msgstr "Přidat automatické zachycování stavu"
-
-msgid "Add command"
-msgstr "Přidat příkaz"
 
 msgid "Add extent"
 msgstr "Přidat úložnou jednotku"
@@ -1974,11 +1974,11 @@ msgstr ""
 "Příkaz, který vykonat v případě události LINK_UP (připojení do sítě) (např. "
 "%s)."
 
-msgid "Command is marked for removal"
-msgstr "Příkaz je označen ke smazání"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "Příkaz je chráněn"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "Příkaz je odemčen"
@@ -4052,6 +4052,9 @@ msgstr "Hotovo!"
 msgid "Done."
 msgstr "Dokončeno."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Stáhnout"
 
@@ -4137,6 +4140,9 @@ msgstr "Upravit CARP"
 
 msgid "Edit CHAP User"
 msgstr "Upravit CHAP uživatele"
+
+msgid "Edit Command"
+msgstr ""
 
 msgid "Edit Dataset"
 msgstr "Upravit datovou sadu"
@@ -4260,9 +4266,6 @@ msgstr "Upravit skupinu pověřených"
 
 msgid "Edit auto snapshot"
 msgstr "Upravit automatické zachycování stavu"
-
-msgid "Edit command"
-msgstr "Upravit příkaz"
 
 msgid "Edit extent"
 msgstr "Upravit úložnou jednotku"
@@ -4778,9 +4781,6 @@ msgstr "Zadejte hodnotu"
 msgid "Enter Volume Name"
 msgstr "Zadejte název svazku"
 
-msgid "Enter a comment"
-msgstr "Zadejte komentář"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4815,12 +4815,6 @@ msgstr "Zadejte popis skupiny."
 msgid "Enter a group name."
 msgstr "Zadejte název skupiny."
 
-msgid "Enter a name"
-msgstr "Zadejte název"
-
-msgid "Enter a name for the command."
-msgstr "Zadejte název pro příkaz."
-
 msgid "Enter a name for this dataset"
 msgstr "Zadejte název pro tuto datovou sadu"
 
@@ -4836,9 +4830,6 @@ msgid ""
 msgstr ""
 "Zadejte seznam tap zařízení. Jednotlivé položky oddělujte mezerou. Zařízení "
 "budou vytvořena a automaticky přidána do síťového mostu."
-
-msgid "Enter a valid value."
-msgstr "Zadejte platnou hodnotu."
 
 msgid "Enter additional parameters"
 msgstr "Zadejte další parametry"
@@ -4895,9 +4886,6 @@ msgid ""
 msgstr ""
 "Zadejte identifikátor UPS zdroje a IP adresu stroje, ke kterému je UPS zdroj "
 "připojený (toto může být také vzdálený stroj)."
-
-msgid "Enter the command"
-msgstr "Zadejte příkaz"
 
 msgid "Enter the full user name."
 msgstr ""
@@ -5740,9 +5728,6 @@ msgstr "Zvýrazňování"
 
 msgid "Hint"
 msgstr "Tip"
-
-msgid "Home"
-msgstr "Domovské"
 
 msgid "Home Directory"
 msgstr "Domovská složka"
@@ -7483,6 +7468,9 @@ msgstr "Název skupiny portálu."
 msgid "Name of the WebDAV Record."
 msgstr "Název záznamu pro WebDAV."
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr ""
@@ -7509,7 +7497,13 @@ msgstr "Název proměnné"
 msgid "Native - store characters with their native ASCII value."
 msgstr "Nativní – ukládat znaky s jejich nativní ASCII hodnotou."
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -9286,9 +9280,6 @@ msgstr "Odebrat označené zařízení ze zrcadla."
 msgid "Reorder"
 msgstr "Přeuspořádat"
 
-msgid "Reorder Commands"
-msgstr "Přeuspořádat příkazy"
-
 msgid "Reordering"
 msgstr "Přeuspořádat"
 
@@ -9875,6 +9866,9 @@ msgstr "Vybrat cíle."
 msgid "Select the FreeBSD package to be installed."
 msgstr "Zvolte FreeBSD balíček, který má být nainstalován."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10338,6 +10332,15 @@ msgid ""
 msgstr ""
 "Zobrazit kladnou/zápornou hodnotu pro grafy %s (není možné použít současně s "
 "logaritmickým měřítkem)."
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "Zmenšit záhlaví stránky"
@@ -11770,6 +11773,9 @@ msgstr "Název fondu úložišť není možné měnit."
 msgid "The name of the target."
 msgstr "Název cíle."
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Název tohoto virtuálního zařízení není možné měnit."
 
@@ -12034,11 +12040,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Tyto volby budou přidány do souboru /boot/loader.conf.local. Takto je možné "
-"zadat parametry, které mají být předány jádru a zavádět tak další moduly."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14246,3 +14250,44 @@ msgstr "viditelné"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Přidat příkaz"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Příkaz je označen ke smazání"
+
+#~ msgid "Command is protected"
+#~ msgstr "Příkaz je chráněn"
+
+#~ msgid "Edit command"
+#~ msgstr "Upravit příkaz"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Zadejte komentář"
+
+#~ msgid "Enter a name"
+#~ msgstr "Zadejte název"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Zadejte název pro příkaz."
+
+#~ msgid "Enter the command"
+#~ msgstr "Zadejte příkaz"
+
+#~ msgid "Home"
+#~ msgstr "Domovské"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Přeuspořádat příkazy"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Tyto volby budou přidány do souboru /boot/loader.conf.local. Takto je možné "
+#~ "zadat parametry, které mají být předány jádru a zavádět tak další moduly."
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Zadejte platnou hodnotu."

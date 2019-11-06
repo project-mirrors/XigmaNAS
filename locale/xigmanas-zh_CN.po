@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2019-10-29 01:03+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:28+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -503,6 +503,9 @@ msgstr "添加CARP"
 msgid "Add CHAP User"
 msgstr "添加CHAP用户"
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "添加数据集"
 
@@ -640,9 +643,6 @@ msgstr "添加验证组(Auth Group)"
 
 msgid "Add auto snapshot"
 msgstr "添加自动快照"
-
-msgid "Add command"
-msgstr "添加命令"
 
 msgid "Add extent"
 msgstr "添加extent"
@@ -1822,11 +1822,11 @@ msgstr "LINK_DOWN 事件的命令（例如 %s）。"
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "LINK_UP 事件的命令（例如 %s）。"
 
-msgid "Command is marked for removal"
-msgstr "命令已标记为要删除"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "命令被保护"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "命令已解锁"
@@ -3767,6 +3767,9 @@ msgstr "完成！"
 msgid "Done."
 msgstr "完成。"
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "下载"
 
@@ -3851,6 +3854,9 @@ msgstr "编辑CARP"
 
 msgid "Edit CHAP User"
 msgstr "编辑CHAP用户"
+
+msgid "Edit Command"
+msgstr ""
 
 msgid "Edit Dataset"
 msgstr "编辑数据集"
@@ -3974,9 +3980,6 @@ msgstr "编辑认证组"
 
 msgid "Edit auto snapshot"
 msgstr "编辑自动快照"
-
-msgid "Edit command"
-msgstr "编辑命令"
 
 msgid "Edit extent"
 msgstr "编辑extent"
@@ -4470,9 +4473,6 @@ msgstr "输入数值"
 msgid "Enter Volume Name"
 msgstr "输入卷名称"
 
-msgid "Enter a comment"
-msgstr "输入注释"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4505,12 +4505,6 @@ msgstr "输入群组描述。"
 msgid "Enter a group name."
 msgstr "输入群组名称"
 
-msgid "Enter a name"
-msgstr "输入名称"
-
-msgid "Enter a name for the command."
-msgstr "输入命令的名称。"
-
 msgid "Enter a name for this dataset"
 msgstr "输入此数据集的名称"
 
@@ -4524,9 +4518,6 @@ msgid ""
 "Enter a space-separated list of tap devices. The devices will be created and "
 "automatically added it to the bridge."
 msgstr "输入空格分隔的点设备列表。 设备将被创建并自动添加到网桥。"
-
-msgid "Enter a valid value."
-msgstr "输入有效值"
 
 msgid "Enter additional parameters"
 msgstr "输入其他参数"
@@ -4579,9 +4570,6 @@ msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
 "connected to. (this also can be a remote host)"
 msgstr "输入UPS所连接的机器的UPS标识符和主机IP地址。 （这也可以是远程主机）"
-
-msgid "Enter the command"
-msgstr "输入命令"
 
 msgid "Enter the full user name."
 msgstr "输入完整用户名。"
@@ -5385,9 +5373,6 @@ msgstr "语法高亮度显示"
 
 msgid "Hint"
 msgstr "提示"
-
-msgid "Home"
-msgstr "首页"
 
 msgid "Home Directory"
 msgstr "Home 目录"
@@ -6987,6 +6972,9 @@ msgstr "门户组的名称"
 msgid "Name of the WebDAV Record."
 msgstr "WebDAV记录的名称。"
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "交换（swap）装置名称，例如：%s。"
@@ -7011,8 +6999,14 @@ msgstr "改名名称。"
 msgid "Native - store characters with their native ASCII value."
 msgstr "原生 - 使用其原生ASCII值存储字符。"
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
 msgstr "导航栏"
+
+msgid "Navigation Menu"
+msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "用户数据和元数据都不会缓存在ARC中。"
@@ -8723,9 +8717,6 @@ msgstr "从镜像中删除所选设备。"
 msgid "Reorder"
 msgstr "重新排列"
 
-msgid "Reorder Commands"
-msgstr "记录命令"
-
 msgid "Reordering"
 msgstr "记录中"
 
@@ -9284,6 +9275,9 @@ msgstr "选择目标。"
 msgid "Select the FreeBSD package to be installed."
 msgstr "请选择要安装的 FreeBSD 套件。"
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9699,6 +9693,15 @@ msgid ""
 "Show positive/negative values for %s graphs. (can not be used together with "
 "logarithmic scaling)"
 msgstr "显示%s图的正/负值。 （不能与对数缩放一起使用）"
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "缩小页眉"
@@ -10959,6 +10962,9 @@ msgstr "无法更改池的名称。"
 msgid "The name of the target."
 msgstr "目标名称"
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "无法更改此虚拟设备的名称。"
 
@@ -11191,9 +11197,9 @@ msgstr "这些命令将在系统初始化（启动）之前或之后或者系统
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
-msgstr "这些选项将被添加到在 /boot/loader.conf.local 文件。这可以让您指定的参数被传递到内核，并加载额外的模组。"
+msgstr ""
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13192,3 +13198,42 @@ msgstr "可见"
 
 msgid "yes"
 msgstr "是"
+
+#~ msgid "Add command"
+#~ msgstr "添加命令"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "命令已标记为要删除"
+
+#~ msgid "Command is protected"
+#~ msgstr "命令被保护"
+
+#~ msgid "Edit command"
+#~ msgstr "编辑命令"
+
+#~ msgid "Enter a comment"
+#~ msgstr "输入注释"
+
+#~ msgid "Enter a name"
+#~ msgstr "输入名称"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "输入命令的名称。"
+
+#~ msgid "Enter the command"
+#~ msgstr "输入命令"
+
+#~ msgid "Home"
+#~ msgstr "首页"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "记录命令"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr "这些选项将被添加到在 /boot/loader.conf.local 文件。这可以让您指定的参数被传递到内核，并加载额外的模组。"
+
+#~ msgid "Enter a valid value."
+#~ msgstr "输入有效值"

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:28+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -556,6 +556,9 @@ msgstr "Adăugare CARP"
 msgid "Add CHAP User"
 msgstr "Adauga profil CHAP"
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Adauga fisier de date"
 
@@ -693,9 +696,6 @@ msgstr "Adăugare grup autorizat"
 
 msgid "Add auto snapshot"
 msgstr "Adăugare imagine automată"
-
-msgid "Add command"
-msgstr "Adăugare comandă"
 
 msgid "Add extent"
 msgstr "Adăugare extensie"
@@ -1960,11 +1960,11 @@ msgstr "Comanda pentru LINK_DOWN (ex. %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Comanda pentru LINK_UP (ex. %s)."
 
-msgid "Command is marked for removal"
-msgstr "Comanda este marcată pentru ștergere"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "Comanda este protejată"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "Comanda este deblocată"
@@ -4031,6 +4031,9 @@ msgstr "Gata!"
 msgid "Done."
 msgstr "Gata."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Descărcare"
 
@@ -4116,6 +4119,9 @@ msgid "Edit CARP"
 msgstr "Editare conexiune CARP"
 
 msgid "Edit CHAP User"
+msgstr ""
+
+msgid "Edit Command"
 msgstr ""
 
 msgid "Edit Dataset"
@@ -4240,9 +4246,6 @@ msgstr "Editare Grup Auth"
 
 msgid "Edit auto snapshot"
 msgstr "Editare imaginea automată (snapshot)"
-
-msgid "Edit command"
-msgstr "Editare comandă"
 
 msgid "Edit extent"
 msgstr "Editare extensie"
@@ -4758,9 +4761,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr ""
 
-msgid "Enter a comment"
-msgstr "Introduceți un comentariu"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4797,12 +4797,6 @@ msgstr "Introducere descriere grup."
 msgid "Enter a group name."
 msgstr "Introducere nume grup."
 
-msgid "Enter a name"
-msgstr "Introduceți un nume"
-
-msgid "Enter a name for the command."
-msgstr "Introduceți un nume pentru comandă"
-
 msgid "Enter a name for this dataset"
 msgstr "Adj nevet ennek az adattárnak"
 
@@ -4819,9 +4813,6 @@ msgstr ""
 "Introduceți o listă de nume de dispozitive tap, separate prin spațiu. "
 "Dispozitivele vor fi create în mod automat și vor fi adăugate la conexiunea "
 "bridge."
-
-msgid "Enter a valid value."
-msgstr ""
 
 msgid "Enter additional parameters"
 msgstr ""
@@ -4878,9 +4869,6 @@ msgid ""
 msgstr ""
 "Introduceți identificatorul pentru UPS și adresa IP a sistemului la care "
 "este conectat UPS-ul (poate fi și un sistem remote)."
-
-msgid "Enter the command"
-msgstr "Introduceți comanda"
 
 msgid "Enter the full user name."
 msgstr ""
@@ -5715,9 +5703,6 @@ msgstr "Evidențiere"
 
 msgid "Hint"
 msgstr "Indiciu"
-
-msgid "Home"
-msgstr "Pagina de pornire"
 
 msgid "Home Directory"
 msgstr "Directorul Home"
@@ -7413,6 +7398,9 @@ msgstr ""
 msgid "Name of the WebDAV Record."
 msgstr ""
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Numele dispozitivului utilizat ca swap, ex. %s."
@@ -7439,7 +7427,13 @@ msgstr "Numele variabilei."
 msgid "Native - store characters with their native ASCII value."
 msgstr ""
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -9207,9 +9201,6 @@ msgstr ""
 msgid "Reorder"
 msgstr ""
 
-msgid "Reorder Commands"
-msgstr "Ordonare comenzi"
-
 msgid "Reordering"
 msgstr ""
 
@@ -9797,6 +9788,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr "Selectați pachetul FreeBSD de instalat."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10225,6 +10219,15 @@ msgid ""
 msgstr ""
 "Afișare valori pozitive/negative pentru graficele %s (nu pot fi utilizate "
 "pentru scalele logaritmice)"
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "Micșorare antet pagină"
@@ -11589,6 +11592,9 @@ msgstr "Numele structurii pool nu poate fi modificat."
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Numele dispozitivului virtual nu poate fi modificat."
 
@@ -11846,12 +11852,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Aceste opţiuni vor fi adăugate în  /boot/loader.conf.local. Puteţi astfel să "
-"specificaţi diverşi parametri pentru kernel şi să încărcaţi diferite module "
-"adiţionale."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14030,3 +14033,42 @@ msgstr "vizibil"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Adăugare comandă"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Comanda este marcată pentru ștergere"
+
+#~ msgid "Command is protected"
+#~ msgstr "Comanda este protejată"
+
+#~ msgid "Edit command"
+#~ msgstr "Editare comandă"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Introduceți un comentariu"
+
+#~ msgid "Enter a name"
+#~ msgstr "Introduceți un nume"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Introduceți un nume pentru comandă"
+
+#~ msgid "Enter the command"
+#~ msgstr "Introduceți comanda"
+
+#~ msgid "Home"
+#~ msgstr "Pagina de pornire"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Ordonare comenzi"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Aceste opţiuni vor fi adăugate în  /boot/loader.conf.local. Puteţi astfel să "
+#~ "specificaţi diverşi parametri pentru kernel şi să încărcaţi diferite module "
+#~ "adiţionale."

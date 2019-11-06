@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2019-08-30 15:52+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
@@ -556,6 +556,9 @@ msgstr "Aggiungi un CARP"
 msgid "Add CHAP User"
 msgstr "Aggiungi utente CHAP"
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Aggiungi Dataset"
 
@@ -693,9 +696,6 @@ msgstr "Aggiungi \"Auth group\""
 
 msgid "Add auto snapshot"
 msgstr "Aggiungi auto snapshot"
-
-msgid "Add command"
-msgstr "Aggiungi comando"
 
 msgid "Add extent"
 msgstr "Aggiungere limite"
@@ -1968,11 +1968,11 @@ msgstr "Comando per l'evento LINK_DOWN (ad esempio %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Comando per l'evento LINK_UP (ad esempio %s)."
 
-msgid "Command is marked for removal"
-msgstr "Comando selezionato per la rimozione"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "Comando protetto"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "Comando sbloccato"
@@ -4049,6 +4049,9 @@ msgstr "Fatto!"
 msgid "Done."
 msgstr "Finito."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Download"
 
@@ -4135,6 +4138,9 @@ msgstr "Modifica CARP"
 
 msgid "Edit CHAP User"
 msgstr "Modificare l'utente CHAP"
+
+msgid "Edit Command"
+msgstr ""
 
 msgid "Edit Dataset"
 msgstr "Modifica il Dataset"
@@ -4258,9 +4264,6 @@ msgstr "Modifica auth group"
 
 msgid "Edit auto snapshot"
 msgstr "Modifica snapshot automatico"
-
-msgid "Edit command"
-msgstr "Modifica comando"
 
 msgid "Edit extent"
 msgstr "Modifica limite"
@@ -4778,9 +4781,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr "Inserire il nome del volume"
 
-msgid "Enter a comment"
-msgstr "Inserisci un commento"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4819,12 +4819,6 @@ msgstr "Inserisci una descrizione di gruppo"
 msgid "Enter a group name."
 msgstr "Inserisci un nome di gruppo"
 
-msgid "Enter a name"
-msgstr "Inserisci un nome"
-
-msgid "Enter a name for the command."
-msgstr "Inserisci un nome per il comando."
-
 msgid "Enter a name for this dataset"
 msgstr "Inserire un nomer per questo dataset"
 
@@ -4840,9 +4834,6 @@ msgid ""
 msgstr ""
 "Inserisci una lista separata da spazi di dispositivi tap. I dispositivi "
 "saranno creati automaticamente e aggiunti al bridge."
-
-msgid "Enter a valid value."
-msgstr "Inserisci un valore valido."
 
 msgid "Enter additional parameters"
 msgstr "Inserisci parametri aggiuntivi"
@@ -4899,9 +4890,6 @@ msgid ""
 msgstr ""
 "Inserisci l'identificazione dell'UPS e l'indirizzo IP della macchina a cui è "
 "connesso l'UPS. (anche host remoti)"
-
-msgid "Enter the command"
-msgstr "Inserisci il comando"
 
 msgid "Enter the full user name."
 msgstr ""
@@ -5739,9 +5727,6 @@ msgstr "Evidenziazione"
 
 msgid "Hint"
 msgstr "Suggerimento"
-
-msgid "Home"
-msgstr "Pagina principale"
 
 msgid "Home Directory"
 msgstr "Cartella Principale"
@@ -7437,6 +7422,9 @@ msgstr "Nome del gruppo Portal"
 msgid "Name of the WebDAV Record."
 msgstr "Nome del  Record WebDAV"
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Nome della periferica usata per lo swap, ad es. %s."
@@ -7463,7 +7451,13 @@ msgstr "Nome della variabile"
 msgid "Native - store characters with their native ASCII value."
 msgstr "Nativo - memorizza i caratteri con il loro valore ASCII originario."
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -9229,9 +9223,6 @@ msgstr ""
 msgid "Reorder"
 msgstr "Riordina"
 
-msgid "Reorder Commands"
-msgstr "Comandi di riordino"
-
 msgid "Reordering"
 msgstr ""
 
@@ -9821,6 +9812,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr "Selezione il pacchetto FreeBSD da installare."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10251,6 +10245,15 @@ msgid ""
 msgstr ""
 "Mostra valori positivi/negativi per i grafici %s. (Non possono essere usati "
 "insieme alla scala logaritmica)."
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "Contrai la parte alta della pagina"
@@ -11640,6 +11643,9 @@ msgstr "Il nome del pool non può essere cambiato."
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Il nome del dispositivo virtuale non può essere cambiato."
 
@@ -11894,12 +11900,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Questi parametri vengono aggiunti a /boot/loader.conf.local. Questo permette "
-"di specificare i parametri da passare al kernel e di caricare i moduli "
-"aggiuntivi."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14093,3 +14096,45 @@ msgstr "visibile"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Aggiungi comando"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Comando selezionato per la rimozione"
+
+#~ msgid "Command is protected"
+#~ msgstr "Comando protetto"
+
+#~ msgid "Edit command"
+#~ msgstr "Modifica comando"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Inserisci un commento"
+
+#~ msgid "Enter a name"
+#~ msgstr "Inserisci un nome"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Inserisci un nome per il comando."
+
+#~ msgid "Enter the command"
+#~ msgstr "Inserisci il comando"
+
+#~ msgid "Home"
+#~ msgstr "Pagina principale"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Comandi di riordino"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Questi parametri vengono aggiunti a /boot/loader.conf.local. Questo permette "
+#~ "di specificare i parametri da passare al kernel e di caricare i moduli "
+#~ "aggiuntivi."
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Inserisci un valore valido."

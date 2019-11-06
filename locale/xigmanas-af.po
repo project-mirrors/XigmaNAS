@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 
 msgid " No private key"
@@ -543,6 +543,9 @@ msgstr ""
 msgid "Add CHAP User"
 msgstr ""
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Voeg Datastel by"
 
@@ -680,9 +683,6 @@ msgstr "Voeg 'n Auth groep by"
 
 msgid "Add auto snapshot"
 msgstr "Voeg 'n outomatiese momentopname by"
-
-msgid "Add command"
-msgstr "Voeg bevel by"
 
 msgid "Add extent"
 msgstr "Voeg omvang by"
@@ -1927,11 +1927,11 @@ msgstr "Bevel vir LINK_DOWN voorval (bv. %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Bevel vir LINK_UP voorval (bv. %s)."
 
-msgid "Command is marked for removal"
-msgstr "Bevel is vir verwydering gemerk"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "Bevel is beskerm"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "Bevel is oopgesluit"
@@ -3959,6 +3959,9 @@ msgstr ""
 msgid "Done."
 msgstr "Klaar."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Aflaai"
 
@@ -4044,6 +4047,9 @@ msgid "Edit CARP"
 msgstr ""
 
 msgid "Edit CHAP User"
+msgstr ""
+
+msgid "Edit Command"
 msgstr ""
 
 msgid "Edit Dataset"
@@ -4168,9 +4174,6 @@ msgstr "Reigeer auth groep"
 
 msgid "Edit auto snapshot"
 msgstr "Redigeer outomatiese momentopname"
-
-msgid "Edit command"
-msgstr "Redigeer opdrag"
 
 msgid "Edit extent"
 msgstr "Redigeer  omvang"
@@ -4674,9 +4677,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr ""
 
-msgid "Enter a comment"
-msgstr "Sleutel 'n opmerking in"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4711,12 +4711,6 @@ msgstr ""
 msgid "Enter a group name."
 msgstr ""
 
-msgid "Enter a name"
-msgstr "Sleutel 'n naam in"
-
-msgid "Enter a name for the command."
-msgstr "Sleutel 'n naam vir hierdie opdrag in."
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -4732,9 +4726,6 @@ msgid ""
 msgstr ""
 "Sleutel 'n spasie-verdeelde lys van tik toestelle. Hierdie toestelle sal "
 "outomaties geskep word en by die brug gevoeg word."
-
-msgid "Enter a valid value."
-msgstr ""
 
 msgid "Enter additional parameters"
 msgstr ""
@@ -4791,9 +4782,6 @@ msgid ""
 msgstr ""
 "Insleutel die UPS identifikasie en gasheer IP adres van die masjien waaraan "
 "die UPS gekonnekteer is. (hierdie kan ook 'n vergelee gasheer wees)"
-
-msgid "Enter the command"
-msgstr "Sleutel die bevel in"
 
 msgid "Enter the full user name."
 msgstr ""
@@ -5622,9 +5610,6 @@ msgstr "Beklemtoon"
 
 msgid "Hint"
 msgstr "Leidraad"
-
-msgid "Home"
-msgstr ""
 
 msgid "Home Directory"
 msgstr "Tuis lêergids"
@@ -7290,6 +7275,9 @@ msgstr ""
 msgid "Name of the WebDAV Record."
 msgstr ""
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Naam van die uitruil toestel om te gebruik, bv. %s"
@@ -7316,7 +7304,13 @@ msgstr "Naam van die veranderlike."
 msgid "Native - store characters with their native ASCII value."
 msgstr ""
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -9074,9 +9068,6 @@ msgstr ""
 msgid "Reorder"
 msgstr ""
 
-msgid "Reorder Commands"
-msgstr "Herrangskik Bevelle"
-
 msgid "Reordering"
 msgstr ""
 
@@ -9652,6 +9643,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr "Kies die FreeBSD pakket om te installeer"
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10077,6 +10071,15 @@ msgid ""
 msgstr ""
 "Wys positiewe/negatiewe waardes vir %s grafieke. (kan nie saam met "
 "logaritmiese skalering gebruik word nie)"
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr ""
@@ -11448,6 +11451,9 @@ msgstr "Die naam van die poel kan nie verander word nie."
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Die naam van hierdie virtuele toestel kan nie verander word nie."
 
@@ -11701,12 +11707,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Die opsie(s) sal bygevoeg word by /boot/loader.conf.local. Dit sal jou "
-"toelaat om die parameters te spesifiseer wat na die kern aangepas moet word, "
-"en additionele modules wat gelaai moet word."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13783,3 +13786,39 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Voeg bevel by"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Bevel is vir verwydering gemerk"
+
+#~ msgid "Command is protected"
+#~ msgstr "Bevel is beskerm"
+
+#~ msgid "Edit command"
+#~ msgstr "Redigeer opdrag"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Sleutel 'n opmerking in"
+
+#~ msgid "Enter a name"
+#~ msgstr "Sleutel 'n naam in"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Sleutel 'n naam vir hierdie opdrag in."
+
+#~ msgid "Enter the command"
+#~ msgstr "Sleutel die bevel in"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Herrangskik Bevelle"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Die opsie(s) sal bygevoeg word by /boot/loader.conf.local. Dit sal jou "
+#~ "toelaat om die parameters te spesifiseer wat na die kern aangepas moet word, "
+#~ "en additionele modules wat gelaai moet word."

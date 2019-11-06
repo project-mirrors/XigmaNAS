@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2019-10-18 08:47+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -570,6 +570,9 @@ msgstr "Προσθήκη CARP"
 msgid "Add CHAP User"
 msgstr "Προσθήκη Χρήστη CHAP"
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Προσθήκη Dataset"
 
@@ -707,9 +710,6 @@ msgstr "Προσθήκη ομάδας πιστοποίησης."
 
 msgid "Add auto snapshot"
 msgstr "Προσθήκη αυτόματου στιγμιότυπου"
-
-msgid "Add command"
-msgstr "Προσθήκη εντολής"
 
 msgid "Add extent"
 msgstr "Προσθήκη επέκτασης"
@@ -2008,11 +2008,11 @@ msgstr "Εντολή για το συμβάν LINK_DOWN (π.χ. %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Εντολή για το συμβάν LINK_UP (π.χ. %s)."
 
-msgid "Command is marked for removal"
-msgstr "Η εντολή έχει σημειωθεί προς διαγραφή"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "Η εντολή είναι προστατευμένη"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "Η εντολή είναι ξεκλείδωτη"
@@ -4121,6 +4121,9 @@ msgstr "Ολοκληρώθηκε!"
 msgid "Done."
 msgstr "Ολοκληρώθηκε."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Λήψη"
 
@@ -4209,6 +4212,9 @@ msgstr "Επεξεργασία CARP"
 
 msgid "Edit CHAP User"
 msgstr "Επεξεργασία Χρήστη CHAP"
+
+msgid "Edit Command"
+msgstr ""
 
 msgid "Edit Dataset"
 msgstr "Επεξεργασία dataset"
@@ -4332,9 +4338,6 @@ msgstr "Επεξεργασία ομάδας πιστοποίησης"
 
 msgid "Edit auto snapshot"
 msgstr "Επεξεργασία αυτόματου στιγμιότυπου"
-
-msgid "Edit command"
-msgstr "Επεξεργασία εντολής"
 
 msgid "Edit extent"
 msgstr "Επεξεργασία επέκτασης"
@@ -4869,9 +4872,6 @@ msgstr "Εισάγετε Τιμή"
 msgid "Enter Volume Name"
 msgstr "Εισάγετε Όνομα Τόμου"
 
-msgid "Enter a comment"
-msgstr "Εισαγωγή ενός σχολίου"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4912,12 +4912,6 @@ msgstr "Εισάγετε μια περιγραφή ομάδας."
 msgid "Enter a group name."
 msgstr "Εισάγετε ένα όνομα ομάδας."
 
-msgid "Enter a name"
-msgstr "Εισάγετε ένα όνομα"
-
-msgid "Enter a name for the command."
-msgstr "Εισάγετε ένα όνομα γι ατην εντολή."
-
 msgid "Enter a name for this dataset"
 msgstr "Εισάγετε ένα όνομα για αυτό το dataset"
 
@@ -4933,9 +4927,6 @@ msgid ""
 msgstr ""
 "Εισάγετε μια λίστα διαχωρισμένη με κενό από συσκευές tap.  Οι συσκευές θα "
 "δημιουργηθούν και θα προστεθούν αυτόματα στο γεφύρωμα δικτύου."
-
-msgid "Enter a valid value."
-msgstr "Εισάγετε μια έγκυρη τιμή."
 
 msgid "Enter additional parameters"
 msgstr "Εισάγετε πρόσθετες παραμέτρους"
@@ -4993,9 +4984,6 @@ msgstr ""
 "Εισάγετε το αναγνωριστικό του UPS και την διεύθυνση IP του συστήματος στο "
 "οποίο είναι συνδεμένο το UPS. (μπορεί να είναι και κάποιος απομακρυσμένος "
 "υπολογιστής)"
-
-msgid "Enter the command"
-msgstr "Εισάγετε μια εντολή"
 
 msgid "Enter the full user name."
 msgstr "Εισάγετε το πλήρες όνομα του χρήστη."
@@ -5856,9 +5844,6 @@ msgstr "Επισημάνσεις"
 
 msgid "Hint"
 msgstr "Συμβουλή"
-
-msgid "Home"
-msgstr "Αρχική"
 
 msgid "Home Directory"
 msgstr "Αρχικός φάκελος"
@@ -7609,6 +7594,9 @@ msgstr "Όνομα της Ομάδας Portal."
 msgid "Name of the WebDAV Record."
 msgstr "Όνομα της εγγραφής WebDAV."
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Το όνομα της συσκευής για χρήση ως συσκευή swap, π.χ. %s."
@@ -7635,8 +7623,14 @@ msgstr "Το όνομα της μεταβλητής."
 msgid "Native - store characters with their native ASCII value."
 msgstr "Ατόφιο - αποθήκευση χαρακτήρων με την ατόφια τιμή ASCII."
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
 msgstr "Μπάρα Πλοήγησης"
+
+msgid "Navigation Menu"
+msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr ""
@@ -9434,9 +9428,6 @@ msgstr "Αφαίρεση της επιλεγμένης συσκευής από �
 msgid "Reorder"
 msgstr "Αναδιάταξη"
 
-msgid "Reorder Commands"
-msgstr "Αναδιάταξη Εντολών"
-
 msgid "Reordering"
 msgstr "Αναδιάταξη"
 
@@ -10043,6 +10034,9 @@ msgstr "Επιλογή προορισμών."
 msgid "Select the FreeBSD package to be installed."
 msgstr "Επιλέξτε το πακέτο FreeBSD που θα εγκατασταθεί."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10523,6 +10517,15 @@ msgid ""
 msgstr ""
 "Προβολή θετικών/αρνητικών τιμών για τα γραφήματα %s. (δεν μπορεί να "
 "χρησιμοποιηθεί σε συνδυασμό με τη λογαριθμική κλιμάκωση)"
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "Σμίκρυνση Κεφαλίδας Σελίδας"
@@ -11989,6 +11992,9 @@ msgstr "Το όνομα του Pool δεν μπορεί να αλλαχτεί."
 msgid "The name of the target."
 msgstr "Το όνομα του προορισμού."
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Το όνομα αυτής της εικονικής συσκευής δεν μπορεί να αλλαχτεί."
 
@@ -12261,12 +12267,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Αυτές οι επιλογές θα προστεθούν στο /boot/loader.conf.local. Αυτό σας "
-"επιτρέπει να ορίσετε κάποιοες παραμέτρους για περάσουν στον πυρήνα, και για "
-"να φορτωθούν επιπλέον αρθρώματα."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14552,3 +14555,45 @@ msgstr "ορατό"
 
 msgid "yes"
 msgstr "ναι"
+
+#~ msgid "Add command"
+#~ msgstr "Προσθήκη εντολής"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Η εντολή έχει σημειωθεί προς διαγραφή"
+
+#~ msgid "Command is protected"
+#~ msgstr "Η εντολή είναι προστατευμένη"
+
+#~ msgid "Edit command"
+#~ msgstr "Επεξεργασία εντολής"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Εισαγωγή ενός σχολίου"
+
+#~ msgid "Enter a name"
+#~ msgstr "Εισάγετε ένα όνομα"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Εισάγετε ένα όνομα γι ατην εντολή."
+
+#~ msgid "Enter the command"
+#~ msgstr "Εισάγετε μια εντολή"
+
+#~ msgid "Home"
+#~ msgstr "Αρχική"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Αναδιάταξη Εντολών"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Αυτές οι επιλογές θα προστεθούν στο /boot/loader.conf.local. Αυτό σας "
+#~ "επιτρέπει να ορίσετε κάποιοες παραμέτρους για περάσουν στον πυρήνα, και για "
+#~ "να φορτωθούν επιπλέον αρθρώματα."
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Εισάγετε μια έγκυρη τιμή."

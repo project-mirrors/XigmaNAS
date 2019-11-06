@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2018-07-06 10:33+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
@@ -543,6 +543,9 @@ msgstr "Dodaj CARP"
 msgid "Add CHAP User"
 msgstr ""
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Dodaj zestaw danych"
 
@@ -680,9 +683,6 @@ msgstr "Dodaj grupę zabezpieczeń"
 
 msgid "Add auto snapshot"
 msgstr "Dodaj automatyczną migawkę"
-
-msgid "Add command"
-msgstr "Dodaj polecenie"
 
 msgid "Add extent"
 msgstr "Dodaj ekstent"
@@ -1924,11 +1924,11 @@ msgstr "Komenda dla wydarzenia LINK_DOWN (np. %s.)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Komenda dla wydarzenia LINK_UP (np. %s.)."
 
-msgid "Command is marked for removal"
-msgstr "Polecenie jest zaznaczone do usunięcia"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "Polecenie jest chronione"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "Polecenie jest odblokowane"
@@ -3895,6 +3895,9 @@ msgstr ""
 msgid "Done."
 msgstr "Gotowe."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Pobierz"
 
@@ -3978,6 +3981,9 @@ msgid "Edit CARP"
 msgstr ""
 
 msgid "Edit CHAP User"
+msgstr ""
+
+msgid "Edit Command"
 msgstr ""
 
 msgid "Edit Dataset"
@@ -4102,9 +4108,6 @@ msgstr "Edytuj grupę zabezpieczeń"
 
 msgid "Edit auto snapshot"
 msgstr "Edytuj automatyczną migawkę"
-
-msgid "Edit command"
-msgstr "Edytuj polecenie"
 
 msgid "Edit extent"
 msgstr "Edytuj zakres"
@@ -4607,9 +4610,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr ""
 
-msgid "Enter a comment"
-msgstr "Wpisz komentarz."
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4644,12 +4644,6 @@ msgstr ""
 msgid "Enter a group name."
 msgstr ""
 
-msgid "Enter a name"
-msgstr "Podaj nazwę"
-
-msgid "Enter a name for the command."
-msgstr ""
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -4662,9 +4656,6 @@ msgstr ""
 msgid ""
 "Enter a space-separated list of tap devices. The devices will be created and "
 "automatically added it to the bridge."
-msgstr ""
-
-msgid "Enter a valid value."
 msgstr ""
 
 msgid "Enter additional parameters"
@@ -4720,9 +4711,6 @@ msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
 "connected to. (this also can be a remote host)"
 msgstr ""
-
-msgid "Enter the command"
-msgstr "Wpisz komendę."
 
 msgid "Enter the full user name."
 msgstr ""
@@ -5531,9 +5519,6 @@ msgstr "Podkreślanie"
 
 msgid "Hint"
 msgstr "Porada"
-
-msgid "Home"
-msgstr ""
 
 msgid "Home Directory"
 msgstr "Katalog domowy"
@@ -7166,6 +7151,9 @@ msgstr ""
 msgid "Name of the WebDAV Record."
 msgstr ""
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Nazwa urządzenia do użycia jako partycja wymiany, np. %s."
@@ -7191,7 +7179,13 @@ msgstr "Nazwa zmiennej."
 msgid "Native - store characters with their native ASCII value."
 msgstr ""
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -8920,9 +8914,6 @@ msgstr ""
 msgid "Reorder"
 msgstr ""
 
-msgid "Reorder Commands"
-msgstr ""
-
 msgid "Reordering"
 msgstr ""
 
@@ -9491,6 +9482,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr "Wskaż pakiet FreeBSD do zainstalowania."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9904,6 +9898,15 @@ msgstr ""
 msgid ""
 "Show positive/negative values for %s graphs. (can not be used together with "
 "logarithmic scaling)"
+msgstr ""
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
 msgstr ""
 
 msgid "Shrink Page Header"
@@ -11201,6 +11204,9 @@ msgstr "Nazwa puli nie może być zmieniona."
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Nazwa tego urządzenia wirtualnego nie może być zmieniona"
 
@@ -11442,11 +11448,9 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Opcje zostaną dodane do /boot/loader.conf.local. Pozwoli to na przekazanie "
-"parametrów do kernel'a i uruchomienie dodatkowych modułów"
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13487,3 +13491,32 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Dodaj polecenie"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Polecenie jest zaznaczone do usunięcia"
+
+#~ msgid "Command is protected"
+#~ msgstr "Polecenie jest chronione"
+
+#~ msgid "Edit command"
+#~ msgstr "Edytuj polecenie"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Wpisz komentarz."
+
+#~ msgid "Enter a name"
+#~ msgstr "Podaj nazwę"
+
+#~ msgid "Enter the command"
+#~ msgstr "Wpisz komendę."
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Opcje zostaną dodane do /boot/loader.conf.local. Pozwoli to na przekazanie "
+#~ "parametrów do kernel'a i uruchomienie dodatkowych modułów"
