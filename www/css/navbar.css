@@ -181,5 +181,9 @@
 	background-color: var(--bgc-nav-sub-hovered);
 	background-image: linear-gradient(white 34%,#CCCCCC 78%,#E1E1E1);
 	background-image: var(--bgi-nav-sub-hovered);
+}
+
+#navhdr > ul > li:hover > a
+{
 	border-radius: 0.9em;
 }
