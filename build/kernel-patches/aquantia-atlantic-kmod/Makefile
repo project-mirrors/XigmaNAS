@@ -16,7 +16,7 @@ install:
 	patch -i files/aquantia-aqtion.patch /usr/src/sys/modules/Makefile
 
 	@mkdir -pv ${SRCDIR}
-	@tar -zxvf ${.CURDIR}/files/${ARCHIVE} -C ${SRCDIR}
+	@tar -xvf ${.CURDIR}/files/${ARCHIVE} -C ${SRCDIR}
 
 	mkdir /usr/src/sys/modules/aqtion
 	@cp -Rpv ${SRCDIR}/aqtion-freebsd-4816644/ /usr/src/sys/modules/aqtion
