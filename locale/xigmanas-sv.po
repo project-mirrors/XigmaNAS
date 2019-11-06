@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
-"PO-Revision-Date: 2019-10-18 03:26+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"PO-Revision-Date: 2019-11-06 10:39+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:28+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -539,6 +539,9 @@ msgstr "Lägg till CARP"
 msgid "Add CHAP User"
 msgstr "Lägg till CHAP användare"
 
+msgid "Add Command"
+msgstr "Lägg till kommando"
+
 msgid "Add Dataset"
 msgstr "Lägg till Dataset"
 
@@ -676,9 +679,6 @@ msgstr "Lägg till i autentiserings gruppen."
 
 msgid "Add auto snapshot"
 msgstr "Lägg till automatisk avbildning"
-
-msgid "Add command"
-msgstr "Lägg till kommando"
 
 msgid "Add extent"
 msgstr "Lägg till enhet"
@@ -1933,11 +1933,11 @@ msgstr "Kommando för LINK_DOWN händelse (ex. %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Kommando för LINK_UP händelse (ex. %s)."
 
-msgid "Command is marked for removal"
-msgstr "Kommandot är markerat för borttagning"
+msgid "Command is locked"
+msgstr "Kommadot är låst"
 
-msgid "Command is protected"
-msgstr "Kommandot är skyddat"
+msgid "Command is marked for deletion"
+msgstr "Kommandot är markerat för borttagning"
 
 msgid "Command is unlocked"
 msgstr "Kommandot är olåst"
@@ -3980,6 +3980,9 @@ msgstr "Klar!"
 msgid "Done."
 msgstr "Klart."
 
+msgid "Down"
+msgstr "Ner"
+
 msgid "Download"
 msgstr "Ladda ner"
 
@@ -4065,6 +4068,9 @@ msgstr "Ändra CARP"
 
 msgid "Edit CHAP User"
 msgstr "Redigera CHAP användare"
+
+msgid "Edit Command"
+msgstr "Redigera kommando"
 
 msgid "Edit Dataset"
 msgstr "Ändra Dataset"
@@ -4188,9 +4194,6 @@ msgstr "Editera auth gruppen"
 
 msgid "Edit auto snapshot"
 msgstr "Redigera automatisk avbildning"
-
-msgid "Edit command"
-msgstr "Redigera kommando"
 
 msgid "Edit extent"
 msgstr "Redigera utsträckning"
@@ -4713,9 +4716,6 @@ msgstr "Mata in värde"
 msgid "Enter Volume Name"
 msgstr "Mata in volymnamn"
 
-msgid "Enter a comment"
-msgstr "Skriv en kommentar"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4752,12 +4752,6 @@ msgstr "Mata in en beskrivning av gruppen"
 msgid "Enter a group name."
 msgstr "Mata in ett gruppnamn"
 
-msgid "Enter a name"
-msgstr "Mata in namn"
-
-msgid "Enter a name for the command."
-msgstr "Mata in ett namn för kommandot."
-
 msgid "Enter a name for this dataset"
 msgstr "Mata in ett namn på datasetet"
 
@@ -4773,9 +4767,6 @@ msgid ""
 msgstr ""
 "Mata in en mellanslagsseparerad lista med anslutningsenheter. Enheterna "
 "kommer att skapas och automatiskt läggas till bryggan."
-
-msgid "Enter a valid value."
-msgstr "Skriv ett korrekt värde"
 
 msgid "Enter additional parameters"
 msgstr "Mata in extra parametrar"
@@ -4832,9 +4823,6 @@ msgid ""
 msgstr ""
 "Mata in UPS-namn och  IP-adress för maskinen dit UPS:en är ansluten till. "
 "(detta kan även vara en annan värd)"
-
-msgid "Enter the command"
-msgstr "Mata in komandot"
 
 msgid "Enter the full user name."
 msgstr "Mata in användarens hela namn."
@@ -5671,9 +5659,6 @@ msgstr "Markering"
 
 msgid "Hint"
 msgstr "Tips"
-
-msgid "Home"
-msgstr "Hem"
 
 msgid "Home Directory"
 msgstr "Hemkatalog"
@@ -7362,6 +7347,9 @@ msgstr "Namnet på portalgruppen"
 msgid "Name of the WebDAV Record."
 msgstr "Namn på WebDAV posten."
 
+msgid "Name of the command."
+msgstr "Namn på kommando"
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "Namn på enheten som ska användas som växlingsenhet, t.ex. %s."
@@ -7388,8 +7376,14 @@ msgstr "Namn på variabeln."
 msgid "Native - store characters with their native ASCII value."
 msgstr "Native - spara tecken med deras ursprungliga ASCII värde."
 
+msgid "Navbar Style"
+msgstr "Navigationradsläge"
+
 msgid "Navigation Bar"
 msgstr "Navigeringsmeny"
+
+msgid "Navigation Menu"
+msgstr "Navigationsmeny"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Varken användardata eller metadata kommer att mellanlagras i ARC."
@@ -9154,9 +9148,6 @@ msgstr "Ta bort den valda enheten från speglingen."
 msgid "Reorder"
 msgstr "Ändra ordning"
 
-msgid "Reorder Commands"
-msgstr "Ändra ordning på kommandon"
-
 msgid "Reordering"
 msgstr "Omsortering"
 
@@ -9737,6 +9728,9 @@ msgstr "Välj mål."
 msgid "Select the FreeBSD package to be installed."
 msgstr "Välj FreeBSD-paket som ska installeras."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr "Välj visningsläge för toppnivån i navigationsraden."
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10202,6 +10196,15 @@ msgid ""
 msgstr ""
 "Visa positiva/negativa värden för %s grafer. (kan inte användas tillsammans "
 "med logaritmisk skala)"
+
+msgid "Show symbol and text"
+msgstr "Visa symbol och text"
+
+msgid "Show symbol only"
+msgstr "Visa endast symbol"
+
+msgid "Show text only"
+msgstr "Visa endast text"
 
 msgid "Shrink Page Header"
 msgstr "Minska sidhuvud."
@@ -11599,6 +11602,9 @@ msgstr "Namnet på poolen kan inte ändras"
 msgid "The name of the target."
 msgstr "Namnet på målet."
 
+msgid "The name of the variable."
+msgstr "Namnet på variabeln."
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "Namnet på den virtuella enheten kan inte ändras."
 
@@ -11857,12 +11863,12 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Dessa optioner kommer att läggas till i /boot/loader.conf.local. Detta ger "
-"dig möjlighet att specificera parametrar som skall skickas till kärnan och "
-"ladda extra moduler."
+"Dessa alternativ kommer läggas till /boot/loader.conf.local. Detta ger dig "
+"möjligheter att specificera parametrar som överförs till kärnan och extra "
+"moduler som skall laddas."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14063,3 +14069,45 @@ msgstr "synlig"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Add command"
+#~ msgstr "Lägg till kommando"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Kommandot är markerat för borttagning"
+
+#~ msgid "Command is protected"
+#~ msgstr "Kommandot är skyddat"
+
+#~ msgid "Edit command"
+#~ msgstr "Redigera kommando"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Skriv en kommentar"
+
+#~ msgid "Enter a name"
+#~ msgstr "Mata in namn"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Mata in ett namn för kommandot."
+
+#~ msgid "Enter the command"
+#~ msgstr "Mata in komandot"
+
+#~ msgid "Home"
+#~ msgstr "Hem"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Ändra ordning på kommandon"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Dessa optioner kommer att läggas till i /boot/loader.conf.local. Detta ger "
+#~ "dig möjlighet att specificera parametrar som skall skickas till kärnan och "
+#~ "ladda extra moduler."
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Skriv ett korrekt värde"

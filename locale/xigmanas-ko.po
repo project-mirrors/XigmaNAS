@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -516,6 +516,9 @@ msgstr "CARP 추가"
 msgid "Add CHAP User"
 msgstr ""
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "데이터셋 추가"
 
@@ -653,9 +656,6 @@ msgstr "인증 그룹 추가"
 
 msgid "Add auto snapshot"
 msgstr "자동화 스냅샷 추가"
-
-msgid "Add command"
-msgstr "명령어 추가"
 
 msgid "Add extent"
 msgstr "범위 추가"
@@ -1846,11 +1846,11 @@ msgstr "LINK_DOWN 이벤트용 명령(예: %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "LINK_UP 이벤트용 명령(예: %s)."
 
-msgid "Command is marked for removal"
-msgstr "명령 제거 표시됨"
+msgid "Command is locked"
+msgstr ""
 
-msgid "Command is protected"
-msgstr "명령 보호됨"
+msgid "Command is marked for deletion"
+msgstr ""
 
 msgid "Command is unlocked"
 msgstr "명령 잠금 해제됨"
@@ -3815,6 +3815,9 @@ msgstr ""
 msgid "Done."
 msgstr "완료."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "다운로드"
 
@@ -3898,6 +3901,9 @@ msgid "Edit CARP"
 msgstr "CARP 수정"
 
 msgid "Edit CHAP User"
+msgstr ""
+
+msgid "Edit Command"
 msgstr ""
 
 msgid "Edit Dataset"
@@ -4022,9 +4028,6 @@ msgstr "인증 그룹 편집"
 
 msgid "Edit auto snapshot"
 msgstr "자동화 스냅샷 수정"
-
-msgid "Edit command"
-msgstr "명령 수정"
 
 msgid "Edit extent"
 msgstr "범위 편집"
@@ -4521,9 +4524,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr ""
 
-msgid "Enter a comment"
-msgstr "설명 입력"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4556,12 +4556,6 @@ msgstr "그룹 설명을 입력하십시오."
 msgid "Enter a group name."
 msgstr "그룹 이름을 입력하십시오."
 
-msgid "Enter a name"
-msgstr "이름 입력"
-
-msgid "Enter a name for the command."
-msgstr "명령 이름을 입력하십시오."
-
 msgid "Enter a name for this dataset"
 msgstr "이 데이터셋 이름 입력"
 
@@ -4575,9 +4569,6 @@ msgid ""
 "Enter a space-separated list of tap devices. The devices will be created and "
 "automatically added it to the bridge."
 msgstr "공백으로 구분되는 tap 장치들을 입력하십시오. 이 장치들은 생성되고 자동으로 브릿지에 추가 될 것입니다."
-
-msgid "Enter a valid value."
-msgstr ""
 
 msgid "Enter additional parameters"
 msgstr ""
@@ -4630,9 +4621,6 @@ msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
 "connected to. (this also can be a remote host)"
 msgstr "UPS의 식별자와 UPS가 연결된 장치의 IP 주소를 입력하십시오. (원격지 호스트도 가능합니다)"
-
-msgid "Enter the command"
-msgstr "명령 입력"
 
 msgid "Enter the full user name."
 msgstr ""
@@ -5441,9 +5429,6 @@ msgstr "강조"
 
 msgid "Hint"
 msgstr "힌트"
-
-msgid "Home"
-msgstr "홈"
 
 msgid "Home Directory"
 msgstr "홈 디렉터리"
@@ -7051,6 +7036,9 @@ msgstr ""
 msgid "Name of the WebDAV Record."
 msgstr ""
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr "스왑 장치로 이용할 장치의 이름. 예컨대 %s."
@@ -7075,7 +7063,13 @@ msgstr "변수의 이름."
 msgid "Native - store characters with their native ASCII value."
 msgstr ""
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -8790,9 +8784,6 @@ msgstr ""
 msgid "Reorder"
 msgstr ""
 
-msgid "Reorder Commands"
-msgstr "명령어 재정렬"
-
 msgid "Reordering"
 msgstr ""
 
@@ -9355,6 +9346,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr "설치할 FreeBSD 패키지를 선택하십시오."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9768,6 +9762,15 @@ msgid ""
 "Show positive/negative values for %s graphs. (can not be used together with "
 "logarithmic scaling)"
 msgstr "%s 그래프의 음/양 값을 보기. (로그 축척으로 볼 수 없음)"
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
+msgstr ""
 
 msgid "Shrink Page Header"
 msgstr "페이지 상단 축소"
@@ -11037,6 +11040,9 @@ msgstr "풀 이름은 변경할 수 없습니다."
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "이 가상 장치 이름은 변경할 수 없습니다."
 
@@ -11271,11 +11277,9 @@ msgstr "이 명령들은 시스템 초기화(부팅) 전후나 시스템이 꺼�
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"이 옵션(들)은 /boot/loader.conf.local에 추가됩니다. 이것은 커널에 인자를 넘기고 추가 모듈을 로드하는 것을 "
-"허용합니다."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -13291,3 +13295,41 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "명령어 추가"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "명령 제거 표시됨"
+
+#~ msgid "Command is protected"
+#~ msgstr "명령 보호됨"
+
+#~ msgid "Edit command"
+#~ msgstr "명령 수정"
+
+#~ msgid "Enter a comment"
+#~ msgstr "설명 입력"
+
+#~ msgid "Enter a name"
+#~ msgstr "이름 입력"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "명령 이름을 입력하십시오."
+
+#~ msgid "Enter the command"
+#~ msgstr "명령 입력"
+
+#~ msgid "Home"
+#~ msgstr "홈"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "명령어 재정렬"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "이 옵션(들)은 /boot/loader.conf.local에 추가됩니다. 이것은 커널에 인자를 넘기고 추가 모듈을 로드하는 것을 "
+#~ "허용합니다."

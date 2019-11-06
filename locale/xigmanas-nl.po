@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
-"PO-Revision-Date: 2019-10-17 21:46+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"PO-Revision-Date: 2019-11-06 05:32+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -563,6 +563,9 @@ msgstr "CARP Toevoegen"
 msgid "Add CHAP User"
 msgstr "Voeg CHAP gebruiker toe"
 
+msgid "Add Command"
+msgstr "Opdracht Toevoegen"
+
 msgid "Add Dataset"
 msgstr "Dataset Toevoegen"
 
@@ -700,9 +703,6 @@ msgstr "Auth groep toevoegen"
 
 msgid "Add auto snapshot"
 msgstr "Auto snaphot toevoegen"
-
-msgid "Add command"
-msgstr "Opdracht toevoegen"
 
 msgid "Add extent"
 msgstr "Extent toevoegen"
@@ -1989,11 +1989,11 @@ msgstr "Opdracht voor LINK_DOWN gebeurtenis (bijvoorbeeld %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Opdracht voor LINK_UP gebeurtenis (bijvoorbeeld %s)."
 
-msgid "Command is marked for removal"
-msgstr "Opdracht is gemarkeerd voor verwijdering"
+msgid "Command is locked"
+msgstr "Opdracht is vergrendeld"
 
-msgid "Command is protected"
-msgstr "Opdracht is beschermd"
+msgid "Command is marked for deletion"
+msgstr "Opdracht is gemarkeerd voor verwijdering"
 
 msgid "Command is unlocked"
 msgstr "Opdracht is ontgrendeld"
@@ -4082,6 +4082,9 @@ msgstr "Voltooid!"
 msgid "Done."
 msgstr "Gereed."
 
+msgid "Down"
+msgstr "Omlaag"
+
 msgid "Download"
 msgstr "Opslaan"
 
@@ -4169,6 +4172,9 @@ msgstr "CARP Bewerken"
 
 msgid "Edit CHAP User"
 msgstr "CHAP Gebruiker Bewerken"
+
+msgid "Edit Command"
+msgstr "Opdracht Bewerken"
 
 msgid "Edit Dataset"
 msgstr "Dataset Bewerken"
@@ -4292,9 +4298,6 @@ msgstr "Auth groep bewerken"
 
 msgid "Edit auto snapshot"
 msgstr "Bewerk automatisch snapshot"
-
-msgid "Edit command"
-msgstr "Bewerk Opdracht"
 
 msgid "Edit extent"
 msgstr "Extent bewerken"
@@ -4824,9 +4827,6 @@ msgstr "Voer waarde in"
 msgid "Enter Volume Name"
 msgstr "Geef Volume Naam op"
 
-msgid "Enter a comment"
-msgstr "Geef een beschrijving op"
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4867,12 +4867,6 @@ msgstr "Geef een groepsnaam op."
 msgid "Enter a group name."
 msgstr "Geef een groepsbeschrijving op."
 
-msgid "Enter a name"
-msgstr "Geef een naam op"
-
-msgid "Enter a name for the command."
-msgstr "Geef een naam op voor de opdracht."
-
 msgid "Enter a name for this dataset"
 msgstr "Geef een naam op voor deze dataset"
 
@@ -4888,9 +4882,6 @@ msgid ""
 msgstr ""
 "Vul een door spaties gescheiden lijst in van tap devices. De apparaten "
 "zullen worden aangemaakt en automatisch toegevoegd aan de bridge."
-
-msgid "Enter a valid value."
-msgstr "Vul een geldige waarde in."
 
 msgid "Enter additional parameters"
 msgstr "Geef hier optionele parameters op"
@@ -4947,9 +4938,6 @@ msgid ""
 msgstr ""
 "Vul de UPS ID en host IP-adres in van de computer waarop de UPS is "
 "aangesloten. (dit kan ook een extern host te zijn)"
-
-msgid "Enter the command"
-msgstr "Geef een opdracht op"
 
 msgid "Enter the full user name."
 msgstr "Geef de volledige gebruikersnaam."
@@ -5807,9 +5795,6 @@ msgstr "Oplichten"
 
 msgid "Hint"
 msgstr "Tip"
-
-msgid "Home"
-msgstr "Startpagina"
 
 msgid "Home Directory"
 msgstr "Gegevensmap"
@@ -7536,6 +7521,9 @@ msgstr "Naam van de portaalgroep"
 msgid "Name of the WebDAV Record."
 msgstr "Naam van de WebDAV Item."
 
+msgid "Name of the command."
+msgstr "Naam van de  opdracht."
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr ""
@@ -7564,8 +7552,14 @@ msgstr "Naam van de variable."
 msgid "Native - store characters with their native ASCII value."
 msgstr "Native - sla karakters op met hun native ASCII waarde."
 
+msgid "Navbar Style"
+msgstr "Navbar Style"
+
 msgid "Navigation Bar"
 msgstr "Navigatiebalk"
+
+msgid "Navigation Menu"
+msgstr "Navigatiemenu"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Gebruikers-gegevens noch metadata wordt gecached in ARC."
@@ -9348,9 +9342,6 @@ msgstr "Geselecteerde schijf uit de spiegel verwijderen."
 msgid "Reorder"
 msgstr "Herschikken"
 
-msgid "Reorder Commands"
-msgstr "Herindelen Opdrachten"
-
 msgid "Reordering"
 msgstr "opnieuw ordenen"
 
@@ -9946,6 +9937,9 @@ msgstr "Selecteer doelen."
 msgid "Select the FreeBSD package to be installed."
 msgstr "Selecteer het FreeBSD pakket om te installeren."
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr "Selecteer de weergavemodus van de top items in de navigatiebalk."
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -10420,6 +10414,15 @@ msgid ""
 msgstr ""
 "Laat positieve/negatieve waarden voor %s grafieken. (kan niet samen gebruikt "
 "worden met de logaritmische schaal)"
+
+msgid "Show symbol and text"
+msgstr "Toon symbool en tekst"
+
+msgid "Show symbol only"
+msgstr "Toon alleen symbool"
+
+msgid "Show text only"
+msgstr "Toon alleen text"
 
 msgid "Shrink Page Header"
 msgstr "Verberg Pagina Header"
@@ -11855,6 +11858,9 @@ msgstr "De naam van de pool kan niet worden gewijzigd."
 msgid "The name of the target."
 msgstr "De naam van het doel."
 
+msgid "The name of the variable."
+msgstr "De naam van de variabele."
+
 msgid "The name of this virtual device cannot be changed."
 msgstr "De naam van deze virtuele schijf kan niet worden gewijzigd."
 
@@ -12120,12 +12126,12 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
-"Deze optie(s) word toegevoegd aan /boot/loader.conf.local. Dit staat u toe "
-"verschillende parameters op te geven aan de kernel en extra modules te "
-"gebruiken tijdens het opstarten."
+"Deze optie(s) worden toegevoegd aan /boot/loader.conf.local. Hiermee kunt u "
+"parameters opgeven die aan de kernel worden doorgegeven en extra modules "
+"worden geladen."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14375,3 +14381,45 @@ msgstr "zichtbaar"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Add command"
+#~ msgstr "Opdracht toevoegen"
+
+#~ msgid "Command is marked for removal"
+#~ msgstr "Opdracht is gemarkeerd voor verwijdering"
+
+#~ msgid "Command is protected"
+#~ msgstr "Opdracht is beschermd"
+
+#~ msgid "Edit command"
+#~ msgstr "Bewerk Opdracht"
+
+#~ msgid "Enter a comment"
+#~ msgstr "Geef een beschrijving op"
+
+#~ msgid "Enter a name"
+#~ msgstr "Geef een naam op"
+
+#~ msgid "Enter a name for the command."
+#~ msgstr "Geef een naam op voor de opdracht."
+
+#~ msgid "Enter the command"
+#~ msgstr "Geef een opdracht op"
+
+#~ msgid "Home"
+#~ msgstr "Startpagina"
+
+#~ msgid "Reorder Commands"
+#~ msgstr "Herindelen Opdrachten"
+
+#~ msgid ""
+#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
+#~ "specify parameters to be passed to kernel, and additional modules to be "
+#~ "loaded."
+#~ msgstr ""
+#~ "Deze optie(s) word toegevoegd aan /boot/loader.conf.local. Dit staat u toe "
+#~ "verschillende parameters op te geven aan de kernel en extra modules te "
+#~ "gebruiken tijdens het opstarten."
+
+#~ msgid "Enter a valid value."
+#~ msgstr "Vul een geldige waarde in."

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-10-17 21:40+0000\n"
+"POT-Creation-Date: 2019-11-06 06:12+0000\n"
 "PO-Revision-Date: 2018-07-06 09:53+0000\n"
 "Last-Translator: Stefan Vasilev <sadefa@abv.bg>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 00:29+0000\n"
+"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: BULGARIA\n"
 "Language: \n"
@@ -518,6 +518,9 @@ msgstr ""
 msgid "Add CHAP User"
 msgstr ""
 
+msgid "Add Command"
+msgstr ""
+
 msgid "Add Dataset"
 msgstr "Добави Dataset"
 
@@ -655,9 +658,6 @@ msgstr "Добави auth група"
 
 msgid "Add auto snapshot"
 msgstr "Добави авто snapshot"
-
-msgid "Add command"
-msgstr "Добави команда"
 
 msgid "Add extent"
 msgstr "Добави пространство"
@@ -1890,10 +1890,10 @@ msgstr "Команда за  LINK_DOWN събитие (e.g. %s)."
 msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Команда за LINK_UP събитие (e.g. %s)."
 
-msgid "Command is marked for removal"
+msgid "Command is locked"
 msgstr ""
 
-msgid "Command is protected"
+msgid "Command is marked for deletion"
 msgstr ""
 
 msgid "Command is unlocked"
@@ -3871,6 +3871,9 @@ msgstr ""
 msgid "Done."
 msgstr "Готово."
 
+msgid "Down"
+msgstr ""
+
 msgid "Download"
 msgstr "Изтегляне"
 
@@ -3954,6 +3957,9 @@ msgid "Edit CARP"
 msgstr ""
 
 msgid "Edit CHAP User"
+msgstr ""
+
+msgid "Edit Command"
 msgstr ""
 
 msgid "Edit Dataset"
@@ -4078,9 +4084,6 @@ msgstr ""
 
 msgid "Edit auto snapshot"
 msgstr ""
-
-msgid "Edit command"
-msgstr "Редактиране на команда"
 
 msgid "Edit extent"
 msgstr ""
@@ -4574,9 +4577,6 @@ msgstr ""
 msgid "Enter Volume Name"
 msgstr ""
 
-msgid "Enter a comment"
-msgstr ""
-
 msgid ""
 "Enter a custom port number for the WebGUI if you want to override the "
 "default (80 for HTTP, 443 for HTTPS)."
@@ -4609,12 +4609,6 @@ msgstr ""
 msgid "Enter a group name."
 msgstr ""
 
-msgid "Enter a name"
-msgstr ""
-
-msgid "Enter a name for the command."
-msgstr ""
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -4627,9 +4621,6 @@ msgstr ""
 msgid ""
 "Enter a space-separated list of tap devices. The devices will be created and "
 "automatically added it to the bridge."
-msgstr ""
-
-msgid "Enter a valid value."
 msgstr ""
 
 msgid "Enter additional parameters"
@@ -4682,9 +4673,6 @@ msgstr ""
 msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
 "connected to. (this also can be a remote host)"
-msgstr ""
-
-msgid "Enter the command"
 msgstr ""
 
 msgid "Enter the full user name."
@@ -5488,9 +5476,6 @@ msgstr "Открояване на синтаксиса"
 
 msgid "Hint"
 msgstr "Съвет"
-
-msgid "Home"
-msgstr ""
 
 msgid "Home Directory"
 msgstr ""
@@ -7078,6 +7063,9 @@ msgstr ""
 msgid "Name of the WebDAV Record."
 msgstr ""
 
+msgid "Name of the command."
+msgstr ""
+
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr ""
@@ -7102,7 +7090,13 @@ msgstr ""
 msgid "Native - store characters with their native ASCII value."
 msgstr ""
 
+msgid "Navbar Style"
+msgstr ""
+
 msgid "Navigation Bar"
+msgstr ""
+
+msgid "Navigation Menu"
 msgstr ""
 
 msgid "Neither user data nor metadata will be cached in ARC."
@@ -8807,9 +8801,6 @@ msgstr ""
 msgid "Reorder"
 msgstr ""
 
-msgid "Reorder Commands"
-msgstr ""
-
 msgid "Reordering"
 msgstr ""
 
@@ -9367,6 +9358,9 @@ msgstr ""
 msgid "Select the FreeBSD package to be installed."
 msgstr ""
 
+msgid "Select the display mode of the top-level items in the navigation bar."
+msgstr ""
+
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
 "use for the source IP address in outgoing packets."
@@ -9774,6 +9768,15 @@ msgstr ""
 msgid ""
 "Show positive/negative values for %s graphs. (can not be used together with "
 "logarithmic scaling)"
+msgstr ""
+
+msgid "Show symbol and text"
+msgstr ""
+
+msgid "Show symbol only"
+msgstr ""
+
+msgid "Show text only"
 msgstr ""
 
 msgid "Shrink Page Header"
@@ -11028,6 +11031,9 @@ msgstr ""
 msgid "The name of the target."
 msgstr ""
 
+msgid "The name of the variable."
+msgstr ""
+
 msgid "The name of this virtual device cannot be changed."
 msgstr ""
 
@@ -11255,7 +11261,7 @@ msgstr ""
 
 msgid ""
 "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-"specify parameters to be passed to kernel, and additional modules to be "
+"specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
 
@@ -13242,3 +13248,9 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Add command"
+#~ msgstr "Добави команда"
+
+#~ msgid "Edit command"
+#~ msgstr "Редактиране на команда"
