@@ -1634,18 +1634,12 @@ function config_upgrade_45() {
 
 	$a_source = &array_make_branch($config,'system');
 	$a_dest = &array_make_branch($config,'system','webgui');
-	if(array_key_exists('enabletogglemode',$a_source)):
-		$a_dest['enabletogglemode'] = $a_source['enabletogglemode'];
-		unset($a_source['enabletogglemode']);
-	endif;
-	if(array_key_exists('skipviewmode',$a_source)):
-		$a_dest['skipviewmode'] = $a_source['skipviewmode'];
-		unset($a_source['skipviewmode']);
-	endif;
-	if(array_key_exists('adddivsubmittodataframe',$a_source)):
-		$a_dest['adddivsubmittodataframe'] = $a_source['adddivsubmittodataframe'];
-		unset($a_source['adddivsubmittodataframe']);
-	endif;
+	foreach(['adddivsubmittodataframe','enabletogglemode','showcolorfulmeter','skipviewmode'] as $param):
+		if(array_key_exists($param,$a_source)):
+			$a_dest[$param] = $a_source[$param];
+			unset($a_source[$param]);
+		endif;
+	endforeach;
 }
 /**
  *	Upgrade the configuration file to the latest version.
