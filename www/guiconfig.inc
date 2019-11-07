@@ -374,7 +374,46 @@ function get_std_save_message($ok) {
 	endif;
 	return $gt_ret;
 }
-function calc_skipviewmode($page_mode) : array {
+/**
+ *	Determine the status of the adddivsubmittodataframe switch
+ *	@global array $config
+ *	@return bool Returns true when adddivsubmittodataframe is enabled, otherwise false
+ */
+function calc_adddivsubmittodataframe(): bool {
+	global $config;
+
+	$retbool = is_bool($test = $config['system']['webgui']['adddivsubmittodataframe'] ?? false) ? $test : true;
+	return $retbool;
+}
+/**
+ *	Determine the status of the enabletogglemode switch
+ *	@global array $config
+ *	@return bool Returns true when enabletogglemode is enabled, otherwise false
+ */
+function calc_enabletogglemode(): bool {
+	global $config;
+
+	$retbool = is_bool($test = $config['system']['webgui']['enabletogglemode'] ?? false) ? $test : true;
+	return $retbool;
+}
+/**
+ *	Determine the status of the showcolorfulmeter switch
+ *	@global array $config
+ *	@return bool Returns true when showcolorfulmeter is enabled, otherwise false
+ */
+function calc_showcolorfulmeter(): bool {
+	global $config;
+
+	$retbool = is_bool($test = $config['system']['webgui']['showcolorfulmeter'] ?? false) ? $test : true;
+	return $retbool;
+}
+/**
+ *	Determine page mode based on the status of skipviewmode
+ *	@global array $config
+ *	@param int $page_mode
+ *	@return array Returns the new page mode and a readonly flag in an array
+ */
+function calc_skipviewmode($page_mode): array {
 	global $config;
 
 	switch($page_mode):
@@ -382,7 +421,7 @@ function calc_skipviewmode($page_mode) : array {
 			$new_page_mode = PAGE_MODE_EDIT;
 			break;
 		default:
-			if(is_bool($test = $config['system']['skipviewmode'] ?? false) ? $test : true):
+			if(is_bool($test = $config['system']['webgui']['skipviewmode'] ?? false) ? $test : true):
 				$new_page_mode = PAGE_MODE_EDIT;
 			else:
 				$new_page_mode = PAGE_MODE_VIEW;
