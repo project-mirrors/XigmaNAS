@@ -166,7 +166,7 @@ endswitch;
 list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $input_errors_found = count($input_errors) > 0;
 //	create document
-$pgtitle = [gettext('System'),gettext('Advanced'),gettext('WebGUI')];
+$pgtitle = [gettext('System'),gettext('General'),gettext('WebGUI')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
