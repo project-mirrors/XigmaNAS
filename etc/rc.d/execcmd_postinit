@@ -28,12 +28,10 @@ fi
 
 # Execute all commands from config 2.8.
 /usr/local/bin/xml sel --template \
-	--match "//rc/param[typeid=2 and enable]" \
-		--if 'name != "Extended-GUI Extension"' \
-			--value-of 'value' \
-			--if 'position() <= last()' \
-				--nl \
-			--break \
+	--match "//rc/param[typeid=2 and enable and name != 'Extended-GUI Extension']/value" \
+		--value-of '.' \
+		--if 'position() <= last()' \
+			--nl \
 		--break \
 	--break \
 	${configxml_file} | /usr/local/bin/xml unesc | \
