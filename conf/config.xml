@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>45</version>
+	<version>46</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
