@@ -27,9 +27,15 @@ fi
 	done
 
 # Execute all commands from config 2.8.
-/usr/local/bin/xml sel -t -m "//rc/param[typeid=2 and enable]/value" \
-	-v "." \
-	-i "position() <= last()" -n -b \
+/usr/local/bin/xml sel --template \
+	--match "//rc/param[typeid=2 and enable]" \
+		--if 'name != "Extended-GUI Extension"' \
+			--value-of 'value' \
+			--if 'position() <= last()' \
+				--nl \
+			--break \
+		--break \
+	--break \
 	${configxml_file} | /usr/local/bin/xml unesc | \
 	while read _cmd; do
 		eval ${_cmd}
