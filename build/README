@@ -97,4 +97,14 @@ Hint!
   You can create a backup from the kernel source to revert them quickly.
   # cp -r /usr/src /usr/src.orig
 
-(Kernel patches should be applied only once. Multiple times will fail (e.g. when using patch command by ./make.sh file.)
+or
+
+  # cd /usr
+  # tar cvfz src.tar.gz ./src
+
+
+- Patches can only be applied once. 
+  Multiple times will fail (e.g. when using patch command by ./make.sh file).
+
+- If patches have been updated, the kernel sources (/usr/src) have to be
+  resfreshed (e.g. via cvsup). After that apply all patches again.
