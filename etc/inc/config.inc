@@ -1650,6 +1650,28 @@ function config_upgrade_44() {
 	endif;
 }
 /**
+ *	Upgrade configuration from 45
+ *	@global array $config
+ */
+function config_upgrade_45() {
+	global $config;
+
+	$a_source = &array_make_branch($config,'system');
+	$a_dest = &array_make_branch($config,'system','webgui');
+	if(array_key_exists('enabletogglemode',$a_source)):
+		$a_dest['enabletogglemode'] = $a_source['enabletogglemode'];
+		unset($a_source['enabletogglemode']);
+	endif;
+	if(array_key_exists('skipviewmode',$a_source)):
+		$a_dest['skipviewmode'] = $a_source['skipviewmode'];
+		unset($a_source['skipviewmode']);
+	endif;
+	if(array_key_exists('adddivsubmittodataframe',$a_source)):
+		$a_dest['adddivsubmittodataframe'] = $a_source['adddivsubmittodataframe'];
+		unset($a_source['adddivsubmittodataframe']);
+	endif;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1698,7 +1720,8 @@ function config_upgrade() {
 		'42' => [$kf => 'config_upgrade_42',$kv => '43'],
 		'43' => [$kf => 'config_upgrade_43',$kv => '44'],
 		'44' => [$kf => 'config_upgrade_44',$kv => '45'],
-		'45' => [$kf => NULL,$kv => NULL]
+		'45' => [$kf => 'config_upgrade_45',$kv => '46'],
+		'46' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
