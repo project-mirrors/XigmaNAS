@@ -75,18 +75,9 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('system_advanced.php',gettext('Advanced'))->
-					ins_tabnav_record('system_email.php',gettext('Email'))->
-					ins_tabnav_record('system_email_reports.php',gettext('Email Reports'))->
-					ins_tabnav_record('system_monitoring.php',gettext('Monitoring'))->
-					ins_tabnav_record('system_swap.php',gettext('Swap'))->
-					ins_tabnav_record('system_rc.php',gettext('Command Scripts'))->
-					ins_tabnav_record('system_cron.php',gettext('Cron'))->
-					ins_tabnav_record('system_loaderconf.php',gettext('loader.conf'))->
-					ins_tabnav_record('system_rcconf.php',gettext('rc.conf'))->
-					ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'))->
-					ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'))->
-					ins_tabnav_record('system_webgui.php',gettext('WebGUI'),gettext('Reload page'),true);
+					ins_tabnav_record('system.php',gettext('General'))->
+					ins_tabnav_record('system_webgui.php',gettext('WebGUI'),gettext('Reload page'),true)->
+					ins_tabnav_record('system_password.php',gettext('Password'));
 		return $retval;
 	}
 }
