@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -1465,6 +1465,9 @@ msgstr "可流覽"
 
 msgid "Button Location"
 msgstr "按鈕位置"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "默認是只有已經存在的檔可以上傳。"
@@ -3151,6 +3154,9 @@ msgstr "磁片| 掛載點| 管理"
 
 msgid "Display"
 msgstr "顯示"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -13180,39 +13186,3 @@ msgstr "可見"
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Add command"
-#~ msgstr "添加命令"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "命令已標記為要刪除"
-
-#~ msgid "Command is protected"
-#~ msgstr "命令被保護"
-
-#~ msgid "Edit command"
-#~ msgstr "編輯命令"
-
-#~ msgid "Enter a comment"
-#~ msgstr "輸入注釋"
-
-#~ msgid "Enter a name"
-#~ msgstr "輸入名稱"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "輸入命令的名稱。"
-
-#~ msgid "Enter the command"
-#~ msgstr "輸入命令"
-
-#~ msgid "Home"
-#~ msgstr "首頁"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "記錄命令"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr "這些選項將被添加到在 /boot/loader.conf.local 檔。這可以讓您指定的參數被傳遞到內核，並加載額外的模組。"

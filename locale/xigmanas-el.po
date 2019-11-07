@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-10-18 08:47+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -1631,6 +1631,9 @@ msgstr "Περιηγήσιμα"
 
 msgid "Button Location"
 msgstr "Τοποθεσία Κουμπιού"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Από προεπιλογή, μόνο ήδη υπάρχοντα αρχεία μπορούν να ανεβούν."
@@ -3473,6 +3476,9 @@ msgstr "Δίσκοι | Σημείο Προσάρτησης | Διαχείρισ�
 
 msgid "Display"
 msgstr "Εμφάνιση"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14555,45 +14561,3 @@ msgstr "ορατό"
 
 msgid "yes"
 msgstr "ναι"
-
-#~ msgid "Add command"
-#~ msgstr "Προσθήκη εντολής"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Η εντολή έχει σημειωθεί προς διαγραφή"
-
-#~ msgid "Command is protected"
-#~ msgstr "Η εντολή είναι προστατευμένη"
-
-#~ msgid "Edit command"
-#~ msgstr "Επεξεργασία εντολής"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Εισαγωγή ενός σχολίου"
-
-#~ msgid "Enter a name"
-#~ msgstr "Εισάγετε ένα όνομα"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Εισάγετε ένα όνομα γι ατην εντολή."
-
-#~ msgid "Enter the command"
-#~ msgstr "Εισάγετε μια εντολή"
-
-#~ msgid "Home"
-#~ msgstr "Αρχική"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Αναδιάταξη Εντολών"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Αυτές οι επιλογές θα προστεθούν στο /boot/loader.conf.local. Αυτό σας "
-#~ "επιτρέπει να ορίσετε κάποιοες παραμέτρους για περάσουν στον πυρήνα, και για "
-#~ "να φορτωθούν επιπλέον αρθρώματα."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Εισάγετε μια έγκυρη τιμή."

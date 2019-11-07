@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1587,6 +1587,9 @@ msgstr "Navigabil"
 
 msgid "Button Location"
 msgstr "Localizare buton"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Implicit, doar fișierele existente deja pot fi încărcate."
@@ -3400,6 +3403,9 @@ msgstr "Discuri | Punct de montare | Management"
 
 msgid "Display"
 msgstr "Afișare"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14033,42 +14039,3 @@ msgstr "vizibil"
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Add command"
-#~ msgstr "Adăugare comandă"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Comanda este marcată pentru ștergere"
-
-#~ msgid "Command is protected"
-#~ msgstr "Comanda este protejată"
-
-#~ msgid "Edit command"
-#~ msgstr "Editare comandă"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Introduceți un comentariu"
-
-#~ msgid "Enter a name"
-#~ msgstr "Introduceți un nume"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Introduceți un nume pentru comandă"
-
-#~ msgid "Enter the command"
-#~ msgstr "Introduceți comanda"
-
-#~ msgid "Home"
-#~ msgstr "Pagina de pornire"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Ordonare comenzi"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Aceste opţiuni vor fi adăugate în  /boot/loader.conf.local. Puteţi astfel să "
-#~ "specificaţi diverşi parametri pentru kernel şi să încărcaţi diferite module "
-#~ "adiţionale."

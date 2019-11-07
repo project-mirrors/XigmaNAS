@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-08-08 13:31+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1592,6 +1592,9 @@ msgstr "Možné procházet"
 
 msgid "Button Location"
 msgstr "Umístění tlačítka"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -3405,6 +3408,9 @@ msgstr "Disky | Přípojný bod | Správa"
 
 msgid "Display"
 msgstr "Zobrazit"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14250,44 +14256,3 @@ msgstr "viditelné"
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Add command"
-#~ msgstr "Přidat příkaz"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Příkaz je označen ke smazání"
-
-#~ msgid "Command is protected"
-#~ msgstr "Příkaz je chráněn"
-
-#~ msgid "Edit command"
-#~ msgstr "Upravit příkaz"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Zadejte komentář"
-
-#~ msgid "Enter a name"
-#~ msgstr "Zadejte název"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Zadejte název pro příkaz."
-
-#~ msgid "Enter the command"
-#~ msgstr "Zadejte příkaz"
-
-#~ msgid "Home"
-#~ msgstr "Domovské"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Přeuspořádat příkazy"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Tyto volby budou přidány do souboru /boot/loader.conf.local. Takto je možné "
-#~ "zadat parametry, které mají být předány jádru a zavádět tak další moduly."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Zadejte platnou hodnotu."
