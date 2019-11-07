@@ -35,6 +35,16 @@ namespace system\webgui;
 use common\properties as myp;
 
 final class setting_properties extends grid_properties {
+	public function init_adddivsubmittodataframe(): myp\property_bool {
+		$caption = gettext('Display action buttons in the scrollable area instead of the footer area.');
+		$property = parent::init_adddivsubmittodataframe();
+		$property->
+			set_id('adddivsubmittodataframe')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
 	public function init_cssfcfile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom file chooser CSS file.');
 		$placeholder = '/usr/local/www/css/fc.css';
@@ -151,35 +161,6 @@ final class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_csstabsfile(): myp\property_text {
-		$description = gettext('Fully qualified file name of a custom tabs CSS file.');
-		$placeholder = '/usr/local/www/css/tabs.css';
-		$property = parent::init_csstabsfile();
-		$property->
-			set_id('csstabsfile')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_placeholderv($placeholder)->
-			set_defaultvalue('')->
-			filter_use_default_or_empty();
-		return $property;
-	}
-	public function init_csstabsfilemode(): myp\property_list {
-		$description = gettext('Select file mode of the custom tabs CSS file.');
-		$options = [
-			'' => gettext('Disable'),
-			'replace' => gettext('Replace the default CSS file'),
-			'append' => gettext('Append content to the default CSS file')
-		];
-		$property = parent::init_csstabsfilemode();
-		$property->
-			set_id('csstabsfilemode')->
-			set_description($description)->
-			set_defaultvalue('')->
-			set_options($options)->
-			filter_use_default();
-		return $property;
-	}
 	public function init_cssstylefile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom file manager CSS file.');
 		$placeholder = '/usr/local/www/quixplorer/_style/style.css';
@@ -209,31 +190,40 @@ final class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_csstabsfile(): myp\property_text {
+		$description = gettext('Fully qualified file name of a custom tabs CSS file.');
+		$placeholder = '/usr/local/www/css/tabs.css';
+		$property = parent::init_csstabsfile();
+		$property->
+			set_id('csstabsfile')->
+			set_description($description)->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
+			set_defaultvalue('')->
+			filter_use_default_or_empty();
+		return $property;
+	}
+	public function init_csstabsfilemode(): myp\property_list {
+		$description = gettext('Select file mode of the custom tabs CSS file.');
+		$options = [
+			'' => gettext('Disable'),
+			'replace' => gettext('Replace the default CSS file'),
+			'append' => gettext('Append content to the default CSS file')
+		];
+		$property = parent::init_csstabsfilemode();
+		$property->
+			set_id('csstabsfilemode')->
+			set_description($description)->
+			set_defaultvalue('')->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
 	public function init_enabletogglemode(): myp\property_bool {
 		$caption = gettext('Use toggle button instead of enable/disable buttons.');
 		$property = parent::init_enabletogglemode();
 		$property->
 			set_id('enabletogglemode')->
-			set_caption($caption)->
-			set_defaultvalue(false)->
-			filter_use_default();
-		return $property;
-	}
-	public function init_skipviewmode(): myp\property_bool {
-		$caption = gettext('Enable this option if you want to edit configuration pages directly without the need to switch to edit mode.');
-		$property = parent::init_skipviewmode();
-		$property->
-			set_id('skipviewmode')->
-			set_caption($caption)->
-			set_defaultvalue(false)->
-			filter_use_default();
-		return $property;
-	}
-	public function init_adddivsubmittodataframe(): myp\property_bool {
-		$caption = gettext('Display action buttons in the scrollable area instead of the footer area.');
-		$property = parent::init_adddivsubmittodataframe();
-		$property->
-			set_id('adddivsubmittodataframe')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
 			filter_use_default();
@@ -252,6 +242,26 @@ final class setting_properties extends grid_properties {
 			set_description($description)->
 			set_defaultvalue('')->
 			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_showcolorfulmeter(): myp\property_bool {
+		$caption = gettext('Enable this option if you want to display colorful meter states.');
+		$property = parent::init_showcolorfulmeter();
+		$property->
+			set_id('showcolorfulmeter')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_skipviewmode(): myp\property_bool {
+		$caption = gettext('Enable this option if you want to edit configuration pages directly without the need to switch to edit mode.');
+		$property = parent::init_skipviewmode();
+		$property->
+			set_id('skipviewmode')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
 			filter_use_default();
 		return $property;
 	}

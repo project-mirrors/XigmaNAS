@@ -35,6 +35,17 @@ namespace system\webgui;
 use common\properties as myp;
 
 class grid_properties extends myp\container {
+	protected $x_adddivsubmittodataframe;
+	public function init_adddivsubmittodataframe(): myp\property_bool {
+		$property = $this->x_adddivsubmittodataframe = new myp\property_bool($this);
+		$property->
+			set_name('adddivsubmittodataframe')->
+			set_title(gettext('Button Location'));
+		return $property;
+	}
+	final public function get_adddivsubmittodataframe(): myp\property_bool {
+		return $this->x_adddivsubmittodataframe ?? $this->init_adddivsubmittodataframe();
+	}
 	protected $x_cssfcfile;
 	public function init_cssfcfile(): myp\property_text {
 		$property = $this->x_cssfcfile = new myp\property_text($this);
@@ -123,28 +134,6 @@ class grid_properties extends myp\container {
 	final public function get_cssnavbarfilemode(): myp\property_list {
 		return $this->x_cssnavbarfilemode ?? $this->init_cssnavbarfilemode();
 	}
-	protected $x_csstabsfile;
-	public function init_csstabsfile(): myp\property_text {
-		$property = $this->x_csstabsfile = new myp\property_text($this);
-		$property->
-			set_name('csstabsfile')->
-			set_title(gettext('Tabs'));
-		return $property;
-	}
-	final public function get_csstabsfile(): myp\property_text {
-		return $this->x_csstabsfile ?? $this->init_csstabsfile();
-	}
-	protected $x_csstabsfilemode;
-	public function init_csstabsfilemode(): myp\property_list {
-		$property = $this->x_csstabsfilemode = new myp\property_list($this);
-		$property->
-			set_name('csstabsfilemode')->
-			set_title(gettext('File Mode'));
-		return $property;
-	}
-	final public function get_csstabsfilemode(): myp\property_list {
-		return $this->x_csstabsfilemode ?? $this->init_csstabsfilemode();
-	}
 	protected $x_cssstylefile;
 	public function init_cssstylefile(): myp\property_text {
 		$property = $this->x_cssstylefile = new myp\property_text($this);
@@ -167,6 +156,28 @@ class grid_properties extends myp\container {
 	final public function get_cssstylefilemode(): myp\property_list {
 		return $this->x_cssstylefilemode ?? $this->init_cssstylefilemode();
 	}
+	protected $x_csstabsfile;
+	public function init_csstabsfile(): myp\property_text {
+		$property = $this->x_csstabsfile = new myp\property_text($this);
+		$property->
+			set_name('csstabsfile')->
+			set_title(gettext('Tabs'));
+		return $property;
+	}
+	final public function get_csstabsfile(): myp\property_text {
+		return $this->x_csstabsfile ?? $this->init_csstabsfile();
+	}
+	protected $x_csstabsfilemode;
+	public function init_csstabsfilemode(): myp\property_list {
+		$property = $this->x_csstabsfilemode = new myp\property_list($this);
+		$property->
+			set_name('csstabsfilemode')->
+			set_title(gettext('File Mode'));
+		return $property;
+	}
+	final public function get_csstabsfilemode(): myp\property_list {
+		return $this->x_csstabsfilemode ?? $this->init_csstabsfilemode();
+	}
 	protected $x_enabletogglemode;
 	public function init_enabletogglemode(): myp\property_bool {
 		$property = $this->x_enabletogglemode = new myp\property_bool($this);
@@ -178,28 +189,6 @@ class grid_properties extends myp\container {
 	final public function get_enabletogglemode(): myp\property_bool {
 		return $this->x_enabletogglemode ?? $this->init_enabletogglemode();
 	}
-	protected $x_skipviewmode;
-	public function init_skipviewmode(): myp\property_bool {
-		$property = $this->x_skipviewmode = new myp\property_bool($this);
-		$property->
-			set_name('skipviewmode')->
-			set_title(gettext('Skip View Mode'));
-		return $property;
-	}
-	final public function get_skipviewmode(): myp\property_bool {
-		return $this->x_skipviewmode ?? $this->init_skipviewmode();
-	}
-	protected $x_adddivsubmittodataframe;
-	public function init_adddivsubmittodataframe(): myp\property_bool {
-		$property = $this->x_adddivsubmittodataframe = new myp\property_bool($this);
-		$property->
-			set_name('adddivsubmittodataframe')->
-			set_title(gettext('Button Location'));
-		return $property;
-	}
-	final public function get_adddivsubmittodataframe(): myp\property_bool {
-		return $this->x_adddivsubmittodataframe ?? $this->init_adddivsubmittodataframe();
-	}
 	protected $x_navbartoplevelstyle;
 	public function init_navbartoplevelstyle(): myp\property_list {
 		$property = $this->x_navbartoplevelstyle = new myp\property_list($this);
@@ -210,5 +199,27 @@ class grid_properties extends myp\container {
 	}
 	final public function get_navbartoplevelstyle(): myp\property_list {
 		return $this->x_navbartoplevelstyle ?? $this->init_navbartoplevelstyle();
+	}
+	protected $x_showcolorfulmeter;
+	public function init_showcolorfulmeter(): myp\property_bool {
+		$property = $this->x_showcolorfulmeter = new myp\property_bool($this);
+		$property->
+			set_name('showcolorfulmeter')->
+			set_title(gettext('Colorful Meters'));
+		return $property;
+	}
+	final public function get_showcolorfulmeter(): myp\property_bool {
+		return $this->x_showcolorfulmeter ?? $this->init_showcolorfulmeter();
+	}
+	protected $x_skipviewmode;
+	public function init_skipviewmode(): myp\property_bool {
+		$property = $this->x_skipviewmode = new myp\property_bool($this);
+		$property->
+			set_name('skipviewmode')->
+			set_title(gettext('Skip View Mode'));
+		return $property;
+	}
+	final public function get_skipviewmode(): myp\property_bool {
+		return $this->x_skipviewmode ?? $this->init_skipviewmode();
 	}
 }
