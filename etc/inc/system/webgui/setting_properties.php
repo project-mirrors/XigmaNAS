@@ -245,6 +245,16 @@ final class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_nonsidisksizevalues(): myp\property_bool {
+		$caption = gettext('Display disk size values using binary prefixes instead of decimal prefixes.');
+		$property = parent::init_nonsidisksizevalues();
+		$property->
+			set_id('nonsidisksizevalues')->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			filter_use_default();
+		return $property;
+	}
 	public function init_showcolorfulmeter(): myp\property_bool {
 		$caption = gettext('Enable this option if you want to display colorful meter states.');
 		$property = parent::init_showcolorfulmeter();

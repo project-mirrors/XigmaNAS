@@ -200,6 +200,17 @@ class grid_properties extends myp\container {
 	final public function get_navbartoplevelstyle(): myp\property_list {
 		return $this->x_navbartoplevelstyle ?? $this->init_navbartoplevelstyle();
 	}
+	protected $x_nonsidisksizevalues;
+	public function init_nonsidisksizevalues(): myp\property_bool {
+		$property = $this->x_nonsidisksizevalues = new myp\property_bool($this);
+		$property->
+			set_name('nonsidisksizevalues')->
+			set_title(gettext('Binary Prefix'));
+		return $property;
+	}
+	final public function get_nonsidisksizevalues(): myp\property_bool {
+		return $this->x_nonsidisksizevalues ?? $this->init_nonsidisksizevalues();
+	}
 	protected $x_showcolorfulmeter;
 	public function init_showcolorfulmeter(): myp\property_bool {
 		$property = $this->x_showcolorfulmeter = new myp\property_bool($this);

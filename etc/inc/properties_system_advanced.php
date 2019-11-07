@@ -186,26 +186,6 @@ class properties_system_advanced extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_nonsidisksizevalues;
-	public function get_nonsidisksizevalues() {
-		return $this->x_nonsidisksizevalues ?? $this->init_nonsidisksizevalues();
-	}
-	public function init_nonsidisksizevalues() {
-		$property = $this->x_nonsidisksizevalues = new property_bool($this);
-		$property->
-			set_name('nonsidisksizevalues')->
-			set_title(gettext('Binary Prefix'));
-		$property->
-			set_id('nonsidisksizevalues')->
-			set_caption(gettext('Display disk size values using binary prefixes instead of decimal prefixes.'))->
-			set_description('')->
-			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
 	protected $x_disableextensionmenu;
 	public function get_disableextensionmenu() {
 		return $this->x_disableextensionmenu ?? $this->init_disableextensionmenu();

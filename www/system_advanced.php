@@ -133,7 +133,6 @@ $pconfig['disablefm'] = isset($config['system']['disablefm']);
 $pconfig['disablefirmwarecheck'] = isset($config['system']['disablefirmwarecheck']);
 $pconfig['disablebeep'] = isset($config['system']['disablebeep']);
 $pconfig['microcode_update'] = isset($config['system']['microcode_update']);
-$pconfig['nonsidisksizevalues'] = isset($config['system']['nonsidisksizevalues']);
 $pconfig['disableextensionmenu'] = isset($config['system']['disableextensionmenu']);
 $pconfig['tune_enable'] = isset($config['system']['tune']);
 $pconfig['zeroconf'] = isset($config['system']['zeroconf']);
@@ -230,7 +229,6 @@ if($_POST):
 		endif;
 		$config['system']['disablefm'] = $helpinghand;
 		$config['system']['disablefirmwarecheck'] = $cop->get_disablefirmwarecheck()->validate_input();
-		$config['system']['nonsidisksizevalues'] = $cop->get_nonsidisksizevalues()->validate_input();
 		$_SESSION['g']['shrinkpageheader'] = $cop->get_shrinkpageheader()->validate_input();
 		$helpinghand = $cop->get_disableextensionmenu()->validate_input();
 		if(isset($config['system']['disableextensionmenu']) !== $helpinghand):
@@ -408,7 +406,6 @@ $document->render();
 			endif;
 			$node->c2_checkbox($cop->get_shrinkpageheader(),$_SESSION['g']['shrinkpageheader']);
 			$node->c2_checkbox($cop->get_disableextensionmenu(),!empty($pconfig['disableextensionmenu']));
-			$node->c2_checkbox($cop->get_nonsidisksizevalues(),!empty($pconfig['nonsidisksizevalues']));
 			$node->render();
 ?>
 		</tbody>

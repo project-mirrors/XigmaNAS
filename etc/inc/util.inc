@@ -443,13 +443,15 @@ function is_uuid_v4($uuid): bool {
 	return (bool)preg_match('/^[\da-f]{4}([\da-f]{4}-){2}4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i',$uuid);
 }
 /**
- * Determines the use of binary prefixes instead of decimal prefixes.
- * @global type $config
- * @return bool
+ *	Determines the use of binary prefixes instead of decimal prefixes.
+ *	@global array $config
+ *	@return bool Returns true when SI (base 1000) should be used, false if not.
  */
 function is_sidisksizevalues(): bool {
 	global $config;
-	return !(isset($config['system']['nonsidisksizevalues']) && (is_bool($config['system']['nonsidisksizevalues']) ? $config['system']['nonsidisksizevalues'] : true));
+
+	$retbool = !(is_bool($test = $config['system']['webgui']['nonsidisksizevalues'] ?? false) ? $test : true);
+	return $retbool;
 }
 /*
  *
