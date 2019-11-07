@@ -64,6 +64,7 @@ $a_referer = [
 	$cop->get_csstabsfile(),
 	$cop->get_csstabsfilemode(),
 	$cop->get_navbartoplevelstyle(),
+	$cop->get_nonsidisksizevalues(),
 	$cop->get_showcolorfulmeter(),
 	$cop->get_skipviewmode()
 ];
@@ -204,6 +205,7 @@ $content->
 			c2_titleline(gettext('Display Options'))->
 		last()->
 		addTBODY()->
+			c2_checkbox($cop->get_nonsidisksizevalues(),$sphere,false,$is_readonly)->
 			c2_checkbox($cop->get_showcolorfulmeter(),$sphere,false,$is_readonly)->
 		pop()->
 		addTFOOT()->

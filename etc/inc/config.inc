@@ -1634,7 +1634,7 @@ function config_upgrade_45() {
 
 	$a_source = &array_make_branch($config,'system');
 	$a_dest = &array_make_branch($config,'system','webgui');
-	foreach(['adddivsubmittodataframe','enabletogglemode','showcolorfulmeter','skipviewmode'] as $param):
+	foreach(['adddivsubmittodataframe','enabletogglemode','nonsidisksizevalues','showcolorfulmeter','skipviewmode'] as $param):
 		if(array_key_exists($param,$a_source)):
 			$a_dest[$param] = $a_source[$param];
 			unset($a_source[$param]);
