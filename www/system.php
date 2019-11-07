@@ -329,6 +329,7 @@ function webguiproto_change() {
 <table id="area_navigator"><tbody>
 	<tr><td class="tabnavtbl"><ul id="tabnav">
 		<li class="tabact"><a href="system.php" title="<?=gtext('Reload page');?>"><span><?=gtext('General');?></span></a></li>
+		<li class="tabinact"><a href="system_webgui.php"><span><?=gtext('WebGUI');?></span></a></li>
 		<li class="tabinact"><a href="system_password.php"><span><?=gtext('Password');?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
