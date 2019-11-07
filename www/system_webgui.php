@@ -50,11 +50,9 @@ $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
 	$cop->get_navbartoplevelstyle(),
-/*
 	$cop->get_enabletogglemode(),
 	$cop->get_skipviewmode(),
 	$cop->get_adddivsubmittodataframe(),
- */
 	$cop->get_cssfcfile(),
 	$cop->get_cssfcfilemode(),
 	$cop->get_cssguifile(),
@@ -197,7 +195,6 @@ $content->
 		pop()->
 		addTFOOT()->
 			c2_separator();
-/*
 $content->
 	add_table_data_settings()->
 		push()->
@@ -212,7 +209,6 @@ $content->
 		pop()->
 		addTFOOT()->
 			c2_separator();
- */
 $tbody = $content->
 	add_table_data_settings()->
 		push()->
