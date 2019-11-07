@@ -124,7 +124,7 @@ class root {
 	public function toggle(): bool {
 		global $config;
 
-		$test = $config['system']['enabletogglemode'] ?? false;
+		$test = calc_enabletogglemode();
 		return $this->is_enadis_enabled() && (is_bool($test) ? $test : true);
 	}
 /**

@@ -76,14 +76,14 @@ array_make_branch($config,'minidlna');
  *		PAGE_MODE_POST: enable, disable, save
  *		PAGE_MODE_VIEW: view
  */
-$mode_page = ($_POST) ? PAGE_MODE_POST : PAGE_MODE_EDIT; // detect page mode
-switch($mode_page):
+$page_mode = ($_POST) ? PAGE_MODE_POST : PAGE_MODE_EDIT; // detect page mode
+switch($page_mode):
 	case PAGE_MODE_POST:
 		if(isset($_POST['submit'])):
 			$page_action = $_POST['submit'];
 			switch($page_action):
 				case 'edit':
-					$mode_page = PAGE_MODE_EDIT;
+					$page_mode = PAGE_MODE_EDIT;
 					break;
 				case 'save':
 					break;
@@ -92,16 +92,16 @@ switch($mode_page):
 				case 'disable':
 					break;
 				case 'cancel':
-					$mode_page = PAGE_MODE_VIEW;
+					$page_mode = PAGE_MODE_VIEW;
 					$page_action = 'view';
 					break;
 				default:
-					$mode_page = PAGE_MODE_VIEW;
+					$page_mode = PAGE_MODE_VIEW;
 					$page_action = 'view';
 					break;
 			endswitch;
 		else:
-			$mode_page = PAGE_MODE_VIEW;
+			$page_mode = PAGE_MODE_VIEW;
 			$page_action = 'view';
 		endif;
 		break;
@@ -109,11 +109,11 @@ switch($mode_page):
 		$page_action = 'view';
 		break;
 	case PAGE_MODE_EDIT:
-		$mode_page = PAGE_MODE_VIEW;
+		$page_mode = PAGE_MODE_VIEW;
 		$page_action = 'view';
-		break;			
+		break;
 	default:
-		$mode_page = PAGE_MODE_VIEW;
+		$page_mode = PAGE_MODE_VIEW;
 		$page_action = 'view';
 		break;
 endswitch;
@@ -140,8 +140,8 @@ $sphere->row['content'] = $source['content'] ?? $sphere->row_default['content'];
 switch($page_action):
 	case 'enable':
 		if($sphere->row['enable']):
-			$mode_page = PAGE_MODE_VIEW;
-			$page_action = 'view'; 
+			$page_mode = PAGE_MODE_VIEW;
+			$page_action = 'view';
 		else: // enable and run a full validation
 			$sphere->row['enable'] = true;
 			$page_action = 'save'; // continue with save procedure
@@ -187,7 +187,7 @@ switch($page_action):
 			header($sphere->get_location());
 			exit;
 		else:
-			$mode_page = PAGE_MODE_EDIT;
+			$page_mode = PAGE_MODE_EDIT;
 			$page_action = 'edit';
 		endif;
 		break;
@@ -204,27 +204,12 @@ switch($page_action):
 			header($sphere->get_location());
 			exit;
 		endif;
-		$mode_page = PAGE_MODE_VIEW;
+		$page_mode = PAGE_MODE_VIEW;
 		$page_action = 'view';
 		break;
 endswitch;
 //	determine final page mode
-switch($mode_page):
-	case PAGE_MODE_EDIT:
-		break;
-/*
-	case PAGE_MODE_VIEW:
- */
-	default:
-		if(isset($config['system']['skipviewmode'])):
-			$mode_page = PAGE_MODE_EDIT;
-			$page_action = 'edit';
-		else:
-			$mode_page = PAGE_MODE_VIEW;
-			$page_action = 'view';
-		endif;
-		break;
-endswitch;
+list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 //	list of configured interfaces
 $a_interface = get_interface_list();
 $l_interfaces = [];
@@ -277,7 +262,7 @@ switch($dlna_count):
 endswitch;
 $pgtitle = [gtext('Services'),gtext('DLNA/UPnP Fuppes')];
 include 'fbegin.inc';
-switch($mode_page):
+switch($page_mode):
 	case PAGE_MODE_VIEW:
 ?>
 <script type="text/javascript">
@@ -330,7 +315,7 @@ function transcoding_change() {
 </script>
 <?php
 		break;
-endswitch;	
+endswitch;
 ?>
 <table id="area_navigator"><tbody><tr><td class="tabnavtbl">
 	<ul id="tabnav">
@@ -354,7 +339,7 @@ endswitch;
 		</colgroup>
 		<thead>
 <?php
-			switch($mode_page):
+			switch($page_mode):
 				case PAGE_MODE_VIEW:
 					html_titleline2(gettext('Fuppes Media Server'));
 					break;
@@ -366,7 +351,7 @@ endswitch;
 		</thead>
 		<tbody>
 <?php
-			switch($mode_page):
+			switch($page_mode):
 				case PAGE_MODE_VIEW:
 					html_textinfo2('enable',gettext('Service Enabled'),$sphere->row['enable'] ? gettext('Yes') : gettext('No'));
 					html_textinfo2('name',gettext('Name'),$sphere->row['name']);
@@ -404,7 +389,7 @@ endswitch;
 				$if = get_ifname($sphere->row['if']);
 				$ipaddr = get_ipaddr($if);
 				$url = sprintf('http://%s:%s',htmlspecialchars($ipaddr),htmlspecialchars($sphere->row['port']));
-				$text = sprintf('<a href="%s" target="_blank">%s</a>',$url,$url);
+				$text = sprintf('<a href="%s" target="_blank" rel="noreferrer">%s</a>',$url,$url);
 				html_textinfo2('url',gettext('URL'),$text);
 			endif;
 ?>
@@ -412,7 +397,7 @@ endswitch;
 	</table>
 	<div id="submit">
 <?php
-		switch($mode_page):
+		switch($page_mode):
 			case PAGE_MODE_VIEW:
 				echo $sphere->html_button('edit',gettext('Edit'));
 				if($sphere->row['enable']):
@@ -433,7 +418,7 @@ endswitch;
 ?>
 </td></tr></tbody></table></form>
 <?php
-switch($mode_page):
+switch($page_mode):
 	case PAGE_MODE_EDIT:
 ?>
 <script type="text/javascript">
@@ -446,4 +431,3 @@ transcoding_change();
 		break;
 endswitch;
 include 'fend.inc';
-?>
