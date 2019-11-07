@@ -13,7 +13,7 @@ Now you can perform a fresh installation from the LiveCD/USB. After a successful
 
 Install from scratch:
 =====================
-Download XigmaNAS® LiveCD or LiveUSB and boot.
+Download XigmaNASÂ® LiveCD or LiveUSB and boot.
 The compressed LiveUSB.img.gz needs to be extracted first before it can be written to a USB media,
 You can use it with Win32DiskImager or other tool.
 Press 9 for the install menu. We recommand an embedded installation, never a direct dd.
@@ -139,12 +139,12 @@ Fixes:
 Default Login:
 ==============
 
- **** The default login for XigmaNAS® Console ****
+ **** The default login for XigmaNASÂ® Console ****
 
  username: root
  password: xigmanas
 
- **** The default login for XigmaNAS® WEBGUI ****
+ **** The default login for XigmaNASÂ® WEBGUI ****
 
  username: admin
  password: xigmanas
@@ -161,5 +161,5 @@ Default Login:
 
  * Change default passwords after setup!!!
 
-XigmaNAS® is copyright © 2018 XigmaNAS® (info@xigmanas.com. All Rights Reserved.
-XigmaNAS® is a registered trademark of Michael Zoon. (zoon01@xigmanas.com). All Rights Reserved.
+XigmaNASÂ® is copyright Â© 2018 XigmaNASÂ® (info@xigmanas.com. All Rights Reserved.
+XigmaNASÂ® is a registered trademark of Michael Zoon. (zoon01@xigmanas.com). All Rights Reserved.
