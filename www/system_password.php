@@ -117,6 +117,7 @@ $(window).on("load",function() {
 <table id="area_navigator"><tbody>
 	<tr><td class="tabnavtbl"><ul id="tabnav">
 		<li class="tabinact"><a href="system.php"><span><?=gtext('General');?></span></a></li>
+		<li class="tabinact"><a href="system_webgui.php"><span><?=gtext('WebGUI');?></span></a></li>
 		<li class="tabact"><a href="system_password.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Password');?></span></a></li>
 	</ul></td></tr>
 </tbody></table>
