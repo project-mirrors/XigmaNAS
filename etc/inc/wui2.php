@@ -2707,7 +2707,7 @@ EOJ;
 		$div_attributes = ['id' => 'submit'];
 		if($use_config_setting):
 			$root = $this->ownerDocument ?? $this;
-			if(is_bool($test = $config['system']['adddivsubmittodataframe'] ?? false) ? $test : true):
+			if(calc_adddivsubmittodataframe()):
 				$target = $root->getElementById('area_data_frame') ?? $this;
 				$subnode = $target->addDIV($div_attributes);
 			else:

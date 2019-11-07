@@ -216,7 +216,7 @@ function cronjob_process_updatenotification($mode,$data) {
 	return $retval;
 }
 
-$enabletogglemode = isset($config['system']['enabletogglemode']);
+$enabletogglemode = calc_enabletogglemode();
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Cron')];
 include 'fbegin.inc';
 ?>
@@ -251,7 +251,7 @@ $(window).on("load", function() {
 	$("input[name='<?=$checkbox_member_name;?>[]']").click(function() {
 		controlactionbuttons(this, '<?=$checkbox_member_name;?>[]');
 	});
-}); 
+});
 function disableactionbuttons(ab_disable) {
 	var ab_element;
 <?php
@@ -361,7 +361,7 @@ $document->render();
 			foreach($sphere_array as $sphere_record):
 ?>
 				<tr>
-<?php 
+<?php
 						$notificationmode = updatenotify_get_mode($sphere_notifier, $sphere_record['uuid']);
 						$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 						$enabled = isset($sphere_record['enable']);
@@ -449,9 +449,8 @@ $document->render();
 		<input type="submit" class="formbtn" name="delete_selected_rows" id="delete_selected_rows" value="<?=$gt_selection_delete;?>"/>
 	</div>
 <?php
-include 'formend.inc';
+	include 'formend.inc';
 ?>
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>

@@ -310,8 +310,7 @@ class co_sphere_grid extends co_sphere_level2 {
 		return $this->x_notifier_processor ?? false;
 	}
 	public function toggle() {
-		global $config;
-		return $this->is_enadis_enabled() && isset($config['system']['enabletogglemode']) && (is_bool($config['system']['enabletogglemode']) ? $config['system']['enabletogglemode'] : true);
+		return $this->is_enadis_enabled() && calc_enabletogglemode();
 	}
 	public function get_cbm_suffix() {
 		return $this->x_cbm_suffix;

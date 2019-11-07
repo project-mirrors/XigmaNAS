@@ -102,7 +102,7 @@ switch($page_mode):
 		$referer_name = $referer->get_name();
 		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid);
 		if(is_null($sphere->row[$referer_name])):
-			if(array_key_exists($referer_name,$sphere->grid) && is_scalar($sphere->grid[$referer_name])): 
+			if(array_key_exists($referer_name,$sphere->grid) && is_scalar($sphere->grid[$referer_name])):
 				$input_errors[] = $referer->get_message_error();
 				$sphere->row[$referer_name] = $sphere->grid[$referer_name];
 			else:
@@ -158,7 +158,7 @@ switch($page_mode):
 		$sphere->row[$referer_name] = $referer->validate_input();
 		if(is_null($sphere->row[$referer_name])):
 			$input_errors[] = $referer->get_message_error();
-			if(array_key_exists($referer_name,$_POST) && is_scalar($_POST[$referer_name])): 
+			if(array_key_exists($referer_name,$_POST) && is_scalar($_POST[$referer_name])):
 				$sphere->row[$referer_name] = $_POST[$referer_name];
 			else:
 				$sphere->row[$referer_name] = $referer->get_defaultvalue();
@@ -223,20 +223,7 @@ switch($page_mode):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-switch($page_mode):
-	case PAGE_MODE_EDIT:
-		$is_readonly = false;
-		break;
-	default:
-		if(is_bool($test = $config['system']['skipviewmode'] ?? false) ? $test : true):
-			$page_mode = PAGE_MODE_EDIT;
-			$is_readonly = false;
-		else:
-			$page_mode = PAGE_MODE_VIEW;
-			$is_readonly = true;
-		endif;
-		break;
-endswitch;
+list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 //	prepare additional javascript code
 $jcode = [];
 if(is_bool($test = $config['system']['showdisabledsections'] ?? false) ? $test : true):

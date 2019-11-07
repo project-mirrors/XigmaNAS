@@ -38,7 +38,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 
-$use_meter_tag = (is_bool($test = $config['system']['showcolorfulmeter'] ?? false) ? $test : true);
+$use_meter_tag = calc_showcolorfulmeter();
 $pgtitle = [gtext('System Information')];
 $pgtitle_omit = true;
 array_make_branch($config,'vinterfaces','carp');

@@ -66,14 +66,14 @@ $sphere = &services_afp_get_sphere();
 $gt_button_apply_confirm = gtext('Do you want to apply these settings?');
 $input_errors = [];
 //	identify page mode
-$mode_page = ($_POST) ? PAGE_MODE_POST : PAGE_MODE_VIEW;
-switch($mode_page):
+$page_mode = ($_POST) ? PAGE_MODE_POST : PAGE_MODE_VIEW;
+switch($page_mode):
 	case PAGE_MODE_POST:
 		if(isset($_POST['submit'])):
 			$page_action = $_POST['submit'];
 			switch($page_action):
 				case 'edit':
-					$mode_page = PAGE_MODE_EDIT;
+					$page_mode = PAGE_MODE_EDIT;
 					break;
 				case 'save':
 					break;
@@ -82,12 +82,12 @@ switch($mode_page):
 				case 'disable':
 					break;
 				default:
-					$mode_page = PAGE_MODE_VIEW;
+					$page_mode = PAGE_MODE_VIEW;
 					$page_action = 'view';
 					break;
 			endswitch;
 		else:
-			$mode_page = PAGE_MODE_VIEW;
+			$page_mode = PAGE_MODE_VIEW;
 			$page_action = 'view';
 		endif;
 		break;
@@ -156,7 +156,7 @@ endif;
 switch($page_action):
 	case 'enable':
 		if($sphere->row['enable']):
-			$mode_page = PAGE_MODE_VIEW;
+			$page_mode = PAGE_MODE_VIEW;
 			$page_action = 'view';
 		else: // enable and run a full validation
 			$sphere->row['enable'] = true;
@@ -200,7 +200,7 @@ switch($page_action):
 			header($sphere->get_location());
 			exit;
 		else:
-			$mode_page = PAGE_MODE_EDIT;
+			$page_mode = PAGE_MODE_EDIT;
 			$page_action = 'edit';
 		endif;
 		break;
@@ -217,27 +217,15 @@ switch($page_action):
 			header($sphere->get_location());
 			exit;
 		endif;
-		$mode_page = PAGE_MODE_VIEW;
+		$page_mode = PAGE_MODE_VIEW;
 		$page_action = 'view';
 		break;
 endswitch;
 //	determine final page mode
-switch($mode_page):
-	case PAGE_MODE_EDIT:
-		break;
-	default:
-		if(isset($config['system']['skipviewmode'])):
-			$mode_page = PAGE_MODE_EDIT;
-			$page_action = 'edit';
-		else:
-			$mode_page = PAGE_MODE_VIEW;
-			$page_action = 'view';
-		endif;
-		break;
-endswitch;
+list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
 $pgtitle = [gtext('Services'),gtext('AFP')];
 include 'fbegin.inc';
-switch($mode_page):
+switch($page_mode):
 	case PAGE_MODE_VIEW:
 ?>
 <script type="text/javascript">
@@ -265,7 +253,7 @@ $(window).on("load", function() {
 </script>
 <?php
 		break;
-endswitch;	
+endswitch;
 ?>
 <table id="area_navigator"><tbody>
 	<tr><td class="tabnavtbl"><ul id="tabnav">
@@ -289,7 +277,7 @@ endswitch;
 		</colgroup>
 		<thead>
 <?php
-			switch($mode_page):
+			switch($page_mode):
 				case PAGE_MODE_VIEW:
 					html_titleline2(gettext('Apple Filing Protocol'));
 					break;
@@ -301,7 +289,7 @@ endswitch;
 		</thead>
 		<tbody>
 <?php
-			switch($mode_page):
+			switch($page_mode):
 				case PAGE_MODE_VIEW:
 					html_textinfo2('enable',gettext('Service Enabled'),$sphere->row['enable'] ? gettext('Yes') : gettext('No'));
 					html_textinfo2('afpname',gettext('Server Name'),$sphere->row['afpname']);
@@ -425,9 +413,7 @@ endswitch;
 						</td>
 					</tr>
 <?php
-					$helpinghand = '<a href="http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html" target="_blank">'
-						. gettext('Please check the documentation')
-						. '</a>.';
+					$helpinghand = '<a href="http://netatalk.sourceforge.net/3.1/htmldocs/afp.conf.5.html" target="_blank" rel="noreferrer">' . gettext('Please check the documentation') . '</a>.';
 					html_textarea2('auxparam',gettext('Additional Parameters'),$sphere->row['auxparam'],gettext('Add any supplemental parameters.') . ' ' . $helpinghand,false,65,5,false,false);
 					break;
 			endswitch;
@@ -436,7 +422,7 @@ endswitch;
 	</table>
 	<div id="submit">
 <?php
-		switch($mode_page):
+		switch($page_mode):
 			case PAGE_MODE_VIEW:
 				echo $sphere->html_button('edit',gettext('Edit'));
 				if($sphere->row['enable']):
@@ -466,4 +452,3 @@ endswitch;
 </form></td></tr></tbody></table>
 <?php
 include 'fend.inc';
-?>
