@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1487,6 +1487,9 @@ msgstr "검색 가능 여부"
 
 msgid "Button Location"
 msgstr "버튼 위치"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "기본 값으로 이미 존재하는 파일들만 업로드 될 수 있습니다."
@@ -3199,6 +3202,9 @@ msgstr "디스크 | 탑제 지점 | 관리"
 
 msgid "Display"
 msgstr "표시"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -13295,41 +13301,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Add command"
-#~ msgstr "명령어 추가"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "명령 제거 표시됨"
-
-#~ msgid "Command is protected"
-#~ msgstr "명령 보호됨"
-
-#~ msgid "Edit command"
-#~ msgstr "명령 수정"
-
-#~ msgid "Enter a comment"
-#~ msgstr "설명 입력"
-
-#~ msgid "Enter a name"
-#~ msgstr "이름 입력"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "명령 이름을 입력하십시오."
-
-#~ msgid "Enter the command"
-#~ msgstr "명령 입력"
-
-#~ msgid "Home"
-#~ msgstr "홈"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "명령어 재정렬"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "이 옵션(들)은 /boot/loader.conf.local에 추가됩니다. 이것은 커널에 인자를 넘기고 추가 모듈을 로드하는 것을 "
-#~ "허용합니다."

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
-"PO-Revision-Date: 2019-11-06 05:32+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"PO-Revision-Date: 2019-11-07 21:12+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -1612,6 +1612,9 @@ msgstr "Verkenbaar"
 
 msgid "Button Location"
 msgstr "Knop Locatie"
+
+msgid "Button Settings"
+msgstr "Knop Instellingen"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Standaard kunnen alleen bestaande bestanden geupload worden."
@@ -3439,6 +3442,9 @@ msgstr "Schijven | Koppelpunten | Management"
 
 msgid "Display"
 msgstr "Weergave"
+
+msgid "Display Options"
+msgstr "Weergave Opties"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14381,45 +14387,3 @@ msgstr "zichtbaar"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Add command"
-#~ msgstr "Opdracht toevoegen"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Opdracht is gemarkeerd voor verwijdering"
-
-#~ msgid "Command is protected"
-#~ msgstr "Opdracht is beschermd"
-
-#~ msgid "Edit command"
-#~ msgstr "Bewerk Opdracht"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Geef een beschrijving op"
-
-#~ msgid "Enter a name"
-#~ msgstr "Geef een naam op"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Geef een naam op voor de opdracht."
-
-#~ msgid "Enter the command"
-#~ msgstr "Geef een opdracht op"
-
-#~ msgid "Home"
-#~ msgstr "Startpagina"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Herindelen Opdrachten"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Deze optie(s) word toegevoegd aan /boot/loader.conf.local. Dit staat u toe "
-#~ "verschillende parameters op te geven aan de kernel en extra modules te "
-#~ "gebruiken tijdens het opstarten."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Vul een geldige waarde in."

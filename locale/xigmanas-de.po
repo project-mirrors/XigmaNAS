@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-10-17 22:23+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1620,6 +1620,9 @@ msgstr "Sichtbar"
 
 msgid "Button Location"
 msgstr "Knopfleistenanordnung (Button)"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -3405,6 +3408,9 @@ msgstr "Festplatten | Einhängepunkt | Management"
 
 msgid "Display"
 msgstr "Anzeige"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14388,45 +14394,3 @@ msgstr "sichtbar"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Add command"
-#~ msgstr "Befehl hinzufügen"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Kommando ist zur Entfernung markiert"
-
-#~ msgid "Command is protected"
-#~ msgstr "Kommando ist geschützt"
-
-#~ msgid "Edit command"
-#~ msgstr "Befehl bearbeiten"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Kommentar eingeben"
-
-#~ msgid "Enter a name"
-#~ msgstr "Namen eingeben"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Einen Namen für das Kommando eingeben."
-
-#~ msgid "Enter the command"
-#~ msgstr "Kommando eingeben"
-
-#~ msgid "Home"
-#~ msgstr "Startseite"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Kommandos umsortieren"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Diese Konfigurationsoptionen werden zu \"/boot/loader.conf.local\" "
-#~ "hinzugefügt. Dadurch können Parameter an den Systemkern weitergegeben und "
-#~ "zusätzliche Programmmodule können geladen werden."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Geben Sie  einen gültigen Wert ein !"

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
-"PO-Revision-Date: 2019-10-17 21:15+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"PO-Revision-Date: 2019-11-07 20:33+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "Language: ca_ES\n"
 
@@ -557,7 +557,7 @@ msgid "Add CHAP User"
 msgstr "Afegeix l'usuari CHAP"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Afegeix ordre"
 
 msgid "Add Dataset"
 msgstr "Afegir conjunt de dades"
@@ -1607,6 +1607,9 @@ msgstr "Navegable"
 msgid "Button Location"
 msgstr "Ubicació del botó"
 
+msgid "Button Settings"
+msgstr ""
+
 msgid "By default, only already existing files can be uploaded."
 msgstr "Per defecte només els arxius existents poden ser pujats"
 
@@ -1980,10 +1983,10 @@ msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Comandament per event LINK_UP (ex. %s)."
 
 msgid "Command is locked"
-msgstr ""
+msgstr "L'ordre està bloquejat"
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "L'ordre està marcada per esborrar"
 
 msgid "Command is unlocked"
 msgstr "L'ordre està desbloquejada"
@@ -3430,6 +3433,9 @@ msgstr "Discs | Punt de muntatge | Gestió"
 msgid "Display"
 msgstr "Visualització"
 
+msgid "Display Options"
+msgstr ""
+
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
 "information from the pool."
@@ -4072,7 +4078,7 @@ msgid "Done."
 msgstr "Fet."
 
 msgid "Down"
-msgstr ""
+msgstr "Avall"
 
 msgid "Download"
 msgstr "Descarregar"
@@ -4162,7 +4168,7 @@ msgid "Edit CHAP User"
 msgstr "Editar usuari CHAP"
 
 msgid "Edit Command"
-msgstr ""
+msgstr "Edita l’ordre"
 
 msgid "Edit Dataset"
 msgstr "Editar conjunt de dades"
@@ -7518,7 +7524,7 @@ msgid "Name of the WebDAV Record."
 msgstr "Nom del registre WebDAV."
 
 msgid "Name of the command."
-msgstr ""
+msgstr "Nom de l'ordre"
 
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
@@ -7549,13 +7555,13 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Nativa: emmagatzema caràcters amb el seu valor ASCII natiu."
 
 msgid "Navbar Style"
-msgstr ""
+msgstr "Estil de barra de navegació"
 
 msgid "Navigation Bar"
 msgstr "Barra de navegació"
 
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Menú de navegació"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr ""
@@ -9940,6 +9946,8 @@ msgstr "Seleccioneu el paquet de FreeBSD que s'instal·larà."
 
 msgid "Select the display mode of the top-level items in the navigation bar."
 msgstr ""
+"Seleccioneu el mode de visualització dels elements de primer nivell de la "
+"barra de navegació."
 
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
@@ -10422,13 +10430,13 @@ msgstr ""
 "juntament amb una escala logarítmica)"
 
 msgid "Show symbol and text"
-msgstr ""
+msgstr "Mostra el símbol i el text"
 
 msgid "Show symbol only"
-msgstr ""
+msgstr "Mostra només el símbol"
 
 msgid "Show text only"
-msgstr ""
+msgstr "Mostra només el text"
 
 msgid "Shrink Page Header"
 msgstr "Reduir la mida de capçalera de pàgina"
@@ -11857,7 +11865,7 @@ msgid "The name of the target."
 msgstr "El nom de l'objectiu."
 
 msgid "The name of the variable."
-msgstr ""
+msgstr "El nom de la variable."
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "El nom d'aquest dispositiu virtual no es pot canviar."
@@ -12128,6 +12136,9 @@ msgid ""
 "specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
+"Aquestes opcions s’afegiran a /boot/loader.conf.local. Això us permet "
+"especificar els paràmetres que s'han de passar al nucli i els mòduls "
+"addicionals que es carregaran."
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -14365,45 +14376,3 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "sí"
-
-#~ msgid "Add command"
-#~ msgstr "Afegeix comanda"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "L'ordre està marcada per ser esborrada"
-
-#~ msgid "Command is protected"
-#~ msgstr "L'ordre està protejida"
-
-#~ msgid "Edit command"
-#~ msgstr "Editar ordre"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Introduïu un comentari"
-
-#~ msgid "Enter a name"
-#~ msgstr "Introduïu un nom"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Introduïu un nom per la ordre"
-
-#~ msgid "Enter the command"
-#~ msgstr "Introduïu l'ordre"
-
-#~ msgid "Home"
-#~ msgstr "Inici"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Re-ordena les ordres"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Aquest (s) opció (ns) s'afegirà (nt) a /boot/loader.conf.local. Això li "
-#~ "permet especificar els paràmetres que es passaran al nucli i mòduls "
-#~ "addicionals per a ser carregats."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Introduïu un valor vàlid."

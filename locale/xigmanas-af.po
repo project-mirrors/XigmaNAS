@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:48+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 
 msgid " No private key"
@@ -1558,6 +1558,9 @@ msgid "Browseable"
 msgstr "Deurleesbaar"
 
 msgid "Button Location"
+msgstr ""
+
+msgid "Button Settings"
 msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
@@ -3325,6 +3328,9 @@ msgstr "Skywe | Monteer Punt | Bestuur"
 
 msgid "Display"
 msgstr "Vertoon"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -13786,39 +13792,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Add command"
-#~ msgstr "Voeg bevel by"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Bevel is vir verwydering gemerk"
-
-#~ msgid "Command is protected"
-#~ msgstr "Bevel is beskerm"
-
-#~ msgid "Edit command"
-#~ msgstr "Redigeer opdrag"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Sleutel 'n opmerking in"
-
-#~ msgid "Enter a name"
-#~ msgstr "Sleutel 'n naam in"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Sleutel 'n naam vir hierdie opdrag in."
-
-#~ msgid "Enter the command"
-#~ msgstr "Sleutel die bevel in"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Herrangskik Bevelle"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Die opsie(s) sal bygevoeg word by /boot/loader.conf.local. Dit sal jou "
-#~ "toelaat om die parameters te spesifiseer wat na die kern aangepas moet word, "
-#~ "en additionele modules wat gelaai moet word."

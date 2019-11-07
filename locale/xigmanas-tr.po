@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-06-26 21:03+0000\n"
 "Last-Translator: kidalabama <n_alp@hotmail.com>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
@@ -1517,6 +1517,9 @@ msgid "Browseable"
 msgstr "Gözatılabilir"
 
 msgid "Button Location"
+msgstr ""
+
+msgid "Button Settings"
 msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
@@ -3186,6 +3189,9 @@ msgid "Disks | Mount Point | Management"
 msgstr ""
 
 msgid "Display"
+msgstr ""
+
+msgid "Display Options"
 msgstr ""
 
 msgid ""
@@ -13179,9 +13185,3 @@ msgstr "görünür"
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Add command"
-#~ msgstr "Komut Ekle"
-
-#~ msgid "Edit command"
-#~ msgstr "Komutu düzenle"

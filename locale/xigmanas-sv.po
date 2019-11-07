@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-11-06 10:39+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 12:49+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -1565,6 +1565,9 @@ msgstr "Bläddringsbar"
 
 msgid "Button Location"
 msgstr "Knapplacering"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Som standard kan bara redan existerande filer laddas upp."
@@ -3350,6 +3353,9 @@ msgstr "Diskar | Monteringspunkt | Hantering"
 
 msgid "Display"
 msgstr "Visa"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14069,45 +14075,3 @@ msgstr "synlig"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Add command"
-#~ msgstr "Lägg till kommando"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "Kommandot är markerat för borttagning"
-
-#~ msgid "Command is protected"
-#~ msgstr "Kommandot är skyddat"
-
-#~ msgid "Edit command"
-#~ msgstr "Redigera kommando"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Skriv en kommentar"
-
-#~ msgid "Enter a name"
-#~ msgstr "Mata in namn"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Mata in ett namn för kommandot."
-
-#~ msgid "Enter the command"
-#~ msgstr "Mata in komandot"
-
-#~ msgid "Home"
-#~ msgstr "Hem"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Ändra ordning på kommandon"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Dessa optioner kommer att läggas till i /boot/loader.conf.local. Detta ger "
-#~ "dig möjlighet att specificera parametrar som skall skickas till kärnan och "
-#~ "ladda extra moduler."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Skriv ett korrekt värde"

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-06 06:12+0000\n"
+"POT-Creation-Date: 2019-11-07 21:47+0000\n"
 "PO-Revision-Date: 2019-11-06 16:43+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-06 21:56+0000\n"
+"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
 "X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -1609,6 +1609,9 @@ msgstr "Navigable"
 
 msgid "Button Location"
 msgstr "Emplacement des Boutons d'Action"
+
+msgid "Button Settings"
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -3435,6 +3438,9 @@ msgstr "Disques | Point de Montage | Gestion"
 
 msgid "Display"
 msgstr "Afficher"
+
+msgid "Display Options"
+msgstr ""
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -14420,45 +14426,3 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "oui"
-
-#~ msgid "Add command"
-#~ msgstr "Ajouter une commande"
-
-#~ msgid "Command is marked for removal"
-#~ msgstr "La commande est marquée pour suppression"
-
-#~ msgid "Command is protected"
-#~ msgstr "La commande est protégée"
-
-#~ msgid "Edit command"
-#~ msgstr "Modifier la commande"
-
-#~ msgid "Enter a comment"
-#~ msgstr "Entrez un commentaire"
-
-#~ msgid "Enter a name"
-#~ msgstr "Entrez un nom"
-
-#~ msgid "Enter a name for the command."
-#~ msgstr "Entrez un nom pour la commande."
-
-#~ msgid "Enter the command"
-#~ msgstr "Entrez la commande"
-
-#~ msgid "Home"
-#~ msgstr "Accueil"
-
-#~ msgid "Reorder Commands"
-#~ msgstr "Réorganiser les commandes"
-
-#~ msgid ""
-#~ "These option(s) will be added to /boot/loader.conf.local. This allows you to "
-#~ "specify parameters to be passed to kernel, and additional modules to be "
-#~ "loaded."
-#~ msgstr ""
-#~ "Ces options seront ajoutées à /boot/loader.conf.local. Cela vous permet de "
-#~ "spécifier des paramètres à passer au kernel, et des modules additionnels à "
-#~ "charger."
-
-#~ msgid "Enter a valid value."
-#~ msgstr "Entrez une valeur valide."
