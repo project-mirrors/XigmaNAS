@@ -34,27 +34,6 @@
 require_once 'properties.php';
 
 class properties_system_advanced extends co_property_container {
-	protected $x_adddivsubmittodataframe;
-	public function get_adddivsubmittodataframe() {
-		return $this->x_adddivsubmittodataframe ?? $this->init_adddivsubmittodataframe();
-	}
-	public function init_adddivsubmittodataframe() {
-		$property = $this->x_adddivsubmittodataframe = new property_bool($this);
-		$property->
-			set_name('adddivsubmittodataframe')->
-			set_title(gettext('Button Location'));
-		$caption = gettext('Display action buttons in the scrollable area instead of the footer area.');
-		$property->
-			set_id('adddivsubmittodataframe')->
-			set_caption($caption)->
-//			set_description('')->
-			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
 	protected $x_aesni;
 	public function get_aesni() {
 		return $this->x_aesni ?? $this->init_aesni();
@@ -207,26 +186,6 @@ class properties_system_advanced extends co_property_container {
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
-	protected $x_enabletogglemode;
-	public function get_enabletogglemode() {
-		return $this->x_enabletogglemode ?? $this->init_enabletogglemode();
-	}
-	public function init_enabletogglemode() {
-		$property = $this->x_enabletogglemode = new property_bool($this);
-		$property->
-			set_name('enabletogglemode')->
-			set_title(gettext('Toggle Mode'));
-		$property->
-			set_id('enabletogglemode')->
-			set_caption(gettext('Use toggle button instead of enable/disable buttons.'))->
-			set_description('')->
-			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
 	protected $x_nonsidisksizevalues;
 	public function get_nonsidisksizevalues() {
 		return $this->x_nonsidisksizevalues ?? $this->init_nonsidisksizevalues();
@@ -239,26 +198,6 @@ class properties_system_advanced extends co_property_container {
 		$property->
 			set_id('nonsidisksizevalues')->
 			set_caption(gettext('Display disk size values using binary prefixes instead of decimal prefixes.'))->
-			set_description('')->
-			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
-	protected $x_skipviewmode;
-	public function get_skipviewmode() {
-		return $this->x_skipviewmode ?? $this->init_skipviewmode();
-	}
-	public function init_skipviewmode() {
-		$property = $this->x_skipviewmode = new property_bool($this);
-		$property->
-			set_name('skipviewmode')->
-			set_title(gettext('Skip View Mode'));
-		$property->
-			set_id('skipviewmode')->
-			set_caption(gettext('Enable this option if you want to edit configuration pages directly without the need to switch to edit mode.'))->
 			set_description('')->
 			set_defaultvalue(false)->
 			filter_use_default()->

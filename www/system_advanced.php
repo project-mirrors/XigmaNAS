@@ -54,16 +54,13 @@ $is_sc = 'sc' == get_sysctl_kern_vty();
 //	take the value of the parameter if its type is bool
 //	set value to true if the parameter exists and is not NULL
 //	set value to false if the parameter doesn't exist or is NULL
-$pconfig['adddivsubmittodataframe'] = $cop->get_adddivsubmittodataframe()->validate_config($config['system']);
 $pconfig['consoleautologin'] = $cop->get_consoleautologin()->validate_config($config['system']);
 $pconfig['disableconsolemenu'] = $cop->get_disableconsolemenu()->validate_config($config['system']);
 $pconfig['disablefm'] = isset($config['system']['disablefm']);
 $pconfig['disablefirmwarecheck'] = isset($config['system']['disablefirmwarecheck']);
 $pconfig['disablebeep'] = isset($config['system']['disablebeep']);
 $pconfig['microcode_update'] = isset($config['system']['microcode_update']);
-$pconfig['enabletogglemode'] = isset($config['system']['enabletogglemode']);
 $pconfig['nonsidisksizevalues'] = isset($config['system']['nonsidisksizevalues']);
-$pconfig['skipviewmode'] = isset($config['system']['skipviewmode']);
 $pconfig['showcolorfulmeter'] = isset($config['system']['showcolorfulmeter']);
 $pconfig['disableextensionmenu'] = isset($config['system']['disableextensionmenu']);
 $pconfig['zeroconf'] = isset($config['system']['zeroconf']);
@@ -133,7 +130,6 @@ if($_POST):
 				config_unlock();
 			endif;
 		endif;
-		$config['system']['adddivsubmittodataframe'] = $cop->get_adddivsubmittodataframe()->validate_input();
 		$config['system']['consoleautologin'] = $cop->get_consoleautologin()->validate_input();
 		$helpinghand = $cop->get_disableconsolemenu()->validate_input();
 		if(isset($config['system']['disableconsolemenu']) !== $helpinghand):
@@ -149,9 +145,7 @@ if($_POST):
 		endif;
 		$config['system']['disablefm'] = $helpinghand;
 		$config['system']['disablefirmwarecheck'] = $cop->get_disablefirmwarecheck()->validate_input();
-		$config['system']['enabletogglemode'] = $cop->get_enabletogglemode()->validate_input();
 		$config['system']['nonsidisksizevalues'] = $cop->get_nonsidisksizevalues()->validate_input();
-		$config['system']['skipviewmode'] = $cop->get_skipviewmode()->validate_input();
 		$config['system']['showcolorfulmeter'] = $cop->get_showcolorfulmeter()->validate_input();
 		$_SESSION['g']['shrinkpageheader'] = $cop->get_shrinkpageheader()->validate_input();
 		$helpinghand = $cop->get_disableextensionmenu()->validate_input();
@@ -324,10 +318,7 @@ $document->render();
 			if($g['zroot'] || ('full' !== $g['platform'])):
 				$node->c2_checkbox($cop->get_disablefirmwarecheck(),!empty($pconfig['disablefirmwarecheck']));
 			endif;
-			$node->c2_checkbox($cop->get_enabletogglemode(),!empty($pconfig['enabletogglemode']));
-			$node->c2_checkbox($cop->get_skipviewmode(),!empty($pconfig['skipviewmode']));
 			$node->c2_checkbox($cop->get_showcolorfulmeter(),!empty($pconfig['showcolorfulmeter']));
-			$node->c2_checkbox($cop->get_adddivsubmittodataframe(),!empty($pconfig['adddivsubmittodataframe']));
 			$node->c2_checkbox($cop->get_shrinkpageheader(),$_SESSION['g']['shrinkpageheader']);
 			$node->c2_checkbox($cop->get_disableextensionmenu(),!empty($pconfig['disableextensionmenu']));
 			$node->c2_checkbox($cop->get_nonsidisksizevalues(),!empty($pconfig['nonsidisksizevalues']));
