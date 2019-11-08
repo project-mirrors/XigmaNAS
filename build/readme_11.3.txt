@@ -107,7 +107,7 @@ Currently iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
 
-BUILD 11.3.0.4.7014
+BUILD 11.3.0.4.7097
 ===================
 Changes:
 - Upgrade to FreeBSD 11.3-RELEASE-P3.
@@ -129,8 +129,9 @@ Changes:
 - Upgrade php to 7.3.11.
 - Upgrade sudo to 1.8.29.
 - Upgrade samba to 4.10.10.
-- pecl-APCu to 5.1.18.
+- Upgrade pecl-APCu to 5.1.18.
 - Upgrade syncthing to 1.3.1.
+- Upgrade devcpu-data to 1.25.
 
 Fixes:
 - Fix monitoring shows high cpu load.
