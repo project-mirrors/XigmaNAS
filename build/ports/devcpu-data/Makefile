@@ -1,10 +1,10 @@
 PORTNAME=	devcpu-data
-PORTVERSION=	1.24
+PORTVERSION=	1.25
 PORTREVISION=   0
 CATEGORIES=	sysutils
 MASTER_SITES=   LOCAL/sbruno:amd
 PKGNAMEPREFIX=	devcpu-
-DISTFILES=	amd64-microcode.20181214.tar.xz:amd
+DISTFILES=	amd64-microcode.20191021.tar.xz:amd
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Intel and AMD CPUs microcode updates
