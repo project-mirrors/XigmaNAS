@@ -138,5 +138,7 @@ Default login credentials:
 
 It is recommended to change the default passwords as soon as possible.
 
-XigmaNAS® is copyright © 2018 - 2019 XigmaNAS® (info@xigmanas.com. All Rights Reserved.
+Copyright:
+==========
+XigmaNAS® is copyright © 2018 - 2019 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
 XigmaNAS® is a registered trademark of Michael Zoon (zoon01@xigmanas.com). All Rights Reserved.
