@@ -96,7 +96,7 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Services'),gettext('Samba'),gettext('Shares')];
+		$pgtitle = [gettext('Services'),gettext('SMB'),gettext('Shares')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','25%','20%','20%','10%','10%','10%'];
