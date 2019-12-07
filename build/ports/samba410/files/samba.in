@@ -402,7 +402,7 @@ samba_mkconf_cmd()
 			--output "idmap config * : range = ${samba_idmap_range}" --nl \
 			--if 'string-length(//ad/domainname_netbios) > 0' \
 				--value-of 'concat("idmap config ",//ad/domainname_netbios," : backend = rid")' --nl \
-				--value-of 'concat("idmap config ",//ad/domainname_netbios," : range = ")' --output "$samba_idmap_range}" --nl \
+				--value-of 'concat("idmap config ",//ad/domainname_netbios," : range = ")' --output "${samba_idmap_range}" --nl \
 			--break \
 			--if 'string-length(//ad/domainname_dns) > 0' \
 				--value-of 'concat("realm = ",//ad/domainname_dns)' --nl \
