@@ -11,7 +11,7 @@ alias j		jobs -l
 alias la	ls -a
 alias lf	ls -FA
 alias ll	ls -lAF
-alias ls      ls -G
+alias ls	ls -G
 
 # A righteous umask
 umask 22
@@ -36,16 +36,18 @@ if ($?prompt) then
 	set savehist = 100
 	if ( $?tcsh ) then
 		bindkey "^W" backward-delete-word
-		bindkey -k up history-search-backward
-		bindkey -k down history-search-forward
-		bindkey "\e[1~" beginning-of-line       # Home
-                bindkey "\e[2~" overwrite-mode          # Insert
-                bindkey "\e[3~" delete-char             # Delete
-                bindkey "\e[4~" end-of-line             # End
-                bindkey "\e[5~" history-search-backward # Page Up
-                bindkey "\e[6~" history-search-forward  # Page Down
-		bindkey "\eOc"  forward-word            # ctrl right
-		bindkey "\eOd"  backward-word           # ctrl left
+		bindkey -k up     history-search-backward
+		bindkey -k down   history-search-forward
+		bindkey "\e[1~"   beginning-of-line       # Home
+		bindkey "\e[2~"   overwrite-mode          # Insert
+		bindkey "\e[3~"   delete-char             # Delete
+		bindkey "\e[4~"   end-of-line             # End
+		bindkey "\e[5~"   history-search-backward # Page Up
+		bindkey "\e[6~"   history-search-forward  # Page Down
+		bindkey "\eOc"    forward-word            # ctrl right
+		bindkey "\e[1;5C" forward-word            # ctrl right
+		bindkey "\eOd"    backward-word           # ctrl left
+		bindkey "\e[1;5D" backward-word           # ctrl left
 	endif
 endif
 
