@@ -247,7 +247,7 @@ function disks_mount($mount) {
 				write_log("Error: Failed to mount {$devicespecialfile} using EXT2");
 				$result = 1;
 			endif;
-			break;	
+			break;
 		case "ext4fuse":
 			// Load the kernel FUSE module
 			mwexec("/sbin/kldload /boot/kernel/fuse.ko");
@@ -556,7 +556,7 @@ EOD;
  */
 function disks_raid_gmirror_configure($uuid) {
 	global $config;
-	
+
 	$sphere = 'gmirror';
 	array_make_branch($config,$sphere,'vdisk');
 	if(false !== ($index = array_search_ex($uuid,$config[$sphere]['vdisk'],'uuid'))):
@@ -673,7 +673,7 @@ function disks_raid_gvinum_delete($uuid) {
 // Return 0 if successful, 1 if error
 function disks_raid_gmirror_delete($uuid) {
 	global $config;
-	
+
 	$sphere = 'gmirror';
 	array_make_branch($config,$sphere,'vdisk');
 	if(false !== ($index = array_search_ex($uuid,$config[$sphere]['vdisk'],'uuid'))):
@@ -696,7 +696,7 @@ function disks_raid_gmirror_delete($uuid) {
 // Return 0 if successful, 1 if error
 function disks_raid_gconcat_delete($uuid) {
 	global $config;
-	
+
 	$sphere = 'gconcat';
 	array_make_branch($config,$sphere,'vdisk');
 	if(false !== ($index = array_search_ex($uuid,$config[$sphere]['vdisk'],'uuid'))):
@@ -928,20 +928,20 @@ function disks_format($disk,$type,$notinitmbr,$minspace,$volumelabel,$aft4k,$zfs
 	switch($type):
 		case "ufsgpt":
 			echo gtext("Creating partition")."...\n";
-			// Destroy old GPT partition
-			//system("/sbin/gpt destroy {$disk} 1>/dev/null 2>&1");
+//			Destroy old GPT partition
+//			system("/sbin/gpt destroy {$disk} 1>/dev/null 2>&1");
 			system("/sbin/gpart destroy -F {$disk} 1>/dev/null 2>&1");
-			// Create new GPT partition
-			//system("/sbin/gpt create -f {$disk} 2>&1");
+//			Create new GPT partition
+//			system("/sbin/gpt create -f {$disk} 2>&1");
 			system("/sbin/gpart create -s gpt {$disk} 2>&1");
 			if($aft4k):
-				//system("/sbin/gpt add -b $aft_aligned -s $aft_counts -t ufs {$disk} 2>&1");
+//				system("/sbin/gpt add -b $aft_aligned -s $aft_counts -t ufs {$disk} 2>&1");
 				system("/sbin/gpart add -b $aft_aligned -s $aft_counts -t freebsd-ufs {$disk} 2>&1");
 			else:
-				//system("/sbin/gpt add -t ufs {$disk} 2>&1");
+//				system("/sbin/gpt add -t ufs {$disk} 2>&1");
 				system("/sbin/gpart add -t freebsd-ufs {$disk} 2>&1");
 			endif;
-			// Create filesystem
+//			Create filesystem
 			echo gtext("Creating filesystem with 'Soft Updates'")."...\n";
 			$param = "-U -j";
 			if(!empty($volumelabel)):
@@ -954,7 +954,7 @@ function disks_format($disk,$type,$notinitmbr,$minspace,$volumelabel,$aft4k,$zfs
 				echo sprintf(gtext("Using %s bytes fragment size."),$aft_bytes),PHP_EOL;
 				$param .= " -S $aft_bytes -b $aft_blocksize -f $aft_bytes";
 			endif;
-			//echo "/sbin/newfs {$param} {$disk}p1\n";
+//			echo "/sbin/newfs {$param} {$disk}p1\n";
 			system("/sbin/newfs {$param} {$disk}p1 2>&1");
 			echo PHP_EOL;
 			echo gtext("Created UFS file system:"),PHP_EOL;
@@ -1405,7 +1405,7 @@ EOD;
 }
 /**
  * Rescan disks after a Hotswap has been performed
- */ 
+ */
 function disks_rescan() {
 	mwexec2("camcontrol rescan all");
 }
@@ -1824,6 +1824,7 @@ function disks_import_all_disks($clean_import) {
 				$pdisk['id'] = $diskv['id'];
 				$pdisk['devicespecialfile'] = $dev;
 				$pdisk['passthroughdevice'] = $diskv['passthroughdevice'] ?? '';
+				$pdisk['passthroughdevice_id'] = $diskv['passthroughdevice_id'] ?? '';
 				$pdisk['model'] = $diskv['model'] ?? '';
 				$pdisk['desc'] = $diskv['desc'] ?? '';
 				$pdisk['type'] = $diskv['type'];
@@ -1872,7 +1873,7 @@ function disks_import_all_disks($clean_import) {
 					endif;
 				endif;
 				updatenotify_set("device",UPDATENOTIFY_MODE_MODIFIED,$pdisk['uuid']);
-				$pdisk['smart']['enable'] = $enablesmartmonondevice;					
+				$pdisk['smart']['enable'] = $enablesmartmonondevice;
 				$pdisk['smart']['extraoptions'] = "";
 				$config['disks']['disk'][] = $pdisk;
 				$need_write_config = true;
@@ -2093,22 +2094,29 @@ function disks_import_all_swraid_disks($clean_import) {
 // 0: no found, n > 0: n disks imported, n < 0: error
 function disks_import_all_encrypted_disks(bool $clear_config_before_import = false) {
 	global $config;
+
 	$grid_cfg_disks = &array_make_branch($config,'disks','disk');
 	$grid_cfg_geli = &array_make_branch($config,'geli','vdisk');
 	$a_aalgo = [
-	'hmac/md5' => 'HMAC/MD5',
-	'hmac/sha1' => 'HMAC/SHA1',
-	'hmac/ripemd160' => 'HMAC/RIPEMD160',
-	'hmac/sha256' => 'HMAC/SHA256',
-	'hmac/sha384' => 'HMAC/SHA384',
-	'hmac/sha512' => 'HMAC/SHA512'
+		'hmac/md5' => 'hmac/md5',
+		'hmac/sha1' => 'hmac/sha1',
+		'hmac/ripemd160' => 'hmac/ripemd160',
+		'hmac/sha256' => 'hmac/sha256',
+		'hmac/sha384' => 'hmac/sha384',
+		'hmac/sha512' => 'hmac/sha512'
 	];
 	$a_ealgo = [
-		'aes-xts' => 'AES-XTS',
-		'aes-cbc' => 'AES-CBC',
-		'blowfish-cbc' => 'Blowfish-CBC',
-		'camellia-cbc' => 'Camellia-CBC',
-		'3des-cbc' => '3DES-CBC'
+		'null' => 'null-cbc',
+		'null-cbc' => 'null-cbc',
+		'aes' => 'aes-xts',
+		'aes-xts' => 'aes-xts',
+		'aes-cbc' => 'aes-cbc',
+		'blowfish' => 'blowfish-cbc',
+		'blowfish-cbc' => 'blowfish-cbc',
+		'camellia' => 'camellia-cbc',
+		'camellia-cbc' => 'camellia-cbc',
+		'3des' => '3des-cbc',
+		'3des-cbc' => '3des-cbc'
 	];
 	$num = 0;
 	$error = 0;
@@ -2127,57 +2135,61 @@ function disks_import_all_encrypted_disks(bool $clear_config_before_import = fal
 	foreach($grid_os_disk as $row_os_disk):
 		$dev = $row_os_disk['devicespecialfile'];
 		unset($rawdata);
-		mwexec2("geli dump {$dev} 2>/dev/null",$rawdata);
+		$cmd = sprintf('geli dump %s 2>/dev/null',escapeshellarg($dev));
+		mwexec2($cmd,$rawdata);
 		if(empty($rawdata)):
 			continue;
 		endif;
-		$aalgo_lower = $ealgo_lower = $keylen = $sectorsize = '';
+		$geli_aalgo = $geli_ealgo = $geli_keylen = $geli_sectorsize = $geli_version = '';
+		$cfg_aalgo = $cfg_ealgo = '';
 		foreach($rawdata as $line):
 			if(preg_match('/^\s*aalgo\s*:\s*(.+)$/i',$line,$m)):
-				$aalgo_lower = strtolower(trim($m[1]));
+				$geli_aalgo = strtolower(trim($m[1]));
 			elseif(preg_match('/^\s*ealgo\s*:\s*(.+)$/i',$line,$m)):
-				$ealgo_lower = strtolower(trim($m[1]));
+				$geli_ealgo = strtolower(trim($m[1]));
 			elseif(preg_match('/^\s*keylen\s*:\s*(.+)$/i',$line,$m)):
-				$keylen = trim($m[1]);
+				$geli_keylen = strtolower(trim($m[1]));
 			elseif(preg_match('/^\s*sectorsize\s*:\s*(.+)$/i',$line,$m)):
-				$sectorsize = trim($m[1]);
+				$geli_sectorsize = strtolower(trim($m[1]));
+			elseif(preg_match('/^\s*version\s*:\s*(.+)$/i',$line,$m)):
+				$geli_version = strtolower(trim($m[1]));
 			endif;
 		endforeach;
-		if(empty($keylen)):
+		if(preg_match('/\S/',$geli_ealgo) && array_key_exists($geli_ealgo,$a_ealgo)):
+			$cfg_ealgo = $a_ealgo[$geli_ealgo];
+		else:
 			$error++;
 			continue;
 		endif;
-		if(array_key_exists($ealgo_lower,$a_ealgo)):
-			$ealgo = $a_ealgo[$ealgo_lower];
-		else:
-			$ealgo = '';
-			$error++;
-			continue;
-		endif;
-		if(array_key_exists($aalgo_lower,$a_aalgo)):
-			$aalgo = $a_aalgo[$aalgo_lower];
-		else:
-			$aalgo = '';
+		if(preg_match('/\S/',$geli_aalgo)):
+			if(array_key_exists($geli_aalgo,$a_aalgo)):
+				$cfg_aalgo = $a_aalgo[$geli_aalgo];
+			else:
+				$error++;
+				continue;
+			endif;
 		endif;
 		//	does geli config record exist?
-		$index = array_search_ex($dev,$grid_cfg_geli,'device');
-		if(false === $index):
-			 // a new geli was detected
+		$grid_cfg_geli_index = array_search_ex($dev,$grid_cfg_geli,'device');
+		if(false === $grid_cfg_geli_index):
+//			a new geli was detected
 			$num++;
-			$geli = [];
-			$geli['uuid'] = uuid();
-			$geli['name'] = $row_os_disk['name'];
-			$geli['device'] = $dev;
-			$geli['devicespecialfile'] = "{$geli['device']}.eli";
-			$geli['desc'] = 'Encrypted disk';
-			$geli['size'] = $row_os_disk['size'];
-			$geli['sectorsize'] = $sectorsize;
-			$geli['aalgo'] = $aalgo;
-			$geli['ealgo'] = $ealgo;
-			$grid_cfg_geli[] = $geli;
+			$geli_row = [];
+			$geli_row['uuid'] = uuid();
+			$geli_row['name'] = $row_os_disk['name'];
+			$geli_row['device'] = $dev;
+			$geli_row['devicespecialfile'] = sprintf('%s.eli',$dev);
+			$geli_row['desc'] = 'Encrypted disk';
+			$geli_row['size'] = $row_os_disk['size'];
+			$geli_row['sectorsize'] = $geli_sectorsize;
+			$geli_row['aalgo'] = $cfg_aalgo;
+			$geli_row['ealgo'] = $cfg_ealgo;
+			$geli_row['keylen'] = $geli_keylen;
+			$geli_row['version'] = $geli_version;
+			$grid_cfg_geli[] = $geli_row;
 			$need_write_config = true;
 		endif;
-		//	exist disks?
+//		exist disks?
 		$index = array_search_ex($dev,$grid_cfg_disks,'devicespecialfile');
 		if(false !== $index):
 			if($clear_config_before_import):
@@ -2237,7 +2249,7 @@ function disks_import_all_encrypted_disks(bool $clear_config_before_import = fal
 					endif;
 				endif;
 				updatenotify_set('device',UPDATENOTIFY_MODE_MODIFIED,$pdisk['uuid']);
-				$pdisk['smart']['enable'] = $enablesmartmonondevice;					
+				$pdisk['smart']['enable'] = $enablesmartmonondevice;
 				$pdisk['smart']['extraoptions'] = '';
 				$grid_cfg_disks[] = $pdisk;
 				$need_write_config = true;
