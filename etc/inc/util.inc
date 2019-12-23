@@ -829,49 +829,50 @@ function get_smartmontools_drivedb_arg() {
  */
 function parse_camcontrol_info($devtype) {
 	$devlist = [];
-	$device = '';
-	$passthrough_device = '';
-	$controller = '';
-	$controller_id = '';
-	$target_id = '';
-	$lun_id = '';
+	$controller = ['',''];
 	$use_si = is_sidisksizevalues();
-	mwexec2('/sbin/camcontrol devlist -v 2> /dev/null',$rawdata);
-	foreach($rawdata as $line):
+	$cmd = '/sbin/camcontrol devlist -v 2> /dev/null';
+	unset($rawdata);
+	mwexec2($cmd,$rawdata);
+	foreach($rawdata as $rawline):
 //		get controller
 //		'scbus2 on mpt0 bus 0:' => 'mpt0'
-		if(preg_match('/(?<= on )[-A-z0-9]*(?= bus )+/',$line,$matches)):
+		unset($matches);
+		if(preg_match('/(?<= on )[-A-z0-9]*(?= bus )+/',$rawline,$matches)):
 //			'mpt0' => 'mpt'
 			$controller = preg_split('/([0-9]+\z)/i',$matches[0],-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-			$controller_desc = '';
-			$controller_id = '';
-			$target_id = '';
-			$lun_id = '';
-			$device = ['',''];
-			$passthrough_device = ['',''];
-		elseif(!strncmp($line,'<>',2) == 0):
+		elseif(!strncmp($rawline,'<>',2) == 0):
 //			skip line '<>'
 //			get target id
 //			<VMware Virtual disk 1.0>          at scbus2 target 0 lun 0 (pass2,da0)
-//			preg_match('/ target ([0-9]+) lun /',$line,$matches) would work as well
-			if(preg_match('/(?<= target )[0-9]*(?= lun )+/',$line,$matches)):
+			unset($matches);
+//			preg_match('/ target ([0-9]+) lun /',$rawline,$matches) would work as well
+			if(preg_match('/(?<= target )[0-9]*(?= lun )+/',$rawline,$matches)):
 				$target_id = $matches[0];
+			else:
+				$target_id = '';
 			endif;
 //			get lun id
-			if(preg_match('/(?<= lun )[0-9]*/',$line,$matches)):
+			unset($matches);
+			if(preg_match('/(?<= lun )[0-9]*/',$rawline,$matches)):
 				$lun_id = $matches[0];
+			else:
+				$lun_id = '';
 			endif;
 //			get device string
 //			parse substring between parentheses:
 //			(pass0,da0) or (da0,pass0) => 'pass0,da0' or 'da0,pass0'
-			preg_match('/.*\(([^>]*)\).*/',$line,$match);
+			unset($matches);
+			preg_match('/.*\(([^>]*)\).*/',$rawline,$matches);
 //			get device names
-			$a_device = preg_split('/,/',$match[1]);
+			$device = ['',''];
+			$passthrough_device = ['',''];
+			$a_device = explode(',',$matches[1]);
 			$missing_device = true;
 			$missing_passthrough_device = true;
 			foreach($a_device as $r_device):
 //				split device name into it's name and number
-				$r_device_details = preg_split('/(-A-z]+)/',$r_device,-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+				$r_device_details = preg_split('/([-A-z]+)/',$r_device,-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 //				take only the first passthrough device and the first non-passthrough device
 				if(0 === strncmp($r_device_details[0],'pass',4)):
 					if($missing_passthrough_device):
@@ -930,7 +931,7 @@ function parse_camcontrol_info($devtype) {
 				elseif($devtype == 'cdrom'):
 //					display both SCSI and IDE cdroms
 					if(preg_match('/^(cd|acd)/',$device[0])):
-//						add device into devlice list array
+//						add device into device list array
 						$devlist[$device_name]['device'] = $device[0];
 						$devlist[$device_name]['id'] = $device[1];
 						$devlist[$device_name]['name'] = $device_name;
