@@ -1,10 +1,10 @@
 PORTNAME=	devcpu-data
-PORTVERSION=	1.25
+PORTVERSION=	1.27
 PORTREVISION=   0
 CATEGORIES=	sysutils
 MASTER_SITES=   LOCAL/sbruno:amd
 PKGNAMEPREFIX=	devcpu-
-DISTFILES=	amd64-microcode.20191021.tar.xz:amd
+DISTFILES=	amd64-microcode.20191228.tar.xz:amd
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Intel and AMD CPUs microcode updates
@@ -17,7 +17,7 @@ LICENSE_PERMS=	dist-mirror no-dist-sell pkg-mirror no-pkg-sell auto-accept
 USE_GITHUB=	yes
 GH_ACCOUNT=	intel
 GH_PROJECT=	Intel-Linux-Processor-Microcode-Data-Files
-GH_TAGNAME=	microcode-20190918
+GH_TAGNAME=	microcode-20191115
 
 ONLY_FOR_ARCHS=	amd64 i386
 NO_ARCH=	yes
