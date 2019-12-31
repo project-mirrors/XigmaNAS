@@ -13,6 +13,7 @@ Changes:
 - Upgrade devcpu-data to 1.25.
 - Upgrade php to 7.3.13.
 - Upgrade msmtp to 1.8.7.
+- Upgrade nano to 4.7.
 
 Fixes:
 
