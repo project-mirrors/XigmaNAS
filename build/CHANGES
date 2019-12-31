@@ -1,7 +1,7 @@
 XigmaNAS 11.3.0.4 - Parmentier
 ------------------------------
 Changes:
-- Upgrade to FreeBSD 11.3-RELEASE P4.
+- Upgrade to FreeBSD 11.3-RELEASE P5.
 - Add Aquantia AQtion (Atlantic) Network Driver.
 - Upgrade bsnmp-ucd to 0.4.4.
 - Upgrade phpmyadmin to 4.9.1.
