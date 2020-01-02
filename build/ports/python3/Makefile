@@ -20,7 +20,7 @@ DEP_STAGEDIR=		${PORTSDIR}/lang/python37/work/stage
 # To test python, run samba-tool in XigmaNAS
 
 do-install:
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
 # bin
 .for file in python3.7

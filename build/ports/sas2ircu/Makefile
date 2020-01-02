@@ -18,7 +18,7 @@ ONLY_FOR_ARCHS_REASON=	Binaries only available for i386 and amd64 from Broadcom
 .include <bsd.port.pre.mk>
 
 do-install:
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/sas2ircu_freebsd_${ARCH}_rel/sas2ircu ${XIGMANAS_ROOTFS}/${PREFIX}/sbin
 

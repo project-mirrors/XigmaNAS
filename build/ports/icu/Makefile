@@ -17,7 +17,7 @@ BUILD_DEPENDS=	${NONEXISTENT}:devel/icu
 DEP_STAGEDIR=	${PORTSDIR}/devel/icu/work/stage
 
 do-install:
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
 # bin
 .	for file in uconv pkgdata makeconv icuinfo genrb gendict gencnval gencfu genbrk derb

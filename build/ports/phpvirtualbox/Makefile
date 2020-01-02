@@ -28,7 +28,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/config.php-example \
 	    ${STAGEDIR}${WWWDIR}/config.php.sample
 
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
 	@${RM} -f ${STAGEDIR}${WWWDIR}/*.txt
 	#@${MKDIR} -p ${XIGMANAS_ROOTFS}${WWWDIR}

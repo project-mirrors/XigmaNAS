@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # netatalk
@@ -42,9 +42,10 @@ netatalk_mkconf()
 	# Create config file
 	/usr/local/bin/xml sel -t -m "//afp" \
 		-o "[Global]" -n \
-		-i "string-length(afpname) > 0" -v "concat('	hostname = ',afpname)" -n -b \
-		-o "	uam list =" \
+		-i "string-length(afpname) > 0" -v "concat('hostname = ',afpname)" -n -b \
+		-o "uam list =" \
 		-i "count(uams_guest) > 0" -o " uams_guest.so" -b \
+		-i "count(uams_randnum) > 0" -o " uams_randnum.so" -b \
 		-i "count(uams_pam) > 0" -o " uams_pam.so" -b \
 		-i "count(uams_passwd) > 0" -o " uams_passwd.so" -b \
 		-i "count(uams_dhx_pam) > 0" -o " uams_dhx_pam.so" -b \
@@ -52,8 +53,8 @@ netatalk_mkconf()
 		-i "count(uams_dhx2_pam) > 0" -o " uams_dhx2_pam.so" -b \
 		-i "count(uams_dhx2_passwd) > 0" -o " uams_dhx2_passwd.so" -b \
 		-n \
-		-o "	guest account = ftp" -n \
-		-o "	vol dbnest = yes" -n \
+		-o "guest account = ftp" -n \
+		-o "vol dbnest = yes" -n \
 		-m "auxparam" \
 			-v "." -n \
 		-b \
@@ -63,17 +64,17 @@ netatalk_mkconf()
 	# Generate shares
 	/usr/local/bin/xml sel -t -m "//afp/share" \
 		-v "concat('[',name,']')" -n \
-		-v "concat('	path = ',path)" -n \
-		-i "count(timemachine) > 0" -o "	time machine = yes" -n -b \
-		-i "string-length(volsizelimit) > 0" -v "concat('	vol size limit = ',volsizelimit)" -n -b \
-		-i "string-length(volpasswd) > 0" -v "concat('	password = ',volpasswd)" -n -b \
-		-i "string-length(volcharset) > 0" -v "concat('	vol charset = ',volcharset)" -n -b \
-		-i "string-length(allow) > 0" -v "concat('	valid users = ',allow)" -n -b \
-		-i "string-length(deny) > 0" -v "concat('	invalid users = ',deny)" -n -b \
-		-i "string-length(rolist) > 0" -v "concat('	rolist = ',rolist)" -n -b \
-		-i "string-length(rwlist) > 0" -v "concat('	rwlist = ',rwlist)" -n -b \
-		-o "	file perm = 0660" -n \
-		-o "	directory perm = 0770" -n \
+		-v "concat('path = ',path)" -n \
+		-i "count(timemachine) > 0" -o "time machine = yes" -n -b \
+		-i "string-length(volsizelimit) > 0" -v "concat('vol size limit = ',volsizelimit)" -n -b \
+		-i "string-length(volpasswd) > 0" -v "concat('password = ',volpasswd)" -n -b \
+		-i "string-length(volcharset) > 0" -v "concat('vol charset = ',volcharset)" -n -b \
+		-i "string-length(allow) > 0" -v "concat('valid users = ',allow)" -n -b \
+		-i "string-length(deny) > 0" -v "concat('invalid users = ',deny)" -n -b \
+		-i "string-length(rolist) > 0" -v "concat('rolist = ',rolist)" -n -b \
+		-i "string-length(rwlist) > 0" -v "concat('rwlist = ',rwlist)" -n -b \
+		-o "file perm = 0660" -n \
+		-o "directory perm = 0770" -n \
 		-m "auxparam" \
 			-v "." -n \
 		-b \

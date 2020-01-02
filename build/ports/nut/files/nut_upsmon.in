@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # UPS Monitor Service
@@ -23,11 +23,11 @@ rcvar=nut_upsmon_enable
 
 load_rc_config "${name}"
 
-# Custom commands
+#	custom commands
 extra_commands="mkconf"
 mkconf_cmd="nut_upsmon_mkconf"
 
-# Defaults
+#	defaults
 nut_upsmon_enable=${nut_upsmon_enable:-"NO"}
 nut_upsmon_prefix=${nut_upsmon_prefix:-"/usr/local"}
 nut_upsmon_conf=${nut_upsmon_conf:-"/var/etc/upsmon.conf"}
@@ -52,8 +52,7 @@ required_files="${nut_upsmon_conf}"
 command="${nut_upsmon_prefix}/sbin/upsmon"
 pidfile="/var/run/upsmon.pid"
 
-nut_upsmon_mkconf()
-{
+nut_upsmon_mkconf() {
 	local _shutdownmode _shutdowntimer
 
 	_shutdownmode=`configxml_get "//ups/shutdownmode"`
@@ -66,16 +65,15 @@ nut_upsmon_mkconf()
 		_ups_password=`configxml_get "//ups/monitorpassword"`
 	fi
 
-	############################
-	# Create upsmon.conf
-		/usr/local/bin/xml sel -t \
-			-v "concat('MONITOR ',//ups/upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" -n \
-			${configxml_file} | /usr/local/bin/xml unesc > ${nut_upsmon_conf}
-		if configxml_isset //ups/ups2; then
-			/usr/local/bin/xml sel -t \
-				-v "concat('MONITOR ',//ups/ups2_upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" -n \
-				${configxml_file} | /usr/local/bin/xml unesc >> ${nut_upsmon_conf}
-		fi
+#	create upsmon.conf
+	/usr/local/bin/xml sel --template \
+		--value-of "concat('MONITOR ',//ups/upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" --nl \
+		${configxml_file} | /usr/local/bin/xml unesc > ${nut_upsmon_conf}
+	if configxml_isset //ups/ups2; then
+		/usr/local/bin/xml sel --template \
+			--value-of "concat('MONITOR ',//ups/ups2_upsname,'@',//ups/ip,' 1 ${_ups_user} ${_ups_password} ',//ups/mode)" --nl \
+			${configxml_file} | /usr/local/bin/xml unesc >> ${nut_upsmon_conf}
+	fi
 
 	cat <<EOF >> ${nut_upsmon_conf}
 MINSUPPLIES ${nut_upsmon_minsupplies}
@@ -101,8 +99,7 @@ NOCOMMWARNTIME ${nut_upsmon_nocommwarntime}
 FINALDELAY ${nut_upsmon_finaldelay}
 EOF
 
-	############################
-	# Create upssched.conf
+#	create upssched.conf
 	cat <<EOF > ${nut_upsmon_sched_conf}
 CMDSCRIPT /usr/local/bin/upssched-cmd
 PIPEFN /var/run/upssched.pipe
@@ -136,13 +133,12 @@ AT LOWBATT * EXECUTE notify
 EOF
 	fi
 
-	############################
-	# Modify file permissions.
+#	modify file permissions.
 	chmod 0600 ${nut_upsmon_conf}
 	chmod 0600 ${nut_upsmon_sched_conf}
 }
 
-# Create required config file
+#	create required config file
 nut_upsmon_mkconf
 
 run_rc_command "$1"
