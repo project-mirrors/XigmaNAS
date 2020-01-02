@@ -1,4 +1,4 @@
-All XigmaNAS release names are taken from the novel 'Dune' from Frank Herbert.
+All XigmaNAS® release names are taken from the novel 'Dune' from Frank Herbert.
 
 Used Names	release
 
