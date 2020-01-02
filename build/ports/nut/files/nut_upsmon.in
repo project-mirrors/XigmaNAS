@@ -52,7 +52,8 @@ required_files="${nut_upsmon_conf}"
 command="${nut_upsmon_prefix}/sbin/upsmon"
 pidfile="/var/run/upsmon.pid"
 
-nut_upsmon_mkconf() {
+nut_upsmon_mkconf()
+{
 	local _shutdownmode _shutdowntimer
 
 	_shutdownmode=`configxml_get "//ups/shutdownmode"`
