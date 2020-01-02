@@ -8,7 +8,7 @@ DISTNAME=			${SAMBA4_DISTNAME}
 MAINTAINER=			zoon01@xigmanas.com
 COMMENT=			Free SMB/CIFS and AD/DC server and client for Unix
 
-# XigmaNAS contains license files
+# XigmaNAS® contains license files
 NO_LICENSES_INSTALL=		yes
 NO_LICENSES_DIALOGS=		yes
 LICENSE=			GPLv3+
