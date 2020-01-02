@@ -2,7 +2,7 @@
 /*
 	disks_raid_gvinum.php
 
-	Part of Xigmanas® (https://www.xigmanas.com).
+	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 

@@ -1,7 +1,7 @@
 # To create this file use:
 # mtree -c -d -i -n -k uname,gname,mode,nochange -p /var > BSD.var.dist
 #
-# Part of Xigmanas® (https://www.xigmanas.com).
+# Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
