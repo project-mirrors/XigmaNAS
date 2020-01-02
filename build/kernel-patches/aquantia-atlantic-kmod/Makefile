@@ -1,6 +1,6 @@
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
-# XigmaNAS (r) is a registered trademark of Michael Zoon.
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
+# XigmaNAS is a registered trademark of Michael Zoon.
 # All rights reserved.
 #
 # Aquantia AQC107 Multigigabit NIC Driver driver for FreeBSD 11/12/13
