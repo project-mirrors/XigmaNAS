@@ -67,43 +67,6 @@ inadyn_prestart()
 		for _alias in `configxml_get "//dynamicdns/domainname"`; do
 			echo "--alias ${_alias}" >> ${inadyn_config}
 		done
-	/usr/local/bin/xml sel -t -m "//dynamicdns" \
-			--if "string-length(provider) > 0)" \
-				--output '--dyndns_system ' \
-				-i "provider[. = 'dyndns.org']" -o "--dyndns_system dyndns@dyndns.org" -n -b \
-				-i "provider[. = 'dyndns.org (static)']" -o "--dyndns_system statdns@dyndns.org" -n -b \
-				-i "provider[. = 'dyndns.org (custom)']" -o "--dyndns_system customdns@dyndns.org" -n -b \
-				-i "provider[. = 'freedns.afraid.org']" -o "--dyndns_system default@freedns.afraid.org" -n -b \
-				-i "provider[. = 'zoneedit.com']" -o "--dyndns_system default@zoneedit.com" -n -b \
-				-i "provider[. = 'no-ip.com']" -o "--dyndns_system default@no-ip.com" -n -b \
-				-i "provider[. = 'easydns.com']" -o "--dyndns_system default@easydns.com" -n -b \
-				-i "provider[. = '3322.org']" -o "--dyndns_system dyndns@3322.org" -n -b \
-				-i "provider[. = 'sitelutions.com']" -o "--dyndns_system default@sitelutions.com" -n -b \
-				-i "provider[. = 'dnsomatic.com']" -o "--dyndns_system default@dnsomatic.com" -n -b \
-				-i "provider[. = 'tunnelbroker.net']" -o "--dyndns_system ipv6tb@he.net" -n -b \
-				-i "provider[. = 'tzo.com']" -o "--dyndns_system default@tzo.com" -n -b \
-				-i "provider[. = 'dynsip.org']" -o "--dyndns_system default@dynsip.org" -n -b \
-				-i "provider[. = 'dhis.org']" -o "--dyndns_system default@dhis.org" -n -b \
-				-i "provider[. = 'zerigo.com']" -o "--dyndns_system default@zerigo.com" -n -b \
-				-i "provider[. = 'two-dns.de']" -o "--dyndns_system default@two-dns.de" -n -b \
-				-i "provider[. = 'www.dnsdynamic.org']" -o "--dyndns_system default@dnsdynamic.org" -n -b \
-				-i "provider[. = 'dnspark.com']" -o "--dyndns_system default@dnspark.com" -n -b \
-				-i "provider[. = 'regfish.de']" -o "--dyndns_system ipv4@regfish.de" -n -b \
-				-i "provider[. = 'regfish.de (IPv6)']" -o "--dyndns_system ipv6@regfish.de" -n -b \
-				-i "provider[. = 'www.ovh.com']" -o "--dyndns_system default@ovh.com" -n -b \
-				-i "provider[. = 'joker.com']" -o "--dyndns_system default@joker.com" -n -b \
-				-i "provider[. = 'dyndns.strato.com']" -o "--dyndns_system default@strato.com" -n -b \
-				-i "provider[. = 'system-ns.com']" -o "--dyndns_system default@system-ns.com" -n -b \
-				-i "provider[. = 'changeip.com']" -o "--dyndns_system default@changeip.com" -n -b \
-				-i "provider[. = 'dnsexit.com']" -o "--dyndns_system default@dnsexit.com" -n -b \
-				-i "provider[. = 'nsupdate.info']" - o "--dyndns_system ipv4@nsupdate.info" -n -b \
-				-i "provider[. = 'nsupdate.info (IPv6)']" -o "--dyndns_system ipv6@nsupdate.info" -n -b \
-				-i "provider[. = 'loopia.com']" -o "--dyndns_system default@loopia.com" -n -b \
-				-i "provider[. = 'domains.google.com']" -o "--dyndns_system default@domains.google.com" -n -b \
-				-i "provider[. = 'duckdns.org']" -o "--dyndns_system default@duckdns.org" -n -b \
-				-i "provider[. = 'dy.fi']" -o "--dyndns_system default@dy.fi" -n -b \
-				--nl \
-			--break \
 }
 
 run_rc_command "$1"
