@@ -1,6 +1,7 @@
 etc/inc/XMLRPC
 etc/rc.beupgrade
 usr/local/etc/php/ext-20-intl.ini
+usr/local/lib/samba/libldb.so.1
 usr/local/www/diag_infos.php
 usr/local/www/diag_infos_ata.php
 usr/local/www/diag_infos_disksinfo.php
