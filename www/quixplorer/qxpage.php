@@ -2,8 +2,8 @@
 /*
 	qxpage.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Portions of Quixplorer (http://quixplorer.sourceforge.net).
@@ -33,14 +33,12 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 /**
  * qxpage_selected_items
  * @return the selected items from a list view on a page out of the _POST.
  **/
-function qxpage_selected_items()
-{
-  return $GLOBALS['__POST']["selitems"];
+function qxpage_selected_items() {
+	return $GLOBALS['__POST']['selitems'];
 }
-?>
