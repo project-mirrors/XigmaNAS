@@ -2,8 +2,8 @@
 /*
 	disks_raid_gconcat_tools.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 /*	error_reporting(E_ALL);
  *	ini_set('display_errors',true);

@@ -2,8 +2,8 @@
 /*
 	login.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Portions of Quixplorer (http://quixplorer.sourceforge.net).
@@ -32,7 +32,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once "./_include/user.php";
 require_once "./_include/debug.php";
@@ -107,11 +107,11 @@ function login ()
             echo "<INPUT name=\"p_user\" type=\"text\" size=\"25\"></TD></TR>\n";
             echo "<TR><TD>".$GLOBALS["messages"]["miscpassword"].":</TD><TD align=\"right\">";
             echo "<INPUT name=\"p_pass\" type=\"password\" size=\"25\"></TD></TR>\n";
-            // XigmaNAS Code
+//			XigmaNAS® Code
             //Select box and auto language detection array
             echo "<TR><TD>", gtext("Detected Language:"), "<br />", gtext("(Change if needed)"), "</TD><TD align=\"right\">";
             @include "./_lang/_info.php";
-            // End XigmaNAS Code
+//			End XigmaNAS® Code
             echo "<TR><TD colspan=\"2\" align=\"right\"><INPUT type=\"submit\" value=\"";
             echo $GLOBALS["messages"]["btnlogin"]."\"></TD></TR>\n</FORM></TABLE><BR></CENTER>\n";
             ?><script language="JavaScript1.2" type="text/javascript">

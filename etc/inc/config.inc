@@ -2,8 +2,8 @@
 /*
 	config.inc
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once 'globals.inc';
 require_once 'util.inc';
@@ -643,7 +643,7 @@ function config_upgrade_0dot9() {
 	$config['system']['hostname'] = 'xigmanas';
 	array_make_branch($config,'samba');
 	$config['samba']['netbiosname'] = 'xigmanas';
-	$config['samba']['serverdesc'] = 'XigmaNAS Server';
+	$config['samba']['serverdesc'] = 'XigmaNAS® Server';
 }
 /**
  *	Upgrade configuration from version 1.0
@@ -1470,7 +1470,7 @@ function config_upgrade_37() {
 	if(array_key_exists('motd',$grid_system) && is_string($grid_system['motd'])):
 		$helpinghand = base64_decode($grid_system['motd']);
 	else:
-		$helpinghand = 'Welcome to XigmaNAS!' . PHP_EOL;
+		$helpinghand = 'Welcome to XigmaNAS®!' . PHP_EOL;
 	endif;
 	$grid_system['motd'] = base64_encode(str_ireplace('NAS4Free','XigmaNAS',$helpinghand));
 }

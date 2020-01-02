@@ -1,8 +1,8 @@
 /*
 	datechooser.js
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Copyright (c) 2004 Baron Schwartz <baron at sequent dot org>

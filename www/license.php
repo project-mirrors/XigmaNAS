@@ -2,8 +2,8 @@
 /*
 	license.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 // Configure page permission
 $pgperm['allowuser'] = true;
@@ -296,7 +296,7 @@ $thead->ins_titleline(gettext('License'),$n_col_width);
 $td = $tbody->addTR()->addTDwC('lcebl');
 $td->addP()->addElement('strong',[],'XigmaNAS® is copyright © 2018-2020 XigmaNAS® (<a href="mailto:info@xigmanas.com">info@xigmanas.com</a>).<br />All Rights Reserved.');
 $td->addP()->addElement('strong',[],'XigmaNAS® is a registered trademark of Michael Zoon (<a href="mailto:zoon01@xigmanas.com">zoon01@xigmanas.com</a>).<br />All Rights Reserved.');
-$td->addP([],'The compilation of software, code and documentation known as XigmaNAS is distributed under the following terms:');
+$td->addP([],'The compilation of software, code and documentation known as XigmaNAS® is distributed under the following terms:');
 $td->addP([],'Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:');
 $td->
 	addElement('ol',['start' => '1','style' => 'padding-left: 2em;'])->
@@ -314,7 +314,7 @@ $td->addP([],
 	'(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS ' .
 	'SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.');
 $td->addP([],
-	'The views and conclusions contained in the software and documentation are those of the authors and should not be interpreted as representing official policies of XigmaNAS, either expressed or implied.');
+	'The views and conclusions contained in the software and documentation are those of the authors and should not be interpreted as representing official policies of XigmaNAS®, either expressed or implied.');
 $a_col_width = ['20%','25%','55%'];
 $n_col_width = count($a_col_width);
 $table = $content->add_table_data_selection();

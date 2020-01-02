@@ -624,7 +624,7 @@ post-install-FRUIT-off:
 					${RM} ${STAGEDIR}${PREFIX}/man/man8/vfs_fruit.8
 
 post-install:
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "Install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba

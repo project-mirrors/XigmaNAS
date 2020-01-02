@@ -2,8 +2,8 @@
 /*
 	wui2.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once 'config.inc';
 require_once 'array.inc';
@@ -2842,7 +2842,7 @@ EOJ;
 			insElement('meta',['name' => 'format-detection','content' => 'telephone=no'])->
 			insElement('meta',['name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'])->
 			insElement('meta',['name' => 'robots','content' => 'noindex,nofollow'])->
-			insElement('meta',['name' => 'description','content' => 'XigmaNAS - The Free Network Attached Storage Project'])->
+			insElement('meta',['name' => 'description','content' => 'XigmaNAS® - The Free Network Attached Storage Project'])->
 			insElement('title',[],$this->clc_html_page_title($page_title))->
 			insElement('link',['href' => '/css/gui.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement('link',['href' => '/css/navbar.css.php','rel' => 'stylesheet','type' => 'text/css'])->

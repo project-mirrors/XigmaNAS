@@ -34,7 +34,7 @@ post-extract:
 	${CAT} ${WRKSRC}/Intel-Linux-Processor-Microcode-Data-Files-${GH_TAGNAME}/intel-ucode/* ${WRKSRC}/Intel-Linux-Processor-Microcode-Data-Files-${GH_TAGNAME}/intel-ucode-with-caveats/* > ${WRKSRC}/intel-ucode.bin
 
 do-install:
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/cpucontrol
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# This script is designed to automate the assembly of XigmaNAS builds.
+# This script is designed to automate the assembly of XigmaNAS® builds.
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # Debug script
@@ -101,8 +101,8 @@ XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/branches/11.3.0.4"
 XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/11.3"
 
 # Size in MB of the MFS Root filesystem that will include all FreeBSD binary
-# and XIGMANAS WEbGUI/Scripts. Keep this file very small! This file is unzipped
-# to a RAM disk at XIGMANAS startup.
+# and XIGMANAS® WEbGUI/Scripts. Keep this file very small! This file is unzipped
+# to a RAM disk at XigmaNAS® startup.
 # The image must fit on 2GB CF/USB.
 # Actual size of MDLOCAL is defined in /etc/rc.
 XIGMANAS_MFSROOT_SIZE=128
@@ -231,7 +231,7 @@ update_sources() {
 
 # Build world. Copying required files defined in 'build/xigmanas.files'.
 build_world() {
-	# Make a pseudo 'chroot' to XIGMANAS root.
+	# Make a pseudo 'chroot' to XigmaNAS® root.
   cd $XIGMANAS_ROOTFS
 
 	echo
@@ -1492,7 +1492,7 @@ create_full() {
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
 	mkdir $XIGMANAS_TMPDIR
 
-	#Copying all XIGMANAS rootfilesystem (including symlink) on this folder
+	#Copying all XigmaNAS® rootfilesystem (including symlink) on this folder
 	cd $XIGMANAS_TMPDIR
 	tar -cf - -C $XIGMANAS_ROOTFS ./ | tar -xvpf -
 	#tar -cf - -C $XIGMANAS_ROOTFS ./ | tar -xvpf - -C $XIGMANAS_TMPDIR
@@ -2106,7 +2106,7 @@ build_system() {
   while true; do
 echo -n '
 -----------------------------
-Compile XIGMANAS from Scratch
+Compile XigmaNAS® from Scratch
 -----------------------------
 
 	Menu Options:
@@ -2327,8 +2327,8 @@ main() {
 ${XIGMANAS_PRODUCTNAME} Build Environment
 --------------------------
 
-1  - Update XigmaNAS Source Files to CURRENT.
-2  - XigmaNAS Compile Menu.
+1  - Update XigmaNAS® Source Files to CURRENT.
+2  - XigmaNAS® Compile Menu.
 10 - Create 'Embedded.img.xz' File. (Firmware Update)
 11 - Create 'LiveUSB.img.gz MBR' File. (Rawrite to USB Key)
 12 - Create 'LiveUSB.img.gz GPT' File. (Rawrite to USB Key)

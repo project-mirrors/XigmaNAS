@@ -42,7 +42,7 @@ do-build:
 		)
 
 do-install:
-# XigmaNAS install
+# XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/${PORTNAME}/syncthing \
 		${XIGMANAS_ROOTFS}${PREFIX}/bin/

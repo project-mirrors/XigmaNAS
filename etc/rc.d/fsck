@@ -1,14 +1,14 @@
 #!/bin/sh
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+# Part of Xigmanas® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # Run file system checks
 #
 # $FreeBSD: /etc/rc.d/fsck	Revision 331216
 #
-# XigmaNAS Changes: - Refactor fsck_start to process configured disks only.
+# XigmaNAS® Changes: - Refactor fsck_start to process configured disks only.
 # 	   	    - Add fsck_start_root to check root file system on 'full' installations.
 #
 

@@ -1,9 +1,9 @@
 \
-\ Part of XigmaNAS (https://www.xigmanas.com).
-\ XigmaNAS Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
+\ Part of XigmaNAS® (https://www.xigmanas.com).
+\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
 \ All Rights Reserved.
 \
-\ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
+\ XigmaNAS is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
 \ All Rights Reserved.
 \
 

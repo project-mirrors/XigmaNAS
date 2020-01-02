@@ -3,8 +3,8 @@
  	  IMPORTANT - PLEASE READ!!!
 
 
-Important information for users running on a lower version than XigmaNAS 11.2.0.4.6625
-======================================================================================
+Important information for users running on a lower version than XigmaNAS® 11.2.0.4.6625
+=======================================================================================
 Please download the LiveCD/USB image to create a new boot media.
 We do not recommend an in-place upgrade via the firmware update page because of recent changes to the partition layout.
 First, download your configuration file from the backup/restore page and save it. Then backup all other data partitions that exist on the boot media.
@@ -102,7 +102,7 @@ As an example the outer IP address and LAN address for remote access.
 HAST (Highly Available Storage)
 ===============================
 It is still experimental in the WebGUI. You need CLI for some tasks.
-To evaluate HAST, you need two of the same-configured XigmaNAS servers.
+To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 Currently iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 

@@ -2,8 +2,8 @@
 #
 # This script does Modify the file permissions.
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+# Part of Xigmanas® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 

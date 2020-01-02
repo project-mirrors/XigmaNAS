@@ -1,8 +1,8 @@
 /*
-	XigmaNAS rebrand.txt
+	XigmaNAS® rebrand.txt
 */
 
-Rebranding 'XigmaNAS'
+Rebranding 'XigmaNAS®'
 --------------------
 
 1. Modify the following files:

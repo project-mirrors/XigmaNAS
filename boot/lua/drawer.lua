@@ -192,7 +192,7 @@ local function drawbox()
 	end
 
 	local menu_header = loader.getenv("loader_menu_title") or
-	    "Welcome to XigmaNAS"
+	    "Welcome to XigmaNAS®"
 	local menu_header_align = loader.getenv("loader_menu_title_align")
 	local menu_header_x
 

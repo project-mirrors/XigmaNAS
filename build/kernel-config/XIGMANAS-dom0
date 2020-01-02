@@ -4,7 +4,7 @@ ident		XIGMANAS-dom0
 makeoptions	MODULES_EXTRA="mlx4 mlx4en mlx5 mlx5en"
 
 #####################################################################
-# XIGMANAS
+# XigmaNAS
 #####################################################################
 device		speaker
 

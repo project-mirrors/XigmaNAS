@@ -2,8 +2,8 @@
 /*
 	list.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
+	Part of Xigmanas® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Portions of Quixplorer (http://quixplorer.sourceforge.net).
@@ -32,7 +32,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once './_include/permissions.php';
 require_once './_include/login.php';
@@ -392,7 +392,7 @@ function _print_edit_buttons ($dir) {
 	_print_link('copy',permissions_grant_all($dir,NULL,['create','read']),$dir,NULL);
 	_print_link('move',permissions_grant($dir,NULL,'change'),$dir,NULL);
 	_print_link('delete',permissions_grant($dir,NULL,'delete'),$dir,NULL);
-//	XigmaNAS info: We disable upload function for security and limited space var/temp
+//	XigmaNAS® info: We disable upload function for security and limited space var/temp
 //	_print_link('upload',permissions_grant($dir,NULL,'create') && get_cfg_var('file_uploads'),$dir,NULL);
 //	_print_link('archive',permissions_grant_all($dir,NULL,['create','read']) && ($GLOBALS['zip'] || $GLOBALS['tar'] || $GLOBALS['tgz']),$dir,NULL);
 }
