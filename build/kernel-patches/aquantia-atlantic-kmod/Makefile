@@ -1,5 +1,5 @@
 # Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
 # XigmaNAS (r) is a registered trademark of Michael Zoon.
 # All rights reserved.
 #

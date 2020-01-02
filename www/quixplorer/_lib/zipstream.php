@@ -1,7 +1,7 @@
 <?php
 #
 # Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Copyright © 2018-2020 XigmaNAS®<info@xigmanas.com>.
 # All rights reserved.
 #
 # ZipStream - Streamed, dynamically generated zip archives.
