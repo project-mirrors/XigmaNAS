@@ -3,21 +3,21 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2018-07-06 10:33+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2019-12-04 14:09+0000\n"
+"Last-Translator: Michał Fita <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
-"X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
+"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
+"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Brak klucza prywatnegp"
 
 msgid " interfaces:"
 msgstr " interfejsy:"
@@ -111,7 +111,7 @@ msgstr "%s użyte z %s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts."
-msgstr ""
+msgstr "%s chciałby podziękować autorom tego oprogramowanie za ich wysiłki."
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -197,10 +197,10 @@ msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "000"
-msgstr ""
+msgstr "000"
 
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr ""
@@ -216,28 +216,28 @@ msgid "1 or more disks are required to build a RAID-1 volume."
 msgstr "Jedne lub więcej dysków jest wymagane aby stworzyć wolumin RAID-1"
 
 msgid "1.8\""
-msgstr ""
+msgstr "1,8\""
 
 msgid "1000"
-msgstr ""
+msgstr "1000"
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
-msgstr ""
+msgstr "16 KiB"
 
 msgid "16384"
-msgstr ""
+msgstr "16384"
 
 msgid "192.168.0.0/24"
-msgstr ""
+msgstr "192.168.0.0/24"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 KiB"
-msgstr ""
+msgstr "2 KiB"
 
 msgid "2 or more disks are required to build a RAID-0 volume."
 msgstr "Co najmniej 2 dyski są potrzebne do RAID-0"
@@ -246,10 +246,10 @@ msgid "2 or more disks are required to build a RAID-1 volume."
 msgstr "Co najmniej 2 dyski są potrzebne do RAID-1"
 
 msgid "2.5\""
-msgstr ""
+msgstr "2,5\""
 
 msgid "22"
-msgstr ""
+msgstr "22"
 
 msgid "3"
 msgstr "3"
@@ -258,43 +258,43 @@ msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "Co najmniej 3 dyski są potrzebne do RAID-5"
 
 msgid "3.5\""
-msgstr ""
+msgstr "3,5\""
 
 msgid "300"
-msgstr ""
+msgstr "300"
 
 msgid "32 KiB"
-msgstr ""
+msgstr "32 KiB"
 
 msgid "4 KiB"
-msgstr ""
+msgstr "4 KiB"
 
 msgid "4KB wrapper"
 msgstr "4KB paczki"
 
 msgid "5.25\""
-msgstr ""
+msgstr "5,25\""
 
 msgid "512 Bytes"
-msgstr ""
+msgstr "512 bajtów"
 
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
-msgstr ""
+msgstr "64 KiB"
 
 msgid "69"
-msgstr ""
+msgstr "69"
 
 msgid "8 KiB"
-msgstr ""
+msgstr "8 KiB"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "Etykieta VLAN 802.1Q (pomiędzy 1 a 4094)."
 
 msgid "8200"
-msgstr ""
+msgstr "8200"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -461,7 +461,7 @@ msgid "ARP Tables List"
 msgstr "Lista tablic ARP"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Akceptuj zdalne logi systemowe."
@@ -505,7 +505,7 @@ msgstr ""
 "nie powiedzie się."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Aktywuj wybrane urządzenie."
 
 msgid "Active"
 msgstr "Aktywne"
@@ -544,7 +544,7 @@ msgid "Add CHAP User"
 msgstr ""
 
 msgid "Add Command"
-msgstr ""
+msgstr "Dodaj polecenie"
 
 msgid "Add Dataset"
 msgstr "Dodaj zestaw danych"
@@ -721,13 +721,13 @@ msgid "Add target"
 msgstr "Dodaj cel"
 
 msgid "Add the selected device to the existing mirror."
-msgstr ""
+msgstr "Dodaj wybrane urządzenie do istniejącej lustrzanej kopii."
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "Dodaj użytkownika do dodatkowych grup."
 
 msgid "Additional Information"
-msgstr ""
+msgstr "Dodatkowe informacje"
 
 msgid "Additional Network"
 msgstr "Dodatkowa sieć"
@@ -758,7 +758,7 @@ msgid "Admin Password"
 msgstr "Hasło Administratora"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Dostęp administratora"
 
 msgid "Administration Password"
 msgstr "Hasło administracyjne"
@@ -831,13 +831,13 @@ msgid "Algorithm"
 msgstr "Algorytm"
 
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 msgid "All"
 msgstr "Wszystko"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Wszystkie interfejsy"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Wszystkie dane z następujących statystyk zostały usunięte:"

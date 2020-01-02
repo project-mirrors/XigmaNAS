@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-10-17 22:23+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"PO-Revision-Date: 2019-12-28 22:23+0000\n"
+"Last-Translator: ms49434 <ms49434@xigmanas.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
-"X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
+"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
+"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -566,7 +566,7 @@ msgid "Add CHAP User"
 msgstr "Füge CHAP Benutzter hinzu"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Befehl hinzufügen"
 
 msgid "Add Dataset"
 msgstr "Dataset hinzufügen"
@@ -1622,7 +1622,7 @@ msgid "Button Location"
 msgstr "Knopfleistenanordnung (Button)"
 
 msgid "Button Settings"
-msgstr ""
+msgstr "Schaltflächeneinstellungen"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -2001,10 +2001,10 @@ msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Befehl für das LINK_UP Ereignis (z.B. %s)"
 
 msgid "Command is locked"
-msgstr ""
+msgstr "Befehl ist gesperrt"
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "Befehl ist zum Löschen markiert"
 
 msgid "Command is unlocked"
 msgstr "Kommando ist entsperrt"
@@ -3410,7 +3410,7 @@ msgid "Display"
 msgstr "Anzeige"
 
 msgid "Display Options"
-msgstr ""
+msgstr "Anzeigeeinstellungen"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -4058,7 +4058,7 @@ msgid "Done."
 msgstr "Erledigt."
 
 msgid "Down"
-msgstr ""
+msgstr "Nach unten"
 
 msgid "Download"
 msgstr "Herunterladen"
@@ -4149,7 +4149,7 @@ msgid "Edit CHAP User"
 msgstr "CHAP BEnutzer bearbeiten"
 
 msgid "Edit Command"
-msgstr ""
+msgstr "Befehl bearbeiten"
 
 msgid "Edit Dataset"
 msgstr "Dataset bearbeiten"
@@ -4965,8 +4965,8 @@ msgid ""
 "Enter the path to the home directory. This directory will store the "
 "statistical data and gets updated every 5 minutes!"
 msgstr ""
-"Eingabe des Speicherpfad. In diesem Order werden die Statistik Daten "
-"gespeichert und alle 5 Minuten aktualisiert."
+"Eingabe des Speicherpfades. In diesem Order werden die Daten für die "
+"Statistik gespeichert und alle 5 Minuten aktualisiert."
 
 msgid "Enter the port to send the traps to (default 162)."
 msgstr ""
@@ -5363,7 +5363,7 @@ msgid ""
 "(This is not recommended.)"
 msgstr ""
 "Erzwinge die Nutzung von \"vdevs\", auch wenn diese in Benutzung erscheinen "
-"oder andere Gr&ouml;&szlig;e angeben. (dies wird nicht empfohlen.)"
+"oder eine unterschiedliche Größe haben. (dies wird nicht empfohlen.)"
 
 msgid "Foreign"
 msgstr "Auswärtig"
@@ -5761,16 +5761,16 @@ msgid "Hint"
 msgstr "Hinweis"
 
 msgid "Home Directory"
-msgstr "Persönlicher Ordner"
+msgstr "Statistik-Speicherort"
 
 msgid "Host"
 msgstr "Host"
 
 msgid "Host Access Control"
-msgstr "Host Zugangskontrolle"
+msgstr "Host-Zugangskontrolle"
 
 msgid "Host Resources"
-msgstr "Host Ressourcen"
+msgstr "Host-Ressourcen"
 
 msgid "Host resources"
 msgstr "Host-Ressourcen"
@@ -5779,7 +5779,7 @@ msgid "Hostname"
 msgstr "Hostname"
 
 msgid "Hostname Database"
-msgstr "Hostnamen Datenbank"
+msgstr "Hostnamen-Datenbank"
 
 msgid "Hosts"
 msgstr "Hosts"
@@ -7250,7 +7250,7 @@ msgid "Minutes between the next network time synchronization."
 msgstr "Minuten bis zur nächsten Netzwerk-Zeit-Synchronisation (ntp time)."
 
 msgid "Missing a temporary folder."
-msgstr "Es fehlt ein tempor&auml;rer Ordner."
+msgstr "Es fehlt ein temporärer Ordner."
 
 msgid "Missing parameter"
 msgstr "Fehlender Parameter"
@@ -7500,7 +7500,7 @@ msgid "Name of the WebDAV Record."
 msgstr "Name des WebDAV Eintrages."
 
 msgid "Name of the command."
-msgstr ""
+msgstr "Name des Befehls."
 
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
@@ -7529,13 +7529,13 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Native - speichere Zeichen mit ihren ursprünglichen ASCII-werten."
 
 msgid "Navbar Style"
-msgstr ""
+msgstr "Stil der Navigationsleiste"
 
 msgid "Navigation Bar"
 msgstr "Navigationsleiste"
 
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Navigationsmenü"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Weder Benutzerdaten noch Metadaten werden gecached im ARC ."
@@ -9920,6 +9920,8 @@ msgstr "Wählen Sie das zu installierende FreeBSD Package aus."
 
 msgid "Select the display mode of the top-level items in the navigation bar."
 msgstr ""
+"Wählen Sie den Anzeigemodus der Elemente der obersten Ebene in der "
+"Navigationsleiste aus."
 
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
@@ -10402,13 +10404,13 @@ msgstr ""
 "Logarithmischer Skalierung)"
 
 msgid "Show symbol and text"
-msgstr ""
+msgstr "Symbol und Text anzeigen"
 
 msgid "Show symbol only"
-msgstr ""
+msgstr "Nur Symbol anzeigen"
 
 msgid "Show text only"
-msgstr ""
+msgstr "Nur Text anzeigen"
 
 msgid "Shrink Page Header"
 msgstr "Verkleinere die Kopfzeile"
@@ -11854,7 +11856,7 @@ msgid "The name of the target."
 msgstr "Der Name des Ziels."
 
 msgid "The name of the variable."
-msgstr ""
+msgstr "Der Name der Variable."
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "Der Name des virtuellen Laufwerks kann nicht geändert werden."
@@ -12131,6 +12133,9 @@ msgid ""
 "specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
+"Diese Option(en) werden zu /boot/loader.conf.local hinzugefügt. Auf diese "
+"Weise können Sie Parameter angeben, die an den Kernel übergeben werden "
+"sollen, und zusätzliche Module, die geladen werden sollen."
 
 #, php-format
 msgid "These parameters are added to %s."

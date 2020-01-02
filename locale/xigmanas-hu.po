@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-06-26 07:03+0000\n"
-"Last-Translator: Kiss-Kálmán Dániel <kisskalmandaniel@gmail.com>\n"
+"PO-Revision-Date: 2019-11-09 20:14+0000\n"
+"Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-07 21:16+0000\n"
-"X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
+"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
+"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -24,7 +24,7 @@ msgid " was assigned to "
 msgstr " ki lett jelölve a "
 
 msgid " | State: "
-msgstr ""
+msgstr " | Állapot: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -32,11 +32,11 @@ msgstr "%1$s-t használunk %2$s kötet létrehozásához."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s menedzselt, %2$s használt, %3$s elérhető"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s használt, %3$s elérhető"
 
 #, php-format
 msgid "%d days"
@@ -218,7 +218,7 @@ msgid "1000"
 msgstr "1000"
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -461,7 +461,7 @@ msgid "ARP Tables List"
 msgstr "ARP táblák felsorolása"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Távoli rendszernapló-üzenetek fogadása"
@@ -543,7 +543,7 @@ msgid "Add CHAP User"
 msgstr "CHAP felhasználó hozzáadása"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Parancs hozzáadása"
 
 msgid "Add Dataset"
 msgstr "Adattár hozzáadása"
@@ -714,7 +714,7 @@ msgid "Add self-test"
 msgstr "Önteszt hozzáadása"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "sysctl beállítás hozzáadása"
 
 msgid "Add target"
 msgstr "Cél hozzáadása"
@@ -756,7 +756,7 @@ msgid "Admin Password"
 msgstr "Rendszergazda jelszava"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Admin hozzáférés"
 
 msgid "Administration Password"
 msgstr "Rendszergazda jelszava"
@@ -777,7 +777,7 @@ msgid "Advanced Options"
 msgstr "Speciális beállítások"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "haladó SMB beállítások"
 
 msgid "Advanced Settings"
 msgstr "Haladó beállítások"
@@ -835,7 +835,7 @@ msgid "All"
 msgstr "Minden"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Valamennyi interfész"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "A következő statisztikák összes adatát sikeresen törölted:"
@@ -931,7 +931,7 @@ msgid "Allow symlinks that point outside defined media folders."
 msgstr "A megadott médiamappákon kívülre mutató symlinkek engedélyezése."
 
 msgid "Allow the server to try and become a local master browser."
-msgstr ""
+msgstr "Engedély adása, hogy a szerver próbáljon a helyi fő böngésző lenni"
 
 msgid "Allow to start UPS from battery"
 msgstr "Megengedi, hogy a szünetmentes elemről induljon."
@@ -1093,7 +1093,7 @@ msgstr ""
 "elérhetetlenné válhat!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Tartalom hozzáadása az alapértelmezett CSS fájlhoz"
 
 msgid "Append user defined shares"
 msgstr "Felhasználó által létrehozott megosztás hozzáfűzése"
@@ -1407,7 +1407,7 @@ msgid "Battery Details"
 msgstr "Akkumulátor adatok"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Akkumulátor szint:"
 
 msgid "Battery Low"
 msgstr "Alacsony töltöttségi szint"
@@ -1468,7 +1468,7 @@ msgid "Best available"
 msgstr "Az elérhető legjobb"
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Béta verziók"
 
 msgid "Binary Prefix"
 msgstr "Bináris előtag"
@@ -1572,7 +1572,7 @@ msgid "Button Location"
 msgstr "Gombv elhelyezkedése"
 
 msgid "Button Settings"
-msgstr ""
+msgstr "Nyomogómb beaállítások"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Alapértelmezetten csak már létező fájlok tölthetőek fel."
@@ -1723,7 +1723,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "CSS beállítások"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1800,7 +1800,7 @@ msgid "Change"
 msgstr "Módosítás"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "Hozzáférés megváltoztatása"
 
 msgid "Change below file"
 msgstr "Változás az alábbi fájlt"
@@ -1903,7 +1903,7 @@ msgid "Collisions"
 msgstr "Ütközések"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Színes kijelzők"
 
 msgid "Cols"
 msgstr "Oszlopok"
@@ -1942,10 +1942,10 @@ msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "LINK_UP esemény utasítása (pl. %s)."
 
 msgid "Command is locked"
-msgstr ""
+msgstr "A parancs zárolva"
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "A parancs kijelölve törlésre"
 
 msgid "Command is unlocked"
 msgstr "A parancs zárolását feloldottad"
@@ -1960,7 +1960,7 @@ msgid "Comment"
 msgstr "Megjegyzés"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Kommunikációs hiba"
 
 msgid "Community"
 msgstr "Közösség"
@@ -2028,7 +2028,7 @@ msgid "Consider replacing this drive"
 msgstr "Fontold meg a meghajtó cseréjét"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Automatikus konzol bejelentkezés"
 
 msgid "Console Menu"
 msgstr "Konzol menü"
@@ -2369,7 +2369,7 @@ msgid "Create PV Guest"
 msgstr "PV vendég létrehozása"
 
 msgid "Create Permission"
-msgstr ""
+msgstr "Engedély hozzáadása"
 
 msgid "Create Work Directory"
 msgstr "Munkamappa létrehozása"
@@ -2465,10 +2465,10 @@ msgid "Current Version"
 msgstr "Jelenlegi verzió"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "A mostani és az előző hónap"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "A mostani és az előző év"
 
 msgid "Current internal temperature."
 msgstr "Pillanatnyi belső hőmérséklet."
@@ -2480,7 +2480,7 @@ msgid "Current password is incorrectly entered."
 msgstr "A jelenlegi jelszót hibásan adtad meg."
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Jelenlegi negyedév"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr "Az életgörbén alapuló meghajtóművelet pillanatnyi állapota."
@@ -2498,7 +2498,7 @@ msgid "Current value of real power (Watts)"
 msgstr "A valós teljesítmény aktuális értéke (Volt-Amper)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Jelenlegi év"
 
 msgid "Custom"
 msgstr "Egyéni"
@@ -2567,12 +2567,15 @@ msgid "DNS server is empty."
 msgstr "DNS szerver üres."
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "DOS karakterbeállítás"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
 msgstr ""
+"A DOS SMB kilensek azt feltételezik, hogy a szervernek ugyanaz a "
+"karakterkészlete van, mint nekik. Ez az opció határozza meg, hogy melyik "
+"karakterkészlettel kommunikáljon a Samba a DOS kliensekkel."
 
 msgid "DVD"
 msgstr "DVD"
@@ -2756,7 +2759,7 @@ msgid "Delete Login Info"
 msgstr "Törlés Belépés Információk"
 
 msgid "Delete Permission"
-msgstr ""
+msgstr "Engedély visszavonása"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Kiválasztott Hitelesítési csoportok törlése"
@@ -2867,7 +2870,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Kiválasztott pillanatképek törlése"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "A kijelölt sysctl beállítások visszavonása"
 
 msgid "Delete Selected Targets"
 msgstr "Kiválasztott célok törlése"
@@ -3223,7 +3226,7 @@ msgid "Disable Selected Records"
 msgstr "Kijelölt bejegyzések tiltása"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "A kijelölt útvonalak tiltása"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Kijelölt Rsync feladatok törlése"
@@ -3232,10 +3235,10 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Kijelölt Rsync modulok törlése"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "A kijelölt Samba megosztások tiltása"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "A kilejölt sysctl beállítások tiltása"
 
 msgid "Disable Selected Targets"
 msgstr "Kiválasztott célok tiltása"
@@ -3357,7 +3360,7 @@ msgid "Display"
 msgstr "Kijelző"
 
 msgid "Display Options"
-msgstr ""
+msgstr "Megjelenítési beállítások"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -3659,7 +3662,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "Biztos törlöd a kiválasztott pillanatképeket?"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "Valóban törölni akarod a kijelült sysctl beállításokat?"
 
 msgid "Do you want to delete selected targets?"
 msgstr "Biztos, hogy törli a kiválasztott célokat?"
@@ -3695,7 +3698,7 @@ msgid "Do you want to disable selected NFS root directories?"
 msgstr "Biztos, hogy kikapcsolod a kiválasztott NFS gyökérmappákat?"
 
 msgid "Do you want to disable selected Samba shares?"
-msgstr ""
+msgstr "Valóban tiltani akarod a kijelült Samba megosztásokat?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Biztos, hogy letiltod a kiválasztott WebDAV bejegyzéseket?"
@@ -3749,7 +3752,7 @@ msgid "Do you want to disable selected records?"
 msgstr "Biztos, hogy kikapcsolod a kijelölt bejegyzéseket?"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "Valóban tiltani akradod a kijelölt útvonalakat?"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Biztos, hogy kikapcsolod a kijelölt rsync feladatokat?"
@@ -3758,7 +3761,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Biztos, hogy kikapcsolod a kijelölt rsync feladatokat?"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "Valóban tiltani akarod a kijelölt sysctl beállításokat?"
 
 msgid "Do you want to disable selected targets?"
 msgstr "Biztos, hogy kikapcsolja a kiválasztott célokat?"
@@ -3786,7 +3789,7 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr "Biztos, hogy bekapcsolod a kiválasztott NFS gyökérmappákat?"
 
 msgid "Do you want to enable selected Samba shares?"
-msgstr ""
+msgstr "Valóban engedélyezni akarod a kijelült Samba megosztásokat?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Biztos, hogy engedélyezed a kiválasztott WebDAV bejegyzéseket?"
@@ -3840,7 +3843,7 @@ msgid "Do you want to enable selected records?"
 msgstr "Biztos, hogy bekapcsolod a kijelölt bejegyzéseket?"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "Állapot"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Biztos, hogy bekapcsolod a kijelölt rsync feladatokat?"
@@ -3849,7 +3852,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Biztos, hogy bekapcsolod a kijelölt rsync modulokat?"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "%1$s menedzselt, %2$s használt, %3$s elérhető"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Biztos, hogy bekapcsolja kiválasztott célokat?"
@@ -3885,7 +3888,7 @@ msgid "Do you want to toggle selected NFS root directories?"
 msgstr "Biztos, hogy ki-, bekapcsolod a kiválasztott NFS gyökérmappákat?"
 
 msgid "Do you want to toggle selected Samba shares?"
-msgstr ""
+msgstr "%2$s használt, %3$s elérhető"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Biztos, hogy átkapcsolod a kiválasztott WebDAV bejegyzéseket?"
@@ -3939,7 +3942,7 @@ msgid "Do you want to toggle selected records?"
 msgstr "Biztos, hogy átkapcsolod a kijelölt bejegyzéseket?"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "Szeretnél átváltani a kijelölt útvonalakra?"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Biztos, hogy átkapcsolod a kijelölt rsync feladatokat?"
@@ -3948,7 +3951,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Biztos, hogy átkapcsolod a kiválasztott rsync modulokat?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
+msgstr "Szeretnél átváltani a kijelült sysctl beállításokra."
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Biztos, hogy átkapcsolod a kiválasztott célokat?"
@@ -4003,7 +4006,7 @@ msgid "Done."
 msgstr "Kész."
 
 msgid "Down"
-msgstr ""
+msgstr "Le"
 
 msgid "Download"
 msgstr "Letöltés"
@@ -4091,7 +4094,7 @@ msgid "Edit CHAP User"
 msgstr "CHAP felhasználó módosítása"
 
 msgid "Edit Command"
-msgstr ""
+msgstr "Parancs szerkesztése"
 
 msgid "Edit Dataset"
 msgstr "Adattár módosítása"
@@ -4244,7 +4247,7 @@ msgid "Edit self-test"
 msgstr "Önteszt szerkesztése"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "Sysctl beállítások szerkesztése"
 
 msgid "Edit target"
 msgstr "Cél szerkesztése"
@@ -4284,7 +4287,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Fejlett formázás bekapcsolása (4KB-os szektorméret)"
 
 msgid "Enable Asynchronous I/O."
-msgstr ""
+msgstr "Aszinkron I/O engedélyezése"
 
 msgid "Enable FXP protocol."
 msgstr "FXP protokoll engedélyezése."
@@ -4386,7 +4389,7 @@ msgid "Enable Selected Records"
 msgstr "Kijelölt bejegyzések bekapcsolása"
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "A kijelölt útvonalak engedélyezése"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Kijelölt Rsync feladatok bekapcsolása"
@@ -4395,10 +4398,10 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Kijelölt Rsync modulok bekapcsolása"
 
 msgid "Enable Selected Samba Shares"
-msgstr ""
+msgstr "Az kijelölt Samba megosztások engedélyezése"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "Az kijelölt sysctl beállítások engedélyezése"
 
 msgid "Enable Selected Targets"
 msgstr "Kiválasztott célok engedélyezése"
@@ -4591,6 +4594,7 @@ msgstr "Szerver áramellátó segédprogram bekapcsolása."
 
 msgid "Enable this option if you want to display colorful meter states."
 msgstr ""
+"Engedélyezd ezt az opciót, ha a színes kijelzőket szeretnéd használni"
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -4653,6 +4657,9 @@ msgid ""
 "obtain access to this server can gain access to all it's data contents, "
 "including any network it is connected to."
 msgstr ""
+"Az opció engedélyezése biztonsági kockázatot jelenthet. Bárki, aki "
+"fizikailag hozzáférhet ehhez a szerverhez, hozzáférhet az összes "
+"adattartalmához, beleértve az összes hálózatot, amelyhez csatlakozik."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -5147,7 +5154,7 @@ msgstr ""
 "fájl használata."
 
 msgid "File Chooser"
-msgstr ""
+msgstr "Fájlválasztó"
 
 msgid "File Editor"
 msgstr "Fájlszerkesztő"
@@ -5156,13 +5163,13 @@ msgid "File Manager"
 msgstr "Fájlkezelő"
 
 msgid "File Manager Access"
-msgstr ""
+msgstr "Fájl menedszer hozzáférés"
 
 msgid "File Mask"
 msgstr "Fájlmaszk"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Fájl mód"
 
 msgid "File Path"
 msgstr "Elérési út"
@@ -5270,7 +5277,7 @@ msgid "Force Delete"
 msgstr "Törlés kikényszerítése"
 
 msgid "Force Group"
-msgstr ""
+msgstr "Force csoport"
 
 msgid "Force Operation"
 msgstr "Művelet kikényszerrítése"
@@ -5279,7 +5286,7 @@ msgid "Force Use"
 msgstr "Használat kierőszakolása"
 
 msgid "Force User"
-msgstr ""
+msgstr "Force felhasználó"
 
 msgid "Forced Update Period"
 msgstr "Kierőszakolt frissítés időköze."
@@ -5343,22 +5350,22 @@ msgid "Full Name"
 msgstr "Teljes név"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
+msgstr "Az egyéni GUI CSS fájl teljes fájlneve."
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr ""
+msgstr "Az egyéni fájlválasztó CSS-fájl teljes fájlneve."
 
 msgid "Fully qualified file name of a custom file manager CSS file."
-msgstr ""
+msgstr "Az egyéni fájlkezelő CSS-fájl teljes fájlneve."
 
 msgid "Fully qualified file name of a custom login CSS file."
-msgstr ""
+msgstr "Az egyéni belépési CSS-fájl teljes fájlneve."
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr ""
+msgstr "Az egyéni navigációs sáv CSS-fájl teljes fájlneve."
 
 msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
+msgstr "Az egyéni lapok CSS fájljának teljes fájlneve."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5409,7 +5416,7 @@ msgid "GSSAPI Authentication"
 msgstr "GSSAPI hitelesítése"
 
 msgid "GUI"
-msgstr ""
+msgstr "Grafikus felület"
 
 msgid "Gateway"
 msgstr "Átjáró"
@@ -5460,19 +5467,19 @@ msgstr ""
 "Globális numerikus azonosító, amelyet egy CTL-en belüli LUN-hoz használandó."
 
 msgid "Grant access to the file manager."
-msgstr ""
+msgstr "Hozzáférés biztosítása fájlkezelőhöz."
 
 msgid "Grant create permission"
-msgstr ""
+msgstr "Létrehozási engedély megadása"
 
 msgid "Grant delete permission"
-msgstr ""
+msgstr "Törlési engedély adása"
 
 msgid "Grant modify permission"
-msgstr ""
+msgstr "Módostásai engedély adása"
 
 msgid "Grant read permission"
-msgstr ""
+msgstr "Olvasási engedély adása"
 
 msgid "Grant shell access to user"
 msgstr "A felhasználónak a shell hozzáférés engedélyezése"
@@ -5482,7 +5489,7 @@ msgstr "Grafikon az utolsó 120 mp-et mutatja"
 
 #, php-format
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "A grafikon az utóbbi 120 másodpercet mutatja."
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5649,7 +5656,7 @@ msgid "Hidden"
 msgstr "Rejtett"
 
 msgid "Hidden Items"
-msgstr ""
+msgstr "Rejtett elemek"
 
 msgid "Hide Dot Files"
 msgstr "Pontfájlok elrejtése"
@@ -5857,7 +5864,7 @@ msgid "Identifier"
 msgstr "Azonosító"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Azonosító:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6491,7 +6498,7 @@ msgid "Large Read/Write"
 msgstr "Óriás olvasás/írás"
 
 msgid "Last month"
-msgstr ""
+msgstr "Múlt hónap"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6517,7 +6524,7 @@ msgstr ""
 "100."
 
 msgid "Last week"
-msgstr ""
+msgstr "Múlt hét"
 
 msgid "Latency"
 msgstr "Késleltetés"
@@ -6687,7 +6694,7 @@ msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Töltsön amikor a szünetmentes túlterhelődik  (\"TÚL\")"
 
 msgid "Load:"
-msgstr ""
+msgstr "Terhelés:"
 
 msgid "Loadbalance"
 msgstr "Terhelés-kiegyensúlyozás"
@@ -6797,6 +6804,7 @@ msgstr "Bejelentkezés CHAP hitelesítéshez."
 
 msgid "Login user root automatically into console on boot."
 msgstr ""
+"A root felhasználó bejelentkezéskor automatikusan bejelentkezik a konzolba."
 
 msgid "Logout"
 msgstr "Kijelentkezés"
@@ -6867,10 +6875,10 @@ msgid "Maintenance Tool Settings"
 msgstr "Karbantartási eszközök beállításai"
 
 msgid "Major OS Version Upgrades"
-msgstr ""
+msgstr "Fő OS verzió frissítések"
 
 msgid "Major Product Version Updates"
-msgstr ""
+msgstr "Fő program verzió frissítések"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Győződjön meg arról, hogy optimális számú eszközt választott ki."
@@ -7390,7 +7398,7 @@ msgid "Name of the WebDAV Record."
 msgstr "A WebDAV bejegyzés megnevezése."
 
 msgid "Name of the command."
-msgstr ""
+msgstr "A parancs neve"
 
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
@@ -7419,13 +7427,13 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Natív - karakterek tárolása saját natív ASCII értékükkel."
 
 msgid "Navbar Style"
-msgstr ""
+msgstr "A navigációs sáv neve"
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "Navigációs sáv"
 
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Navigációs menü"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr ""
@@ -7521,7 +7529,7 @@ msgid "Next"
 msgstr "Következő"
 
 msgid "Nightly Builds"
-msgstr ""
+msgstr "Éjjeli verziók"
 
 msgid "No"
 msgstr "Nem"
@@ -7599,7 +7607,7 @@ msgid "No RSYNC Client configured."
 msgstr "RSYNC kliens nincs konfigurálva."
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "A felhasználói portálhoz nincs hozzáférés"
 
 msgid "No additional parameters"
 msgstr "Egy további paraméter sincs"
@@ -7665,7 +7673,7 @@ msgid "No new software RAID disk found."
 msgstr "Egy új szoftveres RAID lemez sem található."
 
 msgid "No online information available."
-msgstr ""
+msgstr "Online információk nem elérhetők"
 
 msgid "No options found."
 msgstr "Egy lehetőség sem található"
@@ -7873,7 +7881,7 @@ msgid "OPT Only"
 msgstr "Csak OPT"
 
 msgid "OS Version Upgrades"
-msgstr ""
+msgstr "Operációs rendszer verzió frissítés"
 
 msgid "Object name"
 msgstr "Objektumnév"
@@ -7903,10 +7911,10 @@ msgid "Old Passphrase"
 msgstr "Régi jelszó"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "A múlt hónapnál régebben"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "Egy hétnél régebben"
 
 msgid "Older than previous quarter"
 msgstr ""

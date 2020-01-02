@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-06-26 21:03+0000\n"
-"Last-Translator: kidalabama <n_alp@hotmail.com>\n"
+"PO-Revision-Date: 2019-12-10 06:25+0000\n"
+"Last-Translator: Irmak Bıçakçıgil <Unknown>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-11-07 21:17+0000\n"
-"X-Generator: Launchpad (build 469f241f4e73cc0bdffa4e30654052a2af068e06)\n"
+"X-Launchpad-Export-Date: 2020-01-02 16:52+0000\n"
+"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -218,16 +218,16 @@ msgid "1000"
 msgstr ""
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
-msgstr ""
+msgstr "16384"
 
 msgid "192.168.0.0/24"
-msgstr ""
+msgstr "192.168.0.0/24"
 
 msgid "2"
 msgstr "2"
@@ -257,7 +257,7 @@ msgid "3.5\""
 msgstr "3.5\""
 
 msgid "300"
-msgstr ""
+msgstr "300"
 
 msgid "32 KiB"
 msgstr "32 KiB"
@@ -457,7 +457,7 @@ msgid "ARP Tables List"
 msgstr "ARP tablo listesi"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Uzaktan syslog mesajlarına izin ver"
@@ -500,7 +500,7 @@ msgstr ""
 "gönderilmesini etkinleştir."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Seçili aygıtı etkinleştir."
 
 msgid "Active"
 msgstr "Aktif"
@@ -539,7 +539,7 @@ msgid "Add CHAP User"
 msgstr "CHAP Kullanıcısı ekle"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Komut Ekle"
 
 msgid "Add Dataset"
 msgstr "Veri kümesi Ekle"
@@ -575,7 +575,7 @@ msgid "Add Listen Record"
 msgstr "Dinleme Kaydı Ekle"
 
 msgid "Add Media Folder"
-msgstr ""
+msgstr "Medya Klasörü Ekle"
 
 msgid "Add Mutual CHAP User"
 msgstr ""
@@ -602,7 +602,7 @@ msgid "Add Portal Group"
 msgstr "Portal Groubu Ekle"
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Genel Anahtar Ekle"
 
 msgid "Add RAID"
 msgstr "RAID Ekle"
@@ -710,7 +710,7 @@ msgid "Add self-test"
 msgstr "Self-Test ekle"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "sysctl ayarı ekle"
 
 msgid "Add target"
 msgstr "Hedef Ekle"
@@ -719,10 +719,10 @@ msgid "Add the selected device to the existing mirror."
 msgstr ""
 
 msgid "Add user to additional groups."
-msgstr ""
+msgstr "Ek gruplara kullanıcı ekle."
 
 msgid "Additional Information"
-msgstr ""
+msgstr "Ek Bilgi"
 
 msgid "Additional Network"
 msgstr "Ek Ağ"
@@ -752,7 +752,7 @@ msgid "Admin Password"
 msgstr "Yönetici Şifresi"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Yönetici erişimi"
 
 msgid "Administration Password"
 msgstr "Yönetim Şifresi"
@@ -773,7 +773,7 @@ msgid "Advanced Options"
 msgstr "Gelişmiş Seçenekler"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "Gelişmiş SMB Ayarları"
 
 msgid "Advanced Settings"
 msgstr "Gelişmiş Ayarlar"
@@ -830,7 +830,7 @@ msgid "All"
 msgstr "Tümü"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Tüm Arayüzler"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Şu istatistikteki tüm veriler silindi:"
@@ -876,7 +876,7 @@ msgid "Allow TCP forwarding."
 msgstr ""
 
 msgid "Allow TLS connections only."
-msgstr ""
+msgstr "Sadece TLS bağlantılarına izin ver."
 
 msgid "Allow USB"
 msgstr "USB'ye izin ver"
@@ -902,16 +902,16 @@ msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr ""
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "Klavye etkileşimli kimlik doğrulamasına izin ver."
 
 msgid "Allow new files to be created."
 msgstr "Yeni dosyalar oluşturulmasına izin ver."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Parola doğrulamasına izin ver."
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Genel anahtar kimlik doğrulamasına izin ver."
 
 msgid "Allow root to login via ssh."
 msgstr ""
@@ -1033,7 +1033,7 @@ msgid "An interface with the specified description already exists."
 msgstr "Belirtmiş olduğunuz tanım zaten bir arayüzde tanımlanmış."
 
 msgid "Anonymous Bind"
-msgstr ""
+msgstr "Ananom Bağlama"
 
 msgid "Anonymous Users"
 msgstr "Bilinmeyen Kullanıcılar"
@@ -1065,7 +1065,7 @@ msgid "Append content to the default CSS file"
 msgstr ""
 
 msgid "Append user defined shares"
-msgstr ""
+msgstr "Kullanıcı tanımlı paylaşımları ekle"
 
 msgid "Apple Filing Protocol"
 msgstr ""
@@ -1128,7 +1128,7 @@ msgid "Asynchronous I/O"
 msgstr ""
 
 msgid "At least one disk must be selected."
-msgstr ""
+msgstr "En az bir disk seçilmeli."
 
 msgid "At least one interface must be selected."
 msgstr ""
