@@ -1,10 +1,10 @@
-#!/usr/local/bin/php
+#!/usr/local/bin/php-cgi -f
 <?php
 /*
 	capacitycheck.zfs
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -30,7 +30,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once 'config.inc';
 require_once 'functions.inc';
@@ -88,11 +88,13 @@ foreach($a_pool_info as $r_pool_info):
 	endif;
 endforeach;
 //	compile and send email if an issue was found or the force report option was set
-if($issue_found): // send alert email
+if($issue_found):
+//	send alert email
 	$subject = '[ALERT] %h: Pool capacity check detected one or more issues.';
 	$send_email = true;
 	$exit_code = 1;
-elseif(isset($argv_options['s'])): // send success email
+elseif(isset($argv_options['s'])):
+//	send success email
 	$subject = '[SUCCESS] %h: Pool capacity check completed successfully.';
 	$send_email = true;
 	$exit_code = 0;
@@ -107,4 +109,3 @@ if($send_email):
 	@email_send($argv_options['m'] ?? $config['system']['email']['sendto'] ?? $config['statusreport']['to'] ?? '',$subject,$body,$error);
 endif;
 exit($exit_code);
-?>
