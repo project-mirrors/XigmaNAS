@@ -2,8 +2,8 @@
 /*
 	init.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Portions of Quixplorer (http://quixplorer.sourceforge.net).
@@ -32,7 +32,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once "_include/error.php";
 
@@ -62,7 +62,7 @@ $GLOBALS['order'] = filter_input(INPUT_GET,'order',FILTER_VALIDATE_REGEXP,['flag
 $GLOBALS['srt'] = filter_input(INPUT_GET,'srt',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'yes','regexp' => '/^(yes|no)$/']]);
 // Necessary files
 ob_start(); // prevent unwanted output
-/* XIGMANAS CODE*/
+/* XigmaNAS® CODE*/
 if(function_exists('date_default_timezone_set')):
 	if(function_exists('date_default_timezone_get')):
 		@date_default_timezone_set(@date_default_timezone_get());
@@ -70,7 +70,7 @@ if(function_exists('date_default_timezone_set')):
 		@date_default_timezone_set('UTC');
 	endif;
 endif;
-/* END XIGMANAS CODE*/
+/* END XigmaNAS® CODE*/
 /* ORIGINAL CODE
 date_default_timezone_set ( "UTC" );
  */
@@ -82,7 +82,7 @@ require './_config/conf.php';
 require './_config/configs.php';
 
 _load_language($GLOBALS['language']);
-/* XIGMANAS CODE*/
+/* XigmaNAS® CODE*/
 if(isset($GLOBALS['lang'])):
 	$GLOBALS['language'] = $GLOBALS['lang'];
 endif;
@@ -91,7 +91,7 @@ if(file_exists('./_lang/' . $GLOBALS['language'] . '.php')):
 else:
 	require './_lang/en_US.php';
 endif;
-/* END XIGMANAS CODE*/
+/* END XigmaNAS® CODE*/
 
 require './_config/mimes.php';
 require './_include/extra.php';

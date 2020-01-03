@@ -2,8 +2,8 @@
 /*
 	fbegin.inc
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 header('Content-Type: text/html; charset=' . system_get_language_codeset());
   // XML declarations
@@ -46,7 +46,7 @@ echo '<!DOCTYPE html>',"\n";
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="robots" content="noindex,nofollow">
-	<meta name="description" content="XigmaNAS - The Free Network Attached Storage Project">
+	<meta name="description" content="XigmaNAS® - The Free Network Attached Storage Project">
 	<title><?=genhtmltitle($pgtitle ?? []);?></title>
 	<link href="/css/gui.css.php" rel="stylesheet" type="text/css">
 	<link href="/css/navbar.css.php" rel="stylesheet" type="text/css">

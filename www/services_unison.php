@@ -2,8 +2,8 @@
 /*
 	services_unison.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 
 *
 	Unison Installation Notes
@@ -47,7 +47,7 @@
 
 	Todo:
 	* 	Arguably, a full client install could be done too to
-	allow XigmaNAS to XigmaNAS syncing.
+	allow XigmaNAS® to XigmaNAS® syncing.
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';

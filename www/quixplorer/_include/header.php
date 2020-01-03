@@ -2,8 +2,8 @@
 /*
 	header.php
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Portions of Quixplorer (http://quixplorer.sourceforge.net).
@@ -33,9 +33,9 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
-/* XIGMANAS CODE */
+/* XigmaNAS® CODE */
 require_once 'guiconfig.inc';
 require_once 'session.inc';
 
@@ -59,7 +59,7 @@ function show_header($title, $additional_header_content = null) {
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
 	header("Content-Type: text/html; charset=".$GLOBALS["charset"]);
-/* XIGMANAS & QUIXPLORER CODE*/
+/* XigmaNAS® & QUIXPLORER CODE*/
 	// Html & Page Headers
 	echo '<!DOCTYPE html>',PHP_EOL;
 	echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="',system_get_language_code(),'" lang="',system_get_language_code(),'" dir="',$GLOBALS['text_dir'],'">',PHP_EOL;
@@ -86,7 +86,7 @@ function show_header($title, $additional_header_content = null) {
 		endif;
 	endif;
 	echo '</head>',PHP_EOL;
-	// XigmaNAS Header
+	// XigmaNAS® Header
 	echo '<body id="main">',PHP_EOL;
 	echo '<div id="spinner_main"></div>',PHP_EOL;
 	echo '<div id="spinner_overlay" style="display: none; background-color: white; position: fixed; left:0; top:0; height:100%; width:100%; opacity: 0.25;"></div>',PHP_EOL;
