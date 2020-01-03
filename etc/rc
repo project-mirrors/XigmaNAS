@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 
@@ -34,7 +34,7 @@ ZROOT="zroot"
 MDLOCALSIZE=1312m
 SWAPSIZE=512m
 
-# XigmaNAS request 2GB for swapless running
+# XigmaNAS® request 2GB for swapless running
 mem=`/sbin/sysctl -n hw.physmem`
 mem=`/bin/expr ${mem} / 1024 / 1024`
 BOOT_LOWMEM=0

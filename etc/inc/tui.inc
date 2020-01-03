@@ -2,8 +2,8 @@
 /*
 	tui.inc
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Copyright (c) 2006-2008 Volker Theile (votdev@gmx.de)
@@ -32,7 +32,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once 'util.inc';
 require_once 'co_geom_info.inc';

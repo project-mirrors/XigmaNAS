@@ -2,8 +2,8 @@
 /*
 	install.inc
 
-	Part of XigmaNAS (https://www.xigmanas.com).
-	Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@
 
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
-	of XigmaNAS, either expressed or implied.
+	of XigmaNAS®, either expressed or implied.
 */
 require_once 'functions.inc';
 require_once 'util.inc';
@@ -185,7 +185,7 @@ function install_dd_image(string $harddrive) {
 	return 0;
 }
 /**
- *	Install XigmaNAS on the given harddrive.
+ *	Install XigmaNAS® on the given harddrive.
  *	@global array $g
  *	@param string $harddrive
  *	@return int Return 0 if successful, otherwise 1
