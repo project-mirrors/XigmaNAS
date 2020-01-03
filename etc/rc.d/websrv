@@ -1,7 +1,7 @@
 #!/bin/sh
 #
-# Part of XigmaNAS (https://www.xigmanas.com).
-# Copyright (c) 2018-2019 XigmaNAS <info@xigmanas.com>.
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # websrv script
@@ -102,8 +102,8 @@ websrv_mkconf()
 			--output ')' --nl \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${websrv_conf}
-	
-	cat <<EOF >> ${websrv_conf}	
+
+	cat <<EOF >> ${websrv_conf}
 server.errorlog-use-syslog = "enable"
 # debugmode debug.log-request-handling enable/disable
 debug.log-request-handling = "disable"
@@ -211,7 +211,7 @@ EOF
 server.upload-dirs = ( "${_uploaddir}" )
 server.max-request-size = ${websrv_maxrequestsize}
 EOF
-	
+
 	# Add auxparam
 	/usr/local/bin/xml sel -t -m "//websrv" \
 		-m "auxparam" \
