@@ -33,97 +33,84 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_services_websrv_webdav.php';
-require_once 'co_request_method.php';
+require_once 'autoload.php';
 
-function websrv_webdav_edit_sphere() {
-	global $config;
+use services\websrv\webdav\row_toolbox as toolbox;
+use services\websrv\webdav\shared_toolbox;
 
-//	sphere structure
-	$sphere = new co_sphere_row('services_websrv_webdav_edit','php');
-	$sphere->get_parent()->set_basename('services_websrv_webdav');
-	$sphere->set_notifier('websrv_webdav');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
-	$sphere->grid = &array_make_branch($config,'websrv','webdav','param');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new websrv_webdav_edit_properties();
-$sphere = &websrv_webdav_edit_sphere();
-$rmo = new co_request_method();
-$rmo->add('GET','add',PAGE_MODE_ADD);
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','add',PAGE_MODE_ADD);
-$rmo->add('POST','cancel',PAGE_MODE_POST);
-$rmo->add('POST','clone',PAGE_MODE_CLONE);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->set_default('POST','cancel',PAGE_MODE_POST);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties and sphere
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo();
+list($page_method,$page_action,$page_mode) = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
 		switch($page_action):
-			case 'add': // bring up a form with default values and let the user modify it
+			case 'add':
+//				bring up a form with default values and let the user modify it
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
-			case 'edit': // modify the data of the provided resource id and let the user modify it
+			case 'edit':
+//				modify the data of the provided resource id and let the user modify it
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input(INPUT_GET);
 				break;
 		endswitch;
 		break;
 	case 'POST':
 		switch($page_action):
-			case 'add': // bring up a form with default values and let the user modify it
-				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
+			case 'add':
+//				bring up a form with default values and let the user modify it
+				$sphere->row[$sphere->get_row_identifier()] =  $cop->get_row_identifier()->get_defaultvalue();
 				break;
-			case 'cancel': // cancel - nothing to do
+			case 'cancel':
+//				cancel - nothing to do
 				$sphere->row[$sphere->get_row_identifier()] = NULL;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
-			case 'edit': // edit requires a resource id, get it from input and validate
+			case 'edit':
+//				edit requires a resource id, get it from input and validate
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
 				break;
-			case 'save': // modify requires a resource id, get it from input and validate
+			case 'save':
+//				modify requires a resource id, get it from input and validate
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->validate_input();
 				break;
 		endswitch;
 		break;
 endswitch;
-/*
- *	exit if $sphere->row[$sphere->row_identifier()] is NULL
- */
+//	exit if $sphere->row[$sphere->row_identifier()] is NULL
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-/*
- *	search resource id in sphere
- */
+//	search resource id in sphere
 $sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
-/*
- *	start determine record update mode
- */
+//	start determine record update mode
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
-	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+if(false === $sphere->row_id):
+//	record does not exist in config
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)):
+//		ADD or CLONDE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
 				$record_mode = RECORD_NEW;
 				break;
 		endswitch;
 	endif;
-else: // record found in configuration
-	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+else:
+//	record found in configuration
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)):
+//		EDIT or POST or VIEW
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_NEW:
 				$record_mode = RECORD_NEW_MODIFY;
@@ -137,7 +124,8 @@ else: // record found in configuration
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode): // oops, something went wrong
+if(RECORD_ERROR === $record_mode):
+//	something went wrong
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
@@ -145,9 +133,7 @@ $isrecordnew = (RECORD_NEW === $record_mode);
 $isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
 $isrecordmodify = (RECORD_MODIFY === $record_mode);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
-/*
- *	end determine record update mode
- */
+//	end determine record update mode
 $a_referer = [
 	$cop->get_enable(),
 	$cop->get_name(),
@@ -168,7 +154,7 @@ switch($page_mode):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
 		endforeach;
-		//	adjust page mode
+//		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
@@ -188,7 +174,6 @@ switch($page_mode):
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
-		// apply post values that are applicable for all record modes
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
@@ -197,44 +182,34 @@ switch($page_mode):
 				$input_errors[] = $referer->get_message_error();
 			endif;
 		endforeach;
-		if($prerequisites_ok && empty($input_errors)):
+		if(empty($input_errors)):
 			$name = $cop->get_auxparam()->get_name();
-			$auxparam_grid = [];
 			if(array_key_exists($name,$sphere->row)):
+				$auxparam_grid = [];
 				foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
 					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
 				endforeach;
 				$sphere->row[$name] = $auxparam_grid;
 			endif;
+			$sphere->upsert();
 			if($isrecordnew):
-				$sphere->grid[] = $sphere->row;
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value());
-			else:
-				foreach($sphere->row as $key => $value):
-					$sphere->grid[$sphere->row_id][$key] = $value;
-				endforeach;
-				if(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value());
-				endif;
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
-			header($sphere->get_parent()->get_location()); // cleanup
+			header($sphere->get_parent()->get_location());
 			exit;
 		endif;
 		break;
 endswitch;
 $pgtitle = [gettext('Services'),gettext('Webserver'),gettext('WebDAV'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		push()->
-		add_tabnav_upper()->
-			ins_tabnav_record('services_websrv.php',gettext('Webserver'))->
-			ins_tabnav_record('services_websrv_webdav.php',gettext('WebDAV'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
@@ -242,23 +217,21 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
-endif;
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
-$content->add_table_data_settings()->
-	ins_colgroup_data_settings()->
-	push()->
-	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,false,gettext('Configuration'))->
-	pop()->
-	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere->row[$cop->get_name()->get_name()],false,false)->
-		c2_input_text($cop->get_description(),$sphere->row[$cop->get_description()->get_name()],false,false)->
-		c2_input_text($cop->get_folderpattern(),$sphere->row[$cop->get_folderpattern()->get_name()],true,false)->
-		c2_checkbox($cop->get_isreadonly(),$sphere->row[$cop->get_isreadonly()->get_name()],false,false)->
-		c2_checkbox($cop->get_usesqlite(),$sphere->row[$cop->get_usesqlite()->get_name()],false,false)->
-		c2_textarea($cop->get_auxparam(),$sphere->row[$cop->get_auxparam()->get_name()],false,false,60,$n_auxparam_rows);
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+		pop()->
+		addTBODY()->
+			c2_input_text($cop->get_name(),$sphere,false,false)->
+			c2_input_text($cop->get_description(),$sphere,false,false)->
+			c2_input_text($cop->get_folderpattern(),$sphere,true,false)->
+			c2_checkbox($cop->get_isreadonly(),$sphere,false,false)->
+			c2_checkbox($cop->get_usesqlite(),$sphere,false,false)->
+			c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
