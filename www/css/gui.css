@@ -151,6 +151,7 @@ body a:visited
 body a:hover
 {
 	color: #95A7C0;
+	cursor: pointer;
 }
 
 form
