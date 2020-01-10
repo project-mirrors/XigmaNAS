@@ -23,23 +23,41 @@ _ifn=`get_if ${_ifn}`
 _ipaddr=`get_ipaddr inet ${_ifn}`
 
 # Generate /etc/hosts file
-/usr/local/bin/xml sel -t -m "//system[hostname != '' and domain != '']" \
-	-v "concat('::1 localhost localhost.',domain)" -n \
-	-v "concat('127.0.0.1 localhost localhost.',domain)" -n \
-	-i "//interfaces/lan/ipaddr[. != 'dhcp']" \
-		-v "concat(//interfaces/lan/ipaddr,' ',hostname,'.',domain,' ',hostname)" -n \
-	-b \
-	-i "//interfaces/lan/ipaddr[. = 'dhcp']" \
-		-i "string-length('${_ipaddr}') > 0" \
-			-v "concat('${_ipaddr}',' ',hostname,'.',domain,' ',hostname)" -n \
-		-b \
-	-b \
-	-m "//system/hosts" \
-		-i "string-length(name) > 0" -v "concat(address,' ',name)" -n -b \
-	-b \
+/usr/local/bin/xml sel --template \
+	--match "//system" \
+		--if "string-length(domain) > 0" \
+			--value-of "concat('::1 localhost localhost.',domain)" --nl \
+			--value-of "concat('127.0.0.1 localhost localhost.',domain)" --nl \
+		--else \
+			--output "::1 localhost" --nl \
+			--output "127.0.0.1 localhost" --nl \
+		--break \
+		--if "string-length(hostname) > 0" \
+			--if "//interfaces/lan/ipaddr[. != 'dhcp']" \
+				--if "string-length(domain) > 0" \
+					--value-of "concat(//interfaces/lan/ipaddr,' ',hostname,'.',domain,' ',hostname)" --nl \
+				--else \
+					--value-of "concat(//interfaces/lan/ipaddr,' ',hostname)" --nl \
+				--break \
+			--elif "string-length('${_ipaddr}') > 0" \
+				--if "string-length(domain) > 0" \
+					--value-of "concat('${_ipaddr}',' ',hostname,'.',domain,' ',hostname)" --nl \
+				--else \
+					--value-of "concat('${_ipaddr}',' ',hostname)" --nl \
+				--break \
+			--break \
+		--break \
+		--match "//system/hosts" \
+			--if "string-length(name) > 0" \
+				--value-of "concat(address,' ',name)" --nl \
+			--break \
+		--break \
+	--break \
 	${configxml_file} | /usr/local/bin/xml unesc > /etc/hosts
 
 # Generate /etc/hosts.allow file
-/usr/local/bin/xml sel -t -m "//system/hostsacl/rule" \
-	-v "." -n \
+/usr/local/bin/xml sel --template \
+	--match "//system/hostsacl/rule" \
+		--value-of "." --nl \
+	--break \
 	${configxml_file} | /usr/local/bin/xml unesc > /etc/hosts.allow
