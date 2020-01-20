@@ -68,8 +68,8 @@ class property_text extends property {
 	public function get_size() {
 		return $this->x_size;
 	}
-	public function filter_use_default() {
-		//	not empty, must contain at least one printable character
+	public function filter_use_not_empty() {
+//		must contain at least one printable character
 		$filter_name = 'ui';
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
@@ -90,6 +90,10 @@ class property_text extends property {
 		$this->filter_use_default();
 		$this->filter_use_empty();
 		$this->set_filter_group('ui',['empty','ui']);
+		return $this;
+	}
+	public function filter_use_default() {
+		$this->filter_use_not_empty();
 		return $this;
 	}
 }

@@ -46,12 +46,13 @@ abstract class container_row extends container {
 	}
 	protected $x_description;
 	public function init_description() {
+		$description = \gettext('Enter a description for your reference.');
+		$placeholder = \gettext('Enter a description');
+		$title = \gettext('Description');
 		$property = new property_text($this);
 		$property->
 			set_name('description')->
-			set_title(gettext('Description'));
-		$description = gettext('Enter a description for your reference.');
-		$placeholder = gettext('Enter a description');
+			set_title($title);
 		$property->
 			set_id('description')->
 			set_description($description)->
@@ -61,10 +62,7 @@ abstract class container_row extends container {
 			set_maxlength(256)->
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => ''])->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			set_filter_options(['default' => '']);
 		return $property;
 	}
 	public function get_description() {

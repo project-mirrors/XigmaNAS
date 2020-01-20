@@ -37,30 +37,32 @@ namespace common\properties;
  */
 final class property_uuid extends property_text {
 	public function __construct($owner = NULL) {
+		$description = \gettext('The UUID of the record.');
+		$placeholder = \gettext('Enter Universally Unique Identifier');
+		$title = \gettext('Universally Unique Identifier');
 		parent::__construct($owner);
 		$this->
 			set_name('uuid')->
-			set_title(gettext('Universally Unique Identifier'));
+			set_title($title);
 		$this->
 			set_id('uuid')->
-			set_description(gettext('The UUID of the record.'))->
+			set_description($description)->
 			set_size(45)->
 			set_maxlength(36)->
-			set_placeholder(gettext('Enter Universally Unique Identifier'))->
+			set_placeholder($placeholder)->
 			filter_use_default()->
 			set_editableonadd(false)->
-			set_editableonmodify(false)->
-			set_message_error(sprintf('%s: %s',$this->get_title(),gettext('The value is invalid.')));
+			set_editableonmodify(false);
 	}
 	public function filter_use_default() {
 		$filter_name = 'ui';
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => '/^[\da-f]{4}([\da-f]{4}-){2}4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i'],$filter_name);
+			set_filter_options(['default' => NULL,'regexp' => '/^[0-9a-f]{4}([0-9a-f]{4}-){2}4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i'],$filter_name);
 		return $this;
 	}
 	public function get_defaultvalue() {
-		return uuid();
+		return \uuid();
 	}
 }

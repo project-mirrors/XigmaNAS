@@ -37,19 +37,19 @@ namespace common\properties;
  */
 final class property_enable extends property_bool {
 	public function __construct($owner = NULL) {
+		$caption = \gettext('Enable');
+		$description = '';
+		$title = \gettext('Enable Setting');
 		parent::__construct($owner);
 		$this->
 			set_name('enable')->
-			set_title(gettext('Enable Setting'));
+			set_title($title);
 		$this->
 			set_id('enable')->
-			set_caption(gettext('Enable'))->
-			set_description('')->
+			set_caption($caption)->
+			set_description($description)->
 			set_defaultvalue(true)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$this->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $this;
 	}
 }

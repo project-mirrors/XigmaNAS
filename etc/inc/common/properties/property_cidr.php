@@ -45,14 +45,14 @@ final class property_cidr extends property_text_callback {
 		return $this;
 	}
 	public function validate($cidr) {
-		if(is_string($cidr)):
-			list($ipaddress,$subnet) = explode('/',$cidr,2);
-			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+		if(\is_string($cidr)):
+			list($ipaddress,$subnet) = \explode('/',$cidr,2);
+			if(!\is_null(\filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
+				if(!\is_null(\filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
 					return $cidr;
 				endif;
-			elseif(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
+			elseif(!\is_null(\filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
+				if(!\is_null(\filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
 					return $cidr;
 				endif;
 			endif;
