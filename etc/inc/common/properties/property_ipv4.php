@@ -37,10 +37,11 @@ namespace common\properties;
  */
 final class property_ipv4 extends property_text {
 	public function __construct($owner = NULL) {
+		$placeholder = \gettext('IPv4 Address');
 		parent::__construct($owner);
 		$this->
 			set_maxlength(15)->
-			set_placeholder(gettext('IPv4 Address'))->
+			set_placeholder($placeholder)->
 			set_size(20);
 		return $this;
 	}

@@ -57,7 +57,7 @@ abstract class property {
 	}
 	abstract public function filter_use_default();
 	public function set_owner($owner = NULL) {
-		if(is_object($owner)):
+		if(\is_object($owner)):
 			$this->x_owner = $owner;
 		endif;
 		return $this;
@@ -126,8 +126,8 @@ abstract class property {
 		return $this;
 	}
 	public function get_message_error() {
-		if(is_null($this->x_message_error)):
-			return sprintf('%s: %s',$this->get_title() ?? gettext('Undefined'),gettext('The value is invalid.'));
+		if(\is_null($this->x_message_error)):
+			return \sprintf('%s: %s',$this->get_title() ?? \gettext('Undefined'),\gettext('The value is invalid.'));
 		endif;
 		return $this->x_message_error;
 	}
@@ -153,7 +153,7 @@ abstract class property {
  */
 	public function set_filter($value = NULL,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
-		if(array_key_exists($filter_name,$this->x_filter)):
+		if(\array_key_exists($filter_name,$this->x_filter)):
 			$this->x_filter[$filter_name]['filter'] = $value;
 		else:
 			$this->x_filter[$filter_name] = ['filter' => $value,'flags' => NULL,'options' => NULL];
@@ -168,7 +168,7 @@ abstract class property {
  */
 	public function set_filter_flags($value = NULL,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
-		if(array_key_exists($filter_name,$this->x_filter)):
+		if(\array_key_exists($filter_name,$this->x_filter)):
 			$this->x_filter[$filter_name]['flags'] = $value;
 		else:
 			$this->x_filter[$filter_name] = ['filter' => NULL,'flags' => $value,'options' => NULL];
@@ -183,7 +183,7 @@ abstract class property {
  */
 	public function set_filter_options($value = NULL,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
-		if(array_key_exists($filter_name,$this->x_filter)):
+		if(\array_key_exists($filter_name,$this->x_filter)):
 			$this->x_filter[$filter_name]['options'] = $value;
 		else:
 			$this->x_filter[$filter_name] = ['filter' => NULL,'flags' => NULL,'options' => $value];
@@ -196,7 +196,7 @@ abstract class property {
  *	@return array If $filter_name exists the filter configuration is returned, otherwise NULL is returned.
  */
 	public function get_filter(string $filter_name = 'ui') {
-		if(array_key_exists($filter_name,$this->x_filter)):
+		if(\array_key_exists($filter_name,$this->x_filter)):
 			return $this->x_filter[$filter_name];
 		endif;
 		return NULL;
@@ -217,7 +217,7 @@ abstract class property {
  *	@return array Array with group members
  */
 	public function get_filter_group(string $root_filter_name = 'ui') {
-		return array_key_exists($root_filter_name,$this->x_filter_group) ? $this->x_filter_group[$root_filter_name] : [$root_filter_name];
+		return \array_key_exists($root_filter_name,$this->x_filter_group) ? $this->x_filter_group[$root_filter_name] : [$root_filter_name];
 	}
 /**
  *	Get a list of filter names og a group
@@ -226,9 +226,9 @@ abstract class property {
  */
 	public function get_filter_names($filter = 'ui') {
 		$filter_names = [];
-		$filter_groups = is_array($filter) ? $filter : (is_string($filter) ? [$filter] : []);
+		$filter_groups = \is_array($filter) ? $filter : (\is_string($filter) ? [$filter] : []);
 		foreach($filter_groups as $filter_group):
-			if(is_string($filter_group)):
+			if(\is_string($filter_group)):
 				$filter_group_members = $this->get_filter_group($filter_group);
 				foreach($filter_group_members as $filter_group_member):
 					$filter_names[] = $filter_group_member;
@@ -248,22 +248,22 @@ abstract class property {
 		$result = NULL;
 		$filter_names = $this->get_filter_names($filter);
 		foreach($filter_names as $filter_name):
-			if(is_string($filter_name)):
+			if(\is_string($filter_name)):
 				$filter_parameter = $this->get_filter($filter_name);
 				if(isset($filter_parameter)):
 					$action = (isset($filter_parameter['flags']) ? 1 : 0) + (isset($filter_parameter['options']) ? 2 : 0);
 					switch($action):
 						case 3:
-							$result = filter_input($input_type,$this->get_name(),$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
+							$result = \filter_input($input_type,$this->get_name(),$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
 							break;
 						case 2:
-							$result = filter_input($input_type,$this->get_name(),$filter_parameter['filter'],['options' => $filter_parameter['options']]);
+							$result = \filter_input($input_type,$this->get_name(),$filter_parameter['filter'],['options' => $filter_parameter['options']]);
 							break;
 						case 1:
-							$result = filter_input($input_type,$this->get_name(),$filter_parameter['filter'],$filter_parameter['flags']);
+							$result = \filter_input($input_type,$this->get_name(),$filter_parameter['filter'],$filter_parameter['flags']);
 							break;
 						case 0:
-							$result = filter_input($input_type,$this->get_name(),$filter_parameter['filter']);
+							$result = \filter_input($input_type,$this->get_name(),$filter_parameter['filter']);
 							break;
 					endswitch;
 				endif;
@@ -286,27 +286,27 @@ abstract class property {
 		$result = NULL;
 		$filter_names = $this->get_filter_names($filter);
 		switch(true):
-			case is_scalar($content):
+			case \is_scalar($content):
 				$value = $content;
 				$row_results = NULL;
 				foreach($filter_names as $filter_name):
 					$filter_result = NULL;
-					if(is_string($filter_name)):
+					if(\is_string($filter_name)):
 						$filter_parameter = $this->get_filter($filter_name);
 						if(isset($filter_parameter)):
 							$action = (isset($filter_parameter['flags']) ? 1 : 0) + (isset($filter_parameter['options']) ? 2 : 0);
 							switch($action):
 								case 3:
-									$filter_result = filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
+									$filter_result = \filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
 									break;
 								case 2:
-									$filter_result = filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
+									$filter_result = \filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
 									break;
 								case 1:
-									$filter_result = filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
+									$filter_result = \filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
 									break;
 								case 0:
-									$filter_result = filter_var($value,$filter_parameter['filter']);
+									$filter_result = \filter_var($value,$filter_parameter['filter']);
 									break;
 							endswitch;
 						endif;
@@ -320,31 +320,31 @@ abstract class property {
 					$result = $row_results;
 				endif;
 				break;
-			case is_array($content):
+			case \is_array($content):
 				$row_results = [];
 				foreach($content as $value):
 					$row_results[] = NULL;
-					end($row_results);
-					$row_results_key = key($row_results);
-					if(is_scalar($value)):
+					\end($row_results);
+					$row_results_key = \key($row_results);
+					if(\is_scalar($value)):
 						foreach($filter_names as $filter_name):
 							$filter_result = NULL;
-							if(is_string($filter_name)):
+							if(\is_string($filter_name)):
 								$filter_parameter = $this->get_filter($filter_name);
 								if(isset($filter_parameter)):
 									$action = (isset($filter_parameter['flags']) ? 1 : 0) + (isset($filter_parameter['options']) ? 2 : 0);
 									switch($action):
 										case 3:
-											$filter_result = filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
+											$filter_result = \filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
 											break;
 										case 2:
-											$filter_result = filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
+											$filter_result = \filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
 											break;
 										case 1:
-											$filter_result = filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
+											$filter_result = \filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
 											break;
 										case 0:
-											$filter_result = filter_var($value,$filter_parameter['filter']);
+											$filter_result = \filter_var($value,$filter_parameter['filter']);
 											break;
 									endswitch;
 								endif;
@@ -355,12 +355,12 @@ abstract class property {
 							endif;
 						endforeach;
 					endif;
-					if(is_null($row_results[$row_results_key])):
+					if(\is_null($row_results[$row_results_key])):
 						$row_results = [];
 						break;
 					endif;
 				endforeach;
-				if(count($row_results) > 0):
+				if(\count($row_results) > 0):
 					$result = $row_results;
 				endif;
 				break;
@@ -380,35 +380,35 @@ abstract class property {
 		$filter_names = $this->get_filter_names($filter);
 		$key = $this->get_name();
 //		fix for boolean
-		if(!array_key_exists($key,$variable)):
-			if(false !== strpos(get_class($this),'property_bool')):
+		if(!\array_key_exists($key,$variable)):
+			if(false !== \strpos(\get_class($this),'property_bool')):
 				$variable[$key] = false;
 			endif;
 		endif;
-		if(array_key_exists($key,$variable)):
+		if(\array_key_exists($key,$variable)):
 			$content = $variable[$key];
 			switch(true):
-				case is_scalar($content):
+				case \is_scalar($content):
 					$value = $content;
 					$row_results = NULL;
 					foreach($filter_names as $filter_name): //	loop through filters
 						$filter_result = NULL;
-						if(is_string($filter_name)):
+						if(\is_string($filter_name)):
 							$filter_parameter = $this->get_filter($filter_name);
 							if(isset($filter_parameter)):
 								$action = (isset($filter_parameter['flags']) ? 1 : 0) + (isset($filter_parameter['options']) ? 2 : 0);
 								switch($action):
 									case 3:
-										$filter_result = filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
+										$filter_result = \filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
 										break;
 									case 2:
-										$filter_result = filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
+										$filter_result = \filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
 										break;
 									case 1:
-										$filter_result = filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
+										$filter_result = \filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
 										break;
 									case 0:
-										$filter_result = filter_var($value,$filter_parameter['filter']);
+										$filter_result = \filter_var($value,$filter_parameter['filter']);
 										break;
 								endswitch;
 							endif;
@@ -422,31 +422,31 @@ abstract class property {
 						$result = $row_results;
 					endif;
 					break;
-				case is_array($content):
+				case \is_array($content):
 					$row_results = [];
 					foreach($content as $value): // loop through array elements
 						$row_results[] = NULL;
 						end($row_results);
-						$row_results_key = key($row_results);
-						if(is_scalar($value)):
+						$row_results_key = \key($row_results);
+						if(\is_scalar($value)):
 							foreach($filter_names as $filter_name): //	loop through filters
 								$filter_result = NULL;
-								if(is_string($filter_name)):
+								if(\is_string($filter_name)):
 									$filter_parameter = $this->get_filter($filter_name);
 									if(isset($filter_parameter)):
 										$action = (isset($filter_parameter['flags']) ? 1 : 0) + (isset($filter_parameter['options']) ? 2 : 0);
 										switch($action):
 											case 3:
-												$filter_result = filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
+												$filter_result = \filter_var($value,$filter_parameter['filter'],['flags' => $filter_parameter['flags'],'options' => $filter_parameter['options']]);
 												break;
 											case 2:
-												$filter_result = filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
+												$filter_result = \filter_var($value,$filter_parameter['filter'],['options' => $filter_parameter['options']]);
 												break;
 											case 1:
-												$filter_result = filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
+												$filter_result = \filter_var($value,$filter_parameter['filter'],$filter_parameter['flags']);
 												break;
 											case 0:
-												$filter_result = filter_var($value,$filter_parameter['filter']);
+												$filter_result = \filter_var($value,$filter_parameter['filter']);
 												break;
 										endswitch;
 									endif;
@@ -457,12 +457,12 @@ abstract class property {
 								endif;
 							endforeach;
 						endif;
-						if(is_null($row_results[$row_results_key])):
+						if(\is_null($row_results[$row_results_key])):
 							$row_results = [];
 							break;
 						endif;
 					endforeach;
-					if(count($row_results) > 0):
+					if(\count($row_results) > 0):
 						$result = $row_results;
 					endif;
 					break;
@@ -477,7 +477,7 @@ abstract class property {
  */
 	public function validate_config(array $source) {
 		$name = $this->get_name();
-		if(array_key_exists($name,$source)):
+		if(\array_key_exists($name,$source)):
 			$return_data = $source[$name];
 		else:
 			$return_data = $this->get_defaultvalue();

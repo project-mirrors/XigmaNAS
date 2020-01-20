@@ -37,10 +37,11 @@ namespace common\properties;
  */
 final class property_ipaddress extends property_text {
 	public function __construct($owner = NULL) {
+		$placeholder = \gettext('IP Address');
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
-			set_placeholder(gettext('IP Address'))->
+			set_placeholder($placeholder)->
 			set_size(60);
 		return $this;
 	}

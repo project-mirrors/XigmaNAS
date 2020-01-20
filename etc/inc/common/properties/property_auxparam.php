@@ -40,9 +40,9 @@ namespace common\properties;
  */
 final class property_auxparam extends property_textarea {
 	public function __construct($owner = NULL) {
-		$placeholder = gettext('Enter additional parameters');
-		$placeholderv = gettext('No additional parameters');
-		$title = gettext('Additional Parameters');
+		$placeholder = \gettext('Enter additional parameters');
+		$placeholderv = \gettext('No additional parameters');
+		$title = \gettext('Additional Parameters');
 		parent::__construct($owner);
 		$this->
 			set_defaultvalue('')->

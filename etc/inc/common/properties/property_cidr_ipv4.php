@@ -40,15 +40,15 @@ final class property_cidr_ipv4 extends property_text_callback {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(18)->
-			set_placeholder(gettext('Network Address'))->
+			set_placeholder(\gettext('Network Address'))->
 			set_size(60);
 		return $this;
 	}
 	public function validate($cidr) {
-		if(is_string($cidr)):
-			list($ipaddress,$subnet) = explode('/',$cidr,2);
-			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+		if(\is_string($cidr)):
+			list($ipaddress,$subnet) = \explode('/',$cidr,2);
+			if(!\is_null(\filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
+				if(!\is_null(\filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
 					return $cidr;
 				endif;
 			endif;

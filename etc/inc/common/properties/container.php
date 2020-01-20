@@ -37,18 +37,18 @@ namespace common\properties;
  */
 abstract class container {
 	public function __construct() {
-		$this->reset();
+//		$this->reset();
 	}
 	public function __destruct() {
-		$this->reset();
+//		$this->reset();
 	}
 /**
  *	Unsets all 'x_*' properties
  *	@return $this
  */
-	public function reset() {
+	final public function reset() {
 		foreach($this as $key => $value):
-			if(strncmp($key,'x_',2) === 0):
+			if(\strncmp($key,'x_',2) === 0):
 				unset($this->$key);
 			endif;
 		endforeach;
@@ -56,20 +56,21 @@ abstract class container {
 	}
 /**
  *	calls get method for each x_ property found
- *	@return $this
+ *	@return array Array containing initialized objects
  */
 /*
-	public function init_all() {
+	final public function init_all() {
+		$a_objects = [];
 		foreach($this as $key => $value):
 			unset($matches);
-			if(1 === preg_match('/^x_(.+)/',$key,$matches)):
+			if(1 === \preg_match('/^x_(.+)/',$key,$matches)):
 				$method_name = 'get_' . $matches[1];
-				if(method_exists($this,$method_name)):
-					$this->$method_name();
+				if(\method_exists($this,$method_name)):
+					$a_objects[] = $this->$method_name();
 				endif;
 			endif;
 		endforeach;
-		return $this;
+		return $a_objects;
  	}
  */
 }

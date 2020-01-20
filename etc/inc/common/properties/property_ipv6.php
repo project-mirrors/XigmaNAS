@@ -37,10 +37,11 @@ namespace common\properties;
  */
 final class property_ipv6 extends property_text {
 	public function __construct($owner = NULL) {
+		$placeholder = \gettext('IPv6 Address');
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
-			set_placeholder(gettext('IPv6 Address'))->
+			set_placeholder($placeholder)->
 			set_size(60);
 		return $this;
 	}

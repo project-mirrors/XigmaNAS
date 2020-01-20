@@ -38,7 +38,7 @@ namespace common\properties;
 abstract class property_text_callback extends property_text {
 	abstract public function validate($test);
 	public function validate_or_default($test) {
-		if(is_null($this->validate($test))):
+		if(\is_null($this->validate($test))):
 			return $this->get_defaultvalue();
 		else:
 			return $test;
