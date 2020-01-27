@@ -90,62 +90,71 @@ function zfs_get_pool_list() {
 	return $sphere;
 }
 /**
- *	Get zpool information via cli
- *	If you don't specify options the preset options will be returned.
- *	If you specify options they must be separated with a comma. Whitespaces are ignored
- *	Option keys returned are lowercase.
+ *	Get zpool information from cli zpool command.
+ *	If you don't specify zpool properties, the preset zpool properties will be returned.
+ *	If you specify zpool properties, they must be separated with a comma.
+ *	Property names returned are lowercase.
  *	The function returns an empty array on error or when the zpool is unknown to zfs.
- *	@param string $name
- *	@param string $options
- *	@return array
+ *	@param string $poolname The name of the pool or NULL.
+ *	@param string $zpool_properties A comma separated list of zpool properties.
+ *	@return array Array with zpool properties of all zpools or the given zpool.
  */
-function cli_zpool_info($name = '',string $options = '') {
-	$a_return = [];
-	$a_val = [];
-	if(preg_match('/\S/',$name)):
-		$name = ltrim($name);
-		$cliname = escapeshellarg($name);
-	else:
-		$cliname = '';
+function cli_zpool_info(string $poolname = NULL,string $zpool_properties = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot') {
+//	initialize return value
+	$a_return_result = [];
+//	poolname must contain at least one printable character
+	if(preg_match('/\S/',$poolname) !== 1):
+		$poolname = NULL;
 	endif;
-//	remove all whitespaces
-	$clioptions = preg_replace('/\s/','',$options);
-	if(empty($options)):
-//		use default options
-		$clioptions = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot';
-	endif;
-//	get the key fields
-	$a_key = explode(',',$clioptions);
-//	has the all option been selected?
-	if(false !== array_search('all',$a_key)):
-//		reset other options, they are included in 'all'
-		$clioptions = 'all';
-		$a_key = [];
-		$clicmd = sprintf('zpool list -p -o %s %s',$clioptions,$cliname);
-		unset($a_line);
-		mwexec2($clicmd,$a_line,$exitcode);
-//		we need the first line to collect the header names
-		if((0 == $exitcode) && (0 < count($a_line))):
-			preg_match_all('/S+/',$a_line[0],$a_key);
+//	get the property fields
+	$a_property_name = explode(',',$zpool_properties);
+//	does the 'all' property exist?
+	if(array_search('all',$a_property_name) !== false):
+//		reset $zpool_properties, they are included in 'all'
+		$zpool_properties = 'all';
+//		reset property fields, they will be re-initialized
+		$a_property_name = [];
+//		prepare cli command
+		$a_cmd = ['zpool','list','-p','-o','all'];
+//		if defined, add poolname
+		if(isset($poolname)):
+			$a_cmd[] = escapeshellarg($poolname);
 		endif;
+//		compile cli command
+		$cmd = implode(' ',$a_cmd);
+		mwexec2($cmd,$a_output,$exitcode);
+//		we need the first row to collect the names of the properties
+		if(($exitcode == 0) && (count($a_output) > 0)):
+			$a_property_name = preg_split('/[\s]+/',trim($a_output[0]));
+		endif;
+		unset($a_cmd,$a_output,$cmd,$exitcode);
 	endif;
-	if(!empty($a_key)):
-//		$a_key to lowercase
-		$a_key = array_map('strtolower',$a_key);
-		$clicmd = sprintf('zpool list -pH -o %s %s',$clioptions,$cliname);
-		unset($a_line);
-		mwexec2($clicmd,$a_line,$exitcode);
+	if(!empty($a_property_name)):
+//		convert all property names to lowercase
+		$a_property_name = array_map('strtolower',$a_property_name);
+//		prepare cli command
+		$a_cmd = ['zpool','list','-pH','-o',escapeshellarg($zpool_properties)];
+//		if defined, add poolname
+		if(isset($poolname)):
+			$a_cmd[] = escapeshellarg($poolname);
+		endif;
+//		compile cli command
+		$cmd = implode(' ',$a_cmd);
+		mwexec2($cmd,$a_output,$exitcode);
 //		at least 1 line must be returned
-		if((0 == $exitcode) && (0 < count($a_line))):
-			foreach($a_line as $r_line):
-				$a_val = explode("\t",$r_line);
-				if(count($a_key) === count($a_val)):
-					$a_return[] = array_combine($a_key,$a_val);
+		if(($exitcode == 0) && (count($a_output) > 0)):
+			$n_key = count($a_property_name);
+			foreach($a_output as $a_row):
+				$a_property_value = explode("\t",$a_row);
+				if($n_key === count($a_property_value)):
+//					merge key and value
+					$a_return_result[] = array_combine($a_property_name,$a_property_value);
 				endif;
 			endforeach;
 		endif;
+		unset($a_cmd,$a_output,$cmd,$exitcode);
 	endif;
-	return $a_return;
+	return $a_return_result;
 }
 /**
  *	Get zfs option information via cli
@@ -184,7 +193,7 @@ function cli_zfs_info($name = '',$options = '') {
 		mwexec2($clicmd,$a_line,$exitcode);
 //		we need the first line to collect the header names
 		if((0 == $exitcode) && (0 < count($a_line))):
-			preg_match_all('/S+/',$a_line[0],$a_key);
+			$a_key = preg_split('/[\s]+/',trim($a_line[0]));
 		endif;
 	endif;
 	if(!empty($a_key)):
