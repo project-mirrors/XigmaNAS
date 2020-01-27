@@ -34,113 +34,160 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-function zfs_get_dataset_list(string $entity_name = NULL) {
+/**
+ *	Returns basic properties of a single zfs filesystem or all zfs filesystems.
+ *	@param string $entity_name If provided, only basic information of this specific zfs filesystem is returned.
+ *	@return string An unescaped string.
+ */
+function clget_zfs_filesystem_list(string $entity_name = NULL): string {
+	$a_cmd = ['zfs','list','-t','filesystem','-o','name,used,avail,refer,mountpoint'];
 	if(isset($entity_name)):
-		$cmd = sprintf('zfs list -t filesystem -o name,used,avail,refer,mountpoint %s 2>&1',escapeshellarg($entity_name));
-	else:
-		$cmd = 'zfs list -t filesystem -o name,used,avail,refer,mountpoint 2>&1';
+		$a_cmd[] = \escapeshellarg($entity_name);
 	endif;
-	unset($output);
-	mwexec2($cmd,$output);
-	return implode(PHP_EOL,$output);
+	$a_cmd[] = '2>&1';
+	$cmd = \implode(' ',$a_cmd);
+//	unset($output);
+	\mwexec2($cmd,$output);
+	return \implode("\n",$output);
 }
-function zfs_get_dataset_properties(string $entity_name = NULL) {
+/**
+ *	Returns all properties of a single zfs filesystem or all zfs filesystems.
+ *	@param string $entity_name If provided, only the properties of this specific zfs filesystem are returned.
+ *	@return string An unescaped string.
+ */
+function clget_zfs_filesystem_properties(string $entity_name = NULL): string {
+	$a_cmd = ['zfs','list','-H','-o','name','-t','filesystem'];
 	if(isset($entity_name)):
-		$cmd = sprintf('zfs list -H -o name -t filesystem %s 2>&1',escapeshellarg($entity_name));
-	else:
-		$cmd = 'zfs list -H -o name -t filesystem 2>&1';
+		$a_cmd[] = \escapeshellarg($entity_name);
 	endif;
-	unset($a_names);
-	mwexec2($cmd,$a_names);
-	if(is_array($a_names) && count($a_names) > 0):
-		$names = implode(' ',array_map('escapeshellarg',$a_names));
-		$cmd = sprintf('zfs get all %s 2>&1',$names);
-		unset($output);
-		mwexec2($cmd,$output);
+	$a_cmd[] = '2>&1';
+	$cmd = \implode(' ',$a_cmd);
+//	unset($a_names);
+	\mwexec2($cmd,$a_names);
+	if(\is_array($a_names) && \count($a_names) > 0):
+		$names = \implode(' ',\array_map('escapeshellarg',$a_names));
+		$cmd = \sprintf('zfs get all %s 2>&1',$names);
+//		unset($output);
+		\mwexec2($cmd,$output);
 	else:
-		$output = [gtext('No dataset information available.')];
+		$output = [\gettext('No ZFS filesystem information available.')];
 	endif;
-	return implode(PHP_EOL,$output);
+	return \implode("\n",$output);
 }
-$entity_name = NULL;
-if(isset($_GET['uuid']) && is_string($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
-	$sphere_array = &array_make_branch($config,'zfs','datasets','dataset');
-	if(false !== ($sphere_rowid = array_search_ex($_GET['uuid'],$sphere_array,'uuid'))):
+/**
+ *	Returns the full qualified ZFS filesystem name of $_GET['uuid'] or NULL.
+ *	@global array $config The global config file.
+ *	@return string|null
+ */
+function cfget_zfs_filesystem_name_of_uuid(string $uuid): ?string {
+	global $config;
+
+	$entity_name = NULL;
+	$sphere_array = &\array_make_branch($config,'zfs','datasets','dataset');
+	$sphere_rowid = \array_search_ex($uuid,$sphere_array,'uuid');
+	if($sphere_rowid !== false):
 		$sphere_record = $sphere_array[$sphere_rowid];
 		$sr_pool = $sphere_record['pool'][0] ?? NULL;
 		$sr_name = $sphere_record['name'] ?? NULL;
-		if(isset($sr_pool) && isset($sr_name) && is_string($sr_pool) && is_string($sr_name)):
-			$entity_name = sprintf('%s/%s',$sr_pool,$sr_name);
+		if(isset($sr_pool) && isset($sr_name) && \is_string($sr_pool) && \is_string($sr_name)):
+			$entity_name = \sprintf('%s/%s',$sr_pool,$sr_name);
 		endif;
 	endif;
+	return $entity_name;
+}
+if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'])):
+//	collect information from a single zfs filesystem
+	$uuid = $_GET['uuid'];
+	$entity_name = cfget_zfs_filesystem_name_of_uuid($uuid);
+	if(isset($entity_name)):
+		$status = [
+			'area_refresh_list' => clget_zfs_filesystem_list($entity_name),
+			'area_refresh_properties' => clget_zfs_filesystem_properties($entity_name)
+		];
+	else:
+		$status = [
+			'area_refresh_list' => \gettext('ZFS filesystem not found.'),
+			'area_refresh_properties' => \gettext('No ZFS filesystem properties available.')
+		];
+	endif;
+	$json_string = \json_encode(['submit' => 'inform','uuid' => $uuid]);
+else:
+//	collect information from all zfs filesystems
+	$entity_name = NULL;
+	$status = [
+		'area_refresh_list' => clget_zfs_filesystem_list(),
+		'area_refresh_properties' => clget_zfs_filesystem_properties()
+	];
+	$json_string = 'null';
 endif;
-$pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Datasets'),gtext('Information')];
+if(\is_ajax()):
+	\render_ajax($status);
+endif;
+$pgtitle = [\gettext('Disks'),\gettext('ZFS'),\gettext('Datasets'),\gettext('Information')];
 if(isset($entity_name)):
-	$pgtitle[] = htmlspecialchars($entity_name);
+	$pgtitle[] = $entity_name;
 endif;
-include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = \new_page($pgtitle);
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('disks_zfs_zpool.php',gettext('Pools'))->
-			ins_tabnav_record('disks_zfs_dataset.php',gettext('Datasets'),gettext('Reload page'),true)->
-			ins_tabnav_record('disks_zfs_volume.php',gettext('Volumes'))->
-			ins_tabnav_record('disks_zfs_snapshot.php',gettext('Snapshots'))->
-			ins_tabnav_record('disks_zfs_config.php',gettext('Configuration'))->
-			ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'))->
+			ins_tabnav_record('disks_zfs_zpool.php',\gettext('Pools'))->
+			ins_tabnav_record('disks_zfs_dataset.php',\gettext('Datasets'),\gettext('Reload page'),true)->
+			ins_tabnav_record('disks_zfs_volume.php',\gettext('Volumes'))->
+			ins_tabnav_record('disks_zfs_snapshot.php',\gettext('Snapshots'))->
+			ins_tabnav_record('disks_zfs_config.php',\gettext('Configuration'))->
+			ins_tabnav_record('disks_zfs_settings.php',\gettext('Settings'))->
 		pop()->
 		add_tabnav_lower()->
-			ins_tabnav_record('disks_zfs_dataset.php',gettext('Dataset'))->
-			ins_tabnav_record('disks_zfs_dataset_info.php',gettext('Information'),gettext('Reload page'),true);
+			ins_tabnav_record('disks_zfs_dataset.php',\gettext('Dataset'))->
+			ins_tabnav_record('disks_zfs_dataset_info.php',\gettext('Information'),\gettext('Reload page'),true);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(\gettext('ZFS Filesystem Information & Status'))->
+		last()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Information & Status'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'area_refresh_list'],$status['area_refresh_list'])->
+		pop()->
+		addTFOOT()->
+			c2_separator();
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(\gettext('ZFS Filesystem Properties'))->
+		pop()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Properties'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'area_refresh_properties'],$status['area_refresh_properties']);
+//	add additional javascript code
+$js_document_ready = <<<EOJ
+	var gui = new GUI;
+	gui.recall(30000,30000,'disks_zfs_dataset_info.php',$json_string,function(data) {
+		if($('#area_refresh_list').length > 0) {
+			$('#area_refresh_list').text(data.area_refresh_list);
+		}
+		if($('#area_refresh_properties').length > 0) {
+			$('#area_refresh_properties').text(data.area_refresh_properties);
+		}
+	});
+EOJ;
+$body->add_js_document_ready($js_document_ready);
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('ZFS Dataset Information & Status'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Information & Status');?></td>
-				<td class="celldata">
-					<pre><span id="zfs_get_dataset_list"><?=zfs_get_dataset_list($entity_name);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
-<?php
-			html_separator2();
-?>
-		</tfoot>
-	</table>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('ZFS Dataset Properties'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Properties');?></td>
-				<td class="celldata">
-					<pre><span id="zfs_get_dataset_properties"><?=zfs_get_dataset_properties($entity_name);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
-?>
