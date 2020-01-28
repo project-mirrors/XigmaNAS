@@ -74,7 +74,7 @@ $document->
 		push()->
 		add_tabnav_upper()->
 			ins_tabnav_record('disks_zfs_zpool.php',\gettext('Pools'),\gettext('Reload page'),true)->
-			ins_tabnav_record('disks_zfs_dataset.php',\gettext('Filesystems'))->
+			ins_tabnav_record('disks_zfs_dataset.php',\gettext('Datasets'))->
 			ins_tabnav_record('disks_zfs_volume.php',\gettext('Volumes'))->
 			ins_tabnav_record('disks_zfs_snapshot.php',\gettext('Snapshots'))->
 			ins_tabnav_record('disks_zfs_config.php',\gettext('Configuration'))->
