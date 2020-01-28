@@ -33,91 +33,25 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-/**
- *	Returns basic properties of a single zfs filesystem or all zfs filesystems.
- *	@param string $entity_name If provided, only basic information of this specific zfs filesystem is returned.
- *	@return string An unescaped string.
- */
-function clget_zfs_filesystem_list(string $entity_name = NULL): string {
-	$a_cmd = ['zfs','list','-t','filesystem','-o','name,used,avail,refer,mountpoint'];
-	if(isset($entity_name)):
-		$a_cmd[] = \escapeshellarg($entity_name);
-	endif;
-	$a_cmd[] = '2>&1';
-	$cmd = \implode(' ',$a_cmd);
-//	unset($output);
-	\mwexec2($cmd,$output);
-	return \implode("\n",$output);
-}
-/**
- *	Returns all properties of a single zfs filesystem or all zfs filesystems.
- *	@param string $entity_name If provided, only the properties of this specific zfs filesystem are returned.
- *	@return string An unescaped string.
- */
-function clget_zfs_filesystem_properties(string $entity_name = NULL): string {
-	$a_cmd = ['zfs','list','-H','-o','name','-t','filesystem'];
-	if(isset($entity_name)):
-		$a_cmd[] = \escapeshellarg($entity_name);
-	endif;
-	$a_cmd[] = '2>&1';
-	$cmd = \implode(' ',$a_cmd);
-//	unset($a_names);
-	\mwexec2($cmd,$a_names);
-	if(\is_array($a_names) && \count($a_names) > 0):
-		$names = \implode(' ',\array_map('escapeshellarg',$a_names));
-		$cmd = \sprintf('zfs get all %s 2>&1',$names);
-//		unset($output);
-		\mwexec2($cmd,$output);
-	else:
-		$output = [\gettext('No ZFS filesystem information available.')];
-	endif;
-	return \implode("\n",$output);
-}
-/**
- *	Returns the full qualified ZFS filesystem name of $_GET['uuid'] or NULL.
- *	@global array $config The global config file.
- *	@return string|null
- */
-function cfget_zfs_filesystem_name_of_uuid(string $uuid): ?string {
-	global $config;
+use disks\zfs\filesystem\cli_toolbox as cli;
+use disks\zfs\filesystem\cfg_toolbox as cfg;
 
-	$entity_name = NULL;
-	$sphere_array = &\array_make_branch($config,'zfs','datasets','dataset');
-	$sphere_rowid = \array_search_ex($uuid,$sphere_array,'uuid');
-	if($sphere_rowid !== false):
-		$sphere_record = $sphere_array[$sphere_rowid];
-		$sr_pool = $sphere_record['pool'][0] ?? NULL;
-		$sr_name = $sphere_record['name'] ?? NULL;
-		if(isset($sr_pool) && isset($sr_name) && \is_string($sr_pool) && \is_string($sr_name)):
-			$entity_name = \sprintf('%s/%s',$sr_pool,$sr_name);
-		endif;
-	endif;
-	return $entity_name;
-}
 if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'])):
 //	collect information from a single zfs filesystem
 	$uuid = $_GET['uuid'];
-	$entity_name = cfget_zfs_filesystem_name_of_uuid($uuid);
+	$entity_name = cfg::name_of_uuid($uuid);
 	if(isset($entity_name)):
-		$status = [
-			'area_refresh_list' => clget_zfs_filesystem_list($entity_name),
-			'area_refresh_properties' => clget_zfs_filesystem_properties($entity_name)
-		];
+		$status = ['arl' => cli::get_list($entity_name),'arp' => cli::get_properties($entity_name)];
 	else:
-		$status = [
-			'area_refresh_list' => \gettext('ZFS filesystem not found.'),
-			'area_refresh_properties' => \gettext('No ZFS filesystem properties available.')
-		];
+		$status = ['arl' => \gettext('ZFS filesystem not found.'),'arp' => \gettext('ZFS filesystem properties not available.')];
 	endif;
 	$json_string = \json_encode(['submit' => 'inform','uuid' => $uuid]);
 else:
 //	collect information from all zfs filesystems
 	$entity_name = NULL;
-	$status = [
-		'area_refresh_list' => clget_zfs_filesystem_list(),
-		'area_refresh_properties' => clget_zfs_filesystem_properties()
-	];
+	$status = ['arl' => cli::get_list(),	'arp' => cli::get_properties()];
 	$json_string = 'null';
 endif;
 if(\is_ajax()):
@@ -160,7 +94,7 @@ $content->
 				insTDwC('celltag',\gettext('Information & Status'))->
 				addTDwC('celldata')->
 					addElement('pre',['class' => 'cmdoutput'])->
-						insSPAN(['id' => 'area_refresh_list'],$status['area_refresh_list'])->
+						insSPAN(['id' => 'arl'],$status['arl'])->
 		pop()->
 		addTFOOT()->
 			c2_separator();
@@ -176,17 +110,13 @@ $content->
 				insTDwC('celltag',\gettext('Properties'))->
 				addTDwC('celldata')->
 					addElement('pre',['class' => 'cmdoutput'])->
-						insSPAN(['id' => 'area_refresh_properties'],$status['area_refresh_properties']);
+						insSPAN(['id' => 'arp'],$status['arp']);
 //	add additional javascript code
 $js_document_ready = <<<EOJ
 	var gui = new GUI;
 	gui.recall(30000,30000,'disks_zfs_dataset_info.php',$json_string,function(data) {
-		if($('#area_refresh_list').length > 0) {
-			$('#area_refresh_list').text(data.area_refresh_list);
-		}
-		if($('#area_refresh_properties').length > 0) {
-			$('#area_refresh_properties').text(data.area_refresh_properties);
-		}
+		if($('#arl').length > 0) { $('#arl').text(data.arl); }
+		if($('#arp').length > 0) { $('#arp').text(data.arp); }
 	});
 EOJ;
 $body->add_js_document_ready($js_document_ready);
