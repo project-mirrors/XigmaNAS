@@ -33,177 +33,100 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'zfs.inc';
+require_once 'autoload.php';
 
-function disks_zfs_zpool_info_ajax() {
-	if(isset($_GET['pool']) && is_string($_GET['pool'])):
-		$cmd = sprintf('zpool status -v -T d %s 2>&1',escapeshellarg($_GET['pool']));
-	else:
-		$cmd = 'zpool status -v -T d 2>&1';
-	endif;
-	unset($output);
-	mwexec2($cmd,$output);
-	$return = implode(PHP_EOL,$output);
-	return $return;
-}
-function zfs_get_pool_list(string $entity_name = NULL) {
+use disks\zfs\zpool\cfg_toolbox as cfg;
+use disks\zfs\zpool\cli_toolbox as cli;
+
+if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'])):
+//	collect information from a single zfs zpool (via uuid)
+	$uuid = $_GET['uuid'];
+	$entity_name = cfg::name_of_uuid($uuid);
 	if(isset($entity_name)):
-		$cmd = sprintf('zpool list -o name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot %s 2>&1',escapeshellarg($entity_name));
+		$status = ['arl' => cli::get_status($entity_name),'arp' => cli::get_properties($entity_name)];
 	else:
-		$cmd = 'zpool list -o name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot 2>&1';
+		$status = ['arl' => \gettext('ZFS pool not found.'),'arp' => \gettext('ZFS pool properties not available.')];
 	endif;
-	unset($output);
-	mwexec2($cmd,$output);
-	$return_data = implode(PHP_EOL,$output);
-	return $return_data;
-}
-function zfs_get_pool_properties(string $entity_name = NULL) {
-	if(isset($entity_name)):
-		$cmd = sprintf('zpool list -H -o name %s 2>&1',escapeshellarg($entity_name));
-	else:
-		$cmd = 'zpool list -H -o name 2>&1';
-	endif;
-	unset($a_names);
-	mwexec2($cmd,$a_names);
-	if(is_array($a_names) && count($a_names) > 0):
-		$names = implode(' ',array_map('escapeshellarg',$a_names));
-		$cmd = sprintf('zpool get all %s 2>&1',$names);
-		unset($output);
-		mwexec2($cmd,$output);
-		$return_data = implode(PHP_EOL,$output);
-	else:
-		$output = [gtext('No volume information available.')];
-		$return_data = implode(PHP_EOL,$output);
-	endif;
-	return $return_data;
-}
-$entity_name = NULL;
-if(isset($_GET['uuid']) && is_string($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
-	$sphere_array = &array_make_branch($config,'zfs','pools','pool');
-	if(false !== ($sphere_rowid = array_search_ex($_GET['uuid'],$sphere_array,'uuid'))):
-		$sphere_record = $sphere_array[$sphere_rowid];
-		$sr_name = $sphere_record['name'] ?? NULL;
-		if(isset($sr_name) && is_string($sr_name)):
-			$entity_name = sprintf('%s',$sr_name);
-		endif;
-	endif;
+	$json_string = \json_encode(['submit' => 'inform','uuid' => $uuid]);
+elseif(isset($_GET['pool']) && \is_string($_GET['pool']) && \zfs_is_valid_poolname($_GET['pool'])):
+//	collect information from a single zfs zpool (via zpool name)
+	$entity_name = $_GET['pool'];
+	$status = ['arl' => cli::get_status($entity_name),'arp' => cli::get_properties($entity_name)];
+	$json_string = \json_encode(['submit' => 'inform','pool' => $entity_name]);
+else:
+//	collect information from all zfs zpools
+	$entity_name = NULL;
+	$status = ['arl' => cli::get_status()];
+	$json_string = 'null';
 endif;
-$pgtitle = [gtext('Disks'), gtext('ZFS'), gtext('Pools'), gtext('Information')];
+if(\is_ajax()):
+	\render_ajax($status);
+endif;
+$pgtitle = [\gettext('Disks'),\gettext('ZFS'),\gettext('Pools'),\gettext('Information')];
 if(isset($entity_name)):
-	$pgtitle[] = htmlspecialchars($entity_name);
+	$pgtitle[] = $entity_name;
 endif;
-if(!isset($entity_name)):
-	if(is_ajax()):
-		$status = disks_zfs_zpool_info_ajax();
-		render_ajax($status);
-	endif;
-endif;
-include 'fbegin.inc';
-if(!isset($entity_name)):
-?>
-<script type="text/javascript">
-//<![CDATA[
-$(document).ready(function(){
-	var gui = new GUI;
-	gui.recall(5000, 5000, 'disks_zfs_zpool_info.php', null, function(data) {
-		$('#area_refresh').text(data.data);
-	});
-});
-//]]>
-</script>
-<?php
-endif;
-$document = new co_DOMDocument();
+$document = \new_page($pgtitle);
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('disks_zfs_zpool.php',gettext('Pools'),gettext('Reload page'),true)->
-			ins_tabnav_record('disks_zfs_dataset.php',gettext('Datasets'))->
-			ins_tabnav_record('disks_zfs_volume.php',gettext('Volumes'))->
-			ins_tabnav_record('disks_zfs_snapshot.php',gettext('Snapshots'))->
-			ins_tabnav_record('disks_zfs_config.php',gettext('Configuration'))->
-			ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'))->
+			ins_tabnav_record('disks_zfs_zpool.php',\gettext('Pools'),\gettext('Reload page'),true)->
+			ins_tabnav_record('disks_zfs_dataset.php',\gettext('Filesystems'))->
+			ins_tabnav_record('disks_zfs_volume.php',\gettext('Volumes'))->
+			ins_tabnav_record('disks_zfs_snapshot.php',\gettext('Snapshots'))->
+			ins_tabnav_record('disks_zfs_config.php',\gettext('Configuration'))->
+			ins_tabnav_record('disks_zfs_settings.php',\gettext('Settings'))->
 		pop()->
 		add_tabnav_lower()->
-			ins_tabnav_record('disks_zfs_zpool_vdevice.php',gettext('Virtual Device'))->
-			ins_tabnav_record('disks_zfs_zpool.php',gettext('Management'))->
-			ins_tabnav_record('disks_zfs_zpool_tools.php',gettext('Tools'))->
-			ins_tabnav_record('disks_zfs_zpool_info.php',gettext('Information'),gettext('Reload page'),true)->
-			ins_tabnav_record('disks_zfs_zpool_io.php',gettext('I/O Statistics'));
-$document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
+			ins_tabnav_record('disks_zfs_zpool_vdevice.php',\gettext('Virtual Device'))->
+			ins_tabnav_record('disks_zfs_zpool.php',\gettext('Management'))->
+			ins_tabnav_record('disks_zfs_zpool_tools.php',\gettext('Tools'))->
+			ins_tabnav_record('disks_zfs_zpool_info.php',\gettext('Information'),\gettext('Reload page'),true)->
+			ins_tabnav_record('disks_zfs_zpool_io.php',\gettext('I/O Statistics'));
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(\gettext('ZFS Pool Information & Status'))->
+		pop()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Information & Status'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'arl'],$status['arl']);
 if(isset($entity_name)):
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('Pool Information & Status'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Information');?></td>
-				<td class="celldata">
-					<pre><span id="zfs_pool_list"><?=htmlspecialchars(zfs_get_pool_list($entity_name),ENT_QUOTES | ENT_HTML5,NULL,false);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
-<?php
-			html_separator2();
-?>
-		</tfoot>
-	</table>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('ZFS Pool Properties'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Properties');?></td>
-				<td class="celldata">
-					<pre><span id="zfs_get_pool_properties"><?=htmlspecialchars(zfs_get_pool_properties($entity_name),ENT_QUOTES | ENT_HTML5,NULL,false);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-<?php
-else:
-?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('Pool Information & Status'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Information');?></td>
-				<td class="celldata">
-					<pre><span id="area_refresh"><?=htmlspecialchars(disks_zfs_zpool_info_ajax(),ENT_QUOTES | ENT_HTML5,NULL,false);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-<?php
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_separator()->
+			c2_titleline(\gettext('ZFS Pool Properties'))->
+		pop()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Properties'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'arp'],$status['arp']);
 endif;
-?>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
+//	add additional javascript code
+$js_document_ready = <<<EOJ
+	var gui = new GUI;
+	gui.recall(30000,30000,'disks_zfs_zpool_info.php',$json_string,function(data) {
+		if($('#arl').length > 0) { $('#arl').text(data.arl); }
+		if($('#arp').length > 0) { $('#arp').text(data.arp); }
+	});
+EOJ;
+$body->add_js_document_ready($js_document_ready);
+$document->render();

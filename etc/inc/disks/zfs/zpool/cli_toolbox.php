@@ -31,19 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-namespace disks\zfs\filesystem;
+namespace disks\zfs\zpool;
 
 /**
  *	Wrapper class for autoloading functions
  */
 final class cli_toolbox {
 /**
- *	Returns basic properties of a single zfs filesystem or all zfs filesystems.
- *	@param string $entity_name If provided, only basic information of the specified zfs filesystem is returned.
+ *	Returns basic properties of a single zfs zpool or all zfs zpools.
+ *	@param string $entity_name If provided, only basic information of this specific zfs zpool is returned.
  *	@return string An unescaped string.
  */
 	public static function get_list(string $entity_name = NULL): string {
-		$a_cmd = ['zfs','list','-t','filesystem','-o','name,used,avail,refer,mountpoint'];
+		$a_cmd = ['zpool','list','-o','name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot'];
 		if(isset($entity_name)):
 			$a_cmd[] = \escapeshellarg($entity_name);
 		endif;
@@ -53,12 +53,12 @@ final class cli_toolbox {
 		return \implode("\n",$output);
 	}
 /**
- *	Returns all properties of a single zfs filesystem or all zfs filesystems.
- *	@param string $entity_name If provided, the properties of the specified zfs filesystem are returned.
+ *	Returns all properties of a single zfs zpool or all zfs zpools.
+ *	@param string $entity_name If provided, only the properties of this specific zfs zpool are returned.
  *	@return string An unescaped string.
  */
 	public static function get_properties(string $entity_name = NULL): string {
-		$a_cmd = ['zfs','list','-H','-o','name','-t','filesystem'];
+		$a_cmd = ['zpool','list','-H','-o','name'];
 		if(isset($entity_name)):
 			$a_cmd[] = \escapeshellarg($entity_name);
 		endif;
@@ -67,11 +67,25 @@ final class cli_toolbox {
 		\mwexec2($cmd,$a_names);
 		if(\is_array($a_names) && \count($a_names) > 0):
 			$names = \implode(' ',\array_map('escapeshellarg',$a_names));
-			$cmd = \sprintf('zfs get all %s 2>&1',$names);
+			$cmd = \sprintf('zpool get all %s 2>&1',$names);
 			\mwexec2($cmd,$output);
 		else:
-			$output = [\gettext('No ZFS filesystem information available.')];
+			$output = [\gettext('No ZFS zpool information available.')];
 		endif;
+		return \implode("\n",$output);
+	}
+/**
+ *	Returns the status of a single zfs zpool or all zfs zpools.
+ *	@return string An unescaped string.
+ */
+	public static function get_status(string $entity_name = NULL): string {
+		$a_cmd = ['zpool','status','-v','-T','d'];
+		if(isset($entity_name)):
+			$a_cmd[] = \escapeshellarg($entity_name);
+		endif;
+		$a_cmd[] = '2>&1';
+		$cmd = \implode(' ',$a_cmd);
+		\mwexec2($cmd,$output);
 		return \implode("\n",$output);
 	}
 }

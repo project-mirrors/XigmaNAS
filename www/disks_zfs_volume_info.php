@@ -43,7 +43,7 @@ if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'
 	$uuid = $_GET['uuid'];
 	$entity_name = cfg::name_of_uuid($uuid);
 	if(isset($entity_name)):
-		$status = ['arl' => cli::get_list($entity_name),	'arp' => cli::get_properties($entity_name)];
+		$status = ['arl' => cli::get_list($entity_name),'arp' => cli::get_properties($entity_name)];
 	else:
 		$status = ['arl' => \gettext('ZFS volume not found.'),'arp' => \gettext('ZFS volume properties not available.')];
 	endif;

@@ -1,6 +1,6 @@
 <?php
 /*
-	shared_toolbox.php
+	cli_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
@@ -31,7 +31,6 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-
 namespace disks\zfs\volume;
 
 /**
@@ -39,7 +38,7 @@ namespace disks\zfs\volume;
  */
 final class cli_toolbox {
 /**
- *	Returns basic properties of a single zfs volume or all zfs volumess.
+ *	Returns basic properties of a single zfs volume or all zfs volumes.
  *	@param string $entity_name If provided, only basic information of the specified zfs volume is returned.
  *	@return string An unescaped string.
  */
