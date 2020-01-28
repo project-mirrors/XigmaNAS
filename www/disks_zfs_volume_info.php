@@ -33,113 +33,91 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-function zfs_get_volume_list(string $entity_name = NULL) {
+use disks\zfs\volume\cli_toolbox as cli;
+use disks\zfs\volume\cfg_toolbox as cfg;
+
+if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'])):
+//	collect information from a single zfs volume
+	$uuid = $_GET['uuid'];
+	$entity_name = cfg::name_of_uuid($uuid);
 	if(isset($entity_name)):
-		$cmd = sprintf('zfs list -t volume -o name,used,avail,refer,mountpoint %s 2>&1',escapeshellarg($entity_name));
+		$status = ['arl' => cli::get_list($entity_name),	'arp' => cli::get_properties($entity_name)];
 	else:
-		$cmd = 'zfs list -t volume -o name,used,avail,refer,mountpoint 2>&1';
+		$status = ['arl' => \gettext('ZFS volume not found.'),'arp' => \gettext('ZFS volume properties not available.')];
 	endif;
-	unset($output);
-	mwexec2($cmd,$output);
-	return implode(PHP_EOL,$output);
-}
-function zfs_get_volume_properties(string $entity_name = NULL) {
-	if(isset($entity_name)):
-		$cmd = sprintf('zfs list -H -o name -t volume %s 2>&1',escapeshellarg($entity_name));
-	else:
-		$cmd = 'zfs list -H -o name -t volume 2>&1';
-	endif;
-	unset($a_names);
-	mwexec2($cmd,$a_names);
-	if(is_array($a_names) && count($a_names) > 0):
-		$names = implode(' ',array_map('escapeshellarg',$a_names));
-		$cmd = sprintf('zfs get all %s 2>&1',$names);
-		unset($output);
-		mwexec2($cmd,$output);
-	else:
-		$output = [gtext('No volume information available.')];
-	endif;
-	return implode(PHP_EOL,$output);
-}
-$entity_name = NULL;
-if(isset($_GET['uuid']) && is_string($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
-	$sphere_array = &array_make_branch($config,'zfs','volumes','volume');
-	if(false !== ($sphere_rowid = array_search_ex($_GET['uuid'],$sphere_array,'uuid'))):
-		$sphere_record = $sphere_array[$sphere_rowid];
-		$sr_pool = $sphere_record['pool'][0] ?? NULL;
-		$sr_name = $sphere_record['name'] ?? NULL;
-		if(isset($sr_pool) && isset($sr_name) && is_string($sr_pool) && is_string($sr_name)):
-			$entity_name = sprintf('%s/%s',$sr_pool,$sr_name);
-		endif;
-	endif;
+	$json_string = \json_encode(['submit' => 'inform','uuid' => $uuid]);
+else:
+//	collect information from all zfs volumes
+	$entity_name = NULL;
+	$status = ['arl' => cli::get_list(),'arp' => cli::get_properties()];
+	$json_string = 'null';
 endif;
-$pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Volumes'),gtext('Information')];
+if(\is_ajax()):
+	\render_ajax($status);
+endif;
+$pgtitle = [\gettext('Disks'),\gettext('ZFS'),\gettext('Volumes'),\gettext('Information')];
 if(isset($entity_name)):
-	$pgtitle[] = htmlspecialchars($entity_name);
+	$pgtitle[] = $entity_name;
 endif;
-include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = \new_page($pgtitle);
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('disks_zfs_zpool.php',gettext('Pools'))->
-			ins_tabnav_record('disks_zfs_dataset.php',gettext('Datasets'))->
-			ins_tabnav_record('disks_zfs_volume.php',gettext('Volumes'),gettext('Reload page'),true)->
-			ins_tabnav_record('disks_zfs_snapshot.php',gettext('Snapshots'))->
-			ins_tabnav_record('disks_zfs_config.php',gettext('Configuration'))->
-			ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'))->
+			ins_tabnav_record('disks_zfs_zpool.php',\gettext('Pools'))->
+			ins_tabnav_record('disks_zfs_dataset.php',\gettext('Datasets'))->
+			ins_tabnav_record('disks_zfs_volume.php',\gettext('Volumes'),\gettext('Reload page'),true)->
+			ins_tabnav_record('disks_zfs_snapshot.php',\gettext('Snapshots'))->
+			ins_tabnav_record('disks_zfs_config.php',\gettext('Configuration'))->
+			ins_tabnav_record('disks_zfs_settings.php',\gettext('Settings'))->
 		pop()->
 		add_tabnav_lower()->
-			ins_tabnav_record('disks_zfs_volume.php',gettext('Volume'))->
-			ins_tabnav_record('disks_zfs_volume_info.php',gettext('Information'),gettext('Reload page'),true);
+			ins_tabnav_record('disks_zfs_volume.php',\gettext('Volume'))->
+			ins_tabnav_record('disks_zfs_volume_info.php',\gettext('Information'),\gettext('Reload page'),true);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(\gettext('ZFS Volume Information & Status'))->
+		last()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Information & Status'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'arl'],$status['arl'])->
+		pop()->
+		addTFOOT()->
+			c2_separator();
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(\gettext('ZFS Volume Properties'))->
+		pop()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Properties'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'arp'],$status['arp']);
+//	add additional javascript code
+$js_document_ready = <<<EOJ
+	var gui = new GUI;
+	gui.recall(30000,30000,'disks_zfs_volume_info.php',$json_string,function(data) {
+		if($('#arl').length > 0) { $('#arl').text(data.arl); }
+		if($('#arp').length > 0) { $('#arp').text(data.arp); }
+	});
+EOJ;
+$body->add_js_document_ready($js_document_ready);
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('ZFS Volume Information & Status'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Information & Status');?></td>
-				<td class="celldata">
-					<pre><span id="zfs_get_volume_list"><?=zfs_get_volume_list($entity_name);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-		<tfoot>
-<?php
-			html_separator2();
-?>
-		</tfoot>
-	</table>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('ZFS Volume Properties'));
-?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('Properties');?></td>
-				<td class="celldata">
-					<pre><span id="zfs_get_volume_properties"><?=zfs_get_volume_properties($entity_name);?></span></pre>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
