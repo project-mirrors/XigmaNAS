@@ -33,18 +33,37 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-function disks_raid_gmirror_info_ajax() {
-	$cmd = '/sbin/gmirror list';
-	mwexec2($cmd,$rawdata);
-	return (0 === count($rawdata)) ? gettext('No RAID1 information found.') : implode(PHP_EOL,$rawdata);
-}
-if(is_ajax()):
-	$status['area_refresh'] = disks_raid_gmirror_info_ajax();
-	render_ajax($status);
+use disks\geom\mirror\cfg_toolbox as cfg;
+use disks\geom\mirror\cli_toolbox as cli;
+
+if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'])):
+//	collect information from a single geom (via uuid)
+	$uuid = $_GET['uuid'];
+	$entity_name = cfg::name_of_uuid($uuid);
+	if(isset($entity_name)):
+		$status = ['ars' => cli::get_status($entity_name),'arl' => cli::get_list($entity_name)];
+	else:
+		$status = ['ars' => \gettext('GEOM not found.'),'arl' => \gettext('GEOM details not available.')];
+	endif;
+	$json_string = \json_encode(['submit' => 'inform','uuid' => $uuid]);
+elseif(isset($_GET['name']) && \is_string($_GET['name'])):
+//	collect information from a single geom (via geom name)
+	$entity_name = $_GET['name'];
+	$status = ['ars' => cli::get_status($entity_name),'arl' => cli::get_list($entity_name)];
+	$json_string = \json_encode(['submit' => 'inform','name' => $entity_name]);
+else:
+//	collect information from all gmirrors
+	$entity_name = NULL;
+	$status = ['ars' => cli::get_status()];
+	$json_string = 'null';
 endif;
-$pgtitle = [gettext('Disks'),gettext('Software RAID'),gettext('RAID1'),gettext('Information')];
-$document = new_page($pgtitle);
+if(\is_ajax()):
+	\render_ajax($status);
+endif;
+$pgtitle = [\gettext('Disks'),\gettext('Software RAID'),\gettext('RAID1'),\gettext('Information')];
+$document = \new_page($pgtitle);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -53,34 +72,49 @@ $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('disks_raid_geom.php',gettext('GEOM'),gettext('Reload page'),true)->
-			ins_tabnav_record('disks_raid_gvinum.php',gettext('RAID 0/1/5'))->
+			ins_tabnav_record('disks_raid_geom.php',\gettext('GEOM'),\gettext('Reload page'),true)->
+			ins_tabnav_record('disks_raid_gvinum.php',\gettext('RAID 0/1/5'))->
 		pop()->
 		add_tabnav_lower()->
-			ins_tabnav_record('disks_raid_geom.php',gettext('Management'))->
-			ins_tabnav_record('disks_raid_gmirror_tools.php',gettext('Maintenance'))->
-			ins_tabnav_record('disks_raid_gmirror_info.php',gettext('Information'),gettext('Reload page'),true);
-$pagecontent->
-	add_area_data()->
-		add_table_data_settings()->
-			push()->
-			ins_colgroup_data_settings()->
-			addTHEAD()->
-				c2_titleline(gettext('RAID1 Information & Status'))->
-			pop()->
-			addTBODY()->
-				addTR()->
-					insTDwC('celltag',gettext('Information'))->
-					addTDwC('celldata')->
-						addElement('pre',['class' => 'cmdoutput'])->
-							addElement('span',['id' => 'area_refresh'],disks_raid_gmirror_info_ajax());
+			ins_tabnav_record('disks_raid_geom.php',\gettext('Management'))->
+			ins_tabnav_record('disks_raid_gmirror_tools.php',\gettext('Maintenance'))->
+			ins_tabnav_record('disks_raid_gmirror_info.php',\gettext('Information'),\gettext('Reload page'),true);
+$content = $pagecontent->add_area_data();
+$content->
+	add_table_data_settings()->
+		push()->
+		ins_colgroup_data_settings()->
+		addTHEAD()->
+			c2_titleline(\gettext('RAID1 Status'))->
+		pop()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Status'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'ars'],$status['ars']);
+if(isset($entity_name)):
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_separator()->
+			c2_titleline(\gettext('RAID1 Details'))->
+		pop()->
+		addTBODY()->
+			addTR()->
+				insTDwC('celltag',\gettext('Details'))->
+				addTDwC('celldata')->
+					addElement('pre',['class' => 'cmdoutput'])->
+						insSPAN(['id' => 'arl'],$status['arl']);
+endif;
 //	add additional javascript code
-$js_document_ready = <<<'EOJ'
+$js_document_ready = <<<EOJ
 	var gui = new GUI;
-	gui.recall(5000,5000,'disks_raid_gmirror_info.php',null,function(data) {
-		if($('#area_refresh').length > 0) {
-			$('#area_refresh').text(data.area_refresh);
-		}
+	gui.recall(10000,10000,'disks_raid_gmirror_info.php',$json_string,function(data) {
+		if($('#ars').length > 0) { $('#ars').text(data.ars); }
+		if($('#arl').length > 0) { $('#arl').text(data.arl); }
 	});
 EOJ;
 $body->add_js_document_ready($js_document_ready);
