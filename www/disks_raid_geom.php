@@ -109,7 +109,7 @@ if($_POST):
 					$sphere_notifier = $a_process[$sphere_array[$index]['type']]['x-notifier']; // get the notifier
 					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
 					switch($mode_updatenotify):
-						case UPDATENOTIFY_MODE_NEW:  
+						case UPDATENOTIFY_MODE_NEW:
 							updatenotify_clear($sphere_notifier,$sphere_array[$index]['uuid']);
 							updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere_array[$index]['uuid']);
 							break;
@@ -150,7 +150,7 @@ $(window).on("load", function() {
 	});
 	// Init spinner onsubmit()
 	$("#iform").submit(function() { spinner(); });
-}); 
+});
 function disableactionbuttons(ab_disable) {
 	$("#delete_selected_rows").prop("disabled", ab_disable);
 }
@@ -269,6 +269,9 @@ function controlactionbuttons(ego, triggerbyname) {
 					$notprotected = !isset($sphere_record['protected']);
 					$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
 					$normaloperation = $notprotected && $notmounted;
+					$e_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$m_link = $a_process[$sphere_record['type']]['x-page-maintenance'];
+					$i_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
 ?>
 					<tr>
 						<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>">
@@ -295,7 +298,7 @@ function controlactionbuttons(ego, triggerbyname) {
 <?php
 									if($notdirty && $notprotected):
 ?>
-										<a href="<?=$sphere_scriptname_child;?>?uuid=<?=$sphere_record['uuid'];?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
+										<a href="<?=$e_link;?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
 <?php
 									elseif($notprotected && $notmounted):
 ?>
@@ -308,8 +311,8 @@ function controlactionbuttons(ego, triggerbyname) {
 									endif;
 ?>
 								</td>
-								<td><a href="<?=$a_process[$sphere_record['type']]['x-page-maintenance'];?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
-								<td><a href="<?=$a_process[$sphere_record['type']]['x-page-information'];?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
+								<td><a href="<?=$m_link;?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
+								<td><a href="<?=$i_link;?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
 							</tr></tbody></table>
 						</td>
 					</tr>
