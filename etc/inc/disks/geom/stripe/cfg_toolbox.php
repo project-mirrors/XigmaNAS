@@ -31,23 +31,23 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-namespace disks\geom\concat;
+namespace disks\geom\stripe;
 
 /**
  *	Wrapper class for autoloading functions
  */
 final class cfg_toolbox {
 /**
- *	Returns the gconcat name of $uuid or NULL.
+ *	Returns the  gstripe name of $uuid or NULL.
  *	@global array $config The global config file.
- *	@param string $uuid UUID of the gconcat.
- *	@return string|null gconcat name.
+ *	@param string $uuid UUID of the gstripe.
+ *	@return string|null gstripe name.
  */
 	public static function name_of_uuid(string $uuid): ?string {
 		global $config;
 
 		$entity_name = NULL;
-		$sphere_array = &\array_make_branch($config,'gconcat','vdisk');
+		$sphere_array = &\array_make_branch($config,'gstripe','vdisk');
 		$sphere_rowid = \array_search_ex($uuid,$sphere_array,'uuid');
 		if($sphere_rowid !== false):
 			$sphere_record = $sphere_array[$sphere_rowid];

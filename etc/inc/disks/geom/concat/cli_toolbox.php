@@ -38,8 +38,8 @@ namespace disks\geom\concat;
  */
 final class cli_toolbox {
 /**
- *	Returns basic properties of a single zfs zpool or all zfs zpools.
- *	@param string $entity_name If provided, only basic information of this specific zfs zpool is returned.
+ *	Returns details of a single gconcat or all gconcats.
+ *	@param string $entity_name If provided, only details of this specific gconcat are returned.
  *	@return string An unescaped string.
  */
 	public static function get_list(string $entity_name = NULL): string {
@@ -53,7 +53,7 @@ final class cli_toolbox {
 		return \implode("\n",$output);
 	}
 /**
- *	Returns the status of a single zfs zpool or all zfs zpools.
+ *	Returns the status of a single gconcat or all gconcats.
  *	@return string An unescaped string.
  */
 	public static function get_status(string $entity_name = NULL): string {
