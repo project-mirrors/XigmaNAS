@@ -54,7 +54,7 @@ elseif(isset($_GET['name']) && \is_string($_GET['name'])):
 	$status = ['ars' => cli::get_status($entity_name),'arl' => cli::get_list($entity_name)];
 	$json_string = \json_encode(['submit' => 'inform','name' => $entity_name]);
 else:
-//	collect information from all zfs zpools
+//	collect information from all gconcats
 	$entity_name = NULL;
 	$status = ['ars' => cli::get_status()];
 	$json_string = 'null';
