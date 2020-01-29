@@ -1,6 +1,6 @@
 <?php
 /*
-	cfg_toolbox.php
+	cli_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
@@ -31,31 +31,39 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-namespace disks\geom\concat;
+namespace disks\geom\mirror;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class cfg_toolbox {
+final class cli_toolbox {
 /**
- *	Returns the gconcat name of $uuid or NULL.
- *	@global array $config The global config file.
- *	@param string $uuid UUID of the gconcat.
- *	@return string|null gconcat name.
+ *	Returns details of a single gmirror or all gmirrors.
+ *	@param string $entity_name If provided, only details of this specific gmirror are returned.
+ *	@return string An unescaped string.
  */
-	public static function name_of_uuid(string $uuid): ?string {
-		global $config;
-
-		$entity_name = NULL;
-		$sphere_array = &\array_make_branch($config,'gconcat','vdisk');
-		$sphere_rowid = \array_search_ex($uuid,$sphere_array,'uuid');
-		if($sphere_rowid !== false):
-			$sphere_record = $sphere_array[$sphere_rowid];
-			$sr_name = $sphere_record['name'] ?? NULL;
-			if(isset($sr_name) && \is_string($sr_name)):
-				$entity_name = $sr_name;
-			endif;
+	public static function get_list(string $entity_name = NULL): string {
+		$a_cmd = ['/sbin/geom','mirror','list'];
+		if(isset($entity_name)):
+			$a_cmd[] = \escapeshellarg($entity_name);
 		endif;
-		return $entity_name;
+		$a_cmd[] = '2>&1';
+		$cmd = \implode(' ',$a_cmd);
+		\mwexec2($cmd,$output);
+		return \implode("\n",$output);
+	}
+/**
+ *	Returns the status of a single gmirror or all gmirrors.
+ *	@return string An unescaped string.
+ */
+	public static function get_status(string $entity_name = NULL): string {
+		$a_cmd = ['/sbin/geom','mirror','status'];
+		if(isset($entity_name)):
+			$a_cmd[] = \escapeshellarg($entity_name);
+		endif;
+		$a_cmd[] = '2>&1';
+		$cmd = \implode(' ',$a_cmd);
+		\mwexec2($cmd,$output);
+		return \implode("\n",$output);
 	}
 }
