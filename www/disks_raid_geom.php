@@ -194,6 +194,9 @@ function controlactionbuttons(ego, triggerbyname) {
 		<li class="tabact"><a href="<?=$sphere_scriptname;?>" title="<?=gtext('Reload page');?>"><span><?=gtext('GEOM');?></span></a></li>
 		<li class="tabinact"><a href="disks_raid_gvinum.php"><span><?=gtext('RAID 0/1/5');?></span></a></li>
 	</ul></td></tr>
+	<tr><td class="tabnavtbl"><ul id="tabnav2">
+		<li class="tabact"><a href="<?=$sphere_scriptname;?>" title="<?=gtext('Reload page');?>" ><span><?=gtext('Management');?></span></a></li>
+	</ul></td></tr>
 </tbody></table>
 <form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform">
 	<table id="area_data"><tbody><tr><td id="area_data_frame">
@@ -269,9 +272,9 @@ function controlactionbuttons(ego, triggerbyname) {
 					$notprotected = !isset($sphere_record['protected']);
 					$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
 					$normaloperation = $notprotected && $notmounted;
-					$e_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
-					$m_link = $a_process[$sphere_record['type']]['x-page-maintenance'];
-					$i_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$mod_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$mai_link = $a_process[$sphere_record['type']]['x-page-maintenance'];
+					$inf_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
 ?>
 					<tr>
 						<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>">
@@ -298,7 +301,7 @@ function controlactionbuttons(ego, triggerbyname) {
 <?php
 									if($notdirty && $notprotected):
 ?>
-										<a href="<?=$e_link;?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
+										<a href="<?=$mod_link;?>"><img src="<?=$img_path['mod'];?>" title="<?=$gt_record_mod;?>" alt="<?=$gt_record_mod;?>" /></a>
 <?php
 									elseif($notprotected && $notmounted):
 ?>
@@ -311,8 +314,8 @@ function controlactionbuttons(ego, triggerbyname) {
 									endif;
 ?>
 								</td>
-								<td><a href="<?=$m_link;?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
-								<td><a href="<?=$i_link;?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
+								<td><a href="<?=$mai_link;?>"><img src="<?=$img_path['mai'];?>" title="<?=$gt_record_mai;?>" alt="<?=$gt_record_mai;?>" /></a></td>
+								<td><a href="<?=$inf_link;?>"><img src="<?=$img_path['inf'];?>" title="<?=$gt_record_inf?>" alt="<?=$gt_record_inf?>" /></a></td>
 							</tr></tbody></table>
 						</td>
 					</tr>
