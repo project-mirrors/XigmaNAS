@@ -363,7 +363,7 @@ function get_datetime_locale_samples() {
 		'm/d/Y h:i:s A',      // 02/25/2016 10:31:42 PM
 		'Y-m-d H:i:s'         // 2016-02-02 22:31:42
 	];
-	$now = shell_exec('date "+%s"');
+	$now = (int)shell_exec('date "+%s"');
 	foreach($sphere_array as $sphere_record):
 		$retval[$sphere_record] = get_datetime_locale($now,$sphere_record);
 	endforeach;
@@ -372,11 +372,11 @@ function get_datetime_locale_samples() {
 
 function get_datetime_locale(int $timestamp = null,string $format = NULL) {
 	global $config;
-	$retval = '';
-	$timestamp = $timestamp ?? shell_exec('date "+%s"');
-	$format = $format ?? $config['system']['datetimeformat'] ?? 'D M d H:i:s T Y';
+
+	$t_timestamp = $timestamp ?? (int)shell_exec('date "+%s"');
+	$t_format = $format ?? $config['system']['datetimeformat'] ?? 'D M d H:i:s T Y';
 	$dto = new DateTime();
-	$dto->setTimestamp($timestamp);
+	$dto->setTimestamp($t_timestamp);
 	$format_symbols = ['D','l','M','F'];
 	$replacement_symbols = ['%1','%2','%3','%4'];
 	$localised_names = [
@@ -385,7 +385,7 @@ function get_datetime_locale(int $timestamp = null,string $format = NULL) {
 		gtext($dto->format($format_symbols[2])),
 		gtext($dto->format($format_symbols[3]))
 	];
-	$retval = str_replace($replacement_symbols,$localised_names,$dto->format(str_replace($format_symbols,$replacement_symbols,$format))); // Do the whole thing in one go
+	$retval = str_replace($replacement_symbols,$localised_names,$dto->format(str_replace($format_symbols,$replacement_symbols,$t_format)));
 	return $retval;
 }
 /**
@@ -472,7 +472,7 @@ function system_get_hostname() {
  * array(
  *   [kpt] => 11.93
  *   [tps] => 61
- *   [mps] => 0.71)
+ *   [mps] => 0.71
  * @endcode
  */
 function system_get_device_iostat($device) {
