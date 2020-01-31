@@ -555,10 +555,9 @@ class HTMLFileChooser2 extends HTMLEditBox2 {
 			'id' => $ctrlname . 'browsebtn',
 			'name' => $ctrlname . 'browsebtn',
 			'class' => 'formbtn',
-			'value' => $value,
+			'value' => '...',
 			'size' => $size,
 			'onclick' => $js,
-			'value' => '...'
 		];
 		$this->GetAttributes($attributes);
 		$anchor->insINPUT($attributes);
@@ -2852,7 +2851,7 @@ EOJ;
 				insElement('link',['href' => '/css/login.css.php','rel' => 'stylesheet','type' => 'text/css']);
 		endif;
 		$head->
-			insElement('style',[],'.avoid-fouc { display:none; }');
+			insElement('style',[],'.avoid-fouc { visibility:hidden; }');
 		$head->
 			addJavaScript("document.documentElement.className = 'avoid-fouc';");
 		$head->
