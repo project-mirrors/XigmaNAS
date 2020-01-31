@@ -43,18 +43,23 @@ $sphere = toolbox::init_sphere();
 unset($output);
 mwexec2('/sbin/sysctl -adet',$output);
 foreach($output as $row):
-	list($sysctl_name,$sysctl_type,$sysctl_info) = explode('=',$row,3);
+	$a_sysctl = explode('=',$row,3);
+	$sysctl_name = $a_sysctl[0] ?? '';
+	$sysctl_type = $a_sysctl[1] ?? '';
+	$sysctl_info = $a_sysctl[2] ?? '';
 	if(!empty($sysctl_type)):
 		$sphere->grid[$sysctl_name] = ['sysctltype' => $sysctl_type,'sysctlinfo' => $sysctl_info];
 	endif;
 endforeach;
-unset($row,$output,$sysctl_name,$sysctl_type,$sysctl_info);
+unset($row,$output,$sysctl_name,$sysctl_type,$sysctl_info,$a_sysctl);
 mwexec2('/sbin/sysctl -ae',$output);
 foreach($output as $row):
-	list($sysctl_name,$sysctl_value) = explode('=',$row,2);
+	$a_sysctl = explode('=',$row,2);
+	$sysctl_name = $a_sysctl[0] ?? '';
+	$sysctl_value = $a_sysctl[1] ?? '';
 	if(array_key_exists($sysctl_name,$sphere->grid)):
 		$sphere->grid[$sysctl_name]['value'] = $sysctl_value;
 	endif;
 endforeach;
-unset($row,$output,$sysctl_name,$sysctl_value);
+unset($row,$output,$sysctl_name,$sysctl_value,$a_sysctl);
 toolbox::render($cop,$sphere);
