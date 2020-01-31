@@ -229,7 +229,8 @@ $document->render();
 							<td width="10%" class="list"></td>
 						</tr>
 <?php
-						foreach($config['websrv']['authentication']['url'] as $urlv):
+						$url_grid = $config['websrv']['authentication']['url'] ?? [];
+						foreach($url_grid as $urlv):
 							$notificationmode = updatenotify_get_mode("websrvauth",$urlv['uuid']);
 ?>
 							<tr>
