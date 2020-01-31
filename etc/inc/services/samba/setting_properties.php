@@ -239,6 +239,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_loglevel(): myp\property_list {
+		$description = gettext('The value of the parameter allows the debug level (logging level) to be specified');
 		$options = [
 			'0' => gettext('Disabled'),
 			'1' => gettext('Minimum'),
