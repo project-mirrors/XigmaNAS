@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 	system_monitoring.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
@@ -90,7 +90,7 @@ if (isset($_POST['save']) && $_POST['save']) {
 			} else {
 				$_POST['storage_path'] = rtrim($_POST['storage_path'],'/');	// ensure to have no trailing slash
 			}
-			if (!is_dir("{$_POST['storage_path']}/rrd")) { 
+			if (!is_dir("{$_POST['storage_path']}/rrd")) {
 				mkdir("{$_POST['storage_path']}/rrd", 0775, true);	// new destination or first install
 				change_perms("{$_POST['storage_path']}/rrd");	// check/set permissions
 			}
@@ -143,7 +143,7 @@ if (isset($_POST['save']) && $_POST['save']) {
 			config_lock();
 			$retval |= rc_update_service("cron");
 			config_unlock();
-			}	
+			}
 		}
 	}
 }
@@ -444,6 +444,7 @@ $document->render();
 			html_checkbox2('latency', gettext('Network Latency'), $pconfig['latency'], gettext('Enable collecting network latency statistics.'), '', false, false, 'latency_change()');
 			html_inputbox2('latency_host', gettext('Host'), $pconfig['latency_host'], gettext('Destination host name or IP address.'), false, 20);
 			$a_option = [];
+			$s_option = '';
 			foreach($a_interface as $if => $ifinfo) {
 				$ifinfo = get_interface_info($if);
 				if (('up' == $ifinfo['status']) || ('associated' == $ifinfo['status'])) {
