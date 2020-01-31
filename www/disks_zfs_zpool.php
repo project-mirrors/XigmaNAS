@@ -38,7 +38,7 @@ require_once 'co_sphere.php';
 
 function disks_zfs_zpool_get_sphere() {
 	global $config;
-	
+
 	$sphere = new co_sphere_grid('disks_zfs_zpool','php');
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->get_inform()->set_basename($sphere->get_basename() . '_info');
@@ -60,7 +60,7 @@ function disks_zfs_zpool_get_sphere() {
 }
 function zfspool_process_updatenotification($mode,$data) {
 	global $g;
-	
+
 	$retval = 0;
 	$sphere = &disks_zfs_zpool_get_sphere();
 	switch($mode):
@@ -193,7 +193,7 @@ $document->render();
 ?>
 	<table class="area_data_selection">
 		<colgroup>
-			<col style="width:5%"> 
+			<col style="width:5%">
 			<col style="width:15%">
 			<col style="width:10%">
 			<col style="width:10%">
@@ -258,7 +258,7 @@ $document->render();
 						$size = format_bytes($sphere_addon_row['used'] + $sphere_addon_row['avail'],2,false,$use_si);
 						$used = format_bytes($sphere_addon_row['used'],2,false,$use_si);
 						$avail = format_bytes($sphere_addon_row['avail'],2,false,$use_si);
-					else:	
+					else:
 						$size = format_bytes($sphere_addon_row['size'],2,false,$use_si);
 						$used = format_bytes($sphere_addon_row['alloc'],2,false,$use_si);
 						$avail = format_bytes($sphere_addon_row['free'],2,false,$use_si);
