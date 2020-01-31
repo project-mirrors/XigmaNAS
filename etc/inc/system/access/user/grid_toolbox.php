@@ -100,7 +100,7 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$hidesystemusers = $_SESSION['access.hidesystemusers'];
+		$hidesystemusers = is_bool($test = $_SESSION['access.hidesystemusers'] ?? false) ? $test : true;
 		$known_users = ($hidesystemusers ? [] : \system_get_user_list());
 		$pgtitle = [gettext('Access'),gettext('Users')];
 		$row_count = count($sphere->grid) + count($known_users);
