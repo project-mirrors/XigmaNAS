@@ -33,81 +33,75 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_system_backup.php';
-require_once 'co_request_method.php';
+require_once 'autoload.php';
 
-function system_backup_settings_sphere() {
-	global $config;
+use system\backup\setting_toolbox as toolbox;
+use system\backup\shared_toolbox;
 
-	$sphere = new co_sphere_row('system_backup_settings','php');
-	$sphere->set_enadis(false);
-	$sphere->grid = &array_make_branch($config,'system','backup','settings');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new system_backup_properties();
-$sphere = &system_backup_settings_sphere();
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(\file_exists($d_sysrebootreqd_path)):
+	$savemsg = \get_std_save_message(0);
+endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
 	$cop->get_reminderintervalshow()
 ];
-$input_errors = [];
-//	determine request method
-$rmo = new co_request_method();
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('GET','view',PAGE_MODE_VIEW);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-if($sphere->is_enadis_enabled()):
-	$rmo->add('POST','enable',PAGE_MODE_VIEW);
-	$rmo->add('POST','disable',PAGE_MODE_VIEW);
-endif;
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->add('POST','view',PAGE_MODE_VIEW);
-$rmo->add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
+$pending_changes = \updatenotify_exists($sphere->get_notifier());
 list($page_method,$page_action,$page_mode) = $rmo->validate();
-//	catch error code
-switch($page_action):
-	case $sphere->get_basename():
-		$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-		unset($_SESSION['submit']);
-		unset($_SESSION[$sphere->get_basename()]);
-		$savemsg = get_std_save_message($retval);
-		if($retval !== 0):
-			$page_action = 'edit';
-			$page_mode = PAGE_MODE_EDIT;
-		else:
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		endif;
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = \filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = \get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= \updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				\header($sphere->get_script()->get_location());
+				exit;
+				break;
+		endswitch;
 		break;
 endswitch;
 //	validate
 switch($page_action):
 	case 'edit':
 	case 'view':
-	case 'disable':
-	case 'enable':
 		$source = $sphere->grid;
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			switch($name):
 				case 'auxparam':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
+					if(\array_key_exists($name,$source)):
+						if(\is_array($source[$name])):
+							$source[$name] = \implode("\n",$source[$name]);
 						endif;
 					endif;
 					break;
 			endswitch;
 			$sphere->row[$name] = $referer->validate_array_element($source);
-			if(is_null($sphere->row[$name])):
-				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
-					switch($page_action):
-						case 'enable':
-							$input_errors[] = $referer->get_message_error();
-							break;
-					endswitch;
+			if(\is_null($sphere->row[$name])):
+				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -120,67 +114,28 @@ switch($page_action):
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
-			if(is_null($sphere->row[$name])):
+			if(\is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
-				if(array_key_exists($name,$source) && is_scalar($source[$name])): 
+				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
-		break;
-endswitch;
-//	reclassify
-switch($page_action):
-	case 'enable':
-		$name = $cop->get_enable()->get_name();
-		if($sphere->row[$name]):
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		else:
-			$sphere->row[$name] = true;
-			$page_action = 'save';
-			$page_mode = PAGE_MODE_POST;
-		endif;
-		break;
-	case 'disable':
-		$name = $cop->get_enable()->get_name();
-		if($sphere->row[$name]):
-			$sphere->row[$name] = false;
-			$page_action = 'save';
-			$page_mode = PAGE_MODE_POST;
-		else:
-			$page_action = 'view';
-			$page_mode = PAGE_MODE_VIEW;
-		endif;
-		break;
-endswitch;
-//	save configuration
-switch($page_action):
-	case 'save':
 		if(empty($input_errors)):
 			foreach($a_referer as $referer):
 				$name = $referer->get_name();
 				switch($name):
 					case 'auxparam':
-						$auxparam_grid = [];
-						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $auxparam_grid;
+						$sphere->row[$name] = \array_map(function($element) { return \trim($element,"\n\r\t"); },\explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
 			endforeach;
-			write_config();
-			$retval = 0;
-//			config_lock();
-//			$retval |= rc_update_reload_service();
-//			config_unlock();
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
-			header($sphere->get_location());
+			\write_config();
+			\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			\header($sphere->get_script()->get_location());
 			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
@@ -188,70 +143,46 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+list($page_mode,$is_readonly) = \calc_skipviewmode($page_mode);
+$input_errors_found = \count($input_errors) > 0;
 //	create document
-$pgtitle = [gettext('System'),gettext('Backup Configuration'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_scriptname());
+$pgtitle = [\gettext('System'),\gettext('Backup Configuration'),\gettext('Settings')];
+$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		push()->
-		add_tabnav_upper()->
-			ins_tabnav_record('system_backup.php',gettext('Backup Configuration'),gettext('Reload page'),true)->
-			ins_tabnav_record('system_restore.php',gettext('Restore Configuration'))->
-		pop()->
-		add_tabnav_lower()->
-			ins_tabnav_record('system_backup.php',gettext('Backup'))->
-			ins_tabnav_record('system_backup_settings.php',gettext('Settings'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes && !$input_errors_found):
+	$content->ins_config_has_changed_box();
+endif;
 //	add content
-//	$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
 $content->
 	add_table_data_settings()->
-		ins_colgroup_data_settings()->
 		push()->
+		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_titleline(gettext('Reminder Settings'))->
+			c2_titleline(\gettext('Reminder Settings'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_reminderintervalshow(),$sphere->row[$cop->get_reminderintervalshow()->get_name()],false,$is_readonly);
+			c2_input_text($cop->get_reminderintervalshow(),$sphere,false,$is_readonly);
 //	add buttons
+$buttons = $document->add_area_buttons();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$document->
-			add_area_buttons()->
-				ins_button_edit();
+		$buttons->ins_button_edit();
 		break;
 	case PAGE_MODE_EDIT:
-		$document->
-			add_area_buttons()->
-				ins_button_save()->
-				ins_button_cancel();
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
 		break;
 endswitch;
-//	additional javascript code
-$js_code = [];
-$js_code[PAGE_MODE_VIEW] = '';
-$js_code[PAGE_MODE_EDIT] = '';
-//	additional javascript code
-$js_on_load = [];
-$js_on_load[PAGE_MODE_EDIT] = '';
-$js_on_load[PAGE_MODE_VIEW] = '';
-//	additional javascript code
-$js_document_ready = [];
-$js_document_ready[PAGE_MODE_EDIT] = '';
-$js_document_ready[PAGE_MODE_VIEW] = '';
-//	add additional javascript code
-$body->addJavaScript($js_code[$page_mode]);
-$body->add_js_on_load($js_on_load[$page_mode]);
-$body->add_js_document_ready($js_document_ready[$page_mode]);
 //	showtime
 $document->render();
