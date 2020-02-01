@@ -1,6 +1,6 @@
 <?php
 /*
-	properties_system_backup.php
+	setting_properties.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
@@ -31,17 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once 'properties.php';
+namespace system\backup;
 
-class system_backup_properties extends co_property_container {
-	protected $x_reminderintervalshow;
-	public function init_reminderintervalshow() {
-		$property = $this->x_reminderintervalshow = new property_int($this);
-		$description = gettext('Set the number of days until a reminder is shown to backup system configuration. The default is 28 days. A value of 0 disables this reminder.');
+use common\properties as myp;
+
+final class setting_properties extends grid_properties {
+	public function init_reminderintervalshow(): myp\property_int {
+		$description = \gettext('Set the number of days until a reminder is shown to backup system configuration. The default is 28 days. A value of 0 disables the reminder.');
 		$placeholder = '28';
-		$property->
-			set_name('reminderintervalshow')->
-			set_title(gettext('Show Interval'));
+		$property = parent::init_reminderintervalshow();
 		$property->
 			set_id('reminderintervalshow')->
 			set_description($description)->
@@ -49,15 +47,10 @@ class system_backup_properties extends co_property_container {
 			set_placeholderv($placeholder)->
 			set_maxlength(5)->
 			set_size(4)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_defaultvalue('')->
 			set_min(0)->
 			set_max(9999)->
 			filter_use_default_or_empty();
 		return $property;
-	}
-	public function get_reminderintervalshow() {
-		return $this->x_reminderintervalshow ?? $this->init_reminderintervalshow();	
 	}
 }

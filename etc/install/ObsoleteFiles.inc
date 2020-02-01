@@ -48,4 +48,6 @@ etc/inc/properties_services_samba_share_edit.php
 # 7010
 etc/inc/properties_sysctl.php
 # 7178
-etc/inc/properties_services_websrv_webdav
+etc/inc/properties_services_websrv_webdav.php
+# 7202
+etc/inc/properties_system_backup.php
