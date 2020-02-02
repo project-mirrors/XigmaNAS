@@ -897,7 +897,7 @@ function parse_camcontrol_info($devtype) {
 			if(preg_match('/\S/',$device[0])):
 				$device_name = $device[0] . $device[1];
 //				legacy compatibility: for scsi option, do not include ata drives, for ata option, do not include scsi drives
-				if((($devtype != 'scsi' && $controller[0] == $devtype) || ($devtype == 'scsi' & $controller[0] != 'ata')) && $controller[0] != 'mfi'):
+				if((($devtype != 'scsi' && $controller[0] == $devtype) || ($devtype == 'scsi' && $controller[0] != 'ata')) && $controller[0] != 'mfi'):
 //					ignore empty, CD-ROM and SCSI enclosure devices (ses)
 					if(!preg_match('/^(cd|acd|ses)/',$device[0])):
 //						add device into devlice list array
@@ -1108,11 +1108,21 @@ function parse_controller_config(&$devlist) {
 //				LSI 2008 (IT mode)
 			case 'mpt':
 				$device['model'] = parse_device_desc($device['name']);
-				$device['controller_desc'] = parse_device_desc($device['controller'].$device['controller_id']);
+				$device['controller_desc'] = parse_device_desc($device['controller'] . $device['controller_id']);
 				mwexec2('smartctl ' . $smartd_drivedb_arg . '-d test /dev/' . $device['name'] . " | grep \" opened\" | xargs -0 -J {} expr {} : \".*Device of type '\(.*\)' \[.*\] opened\"",$devtype);
 				$device['smart']['devicefilepath'] = '/dev/' . $device['name'];
 				$device['smart']['devicetype'] = $devtype[0];
 				$device['smart']['devicetypearg'] = $devtype[0];
+				break;
+			case 'nvme':
+				$controller_fqn = $device['controller'] . $device['controller_id'];
+				$device['model'] = \parse_device_desc($device['name']);
+				$device['controller_desc'] = \parse_device_desc($controller_fqn);
+				mwexec2('smartctl ' . $smartd_drivedb_arg . '-d test /dev/' . $controller_fqn . " | grep \" opened\" | xargs -0 -J {} expr {} : \".*Device of type '\(.*\)' \[.*\] opened\"",$devtype);
+				$device['smart']['devicefilepath'] = '/dev/' . $controller_fqn;
+				$device['smart']['devicetype'] = $devtype[0];
+				$device['smart']['devicetypearg'] = $devtype[0];
+				unset($controller_fqn);
 				break;
 			case 'twa':
 //				3ware 9000/9500/9550/9650 series SATA RAID controller
