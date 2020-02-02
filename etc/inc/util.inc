@@ -897,7 +897,7 @@ function parse_camcontrol_info($devtype) {
 			if(preg_match('/\S/',$device[0])):
 				$device_name = $device[0] . $device[1];
 //				legacy compatibility: for scsi option, do not include ata drives, for ata option, do not include scsi drives
-				if((($devtype != 'scsi' && $controller[0] == $devtype) || ($devtype == 'scsi' & $controller[0] != 'ata')) && $controller[0] != 'mfi'):
+				if((($devtype != 'scsi' && $controller[0] == $devtype) || ($devtype == 'scsi' && $controller[0] != 'ata')) && $controller[0] != 'mfi'):
 //					ignore empty, CD-ROM and SCSI enclosure devices (ses)
 					if(!preg_match('/^(cd|acd|ses)/',$device[0])):
 //						add device into devlice list array
