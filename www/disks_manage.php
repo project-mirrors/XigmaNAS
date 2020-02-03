@@ -35,27 +35,9 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 
-function device_process_updatenotification($mode, $data) {
-	global $config;
-
-	$retval = 0;
-	$sphere = &disks_manage_get_sphere();
-	switch ($mode):
-		case UPDATENOTIFY_MODE_NEW:
-		case UPDATENOTIFY_MODE_MODIFIED:
-			break;
-		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
-				unset($sphere->grid[$sphere->row_id]);
-				write_config();
-			endif;
-			break;
-	endswitch;
-	return $retval;
-}
 function disks_manage_get_sphere() {
 	global $config;
+
 	$sphere = new co_sphere_grid('disks_manage','php');
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('device');
@@ -73,7 +55,27 @@ function disks_manage_get_sphere() {
 	$sphere->grid = &array_make_branch($config,'disks','disk');
 	return $sphere;
 }
-$sphere = &disks_manage_get_sphere();
+function device_process_updatenotification($mode,$data) {
+//	global $config;
+
+	$retval = 0;
+	$sphere = disks_manage_get_sphere();
+	switch ($mode):
+		case UPDATENOTIFY_MODE_NEW:
+		case UPDATENOTIFY_MODE_MODIFIED:
+			break;
+		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+		case UPDATENOTIFY_MODE_DIRTY:
+			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
+				unset($sphere->grid[$sphere->row_id]);
+				write_config();
+			endif;
+			break;
+	endswitch;
+	return $retval;
+}
+$sphere = disks_manage_get_sphere();
 array_sort_key($sphere->grid,'name');
 $gt_import_confirm = gettext('Do you want to import disks?') . '\n' . gettext('The existing configuration may be overwritten.');
 $gt_importswraid_confirm = gettext('Do you want to import software RAID disks?') . '\n' . gettext('The existing configuration may be overwritten.');
@@ -94,7 +96,6 @@ if($_POST) {
 		header($sphere->get_location());
 		exit;
 	endif;
-	
 	$clean_import = false;
 	if(isset($_POST['submit'])):
 		switch($_POST['submit']):
@@ -222,7 +223,6 @@ $(window).on("load", function() {
 			<col style="width:9%">
 			<col style="width:8%">
 			<col style="width:10%">
-			
 		</colgroup>
 		<thead>
 <?php
