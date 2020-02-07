@@ -40,7 +40,7 @@ require_once 'zfs.inc';
 
 function get_sphere_disks_zfs_dataset() {
 	global $config;
-	
+
 //	sphere structure
 	$sphere = new co_sphere_grid('disks_zfs_dataset','php');
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
@@ -66,7 +66,8 @@ function get_sphere_disks_zfs_dataset() {
 }
 function zfsdataset_process_updatenotification($mode,$data) {
 	global $config;
-	
+	global $d_sysrebootreqd_path;
+
 	$retval = 0;
 	$sphere = get_sphere_disks_zfs_dataset();
 	switch ($mode):
