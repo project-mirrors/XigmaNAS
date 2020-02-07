@@ -72,28 +72,31 @@ function change_perms($dir) {
 		}
 	}
 }
-if (isset($_POST['save']) && $_POST['save']) {
+if(isset($_POST['save']) && $_POST['save']):
 	unset($input_errors);
 	$pconfig = $_POST;
-	if (isset($_POST['ups']) && empty($_POST['ups_at'])) {
+	if(isset($_POST['ups']) && empty($_POST['ups_at'])):
 		$input_errors[] = gtext('UPS Identifier and IP address')." ".sprintf(gtext('must be in the format: %s.'), "identifier@host-ip-address");
-	}
-	if (isset($_POST['latency']) && empty($_POST['latency_host'])) {
+	endif;
+	if(isset($_POST['latency']) && empty($_POST['latency_host'])):
 		$input_errors[] = gtext('Network Latency') . ': ' . gtext('Destination host name or IP address.') . ' ' . gtext('Host') . ' ' . gtext('must be defined!');
-	}
-	if (isset($_POST['storage_path']) && (($_POST['storage_path'] == "") || ($_POST['storage_path'] == $g['media_path']))) { $input_errors[] = gtext("The attribute 'Data directory' is required."); }
-	if (empty($input_errors)) {
-		if (isset($_POST['enable'])) {
+	endif;
+	if(isset($_POST['storage_path']) && (($_POST['storage_path'] == "") || ($_POST['storage_path'] == $g['media_path']))):
+		$input_errors[] = gtext("The attribute 'Data directory' is required.");
+	endif;
+	if(empty($input_errors)):
+		$retval = 0;
+		if(isset($_POST['enable'])):
 			$config['rrdgraphs']['enable'] = isset($_POST['enable']);
-			if (empty($_POST['storage_path'])) {
+			if(empty($_POST['storage_path'])):
 				$config['rrdgraphs']['storage_path'] = $g['media_path'];
-			} else {
+			else:
 				$_POST['storage_path'] = rtrim($_POST['storage_path'],'/');	// ensure to have no trailing slash
-			}
-			if (!is_dir("{$_POST['storage_path']}/rrd")) {
+			endif;
+			if(!is_dir("{$_POST['storage_path']}/rrd")):
 				mkdir("{$_POST['storage_path']}/rrd", 0775, true);	// new destination or first install
 				change_perms("{$_POST['storage_path']}/rrd");	// check/set permissions
-			}
+			endif;
 			$config['rrdgraphs']['storage_path'] = $_POST['storage_path'];
 			$_POST['graph_h'] = trim($_POST['graph_h']);
 			$config['rrdgraphs']['graph_h'] = !empty($_POST['graph_h']) ? $_POST['graph_h'] : 200;
@@ -103,9 +106,9 @@ if (isset($_POST['save']) && $_POST['save']) {
 			$config['rrdgraphs']['bytes_per_second'] = isset($_POST['bytes_per_second']);
 			$config['rrdgraphs']['logarithmic'] = isset($_POST['logarithmic']);
 			$config['rrdgraphs']['axis'] = isset($_POST['axis']);
-			if ($config['rrdgraphs']['axis']) {
+			if($config['rrdgraphs']['axis']):
 				$config['rrdgraphs']['logarithmic'] = false;
-			}
+			endif;
 			$config['rrdgraphs']['load_averages'] = isset($_POST['load_averages']);
 			$config['rrdgraphs']['cpu_frequency'] = isset($_POST['cpu_frequency']);
 			$config['rrdgraphs']['cpu_temperature'] = isset($_POST['cpu_temperature']);
@@ -125,28 +128,25 @@ if (isset($_POST['save']) && $_POST['save']) {
 			$config['rrdgraphs']['ups'] = isset($_POST['ups']);
 			$config['rrdgraphs']['ups_at'] = !empty($_POST['ups_at']) ? $_POST['ups_at'] : "identifier@host-ip-address";
 			$config['rrdgraphs']['uptime'] = isset($_POST['uptime']);
-
 			$savemsg = get_std_save_message(write_config());
-			$retval = 0;
-			if (!file_exists($d_sysrebootreqd_path)) {
-			config_lock();
-			$retval |= rc_update_service("cron");
-			config_unlock();
-		}
+			if(!file_exists($d_sysrebootreqd_path)):
+				config_lock();
+				$retval |= rc_update_service("cron");
+				config_unlock();
+			endif;
 			require_once '/usr/local/share/rrdgraphs/rrd-start.php';
-		} else {
+		else:
 			$config['rrdgraphs']['enable'] = isset($_POST['enable']) ? true : false;
-
 			$savemsg = get_std_save_message(write_config());
 			exec("logger rrdgraphs service stopped");
-			if (!file_exists($d_sysrebootreqd_path)) {
-			config_lock();
-			$retval |= rc_update_service("cron");
-			config_unlock();
-			}
-		}
-	}
-}
+			if(!file_exists($d_sysrebootreqd_path)):
+				config_lock();
+				$retval |= rc_update_service("cron");
+				config_unlock();
+			endif;
+		endif;
+	endif;
+endif;
 
 if (isset($_POST['reset_graphs']) && $_POST['reset_graphs']) {
 	exec("logger rrdgraphs service execute delete statistical data ...");
