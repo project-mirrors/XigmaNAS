@@ -44,7 +44,7 @@ function shutdown_sphere() {
 }
 $cmd_perform_action = false;
 //	init sphere
-$sphere = &shutdown_sphere();
+$sphere = shutdown_sphere();
 $rmo = new co_request_method();
 $rmo->add('POST','save',PAGE_MODE_POST);
 $rmo->add('POST','cancel',PAGE_MODE_POST);
