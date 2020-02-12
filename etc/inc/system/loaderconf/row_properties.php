@@ -37,9 +37,9 @@ use common\properties as myp;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
+		$description = \gettext('The name of the variable.');
+		$placeholder = \gettext('Name');
 		$property = parent::init_name();
-		$description = gettext('The name of the variable.');
-		$placeholder = gettext('Name');
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->
@@ -51,9 +51,9 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_value(): myp\property_text {
+		$description = \gettext('The value of the variable.');
+		$placeholder = \gettext('Value');
 		$property = parent::init_value();
-		$description = gettext('The value of the variable.');
-		$placeholder = gettext('Value');
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->

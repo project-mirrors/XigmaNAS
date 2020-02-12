@@ -45,7 +45,7 @@ final class row_toolbox {
  *	@return \common\sphere\row The sphere object
  */
 	public static function init_sphere() {
-		global $config;
+//		global $config;
 
 		$sphere = new mys\row();
 		shared_toolbox::init_sphere($sphere);

@@ -41,7 +41,7 @@ class grid_properties extends myp\container_row {
 		$property = $this->x_name = new myp\property_text($this);
 		$property->
 			set_name('name')->
-			set_title(gettext('Name'));
+			set_title(\gettext('Name'));
 		return $property;
 	}
 	final public function get_name(): myp\property_text {
@@ -52,7 +52,7 @@ class grid_properties extends myp\container_row {
 		$property = $this->x_value = new myp\property_text($this);
 		$property->
 			set_name('value')->
-			set_title(gettext('Value'));
+			set_title(\gettext('Value'));
 		return $property;
 	}
 	final public function get_value(): myp\property_text {
