@@ -237,8 +237,13 @@ $document->render();
 										continue;
 									endif;
 									$hasdata = true;
-									$info = $smartValueInfo[$match[1]][2];
-									$haserror = $smartValueInfo[$match[1]][0] && $match[7] > 0;
+									if(array_key_exists($match[1],$smartValueInfo)):
+										$info = $smartValueInfo[$match[1]][2];
+										$haserror = $smartValueInfo[$match[1]][0] && $match[7] > 0;
+									else:
+										$info = gtext('Unknown or undocumented attribute.');
+										$haserror = false;
+									endif;
 ?>
 									<tr>
 										<td class="lcell"><?=$match[1];?></td>
