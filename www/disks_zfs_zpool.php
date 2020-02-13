@@ -62,7 +62,7 @@ function zfspool_process_updatenotification($mode,$data) {
 	global $g;
 
 	$retval = 0;
-	$sphere = &disks_zfs_zpool_get_sphere();
+	$sphere = disks_zfs_zpool_get_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			$retval |= zfs_zpool_configure($data);
@@ -107,7 +107,7 @@ function zfspool_process_updatenotification($mode,$data) {
 	endswitch;
 	return $retval;
 }
-$sphere = &disks_zfs_zpool_get_sphere();
+$sphere = disks_zfs_zpool_get_sphere();
 if(empty($sphere->grid)):
 else:
 	array_sort_key($sphere->grid,'name');
