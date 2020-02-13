@@ -121,7 +121,7 @@ function get_sphere_system_advanced() {
 }
 //	init properties and sphere
 $cop = new properties_system_advanced();
-$sphere = &get_sphere_system_advanced();
+$sphere = get_sphere_system_advanced();
 $is_sc = 'sc' == get_sysctl_kern_vty();
 //	ensure boolean parameter are set properly
 //	take the value of the parameter if its type is bool
