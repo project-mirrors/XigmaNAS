@@ -459,10 +459,10 @@ function get_mounts_list() {
 //		get the complete name /dev/devicename
 		$adevicespecialfile = explode('/',$devicespecialfile);
 		if(empty($adevicespecialfile[2])):
-			$devicename = $adevicespecialfile[1];
+			$devicename = $adevicespecialfile[1] ?? '';
 			#continue;
 		else:
-			$devicename = $adevicespecialfile[2];
+			$devicename = $adevicespecialfile[2] ?? '';
 		endif;
 //		test if it's a gvinum, gmirror, gconcat or gstripe device
 		if((strcmp($devicename,'gvinum') == 0) ||
