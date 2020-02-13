@@ -1253,49 +1253,50 @@ function get_smartctl_info($device) {
 		switch($str_startswith):
 //			compare always to lowercase and trimmed keywords
 			case 'model family:':
-				preg_match("/(?<=Model Family:).*/",$line,$matches);
+				preg_match("/(?<=model family:).*/i",$line,$matches);
 				$smartctl_info['desc'] = trim($matches[0]);
 				break;
 			case 'device model:':
-				preg_match("/(?<=Device Model:).*/",$line,$matches);
+			case 'model number:':
+				preg_match("/(?<=(device model:|model number:)).*/i",$line,$matches);
 				$smartctl_info['model'] = trim($matches[0]);
 				break;
 			case 'vendor:':
-				preg_match("/(?<=Vendor:).*/",$line,$matches);
+				preg_match("/(?<=vendor:).*/i",$line,$matches);
 				$vendor = trim($matches[0]);
 				break;
 			case 'revision:':
-				preg_match("/(?<=Revision:).*/",$line,$matches);
+				preg_match("/(?<=revision:).*/i",$line,$matches);
 				$revision = trim($matches[0]);
 				break;
 			case 'product:':
-				preg_match("/(?<=Product:).*/",$line,$matches);
+				preg_match("/(?<=product:).*/i",$line,$matches);
 				$product = trim($matches[0]);
 				break;
 			case 'serial number:':
-				preg_match("/(?<=Serial [Nn]umber:).*/",$line,$matches);
+				preg_match("/(?<=serial number:).*/i",$line,$matches);
 				$smartctl_info['serial'] = trim($matches[0]);
 				break;
 			case 'rotation rate:':
-				preg_match("/(?<=Rotation Rate:).*/",$line,$matches);
+				preg_match("/(?<=rotation rate:).*/i",$line,$matches);
 				$smartctl_info['rotation_rate'] = trim($matches[0]);
 				break;
 			case 'sata version is:':
-				if(preg_match("/(?<= \(current:).*(?=\))+/",$line,$matches)):
+				if(preg_match("/(?<= \(current:).*(?=\))+/i",$line,$matches)):
 					$smartctl_info['transfer_rate'] = trim($matches[0]);
-				elseif(preg_match("/(?<=, ).*?(?>\/s)/",$line,$matches)):
+				elseif(preg_match("/(?<=, ).*?(?>\/s)/i",$line,$matches)):
 					$smartctl_info['transfer_rate'] = trim($matches[0]);
 				endif;
 				break;
 			case 'smart support is:':
 				if(empty($smartctl_info['smart_support'])):
-					if(preg_match("/(?<=SMART support is:).*(?=\-)+/",$line,$matches)):
+					if(preg_match("/(?<=smart support is:).*(?=\-)+/i",$line,$matches)):
 						$smartctl_info['smart_support'] = ltrim($matches[0]);
 						$smartctl_info['isavailable'] = strncasecmp(trim($matches[0]),'available',9) == 0;
 					endif;
 				else:
 					if(strncasecmp($smartctl_info['smart_support'],"available",9) == 0):
-						if(preg_match("/(?<=SMART support is: ).*/",$line,$matches)):
+						if(preg_match("/(?<=smart support is: ).*/i",$line,$matches)):
 							$smartctl_info['smart_support'] = $smartctl_info['smart_support'] . ', ' . $matches[0];
 							$smartctl_info['isenabled'] = strncasecmp(trim($matches[0]),'enabled',7) == 0;
 						endif;
