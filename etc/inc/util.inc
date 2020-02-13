@@ -459,10 +459,10 @@ function get_mounts_list() {
 //		get the complete name /dev/devicename
 		$adevicespecialfile = explode('/',$devicespecialfile);
 		if(empty($adevicespecialfile[2])):
-			$devicename = $adevicespecialfile[1];
+			$devicename = $adevicespecialfile[1] ?? '';
 			#continue;
 		else:
-			$devicename = $adevicespecialfile[2];
+			$devicename = $adevicespecialfile[2] ?? '';
 		endif;
 //		test if it's a gvinum, gmirror, gconcat or gstripe device
 		if((strcmp($devicename,'gvinum') == 0) ||
@@ -1108,7 +1108,7 @@ function parse_controller_config(&$devlist) {
 //				LSI 2008 (IT mode)
 			case 'mpt':
 				$device['model'] = parse_device_desc($device['name']);
-				$device['controller_desc'] = parse_device_desc($device['controller'].$device['controller_id']);
+				$device['controller_desc'] = parse_device_desc($device['controller'] . $device['controller_id']);
 				mwexec2('smartctl ' . $smartd_drivedb_arg . '-d test /dev/' . $device['name'] . " | grep \" opened\" | xargs -0 -J {} expr {} : \".*Device of type '\(.*\)' \[.*\] opened\"",$devtype);
 				$device['smart']['devicefilepath'] = '/dev/' . $device['name'];
 				$device['smart']['devicetype'] = $devtype[0];
