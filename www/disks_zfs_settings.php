@@ -39,14 +39,14 @@ require_once 'co_request_method.php';
 
 function get_sphere_disks_zfs_settings() {
 	global $config;
-	
+
 	$sphere = new co_sphere_settings('disks_zfs_settings','php');
 	$sphere->grid = &array_make_branch($config,'zfs','settings');
 	return $sphere;
 }
 //	init properties and sphere
 $cop = new properties_disks_zfs_settings();
-$sphere = &get_sphere_disks_zfs_settings();
+$sphere = get_sphere_disks_zfs_settings();
 $input_errors = [];
 $savemsg = '';
 //	determine request method
@@ -80,7 +80,7 @@ switch($page_mode):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_config($sphere->grid);
 			if(is_null($sphere->row[$name])):
-				if(array_key_exists($name,$sphere->grid)): 
+				if(array_key_exists($name,$sphere->grid)):
 					$sphere->row[$name] = $sphere->grid[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -94,7 +94,7 @@ switch($page_mode):
 			$sphere->row[$name] = $referer->validate_input();
 			if(is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
-				if(array_key_exists($name,$_POST)): 
+				if(array_key_exists($name,$_POST)):
 					$sphere->row[$name] = $_POST[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
