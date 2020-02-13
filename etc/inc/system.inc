@@ -392,7 +392,7 @@ function system_get_cpu_info() {
 		for($i = 0; $i < $cpus; $i++):
 			$temp = @exec("/sbin/sysctl -q -n dev.cpu.{$i}.temperature");
 			if($temp != ''):
-				$temp = sprintf("%.1f",($temp + $adj));
+				$temp = sprintf("%.1f",(float)$temp + $adj);
 			endif;
 			$cpuinfo['temperature2'][$i] = $temp;
 		endfor;
