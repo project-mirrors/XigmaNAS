@@ -101,7 +101,7 @@ function status_disks_render($root = NULL) {
 				$tr->addTDwC('lcell')->addDIV(['class'=> 'warningtext'],$gt_temp);
 			else:
 				$tr->insTDwC('lcell',$gt_temp);
-			endif;  
+			endif;
 		else:
 			$tr->insTDwC('lcell',gettext('n/a'));
 		endif;
@@ -143,7 +143,7 @@ function status_disks_render($root = NULL) {
 				$tr->addTDwC('lcell')->addDIV(['class'=> 'warningtext'],$gt_temp);
 			else:
 				$tr->insTDwC('lcell',$gt_temp);
-			endif;  
+			endif;
 		else:
 			$tr->insTDwC('lcell',gettext('n/a'));
 		endif;
@@ -159,7 +159,7 @@ if(is_ajax()):
 	$status = status_disks_render();
 	render_ajax($status);
 endif;
-$sphere = &get_sphere_status_disks();
+$sphere = get_sphere_status_disks();
 $jcode = <<<EOJ
 $(document).ready(function(){
 	var gui = new GUI;
