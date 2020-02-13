@@ -159,7 +159,7 @@ if(is_ajax()):
 	$status = status_disks_render();
 	render_ajax($status);
 endif;
-$sphere = &get_sphere_status_disks();
+$sphere = get_sphere_status_disks();
 $jcode = <<<EOJ
 $(document).ready(function(){
 	var gui = new GUI;
