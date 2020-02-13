@@ -44,7 +44,7 @@ function system_defaults_sphere() {
 }
 $cmd_perform_action = false;
 //	init sphere
-$sphere = &system_defaults_sphere();
+$sphere = system_defaults_sphere();
 $rmo = new co_request_method();
 $rmo->add('POST','save',PAGE_MODE_POST);
 $rmo->add('POST','cancel',PAGE_MODE_POST);
