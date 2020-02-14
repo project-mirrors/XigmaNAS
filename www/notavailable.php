@@ -45,7 +45,7 @@ function notavailable_sphere() {
 	return $sphere;
 }
 //	init sphere
-$sphere = &notavailable_sphere();
+$sphere = notavailable_sphere();
 $rmo = new co_request_method();
 $rmo->add('POST','cancel',PAGE_MODE_POST);
 $rmo->set_default('GET','view',PAGE_MODE_VIEW);

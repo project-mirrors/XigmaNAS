@@ -53,7 +53,7 @@ function interfaces_lagg_edit_get_sphere() {
 	endif;
 	return $sphere;
 }
-$sphere = &interfaces_lagg_edit_get_sphere();
+$sphere = interfaces_lagg_edit_get_sphere();
 $l_lagg_protocol = [
 	'failover' => gettext('Failover'),
 	'lacp' => gettext('LACP (Link Aggregation Control Protocol)'),
@@ -126,7 +126,7 @@ switch($mode_page):
 		if(!$isrecordnew): // add cannot have an uuid in config
 			header($sphere->get_parent()->get_location());
 			exit;
-		endif;	
+		endif;
 		$sphere->row['enable'] = $sphere->row_default['enable'];
 		$sphere->row['protected'] = $sphere->row_default['protected'];
 		$interface_id = 0;
@@ -168,7 +168,7 @@ switch($mode_page):
 		$sphere->row['enable'] = isset($sphere->grid[$sphere->row_id]['enable']) && (is_bool($sphere->grid[$sphere->row_id]['enable']) ? $sphere->grid[$sphere->row_id]['enable'] : true);
 		$sphere->row['protected'] = isset($sphere->grid[$sphere->row_id]['protected']) && (is_bool($sphere->grid[$sphere->row_id]['protected']) ? $sphere->grid[$sphere->row_id]['protected'] : true);
 		$sphere->row['if'] = filter_var($sphere->grid[$sphere->row_id]['if'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
-		
+
 		$sphere->row['laggproto'] = filter_var($sphere->grid[$sphere->row_id]['laggproto'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['laggport'] = filter_var($sphere->grid[$sphere->row_id]['laggport'],FILTER_UNSAFE_RAW,['flags' => FILTER_FORCE_ARRAY,'options' => ['default' => []]]);
 		$sphere->row['desc'] = filter_var($sphere->grid[$sphere->row_id]['desc'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
@@ -293,7 +293,7 @@ $document->render();
 		if(!$hide_button_save):
 			echo $sphere->html_button('save',$isrecordnew ? gettext('Add') : gettext('Save'));
 		endif;
-		
+
 		if(empty($input_errors) && !$isrecordnew && !empty($l_available_ports)):
 			echo $sphere->html_button('clone',gettext('Clone'));
 		endif;
