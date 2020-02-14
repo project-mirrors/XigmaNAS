@@ -49,7 +49,7 @@ function services_rsyncd_get_sphere() {
 	array_make_branch($sphere->grid,'auxparam');
 	return $sphere;
 }
-$sphere = &services_rsyncd_get_sphere();
+$sphere = services_rsyncd_get_sphere();
 $gt_button_apply_confirm = gtext('Do you want to apply these settings?');
 array_make_branch($config,'access','user');
 array_sort_key($config['access']['user'],'login');
