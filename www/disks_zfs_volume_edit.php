@@ -60,7 +60,7 @@ function get_sphere_disks_zfs_volume_edit() {
 }
 //	init properties and sphere
 $property = new properties_zfs_volume();
-$sphere = &get_sphere_disks_zfs_volume_edit();
+$sphere = get_sphere_disks_zfs_volume_edit();
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
@@ -204,7 +204,7 @@ else:
 endif;
 $a_dataset = &array_make_branch($config,'zfs','datasets','dataset');
 if(empty($a_dataset)):
-else:	
+else:
 	array_sort_key($a_dataset,'name');
 endif;
 $a_poollist = zfs_get_pool_list();
@@ -296,7 +296,7 @@ switch($page_mode):
 				$input_errors[] = sprintf(gtext("The attribute '%s' contains invalid characters."),gtext('Name'));
 			endif;
 		endif;
-/*	
+/*
 		1. RECORD_MODIFY: throw error if posted pool is different from configured pool.
 		2. RECORD_NEW: posted pool/name must not exist in configuration or live.
 		3. RECORD_NEW_MODIFY: if posted pool/name is different from configured pool/name: posted pool/name must not exist in configuration or live.
@@ -336,7 +336,7 @@ switch($page_mode):
 						endif;
 					endforeach;
 				endif;
-				// throw error when pool/name exists in configuration file, zfs->datasets->dataset[] 
+				// throw error when pool/name exists in configuration file, zfs->datasets->dataset[]
 				if(empty($input_errors)):
 					foreach($a_dataset as $r_dataset):
 						if(0 === strcmp(escapeshellarg($r_dataset['pool'][0].'/'.$r_dataset['name']),$poolslashname)):
@@ -421,7 +421,7 @@ $document->render();
 			$node->c2_radio_grid($property->volmode,$sphere->row['volmode'],true);
 			$node->c2_select($property->compression,$sphere->row['compression'],true);
 			$node->c2_select($property->dedup,$sphere->row['dedup'],true);
-			$node->c2_radio_grid($property->sync,$sphere->row['sync'],true); 
+			$node->c2_radio_grid($property->sync,$sphere->row['sync'],true);
 			$node->c2_select($property->volblocksize,$sphere->row['volblocksize'],false,$isrecordmodify);
 			$node->c2_radio_grid($property->primarycache,$sphere->row['primarycache']);
 			$node->c2_radio_grid($property->secondarycache,$sphere->row['secondarycache']);
