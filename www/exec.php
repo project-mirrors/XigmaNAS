@@ -39,7 +39,7 @@ require_once 'guiconfig.inc';
 
 function exec_get_sphere() {
 //	global $config;
-	
+
 //	sphere structure
 	$sphere = new \stdClass;
 //	sphere content
@@ -50,7 +50,7 @@ function exec_get_sphere() {
 	return $sphere;
 }
 //	get environment
-$sphere = &exec_get_sphere();
+$sphere = exec_get_sphere();
 //	local variables
 $a_message = [];
 $a_message[] = gtext('This is a very powerful tool. Use at your own risk!');
@@ -306,7 +306,7 @@ endif;
 <?php
 			echo '<div class="celldata">','<pre>';
 			echo "\$ ",htmlspecialchars($_POST['txtCommand']),"\n";
-			putenv('PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin');
+			putenv('PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin');
 			putenv('COLUMNS=1024');
 			putenv('SCRIPT_FILENAME=' . strtok($_POST['txtCommand'],' ')); /* PHP scripts */
 			$ph = popen($_POST['txtCommand'],'r');
@@ -361,4 +361,3 @@ document.forms[0].txtCommand.focus();
 </script>
 <?php
 include 'fend.inc';
-?>
