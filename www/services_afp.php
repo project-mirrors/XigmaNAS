@@ -62,7 +62,7 @@ function services_afp_get_sphere() {
 	endif;
 	return $sphere;
 }
-$sphere = &services_afp_get_sphere();
+$sphere = services_afp_get_sphere();
 $gt_button_apply_confirm = gtext('Do you want to apply these settings?');
 $input_errors = [];
 //	identify page mode
