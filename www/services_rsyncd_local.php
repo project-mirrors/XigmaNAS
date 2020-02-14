@@ -35,33 +35,9 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 
-function rsynclocal_process_updatenotification($mode,$data) {
-	global $config;
-	$retval = 0;
-	$sphere = &services_rsyncd_local_get_sphere();
-	switch($mode):
-		case UPDATENOTIFY_MODE_NEW:
-		case UPDATENOTIFY_MODE_MODIFIED:
-			break;
-		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
-				unset($sphere->grid[$sphere->row_id]);
-				write_config();
-			endif;
-			break;
-		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
-				unset($sphere->grid[$sphere->row_id]);
-				write_config();
-			endif;
-			$scriptname = sprintf('/var/run/rsync_local_%s.sh',$data);
-			@unlink($scriptname);
-			break;
-	endswitch;
-	return $retval;
-}
 function services_rsyncd_local_get_sphere() {
 	global $config;
+
 	$sphere = new co_sphere_grid('services_rsyncd_local','php');
 	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
 	$sphere->set_notifier('rsynclocal');
@@ -85,7 +61,33 @@ function services_rsyncd_local_get_sphere() {
 	$sphere->grid = &array_make_branch($config,'rsync','rsynclocal');
 	return $sphere;
 }
-$sphere = &services_rsyncd_local_get_sphere();
+function rsynclocal_process_updatenotification($mode,$data) {
+	global $config;
+
+	$retval = 0;
+	$sphere = services_rsyncd_local_get_sphere();
+	switch($mode):
+		case UPDATENOTIFY_MODE_NEW:
+		case UPDATENOTIFY_MODE_MODIFIED:
+			break;
+		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+				unset($sphere->grid[$sphere->row_id]);
+				write_config();
+			endif;
+			break;
+		case UPDATENOTIFY_MODE_DIRTY:
+			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+				unset($sphere->grid[$sphere->row_id]);
+				write_config();
+			endif;
+			$scriptname = sprintf('/var/run/rsync_local_%s.sh',$data);
+			@unlink($scriptname);
+			break;
+	endswitch;
+	return $retval;
+}
+$sphere = services_rsyncd_local_get_sphere();
 if($_POST):
 	if(isset($_POST['apply']) && $_POST['apply']):
 		$retval = 0;
@@ -178,7 +180,7 @@ if($_POST):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 						else:
-							$sphere->grid[$sphere->row_id]['enable'] = true;					
+							$sphere->grid[$sphere->row_id]['enable'] = true;
 						endif;
 						$updateconfig = true;
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
