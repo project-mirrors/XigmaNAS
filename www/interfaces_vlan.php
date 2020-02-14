@@ -69,7 +69,7 @@ function interfaces_vlan_get_sphere() {
 	$sphere->grid = &array_make_branch($config,'vinterfaces','vlan');
 	return $sphere;
 }
-$sphere = &interfaces_vlan_get_sphere();
+$sphere = interfaces_vlan_get_sphere();
 array_sort_key($sphere->grid,'if');
 if($_POST):
 	if(isset($_POST['submit'])):
