@@ -38,6 +38,7 @@ require_once 'co_sphere.php';
 
 function disks_zfs_dataset_edit_get_sphere() {
 	global $config;
+
 	$sphere = new co_sphere_row('disks_zfs_dataset_edit','php');
 	$sphere->set_row_identifier('uuid');
 	$sphere->get_parent()->set_basename('disks_zfs_dataset','php');
@@ -71,7 +72,7 @@ function disks_zfs_dataset_edit_get_sphere() {
 	endif;
 	return $sphere;
 }
-$sphere = &disks_zfs_dataset_edit_get_sphere();
+$sphere = disks_zfs_dataset_edit_get_sphere();
 $input_errors = [];
 $prerequisites_ok = true;
 //	determine page mode
@@ -207,7 +208,7 @@ switch($mode_page):
 		$sphere->row['aclinherit'] = filter_input(INPUT_POST,'aclinherit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['aclinherit']]]);
 		$sphere->row['aclmode'] = filter_input(INPUT_POST,'aclmode',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['aclmode']]]);
 		$sphere->row['casesensitivity'] = filter_input(INPUT_POST,'casesensitivity',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		//	get casesensitivity from physical dataset when no POST information was found
+//		get casesensitivity from physical dataset when no POST information was found
 		if(false === $sphere->row['casesensitivity']):
 			$cmd = sprintf('zfs get -Hp -o value casesensitivity %s',escapeshellarg(sprintf('%s/%s',$sphere->row['pool'],$sphere->row['name'])));
 			unset($retdat);
@@ -238,7 +239,7 @@ switch($mode_page):
 		$sphere->row['desc'] = filter_input(INPUT_POST,'desc',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['desc']]]);
 		$sphere->row['accessrestrictions']['owner'] = filter_input(INPUT_POST,'owner',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['accessrestrictions']['owner']]]);
 		$sphere->row['accessrestrictions']['group'] = filter_input(INPUT_POST,'group',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['accessrestrictions']['group']]]);
-		//	calculate access mode from POST
+//		calculate access mode from POST
 		$helpinghand = 0;
 		if(isset($_POST['mode_access']) && is_array($_POST['mode_access']) && (count($_POST['mode_access']) < 10)):
 			foreach($_POST['mode_access'] as $r_mode_access):
@@ -246,7 +247,7 @@ switch($mode_page):
 			endforeach;
 		endif;
 		$sphere->row['accessrestrictions']['mode'] = sprintf( "%04o",$helpinghand);
-		//	adjust page mode
+//		adjust page mode
 		$mode_page = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
@@ -255,7 +256,7 @@ switch($mode_page):
 		$sphere->row['compression'] = $sphere->grid[$sphere->row_id]['compression'];
 		$sphere->row['dedup'] = $sphere->grid[$sphere->row_id]['dedup'];
 		$sphere->row['sync'] = $sphere->grid[$sphere->row_id]['sync'];
-		$sphere->row['atime'] = $sphere->grid[$sphere->row_id]['atime'];	
+		$sphere->row['atime'] = $sphere->grid[$sphere->row_id]['atime'];
 		$sphere->row['aclinherit'] = $sphere->grid[$sphere->row_id]['aclinherit'];
 		$sphere->row['aclmode'] = $sphere->grid[$sphere->row_id]['aclmode'];
 		$sphere->row['canmount'] = isset($sphere->grid[$sphere->row_id]['canmount']);
@@ -309,7 +310,7 @@ switch($mode_page):
 				$sphere->row['pool'] = $sphere->grid[$sphere->row_id]['pool'][0];
 				break;
 		endswitch;
-		//	Input validation
+//		Input validation
 		$reqdfields = ['pool','name'];
 		$reqdfieldsn = [gtext('Pool'),gtext('Name')];
 		$reqdfieldst = ['string','string'];
@@ -320,22 +321,22 @@ switch($mode_page):
 				$input_errors[] = sprintf(gtext("The attribute '%s' contains invalid characters."),gtext('Name'));
 			endif;
 		endif;
-		//	1. RECORD_MODIFY: throw error if posted pool is different from configured pool.
-		//	2. RECORD_NEW: posted pool/name must not exist in configuration or live.
-		//	3. RECORD_NEW_MODIFY: if posted pool/name is different from configured pool/name: posted pool/name must not exist in configuration or live.
-		//	4. RECORD_MODIFY: if posted name is different from configured name: pool/posted name must not exist in configuration or live.
-		// 
-		//	1.
+//		1. RECORD_MODIFY: throw error if posted pool is different from configured pool.
+//		2. RECORD_NEW: posted pool/name must not exist in configuration or live.
+//		3. RECORD_NEW_MODIFY: if posted pool/name is different from configured pool/name: posted pool/name must not exist in configuration or live.
+//		4. RECORD_MODIFY: if posted name is different from configured name: pool/posted name must not exist in configuration or live.
+//
+//		1.
 		if($prerequisites_ok && empty($input_errors)):
 			if($isrecordmodify && (0 !== strcmp($sphere->grid[$sphere->row_id]['pool'][0],$sphere->row['pool']))):
 				$input_errors[] = gtext('Pool name cannot be modified.');
 			endif;
 		endif;
-		//	2., 3., 4.
+//		2., 3., 4.
 		if ($prerequisites_ok && empty($input_errors)):
 			$poolslashname = escapeshellarg(sprintf('%s/%s',$sphere->row['pool'],$sphere->row['name'])); // create quoted full dataset name
 			if($isrecordnew || (!$isrecordnew && (0 !== strcmp(escapeshellarg(sprintf('%s/%s',$sphere->grid[$sphere->row_id]['pool'][0],$sphere->grid[$sphere->row_id]['name'])),$poolslashname)))):
-				//	throw error when pool/name already exists in live
+//				throw error when pool/name already exists in live
 				if(empty($input_errors)):
 					$cmd = sprintf("zfs get -H -o value type %s 2>&1",$poolslashname);
 					unset($retdat);
@@ -352,7 +353,7 @@ switch($mode_page):
 							break;
 					endswitch;
 				endif;
-				//	throw error when pool/name exists in configuration file, zfs->volumes->volume[]
+//				throw error when pool/name exists in configuration file, zfs->volumes->volume[]
 				if(empty($input_errors)):
 					foreach($a_volume as $r_volume):
 						if (0 === strcmp(escapeshellarg(sprintf('%s/%s',$r_volume['pool'][0],$r_volume['name'])),$poolslashname)):
@@ -361,7 +362,7 @@ switch($mode_page):
 						endif;
 					endforeach;
 				endif;
-				//	throw error when  pool/name exists in configuration file, zfs->datasets->dataset[] 
+//				throw error when  pool/name exists in configuration file, zfs->datasets->dataset[]
 				if(empty($input_errors)):
 					foreach($sphere->grid as $r_dataset):
 						if(0 === strcmp(escapeshellarg(sprintf('%s/%s',$r_dataset['pool'][0],$r_dataset['name'])),$poolslashname)):
@@ -373,9 +374,9 @@ switch($mode_page):
 			endif;
 		endif;
 		if($prerequisites_ok && empty($input_errors)):
-			//	convert listtags to arrays
+//			convert listtags to arrays
 			$helpinghand = $sphere->row['pool'];
-			$sphere->row['pool'] = [$helpinghand]; 
+			$sphere->row['pool'] = [$helpinghand];
 			$helpinghand = $sphere->row['accessrestrictions']['group'];
 			$sphere->row['accessrestrictions']['group'] = [$helpinghand];
 			if($isrecordnew):
@@ -383,14 +384,14 @@ switch($mode_page):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->row[$sphere->get_row_identifier()]);
 			else:
 				$sphere->grid[$sphere->row_id] = $sphere->row;
-				//	avoid unnecessary notifications, avoid mode modify if mode new already exists
+//				avoid unnecessary notifications, avoid mode modify if mode new already exists
 				if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
 					updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->row[$sphere->get_row_identifier()]);
 				endif;
 			endif;
 			write_config();
 			header($sphere->get_parent()->get_location());
-			exit;		
+			exit;
 		endif;
 		break;
 endswitch;
@@ -428,7 +429,7 @@ $l_dedup = [
 	'verify' => gettext('Verify'),
 	'sha256' => 'SHA256',
 	'sha256,verify' => gettext('SHA256, Verify')
-];		
+];
 $l_sync = [
 	'standard' => gettext('Standard'),
 	'always' => gettext('Always'),
@@ -464,7 +465,7 @@ $l_groups = [];
 foreach(system_get_group_list() as $r_key => $r_value):
 	$l_groups[$r_key] = $r_key;
 endforeach;
-// Calculate value of access right checkboxes, contains a) 0 for not checked or b) the required bit mask value
+//	Calculate value of access right checkboxes, contains a) 0 for not checked or b) the required bit mask value
 $mode_access = [];
 $helpinghand = octdec($sphere->row['accessrestrictions']['mode']);
 for($i = 0; $i < 9; $i++):
@@ -524,7 +525,7 @@ $document->render();
 			$helpinghand = '<div>' . gettext('Controls the dedup method.') . '</div>'
 				. '<div><b>'
 				. '<font color="red">' . gettext('WARNING') . '</font>' . ': '
-				. '<a href="https://www.xigmanas.com/wiki/doku.php?id=documentation:setup_and_user_guide:disks_zfs_datasets_dataset" target="_blank">'
+				. '<a href="https://www.xigmanas.com/wiki/doku.php?id=documentation:setup_and_user_guide:disks_zfs_datasets_dataset" target="_blank" rel="noreferrer">'
 				. gettext('See ZFS datasets & deduplication wiki article BEFORE using this feature.')
 				. '</a>'
 				. '</b></div>';
