@@ -1415,52 +1415,56 @@ function disks_verify_all_disks($a_phy_disks) {
 
 	$result = [];
 	array_make_branch($config,'disks','disk');
-	$conf_disks = $config['disks']['disk'];
-	if(empty($conf_disks)):
+	$cfg_disks = $config['disks']['disk'];
+	if(empty($cfg_disks)):
 		return $result;
 	endif;
-	foreach($conf_disks as $conf_disk):
-		$disk_exists =0;
+	foreach($cfg_disks as $cfg_disk):
+		$disk_exists = false;
+		$cfg_disk_name = $cfg_disk['name'];
 		foreach($a_phy_disks as $phy_disk):
-			if($phy_disk['name'] === $conf_disk['name']):
-				$disk_exists = 1;
+			if($phy_disk['name'] === $cfg_disk_name):
+				$disk_exists = true;
 				$disk_error = 0;
-				if($phy_disk['type'] === "HAST"):
-					continue;
-				endif;
-				if(($phy_disk['serial'] == "n/a") || ($phy_disk['serial'] == gtext("n/a"))):
-					$phy_disk_serial = "";
-				else:
-					$phy_disk_serial = $phy_disk['serial'];
-				endif;
-				if($phy_disk_serial !== $conf_disk['serial']):
-					// check if conf_disk is moved
-					if(!empty($conf_disk['serial']) ):
-						$a_phy_disks1 = $a_phy_disks;
-						foreach($a_phy_disks1 as $disk1):
-							if($disk1['serial'] === $conf_disk['serial']):
-								$result[$conf_disk['name']]['new_devicespecialfile'] = '/dev/'.$disk1['name'];
-								$disk_error += 1; // moved/shuffled
-							endif;
-						endforeach;
+				if($phy_disk['type'] !== 'HAST'):
+					if(($phy_disk['serial'] == 'n/a') || ($phy_disk['serial'] == gtext('n/a'))):
+						$phy_disk_serial = '';
+					else:
+						$phy_disk_serial = $phy_disk['serial'];
 					endif;
-					$result[$conf_disk['name']]['old_serial'] = $conf_disk['serial'];
-					$result[$conf_disk['name']]['new_serial'] = $phy_disk_serial;
-					$disk_error += 2; // disk changed
-				endif;
-				if($phy_disk['controller'].$phy_disk['controller_id'] !== $conf_disk['controller'].$conf_disk['controller_id']):
-					$result[$conf_disk['name']]['config_controller'] = $conf_disk['controller'].$conf_disk['controller_id'];
-					$result[$conf_disk['name']]['new_controller'] = $phy_disk['controller'].$phy_disk['controller_id'];
-					$disk_error += 4; // controller changed
-				endif;
-				if($disk_error > 0):
-					$result[$conf_disk['name']]['error'] = $disk_error;
+					if($phy_disk_serial !== $cfg_disk['serial']):
+//						check if conf_disk is moved
+						if(!empty($cfg_disk['serial']) ):
+							$a_phy_disks1 = $a_phy_disks;
+							foreach($a_phy_disks1 as $disk1):
+								if($disk1['serial'] === $cfg_disk['serial']):
+									$result[$cfg_disk_name]['new_devicespecialfile'] = '/dev/'.$disk1['name'];
+//									moved/shuffled
+									$disk_error += 1;
+								endif;
+							endforeach;
+						endif;
+						$result[$cfg_disk_name]['old_serial'] = $cfg_disk['serial'];
+						$result[$cfg_disk_name]['new_serial'] = $phy_disk_serial;
+//						disk changed
+						$disk_error += 2;
+					endif;
+					if($phy_disk['controller'].$phy_disk['controller_id'] !== $cfg_disk['controller'].$cfg_disk['controller_id']):
+						$result[$cfg_disk_name]['config_controller'] = $cfg_disk['controller'].$cfg_disk['controller_id'];
+						$result[$cfg_disk_name]['new_controller'] = $phy_disk['controller'].$phy_disk['controller_id'];
+//						controller changed
+						$disk_error += 4;
+					endif;
+					if($disk_error > 0):
+						$result[$cfg_disk_name]['error'] = $disk_error;
+					endif;
 				endif;
 			endif;
 		endforeach;
-		if($disk_exists == 0):
-			$result[$conf_disk['name']]['old_serial'] = $conf_disk['serial'];
-			$result[$conf_disk['name']]['error'] += 8; //disk removed
+		if(!$disk_exists):
+			$result[$cfg_disk_name]['old_serial'] = $cfg_disk['serial'];
+//			disk removed
+			$result[$cfg_disk_name]['error'] = 8 + ($result[$cfg_disk_name]['error'] ?? 0);
 		endif;
 	endforeach;
 	return $result;
