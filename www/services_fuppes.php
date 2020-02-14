@@ -61,7 +61,7 @@ function services_fuppes_get_sphere() {
 	array_make_branch($config,'upnp','content');
 	return $sphere;
 }
-$sphere = &services_fuppes_get_sphere();
+$sphere = services_fuppes_get_sphere();
 $gt_button_apply_confirm = gtext('Do you want to apply these settings?');
 $a_message = [];
 $input_errors = [];
