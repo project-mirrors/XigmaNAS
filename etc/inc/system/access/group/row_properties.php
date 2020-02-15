@@ -37,8 +37,8 @@ use common\properties as myp;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
-		$description = gettext('Enter group name.');
-		$placeholder = gettext('Group Name');
+		$description = \gettext('Enter group name.');
+		$placeholder = \gettext('Group Name');
 		$property = parent::init_name();
 		$property->
 			set_defaultvalue('')->
@@ -53,9 +53,9 @@ final class row_properties extends grid_properties {
 //				FreeBSD reference for regular expression: usr.sbin/pw/pw_user.c -> pw_checkname
 				$regexp = '/^[0-9A-Za-z\.;\[\]_\{\}][0-9A-Za-z\-\.;\[\]_\{\}]*\$?$/';
 				$result = null;
-				if(is_string($subject)):
-					if(strlen($subject) > 0 && strlen($subject) < 17):
-						if(1 === preg_match($regexp,$subject)):
+				if(\is_string($subject)):
+					if(\strlen($subject) > 0 && \strlen($subject) < 17):
+						if(1 === \preg_match($regexp,$subject)):
 							return $subject;
 						endif;
 					endif;
@@ -65,9 +65,9 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_gid(): myp\property_int {
-		$caption = gettext('Specify the group numeric id.');
-		$description = gettext('The recommended range for the group id is between 1000 and 32000.');
-		$placeholder = gettext('1000');
+		$caption = \gettext('Specify the group numeric id.');
+		$description = \gettext('The recommended range for the group id is between 1000 and 32000.');
+		$placeholder = \gettext('1000');
 		$property = parent::init_gid();
 		$property->
 			set_caption($caption)->
