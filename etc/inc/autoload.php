@@ -37,5 +37,5 @@
  *	subfolder structure matches namespaces of classes, therefore it is not
  *	required to define an autoloader
  */
-spl_autoload_extensions('.php,.inc');
-spl_autoload_register();
+\spl_autoload_extensions('.php,.inc');
+\spl_autoload_register();
