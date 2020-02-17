@@ -665,32 +665,36 @@ function system_get_controller($devicespecialfile) {
 	endforeach;
 	return gtext('n/a');
 }
-
 /**
- * Get volume serial number.
- * @param[in] device	The device name, e.g. /dev/ad1
- * @return The disk device serial number.
+ *	Get volume serial number.
+ *	@global array $config
+ *	@global array $config_disks
+ *	@param string $devicespecialfile The device name, e.g. /dev/da1.
+ *	@return string The disk device serial number.
  */
 function system_get_volume_serial($devicespecialfile) {
 	global $config;
-
-	// get serial from config
 	global $config_disks;
-	/* get serial from S.M.A.R.T. */
-	$smart_arg = get_smartctl_info($config_disks[$devicespecialfile]);
-	if(!empty($smart_arg['serial'])):
-		return $smart_arg['serial'];
+
+//	try to get serial from S.M.A.R.T.
+	if(array_key_exists($devicespecialfile,$config_disks)):
+		$smart_arg = get_smartctl_info($config_disks[$devicespecialfile]);
+		if(!empty($smart_arg['serial'])):
+			return $smart_arg['serial'];
+		endif;
 	endif;
-	/* without smart */
-	mwexec2("ataidle {$devicespecialfile} 2>/dev/null | grep 'Serial'",$rawdata);
-	if(!empty($rawdata) && 1 === preg_match("/^Serial:\s+(.+)$/",$rawdata[0],$matches)):
-		$serial = preg_replace("/[\x01-\x1f\x7f]/","",$matches[1]);
+//	try to get serial from ataidle
+	$cmd1 = sprintf("ataidle %s 2>/dev/null | grep 'Serial'",escapeshellarg($devicespecialfile));
+	mwexec2($cmd1,$rawdata1);
+	if(!empty($rawdata1) && (preg_match("/^Serial:\s+(.+)$/",$rawdata1[0],$matches1) === 1)):
+		$serial = preg_replace("/[\x01-\x1f\x7f]/","",$matches1[1]);
 		if(!empty($serial)):
 			return $serial;
 		endif;
 	endif;
-	/* get serial from CAM */
-	mwexec2("camcontrol inquiry {$devicespecialfile} -S 2>/dev/null",$rawdata2);
+//	try to get serial from camcontrol
+	$cmd2 = sprintf('camcontrol inquiry %s -S 2>/dev/null',escapeshellarg($devicespecialfile));
+	mwexec2($cmd2,$rawdata2);
 	if(!empty($rawdata2) && !empty($rawdata2[0])):
 		$serial = preg_replace("/[\x01-\x1f\x7f]/","",$rawdata2[0]);
 		if(!empty($serial)):
@@ -699,7 +703,6 @@ function system_get_volume_serial($devicespecialfile) {
 	endif;
 	return gtext('n/a');
 }
-
 /**
  * Get volume device model.
  * @param[in] device	The device name, e.g. /dev/ad1
