@@ -35,84 +35,73 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 array_make_branch($config,'syncthing');
-
 $pconfig['enable'] = isset($config['syncthing']['enable']);
-$pconfig['homedir'] = $config['syncthing']['homedir'];
-
+$pconfig['homedir'] = $config['syncthing']['homedir'] ?? '';
 $if = get_ifname($config['interfaces']['lan']['if']);
 $gui_ipaddr = get_ipaddr($if);
 $gui_port = 8384;
-$syncthing_user = rc_getenv_ex("syncthing_user", "syncthing");
-$syncthing_group = rc_getenv_ex("syncthing_group", "syncthing");
-
-if ($_POST) {
+$syncthing_user = rc_getenv_ex('syncthing_user','syncthing');
+$syncthing_group = rc_getenv_ex('syncthing_group','syncthing');
+if($_POST):
 	unset($input_errors);
 	unset($errormsg);
-
 	$pconfig = $_POST;
-
-	if (isset($_POST['enable'])) {
+	if(isset($_POST['enable'])):
 		$reqdfields = ['homedir'];
 		$reqdfieldsn = [gtext('Database Directory')];
 		$reqdfieldst = ['string'];
-		do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-		do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
-	}
-
+		do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
+		do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
+	endif;
 	$dir = $_POST['homedir'];
-	if (!file_exists($dir)) {
-		$input_errors[] = sprintf(gtext("The path '%s' does not exist."), $dir);
-	}
-	if (!is_dir($dir)) {
-		$input_errors[] = sprintf(gtext("The path '%s' is not a directory."), $dir);
-	}
-
-	if (empty($input_errors)) {
+	if(!file_exists($dir)):
+		$input_errors[] = sprintf(gtext('The path %s does not exist.'),escapeshellarg($dir));
+	endif;
+	if(!is_dir($dir)):
+		$input_errors[] = sprintf(gtext('The path %s is not a directory.'),escapeshellarg($dir));
+	endif;
+	if(empty($input_errors)):
 		$config['syncthing']['enable'] = isset($_POST['enable']) ? true : false;
 		$config['syncthing']['homedir'] = $_POST['homedir'];
-
 		$dir = $_POST['homedir'];
-		if ($dir != "/mnt" && file_exists($dir) && !file_exists("${dir}/config.xml")) {
+		if($dir != '/mnt' && file_exists($dir) && !file_exists("${dir}/config.xml")):
 			$user = $syncthing_user;
 			$group = $syncthing_group;
-
-			chmod($dir, 0700);
-			chown($dir, $user);
-			chgrp($dir, $group);
-
-			// create default config
+			chmod($dir,0700);
+			chown($dir,$user);
+			chgrp($dir,$group);
+//			create default config
 			$cmd = "/usr/local/bin/sudo -u {$user} /usr/local/bin/syncthing -generate=\"{$dir}\"";
-			mwexec2("$cmd 2>&1", $rawdata, $result);
-			// fix GUI address
+			mwexec2("$cmd 2>&1",$rawdata,$result);
+//			fix GUI address
 			$cmd = "/usr/local/bin/sudo -u {$user} /usr/bin/sed -i '' 's/127.0.0.1:8384/${gui_ipaddr}:${gui_port}/' ${dir}/config.xml";
-			mwexec2("$cmd 2>&1", $rawdata, $result);
-		}
-
+			mwexec2("$cmd 2>&1",$rawdata,$result);
+		endif;
 		write_config();
 		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)) {
+		if(!file_exists($d_sysrebootreqd_path)):
 			config_lock();
-			$retval |= rc_update_service("syncthing");
+			$retval |= rc_update_service('syncthing');
 			config_unlock();
-		}
+		endif;
 		$savemsg = get_std_save_message($retval);
-		if ($retval == 0 && !isset($config['syncthing']['enable']) && file_exists("/var/run/syncthing.pid")) {
+		if($retval == 0 && !isset($config['syncthing']['enable']) && file_exists('/var/run/syncthing.pid')):
 			// remove pidfile if service is disabled
-			unlink("/var/run/syncthing.pid");
-		}
-	}
-}
+			unlink('/var/run/syncthing.pid');
+		endif;
+	endif;
+endif;
 $pgtitle = [gtext('Services'),gtext('Syncthing')];
+include 'fbegin.inc';
 ?>
-<?php include 'fbegin.inc';?>
 <script type="text/javascript">//<![CDATA[
 $(document).ready(function(){
 	function enable_change(enable_change) {
 		var endis = !($('#enable').prop('checked') || enable_change);
-		$('#homedir').prop('disabled', endis);
-		$('#homedirbrowsebtn').prop('disabled', endis);
+		$('#homedir').prop('disabled',endis);
+		$('#homedirbrowsebtn').prop('disabled',endis);
 		if (endis) {
-			$('#a_url').on('click', function(){ return false; });
+			$('#a_url').on('click',function(){ return false; });
 		} else {
 			$('#a_url').off('click');
 		}
@@ -131,37 +120,40 @@ $(document).ready(function(){
 	<tr>
 		<td class="tabcont">
 			<form action="services_syncthing.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-				<?php
-				if (!empty($errormsg)):
+<?php
+				if(!empty($errormsg)):
 					print_error_box($errormsg);
 				endif;
-				if (!empty($input_errors)):
+				if(!empty($input_errors)):
 					print_input_errors($input_errors);
 				endif;
-				if (!empty($savemsg)):
+				if(!empty($savemsg)):
 					print_info_box($savemsg);
 				endif;
 				$enabled = isset($config['syncthing']['enable']);
-				?>
+?>
 				<table width="100%" border="0" cellpadding="6" cellspacing="0">
-					<?php
-					html_titleline_checkbox("enable", gtext("Syncthing"), !empty($pconfig['enable']) ? true : false, gtext("Enable"), "");
-					html_filechooser("homedir", gtext("Database Directory"), $pconfig['homedir'], gtext("Enter the path to the database directory. The config files will be created under the specified directory."), $g['media_path'], false, 60);
-					if ($enabled):
-						html_separator();
-						html_titleline(gtext("Administrative WebGUI"));
+<?php
+					html_titleline_checkbox2('enable',gettext('Syncthing'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'');
+					html_filechooser2('homedir',gettext('Database Directory'),$pconfig['homedir'],gettext('Enter the path to the database directory. The config files will be created under the specified directory.'),$g['media_path'],false,60);
+					if($enabled):
+						html_separator2();
+						html_titleline2(gettext('Administrative WebGUI'));
 						$url = "http://${gui_ipaddr}:${gui_port}/";
 						$text = "<a href='${url}' id='a_url' target='_blank'>{$url}</a>";
-						html_text("url", gtext("URL"), $text);
+						html_text2('url',gettext('URL'),$text);
 					endif;
-					?>
+?>
 				</table>
 				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save & Restart");?>" />
+					<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save & Restart');?>" />
 				</div>
-				<?php include 'formend.inc';?>
+<?php
+				include 'formend.inc';
+?>
 			</form>
 		</td>
 	</tr>
 </table>
-<?php include 'fend.inc';?>
+<?php
+include 'fend.inc';
