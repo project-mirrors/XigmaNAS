@@ -33,81 +33,97 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_disks_zfs_settings.php';
-require_once 'co_request_method.php';
+require_once 'autoload.php';
 
-function get_sphere_disks_zfs_settings() {
-	global $config;
-
-	$sphere = new co_sphere_settings('disks_zfs_settings','php');
-	$sphere->grid = &array_make_branch($config,'zfs','settings');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new properties_disks_zfs_settings();
-$sphere = get_sphere_disks_zfs_settings();
+use disks\zfs\setting\setting_toolbox as toolbox;
+use disks\zfs\setting\shared_toolbox;
+//	init indicators
 $input_errors = [];
-$savemsg = '';
-//	determine request method
-$rmo = new co_request_method();
-$rmo->add('GET','edit',PAGE_MODE_EDIT);
-$rmo->add('GET','view',PAGE_MODE_VIEW);
-$rmo->add('POST','edit',PAGE_MODE_EDIT);
-$rmo->add('POST','save',PAGE_MODE_POST);
-$rmo->add('POST','view',PAGE_MODE_VIEW);
-$rmo->add('SESSION',$sphere->get_basename(),PAGE_MODE_VIEW);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+//	preset $savemsg when a reboot is pending
+if(\file_exists($d_sysrebootreqd_path)):
+	$savemsg = \get_std_save_message(0);
+endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
 $a_referer = [
 	$cop->get_showusedavail(),
 	$cop->get_capacity_warning(),
 	$cop->get_capacity_critical(),
 	$cop->get_scanondisk()
 ];
-switch($page_action):
-	case $sphere->get_basename():
-		$retval = filter_var($_SESSION[$sphere->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
-		unset($_SESSION['submit']);
-		unset($_SESSION[$sphere->get_basename()]);
-		$savemsg = get_std_save_message($retval);
+$pending_changes = \updatenotify_exists($sphere->get_notifier());
+list($page_method,$page_action,$page_mode) = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = \filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = \get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= \updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				\header($sphere->get_script()->get_location());
+				exit;
+				break;
+		endswitch;
 		break;
 endswitch;
-switch($page_mode):
-	case PAGE_MODE_VIEW:
-	case PAGE_MODE_EDIT:
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_config($sphere->grid);
-			if(is_null($sphere->row[$name])):
-				if(array_key_exists($name,$sphere->grid)):
-					$sphere->row[$name] = $sphere->grid[$name];
+			$sphere->row[$name] = $referer->validate_array_element($source);
+			if(\is_null($sphere->row[$name])):
+				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
-	case PAGE_MODE_POST:
+	case 'save':
+		$source = $_POST;
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
-			if(is_null($sphere->row[$name])):
+			if(\is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
-				if(array_key_exists($name,$_POST)):
-					$sphere->row[$name] = $_POST[$name];
+				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			$sphere->copyrowtogrid();
-			write_config();
-			$retval = 0;
-			$_SESSION['submit'] = $sphere->get_basename();
-			$_SESSION[$sphere->get_basename()] = $retval;
-			header($sphere->get_location());
+			foreach($a_referer as $referer):
+				$name = $referer->get_name();
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
+			\write_config();
+			\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			\header($sphere->get_script()->get_location());
 			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
@@ -115,70 +131,65 @@ switch($page_mode):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+list($page_mode,$is_readonly) = \calc_skipviewmode($page_mode);
 //	create document
-$document = new_page([gettext('Disks'),gettext('ZFS'),gettext('Settings')],$sphere->get_scriptname());
+$pgtitle = [\gettext('Disks'),\gettext('ZFS'),\gettext('Settings')];
+$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		add_tabnav_upper()->
-			ins_tabnav_record('disks_zfs_zpool.php',gettext('Pools'))->
-			ins_tabnav_record('disks_zfs_dataset.php',gettext('Datasets'))->
-			ins_tabnav_record('disks_zfs_volume.php',gettext('Volumes'))->
-			ins_tabnav_record('disks_zfs_snapshot.php',gettext('Snapshots'))->
-			ins_tabnav_record('disks_zfs_config.php',gettext('Configuration'))->
-			ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes):
+	$content->ins_config_has_changed_box();
+endif;
 //	add content
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_titleline(gettext('ZFS Settings'))->
+			c2_titleline(\gettext('ZFS Settings'))->
 		pop()->
 		addTBODY()->
-			c2_checkbox($cop->get_showusedavail(),$sphere->row[$cop->get_showusedavail()->get_name()],false,$is_readonly);
+			c2_checkbox($cop->get_showusedavail(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_titleline(gettext('Maintenance Tool Settings'))->
+			c2_titleline(\gettext('Maintenance Tool Settings'))->
 		pop()->
 		addTBODY()->
-			c2_checkbox($cop->get_scanondisk(),$sphere->row[$cop->get_scanondisk()->get_name()],false,$is_readonly);
+			c2_checkbox($cop->get_scanondisk(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_separator()->
-			c2_titleline(gettext('Capacity Alert Thresholds'))->
+			c2_titleline(\gettext('Capacity Alert Thresholds'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_capacity_warning(),$sphere->row[$cop->get_capacity_warning()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_capacity_critical(),$sphere->row[$cop->get_capacity_critical()->get_name()],false,$is_readonly);
+			c2_input_text($cop->get_capacity_warning(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_capacity_critical(),$sphere,false,$is_readonly);
 //	add buttons
+$buttons = $document->add_area_buttons();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$document->add_area_buttons()->ins_button_edit();
+		$buttons->ins_button_edit();
 		break;
 	case PAGE_MODE_EDIT:
-		$document->add_area_buttons()->ins_button_save()->ins_button_cancel();
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
 		break;
 endswitch;
-//	add additional javascript code
-$body->add_js_on_load($sphere->get_js_on_load(),'grid');
-$body->add_js_document_ready($sphere->get_js_document_ready(),'grid');
-$body->addJavaScript($sphere->get_js(),'grid');
 //	showtime
 $document->render();
