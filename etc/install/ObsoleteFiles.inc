@@ -53,3 +53,5 @@ etc/inc/properties_sysctl.php
 etc/inc/properties_services_websrv_webdav.php
 # 7202
 etc/inc/properties_system_backup.php
+# 7236
+etc/inc/properties_disks_zfs_settings.php
