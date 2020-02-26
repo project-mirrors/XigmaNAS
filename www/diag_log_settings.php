@@ -46,7 +46,7 @@ function get_sphere_diag_log_settings() {
 }
 //	init properties and sphere
 $cop = new properties_diag_log_settings();
-$sphere = &get_sphere_diag_log_settings();
+$sphere = get_sphere_diag_log_settings();
 $input_errors = [];
 $savemsg = '';
 //	request method
