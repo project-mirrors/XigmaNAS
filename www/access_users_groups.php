@@ -38,7 +38,7 @@ require_once 'co_sphere.php';
 function userdb_group_process_updatenotification($mode,$data) {
 	global $config;
 	$retval = 0;
-	$sphere = &access_users_groups_get_sphere();
+	$sphere = access_users_groups_get_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
@@ -72,7 +72,7 @@ function access_users_groups_get_sphere() {
 	$sphere->grid = &array_make_branch($config,'access','group');
 	return $sphere;
 }
-$sphere = &access_users_groups_get_sphere();
+$sphere = access_users_groups_get_sphere();
 //	settings for config['access']
 $access_settings = &array_make_branch($config,'access','settings');
 $showsystemgroups = !isset($access_settings['hidesystemgroups']);
