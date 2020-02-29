@@ -2451,9 +2451,7 @@ function set_conf_disk_fstype_opt($disk,$fstype,$opt) {
 		'geli' => 'vdisk'
 	];
 	foreach($diskconf as $class => $val):
-		if(false === filter_var($config[$class][$val],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_ARRAY,'options' => ['default' => false]])):
-			continue;
-		endif;
+		array_make_branch($config,$class,$val);
 		$id = array_search_ex($disk,$config[$class][$val],'devicespecialfile');
 		if($id !== false):
 			$config[$class][$val][$id]['fstype'] = $fstype;
