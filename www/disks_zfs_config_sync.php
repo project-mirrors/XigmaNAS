@@ -526,7 +526,7 @@ $document->
 			ins_tabnav_record('disks_zfs_config_sync.php',gettext('Synchronize'),gettext('Reload page'),true);
 $document->render();
 ?>
-<form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
+<form action="disks_zfs_config_sync.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if(!empty($message_box_text)):
 		print_core_box($message_box_type,$message_box_text);
