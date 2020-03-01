@@ -2096,22 +2096,30 @@ function get_carp_info($if) {
 	$ifinfo['advskew'] = $info[8];
 	return $ifinfo;
 }
-/*
- * Get hast device information.
+/**
+ *	Collects hast resource information via CLI
+ *	@param type $hastresourcename
+ *	@return array Array with hast resource information
  */
-function get_hvol_info($name) {
-	$hvolinfo = [];
-	$hvolinfo['error'] = 0;
-	$hvolinfo['status'] = 'unknown';
-	exec("/sbin/hastctl list {$name} 2>/dev/null",$rawdata);
-	foreach($rawdata as $line):
-//		skip name
-		if(preg_match('/^\S+:/',$line)):
-			continue;
+function get_hvol_info(string $hastresourcename) {
+	$hvolinfo = [
+		'error' => 0,
+		'role' => 'unknown',
+		'provname' => '',
+		'localpath' => '',
+		'remoteaddr' => '',
+		'replication' => '',
+		'status' => 'unknown'
+	];
+	$cmd = \sprintf('/sbin/hastctl list %s 2>/dev/null',\escapeshellarg($hastresourcename));
+	\exec($cmd,$rawdata);
+	foreach($rawdata as $row):
+		unset($matches);
+		if(\preg_match('/^\s+(?<key>[^:]+):\s+(?<val>.*)/',$row,$matches) === 1):
+			if(\array_key_exists($matches['key'],$hvolinfo)):
+				$hvolinfo[$matches['key']] = $matches['val'];
+			endif;
 		endif;
-		$line = trim($line);
-		list($key,$val) = preg_split('/:\s+/',$line);
-		$hvolinfo[$key] = $val;
 	endforeach;
 	return $hvolinfo;
 }
