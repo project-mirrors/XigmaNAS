@@ -2098,7 +2098,7 @@ function get_carp_info($if) {
 }
 /**
  *	Collects hast resource information via CLI
- *	@param type $hastresourcename
+ *	@param string $hastresourcename
  *	@return array Array with hast resource information
  */
 function get_hvol_info(string $hastresourcename) {
