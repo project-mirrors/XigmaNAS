@@ -19,6 +19,7 @@ Changes:
 - Upgrade e2fsprogs to 1.45.4.
 - Upgrade devcpu-data to 1.28.
 - Upgrade bash to 5.0 P16.
+- Upgrade lighttpd to 1.4.55.
 
 Fixes:
 - Fix display HW Address on status page minidlna.
