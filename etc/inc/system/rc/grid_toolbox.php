@@ -163,7 +163,7 @@ final class grid_toolbox {
 				$dc = $is_enabled ? '' : 'd';
 				$typeid_name = $cop->get_typeid()->get_name();
 				$typeid_options = $cop->get_typeid()->get_options();
-				if(array_key_exists($sphere->row[$typeid_name],$typeid_options)):
+				if(\array_key_exists($sphere->row[$typeid_name],$typeid_options)):
 					$typeid_value = $typeid_options[$sphere->row[$typeid_name]];
 				else:
 					$typeid_value = gettext('Unknown');

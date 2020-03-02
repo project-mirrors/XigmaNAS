@@ -37,7 +37,6 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 use system\rc as myparent;
-
 /**
  *	Wrapper class for autoloading functions
  */
@@ -137,7 +136,7 @@ final class grid_toolbox {
 				$dc = $is_enabled ? '' : 'd';
 				$typeid_name = $cop->get_typeid()->get_name();
 				$typeid_options = $cop->get_typeid()->get_options();
-				if(array_key_exists($sphere->row[$typeid_name],$typeid_options)):
+				if(\array_key_exists($sphere->row[$typeid_name],$typeid_options)):
 					$typeid_value = $typeid_options[$sphere->row[$typeid_name]];
 				else:
 					$typeid_value = gettext('Unknown');
