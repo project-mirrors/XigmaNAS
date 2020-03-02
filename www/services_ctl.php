@@ -168,7 +168,7 @@ switch($page_action):
 			$name = $referer->get_name();
 			switch($name):
 				case 'auxparam':
-					if(array_key_exists($name,$source)):
+					if(\array_key_exists($name,$source)):
 						if(is_array($source[$name])):
 							$source[$name] = implode(PHP_EOL,$source[$name]);
 						endif;
@@ -177,7 +177,7 @@ switch($page_action):
 			endswitch;
 			$sphere->row[$name] = $referer->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
-				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+				if(\array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -192,7 +192,7 @@ switch($page_action):
 			$sphere->row[$name] = $referer->validate_input();
 			if(is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
-				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+				if(\array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();

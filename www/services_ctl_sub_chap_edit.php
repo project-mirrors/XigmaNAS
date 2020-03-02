@@ -52,9 +52,9 @@ $sphere = toolbox::init_sphere();
 $all_parents = [];
 $known_parents = &array_make_branch($config,'ctld','ctl_auth_group','param');
 foreach($known_parents as $known_parent):
-	if(array_key_exists('name',$known_parent) && is_scalar($known_parent['name'])):
+	if(\array_key_exists('name',$known_parent) && is_scalar($known_parent['name'])):
 		$all_parents[$known_parent['name']] = $known_parent['name'];
-		if(array_key_exists('description',$known_parent) && is_string($known_parent['description']) && preg_match('/\S/',$known_parent['description'])):
+		if(\array_key_exists('description',$known_parent) && is_string($known_parent['description']) && preg_match('/\S/',$known_parent['description'])):
 			$all_parents[$known_parent['name']] .= sprintf(' - %s',$known_parent['description'] ?? '');
 		endif;
 	endif;
@@ -206,7 +206,7 @@ endswitch;
 $linked_parents = &array_make_branch($sphere->row,$cop->get_group()->get_name());
 foreach($linked_parents as $linked_parent):
 	if(is_scalar($linked_parent)):
-		if(!array_key_exists($linked_parent,$all_parents)):
+		if(!\array_key_exists($linked_parent,$all_parents)):
 			$all_parents[$linked_parent] = sprintf('%s - %s',$linked_parent,gettext('Orphaned'));
 		endif;
 	endif;
