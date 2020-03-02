@@ -48,7 +48,7 @@ final class rmo {
  *	@return $this
  */
 	public function add(string $method,string $submit,$value = NULL) {
-		if(array_key_exists($method,$this->x_activities)):
+		if(\array_key_exists($method,$this->x_activities)):
 			$this->x_activities[$method][$submit] = $value;
 		else:
 			$this->x_activities[$method] = [$submit => $value];
@@ -80,11 +80,11 @@ final class rmo {
 	public function validate() : array {
 //		check $_SESSION settings first
 		$this->x_method = 'SESSION';
-		if(array_key_exists($this->x_method,$this->x_activities) && array_key_exists('submit',$_SESSION)):
+		if(\array_key_exists($this->x_method,$this->x_activities) && \array_key_exists('submit',$_SESSION)):
 //			switch($this->x_method):
 //				case 'SESSION': // Validate $_SESSION['submit']
 					$this->x_action = filter_var($_SESSION['submit'],FILTER_CALLBACK,['options' =>
-						function(string $value) { return array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
+						function(string $value) { return \array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
 					]);
 					if(isset($this->x_action)):
 						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
@@ -94,9 +94,9 @@ final class rmo {
 		endif;
 //		check inputs
 		$rm_name = 'REQUEST_METHOD';
-		if(array_key_exists($rm_name,$_SERVER)):
+		if(\array_key_exists($rm_name,$_SERVER)):
 			$this->x_method = filter_var($_SERVER[$rm_name],FILTER_CALLBACK,['options' =>
-				function(string $value) { return array_key_exists($value,$this->x_activities) ? $value : NULL; }
+				function(string $value) { return \array_key_exists($value,$this->x_activities) ? $value : NULL; }
 			]);
 		else:
 			$this->x_method = NULL;
@@ -105,7 +105,7 @@ final class rmo {
 			switch($this->x_method):
 				case 'POST': // Validate $_POST['submit']
 					$this->x_action = filter_input(INPUT_POST,'submit',FILTER_CALLBACK,['options' =>
-						function(string $value) { return array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
+						function(string $value) { return \array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
 					]);
 					if(isset($this->x_action)):
 						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
@@ -113,7 +113,7 @@ final class rmo {
 					break;
 				case 'GET': // Validate $_GET['submit']
 					$this->x_action = filter_input(INPUT_GET,'submit',FILTER_CALLBACK,['options' =>
-						function(string $value) { return array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
+						function(string $value) { return \array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : NULL; }
 					]);
 					if(isset($this->x_action)):
 						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
