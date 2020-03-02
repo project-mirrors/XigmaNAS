@@ -1,7 +1,7 @@
 XigmaNAS® 12.1.0.4 - Ingva
 -------------------------
 Changes:
-- Upgrade to FreeBSD 12.1-RELEASE P0.
+- Upgrade to FreeBSD 12.1-RELEASE P2.
 - Add sesutil.
 - Add sas2ircu.
 - Add sas3ircu.
