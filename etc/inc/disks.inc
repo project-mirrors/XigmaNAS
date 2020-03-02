@@ -1796,105 +1796,93 @@ function disks_import_get_fstype($dev,&$additional_fs_info) {
 	@rmdir($mntpath);
 	return $fstype;
 }
-// Import action
-// 0: no found, n > 0: n disks imported, n < 0: error
-function disks_import_all_disks($clean_import) {
+/**
+ *	Import all disks
+ *	@global array $config
+ *	@param bool $clear_config_before_import
+ *	@return int 0: no disks imported, n > 0: n disks imported
+ */
+function disks_import_all_disks(bool $clear_config_before_import = false): int {
 	global $config;
 
-	$need_write_config = false;
-	$num = $error = 0;
-	// FUSE for NTFS/exFAT
-	mwexec("/sbin/kldload /boot/kernel/fuse.ko");
-	$disks = get_all_disks_list();
-	$disks = array_merge((array)$disks,(array)get_hast_disks_list());
+	$need_to_write_config = false;
+	$number_of_disks_imported = 0;
+//	FUSE for NTFS/exFAT
+	\mwexec('/sbin/kldload /boot/kernel/fuse.ko');
+	$disks = \array_merge((array)\get_all_disks_list(),(array)\get_hast_disks_list());
 	if(empty($disks)):
-		return $num;
+		return $number_of_disks_imported;
 	endif;
-	array_make_branch($config,'disks','disk');
-	if(!empty($clean_import)):
-		$config['disks']['disk'] = []; // OK
+	\array_make_branch($config,'disks','disk');
+	if($clear_config_before_import):
+		$config['disks']['disk'] = [];
 	endif;
-	foreach($disks as $diskv):
-		$type = $diskv['type'];
-		$dev = $diskv['devicespecialfile'];
-		if($type == 'SCSI' || $type == 'RAID' || $type == 'HAST' || $type == 'IDE'):
-			// disk exist in config?
-			$index = array_search_ex($dev,$config['disks']['disk'],"devicespecialfile");
-			if(false === $index):
-				$num++; // detected
-				$pdisk = [];
-				$pdisk['uuid'] = uuid();
-				$pdisk['name'] = $diskv['name'];
-				$pdisk['id'] = $diskv['id'];
-				$pdisk['devicespecialfile'] = $dev;
-				$pdisk['passthroughdevice'] = $diskv['passthroughdevice'] ?? '';
-				$pdisk['passthroughdevice_id'] = $diskv['passthroughdevice_id'] ?? '';
-				$pdisk['model'] = $diskv['model'] ?? '';
-				$pdisk['desc'] = $diskv['desc'] ?? '';
-				$pdisk['type'] = $diskv['type'];
-				$serial = "";
-				if(!empty($diskv['serial'])):
-					$serial = $diskv['serial'];
-				endif;
-				if(($serial == "n/a") || ($serial == gtext("n/a"))):
-					$serial = "";
-				endif;
-				$pdisk['serial'] = $serial;
-				$pdisk['size'] = $diskv['size'];
-				$pdisk['harddiskstandby'] = "0";
-				$pdisk['acoustic'] = "0";
-				$pdisk['apm'] = "0";
-				$pdisk['transfermode'] = "auto";
-				$additional_fs_info = false;
-				$pdisk['fstype'] = disks_import_get_fstype($dev,$additional_fs_info);
-				if(false !== $additional_fs_info):
-					$pdisk[$additional_fs_info['tag']] = $additional_fs_info['val'];
-				endif;
-				$pdisk['controller'] = $diskv['controller'];
-				$pdisk['controller_id'] =  $diskv['controller_id'];
-				$pdisk['controller_desc'] = $diskv['controller_desc'];
-				$pdisk['smart']['devicefilepath'] = $diskv['smart']['devicefilepath'];
-				$pdisk['smart']['devicetype'] = $diskv['smart']['devicetype'];
-				$pdisk['smart']['devicetypearg'] = $diskv['smart']['devicetypearg'];
-				// Enable S.M.A.R.T. Monitoring
-				$enablesmartmonondevice = true;
-				if($enablesmartmonondevice):
-					$enablesmartmonondevice = isset($config['smartd']['enablesmartmonondevice']);
-					if($enablesmartmonondevice && is_bool($config['smartd']['enablesmartmonondevice'])):
-						$enablesmartmonondevice = $config['smartd']['enablesmartmonondevice'];
+	foreach($disks as $single_disk):
+		$type = $single_disk['type'] ?? '';
+		$dev = $single_disk['devicespecialfile'] ?? '';
+		switch($type):
+			case 'SCSI':
+			case 'RAID':
+			case 'HAST':
+			case 'IDE':
+//				disk exist in config?
+				$index = \array_search_ex($dev,$config['disks']['disk'],'devicespecialfile');
+				if($index === false):
+//					new disk detected
+					$number_of_disks_imported++;
+					$pdisk = [];
+					$pdisk['uuid'] = \uuid();
+					$pdisk['name'] = $single_disk['name'] ?? '';
+					$pdisk['id'] = $single_disk['id'] ?? '';
+					$pdisk['devicespecialfile'] = $dev;
+					$pdisk['passthroughdevice'] = $single_disk['passthroughdevice'] ?? '';
+					$pdisk['passthroughdevice_id'] = $single_disk['passthroughdevice_id'] ?? '';
+					$pdisk['model'] = $single_disk['model'] ?? '';
+					$pdisk['desc'] = $single_disk['desc'] ?? '';
+					$pdisk['type'] = $type;
+					if(!empty($single_disk['serial']) && ($single_disk['serial'] !== 'n/a') && ($single_disk['serial'] !== gtext('n/a'))):
+						$pdisk['serial'] = $single_disk['serial'];
+					else:
+						$pdisk['serial'] = '';
 					endif;
-				endif;
-				if($enablesmartmonondevice):
-					$enablesmartmonondevice = isset($diskv['smart']['isavailable']);
-					if($enablesmartmonondevice && is_bool($diskv['smart']['isavailable'])):
-						$enablesmartmonondevice = $diskv['smart']['isavailable'];
+					$pdisk['size'] = $single_disk['size'] ?? '';
+					$pdisk['harddiskstandby'] = '0';
+					$pdisk['acoustic'] = '0';
+					$pdisk['apm'] = '0';
+					$pdisk['transfermode'] = 'auto';
+					$additional_fs_info = false;
+					$pdisk['fstype'] = \disks_import_get_fstype($dev,$additional_fs_info);
+					if($additional_fs_info !== false):
+						$pdisk[$additional_fs_info['tag']] = $additional_fs_info['val'];
 					endif;
+					$pdisk['controller'] = $single_disk['controller'] ?? '';
+					$pdisk['controller_id'] =  $single_disk['controller_id'] ?? '';
+					$pdisk['controller_desc'] = $single_disk['controller_desc'] ?? '';
+					$pdisk['smart']['devicefilepath'] = $single_disk['smart']['devicefilepath'] ?? '';
+					$pdisk['smart']['devicetype'] = $single_disk['smart']['devicetype'] ?? '';
+					$pdisk['smart']['devicetypearg'] = $single_disk['smart']['devicetypearg'] ?? '';
+//					Enable S.M.A.R.T. Monitoring
+					$test1 = $config['smartd']['enablesmartmonondevice'] ?? false;
+					$test2 = $single_disk['smart']['isavailable'] ?? false;
+					$test3 = $single_disk['smart']['isenabled'] ?? false;
+					$pdisk['smart']['enable'] = (\is_bool($test1) ? $test1 : true) && (\is_bool($test2) ? $test2 : true) && (\is_bool($test3) ? $test3 : true);
+					$pdisk['smart']['extraoptions'] = '';
+					$config['disks']['disk'][] = $pdisk;
+					\updatenotify_set('device',UPDATENOTIFY_MODE_MODIFIED,$pdisk['uuid']);
+					$need_to_write_config = true;
+				else:
+//					already exist in config
 				endif;
-				if($enablesmartmonondevice):
-					$enablesmartmonondevice = isset($diskv['smart']['isenabled']);
-					if($enablesmartmonondevice && is_bool($diskv['smart']['isenabled'])):
-						$enablesmartmonondevice = $diskv['smart']['isenabled'];
-					endif;
-				endif;
-				updatenotify_set("device",UPDATENOTIFY_MODE_MODIFIED,$pdisk['uuid']);
-				$pdisk['smart']['enable'] = $enablesmartmonondevice;
-				$pdisk['smart']['extraoptions'] = "";
-				$config['disks']['disk'][] = $pdisk;
-				$need_write_config = true;
-			else:
-				// already exist in config
-			endif;
-		elseif($type == "XXX"):
-			// not supported
-		endif;
+				break;
+			default:
+//				not supported
+				break;
+		endswitch;
 	endforeach;
-	if($need_write_config):
-		write_config();
+	if($need_to_write_config):
+		\write_config();
 	endif;
-	if($error != 0):
-		return -$error;
-	endif;
-	return $num;
+	return $number_of_disks_imported;
 }
 
 // Import all consumers used by software raid
@@ -2470,4 +2458,3 @@ function disks_convert_to_ada() {
 	// wait a moment to see the result.
 	sleep(10);
 }
-?>
