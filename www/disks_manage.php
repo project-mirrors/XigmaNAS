@@ -262,9 +262,14 @@ $(window).on("load", function() {
 						break;
 					default:
 						if($sphere->row['type'] == 'HAST'):
-							$role = $a_phy_disk[$sphere->row['name']]['role'];
+							if(\array_key_exists($sphere->row['name'],$a_phy_disk)):
+								$role = $a_phy_disk[$sphere->row['name']]['role'];
+								$sphere->row['size'] = $a_phy_disk[$sphere->row['name']]['size'];
+							else:
+								$role = gtext('Unknown');
+								$sphere->row['size'] = 0;
+							endif;
 							$status = sprintf("%s (%s)", (0 == disks_exists($sphere->row['devicespecialfile'])) ? gtext('ONLINE') : gtext('MISSING'),$role);
-							$sphere->row['size'] = $a_phy_disk[$sphere->row['name']]['size'];
 						else:
 							if(isset($verify_errors[$sphere->row['name']]) && is_array($verify_errors[$sphere->row['name']])):
 								switch($verify_errors[$sphere->row['name']]['error']):
