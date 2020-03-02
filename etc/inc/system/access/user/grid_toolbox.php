@@ -169,12 +169,12 @@ final class grid_toolbox {
 //				identify group membership
 				$a_group_key = [];
 				$ref_name = $cop->get_primary_group()->get_name();
-				if(array_key_exists($ref_name,$sphere->row) && is_scalar($sphere->row[$ref_name])):
+				if(\array_key_exists($ref_name,$sphere->row) && is_scalar($sphere->row[$ref_name])):
 					$group_name = array_search($sphere->row[$ref_name],$a_group);
 					$a_group_key[$group_name] = $group_name;
 				endif;
 				$ref_name = $cop->get_additional_groups()->get_name();
-				if(array_key_exists($ref_name,$sphere->row) && is_array($sphere->row[$ref_name])):
+				if(\array_key_exists($ref_name,$sphere->row) && is_array($sphere->row[$ref_name])):
 					foreach($sphere->row[$ref_name] as $r_group_member):
 						if(is_scalar($r_group_member)):
 							$group_name = array_search($r_group_member,$a_group);
