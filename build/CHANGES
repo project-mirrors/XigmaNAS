@@ -18,7 +18,7 @@ Changes:
 - Upgrade samba to 4.10.11.
 - Upgrade smartmontools to 7.1.
 - Upgrade e2fsprogs to 1.45.4.
-- Upgrade devcpu-data to 1.27.
+- Upgrade devcpu-data to 1.28.
 - Upgrade bash to 5.0 P16.
 
 Fixes:
