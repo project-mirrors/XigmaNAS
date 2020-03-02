@@ -19,6 +19,7 @@ Changes:
 - Upgrade smartmontools to 7.1.
 - Upgrade e2fsprogs to 1.45.4.
 - Upgrade devcpu-data to 1.27.
+- Upgrade bash to 5.0 P16.
 
 Fixes:
 
