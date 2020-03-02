@@ -190,7 +190,7 @@ switch($page_mode):
 			$name = $referer->get_name();
 			switch($name):
 				case $cop->get_auxparam()->get_name():
-					if(array_key_exists($name,$source)):
+					if(\array_key_exists($name,$source)):
 						if(is_array($source[$name])):
 							$source[$name] = implode(PHP_EOL,$source[$name]);
 						endif;
@@ -213,7 +213,7 @@ switch($page_mode):
 		if($prerequisites_ok && empty($input_errors)):
 			$name = $cop->get_auxparam()->get_name();
 			$auxparam_grid = [];
-			if(array_key_exists($name,$sphere->row)):
+			if(\array_key_exists($name,$sphere->row)):
 				foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
 					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
 				endforeach;
