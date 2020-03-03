@@ -252,6 +252,10 @@ function zfs_zpool_configure(string $uuid) {
 //		FreeBSD 12
 //		'large_dnode'
 	];
+	$zpool_properties = [
+		'atime' => 'off',
+		'compression' => 'lz4'
+	];
 	$pool_devices = [
 		'stripe' => [],
 		'mirror' => [],
@@ -301,6 +305,10 @@ function zfs_zpool_configure(string $uuid) {
 //	enable selected feature flags
 	foreach($zpool_features as $zpool_feature):
 		$a_param[] = sprintf('-o feature@%s=enabled',$zpool_feature);
+	endforeach;
+//	set selected properties on the pool filesystem
+	foreach($zpool_properties as $zpool_property => $zpool_value):
+		$a_param[] = sprintf('-O %s=%s',$zpool_property,$zpool_value);
 	endforeach;
 	$a_param[] = '-m';
 	$a_param[] = escapeshellarg($mountpoint);
@@ -382,7 +390,7 @@ function zfs_zpool_configure(string $uuid) {
 					endforeach;
 					break;
 				case 'spare':
-//					we can have many spare devices, collect them in a sinle row
+//					we can have many spare devices, collect them in a single row
 					$referer = 'spare';
 					if(count($pool_devices[$referer]) === 0):
 						$pool_devices[$referer][] = 'spare';
