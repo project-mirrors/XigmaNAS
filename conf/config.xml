@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>46</version>
+	<version>47</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -116,6 +116,13 @@
 				<name>vfs.zfs.prefetch_disable</name>
 				<value>1</value>
 				<comment>ZFS prefech disable</comment>
+			</param>
+			<param>
+				<uuid>313a0132-0609-4e2d-93ca-d85b5efa0d57</uuid>
+				<name>hw.nvme.use_nvd</name>
+				<value>0</value>
+				<comment>Use NVMe Direct Access device driver instead of the NVMe disk driver</comment>
+				<enable/>
 			</param>
 		</loaderconf>
 		<rcconf>

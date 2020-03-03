@@ -1642,6 +1642,27 @@ function config_upgrade_45() {
 	endforeach;
 }
 /**
+ *	Upgrade configuration from 46
+ *	@global array $config
+ */
+function config_upgrade_46() {
+	global $config;
+
+	$a_source = &\array_make_branch($config,'system','loaderconf','param');
+	$loaderconf_param_name = 'hw.nvme.use_nvd';
+	$rowkey = \array_search_ex($loaderconf_param_name,$a_source,'name');
+	if($rowkey === false):
+		$loaderconf_param = [
+			'enable' => true,
+			'uuid' => '313a0132-0609-4e2d-93ca-d85b5efa0d57',
+			'name' => $loaderconf_param_name,
+			'value' => '0',
+			'comment' => 'Use NVMe Direct Access device driver instead of the NVMe disk driver'
+		];
+		$a_source[] = $loaderconf_param;
+	endif;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1691,7 +1712,8 @@ function config_upgrade() {
 		'43' => [$kf => 'config_upgrade_43',$kv => '44'],
 		'44' => [$kf => 'config_upgrade_44',$kv => '45'],
 		'45' => [$kf => 'config_upgrade_45',$kv => '46'],
-		'46' => [$kf => NULL,$kv => NULL]
+		'46' => [$kf => 'config_upgrade_46',$kv => '47'],
+		'47' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
