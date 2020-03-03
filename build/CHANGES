@@ -19,7 +19,7 @@ Changes:
 - Upgrade nano to 4.8.
 - Upgrade phpmyadmin to 4.9.4.
 - Upgrade samba to 4.10.13.
-
+- Upgrade syncthing to 1.3.4.
 
 Fixes:
 - Fix display HW Address on status page minidlna.
