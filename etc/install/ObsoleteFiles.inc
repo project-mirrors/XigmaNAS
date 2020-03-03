@@ -53,3 +53,6 @@ etc/inc/properties_services_websrv_webdav.php
 etc/inc/properties_system_backup.php
 # 7236
 etc/inc/properties_disks_zfs_settings.php
+# 7278
+usr/local/www/access_users_groups.php
+usr/local/www/access_users_groups_edit.php
