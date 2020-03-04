@@ -399,9 +399,7 @@ function install_upgrade_full(string $harddrive) {
 	mwexec("/bin/mkdir -p {$mntpath}/tmp");
 	mwexec("/bin/chmod 1777 {$mntpath}/tmp");
 	mwexec("/bin/mkdir -p {$mntpath}/boot/defaults");
-	mwexec("/bin/cp -v /mnt/cdrom/boot/* {$mntpath}/boot");
-	mwexec("/bin/cp -v /mnt/cdrom/boot/defaults/* {$mntpath}/boot/defaults");
-	mwexec("/bin/cp -v /mnt/cdrom/boot/kernel/* {$mntpath}/boot/kernel");
+	mwexec("/bin/cp -av /mnt/cdrom/boot/* {$mntpath}/boot");
 //	Decompress kernel
 	mwexec("/usr/bin/gzip -d -f {$mntpath}/boot/kernel/kernel.gz");
 //	Decompress modules
