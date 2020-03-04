@@ -1666,6 +1666,11 @@ function config_upgrade_45() {
 	endforeach;
 }
 /**
+ *	Align with 12.1 trunk
+ */
+function config_upgrade_46() {
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1715,7 +1720,8 @@ function config_upgrade() {
 		'43' => [$kf => 'config_upgrade_43',$kv => '44'],
 		'44' => [$kf => 'config_upgrade_44',$kv => '45'],
 		'45' => [$kf => 'config_upgrade_45',$kv => '46'],
-		'46' => [$kf => NULL,$kv => NULL]
+		'46' => [$kf => 'config_upgrade_46',$kv => '47'],
+		'47' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
