@@ -14,8 +14,8 @@ XIGMANAS_PRODUCTNAME=$(cat ${XIGMANAS_SVNDIR}/etc/prd.name)
 
 OUTPUT="$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:upper:]' '[:lower:]').pot"
 OUTPUTDIR="${XIGMANAS_SVNDIR}/locale"
-PARAMETERS="--output-dir=${OUTPUTDIR} --output=${OUTPUT} --language=PHP \
---force-po --no-location --no-wrap --sort-output --omit-header --keyword="gtext""
+PARAMETERS="--output-dir=${OUTPUTDIR} --output=${OUTPUT} --language=PHP --from-code="UTF-8" \
+--force-po --no-location --no-wrap --sort-output --omit-header --keyword="gtext"" \
 
 echo "==> Delete current pot file..."
 cd ${XIGMANAS_SVNDIR}/locale
