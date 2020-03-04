@@ -113,7 +113,6 @@ Changes:
 - Upgrade devcpu-data to 1.28.
 - Upgrade bash to 5.0 P16.
 - Upgrade lighttpd to 1.4.55.
-- Upgrade php to 7.3.15.
 - Upgrade sudo to 1.8.31.
 - Upgrade e2fsprogs to 1.45.5.
 - Upgrade dialog to 1.3-20200228.
@@ -121,6 +120,7 @@ Changes:
 - Upgrade samba to 4.10.13.
 - Upgrade syncthing to 1.3.4.
 - Upgrade phpmyadmin to 5.0.1.
+- Upgrade php to 7.4.3.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
