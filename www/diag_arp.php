@@ -182,18 +182,27 @@ foreach ($rawdata as $line) {
 		$data[] = $arpent;
 	}
 }
+/**
+ *	Determine the hostname based on MAC address or IP
+ *	@global array $dhcpmac
+ *	@global array $dhcpip
+ *	@global type $resolve
+ *	@param string $mac
+ *	@param string $ip
+ *	@return string
+ */
+function get_HostName($mac,$ip) {
+	global $dhcpmac,$dhcpip,$resolve;
 
-function get_HostName($mac, $ip) {
-	global $dhcpmac, $dhcpip, $resolve;
-
-	if ($dhcpmac[$mac])
+	if(\is_array($dhcpmac) && \array_key_exists($mac,$dhcpmac) && $dhcpmac[$mac]):
 		return $dhcpmac[$mac];
-	else if ($dhcpip[$ip])
+	elseif(\is_array($dhcpip) && \array_key_exists($ip,$dhcpip) && $dhcpip[$ip]):
 		return $dhcpip[$ip];
-	else if ($resolve)
-		return get_hostbyaddr($ip);
-	else
-		return "";
+	elseif($resolve):
+		return \get_hostbyaddr($ip);
+	else:
+		return '';
+	endif;
 }
 $pgtitle = [gtext('Diagnostics'),gtext('ARP Tables')];
 include 'fbegin.inc';
@@ -253,7 +262,7 @@ include 'fbegin.inc';
 	</table>
 	<div id="remarks">
 <?php
-		$helpinghand =  
+		$helpinghand =
 			gtext('IP addresses are resolved to hostnames when the following option is enabled:') .
 			' ' .
 			'<a href="' . 'diag_log_settings.php' . '">' . gtext('Resolve IP addresses to hostnames.') . '</a>';
