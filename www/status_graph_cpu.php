@@ -44,11 +44,9 @@ $a_object['height'] = $graph_height;
 $a_object['class'] = 'rrdgraphs';
 $a_param = [];
 $a_param['name'] = 'src';
-$cpus = system_get_cpus();
-$gt_notsupported = gettext('Your browser does not support this svg object type.')
-	. '<br />'
-	. gettext('Please update your browser or use Internet Explorer 10 or higher.');
-$document = new_page([gettext('Status'),gettext('Monitoring'),gettext('CPU Load')]);
+$cpus = \system_get_cpus();
+$gt_notsupported = \gettext('Your browser does not support this svg object type.');
+$document = \new_page([\gettext('Status'),\gettext('Monitoring'),\gettext('CPU Load')]);
 //	get areas
 $pagecontent = $document->getElementById('pagecontent');
 //	add tab navigation
@@ -56,20 +54,20 @@ include 'status_graph_tabs.inc';
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
-if(file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(get_std_save_message(0));
+if(\file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(\get_std_save_message(0));
 endif;
 $table = $content->add_table_data_settings();
-$table->addTHEAD()->ins_titleline(gettext('CPU Load'));
+$table->addTHEAD()->ins_titleline(\gettext('CPU Load'));
 $content->
-	ins_remark('remark','',sprintf(gettext('Graph shows recent 120 seconds.'),$refresh));
+	ins_remark('remark','',\gettext('Graph shows recent 120 seconds.'));
 $div = $content->
 	addDIV(['class' => 'rrdgraphs']);
 if($cpus > 1):
 	for($j = 0;$j < $cpus;$j++):
-		$a_object['id'] = sprintf('graph%s',$j);
-		$a_object['data'] = sprintf('status_graph_cpu2.php?cpu=%s',$j);
-		$a_param['value'] = sprintf('status_graph_cpu2.php?cpu=%s',$j);
+		$a_object['id'] = \sprintf('graph%s',$j);
+		$a_object['data'] = \sprintf('status_graph_cpu2.php?cpu=%s',$j);
+		$a_param['value'] = \sprintf('status_graph_cpu2.php?cpu=%s',$j);
 		$div->
 			addElement('object',$a_object)->
 				insElement('param',$a_param)->
