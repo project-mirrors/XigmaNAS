@@ -117,6 +117,7 @@ switch($page_method):
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
 					\write_config();
@@ -135,7 +136,8 @@ switch($page_method):
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
-				if((\array_key_exists($name,$sphere->grid) && $sphere->grid[$name]) || $pending_changes):
+				$sphere->grid[$name] ??= false;
+				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				else:
@@ -154,6 +156,7 @@ switch($page_method):
 			case 'reload':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					\mwexec_bg('service minidlna rescan');
 					$savemsg = \gettext('A rescan has been issued.');
