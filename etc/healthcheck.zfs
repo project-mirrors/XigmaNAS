@@ -1,4 +1,4 @@
-#!/usr/local/bin/php-cgi -f
+#!/usr/local/bin/php
 <?php
 /*
 	healthcheck.zfs
@@ -63,7 +63,7 @@ mwexec2($cmd,$pool_names,$return_value);
 //	scan each pool
 foreach($pool_names as $pool_name):
 	$issue_pool = false;
-	//	check for pool status 'ONLINE'. Any other status will cause an alert email.
+//	check for pool status 'ONLINE'. Any other status will cause an alert email.
 	$cmd = sprintf('/sbin/zpool list -H -o health %s',escapeshellarg($pool_name));
 	$output = [];
 	$return_value = 0;
@@ -78,7 +78,7 @@ foreach($pool_names as $pool_name):
 				break;
 			endswitch;
 	endforeach;
-	//	check for read, write or checksum errors.
+//	check for read, write or checksum errors.
 	$cmd = sprintf('/sbin/zpool status %s',escapeshellarg($pool_name));
 	$output = [];
 	$return_value = 0;
@@ -110,7 +110,7 @@ foreach($pool_names as $pool_name):
 			endif;
 		endif;
 	endforeach;
-	//	check pool read, write and checksum results
+//	check pool read, write and checksum results
 	$error_types = [];
 	if($errors_read):
 		$error_types[] = 'read';
@@ -122,16 +122,16 @@ foreach($pool_names as $pool_name):
 		$error_types[] = 'checksum';
 	endif;
 	if(!empty($error_types)):
-		//	compile natural language string 
+//		compile natural language string
 		$last_element = array_pop($error_types);
 		if(empty($error_types)):
 			$error_string = sprintf('%s',$last_element);
 		else:
-			$error_string = sprintf('%s and %s',implode(', ',$error_types),$last_element); 
+			$error_string = sprintf('%s and %s',implode(', ',$error_types),$last_element);
 		endif;
-		$body_rows[] = sprintf('ZFS Pool "%s" encountered %s errors.',$pool_name,$error_string); 
+		$body_rows[] = sprintf('ZFS Pool "%s" encountered %s errors.',$pool_name,$error_string);
 	endif;
-	//	append pool status if an issue was found
+//	append pool status if an issue was found
 	if($issue_pool):
 		$body_rows[] = '';
 		foreach($output as $row):
@@ -141,10 +141,12 @@ foreach($pool_names as $pool_name):
 	endif;
 endforeach;
 //	compile and send email if an issue was found or the force report option was set
-if($issue_zfs): // send alert email
+if($issue_zfs):
+//	send alert email
 	$subject = '[ALERT] %h: ZFS pool health check detected one or more issues.';
 	$exit_code = 1;
-elseif(isset($argv_options['s'])): // send success email
+elseif(isset($argv_options['s'])):
+//	send success email
 	$subject = '[SUCCESS] %h: ZFS pool health check completed successfully.';
 	$exit_code = 0;
 else:

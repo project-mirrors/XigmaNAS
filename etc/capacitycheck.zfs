@@ -1,4 +1,4 @@
-#!/usr/local/bin/php-cgi -f
+#!/usr/local/bin/php
 <?php
 /*
 	capacitycheck.zfs
@@ -88,11 +88,13 @@ foreach($a_pool_info as $r_pool_info):
 	endif;
 endforeach;
 //	compile and send email if an issue was found or the force report option was set
-if($issue_found): // send alert email
+if($issue_found):
+//	send alert email
 	$subject = '[ALERT] %h: Pool capacity check detected one or more issues.';
 	$send_email = true;
 	$exit_code = 1;
-elseif(isset($argv_options['s'])): // send success email
+elseif(isset($argv_options['s'])):
+//	send success email
 	$subject = '[SUCCESS] %h: Pool capacity check completed successfully.';
 	$send_email = true;
 	$exit_code = 0;
