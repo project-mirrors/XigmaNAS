@@ -57,6 +57,7 @@ else:
 	$errormsg .= '<br/>';
 endif;
 $pconfig['path'] = '';
+$pconfig['usezfsacl'] = false;
 $pconfig['user_shares'] = false;
 $realm = strtoupper($pconfig['dns_domain']);
 $hostname = $config['system']['hostname'] ?? '';
@@ -105,8 +106,6 @@ endif;
 if($_POST):
 	unset($input_errors);
 	unset($errormsg);
-	unset($do_init);
-
 	$pconfig = $_POST;
 	if(!file_exists($_POST['path'])):
 		$input_errors[] = gtext('Path not found.');
@@ -133,24 +132,28 @@ if($_POST):
 		$domain = strtoupper($config['sambaad']['netbios_domain']);
 		$password = $_POST['password'];
 		$path = $config['sambaad']['path'];
+		$usezfsacl = isset($_POST['usezfsacl']);
 		$cmsargs = [];
-		$cmdargs[] = escapeshellarg('--use-rfc2307');
-		$cmdargs[] = escapeshellarg('--function-level=2008_R2');
-		$cmdargs[] = escapeshellarg(sprintf('--realm=%s',$realm));
-		$cmdargs[] = escapeshellarg(sprintf('--domain=%s',$domain));
-		$cmdargs[] = escapeshellarg('--server-role=dc');
-		$cmdargs[] = escapeshellarg('--dns-backend=SAMBA_INTERNAL');
+		$cmdargs[] = '--use-rfc2307';
+		$cmdargs[] = '--function-level=2008_R2';
+		$cmdargs[] = sprintf('--realm=%s',escapeshellarg($realm));
+		$cmdargs[] = sprintf('--domain=%s',escapeshellarg($domain));
+		$cmdargs[] = '--server-role=dc';
+		$cmdargs[] = '--dns-backend=SAMBA_INTERNAL';
 		if(!empty($password)):
-			$cmdargs[] = escapeshellarg(sprintf('--adminpass=%s',$password));
+			$cmdargs[] = sprintf('--adminpass=%s',escapeshellarg($password));
 		endif;
-		$cmdargs[] = escapeshellarg(sprintf('--option=cache directory = %s',$path));
-		$cmdargs[] = escapeshellarg(sprintf('--option=lock directory = %s',$path));
-		$cmdargs[] = escapeshellarg(sprintf('--option=state directory = %s',$path));
-		$cmdargs[] = escapeshellarg(sprintf('--option=private dir = %s/private',$path));
-		$cmdargs[] = escapeshellarg(sprintf('--option=smb passwd file = %s/private/smbpasswd',$path));
-		$cmdargs[] = escapeshellarg(sprintf('--option=usershare path = %s/usershares',$path));
-		$cmdargs[] = escapeshellarg('--option=nsupdate command = /usr/local/bin/samba-nsupdate -g');
-		// adjust DNS server
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg(sprintf('cache directory = %s',$path)));
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg(sprintf('lock directory = %s',$path)));
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg(sprintf('state directory = %s',$path)));
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg(sprintf('private dir = %s/private',$path)));
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg(sprintf('smb passwd file = %s/private/smbpasswd',$path)));
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg(sprintf('usershare path = %s/usershares',$path)));
+		$cmdargs[] = sprintf('--option=%s',escapeshellarg('nsupdate command = /usr/local/bin/samba-nsupdate -g'));
+		if($usezfsacl):
+			$cmdargs[] = sprintf('--option=%s',escapeshellarg('vfs objects = dfs_samba4 zfsacl'));
+		endif;
+//		adjust DNS server
 		unset($config['system']['dnsserver']);
 		$config['system']['dnsserver'][] = '127.0.0.1';
 		write_config();
@@ -229,10 +232,11 @@ $(document).ready(function(){
 			html_inputbox2('dns_forwarder',gettext('DNS Forwarder'),$pconfig['dns_forwarder'],'',true,40);
 			html_inputbox2('dns_domain',gettext('DNS Domain'),$pconfig['dns_domain'],'',true,40);
 			html_inputbox2('netbios_domain',gettext('NetBIOS Domain'),$pconfig['netbios_domain'],'',true,40);
-			//html_text2('realm',gettext('Kerberos realm'),htmlspecialchars($realm));
+//			html_text2('realm',gettext('Kerberos realm'),$realm);
 			html_passwordconfbox2('password','password_confirm',gettext('Admin Password'),'','',gettext('Generate password if left empty.'),true);
 			html_filechooser2('path',gettext('Path'),$pconfig['path'],sprintf(gettext('Permanent samba data path (e.g. %s).'),'/mnt/data/samba4'),$g['media_path'],true);
-			html_checkbox2('user_shares',gettext('User Shares'),!empty($pconfig['user_shares']) ? true : false,gettext('Append user defined shares'),'',false);
+			html_checkbox2('usezfsacl', gettext('Use zfsacl'),!empty($pconfig['usezfsacl']),gettext('Use the ZFS ACL driver.'));
+			html_checkbox2('user_shares',gettext('User Shares'),!empty($pconfig['user_shares']) ? true : false,gettext('Append user defined shares.'));
 ?>
 		</tbody>
 	</table>
@@ -243,7 +247,8 @@ $(document).ready(function(){
 	if($do_init):
 		echo sprintf("<div id='cmdoutput'>%s</div>", gtext("Command output:"));
 		echo '<pre class="cmdoutput">';
-		ob_end_flush();
+		while((\ob_get_level() > 0) && \ob_end_flush()):
+		endwhile;
 		$cmd = sprintf('/usr/local/bin/samba-tool domain provision %s',implode(' ',$cmdargs));
 		echo gtext('Initializing...'),PHP_EOL;
 /*
@@ -256,7 +261,9 @@ $(document).ready(function(){
 		while(!feof($handle)):
 			$line = fgets($handle);
 			echo htmlspecialchars($line);
-			ob_flush();
+			while(\ob_get_level() > 0):
+				ob_flush();
+			endwhile;
 			flush();
 		endwhile;
 		$result = pclose($handle);
@@ -269,8 +276,8 @@ $(document).ready(function(){
 ?>
 	<div id="remarks">
 <?php
-		$helpinghand = '<a href="system.php">' . gettext('Check System|General Setup before initializing') . '</a>.';
-		html_remark2('note', gettext('Note'), sprintf("<div id='enumeration'><ul><li>%s</li><li>%s</li></ul></div>", gettext("All data in the path is overwritten. To avoid invalid data/permission, using an empty UFS directory is recommended."), $helpinghand));
+		html_remark2('note1', gettext('Note'),gettext('All data in the chosen path is overwritten. Using an empty UFS directory or an empty ZFS dataset is recommended.'));
+		html_remark2('note2','',sprintf('<a href="system.php">%s</a>.',gettext('Check System|General Setup before initializing')));
 ?>
 	</div>
 <?php
