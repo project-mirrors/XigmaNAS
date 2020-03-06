@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -3071,6 +3071,9 @@ msgstr "Detașare dispozitiv loguri de la un log tip oglindă"
 msgid "Detailed"
 msgstr "Detaliat"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "Detectat"
 
@@ -4797,12 +4800,6 @@ msgstr "Introduceți o scurtă descriere"
 msgid "Enter a directory"
 msgstr ""
 
-msgid "Enter a group description."
-msgstr "Introducere descriere grup."
-
-msgid "Enter a group name."
-msgstr "Introducere nume grup."
-
 msgid "Enter a name for this dataset"
 msgstr "Adj nevet ennek az adattárnak"
 
@@ -5416,11 +5413,14 @@ msgstr "RAID software GEOM"
 msgid "GEOM VINUM Software RAID"
 msgstr "RADI software GEOM VINUM"
 
-msgid "GEOM vinum"
+msgid "GEOM details not available."
 msgstr ""
 
-msgid "GID"
-msgstr "GID"
+msgid "GEOM not found."
+msgstr ""
+
+msgid "GEOM vinum"
+msgstr ""
 
 msgid "GNU General Public License"
 msgstr "Licență publică generală GNU"
@@ -5556,9 +5556,6 @@ msgstr "Grupul este protejat"
 
 msgid "Group is unlocked"
 msgstr "Grupul este deblocat"
-
-msgid "Group numeric id."
-msgstr "Id numeric grup."
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Mascare ACL cu mod"
@@ -6358,11 +6355,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "Informații & Stare JBOD"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "Mentenanță JBOD"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7579,9 +7579,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr "Niciun Grup inițiator nu a fost configurat."
 
-msgid "No JBOD information found."
-msgstr ""
-
 msgid "No LUNs found."
 msgstr ""
 
@@ -7600,17 +7597,17 @@ msgstr ""
 msgid "No Portal Group has been configured."
 msgstr "Niciun Grup portal nu a fost configurat."
 
-msgid "No RAID0 information found."
-msgstr ""
-
-msgid "No RAID1 information found."
-msgstr ""
-
-msgid "No RAID5 information found."
-msgstr ""
-
 msgid "No RSYNC Client configured."
 msgstr "Nu există niciun client RSYNC configurat."
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr ""
@@ -7638,9 +7635,6 @@ msgstr "Nu există nicio structură pool configurată."
 
 msgid "No configured virtual devices."
 msgstr "Niciun dispozitiv virtual configurat."
-
-msgid "No dataset information available."
-msgstr ""
 
 msgid "No devices have been selected"
 msgstr "Nu a fost selectat niciun dispozitiv"
@@ -7722,9 +7716,6 @@ msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "Nu a fost selectat niciun dispozitiv virtual"
-
-msgid "No volume information available."
-msgstr ""
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Doar intrări de refuz moștenite"
@@ -8379,9 +8370,6 @@ msgstr "Dispozitiv pool"
 msgid "Pool Information"
 msgstr ""
 
-msgid "Pool Information & Status"
-msgstr "Informații & Stare Pool"
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8780,19 +8768,28 @@ msgstr "RAID-Z3 trebuie să aibă 5, 7 sau 11 discuri în fiecare vdev."
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
 msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
 msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
@@ -9513,9 +9510,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -10045,7 +10039,7 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -11430,12 +11424,6 @@ msgstr "Următoarele persoane au contribuit la proiectul %s:"
 msgid "The following services will use AD authentication:"
 msgstr "Serviciile următoare folosesc autentificarea AD:"
 
-msgid "The group description contains invalid characters."
-msgstr "Descrierea grupului conține caractere invalide."
-
-msgid "The group name contains invalid characters."
-msgstr "Numele grupului conține caractere invalide."
-
 msgid "The host name contain invalid characters."
 msgstr "Numele sistemului conține caractere invalide."
 
@@ -11631,6 +11619,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "Parolele nu coincid. Încercați din nou."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "Calea '%s' nu există."
 
@@ -11788,9 +11784,6 @@ msgstr ""
 "Creșterea acestei valori indică apariția unui defect la suprafața discurilor "
 "magnetice și/sau apariția unei probleme mecanice."
 
-msgid "The unique group ID is already used."
-msgstr "Identificatorul unic de grup (ID) este deja utilizat."
-
 msgid "The unique rule number is already used."
 msgstr "Numărul unic de regulă este utilizat deja."
 
@@ -11812,6 +11805,11 @@ msgstr "Fișierul a fost parțial încărcat."
 
 msgid "The value is invalid."
 msgstr "Valoare invalidă."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr ""
@@ -12040,9 +12038,6 @@ msgstr ""
 
 msgid "This extent is used."
 msgstr "Această extensie este utilizată."
-
-msgid "This group already exists in the group list."
-msgstr "Acest grup există deja în lista grupurilor."
 
 msgid "This is a nickname and is for information only."
 msgstr ""
@@ -12930,6 +12925,9 @@ msgstr "Protocol necunoscut de agregare."
 msgid "Unknown or Unformatted"
 msgstr "Necunoscut sau neformatat"
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "Necunoscut sau neformatat"
 
@@ -13734,11 +13732,11 @@ msgstr "Utilizare ZFS ARC"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
-msgstr "Informații & Stare sistem ZFS"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "Proprietăți sistem ZFS"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr ""
@@ -13751,6 +13749,9 @@ msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Statistici ZFS Pool I/O"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr "Proprietăți pool ZFS"
@@ -13776,6 +13777,18 @@ msgstr "Informații & Stare volum ZFS"
 msgid "ZFS Volume Properties"
 msgstr "Proprietăți volum ZFS"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "Volum ZFS"
 
@@ -13783,6 +13796,12 @@ msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Dimensiune bloc volum ZFS. Această valoare nu mai poate fi modificată după "
 "crearea volumului."
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

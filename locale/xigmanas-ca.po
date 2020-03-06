@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2019-11-08 05:37+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:48+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -3098,6 +3098,9 @@ msgstr "Separar un dispositiu de registre d'un mirall de registre"
 msgid "Detailed"
 msgstr "Detallat"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "Detectat"
 
@@ -4854,12 +4857,6 @@ msgstr "Introduïu una descripció per la teva referència."
 msgid "Enter a directory"
 msgstr "Introduïu un directori"
 
-msgid "Enter a group description."
-msgstr "Introduïu una descripció del grup."
-
-msgid "Enter a group name."
-msgstr "Introduïu un nom del grup."
-
 msgid "Enter a name for this dataset"
 msgstr "Introduïu un nom per a aquest conjunt de dades"
 
@@ -5497,11 +5494,14 @@ msgstr "GEOM Software RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM Software RAID"
 
+msgid "GEOM details not available."
+msgstr ""
+
+msgid "GEOM not found."
+msgstr ""
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "GID"
 
 msgid "GNU General Public License"
 msgstr "Llicència pública general GNU"
@@ -5642,9 +5642,6 @@ msgstr "Grup està protegit"
 
 msgid "Group is unlocked"
 msgstr "Grup està desbloquejat"
-
-msgid "Group numeric id."
-msgstr "Identificació númerica del grup"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Máscara de grup - Màscara de l'LCA amb mode"
@@ -6452,11 +6449,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "Informació i estat del JBOD"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "Manteniment JBOD"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "Engabiat"
@@ -7704,9 +7704,6 @@ msgstr "No s’ha trobat cap informació d’encaminament IPv6."
 msgid "No Initiator Group has been configured."
 msgstr "Grup iniciador no s'ha configurat."
 
-msgid "No JBOD information found."
-msgstr "No s'ha trobat cap informació de JBOD."
-
 msgid "No LUNs found."
 msgstr "No s'ha trobat cap LUN."
 
@@ -7725,17 +7722,17 @@ msgstr "Sense marcador de lloc"
 msgid "No Portal Group has been configured."
 msgstr "Grup portal no s'ha configurat."
 
-msgid "No RAID0 information found."
-msgstr "No s'ha trobat cap informació de RAID0."
-
-msgid "No RAID1 information found."
-msgstr "No s'ha trobat cap informació de RAID1."
-
-msgid "No RAID5 information found."
-msgstr "No s'ha trobat cap informació de RAID5."
-
 msgid "No RSYNC Client configured."
 msgstr "Sense RSYNC client configurat."
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr "No té accés al portal d’usuari"
@@ -7763,9 +7760,6 @@ msgstr "No s'han configurat les piscines."
 
 msgid "No configured virtual devices."
 msgstr "Dispositius virtuals no configurats."
-
-msgid "No dataset information available."
-msgstr "No hi ha informació de conjunt de dades disponible."
 
 msgid "No devices have been selected"
 msgstr "No s'han seleccionat dispositius"
@@ -7847,9 +7841,6 @@ msgstr "No s'ha trobat cap objectiu."
 
 msgid "No virtual devices have been selected"
 msgstr "No s'han seleccionat dispositius virtuals"
-
-msgid "No volume information available."
-msgstr "No hi ha informació de volum disponible."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Només heretar entrades negades"
@@ -8510,9 +8501,6 @@ msgstr "Dispositius de la piscina"
 msgid "Pool Information"
 msgstr "Informació sobre la piscina"
 
-msgid "Pool Information & Status"
-msgstr "Informació i estat de piscina"
-
 msgid "Pool Space Usage"
 msgstr "Ús de l’espai de la piscina"
 
@@ -8918,20 +8906,29 @@ msgstr "RAID-Z3 ha de tenir 5, 7, o 11 discos en cada vdev."
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "Informació i estat de RAID0."
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
+msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "Informació i estat de RAID1."
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
+msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "Informació i estat de RAID5."
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
+msgstr ""
 
 msgid "RAM Disk"
 msgstr "Disc RAM"
@@ -9656,9 +9653,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "RATLLA"
 
-msgid "Samba"
-msgstr "Samba"
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -10209,11 +10203,8 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Establiu el nombre de dies fins que es mostra un recordatori a la "
-"configuració del sistema de còpia de seguretat. El valor predeterminat és de "
-"28 dies. Un valor de 0 desactiva aquest recordatori."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Estableix el llindar d'advertència en un valor entre 80 i 89."
@@ -11679,12 +11670,6 @@ msgstr "Les següents persones han contribuït a %s:"
 msgid "The following services will use AD authentication:"
 msgstr "Els següents serveis faran servir l'autenticació AD:"
 
-msgid "The group description contains invalid characters."
-msgstr "La descripció del grup conté caràcters no vàlids."
-
-msgid "The group name contains invalid characters."
-msgstr "El nom del grup conté caràcters no vàlids."
-
 msgid "The host name contain invalid characters."
 msgstr "El nom d'amfitrió conté caràcters no vàlids."
 
@@ -11897,6 +11882,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "Les contrasenyes no coincideixen. Siusplau torna-ho a provar."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "La ruta '%s' no existeix."
 
@@ -12064,9 +12057,6 @@ msgstr ""
 "augment en el valor d'aquest atribut indica defectes de la superfície del "
 "disc  i/o problemes en el subsistema mecànic."
 
-msgid "The unique group ID is already used."
-msgstr "El ID de grup únic ja està en ús."
-
 msgid "The unique rule number is already used."
 msgstr "El número únic de regla ja s'utilitza."
 
@@ -12087,6 +12077,11 @@ msgstr "El fitxer només s'ha pogut desar parcialment al servidor."
 
 msgid "The value is invalid."
 msgstr "El valor no és vàlid."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr "El valor de la configuració."
@@ -12322,9 +12317,6 @@ msgstr ""
 
 msgid "This extent is used."
 msgstr "Aquesta extensió s'està utilitzant."
-
-msgid "This group already exists in the group list."
-msgstr "Aquest grup ja existeix a la llista de grups."
 
 msgid "This is a nickname and is for information only."
 msgstr "Aquest és un sobrenom i només es pot obtenir informació."
@@ -13241,6 +13233,9 @@ msgstr "Protocol d'agregació desconegut"
 msgid "Unknown or Unformatted"
 msgstr "Desconegut o no formatat."
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "Desconegud o no formatat"
 
@@ -14063,11 +14058,11 @@ msgstr "Us ZFS ARC"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "Memòria cau de reemplaçament adaptada ZFS (ARC)"
 
-msgid "ZFS Dataset Information & Status"
-msgstr "Informació del conjunt de dades i estat de ZFS"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "Propietats del conjunt de dades de ZFS"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -14080,6 +14075,9 @@ msgstr "Memòria cau de reemplaçament adaptativa del nivell 2 de ZFS (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Estadístiques de E/S de la piscina ZFS"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr "Propietats de la piscina ZFS"
@@ -14105,12 +14103,30 @@ msgstr "Informació de volum i estat de ZFS"
 msgid "ZFS Volume Properties"
 msgstr "Propietats del volum ZFS"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "Volum ZFS"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Espai del volum ZFS. Aquest valor es pot canviar desprès de la creació."
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

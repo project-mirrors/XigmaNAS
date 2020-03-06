@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2019-11-23 16:00+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:52+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -2832,6 +2832,9 @@ msgstr "从镜像日志中分离日志设备"
 msgid "Detailed"
 msgstr "详细信息"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "检测到"
 
@@ -4505,12 +4508,6 @@ msgstr "输入说明以供参考。"
 msgid "Enter a directory"
 msgstr "输入一个目录"
 
-msgid "Enter a group description."
-msgstr "输入群组描述。"
-
-msgid "Enter a group name."
-msgstr "输入群组名称"
-
 msgid "Enter a name for this dataset"
 msgstr "输入此数据集的名称"
 
@@ -5097,11 +5094,14 @@ msgstr "GEOM软件RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM软件RAID"
 
+msgid "GEOM details not available."
+msgstr ""
+
+msgid "GEOM not found."
+msgstr ""
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "GID"
 
 msgid "GNU General Public License"
 msgstr "GNU 通用公共许可证"
@@ -5236,9 +5236,6 @@ msgstr "群组被保护"
 
 msgid "Group is unlocked"
 msgstr "群组已解锁"
-
-msgid "Group numeric id."
-msgstr "群组的数字 id。"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "组掩码 - 掩码模式的ACL"
@@ -5958,11 +5955,14 @@ msgstr "如果需要用WebGUI登录，我们推荐您更改系统默认的用户
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD 信息和状态"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "JBOD维护"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7143,9 +7143,6 @@ msgstr "未找到IPv6路由信息。"
 msgid "No Initiator Group has been configured."
 msgstr "未配置启动器组。"
 
-msgid "No JBOD information found."
-msgstr "未找到JBOD信息。"
-
 msgid "No LUNs found."
 msgstr "找不到LUN"
 
@@ -7164,17 +7161,17 @@ msgstr "没有占位符"
 msgid "No Portal Group has been configured."
 msgstr "未配置任何门户组。"
 
-msgid "No RAID0 information found."
-msgstr "未找到RAID0信息。"
-
-msgid "No RAID1 information found."
-msgstr "未找到RAID1信息。"
-
-msgid "No RAID5 information found."
-msgstr "未找到RAID5信息。"
-
 msgid "No RSYNC Client configured."
 msgstr "未配置RSYNC客户端。"
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr "无法访问用户门户"
@@ -7202,9 +7199,6 @@ msgstr "没有配置池。"
 
 msgid "No configured virtual devices."
 msgstr "未配置虚拟设备。"
-
-msgid "No dataset information available."
-msgstr "没有可用的数据集信息。"
 
 msgid "No devices have been selected"
 msgstr "未选择任何设备"
@@ -7286,9 +7280,6 @@ msgstr "找不到目标。"
 
 msgid "No virtual devices have been selected"
 msgstr "未选择任何虚拟设备"
-
-msgid "No volume information available."
-msgstr "没有可用的卷信息。"
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "不允许 - 仅继承拒绝条目"
@@ -7919,9 +7910,6 @@ msgstr "池设备"
 msgid "Pool Information"
 msgstr "池信息"
 
-msgid "Pool Information & Status"
-msgstr "存储池信息和状态"
-
 msgid "Pool Space Usage"
 msgstr "池空间使用率"
 
@@ -8308,20 +8296,29 @@ msgstr "RAID-Z3在每个vdev中应该有5,7或11个磁盘。"
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "RAID0信息和状态"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
+msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "RAID1信息和状态"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
+msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "RAID5信息和状态"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
+msgstr ""
 
 msgid "RAM Disk"
 msgstr "内存盘"
@@ -9020,9 +9017,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "条带"
 
-msgid "Samba"
-msgstr "Samba"
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -9518,8 +9512,8 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
-msgstr "设置提醒显示为备份系统配置的天数。 默认值为28天。 值为0将禁用此提醒。"
+"configuration. The default is 28 days. A value of 0 disables the reminder."
+msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "将警告阈值设置为80到89之间的值。"
@@ -10824,12 +10818,6 @@ msgstr "以下人员贡献了%s："
 msgid "The following services will use AD authentication:"
 msgstr "以下服务将使用AD身份验证："
 
-msgid "The group description contains invalid characters."
-msgstr "群组描述含有无效的字元。"
-
-msgid "The group name contains invalid characters."
-msgstr "组名称含有无效的字元。"
-
 msgid "The host name contain invalid characters."
 msgstr "主机名称含有无效的字元。"
 
@@ -10999,6 +10987,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "密码不匹配。 请再试一次。"
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "路径 '%s' 并不存在。"
 
@@ -11142,9 +11138,6 @@ msgid ""
 "and/or problems in the mechanical subsystem."
 msgstr "读取/写入扇区时的不可校正错误的总数。 该属性的值的增加表示磁盘表面的缺陷和/或机械子系统中的问题。"
 
-msgid "The unique group ID is already used."
-msgstr "这个 GID 已经被使用。"
-
 msgid "The unique rule number is already used."
 msgstr "规则编号已经被使用。"
 
@@ -11162,6 +11155,11 @@ msgstr "只上传了部分的文件。"
 
 msgid "The value is invalid."
 msgstr "该值无效。"
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr "设置的值。"
@@ -11362,9 +11360,6 @@ msgstr "已经发送验证Email配置的电子邮件。"
 
 msgid "This extent is used."
 msgstr "此extent正在使用中。"
-
-msgid "This group already exists in the group list."
-msgstr "此群组已存在群组列表中。"
 
 msgid "This is a nickname and is for information only."
 msgstr "这是一个昵称，仅供参考。"
@@ -12160,6 +12155,9 @@ msgstr "未知聚合协议"
 msgid "Unknown or Unformatted"
 msgstr "未知或未格式化"
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "不详/未格式化"
 
@@ -12906,11 +12904,11 @@ msgstr "ZFS ARC使用"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS自适应替换缓存（ARC）"
 
-msgid "ZFS Dataset Information & Status"
-msgstr "ZFS 数据集信息和状态"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "ZFS 数据集属性"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -12923,6 +12921,9 @@ msgstr "ZFS 2级自适应替换缓存（L2ARC）"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS池I/O统计"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr "ZFS池属性"
@@ -12948,11 +12949,29 @@ msgstr "ZFS 卷信息和状态"
 msgid "ZFS Volume Properties"
 msgstr "ZFS 卷属性"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "ZFS 卷（volume）"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr "ZFS卷块大小。 此值无法在创建后更改。"
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

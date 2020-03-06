@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-11-08 04:34+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"PO-Revision-Date: 2020-03-04 18:40+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:52+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -3020,6 +3020,9 @@ msgstr "Koppla från en loggenhet från en speglad logg"
 msgid "Detailed"
 msgstr "Detaljerad"
 
+msgid "Details"
+msgstr "Detaljer"
+
 msgid "Detected"
 msgstr "Identifierad"
 
@@ -4752,12 +4755,6 @@ msgstr "Mata in en beskrivning för din referens."
 msgid "Enter a directory"
 msgstr "Mata in en katalog"
 
-msgid "Enter a group description."
-msgstr "Mata in en beskrivning av gruppen"
-
-msgid "Enter a group name."
-msgstr "Mata in ett gruppnamn"
-
 msgid "Enter a name for this dataset"
 msgstr "Mata in ett namn på datasetet"
 
@@ -5374,11 +5371,14 @@ msgstr "GEOM mjukvaru RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM mjuvaru RAID"
 
+msgid "GEOM details not available."
+msgstr "GEOM detaljer inte tillgängliga"
+
+msgid "GEOM not found."
+msgstr "GEOM hittas inte"
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "GID"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5517,9 +5517,6 @@ msgstr "Gruppen är skyddad"
 
 msgid "Group is unlocked"
 msgstr "Gruppen är olåst"
-
-msgid "Group numeric id."
-msgstr "Numeriskt ID för gruppen."
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Maska ACL med mod"
@@ -6308,11 +6305,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD Information & Status"
+msgid "JBOD Details"
+msgstr "JBOD detaljer"
 
 msgid "JBOD Maintenance"
 msgstr "JBOD Underhåll"
+
+msgid "JBOD Status"
+msgstr "JBOD status"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7527,9 +7527,6 @@ msgstr "Ingen IPv6 ruttinformation hittades"
 msgid "No Initiator Group has been configured."
 msgstr "Ingen Intierargrupp har konfigurerats."
 
-msgid "No JBOD information found."
-msgstr "Ingen JBOD information hittad."
-
 msgid "No LUNs found."
 msgstr "Inga LUN hittades."
 
@@ -7548,17 +7545,17 @@ msgstr "Ingen reservation"
 msgid "No Portal Group has been configured."
 msgstr "Ingen Portalgrupp har konfigurerats."
 
-msgid "No RAID0 information found."
-msgstr "Ingen RAID0 information hittad."
-
-msgid "No RAID1 information found."
-msgstr "Ingen RAID1 information hittad."
-
-msgid "No RAID5 information found."
-msgstr "Ingen RAID5 information hittad."
-
 msgid "No RSYNC Client configured."
 msgstr "Ingen RSYNC klient är konfigurerad."
+
+msgid "No ZFS filesystem information available."
+msgstr "Ingen information om ZFS filsystem tillgänglig."
+
+msgid "No ZFS volume information available."
+msgstr "Ingen ZFS volyminformation tillgänglig."
+
+msgid "No ZFS zpool information available."
+msgstr "Ingen ZFS zpoolinformation tillgänglig."
 
 msgid "No access to the user portal"
 msgstr "Ingen tillgång till användarportalen"
@@ -7586,9 +7583,6 @@ msgstr "Inga konfigurerade pooler."
 
 msgid "No configured virtual devices."
 msgstr "Inga konfigurerade virtuella enheter."
-
-msgid "No dataset information available."
-msgstr "Ingen information om datsetet tillgänglig."
 
 msgid "No devices have been selected"
 msgstr "Ingen enhet har valts"
@@ -7670,9 +7664,6 @@ msgstr "Inga mål hittades."
 
 msgid "No virtual devices have been selected"
 msgstr "Inga virtuella enheter har valts"
-
-msgid "No volume information available."
-msgstr "Ingen volyminformation tillgänglig."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Ärv bara nekande egenskaper"
@@ -8324,9 +8315,6 @@ msgstr "Poolenheter"
 msgid "Pool Information"
 msgstr "Pool information"
 
-msgid "Pool Information & Status"
-msgstr "Pool Information & Status"
-
 msgid "Pool Space Usage"
 msgstr "Användning av poolutrymme"
 
@@ -8726,20 +8714,29 @@ msgstr "RAID-Z3 skall ha 5, 7, eller 11 diskar i varje vdev."
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr "RAID0 detaljer"
+
+msgid "RAID0 Status"
+msgstr "RAID0 status"
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr "RAID1 detaljer"
+
+msgid "RAID1 Status"
+msgstr "RAID1 status"
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr "RAID5 detaljer"
+
+msgid "RAID5 Status"
+msgstr "RAID5 status"
 
 msgid "RAM Disk"
 msgstr "RAM-disk"
@@ -9458,9 +9455,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
-msgid "Samba"
-msgstr "Samba"
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -9988,11 +9982,10 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Sätt antal dagar tills dess en påminnelse visas om att backa upp "
-"systemkonfigurationen. Standard är 28 dagar. Ett värde om 0 inaktiverar "
-"påminnelsen."
+"Sätt antal dagar tills en påminnelse om att backa upp systemkonfigurationen "
+"visas. Standard är 28 dagar. Ett värde om 0 inaktiverar påminnelsen."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Sätt varningsgränsen till ett värde mellan 80 och 89."
@@ -11433,12 +11426,6 @@ msgstr "Följande personer har bidragit till %s:"
 msgid "The following services will use AD authentication:"
 msgstr "Följande tjänster kommer att använda AD autentisering:"
 
-msgid "The group description contains invalid characters."
-msgstr "Gruppbeskrivningen innehåller ogiltiga tecken."
-
-msgid "The group name contains invalid characters."
-msgstr "Gruppnamnet innehåller ogiltiga tecken."
-
 msgid "The host name contain invalid characters."
 msgstr "Värdnamnet innehåller ogiltiga tecken."
 
@@ -11639,6 +11626,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "Lösenorden stämmer inte. Gör ett nytt försök."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr "Sökvägen %s finns inte."
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr "Sökvägen %s är ingen katalog."
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "Sökvägen '%s' finns ej."
 
@@ -11800,9 +11795,6 @@ msgstr ""
 "av detta värde indikerar felaktigheter på diskytan och/eller mekaniska "
 "problem."
 
-msgid "The unique group ID is already used."
-msgstr "Detta unika grupp-ID används redan."
-
 msgid "The unique rule number is already used."
 msgstr "Detta unika nummer används redan."
 
@@ -11823,6 +11815,12 @@ msgstr "Den uppladdade filen blev inte fullständigt överförd."
 
 msgid "The value is invalid."
 msgstr "Värdet är felaktigt."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
+"Värdet på parametern ger möjlighet att specificera debugnivån (loggnivån)"
 
 msgid "The value of the setting."
 msgstr "Värdet för inställningen"
@@ -12056,9 +12054,6 @@ msgstr "Detta meddelande har sänts för att validera din e-postinställning."
 
 msgid "This extent is used."
 msgstr "Detta område är använt."
-
-msgid "This group already exists in the group list."
-msgstr "Den här gruppen finns redan i grupplistan."
 
 msgid "This is a nickname and is for information only."
 msgstr "Detta är ett smeknamn och är endast för information."
@@ -12956,6 +12951,9 @@ msgstr "Okänt aggregeringsprotokoll."
 msgid "Unknown or Unformatted"
 msgstr "Okänd eller ofaormaterad"
 
+msgid "Unknown or undocumented attribute."
+msgstr "Okänt eller odokumenterat attribut."
+
 msgid "Unknown or unformatted"
 msgstr "Okänd eller oformaterad"
 
@@ -13762,11 +13760,11 @@ msgstr "ZFS ARC Användning"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
-msgid "ZFS Dataset Information & Status"
-msgstr "ZFS Dataset Information & Status"
+msgid "ZFS Filesystem Information & Status"
+msgstr "ZFS Filsystemsinformation & status"
 
-msgid "ZFS Dataset Properties"
-msgstr "ZFS Dataset Egenskaper"
+msgid "ZFS Filesystem Properties"
+msgstr "ZFS Filsystemsegenskaper"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -13779,6 +13777,9 @@ msgstr "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS Pool I/O Statistik"
+
+msgid "ZFS Pool Information & Status"
+msgstr "ZFS Poolinformation & status"
 
 msgid "ZFS Pool Properties"
 msgstr "ZFS Pool egenskaper"
@@ -13804,6 +13805,18 @@ msgstr "ZFS Volym Information & Status"
 msgid "ZFS Volume Properties"
 msgstr "ZFS Volym Egenskaper"
 
+msgid "ZFS filesystem not found."
+msgstr "ZFS filsystem hittas inte."
+
+msgid "ZFS filesystem properties not available."
+msgstr "ZFS filsystemsegenskaper inte tillgängliga"
+
+msgid "ZFS pool not found."
+msgstr "ZFS pool hittas inte."
+
+msgid "ZFS pool properties not available."
+msgstr "ZFS poolegenskaper inte tillgängliga."
+
 msgid "ZFS volume"
 msgstr "ZFS volym"
 
@@ -13811,6 +13824,12 @@ msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Blockstorlek för ZFS volym. Detta värde kan ej ändras efter att volymen "
 "skapats."
+
+msgid "ZFS volume not found."
+msgstr "ZFS volym hittas inte."
+
+msgid "ZFS volume properties not available."
+msgstr "ZFS volymegenskaper inte tillgängliga."
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

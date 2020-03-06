@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2019-10-30 23:02+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -2851,6 +2851,9 @@ msgstr ""
 msgid "Detailed"
 msgstr "詳細"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "検出"
 
@@ -4526,12 +4529,6 @@ msgstr ""
 msgid "Enter a directory"
 msgstr ""
 
-msgid "Enter a group description."
-msgstr ""
-
-msgid "Enter a group name."
-msgstr ""
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -5120,11 +5117,14 @@ msgstr ""
 msgid "GEOM VINUM Software RAID"
 msgstr ""
 
-msgid "GEOM vinum"
+msgid "GEOM details not available."
 msgstr ""
 
-msgid "GID"
-msgstr "グループ ID"
+msgid "GEOM not found."
+msgstr ""
+
+msgid "GEOM vinum"
+msgstr ""
 
 msgid "GNU General Public License"
 msgstr ""
@@ -5259,9 +5259,6 @@ msgstr ""
 
 msgid "Group is unlocked"
 msgstr ""
-
-msgid "Group numeric id."
-msgstr "グループ ID"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr ""
@@ -5988,10 +5985,13 @@ msgstr "WebGUIにアクセスするためのデフォルトユーザ名とパス
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD 情報とステータス"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
+msgstr ""
+
+msgid "JBOD Status"
 msgstr ""
 
 msgid "Jailed"
@@ -7179,9 +7179,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr ""
 
-msgid "No JBOD information found."
-msgstr ""
-
 msgid "No LUNs found."
 msgstr ""
 
@@ -7200,16 +7197,16 @@ msgstr ""
 msgid "No Portal Group has been configured."
 msgstr ""
 
-msgid "No RAID0 information found."
-msgstr ""
-
-msgid "No RAID1 information found."
-msgstr ""
-
-msgid "No RAID5 information found."
-msgstr ""
-
 msgid "No RSYNC Client configured."
+msgstr ""
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
 msgstr ""
 
 msgid "No access to the user portal"
@@ -7237,9 +7234,6 @@ msgid "No configured pools."
 msgstr ""
 
 msgid "No configured virtual devices."
-msgstr ""
-
-msgid "No dataset information available."
 msgstr ""
 
 msgid "No devices have been selected"
@@ -7321,9 +7315,6 @@ msgid "No targets found."
 msgstr ""
 
 msgid "No virtual devices have been selected"
-msgstr ""
-
-msgid "No volume information available."
 msgstr ""
 
 msgid "Noallow - Only inherit deny entries"
@@ -7957,9 +7948,6 @@ msgstr ""
 msgid "Pool Information"
 msgstr ""
 
-msgid "Pool Information & Status"
-msgstr "プール情報とステータス"
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8346,19 +8334,28 @@ msgstr ""
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
 msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
 msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
@@ -9055,9 +9052,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr ""
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -9559,7 +9553,7 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -10862,12 +10856,6 @@ msgstr ""
 msgid "The following services will use AD authentication:"
 msgstr "以下のサービスは Active Directory の認証に使われます:"
 
-msgid "The group description contains invalid characters."
-msgstr "グループの説明に不正な文字が使用されています。"
-
-msgid "The group name contains invalid characters."
-msgstr "グループ名に不正な文字が使用されています。"
-
 msgid "The host name contain invalid characters."
 msgstr "ホスト名に不正な文字が使用されています。"
 
@@ -11042,6 +11030,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "パスワードが一致しません。再度入力してください。"
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "指定されたパス '%s' は存在しません。"
 
@@ -11188,9 +11184,6 @@ msgid ""
 "and/or problems in the mechanical subsystem."
 msgstr "セクター読み/書き時に発生した訂正不能エラーの合計数。この属性値の上昇はディスク表面の欠陥または機械的サブシステムの問題を示しています。"
 
-msgid "The unique group ID is already used."
-msgstr "このグループ ID は既に使用されています。"
-
 msgid "The unique rule number is already used."
 msgstr "このルール番号は既に使用されています。"
 
@@ -11207,6 +11200,11 @@ msgid "The uploaded file was only partially uploaded."
 msgstr "アップロードされたファイルは部分的にだけアップロードされています。"
 
 msgid "The value is invalid."
+msgstr ""
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
 msgstr ""
 
 msgid "The value of the setting."
@@ -11410,9 +11408,6 @@ msgstr "このメールは、メール設定が正しいかをチェックする
 
 msgid "This extent is used."
 msgstr "このエクステントは使用されています。"
-
-msgid "This group already exists in the group list."
-msgstr "グループは既にグループリストに存在しています。"
 
 msgid "This is a nickname and is for information only."
 msgstr ""
@@ -12216,6 +12211,9 @@ msgstr "不明なアグリゲーションプロトコル"
 msgid "Unknown or Unformatted"
 msgstr ""
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "不明又は未フォーマット"
 
@@ -12963,11 +12961,11 @@ msgstr "ZFS ARC 使用量"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
-msgstr "ZFS データセット情報と状態"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "ZFS データセットプロパティ"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr ""
@@ -12980,6 +12978,9 @@ msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS プール I/O 統計"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr ""
@@ -13005,11 +13006,29 @@ msgstr "ZFS ボリューム情報と状態"
 msgid "ZFS Volume Properties"
 msgstr "ZFS ボリュームプロパティ"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "ZFS ボリューム"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr "ZFS  ボリュームブロックサイズ。この値はボリュームの作成後に変更することはできません。"
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
