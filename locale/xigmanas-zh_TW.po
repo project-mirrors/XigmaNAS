@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:52+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -2832,6 +2832,9 @@ msgstr "從鏡像日誌中分離日誌設備"
 msgid "Detailed"
 msgstr "詳細資訊"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "檢測到"
 
@@ -4505,12 +4508,6 @@ msgstr "輸入說明以供參考。"
 msgid "Enter a directory"
 msgstr "輸入一個目錄"
 
-msgid "Enter a group description."
-msgstr "輸入群組描述。"
-
-msgid "Enter a group name."
-msgstr "輸入群組名稱"
-
 msgid "Enter a name for this dataset"
 msgstr "輸入此數據集的名稱"
 
@@ -5097,11 +5094,14 @@ msgstr "GEOM軟體RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM軟體RAID"
 
-msgid "GEOM vinum"
+msgid "GEOM details not available."
 msgstr ""
 
-msgid "GID"
-msgstr "GID"
+msgid "GEOM not found."
+msgstr ""
+
+msgid "GEOM vinum"
+msgstr ""
 
 msgid "GNU General Public License"
 msgstr "GNU通用公共許可證"
@@ -5236,9 +5236,6 @@ msgstr "群組被保護"
 
 msgid "Group is unlocked"
 msgstr "群組已解鎖"
-
-msgid "Group numeric id."
-msgstr "群組的數字 id。"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "組掩碼 - 掩碼模式的ACL"
@@ -5958,11 +5955,14 @@ msgstr "如果需要用WebGUI登錄，我們推薦您更改系統默認的用戶
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD 資訊和狀態"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "JBOD維護"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7141,9 +7141,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr "未配置啟動器組。"
 
-msgid "No JBOD information found."
-msgstr ""
-
 msgid "No LUNs found."
 msgstr ""
 
@@ -7162,17 +7159,17 @@ msgstr ""
 msgid "No Portal Group has been configured."
 msgstr "未配置任何門戶組。"
 
-msgid "No RAID0 information found."
-msgstr ""
-
-msgid "No RAID1 information found."
-msgstr ""
-
-msgid "No RAID5 information found."
-msgstr ""
-
 msgid "No RSYNC Client configured."
 msgstr "未配置RSYNC客戶端。"
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr ""
@@ -7200,9 +7197,6 @@ msgstr "沒有配置池。"
 
 msgid "No configured virtual devices."
 msgstr "未配置虛擬設備。"
-
-msgid "No dataset information available."
-msgstr "沒有可用的數據集信息。"
 
 msgid "No devices have been selected"
 msgstr "未選擇任何設備"
@@ -7284,9 +7278,6 @@ msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "未選擇任何虛擬設備"
-
-msgid "No volume information available."
-msgstr "沒有可用的卷信息。"
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "不允許 - 僅繼承拒絕條目"
@@ -7917,9 +7908,6 @@ msgstr "池設備"
 msgid "Pool Information"
 msgstr "池信息"
 
-msgid "Pool Information & Status"
-msgstr "存儲池資訊和狀態"
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8306,19 +8294,28 @@ msgstr "RAID-Z3在每個vdev中應該有5,7或11個磁片。"
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
 msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
 msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
@@ -9018,9 +9015,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "條帶"
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -9516,7 +9510,7 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -10812,12 +10806,6 @@ msgstr "以下人員貢獻了%s："
 msgid "The following services will use AD authentication:"
 msgstr "以下服務將使用AD身份驗證："
 
-msgid "The group description contains invalid characters."
-msgstr "群組描述含有無效的字元。"
-
-msgid "The group name contains invalid characters."
-msgstr "組名稱含有無效的字元。"
-
 msgid "The host name contain invalid characters."
 msgstr "主機名稱含有無效的字元。"
 
@@ -10987,6 +10975,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "密碼不匹配。 請再試一次。"
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "路徑 '%s' 並不存在。"
 
@@ -11130,9 +11126,6 @@ msgid ""
 "and/or problems in the mechanical subsystem."
 msgstr "讀取/寫入扇區時的不可校正錯誤的總數。 該屬性的值的增加表示磁片表面的缺陷和/或機械子系統中的問題。"
 
-msgid "The unique group ID is already used."
-msgstr "這個 GID 已經被使用。"
-
 msgid "The unique rule number is already used."
 msgstr "規則編號已經被使用。"
 
@@ -11150,6 +11143,11 @@ msgstr "只上傳了部分的檔。"
 
 msgid "The value is invalid."
 msgstr "該值無效。"
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr ""
@@ -11350,9 +11348,6 @@ msgstr "已經發送驗證電郵配置的電子郵件。"
 
 msgid "This extent is used."
 msgstr "此 extent 正在使用中。"
-
-msgid "This group already exists in the group list."
-msgstr "此群組已存在群組列表中。"
 
 msgid "This is a nickname and is for information only."
 msgstr ""
@@ -12144,6 +12139,9 @@ msgstr "未知聚合協議"
 msgid "Unknown or Unformatted"
 msgstr "未知或未格式化"
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "不詳/未格式化"
 
@@ -12888,11 +12886,11 @@ msgstr "ZFS ARC使用"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
-msgstr "ZFS 數據集資訊和狀態"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "ZFS 數據集屬性"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr ""
@@ -12905,6 +12903,9 @@ msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS池I/O統計"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr "ZFS池屬性"
@@ -12930,11 +12931,29 @@ msgstr "ZFS 卷資訊和狀態"
 msgid "ZFS Volume Properties"
 msgstr "ZFS 卷屬性"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "ZFS 卷（volume）"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr "ZFS卷塊大小。 此值無法在創建後更改。"
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

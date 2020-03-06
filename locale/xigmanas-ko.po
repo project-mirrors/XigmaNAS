@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -2877,6 +2877,9 @@ msgstr "복제된 로그에서 로그 장치 분리"
 msgid "Detailed"
 msgstr "자세히"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "탐지 내용"
 
@@ -4556,12 +4559,6 @@ msgstr "참고하기 위한 설명 입력"
 msgid "Enter a directory"
 msgstr ""
 
-msgid "Enter a group description."
-msgstr "그룹 설명을 입력하십시오."
-
-msgid "Enter a group name."
-msgstr "그룹 이름을 입력하십시오."
-
 msgid "Enter a name for this dataset"
 msgstr "이 데이터셋 이름 입력"
 
@@ -5150,11 +5147,14 @@ msgstr "GEOM 소프트웨어 RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM 소프트웨어 RAID"
 
-msgid "GEOM vinum"
+msgid "GEOM details not available."
 msgstr ""
 
-msgid "GID"
-msgstr "GID"
+msgid "GEOM not found."
+msgstr ""
+
+msgid "GEOM vinum"
+msgstr ""
 
 msgid "GNU General Public License"
 msgstr "GNU 일반 공중 사용 허가서"
@@ -5289,9 +5289,6 @@ msgstr "그룹 보호됨"
 
 msgid "Group is unlocked"
 msgstr "그룹 잠금 해제됨"
-
-msgid "Group numeric id."
-msgstr "그룹 숫자 id."
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Mask ACL with mode"
@@ -6024,11 +6021,14 @@ msgstr "WebGUI 접근을 위한 사용자 이름 및 암호를 변경하시길 �
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD 정보 및 상태"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "JBOD 유지보수"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "갇힘 (Jailed)"
@@ -7208,9 +7208,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr "초기자 그룹이 설정되어 있지 않습니다."
 
-msgid "No JBOD information found."
-msgstr ""
-
 msgid "No LUNs found."
 msgstr ""
 
@@ -7229,17 +7226,17 @@ msgstr ""
 msgid "No Portal Group has been configured."
 msgstr "포털 그룹이 구성되지 않았습니다."
 
-msgid "No RAID0 information found."
-msgstr ""
-
-msgid "No RAID1 information found."
-msgstr ""
-
-msgid "No RAID5 information found."
-msgstr ""
-
 msgid "No RSYNC Client configured."
 msgstr "RSYNC 클라이언트가 구성되지 않았습니다."
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr ""
@@ -7267,9 +7264,6 @@ msgstr "풀이 구성되지 않았습니다."
 
 msgid "No configured virtual devices."
 msgstr "가상 장치가 구성되지 않았습니다."
-
-msgid "No dataset information available."
-msgstr ""
 
 msgid "No devices have been selected"
 msgstr "장치들이 선택되지 않음"
@@ -7351,9 +7345,6 @@ msgstr ""
 
 msgid "No virtual devices have been selected"
 msgstr "가상 장치 선택되지 않음"
-
-msgid "No volume information available."
-msgstr ""
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "허용 없음 - 거부 항목만 상속"
@@ -7989,9 +7980,6 @@ msgstr "풀 장치"
 msgid "Pool Information"
 msgstr ""
 
-msgid "Pool Information & Status"
-msgstr "풀 정보 및 상태"
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8378,19 +8366,28 @@ msgstr "RAID-Z3은 가상 장치 당 5, 7, 11개의 디스크를 가져야 합�
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
 msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
 msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
@@ -9087,9 +9084,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "분산"
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -9593,7 +9587,7 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -10899,12 +10893,6 @@ msgstr "다음 사람들이 %s에 공헌함:"
 msgid "The following services will use AD authentication:"
 msgstr "다음 서비스들은 AD 인증을 사용하게 됩니다:"
 
-msgid "The group description contains invalid characters."
-msgstr "그룹 설명이 무효한 문자를 포함하고 있습니다."
-
-msgid "The group name contains invalid characters."
-msgstr "그룹 이름이 무효한 문자를 포함하고 있습니다."
-
 msgid "The host name contain invalid characters."
 msgstr "호스트 이름이 올바르지 않은 문자를 포함하고 있습니다."
 
@@ -11077,6 +11065,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "암호가 일치하지 않습니다. 다시 시도하십시오."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "경로 '%s'은(는) 존재하지 않습니다."
 
@@ -11222,9 +11218,6 @@ msgstr ""
 "섹터 읽기/쓰기 중 발생한 교정 불가능한 오류의 총 개수. 이 속성 값의 증가는 디스크 표면 및/또는 물리 하위시스템의 오류 발견을 "
 "나타냅니다."
 
-msgid "The unique group ID is already used."
-msgstr "유일해야 할 그룹 ID가 이미 이용되고 있습니다."
-
 msgid "The unique rule number is already used."
 msgstr "유일해야 할 규칙 번호가 이미 이용되고 있습니다."
 
@@ -11242,6 +11235,11 @@ msgstr "업로드 된 파일은 일부만 업로드 되었습니다."
 
 msgid "The value is invalid."
 msgstr "값이 올바르지 않음."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr ""
@@ -11444,9 +11442,6 @@ msgstr "전자우편 설정 검증을 위해 전자우편을 보냈습니다."
 
 msgid "This extent is used."
 msgstr "이 범위는 이용되고 있습니다."
-
-msgid "This group already exists in the group list."
-msgstr "이 그룹은 그룹 목록에 이미 존재합니다."
 
 msgid "This is a nickname and is for information only."
 msgstr ""
@@ -12254,6 +12249,9 @@ msgstr "알 수 없는 집계 프로토콜"
 msgid "Unknown or Unformatted"
 msgstr "알 수 없거나 포맷 되지 않음"
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "알 수 없거나 포맷 되지 않음"
 
@@ -13003,11 +13001,11 @@ msgstr "ZFS ARC 사용량"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
-msgstr "ZFS 데이터셋 정보 및 상태"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "ZFS 데이터셋 속성"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr ""
@@ -13020,6 +13018,9 @@ msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS 풀 I/O 통계"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr ""
@@ -13045,11 +13046,29 @@ msgstr "ZFS 볼륨 정보 및 상태"
 msgid "ZFS Volume Properties"
 msgstr "ZFS 볼륨 속성"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "ZFS 볼륨"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr "ZFS 볼륨 블록 크기. 이 값은 생성 후에는 변경할 수 없습니다."
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

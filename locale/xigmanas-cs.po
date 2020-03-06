@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2019-08-08 13:31+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:48+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -3077,6 +3077,9 @@ msgstr ""
 msgid "Detailed"
 msgstr "Podrobné"
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "Rozpoznáno"
 
@@ -4815,12 +4818,6 @@ msgstr "Zadejte popis své předvolby."
 msgid "Enter a directory"
 msgstr "Zadejte složku"
 
-msgid "Enter a group description."
-msgstr "Zadejte popis skupiny."
-
-msgid "Enter a group name."
-msgstr "Zadejte název skupiny."
-
 msgid "Enter a name for this dataset"
 msgstr "Zadejte název pro tuto datovou sadu"
 
@@ -5439,11 +5436,14 @@ msgstr "GEOM softwarové RAID pole"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM softwarové RAID pole"
 
+msgid "GEOM details not available."
+msgstr ""
+
+msgid "GEOM not found."
+msgstr ""
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "Identifikátor skupiny (GID)"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5580,9 +5580,6 @@ msgstr "Skupina je chráněna"
 
 msgid "Group is unlocked"
 msgstr "Skupina je odemčená"
-
-msgid "Group numeric id."
-msgstr "Číselný identifikátor skupiny"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Maska skupiny – maska ACL seznamů s přístupovými oprávněními"
@@ -6385,11 +6382,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD – informace a stav"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "JBOD Údržba"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "V odděleném prostředí"
@@ -7648,9 +7648,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr "Není nastavená žádná skupina iniciátoru."
 
-msgid "No JBOD information found."
-msgstr "Nebyly nalezeny žádné informace o JBOD."
-
 msgid "No LUNs found."
 msgstr "Nenalezeny žádné LUN."
 
@@ -7669,17 +7666,17 @@ msgstr "Žádná výplň"
 msgid "No Portal Group has been configured."
 msgstr "Není nastavená žádná skupina portálu."
 
-msgid "No RAID0 information found."
-msgstr "Nebyly nalezeny žádné informace o RAID0"
-
-msgid "No RAID1 information found."
-msgstr "Nebyly nalezeny žádné informace o RAID1."
-
-msgid "No RAID5 information found."
-msgstr "Nebyly nalezeny žádné informace o RAID5."
-
 msgid "No RSYNC Client configured."
 msgstr "Nebyl nastaven žádný RSYNC klient."
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr ""
@@ -7707,9 +7704,6 @@ msgstr "Nejsou nastavené žádné fondy úložišť."
 
 msgid "No configured virtual devices."
 msgstr "Nejsou nastavená žádná virtuální zařízení."
-
-msgid "No dataset information available."
-msgstr "Nejsou k dispozici žádné informace o datové sadě."
 
 msgid "No devices have been selected"
 msgstr "Nejsou označená žádná zařízení"
@@ -7792,9 +7786,6 @@ msgstr "Nebyly nalezeny žádné cíle."
 
 msgid "No virtual devices have been selected"
 msgstr "Nebyla vybrána žádná virtuální zařízení"
-
-msgid "No volume information available."
-msgstr "Nejsou k dispozici žádné informace o svazku."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Neumožňovat – přebírat pouze položky odepření"
@@ -8448,9 +8439,6 @@ msgstr "Zařízení tvořící fond"
 msgid "Pool Information"
 msgstr "Informace o fondu"
 
-msgid "Pool Information & Status"
-msgstr "Fond – informace a stav"
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8858,20 +8846,29 @@ msgstr ""
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "Informace o a stav RAID0"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
+msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "Informace o a stav RAID1"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
+msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "Informace o a stav RAID5"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
+msgstr ""
 
 msgid "RAM Disk"
 msgstr "Úložiště v operační paměti"
@@ -9591,9 +9588,6 @@ msgstr "Název bezdrátové sítě (SSID)"
 msgid "STRIPE"
 msgstr "PROUŽEK"
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -10127,11 +10121,8 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Nastavit počet dnů, po kterých uplynutí je zobrazena připomínka provedení "
-"zálohy nastavení systému. Výchozí je 28 dnů. Hodnota 0 (nula) toto "
-"připomínání vypne."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Nastavit hranici varování na hodnotu z rozmezí 80 až 89."
@@ -11590,12 +11581,6 @@ msgstr "Do %s přispěli následující lidé:"
 msgid "The following services will use AD authentication:"
 msgstr "Tyto služby budou používat ověřování vůči Active Directory:"
 
-msgid "The group description contains invalid characters."
-msgstr "Popis skupiny obsahuje neplatné znaky."
-
-msgid "The group name contains invalid characters."
-msgstr "Název skupiny obsahuje neplatné znaky."
-
 msgid "The host name contain invalid characters."
 msgstr "Název stroje obsahuje neplatné znaky."
 
@@ -11812,6 +11797,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "Zadání hesla se neshodují. Zkuste to znovu."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "Umístění „%s“ neexistuje."
 
@@ -11971,11 +11964,6 @@ msgstr ""
 "hodnoty tohoto atributu značí závady na povrchu ploten disku a/nebo v jeho "
 "mechanice."
 
-msgid "The unique group ID is already used."
-msgstr ""
-"Tento identifikátor skupiny je už v systému použit – je třeba zvolit jiný, "
-"jedinečný."
-
 msgid "The unique rule number is already used."
 msgstr ""
 "Toto číselné označení pravidla je už v systému použito – je třeba zvolit "
@@ -12001,6 +11989,11 @@ msgstr "Na server dorazila pouze část souboru."
 
 msgid "The value is invalid."
 msgstr "Zadaná hodnota není platná."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr ""
@@ -12224,9 +12217,6 @@ msgstr "Tato zpráva byla odeslán pro ověření správného nastavení e-mailu
 
 msgid "This extent is used."
 msgstr "Tato úložná jednotka je používána."
-
-msgid "This group already exists in the group list."
-msgstr "Tato skupina už v seznamu skupin existuje."
 
 msgid "This is a nickname and is for information only."
 msgstr "Toto je přezdívka a slouží pouze pro informaci."
@@ -13127,6 +13117,9 @@ msgstr "Neznámý agregační protokol"
 msgid "Unknown or Unformatted"
 msgstr "Neznámý nebo bez souborového systému"
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "Neznámý nebo bez souborového systému"
 
@@ -13941,11 +13934,11 @@ msgstr "Využití ZFS ARC mezipaměti"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
-msgstr "Stav a informace o ZFS datové sadě"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "Vlastnosti ZFS datové sady"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -13958,6 +13951,9 @@ msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Vst./výst. statistiky ZFS fondu úložišť"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr "Vlastnosti ZFS fondu"
@@ -13983,6 +13979,18 @@ msgstr "Stav a informace o ZFS svazku"
 msgid "ZFS Volume Properties"
 msgstr "Vlastnosti ZFS svazku"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "ZFS svazek"
 
@@ -13990,6 +13998,12 @@ msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Velikost bloku ZFS svazku. Po jeho vytvoření už nebude možné tuto hodnotu "
 "změnit."
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-09-19 13:04+0000\n"
-"Last-Translator: Pedro Grave <pedro.grave.abt@gmail.com>\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"PO-Revision-Date: 2020-03-04 20:23+0000\n"
+"Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -26,7 +26,7 @@ msgid " was assigned to "
 msgstr " foi atribuído a "
 
 msgid " | State: "
-msgstr ""
+msgstr " |Estado: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -34,11 +34,11 @@ msgstr "%1$s usado para criar %2$s volumes."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s gerido, %2$s usado, %3$s disponível"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s usado, %3$s disponível"
 
 #, php-format
 msgid "%d days"
@@ -473,7 +473,7 @@ msgid "ARP Tables List"
 msgstr "Lista Tabelas ARP"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "Accept remote syslog messages."
 msgstr "Aceitar as mensagens do syslog remoto."
@@ -555,7 +555,7 @@ msgid "Add CHAP User"
 msgstr "Adicionar utilizador CHAP"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Adicionar comando"
 
 msgid "Add Dataset"
 msgstr "Adicionar Dataset"
@@ -790,7 +790,7 @@ msgid "Advanced Options"
 msgstr "Opções Avançadas"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "Definições SMB Avançadas"
 
 msgid "Advanced Settings"
 msgstr "Configurações Avançadas"
@@ -1429,7 +1429,7 @@ msgid "Battery Details"
 msgstr "Detalhes da Bateria"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Nível da Bateria:"
 
 msgid "Battery Low"
 msgstr "Bateria fraca"
@@ -1493,7 +1493,7 @@ msgid "Best available"
 msgstr "Melhor disponível"
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Versões Beta"
 
 msgid "Binary Prefix"
 msgstr "Prefixo Binario"
@@ -1708,7 +1708,7 @@ msgid "CP950 (Traditional Chinese Big5)"
 msgstr "CP950 (Chinês tradicional grande5)"
 
 msgid "CPU Core Usage"
-msgstr ""
+msgstr "CPU Principal em Uso"
 
 msgid "CPU Frequency"
 msgstr "Frequência do CPU"
@@ -1854,7 +1854,7 @@ msgid ""
 msgstr ""
 
 msgid "Check the list of available drivers"
-msgstr ""
+msgstr "Verifique a lista dos drivers disponíveis"
 
 msgid "Checksum"
 msgstr "Soma de Verificação"
@@ -2048,7 +2048,7 @@ msgid "Consider replacing this drive"
 msgstr "Considere substituir esta drive"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Consola Login Automático"
 
 msgid "Console Menu"
 msgstr ""
@@ -2057,7 +2057,7 @@ msgid "Console Screensaver"
 msgstr ""
 
 msgid "Console Settings"
-msgstr ""
+msgstr "Definições da Consola"
 
 msgid "Contact"
 msgstr "Contacto"
@@ -2203,7 +2203,7 @@ msgid "Conveyance Self-Test"
 msgstr ""
 
 msgid "Copies"
-msgstr ""
+msgstr "Cópias"
 
 msgid "Core"
 msgstr ""
@@ -2318,7 +2318,7 @@ msgid "Create 4KB wrapper (nop device)."
 msgstr ""
 
 msgid "Create Date"
-msgstr ""
+msgstr "Data de Criação"
 
 msgid "Create HVM Guest"
 msgstr ""
@@ -2333,7 +2333,7 @@ msgid "Create Permission"
 msgstr ""
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Criar Directório de Trabalho"
 
 msgid "Create ZFS on a GPT partition."
 msgstr ""
@@ -2415,7 +2415,7 @@ msgid "Current Password"
 msgstr "Palavra-passe Actual"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Definição Actual"
 
 msgid "Current Version"
 msgstr "Versão Actual"
@@ -2453,7 +2453,7 @@ msgid "Current value of real power (Watts)"
 msgstr ""
 
 msgid "Current year"
-msgstr ""
+msgstr "Ano Atual"
 
 msgid "Custom"
 msgstr "Personalizado"
@@ -2533,7 +2533,7 @@ msgid "DVD"
 msgstr "DVD"
 
 msgid "DVD-ROM"
-msgstr ""
+msgstr "DVD-ROM"
 
 msgid "Daemon"
 msgstr "Serviços"
@@ -2554,13 +2554,13 @@ msgid "Data Integrity"
 msgstr "Integridade dos Dados"
 
 msgid "Data Type"
-msgstr ""
+msgstr "Tipo de Dados"
 
 msgid "Data digest"
 msgstr "Data digest"
 
 msgid "Database Directory"
-msgstr ""
+msgstr "Directório da Base de Dados"
 
 msgid "Database directory"
 msgstr "Directoria da base de dados"
@@ -2584,16 +2584,16 @@ msgid "Datasets"
 msgstr "Datasets"
 
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 msgid "Date & Time"
 msgstr "Data e Hora"
 
 msgid "Date Format"
-msgstr ""
+msgstr "Formato da Data"
 
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 msgid "Days"
 msgstr "Dias"
@@ -2958,6 +2958,9 @@ msgid "Detach a log device from a mirrored log"
 msgstr ""
 
 msgid "Detailed"
+msgstr ""
+
+msgid "Details"
 msgstr ""
 
 msgid "Detected"
@@ -4649,12 +4652,6 @@ msgstr ""
 msgid "Enter a directory"
 msgstr ""
 
-msgid "Enter a group description."
-msgstr ""
-
-msgid "Enter a group name."
-msgstr ""
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -5251,11 +5248,14 @@ msgstr ""
 msgid "GEOM VINUM Software RAID"
 msgstr ""
 
-msgid "GEOM vinum"
+msgid "GEOM details not available."
 msgstr ""
 
-msgid "GID"
-msgstr "GID"
+msgid "GEOM not found."
+msgstr ""
+
+msgid "GEOM vinum"
+msgstr ""
 
 msgid "GNU General Public License"
 msgstr ""
@@ -5390,9 +5390,6 @@ msgstr ""
 
 msgid "Group is unlocked"
 msgstr ""
-
-msgid "Group numeric id."
-msgstr "ID numérico do grupo"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr ""
@@ -6134,10 +6131,13 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
+msgid "JBOD Details"
 msgstr ""
 
 msgid "JBOD Maintenance"
+msgstr ""
+
+msgid "JBOD Status"
 msgstr ""
 
 msgid "Jailed"
@@ -7327,9 +7327,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr ""
 
-msgid "No JBOD information found."
-msgstr ""
-
 msgid "No LUNs found."
 msgstr ""
 
@@ -7348,16 +7345,16 @@ msgstr ""
 msgid "No Portal Group has been configured."
 msgstr ""
 
-msgid "No RAID0 information found."
-msgstr ""
-
-msgid "No RAID1 information found."
-msgstr ""
-
-msgid "No RAID5 information found."
-msgstr ""
-
 msgid "No RSYNC Client configured."
+msgstr ""
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
 msgstr ""
 
 msgid "No access to the user portal"
@@ -7385,9 +7382,6 @@ msgid "No configured pools."
 msgstr ""
 
 msgid "No configured virtual devices."
-msgstr ""
-
-msgid "No dataset information available."
 msgstr ""
 
 msgid "No devices have been selected"
@@ -7469,9 +7463,6 @@ msgid "No targets found."
 msgstr ""
 
 msgid "No virtual devices have been selected"
-msgstr ""
-
-msgid "No volume information available."
 msgstr ""
 
 msgid "Noallow - Only inherit deny entries"
@@ -8118,9 +8109,6 @@ msgstr ""
 msgid "Pool Information"
 msgstr ""
 
-msgid "Pool Information & Status"
-msgstr ""
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8509,19 +8497,28 @@ msgstr ""
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
 msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
 msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
@@ -9226,9 +9223,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr ""
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr ""
 
@@ -9734,7 +9728,7 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -11065,12 +11059,6 @@ msgstr ""
 msgid "The following services will use AD authentication:"
 msgstr ""
 
-msgid "The group description contains invalid characters."
-msgstr "A descrição do grupo contém caracteres inválidos."
-
-msgid "The group name contains invalid characters."
-msgstr "O nome do grupo contém caracteres inválidos."
-
 msgid "The host name contain invalid characters."
 msgstr "Este nome de anfitrião contêm caracteres inválidos."
 
@@ -11263,6 +11251,14 @@ msgid "The passwords do not match. Please try again."
 msgstr ""
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "O caminho '%s'  não existe."
 
@@ -11413,9 +11409,6 @@ msgid ""
 "and/or problems in the mechanical subsystem."
 msgstr ""
 
-msgid "The unique group ID is already used."
-msgstr "O ID de grupo escolhido já está a ser utilizado."
-
 msgid "The unique rule number is already used."
 msgstr "O número de regra única já está em uso."
 
@@ -11435,6 +11428,11 @@ msgid "The uploaded file was only partially uploaded."
 msgstr "Apenas foi feito upload de parte do ficheiro."
 
 msgid "The value is invalid."
+msgstr ""
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
 msgstr ""
 
 msgid "The value of the setting."
@@ -11642,9 +11640,6 @@ msgstr ""
 
 msgid "This extent is used."
 msgstr "Esta extensão é usada."
-
-msgid "This group already exists in the group list."
-msgstr "O grupo já existe na lista de grupos."
 
 msgid "This is a nickname and is for information only."
 msgstr ""
@@ -12496,6 +12491,9 @@ msgstr ""
 msgid "Unknown or Unformatted"
 msgstr ""
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "Desconhecido ou não formatado"
 
@@ -13281,11 +13279,11 @@ msgstr ""
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
-msgstr "Informação & Estado do Conjunto de Dados do ZFS"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "Propriedades do Conjunto de Dados do ZFS"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr ""
@@ -13297,6 +13295,9 @@ msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
+msgstr ""
+
+msgid "ZFS Pool Information & Status"
 msgstr ""
 
 msgid "ZFS Pool Properties"
@@ -13323,12 +13324,30 @@ msgstr "Informação & Estado do Volume ZFS"
 msgid "ZFS Volume Properties"
 msgstr "Porpriedades do Volude ZFS"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "Volume ZFS"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Tamanho do bloco do ZFS. Este valor não pode ser mudado depois da criação."
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
@@ -13581,4 +13600,4 @@ msgid "visible"
 msgstr "visível"
 
 msgid "yes"
-msgstr ""
+msgstr "Sim"

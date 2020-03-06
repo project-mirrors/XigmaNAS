@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:52+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovenian\n"
@@ -2834,6 +2834,9 @@ msgstr ""
 msgid "Detailed"
 msgstr ""
 
+msgid "Details"
+msgstr ""
+
 msgid "Detected"
 msgstr "Zaznano"
 
@@ -4516,12 +4519,6 @@ msgstr ""
 msgid "Enter a directory"
 msgstr ""
 
-msgid "Enter a group description."
-msgstr ""
-
-msgid "Enter a group name."
-msgstr ""
-
 msgid "Enter a name for this dataset"
 msgstr ""
 
@@ -5117,11 +5114,14 @@ msgstr ""
 msgid "GEOM VINUM Software RAID"
 msgstr ""
 
-msgid "GEOM vinum"
+msgid "GEOM details not available."
 msgstr ""
 
-msgid "GID"
-msgstr "GID"
+msgid "GEOM not found."
+msgstr ""
+
+msgid "GEOM vinum"
+msgstr ""
 
 msgid "GNU General Public License"
 msgstr ""
@@ -5256,9 +5256,6 @@ msgstr ""
 
 msgid "Group is unlocked"
 msgstr ""
-
-msgid "Group numeric id."
-msgstr "Numerični identifikator skupine"
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr ""
@@ -5990,10 +5987,13 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
+msgid "JBOD Details"
 msgstr ""
 
 msgid "JBOD Maintenance"
+msgstr ""
+
+msgid "JBOD Status"
 msgstr ""
 
 msgid "Jailed"
@@ -7181,9 +7181,6 @@ msgstr ""
 msgid "No Initiator Group has been configured."
 msgstr ""
 
-msgid "No JBOD information found."
-msgstr ""
-
 msgid "No LUNs found."
 msgstr ""
 
@@ -7202,16 +7199,16 @@ msgstr ""
 msgid "No Portal Group has been configured."
 msgstr ""
 
-msgid "No RAID0 information found."
-msgstr ""
-
-msgid "No RAID1 information found."
-msgstr ""
-
-msgid "No RAID5 information found."
-msgstr ""
-
 msgid "No RSYNC Client configured."
+msgstr ""
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
 msgstr ""
 
 msgid "No access to the user portal"
@@ -7239,9 +7236,6 @@ msgid "No configured pools."
 msgstr ""
 
 msgid "No configured virtual devices."
-msgstr ""
-
-msgid "No dataset information available."
 msgstr ""
 
 msgid "No devices have been selected"
@@ -7323,9 +7317,6 @@ msgid "No targets found."
 msgstr ""
 
 msgid "No virtual devices have been selected"
-msgstr ""
-
-msgid "No volume information available."
 msgstr ""
 
 msgid "Noallow - Only inherit deny entries"
@@ -7964,9 +7955,6 @@ msgstr ""
 msgid "Pool Information"
 msgstr ""
 
-msgid "Pool Information & Status"
-msgstr ""
-
 msgid "Pool Space Usage"
 msgstr ""
 
@@ -8355,19 +8343,28 @@ msgstr ""
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
 msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
 msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
@@ -9072,9 +9069,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
-msgid "Samba"
-msgstr ""
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -9577,7 +9571,7 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
@@ -10882,12 +10876,6 @@ msgstr ""
 msgid "The following services will use AD authentication:"
 msgstr ""
 
-msgid "The group description contains invalid characters."
-msgstr ""
-
-msgid "The group name contains invalid characters."
-msgstr ""
-
 msgid "The host name contain invalid characters."
 msgstr "Gostiteljevo ime vsebuje nepravilne karakterje."
 
@@ -11059,6 +11047,14 @@ msgid "The passwords do not match. Please try again."
 msgstr ""
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr ""
 
@@ -11197,9 +11193,6 @@ msgid ""
 "and/or problems in the mechanical subsystem."
 msgstr ""
 
-msgid "The unique group ID is already used."
-msgstr ""
-
 msgid "The unique rule number is already used."
 msgstr ""
 
@@ -11219,6 +11212,11 @@ msgid "The uploaded file was only partially uploaded."
 msgstr "Datoteka je bila prenešena le delno."
 
 msgid "The value is invalid."
+msgstr ""
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
 msgstr ""
 
 msgid "The value of the setting."
@@ -11419,9 +11417,6 @@ msgstr ""
 
 msgid "This extent is used."
 msgstr ""
-
-msgid "This group already exists in the group list."
-msgstr "Skupina že obstaja."
 
 msgid "This is a nickname and is for information only."
 msgstr ""
@@ -12204,6 +12199,9 @@ msgstr ""
 msgid "Unknown or Unformatted"
 msgstr ""
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "Neznan ali neformatiran"
 
@@ -12950,10 +12948,10 @@ msgstr ""
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
-msgid "ZFS Dataset Information & Status"
+msgid "ZFS Filesystem Information & Status"
 msgstr ""
 
-msgid "ZFS Dataset Properties"
+msgid "ZFS Filesystem Properties"
 msgstr ""
 
 msgid "ZFS L2ARC"
@@ -12966,6 +12964,9 @@ msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 msgstr ""
 
 msgid "ZFS Pool I/O Statistics"
+msgstr ""
+
+msgid "ZFS Pool Information & Status"
 msgstr ""
 
 msgid "ZFS Pool Properties"
@@ -12992,10 +12993,28 @@ msgstr ""
 msgid "ZFS Volume Properties"
 msgstr ""
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr ""
 
 msgid "ZFS volume block size. This value can not be changed after creation."
+msgstr ""
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
 msgstr ""
 
 msgid ""

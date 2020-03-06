@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-11-07 21:12+0000\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"PO-Revision-Date: 2020-03-04 22:31+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -3107,6 +3107,9 @@ msgstr "Ontkoppel een log schijf van een mirrored log"
 msgid "Detailed"
 msgstr "Gedetailleerd"
 
+msgid "Details"
+msgstr "Details"
+
 msgid "Detected"
 msgstr "Gedetecteerd"
 
@@ -4867,12 +4870,6 @@ msgstr "Geef een beschrijving op voor uw referentie."
 msgid "Enter a directory"
 msgstr "Geef de gegevensmap op"
 
-msgid "Enter a group description."
-msgstr "Geef een groepsnaam op."
-
-msgid "Enter a group name."
-msgstr "Geef een groepsbeschrijving op."
-
 msgid "Enter a name for this dataset"
 msgstr "Geef een naam op voor deze dataset"
 
@@ -5504,11 +5501,14 @@ msgstr "GEOM Software RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM Software RAID"
 
+msgid "GEOM details not available."
+msgstr "GEOM details niet beschikbaar."
+
+msgid "GEOM not found."
+msgstr "GEOM niet gevonden."
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "GID"
 
 msgid "GNU General Public License"
 msgstr "GNU Algemene Publieke Licentie"
@@ -5650,9 +5650,6 @@ msgstr "Groep is beschermd"
 
 msgid "Group is unlocked"
 msgstr "Groep is ontgrendeld"
-
-msgid "Group numeric id."
-msgstr "Numerieke groep id."
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask - Markeer ACL met modus"
@@ -6453,11 +6450,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "JBOD Informatie & Status"
+msgid "JBOD Details"
+msgstr "JBOD Details"
 
 msgid "JBOD Maintenance"
 msgstr "JBOD onderhoud"
+
+msgid "JBOD Status"
+msgstr "JBOD Status"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7705,9 +7705,6 @@ msgstr "Geen IPv6 routeringsinformatie gevonden."
 msgid "No Initiator Group has been configured."
 msgstr "Er is geen Initiator Groep geconfigureerd."
 
-msgid "No JBOD information found."
-msgstr "Geen JBOD informatie gevonden."
-
 msgid "No LUNs found."
 msgstr "Geen LUNs gevonden."
 
@@ -7726,17 +7723,17 @@ msgstr "Geen Aanduiding"
 msgid "No Portal Group has been configured."
 msgstr "Er is geen Portaal Groep geconfigureerd."
 
-msgid "No RAID0 information found."
-msgstr "Geen RAID0 informatie gevonden."
-
-msgid "No RAID1 information found."
-msgstr "Geen RAID1 informatie gevonden."
-
-msgid "No RAID5 information found."
-msgstr "Geen RAID5 informatie gevonden."
-
 msgid "No RSYNC Client configured."
 msgstr "Er is geen RSYNC Cliënt geconfigureerd."
+
+msgid "No ZFS filesystem information available."
+msgstr "Geen ZFS filesysteem informatie beschikbaar."
+
+msgid "No ZFS volume information available."
+msgstr "Geen ZFS volume informatie beschikbaar."
+
+msgid "No ZFS zpool information available."
+msgstr "Geen ZFS zpool informatie beschikbaar."
 
 msgid "No access to the user portal"
 msgstr "Geen toegang tot het gebruikersportaal"
@@ -7764,9 +7761,6 @@ msgstr "Er zijn geen pools geconfigureerd."
 
 msgid "No configured virtual devices."
 msgstr "Er zijn geen virtuele schijven geconfigureerd."
-
-msgid "No dataset information available."
-msgstr "Geen dataset informatie beschikbaar."
 
 msgid "No devices have been selected"
 msgstr "Er zijn geen schijven geselecteerd"
@@ -7848,9 +7842,6 @@ msgstr "Geen doelen gevonden."
 
 msgid "No virtual devices have been selected"
 msgstr "Er zijn geen virtuele schijven geselecteerd"
-
-msgid "No volume information available."
-msgstr "Geen volume informatie beschikbaar."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Alleen erven wijger entries"
@@ -8511,9 +8502,6 @@ msgstr "Pool Schijven"
 msgid "Pool Information"
 msgstr "Pool Informatie"
 
-msgid "Pool Information & Status"
-msgstr "Pool Informatie & Status"
-
 msgid "Pool Space Usage"
 msgstr "Pool Ruimtegebruik"
 
@@ -8917,20 +8905,29 @@ msgstr "RAID-Z3 zou 5, 7, of 11 schijven in elke vdev moeten gebruiken."
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "RAID0 Informatie & Status"
+msgid "RAID0 Details"
+msgstr "RAID0 Details"
+
+msgid "RAID0 Status"
+msgstr "RAID0 Status"
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "RAID1 Informatie & Status"
+msgid "RAID1 Details"
+msgstr "RAID1 Details"
+
+msgid "RAID1 Status"
+msgstr "RAID1 Status"
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "RAID5 Informatie & Status"
+msgid "RAID5 Details"
+msgstr "RAID5 Details"
+
+msgid "RAID5 Status"
+msgstr "RAID5 Status"
 
 msgid "RAM Disk"
 msgstr "RAM Schijf"
@@ -9655,9 +9652,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE"
 
-msgid "Samba"
-msgstr "Samba"
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -10204,11 +10198,11 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Stel het aantal dagen in totdat een herinnering wordt weergegeven om de "
-"systeemconfiguratie te backuppen. De standaardinstelling is 28 dagen. Een "
-"waarde van 0 schakelt deze herinnering uit."
+"Stel het aantal dagen in totdat een herinnering wordt getoond voor de "
+"configuratie van het back-upsysteem. De standaardwaarde is 28 dagen. Een "
+"waarde van 0 schakelt de herinnering uit."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Stel de waarschuwingsdrempel in op een waarde tussen 80 en 89."
@@ -11678,12 +11672,6 @@ msgstr "De volgende personen hebben bijgedragen aan %s:"
 msgid "The following services will use AD authentication:"
 msgstr "De onderstaande services gebruiken AD verificatie:"
 
-msgid "The group description contains invalid characters."
-msgstr "De groep omschrijving bevat ongeldige karakters."
-
-msgid "The group name contains invalid characters."
-msgstr "De groepnaam bevat ongeldige karakters."
-
 msgid "The host name contain invalid characters."
 msgstr "De hostnaam bevat ongeldige tekens."
 
@@ -11897,6 +11885,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "De wachtwoorden komen niet overeen. Probeer het opnieuw."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr "Het pad %s bestaat niet."
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr "Het pad %s is geen map."
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "De locatie '%s' bestaat niet."
 
@@ -12061,9 +12057,6 @@ msgstr ""
 "sector. Een stijging van dit attribuut identificeert defecten aan het "
 "schijfoppervlakte en/of problemen in het mechanische subsysteem."
 
-msgid "The unique group ID is already used."
-msgstr "De unieke groeps ID is reeds gebruikt."
-
 msgid "The unique rule number is already used."
 msgstr "De unieke regelnummer is reeds gebruikt."
 
@@ -12085,6 +12078,13 @@ msgstr "Het geuploade bestand werd slechts gedeeltelijk geupload."
 
 msgid "The value is invalid."
 msgstr "De waarde is ongeldig."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
+"Met de waarde van de parameter kan het foutopsporingsniveau (logboekniveau) "
+"worden opgegeven"
 
 msgid "The value of the setting."
 msgstr "De waarde van de instelling."
@@ -12331,9 +12331,6 @@ msgstr ""
 
 msgid "This extent is used."
 msgstr "Deze extent wordt gebruikt."
-
-msgid "This group already exists in the group list."
-msgstr "Deze groep bestaat al in de groepenlijst."
 
 msgid "This is a nickname and is for information only."
 msgstr "Dit is een bijnaam en is alleen ter informatie."
@@ -13250,6 +13247,9 @@ msgstr "Onbekend Aggregation Protocol"
 msgid "Unknown or Unformatted"
 msgstr "Onbekend of Ongeformatteerd"
 
+msgid "Unknown or undocumented attribute."
+msgstr "Onbekend of ongedocumenteerd kenmerk."
+
 msgid "Unknown or unformatted"
 msgstr "Onbekend of ongeformatteerd"
 
@@ -14073,11 +14073,11 @@ msgstr "ZFS ARC Gebruik"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
-msgid "ZFS Dataset Information & Status"
-msgstr "ZFS Dataset Informatie & Status"
+msgid "ZFS Filesystem Information & Status"
+msgstr "ZFS Filesysteem Informatie & Status"
 
-msgid "ZFS Dataset Properties"
-msgstr "ZFS Dataset Eigenschappen"
+msgid "ZFS Filesystem Properties"
+msgstr "ZFS Filesysteem  Eigenschappen"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -14090,6 +14090,9 @@ msgstr "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS Pool I/U  Statistieken"
+
+msgid "ZFS Pool Information & Status"
+msgstr "ZFS Pool Informatie & Status"
 
 msgid "ZFS Pool Properties"
 msgstr "ZFS Pool Eigenschappen"
@@ -14115,6 +14118,18 @@ msgstr "ZFS Volume Informatie & Status"
 msgid "ZFS Volume Properties"
 msgstr "ZFS Volume Eigenschappen"
 
+msgid "ZFS filesystem not found."
+msgstr "ZFS filesysteem niet gevonden."
+
+msgid "ZFS filesystem properties not available."
+msgstr "ZFS filesysteem eigenschappen niet beschikbaar."
+
+msgid "ZFS pool not found."
+msgstr "ZFS pool niet gevonden."
+
+msgid "ZFS pool properties not available."
+msgstr "ZFS pool  eigenschappen niet beschikbaar."
+
 msgid "ZFS volume"
 msgstr "ZFS volume"
 
@@ -14122,6 +14137,12 @@ msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "ZFS volume blok grootte. Deze waarde kan niet worden gewijzigd na het "
 "creëren."
+
+msgid "ZFS volume not found."
+msgstr "ZFS volume niet gevonden."
+
+msgid "ZFS volume properties not available."
+msgstr "ZFS volume  eigenschappen niet beschikbaar."
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

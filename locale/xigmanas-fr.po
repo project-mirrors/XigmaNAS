@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-12-14 17:43+0000\n"
-"Last-Translator: jlavau <Unknown>\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"PO-Revision-Date: 2020-03-04 20:11+0000\n"
+"Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:53+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -3102,6 +3102,9 @@ msgstr "Détacher un périphérique de log d'un miroir de log"
 msgid "Detailed"
 msgstr "Détaillé"
 
+msgid "Details"
+msgstr "Détails"
+
 msgid "Detected"
 msgstr "Détecté"
 
@@ -4876,12 +4879,6 @@ msgstr "Entrez une description pour votre référence."
 msgid "Enter a directory"
 msgstr "Entrez un répertoire"
 
-msgid "Enter a group description."
-msgstr "Entrez une description de groupe."
-
-msgid "Enter a group name."
-msgstr "Entrez un nom de groupe."
-
 msgid "Enter a name for this dataset"
 msgstr "Entrez un nom pour ce jeu de données"
 
@@ -5515,11 +5512,14 @@ msgstr "GEOM RAID Logiciel"
 msgid "GEOM VINUM Software RAID"
 msgstr "RAID logiciel"
 
+msgid "GEOM details not available."
+msgstr "Détails EOM non disponibles."
+
+msgid "GEOM not found."
+msgstr "GEOM introuvable."
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "GID"
 
 msgid "GNU General Public License"
 msgstr "Licence Publique Générale GNU"
@@ -5658,9 +5658,6 @@ msgstr "Le groupe est protégé"
 
 msgid "Group is unlocked"
 msgstr "Le groupe est déverrouillé"
-
-msgid "Group numeric id."
-msgstr "Identifiant numérique du groupe."
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr ""
@@ -6472,11 +6469,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD"
 
-msgid "JBOD Information & Status"
-msgstr "Informations et statut JBOD"
+msgid "JBOD Details"
+msgstr "Détails JBOD"
 
 msgid "JBOD Maintenance"
 msgstr "Maintenance JBOD"
+
+msgid "JBOD Status"
+msgstr "Statut JBOD"
 
 msgid "Jailed"
 msgstr "Emprisonné"
@@ -7726,9 +7726,6 @@ msgstr "Aucune information de routage IPv6 trouvée."
 msgid "No Initiator Group has been configured."
 msgstr "Aucun Groupe Initiateur n'a été configuré."
 
-msgid "No JBOD information found."
-msgstr "Aucune information JBOD trouvée."
-
 msgid "No LUNs found."
 msgstr "Pas de Luns trouvés"
 
@@ -7747,17 +7744,17 @@ msgstr "Pas d'espace réservé"
 msgid "No Portal Group has been configured."
 msgstr "Aucun Groupe Portail n'a été configuré."
 
-msgid "No RAID0 information found."
-msgstr "Aucune information RAID0 trouvée."
-
-msgid "No RAID1 information found."
-msgstr "Aucune information RAID1 trouvée."
-
-msgid "No RAID5 information found."
-msgstr "Aucune information RAID5 trouvée."
-
 msgid "No RSYNC Client configured."
 msgstr "Aucun client RSYNC configuré"
+
+msgid "No ZFS filesystem information available."
+msgstr "Aucune information sur le système de fichiers ZFS disponible."
+
+msgid "No ZFS volume information available."
+msgstr "Aucune information de volume ZFS disponible."
+
+msgid "No ZFS zpool information available."
+msgstr "Aucune information ZFS zpool disponible."
 
 msgid "No access to the user portal"
 msgstr "Pas d'accès au portail utilisateur"
@@ -7785,9 +7782,6 @@ msgstr "Pas de pool configuré"
 
 msgid "No configured virtual devices."
 msgstr "Aucun périphérique virtuel configuré."
-
-msgid "No dataset information available."
-msgstr "Aucune information de jeu de données disponible."
 
 msgid "No devices have been selected"
 msgstr "Aucun périphérique n'a été séléctionné"
@@ -7869,9 +7863,6 @@ msgstr "Pas de cibles trouvées"
 
 msgid "No virtual devices have been selected"
 msgstr "Aucun périphérique virtuel n'a été sélectionné"
-
-msgid "No volume information available."
-msgstr "Aucune information de volume disponible."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Ne pas hériter des entrées refusées"
@@ -8530,9 +8521,6 @@ msgstr "périphériques de pool"
 msgid "Pool Information"
 msgstr "Informations sur le Pool"
 
-msgid "Pool Information & Status"
-msgstr "Information & statut du pool"
-
 msgid "Pool Space Usage"
 msgstr "Utilisation de l'espace du pool"
 
@@ -8939,20 +8927,29 @@ msgstr "RAID-Z3 doit avoir 5, 7 ou 11 disques dans chaque vdev."
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "RAID0 Informations & Statut"
+msgid "RAID0 Details"
+msgstr "Détails de RAID0"
+
+msgid "RAID0 Status"
+msgstr "État RAID0"
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "RAID0 informations et statut"
+msgid "RAID1 Details"
+msgstr "Détails RAID1"
+
+msgid "RAID1 Status"
+msgstr "État RAID1"
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "RAID5 informations et statut"
+msgid "RAID5 Details"
+msgstr "Détails RAID5"
+
+msgid "RAID5 Status"
+msgstr "État RAID5"
 
 msgid "RAM Disk"
 msgstr "Disque en mémoire"
@@ -9678,9 +9675,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "STRIPE (Bande)"
 
-msgid "Samba"
-msgstr "Samba"
-
 msgid "Samba AD"
 msgstr "Samba Active Directory"
 
@@ -10234,11 +10228,11 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Définissez le nombre de jours jusqu'à l'affichage d'un rappel pour la "
-"sauvegarde de la configuration du système. La valeur par défaut est 28 "
-"jours. Une valeur de 0 désactive ce rappel."
+"Définissez le nombre de jours avant qu'un rappel s'affiche pour sauvegarder "
+"la configuration du système. La valeur par défaut est de 28 jours. Une "
+"valeur de 0 désactive le rappel."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr ""
@@ -11712,12 +11706,6 @@ msgstr "Les personnes suivantes ont contribué à %s:"
 msgid "The following services will use AD authentication:"
 msgstr "Les services suivants utilisent l'authentification AD:"
 
-msgid "The group description contains invalid characters."
-msgstr "La description du groupe contient des caractères invalides."
-
-msgid "The group name contains invalid characters."
-msgstr "Le nom du groupe contient des caractères invalides."
-
 msgid "The host name contain invalid characters."
 msgstr "Le nom d'hôte contient des caractères invalides."
 
@@ -11932,6 +11920,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "Le mot de passe ne correspond pas. Veuillez réessayer."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr "Le chemin %s n'existe pas."
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr "Le chemin %s n'est pas un répertoire."
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "Le chemin '%s' n'existe pas."
 
@@ -12100,9 +12096,6 @@ msgstr ""
 "augmentation de cette valeur indique des défauts de la surface du disque "
 "et/ou des problèmes avec le sous-système mécanique."
 
-msgid "The unique group ID is already used."
-msgstr "Cet ID unique de groupe est déjà utilisé."
-
 msgid "The unique rule number is already used."
 msgstr "Le numéro de règle est déjà utilisé."
 
@@ -12124,6 +12117,13 @@ msgstr "Le fichier n'a été uploadé que partiellement."
 
 msgid "The value is invalid."
 msgstr "La valeur est invalide."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
+"La valeur du paramètre permet de spécifier le niveau de débogage (niveau de "
+"journalisation)"
 
 msgid "The value of the setting."
 msgstr "La valeur du paramètre."
@@ -12362,9 +12362,6 @@ msgstr "Cet e-mail a été envoyé pour valider votre configuration e-mail."
 
 msgid "This extent is used."
 msgstr "L'extension est utilisée."
-
-msgid "This group already exists in the group list."
-msgstr "Ce groupe existe déjà."
 
 msgid "This is a nickname and is for information only."
 msgstr "Ceci est un surnom et est pour information seulement."
@@ -13281,6 +13278,9 @@ msgstr "Protocole d'agrégation inconnue"
 msgid "Unknown or Unformatted"
 msgstr "Inconnu ou non Formaté"
 
+msgid "Unknown or undocumented attribute."
+msgstr "Attribut inconnu ou non documenté."
+
 msgid "Unknown or unformatted"
 msgstr "Inconnu ou non formaté"
 
@@ -14108,11 +14108,11 @@ msgstr "Utilisation de ZFS ARC"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "Cache de remplacement adaptatif ZFS (ARC)"
 
-msgid "ZFS Dataset Information & Status"
-msgstr "Informations et statut du jeu de données ZFS"
+msgid "ZFS Filesystem Information & Status"
+msgstr "Informations et état du système de fichiers ZFS"
 
-msgid "ZFS Dataset Properties"
-msgstr "Propriétés du jeu de données ZFS"
+msgid "ZFS Filesystem Properties"
+msgstr "Propriétés du système de fichiers ZFS"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -14125,6 +14125,9 @@ msgstr "Cache de remplacement adaptatif ZFS de niveau 2 (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Statistiques d'E / S de pool ZFS"
+
+msgid "ZFS Pool Information & Status"
+msgstr "Informations et état du pool ZFS"
 
 msgid "ZFS Pool Properties"
 msgstr "Propriétés du pool ZFS"
@@ -14150,6 +14153,18 @@ msgstr "Informations et statut des Volumes ZFS"
 msgid "ZFS Volume Properties"
 msgstr "Propriétés des Volumes ZFS"
 
+msgid "ZFS filesystem not found."
+msgstr "Système de fichiers ZFS introuvable."
+
+msgid "ZFS filesystem properties not available."
+msgstr "Les propriétés du système de fichiers ZFS ne sont pas disponibles."
+
+msgid "ZFS pool not found."
+msgstr "Pool ZFS introuvable."
+
+msgid "ZFS pool properties not available."
+msgstr "Propriétés du pool ZFS non disponibles."
+
 msgid "ZFS volume"
 msgstr "Volume ZFS"
 
@@ -14157,6 +14172,12 @@ msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Taille de bloc du volume ZFS. Cette valeur ne peut être changée après la "
 "création."
+
+msgid "ZFS volume not found."
+msgstr "Volume ZFS introuvable."
+
+msgid "ZFS volume properties not available."
+msgstr "Propriétés du volume ZFS non disponibles."
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."

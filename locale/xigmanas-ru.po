@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2019-11-07 21:47+0000\n"
-"PO-Revision-Date: 2019-11-30 19:08+0000\n"
-"Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
+"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"PO-Revision-Date: 2020-01-16 06:31+0000\n"
+"Last-Translator: V <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-01-02 16:52+0000\n"
-"X-Generator: Launchpad (build bceb5ef013b87ef7aafe0755545ceb689ca7ac60)\n"
+"X-Launchpad-Export-Date: 2020-03-06 16:49+0000\n"
+"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -2688,7 +2688,7 @@ msgid "Day"
 msgstr "дн."
 
 msgid "Days"
-msgstr "дн."
+msgstr "Дни"
 
 msgid "Debug"
 msgstr "Отладочный режим (Debug)"
@@ -3069,6 +3069,9 @@ msgstr "Отключить устройство журнала от зеркал
 
 msgid "Detailed"
 msgstr "Подробно"
+
+msgid "Details"
+msgstr ""
 
 msgid "Detected"
 msgstr "Определенная"
@@ -4816,12 +4819,6 @@ msgstr "Введите описание для справки."
 msgid "Enter a directory"
 msgstr "Введите каталог"
 
-msgid "Enter a group description."
-msgstr "Введите описание группы."
-
-msgid "Enter a group name."
-msgstr "Введите имя группы."
-
 msgid "Enter a name for this dataset"
 msgstr "Введите имя для этого датасета"
 
@@ -5443,11 +5440,14 @@ msgstr "GEOM Software RAID"
 msgid "GEOM VINUM Software RAID"
 msgstr "Программный RAID GEOM VINUM"
 
+msgid "GEOM details not available."
+msgstr ""
+
+msgid "GEOM not found."
+msgstr ""
+
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
-
-msgid "GID"
-msgstr "GID"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5588,9 +5588,6 @@ msgstr "Группа защищена"
 
 msgid "Group is unlocked"
 msgstr "Группа разблокирована"
-
-msgid "Group numeric id."
-msgstr "Цифровой индентификатор группы."
 
 msgid "Groupmask - Mask ACL with mode"
 msgstr "Groupmask  - Маска ACL с режимом"
@@ -5777,7 +5774,7 @@ msgid "Hour"
 msgstr "час."
 
 msgid "Hours"
-msgstr "час."
+msgstr "Часы"
 
 msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
@@ -6389,11 +6386,14 @@ msgstr ""
 msgid "JBOD"
 msgstr "JBOD (простой массив дисков)"
 
-msgid "JBOD Information & Status"
-msgstr "Информация и статус JBOD"
+msgid "JBOD Details"
+msgstr ""
 
 msgid "JBOD Maintenance"
 msgstr "Обслуживание JBOD"
+
+msgid "JBOD Status"
+msgstr ""
 
 msgid "Jailed"
 msgstr "Заключенный"
@@ -7208,7 +7208,7 @@ msgid "Minute"
 msgstr "мин."
 
 msgid "Minutes"
-msgstr "мин."
+msgstr "Минуты"
 
 msgid "Minutes between the next network time synchronization."
 msgstr "Период синхронизации времени через интернет (минут)."
@@ -7639,9 +7639,6 @@ msgstr "Информация о маршрутизации IPv6 не найде�
 msgid "No Initiator Group has been configured."
 msgstr "Ни одна группа инициаторов не сконфигурирована."
 
-msgid "No JBOD information found."
-msgstr "Информация о JBOD не найдена."
-
 msgid "No LUNs found."
 msgstr "LUN не найдены."
 
@@ -7660,17 +7657,17 @@ msgstr "Не заполнено"
 msgid "No Portal Group has been configured."
 msgstr "Ни одна группа порталов не сконфигурирована."
 
-msgid "No RAID0 information found."
-msgstr "Информация о RAID0 не найдена."
-
-msgid "No RAID1 information found."
-msgstr "Информация о RAID1 не найдена."
-
-msgid "No RAID5 information found."
-msgstr "Информация о RAID5 не найдена."
-
 msgid "No RSYNC Client configured."
 msgstr "RSYNC Клиент не сконфигурирован."
+
+msgid "No ZFS filesystem information available."
+msgstr ""
+
+msgid "No ZFS volume information available."
+msgstr ""
+
+msgid "No ZFS zpool information available."
+msgstr ""
 
 msgid "No access to the user portal"
 msgstr "Нет доступа к пользовательскому порталу"
@@ -7698,9 +7695,6 @@ msgstr "Нет настроенных пулов."
 
 msgid "No configured virtual devices."
 msgstr "Нет конфигурированных виртуальных устройств."
-
-msgid "No dataset information available."
-msgstr "Информация о наборе данных отсутствует."
 
 msgid "No devices have been selected"
 msgstr "Не выбраны устройства"
@@ -7782,9 +7776,6 @@ msgstr "Цели не найдены."
 
 msgid "No virtual devices have been selected"
 msgstr "Не выбраны виртуальные устройства"
-
-msgid "No volume information available."
-msgstr "Нет информации об объеме."
 
 msgid "Noallow - Only inherit deny entries"
 msgstr "Noallow - Наследовать только запрет записи"
@@ -8444,9 +8435,6 @@ msgstr "Устройства пула"
 msgid "Pool Information"
 msgstr "Информация о пуле"
 
-msgid "Pool Information & Status"
-msgstr "Информация и статус пулов"
-
 msgid "Pool Space Usage"
 msgstr "Использование пространства пула"
 
@@ -8852,20 +8840,29 @@ msgstr ""
 msgid "RAID0"
 msgstr "RAID0"
 
-msgid "RAID0 Information & Status"
-msgstr "Информация и состояние RAID0"
+msgid "RAID0 Details"
+msgstr ""
+
+msgid "RAID0 Status"
+msgstr ""
 
 msgid "RAID1"
 msgstr "RAID1"
 
-msgid "RAID1 Information & Status"
-msgstr "Информация и состояние RAID1"
+msgid "RAID1 Details"
+msgstr ""
+
+msgid "RAID1 Status"
+msgstr ""
 
 msgid "RAID5"
 msgstr "RAID5"
 
-msgid "RAID5 Information & Status"
-msgstr "Информация и состояние RAID5"
+msgid "RAID5 Details"
+msgstr ""
+
+msgid "RAID5 Status"
+msgstr ""
 
 msgid "RAM Disk"
 msgstr "Диск RAM"
@@ -9586,9 +9583,6 @@ msgstr "SSID"
 msgid "STRIPE"
 msgstr "СТРАЙП"
 
-msgid "Samba"
-msgstr "Samba"
-
 msgid "Samba AD"
 msgstr "Samba AD"
 
@@ -10125,11 +10119,8 @@ msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
-"configuration. The default is 28 days. A value of 0 disables this reminder."
+"configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Задайте количество дней до отображения напоминания о  резервном копировании "
-"конфигурации системы. По умолчанию это 28 дней. Значение 0 отключает это "
-"напоминание."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Установите значение порога предупреждения от 80 до 89."
@@ -11587,12 +11578,6 @@ msgstr "В %s участвовали следующие лица:"
 msgid "The following services will use AD authentication:"
 msgstr "Следующие службы будут использовать аутентификацию AD:"
 
-msgid "The group description contains invalid characters."
-msgstr "Описание группы содержит недопустимые символы"
-
-msgid "The group name contains invalid characters."
-msgstr "Имя группы содержит недопустимые символы"
-
 msgid "The host name contain invalid characters."
 msgstr "Имя хоста содержит недопустимые символы."
 
@@ -11798,6 +11783,14 @@ msgid "The passwords do not match. Please try again."
 msgstr "Пароли не совпадают. Пожалуйста, попробуйте еще раз."
 
 #, php-format
+msgid "The path %s does not exist."
+msgstr ""
+
+#, php-format
+msgid "The path %s is not a directory."
+msgstr ""
+
+#, php-format
 msgid "The path '%s' does not exist."
 msgstr "Путь '%s' не существует."
 
@@ -11964,9 +11957,6 @@ msgstr ""
 "числа ошибок, велика вероятность критических дефектов поверхности и/или "
 "механики накопителя."
 
-msgid "The unique group ID is already used."
-msgstr "Уникальный индентификатор группы уже используется."
-
 msgid "The unique rule number is already used."
 msgstr "Правило с таким номером уже используется."
 
@@ -11988,6 +11978,11 @@ msgstr "Загружаемый файл был загружен лишь час�
 
 msgid "The value is invalid."
 msgstr "Значение недействительно."
+
+msgid ""
+"The value of the parameter allows the debug level (logging level) to be "
+"specified"
+msgstr ""
 
 msgid "The value of the setting."
 msgstr "Значение настройки."
@@ -12217,9 +12212,6 @@ msgstr ""
 
 msgid "This extent is used."
 msgstr "Этот экстент уже используется."
-
-msgid "This group already exists in the group list."
-msgstr "Такая группа уже есть в списке групп."
 
 msgid "This is a nickname and is for information only."
 msgstr "Это псевдоним и только для информации."
@@ -13130,6 +13122,9 @@ msgstr "Неизвестный Агрегационный протокол"
 msgid "Unknown or Unformatted"
 msgstr "Неизвестный или Неформатированный"
 
+msgid "Unknown or undocumented attribute."
+msgstr ""
+
 msgid "Unknown or unformatted"
 msgstr "Неизвестно или не отформатировано"
 
@@ -13709,7 +13704,7 @@ msgid "Wednesday"
 msgstr "среда"
 
 msgid "Week Days"
-msgstr "Будни"
+msgstr "Дни недели"
 
 msgid "Weekdays"
 msgstr "Будни"
@@ -13958,11 +13953,11 @@ msgstr "Использование ZFS ARC"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
-msgid "ZFS Dataset Information & Status"
-msgstr "Информация и статус ZFS Dataset'ов"
+msgid "ZFS Filesystem Information & Status"
+msgstr ""
 
-msgid "ZFS Dataset Properties"
-msgstr "Свойства ZFS Dataset'ов"
+msgid "ZFS Filesystem Properties"
+msgstr ""
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -13975,6 +13970,9 @@ msgstr "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 
 msgid "ZFS Pool I/O Statistics"
 msgstr "Статистика ввода/вывода ZFS пула"
+
+msgid "ZFS Pool Information & Status"
+msgstr ""
 
 msgid "ZFS Pool Properties"
 msgstr "Свойства пула ZFS"
@@ -14000,12 +13998,30 @@ msgstr "Информация и статус ZFS разделов"
 msgid "ZFS Volume Properties"
 msgstr "Свойства ZFS разделов"
 
+msgid "ZFS filesystem not found."
+msgstr ""
+
+msgid "ZFS filesystem properties not available."
+msgstr ""
+
+msgid "ZFS pool not found."
+msgstr ""
+
+msgid "ZFS pool properties not available."
+msgstr ""
+
 msgid "ZFS volume"
 msgstr "ZFS-том"
 
 msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr ""
 "Размер блока раздела ZFS. Это значение не может быть изменено после создания."
+
+msgid "ZFS volume not found."
+msgstr ""
+
+msgid "ZFS volume properties not available."
+msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
