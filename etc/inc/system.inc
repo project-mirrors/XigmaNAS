@@ -581,7 +581,7 @@ function system_get_volume_serial($devicespecialfile) {
 	global $config_disks;
 
 //	try to get serial from S.M.A.R.T.
-	if(array_key_exists($devicespecialfile,$config_disks)):
+	if(\is_array($config_disks) && \array_key_exists($devicespecialfile,$config_disks)):
 		$smart_arg = get_smartctl_info($config_disks[$devicespecialfile]);
 		if(!empty($smart_arg['serial'])):
 			return $smart_arg['serial'];
