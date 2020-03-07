@@ -87,8 +87,8 @@ switch($page_method):
 					$retval |= \mwexec('/usr/local/sbin/rconf service enable nfsuserd');
 					$retval |= \rc_exec_script("/etc/rc.d/nfsuserd start");
 				else:
-					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
-					$retval |= mwexec('/usr/local/sbin/rconf service disable nfsuserd');
+					$retval |= \mwexec('/usr/local/sbin/rconf service disable nfsv4_server');
+					$retval |= \mwexec('/usr/local/sbin/rconf service disable nfsuserd');
 				endif;
 				$retval |= \rc_update_service('rpcbind'); // !!! Do
 				$retval |= \rc_update_service('mountd');  // !!! not
