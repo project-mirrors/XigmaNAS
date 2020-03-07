@@ -53,11 +53,12 @@ $loginfo = [
 		'filename' => 'system.log',
 		'type' => 'clog',
 		'size' => '262144',
-		'pattern' => '/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
+		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -66,11 +67,12 @@ $loginfo = [
 		'filename' => 'sshd.log',
 		'type' => 'clog',
 		"size" => '32768',
-		'pattern' => '/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
+		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -79,11 +81,12 @@ $loginfo = [
 		'filename' => 'daemon.log',
 		'type' => 'clog',
 		"size" => '32768',
-		'pattern' => '/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
+		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -92,11 +95,12 @@ $loginfo = [
 		'filename' => 'ftp.log',
 		'type' => 'clog',
 		"size" => '32768',
-		'pattern' => '/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
+		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => isset($config['ftpd']['mod_ban']['enable']),
@@ -131,11 +135,12 @@ $loginfo = [
 		'filename' => 'smartd.log',
 		'type' => 'clog',
 		"size" => '32768',
-		'pattern' => '/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
+		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -144,11 +149,12 @@ $loginfo = [
 		'filename' => 'rsyncd.log',
 		'type' => 'clog',
 		"size" => '32768',
-		'pattern' => '/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
+		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -273,4 +279,3 @@ function log_download($loginfo) {
 		endswitch;
 	endif;
 }
-?>

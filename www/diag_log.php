@@ -172,16 +172,33 @@ $document->render();
 <?php
 			$content_array = log_get_contents($loginfo[$log]['logfile'],$loginfo[$log]['type']);
 			if(!empty($content_array)):
+				$regex_rfc3164 = $loginfo[$log]['pattern'];
+				$check_rfc5424 = array_key_exists('pattern.rfc5424',$loginfo[$log]);
+				if($check_rfc5424):
+					$regex_rfc5424 = $loginfo[$log]['pattern.rfc5424'];
+				endif;
 //				Create table data
-				foreach ($content_array as $content_record):
+				foreach ($content_array as $content_record_rfc3164):
 //					Skip invalid pattern matches
-					$result = preg_match($loginfo[$log]['pattern'],$content_record,$matches);
-					if((false === $result) || (0 == $result)):
+					if(preg_match($regex_rfc3164,$content_record_rfc3164,$matches_rfc3164) !== 1):
 						continue;
 					endif;
 //					Skip empty lines
-					if(count($loginfo[$log]['columns']) == 1 && empty($matches[1])):
+					if(count($loginfo[$log]['columns']) == 1 && empty($matches_rfc3164[1])):
 						continue;
+					endif;
+//					check if msg is rfc5424.
+					if($check_rfc5424):
+						$content_record_rfc5424 = $matches_rfc3164['msg'] ?? '';
+						if(preg_match($regex_rfc5424,$content_record_rfc5424,$matches_rfc5424) === 1):
+							$matches = $matches_rfc5424;
+//							adjust message
+							$matches['msg'] = sprintf('%s: %s',$matches['appname'] ?? '-',$matches['msg'] ?? '-');
+						else:
+							$matches = $matches_rfc3164;
+						endif;
+					else:
+						$matches = $matches_rfc3164;
 					endif;
 					echo '<tr>',PHP_EOL;
 						foreach ($loginfo[$log]['columns'] as $column_key => $column_val):
@@ -189,7 +206,6 @@ $document->render();
 						endforeach;
 					echo '</tr>',PHP_EOL;
 				endforeach;
-//				log_display($loginfo[$log]);
 			endif;
 ?>
 		</tbody>
