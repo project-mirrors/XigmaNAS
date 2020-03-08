@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-04 18:37+0000\n"
-"PO-Revision-Date: 2019-11-11 08:15+0000\n"
+"PO-Revision-Date: 2020-03-07 10:15+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-06 16:48+0000\n"
+"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -3139,7 +3139,7 @@ msgid "Detailed"
 msgstr "Αναλυτικό"
 
 msgid "Details"
-msgstr ""
+msgstr "Λεπτομέρειες"
 
 msgid "Detected"
 msgstr "Ανιχνεύθηκε"
@@ -5552,10 +5552,10 @@ msgid "GEOM VINUM Software RAID"
 msgstr "RAID μέσω λογισμικού GEOM VINUM"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "Οι λεπτομέρειες του GEOM δεν είναι διαθέσιμες."
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "Δεν βρέθηκε GEOM."
 
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
@@ -6518,13 +6518,13 @@ msgid "JBOD"
 msgstr "JBOD"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "Λεπτομέρειες JBOD"
 
 msgid "JBOD Maintenance"
 msgstr "Συντήρηση JBOD"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "Κατάσταση JBOD"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7801,13 +7801,13 @@ msgid "No RSYNC Client configured."
 msgstr "Δε ρυθμίστηκε Πελάτης RSYNC."
 
 msgid "No ZFS filesystem information available."
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες για σύστημα αρχείων ZFS."
 
 msgid "No ZFS volume information available."
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες για τόμο ZFS."
 
 msgid "No ZFS zpool information available."
-msgstr ""
+msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες για  zpool ZFS."
 
 msgid "No access to the user portal"
 msgstr "Χωρίς πρόσβαση στο portal χρήστη"
@@ -8991,28 +8991,28 @@ msgid "RAID0"
 msgstr "RAID0"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "Λεπτομέρειες RAID0"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "Κατάσταση RAID0"
 
 msgid "RAID1"
 msgstr "RAID1"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "Λεπτομέρειες RAID1"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "Κατάσταση RAID1"
 
 msgid "RAID5"
 msgstr "RAID5"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "Λεπτομέρειες RAID5"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "Κατάσταση RAID5"
 
 msgid "RAM Disk"
 msgstr "Δίσκος RAM"
@@ -10299,6 +10299,9 @@ msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
+"Ορίστε ένα αριθμό ημερών μέχρι να εμφανιστή μία υπενθύμιση για αντίγραφο "
+"ασφαλείας των ρυθμίσεων του συστήματος. Η προεπιλογή είναι 28 ημέρες. Η τιμή "
+"0 απενεργοποιεί την υπενθύμιση."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Ορίστε το όριο προειδοποίησης σε μια τιμή μεταξύ 80 και 89."
@@ -12018,11 +12021,11 @@ msgstr "Οι κωδικοί δεν ταιριάζουν. Παρακαλώ προ
 
 #, php-format
 msgid "The path %s does not exist."
-msgstr ""
+msgstr "Η διαδρομή %s δεν υπάρχει."
 
 #, php-format
 msgid "The path %s is not a directory."
-msgstr ""
+msgstr "Η διαδρομή %s δεν είναι φάκελος."
 
 #, php-format
 msgid "The path '%s' does not exist."
@@ -12221,6 +12224,8 @@ msgid ""
 "The value of the parameter allows the debug level (logging level) to be "
 "specified"
 msgstr ""
+"Η τιμή της παραμέτρου επιτρέπει τον καθορισμό του επιπέδου αποσφαλμάτωσης "
+"(επιπέδου καταγραφής)"
 
 msgid "The value of the setting."
 msgstr "Η τιμή της ρύθμισης."
@@ -13401,7 +13406,7 @@ msgid "Unknown or Unformatted"
 msgstr "Άγνωστο ή Μη-μορφοποιημένο"
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "Άγνωστο ή μη καταγεγραμμένο χαρακτηριστικό."
 
 msgid "Unknown or unformatted"
 msgstr "Άγνωστο ή αδιαμόρφωτο"
@@ -14245,10 +14250,10 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "Πληροφορίες & Κατάσταση Συστήματος Αρχείων ZFS"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "Ιδιότητες Συστήματος Αρχείων ZFS"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -14263,7 +14268,7 @@ msgid "ZFS Pool I/O Statistics"
 msgstr "Στατιστικά I/O του ZFS Pool"
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "Πληροφορίες & Κατάσταση ZFS Pool"
 
 msgid "ZFS Pool Properties"
 msgstr "Ιδιότητες ZFS Pool"
@@ -14290,16 +14295,16 @@ msgid "ZFS Volume Properties"
 msgstr "Ιδιότητες του ZFS Τόμου"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "Δεν βρέθηκε σύστημα αρχείων ZFS."
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "Μη διαθέσιμες ιδιότητες Συστήματος Αρχείων ZFS."
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "Δεν βρέθηκε  ZFS Pool"
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "Μη διαθέσιμες ιδιότητες ZFS pool."
 
 msgid "ZFS volume"
 msgstr "Τόμος ZFS"
@@ -14310,10 +14315,10 @@ msgstr ""
 "δημιουργία."
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "Δεν βρέθηκε τόμος ZFS."
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "Μη διαθέσιμες ιδιότητες τόμου ZFS."
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
