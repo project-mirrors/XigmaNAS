@@ -513,7 +513,7 @@ restore_chflags() {
 	# Restore chflag from previous zipped files.
 	cd ${BEPATH}
  	for FILES in ${DIRNOSCHG}; do
-		/usr/bin/zcat ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz | /usr/sbin/mtree -q -P -U -p /${FILES}
+		/usr/bin/zcat ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz | /usr/sbin/mtree -q -P -U -p ${FILES}
  	done
 	if [ 0 != $? ]; then
 		msg="ERROR: Failed to restore chflags."
