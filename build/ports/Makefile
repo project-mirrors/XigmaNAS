@@ -43,8 +43,6 @@
     SUBDIR += openssh-portable
     SUBDIR += pam_ldap
     SUBDIR += pam_mkhomedir
-    SUBDIR += php73
-    SUBDIR += php73-APCu
     SUBDIR += php74
     SUBDIR += php74-APCu
     SUBDIR += phpmyadmin
