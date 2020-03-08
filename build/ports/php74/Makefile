@@ -66,7 +66,7 @@ CONFIGURE_ARGS+=	\
 		--with-iconv-dir=${LOCALBASE} \
 		--with-bz2=/usr \
 		--with-curl=${LOCALBASE} \
-		--with-gd \
+		--enable-gd \
 		--with-freetype-dir=${LOCALBASE} \
 		--with-jpeg-dir=${LOCALBASE} \
 		--with-png-dir=${LOCALBASE} \
@@ -90,7 +90,7 @@ CONFIGURE_ARGS+=	\
 		--enable-sysvshm \
 		--enable-tokenizer \
 		--with-xmlrpc \
-		--enable-zip \
+		--with-zip \
 		--with-zlib=/usr \
 		--enable-opcache \
 
