@@ -36,29 +36,27 @@ mount_cdrom()
 {
 	# Unmount for stale/interrupted previous attempts.
 	umount_cdrom
+	mkdir -p ${CDPATH}
 
 	# Search for LiveMedia label information.
-	if glabel status | grep -q iso9660/${PRDNAME}; then
-		LIVECD=0
-	elif glabel status | grep -q ufs/liveboot; then
-		LIVEUSB=0
-	fi
-
-	if [ "${LIVECD}" = 0 ]; then
+	if glabel status | grep -q "iso9660/XigmaNAS"; then
+		FS_DEVICE="$(glabel status | grep "iso9660/XigmaNAS" | awk '{print $1}')"
+		CD_DEVICE="$(glabel status | grep "iso9660/XigmaNAS" | awk '{print $3}')"
 		# Check if cd-rom is mounted else auto mount cd-rom.
 		if [ ! -f "${CDPATH}/version" ]; then
 			# Try to auto mount cd-rom.
-			mkdir -p ${CDPATH}
 			echo "Mounting CD-ROM Drive"
-			mount_cd9660 /dev/cd[0-9] ${CDPATH} > /dev/null 2>&1
+			mount_cd9660 /dev/${FS_DEVICE} ${CDPATH} > /dev/null 2>&1 || \
+			mount_cd9660 /dev/${CD_DEVICE} ${CDPATH} > /dev/null 2>&1
 		fi
-	elif [ "${LIVEUSB}" = 0 ]; then
+	elif glabel status | grep -q "ufs/liveboot"; then
+		USB_DEVICE="$(glabel status | grep "ufs/liveboot" | awk '{print $3}')"
 		# Check if liveusb is mounted else auto mount liveusb.
 		if [ ! -f "${CDPATH}/version" ]; then
 			# Try to auto mount liveusb.
-			mkdir -p ${CDPATH}
 			echo "Mounting LiveUSB Drive"
-			mount /dev/ufs/liveboot ${CDPATH} > /dev/null 2>&1
+			mount /dev/ufs/liveboot ${CDPATH} > /dev/null 2>&1 || \
+			mount /dev/${USB_DEVICE} ${CDPATH} > /dev/null 2>&1
 		fi
 	fi
 	# If no cd/usb is mounted ask for manual mount.
@@ -70,12 +68,24 @@ mount_cdrom()
 umount_cdrom()
 {
 	if [ -d "${CDPATH}" ]; then
-		if [ -f "${CDPATH}/version" ]; then
-			echo "Unmount CD/USB Drive"
-			umount -f ${CDPATH} > /dev/null 2>&1
-			rm -R ${CDPATH}
+		echo "Unmount CD/USB Drive"
+		# Properly unmount live media
+		if df | grep -q "iso9660/XigmaNAS"; then
+			umount_cmd
+		elif df | grep -q "ufs/liveboot"; then
+			umount_cmd
+		elif [ -f "${CDPATH}/version" ]; then
+			# Force unmount live media
+			FORCE_UMOUNT="-f"
+			umount_cmd
 		fi
+		rm -R ${CDPATH}
 	fi
+}
+
+umount_cmd()
+{
+	umount ${FORCE_UMOUNT} ${CDPATH} > /dev/null 2>&1
 }
 
 manual_cdmount()
