@@ -185,11 +185,11 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="http://www.php.net" target="_blank" rel="noreferrer">http://www.php.net</a>).',
-		'Copyright © 1999-2019 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2020 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2019 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2020 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
@@ -198,11 +198,11 @@ $software = [
 	]],
 	['ProFTPD',[
 		'A highly configurable FTP server (<a href="http://www.proftpd.org" target="_blank" rel="noreferrer">http://www.proftpd.org</a>).',
-		'Copyright © 1999, 2000-2017 The ProFTPD Project. All Rights Reserved.'
+		'Copyright © 1999, 2000-2020 The ProFTPD Project. All Rights Reserved.'
 	]],
 	['Python',[
 		'A programming language (<a href="http://www.python.org" target="_blank" rel="noreferrer">http://www.python.org</a>).',
-		'Copyright © 2001-2019 Python Software Foundation. All Rights Reserved.'
+		'Copyright © 2001-2020 Python Software Foundation. All Rights Reserved.'
 	]],
 	['QuiXplorer',[
 		'A Web-based file-management browser (<a href="https://github.com/realtimeprojects/quixplorer" target="_blank" rel="noreferrer">https://github.com/realtimeprojects/quixplorer</a>).',
@@ -222,7 +222,7 @@ $software = [
 	]],
 	['smartmontools',[
 		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="http://sourceforge.net/projects/smartmontools/" target="_blank" rel="noreferrer">http://sourceforge.net/projects/smartmontools</a>).',
-		'Copyright © 2002-2018 Bruce Allen, Christian Franke. All Rights Reserved.',
+		'Copyright © 2002-2019 Bruce Allen, Christian Franke. All Rights Reserved.',
 	]],
 	['Spinner.js',[
 		'A spinning activity indicator (<a href="https://github.com/fgnass/spin.js" target="_blank" rel="noreferrer">https://github.com/fgnass/spin.js</a>).',
