@@ -187,18 +187,14 @@ $document->render();
 					if(count($loginfo[$log]['columns']) == 1 && empty($matches_rfc3164[1])):
 						continue;
 					endif;
+					$matches = $matches_rfc3164;
 //					check if msg is rfc5424.
 					if($check_rfc5424):
 						$content_record_rfc5424 = $matches_rfc3164['msg'] ?? '';
 						if(preg_match($regex_rfc5424,$content_record_rfc5424,$matches_rfc5424) === 1):
-							$matches = $matches_rfc5424;
 //							adjust message
-							$matches['msg'] = sprintf('%s: %s',$matches['appname'] ?? '-',$matches['msg'] ?? '-');
-						else:
-							$matches = $matches_rfc3164;
+							$matches['msg'] = sprintf('%s: %s',$matches_rfc5424['appname'] ?? '-',$matches_rfc5424['msg'] ?? '-');
 						endif;
-					else:
-						$matches = $matches_rfc3164;
 					endif;
 					echo '<tr>',PHP_EOL;
 						foreach ($loginfo[$log]['columns'] as $column_key => $column_val):
