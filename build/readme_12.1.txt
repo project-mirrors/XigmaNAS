@@ -96,7 +96,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 12.1.0.4.728x
+BUILD 12.1.0.4.73xx
 ===================
 Changes:
 - Upgrade to FreeBSD 12.1-RELEASE P0.
@@ -121,6 +121,7 @@ Changes:
 - Upgrade syncthing to 1.3.4.
 - Upgrade phpmyadmin to 5.0.1.
 - Upgrade php to 7.4.3.
+- Upgrade proftpd to 1.3.6c.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
