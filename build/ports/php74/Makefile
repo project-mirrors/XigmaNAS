@@ -50,12 +50,11 @@ CONFIGURE_ARGS+=	\
 		--with-pear \
 		--with-openssl \
 		--with-gettext \
-		--enable-libxml \
+		--with-libxml \
 		--enable-mysqlnd \
 		--with-mysql=mysqlnd \
 		--with-mysqli=mysqlnd \
-		--with-libxml-dir=${LOCALBASE} \
-		--with-pcre-regex=${LOCALBASE} \
+		--with-external-pcre \
 		--with-zlib-dir=/usr \
 		--with-config-file-path=/usr/local/etc \
 		--with-config-file-scan-dir=/usr/local/etc/php \
@@ -65,15 +64,13 @@ CONFIGURE_ARGS+=	\
 		--with-sqlite3 \
 		--with-iconv-dir=${LOCALBASE} \
 		--with-bz2=/usr \
-		--with-curl=${LOCALBASE} \
+		--with-curl \
 		--enable-gd \
-		--with-freetype-dir=${LOCALBASE} \
-		--with-jpeg-dir=${LOCALBASE} \
-		--with-png-dir=${LOCALBASE} \
+		--with-freetype \
+		--with-jpeg \
 		--enable-intl \
 		--with-ldap=${LOCALBASE} \
 		--enable-mbstring \
-		--with-onig=${LOCALBASE} \
 		--with-pcre-dir=${LOCALBASE} \
 		--with-mcrypt=${LOCALBASE} \
 		--with-gmp=${LOCALBASE} \
