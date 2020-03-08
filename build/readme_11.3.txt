@@ -121,7 +121,6 @@ Changes:
 - Upgrade msmtp to 1.8.6.
 - Upgrade minidlna to newer sources.
 - Use recommended patches for dmidecode.
-- Upgrade proftpd to 1.3.6b.
 - Upgrade arcconf to 3.02.23600.
 - Upgrade virtualbox-ose to 5.2.34.
 - Upgrade pecl-APCu to 5.1.18.
@@ -136,6 +135,7 @@ Changes:
 - Upgrade syncthing to 1.3.4.
 - Upgrade phpmyadmin to 5.0.1.
 - Upgrade php to 7.4.3.
+- Upgrade proftpd to 1.3.6c.
 
 Fixes:
 - Fix monitoring shows high cpu load.
