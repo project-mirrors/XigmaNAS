@@ -136,6 +136,7 @@ Changes:
 - Upgrade phpmyadmin to 5.0.1.
 - Upgrade php to 7.4.3.
 - Upgrade proftpd to 1.3.6c.
+- Upgrade mDNSResponder to 1096.0.2.
 
 Fixes:
 - Fix monitoring shows high cpu load.
