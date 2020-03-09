@@ -1028,13 +1028,21 @@ function get_pool_usage() {
 			$row['tu'] = $row['puh'];
 			$row['tf'] = $row['pfh'];
 			if(isset($config['zfs']['settings']['showusedavail'])):
-				$row['vu'] = $r_poolinfo['used'];
-				$row['vf'] = $r_poolinfo['avail'];
-				$row['vt'] = $row['vu'] + $row['vf'];
-				$row['vth'] = format_bytes($row['vt'],2,false,$use_si);
-				$row['vuh'] = format_bytes($row['vu'],2,false,$use_si);
-				$row['vfh'] = format_bytes($row['vf'],2,false,$use_si);
-				$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
+				if(($r_poolinfo['used'] < 0) && ($r_poolinfo['avail'] < 0)):
+					$row['vu'] = 0;
+					$row['vf'] = 0;
+					$row['vt'] = $row['vu'] + $row['vf'];
+					$row['vth'] = $row['vuh'] = $row['vfh'] = \gettext('Unknown');
+					$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
+				else:
+					$row['vu'] = $r_poolinfo['used'];
+					$row['vf'] = $r_poolinfo['avail'];
+					$row['vt'] = $row['vu'] + $row['vf'];
+					$row['vth'] = format_bytes($row['vt'],2,false,$use_si);
+					$row['vuh'] = format_bytes($row['vu'],2,false,$use_si);
+					$row['vfh'] = format_bytes($row['vf'],2,false,$use_si);
+					$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
+				endif;
 			else: // this is the default setting
 				$row['vu'] = $r_poolinfo['alloc'];
 				$row['vf'] = $r_poolinfo['free'];
