@@ -172,32 +172,29 @@ $document->render();
 <?php
 			$content_array = log_get_contents($loginfo[$log]['logfile'],$loginfo[$log]['type']);
 			if(!empty($content_array)):
-				$regex_rfc3164 = $loginfo[$log]['pattern'];
-				$check_rfc5424 = array_key_exists('pattern.rfc5424',$loginfo[$log]);
-				if($check_rfc5424):
-					$regex_rfc5424 = $loginfo[$log]['pattern.rfc5424'];
-				endif;
+//				regex to identify encapsulated RFC5424 compliant messages
+				$regex_rfc5424 = '/^(?<version>[1-9][0-9]{0,2}) (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\])($| )(?<msg>.*)/';
+				$test_rfc5424 = $loginfo[$log]['test.rfc5424'];
 //				Create table data
-				foreach ($content_array as $content_record_rfc3164):
+				foreach($content_array as $content_record):
 //					Skip invalid pattern matches
-					if(preg_match($regex_rfc3164,$content_record_rfc3164,$matches_rfc3164) !== 1):
+					if(preg_match($loginfo[$log]['pattern'],$content_record,$matches) !== 1):
 						continue;
 					endif;
 //					Skip empty lines
-					if(count($loginfo[$log]['columns']) == 1 && empty($matches_rfc3164[1])):
+					if((count($loginfo[$log]['columns']) == 1) && empty($matches[1])):
 						continue;
 					endif;
-					$matches = $matches_rfc3164;
-//					check if msg is rfc5424.
-					if($check_rfc5424):
-						$content_record_rfc5424 = $matches_rfc3164['msg'] ?? '';
+//					check if msg is rfc5424 compliant.
+					if($test_rfc5424):
+						$content_record_rfc5424 = $matches['msg'] ?? '';
 						if(preg_match($regex_rfc5424,$content_record_rfc5424,$matches_rfc5424) === 1):
 //							adjust message
 							$matches['msg'] = sprintf('%s: %s',$matches_rfc5424['appname'] ?? '-',$matches_rfc5424['msg'] ?? '-');
 						endif;
 					endif;
 					echo '<tr>',PHP_EOL;
-						foreach ($loginfo[$log]['columns'] as $column_key => $column_val):
+						foreach($loginfo[$log]['columns'] as $column_key => $column_val):
 							echo sprintf('<td class="%1$s" %2$s>%3$s</td>',$column_val['class'],$column_val['param'],htmlspecialchars($matches[$column_val['pmid']]));
 						endforeach;
 					echo '</tr>',PHP_EOL;
