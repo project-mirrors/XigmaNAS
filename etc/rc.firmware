@@ -619,7 +619,13 @@ full_upgrade() {
 	# Test firmware file.
 	msg="Testing firmware file integrity..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
-	/usr/bin/gunzip -t "${ARG}"
+	if echo "${ARG}" | /usr/bin/grep -qw ".*.txz"; then
+		# For latest firmware file format.
+		/usr/bin/xz -t "${ARG}"
+	elif echo "${ARG}" | /usr/bin/grep -qw ".*.tgz"; then
+		# For legacy firmware file format.
+		/usr/bin/gunzip -t "${ARG}"
+	fi
 	if [ 0 != $? ]; then
 		msg="ERROR: Firmware file is corrupted."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
