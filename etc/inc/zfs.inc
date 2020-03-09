@@ -63,20 +63,20 @@ function zfs_get_pool_list() {
 			$pool_name = $r_pool['name'];
 			$row = [];
 			$row['name'] = $pool_name;
-			$row['size'] = is_numeric($r_pool['size']) ? $r_pool['size'] : 0;
-			$row['alloc'] = is_numeric($r_pool['alloc']) ? $r_pool['alloc'] : 0;
-			$row['free'] = $row['size'] - $row['alloc'];
+			$row['size'] = $r_pool['size'];
+			$row['alloc'] = $r_pool['alloc'];
+			$row['free'] = $r_pool['free'];
 			$row['expandsz'] = $r_pool['expandsz'];
 			$row['frag'] = $r_pool['frag'];
-			$row['cap'] = $row['size'] > 0 ? $row['alloc'] / $row['size'] * 100 : 0;
+			$row['cap'] = $r_pool['cap'];
 			$row['dedup'] = $r_pool['dedup'];
 			$row['health'] = $r_pool['health'];
 			$row['altroot'] = $r_pool['altroot'];
 			$row['guid'] = $r_pool['guid'];
 			$a_zfs = cli_zfs_info($pool_name,'used,avail');
 			if(empty($a_zfs)):
-				$row['used'] = 'Unknown';
-				$row['avail'] = 'Unknown';
+				$row['used'] = -1;
+				$row['avail'] = -1;
 			else:
 				foreach($a_zfs as $r_zfs):
 //					there should be only one row

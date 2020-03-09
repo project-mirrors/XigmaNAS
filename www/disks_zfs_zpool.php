@@ -255,9 +255,13 @@ $document->render();
 				if(is_array($sphere_addon_grid) && array_key_exists($sphere->row['name'],$sphere_addon_grid)):
 					$sphere_addon_row = $sphere_addon_grid[$sphere->row['name']];
 					if($showusedavail):
-						$size = format_bytes($sphere_addon_row['used'] + $sphere_addon_row['avail'],2,false,$use_si);
-						$used = format_bytes($sphere_addon_row['used'],2,false,$use_si);
-						$avail = format_bytes($sphere_addon_row['avail'],2,false,$use_si);
+						if(($sphere_addon_row['used'] < 0) && ($sphere_addon_row['avail'] < 0)):
+							$size = $used = $avail = \gettext('Unknown');
+						else:
+							$size = format_bytes($sphere_addon_row['used'] + $sphere_addon_row['avail'],2,false,$use_si);
+							$used = format_bytes($sphere_addon_row['used'],2,false,$use_si);
+							$avail = format_bytes($sphere_addon_row['avail'],2,false,$use_si);
+						endif;
 					else:
 						$size = format_bytes($sphere_addon_row['size'],2,false,$use_si);
 						$used = format_bytes($sphere_addon_row['alloc'],2,false,$use_si);
