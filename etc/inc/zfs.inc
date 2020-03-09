@@ -63,12 +63,12 @@ function zfs_get_pool_list() {
 			$pool_name = $r_pool['name'];
 			$row = [];
 			$row['name'] = $pool_name;
-			$row['size'] = $r_pool['size'];
-			$row['alloc'] = $r_pool['alloc'];
-			$row['free'] = $r_pool['free'];
+			$row['size'] = is_numeric($r_pool['size']) ? $r_pool['size'] : 0;
+			$row['alloc'] = is_numeric($r_pool['alloc']) ? $r_pool['alloc'] : 0;
+			$row['free'] = $row['size'] - $row['alloc'];
 			$row['expandsz'] = $r_pool['expandsz'];
 			$row['frag'] = $r_pool['frag'];
-			$row['cap'] = $r_pool['cap'];
+			$row['cap'] = $row['size'] > 0 ? $row['alloc'] / $row['size'] : 0;
 			$row['dedup'] = $r_pool['dedup'];
 			$row['health'] = $r_pool['health'];
 			$row['altroot'] = $r_pool['altroot'];
