@@ -68,7 +68,7 @@ function zfs_get_pool_list() {
 			$row['free'] = $row['size'] - $row['alloc'];
 			$row['expandsz'] = $r_pool['expandsz'];
 			$row['frag'] = $r_pool['frag'];
-			$row['cap'] = $row['size'] > 0 ? $row['alloc'] / $row['size'] : 0;
+			$row['cap'] = $row['size'] > 0 ? $row['alloc'] / $row['size'] * 100 : 0;
 			$row['dedup'] = $r_pool['dedup'];
 			$row['health'] = $r_pool['health'];
 			$row['altroot'] = $r_pool['altroot'];
