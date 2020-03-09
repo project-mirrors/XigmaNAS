@@ -33,7 +33,6 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'diag_log.inc';
 require_once 'co_sphere.php';
 require_once 'properties_diag_log_settings.php';
 
@@ -290,27 +289,27 @@ $content->
 			c2_titleline(gettext('Log Settings'))->
 			parentNode->
 		addTBODY()->
-			c2_checkbox($cop->get_reverse(),$sphere->row[$cop->get_reverse()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_nentries(),$sphere->row[$cop->get_nentries()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_resolve(),$sphere->row[$cop->get_resolve()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_disablecomp(),$sphere->row[$cop->get_disablecomp()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_disablesecure(),$sphere->row[$cop->get_disablesecure()->get_name()],false,$is_readonly);
+			c2_checkbox($cop->get_reverse(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_nentries(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_resolve(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_disablecomp(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_disablesecure(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_separator()->
-			c2_titleline_with_checkbox($cop->get_enable(),$sphere->row[$cop->get_enable()->get_name()],false,$is_readonly,gettext('Remote Syslog Server'))->
+			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Remote Syslog Server'))->
 			parentNode->
 		addTBODY()->
-			c2_input_text($cop->get_ipaddr(),$sphere->row[$cop->get_ipaddr()->get_name()],false,$is_readonly)->
-			c2_input_text($cop->get_port(),$sphere->row[$cop->get_port()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_system(),$sphere->row[$cop->get_system()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_ftp(),$sphere->row[$cop->get_ftp()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_rsyncd(),$sphere->row[$cop->get_rsyncd()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_sshd(),$sphere->row[$cop->get_sshd()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_smartd(),$sphere->row[$cop->get_smartd()->get_name()],false,$is_readonly)->
-			c2_checkbox($cop->get_daemon(),$sphere->row[$cop->get_daemon()->get_name()],false,$is_readonly);
+			c2_input_text($cop->get_ipaddr(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_system(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_ftp(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_rsyncd(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_sshd(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_smartd(),$sphere,false,$is_readonly)->
+			c2_checkbox($cop->get_daemon(),$sphere,false,$is_readonly);
 //	add buttons
 switch($page_mode):
 	case PAGE_MODE_VIEW:

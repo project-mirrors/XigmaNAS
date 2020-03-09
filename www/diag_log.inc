@@ -40,11 +40,10 @@ $rsync_client_logfile = rc_getenv_ex('rsync_client_logfile',"{$g['varlog_path']}
 $rsync_local_logfile = rc_getenv_ex('rsync_local_logfile',"{$g['varlog_path']}/rsync_local.log");
 $fuppes_logfile = rc_getenv_ex('fuppes_logfile',"{$g['varlog_path']}/fuppes.log");
 $minidlna_logdir = rc_getenv_ex('minidlna_logdir',"{$g['varlog_path']}");
-$minidlna_logfile = "$minidlna_logdir/minidlna.log";
+$minidlna_logfile = "{$minidlna_logdir}/minidlna.log";
 $mtdaapd_logfile = rc_getenv_ex('mtdaapd_logfile',"{$g['varlog_path']}/mt-daapd.log");
 $proftpd_modban_logfile = rc_getenv_ex('proftpd_modban_banlog',"{$g['varlog_path']}/proftpd/ban.log");
-
-// The log configuration
+//	the log configuration
 $loginfo = [
 	[
 		'visible' => true,
@@ -54,7 +53,7 @@ $loginfo = [
 		'type' => 'clog',
 		'size' => '262144',
 		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
-		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
+		'test.rfc5424' => true,
 		'columns' => [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
@@ -68,7 +67,7 @@ $loginfo = [
 		'type' => 'clog',
 		"size" => '32768',
 		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
-		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
+		'test.rfc5424' => true,
 		'columns' => [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
@@ -82,7 +81,7 @@ $loginfo = [
 		'type' => 'clog',
 		"size" => '32768',
 		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
-		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
+		'test.rfc5424' => true,
 		'columns' => [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
@@ -96,7 +95,7 @@ $loginfo = [
 		'type' => 'clog',
 		"size" => '32768',
 		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
-		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
+		'test.rfc5424' => true,
 		'columns' => [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
@@ -108,10 +107,11 @@ $loginfo = [
 		'logfile' => $proftpd_modban_logfile,
 		'filename' => 'ban.log',
 		'type' => 'plain',
-		'pattern' => '/^(\S+\s+\S+)\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\S+)\s+(?<msg>.*)$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('Event'),'width' => '85%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 2]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Event'),'width' => '85%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -119,14 +119,15 @@ $loginfo = [
 		'logfile' => "{$g['varlog_path']}/xferlog",
 		'filename' => 'xferlog',
 		'type' => 'plain',
-		'pattern' => '/^(\S+\s+\S+\s+\d+\s+\S+\s+\d+) ((\d+) (\S+) (\d+) (\S+) (a|b) (C|U|T|_) (o|i|d) (a|g|r) (\S+) (\S+) (0|1) (\S+) (c|i))$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\S+\s+\d+\s+\S+\s+\d+) (?<msg>(\d+) (?<ip>\S+) (?<filesize>\d+) (?<filename>\S+) (a|b) (C|U|T|_) (o|i|d) (a|g|r) (?<username>\S+) (\S+) (0|1) (\S+) (c|i))$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('IP'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 4],
-			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 11],
-//		['title' => gtext('File'),'hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 6],
-//		['title' => gtext('Filesize'),'hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 5],
-			['title' => gtext('Event'),'width' => '65%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 2]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('IP'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 'ip'],
+			['title' => gtext('User'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 'username'],
+//			['title' => gtext('File'),'hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 'filename'],
+//			['title' => gtext('Filesize'),'hdrclass' => 'lhell','class' => 'lcell','param' => '','pmid' => 'filesize'],
+			['title' => gtext('Event'),'width' => '65%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -136,7 +137,7 @@ $loginfo = [
 		'type' => 'clog',
 		"size" => '32768',
 		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
-		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
+		'test.rfc5424' => true,
 		'columns' => [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
@@ -150,7 +151,7 @@ $loginfo = [
 		'type' => 'clog',
 		"size" => '32768',
 		'pattern' => '/^(?<timestamp>\S+\s+\d+\s+\S+)\s+(?<hostname>\S+)\s+(?<msg>.*)$/',
-		'pattern.rfc5424' => '/^[0-9]{1,3} (?<timestamp>\S+) (?<hostname>\S+) (?<appname>\S+) (?<procid>\S+) (?<msgid>\S+) (?<sd>-|\[(?:\\[\]\[]|[^\[\]])*\]) (?<msg>.*)$/',
+		'test.rfc5424' => true,
 		'columns' => [
 			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
 			['title' => gtext('Host'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'hostname'],
@@ -162,9 +163,10 @@ $loginfo = [
 		'logfile' => $rsync_client_logfile,
 		'filename' => 'rsync_client.log',
 		'type' => 'plain',
-		'pattern' => '/^(.*)$/',
+		'pattern' => '/^(?<msg>.*)$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 1]
+			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -172,9 +174,10 @@ $loginfo = [
 		'logfile' => $rsync_local_logfile,
 		'filename' => 'rsync_local.log',
 		'type' => 'plain',
-		'pattern' => '/^(.*)$/',
+		'pattern' => '/^(?<msg>.*)$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 1]
+			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -182,9 +185,10 @@ $loginfo = [
 		'logfile' => $fuppes_logfile,
 		'filename' => 'fuppes.log',
 		'type' => 'plain',
-		'pattern' => '/^(.*)$/',
+		'pattern' => '/^(?<msg>.*)$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 1]
+			['title' => gtext('Event'),'width' => '100%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -192,11 +196,12 @@ $loginfo = [
 		'logfile' =>  $minidlna_logfile,
 		'filename' => 'minidlna.log',
 		'type' => 'plain',
-		'pattern' => '/^\[(.*?)\]\s+(.*?)\..*?:\d+:\s+.*?:\s+(.*)$/',
+		'pattern' => '/^\[(?<timestamp>.*?)\]\s+(?<who>.*?)\..*?:\d+:\s+.*?:\s+(?<msg>.*)$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('Who'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 2],
-			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 3]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Who'),'width' => '10%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'who'],
+			['title' => gtext('Event'),'width' => '75%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 	[
 		'visible' => true,
@@ -204,21 +209,22 @@ $loginfo = [
 		'logfile' => $mtdaapd_logfile,
 		'filename' => 'daap.log',
 		'type' => 'plain',
-		'pattern' => '/^(\S+\s+\S+)\s+\S+:\s+(.*)$/',
+		'pattern' => '/^(?<timestamp>\S+\s+\S+)\s+\S+:\s+(?<msg>.*)$/',
+		'test.rfc5424' => false,
 		'columns' => [
-			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 1],
-			['title' => gtext('Event'),'width' => '85%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 2]
+			['title' => gtext('Date & Time'),'width' => '15%','hdrclass' => 'lhell','class' => 'lcell','param' => 'style="white-space: nowrap;"','pmid' => 'timestamp'],
+			['title' => gtext('Event'),'width' => '85%','hdrclass' => 'lhebl','class' => 'lcebl','param' => '','pmid' => 'msg']
 		]],
 ];
 function log_get_contents($logfile,$type) {
 	global $config;
 
 	$content = [];
-	$param = (isset($config['syslogd']['reverse']) ? "-r " : '');
-	$param .= "-n " . $config['syslogd']['nentries'];
+	$param = (isset($config['syslogd']['reverse']) ? '-r ' : '');
+	$param .= '-n ' . $config['syslogd']['nentries'];
 	switch($type):
 		case 'clog':
-			$searchlog = isset($_POST['searchlog']) ? $_POST['searchlog'] : '';
+			$searchlog = $_POST['searchlog'] ?? '';
 		    $filter_str = ($searchlog == '') ? '' : "| grep -i \"".htmlspecialchars($searchlog)."\"";
 			exec("/usr/sbin/clog {$logfile} | /usr/bin/tail {$param} {$filter_str}",$content);
 			break;
