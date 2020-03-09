@@ -220,6 +220,7 @@ function check_firmware_version_rss($locale) {
 	endforeach;
 	return $retval;
 }
+
 $fwupplatforms = ['embedded','full']; // platforms that support firmware updating
 $page_mode = 'default';
 $input_errors = [];
@@ -227,9 +228,20 @@ $errormsg = '';
 $savemsg = '';
 $locale = $config['system']['language'] ?? 'en_US';
 
+// Check whether the rc.firmware supports the compressed .txz file
+function full_firmware_format() {
+	$full_file_ext = 'tgz';
+	$rc_firmware = file_get_contents('/etc/rc.firmware');
+	if(preg_match('/\.\*\.txz/', $rc_firmware)):
+		$full_file_ext = 'txz';
+	endif;
+	return $full_file_ext;
+}
+
 // Rename firmware file extension regarding the platform.
 if($g['zroot']):
-	$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
+	$file_ext = full_firmware_format();
+	$firmware_file = sprintf("%s/firmware.$file_ext",$g['ftmp_path']);
 else:
 	$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
 endif;
@@ -308,7 +320,7 @@ switch($page_mode):
 				else:
 					//	move the image so PHP won't delete it
 					move_uploaded_file($_FILES['ulfile']['tmp_name'],$firmware_file);
-					// Skip firmware verify on full, this is preformed by the rc.firmware for tgz file.
+					// Skip firmware verify on full, this is preformed by the rc.firmware for tgz/txz file.
 					if(!$g['zroot']):
 						if(!verify_xz_file($firmware_file)):
 							$input_errors[] = gtext('The firmware file is corrupt.');

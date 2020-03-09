@@ -1478,6 +1478,10 @@ create_full() {
 
 	echo "FULL: Generating $XIGMANAS_PRODUCTNAME tgz update file"
 
+	# Set archive extension
+	# Set between tgz and txz
+	EXTENSION="tgz"
+
 	# Set platform information.
 	PLATFORM="${XIGMANAS_XARCH}-full"
 	echo $PLATFORM > ${XIGMANAS_ROOTFS}/etc/platform
@@ -1485,7 +1489,7 @@ create_full() {
 	# Set Revision.
 	echo ${XIGMANAS_REVISION} > ${XIGMANAS_ROOTFS}/etc/prd.revision
 
-	FULLFILENAME="${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.tgz"
+	FULLFILENAME="${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.${EXTENSION}"
 
 	echo "FULL: Generating tempory $XIGMANAS_TMPDIR folder"
 	#Clean TMP dir:
@@ -1604,9 +1608,13 @@ create_full() {
 	#Check that there is no /etc/cfdevice file! This file can be generated only during install, and must be kept
 	[ -f $XIGMANAS_TMPDIR/etc/cfdevice ] && rm -f $XIGMANAS_TMPDIR/etc/cfdevice
 
-	echo "FULL: tgz the directory"
+	echo "FULL: Creating ${EXTENSION} compressed file"
 	cd $XIGMANAS_ROOTDIR
-	tar cvfz $FULLFILENAME -C $XIGMANAS_TMPDIR ./
+	if [ "${EXTENSION}" == "tgz" ]; then
+		tar -cvfz $FULLFILENAME -C $XIGMANAS_TMPDIR ./
+	elif [ "${EXTENSION}" == "txz" ]; then
+		tar -cf - . | xz -9e -v --threads=0 > ${FULLFILENAME}
+	fi
 
 	# Cleanup.
 	echo "Cleaning temp .o file(s)"
