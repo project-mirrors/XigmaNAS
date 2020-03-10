@@ -1464,11 +1464,11 @@ create_usb_gpt() {
 create_full() {
 	[ -d $XIGMANAS_SVNDIR ] && use_svn ;
 
-	echo "FULL: Generating $XIGMANAS_PRODUCTNAME tgz update file"
-
 	# Set archive extension
 	# Set between tgz and txz
 	EXTENSION="tgz"
+
+	echo "FULL: Generating $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
 
 #	Set platform information.
 	PLATFORM="${XIGMANAS_XARCH}-full"
@@ -1594,9 +1594,9 @@ create_full() {
 
 	echo "FULL: Creating ${EXTENSION} compressed file"
 	cd $XIGMANAS_ROOTDIR
-	if [ "${EXTENSION}" == "tgz" ]; then
-		tar -cvfz $FULLFILENAME -C $XIGMANAS_TMPDIR ./
-	elif [ "${EXTENSION}" == "txz" ]; then
+	if [ "${EXTENSION}" = "tgz" ]; then
+		tar cvfz $FULLFILENAME -C $XIGMANAS_TMPDIR ./
+	elif [ "${EXTENSION}" = "txz" ]; then
 		tar -cf - . | xz -9e -v --threads=0 > ${FULLFILENAME}
 	fi
 
