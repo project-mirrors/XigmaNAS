@@ -42,7 +42,7 @@ $contributors = [
 	['Michael Schneider','ms49434@xigmanas.com','Active Developer since 2016'],
 	['Daisuke Aoyama','aoyama@peach.ne.jp','Developer between 2008 and 2017'],
 	['Volker Theile','votdev@gmx.de','Developer between 2006 and 2009'],
-	['José Rivera','joserprg@gmail.com','Contributor'],
+	['José Rivera','joserprg@gmail.com','Active Developer since 2020'],
 	['Andreas Schmidhuber','a.schmidhuber@gmail.com','Contributor'],
 	['Tony Cat','tony1@xigmanas.com','User guide and Live support on irc #xigmanas (tony1)'],
 	['Rhett Hillary','siftu@xigmanas.com','User guide and Live support on irc #xigmanas (siftu)'],
@@ -230,7 +230,7 @@ $software = [
 	]],
 	['sudo',[
 		'A tool to allow a sysadmin to give limited root privileges. (<a href="http://www.sudo.ws" target="_blank" rel="noreferrer">http://www.sudo.ws</a>).',
-		'Copyright © 1994-1996, 1998-2019 Todd C. Miller. All Rights Reserved.'
+		'Copyright © 1994-1996, 1998-2020 Todd C. Miller. All Rights Reserved.'
 	]],
 	['Syncthing',[
 		'Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. (<a href="https://syncthing.net" target="_blank" rel="noreferrer">https://syncthing.net</a>).',
