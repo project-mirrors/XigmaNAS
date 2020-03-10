@@ -1595,9 +1595,9 @@ create_full() {
 	echo "FULL: Creating ${EXTENSION} compressed file"
 	cd $XIGMANAS_ROOTDIR
 	if [ "${EXTENSION}" = "tgz" ]; then
-		tar cvfz $FULLFILENAME -C $XIGMANAS_TMPDIR ./
+		tar cvfz ${FULLFILENAME} -C ${XIGMANAS_TMPDIR} ./
 	elif [ "${EXTENSION}" = "txz" ]; then
-		tar -cf - . | xz -9e -v --threads=0 > ${FULLFILENAME}
+		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -9 -v --threads=0 > ${FULLFILENAME}
 	fi
 
 #	Cleanup.

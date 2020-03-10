@@ -228,23 +228,12 @@ $errormsg = '';
 $savemsg = '';
 $locale = $config['system']['language'] ?? 'en_US';
 
-// Check whether the rc.firmware supports the compressed .txz file
-function full_firmware_format() {
-	$full_file_ext = 'tgz';
-	$rc_firmware = file_get_contents('/etc/rc.firmware');
-	if(preg_match('/\.\*\.txz/', $rc_firmware)):
-		$full_file_ext = 'txz';
-	endif;
-	return $full_file_ext;
-}
-
 // Rename firmware file extension regarding the platform.
-if($g['zroot']):
-	$file_ext = full_firmware_format();
-	$firmware_file = sprintf("%s/firmware.$file_ext",$g['ftmp_path']);
-else:
-	$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
-endif;
+//if($g['zroot']):
+//	$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
+//else:
+//	$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
+//endif;
 
 //	check boot partition
 $part1size = $g_install['part1size_embedded'];
@@ -310,6 +299,27 @@ switch($page_mode):
 		if(!isset($_FILES['ulfile'])):
 			$page_mode = 'disable';
 		else:
+			// Dynamically rename firmware file extension regarding the platform.
+			// Also handle some errors here before firmware page locks.
+			$prd_name = get_product_name();
+			$ul_file = $_FILES['ulfile']['name'];
+			if($g['zroot']):
+				if (preg_match("/$prd_name.*.tgz/", $ul_file)):
+					$file_ext = "tgz";
+					$firmware_file = sprintf("%s/firmware.$file_ext",$g['ftmp_path']);
+				elseif (preg_match("/$prd_name.*.txz/", $ul_file)):
+					$file_ext = "txz";
+					$firmware_file = sprintf("%s/firmware.$file_ext",$g['ftmp_path']);
+				else:
+					$input_errors[] = gtext('Invalid firmware file.');
+				endif;
+			else:
+				if (preg_match("/$prd_name.*.xz/", $ul_file)):
+					$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
+				else:
+					$input_errors[] = gtext('Invalid firmware file.');
+				endif;
+			endif;
 			if(is_uploaded_file($_FILES['ulfile']['tmp_name'])):
 				//	verify firmware image(s)
 				if(!stristr($_FILES['ulfile']['name'],$g['fullplatform'])):
