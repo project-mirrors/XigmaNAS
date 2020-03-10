@@ -41,74 +41,68 @@ header('Content-Type: text/html; charset=' . system_get_language_codeset());
 echo '<!DOCTYPE html>',"\n";
 ?>
 <html lang="<?=system_get_language_code();?>">
-<head>
-	<meta charset="<?=system_get_language_codeset();?>">
-	<meta name="format-detection" content="telephone=no">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="robots" content="noindex,nofollow">
-	<meta name="description" content="XigmaNAS® - The Free Network Attached Storage Project">
-	<title><?=genhtmltitle($pgtitle ?? []);?></title>
-	<link href="/css/gui.css.php" rel="stylesheet" type="text/css">
-	<link href="/css/navbar.css.php" rel="stylesheet" type="text/css">
-	<link href="/css/tabs.css.php" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/gui.js"></script>
-	<script type="text/javascript" src="/js/spinner.js"></script>
-	<script type="text/javascript" src="/js/spin.min.js"></script>
+	<head>
+		<meta charset="<?=system_get_language_codeset();?>">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="robots" content="noindex,nofollow">
+		<meta name="description" content="XigmaNAS® - The Free Network Attached Storage Project">
+		<title><?=genhtmltitle($pgtitle ?? []);?></title>
+		<link href="/css/gui.css.php" rel="stylesheet" type="text/css">
+		<link href="/css/navbar.css.php" rel="stylesheet" type="text/css">
+		<link href="/css/tabs.css.php" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/gui.js"></script>
+		<script type="text/javascript" src="/js/spinner.js"></script>
+		<script type="text/javascript" src="/js/spin.min.js"></script>
 <?php
-	if(isset($pglocalheader) && !empty($pglocalheader)):
-		if(is_array($pglocalheader)):
-			foreach($pglocalheader as $pglocalheaderv):
-		 		echo $pglocalheaderv,PHP_EOL;
-			endforeach;
-		else:
-			echo $pglocalheader,PHP_EOL;
+		if(isset($pglocalheader) && !empty($pglocalheader)):
+			if(is_array($pglocalheader)):
+				foreach($pglocalheader as $pglocalheaderv):
+					echo $pglocalheaderv,PHP_EOL;
+				endforeach;
+			else:
+				echo $pglocalheader,PHP_EOL;
+			endif;
 		endif;
-	endif;
 ?>
-</head>
-<body id="main">
-<div id="spinner_main"></div>
-<div id="spinner_overlay" style="display: none; background-color: white; position: fixed; left:0; top:0; height:100%; width:100%; opacity: 0.25;"></div>
+	</head>
+	<body id="main">
+		<div id="spinner_main"></div>
+		<div id="spinner_overlay" style="display: none; background-color: white; position: fixed; left:0; top:0; height:100%; width:100%; opacity: 0.25;"></div>
 <?php
-	if(!$_SESSION['g']['shrinkpageheader']):
+		if(!$_SESSION['g']['shrinkpageheader']):
 ?>
-<header id="g4l">
-	<div id="header">
-		<div id="headerrlogo">
-			<div class="hostname">
-				<span><?=system_get_hostname();?>&nbsp;</span>
-			</div>
-		</div>
-		<div id="headerlogo">
-			<a title="www.<?=get_product_url();?>" href="https://www.<?=get_product_url();?>" target="_blank" rel="noreferrer"><img src="/images/header_logo.png" alt="logo" /></a>
-		</div>
-	</div>
-</header>
+			<header id="g4l">
+				<div id="header">
+					<div id="headerrlogo"></div>
+					<div id="headerlogo">
+						<a title="www.<?=get_product_url();?>" href="https://www.<?=get_product_url();?>" target="_blank" rel="noreferrer"><img src="/images/header_logo.png" alt="logo" /></a>
+					</div>
+				</div>
+			</header>
 <?php
-	endif;
+		endif;
 ?>
-<header id="g4h">
+		<header id="g4h">
 <?php
-	display_headermenu();
+			display_headermenu();
 ?>
-	<div id="gapheader"></div>
-</header>
+			<div id="gapheader"></div>
+		</header>
 <script type="text/javascript">
 //<![CDATA[
 $(window).on("load", function() {
-<?php // init spinner on tabnav.?>
 	$("#tabnav").on('click', function() { spinner(); });
-<?php // and his mate.?>
 	$("#tabnav2").on('click', function() { spinner(); });
 });
 //]]>
 </script>
-<main id="g4m">
-<div id="pagecontent">
+		<main id="g4m">
+			<div id="pagecontent">
 <?php
-if(!isset($pgtitle_omit) || !$pgtitle_omit):
+			if(!isset($pgtitle_omit) || !$pgtitle_omit):
 ?>
-	<p class="pgtitle"><?=gentitle($pgtitle);?></p>
+				<p class="pgtitle"><?=gentitle($pgtitle);?></p>
 <?php
-endif;
+			endif;

@@ -2985,9 +2985,6 @@ EOJ;
 							insIMG(['src' => '/images/announcement12.gif','alt' => '','title' => 'Merry Christmas!']);
 				endif;
 			endif;
-			$id_header_right->
-				addDIV(['class' => 'hostname'])->
-					addSPAN([],system_get_hostname());
 			$id_header_left = $id_header->
 				addDIV(['id' => 'headerlogo'])->
 					addA($a_attributes)->
@@ -3113,7 +3110,7 @@ EOJ;
 				insDIV(['id' => 'gapfooter'])->
 				addDIV(['id' => 'pagefooter'])->
 					add_table_data_settings()->
-						ins_colgroup_with_styles('width',['10%','80%','10%'])->
+						ins_colgroup_with_styles('width',['20%','60%','20%'])->
 						addTBODY()->
 							addTR();
 		$g4fl = $g4fx->addTDwC('g4fl');
@@ -3131,7 +3128,7 @@ EOJ;
 			endif;
 		endif;
 		$g4fx->addTDwC('g4fc',get_product_copyright());
-		$g4fx->addTDwC('g4fr');
+		$g4fx->addTDwC('g4fr',system_get_hostname());
 		return $this;
 	}
 }
