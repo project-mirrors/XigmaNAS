@@ -1482,10 +1482,6 @@ create_full() {
 
 	echo "FULL: Generating $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
 
-	# Set archive extension
-	# Set between tgz and txz
-	EXTENSION="tgz"
-
 	# Set platform information.
 	PLATFORM="${XIGMANAS_XARCH}-full"
 	echo $PLATFORM > ${XIGMANAS_ROOTFS}/etc/platform
@@ -1617,7 +1613,7 @@ create_full() {
 	if [ "${EXTENSION}" = "tgz" ]; then
 		tar cvfz $FULLFILENAME -C $XIGMANAS_TMPDIR ./
 	elif [ "${EXTENSION}" = "txz" ]; then
-		tar -cf - . | xz -9e -v --threads=0 > ${FULLFILENAME}
+		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -9 -v --threads=0 > ${FULLFILENAME}
 	fi
 
 	# Cleanup.
@@ -1744,7 +1740,7 @@ create_arm_image() {
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	# ARM use uncompressed kernel
-	#gunzip $XIGMANAS_TMPDIR/mfsroot.gz 
+	#gunzip $XIGMANAS_TMPDIR/mfsroot.gz
 	gunzip $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
 	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	#cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
