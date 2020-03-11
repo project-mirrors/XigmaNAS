@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
 "PO-Revision-Date: 2020-03-06 17:00+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -849,11 +849,9 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "Всі дані наступних статистик видалені:"
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
-"Всі дані в шляху переписуються. Щоб уникнути неправильних даних/дозволів, "
-"рекомендовано використання порожнього каталогу UFS."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Всі дані будуть втрачені при активації цієї опції!"
@@ -1108,6 +1106,9 @@ msgstr "Додати вміст до CSS файлу за замовчуванн�
 
 msgid "Append user defined shares"
 msgstr "Додати визначені користувачем спільні ресурси"
+
+msgid "Append user defined shares."
+msgstr ""
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -5534,7 +5535,6 @@ msgstr "Надати користувачеві доступ до оболонк
 msgid "Graph shows last 120 seconds"
 msgstr "Графік показує останні 120 секунд"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr "Графік показує останні 120 секунд."
 
@@ -6326,6 +6326,9 @@ msgstr "Неправильний формат файла або пароль."
 
 msgid "Invalid file format."
 msgstr "Неправильний формат файла."
+
+msgid "Invalid firmware file."
+msgstr ""
 
 msgid "Invalid login credentials."
 msgstr "Недозволені повноваження логіну."
@@ -8395,11 +8398,6 @@ msgstr "Будь ласка, перевірте файли журналів"
 
 msgid "Please read the documentation"
 msgstr "Будь ласка, ознайомтеся з документацією"
-
-msgid "Please update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Оновіть веб-переглядач або скористайтеся Internet Explorer 10 або новішою "
-"версією."
 
 msgid "Polling Time"
 msgstr "Час опитування"
@@ -13228,6 +13226,9 @@ msgstr "Використовувати контейнер \"Зображення
 msgid "Use the \"Video\" container"
 msgstr "Використовувати контейнер \"Відео\""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -13290,6 +13291,9 @@ msgstr ""
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
 "Використовувати кнопку-перемикач замість кнопок включити / відключити."
+
+msgid "Use zfsacl"
+msgstr ""
 
 msgid "Used"
 msgstr "Використано"
@@ -14253,3 +14257,15 @@ msgstr "видимий"
 
 msgid "yes"
 msgstr "так"
+
+#~ msgid ""
+#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
+#~ "an empty UFS directory is recommended."
+#~ msgstr ""
+#~ "Всі дані в шляху переписуються. Щоб уникнути неправильних даних/дозволів, "
+#~ "рекомендовано використання порожнього каталогу UFS."
+
+#~ msgid "Please update your browser or use Internet Explorer 10 or higher."
+#~ msgstr ""
+#~ "Оновіть веб-переглядач або скористайтеся Internet Explorer 10 або новішою "
+#~ "версією."

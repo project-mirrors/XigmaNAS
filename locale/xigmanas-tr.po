@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
 "PO-Revision-Date: 2019-12-10 06:25+0000\n"
 "Last-Translator: Irmak Bıçakçıgil <Unknown>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
@@ -836,8 +836,8 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "Şu istatistikteki tüm veriler silindi:"
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
 
 msgid "All data will be lost when you activate this option!"
@@ -1066,6 +1066,9 @@ msgstr ""
 
 msgid "Append user defined shares"
 msgstr "Kullanıcı tanımlı paylaşımları ekle"
+
+msgid "Append user defined shares."
+msgstr ""
 
 msgid "Apple Filing Protocol"
 msgstr ""
@@ -5235,7 +5238,6 @@ msgstr ""
 msgid "Graph shows last 120 seconds"
 msgstr ""
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr ""
 
@@ -5954,6 +5956,9 @@ msgid "Invalid file format or incorrect password."
 msgstr ""
 
 msgid "Invalid file format."
+msgstr ""
+
+msgid "Invalid firmware file."
 msgstr ""
 
 msgid "Invalid login credentials."
@@ -7917,9 +7922,6 @@ msgid "Please check the log files"
 msgstr ""
 
 msgid "Please read the documentation"
-msgstr ""
-
-msgid "Please update your browser or use Internet Explorer 10 or higher."
 msgstr ""
 
 msgid "Polling Time"
@@ -12264,6 +12266,9 @@ msgstr ""
 msgid "Use the \"Video\" container"
 msgstr ""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -12307,6 +12312,9 @@ msgid ""
 msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
+msgstr ""
+
+msgid "Use zfsacl"
 msgstr ""
 
 msgid "Used"
