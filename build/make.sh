@@ -1478,7 +1478,7 @@ create_full() {
 
 	# Set archive extension
 	# Set between tgz and txz
-	EXTENSION="tgz"
+	EXTENSION="txz"
 
 	echo "FULL: Generating $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
 
@@ -1625,7 +1625,7 @@ create_full() {
 
 	echo "Generating SHA512 CHECKSUM File"
 	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.tgz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.txz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
 
 	return 0
 }
@@ -1740,7 +1740,7 @@ create_arm_image() {
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	# ARM use uncompressed kernel
-	#gunzip $XIGMANAS_TMPDIR/mfsroot.gz
+	#gunzip $XIGMANAS_TMPDIR/mfsroot.gz 
 	gunzip $XIGMANAS_TMPDIR/boot/kernel/kernel.gz
 	cp $XIGMANAS_BOOTDIR/kernel/*.ko $XIGMANAS_TMPDIR/boot/kernel
 	#cp $XIGMANAS_BOOTDIR/boot $XIGMANAS_TMPDIR/boot
