@@ -66,7 +66,7 @@ function show_footer() {
 	endif;
 	$output[] = '</td>';
 	$output[] = '<td class="g4fc">' . htmlspecialchars(get_product_copyright()) . '</td>';
-	$output[] = '<td class="g4fr"></td>';
+	$output[] = '<td class="g4fr">' . htmlspecialchars(system_get_hostname()). '</td>';
 	$output[] = '</tr>';
 	$output[] = '</tbody>';
 	$output[] = '</table>';
@@ -76,4 +76,3 @@ function show_footer() {
 	$output[] = '</html>';
 	echo implode("\n",$output);
 }
-?>

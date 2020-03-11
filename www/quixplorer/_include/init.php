@@ -62,7 +62,7 @@ $GLOBALS['order'] = filter_input(INPUT_GET,'order',FILTER_VALIDATE_REGEXP,['flag
 $GLOBALS['srt'] = filter_input(INPUT_GET,'srt',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'yes','regexp' => '/^(yes|no)$/']]);
 // Necessary files
 ob_start(); // prevent unwanted output
-/*	XigmaNAS® code*/
+/* XigmaNAS® CODE*/
 if(function_exists('date_default_timezone_set')):
 	if(function_exists('date_default_timezone_get')):
 		@date_default_timezone_set(@date_default_timezone_get());
@@ -70,7 +70,7 @@ if(function_exists('date_default_timezone_set')):
 		@date_default_timezone_set('UTC');
 	endif;
 endif;
-/*	End XigmaNAS® code */
+/* END XigmaNAS® CODE*/
 /* ORIGINAL CODE
 date_default_timezone_set ( "UTC" );
  */
@@ -82,7 +82,7 @@ require './_config/conf.php';
 require './_config/configs.php';
 
 _load_language($GLOBALS['language']);
-/*	XigmaNAS® code */
+/* XigmaNAS® CODE*/
 if(isset($GLOBALS['lang'])):
 	$GLOBALS['language'] = $GLOBALS['lang'];
 endif;
@@ -91,7 +91,7 @@ if(file_exists('./_lang/' . $GLOBALS['language'] . '.php')):
 else:
 	require './_lang/en_US.php';
 endif;
-/*	End XigmaNAS® code */
+/* END XigmaNAS® CODE*/
 
 require './_config/mimes.php';
 require './_include/extra.php';
@@ -113,19 +113,14 @@ if(isset($prompt)):
 	$GLOBALS['messages']['actloginheader'] = $prompt;
 endif;
 ob_end_clean(); // get rid of cached unwanted output
-
-function _load_language($lang) {
-    if(!isset($lang)):
-        $lang = 'en_US';
+/**
+ *	Load quixplorer language file
+ *	@param string $language
+ */
+function _load_language(string $language = 'en_US') {
+	$language_file = sprintf('./_lang/%s.php',$language);
+	if(!file_exists($language_file)):
+		header('Location: \index.php');
 	endif;
-	$f1 = sprintf('./_lang/%s.php',$lang);
-	$f2 = sprintf('./_lang/%s_mimes.php',$lang);
-	if(!(file_exists($f1) and file_exists($f2))):
-        $lang = 'en_US';
-		$f1 = sprintf('./_lang/%s.php',$lang);
-		$f2 = sprintf('./_lang/%s_mimes.php',$lang);
-	endif;
-	require $f1;
-	require $f2;
+	require $language_file;
 }
-?>

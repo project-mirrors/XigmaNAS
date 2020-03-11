@@ -153,18 +153,16 @@ function print_table($dir,$list) {
 	foreach($list as $item => $value):
 		// link to dir / file
 		$abs_item = get_abs_item($dir,$item);
-		$target='';
-		if(is_dir($abs_item)):
-			$link = make_link('list',get_rel_item($dir,$item),NULL);
-		else:
-			$link = make_link('download',$dir,$item);
-			$target = '_blank';
-		endif;
 		echo '<tr class="rowdata">';
 		echo '<td class="lcelc"><input type="checkbox" name="selitems[]" value="',htmlspecialchars($item),'" onclick="javascript:Toggle(this);"></td>',"\n";
 		// Icon + Link
 		echo '<td class="lcell" style="white-space: nowrap">';
 		if(permissions_grant($dir,$item,'read')):
+			if(is_dir($abs_item)):
+				$link = make_link('list',get_rel_item($dir,$item),NULL);
+			else:
+				$link = make_link('download',$dir,$item);
+			endif;
 			echo '<a href="',$link,'"><div>';
 		endif;
 		echo '<img style="vertical-align:middle" width="16" height="16" src="_img/',get_mime_type($dir,$item,'img'),'" alt="">&nbsp;';
@@ -268,7 +266,6 @@ function list_dir($dir) {
 	// ADMIN & LOGOUT
 	if(login_is_user_logged_in()):
 		echo '<td style="padding-right:8px"></td>';
-		_print_link('admin',permissions_grant(NULL,NULL,'admin') || permissions_grant(NULL,NULL,'password'),$dir,NULL); // ADMIN
 		_print_link('logout',true,$dir,NULL); // LOGOUT
 	endif;
 	echo '</tr></tbody></table></td>',"\n";
@@ -279,8 +276,8 @@ function list_dir($dir) {
 		echo '<table style="width:100%"><tbody><tr><td>',"\n";
 		echo '<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['add'],'" alt="">',"\n";
 		echo '<select name="mktype">',"\n";
-		echo '<option value="file">',$GLOBALS['mimes']['file'],'</option>',"\n";
-		echo '<option value="dir">',$GLOBALS['mimes']['dir'],'</option>',"\n";
+		echo '<option value="file">',\gettext('File'),'</option>',"\n";
+		echo '<option value="dir">',\gettext('Directory'),'</option>',"\n";
 		echo '</select>',"\n";
 		echo '<input name="mkname" type="text" size="15">',"\n";
 		echo '<input type="submit" value="',$GLOBALS['messages']['btncreate'],'">',"\n";
@@ -309,7 +306,7 @@ function list_dir($dir) {
 		  			'<th class="lhelc">',"\n",
 		  				'<input type="checkbox" name="toggleAllC" onclick="javascript:ToggleAll(this);">',
 					'</th>',"\n";
-	$new_srt = ($GLOBALS['order'] == 'name') ? $_srt : 'yes'; 
+	$new_srt = ($GLOBALS['order'] == 'name') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
 						'<a href="',make_link('list',$dir,NULL,'name',$new_srt),'">',$GLOBALS['messages']['nameheader'];
 	if($GLOBALS['order'] == 'name'):
@@ -317,7 +314,7 @@ function list_dir($dir) {
 	endif;
 	echo				'</a>',
 					'</th>',"\n";
-	$new_srt = ($GLOBALS['order'] == 'size') ? $_srt : 'yes'; 
+	$new_srt = ($GLOBALS['order'] == 'size') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
 						'<a href="',make_link('list',$dir,NULL,'size',$new_srt),'">',$GLOBALS['messages']['sizeheader'];
 	if($GLOBALS['order'] == 'size'):
@@ -325,7 +322,7 @@ function list_dir($dir) {
 	endif;
 	echo				'</a>',
 					'</th>',"\n";
-	$new_srt = ($GLOBALS['order'] == 'type') ? $_srt : 'yes'; 
+	$new_srt = ($GLOBALS['order'] == 'type') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
 						'<a href="',make_link('list',$dir,NULL,'type',$new_srt),'">',$GLOBALS['messages']['typeheader'];
 	if($GLOBALS['order'] == 'type'):
@@ -333,7 +330,7 @@ function list_dir($dir) {
 	endif;
 	echo				'</a>',
 					'</th>',"\n";
-	$new_srt = ($GLOBALS['order'] == 'mod') ? $_srt : 'yes'; 
+	$new_srt = ($GLOBALS['order'] == 'mod') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
 						'<a href="',make_link('list',$dir,NULL,'mod',$new_srt),'">',$GLOBALS["messages"]["modifheader"];
 	if($GLOBALS['order'] == 'mod'):
@@ -411,7 +408,6 @@ function _print_link ($function,$allow,$dir,$item) {
 		case 'delete': $v = ['jf' => 'javascript:Delete();','img' => $GLOBALS['baricons']['delete'],'imgdis' => $GLOBALS['baricons']['notdelete'],'msg' => $GLOBALS['messages']['dellink']];break;
 		case 'upload': $v = ['jf' => make_link('upload',$dir,NULL),'img' => $GLOBALS['baricons']['upload'],'imgdis' => $GLOBALS['baricons']['notupload'],'msg' => $GLOBALS['messages']['uploadlink']];break;
 		case 'archive': $v = ['jf' => 'javascript:Archive();','img' => $GLOBALS['baricons']['archive'],'msg' => $GLOBALS['messages']['comprlink']];break;
-		case 'admin': $v = ['jf' => make_link('admin',$dir,NULL),'img' => $GLOBALS['baricons']['admin'],'msg' => $GLOBALS['messages']['adminlink']];break;
 		case 'logout': $v = ['jf' => make_link('logout',NULL,NULL),'img' => $GLOBALS['baricons']['logout'],'imgdis' => '_img/_logout_.gif','msg' => $GLOBALS['messages']['logoutlink']];break;
 		case 'edit': $v = ['jf' => make_link('edit',$dir,$item),'img' => $GLOBALS['baricons']['edit'],'imgdis' => $GLOBALS['baricons']['notedit'],'msg' => $GLOBALS['messages']['editlink']];break;
 		case 'unzip': $v = ['jf' => make_link('unzip',$dir,$item),'img' => $GLOBALS['baricons']['unzip'],'imgdis' => $GLOBALS['baricons']['notunzip'],'msg' => $GLOBALS['messages']['unziplink']];break;
@@ -443,16 +439,16 @@ function _get_link_info($dir, $item) {
 
 /*
  * The breadcrumbs function will take the user's current path and build a breadcrumb.
- * 
- * 	A breadcrums is a list of links for each directory in the current path.
- * 
+ *
+ * 	A breadcrumb is a list of links for each directory in the current path.
+ *
  * 	@param
  * $curdir is a string containing what will usually be the users
  * current directory.  %displayseparator is optional and contains a
  * string that will be displayed betweenach crumb.
- * 
+ *
  *  Typical syntax:
- * 
+ *
  * echo breadcrumbs($dir, ">>");
  * show_header($GLOBALS["messages"]["actdir"].":".breadcrumbs($dir));
  */
@@ -486,4 +482,3 @@ function _breadcrumbs($curdir, $displayseparator = ' &raquo; ') {
 	// Build temporary array into one string.
 	return implode($displayseparator, $breadcrumbs);
 }
-?>

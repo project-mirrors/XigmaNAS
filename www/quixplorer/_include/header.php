@@ -35,18 +35,18 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-/*	XigmaNAS® Code */
+/*	XigmaNAS® CODE */
 require_once 'guiconfig.inc';
 require_once 'session.inc';
 
 Session::start();
-// Check if session is valid
+//	Check if session is valid
 if (!Session::isLogin()) {
 	header('Location: /login.php');
 	exit;
 }
-/* QUIXPLORER CODE */
-// header for html-page
+/*	QUIXPLORER CODE */
+//	header for html-page
 function show_header($title, $additional_header_content = null) {
 	global $g;
 	global $config;
@@ -59,8 +59,8 @@ function show_header($title, $additional_header_content = null) {
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
 	header("Content-Type: text/html; charset=".$GLOBALS["charset"]);
-/*	XigmaNAS® & Quixplorer code */
-	// Html & Page Headers
+/*	XigmaNAS® & QUIXPLORER CODE*/
+//	Html & Page Headers
 	echo '<!DOCTYPE html>',PHP_EOL;
 	echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="',system_get_language_code(),'" lang="',system_get_language_code(),'" dir="',$GLOBALS['text_dir'],'">',PHP_EOL;
 	echo '<head>',PHP_EOL;
@@ -97,9 +97,6 @@ function show_header($title, $additional_header_content = null) {
 		echo '<a title="www.',get_product_url(),'" href="https://www.',get_product_url(),'" target="_blank"><img src="../images/header_logo.png" alt="logo"/></a>',PHP_EOL;
 		echo '</div>',PHP_EOL;
 		echo '<div id="headerrlogo">',PHP_EOL;
-		echo '<div class="hostname">',PHP_EOL;
-		echo '<span>',system_get_hostname(),'&nbsp;</span>',PHP_EOL;
-		echo '</div>',PHP_EOL;
 		echo '</div>',PHP_EOL;
 		echo '</div>',PHP_EOL;
 		echo '</header>',PHP_EOL;
@@ -110,7 +107,7 @@ function show_header($title, $additional_header_content = null) {
 	echo '</header>',PHP_EOL;
 	echo '<main id="g4m">',PHP_EOL;
 	echo '<div id="pagecontent">';
-	// QuiXplorer Header
+//	QuiXplorer Header
 	if(!isset($pgtitle_omit) || !$pgtitle_omit):
 		echo '<p class="pgtitle">',gentitle($pgtitle),'</p>',PHP_EOL;
 	endif;
@@ -125,4 +122,3 @@ function show_header($title, $additional_header_content = null) {
 				'<td class="lhetop" style="text-align:right">Powered by QuiXplorer</td>',PHP_EOL,
 			'</tr></tbody></table>',PHP_EOL;
 }
-?>
