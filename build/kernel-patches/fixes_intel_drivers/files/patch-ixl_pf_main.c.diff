@@ -1,0 +1,29 @@
+--- ixl/ixl_pf_main.c.orig	2020-03-11 16:28:57.811220000 +0100
++++ ixl/ixl_pf_main.c	2020-03-11 16:57:31.000000000 +0100
+@@ -2604,6 +2604,7 @@
+ 	struct i40e_hw	*hw = &pf->hw;
+ 	struct ixl_vsi	*vsi = &pf->vsi;
+ 	struct ixl_vf	*vf;
++	u64 prev_link_xoff_rx = pf->stats.link_xoff_rx;
+ 
+ 	struct i40e_hw_port_stats *nsd = &pf->stats;
+ 	struct i40e_hw_port_stats *osd = &pf->stats_offsets;
+@@ -2689,6 +2690,13 @@
+ 			   pf->stat_offsets_loaded,
+ 			   &osd->link_xoff_tx, &nsd->link_xoff_tx);
+ 
++	/*
++	 * For watchdog management we need to know if we have been paused
++	 * during the last interval, so capture that here.
++	 */
++	if (pf->stats.link_xoff_rx != prev_link_xoff_rx)
++		vsi->shared->isc_pause_frames = 1;
++
+ 	/* Packet size stats rx */
+ 	ixl_stat_update48(hw, I40E_GLPRT_PRC64H(hw->port),
+ 			   I40E_GLPRT_PRC64L(hw->port),
+@@ -5068,3 +5076,4 @@
+ 
+ 	return (error);
+ }
++
