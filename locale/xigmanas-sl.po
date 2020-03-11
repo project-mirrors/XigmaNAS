@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "Language: \n"
@@ -805,8 +805,8 @@ msgid "All data from the following statistics have been deleted:"
 msgstr ""
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
 
 msgid "All data will be lost when you activate this option!"
@@ -1032,6 +1032,9 @@ msgid "Append content to the default CSS file"
 msgstr ""
 
 msgid "Append user defined shares"
+msgstr ""
+
+msgid "Append user defined shares."
 msgstr ""
 
 msgid "Apple Filing Protocol"
@@ -5213,7 +5216,6 @@ msgstr ""
 msgid "Graph shows last 120 seconds"
 msgstr "Graf prikazuje zadnjih 120 sekund"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr ""
 
@@ -5948,6 +5950,9 @@ msgstr ""
 
 msgid "Invalid file format."
 msgstr "Napačen format datoteke."
+
+msgid "Invalid firmware file."
+msgstr ""
 
 msgid "Invalid login credentials."
 msgstr ""
@@ -7935,9 +7940,6 @@ msgid "Please check the log files"
 msgstr ""
 
 msgid "Please read the documentation"
-msgstr ""
-
-msgid "Please update your browser or use Internet Explorer 10 or higher."
 msgstr ""
 
 msgid "Polling Time"
@@ -12327,6 +12329,9 @@ msgstr ""
 msgid "Use the \"Video\" container"
 msgstr ""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -12370,6 +12375,9 @@ msgid ""
 msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
+msgstr ""
+
+msgid "Use zfsacl"
 msgstr ""
 
 msgid "Used"

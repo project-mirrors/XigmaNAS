@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
 "PO-Revision-Date: 2020-03-06 17:07+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -853,12 +853,9 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "Все данные из следующих статистик были удалены:"
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
-"Все данные по указанному пути будут перезаписаны. Чтобы избежать "
-"неправильных данных/разрешений, рекомендуется использовать пустой каталог "
-"UFS."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Все данные будут потеряны при активации этой опции!"
@@ -1110,6 +1107,9 @@ msgstr "Добавить содержимое в файл CSS по умолча�
 
 msgid "Append user defined shares"
 msgstr "Добавить пользовательские общие ресурсы"
+
+msgid "Append user defined shares."
+msgstr ""
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol (AFP)"
@@ -5545,7 +5545,6 @@ msgstr "Предоставить пользователю доступ к обо
 msgid "Graph shows last 120 seconds"
 msgstr "График показывает последние 120 секунд"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr "График показывает последние 120 секунд."
 
@@ -6337,6 +6336,9 @@ msgstr "Неверный формат файла или неправильный
 
 msgid "Invalid file format."
 msgstr "Неверный формат файла."
+
+msgid "Invalid firmware file."
+msgstr ""
 
 msgid "Invalid login credentials."
 msgstr "Неверные логин или пароль."
@@ -8414,11 +8416,6 @@ msgstr "Пожалуйста, проверьте файлы журналов"
 
 msgid "Please read the documentation"
 msgstr "Прочтите документацию"
-
-msgid "Please update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Пожалуйста, обновите ваш браузер или используйте Internet Explorer 10 или "
-"выше."
 
 msgid "Polling Time"
 msgstr "Время опроса"
@@ -13266,6 +13263,9 @@ msgstr "Использовать контейнер \"Картинки\""
 msgid "Use the \"Video\" container"
 msgstr "Использовать контейнер \"Видео\""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -13329,6 +13329,9 @@ msgstr ""
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
 "Использовать одну кнопку для изменения состояния вместо кнопок вкл./откл."
+
+msgid "Use zfsacl"
+msgstr ""
 
 msgid "Used"
 msgstr "Использовано"
@@ -14298,3 +14301,16 @@ msgstr "показать"
 
 msgid "yes"
 msgstr "да"
+
+#~ msgid ""
+#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
+#~ "an empty UFS directory is recommended."
+#~ msgstr ""
+#~ "Все данные по указанному пути будут перезаписаны. Чтобы избежать "
+#~ "неправильных данных/разрешений, рекомендуется использовать пустой каталог "
+#~ "UFS."
+
+#~ msgid "Please update your browser or use Internet Explorer 10 or higher."
+#~ msgstr ""
+#~ "Пожалуйста, обновите ваш браузер или используйте Internet Explorer 10 или "
+#~ "выше."

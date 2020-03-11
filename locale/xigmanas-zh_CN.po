@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
-"PO-Revision-Date: 2019-11-23 16:00+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"PO-Revision-Date: 2020-03-11 17:04+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -795,9 +795,9 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "以下统计的所有数据已经被删除："
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
-msgstr "路径中的全部数据都将被覆盖，推荐使用空的UFS目录以避免无效的数据或权限。"
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
+msgstr "所选路径中的所有数据将被覆盖。 建议使用空的UFS目录或空的ZFS数据集。"
 
 msgid "All data will be lost when you activate this option!"
 msgstr "当你激活此选项所有的数据将会丢失！"
@@ -1020,6 +1020,9 @@ msgstr "将内容附加到默认CSS文件"
 
 msgid "Append user defined shares"
 msgstr "追加用户自定义的用户共享"
+
+msgid "Append user defined shares."
+msgstr "追加用户定义的共享。"
 
 msgid "Apple Filing Protocol"
 msgstr "苹果文件协议（Apple Filing Protocol）"
@@ -2833,7 +2836,7 @@ msgid "Detailed"
 msgstr "详细信息"
 
 msgid "Details"
-msgstr ""
+msgstr "详细信息"
 
 msgid "Detected"
 msgstr "检测到"
@@ -5095,10 +5098,10 @@ msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM软件RAID"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "无法提供GEOM详细信息。"
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "找不到GEOM。"
 
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
@@ -5193,7 +5196,6 @@ msgstr "授予对用户的shell访问权限"
 msgid "Graph shows last 120 seconds"
 msgstr "图表显示最近120秒"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr "该图显示最近的120秒。"
 
@@ -5917,6 +5919,9 @@ msgstr "文件格式无效或密码不正确。"
 msgid "Invalid file format."
 msgstr "文件格式无效。"
 
+msgid "Invalid firmware file."
+msgstr "无效的固件文件。"
+
 msgid "Invalid login credentials."
 msgstr "无效的登录凭证。"
 
@@ -5956,13 +5961,13 @@ msgid "JBOD"
 msgstr "JBOD"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "JBOD详细信息"
 
 msgid "JBOD Maintenance"
 msgstr "JBOD维护"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "JBOD状态"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7165,13 +7170,13 @@ msgid "No RSYNC Client configured."
 msgstr "未配置RSYNC客户端。"
 
 msgid "No ZFS filesystem information available."
-msgstr ""
+msgstr "没有可用的ZFS文件系统信息。"
 
 msgid "No ZFS volume information available."
-msgstr ""
+msgstr "没有可用的ZFS卷信息。"
 
 msgid "No ZFS zpool information available."
-msgstr ""
+msgstr "没有可用的ZFS池信息。"
 
 msgid "No access to the user portal"
 msgstr "无法访问用户门户"
@@ -7892,9 +7897,6 @@ msgstr "请查看日志文件"
 msgid "Please read the documentation"
 msgstr "请阅读文档"
 
-msgid "Please update your browser or use Internet Explorer 10 or higher."
-msgstr "请更新您的浏览器或使用Internet Explorer 10或更高版本。"
-
 msgid "Polling Time"
 msgstr "轮询时间"
 
@@ -8297,28 +8299,28 @@ msgid "RAID0"
 msgstr "RAID0"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "RAID0详细信息"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "RAID0状态"
 
 msgid "RAID1"
 msgstr "RAID1"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "RAID1详细信息"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "RAID1状态"
 
 msgid "RAID5"
 msgstr "RAID5"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "RAID5详细信息"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "RAID5状态"
 
 msgid "RAM Disk"
 msgstr "内存盘"
@@ -9513,7 +9515,7 @@ msgstr ""
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
-msgstr ""
+msgstr "设置天数，直到提示显示备份系统配置为止。 默认值为28天。值为0则禁用提醒。"
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "将警告阈值设置为80到89之间的值。"
@@ -10988,11 +10990,11 @@ msgstr "密码不匹配。 请再试一次。"
 
 #, php-format
 msgid "The path %s does not exist."
-msgstr ""
+msgstr "路径%s不存在。"
 
 #, php-format
 msgid "The path %s is not a directory."
-msgstr ""
+msgstr "路径%s不是个目录。"
 
 #, php-format
 msgid "The path '%s' does not exist."
@@ -11159,7 +11161,7 @@ msgstr "该值无效。"
 msgid ""
 "The value of the parameter allows the debug level (logging level) to be "
 "specified"
-msgstr ""
+msgstr "该参数的值允许指定debug级别（日志记录级别）"
 
 msgid "The value of the setting."
 msgstr "设置的值。"
@@ -12156,7 +12158,7 @@ msgid "Unknown or Unformatted"
 msgstr "未知或未格式化"
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "未知或未记录的属性。"
 
 msgid "Unknown or unformatted"
 msgstr "不详/未格式化"
@@ -12281,6 +12283,9 @@ msgstr "使用“图片”容器"
 msgid "Use the \"Video\" container"
 msgstr "使用“视频”容器"
 
+msgid "Use the ZFS ACL driver."
+msgstr "使用ZFS ACL驱动程序。"
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -12327,6 +12332,9 @@ msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "使用切换按钮而不是启用/禁用按钮。"
+
+msgid "Use zfsacl"
+msgstr "使用zfsacl"
 
 msgid "Used"
 msgstr "已用空间"
@@ -12905,10 +12913,10 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS自适应替换缓存（ARC）"
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "ZFS文件系统信息和状态"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "ZFS文件系统属性"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -12923,7 +12931,7 @@ msgid "ZFS Pool I/O Statistics"
 msgstr "ZFS池I/O统计"
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "ZFS池信息和状态"
 
 msgid "ZFS Pool Properties"
 msgstr "ZFS池属性"
@@ -12950,16 +12958,16 @@ msgid "ZFS Volume Properties"
 msgstr "ZFS 卷属性"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "找不到ZFS文件系统。"
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "ZFS文件系统属性不可用。"
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "找不到ZFS池。"
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "ZFS池属性不可用。"
 
 msgid "ZFS volume"
 msgstr "ZFS 卷（volume）"
@@ -12968,10 +12976,10 @@ msgid "ZFS volume block size. This value can not be changed after creation."
 msgstr "ZFS卷块大小。 此值无法在创建后更改。"
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "找不到ZFS卷。"
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "ZFS卷属性不可用。"
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
@@ -13223,3 +13231,11 @@ msgstr "可见"
 
 msgid "yes"
 msgstr "是"
+
+#~ msgid ""
+#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
+#~ "an empty UFS directory is recommended."
+#~ msgstr "路径中的全部数据都将被覆盖，推荐使用空的UFS目录以避免无效的数据或权限。"
+
+#~ msgid "Please update your browser or use Internet Explorer 10 or higher."
+#~ msgstr "请更新您的浏览器或使用Internet Explorer 10或更高版本。"

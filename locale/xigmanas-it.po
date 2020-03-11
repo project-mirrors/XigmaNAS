@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
 "PO-Revision-Date: 2019-11-24 15:26+0000\n"
 "Last-Translator: luigi mascia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
@@ -857,11 +857,9 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "I seguenti dati statistici sono stati cancellati:"
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
-"Tutti i dati nel percorso sono sovrascritti. Per evitare invalidi "
-"data/permessi, è raccomandato l'uso di una directory UFS vuota."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Tutti i dati saranno persi quando attivi questa opzione!"
@@ -1115,6 +1113,9 @@ msgstr ""
 
 msgid "Append user defined shares"
 msgstr "Aggiungi le condivisioni definite dall'utente."
+
+msgid "Append user defined shares."
+msgstr ""
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -5543,7 +5544,6 @@ msgstr ""
 msgid "Graph shows last 120 seconds"
 msgstr "Il grafico mostra l'ultima 120 secondi"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr ""
 
@@ -6331,6 +6331,9 @@ msgstr "Formato file non valido o password incorretta"
 
 msgid "Invalid file format."
 msgstr "Formato file non valido."
+
+msgid "Invalid firmware file."
+msgstr ""
 
 msgid "Invalid login credentials."
 msgstr "Dati per l'accesso non validi."
@@ -8377,9 +8380,6 @@ msgstr "Per favore controllare i file di log"
 
 msgid "Please read the documentation"
 msgstr "Per favore leggi la documentazione"
-
-msgid "Please update your browser or use Internet Explorer 10 or higher."
-msgstr ""
 
 msgid "Polling Time"
 msgstr "Tempo di votazione"
@@ -13122,6 +13122,9 @@ msgstr ""
 msgid "Use the \"Video\" container"
 msgstr ""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -13178,6 +13181,9 @@ msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "Utilizzare l'interruttore invece che attivare/disattivare i bottoni."
+
+msgid "Use zfsacl"
+msgstr ""
 
 msgid "Used"
 msgstr "Usato"
@@ -14125,3 +14131,10 @@ msgstr "visibile"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
+#~ "an empty UFS directory is recommended."
+#~ msgstr ""
+#~ "Tutti i dati nel percorso sono sovrascritti. Per evitare invalidi "
+#~ "data/permessi, è raccomandato l'uso di una directory UFS vuota."

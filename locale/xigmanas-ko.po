@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:05+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -809,10 +809,9 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "아래 통계에 의한 모든 자료가 삭제되었습니다:"
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
-"해당 경로 내의 모든 자료는 덮어 씌워 집니다. 자료 및 권한 문제를 피하기 위해 비어 있는 UFS 디렉터리 사용을 권장합니다."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "이 옵션을 활성화하면 모든 자료를 잃게 됩니다!"
@@ -1039,6 +1038,9 @@ msgstr ""
 
 msgid "Append user defined shares"
 msgstr "사용자 정의 공유 추가"
+
+msgid "Append user defined shares."
+msgstr ""
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -5246,7 +5248,6 @@ msgstr ""
 msgid "Graph shows last 120 seconds"
 msgstr "그래프는 지난 1백20초을 보여줍니다"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr ""
 
@@ -5982,6 +5983,9 @@ msgstr "올바르지 않은 파일 형식이거나 암호가 정확하지 않습
 
 msgid "Invalid file format."
 msgstr "무효한 파일 포맷."
+
+msgid "Invalid firmware file."
+msgstr ""
 
 msgid "Invalid login credentials."
 msgstr "로그인 정보가 올바르지 않습니다."
@@ -7960,9 +7964,6 @@ msgid "Please check the log files"
 msgstr "로그 파일을 확인해 주십시오"
 
 msgid "Please read the documentation"
-msgstr ""
-
-msgid "Please update your browser or use Internet Explorer 10 or higher."
 msgstr ""
 
 msgid "Polling Time"
@@ -12377,6 +12378,9 @@ msgstr ""
 msgid "Use the \"Video\" container"
 msgstr ""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -12421,6 +12425,9 @@ msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "사용/사용 안함 버튼 대신 전환 버튼을 사용합니다."
+
+msgid "Use zfsacl"
+msgstr ""
 
 msgid "Used"
 msgstr "사용량"
@@ -13320,3 +13327,9 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
+#~ "an empty UFS directory is recommended."
+#~ msgstr ""
+#~ "해당 경로 내의 모든 자료는 덮어 씌워 집니다. 자료 및 권한 문제를 피하기 위해 비어 있는 UFS 디렉터리 사용을 권장합니다."

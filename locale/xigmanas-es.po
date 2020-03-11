@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-04 18:37+0000\n"
-"PO-Revision-Date: 2019-11-08 05:39+0000\n"
-"Last-Translator: Vicente Soriano <victek@gmail.com>\n"
+"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"PO-Revision-Date: 2020-03-09 08:38+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-08 19:21+0000\n"
+"X-Launchpad-Export-Date: 2020-03-11 22:04+0000\n"
 "X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -856,11 +856,9 @@ msgid "All data from the following statistics have been deleted:"
 msgstr "Todos los datos de esta estadistica serán borrados:"
 
 msgid ""
-"All data in the path is overwritten. To avoid invalid data/permission, using "
-"an empty UFS directory is recommended."
+"All data in the chosen path is overwritten. Using an empty UFS directory or "
+"an empty ZFS dataset is recommended."
 msgstr ""
-"Todos los datos en la ruta serán sobreescritos. Para evitar problemas de "
-"permisos, se recomienda usar un directorio UFS vacío."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "¡Todos los datos se perderan si activa está opción!"
@@ -1116,6 +1114,9 @@ msgstr "Añadir al archivo CSS por defecto"
 
 msgid "Append user defined shares"
 msgstr "Añadir compartidos definidos por el usuario"
+
+msgid "Append user defined shares."
+msgstr ""
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -3094,7 +3095,7 @@ msgid "Detailed"
 msgstr "Detallado"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 msgid "Detected"
 msgstr "Detectado"
@@ -5463,10 +5464,10 @@ msgid "GEOM VINUM Software RAID"
 msgstr "Software RAID GEOM VINUM"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "Detalles GEOM no disponibles"
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "GEOM no encontrado"
 
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
@@ -5565,7 +5566,6 @@ msgstr "Dar acceso shell al usuario"
 msgid "Graph shows last 120 seconds"
 msgstr "El gráfico muestra los últimos 120 segundos"
 
-#, php-format
 msgid "Graph shows recent 120 seconds."
 msgstr "El grafico muestra los 120 segundos actuales"
 
@@ -6372,6 +6372,9 @@ msgstr "Formato de archivo incorrecto o contraseña erronea"
 msgid "Invalid file format."
 msgstr "Formato de archivo inválido."
 
+msgid "Invalid firmware file."
+msgstr ""
+
 msgid "Invalid login credentials."
 msgstr "Credenciales de acceso inválidas."
 
@@ -6421,13 +6424,13 @@ msgid "JBOD"
 msgstr "JBOD"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "Detalles JBOD"
 
 msgid "JBOD Maintenance"
 msgstr "Mantenimiento JBOD"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "Estado JBDO"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -7690,13 +7693,13 @@ msgid "No RSYNC Client configured."
 msgstr "No está configurado el cliente RSYNC"
 
 msgid "No ZFS filesystem information available."
-msgstr ""
+msgstr "Sin información disponible del sistema ZFS"
 
 msgid "No ZFS volume information available."
-msgstr ""
+msgstr "Sin información disponible del volumen ZFS"
 
 msgid "No ZFS zpool information available."
-msgstr ""
+msgstr "Sin información disponible del pool ZFS"
 
 msgid "No access to the user portal"
 msgstr "Sin acceso al portal de usuario"
@@ -8444,10 +8447,6 @@ msgstr "Por favor revise los logs"
 msgid "Please read the documentation"
 msgstr "Por favor, lea la documentación."
 
-msgid "Please update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Por favor, actualice su navegador o utilice Internet Explorer 10 o superior."
-
 msgid "Polling Time"
 msgstr "Tiempo entre comprobaciones"
 
@@ -8866,28 +8865,28 @@ msgid "RAID0"
 msgstr "RAID 0"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "Detalles del RAID0"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "Estado del RAID0"
 
 msgid "RAID1"
 msgstr "RAID 1"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "Detalles del RAID1"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "estado del RAID1"
 
 msgid "RAID5"
 msgstr "RAID 5"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "Detalles del RAID5"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "estado del RAID5"
 
 msgid "RAM Disk"
 msgstr "Disco RAM"
@@ -10168,6 +10167,9 @@ msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
+"Especifique el numero de días para que se le recuerde hacer un Backup de la "
+"configuración del sistema.  El valor por defecto son 28 días.  Un valor de "
+"0, deshabilita el recordatorio."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Marcar el valor de precaución entre 80 y 89."
@@ -11844,11 +11846,11 @@ msgstr "Las contraseñas no coinciden. Intentelo de nuevo."
 
 #, php-format
 msgid "The path %s does not exist."
-msgstr ""
+msgstr "La ruta %s No existe."
 
 #, php-format
 msgid "The path %s is not a directory."
-msgstr ""
+msgstr "La ruta %s No es un directorio"
 
 #, php-format
 msgid "The path '%s' does not exist."
@@ -12041,6 +12043,7 @@ msgid ""
 "The value of the parameter allows the debug level (logging level) to be "
 "specified"
 msgstr ""
+"El valor del parámetro permite especificar el nivel de debug. (logging level)"
 
 msgid "The value of the setting."
 msgstr "El valor configurado."
@@ -13185,7 +13188,7 @@ msgid "Unknown or Unformatted"
 msgstr "Desconocido o sin Formato"
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "Atributo desconocido o indocumentado."
 
 msgid "Unknown or unformatted"
 msgstr "Desconocido o sin formato"
@@ -13317,6 +13320,9 @@ msgstr "Usar contenedor tipo \"Fotos\""
 msgid "Use the \"Video\" container"
 msgstr "Usar contenedor tipo \"Video\""
 
+msgid "Use the ZFS ACL driver."
+msgstr ""
+
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
 "with Windows 2000."
@@ -13380,6 +13386,9 @@ msgstr ""
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
 "Usar el botón de activar/desactivar en lugar de la casilla de habilitar"
+
+msgid "Use zfsacl"
+msgstr ""
 
 msgid "Used"
 msgstr "Utilizado"
@@ -14005,10 +14014,10 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Caché de reemplazo adaptable (ARC)"
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "Información y Estado ZFS"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "Propiedades ZFS"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -14023,7 +14032,7 @@ msgid "ZFS Pool I/O Statistics"
 msgstr "Estadisticas de I/O del ZFS de la agrupación de dispositivos(Pool)."
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "Información y Estado pool ZFS"
 
 msgid "ZFS Pool Properties"
 msgstr "Propiedades ZFS de la agrupación de dispositivos(Pool)."
@@ -14050,16 +14059,16 @@ msgid "ZFS Volume Properties"
 msgstr "Propiedades de Volumen ZFS"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "Sistema de archivos ZFS no encontrado."
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "propiedades ZFS no disponibles."
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "Pool ZFS no encontrado"
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "Propiedades del Pool ZFS no disponibles."
 
 msgid "ZFS volume"
 msgstr "Volumen ZFS"
@@ -14070,10 +14079,10 @@ msgstr ""
 "posteriori."
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "Volumen ZFS no encontrado"
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "Propiedades del volumen ZFS no disponibles"
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
@@ -14339,3 +14348,14 @@ msgstr "Visible"
 
 msgid "yes"
 msgstr "si"
+
+#~ msgid ""
+#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
+#~ "an empty UFS directory is recommended."
+#~ msgstr ""
+#~ "Todos los datos en la ruta serán sobreescritos. Para evitar problemas de "
+#~ "permisos, se recomienda usar un directorio UFS vacío."
+
+#~ msgid "Please update your browser or use Internet Explorer 10 or higher."
+#~ msgstr ""
+#~ "Por favor, actualice su navegador o utilice Internet Explorer 10 o superior."
