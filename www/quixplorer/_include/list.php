@@ -153,18 +153,16 @@ function print_table($dir,$list) {
 	foreach($list as $item => $value):
 		// link to dir / file
 		$abs_item = get_abs_item($dir,$item);
-		$target='';
-		if(is_dir($abs_item)):
-			$link = make_link('list',get_rel_item($dir,$item),NULL);
-		else:
-			$link = make_link('download',$dir,$item);
-			$target = '_blank';
-		endif;
 		echo '<tr class="rowdata">';
 		echo '<td class="lcelc"><input type="checkbox" name="selitems[]" value="',htmlspecialchars($item),'" onclick="javascript:Toggle(this);"></td>',"\n";
 		// Icon + Link
 		echo '<td class="lcell" style="white-space: nowrap">';
 		if(permissions_grant($dir,$item,'read')):
+			if(is_dir($abs_item)):
+				$link = make_link('list',get_rel_item($dir,$item),NULL);
+			else:
+				$link = make_link('download',$dir,$item);
+			endif;
 			echo '<a href="',$link,'"><div>';
 		endif;
 		echo '<img style="vertical-align:middle" width="16" height="16" src="_img/',get_mime_type($dir,$item,'img'),'" alt="">&nbsp;';
@@ -278,8 +276,8 @@ function list_dir($dir) {
 		echo '<table style="width:100%"><tbody><tr><td>',"\n";
 		echo '<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['add'],'" alt="">',"\n";
 		echo '<select name="mktype">',"\n";
-		echo '<option value="file">',$GLOBALS['mimes']['file'],'</option>',"\n";
-		echo '<option value="dir">',$GLOBALS['mimes']['dir'],'</option>',"\n";
+		echo '<option value="file">',\gettext('File'),'</option>',"\n";
+		echo '<option value="dir">',\gettext('Directory'),'</option>',"\n";
 		echo '</select>',"\n";
 		echo '<input name="mkname" type="text" size="15">',"\n";
 		echo '<input type="submit" value="',$GLOBALS['messages']['btncreate'],'">',"\n";
@@ -442,7 +440,7 @@ function _get_link_info($dir, $item) {
 /*
  * The breadcrumbs function will take the user's current path and build a breadcrumb.
  *
- * 	A breadcrums is a list of links for each directory in the current path.
+ * 	A breadcrumb is a list of links for each directory in the current path.
  *
  * 	@param
  * $curdir is a string containing what will usually be the users

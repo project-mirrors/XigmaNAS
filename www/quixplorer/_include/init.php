@@ -54,15 +54,15 @@ endif;
 /*
 _debug('xxx3 action: ' . $GLOBALS['__GET']['action'] ?? '' . '/' . $GLOBALS['__GET']['do_action'] ?? '' . '/' . (isset($GLOBALS['__GET']['action']) ? 'true' : 'false'));
  */
-// Get Item
+//	Get Item
 $GLOBALS['item'] = $GLOBALS['__GET']['item'] ?? '';
-// Get Sort
+//	Get Sort
 $GLOBALS['order'] = filter_input(INPUT_GET,'order',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'name','regexp' => '/\S/']]);
-// Get Sortorder (yes==up)
+//	Get Sortorder (yes==up)
 $GLOBALS['srt'] = filter_input(INPUT_GET,'srt',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'yes','regexp' => '/^(yes|no)$/']]);
-// Necessary files
+//	Necessary files
 ob_start(); // prevent unwanted output
-/* XigmaNAS® CODE*/
+/*	XigmaNAS® CODE*/
 if(function_exists('date_default_timezone_set')):
 	if(function_exists('date_default_timezone_get')):
 		@date_default_timezone_set(@date_default_timezone_get());
@@ -70,8 +70,8 @@ if(function_exists('date_default_timezone_set')):
 		@date_default_timezone_set('UTC');
 	endif;
 endif;
-/* END XigmaNAS® CODE*/
-/* ORIGINAL CODE
+/*	END XigmaNAS® CODE*/
+/*	ORIGINAL CODE
 date_default_timezone_set ( "UTC" );
  */
 if(!is_readable('./_config/conf.php')):
@@ -82,7 +82,7 @@ require './_config/conf.php';
 require './_config/configs.php';
 
 _load_language($GLOBALS['language']);
-/* XigmaNAS® CODE*/
+/*	XigmaNAS® CODE*/
 if(isset($GLOBALS['lang'])):
 	$GLOBALS['language'] = $GLOBALS['lang'];
 endif;
@@ -91,7 +91,7 @@ if(file_exists('./_lang/' . $GLOBALS['language'] . '.php')):
 else:
 	require './_lang/en_US.php';
 endif;
-/* END XigmaNAS® CODE*/
+/*	END XigmaNAS® CODE*/
 
 require './_config/mimes.php';
 require './_include/extra.php';
@@ -102,7 +102,7 @@ require_once './_include/login.php';
 
 login_check();
 
-// after login, language may have changed..
+//	after login, language may have changed..
 if(isset($_SESSION['language'])):
 	_load_language($_SESSION['language']);
 endif;
@@ -113,19 +113,14 @@ if(isset($prompt)):
 	$GLOBALS['messages']['actloginheader'] = $prompt;
 endif;
 ob_end_clean(); // get rid of cached unwanted output
-
-function _load_language($lang) {
-    if(!isset($lang)):
-        $lang = 'en_US';
+/**
+ *	Load quixplorer language file
+ *	@param string $language
+ */
+function _load_language(string $language = 'en_US') {
+	$language_file = sprintf('./_lang/%s.php',$language);
+	if(!file_exists($language_file)):
+		header('Location: \index.php');
 	endif;
-	$f1 = sprintf('./_lang/%s.php',$lang);
-	$f2 = sprintf('./_lang/%s_mimes.php',$lang);
-	if(!(file_exists($f1) and file_exists($f2))):
-        $lang = 'en_US';
-		$f1 = sprintf('./_lang/%s.php',$lang);
-		$f2 = sprintf('./_lang/%s_mimes.php',$lang);
-	endif;
-	require $f1;
-	require $f2;
+	require $language_file;
 }
-?>

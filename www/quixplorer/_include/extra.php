@@ -49,7 +49,7 @@ function make_link($_action,$_dir,$_item = NULL,$_order = NULL,$_srt = NULL,$_la
 	endif;
 	$a_query['action'] = $_action;
 	if($_dir == ''):
-		$_dir = NULL; 
+		$_dir = NULL;
 	endif;
 	$a_query['dir'] = $_dir;
 	if($_item == ''):
@@ -103,21 +103,36 @@ function parse_file_type($dir,$item) {
 function get_file_perms($dir,$item) {
 	return @decoct(@fileperms(get_abs_item($dir,$item)) & 0777);
 }
-// parsed file permisions
+/**
+ *	convert file permissions into human readable file permissions
+ *	@param int $mode
+ *	@return string
+ */
 function parse_file_perms($mode) {
-	if(strlen($mode)<3) return "---------";
-	$parsed_mode="";
-	for($i=0;$i<3;$i++) {
-		// read
-		if(($mode{$i} & 04)) $parsed_mode .= "r";
-		else $parsed_mode .= "-";
-		// write
-		if(($mode{$i} & 02)) $parsed_mode .= "w";
-		else $parsed_mode .= "-";
-		// execute
-		if(($mode{$i} & 01)) $parsed_mode .= "x";
-		else $parsed_mode .= "-";
-	}
+	if(strlen($mode) < 3):
+		return '---------';
+	endif;
+	$parsed_mode = '';
+	for($i = 0;$i < 3;$i++):
+//		read
+		if(($mode[$i] & 04)):
+			$parsed_mode .= 'r';
+		else:
+			$parsed_mode .= '-';
+		endif;
+//		write
+		if(($mode[$i] & 02)):
+			$parsed_mode .= 'w';
+		else:
+			$parsed_mode .= '-';
+		endif;
+//		execute
+		if(($mode[$i] & 01)):
+			$parsed_mode .= 'x';
+		else:
+			$parsed_mode .= '-';
+		endif;
+	endfor;
 	return $parsed_mode;
 }
 
@@ -185,52 +200,69 @@ function get_is_unzipable($dir, $item) {
 	}
 	return false;
 }
-
-function _get_used_mime_info ($item)
-{
-    foreach ($GLOBALS["used_mime_types"] as $mime)
-    {
-        list($desc, $img, $ext, $type) = $mime;
-		if (preg_match('/'.$ext.'/i',$item)) {
-            return array($mime, $img, $type);
-		}
-    }
-
-    return array(NULL, NULL, NULL);
+/**
+ *	Provides mime information about a filesystem object
+ *	@param string $item
+ *	@return array
+ */
+function _get_used_mime_info($item) {
+    foreach($GLOBALS['used_mime_types'] as $mime):
+        list($desc,$img,$ext,$type) = $mime;
+		if(preg_match('/' . $ext . '/i',$item)):
+            return [$mime,$img,$type];
+		endif;
+	endforeach;
+    return [null,null,null];
 }
-
-function get_mime_type ($dir, $item, $query)
-{
-	switch (filetype(get_abs_item($dir, $item))) {
-		case "dir":
-			$mime_type	= $GLOBALS["super_mimes"]["dir"][0];
-			$image		= $GLOBALS["super_mimes"]["dir"][1];
+/**
+ *	Determine the mime type of a filesystem object
+ *	@param string $dir
+ *	@param string $item
+ *	@param string $query
+ *	@return mixed
+ */
+function get_mime_type($dir,$item,$query) {
+	switch(filetype(get_abs_item($dir,$item))):
+		case 'dir':
+			$mime_type = $GLOBALS['super_mimes']['dir'][0];
+			$image = $GLOBALS['super_mimes']['dir'][1];
 			break;
-		case "link":
-			$mime_type	= $GLOBALS["super_mimes"]["link"][0];
-			$image		= $GLOBALS["super_mimes"]["link"][1];
+		case 'link':
+			$mime_type = $GLOBALS['super_mimes']['link'][0];
+			$image = $GLOBALS['super_mimes']['link'][1];
 			break;
 		default:
-			list($mime_type, $image, $type) = _get_used_mime_info($item);
-			if ($mime_type != NULL) {
-				_debug("found mime type $mime_type");  
+			list($mime_type,$image,$type) = _get_used_mime_info($item);
+			if($mime_type != null):
+				_debug("found mime type $mime_type[0]");
 				break;
-			}
-		if ((function_exists("is_executable") && @is_executable(get_abs_item($dir,$item))) || preg_match('/'.$GLOBALS["super_mimes"]["exe"][2].'/i',$item)) {
-				$mime_type	= $GLOBALS["super_mimes"]["exe"][0];
-				$image		= $GLOBALS["super_mimes"]["exe"][1];
-			} else {
-				// unknown file
-				_debug("unknown file type ");
-				$mime_type	= $GLOBALS["super_mimes"]["file"][0];
-				$image		= $GLOBALS["super_mimes"]["file"][1];
-			}
-	}
-	switch ($query) {
-		case "img":	return $image;
-		case "ext":	return $type;
-		default:	return $mime_type;
-	}
+			endif;
+			if(function_exists('is_executable') && @is_executable(get_abs_item($dir,$item))):
+				$mime_type = $GLOBALS['super_mimes']['exe'][0];
+				$image = $GLOBALS['super_mimes']['exe'][1];
+			elseif(preg_match('/' . $GLOBALS['super_mimes']['exe'][2] . '/i',$item)):
+				$mime_type = $GLOBALS['super_mimes']['exe'][0];
+				$image = $GLOBALS['super_mimes']['exe'][1];
+			else:
+//				unknown file
+				_debug('unknown file type ');
+				$mime_type = $GLOBALS['super_mimes']['file'][0];
+				$image = $GLOBALS['super_mimes']['file'][1];
+			endif;
+			break;
+	endswitch;
+	switch($query):
+		case 'img':
+			$result = $image;
+			break;
+		case 'ext':
+			$result = $type;
+			break;
+		default:
+			$result = $mime_type;
+			break;
+	endswitch;
+	return $result;
 }
 
 /**
@@ -384,5 +416,3 @@ function id_browser() {
 		return 'OTHER';
 	}
 }
-
-?>
