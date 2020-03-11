@@ -54,15 +54,15 @@ endif;
 /*
 _debug('xxx3 action: ' . $GLOBALS['__GET']['action'] ?? '' . '/' . $GLOBALS['__GET']['do_action'] ?? '' . '/' . (isset($GLOBALS['__GET']['action']) ? 'true' : 'false'));
  */
-// Get Item
+//	Get Item
 $GLOBALS['item'] = $GLOBALS['__GET']['item'] ?? '';
-// Get Sort
+//	Get Sort
 $GLOBALS['order'] = filter_input(INPUT_GET,'order',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'name','regexp' => '/\S/']]);
-// Get Sortorder (yes==up)
+//	Get Sortorder (yes==up)
 $GLOBALS['srt'] = filter_input(INPUT_GET,'srt',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 'yes','regexp' => '/^(yes|no)$/']]);
-// Necessary files
+//	Necessary files
 ob_start(); // prevent unwanted output
-/* XigmaNAS® CODE*/
+/*	XigmaNAS® CODE*/
 if(function_exists('date_default_timezone_set')):
 	if(function_exists('date_default_timezone_get')):
 		@date_default_timezone_set(@date_default_timezone_get());
@@ -70,8 +70,8 @@ if(function_exists('date_default_timezone_set')):
 		@date_default_timezone_set('UTC');
 	endif;
 endif;
-/* END XigmaNAS® CODE*/
-/* ORIGINAL CODE
+/*	END XigmaNAS® CODE*/
+/*	ORIGINAL CODE
 date_default_timezone_set ( "UTC" );
  */
 if(!is_readable('./_config/conf.php')):
@@ -82,7 +82,7 @@ require './_config/conf.php';
 require './_config/configs.php';
 
 _load_language($GLOBALS['language']);
-/* XigmaNAS® CODE*/
+/*	XigmaNAS® CODE*/
 if(isset($GLOBALS['lang'])):
 	$GLOBALS['language'] = $GLOBALS['lang'];
 endif;
@@ -91,9 +91,8 @@ if(file_exists('./_lang/' . $GLOBALS['language'] . '.php')):
 else:
 	require './_lang/en_US.php';
 endif;
-/* END XigmaNAS® CODE*/
+/*	END XigmaNAS® CODE*/
 
-require './_config/mimes.php';
 require './_include/extra.php';
 require_once './_include/header.php';
 require './_include/footer.php';
@@ -102,11 +101,11 @@ require_once './_include/login.php';
 
 login_check();
 
-// after login, language may have changed..
+//	after login, language may have changed..
 if(isset($_SESSION['language'])):
 	_load_language($_SESSION['language']);
 endif;
-
+require './_config/mimes.php';
 ob_end_clean(); // get rid of cached unwanted output
 $prompt = $GLOBALS['login_prompt'][$GLOBALS['language']] ?? $GLOBALS['login_prompt']['en'];
 if(isset($prompt)):
@@ -120,7 +119,9 @@ ob_end_clean(); // get rid of cached unwanted output
 function _load_language(string $language = 'en_US') {
 	$language_file = sprintf('./_lang/%s.php',$language);
 	if(!file_exists($language_file)):
-		header('Location: \index.php');
+		header('Location: /index.php');
 	endif;
 	require $language_file;
+	putenv(sprintf('LANGUAGE=%s',$language));
+	setlocale(LC_MESSAGES,$language . '.UTF-8');
 }
