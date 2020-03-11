@@ -58,3 +58,33 @@ etc/inc/properties_disks_zfs_settings.php
 # 7278
 usr/local/www/access_users_groups.php
 usr/local/www/access_users_groups_edit.php
+# 7331
+usr/local/www/quixplorer/_lang/af_mimes.php
+usr/local/www/quixplorer/_lang/bg_mimes.php
+usr/local/www/quixplorer/_lang/ca_mimes.php
+usr/local/www/quixplorer/_lang/cs_mimes.php
+usr/local/www/quixplorer/_lang/da_mimes.php
+usr/local/www/quixplorer/_lang/de_mimes.php
+usr/local/www/quixplorer/_lang/el_mimes.php
+usr/local/www/quixplorer/_lang/en_US_mimes.php
+usr/local/www/quixplorer/_lang/es_mimes.php
+usr/local/www/quixplorer/_lang/fi_mimes.php
+usr/local/www/quixplorer/_lang/fr_mimes.php
+usr/local/www/quixplorer/_lang/hu_mimes.php
+usr/local/www/quixplorer/_lang/it_mimes.php
+usr/local/www/quixplorer/_lang/ja_mimes.php
+usr/local/www/quixplorer/_lang/ko_mimes.php
+usr/local/www/quixplorer/_lang/nb_mimes.php
+usr/local/www/quixplorer/_lang/nl_mimes.php
+usr/local/www/quixplorer/_lang/pl_mimes.php
+usr/local/www/quixplorer/_lang/pt_mimes.php
+usr/local/www/quixplorer/_lang/pt_BR_mimes.php
+usr/local/www/quixplorer/_lang/ro_mimes.php
+usr/local/www/quixplorer/_lang/ru_mimes.php
+usr/local/www/quixplorer/_lang/sk_mimes.php
+usr/local/www/quixplorer/_lang/sv_mimes.php
+usr/local/www/quixplorer/_lang/sl_mimes.php
+usr/local/www/quixplorer/_lang/tr_mimes.php
+usr/local/www/quixplorer/_lang/uk_mimes.php
+usr/local/www/quixplorer/_lang/zh_CN_mimes.php
+usr/local/www/quixplorer/_lang/zh_TW_mimes.php
