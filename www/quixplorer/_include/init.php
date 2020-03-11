@@ -93,7 +93,6 @@ else:
 endif;
 /*	END XigmaNAS® CODE*/
 
-require './_config/mimes.php';
 require './_include/extra.php';
 require_once './_include/header.php';
 require './_include/footer.php';
@@ -106,7 +105,7 @@ login_check();
 if(isset($_SESSION['language'])):
 	_load_language($_SESSION['language']);
 endif;
-
+require './_config/mimes.php';
 ob_end_clean(); // get rid of cached unwanted output
 $prompt = $GLOBALS['login_prompt'][$GLOBALS['language']] ?? $GLOBALS['login_prompt']['en'];
 if(isset($prompt)):
@@ -120,7 +119,9 @@ ob_end_clean(); // get rid of cached unwanted output
 function _load_language(string $language = 'en_US') {
 	$language_file = sprintf('./_lang/%s.php',$language);
 	if(!file_exists($language_file)):
-		header('Location: \index.php');
+		header('Location: /index.php');
 	endif;
 	require $language_file;
+	putenv(sprintf('LANGUAGE=%s',$language));
+	setlocale(LC_MESSAGES,$language . '.UTF-8');
 }
