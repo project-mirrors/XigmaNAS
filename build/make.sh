@@ -438,7 +438,7 @@ add_libs() {
 create_checksum_file() {
 	echo "Generating SHA512 CHECKSUM File"
 	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.tgz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.txz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
 
 	return 0
 }
@@ -1466,7 +1466,7 @@ create_full() {
 
 	# Set archive extension
 	# Set between tgz and txz
-	EXTENSION="tgz"
+	EXTENSION="txz"
 
 	echo "FULL: Generating $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
 
