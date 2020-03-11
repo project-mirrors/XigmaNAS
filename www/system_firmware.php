@@ -228,13 +228,6 @@ $errormsg = '';
 $savemsg = '';
 $locale = $config['system']['language'] ?? 'en_US';
 
-// Rename firmware file extension regarding the platform.
-//if($g['zroot']):
-//	$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
-//else:
-//	$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
-//endif;
-
 //	check boot partition
 $part1size = $g_install['part1size_embedded'];
 $cfdevice = trim(file_get_contents(sprintf('%s/cfdevice',$g['etc_path'])));
@@ -305,11 +298,9 @@ switch($page_mode):
 			$ul_file = $_FILES['ulfile']['name'];
 			if($g['zroot']):
 				if (preg_match("/$prd_name.*.tgz/", $ul_file)):
-					$file_ext = "tgz";
-					$firmware_file = sprintf("%s/firmware.$file_ext",$g['ftmp_path']);
+					$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
 				elseif (preg_match("/$prd_name.*.txz/", $ul_file)):
-					$file_ext = "txz";
-					$firmware_file = sprintf("%s/firmware.$file_ext",$g['ftmp_path']);
+					$firmware_file = sprintf('%s/firmware.txz',$g['ftmp_path']);
 				else:
 					$input_errors[] = gtext('Invalid firmware file.');
 				endif;
