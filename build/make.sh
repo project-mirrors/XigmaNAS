@@ -1478,7 +1478,7 @@ create_full() {
 
 	# Set archive extension
 	# Set between tgz and txz
-	EXTENSION="txz"
+	EXTENSION="tgz"
 
 	echo "FULL: Generating $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
 
