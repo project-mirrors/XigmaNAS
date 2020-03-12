@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -413,6 +413,9 @@ msgstr "Érvényes hálózati bit számot (1-32) kell megadni."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Érvényes előtagot (1-128) kell megadni."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "ACL öröklődés"
 
@@ -462,6 +465,9 @@ msgstr "ARP táblák felsorolása"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Távoli rendszernapló-üzenetek fogadása"
@@ -1339,6 +1345,12 @@ msgstr ""
 "Működési fordulatszám eléréséhez szükséges átlagos idő (álló helyzetből "
 "működési fordulatig)."
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Vissza"
 
@@ -1581,6 +1593,15 @@ msgstr "Alapértelmezetten csak már létező fájlok tölthetőek fel."
 msgid "Bytes/sec"
 msgstr "Byte/mp"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "GYORSÍTÓTÁRAZÁS"
 
@@ -1626,6 +1647,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD lemez"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "MEGVÁLTOZOTT"
@@ -1722,6 +1746,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr "CSS beállítások"
@@ -2577,6 +2604,9 @@ msgstr ""
 "A DOS SMB kilensek azt feltételezik, hogy a szervernek ugyanaz a "
 "karakterkészlete van, mint nekik. Ez az opció határozza meg, hogy melyik "
 "karakterkészlettel kommunikáljon a Samba a DOS kliensekkel."
+
+msgid "DTS Audio File"
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -4938,8 +4968,14 @@ msgstr "Esemény"
 msgid "Example: pkg install packagename."
 msgstr "Például: pkg install csomagnév."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Futtatás"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Futtatás"
@@ -5043,6 +5079,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - csak a végzetes hibák naplózása"
+
+msgid "FLAC Audio File"
+msgstr ""
 
 msgid "FRU Information"
 msgstr "FRU információ"
@@ -5265,6 +5304,9 @@ msgstr "xxx jelző (ups.conf vagy cmdline -x) állapot"
 msgid "Flags"
 msgstr "Jelzők"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr "Mappaminták"
 
@@ -5395,6 +5437,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU Általános Közösségi Licenc"
 
@@ -5418,6 +5463,9 @@ msgstr "GSSAPI hitelesítése"
 
 msgid "GUI"
 msgstr "Grafikus felület"
+
+msgid "GZIP Archive"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Átjáró"
@@ -5599,6 +5647,9 @@ msgstr "HDD készenléti idő"
 
 msgid "HOT SPARE"
 msgstr "GYORS TARTALÉK"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6334,6 +6385,9 @@ msgstr "JBOD karbantartás"
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Jail-ben van"
 
@@ -6342,6 +6396,15 @@ msgstr "Jan"
 
 msgid "January"
 msgstr "Január"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Feladat zárolva"
@@ -6598,6 +6661,9 @@ msgstr "Egy adattár és leszármazottai felhasználható méretét korlátozza.
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Egy adattár felhasználható méretét korlátozza."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "Lecsatlakozási művelet"
 
@@ -6844,17 +6910,38 @@ msgstr "MBR partíció"
 msgid "MD4 Password"
 msgstr "MD4 jelszó"
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "TÜKÖR"
 
 msgid "MISSING"
 msgstr "HIÁNYZIK"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "A nap üzenete"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "ÁTHELYEZVE:"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Címtárszolgáltatás"
@@ -7865,6 +7952,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Csoport numerikus azonosítója."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -8045,6 +8135,12 @@ msgstr "Tulajdonos"
 msgid "PAM authentication is selected."
 msgstr "PAM hitelesítést jelölted ki."
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8056,6 +8152,12 @@ msgstr "PHP parancskimenet"
 
 msgid "PHP License"
 msgstr "PHP Licenc"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8119,6 +8221,9 @@ msgstr "Partíció típusa"
 
 msgid "Partitions"
 msgstr "Partíciók"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Passzív port"
@@ -8262,6 +8367,9 @@ msgstr "Hitelesítés nélküli elérés tiltása"
 
 msgid "Permit discovery without authentication"
 msgstr "Hitelesítés nélküli felderítés tiltása"
+
+msgid "Photoshop File"
+msgstr ""
 
 msgid "Physical Block Offset"
 msgstr "Fizikai blokkoffszet"
@@ -8526,6 +8634,9 @@ msgstr "Energia üzemmód"
 msgid "Power management"
 msgstr "Energiagazdálkodás"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Hiba-előrejelző tulajdonság, legalábbis HP eszközökben."
 
@@ -8683,6 +8794,9 @@ msgstr ""
 "Amikor az utolsó lemezelérés után a megadott idő eltelik, a lemezeket "
 "készenléti módba tesszük,"
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr "CSENDES - naplózás kikapcsolása"
 
@@ -8793,6 +8907,9 @@ msgstr ""
 
 msgid "RAM Disk"
 msgstr "Memórialemez"
+
+msgid "RAR Archive"
+msgstr ""
 
 msgid "RAW info"
 msgstr "RAW info"
@@ -9035,6 +9152,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Írásvédett"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Terület"
@@ -9500,6 +9620,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP modulok"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10221,6 +10344,9 @@ msgstr "Megosztások"
 msgid "Shell"
 msgstr "Parancsértelmező"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Írás közbeni ütés."
 
@@ -10850,6 +10976,9 @@ msgstr "Rendszerüzenet buffer"
 msgid "System tuning"
 msgstr "Rendszer tuning"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP továbbítás"
 
@@ -10867,6 +10996,9 @@ msgstr "Szerverhez kötő TCP port"
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10894,6 +11026,9 @@ msgstr "TLS Szervertanúsítvány ellenőrzése"
 
 msgid "TLS Trust File"
 msgstr "TLS  Megbízható Fájl"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr ""
@@ -11014,6 +11149,9 @@ msgstr "Teszt e-mail sikeresen elküldve."
 
 msgid "Test mode, no command execution"
 msgstr "Tesztmód, nincs parancsfuttatás"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13346,6 +13484,9 @@ msgstr "VNC kijelző"
 msgid "VNC Password"
 msgstr "VNC jelszó"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Érték"
 
@@ -13481,6 +13622,9 @@ msgstr "WAN cím"
 
 msgid "WARNING"
 msgstr "FIGYELMEZTETÉS"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13659,6 +13803,9 @@ msgstr "Winbindd elérhetőség"
 msgid "Wireless configuration"
 msgstr "Vezetéknélküli beállítások"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Munkamappa"
 
@@ -13683,6 +13830,9 @@ msgstr "Hibás a partíció típusa vagy a partíció száma."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Hibás jogosultság  a következőn: %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13897,6 +14047,9 @@ msgid ""
 msgstr ""
 "ZFS kötet mérete. Megadásához használd a hagyományos utótag formátumokat "
 "(pl. K, KB, M, GB)."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

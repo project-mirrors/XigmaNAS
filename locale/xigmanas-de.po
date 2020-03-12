@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2020-03-04 18:18+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:12+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -436,6 +436,9 @@ msgstr ""
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Ein gültiges Präfix (1-128) muss angegeben werden."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "ACL Vererbung"
 
@@ -484,6 +487,9 @@ msgstr "ARP Tabelle"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Erlaube Remote Syslog Nachrichten."
@@ -1376,6 +1382,12 @@ msgstr ""
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Durchschnittliche Anlaufzeit der Festplatte"
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Zurück"
 
@@ -1631,6 +1643,15 @@ msgstr ""
 msgid "Bytes/sec"
 msgstr "Bytes/sek"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "CACHE"
 
@@ -1678,6 +1699,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD - Laufwerk"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "geändert"
@@ -1776,6 +1800,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr "CSS Einstellungen"
@@ -2625,6 +2652,9 @@ msgstr ""
 "DOS-SMB-Clients gehen davon aus, dass der Server denselben Zeichensatz hat "
 "wie sie. Diese Option gibt an, mit welchem Zeichensatz Samba mit DOS-Clients "
 "kommunizieren soll."
+
+msgid "DTS Audio File"
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -5002,8 +5032,14 @@ msgstr "Ereignis"
 msgid "Example: pkg install packagename."
 msgstr "Beispiel: pkg install Paketname."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Ausführen"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Ausführen"
@@ -5107,6 +5143,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - Zeichne nur schwerwiegende Fehler auf"
+
+msgid "FLAC Audio File"
+msgstr ""
 
 msgid "FRU Information"
 msgstr "FRU Information"
@@ -5331,6 +5370,9 @@ msgstr "Flag xxx (UPS-Konfigurationsdatei oder Kommandozeile '-x') Status"
 msgid "Flags"
 msgstr "Markierungen"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr "Ordnermuster"
 
@@ -5469,6 +5511,9 @@ msgstr "GEOM nicht gefunden."
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
 
@@ -5492,6 +5537,9 @@ msgstr "GSSAPI Authentifikation"
 
 msgid "GUI"
 msgstr "Grafische Benutzeroberfläche"
+
+msgid "GZIP Archive"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5677,6 +5725,9 @@ msgstr "Zeit bis Festplatten Standby"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6426,6 +6477,9 @@ msgstr "JBOD Verwaltung"
 msgid "JBOD Status"
 msgstr "JBOD Status"
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "In einer Virtualisierungsumgebung (Jailed)"
 
@@ -6434,6 +6488,15 @@ msgstr "Jan."
 
 msgid "January"
 msgstr "Januar"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Auftrag ist gesperrt"
@@ -6693,6 +6756,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Begrenzt den Speicherplatz, den ein Dataset verbrauchen darf."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "Aktion bei Verbindungsabbruch"
 
@@ -6940,17 +7006,38 @@ msgstr "MBR Partition"
 msgid "MD4 Password"
 msgstr "MD4 Passwort"
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "Spiegel (Mirror)"
 
 msgid "MISSING"
 msgstr "FEHLT"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "verlagert zu"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "Microsoft ActiveDirectory"
@@ -7964,6 +8051,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Numerischer Bezeichner für die Gruppe."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -8143,6 +8233,12 @@ msgstr "Eigentümer"
 msgid "PAM authentication is selected."
 msgstr "PAM Authentifizierung ist ausgewählt"
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8154,6 +8250,12 @@ msgstr "PHP Befehlsausgabe"
 
 msgid "PHP License"
 msgstr "PHP Lizenz"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8217,6 +8319,9 @@ msgstr "Partitionstyp"
 
 msgid "Partitions"
 msgstr "Partitionen"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Passiver Port"
@@ -8362,6 +8467,9 @@ msgstr "Zugriff ohne Authentifizierung zulassen"
 
 msgid "Permit discovery without authentication"
 msgstr "Entdeckung ohne Authentifizierung zulassen"
+
+msgid "Photoshop File"
+msgstr ""
 
 msgid "Physical Block Offset"
 msgstr "Physischer Block-Offset"
@@ -8627,6 +8735,9 @@ msgstr "Strom-Modus"
 msgid "Power management"
 msgstr "Energieverwaltung"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "\"Pre-Fail\"-Attribut (zumindest bei HP-Geräten genutzt)"
 
@@ -8784,6 +8895,9 @@ msgid ""
 msgstr ""
 "Nach der angegeben Zeit ohne Zugriff gehen die Festplatten in 'Stand-by'"
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr "QUIET - Deaktiviert die Protokollierung"
 
@@ -8894,6 +9008,9 @@ msgstr "RAID5 Status"
 
 msgid "RAM Disk"
 msgstr "RAM Disk"
+
+msgid "RAR Archive"
+msgstr ""
 
 msgid "RAW info"
 msgstr "RAW Informationen"
@@ -9136,6 +9253,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Nur Lesen"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Bereich"
@@ -9598,6 +9718,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP Module"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10349,6 +10472,9 @@ msgstr "Freigaben"
 msgid "Shell"
 msgstr "Shell"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Schocks während Schreiboperationen"
 
@@ -10980,6 +11106,9 @@ msgstr "System Nachrichten Puffer"
 msgid "System tuning"
 msgstr "Systemfeineinstellungen"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP Weiterleitung"
 
@@ -10997,6 +11126,9 @@ msgstr "TCP Port zum Bind Server."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11024,6 +11156,9 @@ msgstr "TLS Server Zertifikats Prüfung"
 
 msgid "TLS Trust File"
 msgstr "TLS Trust File"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr "Reiter"
@@ -11145,6 +11280,9 @@ msgstr "Test-E-Mail erfolgreich versendet."
 
 msgid "Test mode, no command execution"
 msgstr "Testmodus, keine Befehlsausführung"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13589,6 +13727,9 @@ msgstr "VNC-Anzeige"
 msgid "VNC Password"
 msgstr "VNC-Passwort"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Wert"
 
@@ -13726,6 +13867,9 @@ msgstr "WAN-Adresse"
 
 msgid "WARNING"
 msgstr "ACHTUNG"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13908,6 +14052,9 @@ msgstr "Verfügbarkeit von Winbindd"
 msgid "Wireless configuration"
 msgstr "WLAN Einstellungen"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Arbeitsverzeichnis"
 
@@ -13932,6 +14079,9 @@ msgstr "Falsche Partition/-typ"
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Falsche Berechtigung auf %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -14162,6 +14312,9 @@ msgid ""
 msgstr ""
 "ZFS Volume Größe. Sie können leicht lesbare Einheiten wie K, KB, M, GB "
 "wählen."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

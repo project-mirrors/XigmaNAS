@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
-"PO-Revision-Date: 2020-03-11 17:08+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
+"PO-Revision-Date: 2020-03-12 23:24+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -434,6 +434,9 @@ msgstr "Een geldig netwerk bit aantal (1-32) moet worden opgegeven."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Een geldig voorvoegsel (1-128) moet worden opgegeven."
 
+msgid "AC3 Audio File"
+msgstr "AC3 Audio Bestand"
+
 msgid "ACL Inherit"
 msgstr "ACL Overnemen"
 
@@ -482,6 +485,9 @@ msgstr "ARP tabel lijst"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr "AVI Bestand"
 
 msgid "Accept remote syslog messages."
 msgstr "Externe syslog berichten accepteren."
@@ -1368,6 +1374,12 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr ""
 "Gemiddelde tijd van spindle spin up (van nul TPM tot volledig operationeel)."
 
+msgid "BMP Image"
+msgstr "BMP Afbeelding"
+
+msgid "BZIP2 Archive"
+msgstr "BZIP2 Archief"
+
 msgid "Back"
 msgstr "Terug"
 
@@ -1624,6 +1636,15 @@ msgstr "Standaard kunnen alleen bestaande bestanden geupload worden."
 msgid "Bytes/sec"
 msgstr "Bytes/seconde"
 
+msgid "C File"
+msgstr "C Bestand"
+
+msgid "C++ Header File"
+msgstr "C++ Header Bestand"
+
+msgid "C++ Source File"
+msgstr "C++ Bron Bestand"
+
 msgid "CACHE"
 msgstr "CACHE"
 
@@ -1671,6 +1692,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD drive"
+
+msgid "CGI Script"
+msgstr "CGI Script"
 
 msgid "CHANGED"
 msgstr "VERANDERD"
@@ -1768,6 +1792,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr "CSS Bestand"
 
 msgid "CSS Settings"
 msgstr "CSS Instellingen"
@@ -2658,6 +2685,9 @@ msgstr ""
 "DOS SMB cliënten gaan ervan uit dat de server dezelfde tekenset heeft als "
 "hun zelf. Deze optie geeft aan welke tekenset Samba moet spreken met DOS "
 "cliënten."
+
+msgid "DTS Audio File"
+msgstr "DTS Audio Bestand"
 
 msgid "DVD"
 msgstr "DVD"
@@ -5042,8 +5072,14 @@ msgstr "Gebeurtenis"
 msgid "Example: pkg install packagename."
 msgstr "Voorbeeld: pkg install packagename."
 
+msgid "Excel Sheet"
+msgstr "Excel Sheet"
+
 msgid "Exec"
 msgstr "Uitvoeren"
+
+msgid "Executable File"
+msgstr "Uitvoerbaar Bestand"
 
 msgid "Execute"
 msgstr "Uitvoeren"
@@ -5148,6 +5184,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - log alleen fatale fouten"
+
+msgid "FLAC Audio File"
+msgstr "FLAC Audio Bestand"
 
 msgid "FRU Information"
 msgstr "FRU Informatie"
@@ -5372,6 +5411,9 @@ msgstr "Flag xxx (ups.conf of cmdline -x) status"
 msgid "Flags"
 msgstr "Vlaggen"
 
+msgid "Flash File"
+msgstr "Flash Bestand"
+
 msgid "Folder Pattern"
 msgstr "Mappatroon"
 
@@ -5512,6 +5554,9 @@ msgstr "GEOM niet gevonden."
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr "GIF Afbeelding"
+
 msgid "GNU General Public License"
 msgstr "GNU Algemene Publieke Licentie"
 
@@ -5535,6 +5580,9 @@ msgstr "GSSAPI Verificatie"
 
 msgid "GUI"
 msgstr "GUI"
+
+msgid "GZIP Archive"
+msgstr "GZIP Archief"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5720,6 +5768,9 @@ msgstr "HDD standby tijd"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
+
+msgid "HTML Page"
+msgstr "HTML Pagina"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6463,6 +6514,9 @@ msgstr "JBOD onderhoud"
 msgid "JBOD Status"
 msgstr "JBOD Status"
 
+msgid "JPG Image"
+msgstr "JPG Afbeelding"
+
 msgid "Jailed"
 msgstr "Jailed"
 
@@ -6471,6 +6525,15 @@ msgstr "Jan"
 
 msgid "January"
 msgstr "Januari"
+
+msgid "Java Class File"
+msgstr "Java Class Bestand"
+
+msgid "Java Source File"
+msgstr "Java Bron Bestand"
+
+msgid "Javascript File"
+msgstr "Javascript Bestand"
 
 msgid "Job is locked"
 msgstr "Taak is vergrendeld"
@@ -6725,6 +6788,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Beperk de hoeveelheid ruimte die een dataset kan verbruiken."
 
+msgid "Link"
+msgstr "Link"
+
 msgid "Link Down Action"
 msgstr "Link Down Actie"
 
@@ -6972,17 +7038,38 @@ msgstr "MBR partitie"
 msgid "MD4 Password"
 msgstr "MD4 Wachtwoord"
 
+msgid "MIDI File"
+msgstr "MIDI Bestand"
+
 msgid "MIRROR"
 msgstr "SPIEGEL"
 
 msgid "MISSING"
 msgstr "ONTBREKEND"
 
+msgid "MKV File"
+msgstr "MKV Bestand"
+
 msgid "MOTD"
 msgstr "BVDD"
 
+msgid "MOV File"
+msgstr "MOV Bestand"
+
 msgid "MOVED TO"
 msgstr "VERPLAATST NAAR"
+
+msgid "MP3 Audio File"
+msgstr "MP3 Audio Bestand"
+
+msgid "MP3 Playlist"
+msgstr "MP3 Afspeellijst"
+
+msgid "MP4 File"
+msgstr "MP4 Bestand"
+
+msgid "MPEG File"
+msgstr "MPEG Bestand"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7998,6 +8085,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Numeriek identificator van de groep."
 
+msgid "OGG Audio File"
+msgstr "OGG Audio Bestand"
+
 msgid "OK"
 msgstr "OK"
 
@@ -8179,6 +8269,12 @@ msgstr "Eigenaar"
 msgid "PAM authentication is selected."
 msgstr "PAM verificatie is geselecteerd."
 
+msgid "PDF File"
+msgstr "PDF Bestand"
+
+msgid "PERL Script"
+msgstr "PERL Script"
+
 msgid "PG"
 msgstr "PG"
 
@@ -8190,6 +8286,12 @@ msgstr "PHP Commando Uitvoerings Resultaat"
 
 msgid "PHP License"
 msgstr "PHP Licentie"
+
+msgid "PHP Script"
+msgstr "PHP Script"
+
+msgid "PNG Image"
+msgstr "PNG Afbeelding"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8253,6 +8355,9 @@ msgstr "Partitie type"
 
 msgid "Partitions"
 msgstr "Partities"
+
+msgid "Pascal File"
+msgstr "Pascal Bestand"
 
 msgid "Passive Port"
 msgstr "Passieve Poort"
@@ -8398,6 +8503,9 @@ msgstr "Toegang zonder verificatie toestaan"
 
 msgid "Permit discovery without authentication"
 msgstr "Sta zoekfunctie toe zonder verificatie"
+
+msgid "Photoshop File"
+msgstr "Photoshop Bestand"
 
 msgid "Physical Block Offset"
 msgstr "Fysieke Blokcompensatie"
@@ -8664,6 +8772,9 @@ msgstr "Energie Mode"
 msgid "Power management"
 msgstr "Energiebeheer"
 
+msgid "Powerpoint Presentation"
+msgstr "Powerpoint Presentation"
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Pre-Fail' attribuut ten minste gebruikt in HP schijven."
 
@@ -8822,6 +8933,9 @@ msgstr ""
 "Zet de schijf in de standby mode wanneer na de geselecteerde tijd de laatste "
 "schijf toegang is verstreken."
 
+msgid "Python Script"
+msgstr "Python Script"
+
 msgid "QUIET - disable logging"
 msgstr "QUIET - logging uitschakelen"
 
@@ -8932,6 +9046,9 @@ msgstr "RAID5 Status"
 
 msgid "RAM Disk"
 msgstr "RAM Schijf"
+
+msgid "RAR Archive"
+msgstr "RAR Archief"
 
 msgid "RAW info"
 msgstr "Ruwe info"
@@ -9174,6 +9291,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Alleen-lezen"
+
+msgid "RealAudio File"
+msgstr "RealAudio Bestand"
 
 msgid "Realm"
 msgstr "Realm"
@@ -9637,6 +9757,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP Modules"
+
+msgid "SQL File"
+msgstr "SQL Bestand"
 
 msgid "SSH"
 msgstr "SSH"
@@ -10371,6 +10494,9 @@ msgstr "Delingen"
 msgid "Shell"
 msgstr "Shell"
 
+msgid "Shell Script"
+msgstr "Shell Script"
+
 msgid "Shock During Write."
 msgstr "Schokken tijdens schrijven."
 
@@ -10547,7 +10673,7 @@ msgid "Source directory to be synchronized."
 msgstr "Bronmap die gesynchroniseerd dient te worden."
 
 msgid "Source port"
-msgstr "Bronpoort"
+msgstr "Bron poort"
 
 msgid "Space Usage"
 msgstr "Ruimte Gebruik"
@@ -11009,6 +11135,9 @@ msgstr "Systeemberichten buffer"
 msgid "System tuning"
 msgstr "Systeem optimalisatie"
 
+msgid "TAR Archive"
+msgstr "TAR Archief"
+
 msgid "TCP Forwarding"
 msgstr "TCP Doorsturen"
 
@@ -11026,6 +11155,9 @@ msgstr "TCP-poort om de sever aan te koppelen."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr "TIF Afbeelding"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11053,6 +11185,9 @@ msgstr "TLS Server Certificaat Controle"
 
 msgid "TLS Trust File"
 msgstr "TLS Vertrouwd Bestand"
+
+msgid "TS File"
+msgstr "TS Bestand"
 
 msgid "Tabs"
 msgstr "Tabs"
@@ -11175,6 +11310,9 @@ msgstr "Test e-mail verzonden."
 
 msgid "Test mode, no command execution"
 msgstr "Testmodus, geen  opdracht uitvoering"
+
+msgid "Text File"
+msgstr "Text Bestand"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13588,6 +13726,9 @@ msgstr "VNC Scherm"
 msgid "VNC Password"
 msgstr "VNC Wachtwoord"
 
+msgid "VOB File"
+msgstr "VOB Bestand"
+
 msgid "Value"
 msgstr "Waarde"
 
@@ -13725,6 +13866,9 @@ msgstr "WAN adres"
 
 msgid "WARNING"
 msgstr "WAARSCHUWING"
+
+msgid "WAV Audio File"
+msgstr "WAV Audio Bestand"
 
 msgid "WEP"
 msgstr "WEP"
@@ -13907,6 +14051,9 @@ msgstr "Winbindd Beschikbaarheid"
 msgid "Wireless configuration"
 msgstr "Draadloos cofiguratie"
 
+msgid "Word Document"
+msgstr "Word Document"
+
 msgid "Work Directory"
 msgstr "Werkmap"
 
@@ -13931,6 +14078,9 @@ msgstr "Fout partitie type of partitie nummer."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Verkeerde permissie op %s."
+
+msgid "XML File"
+msgstr "XML Bestand"
 
 msgid "Xen"
 msgstr "Xen"
@@ -14156,6 +14306,9 @@ msgid ""
 msgstr ""
 "ZFS volume grootte. U kunt de volgende leesbare achtervoegsels gebruiken "
 "zoals K, KB, M, GB."
+
+msgid "ZIP Archive"
+msgstr "ZIP Archief"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

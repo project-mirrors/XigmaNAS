@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -390,6 +390,9 @@ msgstr "올바른 네트워크 bit 수(1-32)를 명시해야 합니다."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "올바른 접두사(1-128)이 명시 되어야 합니다."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "ACL 상속"
 
@@ -435,6 +438,9 @@ msgid "ARP Tables List"
 msgstr "ARP 테이블 리스트"
 
 msgid "ASCII"
+msgstr ""
+
+msgid "AVI File"
 msgstr ""
 
 msgid "Accept remote syslog messages."
@@ -1266,6 +1272,12 @@ msgstr "자성 헤드의 평균 탐색 성능. 이 속성 값이 감소하는 �
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "평균 스핀들 스핀 업 시간(0RPM에서 최고 운영 속도에 이르기 까지)."
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "뒤로"
 
@@ -1499,6 +1511,15 @@ msgstr "기본 값으로 이미 존재하는 파일들만 업로드 될 수 있�
 msgid "Bytes/sec"
 msgstr "바이트/초"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "캐시"
 
@@ -1544,6 +1565,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD 드라이브"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "변경됨"
@@ -1638,6 +1662,9 @@ msgid ""
 msgstr "CRC 오류 개수. CRC 오류의 개수(자료 읽기/쓰기 FIS CRC 오류)."
 
 msgid "CRC32C"
+msgstr ""
+
+msgid "CSS File"
 msgstr ""
 
 msgid "CSS Settings"
@@ -2441,6 +2468,9 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DTS Audio File"
 msgstr ""
 
 msgid "DVD"
@@ -4709,8 +4739,14 @@ msgstr "이벤트"
 msgid "Example: pkg install packagename."
 msgstr "예: pkg install 꾸러미이름"
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "실행"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "실행"
@@ -4811,6 +4847,9 @@ msgid "FAT32"
 msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
+msgstr ""
+
+msgid "FLAC Audio File"
 msgstr ""
 
 msgid "FRU Information"
@@ -5030,6 +5069,9 @@ msgstr "플래그 xxx (ups.conf or cmdline -x) 상태"
 msgid "Flags"
 msgstr "플래그"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr ""
 
@@ -5158,6 +5200,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr ""
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU 일반 공중 사용 허가서"
 
@@ -5180,6 +5225,9 @@ msgid "GSSAPI Authentication"
 msgstr ""
 
 msgid "GUI"
+msgstr ""
+
+msgid "GZIP Archive"
 msgstr ""
 
 msgid "Gateway"
@@ -5355,6 +5403,9 @@ msgstr "HDD 대기 시간"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr ""
@@ -6034,6 +6085,9 @@ msgstr "JBOD 유지보수"
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "갇힘 (Jailed)"
 
@@ -6042,6 +6096,15 @@ msgstr "1월"
 
 msgid "January"
 msgstr "1월"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "작업 잠김"
@@ -6278,6 +6341,9 @@ msgstr "데이터셋과 그 자식이 사용할 수 있는 총 공간을 제한�
 msgid "Limits the amount of space a dataset can consume."
 msgstr "데이터셋이 사용할 수 있는 총 공간을 제한합니다."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "링크 다운 동작"
 
@@ -6503,17 +6569,38 @@ msgstr "MBR 분할 영역"
 msgid "MD4 Password"
 msgstr ""
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "MIRROR"
 
 msgid "MISSING"
 msgstr "없음"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "이동 됨"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7493,6 +7580,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "그룹의 숫자 식별자"
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -7666,6 +7756,12 @@ msgstr "소유자"
 msgid "PAM authentication is selected."
 msgstr "PAM 인증이 선택되었습니다."
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -7676,6 +7772,12 @@ msgid "PHP Command Output"
 msgstr "PHP 명령 출력"
 
 msgid "PHP License"
+msgstr ""
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
 msgstr ""
 
 msgid "PPPoE"
@@ -7740,6 +7842,9 @@ msgstr "분할 영역 형식"
 
 msgid "Partitions"
 msgstr "분할 영역"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Passive 포트"
@@ -7875,6 +7980,9 @@ msgid "Permit access without authentication"
 msgstr ""
 
 msgid "Permit discovery without authentication"
+msgstr ""
+
+msgid "Photoshop File"
 msgstr ""
 
 msgid "Physical Block Offset"
@@ -8131,6 +8239,9 @@ msgstr "전원 모드"
 msgid "Power management"
 msgstr "전원 관리"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "HP 기기용 Pre-Fail' 속성"
 
@@ -8283,6 +8394,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr "마지막 디스크 접근 이후에 선택한 시간이 경과하면 디스크를 대기 모드로 전환합니다."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr ""
 
@@ -8392,6 +8506,9 @@ msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
+msgstr ""
+
+msgid "RAR Archive"
 msgstr ""
 
 msgid "RAW info"
@@ -8623,6 +8740,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "읽기 전용"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "영역"
@@ -9069,6 +9189,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP 모듈"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -9722,6 +9845,9 @@ msgstr "공유"
 msgid "Shell"
 msgstr "셸"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "쓰기 중 충격."
 
@@ -10306,6 +10432,9 @@ msgstr "시스템 메시지 버퍼"
 msgid "System tuning"
 msgstr "시스템 미세 조정"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP 포워드"
 
@@ -10323,6 +10452,9 @@ msgstr "서버가 bind 할 TCP 포트."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10350,6 +10482,9 @@ msgstr "TLS 서버 인증서 확인"
 
 msgid "TLS Trust File"
 msgstr "TLS 신뢰 파일"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr ""
@@ -10470,6 +10605,9 @@ msgstr "테스트 전자우편이 성공적으로 전송되었습니다."
 
 msgid "Test mode, no command execution"
 msgstr "테스트 모드, 명령 실행 안함"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -12559,6 +12697,9 @@ msgstr "VNC 화면"
 msgid "VNC Password"
 msgstr "VNC 암호"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "값"
 
@@ -12691,6 +12832,9 @@ msgstr "WAN 주소"
 
 msgid "WARNING"
 msgstr "경고"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -12857,6 +13001,9 @@ msgstr ""
 msgid "Wireless configuration"
 msgstr "무선 설정"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "작업 디렉터리"
 
@@ -12881,6 +13028,9 @@ msgstr "잘못된 분할 영역 형식이나 분할 영역 번호."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "%s에 잘못됨 허가권."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13080,6 +13230,9 @@ msgstr ""
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
 msgstr "ZFS 볼륨 크기. K, KB, M, GB와 같은 사람이 읽을 수 있는 접미사를 사용할 수 있습니다."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

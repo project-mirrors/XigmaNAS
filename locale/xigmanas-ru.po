@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2020-03-12 02:56+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -424,6 +424,9 @@ msgstr "Должна быть указана правильная маска п�
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Должен быть указан корректный префикс (1-128)."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "Наследовать ACL"
 
@@ -472,6 +475,9 @@ msgstr "Список таблиц ARP"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Принимать удаленные syslog сообщения."
@@ -1352,6 +1358,12 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr ""
 "Среднее время раскрутки шпинделя (от состояния покоя до полной раскрутки)."
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Назад"
 
@@ -1605,6 +1617,15 @@ msgstr "По умолчанию могут быть загружены толь�
 msgid "Bytes/sec"
 msgstr "Байт/сек"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "КЭШ"
 
@@ -1652,6 +1673,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "Устройство CD/DVD"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "ИЗМЕНЕНО"
@@ -1749,6 +1773,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr "Настройки CSS"
@@ -2622,6 +2649,9 @@ msgstr ""
 "Клиенты DOS SMB предполагают, что сервер имеет ту же кодировку, что и они. "
 "Эта опция указывает, какая кодировка Samba должна взаимодействовать с "
 "клиентами DOS."
+
+msgid "DTS Audio File"
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -4988,8 +5018,14 @@ msgstr "Событие"
 msgid "Example: pkg install packagename."
 msgstr "Пример: pkg install packagename."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Выполнить"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Выполнение"
@@ -5094,6 +5130,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - регистрировать только фатальные ошибки"
+
+msgid "FLAC Audio File"
+msgstr ""
 
 msgid "FRU Information"
 msgstr "Информация FRU"
@@ -5321,6 +5360,9 @@ msgstr "Статус флага xxx (ups.conf или cmdline -x)"
 msgid "Flags"
 msgstr "Флаги"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr "Шаблон папки"
 
@@ -5451,6 +5493,9 @@ msgstr "GEOM не найден."
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
 
@@ -5474,6 +5519,9 @@ msgstr "GSSAPI аутентификация"
 
 msgid "GUI"
 msgstr "Графический интерфейс пользователя"
+
+msgid "GZIP Archive"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5658,6 +5706,9 @@ msgstr "HDD в режиме ожидания"
 
 msgid "HOT SPARE"
 msgstr "ГОРЯЧАЯ ЗАМЕНА"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6399,6 +6450,9 @@ msgstr "Обслуживание JBOD"
 msgid "JBOD Status"
 msgstr "JBOD статус"
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Заключенный"
 
@@ -6407,6 +6461,15 @@ msgstr "янв."
 
 msgid "January"
 msgstr "января"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Задание заблокировано"
@@ -6663,6 +6726,9 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr ""
 "Ограничивает объем пространства, которое может использовать набор данных."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "Действие при отключении соединения"
 
@@ -6906,17 +6972,38 @@ msgstr "Раздел MBR"
 msgid "MD4 Password"
 msgstr "Пароль MD4"
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "ЗЕРКАЛО"
 
 msgid "MISSING"
 msgstr "Отсутствует"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "Message Of The Day (MOTD)"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "ПЕРЕМЕЩЕНО В"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "Microsoft Active Directory"
@@ -7931,6 +8018,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Числовой идентификатор группы."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "ОК"
 
@@ -8112,6 +8202,12 @@ msgstr "Владелец"
 msgid "PAM authentication is selected."
 msgstr "Выбрана аутентификация PAM."
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8123,6 +8219,12 @@ msgstr "Вывод PHP Команды"
 
 msgid "PHP License"
 msgstr "PHP License"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8186,6 +8288,9 @@ msgstr "Тип раздела"
 
 msgid "Partitions"
 msgstr "Разделы"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Пассивный порт"
@@ -8329,6 +8434,9 @@ msgstr "Разрешить доступ без аутентификации"
 
 msgid "Permit discovery without authentication"
 msgstr "Разрешить обнаружение без аутентификации"
+
+msgid "Photoshop File"
+msgstr ""
 
 msgid "Physical Block Offset"
 msgstr "Смещение физического блока"
@@ -8594,6 +8702,9 @@ msgstr "Режим энергопотребления"
 msgid "Power management"
 msgstr "Управление питанием"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Pre-Fail атрибут используется в основном на устройствах HP."
 
@@ -8752,6 +8863,9 @@ msgstr ""
 "Перевод диска в режиме ожидания, по истечении времени после последнего "
 "доступа к диску."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr "QUIET - отключить ведение журнала"
 
@@ -8865,6 +8979,9 @@ msgstr "RAID5 статус"
 
 msgid "RAM Disk"
 msgstr "Диск RAM"
+
+msgid "RAR Archive"
+msgstr ""
 
 msgid "RAW info"
 msgstr "RAW информация"
@@ -9106,6 +9223,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Только чтение"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Название области"
@@ -9566,6 +9686,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Модули SNMP"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10290,6 +10413,9 @@ msgstr "Общие ресурсы"
 msgid "Shell"
 msgstr "Командная оболочка (shell)"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Шок во время записи."
 
@@ -10919,6 +11045,9 @@ msgstr "Буфер сообщений системы"
 msgid "System tuning"
 msgstr "Настройка системы"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
 
@@ -10936,6 +11065,9 @@ msgstr "Порт TCP, закрепленный за сервером."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10963,6 +11095,9 @@ msgstr "Проверка TLS сертификата сервера"
 
 msgid "TLS Trust File"
 msgstr "Файл доверия TLS"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr "Вкладки"
@@ -11084,6 +11219,9 @@ msgstr "Тестовый e-mail успешно отправлен."
 
 msgid "Test mode, no command execution"
 msgstr "Тестовый режим, команда не выполнена"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13472,6 +13610,9 @@ msgstr "VNC дисплей"
 msgid "VNC Password"
 msgstr "VNC пароль"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Значение"
 
@@ -13609,6 +13750,9 @@ msgstr "Адрес во внешней сети (WAN)"
 
 msgid "WARNING"
 msgstr "ВНИМАНИЕ"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13790,6 +13934,9 @@ msgstr "Доступность Winbindd"
 msgid "Wireless configuration"
 msgstr "Настройка беспроводной сети"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Рабочий каталог"
 
@@ -13814,6 +13961,9 @@ msgstr "Неверный номер или тип раздела."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Неправильное разрешение на%s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -14038,6 +14188,9 @@ msgid ""
 msgstr ""
 "Размер тома ZFS. Вы можете использовать человекочитаемые суффиксы, такие как "
 "K, KB, M, GB."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

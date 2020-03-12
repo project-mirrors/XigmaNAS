@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2018-07-17 02:47+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -379,6 +379,9 @@ msgstr "請輸入一個有效的網路位計數(1-32)。"
 msgid "A valid prefix (1-128) must be specified."
 msgstr "請輸入一個有效的首碼 (1-128)。"
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "繼承ACL"
 
@@ -424,6 +427,9 @@ msgid "ARP Tables List"
 msgstr "ARP列表"
 
 msgid "ASCII"
+msgstr ""
+
+msgid "AVI File"
 msgstr ""
 
 msgid "Accept remote syslog messages."
@@ -1246,6 +1252,12 @@ msgstr "磁頭尋道操作的平均性能。 如果該屬性減小，則它是�
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "主軸上升的平均時間（從零RPM到完全運行）。"
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "後退"
 
@@ -1478,6 +1490,15 @@ msgstr "默認是只有已經存在的檔可以上傳。"
 msgid "Bytes/sec"
 msgstr "位元組/秒"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "緩存"
 
@@ -1523,6 +1544,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD 驅動器"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "已更改"
@@ -1617,6 +1641,9 @@ msgid ""
 msgstr "CRC錯誤計數。統計CRC錯誤數量（讀寫FIS數據CRC錯誤）。"
 
 msgid "CRC32C"
+msgstr ""
+
+msgid "CSS File"
 msgstr ""
 
 msgid "CSS Settings"
@@ -2402,6 +2429,9 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DTS Audio File"
 msgstr ""
 
 msgid "DVD"
@@ -4659,8 +4689,14 @@ msgstr "事件"
 msgid "Example: pkg install packagename."
 msgstr "示例：pkg install packagename。"
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "執行"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "執行"
@@ -4761,6 +4797,9 @@ msgid "FAT32"
 msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
+msgstr ""
+
+msgid "FLAC Audio File"
 msgstr ""
 
 msgid "FRU Information"
@@ -4978,6 +5017,9 @@ msgstr "標誌XXX（ups.conf 或 cmdline -x）的狀態"
 msgid "Flags"
 msgstr "標示符"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr ""
 
@@ -5106,6 +5148,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr ""
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU通用公共許可證"
 
@@ -5128,6 +5173,9 @@ msgid "GSSAPI Authentication"
 msgstr ""
 
 msgid "GUI"
+msgstr ""
+
+msgid "GZIP Archive"
 msgstr ""
 
 msgid "Gateway"
@@ -5302,6 +5350,9 @@ msgstr "HDD 待機時間"
 
 msgid "HOT SPARE"
 msgstr "熱備"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr ""
@@ -5969,6 +6020,9 @@ msgstr "JBOD維護"
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Jailed"
 
@@ -5977,6 +6031,15 @@ msgstr "1月"
 
 msgid "January"
 msgstr "1 月"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "任務被鎖定"
@@ -6216,6 +6279,9 @@ msgstr "限制數據集及其後代可以消耗的空間量。"
 msgid "Limits the amount of space a dataset can consume."
 msgstr "限制數據集可以消耗的空間量。"
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "鏈接關閉操作"
 
@@ -6438,17 +6504,38 @@ msgstr "MBR 分區"
 msgid "MD4 Password"
 msgstr ""
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "鏡像"
 
 msgid "MISSING"
 msgstr "遺失"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "每日訊息"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "移動到"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "微軟Active Directory"
@@ -7424,6 +7511,9 @@ msgstr "在驅動器上完成的物理擦除週期數，為驅動器設計為承
 msgid "Numeric identifier of the group."
 msgstr "群組的數字識別碼。"
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -7597,6 +7687,12 @@ msgstr "擁有者"
 msgid "PAM authentication is selected."
 msgstr "選擇PAM認證。"
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -7608,6 +7704,12 @@ msgstr "PHP命令輸出"
 
 msgid "PHP License"
 msgstr "PHP許可證"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -7671,6 +7773,9 @@ msgstr "分割區類型"
 
 msgid "Partitions"
 msgstr "分割區"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "被動端口"
@@ -7804,6 +7909,9 @@ msgid "Permit access without authentication"
 msgstr ""
 
 msgid "Permit discovery without authentication"
+msgstr ""
+
+msgid "Photoshop File"
 msgstr ""
 
 msgid "Physical Block Offset"
@@ -8060,6 +8168,9 @@ msgstr "電源模式"
 msgid "Power management"
 msgstr "電源管理"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "預失敗'屬性至少在HP設備中使用。"
 
@@ -8212,6 +8323,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr "在上次訪問磁片後的所選時間內，將磁片置於待機模式。"
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr ""
 
@@ -8321,6 +8435,9 @@ msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
+msgstr ""
+
+msgid "RAR Archive"
 msgstr ""
 
 msgid "RAW info"
@@ -8555,6 +8672,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "只讀"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Realm"
@@ -9001,6 +9121,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP 模組"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -9646,6 +9769,9 @@ msgstr "分享區（Shares）"
 msgid "Shell"
 msgstr "命令殼 (shell)"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "寫入時震動。"
 
@@ -10225,6 +10351,9 @@ msgstr "系統消息緩衝區"
 msgid "System tuning"
 msgstr "系統微調"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP轉發"
 
@@ -10242,6 +10371,9 @@ msgstr "伺服器綁定的 TCP 端口"
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10269,6 +10401,9 @@ msgstr "TLS伺服器證書檢查"
 
 msgid "TLS Trust File"
 msgstr "TLS信任文件"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr ""
@@ -10389,6 +10524,9 @@ msgstr "測試郵件發送成功。"
 
 msgid "Test mode, no command execution"
 msgstr "測試模式，無命令執行"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -12448,6 +12586,9 @@ msgstr "VLAN顯示"
 msgid "VNC Password"
 msgstr "VNC密碼"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "值"
 
@@ -12578,6 +12719,9 @@ msgstr "廣域網絡地址"
 
 msgid "WARNING"
 msgstr "警告"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -12743,6 +12887,9 @@ msgstr ""
 msgid "Wireless configuration"
 msgstr "無線網路配置"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "工作目錄"
 
@@ -12767,6 +12914,9 @@ msgstr "錯誤的分區格式或分區編號。"
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "%s 的許可權錯誤。"
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -12966,6 +13116,9 @@ msgstr ""
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
 msgstr "ZFS卷大小。 你可以使用可讀的後綴，如K，KB，M，GB。"
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

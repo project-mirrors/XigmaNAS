@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2020-03-12 17:29+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: ca_ES\n"
 
@@ -427,6 +427,9 @@ msgstr "Cal indicar un bit de compte en xarxa vàlida (1-32)."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Cal indicar un prefix vàlid (1-128)."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "ACL Heretat"
 
@@ -475,6 +478,9 @@ msgstr "Index de taules ARP"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Acceptar missatges de registre del sistema remot."
@@ -1363,6 +1369,12 @@ msgstr ""
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Temps mitjà de arrencada (de zero RPM a plenament operatiu)."
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Enrera"
 
@@ -1619,6 +1631,15 @@ msgstr "Per defecte només els arxius existents poden ser pujats"
 msgid "Bytes/sec"
 msgstr "Bytes/sec"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "CACHE"
 
@@ -1665,6 +1686,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "Dispositiu CD/DVD"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "Canviat"
@@ -1762,6 +1786,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr "Configuració CSS"
@@ -2650,6 +2677,9 @@ msgstr ""
 "Els clients de DOS SMB assumeixen que el servidor té el mateix joc de "
 "caràcters que ells. Aquesta opció especifica amb quin caràcters Samba ha de "
 "parlar amb els clients de DOS."
+
+msgid "DTS Audio File"
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -5029,8 +5059,14 @@ msgstr "Esdeveniment"
 msgid "Example: pkg install packagename."
 msgstr "Exemple: pkg install packagename."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Executa"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Executar"
@@ -5136,6 +5172,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - Nomès errors fatals"
+
+msgid "FLAC Audio File"
+msgstr ""
 
 msgid "FRU Information"
 msgstr "Informació FRU"
@@ -5363,6 +5402,9 @@ msgstr "Bandera xxx (ups.conf o -x cmdline) Estat"
 msgid "Flags"
 msgstr "Banderes"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr "Patró de carpeta"
 
@@ -5506,6 +5548,9 @@ msgstr "GEOM no trobat."
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "Llicència pública general GNU"
 
@@ -5529,6 +5574,9 @@ msgstr "Autenticació GSSAPI"
 
 msgid "GUI"
 msgstr "Interfície gràfica"
+
+msgid "GZIP Archive"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Porta d'enllaç"
@@ -5714,6 +5762,9 @@ msgstr "Temps d'espera del disc dur"
 
 msgid "HOT SPARE"
 msgstr "Recanvi en calent"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6463,6 +6514,9 @@ msgstr "Manteniment JBOD"
 msgid "JBOD Status"
 msgstr "Estat JBOD"
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Engabiat"
 
@@ -6471,6 +6525,15 @@ msgstr "Gen"
 
 msgid "January"
 msgstr "Gener"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Treball està bloquejat"
@@ -6724,6 +6787,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Limita la quantitat d'espai que un conjunt de dades poden consumir."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "Acció de enllaç desconectat"
 
@@ -6970,17 +7036,38 @@ msgstr "Partició MBR"
 msgid "MD4 Password"
 msgstr "Contrasenya MD4"
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "MIRALL"
 
 msgid "MISSING"
 msgstr "Perdut"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "Frase del dia"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "MOGUT A"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "Directori actiu MS"
@@ -7997,6 +8084,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Identificador numèric del grup."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -8179,6 +8269,12 @@ msgstr "Propietari"
 msgid "PAM authentication is selected."
 msgstr "Es selecciona l'autenticació PAM"
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8190,6 +8286,12 @@ msgstr "Soritida de comandament PHP"
 
 msgid "PHP License"
 msgstr "Llicència PHP"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8253,6 +8355,9 @@ msgstr "Tipus de partició"
 
 msgid "Partitions"
 msgstr "Particions"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Port pasiu"
@@ -8397,6 +8502,9 @@ msgstr "Permet l'accés sense autenticació"
 
 msgid "Permit discovery without authentication"
 msgstr "Permet el descobriment sense autenticació"
+
+msgid "Photoshop File"
+msgstr ""
 
 msgid "Physical Block Offset"
 msgstr "Desplaçament de blocs físics"
@@ -8664,6 +8772,9 @@ msgstr "Mode d'energia"
 msgid "Power management"
 msgstr "Gestió d'energia"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "L'atribut pre-fall' s'utilitza com a mínim en els dispositius HP."
 
@@ -8823,6 +8934,9 @@ msgstr ""
 "Posa el disc en mode d'espera quan ha transcorregut el període de temps "
 "seleccionat després de l'últim accés al disc."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr "QUIET: inhabilita el registre"
 
@@ -8933,6 +9047,9 @@ msgstr "Estat RAID5"
 
 msgid "RAM Disk"
 msgstr "Disc RAM"
+
+msgid "RAR Archive"
+msgstr ""
 
 msgid "RAW info"
 msgstr "Informació RAW"
@@ -9176,6 +9293,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Només lectura"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Regne"
@@ -9638,6 +9758,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Mòduls SNMP"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10378,6 +10501,9 @@ msgstr "Comparticions"
 msgid "Shell"
 msgstr "Intèrpret de comandaments"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Xoc durant escriptura."
 
@@ -11013,6 +11139,9 @@ msgstr "Memòria intermitja de missatges del sistema"
 msgid "System tuning"
 msgstr "Ajustos fins del sistema"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "Redirecionament TCP"
 
@@ -11030,6 +11159,9 @@ msgstr "Port TCP per enllaçar amb el servidor per."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11057,6 +11189,9 @@ msgstr "Comprovar certificat de servidor TLS"
 
 msgid "TLS Trust File"
 msgstr "Fitxer de confiança de TLS"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr "Pestanyes"
@@ -11178,6 +11313,9 @@ msgstr "Prova de correu electrònic enviat amb èxit."
 
 msgid "Test mode, no command execution"
 msgstr "Mode de prova, sense execució d'ordres"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13585,6 +13723,9 @@ msgstr "Pantalla VNC"
 msgid "VNC Password"
 msgstr "Contrasenya VNC"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Valor"
 
@@ -13721,6 +13862,9 @@ msgstr "Adreça WAN"
 
 msgid "WARNING"
 msgstr "ADVERTÈNCIA"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13903,6 +14047,9 @@ msgstr "Disponibilitat Winbindd"
 msgid "Wireless configuration"
 msgstr "Configuració sense fils"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Directori de treball"
 
@@ -13927,6 +14074,9 @@ msgstr "Tipus o nombre de partició equivocada."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Permís equivocat en %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -14144,6 +14294,9 @@ msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
 msgstr ""
 "ZFS mida del volum. Podeu utilitzar sufixos llegible com K, KB, M, GB."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
