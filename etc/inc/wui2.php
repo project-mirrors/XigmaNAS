@@ -1452,7 +1452,8 @@ trait co_DOMTools {
  */
 	public function addElement(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
 		$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
-		$subnode->import_soup($value);
+		$check_for_html = $this->check_for_html($name);
+		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
 		return $subnode;
 	}
@@ -1466,7 +1467,8 @@ trait co_DOMTools {
  */
 	public function insElement(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
 		$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
-		$subnode->import_soup($value);
+		$check_for_html = $this->check_for_html($name);
+		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
 		return $this;
 	}
@@ -1484,9 +1486,13 @@ trait co_DOMTools {
 		else:
 			$subnode = $this->insertBefore(new co_DOMElement($name,NULL,$namespaceURI),$this->firstChild);
 		endif;
-		$subnode->import_soup($value);
+		$check_for_html = $this->check_for_html($name);
+		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
 		return $subnode;
+	}
+	public function check_for_html($name): bool {
+		return in_array($name,['div','li','p','span','td']);
 	}
 /**
  *	Appends a child node to an element and returns the element.<br/>
@@ -1495,11 +1501,11 @@ trait co_DOMTools {
  *	@param string $value The text/html string
  *	@return $this
  */
-	public function import_soup(string $value = NULL) {
+	public function import_soup(string $value = NULL,bool $check_for_html = true) {
 		if(!is_null($value)):
 //			rough check if value contains html code, if found try to import as HTML, otherwise add as text
 			$html_import_successful = false;
-			if(preg_match('~/[a-z]*>~i',$value)):
+			if($check_for_html && preg_match('~/[a-z]*>~i',$value)):
 				$backup_use_internal_errors = libxml_use_internal_errors(true);
 				$backup_disable_entity_loader = libxml_disable_entity_loader(true);
 				$document = $this->ownerDocument ?? $this;
