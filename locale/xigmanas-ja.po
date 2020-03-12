@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2019-10-30 23:02+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
@@ -389,6 +389,9 @@ msgstr "有効なネットワークのビット数 (1-32) を指定してくだ�
 msgid "A valid prefix (1-128) must be specified."
 msgstr "有効なプレフィックス値 (1-128) を指定してください。"
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "ACL 継承"
 
@@ -434,6 +437,9 @@ msgid "ARP Tables List"
 msgstr "ARP テーブルリスト"
 
 msgid "ASCII"
+msgstr ""
+
+msgid "AVI File"
 msgstr ""
 
 msgid "Accept remote syslog messages."
@@ -1261,6 +1267,12 @@ msgstr "磁気ヘッドのシーク動作の平均性能。この属性が減少
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "スピンドルが停止状態から既定の回転数になるまでにかかった平均時間。"
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "戻る"
 
@@ -1495,6 +1507,15 @@ msgstr "デフォルトでは、既に存在しているファイルのみアッ
 msgid "Bytes/sec"
 msgstr "バイト/毎秒"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "CACHE"
 
@@ -1540,6 +1561,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD ドライブ"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "変更"
@@ -1634,6 +1658,9 @@ msgid ""
 msgstr "CRC エラー数。CRCエラーのカウント数。 (読込/書込データ FIS CRC エラー)"
 
 msgid "CRC32C"
+msgstr ""
+
+msgid "CSS File"
 msgstr ""
 
 msgid "CSS Settings"
@@ -2423,6 +2450,9 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DTS Audio File"
 msgstr ""
 
 msgid "DVD"
@@ -4680,7 +4710,13 @@ msgstr "イベント"
 msgid "Example: pkg install packagename."
 msgstr ""
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
+msgstr ""
+
+msgid "Executable File"
 msgstr ""
 
 msgid "Execute"
@@ -4782,6 +4818,9 @@ msgid "FAT32"
 msgstr ""
 
 msgid "FATAL - log fatal errors only"
+msgstr ""
+
+msgid "FLAC Audio File"
 msgstr ""
 
 msgid "FRU Information"
@@ -5001,6 +5040,9 @@ msgstr "xxx フラグ (ups.conf または cmdline -x) ステータス"
 msgid "Flags"
 msgstr "フラグ"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr ""
 
@@ -5129,6 +5171,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr ""
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr ""
 
@@ -5151,6 +5196,9 @@ msgid "GSSAPI Authentication"
 msgstr ""
 
 msgid "GUI"
+msgstr ""
+
+msgid "GZIP Archive"
 msgstr ""
 
 msgid "Gateway"
@@ -5324,6 +5372,9 @@ msgid "HDD standby time"
 msgstr "HDDスタンバイ時間"
 
 msgid "HOT SPARE"
+msgstr ""
+
+msgid "HTML Page"
 msgstr ""
 
 msgid "HTTP"
@@ -5999,6 +6050,9 @@ msgstr ""
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr ""
 
@@ -6007,6 +6061,15 @@ msgstr ""
 
 msgid "January"
 msgstr "1月"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr ""
@@ -6249,6 +6312,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr ""
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr ""
 
@@ -6474,17 +6540,38 @@ msgstr "MBR パーティション"
 msgid "MD4 Password"
 msgstr ""
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr ""
 
 msgid "MISSING"
 msgstr "失敗"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "移動先"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7462,6 +7549,9 @@ msgstr "物理消去サイクルのドライブ設計値の最大物理消去サ
 msgid "Numeric identifier of the group."
 msgstr "数値によるグループの識別子。"
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -7635,6 +7725,12 @@ msgstr "オーナ"
 msgid "PAM authentication is selected."
 msgstr ""
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -7645,6 +7741,12 @@ msgid "PHP Command Output"
 msgstr ""
 
 msgid "PHP License"
+msgstr ""
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
 msgstr ""
 
 msgid "PPPoE"
@@ -7709,6 +7811,9 @@ msgstr "パーティションタイプ"
 
 msgid "Partitions"
 msgstr "パーティション"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr ""
@@ -7844,6 +7949,9 @@ msgid "Permit access without authentication"
 msgstr ""
 
 msgid "Permit discovery without authentication"
+msgstr ""
+
+msgid "Photoshop File"
 msgstr ""
 
 msgid "Physical Block Offset"
@@ -8100,6 +8208,9 @@ msgstr "電源モード"
 msgid "Power management"
 msgstr "電源管理"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "少なくともHPのデバイスで使用されている属性。"
 
@@ -8252,6 +8363,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr "最後にアクセスしてから、指定された時間が経過すると、ハードディスクを待機モードにします。"
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr ""
 
@@ -8361,6 +8475,9 @@ msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
+msgstr ""
+
+msgid "RAR Archive"
 msgstr ""
 
 msgid "RAW info"
@@ -8592,6 +8709,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "読み込み専用"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "レルム"
@@ -9038,6 +9158,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMPモジュール"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -9689,6 +9812,9 @@ msgstr "共有"
 msgid "Shell"
 msgstr "シェル"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "書き込み中の衝撃。"
 
@@ -10270,6 +10396,9 @@ msgstr "システムメッセージバッファ"
 msgid "System tuning"
 msgstr "システムチューニング"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP フォワード"
 
@@ -10287,6 +10416,9 @@ msgstr "サーバが待ち受ける TCP ポート。"
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10313,6 +10445,9 @@ msgid "TLS Server Certificate Check"
 msgstr "TLSサーバ証明書のチェック"
 
 msgid "TLS Trust File"
+msgstr ""
+
+msgid "TS File"
 msgstr ""
 
 msgid "Tabs"
@@ -10433,6 +10568,9 @@ msgid "Test email successfully sent."
 msgstr "テストメールの送信に成功しました。"
 
 msgid "Test mode, no command execution"
+msgstr ""
+
+msgid "Text File"
 msgstr ""
 
 msgid ""
@@ -12521,6 +12659,9 @@ msgstr "VNC ディスプレイ"
 msgid "VNC Password"
 msgstr "VNC パスワード"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "値"
 
@@ -12651,6 +12792,9 @@ msgstr "WAN アドレス"
 
 msgid "WARNING"
 msgstr "注意"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -12818,6 +12962,9 @@ msgstr ""
 msgid "Wireless configuration"
 msgstr "無線の設定"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "作業ディレクトリ"
 
@@ -12842,6 +12989,9 @@ msgstr "パーティションタイプまたはパーティション番号が間
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "%sは間違ったパーミッションです。"
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13040,6 +13190,9 @@ msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
+msgstr ""
+
+msgid "ZIP Archive"
 msgstr ""
 
 msgid "Zeroconf/Bonjour"

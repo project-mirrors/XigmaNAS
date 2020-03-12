@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2019-01-20 17:40+0000\n"
 "Last-Translator: Lukas Vescicik <lukas.vescicik@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "Language: \n"
@@ -415,6 +415,9 @@ msgstr "Musí byť uvedený platný počet bitov siete (1-32)."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Musí byť uvedený platný prefix (1-128)."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "Dedenie ACL oprávnení"
 
@@ -462,6 +465,9 @@ msgid "ARP Tables List"
 msgstr "Výpis ARP tabuliek"
 
 msgid "ASCII"
+msgstr ""
+
+msgid "AVI File"
 msgstr ""
 
 msgid "Accept remote syslog messages."
@@ -1317,6 +1323,12 @@ msgstr ""
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr ""
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr ""
 
@@ -1549,6 +1561,15 @@ msgstr "Štandardne je možné nahrávať iba existujúce súbory."
 msgid "Bytes/sec"
 msgstr ""
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr ""
 
@@ -1593,6 +1614,9 @@ msgid "CD/DVD"
 msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
+msgstr ""
+
+msgid "CGI Script"
 msgstr ""
 
 msgid "CHANGED"
@@ -1688,6 +1712,9 @@ msgid ""
 msgstr ""
 
 msgid "CRC32C"
+msgstr ""
+
+msgid "CSS File"
 msgstr ""
 
 msgid "CSS Settings"
@@ -2463,6 +2490,9 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DTS Audio File"
 msgstr ""
 
 msgid "DVD"
@@ -4735,7 +4765,13 @@ msgstr "Udalosť"
 msgid "Example: pkg install packagename."
 msgstr ""
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
+msgstr ""
+
+msgid "Executable File"
 msgstr ""
 
 msgid "Execute"
@@ -4839,6 +4875,9 @@ msgid "FAT32"
 msgstr ""
 
 msgid "FATAL - log fatal errors only"
+msgstr ""
+
+msgid "FLAC Audio File"
 msgstr ""
 
 msgid "FRU Information"
@@ -5058,6 +5097,9 @@ msgstr ""
 msgid "Flags"
 msgstr "Príznaky"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr ""
 
@@ -5186,6 +5228,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr ""
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr ""
 
@@ -5208,6 +5253,9 @@ msgid "GSSAPI Authentication"
 msgstr ""
 
 msgid "GUI"
+msgstr ""
+
+msgid "GZIP Archive"
 msgstr ""
 
 msgid "Gateway"
@@ -5378,6 +5426,9 @@ msgid "HDD standby time"
 msgstr ""
 
 msgid "HOT SPARE"
+msgstr ""
+
+msgid "HTML Page"
 msgstr ""
 
 msgid "HTTP"
@@ -6060,6 +6111,9 @@ msgstr ""
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr ""
 
@@ -6067,6 +6121,15 @@ msgid "Jan"
 msgstr ""
 
 msgid "January"
+msgstr ""
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
 msgstr ""
 
 msgid "Job is locked"
@@ -6301,6 +6364,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr ""
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr ""
 
@@ -6527,16 +6593,37 @@ msgstr ""
 msgid "MD4 Password"
 msgstr ""
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr ""
 
 msgid "MISSING"
 msgstr "CHÝBA"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
+msgstr ""
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
 msgstr ""
 
 msgid "MS Active Directory"
@@ -7522,6 +7609,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr ""
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -7698,6 +7788,12 @@ msgstr "Vlastník"
 msgid "PAM authentication is selected."
 msgstr ""
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr ""
 
@@ -7708,6 +7804,12 @@ msgid "PHP Command Output"
 msgstr ""
 
 msgid "PHP License"
+msgstr ""
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
 msgstr ""
 
 msgid "PPPoE"
@@ -7772,6 +7874,9 @@ msgstr "Typ oblasti"
 
 msgid "Partitions"
 msgstr "Oddiely"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr ""
@@ -7910,6 +8015,9 @@ msgid "Permit access without authentication"
 msgstr ""
 
 msgid "Permit discovery without authentication"
+msgstr ""
+
+msgid "Photoshop File"
 msgstr ""
 
 msgid "Physical Block Offset"
@@ -8168,6 +8276,9 @@ msgstr ""
 msgid "Power management"
 msgstr ""
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr ""
 
@@ -8320,6 +8431,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr ""
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr ""
 
@@ -8429,6 +8543,9 @@ msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
+msgstr ""
+
+msgid "RAR Archive"
 msgstr ""
 
 msgid "RAW info"
@@ -8659,6 +8776,9 @@ msgid ""
 msgstr ""
 
 msgid "Readonly"
+msgstr ""
+
+msgid "RealAudio File"
 msgstr ""
 
 msgid "Realm"
@@ -9110,6 +9230,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP moduly"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -9762,6 +9885,9 @@ msgstr "Zdieľania"
 msgid "Shell"
 msgstr ""
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr ""
 
@@ -10346,6 +10472,9 @@ msgstr "Vyrovnávacia pamäť systémových správ"
 msgid "System tuning"
 msgstr "Ladenie systému"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr ""
 
@@ -10363,6 +10492,9 @@ msgstr "TCP port, na ktorý sa server viaže."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10389,6 +10521,9 @@ msgid "TLS Server Certificate Check"
 msgstr ""
 
 msgid "TLS Trust File"
+msgstr ""
+
+msgid "TS File"
 msgstr ""
 
 msgid "Tabs"
@@ -10509,6 +10644,9 @@ msgid "Test email successfully sent."
 msgstr "Testovací email bol úspešne odoslaný."
 
 msgid "Test mode, no command execution"
+msgstr ""
+
+msgid "Text File"
 msgstr ""
 
 msgid ""
@@ -12645,6 +12783,9 @@ msgstr ""
 msgid "VNC Password"
 msgstr ""
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Hodnota"
 
@@ -12774,6 +12915,9 @@ msgid "WAN address"
 msgstr "WAN adresa"
 
 msgid "WARNING"
+msgstr ""
+
+msgid "WAV Audio File"
 msgstr ""
 
 msgid "WEP"
@@ -12944,6 +13088,9 @@ msgstr ""
 msgid "Wireless configuration"
 msgstr "Konfigurácia bezdrôtových sietí"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr ""
 
@@ -12967,6 +13114,9 @@ msgstr "Neznámy typ alebo číslo oblasti."
 
 #, php-format
 msgid "Wrong permission on %s."
+msgstr ""
+
+msgid "XML File"
 msgstr ""
 
 msgid "Xen"
@@ -13168,6 +13318,9 @@ msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
+msgstr ""
+
+msgid "ZIP Archive"
 msgstr ""
 
 msgid "Zeroconf/Bonjour"

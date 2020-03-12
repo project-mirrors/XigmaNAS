@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -428,6 +428,9 @@ msgstr "Trebuie specificat un număr de rețea valid (1-32)."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Trebuie introdus un prefix valid (1-128)."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "Moștenire ACL"
 
@@ -475,6 +478,9 @@ msgid "ARP Tables List"
 msgstr "Lista tabele ARP"
 
 msgid "ASCII"
+msgstr ""
+
+msgid "AVI File"
 msgstr ""
 
 msgid "Accept remote syslog messages."
@@ -1353,6 +1359,12 @@ msgstr ""
 "Timpul mediu de pornire a discului (de la viteza de rotație zero la viteza "
 "de funcționare)."
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Înapoi"
 
@@ -1598,6 +1610,15 @@ msgstr "Implicit, doar fișierele existente deja pot fi încărcate."
 msgid "Bytes/sec"
 msgstr "Bytes/sec"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "CACHE"
 
@@ -1643,6 +1664,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "Unitate CD/DVD"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "MODIFICAT"
@@ -1740,6 +1764,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr ""
@@ -2622,6 +2649,9 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DTS Audio File"
 msgstr ""
 
 msgid "DVD"
@@ -4966,8 +4996,14 @@ msgstr "Eveniment"
 msgid "Example: pkg install packagename."
 msgstr "Exemplu: nume pachet pentru instalare."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Execută"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Executare"
@@ -5070,6 +5106,9 @@ msgid "FAT32"
 msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
+msgstr ""
+
+msgid "FLAC Audio File"
 msgstr ""
 
 msgid "FRU Information"
@@ -5293,6 +5332,9 @@ msgstr "Indicator de stare xxx (ups.conf sau cmdline -x)"
 msgid "Flags"
 msgstr "Indicatori"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr ""
 
@@ -5423,6 +5465,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr ""
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "Licență publică generală GNU"
 
@@ -5445,6 +5490,9 @@ msgid "GSSAPI Authentication"
 msgstr ""
 
 msgid "GUI"
+msgstr ""
+
+msgid "GZIP Archive"
 msgstr ""
 
 msgid "Gateway"
@@ -5626,6 +5674,9 @@ msgstr "Timp oprire HDD"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr ""
@@ -6367,6 +6418,9 @@ msgstr "Mentenanță JBOD"
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Jailed"
 
@@ -6375,6 +6429,15 @@ msgstr "Ian"
 
 msgid "January"
 msgstr "Ianuarie"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Activitate blocată"
@@ -6625,6 +6688,9 @@ msgstr "Limitează spațiul care poate fi utilizat de un set de date."
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Limitează volumul de date care poate fi utilizat de setul de date."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "Dezactivare conexiune"
 
@@ -6854,17 +6920,38 @@ msgstr "Partiție MBR"
 msgid "MD4 Password"
 msgstr ""
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "MIRROR"
 
 msgid "MISSING"
 msgstr "LIPSĂ"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "MUTAT LA"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7867,6 +7954,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Identificatorul numeric al grupului."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -8048,6 +8138,12 @@ msgstr "Proprietar"
 msgid "PAM authentication is selected."
 msgstr "Este selectată autentificarea PAM."
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8059,6 +8155,12 @@ msgstr "Ieșire comandă PHP"
 
 msgid "PHP License"
 msgstr "Licență PHP"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8122,6 +8224,9 @@ msgstr "Tip partiție"
 
 msgid "Partitions"
 msgstr "Partiții"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Port pasiv"
@@ -8264,6 +8369,9 @@ msgid "Permit access without authentication"
 msgstr ""
 
 msgid "Permit discovery without authentication"
+msgstr ""
+
+msgid "Photoshop File"
 msgstr ""
 
 msgid "Physical Block Offset"
@@ -8526,6 +8634,9 @@ msgstr "Mod Energetic"
 msgid "Power management"
 msgstr "Gestionare consum"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr ""
 "Atribut de avertizare pre-defect a discului folosit cel puțin de discurile "
@@ -8684,6 +8795,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr "Discul este pus în modul standby la scurgerea timpului selectat."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr ""
 
@@ -8793,6 +8907,9 @@ msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
+msgstr ""
+
+msgid "RAR Archive"
 msgstr ""
 
 msgid "RAW info"
@@ -9035,6 +9152,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Doar citire"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Domeniu"
@@ -9494,6 +9614,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Module SNMP"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10175,6 +10298,9 @@ msgstr "Partajări"
 msgid "Shell"
 msgstr "Shell"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Șoc în timpul operației de scriere."
 
@@ -10782,6 +10908,9 @@ msgstr "Buffer mesaje sistem"
 msgid "System tuning"
 msgstr "Reglare fină Sistem"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
 
@@ -10799,6 +10928,9 @@ msgstr "Port utilizat de server pentru legătură."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10826,6 +10958,9 @@ msgstr "Verificare certificat TLS Server"
 
 msgid "TLS Trust File"
 msgstr "Fișier TLS"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr ""
@@ -10948,6 +11083,9 @@ msgstr "Emailul de test a fost trimis cu succes."
 
 msgid "Test mode, no command execution"
 msgstr "Mod testare, nu se execută nicio comandă"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13254,6 +13392,9 @@ msgstr "Ecran VNC"
 msgid "VNC Password"
 msgstr "Parolă VNC"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Valoare"
 
@@ -13391,6 +13532,9 @@ msgstr "Adresa WAN"
 
 msgid "WARNING"
 msgstr "ATENŢIE"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13565,6 +13709,9 @@ msgstr "Disponibilitate Winbindd"
 msgid "Wireless configuration"
 msgstr "Configurație Wireless"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Director de lucru"
 
@@ -13589,6 +13736,9 @@ msgstr "Tip partiție sau număr partiție eronat."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Permisiune greșită în %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13813,6 +13963,9 @@ msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
 msgstr ""
 "Dimensiunea volumului ZFS. Pot fi utilizate și sufixe gen K, KB, M, GB."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

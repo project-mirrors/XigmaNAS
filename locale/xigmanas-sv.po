@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2020-03-07 07:12+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -410,6 +410,9 @@ msgstr "Ett giltigt bitantal (1-32) för nätverket måste anges."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Ett giltigt prefix (1-128) måste anges."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "Ärv ACL"
 
@@ -458,6 +461,9 @@ msgstr "Lista ARP Tabell"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Acceptera externa syslogmeddelanden"
@@ -1333,6 +1339,12 @@ msgstr ""
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Medeluppvarvningstid (från 0 RPM till fullt drift)"
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Åter"
 
@@ -1576,6 +1588,15 @@ msgstr "Som standard kan bara redan existerande filer laddas upp."
 msgid "Bytes/sec"
 msgstr "Byte/sekund"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "CACHE"
 
@@ -1622,6 +1643,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD spelare"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "ÄNDRAD"
@@ -1717,6 +1741,9 @@ msgstr "CRC felräknare. Räknar antal CRC fel (läs/skriv data FIS CRC fel)."
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr "CSS Inställningar"
@@ -2573,6 +2600,9 @@ msgid ""
 msgstr ""
 "DOS SMB klienter antar att servern har samma teckensnitt som de har. Detta "
 "alternativ anger vilket teckensnitt Samba skall prata med DOS klienter med."
+
+msgid "DTS Audio File"
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -4923,8 +4953,14 @@ msgstr "Händelse"
 msgid "Example: pkg install packagename."
 msgstr "Exempelvis: pkg install packagename."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Kör"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Kör"
@@ -5028,6 +5064,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - logga bara kritiska fel"
+
+msgid "FLAC Audio File"
+msgstr ""
 
 msgid "FRU Information"
 msgstr "FRU Information"
@@ -5251,6 +5290,9 @@ msgstr "Flagga xxx (ups.conf eller cmdline -x) status"
 msgid "Flags"
 msgstr "Flaggor"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr "Katalogmönster"
 
@@ -5381,6 +5423,9 @@ msgstr "GEOM hittas inte"
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
 
@@ -5404,6 +5449,9 @@ msgstr "GSSAPI Autentisering"
 
 msgid "GUI"
 msgstr "GUI"
+
+msgid "GZIP Archive"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5584,6 +5632,9 @@ msgstr "HDD standbytid"
 
 msgid "HOT SPARE"
 msgstr "AKTIV RESERV"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6317,6 +6368,9 @@ msgstr "JBOD Underhåll"
 msgid "JBOD Status"
 msgstr "JBOD status"
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Jailed"
 
@@ -6325,6 +6379,15 @@ msgstr "jan"
 
 msgid "January"
 msgstr "januari"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Jobbet är låst"
@@ -6563,6 +6626,9 @@ msgstr "Begränsar utrymmet ett dataset och dess innehåll kan nyttja."
 
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Begränsar utrymmet ett dataset kan nyttja."
+
+msgid "Link"
+msgstr ""
 
 msgid "Link Down Action"
 msgstr "Åtgärd när länken går ner"
@@ -6804,17 +6870,38 @@ msgstr "MBR partition"
 msgid "MD4 Password"
 msgstr "MD4 Lösenord"
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "SPEGLING"
 
 msgid "MISSING"
 msgstr "SAKNAS"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "Dagens meddelande"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "FLYTTAD TILL"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7814,6 +7901,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Numerisk identifierare för gruppen."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -7993,6 +8083,12 @@ msgstr "Ägare"
 msgid "PAM authentication is selected."
 msgstr "PAM autentisering är vald."
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8004,6 +8100,12 @@ msgstr "PHP Kommandoutmatning"
 
 msgid "PHP License"
 msgstr "PHP Licens"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8067,6 +8169,9 @@ msgstr "Partitionstyp"
 
 msgid "Partitions"
 msgstr "Partitioner"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Passiv port"
@@ -8208,6 +8313,9 @@ msgstr "Tillåt åtkomt utan autentisering"
 
 msgid "Permit discovery without authentication"
 msgstr "Tillåt sökning utan autentisering"
+
+msgid "Photoshop File"
+msgstr ""
 
 msgid "Physical Block Offset"
 msgstr "Fysisk blockoffset"
@@ -8472,6 +8580,9 @@ msgstr "Effektläge"
 msgid "Power management"
 msgstr "Strömhantering"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Pre-Fail attribut som används åtminstonne i HP enheter."
 
@@ -8628,6 +8739,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr "Sätter disken i strömsparläge inställd tid efter sista diskåtkomst."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr "QUIET - stäng av loggning"
 
@@ -8738,6 +8852,9 @@ msgstr "RAID5 status"
 
 msgid "RAM Disk"
 msgstr "RAM-disk"
+
+msgid "RAR Archive"
+msgstr ""
 
 msgid "RAW info"
 msgstr "RAW information"
@@ -8979,6 +9096,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Skrivskyddad"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Rike"
@@ -9437,6 +9557,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP Moduler"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10150,6 +10273,9 @@ msgstr "Utdelningar"
 msgid "Shell"
 msgstr "Skal"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Slag under skrivning."
 
@@ -10775,6 +10901,9 @@ msgstr "Systemets medelandebuffert"
 msgid "System tuning"
 msgstr "Finjustering av systemet"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP vidarebefordran"
 
@@ -10792,6 +10921,9 @@ msgstr "TCP-port att knyta servern till."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10819,6 +10951,9 @@ msgstr "TLS Servercertifikatkontroll"
 
 msgid "TLS Trust File"
 msgstr "TLS Betroddfil"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr "Tabbar"
@@ -10940,6 +11075,9 @@ msgstr "Testbrev sänt med lyckat resultat."
 
 msgid "Test mode, no command execution"
 msgstr "Testläge, ingen körning av kommandon"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13285,6 +13423,9 @@ msgstr "VNC Skärm"
 msgid "VNC Password"
 msgstr "VNC-lösenord"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Värde"
 
@@ -13420,6 +13561,9 @@ msgstr "WAN adress"
 
 msgid "WARNING"
 msgstr "VARNING"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13596,6 +13740,9 @@ msgstr "Winbindd tillgänglighet"
 msgid "Wireless configuration"
 msgstr "Trådlös konfiguration"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Arbetskatalog"
 
@@ -13620,6 +13767,9 @@ msgstr "Felaktig partition eller partitionsnummer"
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Fel rättigheter på %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13838,6 +13988,9 @@ msgstr "ZFS volymegenskaper inte tillgängliga."
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
 msgstr "ZFS volymstorlek. Du kan använda ändelser som K, KB, M, GB."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

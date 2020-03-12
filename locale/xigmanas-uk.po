@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2020-03-06 17:00+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -420,6 +420,9 @@ msgstr "Повинна бути вказана правильна маска п�
 msgid "A valid prefix (1-128) must be specified."
 msgstr "Правильний префікс (1-128) повинен бути вказаний."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "Успадкування ACL"
 
@@ -468,6 +471,9 @@ msgstr "Список ARP таблиць"
 
 msgid "ASCII"
 msgstr "ASCII"
+
+msgid "AVI File"
+msgstr ""
 
 msgid "Accept remote syslog messages."
 msgstr "Приймати повідомлення віддаленого syslog."
@@ -1348,6 +1354,12 @@ msgstr ""
 msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Середній час розгону шпінделя (від нуля до робочої швидкості)."
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Назад"
 
@@ -1597,6 +1609,15 @@ msgstr "За замовчуванням, тільки вже існуючі фа
 msgid "Bytes/sec"
 msgstr "Байт/сек"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "КЕШ"
 
@@ -1644,6 +1665,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD пристрій"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "ЗМІНЕНО"
@@ -1741,6 +1765,9 @@ msgstr ""
 
 msgid "CRC32C"
 msgstr "CRC32C"
+
+msgid "CSS File"
+msgstr ""
 
 msgid "CSS Settings"
 msgstr "Налаштування CSS"
@@ -2613,6 +2640,9 @@ msgstr ""
 "Клієнти DOS SMB припускають, що сервер має той самий набір символів, що і "
 "вони. Цей параметр визначає, з яким набором символів Samba має спілкуватися "
 "з клієнтами DOS."
+
+msgid "DTS Audio File"
+msgstr ""
 
 msgid "DVD"
 msgstr "DVD"
@@ -4979,8 +5009,14 @@ msgstr "Подія"
 msgid "Example: pkg install packagename."
 msgstr "Приклад: pkg install ім'я_пакету."
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
 msgstr "Виконати"
+
+msgid "Executable File"
+msgstr ""
 
 msgid "Execute"
 msgstr "Виконати"
@@ -5085,6 +5121,9 @@ msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
 msgstr "FATAL - реєструвати лише фатальні помилки"
+
+msgid "FLAC Audio File"
+msgstr ""
 
 msgid "FRU Information"
 msgstr "Інформація FRU"
@@ -5311,6 +5350,9 @@ msgstr "Статус прапора xxx (ups.conf або cmdline -x)"
 msgid "Flags"
 msgstr "Прапорці"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr "Шаблон каталогу"
 
@@ -5441,6 +5483,9 @@ msgstr "GEOM не знайдений."
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
 
@@ -5464,6 +5509,9 @@ msgstr "Автентифікація GSSAPI"
 
 msgid "GUI"
 msgstr "Графічний інтерфейс"
+
+msgid "GZIP Archive"
+msgstr ""
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5647,6 +5695,9 @@ msgstr "Час засинання жорсткого диска"
 
 msgid "HOT SPARE"
 msgstr "Гарячий резерв"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6386,6 +6437,9 @@ msgstr "Обслуговування JBOD"
 msgid "JBOD Status"
 msgstr "Статус JBOD"
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr "Jailed"
 
@@ -6394,6 +6448,15 @@ msgstr "Січ."
 
 msgid "January"
 msgstr "Січень"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Завдання заблоковане"
@@ -6648,6 +6711,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr "Обмежує кількість простору, який може використати набір даних."
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr "Дія при Зникненні З'єднання"
 
@@ -6892,17 +6958,38 @@ msgstr "MBR розділ"
 msgid "MD4 Password"
 msgstr "Пароль MD4"
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "MIRROR"
 
 msgid "MISSING"
 msgstr "ВІДСУТНІЙ"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD (message of the day)"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "ПЕРЕМІЩЕНО ДО"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7913,6 +8000,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Цифровий ідентифікатор групи."
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "OK"
 
@@ -8093,6 +8183,12 @@ msgstr "Власник"
 msgid "PAM authentication is selected."
 msgstr "Обрана автентифікація модулем, що під'єднується (PAM)."
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -8104,6 +8200,12 @@ msgstr "Вивід команд PHP"
 
 msgid "PHP License"
 msgstr "PHP License"
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
+msgstr ""
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8167,6 +8269,9 @@ msgstr "Тип розділу"
 
 msgid "Partitions"
 msgstr "Розділи"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr "Пасивний порт"
@@ -8309,6 +8414,9 @@ msgstr "Дозволити доступ без автентифікації"
 
 msgid "Permit discovery without authentication"
 msgstr "Дозволити виявлення без автентицікації"
+
+msgid "Photoshop File"
+msgstr ""
 
 msgid "Physical Block Offset"
 msgstr "Зміщення фізичного блока"
@@ -8576,6 +8684,9 @@ msgstr "Режим живлення"
 msgid "Power management"
 msgstr "Керування живленням"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Атрибут Pre-Fail' використовується щонайменше, в пристроях HP."
 
@@ -8731,6 +8842,9 @@ msgid ""
 "last disk access has been elapsed."
 msgstr "Переводити диск в сплячий режим після вказаного часу."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr "QUIET - вимкнути реєстрацію"
 
@@ -8841,6 +8955,9 @@ msgstr "Статус RAID5"
 
 msgid "RAM Disk"
 msgstr "RAM диск"
+
+msgid "RAR Archive"
+msgstr ""
 
 msgid "RAW info"
 msgstr "Необроблена інформація"
@@ -9083,6 +9200,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Лише для читання"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Сфера"
@@ -9545,6 +9665,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "Модулі SNMP"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10268,6 +10391,9 @@ msgstr "Загальні ресурси"
 msgid "Shell"
 msgstr "Командна оболонка"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Струс під час запису."
 
@@ -10891,6 +11017,9 @@ msgstr "Буфер системних повідомлень"
 msgid "System tuning"
 msgstr "Налаштування системи"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
 
@@ -10908,6 +11037,9 @@ msgstr "TCP порт, на якому працюватиме сервер."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10935,6 +11067,9 @@ msgstr "Перевірка TLS сертифіката сервера"
 
 msgid "TLS Trust File"
 msgstr "Файл довіри TLS"
+
+msgid "TS File"
+msgstr ""
 
 msgid "Tabs"
 msgstr "Вкладки"
@@ -11057,6 +11192,9 @@ msgstr "Тестовий email успішно відіслано."
 
 msgid "Test mode, no command execution"
 msgstr "Тестовий режим, команда не виконана"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13432,6 +13570,9 @@ msgstr "Монітор VNC"
 msgid "VNC Password"
 msgstr "Пароль VNC"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Значення"
 
@@ -13569,6 +13710,9 @@ msgstr "Адреса WAN"
 
 msgid "WARNING"
 msgstr "ПОПЕРЕДЖЕННЯ"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13749,6 +13893,9 @@ msgstr "Наявність Winbindd"
 msgid "Wireless configuration"
 msgstr "Безпровідна конфігурація"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr "Робочий каталог"
 
@@ -13773,6 +13920,9 @@ msgstr "Невірний тип або номер розділу"
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Невірні атрибути дозволу на %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13995,6 +14145,9 @@ msgid ""
 msgstr ""
 "Розмір тому ZFS. Ви можете використовувати загальноприйняті суфікси 'K', "
 "'KB', 'M', 'GB' тощо."
+
+msgid "ZIP Archive"
+msgstr ""
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

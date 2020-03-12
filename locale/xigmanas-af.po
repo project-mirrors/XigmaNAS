@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-11 17:47+0000\n"
+"POT-Creation-Date: 2020-03-12 23:07+0000\n"
 "PO-Revision-Date: 2018-09-22 21:53+0000\n"
 "Last-Translator: Makhanya Mandla <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 21:12+0000\n"
+"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 
 msgid " No private key"
@@ -417,6 +417,9 @@ msgstr "'n Geldige netwerk bis telling (1-32) moet gespesifiseer word."
 msgid "A valid prefix (1-128) must be specified."
 msgstr "'n Geldige voorvoegsel (1-128) moet gespesifiseer word."
 
+msgid "AC3 Audio File"
+msgstr ""
+
 msgid "ACL Inherit"
 msgstr "ACL Oorneem"
 
@@ -462,6 +465,9 @@ msgid "ARP Tables List"
 msgstr "ARP Tabelle Lys"
 
 msgid "ASCII"
+msgstr ""
+
+msgid "AVI File"
 msgstr ""
 
 msgid "Accept remote syslog messages."
@@ -1330,6 +1336,12 @@ msgstr ""
 "Gemiddelde tyd vir aandryfas om te begin draai (van nul RPM tot volle "
 "werking)"
 
+msgid "BMP Image"
+msgstr ""
+
+msgid "BZIP2 Archive"
+msgstr ""
+
 msgid "Back"
 msgstr "Terug"
 
@@ -1570,6 +1582,15 @@ msgstr "As standaard kan net  lêers wat reeds bestaan opgelaai word."
 msgid "Bytes/sec"
 msgstr "Grepe/sekonde"
 
+msgid "C File"
+msgstr ""
+
+msgid "C++ Header File"
+msgstr ""
+
+msgid "C++ Source File"
+msgstr ""
+
 msgid "CACHE"
 msgstr "KASGEHEUE"
 
@@ -1615,6 +1636,9 @@ msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
 msgstr "CD/DVD drywer"
+
+msgid "CGI Script"
+msgstr ""
 
 msgid "CHANGED"
 msgstr "IS/HET VERANDER"
@@ -1711,6 +1735,9 @@ msgstr ""
 "fout)."
 
 msgid "CRC32C"
+msgstr ""
+
+msgid "CSS File"
 msgstr ""
 
 msgid "CSS Settings"
@@ -2554,6 +2581,9 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DTS Audio File"
 msgstr ""
 
 msgid "DVD"
@@ -4878,7 +4908,13 @@ msgstr "Gebeurtenis"
 msgid "Example: pkg install packagename."
 msgstr ""
 
+msgid "Excel Sheet"
+msgstr ""
+
 msgid "Exec"
+msgstr ""
+
+msgid "Executable File"
 msgstr ""
 
 msgid "Execute"
@@ -4982,6 +5018,9 @@ msgid "FAT32"
 msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
+msgstr ""
+
+msgid "FLAC Audio File"
 msgstr ""
 
 msgid "FRU Information"
@@ -5203,6 +5242,9 @@ msgstr "Vlag xxx (ups.conf or cmdline -x) status"
 msgid "Flags"
 msgstr "Vlaggies"
 
+msgid "Flash File"
+msgstr ""
+
 msgid "Folder Pattern"
 msgstr ""
 
@@ -5333,6 +5375,9 @@ msgstr ""
 msgid "GEOM vinum"
 msgstr ""
 
+msgid "GIF Image"
+msgstr ""
+
 msgid "GNU General Public License"
 msgstr ""
 
@@ -5355,6 +5400,9 @@ msgid "GSSAPI Authentication"
 msgstr ""
 
 msgid "GUI"
+msgstr ""
+
+msgid "GZIP Archive"
 msgstr ""
 
 msgid "Gateway"
@@ -5534,6 +5582,9 @@ msgstr "Hardeskyf bystaan tyd"
 
 msgid "HOT SPARE"
 msgstr "Warm ekstra"
+
+msgid "HTML Page"
+msgstr ""
 
 msgid "HTTP"
 msgstr ""
@@ -6256,6 +6307,9 @@ msgstr "JBOD Instandhouding"
 msgid "JBOD Status"
 msgstr ""
 
+msgid "JPG Image"
+msgstr ""
+
 msgid "Jailed"
 msgstr ""
 
@@ -6264,6 +6318,15 @@ msgstr "Jan"
 
 msgid "January"
 msgstr "Januarie"
+
+msgid "Java Class File"
+msgstr ""
+
+msgid "Java Source File"
+msgstr ""
+
+msgid "Javascript File"
+msgstr ""
 
 msgid "Job is locked"
 msgstr "Werkstuk is gesluit"
@@ -6503,6 +6566,9 @@ msgstr ""
 msgid "Limits the amount of space a dataset can consume."
 msgstr ""
 
+msgid "Link"
+msgstr ""
+
 msgid "Link Down Action"
 msgstr ""
 
@@ -6731,17 +6797,38 @@ msgstr "MBR partisie"
 msgid "MD4 Password"
 msgstr ""
 
+msgid "MIDI File"
+msgstr ""
+
 msgid "MIRROR"
 msgstr "BEELDSPIEËL"
 
 msgid "MISSING"
 msgstr "VERMIS"
 
+msgid "MKV File"
+msgstr ""
+
 msgid "MOTD"
 msgstr "MOTD"
 
+msgid "MOV File"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "GESKUIF NA"
+
+msgid "MP3 Audio File"
+msgstr ""
+
+msgid "MP3 Playlist"
+msgstr ""
+
+msgid "MP4 File"
+msgstr ""
+
+msgid "MPEG File"
+msgstr ""
 
 msgid "MS Active Directory"
 msgstr "MS Aktiewe Lêergids"
@@ -7742,6 +7829,9 @@ msgstr ""
 msgid "Numeric identifier of the group."
 msgstr "Genommerde identifiseerder van die groep"
 
+msgid "OGG Audio File"
+msgstr ""
+
 msgid "OK"
 msgstr "Goed"
 
@@ -7923,6 +8013,12 @@ msgstr "Eienaar"
 msgid "PAM authentication is selected."
 msgstr ""
 
+msgid "PDF File"
+msgstr ""
+
+msgid "PERL Script"
+msgstr ""
+
 msgid "PG"
 msgstr "PG"
 
@@ -7933,6 +8029,12 @@ msgid "PHP Command Output"
 msgstr "PHP bevel afvoer"
 
 msgid "PHP License"
+msgstr ""
+
+msgid "PHP Script"
+msgstr ""
+
+msgid "PNG Image"
 msgstr ""
 
 msgid "PPPoE"
@@ -7997,6 +8099,9 @@ msgstr "Verdeling tipe"
 
 msgid "Partitions"
 msgstr "Verdelings"
+
+msgid "Pascal File"
+msgstr ""
 
 msgid "Passive Port"
 msgstr ""
@@ -8138,6 +8243,9 @@ msgid "Permit access without authentication"
 msgstr ""
 
 msgid "Permit discovery without authentication"
+msgstr ""
+
+msgid "Photoshop File"
 msgstr ""
 
 msgid "Physical Block Offset"
@@ -8396,6 +8504,9 @@ msgstr "Krage Modus"
 msgid "Power management"
 msgstr "Kragbestuur"
 
+msgid "Powerpoint Presentation"
+msgstr ""
+
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr ""
 "Voor-ontklaar raak eienskap word ten minste gebruik in die HP toestelle."
@@ -8552,6 +8663,9 @@ msgstr ""
 "Sit die skyf in bystaan mode nadat die geselekteerde tydperk na nie vorige "
 "skyf toegang verloop het."
 
+msgid "Python Script"
+msgstr ""
+
 msgid "QUIET - disable logging"
 msgstr ""
 
@@ -8661,6 +8775,9 @@ msgid "RAID5 Status"
 msgstr ""
 
 msgid "RAM Disk"
+msgstr ""
+
+msgid "RAR Archive"
 msgstr ""
 
 msgid "RAW info"
@@ -8902,6 +9019,9 @@ msgstr ""
 
 msgid "Readonly"
 msgstr "Leesalleen"
+
+msgid "RealAudio File"
+msgstr ""
 
 msgid "Realm"
 msgstr "Ryk"
@@ -9358,6 +9478,9 @@ msgstr "SNMP"
 
 msgid "SNMP Modules"
 msgstr "SNMP Modules"
+
+msgid "SQL File"
+msgstr ""
 
 msgid "SSH"
 msgstr "SSH"
@@ -10027,6 +10150,9 @@ msgstr "Dele"
 msgid "Shell"
 msgstr "Tolk"
 
+msgid "Shell Script"
+msgstr ""
+
 msgid "Shock During Write."
 msgstr "Skok Gedurende Skryf"
 
@@ -10635,6 +10761,9 @@ msgstr "Stelsel boodskap buffer"
 msgid "System tuning"
 msgstr "Sisteem instemming"
 
+msgid "TAR Archive"
+msgstr ""
+
 msgid "TCP Forwarding"
 msgstr ""
 
@@ -10652,6 +10781,9 @@ msgstr "TCP poort om die bediener aan te bind."
 
 msgid "TFTP"
 msgstr "TFTP"
+
+msgid "TIF Image"
+msgstr ""
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10678,6 +10810,9 @@ msgid "TLS Server Certificate Check"
 msgstr "TLS Bediener Sertifikaat Kontrole"
 
 msgid "TLS Trust File"
+msgstr ""
+
+msgid "TS File"
 msgstr ""
 
 msgid "Tabs"
@@ -10801,6 +10936,9 @@ msgstr "Toets epos met sukses gestuur."
 
 msgid "Test mode, no command execution"
 msgstr "Toets mode, geen bevel uitvoering"
+
+msgid "Text File"
+msgstr ""
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13033,6 +13171,9 @@ msgstr ""
 msgid "VNC Password"
 msgstr "VNS Wagwoord"
 
+msgid "VOB File"
+msgstr ""
+
 msgid "Value"
 msgstr "Waarde"
 
@@ -13166,6 +13307,9 @@ msgstr "WAN adres"
 
 msgid "WARNING"
 msgstr "WAARSKUWING"
+
+msgid "WAV Audio File"
+msgstr ""
 
 msgid "WEP"
 msgstr "WEP"
@@ -13340,6 +13484,9 @@ msgstr ""
 msgid "Wireless configuration"
 msgstr "Koordlose Instellings"
 
+msgid "Word Document"
+msgstr ""
+
 msgid "Work Directory"
 msgstr ""
 
@@ -13364,6 +13511,9 @@ msgstr "Verkeerde verdeling tipe of verdeling nommer."
 #, php-format
 msgid "Wrong permission on %s."
 msgstr "Verkeerde toestemming op %s."
+
+msgid "XML File"
+msgstr ""
 
 msgid "Xen"
 msgstr "Xen"
@@ -13569,6 +13719,9 @@ msgstr ""
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
+msgstr ""
+
+msgid "ZIP Archive"
 msgstr ""
 
 msgid "Zeroconf/Bonjour"
