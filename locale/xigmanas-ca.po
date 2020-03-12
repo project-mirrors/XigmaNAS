@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-03-11 17:47+0000\n"
-"PO-Revision-Date: 2019-11-08 05:37+0000\n"
+"PO-Revision-Date: 2020-03-12 17:29+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-11 22:04+0000\n"
-"X-Generator: Launchpad (build e0878392dc799b267dea80578fa65500a5d74155)\n"
+"X-Launchpad-Export-Date: 2020-03-12 21:13+0000\n"
+"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -861,6 +861,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Es sobreescriuen totes les dades de la senda escollida. Es recomana "
+"utilitzar un directori UFS buit o un conjunt de dades ZFS buit."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Totes les dades es perdran quan s'activa aquesta opció!"
@@ -1120,7 +1122,7 @@ msgid "Append user defined shares"
 msgstr "Annexar recursos definits per l'usuari"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Afegeix comparticions definides per l'usuari."
 
 msgid "Apple Filing Protocol"
 msgstr "Protocol de presentació d'Apple."
@@ -3100,7 +3102,7 @@ msgid "Detailed"
 msgstr "Detallat"
 
 msgid "Details"
-msgstr ""
+msgstr "Detalls"
 
 msgid "Detected"
 msgstr "Detectat"
@@ -5496,10 +5498,10 @@ msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM Software RAID"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "Detalls GEOM no disponibles."
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "GEOM no trobat."
 
 msgid "GEOM vinum"
 msgstr "GEOM vinum"
@@ -6401,7 +6403,7 @@ msgid "Invalid file format."
 msgstr "Format de fitxer no vàlid."
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "El fitxer de maquinari no és vàlid."
 
 msgid "Invalid login credentials."
 msgstr "Credencials d'inici de sessió no vàlides."
@@ -6453,13 +6455,13 @@ msgid "JBOD"
 msgstr "JBOD"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "Detalls JBOD"
 
 msgid "JBOD Maintenance"
 msgstr "Manteniment JBOD"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "Estat JBOD"
 
 msgid "Jailed"
 msgstr "Engabiat"
@@ -7729,13 +7731,13 @@ msgid "No RSYNC Client configured."
 msgstr "Sense RSYNC client configurat."
 
 msgid "No ZFS filesystem information available."
-msgstr ""
+msgstr "No hi ha informació del sistema de fitxers ZFS disponible."
 
 msgid "No ZFS volume information available."
-msgstr ""
+msgstr "No hi ha informació de volum ZFS disponible."
 
 msgid "No ZFS zpool information available."
-msgstr ""
+msgstr "No hi ha informació zpool disponible ZFS."
 
 msgid "No access to the user portal"
 msgstr "No té accés al portal d’usuari"
@@ -8906,28 +8908,28 @@ msgid "RAID0"
 msgstr "RAID0"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "Detalls RAID0"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "Estat RAID0"
 
 msgid "RAID1"
 msgstr "RAID1"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "Detalls RAID1"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "Estat RAID1"
 
 msgid "RAID5"
 msgstr "RAID5"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "Detalls RAID5"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "Estat RAID5"
 
 msgid "RAM Disk"
 msgstr "Disc RAM"
@@ -10204,6 +10206,9 @@ msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
+"Definiu el nombre de dies fins que es mostri un recordatori a la "
+"configuració del sistema de còpia de seguretat. El valor per defecte és de "
+"28 dies. Un valor de 0 inhabilita el recordatori."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Estableix el llindar d'advertència en un valor entre 80 i 89."
@@ -11882,11 +11887,11 @@ msgstr "Les contrasenyes no coincideixen. Siusplau torna-ho a provar."
 
 #, php-format
 msgid "The path %s does not exist."
-msgstr ""
+msgstr "La ruta %s no existeix."
 
 #, php-format
 msgid "The path %s is not a directory."
-msgstr ""
+msgstr "La ruta %s no es un directori."
 
 #, php-format
 msgid "The path '%s' does not exist."
@@ -12081,6 +12086,8 @@ msgid ""
 "The value of the parameter allows the debug level (logging level) to be "
 "specified"
 msgstr ""
+"El valor del paràmetre permet especificar el nivell de depuració (nivell de "
+"registre)"
 
 msgid "The value of the setting."
 msgstr "El valor de la configuració."
@@ -13233,7 +13240,7 @@ msgid "Unknown or Unformatted"
 msgstr "Desconegut o no formatat."
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "Atribut desconegut o sense documentar."
 
 msgid "Unknown or unformatted"
 msgstr "Desconegud o no formatat"
@@ -13371,7 +13378,7 @@ msgid "Use the \"Video\" container"
 msgstr "Utilitzeu el contenidor \"Vídeo\""
 
 msgid "Use the ZFS ACL driver."
-msgstr ""
+msgstr "Utilitzeu el controlador ZFS ACL."
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -13438,7 +13445,7 @@ msgstr ""
 "Utilitzeu el botó de commutació en lloc d'activar/desactivar els botons."
 
 msgid "Use zfsacl"
-msgstr ""
+msgstr "Utilitzeu zfsacl"
 
 msgid "Used"
 msgstr "Utilitzat"
@@ -14064,10 +14071,10 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "Memòria cau de reemplaçament adaptada ZFS (ARC)"
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "Informació i estat del sistema de fitxers ZFS"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "Propietats del sistema de fitxers ZFS"
 
 msgid "ZFS L2ARC"
 msgstr "ZFS L2ARC"
@@ -14082,7 +14089,7 @@ msgid "ZFS Pool I/O Statistics"
 msgstr "Estadístiques de E/S de la piscina ZFS"
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "Informació i estat de la piscina de ZFS"
 
 msgid "ZFS Pool Properties"
 msgstr "Propietats de la piscina ZFS"
@@ -14109,16 +14116,16 @@ msgid "ZFS Volume Properties"
 msgstr "Propietats del volum ZFS"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "No s'ha trobat el sistema de fitxers ZFS."
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "Les propietats del sistema de fitxers ZFS no estan disponibles."
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "No s'ha trobat la piscina ZFS."
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "No es troben propietats de piscine ZFS."
 
 msgid "ZFS volume"
 msgstr "Volum ZFS"
@@ -14128,10 +14135,10 @@ msgstr ""
 "Espai del volum ZFS. Aquest valor es pot canviar desprès de la creació."
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "Volum ZFS no trobat."
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "Propietats de volum ZFS no disponibles."
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
@@ -14397,14 +14404,3 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "sí"
-
-#~ msgid ""
-#~ "All data in the path is overwritten. To avoid invalid data/permission, using "
-#~ "an empty UFS directory is recommended."
-#~ msgstr ""
-#~ "Totes les dades en el camí es sobreescriuen. Per evitar invàlida de "
-#~ "dades/permís, es recomana un directori UFS buit."
-
-#~ msgid "Please update your browser or use Internet Explorer 10 or higher."
-#~ msgstr ""
-#~ "Actualitzeu el navegador o utilitzeu Internet Explorer 10 o superior."
