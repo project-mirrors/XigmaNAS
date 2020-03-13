@@ -53,7 +53,7 @@ else:
 	$g['fullplatform'] = 'unknown';
 endif;
 //	RootOnZFS
-$g['zroot'] = (0 == mwexec('/sbin/mount | grep -q zroot')) ? true : false;
+$g['zroot'] = (0 == mwexec('/sbin/mount | awk "/ \/ / {print $1}" | grep -q ".*/ROOT/.*"')) ? true : false;
 if(is_booting()):
 	//	Find the device where config.xml resides and write out an fstab
 	unset($cfgdevice);

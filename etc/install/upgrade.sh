@@ -16,7 +16,7 @@ stop_cmd=":"
 clean_cmd="upgrade_clean"
 
 # Check for ZFS Boot Environments and set default path.
-ZROOT="zroot"
+ZROOT=$(/sbin/mount | awk -F '/' '/ \/ / {print $1}')
 BEPATH=""
 if zpool list -H -o bootfs | grep -qw "${ZROOT}/ROOT"; then
 	BEPATH="/var/tmp/be_upgrade"
