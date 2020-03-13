@@ -76,7 +76,7 @@ if(isset($_POST['save']) && $_POST['save']):
 	unset($input_errors);
 	$pconfig = $_POST;
 	if(isset($_POST['ups']) && empty($_POST['ups_at'])):
-		$input_errors[] = gtext('UPS Identifier and IP address')." ".sprintf(gtext('must be in the format: %s.'), "identifier@host-ip-address");
+		$input_errors[] = gtext('UPS Identifier and IP address')." ".sprintf(gtext('must be in the format: %s.'),"identifier@host-ip-address");
 	endif;
 	if(isset($_POST['latency']) && empty($_POST['latency_host'])):
 		$input_errors[] = gtext('Network Latency') . ': ' . gtext('Destination host name or IP address.') . ' ' . gtext('Host') . ' ' . gtext('must be defined!');
@@ -94,7 +94,7 @@ if(isset($_POST['save']) && $_POST['save']):
 				$_POST['storage_path'] = rtrim($_POST['storage_path'],'/');	// ensure to have no trailing slash
 			endif;
 			if(!is_dir("{$_POST['storage_path']}/rrd")):
-				mkdir("{$_POST['storage_path']}/rrd", 0775, true);	// new destination or first install
+				mkdir("{$_POST['storage_path']}/rrd",0775,true);	// new destination or first install
 				change_perms("{$_POST['storage_path']}/rrd");	// check/set permissions
 			endif;
 			$config['rrdgraphs']['storage_path'] = $_POST['storage_path'];
@@ -134,93 +134,56 @@ if(isset($_POST['save']) && $_POST['save']):
 				$retval |= rc_update_service("cron");
 				config_unlock();
 			endif;
-			require_once '/usr/local/share/rrdgraphs/rrd-start.php';
+			require '/usr/local/share/rrdgraphs/rrd-start.php';
 		else:
 			$config['rrdgraphs']['enable'] = isset($_POST['enable']) ? true : false;
 			$savemsg = get_std_save_message(write_config());
-			exec("logger rrdgraphs service stopped");
+			write_log('rrdgraphs service stopped');
 			if(!file_exists($d_sysrebootreqd_path)):
 				config_lock();
-				$retval |= rc_update_service("cron");
+				$retval |= rc_update_service('cron');
 				config_unlock();
 			endif;
 		endif;
 	endif;
 endif;
 
-if (isset($_POST['reset_graphs']) && $_POST['reset_graphs']) {
-	exec("logger rrdgraphs service execute delete statistical data ...");
-	$savemsg = gtext("All data from the following statistics have been deleted:");
-	if (isset($_POST['cpu_frequency']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/cpu_freq.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/cpu_freq.rrd");
-		exec("logger rrdgraphs service deleted cpu frequency statistics");
-		$savemsg .= "<br />- ".gtext("CPU Frequency");
-	}
-	if (isset($_POST['cpu_temperature']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/cpu_temp.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/cpu_temp.rrd");
-		exec("logger rrdgraphs service deleted cpu temperature statistics");
-		$savemsg .= "<br />- ".gtext("CPU Temperature");
-	}
-	if (isset($_POST['cpu']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/cpu.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/cpu.rrd");
-		exec("logger rrdgraphs service deleted cpu usage statistics");
-		$savemsg .= "<br />- ".gtext("CPU Usage");
-	}
-	if (isset($_POST['load_averages']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/load_averages.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/load_averages.rrd");
-		exec("logger rrdgraphs service deleted load averages statistics");
-		$savemsg .= "<br />- ".gtext("Load averages");
-	}
-	if (isset($_POST['disk_usage'])) {
-		mwexec("rm {$config['rrdgraphs']['storage_path']}/rrd/mnt_*.rrd", true);
-		exec("logger rrdgraphs service deleted disk usage statistics");
-		$savemsg .= "<br />- ".gtext("Disk Usage");
-	}
-	if (isset($_POST['memory_usage']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/memory.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/memory.rrd");
-		exec("logger rrdgraphs service deleted memory usage statistics");
-		$savemsg .= "<br />- ".gtext("Memory Usage");
-	}
-	if (isset($_POST['latency']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/latency.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/latency.rrd");
-		exec("logger rrdgraphs service deleted network latency statistics");
-		$savemsg .= "<br />- ".gtext("Network Latency");
-	}
-	$rrd_name = "{$config['rrdgraphs']['lan_if']}.rrd";
-	if (isset($_POST['lan_load']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/{$rrd_name}")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/{$rrd_name}");
-		exec("logger rrdgraphs service deleted  network traffic statistics");
-		$savemsg .= "<br />- ".gtext("Network Traffic");
-	}
-	if (isset($_POST['no_processes']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/processes.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/processes.rrd");
-		exec("logger rrdgraphs service deleted sytem processes statistics");
-		$savemsg .= "<br />- ".gtext("System Processes");
-	}
-	if (isset($_POST['ups']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/ups.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/ups.rrd");
-		exec("logger rrdgraphs service deleted ups statistics");
-		$savemsg .= "<br />- ".gtext("UPS Statistics");
-	}
-	if (isset($_POST['uptime']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/uptime.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/uptime.rrd");
-		exec("logger rrdgraphs service deleted uptime statistics");
-		$savemsg .= "<br />- ".gtext("Uptime Statistics");
-	}
-	$rrd_name = "{$config['rrdgraphs']['arc_usage']}.rrd";
-	if (isset($_POST['arc_usage']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/zfs_arc.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/zfs_arc.rrd");
-		exec("logger rrdgraphs service deleted zfs arc usage statistics");
-		$savemsg .= "<br />- ".gtext("ZFS ARC Usage");
-	}
-	$rrd_name = "{$config['rrdgraphs']['l2arc_usage']}.rrd";
-	if (isset($_POST['l2arc_usage']) && is_file("{$config['rrdgraphs']['storage_path']}/rrd/zfs_l2arc.rrd")) {
-		unlink("{$config['rrdgraphs']['storage_path']}/rrd/zfs_l2arc.rrd");
-		exec("logger rrdgraphs service deleted zfs l2arc usage statistics");
-		$savemsg .= "<br />- ".gtext("ZFS L2ARC Usage");
-	}
-	require_once '/usr/local/share/rrdgraphs/rrd-start.php';
-}
+if(isset($_POST['reset_graphs']) && $_POST['reset_graphs']):
+	write_log('rrdgraphs service execute delete statistical data ...');
+	$savemsg = gtext('All data from the following statistics have been deleted:');
+	$format = sprintf('%s/rrd/%%s.rrd',$config['rrdgraphs']['storage_path']);
+	$processing_table = [
+		['postid' => 'cpu_frequency','fnpattern' => 'cpu_freq','log' => 'cpu frequency','msg' => gtext('CPU Frequency')],
+		['postid' => 'cpu_temperature','fnpattern' => 'cpu_temp','log' => 'cpu temperature','msg' => gtext('CPU Temperature')],
+		['postid' => 'cpu','fnpattern' => 'cpu','log' => 'cpu','msg' => gtext('CPU Usage')],
+		['postid' => 'load_averages','fnpattern' => 'load_averages','log' => 'load averages','msg' => gtext('Load Averages')],
+		['postid' => 'disk_usage','fnpattern' => 'mnt_*','log' => 'disk usage','msg' => gtext('Disk Usage')],
+		['postid' => 'memory_usage','fnpattern' => 'memory','log' => 'memory usage','msg' => gtext('Memory Usage')],
+		['postid' => 'latency','fnpattern' => 'latency','log' => 'network latency','msg' => gtext('Network Latency')],
+		['postid' => 'lan_load','fnpattern' => $config['rrdgraphs']['lan_if'],'log' => 'network traffic','msg' => gtext('Network Traffic')],
+		['postid' => 'no_processes','fnpattern' => 'processes','log' => 'system processes','msg' => gtext('System Processes')],
+		['postid' => 'ups','fnpattern' => 'ups','log' => 'ups','msg' => gtext('UPS Statistics')],
+		['postid' => 'uptime','fnpattern' => 'uptime','log' => 'uptime','msg' => gtext('Uptime Statistics')],
+		['postid' => 'arc_usage','fnpattern' => 'zfs_arc','log' => 'zfs arc usage','msg' => gtext('ZFS ARC Usage')],
+		['postid' => 'l2arc_usage','fnpattern' => 'zfs_l2arc','log' => 'zfs l2arc usage','msg' => gtext('ZFS L2ARC Usage')]
+	];
+	foreach($processing_table as $processing_task):
+		if(isset($_POST[$processing_task['postid']])):
+			$rrd_pattern = sprintf($format,$processing_task['fnpattern']);
+			$rrd_fqfn_collection = glob($rrd_pattern,GLOB_NOSORT);
+			if(is_array($rrd_fqfn_collection) && (count($rrd_fqfn_collection) > 0)):
+				array_walk($rrd_fqfn_collection,function($rrd_fqfn) {
+					if(is_file($rrd_fqfn)):
+						unlink($rrd_fqfn);
+					endif;
+				});
+				write_log(sprintf('rrdgraphs service deleted %s statistics',$processing_task['log']));
+				$savemsg .= '<br />- ' . $processing_task['msg'];
+			endif;
+		endif;
+	endforeach;
+	require '/usr/local/share/rrdgraphs/rrd-start.php';
+endif;
 
 $pconfig['enable'] = isset($config['rrdgraphs']['enable']) ? true : false;
 $pconfig['storage_path'] = !empty($config['rrdgraphs']['storage_path']) ? $config['rrdgraphs']['storage_path'] : $g['media_path'];
@@ -273,7 +236,7 @@ if(!empty($config['vinterfaces']['lagg'])) {
 if(empty($pconfig['latency_interface']) && is_array($a_interface)):
 	$pconfig['latency_interface'] = key($a_interface);
 endif;
-$pgtitle = [gtext('System'), gtext('Advanced'), gtext('Monitoring Setup')];
+$pgtitle = [gtext('System'),gtext('Advanced'),gtext('Monitoring Setup')];
 ?>
 <?php include 'fbegin.inc';?>
 <script type="text/javascript">
@@ -423,26 +386,26 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline_checkbox2('enable', gettext('System Monitoring Settings'), $pconfig['enable'], gettext('Enable'), "enable_change(false)");
+			html_titleline_checkbox2('enable',gettext('System Monitoring Settings'),$pconfig['enable'],gettext('Enable'),'enable_change(false)');
 ?>
 		</thead>
 		<tbody>
 <?php
-			html_filechooser2('storage_path', gettext('Home Directory'), $pconfig['storage_path'], gettext('Enter the path to the home directory. This directory will store the statistical data and gets updated every 5 minutes!'), $g['media_path'], true, 60);
-			html_inputbox2('refresh_time', gettext('Page Refresh'), $pconfig['refresh_time'], gettext('Auto page refresh.')." ".sprintf(gettext('(default %s %s'), 300, gettext('seconds)')), false, 5);
-			html_inputbox2('graph_h', gettext('Graphs Height'), $pconfig['graph_h'], sprintf(gettext('Height of the graphs. (default %s pixels)'), 200), false, 5);
-			html_checkbox2('autoscale', gettext('Autoscale'), $pconfig['autoscale'], gettext('Autoscale for graphs.'), "", false);
-			html_checkbox2('background_white', gettext('Background'), $pconfig['background_white'], gettext('Enable white background graphs. (black as default)'), '', false);
+			html_filechooser2('storage_path',gettext('Home Directory'),$pconfig['storage_path'],gettext('Enter the path to the home directory. This directory will store the statistical data and gets updated every 5 minutes!'),$g['media_path'],true,60);
+			html_inputbox2('refresh_time',gettext('Page Refresh'),$pconfig['refresh_time'],gettext('Auto page refresh.') . ' ' . sprintf(gettext('(default %s %s'),300,gettext('seconds)')),false,5);
+			html_inputbox2('graph_h',gettext('Graphs Height'),$pconfig['graph_h'],sprintf(gettext('Height of the graphs. (default %s pixels)'),200),false,5);
+			html_checkbox2('autoscale',gettext('Autoscale'),$pconfig['autoscale'],gettext('Autoscale for graphs.'),'',false);
+			html_checkbox2('background_white',gettext('Background'),$pconfig['background_white'],gettext('Enable white background graphs. (black as default)'),'',false);
 			html_separator2();
 			html_titleline2(gettext('Available Graphs'));
-			html_checkbox2('cpu_frequency', gettext('CPU Frequency'), $pconfig['cpu_frequency'], gettext('Enable collecting CPU frequency statistics.'), '', false);
-			html_checkbox2('cpu_temperature', gettext('CPU Temperature'), $pconfig['cpu_temperature'], gettext('Enable collecting CPU temperature statistics.'), '', false);
-			html_checkbox2('cpu', gettext('CPU Usage'), $pconfig['cpu'], gettext('Enable collecting CPU usage statistics.'), '', false);
-			html_checkbox2('disk_usage', gettext('Disk Usage'), $pconfig['disk_usage'], gettext('Enable collecting disk space usage statistics.'), '', false);
-			html_checkbox2('load_averages', gettext('Load Averages'), $pconfig['load_averages'], gettext('Enable collecting average system load statistics.'), '', false);
-			html_checkbox2('memory_usage', gettext('Memory Usage'), $pconfig['memory_usage'], gettext('Enable collecting memory usage statistics.'), '', false);
-			html_checkbox2('latency', gettext('Network Latency'), $pconfig['latency'], gettext('Enable collecting network latency statistics.'), '', false, false, 'latency_change()');
-			html_inputbox2('latency_host', gettext('Host'), $pconfig['latency_host'], gettext('Destination host name or IP address.'), false, 20);
+			html_checkbox2('cpu_frequency',gettext('CPU Frequency'),$pconfig['cpu_frequency'],gettext('Enable collecting CPU frequency statistics.'),'',false);
+			html_checkbox2('cpu_temperature',gettext('CPU Temperature'),$pconfig['cpu_temperature'],gettext('Enable collecting CPU temperature statistics.'),'',false);
+			html_checkbox2('cpu',gettext('CPU Usage'),$pconfig['cpu'],gettext('Enable collecting CPU usage statistics.'),'',false);
+			html_checkbox2('disk_usage',gettext('Disk Usage'),$pconfig['disk_usage'],gettext('Enable collecting disk space usage statistics.'),'',false);
+			html_checkbox2('load_averages',gettext('Load Averages'),$pconfig['load_averages'],gettext('Enable collecting average system load statistics.'),'',false);
+			html_checkbox2('memory_usage',gettext('Memory Usage'),$pconfig['memory_usage'],gettext('Enable collecting memory usage statistics.'),'',false);
+			html_checkbox2('latency',gettext('Network Latency'),$pconfig['latency'],gettext('Enable collecting network latency statistics.'),'',false,false,'latency_change()');
+			html_inputbox2('latency_host',gettext('Host'),$pconfig['latency_host'],gettext('Destination host name or IP address.'),false,20);
 			$a_option = [];
 			$s_option = '';
 			foreach($a_interface as $if => $ifinfo) {
@@ -454,31 +417,31 @@ $document->render();
 					}
 				}
 			}
-			html_combobox2('latency_interface', gettext('Interface Selection'), $s_option, $a_option, gettext('Select the interface (only selectable if your server has more than one) to use for the source IP address in outgoing packets.'));
+			html_combobox2('latency_interface',gettext('Interface Selection'),$s_option,$a_option,gettext('Select the interface (only selectable if your server has more than one) to use for the source IP address in outgoing packets.'));
 			$latency_a_count = [];
 			for ($i = 1; $i <= 20; $i++) {
 				$latency_a_count[$i] = $i;
 			}
-			html_combobox2('latency_count', gettext('Count'), $pconfig['latency_count'], $latency_a_count, gettext('Stop after sending (and receiving) N packets.'), false);
+			html_combobox2('latency_count',gettext('Count'),$pconfig['latency_count'],$latency_a_count,gettext('Stop after sending (and receiving) N packets.'),false);
 			$helpinghand = gettext('These parameters will be added to the ping command.')
 				. ' '
 				. sprintf(gettext('Please check the %sdocumentation%s.'),'<a href="http://www.freebsd.org/cgi/man.cgi?query=ping&amp;apropos=0&amp;sektion=0&amp;format=html" target="_blank">','</a>');
 			html_inputbox2('latency_parameters',gettext('Additional Parameters'),$pconfig['latency_parameters'],$helpinghand,false,60);
-			html_checkbox2('lan_load', gettext('Network Traffic'), $pconfig['lan_load'], gettext('Enable collecting network traffic statistics.'), '', false, false, 'lan_change()');
-			html_checkbox2('bytes_per_second', gettext('Bytes/sec'), $pconfig['bytes_per_second'], gettext('Use Bytes/sec instead of Bits/sec for network throughput display.'), "", false);
-			html_checkbox2('logarithmic', gettext('Logarithmic Scaling'), $pconfig['logarithmic'], sprintf(gettext('Use logarithmic y-axis scaling for %s graphs. (can not be used together with positive/negative y-axis range)'), gettext('network traffic')), "", false, false, 'logarithmic_change()');
-			html_checkbox2('axis', gettext('Y-axis Range'), $pconfig['axis'], sprintf(gettext('Show positive/negative values for %s graphs. (can not be used together with logarithmic scaling)'), gettext('network traffic')), '', false, false, 'axis_change()');
-			html_checkbox2('no_processes', gettext('System Processes'), $pconfig['no_processes'], gettext('Enable collecting system process statistics.'), '', false);
-			html_checkbox2('ups', gettext('UPS Statistics'), $pconfig['ups'], gettext('Enable collecting UPS statistics.'), '', false, false, 'ups_change()');
-			$helpinghand =  gettext('Enter the UPS identifier and host IP address of the machine where the UPS is connected to. (this also can be a remote host)')
+			html_checkbox2('lan_load',gettext('Network Traffic'),$pconfig['lan_load'],gettext('Enable collecting network traffic statistics.'),'',false,false,'lan_change()');
+			html_checkbox2('bytes_per_second',gettext('Bytes/sec'),$pconfig['bytes_per_second'],gettext('Use Bytes/sec instead of Bits/sec for network throughput display.'),'',false);
+			html_checkbox2('logarithmic',gettext('Logarithmic Scaling'),$pconfig['logarithmic'],sprintf(gettext('Use logarithmic y-axis scaling for %s graphs. (can not be used together with positive/negative y-axis range)'),gettext('network traffic')),'',false,false,'logarithmic_change()');
+			html_checkbox2('axis',gettext('Y-axis Range'),$pconfig['axis'],sprintf(gettext('Show positive/negative values for %s graphs. (can not be used together with logarithmic scaling)'),gettext('network traffic')),'',false,false,'axis_change()');
+			html_checkbox2('no_processes',gettext('System Processes'),$pconfig['no_processes'],gettext('Enable collecting system process statistics.'),'',false);
+			html_checkbox2('ups',gettext('UPS Statistics'),$pconfig['ups'],gettext('Enable collecting UPS statistics.'),'',false,false,'ups_change()');
+			$helpinghand = gettext('Enter the UPS identifier and host IP address of the machine where the UPS is connected to. (this also can be a remote host)')
 				. '<br /> '
 				. gettext('The UPS identifier and IP address')
 				.	' '
 				. sprintf(gettext('must be in the format: %s.'),'identifier@host-ip-address or identifier@localhost');
 			html_inputbox2('ups_at',gettext('UPS Identifier'),$pconfig['ups_at'],$helpinghand,false,60);
-			html_checkbox2('uptime', gettext('Uptime Statistics'), $pconfig['uptime'], gettext('Enable collecting uptime statistics.'), '', false);
-			html_checkbox2('arc_usage', gettext('ZFS ARC Usage'), $pconfig['arc_usage'], gettext('Enable collecting ZFS ARC usage statistics.'), '', false);
-			html_checkbox2('l2arc_usage', gettext('ZFS L2ARC Usage'), $pconfig['l2arc_usage'], gettext('Enable collecting ZFS L2ARC usage statistics.'), '', false);
+			html_checkbox2('uptime',gettext('Uptime Statistics'),$pconfig['uptime'],gettext('Enable collecting uptime statistics.'),'',false);
+			html_checkbox2('arc_usage',gettext('ZFS ARC Usage'),$pconfig['arc_usage'],gettext('Enable collecting ZFS ARC usage statistics.'),'',false);
+			html_checkbox2('l2arc_usage',gettext('ZFS L2ARC Usage'),$pconfig['l2arc_usage'],gettext('Enable collecting ZFS L2ARC usage statistics.'),'',false);
 ?>
 		</tbody>
 	</table>
@@ -488,11 +451,11 @@ $document->render();
 	</div>
 	<div id="remarks">
 <?php
-		$helpinghand = sprintf(gettext("'%s' deletes all statistical data from the graphs!"), gettext('Reset Graphs'))
+		$helpinghand = sprintf(gettext("'%s' deletes all statistical data from the graphs!"),gettext('Reset Graphs'))
 			. '<div id="enumeration"><ul>'
-			. '<li>' . sprintf(gettext("If only specific statistics needs to be reset, clear all other check boxes before performing '%s'."), gettext('Reset Graphs')) . '</li>'
+			. '<li>' . sprintf(gettext("If only specific statistics needs to be reset, clear all other check boxes before performing '%s'."),gettext('Reset Graphs')) . '</li>'
 			. '</ul></div>';
-		html_remark2("warning", gettext('Warning'), $helpinghand );
+		html_remark2('warning',gettext('Warning'),$helpinghand);
 ?>
 	</div>
 <?php
