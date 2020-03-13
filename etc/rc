@@ -28,7 +28,7 @@ export HOME PATH
 PLATFORM=`/bin/cat /etc/platform`
 XARCH=`/bin/echo ${PLATFORM} | /usr/bin/sed -e 's/-.*//'`
 ARCH=`/usr/bin/uname -m`
-ZROOT="zroot"
+ZROOT=$(/sbin/mount | awk -F '/' '/ \/ / {print $1}')
 
 # Fixed values requested by build/make.sh
 MDLOCALSIZE=1192m

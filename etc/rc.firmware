@@ -31,9 +31,9 @@ FTMP="${lighttpd_uploaddir:-/var/tmp}/ftmp"
 ARG="$2"
 
 # Required for boot environment upgrade.
-ROOTFS=$(mount | awk '/ \/ / {print $1}')
+ROOTFS=$(/sbin/mount | awk '/ \/ / {print $1}')
 SYSBACKUP="/tmp/sysbackup"
-ZROOT="zroot"
+ZROOT=$(/sbin/mount | awk -F '/' '/ \/ / {print $1}')
 DATASET="/ROOT"
 BOOTPOOL="bootpool"
 BENAME="upgrade"

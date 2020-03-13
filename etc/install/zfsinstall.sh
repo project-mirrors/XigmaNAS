@@ -728,6 +728,26 @@ install_yesno()
 	fi
 }
 
+menu_poolname()
+{
+		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Pool Name" \
+		--form "\nEnter a desired pool name, default is ${ZROOT}." 0 0 0 \
+		"Enter pool name:" 1 1 "${ZROOT}" 1 25 25 25 \
+		2>${tmpfile}
+		if [ 0 -ne $? ]; then
+			exit 0
+		fi
+
+		pool_name=$(cat ${tmpfile})
+		if [ ! -z "${pool_name}" ]; then
+			VERIFY_TOPIC="Pool"
+			FUNC_CMD="menu_poolname"
+			name_verify="${pool_name}"
+			check_name
+			ZROOT="${pool_name}"
+		fi
+}
+
 menu_swap()
 {
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize Swap size" \
@@ -822,6 +842,9 @@ menu_dataset()
 
 		dataset_name=$(cat ${tmpfile})
 		if [ ! -z "${dataset_name}" ]; then
+			VERIFY_TOPIC="Dataset"
+			FUNC_CMD="menu_dataset"
+			name_verify="${dataset_name}"
 			check_name
 			DATASET_NAME="${dataset_name}"
 		fi
@@ -831,14 +854,14 @@ menu_dataset()
 check_name()
 {
 	# Perform some input validation.
-	DATASETNAME="${dataset_name}"
-	CHECK_NAME=$(echo "${dataset_name}" | tr -c -d 'a-zA-Z0-9-_.:')
+	DATASETNAME="${name_verify}"
+	CHECK_NAME=$(echo "${name_verify}" | tr -c -d 'a-zA-Z0-9-_.:')
 	if [ "${DATASETNAME}" != "${CHECK_NAME}" ]; then
 
 		echo -e "
-ERROR: Can not create ZFS Dataset with '${DATASETNAME}' name.
+ERROR: Can not create ZFS ${VERIFY_TOPIC} with '${DATASETNAME}' name.
 
-    Allowed characters for ZFS Datasets are:
+    Allowed characters for ZFS ${VERIFY_TOPIC} are:
       Alphanumeric: (a-z) (A-Z) (0-9)
       Hypen: (-)
       Underscore: (_)
@@ -848,7 +871,7 @@ ERROR: Can not create ZFS Dataset with '${DATASETNAME}' name.
     Name '${CHECK_NAME}' which uses only allowed characters can be used.
 "
 		read -p "Press Enter to retry." RETRY
-		menu_dataset
+		${FUNC_CMD}
 	fi
 }
 
@@ -871,6 +894,7 @@ menu_zroot_create()
 {
 	load_kmods
 	menu_install
+	menu_poolname
 	menu_swap
 	menu_zrootsize
 	menu_dataset
