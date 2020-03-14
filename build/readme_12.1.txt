@@ -123,6 +123,7 @@ Changes:
 - Upgrade php to 7.4.3.
 - Upgrade proftpd to 1.3.6c.
 - Upgrade mDNSResponder to 1096.0.2.
+- Upgrade bsnmp-ucd to 0.4.5.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
