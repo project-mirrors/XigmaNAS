@@ -34,7 +34,7 @@ CREATE_MOUNTS_CMD ()
 	counter=MOUNT${i}
 	while [ "${!counter}" != "" ]; do
 		if [ "${!counter}" == "$1" ]; then
-			CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A`
+			CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A | tr '+/=' '-_~'`
 			FILE="${STORAGE_PATH}/rrd/mnt_${CLEAN_NAME}.rrd"
 			if [ ! -f "$FILE" ]; then
 				/usr/local/bin/rrdtool create "${FILE}" \
@@ -59,7 +59,7 @@ CREATE_MOUNTS_CMD ()
 # function creates rrdtool update command for pools -> parameters: pool_name(=$1) used_space(=$2) free_space(=$3)
 CREATE_POOLS_CMD ()
 {
-	CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A`
+	CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A | tr '+/=' '-_~'`
 	FILE="${STORAGE_PATH}/rrd/mnt_${CLEAN_NAME}.rrd"
 	if [ ! -f "${FILE}" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \

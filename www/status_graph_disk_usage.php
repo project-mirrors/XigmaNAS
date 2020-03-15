@@ -59,13 +59,13 @@ switch($disk_types):
 endswitch;
 if(!empty($disk_usage_collection)):
 	asort($disk_usage_collection);
-	if(isset($_GET['selector']) && $_GET['selector'] && key_exists($_GET['selector'],$disk_usage_collection)):
+	if(isset($_GET['selector']) && $_GET['selector'] && array_key_exists($_GET['selector'],$disk_usage_collection)):
 		$current_key = $_GET['selector'];
 	else:
 		$current_key = array_key_first($disk_usage_collection);
 	endif;
 	$current_data = $disk_usage_collection[$current_key];
-	$clean_name = base64_encode($current_data);
+	$clean_name = strtr(base64_encode($current_data),'+/=','-_~');
 	mwexec(sprintf('/usr/local/share/rrdgraphs/rrd-graph.sh disk_usage %s',escapeshellarg($current_data)),true);
 endif;
 $refresh = 300;
