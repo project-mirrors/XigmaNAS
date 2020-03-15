@@ -38,21 +38,21 @@ array_make_branch($config,'rrdgraphs');
 $rrd_disk_usage = true;
 $temp_array = [];
 $test_arrays = 0;
-if(!empty($config["rrdgraphs"]["mounts"])):
+if(!empty($config['rrdgraphs']['mounts'])):
 	$test_arrays = $test_arrays + 1;
 endif;
-if(!empty($config["rrdgraphs"]["pools"])):
+if(!empty($config['rrdgraphs']['pools'])):
 	$test_arrays = $test_arrays + 2;
 endif;
 switch($test_arrays):
 	case 1:
-		$temp_array = $config["rrdgraphs"]["mounts"];
+		$temp_array = $config['rrdgraphs']['mounts'];
 		break;
 	case 2:
-		$temp_array = $config["rrdgraphs"]["pools"];
+		$temp_array = $config['rrdgraphs']['pools'];
 		break;
 	case 3:
-		$temp_array = array_merge($config["rrdgraphs"]["mounts"],$config["rrdgraphs"]["pools"]);
+		$temp_array = array_merge($config['rrdgraphs']['mounts'],$config['rrdgraphs']['pools']);
 		break;
 endswitch;
 if($test_arrays > 0):
@@ -106,7 +106,7 @@ $document->render();
 						$current_key = $_GET['selector'];
 					endif;
 					$current_data = $temp_array[$current_key];
-					$clean_name = str_replace('/', '-', $current_data); // clean .rrd filename from '/' for ZFS datasets
+					$clean_name = base64_encode($current_data);
 					$selector_array = $temp_array;
 					foreach ($selector_array as $selector_key => $selector_data):
 						echo '<option value="',$selector_key,'"';
@@ -119,15 +119,11 @@ $document->render();
 				</select>
 		</td></tr>
 		<tr><td>
-			<div align="center" style="min-width:840px;">
-				<br>
-				<img src="/images/rrd/rrd-mnt_<?=$clean_name;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Disk usage Graph |<?=$clean_name;?>|">
-				<br><br>
-				<img src="/images/rrd/rrd-mnt_<?=$clean_name;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Disk usage Graph">
-				<br><br>
-				<img src="/images/rrd/rrd-mnt_<?=$clean_name;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Disk usage Graph">
-				<br><br>
-				<img src="/images/rrd/rrd-mnt_<?=$clean_name;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Disk usage Graph">
+			<div class="rrdgraphs">
+				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Disk usage Graph |<?=$clean_name;?>|">
+				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Disk usage Graph">
+				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Disk usage Graph">
+				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Disk usage Graph">
 			</div>
 			</td></tr>
 		</tbody>

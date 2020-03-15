@@ -30,51 +30,50 @@ CALC_SI ()
 # function creates rrdtool update command for mounted disks -> parameters: mount_point(=$1) used_space(=$2) free_space(=$3)
 CREATE_MOUNTS_CMD ()
 {
-while [ "${1}" != "" ]; do
 	i=0
 	counter=MOUNT${i}
 	while [ "${!counter}" != "" ]; do
 		if [ "${!counter}" == "$1" ]; then
-			CALC_SI $2; C_USED=${CRESULT}
-			CALC_SI $3; C_FREE=${CRESULT}
-			FILE="${STORAGE_PATH}/rrd/mnt_${1}.rrd"
+			CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A`
+			FILE="${STORAGE_PATH}/rrd/mnt_${CLEAN_NAME}.rrd"
 			if [ ! -f "$FILE" ]; then
-				/usr/local/bin/rrdtool create "$FILE" \
+				/usr/local/bin/rrdtool create "${FILE}" \
 					-s 300 \
-					'DS:Used:GAUGE:600:U:U' 'DS:Free:GAUGE:600:U:U' \
-					'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+					'DS:Used:GAUGE:600:U:U' \
+					'DS:Free:GAUGE:600:U:U' \
+					'RRA:AVERAGE:0.5:1:576' \
+					'RRA:AVERAGE:0.5:6:672' \
+					'RRA:AVERAGE:0.5:24:732' \
+					'RRA:AVERAGE:0.5:144:1460'
 			fi
 			if [ -f "$FILE" ]; then
-				/usr/local/bin/rrdtool update "$FILE" N:${C_USED}:${C_FREE} 2>> /tmp/rrdgraphs-error.log
+				/usr/local/bin/rrdtool update "${FILE}" N:$2:$3 2>> /tmp/rrdgraphs-error.log
 			fi
 			break
 		fi
 		i=$((i+1))
 		counter=MOUNT${i}
 	done
-	shift 3
-done
 }
 
 # function creates rrdtool update command for pools -> parameters: pool_name(=$1) used_space(=$2) free_space(=$3)
 CREATE_POOLS_CMD ()
 {
-while [ "${1}" != "" ]; do
-	CALC_SI $2; C_USED=${CRESULT}
-	CALC_SI $3; C_FREE=${CRESULT}
-	CLEAN_NAME=`echo -e $1 | awk '{gsub("/","-"); print}'`
+	CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A`
 	FILE="${STORAGE_PATH}/rrd/mnt_${CLEAN_NAME}.rrd"
-	if [ ! -f "$FILE" ]; then
-		/usr/local/bin/rrdtool create "$FILE" \
+	if [ ! -f "${FILE}" ]; then
+		/usr/local/bin/rrdtool create "${FILE}" \
 			-s 300 \
-			'DS:Used:GAUGE:600:U:U' 'DS:Free:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:Used:GAUGE:600:U:U' \
+			'DS:Free:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:${C_USED}:${C_FREE} 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "${FILE}" N:$2:$3 2>> /tmp/rrdgraphs-error.log
 	fi
-	shift 3
-done
 }
 
 # function creates rrdtool update command for network interfaces -> parameters: interface_name(=$1)
@@ -174,12 +173,12 @@ CREATE_UPSVARS ()
 #   battery.charge      %
 #   ups.load            %
 #   battery.voltage     V
-#   input.voltage       V 
+#   input.voltage       V
 #   battery.runtime     m
 #   ups.status          OL [CHRG]
 #                       OFF
 #                       OB
-# $1: var name $2: value $3: CHRG 
+# $1: var name $2: value $3: CHRG
 charge=0; load=0; bvoltage=0; ivoltage=0; runtime=0; OL=0; OF=0; OB=0; CG=0;
 if [ "${CMD}" == "" ]; then OF=100; return; fi
 while [ "${1}" != "" ]; do
@@ -194,7 +193,7 @@ while [ "${1}" != "" ]; do
 							OFF)    OF=100;;
 							OB)     OL=100; OB=100;;
 							CHRG)   OL=100; CG=100;;
-						esac; 
+						esac;
 						case ${3} in
 								CHRG)   OL=100; CG=100;;
 						esac;;
@@ -211,7 +210,7 @@ if [ $RUN_AVG -eq 1 ] || [ $RUN_PRO -eq 1 ] || [ $RUN_CPU -eq 1 ] || [ $RUN_MEM 
 ####################################################
 
 # network interfaces
-if [ $RUN_LAN -eq 1 ]; then 
+if [ $RUN_LAN -eq 1 ]; then
 # interfaces, LAN & OPTx
 	interfaces=`/usr/local/bin/xml sel -t -v "//interfaces/.//if" /conf/config.xml`
 	CREATE_INTERFACE_CMD ${interfaces}
@@ -219,7 +218,7 @@ if [ $RUN_LAN -eq 1 ]; then
 	CREATE_INTERFACE_CMD ${interfaces}
 fi
 # system load averages
-if [ $RUN_AVG -eq 1 ]; then 
+if [ $RUN_AVG -eq 1 ]; then
 	LA=`echo -e "$TOP" | awk '/averages:/ {gsub(",", ""); print $6":"$7":"$8; exit}'`
 	FILE="${STORAGE_PATH}/rrd/load_averages.rrd"
 	if [ ! -f "$FILE" ]; then
@@ -233,7 +232,7 @@ if [ $RUN_AVG -eq 1 ]; then
 	fi
 fi
 # CPU temperatures
-if [ $RUN_TMP -eq 1 ]; then 
+if [ $RUN_TMP -eq 1 ]; then
 	T1=`sysctl -q -n dev.cpu.0.temperature | awk '{gsub("C",""); print}'`;      # core 1 temperature
 	T2=`sysctl -q -n dev.cpu.1.temperature | awk '{gsub("C",""); print}'`;      # core 2 temperature
 	T2=0;
@@ -249,7 +248,7 @@ if [ $RUN_TMP -eq 1 ]; then
 	fi
 fi
 # CPU frequency
-if [ $RUN_FRQ -eq 1 ]; then 
+if [ $RUN_FRQ -eq 1 ]; then
 	F=`sysctl -n dev.cpu.0.freq | tr -d "\n"`;
 	FILE="${STORAGE_PATH}/rrd/cpu_freq.rrd"
 	if [ ! -f "$FILE" ]; then
@@ -263,7 +262,7 @@ if [ $RUN_FRQ -eq 1 ]; then
 	fi
 fi
 # Processes
-if [ $RUN_PRO -eq 1 ]; then 
+if [ $RUN_PRO -eq 1 ]; then
 	NP=`echo -e "$TOP" | awk '/processes:/ {gsub("[:,]", ""); print $2" "$1"  "$4" "$3"  "$6" "$5"  "$8" "$7"  "$10" "$9"  "$12" "$11"  "$14" "$13; exit}'`
 	CREATE_PVARS ${NP}
 	FILE="${STORAGE_PATH}/rrd/processes.rrd"
@@ -279,7 +278,7 @@ if [ $RUN_PRO -eq 1 ]; then
 	fi
 fi
 # CPU usage
-if [ $RUN_CPU -eq 1 ]; then 
+if [ $RUN_CPU -eq 1 ]; then
 	CP=`echo -e "$TOP" | awk '/CPU:/ {gsub("[%,]", ""); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10; exit}'`
 	CREATE_CVARS ${CP}
 	FILE="${STORAGE_PATH}/rrd/cpu.rrd"
@@ -295,15 +294,15 @@ if [ $RUN_CPU -eq 1 ]; then
 	fi
 fi
 # Disk usage
-if [ $RUN_DUS -eq 1 ]; then 
-	mount=`df -h | awk '!/jail/ && /\/mnt\// {gsub("/mnt/",""); print $6, $3, $4}' | awk '!/\// {print}'`
-	pool=`zfs list -H -t filesystem -o name,used,available`
-	CREATE_MOUNTS_CMD ${mount}
-	CREATE_POOLS_CMD ${pool}
+if [ $RUN_DUS -eq 1 ]; then
+	mount=`df -h --libxo:X | /usr/local/bin/xml sel -t -m "//filesystem[starts-with(mounted-on,'/mnt/') and not(contains(mounted-on,'jail')) and not(contains(name,'jail'))]" -v "str:replace(mounted-on,'/mnt/','')" -n -v used/@value -n -v available/@value -n -b | /usr/local/bin/xml unesc`
+	pool=`zfs list -H -p -t filesystem -o name,used,available`
+	echo "${mount}" | while IFS= read -r R1 ; do read -r R2 ; read -r R3 ; CREATE_MOUNTS_CMD "${R1}" "${R2}" "${R3}" ; done
+	echo "${pool}" | while IFS=$'\t' read -r -a ONE_ROW ; do CREATE_POOLS_CMD "${ONE_ROW[0]}" "${ONE_ROW[1]}" "${ONE_ROW[2]}" ; done
 fi
 
 # Memory
-if [ $RUN_MEM -eq 1 ]; then 
+if [ $RUN_MEM -eq 1 ]; then
 	SW=`echo -e "$TOP" | awk '/Swap:/ {gsub("[:,]", ""); gsub("Free", "Swapfree"); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10; exit}'`
 	MM="`echo -e "$TOP" | awk '/Mem:/ {gsub("[:,]", ""); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10" "$13" "$12; exit}'` ${SW}"
 	CREATE_MVARS ${MM}
@@ -321,7 +320,7 @@ if [ $RUN_MEM -eq 1 ]; then
 fi
 
 # ZFS ARC
-if [ $RUN_ARC -eq 1 ]; then 
+if [ $RUN_ARC -eq 1 ]; then
 	ARC=`echo -e "$TOP" | awk '/ARC:/ {gsub("[:,]", ""); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10" "$13" "$12; exit}'`
 	CREATE_AVARS ${ARC}
 	FILE="${STORAGE_PATH}/rrd/zfs_arc.rrd"
@@ -338,7 +337,7 @@ if [ $RUN_ARC -eq 1 ]; then
 fi
 
 # ZFS L2ARC
-if [ $RUN_L2ARC -eq 1 ]; then 
+if [ $RUN_L2ARC -eq 1 ]; then
 	L2_SIZE=`sysctl -q -n kstat.zfs.misc.arcstats.l2_size`;        # Uncompressed
 	L2_ASIZE=`sysctl -q -n kstat.zfs.misc.arcstats.l2_asize`;      # Compressed
 	FILE="${STORAGE_PATH}/rrd/zfs_l2arc.rrd"
@@ -354,7 +353,7 @@ if [ $RUN_L2ARC -eq 1 ]; then
 fi
 
 # UPS
-if [ $RUN_UPS -eq 1 ]; then 
+if [ $RUN_UPS -eq 1 ]; then
 	CMD=`/usr/local/bin/upsc ${UPS_AT}`
 	CREATE_UPSVARS ${CMD}
 	FILE="${STORAGE_PATH}/rrd/ups.rrd"
@@ -372,7 +371,7 @@ if [ $RUN_UPS -eq 1 ]; then
 fi
 
 # Latency
-if [ $RUN_LAT -eq 1 ]; then 
+if [ $RUN_LAT -eq 1 ]; then
 	PG=`ping $LATENCY_PARAMETERS -S $LATENCY_INTERFACE_IP -c $LATENCY_COUNT $LATENCY_HOST | awk '/round-trip/ {gsub("/", ":"); print $4}'`
 	if [ "$PG" == "" ]; then PG="0:0:0:0"; fi
 	FILE="${STORAGE_PATH}/rrd/latency.rrd"
@@ -388,7 +387,7 @@ if [ $RUN_LAT -eq 1 ]; then
 fi
 
 # Uptime
-if [ $RUN_UPT -eq 1 ]; then 
+if [ $RUN_UPT -eq 1 ]; then
 	UT=`echo -e "$TOP" | awk '/averages:/ {gsub("[,+:]", " "); print $10*24*60+$11*60+$12; exit}'`
 	FILE="${STORAGE_PATH}/rrd/uptime.rrd"
 	if [ ! -f "$FILE" ]; then
