@@ -105,12 +105,12 @@ if(isset($config['rrdgraphs']['enable'])):
 			exec('zfs list -H -t filesystem -o name',$pools,$retval);
 			for($i = 0;$i < count($pools);++$i):
 				$config['rrdgraphs']['pools']["pool{$i}"] = $pools[$i];
-				fwrite($rrdconfig,"POOL{$i}={$pools[$i]}" . "\n");
+				fwrite($rrdconfig,"POOL{$i}='{$pools[$i]}'" . "\n");
 			endfor;
 		endif;
 		$temp_array = array_merge($config['rrdgraphs']['mounts'],$config['rrdgraphs']['pools']);
 		foreach($temp_array as $retval):
-			$clean_name = str_replace('/','-',$retval);
+			$clean_name = base64_encode($retval);
 			if(!is_file("{$config['rrdgraphs']['storage_path']}/rrd/mnt_{$clean_name}.rrd")):
 				$ret_val = mwexec("/usr/local/bin/rrdtool create {$config['rrdgraphs']['storage_path']}/rrd/mnt_{$clean_name}.rrd" .
 					" -s 300" .

@@ -76,10 +76,10 @@ fi
 
 if [ "$1" == "disk_usage" ] || ( [ "$1" == "" ] && [ "${RUN_DUS}" == "1" ] ); then
     if [ "$2" == "" ]; then
-        DA=`df -k | awk '!/jail/ && /\/mnt\// {gsub("/mnt/",""); print $6}' | awk '!/\// {print}'`      # all mountpoints but not jail
-        for DISK_NAME in ${DA}; do CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"; done
-        DA=`zfs list -H -t filesystem -o name`                                                          # all ZFS datasets
-        for DISK_NAME in ${DA}; do CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"; done
+		DA=`df -k --libxo:X | /usr/local/bin/xml sel -t -m "//filesystem[starts-with(mounted-on,'/mnt/') and not(contains(mounted-on,'jail')) and not(contains(name,'jail'))]" -v "str:replace(mounted-on,'/mnt/','')" -n -b | /usr/local/bin/xml unesc`
+		echo "${DA}" | while IFS= read -r DISK_NAME ; do CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"; done
+		DA=`zfs list -H -t filesystem -o name`
+		echo "${DA}" | while IFS= read -r DISK_NAME ; do CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"; done
     else
         DISK_NAME=$2
         CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"
