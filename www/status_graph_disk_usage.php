@@ -36,41 +36,42 @@ require_once 'guiconfig.inc';
 
 array_make_branch($config,'rrdgraphs');
 $rrd_disk_usage = true;
-$temp_array = [];
-$test_arrays = 0;
+$disk_types = 0;
 if(!empty($config['rrdgraphs']['mounts'])):
-	$test_arrays = $test_arrays + 1;
+	$disk_types += 1;
 endif;
 if(!empty($config['rrdgraphs']['pools'])):
-	$test_arrays = $test_arrays + 2;
+	$disk_types += 2;
 endif;
-switch($test_arrays):
+switch($disk_types):
 	case 1:
-		$temp_array = $config['rrdgraphs']['mounts'];
+		$disk_usage_collection = $config['rrdgraphs']['mounts'];
 		break;
 	case 2:
-		$temp_array = $config['rrdgraphs']['pools'];
+		$disk_usage_collection = $config['rrdgraphs']['pools'];
 		break;
 	case 3:
-		$temp_array = array_merge($config['rrdgraphs']['mounts'],$config['rrdgraphs']['pools']);
+		$disk_usage_collection = array_merge($config['rrdgraphs']['mounts'],$config['rrdgraphs']['pools']);
+		break;
+	default:
+		$disk_usage_collection = [];
 		break;
 endswitch;
-if($test_arrays > 0):
-	asort($temp_array);
-endif;
-if(isset($_GET['selector']) && $_GET['selector']):
-	$current_key = $_GET['selector'];
-	$current_data = $temp_array[$current_key];
-else:
-	$current_data = $temp_array[0];
+if(!empty($disk_usage_collection)):
+	asort($disk_usage_collection);
+	if(isset($_GET['selector']) && $_GET['selector'] && key_exists($_GET['selector'],$disk_usage_collection)):
+		$current_key = $_GET['selector'];
+	else:
+		$current_key = array_key_first($disk_usage_collection);
+	endif;
+	$current_data = $disk_usage_collection[$current_key];
+	$clean_name = base64_encode($current_data);
+	mwexec(sprintf('/usr/local/share/rrdgraphs/rrd-graph.sh disk_usage %s',escapeshellarg($current_data)),true);
 endif;
 $refresh = 300;
-if(isset($config['rrdgraphs']['refresh_time'])):
-	if(!empty($config['rrdgraphs']['refresh_time'])):
-		$refresh = $config['rrdgraphs']['refresh_time'];
-	endif;
+if(isset($config['rrdgraphs']['refresh_time']) && !empty($config['rrdgraphs']['refresh_time'])):
+	$refresh = $config['rrdgraphs']['refresh_time'];
 endif;
-mwexec(sprintf('/usr/local/share/rrdgraphs/rrd-graph.sh disk_usage %s',$current_data),true);
 $pgtitle = [gtext('Status'),gtext('Monitoring'),gtext('Disk Usage')];
 include 'fbegin.inc';
 ?>
@@ -90,6 +91,9 @@ $document->render();
 			html_titleline2(gettext('Disk Usage'),1);
 ?>
 		</thead>
+<?php
+		if(!empty($disk_usage_collection)):
+?>
 		<tbody>
 			<tr><td>
 <?php
@@ -100,21 +104,14 @@ $document->render();
 ?>
 				<select name="selector" class="formfld" onchange="submit()">
 <?php
-					reset($temp_array);
-					$current_key = key($temp_array);
-					if(isset($_GET['selector']) && $_GET['selector']):
-						$current_key = $_GET['selector'];
-					endif;
-					$current_data = $temp_array[$current_key];
-					$clean_name = base64_encode($current_data);
-					$selector_array = $temp_array;
-					foreach ($selector_array as $selector_key => $selector_data):
+					$selector_array = $disk_usage_collection;
+					foreach($selector_array as $selector_key => $selector_data):
 						echo '<option value="',$selector_key,'"';
 						if($selector_key == $current_key):
 							echo ' selected="selected"';
 						endif;
 						echo '>',htmlspecialchars($selector_data),'</option>',PHP_EOL;
-				endforeach;
+					endforeach;
 ?>
 				</select>
 		</td></tr>
@@ -127,6 +124,9 @@ $document->render();
 			</div>
 			</td></tr>
 		</tbody>
+<?php
+		endif;
+?>
 	</table>
 </form></td></tr></tbody></table>
 <?php
