@@ -295,9 +295,9 @@ if [ $RUN_CPU -eq 1 ]; then
 fi
 # Disk usage
 if [ $RUN_DUS -eq 1 ]; then
-	mount=`df -h --libxo:X | /usr/local/bin/xml sel -t -m "//filesystem[starts-with(mounted-on,'/mnt/') and not(contains(mounted-on,'jail')) and not(contains(name,'jail'))]" -v "str:replace(mounted-on,'/mnt/','')" -n -v used/@value -n -v available/@value -n -b | /usr/local/bin/xml unesc`
+	mount=`df -h --libxo:X | /usr/local/bin/xml sel --text --template --match "//filesystem[starts-with(mounted-on,'/mnt/') and not(contains(mounted-on,'jail')) and not(contains(name,'jail'))]" --value-of "concat(str:replace(mounted-on,'/mnt/',''),'&#09;',used/@value,'&#09;',available/@value)" --nl --break | /usr/local/bin/xml unesc`
 	pool=`zfs list -H -p -t filesystem -o name,used,available`
-	echo "${mount}" | while IFS= read -r R1 ; do read -r R2 ; read -r R3 ; CREATE_MOUNTS_CMD "${R1}" "${R2}" "${R3}" ; done
+	echo "${mount}" | while IFS=$'\t' read -r -a ONE_ROW ; do CREATE_MOUNTS_CMD "${ONE_ROW[0]}" "${ONE_ROW[1]}" "${ONE_ROW[2]}" ; done
 	echo "${pool}" | while IFS=$'\t' read -r -a ONE_ROW ; do CREATE_POOLS_CMD "${ONE_ROW[0]}" "${ONE_ROW[1]}" "${ONE_ROW[2]}" ; done
 fi
 
