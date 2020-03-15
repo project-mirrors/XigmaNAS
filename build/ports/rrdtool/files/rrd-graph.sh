@@ -81,7 +81,7 @@ if [ "$1" == "disk_usage" ] || ( [ "$1" == "" ] && [ "${RUN_DUS}" == "1" ] ); th
 		DA=`zfs list -H -t filesystem -o name`
 		echo "${DA}" | while IFS= read -r DISK_NAME ; do CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"; done
     else
-        DISK_NAME=$2
+        DISK_NAME="$2"
         CREATE_GRAPHS "disk_usage" "Disk Space Usage: ${DISK_NAME}"
     fi
 fi

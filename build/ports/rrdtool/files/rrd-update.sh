@@ -62,7 +62,7 @@ CREATE_POOLS_CMD ()
 	CLEAN_NAME=`echo -n "$1" | /usr/bin/openssl base64 -A`
 	FILE="${STORAGE_PATH}/rrd/mnt_${CLEAN_NAME}.rrd"
 	if [ ! -f "${FILE}" ]; then
-		/usr/local/bin/rrdtool create "${FILE}" \
+		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
 			'DS:Used:GAUGE:600:U:U' \
 			'DS:Free:GAUGE:600:U:U' \
