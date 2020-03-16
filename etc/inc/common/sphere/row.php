@@ -34,12 +34,15 @@
 namespace common\sphere;
 /**
  *	sphere object for row pages
+ *	root -> hub -> row
+ *	root -> hub -> grid
+ *	root -> settings
  */
 final class row extends hub {
 	public function doj(bool $with_envelope = true): string {
 		$output = [];
 		if($with_envelope):
-			$output[] = '<script type="text/javascript">';
+			$output[] = '<script>';
 			$output[] = '//<![CDATA[';
 		endif;
 		$output[] = '$(window).on("load", function() {';
@@ -52,7 +55,7 @@ final class row extends hub {
 			$output[] = '</script>';
 			$output[] = '';
 		endif;
-		return implode(PHP_EOL,$output);
+		return \implode("\n",$output);
 	}
 	public function upsert() {
 //		soft update existing grid record with row record or add row record to grid
