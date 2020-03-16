@@ -35,12 +35,10 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $status_graph = true;
-$graph_gap = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'; 
 $graph_width = 397;
 $graph_height = 220;
-
-$curif = "lan";
-if (isset($_GET['if']) && $_GET['if']):
+$curif = 'lan';
+if(isset($_GET['if']) && $_GET['if']):
 	$curif = $_GET['if'];
 endif;
 $ifnum = get_ifname($config['interfaces'][$curif]['if']);
@@ -48,19 +46,19 @@ $ifdescrs = ['lan' => 'LAN'];
 for($j = 1;isset($config['interfaces']['opt' . $j]);$j++):
 	$ifdescrs['opt' . $j] = $config['interfaces']['opt' . $j]['descr'];
 endfor;
-
-$a_object = [];
-$a_object['type'] = 'type="image/svg+xml"';
-$a_object['width'] = sprintf('width="%s"',$graph_width);
-$a_object['height'] = sprintf('height="%s"',$graph_height);
-$a_param = [];
-$a_param['name'] = 'name="src"';
-
+$a_object = [
+	'class' => 'class="rrdgraphs"',
+	'type' => 'type="image/svg+xml"',
+	'width' => sprintf('width="%s"',$graph_width),
+	'height' => sprintf('height="%s"',$graph_height)
+];
+$a_param = [
+	'name' => 'name="src"'
+];
 $gt_notsupported = gtext('Your browser does not support this svg object type.') .
 		'<br />' .
 		gtext('You need to update your browser or use Internet Explorer 10 or higher.') .
 		'<br/>';
-
 $pgtitle = [gtext('Status'),gtext('Monitoring'),gtext('System Load')];
 include 'fbegin.inc';
 $document = new co_DOMDocument();
@@ -80,8 +78,7 @@ $document->render();
 		<tbody>
 			<tr><td><?=gtext('Graph shows last 120 seconds');?></td></tr>
 			<tr><td>
-				<div align="center" style="min-width:840px;">
-					<br />
+				<div class="rrdgraphs">
 <?php
 					$a_object['id'] = 'id="graph"';
 					$a_object['data'] = sprintf('data="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs[$curif]));
@@ -90,25 +87,18 @@ $document->render();
 					echo sprintf('<param %s/>',implode(' ',$a_param));
 					echo $gt_notsupported;
 					echo '</object>',PHP_EOL;
-					echo $graph_gap;
 					for($j = 1;isset($config['interfaces']['opt' . $j]);$j++):
 						$ifdescrs = $config['interfaces']['opt' . $j]['descr'];
 						$ifnum = $config['interfaces']['opt' . $j]['if'];
-						$a_object['id'] = 'id="graph1"';
+						$a_object['id'] = sprintf('id="graph%d"',$j);
 						$a_object['data'] = sprintf('data="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs));
 						$a_param['value'] = sprintf('value="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs));
 						echo sprintf('<object %s>',implode(' ',$a_object));
 						echo sprintf('<param %s/>',implode(' ',$a_param));
 						echo $gt_notsupported;
 						echo '</object>',PHP_EOL;
-						$test = $j % 2;
-						if($test != 0):
-							echo '<br /><br /><br />'; // add line breaks after second graph ...
-						else:
-							echo $graph_gap; // or the gap between two graphs
-						endif;
 					endfor;
-					$a_object['id'] = 'id="graph1"';
+					$a_object['id'] = 'id="graph0"';
 					$a_object['data'] = 'data="status_graph_cpu2.php"';
 					$a_param['value'] = 'value="status_graph_cpu2.php"';
 					echo sprintf('<object %s>',implode(' ',$a_object));
