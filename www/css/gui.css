@@ -1365,6 +1365,7 @@ object.rrdgraphs
 	margin-top: 1em;
 	flex: 0 0 auto;
 	max-width: 100%;
+	height: auto;
 }
 
 /*
