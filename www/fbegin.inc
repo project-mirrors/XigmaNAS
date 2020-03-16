@@ -51,10 +51,10 @@ echo '<!DOCTYPE html>',"\n";
 		<link href="/css/gui.css.php" rel="stylesheet" type="text/css">
 		<link href="/css/navbar.css.php" rel="stylesheet" type="text/css">
 		<link href="/css/tabs.css.php" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<script type="text/javascript" src="/js/gui.js"></script>
-		<script type="text/javascript" src="/js/spinner.js"></script>
-		<script type="text/javascript" src="/js/spin.min.js"></script>
+		<script src="/js/jquery.min.js"></script>
+		<script src="/js/gui.js"></script>
+		<script src="/js/spinner.js"></script>
+		<script src="/js/spin.min.js"></script>
 <?php
 		if(isset($pglocalheader) && !empty($pglocalheader)):
 			if(is_array($pglocalheader)):
@@ -90,7 +90,7 @@ echo '<!DOCTYPE html>',"\n";
 ?>
 			<div id="gapheader"></div>
 		</header>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#tabnav").on('click', function() { spinner(); });
