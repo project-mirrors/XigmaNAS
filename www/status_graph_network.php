@@ -92,16 +92,12 @@ $document->render();
 				</select>
 			</td></tr>
 			<tr><td>
-			<div align="center" style="min-width:840px;">
-				<br>
-				<img src="/images/rrd/rrd-<?=$ifnum;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Bandwidth <?=$ifnum;?> Graph">
-				<br><br>
-				<img src="/images/rrd/rrd-<?=$ifnum;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Bandwidth Graph">
-				<br><br>
-				<img src="/images/rrd/rrd-<?=$ifnum;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Bandwidth Graph">
-				<br><br>
-				<img src="/images/rrd/rrd-<?=$ifnum;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Bandwidth Graph">
-			</div>
+				<div class="rrdgraphs">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Bandwidth <?=$ifnum;?> Graph">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Bandwidth Graph">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Bandwidth Graph">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Bandwidth Graph">
+				</div>
 			</td></tr>
 		</tbody>
 	</table>
