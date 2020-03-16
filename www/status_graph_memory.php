@@ -89,15 +89,11 @@ $document->render();
 				</select>
 			</td></tr>
 			<tr><td>
-				<div align="center" style="min-width:840px;">
-					<br>
-					<img src="/images/rrd/rrd-<?=$ifnum;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Memory Graph <?=$ifnum;?>">
-					<br><br>
-					<img src="/images/rrd/rrd-<?=$ifnum;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Memory Graph">
-					<br><br>
-					<img src="/images/rrd/rrd-<?=$ifnum;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Memory Graph">
-					<br><br>
-					<img src="/images/rrd/rrd-<?=$ifnum;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Memory Graph">
+				<div class="rrdgraphs">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Memory Graph <?=$ifnum;?>">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Memory Graph">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Memory Graph">
+					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Memory Graph">
 				</div>
 			</td></tr>
 		</tbody>
