@@ -9,6 +9,7 @@ $BACKGROUND \
 "-w" "600" \
 "--slope-mode" \
 "-l 0" \
+$BASEDIVISOR \
 "DEF:Used=$STORAGE_PATH/rrd/mnt_${CLEAN_NAME}.rrd:Used:AVERAGE" \
 "DEF:Free=$STORAGE_PATH/rrd/mnt_${CLEAN_NAME}.rrd:Free:AVERAGE" \
 "AREA:Used#FFCC559F:Used" \

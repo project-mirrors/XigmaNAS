@@ -8,6 +8,7 @@ $BACKGROUND \
 "-h ${GRAPH_H}" \
 "-w" "600" \
 "--slope-mode" \
+"-b" "1024" \
 "DEF:Total=$STORAGE_PATH/rrd/${GRAPH}.rrd:Total:AVERAGE" \
 "DEF:MFU=$STORAGE_PATH/rrd/${GRAPH}.rrd:MFU:AVERAGE" \
 "DEF:MRU=$STORAGE_PATH/rrd/${GRAPH}.rrd:MRU:AVERAGE" \

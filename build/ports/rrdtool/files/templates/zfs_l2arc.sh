@@ -8,6 +8,7 @@ $BACKGROUND \
 "-w" "600" \
 "--slope-mode" \
 "-l 0" \
+"-b" "1024" \
 "DEF:L2_SIZE=$STORAGE_PATH/rrd/${GRAPH}.rrd:L2_SIZE:AVERAGE" \
 "DEF:L2_ASIZE=$STORAGE_PATH/rrd/${GRAPH}.rrd:L2_ASIZE:AVERAGE" \
 "AREA:L2_SIZE#3AD9E7BF:L2ARC Uncompressed (L2_SIZE)" \

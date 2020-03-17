@@ -94,25 +94,6 @@ while [ "${1}" != "" ]; do
 done
 }
 
-# function extracts values from 'top' for ARC usage -> parameters: var_name(=$1) var_value(=$2)
-CREATE_AVARS ()
-{
-# ARC: 712K Total, 146K MFU, 347K MRU, 16K Anon, 12K Header, 190K Other
-Total=0; MFU=0; MRU=0; Anon=0; Header=0; Other=0;
-while [ "${1}" != "" ]; do
-	case ${1} in
-		Total)  CALC_SI ${2}; Total=${CRESULT};;
-		MFU)    CALC_SI ${2}; MFU=${CRESULT};;
-		MRU)    CALC_SI ${2}; MRU=${CRESULT};;
-		Anon)   CALC_SI ${2}; Anon=${CRESULT};;
-		Header) CALC_SI ${2}; Header=${CRESULT};;
-		Other)  CALC_SI ${2}; Other=${CRESULT};;
-	esac
-	shift
-done
-AVARS=$Total:$MFU:$MRU:$Anon:$Header:$Other
-}
-
 # function extracts values from 'top' for memory -> parameters: var_name(=$1) var_value(=$2)
 CREATE_MVARS ()
 {
@@ -224,8 +205,13 @@ if [ $RUN_AVG -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:CPU:GAUGE:600:0:100' 'DS:CPU5:GAUGE:600:0:100' 'DS:CPU15:GAUGE:600:0:100' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:CPU:GAUGE:600:0:100' \
+			'DS:CPU5:GAUGE:600:0:100' \
+			'DS:CPU15:GAUGE:600:0:100' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$LA 2>> /tmp/rrdgraphs-error.log
@@ -240,8 +226,12 @@ if [ $RUN_TMP -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:core0:GAUGE:600:0:U' 'DS:core1:GAUGE:600:0:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:core0:GAUGE:600:0:U' \
+			'DS:core1:GAUGE:600:0:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$T1:$T2 2>> /tmp/rrdgraphs-error.log
@@ -254,8 +244,12 @@ if [ $RUN_FRQ -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:core0:GAUGE:600:0:U' 'DS:core1:GAUGE:600:0:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:core0:GAUGE:600:0:U' \
+			'DS:core1:GAUGE:600:0:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$F:0 2>> /tmp/rrdgraphs-error.log
@@ -269,9 +263,17 @@ if [ $RUN_PRO -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-		'DS:total:GAUGE:600:U:U' 'DS:running:GAUGE:600:U:U' 'DS:sleeping:GAUGE:600:U:U' 'DS:waiting:GAUGE:600:U:U' \
-		'DS:starting:GAUGE:600:U:U' 'DS:stopped:GAUGE:600:U:U' 'DS:zombie:GAUGE:600:U:U' \
-		'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:total:GAUGE:600:U:U' \
+			'DS:running:GAUGE:600:U:U' \
+			'DS:sleeping:GAUGE:600:U:U' \
+			'DS:waiting:GAUGE:600:U:U' \
+			'DS:starting:GAUGE:600:U:U' \
+			'DS:stopped:GAUGE:600:U:U' \
+			'DS:zombie:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$total:$running:$sleeping:$waiting:$starting:$stopped:$zombie 2>> /tmp/rrdgraphs-error.log
@@ -285,9 +287,15 @@ if [ $RUN_CPU -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:user:GAUGE:600:U:U' 'DS:nice:GAUGE:600:U:U' 'DS:system:GAUGE:600:U:U' 'DS:interrupt:GAUGE:600:U:U' \
+			'DS:user:GAUGE:600:U:U' \
+			'DS:nice:GAUGE:600:U:U' \
+			'DS:system:GAUGE:600:U:U' \
+			'DS:interrupt:GAUGE:600:U:U' \
 			'DS:idle:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$user:$nice:$system:$interrupt:$idle 2>> /tmp/rrdgraphs-error.log
@@ -310,45 +318,63 @@ if [ $RUN_MEM -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:active:GAUGE:600:U:U' 'DS:inact:GAUGE:600:U:U' 'DS:wired:GAUGE:600:U:U' 'DS:cache:GAUGE:600:U:U' \
-			'DS:buf:GAUGE:600:U:U' 'DS:free:GAUGE:600:U:U' 'DS:total:GAUGE:600:U:U' 'DS:used:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:active:GAUGE:600:U:U' \
+			'DS:inact:GAUGE:600:U:U' \
+			'DS:wired:GAUGE:600:U:U' \
+			'DS:cache:GAUGE:600:U:U' \
+			'DS:buf:GAUGE:600:U:U' \
+			'DS:free:GAUGE:600:U:U' \
+			'DS:total:GAUGE:600:U:U' \
+			'DS:used:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$active:$inact:$wired:$cache:$buf:$free:$swaptotal:$swapused 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 
-# ZFS ARC
+#	ZFS ARC
 if [ $RUN_ARC -eq 1 ]; then
-	ARC=`echo -e "$TOP" | awk '/ARC:/ {gsub("[:,]", ""); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10" "$13" "$12; exit}'`
-	CREATE_AVARS ${ARC}
+	VALUESARC=`sysctl -q -n kstat.zfs.misc.arcstats.size kstat.zfs.misc.arcstats.mfu_size kstat.zfs.misc.arcstats.mru_size kstat.zfs.misc.arcstats.anon_size kstat.zfs.misc.arcstats.hdr_size kstat.zfs.misc.arcstats.other_size | xargs -n 6 | tr ' ' ':'`
 	FILE="${STORAGE_PATH}/rrd/zfs_arc.rrd"
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:Total:GAUGE:600:U:U' 'DS:MFU:GAUGE:600:U:U' 'DS:MRU:GAUGE:600:U:U' 'DS:Anon:GAUGE:600:U:U' \
-			'DS:Header:GAUGE:600:U:U' 'DS:Other:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:Total:GAUGE:600:U:U' \
+			'DS:MFU:GAUGE:600:U:U' \
+			'DS:MRU:GAUGE:600:U:U' \
+			'DS:Anon:GAUGE:600:U:U' \
+			'DS:Header:GAUGE:600:U:U' \
+			'DS:Other:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$AVARS 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:$VALUESARC 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 
-# ZFS L2ARC
+#	ZFS L2ARC
 if [ $RUN_L2ARC -eq 1 ]; then
-	L2_SIZE=`sysctl -q -n kstat.zfs.misc.arcstats.l2_size`;        # Uncompressed
-	L2_ASIZE=`sysctl -q -n kstat.zfs.misc.arcstats.l2_asize`;      # Compressed
+	VALUESL2ARC=`sysctl -q -n kstat.zfs.misc.arcstats.l2_size kstat.zfs.misc.arcstats.l2_asize | xargs -n 2 | tr ' ' ':'`
 	FILE="${STORAGE_PATH}/rrd/zfs_l2arc.rrd"
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:L2_SIZE:GAUGE:600:U:U' 'DS:L2_ASIZE:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:L2_SIZE:GAUGE:600:U:U' \
+			'DS:L2_ASIZE:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$L2_SIZE:$L2_ASIZE 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:$VALUESL2ARC 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 
@@ -360,10 +386,19 @@ if [ $RUN_UPS -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:charge:GAUGE:600:U:U' 'DS:load:GAUGE:600:U:U' 'DS:bvoltage:GAUGE:600:U:U' 'DS:ivoltage:GAUGE:600:U:U' \
-			'DS:runtime:GAUGE:600:U:U' 'DS:OL:GAUGE:600:U:U' 'DS:OF:GAUGE:600:U:U' 'DS:OB:GAUGE:600:U:U' \
+			'DS:charge:GAUGE:600:U:U' \
+			'DS:load:GAUGE:600:U:U' \
+			'DS:bvoltage:GAUGE:600:U:U' \
+			'DS:ivoltage:GAUGE:600:U:U' \
+			'DS:runtime:GAUGE:600:U:U' \
+			'DS:OL:GAUGE:600:U:U' \
+			'DS:OF:GAUGE:600:U:U' \
+			'DS:OB:GAUGE:600:U:U' \
 			'DS:CG:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$charge:$load:$bvoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG 2>> /tmp/rrdgraphs-error.log
@@ -378,8 +413,14 @@ if [ $RUN_LAT -eq 1 ]; then
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:min:GAUGE:600:U:U' 'DS:avg:GAUGE:600:U:U' 'DS:max:GAUGE:600:U:U' 'DS:stddev:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:min:GAUGE:600:U:U' \
+			'DS:avg:GAUGE:600:U:U' \
+			'DS:max:GAUGE:600:U:U' \
+			'DS:stddev:GAUGE:600:U:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$PG 2>> /tmp/rrdgraphs-error.log
@@ -394,7 +435,10 @@ if [ $RUN_UPT -eq 1 ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
 			'DS:uptime:GAUGE:600:U:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$UT 2>> /tmp/rrdgraphs-error.log
