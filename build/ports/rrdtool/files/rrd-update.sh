@@ -11,22 +11,6 @@ if [ ! -d "${STORAGE_PATH}" ] || [ ! -d  "${STORAGE_PATH}/rrd" ]; then
 fi
 . $STORAGE_PATH/rrd_config
 
-# function converts SI units (K, M, G, T bits/bytes) to bits/bytes: factor 1000 instead of 1024 because RRDTool converts not binary
-CALC_SI ()
-{
-	CRESULT=`echo -e $1 | awk '/M/ {gsub("[M]", ""); calc=$1*1000*1000; print calc}'`
-	if [ "${CRESULT}" == "" ]; then                                                     # not MByte
-		CRESULT=`echo -e $1 | awk '/K/ {gsub("[K]", ""); calc=$1*1000; print calc}'`
-		if [ "${CRESULT}" == "" ]; then                                                 # not kByte
-			CRESULT=`echo -e $1 | awk '/G/ {gsub("[G]", ""); calc=$1*1000*1000*1000; print calc}'`
-			if [ "${CRESULT}" == "" ]; then                                             # not GByte
-				CRESULT=`echo -e $1 | awk '/T/ {gsub("[T]", ""); calc=$1*1000*1000*1000*1000; print calc}'`
-				if [ "${CRESULT}" == "" ]; then CRESULT=$1; fi                      # only Byte (no postfix)
-			fi
-		fi
-	fi
-}
-
 # function creates rrdtool update command for mounted disks -> parameters: mount_point(=$1) used_space(=$2) free_space(=$3)
 CREATE_MOUNTS_CMD ()
 {
@@ -91,25 +75,6 @@ while [ "${1}" != "" ]; do
 		/usr/local/bin/rrdtool update "$FILE" N:`netstat -I ${1} -nWb -f link | grep -v Name | awk '{print $8":"$11}'` 2>> /tmp/rrdgraphs-error.log
 	fi
 	shift 1
-done
-}
-
-# function extracts values from 'top' for memory -> parameters: var_name(=$1) var_value(=$2)
-CREATE_MVARS ()
-{
-active=0; inact=0; wired=0; cache=0; buf=0; free=0; swaptotal=0; swapused=0;
-while [ "${1}" != "" ]; do
-	case ${1} in
-		Active) CALC_SI ${2}; active=${CRESULT};;
-		Inact)  CALC_SI ${2}; inact=${CRESULT};;
-		Wired)  CALC_SI ${2}; wired=${CRESULT};;
-		Cache)  CALC_SI ${2}; cache=${CRESULT};;
-		Buf)    CALC_SI ${2}; buf=${CRESULT};;
-		Free)   CALC_SI ${2}; free=${CRESULT};;
-		Total)  CALC_SI ${2}; swaptotal=${CRESULT};;
-		Used)   CALC_SI ${2}; swapused=${CRESULT};;
-	esac
-	shift
 done
 }
 
@@ -311,9 +276,21 @@ fi
 
 # Memory
 if [ $RUN_MEM -eq 1 ]; then
-	SW=`echo -e "$TOP" | awk '/Swap:/ {gsub("[:,]", ""); gsub("Free", "Swapfree"); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10; exit}'`
-	MM="`echo -e "$TOP" | awk '/Mem:/ {gsub("[:,]", ""); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10" "$13" "$12; exit}'` ${SW}"
-	CREATE_MVARS ${MM}
+	mapfile -t MM < <( sysctl -q -n \
+		vm.stats.vm.v_page_size \
+		vm.stats.vm.v_active_count \
+		vm.stats.vm.v_inactive_count \
+		vm.stats.vm.v_wire_count \
+		vm.stats.vm.v_cache_count \
+		vm.stats.vm.v_free_count \
+		vfs.bufspace \
+	)
+	MM[1]=$(( MM[0] * MM[1]  ))
+	MM[2]=$(( MM[0] * MM[2]  ))
+	MM[3]=$(( MM[0] * MM[3]  ))
+	MM[4]=$(( MM[0] * MM[4]  ))
+	MM[5]=$(( MM[0] * MM[5]  ))
+	SW=( `swapctl -k -s | awk '/Total:/ { print lshift($2,10) " " lshift($3,10) }'` )
 	FILE="${STORAGE_PATH}/rrd/memory.rrd"
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
@@ -332,7 +309,7 @@ if [ $RUN_MEM -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$active:$inact:$wired:$cache:$buf:$free:$swaptotal:$swapused 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:${MM[1]}:${MM[2]}:${MM[3]}:${MM[4]}:${MM[6]}:${MM[5]}:${SW[0]}:${SW[1]} 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 

@@ -9,6 +9,7 @@ $BACKGROUND \
 "-w" "600" \
 "--slope-mode" \
 "--alt-autoscale-max" \
+"-b" "1024" \
 "DEF:active=$STORAGE_PATH/rrd/memory.rrd:active:AVERAGE" \
 "DEF:inact=$STORAGE_PATH/rrd/memory.rrd:inact:AVERAGE" \
 "DEF:wired=$STORAGE_PATH/rrd/memory.rrd:wired:AVERAGE" \
