@@ -152,14 +152,14 @@ while [ "${1}" != "" ]; do
 done
 }
 
-# call 'top' once for: Load Averages, Processes, CPU Usage, Memory & Swap Usage, ZFS ARC, Uptime
-if [ $RUN_AVG -eq 1 ] || [ $RUN_PRO -eq 1 ] || [ $RUN_CPU -eq 1 ] || [ $RUN_MEM -eq 1 ] || [ $RUN_ARC -eq 1 ]  || [ $RUN_UPT -eq 1 ] ; then TOP=`top -bSItud2`; fi
+#	call 'top' once for: Load Averages, Processes, CPU Usage, Uptime
+if [ $RUN_AVG -eq 1 ] || [ $RUN_PRO -eq 1 ] || [ $RUN_CPU -eq 1 ] || [ $RUN_UPT -eq 1 ] ; then TOP=`top -bSItud2`; fi
 
 ####################################################
 # Update graphs for:
 ####################################################
 
-# network interfaces
+#	Network interfaces
 if [ $RUN_LAN -eq 1 ]; then
 # interfaces, LAN & OPTx
 	interfaces=`/usr/local/bin/xml sel -t -v "//interfaces/.//if" /conf/config.xml`
@@ -167,7 +167,7 @@ if [ $RUN_LAN -eq 1 ]; then
 	interfaces=`/usr/local/bin/xml sel -t -v "//vinterfaces/.//if" /conf/config.xml`
 	CREATE_INTERFACE_CMD ${interfaces}
 fi
-# system load averages
+#	System load averages
 if [ $RUN_AVG -eq 1 ]; then
 	LA=`echo -e "$TOP" | awk '/averages:/ {gsub(",", ""); print $6":"$7":"$8; exit}'`
 	FILE="${STORAGE_PATH}/rrd/load_averages.rrd"
@@ -186,27 +186,32 @@ if [ $RUN_AVG -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$LA 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-# CPU temperatures
+#	CPU temperatures
 if [ $RUN_TMP -eq 1 ]; then
 	T1=`sysctl -q -n dev.cpu.0.temperature | awk '{gsub("C",""); print}'`; # core 1 temperature
-	T2=`sysctl -q -n dev.cpu.1.temperature | awk '{gsub("C",""); print}'`; # core 2 temperature
-	T2=0;
-	FILE="${STORAGE_PATH}/rrd/cpu_temp.rrd"
-	if [ ! -f "$FILE" ]; then
-		/usr/local/bin/rrdtool create "$FILE" \
-			-s 300 \
-			'DS:core0:GAUGE:600:0:U' \
-			'DS:core1:GAUGE:600:0:U' \
-			'RRA:AVERAGE:0.5:1:576' \
-			'RRA:AVERAGE:0.5:6:672' \
-			'RRA:AVERAGE:0.5:24:732' \
-			'RRA:AVERAGE:0.5:144:1460'
-	fi
-	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$T1:$T2 2>> /tmp/rrdgraphs-error.log
+#	skip temperature recording when sysctl value doesn't exist
+	if [ -n "$T1" ]; then
+		T2=`sysctl -q -n dev.cpu.1.temperature | awk '{gsub("C",""); print}'`; # core 2 temperature
+		if [ -z "$T2" ]; then
+			T2=0;
+		fi
+		FILE="${STORAGE_PATH}/rrd/cpu_temp.rrd"
+		if [ ! -f "$FILE" ]; then
+			/usr/local/bin/rrdtool create "$FILE" \
+				-s 300 \
+				'DS:core0:GAUGE:600:0:U' \
+				'DS:core1:GAUGE:600:0:U' \
+				'RRA:AVERAGE:0.5:1:576' \
+				'RRA:AVERAGE:0.5:6:672' \
+				'RRA:AVERAGE:0.5:24:732' \
+				'RRA:AVERAGE:0.5:144:1460'
+		fi
+		if [ -f "$FILE" ]; then
+			/usr/local/bin/rrdtool update "$FILE" N:$T1:$T2 2>> /tmp/rrdgraphs-error.log
+		fi
 	fi
 fi
-# CPU frequency
+#	CPU frequency
 if [ $RUN_FRQ -eq 1 ]; then
 	F=( `sysctl -q -n dev.cpu.0.freq` );
 #	echo "CPU frequency: ${F[0]}"
@@ -225,7 +230,7 @@ if [ $RUN_FRQ -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:${F[0]}:0 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-# Processes
+#	Processes
 if [ $RUN_PRO -eq 1 ]; then
 	NP=`echo -e "$TOP" | awk '/processes:/ {gsub("[:,]", ""); print $2" "$1"  "$4" "$3"  "$6" "$5"  "$8" "$7"  "$10" "$9"  "$12" "$11"  "$14" "$13; exit}'`
 	CREATE_PVARS ${NP}
@@ -249,7 +254,7 @@ if [ $RUN_PRO -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$total:$running:$sleeping:$waiting:$starting:$stopped:$zombie 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-# CPU usage
+#	CPU usage
 if [ $RUN_CPU -eq 1 ]; then
 	CP=`echo -e "$TOP" | awk '/CPU:/ {gsub("[%,]", ""); print $3" "$2" "$5" "$4" "$7" "$6" "$9" "$8" "$11" "$10; exit}'`
 	CREATE_CVARS ${CP}
@@ -271,15 +276,14 @@ if [ $RUN_CPU -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$user:$nice:$system:$interrupt:$idle 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-# Disk usage
+#	Disk usage
 if [ $RUN_DUS -eq 1 ]; then
 	mount=`df -h --libxo:X | /usr/local/bin/xml sel --text --template --match "//filesystem[starts-with(mounted-on,'/mnt/') and not(contains(mounted-on,'jail')) and not(contains(name,'jail'))]" --value-of "concat(str:replace(mounted-on,'/mnt/',''),'&#09;',used/@value,'&#09;',available/@value)" --nl --break | /usr/local/bin/xml unesc`
 	pool=`zfs list -H -p -t filesystem -o name,used,available`
 	echo "${mount}" | while IFS=$'\t' read -r -a ONE_ROW ; do CREATE_MOUNTS_CMD "${ONE_ROW[0]}" "${ONE_ROW[1]}" "${ONE_ROW[2]}" ; done
 	echo "${pool}" | while IFS=$'\t' read -r -a ONE_ROW ; do CREATE_POOLS_CMD "${ONE_ROW[0]}" "${ONE_ROW[1]}" "${ONE_ROW[2]}" ; done
 fi
-
-# Memory
+#	Memory
 if [ $RUN_MEM -eq 1 ]; then
 	mapfile -t MM < <( sysctl -q -n \
 		vm.stats.vm.v_page_size \
@@ -317,7 +321,6 @@ if [ $RUN_MEM -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:${MM[1]}:${MM[2]}:${MM[3]}:${MM[4]}:${MM[6]}:${MM[5]}:${SW[0]}:${SW[1]} 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-
 #	ZFS ARC
 if [ $RUN_ARC -eq 1 ]; then
 	VA=( `sysctl -q -n kstat.zfs.misc.arcstats.size kstat.zfs.misc.arcstats.mfu_size kstat.zfs.misc.arcstats.mru_size kstat.zfs.misc.arcstats.anon_size kstat.zfs.misc.arcstats.hdr_size kstat.zfs.misc.arcstats.other_size` )
@@ -347,7 +350,6 @@ if [ $RUN_ARC -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:${VA[0]}:${VA[1]}:${VA[2]}:${VA[3]}:${VA[4]}:${VA[5]} 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-
 #	ZFS L2ARC
 if [ $RUN_L2ARC -eq 1 ]; then
 	VL=( `sysctl -q -n kstat.zfs.misc.arcstats.l2_size kstat.zfs.misc.arcstats.l2_asize` )
@@ -448,8 +450,7 @@ if [ $RUN_ARCEFF -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:${PV[0]}:${PV[1]}:${PV[2]}:${PV[3]}:${PV[4]} 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-
-# UPS
+#	UPS
 if [ $RUN_UPS -eq 1 ]; then
 	CMD=`/usr/local/bin/upsc ${UPS_AT}`
 	CREATE_UPSVARS ${CMD}
@@ -475,8 +476,7 @@ if [ $RUN_UPS -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$charge:$load:$bvoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-
-# Latency
+#	Latency
 if [ $RUN_LAT -eq 1 ]; then
 	PG=`ping $LATENCY_PARAMETERS -S $LATENCY_INTERFACE_IP -c $LATENCY_COUNT $LATENCY_HOST | awk '/round-trip/ {gsub("/", ":"); print $4}'`
 	if [ "$PG" == "" ]; then PG="0:0:0:0"; fi
@@ -497,8 +497,7 @@ if [ $RUN_LAT -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$PG 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-
-# Uptime
+#	Uptime
 if [ $RUN_UPT -eq 1 ]; then
 	UT=`echo -e "$TOP" | awk '/averages:/ {gsub("[,+:]", " "); print $10*24*60+$11*60+$12; exit}'`
 	FILE="${STORAGE_PATH}/rrd/uptime.rrd"
@@ -515,7 +514,5 @@ if [ $RUN_UPT -eq 1 ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:$UT 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
-
+#	push error log to syslog
 if [ -f /tmp/rrdgraphs-error.log ]; then logger -f /tmp/rrdgraphs-error.log; rm /tmp/rrdgraphs-error.log; exit 1; fi
-
-#date

@@ -10,7 +10,7 @@ $BACKGROUND \
 "--slope-mode" \
 "--alt-autoscale" \
 "DEF:cpu=$STORAGE_PATH/rrd/cpu_freq.rrd:core0:AVERAGE" \
-"LINE1:cpu#00CF00:" \
+"LINE1:cpu#00CF00:Frequency" \
 "VDEF:minC=cpu,MINIMUM" \
 "VDEF:maxC=cpu,MAXIMUM" \
 "VDEF:avgC=cpu,AVERAGE" \
@@ -19,4 +19,5 @@ $BACKGROUND \
 "GPRINT:maxC:Max\: %0.0lf" \
 "GPRINT:avgC:Avg\: %0.0lf" \
 "GPRINT:lastC:Last\: %0.0lf" \
-"COMMENT:\tLast update\: $LAST_UPDATE"
+"COMMENT:\n" \
+"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"

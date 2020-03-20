@@ -8,7 +8,7 @@ $LEFT_AXIS_FORMAT "-a" "PNG" \
 "-w" "600" \
 --slope-mode $BACKGROUND $EXTENDED_OPTIONS \
 "DEF:cpu=$STORAGE_PATH/rrd/cpu_temp.rrd:core0:AVERAGE" \
-"LINE1:cpu#00CF00:" \
+"LINE1:cpu#00CF00:Temperature" \
 "VDEF:maxC=cpu,MAXIMUM" \
 "VDEF:minC=cpu,MINIMUM" \
 "VDEF:avgC=cpu,AVERAGE" \
@@ -16,5 +16,6 @@ $LEFT_AXIS_FORMAT "-a" "PNG" \
 "GPRINT:minC:Min\\: %2.1lf" \
 "GPRINT:maxC:Max\\: %2.1lf" \
 "GPRINT:avgC:Avg\\: %2.1lf" \
-"GPRINT:lastC:Last\\: %2.1lf \t\t" \
-"COMMENT: Last update\: $LAST_UPDATE"
+"GPRINT:lastC:Last\\: %2.1lf" \
+"COMMENT:\n" \
+"TEXTALIGN:right" "COMMENT:Last update\: $LAST_UPDATE"
