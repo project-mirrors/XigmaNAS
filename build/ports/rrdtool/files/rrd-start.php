@@ -84,6 +84,8 @@ if(isset($config['rrdgraphs']['enable'])):
 	fwrite($rrdconfig,'RUN_ARC=' . $txt . "\n");
 	$txt = isset($config['rrdgraphs']['l2arc_usage']) ? '1' : '0';
 	fwrite($rrdconfig,'RUN_L2ARC=' . $txt . "\n");
+	$txt = isset($config['rrdgraphs']['arc_efficiency']) ? '1' : '0';
+	fwrite($rrdconfig,'RUN_ARCEFF=' . $txt . "\n");
 	if(isset($config['rrdgraphs']['disk_usage'])):
 		if(isset($config['rrdgraphs']['mounts'])):
 			unset($config['rrdgraphs']['mounts']);
@@ -348,6 +350,24 @@ if(isset($config['rrdgraphs']['enable'])):
 				" 'RRA:AVERAGE:0.5:144:1460'",
 				true);
 			write_log('rrdgraphs service start collecting zfs l2arc statistics');
+		endif;
+	endif;
+	if(isset($config['rrdgraphs']['arc_efficiency'])):
+		$rrd_name = 'zfs_arceff.rrd';
+		if(!is_file("{$config['rrdgraphs']['storage_path']}/rrd/{$rrd_name}")):
+			$ret_val = mwexec("/usr/local/bin/rrdtool create {$config['rrdgraphs']['storage_path']}/rrd/{$rrd_name}" .
+				" -s 300" .
+				" 'DS:EFF_ARC:GAUGE:600:0:U'" .
+				" 'DS:EFF_DEMAND:GAUGE:600:0:U'" .
+				" 'DS:EFF_PREFETCH:GAUGE:600:0:U'" .
+				" 'DS:EFF_METADATA:GAUGE:600:0:U'" .
+				" 'DS:EFF_L2ARC:GAUGE:600:0:U'" .
+				" 'RRA:AVERAGE:0.5:1:576'" .
+				" 'RRA:AVERAGE:0.5:6:672'" .
+				" 'RRA:AVERAGE:0.5:24:732'" .
+				" 'RRA:AVERAGE:0.5:144:1460'",
+				true);
+			write_log('rrdgraphs service start collecting zfs cache efficiency statistics');
 		endif;
 	endif;
 //	create graphs

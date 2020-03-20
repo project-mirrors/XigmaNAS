@@ -120,6 +120,7 @@ if(isset($_POST['save']) && $_POST['save']):
 			$config['rrdgraphs']['memory_usage'] = isset($_POST['memory_usage']);
 			$config['rrdgraphs']['arc_usage'] = isset($_POST['arc_usage']);
 			$config['rrdgraphs']['l2arc_usage'] = isset($_POST['l2arc_usage']);
+			$config['rrdgraphs']['arc_efficiency'] = isset($_POST['arc_efficiency']);
 			$config['rrdgraphs']['latency'] = isset($_POST['latency']);
 			$config['rrdgraphs']['latency_host'] = !empty($_POST['latency_host']) ? $_POST['latency_host'] : "127.0.0.1";
 			$config['rrdgraphs']['latency_interface'] = $_POST['latency_interface'];
@@ -165,7 +166,8 @@ if(isset($_POST['reset_graphs']) && $_POST['reset_graphs']):
 		['postid' => 'ups','fnpattern' => 'ups','log' => 'ups','msg' => gtext('UPS Statistics')],
 		['postid' => 'uptime','fnpattern' => 'uptime','log' => 'uptime','msg' => gtext('Uptime Statistics')],
 		['postid' => 'arc_usage','fnpattern' => 'zfs_arc','log' => 'zfs arc usage','msg' => gtext('ZFS ARC Usage')],
-		['postid' => 'l2arc_usage','fnpattern' => 'zfs_l2arc','log' => 'zfs l2arc usage','msg' => gtext('ZFS L2ARC Usage')]
+		['postid' => 'l2arc_usage','fnpattern' => 'zfs_l2arc','log' => 'zfs l2arc usage','msg' => gtext('ZFS L2ARC Usage')],
+		['postid' => 'arc_efficiency','fnpattern' => 'zfs_arceff','log' => 'zfs cache efficiency','msg' => gtext('ZFS Cache Efficiency')]
 	];
 	foreach($processing_table as $processing_task):
 		if(isset($_POST[$processing_task['postid']])):
@@ -214,6 +216,7 @@ $pconfig['ups_at'] = !empty($config['rrdgraphs']['ups_at']) ? $config['rrdgraphs
 $pconfig['uptime'] = isset($config['rrdgraphs']['uptime']) ? true : false;
 $pconfig['arc_usage'] = isset($config['rrdgraphs']['arc_usage']) ? true : false;
 $pconfig['l2arc_usage'] = isset($config['rrdgraphs']['l2arc_usage']) ? true : false;
+$pconfig['arc_efficiency'] = isset($config['rrdgraphs']['arc_efficiency']) ? true : false;
 
 $a_interface = get_interface_list();
 // Add VLAN interfaces
@@ -334,6 +337,7 @@ function enable_change(enable_change) {
 	document.iform.memory_usage.disabled = endis;
 	document.iform.arc_usage.disabled = endis;
 	document.iform.l2arc_usage.disabled = endis;
+	document.iform.arc_efficiency.disabled = endis;
 	document.iform.disk_usage.disabled = endis;
 	document.iform.lan_load.disabled = endis;
 	document.iform.latency.disabled = endis;
@@ -442,6 +446,7 @@ $document->render();
 			html_checkbox2('uptime',gettext('Uptime Statistics'),$pconfig['uptime'],gettext('Enable collecting uptime statistics.'),'',false);
 			html_checkbox2('arc_usage',gettext('ZFS ARC Usage'),$pconfig['arc_usage'],gettext('Enable collecting ZFS ARC usage statistics.'),'',false);
 			html_checkbox2('l2arc_usage',gettext('ZFS L2ARC Usage'),$pconfig['l2arc_usage'],gettext('Enable collecting ZFS L2ARC usage statistics.'),'',false);
+			html_checkbox2('arc_efficiency',gettext('ZFS Cache Efficiency'),$pconfig['arc_efficiency'],gettext('Enable collecting ZFS cache efficiency statistics.'),'',false);
 ?>
 		</tbody>
 	</table>

@@ -68,8 +68,12 @@ while [ "${1}" != "" ]; do
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
 			-s 300 \
-			'DS:in:COUNTER:600:0:U' 'DS:out:COUNTER:600:0:U' \
-			'RRA:AVERAGE:0.5:1:576' 'RRA:AVERAGE:0.5:6:672' 'RRA:AVERAGE:0.5:24:732' 'RRA:AVERAGE:0.5:144:1460'
+			'DS:in:COUNTER:600:0:U' \
+			'DS:out:COUNTER:600:0:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
 		/usr/local/bin/rrdtool update "$FILE" N:`netstat -I ${1} -nWb -f link | grep -v Name | awk '{print $8":"$11}'` 2>> /tmp/rrdgraphs-error.log
@@ -184,8 +188,8 @@ if [ $RUN_AVG -eq 1 ]; then
 fi
 # CPU temperatures
 if [ $RUN_TMP -eq 1 ]; then
-	T1=`sysctl -q -n dev.cpu.0.temperature | awk '{gsub("C",""); print}'`;      # core 1 temperature
-	T2=`sysctl -q -n dev.cpu.1.temperature | awk '{gsub("C",""); print}'`;      # core 2 temperature
+	T1=`sysctl -q -n dev.cpu.0.temperature | awk '{gsub("C",""); print}'`; # core 1 temperature
+	T2=`sysctl -q -n dev.cpu.1.temperature | awk '{gsub("C",""); print}'`; # core 2 temperature
 	T2=0;
 	FILE="${STORAGE_PATH}/rrd/cpu_temp.rrd"
 	if [ ! -f "$FILE" ]; then
@@ -204,7 +208,8 @@ if [ $RUN_TMP -eq 1 ]; then
 fi
 # CPU frequency
 if [ $RUN_FRQ -eq 1 ]; then
-	F=`sysctl -n dev.cpu.0.freq | tr -d "\n"`;
+	F=( `sysctl -q -n dev.cpu.0.freq` );
+#	echo "CPU frequency: ${F[0]}"
 	FILE="${STORAGE_PATH}/rrd/cpu_freq.rrd"
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
@@ -217,7 +222,7 @@ if [ $RUN_FRQ -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$F:0 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:${F[0]}:0 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 # Processes
@@ -315,7 +320,14 @@ fi
 
 #	ZFS ARC
 if [ $RUN_ARC -eq 1 ]; then
-	VALUESARC=`sysctl -q -n kstat.zfs.misc.arcstats.size kstat.zfs.misc.arcstats.mfu_size kstat.zfs.misc.arcstats.mru_size kstat.zfs.misc.arcstats.anon_size kstat.zfs.misc.arcstats.hdr_size kstat.zfs.misc.arcstats.other_size | xargs -n 6 | tr ' ' ':'`
+	VA=( `sysctl -q -n kstat.zfs.misc.arcstats.size kstat.zfs.misc.arcstats.mfu_size kstat.zfs.misc.arcstats.mru_size kstat.zfs.misc.arcstats.anon_size kstat.zfs.misc.arcstats.hdr_size kstat.zfs.misc.arcstats.other_size` )
+#	echo "kstat.zfs.misc.arcstats."
+#	echo "size      : ${VA[0]}"
+#	echo "mfu_size  : ${VA[1]}"
+#	echo "mru_size  : ${VA[2]}"
+#	echo "anon_size : ${VA[3]}"
+#	echo "hdr_size  : ${VA[4]}"
+#	echo "other_size: ${VA[5]}"
 	FILE="${STORAGE_PATH}/rrd/zfs_arc.rrd"
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
@@ -332,13 +344,17 @@ if [ $RUN_ARC -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$VALUESARC 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:${VA[0]}:${VA[1]}:${VA[2]}:${VA[3]}:${VA[4]}:${VA[5]} 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 
 #	ZFS L2ARC
 if [ $RUN_L2ARC -eq 1 ]; then
-	VALUESL2ARC=`sysctl -q -n kstat.zfs.misc.arcstats.l2_size kstat.zfs.misc.arcstats.l2_asize | xargs -n 2 | tr ' ' ':'`
+	VL=( `sysctl -q -n kstat.zfs.misc.arcstats.l2_size kstat.zfs.misc.arcstats.l2_asize` )
+#	echo "kstat.zfs.misc.arcstats."
+#	echo "l2_size : ${VL[0]}"
+#	echo "l2_asize: ${VL[1]}"
+
 	FILE="${STORAGE_PATH}/rrd/zfs_l2arc.rrd"
 	if [ ! -f "$FILE" ]; then
 		/usr/local/bin/rrdtool create "$FILE" \
@@ -351,7 +367,85 @@ if [ $RUN_L2ARC -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$VALUESL2ARC 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:${VL[0]}:${VL[1]} 2>> /tmp/rrdgraphs-error.log
+	fi
+fi
+#	ZFS Cache Efficiency
+if [ $RUN_ARCEFF -eq 1 ]; then
+	mapfile -t VE < <( sysctl -q -n \
+		kstat.zfs.misc.arcstats.hits \
+		kstat.zfs.misc.arcstats.misses \
+		kstat.zfs.misc.arcstats.demand_data_hits \
+		kstat.zfs.misc.arcstats.demand_data_misses \
+		kstat.zfs.misc.arcstats.demand_metadata_hits \
+		kstat.zfs.misc.arcstats.demand_metadata_misses \
+		kstat.zfs.misc.arcstats.prefetch_data_hits \
+		kstat.zfs.misc.arcstats.prefetch_data_misses \
+		kstat.zfs.misc.arcstats.prefetch_metadata_hits \
+		kstat.zfs.misc.arcstats.prefetch_metadata_misses \
+		kstat.zfs.misc.arcstats.l2_hits \
+		kstat.zfs.misc.arcstats.l2_misses \
+	)
+#	echo "kstat.zfs.misc.arcstats."
+#	echo "arc_hits                : ${VE[0]}"
+#	echo "arc_misses              : ${VE[1]}"
+#	echo "demand_data_hits        : ${VE[2]}"
+#	echo "demand_data_misses      : ${VE[3]}"
+#	echo "demand_metadata_hits    : ${VE[4]}"
+#	echo "demand_metadata_misses  : ${VE[5]}"
+#	echo "prefetch_data_hits      : ${VE[6]}"
+#	echo "prefetch_data_misses    : ${VE[7]}"
+#	echo "prefetch_metadata_hits  : ${VE[8]}"
+#	echo "prefetch_metadata_misses: ${VE[9]}"
+#	echo "l2arc_hits              : ${VE[10]}"
+#	echo "l2arc_misses            : ${VE[11]}"
+	PV=()
+#	arc hits / misses
+	PV[0]=$( bc <<< "${VE[0]}+${VE[1]}" )
+	if [ "${PV[0]}" -ne 0 ]; then
+		PV[0]=$( bc <<< "scale=2;100*${VE[0]}/${PV[0]}" )
+	fi
+#	demand hits / misses
+	PV[1]=$( bc <<< "${VE[2]}+${VE[3]}+${VE[4]}+${VE[5]}" )
+	if [ "${PV[1]}" -ne 0 ]; then
+		PV[1]=$( bc <<< "scale=2;100*(${VE[2]}+${VE[4]})/${PV[1]}" )
+	fi
+#	prefetch hits / misses
+	PV[2]=$( bc <<< "${VE[6]}+${VE[7]}+${VE[8]}+${VE[9]}" )
+	if [ "${PV[2]}" -ne 0 ]; then
+		PV[2]=$( bc <<< "scale=2;100*(${VE[6]}+${VE[8]})/${PV[2]}" )
+	fi
+#	metadata hits / misses
+	PV[3]=$( bc <<< "${VE[4]}+${VE[5]}+${VE[8]}+${VE[9]}" )
+	if [ "${PV[3]}" -ne 0 ]; then
+		PV[3]=$( bc <<< "scale=2;100*(${VE[4]}+${VE[8]})/${PV[3]}" )
+	fi
+#	l2arc hits / misses
+	PV[4]=$( bc <<< "${VE[10]}+${VE[11]}" )
+	if [ "${PV[4]}" -ne 0 ]; then
+		PV[4]=$( bc <<< "scale=2;100*${VE[10]}/${PV[4]}" )
+	fi
+#	echo "arc     : ${PV[0]}%"
+#	echo "demand  : ${PV[1]}%"
+#	echo "prefetch: ${PV[2]}%"
+#	echo "metadata: ${PV[3]}%"
+#	echo "l2arc   : ${PV[4]}%"
+	FILE="${STORAGE_PATH}/rrd/zfs_arceff.rrd"
+	if [ ! -f "$FILE" ]; then
+		/usr/local/bin/rrdtool create "$FILE" \
+			-s 300 \
+			'DS:EFF_ARC:GAUGE:600:0:U' \
+			'DS:EFF_DEMAND:GAUGE:600:0:U' \
+			'DS:EFF_PREFETCH:GAUGE:600:0:U' \
+			'DS:EFF_METADATA:GAUGE:600:0:U' \
+			'DS:EFF_L2ARC:GAUGE:600:0:U' \
+			'RRA:AVERAGE:0.5:1:576' \
+			'RRA:AVERAGE:0.5:6:672' \
+			'RRA:AVERAGE:0.5:24:732' \
+			'RRA:AVERAGE:0.5:144:1460'
+	fi
+	if [ -f "$FILE" ]; then
+		/usr/local/bin/rrdtool update "$FILE" N:${PV[0]}:${PV[1]}:${PV[2]}:${PV[3]}:${PV[4]} 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 
