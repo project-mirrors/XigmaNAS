@@ -1153,6 +1153,7 @@ etc/rc.d/pflog
 etc/rc.d/pfsync
 etc/rc.d/ppp
 etc/rc.d/jail
+etc/rc.d/ldconfig
 etc/rc.d/local
 etc/rc.d/LOGIN
 etc/rc.d/netif
