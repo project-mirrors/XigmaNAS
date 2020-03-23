@@ -41,6 +41,7 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/ups.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/ups.sh
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/uptime.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/uptime.sh
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/zfs_arc.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/zfs_arc.sh
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/zfs_arceff.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/zfs_arceff.sh
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/zfs_l2arc.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/zfs_l2arc.sh
 
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/rrdcached ${XIGMANAS_ROOTFS}/usr/local/bin
