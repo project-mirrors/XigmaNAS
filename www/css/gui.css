@@ -1356,13 +1356,14 @@ div.rrdgraphs
 {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 }
 
 img.rrdgraphs,
 object.rrdgraphs
 {
 	margin-top: 1em;
+	margin-right: 1em;
 	flex: 0 0 auto;
 	max-width: 100%;
 	height: auto;
