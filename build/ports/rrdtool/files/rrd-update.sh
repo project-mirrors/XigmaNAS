@@ -9,7 +9,7 @@ STORAGE_PATH=`/usr/local/bin/xml sel -t -v "//rrdgraphs/storage_path" /conf/conf
 if [ ! -d "${STORAGE_PATH}" ] || [ ! -d  "${STORAGE_PATH}/rrd" ]; then
 	exit 1
 fi
-. ${STORAGE_PATH}/rrd_config
+. "${STORAGE_PATH}/rrd_config"
 
 #	function creates rrdtool update command for mounted disks -> parameters: mount_point(=$1) used_space(=$2) free_space(=$3)
 CREATE_MOUNTS_CMD ()

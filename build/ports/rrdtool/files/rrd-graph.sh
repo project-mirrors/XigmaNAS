@@ -11,7 +11,7 @@ if [ ! -d ${WORKING_DIR}/rrd ]; then
 	mkdir -p ${WORKING_DIR}/rrd
 fi
 STORAGE_PATH=`/usr/local/bin/xml sel -t -v "//rrdgraphs/storage_path" /conf/config.xml`
-. ${STORAGE_PATH}/rrd_config
+. "${STORAGE_PATH}/rrd_config"
 LAST_UPDATE=`date +"%d.%m.%Y %H\:%M"`
 if [ ${BACKGROUND_WHITE} -eq 1 ]; then
 	BACKGROUND='-c CANVAS#FFFFFF'
