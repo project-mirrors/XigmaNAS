@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-11 17:04+0000\n"
+"PO-Revision-Date: 2020-03-14 07:25+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
+"X-Launchpad-Export-Date: 2020-03-22 22:46+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -380,7 +380,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "请输入一个有效的前缀 (1-128)。"
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3音频文件"
 
 msgid "ACL Inherit"
 msgstr "继承ACL"
@@ -430,7 +430,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI文件"
 
 msgid "Accept remote syslog messages."
 msgstr "接受远程syslog消息。"
@@ -1253,10 +1253,10 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "主轴上升的平均时间（从零RPM到完全运行）。"
 
 msgid "BMP Image"
-msgstr ""
+msgstr "BMP图片"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2压缩包"
 
 msgid "Back"
 msgstr "后退"
@@ -1491,13 +1491,13 @@ msgid "Bytes/sec"
 msgstr "字节/秒"
 
 msgid "C File"
-msgstr ""
+msgstr "C 文件"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "C++头文件"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "C++ 源文件"
 
 msgid "CACHE"
 msgstr "缓存"
@@ -1546,7 +1546,7 @@ msgid "CD/DVD drive"
 msgstr "CD/DVD 驱动器"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "CGI脚本"
 
 msgid "CHANGED"
 msgstr "已更改"
@@ -1644,7 +1644,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "CSS 文件"
 
 msgid "CSS Settings"
 msgstr "CSS设置"
@@ -2432,7 +2432,7 @@ msgid ""
 msgstr "DOS SMB客户端假定服务器具有与它们相同的字符集。 此选项指定Samba应该与DOS客户端对话的字符集。"
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "DTS音频文件"
 
 msgid "DVD"
 msgstr "DVD"
@@ -4690,13 +4690,13 @@ msgid "Example: pkg install packagename."
 msgstr "示例：pkg install packagename。"
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Excel表格"
 
 msgid "Exec"
 msgstr "执行"
 
 msgid "Executable File"
-msgstr ""
+msgstr "可执行文件"
 
 msgid "Execute"
 msgstr "执行"
@@ -4800,7 +4800,7 @@ msgid "FATAL - log fatal errors only"
 msgstr "致命 - 仅记录致命错误"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "FLAC音频文件"
 
 msgid "FRU Information"
 msgstr "FRU信息"
@@ -5018,7 +5018,7 @@ msgid "Flags"
 msgstr "标示符"
 
 msgid "Flash File"
-msgstr ""
+msgstr "FLASH文件"
 
 msgid "Folder Pattern"
 msgstr "文件夹模式"
@@ -5149,7 +5149,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "GIF图片"
 
 msgid "GNU General Public License"
 msgstr "GNU 通用公共许可证"
@@ -5176,7 +5176,7 @@ msgid "GUI"
 msgstr "用户图形界面"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "GZIP压缩包"
 
 msgid "Gateway"
 msgstr "网关（Gateway）"
@@ -5352,7 +5352,7 @@ msgid "HOT SPARE"
 msgstr "热备"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "HTML页面"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6021,7 +6021,7 @@ msgid "JBOD Status"
 msgstr "JBOD状态"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "JPG图片"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -6033,13 +6033,13 @@ msgid "January"
 msgstr "1 月"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Java Class文件"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Java 源文件"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Javascript 文件"
 
 msgid "Job is locked"
 msgstr "任务被锁定"
@@ -6280,7 +6280,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "限制数据集可以消耗的空间量。"
 
 msgid "Link"
-msgstr ""
+msgstr "链接"
 
 msgid "Link Down Action"
 msgstr "链接关闭操作"
@@ -6507,7 +6507,7 @@ msgid "MD4 Password"
 msgstr "MD4密码"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "MIDI文件"
 
 msgid "MIRROR"
 msgstr "镜像"
@@ -6516,28 +6516,28 @@ msgid "MISSING"
 msgstr "遗失"
 
 msgid "MKV File"
-msgstr ""
+msgstr "MKV文件"
 
 msgid "MOTD"
 msgstr "每日讯息"
 
 msgid "MOV File"
-msgstr ""
+msgstr "MOV文件"
 
 msgid "MOVED TO"
 msgstr "移动到"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "MP3音频文件"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "MP3 播放列表"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "MP4文件"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "MPEG文件"
 
 msgid "MS Active Directory"
 msgstr "微软Active Directory"
@@ -7514,7 +7514,7 @@ msgid "Numeric identifier of the group."
 msgstr "群组的数字识别码。"
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "OGG音频文件"
 
 msgid "OK"
 msgstr "OK"
@@ -7690,10 +7690,10 @@ msgid "PAM authentication is selected."
 msgstr "已选择PAM认证。"
 
 msgid "PDF File"
-msgstr ""
+msgstr "PDF文件"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "PERL脚本"
 
 msgid "PG"
 msgstr "PG"
@@ -7708,10 +7708,10 @@ msgid "PHP License"
 msgstr "PHP许可证"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "PHP脚本"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "PNG图片"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -7777,7 +7777,7 @@ msgid "Partitions"
 msgstr "分割区"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Pascal文件"
 
 msgid "Passive Port"
 msgstr "被动端口"
@@ -7914,7 +7914,7 @@ msgid "Permit discovery without authentication"
 msgstr "允许发现而无需验证"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "Photoshop文件"
 
 msgid "Physical Block Offset"
 msgstr "物理块偏移"
@@ -8171,7 +8171,7 @@ msgid "Power management"
 msgstr "电源管理"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Powerpoint演示文稿"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "预失败'属性至少在HP设备中使用。"
@@ -8326,7 +8326,7 @@ msgid ""
 msgstr "在上次访问磁盘后的所选时间内，将磁盘置于待机模式。"
 
 msgid "Python Script"
-msgstr ""
+msgstr "Python 脚本"
 
 msgid "QUIET - disable logging"
 msgstr "QUIET  - 禁用日志记录"
@@ -8440,7 +8440,7 @@ msgid "RAM Disk"
 msgstr "内存盘"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "RAR压缩包"
 
 msgid "RAW info"
 msgstr "RAW 信息"
@@ -8676,7 +8676,7 @@ msgid "Readonly"
 msgstr "只读"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "RealAudio文件"
 
 msgid "Realm"
 msgstr "Realm"
@@ -9125,7 +9125,7 @@ msgid "SNMP Modules"
 msgstr "SNMP 模组"
 
 msgid "SQL File"
-msgstr ""
+msgstr "SQL文件"
 
 msgid "SSH"
 msgstr "SSH"
@@ -9778,7 +9778,7 @@ msgid "Shell"
 msgstr "命令壳 (shell)"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Shell脚本"
 
 msgid "Shock During Write."
 msgstr "写入时震动。"
@@ -10360,7 +10360,7 @@ msgid "System tuning"
 msgstr "系统微调"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "TAR压缩包"
 
 msgid "TCP Forwarding"
 msgstr "TCP转发"
@@ -10381,7 +10381,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "TIF图片"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10411,7 +10411,7 @@ msgid "TLS Trust File"
 msgstr "TLS信任文件"
 
 msgid "TS File"
-msgstr ""
+msgstr "TS文件"
 
 msgid "Tabs"
 msgstr "标签页"
@@ -10534,7 +10534,7 @@ msgid "Test mode, no command execution"
 msgstr "测试模式，无命令执行"
 
 msgid "Text File"
-msgstr ""
+msgstr "TXT文本文件"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -12605,7 +12605,7 @@ msgid "VNC Password"
 msgstr "VNC密码"
 
 msgid "VOB File"
-msgstr ""
+msgstr "VOB文件"
 
 msgid "Value"
 msgstr "值"
@@ -12739,7 +12739,7 @@ msgid "WARNING"
 msgstr "警告"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "WAV 音频文件"
 
 msgid "WEP"
 msgstr "WEP"
@@ -12906,7 +12906,7 @@ msgid "Wireless configuration"
 msgstr "无线网络配置"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Word文档"
 
 msgid "Work Directory"
 msgstr "工作目录"
@@ -12934,7 +12934,7 @@ msgid "Wrong permission on %s."
 msgstr "%s 的权限错误。"
 
 msgid "XML File"
-msgstr ""
+msgstr "XML文件"
 
 msgid "Xen"
 msgstr "Xen"
@@ -13136,7 +13136,7 @@ msgid ""
 msgstr "ZFS卷大小。 你可以使用可读的后缀，如K，KB，M，GB。"
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "ZIP压缩包"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
