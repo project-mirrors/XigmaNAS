@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-06 17:00+0000\n"
+"PO-Revision-Date: 2020-03-15 08:49+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
+"X-Launchpad-Export-Date: 2020-03-22 22:46+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -421,7 +421,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Правильний префікс (1-128) повинен бути вказаний."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "Аудіофайл AC3"
 
 msgid "ACL Inherit"
 msgstr "Успадкування ACL"
@@ -473,7 +473,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "Відеофайл AVI"
 
 msgid "Accept remote syslog messages."
 msgstr "Приймати повідомлення віддаленого syslog."
@@ -774,7 +774,7 @@ msgid "Administration Password"
 msgstr "Пароль для адміністрування"
 
 msgid "Administrative WebGUI"
-msgstr "Адміністративний веб інтерфейс"
+msgstr "Веб інтерфейс адміністрування"
 
 msgid "Administrator Name"
 msgstr "Ім'я адміністратора"
@@ -858,6 +858,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Усі дані за обраним шляхом будуть перезаписані. Рекомендовано використати "
+"порожній каталог UFS або порожній набір даних ZFS."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Всі дані будуть втрачені при активації цієї опції!"
@@ -991,7 +993,7 @@ msgid "Alternate Data Streams"
 msgstr "Альтернативні потоки даних"
 
 msgid "Alternate TCP port. (Default is 873)."
-msgstr "Альтернативний TCP-порт. (За замовчуванням 873)."
+msgstr "Альтернативний TCP-порт. (За замовчуванням - 873)."
 
 msgid "Alternative configuration directory."
 msgstr "Альтернативний каталог конфігурації."
@@ -1114,7 +1116,7 @@ msgid "Append user defined shares"
 msgstr "Додати визначені користувачем спільні ресурси"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Додати визначені користувачем загальні ресурси."
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -1355,10 +1357,10 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Середній час розгону шпінделя (від нуля до робочої швидкості)."
 
 msgid "BMP Image"
-msgstr ""
+msgstr "Зображення BMP"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "Архів BZIP2"
 
 msgid "Back"
 msgstr "Назад"
@@ -1610,13 +1612,13 @@ msgid "Bytes/sec"
 msgstr "Байт/сек"
 
 msgid "C File"
-msgstr ""
+msgstr "Файл С"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "Файл заголовка C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Вихідний файл C++"
 
 msgid "CACHE"
 msgstr "КЕШ"
@@ -1667,7 +1669,7 @@ msgid "CD/DVD drive"
 msgstr "CD/DVD пристрій"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "Скрипт CGI"
 
 msgid "CHANGED"
 msgstr "ЗМІНЕНО"
@@ -1767,7 +1769,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "Файл CSS"
 
 msgid "CSS Settings"
 msgstr "Налаштування CSS"
@@ -2642,7 +2644,7 @@ msgstr ""
 "з клієнтами DOS."
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "Аудіофайл DTS"
 
 msgid "DVD"
 msgstr "DVD"
@@ -2788,7 +2790,8 @@ msgstr ""
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
-"Визначити драйвер апаратного розвантаження iSCSI. За замовчуванням \"немає\"."
+"Визначити драйвер апаратного розвантаження iSCSI. За замовчуванням - "
+"\"немає\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Визначає алгоритм контрольної суми."
@@ -4616,7 +4619,7 @@ msgid ""
 "Default is \"On\"."
 msgstr ""
 "Дозволити або заборонити сеанс. Стан може приймати значення \"On\" або "
-"\"Off\". За замовчуванням \"On\"."
+"\"Off\". За замовчуванням - \"On\"."
 
 msgid "Enable peer exchange (PEX)."
 msgstr "Увімкнути обмін списками учасників (PEX)"
@@ -5010,13 +5013,13 @@ msgid "Example: pkg install packagename."
 msgstr "Приклад: pkg install ім'я_пакету."
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Таблиця Excel"
 
 msgid "Exec"
 msgstr "Виконати"
 
 msgid "Executable File"
-msgstr ""
+msgstr "Виконаний файл"
 
 msgid "Execute"
 msgstr "Виконати"
@@ -5123,7 +5126,7 @@ msgid "FATAL - log fatal errors only"
 msgstr "FATAL - реєструвати лише фатальні помилки"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "Аудіофайл FLAC"
 
 msgid "FRU Information"
 msgstr "Інформація FRU"
@@ -5351,7 +5354,7 @@ msgid "Flags"
 msgstr "Прапорці"
 
 msgid "Flash File"
-msgstr ""
+msgstr "Файл Flash"
 
 msgid "Folder Pattern"
 msgstr "Шаблон каталогу"
@@ -5484,7 +5487,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "Зображення GIF"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5511,7 +5514,7 @@ msgid "GUI"
 msgstr "Графічний інтерфейс"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "Архів GZIP"
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5697,7 +5700,7 @@ msgid "HOT SPARE"
 msgstr "Гарячий резерв"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "Сторінка HTML"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6379,7 +6382,7 @@ msgid "Invalid file format."
 msgstr "Неправильний формат файла."
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "Недійсний файл прошивки."
 
 msgid "Invalid login credentials."
 msgstr "Недозволені повноваження логіну."
@@ -6438,7 +6441,7 @@ msgid "JBOD Status"
 msgstr "Статус JBOD"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "Зображення JPG"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -6450,13 +6453,13 @@ msgid "January"
 msgstr "Січень"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Файл класу Java"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Вихідний файл Java"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Скрипт Javascript"
 
 msgid "Job is locked"
 msgstr "Завдання заблоковане"
@@ -6712,7 +6715,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "Обмежує кількість простору, який може використати набір даних."
 
 msgid "Link"
-msgstr ""
+msgstr "Посилання"
 
 msgid "Link Down Action"
 msgstr "Дія при Зникненні З'єднання"
@@ -6959,7 +6962,7 @@ msgid "MD4 Password"
 msgstr "Пароль MD4"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "Файл MIDI"
 
 msgid "MIRROR"
 msgstr "MIRROR"
@@ -6968,28 +6971,28 @@ msgid "MISSING"
 msgstr "ВІДСУТНІЙ"
 
 msgid "MKV File"
-msgstr ""
+msgstr "Відеофайл MKV"
 
 msgid "MOTD"
 msgstr "MOTD (message of the day)"
 
 msgid "MOV File"
-msgstr ""
+msgstr "Відеофайл MOV"
 
 msgid "MOVED TO"
 msgstr "ПЕРЕМІЩЕНО ДО"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "Аудіофайл MP3"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "Список відтворення MP3"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "Відеофайл MP4"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "Відеофайл MPEG"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7160,7 +7163,8 @@ msgstr "Максимальна кількість одночасних сеан�
 
 msgid "Maximum number of simultaneous connections. Default is 0 (unlimited)."
 msgstr ""
-"Максимальна кількість одночасних з'єднань. За замовчуванням 0 (без обмежень)."
+"Максимальна кількість одночасних з'єднань. За замовчуванням - 0 (без "
+"обмежень)."
 
 msgid "Maximum number of users that can connect to the server."
 msgstr "Максимальне число користувачів, при'єднаних до сервера."
@@ -8001,7 +8005,7 @@ msgid "Numeric identifier of the group."
 msgstr "Цифровий ідентифікатор групи."
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "Аудіофайл OGG"
 
 msgid "OK"
 msgstr "OK"
@@ -8184,10 +8188,10 @@ msgid "PAM authentication is selected."
 msgstr "Обрана автентифікація модулем, що під'єднується (PAM)."
 
 msgid "PDF File"
-msgstr ""
+msgstr "Файл PDF"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "Скрипт PERL"
 
 msgid "PG"
 msgstr "PG"
@@ -8202,10 +8206,10 @@ msgid "PHP License"
 msgstr "PHP License"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "Скрипт PHP"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "Зображення PNG"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8271,7 +8275,7 @@ msgid "Partitions"
 msgstr "Розділи"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Файл Pascal"
 
 msgid "Passive Port"
 msgstr "Пасивний порт"
@@ -8416,7 +8420,7 @@ msgid "Permit discovery without authentication"
 msgstr "Дозволити виявлення без автентицікації"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "Файл Photoshop"
 
 msgid "Physical Block Offset"
 msgstr "Зміщення фізичного блока"
@@ -8611,11 +8615,11 @@ msgstr ""
 "Порт для прослуховування вхідних пірінгових з'єднань (за замовчуванням %d)."
 
 msgid "Port to listen on. Default iTunes port is 3689."
-msgstr "Вхідний порт. За замовчуванням порт для iTunes 3689."
+msgstr "Вхідний порт. Порт для iTunes за замовчуванням - 3689."
 
 #, php-format
 msgid "Port to listen on. Default port is %d."
-msgstr "Вхідний порт. За замовчуванням %d."
+msgstr "Вхідний порт. За замовчуванням - %d."
 
 #, php-format
 msgid ""
@@ -8623,7 +8627,7 @@ msgid ""
 "through %d). Default port is %d."
 msgstr ""
 "Порт для прослуховування. Можна використовувати тільки динамічні або "
-"приватні порти (від %d до %d). За замовчуванням порт %d."
+"приватні порти (від %d до %d). За замовчуванням - %d."
 
 msgid ""
 "Port to listen on. Port number must be between 1024 and 65535. Default port "
@@ -8685,7 +8689,7 @@ msgid "Power management"
 msgstr "Керування живленням"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Презентація Powerpoint"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Атрибут Pre-Fail' використовується щонайменше, в пристроях HP."
@@ -8843,7 +8847,7 @@ msgid ""
 msgstr "Переводити диск в сплячий режим після вказаного часу."
 
 msgid "Python Script"
-msgstr ""
+msgstr "Скрипт Python"
 
 msgid "QUIET - disable logging"
 msgstr "QUIET - вимкнути реєстрацію"
@@ -8957,7 +8961,7 @@ msgid "RAM Disk"
 msgstr "RAM диск"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "Архів RAR"
 
 msgid "RAW info"
 msgstr "Необроблена інформація"
@@ -9202,7 +9206,7 @@ msgid "Readonly"
 msgstr "Лише для читання"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "Аудіофайл RealAudio"
 
 msgid "Realm"
 msgstr "Сфера"
@@ -9667,7 +9671,7 @@ msgid "SNMP Modules"
 msgstr "Модулі SNMP"
 
 msgid "SQL File"
-msgstr ""
+msgstr "Файл SQL"
 
 msgid "SSH"
 msgstr "SSH"
@@ -10288,8 +10292,8 @@ msgid ""
 "defined."
 msgstr ""
 "Встановлює тип аутентифікації. Тип може бути або «None», або «CHAP». За "
-"замовчуванням «None». Якщо встановлено значення CHAP, повинні бути визначені "
-"ім'я CHAP і пароль CHAP."
+"замовчуванням - «None». Якщо встановлено значення CHAP, повинні бути "
+"визначені ім'я CHAP і пароль CHAP."
 
 msgid ""
 "Sets the data digest; a checksum calculated over the Data Section of iSCSI "
@@ -10298,7 +10302,7 @@ msgid ""
 msgstr ""
 "Встановлює підпис даних; контрольна сума, розрахована по розділу даних PDU "
 "iSCSI і перевірена при отриманні. Підпис може бути або «None», або «CRC32C». "
-"За замовчуванням «None»."
+"За замовчуванням - «None»."
 
 msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
@@ -10307,7 +10311,7 @@ msgid ""
 msgstr ""
 "Встановлює підпис заголовка; контрольна сума, розрахована по заголовку PDU "
 "iSCSI і перевірена при отриманні. Дайджест може бути або «None», або "
-"«CRC32C». За замовчуванням «None»."
+"«CRC32C». За замовчуванням - «None»."
 
 msgid ""
 "Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
@@ -10392,7 +10396,7 @@ msgid "Shell"
 msgstr "Командна оболонка"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Скрипт Shell"
 
 msgid "Shock During Write."
 msgstr "Струс під час запису."
@@ -11018,7 +11022,7 @@ msgid "System tuning"
 msgstr "Налаштування системи"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "Архів TAR"
 
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
@@ -11039,7 +11043,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "Зображення TIF"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11069,7 +11073,7 @@ msgid "TLS Trust File"
 msgstr "Файл довіри TLS"
 
 msgid "TS File"
-msgstr ""
+msgstr "Відеофайл TS"
 
 msgid "Tabs"
 msgstr "Вкладки"
@@ -11194,7 +11198,7 @@ msgid "Test mode, no command execution"
 msgstr "Тестовий режим, команда не виконана"
 
 msgid "Text File"
-msgstr ""
+msgstr "Файл Text"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -12049,7 +12053,7 @@ msgid ""
 "terminated. The default is 60. A setting of 0 disables the timeout."
 msgstr ""
 "Затримка для сеансів входу в систему, після чого з'єднання буде примусово "
-"завершено. Значення за замовчуванням - 60. Значення 0 відключає затримку."
+"завершено. За замовчуванням - 60. Значення 0 відключає затримку."
 
 msgid "The total count of errors when writing a sector."
 msgstr "Загальна кількість помилок при запису сектора."
@@ -13365,7 +13369,7 @@ msgid "Use the \"Video\" container"
 msgstr "Використовувати контейнер \"Відео\""
 
 msgid "Use the ZFS ACL driver."
-msgstr ""
+msgstr "Використовувати драйвер ZFS ACL"
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -13431,7 +13435,7 @@ msgstr ""
 "Використовувати кнопку-перемикач замість кнопок включити / відключити."
 
 msgid "Use zfsacl"
-msgstr ""
+msgstr "Використання zfsacl"
 
 msgid "Used"
 msgstr "Використано"
@@ -13571,7 +13575,7 @@ msgid "VNC Password"
 msgstr "Пароль VNC"
 
 msgid "VOB File"
-msgstr ""
+msgstr "Відеофайл VOB"
 
 msgid "Value"
 msgstr "Значення"
@@ -13712,7 +13716,7 @@ msgid "WARNING"
 msgstr "ПОПЕРЕДЖЕННЯ"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "Аудіофайл WAV"
 
 msgid "WEP"
 msgstr "WEP"
@@ -13894,7 +13898,7 @@ msgid "Wireless configuration"
 msgstr "Безпровідна конфігурація"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Документ Word"
 
 msgid "Work Directory"
 msgstr "Робочий каталог"
@@ -13922,7 +13926,7 @@ msgid "Wrong permission on %s."
 msgstr "Невірні атрибути дозволу на %s."
 
 msgid "XML File"
-msgstr ""
+msgstr "Файл XML"
 
 msgid "Xen"
 msgstr "Xen"
@@ -14147,7 +14151,7 @@ msgstr ""
 "'KB', 'M', 'GB' тощо."
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "Архів ZIP"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
@@ -14260,7 +14264,7 @@ msgid ""
 msgstr ""
 "Період реєстрації iSNS. Якщо зареєстрований мережевий об'єкт не буде "
 "оновлюватися впродовж цього періоду, він буде незареєстрованим після цього. "
-"За замовчуванням 900."
+"За замовчуванням - 900."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"
