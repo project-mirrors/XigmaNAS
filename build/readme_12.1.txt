@@ -119,11 +119,11 @@ Changes:
 - Upgrade nano to 4.8.
 - Upgrade samba to 4.10.13.
 - Upgrade syncthing to 1.3.4.
-- Upgrade phpmyadmin to 5.0.1.
 - Upgrade proftpd to 1.3.6c.
 - Upgrade mDNSResponder to 1096.0.2.
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade php to 7.4.4.
+- Upgrade phpmyadmin to 5.0.2.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
