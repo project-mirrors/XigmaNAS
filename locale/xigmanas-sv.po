@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-07 07:12+0000\n"
+"PO-Revision-Date: 2020-03-15 18:14+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
+"X-Launchpad-Export-Date: 2020-03-22 22:46+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -411,7 +411,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Ett giltigt prefix (1-128) måste anges."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3 Ljudfil"
 
 msgid "ACL Inherit"
 msgstr "Ärv ACL"
@@ -463,7 +463,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI Fil"
 
 msgid "Accept remote syslog messages."
 msgstr "Acceptera externa syslogmeddelanden"
@@ -847,6 +847,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"All data i den valda sökvägen skrivs över. Det rekommenderas att en tom UFS "
+"katalog eller ett tomt ZFS dataset används."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "All data kommer att förloras när du aktiverar denna option!"
@@ -1100,7 +1102,7 @@ msgid "Append user defined shares"
 msgstr "Lägg till användardefinierade delningar"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Lägg till användardefinierade utdelningr."
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filprotokoll"
@@ -1340,10 +1342,10 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Medeluppvarvningstid (från 0 RPM till fullt drift)"
 
 msgid "BMP Image"
-msgstr ""
+msgstr "BMP Bild"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2 Arkiv"
 
 msgid "Back"
 msgstr "Åter"
@@ -1589,13 +1591,13 @@ msgid "Bytes/sec"
 msgstr "Byte/sekund"
 
 msgid "C File"
-msgstr ""
+msgstr "C Fil"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "C++ Headerfil"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "C++ Källkodsfil"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1645,7 +1647,7 @@ msgid "CD/DVD drive"
 msgstr "CD/DVD spelare"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "CGI Skript"
 
 msgid "CHANGED"
 msgstr "ÄNDRAD"
@@ -1743,7 +1745,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "CSS Ffil"
 
 msgid "CSS Settings"
 msgstr "CSS Inställningar"
@@ -2602,7 +2604,7 @@ msgstr ""
 "alternativ anger vilket teckensnitt Samba skall prata med DOS klienter med."
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "DTS Ljudfil"
 
 msgid "DVD"
 msgstr "DVD"
@@ -4954,13 +4956,13 @@ msgid "Example: pkg install packagename."
 msgstr "Exempelvis: pkg install packagename."
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Excelblad"
 
 msgid "Exec"
 msgstr "Kör"
 
 msgid "Executable File"
-msgstr ""
+msgstr "Körbar fil"
 
 msgid "Execute"
 msgstr "Kör"
@@ -5066,7 +5068,7 @@ msgid "FATAL - log fatal errors only"
 msgstr "FATAL - logga bara kritiska fel"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "FLAC Ljudfil"
 
 msgid "FRU Information"
 msgstr "FRU Information"
@@ -5291,7 +5293,7 @@ msgid "Flags"
 msgstr "Flaggor"
 
 msgid "Flash File"
-msgstr ""
+msgstr "Flashfil"
 
 msgid "Folder Pattern"
 msgstr "Katalogmönster"
@@ -5424,7 +5426,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "GIF Bild"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5451,7 +5453,7 @@ msgid "GUI"
 msgstr "GUI"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "GZIP Arkiv"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5634,7 +5636,7 @@ msgid "HOT SPARE"
 msgstr "AKTIV RESERV"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "HTML Sida"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6307,7 +6309,7 @@ msgid "Invalid file format."
 msgstr "Ogiltigt filformat."
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "Felaktig systemmjukvarufil"
 
 msgid "Invalid login credentials."
 msgstr "Felaktiga inloggningsuppgifter"
@@ -6369,7 +6371,7 @@ msgid "JBOD Status"
 msgstr "JBOD status"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "JPG Bild"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -6381,13 +6383,13 @@ msgid "January"
 msgstr "januari"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Java Class Fil"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Java  Källkodsfil"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Javaskriptfil"
 
 msgid "Job is locked"
 msgstr "Jobbet är låst"
@@ -6628,7 +6630,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "Begränsar utrymmet ett dataset kan nyttja."
 
 msgid "Link"
-msgstr ""
+msgstr "Länk"
 
 msgid "Link Down Action"
 msgstr "Åtgärd när länken går ner"
@@ -6871,7 +6873,7 @@ msgid "MD4 Password"
 msgstr "MD4 Lösenord"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "MIDI Fil"
 
 msgid "MIRROR"
 msgstr "SPEGLING"
@@ -6880,28 +6882,28 @@ msgid "MISSING"
 msgstr "SAKNAS"
 
 msgid "MKV File"
-msgstr ""
+msgstr "MKV Fil"
 
 msgid "MOTD"
 msgstr "Dagens meddelande"
 
 msgid "MOV File"
-msgstr ""
+msgstr "MOV Fil"
 
 msgid "MOVED TO"
 msgstr "FLYTTAD TILL"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "MP3 Ljudfil"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "MP3 Spellista"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "MP4 Fil"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "MPEG Fil"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7902,7 +7904,7 @@ msgid "Numeric identifier of the group."
 msgstr "Numerisk identifierare för gruppen."
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "OGG Ljudfil"
 
 msgid "OK"
 msgstr "OK"
@@ -8084,10 +8086,10 @@ msgid "PAM authentication is selected."
 msgstr "PAM autentisering är vald."
 
 msgid "PDF File"
-msgstr ""
+msgstr "PDF Fil"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "PERL Skript"
 
 msgid "PG"
 msgstr "PG"
@@ -8102,10 +8104,10 @@ msgid "PHP License"
 msgstr "PHP Licens"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "PHP Skript"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "PNG Bild"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8171,7 +8173,7 @@ msgid "Partitions"
 msgstr "Partitioner"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Pascal Fil"
 
 msgid "Passive Port"
 msgstr "Passiv port"
@@ -8315,7 +8317,7 @@ msgid "Permit discovery without authentication"
 msgstr "Tillåt sökning utan autentisering"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "Photoshop Fil"
 
 msgid "Physical Block Offset"
 msgstr "Fysisk blockoffset"
@@ -8581,7 +8583,7 @@ msgid "Power management"
 msgstr "Strömhantering"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Powerpointpresentation"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Pre-Fail attribut som används åtminstonne i HP enheter."
@@ -8740,7 +8742,7 @@ msgid ""
 msgstr "Sätter disken i strömsparläge inställd tid efter sista diskåtkomst."
 
 msgid "Python Script"
-msgstr ""
+msgstr "Pythonskript"
 
 msgid "QUIET - disable logging"
 msgstr "QUIET - stäng av loggning"
@@ -8854,7 +8856,7 @@ msgid "RAM Disk"
 msgstr "RAM-disk"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "RAR Arkiv"
 
 msgid "RAW info"
 msgstr "RAW information"
@@ -9098,7 +9100,7 @@ msgid "Readonly"
 msgstr "Skrivskyddad"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "RealAudio Fil"
 
 msgid "Realm"
 msgstr "Rike"
@@ -9559,7 +9561,7 @@ msgid "SNMP Modules"
 msgstr "SNMP Moduler"
 
 msgid "SQL File"
-msgstr ""
+msgstr "SQL Fil"
 
 msgid "SSH"
 msgstr "SSH"
@@ -10274,7 +10276,7 @@ msgid "Shell"
 msgstr "Skal"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Shell Skript"
 
 msgid "Shock During Write."
 msgstr "Slag under skrivning."
@@ -10902,7 +10904,7 @@ msgid "System tuning"
 msgstr "Finjustering av systemet"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "TAR Arkiv"
 
 msgid "TCP Forwarding"
 msgstr "TCP vidarebefordran"
@@ -10923,7 +10925,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "TIF Bild"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -10953,7 +10955,7 @@ msgid "TLS Trust File"
 msgstr "TLS Betroddfil"
 
 msgid "TS File"
-msgstr ""
+msgstr "TS Fil"
 
 msgid "Tabs"
 msgstr "Tabbar"
@@ -11077,7 +11079,7 @@ msgid "Test mode, no command execution"
 msgstr "Testläge, ingen körning av kommandon"
 
 msgid "Text File"
-msgstr ""
+msgstr "Textfil"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13220,7 +13222,7 @@ msgid "Use the \"Video\" container"
 msgstr "Använd \"Video\" behållaren."
 
 msgid "Use the ZFS ACL driver."
-msgstr ""
+msgstr "Anvvänd ZPS ACL-drivrutin."
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -13285,7 +13287,7 @@ msgid "Use toggle button instead of enable/disable buttons."
 msgstr "Använd växlade knappar i stället för aktivera-/inaktiveraknappar."
 
 msgid "Use zfsacl"
-msgstr ""
+msgstr "Använd zfsacl"
 
 msgid "Used"
 msgstr "Använt"
@@ -13424,7 +13426,7 @@ msgid "VNC Password"
 msgstr "VNC-lösenord"
 
 msgid "VOB File"
-msgstr ""
+msgstr "VOB Fil"
 
 msgid "Value"
 msgstr "Värde"
@@ -13563,7 +13565,7 @@ msgid "WARNING"
 msgstr "VARNING"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "WAV Ljudfil"
 
 msgid "WEP"
 msgstr "WEP"
@@ -13741,7 +13743,7 @@ msgid "Wireless configuration"
 msgstr "Trådlös konfiguration"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Worddokument"
 
 msgid "Work Directory"
 msgstr "Arbetskatalog"
@@ -13769,7 +13771,7 @@ msgid "Wrong permission on %s."
 msgstr "Fel rättigheter på %s."
 
 msgid "XML File"
-msgstr ""
+msgstr "XML Fil"
 
 msgid "Xen"
 msgstr "Xen"
@@ -13990,7 +13992,7 @@ msgid ""
 msgstr "ZFS volymstorlek. Du kan använda ändelser som K, KB, M, GB."
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "ZIP Arkiv"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

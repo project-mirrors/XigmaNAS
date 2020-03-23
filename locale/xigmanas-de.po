@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-04 18:18+0000\n"
+"PO-Revision-Date: 2020-03-14 13:28+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
+"X-Launchpad-Export-Date: 2020-03-22 22:44+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -437,7 +437,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Ein gültiges Präfix (1-128) muss angegeben werden."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3 Audio Datei"
 
 msgid "ACL Inherit"
 msgstr "ACL Vererbung"
@@ -489,7 +489,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI Datei"
 
 msgid "Accept remote syslog messages."
 msgstr "Erlaube Remote Syslog Nachrichten."
@@ -877,6 +877,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Alle Daten im gewählten Pfad werden überschrieben. Es wird empfohlen, ein "
+"leeres UFS-Verzeichnis oder ein leeres ZFS-Dataset zu verwenden."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Alle Daten werden gelöscht wenn diese OPtion aktiviert wird!"
@@ -1140,7 +1142,7 @@ msgid "Append user defined shares"
 msgstr "Benutzerdefinierte freigaben hinzufügen"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Append user defined shares."
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -1383,10 +1385,10 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Durchschnittliche Anlaufzeit der Festplatte"
 
 msgid "BMP Image"
-msgstr ""
+msgstr "BMP-Bilddatei"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2 Archiv"
 
 msgid "Back"
 msgstr "Zurück"
@@ -1644,13 +1646,13 @@ msgid "Bytes/sec"
 msgstr "Bytes/sek"
 
 msgid "C File"
-msgstr ""
+msgstr "C Datei"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "C++-Headerdatei"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "C++-Quelldatei"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1701,7 +1703,7 @@ msgid "CD/DVD drive"
 msgstr "CD/DVD - Laufwerk"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "CGI Script"
 
 msgid "CHANGED"
 msgstr "geändert"
@@ -1802,7 +1804,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "CSS-Datei"
 
 msgid "CSS Settings"
 msgstr "CSS Einstellungen"
@@ -2654,7 +2656,7 @@ msgstr ""
 "kommunizieren soll."
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "DTS Audio Datei"
 
 msgid "DVD"
 msgstr "DVD"
@@ -5033,13 +5035,13 @@ msgid "Example: pkg install packagename."
 msgstr "Beispiel: pkg install Paketname."
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Excel Arbeitsblatt"
 
 msgid "Exec"
 msgstr "Ausführen"
 
 msgid "Executable File"
-msgstr ""
+msgstr "Ausführbare Datei"
 
 msgid "Execute"
 msgstr "Ausführen"
@@ -5145,7 +5147,7 @@ msgid "FATAL - log fatal errors only"
 msgstr "FATAL - Zeichne nur schwerwiegende Fehler auf"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "FLAC Audio Datei"
 
 msgid "FRU Information"
 msgstr "FRU Information"
@@ -5371,7 +5373,7 @@ msgid "Flags"
 msgstr "Markierungen"
 
 msgid "Flash File"
-msgstr ""
+msgstr "Flash Datei"
 
 msgid "Folder Pattern"
 msgstr "Ordnermuster"
@@ -5512,7 +5514,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "GIF Bild"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5539,7 +5541,7 @@ msgid "GUI"
 msgstr "Grafische Benutzeroberfläche"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "GZIP Archiv"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5727,7 +5729,7 @@ msgid "HOT SPARE"
 msgstr "HOT SPARE"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "HTML Seite"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6415,7 +6417,7 @@ msgid "Invalid file format."
 msgstr "Ungültiges Dateiformat."
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "Ungültige Firmware-Datei."
 
 msgid "Invalid login credentials."
 msgstr "Falsche Anmeldedaten"
@@ -6478,7 +6480,7 @@ msgid "JBOD Status"
 msgstr "JBOD Status"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "JPG Bild"
 
 msgid "Jailed"
 msgstr "In einer Virtualisierungsumgebung (Jailed)"
@@ -6490,13 +6492,13 @@ msgid "January"
 msgstr "Januar"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Java-Klassendatei"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Java-Quelldatei"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Javascript Datei"
 
 msgid "Job is locked"
 msgstr "Auftrag ist gesperrt"
@@ -6757,7 +6759,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "Begrenzt den Speicherplatz, den ein Dataset verbrauchen darf."
 
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 msgid "Link Down Action"
 msgstr "Aktion bei Verbindungsabbruch"
@@ -7007,7 +7009,7 @@ msgid "MD4 Password"
 msgstr "MD4 Passwort"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "MIDI Datei"
 
 msgid "MIRROR"
 msgstr "Spiegel (Mirror)"
@@ -7016,28 +7018,28 @@ msgid "MISSING"
 msgstr "FEHLT"
 
 msgid "MKV File"
-msgstr ""
+msgstr "MKV Datei"
 
 msgid "MOTD"
 msgstr "MOTD"
 
 msgid "MOV File"
-msgstr ""
+msgstr "MOV Datei"
 
 msgid "MOVED TO"
 msgstr "verlagert zu"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "MP3 Audio Datei"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "MP3 PlayList"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "MP4 Datei"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "MPEG Datei"
 
 msgid "MS Active Directory"
 msgstr "Microsoft ActiveDirectory"
@@ -8052,7 +8054,7 @@ msgid "Numeric identifier of the group."
 msgstr "Numerischer Bezeichner für die Gruppe."
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "OGG Audio-Datei"
 
 msgid "OK"
 msgstr "OK"
@@ -8234,10 +8236,10 @@ msgid "PAM authentication is selected."
 msgstr "PAM Authentifizierung ist ausgewählt"
 
 msgid "PDF File"
-msgstr ""
+msgstr "PDF Datei"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "PERL Script"
 
 msgid "PG"
 msgstr "PG"
@@ -8252,10 +8254,10 @@ msgid "PHP License"
 msgstr "PHP Lizenz"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "PHP Script"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "PNG Bild"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8321,7 +8323,7 @@ msgid "Partitions"
 msgstr "Partitionen"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Pascal Datei"
 
 msgid "Passive Port"
 msgstr "Passiver Port"
@@ -8469,7 +8471,7 @@ msgid "Permit discovery without authentication"
 msgstr "Entdeckung ohne Authentifizierung zulassen"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "Photoshop Datei"
 
 msgid "Physical Block Offset"
 msgstr "Physischer Block-Offset"
@@ -8736,7 +8738,7 @@ msgid "Power management"
 msgstr "Energieverwaltung"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Powerpoint Präsentation"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "\"Pre-Fail\"-Attribut (zumindest bei HP-Geräten genutzt)"
@@ -8896,7 +8898,7 @@ msgstr ""
 "Nach der angegeben Zeit ohne Zugriff gehen die Festplatten in 'Stand-by'"
 
 msgid "Python Script"
-msgstr ""
+msgstr "Python-Skript"
 
 msgid "QUIET - disable logging"
 msgstr "QUIET - Deaktiviert die Protokollierung"
@@ -9010,7 +9012,7 @@ msgid "RAM Disk"
 msgstr "RAM Disk"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "RAR Archiv"
 
 msgid "RAW info"
 msgstr "RAW Informationen"
@@ -9255,7 +9257,7 @@ msgid "Readonly"
 msgstr "Nur Lesen"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "RealAudio Datei"
 
 msgid "Realm"
 msgstr "Bereich"
@@ -9720,7 +9722,7 @@ msgid "SNMP Modules"
 msgstr "SNMP Module"
 
 msgid "SQL File"
-msgstr ""
+msgstr "SQL Datei"
 
 msgid "SSH"
 msgstr "SSH"
@@ -10473,7 +10475,7 @@ msgid "Shell"
 msgstr "Shell"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Shell Script"
 
 msgid "Shock During Write."
 msgstr "Schocks während Schreiboperationen"
@@ -11107,7 +11109,7 @@ msgid "System tuning"
 msgstr "Systemfeineinstellungen"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "TAR Archiv"
 
 msgid "TCP Forwarding"
 msgstr "TCP Weiterleitung"
@@ -11128,7 +11130,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "TIF Bild"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11158,7 +11160,7 @@ msgid "TLS Trust File"
 msgstr "TLS Trust File"
 
 msgid "TS File"
-msgstr ""
+msgstr "TS Datei"
 
 msgid "Tabs"
 msgstr "Reiter"
@@ -11282,7 +11284,7 @@ msgid "Test mode, no command execution"
 msgstr "Testmodus, keine Befehlsausführung"
 
 msgid "Text File"
-msgstr ""
+msgstr "Textdatei"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13522,7 +13524,7 @@ msgid "Use the \"Video\" container"
 msgstr "Verwenden Sie den Container \"Video\""
 
 msgid "Use the ZFS ACL driver."
-msgstr ""
+msgstr "Verwende den ZFS-ACL-Treiber."
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -13588,7 +13590,7 @@ msgstr ""
 "Verwendung von Umschaltknöpfen anstelle von Aktivieren-/Deaktivieren-Knöpfen."
 
 msgid "Use zfsacl"
-msgstr ""
+msgstr "Verwende zfsacl"
 
 msgid "Used"
 msgstr "Benutzt"
@@ -13728,7 +13730,7 @@ msgid "VNC Password"
 msgstr "VNC-Passwort"
 
 msgid "VOB File"
-msgstr ""
+msgstr "VOB Datei"
 
 msgid "Value"
 msgstr "Wert"
@@ -13869,7 +13871,7 @@ msgid "WARNING"
 msgstr "ACHTUNG"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "WAV Audio Datei"
 
 msgid "WEP"
 msgstr "WEP"
@@ -14053,7 +14055,7 @@ msgid "Wireless configuration"
 msgstr "WLAN Einstellungen"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Word Dokument"
 
 msgid "Work Directory"
 msgstr "Arbeitsverzeichnis"
@@ -14081,7 +14083,7 @@ msgid "Wrong permission on %s."
 msgstr "Falsche Berechtigung auf %s."
 
 msgid "XML File"
-msgstr ""
+msgstr "XML Datei"
 
 msgid "Xen"
 msgstr "Xen"
@@ -14314,7 +14316,7 @@ msgstr ""
 "wählen."
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "ZIP Archiv"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"

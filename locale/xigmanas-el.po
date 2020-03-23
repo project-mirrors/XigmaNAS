@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-12 12:37+0000\n"
+"PO-Revision-Date: 2020-03-18 14:59+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 23:28+0000\n"
+"X-Launchpad-Export-Date: 2020-03-22 22:45+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -442,7 +442,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Πρέπει να καθοριστεί ένα έγκυρο πρόθεμα (1-128)."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "Αρχείο ήχου AC3"
 
 msgid "ACL Inherit"
 msgstr "Κληρονόμηση ACL"
@@ -494,7 +494,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "Αρχείο AVI"
 
 msgid "Accept remote syslog messages."
 msgstr "Αποδοχή απομακρυσμένων μηνυμάτων syslog."
@@ -1397,10 +1397,10 @@ msgstr ""
 "Μέσος χρόνος εκκίνησης περιστροφής (από 0 στροφές/λεπτό σε πλήρη λειτουργία)."
 
 msgid "BMP Image"
-msgstr ""
+msgstr "Εικόνα BMP"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "Συμπιεσμένο αρχείο BZIP2"
 
 msgid "Back"
 msgstr "Πίσω"
@@ -1657,7 +1657,7 @@ msgid "Bytes/sec"
 msgstr "Bytes/δευτερόλεπτο"
 
 msgid "C File"
-msgstr ""
+msgstr "Αρχείο C"
 
 msgid "C++ Header File"
 msgstr ""
@@ -1814,7 +1814,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "Αρχείο CSS"
 
 msgid "CSS Settings"
 msgstr "Ρυθμίσεις CSS"
@@ -2716,7 +2716,7 @@ msgstr ""
 "για επικοινωνία με τους πελάτες DOS."
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "Αρχείο ήχου DTS"
 
 msgid "DVD"
 msgstr "DVD"
@@ -5121,13 +5121,13 @@ msgid "Example: pkg install packagename."
 msgstr "Παράδειγμα: pkg install όνομαπακέτου."
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Φύλλο Excel"
 
 msgid "Exec"
 msgstr "Εκτέλεση"
 
 msgid "Executable File"
-msgstr ""
+msgstr "Εκτελέσιμο αρχείο"
 
 msgid "Execute"
 msgstr "Εκτέλεση"
@@ -5235,7 +5235,7 @@ msgid "FATAL - log fatal errors only"
 msgstr "FATAL - καταγραφή μόνο των καταστροφικών σφαλμάτων"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "Αρχείο ήχου FLAC"
 
 msgid "FRU Information"
 msgstr "Πληροφορίες FRU"
@@ -5465,7 +5465,7 @@ msgid "Flags"
 msgstr "Παράμετροι"
 
 msgid "Flash File"
-msgstr ""
+msgstr "Αρχείο Flash"
 
 msgid "Folder Pattern"
 msgstr "Πρότυπο Φακέλων"
@@ -5606,7 +5606,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "Εικόνα GIF"
 
 msgid "GNU General Public License"
 msgstr "Γενική Άδεια Δημόσιας Χρήσης GNU"
@@ -5633,7 +5633,7 @@ msgid "GUI"
 msgstr "GUI"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "Συμπιεσμένο αρχείο GZIP"
 
 msgid "Gateway"
 msgstr "Πύλη"
@@ -5820,7 +5820,7 @@ msgid "HOT SPARE"
 msgstr "HOT SPARE"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "Σελίδα HTML"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6583,7 +6583,7 @@ msgid "JBOD Status"
 msgstr "Κατάσταση JBOD"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "Εικόνα JPG"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -6601,7 +6601,7 @@ msgid "Java Source File"
 msgstr ""
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Αρχείο Javascript"
 
 msgid "Job is locked"
 msgstr "Η εργασία είναι κλειδωμένη"
@@ -6860,7 +6860,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "Περιορίζει τον χώρο που μπορεί να καταναλώσει ένα dataset."
 
 msgid "Link"
-msgstr ""
+msgstr "Σύνδεσμος"
 
 msgid "Link Down Action"
 msgstr "Ενέργεια Σύνδεσης Κάτω"
@@ -7109,7 +7109,7 @@ msgid "MD4 Password"
 msgstr "Κωδικός MD4"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "Αρχείο MIDI"
 
 msgid "MIRROR"
 msgstr "MIRROR"
@@ -7118,28 +7118,28 @@ msgid "MISSING"
 msgstr "ΛΕΙΠΕΙ"
 
 msgid "MKV File"
-msgstr ""
+msgstr "Αρχείο MKV"
 
 msgid "MOTD"
 msgstr "Μήνυμα Ημέρας"
 
 msgid "MOV File"
-msgstr ""
+msgstr "Αρχείο MOV"
 
 msgid "MOVED TO"
 msgstr "ΜΕΤΑΚΙΝΗΘΗΚΕ"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "Αρχείο Ήχου MP3"
 
 msgid "MP3 Playlist"
 msgstr ""
 
 msgid "MP4 File"
-msgstr ""
+msgstr "Αρχείο MP4"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "Αρχείο MPEG"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -8162,7 +8162,7 @@ msgid "Numeric identifier of the group."
 msgstr "Αριθμητικό αναγνωριστικό της ομάδας."
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "Αρχείο ήχου OGG"
 
 msgid "OK"
 msgstr "OK"

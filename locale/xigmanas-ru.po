@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-12 02:56+0000\n"
+"PO-Revision-Date: 2020-03-13 02:18+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-12 23:29+0000\n"
+"X-Launchpad-Export-Date: 2020-03-22 22:46+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -425,7 +425,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Должен быть указан корректный префикс (1-128)."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3 аудио файл"
 
 msgid "ACL Inherit"
 msgstr "Наследовать ACL"
@@ -477,7 +477,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI файл"
 
 msgid "Accept remote syslog messages."
 msgstr "Принимать удаленные syslog сообщения."
@@ -1359,10 +1359,10 @@ msgstr ""
 "Среднее время раскрутки шпинделя (от состояния покоя до полной раскрутки)."
 
 msgid "BMP Image"
-msgstr ""
+msgstr "BMP изображение"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2 архив"
 
 msgid "Back"
 msgstr "Назад"
@@ -1618,13 +1618,13 @@ msgid "Bytes/sec"
 msgstr "Байт/сек"
 
 msgid "C File"
-msgstr ""
+msgstr "C файл"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "Заголовочный файл C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Файл исходного кода на C++"
 
 msgid "CACHE"
 msgstr "КЭШ"
@@ -1675,7 +1675,7 @@ msgid "CD/DVD drive"
 msgstr "Устройство CD/DVD"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "Скрипт CGI"
 
 msgid "CHANGED"
 msgstr "ИЗМЕНЕНО"
@@ -1775,7 +1775,7 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "Файл CSS"
 
 msgid "CSS Settings"
 msgstr "Настройки CSS"
@@ -2651,7 +2651,7 @@ msgstr ""
 "клиентами DOS."
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "DTS аудио файл"
 
 msgid "DVD"
 msgstr "DVD"
@@ -5019,13 +5019,13 @@ msgid "Example: pkg install packagename."
 msgstr "Пример: pkg install packagename."
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Лист Excel"
 
 msgid "Exec"
 msgstr "Выполнить"
 
 msgid "Executable File"
-msgstr ""
+msgstr "Исполняемый файл"
 
 msgid "Execute"
 msgstr "Выполнение"
@@ -5132,7 +5132,7 @@ msgid "FATAL - log fatal errors only"
 msgstr "FATAL - регистрировать только фатальные ошибки"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "FLAC аудио файл"
 
 msgid "FRU Information"
 msgstr "Информация FRU"
@@ -5361,7 +5361,7 @@ msgid "Flags"
 msgstr "Флаги"
 
 msgid "Flash File"
-msgstr ""
+msgstr "Flash файл"
 
 msgid "Folder Pattern"
 msgstr "Шаблон папки"
@@ -5494,7 +5494,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "GIF изображение"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5521,7 +5521,7 @@ msgid "GUI"
 msgstr "Графический интерфейс пользователя"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "GZIP архив"
 
 msgid "Gateway"
 msgstr "Шлюз"
@@ -5708,7 +5708,7 @@ msgid "HOT SPARE"
 msgstr "ГОРЯЧАЯ ЗАМЕНА"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "HTML страница"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -6451,7 +6451,7 @@ msgid "JBOD Status"
 msgstr "JBOD статус"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "JPG изображение"
 
 msgid "Jailed"
 msgstr "Заключенный"
@@ -6463,13 +6463,13 @@ msgid "January"
 msgstr "января"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Java Class файл"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Файл исходного кода на Java"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Javascript файл"
 
 msgid "Job is locked"
 msgstr "Задание заблокировано"
@@ -6727,7 +6727,7 @@ msgstr ""
 "Ограничивает объем пространства, которое может использовать набор данных."
 
 msgid "Link"
-msgstr ""
+msgstr "Ссылка"
 
 msgid "Link Down Action"
 msgstr "Действие при отключении соединения"
@@ -6973,7 +6973,7 @@ msgid "MD4 Password"
 msgstr "Пароль MD4"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "MIDI файл"
 
 msgid "MIRROR"
 msgstr "ЗЕРКАЛО"
@@ -6982,28 +6982,28 @@ msgid "MISSING"
 msgstr "Отсутствует"
 
 msgid "MKV File"
-msgstr ""
+msgstr "MKV файл"
 
 msgid "MOTD"
 msgstr "Message Of The Day (MOTD)"
 
 msgid "MOV File"
-msgstr ""
+msgstr "MOV файл"
 
 msgid "MOVED TO"
 msgstr "ПЕРЕМЕЩЕНО В"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "MP3 аудио файл"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "MP3 плейлист"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "MP4 файл"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "MPEG файл"
 
 msgid "MS Active Directory"
 msgstr "Microsoft Active Directory"
@@ -8019,7 +8019,7 @@ msgid "Numeric identifier of the group."
 msgstr "Числовой идентификатор группы."
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "OGG аудио файл"
 
 msgid "OK"
 msgstr "ОК"
@@ -8203,10 +8203,10 @@ msgid "PAM authentication is selected."
 msgstr "Выбрана аутентификация PAM."
 
 msgid "PDF File"
-msgstr ""
+msgstr "PDF файл"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "PERL скрипт"
 
 msgid "PG"
 msgstr "PG"
@@ -8221,10 +8221,10 @@ msgid "PHP License"
 msgstr "PHP License"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "PHP скрипт"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "PNG изображение"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8290,7 +8290,7 @@ msgid "Partitions"
 msgstr "Разделы"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Pascal файл"
 
 msgid "Passive Port"
 msgstr "Пассивный порт"
@@ -8436,7 +8436,7 @@ msgid "Permit discovery without authentication"
 msgstr "Разрешить обнаружение без аутентификации"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "Photoshop файл"
 
 msgid "Physical Block Offset"
 msgstr "Смещение физического блока"
@@ -8703,7 +8703,7 @@ msgid "Power management"
 msgstr "Управление питанием"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Powerpoint презентация"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Pre-Fail атрибут используется в основном на устройствах HP."
@@ -8864,7 +8864,7 @@ msgstr ""
 "доступа к диску."
 
 msgid "Python Script"
-msgstr ""
+msgstr "Python скрипт"
 
 msgid "QUIET - disable logging"
 msgstr "QUIET - отключить ведение журнала"
@@ -8981,7 +8981,7 @@ msgid "RAM Disk"
 msgstr "Диск RAM"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "RAR архив"
 
 msgid "RAW info"
 msgstr "RAW информация"
@@ -9225,7 +9225,7 @@ msgid "Readonly"
 msgstr "Только чтение"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "RealAudio файл"
 
 msgid "Realm"
 msgstr "Название области"
@@ -9688,7 +9688,7 @@ msgid "SNMP Modules"
 msgstr "Модули SNMP"
 
 msgid "SQL File"
-msgstr ""
+msgstr "SQL файл"
 
 msgid "SSH"
 msgstr "SSH"
@@ -10414,7 +10414,7 @@ msgid "Shell"
 msgstr "Командная оболочка (shell)"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Shell скрипт"
 
 msgid "Shock During Write."
 msgstr "Шок во время записи."
@@ -11046,7 +11046,7 @@ msgid "System tuning"
 msgstr "Настройка системы"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "TAR архив"
 
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
@@ -11067,7 +11067,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "TIF изображение"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11097,7 +11097,7 @@ msgid "TLS Trust File"
 msgstr "Файл доверия TLS"
 
 msgid "TS File"
-msgstr ""
+msgstr "TS файл"
 
 msgid "Tabs"
 msgstr "Вкладки"
@@ -11221,7 +11221,7 @@ msgid "Test mode, no command execution"
 msgstr "Тестовый режим, команда не выполнена"
 
 msgid "Text File"
-msgstr ""
+msgstr "Текстовый файл"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13611,7 +13611,7 @@ msgid "VNC Password"
 msgstr "VNC пароль"
 
 msgid "VOB File"
-msgstr ""
+msgstr "VOB файл"
 
 msgid "Value"
 msgstr "Значение"
@@ -13752,7 +13752,7 @@ msgid "WARNING"
 msgstr "ВНИМАНИЕ"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "WAV аудио файл"
 
 msgid "WEP"
 msgstr "WEP"
@@ -13935,7 +13935,7 @@ msgid "Wireless configuration"
 msgstr "Настройка беспроводной сети"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Документ Word"
 
 msgid "Work Directory"
 msgstr "Рабочий каталог"
@@ -13963,7 +13963,7 @@ msgid "Wrong permission on %s."
 msgstr "Неправильное разрешение на%s."
 
 msgid "XML File"
-msgstr ""
+msgstr "XML файл"
 
 msgid "Xen"
 msgstr "Xen"
@@ -14190,7 +14190,7 @@ msgstr ""
 "K, KB, M, GB."
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "ZIP архив"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
