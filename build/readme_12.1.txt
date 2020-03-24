@@ -105,7 +105,6 @@ Changes:
 - Add sas3ircu.
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Upgrade arcconf to 3.02.23600.
-- Upgrade php to 7.3.11.
 - Upgrade virtualbox-ose to 5.2.34.
 - Upgrade sudo to 1.8.29.
 - Upgrade samba to 4.10.10.
