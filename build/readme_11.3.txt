@@ -117,7 +117,6 @@ Changes:
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Update translations.
 - Upgrade to python3x.
-- Upgrade bsnmp-ucd to 0.4.4.
 - Upgrade msmtp to 1.8.6.
 - Upgrade minidlna to newer sources.
 - Use recommended patches for dmidecode.
