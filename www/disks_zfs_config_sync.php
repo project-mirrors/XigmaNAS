@@ -235,6 +235,11 @@ foreach($rawdata as $line):
 	$zfs['extra']['pools']['pool'][$pool]['health'] = $health;
 	$zfs['extra']['pools']['pool'][$pool]['dedup'] = $dedup;
 endforeach;
+//	get all pool names, sorted by length, descending
+$poolnames_sorted_by_length = array_keys($zfs['pools']['pool']);
+usort($poolnames_sorted_by_length,function($element1,$element2) {
+    return mb_strlen($element2) <=> mb_strlen($element1);
+});
 $pool = null;
 $vdev = null;
 $type = null;
@@ -314,18 +319,29 @@ foreach($rawdata as $line):
 	elseif(preg_match('/^\t(\S+)/',$line,$m)): // zpool or spares
 		$vdev = null;
 		$type = null;
-		if($m[1] == 'spares'):
-			$type = 'spare';
-			$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
-		elseif($m[1] == 'cache'):
-			$type = 'cache';
-			$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
-		elseif($m[1] == 'logs'):
-			$type = 'log';
-			$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
-		else:
-			$pool = $m[1];
-		endif;
+		switch($m[1]):
+			case 'spares':
+				$type = 'spare';
+				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				break;
+			case 'cache':
+				$type = 'cache';
+				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				break;
+			case 'logs':
+				$type = 'log';
+				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
+				break;
+			default:
+//				search for the longest match because of whitespaces
+				foreach($poolnames_sorted_by_length as $poolname_to_match):
+					if(preg_match('/^\t' . preg_quote($poolname_to_match) . '/',$line) === 1):
+						$pool = $poolname_to_match;
+						break;
+					endif;
+				endforeach;
+				break;
+		endswitch;
 	endif;
 endforeach;
 if(isset($_POST['import_config'])):
