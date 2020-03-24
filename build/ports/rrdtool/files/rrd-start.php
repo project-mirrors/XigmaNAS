@@ -79,7 +79,7 @@ if(isset($config['rrdgraphs']['enable'])):
 		if(is_array($config['mounts']) && is_array($config['mounts']['mount'])):
 			for($i = 0; $i < count($config['mounts']['mount']); ++$i):
 				$config['rrdgraphs']['mounts']["mount{$i}"] = $config['mounts']['mount'][$i]['sharename'];
-				fwrite($rrdconfig,sprintf("MOUNT%u=%s\n"),$i,escapeshellarg($config['mounts']['mount'][$i]['sharename']));
+				fwrite($rrdconfig,sprintf("MOUNT%u=%s\n",$i,escapeshellarg($config['mounts']['mount'][$i]['sharename'])));
 			endfor;
 		endif;
 		if(is_array($config['zfs']['pools']) && is_array($config['zfs']['pools']['pool'])):
