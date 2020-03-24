@@ -107,7 +107,7 @@ Currently iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
 
-BUILD 11.3.0.4.73xx
+BUILD 11.3.0.4.738x
 ===================
 Changes:
 - Upgrade to FreeBSD 11.3-RELEASE-P7.
@@ -141,6 +141,7 @@ Changes:
 Fixes:
 - Fix monitoring shows high cpu load.
 - Fix display HW Address on status page minidlna.
+- Whitespaces support in pools/dataset names.
 
 Default Login:
 ==============
