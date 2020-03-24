@@ -166,7 +166,7 @@ mwexec2($cmd,$rawdata,$retval);
 if(0 == $retval):
 	foreach($rawdata as $line):
 		if($line == 'no pools available'):
-			continue; 
+			continue;
 		endif;
 		list($pool,$root,$size,$alloc,$free,$cap,$expandsz,$frag,$health,$dedup) = explode("\t",$line);
 		if ($root != '-'):
@@ -182,6 +182,11 @@ if(0 == $retval):
 		$zfs['extra']['pools']['pool'][$pool]['dedup'] = $dedup;
 	endforeach;
 endif;
+//	get all pool names, sorted by length, descending
+$poolnames_sorted_by_length = array_keys($zfs['pools']['pool']);
+usort($poolnames_sorted_by_length,function($element1,$element2) {
+    return mb_strlen($element2) <=> mb_strlen($element1);
+});
 $pool = null;
 $vdev = null;
 $type = null;
@@ -274,7 +279,13 @@ foreach($rawdata as $line):
 				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
 				break;
 			default:
-				$pool = $m[1];
+//				search for the longest match because of whitespaces
+				foreach($poolnames_sorted_by_length as $poolname_to_match):
+					if(preg_match('/^\t' . preg_quote($poolname_to_match) . '/',$line) === 1):
+						$pool = $poolname_to_match;
+						break;
+					endif;
+				endforeach;
 				break;
 		endswitch;
 	endif;
@@ -346,7 +357,7 @@ $document->
 $document->render();
 ?>
 <table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php 
+<?php
 	if(!empty($message_box_text)):
 		print_core_box($message_box_type,$message_box_text);
 	endif;
