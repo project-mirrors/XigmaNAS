@@ -25,7 +25,7 @@ Changes:
 - Upgrade e2fsprogs to 1.45.6.
 
 Fixes:
-
+- Whitespaces support in pools/dataset names.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
