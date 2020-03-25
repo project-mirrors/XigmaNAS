@@ -6,7 +6,7 @@
 #
 # Populate /var directory
 #
-# $FreeBSD: /etc/rc.d/var	revision 299839
+# $FreeBSD: /stable/12/libexec/rc/rc.d/var	revision 339434
 # Changes: - Remove useless code
 #    ToDo: - Relocate code to populate /var from /etc/rc to this file ASAP
 #

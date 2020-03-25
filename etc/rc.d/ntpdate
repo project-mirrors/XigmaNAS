@@ -6,7 +6,7 @@
 #
 # Set the date and time via NTP
 #
-# $FreeBSD: /etc/rc.d/ntpdate	Revision 314531
+# $FreeBSD: /stable/12/libexec/rc/rc.d/ntpdate	Revision 314531
 # Changes:	- Remove requirement 'named'
 # 		- Add mkconf command
 #

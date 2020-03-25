@@ -6,7 +6,7 @@
 #
 # Name-service switch
 #
-# $FreeBSD: /releng/12.0/libexec/rc/rc.d/nsswitch	Revision 340470
+# $FreeBSD: /stable/12/libexec/rc/rc.d/nsswitch	Revision  339434
 # Changes:	- Add 'var' as requirement
 # 		- Add code to create configuration file from config.xml
 #

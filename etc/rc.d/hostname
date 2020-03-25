@@ -5,7 +5,7 @@
 # All rights reserved.
 #
 # Set the system\'s hostname
-# $FreeBSD: /releng/12.0/libexec/rc/rc.d/	Revision 340470
+# $FreeBSD: /stable/12/libexec/rc/rc.d/hostname	Revision 339434
 #
 
 # PROVIDE: hostname

@@ -6,7 +6,7 @@
 #
 # Mount and share ZFS datasets
 #
-# $FreeBSD: /etc/rc.d/zfs	revision 298514
+# $FreeBSD: libexec/rc/rc.d/zfs	revision 298514
 # Changes: Add function zfs_init: Import zpool's if necessary
 #
 

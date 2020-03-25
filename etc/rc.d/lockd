@@ -6,7 +6,7 @@
 #
 # NFS file locking daemon
 #
-# $FreeBSD: /releng/12.0/libexec/rc/rc.d/lockd		Revision 340470
+# $FreeBSD: /stable/12/libexec/rc/rc.d/lockd		Revision 339434
 # Changes:	- Remove nfsclient
 #
 

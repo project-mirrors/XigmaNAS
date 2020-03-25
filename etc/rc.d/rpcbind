@@ -6,7 +6,7 @@
 #
 # Universal addresses to RPC program number mapper
 #
-# $FreeBSD: /etc/rc.d/rpcbind	Revision 298514
+# $FreeBSD: /stable/12/libexec/rc/rc.d/rpcbind	Revision 339434
 # Changes: Remove useless requirements named
 #
 

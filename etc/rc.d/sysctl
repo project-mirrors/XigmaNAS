@@ -4,7 +4,7 @@
 # Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# Set sysctl variables from /etc/sysctl.conf and /etc/sysctl.conf.local revision 298514
+# Set sysctl variables from /etc/sysctl.conf and /etc/sysctl.conf.local revision 339434
 #
 # Changes: - Add command mkconf
 # 	   - Add full path to command sysctl to fix execution bug

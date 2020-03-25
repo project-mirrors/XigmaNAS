@@ -4,7 +4,7 @@
 # Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# $FreeBSD: /etc/rc.d/root
+# $FreeBSD: libexec/rc/rc.d/routing/root
 # Changes: Remove original code from root_start.
 #
 

@@ -6,7 +6,7 @@
 #
 # Service remote NFS mount requests
 #
-# $FreeBSD: /releng/12.0/libexec/rc/rc.d/mountd		Revision 340470
+# $FreeBSD: /stable/12/libexec/rc/rc.d/mountd		Revision 339434
 # Changes:	- Remove nfsserver quota
 # 		- Add mkconf command
 #

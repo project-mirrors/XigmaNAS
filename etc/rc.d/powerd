@@ -6,7 +6,7 @@
 #
 # Modify the power profile
 #
-# $FreeBSD: /releng/12.0/libexec/rc/rc.d/powerd		Revision 340470
+# $FreeBSD: /stable/12/libexec/rc/rc.d/powerd		Revision 339434
 #
 
 # PROVIDE: powerd
