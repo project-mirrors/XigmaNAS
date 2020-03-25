@@ -343,6 +343,7 @@ $document->render();
 					tblrow(gtext('Nominal value of apparent power (Volt-Amps)'), $ups['ups.power.nominal'], 'VA');
 					tblrow(gtext('Current value of real power (Watts)'), $ups['ups.realpower'], 'W');
 					tblrow(gtext('Nominal value of real power (Watts)'), $ups['ups.realpower.nominal'], 'W');
+					tblrow(gtext('Percentage of apparent power related to maximum load'), $ups['power.percent'], '%');					
 					tblrow(gtext('UPS beeper status'), $ups['ups.beeper.status']);
 					tblrow(gtext('UPS type'), $ups['ups.type']);
 					tblrow(gtext('UPS watchdog status'), $ups['ups.watchdog.status']);
