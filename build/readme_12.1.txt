@@ -114,7 +114,6 @@ Changes:
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade dialog to 1.3-20200228.
-- Upgrade nano to 4.8.
 - Upgrade samba to 4.10.13.
 - Upgrade proftpd to 1.3.6c.
 - Upgrade mDNSResponder to 1096.0.2.
@@ -123,6 +122,7 @@ Changes:
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade syncthing to 1.4.0.
 - Upgrade e2fsprogs to 1.45.6.
+- Upgrade nano to 4.9.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
