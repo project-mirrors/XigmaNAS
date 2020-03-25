@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-18 14:59+0000\n"
+"PO-Revision-Date: 2020-03-24 12:37+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-22 22:45+0000\n"
+"X-Launchpad-Export-Date: 2020-03-25 13:33+0000\n"
 "X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -1660,10 +1660,10 @@ msgid "C File"
 msgstr "Αρχείο C"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "Αρχείο Κεφαλίδας C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Πηγαίο Αρχείο C/C++"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1714,7 +1714,7 @@ msgid "CD/DVD drive"
 msgstr "Οδηγός CD/DVD"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "Αρχείο εντολών \t CGI"
 
 msgid "CHANGED"
 msgstr "ΑΛΛΑΧΤΗΚΕ"
@@ -6595,10 +6595,10 @@ msgid "January"
 msgstr "Ιανουάριος"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Αρχείο Κλάσης Java"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Πηγαίο Αρχείο Java"
 
 msgid "Javascript File"
 msgstr "Αρχείο Javascript"
@@ -7133,7 +7133,7 @@ msgid "MP3 Audio File"
 msgstr "Αρχείο Ήχου MP3"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "Λίστα αναπαραγωγής MP3"
 
 msgid "MP4 File"
 msgstr "Αρχείο MP4"
@@ -8348,10 +8348,10 @@ msgid "PAM authentication is selected."
 msgstr "Έχει επιλεχθεί πιστοποίηση PAM."
 
 msgid "PDF File"
-msgstr ""
+msgstr "Αρχείο PDF"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "Αρχείο εντολών PERL"
 
 msgid "PG"
 msgstr "PG"
@@ -8366,10 +8366,10 @@ msgid "PHP License"
 msgstr "Άδεια PHP"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "Αρχείο εντολών PHP"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "Εικόνα PNG"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8435,7 +8435,7 @@ msgid "Partitions"
 msgstr "Κατατμήσεις"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "Αρχείο Pascal"
 
 msgid "Passive Port"
 msgstr "Παθητικη Θύρα"
@@ -8584,7 +8584,7 @@ msgid "Permit discovery without authentication"
 msgstr "Επιτρέπεται ανεύρεση χωρίς πιστοποίηση"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "Αρχείο Photoshop"
 
 msgid "Physical Block Offset"
 msgstr "Όφσετ Φυσικού Μπλοκ"
@@ -8854,7 +8854,7 @@ msgid "Power management"
 msgstr "Διαχείριση ενέργειας"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Παρουσίαση Powerpoint"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr ""
@@ -9018,7 +9018,7 @@ msgstr ""
 "διάστημα μετά την τελευταία προσπέλαση στο δίσκο."
 
 msgid "Python Script"
-msgstr ""
+msgstr "Αρχείο εντολών Python"
 
 msgid "QUIET - disable logging"
 msgstr "QUIET - απενεργοποίηση καταγραφής"
@@ -9132,7 +9132,7 @@ msgid "RAM Disk"
 msgstr "Δίσκος RAM"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "Αρχείο RAR"
 
 msgid "RAW info"
 msgstr "Αμορφοποίητες πληροφορίες"
@@ -9378,7 +9378,7 @@ msgid "Readonly"
 msgstr "Μόνο για ανάγνωση"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "Αρχείο RealAudio"
 
 msgid "Realm"
 msgstr "Realm"
@@ -9846,7 +9846,7 @@ msgid "SNMP Modules"
 msgstr "Αρθρώματα SNMP"
 
 msgid "SQL File"
-msgstr ""
+msgstr "Αρχείο SQL"
 
 msgid "SSH"
 msgstr "SSH"
@@ -10597,7 +10597,7 @@ msgid "Shell"
 msgstr "Κέλυφος"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Αρχείο"
 
 msgid "Shock During Write."
 msgstr "Δόνηση κατά τη διάρκεια της εγγραφής."
@@ -11238,7 +11238,7 @@ msgid "System tuning"
 msgstr "Ρύθμιση συστήματος"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "Αρχείο TAR"
 
 msgid "TCP Forwarding"
 msgstr "Προώθηση TCP"
@@ -11259,7 +11259,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "Εικόνα TIF"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11289,7 +11289,7 @@ msgid "TLS Trust File"
 msgstr "Αρχείο TLS Trust"
 
 msgid "TS File"
-msgstr ""
+msgstr "Αρχείο TS"
 
 msgid "Tabs"
 msgstr "Καρτέλες"
@@ -11416,7 +11416,7 @@ msgid "Test mode, no command execution"
 msgstr "Δοκιμαστική λειτουργία, δεν εκτελούνται εντολές"
 
 msgid "Text File"
-msgstr ""
+msgstr "Αρχείο Κειμένου"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
@@ -13893,7 +13893,7 @@ msgid "VNC Password"
 msgstr "Κωδικός VNC"
 
 msgid "VOB File"
-msgstr ""
+msgstr "Αρχείο VOB"
 
 msgid "Value"
 msgstr "Τιμή"
@@ -14033,7 +14033,7 @@ msgid "WARNING"
 msgstr "ΠΡΟΣΟΧΗ"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "Αρχείο Ήχου WAV"
 
 msgid "WEP"
 msgstr "WEP"
@@ -14222,7 +14222,7 @@ msgid "Wireless configuration"
 msgstr "Ασύρματη ρύθμιση"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Έγγραφο Word"
 
 msgid "Work Directory"
 msgstr "Φάκελος Εργασίας"
@@ -14250,7 +14250,7 @@ msgid "Wrong permission on %s."
 msgstr "Λάθος δικαιώματα στο %s."
 
 msgid "XML File"
-msgstr ""
+msgstr "Αρχείο XML"
 
 msgid "Xen"
 msgstr "Xen"
@@ -14483,7 +14483,7 @@ msgstr ""
 "άνθρωπο, όπως K, KB, M, GB."
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "Αρχείο ZIP"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
