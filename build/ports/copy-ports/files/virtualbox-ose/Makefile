@@ -2,7 +2,7 @@
 # $FreeBSD: head/emulators/virtualbox-ose/Makefile 511620 2019-09-09 11:01:13Z tobik $
 
 PORTNAME=	virtualbox-ose
-PORTVERSION=	5.2.34
+PORTVERSION=	5.2.38
 PORTREVISION=	0
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.oracle.com/virtualbox/${PORTVERSION}/

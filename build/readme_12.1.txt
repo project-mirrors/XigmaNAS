@@ -105,7 +105,6 @@ Changes:
 - Add sas3ircu.
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Upgrade arcconf to 3.02.23600.
-- Upgrade virtualbox-ose to 5.2.34.
 - Upgrade sudo to 1.8.29.
 - Upgrade samba to 4.10.10.
 - Upgrade pecl-APCu to 5.1.18.
@@ -123,6 +122,7 @@ Changes:
 - Upgrade syncthing to 1.4.0.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade nano to 4.9.
+- Upgrade virtualbox-ose to 5.2.38.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.

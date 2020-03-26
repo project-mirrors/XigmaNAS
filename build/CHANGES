@@ -6,7 +6,6 @@ Changes:
 - Add sas2ircu.
 - Add sas3ircu.
 - Add support for nvme controller.
-- Upgrade virtualbox-ose to 5.2.34.
 - Upgrade msmtp to 1.8.7.
 - Upgrade smartmontools to 7.1.
 - Upgrade devcpu-data to 1.28.
@@ -23,6 +22,7 @@ Changes:
 - Upgrade syncthing to 1.4.0.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade nano to 4.9.
+- Upgrade virtualbox-ose to 5.2.38.
 
 Fixes:
 - Whitespaces support in pools/dataset names.

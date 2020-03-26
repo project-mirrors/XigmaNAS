@@ -1727,6 +1727,22 @@ copy_files() {
 	echo "===> Copy new port virtualbox-ose to ports/emulators/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose /usr/ports/emulators
 	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose done!"
+	echo ""
+	echo "===> Delete current virtualbox-ose-additions from ports"
+	rm -rf /usr/ports/emulators/virtualbox-ose-additions
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port virtualbox-ose-additions to ports/emulators/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-additions /usr/ports/emulators
+	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-additions done!"
+	echo ""
+	echo "===> Delete current virtualbox-ose-kmod from ports"
+	rm -rf /usr/ports/emulators/virtualbox-ose-kmod
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-kmod /usr/ports/emulators
+	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-kmod done!"
 	return 0
 }
 build_ports() {
