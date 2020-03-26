@@ -121,7 +121,6 @@ Changes:
 - Upgrade minidlna to newer sources.
 - Use recommended patches for dmidecode.
 - Upgrade arcconf to 3.02.23600.
-- Upgrade virtualbox-ose to 5.2.34.
 - Upgrade pecl-APCu to 5.1.18.
 - Upgrade devcpu-data to 1.28.
 - Upgrade bash to 5.0 P16.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade syncthing to 1.4.0.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade nano to 4.9.
+- Upgrade virtualbox-ose to 5.2.38.
 
 Fixes:
 - Fix monitoring shows high cpu load.

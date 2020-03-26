@@ -5,7 +5,6 @@ Changes:
 - Add Aquantia AQtion (Atlantic) Network Driver.
 - Upgrade bsnmp-ucd to 0.4.4.
 - Upgrade arcconf to 3.02.23600.
-- Upgrade virtualbox-ose to 5.2.34.
 - Upgrade msmtp to 1.8.7.
 - Upgrade smartmontools to 7.1.
 - Upgrade devcpu-data to 1.28.
@@ -22,6 +21,7 @@ Changes:
 - Upgrade syncthing to 1.4.0.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade nano to 4.9.
+- Upgrade virtualbox-ose to 5.2.38.
 
 Fixes:
 - Fix display HW Address on status page minidlna.
