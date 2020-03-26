@@ -288,19 +288,20 @@ function system_get_cpu_info() {
 	$cpuinfo['model'] = rtrim(`/sbin/sysctl -n hw.model`);
 	$cpuinfo['clockrate'] = rtrim(`/sbin/sysctl -n hw.clockrate`);
 	$cpuinfo['temperature'] = rtrim(`/sbin/sysctl -n hw.acpi.thermal.tz0.temperature`);
-	$cpus = system_get_cpus();
-	$cpuinfo['temperature2'] = [];
-	$temp = @exec("/sbin/sysctl -q -n dev.cpu.0.temperature");
-	if($temp != '' && $temp != '-1'):
-		$adj = 0;
-		for($i = 0; $i < $cpus; $i++):
-			$temp = @exec("/sbin/sysctl -q -n dev.cpu.{$i}.temperature");
-			if($temp != ''):
-				$temp = sprintf("%.1f",(float)$temp + $adj);
-			endif;
-			$cpuinfo['temperature2'][$i] = $temp;
-		endfor;
-	endif;
+//	read temperatures of all cores (kern.smp.cpus) from sysctl
+	$adjust_temp_by = 0;
+	$cpu_temp_info = [];
+	unset($exec_response,$exec_exitcode);
+	mwexec2("sysctl dev.cpu | grep '^dev.cpu.[0-9]\+.temperature:'",$exec_response,$exec_exitcode);
+	$found_records = preg_replace(['/^dev\.cpu\./i','/\.temperature:\s*/i','/c/i'],['',"\t",''],$exec_response);
+	foreach($found_records as $found_record):
+		unset($matches);
+		if(preg_match('/^(?<core_id>[0-9]+)\t(?<core_temp>\S+)/i',$found_record,$matches) === 1):
+			$cpu_temp_info[$matches['core_id']] = sprintf("%.1f",(float)$matches['core_temp'] + $adjust_temp_by);
+		endif;
+	endforeach;
+	ksort($cpu_temp_info);
+	$cpuinfo['temperature2'] = $cpu_temp_info;
 	$cpuinfo['freq'] = rtrim(`/sbin/sysctl -n dev.cpu.0.freq`);
 	$cpuinfo['freqlevels'] = rtrim(`/sbin/sysctl -n dev.cpu.0.freq_levels`);
 	return $cpuinfo;
