@@ -266,10 +266,10 @@ if [ "$RUN_TMP" -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		valct0=`sysctl -q -n dev.cpu.0.temperature | awk '{gsub("C",""); print}'`; # core 1 temperature
+		valct0=`sysctl -q -n dev.cpu.0.temperature | tr -d C`; # core 0 temperature
 #		skip recording when sysctl doesn't return anything
 		if [ -n "$valct0" ]; then
-			valct1=`sysctl -q -n dev.cpu.1.temperature | awk '{gsub("C",""); print}'`; # core 2 temperature
+			valct1=`sysctl -q -n dev.cpu.1.temperature | tr -d C`; # core 1 temperature
 			if [ -z "$valct1" ]; then
 				valct1=0;
 			fi
