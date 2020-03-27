@@ -119,7 +119,12 @@ ob_end_clean(); // get rid of cached unwanted output
 function _load_language(string $language = 'en_US') {
 	$language_file = sprintf('./_lang/%s.php',$language);
 	if(!file_exists($language_file)):
-		header('Location: /index.php');
+		$language = 'en_US';
+		$language_file = sprintf('./_lang/%s.php',$language);
+		if(!file_exists($language_file)):
+			header('Location: /index.php');
+			exit;
+		endif;
 	endif;
 	require $language_file;
 	putenv(sprintf('LANGUAGE=%s',$language));

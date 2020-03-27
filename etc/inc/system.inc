@@ -65,7 +65,7 @@ function get_http_accept_language(): array {
 			endif;
 			$accepted_languages[$updated_key] = $updated_val;
 		endforeach;
-		//	add languages with stripped country code to the list of accepted languages if necessary
+//		add languages with stripped country code to the list of accepted languages if necessary
 		foreach($accepted_languages as $key => $q):
 			$result[$key] = $q; // transfer original row
 			if(false !== strpos($key,'_')): // check for underscore character
@@ -86,7 +86,7 @@ function system_language_load() {
 
 	$language = NULL;
 	if(!isset($language)):
-		//	Get the language from configuration.
+//		Get the language from configuration.
 		$configured_language = filter_var($config['system']['language'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL]]);
 		if(isset($configured_language) && key_exists($configured_language,$g_languages)):
 			if('auto' !== $configured_language):
@@ -95,7 +95,7 @@ function system_language_load() {
 		endif;
 	endif;
 	if(!isset($language)):
-		//	Get the language from client.
+//		Get the language from client.
 		$accepted_languages = get_http_accept_language();
 		if(!empty($accepted_languages)):
 			$available_languages = array_flip($g_languages);
@@ -120,6 +120,7 @@ function system_language_load() {
 	bindtextdomain($domain,'/usr/local/share/locale');
 	bind_textdomain_codeset($domain,$codeset);
 	textdomain($domain);
+	$_SESSION['userlang'] = $language;
 }
 /* Get the codeset of the current configured language. */
 /* Return: String containing codeset of current language. */
