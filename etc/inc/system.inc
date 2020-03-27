@@ -65,7 +65,7 @@ function get_http_accept_language(): array {
 			endif;
 			$accepted_languages[$updated_key] = $updated_val;
 		endforeach;
-		//	add languages with stripped country code to the list of accepted languages if necessary
+//		add languages with stripped country code to the list of accepted languages if necessary
 		foreach($accepted_languages as $key => $q):
 			$result[$key] = $q; // transfer original row
 			if(false !== strpos($key,'_')): // check for underscore character
@@ -86,7 +86,7 @@ function system_language_load() {
 
 	$language = NULL;
 	if(!isset($language)):
-		//	Get the language from configuration.
+//		Get the language from configuration.
 		$configured_language = filter_var($config['system']['language'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL]]);
 		if(isset($configured_language) && key_exists($configured_language,$g_languages)):
 			if('auto' !== $configured_language):
@@ -95,7 +95,7 @@ function system_language_load() {
 		endif;
 	endif;
 	if(!isset($language)):
-		//	Get the language from client.
+//		Get the language from client.
 		$accepted_languages = get_http_accept_language();
 		if(!empty($accepted_languages)):
 			$available_languages = array_flip($g_languages);
@@ -120,6 +120,7 @@ function system_language_load() {
 	bindtextdomain($domain,'/usr/local/share/locale');
 	bind_textdomain_codeset($domain,$codeset);
 	textdomain($domain);
+	$_SESSION['userlang'] = $language;
 }
 /* Get the codeset of the current configured language. */
 /* Return: String containing codeset of current language. */
@@ -293,11 +294,10 @@ function system_get_cpu_info() {
 	$cpu_temp_info = [];
 	unset($exec_response,$exec_exitcode);
 	mwexec2("sysctl dev.cpu | grep '^dev.cpu.[0-9]\+.temperature:'",$exec_response,$exec_exitcode);
-	$found_records = preg_replace(['/^dev\.cpu\./i','/\.temperature:\s*/i','/c/i'],['',"\t",''],$exec_response);
-	foreach($found_records as $found_record):
+	foreach($exec_response as $record_to_match):
 		unset($matches);
-		if(preg_match('/^(?<core_id>[0-9]+)\t(?<core_temp>\S+)/i',$found_record,$matches) === 1):
-			$cpu_temp_info[$matches['core_id']] = sprintf("%.1f",(float)$matches['core_temp'] + $adjust_temp_by);
+		if(preg_match('/^dev\.cpu\.(?<core_id>[0-9]+)\.temperature:\s*(?<core_temp>\S+)c/i',$record_to_match,$matches) === 1):
+			$cpu_temp_info[$matches['core_id']] = sprintf('%.1f',(float)$matches['core_temp'] + $adjust_temp_by);
 		endif;
 	endforeach;
 	ksort($cpu_temp_info);
@@ -1022,7 +1022,7 @@ function system_get_sysinfo() {
 //		get CPU temperatures
 		$cpu_t = $cpuinfo['temperature'];
 		if(empty($cpuinfo['temperature2'])):
-			$a_cpu_t = $sysinfo['cputemp2'] = [$cpuinfo['temperature']];
+			$a_cpu_t = $sysinfo['cputemp2'] = [0 => $cpuinfo['temperature']];
 		else:
 			$a_cpu_t = $sysinfo['cputemp2'] = $cpuinfo['temperature2'];
 		endif;
@@ -1033,12 +1033,12 @@ function system_get_sysinfo() {
 		$sysinfo['cputemp'] = $row;
 		unset($row);
 		$sysinfo['cputemp2'] = [];
-		foreach($a_cpu_t as $r_cpu_t):
+		foreach($a_cpu_t as $k_cpu_t => $r_cpu_t):
 			$row = [];
 			$row['vu'] = $r_cpu_t;
 			$row['vuh'] = sprintf('%u°C',$row['vu']);
 			$row['tu'] = $row['vuh'];
-			$sysinfo['cputemp2'][] = $row;
+			$sysinfo['cputemp2'][$k_cpu_t] = $row;
 			unset($row);
 		endforeach;
 //		get CPU usage
