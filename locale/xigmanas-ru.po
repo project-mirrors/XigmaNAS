@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-12 23:07+0000\n"
+"POT-Creation-Date: 2020-03-27 17:26+0000\n"
 "PO-Revision-Date: 2020-03-13 02:18+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-25 13:34+0000\n"
-"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
+"X-Launchpad-Export-Date: 2020-03-27 16:49+0000\n"
+"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -4545,6 +4545,9 @@ msgstr "Включение сбора статистики использова�
 msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "Включить сбор статистики использования ZFS L2ARC."
 
+msgid "Enable collecting ZFS cache efficiency statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Включить сбор статистики о средней загрузке системы."
 
@@ -6806,9 +6809,6 @@ msgstr "Загрузка"
 msgid "Load Averages"
 msgstr "Средняя загрузка"
 
-msgid "Load averages"
-msgstr "Средняя загрузка"
-
 msgid ""
 "Load driver automatically when GELI devices have been defined in the "
 "configuration file and the instruction set is supported."
@@ -8292,8 +8292,11 @@ msgstr "Разделы"
 msgid "Pascal File"
 msgstr "Pascal файл"
 
-msgid "Passive Port"
-msgstr "Пассивный порт"
+msgid "Passive Port Max."
+msgstr ""
+
+msgid "Passive Port Min."
+msgstr ""
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8418,6 +8421,9 @@ msgstr "Ключ безопасности инициатора"
 
 msgid "Peer User"
 msgstr "Имя инициатора"
+
+msgid "Percentage of apparent power related to maximum load"
+msgstr ""
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -8989,6 +8995,9 @@ msgstr "RAW информация"
 msgid "RPM"
 msgstr "RPM"
 
+msgid "RRDGraphs Daily ARC Efficiency Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs суточный ARC график"
 
@@ -9018,6 +9027,9 @@ msgstr "RRDGraphs График UPS за сутки"
 
 msgid "RRDGraphs Daily Uptime Graph"
 msgstr "RRDGraphs График работы за сутки"
+
+msgid "RRDGraphs Monthly ARC Efficiency Graph"
+msgstr ""
 
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs График ARC за месяц"
@@ -9049,6 +9061,9 @@ msgstr "RRDGraphs График UPS за месяц"
 msgid "RRDGraphs Monthly Uptime Graph"
 msgstr "RRDGraphs График аптайм за месяц"
 
+msgid "RRDGraphs Weekly ARC Efficiency Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs График ARC за неделю"
 
@@ -9078,6 +9093,9 @@ msgstr "RRDGraphs График UPS за неделю"
 
 msgid "RRDGraphs Weekly Uptime Graph"
 msgstr "RRDGraphs График аптайм за неделю"
+
+msgid "RRDGraphs Yearly ARC Efficiency Graph"
+msgstr ""
 
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs График ARC за год"
@@ -14112,6 +14130,9 @@ msgstr "Использование ZFS ARC"
 
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
+
+msgid "ZFS Cache Efficiency"
+msgstr ""
 
 msgid "ZFS Filesystem Information & Status"
 msgstr "Информация и статус файловой системы ZFS"

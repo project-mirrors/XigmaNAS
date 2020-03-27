@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-12 23:07+0000\n"
-"PO-Revision-Date: 2020-03-13 09:43+0000\n"
+"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"PO-Revision-Date: 2020-03-27 15:11+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-25 13:33+0000\n"
-"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
+"X-Launchpad-Export-Date: 2020-03-27 16:48+0000\n"
+"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -4578,6 +4578,9 @@ msgstr "Habilitar la recollida d'estadístiques d'ús de ZFS ARC."
 msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "Habiliteu la recopilació d'estadístiques d'ús de ZFS L2ARC."
 
+msgid "Enable collecting ZFS cache efficiency statistics."
+msgstr "Habiliteu la recollida d’estadístiques d’eficàcia de caché ZFS."
+
 msgid "Enable collecting average system load statistics."
 msgstr ""
 "Habilitar la recopilació d'estadístiques de càrrega mitjana del sistema."
@@ -6869,9 +6872,6 @@ msgstr "Carga"
 msgid "Load Averages"
 msgstr "Mitjanes de càrrega"
 
-msgid "Load averages"
-msgstr "Mitjanes de càrrega"
-
 msgid ""
 "Load driver automatically when GELI devices have been defined in the "
 "configuration file and the instruction set is supported."
@@ -8359,8 +8359,11 @@ msgstr "Particions"
 msgid "Pascal File"
 msgstr "Arxiu Pascal"
 
-msgid "Passive Port"
-msgstr "Port pasiu"
+msgid "Passive Port Max."
+msgstr "Port passiu màx."
+
+msgid "Passive Port Min."
+msgstr "Port passiu min."
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8486,6 +8489,9 @@ msgstr "Col-lega Secret"
 
 msgid "Peer User"
 msgstr "Usuari Col-lega"
+
+msgid "Percentage of apparent power related to maximum load"
+msgstr "Percentatge de potència aparent relacionada amb la càrrega màxima"
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -9057,6 +9063,9 @@ msgstr "Informació RAW"
 msgid "RPM"
 msgstr "RPM"
 
+msgid "RRDGraphs Daily ARC Efficiency Graph"
+msgstr "RRDGraphs diari gràfic d'eficiència ARC"
+
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Diari gràfic ARC"
 
@@ -9086,6 +9095,9 @@ msgstr "RRDGraphs Diari gràfic SAI"
 
 msgid "RRDGraphs Daily Uptime Graph"
 msgstr "RRDGraphs Diagrama d’actualizació Diària"
+
+msgid "RRDGraphs Monthly ARC Efficiency Graph"
+msgstr "RRDGraphs mensual gràfic d'eficiència ARC"
 
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Diagrama d’Uptime Mensual"
@@ -9117,6 +9129,9 @@ msgstr "RRDGraphs Grafic SAI mensual"
 msgid "RRDGraphs Monthly Uptime Graph"
 msgstr "RRDGraphs Grafic d'funcionament mensual"
 
+msgid "RRDGraphs Weekly ARC Efficiency Graph"
+msgstr "RRDGraphs setmanal gràfic d'eficiència ARC"
+
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Grafic ARC setmanal"
 
@@ -9146,6 +9161,9 @@ msgstr "RRDGraphs Grafic SAI setmanal"
 
 msgid "RRDGraphs Weekly Uptime Graph"
 msgstr "RRDGraphs Grafic setmanal d'horaris"
+
+msgid "RRDGraphs Yearly ARC Efficiency Graph"
+msgstr "RRDGraphs anual gràfic d'eficiència ARC"
 
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Grafic anual ARC"
@@ -14220,6 +14238,9 @@ msgstr "Us ZFS ARC"
 msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "Memòria cau de reemplaçament adaptada ZFS (ARC)"
 
+msgid "ZFS Cache Efficiency"
+msgstr "Eficiència del cau ZFS"
+
 msgid "ZFS Filesystem Information & Status"
 msgstr "Informació i estat del sistema de fitxers ZFS"
 
@@ -14557,3 +14578,6 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "sí"
+
+#~ msgid "Transfer Rate Download"
+#~ msgstr "Taxa de descàrrega de baixada"

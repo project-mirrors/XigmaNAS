@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-12 23:07+0000\n"
+"POT-Creation-Date: 2020-03-27 17:26+0000\n"
 "PO-Revision-Date: 2019-11-24 15:26+0000\n"
 "Last-Translator: luigi mascia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-25 13:34+0000\n"
-"X-Generator: Launchpad (build 3a6db24bbe7280ec09bae73384238390fcc98ad3)\n"
+"X-Launchpad-Export-Date: 2020-03-27 16:49+0000\n"
+"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -4558,6 +4558,9 @@ msgstr "Attiva raccolta della statistica dell'utilizzo della ZFS ARC."
 msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "Abilita la raccolta delle statistiche d'uso di ZFS L2ARC"
 
+msgid "Enable collecting ZFS cache efficiency statistics."
+msgstr ""
+
 msgid "Enable collecting average system load statistics."
 msgstr "Attiva raccolta della statistica del carico medio del sistema."
 
@@ -6783,9 +6786,6 @@ msgstr "Carica"
 msgid "Load Averages"
 msgstr "Carichi medi"
 
-msgid "Load averages"
-msgstr "Carico medio"
-
 msgid ""
 "Load driver automatically when GELI devices have been defined in the "
 "configuration file and the instruction set is supported."
@@ -8253,8 +8253,11 @@ msgstr "Partizioni"
 msgid "Pascal File"
 msgstr ""
 
-msgid "Passive Port"
-msgstr "Porte passive"
+msgid "Passive Port Max."
+msgstr ""
+
+msgid "Passive Port Min."
+msgstr ""
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8380,6 +8383,9 @@ msgstr "Secret du pair"
 
 msgid "Peer User"
 msgstr "Utente peer"
+
+msgid "Percentage of apparent power related to maximum load"
+msgstr ""
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -8945,6 +8951,9 @@ msgstr "Informazione RAW"
 msgid "RPM"
 msgstr "giri/min"
 
+msgid "RRDGraphs Daily ARC Efficiency Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
@@ -8973,6 +8982,9 @@ msgid "RRDGraphs Daily UPS Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Uptime Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly ARC Efficiency Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly ARC Graph"
@@ -9005,6 +9017,9 @@ msgstr ""
 msgid "RRDGraphs Monthly Uptime Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly ARC Efficiency Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
@@ -9033,6 +9048,9 @@ msgid "RRDGraphs Weekly UPS Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Uptime Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly ARC Efficiency Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly ARC Graph"
@@ -13955,6 +13973,9 @@ msgid "ZFS ARC Usage"
 msgstr "Utilizzo del ZFS ARC"
 
 msgid "ZFS Adaptive Replacement Cache (ARC)"
+msgstr ""
+
+msgid "ZFS Cache Efficiency"
 msgstr ""
 
 msgid "ZFS Filesystem Information & Status"
