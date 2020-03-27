@@ -56,7 +56,6 @@ $pconfig['datetimeformat'] = !empty($config['system']['datetimeformat']) ? $conf
 $pconfig['ntp_enable'] = isset($config['system']['ntp']['enable']);
 $pconfig['ntp_timeservers'] = $config['system']['ntp']['timeservers'];
 $pconfig['ntp_updateinterval'] = $config['system']['ntp']['updateinterval'];
-$pconfig['language'] = $config['system']['language'];
 $pconfig['certificate'] = base64_decode($config['system']['webgui']['certificate']);
 $pconfig['privatekey'] = base64_decode($config['system']['webgui']['privatekey']);
 // Set default values if necessary.
