@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2020-03-26 23:58+0000\n"
+"POT-Creation-Date: 2020-03-27 17:26+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11105,9 +11105,6 @@ msgid "Transcoding Directory"
 msgstr ""
 
 msgid "Transfer Rate"
-msgstr ""
-
-msgid "Transfer Rate Download"
 msgstr ""
 
 msgid "Transfer mode"
