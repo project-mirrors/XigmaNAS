@@ -51,14 +51,14 @@ function system_halt() {
 function get_http_accept_language(): array {
 	$accepted_languages = [];
 	$result = [];
-	$accepted_language_string = filter_input(INPUT_SERVER,'HTTP_ACCEPT_LANGUAGE',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL]]);
-	if(isset($accepted_language_string)):
-		$matches = NULL;
+	if(array_key_exists('HTTP_ACCEPT_LANGUAGE',$_SERVER) && is_string($_SERVER['HTTP_ACCEPT_LANGUAGE'])):
+		$accepted_language_string = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+		unset($matches);
 		preg_match_all('/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i',$accepted_language_string,$matches);
 		$combined = array_combine($matches[1],$matches[4]);
 		foreach($combined as $key => $val):
 			$updated_key = strtolower(str_replace('-','_',$key));
-			if('' == $val):
+			if($val == 0):
 				$updated_val = 1.0;
 			else:
 				$updated_val = (float)$val;
@@ -68,9 +68,9 @@ function get_http_accept_language(): array {
 //		add languages with stripped country code to the list of accepted languages if necessary
 		foreach($accepted_languages as $key => $q):
 			$result[$key] = $q; // transfer original row
-			if(false !== strpos($key,'_')): // check for underscore character
+			if(strpos($key,'_') !== false): // check for underscore character
 				$additional_key = strstr($key,'_',true); // get the good portion the string i.e. en-US -> en
-				if(!isset($accepted_language_string[$additional_key])): // don't process if the additional key already exists...
+				if(!isset($accepted_languages[$additional_key])): // don't process if the additional key already exists...
 					if(!isset($result[$additional_key])): // in accepted_languages or result lists.
 						$result[$additional_key] = $q; // no duplicate found, add with the same q factor
 					endif;
