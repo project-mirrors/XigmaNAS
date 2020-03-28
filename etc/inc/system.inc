@@ -58,7 +58,7 @@ function get_http_accept_language(): array {
 		$combined = array_combine($matches[1],$matches[4]);
 		foreach($combined as $key => $val):
 			$updated_key = strtolower(str_replace('-','_',$key));
-			if($val == 0):
+			if($val == ''):
 				$updated_val = 1.0;
 			else:
 				$updated_val = (float)$val;
