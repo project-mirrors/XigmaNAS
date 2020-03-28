@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-03-27 17:26+0000\n"
-"PO-Revision-Date: 2020-03-15 18:14+0000\n"
+"PO-Revision-Date: 2020-03-28 05:35+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-27 16:49+0000\n"
+"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -4485,7 +4485,7 @@ msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "Aktivera insamling av ZFS L2ARC användningsstatistik."
 
 msgid "Enable collecting ZFS cache efficiency statistics."
-msgstr ""
+msgstr "Aktivera insamling av ZFS cache effektivitetsstatistik."
 
 msgid "Enable collecting average system load statistics."
 msgstr "Aktivera insamling av genomsnittlig systembelastningsstatistik."
@@ -8176,10 +8176,10 @@ msgid "Pascal File"
 msgstr "Pascal Fil"
 
 msgid "Passive Port Max."
-msgstr ""
+msgstr "Passiv Port Max."
 
 msgid "Passive Port Min."
-msgstr ""
+msgstr "Passiv Port Min."
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8304,7 +8304,7 @@ msgid "Peer User"
 msgstr "Klient/Part Användare"
 
 msgid "Percentage of apparent power related to maximum load"
-msgstr ""
+msgstr "Procent skenbar effekt i förhållande till maximal last"
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -8871,7 +8871,7 @@ msgid "RPM"
 msgstr "RPM"
 
 msgid "RRDGraphs Daily ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs Daglig ARC effektivitetsgraf"
 
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Daglig ARC graf"
@@ -8904,7 +8904,7 @@ msgid "RRDGraphs Daily Uptime Graph"
 msgstr "RRDGraphs Daglig uppetidsgraf"
 
 msgid "RRDGraphs Monthly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs Månatlig ARC effektivitetsgraf"
 
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Månatlig ARC graf"
@@ -8937,7 +8937,7 @@ msgid "RRDGraphs Monthly Uptime Graph"
 msgstr "RRDGraphs Månatlig upptidsgraf"
 
 msgid "RRDGraphs Weekly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs Veckovis ARC effektivitetsgraf"
 
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Vecko ARCgraf"
@@ -8970,7 +8970,7 @@ msgid "RRDGraphs Weekly Uptime Graph"
 msgstr "RRDGraphs Vecko upptidsgraf"
 
 msgid "RRDGraphs Yearly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs Årlig ARC effektivitetsgraf"
 
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Årlig ARC graf"
@@ -13935,7 +13935,7 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
 msgid "ZFS Cache Efficiency"
-msgstr ""
+msgstr "ZFS Cacheeffektivitet"
 
 msgid "ZFS Filesystem Information & Status"
 msgstr "ZFS Filsystemsinformation & status"
