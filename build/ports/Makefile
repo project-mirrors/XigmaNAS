@@ -39,6 +39,7 @@
     SUBDIR += netatalk3
     SUBDIR += nss-ldap
     SUBDIR += nut
+    SUBDIR += nut-devel
     SUBDIR += open-vm-tools
     SUBDIR += openssh-portable
     SUBDIR += pam_ldap
