@@ -29,7 +29,6 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--localstatedir=${NUT_STATEDIR} \
 		--datadir=${NUT_DATADIR} \
 		--with-devd-dir=${PREFIX}/etc/devd \
-		--with-augeas-lenses-dir=${PREFIX}/usr/share/augeas/lenses \
 		--with-drvpath=${NUT_DRVDIR} \
 		--with-statepath=${NUT_STATEDIR} \
 		--with-altpidpath=${NUT_PIDDIR} \
