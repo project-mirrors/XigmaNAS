@@ -27,6 +27,8 @@ Changes:
 Fixes:
 - Fix display HW Address on status page minidlna.
 - Whitespaces support in pools/dataset names.
+- Fastcgi issue with filter_input of INPUT_SERVER.
+
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
