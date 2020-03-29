@@ -189,6 +189,26 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_language(): myp\property_list {
+		global $g_languages;
+
+		$description = gettext('Select the language of the user portal for this user.');
+		$options = [];
+		$options['auto'] = gettext('Autodetect');
+		foreach($g_languages as $key => $val):
+			if('auto' !== $key):
+				$options[$key] = \locale_get_display_name($key,$key);
+			endif;
+		endforeach;
+		$property = parent::init_language();
+		$property->
+			set_defaultvalue('auto')->
+			set_description($description)->
+			set_id('language')->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
 	public function init_fm_enable(): myp\property_bool {
 		$caption = gettext('Grant access to the file manager.');
 		$property = parent::init_fm_enable();

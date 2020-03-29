@@ -144,6 +144,7 @@ $a_referer = [
 	$cop->get_additional_groups(),
 	$cop->get_homedir(),
 	$cop->get_user_portal_access(),
+	$cop->get_language(),
 	$cop->get_fm_enable(),
 	$cop->get_fmp_show_hidden_items(),
 	$cop->get_fmp_read(),
@@ -258,7 +259,8 @@ $thead_up->
 	c2_separator()->
 	c2_titleline(gettext('User Portal'));
 $tbody_up->
-	c2_radio_grid($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2_radio_grid($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_select($cop->get_language(),$sphere,false,$cop->get_language()->is_readonly_rowmode($isrecordnewornewmodify));
 $table_fm = $content->add_table_data_settings();
 $table_fm->ins_colgroup_data_settings();
 $thead_fm = $table_fm->addTHEAD();
