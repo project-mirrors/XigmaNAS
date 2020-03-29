@@ -123,6 +123,8 @@ Changes:
 - Upgrade nano to 4.9.
 - Upgrade virtualbox-ose to 5.2.38.
 - Upgrade samba to 4.10.14.
+- Upgrade nut to 2020.02.09.
+
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
