@@ -129,6 +129,7 @@ Changes:
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
 - Whitespaces support in pools/dataset names.
+- Fastcgi issue with filter_input of INPUT_SERVER.
 
 
 Default login credentials:
