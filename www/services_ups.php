@@ -354,7 +354,7 @@ function ups2_change() {
 <?php
 					$helpinghand = gettext('This configuration settings are used to generate the ups.conf configuration file which is required by the NUT UPS daemon.')
 						. ' '
-						. '<br><a href="' . 'https://www.networkupstools.org' . '" target="_blank">'
+						. '<br><a href="' . 'https://networkupstools.org' . '" target="_blank">'
 						. gettext('To get more information how to configure your UPS please check the NUT (Network UPS Tools) documentation')
 						. '</a>.<br />';
 					html_remark2('note',gettext('Note'),$helpinghand);
