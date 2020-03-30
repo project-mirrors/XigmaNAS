@@ -34,13 +34,15 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--with-altpidpath=${NUT_PIDDIR} \
 		--with-pidpath=${NUT_PIDDIR} \
 		--without-pkgconfig-dir \
-		--without-cgi \
 		--with-serial \
 		--with-usb=auto \
 		--with-snmp \
 		--with-neon \
 		--with-powerman \
+		--without-modbus \
+		--without-cgi \
 		--without-dev \
+		--without-avahi \
 		--with-user=${NUT_USER} \
 		--with-group=${NUT_GROUP} \
 		--with-wrap
