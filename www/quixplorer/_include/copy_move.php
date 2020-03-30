@@ -109,11 +109,11 @@ function dir_print($dir_list,$new_dir) { // print list of directories
 	// copy/move file/dir
 function copy_move_items($dir) {
 	// copy and move are only allowed if the user may read and change files
-	if($GLOBALS['action'] == 'copy' && !permissions_grant_all($dir,NULL,['read','create'])):
-		show_error($GLOBALS['error_msg']['accessfunc']);
+	if($GLOBALS['action'] == 'copy' && !permissions_grant_all($dir,null,['read','create'])):
+		show_error(gtext('You are not allowed to use this function.'));
 	endif;
-	if($GLOBALS['action'] == 'move' && !permissions_grant($dir,NULL,'change')):
-		show_error($GLOBALS['error_msg']['accessfunc']);
+	if($GLOBALS['action'] == 'move' && !permissions_grant($dir,null,'change')):
+		show_error(gtext('You are not allowed to use this function.'));
 	endif;
 	// Vars
 	$first = $GLOBALS['__POST']['first'];
@@ -134,13 +134,13 @@ function copy_move_items($dir) {
 	endif;
 	// Get New Location & Names
 	if(!isset($GLOBALS['__POST']['confirm']) || $GLOBALS['__POST']['confirm'] != 'true'):
-		$msg = $GLOBALS['action'] != 'move' ? $GLOBALS['messages']['actcopyitems'] : $GLOBALS['messages']['actmoveitems'];
+		$msg = $GLOBALS['action'] != 'move' ? gtext('Copy item(s)') : gtext('Move item(s)');
 		show_header($msg);
 
 		// JavaScript for Form:
 		// Select new target directory / execute action
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 function NewDir(newdir) {
 	document.selform.new_dir.value = newdir;
@@ -162,7 +162,8 @@ function Execute() {
 			$s_ndir = '...' . substr($s_ndir,-37);
 		endif;
 		// Form for Target Directory & New Names
-		echo '<form name="selform" method="post" action="',make_link('post',$dir,NULL),'">';
+		echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">';
+		echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 		echo	'<table class="area_data_selection">',"\n",
 					'<colgroup>',"\n",
 						'<col style="width:5%">',"\n",
@@ -176,7 +177,7 @@ function Execute() {
 								'<img style="border:0px;vertical-align:middle" src="_img/__paste.gif" alt="">',"\n",
 							'</th>',
 							'<th class="lhebl">',"\n",
-								'&nbsp;',htmlspecialchars(sprintf(($GLOBALS['action'] != 'move' ? $GLOBALS['messages']['actcopyfrom'] : $GLOBALS['messages']['actmovefrom']),$s_dir,$s_ndir)),
+								'&nbsp;',htmlspecialchars(sprintf(($GLOBALS['action'] != 'move' ? gtext('Copy from /%s to /%s ') : gtext('Move from /%s to /%s ')),$s_dir,$s_ndir)),
 							'</th>',"\n",
 						'</tr>',"\n",
 					'</thead>',"\n",
@@ -232,8 +233,8 @@ function Execute() {
 				'</table>';
 		// Submit & Cancel
 		echo	'<div id="submit">',
-					'<input type="submit" class="formbtn" value="',($GLOBALS['action'] != 'move' ? $GLOBALS['messages']['btncopy'] : $GLOBALS['messages']['btnmove']),'" onclick="javascript:Execute();">',
-					'<input type="button" class="formbtn" value="',$GLOBALS['messages']['btncancel'],'" onClick="javascript:location=\'',make_link('list',$dir,NULL),'\';">',
+					'<input type="submit" class="formbtn" value="',($GLOBALS['action'] != 'move' ? gtext('Copy') : gtext('Move')),'" onclick="javascript:Execute();">',
+					'<input type="button" class="formbtn" value="',gtext('Cancel'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';">',
 					'<input type="hidden" name="do_action" value="',$GLOBALS['action'],'">',"\n",
 					'<input type="hidden" name="confirm" value="false">',"\n",
 					'<input type="hidden" name="first" value="n">',"\n",
@@ -245,13 +246,13 @@ function Execute() {
 	// DO COPY/MOVE
 	// ALL OK?
 	if(!@file_exists(get_abs_dir($new_dir))):
-		show_error($new_dir . ': ' . $GLOBALS['error_msg']['targetexist']);
+		show_error($new_dir . ': ' . gtext("The target directory doesn't exist."));
 	endif;
 	if(!get_show_item($new_dir,'')):
-		show_error($new_dir . ': ' . $GLOBALS['error_msg']['accesstarget']);
+		show_error($new_dir . ': ' . gtext('You are not allowed to access the target directory.'));
 	endif;
 	if(!down_home(get_abs_dir($new_dir))):
-		show_error($new_dir . ': ' . $GLOBALS['error_msg']['targetabovehome']);
+		show_error($new_dir . ': ' . gtext('The target directory may not be above the home directory.'));
 	endif;
 	// copy / move files
 	$err = false;
@@ -264,22 +265,22 @@ function Execute() {
 		$items[$i] = $tmp;
 		// Check
 		if($new == ''):
-			$error[$i] = $GLOBALS['error_msg']['miscnoname'];
+			$error[$i] = gtext('You must supply a name.');
 			$err = true;
 			continue;
 		endif;
 		if(!@file_exists($abs_item)):
-			$error[$i] = $GLOBALS['error_msg']['itemexist'];
+			$error[$i] = gtext("This item doesn't exist.");
 			$err = true;
 			continue;
 		endif;
 		if(!get_show_item($dir,$tmp)):
-			$error[$i] = $GLOBALS['error_msg']['accessitem'];
+			$error[$i] = gtext('You are not allowed to access this item.');
 			$err = true;
 			continue;
 		endif;
 		if(@file_exists($abs_new_item)):
-			$error[$i] = $GLOBALS['error_msg']['targetdoesexist'];
+			$error[$i] = gtext('The target item already exists.');
 			$err = true;
 			continue;
 		endif;
@@ -295,22 +296,22 @@ function Execute() {
 			$ok = @rename($abs_item,$abs_new_item);
 		endif;
 		if($ok === false):
-			$error[$i] = ($GLOBALS['action'] == 'copy' ? $GLOBALS['error_msg']['copyitem'] : $GLOBALS['error_msg']['moveitem']);
+			$error[$i] = ($GLOBALS['action'] == 'copy' ? gtext('Copying failed.') : gtext('Moving failed.'));
 			$err = true;
 			continue;
 		endif;
-		$error[$i] = NULL;
+		$error[$i] = null;
 	endfor;
 	if($err): // there were errors
 		$err_msg = '';
 		for($i = 0;$i < $cnt;++$i):
-			if($error[$i] == NULL):
+			if($error[$i] == null):
 				continue;
 			endif;
 			$err_msg .= $items[$i] . ' : ' . $error[$i] . '<br>' . "\n";
 		endfor;
 		show_error($err_msg);
 	endif;
-	header('Location: ' . make_link('list',$dir,NULL));
+	header('Location: ' . make_link('list',$dir,null));
 }
 ?>
