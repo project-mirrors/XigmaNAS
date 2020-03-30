@@ -320,7 +320,7 @@ function copy_dir($source,$dest) {
 	if ( !@mkdir($dest,0777) )
         return false;
 	if ( ($handle = @opendir( $source ) ) === false)
-        show_error($source."xx:".basename($source)."xx : ".$GLOBALS["error_msg"]["opendir"]);
+        show_error($source."xx:".basename($source)."xx : ".gtext('Unable to open directory.'));
 
 	while(($file=readdir($handle))!==false) {
 		if(($file==".." || $file==".")) continue;
@@ -347,13 +347,13 @@ function remove ( $item )
 	elseif(@is_dir($item))
     {
 		if(($handle=@opendir($item))===false)
-            show_error($item.":".basename($item).": ".$GLOBALS["error_msg"]["opendir"]);
+            show_error($item.":".basename($item).": ".gtext('Unable to open directory.'));
 
 		while(($file=readdir($handle))!==false) {
 			if(($file==".." || $file==".")) continue;
 
 			$new_item = $item."/".$file;
-			if(!@file_exists($new_item)) show_error(basename($item).": ".$GLOBALS["error_msg"]["readdir"]);
+			if(!@file_exists($new_item)) show_error(basename($item).": ".gtext('Unable to read directory.'));
 			//if(!get_show_item($item, $new_item)) continue;
 
 			if(@is_dir($new_item)) {
@@ -397,22 +397,4 @@ function down_home($abs_dir) {
 		return false;
 	}
 	return true;
-}
-
-function id_browser() {
-	$browser=$GLOBALS['__SERVER']['HTTP_USER_AGENT'];
-
-	if(preg_match('#Opera(/| )([0-9].[0-9]{1,2})#', $browser)) {
-		return 'OPERA';
-	} else if(preg_match('/MSIE ([0-9].[0-9]{1,2})/', $browser)) {
-		return 'IE';
-	} else if(preg_match('#OmniWeb/([0-9].[0-9]{1,2})#', $browser)) {
-		return 'OMNIWEB';
-	} else if(preg_match('#(Konqueror/)(.*)#', $browser)) {
-		return 'KONQUEROR';
-	} else if(preg_match('#Mozilla/([0-9].[0-9]{1,2})#', $browser)) {
-		return 'MOZILLA';
-	} else {
-		return 'OTHER';
-	}
 }
