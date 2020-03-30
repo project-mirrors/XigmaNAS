@@ -34,34 +34,35 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once("./_include/permissions.php");
+require_once('./_include/permissions.php');
 
-// make new directory or file
-function make_item ($dir)
-{
-	if (!permissions_grant($dir, NULL, "create"))
-		show_error($GLOBALS["error_msg"]["accessfunc"]);
-
-	$mkname=$GLOBALS['__POST']["mkname"];
-	$mktype=$GLOBALS['__POST']["mktype"];
-
-	$mkname=basename($mkname);
-	if($mkname=="") show_error($GLOBALS["error_msg"]["miscnoname"]);
-
+/**
+ *  make new directory or file
+ *	@param string $dir
+ */
+function make_item($dir) {
+	if(!permissions_grant($dir,null,'create')):
+		show_error(gtext('You are not allowed to use this function.'));
+	endif;
+	$mkname = $GLOBALS['__POST']["mkname"];
+	$mktype = $GLOBALS['__POST']["mktype"];
+	$mkname = basename($mkname);
+	if($mkname == ''):
+		show_error(gtext('You must supply a name.'));
+	endif;
 	$new = get_abs_item($dir,$mkname);
-	if(@file_exists($new)) show_error(htmlspecialchars($mkname).": ".$GLOBALS["error_msg"]["itemdoesexist"]);
-
-	if($mktype!="file") {
-		$ok=@mkdir($new, 0777);
-		$err=$GLOBALS["error_msg"]["createdir"];
-	} else {
-		$ok=@touch($new);
-		$err=$GLOBALS["error_msg"]["createfile"];
-	}
-
-	if($ok===false) show_error($err);
-
-	header("Location: ".make_link("list",$dir,NULL));
+	if(@file_exists($new)):
+		show_error(htmlspecialchars($mkname) . ': ' . gtext('This item already exists.'));
+	endif;
+	if($mktype != 'file'):
+		$ok = @mkdir($new,0777);
+		$err = gtext('Directory creation failed.');
+	else:
+		$ok = @touch($new);
+		$err = gtext('File creation failed.');
+	endif;
+	if($ok === false):
+		show_error($err);
+	endif;
+	header('Location: ' . make_link('list',$dir,null));
 }
-
-?>
