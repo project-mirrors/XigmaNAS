@@ -34,50 +34,58 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once("./_include/permissions.php");
+require_once('./_include/permissions.php');
 
-// save edited file
-function savefile($file_name) {			// save edited file
-	//$code = stripslashes($GLOBALS['__POST']["code"]);
-	$code = $GLOBALS['__POST']["code"];
-	$fp = @fopen($file_name, "w");
-	if($fp===false) show_error(htmlspecialchars(basename($file_name)).": ".$GLOBALS["error_msg"]["savefile"]);
-	fputs($fp, $code);
+//	save edited file
+function savefile($file_name) {
+	$code = $GLOBALS['__POST']['code'];
+	$fp = @fopen($file_name,'w');
+	if($fp === false):
+		show_error(htmlspecialchars(basename($file_name)) . ': ' . gtext('File saving failed.'));
+	endif;
+	fputs($fp,$code);
 	@fclose($fp);
 }
-// edit file
-
-function edit_file($dir, $item)
-{
-	if (!permissions_grant($dir, $item, "change"))
-		show_error($GLOBALS["error_msg"]["accessfunc"]);
-
-	if(!get_is_file($dir, $item)) show_error(htmlspecialchars($item).": ".$GLOBALS["error_msg"]["fileexist"]);
-	if(!get_show_item($dir, $item)) show_error(htmlspecialchars($item).": ".$GLOBALS["error_msg"]["accessfile"]);
-
-	$fname = get_abs_item($dir, $item);
-
-	if(isset($GLOBALS['__POST']["dosave"]) && $GLOBALS['__POST']["dosave"]=="yes") {
-		// Save / Save As
-		$item=basename($GLOBALS['__POST']["fname"]);
-		$fname2=get_abs_item($dir, $item);
-		if(!isset($item) || $item=="") show_error($GLOBALS["error_msg"]["miscnoname"]);
-		if($fname!=$fname2 && @file_exists($fname2)) show_error(htmlspecialchars($item).": ".$GLOBALS["error_msg"]["itemdoesexist"]);
+//	edit file
+function edit_file($dir,$item) {
+	if(!permissions_grant($dir,$item,'change')):
+		show_error(gtext('You are not allowed to use this function.'));
+	endif;
+	if(!get_is_file($dir,$item)):
+		show_error(htmlspecialchars($item) . ': ' . gtext("This file doesn't exist."));
+	endif;
+	if(!get_show_item($dir,$item)):
+		show_error(htmlspecialchars($item) . ': ' . gtext('You are not allowed to access this file.'));
+	endif;
+	$fname = get_abs_item($dir,$item);
+	if(isset($GLOBALS['__POST']['dosave']) && $GLOBALS['__POST']['dosave'] == 'yes'):
+//		save / save as
+		$item = basename($GLOBALS['__POST']['fname']);
+		$fname2 = get_abs_item($dir,$item);
+		if(!isset($item) || $item == ''):
+			show_error(gtext('You must supply a name.'));
+		endif;
+		if($fname != $fname2 && @file_exists($fname2)):
+			show_error(htmlspecialchars($item) . ': ' . gtext('This item already exists.'));
+		endif;
 		savefile($fname2);
-		$fname=$fname2;
-	}
-
-	// open file
-	$fp = @fopen($fname, "r");
-	if($fp===false) show_error(htmlspecialchars($item).": ".$GLOBALS["error_msg"]["openfile"]);
-
-	// header
-	$s_item=get_rel_item($dir,$item);	if(strlen($s_item)>50) $s_item="...".substr($s_item,-47);
-	show_header($GLOBALS["messages"]["actedit"].": /".htmlspecialchars($s_item));
-
-	// Wordwrap (works only in IE)
-?><script language="JavaScript1.2" type="text/javascript">
-<!--
+		$fname = $fname2;
+	endif;
+//	open file
+	$fp = @fopen($fname,'r');
+	if($fp === false):
+		show_error(htmlspecialchars($item) . ': ' . gtext('File opening failed.'));
+	endif;
+//	header
+	$s_item = get_rel_item($dir,$item);
+	if(strlen($s_item) > 50):
+		$s_item = '...' . substr($s_item,-47);
+	endif;
+	show_header(gtext('Edit file') . ': /' . htmlspecialchars($s_item));
+//	Word-wrap checkbox controller
+?>
+<script>
+//<![CDATA[
 	function chwrap() {
 		if(document.editfrm.wrap.checked) {
 			document.editfrm.code.wrap="soft";
@@ -85,53 +93,43 @@ function edit_file($dir, $item)
 			document.editfrm.code.wrap="off";
 		}
 	}
-// -->
+//]]>>
 </script>
-
-<script language="Javascript" type="text/javascript">
-		// initialisation
-		editAreaLoader.init({
-			id: "txtedit"	// id of the textarea to transform
-			,start_highlight: true	// if start with highlight
-			,allow_resize: "both"
-			//,min_width = 400
-			//,min_height = 100
-			//,allow_resize: "y"
-			,allow_toggle: true
-			,word_wrap: true
-			,language: "<?php echo $GLOBALS["language"];?>"
-			,syntax: "<?php echo get_mime_type($dir, $item, "ext");?>"
-		});
-</script>
-
 <?php
-
-	// Form
-	echo "<BR><FORM name=\"editfrm\" method=\"post\" action=\"".make_link("edit",$dir,$item)."\">\n";
-	echo "<input type=\"hidden\" name=\"dosave\" value=\"yes\">\n";
-	echo "<CENTER><TEXTAREA NAME=\"code\" ID=\"txtedit\" rows=\"27\" cols=\"125\" wrap=\"off\">";
-
-	// Show File In TextArea
-	$buffer="";
-	while(!feof ($fp)) {
-		$buffer .= fgets($fp, 4096);
-	}
+	$buffer = '';
+	while(!feof($fp)):
+		$buffer .= fgets($fp,4096);
+	endwhile;
 	@fclose($fp);
-	echo htmlspecialchars($buffer);
-	//echo $buffer;
-
-	echo "</TEXTAREA><BR><BR>\n<CENTER><TABLE><TR><TD>Wordwrap: (IE only)</TD><TD><INPUT type=\"checkbox\" name=\"wrap\" ";
-	echo "onClick=\"javascript:chwrap();\" value=\"1\"></TD></TR></TABLE><BR>\n";
-	echo "<TABLE><TR><TD><INPUT type=\"text\" name=\"fname\" value=\"".htmlspecialchars($item)."\"></TD>";
-	echo "<TD><input type=\"submit\" value=\"".$GLOBALS["messages"]["btnsave"];
-	echo "\"></TD>\n<TD><input type=\"reset\" value=\"".$GLOBALS["messages"]["btnreset"]."\"></TD>\n<TD>";
-	echo "<input type=\"button\" value=\"".$GLOBALS["messages"]["btnclose"]."\" onClick=\"javascript:location='";
-	echo make_link("list",$dir,NULL)."';\"></TD></TR></FORM></TABLE></CENTER><BR><BR><BR>\n";
-?><script language="JavaScript1.2" type="text/javascript">
-<!--
-	if(document.editfrm) document.editfrm.code.focus();
-// -->
-</script><?php
-}
-
+//	Form
+	echo	'<br>',"\n";
+	echo	'<form name="editfrm" method="post" action="',make_link('edit',$dir,$item),'">',"\n";
+	echo		'<input type="hidden" name="dosave" value="yes">',"\n";
+	echo		'<textarea name="code" id="txtedit" rows="27" cols="125" style="font-family: monospace;" wrap="off">',htmlspecialchars($buffer),'</textarea>',"\n";
+	echo		'<br>',"\n";
+	echo		'<br>',"\n";
+	echo		'<table>',"\n",
+					'<tr>',"\n",
+						'<td>',gtext('Wrap text:'),' </td>',"\n",
+						'<td><input type="checkbox" name="wrap" onClick="javascript:chwrap();" value="1"></td>',"\n",
+					'</tr>',"\n",
+				'</table>',"\n";
+	echo		'<br>',"\n";
+	echo		'<table>',"\n",
+					'<tr>',"\n",
+						'<td><input type="text" name="fname" value="',htmlspecialchars($item),'"></td>',"\n",
+						'<td><input type="submit" value="',gtext('Save'),'"></td>',"\n",
+						'<td><input type="reset" value="',gtext('Reset'),'"></td>',"\n",
+						'<td><input type="button" value="',gtext('Close'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';"></td>',"\n",
+					'</tr>',"\n",
+				'</table>',"\n";
+	echo		'<br>',"\n";
+	echo	'</form>',"\n";
 ?>
+<script>
+//<![CDATA[
+	if(document.editfrm) document.editfrm.code.focus();
+//]]>
+</script>
+<?php
+}
