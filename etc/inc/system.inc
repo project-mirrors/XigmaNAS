@@ -35,19 +35,34 @@ require_once 'functions.inc';
 require_once 'util.inc';
 require_once 'rc.inc';
 
+/**
+ *	Initiate halt. Everything will be done automatically
+ *	in /etc/rc.shutdown by executing rc-init scripts in
+ *	reverse order (the 'KEYWORD: shutdown' must be defined).
+ */
 function system_reboot() {
-	// Initiate halt. Everything will be done automatically
-	// in /etc/rc.shutdown by executing rc-init scripts in
-	// reverse order (the 'KEYWORD: shutdown' must be defined).
-	mwexec("/sbin/shutdown -r now");
+	mwexec('/sbin/shutdown -r now');
 }
-
+/**
+ *	Initiate halt. Everything will be done automatically
+ *	in /etc/rc.shutdown by executing rc-init scripts in
+ *	reverse order (the 'KEYWORD: shutdown' must be defined).
+ */
 function system_halt() {
-	// Initiate halt. Everything will be done automatically
-	// in /etc/rc.shutdown by executing rc-init scripts in
-	// reverse order (the 'KEYWORD: shutdown' must be defined).
-	mwexec("/sbin/shutdown -p now");
+	mwexec('/sbin/shutdown -p now');
 }
+/**
+ *  Get the codeset of the current configured language.
+ *	@return string String containing codeset of current language.
+ */
+function system_get_language_codeset() {
+	return 'UTF-8';
+}
+/**
+ *	Reads and converts HTTP_ACCEPT_LANGUAGE of client browser into a key/value array,
+ *	Key contains the language code and the value contains the q-factor.
+ *	@return array List of accepted languages
+ */
 function get_http_accept_language(): array {
 	$accepted_languages = [];
 	$result = [];
@@ -80,13 +95,17 @@ function get_http_accept_language(): array {
 	endif;
 	return $result;
 }
-/* Init language environment */
+/**
+ *	Init language environment
+ *	@global array $config
+ *	@global array $g_languages
+ */
 function system_language_load() {
 	global $config,$g_languages;
 
-	$language = NULL;
+	$language = $_SESSION['userlang'] ?? null;
 	if(!isset($language)):
-//		Get the language from configuration.
+//		try to get the language from configuration.
 		$configured_language = filter_var($config['system']['language'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL]]);
 		if(isset($configured_language) && key_exists($configured_language,$g_languages)):
 			if('auto' !== $configured_language):
@@ -95,7 +114,7 @@ function system_language_load() {
 		endif;
 	endif;
 	if(!isset($language)):
-//		Get the language from client.
+//		try to get the language from client.
 		$accepted_languages = get_http_accept_language();
 		if(!empty($accepted_languages)):
 			$available_languages = array_flip($g_languages);
@@ -110,32 +129,29 @@ function system_language_load() {
 		endif;
 	endif;
 	if(!isset($language)):
+//		fallback to en_US
 		$language = 'en_US';
 	endif;
 	$domain = strtolower(get_product_name());
 	$codeset = 'UTF-8';
-	putenv(sprintf('LANGUAGE=%s',$language));
-	putenv(sprintf('LANG=%s',$language));
-	setlocale(LC_MESSAGES,sprintf('%s.%s',$language,$codeset));
+	putenv(sprintf('LANG=%s.%s','en_US',$codeset));
+	putenv(sprintf('LANGUAGE=%s.%s',$language,$codeset));
 	bindtextdomain($domain,'/usr/local/share/locale');
 	bind_textdomain_codeset($domain,$codeset);
 	textdomain($domain);
 	$_SESSION['userlang'] = $language;
 }
-/* Get the codeset of the current configured language. */
-/* Return: String containing codeset of current language. */
-function system_get_language_codeset() {
-	return 'UTF-8';
-}
-
-/* Get the entity of LanguageCode of the current configured language. */
-/* Return: String containing language code of current laguage. */
+/**
+ *	Get the entity of LanguageCode of the current configured language.
+ *	@return string Language code of current laguage.
+ */
 function system_get_language_code() {
-	// a language code, as per [RFC3066]
+//	a language code, as per [RFC3066]
 	$language = getenv('LANG');
 	$code = str_replace('_','-',$language);
 	if(empty($code)):
-		$code = "en-US"; // Set default code.
+//		set default code.
+		$code = 'en-US';
 	endif;
 	return $code;
 }
