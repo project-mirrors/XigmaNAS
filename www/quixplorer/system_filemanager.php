@@ -38,42 +38,51 @@
 /*------------------------------------------------------------------------------
 			QuiXplorer v2.5.8 Modified for XigmaNAS
 ------------------------------------------------------------------------------*/
+$pgperm['allowuser'] = true;
+
+require_once 'auth.inc';
+require_once 'guiconfig.inc';
 
 umask(002); // Added to make created files/dirs group writable
-
 require_once 'qx.php';
-require './_include/init.php';	// Init
+require './_include/init.php';
 
 global $action;
 
 $current_dir = qx_request('dir','');
-switch($action): // Execute action
-	case 'edit': // EDIT FILE
+switch($action):
+	case 'edit':
+//		edit file
 		require './_include/edit_editarea.php';
 		edit_file($current_dir, $GLOBALS['item']);
 		break;
-	case 'delete': // DELETE FILE(S)/DIR(S)
+	case 'delete':
+//		delete items
 		require './_include/del.php';
 		del_items($current_dir);
 		break;
-	case 'copy': // COPY/MOVE FILE(S)/DIR(S)
+	case 'copy':
+//		copy items
 	case 'move':
+//		move items
 		require './_include/copy_move.php';
 		copy_move_items($current_dir);
 		break;
-	case 'download': // DOWNLOAD FILE
+	case 'download':
+//		download item
 		ob_start(); // prevent unwanted output
 		require './_include/down.php';
 		ob_end_clean(); // get rid of cached unwanted output
 		global $item;
 		if ($item == ''):
-			show_error($GLOBALS['error_msg']['miscselitems']);
+			show_error(gtext("You haven't selected any item(s)."));
 		endif;
 		download_item($current_dir,$item);
 		ob_start(false); // prevent unwanted output
 		exit;
 		break;
 	case 'download_selected':
+//		download selected items
 		ob_start(); // prevent unwanted output
 		require './_include/down.php';
 		ob_end_clean(); // get rid of cached unwanted output
@@ -81,41 +90,31 @@ switch($action): // Execute action
 		ob_start(false); // prevent unwanted output
 		exit;
 		break;
-	case 'unzip': // UNZIP ZIP FILE
+	case 'unzip':
+//		unzip item
 		require './_include/unzip.php';
 		unzip_item($current_dir);
 		break;
-	case 'mkitem': // CREATE DIR/FILE
+	case 'mkitem':
+//		create item
 		require './_include/mkitem.php';
 		make_item($current_dir);
 		break;
-	case 'chmod': // CHMOD FILE/DIR
+	case 'chmod':
+//		change item permission
 		require './_include/chmod.php';
-		chmod_item($current_dir, $GLOBALS['item']);
+		chmod_item($current_dir,$GLOBALS['item']);
 		break;
-	case 'search': // SEARCH FOR FILE(S)/DIR(S)
+	case 'search':
+//		search for items
 		require './_include/search.php';
 		search_items($current_dir);
 		break;
-	case 'arch': // CREATE ARCHIVE
+	case 'arch':
+//		create archive
 		require './_include/archive.php';
 		archive_items($current_dir);
 		break;
-/*
-	case 'admin': // USER-ADMINISTRATION
-		require './_include/admin.php';
-		show_admin($current_dir);
-		break;
- */
-	case 'login':
-	    login();
-	    require './_include/list.php';
-		list_dir($current_dir);
-		break;
-	case 'logout':
-		logout();
-		break;
-	case 'list': // DEFAULT: LIST FILES & DIRS
 	default:
 		require './_include/list.php';
 		list_dir($current_dir);
