@@ -77,10 +77,10 @@ function chmod_item($dir,$item) {
 	endif;
 	show_header(gtext('Change permissions') . ': /'.$s_item);
 //	form
-	echo
-		'<br>',"\n",
-		'<form method="post" action="',make_link('chmod',$dir,$item),'">',"\n",
-			'<table width="175">',"\n",
+	echo '<br>',"\n";
+	echo '<form method="post" action="',make_link('chmod',$dir,$item),'">',"\n";
+	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo 	'<table width="175">',"\n",
 				'<input type="hidden" name="confirm" value="true">',"\n";
 //				print table with current perms & checkboxes to change
 				$humanreadable_chmod = [gtext('Owner'),gtext('Group'),gtext('Public')];
@@ -97,15 +97,17 @@ function chmod_item($dir,$item) {
 				endfor;
 	echo	'</table>',"\n";
 //			submit / Cancel
-	echo	'<br>',
-			'<table><tr>',
-				'<td>',
-					'<input type="submit" value="',gtext('Change'),'">',
-				'</td>',
-				'<td>',
-					'<input type="button" value="',gtext('Cancel'),'" onClick="javascript:location=',"'",make_link('list',$dir,null),"'",'">',
-				'</td>',
-			'</tr></table>',
-		'</form>',
-		'<br>',"\n";
+	echo	'<br>',"\n";
+	echo	'<table>',
+				'<tr>',"\n",
+					'<td>',"\n",
+						'<input type="submit" value="',gtext('Change'),'">',"\n",
+					'</td>',"\n",
+					'<td>',"\n",
+						'<input type="button" value="',gtext('Cancel'),'" onClick="javascript:location=',"'",make_link('list',$dir,null),"'",'">',"\n",
+					'</td>',"\n",
+				'</tr>',
+			'</table>',"\n";
+	echo '</form>',"\n";
+	echo '<br>',"\n";
 }
