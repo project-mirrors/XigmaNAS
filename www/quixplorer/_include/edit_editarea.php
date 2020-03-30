@@ -104,6 +104,7 @@ function edit_file($dir,$item) {
 //	Form
 	echo	'<br>',"\n";
 	echo	'<form name="editfrm" method="post" action="',make_link('edit',$dir,$item),'">',"\n";
+	echo		'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 	echo		'<input type="hidden" name="dosave" value="yes">',"\n";
 	echo		'<textarea name="code" id="txtedit" rows="27" cols="125" style="font-family: monospace;" wrap="off">',htmlspecialchars($buffer),'</textarea>',"\n";
 	echo		'<br>',"\n";
