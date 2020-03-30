@@ -50,9 +50,9 @@ function show_footer() {
 
 	$output[] = '<table class="area_data_settings">';
 	$output[] = '<colgroup>';
-	$output[] = '<col style="width:10%">';
-	$output[] = '<col style="width:80%">';
-	$output[] = '<col style="width:10%">';
+	$output[] = '<col style="width:20%">';
+	$output[] = '<col style="width:60%">';
+	$output[] = '<col style="width:20%">';
 	$output[] = '</colgroup>';
 	$output[] = '<tbody>';
 	$output[] = '<tr>';
