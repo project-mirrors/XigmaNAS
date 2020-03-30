@@ -37,136 +37,136 @@
 //------------------------------------------------------------------------------
 //if($GLOBALS["tar"]) include("./_lib/lib_tar.php");
 //if($GLOBALS["tgz"]) include("./_lib/lib_tgz.php");
-//
 
-require_once("qxpage.php");
-require_once("_lib/zipstream.php");
+require_once('qxpage.php');
+require_once('_lib/zipstream.php');
 
 /**
  * _zip
  * @return void
  **/
-function zip_selected_items($zipfilename, $directory, $items)
-{
-    $zipfile=new ZipArchive();
-    $zipfile->open($zipfilename, ZIPARCHIVE::CREATE);
-    foreach ($items as $item)
-    {
-        $srcfile = $directory . DIRECTORY_SEPARATOR . $item;
-        if (!$zipfile->addFile($srcfile, $item))
-        {
-            show_error($srcfile . ": Failed adding item.");
-        }
-    }
-
-    if (!$zipfile->close())
-    {
-      show_error($zipfilename . ": Failed saving zipfile.");
-    }
+function zip_selected_items($zipfilename,$directory,$items) {
+	$zipfile = new ZipArchive();
+	$zipfile->open($zipfilename,ZIPARCHIVE::CREATE);
+	foreach($items as $item):
+		$srcfile = $directory . DIRECTORY_SEPARATOR . $item;
+		if(!$zipfile->addFile($srcfile,$item)):
+			show_error($srcfile . ': Failed adding item.');
+		endif;
+	endforeach;
+	if(!$zipfile->close()):
+		show_error($zipfilename . ': Failed saving zipfile.');
+	endif;
 }
-
-function zip_items($dir, $name)
-{
-    $items = qxpage_selected_items();
-    if (!preg_match("/\.zip$/", $name))
-    {
-        $name .= ".zip";
-    }
-    zip_selected_items(get_abs_item($dir, $name), $dir, $items);
-	header("Location: " . make_link("list",$dir,NULL));
+function zip_items($dir,$name) {
+	$items = qxpage_selected_items();
+	if(!preg_match('/\.zip$/',$name)):
+		$name .= '.zip';
+	endif;
+	zip_selected_items(get_abs_item($dir,$name),$dir,$items);
+	header('Location: ' . make_link('list',$dir,null));
 }
-
-function zip_download($directory, $items)
-{
-    $zipfile = new ZipStream("downloads.zip");
-    foreach ($items as $item)
-    {
-        _zipstream_add_file($zipfile, $directory, $item);
-    }
-    $zipfile->finish();
+function zip_download($directory,$items) {
+	$zipfile = new ZipStream('downloads.zip');
+	foreach($items as $item):
+		_zipstream_add_file($zipfile,$directory,$item);
+	endforeach;
+	$zipfile->finish();
 }
-
-function _zipstream_add_file($zipfile, $directory, $file_to_add)
-{
-    $filename = $directory.DIRECTORY_SEPARATOR.$file_to_add;
-
-    if (!@file_exists($filename))
-    {
-        show_error($filename." does not exist");
-    }
-
-    if (is_file($filename))
-    {
-        _debug("adding file $filename");
-        return $zipfile->add_file($file_to_add, file_get_contents($filename));
-    }
-
-    if (is_dir($filename))
-    {
-        _debug("adding directory $filename");
-        $files = glob($filename.DIRECTORY_SEPARATOR."*");
-        foreach ($files as $file)
-        {
-            $file = str_replace($directory.DIRECTORY_SEPARATOR, "", $file);
-            _zipstream_add_file($zipfile, $directory, $file);
-        }
-        return True;
-    }
-
-    _error("don't know how to handle $file_to_add");
-    return False;
+function _zipstream_add_file($zipfile,$directory,$file_to_add) {
+	$filename = $directory.DIRECTORY_SEPARATOR.$file_to_add;
+	if(!@file_exists($filename)):
+		show_error($filename . ' does not exist');
+	endif;
+	if(is_file($filename)):
+		_debug("adding file $filename");
+		return $zipfile->add_file($file_to_add,file_get_contents($filename));
+	endif;
+	if(is_dir($filename)):
+		_debug("adding directory $filename");
+		$files = glob($filename . DIRECTORY_SEPARATOR . '*');
+		foreach ($files as $file):
+			$file = str_replace($directory . DIRECTORY_SEPARATOR,'',$file);
+			_zipstream_add_file($zipfile,$directory,$file);
+		endforeach;
+		return true;
+	endif;
+	_error("don't know how to handle $file_to_add");
+	return false;
 }
 
 function tar_items($dir,$name) {
-	// ...
 }
-//------------------------------------------------------------------------------
 function tgz_items($dir,$name) {
-	// ...
 }
-//------------------------------------------------------------------------------
-function archive_items($dir)
-{
-        include_once "./_include/permissions.php";
-	// archive is only allowed if user may change files
-	if (!permissions_grant($dir, NULL, "change"))
-		show_error($GLOBALS["error_msg"]["accessfunc"]);
-
-	if(!$GLOBALS["zip"] && !$GLOBALS["tar"] && !$GLOBALS["tgz"]) show_error($GLOBALS["error_msg"]["miscnofunc"]);
-
-	if(isset($GLOBALS['__POST']["name"])) {
-		$name=basename($GLOBALS['__POST']["name"]);
-		if($name=="") show_error($GLOBALS["error_msg"]["miscnoname"]);
-		switch($GLOBALS['__POST']["type"]) {
-			case "zip":	zip_items($dir,$name);	break;
-			case "tar":	tar_items($dir,$name);	break;
-			default:		tgz_items($dir,$name);
-		}
-		header("Location: ".make_link("list",$dir,NULL));
-	}
-
-	show_header($GLOBALS["messages"]["actarchive"]);
-	echo "<BR><FORM name=\"archform\" method=\"post\" action=\"".make_link("arch",$dir,NULL)."\">\n";
-
-	$cnt=count($GLOBALS['__POST']["selitems"]);
-	for($i=0;$i<$cnt;++$i) {
-		echo "<INPUT type=\"hidden\" name=\"selitems[]\" value=\"".htmlspecialchars($GLOBALS['__POST']["selitems"][$i])."\">\n";	}
-
-	echo "<TABLE width=\"300\"><TR><TD>".$GLOBALS["messages"]["nameheader"].":</TD><TD align=\"right\">";
-	echo "<INPUT type=\"text\" name=\"name\" size=\"25\"></TD></TR>\n";
-	echo "<TR><TD>".$GLOBALS["messages"]["typeheader"].":</TD><TD align=\"right\"><SELECT name=\"type\">\n";
-	if($GLOBALS["zip"]) echo "<OPTION value=\"zip\">Zip</OPTION>\n";
-	if($GLOBALS["tar"]) echo "<OPTION value=\"tar\">Tar</OPTION>\n";
-	if($GLOBALS["tgz"]) echo "<OPTION value=\"tgz\">TGz</OPTION>\n";
-	echo "</SELECT></TD></TR>";
-	echo "<TR><TD></TD><TD align=\"right\"><INPUT type=\"submit\" value=\"".$GLOBALS["messages"]["btncreate"]."\">\n";
-	echo "<input type=\"button\" value=\"".$GLOBALS["messages"]["btncancel"];
-	echo "\" onClick=\"javascript:location='".make_link("list",$dir,NULL)."';\">\n</TD></TR></FORM></TABLE><BR>\n";
-?><script language="JavaScript1.2" type="text/javascript">
-<!--
-	if(document.archform) document.archform.name.focus();
-// -->
-</script><?php
-}
-//------------------------------------------------------------------------------
+function archive_items($dir) {
+	include_once './_include/permissions.php';
+//	archive is only allowed if user may change files
+	if(!permissions_grant($dir,null,'change')):
+		show_error(gtext('You are not allowed to use this function.'));
+	endif;
+	if(!$GLOBALS['zip'] && !$GLOBALS['tar'] && !$GLOBALS['tgz']):
+		show_error(gtext('Function unavailable.'));
+	endif;
+	if(isset($GLOBALS['__POST']['name'])):
+		$name = basename($GLOBALS['__POST']['name']);
+		if($name=="") show_error(gtext('You must supply a name.'));
+		switch($GLOBALS['__POST']['type']):
+			case 'zip':
+				zip_items($dir,$name);
+				break;
+			case 'tar':
+				tar_items($dir,$name);
+				break;
+			default:
+				tgz_items($dir,$name);
+				break;
+		endswitch;
+		header('Location: ' . make_link('list',$dir,null));
+	endif;
+	show_header(gtext('Archive item(s)'));
+	echo '<br>',"\n";
+	echo '<form name="archform" method="post" action="',make_link('arch',$dir,null) . '">',"\n";
+	$cnt = count($GLOBALS['__POST']['selitems']);
+	for($i = 0;$i < $cnt;++$i):
+		echo '<input type="hidden" name="selitems[]" value="',htmlspecialchars($GLOBALS['__POST']["selitems"][$i]),'">',"\n";
+	endfor;
+	echo	'<table width="300">',"\n",
+				'<tr>',"\n",
+					'<td>',gtext('Name'),':</td>',"\n",
+					'<td align="right">','<input type="text" name="name" size="25">','</td>',"\n",
+				'</tr>',"\n";
+	echo		'<tr>',"\n",
+					'<td>',gtext('Type'),':</td>',"\n",
+					'<td align="right">';
+	echo				'<select name="type">',"\n";
+	if($GLOBALS['zip']):
+		echo				'<option value="zip">Zip</option>',"\n";
+	endif;
+	if($GLOBALS['tar']):
+		echo				'<option value="tar">Tar</option>',"\n";
+	endif;
+	if($GLOBALS['tgz']):
+		echo				'<option value="tgz">TGz</option>',"\n";
+	endif;
+	echo				'</select>';
+	echo			'</td>',
+				'</tr>';
+	echo		'<tr>',
+					'<td></td>',
+					'<td align="right">',
+						'<input type="submit" value="',gtext('Create'),'">',"\n",
+						'<input type="button" value="'.gtext('Cancel'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';">',"\n",
+					'</td>',
+				'</tr>',
+			'</table>';
+	echo '</form>';
+	echo '<br>',"\n";
 ?>
+<script>
+//<![CDATA[
+	if(document.archform) document.archform.name.focus();
+//]]>
+</script>
+<?php
+}
