@@ -57,38 +57,6 @@ function user_load($file = NULL) {
 	require $file;
 }
 /**
- *	Write user configuration to .htusers.php
- *	@return boolean Return true if successful, otherwise false
- */
-function _saveUsers() {
-	$cnt = count($GLOBALS['users']);
-	if($cnt > 1):
-		sort($GLOBALS['users']);
-	endif;
-//	prepare file
-	$content = ['<?php' . PHP_EOL];
-	$content[] = '//	created by saveusers' . PHP_EOL;
-	$content[] = '$GLOBALS["users"] = [];' . PHP_EOL;
-	for($i = 0;$i < $cnt;++$i):
-		$content[] = sprintf('$GLOBALS["%s"][] = [\'%s\',\'%s\',\'%s\',\'%s\',%u,\'%s\',%u,%u];' . PHP_EOL,
-			'users',
-			$GLOBALS['users'][$i][0],
-			$GLOBALS['users'][$i][1],
-			$GLOBALS['users'][$i][2],
-			$GLOBALS['users'][$i][3],
-			$GLOBALS['users'][$i][4],
-			$GLOBALS['users'][$i][5],
-			$GLOBALS['users'][$i][6],
-			$GLOBALS['users'][$i][7]
-		);
-	endfor;
-//	write to file
-	if(false === file_put_contents('./_config/.htusers.php',$content)):
-		return false;
-	endif;
-	return true;
-}
-/**
  *	Returns the index of the user in the user configuration
  *	@param string $user
  *	@return int Return the index of the user when found, otherwise -1
