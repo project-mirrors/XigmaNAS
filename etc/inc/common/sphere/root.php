@@ -33,7 +33,10 @@
 */
 namespace common\sphere;
 /*
- *	sphere level 1 object for settings, services, row and grid
+ *	sphere top level object for settings, services, row and grid
+ *	root -> hub -> row
+ *	root -> hub -> grid
+ *	root -> settings
  */
 class root {
 	public $grid = [];
@@ -61,7 +64,7 @@ class root {
 		);
 	}
 	public function set_script(string $basename,string $extension = 'php'): self {
-		if(is_null($this->x_script_this)):
+		if(\is_null($this->x_script_this)):
 			$this->x_script_this = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -70,16 +73,16 @@ class root {
 		return $this->x_script_this;
 	}
 	public function set_inform(string $basename,string $extension = 'php'): self {
-		if(is_null($this->x_script_inform)):
+		if(\is_null($this->x_script_inform)):
 			$this->x_script_inform = new scriptname($basename,$extension);
 		endif;
 		return $this;
 	}
-	public function get_inform(): ?scriptname{
+	public function get_inform(): ?scriptname {
 		return $this->x_script_inform;
 	}
 	public function set_maintain(string $basename,string $extension = 'php'): self {
-		if(is_null($this->x_script_maintain)):
+		if(\is_null($this->x_script_maintain)):
 			$this->x_script_maintain = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -88,7 +91,7 @@ class root {
 		return $this->x_script_maintain;
 	}
 	public function set_modify(string $basename,string $extension = 'php'): self {
-		if(is_null($this->x_script_modify)):
+		if(\is_null($this->x_script_modify)):
 			$this->x_script_modify = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -97,7 +100,7 @@ class root {
 		return $this->x_script_modify;
 	}
 	public function set_parent(string $basename,string $extension = 'php'): self {
-		if(is_null($this->x_script_parent)):
+		if(\is_null($this->x_script_parent)):
 			$this->x_script_parent = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -124,8 +127,8 @@ class root {
 	public function toggle(): bool {
 		global $config;
 
-		$test = calc_enabletogglemode();
-		return $this->is_enadis_enabled() && (is_bool($test) ? $test : true);
+		$test = \calc_enabletogglemode();
+		return $this->is_enadis_enabled() && (\is_bool($test) ? $test : true);
 	}
 /**
  *	Enable/disable record lock support
@@ -166,9 +169,6 @@ class root {
 	}
 	public function get_row_identifier_value(): ?string {
 		return $this->row[$this->x_row_identifier] ?? NULL;
-	}
-	public function escape_javascript(string $data = ''): string {
-		return str_replace(['"',"'"],['\u0022','\u0027'],$data);
 	}
 	public function get_js_on_load(): string {
 		return '';
