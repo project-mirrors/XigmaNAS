@@ -1181,13 +1181,13 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$t[] = sprintf('function onclick_delete_%s() {',$ctrlname);
 		$t[] = "\t" . sprintf('var element = document.getElementById("%s");',$ctrlname);
 		$t[] = "\t" . 'if (element.value != "") {';
-		$t[] = "\t\t" . sprintf('var msg = confirm("%s");',unicode_escape_javascript(gettext('Do you really want to remove the selected item from the list?')));
+		$t[] = "\t\t" . sprintf('var msg = confirm(%s);',\unicode_escape_javascript(gettext('Do you really want to remove the selected item from the list?')));
 		$t[] = "\t\t" . 'if (msg == true) {';
 		$t[] = "\t\t\t" . 'element.options[element.selectedIndex] = null;';
 		$t[] = "\t\t\t" . sprintf('document.getElementById("%s").value = "";',$ctrlnamedata);
 		$t[] = "\t\t" . '}';
 		$t[] = "\t" . '} else {';
-		$t[] = "\t\t" . sprintf('alert("%s");',unicode_escape_javascript(gettext('Select item to remove from the list')));
+		$t[] = "\t\t" . sprintf('alert(%s);',\unicode_escape_javascript(gettext('Select item to remove from the list')));
 		$t[] = "\t" . '}';
 		$t[] = '}';
 		$t[] = sprintf('function onclick_change_%s() {',$ctrlname);
@@ -1205,7 +1205,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$t[] = "\t\t\t" . 'element.options[i].selected = true;';
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$anchor->addJavaScript(implode(PHP_EOL,$t));
+		$anchor->addJavaScript(implode("\n",$t));
 		//	section 1: select + delete
 		$div1 = $anchor->addDIV();
 		//	selected folder
@@ -1329,13 +1329,13 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 		$t[] = 'function onclick_delete_' . $ctrlname . '() {';
 		$t[] = "\t" . 'var element = document.getElementById("' . $ctrlname . '");';
 		$t[] = "\t" . 'if (element.value != "") {';
-		$t[] = "\t\t" . 'var msg = confirm("' . unicode_escape_javascript(gettext('Do you really want to remove the selected item from the list?')) . '");';
+		$t[] = "\t\t" . 'var msg = confirm(' . \unicode_escape_javascript(gettext('Do you really want to remove the selected item from the list?')) . ');';
 		$t[] = "\t\t" . 'if (msg == true) {';
 		$t[] = "\t\t\t" . 'element.options[element.selectedIndex] = null;';
 		$t[] = "\t\t\t" . 'document.getElementById("' . $ctrlnamedata . '").value = "";';
 		$t[] = "\t\t" . '  }';
 		$t[] = "\t" . '} else {';
-		$t[] = "\t\t" . 'alert("' . unicode_escape_javascript(gettext('Select item to remove from the list')) . '");';
+		$t[] = "\t\t" . 'alert(' . \unicode_escape_javascript(gettext('Select item to remove from the list')) . ');';
 		$t[] = "\t" . '}';
 		$t[] = '}';
 		$t[] = 'function onclick_change_' . $ctrlname . '() {';
@@ -1358,7 +1358,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 		$t[] = "\t\t\t" . 'element.options[i].selected = true;';
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$anchor->addJavaScript(implode(PHP_EOL,$t));
+		$anchor->addJavaScript(implode("\n",$t));
 		//	section 1: select + delete
 		$div1 = $anchor->addDIV();
 		//	selected folder
@@ -1539,11 +1539,11 @@ trait co_DOMTools {
 		if(preg_match('/\S/',$text)):
 			$node = $this->addElement('script');
 			if(false !== $node):
-				$opening = $node->ownerDocument->createTextNode(PHP_EOL . '//<![CDATA[' . PHP_EOL);
-				$ending = $node->ownerDocument->createTextNode(PHP_EOL . '//]]>' . PHP_EOL);
+				$opening = $node->ownerDocument->createTextNode("\n" . '//<![CDATA[' . "\n");
+				$ending = $node->ownerDocument->createTextNode("\n" . '//]]>' . "\n");
 				if((false !== $opening) && (false !== $ending)):
 					$node->appendChild($opening);
-					$cdata = $node->ownerDocument->createCDATASection($text);
+					$cdata = $node->ownerDocument->createTextNode($text);
 					if(false !== $cdata):
 						$node->appendChild($cdata);
 					endif;
@@ -3246,17 +3246,17 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 		$body = $this->getElementById('main');
 		if(isset($body)):
 			if(!empty($this->js_on_load)):
-				$jdata = implode(PHP_EOL,[
+				$jdata = implode("\n",[
 					'$(window).on("load", function() {',
-					implode(PHP_EOL,$this->js_on_load),
+					implode("\n",$this->js_on_load),
 					'});'
 				]);
 				$body->addJavaScript($jdata);
 			endif;
 			if(!empty($this->js_document_ready)):
-				$jdata = implode(PHP_EOL,[
+				$jdata = implode("\n",[
 					'$(document).ready(function() {',
-					implode(PHP_EOL,$this->js_document_ready),
+					implode("\n",$this->js_document_ready),
 					'});'
 				]);
 				$body->addJavaScript($jdata);
