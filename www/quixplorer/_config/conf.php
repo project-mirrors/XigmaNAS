@@ -35,17 +35,7 @@
 	of XigmaNAS®, either expressed or implied.
 */
 //	Configuration Variables
-//	login to use QuiXplorer: (true/false)
-$GLOBALS['require_login'] = true;
-//	This variable defines the permissions of anonymous users.
-//
-//	If 'require_login' is set to true, this settings are ignored.
-//
-//	Value 0x0001 means read only access
-//	Value 0x0002 means write only access
-//	Value 0x0003 means read / write access
-$GLOBALS['global_permissions'] = 0x0001;
-//	Language:
+//	Language
 $GLOBALS['language'] = $_SESSION['userlang'] ?? $config['system']['language'];
 //	The filename of the QuiXplorer script:
 $GLOBALS['script_name'] = sprintf('%s://%s%s',$config['system']['webgui']['protocol'],$GLOBALS['__SERVER']['HTTP_HOST'],$GLOBALS['__SERVER']["PHP_SELF"]);
@@ -66,13 +56,5 @@ $GLOBALS['home_url'] = sprintf('%s://localhost/~you',$config['system']['webgui']
 $GLOBALS['show_hidden'] = true;
 //	filenames not allowed to access: (uses PCRE regex syntax)
 $GLOBALS['no_access'] = '^\.ht';
-//------------------------------------------------------------------------------
-//	Adding values for each language to this array changes
-//	the login prompt message from the language-specific file.
-//	If there is no value for a language here, the default value
-//	of the language file is used.
-$GLOBALS['login_prompt'] = [
-	'en' => 'Welcome to this download server'
-];
 //	The title which is displayed in the browser
 $GLOBALS['site_name'] = 'My Download Server';
