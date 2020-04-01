@@ -34,58 +34,80 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once("./_include/permissions.php");
+require_once('./_include/permissions.php');
 
-// change permissions
-function chmod_item($dir, $item)
-{
-	if (!permissions_grant($dir, NULL, "change"))
-			show_error($GLOBALS["error_msg"]["accessfunc"]);
-	if(!file_exists(get_abs_item($dir, $item))) show_error($item.": ".$GLOBALS["error_msg"]["fileexist"]);
-	if(!get_show_item($dir, $item)) show_error($item.": ".$GLOBALS["error_msg"]["accessfile"]);
-
-	// Execute
-	if(isset($GLOBALS['__POST']["confirm"]) && $GLOBALS['__POST']["confirm"]=="true") {
-		$bin='';
-		for($i=0;$i<3;$i++) for($j=0;$j<3;$j++) {
-			$tmp="r_".$i.$j;
-			if(isset($GLOBALS['__POST'][$tmp]) &&$GLOBALS['__POST'][$tmp]=="1" ) $bin.='1';
-			else $bin.='0';
-		}
-
-		if(!@chmod(get_abs_item($dir,$item),bindec($bin))) {
-			show_error($item.": ".$GLOBALS["error_msg"]["permchange"]);
-		}
-		header("Location: ".make_link("link",$dir,NULL));
+//	change permissions
+function chmod_item($dir,$item) {
+	if(!permissions_grant($dir,null,'change')):
+		show_error(gtext('You are not allowed to use this function.'));
+	endif;
+	if(!file_exists(get_abs_item($dir,$item))):
+		show_error($item . ': ' . gtext("This file doesn't exist."));
+	endif;
+	if(!get_show_item($dir,$item)):
+		show_error($item . ': ' . gtext('You are not allowed to access this file.'));
+	endif;
+//	Execute
+	if(isset($GLOBALS['__POST']['confirm']) && $GLOBALS['__POST']['confirm'] == 'true'):
+		$bin = '';
+		for($i = 0;$i < 3;$i++):
+			for($j = 0;$j < 3;$j++):
+				$tmp = 'r_' . $i . $j;
+				if(isset($GLOBALS['__POST'][$tmp]) && $GLOBALS['__POST'][$tmp] == '1'):
+					$bin .= '1';
+				else:
+					$bin .= '0';
+				endif;
+			endfor;
+		endfor;
+		if(!@chmod(get_abs_item($dir,$item),bindec($bin))):
+			show_error($item . ': ' . gtext('Permission-change failed.'));
+		endif;
+		header('Location: ' . make_link('link',$dir,null));
 		return;
-	}
-
+	endif;
 	$mode = parse_file_perms(get_file_perms($dir,$item));
-	if($mode===false) show_error($item.": ".$GLOBALS["error_msg"]["permread"]);
-	$pos = "rwx";
-
-	$s_item=get_rel_item($dir,$item);	if(strlen($s_item)>50) $s_item="...".substr($s_item,-47);
-	show_header($GLOBALS["messages"]["actperms"].": /".$s_item);
-
-
-	// Form
-	echo "<BR><TABLE width=\"175\"><FORM method=\"post\" action=\"";
-	echo make_link("chmod",$dir,$item) . "\">\n";
-	echo "<INPUT type=\"hidden\" name=\"confirm\" value=\"true\">\n";
-
-	// print table with current perms & checkboxes to change
-	for($i=0;$i<3;++$i) {
-		echo "<TR><TD>" . $GLOBALS["messages"]["miscchmod"][$i] . "</TD>";
-		for($j=0;$j<3;++$j) {
-			echo "<TD>" . $pos[$j] . "&nbsp;<INPUT type=\"checkbox\"";
-			if($mode[(3*$i)+$j] != "-") echo " checked";
-			echo " name=\"r_" . $i.$j . "\" value=\"1\"></TD>";
-		}
-		echo "</TR>\n";
-	}
-
-	// Submit / Cancel
-	echo "</TABLE>\n<BR><TABLE>\n<TR><TD>\n<INPUT type=\"submit\" value=\"".$GLOBALS["messages"]["btnchange"];
-	echo "\"></TD>\n<TD><input type=\"button\" value=\"".$GLOBALS["messages"]["btncancel"];
-	echo "\" onClick=\"javascript:location='".make_link("list",$dir,NULL)."';\">\n</TD></TR></FORM></TABLE><BR>\n";
+	if($mode === false):
+		show_error($item . ': ' . gtext('Getting permissions failed.'));
+	endif;
+	$pos = 'rwx';
+	$s_item = get_rel_item($dir,$item);
+	if(strlen($s_item) > 50):
+		$s_item = '...' . substr($s_item,-47);
+	endif;
+	show_header(gtext('Change permissions') . ': /'.$s_item);
+//	form
+	echo '<br>',"\n";
+	echo '<form method="post" action="',make_link('chmod',$dir,$item),'">',"\n";
+	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo 	'<table width="175">',"\n",
+				'<input type="hidden" name="confirm" value="true">',"\n";
+//				print table with current perms & checkboxes to change
+				$humanreadable_chmod = [gtext('Owner'),gtext('Group'),gtext('Public')];
+				for($i = 0;$i < 3;++$i):
+					echo '<tr><td>',$humanreadable_chmod[$i],'</td>';
+					for($j = 0;$j < 3;++$j):
+						echo '<td>',$pos[$j],"&nbsp;",'<input type="checkbox"';
+						if($mode[(3 * $i) + $j] != '-'):
+							echo ' checked';
+						endif;
+						echo ' name="r_' . $i . $j . '" value="1"></td>';
+					endfor;
+					echo "</tr>\n";
+				endfor;
+	echo	'</table>',"\n";
+//			submit / Cancel
+	echo	'<br>',"\n";
+	echo	'<table>',
+				'<tr>',"\n",
+					'<td>',"\n",
+						'<input type="submit" value="',gtext('Change'),'">',"\n",
+					'</td>',"\n",
+					'<td>',"\n",
+						'<input type="button" value="',gtext('Cancel'),'" onClick="javascript:location=',"'",make_link('list',$dir,null),"'",'">',"\n",
+					'</td>',"\n",
+				'</tr>',
+			'</table>',"\n";
+	echo '</form>',"\n";
+	echo '<br>',"\n";
 }
