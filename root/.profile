@@ -14,7 +14,3 @@ export PAGER
 
 LANG=en_US.UTF-8
 export LANG
-LANGUAGE=en_US.UTF-8
-export LANGUAGE
-LC_ALL=en_US.UTF-8
-export LC_ALL
