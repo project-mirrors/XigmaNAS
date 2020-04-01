@@ -36,52 +36,47 @@
 */
 require_once("./_include/permissions.php");
 
-// delete files/dirs
-function del_items($dir)
-{
-	// check if user is allowed to delete files
-	if (!permissions_grant($dir, NULL, "delete"))
-		show_error($GLOBALS["error_msg"]["accessfunc"]);
-	
-	$cnt=count($GLOBALS['__POST']["selitems"]);
-	$err=false;
-	
-	// delete files & check for errors
-	for($i=0;$i<$cnt;++$i) {
-		$items[$i] = $GLOBALS['__POST']["selitems"][$i];
+//	delete files/dirs
+function del_items($dir) {
+//	check if user is allowed to delete files
+	if(!permissions_grant($dir,null,'delete')):
+		show_error(gtext('You are not allowed to use this function.'));
+	endif;
+	$cnt = count($GLOBALS['__POST']['selitems']);
+	$err = false;
+//	delete files & check for errors
+	for($i = 0;$i < $cnt;++$i):
+		$items[$i] = $GLOBALS['__POST']['selitems'][$i];
 		$abs = get_abs_item($dir,$items[$i]);
-	
-		if(!@file_exists(get_abs_item($dir, $items[$i]))) {
-			$error[$i]=$GLOBALS["error_msg"]["itemexist"];
-			$err=true;	continue;
-		}
-		if(!get_show_item($dir, $items[$i])) {
-			$error[$i]=$GLOBALS["error_msg"]["accessitem"];
-			$err=true;	continue;
-		}
-		
-		// Delete
-		$ok=remove(get_abs_item($dir,$items[$i]));
-		
-		if($ok===false) {
-			$error[$i]=$GLOBALS["error_msg"]["delitem"];
-			$err=true;	continue;
-		}
-		
-		$error[$i]=NULL;
-	}
-	
-	if($err) {			// there were errors
-		$err_msg="";
-		for($i=0;$i<$cnt;++$i) {
-			if($error[$i]==NULL) continue;
-			
-			$err_msg .= $items[$i]." : ".$error[$i]."<BR>\n";
-		}
+		if(!@file_exists(get_abs_item($dir,$items[$i]))):
+			$error[$i]=gtext("This item doesn't exist.");
+			$err=true;
+			continue;
+		endif;
+		if(!get_show_item($dir,$items[$i])):
+			$error[$i] = gtext('You are not allowed to access this item.');
+			$err=true;
+			continue;
+		endif;
+//		Delete
+		$ok = remove(get_abs_item($dir,$items[$i]));
+		if($ok === false):
+			$error[$i]= gtext('Deleting failed.');
+			$err = true;
+			continue;
+		endif;
+		$error[$i] = null;
+	endfor;
+	if($err):
+//		there were errors
+		$err_msg = '';
+		for($i = 0;$i < $cnt;++$i):
+			if($error[$i] == null):
+				continue;
+			endif;
+			$err_msg .= $items[$i] . ' : ' . $error[$i] . "<br>\n";
+		endfor;
 		show_error($err_msg);
-	}
-	
-	header("Location: ".make_link("list",$dir,NULL));
+	endif;
+	header('Location: '.make_link('list',$dir,null));
 }
-
-?>
