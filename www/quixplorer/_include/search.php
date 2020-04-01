@@ -42,7 +42,7 @@ function find_item($dir,$pat,&$list,$recur) {
 	while(($new_item=readdir($handle))!==false) {
 		if(!@file_exists(get_abs_item($dir, $new_item))) continue;
 		if(!get_show_item($dir, $new_item)) continue;
-		
+
 		// match?
 		if (preg_match('/'.preg_quote($pat,'/').'/i', $new_item)) {
 			$list[]=array($dir,$new_item);
@@ -78,17 +78,17 @@ function print_table($list) {
 
 		if(get_is_dir($dir,$item)) {
 			$img = "dir.gif";
-			$link = make_link("list",get_rel_item($dir, $item),NULL);
+			$link = make_link("list",get_rel_item($dir, $item),null);
 		} else {
 			$img = get_mime_type($dir, $item, "img");
-			$link = make_link("download",$dir,$item); 
+			$link = make_link("download",$dir,$item);
 		}
 
 		echo "<TR><TD>" . "<IMG border=\"0\" width=\"16\" height=\"16\" ";
 		echo "align=\"ABSMIDDLE\" src=\"_img/" . $img . "\" ALT=\"\">&nbsp;";
 		/*if($link!="")*/ echo"<A HREF=\"".$link."\" TARGET=\"".$target."\">";
 		//else echo "<A>";
-		echo htmlspecialchars($s_item)."</A></TD><TD><A HREF=\"" . make_link("list",$dir,NULL)."\"> /";
+		echo htmlspecialchars($s_item)."</A></TD><TD><A HREF=\"" . make_link("list",$dir,null)."\"> /";
 		echo htmlspecialchars($s_dir)."</A></TD></TR>\n";
 	}
 }
@@ -99,47 +99,46 @@ function search_items($dir) {
 		$subdir=(isset($GLOBALS['__POST']["subdir"]) && $GLOBALS['__POST']["subdir"]=="y");
 		$list=make_list($dir,$searchitem,$subdir);
 	} else {
-		$searchitem=NULL;
+		$searchitem=null;
 		$subdir=true;
 	}
 
-	$msg=$GLOBALS["messages"]["actsearchresults"];
-	if($searchitem!=NULL) $msg.=": (/" . get_rel_item($dir, $searchitem).")";
+	$msg=gtext('Seach results');
+	if($searchitem!=null) $msg.=": (/" . get_rel_item($dir, $searchitem).")";
 	show_header(htmlspecialchars($msg));
 
 	// Search Box
-	echo "<BR><BR><BR><CENTER><TABLE><FORM name=\"searchform\" action=\"".make_link("search",$dir,NULL);
+	echo "<BR><BR><BR><CENTER><TABLE><FORM name=\"searchform\" action=\"".make_link("search",$dir,null);
 	echo "\" method=\"post\">\n<TR><TD><INPUT name=\"searchitem\" type=\"text\" size=\"25\" value=\"";
-	echo htmlspecialchars($searchitem)."\"><INPUT type=\"submit\" value=\"".$GLOBALS["messages"]["btnsearch"];
-	echo "\">&nbsp;<input type=\"button\" value=\"".$GLOBALS["messages"]["btnclose"];
-	echo "\" onClick=\"javascript:location='".make_link("list",$dir,NULL);
+	echo htmlspecialchars($searchitem)."\"><INPUT type=\"submit\" value=\"". gtext('Search');
+	echo "\">&nbsp;<input type=\"button\" value=\"".gtext('Close');
+	echo "\" onClick=\"javascript:location='".make_link("list",$dir,null);
 	echo "';\"></TD></TR><TR><TD><INPUT type=\"checkbox\" name=\"subdir\" value=\"y\"";
-	echo ($subdir?" checked>":">").$GLOBALS["messages"]["miscsubdirs"]."</TD></TR></FORM></CENTER></TABLE>\n";
+	echo ($subdir?" checked>":">").gtext('Search subdirectories')."</TD></TR></FORM></CENTER></TABLE>\n";
 
 	// Results
-	if($searchitem!=NULL) {
+	if($searchitem!=null) {
 		echo "<CENTER><TABLE width=\"95%\"><TR><TD colspan=\"2\"><HR></TD></TR>\n";
 		if(count($list)>0) {
 			// Table Header
-			echo "<TR>\n<TD WIDTH=\"42%\" class=\"header\"><B>".$GLOBALS["messages"]["nameheader"];
-			echo "</B></TD>\n<TD WIDTH=\"58%\" class=\"header\"><B>".$GLOBALS["messages"]["pathheader"];
+			echo "<TR>\n<TD WIDTH=\"42%\" class=\"header\"><B>".gtext('Name');
+			echo "</B></TD>\n<TD WIDTH=\"58%\" class=\"header\"><B>".gtext('Path');
 			echo "</B></TD></TR>\n<TR><TD colspan=\"2\"><HR></TD></TR></CENTER>\n";
 
 			// make & print table of found items
 			print_table($list);
 
 			echo "<CENTER><TR><TD colspan=\"2\"><HR></TD></TR>\n<TR><TD class=\"header\">".count($list)." ";
-			echo $GLOBALS["messages"]["miscitems"].".</TD><TD class=\"header\"></TD></TR></CENTER>\n";
+			echo gtext('Item(s)').".</TD><TD class=\"header\"></TD></TR></CENTER>\n";
 		} else {
-			echo "<CENTER><TR><TD>".$GLOBALS["messages"]["miscnoresult"]."</TD></TR></CENTER>";
+			echo "<CENTER><TR><TD>".gtext('No results available.')."</TD></TR></CENTER>";
 		}
 		echo "<TR><TD colspan=\"2\"><HR></TD></TR></TABLE>\n";
 	}
-?><script language="JavaScript1.2" type="text/javascript">
-<!--
+?><script>
+//<![CDATA[
 	if(document.searchform) document.searchform.searchitem.focus();
-// -->
-</script><?php
+//]]>
+</script>
+<?php
 }
-
-?>
