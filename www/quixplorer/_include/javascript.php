@@ -35,9 +35,9 @@
 	of XigmaNAS®, either expressed or implied.
 */
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
-	// Checkboxes
+//	Checkboxes
 	function Toggle(e) {
 		if(e.checked) {
 			Highlight(e);
@@ -47,12 +47,10 @@
 			document.selform.toggleAllC.checked = false;
 		}
 	}
-
 	function ToggleAll(e) {
 		if(e.checked) CheckAll();
 		else ClearAll();
 	}
-	
 	function CheckAll() {
 		var ml = document.selform;
 		var len = ml.elements.length;
@@ -65,7 +63,6 @@
 		}
 		ml.toggleAllC.checked = true;
 	}
-
 	function ClearAll() {
 		var ml = document.selform;
 		var len = ml.elements.length;
@@ -87,7 +84,6 @@
 		}
 		return true;
 	}
-
 	function NumChecked() {
 		ml = document.selform;
 		len = ml.elements.length;
@@ -97,9 +93,7 @@
 		}
 		return num;
 	}
-
-	// Row highlight
-
+//	Row highlight
 	function Highlight(e) {
 		var r = null;
 		if(e.parentNode && e.parentNode.parentNode) {
@@ -111,7 +105,6 @@
 			r.className = "rowdatasel";
 		}
 	}
-
 	function UnHighlight(e) {
 		var r = null;
 		if(e.parentNode && e.parentNode.parentNode) {
@@ -123,60 +116,53 @@
 			r.className = "rowdata";
 		}
 	}
-
-	// Copy / Move / Delete
-
+//	Copy / Move / Delete
 	function Copy() {
 		if(NumChecked()==0) {
-			alert("<?php echo $GLOBALS["error_msg"]["miscselitems"]; ?>");
+			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
 			return;
 		}
 		document.selform.do_action.value = "copy";
 		document.selform.submit();
 	}
-
 	function Move() {
 		if(NumChecked()==0) {
-			alert("<?php echo $GLOBALS["error_msg"]["miscselitems"]; ?>");
+			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
 			return;
 		}
 		document.selform.do_action.value = "move";
 		document.selform.submit();
 	}
-
 	function Delete() {
-		num=NumChecked();
-		if(num==0) {
-			alert("<?php echo $GLOBALS["error_msg"]["miscselitems"]; ?>");
+		num = NumChecked();
+		if(num == 0) {
+			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
 			return;
 		}
-		if(confirm("<?php echo $GLOBALS["error_msg"]["miscdelitems"]; ?>")) {
+		if(confirm("<?php echo gtext('Are you sure you want to delete selected item(s)?'); ?>")) {
 			document.selform.do_action.value = "delete";
 			document.selform.submit();
 		}
 	}
-
 	function Archive() {
-		if(NumChecked()==0) {
-			alert("<?php echo $GLOBALS["error_msg"]["miscselitems"]; ?>");
+		if(NumChecked() == 0) {
+			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
 			return;
 		}
 		document.selform.do_action.value = "arch";
 		document.selform.submit();
 	}
-
 	function DownloadSelected() {
-		if(NumChecked()==0) {
-			alert("<?php echo $GLOBALS["error_msg"]["miscselitems"]; ?>");
+		if(NumChecked() == 0) {
+			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
 			return;
 		}
 		document.selform.do_action.value = "download_selected";
 		document.selform.submit();
 	}
-
 	function Unzip() {
-		if (NumChecked()==0) {
-			alert("<?php echo $GLOBALS["error_msg"]["miscselitems"]; ?>");
+		if(NumChecked() == 0) {
+			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
 			return;
 		}
 		document.selform.do_action.value = "unzip";
