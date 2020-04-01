@@ -65,11 +65,11 @@ function _download_items($dir,$items) {
 //	check if user selected any items to download
 	_debug("count items: '$items[0]'");
 	if(count($items) == 0):
-		show_error($GLOBALS['error_msg']['miscselitems']);
+		show_error(gtext("You haven't selected any item(s)."));
 	endif;
 //	check if user has permissions to download this file
 	if(! _is_download_allowed($dir,$items)):
-		show_error( $GLOBALS['error_msg']['accessitem']);
+		show_error(gtext('You are not allowed to access this item.'));
 	endif;
 //	if we have exactly one file and this is a real file, we directly download
 	if(count($items) == 1 && get_is_file($dir,$items[0])):
