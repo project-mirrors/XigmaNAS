@@ -41,24 +41,24 @@ require_once "_include/str.php";
 //------------------------------------------------------------------------------
 // THESE ARE NUMEROUS HELPER FUNCTIONS FOR THE OTHER INCLUDE FILES
 //------------------------------------------------------------------------------
-function make_link($_action,$_dir,$_item = NULL,$_order = NULL,$_srt = NULL,$_lang = NULL) {
+function make_link($_action,$_dir,$_item = null,$_order = null,$_srt = null,$_lang = null) {
 // make link to next page
 	$a_query = [];
-	if($_action == '' || $_action == NULL):
+	if($_action == '' || $_action == null):
 		$_action = 'list';
 	endif;
 	$a_query['action'] = $_action;
 	if($_dir == ''):
-		$_dir = NULL;
+		$_dir = null;
 	endif;
 	$a_query['dir'] = $_dir;
 	if($_item == ''):
-		$_item = NULL;
+		$_item = null;
 	endif;
 	$a_query['item'] = $_item;
-	$a_query['order'] = $_order ?? $GLOBALS['order'] ?? NULL;
-	$a_query['srt'] = $_srt ?? $GLOBALS['srt'] ?? NULL;
-	$a_query['lang'] = $_lang ?? $GLOBALS['lang'] ?? NULL;
+	$a_query['order'] = $_order ?? $GLOBALS['order'] ?? null;
+	$a_query['srt'] = $_srt ?? $GLOBALS['srt'] ?? null;
+	$a_query['lang'] = $_lang ?? $GLOBALS['lang'] ?? null;
 	$link = sprintf('%s?%s',$GLOBALS['script_name'],http_build_query($a_query,'','&',PHP_QUERY_RFC3986));
 	return $link;
 }
