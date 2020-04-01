@@ -78,7 +78,7 @@ function print_table($list) {
 
 		if(get_is_dir($dir,$item)) {
 			$img = "dir.gif";
-			$link = make_link("list",get_rel_item($dir, $item),NULL);
+			$link = make_link("list",get_rel_item($dir, $item),null);
 		} else {
 			$img = get_mime_type($dir, $item, "img");
 			$link = make_link("download",$dir,$item);
@@ -88,7 +88,7 @@ function print_table($list) {
 		echo "align=\"ABSMIDDLE\" src=\"_img/" . $img . "\" ALT=\"\">&nbsp;";
 		/*if($link!="")*/ echo"<A HREF=\"".$link."\" TARGET=\"".$target."\">";
 		//else echo "<A>";
-		echo htmlspecialchars($s_item)."</A></TD><TD><A HREF=\"" . make_link("list",$dir,NULL)."\"> /";
+		echo htmlspecialchars($s_item)."</A></TD><TD><A HREF=\"" . make_link("list",$dir,null)."\"> /";
 		echo htmlspecialchars($s_dir)."</A></TD></TR>\n";
 	}
 }
@@ -99,25 +99,25 @@ function search_items($dir) {
 		$subdir=(isset($GLOBALS['__POST']["subdir"]) && $GLOBALS['__POST']["subdir"]=="y");
 		$list=make_list($dir,$searchitem,$subdir);
 	} else {
-		$searchitem=NULL;
+		$searchitem=null;
 		$subdir=true;
 	}
 
 	$msg=gtext('Seach results');
-	if($searchitem!=NULL) $msg.=": (/" . get_rel_item($dir, $searchitem).")";
+	if($searchitem!=null) $msg.=": (/" . get_rel_item($dir, $searchitem).")";
 	show_header(htmlspecialchars($msg));
 
 	// Search Box
-	echo "<BR><BR><BR><CENTER><TABLE><FORM name=\"searchform\" action=\"".make_link("search",$dir,NULL);
+	echo "<BR><BR><BR><CENTER><TABLE><FORM name=\"searchform\" action=\"".make_link("search",$dir,null);
 	echo "\" method=\"post\">\n<TR><TD><INPUT name=\"searchitem\" type=\"text\" size=\"25\" value=\"";
 	echo htmlspecialchars($searchitem)."\"><INPUT type=\"submit\" value=\"". gtext('Search');
 	echo "\">&nbsp;<input type=\"button\" value=\"".gtext('Close');
-	echo "\" onClick=\"javascript:location='".make_link("list",$dir,NULL);
+	echo "\" onClick=\"javascript:location='".make_link("list",$dir,null);
 	echo "';\"></TD></TR><TR><TD><INPUT type=\"checkbox\" name=\"subdir\" value=\"y\"";
 	echo ($subdir?" checked>":">").gtext('Search subdirectories')."</TD></TR></FORM></CENTER></TABLE>\n";
 
 	// Results
-	if($searchitem!=NULL) {
+	if($searchitem!=null) {
 		echo "<CENTER><TABLE width=\"95%\"><TR><TD colspan=\"2\"><HR></TD></TR>\n";
 		if(count($list)>0) {
 			// Table Header
@@ -135,11 +135,10 @@ function search_items($dir) {
 		}
 		echo "<TR><TD colspan=\"2\"><HR></TD></TR></TABLE>\n";
 	}
-?><script language="JavaScript1.2" type="text/javascript">
-<!--
+?><script>
+//<![CDATA[
 	if(document.searchform) document.searchform.searchitem.focus();
-// -->
-</script><?php
+//]]>
+</script>
+<?php
 }
-
-?>
