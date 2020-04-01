@@ -165,10 +165,6 @@ function parse_file_size($size) {
 function get_file_date($dir, $item) {
 	return @filemtime(get_abs_item($dir, $item));
 }
-// parsed file date
-function parse_file_date($date) {
-	return @date($GLOBALS["date_fmt"],$date);
-}
 // is this file an image?
 function get_is_image($dir, $item) {
 	if(!get_is_file($dir, $item)) {
