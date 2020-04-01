@@ -114,8 +114,8 @@ function unzip_item($dir) {
 	global $home_dir;
 
 	// copy and move are only allowed if the user may read and change files
-	if(!permissions_grant_all($dir,NULL,['read','create'])):
-		show_error($GLOBALS['error_msg']['accessfunc']);
+	if(!permissions_grant_all($dir,null,['read','create'])):
+		show_error(gtext('You are not allowed to use this function.'));
 	endif;
 	// Vars
 	$new_dir = $GLOBALS['__POST']['new_dir'] ?? $dir;
@@ -133,12 +133,12 @@ function unzip_item($dir) {
 	$zip_name = sprintf('%s/%s/%s',$home_dir,$dir,$s_item);
 	// Get New Location & Names
 	if(!isset($GLOBALS['__POST']['confirm']) || $GLOBALS['__POST']['confirm'] != 'true'):
-		show_header($GLOBALS['messages']['actunzipitem']);
+		show_header(gtext('Extracting'));
 
 		// JavaScript for Form:
 		// Select new target directory / execute action
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 function NewDir(newdir) {
 	document.selform.new_dir.value = newdir;
@@ -159,7 +159,8 @@ function Execute() {
 		if(strlen($s_ndir) > 40):
 			$s_ndir = '...' . substr($s_ndir,-37);
 		endif;
-		echo '<form name="selform" method="post" action="',make_link('post',$dir,NULL),'">';
+		echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">';
+		echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 		echo	'<table class="area_data_selection">',"\n",
 					'<colgroup>',"\n",
 						'<col style="width:5%">',"\n",
@@ -173,7 +174,7 @@ function Execute() {
 								'<img style="border:0px;vertical-align:middle" src="',$GLOBALS['baricons']['unzipto'],'" alt="">',"\n",
 							'</th>',
 							'<th class="lhebl">',"\n",
-								'&nbsp;',htmlspecialchars(sprintf('%s: /%s',$GLOBALS['messages']['actdir'],$s_ndir)),
+								'&nbsp;',htmlspecialchars(sprintf('%s: /%s',gtext('Directory'),$s_ndir)),
 							'</th>',"\n",
 						'</tr>',"\n",
 					'</thead>',"\n",
@@ -211,8 +212,8 @@ function Execute() {
 				'</table>';
 		// Submit & Cancel
 		echo	'<div id="submit">',
-					'<input type="submit" class="formbtn" value="',$GLOBALS['messages']['btnunzip'],'" onclick="javascript:Execute();">',
-					'<input type="button" class="formbtn" value="',$GLOBALS['messages']['btncancel'],'" onClick="javascript:location=\'',make_link('list',$dir,NULL),'\';">',
+					'<input type="submit" class="formbtn" value="', gtext('Unzip'),'" onclick="javascript:Execute();">',
+					'<input type="button" class="formbtn" value="',gtext('Cancel'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';">',
 					'<input type="hidden" name="do_action" value="',$GLOBALS['action'],'">',"\n",
 					'<input type="hidden" name="confirm" value="false">',"\n",
 					'<input type="hidden" name="new_dir" value="',htmlspecialchars($new_dir),'">',"\n",
@@ -223,13 +224,13 @@ function Execute() {
 	// DO COPY/MOVE
 	// ALL OK?
 	if(!@file_exists(get_abs_dir($new_dir))):
-		show_error(htmlspecialchars($new_dir) . ': ' . $GLOBALS['error_msg']['targetexist']);
+		show_error(htmlspecialchars($new_dir) . ': ' . gtext("The target directory doesn't exist."));
 	endif;
 	if(!get_show_item($new_dir,'')):
-		show_error(htmlspecialchars($new_dir) . ': ' . $GLOBALS['error_msg']['accesstarget']);
+		show_error(htmlspecialchars($new_dir) . ': ' . gtext('You are not allowed to access the target directory.'));
 	endif;
 	if(!down_home(get_abs_dir($new_dir))):
-		show_error(htmlspecialchars($new_dir) . ': ' . $GLOBALS['error_msg']['targetabovehome']);
+		show_error(htmlspecialchars($new_dir) . ': ' . gtext('The target directory may not be above the home directory.'));
 	endif;
 	// copy / move files
 	$err = false;
@@ -247,10 +248,10 @@ function Execute() {
 		extArchive::extract($zip_name,$dir_extract);
 	endif;
 	if($res == false):
-		$error = $GLOBALS['error_msg']['unzip'];
+		$error = gtext('Failed to unzip archive.');
 		$err = true;
 	else:
-		$error = NULL;
+		$error = null;
 	endif;
 	if($err): // there were errors
 		$err_msg = '';
@@ -259,6 +260,5 @@ function Execute() {
 		endif;
 		show_error($err_msg);
 	endif;
-	header('Location: ' . make_link('list',$dir,NULL));
+	header('Location: ' . make_link('list',$dir,null));
 }
-?>
