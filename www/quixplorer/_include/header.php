@@ -35,19 +35,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-/*	XigmaNAS® CODE */
-require_once 'guiconfig.inc';
-require_once 'session.inc';
 
-Session::start();
-//	Check if session is valid
-if (!Session::isLogin()) {
-	header('Location: /login.php');
-	exit;
-}
-/*	QUIXPLORER CODE */
 //	header for html-page
-function show_header($title, $additional_header_content = null) {
+function show_header($title) {
 	global $g;
 	global $config;
     global $site_name;
@@ -58,67 +48,68 @@ function show_header($title, $additional_header_content = null) {
 	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 	header("Cache-Control: no-cache, must-revalidate");
 	header("Pragma: no-cache");
-	header("Content-Type: text/html; charset=".$GLOBALS["charset"]);
+	header("Content-Type: text/html; charset=".'UTF-8');
 /*	XigmaNAS® & QUIXPLORER CODE*/
 //	Html & Page Headers
-	echo '<!DOCTYPE html>',PHP_EOL;
-	echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="',system_get_language_code(),'" lang="',system_get_language_code(),'" dir="',$GLOBALS['text_dir'],'">',PHP_EOL;
-	echo '<head>',PHP_EOL;
-	echo '<meta charset="',$GLOBALS["charset"],'">',PHP_EOL;
-	echo '<meta name="format-detection" content="telephone=no">',PHP_EOL;
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">',PHP_EOL;
-	echo '<title>',genhtmltitle($pgtitle ?? []),'</title>',PHP_EOL;
-	echo '<link href="./_style/style.css.php" rel="stylesheet" type="text/css">',PHP_EOL;
-	echo '<link href="../css/gui.css.php" rel="stylesheet" type="text/css">',PHP_EOL;
-	echo '<link href="../css/navbar.css.php" rel="stylesheet" type="text/css">',PHP_EOL;
-	echo '<link href="../css/tabs.css.php" rel="stylesheet" type="text/css">',PHP_EOL;
-	echo '<script type="text/javascript" src="../js/jquery.min.js"></script>',PHP_EOL;
-	echo '<script type="text/javascript" src="../js/gui.js"></script>',PHP_EOL;
-	echo '<script type="text/javascript" src="../js/spinner.js"></script>',PHP_EOL;
-	echo '<script type="text/javascript" src="../js/spin.min.js"></script>',PHP_EOL;
+	echo '<!DOCTYPE html>',"\n";
+	echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="',$_SESSION['userlang'],'" lang="',$_SESSION['userlang'],'">',"\n";
+	echo '<head>',"\n";
+	echo '<meta charset="UTF-8">',"\n";
+	echo '<meta name="format-detection" content="telephone=no">',"\n";
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">',"\n";
+	echo '<title>',genhtmltitle($pgtitle ?? []),'</title>',"\n";
+	echo '<link href="./_style/style.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<link href="../css/gui.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<link href="../css/navbar.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<link href="../css/tabs.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<script src="../js/jquery.min.js"></script>',"\n";
+	echo '<script src="../js/gui.js"></script>',"\n";
+	echo '<script src="../js/spinner.js"></script>',"\n";
+	echo '<script src="../js/spin.min.js"></script>',"\n";
 	if(isset($pglocalheader) && !empty($pglocalheader)):
 		if(is_array($pglocalheader)):
 			foreach($pglocalheader as $pglocalheaderv):
-		 		echo $pglocalheaderv,PHP_EOL;
+		 		echo $pglocalheaderv,"\n";
 			endforeach;
 		else:
-			echo $pglocalheader,PHP_EOL;
+			echo $pglocalheader,"\n";
 		endif;
 	endif;
-	echo '</head>',PHP_EOL;
+	echo '</head>',"\n";
 //	XigmaNAS® Header
-	echo '<body id="main">',PHP_EOL;
-	echo '<div id="spinner_main"></div>',PHP_EOL;
-	echo '<div id="spinner_overlay" style="display: none; background-color: white; position: fixed; left:0; top:0; height:100%; width:100%; opacity: 0.25;"></div>',PHP_EOL;
+	echo '<body id="main">',"\n";
+	echo '<div id="spinner_main"></div>',"\n";
+	echo '<div id="spinner_overlay" style="display: none; background-color: white; position: fixed; left:0; top:0; height:100%; width:100%; opacity: 0.25;"></div>',"\n";
 	if(!$_SESSION['g']['shrinkpageheader']):
-		echo '<header id="g4l">',PHP_EOL;
-		echo '<div id="header">',PHP_EOL;
-		echo '<div id="headerlogo">',PHP_EOL;
-		echo '<a title="www.',get_product_url(),'" href="https://www.',get_product_url(),'" target="_blank"><img src="../images/header_logo.png" alt="logo"/></a>',PHP_EOL;
-		echo '</div>',PHP_EOL;
-		echo '<div id="headerrlogo">',PHP_EOL;
-		echo '</div>',PHP_EOL;
-		echo '</div>',PHP_EOL;
-		echo '</header>',PHP_EOL;
+		echo '<header id="g4l">',"\n";
+		echo '<div id="header">',"\n";
+		echo '<div id="headerlogo">',"\n";
+		echo '<a title="www.',get_product_url(),'" href="https://www.',get_product_url(),'" target="_blank"><img src="../images/header_logo.png" alt="logo"/></a>',"\n";
+		echo '</div>',"\n";
+		echo '<div id="headerrlogo">',"\n";
+		echo '</div>',"\n";
+		echo '</div>',"\n";
+		echo '</header>',"\n";
 	endif;
-	echo '<header id="g4h">',PHP_EOL;
+	echo '<header id="g4h">',"\n";
 	display_headermenu();
-	echo '<div id="gapheader"></div>',PHP_EOL;
-	echo '</header>',PHP_EOL;
-	echo '<main id="g4m">',PHP_EOL;
+	echo '<div id="gapheader"></div>',"\n";
+	echo '</header>',"\n";
+	echo '<main id="g4m">',"\n";
 	echo '<div id="pagecontent">';
 //	QuiXplorer Header
 	if(!isset($pgtitle_omit) || !$pgtitle_omit):
-		echo '<p class="pgtitle">',gentitle($pgtitle),'</p>',PHP_EOL;
+		echo '<p class="pgtitle">',gentitle($pgtitle),'</p>',"\n";
 	endif;
-	echo '<table id="area_data"><tbody><tr><td id="area_data_frame">',PHP_EOL,
-			'<table class="area_data_settings"><tbody><tr>',PHP_EOL,
+	echo '<table id="area_data"><tbody><tr><td id="area_data_frame">',"\n",
+			'<table class="area_data_settings"><tbody><tr>',"\n",
 				'<td class="lhetop" style="text-align:left">';
-					if($GLOBALS['require_login'] && isset($GLOBALS['__SESSION']['s_user'])):
-						echo '[',$GLOBALS['__SESSION']['s_user'],'] ';
+					$uname = Session::getUserName();
+					if($uname !== false):
+						echo '[', htmlspecialchars($uname),'] ';
 					endif;
 					echo $title;
-	echo		'</td>',PHP_EOL,
-				'<td class="lhetop" style="text-align:right">Powered by QuiXplorer</td>',PHP_EOL,
-			'</tr></tbody></table>',PHP_EOL;
+	echo		'</td>',"\n",
+				'<td class="lhetop" style="text-align:right">Powered by QuiXplorer</td>',"\n",
+			'</tr></tbody></table>',"\n";
 }
