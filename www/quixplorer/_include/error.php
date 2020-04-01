@@ -34,8 +34,8 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once "_include/header.php";
-require_once "_include/debug.php";
+require_once '_include/header.php';
+require_once '_include/debug.php';
 
 /**
     show error-message and terminate
