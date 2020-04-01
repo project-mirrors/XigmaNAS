@@ -314,4 +314,3 @@ function Execute() {
 	endif;
 	header('Location: ' . make_link('list',$dir,null));
 }
-?>
