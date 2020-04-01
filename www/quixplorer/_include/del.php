@@ -39,7 +39,7 @@ require_once("./_include/permissions.php");
 //	delete files/dirs
 function del_items($dir) {
 //	check if user is allowed to delete files
-	if(!permissions_grant($dir, NULL,'delete')):
+	if(!permissions_grant($dir,null,'delete')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
 	$cnt = count($GLOBALS['__POST']['selitems']);
@@ -71,7 +71,7 @@ function del_items($dir) {
 //		there were errors
 		$err_msg = '';
 		for($i = 0;$i < $cnt;++$i):
-			if($error[$i] == NULL):
+			if($error[$i] == null):
 				continue;
 			endif;
 			$err_msg .= $items[$i] . ' : ' . $error[$i] . "<br>\n";
