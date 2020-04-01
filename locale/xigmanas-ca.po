@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
 "PO-Revision-Date: 2020-03-27 15:11+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:12+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: ca_ES\n"
 
@@ -124,9 +124,6 @@ msgstr "%s%d %s ja està utilitzada per %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' esborre totes les dades estadístiques des de els gràfics!"
-
-msgid "(Change if needed)"
-msgstr "(Canviar si cal)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -508,6 +505,9 @@ msgstr "Nivell acustic"
 
 msgid "Action"
 msgstr "Action"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activate"
 msgstr "Activar"
@@ -1160,8 +1160,14 @@ msgstr "Abril"
 msgid "Archive"
 msgstr "Arxiu"
 
+msgid "Archive item(s)"
+msgstr ""
+
 msgid "Archive mode."
 msgstr "Modo arxiu"
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr ""
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Esteu segur que voleu reiniciar el servidor?"
@@ -1690,6 +1696,9 @@ msgstr "Dispositiu CD/DVD"
 msgid "CGI Script"
 msgstr "Script CGI"
 
+msgid "CHANGE PERMISSIONS"
+msgstr ""
+
 msgid "CHANGED"
 msgstr "Canviat"
 
@@ -1716,6 +1725,9 @@ msgstr "Usuaris CHAP"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP-Mutu"
+
+msgid "COPY"
+msgstr ""
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (ciríl·lic)"
@@ -1874,6 +1886,9 @@ msgstr "Canvia permisos"
 msgid "Change below file"
 msgstr "Canvia arxiu a continuació"
 
+msgid "Change permissions"
+msgstr ""
+
 msgid "Change the IP address of your computer"
 msgstr "Canviar l'adreça IP del ordinador"
 
@@ -1966,6 +1981,9 @@ msgstr "Clonar"
 
 msgid "Clone Configuration"
 msgstr "Configuració clon"
+
+msgid "Close"
+msgstr ""
 
 msgid "Collecting initial data, please wait..."
 msgstr "Recullin dades d'inici, si us plau esperi..."
@@ -2288,6 +2306,19 @@ msgstr "Autocomprovació de trasnferencia"
 msgid "Copies"
 msgstr "Còpies"
 
+msgid "Copy"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr ""
+
+msgid "Copying failed."
+msgstr ""
+
 msgid "Core"
 msgstr "Nucli"
 
@@ -2454,6 +2485,9 @@ msgstr ""
 "Compta el nombre d'errors PHY SATA. Aquest valor inclou tots els recomptes "
 "d'errors de dades PHY, ex FIS CRC, errors de codi, els errors de disparitat, "
 "CRC comandament FIS. Valor desapareix al apagar el sistema."
+
+msgid "Create"
+msgstr ""
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Crear embolcall 4KB (dispositiu nop)"
@@ -2634,6 +2668,9 @@ msgstr "DEBUG2: registra informació detallada de depuració"
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG2: registra tota l'informació de depuració"
 
+msgid "DELETE"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2677,6 +2714,12 @@ msgstr ""
 "Els clients de DOS SMB assumeixen que el servidor té el mateix joc de "
 "caràcters que ells. Aquesta opció especifica amb quin caràcters Samba ha de "
 "parlar amb els clients de DOS."
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED FILES"
+msgstr ""
 
 msgid "DTS Audio File"
 msgstr "Fitxer d'àudio DTS"
@@ -3064,6 +3107,9 @@ msgstr "Suprimint metadades GEOM"
 msgid "Deleting MBR and partition table"
 msgstr "Suprimint el MBR i la taula de particions"
 
+msgid "Deleting failed."
+msgstr ""
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3139,9 +3185,6 @@ msgstr "Detectat"
 
 msgid "Detected Disks"
 msgstr "Discs seleccionats"
-
-msgid "Detected Language:"
-msgstr "Idioma Detectat:"
 
 msgid "Detected Remote Shares"
 msgstr "Comparticións remotes detectades"
@@ -3250,6 +3293,9 @@ msgstr "Directori %s no existeix!"
 
 msgid "Directory Mask"
 msgstr "Màscara directori"
+
+msgid "Directory creation failed."
+msgstr ""
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "Directori d'arxius incomplets. Un camp buit indica deshabilitat."
@@ -4176,11 +4222,17 @@ msgstr "IP dinàmica (DHCP) no pot ser utilitzat pels recursos HAST."
 msgid "EA Support"
 msgstr "Suport EA"
 
+msgid "EDIT"
+msgstr ""
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "Partició EFI/GPT es pot utilitzar només amb UFS."
 
 msgid "ERROR - log errors"
 msgstr "ERROR - Error de Log"
+
+msgid "ERROR(S)"
+msgstr ""
 
 msgid "ERROR:"
 msgstr "ERROR:"
@@ -4331,6 +4383,9 @@ msgstr "Editar instantanea automatica"
 
 msgid "Edit extent"
 msgstr "Editar extensió"
+
+msgid "Edit file"
+msgstr ""
 
 msgid "Edit iSCSI Initiator"
 msgstr "Editar el iniciadors iSCSI"
@@ -5170,6 +5225,9 @@ msgstr ""
 msgid "Extra options to rsync (usually empty)."
 msgstr "Opcions addicionals per rsync (generalment buit)."
 
+msgid "Extracting"
+msgstr ""
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -5248,6 +5306,9 @@ msgstr "No s'ha pogut enviar l'informe d'estat."
 msgid "Failed to send test email."
 msgstr "No s'ha pogut enviar correu electrònic de prova."
 
+msgid "Failed to unzip archive."
+msgstr ""
+
 msgid "Failed to upload file."
 msgstr "Falla al carregar el fitxer."
 
@@ -5321,8 +5382,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "File Transfer Protocol"
 
+msgid "File creation failed."
+msgstr ""
+
 msgid "File not found"
 msgstr "Arxiu no trobat"
+
+msgid "File opening failed."
+msgstr ""
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5335,6 +5402,9 @@ msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr ""
 "Ruta d'arxius (per exemple, /mnt/sharename/extent /% s) s'utilitzarà com a "
 "extensió."
+
+msgid "File saving failed."
+msgstr ""
 
 msgid "File size"
 msgstr "Tamany d'arxiu"
@@ -5521,6 +5591,9 @@ msgstr ""
 "Nom de fitxer completament qualificat d’un fitxer CSS amb pestanyes "
 "personalitzades."
 
+msgid "Function unavailable."
+msgstr ""
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5605,6 +5678,9 @@ msgstr "Obtenir informació de destinació"
 msgid "Get a list of available drivers"
 msgstr "Obtè una llista de controladors disponibles"
 
+msgid "Getting permissions failed."
+msgstr ""
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5630,6 +5706,9 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Identificador numèric global que s'utilitzarà per a un LUN determinat dins "
 "del CTL."
+
+msgid "Go Back"
+msgstr ""
 
 msgid "Grant access to the file manager."
 msgstr "Permetre access al gestor d'arxius"
@@ -5762,6 +5841,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "Temps d'espera del disc dur"
+
+msgid "HOME"
+msgstr ""
 
 msgid "HOT SPARE"
 msgstr "Recanvi en calent"
@@ -6505,6 +6587,9 @@ msgstr ""
 "Es recomana canviar el nom d'usuari i la contrasenya per defecte per accedir "
 "a la interfície gràfica d'usuari Web, escriviu el nom aquí."
 
+msgid "Item(s)"
+msgstr ""
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -7054,6 +7139,9 @@ msgstr "Frase del dia"
 msgid "MOV File"
 msgstr "Arxiu MOV"
 
+msgid "MOVE"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "MOGUT A"
 
@@ -7471,11 +7559,24 @@ msgstr "Muntant..."
 msgid "Mounts"
 msgstr "Muntatges"
 
+msgid "Move"
+msgstr ""
+
 msgid "Move down"
 msgstr "Mou avall"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Move item(s)"
+msgstr ""
+
 msgid "Move up"
 msgstr "Mou amunt"
+
+msgid "Moving failed."
+msgstr ""
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Llicència pública Mozilla versió 2.0 (MPLv2)"
@@ -7912,6 +8013,9 @@ msgstr "No s’ha trobat cap port."
 
 msgid "No records found."
 msgstr "No s'ha trobat cap registre."
+
+msgid "No results available."
+msgstr ""
 
 msgid "No snapshot information available."
 msgstr "No hi ha cap informació instantània disponible."
@@ -8500,6 +8604,12 @@ msgstr "Ruta de dades permanent de Samba (per exemple,%s)."
 msgid "Permission"
 msgstr "Permís"
 
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Permit Root Login"
 msgstr "Permís l'accés del Root"
 
@@ -8903,6 +9013,9 @@ msgstr "Tipus de subministrament"
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr ""
+
 msgid "Public Key"
 msgstr "Clau pública"
 
@@ -9059,6 +9172,9 @@ msgstr "Arxiu RAR"
 
 msgid "RAW info"
 msgstr "Informació RAW"
+
+msgid "RELOAD"
+msgstr ""
 
 msgid "RPM"
 msgstr "RPM"
@@ -9532,6 +9648,9 @@ msgstr "Interval del anàlisi"
 msgid "Reservation"
 msgstr "Reserva"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset Graphs"
 msgstr "Restablir gràfics"
 
@@ -9726,6 +9845,9 @@ msgstr "S.M.A.R.T. registre"
 msgid "SCSI Name"
 msgstr "Nom SCSI"
 
+msgid "SEARCH"
+msgstr ""
+
 msgid "SHA Password"
 msgstr "Contrasenya SHA"
 
@@ -9913,6 +10035,9 @@ msgstr "Script ha estat carregat."
 msgid "Scrub a pool"
 msgstr "Fregui piscina"
 
+msgid "Seach results"
+msgstr ""
+
 msgid "Search"
 msgstr "Cerca"
 
@@ -9921,6 +10046,9 @@ msgstr "Cercar esdeveniment"
 
 msgid "Search for and import all disks found"
 msgstr "Cercar i importar tots els discos que es troben"
+
+msgid "Search subdirectories"
+msgstr ""
 
 msgid "Second"
 msgstr "Segon"
@@ -10094,6 +10222,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Seleccionar l'idioma de la interfície d'usuari"
+
+msgid "Select the language of the user portal for this user."
+msgstr ""
 
 msgid "Select the location closest to you."
 msgstr "Seleccioneu la ubicació més propera a vostè."
@@ -12184,6 +12315,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "El rang de l'etiqueta no és vàlid."
 
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
 msgid "The target name already exists."
 msgstr "El nom de destinació ja existeix."
 
@@ -12480,6 +12620,9 @@ msgstr ""
 msgid "This extent is used."
 msgstr "Aquesta extensió s'està utilitzant."
 
+msgid "This file doesn't exist."
+msgstr ""
+
 msgid "This is a nickname and is for information only."
 msgstr "Aquest és un sobrenom i només es pot obtenir informació."
 
@@ -12496,6 +12639,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Aquesta no és una adreça IP vàlida."
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
 
 msgid "This month"
 msgstr "Aquest mes"
@@ -13235,6 +13384,12 @@ msgstr "Descriptors UNMAP màxims"
 msgid "UNMAP Maximum LBA"
 msgstr "LBA màxim UNMAP"
 
+msgid "UNZIP"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
 msgid "UPS"
 msgstr "SAI"
 
@@ -13340,6 +13495,12 @@ msgstr "UUID"
 msgid "Umask"
 msgstr "Umask"
 
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
 msgid "Unavailable"
 msgstr "No disponible"
 
@@ -13421,6 +13582,9 @@ msgstr "S'està desmuntant..."
 
 msgid "Unrestricted"
 msgstr "Sense restriccions"
+
+msgid "Unzip"
+msgstr ""
 
 msgid "Up"
 msgstr "Amunt"
@@ -13654,6 +13818,9 @@ msgstr "El compte d'usuari està protegit"
 
 msgid "User account is unlocked"
 msgstr "El compte d'usuari està desbloquejat"
+
+msgid "User database does not exist or is not readable."
+msgstr ""
 
 msgid "User portal permission."
 msgstr "Permís del portal d’usuaris."
@@ -14074,6 +14241,9 @@ msgstr "Directori de treball"
 msgid "Workgroup"
 msgstr "Grup de treball"
 
+msgid "Wrap text:"
+msgstr ""
+
 msgid "Write"
 msgstr "Escriure"
 
@@ -14114,6 +14284,21 @@ msgstr "Sí: habilita el suport de Tiem Machine per a aquesta acció."
 msgid "Yesterday"
 msgstr "Ahir"
 
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "You are not allowed to use this function."
+msgstr ""
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -14149,6 +14334,9 @@ msgstr "Ha de reiniciar el sistema perquè els canvis tinguin efecte."
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "Ha de seleccionar almenys un element per  '%s '."
+
+msgid "You haven't selected any item(s)."
+msgstr ""
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -14203,6 +14391,9 @@ msgstr "Ha de inicialitzar les dades abans d'activar."
 
 msgid "You must select at least one authentication method."
 msgstr "Heu de seleccionar almenys un mètode d'autenticació."
+
+msgid "You must supply a name."
+msgstr ""
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

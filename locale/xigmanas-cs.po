@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
 "PO-Revision-Date: 2019-08-08 13:31+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:12+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -118,9 +118,6 @@ msgstr "%s%d %s je už používáno %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "„%s“ smaže veškeré statistické údaje z grafů!"
-
-msgid "(Change if needed)"
-msgstr "(změňte v případě potřeby)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -511,6 +508,9 @@ msgstr "Hlučnost"
 
 msgid "Action"
 msgstr "Akce"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activate"
 msgstr "Aktivovat"
@@ -1158,8 +1158,14 @@ msgstr "duben"
 msgid "Archive"
 msgstr "Archivace"
 
+msgid "Archive item(s)"
+msgstr ""
+
 msgid "Archive mode."
 msgstr "Režim archivace."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr ""
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Opravdu chcete server restartovat?"
@@ -1675,6 +1681,9 @@ msgstr "Jednotka CD/DVD/BD"
 msgid "CGI Script"
 msgstr ""
 
+msgid "CHANGE PERMISSIONS"
+msgstr ""
+
 msgid "CHANGED"
 msgstr "ZMĚNĚNO"
 
@@ -1701,6 +1710,9 @@ msgstr "CHAP uživatelé"
 
 msgid "CHAP-Mutual"
 msgstr "Vzájemný CHAP"
+
+msgid "COPY"
+msgstr ""
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (cyrilice)"
@@ -1862,6 +1874,9 @@ msgstr ""
 msgid "Change below file"
 msgstr "Změnit níže uvedený soubor"
 
+msgid "Change permissions"
+msgstr ""
+
 msgid "Change the IP address of your computer"
 msgstr "Změňte IP adresu počítače, ze kterého přistupujete"
 
@@ -1955,6 +1970,9 @@ msgstr "Klonovat"
 
 msgid "Clone Configuration"
 msgstr "Klonovat nastavení"
+
+msgid "Close"
+msgstr ""
 
 msgid "Collecting initial data, please wait..."
 msgstr "Shromažďování údajů – čekejte…"
@@ -2272,6 +2290,19 @@ msgstr "Test případného poškození při přepravě"
 msgid "Copies"
 msgstr "Kopie"
 
+msgid "Copy"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr ""
+
+msgid "Copying failed."
+msgstr ""
+
 msgid "Core"
 msgstr "Jádro"
 
@@ -2430,6 +2461,9 @@ msgstr ""
 "Počítá chyby na fyzickém SATA rozhraní. Tato hodnota zahrnuje veškeré chyby "
 "– FIS CRC, chyby kódu, chyby parity, CRC příkazu FIS. Hodnoty přetrvávají "
 "pouze do okamžiku vypnutí stroje."
+
+msgid "Create"
+msgstr ""
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Vytvořit 4KB mezivrstvu (nop zařízení)."
@@ -2612,6 +2646,9 @@ msgstr ""
 msgid "DEBUG3 - log all debugging information"
 msgstr ""
 
+msgid "DELETE"
+msgstr ""
+
 msgid "DHCP"
 msgstr "Automaticky (DHCP)"
 
@@ -2654,6 +2691,12 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED FILES"
 msgstr ""
 
 msgid "DTS Audio File"
@@ -3042,6 +3085,9 @@ msgstr "Mazání GEOM metadat"
 msgid "Deleting MBR and partition table"
 msgstr "Mazání MBR oblasti a tabulky oddílů"
 
+msgid "Deleting failed."
+msgstr ""
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3116,9 +3162,6 @@ msgstr "Rozpoznáno"
 
 msgid "Detected Disks"
 msgstr "Zjištěné jednotky datového úložiště"
-
-msgid "Detected Language:"
-msgstr "Zjištěný jazyk:"
 
 msgid "Detected Remote Shares"
 msgstr "Zjištěná sdílení na protějšku"
@@ -3227,6 +3270,9 @@ msgstr "Složka %s neexistuje!"
 
 msgid "Directory Mask"
 msgstr "Maska složky"
+
+msgid "Directory creation failed."
+msgstr ""
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "Složka pro neúplné soubory. Nevyplněno znamená nepoužívat."
@@ -4154,10 +4200,16 @@ msgstr "Dynamická IP adresa (DHCP) nemůže být použita pro HAST prostředky.
 msgid "EA Support"
 msgstr "Podpora EA"
 
+msgid "EDIT"
+msgstr ""
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT oddíl může být použit pouze s UFS."
 
 msgid "ERROR - log errors"
+msgstr ""
+
+msgid "ERROR(S)"
 msgstr ""
 
 msgid "ERROR:"
@@ -4309,6 +4361,9 @@ msgstr "Upravit automatické zachycování stavu"
 
 msgid "Edit extent"
 msgstr "Upravit úložnou jednotku"
+
+msgid "Edit file"
+msgstr ""
 
 msgid "Edit iSCSI Initiator"
 msgstr "Upravit iSCSI iniciátor"
@@ -5124,6 +5179,9 @@ msgstr "Další předvolby které předat přes rpc pomocí transmission-remote.
 msgid "Extra options to rsync (usually empty)."
 msgstr "Další předvolby pro Rsync (obvykle se nevyplňuje)."
 
+msgid "Extracting"
+msgstr ""
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -5201,6 +5259,9 @@ msgstr "Odeslání hlášení o stavu se nezdařilo."
 msgid "Failed to send test email."
 msgstr "Odeslání zkušebního e-mailu se nezdařilo."
 
+msgid "Failed to unzip archive."
+msgstr ""
+
 msgid "Failed to upload file."
 msgstr "Nezdařilo se nahrát soubor."
 
@@ -5274,8 +5335,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "File Transfer Protocol (protokol pro přenos souborů)"
 
+msgid "File creation failed."
+msgstr ""
+
 msgid "File not found"
 msgstr "Soubor nebyl nalezen"
+
+msgid "File opening failed."
+msgstr ""
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5288,6 +5355,9 @@ msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr ""
 "Popis umístění souboru (např. /mnt/nazev_sdileni/ulozna_jednotka/%s), "
 "použitého jako úložná jednotka."
+
+msgid "File saving failed."
+msgstr ""
 
 msgid "File size"
 msgstr "Velikost souboru"
@@ -5461,6 +5531,9 @@ msgstr ""
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 
+msgid "Function unavailable."
+msgstr ""
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5545,6 +5618,9 @@ msgstr "Získat informace o cíli"
 msgid "Get a list of available drivers"
 msgstr "Získat seznam dostupných ovladačů"
 
+msgid "Getting permissions failed."
+msgstr ""
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5567,6 +5643,9 @@ msgstr "Globální nastavení"
 
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Globální číselný identifikátor který použít pro dané LUN uvnitř CTL."
+
+msgid "Go Back"
+msgstr ""
 
 msgid "Grant access to the file manager."
 msgstr ""
@@ -5696,6 +5775,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "prodleva přechodu HDD do pohotovostního režimu"
+
+msgid "HOME"
+msgstr ""
 
 msgid "HOT SPARE"
 msgstr "PHTVST. NÁHR."
@@ -6436,6 +6518,9 @@ msgstr ""
 "Je doporučeno změnit výchozí uživatelské jméno a heslo pro přístup do "
 "webového rozhraní. Uživatelské jméno vložíte zde."
 
+msgid "Item(s)"
+msgstr ""
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -6996,6 +7081,9 @@ msgstr "Zpráva dne (MOTD)"
 msgid "MOV File"
 msgstr ""
 
+msgid "MOVE"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "PŘESUNUTO DO"
 
@@ -7416,11 +7504,24 @@ msgstr "Připojování…"
 msgid "Mounts"
 msgstr "Připojení"
 
+msgid "Move"
+msgstr ""
+
 msgid "Move down"
 msgstr "Přesunout dolů"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Move item(s)"
+msgstr ""
+
 msgid "Move up"
 msgstr "Přesunout nahoru"
+
+msgid "Moving failed."
+msgstr ""
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Public License Version 2.0 (MPLv2)"
@@ -7855,6 +7956,9 @@ msgstr "Nenalezeny žádné porty."
 
 msgid "No records found."
 msgstr "Nebyly nalezeny žádné záznamy."
+
+msgid "No results available."
+msgstr ""
 
 msgid "No snapshot information available."
 msgstr "Nejsou k dispozici žádné informace o zachyceném stavu."
@@ -8437,6 +8541,12 @@ msgstr "Umístění trvalých dat samba (např. %s)."
 msgid "Permission"
 msgstr "Oprávnění"
 
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Permit Root Login"
 msgstr "Umožnit přihlášení správce systému (root)"
 
@@ -8837,6 +8947,9 @@ msgstr "Typ poskytování"
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr ""
+
 msgid "Public Key"
 msgstr ""
 
@@ -8998,6 +9111,9 @@ msgstr ""
 
 msgid "RAW info"
 msgstr "Informace v nezpracovaném stavu"
+
+msgid "RELOAD"
+msgstr ""
 
 msgid "RPM"
 msgstr "Otáčky média"
@@ -9468,6 +9584,9 @@ msgstr "Interval opakování zjišťování"
 msgid "Reservation"
 msgstr "Vyhrazení"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset Graphs"
 msgstr "Resetovat grafy"
 
@@ -9660,6 +9779,9 @@ msgstr "Záznam událostí SMART diagnostiky"
 msgid "SCSI Name"
 msgstr "SCSI název"
 
+msgid "SEARCH"
+msgstr ""
+
 msgid "SHA Password"
 msgstr ""
 
@@ -9847,6 +9969,9 @@ msgstr "Skript by nahrán na server."
 msgid "Scrub a pool"
 msgstr "Zkontrolovat fond úložišť na chyby"
 
+msgid "Seach results"
+msgstr ""
+
 msgid "Search"
 msgstr "Vyhledat"
 
@@ -9855,6 +9980,9 @@ msgstr "Vyhledat událost"
 
 msgid "Search for and import all disks found"
 msgstr "Vyhledat a importovat veškeré nalezené jednotky datových úložišť"
+
+msgid "Search subdirectories"
+msgstr ""
 
 msgid "Second"
 msgstr "Sekunda"
@@ -10019,6 +10147,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Vyberte jazyk textů webového rozhraní."
+
+msgid "Select the language of the user portal for this user."
+msgstr ""
 
 msgid "Select the location closest to you."
 msgstr "Vyberte umístění, kterému jste nejblíže."
@@ -12088,6 +12219,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "Rozsah značek není platný."
 
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
 msgid "The target name already exists."
 msgstr "Tento název je už použit pro jiný z cílů."
 
@@ -12374,6 +12514,9 @@ msgstr "Tato zpráva byla odeslán pro ověření správného nastavení e-mailu
 msgid "This extent is used."
 msgstr "Tato úložná jednotka je používána."
 
+msgid "This file doesn't exist."
+msgstr ""
+
 msgid "This is a nickname and is for information only."
 msgstr "Toto je přezdívka a slouží pouze pro informaci."
 
@@ -12390,6 +12533,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Toto není platná IP adresa."
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
 
 msgid "This month"
 msgstr ""
@@ -13113,6 +13262,12 @@ msgstr "UNMAP nejvýše popisovačů"
 msgid "UNMAP Maximum LBA"
 msgstr "UNMAP nejvýše LBA"
 
+msgid "UNZIP"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
 msgid "UPS"
 msgstr "Zdroj nepřeruš. napájení (UPS)"
 
@@ -13218,6 +13373,12 @@ msgstr "Nikde se neopakující identifikátor (UUID)"
 msgid "Umask"
 msgstr "Umask"
 
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
 msgid "Unavailable"
 msgstr "Nedostupné"
 
@@ -13301,6 +13462,9 @@ msgstr "Odpojování…"
 
 msgid "Unrestricted"
 msgstr "Neomezeno"
+
+msgid "Unzip"
+msgstr ""
 
 msgid "Up"
 msgstr "Funkční"
@@ -13524,6 +13688,9 @@ msgstr "Uživatelský účet je chráněný"
 
 msgid "User account is unlocked"
 msgstr "Uživatelský účet je odemčený"
+
+msgid "User database does not exist or is not readable."
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -13941,6 +14108,9 @@ msgstr "Pracovní složka"
 msgid "Workgroup"
 msgstr "Pracovní skupina"
 
+msgid "Wrap text:"
+msgstr ""
+
 msgid "Write"
 msgstr "Zápis"
 
@@ -13981,6 +14151,21 @@ msgstr "Ano – zapíná pro toto sdílení podporu Time Machine"
 msgid "Yesterday"
 msgstr ""
 
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "You are not allowed to use this function."
+msgstr ""
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -14016,6 +14201,9 @@ msgstr "Změny se projeví až po restartu serveru."
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "Pro „%s“ je třeba vybrat alespoň jednu položku."
+
+msgid "You haven't selected any item(s)."
+msgstr ""
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -14072,6 +14260,9 @@ msgstr "Nejprve je třeba inicializovat data a až pak toto půjde zapnout."
 
 msgid "You must select at least one authentication method."
 msgstr "Je třeba vybrat alespoň jeden ze způsobů ověřování."
+
+msgid "You must supply a name."
+msgstr ""
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

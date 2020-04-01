@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
-"PO-Revision-Date: 2020-03-28 05:35+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
+"PO-Revision-Date: 2020-03-31 15:52+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -120,9 +120,6 @@ msgstr "%s%d %s används redan av %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' tar bort all statistisk data för graferna!"
-
-msgid "(Change if needed)"
-msgstr "(Ändra vid behov)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -491,6 +488,9 @@ msgstr "Akustisk nivå"
 
 msgid "Action"
 msgstr "Åtgärd"
+
+msgid "Actions"
+msgstr "Åtgärder"
 
 msgid "Activate"
 msgstr "Aktivera"
@@ -1134,8 +1134,14 @@ msgstr "april"
 msgid "Archive"
 msgstr "Arkivera"
 
+msgid "Archive item(s)"
+msgstr "Arkivobjekt"
+
 msgid "Archive mode."
 msgstr "Arkiveringsläge."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Är du säker på att du vill ta bort valda objekt?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Är du säker att du vill starta om servern?"
@@ -1649,6 +1655,9 @@ msgstr "CD/DVD spelare"
 msgid "CGI Script"
 msgstr "CGI Skript"
 
+msgid "CHANGE PERMISSIONS"
+msgstr "ÄNDRA RÄTTIGHETER"
+
 msgid "CHANGED"
 msgstr "ÄNDRAD"
 
@@ -1675,6 +1684,9 @@ msgstr "CHAP Användare"
 
 msgid "CHAP-Mutual"
 msgstr "Gemensam CHAP"
+
+msgid "COPY"
+msgstr "KOPIERA"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Kyrilliskt)"
@@ -1830,6 +1842,9 @@ msgstr "Ändra rättigheter"
 msgid "Change below file"
 msgstr "Ändra filen nedan"
 
+msgid "Change permissions"
+msgstr "Ändra rättigheter"
+
 msgid "Change the IP address of your computer"
 msgstr "Byt IP-adress på din dator"
 
@@ -1920,6 +1935,9 @@ msgstr "Klona"
 
 msgid "Clone Configuration"
 msgstr "Klona konfiguationen"
+
+msgid "Close"
+msgstr "Stäng"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Samlar in initial data, var god vänta..."
@@ -2234,6 +2252,19 @@ msgstr "Överföringssjälvtest"
 msgid "Copies"
 msgstr "Kopior"
 
+msgid "Copy"
+msgstr "Kopiera"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Kopiera från %s till %s "
+
+msgid "Copy item(s)"
+msgstr "Kopiera objekt"
+
+msgid "Copying failed."
+msgstr "Kopiering misslyckades"
+
 msgid "Core"
 msgstr "Kärna"
 
@@ -2381,6 +2412,9 @@ msgstr ""
 "Räkna antal SATA PHY fel. Värdet inkluderar alla PHY fel, t.ex. data FIS CRC "
 ", kodfel, paritetsfel, kommando FIS crc. Värdet nollställs när systemet "
 "stängs av."
+
+msgid "Create"
+msgstr "Skapa"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Skapa 4KB wrapper (nop device)."
@@ -2560,6 +2594,9 @@ msgstr "DEBUG2 - logga detaljerad avlusningsinformation"
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - logga all avlusningsinformation"
 
+msgid "DELETE"
+msgstr "TA BORT"
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2602,6 +2639,12 @@ msgid ""
 msgstr ""
 "DOS SMB klienter antar att servern har samma teckensnitt som de har. Detta "
 "alternativ anger vilket teckensnitt Samba skall prata med DOS klienter med."
+
+msgid "DOWNLOAD"
+msgstr "LADDA NER"
+
+msgid "DOWNLOAD SELECTED FILES"
+msgstr "LADDA NER VALDA FILER"
 
 msgid "DTS Audio File"
 msgstr "DTS Ljudfil"
@@ -2989,6 +3032,9 @@ msgstr "Ta bort GEOM metadata"
 msgid "Deleting MBR and partition table"
 msgstr "Raderar MBR och partitionstabell"
 
+msgid "Deleting failed."
+msgstr "Bortagningen misslyckades."
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3061,9 +3107,6 @@ msgstr "Identifierad"
 
 msgid "Detected Disks"
 msgstr "Upptäckta diskar"
-
-msgid "Detected Language:"
-msgstr "Detekterat språk:"
 
 msgid "Detected Remote Shares"
 msgstr "Upptäckta fjärrutdelningar"
@@ -3172,6 +3215,9 @@ msgstr "Katalog %s finns inte!"
 
 msgid "Directory Mask"
 msgstr "Katalogmask"
+
+msgid "Directory creation failed."
+msgstr "Skapande av katalog misslyckades."
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -4084,11 +4130,17 @@ msgstr "Dynamisk IP (DHCP) kan inte användas för HAST resurser."
 msgid "EA Support"
 msgstr "EA Support"
 
+msgid "EDIT"
+msgstr "ÄNDRA"
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT partition kan enbart användas med UFS."
 
 msgid "ERROR - log errors"
 msgstr "ERROR - logga fel"
+
+msgid "ERROR(S)"
+msgstr "FEL"
 
 msgid "ERROR:"
 msgstr "FEL:"
@@ -4239,6 +4291,9 @@ msgstr "Redigera automatisk avbildning"
 
 msgid "Edit extent"
 msgstr "Redigera utsträckning"
+
+msgid "Edit file"
+msgstr "Redigera fil"
 
 msgid "Edit iSCSI Initiator"
 msgstr "Ändra iSCSI initierare"
@@ -5064,6 +5119,9 @@ msgstr "Extra alternativ att skicka över rpc genom \"transmission-remote\"."
 msgid "Extra options to rsync (usually empty)."
 msgstr "Extra val till rsync (vantligtvis tom)."
 
+msgid "Extracting"
+msgstr "Extraherar"
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -5141,6 +5199,9 @@ msgstr "Misslyckades att skicka statusrapport."
 msgid "Failed to send test email."
 msgstr "Misslyckades att skicka test e-post."
 
+msgid "Failed to unzip archive."
+msgstr "Misslyckade med att packa upp arkivet."
+
 msgid "Failed to upload file."
 msgstr "Misslyckades att ladda upp fil."
 
@@ -5214,8 +5275,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "Fil Överförings Protokoll (FTP)"
 
+msgid "File creation failed."
+msgstr "Skapande av en fil misslyckades."
+
 msgid "File not found"
 msgstr "Filen hittades inte"
+
+msgid "File opening failed."
+msgstr "Filöppning misslyckades."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5225,6 +5292,9 @@ msgstr ""
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "Sökvägen (t ex. /mnt/sharename/extent/%s) används som område."
+
+msgid "File saving failed."
+msgstr "Misslyckades att spara fil."
 
 msgid "File size"
 msgstr "Filstorlek"
@@ -5398,6 +5468,9 @@ msgstr "Komplett filnamn för en användar navigationsmeny CSS fil."
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "Komplett filnamn för en användar tabb CSS fil."
 
+msgid "Function unavailable."
+msgstr "Funktion inte tillgänglig."
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5482,6 +5555,9 @@ msgstr "Skaffa Information om Målet"
 msgid "Get a list of available drivers"
 msgstr "Visa en lista över tillgängliga drivrutiner"
 
+msgid "Getting permissions failed."
+msgstr "Misslyckades att få rättigheter."
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5505,6 +5581,9 @@ msgstr "Globala inställningar"
 
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Global numerisk identitet att använda för en given LUN i CTL."
+
+msgid "Go Back"
+msgstr "Gå tillbaka"
 
 msgid "Grant access to the file manager."
 msgstr "Ge åtkomst till filhanteraren"
@@ -5634,6 +5713,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "HDD standbytid"
+
+msgid "HOME"
+msgstr "HEM"
 
 msgid "HOT SPARE"
 msgstr "AKTIV RESERV"
@@ -6361,6 +6443,9 @@ msgstr ""
 "Det är rekommenderat att byta standardanvändarnamnet och dess lösenord för "
 "åtkomst till Web-gränssnittet, mata in användarnamnet här."
 
+msgid "Item(s)"
+msgstr "Objekt"
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -6890,6 +6975,9 @@ msgstr "Dagens meddelande"
 msgid "MOV File"
 msgstr "MOV Fil"
 
+msgid "MOVE"
+msgstr "FLYTTA"
+
 msgid "MOVED TO"
 msgstr "FLYTTAD TILL"
 
@@ -7301,11 +7389,24 @@ msgstr "Monterar..."
 msgid "Mounts"
 msgstr "Monteringspunkter"
 
+msgid "Move"
+msgstr "Flytta"
+
 msgid "Move down"
 msgstr "Flytta ner"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Flytta från %s till %s "
+
+msgid "Move item(s)"
+msgstr "Flytta objekt"
+
 msgid "Move up"
 msgstr "Flytta upp"
+
+msgid "Moving failed."
+msgstr "Flyttning misslyckades."
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Publik Licens Version 2.0 (MPLv2)"
@@ -7735,6 +7836,9 @@ msgstr "Inga portar hittades."
 
 msgid "No records found."
 msgstr "Inga poster hittades."
+
+msgid "No results available."
+msgstr "Inga resultat tillgängliga."
 
 msgid "No snapshot information available."
 msgstr "Ingen information om ögonblicksbilder tillgänglig."
@@ -8313,6 +8417,12 @@ msgstr "Permanent samba datasökväg (ex. %s)."
 msgid "Permission"
 msgstr "Rättighet"
 
+msgid "Permission-change failed."
+msgstr "Rättighetsändring misslyckades."
+
+msgid "Permissions"
+msgstr "Rättigheter"
+
 msgid "Permit Root Login"
 msgstr "Tillåt rootinloggning"
 
@@ -8712,6 +8822,9 @@ msgstr "Tillhandahållen typ"
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr "Publik"
+
 msgid "Public Key"
 msgstr "Publik nyckel"
 
@@ -8866,6 +8979,9 @@ msgstr "RAR Arkiv"
 
 msgid "RAW info"
 msgstr "RAW information"
+
+msgid "RELOAD"
+msgstr "LADDA OM"
 
 msgid "RPM"
 msgstr "RPM"
@@ -9336,6 +9452,9 @@ msgstr "Intervall för omskanning"
 msgid "Reservation"
 msgstr "Reservation"
 
+msgid "Reset"
+msgstr "Återställ"
+
 msgid "Reset Graphs"
 msgstr "Återställ Grafer"
 
@@ -9527,6 +9646,9 @@ msgstr "S.M.A.R.T.-logg"
 msgid "SCSI Name"
 msgstr "SCSI Namn"
 
+msgid "SEARCH"
+msgstr "SÖKNING"
+
 msgid "SHA Password"
 msgstr "SHA Lösenord"
 
@@ -9713,6 +9835,9 @@ msgstr "Skript har laddats upp."
 msgid "Scrub a pool"
 msgstr "Rensa en pool"
 
+msgid "Seach results"
+msgstr "Sökresultat"
+
 msgid "Search"
 msgstr "Sök"
 
@@ -9721,6 +9846,9 @@ msgstr "Sök händelse"
 
 msgid "Search for and import all disks found"
 msgstr "Sök efter och importera alla diskar som hittas"
+
+msgid "Search subdirectories"
+msgstr "Sök i underkataloger"
 
 msgid "Second"
 msgstr "Sekund"
@@ -9881,6 +10009,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Välj språk för webgränssnittet."
+
+msgid "Select the language of the user portal for this user."
+msgstr "Välj språk för användarportalen för denna användare."
 
 msgid "Select the location closest to you."
 msgstr "Välj den plats som är närmast dig."
@@ -11918,6 +12049,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "Etikettområdet är ogiltigt."
 
+msgid "The target directory doesn't exist."
+msgstr "Målkatalogen finns inte."
+
+msgid "The target directory may not be above the home directory."
+msgstr "Målkatalogen kanske inte ligger under hemkatalogen."
+
+msgid "The target item already exists."
+msgstr "Målobjektet finns redan."
+
 msgid "The target name already exists."
 msgstr "Målnamnet finns redan."
 
@@ -12211,6 +12351,9 @@ msgstr "Detta meddelande har sänts för att validera din e-postinställning."
 msgid "This extent is used."
 msgstr "Detta område är använt."
 
+msgid "This file doesn't exist."
+msgstr "Denna fil finns inte."
+
 msgid "This is a nickname and is for information only."
 msgstr "Detta är ett smeknamn och är endast för information."
 
@@ -12226,6 +12369,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Detta är inte en giltig IP adress."
+
+msgid "This item already exists."
+msgstr "Detta objekt finns redan."
+
+msgid "This item doesn't exist."
+msgstr "Detta objekt finns inte."
 
 msgid "This month"
 msgstr "Denna månad"
@@ -12947,6 +13096,12 @@ msgstr "UNMAP Maximalt antal benämningar"
 msgid "UNMAP Maximum LBA"
 msgstr "UNMAP Maximum LBA"
 
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "UP"
+msgstr "UPP"
+
 msgid "UPS"
 msgstr "UPS"
 
@@ -13052,6 +13207,12 @@ msgstr "UUID"
 msgid "Umask"
 msgstr "Ta fram"
 
+msgid "Unable to open directory."
+msgstr "Kan inte öppna katalog."
+
+msgid "Unable to read directory."
+msgstr "Kan inte läsa katalog."
+
 msgid "Unavailable"
 msgstr "Otillgänglig"
 
@@ -13133,6 +13294,9 @@ msgstr "Avmonterar..."
 
 msgid "Unrestricted"
 msgstr "Obegränsad"
+
+msgid "Unzip"
+msgstr "Packa upp"
 
 msgid "Up"
 msgstr "Uppåt"
@@ -13357,6 +13521,9 @@ msgstr "Användarkontot är skyddat"
 
 msgid "User account is unlocked"
 msgstr "Användarkontot är olåst"
+
+msgid "User database does not exist or is not readable."
+msgstr "Användardatabasen finns inte eller är inte läsbar."
 
 msgid "User portal permission."
 msgstr "Användarportalrättigheter"
@@ -13769,6 +13936,9 @@ msgstr "Arbetskatalog"
 msgid "Workgroup"
 msgstr "Arbetsgrupp"
 
+msgid "Wrap text:"
+msgstr "Bryt text:"
+
 msgid "Write"
 msgstr "Skriv"
 
@@ -13809,6 +13979,21 @@ msgstr "Ja - Aktiverar Time Machine stöd för denna utdelning."
 msgid "Yesterday"
 msgstr "Igår"
 
+msgid "You are not allowed to access the target directory."
+msgstr "Du har inte rättigheter att komma åt målkatalogen."
+
+msgid "You are not allowed to access this directory."
+msgstr "Du har inte rättigheter att komma åt denna katalog."
+
+msgid "You are not allowed to access this file."
+msgstr "Du har inte rättigheter att komma åt denna fil."
+
+msgid "You are not allowed to access this item."
+msgstr "Du har inte rättigheter att komma åt detta objekt."
+
+msgid "You are not allowed to use this function."
+msgstr "Du har inte rättigheter att använda denna funktion."
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -13844,6 +14029,9 @@ msgstr "Du måste starta om systemet innan ändringarna slår igenom."
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "Du måste välja minst ett objekt för '%s'."
+
+msgid "You haven't selected any item(s)."
+msgstr "Du har inte valt några objekt."
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -13897,6 +14085,9 @@ msgstr "Du måste initiera datat innan aktivering."
 
 msgid "You must select at least one authentication method."
 msgstr "Du måste välja åtminstone en autentiseringsmetod."
+
+msgid "You must supply a name."
+msgstr "Du måste ange ett namn."
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

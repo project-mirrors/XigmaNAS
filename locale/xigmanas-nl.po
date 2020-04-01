@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
-"PO-Revision-Date: 2020-03-27 16:35+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
+"PO-Revision-Date: 2020-04-01 09:49+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -120,9 +120,6 @@ msgstr "%s%d %s is reeds gebruikt door %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' verwijdert alle statistische gegevens uit de grafieken!"
-
-msgid "(Change if needed)"
-msgstr "(Wijzig indien nodig)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -515,6 +512,9 @@ msgstr "Geluidsniveau"
 
 msgid "Action"
 msgstr "Actie"
+
+msgid "Actions"
+msgstr "Acties"
 
 msgid "Activate"
 msgstr "Activeren"
@@ -1164,8 +1164,14 @@ msgstr "April"
 msgid "Archive"
 msgstr "Archief"
 
+msgid "Archive item(s)"
+msgstr "Archief item (s)"
+
 msgid "Archive mode."
 msgstr "Archief mode."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Weet u zeker dat u geselecteerde item(s) wilt verwijderen?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Weet u zeker dat u de server wilt herstarten?"
@@ -1696,6 +1702,9 @@ msgstr "CD/DVD drive"
 msgid "CGI Script"
 msgstr "CGI Script"
 
+msgid "CHANGE PERMISSIONS"
+msgstr "RECHTEN WIJZIGEN"
+
 msgid "CHANGED"
 msgstr "VERANDERD"
 
@@ -1722,6 +1731,9 @@ msgstr "CHAP Gebruikers"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP-Mutual"
+
+msgid "COPY"
+msgstr "KOPIE"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cyrillisch)"
@@ -1881,6 +1893,9 @@ msgstr "Toestemming Wijzigen"
 msgid "Change below file"
 msgstr "Verander het bestand hieronder"
 
+msgid "Change permissions"
+msgstr "Rechten wijzigen"
+
 msgid "Change the IP address of your computer"
 msgstr "Verander het IP-adres van uw computer"
 
@@ -1975,6 +1990,9 @@ msgstr "Kloon"
 
 msgid "Clone Configuration"
 msgstr "Kloon Configuratie"
+
+msgid "Close"
+msgstr "Sluiten"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Bezig met het ophalen van data, Even geduld a.u.b."
@@ -2299,6 +2317,19 @@ msgstr "Na-transport Zelf-Test"
 msgid "Copies"
 msgstr "Kopieën"
 
+msgid "Copy"
+msgstr "Kopiëren"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Kopieer van /%s naar /%s "
+
+msgid "Copy item(s)"
+msgstr "Kopieer Item(s)"
+
+msgid "Copying failed."
+msgstr "Kopiëren mislukt."
+
 msgid "Core"
 msgstr "Core"
 
@@ -2463,6 +2494,9 @@ msgstr ""
 "Telt het aantal SATA PHY fouten. Deze waarde omvat alle PHY fouten, ex data "
 "FIS CRC , code fouten, ongelijkheid fouten, opdracht FIS crc. Waarde wordt "
 "gewist bij het afsluiten systeem."
+
+msgid "Create"
+msgstr "Nieuw"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Creëer 4KB wrapper (nop schijf)."
@@ -2642,6 +2676,9 @@ msgstr "DEBUG2 - log gedetailleerde foutopsporing informatie"
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - log alle foutopsporing informatie"
 
+msgid "DELETE"
+msgstr "VERWIJDEREN"
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2685,6 +2722,12 @@ msgstr ""
 "DOS SMB cliënten gaan ervan uit dat de server dezelfde tekenset heeft als "
 "hun zelf. Deze optie geeft aan welke tekenset Samba moet spreken met DOS "
 "cliënten."
+
+msgid "DOWNLOAD"
+msgstr "DOWNLOAD"
+
+msgid "DOWNLOAD SELECTED FILES"
+msgstr "DOWNLOAD GESELECTEERDE BESTANDEN"
 
 msgid "DTS Audio File"
 msgstr "DTS Audio Bestand"
@@ -3073,6 +3116,9 @@ msgstr "GEOM metadata Verwijderen"
 msgid "Deleting MBR and partition table"
 msgstr "Verwijderen van de MBR en partitie tabel"
 
+msgid "Deleting failed."
+msgstr "Verwijderen mislukt."
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3147,9 +3193,6 @@ msgstr "Gedetecteerd"
 
 msgid "Detected Disks"
 msgstr "Gedetecteerde Schijven"
-
-msgid "Detected Language:"
-msgstr "Gedetecteerde Taal:"
 
 msgid "Detected Remote Shares"
 msgstr "Gedetecteerde Externe Delingen"
@@ -3258,6 +3301,9 @@ msgstr "Map %s bestaat niet!"
 
 msgid "Directory Mask"
 msgstr "Mapmachtiging"
+
+msgid "Directory creation failed."
+msgstr "Folder maken mislukt."
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -4187,11 +4233,17 @@ msgstr ""
 msgid "EA Support"
 msgstr "EA Ondersteuning"
 
+msgid "EDIT"
+msgstr "BEWERKEN"
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT partitie kan alleen gebruikt worden met UFS."
 
 msgid "ERROR - log errors"
 msgstr "ERROR - log fouten"
+
+msgid "ERROR(S)"
+msgstr "FOUT(EN)"
 
 msgid "ERROR:"
 msgstr "FOUT:"
@@ -4342,6 +4394,9 @@ msgstr "Bewerk automatisch snapshot"
 
 msgid "Edit extent"
 msgstr "Extent bewerken"
+
+msgid "Edit file"
+msgstr "Bewerk bestand"
 
 msgid "Edit iSCSI Initiator"
 msgstr "iSCSI Initiator Bewerken"
@@ -5182,6 +5237,9 @@ msgstr ""
 msgid "Extra options to rsync (usually empty)."
 msgstr "Extra opties voor de rsync (normaal leeg)."
 
+msgid "Extracting"
+msgstr "Uitpakken"
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -5259,6 +5317,9 @@ msgstr "Mislukt om het statusrapport te verzenden."
 msgid "Failed to send test email."
 msgstr "Mislukt om de test-email te verzenden."
 
+msgid "Failed to unzip archive."
+msgstr "Kan archief niet uitpakken."
+
 msgid "Failed to upload file."
 msgstr "Mislukt om de file te uploaden."
 
@@ -5332,8 +5393,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "Bestandsoverdracht Protocol (FTP)"
 
+msgid "File creation failed."
+msgstr "Bestand  maken mislukt."
+
 msgid "File not found"
 msgstr "Bestand niet gevonden"
+
+msgid "File opening failed."
+msgstr "Bestand openen mislukt."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5344,6 +5411,9 @@ msgstr ""
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "Bestandslocatie (bijv. /mnt/deelnaam/extent/%s) gebruikt als omvang."
+
+msgid "File saving failed."
+msgstr "Bestand openen mislukt."
 
 msgid "File size"
 msgstr "bestands grootte"
@@ -5527,6 +5597,9 @@ msgstr ""
 "Volledig gekwalificeerde bestandsnaam van een aangepaste tabbladen CSS "
 "bestand."
 
+msgid "Function unavailable."
+msgstr "Functie niet beschikbaar."
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5611,6 +5684,9 @@ msgstr "Opvragen Doel Info"
 msgid "Get a list of available drivers"
 msgstr "Lijst met beschikbare stuurprogramma's"
 
+msgid "Getting permissions failed."
+msgstr "Rechten ophalen mislukt."
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5636,6 +5712,9 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Globaal numerieke identificatie te gebruiken voor een bepaalde LUN binnen "
 "CTL."
+
+msgid "Go Back"
+msgstr "Ga Terug"
 
 msgid "Grant access to the file manager."
 msgstr "Verleen toegang tot de bestandsbeheer."
@@ -5768,6 +5847,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "HDD standby tijd"
+
+msgid "HOME"
+msgstr "THUIS"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
@@ -6505,6 +6587,9 @@ msgstr ""
 "Het is aangeraden om de standaard gebruikersnaam en wachtwoord voor toegang "
 "tot de WebGUI te wijzigen, vul hier de gebruikersnaam in."
 
+msgid "Item(s)"
+msgstr "Item(s)"
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -7056,6 +7141,9 @@ msgstr "BVDD"
 msgid "MOV File"
 msgstr "MOV Bestand"
 
+msgid "MOVE"
+msgstr "VERPLAATSEN"
+
 msgid "MOVED TO"
 msgstr "VERPLAATST NAAR"
 
@@ -7474,11 +7562,24 @@ msgstr "Bezig met aankoppelen..."
 msgid "Mounts"
 msgstr "Koppelpunten"
 
+msgid "Move"
+msgstr "Verplaatsen"
+
 msgid "Move down"
 msgstr "Omlaag verplaatsen"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Verplaatsen van /%s naar /%s "
+
+msgid "Move item(s)"
+msgstr "Verplaats item(s)"
+
 msgid "Move up"
 msgstr "Omhoog verplaatsen"
+
+msgid "Moving failed."
+msgstr "Verplaatesen mislukt."
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Publieke Licentie Versie 2.0 (MPLv2)"
@@ -7912,6 +8013,9 @@ msgstr "Er zijn geen porten gevonden."
 
 msgid "No records found."
 msgstr "Geen records gevonden."
+
+msgid "No results available."
+msgstr "Geen resultaten beschikbaar."
 
 msgid "No snapshot information available."
 msgstr "Geen snapshot informatie beschikbaar."
@@ -8501,6 +8605,12 @@ msgstr "Permanente samba data locatie (bijv. %s)."
 msgid "Permission"
 msgstr "Permissie"
 
+msgid "Permission-change failed."
+msgstr "Rechten wijzigen mislukt."
+
+msgid "Permissions"
+msgstr "Rechten"
+
 msgid "Permit Root Login"
 msgstr "Inloggen Root Toestaan"
 
@@ -8902,6 +9012,9 @@ msgstr "Provisioning Type"
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr "Openbaar"
+
 msgid "Public Key"
 msgstr "Publieke Sleutel"
 
@@ -9058,6 +9171,9 @@ msgstr "RAR Archief"
 
 msgid "RAW info"
 msgstr "Ruwe info"
+
+msgid "RELOAD"
+msgstr "VERNIEUWEN"
 
 msgid "RPM"
 msgstr "RPM"
@@ -9531,6 +9647,9 @@ msgstr "Opnieuw scannen interval"
 msgid "Reservation"
 msgstr "Reservering"
 
+msgid "Reset"
+msgstr "Reset"
+
 msgid "Reset Graphs"
 msgstr "Grafieken Resetten"
 
@@ -9725,6 +9844,9 @@ msgstr "S.M.A.R.T. log"
 msgid "SCSI Name"
 msgstr "SCSI naam"
 
+msgid "SEARCH"
+msgstr "ZOEKEN"
+
 msgid "SHA Password"
 msgstr "SHA Wachtwoord"
 
@@ -9912,6 +10034,9 @@ msgstr "Script is geupload."
 msgid "Scrub a pool"
 msgstr "Scrub een pool"
 
+msgid "Seach results"
+msgstr "Zoek resultaten"
+
 msgid "Search"
 msgstr "Zoeken"
 
@@ -9920,6 +10045,9 @@ msgstr "Zoek Gebeurtenis"
 
 msgid "Search for and import all disks found"
 msgstr "Zoek en importeer alle gevonden schijven"
+
+msgid "Search subdirectories"
+msgstr "Zoeken in onderliggende folders"
 
 msgid "Second"
 msgstr "Seconde"
@@ -10091,6 +10219,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Selecteer een taal voor de WebGUI."
+
+msgid "Select the language of the user portal for this user."
+msgstr "Selecteer de taal van het gebruikersportaal voor deze gebruiker."
 
 msgid "Select the location closest to you."
 msgstr "Selecteer een tijdzone die voor u van toepassing is."
@@ -12180,6 +12311,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "Het markerings bereik is ongeldig."
 
+msgid "The target directory doesn't exist."
+msgstr "De doel folder bestaat niet."
+
+msgid "The target directory may not be above the home directory."
+msgstr "De huidige map mag niet hoger liggen dan de hoofdfolder"
+
+msgid "The target item already exists."
+msgstr "Het doel item bestaat reeds."
+
 msgid "The target name already exists."
 msgstr "De doelnaam bestaat reeds."
 
@@ -12489,6 +12629,9 @@ msgstr ""
 msgid "This extent is used."
 msgstr "Deze extent wordt gebruikt."
 
+msgid "This file doesn't exist."
+msgstr "Dit bestand bestaat niet."
+
 msgid "This is a nickname and is for information only."
 msgstr "Dit is een bijnaam en is alleen ter informatie."
 
@@ -12504,6 +12647,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Dit is geen geldig IP-adres."
+
+msgid "This item already exists."
+msgstr "Dit item bestaat reeds."
+
+msgid "This item doesn't exist."
+msgstr "Dit item bestaat niet."
 
 msgid "This month"
 msgstr "Deze maand"
@@ -13244,6 +13393,12 @@ msgstr "UNMAP Maximale Descriptoren"
 msgid "UNMAP Maximum LBA"
 msgstr "UNMAP Maximale LBA"
 
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "UP"
+msgstr "TERUG"
+
 msgid "UPS"
 msgstr "UPS"
 
@@ -13349,6 +13504,12 @@ msgstr "UUID"
 msgid "Umask"
 msgstr "Umask"
 
+msgid "Unable to open directory."
+msgstr "Kan de folder niet openen."
+
+msgid "Unable to read directory."
+msgstr "Kan de folder niet lezen."
+
 msgid "Unavailable"
 msgstr "Niet beschikbaar"
 
@@ -13430,6 +13591,9 @@ msgstr "Bezig met loskoppelen..."
 
 msgid "Unrestricted"
 msgstr "Onbeperkt"
+
+msgid "Unzip"
+msgstr "Uitpakken"
 
 msgid "Up"
 msgstr "Boven"
@@ -13656,6 +13820,9 @@ msgstr "Gebruikersaccount is beschermd"
 
 msgid "User account is unlocked"
 msgstr "Gebruikersaccount is ontgrendeld"
+
+msgid "User database does not exist or is not readable."
+msgstr "Gebruikersdatabase bestaat niet of is niet leesbaar."
 
 msgid "User portal permission."
 msgstr "Gebruikersportaal toestemming."
@@ -14078,6 +14245,9 @@ msgstr "Werkmap"
 msgid "Workgroup"
 msgstr "Werkgroep"
 
+msgid "Wrap text:"
+msgstr "Tekst terugzetten:"
+
 msgid "Write"
 msgstr "Schrijven"
 
@@ -14118,6 +14288,21 @@ msgstr "Ja - Inschakelen Time Machine ondersteuning voor deze deling."
 msgid "Yesterday"
 msgstr "Gisteren"
 
+msgid "You are not allowed to access the target directory."
+msgstr "U heeft geen rechten naar de doel folder."
+
+msgid "You are not allowed to access this directory."
+msgstr "U heeft geen rechten naar deze folder."
+
+msgid "You are not allowed to access this file."
+msgstr "U heeft geen rechten naar dit bestand."
+
+msgid "You are not allowed to access this item."
+msgstr "U heeft geen rechten naar het item."
+
+msgid "You are not allowed to use this function."
+msgstr "U heeft geen rechten om deze functie te gebruiken."
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -14157,6 +14342,9 @@ msgstr ""
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "U moet tenminste 1 item selecteren voor '%s'."
+
+msgid "You haven't selected any item(s)."
+msgstr "U heeft geen item(s) geselecteerd."
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -14212,6 +14400,9 @@ msgstr "U moet de data eerst initialiseren alvorens in te schakelen."
 
 msgid "You must select at least one authentication method."
 msgstr "U dient tenminste één verificatie methode te selecteren."
+
+msgid "You must supply a name."
+msgstr "U moet een naam opgeven."
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."
