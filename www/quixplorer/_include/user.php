@@ -47,7 +47,7 @@ function _idx($what) {
  *	Loads the user database for authenticating the users
  *	@param string $file The name of the file containing the user database. Default is ./_config/.htusers.php
 */
-function user_load($file = NULL) {
+function user_load($file = null) {
 	if(!isset($file)):
 		$file = './_config/.htusers.php';
 	endif;
@@ -83,10 +83,10 @@ function user_get_index($user) {
 /**
  *	Try to find the user with the username $user and the password $pass
  *	in the user table.
- *	If you provide NULL as password, no password and user active check
+ *	If you provide null as password, no password and user active check
  *	is done. otherwise, this function returns the user, if $pass matches
  *	the user password and the user is active.
- *	If the user is inactive or the password mismatches, NULL is returned.
+ *	If the user is inactive or the password mismatches, null is returned.
  *	@param string $user
  *	@param string $pass
  *	@return array
@@ -134,14 +134,14 @@ function user_activate(string $user) {
 /**
  *	This function returns the permission values of the user with the given user name.
  *	if the user is not found in the user database, this function returns
- *	NULL, otherwise, it returns the permissions of the user.
+ *	null, otherwise, it returns the permissions of the user.
  *	@param string $username
  *	@return int
  */
 function user_get_permissions($username) {
 //	try to find the user in the user database
-	$data = user_find($username,NULL);
-//	return NULL if the user does not exist
+	$data = user_find($username,null);
+//	return null if the user does not exist
 	if(!isset($data)):
 		return;
 	endif;
