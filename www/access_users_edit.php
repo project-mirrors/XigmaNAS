@@ -143,7 +143,14 @@ $a_referer = [
 	$cop->get_primary_group(),
 	$cop->get_additional_groups(),
 	$cop->get_homedir(),
-	$cop->get_user_portal_access()
+	$cop->get_user_portal_access(),
+	$cop->get_language(),
+	$cop->get_fm_enable(),
+	$cop->get_fmp_show_hidden_items(),
+	$cop->get_fmp_read(),
+	$cop->get_fmp_create(),
+	$cop->get_fmp_change(),
+	$cop->get_fmp_delete()
 ];
 $a_group = array_flip(system_get_group_list());
 $cop->get_primary_group()->set_options($a_group);
@@ -242,9 +249,32 @@ $tbody->
 	c2_input_text($cop->get_uid(),$sphere,true,$cop->get_uid()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_radio_grid($cop->get_usershell(),$sphere,true,$cop->get_usershell()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_filechooser($cop->get_homedir(),$sphere,false,$cop->get_homedir()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_radio_grid($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_select($cop->get_primary_group(),$sphere,true,$cop->get_primary_group()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2_checkbox_grid($cop->get_additional_groups(),$sphere,false,$cop->get_additional_groups()->is_readonly_rowmode($isrecordnewornewmodify));
+$table_up = $content->add_table_data_settings();
+$table_up->ins_colgroup_data_settings();
+$thead_up = $table_up->addTHEAD();
+$tbody_up = $table_up->addTBODY();
+$thead_up->
+	c2_separator()->
+	c2_titleline(gettext('User Portal'));
+$tbody_up->
+	c2_radio_grid($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_select($cop->get_language(),$sphere,false,$cop->get_language()->is_readonly_rowmode($isrecordnewornewmodify));
+$table_fm = $content->add_table_data_settings();
+$table_fm->ins_colgroup_data_settings();
+$thead_fm = $table_fm->addTHEAD();
+$tbody_fm = $table_fm->addTBODY();
+$thead_fm->
+	c2_separator()->
+	c2_titleline(gettext('File Manager'));
+$tbody_fm->
+	c2_checkbox($cop->get_fm_enable(),$sphere,false,$cop->get_fm_enable()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox($cop->get_fmp_show_hidden_items(),$sphere,false,$cop->get_fmp_show_hidden_items()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox($cop->get_fmp_read(),$sphere,false,$cop->get_fmp_read()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox($cop->get_fmp_create(),$sphere,false,$cop->get_fmp_create()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox($cop->get_fmp_change(),$sphere,false,$cop->get_fmp_change()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2_checkbox($cop->get_fmp_delete(),$sphere,false,$cop->get_fmp_delete()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
