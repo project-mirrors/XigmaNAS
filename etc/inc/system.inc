@@ -96,41 +96,65 @@ function get_http_accept_language(): array {
 	return $result;
 }
 /**
- *	Init language environment
- *	@global array $config
+ *	Get the language from browser and return a supported language or null
  *	@global array $g_languages
+ *	@return string|null
  */
-function system_language_load() {
-	global $config,$g_languages;
+function get_language_from_browser(): ?string {
+	global $g_languages;
 
-	$language = $_SESSION['userlang'] ?? null;
-	if(!isset($language)):
-//		try to get the language from configuration.
-		$configured_language = filter_var($config['system']['language'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL]]);
-		if(isset($configured_language) && key_exists($configured_language,$g_languages)):
-			if('auto' !== $configured_language):
-				$language = $configured_language;
+	$language = null;
+	$accepted_languages = get_http_accept_language();
+	if(!empty($accepted_languages)):
+		$available_languages = array_flip($g_languages);
+		$matching_languages = \array_intersect_key($accepted_languages,$available_languages);
+		$first_highest_q = 0.0;
+		foreach($matching_languages as $key => $val):
+			if($val > $first_highest_q):
+				$language = $available_languages[$key];
+				$first_highest_q = $val;
 			endif;
-		endif;
+		endforeach;
 	endif;
-	if(!isset($language)):
-//		try to get the language from client.
-		$accepted_languages = get_http_accept_language();
-		if(!empty($accepted_languages)):
-			$available_languages = array_flip($g_languages);
-			$matching_languages = array_intersect_key($accepted_languages,$available_languages);
-			$first_highest_q = 0.0;
-			foreach($matching_languages as $key => $val):
-				if($val > $first_highest_q):
-					$language = $available_languages[$key];
-					$first_highest_q = $val;
-				endif;
-			endforeach;
-		endif;
+	return $language;
+}
+/**
+ *	Test the given language and return a supported language code
+ *	@param string $language_to_verify
+ *	@return string The supported language
+ */
+function get_supported_language_of(string $language_to_verify): string {
+	global $g_languages;
+
+	$language = array_key_exists($language_to_verify,$g_languages) ? $language_to_verify : 'en_US';
+	if($language === 'auto'):
+		$language = get_language_from_browser() ?? 'en_US';
 	endif;
-	if(!isset($language)):
-//		fallback to en_US
-		$language = 'en_US';
+	return $language;
+}
+/**
+ *	Get the language from webgui configuration and return a supported language code
+ *	@global array $config
+ *	@return string
+ */
+function get_language_of_webgui(): string {
+	global $config;
+
+	array_make_branch($config,'system');
+	if(array_key_exists('language',$config['system']) && is_string($config['system']['language'])):
+		$language = get_supported_language_of($config['system']['language']);
+	endif;
+	return $language;
+}
+/**
+ *	Init language environment
+ *	@param string $language_to_try
+ */
+function system_language_load(string $language_to_try = null) {
+	if(is_null($language_to_try)):
+		$language = $_SESSION['userlang'] ?? get_language_of_webgui();
+	else:
+		$language = get_supported_language_of($language_to_try);
 	endif;
 	$domain = strtolower(get_product_name());
 	$codeset = 'UTF-8';
@@ -139,7 +163,14 @@ function system_language_load() {
 	bindtextdomain($domain,'/usr/local/share/locale');
 	bind_textdomain_codeset($domain,$codeset);
 	textdomain($domain);
-	$_SESSION['userlang'] = $language;
+	if(array_key_exists('userlang',$_SESSION)):
+		if($_SESSION['userlang'] !== $language):
+			unset($_SESSION['g']['headermenu']);
+			$_SESSION['userlang'] = $language;
+		endif;
+	else:
+		$_SESSION['userlang'] = $language;
+	endif;
 }
 /**
  *	Get the entity of LanguageCode of the current configured language.
