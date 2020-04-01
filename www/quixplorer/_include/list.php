@@ -74,7 +74,7 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 	endif;
 	// Read directory
 	while(($new_item = readdir($handle)) !== false):
-		$abs_new_item = get_abs_item($dir, $new_item);
+		$abs_new_item = get_abs_item($dir,$new_item);
 		if(!get_show_item($dir,$new_item)):
 			continue;
 		endif;
@@ -160,7 +160,7 @@ function print_table($dir,$list) {
 		echo '<td class="lcell" style="white-space: nowrap">';
 		if(permissions_grant($dir,$item,'read')):
 			if(is_dir($abs_item)):
-				$link = make_link('list',get_rel_item($dir,$item),NULL);
+				$link = make_link('list',get_rel_item($dir,$item),null);
 			else:
 				$link = make_link('download',$dir,$item);
 			endif;
@@ -181,14 +181,14 @@ function print_table($dir,$list) {
 //		type
 		echo '<td class="lcell">',_get_link_info($dir,$item,'type'),'</td>',"\n";
 //		modified
-		echo '<td class="lcell">', \datefmt_format($format_date,get_file_date($dir,$item)),'</td>',"\n";
+		echo '<td class="lcell">',\datefmt_format($format_date,get_file_date($dir,$item)),'</td>',"\n";
 //		permissions
 		echo '<td class="lcell">';
-		if(permissions_grant($dir,NULL,'change')):
+		if(permissions_grant($dir,null,'change')):
 			echo '<a href="',make_link('chmod',$dir,$item),'" title="',gtext('CHANGE PERMISSIONS'),'">';
 		endif;
 		echo parse_file_type($dir,$item).parse_file_perms(get_file_perms($dir,$item));
-		if(permissions_grant($dir,NULL,'change')):
+		if(permissions_grant($dir,null,'change')):
 			echo '</a>';
 		endif;
 		echo '</td>',"\n";
@@ -196,7 +196,7 @@ function print_table($dir,$list) {
 		echo '<td class="lcebl">';
 		echo '<table><tbody><tr>';
 //		edit
-		if(get_is_editable($dir, $item)):
+		if(get_is_editable($dir,$item)):
 			_print_link('edit',permissions_grant($dir,$item,'change'),$dir,$item);
 		elseif(get_is_unzipable($dir,$item)):
 			_print_link('unzip',permissions_grant($dir,$item,'create'),$dir,$item);
@@ -218,7 +218,7 @@ function print_table($dir,$list) {
  MAIN FUNCTION
  */
 function list_dir($dir) {
-	if(!get_show_item($dir,NULL)):
+	if(!get_show_item($dir,null)):
 		show_error(gtext('You are not allowed to access this directory.') . " : '$dir'");
 	endif;
 	// make file & dir tables, & get total filesize & number of items
@@ -243,11 +243,11 @@ function list_dir($dir) {
 	echo '<table class="area_data_settings"><tbody><tr>';
 	echo '<td><table><tbody><tr>',"\n";
 	// PARENT DIR
-	echo '<td style="padding-right:4px"><a href="',make_link('list',path_up($dir),NULL),'">',
+	echo '<td style="padding-right:4px"><a href="',make_link('list',path_up($dir),null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['up'],'" alt="',gtext('UP'),'" title="',gtext('UP'),'">',
 		'</a></td>',"\n";
 	// HOME DIR
-	echo '<td style="padding-right:4px"><a href="',make_link('list',NULL,NULL),'">',
+	echo '<td style="padding-right:4px"><a href="',make_link('list',null,null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['home'],'" alt="',gtext('HOME'),'" title="',gtext('HOME'),'">',
 		'</a></td>',"\n";
 	// RELOAD
@@ -255,17 +255,17 @@ function list_dir($dir) {
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['reload'],'" alt="',gtext('RELOAD'),'" title="',gtext('RELOAD'),'">',
 		'</a></td>',"\n";
 	// SEARCH
-	echo '<td style="padding-right:4px"><a href="',make_link('search',$dir,NULL),'">',
+	echo '<td style="padding-right:4px"><a href="',make_link('search',$dir,null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['search'],'" alt="',gtext('SEARCH'),'" title="',gtext('SEARCH'),'">',
 		'</a></td>',"\n";
 	echo '<td style="padding-right:8px"></td>';
-	_print_link('download_selected',permissions_grant($dir, NULL,'read'),$dir,NULL); // print the download button
+	_print_link('download_selected',permissions_grant($dir,null,'read'),$dir,null); // print the download button
 	_print_edit_buttons($dir); // print the edit buttons
 	echo '</tr></tbody></table></td>',"\n";
 	// Create File / Dir
-	if(permissions_grant($dir,NULL,'create')):
+	if(permissions_grant($dir,null,'create')):
 		echo '<td style="text-align:right">',"\n";
-		echo '<form action="',make_link('mkitem',$dir,NULL),'" method="post">',"\n";
+		echo '<form action="',make_link('mkitem',$dir,null),'" method="post">',"\n";
 		echo '<div id="formextension1">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 		echo '<table style="width:100%"><tbody><tr><td>',"\n";
 		echo '<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['add'],'" alt="">',"\n";
@@ -282,7 +282,7 @@ function list_dir($dir) {
 	echo "</tr></tbody></table>\n";
 //	End Toolbar
 //	Begin Table + Form for checkboxes
-	echo '<form name="selform" method="post" action="',make_link('post',$dir,NULL),'">',"\n";
+	echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">',"\n";
 	echo '<div id="formextension2">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 	echo '<table class="area_data_selection">';
 	echo	'<colgroup>',
@@ -302,7 +302,7 @@ function list_dir($dir) {
 					'</th>',"\n";
 	$new_srt = ($GLOBALS['order'] == 'name') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
-						'<a href="',make_link('list',$dir,NULL,'name',$new_srt),'">',gtext('Name');
+						'<a href="',make_link('list',$dir,null,'name',$new_srt),'">',gtext('Name');
 	if($GLOBALS['order'] == 'name'):
 							echo $_img;
 	endif;
@@ -310,7 +310,7 @@ function list_dir($dir) {
 					'</th>',"\n";
 	$new_srt = ($GLOBALS['order'] == 'size') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
-						'<a href="',make_link('list',$dir,NULL,'size',$new_srt),'">',gtext('Size');
+						'<a href="',make_link('list',$dir,null,'size',$new_srt),'">',gtext('Size');
 	if($GLOBALS['order'] == 'size'):
 							echo $_img;
 	endif;
@@ -318,7 +318,7 @@ function list_dir($dir) {
 					'</th>',"\n";
 	$new_srt = ($GLOBALS['order'] == 'type') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
-						'<a href="',make_link('list',$dir,NULL,'type',$new_srt),'">',gtext('Type');
+						'<a href="',make_link('list',$dir,null,'type',$new_srt),'">',gtext('Type');
 	if($GLOBALS['order'] == 'type'):
 							echo $_img;
 	endif;
@@ -326,7 +326,7 @@ function list_dir($dir) {
 					'</th>',"\n";
 	$new_srt = ($GLOBALS['order'] == 'mod') ? $_srt : 'yes';
 	echo			'<th class="lhell">',
-						'<a href="',make_link('list',$dir,NULL,'mod',$new_srt),'">',gtext('Modified');
+						'<a href="',make_link('list',$dir,null,'mod',$new_srt),'">',gtext('Modified');
 	if($GLOBALS['order'] == 'mod'):
 							echo $_img;
 	endif;
@@ -342,14 +342,14 @@ function list_dir($dir) {
 	echo	'</thead>',"\n";
 	// make & print Table using lists
 	echo	'<tbody>',"\n";
-				print_table($dir, make_list($dir_list, $file_list));
+				print_table($dir,make_list($dir_list,$file_list));
 	echo	'</tbody>',"\n";
 	// print number of items & total filesize
 	$free = format_bytes(diskfreespace('/'),2,false,false);
 	echo	'<tfoot>',"\n",
 				'<tr>',"\n",
 					'<th class="lcell"></th>',"\n",
-					'<th class="lcell">',$num_items,' ', gtext('Item(s)'),' (',gtext('Free'),': ',$free,')</th>',"\n",
+					'<th class="lcell">',$num_items,' ',gtext('Item(s)'),' (',gtext('Free'),': ',$free,')</th>',"\n",
 					'<th class="lcell">',format_bytes($tot_file_size,2,false,false),'</th>',"\n",
 					'<th class="lcebl" colspan="4"></th>',"\n",
 				'</tr>',"\n",
@@ -383,9 +383,9 @@ function list_dir($dir) {
  */
 function _print_edit_buttons($dir) {
 //	for the copy button the user must have create and read rights
-	_print_link('copy',permissions_grant_all($dir,NULL,['create','read']),$dir,NULL);
-	_print_link('move',permissions_grant($dir,NULL,'change'),$dir,NULL);
-	_print_link('delete',permissions_grant($dir,NULL,'delete'),$dir,NULL);
+	_print_link('copy',permissions_grant_all($dir,null,['create','read']),$dir,null);
+	_print_link('move',permissions_grant($dir,null,'change'),$dir,null);
+	_print_link('delete',permissions_grant($dir,null,'delete'),$dir,null);
 }
 
 /**
@@ -417,12 +417,12 @@ function _print_link ($function,$allow,$dir,$item) {
 	return;
 }
 
-function _get_link_info($dir, $item) {
-	$type = get_mime_type($dir, $item, "type");
+function _get_link_info($dir,$item) {
+	$type = get_mime_type($dir,$item,'type');
 	if(is_array($type)):
 		$type = $type[0];
 	endif;
-	if(!file_exists(get_abs_item($dir, $item))):
+	if(!file_exists(get_abs_item($dir,$item))):
 		return '<span style="background:red;">'.$type.'</span>';
 	endif;
 	return $type;
@@ -443,13 +443,13 @@ function _get_link_info($dir, $item) {
  * echo breadcrumbs($dir, ">>");
  * show_header(gtext('Directory').":".breadcrumbs($dir));
  */
-function _breadcrumbs($curdir, $displayseparator = ' &raquo; ') {
+function _breadcrumbs($curdir,$displayseparator = ' &raquo; ') {
 	//Get localized name for the Home directory
 	$homedir = gtext('HOME');
 	// Initialize first crumb and set it to the home directory.
-	$breadcrumbs[] = "<a href=\"".make_link("list", "", NULL)."\">$homedir</a>";
+	$breadcrumbs[] = "<a href=\"".make_link('list','',null)."\">$homedir</a>";
 	// Take the current directory and split the string into an array at each '/'.
-	$patharray = explode('/', $curdir);
+	$patharray = explode('/',$curdir);
 	// Find out the index for the last value in our path array
 	$lastx = array_keys($patharray);
 	$last = end($lastx);
@@ -462,7 +462,7 @@ function _breadcrumbs($curdir, $displayseparator = ' &raquo; ') {
 		if($x != $last):
 			// If we are not on the last index, then create a link using $crumb
 			// as the text.
-			$breadcrumbs[] = "<a href=\"".make_link("list", $crumbdir, NULL)."\">".htmlspecialchars($crumb)."</a>";
+			$breadcrumbs[] = "<a href=\"".make_link('list',$crumbdir,null)."\">".htmlspecialchars($crumb)."</a>";
 			// Add a separator between our crumbs.
 			$crumbdir = $crumbdir . DIRECTORY_SEPARATOR;
 		else:
@@ -471,5 +471,5 @@ function _breadcrumbs($curdir, $displayseparator = ' &raquo; ') {
 		endif;
 	endforeach;
 	// Build temporary array into one string.
-	return implode($displayseparator, $breadcrumbs);
+	return implode($displayseparator,$breadcrumbs);
 }
