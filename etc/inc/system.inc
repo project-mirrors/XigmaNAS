@@ -1055,6 +1055,8 @@ function system_get_sysinfo() {
 	$sysinfo['hostname'] = system_get_hostname();
 	$sysinfo['date'] = get_datetime_locale();
 	$sysinfo['uptime'] = system_get_uptime();
+	$cpuinfo = system_get_cpu_info();
+	$sysinfo['cpumodel'] = $cpuinfo['model'];
 	if(Session::isAdmin()):
 //		get number of CPU's
 		$sysinfo['cpus'] = system_get_cpus();
@@ -1063,8 +1065,6 @@ function system_get_sysinfo() {
 //		get load average
 		$sysinfo['loadaverage'] = implode(' ',array_map(function($e) { return sprintf('%.2f',$e); },sys_getloadavg()));
 //		get up-to-date CPU informations.
-		$cpuinfo = system_get_cpu_info();
-		$sysinfo['cpumodel'] = $cpuinfo['model'];
 		$sysinfo['cpufreq'] = $cpuinfo['freq'];
 //		get CPU temperatures
 		$cpu_t = $cpuinfo['temperature'];
