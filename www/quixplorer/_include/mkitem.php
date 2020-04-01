@@ -44,8 +44,8 @@ function make_item($dir) {
 	if(!permissions_grant($dir,null,'create')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
-	$mkname = $GLOBALS['__POST']["mkname"];
-	$mktype = $GLOBALS['__POST']["mktype"];
+	$mkname = $GLOBALS['__POST']['mkname'];
+	$mktype = $GLOBALS['__POST']['mktype'];
 	$mkname = basename($mkname);
 	if($mkname == ''):
 		show_error(gtext('You must supply a name.'));
