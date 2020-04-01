@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -118,9 +118,6 @@ msgstr "%s%d %s은(는) %s%d에 의해 사용중입니다."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "그래프에서 %s 통계 자료 모두 지우기!"
-
-msgid "(Change if needed)"
-msgstr "(필요한 경우 변경)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -469,6 +466,9 @@ msgstr "소음 레벨"
 
 msgid "Action"
 msgstr "동작"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activate"
 msgstr "활성화"
@@ -1078,8 +1078,14 @@ msgstr "4월"
 msgid "Archive"
 msgstr "보존"
 
+msgid "Archive item(s)"
+msgstr ""
+
 msgid "Archive mode."
 msgstr "보존 모드."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr ""
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "서버를 재시동하시겠습니까?"
@@ -1569,6 +1575,9 @@ msgstr "CD/DVD 드라이브"
 msgid "CGI Script"
 msgstr ""
 
+msgid "CHANGE PERMISSIONS"
+msgstr ""
+
 msgid "CHANGED"
 msgstr "변경됨"
 
@@ -1594,6 +1603,9 @@ msgid "CHAP Users"
 msgstr "CHAP 사용자"
 
 msgid "CHAP-Mutual"
+msgstr ""
+
+msgid "COPY"
 msgstr ""
 
 msgid "CP1251 (Cyrillic)"
@@ -1747,6 +1759,9 @@ msgstr ""
 msgid "Change below file"
 msgstr "아래 파일 변경"
 
+msgid "Change permissions"
+msgstr ""
+
 msgid "Change the IP address of your computer"
 msgstr "귀하의 컴퓨터 IP 주소를 변경"
 
@@ -1834,6 +1849,9 @@ msgstr "복제"
 
 msgid "Clone Configuration"
 msgstr "복제 설정"
+
+msgid "Close"
+msgstr ""
 
 msgid "Collecting initial data, please wait..."
 msgstr "초기 데이터 수집 중이므로 잠시 기다려 주십시오..."
@@ -2125,6 +2143,19 @@ msgstr "운송 자체 테스트"
 msgid "Copies"
 msgstr "복본"
 
+msgid "Copy"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr ""
+
+msgid "Copying failed."
+msgstr ""
+
 msgid "Core"
 msgstr "코어"
 
@@ -2254,6 +2285,9 @@ msgid ""
 msgstr ""
 "SATA PHY 오류 수를 샙니다. 이 값은 모든 PHY 오류 수, 예전 데이터 FIS CRC, 코드 오류, 불일치 오류, 명령 FIS "
 "crc를 포함합니다. 시스템 전원이 꺼지면 값이 지워집니다."
+
+msgid "Create"
+msgstr ""
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "4KB 보정 생성(장치 아님)."
@@ -2429,6 +2463,9 @@ msgstr ""
 msgid "DEBUG3 - log all debugging information"
 msgstr ""
 
+msgid "DELETE"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2468,6 +2505,12 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED FILES"
 msgstr ""
 
 msgid "DTS Audio File"
@@ -2847,6 +2890,9 @@ msgstr "GEOM 메타 데이터 삭제 중"
 msgid "Deleting MBR and partition table"
 msgstr "MBR과 분할 영역 테이블 삭제 중"
 
+msgid "Deleting failed."
+msgstr ""
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -2917,9 +2963,6 @@ msgstr "탐지 내용"
 
 msgid "Detected Disks"
 msgstr "발견된 디스크들"
-
-msgid "Detected Language:"
-msgstr "감지된 언어:"
 
 msgid "Detected Remote Shares"
 msgstr ""
@@ -3025,6 +3068,9 @@ msgstr "디렉터리 %s이(가) 없습니다!"
 
 msgid "Directory Mask"
 msgstr "디렉터리 마스크"
+
+msgid "Directory creation failed."
+msgstr ""
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "완료되지 않은 파일용 디렉터리. 비워 두면 사용되지 않습니다."
@@ -3917,10 +3963,16 @@ msgstr "동적 IP는 HAST 자원 용으로 사용할 수 없습니다."
 msgid "EA Support"
 msgstr "EA(역자: 확장 속성) 지원"
 
+msgid "EDIT"
+msgstr ""
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT 분할 영역은 UFS에서만 이용할 수 있습니다."
 
 msgid "ERROR - log errors"
+msgstr ""
+
+msgid "ERROR(S)"
 msgstr ""
 
 msgid "ERROR:"
@@ -4072,6 +4124,9 @@ msgstr "자동화 스냅샷 수정"
 
 msgid "Edit extent"
 msgstr "범위 편집"
+
+msgid "Edit file"
+msgstr ""
 
 msgid "Edit iSCSI Initiator"
 msgstr ""
@@ -4846,6 +4901,9 @@ msgstr "RPC를 통해 transmission-remote에 전달되는 특수 옵션."
 msgid "Extra options to rsync (usually empty)."
 msgstr "rsync에 대한 추가 옵션(보통 비워 둠)."
 
+msgid "Extracting"
+msgstr ""
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -4923,6 +4981,9 @@ msgstr "상태 보고 전송을 실패했습니다."
 msgid "Failed to send test email."
 msgstr "테스트 전자 우편 전송을 실패했습니다."
 
+msgid "Failed to unzip archive."
+msgstr ""
+
 msgid "Failed to upload file."
 msgstr "파일 업로드에 실패했습니다."
 
@@ -4992,8 +5053,14 @@ msgstr "파일 시스템 - 표준 시스템 이름공간에 탑제될 수 있고
 msgid "File Transfer Protocol"
 msgstr "파일 전송 프로토콜"
 
+msgid "File creation failed."
+msgstr ""
+
 msgid "File not found"
 msgstr "파일이 발견되지 않습니다"
+
+msgid "File opening failed."
+msgstr ""
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5002,6 +5069,9 @@ msgstr "파일 경로(예: %s) 또는 ZFS 볼륨(예: %s)은 하드 디스크 �
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "범위로 이용될 파일 경로(예. /mnt/sharename/extent/%s)."
+
+msgid "File saving failed."
+msgstr ""
 
 msgid "File size"
 msgstr "파일 크기"
@@ -5173,6 +5243,9 @@ msgstr ""
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 
+msgid "Function unavailable."
+msgstr ""
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5257,6 +5330,9 @@ msgstr "타겟 정보 얻기"
 msgid "Get a list of available drivers"
 msgstr "사용 가능한 드라이버의 목록 얻기"
 
+msgid "Getting permissions failed."
+msgstr ""
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5276,6 +5352,9 @@ msgid "Global Settings"
 msgstr ""
 
 msgid "Global numeric identifier to use for a given LUN inside CTL."
+msgstr ""
+
+msgid "Go Back"
 msgstr ""
 
 msgid "Grant access to the file manager."
@@ -5403,6 +5482,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "HDD 대기 시간"
+
+msgid "HOME"
+msgstr ""
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
@@ -6076,6 +6158,9 @@ msgid ""
 "the WebGUI, enter the username here."
 msgstr "WebGUI 접근을 위한 사용자 이름 및 암호를 변경하시길 권장합니다, 여기에 사용자 이름을 입력하십시오."
 
+msgid "Item(s)"
+msgstr ""
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -6587,6 +6672,9 @@ msgstr "MOTD"
 msgid "MOV File"
 msgstr ""
 
+msgid "MOVE"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "이동 됨"
 
@@ -6991,11 +7079,24 @@ msgstr "탑재 중..."
 msgid "Mounts"
 msgstr "탑재"
 
+msgid "Move"
+msgstr ""
+
 msgid "Move down"
 msgstr "아래로 이동"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Move item(s)"
+msgstr ""
+
 msgid "Move up"
 msgstr "위로 이동"
+
+msgid "Moving failed."
+msgstr ""
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr ""
@@ -7415,6 +7516,9 @@ msgstr ""
 
 msgid "No records found."
 msgstr "항목을 찾을 수 없음."
+
+msgid "No results available."
+msgstr ""
 
 msgid "No snapshot information available."
 msgstr ""
@@ -7979,6 +8083,12 @@ msgstr "고정 Samba 자료 경로(예: %s)."
 msgid "Permission"
 msgstr "권한"
 
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Permit Root Login"
 msgstr "root 로그인 허용"
 
@@ -8365,6 +8475,9 @@ msgstr ""
 msgid "Proxy"
 msgstr "프록시"
 
+msgid "Public"
+msgstr ""
+
 msgid "Public Key"
 msgstr ""
 
@@ -8519,6 +8632,9 @@ msgstr ""
 
 msgid "RAW info"
 msgstr "RAW 정보"
+
+msgid "RELOAD"
+msgstr ""
 
 msgid "RPM"
 msgstr ""
@@ -8969,6 +9085,9 @@ msgstr "재 스캔 간격"
 msgid "Reservation"
 msgstr "예약"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset Graphs"
 msgstr "그래프 재설정"
 
@@ -9157,6 +9276,9 @@ msgstr "S.M.A.R.T. 로그"
 msgid "SCSI Name"
 msgstr ""
 
+msgid "SEARCH"
+msgstr ""
+
 msgid "SHA Password"
 msgstr ""
 
@@ -9337,6 +9459,9 @@ msgstr "스크립트가 업로드 되었습니다."
 msgid "Scrub a pool"
 msgstr "풀 스크럽"
 
+msgid "Seach results"
+msgstr ""
+
 msgid "Search"
 msgstr "검색"
 
@@ -9345,6 +9470,9 @@ msgstr "이벤트 검색"
 
 msgid "Search for and import all disks found"
 msgstr "감지된 모든 디스크 검색"
+
+msgid "Search subdirectories"
+msgstr ""
 
 msgid "Second"
 msgstr "초"
@@ -9499,6 +9627,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "WebGUI 언어를 선택하십시오."
+
+msgid "Select the language of the user portal for this user."
+msgstr ""
 
 msgid "Select the location closest to you."
 msgstr "가장 가까운 위치를 선택하십시오."
@@ -11348,6 +11479,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "태그 범위가 무효합니다."
 
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
 msgid "The target name already exists."
 msgstr "타겟 이름이 이미 존재합니다."
 
@@ -11600,6 +11740,9 @@ msgstr "전자우편 설정 검증을 위해 전자우편을 보냈습니다."
 msgid "This extent is used."
 msgstr "이 범위는 이용되고 있습니다."
 
+msgid "This file doesn't exist."
+msgstr ""
+
 msgid "This is a nickname and is for information only."
 msgstr ""
 
@@ -11615,6 +11758,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "올바른 IP 주소가 아닙니다."
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
 
 msgid "This month"
 msgstr ""
@@ -12248,6 +12397,12 @@ msgstr ""
 msgid "UNMAP Maximum LBA"
 msgstr ""
 
+msgid "UNZIP"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
 msgid "UPS"
 msgstr "UPS"
 
@@ -12353,6 +12508,12 @@ msgstr ""
 msgid "Umask"
 msgstr "Umask"
 
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
 msgid "Unavailable"
 msgstr "사용할 수 없음"
 
@@ -12431,6 +12592,9 @@ msgid "Unmounting..."
 msgstr "탑재 해제 중..."
 
 msgid "Unrestricted"
+msgstr ""
+
+msgid "Unzip"
 msgstr ""
 
 msgid "Up"
@@ -12632,6 +12796,9 @@ msgstr "사용자 계정 보호됨"
 
 msgid "User account is unlocked"
 msgstr "사용자 계정 잠금 해제됨"
+
+msgid "User database does not exist or is not readable."
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -13028,6 +13195,9 @@ msgstr "작업 디렉터리"
 msgid "Workgroup"
 msgstr "작업 그룹"
 
+msgid "Wrap text:"
+msgstr ""
+
 msgid "Write"
 msgstr "쓰기"
 
@@ -13068,6 +13238,21 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "You are not allowed to use this function."
+msgstr ""
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -13098,6 +13283,9 @@ msgstr "변경 사항을 적용하려면 시스템을 재시동해야 합니다.
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "'%s'에 대해 최소 한 개의 항목을 선택해야 합니다."
+
+msgid "You haven't selected any item(s)."
+msgstr ""
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -13144,6 +13332,9 @@ msgstr "사용하기 전에 데이터 초기화를 수행해야 합니다."
 
 msgid "You must select at least one authentication method."
 msgstr "최소 한 개 이상의 인증 방법을 선택해야 합니다."
+
+msgid "You must supply a name."
+msgstr ""
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

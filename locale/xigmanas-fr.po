@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
-"PO-Revision-Date: 2020-03-27 03:51+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
+"PO-Revision-Date: 2020-03-31 09:18+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -121,9 +121,6 @@ msgstr "%s%d %s est déjà utilisé par %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' supprime toutes les données statistiques des graphiques!"
-
-msgid "(Change if needed)"
-msgstr "Changer si besoin"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -512,6 +509,9 @@ msgstr "Niveau acoustique"
 
 msgid "Action"
 msgstr "Action"
+
+msgid "Actions"
+msgstr "Actions"
 
 msgid "Activate"
 msgstr "Activer"
@@ -1159,8 +1159,14 @@ msgstr "Avril"
 msgid "Archive"
 msgstr "Archivage"
 
+msgid "Archive item(s)"
+msgstr "Élément(s) d'Archive"
+
 msgid "Archive mode."
 msgstr "Mode archive."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr "Voulez-vous vraiment supprimer les éléments sélectionnés?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Etes-vous sûr de vouloir redémarrer le serveur?"
@@ -1694,6 +1700,9 @@ msgstr "lecteur CD/DVD"
 msgid "CGI Script"
 msgstr "Script CGI"
 
+msgid "CHANGE PERMISSIONS"
+msgstr "MODIFIER LES AUTORISATIONS"
+
 msgid "CHANGED"
 msgstr "MODIFIÉ"
 
@@ -1720,6 +1729,9 @@ msgstr "Utilisateurs CHAP"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP-Mutuel"
+
+msgid "COPY"
+msgstr "COPIE"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cyrillique)"
@@ -1879,6 +1891,9 @@ msgstr "Modifier les Droits d'Accès"
 msgid "Change below file"
 msgstr "Modifier"
 
+msgid "Change permissions"
+msgstr "Modifier les permissions"
+
 msgid "Change the IP address of your computer"
 msgstr "Modifier l'adresse IP de votre ordinateur"
 
@@ -1973,6 +1988,9 @@ msgstr "Dupliquer"
 
 msgid "Clone Configuration"
 msgstr "Dupliquer la Configuration"
+
+msgid "Close"
+msgstr "Fermer"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Collecte des premières données, veuillez patienter..."
@@ -2296,6 +2314,19 @@ msgstr "Auto-test de transfert"
 msgid "Copies"
 msgstr "Copies"
 
+msgid "Copy"
+msgstr "Copie"
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr "Copier de /%s vers /%s "
+
+msgid "Copy item(s)"
+msgstr "Copier les éléments"
+
+msgid "Copying failed."
+msgstr "La copie a échoué."
+
 msgid "Core"
 msgstr "Cœur"
 
@@ -2456,6 +2487,9 @@ msgstr ""
 "d'erreurs PHY, ex FIS CRC de données, erreurs de code, erreurs de disparité, "
 "FIS CRC de commande. Cette valeur est remise à zéro à la mise hors-tension "
 "du système."
+
+msgid "Create"
+msgstr "Créer"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Crée un wrapper de 4Ko (partition nop)."
@@ -2635,6 +2669,9 @@ msgstr "DEBUG2 - journal des informations détaillées de débogage"
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - journal de toutes les informations  de débogage"
 
+msgid "DELETE"
+msgstr "SUPPRIMER"
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2678,6 +2715,12 @@ msgstr ""
 "Les clients DOS SMB supposent que le serveur a le même jeu de caractères "
 "qu’ils utilisent. Cette option spécifie quel jeu de caractères Samba doit "
 "indiquer aux clients DOS."
+
+msgid "DOWNLOAD"
+msgstr "TÉLÉCHARGER"
+
+msgid "DOWNLOAD SELECTED FILES"
+msgstr "TÉLÉCHARGER LES FICHIERS SÉLECTIONNÉS"
 
 msgid "DTS Audio File"
 msgstr "Fichier Audio DTS"
@@ -3068,6 +3111,9 @@ msgstr "Suppression des metadonnées de GEOM"
 msgid "Deleting MBR and partition table"
 msgstr "Suppression de la MBR et de la table des partitions"
 
+msgid "Deleting failed."
+msgstr "La suppression a échoué."
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3142,9 +3188,6 @@ msgstr "Détecté"
 
 msgid "Detected Disks"
 msgstr "Disques détectés"
-
-msgid "Detected Language:"
-msgstr "Language détecté"
 
 msgid "Detected Remote Shares"
 msgstr "Partages Distants Détectés"
@@ -3254,6 +3297,9 @@ msgstr "Le repertoire %s n'existe pas"
 
 msgid "Directory Mask"
 msgstr "Masque de répertoire"
+
+msgid "Directory creation failed."
+msgstr "La création du répertoire a échoué."
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -4196,11 +4242,17 @@ msgstr "Les ressources HAST ne peuvent utiliser les IP dynamiques (DHCP)"
 msgid "EA Support"
 msgstr "Support EA"
 
+msgid "EDIT"
+msgstr "ÉDITER"
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "Les partitions EFI/GPT ne sont utilisable qu'avec UFS uniquement."
 
 msgid "ERROR - log errors"
 msgstr "ERROR -  journal des erreurs"
+
+msgid "ERROR(S)"
+msgstr "ERREUR(S)"
 
 msgid "ERROR:"
 msgstr "ERREUR:"
@@ -4351,6 +4403,9 @@ msgstr "Modifier un instantané automatique"
 
 msgid "Edit extent"
 msgstr "Editer l'extension"
+
+msgid "Edit file"
+msgstr "Modifier le fichier"
 
 msgid "Edit iSCSI Initiator"
 msgstr "Modifier l'Initiateur iSCSI"
@@ -5190,6 +5245,9 @@ msgstr ""
 msgid "Extra options to rsync (usually empty)."
 msgstr "Options additionnelles pour Rsync (généralement vide)."
 
+msgid "Extracting"
+msgstr "Extraction en cours"
+
 msgid "FAT32"
 msgstr "FAT 32"
 
@@ -5267,6 +5325,9 @@ msgstr "Impossible d'envoyer un rapport d'état."
 msgid "Failed to send test email."
 msgstr "Impossible d'envoyer un e-mail de test."
 
+msgid "Failed to unzip archive."
+msgstr "Impossible de décompresser l'archive."
+
 msgid "Failed to upload file."
 msgstr "Echec du téléchargement du fichier."
 
@@ -5340,8 +5401,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "File Transfer Protocol (FTP)"
 
+msgid "File creation failed."
+msgstr "La création du fichier a échoué."
+
 msgid "File not found"
 msgstr "Fichier non trouvé"
+
+msgid "File opening failed."
+msgstr "L'ouverture du fichier a échoué."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5353,6 +5420,9 @@ msgstr ""
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr ""
 "Chemin de fichier (e.g. /mnt/sharename/extent/%s) utilisé comme extension."
+
+msgid "File saving failed."
+msgstr "L'enregistrement du fichier a échoué."
 
 msgid "File size"
 msgstr "Taille de fichier"
@@ -5538,6 +5608,9 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 "Nom de fichier qualifié complet d'un fichier CSS d'onglets personnalisés."
 
+msgid "Function unavailable."
+msgstr "Fonction indisponible."
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5622,6 +5695,9 @@ msgstr "Obtenir les info de la cible"
 msgid "Get a list of available drivers"
 msgstr "Obtenir une liste de pilotes disponibles"
 
+msgid "Getting permissions failed."
+msgstr "Échec de l'obtention des autorisations."
+
 msgid "GiB"
 msgstr "Gio"
 
@@ -5646,6 +5722,9 @@ msgstr "Configuration globale"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Identificateur numérique global à utiliser pour un LUN donné dans CTL."
+
+msgid "Go Back"
+msgstr "Retour en arrière"
 
 msgid "Grant access to the file manager."
 msgstr "Accordez l'accès au gestionnaire de fichiers."
@@ -5776,6 +5855,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "Temps de mis en veille (standby) du disque."
+
+msgid "HOME"
+msgstr "ACCUEIL"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE (disque de remplacement à chaud)"
@@ -6524,6 +6606,9 @@ msgstr ""
 "défaut avant d'accéder à l'interface Web, saisissez le nom de l'utilisateur "
 "ici."
 
+msgid "Item(s)"
+msgstr "Elément(s)"
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -7077,6 +7162,9 @@ msgstr "Message d'Accueil"
 msgid "MOV File"
 msgstr "Fichier MOV"
 
+msgid "MOVE"
+msgstr "DEPLACER"
+
 msgid "MOVED TO"
 msgstr "déplacé vers"
 
@@ -7494,11 +7582,24 @@ msgstr "Montage en cours..."
 msgid "Mounts"
 msgstr "Montages"
 
+msgid "Move"
+msgstr "Déplacer"
+
 msgid "Move down"
 msgstr "Déplacer vers le bas"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr "Déplacer depuis /%s vers /%s "
+
+msgid "Move item(s)"
+msgstr "Déplacer des éléments"
+
 msgid "Move up"
 msgstr "Déplacer vers le haut"
+
+msgid "Moving failed."
+msgstr "Le déplacement a échoué"
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Licence Publique Version 2.0 (MPLv2)"
@@ -7933,6 +8034,9 @@ msgstr "Aucun port trouvé."
 
 msgid "No records found."
 msgstr "Aucun enregistrement trouvé."
+
+msgid "No results available."
+msgstr "Aucun résultat disponible."
 
 msgid "No snapshot information available."
 msgstr "Aucune informationd'instantané disponible."
@@ -8518,6 +8622,12 @@ msgstr "Chemin permanent des données pour SAMBA (e.g. %s)."
 msgid "Permission"
 msgstr "Autorisation"
 
+msgid "Permission-change failed."
+msgstr "Échec du changement d'autorisation."
+
+msgid "Permissions"
+msgstr "Autorisations"
+
 msgid "Permit Root Login"
 msgstr "Autoriser la connexion Root"
 
@@ -8922,6 +9032,9 @@ msgstr "Type de provisioning"
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr "Public"
+
 msgid "Public Key"
 msgstr "Clé publique"
 
@@ -9078,6 +9191,9 @@ msgstr "Archive RAR"
 
 msgid "RAW info"
 msgstr "Informations RAW"
+
+msgid "RELOAD"
+msgstr "RECHARGER"
 
 msgid "RPM"
 msgstr "Tr/min"
@@ -9552,6 +9668,9 @@ msgstr "Intervalle de balayage"
 msgid "Reservation"
 msgstr "Réservation"
 
+msgid "Reset"
+msgstr "Réinitialiser (reset)"
+
 msgid "Reset Graphs"
 msgstr "Réinitialiser les graphiques"
 
@@ -9746,6 +9865,9 @@ msgstr "Log S.M.A.R.T."
 msgid "SCSI Name"
 msgstr "Nom SCSI"
 
+msgid "SEARCH"
+msgstr "RECHERCHE"
+
 msgid "SHA Password"
 msgstr "Mot de passe SHA"
 
@@ -9934,6 +10056,9 @@ msgstr "Le script a été téléversé"
 msgid "Scrub a pool"
 msgstr "Vérification (Scrub) d'un pool"
 
+msgid "Seach results"
+msgstr "Résultats de la recherche"
+
 msgid "Search"
 msgstr "Chercher"
 
@@ -9942,6 +10067,9 @@ msgstr "Recherche d'évènement"
 
 msgid "Search for and import all disks found"
 msgstr "Rechercher et importer tous les disques trouvés"
+
+msgid "Search subdirectories"
+msgstr "Rechercher dans les sous-répertoires"
 
 msgid "Second"
 msgstr "Seconde"
@@ -10121,6 +10249,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Sélectionner la langue de l'interface Web."
+
+msgid "Select the language of the user portal for this user."
+msgstr "Sélectionnez la langue du portail utilisateur pour cet utilisateur."
 
 msgid "Select the location closest to you."
 msgstr "Sélectionnez votre fuseau horaire."
@@ -12217,6 +12348,16 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "La valeur de tag est invalide."
 
+msgid "The target directory doesn't exist."
+msgstr "Le répertoire cible n'existe pas."
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+"Le répertoire cible ne doit pas être au-dessus du répertoire de base."
+
+msgid "The target item already exists."
+msgstr "L'élément cible existe déjà."
+
 msgid "The target name already exists."
 msgstr "Le nom de la cible existe déjà."
 
@@ -12518,6 +12659,9 @@ msgstr "Cet e-mail a été envoyé pour valider votre configuration e-mail."
 msgid "This extent is used."
 msgstr "L'extension est utilisée."
 
+msgid "This file doesn't exist."
+msgstr "Ce fichier n'existe pas."
+
 msgid "This is a nickname and is for information only."
 msgstr "Ceci est un surnom et est pour information seulement."
 
@@ -12534,6 +12678,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Ce n'est pas une adresse IP valide."
+
+msgid "This item already exists."
+msgstr "Cet élément existe déjà."
+
+msgid "This item doesn't exist."
+msgstr "Cet élément n'existe pas."
 
 msgid "This month"
 msgstr "Ce mois-ci"
@@ -13273,6 +13423,12 @@ msgstr "Descripteurs maximum UNMAP"
 msgid "UNMAP Maximum LBA"
 msgstr "LBA maximum UNMAP"
 
+msgid "UNZIP"
+msgstr "UNZIP"
+
+msgid "UP"
+msgstr "UP"
+
 msgid "UPS"
 msgstr "UPS"
 
@@ -13378,6 +13534,12 @@ msgstr "UUID"
 msgid "Umask"
 msgstr "Masque d'autorisations"
 
+msgid "Unable to open directory."
+msgstr "Impossible d'ouvrir le répertoire."
+
+msgid "Unable to read directory."
+msgstr "Impossible de lire le répertoire."
+
 msgid "Unavailable"
 msgstr "Indisponible"
 
@@ -13459,6 +13621,9 @@ msgstr "Démontage en cours..."
 
 msgid "Unrestricted"
 msgstr "Libre"
+
+msgid "Unzip"
+msgstr "Unzip"
 
 msgid "Up"
 msgstr "Haut"
@@ -13690,6 +13855,9 @@ msgstr "Le compte utilisateur est protégé"
 
 msgid "User account is unlocked"
 msgstr "Le compte d'utilisateur est déverrouillé"
+
+msgid "User database does not exist or is not readable."
+msgstr "La base de données utilisateur n'existe pas ou n'est pas lisible."
 
 msgid "User portal permission."
 msgstr "Autorisation du portail utilisateur."
@@ -14113,6 +14281,9 @@ msgstr "Répertoire de travail"
 msgid "Workgroup"
 msgstr "Groupe de travail (workgroup Windows)"
 
+msgid "Wrap text:"
+msgstr "Renvoi à la ligne:"
+
 msgid "Write"
 msgstr "Écriture"
 
@@ -14153,6 +14324,21 @@ msgstr "Oui - Active la prise en charge de Time Machine pour ce partage."
 msgid "Yesterday"
 msgstr "Hier"
 
+msgid "You are not allowed to access the target directory."
+msgstr "Vous n'êtes pas autorisé à accéder au répertoire cible."
+
+msgid "You are not allowed to access this directory."
+msgstr "Vous n'êtes pas autorisé à accéder à ce répertoire."
+
+msgid "You are not allowed to access this file."
+msgstr "Vous n'êtes pas autorisé à accéder à ce fichier."
+
+msgid "You are not allowed to access this item."
+msgstr "Vous n'êtes pas autorisé à accéder à cet élément."
+
+msgid "You are not allowed to use this function."
+msgstr "Vous n'êtes pas autorisé à utiliser cette fonction."
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -14190,6 +14376,9 @@ msgstr ""
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "Vous devez sélectionner au moins un élément pour '%s'."
+
+msgid "You haven't selected any item(s)."
+msgstr "Vous n'avez sélectionné aucun élément."
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -14244,6 +14433,9 @@ msgstr "Vous devez initialiser les données avant de les activer."
 
 msgid "You must select at least one authentication method."
 msgstr "Vous devez sélectionner au moins une méthode d'authentification."
+
+msgid "You must supply a name."
+msgstr "Vous devez indiquer un nom."
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

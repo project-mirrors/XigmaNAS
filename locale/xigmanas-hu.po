@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -118,9 +118,6 @@ msgstr "%s%d %s már használatban van: %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' törli az összes statisztikai adatot a diagramokból!"
-
-msgid "(Change if needed)"
-msgstr "(Szükség esetén módosítsd)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -495,6 +492,9 @@ msgstr "Zajszint"
 
 msgid "Action"
 msgstr "Művelet"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activate"
 msgstr "Aktivál"
@@ -1135,8 +1135,14 @@ msgstr "Április"
 msgid "Archive"
 msgstr "Archív"
 
+msgid "Archive item(s)"
+msgstr ""
+
 msgid "Archive mode."
 msgstr "Archív mód"
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr ""
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Biztos, hogy újraindítod a szervert?"
@@ -1651,6 +1657,9 @@ msgstr "CD/DVD lemez"
 msgid "CGI Script"
 msgstr ""
 
+msgid "CHANGE PERMISSIONS"
+msgstr ""
+
 msgid "CHANGED"
 msgstr "MEGVÁLTOZOTT"
 
@@ -1677,6 +1686,9 @@ msgstr "CHAP Felhasználók"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP-kölcsönösség"
+
+msgid "COPY"
+msgstr ""
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (cirill)"
@@ -1833,6 +1845,9 @@ msgstr "Hozzáférés megváltoztatása"
 msgid "Change below file"
 msgstr "Változás az alábbi fájlt"
 
+msgid "Change permissions"
+msgstr ""
+
 msgid "Change the IP address of your computer"
 msgstr "Számítógéped IP címének módosítása"
 
@@ -1923,6 +1938,9 @@ msgstr "Klón"
 
 msgid "Clone Configuration"
 msgstr "Konfiguráció másolása"
+
+msgid "Close"
+msgstr ""
 
 msgid "Collecting initial data, please wait..."
 msgstr "Adatok gyűjtése folyamatban, kérem várjon..."
@@ -2238,6 +2256,19 @@ msgstr "Konjov önteszt"
 msgid "Copies"
 msgstr "Másolatok"
 
+msgid "Copy"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr ""
+
+msgid "Copying failed."
+msgstr ""
+
 msgid "Core"
 msgstr "Rendszermag"
 
@@ -2380,6 +2411,9 @@ msgstr ""
 "SATA PHY hibák számát számolja. Ez az érték az összes PHY hibát, ex adat FIS "
 "CRC-t, kód hibákat, paritás hibákat, parancs FIS crc-t tartalmazza. Rendszer "
 "kikapcsolásakor értéke törlődik."
+
+msgid "Create"
+msgstr ""
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "4KB csomagoló létrehozása (nop eszköz)"
@@ -2561,6 +2595,9 @@ msgstr "DEBUG2 - részletes hibakeresési információ naplózása"
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG - összes hibakeresési információ naplózása"
 
+msgid "DELETE"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2604,6 +2641,12 @@ msgstr ""
 "A DOS SMB kilensek azt feltételezik, hogy a szervernek ugyanaz a "
 "karakterkészlete van, mint nekik. Ez az opció határozza meg, hogy melyik "
 "karakterkészlettel kommunikáljon a Samba a DOS kliensekkel."
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED FILES"
+msgstr ""
 
 msgid "DTS Audio File"
 msgstr ""
@@ -2993,6 +3036,9 @@ msgstr "GEOM metaadatok törlése"
 msgid "Deleting MBR and partition table"
 msgstr "MBR és partíciós táblák törlése"
 
+msgid "Deleting failed."
+msgstr ""
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3065,9 +3111,6 @@ msgstr "Észlelt"
 
 msgid "Detected Disks"
 msgstr "Észlelt lemezek"
-
-msgid "Detected Language:"
-msgstr "Érzékelt nyelv:"
 
 msgid "Detected Remote Shares"
 msgstr "Észlelt távoli megosztások"
@@ -3177,6 +3220,9 @@ msgstr "%s mappa nem létezik!"
 
 msgid "Directory Mask"
 msgstr "Mappamaszk"
+
+msgid "Directory creation failed."
+msgstr ""
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "Befejezetlen fájlok mappája. Az üres mező tiltást jelent."
@@ -4100,11 +4146,17 @@ msgstr "Dinamikus IP (DHCP) nem használható HAST erőforrásokhoz."
 msgid "EA Support"
 msgstr "EA támogatás"
 
+msgid "EDIT"
+msgstr ""
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT partíció csak UFS-sel használható."
 
 msgid "ERROR - log errors"
 msgstr "ERROR - hibák naplózása"
+
+msgid "ERROR(S)"
+msgstr ""
 
 msgid "ERROR:"
 msgstr "HIBA:"
@@ -4255,6 +4307,9 @@ msgstr "Automatikus pillanatkép beállításai"
 
 msgid "Edit extent"
 msgstr "Extent szerkesztése"
+
+msgid "Edit file"
+msgstr ""
 
 msgid "Edit iSCSI Initiator"
 msgstr "iSCSI Kezdeményező módosítás"
@@ -5077,6 +5132,9 @@ msgstr "Átvitelirányítóhoz rpc használata esetén extra opció használata.
 msgid "Extra options to rsync (usually empty)."
 msgstr "Extra beállítások az rsynchez (általában üres)"
 
+msgid "Extracting"
+msgstr ""
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -5154,6 +5212,9 @@ msgstr "Állapot riport küldése sikertelen."
 msgid "Failed to send test email."
 msgstr "Teszt e-mail küldése sikertelen."
 
+msgid "Failed to unzip archive."
+msgstr ""
+
 msgid "Failed to upload file."
 msgstr "Fájlfeltöltés sikertelen."
 
@@ -5227,8 +5288,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "File Transfer Protocol"
 
+msgid "File creation failed."
+msgstr ""
+
 msgid "File not found"
 msgstr "A fájl nem található"
+
+msgid "File opening failed."
+msgstr ""
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5237,6 +5304,9 @@ msgstr "Lemezképnek használandó fájlútvonal (pl. %s) vagy ZFS kötet (%s)."
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "Fájl útvonal (pl. /mnt/sharename/extent/%s), mint extent."
+
+msgid "File saving failed."
+msgstr ""
 
 msgid "File size"
 msgstr "Fájl méret"
@@ -5410,6 +5480,9 @@ msgstr "Az egyéni navigációs sáv CSS-fájl teljes fájlneve."
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "Az egyéni lapok CSS fájljának teljes fájlneve."
 
+msgid "Function unavailable."
+msgstr ""
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5494,6 +5567,9 @@ msgstr "Cél info"
 msgid "Get a list of available drivers"
 msgstr "Elérhető illesztőprogramok listájának lekérése"
 
+msgid "Getting permissions failed."
+msgstr ""
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5517,6 +5593,9 @@ msgstr "Globális beállítások"
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr ""
 "Globális numerikus azonosító, amelyet egy CTL-en belüli LUN-hoz használandó."
+
+msgid "Go Back"
+msgstr ""
 
 msgid "Grant access to the file manager."
 msgstr "Hozzáférés biztosítása fájlkezelőhöz."
@@ -5647,6 +5726,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "HDD készenléti idő"
+
+msgid "HOME"
+msgstr ""
 
 msgid "HOT SPARE"
 msgstr "GYORS TARTALÉK"
@@ -6376,6 +6458,9 @@ msgstr ""
 "Ajánlott lecserélni az alapértelmezett WebGUI felhasználónevet és jelszót, "
 "add meg itt az új felhasználónevet."
 
+msgid "Item(s)"
+msgstr ""
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -6928,6 +7013,9 @@ msgstr "A nap üzenete"
 msgid "MOV File"
 msgstr ""
 
+msgid "MOVE"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "ÁTHELYEZVE:"
 
@@ -7343,11 +7431,24 @@ msgstr "Csatolás..."
 msgid "Mounts"
 msgstr "Csatolások (mounts)"
 
+msgid "Move"
+msgstr ""
+
 msgid "Move down"
 msgstr "Mozgatás le"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Move item(s)"
+msgstr ""
+
 msgid "Move up"
 msgstr "Mozgatás fel"
+
+msgid "Moving failed."
+msgstr ""
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Közösségi Licenc Verzió 2.0 (MPLv2)"
@@ -7779,6 +7880,9 @@ msgstr "Egy port sem található"
 
 msgid "No records found."
 msgstr "Egy bejegyzés sem található."
+
+msgid "No results available."
+msgstr ""
 
 msgid "No snapshot information available."
 msgstr "Egy pillanatkép-információ sem érhető el."
@@ -8365,6 +8469,12 @@ msgstr "Állandó Samba-adatútvonal (pl. %s)."
 msgid "Permission"
 msgstr "Jogosultság"
 
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Permit Root Login"
 msgstr "Root bejelentkezés engedélyezése"
 
@@ -8763,6 +8873,9 @@ msgstr "Ellátás típusa"
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr ""
+
 msgid "Public Key"
 msgstr "Nyilvános kulcs"
 
@@ -8919,6 +9032,9 @@ msgstr ""
 
 msgid "RAW info"
 msgstr "RAW info"
+
+msgid "RELOAD"
+msgstr ""
 
 msgid "RPM"
 msgstr "fordulat"
@@ -9392,6 +9508,9 @@ msgstr "Újrakeresési időköz"
 msgid "Reservation"
 msgstr "Foglalás"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset Graphs"
 msgstr "Grafikonon alaphelyzetbe állítása"
 
@@ -9588,6 +9707,9 @@ msgstr "S.M.A.R.T. napló"
 msgid "SCSI Name"
 msgstr "SCSI neve"
 
+msgid "SEARCH"
+msgstr ""
+
 msgid "SHA Password"
 msgstr "SHA jelszó"
 
@@ -9774,6 +9896,9 @@ msgstr "Szkriptet sikeresen feltöltötted."
 msgid "Scrub a pool"
 msgstr "Tároló ellenőrzése"
 
+msgid "Seach results"
+msgstr ""
+
 msgid "Search"
 msgstr "Keresés"
 
@@ -9782,6 +9907,9 @@ msgstr "Esemény keresése"
 
 msgid "Search for and import all disks found"
 msgstr "Keresés és összes talált eszköz importálása"
+
+msgid "Search subdirectories"
+msgstr ""
 
 msgid "Second"
 msgstr "Másodperc"
@@ -9946,6 +10074,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Válaszd ki a WebGUI nyelvét."
+
+msgid "Select the language of the user portal for this user."
+msgstr ""
 
 msgid "Select the location closest to you."
 msgstr "Válaszd ki a hozzád legközelebbi területet."
@@ -12000,6 +12131,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "Érvénytelen címketartomány"
 
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
 msgid "The target name already exists."
 msgstr "A cél neve már létezik."
 
@@ -12286,6 +12426,9 @@ msgstr ""
 msgid "This extent is used."
 msgstr "Ez az extent használatban van."
 
+msgid "This file doesn't exist."
+msgstr ""
+
 msgid "This is a nickname and is for information only."
 msgstr "Ez egy becenév, ami csak tájékoztatásra szolgál."
 
@@ -12301,6 +12444,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Ez nem egy valós IP cím."
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
 
 msgid "This month"
 msgstr ""
@@ -13012,6 +13161,12 @@ msgstr "UNMAP maximális leírói"
 msgid "UNMAP Maximum LBA"
 msgstr "UNMAP maximális LBA-ja"
 
+msgid "UNZIP"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
 msgid "UPS"
 msgstr "Szünetmentes táp (UPS)"
 
@@ -13117,6 +13272,12 @@ msgstr "UUID"
 msgid "Umask"
 msgstr "UImaszk"
 
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
 msgid "Unavailable"
 msgstr "Nem érhető el"
 
@@ -13198,6 +13359,9 @@ msgstr "Leválasztás..."
 
 msgid "Unrestricted"
 msgstr "Korlátlan"
+
+msgid "Unzip"
+msgstr ""
 
 msgid "Up"
 msgstr "Felfelé"
@@ -13417,6 +13581,9 @@ msgstr "Felhasználói fiók védett"
 
 msgid "User account is unlocked"
 msgstr "Felhasználói fiók zárolása feloldva"
+
+msgid "User database does not exist or is not readable."
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -13830,6 +13997,9 @@ msgstr "Munkamappa"
 msgid "Workgroup"
 msgstr "Munkacsoport"
 
+msgid "Wrap text:"
+msgstr ""
+
 msgid "Write"
 msgstr "Írás"
 
@@ -13870,6 +14040,21 @@ msgstr "Igen - Időgép bekapcsolása ehhez a megosztáshoz."
 msgid "Yesterday"
 msgstr ""
 
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "You are not allowed to use this function."
+msgstr ""
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -13906,6 +14091,9 @@ msgstr "A változások életbe lépéséhez újra kell indítanod a rendszert."
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "Legalább egy elemet választania kell ehhez: '%s'."
+
+msgid "You haven't selected any item(s)."
+msgstr ""
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -13958,6 +14146,9 @@ msgstr "Engedélyezés előtt szükséges az adat inicializálása."
 
 msgid "You must select at least one authentication method."
 msgstr "Legalább egy hitelesítési eljárást ki kell választanod."
+
+msgid "You must supply a name."
+msgstr ""
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

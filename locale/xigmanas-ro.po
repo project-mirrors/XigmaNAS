@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:13+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -119,9 +119,6 @@ msgstr "%s%d %s este deja utilizat de %s%d."
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' a șters toate datele statistice ale graficelor!"
-
-msgid "(Change if needed)"
-msgstr "(Modifică dacă este necesar)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -509,6 +506,9 @@ msgstr "Nivel Acustic"
 
 msgid "Action"
 msgstr "Acțiune:"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activate"
 msgstr "Activare"
@@ -1149,8 +1149,14 @@ msgstr "Aprilie"
 msgid "Archive"
 msgstr "Arhivă"
 
+msgid "Archive item(s)"
+msgstr ""
+
 msgid "Archive mode."
 msgstr "Mod arhivare."
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr ""
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Reporniți sistemul?"
@@ -1668,6 +1674,9 @@ msgstr "Unitate CD/DVD"
 msgid "CGI Script"
 msgstr ""
 
+msgid "CHANGE PERMISSIONS"
+msgstr ""
+
 msgid "CHANGED"
 msgstr "MODIFICAT"
 
@@ -1694,6 +1703,9 @@ msgstr "Utilizator CHAP"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP-Mutual"
+
+msgid "COPY"
+msgstr ""
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Chirilică)"
@@ -1853,6 +1865,9 @@ msgstr ""
 msgid "Change below file"
 msgstr "Modificare fișier"
 
+msgid "Change permissions"
+msgstr ""
+
 msgid "Change the IP address of your computer"
 msgstr "Modifică adresa IP a calculatorului"
 
@@ -1945,6 +1960,9 @@ msgstr "Clonă"
 
 msgid "Clone Configuration"
 msgstr "Konfiguráció másolása"
+
+msgid "Close"
+msgstr ""
 
 msgid "Collecting initial data, please wait..."
 msgstr "Colectare inițială date, vă rugam asteptați..."
@@ -2262,6 +2280,19 @@ msgstr "Auto-test detaliat"
 msgid "Copies"
 msgstr "Copii"
 
+msgid "Copy"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr ""
+
+msgid "Copying failed."
+msgstr ""
+
 msgid "Core"
 msgstr "Nucleul"
 
@@ -2431,6 +2462,9 @@ msgstr ""
 "Contorizează numărul erorilor SATA PHY. Include toate erorile PHY, ex. FIS "
 "CRC, coduri eroare, erori de paritate, crc comenzi FIS. Contorul este "
 "resetat la oprirea sistemului."
+
+msgid "Create"
+msgstr ""
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Creare wrapper 4KB (dispozitiv nop)."
@@ -2610,6 +2644,9 @@ msgstr ""
 msgid "DEBUG3 - log all debugging information"
 msgstr ""
 
+msgid "DELETE"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2649,6 +2686,12 @@ msgstr ""
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
+msgstr ""
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED FILES"
 msgstr ""
 
 msgid "DTS Audio File"
@@ -3037,6 +3080,9 @@ msgstr "Ștergere metadata GEOM"
 msgid "Deleting MBR and partition table"
 msgstr "Se șterge MBR-ul și tabela de partiții"
 
+msgid "Deleting failed."
+msgstr ""
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -3110,9 +3156,6 @@ msgstr "Detectat"
 
 msgid "Detected Disks"
 msgstr "Discuri detectate"
-
-msgid "Detected Language:"
-msgstr "Detecție limbă:"
 
 msgid "Detected Remote Shares"
 msgstr "Au fost detectate partajări remote"
@@ -3221,6 +3264,9 @@ msgstr "Directorul %s nu există!"
 
 msgid "Directory Mask"
 msgstr "MAscă directoare"
+
+msgid "Directory creation failed."
+msgstr ""
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -4134,10 +4180,16 @@ msgstr "Pentru HAST nu pot fi utilizate IP-uri Dinamice (DHCP)."
 msgid "EA Support"
 msgstr "Suport EA"
 
+msgid "EDIT"
+msgstr ""
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "Partitiile EFI/GPT pot fi folosite doar cu UFS."
 
 msgid "ERROR - log errors"
+msgstr ""
+
+msgid "ERROR(S)"
 msgstr ""
 
 msgid "ERROR:"
@@ -4289,6 +4341,9 @@ msgstr "Editare imaginea automată (snapshot)"
 
 msgid "Edit extent"
 msgstr "Editare extensie"
+
+msgid "Edit file"
+msgstr ""
 
 msgid "Edit iSCSI Initiator"
 msgstr ""
@@ -5105,6 +5160,9 @@ msgstr "Extra opțiuni de transmis remote prin rpc."
 msgid "Extra options to rsync (usually empty)."
 msgstr "Opțiuni suplimentare pentru rsync (nu sînt absolut necesare)"
 
+msgid "Extracting"
+msgstr ""
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -5183,6 +5241,9 @@ msgstr "Eroare trimitere raport de stare."
 msgid "Failed to send test email."
 msgstr "Eroare trimitere email de test."
 
+msgid "Failed to unzip archive."
+msgstr ""
+
 msgid "Failed to upload file."
 msgstr "Eroare încărcare fișier."
 
@@ -5254,8 +5315,14 @@ msgstr ""
 msgid "File Transfer Protocol"
 msgstr "Protocol Transfer Fișiere"
 
+msgid "File creation failed."
+msgstr ""
+
 msgid "File not found"
 msgstr "Fișier negăsit"
+
+msgid "File opening failed."
+msgstr ""
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5265,6 +5332,9 @@ msgstr ""
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "Cale fișier (ex. /mnt/sharename/extent/%s) utilizată ca extensie."
+
+msgid "File saving failed."
+msgstr ""
 
 msgid "File size"
 msgstr "Dimensiune fișier"
@@ -5438,6 +5508,9 @@ msgstr ""
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 
+msgid "Function unavailable."
+msgstr ""
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5523,6 +5596,9 @@ msgstr "Obținere Informații Destinație (target)"
 msgid "Get a list of available drivers"
 msgstr "Listare discuri disponibile"
 
+msgid "Getting permissions failed."
+msgstr ""
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5542,6 +5618,9 @@ msgid "Global Settings"
 msgstr ""
 
 msgid "Global numeric identifier to use for a given LUN inside CTL."
+msgstr ""
+
+msgid "Go Back"
 msgstr ""
 
 msgid "Grant access to the file manager."
@@ -5674,6 +5753,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "Timp oprire HDD"
+
+msgid "HOME"
+msgstr ""
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
@@ -6409,6 +6491,9 @@ msgstr ""
 "implicite XigmaNAS pentru accesarea Interfeței Grafice. <br>Introduceți aici "
 "numele de utilizator."
 
+msgid "Item(s)"
+msgstr ""
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -6938,6 +7023,9 @@ msgstr "MOTD"
 msgid "MOV File"
 msgstr ""
 
+msgid "MOVE"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "MUTAT LA"
 
@@ -7351,11 +7439,24 @@ msgstr "Montare..."
 msgid "Mounts"
 msgstr "Montări"
 
+msgid "Move"
+msgstr ""
+
 msgid "Move down"
 msgstr "Mută în jos"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Move item(s)"
+msgstr ""
+
 msgid "Move up"
 msgstr "Mută în sus"
+
+msgid "Moving failed."
+msgstr ""
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Licență publică Mozilla v2.0 (MPLv2)"
@@ -7785,6 +7886,9 @@ msgstr ""
 
 msgid "No records found."
 msgstr "Nu a fost găsită nicio înregistrare."
+
+msgid "No results available."
+msgstr ""
 
 msgid "No snapshot information available."
 msgstr ""
@@ -8368,6 +8472,12 @@ msgstr "Cale permanentă samba (ex. %s)."
 msgid "Permission"
 msgstr "Permisiune"
 
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Permit Root Login"
 msgstr "Permisiune de login ca root"
 
@@ -8766,6 +8876,9 @@ msgstr ""
 msgid "Proxy"
 msgstr "Proxy"
 
+msgid "Public"
+msgstr ""
+
 msgid "Public Key"
 msgstr ""
 
@@ -8920,6 +9033,9 @@ msgstr ""
 
 msgid "RAW info"
 msgstr "Informații brute"
+
+msgid "RELOAD"
+msgstr ""
 
 msgid "RPM"
 msgstr ""
@@ -9389,6 +9505,9 @@ msgstr "Interval scanare"
 msgid "Reservation"
 msgstr "Rezervare"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset Graphs"
 msgstr "Resetare grafice"
 
@@ -9582,6 +9701,9 @@ msgstr "Jurnal S.M.A.R.T."
 msgid "SCSI Name"
 msgstr ""
 
+msgid "SEARCH"
+msgstr ""
+
 msgid "SHA Password"
 msgstr ""
 
@@ -9768,6 +9890,9 @@ msgstr "Scriptul a fost încărcat."
 msgid "Scrub a pool"
 msgstr "Curățare pool"
 
+msgid "Seach results"
+msgstr ""
+
 msgid "Search"
 msgstr "Căutare"
 
@@ -9776,6 +9901,9 @@ msgstr "Eveniment căutare"
 
 msgid "Search for and import all disks found"
 msgstr "Căutare și import discuri găsite"
+
+msgid "Search subdirectories"
+msgstr ""
 
 msgid "Second"
 msgstr "Secundă"
@@ -9941,6 +10069,9 @@ msgstr ""
 
 msgid "Select the language of the WebGUI."
 msgstr "Selectați limba folosită pentru Interfața Grafică."
+
+msgid "Select the language of the user portal for this user."
+msgstr ""
 
 msgid "Select the location closest to you."
 msgstr "Selectați cea mai apropiată locație de dumneavoastră."
@@ -11908,6 +12039,15 @@ msgstr ""
 msgid "The tag range is invalid."
 msgstr "Domeniul etichetei este invalid."
 
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
 msgid "The target name already exists."
 msgstr "Numele destinație există deja."
 
@@ -12195,6 +12335,9 @@ msgstr ""
 msgid "This extent is used."
 msgstr "Această extensie este utilizată."
 
+msgid "This file doesn't exist."
+msgstr ""
+
 msgid "This is a nickname and is for information only."
 msgstr ""
 
@@ -12210,6 +12353,12 @@ msgstr ""
 
 msgid "This is not a valid IP Address."
 msgstr "Aceasta nu este o adresă IP validă."
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
 
 msgid "This month"
 msgstr ""
@@ -12923,6 +13072,12 @@ msgstr ""
 msgid "UNMAP Maximum LBA"
 msgstr ""
 
+msgid "UNZIP"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
 msgid "UPS"
 msgstr "UPS"
 
@@ -13028,6 +13183,12 @@ msgstr ""
 msgid "Umask"
 msgstr "Umask"
 
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
 msgid "Unavailable"
 msgstr "Indisponibil"
 
@@ -13106,6 +13267,9 @@ msgid "Unmounting..."
 msgstr "Demontare..."
 
 msgid "Unrestricted"
+msgstr ""
+
+msgid "Unzip"
 msgstr ""
 
 msgid "Up"
@@ -13325,6 +13489,9 @@ msgstr "Contul utilizator este protejat"
 
 msgid "User account is unlocked"
 msgstr "Contul utilizator este deblocat"
+
+msgid "User database does not exist or is not readable."
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -13736,6 +13903,9 @@ msgstr "Director de lucru"
 msgid "Workgroup"
 msgstr "Grup de Lucru"
 
+msgid "Wrap text:"
+msgstr ""
+
 msgid "Write"
 msgstr "Scriere"
 
@@ -13776,6 +13946,21 @@ msgstr "Da - Activare suport Time Machine pentru această partajare."
 msgid "Yesterday"
 msgstr ""
 
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "You are not allowed to use this function."
+msgstr ""
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -13814,6 +13999,9 @@ msgstr ""
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "Trebuie să selectați cel puțin un element pentru '%s'."
+
+msgid "You haven't selected any item(s)."
+msgstr ""
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -13871,6 +14059,9 @@ msgstr "Va trebui să inițializați datele înainte de activare."
 
 msgid "You must select at least one authentication method."
 msgstr "Trebuie să selectați cel puțin o metodă de autentificare."
+
+msgid "You must supply a name."
+msgstr ""
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."

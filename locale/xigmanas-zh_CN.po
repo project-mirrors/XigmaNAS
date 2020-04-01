@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-03-27 17:26+0000\n"
+"POT-Creation-Date: 2020-03-31 09:31+0000\n"
 "PO-Revision-Date: 2020-03-14 07:25+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-03-28 16:13+0000\n"
+"X-Launchpad-Export-Date: 2020-04-01 20:14+0000\n"
 "X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -119,9 +119,6 @@ msgstr "%s%d %s 已被 %s%d 使用。"
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
 msgstr "'%s' 清除图表中所有统计数据"
-
-msgid "(Change if needed)"
-msgstr "(如果需要则改变)"
 
 msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
@@ -458,6 +455,9 @@ msgstr "噪音级别"
 
 msgid "Action"
 msgstr "动作"
+
+msgid "Actions"
+msgstr ""
 
 msgid "Activate"
 msgstr "启用"
@@ -1060,8 +1060,14 @@ msgstr "四月"
 msgid "Archive"
 msgstr "存档"
 
+msgid "Archive item(s)"
+msgstr ""
+
 msgid "Archive mode."
 msgstr "存档模式。"
+
+msgid "Are you sure you want to delete selected item(s)?"
+msgstr ""
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "是否确定重启系统？"
@@ -1548,6 +1554,9 @@ msgstr "CD/DVD 驱动器"
 msgid "CGI Script"
 msgstr "CGI脚本"
 
+msgid "CHANGE PERMISSIONS"
+msgstr ""
+
 msgid "CHANGED"
 msgstr "已更改"
 
@@ -1574,6 +1583,9 @@ msgstr "CHAP 用户"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP共同"
+
+msgid "COPY"
+msgstr ""
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (斯拉夫文)"
@@ -1724,6 +1736,9 @@ msgstr "更改权限"
 msgid "Change below file"
 msgstr "更改下列文件"
 
+msgid "Change permissions"
+msgstr ""
+
 msgid "Change the IP address of your computer"
 msgstr "更改你的电脑IP地址"
 
@@ -1811,6 +1826,9 @@ msgstr "克隆"
 
 msgid "Clone Configuration"
 msgstr "克隆配置"
+
+msgid "Close"
+msgstr ""
 
 msgid "Collecting initial data, please wait..."
 msgstr "收集初始数据，请稍候..."
@@ -2096,6 +2114,19 @@ msgstr "输送自检"
 msgid "Copies"
 msgstr "副本"
 
+msgid "Copy"
+msgstr ""
+
+#, php-format
+msgid "Copy from /%s to /%s "
+msgstr ""
+
+msgid "Copy item(s)"
+msgstr ""
+
+msgid "Copying failed."
+msgstr ""
+
 msgid "Core"
 msgstr "核心"
 
@@ -2215,6 +2246,9 @@ msgid ""
 "Value clears upon system power-down."
 msgstr ""
 "计算SATA PHY错误的数量。 该值包括所有PHY错误计数，Ex数据FIS CRC，代码错误，差异错误，命令FIS crc。 系统掉电时值清零。"
+
+msgid "Create"
+msgstr ""
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "创建4KB封套（NOP装置）。"
@@ -2390,6 +2424,9 @@ msgstr "DEBUG2  - 记录详细的调试信息"
 msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3  - 记录所有调试信息"
 
+msgid "DELETE"
+msgstr ""
+
 msgid "DHCP"
 msgstr "DHCP"
 
@@ -2430,6 +2467,12 @@ msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
 msgstr "DOS SMB客户端假定服务器具有与它们相同的字符集。 此选项指定Samba应该与DOS客户端对话的字符集。"
+
+msgid "DOWNLOAD"
+msgstr ""
+
+msgid "DOWNLOAD SELECTED FILES"
+msgstr ""
 
 msgid "DTS Audio File"
 msgstr "DTS音频文件"
@@ -2805,6 +2848,9 @@ msgstr "删除 GEOM 元数据中"
 msgid "Deleting MBR and partition table"
 msgstr "删除 MBR 和分区表中"
 
+msgid "Deleting failed."
+msgstr ""
+
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
 "good/bad the wearleveling of the SSD works on a more technical way."
@@ -2873,9 +2919,6 @@ msgstr "检测到"
 
 msgid "Detected Disks"
 msgstr "检测到的磁盘"
-
-msgid "Detected Language:"
-msgstr "检测到的语言"
 
 msgid "Detected Remote Shares"
 msgstr "检测到远程共享"
@@ -2978,6 +3021,9 @@ msgstr "目录 %s 不存在"
 
 msgid "Directory Mask"
 msgstr "目录掩码"
+
+msgid "Directory creation failed."
+msgstr ""
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "不完整文件的目录。 空字段表示禁用。"
@@ -3870,11 +3916,17 @@ msgstr "HAST资源不能使用动态IP（DHCP）。"
 msgid "EA Support"
 msgstr "EA支持"
 
+msgid "EDIT"
+msgstr ""
+
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT 只相容于 UFS 文件系统。"
 
 msgid "ERROR - log errors"
 msgstr "错误 - 记录错误"
+
+msgid "ERROR(S)"
+msgstr ""
 
 msgid "ERROR:"
 msgstr "错误："
@@ -4025,6 +4077,9 @@ msgstr "编辑自动快照"
 
 msgid "Edit extent"
 msgstr "编辑extent"
+
+msgid "Edit file"
+msgstr ""
 
 msgid "Edit iSCSI Initiator"
 msgstr "编辑iSCSI启动器"
@@ -4796,6 +4851,9 @@ msgstr "使用传输远程传递rpc的额外选项。"
 msgid "Extra options to rsync (usually empty)."
 msgstr "rsync 的额外选项（通常为空白）。"
 
+msgid "Extracting"
+msgstr ""
+
 msgid "FAT32"
 msgstr "FAT32"
 
@@ -4871,6 +4929,9 @@ msgstr "无法发送状态报告。"
 msgid "Failed to send test email."
 msgstr "无法发送测试电子邮件。"
 
+msgid "Failed to unzip archive."
+msgstr ""
+
 msgid "Failed to upload file."
 msgstr "上传文件失败。"
 
@@ -4940,8 +5001,14 @@ msgstr "文件系统 - 可以挂载在标准系统命名空间中，并且像其
 msgid "File Transfer Protocol"
 msgstr "文件传输协议（File Transfer Protocol）"
 
+msgid "File creation failed."
+msgstr ""
+
 msgid "File not found"
 msgstr "找不到文件"
+
+msgid "File opening failed."
+msgstr ""
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -4950,6 +5017,9 @@ msgstr "用作硬盘映像的文件路径（例如%s）或ZFS卷（例如%s）�
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "用作扩展的文件路径（例如/mnt/sharename/extent/%s）。"
+
+msgid "File saving failed."
+msgstr ""
 
 msgid "File size"
 msgstr "文件大小"
@@ -5121,6 +5191,9 @@ msgstr "自定义导航栏CSS文件的全限定文件名。"
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "自定义标签CSS文件的全限定文件名。"
 
+msgid "Function unavailable."
+msgstr ""
+
 msgid "Fuppes"
 msgstr "Fuppes"
 
@@ -5205,6 +5278,9 @@ msgstr "获取目标信息"
 msgid "Get a list of available drivers"
 msgstr "获取可用驱动的列表"
 
+msgid "Getting permissions failed."
+msgstr ""
+
 msgid "GiB"
 msgstr "GiB"
 
@@ -5225,6 +5301,9 @@ msgstr "全局设置"
 
 msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "用于CTL内给定LUN的全局数字标识符。"
+
+msgid "Go Back"
+msgstr ""
 
 msgid "Grant access to the file manager."
 msgstr "授予对文件管理器的访问权限。"
@@ -5350,6 +5429,9 @@ msgstr ""
 
 msgid "HDD standby time"
 msgstr "HDD 待机时间"
+
+msgid "HOME"
+msgstr ""
 
 msgid "HOT SPARE"
 msgstr "热备"
@@ -6011,6 +6093,9 @@ msgid ""
 "the WebGUI, enter the username here."
 msgstr "如果需要用WebGUI登录，我们推荐您更改系统默认的用户名和密码，请在这里输入用户名。"
 
+msgid "Item(s)"
+msgstr ""
+
 msgid "JBOD"
 msgstr "JBOD"
 
@@ -6524,6 +6609,9 @@ msgstr "每日讯息"
 msgid "MOV File"
 msgstr "MOV文件"
 
+msgid "MOVE"
+msgstr ""
+
 msgid "MOVED TO"
 msgstr "移动到"
 
@@ -6928,11 +7016,24 @@ msgstr "挂载中..."
 msgid "Mounts"
 msgstr "挂载点"
 
+msgid "Move"
+msgstr ""
+
 msgid "Move down"
 msgstr "下移"
 
+#, php-format
+msgid "Move from /%s to /%s "
+msgstr ""
+
+msgid "Move item(s)"
+msgstr ""
+
 msgid "Move up"
 msgstr "上移"
+
+msgid "Moving failed."
+msgstr ""
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla公共许可证2.0版（MPLv2）"
@@ -7351,6 +7452,9 @@ msgstr "找不到端口。"
 
 msgid "No records found."
 msgstr "未找到记录。"
+
+msgid "No results available."
+msgstr ""
 
 msgid "No snapshot information available."
 msgstr "没有可用的快照信息。"
@@ -7910,6 +8014,12 @@ msgstr "永久Samba数据路径（如 %s）。"
 msgid "Permission"
 msgstr "权限"
 
+msgid "Permission-change failed."
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Permit Root Login"
 msgstr "允许Root登录"
 
@@ -8296,6 +8406,9 @@ msgstr "配置类型"
 msgid "Proxy"
 msgstr "代理服务器"
 
+msgid "Public"
+msgstr ""
+
 msgid "Public Key"
 msgstr "公钥"
 
@@ -8450,6 +8563,9 @@ msgstr "RAR压缩包"
 
 msgid "RAW info"
 msgstr "RAW 信息"
+
+msgid "RELOAD"
+msgstr ""
 
 msgid "RPM"
 msgstr "每分钟转速"
@@ -8903,6 +9019,9 @@ msgstr "重新扫描间隔"
 msgid "Reservation"
 msgstr "预留"
 
+msgid "Reset"
+msgstr ""
+
 msgid "Reset Graphs"
 msgstr "重置图表"
 
@@ -9091,6 +9210,9 @@ msgstr "S.M.A.R.T. 记录"
 msgid "SCSI Name"
 msgstr "SCSI名称"
 
+msgid "SEARCH"
+msgstr ""
+
 msgid "SHA Password"
 msgstr "SHA密码"
 
@@ -9270,6 +9392,9 @@ msgstr "脚本已上传"
 msgid "Scrub a pool"
 msgstr "擦洗池"
 
+msgid "Seach results"
+msgstr ""
+
 msgid "Search"
 msgstr "搜索"
 
@@ -9278,6 +9403,9 @@ msgstr "搜索事件"
 
 msgid "Search for and import all disks found"
 msgstr "搜索并导入找到的所有磁盘"
+
+msgid "Search subdirectories"
+msgstr ""
 
 msgid "Second"
 msgstr "秒"
@@ -9428,6 +9556,9 @@ msgstr "选择用于传出数据包中的源IP地址的接口（只在有不止�
 
 msgid "Select the language of the WebGUI."
 msgstr "请选择WebGUI的语言。"
+
+msgid "Select the language of the user portal for this user."
+msgstr ""
 
 msgid "Select the location closest to you."
 msgstr "请选择最邻近的区域。"
@@ -11271,6 +11402,15 @@ msgstr "系统将重置设置并重新启动"
 msgid "The tag range is invalid."
 msgstr "此标签范围无效。"
 
+msgid "The target directory doesn't exist."
+msgstr ""
+
+msgid "The target directory may not be above the home directory."
+msgstr ""
+
+msgid "The target item already exists."
+msgstr ""
+
 msgid "The target name already exists."
 msgstr "目标名称已经存在。"
 
@@ -11519,6 +11659,9 @@ msgstr "已经发送验证Email配置的电子邮件。"
 msgid "This extent is used."
 msgstr "此extent正在使用中。"
 
+msgid "This file doesn't exist."
+msgstr ""
+
 msgid "This is a nickname and is for information only."
 msgstr "这是一个昵称，仅供参考。"
 
@@ -11532,6 +11675,12 @@ msgstr "此服务器名称被用于Zeroconf/Bonjour/Rendezvous，也是通过DAA
 
 msgid "This is not a valid IP Address."
 msgstr "这不是有效的IP地址。"
+
+msgid "This item already exists."
+msgstr ""
+
+msgid "This item doesn't exist."
+msgstr ""
 
 msgid "This month"
 msgstr "本月"
@@ -12155,6 +12304,12 @@ msgstr "UNMAP最大描述符"
 msgid "UNMAP Maximum LBA"
 msgstr "UNMAP最大LBA"
 
+msgid "UNZIP"
+msgstr ""
+
+msgid "UP"
+msgstr ""
+
 msgid "UPS"
 msgstr "UPS"
 
@@ -12260,6 +12415,12 @@ msgstr "UUID"
 msgid "Umask"
 msgstr "Umask"
 
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to read directory."
+msgstr ""
+
 msgid "Unavailable"
 msgstr "无法使用"
 
@@ -12339,6 +12500,9 @@ msgstr "卸载中..."
 
 msgid "Unrestricted"
 msgstr "无限制"
+
+msgid "Unzip"
+msgstr ""
 
 msgid "Up"
 msgstr "上"
@@ -12539,6 +12703,9 @@ msgstr "用户账户被保护"
 
 msgid "User account is unlocked"
 msgstr "用户账号已解锁"
+
+msgid "User database does not exist or is not readable."
+msgstr ""
 
 msgid "User portal permission."
 msgstr "用户门户权限。"
@@ -12932,6 +13099,9 @@ msgstr "工作目录"
 msgid "Workgroup"
 msgstr "工作群组（Workgroup）"
 
+msgid "Wrap text:"
+msgstr ""
+
 msgid "Write"
 msgstr "写入"
 
@@ -12972,6 +13142,21 @@ msgstr "是 - 启用此共享的Time Machine支持。"
 msgid "Yesterday"
 msgstr "昨天"
 
+msgid "You are not allowed to access the target directory."
+msgstr ""
+
+msgid "You are not allowed to access this directory."
+msgstr ""
+
+msgid "You are not allowed to access this file."
+msgstr ""
+
+msgid "You are not allowed to access this item."
+msgstr ""
+
+msgid "You are not allowed to use this function."
+msgstr ""
+
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
 "command."
@@ -13002,6 +13187,9 @@ msgstr "您必须重新启动系统才能使更改生效。"
 #, php-format
 msgid "You have to select at least one item for '%s'."
 msgstr "请至少选择一个项目给 '%s'。"
+
+msgid "You haven't selected any item(s)."
+msgstr ""
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -13048,6 +13236,9 @@ msgstr "启用之前，必须先初始化数据。"
 
 msgid "You must select at least one authentication method."
 msgstr "请至少选择一种认证方式。"
+
+msgid "You must supply a name."
+msgstr ""
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."
