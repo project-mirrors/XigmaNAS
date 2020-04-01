@@ -41,24 +41,24 @@ require_once "_include/str.php";
 //------------------------------------------------------------------------------
 // THESE ARE NUMEROUS HELPER FUNCTIONS FOR THE OTHER INCLUDE FILES
 //------------------------------------------------------------------------------
-function make_link($_action,$_dir,$_item = NULL,$_order = NULL,$_srt = NULL,$_lang = NULL) {
+function make_link($_action,$_dir,$_item = null,$_order = null,$_srt = null,$_lang = null) {
 // make link to next page
 	$a_query = [];
-	if($_action == '' || $_action == NULL):
+	if($_action == '' || $_action == null):
 		$_action = 'list';
 	endif;
 	$a_query['action'] = $_action;
 	if($_dir == ''):
-		$_dir = NULL;
+		$_dir = null;
 	endif;
 	$a_query['dir'] = $_dir;
 	if($_item == ''):
-		$_item = NULL;
+		$_item = null;
 	endif;
 	$a_query['item'] = $_item;
-	$a_query['order'] = $_order ?? $GLOBALS['order'] ?? NULL;
-	$a_query['srt'] = $_srt ?? $GLOBALS['srt'] ?? NULL;
-	$a_query['lang'] = $_lang ?? $GLOBALS['lang'] ?? NULL;
+	$a_query['order'] = $_order ?? $GLOBALS['order'] ?? null;
+	$a_query['srt'] = $_srt ?? $GLOBALS['srt'] ?? null;
+	$a_query['lang'] = $_lang ?? $GLOBALS['lang'] ?? null;
 	$link = sprintf('%s?%s',$GLOBALS['script_name'],http_build_query($a_query,'','&',PHP_QUERY_RFC3986));
 	return $link;
 }
@@ -164,10 +164,6 @@ function parse_file_size($size) {
 // file date
 function get_file_date($dir, $item) {
 	return @filemtime(get_abs_item($dir, $item));
-}
-// parsed file date
-function parse_file_date($date) {
-	return @date($GLOBALS["date_fmt"],$date);
 }
 // is this file an image?
 function get_is_image($dir, $item) {
@@ -320,7 +316,7 @@ function copy_dir($source,$dest) {
 	if ( !@mkdir($dest,0777) )
         return false;
 	if ( ($handle = @opendir( $source ) ) === false)
-        show_error($source."xx:".basename($source)."xx : ".$GLOBALS["error_msg"]["opendir"]);
+        show_error($source."xx:".basename($source)."xx : ".gtext('Unable to open directory.'));
 
 	while(($file=readdir($handle))!==false) {
 		if(($file==".." || $file==".")) continue;
@@ -347,13 +343,13 @@ function remove ( $item )
 	elseif(@is_dir($item))
     {
 		if(($handle=@opendir($item))===false)
-            show_error($item.":".basename($item).": ".$GLOBALS["error_msg"]["opendir"]);
+            show_error($item.":".basename($item).": ".gtext('Unable to open directory.'));
 
 		while(($file=readdir($handle))!==false) {
 			if(($file==".." || $file==".")) continue;
 
 			$new_item = $item."/".$file;
-			if(!@file_exists($new_item)) show_error(basename($item).": ".$GLOBALS["error_msg"]["readdir"]);
+			if(!@file_exists($new_item)) show_error(basename($item).": ".gtext('Unable to read directory.'));
 			//if(!get_show_item($item, $new_item)) continue;
 
 			if(@is_dir($new_item)) {
@@ -397,22 +393,4 @@ function down_home($abs_dir) {
 		return false;
 	}
 	return true;
-}
-
-function id_browser() {
-	$browser=$GLOBALS['__SERVER']['HTTP_USER_AGENT'];
-
-	if(preg_match('#Opera(/| )([0-9].[0-9]{1,2})#', $browser)) {
-		return 'OPERA';
-	} else if(preg_match('/MSIE ([0-9].[0-9]{1,2})/', $browser)) {
-		return 'IE';
-	} else if(preg_match('#OmniWeb/([0-9].[0-9]{1,2})#', $browser)) {
-		return 'OMNIWEB';
-	} else if(preg_match('#(Konqueror/)(.*)#', $browser)) {
-		return 'KONQUEROR';
-	} else if(preg_match('#Mozilla/([0-9].[0-9]{1,2})#', $browser)) {
-		return 'MOZILLA';
-	} else {
-		return 'OTHER';
-	}
 }
