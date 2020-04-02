@@ -125,12 +125,11 @@ Changes:
 - Upgrade samba to 4.10.14.
 - Upgrade nut to 2020.02.09.
 
-
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
 - Whitespaces support in pools/dataset names.
 - Fastcgi issue with filter_input of INPUT_SERVER.
-
+- Fix checking for changes in auxparam always flags reboot.
 
 Default login credentials:
 ==========================
