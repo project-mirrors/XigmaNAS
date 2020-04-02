@@ -403,7 +403,7 @@ function _print_link ($function,$allow,$dir,$item) {
 		case 'edit': $v = ['jf' => make_link('edit',$dir,$item),'img' => $GLOBALS['baricons']['edit'],'imgdis' => $GLOBALS['baricons']['notedit'],'msg' => gtext('EDIT')];break;
 		case 'unzip': $v = ['jf' => make_link('unzip',$dir,$item),'img' => $GLOBALS['baricons']['unzip'],'imgdis' => $GLOBALS['baricons']['notunzip'],'msg' => gtext('UNZIP')];break;
 		case 'download': $v = ['jf' => make_link('download',$dir,$item),'img' => $GLOBALS['baricons']['download'],'imgdis' => $GLOBALS['baricons']['notdownload'],'msg' => gtext('DOWNLOAD')];break;
-		case 'download_selected': $v = ['jf' => 'javascript:DownloadSelected();','img' => $GLOBALS['baricons']['download'],'imgdis' => $GLOBALS['baricons']['notdownload'],'msg' => gtext('DOWNLOAD SELECTED FILES')];break;
+		case 'download_selected': $v = ['jf' => 'javascript:DownloadSelected();','img' => $GLOBALS['baricons']['download'],'imgdis' => $GLOBALS['baricons']['notdownload'],'msg' => gtext('DOWNLOAD')];break;
 	endswitch;
 	if($allow): // make an active link if access is allowed
 		echo '<td style="padding-right:4px"><a href="',$v['jf'],'">',
