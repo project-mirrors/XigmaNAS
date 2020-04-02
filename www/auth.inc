@@ -36,7 +36,7 @@ require_once 'session.inc';
 Session::start();
 //	Check if session is valid
 if(!Session::isLogin()):
-	header('Location: login.php');
+	header('Location: /login.php');
 	exit;
 endif;
 //	Check page permission
