@@ -591,6 +591,7 @@
 			<!-- <enable/> -->
 			<blanktime>300</blanktime>
 		</sysconsaver>
+		<disableextensionmenu type="bool">1</disableextensionmenu>
 	</system>
 	<interfaces>
 		<lan>
