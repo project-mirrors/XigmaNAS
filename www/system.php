@@ -47,7 +47,7 @@ $config['system']['webgui']['hostsallow_disable'] = isset($config['system']['web
 $pconfig['webguihostsallow_disable'] = $config['system']['webgui']['hostsallow_disable'];
 $pconfig['language'] = $config['system']['language'];
 if(isset($config['system']['webgui']['auxparam']) && is_array($config['system']['webgui']['auxparam'])):
-	$pconfig['auxparam'] = implode("\n", $config['system']['webgui']['auxparam']);
+	$pconfig['auxparam'] = implode("\n",$config['system']['webgui']['auxparam']);
 else:
 	$pconfig['auxparam'] = '';
 endif;
@@ -81,14 +81,8 @@ if($_POST) {
 	unset($input_errors);
 	$input_errors = [];
 	$reboot_required = false;
-	// must be here, auxparam is array in config.xml but string in $_POST
-	if(!$reboot_required):
-		if(isset($_POST['auxparam']) && (strcmp($pconfig['auxparam'],$_POST['auxparam']) !== 0)):
-			$reboot_required = true;
-		endif;
-	endif;
 	$pconfig = $_POST;
-	// Input validation.
+//	Input validation.
 	$reqdfields = ['hostname','username'];
 	$reqdfieldsn = [gtext('Hostname'),gtext('Username')];
 	$reqdfieldst = ['hostname','alias'];
@@ -102,7 +96,7 @@ if($_POST) {
 		$reqdfieldsn = array_merge($reqdfieldsn,[gtext('NTP time server'),gtext('Time update interval')]);
 		$reqdfieldst = array_merge($reqdfieldst,['string','numeric']);
 	endif;
-	if("https" === $_POST['webguiproto']):
+	if($_POST['webguiproto'] === 'https'):
 		$reqdfields = array_merge($reqdfields,['certificate','privatekey']);
 		$reqdfieldsn = array_merge($reqdfieldsn,[gtext('Certificate'),gtext('Private key')]);
 		$reqdfieldst = array_merge($reqdfieldst,['certificate','privatekey']);
@@ -112,11 +106,11 @@ if($_POST) {
 		$reqdfieldsn = array_merge($reqdfieldsn,[gtext('Port')]);
 		$reqdfieldst = array_merge($reqdfieldst,['port']);
 	endif;
-	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-	do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
+	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
+	do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 	if(!empty($_POST['webguihostsallow'])):
-		foreach(explode(' ', $_POST['webguihostsallow']) as $a):
-			list($hp,$np) = explode('/', $a);
+		foreach(explode(' ',$_POST['webguihostsallow']) as $a):
+			list($hp,$np) = explode('/',$a);
 			if(!is_ipaddr($hp) || (!empty($np) && !is_subnet($a))):
 				$input_errors[] = gtext('A valid IP address or CIDR notation must be specified for the hosts allow.');
 			endif;
@@ -145,18 +139,19 @@ if($_POST) {
 			endif;
 		endforeach;
 	endif;
-	// Check if port is already used.
+//	Check if port is already used.
 	if(services_is_port_used(!empty($_POST['webguiport']) ? $_POST['webguiport'] : 80,'webguiport')):
-		$input_errors[] = sprintf(gtext("Port %ld is already used by another service."), (!empty($_POST['webguiport']) ? $_POST['webguiport'] : 80));
+		$input_errors[] = sprintf(gtext("Port %ld is already used by another service."),(!empty($_POST['webguiport']) ? $_POST['webguiport'] : 80));
 	endif;
-	// Check Webserver document root if auth is required
+//	Check Webserver document root if auth is required
 	if(isset($config['websrv']['enable'])
 		&& isset($config['websrv']['authentication']['enable'])
 		&& !is_dir($config['websrv']['documentroot'])):
 		$input_errors[] = gtext("Webserver document root is missing.");
 	endif;
 	if(empty($input_errors)):
-		// Store old values for later processing.
+//		Store old values for later processing.
+		$oldauxparam = $config['system']['webgui']['auxparam'];
 		$oldcert = $config['system']['webgui']['certificate'];
 		$oldkey = $config['system']['webgui']['privatekey'];
 		$oldwebguiproto = $config['system']['webgui']['protocol'];
@@ -172,10 +167,10 @@ if($_POST) {
 		$config['system']['webgui']['hostsallow'] = $_POST['webguihostsallow'];
 		$config['system']['webgui']['hostsallow_disable'] = filter_input(INPUT_POST,'webguihostsallow_disable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$config['system']['language'] = $_POST['language'];
-		// Write auxiliary parameters.
+//		Write auxiliary parameters.
 		unset($config['system']['webgui']['auxparam']);
 		foreach(explode("\n",$_POST['auxparam']) as $auxparam):
-			$auxparam = trim($auxparam, "\t\n\r");
+			$auxparam = trim($auxparam,"\t\n\r");
 			if(!empty($auxparam)):
 				$config['system']['webgui']['auxparam'][] = $auxparam;
 			endif;
@@ -187,7 +182,7 @@ if($_POST) {
 		$config['system']['ntp']['updateinterval'] = $_POST['ntp_updateinterval'];
 		$config['system']['webgui']['certificate'] = base64_encode($_POST['certificate']);
 		$config['system']['webgui']['privatekey'] =  base64_encode($_POST['privatekey']);
-		// Only store IPv4 DNS servers when using static IPv4.
+//		Only store IPv4 DNS servers when using static IPv4.
 		array_make_branch($config,'system','dnsserver');
 		$config['system']['dnsserver'] = []; // OK clear configuration
 		if('dhcp' !== $config['interfaces']['lan']['ipaddr']):
@@ -201,7 +196,7 @@ if($_POST) {
 		if(empty($config['system']['dnsserver'])):
 			$config['system']['dnsserver'][] = '';
 		endif;
-		// Only store IPv6 DNS servers when using static IPv6.
+//		Only store IPv6 DNS servers when using static IPv6.
 		array_make_branch($config,'system','ipv6dnsserver');
 		$config['system']['ipv6dnsserver'] = []; // OK
 		if('auto' !== $config['interfaces']['lan']['ipv6addr']):
@@ -219,7 +214,10 @@ if($_POST) {
 		$config['system']['dnsallowoverride'] = isset($_POST['dnsallowoverride']) ? true : false;
 		write_config();
 		set_php_timezone();
-		// Check if a reboot is required.
+//		Check if a reboot is required.
+		if(!$reboot_required):
+			$reboot_required = ($oldauxparam !== $config['system']['webgui']['auxparam']);
+		endif;
 		if(!$reboot_required):
 			$reboot_required = ($oldwebguiproto != $config['system']['webgui']['protocol']);
 		endif;
@@ -261,22 +259,17 @@ if($_POST) {
 		if(($pconfig['systime'] !== "Not Set") && (!empty($pconfig['systime']))):
 			$timestamp = strtotime($pconfig['systime']);
 			if(false !== $timestamp):
-				$timestamp = strftime("%g%m%d%H%M", $timestamp);
-				// The date utility exits 0 on success, 1 if unable to set the date,
-				// and 2 if able to set the local date, but unable to set it globally.
+				$timestamp = strftime("%g%m%d%H%M",$timestamp);
+//				The date utility exits 0 on success, 1 if unable to set the date,
+//				and 2 if able to set the local date, but unable to set it globally.
 				$retval |= mwexec("/bin/date -n {$timestamp}");
 				$pconfig['systime'] = "Not Set";
 			endif;
 		endif;
 		$savemsg = get_std_save_message($retval);
-		// Update DNS server controls.
+//		Update DNS server controls.
 		list($pconfig['dns1'],$pconfig['dns2']) = get_ipv4dnsserver();
 		list($pconfig['ipv6dns1'],$pconfig['ipv6dns2']) = get_ipv6dnsserver();
-		// Reload page if language has been changed, otherwise page is displayed
-		// in previous selected language.
-		if($oldlanguage !== $config['system']['language']):
-			$_SESSION['g']['headermenu'] = [];
-		endif;
 		header('Location: system.php');
 		exit;
 	endif;
@@ -288,7 +281,7 @@ EOD;
 $pgtitle = [gtext('System'),gtext('General Setup')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init spinner onsubmit()
