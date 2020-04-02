@@ -144,7 +144,7 @@ Fixes:
 - Fix display HW Address on status page minidlna.
 - Whitespaces support in pools/dataset names.
 - Fastcgi issue with filter_input of INPUT_SERVER.
-
+- Fix checking for changes in auxparam always flags reboot.
 
 Default Login:
 ==============
