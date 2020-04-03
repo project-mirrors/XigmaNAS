@@ -34,74 +34,64 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once('fm_session.php');
-
 /**
-	This functions creates the list of assignments of
-	permission values and it's logical description (permission name).
-	It returns an array with the permission names and it's values
-*/
-function permissions_get ()
-{
-	static $perms = [
-		'read'		=> 0x0001,
-		'create'	=> 0x0002,
-		'change'	=> 0x0004,
-		'delete'	=> 0x0008,
-		'password'	=> 0x0040,
-		'admin'		=> 0x8000
-	];
-	return $perms;
-}
-/**
-  The permission engine.
+ *	This function decides wether a specific action is allowed or not,
+ *	depending the rights of the current user.
+ *	@global type $config
+ *	@param string|null $dir Directory in which the action should happen.
+ *	@param string|null $file File on which the action should happen.
+ *	@param string $action The name of the action which should be executed.
+ *	@return boolean true if the action is granted, false otherwise
+ *	@remarks Until now, the permission engine does not support directory or file
+ *  based actions, so only the global actions are treated. The parameters
+ *	$dir and $file are ignored. This is for later use. However, if possible,
+ *	provide the $dir and $file parameters so the code does not have to be chaned
+ *	if the permission engine will support this features in the future.
+ */
+function permissions_grant(string $dir = null,string $file = null,string $action = '') {
+	global $config;
 
-  This function decides wether a specific function is allowed or not
-  depending the rights of the current user.
-
-  @param $dir	Directory in which  the action should happen. If this parameter is
-  		NULL the engine checks the global permissions of the user.
-
-  @param $file	File on which the action should happen, if this parameter is NULL
-  		the permission engine checks the user permissions on the directory.
-
-  @param $action
-  		One ore more action of the action set (see permissions_get) which sould
-  		be exectuted.
-		More actions are seperated by a &.
-
-		Example:
-
-		"read&write&password" grants only if user has all three permissions
-
-  @return	true if the action is granted, false otherwise
-
-  @remarks	Until now the permission engine does not support directory or
-  		file based actions, so only the global actions are treated. The paramers
-		$dir and $file are ignored. This is for later use. However, if possible,
-		provide the $dir and $file parameters so the code does not have to
-		be chaned if the permission engine will support this features in
-		the future.
-  */
-function permissions_grant_user($user,$dir,$file,$action) {
-	$permissions = user_get_permissions($user);
-//	determine the permission definitions
-	$permdefs = permissions_get();
-//	check if the action is allowed
-	return ($permdefs[$action] & $permissions) !== 0;
-}
-function permissions_grant($dir,$file,$action) {
 	$user = Session::getUserName();
-	if($user === false):
-		return false;
-	endif;
-	return permissions_grant_user($user,$dir,$file,$action);
-}
-function permissions_grant_all($dir,$file,$actions) {
-	foreach($actions as $action):
-		if(!permissions_grant($dir,$file,$action)):
-			return false;
+	if($user !== false):
+		$sphere = array_make_branch($config,'access','user');
+//		lookup user
+		$sphere_rowid = array_search_ex($user,$sphere,'login');
+		if($sphere_rowid !== false):
+			$sphere_row = $sphere[$sphere_rowid];
+//			verify that user is permitted to use file manager
+			if(is_bool($test = $sphere_row['fm_enable'] ?? false) ? $test : true):
+				switch($action):
+					case 'read':
+						return(is_bool($test = $sphere_row['fmp_read'] ?? false) ? $test : true);
+						break;
+					case 'create':
+						return(is_bool($test = $sphere_row['fmp_create'] ?? false) ? $test : true);
+						break;
+					case 'change':
+						return(is_bool($test = $sphere_row['fmp_change'] ?? false) ? $test : true);
+						break;
+					case 'delete':
+						return(is_bool($test = $sphere_row['fmp_delete'] ?? false) ? $test : true);
+						break;
+					case 'copy':
+						return(
+							(is_bool($test = $sphere_row['fmp_read'] ?? false) ? $test : true)
+							&&
+							(is_bool($test = $sphere_row['fmp_create'] ?? false) ? $test : true)
+						);
+						break;
+					case 'move':
+						return(is_bool($test = $sphere_row['fmp_change'] ?? false) ? $test : true);
+						break;
+					default:
+//						unknown action
+						return false;
+						break;
+				endswitch;
+			endif;
+		elseif(Session::isAdmin()):
+			return true;
 		endif;
-	endforeach;
-	return true;
+	endif;
+	return false;
 }

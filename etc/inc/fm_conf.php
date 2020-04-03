@@ -38,9 +38,9 @@
 //	Language
 $GLOBALS['language'] = $_SESSION['userlang'] ?? $config['system']['language'];
 //	The filename of the QuiXplorer script:
-$GLOBALS['script_name'] = sprintf('%s://%s%s',$config['system']['webgui']['protocol'],$GLOBALS['__SERVER']['HTTP_HOST'],$GLOBALS['__SERVER']["PHP_SELF"]);
+$GLOBALS['script_name'] = sprintf('%s://%s%s',$config['system']['webgui']['protocol'],$_SERVER['HTTP_HOST'],$_SERVER['PHP_SELF']);
 // allow Zip, Tar, TGz -> Only (experimental) Zip-support
-$GLOBALS['zip'] = false;	//function_exists("gzcompress");
+$GLOBALS['zip'] = false;
 $GLOBALS['tar'] = false;
 $GLOBALS['tgz'] = false;
 $GLOBALS['uploader'] = 'false';
@@ -51,7 +51,7 @@ $GLOBALS['uploader'] = 'false';
 //	don't use the root directory as home_dir!
 $GLOBALS['home_dir'] = '/';
 //	the url corresponding with the home directory: (no trailing '/')
-$GLOBALS['home_url'] = sprintf('%s://localhost/~you',$config['system']['webgui']['protocol']);
+$GLOBALS['home_url'] = sprintf('%s://%s',$config['system']['webgui']['protocol'],$_SERVER['HTTP_HOST']);
 //	show hidden files in QuiXplorer: (hide files starting with '.', as in Linux/UNIX)
 $GLOBALS['show_hidden'] = true;
 //	filenames not allowed to access: (uses PCRE regex syntax)

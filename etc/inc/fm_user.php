@@ -34,117 +34,50 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-function _idx($what) {
-	$idx = [
-		'username' => 0,
-		'password' => 1,
-		'permissions' => 6,
-		'useractive' => 7
-	];
-	return $idx[$what];
-}
 /**
- *	Loads the user database for authenticating the users
- *	@param string $file The name of the file containing the user database. Default is ./_config/.htusers.php
-*/
-function user_load($file = null) {
-	if(!isset($file)):
-		$file = './_config/.htusers.php';
-	endif;
-	if(!is_readable($file)):
-		show_error(gtext('User database does not exist or is not readable.'));
-	endif;
-	require $file;
-}
-/**
- *	Returns the index of the user in the user configuration
- *	@param string $user
- *	@return int Return the index of the user when found, otherwise -1
- */
-function user_get_index($user) {
-	if(!isset($GLOBALS['users'])):
-		return -1;
-	endif;
-//	determine the number of registered users
-	$cnt = count($GLOBALS['users']);
-//	search for the user with the given user name in the user table
-	$idx_username = _idx('username');
-	for($ii = 0;$ii < $cnt;++$ii):
-//		look for the next entry if the current user dont match the one we're looking for
-		if($user != $GLOBALS['users'][$ii][$idx_username]):
-			continue;
-		endif;
-//		return the index of the user
-		return $ii;
-	endfor;
-//	return -1 if the user could not been found
-	return -1;
-}
-/**
- *	Try to find the user with the username $user and the password $pass
- *	in the user table.
- *	If you provide null as password, no password and user active check
- *	is done. otherwise, this function returns the user, if $pass matches
- *	the user password and the user is active.
- *	If the user is inactive or the password mismatches, null is returned.
- *	@param string $user
- *	@param string $pass
- *	@return array
- */
-function user_find(string $user) {
-//	find user
-	$idx = user_get_index($user);
-	if($idx < 0):
-		return;
-	endif;
-//	check if the user is active
-	if(!$GLOBALS['users'][$idx][_idx('useractive')]):
-		return;
-	endif;
-	return $GLOBALS['users'][$idx];
-}
-/**
- *	Activate the user with the given user name and password.
- *	this function tries to find the user with the given user name and
- *	password in the user database and tries to activate this user.
- *	If username and password matches to the content of the
+ *	Activate the user with the given user name.
+ *	this function tries to find the user with the given user name
+ *	in the user database and tries to activate this user.
+ *	If username matches to the content of the
  *	user database, the user is activated, it's home directory,
  *	home url and permissions are set in the global variable and the
  *	function returns true.
  *	If the user cannot be authenticated, the function returns false.
  *	@param string $user User name of the user to be authenticated
- *	@param string $pass Password of the user to authenticate
  *	@return boolean
  */
 function user_activate(string $user) {
-//	try to find the user.
-	$data = user_find($user);
-//	if the user cannot be found, return false.
-	if(!isset($data)):
-		return false;
+	global $config;
+
+	$sphere = array_make_branch($config,'access','user');
+//	lookup user
+	$sphere_rowid = array_search_ex($user,$sphere,'login');
+	if($sphere_rowid !== false):
+		$sphere_row = $sphere[$sphere_rowid];
+		if(is_bool($test = $sphere_row['fm_enable'] ?? false) ? $test : true):
+			if( is_string($sphere_row['homedir'])
+				&&
+				(preg_match('/\S/',$sphere_row['homedir']) === 1)
+			):
+				$GLOBALS['home_dir'] = $sphere_row['homedir'];
+			else:
+				$GLOBALS['home_dir'] = '/mnt';
+			endif;
+			$GLOBALS['home_url'] = sprintf('%s://%s/%s',$config['system']['webgui']['protocol'] ?? 'http',$_SERVER['HTTP_HOST'] ?? 'localhost',$user);
+			if(is_bool($test = $sphere_row['fmp_show_hidden_items'] ?? false) ? $test : true):
+				$GLOBALS['show_hidden']	= 1;
+			else:
+				$GLOBALS['show_hidden']	= 0;
+			endif;
+			$GLOBALS['no_access'] = '^\.ht';
+			return true;
+		endif;
+	elseif(Session::isAdmin()):
+		$GLOBALS['home_dir'] = '/';
+		$GLOBALS['home_url'] = sprintf('%s://%s/%s',$config['system']['webgui']['protocol'] ?? 'http',$_SERVER['HTTP_HOST'] ?? 'localhost',$user);
+		$GLOBALS['show_hidden']	= 1;
+		$GLOBALS['no_access'] = '';
+		return true;
 	endif;
-//	store the user data in the globals variable
-	$GLOBALS['home_dir']	= $data[2];
-	$GLOBALS['home_url']	= $data[3];
-	$GLOBALS['show_hidden']	= $data[4];
-	$GLOBALS['no_access']	= $data[5];
-//	return true on success.
-	return true;
-}
-/**
- *	This function returns the permission values of the user with the given user name.
- *	if the user is not found in the user database, this function returns
- *	null, otherwise, it returns the permissions of the user.
- *	@param string $username
- *	@return int
- */
-function user_get_permissions($username) {
-//	try to find the user in the user database
-	$data = user_find($username,null);
-//	return null if the user does not exist
-	if(!isset($data)):
-		return;
-	endif;
-//	return the user permissions
-	return $data[_idx('permissions')];
+	return false;
 }

@@ -122,7 +122,7 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 	//	sort files
 	if(is_array($file_list)):
 		if($GLOBALS['order'] == 'mod'):
-			if($GLOBALS["srt"] == 'yes'):
+			if($GLOBALS['srt'] == 'yes'):
 				arsort($file_list);
 			else:
 				asort($file_list);
@@ -383,8 +383,8 @@ function list_dir($dir) {
  */
 function _print_edit_buttons($dir) {
 //	for the copy button the user must have create and read rights
-	_print_link('copy',permissions_grant_all($dir,null,['create','read']),$dir,null);
-	_print_link('move',permissions_grant($dir,null,'change'),$dir,null);
+	_print_link('copy',permissions_grant($dir,null,'copy'),$dir,null);
+	_print_link('move',permissions_grant($dir,null,'move'),$dir,null);
 	_print_link('delete',permissions_grant($dir,null,'delete'),$dir,null);
 }
 

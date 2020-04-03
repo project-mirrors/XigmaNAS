@@ -177,7 +177,7 @@ function get_is_editable($dir, $item) {
 	if(!get_is_file($dir, $item)) {
 		return false;
 	}
-	foreach($GLOBALS["editable_ext"] as $pat) {
+	foreach($GLOBALS['editable_ext'] as $pat) {
 		if (preg_match('/'.$pat.'/i',$item)) {
 			return true;
 		}
@@ -189,7 +189,7 @@ function get_is_unzipable($dir, $item) {
 	if(!get_is_file($dir, $item)) {
 		return false;
 	}
-	foreach($GLOBALS["unzipable_ext"] as $pat) {
+	foreach($GLOBALS['unzipable_ext'] as $pat) {
 		if (preg_match('/'.$pat.'/i',$item)) {
 			return true;
 		}
@@ -382,7 +382,7 @@ function get_max_file_size() {
 }
 // dir deeper than home?
 function down_home($abs_dir) {
-	$real_home = @realpath($GLOBALS["home_dir"]);
+	$real_home = @realpath($GLOBALS['home_dir']);
 	$real_dir = @realpath($abs_dir);
 
 	if($real_home===false || $real_dir===false) {
