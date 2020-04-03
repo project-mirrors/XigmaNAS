@@ -178,11 +178,21 @@ function system_language_load(string $language_to_try = null) {
  */
 function system_get_language_code() {
 //	a language code, as per [RFC3066]
-	$language = getenv('LANG');
-	$code = str_replace('_','-',$language);
-	if(empty($code)):
-//		set default code.
-		$code = 'en-US';
+	$language = getenv('LANGUAGE');
+	if($language === false):
+		$language = getenv('LANG');
+		if($language === false):
+			$language = 'en_US.UTF-8';
+		endif;
+	endif;
+	$parsed = locale_parse($language) ?? ['language' => 'en','region' => 'US'];
+	if(isset($parsed['language'])):
+		$code = $parsed['language'];
+		if(isset($parsed['region'])):
+			$code .= '-' . $parsed['region'];
+		endif;
+	else:
+		$code = 'en';
 	endif;
 	return $code;
 }

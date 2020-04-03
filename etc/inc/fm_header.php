@@ -52,7 +52,7 @@ function show_header($title) {
 /*	XigmaNAS® & QUIXPLORER CODE*/
 //	Html & Page Headers
 	echo '<!DOCTYPE html>',"\n";
-	echo '<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="',$_SESSION['userlang'],'" lang="',$_SESSION['userlang'],'">',"\n";
+	echo '<html lang="', system_get_language_code(),'">',"\n";
 	echo '<head>',"\n";
 	echo '<meta charset="UTF-8">',"\n";
 	echo '<meta name="format-detection" content="telephone=no">',"\n";
