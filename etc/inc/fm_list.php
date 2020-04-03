@@ -166,7 +166,7 @@ function print_table($dir,$list) {
 			endif;
 			echo '<a href="',$link,'"><div>';
 		endif;
-		echo '<img style="vertical-align:middle" width="16" height="16" src="_img/',get_mime_type($dir,$item,'img'),'" alt="">&nbsp;';
+		echo '<img style="vertical-align:middle" width="16" height="16" src="/images/fm_img/',get_mime_type($dir,$item,'img'),'" alt="">&nbsp;';
 		$s_item = $item;
 		if(strlen($s_item)>50):
 			$s_item = substr($s_item,0,47) . '...';
@@ -231,7 +231,7 @@ function list_dir($dir) {
 	// Javascript functions:
 	include 'fm_javascript.php';
 	// Sorting of items
-	$_img = '&nbsp;<img style="vertical-align:middle" width="10" height="10" src="_img/';
+	$_img = '&nbsp;<img style="vertical-align:middle" width="10" height="10" src="/images/fm_img/';
 	if($GLOBALS['srt'] == 'yes'):
 		$_srt = 'no';
 		$_img .= '_arrowup.gif" alt="^">';

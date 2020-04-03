@@ -34,68 +34,51 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-$GLOBALS["langs"] = array(
-	"english" => array("en","_img/smallicons/us.png","English"),
-	"spanish" => array("es","_img/smallicons/es.png","Espańol"),
-	"german" => array("de","_img/smallicons/de.png","Deutsch"),
-	"french" => array("fr","_img/smallicons/fr.png","Français"),
-	"italian" => array("it","_img/smallicons/it.png","Italiano"),
-	"nl" => array("nl","_img/smallicons/nl.png","Nederlands"),
-	"polsk" => array("pl","_img/smallicons/pl.png","Polski"),
-	"ptbr" => array("ptbr","_img/smallicons/ptbr.png","Portuguęs - Brasil"),
-	"romana" => array("ro","_img/smallicons/ro.png","Română"),
-	"ru" => array("ru","_img/smallicons/ru.png","Russian"),
-	"bg" => array("bg","_img/smallicons/bg.png","Bulgarian"),
-	"cs" => array("cs","_img/smallicons/cs.png","Czech"),
-	"da" => array("da","_img/smallicons/da.png","Dansk"),
-	"sl" => array("sl","_img/smallicons/sl.png","Slovenščina"),
-
-);
-
-$GLOBALS["baricons"] = array(
-	// icons for toolbar
-	//"up"			=> "_img/_up.gif",
-	"up"			=> "_img/smallicons/navigation-090-frame.png",
-	//"home"			=> "_img/_home.gif",
-	"home"			=> "_img/smallicons/house.png",
-	//"reload"		=> "_img/_refresh.gif",
-	"reload"		=> "_img/smallicons/arrow_refresh_small.png",
-	"search"		=> "_img/smallicons/magnifier-left.png",
-	//"copy"			=> "_img/_copy.gif",
-	"copy"			=> "_img/smallicons/page_copy.png",
-	"notcopy"		=> "_img/_copy_.gif",
-	//"move"			=> "_img/_move.gif",
-	"move"			=> "_img/smallicons/page_go.png",
-	"notmove"		=> "_img/_move_.gif",
-	//"delete"		=> "_img/_delete.gif",
-	"delete"		=> "_img/smallicons/cross-script.png",
-	"notdelete"		=> "_img/_delete_.gif",
-	//"upload"		=> "_img/_upload.gif",
-	"upload"		=> "_img/smallicons/drive-upload.png",
-	"notupload"		=> "_img/_upload_.gif",
-	"archive"		=> "_img/_archive.gif",
-	//"admin"			=> "_img/_admin.gif",
-	"admin"			=> "_img/smallicons/wrench_orange.png",
-	"logout"		=> "_img/_logout.gif",
-	//"logout"		=> "_img/smallicons/disconnect.png",
-	"add"			=> "_img/smallicons/add.png",
-	
-	//"edit"			=> "_img/_edit.gif",
-	"edit"			=> "_img/smallicons/blue-document-code.png",
-	"notedit"		=> "_img/_edit_.gif",
-	"unzip"			=> "_img/smallicons/package_go.png",
-	"notunzip"		=> "_img/_.gif",
-	//"download"		=> "_img/_download.gif",
-	"download"		=> "_img/smallicons/drive-download.png",
-	"notdownload"	=> "_img/_download_.gif",
-	
-	//"unzip"			=> "_img/__copy.gif",
-	"unzipto"		=> "_img/smallicons/folder.png",
-	
-	"zip"			=> "_img/smallicons/icon_zip.gif",
-	"info"			=> "_img/_info.gif",
-	
-	"none"			=> "_img/_.gif",
-);
-
-?>
+$GLOBALS['img_root'] = '/images/fm_img/';
+$GLOBALS['baricons'] = [
+//	icons for toolbar
+	'up'			=> $GLOBALS['img_root'] . 'smallicons/navigation-090-frame.png',
+	'home'			=> $GLOBALS['img_root'] . 'smallicons/house.png',
+	'reload'		=> $GLOBALS['img_root'] . 'smallicons/arrow_refresh_small.png',
+	'search'		=> $GLOBALS['img_root'] . 'smallicons/magnifier-left.png',
+	'copy'			=> $GLOBALS['img_root'] . 'smallicons/page_copy.png',
+	'notcopy'		=> $GLOBALS['img_root'] . '_copy_.gif',
+	'move'			=> $GLOBALS['img_root'] . 'smallicons/page_go.png',
+	'notmove'		=> $GLOBALS['img_root'] . '_move_.gif',
+	'delete'		=> $GLOBALS['img_root'] . 'smallicons/cross-script.png',
+	'notdelete'		=> $GLOBALS['img_root'] . '_delete_.gif',
+	'add'			=> $GLOBALS['img_root'] . 'smallicons/add.png',
+	'edit'			=> $GLOBALS['img_root'] . 'smallicons/blue-document-code.png',
+	'notedit'		=> $GLOBALS['img_root'] . '_edit_.gif',
+	'unzip'			=> $GLOBALS['img_root'] . 'smallicons/package_go.png',
+	'notunzip'		=> $GLOBALS['img_root'] . '_.gif',
+	'download'		=> $GLOBALS['img_root'] . 'smallicons/drive-download.png',
+	'notdownload'	=> $GLOBALS['img_root'] . '_download_.gif',
+	'unzipto'		=> $GLOBALS['img_root'] . 'smallicons/folder.png',
+	'zip'			=> $GLOBALS['img_root'] . 'smallicons/icon_zip.gif',
+	'none'			=> $GLOBALS['img_root'] . '_.gif',
+];
+/*
+ *	unused icons
+	'upload'		=> $GLOBALS['img_root'] . 'smallicons/drive-upload.png',
+	'notupload'		=> $GLOBALS['img_root'] . '_upload_.gif',
+	'archive'		=> $GLOBALS['img_root'] . '_archive.gif',
+	'admin'			=> $GLOBALS['img_root'] . 'smallicons/wrench_orange.png',
+	'logout'		=> $GLOBALS['img_root'] . '_logout.gif',
+	'info'			=> $GLOBALS['img_root'] . '_info.gif',
+ */
+/*
+ *	replaced icons
+	'up'			=> $GLOBALS['img_root'] . '_up.gif',
+	'home'			=> $GLOBALS['img_root'] . '_home.gif',
+	'reload'		=> $GLOBALS['img_root'] . '_refresh.gif',
+	'copy'			=> $GLOBALS['img_root'] . '_copy.gif',
+	'move'			=> $GLOBALS['img_root'] . '_move.gif',
+	'delete'		=> $GLOBALS['img_root'] . '_delete.gif',
+	'upload'		=> $GLOBALS['img_root'] . '_upload.gif',
+	'admin'			=> $GLOBALS['img_root'] . '_admin.gif',
+	'logout'		=> $GLOBALS['img_root'] . 'smallicons/disconnect.png',
+	'edit'			=> $GLOBALS['img_root'] . '_edit.gif',
+	'download'		=> $GLOBALS['img_root'] . '_download.gif',
+	'unzip'			=> $GLOBALS['img_root'] . '__copy.gif',
+ */
