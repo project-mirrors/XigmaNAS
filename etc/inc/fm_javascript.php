@@ -119,7 +119,7 @@
 //	Copy / Move / Delete
 	function Copy() {
 		if(NumChecked()==0) {
-			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
+			alert(<?= unicode_escape_javascript(gettext("You haven't selected any item(s).")); ?>);
 			return;
 		}
 		document.selform.do_action.value = "copy";
@@ -127,7 +127,7 @@
 	}
 	function Move() {
 		if(NumChecked()==0) {
-			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
+			alert(<?= unicode_escape_javascript(gettext("You haven't selected any item(s).")); ?>);
 			return;
 		}
 		document.selform.do_action.value = "move";
@@ -136,17 +136,17 @@
 	function Delete() {
 		num = NumChecked();
 		if(num == 0) {
-			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
+			alert(<?= unicode_escape_javascript(gettext("You haven't selected any item(s).")); ?>);
 			return;
 		}
-		if(confirm("<?php echo gtext('Are you sure you want to delete selected item(s)?'); ?>")) {
+		if(confirm(<?= unicode_escape_javascript(gettext('Are you sure you want to delete selected item(s)?')); ?>)) {
 			document.selform.do_action.value = "delete";
 			document.selform.submit();
 		}
 	}
 	function Archive() {
 		if(NumChecked() == 0) {
-			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
+			alert(<?= unicode_escape_javascript(gettext("You haven't selected any item(s).")); ?>);
 			return;
 		}
 		document.selform.do_action.value = "arch";
@@ -154,7 +154,7 @@
 	}
 	function DownloadSelected() {
 		if(NumChecked() == 0) {
-			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
+			alert(<?= unicode_escape_javascript(gettext("You haven't selected any item(s).")); ?>);
 			return;
 		}
 		document.selform.do_action.value = "download_selected";
@@ -162,7 +162,7 @@
 	}
 	function Unzip() {
 		if(NumChecked() == 0) {
-			alert("<?php echo gtext("You haven't selected any item(s)."); ?>");
+			alert(<?= unicode_escape_javascript(gettext("You haven't selected any item(s).")); ?>);
 			return;
 		}
 		document.selform.do_action.value = "unzip";

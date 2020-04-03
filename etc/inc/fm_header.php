@@ -58,14 +58,14 @@ function show_header($title) {
 	echo '<meta name="format-detection" content="telephone=no">',"\n";
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">',"\n";
 	echo '<title>',genhtmltitle($pgtitle ?? []),'</title>',"\n";
-	echo '<link href="./_style/style.css.php" rel="stylesheet" type="text/css">',"\n";
-	echo '<link href="../css/gui.css.php" rel="stylesheet" type="text/css">',"\n";
-	echo '<link href="../css/navbar.css.php" rel="stylesheet" type="text/css">',"\n";
-	echo '<link href="../css/tabs.css.php" rel="stylesheet" type="text/css">',"\n";
-	echo '<script src="../js/jquery.min.js"></script>',"\n";
-	echo '<script src="../js/gui.js"></script>',"\n";
-	echo '<script src="../js/spinner.js"></script>',"\n";
-	echo '<script src="../js/spin.min.js"></script>',"\n";
+	echo '<link href="/css/fm_style.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<link href="/css/gui.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<link href="/css/navbar.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<link href="/css/tabs.css.php" rel="stylesheet" type="text/css">',"\n";
+	echo '<script src="/js/jquery.min.js"></script>',"\n";
+	echo '<script src="/js/gui.js"></script>',"\n";
+	echo '<script src="/js/spinner.js"></script>',"\n";
+	echo '<script src="/js/spin.min.js"></script>',"\n";
 	if(isset($pglocalheader) && !empty($pglocalheader)):
 		if(is_array($pglocalheader)):
 			foreach($pglocalheader as $pglocalheaderv):

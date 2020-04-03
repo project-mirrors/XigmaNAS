@@ -35,9 +35,6 @@
 	of XigmaNAS®, either expressed or implied.
 */
 //------------------------------------------------------------------------------
-//if($GLOBALS["tar"]) include("./_lib/lib_tar.php");
-//if($GLOBALS["tgz"]) include("./_lib/lib_tgz.php");
-
 require_once('fm_qxpage.php');
 require_once('fm_lib_zipstream.php');
 
@@ -129,7 +126,7 @@ function archive_items($dir) {
 	echo '<form name="archform" method="post" action="',make_link('arch',$dir,null) . '">',"\n";
 	$cnt = count($GLOBALS['__POST']['selitems']);
 	for($i = 0;$i < $cnt;++$i):
-		echo '<input type="hidden" name="selitems[]" value="',htmlspecialchars($GLOBALS['__POST']["selitems"][$i]),'">',"\n";
+		echo '<input type="hidden" name="selitems[]" value="',htmlspecialchars($GLOBALS['__POST']['selitems'][$i]),'">',"\n";
 	endfor;
 	echo	'<table width="300">',"\n",
 				'<tr>',"\n",

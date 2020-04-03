@@ -42,7 +42,7 @@ $GLOBALS['__POST'] =&$_POST;
 $GLOBALS['__SERVER'] =&$_SERVER;
 $GLOBALS['__FILES'] =&$_FILES;
 /*
-_debug('xxx3 action: ' . $GLOBALS['__GET']['action'] ?? '' . '/' . $GLOBALS["__GET"]['do_action'] ?? '' . '/' . (isset($GLOBALS['__GET']['action']) ? 'true' : 'false'));
+_debug('xxx3 action: ' . $GLOBALS['__GET']['action'] ?? '' . '/' . $GLOBALS['__GET']['do_action'] ?? '' . '/' . (isset($GLOBALS['__GET']['action']) ? 'true' : 'false'));
  */
 $GLOBALS['action'] = $GLOBALS['__GET']['action'] ?? 'list';
 if($GLOBALS['action'] == 'post' && isset($GLOBALS['__POST']['do_action'])):

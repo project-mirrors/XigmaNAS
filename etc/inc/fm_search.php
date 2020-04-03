@@ -94,9 +94,9 @@ function print_table($list) {
 }
 // search for item
 function search_items($dir) {
-	if(isset($GLOBALS['__POST']["searchitem"])) {
-		$searchitem=$GLOBALS['__POST']["searchitem"];
-		$subdir=(isset($GLOBALS['__POST']["subdir"]) && $GLOBALS['__POST']["subdir"]=="y");
+	if(isset($GLOBALS['__POST']['searchitem'])) {
+		$searchitem=$GLOBALS['__POST']['searchitem'];
+		$subdir=(isset($GLOBALS['__POST']['subdir']) && $GLOBALS['__POST']['subdir'] == 'y');
 		$list=make_list($dir,$searchitem,$subdir);
 	} else {
 		$searchitem=null;

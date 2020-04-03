@@ -114,7 +114,7 @@ function unzip_item($dir) {
 	global $home_dir;
 
 	// copy and move are only allowed if the user may read and change files
-	if(!permissions_grant_all($dir,null,['read','create'])):
+	if(!permissions_grant($dir,null,'copy')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
 	// Vars

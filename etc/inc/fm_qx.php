@@ -65,8 +65,8 @@ function qx_grant($link) {
 	global $dir;
 
 	switch($link):
-		case 'javascript:Move();': return permissions_grant($dir,null,'change');
-		case 'javascript:Copy();': return permissions_grant_all($dir,null,['create','read']);
+		case 'javascript:Move();': return permissions_grant($dir,null,'move');
+		case 'javascript:Copy();': return permissions_grant($dir,null,'copy');
 		case 'javascript:Delete();': return permissions_grant($dir,null,'delete');
 		case 'javascript:Archive();': return true;
 		case 'javascript:location.reload();': return true;

@@ -37,11 +37,9 @@
 require_once "fm_user.php";
 require_once "fm_debug.php";
 
-user_load();
-
 //	FIXME update home_dir variable if user is logged in
 function login() {
-	if(!user_activate(Session::getUserName(),null)):
+	if(!user_activate(Session::getUserName())):
 		_debug('Failed to activate user ' . $_SESSION['uname']);
 	endif;
 }

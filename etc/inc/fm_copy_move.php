@@ -109,10 +109,10 @@ function dir_print($dir_list,$new_dir) { // print list of directories
 	// copy/move file/dir
 function copy_move_items($dir) {
 	// copy and move are only allowed if the user may read and change files
-	if($GLOBALS['action'] == 'copy' && !permissions_grant_all($dir,null,['read','create'])):
+	if($GLOBALS['action'] == 'copy' && !permissions_grant($dir,null,'copy')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
-	if($GLOBALS['action'] == 'move' && !permissions_grant($dir,null,'change')):
+	if($GLOBALS['action'] == 'move' && !permissions_grant($dir,null,'move')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
 	// Vars
