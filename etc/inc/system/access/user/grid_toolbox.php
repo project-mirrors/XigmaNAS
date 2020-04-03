@@ -278,7 +278,6 @@ final class grid_toolbox {
 						config_lock();
 						$retval |= rc_exec_service('userdb');
 						$retval |= rc_exec_service('websrv_htpasswd');
-						$retval |= rc_exec_service('fmperm');
 						if(isset($config['samba']['enable'])):
 							$retval |= rc_exec_service('passdb');
 							$retval |= rc_update_service('samba');

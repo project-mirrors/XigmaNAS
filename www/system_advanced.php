@@ -223,7 +223,6 @@ if($_POST):
 		$config['system']['disableconsolemenu'] = $helpinghand;
 		$helpinghand = $cop->get_disablefm()->validate_input();
 		if(isset($config['system']['disablefm']) !== $helpinghand):
-			//	server needs to be restarted to export/clear .htusers.php by fmperm.
 			touch($d_sysrebootreqd_path);
 			$_SESSION['g']['headermenu'] = []; // reset header menu
 		endif;
@@ -291,7 +290,6 @@ if($_POST):
 				$retval |= rc_update_service('sysctl');
 			endif;
 			$retval |= rc_update_service('syscons');
-			$retval |= rc_update_service('fmperm');
 			config_unlock();
 		endif;
 		$savemsg = get_std_save_message($retval);
@@ -300,7 +298,7 @@ endif;
 $pgtitle = [gtext('System'),gtext('Advanced Setup')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php	// Init spinner onsubmit()?>

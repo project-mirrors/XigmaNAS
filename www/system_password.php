@@ -95,7 +95,6 @@ switch($mode_page):
 				$retval |= rc_exec_service('userdb');
 				$retval |= rc_exec_service('htpasswd');
 				$retval |= rc_exec_service('websrv_htpasswd');
-				$retval |= rc_exec_service('fmperm');
 				config_unlock();
 			endif;
 			$savemsg = get_std_save_message($retval);
@@ -105,7 +104,7 @@ endswitch;
 $pgtitle = [gtext('System'),gtext('General'),gtext('Password')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 <?php // Init spinner.?>
