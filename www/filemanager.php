@@ -43,6 +43,13 @@ $pgperm['allowuser'] = true;
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+//	check if service is enabled
+$sphere = array_make_branch($config,'system');
+if(is_bool($test = $sphere['disablefm'] ?? false) ? $test : true):
+	http_response_code(403);
+	Session::destroy();
+	exit;
+endif;
 umask(002); // Added to make created files/dirs group writable
 require_once 'fm_qx.php';
 require_once 'fm_init.php';
@@ -54,7 +61,7 @@ switch($action):
 	case 'edit':
 //		edit file
 		require 'fm_edit_editarea.php';
-		edit_file($current_dir, $GLOBALS['item']);
+		edit_file($current_dir,$GLOBALS['item']);
 		break;
 	case 'delete':
 //		delete items
