@@ -416,7 +416,7 @@ function render_upsinfo() {
 }
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(document).ready(function(){
 	var gui = new GUI;
