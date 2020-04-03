@@ -97,7 +97,7 @@ function dir_print($dir_list,$new_dir) { // print list of directories
 		echo '<tr>',"\n",
 				'<td class="lcelc">',
 					'<a href="javascript:NewDir(\'',$js_string,'\');"><div>',
-						'<img style="border:0px;vertical-align:middle" width="16" height="16" src="_img/dir.gif" alt="">',
+						'<img style="border:0px;vertical-align:middle" width="16" height="16" src="/images/fm_img/dir.gif" alt="">',
 					'</div></a>',
 				'</td>',"\n",
 				'<td class="lcebl">',

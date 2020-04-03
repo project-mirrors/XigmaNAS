@@ -46,7 +46,7 @@ function qx_title() {
 	print $site_name;
 }
 function qx_img($image,$msg) {
-    ?><img class="button" src="_img/$image" alt="$msg" title="$msg" /><?php
+    ?><img class="button" src="/images/fm_img/$image" alt="$msg" title="$msg" /><?php
 }
 function qx_user() {
 	echo qx_user_s();

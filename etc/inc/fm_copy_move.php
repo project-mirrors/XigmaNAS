@@ -94,7 +94,7 @@ function dir_print($dir_list,$new_dir) { // print list of directories
 		echo '<tr>',"\n",
 				'<td class="lcelc">',
 					'<a href="javascript:NewDir(\'',$js_string,'\');"><div>',
-						'<img style="border:0px;vertical-align:middle" width="16" height="16" src="_img/dir.gif" alt="">',
+						'<img style="border:0px;vertical-align:middle" width="16" height="16" src="/images/fm_img/dir.gif" alt="">',
 					'</div></a>',
 				'</td>',"\n",
 				'<td class="lcebl">',
@@ -128,9 +128,9 @@ function copy_move_items($dir) {
 	$cnt = count($GLOBALS['__POST']['selitems']);
 	// Copy or Move?
 	if($GLOBALS['action'] != 'move'):
-		$_img = '_img/__copy.gif';
+		$_img = '/images/fm_img/__copy.gif';
 	else:
-		$_img = '_img/__cut.gif';
+		$_img = '/images/fm_img/__cut.gif';
 	endif;
 	// Get New Location & Names
 	if(!isset($GLOBALS['__POST']['confirm']) || $GLOBALS['__POST']['confirm'] != 'true'):
@@ -174,7 +174,7 @@ function Execute() {
 							'<th class="lhelc">',
 //								'<img style="border:0px;vertical-align:middle" src="',$_img,'" alt="">',
 //								htmlspecialchars(' > '),
-								'<img style="border:0px;vertical-align:middle" src="_img/__paste.gif" alt="">',"\n",
+								'<img style="border:0px;vertical-align:middle" src="/images/fm_img/__paste.gif" alt="">',"\n",
 							'</th>',
 							'<th class="lhebl">',"\n",
 								'&nbsp;',htmlspecialchars(sprintf(($GLOBALS['action'] != 'move' ? gtext('Copy from /%s to /%s ') : gtext('Move from /%s to /%s ')),$s_dir,$s_ndir)),
@@ -219,7 +219,7 @@ function Execute() {
 			endif;
 			echo		'<tr>',"\n",
 							'<td class="lcelc">',
-								'<img style="border:0px;vertical-align:middle" src="_img/_info.gif" alt="">',
+								'<img style="border:0px;vertical-align:middle" src="/images/fm_img/_info.gif" alt="">',
 							'</td>',"\n",
 							'<td class="lcell">',
 								'<input type="text" size="40" name="newitems[]" value="',htmlspecialchars($newitem),'">',
