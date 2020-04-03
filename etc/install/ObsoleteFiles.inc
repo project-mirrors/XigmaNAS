@@ -122,3 +122,6 @@ usr/local/www/quixplorer/_lang/tr.php
 usr/local/www/quixplorer/_lang/uk.php
 usr/local/www/quixplorer/_lang/zh_CN.php
 usr/local/www/quixplorer/_lang/zh_TW.php
+# 7502
+usr/local/www/quixplorer
+etc/rc.d/fmperm
