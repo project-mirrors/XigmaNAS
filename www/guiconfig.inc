@@ -943,7 +943,7 @@ function get_headermenu(): array {
 		$menu_items = &$menu[$menu_name]['menuitem'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('File Editor'),'link' => '/system_edit.php'];
 		if(!isset($config['system']['disablefm'])):
-			$menu_items[] = ['type' => 'internal','visible' => true,'description' => gettext('File Manager'),'link' => '/quixplorer/system_filemanager.php'];
+			$menu_items[] = ['type' => 'internal','visible' => true,'description' => gettext('File Manager'),'link' => '/filemanager.php'];
 		endif;
 		$menu_items[] = ['type' => 'separator','visible' => $isAdminSession,'description' => '','link' => '/index.php'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Command'),'link' => '/exec.php'];
