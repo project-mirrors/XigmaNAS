@@ -41,5 +41,8 @@ require_once "fm_debug.php";
 function login() {
 	if(!user_activate(Session::getUserName())):
 		_debug('Failed to activate user ' . $_SESSION['uname']);
+		http_response_code(403);
+		Session::destroy();
+		exit;
 	endif;
 }

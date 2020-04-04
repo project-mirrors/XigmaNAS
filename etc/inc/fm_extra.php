@@ -63,9 +63,8 @@ function make_link($_action,$_dir,$_item = null,$_order = null,$_srt = null,$_la
 	return $link;
 }
 
-function get_abs_dir($path)
-{
-    return path_f($path);
+function get_abs_dir($path) {
+	return path_f($path);
 }
 // get absolute file+path
 function get_abs_item($dir, $item) {
@@ -74,30 +73,30 @@ function get_abs_item($dir, $item) {
 /**
   get file relative from home
  */
-function get_rel_item($dir, $item)
-{
-    return $dir == "" ? $item : "$dir/$item";
+function get_rel_item($dir,$item) {
+	return $dir == '' ? $item : "$dir/$item";
 }
-
 /**
   can this file be edited?
   */
-function get_is_file($dir, $item)
-{
-    $filename = get_abs_item($dir, $item);
+function get_is_file($dir,$item) {
+	$filename = get_abs_item($dir,$item);
 	return @is_file($filename);
 }
-
 // is this a directory?
-function get_is_dir($dir, $item) {
+function get_is_dir($dir,$item) {
 	return @is_dir(get_abs_item($dir,$item));
 }
 // parsed file type (d / l / -)
 function parse_file_type($dir,$item) {
-	$abs_item = get_abs_item($dir, $item);
-	if(@is_dir($abs_item)) return "d";
-	if(@is_link($abs_item)) return "l";
-	return "-";
+	$abs_item = get_abs_item($dir,$item);
+	if(@is_dir($abs_item)):
+		return 'd';
+	endif;
+	if(@is_link($abs_item)):
+		return 'l';
+	endif;
+	return '-';
 }
 // file permissions
 function get_file_perms($dir,$item) {
@@ -135,12 +134,10 @@ function parse_file_perms($mode) {
 	endfor;
 	return $parsed_mode;
 }
-
 /**
   file size
   */
-function get_file_size($dir, $item)
-{
+function get_file_size($dir, $item) {
 	return @filesize(get_abs_item($dir, $item));
 }
 // parsed file size
@@ -162,38 +159,38 @@ function parse_file_size($size) {
 }
 		*/
 // file date
-function get_file_date($dir, $item) {
+function get_file_date($dir,$item) {
 	return @filemtime(get_abs_item($dir, $item));
 }
 // is this file an image?
-function get_is_image($dir, $item) {
-	if(!get_is_file($dir, $item)) {
+function get_is_image($dir,$item) {
+	if(!get_is_file($dir,$item)):
 		return false;
-	}
-	return preg_match('/'.$GLOBALS['images_ext'].'/i', $item);
+	endif;
+	return preg_match('/' . $GLOBALS['images_ext'] . '/i',$item);
 }
 // is this file editable?
-function get_is_editable($dir, $item) {
-	if(!get_is_file($dir, $item)) {
+function get_is_editable($dir,$item) {
+	if(!get_is_file($dir,$item)):
 		return false;
-	}
-	foreach($GLOBALS['editable_ext'] as $pat) {
-		if (preg_match('/'.$pat.'/i',$item)) {
+	endif;
+	foreach($GLOBALS['editable_ext'] as $pat):
+		if(preg_match('/' . $pat . '/i',$item)):
 			return true;
-		}
-	}
+		endif;
+	endforeach;
 	return false;
 }
 // is this file editable?
-function get_is_unzipable($dir, $item) {
-	if(!get_is_file($dir, $item)) {
+function get_is_unzipable($dir,$item) {
+	if(!get_is_file($dir,$item)):
 		return false;
-	}
-	foreach($GLOBALS['unzipable_ext'] as $pat) {
-		if (preg_match('/'.$pat.'/i',$item)) {
+	endif;
+	foreach($GLOBALS['unzipable_ext'] as $pat):
+		if(preg_match('/' . $pat . '/i',$item)):
 			return true;
-		}
-	}
+		endif;
+	endforeach;
 	return false;
 }
 /**
@@ -260,124 +257,117 @@ function get_mime_type($dir,$item,$query) {
 	endswitch;
 	return $result;
 }
-
 /**
     Check if user is allowed to access $file in $directory
  */
-function get_show_item ($directory, $file)
-{
-    // no relative paths are allowed in directories
-    if ( preg_match( "/\.\./", $directory ) )
-        return false;
-
-    if ( isset($file) )
-    {
-        // file name must not contain any path separators
-        if ( preg_match( "/[\/\\\\]/", $file ) )
-            return false;
-
-        // dont display own and parent directory
-        if ( $file == "." || $file == ".." )
-            return false;
-
-        // determine full path to the file
-        $full_path = get_abs_item( $directory, $file );
+function get_show_item($directory,$file) {
+//	no relative paths are allowed in directories
+    if(preg_match('/\.\./',$directory)):
+		return false;
+	endif;
+	if(isset($file)):
+//		file name must not contain any path separators
+		if(preg_match('/[\/\\\\]/',$file)):
+			return false;
+		endif;
+//		dont display own and parent directory
+        if($file == '.' || $file == '..' ):
+			return false;
+		endif;
+//		determine full path to the file
+        $full_path = get_abs_item($directory,$file);
         _debug("full_path: $full_path");
-        if ( ! str_startswith( $full_path, path_f() ) )
-            return false;
-    }
-
-    // check if user is allowed to acces shidden files
+        if(!str_startswith($full_path,path_f())):
+			return false;
+		endif;
+	endif;
+//	check if user is allowed to acces shidden files
     global $show_hidden;
-    if ( ! $show_hidden )
-    {
-        if ( $file[0] == '.' )
-            return false;
-
-        // no part of the path may be hidden
-        $directory_parts = explode( "/", $directory );
-        foreach ( $directory_parts as $directory_part )
-        {
-            if ( $directory_part[0] == '.' )
-                return false;
-        }
-    }
-
-    if (matches_noaccess_pattern($file))
-        return false;
-
+    if(!$show_hidden):
+        if ($file[0] == '.'):
+			return false;
+		endif;
+//		no part of the path may be hidden
+        $directory_parts = explode('/',$directory);
+        foreach($directory_parts as $directory_part):
+            if($directory_part[0] == '.'):
+				return false;
+			endif;
+		endforeach;
+    endif;
+    if(matches_noaccess_pattern($file)):
+		return false;
+	endif;
     return true;
 }
-
 // copy dir
 function copy_dir($source,$dest) {
 	$ok = true;
-
-	if ( !@mkdir($dest,0777) )
-        return false;
-	if ( ($handle = @opendir( $source ) ) === false)
-        show_error($source."xx:".basename($source)."xx : ".gtext('Unable to open directory.'));
-
-	while(($file=readdir($handle))!==false) {
-		if(($file==".." || $file==".")) continue;
-
-		$new_source = $source."/".$file;
-		$new_dest = $dest."/".$file;
-		if(@is_dir($new_source)) {
-			$ok=copy_dir($new_source,$new_dest);
-		} else {
-			$ok=@copy($new_source,$new_dest);
-		}
-	}
+	if(!@mkdir($dest,0777)):
+		return false;
+	endif;
+	if(($handle = @opendir( $source ) ) === false):
+		show_error($source . 'xx:' . basename($source) . 'xx : ' . gtext('Unable to open directory.'));
+	endif;
+	while(($file = readdir($handle)) !== false):
+		if(($file == '..' || $file == '.')):
+			continue;
+		endif;
+		$new_source = $source . '/' . $file;
+		$new_dest = $dest . '/' . $file;
+		if(@is_dir($new_source)):
+			$ok = copy_dir($new_source,$new_dest);
+		else:
+			$ok = @copy($new_source,$new_dest);
+		endif;
+	endwhile;
 	closedir($handle);
 	return $ok;
 }
-
 /**
     remove file / dir
  */
-function remove ( $item )
-{
+function remove($item) {
 	$ok = true;
-	if(@is_link($item) || @is_file($item)) $ok=@unlink($item);
-	elseif(@is_dir($item))
-    {
-		if(($handle=@opendir($item))===false)
-            show_error($item.":".basename($item).": ".gtext('Unable to open directory.'));
-
-		while(($file=readdir($handle))!==false) {
-			if(($file==".." || $file==".")) continue;
-
-			$new_item = $item."/".$file;
-			if(!@file_exists($new_item)) show_error(basename($item).": ".gtext('Unable to read directory.'));
-			//if(!get_show_item($item, $new_item)) continue;
-
-			if(@is_dir($new_item)) {
-				$ok=remove($new_item);
-			} else {
-				$ok=@unlink($new_item);
-			}
-		}
-
+	if(@is_link($item) || @is_file($item)):
+		$ok = @unlink($item);
+	elseif(@is_dir($item)):
+		if(($handle=@opendir($item)) === false):
+			show_error($item . ':' . basename($item) . ': ' . gtext('Unable to open directory.'));
+		endif;
+		while(($file=readdir($handle))!==false):
+			if(($file == '..' || $file == '.')):
+				continue;
+			endif;
+			$new_item = $item . '/' . $file;
+			if(!@file_exists($new_item)):
+				show_error(basename($item) . ': ' . gtext('Unable to read directory.'));
+			endif;
+//			if(!get_show_item($item, $new_item)) continue;
+			if(@is_dir($new_item)):
+				$ok = remove($new_item);
+			else:
+				$ok = @unlink($new_item);
+			endif;
+		endwhile;
 		closedir($handle);
-		$ok=@rmdir($item);
-	}
+		$ok = @rmdir($item);
+	endif;
 	return $ok;
 }
 // get php max_upload_file_size
 function get_max_file_size() {
-	$max = get_cfg_var("upload_max_filesize");
-	if (preg_match('/G$/i',$max)) {
+	$max = get_cfg_var('upload_max_filesize');
+	if (preg_match('/G$/i',$max)):
 		$max = substr($max,0,-1);
 		$max = round($max*1073741824);
-	} elseif(preg_match('/M$/i',$max)) {
+	elseif(preg_match('/M$/i',$max)):
 		$max = substr($max,0,-1);
 		$max = round($max*1048576);
-	} elseif(preg_match('/K$/i',$max)) {
+	elseif(preg_match('/K$/i',$max)):
 		$max = substr($max,0,-1);
 		$max = round($max*1024);
-	}
-
+	endif;
 	return $max;
 }
 // dir deeper than home?
@@ -385,12 +375,12 @@ function down_home($abs_dir) {
 	$real_home = @realpath($GLOBALS['home_dir']);
 	$real_dir = @realpath($abs_dir);
 
-	if($real_home===false || $real_dir===false) {
-		if(preg_match('/\\.\\./i',$abs_dir)) {
+	if($real_home === false || $real_dir === false):
+		if(preg_match('/\\.\\./i',$abs_dir)):
 			return false;
-		}
-	} else if(strcmp($real_home,@substr($real_dir,0,strlen($real_home)))) {
+		endif;
+	elseif(strcmp($real_home,@substr($real_dir,0,strlen($real_home)))):
 		return false;
-	}
+	endif;
 	return true;
 }
