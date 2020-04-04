@@ -178,7 +178,7 @@ class HTMLBaseControl2 {
 								break;
 							case 2:
 								if(is_string($description_row[0])):
-									$color = NULL;
+									$color = null;
 									if(is_string($description_row[1])):
 										$color = $description_row[1];
 									endif;
@@ -199,7 +199,7 @@ class HTMLBaseControl2 {
 								break;
 							case 3: // allow not to break
 								if(is_string($description_row[0])):
-									$color = NULL;
+									$color = null;
 									if(is_string($description_row[1])):
 										$color = $description_row[1];
 									endif;
@@ -225,7 +225,7 @@ class HTMLBaseControl2 {
 		endif;
 		return $description_output;
 	}
-	function Compose(DOMNode &$anchor = NULL) {
+	function Compose(DOMNode &$anchor = null) {
 		//	create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
@@ -971,7 +971,7 @@ class HTMLSeparator2 extends HTMLBaseControl2 {
 	function GetClassOfSeparator() {
 		return $this->GetClassSeparator();
 	}
-	function Compose(DOMNode &$anchor = NULL) {
+	function Compose(DOMNode &$anchor = null) {
 		//	create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
@@ -1009,7 +1009,7 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 	function GetClassOfTopic() {
 		return $this->GetClassTopic();
 	}
-	function Compose(DOMNode &$anchor = NULL) {
+	function Compose(DOMNode &$anchor = null) {
 		//	create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
@@ -1051,7 +1051,7 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	function GetClassOfTopic() {
 		return $this->GetClassTopic();
 	}
-	function Compose(DOMNode &$anchor = NULL) {
+	function Compose(DOMNode &$anchor = null) {
 		//	create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
@@ -1097,7 +1097,7 @@ class HTMLTextInfo2 extends HTMLBaseControl2 {
 		$this->SetTitle($title);
 		$this->SetValue($text);
 	}
-	function Compose(DOMNode &$anchor = NULL) {
+	function Compose(DOMNode &$anchor = null) {
 		//	create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
@@ -1122,7 +1122,7 @@ class HTMLRemark2 extends HTMLBaseControl2 {
 		$this->SetTitle($title);
 		$this->SetValue($text);
 	}
-	function Compose(DOMNode &$anchor = NULL) {
+	function Compose(DOMNode &$anchor = null) {
 		//	create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
@@ -1450,8 +1450,8 @@ trait co_DOMTools {
  *	@param string $namespaceURI
  *	@return DOMNode $subnode
  */
-	public function addElement(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
-		$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
+	public function addElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = null) {
+		$subnode = $this->appendChild(new co_DOMElement($name,null,$namespaceURI));
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
@@ -1465,8 +1465,8 @@ trait co_DOMTools {
  *	@param string $namespaceURI
  *	@return DOMNode $this
  */
-	public function insElement(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
-		$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
+	public function insElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = null) {
+		$subnode = $this->appendChild(new co_DOMElement($name,null,$namespaceURI));
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
@@ -1480,11 +1480,11 @@ trait co_DOMTools {
  *	@param string $namespaceURI
  *	@return DOMNode $subnode
  */
-	public function prepend_element(string $name,array $attributes = [],string $value = NULL,string $namespaceURI = NULL) {
+	public function prepend_element(string $name,array $attributes = [],string $value = null,string $namespaceURI = null) {
 		if(is_null($this->firstChild)):
-			$subnode = $this->appendChild(new co_DOMElement($name,NULL,$namespaceURI));
+			$subnode = $this->appendChild(new co_DOMElement($name,null,$namespaceURI));
 		else:
-			$subnode = $this->insertBefore(new co_DOMElement($name,NULL,$namespaceURI),$this->firstChild);
+			$subnode = $this->insertBefore(new co_DOMElement($name,null,$namespaceURI),$this->firstChild);
 		endif;
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
@@ -1501,7 +1501,7 @@ trait co_DOMTools {
  *	@param string $value The text/html string
  *	@return $this
  */
-	public function import_soup(string $value = NULL,bool $check_for_html = true) {
+	public function import_soup(string $value = null,bool $check_for_html = true) {
 		if(!is_null($value)):
 //			rough check if value contains html code, if found try to import as HTML, otherwise add as text
 			$html_import_successful = false;
@@ -1554,86 +1554,86 @@ trait co_DOMTools {
 		return $this;
 	}
 	//	tags
-	public function addA(array $attributes = [],string $value = NULL) {
+	public function addA(array $attributes = [],string $value = null) {
 		return $this->addElement('a',$attributes,$value);
 	}
-	public function insA(array $attributes = [],string $value = NULL) {
+	public function insA(array $attributes = [],string $value = null) {
 		return $this->insElement('a',$attributes,$value);
 	}
 	public function insCOL(array $attributes = []) {
 		return $this->insElement('col',$attributes);
 	}
-	public function addDIV(array $attributes = [],string $value = NULL) {
+	public function addDIV(array $attributes = [],string $value = null) {
 		return $this->addElement('div',$attributes,$value);
 	}
-	public function insDIV(array $attributes = [],string $value = NULL) {
+	public function insDIV(array $attributes = [],string $value = null) {
 		return $this->insElement('div',$attributes,$value);
 	}
-	public function addFORM(array $attributes = [],string $value = NULL) {
+	public function addFORM(array $attributes = [],string $value = null) {
 		return $this->addElement('form',$attributes,$value);
 	}
 	public function insIMG(array $attributes = []) {
 		return $this->insElement('img',$attributes);
 	}
-	public function insINPUT(array $attributes = [],string $value = NULL) {
+	public function insINPUT(array $attributes = [],string $value = null) {
 		return $this->insElement('input',$attributes,$value);
 	}
-	public function addLI(array $attributes = [],string $value = NULL) {
+	public function addLI(array $attributes = [],string $value = null) {
 		return $this->addElement('li',$attributes,$value);
 	}
-	public function addP(array $attributes = [],string $value = NULL) {
+	public function addP(array $attributes = [],string $value = null) {
 		return $this->addElement('p',$attributes,$value);
 	}
-	public function addSPAN(array $attributes = [],string $value = NULL) {
+	public function addSPAN(array $attributes = [],string $value = null) {
 		return $this->addElement('span',$attributes,$value);
 	}
-	public function insSPAN(array $attributes = [],string $value = NULL) {
+	public function insSPAN(array $attributes = [],string $value = null) {
 		return $this->insElement('span',$attributes,$value);
 	}
-	public function addUL(array $attributes = [],string $value = NULL) {
+	public function addUL(array $attributes = [],string $value = null) {
 		return $this->addElement('ul',$attributes,$value);
 	}
 	//	table tags
-	public function addTABLE(array $attributes = [],string $value = NULL) {
+	public function addTABLE(array $attributes = [],string $value = null) {
 		return $this->addElement('table',$attributes,$value);
 	}
-	public function addCOLGROUP(array $attributes = [],string $value = NULL) {
+	public function addCOLGROUP(array $attributes = [],string $value = null) {
 		return $this->addElement('colgroup',$attributes,$value);
 	}
-	public function addTHEAD(array $attributes = [],string $value = NULL) {
+	public function addTHEAD(array $attributes = [],string $value = null) {
 		return $this->addElement('thead',$attributes,$value);
 	}
-	public function addTBODY(array $attributes = [],string $value = NULL) {
+	public function addTBODY(array $attributes = [],string $value = null) {
 		return $this->addElement('tbody',$attributes,$value);
 	}
-	public function addTFOOT(array $attributes = [],string $value = NULL) {
+	public function addTFOOT(array $attributes = [],string $value = null) {
 		return $this->addElement('tfoot',$attributes,$value);
 	}
-	public function addTR(array $attributes = [],string $value = NULL) {
+	public function addTR(array $attributes = [],string $value = null) {
 		return $this->addElement('tr',$attributes,$value);
 	}
-	public function addTD(array $attributes = [],string $value = NULL) {
+	public function addTD(array $attributes = [],string $value = null) {
 		return $this->addElement('td',$attributes,$value);
 	}
-	public function insTD(array $attributes = [],string $value = NULL) {
+	public function insTD(array $attributes = [],string $value = null) {
 		return $this->insElement('td',$attributes,$value);
 	}
-	public function addTDwC(string $class,string $value = NULL) {
+	public function addTDwC(string $class,string $value = null) {
 		return $this->addElement('td',['class' => $class],$value);
 	}
-	public function insTDwC(string $class,string $value = NULL) {
+	public function insTDwC(string $class,string $value = null) {
 		return $this->insElement('td',['class' => $class],$value);
 	}
-	public function addTH(array $attributes = [],string $value = NULL) {
+	public function addTH(array $attributes = [],string $value = null) {
 		return $this->addElement('th',$attributes,$value);
 	}
-	public function insTH(array $attributes = [],string $value = NULL) {
+	public function insTH(array $attributes = [],string $value = null) {
 		return $this->insElement('th',$attributes,$value);
 	}
-	public function addTHwC(string $class,string $value = NULL) {
+	public function addTHwC(string $class,string $value = null) {
 		return $this->addElement('th',['class' => $class],$value);
 	}
-	public function insTHwC(string $class,string $value = NULL) {
+	public function insTHwC(string $class,string $value = null) {
 		return $this->insElement('th',['class' => $class],$value);
 	}
 	//	tab menu fragments and macros
@@ -1764,7 +1764,7 @@ trait co_DOMTools {
  *	@param string $message_type e)rror, i)info, w)arning
  *	@return $this
  */
-	private function ins_message_box($message,string $message_type = NULL) {
+	private function ins_message_box($message,string $message_type = null) {
 		global $g_img;
 
 		$this->reset_hooks();
@@ -1813,13 +1813,13 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_error_box($message = NULL) {
+	public function ins_error_box($message = null) {
 		return $this->ins_message_box($message,'error');
 	}
-	public function ins_info_box($message = NULL) {
+	public function ins_info_box($message = null) {
 		return $this->ins_message_box($message,'info');
 	}
-	public function ins_warning_box($message = NULL) {
+	public function ins_warning_box($message = null) {
 		return $this->ins_message_box($message,'warning');
 	}
 	public function ins_config_save_message_box($errorcode) {
@@ -1881,7 +1881,7 @@ trait co_DOMTools {
 		return $this;
 	}
 	//	title macros
-	public function ins_titleline(string $title = NULL,int $colspan = 0,string $id = NULL) {
+	public function ins_titleline(string $title = null,int $colspan = 0,string $id = null) {
 		$tr_attributes = [];
 		$th_attributes = [];
 		if(!is_null($id) && preg_match('/\S/',$id)):
@@ -1979,7 +1979,7 @@ trait co_DOMTools {
 									break;
 								case 2:
 									if(is_string($description_row[0])):
-										$color = NULL;
+										$color = null;
 										if(is_string($description_row[1])):
 											$color = $description_row[1];
 										endif;
@@ -2000,7 +2000,7 @@ trait co_DOMTools {
 									break;
 								case 3: // allow not to break
 									if(is_string($description_row[0])):
-										$color = NULL;
+										$color = null;
 										if(is_string($description_row[1])):
 											$color = $description_row[1];
 										endif;
@@ -2113,7 +2113,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	public function ins_input_hidden(string $name = NULL,$value = '') {
+	public function ins_input_hidden(string $name = null,$value = '') {
 		if(isset($name) && preg_match('/\S/',$name) && is_scalar($value)):
 			$input_attributes = ['type' => 'hidden'];
 			if(preg_match('/\S/',$name)):
@@ -2337,7 +2337,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_separator(int $colspan = 0,string $id = NULL) {
+	public function ins_separator(int $colspan = 0,string $id = null) {
 		$tr_attributes = [];
 		if($this->option_exists('tablesort')):
 			$tr_attributes = ['class' => 'tablesorter-ignoreRow'];
@@ -2403,7 +2403,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_textinfo(string $id = NULL,string $value = NULL) {
+	public function ins_textinfo(string $id = null,string $value = null) {
 		if(isset($value)):
 			$span_attributes = [];
 			if(isset($id)):
@@ -2480,7 +2480,7 @@ EOJ;
  *	</td>
  */
 		if($notdirty && $notprotected): // record is editable
-			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 			$this->addTD()->
 				addA(['href' => $link])->
@@ -2503,7 +2503,7 @@ EOJ;
  */
 		$td = $this->addTD();
 		if($show_link): // show link
-			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
 			$td->addA(['href' => $link])->insIMG(['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
 		endif;
@@ -2518,7 +2518,7 @@ EOJ;
  */
 		$td = $this->addTD();
 		if($show_link): // show link
-			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
 			$td->addA(['href' => $link])->insIMG(['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
 		endif;
@@ -2557,7 +2557,7 @@ EOJ;
  *		</th>
  *	</tr>
  */
-		$querystring = http_build_query(['submit' => 'add'],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+		$querystring = http_build_query(['submit' => 'add'],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 		$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 		//	PHP_QUERY_RFC3986
 		$tr = $this->addTR();
@@ -2570,7 +2570,7 @@ EOJ;
 					insIMG(['src' => $g_img['add'],'title' => $sphere->getmsg_sym_add(),'alt' => $sphere->getmsg_sym_add(),'class' => 'spin oneemhigh']);
 		return $this;
 	}
-	public function ins_no_records_found(int $colspan = 0,string $message = NULL) {
+	public function ins_no_records_found(int $colspan = 0,string $message = null) {
 		if(is_null($message)):
 			$message = gettext('No records found.');
 		endif;
@@ -2753,27 +2753,27 @@ EOJ;
 		$this->addElement($element,$button_attributes,$sp_content);
 		return $this;
 	}
-	public function ins_button_add(string $content = NULL) {
+	public function ins_button_add(string $content = null) {
 		$this->ins_button_submit('save',$content ?? gettext('Add'));
 		return $this;
 	}
-	public function ins_button_apply(string $content = NULL) {
+	public function ins_button_apply(string $content = null) {
 		$this->ins_button_submit('apply',$content ?? gettext('Apply Changes'));
 		return $this;
 	}
-	public function ins_button_cancel(string $content = NULL) {
+	public function ins_button_cancel(string $content = null) {
 		$this->ins_button_submit('cancel',$content ?? gettext('Cancel'),['formnovalidate' => 'formnovalidate']);
 		return $this;
 	}
-	public function ins_button_clone(string $content = NULL) {
+	public function ins_button_clone(string $content = null) {
 		$this->ins_button_submit('clone',$content ?? gettext('Clone Configuration'));
 		return $this;
 	}
-	public function ins_button_edit(string $content = NULL) {
+	public function ins_button_edit(string $content = null) {
 		$this->ins_button_submit('edit',$content ?? gettext('Edit'));
 		return $this;
 	}
-	public function ins_button_enadis(bool $enable = false,string $content_on = NULL,string $content_off = NULL) {
+	public function ins_button_enadis(bool $enable = false,string $content_on = null,string $content_off = null) {
 		if($enable):
 			$this->ins_button_submit('enable',$content_on ?? gettext('Enable'));
 		else:
@@ -2781,31 +2781,31 @@ EOJ;
 		endif;
 		return $this;
 	}
-	public function ins_button_reload(bool $enable = false,string $content = NULL) {
+	public function ins_button_reload(bool $enable = false,string $content = null) {
 		if($enable):
 			$this->ins_button_submit('reload',$content ?? gettext('Reload'));
 		endif;
 		return $this;
 	}
-	public function ins_button_reorder(bool $enable = false,string $content = NULL) {
+	public function ins_button_reorder(bool $enable = false,string $content = null) {
 		if($enable):
 			$this->ins_button_submit('reorder',$content ?? gettext('Reorder'));
 		endif;
 		return $this;
 	}
-	public function ins_button_rescan(bool $enable = false,string $content = NULL) {
+	public function ins_button_rescan(bool $enable = false,string $content = null) {
 		if($enabled):
 			$this->ins_button_submit('rescan',$content ?? gettext('Rescan'));
 		endif;
 		return $this;
 	}
-	public function ins_button_restart(bool $enable = false,string $content = NULL) {
+	public function ins_button_restart(bool $enable = false,string $content = null) {
 		if($enable):
 			$this->ins_button_submit('restart',$content ?? gettext('Restart'));
 		endif;
 		return $this;
 	}
-	public function ins_button_save(string $content = NULL) {
+	public function ins_button_save(string $content = null) {
 		$this->ins_button_submit('save',$content ?? gettext('Apply'));
 		return $this;
 	}
@@ -3171,10 +3171,10 @@ class co_DOMElement extends \DOMElement implements ci_DOM {
 	public function get_hooks() {
 		return $this->ownerDocument->get_hooks();
 	}
-	public function add_js_on_load(string $jcode = '',string $key = NULL) {
+	public function add_js_on_load(string $jcode = '',string $key = null) {
 		return $this->ownerDocument->add_js_on_load($jcode,$key);
 	}
-	public function add_js_document_ready(string $jcode = '',string $key = NULL) {
+	public function add_js_document_ready(string $jcode = '',string $key = null) {
 		return $this->ownerDocument->add_js_document_ready($jcode,$key);
 	}
 }
@@ -3222,7 +3222,7 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 	public function get_hooks() {
 		return $this->hook_stack;
 	}
-	public function add_js_on_load(string $jcode = '',string $key = NULL) {
+	public function add_js_on_load(string $jcode = '',string $key = null) {
 		if(preg_match('/\S/',$jcode)):
 			if(isset($key)):
 				$this->js_on_load[$key] = $jcode;
@@ -3232,7 +3232,7 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 		endif;
 		return $this;
 	}
-	public function add_js_document_ready(string $jcode = '',string $key = NULL) {
+	public function add_js_document_ready(string $jcode = '',string $key = null) {
 		if(preg_match('/\S/',$jcode)):
 			if(isset($key)):
 				$this->js_document_ready[$key] = $jcode;
@@ -3295,7 +3295,7 @@ interface ci_DOM {
  *		sorter-checkbox
  *		sorter-radio
  */
-function new_page(array $page_title = [],string $action_url = NULL,string ...$options) {
+function new_page(array $page_title = [],string $action_url = null,string ...$options) {
 	$document = new co_DOMDocument();
 	$document->
 		loadHTML('<!DOCTYPE html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
