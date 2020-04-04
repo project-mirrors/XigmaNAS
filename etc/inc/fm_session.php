@@ -34,13 +34,6 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-
-//	This function allows access to session variables
-function session_get($name) {
-	if(Session::isLogin() && isset($_SESSION[$name])):
-		return $_SESSION[$name];
-	endif;
-}
 //	Return true if the given file name matches the global $no_access pattern configured in _config/conf.php.
 function matches_noaccess_pattern($file) {
     global $no_access;

@@ -71,7 +71,7 @@ function zip_download($directory,$items) {
 	$zipfile->finish();
 }
 function _zipstream_add_file($zipfile,$directory,$file_to_add) {
-	$filename = $directory.DIRECTORY_SEPARATOR.$file_to_add;
+	$filename = $directory . DIRECTORY_SEPARATOR . $file_to_add;
 	if(!@file_exists($filename)):
 		show_error($filename . ' does not exist');
 	endif;
@@ -107,7 +107,7 @@ function archive_items($dir) {
 	endif;
 	if(isset($GLOBALS['__POST']['name'])):
 		$name = basename($GLOBALS['__POST']['name']);
-		if($name=="") show_error(gtext('You must supply a name.'));
+		if($name == '') show_error(gtext('You must supply a name.'));
 		switch($GLOBALS['__POST']['type']):
 			case 'zip':
 				zip_items($dir,$name);

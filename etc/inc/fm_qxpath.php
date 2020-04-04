@@ -47,35 +47,30 @@
 
   This path is intended for internal use and not for presentation to the
   user, since he should only see relative pathes.
- 
+
  */
-function path_f ($path = '')
-{
-    global $home_dir;
-    $abs_dir = $home_dir;
-    switch ($path)
-    {
+function path_f($path = '') {
+	global $home_dir;
+
+	$abs_dir = $home_dir;
+	switch($path):
         case '.':
         case '': return realpath($abs_dir);
-    }
-    
-    return realpath(realpath($home_dir) . "/$path");
+	endswitch;
+	return realpath(realpath($home_dir) . "/$path");
 }
 
-function path_r ($path)
-{
+function path_r($path) {
     global $home_dir;
+
     $base = realpath($home_dir);
-    $ret = preg_replace("#^$base#", "", $path);
+    $ret = preg_replace("#^$base#",'',$path);
     return $ret;
 }
 
-function path_up ($path)
-{
+function path_up($path) {
     $ret = dirname($path);
-    // make sure that we stop at the root directory
-    // and convert the "." to an empty string
-    return $ret == "." ?  "" : $ret;
+//	make sure that we stop at the root directory
+//	and convert the "." to an empty string
+    return $ret == '.' ?  '' : $ret;
 }
-
-?>
