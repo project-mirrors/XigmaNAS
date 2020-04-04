@@ -235,4 +235,5 @@ if(!empty($input_errors)):
 	$loginpagedata->
 		insDIV(['class' => 'lpe'],$input_errors);
 endif;
+$document->add_js_document_ready(sprintf('document.getElementById("%s").focus();','username'));
 $document->render();
