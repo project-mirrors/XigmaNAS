@@ -192,7 +192,7 @@ function system_get_language_code() {
 			$code .= '-' . $parsed['region'];
 		endif;
 	else:
-		$code = 'en';
+		$code = 'en-US';
 	endif;
 	return $code;
 }
