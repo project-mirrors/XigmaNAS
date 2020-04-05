@@ -15,6 +15,11 @@ It is not recommended to perform an in-place upgrade via the firmware update pag
 - Boot from the newly created LiveCD/USB and perform a XigmaNAS® installation onto a new boot media.
 - After a successful installation, remove the LiveCD/USB device, boot from your new XigmaNAS® boot media and restore your previously saved configuration.
 
+Note for Full install users.
+============================
+Make sure you first upgraded to XigmaNAS-x64-full-12.1.0.4.7321.tgz before you flash full-.txz files.
+The new (.txz) full upgrade files are compressed images.
+
 Install from scratch instructions:
 ==================================
 - Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
@@ -96,7 +101,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 12.1.0.4.738x
+BUILD 12.1.0.4.7509
 ===================
 Changes:
 - Upgrade to FreeBSD 12.1-RELEASE P3.
@@ -130,6 +135,7 @@ Fixes:
 - Whitespaces support in pools/dataset names.
 - Fastcgi issue with filter_input of INPUT_SERVER.
 - Fix checking for changes in auxparam always flags reboot.
+- Fix WebGUI language autodetection.
 
 Default login credentials:
 ==========================
@@ -154,5 +160,5 @@ It is recommended to change the default passwords as soon as possible.
 
 Copyright:
 ==========
-XigmaNAS® is copyright © 2018 - 2019 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
+XigmaNAS® is copyright © 2018 - 2020 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
 XigmaNAS® is a registered trademark of Michael Zoon (zoon01@xigmanas.com). All Rights Reserved.
