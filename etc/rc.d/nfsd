@@ -63,15 +63,17 @@ nfsd_precmd()
 	fi
 
 	if ! checkyesno rpcbind_enable  && \
-	    ! /etc/rc.d/rpcbind forcestatus 1>/dev/null 2>&1
+		! /etc/rc.d/rpcbind forcestatus 1>/dev/null 2>&1
 	then
 		force_depend rpcbind || return 1
 	fi
 
 	if ! checkyesno mountd_enable  && \
-	    ! /etc/rc.d/mountd forcestatus 1>/dev/null 2>&1
+		! /etc/rc.d/mountd forcestatus 1>/dev/null 2>&1
 	then
 		force_depend mountd || return 1
+	fi
+
 	if [ -n "${nfs_server_vhost}" ]; then
 		command_args="-V \"${nfs_server_vhost}\""
 	fi
@@ -81,7 +83,7 @@ nfsd_cmd()
 {
 	_enable=`configxml_get_count "//hast/enable"`
 	_role=`get_hast_role`
-        if [ "${rc_arg}" != "status" -a "$_enable" != "0" -a "$_role" != "primary" -a "$_rc_prefix" != "force" ]; then
+	if [ "${rc_arg}" != "status" -a "$_enable" != "0" -a "$_role" != "primary" -a "$_rc_prefix" != "force" ]; then
 		return 0;
 	fi
 
