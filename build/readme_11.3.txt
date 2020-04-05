@@ -10,6 +10,10 @@ We do not recommend an in-place upgrade via the firmware update page because of 
 First, download your configuration file from the backup/restore page and save it. Then backup all other data partitions that exist on the boot media.
 Now you can perform a fresh installation from the LiveCD/USB. After a successful installation, you should restore your previously saved configuration.
 
+Note for Full install users.
+============================
+Make sure you first upgraded to XigmaNAS-x64-full-11.3.0.4.7272.tgz before you flash full-.txz files.
+The new (.txz) full upgrade files are compressed images.
 
 Install from scratch:
 =====================
@@ -107,7 +111,7 @@ Currently iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
 
-BUILD 11.3.0.4.738x
+BUILD 11.3.0.4.7509
 ===================
 Changes:
 - Upgrade to FreeBSD 11.3-RELEASE-P7.
@@ -145,6 +149,7 @@ Fixes:
 - Whitespaces support in pools/dataset names.
 - Fastcgi issue with filter_input of INPUT_SERVER.
 - Fix checking for changes in auxparam always flags reboot.
+- Fix WebGUI language autodetection.
 
 Default Login:
 ==============
@@ -171,5 +176,5 @@ Default Login:
 
  * Change default passwords after setup!!!
 
-XigmaNAS® is copyright © 2018 XigmaNAS® (info@xigmanas.com. All Rights Reserved.
+XigmaNAS® is copyright © 2018 - 2020 XigmaNAS® (info@xigmanas.com. All Rights Reserved.
 XigmaNAS® is a registered trademark of Michael Zoon. (zoon01@xigmanas.com). All Rights Reserved.
