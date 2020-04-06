@@ -838,18 +838,20 @@ div#warningbox div.message
 
 div#header
 {
-	height: 100%;
 	width: 100%;
 	background-color: #171717;
 	background-image: url("/images/header_bg.png");
 	background-position: top left;
 	background-repeat: no-repeat;
+	display: flex;
+	flex-flow: row-reverse nowrap;
+	justify-content: space-between;
+	align-items: stretch;
 }
 
 div#headerlogo
 {
-	float: left;
-	height: 100%;
+	flex: 0 0 auto;
 }
 
 div#headerlogo a
@@ -862,14 +864,13 @@ div#headerlogo a
 
 div#headerrlogo
 {
-	float: right;
-	height: 100%;
 	width: 350px;
 	background-image: url("/images/header_rlogo.png");
 	margin-left: -350px;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-end;
+	flex: 0 0 auto;
 }
 
 div#headerrlogo .hostname,

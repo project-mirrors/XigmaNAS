@@ -83,10 +83,10 @@ function show_header($title) {
 	if(!$_SESSION['g']['shrinkpageheader']):
 		echo '<header id="g4l">',"\n";
 		echo '<div id="header">',"\n";
-		echo '<div id="headerlogo">',"\n";
-		echo '<a title="www.',get_product_url(),'" href="https://www.',get_product_url(),'" target="_blank"><img src="../images/header_logo.png" alt="logo"/></a>',"\n";
-		echo '</div>',"\n";
 		echo '<div id="headerrlogo">',"\n";
+		echo '</div>',"\n";
+		echo '<div id="headerlogo">',"\n";
+		echo '<a title="www.',get_product_url(),'" href="https://www.',get_product_url(),'" target="_blank"><img src="/images/header_logo.png" alt="logo"/></a>',"\n";
 		echo '</div>',"\n";
 		echo '</div>',"\n";
 		echo '</header>',"\n";
