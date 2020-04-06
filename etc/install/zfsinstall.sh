@@ -731,7 +731,7 @@ install_yesno()
 menu_poolname()
 {
 		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Pool Name" \
-		--form "\nEnter a desired pool name, default is ${ZROOT}." 0 0 0 \
+		--form "Enter a desired pool name, default is ${ZROOT}." 0 0 0 \
 		"Enter pool name:" 1 1 "${ZROOT}" 1 25 25 25 \
 		2>${tmpfile}
 		if [ 0 -ne $? ]; then
@@ -751,7 +751,7 @@ menu_poolname()
 menu_swap()
 {
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize Swap size" \
-	--form "\nEnter a desired SWAP size, default size is 2G, leave empty for none." 0 0 0 \
+	--form "Enter a desired SWAP size, default size is 2G, leave empty for none." 0 0 0 \
 	"Enter swap size:" 1 1 "2G" 1 25 25 25 \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
@@ -797,7 +797,7 @@ menu_zrootsize()
 	CUSTOM_ROOT=$(cat ${tmpfile})
 	if [ "${CUSTOM_ROOT}" = 1 ]; then
 		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Customize zroot pool size" \
-		--form "\nEnter a desired zroot pool size, for example 10G, or leave empty to use all remaining disk space (default empty)." 0 0 0 \
+		--form "Enter a desired zroot pool size, for example 10G, or leave empty to use all remaining disk space (default empty)." 0 0 0 \
 		"Enter zroot pool size:" 1 1 "" 1 25 25 25 \
 		2>${tmpfile}
 		if [ 0 -ne $? ]; then
@@ -833,7 +833,7 @@ menu_dataset()
 	dataset=$(cat ${tmpfile})
 	if [ "${dataset}" = 1 ]; then
 		cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Enter Dataset name" \
-		--form "\nEnter a desired Dataset name, or leave empty to cancel Dataset creation (default empty)." 0 0 0 \
+		--form "Enter a desired Dataset name, or leave empty to cancel Dataset creation (default empty)." 0 0 0 \
 		"Enter Dataset name:" 1 1 "" 1 25 25 25 \
 		2>${tmpfile}
 		if [ 0 -ne $? ]; then
@@ -878,9 +878,13 @@ ERROR: Can not create ZFS ${VERIFY_TOPIC} with '${DATASETNAME}' name.
 menu_bootmode()
 {
 	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Boot mode selection menu" \
-	--radiolist "Select system boot mode, default is GPT BIOS." 10 50 4 \
-	1 "GPT BIOS System Boot" on \
-	2 "GPT BIOS+UEFI System Boot" off \
+	--radiolist "Select system boot mode, default is BIOS+UEFI for compatibility.
+	\n
+	\n Option 1:  Support for most modern systems.
+	\n Option 2:  Support for either modern and current systems.
+	\n Option 3:  Support for most older systems." 14 68 4 \
+	1 "GPT BIOS System Boot" off \
+	2 "GPT BIOS+UEFI System Boot" on \
 	3 "MBR BIOS System Boot (Legacy)" off \
 	2>${tmpfile}
 	if [ 0 -ne $? ]; then
@@ -888,6 +892,10 @@ menu_bootmode()
 	fi
 
 	BOOT_MODE=$(cat ${tmpfile})
+	if [ "${BOOT_MODE}" = 3 ] && [ "${ZROOT}" = "bootpool" ]; then
+		cdialog --msgbox "Warning: The name 'bootpool' is reserved on MBR setups. \nPlease restart the installer and select a different name for the 'zroot' pool." 7 60
+		exit 1
+	fi
 }
 
 menu_zroot_create()
