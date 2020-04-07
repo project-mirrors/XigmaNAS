@@ -54,7 +54,6 @@ function check_firmware_version($locale) {
 		$host = $url;
 		$path = '';
 	endif;
-//	$rfd = @fsockopen($host,80,$errno,$errstr,3);
 	$rfd = @fsockopen(sprintf('ssl://%s',$host),443,$errno,$errstr,3);
 	if($rfd):
 		$hdr = "POST $path/checkversion.php?locale=$locale HTTP/1.0\r\n";
@@ -280,9 +279,12 @@ endswitch;
 switch($page_mode):
 	case 'enable':
 		$retval = rc_exec_script('/etc/rc.firmware enable');
-		if(0 == $retval):
+		if($retval == 0):
 			touch($d_fwupenabled_path);
-			unlink_if_exists($firmware_file);
+//			delete all kinds of firmware files from ftmp folder
+			unlink_if_exists(sprintf('%s/firmware.img',$g['ftmp_path']));
+			unlink_if_exists(sprintf('%s/firmware.tgz',$g['ftmp_path']));
+			unlink_if_exists(sprintf('%s/firmware.txz',$g['ftmp_path']));
 		else:
 			$input_errors[] = gtext('Failed to access in-memory file system.');
 			$page_mode = 'disable';
@@ -292,46 +294,44 @@ switch($page_mode):
 		if(!isset($_FILES['ulfile'])):
 			$page_mode = 'disable';
 		else:
-			// Dynamically rename firmware file extension regarding the platform.
-			// Also handle some errors here before firmware page locks.
-			$prd_name = get_product_name();
-			$ul_file = $_FILES['ulfile']['name'];
-			if($g['zroot']):
-				if (preg_match("/$prd_name.*.tgz/", $ul_file)):
-					$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
-				elseif (preg_match("/$prd_name.*.txz/", $ul_file)):
-					$firmware_file = sprintf('%s/firmware.txz',$g['ftmp_path']);
-				else:
-					$input_errors[] = gtext('Invalid firmware file.');
-				endif;
-			else:
-				if (preg_match("/$prd_name.*.xz/", $ul_file)):
+			if(is_uploaded_file($_FILES['ulfile']['tmp_name'])):
+//				dynamically rename firmware file extension regarding the platform.
+//				also handle some errors here before firmware page locks.
+				$prd_name = get_product_name();
+				$firmware_file = null;
+				$ul_file = $_FILES['ulfile']['name'];
+				if($g['zroot']):
+					if(preg_match(sprintf('/^%s\S*%s$/',preg_quote($prd_name),preg_quote('.tgz')),$ul_file)):
+						$firmware_file = sprintf('%s/firmware.tgz',$g['ftmp_path']);
+					elseif(preg_match(sprintf('/^%s\S*%s$/',preg_quote($prd_name),preg_quote('.txz')),$ul_file)):
+						$firmware_file = sprintf('%s/firmware.txz',$g['ftmp_path']);
+					else:
+						$input_errors[] = gtext('Invalid firmware file.');
+					endif;
+				elseif(preg_match(sprintf('/^%s\S*%s$/',preg_quote($prd_name),preg_quote('.img.xz')),$ul_file)):
 					$firmware_file = sprintf('%s/firmware.img',$g['ftmp_path']);
 				else:
 					$input_errors[] = gtext('Invalid firmware file.');
 				endif;
-			endif;
-			if(is_uploaded_file($_FILES['ulfile']['tmp_name'])):
-				//	verify firmware image(s)
-				if(!stristr($_FILES['ulfile']['name'],$g['fullplatform'])):
+//				verify firmware image(s)
+				if(!stristr($ul_file,$g['fullplatform'])):
 					$input_errors[] = gtext('The file you try to flash is not for this platform') . ' (' . $g['fullplatform'] . ').';
 				elseif(!file_exists($_FILES['ulfile']['tmp_name'])):
-					//	probably out of memory for the MFS
+//					probably out of memory for the MFS
 					$input_errors[] = gtext('Firmware upload failed (out of memory?)');
-				else:
-					//	move the image so PHP won't delete it
+				elseif(empty($input_errors) && !is_null($firmware_file)):
+//					move the image so PHP won't delete it
 					move_uploaded_file($_FILES['ulfile']['tmp_name'],$firmware_file);
-					// Skip firmware verify on full, this is preformed by the rc.firmware for tgz/txz file.
-					if(!$g['zroot']):
-						if(!verify_xz_file($firmware_file)):
-							$input_errors[] = gtext('The firmware file is corrupt.');
-						endif;
+					if($g['zroot']):
+//						skip firmware verify on full, this is performed by the rc.firmware for tgz/txz file.
+					elseif(!verify_xz_file($firmware_file)):
+						$input_errors[] = gtext('The firmware file is corrupt.');
 					endif;
 				endif;
 			else:
 				$input_errors[] = gtext('Firmware upload failed with error message:') . sprintf(' %s',$g_file_upload_error[$_FILES['ulfile']['error']]);
 			endif;
-			//	Upgrade firmware if there were no errors.
+//			Upgrade firmware if there were no errors.
 			if(empty($input_errors)):
 				touch($d_firmwarelock_path);
 				switch($g['platform']):
@@ -343,9 +343,9 @@ switch($page_mode):
 						break;
 				endswitch;
 				$savemsg = gtext('The firmware is now being installed. The server will reboot automatically.');
-				//	Clean firmwarelock: Permit to force all pages to be redirect on the firmware page.
+//				clean firmwarelock: Permit to force all pages to be redirect on the firmware page.
 //				unlink_if_exists($d_firmwarelock_path);
-				//	Clean fwupenabled: Permit to know if the ram drive /ftmp is created.
+//				clean fwupenabled: Permit to know if the ram drive /ftmp is created.
 				unlink_if_exists($d_fwupenabled_path);
 			else:
 				$page_mode = 'disable';
@@ -356,8 +356,11 @@ endswitch;
 //	must be seperate from enable and upgrade, mode could have been updated to disable on error
 switch($page_mode):
 	case 'disable':
+//		delete all kinds of firmware files from ftmp folder
+		unlink_if_exists(sprintf('%s/firmware.img',$g['ftmp_path']));
+		unlink_if_exists(sprintf('%s/firmware.tgz',$g['ftmp_path']));
+		unlink_if_exists(sprintf('%s/firmware.txz',$g['ftmp_path']));
 		rc_exec_script('/etc/rc.firmware disable');
-		unlink_if_exists($firmware_file);
 		unlink_if_exists($d_fwupenabled_path);
 		$page_mode = 'default';
 		break;
