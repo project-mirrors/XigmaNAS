@@ -121,6 +121,9 @@ bin/freebsd-version
 ## adjkerntz -- adjust local time CMOS clock to reflect time zone changes and keep current timezone offset for the kernel
 sbin/adjkerntz
 
+## bectl -- Utility to manage boot environments on ZFS
+sbin/bectl
+
 ## bsdlabel -- read and write disk pack label
 sbin/bsdlabel
 
@@ -1051,6 +1054,9 @@ usr/lib/libdevctl.so.*
 # For packages and shelltips only
 lib/libulog.so.0
 lib/libelf.so.2
+
+# bectl dependency
+lib/libbe.so.1
 
 ####### contents of /etc/ssh
 # moduli -- system moduli file
