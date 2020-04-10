@@ -9,10 +9,10 @@
 
 # Script usage: rc.firmware <args> [<file>]
 # Where <args> can take the following values:
-# - enable: Create a 320MB ram drive in ${FTMP}
+# - enable: Create a ram drive in ${FTMP}
 # - disable: Erase ram drive
 # - upgrade <file> : Do an embedded release (IMG file) upgrade using the file <file>
-# - fullupgrade <file> : Do a full release (TGZ file) upgrade using the file <file>
+# - fullupgrade <file> : Do a full release (TGZ/TXZ file) upgrade using the file <file>
 #
 
 . /etc/rc.subr
@@ -39,6 +39,15 @@ BOOTPOOL="bootpool"
 BENAME="upgrade"
 BEPATH="/var/tmp/be_upgrade"
 DIRNOSCHG="bin lib libexec sbin usr"
+
+usage() {
+# Display basic script usage.
+echo -e	"Usage: $(basename $0) [option] | [upgrade | fullupgrade file]
+    enable       Create a RAM disk in /var/tmp/ftmp.
+    disable      Erase RAM disk.
+    upgrade      Perform an embedded platform upgrade using the .XZ file.
+    fullupgrade  Perform a full platform upgrade using the .TXZ file."
+}
 
 enable_upgrade() {
 	program="FW_Enable"
@@ -805,6 +814,7 @@ case ${1} in
 	disable) disable_upgrade ;;
 	upgrade) embedded_upgrade ;;
 	fullupgrade) full_upgrade ;;
+	help|-h|--help) usage;;
 	*) exit 1 ;;
 esac
 exit 0
