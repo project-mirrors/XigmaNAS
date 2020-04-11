@@ -2441,22 +2441,44 @@ EOJ;
 		$this->insINPUT($input_attributes);
 		return $this;
 	}
-	public function ins_enadis_icon(bool $is_enabled = false) {
+/**
+ *	Creates a TD element, signaling enabled/active or disabled/inactive
+ *	@global array $g_img
+ *	@param bool $is_enabled
+ *	@param int $mode 0: Enabled = light background, Disabled = dark background
+ *                   1: Enabled = dark background, Disabled = light background
+ *                   2: light background
+ *                   3: dark background
+ *	@return $this
+ */
+	public function ins_enadis_icon(bool $is_enabled = false,int $mode = 0) {
 		global $g_img;
 
 		if($is_enabled):
-			$gt = gettext('Enabled');
-			$this->
-				addTDwC('lcelc')->
-					addA(['title' => $gt])->
-						insIMG(['src' => $g_img['ena'],'alt' => $gt]);
+			$title = gettext('Enabled');
+			$src = $g_img['ena'];
 		else:
-			$gt = gettext('Disabled');
-			$this->
-				addTDwC('lcelcd')->
-					addA(['title' => $gt])->
-						insIMG(['src' => $g_img['dis'],'alt' => $gt]);
+			$title = gettext('Disabled');
+			$src = $g_img['dis'];
 		endif;
+		switch($mode):
+			default:
+				$class = $is_enabled ? 'lcelc' : 'lcelcd';
+				break;
+			case 1:
+				$class = $is_enabled ? 'lcelcd' : 'lcelc';
+				break;
+			case 2:
+				$class = 'lcelc';
+				break;
+			case 3:
+				$class = 'lcelcd';
+				break;
+		endswitch;
+		$this->
+			addTDwC($class)->
+				addA(['title' => $title])->
+					insIMG(['src' => $src,'alt' => $title]);
 		return $this;
 	}
 	public function add_toolbox_area() {
