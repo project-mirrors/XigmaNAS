@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -184,8 +185,8 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('System'),gettext('Advanced'),gettext('Command Scripts'),$isrecordnew ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$pgtitle = [\gettext('System'),\gettext('Advanced'),\gettext('loader.conf'),$isrecordnew ? \gettext('Add') : \gettext('Edit')];
+$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -203,7 +204,7 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,\gettext('Configuration'))->
 		pop()->
 		addTBODY()->
 			c2_input_text($cop->get_name(),$sphere,true)->
