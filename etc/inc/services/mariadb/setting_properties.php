@@ -46,7 +46,7 @@ final class setting_properties extends grid_properties {
 			. '<br />'
 			. gettext('The server will be started with the minimum required parameters.')
 			. '<br />'
-			. sprintf(gettext('In this directory, you can create a %s file with your additional parameters.'),"'my.cnf'")
+			. gettext("In this directory, the configuration file 'my.cnf' will be created.")
 			. '  '
 			. '<a'
 			. ' href="https://mariadb.com/kb/en/mariadb/configuring-mariadb-with-mycnf"'
