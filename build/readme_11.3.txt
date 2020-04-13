@@ -121,7 +121,6 @@ Changes:
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Update translations.
 - Upgrade to python3x.
-- Upgrade msmtp to 1.8.6.
 - Upgrade minidlna to newer sources.
 - Use recommended patches for dmidecode.
 - Upgrade arcconf to 3.02.23600.
@@ -142,6 +141,7 @@ Changes:
 - Upgrade dialog to 1.3-20200327.
 - Upgrade syncthing to 1.4.2.
 - Upgrade nano to 4.9.2.
+- Upgrade msmtp to 1.8.8.
 
 Fixes:
 - Fix monitoring shows high cpu load.
