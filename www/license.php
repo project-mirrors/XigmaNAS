@@ -259,7 +259,7 @@ $software = [
 	]],
 	['VirtualBox',[
 		'Open Source Edition (OSE) & (Guest Additions) (<a href="http://www.virtualbox.org" target="_blank" rel="noreferrer">http://www.virtualbox.org</a>).',
-		'Copyright © 2010-2019, Oracle and/or its affiliates. All Rights Reserved.'
+		'Copyright © 2010-2020, Oracle and/or its affiliates. All Rights Reserved.'
 	]],
 	['VMXNET3',[
 		'A NIC driver for FreeBSD (<a href="http://www.vmware.com" target="_blank" rel="noreferrer">http://www.vmware.com</a>).',
