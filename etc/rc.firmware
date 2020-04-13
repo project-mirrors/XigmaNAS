@@ -37,7 +37,6 @@ ZROOT=$(/sbin/mount | awk -F '/' '/ \/ / {print $1}')
 DATASET="/ROOT"
 BOOTPOOL="bootpool"
 BENAME="upgrade"
-BEADMCMD="/sbin/bectl"
 DIRNOSCHG="bin lib libexec sbin usr"
 
 usage() {
@@ -593,8 +592,8 @@ post_upgrade_config() {
 
 disable_bootenv() {
 	# Unmount/destroy boot environment if upgrade failed.
-	${BEADMCMD} unmount -f ${BENAME}-${DATE}
-	${BEADMCMD} destroy -F ${BENAME}-${DATE}
+	/sbin/bectl unmount -f ${BENAME}-${DATE}
+	/sbin/bectl destroy -F ${BENAME}-${DATE}
 }
 
 full_upgrade() {
@@ -611,18 +610,6 @@ full_upgrade() {
 
 	# Wait 2 seconds before proceed.
 	sleep 2
-
-	# Fallback to `beadm` for backward compatibility.
-	BEADMCMD_ALT="/usr/local/sbin/beadm"
-	if [ ! -f "${BEADMCMD}" ]; then
-		if [ -f "${BEADMCMD_ALT}" ]; then
-			BEADMCMD="/usr/local/sbin/beadm"
-		else
-			msg="ERROR: A suitable command for boot environments management was not found."
-			/usr/bin/logger -p console.err "UPGRADE ${msg}"
-			exit 1
-		fi
-	fi
 
 	# Create a temp directory for the upgrade.
 	BEPATH=$(/usr/bin/mktemp -d -t be_upgrade)
@@ -660,8 +647,8 @@ full_upgrade() {
 	msg="Creating and mounting new boot environment..."
 	/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
 	DATE=$(date +%Y-%m-%d-%H%M%S)
-	${BEADMCMD} create ${BENAME}-${DATE}
-	${BEADMCMD} mount ${BENAME}-${DATE} ${BEPATH}
+	/sbin/bectl create ${BENAME}-${DATE}
+	/sbin/bectl mount ${BENAME}-${DATE} ${BEPATH}
 	if [ 0 != $? ]; then
 		msg="ERROR: Unable to create/mount new boot environment."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
@@ -767,23 +754,18 @@ full_upgrade() {
 		# Unmount and activate the new boot environment.
 		msg="Unmount and activate new boot environment..."
 		/usr/bin/logger -p console.debug "UPGRADE: ${msg}"
-		${BEADMCMD} unmount -f ${BENAME}-${DATE}
+		/sbin/bectl unmount -f ${BENAME}-${DATE}
 
 		if [ "${MBRPART}" = 1 ]; then
-			if [ "${BEADMCMD}" = "/sbin/bectl" ]; then
-				# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
-				# this is due a known bug and/or limitation in the bectl utility.
-				zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
+			# Directly update the bootfs to point for the new boot environment on ZFS/MBR,
+			# this is due a known bug and/or limitation in the bectl utility.
+			zpool set bootfs=${ZROOT}${DATASET}/${BENAME}-${DATE} ${ZROOT}
 
-				# Update current loader.conf on ZFS/MBR since bootpool is shared across boot environments by default.
-				/usr/bin/sed -i '' -E 's|vfs.root.mountfrom="zfs:'${ROOTFS}'"|vfs.root.mountfrom="zfs:'${ZROOT}${DATASET}/${BENAME}-${DATE}'"|g' \
-				/${BOOTPOOL}/boot/loader.conf
-			else
-				# Use the bectl utility by default.
-				${BEADMCMD} activate ${BENAME}-${DATE}
-			fi
+			# Update current loader.conf on ZFS/MBR since bootpool is shared across boot environments by default.
+			/usr/bin/sed -i '' -E 's|vfs.root.mountfrom="zfs:'${ROOTFS}'"|vfs.root.mountfrom="zfs:'${ZROOT}${DATASET}/${BENAME}-${DATE}'"|g' \
+			/${BOOTPOOL}/boot/loader.conf		
 		else
-			${BEADMCMD} activate ${BENAME}-${DATE}
+			/sbin/bectl activate ${BENAME}-${DATE}
 		fi
 
 		if [ 0 != $? ]; then
