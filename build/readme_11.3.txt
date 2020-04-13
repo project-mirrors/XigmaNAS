@@ -142,6 +142,7 @@ Changes:
 - Upgrade syncthing to 1.4.2.
 - Upgrade nano to 4.9.2.
 - Upgrade msmtp to 1.8.8.
+- Upgrade jQuery to 3.5.0.
 
 Fixes:
 - Fix monitoring shows high cpu load.
