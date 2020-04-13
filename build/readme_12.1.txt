@@ -122,13 +122,13 @@ Changes:
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade php to 7.4.4.
 - Upgrade phpmyadmin to 5.0.2.
-- Upgrade syncthing to 1.4.0.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade nano to 4.9.
 - Upgrade virtualbox-ose to 5.2.38.
 - Upgrade samba to 4.10.14.
 - Upgrade nut to 2020.02.09.
 - Upgrade dialog to 1.3-20200327.
+- Upgrade syncthing to 1.4.2.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
