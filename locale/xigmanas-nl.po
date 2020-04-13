@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
-"PO-Revision-Date: 2020-04-02 10:55+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"PO-Revision-Date: 2020-04-13 12:17+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:33+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:47+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -6253,11 +6253,8 @@ msgstr "In de meeste gevallen, wordt 'publiek' hier gebruikt."
 msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "In slave mode is het de UPS naam (identificator) op de UPS master."
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
-msgstr ""
-"In deze map kunt u een %s bestand met uw aanvullende parameters maken."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
+msgstr "In deze folder wordt het configuratiebestand 'my.cnf' aangemaakt."
 
 msgid "In/Out Errors"
 msgstr "In/Uitgaande Fouten"
@@ -13502,6 +13499,9 @@ msgstr "Umask"
 msgid "Unable to open directory."
 msgstr "Kan de folder niet openen."
 
+msgid "Unable to open file"
+msgstr "Kan het bestand niet openen"
+
 msgid "Unable to read directory."
 msgstr "Kan de folder niet lezen."
 
@@ -13815,9 +13815,6 @@ msgstr "Gebruikersaccount is beschermd"
 
 msgid "User account is unlocked"
 msgstr "Gebruikersaccount is ontgrendeld"
-
-msgid "User database does not exist or is not readable."
-msgstr "Gebruikersdatabase bestaat niet of is niet leesbaar."
 
 msgid "User portal permission."
 msgstr "Gebruikersportaal toestemming."
@@ -14775,3 +14772,12 @@ msgstr "zichtbaar"
 
 msgid "yes"
 msgstr "ja"
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr ""
+#~ "In deze map kunt u een %s bestand met uw aanvullende parameters maken."
+
+#~ msgid "User database does not exist or is not readable."
+#~ msgstr "Gebruikersdatabase bestaat niet of is niet leesbaar."

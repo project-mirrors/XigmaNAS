@@ -2,21 +2,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
-"PO-Revision-Date: 2018-07-17 02:47+0000\n"
-"Last-Translator: tianmo <Unknown>\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"PO-Revision-Date: 2020-04-06 03:45+0000\n"
+"Last-Translator: Jackson Wang <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:33+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:48+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " 無私鑰"
 
 msgid " interfaces:"
 msgstr " 介面："
@@ -25,7 +25,7 @@ msgid " was assigned to "
 msgstr " 被指派為 "
 
 msgid " | State: "
-msgstr ""
+msgstr " | 狀態: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -33,11 +33,11 @@ msgstr "%1$s已被用於創建%2$s卷"
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s 被規劃, %2$s 已使用, %3$s 可用"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s 已使用, %3$s 可用"
 
 #, php-format
 msgid "%d days"
@@ -61,7 +61,7 @@ msgstr "%d 年"
 
 #, php-format
 msgid "%dB / block"
-msgstr "%dB / 塊"
+msgstr "%dB / 區塊"
 
 #, php-format
 msgid "%s Interface"
@@ -69,7 +69,7 @@ msgstr "%s介面"
 
 #, php-format
 msgid "%s already exists as a %s."
-msgstr "%s 類似存在 %s。"
+msgstr "%s 已經如 %s 存在了。"
 
 #, php-format
 msgid "%s already exists."
@@ -81,7 +81,7 @@ msgstr "%s可用，共%s"
 
 #, php-format
 msgid "%s is already configured as a filesystem."
-msgstr "%s 檔系統配置檔已存在。"
+msgstr "%s 檔案系統已被配置。"
 
 #, php-format
 msgid "%s is already configured as a volume."
@@ -89,7 +89,7 @@ msgstr "%s 卷已存在。"
 
 #, php-format
 msgid "%s is based upon/includes various free software packages."
-msgstr "%s基於/包含各種免費軟件包。"
+msgstr "%s基於且包含各種開源軟體。"
 
 #, php-format
 msgid "%s is too long."
@@ -101,7 +101,7 @@ msgstr "%s / %s"
 
 #, php-format
 msgid "%s on %s"
-msgstr "%s 於 %s"
+msgstr "在%s 上 %s"
 
 #, php-format
 msgid "%s used of %s"
@@ -110,7 +110,7 @@ msgstr "%s已用，共%s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts."
-msgstr ""
+msgstr "%s 感謝這些開源軟體的作者以及他們無私的付出。"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -132,7 +132,7 @@ msgid ""
 "(Kingston)Counts the number of flash erase failures. This Attribute returns "
 "the total number of Flash erase operation failures since the drive was "
 "deployed. This Attribute is identical to Attribute 182."
-msgstr "（Kingston）計算閃存擦除失敗的次數。 此屬性返回自部署驅動器以來Flash擦除操作失敗的總數。 此屬性與屬性182相同。"
+msgstr "(金士頓)計算閃存抺除失敗的次數。 此屬性回傳自安裝此固態硬碟以來Flash抺除操作失敗的總數。 此屬性被歸類為屬性182。"
 
 msgid ""
 "(Kingston)Counts the number of flash program failures. This Attribute "
@@ -170,7 +170,7 @@ msgid "(default %s %s"
 msgstr "默認 %s %s"
 
 msgid "*** Imported duplicate ***"
-msgstr "*** 重複導入 ***"
+msgstr "*** 重複匯入 ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
@@ -5793,9 +5793,7 @@ msgstr "大多數的情況下，這裏應該是'public'"
 msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "在從模式(Slave mode)下，它是主模式UPS (UPS master) 的 UPS 名稱（標識）。"
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr ""
 
 msgid "In/Out Errors"
@@ -12399,6 +12397,9 @@ msgstr "Umask"
 msgid "Unable to open directory."
 msgstr ""
 
+msgid "Unable to open file"
+msgstr ""
+
 msgid "Unable to read directory."
 msgstr ""
 
@@ -12682,9 +12683,6 @@ msgstr "用戶帳戶被保護"
 
 msgid "User account is unlocked"
 msgstr "用戶帳號被解鎖"
-
-msgid "User database does not exist or is not readable."
-msgstr ""
 
 msgid "User portal permission."
 msgstr ""

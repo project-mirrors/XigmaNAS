@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
-"PO-Revision-Date: 2020-03-27 20:42+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"PO-Revision-Date: 2020-04-10 12:58+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:32+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:46+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -521,7 +521,7 @@ msgid "Action"
 msgstr "Ενέργεια"
 
 msgid "Actions"
-msgstr ""
+msgstr "Ενέργειες"
 
 msgid "Activate"
 msgstr "Ενεργοποίηση"
@@ -1185,13 +1185,13 @@ msgid "Archive"
 msgstr "Αρχειοθέτηση"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "Αρχειοθέτηση αντικειμένων"
 
 msgid "Archive mode."
 msgstr "Λειτουργία αρχειοθέτησης"
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Θέλετε σίγουρα να διαγράψετε τα επιλεγμένα αντικείμενα;"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Είστε σίγουροι ότι θέλετε να επανεκκινήσετε το διακομιστή;"
@@ -1723,7 +1723,7 @@ msgid "CGI Script"
 msgstr "Αρχείο εντολών \t CGI"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "ΑΛΛΑΓΗ ΔΙΚΑΙΩΜΑΤΩΝ"
 
 msgid "CHANGED"
 msgstr "ΑΛΛΑΧΤΗΚΕ"
@@ -1753,7 +1753,7 @@ msgid "CHAP-Mutual"
 msgstr "CHAP-Αμοιβαία"
 
 msgid "COPY"
-msgstr ""
+msgstr "ΑΝΤΙΓΡΑΦΗ"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Κυριλλικά)"
@@ -1914,7 +1914,7 @@ msgid "Change below file"
 msgstr "Αλλαγή κάτω από το αρχείο"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "Αλλαγή δικαιωμάτων"
 
 msgid "Change the IP address of your computer"
 msgstr "Αλλαγή της διεύθυνσης IP του υπολογιστή σας"
@@ -2012,7 +2012,7 @@ msgid "Clone Configuration"
 msgstr "Κλωνοποίηση Ρυθμίσεων"
 
 msgid "Close"
-msgstr ""
+msgstr "Κλείσιμο"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Συλλογή αρχικών δεδομένων, παρακαλώ περιμένετε..."
@@ -2335,17 +2335,17 @@ msgid "Copies"
 msgstr "Αντίγραφα"
 
 msgid "Copy"
-msgstr ""
+msgstr "Αντιγραφή"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Αντιγραφή από  /%s σε /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Αντιγραφή αντικειμένων"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Η αντιγραφή απέτυχε"
 
 msgid "Core"
 msgstr "Πυρήνας"
@@ -2520,7 +2520,7 @@ msgstr ""
 "εντολών FIS crc. Η τιμή μηδενίζεται κατά τον τερματισμό του συστήματος."
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Δημιουργία wrapper μεγέθους 4KB  (συσκευή nop)."
@@ -2706,7 +2706,7 @@ msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - καταγραφή όλων των πληροφοριών αποσφαλμάτωσης"
 
 msgid "DELETE"
-msgstr ""
+msgstr "ΔΙΑΓΡΑΦΗ"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -2753,7 +2753,7 @@ msgstr ""
 "για επικοινωνία με τους πελάτες DOS."
 
 msgid "DOWNLOAD"
-msgstr ""
+msgstr "ΛΗΨΗ"
 
 msgid "DTS Audio File"
 msgstr "Αρχείο ήχου DTS"
@@ -3145,7 +3145,7 @@ msgid "Deleting MBR and partition table"
 msgstr "Διαγραφή MBR και πίνακα κατατμήσεως"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "Η διαγραφή απέτυχε"
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3333,7 +3333,7 @@ msgid "Directory Mask"
 msgstr "Μάσκα Φακέλου"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Η δημιουργία φακέλου απέτυχε."
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -4272,7 +4272,7 @@ msgid "EA Support"
 msgstr "Υποστήριξη EA"
 
 msgid "EDIT"
-msgstr ""
+msgstr "ΕΠΕΞΕΡΓΑΣΙΑ"
 
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "Η κατάτμηση EFI/GPT μπορεί να χρησιμοποιηθεί μόνο με UFS."
@@ -4281,7 +4281,7 @@ msgid "ERROR - log errors"
 msgstr "ERROR - καταγραφή σφαλμάτων"
 
 msgid "ERROR(S)"
-msgstr ""
+msgstr "ΣΦΑΛΜΑ(ΤΑ)"
 
 msgid "ERROR:"
 msgstr "ΣΦΑΛΜΑ:"
@@ -4434,7 +4434,7 @@ msgid "Edit extent"
 msgstr "Επεξεργασία επέκτασης"
 
 msgid "Edit file"
-msgstr ""
+msgstr "Επεξεργασία αρχείου"
 
 msgid "Edit iSCSI Initiator"
 msgstr "Επεξεργασία εκκινητή iSCSI"
@@ -5284,7 +5284,7 @@ msgid "Extra options to rsync (usually empty)."
 msgstr "Επιπλέον επιλογές στο rsync (συνήθως κενό)."
 
 msgid "Extracting"
-msgstr ""
+msgstr "Γίνεται εξαγωγή"
 
 msgid "FAT32"
 msgstr "FAT32"
@@ -5365,7 +5365,7 @@ msgid "Failed to send test email."
 msgstr "Αποτυχία αποστολής δοκιμαστικού μηνύματος ηλεκτρονικού ταχυδρομείου."
 
 msgid "Failed to unzip archive."
-msgstr ""
+msgstr "Αποτυχία αποσυμπίεσης συμπιεσμένου αρχείου."
 
 msgid "Failed to upload file."
 msgstr "Αποτυχία ανεβάσματος αρχείου."
@@ -5441,13 +5441,13 @@ msgid "File Transfer Protocol"
 msgstr "Πρωτόκολλο Μεταφοράς Αρχείων (FTP)"
 
 msgid "File creation failed."
-msgstr ""
+msgstr "Η δημιουργία αρχείου απέτυχε."
 
 msgid "File not found"
 msgstr "Το αρχείο δε βρέθηκε"
 
 msgid "File opening failed."
-msgstr ""
+msgstr "Το άνοιγμα του αρχείου απέτυχε"
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5462,7 +5462,7 @@ msgstr ""
 "ως επέκταση."
 
 msgid "File saving failed."
-msgstr ""
+msgstr "Η αποθήκευση του αρχείου απέτυχε."
 
 msgid "File size"
 msgstr "Μέγεθος αρχείου"
@@ -5646,7 +5646,7 @@ msgstr ""
 "Πλήρες όνομα αρχείου ενός προσαρμοσμένου αρχείου CSS για τις καρτέλες."
 
 msgid "Function unavailable."
-msgstr ""
+msgstr "Λειτοργία μη διαθέσιμη."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5733,7 +5733,7 @@ msgid "Get a list of available drivers"
 msgstr "Λήψη της λίστας των διαθέσιμων οδηγών συσκευών"
 
 msgid "Getting permissions failed."
-msgstr ""
+msgstr "Η λήψη των δικαιωμάτων απέτυχε."
 
 msgid "GiB"
 msgstr "GiB"
@@ -5760,7 +5760,7 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Γενικό αριθμητικό αναγνωριστικό για χρήση σε κάθε LUN μέσα στο CTL."
 
 msgid "Go Back"
-msgstr ""
+msgstr "Μετάβαση πίσω"
 
 msgid "Grant access to the file manager."
 msgstr "Εκχώρηση πρόσβασης στον διαχειριστή αρχείων."
@@ -5896,7 +5896,7 @@ msgid "HDD standby time"
 msgstr "Χρόνος αναμονής σκληρού δίσκου"
 
 msgid "HOME"
-msgstr ""
+msgstr "ΑΡΧΙΚΗ"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
@@ -6313,12 +6313,8 @@ msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr ""
 "Σε λειτουργία slave είναι το όνομα UPS (Αναγνωριστικό) του master UPS."
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr ""
-"Σε αυτό τον φάκελο, μπορείτε να δημιουργήσετε ένα αρχείο %s με τις πρόσθετες "
-"παραμέτρους σας."
 
 msgid "In/Out Errors"
 msgstr "Σφάλματα Εισόδου/Εξόδου"
@@ -6653,7 +6649,7 @@ msgstr ""
 "όνομα χρήστη."
 
 msgid "Item(s)"
-msgstr ""
+msgstr "Αντικείμενα"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7209,7 +7205,7 @@ msgid "MOV File"
 msgstr "Αρχείο MOV"
 
 msgid "MOVE"
-msgstr ""
+msgstr "ΜΕΤΑΚΙΝΗΣΗ"
 
 msgid "MOVED TO"
 msgstr "ΜΕΤΑΚΙΝΗΘΗΚΕ"
@@ -7634,23 +7630,23 @@ msgid "Mounts"
 msgstr "Προσαρτήσεις"
 
 msgid "Move"
-msgstr ""
+msgstr "Μετακίνηση"
 
 msgid "Move down"
 msgstr "Μετακίνηση κάτω"
 
 #, php-format
 msgid "Move from /%s to /%s "
-msgstr ""
+msgstr "Μετακίνηση από /%s σε /%s "
 
 msgid "Move item(s)"
-msgstr ""
+msgstr "Μετακίνηση αντικειμένων"
 
 msgid "Move up"
 msgstr "Μετακίνηση πάνω"
 
 msgid "Moving failed."
-msgstr ""
+msgstr "Η μετακίνηση απέτυχε."
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Δημόσια Άδεια Mozilla Έκδοση 2.0 (MPLv2)"
@@ -8087,7 +8083,7 @@ msgid "No records found."
 msgstr "Δεν βρέθηκαν εγγραφές."
 
 msgid "No results available."
-msgstr ""
+msgstr "Μη διαθέσιμα αποτελέσματα."
 
 msgid "No snapshot information available."
 msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες για snapshot."
@@ -8682,10 +8678,10 @@ msgid "Permission"
 msgstr "Δικαιώματα"
 
 msgid "Permission-change failed."
-msgstr ""
+msgstr "Η αλλαγή δικαιωμάτων απέτυχε."
 
 msgid "Permissions"
-msgstr ""
+msgstr "Δικαιώματα"
 
 msgid "Permit Root Login"
 msgstr "Επιτρέπεται Σύνδεση Root"
@@ -9094,7 +9090,7 @@ msgid "Proxy"
 msgstr "Διακομιστής μεσολάβησης"
 
 msgid "Public"
-msgstr ""
+msgstr "Δημόσιο"
 
 msgid "Public Key"
 msgstr "Δημόσιο Κλειδί"
@@ -9254,7 +9250,7 @@ msgid "RAW info"
 msgstr "Αμορφοποίητες πληροφορίες"
 
 msgid "RELOAD"
-msgstr ""
+msgstr "ΕΠΑΝΑΦΟΡΤΩΣΗ"
 
 msgid "RPM"
 msgstr "RPM"
@@ -9730,7 +9726,7 @@ msgid "Reservation"
 msgstr "Κράτηση"
 
 msgid "Reset"
-msgstr ""
+msgstr "Επαναφορά"
 
 msgid "Reset Graphs"
 msgstr "Επαναφορά Γραφημάτων"
@@ -9929,7 +9925,7 @@ msgid "SCSI Name"
 msgstr "Όνομα SCSI"
 
 msgid "SEARCH"
-msgstr ""
+msgstr "ΑΝΑΖΗΤΗΣΗ"
 
 msgid "SHA Password"
 msgstr "Κωδικός SHA"
@@ -10119,7 +10115,7 @@ msgid "Scrub a pool"
 msgstr "Scrub ενός pool"
 
 msgid "Seach results"
-msgstr ""
+msgstr "αποτελέσματα αναζήτησης"
 
 msgid "Search"
 msgstr "Αναζήτηση"
@@ -10131,7 +10127,7 @@ msgid "Search for and import all disks found"
 msgstr "Εύρεση και εισαγωγή όλων των δίσκων που θα βρεθούν"
 
 msgid "Search subdirectories"
-msgstr ""
+msgstr "Αναζήτηση σε υποφακέλους"
 
 msgid "Second"
 msgstr "Δευτερόλεπτο"
@@ -10315,7 +10311,7 @@ msgid "Select the language of the WebGUI."
 msgstr "Επιλέξτε τη γλώσσα του Web περιβάλλοντος διαχείρισης."
 
 msgid "Select the language of the user portal for this user."
-msgstr ""
+msgstr "Επιλέξτε τη γλώσσα για το portal χρήστη αυτού του χρήστη."
 
 msgid "Select the location closest to you."
 msgstr "Επιλογή κοντινότερης σε εσάς τοποθεσίας."
@@ -12448,13 +12444,13 @@ msgid "The tag range is invalid."
 msgstr "Το εύρος της ετικέτας δεν είναι έγκυρο."
 
 msgid "The target directory doesn't exist."
-msgstr ""
+msgstr "Ο φάκελος προορισμού δεν υπάρχει."
 
 msgid "The target directory may not be above the home directory."
-msgstr ""
+msgstr "Ο φάκελος προορισμού ίσως να μην είναι πάνω από τον αρχικό φάκελο."
 
 msgid "The target item already exists."
-msgstr ""
+msgstr "Το αντικείμενο προορισμού υπάρχει ήδη."
 
 msgid "The target name already exists."
 msgstr "Το όνομα προορισμού υπάρχει ήδη."
@@ -12773,7 +12769,7 @@ msgid "This extent is used."
 msgstr "Αυτή η επέκταση χρησιμοποιείται."
 
 msgid "This file doesn't exist."
-msgstr ""
+msgstr "Αυτό το αρχείο δεν υπάρχει."
 
 msgid "This is a nickname and is for information only."
 msgstr "Αυτό είναι ψευδώνυμο και είναι για πληροφοριακούς λόγους μόνο."
@@ -12794,10 +12790,10 @@ msgid "This is not a valid IP Address."
 msgstr "Αυτή δεν είναι έγκυρη διεύθυνση IP."
 
 msgid "This item already exists."
-msgstr ""
+msgstr "Αυτό το αρχείο υπάρχει ήδη."
 
 msgid "This item doesn't exist."
-msgstr ""
+msgstr "Αυτό το αρχείο δεν υπάρχει."
 
 msgid "This month"
 msgstr "Αυτό το μήνα"
@@ -13547,10 +13543,10 @@ msgid "UNMAP Maximum LBA"
 msgstr "Μέγιστο LBA UNMAP"
 
 msgid "UNZIP"
-msgstr ""
+msgstr "ΑΠΟΣΥΜΠΙΕΣΗ"
 
 msgid "UP"
-msgstr ""
+msgstr "ΠΑΝΩ"
 
 msgid "UPS"
 msgstr "UPS"
@@ -13658,10 +13654,13 @@ msgid "Umask"
 msgstr "Umask"
 
 msgid "Unable to open directory."
+msgstr "Αποτυχία ανοίγματος φακέλου."
+
+msgid "Unable to open file"
 msgstr ""
 
 msgid "Unable to read directory."
-msgstr ""
+msgstr "Αποτυχία νάγνωσης φακέλου."
 
 msgid "Unavailable"
 msgstr "Μη διαθέσιμο"
@@ -13747,7 +13746,7 @@ msgid "Unrestricted"
 msgstr "Απεριόριστο"
 
 msgid "Unzip"
-msgstr ""
+msgstr "Αποσυμπίεση"
 
 msgid "Up"
 msgstr "Πάνω"
@@ -13984,9 +13983,6 @@ msgstr "Ο λογαριασμός χρήστη είναι προστατευμέ
 
 msgid "User account is unlocked"
 msgstr "Ο λογαριασμός χρήστη είναι ξεκλείδωτος"
-
-msgid "User database does not exist or is not readable."
-msgstr ""
 
 msgid "User portal permission."
 msgstr "Δικαιώματα portal χρήστη"
@@ -14413,7 +14409,7 @@ msgid "Workgroup"
 msgstr "Ομάδα εργασίας"
 
 msgid "Wrap text:"
-msgstr ""
+msgstr "Αναδίπλωση κειμένου:"
 
 msgid "Write"
 msgstr "Εγγραφή"
@@ -14457,19 +14453,19 @@ msgid "Yesterday"
 msgstr "Χθες"
 
 msgid "You are not allowed to access the target directory."
-msgstr ""
+msgstr "Δεν έχετε δικαίωμα πρόσβασης στο φάκελο προορισμού."
 
 msgid "You are not allowed to access this directory."
-msgstr ""
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτό το φάκελο."
 
 msgid "You are not allowed to access this file."
-msgstr ""
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτό το αρχείο."
 
 msgid "You are not allowed to access this item."
-msgstr ""
+msgstr "Δεν έχετε δικαίωμα πρόσβασης σε αυτό το αντικείμενο."
 
 msgid "You are not allowed to use this function."
-msgstr ""
+msgstr "Δεν έχετε πρόσβαση στη χρήση αυτής της λειτουργίας."
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -14512,7 +14508,7 @@ msgid "You have to select at least one item for '%s'."
 msgstr "Θα πρέπει να επιλέξετε τουλάχιστον ένα στοιχείο για '%s'."
 
 msgid "You haven't selected any item(s)."
-msgstr ""
+msgstr "Δεν έχετε επιλέξει αντικείμενα."
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -14572,7 +14568,7 @@ msgid "You must select at least one authentication method."
 msgstr "Πρέπει να επιλέξετε τουλάχιστον μία μεθοδο πιστοποίησης."
 
 msgid "You must supply a name."
-msgstr ""
+msgstr "Πρέπει να παρέχετε ένα όνομα."
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."
@@ -14954,3 +14950,13 @@ msgstr "ορατό"
 
 msgid "yes"
 msgstr "ναι"
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr ""
+#~ "Σε αυτό τον φάκελο, μπορείτε να δημιουργήσετε ένα αρχείο %s με τις πρόσθετες "
+#~ "παραμέτρους σας."
+
+#~ msgid "User database does not exist or is not readable."
+#~ msgstr "Η βάση χρήστη δεν υπάρχει ή δεν είναι αναγνώσιμη."

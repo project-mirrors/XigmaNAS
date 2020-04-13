@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
-"PO-Revision-Date: 2020-03-14 07:25+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"PO-Revision-Date: 2020-04-05 17:18+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:33+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:48+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -457,7 +457,7 @@ msgid "Action"
 msgstr "动作"
 
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 msgid "Activate"
 msgstr "启用"
@@ -1061,13 +1061,13 @@ msgid "Archive"
 msgstr "存档"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "存档项目"
 
 msgid "Archive mode."
 msgstr "存档模式。"
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "你确定要删除所选项目吗？"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "是否确定重启系统？"
@@ -1555,7 +1555,7 @@ msgid "CGI Script"
 msgstr "CGI脚本"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "更改权限"
 
 msgid "CHANGED"
 msgstr "已更改"
@@ -1585,7 +1585,7 @@ msgid "CHAP-Mutual"
 msgstr "CHAP共同"
 
 msgid "COPY"
-msgstr ""
+msgstr "复制"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (斯拉夫文)"
@@ -1737,7 +1737,7 @@ msgid "Change below file"
 msgstr "更改下列文件"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "更改权限"
 
 msgid "Change the IP address of your computer"
 msgstr "更改你的电脑IP地址"
@@ -1828,7 +1828,7 @@ msgid "Clone Configuration"
 msgstr "克隆配置"
 
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 msgid "Collecting initial data, please wait..."
 msgstr "收集初始数据，请稍候..."
@@ -2115,17 +2115,17 @@ msgid "Copies"
 msgstr "副本"
 
 msgid "Copy"
-msgstr ""
+msgstr "复制"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "从 /%s 复制到 /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "复制项目"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "复制失败。"
 
 msgid "Core"
 msgstr "核心"
@@ -2248,7 +2248,7 @@ msgstr ""
 "计算SATA PHY错误的数量。 该值包括所有PHY错误计数，Ex数据FIS CRC，代码错误，差异错误，命令FIS crc。 系统掉电时值清零。"
 
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "创建4KB封套（NOP装置）。"
@@ -2425,7 +2425,7 @@ msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3  - 记录所有调试信息"
 
 msgid "DELETE"
-msgstr ""
+msgstr "删除"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -2469,7 +2469,7 @@ msgid ""
 msgstr "DOS SMB客户端假定服务器具有与它们相同的字符集。 此选项指定Samba应该与DOS客户端对话的字符集。"
 
 msgid "DOWNLOAD"
-msgstr ""
+msgstr "下载"
 
 msgid "DTS Audio File"
 msgstr "DTS音频文件"
@@ -2846,7 +2846,7 @@ msgid "Deleting MBR and partition table"
 msgstr "删除 MBR 和分区表中"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "删除失败"
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3020,7 +3020,7 @@ msgid "Directory Mask"
 msgstr "目录掩码"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "目录创建失败。"
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "不完整文件的目录。 空字段表示禁用。"
@@ -3914,7 +3914,7 @@ msgid "EA Support"
 msgstr "EA支持"
 
 msgid "EDIT"
-msgstr ""
+msgstr "编辑"
 
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT 只相容于 UFS 文件系统。"
@@ -3923,7 +3923,7 @@ msgid "ERROR - log errors"
 msgstr "错误 - 记录错误"
 
 msgid "ERROR(S)"
-msgstr ""
+msgstr "错误"
 
 msgid "ERROR:"
 msgstr "错误："
@@ -4076,7 +4076,7 @@ msgid "Edit extent"
 msgstr "编辑extent"
 
 msgid "Edit file"
-msgstr ""
+msgstr "编辑文件"
 
 msgid "Edit iSCSI Initiator"
 msgstr "编辑iSCSI启动器"
@@ -4318,7 +4318,7 @@ msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "启用收集ZFS L2ARC使用情况统计信息。"
 
 msgid "Enable collecting ZFS cache efficiency statistics."
-msgstr ""
+msgstr "启用收集ZFS缓存效率统计信息。"
 
 msgid "Enable collecting average system load statistics."
 msgstr "启用收集平均系统负载统计。"
@@ -4849,7 +4849,7 @@ msgid "Extra options to rsync (usually empty)."
 msgstr "rsync 的额外选项（通常为空白）。"
 
 msgid "Extracting"
-msgstr ""
+msgstr "提取"
 
 msgid "FAT32"
 msgstr "FAT32"
@@ -4927,7 +4927,7 @@ msgid "Failed to send test email."
 msgstr "无法发送测试电子邮件。"
 
 msgid "Failed to unzip archive."
-msgstr ""
+msgstr "解压错存档失败。"
 
 msgid "Failed to upload file."
 msgstr "上传文件失败。"
@@ -4999,13 +4999,13 @@ msgid "File Transfer Protocol"
 msgstr "文件传输协议（File Transfer Protocol）"
 
 msgid "File creation failed."
-msgstr ""
+msgstr "创建文件失败。"
 
 msgid "File not found"
 msgstr "找不到文件"
 
 msgid "File opening failed."
-msgstr ""
+msgstr "文件打开失败。"
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5016,7 +5016,7 @@ msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
 msgstr "用作扩展的文件路径（例如/mnt/sharename/extent/%s）。"
 
 msgid "File saving failed."
-msgstr ""
+msgstr "文件保存失败。"
 
 msgid "File size"
 msgstr "文件大小"
@@ -5189,7 +5189,7 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "自定义标签CSS文件的全限定文件名。"
 
 msgid "Function unavailable."
-msgstr ""
+msgstr "功能不可用。"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5276,7 +5276,7 @@ msgid "Get a list of available drivers"
 msgstr "获取可用驱动的列表"
 
 msgid "Getting permissions failed."
-msgstr ""
+msgstr "获取权限失败。"
 
 msgid "GiB"
 msgstr "GiB"
@@ -5300,7 +5300,7 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "用于CTL内给定LUN的全局数字标识符。"
 
 msgid "Go Back"
-msgstr ""
+msgstr "后退"
 
 msgid "Grant access to the file manager."
 msgstr "授予对文件管理器的访问权限。"
@@ -5428,7 +5428,7 @@ msgid "HDD standby time"
 msgstr "HDD 待机时间"
 
 msgid "HOME"
-msgstr ""
+msgstr "HOME"
 
 msgid "HOT SPARE"
 msgstr "热备"
@@ -5793,10 +5793,8 @@ msgstr "大多数的情况下，这里应该是'public'"
 msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "在从模式(Slave mode)下，它是主模式UPS (UPS master) 的 UPS 名称（标识）。"
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
-msgstr "在此目录中，您可以使用其他参数创建%s文件。"
+msgid "In this directory, the configuration file 'my.cnf' will be created."
+msgstr ""
 
 msgid "In/Out Errors"
 msgstr "入/出错误"
@@ -6091,7 +6089,7 @@ msgid ""
 msgstr "如果需要用WebGUI登录，我们推荐您更改系统默认的用户名和密码，请在这里输入用户名。"
 
 msgid "Item(s)"
-msgstr ""
+msgstr "项目"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -6607,7 +6605,7 @@ msgid "MOV File"
 msgstr "MOV文件"
 
 msgid "MOVE"
-msgstr ""
+msgstr "移动"
 
 msgid "MOVED TO"
 msgstr "移动到"
@@ -7014,23 +7012,23 @@ msgid "Mounts"
 msgstr "挂载点"
 
 msgid "Move"
-msgstr ""
+msgstr "移动"
 
 msgid "Move down"
 msgstr "下移"
 
 #, php-format
 msgid "Move from /%s to /%s "
-msgstr ""
+msgstr "从 /%s移动到  /%s "
 
 msgid "Move item(s)"
-msgstr ""
+msgstr "移动项目"
 
 msgid "Move up"
 msgstr "上移"
 
 msgid "Moving failed."
-msgstr ""
+msgstr "移动失败。"
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla公共许可证2.0版（MPLv2）"
@@ -7451,7 +7449,7 @@ msgid "No records found."
 msgstr "未找到记录。"
 
 msgid "No results available."
-msgstr ""
+msgstr "无可用结果。"
 
 msgid "No snapshot information available."
 msgstr "没有可用的快照信息。"
@@ -7881,10 +7879,10 @@ msgid "Pascal File"
 msgstr "Pascal文件"
 
 msgid "Passive Port Max."
-msgstr ""
+msgstr "最大被动端口。"
 
 msgid "Passive Port Min."
-msgstr ""
+msgstr "最小被动端口。"
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8002,7 +8000,7 @@ msgid "Peer User"
 msgstr "对等用户"
 
 msgid "Percentage of apparent power related to maximum load"
-msgstr ""
+msgstr "与最大负载有关的视在功率百分比"
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -8012,10 +8010,10 @@ msgid "Permission"
 msgstr "权限"
 
 msgid "Permission-change failed."
-msgstr ""
+msgstr "权限更改失败。"
 
 msgid "Permissions"
-msgstr ""
+msgstr "权限"
 
 msgid "Permit Root Login"
 msgstr "允许Root登录"
@@ -8404,7 +8402,7 @@ msgid "Proxy"
 msgstr "代理服务器"
 
 msgid "Public"
-msgstr ""
+msgstr "公开"
 
 msgid "Public Key"
 msgstr "公钥"
@@ -8562,13 +8560,13 @@ msgid "RAW info"
 msgstr "RAW 信息"
 
 msgid "RELOAD"
-msgstr ""
+msgstr "重新载入"
 
 msgid "RPM"
 msgstr "每分钟转速"
 
 msgid "RRDGraphs Daily ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs每日ARC效率图"
 
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs每日ARC图"
@@ -8601,7 +8599,7 @@ msgid "RRDGraphs Daily Uptime Graph"
 msgstr "RRDGraphs每日正常运行时间图"
 
 msgid "RRDGraphs Monthly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs每月ARC效率图"
 
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs月度ARC图"
@@ -8634,7 +8632,7 @@ msgid "RRDGraphs Monthly Uptime Graph"
 msgstr "RRDGraphs每月正常运行时间图"
 
 msgid "RRDGraphs Weekly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs每周ARC效率图"
 
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs每周ARC图"
@@ -8667,7 +8665,7 @@ msgid "RRDGraphs Weekly Uptime Graph"
 msgstr "RRDGraphs每周正常运行时间图"
 
 msgid "RRDGraphs Yearly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs年度ARC效率图"
 
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs年度ARC图"
@@ -9017,7 +9015,7 @@ msgid "Reservation"
 msgstr "预留"
 
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 msgid "Reset Graphs"
 msgstr "重置图表"
@@ -9208,7 +9206,7 @@ msgid "SCSI Name"
 msgstr "SCSI名称"
 
 msgid "SEARCH"
-msgstr ""
+msgstr "搜索"
 
 msgid "SHA Password"
 msgstr "SHA密码"
@@ -9390,7 +9388,7 @@ msgid "Scrub a pool"
 msgstr "擦洗池"
 
 msgid "Seach results"
-msgstr ""
+msgstr "搜索结果"
 
 msgid "Search"
 msgstr "搜索"
@@ -9402,7 +9400,7 @@ msgid "Search for and import all disks found"
 msgstr "搜索并导入找到的所有磁盘"
 
 msgid "Search subdirectories"
-msgstr ""
+msgstr "搜索子目录"
 
 msgid "Second"
 msgstr "秒"
@@ -9555,7 +9553,7 @@ msgid "Select the language of the WebGUI."
 msgstr "请选择WebGUI的语言。"
 
 msgid "Select the language of the user portal for this user."
-msgstr ""
+msgstr "选择该用户的用户门户网站的语言。"
 
 msgid "Select the location closest to you."
 msgstr "请选择最邻近的区域。"
@@ -11400,13 +11398,13 @@ msgid "The tag range is invalid."
 msgstr "此标签范围无效。"
 
 msgid "The target directory doesn't exist."
-msgstr ""
+msgstr "目标目录不存在。"
 
 msgid "The target directory may not be above the home directory."
-msgstr ""
+msgstr "目标目录可能不在主目录之上。"
 
 msgid "The target item already exists."
-msgstr ""
+msgstr "目标项目已存在。"
 
 msgid "The target name already exists."
 msgstr "目标名称已经存在。"
@@ -11657,7 +11655,7 @@ msgid "This extent is used."
 msgstr "此extent正在使用中。"
 
 msgid "This file doesn't exist."
-msgstr ""
+msgstr "该文件不存在。"
 
 msgid "This is a nickname and is for information only."
 msgstr "这是一个昵称，仅供参考。"
@@ -11674,10 +11672,10 @@ msgid "This is not a valid IP Address."
 msgstr "这不是有效的IP地址。"
 
 msgid "This item already exists."
-msgstr ""
+msgstr "该项目已存在。"
 
 msgid "This item doesn't exist."
-msgstr ""
+msgstr "该项目不存在。"
 
 msgid "This month"
 msgstr "本月"
@@ -12302,10 +12300,10 @@ msgid "UNMAP Maximum LBA"
 msgstr "UNMAP最大LBA"
 
 msgid "UNZIP"
-msgstr ""
+msgstr "UNZIP"
 
 msgid "UP"
-msgstr ""
+msgstr "UP"
 
 msgid "UPS"
 msgstr "UPS"
@@ -12413,10 +12411,13 @@ msgid "Umask"
 msgstr "Umask"
 
 msgid "Unable to open directory."
+msgstr "不能打开目录。"
+
+msgid "Unable to open file"
 msgstr ""
 
 msgid "Unable to read directory."
-msgstr ""
+msgstr "不能读取目录。"
 
 msgid "Unavailable"
 msgstr "无法使用"
@@ -12499,7 +12500,7 @@ msgid "Unrestricted"
 msgstr "无限制"
 
 msgid "Unzip"
-msgstr ""
+msgstr "UNZIP"
 
 msgid "Up"
 msgstr "上"
@@ -12700,9 +12701,6 @@ msgstr "用户账户被保护"
 
 msgid "User account is unlocked"
 msgstr "用户账号已解锁"
-
-msgid "User database does not exist or is not readable."
-msgstr ""
 
 msgid "User portal permission."
 msgstr "用户门户权限。"
@@ -13097,7 +13095,7 @@ msgid "Workgroup"
 msgstr "工作群组（Workgroup）"
 
 msgid "Wrap text:"
-msgstr ""
+msgstr "自动换行："
 
 msgid "Write"
 msgstr "写入"
@@ -13140,19 +13138,19 @@ msgid "Yesterday"
 msgstr "昨天"
 
 msgid "You are not allowed to access the target directory."
-msgstr ""
+msgstr "你无权访问目标目录。"
 
 msgid "You are not allowed to access this directory."
-msgstr ""
+msgstr "你无权访问此目录。"
 
 msgid "You are not allowed to access this file."
-msgstr ""
+msgstr "你无权访问此文件。"
 
 msgid "You are not allowed to access this item."
-msgstr ""
+msgstr "你无权访问此项目。"
 
 msgid "You are not allowed to use this function."
-msgstr ""
+msgstr "不允许你使用此功能。"
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -13186,7 +13184,7 @@ msgid "You have to select at least one item for '%s'."
 msgstr "请至少选择一个项目给 '%s'。"
 
 msgid "You haven't selected any item(s)."
-msgstr ""
+msgstr "你尚未选择任何项目。"
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -13235,7 +13233,7 @@ msgid "You must select at least one authentication method."
 msgstr "请至少选择一种认证方式。"
 
 msgid "You must supply a name."
-msgstr ""
+msgstr "你必须提供一个名称。"
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."
@@ -13269,7 +13267,7 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS自适应替换缓存（ARC）"
 
 msgid "ZFS Cache Efficiency"
-msgstr ""
+msgstr "ZFS缓存效率"
 
 msgid "ZFS Filesystem Information & Status"
 msgstr "ZFS文件系统信息和状态"
@@ -13593,3 +13591,11 @@ msgstr "可见"
 
 msgid "yes"
 msgstr "是"
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr "在此目录中，您可以使用其他参数创建%s文件。"
+
+#~ msgid "User database does not exist or is not readable."
+#~ msgstr "用户数据库不存在或不可读。"

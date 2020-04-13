@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
 "PO-Revision-Date: 2020-03-31 09:18+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:33+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:46+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -6264,12 +6264,8 @@ msgstr ""
 "Dans le mode esclave c'est le nom de l'UPS (l'identificateur) de l'UPS "
 "maître."
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr ""
-"Dans ce répertoire, vous pouvez créer un fichier %s avec vos paramètres "
-"supplémentaires."
 
 msgid "In/Out Errors"
 msgstr "Erreurs d'entrée / sortie"
@@ -13534,6 +13530,9 @@ msgstr "Masque d'autorisations"
 msgid "Unable to open directory."
 msgstr "Impossible d'ouvrir le répertoire."
 
+msgid "Unable to open file"
+msgstr ""
+
 msgid "Unable to read directory."
 msgstr "Impossible de lire le répertoire."
 
@@ -13852,9 +13851,6 @@ msgstr "Le compte utilisateur est protégé"
 
 msgid "User account is unlocked"
 msgstr "Le compte d'utilisateur est déverrouillé"
-
-msgid "User database does not exist or is not readable."
-msgstr "La base de données utilisateur n'existe pas ou n'est pas lisible."
 
 msgid "User portal permission."
 msgstr "Autorisation du portail utilisateur."
@@ -14815,3 +14811,13 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "oui"
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr ""
+#~ "Dans ce répertoire, vous pouvez créer un fichier %s avec vos paramètres "
+#~ "supplémentaires."
+
+#~ msgid "User database does not exist or is not readable."
+#~ msgstr "La base de données utilisateur n'existe pas ou n'est pas lisible."
