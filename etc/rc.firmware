@@ -763,7 +763,7 @@ full_upgrade() {
 
 			# Update current loader.conf on ZFS/MBR since bootpool is shared across boot environments by default.
 			/usr/bin/sed -i '' -E 's|vfs.root.mountfrom="zfs:'${ROOTFS}'"|vfs.root.mountfrom="zfs:'${ZROOT}${DATASET}/${BENAME}-${DATE}'"|g' \
-			/${BOOTPOOL}/boot/loader.conf		
+			/${BOOTPOOL}/boot/loader.conf
 		else
 			/sbin/bectl activate ${BENAME}-${DATE}
 		fi
