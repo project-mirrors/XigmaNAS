@@ -130,6 +130,8 @@ Changes:
 - Upgrade syncthing to 1.4.2.
 - Upgrade nano to 4.9.2.
 - Upgrade msmtp to 1.8.8.
+- Upgrade jQuery to 3.5.0.
+
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
