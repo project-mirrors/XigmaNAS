@@ -6,7 +6,6 @@ Changes:
 - Add sas2ircu.
 - Add sas3ircu.
 - Add support for nvme controller.
-- Upgrade msmtp to 1.8.7.
 - Upgrade smartmontools to 7.1.
 - Upgrade devcpu-data to 1.28.
 - Upgrade bash to 5.0 P16.
@@ -24,6 +23,7 @@ Changes:
 - Upgrade dialog to 1.3-20200327.
 - Upgrade syncthing to 1.4.2.
 - Upgrade nano to 4.9.2.
+- Upgrade msmtp to 1.8.8.
 
 Fixes:
 - Whitespaces support in pools/dataset names.
