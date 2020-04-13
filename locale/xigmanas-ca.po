@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
 "PO-Revision-Date: 2020-04-03 18:12+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:32+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:45+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -6253,12 +6253,8 @@ msgstr "En la majoria dels casos, \"públic\" s'utilitza aquí."
 msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "En mode esclau és el nom SAI (identificador) a la SAI mestre."
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr ""
-"En aquest directori, podeu crear un fitxer %s amb els vostres paràmetres "
-"addicionals."
 
 msgid "In/Out Errors"
 msgstr "Errors d'Entrada/Sortida"
@@ -13496,6 +13492,9 @@ msgstr "Umask"
 msgid "Unable to open directory."
 msgstr "No es pot obrir el directori."
 
+msgid "Unable to open file"
+msgstr ""
+
 msgid "Unable to read directory."
 msgstr "No es pot llegir el directori."
 
@@ -13816,9 +13815,6 @@ msgstr "El compte d'usuari està protegit"
 
 msgid "User account is unlocked"
 msgstr "El compte d'usuari està desbloquejat"
-
-msgid "User database does not exist or is not readable."
-msgstr "La base de dades d’usuaris no existeix o no es pot llegir."
 
 msgid "User portal permission."
 msgstr "Permís del portal d’usuaris."
@@ -14767,3 +14763,13 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "sí"
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr ""
+#~ "En aquest directori, podeu crear un fitxer %s amb els vostres paràmetres "
+#~ "addicionals."
+
+#~ msgid "User database does not exist or is not readable."
+#~ msgstr "La base de dades d’usuaris no existeix o no es pot llegir."

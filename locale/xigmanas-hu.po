@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:33+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:46+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -6132,10 +6132,8 @@ msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr ""
 "A szünetmentes neve (azonosítója) szolga mód esetén az szünetmentes mesteren."
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
-msgstr "Ebbe a mappába hozhatod létre %s fájl a további paramétereiddel."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
+msgstr ""
 
 msgid "In/Out Errors"
 msgstr "Be/Ki hiba"
@@ -13272,6 +13270,9 @@ msgstr "UImaszk"
 msgid "Unable to open directory."
 msgstr ""
 
+msgid "Unable to open file"
+msgstr ""
+
 msgid "Unable to read directory."
 msgstr ""
 
@@ -13578,9 +13579,6 @@ msgstr "Felhasználói fiók védett"
 
 msgid "User account is unlocked"
 msgstr "Felhasználói fiók zárolása feloldva"
-
-msgid "User database does not exist or is not readable."
-msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -14519,3 +14517,8 @@ msgstr "látható"
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr "Ebbe a mappába hozhatod létre %s fájl a további paramétereiddel."

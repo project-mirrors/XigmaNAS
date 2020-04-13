@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-02 14:59+0000\n"
+"POT-Creation-Date: 2020-04-13 10:59+0000\n"
 "PO-Revision-Date: 2020-03-15 08:49+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-03 22:33+0000\n"
-"X-Generator: Launchpad (build a296f04231dee355be5db73cc878b9e21689a253)\n"
+"X-Launchpad-Export-Date: 2020-04-13 14:48+0000\n"
+"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -6180,11 +6180,8 @@ msgstr "В більшості випадків тут використовуєт
 msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "У режимі 'slave' - це ім'я (ідентифікатор) 'master' ДБЖ."
 
-#, php-format
-msgid ""
-"In this directory, you can create a %s file with your additional parameters."
+msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr ""
-"В цьому каталозі ви можете створити файл %s з розширеними параметрами."
 
 msgid "In/Out Errors"
 msgstr "Помилки вводу/виводу"
@@ -13347,6 +13344,9 @@ msgstr "Umask"
 msgid "Unable to open directory."
 msgstr ""
 
+msgid "Unable to open file"
+msgstr ""
+
 msgid "Unable to read directory."
 msgstr ""
 
@@ -13666,9 +13666,6 @@ msgstr "Обліковий запис користувача захищений"
 
 msgid "User account is unlocked"
 msgstr "Обліковий запис користувача розблокований"
-
-msgid "User database does not exist or is not readable."
-msgstr ""
 
 msgid "User portal permission."
 msgstr "Дозволи порталу користувача."
@@ -14623,3 +14620,9 @@ msgstr "видимий"
 
 msgid "yes"
 msgstr "так"
+
+#, php-format
+#~ msgid ""
+#~ "In this directory, you can create a %s file with your additional parameters."
+#~ msgstr ""
+#~ "В цьому каталозі ви можете створити файл %s з розширеними параметрами."
