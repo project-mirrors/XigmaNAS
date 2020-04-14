@@ -120,7 +120,6 @@ Changes:
 - Upgrade proftpd to 1.3.6c.
 - Upgrade mDNSResponder to 1096.0.2.
 - Upgrade bsnmp-ucd to 0.4.5.
-- Upgrade php to 7.4.4.
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade virtualbox-ose to 5.2.38.
@@ -131,7 +130,7 @@ Changes:
 - Upgrade nano to 4.9.2.
 - Upgrade msmtp to 1.8.8.
 - Upgrade jQuery to 3.5.0.
-
+- Upgrade php to 7.4.5.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
