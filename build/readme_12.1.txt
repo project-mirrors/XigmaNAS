@@ -139,6 +139,7 @@ Fixes:
 - Fastcgi issue with filter_input of INPUT_SERVER.
 - Fix checking for changes in auxparam always flags reboot.
 - Fix WebGUI language autodetection.
+- Fix Aquantia driver AQC100 and AQC100S adapter bind. (BR417)
 
 Default login credentials:
 ==========================
