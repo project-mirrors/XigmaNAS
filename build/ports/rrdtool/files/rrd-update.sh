@@ -388,7 +388,7 @@ if [ "$RUN_MEM" -eq 1 ]; then
 		valm[3]=$(( valm[0] * valm[3]  ))
 		valm[4]=$(( valm[0] * valm[4]  ))
 		valm[5]=$(( valm[0] * valm[5]  ))
-		vals=( `swapctl -k -s | awk '/Total:/ { print lshift($2,10) " " lshift($3,10) }'` )
+		vals=( `swapctl -k -s | awk '/Total:/ { print $2 * 1024,$3 * 1024 }'` )
 		/usr/local/bin/rrdtool update "$FILE" N:"${valm[1]}":"${valm[2]}":"${valm[3]}":"${valm[4]}":"${valm[6]}":"${valm[5]}":"${vals[0]}":"${vals[1]}" 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
