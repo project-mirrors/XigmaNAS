@@ -127,3 +127,5 @@ usr/local/www/quixplorer/_lang/zh_TW.php
 # 7502
 usr/local/www/quixplorer
 etc/rc.d/fmperm
+# 7532
+usr/local/sbin/beadm
