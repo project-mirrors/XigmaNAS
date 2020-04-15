@@ -20,6 +20,9 @@ Note for Full install users.
 Make sure you first upgraded to XigmaNAS-x64-full-12.1.0.4.7321.tgz before you flash full-.txz files.
 The new (.txz) full upgrade files are compressed images.
 
+Notice for RootOnZFS platform users, the `beadm` utility to manage boot environments has been replaced by the `bectl` which behaves the same way as the predecessor
+`beadm`, users with existing scripting on `beadm` can create an alias or a symlink for `/usr/local/sbin/beadm` to point to `/sbin/bectl`, sorry for inconvenience.
+
 Install from scratch instructions:
 ==================================
 - Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
