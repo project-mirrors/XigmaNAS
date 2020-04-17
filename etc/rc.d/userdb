@@ -27,12 +27,20 @@ echo "Generating user database(s)."
 
 #	create the /etc/group file
 /usr/local/bin/xml sel --template \
-	--output 'wheel:*:0:root' --nl \
+	--output 'wheel:*:0:root' \
+	--if "string-length(//system/username) > 0 and //system/username != 'root' and not(contains(//system/username,' '))" \
+		--value-of "concat(',',//system/username)" \
+	--break \
+	--nl \
 	--output 'daemon:*:1:' --nl \
 	--output 'kmem:*:2:' --nl \
 	--output 'sys:*:3:' --nl \
 	--output 'tty:*:4:' --nl \
-	--output 'operator:*:5:root' --nl \
+	--output 'operator:*:5:root' \
+	--if "string-length(//system/username) > 0 and //system/username != 'root' and not(contains(//system/username,' '))" \
+		--value-of "concat(',',//system/username)" \
+	--break \
+	--nl \
 	--output 'mail:*:6:' --nl \
 	--output 'bin:*:7:' --nl \
 	--output 'news:*:8:' --nl \
@@ -69,34 +77,36 @@ echo "Generating user database(s)."
 #	wipe /etc/passwd file
 cat /dev/null > ${userdb_passwd}
 
-#	get encrypted root password
-_password=`configxml_get "//system/password"`
-
 #	create the /etc/master.passwd file
-echo "root:${_password}:0:0::0:0:Charlie &:/root:/bin/tcsh
-toor:*:0:0::0:0:Bourne-again Superuser:/root:
-daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin
-operator:*:2:5::0:0:System &:/:/usr/sbin/nologin
-bin:*:3:7::0:0:Binaries Commands and Source:/:/usr/sbin/nologin
-tty:*:4:65533::0:0:Tty Sandbox:/:/usr/sbin/nologin
-kmem:*:5:65533::0:0:KMem Sandbox:/:/usr/sbin/nologin
-games:*:7:13::0:0:Games pseudo-user:/usr/games:/usr/sbin/nologin
-news:*:8:8::0:0:News Subsystem:/:/usr/sbin/nologin
-man:*:9:9::0:0:Mister Man Pages:/usr/share/man:/usr/sbin/nologin
-sshd:*:22:22::0:0:Secure Shell Daemon:/var/empty:/usr/sbin/nologin
-smmsp:*:25:25::0:0:Sendmail Submission User:/var/spool/clientmqueue:/usr/sbin/nologin
-mailnull:*:26:26::0:0:Sendmail Default User:/var/spool/mqueue:/usr/sbin/nologin
-bind:*:53:53::0:0:Bind Sandbox:/:/usr/sbin/nologin
-unbound:*:59:59::0:0:Unbound DNS Resolver:/var/empty:/usr/sbin/nologin
-proxy:*:62:62::0:0:Packet Filter pseudo-user:/nonexistent:/usr/sbin/nologin
-_pflogd:*:64:64::0:0:pflogd privsep user:/var/empty:/usr/sbin/nologin
-_dhcp:*:65:65::0:0:dhcp programs:/var/empty:/usr/sbin/nologin
-pop:*:68:6::0:0:Post Office Owner:/nonexistent:/usr/sbin/nologin
-www:*:80:80::0:0:World Wide Web Owner:/nonexistent:/usr/sbin/nologin
-hast:*:845:845::0:0:HAST unprivileged user:/var/empty:/usr/sbin/nologin
-nobody:*:65534:65534::0:0:Unprivileged user:/nonexistent:/usr/sbin/nologin
-ftp:*:21:50::0:0:FTP user:/mnt:/sbin/nologin
-uucp:*:66:66::0:0:UUCP pseudo-user:/var/empty:/usr/sbin/nologin" > ${userdb_masterpasswd}
+/usr/local/bin/xml sel --template \
+	--value-of "concat('root:',//system/password,':0:0::0:0:Charlie &:/root:/bin/tcsh')" --nl \
+	--output 'toor:*:0:0::0:0:Bourne-again Superuser:/root:' --nl \
+	--if "string-length(//system/username) > 0 and //system/username != 'root' and not(contains(//system/username,' '))" \
+		--value-of "concat(//system/username,':',//system/password,':0:0::0:0:WebGUI Master:/root:/bin/tcsh')" --nl \
+	--break \
+	--output 'daemon:*:1:1::0:0:Owner of many system processes:/root:/usr/sbin/nologin' --nl \
+	--output 'operator:*:2:5::0:0:System &:/:/usr/sbin/nologin' --nl \
+	--output 'bin:*:3:7::0:0:Binaries Commands and Source:/:/usr/sbin/nologin' --nl \
+	--output 'tty:*:4:65533::0:0:Tty Sandbox:/:/usr/sbin/nologin' --nl \
+	--output 'kmem:*:5:65533::0:0:KMem Sandbox:/:/usr/sbin/nologin' --nl \
+	--output 'games:*:7:13::0:0:Games pseudo-user:/usr/games:/usr/sbin/nologin' --nl \
+	--output 'news:*:8:8::0:0:News Subsystem:/:/usr/sbin/nologin' --nl \
+	--output 'man:*:9:9::0:0:Mister Man Pages:/usr/share/man:/usr/sbin/nologin' --nl \
+	--output 'sshd:*:22:22::0:0:Secure Shell Daemon:/var/empty:/usr/sbin/nologin' --nl \
+	--output 'smmsp:*:25:25::0:0:Sendmail Submission User:/var/spool/clientmqueue:/usr/sbin/nologin' --nl \
+	--output 'mailnull:*:26:26::0:0:Sendmail Default User:/var/spool/mqueue:/usr/sbin/nologin' --nl \
+	--output 'bind:*:53:53::0:0:Bind Sandbox:/:/usr/sbin/nologin' --nl \
+	--output 'unbound:*:59:59::0:0:Unbound DNS Resolver:/var/empty:/usr/sbin/nologin' --nl \
+	--output 'proxy:*:62:62::0:0:Packet Filter pseudo-user:/nonexistent:/usr/sbin/nologin' --nl \
+	--output '_pflogd:*:64:64::0:0:pflogd privsep user:/var/empty:/usr/sbin/nologin' --nl \
+	--output '_dhcp:*:65:65::0:0:dhcp programs:/var/empty:/usr/sbin/nologin' --nl \
+	--output 'pop:*:68:6::0:0:Post Office Owner:/nonexistent:/usr/sbin/nologin' --nl \
+	--output 'www:*:80:80::0:0:World Wide Web Owner:/nonexistent:/usr/sbin/nologin' --nl \
+	--output 'hast:*:845:845::0:0:HAST unprivileged user:/var/empty:/usr/sbin/nologin' --nl \
+	--output 'nobody:*:65534:65534::0:0:Unprivileged user:/nonexistent:/usr/sbin/nologin' --nl \
+	--output 'ftp:*:21:50::0:0:FTP user:/mnt:/sbin/nologin' --nl \
+	--output 'uucp:*:66:66::0:0:UUCP pseudo-user:/var/empty:/usr/sbin/nologin' --nl \
+	 ${configxml_file} | /usr/local/bin/xml unesc > ${userdb_masterpasswd}
 
 #	generate the /etc/passwd, pwd.db and spwd.db files
 /usr/sbin/pwd_mkdb -p ${userdb_masterpasswd} > /dev/null 2>&1
@@ -119,16 +129,16 @@ while [ ${_index} -gt 0 ]; do
 		--match "//system/usermanagement/user[${_index}]" \
 			--var filteruser='.' \
 			--value-of "concat('-n ',name,' -u ',id,' -g ',primarygroup)" \
-				--if 'count(group) > 0' \
-					--match 'group[not(.=$filteruser/primarygroup)]' \
-						--if 'position() > 1' \
-							--output ',' \
-						--else \
-							--output ' -G ' \
-						--break \
-						--value-of  '.' \
+			--if 'count(group) > 0' \
+				--match 'group[not(.=$filteruser/primarygroup)]' \
+					--if 'position() > 1' \
+						--output ',' \
+					--else \
+						--output ' -G ' \
 					--break \
+					--value-of  '.' \
 				--break \
+			--break \
 			--if 'string-length(extraoptions) > 0' \
 				--value-of "concat(' ',extraoptions)" \
 			--break \
