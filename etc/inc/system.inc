@@ -34,6 +34,7 @@
 require_once 'functions.inc';
 require_once 'util.inc';
 require_once 'rc.inc';
+require_once 'zfs.inc';
 
 /**
  *	Initiate halt. Everything will be done automatically
