@@ -1716,6 +1716,14 @@ copy_files() {
 	echo "----------------------------------------------------------";
 	echo ">>> Copy new files/ports to base directory in FreeBSD usr/ports/*.";
 	echo "----------------------------------------------------------";
+	echo "===> Delete current open-vm-tools from ports"
+	rm -rf /usr/ports/emulators/open-vm-tools
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port open-vm-tools to ports/emulators/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/open-vm-tools /usr/ports/emulators
+	echo "===> Copy new port files to /usr/ports/emulators/open-vm-tools done!"
+	echo ""
 	echo "===> Delete current virtualbox-ose from ports"
 	rm -rf /usr/ports/emulators/virtualbox-ose
 	echo "===> Delete completed!"
