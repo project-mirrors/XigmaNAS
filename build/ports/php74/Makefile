@@ -132,13 +132,13 @@ test: build
 	@(cd ${WRKSRC} && ${MAKE} test)
 
 do-install:
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/sapi/cgi/php-cgi ${XIGMANAS_ROOTFS}/${PREFIX}/bin/
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/sapi/cli/php ${XIGMANAS_ROOTFS}/${PREFIX}/bin/
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/php-cgi-websrv ${XIGMANAS_ROOTFS}/${PREFIX}/bin/
-	@${CP} -pv ${FILESDIR}/php.ini ${XIGMANAS_ROOTFS}/${PREFIX}/etc
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/sapi/cgi/php-cgi ${XIGMANAS_ROOTFS}${PREFIX}/bin/
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/sapi/cli/php ${XIGMANAS_ROOTFS}${PREFIX}/bin/
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/php-cgi-websrv ${XIGMANAS_ROOTFS}${PREFIX}/bin/
+	@${CP} -pv ${FILESDIR}/php.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc
 
 	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
 	${INSTALL_DATA} ${WRKSRC}/ext/opcache/.libs/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
-	@${CP} -pv ${FILESDIR}/opcache.ini ${XIGMANAS_ROOTFS}/${PREFIX}/etc/php
+	@${CP} -pv ${FILESDIR}/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
 
 .include <bsd.port.mk>
