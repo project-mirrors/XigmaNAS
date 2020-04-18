@@ -1,5 +1,4 @@
 PORT					REASON
 ==============================================================================================================
-php7x-APCu				Used for php 7.x series. devel/pecl-APCu port wanted php56 not php 7x.
 virtualbox-ose				Modifyed to use python3 by default, currently uses python2 on base.
 
