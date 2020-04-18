@@ -10,13 +10,13 @@ NO_BUILD?=	         yes
 NO_PKG_REGISTER?=	 yes
 DEPENDS_TARGET=	clean build stage
 
-DEP_STAGEDIR=	${PORTSDIR}/devel/php74-APCu/work-php74/stage
-BUILD_DEPENDS=	${NONEXISTENT}:devel/php74-APCu
+DEP_STAGEDIR=	${PORTSDIR}/devel/pecl-APCu/work-php74/stage
+BUILD_DEPENDS=	${NONEXISTENT}:devel/pecl-APCu
 
 do-install:
 # XigmaNAS® install
-	@${CP} -pv ${FILESDIR}/apcu.ini ${XIGMANAS_ROOTFS}/${PREFIX}/etc/php
+	@${CP} -pv ${FILESDIR}/apcu.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
 	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
-	${INSTALL_DATA} ${DEP_STAGEDIR}/usr/local/lib/php/20190902/apcu.so ${XIGMANAS_ROOTFS}/${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
+	${INSTALL_DATA} ${DEP_STAGEDIR}/usr/local/lib/php/20190902/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
 
 .include <bsd.port.mk>

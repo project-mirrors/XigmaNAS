@@ -2179,10 +2179,6 @@ copy_files() {
 	echo "----------------------------------------------------------";
 	echo ">>> Copy new files to ports directory FreeBSD usr/ports/*.";
 	echo "----------------------------------------------------------";
-	echo "===> Copy new port php74-APCu to ports/devel/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/php74-APCu /usr/ports/devel
-	echo "===> Copy new port files to /usr/ports/devel/php74-APCu done!"
-	echo ""
 	echo "===> Delete current virtualbox-ose from ports"
 	rm -rf /usr/ports/emulators/virtualbox-ose
 	echo "===> Delete completed!"
