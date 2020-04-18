@@ -23,6 +23,6 @@ CFLAGS:=		${CFLAGS:S/-O2/-O/} -Wno-write-strings
 do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/smartctl ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/smartd ${XIGMANAS_ROOTFS}/usr/local/sbin
-	@${CP} -pv ${WRKSRC}/smartd_warning.sh ${XIGMANAS_ROOTFS}/${PREFIX}/etc
+	@${CP} -pv ${WRKSRC}/smartd_warning.sh ${XIGMANAS_ROOTFS}${PREFIX}/etc
 
 .include <bsd.port.mk>
