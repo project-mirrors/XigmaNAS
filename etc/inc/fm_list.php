@@ -68,6 +68,8 @@ function make_list($_list1,$_list2) { // make list of files
 function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 	$tot_file_size = $num_items = 0;
 
+//	Clear stat cache
+	clearstatcache();
 //	Open directory
 	$handle = @opendir(get_abs_dir($dir));
 	if($handle === false):
