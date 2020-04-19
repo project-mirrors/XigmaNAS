@@ -34,6 +34,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'fm_permissions.php';
 require_once 'fm_login.php';
 require_once 'fm_qxpath.php';
@@ -67,12 +68,12 @@ function make_list($_list1,$_list2) { // make list of files
 function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 	$tot_file_size = $num_items = 0;
 
-	// Open directory
+//	Open directory
 	$handle = @opendir(get_abs_dir($dir));
 	if($handle === false):
 		show_error($dir . ': ' . gtext('Unable to open directory.'));
 	endif;
-	// Read directory
+//	Read directory
 	while(($new_item = readdir($handle)) !== false):
 		$abs_new_item = get_abs_item($dir,$new_item);
 		if(!get_show_item($dir,$new_item)):
@@ -81,11 +82,11 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 		$new_file_size = is_link($abs_new_item) ? 0 : @filesize($abs_new_item);
 		$tot_file_size += $new_file_size;
 		$num_items++;
-		if(is_dir($dir.DIRECTORY_SEPARATOR.$new_item)):
+		if(is_dir($dir . DIRECTORY_SEPARATOR . $new_item)):
 			if($GLOBALS['order'] == 'mod'):
 				$dir_list[$new_item] = @filemtime($abs_new_item);
 			else:
-				// order == "size", "type" or "name"
+//				order == 'size', 'type' or 'name'
 				$dir_list[$new_item] = $new_item;
 			endif;
 		else:
@@ -96,13 +97,13 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 			elseif ($GLOBALS['order'] == 'type'):
 				$file_list[$new_item] = get_mime_type($dir,$new_item,'type');
 			else:
-				// order == "name"
+//				order == 'name'
 				$file_list[$new_item] = $new_item;
 			endif;
 		endif;
 	endwhile;
 	closedir($handle);
-	//	sort directories
+//	sort directories
 	if(is_array($dir_list)):
 		if($GLOBALS['order'] == 'mod'):
 			if ($GLOBALS['srt'] == 'yes'):
@@ -111,7 +112,7 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 				asort($dir_list);
 			endif;
 		else:
-			// order == "size", "type" or "name"
+//			order == 'size', 'type' or 'name'
 			if ($GLOBALS['srt'] == 'yes'):
 				ksort($dir_list);
 			else:
@@ -119,7 +120,7 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 			endif;
 		endif;
 	endif;
-	//	sort files
+//	sort files
 	if(is_array($file_list)):
 		if($GLOBALS['order'] == 'mod'):
 			if($GLOBALS['srt'] == 'yes'):
@@ -134,7 +135,7 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 				arsort($file_list);
 			endif;
 		else:
-			// order == "name"
+//			order == 'name'
 			if($GLOBALS['srt'] == 'yes'):
 				ksort($file_list);
 			else:
@@ -150,7 +151,6 @@ function print_table($dir,$list) {
 	if(!is_array($list)):
 		return;
 	endif;
-	$format_date = \datefmt_create($_SESSION['userlang'],\IntlDateFormatter::SHORT,\IntlDateFormatter::SHORT);
 	foreach($list as $item => $value):
 //		link to dir / file
 		$abs_item = get_abs_item($dir,$item);
@@ -181,7 +181,7 @@ function print_table($dir,$list) {
 //		type
 		echo '<td class="lcell">',_get_link_info($dir,$item,'type'),'</td>',"\n";
 //		modified
-		echo '<td class="lcell">',\datefmt_format($format_date,get_file_date($dir,$item)),'</td>',"\n";
+		echo '<td class="lcell">',get_datetime_locale(get_file_date($dir,$item)),'</td>',"\n";
 //		permissions
 		echo '<td class="lcell">';
 		if(permissions_grant($dir,null,'change')):
@@ -221,16 +221,16 @@ function list_dir($dir) {
 	if(!get_show_item($dir,null)):
 		show_error(gtext('You are not allowed to access this directory.') . " : '$dir'");
 	endif;
-	// make file & dir tables, & get total filesize & number of items
+//	make file & dir tables, & get total filesize & number of items
 	make_tables($dir,$dir_list,$file_list,$tot_file_size,$num_items);
 	$s_dir = $dir;
 	if (strlen($s_dir) > 50 ):
 		$s_dir = '...' . substr($s_dir,-47);
 	endif;
 	show_header(gtext('Directory') . ': ' . _breadcrumbs($dir));
-	// Javascript functions:
+//	Javascript functions:
 	include 'fm_javascript.php';
-	// Sorting of items
+//	Sorting of items
 	$_img = '&nbsp;<img style="vertical-align:middle" width="10" height="10" src="/images/fm_img/';
 	if($GLOBALS['srt'] == 'yes'):
 		$_srt = 'no';
@@ -239,22 +239,22 @@ function list_dir($dir) {
 		$_srt = 'yes';
 		$_img .= '_arrowdown.gif" alt="v">';
 	endif;
-	// Toolbar
+//	Toolbar
 	echo '<table class="area_data_settings"><tbody><tr>';
 	echo '<td><table><tbody><tr>',"\n";
-	// PARENT DIR
+//	PARENT DIR
 	echo '<td style="padding-right:4px"><a href="',make_link('list',path_up($dir),null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['up'],'" alt="',gtext('UP'),'" title="',gtext('UP'),'">',
 		'</a></td>',"\n";
-	// HOME DIR
+//	HOME DIR
 	echo '<td style="padding-right:4px"><a href="',make_link('list',null,null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['home'],'" alt="',gtext('HOME'),'" title="',gtext('HOME'),'">',
 		'</a></td>',"\n";
-	// RELOAD
+//	RELOAD
 	echo '<td style="padding-right:4px"><a href="javascript:location.reload();">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['reload'],'" alt="',gtext('RELOAD'),'" title="',gtext('RELOAD'),'">',
 		'</a></td>',"\n";
-	// SEARCH
+//	SEARCH
 	echo '<td style="padding-right:4px"><a href="',make_link('search',$dir,null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['search'],'" alt="',gtext('SEARCH'),'" title="',gtext('SEARCH'),'">',
 		'</a></td>',"\n";
@@ -262,7 +262,7 @@ function list_dir($dir) {
 	_print_link('download_selected',permissions_grant($dir,null,'read'),$dir,null); // print the download button
 	_print_edit_buttons($dir); // print the edit buttons
 	echo '</tr></tbody></table></td>',"\n";
-	// Create File / Dir
+//	Create File / Dir
 	if(permissions_grant($dir,null,'create')):
 		echo '<td style="text-align:right">',"\n";
 		echo '<form action="',make_link('mkitem',$dir,null),'" method="post">',"\n";
@@ -340,11 +340,11 @@ function list_dir($dir) {
 					'</th>',"\n";
 	echo		'</tr>',"\n";
 	echo	'</thead>',"\n";
-	// make & print Table using lists
+//	make & print Table using lists
 	echo	'<tbody>',"\n";
 				print_table($dir,make_list($dir_list,$file_list));
 	echo	'</tbody>',"\n";
-	// print number of items & total filesize
+//	print number of items & total filesize
 	$free = format_bytes(diskfreespace('/'),2,false,false);
 	echo	'<tfoot>',"\n",
 				'<tr>',"\n",
