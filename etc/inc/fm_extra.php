@@ -34,6 +34,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'fm_session.php';
 require_once 'fm_qxpath.php';
 require_once 'fm_str.php';
@@ -215,7 +216,14 @@ function _get_used_mime_info($item) {
  *	@return mixed
  */
 function get_mime_type($dir,$item,$query) {
-	switch(filetype(get_abs_item($dir,$item))):
+	$fqfn = get_abs_item($dir,$item);
+	switch(@\filetype($fqfn)):
+		case false:
+//			error filetype
+			_debug(\sprintf('error calling filetype for file [%s]',$fqfn));
+			$mime_type = $GLOBALS['super_mimes']['file'][0];
+			$image = $GLOBALS['super_mimes']['file'][1];
+			break;
 		case 'dir':
 			$mime_type = $GLOBALS['super_mimes']['dir'][0];
 			$image = $GLOBALS['super_mimes']['dir'][1];
@@ -230,15 +238,15 @@ function get_mime_type($dir,$item,$query) {
 				_debug("found mime type $mime_type[0]");
 				break;
 			endif;
-			if(function_exists('is_executable') && @is_executable(get_abs_item($dir,$item))):
+			if(@\is_executable($fqfn)):
 				$mime_type = $GLOBALS['super_mimes']['exe'][0];
 				$image = $GLOBALS['super_mimes']['exe'][1];
-			elseif(preg_match('/' . $GLOBALS['super_mimes']['exe'][2] . '/i',$item)):
+			elseif(\preg_match('/' . $GLOBALS['super_mimes']['exe'][2] . '/i',$item)):
 				$mime_type = $GLOBALS['super_mimes']['exe'][0];
 				$image = $GLOBALS['super_mimes']['exe'][1];
 			else:
 //				unknown file
-				_debug('unknown file type ');
+				_debug(\sprintf('unknown file type for file [%s]',$fqfn));
 				$mime_type = $GLOBALS['super_mimes']['file'][0];
 				$image = $GLOBALS['super_mimes']['file'][1];
 			endif;
