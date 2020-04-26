@@ -117,7 +117,6 @@ Changes:
 - Upgrade samba to 4.10.10.
 - Upgrade pecl-APCu to 5.1.18.
 - Upgrade devcpu-data to 1.28.
-- Upgrade bash to 5.0 P16.
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade proftpd to 1.3.6c.
@@ -135,6 +134,7 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.40.
 - Upgrade zoneinfo to 2020a.
 - Upgrade msmtp to 1.8.10.
+- Upgrade bash to 5.0 P17.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
