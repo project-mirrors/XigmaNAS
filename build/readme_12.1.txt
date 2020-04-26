@@ -134,6 +134,7 @@ Changes:
 - Upgrade jQuery to 3.5.0.
 - Upgrade php to 7.4.5.
 - Upgrade virtualbox-ose to 5.2.40.
+- Upgrade zoneinfo to 2020a.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
