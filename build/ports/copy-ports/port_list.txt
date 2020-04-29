@@ -1,5 +1,7 @@
 PORT					REASON
 ==============================================================================================================
-open-vm-tools				Use latest release.
-virtualbox-ose				Modifyed to use python3 by default, currently uses python2 on base.
-
+pecl-APCu				Build against php74, not older versions.
+open-vm-tools				Use newer release.
+virtualbox-ose				Modifyed to use python3 by default, Use newer release.
+virtualbox-ose-additions
+virtualbox-ose-kmod
