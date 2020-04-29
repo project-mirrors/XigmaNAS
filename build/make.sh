@@ -2179,6 +2179,14 @@ copy_files() {
 	echo "----------------------------------------------------------";
 	echo ">>> Copy new files to ports directory FreeBSD usr/ports/*.";
 	echo "----------------------------------------------------------";
+	echo "===> Delete current pecl-APCu from ports"
+	rm -rf /usr/ports/devel/pecl-APCu
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port pecl-APCu to ports/devel/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/pecl-APCu /usr/ports/devel
+	echo "===> Copy new port files to /usr/ports/devel/pecl-APCu done!"
+	echo ""
 	echo "===> Delete current open-vm-tools from ports"
 	rm -rf /usr/ports/emulators/open-vm-tools
 	echo "===> Delete completed!"
