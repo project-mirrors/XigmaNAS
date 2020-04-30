@@ -129,12 +129,13 @@ Changes:
 - Upgrade syncthing to 1.4.2.
 - Upgrade nano to 4.9.2.
 - Upgrade jQuery to 3.5.0.
-- Upgrade samba to 4.10.15.
 - Upgrade php to 7.4.5.
 - Upgrade virtualbox-ose to 5.2.40.
 - Upgrade zoneinfo to 2020a.
 - Upgrade msmtp to 1.8.10.
 - Upgrade bash to 5.0 P17.
+- Upgrade samba to 4.10.15.
+- Upgrade tmux to 3.1a.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
