@@ -38,6 +38,7 @@ require_once 'system.inc';
 require_once 'array.inc';
 require_once 'rc.inc';
 require_once 'tui.inc';
+require_once 'disks.inc';
 
 //	Get product information
 $productname = get_product_name();
