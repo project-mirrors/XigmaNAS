@@ -35,4 +35,3 @@ require_once 'super_fun.inc';
 require_once 'system.inc';
 require_once 'disks.inc';
 require_once 'array.inc';
-?>
