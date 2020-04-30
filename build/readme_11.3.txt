@@ -147,6 +147,7 @@ Changes:
 - Upgrade msmtp to 1.8.10.
 - Upgrade bash to 5.0 P17.
 - Upgrade samba to 4.10.15.
+- Upgrade tmux to 3.1a.
 
 Fixes:
 - Fix monitoring shows high cpu load.

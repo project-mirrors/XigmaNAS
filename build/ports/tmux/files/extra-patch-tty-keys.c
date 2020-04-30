@@ -1,6 +1,6 @@
---- tty-keys.c.orig	2018-10-17 18:28:08 UTC
+--- tty-keys.c.orig	2020-04-24 08:57:17 UTC
 +++ tty-keys.c
-@@ -681,8 +681,6 @@ complete_key:
+@@ -719,8 +719,6 @@ complete_key:
  	 * used. termios should have a better idea.
  	 */
  	bspace = tty->tio.c_cc[VERASE];
@@ -8,5 +8,4 @@
 -		key = (key & KEYC_MASK_MOD) | KEYC_BSPACE;
  
  	/* Remove data from buffer. */
- 	evbuffer_drain(tty->in, size);
- 
+ 	evbuffer_drain(tty->in, size); 
