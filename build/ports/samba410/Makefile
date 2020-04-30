@@ -633,7 +633,7 @@ post-install:
 .endfor
 
 # bin
-.for file in cifsdd dbwrap_tool dumpmscat findsmb gentest locktest masktest mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest wbinfo
+.for file in cifsdd dbwrap_tool dumpmscat gentest locktest masktest mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest wbinfo
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
 .endfor
 .for file in findsmb pidl samba-tool smbtar
@@ -660,7 +660,7 @@ post-install:
 	done
 
 
-	@${CP} -Rpv ${PREFIX}/lib/python3.7/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
+#	@${CP} -Rpv ${PREFIX}/lib/python3.7/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
 
 # ldb/tdb
