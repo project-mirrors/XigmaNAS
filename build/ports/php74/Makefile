@@ -54,7 +54,6 @@ CONFIGURE_ARGS+=	\
 		--enable-mysqlnd \
 		--with-mysql=mysqlnd \
 		--with-mysqli=mysqlnd \
-		--with-external-pcre \
 		--with-zlib-dir=/usr \
 		--with-config-file-path=/usr/local/etc \
 		--with-config-file-scan-dir=/usr/local/etc/php \
@@ -71,7 +70,6 @@ CONFIGURE_ARGS+=	\
 		--enable-intl \
 		--with-ldap=${LOCALBASE} \
 		--enable-mbstring \
-		--with-pcre-dir=${LOCALBASE} \
 		--with-mcrypt=${LOCALBASE} \
 		--with-gmp=${LOCALBASE} \
 		--enable-bcmath \
