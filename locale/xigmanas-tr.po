@@ -3,29 +3,29 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-03-24 22:32+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2020-04-25 00:23+0000\n"
+"Last-Translator: enes  <Unknown>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-15 21:45+0000\n"
-"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
+"X-Launchpad-Export-Date: 2020-04-30 18:09+0000\n"
+"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Özel anahtar yok"
 
 msgid " interfaces:"
-msgstr " Arayüzler:"
+msgstr " Arayüzler"
 
 msgid " was assigned to "
 msgstr " için ayrılmıştır "
 
 msgid " | State: "
-msgstr ""
+msgstr " | Durum: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -191,7 +191,7 @@ msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "000"
 msgstr ""
@@ -212,7 +212,7 @@ msgid "1.8\""
 msgstr "1.8\""
 
 msgid "1000"
-msgstr ""
+msgstr "1000"
 
 msgid "1000000"
 msgstr "1000000"
@@ -287,7 +287,7 @@ msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN etiketi (1 ile 4094 arasında)."
 
 msgid "8200"
-msgstr ""
+msgstr "8200"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -408,7 +408,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Geçerli bir ön ek (1-128) belirtilmiş olması gerekir."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3 Ses Dosyası"
 
 msgid "ACL Inherit"
 msgstr "ACL Edinme"
@@ -460,7 +460,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI Dosyası"
 
 msgid "Accept remote syslog messages."
 msgstr "Uzaktan syslog mesajlarına izin ver"
@@ -490,7 +490,7 @@ msgid "Action"
 msgstr "İşlem"
 
 msgid "Actions"
-msgstr ""
+msgstr "Eylemler"
 
 msgid "Activate"
 msgstr "Etkinleştir"
@@ -584,10 +584,10 @@ msgid "Add Media Folder"
 msgstr "Medya Klasörü Ekle"
 
 msgid "Add Mutual CHAP User"
-msgstr ""
+msgstr "Karşılıklı CHAP Kullanıcısı Ekle"
 
 msgid "Add NFS Export"
-msgstr ""
+msgstr "NFS Dışa Aktarma Ekle"
 
 msgid "Add NFS Root"
 msgstr ""
@@ -659,7 +659,7 @@ msgid "Add WLAN"
 msgstr "WLAN ekle"
 
 msgid "Add WebDAV Record"
-msgstr ""
+msgstr "WebDAV Kaydı Ekle"
 
 msgid "Add a cache device to a pool"
 msgstr "Bir Havuza önbellek aygıtı ekle"
@@ -689,7 +689,7 @@ msgid "Add extent"
 msgstr "Uzantı Ekle"
 
 msgid "Add iSCSI Initiator"
-msgstr ""
+msgstr "İSCSI Başlatıcı Ekle"
 
 msgid "Add iSNS Server"
 msgstr "iSNS Sunucusu Ekle"
@@ -845,6 +845,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Seçilen yoldaki tüm verilerin üzerine yazılır. Boş bir UFS dizini veya boş "
+"bir ZFS veri kümesi kullanılması önerilir."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Bu seçeneği seçtiğinizde tüm veriler yokolacaktır!"
@@ -870,16 +872,16 @@ msgid "Allow"
 msgstr "İzin ver"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "GSSAPI kimlik doğrulaması izin ver."
 
 msgid "Allow New Files"
 msgstr "Yeni dosyalara izin ver"
 
 msgid "Allow Serial Ports"
-msgstr ""
+msgstr "Seri Bağlantı Noktalarına İzin Ver"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "TCP yönlendirmesine izin ver."
 
 msgid "Allow TLS connections only."
 msgstr "Sadece TLS bağlantılarına izin ver."
@@ -906,6 +908,7 @@ msgstr ""
 
 msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr ""
+"Ardışık okuma / yazma işlemlerinin paralel olarak yapılmasına izin ver"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Klavye etkileşimli kimlik doğrulamasına izin ver."
@@ -1006,25 +1009,29 @@ msgid "An Extent defines the storage area of the Target."
 msgstr ""
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr ""
+msgstr "Bir iSCSI başlatıcı portalının IPv4 veya IPv6 adresi."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
-msgstr ""
+msgstr "Gelen bağlantıları dinlemek için bir IPv4 veya IPv6 adresi."
 
 msgid ""
 "An Initiator Group is identified by a tag number and defines authorised "
 "initiator names and networks."
 msgstr ""
+"Bir başlatıcı grubu bir etiket numarasıyla tanımlanır ve yetkili başlatıcı "
+"adlarını ve ağlarını tanımlar."
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the critical "
 "threshold."
 msgstr ""
+"Bir havuzun kapasitesi kritik eşiği aştığında bir uyarı e-postası gönderilir."
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the warning "
 "threshold."
 msgstr ""
+"Bir havuz kapasitesi uyarı eşiğini aştığında bir uyarı e-postası gönderilir."
 
 msgid "An empty field is default."
 msgstr "Varsayılan olarak boştur."
@@ -1068,22 +1075,22 @@ msgid "Any service using these disks might become invalid or inaccessible!"
 msgstr "Bu diskleri kullanan servisler erişilemez veya bozulmuş olabilir!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Varsayılan CSS ayrıntılı içerik ekle"
 
 msgid "Append user defined shares"
 msgstr "Kullanıcı tanımlı paylaşımları ekle"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Kullanıcı tanımlı paylaşımlar ekleyin"
 
 msgid "Apple Filing Protocol"
-msgstr ""
+msgstr "Apple Dosyalama Protokolü"
 
 msgid "Apple Filing Protocol (AFP) Compatibility Settings"
-msgstr ""
+msgstr "Apple Dosyalama Protokolü (AFP) Uyumluluk Ayarları"
 
 msgid "Apple Public Source License"
-msgstr ""
+msgstr "Apple Genel Kaynak Lisansı"
 
 msgid "Apply"
 msgstr "Uygula"
@@ -1107,13 +1114,13 @@ msgid "Archive"
 msgstr "Arşiv"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "Arşiv öğeleri"
 
 msgid "Archive mode."
 msgstr "Arşivleme modu."
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Seçili seçin silmek için emin misiniz?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Sunucuyu yeniden başlatmak istediğinizden emin misiniz?"
@@ -1121,6 +1128,8 @@ msgstr "Sunucuyu yeniden başlatmak istediğinizden emin misiniz?"
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
+"Sistem yapılandırmasını fabrika varsayılanlarına döndürmek istediğinizden "
+"emin misiniz?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Sunucuyu kapatmak istediğinizden emin misiniz?"
@@ -1132,12 +1141,14 @@ msgid ""
 "Assign a previously defined authentication group to the portal group, to be "
 "used for target discovery."
 msgstr ""
+"Hedef bulma için kullanılacak portal grubuna önceden tanımlanmış bir kimlik "
+"doğrulama grubu atayın."
 
 msgid "Assign a previously defined authentication group to the target."
-msgstr ""
+msgstr "Hedefe önceden tanımlanmış bir kimlik doğrulama grubu atayın."
 
 msgid "Assign a previously defined portal group to the target."
-msgstr ""
+msgstr "Hedefe önceden tanımlanmış bir portal grubu atayın."
 
 msgid "Asynchronous I/O"
 msgstr ""
@@ -13565,10 +13576,10 @@ msgid "umount"
 msgstr "ayır"
 
 msgid "unknown"
-msgstr ""
+msgstr "Bilinmeyen"
 
 msgid "visible"
 msgstr "görünür"
 
 msgid "yes"
-msgstr ""
+msgstr "evet"

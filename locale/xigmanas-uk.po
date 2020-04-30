@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-03-15 08:49+0000\n"
+"PO-Revision-Date: 2020-04-20 06:57+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-15 21:45+0000\n"
-"X-Generator: Launchpad (build 2e26c9bbd21cdca248baaea29aeffb920afcc32a)\n"
+"X-Launchpad-Export-Date: 2020-04-30 18:09+0000\n"
+"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -500,7 +500,7 @@ msgid "Action"
 msgstr "Дія"
 
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 msgid "Activate"
 msgstr "Активувати"
@@ -1149,13 +1149,13 @@ msgid "Archive"
 msgstr "Архівування"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "Архівувати елементи"
 
 msgid "Archive mode."
 msgstr "Режим архівування."
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Ви впевнені що бажаєте видалити обрані елементи?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Ви впевнені, що хочете перезавантажити сервер?"
@@ -1678,7 +1678,7 @@ msgid "CGI Script"
 msgstr "Скрипт CGI"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "ЗМІНИТИ ДОЗВОЛИ"
 
 msgid "CHANGED"
 msgstr "ЗМІНЕНО"
@@ -1708,7 +1708,7 @@ msgid "CHAP-Mutual"
 msgstr "CHAP-Mutual"
 
 msgid "COPY"
-msgstr ""
+msgstr "КОПІЮВАТИ"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Кирилиця)"
@@ -1867,7 +1867,7 @@ msgid "Change below file"
 msgstr "Змінити наведений нижче файл"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "Змінити дозволи"
 
 msgid "Change the IP address of your computer"
 msgstr "Змінити IP адресу вашого комп'ютера."
@@ -1962,7 +1962,7 @@ msgid "Clone Configuration"
 msgstr "Сконфігорувати копію"
 
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Збираю початкові дані, зачекайте будь ласка..."
@@ -2280,17 +2280,17 @@ msgid "Copies"
 msgstr "Копії"
 
 msgid "Copy"
-msgstr ""
+msgstr "Копіювати"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Скопіювати з /%s до /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Копіювати елементи"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Відмова копіювання."
 
 msgid "Core"
 msgstr "Ядро"
@@ -2453,7 +2453,7 @@ msgstr ""
 "команди FIS CRC. Значення очищається системою при відключенні живлення."
 
 msgid "Create"
-msgstr ""
+msgstr "Створити"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "створити 4KB оболонку (пристрій nop)."
@@ -2634,7 +2634,7 @@ msgid "DEBUG3 - log all debugging information"
 msgstr "DEBUG3 - реєструвати всю інформацію про налагодження"
 
 msgid "DELETE"
-msgstr ""
+msgstr "ВИДАЛИТИ"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -2681,7 +2681,7 @@ msgstr ""
 "з клієнтами DOS."
 
 msgid "DOWNLOAD"
-msgstr ""
+msgstr "ЗАВАНТАЖИТИ"
 
 msgid "DTS Audio File"
 msgstr "Аудіофайл DTS"
@@ -3074,7 +3074,7 @@ msgid "Deleting MBR and partition table"
 msgstr "Видалення MBR і таблиці розділів"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "Відмова видалення."
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3258,7 +3258,7 @@ msgid "Directory Mask"
 msgstr "Маска каталогу"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Відмова створення каталогу."
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -4183,7 +4183,7 @@ msgid "EA Support"
 msgstr "Підтримка EA"
 
 msgid "EDIT"
-msgstr ""
+msgstr "ЗМІНИТИ"
 
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "EFI/GPT розділ може використовуватись лише з UFS."
@@ -4192,7 +4192,7 @@ msgid "ERROR - log errors"
 msgstr "ERROR - реєстрація помилок"
 
 msgid "ERROR(S)"
-msgstr ""
+msgstr "ПОМИЛКИ"
 
 msgid "ERROR:"
 msgstr "ПОМИЛКА:"
@@ -4345,7 +4345,7 @@ msgid "Edit extent"
 msgstr "Редагувати розділ"
 
 msgid "Edit file"
-msgstr ""
+msgstr "Редагувати файл"
 
 msgid "Edit iSCSI Initiator"
 msgstr "Змінити ініціатора iSCSI"
@@ -4593,7 +4593,7 @@ msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "Дозволити збирання статистики використання ZFS L2ARC."
 
 msgid "Enable collecting ZFS cache efficiency statistics."
-msgstr ""
+msgstr "Неможливо зібрати статистику ефективності кешу ZFS."
 
 msgid "Enable collecting average system load statistics."
 msgstr "Увімкнути збір статистики про середнє завантаження системи."
@@ -5175,7 +5175,7 @@ msgid "Extra options to rsync (usually empty)."
 msgstr "Додаткові опції rsync (зазвичай не заповнюють)."
 
 msgid "Extracting"
-msgstr ""
+msgstr "Витягнення"
 
 msgid "FAT32"
 msgstr "FAT32"
@@ -5233,7 +5233,7 @@ msgid "Failed"
 msgstr "Помилка"
 
 msgid "Failed to access in-memory file system."
-msgstr "Збій доступу до файлової системи в пам'яті."
+msgstr "Відмова доступу до файлової системи в пам'яті."
 
 msgid "Failed to execute command zfs."
 msgstr "Відмова виконання команди zfs."
@@ -5242,11 +5242,11 @@ msgid "Failed to execute command zpool."
 msgstr "Відмова виконання команди zpool."
 
 msgid "Failed to execute cron job."
-msgstr "Помилка виконання завдання cron."
+msgstr "Відмова виконання завдання cron."
 
 #, php-format
 msgid "Failed to remove: %s"
-msgstr "Не вдалося видалити: %s"
+msgstr "Відмова видалення: %s"
 
 msgid "Failed to send status report."
 msgstr "Відмова відправлення звіту про стан."
@@ -5255,16 +5255,16 @@ msgid "Failed to send test email."
 msgstr "Відмова відправлення тестового емейлу."
 
 msgid "Failed to unzip archive."
-msgstr ""
+msgstr "Відмова розпакування архиву."
 
 msgid "Failed to upload file."
-msgstr "Неможливо вивантажити файл."
+msgstr "Відмова вивантаження файлу."
 
 msgid "Failed to upload metadata backup file."
-msgstr "Неможливо вивантажити резервний файл з метаданими."
+msgstr "Відмова вивантаження резервного файлу з метаданими."
 
 msgid "Failed to write file to disk."
-msgstr "Помилка запису файла на диск."
+msgstr "Відмова запису файлу на диск."
 
 msgid "Failed."
 msgstr "Помилка."
@@ -5331,13 +5331,13 @@ msgid "File Transfer Protocol"
 msgstr "Протокол передачі файлів"
 
 msgid "File creation failed."
-msgstr ""
+msgstr "Відмова створення файлу."
 
 msgid "File not found"
 msgstr "Файл не знайдено"
 
 msgid "File opening failed."
-msgstr ""
+msgstr "Відмова відкриття файлу."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5352,7 +5352,7 @@ msgstr ""
 "розширення (extent)."
 
 msgid "File saving failed."
-msgstr ""
+msgstr "Відмова збереження файлу."
 
 msgid "File size"
 msgstr "Розмір  файла"
@@ -5406,7 +5406,7 @@ msgid "Firmware upload failed (out of memory?)"
 msgstr "Не вдалося вивантажити прошивку (недостатньо пам'яті?)"
 
 msgid "Firmware upload failed with error message:"
-msgstr "Збій вивантаження прошивки з повідомленням про помилку:"
+msgstr "Відмова вивантаження прошивки з повідомленням про помилку:"
 
 msgid "Firmware uploading is not supported on this platform."
 msgstr "Ця платформа не підтримує вивантаження прошивок."
@@ -5527,7 +5527,7 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "Повне ім'я користувацького CSS файлу вкладок."
 
 msgid "Function unavailable."
-msgstr ""
+msgstr "Функція недоступна."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5614,7 +5614,7 @@ msgid "Get a list of available drivers"
 msgstr "Отримати список доступних драйверів"
 
 msgid "Getting permissions failed."
-msgstr ""
+msgstr "Відмова отримання дозволів."
 
 msgid "GiB"
 msgstr "ГіБ"
@@ -5642,7 +5642,7 @@ msgstr ""
 "Загальний числовий ідентифікатор для використання даного LUN усередині CTL."
 
 msgid "Go Back"
-msgstr ""
+msgstr "Назад"
 
 msgid "Grant access to the file manager."
 msgstr "Надати доступ файловому менеджеру."
@@ -5776,7 +5776,7 @@ msgid "HDD standby time"
 msgstr "Час засинання жорсткого диска"
 
 msgid "HOME"
-msgstr ""
+msgstr "ГОЛОВНА"
 
 msgid "HOT SPARE"
 msgstr "Гарячий резерв"
@@ -6181,7 +6181,7 @@ msgid "In slave mode it is the UPS name (Identifier) at the UPS master."
 msgstr "У режимі 'slave' - це ім'я (ідентифікатор) 'master' ДБЖ."
 
 msgid "In this directory, the configuration file 'my.cnf' will be created."
-msgstr ""
+msgstr "Файл конфігурації \"my.cnf\" буде створений у цьому каталозі."
 
 msgid "In/Out Errors"
 msgstr "Помилки вводу/виводу"
@@ -6508,7 +6508,7 @@ msgstr ""
 "інтерфейсу. Введіть ім'я користувача."
 
 msgid "Item(s)"
-msgstr ""
+msgstr "Елементи"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7059,7 +7059,7 @@ msgid "MOV File"
 msgstr "Відеофайл MOV"
 
 msgid "MOVE"
-msgstr ""
+msgstr "ПЕРЕМІСТИТИ"
 
 msgid "MOVED TO"
 msgstr "ПЕРЕМІЩЕНО ДО"
@@ -7476,23 +7476,23 @@ msgid "Mounts"
 msgstr "Примонтовані пристрої"
 
 msgid "Move"
-msgstr ""
+msgstr "Переміщення"
 
 msgid "Move down"
 msgstr "Перемістити вниз"
 
 #, php-format
 msgid "Move from /%s to /%s "
-msgstr ""
+msgstr "Перемістити з /%s до /%s "
 
 msgid "Move item(s)"
-msgstr ""
+msgstr "Перемістити елементи"
 
 msgid "Move up"
 msgstr "Перемістити вгору"
 
 msgid "Moving failed."
-msgstr ""
+msgstr "Відмова переміщення."
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Public License Version 2.0 (MPLv2)"
@@ -7930,7 +7930,7 @@ msgid "No records found."
 msgstr "Не знайдено записів."
 
 msgid "No results available."
-msgstr ""
+msgstr "Немає результатів."
 
 msgid "No snapshot information available."
 msgstr "Доступної інформації про знімок немає."
@@ -8376,10 +8376,10 @@ msgid "Pascal File"
 msgstr "Файл Pascal"
 
 msgid "Passive Port Max."
-msgstr ""
+msgstr "Найбільший номер пасивного порту."
 
 msgid "Passive Port Min."
-msgstr ""
+msgstr "Найменший номер пасивного порту."
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8505,7 +8505,7 @@ msgid "Peer User"
 msgstr "Користувач вузла"
 
 msgid "Percentage of apparent power related to maximum load"
-msgstr ""
+msgstr "Відсоток потужності відносно максимального навантаження"
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -8515,10 +8515,10 @@ msgid "Permission"
 msgstr "Дозвіл"
 
 msgid "Permission-change failed."
-msgstr ""
+msgstr "Відмова зміни дозволу."
 
 msgid "Permissions"
-msgstr ""
+msgstr "Дозволи"
 
 msgid "Permit Root Login"
 msgstr "Дозволити вхід як root"
@@ -8922,7 +8922,7 @@ msgid "Proxy"
 msgstr "Проксі"
 
 msgid "Public"
-msgstr ""
+msgstr "Загальнодоступне"
 
 msgid "Public Key"
 msgstr "Публічний ключ"
@@ -9080,13 +9080,13 @@ msgid "RAW info"
 msgstr "Необроблена інформація"
 
 msgid "RELOAD"
-msgstr ""
+msgstr "ПЕРЕЗАВАНТАЖИТИ"
 
 msgid "RPM"
 msgstr "об/хв"
 
 msgid "RRDGraphs Daily ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs денний графік ефективності ARC"
 
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs денний графік ARC"
@@ -9119,7 +9119,7 @@ msgid "RRDGraphs Daily Uptime Graph"
 msgstr "RRDGraphs денний графік часу роботи"
 
 msgid "RRDGraphs Monthly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs місячний графік ефективності ARC"
 
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs місячний графік ARC"
@@ -9152,7 +9152,7 @@ msgid "RRDGraphs Monthly Uptime Graph"
 msgstr "RRDGraphs місячний графік часу роботи"
 
 msgid "RRDGraphs Weekly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік ефективності ARC"
 
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs тижневий графік ARC"
@@ -9185,7 +9185,7 @@ msgid "RRDGraphs Weekly Uptime Graph"
 msgstr "RRDGraphs тижневий графік часу роботи"
 
 msgid "RRDGraphs Yearly ARC Efficiency Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік ефективності ARC"
 
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs річний графік ARC"
@@ -9556,7 +9556,7 @@ msgid "Reservation"
 msgstr "Резервування"
 
 msgid "Reset"
-msgstr ""
+msgstr "Скинути"
 
 msgid "Reset Graphs"
 msgstr "Скинути графіки"
@@ -9751,7 +9751,7 @@ msgid "SCSI Name"
 msgstr "Ім'я SCSI"
 
 msgid "SEARCH"
-msgstr ""
+msgstr "ШУКАТИ"
 
 msgid "SHA Password"
 msgstr "Пароль SHA"
@@ -9940,7 +9940,7 @@ msgid "Scrub a pool"
 msgstr "Перевірка пулу"
 
 msgid "Seach results"
-msgstr ""
+msgstr "Результати пошуку"
 
 msgid "Search"
 msgstr "Пошук"
@@ -9952,7 +9952,7 @@ msgid "Search for and import all disks found"
 msgstr "Шукати і імпортувати всі знайдені диски"
 
 msgid "Search subdirectories"
-msgstr ""
+msgstr "Підкаталоги пошуку"
 
 msgid "Second"
 msgstr "Секунда"
@@ -10120,7 +10120,7 @@ msgstr ""
 "uniss@ua.fm)"
 
 msgid "Select the language of the user portal for this user."
-msgstr ""
+msgstr "Оберіть мову цього порталу користувача."
 
 msgid "Select the location closest to you."
 msgstr "Виберіть місце найближче до вас."
@@ -12179,13 +12179,13 @@ msgid "The tag range is invalid."
 msgstr "Діапазон міток заданий некоректно."
 
 msgid "The target directory doesn't exist."
-msgstr ""
+msgstr "Цільовий каталог не існує."
 
 msgid "The target directory may not be above the home directory."
-msgstr ""
+msgstr "Цільовий каталог не може бути вище домашнього каталогу."
 
 msgid "The target item already exists."
-msgstr ""
+msgstr "Цільовий елемент вже існує."
 
 msgid "The target name already exists."
 msgstr "Зазначене ім'я цілі вже існує."
@@ -12479,7 +12479,7 @@ msgid "This extent is used."
 msgstr "Цей екстент вже використовується."
 
 msgid "This file doesn't exist."
-msgstr ""
+msgstr "Цей файл не існує."
 
 msgid "This is a nickname and is for information only."
 msgstr "Це псевдонім і він тільки для інформації."
@@ -12497,10 +12497,10 @@ msgid "This is not a valid IP Address."
 msgstr "Ця ip-адреса не є правильною."
 
 msgid "This item already exists."
-msgstr ""
+msgstr "Цей елемент вже існує."
 
 msgid "This item doesn't exist."
-msgstr ""
+msgstr "Цей елемент не існує."
 
 msgid "This month"
 msgstr "Цього місяця"
@@ -13231,10 +13231,10 @@ msgid "UNMAP Maximum LBA"
 msgstr "Максимальний LBA UNMAP"
 
 msgid "UNZIP"
-msgstr ""
+msgstr "РОЗПАКУВАТИ"
 
 msgid "UP"
-msgstr ""
+msgstr "ПІДНЯТИ"
 
 msgid "UPS"
 msgstr "UPS"
@@ -13342,13 +13342,13 @@ msgid "Umask"
 msgstr "Umask"
 
 msgid "Unable to open directory."
-msgstr ""
+msgstr "Неможливо відкрити каталог."
 
 msgid "Unable to open file"
-msgstr ""
+msgstr "Неможливо відкрити файл"
 
 msgid "Unable to read directory."
-msgstr ""
+msgstr "Неможливо зчитати каталог."
 
 msgid "Unavailable"
 msgstr "Недоступний"
@@ -13436,7 +13436,7 @@ msgid "Unrestricted"
 msgstr "Без обмежень"
 
 msgid "Unzip"
-msgstr ""
+msgstr "Розпакування"
 
 msgid "Up"
 msgstr "Вгору"
@@ -14086,7 +14086,7 @@ msgid "Workgroup"
 msgstr "Робоча група"
 
 msgid "Wrap text:"
-msgstr ""
+msgstr "Розгорнути текст:"
 
 msgid "Write"
 msgstr "Запис"
@@ -14129,19 +14129,19 @@ msgid "Yesterday"
 msgstr "Вчора"
 
 msgid "You are not allowed to access the target directory."
-msgstr ""
+msgstr "Ви не маєте дозволу на доступ до цільової директорії."
 
 msgid "You are not allowed to access this directory."
-msgstr ""
+msgstr "Ви не маєте дозволу на доступ до цієї директорії."
 
 msgid "You are not allowed to access this file."
-msgstr ""
+msgstr "Ви не маєте дозволу на доступ до цього файлу."
 
 msgid "You are not allowed to access this item."
-msgstr ""
+msgstr "Ви не маєте дозволу на доступ до цього елементу."
 
 msgid "You are not allowed to use this function."
-msgstr ""
+msgstr "Ви не маєте дозволу на використання цієї функції."
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -14180,7 +14180,7 @@ msgid "You have to select at least one item for '%s'."
 msgstr "Ви повинні вибрати хоча б один елемент для '%s'."
 
 msgid "You haven't selected any item(s)."
-msgstr ""
+msgstr "Ви не обрали жодного елементу."
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -14239,7 +14239,7 @@ msgid "You must select at least one authentication method."
 msgstr "Треба вибрати принаймні один метод авторизації."
 
 msgid "You must supply a name."
-msgstr ""
+msgstr "Ви повинні вказати ім'я."
 
 msgid ""
 "You need to update your browser or use Internet Explorer 10 or higher."
@@ -14278,7 +14278,7 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr "ZFS Adaptive Replacement Cache (ARC)"
 
 msgid "ZFS Cache Efficiency"
-msgstr ""
+msgstr "Ефективність кешу ZFS"
 
 msgid "ZFS Filesystem Information & Status"
 msgstr "Інформація і статус файлової системи ZFS"
@@ -14392,7 +14392,7 @@ msgid "filechooser"
 msgstr "Вибір файлу"
 
 msgid "get target info failed."
-msgstr "збій отримання інформації про об'єкт."
+msgstr "відмова отримання інформації про об'єкт."
 
 msgid "greatest settable high voltage transfer point"
 msgstr "найбільше значення високої напруги для перемикання що встановлюється"
@@ -14501,7 +14501,7 @@ msgid "less then 1.8\"."
 msgstr "менш ніж 1.8\"."
 
 msgid "load/unload failed."
-msgstr "збій завантаження / розвантаження."
+msgstr "відмова завантаження / розвантаження."
 
 msgid "loader.conf"
 msgstr "loader.conf"
@@ -14571,7 +14571,7 @@ msgid "revision"
 msgstr "ревізія"
 
 msgid "scan target failed."
-msgstr "збій сканування об'єкта."
+msgstr "відмова сканування об'єкта."
 
 msgid "scponly - Secure Copy Protocol only"
 msgstr "scponly - лише захищений протокол копіювання"
