@@ -46,14 +46,14 @@ class HTMLBaseControl2 {
 	var $_classdata = 'celldata';
 	var $_classaddonrequired = 'req';
 	var $_classaddonpadalt = 'alt';
-	//	constructor
+//	constructor
 	public function __construct($ctrlname,$title,$value,$description = '') {
 		$this->SetCtrlName($ctrlname);
 		$this->SetTitle($title);
 		$this->SetDescription($description);
 		$this->SetValue($value);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetAltPadding($bool) {
 		$this->_altpadding = $bool;
 	}
@@ -120,7 +120,7 @@ class HTMLBaseControl2 {
 	function GetValue() {
 		return $this->_value;
 	}
-	//	support methods
+//	support methods
 	function GetClassOfTag() {
 		$class = $this->GetClassTag();
 		if(true === $this->GetRequired()):
@@ -142,17 +142,18 @@ class HTMLBaseControl2 {
 		return $class;
 	}
 	function GetDescriptionOutput() {
-		//	description:
-		//	string
-		//	[string, ...]
-		//	[ [string], ...]
-		//	[ [string,no_br], ...]
-		//	[ [string,color], ...]
-		//	[ [string,color,no_br], ...]
+//		description:
+//		string
+//		[string, ...]
+//		[ [string], ...]
+//		[ [string,no_br], ...]
+//		[ [string,color], ...]
+//		[ [string,color,no_br], ...]
 		$description = $this->GetDescription();
 		$description_output = '';
 		$suppressbr = true;
-		if(!empty($description)): // string or array
+		if(!empty($description)):
+//			string or array
 			if(is_string($description)):
 				$description_output = $description;
 			elseif(is_array($description)):
@@ -197,7 +198,8 @@ class HTMLBaseControl2 {
 									endif;
 								endif;
 								break;
-							case 3: // allow not to break
+							case 3:
+//								allow not to break
 								if(is_string($description_row[0])):
 									$color = null;
 									if(is_string($description_row[1])):
@@ -226,12 +228,12 @@ class HTMLBaseControl2 {
 		return $description_output;
 	}
 	function Compose(DOMNode &$anchor = null) {
-		//	create root DOM if anchor not provided
+//		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
 		endif;
 		$description = $this->GetDescriptionOutput();
-		//	compose
+//		compose
 		$attributes = ['id' => sprintf('%s_tr',$this->GetCtrlName())];
 		$tr = $anchor->addTR($attributes);
 		$attributes = ['class' => $this->GetClassOfTag()];
@@ -269,13 +271,12 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 	var $_placeholder = '';
 	var $_classinputtext = 'formfld';
 	var $_classinputtextro = 'formfldro';
-
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$value,$description,$size) {
 		parent::__construct($ctrlname,$title,$value,$description);
 		$this->SetSize($size);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetClassInputText($param) {
 		$this->_classinputtext = $param;
 	}
@@ -306,7 +307,7 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 	function GetSize() {
 		return $this->_size;
 	}
-	//	support methods
+//	support methods
 	function GetAttributes(array &$attributes = []) {
 		if(true === $this->GetReadOnly()):
 			$attributes['readonly'] = 'readonly';
@@ -343,14 +344,14 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 }
 class HTMLPasswordBox2 extends HTMLEditBox2 {
 	var $_classinputpassword = 'formfld';
-	//	get/set methods
+//	get/set methods
 	function SetClassInputPassword($cssclass) {
 		$this->_classinputpassword = $cssclass;
 	}
 	function GetClassInputPassword() {
 		return $this->_classinputpassword;
 	}
-	//	support methods
+//	support methods
 	function GetClassOfInputPassword() {
 		return $this->GetClassInputPassword();
 	}
@@ -373,13 +374,13 @@ class HTMLPasswordConfBox2 extends HTMLEditBox2 {
 	var $_valueconf = '';
 	var $_classinputpassword = 'formfld';
 	var $_placeholderconfirm = '';
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$ctrlnameconf,$title,$value,$valueconf,$description,$size) {
 		parent::__construct($ctrlname,$title,$value,$description,$size);
 		$this->SetCtrlNameConf($ctrlnameconf);
 		$this->SetValueConf($valueconf);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetClassInputPassword($cssclass) {
 		$this->_classinputpassword = $cssclass;
 	}
@@ -404,7 +405,7 @@ class HTMLPasswordConfBox2 extends HTMLEditBox2 {
 	function GetValueConf() {
 		return $this->_valueconf;
 	}
-	//	support methods
+//	support methods
 	function GetAttributesConfirm(array &$attributes = []) {
 		$attributes = $this->GetAttributes($attributes);
 		$tagval = $this->GetPlaceholderConfirm();
@@ -449,7 +450,7 @@ class HTMLTextArea2 extends HTMLEditBox2 {
 	var $_wrap = true;
 	var $_classtextarea = 'formpre';
 	var $_classtextarearo = 'formprero';
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$value,$description,$columns,$rows) {
 		$this->SetCtrlName($ctrlname);
 		$this->SetTitle($title);
@@ -458,7 +459,7 @@ class HTMLTextArea2 extends HTMLEditBox2 {
 		$this->SetColumns($columns);
 		$this->SetRows($rows);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetClasstextarea($cssclass) {
 		$this->_classtextarea = $cssclass;
 	}
@@ -489,7 +490,7 @@ class HTMLTextArea2 extends HTMLEditBox2 {
 	function GetWrap() {
 		return $this->_wrap;
 	}
-	//	support methods
+//	support methods
 	function GetAttributes(array &$attributes = []) {
 		parent::GetAttributes($attributes);
 		if(false === $this->GetWrap()):
@@ -527,10 +528,10 @@ class HTMLFileChooser2 extends HTMLEditBox2 {
 		return $this->_path;
 	}
 	function ComposeInner(&$anchor) {
-		//	helper variables
+//		helper variables
 		$ctrlname = $this->GetCtrlName();
 		$size = $this->GetSize();
-		//	input element
+//		input element
 		$attributes = [
 			'type' => 'text',
 			'id' => $ctrlname,
@@ -541,7 +542,7 @@ class HTMLFileChooser2 extends HTMLEditBox2 {
 		];
 		$this->GetAttributes($attributes);
 		$anchor->insINPUT($attributes);
-		//	file chooser
+//		file chooser
 		$js = sprintf('%1$sifield = form.%1$s;',$ctrlname)
 			. 'filechooser = window.open("filechooser.php?p="+'
 			. sprintf('encodeURIComponent(%sifield.value)+',$ctrlname)
@@ -566,7 +567,7 @@ class HTMLFileChooser2 extends HTMLEditBox2 {
 class HTMLIPAddressBox2 extends HTMLEditBox2 {
 	var $_ctrlnamenetmask = '';
 	var $_valuenetmask = '';
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$ctrlnamenetmask,$title,$value,$valuenetmask,$description) {
 		$this->SetCtrlName($ctrlname);
 		$this->SetCtrlNameNetmask($ctrlnamenetmask);
@@ -575,7 +576,7 @@ class HTMLIPAddressBox2 extends HTMLEditBox2 {
 		$this->SetValueNetmask($valuenetmask);
 		$this->SetDescription($description);
 	}
-	//	get/set Methods
+//	get/set Methods
 	function SetCtrlNameNetmask($name) {
 		$this->_ctrlnamenetmask = $name;
 	}
@@ -590,12 +591,12 @@ class HTMLIPAddressBox2 extends HTMLEditBox2 {
 	}
 }
 class HTMLIPv4AddressBox2 extends HTMLIPAddressBox2 {
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$ctrlnamenetmask,$title,$value,$valuenetmask,$description) {
 		parent::__construct($ctrlname,$ctrlnamenetmask,$title,$value,$valuenetmask,$description);
 		$this->SetSize(20);
 	}
-	//	support methods
+//	support methods
 	function ComposeInner(&$anchor) {
 		$ctrlname = $this->GetCtrlName();
 		$ctrlnamenetmask = $this->GetCtrlNameNetmask();
@@ -623,12 +624,12 @@ class HTMLIPv4AddressBox2 extends HTMLIPAddressBox2 {
 	}
 }
 class HTMLIPv6AddressBox2 extends HTMLIPAddressBox2 {
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$ctrlnamenetmask,$title,$value,$valuenetmask,$description) {
 		parent::__construct($ctrlname,$ctrlnamenetmask,$title,$value,$valuenetmask,$description);
 		$this->SetSize(60);
 	}
-	//	support methods
+//	support methods
 	function ComposeInner(&$anchor) {
 		$ctrlname = $this->GetCtrlName();
 		$ctrlnamenetmask = $this->GetCtrlNameNetmask();
@@ -658,12 +659,12 @@ class HTMLCheckBox2 extends HTMLBaseControlJS2 {
 	var $_caption = '';
 	var $_classcheckbox = 'celldatacheckbox';
 	var $_classcheckboxro = 'celldatacheckbox';
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$value,$caption,$description = '') {
 		parent::__construct($ctrlname,$title,$value,$description);
 		$this->SetCaption($caption);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetChecked($bool) {
 		$this->SetValue($bool);
 	}
@@ -688,7 +689,7 @@ class HTMLCheckBox2 extends HTMLBaseControlJS2 {
 	function GetClassCheckboxRO() {
 		return $this->_classcheckboxro;
 	}
-	//	support methods
+//	support methods
 	function GetAttributes(array &$attributes = []) {
 		if(true === $this->IsChecked()):
 			$attributes['checked'] = 'checked';
@@ -706,9 +707,9 @@ class HTMLCheckBox2 extends HTMLBaseControlJS2 {
 		return ($this->GetReadOnly() ? $this->GetClassCheckboxRO() : $this->GetClassCheckbox());
 	}
 	function ComposeInner(&$anchor) {
-		//	helper variables
+//		helper variables
 		$ctrlname = $this->GetCtrlName();
-		//	compose
+//		compose
 		$div = $anchor->addDIV(['class' => $this->GetClassOfCheckbox()]);
 		$attributes = ['type' => 'checkbox','id' => $ctrlname,'name' => $ctrlname,'value' => 'yes'];
 		$this->GetAttributes($attributes);
@@ -719,13 +720,13 @@ class HTMLCheckBox2 extends HTMLBaseControlJS2 {
 class HTMLSelectControl2 extends HTMLBaseControlJS2 {
 	var $_ctrlclass = '';
 	var $_options = [];
-	//	constructor
+//	constructor
 	function __construct($ctrlclass,$ctrlname,$title,$value,$options,$description) {
 		parent::__construct($ctrlname,$title,$value,$description);
 		$this->SetCtrlClass($ctrlclass);
 		$this->SetOptions($options);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetCtrlClass($ctrlclass) {
 		$this->_ctrlclass = $ctrlclass;
 	}
@@ -770,18 +771,18 @@ class HTMLSelectControl2 extends HTMLBaseControlJS2 {
 }
 class HTMLMultiSelectControl2 extends HTMLSelectControl2 {
 	var $_size = 10;
-	//	constructor
+//	constructor
 	function __construct($ctrlclass,$ctrlname,$title,$value,$options,$description) {
 		parent::__construct($ctrlclass,$ctrlname,$title,$value,$options,$description);
 	}
-	//	get/set methods
+//	get/set methods
 	function GetSize() {
 		return $this->_size;
 	}
 	function SetSize($size) {
 		$this->_size = $size;
 	}
-	//	support methods
+//	support methods
 	function ComposeInner(&$anchor) {
 		$ctrlname = $this->GetCtrlName();
 		$value = $this->GetValue();
@@ -805,7 +806,7 @@ class HTMLMultiSelectControl2 extends HTMLSelectControl2 {
 	}
 }
 class HTMLComboBox2 extends HTMLSelectControl2 {
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$value,$options,$description) {
 		parent::__construct('formfld',$ctrlname,$title,$value,$options,$description);
 	}
@@ -825,8 +826,8 @@ class HTMLRadioBox2 extends HTMLComboBox2 {
 		$tr->insTHwC('lhebl',$this->GetTitle());
 		$tbody = $table->addTBODY();
 		foreach($options as $option_tag => $option_val):
-			//	create a unique identifier for each row.
-			//	use label tag for text column to allow enabling the radio button by clicking on the text
+//			create a unique identifier for each row.
+//			use label tag for text column to allow enabling the radio button by clicking on the text
 			$uuid = sprintf('radio_%s',uuid());
 			$tr = $tbody->addTR();
 			$tdl = $tr->addTDwC('lcelc');
@@ -846,10 +847,10 @@ class HTMLRadioBox2 extends HTMLComboBox2 {
 	}
 }
 class HTMLMountComboBox2 extends HTMLComboBox2 {
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$value,$description) {
 		global $config;
-		//	generate options.
+//		generate options.
 		$a_mounts = &array_make_branch($config,'mounts','mount');
 		array_sort_key($a_mounts,'devicespecialfile');
 		$options = [];
@@ -862,18 +863,19 @@ class HTMLMountComboBox2 extends HTMLComboBox2 {
 }
 class HTMLTimeZoneComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
-		//	get time zone data.
+//		get time zone data.
 		function is_timezone($elt) {
 			return !preg_match("/\/$/",$elt);
 		}
 		exec('/usr/bin/tar -tf /usr/share/zoneinfo.txz',$timezonelist);
 		$timezonelist = array_filter($timezonelist,'is_timezone');
 		sort($timezonelist);
-		//	generate options.
+//		generate options.
 		$options = [];
 		foreach($timezonelist as $tzv):
 			if(!empty($tzv)):
-				$tzv = substr($tzv,2); // Remove leading './'
+//				Remove leading './'
+				$tzv = substr($tzv,2);
 				$options[$tzv] = $tzv;
 			endif;
 		endforeach;
@@ -883,7 +885,7 @@ class HTMLTimeZoneComboBox2 extends HTMLComboBox2 {
 class HTMLLanguageComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
 		global $g_languages;
-		//	generate options.
+//		generate options.
 		$options = [];
 		foreach($g_languages as $key => $val):
 			if('auto' == $key):
@@ -898,7 +900,7 @@ class HTMLLanguageComboBox2 extends HTMLComboBox2 {
 class HTMLInterfaceComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
 		global $config;
-		//	generate options.
+//		generate options.
 		$options = ['lan' => 'LAN'];
 		for($i = 1;isset($config['interfaces']['opt' . $i]);$i++):
 			if(isset($config['interfaces']['opt' . $i]['enable'])):
@@ -928,8 +930,8 @@ class HTMLCheckboxBox2 extends HTMLListBox2 {
 		$tr->insTHwC('lhebl',$this->GetTitle());
 		$tbody = $table->addTBODY();
 		foreach($options as $option_tag => $option_val):
-			//	create a unique identifier for each row.
-			//	use label tag for text column to allow toggling the checkbox button by clicking on the text
+//			create a unique identifier for each row.
+//			use label tag for text column to allow toggling the checkbox button by clicking on the text
 			$uuid = sprintf('checkbox_%s',uuid());
 			$tr = $tbody->addTR();
 			$tdl = $tr->addTDwC('lcelc');
@@ -951,10 +953,10 @@ class HTMLCheckboxBox2 extends HTMLListBox2 {
 class HTMLSeparator2 extends HTMLBaseControl2 {
 	var $_colspan = 2;
 	var $_classseparator = 'gap';
-	// constructor
+//	constructor
 	function __construct() {
 	}
-	//	get/set methods
+//	get/set methods
 	function SetClassSeparator($cssclass) {
 		$this->_classseparator = $cssclass;
 	}
@@ -967,18 +969,18 @@ class HTMLSeparator2 extends HTMLBaseControl2 {
 	function GetColSpan() {
 		return $this->_colspan;
 	}
-	//	support methods
+//	support methods
 	function GetClassOfSeparator() {
 		return $this->GetClassSeparator();
 	}
 	function Compose(DOMNode &$anchor = null) {
-		//	create root DOM if anchor not provided
+//		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
 		endif;
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
-		//	compose
+//		compose
 		$attributes = [];
 		if(preg_match('/\S/',$ctrlname)):
 			$attributes['id'] = $ctrlname;
@@ -992,7 +994,7 @@ class HTMLSeparator2 extends HTMLBaseControl2 {
 class HTMLTitleLine2 extends HTMLBaseControl2 {
 	var $_colspan = 2;
 	var $_classtopic = 'lhetop';
-	//	get/set methods
+//	get/set methods
 	function SetClassTopic($cssclass) {
 		$this->_classtopic = $cssclass;
 	}
@@ -1005,18 +1007,18 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 	function GetColSpan() {
 		return $this->_colspan;
 	}
-	//	support methods
+//	support methods
 	function GetClassOfTopic() {
 		return $this->GetClassTopic();
 	}
 	function Compose(DOMNode &$anchor = null) {
-		//	create root DOM if anchor not provided
+//		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
 		endif;
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
-		//	compose
+//		compose
 		$attributes = [];
 		if(preg_match('/\S/',$ctrlname)):
 			$attributes['id'] = $ctrlname;
@@ -1030,11 +1032,11 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	var $_colspan = 2;
 	var $_classtopic = 'lhetop';
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$value,$caption) {
 		parent::__construct($ctrlname,$title,$value,$caption);
 	}
-	//	get/set methods
+//	get/set methods
 	function SetClassTopic($cssclass) {
 		$this->_classtopic = $cssclass;
 	}
@@ -1047,18 +1049,18 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	function GetColSpan() {
 		return $this->_colspan;
 	}
-	//	support methods
+//	support methods
 	function GetClassOfTopic() {
 		return $this->GetClassTopic();
 	}
 	function Compose(DOMNode &$anchor = null) {
-		//	create root DOM if anchor not provided
+//		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
 		endif;
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
-		//	compose
+//		compose
 		$attributes = ['id' => sprintf('%s_tr',$ctrlname)];
 		$tr = $anchor->addTR($attributes);
 		$attributes = ['class' => $this->GetClassOfTopic(),'colspan' => $this->GetColSpan()];
@@ -1077,7 +1079,7 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	}
 }
 class HTMLText2 extends HTMLBaseControl2 {
-	//	constructor
+//	constructor
 	function __construct($ctrlname,$title,$text) {
 		$this->SetCtrlName($ctrlname);
 		$this->SetReadOnly(true);
@@ -1085,9 +1087,9 @@ class HTMLText2 extends HTMLBaseControl2 {
 		$this->SetTitle($title);
 		$this->SetValue($text);
 	}
-	//	support methods
+//	support methods
 	function ComposeInner(&$anchor) {
-		//	compose
+//		compose
 		$anchor->addSPAN([],$this->GetValue());
 	}
 }
@@ -1098,13 +1100,13 @@ class HTMLTextInfo2 extends HTMLBaseControl2 {
 		$this->SetValue($text);
 	}
 	function Compose(DOMNode &$anchor = null) {
-		//	create root DOM if anchor not provided
+//		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
 		endif;
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
-		//	compose
+//		compose
 		$attributes = ['id' => sprintf('%s_tr',$ctrlname)];
 		$tr = $anchor->addTR($attributes);
 		$attributes = ['class' => $this->GetClassOfTag()];
@@ -1123,13 +1125,13 @@ class HTMLRemark2 extends HTMLBaseControl2 {
 		$this->SetValue($text);
 	}
 	function Compose(DOMNode &$anchor = null) {
-		//	create root DOM if anchor not provided
+//		create root DOM if anchor not provided
 		if(is_null($anchor)):
 			$anchor = new co_DOMDocument();
 		endif;
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
-		//	compose
+//		compose
 		$attributes = ['id' => $ctrlname];
 		$div1 = $anchor->addDIV($attributes);
 		$attributes = ['class' => 'red'];
@@ -1152,11 +1154,11 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$this->_path = $path;
 	}
 	function ComposeInner(&$anchor) {
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
 		$ctrlnamedata = $ctrlname . 'data';
 		$value = $this->GetValue();
-		//	control code for folders
+//		control code for folders
 		$t = [];
 		$t[] = sprintf('function onchange_%s() {',$ctrlname);
 		$t[] = "\t" . sprintf('document.getElementById("%s").value = document.getElementById("%s").value;',$ctrlnamedata,$ctrlname);
@@ -1206,9 +1208,9 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$t[] = "\t" . '}';
 		$t[] = '}';
 		$anchor->addJavaScript(implode("\n",$t));
-		//	section 1: select + delete
+//		section 1: select + delete
 		$div1 = $anchor->addDIV();
-		//	selected folder
+//		selected folder
 		$attributes = [
 			'id' => $ctrlname,
 			'name' => sprintf('%s[]',$ctrlname),
@@ -1223,7 +1225,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			$attributes = ['value' => $value_val];
 			$select->addElement('option',$attributes,$value_val);
 		endforeach;
-		//	delete button
+//		delete button
 		$attributes = [
 			'type' => 'button',
 			'id' => sprintf('%sdeletebtn',$ctrlname),
@@ -1233,9 +1235,9 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'onclick' => sprintf('onclick_delete_%s()',$ctrlname)
 		];
 		$div1->insINPUT($attributes);
-		//	section 2: choose, add + change
+//		section 2: choose, add + change
 		$div2 = $anchor->addDIV();
-		//	path input field
+//		path input field
 		$attributes = [
 			'type' => 'text',
 			'id' => sprintf('%sdata',$ctrlname),
@@ -1245,7 +1247,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'size' => 60
 		];
 		$div2->insINPUT($attributes);
-		//	choose button
+//		choose button
 		$js = sprintf('ifield = form.%s;',$ctrlnamedata)
 			. ' filechooser = window.open("filechooser.php'
 			. '?p="+encodeURIComponent(ifield.value)+"'
@@ -1263,7 +1265,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'onclick' => $js
 		];
 		$div2->insINPUT($attributes);
-		//	add button
+//		add button
 		$attributes = [
 			'type' => 'button',
 			'id' => sprintf('%saddbtn',$ctrlname),
@@ -1273,7 +1275,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 			'onclick' => sprintf('onclick_add_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
-		//	change button
+//		change button
 		$attributes = [
 			'type' => 'button',
 			'id' => sprintf('%schangebtn',$ctrlname),
@@ -1287,12 +1289,12 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 }
 class HTMLFolderBox12 extends HTMLFolderBox2 {
 	function ComposeInner(&$anchor) {
-		//	helping variables
+//		helping variables
 		$ctrlname = $this->GetCtrlName();
 		$ctrlnamedata = $ctrlname . 'data';
 		$ctrlnamefiletype = $ctrlname . 'filetype';
 		$value = $this->GetValue();
-		//	control code for folders
+//		control code for folders
 		$t = [];
 		$t[] = 'function onchange_' . $ctrlname . '() {';
 		$t[] = "\t" . 'var value1 = document.getElementById("' . $ctrlname . '");';
@@ -1359,16 +1361,16 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 		$t[] = "\t" . '}';
 		$t[] = '}';
 		$anchor->addJavaScript(implode("\n",$t));
-		//	section 1: select + delete
+//		section 1: select + delete
 		$div1 = $anchor->addDIV();
-		//	selected folder
+//		selected folder
 		$attributes = ['id' => $ctrlname,'name' => sprintf('%s[]',$ctrlname),'class' => 'formfld','multiple' => 'multiple','style' => 'width:350px','onchange' => sprintf('onchange_%s()',$ctrlname)];
 		$select = $div1->addElement('select',$attributes);
 		foreach ($value as $value_key => $value_val):
 			$attributes = ['value' => $value_val];
 			$select->addElement('option',$attributes,$value_val);
 		endforeach;
-		//	delete button
+//		delete button
 		$attributes = [
 			'type' => 'button',
 			'id' => sprintf('%sdeletebtn',$ctrlname),
@@ -1378,9 +1380,9 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'onclick' => sprintf('onclick_delete_%s()',$ctrlname)
 		];
 		$div1->insINPUT($attributes);
-		//	section 2: choose, add + change
+//		section 2: choose, add + change
 		$div2 = $anchor->addDIV();
-		//	media type
+//		media type
 		$attributes = ['id' => sprintf('%sfiletype',$ctrlname),'name' => sprintf('%sfiletype',$ctrlname),'class' => 'formfld'];
 		$select = $div2->addElement('select',$attributes);
 		$attributes = ['value' => '','selected' => 'selected'];
@@ -1391,7 +1393,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 		$select->addElement('option',$attributes,gettext('Video'));
 		$attributes = ['value' => 'P'];
 		$select->addElement('option',$attributes,gettext('Pictures'));
-		//	path input field
+//		path input field
 		$attributes = [
 			'type' => 'text',
 			'id' => sprintf('%sdata',$ctrlname),
@@ -1401,7 +1403,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'size' => 60
 		];
 		$div2->insINPUT($attributes);
-		//	choose button
+//		choose button
 		$js = sprintf('ifield = form.%s;',$ctrlnamedata)
 			. ' filechooser = window.open("filechooser.php'
 			. '?p="+encodeURIComponent(ifield.value)+"'
@@ -1419,7 +1421,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'onclick' => $js
 		];
 		$div2->insINPUT($attributes);
-		//	add button
+//		add button
 		$attributes = [
 			'type' => 'button',
 			'id' => sprintf('%saddbtn',$ctrlname),
@@ -1429,7 +1431,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 			'onclick' => sprintf('onclick_add_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
-		//	change button
+//		change button
 		$attributes = [
 			'type' => 'button',
 			'id' => sprintf('%schangebtn',$ctrlname),
@@ -1553,7 +1555,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	//	tags
+//	tags
 	public function addA(array $attributes = [],string $value = null) {
 		return $this->addElement('a',$attributes,$value);
 	}
@@ -1593,7 +1595,7 @@ trait co_DOMTools {
 	public function addUL(array $attributes = [],string $value = null) {
 		return $this->addElement('ul',$attributes,$value);
 	}
-	//	table tags
+//	table tags
 	public function addTABLE(array $attributes = [],string $value = null) {
 		return $this->addElement('table',$attributes,$value);
 	}
@@ -1636,7 +1638,7 @@ trait co_DOMTools {
 	public function insTHwC(string $class,string $value = null) {
 		return $this->insElement('th',['class' => $class],$value);
 	}
-	//	tab menu fragments and macros
+//	tab menu fragments and macros
 /**
  *
  *	@return DOMNode $subnode
@@ -1646,7 +1648,8 @@ trait co_DOMTools {
 		$document = $this->ownerDocument ?? $this;
 		$target = $document->getElementById('g4h');
 		if(isset($target)):
-			$append_mode = true; // last element of header section
+//			last element of header section
+			$append_mode = true;
 			$div_attributes = [
 				'id' => 'area_tabnav'
 			];
@@ -1661,7 +1664,8 @@ trait co_DOMTools {
 						addTABLE($table_attributes)->
 							addTBODY();
 			endif;
-		else: // workaround for unconverted pages because of padding
+		else:
+//			workaround for unconverted pages because of padding
 			$target = $this;
 			$subnode = $target->
 				addTABLE($table_attributes)->
@@ -1853,7 +1857,7 @@ trait co_DOMTools {
 		endif;
 		return $this;
 	}
-	//	data settings table macros
+//	data settings table macros
 	public function add_table_data_settings() {
 		$subnode = $this->addTABLE(['class' => 'area_data_settings']);
 		return $subnode;
@@ -1880,7 +1884,7 @@ trait co_DOMTools {
 		endforeach;
 		return $this;
 	}
-	//	title macros
+//	title macros
 	public function ins_titleline(string $title = null,int $colspan = 0,string $id = null) {
 		$tr_attributes = [];
 		$th_attributes = [];
@@ -1942,18 +1946,19 @@ trait co_DOMTools {
 		return $this;
 	}
 	public function ins_description($p) {
-		//	description can be:
-		//	string
-		//	[string, ...]
-		//	[ [string], ...]
-		//	[ [string,no_br], ...]
-		//	[ [string,color], ...]
-		//	[ [string,color,no_br], ...]
+//		description can be:
+//		string
+//		[string, ...]
+//		[ [string], ...]
+//		[ [string,no_br], ...]
+//		[ [string,color], ...]
+//		[ [string,color,no_br], ...]
 		$description = $p->get_description();
 		if(isset($description)):
 			$description_output = '';
 			$suppressbr = true;
-			if(!empty($description)): // string or array
+			if(!empty($description)):
+//				string or array
 				if(is_string($description)):
 					$description_output = $description;
 				elseif(is_array($description)):
@@ -1998,7 +2003,8 @@ trait co_DOMTools {
 										endif;
 									endif;
 									break;
-								case 3: // allow not to break
+								case 3:
+//									allow not to break
 									if(is_string($description_row[0])):
 										$color = null;
 										if(is_string($description_row[1])):
@@ -2413,7 +2419,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	//	elements requiring sphere
+//	elements requiring sphere
 	public function ins_cbm_checkbox_toggle($sphere) {
 		$cbm_toggle_id = $sphere->get_cbm_checkbox_id_toggle();
 		$input_attributes = [
@@ -2501,16 +2507,19 @@ EOJ;
  *		<img src="images/locked.png" title="Record is protected" alt="Record is protected"/>
  *	</td>
  */
-		if($notdirty && $notprotected): // record is editable
+		if($notdirty && $notprotected):
+//			record is editable
 			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 			$this->addTD()->
 				addA(['href' => $link])->
 					insIMG(['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
-		elseif($notprotected): //record is dirty
+		elseif($notprotected):
+//			record is dirty
 			$this->addTD()->
 				insIMG(['src' => $g_img['del'],'title' => $sphere->getmsg_sym_del(),'alt' => $sphere->getmsg_sym_del(),'class' => 'oneemhigh']);
-		else: // record is protected
+		else:
+//			record is protected
 			$this->addTD()->
 				insIMG(['src' => $g_img['loc'],'title' => $sphere->getmsg_sym_loc(),'alt' => $sphere->getmsg_sym_loc(),'class' => 'oneemhigh']);
 		endif;
@@ -2524,7 +2533,7 @@ EOJ;
  *	</td>
  */
 		$td = $this->addTD();
-		if($show_link): // show link
+		if($show_link):
 			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
 			$td->addA(['href' => $link])->insIMG(['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
@@ -2539,7 +2548,7 @@ EOJ;
  *	</td>
  */
 		$td = $this->addTD();
-		if($show_link): // show link
+		if($show_link):
 			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
 			$td->addA(['href' => $link])->insIMG(['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
@@ -2550,7 +2559,7 @@ EOJ;
 		global $g_img;
 
 		$td = $this->addTD();
-		if($show_arrows): // show up and down arrows
+		if($show_arrows):
 			$image_attribute_mup = [
 				'src' => $g_img['mup'],
 				'title' => $sphere->getmsg_sym_mup(),
@@ -2581,7 +2590,7 @@ EOJ;
  */
 		$querystring = http_build_query(['submit' => 'add'],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 		$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
-		//	PHP_QUERY_RFC3986
+//		PHP_QUERY_RFC3986
 		$tr = $this->addTR();
 		if($colspan > 1):
 			$tr->addTH(['class' => 'lcenl','colspan' => $colspan - 1]);
@@ -2618,7 +2627,7 @@ EOJ;
 		endif;
 		return $this;
 	}
-	//	c2 blocks
+//	c2 blocks
 	public function c2_row($p,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
 		if($is_readonly):
 			$class_tag = 'celltag';
@@ -2727,7 +2736,7 @@ EOJ;
 		$this->ins_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title,2);
 		return $this;
 	}
-	//	submit area macros
+//	submit area macros
 	public function add_area_buttons(bool $use_config_setting = true) {
 		global $config;
 
@@ -2831,7 +2840,7 @@ EOJ;
 		$this->ins_button_submit('save',$content ?? gettext('Apply'));
 		return $this;
 	}
-	//	remark area macros
+//	remark area macros
 	public function add_area_remarks() {
 		$subnode = $this->addDIV(['id' => 'remarks']);
 		return $subnode;
@@ -2971,12 +2980,6 @@ EOJ;
 EOJ;
 			$this->add_js_on_load($jdata);
 		endif;
-		if(true):
-			$jdata = <<<'EOJ'
-	$('.avoid-fouc').removeClass('avoid-fouc');
-EOJ;
-			$this->add_js_document_ready($jdata);
-		endif;
 		if($is_tablesort):
 			$jdata = <<<'EOJ'
 	$.tablesorter.defaults.textSorter = $.tablesorter.sortText;
@@ -3032,11 +3035,13 @@ EOJ;
 		$navbartoplevelstyle = $config['system']['webgui']['navbartoplevelstyle'] ?? '';
 		$hard_link_regex = '~^[a-z]+://~';
 		$menu = get_headermenu();
-		make_headermenu_extensions($menu); // function cares about access rights itself
+//		function cares about access rights itself
+		make_headermenu_extensions($menu);
 		$menu_list = ['home','system','network','disks','access','services','vm','status','diagnostics','extensions','tools','help'];
 		$ul_h = $this->addDIV(['id' => 'area_navhdr'])->addElement('nav',['id' => 'navhdr'])->addUL();
 		foreach($menu_list as $menuid):
-			if($menu[$menuid]['visible']): // render menu when visible
+			if($menu[$menuid]['visible']):
+//				render menu when visible
 				$li_h = $ul_h->addLI();
 				$attributes = [];
 				switch($menu[$menuid]['type']):
@@ -3073,9 +3078,10 @@ EOJ;
 				endif;
 				if(!empty($menu[$menuid]['menuitem'])):
 					$ul_v = $li_h->addUL();
-					// Display menu items.
+//					Display menu items.
 					foreach($menu[$menuid]['menuitem'] as $menu_item):
-						if($menu_item['visible']): // render menuitem when visible
+						if($menu_item['visible']):
+//							render menuitem when visible
 							$li_v = $ul_v->addLI();
 							switch($menu_item['type']):
 								case 'external':
@@ -3275,14 +3281,9 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 				]);
 				$body->addJavaScript($jdata);
 			endif;
-			if(!empty($this->js_document_ready)):
-				$jdata = implode("\n",[
-					'$(document).ready(function() {',
-					implode("\n",$this->js_document_ready),
-					'});'
-				]);
-				$body->addJavaScript($jdata);
-			endif;
+			$this->add_js_document_ready('document.querySelector(".avoid-fouc").classList.remove("avoid-fouc");');
+			$jdata = implode("\n",$this->js_document_ready);
+			$body->addJavaScript($jdata);
 		endif;
 		return $this;
 	}
