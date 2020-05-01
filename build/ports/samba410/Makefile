@@ -445,6 +445,9 @@ SAMBA4_BUNDLED_LIBS+=		pyldb pyldb-util
 SAMBA4_BUNDLED_LIBS+=		!pyldb !pyldb-util
 .endif
 # External Python modules
+BUILD_DEPENDS+=                 ${PYTHON_PKGNAMEPREFIX}dnspython>=1.15.0:dns/py-dnspython@${PY_FLAVOR}
+RUN_DEPENDS+=                   ${PYTHON_PKGNAMEPREFIX}dnspython>=1.15.0:dns/py-dnspython@${PY_FLAVOR}
+
 BUILD_DEPENDS+=			${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601@${PY_FLAVOR}
 RUN_DEPENDS+=			${PYTHON_PKGNAMEPREFIX}iso8601>=0.1.11:devel/py-iso8601@${PY_FLAVOR}
 .endif
@@ -623,7 +626,6 @@ post-install:
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}/usr/local/etc/smb4.conf
-
 # sbin
 .for file in nmbd samba smbd winbindd
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}/usr/local/sbin
@@ -631,7 +633,6 @@ post-install:
 .for file in samba_dnsupdate samba_kcc samba_spnupdate samba_upgradedns
 	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}/usr/local/sbin
 .endfor
-
 # bin
 .for file in cifsdd dbwrap_tool dumpmscat gentest locktest masktest mvxattr ndrdump net nmblookup ntlm_auth oLschema2ldif pdbedit profiles regdiff regpatch regshell regtree rpcclient samba-regedit sharesec smbcacls smbclient smbcontrol smbcquotas smbget smbpasswd smbspool smbstatus smbtorture smbtree testparm vfstest wbinfo
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
@@ -639,7 +640,6 @@ post-install:
 .for file in findsmb pidl samba-tool smbtar
 	@${INSTALL_SCRIPT} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
 .endfor
-
 # lib
 	for file in ${STAGEDIR}${PREFIX}/lib/*; do \
 		[ -h "$${file}" ] && continue; \
@@ -648,7 +648,6 @@ post-install:
 	done
 # share
 	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba410 ${XIGMANAS_ROOTFS}/usr/local/share
-
 # misc
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
 	for file in talloc.so tdb.so; do \
@@ -658,9 +657,7 @@ post-install:
 	for file in ldb.so; do \
 		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.7/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages; \
 	done
-
-
-#	@${CP} -Rpv ${PREFIX}/lib/python3.7/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.7/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
 
 # ldb/tdb
@@ -671,9 +668,6 @@ post-install:
 	for file in ${STAGEDIR}${PREFIX}/lib/modules/ldb/*; do \
 		${CP} -pv $${file} ${XIGMANAS_ROOTFS}/usr/local/lib/shared-modules/ldb; \
 	done
-#	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/ldb
-#	@${CP} -Rpv ${PREFIX}/lib/ldb/libldb-cmdline.so ${XIGMANAS_ROOTFS}/usr/local/lib/ldb
-
 	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
 		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
 	done
