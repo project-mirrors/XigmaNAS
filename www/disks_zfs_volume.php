@@ -66,7 +66,7 @@ function get_sphere_disks_zfs_volume() {
 }
 function zfsvolume_process_updatenotification($mode,$data) {
 	global $config;
-	
+
 	$retval = 0;
 	$sphere = get_sphere_disks_zfs_volume();
 	switch($mode):
@@ -95,7 +95,7 @@ function zfsvolume_process_updatenotification($mode,$data) {
 	return $retval;
 }
 function get_zfs_volume_info($pool,$name) {
-	$cmd = sprintf('zfs get -pH -o value volsize,used,volblocksize %s 2>&1',escapeshellarg($pool . '/' . $name)); 
+	$cmd = sprintf('zfs get -pH -o value volsize,used,volblocksize %s 2>&1',escapeshellarg($pool . '/' . $name));
 	mwexec2($cmd,$rawdata);
 	$is_si = is_sidisksizevalues();
 	$rawdata[0] = format_bytes($rawdata[0],2,false,$is_si);
@@ -147,7 +147,7 @@ $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 //	add additional javascript code
 if(isset($jcode)):
-	$body->addJavaScript($jcode);
+	$body->ins_javascript($jcode);
 endif;
 //	add tab navigation
 $document->

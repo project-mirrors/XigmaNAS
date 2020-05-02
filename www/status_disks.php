@@ -176,7 +176,7 @@ $n_colwidth = count($a_colwidth);
 $document = new_page([gettext('Status'),gettext('Disks')],NULL,'tablesort');
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-$body->addJavaScript($jcode);
+$body->ins_javascript($jcode);
 $content = $pagecontent->add_area_data();
 $tbody_inner = $content->
 	add_table_data_selection()->

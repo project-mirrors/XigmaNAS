@@ -82,7 +82,7 @@ $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 //	add additional javascript code
 if(isset($jcode)):
-	$body->addJavaScript($jcode);
+	$body->ins_javascript($jcode);
 endif;
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
