@@ -1533,28 +1533,10 @@ trait co_DOMTools {
 		return $this;
 	}
 /**
- *	Appends a JavaScript node to the DOM
+ *	Inserts a JavaScript node into DOM
  *	@param string $text
  *	@return DOMNode $this
  */
-	public function addJavaScript(string $text = '') {
-		if(preg_match('/\S/',$text)):
-			$node = $this->addElement('script');
-			if(false !== $node):
-				$opening = $node->ownerDocument->createTextNode("\n" . '//<![CDATA[' . "\n");
-				$ending = $node->ownerDocument->createTextNode("\n" . '//]]>' . "\n");
-				if((false !== $opening) && (false !== $ending)):
-					$node->appendChild($opening);
-					$cdata = $node->ownerDocument->createTextNode($text);
-					if(false !== $cdata):
-						$node->appendChild($cdata);
-					endif;
-					$node->appendChild($ending);
-				endif;
-			endif;
-		endif;
-		return $this;
-	}
 	public function ins_javascript(string $text = '') {
 		if(preg_match('/\S/',$text)):
 			$node = $this->addElement('script');
