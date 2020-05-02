@@ -2890,7 +2890,7 @@ EOJ;
 		$head->
 			insElement('style',[],'.avoid-fouc { visibility:hidden; }');
 		$head->
-			addJavaScript("document.documentElement.className = 'avoid-fouc';");
+			addJavaScript('document.documentElement.classList.add("avoid-fouc");');
 		$head->
 			insElement('script',['src' => '/js/jquery.min.js'])->
 			insElement('script',['src' => '/js/gui.js'])->
@@ -2980,12 +2980,18 @@ EOJ;
 EOJ;
 			$this->add_js_on_load($jdata);
 		endif;
+		$jdata = <<<'EOJ'
+var foucNodeList = document.querySelectorAll(".avoid-fouc");
+var foucNodeCount = foucNodeList.length;
+for(let i = 0;i < foucNodeCount;i++) { foucNodeList[i].classList.remove("avoid-fouc"); }
+EOJ;
+		$this->add_js_document_ready($jdata);
 		if($is_tablesort):
 			$jdata = <<<'EOJ'
-	$.tablesorter.defaults.textSorter = $.tablesorter.sortText;
-	$(".area_data_selection").tablesorter({
-		emptyTo: 'none'
-	});
+$.tablesorter.defaults.textSorter = $.tablesorter.sortText;
+$(".area_data_selection").tablesorter({
+	emptyTo: 'none'
+});
 EOJ;
 			$this->add_js_document_ready($jdata);
 		endif;
@@ -3281,7 +3287,6 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 				]);
 				$body->addJavaScript($jdata);
 			endif;
-			$this->add_js_document_ready('document.querySelector(".avoid-fouc").classList.remove("avoid-fouc");');
 			$jdata = implode("\n",$this->js_document_ready);
 			$body->addJavaScript($jdata);
 		endif;
