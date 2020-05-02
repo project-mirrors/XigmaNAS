@@ -267,7 +267,7 @@ $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 //	add additional javascript code
 if(isset($jcode[$page_mode])):
-	$body->addJavaScript($jcode[$page_mode]);
+	$body->ins_javascript($jcode[$page_mode]);
 endif;
 //	add tab navigation
 $document->

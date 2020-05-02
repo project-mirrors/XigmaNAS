@@ -146,7 +146,7 @@ $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 //	add additional javascript code
 if(isset($jcode)):
-	$body->addJavaScript($jcode);
+	$body->ins_javascript($jcode);
 endif;
 //	add tab navigation
 $document->

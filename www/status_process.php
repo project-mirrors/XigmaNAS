@@ -37,7 +37,7 @@ require_once 'co_sphere.php';
 
 function get_sphere_status_process() {
 	global $config;
-	
+
 	$sphere = new co_sphere_row('status_process','php');
 	return $sphere;
 }
@@ -64,7 +64,7 @@ EOJ;
 $document = new_page([gettext('Status'),gettext('Processes')]);
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-$body->addJavaScript($jcode);
+$body->ins_javascript($jcode);
 $content = $pagecontent->add_area_data();
 $content->
 	add_table_data_settings()->
