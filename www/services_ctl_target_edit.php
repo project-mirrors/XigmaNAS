@@ -289,7 +289,7 @@ endif;
 $buttons->ins_button_cancel();
 $buttons->addElement('input',['name' => $sphere->get_row_identifier(),'type' => 'hidden','value' => $sphere->get_row_identifier_value()]);
 //	additional javascript code
-$body->addJavaScript($sphere->get_js());
+$body->ins_javascript($sphere->get_js());
 $body->add_js_on_load($sphere->get_js_on_load());
 $body->add_js_document_ready($sphere->get_js_document_ready());
 $document->render();

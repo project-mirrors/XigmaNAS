@@ -210,7 +210,7 @@ final class row_properties extends grid_properties {
 	}
 	public function init_size(): myp\property_text {
 		$description = gettext('The size of the LUN.');
-		$regexp = '/^(?:|0|[1-9][0-9]{0,16}(|[kmgtpezy]b?))$/i';
+		$regexp = '/^(?:|0|[1-9][0-9]{0,27}(?:|[kmgtpezy]b?))$/i';
 		$property = parent::init_size();
 		$property->
 			set_id('size')->
