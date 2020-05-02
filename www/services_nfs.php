@@ -307,7 +307,7 @@ $js_document_ready = [];
 $js_document_ready[PAGE_MODE_EDIT] = '';
 $js_document_ready[PAGE_MODE_VIEW] = '';
 //	add additional javascript code
-$body->addJavaScript($js_code[$page_mode]);
+$body->ins_javascript($js_code[$page_mode]);
 $body->add_js_on_load($js_on_load[$page_mode]);
 $body->add_js_document_ready($js_document_ready[$page_mode]);
  */
