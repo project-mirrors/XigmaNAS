@@ -1207,7 +1207,7 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$t[] = "\t\t\t" . 'element.options[i].selected = true;';
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$anchor->addJavaScript(implode("\n",$t));
+		$anchor->ins_javascript(implode("\n",$t));
 //		section 1: select + delete
 		$div1 = $anchor->addDIV();
 //		selected folder
@@ -1360,7 +1360,7 @@ class HTMLFolderBox12 extends HTMLFolderBox2 {
 		$t[] = "\t\t\t" . 'element.options[i].selected = true;';
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$anchor->addJavaScript(implode("\n",$t));
+		$anchor->ins_javascript(implode("\n",$t));
 //		section 1: select + delete
 		$div1 = $anchor->addDIV();
 //		selected folder
@@ -1538,6 +1538,24 @@ trait co_DOMTools {
  *	@return DOMNode $this
  */
 	public function addJavaScript(string $text = '') {
+		if(preg_match('/\S/',$text)):
+			$node = $this->addElement('script');
+			if(false !== $node):
+				$opening = $node->ownerDocument->createTextNode("\n" . '//<![CDATA[' . "\n");
+				$ending = $node->ownerDocument->createTextNode("\n" . '//]]>' . "\n");
+				if((false !== $opening) && (false !== $ending)):
+					$node->appendChild($opening);
+					$cdata = $node->ownerDocument->createTextNode($text);
+					if(false !== $cdata):
+						$node->appendChild($cdata);
+					endif;
+					$node->appendChild($ending);
+				endif;
+			endif;
+		endif;
+		return $this;
+	}
+	public function ins_javascript(string $text = '') {
 		if(preg_match('/\S/',$text)):
 			$node = $this->addElement('script');
 			if(false !== $node):
@@ -2890,8 +2908,6 @@ EOJ;
 		$head->
 			insElement('style',[],'.avoid-fouc { visibility:hidden; }');
 		$head->
-			addJavaScript('document.documentElement.classList.add("avoid-fouc");');
-		$head->
 			insElement('script',['src' => '/js/jquery.min.js'])->
 			insElement('script',['src' => '/js/gui.js'])->
 			insElement('script',['src' => '/js/spinner.js'])->
@@ -3134,6 +3150,7 @@ EOJ;
 	public function ins_main() {
 		$this->
 			addElement('main',['id' => 'g4m'])->
+				ins_javascript('document.getElementById("g4m").classList.add("avoid-fouc");')->
 				addDIV(['id' => 'pagecontent']);
 		return $this;
 	}
@@ -3285,10 +3302,10 @@ class co_DOMDocument extends \DOMDocument implements ci_DOM {
 					implode("\n",$this->js_on_load),
 					'});'
 				]);
-				$body->addJavaScript($jdata);
+				$body->ins_javascript($jdata);
 			endif;
 			$jdata = implode("\n",$this->js_document_ready);
-			$body->addJavaScript($jdata);
+			$body->ins_javascript($jdata);
 		endif;
 		return $this;
 	}
