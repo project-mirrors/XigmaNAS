@@ -172,7 +172,7 @@ $('#system_rc_list img.move').click(function() {
 	if ($(this).hasClass('down')) row.next().after(row);
 });
 EOJ;
-		$body->addJavaScript();
+		$body->ins_javascript();
 		$body->add_js_on_load($jol);
 		$body->add_js_document_ready($sphere->get_js_document_ready());
 		$document->render();

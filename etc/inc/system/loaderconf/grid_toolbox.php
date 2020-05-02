@@ -183,7 +183,7 @@ final class grid_toolbox {
 			add_area_remarks()->
 				ins_remark('note',\gettext('Note'),\gettext('These option(s) will be added to /boot/loader.conf.local. This allows you to specify parameters to be passed to the kernel and additional modules to be loaded.'));
 		//	additional javascript code
-		$body->addJavaScript($sphere->get_js());
+		$body->ins_javascript($sphere->get_js());
 		$body->add_js_on_load($sphere->get_js_on_load());
 		$body->add_js_document_ready($sphere->get_js_document_ready());
 		$document->render();
