@@ -108,7 +108,7 @@ final class row_properties extends grid_properties {
 		$regexp = '/^[^"]{1,32}$/';
 		$property = parent::init_mutual_secret();
 		$property->
-			set_id('secret')->
+			set_id('mutual_secret')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_placeholder($placeholder)->
