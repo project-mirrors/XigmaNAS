@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
@@ -174,7 +175,7 @@ function diag_infos_rsync_client_selection($cop,$sphere) {
 			$remoteserverips = [];
 			$remoteshare = is_string($test = $sphere->row['remoteshare'] ?? '') ? $test : '';
 			$rsyncserverip = is_string($test = $sphere->row['rsyncserverip'] ?? '') ? $test : '';
-			$is_reversedirection = is_bool($test = $sphere->row['reverseddirection'] ?? false) ? $test : true;
+			$is_reversedirection = is_bool($test = $sphere->row['options']['reversedirection'] ?? false) ? $test : true;
 			$localshare = is_string($test = $sphere->row['localshare'] ?? '') ? $test : '';
 			if(array_key_exists($rsyncserverip,$remoteserverips)):
 				$detected_shares = $remoteserverips[$rsyncserverip];
