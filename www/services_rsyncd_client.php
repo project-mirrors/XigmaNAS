@@ -238,9 +238,9 @@ echo $sphere->doj();
 ?>
 			<tr>
 				<th class="lhelc"><?=$sphere->html_checkbox_toggle_cbm();?></th>
-				<th class="lhell"><?=gtext('Remote Module (Source)');?></th>
+				<th class="lhell"><?=gtext('Remote Module');?></th>
 				<th class="lhell"><?=gtext('Remote Address');?></th>
-				<th class="lhell"><?=gtext('Local Share (Destination)');?></th>
+				<th class="lhell"><?=gtext('Local Share');?></th>
 				<th class="lhell"><?=gtext('Who');?></th>
 				<th class="lhell"><?=gtext('Description');?></th>
 				<th class="lhebl"><?=gtext('Toolbox');?></th>
