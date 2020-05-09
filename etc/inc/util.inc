@@ -1100,7 +1100,16 @@ function parse_controller_config(&$devlist) {
 				$device['target_id'] = $mfi_device['target_id'];
 				$device['model'] = parse_device_desc($mfi_device['device_name']);
 				$device['controller_desc'] = parse_raid_controller_desc($device['controller'] . $device['controller_id']);
-				$device['smart']['devicefilepath'] = '/dev/' . $mfi_device['device_name'];
+				if($device['passthroughdevice'] === ''):
+//					no peripheral devices reported by camcontrol devlist -v
+					$device['smart']['devicefilepath'] = '/dev/' . $mfi_device['device_name'];
+				elseif(mwexec('/sbin/kldstat -q -m mfi/mfip') !== 0):
+//					mfi passthrough module is not loaded
+					$device['smart']['devicefilepath'] = '/dev/' . $mfi_device['device_name'];
+				else:
+//					mfi passthrough module is loaded, use passthrough device
+					$device['smart']['devicefilepath'] = '/dev/' . $device['passthroughdevice'];
+				endif;
 				$device['smart']['devicetype'] = 'sat';
 				$device['smart']['devicetypearg'] = 'sat';
 				break;
@@ -1213,20 +1222,23 @@ function parse_controller_config(&$devlist) {
 /*
  *
  */
-function map_mfi_device_name($controller,$mfisyspd) {
-	$mfi_device = [];
-	mwexec2("dmesg | grep \"" . $device['controller'] . "\"",$lines);
+function map_mfi_device_name(string $controller,string $mfisyspd) {
+	$mfi_device = [
+		'target_id' => '',
+		'device_name' => ''
+	];
+	\mwexec2(\sprintf('dmesg | grep "%s"',$controller),$lines);
 //	look for deviceid '0' in mfisyspd0: 3815447MB (7814037168 sectors) SYSPD volume (deviceid: 0)
 	foreach($lines as $line):
-		if(preg_match("/^" . $mfisyspd . ": /",$line,$matches)):
-			if(preg_match("/(?<= \(deviceid: )[0-9]+/",$line,$matches)):
-				$mfi_device['target_id']=$matches[0];
+		if(\preg_match(\sprintf('/^%s: /',$mfisyspd),$line,$matches_trigger)):
+			if(\preg_match('/(?<= \(deviceid: )[0-9]+/',$line,$matches)):
+				$mfi_device['target_id'] = $matches[0];
 			endif;
 		endif;
 	endforeach;
 //	2nd pass to retrieve actual device name
 	foreach($lines as $line):
-		if(preg_match("/[-A-z0-9].*(?= at ".$controller." [-A-z0-9 ].*(?=target ".$mfi_device['target_id']."))+/",$line,$matches)):
+		if(\preg_match('/[-A-z0-9].*(?= at ' . $controller . ' [-A-z0-9 ].*(?=target ' . $mfi_device['target_id'] . '))+/',$line,$matches)):
 			$mfi_device['device_name'] = $matches[0];
 		endif;
 	endforeach;
