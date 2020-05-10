@@ -824,10 +824,10 @@ function get_smartmontools_drivedb_arg() {
 }
 /**
  *	Parse infos from camcontrol
- *	@param type $devtype
+ *	@param string $devtype ata, cdrom or scsi
  *	@return array devlist
  */
-function parse_camcontrol_info($devtype) {
+function parse_camcontrol_info(string $devtype) {
 	$devlist = [];
 	$controller = ['',''];
 	$use_si = is_sidisksizevalues();
@@ -1100,16 +1100,7 @@ function parse_controller_config(&$devlist) {
 				$device['target_id'] = $mfi_device['target_id'];
 				$device['model'] = parse_device_desc($mfi_device['device_name']);
 				$device['controller_desc'] = parse_raid_controller_desc($device['controller'] . $device['controller_id']);
-				if($device['passthroughdevice'] === ''):
-//					no peripheral devices reported by camcontrol devlist -v
-					$device['smart']['devicefilepath'] = '/dev/' . $mfi_device['device_name'];
-				elseif(mwexec('/sbin/kldstat -q -m mfi/mfip') !== 0):
-//					mfi passthrough module is not loaded
-					$device['smart']['devicefilepath'] = '/dev/' . $mfi_device['device_name'];
-				else:
-//					mfi passthrough module is loaded, use passthrough device
-					$device['smart']['devicefilepath'] = '/dev/' . $device['passthroughdevice'];
-				endif;
+				$device['smart']['devicefilepath'] = '/dev/' . $mfi_device['device_name'];
 				$device['smart']['devicetype'] = 'sat';
 				$device['smart']['devicetypearg'] = 'sat';
 				break;
@@ -1212,23 +1203,20 @@ function parse_controller_config(&$devlist) {
 /*
  *
  */
-function map_mfi_device_name(string $controller,string $mfisyspd) {
-	$mfi_device = [
-		'target_id' => '',
-		'device_name' => ''
-	];
-	\mwexec2(\sprintf('dmesg | grep "%s"',$controller),$lines);
+function map_mfi_device_name($controller,$mfisyspd) {
+	$mfi_device = [];
+	mwexec2("dmesg | grep \"" . $device['controller'] . "\"",$lines);
 //	look for deviceid '0' in mfisyspd0: 3815447MB (7814037168 sectors) SYSPD volume (deviceid: 0)
 	foreach($lines as $line):
-		if(\preg_match(\sprintf('/^%s: /',$mfisyspd),$line,$matches_trigger)):
-			if(\preg_match('/(?<= \(deviceid: )[0-9]+/',$line,$matches)):
-				$mfi_device['target_id'] = $matches[0];
+		if(preg_match("/^" . $mfisyspd . ": /",$line,$matches)):
+			if(preg_match("/(?<= \(deviceid: )[0-9]+/",$line,$matches)):
+				$mfi_device['target_id']=$matches[0];
 			endif;
 		endif;
 	endforeach;
 //	2nd pass to retrieve actual device name
 	foreach($lines as $line):
-		if(\preg_match('/[-A-z0-9].*(?= at ' . $controller . ' [-A-z0-9 ].*(?=target ' . $mfi_device['target_id'] . '))+/',$line,$matches)):
+		if(preg_match("/[-A-z0-9].*(?= at ".$controller." [-A-z0-9 ].*(?=target ".$mfi_device['target_id']."))+/",$line,$matches)):
 			$mfi_device['device_name'] = $matches[0];
 		endif;
 	endforeach;
@@ -1515,45 +1503,39 @@ function get_hraid_disks_list() {
 			init_device_attributes($disklist[$diskname]);
 			$disklist[$diskname]['devicespecialfile']= '/dev/' . $diskname;
 			$disklist[$diskname]['type'] = 'RAID';
-			switch($device[0]):
-				case 'twed':
+			if($device[0] == 'twed' || $device[0] == 'mfisyspd'):
+				if($device[0] == 'twed'):
 					$disklist[$diskname]['target_id'] = $disklist[$diskname]['id'];
-//					VVV no break statement here VVV
-				case 'mfisyspd':
-//					mfi driver
-				case 'mfid':
-//					mfi driver
-					$matches = [];
-//					look for controller details from dmesg
-					foreach($rawdmesg as $line):
-//						example : twed2 on twe0
-						if(preg_match('/(?<=' . $diskname . ' on )[a-z]+[0-9]+$/',$line,$matches)):
-							$controller = [];
-							$controller = preg_split('/([-A-z]+)/',$matches[0],-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-//							get controller and controller id
-							$disklist[$diskname]['controller'] = $controller[0];
-							$disklist[$diskname]['controller_id'] = $controller[1];
+				endif;
+				$matches = [];
+//				look for controller details from dmesg
+				foreach($rawdmesg as $line):
+//					example : twed2 on twe0
+					if(preg_match('/(?<=' . $diskname . ' on )[a-z]+[0-9]+$/',$line,$matches)):
+						$controller = [];
+						$controller = preg_split('/([-A-z]+)/',$matches[0],-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+//						get controller and controller id
+						$disklist[$diskname]['controller'] = $controller[0];
+						$disklist[$diskname]['controller_id'] = $controller[1];
+					endif;
+				endforeach;
+			else:
+//				looking for the disk description in the dmesg
+				foreach($rawdmesg as $dmesgline):
+//					separe la ligne par les espace
+					$dmesgtab = explode(' ',$dmesgline);
+					$dmesgtab[0] = rtrim($dmesgtab[0],':');
+//					si la ligne commence par le nom du disque: attention il y a 2 lignes
+					if($dmesgtab[0] != '' && (strcasecmp($dmesgtab[0],$diskname) == 0)):
+//						the first line as this example "aacd0: <RAID 5> on aac0"
+						if(strcasecmp(substr($dmesgtab[1],0,1),'<') == 0):
+//							match the description witch is include between < and >
+							preg_match('/.*\<([^>]*)>.*/',$dmesgline,$match);
+							$disklist[$diskname]['desc'] = $match[1];
 						endif;
-					endforeach;
-					break;
-				default:
-//					looking for the disk description in the dmesg
-					foreach($rawdmesg as $dmesgline):
-//						separe la ligne par les espace
-						$dmesgtab = explode(' ',$dmesgline);
-						$dmesgtab[0] = rtrim($dmesgtab[0],':');
-//						si la ligne commence par le nom du disque: attention il y a 2 lignes
-						if($dmesgtab[0] != '' && (strcasecmp($dmesgtab[0],$diskname) == 0)):
-//							the first line as this example "aacd0: <RAID 5> on aac0"
-							if(strcasecmp(substr($dmesgtab[1],0,1),'<') == 0):
-//								match the description witch is include between < and >
-								preg_match('/.*\<([^>]*)>.*/',$dmesgline,$match);
-								$disklist[$diskname]['desc'] = $match[1];
-							endif;
-						endif;
-					endforeach;
-					break;
-			endswitch;
+					endif;
+				endforeach;
+			endif;
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($diskname);
 			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
