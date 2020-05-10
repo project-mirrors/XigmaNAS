@@ -1515,39 +1515,45 @@ function get_hraid_disks_list() {
 			init_device_attributes($disklist[$diskname]);
 			$disklist[$diskname]['devicespecialfile']= '/dev/' . $diskname;
 			$disklist[$diskname]['type'] = 'RAID';
-			if($device[0] == 'twed' || $device[0] == 'mfisyspd'):
-				if($device[0] == 'twed'):
+			switch($device[0]):
+				case 'twed':
 					$disklist[$diskname]['target_id'] = $disklist[$diskname]['id'];
-				endif;
-				$matches = [];
-//				look for controller details from dmesg
-				foreach($rawdmesg as $line):
-//					example : twed2 on twe0
-					if(preg_match('/(?<=' . $diskname . ' on )[a-z]+[0-9]+$/',$line,$matches)):
-						$controller = [];
-						$controller = preg_split('/([-A-z]+)/',$matches[0],-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-//						get controller and controller id
-						$disklist[$diskname]['controller'] = $controller[0];
-						$disklist[$diskname]['controller_id'] = $controller[1];
-					endif;
-				endforeach;
-			else:
-//				looking for the disk description in the dmesg
-				foreach($rawdmesg as $dmesgline):
-//					separe la ligne par les espace
-					$dmesgtab = explode(' ',$dmesgline);
-					$dmesgtab[0] = rtrim($dmesgtab[0],':');
-//					si la ligne commence par le nom du disque: attention il y a 2 lignes
-					if($dmesgtab[0] != '' && (strcasecmp($dmesgtab[0],$diskname) == 0)):
-//						the first line as this example "aacd0: <RAID 5> on aac0"
-						if(strcasecmp(substr($dmesgtab[1],0,1),'<') == 0):
-//							match the description witch is include between < and >
-							preg_match('/.*\<([^>]*)>.*/',$dmesgline,$match);
-							$disklist[$diskname]['desc'] = $match[1];
+//					VVV no break statement here VVV
+				case 'mfisyspd':
+//					mfi driver
+				case 'mfid':
+//					mfi driver
+					$matches = [];
+//					look for controller details from dmesg
+					foreach($rawdmesg as $line):
+//						example : twed2 on twe0
+						if(preg_match('/(?<=' . $diskname . ' on )[a-z]+[0-9]+$/',$line,$matches)):
+							$controller = [];
+							$controller = preg_split('/([-A-z]+)/',$matches[0],-1,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+//							get controller and controller id
+							$disklist[$diskname]['controller'] = $controller[0];
+							$disklist[$diskname]['controller_id'] = $controller[1];
 						endif;
-					endif;
-				endforeach;
-			endif;
+					endforeach;
+					break;
+				default:
+//					looking for the disk description in the dmesg
+					foreach($rawdmesg as $dmesgline):
+//						separe la ligne par les espace
+						$dmesgtab = explode(' ',$dmesgline);
+						$dmesgtab[0] = rtrim($dmesgtab[0],':');
+//						si la ligne commence par le nom du disque: attention il y a 2 lignes
+						if($dmesgtab[0] != '' && (strcasecmp($dmesgtab[0],$diskname) == 0)):
+//							the first line as this example "aacd0: <RAID 5> on aac0"
+							if(strcasecmp(substr($dmesgtab[1],0,1),'<') == 0):
+//								match the description witch is include between < and >
+								preg_match('/.*\<([^>]*)>.*/',$dmesgline,$match);
+								$disklist[$diskname]['desc'] = $match[1];
+							endif;
+						endif;
+					endforeach;
+					break;
+			endswitch;
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($diskname);
 			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
