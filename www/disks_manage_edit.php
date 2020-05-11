@@ -139,9 +139,9 @@ if($_POST):
 		$disks['controller'] = $a_phy_disk[$devname]['controller'];
 		$disks['controller_id'] = $a_phy_disk[$devname]['controller_id'];
 		$disks['controller_desc'] = $a_phy_disk[$devname]['controller_desc'];
-		$disks['smart']['devicefilepath'] = $_POST['smart_devicefilepath'] ?? $a_phy_disk[$devname]['smart']['devicefilepath'] ?? '';
+		$disks['smart']['devicefilepath'] = $a_phy_disk[$devname]['smart']['devicefilepath'];
 		$disks['smart']['devicetype'] = $a_phy_disk[$devname]['smart']['devicetype'];
-		$disks['smart']['devicetypearg'] = $_POST['smart_devicetypearg'] ?? $a_phy_disk[$devname]['smart']['devicetypearg'] ?? '';
+		$disks['smart']['devicetypearg'] = $a_phy_disk[$devname]['smart']['devicetypearg'];
 		$disks['smart']['enable'] = isset($_POST['smart_enable']) ? true : false;
 		$disks['smart']['extraoptions'] = $_POST['smart_extraoptions'];
 		if(isset($uuid) && ($cnid !== false)):
@@ -169,13 +169,9 @@ function smart_enable_change() {
 	switch (document.iform.smart_enable.checked) {
 		case false:
 			showElementById('smart_extraoptions_tr','hide');
-			showElementById('smart_devicefilepath_tr','hide');
-			showElementById('smart_devicetypearg_tr','hide');
 			break;
 		case true:
 			showElementById('smart_extraoptions_tr','show');
-			showElementById('smart_devicefilepath_tr','show');
-			showElementById('smart_devicetypearg_tr','show');
 			break;
 	}
 }
@@ -268,8 +264,6 @@ $document->render();
 				];
 				html_combobox2('acoustic',gettext('Acoustic Level'),$pconfig['acoustic'],$options,gettext("This allows you to set how loud the drive is while it's operating."),false);
 				html_checkbox2('smart_enable',gettext('S.M.A.R.T.'),!empty($pconfig['smart_enable']) ? true : false,gettext('Activate S.M.A.R.T. monitoring for this device.'),'',false,false,'smart_enable_change()');
-				html_inputbox2('smart_devicefilepath',gettext('S.M.A.R.T. Device'),$pconfig['smart_devicefilepath'],gettext('The device to be used to query S.M.A.R.T. information.'),false,60);
-				html_inputbox2('smart_devicetypearg',gettext('S.M.A.R.T. Device Type'),$pconfig['smart_devicetypearg'],gettext('The device type to be used to query S.M.A.R.T. information.'),false,60);
 				$helpinghand = gettext('Extra options (usually empty).')
 					. ' '
 					. '<a href="' . 'https://www.smartmontools.org/browser/trunk/smartmontools/smartd.conf.5.in' . '" target="_blank" rel="noreferrer">'
