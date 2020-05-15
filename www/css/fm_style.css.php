@@ -1,6 +1,6 @@
 <?php
 /*
-	style.css.php
+	fm_style.css.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
