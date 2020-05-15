@@ -163,7 +163,7 @@ final class setting_properties extends grid_properties {
 	}
 	public function init_cssstylefile(): myp\property_text {
 		$description = gettext('Fully qualified file name of a custom file manager CSS file.');
-		$placeholder = '/usr/local/www/quixplorer/_style/style.css';
+		$placeholder = '/usr/local/www/css/fm_style.css';
 		$property = parent::init_cssstylefile();
 		$property->
 			set_id('cssstylefile')->
