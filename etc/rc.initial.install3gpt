@@ -128,7 +128,7 @@ $text = <<<EOD
 
 - Create GPT partition 1, for bootcode
 - Create GPT partition 2, using UFS, customizable size for OS
-- Create GPT partition 3, as SWAP, {$swapsize}MB or more
+- Create GPT partition 3, SWAP partition, size is customizable
 - Create GPT partition 4, using UFS, for DATA
 
 WARNING: There will be some limitations:
