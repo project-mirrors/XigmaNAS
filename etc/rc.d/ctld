@@ -88,7 +88,7 @@ ctld_mkconf()
 				--break \
 				--value-of 'concat("auth-group ",name," {")' --nl \
 				--if 'string-length(auth_type) > 0' \
-					--value-of 'concat("auth-type ",auth_type)' --nl \
+					--value-of "concat('auth-type \"',auth_type,'\"')" --nl \
 				--break \
 				--match '//ctld/ctl_sub_chap/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(name) > 0 and string-length(secret) > 0' \
