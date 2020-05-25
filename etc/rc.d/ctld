@@ -39,17 +39,17 @@ ctld_mkconf()
 {
 	cat /dev/null > ${ctld_config}
 	chmod 600 ${ctld_config}
-	echo '# global settings' > ${ctld_config}
-	/usr/local/bin/xml sel --template \
+	/usr/local/bin/xml sel --text --template \
+		--output '#   global settings' --nl \
 		--match '//ctld' \
 			--if 'string-length(debug) > 0' \
-				--value-of 'concat("debug ",debug)' --nl \
+				--value-of "concat('debug \"',debug,'\"')" --nl \
 			--break \
 			--if 'string-length(maxproc) > 0' \
-				--value-of 'concat("maxproc ",maxproc)' --nl \
+				--value-of "concat('maxproc \"',maxproc,'\"')" --nl \
 			--break \
 			--if 'string-length(timeout) > 0' \
-				--value-of 'concat("timeout ",timeout)' --nl \
+				--value-of "concat('timeout \"',timeout,'\"')" --nl \
 			--break \
 			--match '//ctld/ctl_sub_isnsserver/param[enable]' \
 				--if 'string-length(ipaddress) > 0' \
@@ -66,10 +66,10 @@ ctld_mkconf()
 				--break \
 			--break \
 			--if 'string-length(isns_period) > 0' \
-				--value-of 'concat("isns-period ",isns_period)' --nl \
+				--value-of "concat('isns-period \"',isns_period,'\"')" --nl \
 			--break \
 			--if 'string-length(isns_timeout) > 0' \
-				--value-of 'concat("isns-timeout ",isns_timeout)' --nl \
+				--value-of "concat('isns-timeout \"',isns_timeout,'\"')" --nl \
 			--break \
 			--match 'auxparam' \
 				--if 'position() < last() or string-length(.) > 0' \
@@ -77,43 +77,44 @@ ctld_mkconf()
 				--break \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc >> ${ctld_config}
-	echo '# auth-group configuration' >> ${ctld_config}
-	/usr/local/bin/xml sel --template \
+		--output '#   auth-group configuration' --nl \
 		--match '//ctld/ctl_auth_group/param[enable]' \
 			--var filtergroup='.' \
 			--if 'string-length(name) > 0' \
+				--value-of "concat('auth-group \"',name,'\" {')" --nl \
 				--if 'string-length(description) > 0' \
-					--value-of 'concat("# ",description)' --nl \
+					--value-of 'concat("#   ",description)' --nl \
 				--break \
-				--value-of 'concat("auth-group ",name," {")' --nl \
 				--if 'string-length(auth_type) > 0' \
-					--value-of "concat('auth-type \"',auth_type,'\"')" --nl \
+					--value-of "concat('    auth-type \"',auth_type,'\"')" --nl \
 				--break \
 				--match '//ctld/ctl_sub_chap/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(name) > 0 and string-length(secret) > 0' \
 						--if "contains(secret,'\"')" \
-							--output '# invalid character(s) were removed from chap secret:' --nl \
+							--output '#   invalid character(s) were removed from chap secret:' --nl \
 						--break \
-						--value-of "concat('chap \"',name,'\" \"',str:replace(secret,'\"',''),'\"')" --nl \
+						--value-of "concat('    chap \"',name,'\" \"',str:replace(secret,'\"',''),'\"')" --nl \
 					--break \
 				--break \
 				--match '//ctld/ctl_sub_chap_mutual/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(name) > 0 and string-length(secret) > 0 and string-length(mutual_name) > 0 and string-length(mutual_secret) > 0' \
-						--if "contains(secret,'\"') or contains(mutual_secret,'\"')" \
-							--output '# invalid character(s) were removed from chap secret or mutual chap secret:' --nl \
+						--if "contains(secret,'\"')" \
+							--output '#   invalid character(s) were removed from chap secret:' --nl \
 						--break \
-						--value-of "concat('chap-mutual \"',name,'\" \"',str:replace(secret,'\"',''),'\" \"',mutual_name,'\" \"',str:replace(mutual_secret,'\"',''),'\"')" --nl \
+						--if "contains(mutual_secret,'\"')" \
+							--output '#   invalid character(s) were removed from mutual chap secret:' --nl \
+						--break \
+						--value-of "concat('    chap-mutual \"',name,'\" \"',str:replace(secret,'\"',''),'\" \"',mutual_name,'\" \"',str:replace(mutual_secret,'\"',''),'\"')" --nl \
 					--break \
 				--break \
 				--match '//ctld/ctl_sub_initiator_name/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(name) > 0' \
-						--value-of "concat('initiator-name \"',name,'\"')" --nl \
+						--value-of "concat('    initiator-name \"',name,'\"')" --nl \
 					--break \
 				--break \
 				--match '//ctld/ctl_sub_initiator_portal/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(ipaddress) > 0' \
-						--output 'initiator-portal "' \
+						--output '    initiator-portal "' \
 						--if 'contains(ipaddress,":")' \
 							--value-of 'concat("[",ipaddress,"]")' \
 						--else \
@@ -133,27 +134,25 @@ ctld_mkconf()
 				--output '}' --nl \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc >> ${ctld_config}
-	echo '# portal-group configuration' >> ${ctld_config}
-	/usr/local/bin/xml sel --template \
+		--output '#   portal-group configuration' --nl \
 		--match '//ctld/ctl_portal_group/param[enable]' \
 			--var filtergroup='.' \
 			--if 'string-length(name) > 0' \
+				--value-of "concat('portal-group \"',name,'\" {')" --nl \
 				--if 'string-length(description) > 0' \
-					--value-of 'concat("# ",description)' --nl \
+					--value-of 'concat("#   ",description)' --nl \
 				--break \
-				--value-of 'concat("portal-group ",name," {")' --nl \
 				--if 'string-length(discovery_auth_group) > 0' \
-					--value-of 'concat("discovery-auth-group ",discovery_auth_group)' --nl \
+					--value-of "concat('    discovery-auth-group \"',discovery_auth_group,'\"')" --nl \
 				--break \
 				--if 'string-length(discovery_filter) > 0' \
-					--value-of 'concat("discovery-filter ",discovery_filter)' --nl \
+					--value-of "concat('    discovery-filter \"',discovery_filter,'\"')" --nl \
 				--break \
 				--if 'string-length(offload) > 0' \
-					--value-of 'concat("offload ",offload)' --nl \
+					--value-of "concat('    offload \"',offload,'\"')" --nl \
 				--break \
 				--if 'string-length(redirect) > 0' \
-					--output 'redirect "' \
+					--output '    redirect "' \
 					--if 'contains(redirect,":")' \
 						--value-of 'concat("[",redirect,"]")' \
 					--else \
@@ -162,14 +161,14 @@ ctld_mkconf()
 					--output '"' --nl \
 				--break \
 				--if 'string-length(tag) > 0' \
-					--value-of 'concat("tag ",tag)' --nl \
+					--value-of "concat('    tag \"',tag,'\"')" --nl \
 				--break \
 				--if 'count(foreign) > 0' \
-					--output 'foreign' --nl \
+					--output '    foreign' --nl \
 				--break \
 				--match '//ctld/ctl_sub_listen/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(ipaddress) > 0' \
-						--output 'listen "' \
+						--output '    listen "' \
 						--if 'contains(ipaddress,":")' \
 							--value-of 'concat("[",ipaddress,"]")' \
 						--else \
@@ -183,7 +182,7 @@ ctld_mkconf()
 				--break \
 				--match '//ctld/ctl_sub_option/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(name) > 0 and string-length(value) > 0' \
-						--value-of 'concat("option ",name," ",value)' --nl \
+						--value-of "concat('    option \"',name,'\" \"',value,'\"')" --nl \
 					--break \
 				--break \
 				--match 'auxparam' \
@@ -194,146 +193,143 @@ ctld_mkconf()
 				--output '}' --nl \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc >> ${ctld_config}
-	echo '# lun configuration' >> ${ctld_config}
-	/usr/local/bin/xml sel --template \
+		--output '#   lun configuration' --nl \
 		--match '//ctld/ctl_lun/param[enable]' \
-			--var filtergroup='.' \
 			--if 'string-length(name) > 0' \
+				--value-of "concat('lun \"',name,'\" {')" --nl \
 				--if 'string-length(description) > 0' \
-					--value-of 'concat("# ",description)' --nl \
+					--value-of 'concat("#   ",description)' --nl \
 				--break \
-				--value-of 'concat("lun ",name," {")' --nl \
 				--if 'string-length(backend) > 0' \
-					--value-of 'concat("backend ",backend)' --nl \
+					--value-of "concat('    backend \"',backend,'\"')" --nl \
 				--break \
 				--if 'string-length(blocksize) > 0' \
-					--value-of 'concat("blocksize ",blocksize)' --nl \
+					--value-of "concat('    blocksize \"',blocksize,'\"')" --nl \
 				--break \
 				--if 'string-length(ctl_lun) > 0' \
-					--value-of 'concat("ctl-lun ",ctl_lun)' --nl \
+					--value-of "concat('    ctl-lun \"',ctl_lun,'\"')" --nl \
 				--break \
 				--if 'string-length(device_id) > 0' \
-					--value-of 'concat("device-id ",device_id)' --nl \
+					--value-of "concat('    device-id \"',device_id,'\"')" --nl \
 				--break \
 				--if 'string-length(device_type) > 0' \
-					--value-of "concat('device-type ',device_type)" --nl \
+					--value-of "concat('    device-type \"',device_type,'\"')" --nl \
 				--break \
 				--if 'string-length(serial) > 0' \
-					--value-of "concat('serial \"',serial,'\"')" --nl \
+					--value-of "concat('    serial \"',serial,'\"')" --nl \
 				--break \
 				--if 'string-length(size) > 0' \
-					--value-of "concat('size \"',size,'\"')" --nl \
+					--value-of "concat('    size \"',size,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_vendor) > 0' \
-					--value-of "concat('option vendor \"',opt_vendor,'\"')" --nl \
+					--value-of "concat('    option \"vendor\" \"',opt_vendor,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_product) > 0' \
-					--value-of "concat('option product \"',opt_product,'\"')" --nl \
+					--value-of "concat('    option \"product\" \"',opt_product,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_revision) > 0' \
-					--value-of "concat('option revision \"',opt_revision,'\"')" --nl \
+					--value-of "concat('    option \"revision\" \"',opt_revision,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_scsiname) > 0' \
-					--value-of "concat('option scsiname \"',opt_scsiname,'\"')" --nl \
+					--value-of "concat('    option \"scsiname\" \"',opt_scsiname,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_eui) > 0' \
-					--value-of 'concat("option eui ",opt_eui)' --nl \
+					--value-of "concat('    option \"eui\" \"',opt_eui,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_naa) > 0' \
-					--value-of 'concat("option naa 0x",opt_naa)' --nl \
+					--value-of "concat('    option \"naa\" \"0x',opt_naa,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_uuid) > 0' \
-					--value-of 'concat("option uuid ",opt_uuid)' --nl \
+					--value-of "concat('    option \"uuid\" \"',opt_uuid,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_ha_role) > 0' \
-					--value-of 'concat("option ha_role ",opt_ha_role)' --nl \
+					--value-of "concat('    option \"ha_role\" \"',opt_ha_role,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_insecure_tpc) > 0' \
-					--value-of 'concat("option insecure_tpc ",opt_insecure_tpc)' --nl \
+					--value-of "concat('    option \"insecure_tpc\" \"',opt_insecure_tpc,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_readcache) > 0' \
-					--value-of 'concat("option readcache ",opt_readcache)' --nl \
+					--value-of "concat('    option \"readcache\" \"',opt_readcache,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_readonly) > 0' \
-					--value-of 'concat("option readonly ",opt_readonly)' --nl \
+					--value-of "concat('    option \"readonly\" \"',opt_readonly,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_removable) > 0' \
-					--value-of 'concat("option removable ",opt_removable)' --nl \
+					--value-of "concat('    option \"removable\" \"',opt_removable,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_reordering) > 0' \
-					--value-of 'concat("option reordering ",opt_reordering)' --nl \
+					--value-of "concat('    option \"reordering\" \"',opt_reordering,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_serseq) > 0' \
-					--value-of 'concat("option serseq ",opt_serseq)' --nl \
+					--value-of "concat('    option \"serseq\" \"',opt_serseq,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_pblocksize) > 0' \
-					--value-of 'concat("option pblocksize ",opt_pblocksize)' --nl \
+					--value-of "concat('    option \"pblocksize\" \"',opt_pblocksize,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_pblockoffset) > 0' \
-					--value-of 'concat("option pblockoffset ",opt_pblockoffset)' --nl \
+					--value-of "concat('    option \"pblockoffset\" \"',opt_pblockoffset,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_ublocksize) > 0' \
-					--value-of 'concat("option ublocksize ",opt_ublocksize)' --nl \
+					--value-of "concat('    option \"ublocksize\" \"',opt_ublocksize,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_ublockoffset) > 0' \
-					--value-of 'concat("option ublockoffset ",opt_ublockoffset)' --nl \
+					--value-of "concat('    option \"ublockoffset\" \"',opt_ublockoffset,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_rpm) > 0' \
-					--value-of 'concat("option rpm ",opt_rpm)' --nl \
+					--value-of "concat('    option \"rpm\" \"',opt_rpm,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_formfactor) > 0' \
-					--value-of 'concat("option formfactor ",opt_formfactor)' --nl \
+					--value-of "concat('    option \"formfactor\" \"',opt_formfactor,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_provisioning_type) > 0' \
-					--value-of 'concat("option provisioning_type ",opt_provisioning_type)' --nl \
+					--value-of "concat('    option \"provisioning_type\" \"',opt_provisioning_type,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_unmap) > 0' \
-					--value-of 'concat("option unmap ",opt_unmap)' --nl \
+					--value-of "concat('    option \"unmap\" \"',opt_unmap,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_unmap_max_lba) > 0' \
-					--value-of 'concat("option unmap_max_lba ",opt_unmap_max_lba)' --nl \
+					--value-of "concat('    option \"unmap_max_lba\" \"',opt_unmap_max_lba,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_unmap_max_descr) > 0' \
-					--value-of 'concat("option unmap_max_descr ",opt_unmap_max_descr)' --nl \
+					--value-of "concat('    option \"unmap_max_descr\" \"',opt_unmap_max_descr,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_write_same_max_lba) > 0' \
-					--value-of 'concat("option write_same_max_lba ",opt_write_same_max_lba)' --nl \
+					--value-of "concat('    option \"write_same_max_lba\" \"',opt_write_same_max_lba,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_avail_threshold) > 0' \
-					--value-of 'concat("option avail-threshold ",opt_avail_threshold)' --nl \
+					--value-of "concat('    option \"avail-threshold\" \"',opt_avail_threshold,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_used_threshold) > 0' \
-					--value-of 'concat("option used-threshold ",opt_used_threshold)' --nl \
+					--value-of "concat('    option \"used-threshold\" \"',opt_used_threshold,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_pool_avail_threshold) > 0' \
-					--value-of 'concat("option pool-avail-threshold ",opt_pool_avail_threshold)' --nl \
+					--value-of "concat('    option \"pool-avail-threshold\" \"',opt_pool_avail_threshold,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_pool_used_threshold) > 0' \
-					--value-of 'concat("option pool-used-threshold ",opt_pool_used_threshold)' --nl \
+					--value-of "concat('    option \"pool-used-threshold\" \"',opt_pool_used_threshold,'\"')" --nl \
 				--break \
 				--if 'string-length(opt_writecache) > 0' \
-					--value-of 'concat("option writecache ",opt_writecache)' --nl \
+					--value-of "concat('    option \"writecache\" \"',opt_writecache,'\"')" --nl \
 				--break \
 				--if 'string-length(backend) = 0 or backend="block"' \
 					--if 'string-length(path) > 0' \
-						--value-of "concat('path \"',path,'\"')" --nl \
+						--value-of "concat('    path \"',path,'\"')" --nl \
 					--break \
 					--if 'string-length(opt_file) > 0' \
-						--value-of "concat('option file \"',opt_file,'\"')" --nl \
+						--value-of "concat('    option \"file\" \"',opt_file,'\"')" --nl \
 					--break \
 					--if 'string-length(opt_num_threads) > 0' \
-						--value-of 'concat("option num_threads ",opt_num_threads)' --nl \
+						--value-of "concat('    option \"num_threads\" \"',opt_num_threads,'\"')" --nl \
 					--break \
 				--break \
 				--if 'backend="ramdisk"' \
 					--if 'string-length(opt_capacity) > 0' \
-						--value-of 'concat("option capacity ",opt_capacity)' --nl \
+						--value-of "concat('    option \"capacity\" \"',opt_capacity,'\"')" --nl \
 					--break \
 				--break \
 				--if 'backend="passthrough"' \
 					--if 'string-length(passthrough_address) > 0' \
-						--value-of 'concat("passthrough-address ",passthrough_address)' --nl \
+						--value-of "concat('    passthrough-address \"',passthrough_address,'\"')" --nl \
 					--break \
 				--break \
 				--match 'auxparam' \
@@ -344,32 +340,30 @@ ctld_mkconf()
 				--output '}' --nl \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc >> ${ctld_config}
-	echo '# target configuration' >> ${ctld_config}
-	/usr/local/bin/xml sel --template \
+		--output '#   target configuration' --nl \
 		--match '//ctld/ctl_target/param[enable]' \
 			--var filtergroup='.' \
 			--if 'string-length(name) > 0' \
+				--value-of "concat('target \"',name,'\" {')" --nl \
 				--if 'string-length(description) > 0' \
-					--value-of 'concat("# ",description)' --nl \
+					--value-of 'concat("#   ",description)' --nl \
 				--break \
-				--value-of 'concat("target ",name," {")' --nl \
 				--if 'string-length(alias) > 0' \
-					--value-of "concat('alias \"',alias,'\"')" --nl \
+					--value-of "concat('    alias \"',alias,'\"')" --nl \
 				--break \
 				--if 'string-length(auth_group) > 0' \
-					--value-of 'concat("auth-group ",auth_group)' --nl \
+					--value-of "concat('    auth-group \"',auth_group,'\"')" --nl \
 				--break \
 				--if 'string-length(portal_group) > 0' \
-					--value-of 'concat("portal-group ",portal_group)' --nl \
+					--value-of "concat('    portal-group \"',portal_group,'\"')" --nl \
 				--break \
 				--match '//ctld/ctl_sub_port/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(name) > 0' \
-						--value-of 'concat("port ",name)' --nl \
+						--value-of "concat('    port \"',name,'\"')" --nl \
 					--break \
 				--break \
 				--if 'string-length(redirect) > 0' \
-					--output 'redirect "' \
+					--output '    redirect "' \
 					--if 'contains(redirect,":")' \
 						--value-of 'concat("[",redirect,"]")' \
 					--else \
@@ -379,7 +373,7 @@ ctld_mkconf()
 				--break \
 				--match '//ctld/ctl_sub_lun/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(number) > 0 and string-length(name) > 0' \
-						--value-of "concat('lun ',number,' \"',name,'\"')" --nl \
+						--value-of "concat('    lun \"',number,'\" \"',name,'\"')" --nl \
 					 --break \
 				--break \
 				--match 'auxparam' \
