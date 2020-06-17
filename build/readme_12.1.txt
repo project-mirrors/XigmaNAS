@@ -148,12 +148,12 @@ Fixes:
 Default login credentials:
 ==========================
 
- **** Default login credentials for the XigmaNAS® WEBGUI ****
+ **** Default login credentials for the XigmaNAS® WebGUI ****
  username: admin
  password: xigmanas
 
  **** Default login credentials for the XigmaNAS® Console (CLI) ****
- username: root
+ username: root or [WebGUI username]
  password: xigmanas
 
  **** Default login credentials for phpVirtualBox ****
