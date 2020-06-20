@@ -7,7 +7,7 @@ General note:
 Download your configuration file from the backup/restore page and store it in a safe location before upgrading your system.
 
 Important information for users running a XigmaNAS® installation with a revision older than 6625:
-================================================================================================
+=================================================================================================
 It is not recommended to perform an in-place upgrade via the firmware update page because of recent changes to the partition layout.
 - Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
 - Download your configuration file from the backup/restore page and store it in a safe location.
@@ -15,7 +15,7 @@ It is not recommended to perform an in-place upgrade via the firmware update pag
 - Boot from the newly created LiveCD/USB and perform a XigmaNAS® installation onto a new boot media.
 - After a successful installation, remove the LiveCD/USB device, boot from your new XigmaNAS® boot media and restore your previously saved configuration.
 
-Note for Full install users.
+Note for Full install users:
 ============================
 Make sure you first upgraded to XigmaNAS-x64-full-12.1.0.4.7321.tgz before you flash full-.txz files.
 The new (.txz) full upgrade files are compressed images.
@@ -33,8 +33,8 @@ Warning:
 Do not shortcut the installation procedure!
 The LiveCD/USB image contains a file called embedded.img.xz. Do not extract this file and write the extracted image to a media.
 
-Pre-upgrade task for "Full" RootOnZFS installations with a revision older than 6625
-===================================================================================
+Pre-upgrade task for "Full" RootOnZFS installations with a revision older than 6625:
+====================================================================================
 A one-off task must be performed when you are running a XigmaNAS® installation with a revision older than 6625 before upgrading.
 - Goto "Tools > Execute Command" and execute the below command to upgrade to the latest rc.firmware script:
 
