@@ -101,12 +101,12 @@ function print_table($list) {
 				$link = make_link('download',$dir,$item);
 			endif;
 			echo '<tr>',
-					'<td class="lcell">',
+					'<td class="lcell" style="white-space: nowrap">',
 						'<img border="0" width="16" height="16" align="ABSMIDDLE" src="/images/fm_img/' . $img . '" alt="">',
 						'&nbsp;',
 						'<a href="',$link,'" target="',$target,'">',htmlspecialchars($item),'</a>';
 			echo	'</td>';
-			echo	'<td class="lcebl">',
+			echo	'<td class="lcebl" style="white-space: nowrap">',
 						'<a href="',make_link('list',$dir,null),'"> /',htmlspecialchars($dir),'</a>',
 					'</td>';
 			echo '</tr>',"\n";
