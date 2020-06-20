@@ -64,6 +64,7 @@ CONFIGURE_ARGS+=	\
 		--with-iconv-dir=${LOCALBASE} \
 		--with-bz2=/usr \
 		--with-curl \
+		--enable-exif \
 		--enable-gd \
 		--with-freetype \
 		--with-jpeg \
