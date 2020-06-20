@@ -1,6 +1,6 @@
 <?php
 /*
-	search.php
+	fm_search.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
@@ -34,111 +34,175 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-// find items
-function find_item($dir,$pat,&$list,$recur) {
-	$handle=@opendir(get_abs_dir($dir));
-	if($handle===false) return;		// unable to open dir
-
-	while(($new_item=readdir($handle))!==false) {
-		if(!@file_exists(get_abs_item($dir, $new_item))) continue;
-		if(!get_show_item($dir, $new_item)) continue;
-
-		// match?
-		if (preg_match('/'.preg_quote($pat,'/').'/i', $new_item)) {
-			$list[]=array($dir,$new_item);
-		}
-		// search sub-directories
-		if(get_is_dir($dir, $new_item) && $recur) {
-			find_item(get_rel_item($dir,$new_item),$pat,$list,$recur);
-		}
-	}
-
-	closedir($handle);
+//	find items
+function find_item($dir,$regex,&$list,$recur) {
+	$handle = @opendir(get_abs_dir($dir));
+//	open dir successful?
+	if($handle !== false):
+		while(($new_item = readdir($handle)) !== false):
+			if(@file_exists(get_abs_item($dir,$new_item)) && get_show_item($dir,$new_item)):
+//				match?
+				if(preg_match($regex,$new_item) === 1):
+					$list[] = [$dir,$new_item];
+				endif;
+//				search sub-directories
+				if(get_is_dir($dir,$new_item) && $recur):
+					find_item(get_rel_item($dir,$new_item),$regex,$list,$recur);
+				endif;
+			endif;
+		endwhile;
+		closedir($handle);
+	endif;
 }
-// make list of found items
+//	make list of found items
 function make_list($dir,$item,$subdir) {
-	// convert shell-wildcards to PCRE Regex Syntax
-	$pat="^".str_replace("?",".",str_replace("*",".*",str_replace(".","\.",$item)))."$";
-
-	// search
-	find_item($dir,$pat,$list,$subdir);
-	if(is_array($list)) sort($list);
+//	convert shell-wildcards to PCRE Regex Syntax
+	$matches = preg_split('/([\?\*])/',$item,-1,PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+	if(is_array($matches) && count($matches) > 0):
+		$converted_matches = [];
+		foreach($matches as $single_match):
+			switch($single_match):
+				case '?':
+					$converted_matches[] = '.';
+					break;
+				case '*':
+					$converted_matches[] = '.*';
+					break;
+				default:
+					$converted_matches[] = preg_quote($single_match,'/');
+					break;
+			endswitch;
+		endforeach;
+		$regex = '/^' . implode('',$converted_matches) . '$/i';
+	else:
+		$regex = '/.*/';
+	endif;
+//	search
+	find_item($dir,$regex,$list,$subdir);
+	if(is_array($list)):
+		sort($list);
+	endif;
 	return $list;
 }
-// print table of found items
+//	print table of found items
 function print_table($list) {
-	if(!is_array($list)) return;
-
-	$cnt = count($list);
-	for($i=0;$i<$cnt;++$i) {
-		$dir = $list[$i][0];	$item = $list[$i][1];
-		$s_dir=$dir;	if(strlen($s_dir)>65) $s_dir=substr($s_dir,0,62)."...";
-		$s_item=$item;	if(strlen($s_item)>45) $s_item=substr($s_item,0,42)."...";
-		$link = "";	$target = "";
-
-		if(get_is_dir($dir,$item)) {
-			$img = "dir.gif";
-			$link = make_link("list",get_rel_item($dir, $item),null);
-		} else {
-			$img = get_mime_type($dir, $item, "img");
-			$link = make_link("download",$dir,$item);
-		}
-
-		echo "<TR><TD>" . "<IMG border=\"0\" width=\"16\" height=\"16\" ";
-		echo "align=\"ABSMIDDLE\" src=\"/images/fm_img/" . $img . "\" ALT=\"\">&nbsp;";
-		/*if($link!="")*/ echo"<A HREF=\"".$link."\" TARGET=\"".$target."\">";
-		//else echo "<A>";
-		echo htmlspecialchars($s_item)."</A></TD><TD><A HREF=\"" . make_link("list",$dir,null)."\"> /";
-		echo htmlspecialchars($s_dir)."</A></TD></TR>\n";
-	}
+	if(is_array($list)):
+		$cnt = count($list);
+		for($i = 0;$i < $cnt;++$i):
+			$dir = $list[$i][0];
+			$item = $list[$i][1];
+			$link = '';
+			$target = '';
+			if(get_is_dir($dir,$item)):
+				$img = 'dir.gif';
+				$link = make_link('list',get_rel_item($dir,$item),null);
+			else:
+				$img = get_mime_type($dir,$item,'img');
+				$link = make_link('download',$dir,$item);
+			endif;
+			echo '<tr>',
+					'<td class="lcell">',
+						'<img border="0" width="16" height="16" align="ABSMIDDLE" src="/images/fm_img/' . $img . '" alt="">',
+						'&nbsp;',
+						'<a href="',$link,'" target="',$target,'">',htmlspecialchars($item),'</a>';
+			echo	'</td>';
+			echo	'<td class="lcebl">',
+						'<a href="',make_link('list',$dir,null),'"> /',htmlspecialchars($dir),'</a>',
+					'</td>';
+			echo '</tr>',"\n";
+		endfor;
+	endif;
 }
-// search for item
+//	search for item
 function search_items($dir) {
-	if(isset($GLOBALS['__POST']['searchitem'])) {
-		$searchitem=$GLOBALS['__POST']['searchitem'];
-		$subdir=(isset($GLOBALS['__POST']['subdir']) && $GLOBALS['__POST']['subdir'] == 'y');
-		$list=make_list($dir,$searchitem,$subdir);
-	} else {
-		$searchitem=null;
-		$subdir=true;
-	}
-
-	$msg=gtext('Seach results');
-	if($searchitem!=null) $msg.=": (/" . get_rel_item($dir, $searchitem).")";
+	if(isset($GLOBALS['__POST']['searchitem'])):
+		$searchitem = $GLOBALS['__POST']['searchitem'];
+		$subdir = (isset($GLOBALS['__POST']['subdir']) && $GLOBALS['__POST']['subdir'] == 'y');
+		$list = make_list($dir,$searchitem,$subdir);
+	else:
+		$searchitem = null;
+		$subdir = true;
+	endif;
+	$msg = gtext('Search');
+	if($searchitem != null):
+		$msg .= ': (/' . get_rel_item($dir,$searchitem) . ')';
+	endif;
 	show_header(htmlspecialchars($msg));
-
-	// Search Box
-	echo "<BR><BR><BR><CENTER><TABLE><FORM name=\"searchform\" action=\"".make_link("search",$dir,null);
-	echo "\" method=\"post\">\n<TR><TD><INPUT name=\"searchitem\" type=\"text\" size=\"25\" value=\"";
-	echo htmlspecialchars($searchitem)."\"><INPUT type=\"submit\" value=\"". gtext('Search');
-	echo "\">&nbsp;<input type=\"button\" value=\"".gtext('Close');
-	echo "\" onClick=\"javascript:location='".make_link("list",$dir,null);
-	echo "';\"></TD></TR><TR><TD><INPUT type=\"checkbox\" name=\"subdir\" value=\"y\"";
-	echo ($subdir?" checked>":">").gtext('Search subdirectories')."</TD></TR></FORM></CENTER></TABLE>\n";
-
-	// Results
-	if($searchitem!=null) {
-		echo "<CENTER><TABLE width=\"95%\"><TR><TD colspan=\"2\"><HR></TD></TR>\n";
-		if(count($list)>0) {
-			// Table Header
-			echo "<TR>\n<TD WIDTH=\"42%\" class=\"header\"><B>".gtext('Name');
-			echo "</B></TD>\n<TD WIDTH=\"58%\" class=\"header\"><B>".gtext('Path');
-			echo "</B></TD></TR>\n<TR><TD colspan=\"2\"><HR></TD></TR></CENTER>\n";
-
-			// make & print table of found items
+//	search box
+	echo '<form name="searchform" action="',make_link('search',$dir,null),'" method="post">',"\n";
+	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo	'<table class="area_data_selection">',
+				'<colgroup>',
+					'<col style="width:100%">',
+				'</colgroup>',
+				'<thead>',
+					'<tr>',
+						'<td class="gap"></td>',
+					'</tr>',
+					'<tr>',
+						'<th class="lhetop">',gtext('Search Filter'),'</th>',
+					'</tr>',
+					'<tr>',
+						'<td class="gap"></td>',
+					'</tr>',
+				'</thead>',
+				'<tbody class="donothighlight">',
+					'<tr>',
+						'<td>',
+							'<input name="searchitem" type="text" size="25" value="',htmlspecialchars($searchitem),'">',
+							'<input type="submit" value="',gtext('Search'),'">','&nbsp;',
+							'<input type="button" value="',gtext('Close'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';">',
+						'</td>',
+					'</tr>',
+					'<tr>',
+						'<td>',
+							'<input type="checkbox" name="subdir" value="y"',($subdir ? ' checked' : ''),'>',gtext('Search subdirectories'),
+						'</td>',
+					'</tr>',
+				'</tbody>',
+			'</table>',"\n";
+	echo '</form>',"\n";
+//	search result
+	if($searchitem != null):
+		echo '<table class="area_data_selection">',"\n";
+		echo	'<colgroup>',
+					'<col style="width:42%">',
+					'<col style="width:58%">',
+				'</colgroup>',"\n";
+		echo	'<thead>',"\n";
+		echo		'<tr>',
+						'<th class="gap" colspan="2"></th>',
+					'</tr>',"\n";
+		echo		'<tr>',
+						'<th class="lhetop" colspan="2">',gtext('Search Filter Result'),'</th>',
+					'</tr>',"\n";
+		echo		'<tr>',
+						'<th class="lhell"><b>',gtext('Name'),'</b></td>',
+						'<th class="lhebl"><b>',gtext('Path'),'</b></td>',
+					'</tr>',"\n";
+		echo	'</thead>',"\n";
+//			make & print table of found items
+		if(is_countable($list) && count($list) > 0):
+			echo '<tbody>',"\n";
 			print_table($list);
-
-			echo "<CENTER><TR><TD colspan=\"2\"><HR></TD></TR>\n<TR><TD class=\"header\">".count($list)." ";
-			echo gtext('Item(s)').".</TD><TD class=\"header\"></TD></TR></CENTER>\n";
-		} else {
-			echo "<CENTER><TR><TD>".gtext('No results available.')."</TD></TR></CENTER>";
-		}
-		echo "<TR><TD colspan=\"2\"><HR></TD></TR></TABLE>\n";
-	}
-?><script>
-//<![CDATA[
-	if(document.searchform) document.searchform.searchitem.focus();
-//]]>
-</script>
-<?php
+			echo '</tbody>',"\n";
+		endif;
+		echo	'<tfoot>',"\n";
+		echo		'<tr>';
+		echo			'<td class="lcebl" colspan="2">';
+		if(is_countable($list) && count($list) > 0):
+			echo		count($list),' ',gtext('Item(s)'),'.';
+		else:
+			echo		gtext('No results available.');
+		endif;
+		echo			'</td>';
+		echo		'</tr>',"\n";
+		echo	'</tfoot>',"\n";
+		echo '</table>',"\n";
+	endif;
+	echo '<script>',"\n";
+	echo '//<![CDATA[',"\n";
+	echo '	if(document.searchform) document.searchform.searchitem.focus();',"\n";
+	echo '//]]>',"\n";
+	echo '</script>',"\n";
 }
