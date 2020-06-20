@@ -181,7 +181,7 @@ function search_items($dir) {
 						'<th class="lhebl"><b>',gtext('Path'),'</b></td>',
 					'</tr>',"\n";
 		echo	'</thead>',"\n";
-//			make & print table of found items
+//		make & print table of found items
 		if(is_countable($list) && count($list) > 0):
 			echo '<tbody>',"\n";
 			print_table($list);
