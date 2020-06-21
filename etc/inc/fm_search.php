@@ -123,11 +123,7 @@ function search_items($dir) {
 		$searchitem = null;
 		$subdir = true;
 	endif;
-	$msg = gtext('Search');
-	if($searchitem != null):
-		$msg .= ': (/' . get_rel_item($dir,$searchitem) . ')';
-	endif;
-	show_header(htmlspecialchars($msg));
+	show_header(gtext('Search Directory') . ': ' . _breadcrumbs_search($dir));
 //	search box
 	echo '<form name="searchform" action="',make_link('search',$dir,null),'" method="post">',"\n";
 	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
@@ -163,7 +159,8 @@ function search_items($dir) {
 			'</table>',"\n";
 	echo '</form>',"\n";
 //	search result
-	if($searchitem != null):
+	if($searchitem !== null):
+		$lhetop_string = sprintf(gettext('Search Result for %1$s'),$searchitem);
 		echo '<table class="area_data_selection">',"\n";
 		echo	'<colgroup>',
 					'<col style="width:42%">',
@@ -174,7 +171,7 @@ function search_items($dir) {
 						'<th class="gap" colspan="2"></th>',
 					'</tr>',"\n";
 		echo		'<tr>',
-						'<th class="lhetop" colspan="2">',gtext('Search Filter Result'),'</th>',
+						'<th class="lhetop" colspan="2">', htmlspecialchars($lhetop_string),'</th>',
 					'</tr>',"\n";
 		echo		'<tr>',
 						'<th class="lhell"><b>',gtext('Name'),'</b></td>',
@@ -205,4 +202,41 @@ function search_items($dir) {
 	echo '	if(document.searchform) document.searchform.searchitem.focus();',"\n";
 	echo '//]]>',"\n";
 	echo '</script>',"\n";
+}
+/**
+ *	The breadcrumbs function will take the user's current path and build a breadcrumb.
+ *  Typical syntax:
+ *		echo breadcrumbs($dir, ">>");
+ *		show_header(gtext('Directory').":".breadcrumbs($dir));
+ *	@param string $curdir users current directory.
+ *	@param string $displayseparator (optional) string that will be displayed betweenach crumb.
+ *	@return string
+ */
+function _breadcrumbs_search($curdir,$displayseparator = ' &raquo; ') {
+//	get localized name for the home directory
+	$homedir = gtext('HOME');
+//	initialize first crumb and set it to the home directory.
+	$breadcrumbs[] = sprintf('<a href="%s">%s</a>',make_link('search','',null),$homedir);
+//	take the current directory and split the string into an array at each '/'.
+	$patharray = explode('/',$curdir);
+//	find out the index for the last value in our path array
+	$lastx = array_keys($patharray);
+	$last = end($lastx);
+//	build the rest of the breadcrumbs
+	$crumbdir = '';
+	foreach($patharray AS $x => $crumb):
+//		add a new directory to the directory list so the link has the correct path to the current crumb.
+		$crumbdir = $crumbdir . $crumb;
+		if($x != $last):
+//			if we are not on the last index, then create a link using $crumb as the text.
+			$breadcrumbs[] = sprintf('<a href="%s">%s</a>',make_link('search',$crumbdir,null),htmlspecialchars($crumb));
+//			add a separator between our crumbs.
+			$crumbdir = $crumbdir . DIRECTORY_SEPARATOR;
+		else:
+//			don't create a link for the final crumb, just display the crumb name.
+			$breadcrumbs[] = htmlspecialchars($crumb);
+		endif;
+	endforeach;
+//	build temporary array into one string.
+	return implode($displayseparator,$breadcrumbs);
 }

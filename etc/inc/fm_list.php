@@ -229,7 +229,7 @@ function list_dir($dir) {
 	if (strlen($s_dir) > 50 ):
 		$s_dir = '...' . substr($s_dir,-47);
 	endif;
-	show_header(gtext('Directory') . ': ' . _breadcrumbs($dir));
+	show_header(gtext('Directory') . ': ' . _breadcrumbs_list($dir));
 //	Javascript functions:
 	include 'fm_javascript.php';
 //	Sorting of items
@@ -429,49 +429,40 @@ function _get_link_info($dir,$item) {
 	endif;
 	return $type;
 }
-
-/*
- * The breadcrumbs function will take the user's current path and build a breadcrumb.
- *
- * 	A breadcrumb is a list of links for each directory in the current path.
- *
- * 	@param
- * $curdir is a string containing what will usually be the users
- * current directory.  %displayseparator is optional and contains a
- * string that will be displayed betweenach crumb.
- *
+/**
+ *	The breadcrumbs function will take the user's current path and build a breadcrumb.
  *  Typical syntax:
- *
- * echo breadcrumbs($dir, ">>");
- * show_header(gtext('Directory').":".breadcrumbs($dir));
+ *		echo breadcrumbs($dir, ">>");
+ *		show_header(gtext('Directory').":".breadcrumbs($dir));
+ *	@param string $curdir users current directory.
+ *	@param string $displayseparator (optional) string that will be displayed betweenach crumb.
+ *	@return string
  */
-function _breadcrumbs($curdir,$displayseparator = ' &raquo; ') {
-	//Get localized name for the Home directory
+function _breadcrumbs_list($curdir,$displayseparator = ' &raquo; ') {
+//	get localized name for the home directory
 	$homedir = gtext('HOME');
-	// Initialize first crumb and set it to the home directory.
-	$breadcrumbs[] = "<a href=\"".make_link('list','',null)."\">$homedir</a>";
-	// Take the current directory and split the string into an array at each '/'.
+//	initialize first crumb and set it to the home directory.
+	$breadcrumbs[] = sprintf('<a href="%s">%s</a>',make_link('list','',null),$homedir);
+//	take the current directory and split the string into an array at each '/'.
 	$patharray = explode('/',$curdir);
-	// Find out the index for the last value in our path array
+//	find out the index for the last value in our path array
 	$lastx = array_keys($patharray);
 	$last = end($lastx);
-	// Build the rest of the breadcrumbs
-	$crumbdir = "";
+//	build the rest of the breadcrumbs
+	$crumbdir = '';
 	foreach($patharray AS $x => $crumb):
-		// Add a new directory to the directory list so the link has the
-		// correct path to the current crumb.
+//		add a new directory to the directory list so the link has the correct path to the current crumb.
 		$crumbdir = $crumbdir . $crumb;
 		if($x != $last):
-			// If we are not on the last index, then create a link using $crumb
-			// as the text.
-			$breadcrumbs[] = "<a href=\"".make_link('list',$crumbdir,null)."\">".htmlspecialchars($crumb)."</a>";
-			// Add a separator between our crumbs.
+//			if we are not on the last index, then create a link using $crumb as the text.
+			$breadcrumbs[] = sprintf('<a href="%s">%s</a>',make_link('list',$crumbdir,null),htmlspecialchars($crumb));
+//			add a separator between our crumbs.
 			$crumbdir = $crumbdir . DIRECTORY_SEPARATOR;
 		else:
-			// Don't create a link for the final crumb.  Just display the crumb name.
+//			don't create a link for the final crumb, just display the crumb name.
 			$breadcrumbs[] = htmlspecialchars($crumb);
 		endif;
 	endforeach;
-	// Build temporary array into one string.
+//	build temporary array into one string.
 	return implode($displayseparator,$breadcrumbs);
 }
