@@ -67,9 +67,9 @@ function make_link($_action,$_dir,$_item = null,$_order = null,$_srt = null,$_la
 function get_abs_dir($path) {
 	return path_f($path);
 }
-// get absolute file+path
-function get_abs_item($dir, $item) {
-	return get_abs_dir($dir).DIRECTORY_SEPARATOR.$item;
+//	get absolute file+path
+function get_abs_item($dir,$item) {
+	return get_abs_dir($dir) . DIRECTORY_SEPARATOR . $item;
 }
 /**
   get file relative from home
