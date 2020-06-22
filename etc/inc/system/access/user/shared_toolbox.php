@@ -39,7 +39,6 @@ use common\sphere as mys;
  */
 final class shared_toolbox {
 	private const NOTIFICATION_NAME = __NAMESPACE__;
-//	private const NOTIFICATION_NAME = 'userdb_user';
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 	private const ROW_IDENTIFIER = 'uuid';
 /**

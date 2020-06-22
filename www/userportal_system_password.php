@@ -31,20 +31,25 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-// Configure page permission
+//	configure page permission
 $pgperm['allowuser'] = true;
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
+require_once 'autoload.php';
 
-$a_user = &array_make_branch($config,'access','user');
-//	Get user configuration. Ensure current logged in user is available,
-//	otherwise exit immediatelly.
-if(false === ($index_id = array_search_ex(Session::getUserId(),$a_user,'id'))):
+use system\access\user\row_toolbox as toolbox;
+
+//	init sphere
+$sphere = toolbox::init_sphere();
+//	get user configuration. Ensure current logged in user is available, otherwise exit immediatelly.
+$sphere->row_id = array_search_ex(Session::getUserId(),$sphere->grid,'id');
+if($sphere->row_id === false):
 	header('Location: logout.php');
 	exit;
 endif;
+$sphere->row = $sphere->grid[$sphere->row_id];
 if($_POST):
 	unset($input_errors);
 	$reqdfields = ['password_old','password_new','password_confirm'];
@@ -52,24 +57,24 @@ if($_POST):
 	$reqdfieldst = ['password','password','password'];
 	do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
 	do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
-	//	Validate old password.
-	if(!password_verify($_POST['password_old'],$a_user[$index_id]['passwordsha'])):
+//	validate old password.
+	if(!password_verify($_POST['password_old'],$sphere->row['passwordsha'])):
 		$input_errors[] = gtext('The old password is not correct.');
 	endif;
-	//	Validate new password.
+//	validate new password.
 	if($_POST['password_new'] !== $_POST['password_confirm']):
 		$input_errors[] = gtext('The confirmation password does not match. Please ensure the passwords match exactly.');
 	endif;
 	if(empty($input_errors)):
-		$a_user[$index_id]['passwordsha'] = mkpasswd($_POST['password_new']);
-		$a_user[$index_id]['passwordmd4'] = mkpasswdmd4($_POST['password_new']);
+		$sphere->grid[$sphere->row_id]['passwordsha'] = mkpasswd($_POST['password_new']);
+		$sphere->grid[$sphere->row_id]['passwordmd4'] = mkpasswdmd4($_POST['password_new']);
 		write_config();
-		updatenotify_set('userdb_user',UPDATENOTIFY_MODE_MODIFIED,$a_user[$index_id]['uuid']);
-		//	Write syslog entry and send an email to the administrator
-		$message = sprintf("The user [%s] has changed his password via user portal.\nPlease go to the user administration page and apply the changes.",Session::getUserName());
+		updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+//		write syslog entry and send an email to the administrator
+		$message = sprintf('User [%s] has changed the password via user portal.\nPlease go to the user administration page and apply the changes.',Session::getUserName());
 		write_log($message);
-		if(0 == @email_validate_settings()):
-			$subject = sprintf(gtext("Notification email from host: %s"),system_get_hostname());
+		if(@email_validate_settings() == 0):
+			$subject = sprintf(gtext('Notification email from host: %s'),system_get_hostname());
 			$sendto = $config['system']['email']['sendto'] ?? $config['system']['email']['from'] ?? '';
 			if(preg_match('/\S/',$sendto)):
 				@email_send($sendto,$subject,$message,$error);
