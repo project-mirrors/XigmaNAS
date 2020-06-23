@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\sphere;
+
 /**
  *	sphere object for grid pages
  *	root -> hub -> row
@@ -45,27 +47,27 @@ final class grid extends hub {
 	public $cbm_grid = [];
 	public $cbm_row = [];
 //	gettext
-	protected $x_cbm_delete = NULL;
-	protected $x_cbm_disable = NULL;
-	protected $x_cbm_enable = NULL;
-	protected $x_cbm_lock = NULL;
-	protected $x_cbm_toggle = NULL;
-	protected $x_cbm_unlock = NULL;
-	protected $x_cbm_delete_confirm = NULL;
-	protected $x_cbm_disable_confirm = NULL;
-	protected $x_cbm_enable_confirm = NULL;
-	protected $x_cbm_lock_confirm = NULL;
-	protected $x_cbm_toggle_confirm = NULL;
-	protected $x_cbm_unlock_confirm = NULL;
-	protected $x_sym_add = NULL;
-	protected $x_sym_mod = NULL;
-	protected $x_sym_del = NULL;
-	protected $x_sym_loc = NULL;
-	protected $x_sym_unl = NULL;
-	protected $x_sym_mai = NULL;
-	protected $x_sym_inf = NULL;
-	protected $x_sym_mup = NULL;
-	protected $x_sym_mdn = NULL;
+	protected $x_cbm_delete = null;
+	protected $x_cbm_disable = null;
+	protected $x_cbm_enable = null;
+	protected $x_cbm_lock = null;
+	protected $x_cbm_toggle = null;
+	protected $x_cbm_unlock = null;
+	protected $x_cbm_delete_confirm = null;
+	protected $x_cbm_disable_confirm = null;
+	protected $x_cbm_enable_confirm = null;
+	protected $x_cbm_lock_confirm = null;
+	protected $x_cbm_toggle_confirm = null;
+	protected $x_cbm_unlock_confirm = null;
+	protected $x_sym_add = null;
+	protected $x_sym_mod = null;
+	protected $x_sym_del = null;
+	protected $x_sym_loc = null;
+	protected $x_sym_unl = null;
+	protected $x_sym_mai = null;
+	protected $x_sym_inf = null;
+	protected $x_sym_mup = null;
+	protected $x_sym_mdn = null;
 //	html id tags
 	protected $x_cbm_button_id_delete = 'delete_selected_rows';
 	protected $x_cbm_button_id_disable = 'disable_selected_rows';
@@ -177,73 +179,73 @@ final class grid extends hub {
 		endif;
 		return $this;
 	}
-	public function cbm_delete(string $message = NULL) {
+	public function cbm_delete(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_delete = $message;
 		endif;
 		return $this->x_cbm_delete ?? \gettext('Delete Selected Records');
 	}
-	public function cbm_delete_confirm(string $message = NULL) {
+	public function cbm_delete_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_delete_confirm = $message;
 		endif;
 		return $this->x_cbm_delete_confirm ?? \gettext('Do you want to delete selected records?');
 	}
-	public function cbm_disable(string $message = NULL) {
+	public function cbm_disable(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_disable = $message;
 		endif;
 		return $this->x_cbm_disable ?? \gettext('Disable Selected Records');
 	}
-	public function cbm_disable_confirm(string $message = NULL) {
+	public function cbm_disable_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_disable_confirm = $message;
 		endif;
 		return $this->x_cbm_disable_confirm ?? \gettext('Do you want to disable selected records?');
 	}
-	public function cbm_enable(string $message = NULL) {
+	public function cbm_enable(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_enable = $message;
 		endif;
 		return $this->x_cbm_enable ?? \gettext('Enable Selected Records');
 	}
-	public function cbm_enable_confirm(string $message = NULL) {
+	public function cbm_enable_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_enable_confirm = $message;
 		endif;
 		return $this->x_cbm_enable_confirm ?? \gettext('Do you want to enable selected records?');
 	}
-	public function cbm_lock(string $message = NULL) {
+	public function cbm_lock(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_lock = $message;
 		endif;
 		return $this->x_cbm_lock ?? \gettext('Lock Selected Records');
 	}
-	public function cbm_lock_confirm(string $message = NULL) {
+	public function cbm_lock_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_lock_confirm = $message;
 		endif;
 		return $this->x_cbm_lock_confirm ?? \gettext('Do you want to lock selected records?');
 	}
-	public function cbm_toggle(string $message = NULL) {
+	public function cbm_toggle(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_toggle = $message;
 		endif;
 		return $this->x_cbm_toggle ?? \gettext('Toggle Selected Records');
 	}
-	public function cbm_toggle_confirm(string $message = NULL) {
+	public function cbm_toggle_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_toggle_confirm = $message;
 		endif;
 		return $this->x_cbm_toggle_confirm ?? \gettext('Do you want to toggle selected records?');
 	}
-	public function cbm_unlock(string $message = NULL) {
+	public function cbm_unlock(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_unlock = $message;
 		endif;
 		return $this->x_cbm_unlock ?? \gettext('Unlock Selected Records');
 	}
-	public function cbm_unlock_confirm(string $message = NULL) {
+	public function cbm_unlock_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_unlock_confirm = $message;
 		endif;
@@ -288,7 +290,7 @@ final class grid extends hub {
 	public function getmsg_sym_add() {
 		return $this->x_sym_add ?? \gettext('Add Record');
 	}
-	public function getmsg_sym_del(string $message = NULL) {
+	public function getmsg_sym_del(string $message = null) {
 		return $this->x_sym_del ?? \gettext('Record is marked for deletion');
 	}
 	public function getmsg_sym_inf() {
@@ -312,87 +314,87 @@ final class grid extends hub {
 	public function getmsg_sym_unl() {
 		return $this->x_sym_unl ?? \gettext('Record is unlocked');
 	}
-	public function setmsg_cbm_delete(string $message = NULL) {
+	public function setmsg_cbm_delete(string $message = null) {
 		$this->x_cbm_delete = $message;
 		return $this;
 	}
-	public function setmsg_cbm_delete_confirm(string $message = NULL) {
+	public function setmsg_cbm_delete_confirm(string $message = null) {
 		$this->x_cbm_delete_confirm = $message;
 		return $this;
 	}
-	public function setmsg_cbm_disable(string $message = NULL) {
+	public function setmsg_cbm_disable(string $message = null) {
 		$this->x_cbm_disable = $message;
 		return $this;
 	}
-	public function setmsg_cbm_disable_confirm(string $message = NULL) {
+	public function setmsg_cbm_disable_confirm(string $message = null) {
 		$this->x_cbm_disable_confirm = $message;
 		return $this;
 	}
-	public function setmsg_cbm_enable(string $message = NULL) {
+	public function setmsg_cbm_enable(string $message = null) {
 		$this->x_cbm_enable = $message;
 		return $this;
 	}
-	public function setmsg_cbm_enable_confirm(string $message = NULL) {
+	public function setmsg_cbm_enable_confirm(string $message = null) {
 		$this->x_cbm_enable_confirm = $message;
 		return $this;
 	}
-	public function setmsg_cbm_lock(string $message = NULL) {
+	public function setmsg_cbm_lock(string $message = null) {
 		$this->x_cbm_lock = $message;
 		return $this;
 	}
-	public function setmsg_cbm_lock_confirm(string $message = NULL) {
+	public function setmsg_cbm_lock_confirm(string $message = null) {
 		$this->x_cbm_lock_confirm = $message;
 		return $this;
 	}
-	public function setmsg_cbm_toggle(string $message = NULL) {
+	public function setmsg_cbm_toggle(string $message = null) {
 		$this->x_cbm_toggle = $message;
 		return $this;
 	}
-	public function setmsg_cbm_toggle_confirm(string $message = NULL) {
+	public function setmsg_cbm_toggle_confirm(string $message = null) {
 		$this->x_cbm_toggle_confirm = $message;
 		return $this;
 	}
-	public function setmsg_cbm_unlock(string $message = NULL) {
+	public function setmsg_cbm_unlock(string $message = null) {
 		$this->x_cbm_unlock = $message;
 		return $this;
 	}
-	public function setmsg_cbm_unlock_confirm(string $message = NULL) {
+	public function setmsg_cbm_unlock_confirm(string $message = null) {
 		$this->x_cbm_unlock_confirm = $message;
 		return $this;
 	}
-	public function setmsg_sym_add(string $message = NULL) {
+	public function setmsg_sym_add(string $message = null) {
 		$this->x_sym_add = $message;
 		return $this;
 	}
-	public function setmsg_sym_del(string $message = NULL) {
+	public function setmsg_sym_del(string $message = null) {
 		$this->x_sym_del = $message;
 		return $this;
 	}
-	public function setmsg_sym_inf(string $message = NULL) {
+	public function setmsg_sym_inf(string $message = null) {
 		$this->x_sym_inf = $message;
 		return $this;
 	}
-	public function setmsg_sym_loc(string $message = NULL) {
+	public function setmsg_sym_loc(string $message = null) {
 		$this->x_sym_loc = $message;
 		return $this;
 	}
-	public function setmsg_sym_mai(string $message = NULL) {
+	public function setmsg_sym_mai(string $message = null) {
 		$this->x_sym_mai = $message;
 		return $this;
 	}
-	public function setmsg_sym_mdn(string $message = NULL) {
+	public function setmsg_sym_mdn(string $message = null) {
 		$this->x_sym_mdn = $message;
 		return $this;
 	}
-	public function setmsg_sym_mod(string $message = NULL) {
+	public function setmsg_sym_mod(string $message = null) {
 		$this->x_sym_mod = $message;
 		return $this;
 	}
-	public function setmsg_sym_mup(string $message = NULL) {
+	public function setmsg_sym_mup(string $message = null) {
 		$this->x_sym_mup = $message;
 		return $this;
 	}
-	public function setmsg_sym_unl(string $message = NULL) {
+	public function setmsg_sym_unl(string $message = null) {
 		$this->x_sym_unl = $message;
 		return $this;
 	}

@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\sphere;
+
 /**
  *	sphere object for settings pages
+ *	root -> hub -> row
+ *	root -> hub -> grid
+ *	root -> settings
  */
 final class settings extends root {
 	public function update() {
