@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\sphere;
+
 /**
  *	Class containing information about the name of a script
  */
@@ -57,9 +59,9 @@ final class scriptname {
 		return $this->x_extension;
 	}
 	public function get_scriptname() {
-		return sprintf('%s.%s',$this->x_basename,$this->x_extension);
+		return \sprintf('%s.%s',$this->x_basename,$this->x_extension);
 	}
 	public function get_location() {
-		return sprintf('Location: %s.%s',$this->x_basename,$this->x_extension);
+		return \sprintf('Location: %s.%s',$this->x_basename,$this->x_extension);
 	}
 }

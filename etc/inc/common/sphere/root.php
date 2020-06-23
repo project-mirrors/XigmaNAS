@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\sphere;
+
 /*
  *	sphere top level object for settings, services, row and grid
  *	root -> hub -> row
@@ -43,16 +45,16 @@ class root {
 	public $row = [];
 	public $row_default = [];
 
-	protected $x_script_inform = NULL;
-	protected $x_script_maintain = NULL;
-	protected $x_script_modify = NULL;
-	protected $x_script_parent = NULL;
-	protected $x_script_this = NULL;
+	protected $x_script_inform = null;
+	protected $x_script_maintain = null;
+	protected $x_script_modify = null;
+	protected $x_script_parent = null;
+	protected $x_script_this = null;
 	protected $x_enadis = false;
 	protected $x_lock = false;
-	protected $x_notifier = NULL;
-	protected $x_notifier_processor = NULL;
-	protected $x_row_identifier = NULL;
+	protected $x_notifier = null;
+	protected $x_notifier_processor = null;
+	protected $x_row_identifier = null;
 
 	public function __destruct() {
 		unset(
@@ -168,7 +170,7 @@ class root {
 		return $this->x_notifier_processor;
 	}
 	public function get_row_identifier_value(): ?string {
-		return $this->row[$this->x_row_identifier] ?? NULL;
+		return $this->row[$this->x_row_identifier] ?? null;
 	}
 	public function get_js_on_load(): string {
 		return '';

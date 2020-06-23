@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\sphere;
+
 /**
- *	sphere object basement for row and grid
+ *	sphere object, base for row and grid
+ *	root -> hub -> row
+ *	root -> hub -> grid
+ *	root -> settings
  */
 class hub extends root {
 	public $row_id = NULL;
