@@ -80,7 +80,7 @@ if($_POST):
 			config_lock();
 			$retval |= rc_update_service('swaplate');
 			config_unlock();
-			if(isset($_POST['enable']) && (false !== preg_match('/\S/',$_POST['devicespecialfile']))):
+			if(isset($_POST['enable']) && (preg_match('/\S/',$_POST['devicespecialfile']) === 1)):
 				$cmd = sprintf('swapon %s', escapeshellarg($_POST['devicespecialfile']));
 				write_log($cmd);
 				mwexec($cmd);
