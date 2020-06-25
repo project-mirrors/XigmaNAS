@@ -1472,7 +1472,7 @@ function zfs_is_valid_dataset_name($name) {
 //	only string with at least one non-whitespace character is allowed
 	if(is_string($name) && preg_match('/\S/',$name)):
 		$helpinghand = preg_quote('.-_ ','/');
-		if(false !==  preg_match('/^[0-9a-z][0-9a-z' . $helpinghand . ']*(?:\/[0-9a-z][0-9a-z' . $helpinghand . ']*)*$/i',$name)):
+		if(preg_match('/^[0-9a-z][0-9a-z' . $helpinghand . ']*(?:\/[0-9a-z][0-9a-z' . $helpinghand . ']*)*$/i',$name) === 1):
 			return true;
 		endif;
 	endif;
@@ -1488,7 +1488,7 @@ function zfs_is_valid_volume_name($name) {
 //	only string with at least one non-whitespace characters allowed
 	if(is_string($name) && preg_match('/\S/',$name)):
 		$helpinghand = preg_quote('.-_ ', '/');
-		if(false !==  preg_match('/^[0-9a-z][0-9a-z' . $helpinghand . ']*(?:\/[0-9a-z][0-9a-z' . $helpinghand . ']*)*$/i',$name)):
+		if(preg_match('/^[0-9a-z][0-9a-z' . $helpinghand . ']*(?:\/[0-9a-z][0-9a-z' . $helpinghand . ']*)*$/i',$name) === 1):
 			return true;
 		endif;
 	endif;
