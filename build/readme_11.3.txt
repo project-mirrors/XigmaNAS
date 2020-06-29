@@ -136,7 +136,6 @@ Changes:
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
-- Upgrade nut to 2020.02.09.
 - Upgrade dialog to 1.3-20200327.
 - Upgrade syncthing to 1.4.2.
 - Upgrade nano to 4.9.2.
@@ -148,6 +147,7 @@ Changes:
 - Upgrade bash to 5.0 P17.
 - Upgrade samba to 4.10.15.
 - Upgrade tmux to 3.1a.
+- Upgrade nut to 2020.04.14.
 
 Fixes:
 - Fix monitoring shows high cpu load.
