@@ -31,10 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\sysctl\info;
 
 use common\properties as myp;
 use common\sphere as mys;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -110,13 +112,16 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_sysctlinfo()->get_title())->
 				insTHwC('lhebl',$cop->get_value()->get_title());
 		if($record_exists):
+			$key_sysctltype = $cop->get_sysctltype()->get_name();
+			$key_sysctlinfo = $cop->get_sysctlinfo()->get_name();
+			$key_value = $cop->get_value()->get_name();
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$tbody->
 					addTR()->
 						insTDwC('lcell',$sphere->row_id ?? '')->
-						insTDwC('lcell',$sphere->row[$cop->get_sysctltype()->get_name()] ?? '')->
-						insTDwC('lcell',$sphere->row[$cop->get_sysctlinfo()->get_name()] ?? '')->
-						insTDwC('lcebl',$sphere->row[$cop->get_value()->get_name()] ?? '');
+						insTDwC('lcell',$sphere->row[$key_sysctltype] ?? '')->
+						insTDwC('lcell',$sphere->row[$key_sysctlinfo] ?? '')->
+						insTDwC('lcebl',$sphere->row[$key_value] ?? '');
 			endforeach;
 		else:
 			$tfoot->ins_no_records_found($n_col_width);
