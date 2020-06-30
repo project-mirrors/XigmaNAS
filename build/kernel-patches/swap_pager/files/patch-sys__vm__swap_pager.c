@@ -1,5 +1,5 @@
---- /usr/src/sys/vm/swap_pager.c.orig	2020-06-30 21:25:26.465587000 +0200
-+++ /usr/src/sys/vm/swap_pager.c	2020-06-30 23:11:43.000000000 +0200
+--- sys/vm/swap_pager.c.orig	2020-06-30 21:25:26.465587000 +0200
++++ sys/vm/swap_pager.c	2020-06-30 23:11:43.000000000 +0200
 @@ -860,7 +860,7 @@
  	VM_OBJECT_WLOCK(object);
  	while (size) {
