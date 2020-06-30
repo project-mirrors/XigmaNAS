@@ -12,6 +12,7 @@ Sayyadina  / 11.0.0.3
 Atomics    / 11.1.0.4
 Omnius     / 11.2.0.4
 Parmentier / 11.3.0.4
+Accadia	   / 11.4.0.4
 
 Also see:
 https://dune.wikia.com/wiki/Category:Original_Dune

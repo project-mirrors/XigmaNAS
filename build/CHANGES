@@ -1,38 +1,10 @@
-XigmaNAS® 11.3.0.4 - Parmentier
+XigmaNAS® 11.4.0.4 - Accadia
 ------------------------------
 Changes:
-- Upgrade to FreeBSD 11.3-RELEASE P8.
-- Add Aquantia AQtion (Atlantic) Network Driver.
-- Upgrade bsnmp-ucd to 0.4.4.
-- Upgrade arcconf to 3.02.23600.
-- Upgrade smartmontools to 7.1.
-- Upgrade devcpu-data to 1.28.
-- Upgrade lighttpd to 1.4.55.
-- Upgrade sudo to 1.8.31.
-- Upgrade proftpd to 1.3.6c.
-- Upgrade mDNSResponder to 1096.0.2.
-- Upgrade bsnmp-ucd to 0.4.5.
-- Upgrade phpmyadmin to 5.0.2.
-- Upgrade e2fsprogs to 1.45.6.
-- Upgrade dialog to 1.3-20200327.
-- Upgrade syncthing to 1.4.2.
-- Upgrade nano to 4.9.2.
-- Upgrade jQuery to 3.5.0.
-- Upgrade php to 7.4.5.
-- Upgrade virtualbox-ose to 5.2.40.
-- Upgrade zoneinfo to 2020a.
-- Upgrade msmtp to 1.8.10.
-- Upgrade bash to 5.0 P17.
-- Upgrade samba to 4.10.15.
-- Upgrade tmux to 3.1a.
+- Upgrade to FreeBSD 11.4-RELEASE P0.
 - Upgrade nut to 2020.04.14.
 
 Fixes:
-- Fix display HW Address on status page minidlna.
-- Whitespaces support in pools/dataset names.
-- Fastcgi issue with filter_input of INPUT_SERVER.
-- Fix checking for changes in auxparam always flags reboot.
-- Fix Aquantia driver AQC100 and AQC100S adapter bind. (BR417)
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.

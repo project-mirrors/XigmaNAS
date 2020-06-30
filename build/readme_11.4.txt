@@ -1,4 +1,4 @@
-       README & CHANGELOG 11.3.0.4 - Parmentier
+       README & CHANGELOG 11.4.0.4 - Accadia
 
  	  IMPORTANT - PLEASE READ!!!
 
@@ -70,7 +70,7 @@ Permanent Restrictions:
 - Tool iperf3 is not backwards compatible with iperf2.x. you must upgrade your client.
 
 
-Minimum System Requirements: 11.3.0.4 series!
+Minimum System Requirements: 11.4.0.4 series!
 =============================================
 Browser: Chrome, Edge or Firefox browser. (IE11 limited supported)
 Processor: Multicore 64-bit processor or better.
@@ -114,49 +114,15 @@ Currently iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
 
-BUILD 11.3.0.4.7538
+BUILD 11.4.0.4.7538
 ===================
 Changes:
-- Upgrade to FreeBSD 11.3-RELEASE-P8.
+- Upgrade to FreeBSD 11.4-RELEASE-P0.
 - WebGUI code & framework improvements.
 - Update translations.
-- Add autologin option.
-- Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
-- Update translations.
-- Upgrade to python3x.
-- Upgrade minidlna to newer sources.
-- Use recommended patches for dmidecode.
-- Upgrade arcconf to 3.02.23600.
-- Upgrade pecl-APCu to 5.1.18.
-- Upgrade devcpu-data to 1.28.
-- Upgrade lighttpd to 1.4.55.
-- Upgrade sudo to 1.8.31.
-- Upgrade proftpd to 1.3.6c.
-- Upgrade mDNSResponder to 1096.0.2.
-- Upgrade bsnmp-ucd to 0.4.5.
-- Upgrade phpmyadmin to 5.0.2.
-- Upgrade e2fsprogs to 1.45.6.
-- Upgrade dialog to 1.3-20200327.
-- Upgrade syncthing to 1.4.2.
-- Upgrade nano to 4.9.2.
-- Upgrade jQuery to 3.5.0.
-- Upgrade php to 7.4.5.
-- Upgrade virtualbox-ose to 5.2.40.
-- Upgrade zoneinfo to 2020a.
-- Upgrade msmtp to 1.8.10.
-- Upgrade bash to 5.0 P17.
-- Upgrade samba to 4.10.15.
-- Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
 
 Fixes:
-- Fix monitoring shows high cpu load.
-- Fix display HW Address on status page minidlna.
-- Whitespaces support in pools/dataset names.
-- Fastcgi issue with filter_input of INPUT_SERVER.
-- Fix checking for changes in auxparam always flags reboot.
-- Fix WebGUI language autodetection.
-- Fix Aquantia driver AQC100 and AQC100S adapter bind. (BR417)
 
 Default Login:
 ==============
