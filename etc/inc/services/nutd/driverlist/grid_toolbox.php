@@ -65,14 +65,14 @@ final class grid_toolbox {
 	protected static function make_grid() {
 		$grid = [];
 //		read file
-		$rows = @file('/usr/local/etc/nut/driver.list',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-		if(is_array($rows)):
+		$rows = @\file('/usr/local/etc/nut/driver.list',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		if(\is_array($rows)):
 //			parse data
 			foreach($rows as $row):
 //				syntax should look like: '"<manufacturer>" "<device type>" "<support level>" "<model name>" "<model extra>" "<driver>"'.
 				$regex = '/^"(?<manufacturer>.*)"\s*"(?<devicetype>.*)"\s*"(?<supportlevel>.*)"\s*"(?<modelname>.*)"\s*"(?<modelextra>.*)"\s*"(?<driver>.*)"/';
 				unset($matches);
-				if(preg_match($regex,$row,$matches) === 1):
+				if(\preg_match($regex,$row,$matches) === 1):
 					$driverinfo = [];
 					$driverinfo['manufacturer'] = $matches['manufacturer'] ?? '';
 					$driverinfo['devicetype'] = $matches['devicetype'] ?? '';
@@ -95,17 +95,17 @@ final class grid_toolbox {
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
-		$pgtitle = [gettext('Services'),gettext('UPS'),gettext('Driver List')];
+		$pgtitle = [\gettext('Services'),\gettext('UPS'),\gettext('Driver List')];
 		$sphere->grid = self::make_grid();
-		$row_count = count($sphere->grid);
+		$row_count = \count($sphere->grid);
 		$row_exists = ($row_count > 0);
 		$use_tablesort = ($row_count > 1);
 		$a_col_width = ['25%','25%','25%','25%'];
-		$n_col_width = count($a_col_width);
+		$n_col_width = \count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,null,'notabnav','tablesort');
+			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname(),'notabnav','tablesort');
 		else:
-			$document = new_page($pgtitle,null,'notabnav');
+			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname(),'notabnav');
 		endif;
 //		get areas
 		$pagecontent = $document->getElementById('pagecontent');
@@ -125,13 +125,17 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_modelextra()->get_title())->
 				insTHwC('lhebl',$cop->get_driver()->get_title());
 		if($row_exists):
+			$key_manufacturer = $cop->get_manufacturer()->get_name();
+			$key_modelname = $cop->get_modelname()->get_name();
+			$key_modelextra = $cop->get_modelextra()->get_name();
+			$key_driver = $cop->get_driver()->get_name();
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$tbody->
 					addTR()->
-						insTDwC('lcell',$sphere->row[$cop->get_manufacturer()->get_name()])->
-						insTDwC('lcell',$sphere->row[$cop->get_modelname()->get_name()])->
-						insTDwC('lcell',$sphere->row[$cop->get_modelextra()->get_name()])->
-						insTDwC('lcebl',$sphere->row[$cop->get_driver()->get_name()]);
+						insTDwC('lcell',$sphere->row[$key_manufacturer])->
+						insTDwC('lcell',$sphere->row[$key_modelname])->
+						insTDwC('lcell',$sphere->row[$key_modelextra])->
+						insTDwC('lcebl',$sphere->row[$key_driver]);
 			endforeach;
 		else:
 			$tfoot->ins_no_records_found($n_col_width);
