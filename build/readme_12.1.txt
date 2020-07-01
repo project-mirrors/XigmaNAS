@@ -121,7 +121,6 @@ Changes:
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade dialog to 1.3-20200327.
-- Upgrade syncthing to 1.4.2.
 - Upgrade virtualbox-ose to 5.2.40.
 - Upgrade zoneinfo to 2020a.
 - Upgrade bash to 5.0 P17.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade php to 7.4.7.
 - Upgrade proftpd to 1.3.6d.
 - Upgrade sudo to 1.9.1.
+- Upgrade syncthing to 1.6.1.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
