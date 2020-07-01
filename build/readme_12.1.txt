@@ -124,7 +124,6 @@ Changes:
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade dialog to 1.3-20200327.
 - Upgrade syncthing to 1.4.2.
-- Upgrade php to 7.4.5.
 - Upgrade virtualbox-ose to 5.2.40.
 - Upgrade zoneinfo to 2020a.
 - Upgrade bash to 5.0 P17.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade iperf3 to 3.8.1.
 - Upgrade msmtp to 1.8.11.
 - Upgrade nano to 4.9.3.
+- Upgrade php to 7.4.7.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
