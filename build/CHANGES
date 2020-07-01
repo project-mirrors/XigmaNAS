@@ -9,6 +9,7 @@ Changes:
 - Upgrade iperf3 to 3.8.1.
 - Upgrade msmtp to 1.8.11.
 - Upgrade nano to 4.9.3.
+- Upgrade php to 7.4.7.
 
 Fixes:
 
