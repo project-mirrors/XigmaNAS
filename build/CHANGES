@@ -6,6 +6,7 @@ Changes:
 - Upgrade devcpu-data to 1.34.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
+- Upgrade iperf3 to 3.8.1.
 
 Fixes:
 
