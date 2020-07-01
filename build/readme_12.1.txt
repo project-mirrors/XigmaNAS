@@ -118,7 +118,6 @@ Changes:
 - Upgrade pecl-APCu to 5.1.18.
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
-- Upgrade proftpd to 1.3.6c.
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade msmtp to 1.8.11.
 - Upgrade nano to 4.9.3.
 - Upgrade php to 7.4.7.
+- Upgrade proftpd to 1.3.6d.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
