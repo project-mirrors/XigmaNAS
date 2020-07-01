@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-04-25 00:23+0000\n"
-"Last-Translator: enes  <Unknown>\n"
+"PO-Revision-Date: 2020-06-17 15:12+0000\n"
+"Last-Translator: Mustafa DAĞCI <mustafa.matrix@gmail.com>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-30 18:09+0000\n"
-"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
+"X-Launchpad-Export-Date: 2020-07-01 10:57+0000\n"
+"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -194,7 +194,7 @@ msgid "/mnt"
 msgstr "/mnt"
 
 msgid "000"
-msgstr ""
+msgstr "000"
 
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=devre dışı, 1-255=belirtilen derinlikte komut kuyruğu etkin."
@@ -590,7 +590,7 @@ msgid "Add NFS Export"
 msgstr "NFS Dışa Aktarma Ekle"
 
 msgid "Add NFS Root"
-msgstr ""
+msgstr "NFS Kök Klasörü"
 
 msgid "Add Option"
 msgstr "Seçenek ekle"
@@ -866,7 +866,7 @@ msgid "All software RAID disks are imported."
 msgstr "Tüm yazılımsal RAID diskleri içeri aktarıldı."
 
 msgid "Alloc"
-msgstr ""
+msgstr "Tahsis edilen"
 
 msgid "Allow"
 msgstr "İzin ver"
@@ -923,7 +923,7 @@ msgid "Allow public key authentication."
 msgstr "Genel anahtar kimlik doğrulamasına izin ver."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Root'un ssh ile giriş yapmasına izin ver"
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
@@ -1151,13 +1151,13 @@ msgid "Assign a previously defined portal group to the target."
 msgstr "Hedefe önceden tanımlanmış bir portal grubu atayın."
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Asenkron Okuma Yazma"
 
 msgid "At least one disk must be selected."
 msgstr "En az bir disk seçilmeli."
 
 msgid "At least one interface must be selected."
-msgstr ""
+msgstr "En az bir arayüz seçilmelidir."
 
 msgid ""
 "At the highest level, a target is what is presented to the initiator, and is "
@@ -1171,7 +1171,7 @@ msgid "Attach a data device"
 msgstr "Veri aygıtı bağla"
 
 msgid "Attach a log device"
-msgstr ""
+msgstr "Bir log aygıtı bağlayın"
 
 msgid "Attached"
 msgstr "Eklenmiş"
@@ -1318,10 +1318,10 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr ""
 
 msgid "BMP Image"
-msgstr ""
+msgstr "BMP Resmi"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2 sıkıştırılmış dosyası"
 
 msgid "Back"
 msgstr "Geri"
@@ -1380,7 +1380,7 @@ msgid "Base DN"
 msgstr "Taban DN"
 
 msgid "Base Name"
-msgstr ""
+msgstr "Taban isim"
 
 msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
@@ -1390,7 +1390,7 @@ msgid "Battery Details"
 msgstr "Batarya Detayları"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Batarya/Şarj Seviyesi:"
 
 msgid "Battery Low"
 msgstr "Batarya Az"
@@ -1430,7 +1430,7 @@ msgid "Battery voltage"
 msgstr "Batarya voltajı"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Sessiz Ol"
 
 msgid "Be careful with turning on these options."
 msgstr "Bu ayarları aktif ederken dikkatli olun."
@@ -1449,7 +1449,7 @@ msgid "Best available"
 msgstr "Mümkün olan en iyisi"
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Beta Versiyonlar"
 
 msgid "Binary Prefix"
 msgstr "İkili öneki"
@@ -1529,13 +1529,13 @@ msgid "Bridge is marked for deletion"
 msgstr "Köprü silinmek için işaretlendi"
 
 msgid "Bridge is protected"
-msgstr ""
+msgstr "Korumalı köprü"
 
 msgid "Bridge is unlocked"
-msgstr ""
+msgstr "Köprü aktif"
 
 msgid "Bring a device online"
-msgstr ""
+msgstr "Bir aygıtı aktif et"
 
 msgid "Broadcast Interval"
 msgstr ""
@@ -1549,28 +1549,28 @@ msgid "Browseable"
 msgstr "Gözatılabilir"
 
 msgid "Button Location"
-msgstr ""
+msgstr "Tuş yeri"
 
 msgid "Button Settings"
-msgstr ""
+msgstr "Tuş Ayarları"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Varsayalın ayarlara göre, sadece varolan dosya yüklenebilir."
 
 msgid "Bytes/sec"
-msgstr ""
+msgstr "Byte/sn"
 
 msgid "C File"
-msgstr ""
+msgstr "C Dosyası"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "C++ Başlık Dosyası"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "C++ Kaynak Dosyası"
 
 msgid "CACHE"
-msgstr ""
+msgstr "ARABELLEK"
 
 msgid "CAM Target Layer"
 msgstr ""
@@ -1604,25 +1604,25 @@ msgid "CCMP TKIP"
 msgstr "CCMP TKIP"
 
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 msgid "CD/DVD"
-msgstr ""
+msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
-msgstr ""
+msgstr "CD/DVD Sürücü"
 
 msgid "CGI Script"
 msgstr ""
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "YETKİLERİ DEĞİŞTİR"
 
 msgid "CHANGED"
-msgstr ""
+msgstr "DEĞİŞTİRİLMİŞ"
 
 msgid "CHAP"
 msgstr "CHAP"
@@ -1649,7 +1649,7 @@ msgid "CHAP-Mutual"
 msgstr ""
 
 msgid "COPY"
-msgstr ""
+msgstr "KOPYALA"
 
 msgid "CP1251 (Cyrillic)"
 msgstr ""
@@ -1658,55 +1658,55 @@ msgid "CP1252 (Latin 1)"
 msgstr ""
 
 msgid "CP437 (Latin US)"
-msgstr ""
+msgstr "CP437 (Latin US)"
 
 msgid "CP850 (Latin 1)"
-msgstr ""
+msgstr "CP850 (Latin 1)"
 
 msgid "CP852 (Latin 2)"
-msgstr ""
+msgstr "CP852 (Latin 2)"
 
 msgid "CP866 (Cyrillic CIS 1)"
-msgstr ""
+msgstr "CP866 (Kiril CIS 1)"
 
 msgid "CP932 (Japanese Shift-JIS)"
-msgstr ""
+msgstr "CP932 (Japonca Shift-JIS)"
 
 msgid "CP936 (Simplified Chinese GBK)"
 msgstr ""
 
 msgid "CP949 (Korean)"
-msgstr ""
+msgstr "CP949 (Korece)"
 
 msgid "CP950 (Traditional Chinese Big5)"
-msgstr ""
+msgstr "CP950 (Geleneksel Çince Big5)"
 
 msgid "CPU Core Usage"
-msgstr ""
+msgstr "CPU Çekirdek Kullanımı"
 
 msgid "CPU Frequency"
-msgstr ""
+msgstr "CPU Frekansı"
 
 msgid "CPU Load"
-msgstr ""
+msgstr "CPU Yükü"
 
 msgid "CPU Maximum Frequency"
-msgstr ""
+msgstr "Maksimum CPU Frekanı"
 
 msgid "CPU Microcode Update"
-msgstr ""
+msgstr "CPU mikrokod Güncellemesi"
 
 msgid "CPU Minimum Frequency"
-msgstr ""
+msgstr "Minimum CPU Frekansı"
 
 msgid "CPU Temperature"
-msgstr ""
+msgstr "CPU Sıcaklığı"
 
 msgid "CPU Usage"
-msgstr ""
+msgstr "CPU Usage"
 
 msgid "CPU frequencies:"
-msgstr ""
+msgstr "CPU frekansları:"
 
 msgid "CPU load"
 msgstr "İşlemci Yükü"
@@ -1720,10 +1720,10 @@ msgid "CRC32C"
 msgstr ""
 
 msgid "CSS File"
-msgstr ""
+msgstr "CSS Dosyası"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "CSS Ayarları"
 
 msgid "CTL LUN"
 msgstr ""
@@ -1741,37 +1741,37 @@ msgid "Can't mount the system partition 1, the DATA partition is the 2."
 msgstr ""
 
 msgid "Cancel"
-msgstr "İptal\""
+msgstr "İptal"
 
 msgid "Canmount"
 msgstr ""
 
 msgid "Cannot get CPU load"
-msgstr ""
+msgstr "CPU yükü ölçülemedi"
 
 msgid "Cannot get data about interface"
 msgstr "Arayüz hakkında veri alınamıyor"
 
 msgid "Cannot use DHCP for LAN interface."
-msgstr ""
+msgstr "LAN için DHCP kullanılmaz."
 
 msgid "Capacity"
 msgstr "Kapasite"
 
 msgid "Capacity Alert Thresholds"
-msgstr ""
+msgstr "Kapasite Alarmı Eşiği"
 
 msgid "Capacity Critical Threshold"
-msgstr ""
+msgstr "Kritik Kapasite Eşiği"
 
 msgid "Capacity Warning Threshold"
-msgstr ""
+msgstr "Kapasite Uyarı Eşiği"
 
 msgid "Carp Settings"
 msgstr ""
 
 msgid "Case Sensitivity"
-msgstr ""
+msgstr "Büyük/Küçük Harf Duyarlı"
 
 msgid ""
 "Causes the server to display the network information for the specified IP "
@@ -1795,19 +1795,19 @@ msgid "Change"
 msgstr "Değiştir"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "İzin Değiştir"
 
 msgid "Change below file"
-msgstr ""
+msgstr "Aşağıdaki dosyayı değiştir"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "İzinleri değiştir"
 
 msgid "Change the IP address of your computer"
-msgstr ""
+msgstr "Bilgisayarının IP adresini değiştir"
 
 msgid "Change the IP address of your server"
-msgstr ""
+msgstr "Sunucunun IP adresini değiştir"
 
 msgid "Changes to this option will take effect after a reboot."
 msgstr "Değişiklikleri görebilmek için yeniden başlatınız"
@@ -1816,13 +1816,13 @@ msgid "Channel"
 msgstr "Kanal"
 
 msgid "Charging Battery"
-msgstr ""
+msgstr "Batarya şarj Oluyor"
 
 msgid "Check System|General Setup before initializing"
 msgstr ""
 
 msgid "Check and replace cable"
-msgstr ""
+msgstr "Kabloyu kontrol et - değiştir"
 
 msgid ""
 "Check the FreeBSD documentation for detailed information about TCP Wrappers"
@@ -1832,13 +1832,13 @@ msgid "Check the list of available drivers"
 msgstr ""
 
 msgid "Checksum"
-msgstr ""
+msgstr "Doğrulama"
 
 msgid "Choose File"
-msgstr ""
+msgstr "Dosya Seç"
 
 msgid "Choose UPS mode."
-msgstr ""
+msgstr "UPS modu seç"
 
 msgid "Choose on which interface packets must come in to match this rule."
 msgstr ""
@@ -1850,7 +1850,7 @@ msgid "Choose which interface this route applies to."
 msgstr "bu yola uygulanacak arayüzü seçin"
 
 msgid "Choose..."
-msgstr ""
+msgstr "Seç..."
 
 msgid "Clear"
 msgstr "Temizle"
@@ -1859,10 +1859,10 @@ msgid "Clear Config And Import Disks"
 msgstr ""
 
 msgid "Clear Configuration"
-msgstr ""
+msgstr "Konfigürasyonu Sıfırla"
 
 msgid "Clear Text Authentication"
-msgstr ""
+msgstr "Basit/Text Kimlik doğrulama"
 
 msgid "Clear configuration information before importing disks."
 msgstr ""
@@ -1871,7 +1871,7 @@ msgid "Clear configuration information before importing software RAID disks."
 msgstr ""
 
 msgid "Clear device errors"
-msgstr ""
+msgstr "Aygıt hatalarını temizle"
 
 msgid "Clear metadata on the selected device."
 msgstr ""
@@ -1886,13 +1886,13 @@ msgid "Client Min. Protocol"
 msgstr ""
 
 msgid "Clone"
-msgstr ""
+msgstr "Klonla"
 
 msgid "Clone Configuration"
-msgstr ""
+msgstr "Konfigürasyonu Klonla"
 
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Başlangıç verisi toplanıyor, lütfen bekleyin..."
@@ -1901,7 +1901,7 @@ msgid "Collisions"
 msgstr "Çarpışma"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Renkli Ölçekler"
 
 msgid "Cols"
 msgstr "Cols"
@@ -1915,19 +1915,19 @@ msgid "Command"
 msgstr "Komut"
 
 msgid "Command Output"
-msgstr ""
+msgstr "Komut Çıktısı"
 
 msgid "Command Output:"
-msgstr ""
+msgstr "Komut Çıktısı:"
 
 msgid "Command Scripts"
-msgstr ""
+msgstr "Komut Kodları"
 
 msgid "Command Scripts (Maintenance Only)"
-msgstr ""
+msgstr "Komut Kodları (Bakım için)"
 
 msgid "Command execution was successful"
-msgstr ""
+msgstr "Komut çalıştırma başarıyla gerçekleşti"
 
 #, php-format
 msgid "Command for LINK_DOWN event (e.g. %s)."
@@ -1938,16 +1938,16 @@ msgid "Command for LINK_UP event (e.g. %s)."
 msgstr ""
 
 msgid "Command is locked"
-msgstr ""
+msgstr "Komut kilitli"
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "Komut silme için işaretlendi"
 
 msgid "Command is unlocked"
-msgstr ""
+msgstr "Komut kilitli değil"
 
 msgid "Command output"
-msgstr ""
+msgstr "Komut çıktısı"
 
 msgid "Command output:"
 msgstr "Komut Çıktısı"
@@ -1956,7 +1956,7 @@ msgid "Comment"
 msgstr "Açıklama"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "İletişim Hatası"
 
 msgid "Community"
 msgstr "Topluluk"
@@ -1965,7 +1965,7 @@ msgid "Compilations Directories"
 msgstr ""
 
 msgid "Compiled"
-msgstr ""
+msgstr "Derlendi"
 
 msgid "Compliant profile to be used."
 msgstr "Compliant Profil kullanılmış."
@@ -1983,7 +1983,7 @@ msgid "Configuration"
 msgstr "Yapılandırma"
 
 msgid "Configuration Directory"
-msgstr ""
+msgstr "Konfigürasyon Klasörü"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2002,31 +2002,31 @@ msgid "Configuring"
 msgstr "Ayarla"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "Yeni Parolayı Onayla"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "Parolayı doğrula"
 
 msgid "Confirmation"
 msgstr "Doğrulama"
 
 msgid "Connect to hidden network"
-msgstr ""
+msgstr "Gizli ağa bağlanıldı"
 
 msgid "Consider replacing this drive"
-msgstr ""
+msgstr "Bu sürücü değiştirilmeli"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Konsol Otomatik Giriş"
 
 msgid "Console Menu"
-msgstr ""
+msgstr "Konsol Menüsü"
 
 msgid "Console Screensaver"
-msgstr ""
+msgstr "Konsol Ekran koruyucu"
 
 msgid "Console Settings"
-msgstr ""
+msgstr "Konsol Ayarları"
 
 msgid "Contact"
 msgstr "İletişim"
@@ -2039,19 +2039,19 @@ msgstr ""
 "'admin@email.address'."
 
 msgid "Container"
-msgstr ""
+msgstr "Konteyner"
 
 msgid "Content"
 msgstr "İçerik"
 
 msgid "Content Locations"
-msgstr ""
+msgstr "İçerik Yerleri"
 
 msgid "Control"
-msgstr ""
+msgstr "Kontrol"
 
 msgid "Controller"
-msgstr ""
+msgstr "Kontrolcü"
 
 msgid "Controller Auth Group"
 msgstr "Doğrulama Grubu Denetleyicisi"
@@ -2066,13 +2066,13 @@ msgid "Controller Authorised network"
 msgstr "Doğrulanmış Ağ Denetleyicisi"
 
 msgid "Controller IP Address"
-msgstr ""
+msgstr "Kontrolcü IP Adresi"
 
 msgid "Controller IP address"
 msgstr "IP adres Denetleyicisi"
 
 msgid "Controller Model"
-msgstr ""
+msgstr "Kontrolcü Modeli"
 
 msgid "Controller TCP Port"
 msgstr "TCP Port Denetleyicisi"
@@ -2172,23 +2172,23 @@ msgid "Conveyance Self-Test"
 msgstr ""
 
 msgid "Copies"
-msgstr ""
+msgstr "Kopya(lar)"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopya"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Kopyala %s - %s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Nesne(leri) kopyala"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Kopyalama uygulanamadı."
 
 msgid "Core"
-msgstr ""
+msgstr "Çekirdek"
 
 msgid "Count"
 msgstr "Sayı"
@@ -2309,13 +2309,13 @@ msgid "Create HVM Guest"
 msgstr ""
 
 msgid "Create Mask"
-msgstr ""
+msgstr "Maske Yarat"
 
 msgid "Create PV Guest"
 msgstr ""
 
 msgid "Create Permission"
-msgstr ""
+msgstr "İzin Yarat"
 
 msgid "Create Work Directory"
 msgstr ""
@@ -2333,7 +2333,7 @@ msgid "Create a mirrored SLOG device for ZIL"
 msgstr ""
 
 msgid "Create a spare device"
-msgstr ""
+msgstr "Yedek aygıt yarat"
 
 msgid ""
 "Create a virtual device containing a single device or concatenated devices"
@@ -2361,7 +2361,7 @@ msgid "Create work directory if it doesn't exist."
 msgstr "Çalışma dizini yoksa oluştur."
 
 msgid "Created UFS file system:"
-msgstr ""
+msgstr "Yaratılan UFS dosya sistemi:"
 
 msgid "Creates the pool with an alternate root."
 msgstr ""
@@ -2376,7 +2376,7 @@ msgid "Creating partition"
 msgstr "Birim oluşturuluyor"
 
 msgid "Creation"
-msgstr ""
+msgstr "Oluşturma"
 
 msgid "Credits"
 msgstr "Katkıda Bulunanlar"
@@ -2385,7 +2385,7 @@ msgid "Critical"
 msgstr "Kritik"
 
 msgid "Critical Error Level"
-msgstr ""
+msgstr "Kritik Hata Seviyesi"
 
 msgid "Cron"
 msgstr "Cron"
@@ -2394,34 +2394,34 @@ msgid "Cron job"
 msgstr "Cron Görevi"
 
 msgid "Current"
-msgstr ""
+msgstr "Güncel"
 
 msgid "Current Password"
-msgstr ""
+msgstr "Güncel Parola"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Güncel Konfigürasyon"
 
 msgid "Current Version"
-msgstr ""
+msgstr "Güncel Versiyon"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Şu anki ve önceki ay"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Şu anki ve önceki yıl"
 
 msgid "Current internal temperature."
-msgstr ""
+msgstr "Güncel iç sıcaklık."
 
 msgid "Current password"
-msgstr ""
+msgstr "Güncel Parola"
 
 msgid "Current password is incorrectly entered."
-msgstr ""
+msgstr "Güncel parola yanlış girildi."
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Şu anki çeyrek"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr ""
@@ -2435,28 +2435,28 @@ msgid "Current value of apparent power (Volt-Amps)"
 msgstr ""
 
 msgid "Current value of real power (Watts)"
-msgstr ""
+msgstr "Şu anki enerji değeri (Watt)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Bu yıl"
 
 msgid "Custom"
-msgstr ""
+msgstr "Özel"
 
 msgid "Custom Script"
-msgstr ""
+msgstr "Özel Kod"
 
 msgid "Custom device"
-msgstr ""
+msgstr "Özel aygıt"
 
 msgid "Custom script"
-msgstr ""
+msgstr "Özel kod"
 
 msgid "Custom script is required."
 msgstr ""
 
 msgid "Custom script not found."
-msgstr ""
+msgstr "Özel kod bulunamadı."
 
 msgid "DAAP"
 msgstr "DAAP"
@@ -2474,13 +2474,13 @@ msgid "DEBUG3 - log all debugging information"
 msgstr ""
 
 msgid "DELETE"
-msgstr ""
+msgstr "SİL"
 
 msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DHCP cannot be used for LAN interface."
-msgstr ""
+msgstr "LAN için DHCP kullanılamaz."
 
 msgid "DHX Authentication"
 msgstr ""
@@ -2489,7 +2489,7 @@ msgid "DHX2 Authentication"
 msgstr ""
 
 msgid "DLNA/UPnP"
-msgstr ""
+msgstr "DLNA/UPnP"
 
 msgid "DLNA/UPnP Fuppes"
 msgstr ""
