@@ -119,7 +119,6 @@ Changes:
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade proftpd to 1.3.6c.
-- Upgrade mDNSResponder to 1096.0.2.
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
@@ -136,6 +135,7 @@ Changes:
 - Upgrade nut to 2020.04.14.
 - Upgrade devcpu-data to 1.34.
 - Upgrade jQuery to 3.5.1.
+- Upgrade mDNSResponder to 1096.40.7.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
