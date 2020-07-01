@@ -550,31 +550,40 @@ EOD;
 }
 /**
  *	Configure, create and start gmirror volume.
- * @global array $config The configuration file
- * @param string $uuid UUID of the RAID to be configured.
- * @return int Return 0 if successful, 1 if error
+ *	@global array $config The configuration file
+ *	@param string $uuid UUID of the RAID to be configured.
+ *	@return int Return 0 if successful, 1 if error
  */
 function disks_raid_gmirror_configure($uuid) {
 	global $config;
 
 	$sphere = 'gmirror';
-	array_make_branch($config,$sphere,'vdisk');
-	if(false !== ($index = array_search_ex($uuid,$config[$sphere]['vdisk'],'uuid'))):
+	\array_make_branch($config,$sphere,'vdisk');
+	$index = \array_search_ex($uuid,$config[$sphere]['vdisk'],'uuid');
+	if($index !== false):
 		$vdisk = $config[$sphere]['vdisk'][$index];
-		if(is_array($vdisk)):
-			//	create volume
+		if(\is_array($vdisk)):
+//			compile command
 			$param = [
 				'/sbin/gmirror',
-				'label',
-				'-b',
-				$vdisk['balance'],
-				escapeshellarg($vdisk['name'])
+				'label'
 			];
+//			verify balance algorithm
+			switch($vdisk['balance']):
+				case 'load':
+				case 'round-robin':
+				case 'prefer':
+				case 'split':
+					$param[] = '-b';
+					$param[] = $vdisk['balance'];
+					break;
+			endswitch;
+			$param[] = \escapeshellarg($vdisk['name']);
 			foreach($vdisk['device'] as $devicek => $devicev):
-				$param[] = escapeshellarg($devicev);
+				$param[] = \escapeshellarg($devicev);
 			endforeach;
-			$cmd = implode(' ',$param);
-			return mwexec($cmd,true);
+			$cmd = \implode(' ',$param);
+			return \mwexec($cmd,true);
 		endif;
 	endif;
 	return 1;
