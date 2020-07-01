@@ -116,7 +116,6 @@ Changes:
 - Upgrade sudo to 1.8.29.
 - Upgrade samba to 4.10.10.
 - Upgrade pecl-APCu to 5.1.18.
-- Upgrade devcpu-data to 1.28.
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade proftpd to 1.3.6c.
@@ -136,6 +135,7 @@ Changes:
 - Upgrade samba to 4.10.15.
 - Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
+- Upgrade devcpu-data to 1.34.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
