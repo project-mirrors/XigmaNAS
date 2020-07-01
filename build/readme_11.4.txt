@@ -126,6 +126,7 @@ Changes:
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade iperf3 to 3.8.1.
 - Upgrade msmtp to 1.8.11.
+- Upgrade nano to 4.9.3.
 
 Fixes:
 
