@@ -122,6 +122,7 @@ Changes:
 - Update translations.
 - Upgrade nut to 2020.04.14.
 - Upgrade devcpu-data to 1.34.
+- Upgrade jQuery to 3.5.1.
 
 Fixes:
 
