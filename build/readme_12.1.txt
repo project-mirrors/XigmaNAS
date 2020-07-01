@@ -113,7 +113,6 @@ Changes:
 - Add sas3ircu.
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Upgrade arcconf to 3.02.23600.
-- Upgrade sudo to 1.8.29.
 - Upgrade samba to 4.10.10.
 - Upgrade pecl-APCu to 5.1.18.
 - Upgrade lighttpd to 1.4.55.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade nano to 4.9.3.
 - Upgrade php to 7.4.7.
 - Upgrade proftpd to 1.3.6d.
+- Upgrade sudo to 1.9.1.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.

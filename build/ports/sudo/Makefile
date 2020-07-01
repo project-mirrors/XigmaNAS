@@ -1,10 +1,10 @@
 PORTNAME=		sudo
-PORTVERSION=		1.8.31
+PORTVERSION=		1.9.1
 PORTREVISION=		0
 CATEGORIES=		security
 
 COMMENT=		Allow others to run commands as root
-MAINTAINER=		aoyama@xigmanas.com
+MAINTAINER=		zoon01@xigmanas.com
 
 DISTFILES=
 NO_BUILD=		yes

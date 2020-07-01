@@ -8,7 +8,6 @@ Changes:
 - Add support for nvme controller.
 - Upgrade smartmontools to 7.1.
 - Upgrade lighttpd to 1.4.55.
-- Upgrade sudo to 1.8.31.
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
