@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2019-08-08 13:31+0000\n"
+"PO-Revision-Date: 2020-06-15 16:03+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-04-30 18:08+0000\n"
-"X-Generator: Launchpad (build fbdff7602bd10fb883bf7e2ddcc7fd5a16f60398)\n"
+"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
+"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -2934,10 +2934,10 @@ msgid "Delete Selected Mutual CHAP Users"
 msgstr "Smazat označené uživatele vzájemného CHAP"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "Smazat označené NFS exporty"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "Smazat označené NFS kořenové složky"
 
 msgid "Delete Selected Notifier"
 msgstr "Smazat označené oznamování"
@@ -2958,7 +2958,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Smazat označené skupiny portálu"
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "Smazat označené veřejné klíče"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Smazat označené RAID svazky"
@@ -2988,7 +2988,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Smazat označené zachycené stavy"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Smazat označená sysctl nastavení"
 
 msgid "Delete Selected Targets"
 msgstr "Smazat označené cíle"
@@ -3083,7 +3083,7 @@ msgid "Deleting MBR and partition table"
 msgstr "Mazání MBR oblasti a tabulky oddílů"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "Mazání se nezdařilo."
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3152,7 +3152,7 @@ msgid "Detailed"
 msgstr "Podrobné"
 
 msgid "Details"
-msgstr ""
+msgstr "Podrobnosti"
 
 msgid "Detected"
 msgstr "Rozpoznáno"
@@ -3269,7 +3269,7 @@ msgid "Directory Mask"
 msgstr "Maska složky"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Vytvoření složky se nezdaiřlo."
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "Složka pro neúplné soubory. Nevyplněno znamená nepoužívat."
@@ -3302,7 +3302,7 @@ msgid "Disable Selected Commands"
 msgstr "Vypnout označené příkazy"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Zakázat označené skupiny"
 
 msgid "Disable Selected Initiator Names"
 msgstr "Zakázat vybrané názvy iniciátorů"
@@ -3330,10 +3330,10 @@ msgstr ""
 "Znepřístupnit účty označených uživatelů ověřování vzájemného CHAP protokolu"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "Zakázat označené NFS exporty"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "Zakázat označené NFS kořenové složky"
 
 msgid "Disable Selected Option Records"
 msgstr "Vypnout záznamy označené volby"
@@ -3348,13 +3348,13 @@ msgid "Disable Selected Portal Groups"
 msgstr "Vypnout označené skupiny portálů"
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "Zakázat označené veřejné klíče"
 
 msgid "Disable Selected Records"
 msgstr "Vypnout označené záznamy"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Zakázat označené trasy"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Vypnout označené Rsync úlohy"
@@ -3363,16 +3363,16 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Vypnout označené Rsync moduly"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "Zakázat označená Samba sdílení"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "Zakázat označená sysctl nastavení"
 
 msgid "Disable Selected Targets"
 msgstr "Vypnout označené cíle"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Zakázat označené uživatele"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Vypnout označené WebDAV záznamy"
@@ -3384,7 +3384,7 @@ msgid "Disable Selected iSNS Servers"
 msgstr "Přestat používat vyznačené iSNS servery"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Vypnout titulky"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "Vypnout TCP zprostředkovávající službu (modul mod_wrap)."
@@ -3405,7 +3405,7 @@ msgid "Disable speaker beep on startup and shutdown."
 msgstr "Vypnout pípnutí vestavěného reproduktoru při spouštění a vypínání."
 
 msgid "Disable subtitle support on unknown clients."
-msgstr ""
+msgstr "Vypnout podporu titulků pro neznámé klienty."
 
 msgid "Disable the compression of repeating lines."
 msgstr "Vypnout kompresi opakujících se řádků."
@@ -3677,10 +3677,10 @@ msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Opravdu chcete smazat označené uživatele vzájemného CHAP?"
 
 msgid "Do you want to delete selected NFS exports?"
-msgstr ""
+msgstr "Chcete označené NFS exporty smazat?"
 
 msgid "Do you want to delete selected NFS root directories?"
-msgstr ""
+msgstr "Chcete označené NFS kořenové složky smazat?"
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "Opravdu smazat označené RAID svazky?"
@@ -3737,7 +3737,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr "Opravdu chcete označené záznamy pro očekávání spojení smazat?"
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "Chcete označené složky s médii smazat?"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "Chcete označené oznamování smazat?"
@@ -3758,7 +3758,7 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Opravdu chcete označené skupiny portálů smazat?"
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "Chcete označené veřejné klíče smazat?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Opravdu smazat označené záznamy?"
@@ -5308,13 +5308,13 @@ msgid "File Manager"
 msgstr "Správce souborů"
 
 msgid "File Manager Access"
-msgstr ""
+msgstr "Přístup ke správci souborů"
 
 msgid "File Mask"
 msgstr "Maska souboru"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Přístupová práva k souboru"
 
 msgid "File Path"
 msgstr "Popis umístění souboru"
@@ -5333,13 +5333,13 @@ msgid "File Transfer Protocol"
 msgstr "File Transfer Protocol (protokol pro přenos souborů)"
 
 msgid "File creation failed."
-msgstr ""
+msgstr "Vytvoření souboru se nezdařilo."
 
 msgid "File not found"
 msgstr "Soubor nebyl nalezen"
 
 msgid "File opening failed."
-msgstr ""
+msgstr "Otevření souboru se nezdařilo."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5354,7 +5354,7 @@ msgstr ""
 "použitého jako úložná jednotka."
 
 msgid "File saving failed."
-msgstr ""
+msgstr "Uložení souboru se nezdařilo."
 
 msgid "File size"
 msgstr "Velikost souboru"
@@ -5438,7 +5438,7 @@ msgid "Force Delete"
 msgstr "Vynutit smazání"
 
 msgid "Force Group"
-msgstr ""
+msgstr "Vynutit skupinu"
 
 msgid "Force Operation"
 msgstr "Vynutit operaci"
@@ -5447,7 +5447,7 @@ msgid "Force Use"
 msgstr "Vynutit použití"
 
 msgid "Force User"
-msgstr ""
+msgstr "Vynutit uživatele"
 
 msgid "Forced Update Period"
 msgstr "Vynutit periodu aktualizace"
@@ -5529,7 +5529,7 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 
 msgid "Function unavailable."
-msgstr ""
+msgstr "Funkce nedostupná."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5553,7 +5553,7 @@ msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM softwarové RAID pole"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "Podrobnosti o GEOM nejsou k dispozici."
 
 msgid "GEOM not found."
 msgstr ""
@@ -5562,7 +5562,7 @@ msgid "GEOM vinum"
 msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "GIF obrázek"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5583,13 +5583,13 @@ msgid "GPT partition"
 msgstr "Oddíl GPT"
 
 msgid "GSSAPI Authentication"
-msgstr ""
+msgstr "GSSAPI ověřování"
 
 msgid "GUI"
-msgstr ""
+msgstr "Grafické uživatelské rozhraní"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "GZIP archiv"
 
 msgid "Gateway"
 msgstr "Brána"
@@ -5616,7 +5616,7 @@ msgid "Get a list of available drivers"
 msgstr "Získat seznam dostupných ovladačů"
 
 msgid "Getting permissions failed."
-msgstr ""
+msgstr "Získání oprávnění se nezdařilo."
 
 msgid "GiB"
 msgstr "GiB"
@@ -5642,31 +5642,31 @@ msgid "Global numeric identifier to use for a given LUN inside CTL."
 msgstr "Globální číselný identifikátor který použít pro dané LUN uvnitř CTL."
 
 msgid "Go Back"
-msgstr ""
+msgstr "Jít zpět"
 
 msgid "Grant access to the file manager."
-msgstr ""
+msgstr "Udělit přístup ke správci souborů."
 
 msgid "Grant create permission"
-msgstr ""
+msgstr "Udělit oprávnění pro vytváření"
 
 msgid "Grant delete permission"
-msgstr ""
+msgstr "Udělit oprávnění pro mazání"
 
 msgid "Grant modify permission"
-msgstr ""
+msgstr "Udělit oprávnění pro provádění změn"
 
 msgid "Grant read permission"
-msgstr ""
+msgstr "Udělit oprávnění pro čtení"
 
 msgid "Grant shell access to user"
-msgstr ""
+msgstr "Udělit uživateli přístup k shellu"
 
 msgid "Graph shows last 120 seconds"
 msgstr "Graf zobrazuje předchozích 120 sekund"
 
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "Graf zobrazuje uplynulých 120 sekund."
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5691,7 +5691,7 @@ msgid "Group ID"
 msgstr "Identifikátor skupiny"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Název skupiny"
 
 msgid "Group Settings"
 msgstr "Nastavení skupiny"
@@ -5780,7 +5780,7 @@ msgid "HOT SPARE"
 msgstr "PHTVST. NÁHR."
 
 msgid "HTML Page"
-msgstr ""
+msgstr "HTML stránka"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -5835,16 +5835,16 @@ msgid "Hidden"
 msgstr "Skryté"
 
 msgid "Hidden Items"
-msgstr ""
+msgstr "Skryté položky"
 
 msgid "Hide Dot Files"
 msgstr "Skrýt soubory s názvy začínajícími tečkou"
 
 msgid "Hide System Groups"
-msgstr ""
+msgstr "Skrýt systémové skupiny"
 
 msgid "Hide System Users"
-msgstr ""
+msgstr "Skrýt systémové uživatele"
 
 msgid "High voltage boosting transfer point"
 msgstr ""
@@ -5970,7 +5970,7 @@ msgid "IPv4 DNS Servers"
 msgstr "IPv4 DNS servery"
 
 msgid "IPv4 Routes"
-msgstr ""
+msgstr "IPv4 trasy"
 
 msgid "IPv4 Settings"
 msgstr "IPv4 nastavení"
@@ -6013,7 +6013,7 @@ msgid "IPv6 Prefix"
 msgstr "IPv6 předpona"
 
 msgid "IPv6 Routes"
-msgstr ""
+msgstr "IPv6 trasy"
 
 msgid "IPv6 Settings"
 msgstr "IPv6 nastavení"
@@ -6047,7 +6047,7 @@ msgid "Identifier"
 msgstr "Identifikátor"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Identifikátor:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6189,7 +6189,7 @@ msgstr ""
 "ovládajícího stroje."
 
 msgid "In this directory, the configuration file 'my.cnf' will be created."
-msgstr ""
+msgstr "V tomto adresáři bude vytvořen soubor s nastaveními „my.cnf“."
 
 msgid "In/Out Errors"
 msgstr "Vst./výst. chyby"
@@ -6464,7 +6464,7 @@ msgid "Invalid file format."
 msgstr "Neplatný formát souboru"
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "Neplatný soubor s firmware."
 
 msgid "Invalid login credentials."
 msgstr "Neplatné přihlašovací údaje."
@@ -6513,22 +6513,22 @@ msgstr ""
 "webového rozhraní. Uživatelské jméno vložíte zde."
 
 msgid "Item(s)"
-msgstr ""
+msgstr "Položek"
 
 msgid "JBOD"
 msgstr "JBOD"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "Podrobnosti JBOD"
 
 msgid "JBOD Maintenance"
 msgstr "JBOD Údržba"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "Stav JBOD"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "JPG obrázek"
 
 msgid "Jailed"
 msgstr "V odděleném prostředí"
@@ -6540,13 +6540,13 @@ msgid "January"
 msgstr "leden"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "Java Class soubor"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "Zdrojový soubor v Javě"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "Javascript soubor"
 
 msgid "Job is locked"
 msgstr "Úloha je uzamčena."
@@ -6586,7 +6586,7 @@ msgid "Key Management Protocol"
 msgstr "Protokol správy klíčů"
 
 msgid "Keyboard-Interactive Authentication"
-msgstr ""
+msgstr "Ověřování se prostřednictvím klávesnice"
 
 msgid "L2 Cache"
 msgstr "Mezipaměť druhé úrovně (L2 cache)"
@@ -6706,7 +6706,7 @@ msgid "Large Read/Write"
 msgstr "Velká čtení/zápis"
 
 msgid "Last month"
-msgstr ""
+msgstr "Minulý měsíc"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6734,7 +6734,7 @@ msgstr ""
 "ostatních případech 100."
 
 msgid "Last week"
-msgstr ""
+msgstr "Minulý týden"
 
 msgid "Latency"
 msgstr "Prodleva"
@@ -6809,7 +6809,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "Omezuje množství prostoru které datová sada může zabírat."
 
 msgid "Link"
-msgstr ""
+msgstr "Odkaz"
 
 msgid "Link Down Action"
 msgstr "Akce při výpadku spojení"
@@ -6904,7 +6904,7 @@ msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Odběr, při kterém se UPS zdroj přepne do stavu přetíženo („OVER“)"
 
 msgid "Load:"
-msgstr ""
+msgstr "Vytížení:"
 
 msgid "Loadbalance"
 msgstr "Vyrovnávání zátěže"
@@ -6948,7 +6948,7 @@ msgid "Location where the content database file will be stored."
 msgstr "Umístění databázového souboru s obsahem."
 
 msgid "Location where work files will be stored."
-msgstr ""
+msgstr "Umístění, ve kterém budou ukládány pracovní soubory."
 
 msgid "Lock Selected Records"
 msgstr "Uzamknout označené záznamy"
@@ -7010,13 +7010,14 @@ msgid "Login"
 msgstr "Přihlásit"
 
 msgid "Login Name"
-msgstr ""
+msgstr "Přihlašovací jméno"
 
 msgid "Login for CHAP authentication."
 msgstr "Přihlášení pro CHAP ověřování."
 
 msgid "Login user root automatically into console on boot."
 msgstr ""
+"Při startu systému automaticky do konzole přihlásit správce systému (root)."
 
 msgid "Logout"
 msgstr "Odhlásit se"
@@ -7055,10 +7056,10 @@ msgid "MBR partition"
 msgstr "MBR diskový oddíl"
 
 msgid "MD4 Password"
-msgstr ""
+msgstr "MD4 heslo"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "MIDI soubor"
 
 msgid "MIRROR"
 msgstr "ZRCADLO"
@@ -7067,13 +7068,13 @@ msgid "MISSING"
 msgstr "CHYBĚJÍCÍ"
 
 msgid "MKV File"
-msgstr ""
+msgstr "MKV soubor"
 
 msgid "MOTD"
 msgstr "Zpráva dne (MOTD)"
 
 msgid "MOV File"
-msgstr ""
+msgstr "MOV soubor"
 
 msgid "MOVE"
 msgstr ""
@@ -7082,16 +7083,16 @@ msgid "MOVED TO"
 msgstr "PŘESUNUTO DO"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "MP3 zvukový soubor"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "MP3 seznam stop"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "MP4 soubor"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "MPEG soubor"
 
 msgid "MS Active Directory"
 msgstr "Microsoft Active Directory"
@@ -7115,10 +7116,10 @@ msgid "Maintenance Tool Settings"
 msgstr "Nastavení údržbového nástroje"
 
 msgid "Major OS Version Upgrades"
-msgstr ""
+msgstr "Velké aktualizace verze operačního systému"
 
 msgid "Major Product Version Updates"
-msgstr ""
+msgstr "Velké aktualizace verze produktu"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Určitě vyberte optimální počet zařízení"
