@@ -1,5 +1,5 @@
 PORTNAME=		transmission
-PORTVERSION=	2.94
+PORTVERSION=	3.00
 PORTREVISION=	0
 CATEGORIES?=	net-p2p
 COMMENT=	Fast and lightweight CLI BitTorrent client
@@ -8,17 +8,17 @@ MAINTAINER=	zoon01@xigmanas.com
 MASTER_SITES=   https://github.com/transmission/transmission-releases/raw/master/ \
 		http://transmission.cachefly.net/
 
-LIB_DEPENDS=	libb64.so:converters/libb64 \
-				libcurl.so:ftp/curl \
-				libdht.so:devel/jech-dht \
-				libminiupnpc.so:net/miniupnpc \
-				libnatpmp.so:net/libnatpmp \
-				libutp.so:net/libutp \
-				libevent.so:devel/libevent
+LIB_DEPENDS=	libcurl.so:ftp/curl \
+			libdht.so:devel/jech-dht \
+			libb64.so:converters/libb64 \
+			libevent.so:devel/libevent \
+			libnatpmp.so:net/libnatpmp \
+			libutp.so:net/libutp \
+			libminiupnpc.so:net/miniupnpc
 
 GEN_RUN_DEPENDS=${LOCALBASE}/share/transmission/web/index.html:www/transmission-web
 
-USES+=		gmake iconv libtool pkgconfig
+USES+=		gmake iconv libtool pkgconfig ssl
 USE_OPENSSL=	yes
 EXTRACT_SUFX=	.tar.xz
 GNU_CONFIGURE=	yes
@@ -39,24 +39,15 @@ CONFIGURE_ARGS+=	--without-inotify \
 				--enable-external-dht \
 				--enable-external-natpmp \
 		 		--disable-nls
+
+CONFIGURE_ENV+=	OPENSSL_CFLAGS="-I${OPENSSLINC}" \
+		OPENSSL_LIBS="-L${OPENSSLLIB} -lssl -lcrypto" \
+		PHP_OPENSSL=yes
+
+LDFLAGS+=	-L${OPENSSLLIB} -lcrypto -lssl
+
 OPTIONS_DEFINE+=	DOCS LITE
-OPTIONS_DEFAULT+=	OPENSSL
-OPTIONS_SINGLE+=	SSL
-OPTIONS_SINGLE_SSL+=	OPENSSL POLARSSL WOLFSSL
-
 LITE_CONFIGURE_ENABLE=	lightweight
-
-OPENSSL_USES=           ssl
-OPENSSL_CONFIGURE_ENV=	OPENSSL_CFLAGS="-I${OPENSSLINC}" \
-			OPENSSL_LIBS="-L${OPENSSLLIB} -lcrypto"
-OPENSSL_CONFIGURE_ON=	--with-crypto=openssl
-
-POLARSSL_LIB_DEPENDS=	libpolarssl.so:${PORTSDIR}/security/polarssl13
-POLARSSL_CONFIGURE_ON=	--with-crypto=polarssl
-
-WOLFSSL_LIB_DEPENDS=	libwolfssl.so:${PORTSDIR}/security/wolfssl
-WOLFSSL_CONFIGURE_ON=	--with-crypto=cyassl
-WOLFSSL_BROKEN=		Requires security/wolfssl built with --enable-arc4
 
 general-patch:
 	@${FIND} ${WRKSRC} -name Makefile.in | ${XARGS} ${REINPLACE_CMD} -e \
@@ -83,7 +74,7 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/daemon/transmission-daemon ${XIGMANAS_ROOTFS}/usr/local/bin
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/daemon/transmission-remote ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/utils/transmission-remote ${XIGMANAS_ROOTFS}/usr/local/bin
 
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/images/
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript/jquery
