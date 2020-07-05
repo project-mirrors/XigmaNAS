@@ -1722,11 +1722,10 @@ trait co_DOMTools {
 	 *	@return DOMNode $subnode
 	 */
 	public function add_area_data() {
+		$this->insDIV(['id' => 'area_data_top']);
 		$subnode = $this->
-			addTABLE(['id' => 'area_data'])->
-				addTBODY()->
-					addTR()->
-						addTD(['id' => 'area_data_frame']);
+			addDIV(['id' => 'area_data_frame']);
+		$this->insDIV(['id' => 'area_data_pot']);
 		return $subnode;
 	}
 	public function ins_input_errors(array $input_errors = []) {
@@ -3131,8 +3130,8 @@ EOJ;
 	}
 	public function ins_main() {
 		$this->
-			addElement('main',['id' => 'g4m'])->
-				ins_javascript('document.getElementById("g4m").classList.add("avoid-fouc");')->
+			addElement('main',['id' => 'g4m2'])->
+				ins_javascript('document.getElementById("g4m2").classList.add("avoid-fouc");')->
 				addDIV(['id' => 'pagecontent']);
 		return $this;
 	}
