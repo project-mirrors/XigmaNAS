@@ -137,6 +137,7 @@ Changes:
 - Upgrade proftpd to 1.3.6d.
 - Upgrade sudo to 1.9.1.
 - Upgrade syncthing to 1.6.1.
+- Upgrade transmission to 3.00.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
