@@ -11,11 +11,11 @@ NO_BUILD?=		yes
 NO_PKG_REGISTER?=	yes
 DEPENDS_TARGET=	clean build stage
 
-DEP_STAGEDIR=	${PORTSDIR}/databases/mariadb102-server/work/stage
-CLIENT_STAGEDIR=	${PORTSDIR}/databases/mariadb102-client/work/stage
+DEP_STAGEDIR=	${PORTSDIR}/databases/mariadb104-server/work/stage
+CLIENT_STAGEDIR=	${PORTSDIR}/databases/mariadb104-client/work/stage
 
-BUILD_DEPENDS=	${NONEXISTENT}:databases/mariadb102-server
-BUILD_DEPENDS+=	${NONEXISTENT}:databases/mariadb102-client
+BUILD_DEPENDS=	${NONEXISTENT}:databases/mariadb104-server
+BUILD_DEPENDS+=	${NONEXISTENT}:databases/mariadb104-client
 
 do-install:
 # XigmaNAS® install
@@ -29,7 +29,6 @@ do-install:
 # share
 	@${RM} -rf  ${XIGMANAS_ROOTFS}${PREFIX}/share/mysql
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/share/mysql ${XIGMANAS_ROOTFS}${PREFIX}/share
-	@${CP} -Rpv ${CLIENT_STAGEDIR}${PREFIX}/share/mysql ${XIGMANAS_ROOTFS}${PREFIX}/share
 # lib
 	@${RM} -rf  ${XIGMANAS_ROOTFS}${PREFIX}/lib/mysql
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/mysql ${XIGMANAS_ROOTFS}${PREFIX}/lib
