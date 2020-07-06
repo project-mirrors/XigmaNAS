@@ -28,6 +28,7 @@ Changes:
 - Upgrade proftpd to 1.3.6d.
 - Upgrade syncthing to 1.6.1.
 - Upgrade transmission to 3.00.
+- Upgrade mariadb to 1.0.4.
 
 
 Fixes:
