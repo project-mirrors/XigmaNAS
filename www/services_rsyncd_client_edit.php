@@ -31,11 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'cs_scheduletime.php';
 
 $sphere_scriptname = basename(__FILE__);
-
 if(isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
 endif;
@@ -54,7 +55,7 @@ if(isset($uuid) && (false !== ($cnid = array_search_ex($uuid, $a_rsyncclient,'uu
 	$pconfig['day'] = $a_rsyncclient[$cnid]['day'];
 	$pconfig['month'] = $a_rsyncclient[$cnid]['month'];
 	$pconfig['weekday'] = $a_rsyncclient[$cnid]['weekday'];
-	//$pconfig['sharetosync'] = $a_rsyncclient[$cnid]['sharetosync'];
+//	$pconfig['sharetosync'] = $a_rsyncclient[$cnid]['sharetosync'];
 	$pconfig['all_mins'] = $a_rsyncclient[$cnid]['all_mins'];
 	$pconfig['all_hours'] = $a_rsyncclient[$cnid]['all_hours'];
 	$pconfig['all_days'] = $a_rsyncclient[$cnid]['all_days'];
@@ -85,7 +86,7 @@ else:
 	$pconfig['day'] = [];
 	$pconfig['month'] = [];
 	$pconfig['weekday'] = [];
-	//$pconfig['sharetosync'] = "";
+//	$pconfig['sharetosync'] = "";
 	$pconfig['all_mins'] = 0;
 	$pconfig['all_hours'] = 0;
 	$pconfig['all_days'] = 0;
@@ -115,12 +116,12 @@ if($_POST):
 		header('Location: services_rsyncd_client.php');
 		exit;
 	endif;
-	// Input validation
+//	Input validation
 	$reqdfields = ['localshare','rsyncserverip','remoteshare','who'];
 	$reqdfieldsn = [gtext('Local Share (Destination)'),gtext('Remote Rsync Server'),gtext('Remote Module (Source)'),gtext('Who')];
 	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
 	if(!empty($_POST['Submit']) && gtext('Execute now') !== $_POST['Submit']):
-		// Validate synchronization time
+//		Validate synchronization time
 		do_input_validate_synctime($_POST,$input_errors);
 	endif;
 	if(empty($input_errors)):
@@ -165,7 +166,7 @@ if($_POST):
 		write_config();
 		if(!empty($_POST['Submit']) && stristr($_POST['Submit'], gtext("Execute now"))):
 			$retval = 0;
-			// Update scripts and execute it.
+//			Update scripts and execute it.
 			config_lock();
 			$retval |= rc_exec_service("rsync_client");
 			$retval |= rc_update_service("cron");
@@ -249,7 +250,7 @@ function set_selected(name) {
 				<td class="celltagreq"><?=gtext('Synchronization Time');?></td>
 				<td class="celldatareq">
 <?php
-					include 'cs_scheduletime.php';
+					render_scheduler($pconfig);
 ?>
 				</td>
 			</tr>
@@ -265,7 +266,7 @@ function set_selected(name) {
 		</colgroup>
 		<thead>
 <?php
-			html_separator(2);
+			html_separator2(2);
 			html_titleline2(gettext('Advanced Options'));
 ?>
 		</thead>
@@ -312,4 +313,3 @@ function set_selected(name) {
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>

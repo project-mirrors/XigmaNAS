@@ -31,8 +31,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'cs_scheduletime.php';
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -41,14 +43,12 @@ $sphere_notifier = 'cronjob';
 $sphere_array = [];
 $sphere_record = [];
 $prerequisites_ok = true;
-
 if (isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
 endif;
 if(isset($_POST['uuid'])):
 	$uuid = $_POST['uuid'];
 endif;
-
 $a_cronjob = &array_make_branch($config,'cron','job');
 if(isset($uuid) && (false !== ($cnid = array_search_ex($uuid,$a_cronjob,'uuid')))):
 	$pconfig['enable'] = isset($a_cronjob[$cnid]['enable']);
@@ -207,7 +207,7 @@ $document->render();
 				<td class="celltagreq"><?=gtext('Schedule Time');?></td>
 				<td class="celldatareq">
 <?php
-					include 'cs_scheduletime.php';
+					render_scheduler($pconfig);
 ?>
 				</td>
 			</tr>
@@ -225,4 +225,3 @@ $document->render();
 </form></td></tr></tbody></table>
 <?php
 include 'fend.inc';
-?>
