@@ -31,13 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
 require_once 'report.inc';
+require_once 'cs_scheduletime.php';
 
 $sphere_scriptname = basename(__FILE__);
-
 array_make_branch($config,'statusreport');
 $pconfig['enable'] = isset($config['statusreport']['enable']);
 $pconfig['to'] = $config['statusreport']['to'];
@@ -196,7 +197,7 @@ $document->render();
 				<td class="celltagreq"><?=gtext('Polling Time');?></td>
 				<td class="celldatareq">
 <?php
-					include 'cs_scheduletime.php';
+					render_scheduler($pconfig);
 ?>
 				</td>
 			</tr>
@@ -212,4 +213,3 @@ $document->render();
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-

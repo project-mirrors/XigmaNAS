@@ -31,11 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'cs_scheduletime.php';
 
 $sphere_scriptname = basename(__FILE__);
-
 array_make_branch($config,'reboot');
 $pconfig['enable'] = isset($config['reboot']['enable']);
 $pconfig['minute'] = $config['reboot']['minute'];
@@ -118,7 +119,7 @@ function set_selected(name) {
 				<td class="celltagreq"><?=gtext('Schedule Time');?></td>
 				<td class="celldatareq">
 <?php
-					include 'cs_scheduletime.php';
+					render_scheduler($pconfig);
 ?>
 				</td>
 			</tr>
@@ -133,4 +134,3 @@ function set_selected(name) {
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
