@@ -31,12 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\rc\sort;
 
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 use system\rc as myparent;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -91,55 +93,55 @@ final class grid_toolbox {
 		global $savemsg;
 		global $g_img;
 
-		$pgtitle = [gettext('System'),gettext('Advanced'),gettext('Command Scripts'),gettext('Sort')];
-		$record_exists = count($sphere->grid) > 0;
+		$pgtitle = [\gettext('System'),\gettext('Advanced'),\gettext('Command Scripts'),\gettext('Sort')];
+		$record_exists = \count($sphere->grid) > 0;
 		$a_col_width = ['5%','15%','35%','7%','18%','10%','10%'];
-		$n_col_width = count($a_col_width);
-		$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
-		//	add tab navigation
+		$n_col_width = \count($a_col_width);
+		$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//		add tab navigation
 		shared_toolbox::add_tabnav($document);
-		//	get areas
+//		get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	create data area
+//		create data area
 		$content = $pagecontent->add_area_data();
-		//	display information, warnings and errors
+//		display information, warnings and errors
 		$content->
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		if(updatenotify_exists($sphere->get_notifier())):
+		if(\updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
-		//	add content
+//		add content
 		$table = $content->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',$a_col_width);
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY(['id' => 'system_rc_list']);
 		$tfoot = $table->addTFOOT();
-		$thead->ins_titleline(gettext('Overview'),$n_col_width);
+		$thead->ins_titleline(\gettext('Overview'),$n_col_width);
 		$tr = $thead->addTR();
 		$tr->
 			insTHwC('lhelc')->
 			insTHwC('lhell',$cop->get_name()->get_title())->
 			insTHwC('lhell',$cop->get_value()->get_title())->
-			insTHwC('lhelc',gettext('Status'))->
+			insTHwC('lhelc',\gettext('Status'))->
 			insTHwC('lhell',$cop->get_description()->get_title())->
 			insTHwC('lhell',$cop->get_typeid()->get_title())->
 			insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		if($record_exists):
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
-				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
-				$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
-				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+				$notificationmode = \updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
+				$is_notdirty = ($notificationmode != UPDATENOTIFY_MODE_DIRTY) && ($notificationmode != UPDATENOTIFY_MODE_DIRTY_CONFIG);
+				$is_enabled = $sphere->is_enadis_enabled() ? (\is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
+				$is_notprotected = $sphere->is_lock_enabled() ? !(\is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
 				$typeid_name = $cop->get_typeid()->get_name();
 				$typeid_options = $cop->get_typeid()->get_options();
 				if(\array_key_exists($sphere->row[$typeid_name],$typeid_options)):
 					$typeid_value = $typeid_options[$sphere->row[$typeid_name]];
 				else:
-					$typeid_value = gettext('Unknown');
+					$typeid_value = \gettext('Unknown');
 				endif;
 				$tbody->
 					addTR()->
@@ -152,10 +154,8 @@ final class grid_toolbox {
 						ins_enadis_icon($is_enabled)->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$typeid_value)->
-						add_toolbox_area()->
-							addTD(['colspan' => '3'])->
-								insIMG(['src' => $g_img['mup'],'title' => gettext('Move up'),'alt' => gettext('Up'),'class' => 'move up'])->
-								insIMG(['src' => $g_img['mdn'],'title' => gettext('Move down'),'alt' => gettext('Down'),'class' => 'move down']);
+						add_toolbox_area(1)->
+							ins_updownbox($sphere,true);
 			endforeach;
 		else:
 			$tfoot->ins_no_records_found($n_col_width);
@@ -166,7 +166,7 @@ final class grid_toolbox {
 //		additional javascript code
 		$jol = <<<'EOJ'
 $('#system_rc_list img.move').click(function() {
-	var row = $(this).closest('table').closest('tr');
+	var row = $(this).closest('tr');
 	if ($(this).hasClass('up')) row.prev().before(row);
 	if ($(this).hasClass('down')) row.next().after(row);
 });
@@ -193,7 +193,7 @@ EOJ;
 		global $savemsg;
 
 //		preset $savemsg in case a reboot is pending
-		if(file_exists($d_sysrebootreqd_path)):
+		if(\file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
 		list($page_method,$page_action,$page_mode) = $rmo->validate();
@@ -201,19 +201,20 @@ EOJ;
 			case 'POST':
 				switch($page_action):
 					case 'apply':
-						if($_POST[$sphere->get_cbm_name()] && is_array($_POST[$sphere->get_cbm_name()])):
+						if($_POST[$sphere->get_cbm_name()] && \is_array($_POST[$sphere->get_cbm_name()])):
 							$a_param = [];
 							foreach($_POST[$sphere->get_cbm_name()] as $r_member):
-								if(is_string($r_member)):
-									if(false !== ($index = array_search_ex($r_member,$sphere->grid,$sphere->get_row_identifier()))):
+								if(\is_string($r_member)):
+									$index = \array_search_ex($r_member,$sphere->grid,$sphere->get_row_identifier());
+									if($index  !== false):
 										$a_param[] = $sphere->grid[$index];
 									endif;
 								endif;
 							endforeach;
 							$sphere->grid = $a_param;
-							write_config();
+							\write_config();
 						endif;
-						header($sphere->get_parent()->get_location());
+						\header($sphere->get_parent()->get_location());
 						exit;
 						break;
 				endswitch;

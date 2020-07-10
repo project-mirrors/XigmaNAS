@@ -2486,78 +2486,64 @@ EOJ;
 					insIMG(['src' => $src,'alt' => $title]);
 		return $this;
 	}
-	public function add_toolbox_area() {
+	public function add_toolbox_area(int $columns = 3) {
 		$subnode = $this->
 			addTDwC('lcebld')->
-				addTABLE(['class' => 'area_data_selection_toolbox'])->
-					ins_colgroup_with_styles('width',['33%','34%','33%'])->
-					addTBODY()->
-						addTR();
+				addDIV(['style' => sprintf('display: grid;grid-template-columns: repeat(%u,1fr);align-items: center;',$columns)]);
 		return $subnode;
 	}
 	public function ins_toolbox($sphere,bool $notprotected = true,bool $notdirty = true) {
 		global $g_img;
-/*
- *	<td>
- *		<a href="scriptname_edit.php?submit=edit&uuid=12345678-1234-1234-1234-1234567890AB"><img="images/edit.png" title="Edit Record" alt="Edit Record" class="spin"/></a>
- *		or
- *		<img src="images/delete.png" title="Record is marked for deletion" alt="Record is marked for deletion"/>
- *		or
- *		<img src="images/locked.png" title="Record is protected" alt="Record is protected"/>
- *	</td>
- */
+
+		$div = addDIV(['style' => 'justify-self: left;']);
 		if($notdirty && $notprotected):
 //			record is editable
 			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
-			$this->addTD()->
+			$div->
 				addA(['href' => $link])->
 					insIMG(['src' => $g_img['mod'],'title' => $sphere->getmsg_sym_mod(),'alt' => $sphere->getmsg_sym_mod(),'class' => 'spin oneemhigh']);
 		elseif($notprotected):
 //			record is dirty
-			$this->addTD()->
+			$div->
 				insIMG(['src' => $g_img['del'],'title' => $sphere->getmsg_sym_del(),'alt' => $sphere->getmsg_sym_del(),'class' => 'oneemhigh']);
 		else:
 //			record is protected
-			$this->addTD()->
+			$div->
 				insIMG(['src' => $g_img['loc'],'title' => $sphere->getmsg_sym_loc(),'alt' => $sphere->getmsg_sym_loc(),'class' => 'oneemhigh']);
 		endif;
 		return $this;
 	}
 	public function ins_maintainbox($sphere,bool $show_link = false) {
 		global $g_img;
-/*
- *	<td>
- *		<a href="scriptname_maintain.php?submit=maintain&uuid=12345678-1234-1234-1234-1234567890AB"><img="images/maintain.png" title="Maintenance" alt="Maintenance" class="spin oneemhigh"/></a>
- *	</td>
- */
-		$td = $this->addTD();
+
+		$div = $this->addDIV(['style' => 'justify-self: center;']);
 		if($show_link):
 			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
-			$td->addA(['href' => $link])->insIMG(['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
+			$div->
+				addA(['href' => $link])->
+					insIMG(['src' => $g_img['mai'],'title' => $sphere->getmsg_sym_mai(),'alt' => $sphere->getmsg_sym_mai(),'class' => 'spin oneemhigh']);
 		endif;
 		return $this;
 	}
 	public function ins_informbox($sphere,bool $show_link = false) {
 		global $g_img;
-/*
- *	<td>
- *		<a href="scriptname_inform.php?submit=inform&uuid=12345678-1234-1234-1234-1234567890AB"><img="images/info.png" title="Information" alt="Information" class="spin oneemhigh"/></a>
- *	</td>
- */
-		$td = $this->addTD();
+
+		$div = $this->addDIV(['style' => 'justify-self: right;']);
 		if($show_link):
 			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
-			$td->addA(['href' => $link])->insIMG(['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
+			$div->
+				addA(['href' => $link])->
+					insIMG(['src' => $g_img['inf'],'title' => $sphere->getmsg_sym_inf(),'alt' => $sphere->getmsg_sym_inf(),'class' => 'spin oneemhigh']);
 		endif;
 		return $this;
 	}
 	public function ins_updownbox($sphere,bool $show_arrows = false) {
 		global $g_img;
 
-		$td = $this->addTD();
+		$div = $this->addDIV(['style' => 'justify-self: left;']);
 		if($show_arrows):
 			$image_attribute_mup = [
 				'src' => $g_img['mup'],
@@ -2571,7 +2557,9 @@ EOJ;
 				'alt' => $sphere->getmsg_sym_mdn(),
 				'class' => 'oneemhigh move down'
 			];
-			$td->insIMG($image_attribute_mup)->insIMG($image_attribute_mdn);
+			$div->
+				insIMG($image_attribute_mup)->
+				insIMG($image_attribute_mdn);
 		endif;
 		return $this;
 	}
