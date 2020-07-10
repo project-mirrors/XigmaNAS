@@ -132,13 +132,13 @@ Changes:
 - Upgrade iperf3 to 3.8.1.
 - Upgrade msmtp to 1.8.11.
 - Upgrade nano to 4.9.3.
-- Upgrade php to 7.4.7.
 - Upgrade proftpd to 1.3.6d.
 - Upgrade sudo to 1.9.1.
 - Upgrade syncthing to 1.6.1.
 - Upgrade transmission to 3.00.
 - Upgrade mariadb to 1.0.4.
 - Upgrade virtualbox-ose to 5.2.42.
+- Upgrade php to 7.4.7.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
