@@ -133,6 +133,7 @@ Changes:
 - Upgrade syncthing to 1.6.1.
 - Upgrade transmission to 3.00.
 - Upgrade mariadb to 1.0.4.
+- Upgrade virtualbox-ose to 5.2.42.
 
 Fixes:
 

@@ -1,11 +1,11 @@
---- src/VBox/Devices/PC/vbox-cpuhotplug.dsl.orig	2020-04-09 15:50:06.000000000 +0200
-+++ src/VBox/Devices/PC/vbox-cpuhotplug.dsl	2020-04-15 21:22:17.000000000 +0200
-@@ -44,11 +44,11 @@
+--- src/VBox/Devices/PC/vbox-cpuhotplug.dsl.orig	2020-05-13 19:42:50 UTC
++++ src/VBox/Devices/PC/vbox-cpuhotplug.dsl
+@@ -44,11 +44,11 @@ DefinitionBlock ("SSDT-cpuhotplug.aml", "SSDT", 1, "VB
      Scope (\_SB)
      {
  
 -#define GENERATE_CPU_OBJECT(id, sck, sckuid, cpu)<NL>                      \
-+#define GENERATE_CPU_OBJECT(id, sck, cpu)<NL>                              \
++#define GENERATE_CPU_OBJECT(id, sck, cpu)<NL>                      \
      Device (sck)                                                           \
      {                                                                      \
          Name (_HID, "ACPI0004")                                            \
@@ -14,7 +14,7 @@
                                                                             \
          <NL>                                                               \
          Processor (cpu, /* Name */                                         \
-@@ -95,38 +95,38 @@
+@@ -95,38 +95,38 @@ DefinitionBlock ("SSDT-cpuhotplug.aml", "SSDT", 1, "VB
          }                                                                  \
      }                                                                      \
  
