@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -400,7 +400,7 @@ msgstr ""
 msgid "Access the webGUI with the new IP address"
 msgstr ""
 
-msgid "Acoustic level"
+msgid "Acoustic Level"
 msgstr ""
 
 msgid "Action"
@@ -8380,6 +8380,9 @@ msgstr ""
 msgid "Remote Address"
 msgstr ""
 
+msgid "Remote Module"
+msgstr ""
+
 msgid "Remote Module (Source)"
 msgstr ""
 
@@ -8663,7 +8666,7 @@ msgstr ""
 msgid "S.M.A.R.T. Monitoring"
 msgstr ""
 
-msgid "S.M.A.R.T. extra options"
+msgid "S.M.A.R.T. Options"
 msgstr ""
 
 msgid "S.M.A.R.T. log"
@@ -8845,10 +8848,17 @@ msgstr ""
 msgid "Scrub a pool"
 msgstr ""
 
-msgid "Seach results"
+msgid "Search"
 msgstr ""
 
-msgid "Search"
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
 msgstr ""
 
 msgid "Search event"
@@ -9019,9 +9029,6 @@ msgstr ""
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr ""
 
-msgid "Selected"
-msgstr ""
-
 msgid "Selected UPS"
 msgstr ""
 
@@ -9035,6 +9042,9 @@ msgid "Selected graph:"
 msgstr ""
 
 msgid "Selected interface:"
+msgstr ""
+
+msgid "Selected..."
 msgstr ""
 
 msgid "Selection"
@@ -11345,6 +11355,9 @@ msgid "UP"
 msgstr ""
 
 msgid "UPS"
+msgstr ""
+
+msgid "UPS Driver List"
 msgstr ""
 
 msgid "UPS Identifier"
