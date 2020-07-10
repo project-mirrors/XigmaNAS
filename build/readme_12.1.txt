@@ -121,7 +121,6 @@ Changes:
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade dialog to 1.3-20200327.
-- Upgrade virtualbox-ose to 5.2.40.
 - Upgrade zoneinfo to 2020a.
 - Upgrade bash to 5.0 P17.
 - Upgrade samba to 4.10.15.
@@ -139,6 +138,7 @@ Changes:
 - Upgrade syncthing to 1.6.1.
 - Upgrade transmission to 3.00.
 - Upgrade mariadb to 1.0.4.
+- Upgrade virtualbox-ose to 5.2.42.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.

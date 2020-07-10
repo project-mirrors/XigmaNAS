@@ -1,14 +1,11 @@
-# Created by: Bernhard Froehlich <decke@bluelife.at>
-# $FreeBSD: head/emulators/virtualbox-ose-kmod/Makefile 530709 2020-04-04 19:01:20Z kevans $
-
 PORTNAME=	virtualbox-ose
-PORTVERSION=	5.2.40
+PORTVERSION=	5.2.42
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.oracle.com/virtualbox/${PORTVERSION}/
 PKGNAMESUFFIX=	-kmod
 DISTNAME=	VirtualBox-${PORTVERSION}
 
-MAINTAINER=	vbox@FreeBSD.org
+MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	VirtualBox kernel module for FreeBSD
 
 LICENSE=	GPLv2
