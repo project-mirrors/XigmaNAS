@@ -138,7 +138,7 @@ Changes:
 - Upgrade transmission to 3.00.
 - Upgrade mariadb to 1.0.4.
 - Upgrade virtualbox-ose to 5.2.42.
-- Upgrade php to 7.4.7.
+- Upgrade php to 7.4.8.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
