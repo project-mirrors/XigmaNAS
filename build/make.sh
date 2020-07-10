@@ -2187,13 +2187,13 @@ copy_files() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/pecl-APCu /usr/ports/devel
 	echo "===> Copy new port files to /usr/ports/devel/pecl-APCu done!"
 	echo ""
-	echo "===> Delete current open-vm-tools from ports"
-	rm -rf /usr/ports/emulators/open-vm-tools
+	echo "===> Delete current samba-nsupdate from ports"
+	rm -rf /usr/ports/dns/samba-nsupdate
 	echo "===> Delete completed!"
 	echo ""
-	echo "===> Copy new port open-vm-tools to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/open-vm-tools /usr/ports/emulators
-	echo "===> Copy new port files to /usr/ports/emulators/open-vm-tools done!"
+	echo "===> Copy new port samba-nsupdate to ports/dns/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/samba-nsupdate /usr/ports/dns
+	echo "===> Copy new port files to /usr/ports/dns/samba-nsupdate done!"
 	echo ""
 	echo "===> Delete current virtualbox-ose from ports"
 	rm -rf /usr/ports/emulators/virtualbox-ose
