@@ -115,7 +115,7 @@ foreach($sphere->grid as $sphere->row_id => $sphere->row):
 			ins_enadis_icon($is_enabled)->
 			ins_enadis_icon($is_running)->
 			add_toolbox_area(1)->
-				addDIV(['style' => 'justify-self: left;'])->
+				addDIV(['class' => 'lcrgridl'])->
 					addA(['href' => $sphere->row['link']])->
 						insIMG(['src' => $g_img['mod'],'title' => gettext('Modify Service'),'alt' => gettext('Modify Service'),'class' => 'spin oneemhigh']);
 endforeach;
