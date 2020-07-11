@@ -1470,3 +1470,27 @@ td.padr1
 {
 	padding: 0em 1em 0em 0em;
 }
+
+.lcrgridx {
+	display: -ms-grid;
+	display: grid;
+	align-items: center;
+}
+
+.lcrgridl {
+	-ms-grid-column: 1;
+	-ms-grid-column-align: start;
+	justify-self: left;
+}
+
+.lcrgridc {
+	-ms-grid-column: 2;
+	-ms-grid-column-align: center;
+	justify-self: center;
+}
+
+.lcrgridr {
+	-ms-grid-column: 3;
+	-ms-grid-column-align: end;
+	justify-self: right;
+}
