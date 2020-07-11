@@ -2489,13 +2489,18 @@ EOJ;
 	public function add_toolbox_area(int $columns = 3) {
 		$subnode = $this->
 			addTDwC('lcebld')->
-				addDIV(['style' => sprintf('display: grid;grid-template-columns: repeat(%u,1fr);align-items: center;',$columns)]);
+				addDIV([
+					'class' => 'lcrgridx',
+					'style' =>
+						sprintf('-ms-grid-columns: %s;',\implode(' ',\array_fill(0,$columns,'1fr'))) .
+						sprintf('grid-template-columns: repeat(%u,1fr);',$columns)
+				]);
 		return $subnode;
 	}
 	public function ins_toolbox($sphere,bool $notprotected = true,bool $notdirty = true) {
 		global $g_img;
 
-		$div = addDIV(['style' => 'justify-self: left;']);
+		$div = $this->addDIV(['class' => 'lcrgridl']);
 		if($notdirty && $notprotected):
 //			record is editable
 			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
@@ -2517,7 +2522,7 @@ EOJ;
 	public function ins_maintainbox($sphere,bool $show_link = false) {
 		global $g_img;
 
-		$div = $this->addDIV(['style' => 'justify-self: center;']);
+		$div = $this->addDIV(['class' => 'lcrgridc']);
 		if($show_link):
 			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
@@ -2530,7 +2535,7 @@ EOJ;
 	public function ins_informbox($sphere,bool $show_link = false) {
 		global $g_img;
 
-		$div = $this->addDIV(['style' => 'justify-self: right;']);
+		$div = $this->addDIV(['class' => 'lcrgridr']);
 		if($show_link):
 			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
@@ -2543,7 +2548,7 @@ EOJ;
 	public function ins_updownbox($sphere,bool $show_arrows = false) {
 		global $g_img;
 
-		$div = $this->addDIV(['style' => 'justify-self: left;']);
+		$div = $this->addDIV(['class' => 'lcrgridl']);
 		if($show_arrows):
 			$image_attribute_mup = [
 				'src' => $g_img['mup'],
