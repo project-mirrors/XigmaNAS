@@ -154,7 +154,7 @@ final class grid_toolbox {
 						ins_enadis_icon($is_enabled)->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$typeid_value)->
-						add_toolbox_area(1)->
+						add_toolbox_area(false)->
 							ins_updownbox($sphere,true);
 			endforeach;
 		else:

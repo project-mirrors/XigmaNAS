@@ -2486,14 +2486,10 @@ EOJ;
 					insIMG(['src' => $src,'alt' => $title]);
 		return $this;
 	}
-	public function add_toolbox_area(int $columns = 3) {
+	public function add_toolbox_area(bool $lcrgrid = true) {
 		$subnode = $this->
 			addTDwC('lcebld')->
-				addDIV([
-					'class' => 'lcrgridx',
-					'style' =>
-						sprintf('-ms-grid-columns: (1fr)[%1$u];grid-template-columns: repeat(%1$u,1fr);',$columns)
-				]);
+				addDIV(['class' => $lcrgrid ? 'lcrgridx' : 'lgridx']);
 		return $subnode;
 	}
 	public function ins_toolbox($sphere,bool $notprotected = true,bool $notdirty = true) {
@@ -2547,7 +2543,7 @@ EOJ;
 	public function ins_updownbox($sphere,bool $show_arrows = false) {
 		global $g_img;
 
-		$div = $this->addDIV(['class' => 'lcrgridl']);
+		$div = $this->addDIV(['class' => 'lgridl']);
 		if($show_arrows):
 			$image_attribute_mup = [
 				'src' => $g_img['mup'],
@@ -3138,12 +3134,11 @@ EOJ;
 		$g4fx = $this->
 			addElement('footer',['id' => 'g4f'])->
 				insDIV(['id' => 'gapfooter'])->
-				addDIV(['id' => 'pagefooter'])->
-					add_table_data_settings()->
-						ins_colgroup_with_styles('width',['20%','60%','20%'])->
-						addTBODY()->
-							addTR();
-		$g4fl = $g4fx->addTDwC('g4fl');
+				addDIV([
+					'id' => 'pagefooter',
+					'class' => 'lcrgridx'
+				]);
+		$g4fl = $g4fx->addDIV(['class' => 'g4fl lcrgridl']);
 		if(Session::isAdmin()):
 			if(file_exists($d_sysrebootreqd_path)):
 				$img_attributes = [
@@ -3157,8 +3152,8 @@ EOJ;
 						insIMG($img_attributes);
 			endif;
 		endif;
-		$g4fx->addTDwC('g4fc',get_product_copyright());
-		$g4fx->addTDwC('g4fr',system_get_hostname());
+		$g4fx->addDIV(['class' => 'g4fc lcrgridc'],get_product_copyright());
+		$g4fx->addDIV(['class' => 'g4fr lcrgridr'],system_get_hostname());
 		return $this;
 	}
 }
