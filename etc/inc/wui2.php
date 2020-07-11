@@ -2492,8 +2492,7 @@ EOJ;
 				addDIV([
 					'class' => 'lcrgridx',
 					'style' =>
-						sprintf('-ms-grid-columns: %s;',\implode(' ',\array_fill(0,$columns,'1fr'))) .
-						sprintf('grid-template-columns: repeat(%u,1fr);',$columns)
+						sprintf('-ms-grid-columns: (1fr)[%1$u];grid-template-columns: repeat(%1$u,1fr);',$columns)
 				]);
 		return $subnode;
 	}
