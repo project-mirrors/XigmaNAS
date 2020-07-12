@@ -33,20 +33,25 @@
 */
 declare(strict_types = 1);
 
-function render_scheduler(array $pconfig,string $scheduler_type = 'full'): void {
+/**
+ *	Renders a scheduler
+ *	@global array $g_months
+ *	@global array $g_weekdays
+ *	@param array $pconfig
+ *	@param string $scheduler_type
+ *	@return void
+ */
+function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 	global $g_months,$g_weekdays;
 
 	$matrix = [];
-	switch($scheduler_type):
-		default:
-			$matrix['minutes' ] = ['header' => gettext('Minutes' ),'all' => 'all_mins'    ,'sel' => 'minute' ,'val_min' => 0,'val_steps' => 60,'val_break' => 15];
-		case 'skip_minutes':
-			$matrix['hours'   ] = ['header' => gettext('Hours'   ),'all' => 'all_hours'   ,'sel' => 'hour'   ,'val_min' => 0,'val_steps' => 24,'val_break' =>  6];
-			$matrix['days'    ] = ['header' => gettext('Days'    ),'all' => 'all_days'    ,'sel' => 'day'    ,'val_min' => 1,'val_steps' => 31,'val_break' =>  7];
-			$matrix['months'  ] = ['header' => gettext('Months'  ),'all' => 'all_months'  ,'sel' => 'month'];
-			$matrix['weekdays'] = ['header' => gettext('Weekdays'),'all' => 'all_weekdays','sel' => 'weekday'];
-			break;
-	endswitch;
+	if($with_minutes):
+		$matrix['minutes' ] = ['header' => gettext('Minutes' ),'all' => 'all_mins'    ,'sel' => 'minute' ,'val_min' => 0,'val_steps' => 60,'val_break' => 15];
+	endif;
+	$matrix['hours'   ] = ['header' => gettext('Hours'   ),'all' => 'all_hours'   ,'sel' => 'hour'   ,'val_min' => 0,'val_steps' => 24,'val_break' =>  6];
+	$matrix['days'    ] = ['header' => gettext('Days'    ),'all' => 'all_days'    ,'sel' => 'day'    ,'val_min' => 1,'val_steps' => 31,'val_break' =>  7];
+	$matrix['months'  ] = ['header' => gettext('Months'  ),'all' => 'all_months'  ,'sel' => 'month'];
+	$matrix['weekdays'] = ['header' => gettext('Weekdays'),'all' => 'all_weekdays','sel' => 'weekday'];
 	$document = new \co_DOMDocument();
 	$div = $document->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
 	foreach($matrix as $matrix_key => $control):
