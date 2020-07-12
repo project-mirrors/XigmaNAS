@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'globals.inc';
 require_once 'util.inc';
 require_once 'xmlparse.inc';
@@ -1664,6 +1665,20 @@ function config_upgrade_46() {
 	endif;
 }
 /**
+ *	Upgrade configuration from 47
+ *	@global array $config
+ */
+function config_upgrade_47() {
+	global $config;
+
+	$a_source  = &\array_make_branch($config,'cron','job');
+	foreach($a_source as $r_key => $r_source):
+		if(\is_array($r_source) && !\array_key_exists('uuid',$r_source)):
+			$a_source[$r_key]['uuid'] = \uuid();
+		endif;
+	endforeach;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1714,7 +1729,8 @@ function config_upgrade() {
 		'44' => [$kf => 'config_upgrade_44',$kv => '45'],
 		'45' => [$kf => 'config_upgrade_45',$kv => '46'],
 		'46' => [$kf => 'config_upgrade_46',$kv => '47'],
-		'47' => [$kf => NULL,$kv => NULL]
+		'47' => [$kf => 'config_upgrade_47',$kv => '48'],
+		'48' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;

@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'super_fun.inc';
+
 /*
  *	system configuration parameter
  */
@@ -51,7 +53,7 @@ $g = [
 	'www_path' => '/usr/local/www',
 	'xml_rootobj' => 'xigmanas',
 	'debug' => false,
-	'latest_config' => '47',
+	'latest_config' => '48',
 	'default_passwd' => 'xigmanas',
 	'default_ip' => '192.168.1.250',
 	'zroot' => false
