@@ -180,7 +180,7 @@ function set_selected(name) {
 				<td class="celltagreq"><?=gtext('Schedule Time');?></td>
 				<td class="celldatareq">
 <?php
-					render_scheduler($pconfig,'skip_minutes');
+					render_scheduler($pconfig,false);
 ?>
 				</td>
 			</tr>
