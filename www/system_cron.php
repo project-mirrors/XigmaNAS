@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -72,22 +73,6 @@ $img_path = [
 
 // sunrise: verify if setting exists, otherwise run init tasks
 $sphere_array = &array_make_branch($config,'cron','job');
-//	silent fix identifier
-$updateconfig = false;
-foreach($sphere_array as $sphere_key => $sphere_record):
-	if(is_array($sphere_record)):
-		if(!array_key_exists('uuid',$sphere_record)):
-			$sphere_array[$sphere_key]['uuid'] = uuid();
-			$updateconfig = true;
-		endif;
-	else:
-		unset($sphere_array[$sphere_key]);
-		$updateconfig = true;
-	endif;
-endforeach;
-if($updateconfig):
-	write_config();
-endif;
 if($_POST):
 	if(isset($_POST['apply']) && $_POST['apply']):
 		$retval = 0;
@@ -359,14 +344,12 @@ $document->render();
 		<tbody>
 <?php
 			foreach($sphere_array as $sphere_record):
+				$notificationmode = updatenotify_get_mode($sphere_notifier,$sphere_record['uuid']);
+				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
+				$enabled = isset($sphere_record['enable']);
+				$notprotected = !isset($sphere_record['protected']);
 ?>
 				<tr>
-<?php
-						$notificationmode = updatenotify_get_mode($sphere_notifier, $sphere_record['uuid']);
-						$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-						$enabled = isset($sphere_record['enable']);
-						$notprotected = !isset($sphere_record['protected']);
-?>
 					<td class="<?=$enabled ? "lcelc" : "lcelcd";?>">
 <?php
 						if ($notdirty && $notprotected):
