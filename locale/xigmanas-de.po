@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-04-13 09:23+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"PO-Revision-Date: 2020-07-12 11:50+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -21,7 +21,7 @@ msgid " interfaces:"
 msgstr " Schnittstellen:"
 
 msgid " was assigned to "
-msgstr " wurde zugewiesen zu "
+msgstr " wurde zugewiesen an "
 
 msgid " | State: "
 msgstr " | Status: "
@@ -109,7 +109,7 @@ msgstr "%s verwendet von %s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts."
-msgstr "%s möchte den Autoren dieser Software für Ihre Mühen danken."
+msgstr "%s möchte(n) den Autoren dieser Software für ihre Mühen danken."
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -123,8 +123,8 @@ msgid ""
 "(Default lengths are: 128 for AES, 128 for Blowfish, 128 for Camellia and "
 "192 for 3DES)."
 msgstr ""
-"(Standardlängen sind: 128 für AES, 128 für Blowfish, 128 für Camellia und "
-"192 für 3DES)."
+"(Voreingestellte Längen sind: 128 für AES, 128 für Blowfish, 128 für "
+"Camellia und 192 für 3DES)."
 
 msgid "(Found in a Maxtor 6B200M0 200GB and Maxtor 2R015H1 15GB disks)."
 msgstr ""
@@ -186,7 +186,7 @@ msgid "(default %s %s"
 msgstr "(standard %s %s"
 
 msgid "*** Imported duplicate ***"
-msgstr "*** Importierte Duplikate ***"
+msgstr "*** Importiertes Duplikat ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
@@ -509,8 +509,8 @@ msgstr "Zugriffszeit (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "WebGUI Zugriff mit neuer IP-Adresse"
 
-msgid "Acoustic level"
-msgstr "Geräuschpegel"
+msgid "Acoustic Level"
+msgstr "Schallpegel"
 
 msgid "Action"
 msgstr "Aktion"
@@ -9483,6 +9483,9 @@ msgstr "Einstellungen für Erinnerungen"
 msgid "Remote Address"
 msgstr "Fernadresse"
 
+msgid "Remote Module"
+msgstr "Remote-Modul"
+
 msgid "Remote Module (Source)"
 msgstr "Remote-Modul (Quelle)"
 
@@ -9792,8 +9795,8 @@ msgstr "S.M.A.R.T. Ereignisse"
 msgid "S.M.A.R.T. Monitoring"
 msgstr "S.M.A.R.T. Überwachen"
 
-msgid "S.M.A.R.T. extra options"
-msgstr "S.M.A.R.T. extra Optionen"
+msgid "S.M.A.R.T. Options"
+msgstr "S.M.A.R.T. Einstellungen"
 
 msgid "S.M.A.R.T. log"
 msgstr "S.M.A.R.T. log"
@@ -9990,11 +9993,18 @@ msgstr "Script wurde hochgeladen."
 msgid "Scrub a pool"
 msgstr "Scrub (Schrubben) eines Pools"
 
-msgid "Seach results"
-msgstr "Suchergebnisse"
-
 msgid "Search"
 msgstr "Suchen"
+
+msgid "Search Directory"
+msgstr "Suche im Verzeichnis"
+
+msgid "Search Filter"
+msgstr "Suchfilter"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Suchergebnis für %1$s"
 
 msgid "Search event"
 msgstr "Ereignis suchen"
@@ -10216,9 +10226,6 @@ msgstr ""
 "Wählen Sie die Schlüssellänge zur Verwendung mit dem gegebenen "
 "Verschlüsselungsalgorithmus."
 
-msgid "Selected"
-msgstr "Ausgewählt"
-
 msgid "Selected UPS"
 msgstr "Ausgewählte USV"
 
@@ -10233,6 +10240,9 @@ msgstr "Diagrammauswahl:"
 
 msgid "Selected interface:"
 msgstr "Ausgewählte Schnittstelle:"
+
+msgid "Selected..."
+msgstr "Gewählt..."
 
 msgid "Selection"
 msgstr "Auswahl"
@@ -13395,6 +13405,9 @@ msgstr "GESTARTET (UP)"
 
 msgid "UPS"
 msgstr "USV"
+
+msgid "UPS Driver List"
+msgstr "USV Treiber Liste"
 
 msgid "UPS Identifier"
 msgstr "USV-Kennung"

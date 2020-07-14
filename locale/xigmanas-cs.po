@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
 "PO-Revision-Date: 2020-06-15 16:03+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -503,8 +503,8 @@ msgstr "Okamžik přístupu (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "Přistupte k webovému správnímu rozhraní touto novou IP adresou"
 
-msgid "Acoustic level"
-msgstr "Hlučnost"
+msgid "Acoustic Level"
+msgstr ""
 
 msgid "Action"
 msgstr "Akce"
@@ -9460,6 +9460,9 @@ msgstr "Nastavení připomínky"
 msgid "Remote Address"
 msgstr "Adresa protějšku"
 
+msgid "Remote Module"
+msgstr ""
+
 msgid "Remote Module (Source)"
 msgstr "Modul na protějšku (zdroj)"
 
@@ -9765,8 +9768,8 @@ msgstr "Události ve SMART diagnostice datových úložišť"
 msgid "S.M.A.R.T. Monitoring"
 msgstr "Dohledování SMART diagnostiky"
 
-msgid "S.M.A.R.T. extra options"
-msgstr "Další předvolby SMART diagnostiky"
+msgid "S.M.A.R.T. Options"
+msgstr ""
 
 msgid "S.M.A.R.T. log"
 msgstr "Záznam událostí SMART diagnostiky"
@@ -9964,11 +9967,18 @@ msgstr "Skript by nahrán na server."
 msgid "Scrub a pool"
 msgstr "Zkontrolovat fond úložišť na chyby"
 
-msgid "Seach results"
-msgstr ""
-
 msgid "Search"
 msgstr "Vyhledat"
+
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr ""
 
 msgid "Search event"
 msgstr "Vyhledat událost"
@@ -10167,9 +10177,6 @@ msgstr ""
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr "Vyberte jakou délku klíče použít pro daný kryptografický algoritmus."
 
-msgid "Selected"
-msgstr "Vybráno"
-
 msgid "Selected UPS"
 msgstr ""
 
@@ -10184,6 +10191,9 @@ msgstr "Vybraný graf:"
 
 msgid "Selected interface:"
 msgstr "Vybrané rozhraní:"
+
+msgid "Selected..."
+msgstr ""
 
 msgid "Selection"
 msgstr "Výběr"
@@ -13265,6 +13275,9 @@ msgstr ""
 
 msgid "UPS"
 msgstr "Zdroj nepřeruš. napájení (UPS)"
+
+msgid "UPS Driver List"
+msgstr ""
 
 msgid "UPS Identifier"
 msgstr "Identfikátor UPS zdroje"

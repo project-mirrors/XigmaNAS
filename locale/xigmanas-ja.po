@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
 "PO-Revision-Date: 2019-10-30 23:02+0000\n"
 "Last-Translator: pack <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -460,8 +460,8 @@ msgstr "アクセスタイム (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "新しいIPアドレスで Web 画面にアクセス"
 
-msgid "Acoustic level"
-msgstr "音響レベル"
+msgid "Acoustic Level"
+msgstr ""
 
 msgid "Action"
 msgstr "アクション"
@@ -8938,6 +8938,9 @@ msgstr ""
 msgid "Remote Address"
 msgstr "リモートアドレス"
 
+msgid "Remote Module"
+msgstr ""
+
 msgid "Remote Module (Source)"
 msgstr "リモートモジュール (ソース)"
 
@@ -9231,8 +9234,8 @@ msgstr ""
 msgid "S.M.A.R.T. Monitoring"
 msgstr ""
 
-msgid "S.M.A.R.T. extra options"
-msgstr "S.M.A.R.T. 拡張オプション"
+msgid "S.M.A.R.T. Options"
+msgstr ""
 
 msgid "S.M.A.R.T. log"
 msgstr "S.M.A.R.T. ログ"
@@ -9424,11 +9427,18 @@ msgstr "スクリプトがアップロードされました。"
 msgid "Scrub a pool"
 msgstr ""
 
-msgid "Seach results"
-msgstr ""
-
 msgid "Search"
 msgstr "検索"
+
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr ""
 
 msgid "Search event"
 msgstr ""
@@ -9611,9 +9621,6 @@ msgstr ""
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr ""
 
-msgid "Selected"
-msgstr "選択"
-
 msgid "Selected UPS"
 msgstr ""
 
@@ -9628,6 +9635,9 @@ msgstr "選択されたグラフ:"
 
 msgid "Selected interface:"
 msgstr "選択されたインタフェース:"
+
+msgid "Selected..."
+msgstr ""
 
 msgid "Selection"
 msgstr ""
@@ -12363,6 +12373,9 @@ msgstr ""
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr ""
 
 msgid "UPS Identifier"
 msgstr "UPS 識別子"

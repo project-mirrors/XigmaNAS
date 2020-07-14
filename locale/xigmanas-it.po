@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
 "PO-Revision-Date: 2019-11-24 15:26+0000\n"
 "Last-Translator: luigi mascia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -501,8 +501,8 @@ msgstr "Access Time (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "Accedere alla webGUI con il nuovo indirizzo IP"
 
-msgid "Acoustic level"
-msgstr "Livello acustico"
+msgid "Acoustic Level"
+msgstr ""
 
 msgid "Action"
 msgstr "Azione"
@@ -9405,6 +9405,9 @@ msgstr ""
 msgid "Remote Address"
 msgstr "Indirizzo remoto"
 
+msgid "Remote Module"
+msgstr ""
+
 msgid "Remote Module (Source)"
 msgstr "Modulo remoto (sorgente)"
 
@@ -9712,8 +9715,8 @@ msgstr "Eventi S.M.A.R.T."
 msgid "S.M.A.R.T. Monitoring"
 msgstr "Monitoraggio S.M.A.R.T."
 
-msgid "S.M.A.R.T. extra options"
-msgstr "opzioni aggiuntive S.M.A.R.T."
+msgid "S.M.A.R.T. Options"
+msgstr ""
 
 msgid "S.M.A.R.T. log"
 msgstr "Log di S.M.A.R.T."
@@ -9911,11 +9914,18 @@ msgstr "Lo script è stato caricato."
 msgid "Scrub a pool"
 msgstr "Pulire il pool"
 
-msgid "Seach results"
-msgstr ""
-
 msgid "Search"
 msgstr "Ricerca"
+
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr ""
 
 msgid "Search event"
 msgstr "Evento di ricerca"
@@ -10114,9 +10124,6 @@ msgstr ""
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr "Selezionare la lunghezza della chiave per l'algoritmo di criptazione"
 
-msgid "Selected"
-msgstr "Selezionato"
-
 msgid "Selected UPS"
 msgstr ""
 
@@ -10131,6 +10138,9 @@ msgstr "Grafico selezionato:"
 
 msgid "Selected interface:"
 msgstr "Interfaccia selezionata:"
+
+msgid "Selected..."
+msgstr ""
 
 msgid "Selection"
 msgstr "Selezione"
@@ -13140,6 +13150,9 @@ msgstr ""
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr ""
 
 msgid "UPS Identifier"
 msgstr "Identificativo UPS"

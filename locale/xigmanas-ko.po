@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -461,8 +461,8 @@ msgstr "접근한 시간(atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "새 IP주소로 WebGUI에 접속"
 
-msgid "Acoustic level"
-msgstr "소음 레벨"
+msgid "Acoustic Level"
+msgstr ""
 
 msgid "Action"
 msgstr "동작"
@@ -8969,6 +8969,9 @@ msgstr ""
 msgid "Remote Address"
 msgstr "원격 주소"
 
+msgid "Remote Module"
+msgstr ""
+
 msgid "Remote Module (Source)"
 msgstr "원격 모듈(원본)"
 
@@ -9262,8 +9265,8 @@ msgstr "S.M.A.R.T. 이벤트"
 msgid "S.M.A.R.T. Monitoring"
 msgstr "S.M.A.R.T. 감시"
 
-msgid "S.M.A.R.T. extra options"
-msgstr "S.M.A.R.T. 추가 옵션"
+msgid "S.M.A.R.T. Options"
+msgstr ""
 
 msgid "S.M.A.R.T. log"
 msgstr "S.M.A.R.T. 로그"
@@ -9454,11 +9457,18 @@ msgstr "스크립트가 업로드 되었습니다."
 msgid "Scrub a pool"
 msgstr "풀 스크럽"
 
-msgid "Seach results"
-msgstr ""
-
 msgid "Search"
 msgstr "검색"
+
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr ""
 
 msgid "Search event"
 msgstr "이벤트 검색"
@@ -9643,9 +9653,6 @@ msgstr "사용할 인터페이스를 선택하십시오(서버에 2개 이상의
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr "주어진 암호화 알고리듬에서 사용할 키 길이를 선택하십시오."
 
-msgid "Selected"
-msgstr "선택됨"
-
 msgid "Selected UPS"
 msgstr ""
 
@@ -9660,6 +9667,9 @@ msgstr "선택된 그래프:"
 
 msgid "Selected interface:"
 msgstr "선택된 인터페이스:"
+
+msgid "Selected..."
+msgstr ""
 
 msgid "Selection"
 msgstr "선택"
@@ -12400,6 +12410,9 @@ msgstr ""
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr ""
 
 msgid "UPS Identifier"
 msgstr "UPS 식별자"

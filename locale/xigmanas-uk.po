@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-04-20 06:57+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"PO-Revision-Date: 2020-07-11 14:15+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:57+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:45+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -493,7 +493,7 @@ msgstr "Час доступу (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "Доступ до веб интерфейсу з новою IP-адресою"
 
-msgid "Acoustic level"
+msgid "Acoustic Level"
 msgstr "Акустичний рівень"
 
 msgid "Action"
@@ -9432,6 +9432,9 @@ msgstr "Налаштування нагадувань"
 msgid "Remote Address"
 msgstr "Віддалена адреса"
 
+msgid "Remote Module"
+msgstr "Віддалений модуль"
+
 msgid "Remote Module (Source)"
 msgstr "Віддалений модуль (Джерело)"
 
@@ -9741,8 +9744,8 @@ msgstr "Події S.M.A.R.T."
 msgid "S.M.A.R.T. Monitoring"
 msgstr "Моніторинг параметрів S.M.A.R.T."
 
-msgid "S.M.A.R.T. extra options"
-msgstr "Додаткові налаштування S.M.A.R.T."
+msgid "S.M.A.R.T. Options"
+msgstr "Опції S.M.A.R.T."
 
 msgid "S.M.A.R.T. log"
 msgstr "Журнал S.M.A.R.T."
@@ -9939,11 +9942,18 @@ msgstr "Скріпт був вивантажений."
 msgid "Scrub a pool"
 msgstr "Перевірка пулу"
 
-msgid "Seach results"
-msgstr "Результати пошуку"
-
 msgid "Search"
 msgstr "Пошук"
+
+msgid "Search Directory"
+msgstr "Каталог пошуку"
+
+msgid "Search Filter"
+msgstr "Фільтр пошуку"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Результати пошуку для %1$s"
 
 msgid "Search event"
 msgstr "Шукати подію"
@@ -10144,9 +10154,6 @@ msgstr ""
 "Оберіть, якої довжини використовувати ключ для цього криптографічного "
 "алгоритму."
 
-msgid "Selected"
-msgstr "Вибрано"
-
 msgid "Selected UPS"
 msgstr "Обраний ДБЖ"
 
@@ -10161,6 +10168,9 @@ msgstr "Обраний графік:"
 
 msgid "Selected interface:"
 msgstr "Обраний інтерфейс:"
+
+msgid "Selected..."
+msgstr "Обрані..."
 
 msgid "Selection"
 msgstr "Виділення"
@@ -13238,6 +13248,9 @@ msgstr "ПІДНЯТИ"
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr "Список драйверів UPS"
 
 msgid "UPS Identifier"
 msgstr "Ідентифікатор UPS"
