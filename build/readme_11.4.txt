@@ -129,11 +129,11 @@ Changes:
 - Upgrade nano to 4.9.3.
 - Upgrade proftpd to 1.3.6d.
 - Upgrade sudo to 1.9.1.
-- Upgrade syncthing to 1.6.1.
 - Upgrade transmission to 3.00.
 - Upgrade mariadb to 1.0.4.
 - Upgrade virtualbox-ose to 5.2.42.
 - Upgrade php to 7.4.8.
+- Upgrade syncthing to 1.7.0.
 
 Fixes:
 
