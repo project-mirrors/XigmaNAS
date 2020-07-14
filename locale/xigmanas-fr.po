@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-05-31 14:00+0000\n"
-"Last-Translator: Jean-Marc <Unknown>\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"PO-Revision-Date: 2020-07-10 17:16+0000\n"
+"Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -504,8 +504,8 @@ msgstr "Date du dernier accès (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "Accédez à l'interface utilisateur Web avec la nouvelle adresse IP"
 
-msgid "Acoustic level"
-msgstr "Niveau acoustique"
+msgid "Acoustic Level"
+msgstr "Niveau Acoustique"
 
 msgid "Action"
 msgstr "Action"
@@ -9539,6 +9539,9 @@ msgstr "Paramètres du rappel"
 msgid "Remote Address"
 msgstr "Adresse distante"
 
+msgid "Remote Module"
+msgstr "Module à Distance"
+
 msgid "Remote Module (Source)"
 msgstr "Module à distance (Source)"
 
@@ -9849,8 +9852,8 @@ msgstr "Evénements S.M.A.R.T"
 msgid "S.M.A.R.T. Monitoring"
 msgstr "Surveillance S.M.A.R.T."
 
-msgid "S.M.A.R.T. extra options"
-msgstr "Options supplémentaires S.M.A.R.T."
+msgid "S.M.A.R.T. Options"
+msgstr "Options S.M.A.R.T."
 
 msgid "S.M.A.R.T. log"
 msgstr "Log S.M.A.R.T."
@@ -10049,11 +10052,18 @@ msgstr "Le script a été téléversé"
 msgid "Scrub a pool"
 msgstr "Vérification (Scrub) d'un pool"
 
-msgid "Seach results"
-msgstr "Résultats de la recherche"
-
 msgid "Search"
 msgstr "Chercher"
+
+msgid "Search Directory"
+msgstr "Annuaire de Recherche"
+
+msgid "Search Filter"
+msgstr "Filtre de Recherche"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Résultat de la Recherche pour %1$s"
 
 msgid "Search event"
 msgstr "Recherche d'évènement"
@@ -10268,9 +10278,6 @@ msgstr ""
 "Sélectionnez la longueur de clé à utiliser pour l'algorithme cryptographique "
 "donné."
 
-msgid "Selected"
-msgstr "Sélectionné"
-
 msgid "Selected UPS"
 msgstr "UPS sélectionné"
 
@@ -10285,6 +10292,9 @@ msgstr "Graphique sélectionné"
 
 msgid "Selected interface:"
 msgstr "Interface sélectionnée:"
+
+msgid "Selected..."
+msgstr "Sélectionné..."
 
 msgid "Selection"
 msgstr "Sélection"
@@ -13424,6 +13434,9 @@ msgstr "UP"
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr "Liste des Pilotes UPS"
 
 msgid "UPS Identifier"
 msgstr "Identifiant UPS"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
 "PO-Revision-Date: 2020-04-29 14:11+0000\n"
 "Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:57+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -499,8 +499,8 @@ msgstr "Tempo de Acesso (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "Aceder ao Interface Web com o novo endereço IP"
 
-msgid "Acoustic level"
-msgstr "Nível acústico"
+msgid "Acoustic Level"
+msgstr ""
 
 msgid "Action"
 msgstr "Acção"
@@ -9103,6 +9103,9 @@ msgstr ""
 msgid "Remote Address"
 msgstr ""
 
+msgid "Remote Module"
+msgstr ""
+
 msgid "Remote Module (Source)"
 msgstr ""
 
@@ -9400,8 +9403,8 @@ msgstr ""
 msgid "S.M.A.R.T. Monitoring"
 msgstr ""
 
-msgid "S.M.A.R.T. extra options"
-msgstr "Opções extra de S.M.A.R.T."
+msgid "S.M.A.R.T. Options"
+msgstr ""
 
 msgid "S.M.A.R.T. log"
 msgstr "Registo S.M.A.R.T."
@@ -9594,10 +9597,17 @@ msgstr ""
 msgid "Scrub a pool"
 msgstr ""
 
-msgid "Seach results"
+msgid "Search"
 msgstr ""
 
-msgid "Search"
+msgid "Search Directory"
+msgstr ""
+
+msgid "Search Filter"
+msgstr ""
+
+#, php-format
+msgid "Search Result for %1$s"
 msgstr ""
 
 msgid "Search event"
@@ -9780,9 +9790,6 @@ msgstr ""
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr ""
 
-msgid "Selected"
-msgstr "Seleccionado"
-
 msgid "Selected UPS"
 msgstr ""
 
@@ -9796,6 +9803,9 @@ msgid "Selected graph:"
 msgstr ""
 
 msgid "Selected interface:"
+msgstr ""
+
+msgid "Selected..."
 msgstr ""
 
 msgid "Selection"
@@ -12641,6 +12651,9 @@ msgstr ""
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr ""
 
 msgid "UPS Identifier"
 msgstr ""

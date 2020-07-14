@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-04-13 10:59+0000\n"
-"PO-Revision-Date: 2020-04-14 11:30+0000\n"
+"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"PO-Revision-Date: 2020-07-11 04:07+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-01 10:56+0000\n"
-"X-Generator: Launchpad (build 1cbd0aa39df153c901321817f9b57cf3f232b507)\n"
+"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
+"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -493,7 +493,7 @@ msgstr "Fecha/hora de acceso (atime)"
 msgid "Access the webGUI with the new IP address"
 msgstr "Acceda a la webGUI con la nueva IP"
 
-msgid "Acoustic level"
+msgid "Acoustic Level"
 msgstr "Nivel acústico"
 
 msgid "Action"
@@ -9478,6 +9478,9 @@ msgstr "Configuraciones de recordatorio"
 msgid "Remote Address"
 msgstr "Dirección Remota"
 
+msgid "Remote Module"
+msgstr "Modulo remoto"
+
 msgid "Remote Module (Source)"
 msgstr "Modulo Remoto (Fuente)"
 
@@ -9793,8 +9796,8 @@ msgstr "Eventos S.M.A.R.T."
 msgid "S.M.A.R.T. Monitoring"
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. extra options"
-msgstr "Opciones extra de S.M.A.R.T."
+msgid "S.M.A.R.T. Options"
+msgstr "Opciones S.M.A.R.T."
 
 msgid "S.M.A.R.T. log"
 msgstr "registro S.M.A.R.T."
@@ -9993,11 +9996,18 @@ msgstr "El Script se ha subido."
 msgid "Scrub a pool"
 msgstr "Revisar (Scrub) la agrupación de dispositivos(pool)"
 
-msgid "Seach results"
-msgstr "Buscar resultados"
-
 msgid "Search"
 msgstr "Buscar..."
+
+msgid "Search Directory"
+msgstr "Directorio de busqueda"
+
+msgid "Search Filter"
+msgstr "Filtro de búsqueda"
+
+#, php-format
+msgid "Search Result for %1$s"
+msgstr "Resultados de búsqueda para %1$s"
 
 msgid "Search event"
 msgstr "Buscar evento"
@@ -10208,9 +10218,6 @@ msgstr ""
 msgid "Select which key length to use for given cryptographic algorithm."
 msgstr "Longitud de la clave de encriptación a usar."
 
-msgid "Selected"
-msgstr "Seleccionado"
-
 msgid "Selected UPS"
 msgstr "SAI seleccionado"
 
@@ -10225,6 +10232,9 @@ msgstr "Gráfica seleccionada"
 
 msgid "Selected interface:"
 msgstr "Interfaz seleccionada:"
+
+msgid "Selected..."
+msgstr "Seleccionado..."
 
 msgid "Selection"
 msgstr "Selección"
@@ -13334,6 +13344,9 @@ msgstr "ARRIBA"
 
 msgid "UPS"
 msgstr "UPS"
+
+msgid "UPS Driver List"
+msgstr "Lista de controladores SAI"
 
 msgid "UPS Identifier"
 msgstr "Identificador de  la SAI"
