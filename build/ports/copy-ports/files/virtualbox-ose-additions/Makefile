@@ -1,4 +1,4 @@
-ORTNAME=	virtualbox-ose
+PORTNAME=	virtualbox-ose
 PORTVERSION=	5.2.42
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.oracle.com/virtualbox/${PORTVERSION}/
