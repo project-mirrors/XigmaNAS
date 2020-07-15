@@ -131,6 +131,7 @@ Changes:
 - Upgrade sudo to 1.9.1.
 - Upgrade transmission to 3.00.
 - Upgrade mariadb to 1.0.4.
+- Upgrade open-vm-tools to 11.1.0
 - Upgrade virtualbox-ose to 5.2.42.
 - Upgrade php to 7.4.8.
 - Upgrade syncthing to 1.7.0.
