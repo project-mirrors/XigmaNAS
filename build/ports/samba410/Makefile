@@ -24,7 +24,7 @@ EXTRA_PATCHES+=			${PATCHDIR}/0001-provision-use-ASCII-quotes.patch:-p1
 
 SAMBA4_BASENAME=		samba
 SAMBA4_PORTNAME=		${SAMBA4_BASENAME}4
-SAMBA4_VERSION=			4.10.15
+SAMBA4_VERSION=			4.10.17
 SAMBA4_DISTNAME=		${SAMBA4_BASENAME}-${SAMBA4_VERSION:S|.p|pre|:S|.r|rc|:S|.t|tp|:S|.a|alpha|}
 
 WRKSRC?=			${WRKDIR}/${DISTNAME}
@@ -67,7 +67,7 @@ CONFIGURE_ARGS+=		--mandir="${MANPREFIX}/man" \
 # XXX: Flags
 CONFIGURE_ENV+=			PTHREAD_LDFLAGS="-lpthread"
 
-USES=				compiler:c++11-lang iconv localbase:ldflags \
+USES+=				compiler:c++11-lang iconv localbase:ldflags \
 				perl5 pkgconfig shebangfix ssl waf gettext-runtime
 
 USE_PERL5=			build
@@ -92,7 +92,7 @@ OPTIONS_DEFINE+=		DEVELOPER MANDOC
 OPTIONS_DEFINE_amd64=		AESNI
 OPTIONS_DEFAULT_amd64=		AESNI
 
-OPTIONS_DEFINE+=		VFS
+OPTIONS_GROUP=		VFS
 OPTIONS_GROUP_VFS=		FRUIT GLUSTERFS
 
 OPTIONS_SINGLE=			GSSAPI ZEROCONF
@@ -349,7 +349,7 @@ QUOTAS_CONFIGURE_WITH=		quotas
 SPOTLIGHT_CONFIGURE_ENABLE=	spotlight
 SPOTLIGHT_BUILD_DEPENDS=	tracker>=1.4.1:sysutils/tracker
 SPOTLIGHT_RUN_DEPENDS=		tracker>=1.4.1:sysutils/tracker
-SPOTLIGHT_USES=			bison
+SPOTLIGHT_USES=			bison gnome
 SPOTLIGHT_USE=			gnome=glib20
 
 SYSLOG_CONFIGURE_WITH=		syslog

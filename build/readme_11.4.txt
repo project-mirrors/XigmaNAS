@@ -135,6 +135,7 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.42.
 - Upgrade php to 7.4.8.
 - Upgrade syncthing to 1.7.0.
+- Upgrade samba to 4.10.17.
 
 Fixes:
 
