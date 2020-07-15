@@ -123,7 +123,6 @@ Changes:
 - Upgrade dialog to 1.3-20200327.
 - Upgrade zoneinfo to 2020a.
 - Upgrade bash to 5.0 P17.
-- Upgrade samba to 4.10.15.
 - Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
 - Upgrade devcpu-data to 1.34.
@@ -140,6 +139,7 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.42.
 - Upgrade php to 7.4.8.
 - Upgrade syncthing to 1.7.0.
+- Upgrade samba to 4.10.17.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
