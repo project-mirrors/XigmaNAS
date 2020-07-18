@@ -29,7 +29,7 @@
     SUBDIR += lighttpd
     SUBDIR += lcdproc
     SUBDIR += locale
-    SUBDIR += mariadb104
+    SUBDIR += mariadb105
     SUBDIR += mDNSResponder
     SUBDIR += minidlna
     SUBDIR += mkpw
