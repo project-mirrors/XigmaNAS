@@ -1,7 +1,7 @@
 PORTNAME=		bash
-PATCHLEVEL=		17
+PATCHLEVEL=		18
 PORTVERSION=		5.0.${PATCHLEVEL:S/^0//g}
-PORTREVISION?=		0
+PORTREVISION?=		2
 CATEGORIES=		shells
 
 COMMENT=		GNU Project's Bourne Again SHell
@@ -19,6 +19,10 @@ PATCHFILES!=		/usr/bin/jot -s " " -w \
 
 OPTIONS_DEFINE=         HELP NLS
 HELP_DESC=		Enable builtin help
+PORTS_READLINE_DESC=    libreadline from ports instead of bundled one
+
+PORTS_READLINE_CONFIGURE_WITH=  installed-readline
+PORTS_READLINE_USES=    readline
 
 GNU_CONFIGURE=  yes
 NO_PKG_REGISTER=yes
@@ -41,7 +45,8 @@ CONFIGURE_ENV=	CPPFLAGS="${CPPFLAGS}" \
 
 post-patch:
 	@${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/doc/bash.1
-
+	@${REINPLACE_CMD} -e "s|\(/etc/profile\)|${LOCALBASE}\1|" \
+		${WRKSRC}/pathnames.h.in
 post-configure:
 	@${FIND} ${WRKSRC} -name Makefile -print0 | ${XARGS} -0 \
 	${REINPLACE_CMD} -e "s|^DESTDIR *=|& ${DESTDIR}|"

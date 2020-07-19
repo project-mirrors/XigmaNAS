@@ -135,6 +135,7 @@ Changes:
 - Upgrade samba to 4.10.17.
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
+- Upgrade bash to 5.0 P18.
 
 Fixes:
 
