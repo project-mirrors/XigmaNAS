@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>48</version>
+	<version>49</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -116,6 +116,13 @@
 				<name>vfs.zfs.prefetch_disable</name>
 				<value>1</value>
 				<comment>ZFS prefech disable</comment>
+			</param>
+			<param>
+				<uuid>87220f6b-a983-467d-9a2d-fe1b0039de54</uuid>
+				<name>aesni_load</name>
+				<value>YES</value>
+				<comment>Driver for the AES and SHA accelerator on	x86 CPUs</comment>
+				<enable/>
 			</param>
 		</loaderconf>
 		<rcconf>
