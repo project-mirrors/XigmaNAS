@@ -2218,6 +2218,14 @@ copy_files() {
 	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-kmod done!"
+	echo ""
+	echo "===> Delete current libftdi1 from ports"
+	rm -rf /usr/ports/devel/libftdi1
+	echo "===> Delete port libftdi1 completed!"
+	echo ""
+	echo "===> Copy new port libftdi1 to ports/devel/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/libftdi1 /usr/ports/devel
+	echo "===> Copy new port files to /usr/ports/devel/libftdi1 done!"
 	return 0
 }
 build_ports() {
