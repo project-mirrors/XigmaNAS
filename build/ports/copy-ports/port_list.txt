@@ -2,6 +2,6 @@ PORT					REASON
 ==============================================================================================================
 pecl-APCu				Build against php74, not older versions.
 samba-nsupdate				Upgrade to fix broken samba-nsupdate on freebsd ports.
-virtualbox-ose				Modifyed to use python3 by default, Use newer release.
-virtualbox-ose-additions
-virtualbox-ose-kmod
+virtualbox-ose				Used for newer or staying on older releases.
+virtualbox-ose-additions		Used for newer or staying on older releases.
+virtualbox-ose-kmod			Used for newer or staying on older releases.
