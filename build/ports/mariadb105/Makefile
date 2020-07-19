@@ -35,8 +35,6 @@ do-install:
 	@${CP} -Rpv ${CLIENT_STAGEDIR}${PREFIX}/lib/mysql ${XIGMANAS_ROOTFS}${PREFIX}/lib
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/libexec/mariadbd ${XIGMANAS_ROOTFS}${PREFIX}/libexec
 	@${LN} -fsv /usr/local/libexec/mariadbd ${XIGMANAS_ROOTFS}${PREFIX}/libexec/mysqld
-# misc
-	@${MKDIR} ${XIGMANAS_ROOTFS}/var/run/mysql
 
 post-install:
 	${RM} ${XIGMANAS_ROOTFS}${PREFIX}/bin/wsrep*

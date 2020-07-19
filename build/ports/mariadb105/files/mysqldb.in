@@ -38,6 +38,10 @@ mysqldb_conf=${mysqldb_conf:-"${mariadbhomedir}/my.cnf"}
 mysql_user=${mysql_user:-"mysql"}
 mysql_group=${mysql_group:-"mysql"}
 mysqldb_ipaddr=${mysqldb_ipaddr:-"127.0.0.1"}
+mysql_piddir="${mysql_piddir=/var/run/mysql}"
+
+# Create required directories.
+[ ! -d "${mysql_piddir}" ] && mkdir -m2777 "${mysql_piddir}"
 
 mysqldb_mkconf()
 {
