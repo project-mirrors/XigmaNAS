@@ -1,6 +1,7 @@
 PORT					REASON
 ==============================================================================================================
-pecl-APCu				Build against php74, not older versions.
+libftdi1				Broken install on freebsd ports.
+pecl-APCu				Build against current version, not older versions.
 samba-nsupdate				Upgrade to fix broken samba-nsupdate on freebsd ports.
 virtualbox-ose				Used for newer or staying on older releases.
 virtualbox-ose-additions		Used for newer or staying on older releases.
