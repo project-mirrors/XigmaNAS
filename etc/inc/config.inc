@@ -1679,6 +1679,25 @@ function config_upgrade_47() {
 	endforeach;
 }
 /**
+ *	Upgrade configuration from 48
+ *	@global array $config
+ */
+function config_upgrade_48() {
+	global $config;
+
+	$a_source  = &\array_make_branch($config,'system','loaderconf','param');
+	$index = array_search_ex('aesni_load',$a_source,'name');
+	if($index !== false):
+		$a_source[] = [
+			'enable' => true,
+			'uuid' => '87220f6b-a983-467d-9a2d-fe1b0039de54',
+			'name' => 'aesni_load',
+			'value' => 'YES',
+			'comment' => 'Driver for the AES and SHA accelerator on	x86 CPUs'
+		];
+	endif;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1730,7 +1749,8 @@ function config_upgrade() {
 		'45' => [$kf => 'config_upgrade_45',$kv => '46'],
 		'46' => [$kf => 'config_upgrade_46',$kv => '47'],
 		'47' => [$kf => 'config_upgrade_47',$kv => '48'],
-		'48' => [$kf => NULL,$kv => NULL]
+		'48' => [$kf => 'config_upgrade_48',$kv => '49'],
+		'49' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
