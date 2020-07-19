@@ -168,8 +168,8 @@ cleandisk_init()
 
 load_kmods()
 {
-	# Required kernel modules.
-	# Load geom_mirror kernel module.
+#	Required kernel modules.
+#	Load geom_mirror kernel module.
 	if ! kldstat | grep -q geom_mirror; then
 		kldload /boot/kernel/geom_mirror.ko
 	fi
