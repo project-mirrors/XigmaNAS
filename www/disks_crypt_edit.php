@@ -69,9 +69,6 @@ if($_POST):
 	if($_POST['passphrase'] !== $_POST['passphraseconf']):
 		$input_errors[] = gtext("Passphrase don't match.");
 	endif;
-	if(0 != mwexec("/sbin/kldstat -q -m aesni")):
-		mwexec("/sbin/kldload -q aesni.ko");
-	endif;
 	if(empty($input_errors)):
 		$pconfig['do_action'] = true;
 		$pconfig['init'] = isset($_POST['init']) ? true : false;
