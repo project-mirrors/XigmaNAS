@@ -34,32 +34,6 @@
 require_once 'properties.php';
 
 class properties_system_advanced extends co_property_container {
-	protected $x_aesni;
-	public function get_aesni() {
-		return $this->x_aesni ?? $this->init_aesni();
-	}
-	public function init_aesni() {
-		$property = $this->x_aesni = new property_list($this);
-		$property->
-			set_name('aesni')->
-			set_title(gettext('Hardware AES'));
-		$description = gettext('AES-NI (Advanced Encryption Standard New Instructions) is an extension to the x86 instruction set architecture for microprocessors.');
-		$options = [
-			'auto' => gettext('Load driver automatically when GELI devices have been defined in the configuration file and the instruction set is supported.'),
-			'yes' => gettext('Load driver during boot when the instruction set is supported.'),
-			'no' => gettext('Do not load driver.')
-		];
-		$property->
-			set_id('aesni')->
-			set_description($description)->
-			set_defaultvalue('auto')->
-			set_options($options)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
 	protected $x_consoleautologin;
 	public function init_consoleautologin() {
 		$property = $this->x_consoleautologin = new property_bool($this);
