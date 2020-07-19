@@ -40,11 +40,6 @@ geli_make_list()
 
 geli_start()
 {
-	devices=`geli_make_list`
-
-	if [ -n "${devices}" ]; then
-		/sbin/kldload -q aesni.ko
-	fi
 }
 
 geli_stop()
