@@ -139,6 +139,7 @@ Changes:
 - Upgrade syncthing to 1.7.0.
 - Upgrade samba to 4.10.17.
 - Upgrade mariadb to 10.5.
+- Upgrade virtualbox-ose to 5.2.44.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
