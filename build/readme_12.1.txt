@@ -122,7 +122,6 @@ Changes:
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade dialog to 1.3-20200327.
 - Upgrade zoneinfo to 2020a.
-- Upgrade bash to 5.0 P17.
 - Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
 - Upgrade devcpu-data to 1.34.
@@ -140,6 +139,7 @@ Changes:
 - Upgrade samba to 4.10.17.
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
+- Upgrade bash to 5.0 P18.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
