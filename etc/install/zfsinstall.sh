@@ -174,17 +174,10 @@ cleandisk_init()
 
 load_kmods()
 {
-	# Required kernel modules.
-	# Load geom_mirror kernel module.
+#	Required kernel modules.
+#	Load geom_mirror kernel module.
 	if ! kldstat | grep -q geom_mirror; then
 		kldload /boot/kernel/geom_mirror.ko
-	fi
-
-	# Load aesni kernel module.
-	if echo ${GELI_MODE} | grep -qw "DISK+GELI"; then
-		if ! kldstat | grep -qw aesni; then
-			kldload /boot/kernel/aesni.ko
-		fi
 	fi
 }
 
@@ -647,7 +640,6 @@ EOF
 				echo 'zpool_cache_name="/boot/zfs/zpool.cache"' >> ${ALTROOT}/boot/loader.conf
 				echo 'geom_eli_passphrase_prompt="YES"' >> ${ALTROOT}/boot/loader.conf
 		fi
-		echo 'aesni_load="YES"' >> ${ALTROOT}/boot/loader.conf
 		echo 'geom_eli_load="YES"' >> ${ALTROOT}/boot/loader.conf
 	fi
 
