@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -117,6 +118,7 @@ switch($page_method):
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
 					\write_config();
@@ -135,7 +137,8 @@ switch($page_method):
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
-				if((\array_key_exists($name,$sphere->grid) && $sphere->grid[$name]) || $pending_changes):
+				$sphere->grid[$name] ??= false;
+				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				else:
@@ -154,6 +157,7 @@ switch($page_method):
 			case 'reload':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					\mwexec_bg('service minidlna rescan');
 					$savemsg = \gettext('A rescan has been issued.');
@@ -193,7 +197,7 @@ switch($page_action):
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
-			if(is_null($sphere->row[$name])):
+			if(\is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
 				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
@@ -249,7 +253,7 @@ if($pending_changes):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
-$n_auxparam_rows = min(64,max(5,1 + \substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$n_auxparam_rows = \min(64,\max(5,1 + \substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds = $content->add_table_data_settings();
 $tds->ins_colgroup_data_settings();
 $thead = $tds->addTHEAD();
@@ -306,12 +310,15 @@ switch($page_mode):
 			$buttons->ins_button_enadis(!$is_enabled);
 		elseif(!$pending_changes):
 			$buttons->ins_button_enadis(!$is_enabled);
-			$buttons->ins_button_reload($is_enabled,gettext('Rescan'));
+			$buttons->ins_button_reload($is_enabled,\gettext('Rescan'));
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
 		$buttons->ins_button_save();
 		$buttons->ins_button_cancel();
+		if(!$pending_changes && \is_skipviewmode()):
+			$buttons->ins_button_reload($is_enabled,\gettext('Rescan'));
+		endif;
 		break;
 endswitch;
 //	showtime
