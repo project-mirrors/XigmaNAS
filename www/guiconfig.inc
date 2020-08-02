@@ -408,27 +408,36 @@ function calc_showcolorfulmeter(): bool {
 	return $retbool;
 }
 /**
- *	Determine page mode based on the status of skipviewmode
+ *	Reads the value of skipviewmode
+ *  - If skipviewmode doesn't exist, false is returned.
+ *	- If skipviewmode is bool, the boolean value is returned.
+ *  - If skipviewmode exists and is not boolean, true is returned.
  *	@global array $config
+ *	@return bool
+ */
+function is_skipviewmode(): bool {
+	global $config;
+
+	$retbool = \is_bool($test = $config['system']['webgui']['skipviewmode'] ?? false) ? $test : true;
+	return $retbool;
+}
+/**
+ *	Determine the new page mode based on the status of skipviewmode
  *	@param int $page_mode
  *	@return array Returns the new page mode and a readonly flag in an array
  */
 function calc_skipviewmode($page_mode): array {
-	global $config;
-
-	switch($page_mode):
-		case PAGE_MODE_EDIT:
-			$new_page_mode = PAGE_MODE_EDIT;
-			break;
-		default:
-			if(is_bool($test = $config['system']['webgui']['skipviewmode'] ?? false) ? $test : true):
-				$new_page_mode = PAGE_MODE_EDIT;
-			else:
-				$new_page_mode = PAGE_MODE_VIEW;
-			endif;
-			break;
-	endswitch;
-	return [$new_page_mode,$new_page_mode === PAGE_MODE_VIEW];
+	if($page_mode === PAGE_MODE_EDIT):
+		$new_page_mode = PAGE_MODE_EDIT;
+		$is_readonly = false;
+	elseif(\is_skipviewmode()):
+		$new_page_mode = PAGE_MODE_EDIT;
+		$is_readonly = false;
+	else:
+		$new_page_mode = PAGE_MODE_VIEW;
+		$is_readonly = true;
+	endif;
+	return [$new_page_mode,$is_readonly];
 }
 function html_inputbox($ctrlname,$title,$value,$desc,$required = false,$size = 40,$readonly = false) {
 	$ctrl = new HTMLEditBox($ctrlname,$title,$value,$desc,$size);
