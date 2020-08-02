@@ -2812,8 +2812,8 @@ EOJ;
 		return $this;
 	}
 	public function ins_button_rescan(bool $enable = false,string $content = null) {
-		if($enabled):
-			$this->ins_button_submit('rescan',$content ?? gettext('Rescan'));
+		if($enable):
+			$this->ins_button_submit('rescan',$content ?? \gettext('Rescan'));
 		endif;
 		return $this;
 	}
