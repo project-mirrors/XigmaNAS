@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\minidlnad;
+
 use common\properties as myp;
 
 class grid_properties extends myp\container {
@@ -45,10 +47,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_friendlyname;
 	public function init_friendlyname(): myp\property_text {
+		$title = \gettext('Name');
 		$property = $this->x_friendlyname = new myp\property_text($this);
 		$property->
 			set_name('name')->
-			set_title(gettext('Name'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_friendlyname(): myp\property_text {
@@ -56,10 +59,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_loglevel;
 	public function init_loglevel(): myp\property_list {
+		$title = \gettext('Log Level');
 		$property = $this->x_loglevel = new myp\property_list($this);
 		$property->
 			set_name('loglevel')->
-			set_title(gettext('Log Level'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_loglevel(): myp\property_list {
@@ -67,10 +71,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_inotify;
 	public function init_inotify(): myp\property_bool {
+		$title = \gettext('Inotify');
 		$property = $this->x_inotify = new myp\property_bool($this);
 		$property->
 			set_name('inotify')->
-			set_title(gettext('Inotify'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_inotify(): myp\property_bool {
@@ -78,10 +83,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_notifyinterval;
 	public function init_notifyinterval(): myp\property_int {
+		$title = \gettext('Broadcast Interval');
 		$property = $this->x_notifyinterval = new myp\property_int($this);
 		$property->
 			set_name('notify_int')->
-			set_title(gettext('Broadcast Interval'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_notifyinterval(): myp\property_int {
@@ -89,10 +95,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_interface;
 	public function init_interface(): myp\property_list {
+		$title = \gettext('Interface');
 		$property = $this->x_interface = new myp\property_list($this);
 		$property->
 			set_name('if')->
-			set_title(gettext('Interface'));
+			set_title($title);
 		return $property;
 	}
 	final function get_interface(): myp\property_list {
@@ -100,10 +107,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_port;
 	public function init_port(): myp\property_int {
+		$title = \gettext('Port');
 		$property = $this->x_port = new myp\property_int($this);
 		$property->
 			set_name('port')->
-			set_title(gettext('Port'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_port(): myp\property_int {
@@ -111,10 +119,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_strict;
 	public function init_strict(): myp\property_bool {
+		$title = \gettext('Strict DLNA');
 		$property = $this->x_strict = new myp\property_bool($this);
 		$property->
 			set_name('strict')->
-			set_title(gettext('Strict DLNA'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_strict(): myp\property_bool {
@@ -122,10 +131,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_enabletivo;
 	public function init_enabletivo(): myp\property_bool {
+		$title = \gettext('TiVo Support');
 		$property = $this->x_enabletivo = new myp\property_bool($this);
 		$property->
 			set_name('tivo')->
-			set_title(gettext('TiVo Support'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_enabletivo(): myp\property_bool {
@@ -133,10 +143,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_home;
 	public function init_home(): myp\property_text {
+		$title = \gettext('Database Directory');
 		$property = $this->x_home = new myp\property_text($this);
 		$property->
 			set_name('home')->
-			set_title(gettext('Database Directory'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_home(): myp\property_text {
@@ -144,10 +155,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_widelinks;
 	public function init_widelinks(): myp\property_bool {
+		$title = \gettext('Wide Links');
 		$property = $this->x_widelinks = new myp\property_bool($this);
 		$property->
 			set_name('wide_links')->
-			set_title(gettext('Wide Links'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_widelinks(): myp\property_bool {
@@ -163,10 +175,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_rootcontainer;
 	public function init_rootcontainer(): myp\property_list {
+		$title = \gettext('Container');
 		$property = $this->x_rootcontainer = new myp\property_list($this);
 		$property->
 			set_name('container')->
-			set_title(gettext('Container'));
+			set_title($title);
 		return $property;
 	}
 	final function get_rootcontainer(): myp\property_list {
@@ -174,10 +187,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_forcesortcriteria;
 	public function init_forcesortcriteria(): myp\property_text {
+		$title = \gettext('Sort Criteria');
 		$property = $this->x_forcesortcriteria = new myp\property_text($this);
 		$property->
 			set_name('force_sort_criteria')->
-			set_title(gettext('Sort Criteria'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_forcesortcriteria(): myp\property_text {
@@ -185,10 +199,11 @@ class grid_properties extends myp\container {
 	}
 	protected $x_disablesubtitles;
 	public function init_disablesubtitles(): myp\property_bool {
+		$title = \gettext('Disable Subtitles');
 		$property = $this->x_disablesubtitles = new myp\property_bool();
 		$property->
 			set_name('disablesubtitles')->
-			set_title(gettext('Disable Subtitles'));
+			set_title($title);
 		return $property;
 	}
 	final public function get_disablesubtitles(): myp\property_bool {
