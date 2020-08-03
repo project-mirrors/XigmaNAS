@@ -134,6 +134,7 @@ switch($page_method):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
+				break;
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
@@ -154,7 +155,7 @@ switch($page_method):
 					exit;
 				endif;
 				break;
-			case 'reload':
+			case 'rescan':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
 				$sphere->grid[$name] ??= false;
@@ -177,7 +178,7 @@ switch($page_action):
 			$name = $referer->get_name();
 			switch($name):
 				case 'auxparam':
-					if(\array_key_exists($name,$source) && is_array($source[$name])):
+					if(\array_key_exists($name,$source) && \is_array($source[$name])):
 						$source[$name] = \implode("\n",$source[$name]);
 					endif;
 					break;
@@ -232,7 +233,7 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 list($page_mode,$is_readonly) = \calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === \rc_is_service_running('minidlna'));
+$is_running = (\rc_is_service_running('minidlna') === 0);
 $is_running_message = $is_running ? \gettext('Yes') : \gettext('No');
 //	create document
 $pgtitle = [\gettext('Services'),\gettext('MiniDLNA'),\gettext('Settings')];
@@ -285,12 +286,12 @@ if($is_running):
 	$tbody->addTFOOT()->c2_separator();
 	$if = \get_ifname($sphere->row['if']);
 	$ipaddr = \get_ipaddr($if);
-	if(preg_match('/\S/',$sphere->row[$cop->get_port()->get_name()])):
+	if(\preg_match('/\S/',$sphere->row[$cop->get_port()->get_name()])):
 		$url = \sprintf('http://%s:%s/status',$ipaddr,$sphere->row[$cop->get_port()->get_name()]);
 	else:
 		$url = \sprintf('http://%s:8200/status',$ipaddr);
 	endif;
-	$text = \sprintf('<a href="%s" target="_blank">%s</a>',$url,$url);
+	$text = \sprintf('<a href="%1$s" target="_blank">%1$s</a>',$url);
 	$content->
 		add_table_data_settings()->
 			push()->
@@ -310,14 +311,14 @@ switch($page_mode):
 			$buttons->ins_button_enadis(!$is_enabled);
 		elseif(!$pending_changes):
 			$buttons->ins_button_enadis(!$is_enabled);
-			$buttons->ins_button_reload($is_enabled,\gettext('Rescan'));
+			$buttons->ins_button_rescan($is_enabled);
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
 		$buttons->ins_button_save();
 		$buttons->ins_button_cancel();
 		if(!$pending_changes && \is_skipviewmode()):
-			$buttons->ins_button_reload($is_enabled,\gettext('Rescan'));
+			$buttons->ins_button_rescan($is_enabled);
 		endif;
 		break;
 endswitch;

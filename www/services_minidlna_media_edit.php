@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -42,8 +43,8 @@ use services\minidlnad\media\shared_toolbox;
 $input_errors = [];
 $prerequisites_ok = true;
 //	preset $savemsg when a reboot is pending
-if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
+if(\file_exists($d_sysrebootreqd_path)):
+	$savemsg = \get_std_save_message(0);
 endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
@@ -72,7 +73,7 @@ switch($page_method):
 				break;
 			case 'cancel':
 //				cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -89,18 +90,18 @@ switch($page_method):
 		break;
 endswitch;
 //	exit if $sphere->row[$sphere->row_identifier()] is NULL
-if(is_null($sphere->get_row_identifier_value())):
-	header($sphere->get_parent()->get_location());
+if(\is_null($sphere->get_row_identifier_value())):
+	\header($sphere->get_parent()->get_location());
 	exit;
 endif;
 //	search resource id in sphere
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = \array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 //	start determine record update mode
-$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
+$updatenotify_mode = \updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id):
+if($sphere->row_id === false):
 //	record does not exist in config
-	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)):
+	if(\in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)):
 //		ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -110,7 +111,7 @@ if(false === $sphere->row_id):
 	endif;
 else:
 //	record found in configuration
-	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)):
+	if(\in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)):
 //		EDIT or POST or VIEW
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_NEW:
@@ -125,14 +126,14 @@ else:
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode):
+if($record_mode === RECORD_ERROR):
 //	something went wrong
-	header($sphere->get_parent()->get_location());
+	\header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$isrecordnew = (RECORD_NEW === $record_mode);
-$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
-$isrecordmodify = (RECORD_MODIFY === $record_mode);
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 //	end determine record update mode
 $a_referer = [
@@ -175,18 +176,18 @@ switch($page_mode):
 		if($prerequisites_ok && empty($input_errors)):
 			$sphere->upsert();
 			if($isrecordnew):
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+				\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+				\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
-			write_config();
-			header($sphere->get_parent()->get_location());
+			\write_config();
+			\header($sphere->get_parent()->get_location());
 			exit;
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Services'),gettext('MiniDLNA'),gettext('Media Folder'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$pgtitle = [\gettext('Services'),\gettext('MiniDLNA'),\gettext('Media Folder'),($isrecordnew) ? \gettext('Add') : \gettext('Edit')];
+$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -203,7 +204,7 @@ $table = $content->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'));
+$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,\gettext('Configuration'));
 $tbody->
 	c2_filechooser($cop->get_filesystem(),$sphere,true)->
 	c2_radio_grid($cop->get_type(),$sphere)->
