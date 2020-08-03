@@ -31,9 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\minidlnad;
+
 use common\rmo as myr;
 use common\sphere as mys;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,8 +66,7 @@ final class setting_toolbox {
 			add('GET','view',PAGE_MODE_VIEW)->
 			add('POST','apply',PAGE_MODE_VIEW)->
 			add('POST','edit',PAGE_MODE_EDIT)->
-			add('POST','reload',PAGE_MODE_VIEW)->
-//			add('POST','restart',PAGE_MODE_VIEW)->
+			add('POST','rescan',PAGE_MODE_VIEW)->
 			add('POST','save',PAGE_MODE_POST)->
 			add('POST','view',PAGE_MODE_VIEW)->
 			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
