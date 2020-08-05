@@ -301,47 +301,55 @@ function system_get_cpus() {
 	return $cpus;
 }
 /**
- *	Calculate cpu usage (cores) and returns an array containing
- *	values between 0 and 100 for each core, representing 0% - 100% usage
+ *	Calculate cpu usage and returns an array containing values between 0 and 100 for each core, representing 0% - 100% usage
+ *	@param string $id usage identifier to avoid spikes.
  *	@return array
  */
-function system_get_smp_cpu_usage(): array {
-	$cpus = rtrim(`sysctl -nq kern.smp.cpus`);
-	$c_stats_1 = rtrim(`/sbin/sysctl -nq kern.cp_times`);
-	sleep(1);
-	$c_stats_2 = rtrim(`/sbin/sysctl -nq kern.cp_times`);
-	$a_stats_1 = explode(' ',$c_stats_1);
-	$a_stats_2 = explode(' ',$c_stats_2);
-	$a_diff = array_map(function($a,$b) { return $b - $a; },$a_stats_1,$a_stats_2);
-	$a_usage = array_fill_keys(range(0,$cpus - 1),0);
+function system_get_smp_cpu_usage(string $id = '0'): array {
+	$cpus = \rtrim(`sysctl -nq kern.smp.cpus`);
+	$var = 'kern.cp_times';
+	$key = \sprintf('%s.%s',$var,$id);
+	$cmd = \sprintf('/sbin/sysctl -nq %s',$var);
+//	get previously stored ticks from session variable, if it doesn't exist, use ticks since boot
+	$c_ticks_1 = $_SESSION[$key] ?? null;
+	$a_ticks_1 = isset($c_ticks_1) ? \explode(' ',$c_ticks_1) : \array_fill(0,$cpus * 5,0);
+//	get current ticks and save them in the session variable
+	$_SESSION[$key] = $c_ticks_2 = \rtrim(`{$cmd}`);
+	$a_ticks_2 = \explode(' ',$c_ticks_2);
+	$a_ticks_all = \array_map(fn($a,$b) => \abs($b - $a),$a_ticks_1,$a_ticks_2);
+	$usage = \array_fill_keys(\range(0,$cpus - 1),0);
 	for($i = 0;$i < $cpus;$i++):
+		$a_ticks = \array_splice($a_ticks_all,0,5);
 //		CPUSTATES: 0 => user, 1 => nice, 2 => system, 3 => interrupt, 4 => idle
-		$a = array_splice($a_diff,0,5);
-		$a_usage[$i] = floor(100 * ( 1 - $a[4] / array_sum($a)));
+		$usage[$i] = 100 * ( 1 - $a_ticks[4] / \array_sum($a_ticks));
 	endfor;
-	return $a_usage;
+	return $usage;
 }
 /**
  *	Calculate the cpu usage and returns a value between 0 and 100, representing 0% - 100% usage
+ *	@param string $id usage identifier to avoid spikes.
  *	@return float
  */
-function system_get_cpu_usage(): float {
-	$c_stats_1 = rtrim(`/sbin/sysctl -nq kern.cp_time`);
-	sleep(1);
-	$c_stats_2 = rtrim(`/sbin/sysctl -nq kern.cp_time`);
-	$a_stats_1 = explode(' ',$c_stats_1);
-	$a_stats_2 = explode(' ',$c_stats_2);
-	$a = array_map(function($a,$b) { return $b - $a; },$a_stats_1,$a_stats_2);
+function system_get_cpu_usage(string $id = '0'): float {
+	$var = 'kern.cp_time';
+	$key = \sprintf('%s.%s',$var,$id);
+	$cmd = \sprintf('/sbin/sysctl -nq %s',$var);
+//	get previously stored ticks from session variable, if it doesn't exist, use ticks since boot
+	$c_ticks_1 = $_SESSION[$key] ?? null;
+	$a_ticks_1 = isset($c_ticks_1) ? \explode(' ',$c_ticks_1) : \array_fill(0,5,'0');
+//	get current ticks and save them in the session variable
+	$_SESSION[$key] = $c_ticks_2 = \rtrim(`{$cmd}`);
+	$a_ticks_2 = \explode(' ',$c_ticks_2);
+	$a_ticks = \array_map(fn($a,$b) => \abs($b - $a),$a_ticks_1,$a_ticks_2);
 //	CPUSTATES: 0 => user, 1 => nice, 2 => system, 3 => interrupt, 4 => idle
-	$f_usage = floor(100 * ( 1 - $a[4] / array_sum($a)));
-	return $f_usage;
+	$usage = 100 * ( 1 - $a_ticks[4] / \array_sum($a_ticks));
+	return $usage;
 }
 /**
  *	Get various CPU informations.
  *	@return array Array with CPU information
  */
 function system_get_cpu_info() {
-	$platform = '';
 	$cpuinfo = [];
 	$cpuinfo['number'] = rtrim(`/sbin/sysctl -n hw.ncpu`);
 	$cpuinfo['model'] = rtrim(`/sbin/sysctl -n hw.model`);
@@ -447,6 +455,22 @@ function get_datetime_locale(int $timestamp = null,string $format = NULL) {
 	$retval = str_replace($replacement_symbols,$localised_names,$dto->format(str_replace($format_symbols,$replacement_symbols,$t_format)));
 	return $retval;
 }
+/*
+ *	Array keys
+ *	vt: value total
+ *	vu: value used
+ *	vf: value free
+ *	pu: percentage used
+ *	pf: percentage free
+ *	vth: value total human readable
+ *	vtu: value used human readable
+ *	vtf: value free human readable
+ *	puh: percentage used human readable
+ *	pfh: percentage free human readable
+ *	tu: text used
+ *	tf: text free
+ *	tt: text total
+ */
 /**
  *	Get the current RAM information.
  *	@return array Returns an array with memory status information.
@@ -1062,19 +1086,19 @@ function get_swap_usage() {
  */
 function system_get_sysinfo() {
 	$sysinfo = [];
-	$sysinfo['vipstatus'] = get_vip_status();
-	$sysinfo['hostname'] = system_get_hostname();
-	$sysinfo['date'] = get_datetime_locale();
-	$sysinfo['uptime'] = system_get_uptime();
-	$cpuinfo = system_get_cpu_info();
+	$sysinfo['vipstatus'] = \get_vip_status();
+	$sysinfo['hostname'] = \system_get_hostname();
+	$sysinfo['date'] = \get_datetime_locale();
+	$sysinfo['uptime'] = \system_get_uptime();
+	$cpuinfo = \system_get_cpu_info();
 	$sysinfo['cpumodel'] = $cpuinfo['model'];
 	if(Session::isAdmin()):
 //		get number of CPU's
-		$sysinfo['cpus'] = system_get_cpus();
+		$sysinfo['cpus'] = \system_get_cpus();
 //		get RAM usage
-		$sysinfo['memusage'] = system_get_ram_info();
+		$sysinfo['memusage'] = \system_get_ram_info();
 //		get load average
-		$sysinfo['loadaverage'] = implode(' ',array_map(function($e) { return sprintf('%.2f',$e); },sys_getloadavg()));
+		$sysinfo['loadaverage'] = \implode(' ',\array_map(fn($e) => \sprintf('%.2f',$e),\sys_getloadavg()));
 //		get up-to-date CPU informations.
 		$sysinfo['cpufreq'] = $cpuinfo['freq'];
 //		get CPU temperatures
@@ -1086,7 +1110,7 @@ function system_get_sysinfo() {
 		endif;
 		$row = [];
 		$row['vu'] = $cpu_t;
-		$row['vuh'] = sprintf('%u°C',$row['vu']);
+		$row['vuh'] = \sprintf('%u°C',$row['vu']);
 		$row['tu'] = $row['vuh'];
 		$sysinfo['cputemp'] = $row;
 		unset($row);
@@ -1094,24 +1118,24 @@ function system_get_sysinfo() {
 		foreach($a_cpu_t as $k_cpu_t => $r_cpu_t):
 			$row = [];
 			$row['vu'] = $r_cpu_t;
-			$row['vuh'] = sprintf('%u°C',$row['vu']);
+			$row['vuh'] = \sprintf('%u°C',$row['vu']);
 			$row['tu'] = $row['vuh'];
 			$sysinfo['cputemp2'][$k_cpu_t] = $row;
 			unset($row);
 		endforeach;
 //		get CPU usage
 		if($sysinfo['cpus'] > 1):
-			$a_cpu_u = system_get_smp_cpu_usage();
-			$cpu_u = floor(array_sum($a_cpu_u) / $sysinfo['cpus']);
+			$a_cpu_u = \system_get_smp_cpu_usage('system_get_sysinfo');
+			$cpu_u = \floor(\array_sum($a_cpu_u) / $sysinfo['cpus']);
 		else:
-			$cpu_u = system_get_cpu_usage();
+			$cpu_u = \system_get_cpu_usage('system_get_sysinfo');
 			$a_cpu_u = [$cpu_u];
 		endif;
 		$row = [];
 		$row['pu'] = $cpu_u;
 		$row['pf'] = 100 - $row['pu'];
-		$row['puh'] = sprintf('%u%%',$row['pu']);
-		$row['pfh'] = sprintf('%u%%',$row['pf']);
+		$row['puh'] = \sprintf('%u%%',$row['pu']);
+		$row['pfh'] = \sprintf('%u%%',$row['pf']);
 		$row['tu'] = $row['puh'];
 		$row['tf'] = $row['pfh'];
 		$row['tt'] = $row['puh'];
@@ -1122,8 +1146,8 @@ function system_get_sysinfo() {
 			$row = [];
 			$row['pu'] = $r_cpu_u;
 			$row['pf'] = 100 - $row['pu'];
-			$row['puh'] = sprintf('%u%%',$row['pu']);
-			$row['pfh'] = sprintf('%u%%',$row['pf']);
+			$row['puh'] = \sprintf('%u%%',$row['pu']);
+			$row['pfh'] = \sprintf('%u%%',$row['pf']);
 			$row['tu'] = $row['puh'];
 			$row['tf'] = $row['pfh'];
 			$row['tt'] = $row['tu'];
@@ -1131,11 +1155,11 @@ function system_get_sysinfo() {
 			unset($row);
 		endforeach;
 //		get storage usage
-		$sysinfo['diskusage'] = get_disk_usage();
-		$sysinfo['poolusage'] = get_pool_usage();
-		$sysinfo['swapusage'] = get_swap_usage();
+		$sysinfo['diskusage'] = \get_disk_usage();
+		$sysinfo['poolusage'] = \get_pool_usage();
+		$sysinfo['swapusage'] = \get_swap_usage();
 //		get UPS status
-		$sysinfo['upsinfo'] = get_upsinfo();
+		$sysinfo['upsinfo'] = \get_upsinfo();
 	endif;
 	return $sysinfo;
 }
