@@ -40,10 +40,11 @@ use services\minidlnad\setting_toolbox as toolbox;
 use services\minidlnad\shared_toolbox;
 
 //	init indicators
-$input_errors = [];
+$warnmsg = [];
+$savemsg = [];
 //	preset $savemsg when a reboot is pending
 if(\file_exists($d_sysrebootreqd_path)):
-	$savemsg = \get_std_save_message(0);
+	$savemsg[] = \get_std_save_message(0);
 endif;
 //	init properties, sphere and rmo
 $cop = toolbox::init_properties();
@@ -80,14 +81,14 @@ $a_referer = [
 	$cop->get_widelinks()
 ];
 $pending_changes = \updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
 			case $sphere->get_script()->get_basename():
 				$retval = \filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
-				$savemsg = \get_std_save_message($retval);
+				$savemsg[] = \get_std_save_message($retval);
 				if($retval !== 0):
 					$page_action = 'edit';
 					$page_mode = PAGE_MODE_EDIT;
@@ -161,7 +162,7 @@ switch($page_method):
 				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					\mwexec_bg('service minidlna rescan');
-					$savemsg = \gettext('A rescan has been issued.');
+					$savemsg[] = \gettext('A rescan has been issued.');
 				endif;
 				$page_action = 'view';
 				$page_mode = PAGE_MODE_VIEW;
@@ -230,8 +231,28 @@ switch($page_action):
 		endif;
 		break;
 endswitch;
+//	add warning message if more than one DLNA service is enabled
+$dlna_services = ['minidlna','upnp'];
+$dlna_service_me = 'minidlna';
+$dlna_status = 0;
+foreach($dlna_services as $dlna_service):
+	if($dlna_service === $dlna_service_me):
+		$dlna_status |= is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? ($test ? 1 : 0) : 1;
+	else:
+		array_make_branch($config,$dlna_service);
+		$dlna_status |= is_bool($test = $config[$dlna_service]['enable'] ?? false) ? ($test ? 2 : 0) : 2;
+	endif;
+endforeach;
+switch($dlna_status):
+	case 2:
+		$warnmsg[] = \gettext('Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP services can cause problems.');
+		break;
+	case 3:
+		$warnmsg[] = \gettext('Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services can cause problems.');
+		break;
+endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = \calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = \calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (\rc_is_service_running('minidlna') === 0);
 $is_running_message = $is_running ? \gettext('Yes') : \gettext('No');
@@ -248,6 +269,7 @@ $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
+	ins_warning_box($warnmsg)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
 if($pending_changes):
