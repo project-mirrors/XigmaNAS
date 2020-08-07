@@ -126,7 +126,6 @@ Changes:
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade iperf3 to 3.8.1.
 - Upgrade msmtp to 1.8.11.
-- Upgrade nano to 4.9.3.
 - Upgrade proftpd to 1.3.6d.
 - Upgrade sudo to 1.9.1.
 - Upgrade open-vm-tools to 11.1.0
@@ -136,6 +135,7 @@ Changes:
 - Upgrade bash to 5.0 P18.
 - Upgrade syncthing to 1.7.1.
 - Upgrade php to 7.4.9.
+- Upgrade nano to 5.0.
 
 Fixes:
 
