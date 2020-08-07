@@ -130,12 +130,12 @@ Changes:
 - Upgrade proftpd to 1.3.6d.
 - Upgrade sudo to 1.9.1.
 - Upgrade open-vm-tools to 11.1.0
-- Upgrade php to 7.4.8.
 - Upgrade samba to 4.10.17.
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
 - Upgrade bash to 5.0 P18.
 - Upgrade syncthing to 1.7.1.
+- Upgrade php to 7.4.9.
 
 Fixes:
 
