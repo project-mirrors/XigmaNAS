@@ -133,9 +133,9 @@ Changes:
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
 - Upgrade bash to 5.0 P18.
-- Upgrade syncthing to 1.7.1.
 - Upgrade php to 7.4.9.
 - Upgrade nano to 5.0.
+- Upgrade syncthing to 1.8.0.
 
 Fixes:
 
