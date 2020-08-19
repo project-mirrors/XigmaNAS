@@ -20,7 +20,8 @@ GNU_CONFIGURE=	yes
 USE_GETTEXT=		yes
 USES+=          ssl
 
-MODULES=	mod_ratio:mod_readme:mod_rewrite:mod_site_misc:mod_tls:mod_wrap:mod_wrap2:mod_wrap2_file:mod_ban:mod_ctrls_admin:mod_ifsession
+MODULES=	mod_ratio:mod_readme:mod_rewrite:mod_site_misc:mod_tls:mod_wrap:mod_wrap2:mod_wrap2_file:mod_ban:mod_ctrls_admin:mod_ifsession:mod_sftp
+
 OPTIONS+=       WRAP "Include mod_wrap2" on
 
 CONFIGURE_ARGS=	--localstatedir=/var/run \
@@ -35,6 +36,7 @@ CONFIGURE_ARGS=	--localstatedir=/var/run \
 				--with-libraries=${LOCALBASE}/lib \
 				--enable-auth-pam \
 				--enable-ctrls \
+				--with-shared=mod_digest \
 				--enable-largefile
 CONFIGURE_ENV=	"LIBS=-lintl -L${LOCALBASE}/lib -lssl -lcrypto -L${OPENSSLLIB}"
 
