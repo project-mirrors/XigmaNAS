@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-07-10 16:28+0000\n"
-"PO-Revision-Date: 2020-04-29 19:35+0000\n"
-"Last-Translator: Matheus Paulo Seghetto <Unknown>\n"
+"PO-Revision-Date: 2020-08-11 17:41+0000\n"
+"Last-Translator: Vinicius Dato Sacchi <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-07-14 22:44+0000\n"
-"X-Generator: Launchpad (build 4809fcb62f445aaa3ae919f7f6c3cc7d156ea57a)\n"
+"X-Launchpad-Export-Date: 2020-08-18 20:49+0000\n"
+"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
 "X-Poedit-Country: Brazilian Portuguese\n"
 "Language: \n"
 "X-Poedit-Language: Brazilian Portuguese\n"
@@ -503,7 +503,7 @@ msgid "Access the webGUI with the new IP address"
 msgstr "Acesse a interface webGUI com o novo endereço IP"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Nível acústico"
 
 msgid "Action"
 msgstr "Ação"
@@ -916,7 +916,7 @@ msgid "Allow USB Serial Ports"
 msgstr "Permitir portas seriais USB"
 
 msgid "Allow challenge-response authentication."
-msgstr ""
+msgstr "Permitir autenticação por resposta de desafio."
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "Permitir acesso de clientes a contas sem senhas."
@@ -936,7 +936,7 @@ msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr "Permite leitura/escrita consecutivas sejam iniciadas em paralelo."
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "Permitir autenticação por interação de teclado."
 
 msgid "Allow new files to be created."
 msgstr "Permitir a criação de novos arquivos."
@@ -1046,10 +1046,10 @@ msgid "An Extent defines the storage area of the Target."
 msgstr "Uma extensão define a área de armazenamento do destino."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr ""
+msgstr "Um endereço IPv4 ou IPv6 de um portal inicializador iSCSI."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
-msgstr ""
+msgstr "Um endereço IPv4 ou IPv6 para aguardar por conexões de entrada."
 
 msgid ""
 "An Initiator Group is identified by a tag number and defines authorised "
@@ -1123,7 +1123,7 @@ msgid "Append user defined shares"
 msgstr "Anexar compartilhamentos definidos pelo usuário"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Adicionar compartilhamentos definidos pelo usuário."
 
 msgid "Apple Filing Protocol"
 msgstr "Protocolo de Arquivamento da Apple"
@@ -1177,7 +1177,7 @@ msgid "Are you sure you want to shutdown the server?"
 msgstr "Tem certeza de que deseja desligar o servidor?"
 
 msgid "Assign a human-readable description to the target."
-msgstr ""
+msgstr "Adicionar uma descrição humana legível para o destino."
 
 msgid ""
 "Assign a previously defined authentication group to the portal group, to be "
@@ -1398,15 +1398,20 @@ msgid ""
 "Backup configuration reminder. The last configuration backup is older than "
 "the configured interval."
 msgstr ""
+"Lembrete de backup de configuração. O último backup da configuração é mais "
+"antigo que o intervalo configurado."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup cannot be "
 "found."
 msgstr ""
+"Configuração do Backup. A data da última configuração de backup não pôde ser "
+"encontrada."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup is invalid."
 msgstr ""
+"Configuração do Backup. A data da última configuração de backup é inválida."
 
 msgid "Backup/Restore"
 msgstr "Salvar/Restaurar"
@@ -1625,10 +1630,10 @@ msgid "C File"
 msgstr "Arquivo C"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "Arquivo de cabeçalho C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Arquivo de código fonte em C++"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1787,7 +1792,7 @@ msgid "CSS File"
 msgstr "Arquivo CSS"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Configurações de CSS"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1860,7 +1865,7 @@ msgstr ""
 "certificados revocados."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Autenticação por Desafios"
 
 msgid "Change"
 msgstr "Alterar"
@@ -1977,7 +1982,7 @@ msgid "Collisions"
 msgstr "Colisões"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Medidores coloridos"
 
 msgid "Cols"
 msgstr "Colunas"
@@ -2016,10 +2021,10 @@ msgid "Command for LINK_UP event (e.g. %s)."
 msgstr "Comando para o evento LINK_UP (por exemplo %s)."
 
 msgid "Command is locked"
-msgstr ""
+msgstr "Comando travado"
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "Comando marcado para exclusão"
 
 msgid "Command is unlocked"
 msgstr "O comando está desbloqueado"
@@ -2034,7 +2039,7 @@ msgid "Comment"
 msgstr "Comentário"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Erro de comunicação"
 
 msgid "Community"
 msgstr "Comunidade"
@@ -2098,7 +2103,7 @@ msgid "Consider replacing this drive"
 msgstr "Considere substituir este disco"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Login automático do Console"
 
 msgid "Console Menu"
 msgstr "Menu Console"
@@ -2297,7 +2302,7 @@ msgid "Copy item(s)"
 msgstr "Copiar item(ns)"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Cópia falhou"
 
 msgid "Core"
 msgstr "Núcleo"
@@ -2445,7 +2450,7 @@ msgid "Create Permission"
 msgstr "Criar permissãao"
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Criar Diretório de Trabalho"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Criar o ZFS em uma partição GPT."
@@ -2597,7 +2602,7 @@ msgid "DEBUG - log debugging information"
 msgstr ""
 
 msgid "DEBUG1 - same as DEBUG"
-msgstr ""
+msgstr "DEBUG1 - o mesmo que DEBUG"
 
 msgid "DEBUG2 - log detailed debugging information"
 msgstr ""
@@ -2642,7 +2647,7 @@ msgid "DNS server is empty."
 msgstr "servidor DNS está vazio"
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "Conjunto de caracteres DOS"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
@@ -2882,7 +2887,7 @@ msgid "Delete Selected Listen Records"
 msgstr ""
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "Excluir pastas de mídia selecionadas"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr ""
@@ -3048,7 +3053,7 @@ msgid "Deny"
 msgstr "Negar"
 
 msgid "Deny discovery"
-msgstr ""
+msgstr "Negar descoberta"
 
 msgid "Description"
 msgstr "Descrição"
@@ -3112,7 +3117,7 @@ msgid "Detected Disks"
 msgstr "Discos Detectados"
 
 msgid "Detected Remote Shares"
-msgstr ""
+msgstr "Compartilhamentos remotos detectados"
 
 msgid "Detected an error while importing."
 msgstr "Erro detectado durante importe."
@@ -3220,7 +3225,7 @@ msgid "Directory Mask"
 msgstr "Máscara de Diretório"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Criação de diretório falhou"
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "Diretório para arquivos incompletos. Vazio significa desativado."
@@ -3253,7 +3258,7 @@ msgid "Disable Selected Commands"
 msgstr "Desativar Comandos Selecionados"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Desabilitar grupos selecionados"
 
 msgid "Disable Selected Initiator Names"
 msgstr ""
@@ -3274,7 +3279,7 @@ msgid "Disable Selected Listen Records"
 msgstr ""
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "Desabilitar pastas de mídia selecionadas"
 
 msgid "Disable Selected Mutual CHAP Users"
 msgstr ""
@@ -3298,13 +3303,13 @@ msgid "Disable Selected Portal Groups"
 msgstr ""
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "Desabilitar chaves públicas selecionadas"
 
 msgid "Disable Selected Records"
 msgstr "Desativar Registros Selecionados"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Desabilitar rotas selecionadas"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Desativar as tarefas Rsync selecionadas"
@@ -3313,16 +3318,16 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Desativar os módulos Rsync selecionados"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "Desabilitar compartilhamentos Samba selecionados"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
 
 msgid "Disable Selected Targets"
-msgstr ""
+msgstr "Desabilitar destinos selecionados"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Desabilitar usuários selecionados"
 
 msgid "Disable Selected WebDAV Records"
 msgstr ""
@@ -3373,7 +3378,7 @@ msgid "Discard - Do not inherit entries"
 msgstr "Descartar - Não herdar entradas"
 
 msgid "Discovery"
-msgstr ""
+msgstr "Descoberta"
 
 msgid "Discovery Auth Group"
 msgstr "Grupo de Autenticação de Descoberta"
@@ -3382,7 +3387,7 @@ msgid "Discovery Auth Method"
 msgstr "Método de Autenticação de Descoberta"
 
 msgid "Discovery Filter"
-msgstr ""
+msgstr "Filtrar descoberta"
 
 msgid ""
 "Discovery will not return targets that cannot be accessed by the initiator "
@@ -3488,7 +3493,7 @@ msgstr ""
 "página %s for carregada."
 
 msgid "Do not load driver."
-msgstr ""
+msgstr "Não carregar driver."
 
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
@@ -3691,7 +3696,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr ""
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "Você deseja excluir as pastas de mídia selecionadas?"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "Você deseja excluir o notificador selecionado?"
@@ -3706,13 +3711,13 @@ msgid "Do you want to delete selected pools?"
 msgstr "Você deseja excluir as pools selecionadas?"
 
 msgid "Do you want to delete selected port records?"
-msgstr ""
+msgstr "Você deseja excluir os registros de porta selecionados?"
 
 msgid "Do you want to delete selected portal groups?"
 msgstr ""
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "Você deseja excluir as chaves públicas selecionadas?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Você deseja excluir os registros selecionados?"
@@ -3739,7 +3744,7 @@ msgid "Do you want to delete selected sysctl settings?"
 msgstr ""
 
 msgid "Do you want to delete selected targets?"
-msgstr ""
+msgstr "Você deseja excluir os destinos selecionados?"
 
 msgid "Do you want to delete selected user accounts?"
 msgstr "Você deseja excluir as contas de usuário selecionadas?"
@@ -3772,7 +3777,7 @@ msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to disable selected Samba shares?"
-msgstr ""
+msgstr "Você deseja desabilitar os compartilhamentos Samba selecionados?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr ""
@@ -3784,7 +3789,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Você deseja desativar os comandos selecionados?"
 
 msgid "Do you want to disable selected groups?"
-msgstr ""
+msgstr "Você deseja desabilitar os grupos selecionados?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr ""
@@ -3805,7 +3810,7 @@ msgid "Do you want to disable selected listen records?"
 msgstr ""
 
 msgid "Do you want to disable selected media folders?"
-msgstr ""
+msgstr "Você deseja desabilitar as pastas de mídia selecionadas?"
 
 msgid "Do you want to disable selected option records?"
 msgstr ""
@@ -3841,7 +3846,7 @@ msgid "Do you want to disable selected targets?"
 msgstr ""
 
 msgid "Do you want to disable selected users?"
-msgstr ""
+msgstr "Você deseja desabilitar os usuários selecionados?"
 
 msgid "Do you want to enable selected CHAP users?"
 msgstr ""
@@ -3862,7 +3867,7 @@ msgid "Do you want to enable selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to enable selected Samba shares?"
-msgstr ""
+msgstr "Você deseja habilitar os compartilhamentos Samba selecionados?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr ""
@@ -3874,7 +3879,7 @@ msgid "Do you want to enable selected commands?"
 msgstr "Você deseja ativar os comandos selecionados?"
 
 msgid "Do you want to enable selected groups?"
-msgstr ""
+msgstr "Você deseja habilitar os grupos selecionados?"
 
 msgid "Do you want to enable selected iSCSI initiators?"
 msgstr ""
@@ -3895,7 +3900,7 @@ msgid "Do you want to enable selected listen records?"
 msgstr ""
 
 msgid "Do you want to enable selected media folders?"
-msgstr ""
+msgstr "Você deseja habilitar as pastas de mídia selecionadas?"
 
 msgid "Do you want to enable selected option records?"
 msgstr ""
@@ -3904,7 +3909,7 @@ msgid "Do you want to enable selected options?"
 msgstr "Você deseja ativar as opções selecionadas?"
 
 msgid "Do you want to enable selected port records?"
-msgstr ""
+msgstr "Você deseja habilitar os registros de porta selecionados?"
 
 msgid "Do you want to enable selected portal groups?"
 msgstr ""
@@ -13815,7 +13820,7 @@ msgid "ZFS Volume Information & Status"
 msgstr ""
 
 msgid "ZFS Volume Properties"
-msgstr ""
+msgstr "Propriedades de Volume ZFS"
 
 msgid "ZFS filesystem not found."
 msgstr ""
@@ -13993,20 +13998,20 @@ msgid ""
 msgstr ""
 
 msgid "missing"
-msgstr ""
+msgstr "faltando"
 
 msgid "mount"
 msgstr "montar"
 
 msgid "mount point"
-msgstr ""
+msgstr "ponto de montagem"
 
 msgid "must be defined!"
-msgstr ""
+msgstr "deve ser definido!"
 
 #, php-format
 msgid "must be in the format: %s."
-msgstr ""
+msgstr "deve estar no formato: %s."
 
 msgid "n/a"
 msgstr "n/d"
@@ -14015,7 +14020,7 @@ msgid "network traffic"
 msgstr "tráfego de rede"
 
 msgid "no"
-msgstr ""
+msgstr "não"
 
 msgid "no pools available"
 msgstr "nenhum pools disponível"
