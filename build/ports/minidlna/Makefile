@@ -25,7 +25,7 @@ USES=		autoreconf gettext-tools iconv jpeg
 
 USE_GITHUB=     yes 
 GH_ACCOUNT=     glebius 
-GH_TAGNAME=     f06964a 
+GH_TAGNAME=     bdfa906 
 
 
 PKGMESSAGE=	${WRKSRC}/pkg-message
