@@ -140,6 +140,7 @@ Changes:
 - Upgrade php to 7.4.9.
 - Upgrade syncthing to 1.8.0.
 - Upgrade nano to 5.1.
+- Upgrade rsync to 3.2.3.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
