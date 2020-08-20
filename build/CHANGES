@@ -30,6 +30,7 @@ Changes:
 - Upgrade syncthing to 1.8.0.
 - Upgrade nano to 5.1.
 - Upgrade rsync to 3.2.3.
+- Upgrade sudo to 1.9.2.
 
 Fixes:
 - Whitespaces support in pools/dataset names.

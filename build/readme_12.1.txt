@@ -130,7 +130,6 @@ Changes:
 - Upgrade iperf3 to 3.8.1.
 - Upgrade msmtp to 1.8.11.
 - Upgrade proftpd to 1.3.6d.
-- Upgrade sudo to 1.9.1.
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade virtualbox-ose to 5.2.42.
 - Upgrade samba to 4.10.17.
@@ -141,6 +140,7 @@ Changes:
 - Upgrade syncthing to 1.8.0.
 - Upgrade nano to 5.1.
 - Upgrade rsync to 3.2.3.
+- Upgrade sudo to 1.9.2.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
