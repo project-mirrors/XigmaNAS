@@ -1724,14 +1724,6 @@ copy_files() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/pecl-APCu /usr/ports/devel
 	echo "===> Copy new port files to /usr/ports/devel/pecl-APCu done!"
 	echo ""
-	echo "===> Delete current samba-nsupdate from ports"
-	rm -rf /usr/ports/dns/samba-nsupdate
-	echo "===> Delete completed!"
-	echo ""
-	echo "===> Copy new port samba-nsupdate to ports/dns/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/samba-nsupdate /usr/ports/dns
-	echo "===> Copy new port files to /usr/ports/dns/samba-nsupdate done!"
-	echo ""
 	echo "===> Delete current virtualbox-ose from ports"
 	rm -rf /usr/ports/emulators/virtualbox-ose
 	echo "===> Delete completed!"
@@ -1755,14 +1747,6 @@ copy_files() {
 	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-kmod done!"
-	echo ""
-	echo "===> Delete current libftdi1 from ports"
-	rm -rf /usr/ports/devel/libftdi1
-	echo "===> Delete port libftdi1 completed!"
-	echo ""
-	echo "===> Copy new port libftdi1 to ports/devel/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/libftdi1 /usr/ports/devel
-	echo "===> Copy new port files to /usr/ports/devel/libftdi1 done!"
 	return 0
 }
 build_ports() {
