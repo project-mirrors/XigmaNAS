@@ -124,7 +124,6 @@ Changes:
 - Upgrade devcpu-data to 1.34.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
-- Upgrade iperf3 to 3.8.1.
 - Upgrade proftpd to 1.3.6d.
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade samba to 4.10.17.
@@ -137,6 +136,7 @@ Changes:
 - Upgrade sudo to 1.9.2.
 - Upgrade nano to 5.2.
 - Upgrade msmtp to 1.8.12.
+- Upgrade iperf3 to 3.9.
 
 Fixes:
 
