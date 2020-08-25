@@ -1,5 +1,5 @@
 PORTNAME=		iperf
-PORTVERSION=	3.8.1
+PORTVERSION=	3.9
 PORTREVISION=  0
 CATEGORIES=	benchmarks
 COMMENT=	Improved tool to measure TCP and UDP bandwidth
