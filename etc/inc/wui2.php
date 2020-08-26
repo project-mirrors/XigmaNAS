@@ -2681,6 +2681,156 @@ EOJ;
 				ins_description($p);
 		return $this;
 	}
+/**
+ *	Adds a scheduler
+ *	@param array $cops Array containing cop-objects for
+ *		scheduler,
+ *		all_minutes, all_hours, all_days, all_months, all_weekdays,
+ *		minutes, hours, days, months and weekdays
+ *	@param object $sphere
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_scheduler($cops,$sphere,bool $is_required = false,bool $is_readonly = false) {
+//		init matrix
+		$matrix = [];
+		if(\array_key_exists('all_minutes',$cops) && \array_key_exists('minutes',$cops)):
+			$matrix['minutes'] = ['all' => $cops['all_minutes'],'sel' => $cops['minutes'],'val_min' => 0,'val_steps' => 60,'val_break' => 15];
+		endif;
+		if(\array_key_exists('all_hours',$cops) && \array_key_exists('hours',$cops)):
+			$matrix['hours'] = ['all' => $cops['all_hours'],'sel' => $cops['hours'],'val_min' => 0,'val_steps' => 24,'val_break' => 6];
+		endif;
+		if(\array_key_exists('all_days',$cops) && \array_key_exists('days',$cops)):
+			$matrix['days'] = ['all' => $cops['all_days'],'sel' => $cops['days'],'val_min' => 1,'val_steps' => 31,'val_break' => 7];
+		endif;
+		if(\array_key_exists('all_months',$cops) && \array_key_exists('months',$cops)):
+			$matrix['months'] = ['all' => $cops['all_months'],'sel' => $cops['months']];
+		endif;
+		if(\array_key_exists('all_weekdays',$cops) && \array_key_exists('weekdays',$cops)):
+			$matrix['weekdays'] = ['all' => $cops['all_weekdays'],'sel' => $cops['weekdays']];
+		endif;
+//		insert row
+		$hook = $this->c2_row($cops['scheduler'],$is_required,$is_readonly,false);
+		$div = $hook->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
+		$hook->ins_description($cops['scheduler']);
+//		insert elements
+		foreach($matrix as $matrix_key => $control):
+			$all_id = $control['all']->get_id();
+			$all_name = $control['all']->get_name();
+			$sel_name = $control['sel']->get_name();
+			$sel_title = $control['sel']->get_title();
+			$attr_all = ['type' => 'radio','class' => 'rblo','name' => $all_name,'id' => \sprintf('%s1',$all_id),'value' => 1];
+			$attr_sel = ['type' => 'radio','class' => 'rblo dimassoctable','name' => $all_name,'id' => \sprintf('%s0',$all_id),'value' => 0];
+			if(isset($sphere->row[$all_name]) && $sphere->row[$all_name] == 1):
+				$attr_all['checked'] = 'checked';
+			else:
+				$attr_sel['checked'] = 'checked';
+			endif;
+			$tr = $div->
+				addDIV(['style' => 'flex: 0 0 auto;'])->
+					insDIV(['class' => 'lhebl'],$sel_title)->
+					addDIV(['class' => 'lcebl'])->
+						push()->
+						addDIV(['class' => 'rlbo'])->
+							addElement('label')->
+								insINPUT($attr_all)->
+								insSPAN(['class' => 'rblo'],\gettext('All'))->
+						pop()->
+						addDIV(['class' => 'rlbo'])->
+							addElement('label')->
+								insINPUT($attr_sel)->
+								insSPAN(['class' => 'rblo'],\gettext('Selected...'))->
+								addTABLE()->
+									addTBODY(['class' => 'donothighlight'])->
+										addTR();
+			switch($matrix_key):
+				case 'minutes':
+				case 'hours':
+				case 'days':
+					$val_min = $key = $control['val_min'];
+					$val_count = $control['val_steps'];
+					$val_max = $val_min + $val_count - 1;
+					$val_break = $control['val_break'];
+					$outer_max = \ceil($val_count / $val_break) - 1;
+					$inner_max = $val_min + $val_break - 1;
+					for($outer = 0;$outer <= $outer_max;$outer++):
+						$td = $tr->addTDwC('lcefl');
+						for($innerer = $val_min;$innerer <= $inner_max;$innerer++):
+							if($key <= $val_max):
+								$attributes = [
+									'type' => 'checkbox',
+									'class' => 'cblo',
+									'name' => \sprintf('%s[]',$sel_name),
+									'onchange' => \sprintf('set_selected("%s0")',$all_id),
+									'value' => $key
+								];
+								if(isset($sphere->row[$sel_name]) && \is_array($sphere->row[$sel_name]) && \in_array((string)$key,$sphere->row[$sel_name])):
+									$attributes['checked'] = 'checked';
+								endif;
+								$td->
+									addDIV(['class' => 'cblo'])->
+										addElement('label')->
+											insINPUT($attributes)->
+											insSPAN(['class' => 'cblo'],\sprintf('%02d',$key));
+							else:
+								break;
+							endif;
+							$key++;
+						endfor;
+					endfor;
+					break;
+				case 'months':
+					$td = $tr->addTDwC('lcefl');
+					foreach($control['sel']->get_options() as $key => $val):
+						$attributes = [
+							'type' => 'checkbox',
+							'class' => 'cblo',
+							'name' => \sprintf('%s[]',$sel_name),
+							'onchange' => \sprintf('set_selected("%s0")',$all_id),
+							'value' => $key
+						];
+						if(isset($sphere->row[$sel_name]) && \is_array($sphere->row[$sel_name]) && \in_array((string)$key,$sphere->row[$sel_name])):
+							$attributes['checked'] = 'checked';
+						endif;
+						$td->
+							addDIV(['class' => 'cblo'])->
+								addElement('label')->
+									insINPUT($attributes)->
+									insSPAN(['class' => 'cblo'],$val);
+					endforeach;
+					break;
+				case 'weekdays':
+					$td = $tr->addTDwC('lcefl');
+					foreach($control['sel']->get_options() as $key => $val):
+						$attributes = [
+							'type' => 'checkbox',
+							'class' => 'cblo',
+							'name' => \sprintf('%s[]',$sel_name),
+							'onchange' => \sprintf('set_selected("%s0")',$all_id),
+							'value' => $key
+						];
+						if(isset($sphere->row[$sel_name]) && \is_array($sphere->row[$sel_name])):
+							if(\in_array((string)$key,$sphere->row[$sel_name])):
+								$attributes['checked'] = 'checked';
+							elseif($key == 7):
+//								compatibility for non-ISO day of week 0 for Sunday
+								if(\in_array(0,$sphere->row[$sel_name])):
+									$attributes['checked'] = 'checked';
+								endif;
+							endif;
+						endif;
+						$td->
+							addDIV(['class' => 'cblo'])->
+								addElement('label')->
+									insINPUT($attributes)->
+									insSPAN(['class' => 'cblo'],$val);
+					endforeach;
+					break;
+			endswitch;
+		endforeach;
+		return $this;
+	}
 	public function c2_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->
 			c2_row($p,$is_required,$is_readonly,true)->
