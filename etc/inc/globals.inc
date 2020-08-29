@@ -72,6 +72,7 @@ $g_img = [
 	'del' => 'images/delete.png',
 	'loc' => 'images/locked.png',
 	'unl' => 'images/unlocked.png',
+	'run' => 'images/play.png',
 	'mai' => 'images/maintain.png',
 	'inf' => 'images/info.png',
 	'ena' => 'images/status_enabled.png',
