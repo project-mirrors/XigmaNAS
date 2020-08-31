@@ -727,10 +727,12 @@ td#area_data_frame
 	background-color: var(--bgc-area-data);
 }
 
-div#area_data_frame > table > thead th[class^="lhe"]
+div#area_data_frame > table > thead tr:last-child th[class^="lhe"]
 {
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	z-index: 1;
 }
 
 table#area_data_settings_submit
