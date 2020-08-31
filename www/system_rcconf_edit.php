@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -43,13 +44,13 @@ $input_errors = [];
 $prerequisites_ok = true;
 //	preset $savemsg when a reboot is pending
 if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = get_std_save_message(0);
+	$savemsg = \get_std_save_message(0);
 endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo();
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -85,21 +86,21 @@ endswitch;
 /*
  *	exit if $sphere->row[$sphere->row_identifier()] is NULL
  */
-if(is_null($sphere->get_row_identifier_value())):
-	header($sphere->get_parent()->get_location());
+if(\is_null($sphere->get_row_identifier_value())):
+	\header($sphere->get_parent()->get_location());
 	exit;
 endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = \array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
-$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$updatenotify_mode = \updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
-	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+if($sphere->row_id === false): // record does not exist in config
+	if(\in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
 				$record_mode = RECORD_NEW;
@@ -107,7 +108,7 @@ if(false === $sphere->row_id): // record does not exist in config
 		endswitch;
 	endif;
 else: // record found in configuration
-	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+	if(\in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_NEW:
 				$record_mode = RECORD_NEW_MODIFY;
@@ -121,8 +122,9 @@ else: // record found in configuration
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode): // oops, something went wrong
-	header($sphere->get_parent()->get_location());
+if($record_mode === RECORD_ERROR):
+//	oops, something went wrong
+	\header($sphere->get_parent()->get_location());
 	exit;
 endif;
 $isrecordnew = (RECORD_NEW === $record_mode);
@@ -149,7 +151,7 @@ switch($page_mode):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
 		endforeach;
-		//	adjust page mode
+//		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
@@ -160,7 +162,7 @@ switch($page_mode):
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
-		// apply post values that are applicable for all record modes
+//		apply post values that are applicable for all record modes
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
@@ -172,18 +174,18 @@ switch($page_mode):
 		if($prerequisites_ok && empty($input_errors)):
 			$sphere->upsert();
 			if($isrecordnew):
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+				\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+				\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
-			write_config();
-			header($sphere->get_parent()->get_location()); // cleanup
+			\write_config();
+			\header($sphere->get_parent()->get_location()); // cleanup
 			exit;
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('System'), gettext('Advanced'), gettext('rc.conf'), $isrecordnew ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$pgtitle = [\gettext('System'),\gettext('Advanced'),\gettext('rc.conf'),$isrecordnew ? \gettext('Add') : \gettext('Edit')];
+$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -196,18 +198,18 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(file_exists($d_sysrebootreqd_path)):
+if(\file_exists($d_sysrebootreqd_path)):
 	$content->ins_info_box(get_std_save_message(0));
 endif;
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,\gettext('Configuration'))->
 	pop()->
 	addTBODY()->
 		c2_input_text($cop->get_name(),$sphere,true)->
-		c2_input_text($cop->get_value(),$sphere,true)->
+		c2_input_text($cop->get_value(),$sphere)->
 		c2_input_text($cop->get_comment(),$sphere);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
