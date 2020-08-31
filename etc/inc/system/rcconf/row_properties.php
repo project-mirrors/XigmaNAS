@@ -31,13 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\rcconf;
+
 use common\properties as myp;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
-		$description = gettext('Name of the variable.');
-		$placeholder = gettext('Name');
+		$description = \gettext('Name of the variable.');
+		$placeholder = \gettext('Name');
 		$property = parent::init_name();
 		$property->
 			set_id('name')->
@@ -53,7 +55,7 @@ final class row_properties extends grid_properties {
 	}
 	public function init_comment(): myp\property_text {
 		$description = '';
-		$placeholder = gettext('Enter a description');
+		$placeholder = \gettext('Enter a description');
 		$property = parent::init_comment();
 		$property->
 			set_id('comment')->
@@ -70,15 +72,15 @@ final class row_properties extends grid_properties {
 	public function init_value(): myp\property_text {
 		$property = parent::init_value();
 		$description = '';
-		$placeholder = gettext('Enter Value');
+		$placeholder = \gettext('Enter Value');
 		$property->
 			set_id('value')->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_defaultvalue('')->
 			set_size(60)->
-			set_maxlength(256)->
-			filter_use_default();
+			set_maxlength(1024)->
+			filter_use_default_or_empty();
 		return $property;
 	}
 }
