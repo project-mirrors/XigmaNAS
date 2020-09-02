@@ -53,7 +53,7 @@ final class shared_toolbox {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
 		$sphere->row_id = \array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
+		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
 				case UPDATENOTIFY_MODE_MODIFIED:
@@ -94,17 +94,17 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('system_advanced.php',gettext('Advanced'))->
-					ins_tabnav_record('system_email.php',gettext('Email'))->
-					ins_tabnav_record('system_email_reports.php',gettext('Email Reports'))->
-					ins_tabnav_record('system_monitoring.php',gettext('Monitoring'))->
-					ins_tabnav_record('system_swap.php',gettext('Swap'))->
-					ins_tabnav_record('system_rc.php',gettext('Command Scripts'))->
-					ins_tabnav_record('system_cron.php',gettext('Cron'),gettext('Reload page'),true)->
-					ins_tabnav_record('system_loaderconf.php',gettext('loader.conf'))->
-					ins_tabnav_record('system_rcconf.php',gettext('rc.conf'))->
-					ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'))->
-					ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
+					ins_tabnav_record('system_advanced.php',\gettext('Advanced'))->
+					ins_tabnav_record('system_email.php',\gettext('Email'))->
+					ins_tabnav_record('system_email_reports.php',\gettext('Email Reports'))->
+					ins_tabnav_record('system_monitoring.php',\gettext('Monitoring'))->
+					ins_tabnav_record('system_swap.php',\gettext('Swap'))->
+					ins_tabnav_record('system_rc.php',\gettext('Command Scripts'))->
+					ins_tabnav_record('system_cron.php',\gettext('Cron'),\gettext('Reload page'),true)->
+					ins_tabnav_record('system_loaderconf.php',\gettext('loader.conf'))->
+					ins_tabnav_record('system_rcconf.php',\gettext('rc.conf'))->
+					ins_tabnav_record('system_sysctl.php',\gettext('sysctl.conf'))->
+					ins_tabnav_record('system_syslogconf.php',\gettext('syslog.conf'));
 		return $retval;
 	}
 }

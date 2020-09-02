@@ -144,63 +144,63 @@ class grid_properties extends myp\container_row {
 		return $this->x_weekdays ?? $this->init_weekdays();
 	}
 	protected $x_all_minutes;
-	public function init_all_minutes(): myp\property_bool {
+	public function init_all_minutes(): myp\property_int {
 		$title = \gettext('All Minutes');
-		$property = $this->x_all_minutes = new myp\property_bool($this);
+		$property = $this->x_all_minutes = new myp\property_int($this);
 		$property->
 			set_name('all_mins')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_all_minutes(): myp\property_bool {
+	final public function get_all_minutes(): myp\property_int {
 		return $this->x_all_minutes ?? $this->init_all_minutes();
 	}
 	protected $x_all_hours;
-	public function init_all_hours(): myp\property_bool {
+	public function init_all_hours(): myp\property_int {
 		$title = \gettext('All Hours');
-		$property = $this->x_all_hours = new myp\property_bool($this);
+		$property = $this->x_all_hours = new myp\property_int($this);
 		$property->
 			set_name('all_hours')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_all_hours(): myp\property_bool {
+	final public function get_all_hours(): myp\property_int {
 		return $this->x_all_hours ?? $this->init_all_hours();
 	}
 	protected $x_all_days;
-	public function init_all_days(): myp\property_bool {
+	public function init_all_days(): myp\property_int {
 		$title = \gettext('All Days');
-		$property = $this->x_all_days = new myp\property_bool($this);
+		$property = $this->x_all_days = new myp\property_int($this);
 		$property->
 			set_name('all_days')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_all_days(): myp\property_bool {
+	final public function get_all_days(): myp\property_int {
 		return $this->x_all_days ?? $this->init_all_days();
 	}
 	protected $x_all_months;
-	public function init_all_months(): myp\property_bool {
+	public function init_all_months(): myp\property_int {
 		$title = \gettext('All Months');
-		$property = $this->x_all_months = new myp\property_bool($this);
+		$property = $this->x_all_months = new myp\property_int($this);
 		$property->
 			set_name('all_months')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_all_months(): myp\property_bool {
+	final public function get_all_months(): myp\property_int {
 		return $this->x_all_months ?? $this->init_all_months();
 	}
 	protected $x_all_weekdays;
-	public function init_all_weekdays(): myp\property_bool {
+	public function init_all_weekdays(): myp\property_int {
 		$title = \gettext('All Weekdays');
-		$property = $this->x_all_weekdays = new myp\property_bool($this);
+		$property = $this->x_all_weekdays = new myp\property_int($this);
 		$property->
 			set_name('all_weekdays')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_all_weekdays(): myp\property_bool {
+	final public function get_all_weekdays(): myp\property_int {
 		return $this->x_all_weekdays ?? $this->init_all_weekdays();
 	}
 }

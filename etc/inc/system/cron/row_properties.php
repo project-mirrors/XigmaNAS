@@ -67,7 +67,7 @@ final class row_properties extends grid_properties {
 		$description = \gettext('Running user');
 		$property = parent::init_who();
 		$property->
-			set_defaultvalue('')->
+			set_defaultvalue('root')->
 			set_description($description)->
 			set_id('who')->
 			filter_use_default();
@@ -82,8 +82,8 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('minute')->
-			set_options($options);
-			filter_use_default_or_empty();
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_hours(): myp\property_list_multi {
@@ -95,8 +95,8 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('hour')->
-			set_options($options);
-			filter_use_default_or_empty();
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_days(): myp\property_list_multi {
@@ -108,8 +108,8 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('day')->
-			set_options($options);
-			filter_use_default_or_empty();
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_months(): myp\property_list_multi {
@@ -120,8 +120,8 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('month')->
-			set_options($options);
-			filter_use_default_or_empty();
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_weekdays(): myp\property_list_multi {
@@ -132,47 +132,57 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('weekday')->
-			set_options($options);
-			filter_use_default_or_empty();
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
-	public function init_all_minutes(): myp\property_bool {
+	public function init_all_minutes(): myp\property_int {
 		$property = parent::init_all_minutes();
 		$property->
-			set_defaultvalue(true)->
+			set_defaultvalue(1)->
 			set_id('all_mins')->
+			set_min(0)->
+			set_max(1)->
 			filter_use_default();
 		return $property;
 	}
-	public function init_all_hours(): myp\property_bool {
+	public function init_all_hours(): myp\property_int {
 		$property = parent::init_all_hours();
 		$property->
-			set_defaultvalue(true)->
+			set_defaultvalue(1)->
 			set_id('all_hours')->
+			set_min(0)->
+			set_max(1)->
 			filter_use_default();
 		return $property;
 	}
-	public function init_all_days(): myp\property_bool {
+	public function init_all_days(): myp\property_int {
 		$property = parent::init_all_days();
 		$property->
-			set_defaultvalue(true)->
+			set_defaultvalue(1)->
 			set_id('all_days')->
+			set_min(0)->
+			set_max(1)->
 			filter_use_default();
 		return $property;
 	}
-	public function init_all_months(): myp\property_bool {
+	public function init_all_months(): myp\property_int {
 		$property = parent::init_all_months();
 		$property->
-			set_defaultvalue(true)->
+			set_defaultvalue(1)->
 			set_id('all_months')->
+			set_min(0)->
+			set_max(1)->
 			filter_use_default();
 		return $property;
 	}
-	public function init_all_weekdays(): myp\property_bool {
+	public function init_all_weekdays(): myp\property_int {
 		$property = parent::init_all_weekdays();
 		$property->
-			set_defaultvalue(true)->
+			set_defaultvalue(1)->
 			set_id('all_weekdays')->
+			set_min(0)->
+			set_max(1)->
 			filter_use_default();
 		return $property;
 	}
