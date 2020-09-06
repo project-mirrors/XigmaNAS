@@ -28,7 +28,7 @@ fi
 
 # Execute all commands from config 2.8.
 /usr/local/bin/xml sel --template \
-	--match "//rc/param[typeid=2 and enable and name != 'Extended-GUI Extension']/value" \
+	--match "//rc/param[typeid=2 and enable]/value" \
 		--value-of '.' \
 		--if 'position() <= last()' \
 			--nl \
