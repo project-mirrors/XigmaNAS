@@ -135,12 +135,12 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.44.
 - Upgrade bash to 5.0 P18.
 - Upgrade php to 7.4.9.
-- Upgrade syncthing to 1.8.0.
 - Upgrade rsync to 3.2.3.
 - Upgrade sudo to 1.9.2.
 - Upgrade nano to 5.2.
 - Upgrade msmtp to 1.8.12.
 - Upgrade iperf3 to 3.9.
+- Upgrade syncthing to 1.9.0.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
