@@ -141,6 +141,7 @@ Changes:
 - Upgrade iperf3 to 3.9.
 - Upgrade syncthing to 1.9.0.
 - Upgrade php to 7.4.10.
+- Upgrade transmission to 3.00.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
