@@ -104,7 +104,9 @@ do-install:
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/file-row.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/formatter.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/inspector.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
+	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/main.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/notifications.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
+	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/polyfill.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/prefs-dialog.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/remote.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
 	@${INSTALL_DATA} -v ${WRKSRC}/web/javascript/torrent.js ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/javascript
