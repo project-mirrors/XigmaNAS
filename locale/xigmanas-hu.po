@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:48+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:12+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -431,14 +431,6 @@ msgstr "AD hitelesítés kikapcsolva."
 msgid "AD or PDC name."
 msgstr "AD vagy PDC név."
 
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr ""
-"AES-NI (Advanced Encryption Standard New Instruction=Fejlett Kódolási "
-"Szabvány Új Utasításai) a mikroprocesszorok X86-os utasításkészlet-"
-"architektúrája."
-
 msgid "AFP"
 msgstr "AFP (Apple MacOSX)"
 
@@ -840,8 +832,23 @@ msgstr "Álnév"
 msgid "All"
 msgstr "Minden"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
 msgstr "Valamennyi interfész"
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "A következő statisztikák összes adatát sikeresen törölted:"
@@ -1080,6 +1087,11 @@ msgid ""
 msgstr ""
 "Anonymus felhasználó max feltöltési sebessége KB/s-ban. Üresen hagyva nincs "
 "korlátozás."
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3487,9 +3499,6 @@ msgid ""
 "gets loaded."
 msgstr "%s oldal töltésekor a szerver ne keressen újabb firmware verziót."
 
-msgid "Do not load driver."
-msgstr "Ne töltsd be az illesztőprogramot."
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -4081,9 +4090,6 @@ msgstr "Kész!"
 
 msgid "Done."
 msgstr "Kész."
-
-msgid "Down"
-msgstr "Le"
 
 msgid "Download"
 msgstr "Letöltés"
@@ -5748,9 +5754,6 @@ msgstr "HVM vendég"
 msgid "Hard Disk"
 msgstr "Merevlemez"
 
-msgid "Hardware AES"
-msgstr "Hardveres AES"
-
 msgid "Header Digest"
 msgstr "Fejléckivonat"
 
@@ -6826,18 +6829,6 @@ msgstr "Terhelés"
 
 msgid "Load Averages"
 msgstr "Átlagterhelések"
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr ""
-"Illesztőprogram automatikus betöltése, amennyiben a GELI eszközt definiálták "
-"a konfigurációs fájlban és az utasításkészlet ezt támogatja."
-
-msgid "Load driver during boot when the instruction set is supported."
-msgstr ""
-"Illesztőprogram betöltése rendszerindítás közben, mennyiben az "
-"utasításkészlet ezt támogatja."
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Töltsön amikor a szünetmentes túlterhelődik  (\"TÚL\")"
@@ -9687,6 +9678,9 @@ msgstr ""
 "Ezen szolgáltatás futtatása root-ként biztonsági okok miatt nem ajánlott, "
 "csak saját felelősségre állítsd be!"
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -10461,6 +10455,11 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Beállítások"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr "Árnyékmásolat"
@@ -14530,3 +14529,32 @@ msgstr "látható"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr ""
+#~ "AES-NI (Advanced Encryption Standard New Instruction=Fejlett Kódolási "
+#~ "Szabvány Új Utasításai) a mikroprocesszorok X86-os utasításkészlet-"
+#~ "architektúrája."
+
+#~ msgid "Do not load driver."
+#~ msgstr "Ne töltsd be az illesztőprogramot."
+
+#~ msgid "Hardware AES"
+#~ msgstr "Hardveres AES"
+
+#~ msgid ""
+#~ "Load driver automatically when GELI devices have been defined in the "
+#~ "configuration file and the instruction set is supported."
+#~ msgstr ""
+#~ "Illesztőprogram automatikus betöltése, amennyiben a GELI eszközt definiálták "
+#~ "a konfigurációs fájlban és az utasításkészlet ezt támogatja."
+
+#~ msgid "Load driver during boot when the instruction set is supported."
+#~ msgstr ""
+#~ "Illesztőprogram betöltése rendszerindítás közben, mennyiben az "
+#~ "utasításkészlet ezt támogatja."
+
+#~ msgid "Down"
+#~ msgstr "Le"

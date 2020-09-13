@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:49+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:13+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -446,13 +446,6 @@ msgstr "Autentificarea AD este dezactivat."
 msgid "AD or PDC name."
 msgstr "Nume AD sau PDC."
 
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr ""
-"AES-NI (Advanced Encryption Standard New Instructions) este o extensie a "
-"instructiunilor x86 corespunzatore arhitecturii microprocesatorului."
-
 msgid "AFP"
 msgstr "AFP"
 
@@ -855,7 +848,22 @@ msgstr "Alias"
 msgid "All"
 msgstr "Toate"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
+msgstr ""
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
 msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
@@ -1095,6 +1103,11 @@ msgid ""
 msgstr ""
 "Lăţimea de bandă la trimitere pentru utilizatorii anonimi în KB/s. Lăsaţi "
 "cîmpul necompletat pentru viteză maximă."
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3534,9 +3547,6 @@ msgstr ""
 "Nu lăsați serverul să verifice existența unei noi versiuni de firmware la "
 "încărcarea paginii %s."
 
-msgid "Do not load driver."
-msgstr "Nu incarca driverul"
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -4113,9 +4123,6 @@ msgstr "Gata!"
 
 msgid "Done."
 msgstr "Gata."
-
-msgid "Down"
-msgstr ""
 
 msgid "Download"
 msgstr "Descărcare"
@@ -5775,9 +5782,6 @@ msgstr "Guest HVM"
 msgid "Hard Disk"
 msgstr "Hard disc"
 
-msgid "Hardware AES"
-msgstr ""
-
 msgid "Header Digest"
 msgstr ""
 
@@ -6840,14 +6844,6 @@ msgstr "Încărcare"
 
 msgid "Load Averages"
 msgstr "Încărcare medie"
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr ""
-
-msgid "Load driver during boot when the instruction set is supported."
-msgstr ""
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr ""
@@ -9681,6 +9677,9 @@ msgstr ""
 "Din motive de securitate rularea acestui serviciu ca root nu este "
 "recomandată, puteți să o faceți pe riscul dumneavoastră!"
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -10415,6 +10414,11 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Setări"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr "Copie de Siguranță"
@@ -14437,3 +14441,13 @@ msgstr "vizibil"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Do not load driver."
+#~ msgstr "Nu incarca driverul"
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) este o extensie a "
+#~ "instructiunilor x86 corespunzatore arhitecturii microprocesatorului."

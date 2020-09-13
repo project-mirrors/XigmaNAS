@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2019-11-24 15:26+0000\n"
 "Last-Translator: luigi mascia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:48+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:12+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -446,13 +446,6 @@ msgstr "L'autenticazione al AD è disattivata"
 msgid "AD or PDC name."
 msgstr "Nome AD o PDC."
 
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr ""
-"AES-NI (Advanced Encryption Standard New Instructions) è un estensione delle "
-"istruzioni per i microprocessori x86."
-
 msgid "AFP"
 msgstr "AFP"
 
@@ -856,8 +849,23 @@ msgstr "Nome alternativo"
 msgid "All"
 msgstr "Tutto"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
 msgstr "Tutte le interfacce"
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "I seguenti dati statistici sono stati cancellati:"
@@ -1098,6 +1106,11 @@ msgid ""
 msgstr ""
 "Larghezza di banda in upload dell'utente anonimo in KB/s. Il campo vuoto "
 "significa infinita banda."
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3551,9 +3564,6 @@ msgstr ""
 "Non permettere al server di controllare nuove versioni di firmware quando la "
 "%s pagina viene caricata"
 
-msgid "Do not load driver."
-msgstr "Non caricare i driver"
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -4135,9 +4145,6 @@ msgstr "Fatto!"
 
 msgid "Done."
 msgstr "Finito."
-
-msgid "Down"
-msgstr ""
 
 msgid "Download"
 msgstr "Download"
@@ -5804,9 +5811,6 @@ msgstr "HVM Guest"
 msgid "Hard Disk"
 msgstr "Disco fisso"
 
-msgid "Hardware AES"
-msgstr "AES hardware"
-
 msgid "Header Digest"
 msgstr ""
 
@@ -6863,17 +6867,6 @@ msgstr "Carica"
 
 msgid "Load Averages"
 msgstr "Carichi medi"
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr ""
-"carica il driver automaticamente quando i dispositivi GELI sono stati "
-"definiti nel file di configurazione e il set di istruzioni è supportato."
-
-msgid "Load driver during boot when the instruction set is supported."
-msgstr ""
-"Carica il driver durante il boot quando il set di istruzioni è supportato"
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr ""
@@ -9706,6 +9699,9 @@ msgstr ""
 "Eseguire il servizio come root non è raccomandato per ragioni di sicurezza: "
 "usare a vostro rischio!"
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -10444,6 +10440,11 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Impostazioni"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr "Shadow Copy"
@@ -14502,3 +14503,27 @@ msgstr "visibile"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) è un estensione delle "
+#~ "istruzioni per i microprocessori x86."
+
+#~ msgid "Do not load driver."
+#~ msgstr "Non caricare i driver"
+
+#~ msgid "Hardware AES"
+#~ msgstr "AES hardware"
+
+#~ msgid "Load driver during boot when the instruction set is supported."
+#~ msgstr ""
+#~ "Carica il driver durante il boot quando il set di istruzioni è supportato"
+
+#~ msgid ""
+#~ "Load driver automatically when GELI devices have been defined in the "
+#~ "configuration file and the instruction set is supported."
+#~ msgstr ""
+#~ "carica il driver automaticamente quando i dispositivi GELI sono stati "
+#~ "definiti nel file di configurazione e il set di istruzioni è supportato."
