@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -347,9 +347,6 @@ msgid "AD authentication is disabled."
 msgstr ""
 
 msgid "AD or PDC name."
-msgstr ""
-
-msgid "AES-NI (Advanced Encryption Standard New Instructions) is an extension to the x86 instruction set architecture for microprocessors."
 msgstr ""
 
 msgid "AFP"
@@ -736,7 +733,22 @@ msgstr ""
 msgid "All"
 msgstr ""
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
+msgstr ""
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
 msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
@@ -920,6 +932,9 @@ msgid "Anonymous user download bandwith in KB/s. An empty field means infinity."
 msgstr ""
 
 msgid "Anonymous user upload bandwith in KB/s. An empty field means infinity."
+msgstr ""
+
+msgid "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP services can cause problems."
 msgstr ""
 
 msgid "Another DLNA/UPnP service is already running. Enabling Fuppes might cause issues."
@@ -3007,9 +3022,6 @@ msgstr ""
 msgid "Do not let the server check for newer firmware versions when the %s page gets loaded."
 msgstr ""
 
-msgid "Do not load driver."
-msgstr ""
-
 msgid "Do you really want to clear and import?\\nThe existing config will be cleared and overwritten."
 msgstr ""
 
@@ -3575,9 +3587,6 @@ msgid "Done!"
 msgstr ""
 
 msgid "Done."
-msgstr ""
-
-msgid "Down"
 msgstr ""
 
 msgid "Download"
@@ -5110,9 +5119,6 @@ msgstr ""
 msgid "Hard Disk"
 msgstr ""
 
-msgid "Hardware AES"
-msgstr ""
-
 msgid "Header Digest"
 msgstr ""
 
@@ -5984,12 +5990,6 @@ msgid "Load"
 msgstr ""
 
 msgid "Load Averages"
-msgstr ""
-
-msgid "Load driver automatically when GELI devices have been defined in the configuration file and the instruction set is supported."
-msgstr ""
-
-msgid "Load driver during boot when the instruction set is supported."
 msgstr ""
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
@@ -8657,6 +8657,9 @@ msgstr ""
 msgid "Running this service as root is not recommended for security reasons, use at your own risk!"
 msgstr ""
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr ""
 
@@ -9286,6 +9289,9 @@ msgid "Setting to \"primary\" or \"secondary\" overrides default role of the nod
 msgstr ""
 
 msgid "Settings"
+msgstr ""
+
+msgid "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services can cause problems."
 msgstr ""
 
 msgid "Shadow Copy"
