@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2020-08-16 10:31+0000\n"
 "Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:48+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:12+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -449,13 +449,6 @@ msgid "AD or PDC name."
 msgstr ""
 "Nom du serveur Active Directory ou du Contrôleur Principal de Domaine NT4."
 
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr ""
-"AES-NI (Advanced Encryption Standard New Instructions) est une extension de "
-"l'architecture des jeux d'instructions x86 pour les microprocesseurs."
-
 msgid "AFP"
 msgstr "AFP"
 
@@ -860,8 +853,23 @@ msgstr "Pseudonyme"
 msgid "All"
 msgstr "Tous"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
 msgstr "Toutes les interfaces"
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Toutes les données des statistiques suivantes ont été effacées:"
@@ -1105,6 +1113,11 @@ msgid ""
 msgstr ""
 "Bande passante du sens montant en KB/s pour un utilisateur anonyme. Le Un "
 "champ vide signifie 'pas de limite'."
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3575,9 +3588,6 @@ msgstr ""
 "Ne laissez pas le  serveur chercher de nouvelles versions de micrologiciel "
 "lorsque la page de  %s se charge."
 
-msgid "Do not load driver."
-msgstr "Ne chargez pas le pilote."
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -4175,9 +4185,6 @@ msgstr "Terminé!"
 
 msgid "Done."
 msgstr "Terminé."
-
-msgid "Down"
-msgstr "En bas"
 
 msgid "Download"
 msgstr "Téléchargement"
@@ -5877,9 +5884,6 @@ msgstr "Invité HVM"
 msgid "Hard Disk"
 msgstr "Disque dur"
 
-msgid "Hardware AES"
-msgstr "Accélération Matérielle AES"
-
 msgid "Header Digest"
 msgstr "Contrôle de l'Entête"
 
@@ -6971,19 +6975,6 @@ msgstr "Charge"
 
 msgid "Load Averages"
 msgstr "Moyennes de charge"
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr ""
-"Charger le pilote automatiquement lorsque les périphériques GELI ont été "
-"définis dans le fichier de configuration et que le jeu d'instructions est "
-"pris en charge."
-
-msgid "Load driver during boot when the instruction set is supported."
-msgstr ""
-"Charger le pilote pendant le démarrage lorsque le jeu d'instructions est "
-"pris en charge."
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Charge lorsque UPS passe en condition de surcharge (\"OVER\")"
@@ -9843,6 +9834,9 @@ msgstr ""
 "L'exécution de ce service en tant que root n'est pas recommandée pour des "
 "raisons de sécurité, utilisez à vos risques et périls!"
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -10638,6 +10632,11 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Réglages"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr "Cliché Instantané"
@@ -14824,3 +14823,32 @@ msgstr "visible"
 
 msgid "yes"
 msgstr "oui"
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) est une extension de "
+#~ "l'architecture des jeux d'instructions x86 pour les microprocesseurs."
+
+#~ msgid "Do not load driver."
+#~ msgstr "Ne chargez pas le pilote."
+
+#~ msgid "Hardware AES"
+#~ msgstr "Accélération Matérielle AES"
+
+#~ msgid ""
+#~ "Load driver automatically when GELI devices have been defined in the "
+#~ "configuration file and the instruction set is supported."
+#~ msgstr ""
+#~ "Charger le pilote automatiquement lorsque les périphériques GELI ont été "
+#~ "définis dans le fichier de configuration et que le jeu d'instructions est "
+#~ "pris en charge."
+
+#~ msgid "Load driver during boot when the instruction set is supported."
+#~ msgstr ""
+#~ "Charger le pilote pendant le démarrage lorsque le jeu d'instructions est "
+#~ "pris en charge."
+
+#~ msgid "Down"
+#~ msgstr "En bas"

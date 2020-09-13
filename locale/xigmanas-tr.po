@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2020-06-17 15:12+0000\n"
 "Last-Translator: Mustafa DAĞCI <mustafa.matrix@gmail.com>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:49+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:13+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -428,13 +428,6 @@ msgstr "AD Kimlik doğrulama devredışı."
 msgid "AD or PDC name."
 msgstr "AD veya PDC ismi"
 
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr ""
-"AES-NI (Gelişmiş Şifreleme Standardı Yeni Tanımlamaları), x86 yapısındaki "
-"bir mikroişlemci eklentisidir."
-
 msgid "AFP"
 msgstr "AFP"
 
@@ -835,8 +828,23 @@ msgstr "Takma ad"
 msgid "All"
 msgstr "Tümü"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
 msgstr "Tüm Arayüzler"
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Şu istatistikteki tüm veriler silindi:"
@@ -1060,6 +1068,11 @@ msgid ""
 "Anonymous user upload bandwith in KB/s. An empty field means infinity."
 msgstr ""
 "Blinmeyen kullanıcı yükleme KB/s belirtilmiştir. Boş alan sonsuz demektir."
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3324,9 +3337,6 @@ msgid ""
 "gets loaded."
 msgstr ""
 
-msgid "Do not load driver."
-msgstr ""
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -3900,9 +3910,6 @@ msgstr ""
 
 msgid "Done."
 msgstr "Bitti"
-
-msgid "Down"
-msgstr ""
 
 msgid "Download"
 msgstr "İndir"
@@ -5501,9 +5508,6 @@ msgstr ""
 msgid "Hard Disk"
 msgstr ""
 
-msgid "Hardware AES"
-msgstr ""
-
 msgid "Header Digest"
 msgstr ""
 
@@ -6471,14 +6475,6 @@ msgid "Load"
 msgstr "Yükle"
 
 msgid "Load Averages"
-msgstr ""
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr ""
-
-msgid "Load driver during boot when the instruction set is supported."
 msgstr ""
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
@@ -9225,6 +9221,9 @@ msgid ""
 "your own risk!"
 msgstr ""
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -9921,6 +9920,11 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Ayarlar"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr ""
@@ -13596,3 +13600,10 @@ msgstr "görünür"
 
 msgid "yes"
 msgstr "evet"
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr ""
+#~ "AES-NI (Gelişmiş Şifreleme Standardı Yeni Tanımlamaları), x86 yapısındaki "
+#~ "bir mikroişlemci eklentisidir."

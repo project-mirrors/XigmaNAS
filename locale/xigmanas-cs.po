@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2020-06-15 16:03+0000\n"
 "Last-Translator: Pavel Borecki <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:48+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:12+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -447,14 +447,6 @@ msgstr "Ověřování vůči Active Directory je vypnuté."
 msgid "AD or PDC name."
 msgstr "Název řadiče domény AD nebo hlavního řadiče NT domény (PDC)."
 
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr ""
-"AES-NI (Advanced Encryption Standard New Instructions – nové instrukce "
-"pokročilého šifrovacího standardu) je rozšíření instrukční sady pro "
-"procesory architektury x86."
-
 msgid "AFP"
 msgstr "AFP"
 
@@ -861,7 +853,22 @@ msgstr "Alternativní název"
 msgid "All"
 msgstr "Vše"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
+msgstr ""
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
 msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
@@ -1104,6 +1111,11 @@ msgid ""
 msgstr ""
 "Rychlost odesílání (v KB/s) pro anonymního uživatele. Nevyplněno znamená bez "
 "omezení."
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3539,9 +3551,6 @@ msgstr ""
 "Když je načítána stránka %s, neumožnit serveru zjišťovat dostupnost nových "
 "verzí systému."
 
-msgid "Do not load driver."
-msgstr "Nanačítat ovladač."
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -4134,9 +4143,6 @@ msgstr "Hotovo!"
 
 msgid "Done."
 msgstr "Dokončeno."
-
-msgid "Down"
-msgstr ""
 
 msgid "Download"
 msgstr "Stáhnout"
@@ -5797,9 +5803,6 @@ msgstr "HVM virt. stroj"
 msgid "Hard Disk"
 msgstr "Pevný disk"
 
-msgid "Hardware AES"
-msgstr "Hardwarové AES"
-
 msgid "Header Digest"
 msgstr "Otisk hlavičky"
 
@@ -6888,17 +6891,6 @@ msgstr "Vytížení"
 
 msgid "Load Averages"
 msgstr "Průměrné vytížení"
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr ""
-"Když jsou v souboru s nastaveními určené GELI zařízení a instrukční sada je "
-"podporována, automaticky načíst ovladač."
-
-msgid "Load driver during boot when the instruction set is supported."
-msgstr ""
-"Pokud je instrukční sada podporována, načíst ovladač při zavádění systému."
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "Odběr, při kterém se UPS zdroj přepne do stavu přetíženo („OVER“)"
@@ -9759,6 +9751,9 @@ msgstr ""
 "Spouštění této služby s právy správce systému (root) není doporučeno z "
 "bezpečnostních dúvodů, použijte pouze na vlastní nebezpečí!"
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "SMART diagnostika"
 
@@ -10525,6 +10520,11 @@ msgstr ""
 
 msgid "Settings"
 msgstr "Nastavení"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr "Stínová kopie"
@@ -14649,3 +14649,28 @@ msgstr "viditelné"
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions – nové instrukce "
+#~ "pokročilého šifrovacího standardu) je rozšíření instrukční sady pro "
+#~ "procesory architektury x86."
+
+#~ msgid "Do not load driver."
+#~ msgstr "Nanačítat ovladač."
+
+#~ msgid "Load driver during boot when the instruction set is supported."
+#~ msgstr ""
+#~ "Pokud je instrukční sada podporována, načíst ovladač při zavádění systému."
+
+#~ msgid "Hardware AES"
+#~ msgstr "Hardwarové AES"
+
+#~ msgid ""
+#~ "Load driver automatically when GELI devices have been defined in the "
+#~ "configuration file and the instruction set is supported."
+#~ msgstr ""
+#~ "Když jsou v souboru s nastaveními určené GELI zařízení a instrukční sada je "
+#~ "podporována, automaticky načíst ovladač."

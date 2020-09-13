@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-07-10 16:28+0000\n"
+"POT-Creation-Date: 2020-09-13 22:33+0000\n"
 "PO-Revision-Date: 2020-07-22 15:08+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-08-18 20:49+0000\n"
-"X-Generator: Launchpad (build 99c2d833c8d727fd05148486920aca032e908071)\n"
+"X-Launchpad-Export-Date: 2020-09-13 21:13+0000\n"
+"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -396,11 +396,6 @@ msgstr "AD身份验证被禁用。"
 
 msgid "AD or PDC name."
 msgstr "AD或PDC 的名称。"
-
-msgid ""
-"AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-"the x86 instruction set architecture for microprocessors."
-msgstr "AES-NI（高级加密标准新指令）是微处理器x86指令集体系结构的扩展。"
 
 msgid "AFP"
 msgstr "AFP"
@@ -794,8 +789,23 @@ msgstr "别名"
 msgid "All"
 msgstr "全部"
 
+msgid "All Days"
+msgstr ""
+
+msgid "All Hours"
+msgstr ""
+
 msgid "All Interfaces"
 msgstr "所有接口"
+
+msgid "All Minutes"
+msgstr ""
+
+msgid "All Months"
+msgstr ""
+
+msgid "All Weekdays"
+msgstr ""
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下统计的所有数据已经被删除："
@@ -1009,6 +1019,11 @@ msgstr "匿名用户下载带宽，以 KB/s 为单位。空白表示没限制。
 msgid ""
 "Anonymous user upload bandwith in KB/s. An empty field means infinity."
 msgstr "匿名用户上传带宽，以 KB/s 为单位。空白表示没限制。"
+
+msgid ""
+"Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
+"services can cause problems."
+msgstr ""
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -3277,9 +3292,6 @@ msgid ""
 "gets loaded."
 msgstr "在加载 %s 页面时，不要让服务器检查较新的固件版本。"
 
-msgid "Do not load driver."
-msgstr "不要加载驱动程序。"
-
 msgid ""
 "Do you really want to clear and import?\\nThe existing config will be "
 "cleared and overwritten."
@@ -3851,9 +3863,6 @@ msgstr "完成！"
 
 msgid "Done."
 msgstr "完成。"
-
-msgid "Down"
-msgstr "向下"
 
 msgid "Download"
 msgstr "下载"
@@ -5451,9 +5460,6 @@ msgstr "HVM Guest"
 msgid "Hard Disk"
 msgstr "硬盘"
 
-msgid "Hardware AES"
-msgstr "硬件AES"
-
 msgid "Header Digest"
 msgstr "标题摘要"
 
@@ -6432,14 +6438,6 @@ msgstr "载入"
 
 msgid "Load Averages"
 msgstr "平均负载"
-
-msgid ""
-"Load driver automatically when GELI devices have been defined in the "
-"configuration file and the instruction set is supported."
-msgstr "当在配置文件中定义GELI设备并且支持指令集时自动加载驱动程序。"
-
-msgid "Load driver during boot when the instruction set is supported."
-msgstr "在支持指令集时，在引导过程中加载驱动程序。"
 
 msgid "Load when UPS switches to overload condition (\"OVER\")"
 msgstr "UPS切换到超载的情况时的加载（“OVER”）"
@@ -9190,6 +9188,9 @@ msgid ""
 "your own risk!"
 msgstr "出于安全考虑，不建议以root用户身份运行此服务，请自担风险！"
 
+msgid "Running user"
+msgstr ""
+
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
@@ -9894,6 +9895,11 @@ msgstr "设置为“主要”或“次要”会覆盖HA群集中节点的默认�
 
 msgid "Settings"
 msgstr "设置"
+
+msgid ""
+"Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
+"can cause problems."
+msgstr ""
 
 msgid "Shadow Copy"
 msgstr "阴影复制"
@@ -13604,3 +13610,25 @@ msgstr "可见"
 
 msgid "yes"
 msgstr "是"
+
+#~ msgid ""
+#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
+#~ "the x86 instruction set architecture for microprocessors."
+#~ msgstr "AES-NI（高级加密标准新指令）是微处理器x86指令集体系结构的扩展。"
+
+#~ msgid "Do not load driver."
+#~ msgstr "不要加载驱动程序。"
+
+#~ msgid "Hardware AES"
+#~ msgstr "硬件AES"
+
+#~ msgid ""
+#~ "Load driver automatically when GELI devices have been defined in the "
+#~ "configuration file and the instruction set is supported."
+#~ msgstr "当在配置文件中定义GELI设备并且支持指令集时自动加载驱动程序。"
+
+#~ msgid "Load driver during boot when the instruction set is supported."
+#~ msgstr "在支持指令集时，在引导过程中加载驱动程序。"
+
+#~ msgid "Down"
+#~ msgstr "向下"
