@@ -45,7 +45,38 @@ routing_start()
 
 routing_stop()
 {
-	route -n flush
+	local _af _if _a
+	_af=$1
+	_if=$2
+
+	case $_if in
+		""|[Aa][Ll][Ll]|[Aa][Nn][Yy])
+			_if=""
+			;;
+	esac
+	case $_af in
+		""|[Aa][Ll][Ll]|[Aa][Nn][Yy])
+			for _a in inet inet6; do
+				afexists $_a || continue
+				eval static_${_a} delete $_if
+#				When $_if is specified, do not flush routes.
+				if ! [ -n "$_if" ]; then
+					eval routing_stop_${_a}
+				fi
+			done
+			;;
+		*)
+			if afexists $_af; then
+				eval static_${_af} delete $_if
+#				When $_if is specified, do not flush routes.
+				if ! [ -n "$_if" ]; then
+					eval routing_stop_${_af}
+				fi
+			else
+				err 1 "Unsupported address family: $_af."
+			fi
+			;;
+	esac
 }
 
 routing_delete()
