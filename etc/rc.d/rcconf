@@ -113,10 +113,12 @@ setifconfig()
 				--value-of "concat(' media ',media,' mediaopt ',mediaopt)" \
 			--break \
 			--if "starts-with(if,'lagg') = 0" \
-				--if "wakeon[. = 'off']" \
-					--output " -wol " \
-				--else \
-					--value-of "concat(' -wol ',translate(wakeon, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'))" \
+				--if "string-length(wakeon) > 0" \
+					--if "wakeon[. = 'off']" \
+						--output " -wol" \
+					--else \
+						--value-of "concat(' -wol ',translate(wakeon, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'))" \
+					--break \
 				--break \
 				--if "string-length(mtu) > 0" \
 					--value-of "concat(' mtu ',mtu)" \
@@ -207,10 +209,12 @@ setifconfig()
 						--value-of "concat(' media ',media,' mediaopt ',mediaopt)" \
 					--break \
 					--if "starts-with(if,'lagg') = 0" \
-						--if "wakeon[. = 'off']" \
-							--output " -wol " \
-						--else \
-							--value-of "concat(' -wol ',translate(wakeon, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'))" \
+						--if "string-length(wakeon) > 0" \
+							--if "wakeon[. = 'off']" \
+								--output ' -wol' \
+							--else \
+								--value-of "concat(' -wol ',translate(wakeon,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))" \
+							--break \
 						--break \
 						--if "string-length(mtu) > 0" \
 							--value-of "concat(' mtu ',mtu)" \
