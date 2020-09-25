@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-09-13 21:12+0000\n"
-"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
+"X-Launchpad-Export-Date: 2020-09-25 11:44+0000\n"
+"X-Generator: Launchpad (build a314d157ca9be8d00eae0214fc0d7dff1cd406e4)\n"
 
 msgid " No private key"
 msgstr " Geen privaat sleutel"
@@ -14656,29 +14656,3 @@ msgstr "sigbaar"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid ""
-#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-#~ "the x86 instruction set architecture for microprocessors."
-#~ msgstr ""
-#~ "AES-NI (Gevorderde Enkripsie Standaard Nuwe Instruksies) is 'n uitbreiding "
-#~ "om die x86 instruksie stel argitektuur vir mikroverwerkers."
-
-#~ msgid "Do not load driver."
-#~ msgstr "Moenie bestuurder laai nie."
-
-#~ msgid "Down"
-#~ msgstr "Ondertoe"
-
-#~ msgid "Hardware AES"
-#~ msgstr "Hardware AES"
-
-#~ msgid ""
-#~ "Load driver automatically when GELI devices have been defined in the "
-#~ "configuration file and the instruction set is supported."
-#~ msgstr ""
-#~ "Laai drywer outomaties wanneer GELI toestelle is in die konfigurasie lêer "
-#~ "gedefinieer en die instruksie stel word ondersteun."
-
-#~ msgid "Load driver during boot when the instruction set is supported."
-#~ msgstr "Laai drywer tydens stewel wanneer die instruksie stel is ondersteun."

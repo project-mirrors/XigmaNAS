@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-09-13 22:33+0000\n"
-"PO-Revision-Date: 2020-07-22 15:08+0000\n"
+"PO-Revision-Date: 2020-09-18 07:56+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-09-13 21:13+0000\n"
-"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
+"X-Launchpad-Export-Date: 2020-09-25 11:45+0000\n"
+"X-Generator: Launchpad (build a314d157ca9be8d00eae0214fc0d7dff1cd406e4)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -790,22 +790,22 @@ msgid "All"
 msgstr "全部"
 
 msgid "All Days"
-msgstr ""
+msgstr "所有日子"
 
 msgid "All Hours"
-msgstr ""
+msgstr "所有小时"
 
 msgid "All Interfaces"
 msgstr "所有接口"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "所有分钟"
 
 msgid "All Months"
-msgstr ""
+msgstr "所有月份"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "所有工作日"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "以下统计的所有数据已经被删除："
@@ -1023,7 +1023,7 @@ msgstr "匿名用户上传带宽，以 KB/s 为单位。空白表示没限制。
 msgid ""
 "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
 "services can cause problems."
-msgstr ""
+msgstr "另一个DLNA/UPnP服务已启用。 运行多个DLNA/UPnP服务可能会导致问题。"
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -9189,7 +9189,7 @@ msgid ""
 msgstr "出于安全考虑，不建议以root用户身份运行此服务，请自担风险！"
 
 msgid "Running user"
-msgstr ""
+msgstr "正在运行的用户"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -9899,7 +9899,7 @@ msgstr "设置"
 msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
-msgstr ""
+msgstr "启用了多个DNLA/UPnP服务。 运行多个DLNA/UPnP服务可能会导致问题。"
 
 msgid "Shadow Copy"
 msgstr "阴影复制"
@@ -13610,25 +13610,3 @@ msgstr "可见"
 
 msgid "yes"
 msgstr "是"
-
-#~ msgid ""
-#~ "AES-NI (Advanced Encryption Standard New Instructions) is an extension to "
-#~ "the x86 instruction set architecture for microprocessors."
-#~ msgstr "AES-NI（高级加密标准新指令）是微处理器x86指令集体系结构的扩展。"
-
-#~ msgid "Do not load driver."
-#~ msgstr "不要加载驱动程序。"
-
-#~ msgid "Hardware AES"
-#~ msgstr "硬件AES"
-
-#~ msgid ""
-#~ "Load driver automatically when GELI devices have been defined in the "
-#~ "configuration file and the instruction set is supported."
-#~ msgstr "当在配置文件中定义GELI设备并且支持指令集时自动加载驱动程序。"
-
-#~ msgid "Load driver during boot when the instruction set is supported."
-#~ msgstr "在支持指令集时，在引导过程中加载驱动程序。"
-
-#~ msgid "Down"
-#~ msgstr "向下"

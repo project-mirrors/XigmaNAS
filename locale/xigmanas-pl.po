@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-09-13 22:33+0000\n"
-"PO-Revision-Date: 2019-12-04 14:09+0000\n"
-"Last-Translator: Michał Fita <Unknown>\n"
+"PO-Revision-Date: 2020-09-25 06:52+0000\n"
+"Last-Translator: Piotr Łobuz <ericsson@go2.pl>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-09-13 21:13+0000\n"
-"X-Generator: Launchpad (build 83bdf6c8a3a5f87722c8927e54838522f3e57504)\n"
+"X-Launchpad-Export-Date: 2020-09-25 11:45+0000\n"
+"X-Generator: Launchpad (build a314d157ca9be8d00eae0214fc0d7dff1cd406e4)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
 "X-Poedit-Language: Polish\n"
@@ -414,7 +414,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Należy podać poprawny prefiks (1-128)."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "Plik Audio AC3"
 
 msgid "ACL Inherit"
 msgstr "Dziedziczenie ACL"
@@ -459,7 +459,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "Plik AVI"
 
 msgid "Accept remote syslog messages."
 msgstr "Akceptuj zdalne logi systemowe."
@@ -608,7 +608,7 @@ msgid "Add Portal Group"
 msgstr ""
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Dodaj Klucz Publiczny"
 
 msgid "Add RAID"
 msgstr "Dodaj RAID"
@@ -638,7 +638,7 @@ msgid "Add Snapshot"
 msgstr "Dodaj Migawkę."
 
 msgid "Add Target"
-msgstr ""
+msgstr "Dodaj Cel"
 
 msgid "Add URL"
 msgstr "Dodaj URL"
@@ -659,7 +659,7 @@ msgid "Add WLAN"
 msgstr "Dodaj WLAN"
 
 msgid "Add WebDAV Record"
-msgstr ""
+msgstr "Dodaj rekord WebDAV"
 
 msgid "Add a cache device to a pool"
 msgstr "Dodaj urządzenie pamięci podręcznej do puli"
@@ -780,7 +780,7 @@ msgid "Advanced Options"
 msgstr "Opcje zaawansowane"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "Zaawansowane ustawienia SMB"
 
 msgid "Advanced Settings"
 msgstr "Ustawienia zaawansowane"
@@ -838,22 +838,22 @@ msgid "All"
 msgstr "Wszystko"
 
 msgid "All Days"
-msgstr ""
+msgstr "Wszystkie dni"
 
 msgid "All Hours"
-msgstr ""
+msgstr "Wszystkie godziny"
 
 msgid "All Interfaces"
 msgstr "Wszystkie interfejsy"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "Wszystkie minuty"
 
 msgid "All Months"
-msgstr ""
+msgstr "Wszystkie miesiące"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "Wszystkie tygodnie"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Wszystkie dane z następujących statystyk zostały usunięte:"
@@ -889,7 +889,7 @@ msgid "Allow"
 msgstr "Zezwól"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "Zezwól na autentyfikacjeę GSSAPI"
 
 msgid "Allow New Files"
 msgstr "Zezwalaj na nowe pliki"
@@ -933,13 +933,13 @@ msgid "Allow new files to be created."
 msgstr "Zezwalaj na tworzenie nowych plików."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Zezwól na uwierzytelnienie hasłem"
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Zezwól na uwierzytelnienie kluczem publicznym"
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Zezwól root'owi na logowanie z użyciem SSH"
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
