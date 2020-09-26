@@ -17,6 +17,12 @@
 
 name="rcconf"
 
+KLDLOAD_CMD="/sbin/kldload"
+RCONF_CMD="/usr/local/sbin/rconf"
+SYSCTL_CMD="/sbin/sysctl"
+SYSRC_CMD="/usr/sbin/sysrc"
+XML_CMD="/usr/local/bin/xml"
+
 setvar()
 {
 	local _platform
@@ -29,12 +35,12 @@ setvar()
 		*)
 #			If running from liveCD or embedded use a memory filesystem for /var.
 			if [ ${BOOT_LIVECD} -ne 0 -a ${BOOT_LOWMEM} -ne 0 ]; then
-				eval /usr/local/sbin/rconf attribute set varmfs "NO";
+				${SYSRC_CMD} -q varmfs="NO" > /dev/null 2>&1
 			else
-				eval /usr/local/sbin/rconf attribute set varmfs "YES";
+				${SYSRC_CMD} -q varmfs="YES" > /dev/null 2>&1
 			fi
-			eval /usr/local/sbin/rconf attribute set varmfs_flags "-U -t -o noatime -m 2";
-			eval /usr/local/sbin/rconf attribute set populate_var "YES";
+			${SYSRC_CMD} -q varmfs_flags="-U -t -o noatime -m 2" > /dev/null 2>&1
+			${SYSRC_CMD} -q populate_var="YES" > /dev/null 2>&1
 			;;
 	esac
 }
@@ -60,38 +66,45 @@ sethostname()
 	local _hostname
 
 #	Generate hostname from configuration.
-	_hostname=`/usr/local/bin/xml sel --template \
+	_hostname=`${XML_CMD} sel --template \
 		--match "//system" \
 			--value-of "hostname" \
 			--if "string-length(domain) > 0" \
 				--value-of "concat('.',domain)" \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
-	eval /usr/local/sbin/rconf attribute set hostname "${_hostname}"
+		${configxml_file} | ${XML_CMD} unesc`
+	${SYSRC_CMD} -q hostname="${_hostname}" > /dev/null 2>&1
 }
 
 # Set interface configuration
 setifconfig()
 {
-	local _value _ifn _create_args _ifconfig_args _ipaddr _subnet _gateway
-	local  _cloned_interfaces _id _ifn_isboot _tap _taplist
+	local _value _id
+	local _ifn _ipaddr _subnet _gateway _mtu _ifn_isboot
+	local _create_args _ifconfig_args
+	local _cloned_interfaces
+	local _laggport _laggport_mtu _laggport_args
+	local _vlandev _vlandev_args _vlandev_ifconfig
+	local _wlan _wlandev _wlan_args _wdev _ap_args _ap_create_args
+	local _bridgeif _bridgeif_mtu _bridgeif_args _bridge _bridge_args _bridge_addr _tap _taplist
+	local _carp _carp_t1 _carp_vhid _carp_t3 _carp_advskew _carp_args _carp_linkup _carp_linkdown
 
 #	Cleanup ifn and addrs
 	set | grep -E '^(ifconfig_|ipv4_|ipv6_)' | while read _value; do
 		_value=${_value%=*}
-		eval /usr/local/sbin/rconf attribute remove "${_value}"
+		${SYSRC_CMD} -qx "${_value}" > /dev/null 2>&1
 	done
 #########################################################################
 #	IPv4
 #	LAN interface:
 	_ifn=`configxml_get "//interfaces/lan/if"`
 	_ifn=`get_if ${_ifn}`
-	_ifn_isboot=`sysctl -q -n net.isboot.nic`
+	_ifn_isboot=`${SYSCTL_CMD} -q -n net.isboot.nic`
 #	set create_args for
 #	-vlan
 #	LAN interface is always enabled
-	_create_args=`/usr/local/bin/xml sel --template \
+	_create_args=`${XML_CMD} sel --template \
 		--match "//interfaces/lan" \
 			--if "starts-with(if,'vlan')" \
 				--match "//vinterfaces/vlan[if = '${_ifn}']" \
@@ -99,12 +112,12 @@ setifconfig()
 				--break \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
+		${configxml_file} | ${XML_CMD} unesc`
 	if [ -n "${_create_args}" ]; then
-		eval /usr/local/sbin/rconf attribute set "create_args_${_ifn}" "${_create_args}"
+		${SYSRC_CMD} -q "create_args_${_ifn}"="${_create_args}" > /dev/null 2>&1
 	fi
 #	set ifconfig
-	_ifconfig_args=`/usr/local/bin/xml sel --template \
+	_ifconfig_args=`${XML_CMD} sel --template \
 		--match "//interfaces/lan" \
 			--if "ipaddr[. = 'dhcp']" \
 				--output " syncdhcp" \
@@ -117,7 +130,7 @@ setifconfig()
 					--if "wakeon[. = 'off']" \
 						--output " -wol" \
 					--else \
-						--value-of "concat(' -wol ',translate(wakeon, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'))" \
+						--value-of "concat(' -wol ',translate(wakeon,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))" \
 					--break \
 				--break \
 				--if "string-length(mtu) > 0" \
@@ -150,7 +163,7 @@ setifconfig()
 				--break \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
+		${configxml_file} | ${XML_CMD} unesc`
 	_ifconfig_args="${_ifconfig_args#"${_ifconfig_args%%[![:space:]]*}"}"
 	_ipaddr=`configxml_get "//interfaces/lan/ipaddr"`
 	_subnet=`configxml_get "//interfaces/lan/subnet"`
@@ -163,21 +176,21 @@ setifconfig()
 			is_validip inet "${_ipaddr}/${_subnet}"
 			if [ 0 -eq $? ]; then
 				_ifconfig_args="inet ${_ipaddr}/${_subnet} ${_ifconfig_args}"
-				eval /usr/local/sbin/rconf attribute set firewall_client_net "${_ipaddr}/${_subnet}"
+				${SYSRC_CMD} -q firewall_client_net="${_ipaddr}/${_subnet}" > /dev/null 2>&1
 			fi
 		fi
 		if [ -n "${_ifconfig_args}" ]; then
-			eval /usr/local/sbin/rconf attribute set "ifconfig_${_ifn}" "${_ifconfig_args}"
+			${SYSRC_CMD} -q "ifconfig_${_ifn}"="${_ifconfig_args}" > /dev/null 2>&1
 		fi
 	fi
 #	Set gateway.
 	_gateway=`configxml_get "//interfaces/lan/gateway"`
 	if [ "${_ipaddr}" != "dhcp" -a -n "${_gateway}" ]; then
-		eval /usr/local/sbin/rconf attribute set "defaultrouter" "${_gateway}"
+		${SYSRC_CMD} -q defaultrouter="${_gateway}" > /dev/null 2>&1
 #		wait response of LAN
-#		eval /usr/local/sbin/rconf attribute set netwait_enable "YES"
-		eval /usr/local/sbin/rconf attribute set netwait_ip "${_gateway}"
-		eval /usr/local/sbin/rconf attribute set netwait_if "${_ifn}"
+#		${SYSRC_CMD} -q netwait_enable="YES" > /dev/null 2>&1
+		${SYSRC_CMD} -q netwait_ip="${_gateway}" > /dev/null 2>&1
+		${SYSRC_CMD} -q netwait_if="${_ifn}" > /dev/null 2>&1
 	fi
 #	OPT interfaces:
 	_id=`configxml_get_count "//interfaces/*[contains(name(),'opt')]"`
@@ -187,7 +200,7 @@ setifconfig()
 #			set create_args for
 #			- vlan
 #			when OPT interface is enabled
-			_create_args=`/usr/local/bin/xml sel --template \
+			_create_args=`${XML_CMD} sel --template \
 				--match "//interfaces/*[name() = 'opt${_id}']" \
 					--if "starts-with(if,'vlan')" \
 						--match "//vinterfaces/vlan[if = '${_ifn}']" \
@@ -195,12 +208,12 @@ setifconfig()
 						--break \
 					--break \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
+				${configxml_file} | ${XML_CMD} unesc`
 			if [ -n "${_create_args}" ]; then
-				eval /usr/local/sbin/rconf attribute set "create_args_${_ifn}" "${_create_args}"
+				${SYSRC_CMD} -q "create_args_${_ifn}"="${_create_args}" > /dev/null 2>&1
 			fi
 #			set ifconfig when interface is enabled
-			_ifconfig_args=`/usr/local/bin/xml sel --template \
+			_ifconfig_args=`${XML_CMD} sel --template \
 				--match "//interfaces/*[name() = 'opt${_id}']" \
 					--if "ipaddr[. = 'dhcp']" \
 						--output " syncdhcp" \
@@ -246,7 +259,7 @@ setifconfig()
 						--break \
 					--break \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
+				${configxml_file} | ${XML_CMD} unesc`
 			_ifconfig_args="${_ifconfig_args#"${_ifconfig_args%%[![:space:]]*}"}"
 			_ipaddr=`configxml_get "//interfaces/*[name() = 'opt${_id}']/ipaddr"`
 			_subnet=`configxml_get "//interfaces/*[name() = 'opt${_id}']/subnet"`
@@ -259,17 +272,17 @@ setifconfig()
 				fi
 			fi
 			if [ -n "${_ifconfig_args}" ]; then
-				eval /usr/local/sbin/rconf attribute set "ifconfig_${_ifn}" "${_ifconfig_args}"
+				${SYSRC_CMD} -q "ifconfig_${_ifn}"="${_ifconfig_args}" > /dev/null 2>&1
 			fi
 		else
-#			OPTn is disabled
-			eval /usr/local/sbin/rconf attribute remove "ifconfig_${_ifn}"
-			eval /usr/local/sbin/rconf attribute remove "create_args_${_ifn}"
+#			OPT# is disabled
+			${SYSRC_CMD} -qx "ifconfig_${_ifn}" > /dev/null 2>&1
+			${SYSRC_CMD} -qx "create_args_${_ifn}" > /dev/null 2>&1
 		fi
 		_id=$(( ${_id} - 1 ))
 	done
 #	Cloned interfaces:
-	_cloned_interfaces=`/usr/local/bin/xml sel --template \
+	_cloned_interfaces=`${XML_CMD} sel --template \
 		--if "//interfaces/*/if[contains(.,'lagg')]" \
 			--match "//vinterfaces/lagg/if" \
 				--value-of "concat(.,' ')" \
@@ -284,40 +297,70 @@ setifconfig()
 		--match "//vinterfaces/bridge/taplist" \
 			--value-of "concat(.,' ')" \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
-	eval /usr/local/sbin/rconf attribute set "cloned_interfaces" "${_cloned_interfaces}"
+		${configxml_file} | ${XML_CMD} unesc`
+	${SYSRC_CMD} -q cloned_interfaces="${_cloned_interfaces}" > /dev/null 2>&1
 #	Prepare interfaces used by lagg. Bring interfaces up only if a lagg interface
 #	is used as LAN or OPT interface.
-	/usr/local/bin/xml sel --template \
-		--if "//interfaces/*/if[contains(.,'lagg')]" \
-			--match "//vinterfaces/lagg/laggport" \
-				--value-of "concat(., ' ', //interfaces/*[if=current()/../if]/mtu)" \
-				--nl \
+	${XML_CMD} sel --text --template \
+		--match '//interfaces/*[((name()="lan") or (starts-with(name(),"opt") and enable)) and starts-with(if,"lagg")]' \
+			--var lagginterface='.' \
+			--match '//vinterfaces/lagg[if=$lagginterface/if]' \
+				--if 'string-length(laggport) > 0' \
+					--value-of 'concat(laggport," ",$lagginterface/mtu)' \
+					--nl \
+				--break \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _laggport _laggport_mtu; do
 			_laggport_args="up"
-			[ -n "${_laggport_mtu}" ] && _laggport_args="${_laggport_args} mtu ${_laggport_mtu}"
-			[ -n "${_laggport}" ] && eval /usr/local/sbin/rconf attribute set "ifconfig_${_laggport}" "${_laggport_args}"
+			if [ -n "${_laggport_mtu}" ]; then
+				_laggport_args="${_laggport_args} mtu ${_laggport_mtu}"
+			fi
+			if [ -n "${_laggport}" ]; then
+				${SYSRC_CMD} -q "ifconfig_${_laggport}"="${_laggport_args}" > /dev/null 2>&1
+			fi
+		done
+#	Bring unconfigured parents up when a vlan interface is used as a
+#	LAN or OPT interface.
+	${XML_CMD} sel --text --template \
+		--match '//interfaces/*[((name()="lan") or (starts-with(name(),"opt") and enable)) and starts-with(if,"vlan")]' \
+			--var vlaninterface='.' \
+			--match '//vinterfaces/vlan[enable and if=$vlaninterface/if]' \
+				--if 'string-length(vlandev) > 0' \
+					--value-of vlandev \
+					--nl \
+				--break \
+			--break \
+		--break \
+		${configxml_file} | ${XML_CMD} unesc | \
+		while read _vlandev; do
+			_vlandev_ifconfig=`${SYSRC_CMD} -qn "ifconfig_${_vlandev}"`
+#			don't issue up to a vlan parent when ifconfig is already set
+			if [ -z "${_vlandev_ifconfig}" ]; then
+				_vlandev_args="up"
+				${SYSRC_CMD} -q "ifconfig_${_vlandev}"="${_vlandev_args}" > /dev/null 2>&1
+			fi
 		done
 #	wlan interfaces
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//vinterfaces/wlan" \
 			--value-of "if" \
 			--value-of "concat(' ',wlandev)" \
 			--nl \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _wlan _wlandev _wlan_args; do
-			[ -n "${_wlan}" ] && eval /usr/local/sbin/rconf attribute set "wlans_${_wlandev}" "${_wlan}"
+			if [ -n "${_wlan}" ]; then
+				${SYSRC_CMD} -q "wlans_${_wlandev}"="${_wlan}" > /dev/null 2>&1
+			fi
 			_wdev=`echo $_wlandev | sed -e 's/[0-9]*$//'`
 #			if [ -f "/cf/boot/kernel/if_${_wdev}.ko" ]; then
-#				/sbin/kldload "/cf/boot/kernel/if_${_wdev}.ko" > /dev/null 2>&1
+#				${KLDLOAD_CMD} "/cf/boot/kernel/if_${_wdev}.ko" > /dev/null 2>&1
 #			fi
-			/sbin/kldload "if_${_wdev}.ko" > /dev/null 2>&1
+			${KLDLOAD_CMD} "if_${_wdev}.ko" > /dev/null 2>&1
 		done
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//vinterfaces/wlan[apmode]" \
 			--value-of "if" \
 			--value-of "concat(' ssid ',ap_ssid)" \
@@ -325,51 +368,57 @@ setifconfig()
 			--value-of "concat(' ',ap_extraoptions)" \
 			--nl \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _wlan _ap_args; do
 			_ap_create_args="wlanmode hostap"
-			[ -n "$_wlan" ] && eval /usr/local/sbin/rconf attribute set "create_args_${_wlan}" "${_ap_create_args}"
-			[ -n "$_wlan" ] && eval /usr/local/sbin/rconf attribute set "ifconfig_${_wlan}" "${_ap_args}"
+			if [ -n "$_wlan" ]; then
+				${SYSRC_CMD} -q "create_args_${_wlan}"="${_ap_create_args}" > /dev/null 2>&1
+			fi
+			if [ -n "$_wlan" ]; then
+				${SYSRC_CMD} -q "ifconfig_${_wlan}"="${_ap_args}" > /dev/null 2>&1
+			fi
 		done
 #	prepare bridge/carp interfaces
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//vinterfaces/bridge/bridgeif" \
-			--value-of "concat(., ' ', ../mtu)" \
+			--value-of "concat(.,' ',../mtu)" \
 			--nl \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _bridgeif _bridgeif_mtu; do
 			_bridgeif_args="up"
 			[ -n "${_bridgeif_mtu}" ] && _bridgeif_args="${_bridgeif_args} mtu ${_bridgeif_mtu}"
 			if [ -n "${_bridgeif}" ]; then
 				if configxml_isset "//vinterfaces/wlan[if='${_bridgeif}']/apmode"; then
 #					wlanN AP mode in bridge member
-					sysctl -q net.link.bridge.inherit_mac=1 > /dev/null
+					${SYSCTL_CMD} -q net.link.bridge.inherit_mac=1 > /dev/null
 				else
-					_value=`/usr/sbin/sysrc -qn ifconfig_${_bridgeif}`
+					_value=`${SYSRC_CMD} -qn ifconfig_${_bridgeif}`
 #					if [ "${_value}" != "syncdhcp" -a "${_value}" != "dhcp" ]; then
 					if [ -z "${_value}" ]; then
-						eval /usr/local/sbin/rconf attribute set "ifconfig_${_bridgeif}" "${_bridgeif_args}"
+						${SYSRC_CMD} -q "ifconfig_${_bridgeif}"="${_bridgeif_args}" > /dev/null 2>&1
 					fi
 				fi
 			fi
 		done
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//vinterfaces/bridge" \
 			--value-of "if" \
-			--value-of "concat(' \"', mtu,'\"')" \
+			--value-of "concat(' \"',mtu,'\"')" \
 			--match "bridgeif" \
 				--value-of "concat(' addm ',.)" \
 			--break \
-			--value-of "concat(' \"', extraoptions,'\"')" \
+			--value-of "concat(' \"',extraoptions,'\"')" \
 			--nl \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _bridge _mtu _bridge_args; do
-			if [ "${_mtu}" = '""' ]; then _mtu='"1500"'; fi
+			if [ "${_mtu}" = '""' ]; then
+				_mtu='"1500"';
+			fi
 			_mtu=`echo ${_mtu} | sed -e 's/^"\(.*\)"$/\1/'`
 			_bridge_args="up mtu ${_mtu} ${_bridge_args}"
-			_bridge_addr=`/usr/local/bin/xml sel --template \
+			_bridge_addr=`${XML_CMD} sel --template \
 				--match "//interfaces/*[if = '${_bridge}']" \
 					--if "ipaddr[. = 'dhcp']" \
 						--output "syncdhcp" \
@@ -377,51 +426,60 @@ setifconfig()
 						--value-of "concat(ipaddr,'/',subnet)" \
 					--break \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
-			_taplist=`/usr/local/bin/xml sel --template \
+				${configxml_file} | ${XML_CMD} unesc`
+			_taplist=`${XML_CMD} sel --template \
 				--match "//vinterfaces/bridge[if = '${_bridge}']" \
 					--value-of "taplist" \
 					--nl \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
+				${configxml_file} | ${XML_CMD} unesc`
 			for _tap in $_taplist; do
 				_bridge_args="${_bridge_args} addm ${_tap}"
 			done
 			if [ "${_bridge_addr}" = "syncdhcp" ]; then
 				_bridge_args="${_bridge_args} ${_bridge_addr}"
 			else
-				[ -n "${_bridge_addr}" ] && eval /usr/local/sbin/rconf attribute set "ipv4_addrs_${_bridge}" "${_bridge_addr}"
+				if [ -n "${_bridge_addr}" ]; then
+					${SYSRC_CMD} -q "ipv4_addrs_${_bridge}"="${_bridge_addr}" > /dev/null 2>&1
+				fi
 			fi
-			[ -n "${_bridge}" ] && eval /usr/local/sbin/rconf attribute set "ifconfig_${_bridge}" "${_bridge_args}"
+			if [ -n "${_bridge}" ]; then
+				${SYSRC_CMD} -q "ifconfig_${_bridge}"="${_bridge_args}" > /dev/null 2>&1
+			fi
 		done
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//vinterfaces/carp" \
 			--value-of "if" \
 			--value-of "concat(' vhid ',vhid,' advskew ',advskew,' pass ',password)" \
 			--value-of "concat(' alias ',vipaddr,'/',vsubnet)" \
-			--value-of "concat(' \"', extraoptions,'\"')" \
+			--value-of "concat(' \"',extraoptions,'\"')" \
 			--nl \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _carp _carp_t1 _carp_vhid _carp_t3 _carp_advskew _carp_args; do
 			if [ -n "${_carp_advskew}" -a ${_carp_advskew} -le 1 ]; then
 #				boot master node with 240(backup)
 				_carp_advskew=240
 			fi
 			_carp_args="$_carp_t1 $_carp_vhid $_carp_t3 $_carp_advskew $_carp_args"
-			_carp_linkup=`/usr/local/bin/xml sel --template \
+			_carp_linkup=`${XML_CMD} sel --template \
 				--match "//vinterfaces/*[if = '${_carp}']" \
 					--value-of "linkup" \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
-			_carp_linkdown=`/usr/local/bin/xml sel --template \
+				${configxml_file} | ${XML_CMD} unesc`
+			_carp_linkdown=`${XML_CMD} sel --template \
 				--match "//vinterfaces/*[if = '${_carp}']" \
 					--value-of "linkdown" \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
-			[ -n "${_carp}" ] && eval /usr/local/sbin/rconf attribute set "ifconfig_${_carp}_alias${_carp_vhid}" "${_carp_args}"
-			[ -n "${_carp}" ] && kldload -n carp.ko
-			[ -n "${_carp}" ] && cat <<EOF > "/etc/devd/carp_${_carp_vhid}@${_carp}.conf"
+				${configxml_file} | ${XML_CMD} unesc`
+			if [ -n "${_carp}" ]; then
+				${SYSRC_CMD} -q "ifconfig_${_carp}_alias${_carp_vhid}"="${_carp_args}" > /dev/null 2>&1
+			fi
+			if [ -n "${_carp}" ]; then
+				${KLDLOAD_CMD} -n carp.ko
+			fi
+			if [ -n "${_carp}" ]; then
+				cat <<EOF > "/etc/devd/carp_${_carp_vhid}@${_carp}.conf"
 notify 30 {
 	match "system" "CARP";
 	match "subsystem" "${_carp_vhid}@${_carp}";
@@ -435,6 +493,7 @@ notify 30 {
 	action "${_carp_linkdown}";
 };
 EOF
+			fi
 		done
 #########################################################################
 #	IPv6
@@ -446,13 +505,13 @@ EOF
 	if configxml_isset "//interfaces/lan/ipv6_enable"; then
 		_value="YES"
 	fi
-#	eval /usr/local/sbin/rconf attribute set "ipv6_enable" "${_value}"
-	eval /usr/local/sbin/rconf attribute set "ipv6_activate_all_interfaces" "${_value}"
+#	${SYSRC_CMD} -q ipv6_enable="${_value}"
+	${SYSRC_CMD} -q ipv6_activate_all_interfaces="${_value}" > /dev/null 2>&1
 #	LAN interface:
 	_ifn=`configxml_get "//interfaces/lan/if"`
 	_ifn=`get_if ${_ifn}`
 	if configxml_isset "//interfaces/lan/ipv6_enable"; then
-		_ifconfig_args=`/usr/local/bin/xml sel --template \
+		_ifconfig_args=`${XML_CMD} sel --template \
 			--match "//interfaces/lan" \
 				--if "count(ipv6addr) > 0" \
 					--if "ipv6addr[. = 'auto']" \
@@ -462,21 +521,21 @@ EOF
 					--break \
 				--break \
 			--break \
-			${configxml_file} | /usr/local/bin/xml unesc`
+			${configxml_file} | ${XML_CMD} unesc`
 		if [ -n "${_ifconfig_args}" ]; then
-			eval /usr/local/sbin/rconf attribute set "ifconfig_${_ifn}_ipv6" "${_ifconfig_args}"
+			${SYSRC_CMD} -q "ifconfig_${_ifn}_ipv6"="${_ifconfig_args}" > /dev/null 2>&1
 		fi
 #		Set gateway.
 		_ipaddr=`configxml_get "//interfaces/lan/ipv6addr"`
 		_gateway=`configxml_get "//interfaces/lan/ipv6gateway"`
 		if [ "${_ipaddr}" != "auto" -a -n "${_gateway}" ]; then
-			eval /usr/local/sbin/rconf attribute set "ipv6_defaultrouter" "${_gateway}"
+			${SYSRC_CMD} -q ipv6_defaultrouter="${_gateway}" > /dev/null 2>&1
 		fi
 #		IPv6 Privacy Extensions.
 		if configxml_isset "//interfaces/lan/ipv6privacy"; then
-			eval /usr/local/sbin/rconf attribute set "ipv6_privacy" "YES"
+			${SYSRC_CMD} -q ipv6_privacy="YES" > /dev/null 2>&1
 		else
-			eval /usr/local/sbin/rconf attribute remove "ipv6_privacy"
+			${SYSRC_CMD} -qx ipv6_privacy > /dev/null 2>&1
 		fi
 	fi
 #	OPT interfaces:
@@ -484,7 +543,7 @@ EOF
 	while [ ${_id} -gt 0 ]; do
 		_ifn=`configxml_get "//interfaces/*[name() = 'opt${_id}']/if"`
 		if configxml_isset "//interfaces/*[name() = 'opt${_id}']/ipv6_enable"; then
-			_ifconfig_args=`/usr/local/bin/xml sel --template \
+			_ifconfig_args=`${XML_CMD} sel --template \
 				--match "//interfaces/*[name() = 'opt${_id}']" \
 					--if "count(ipv6addr) > 0" \
 						--if "ipv6addr[. = 'auto']" \
@@ -494,12 +553,12 @@ EOF
 						--break \
 					--break \
 				--break \
-				${configxml_file} | /usr/local/bin/xml unesc`
+				${configxml_file} | ${XML_CMD} unesc`
 			if [ -n "${_ifconfig_args}" ]; then
-				eval /usr/local/sbin/rconf attribute set "ifconfig_${_ifn}_ipv6" "${_ifconfig_args}"
+				${SYSRC_CMD} -q "ifconfig_${_ifn}_ipv6"="${_ifconfig_args}" > /dev/null 2>&1
 			fi
 		else
-			eval /usr/local/sbin/rconf attribute remove "ifconfig_${_ifn}_ipv6"
+			${SYSRC_CMD} -qx "ifconfig_${_ifn}_ipv6" > /dev/null 2>&1
 		fi
 		_id=$(( ${_id} - 1 ))
 	done
@@ -536,10 +595,10 @@ updateservices()
 				fi
 #				Enable/disable service depending on query result
 				if [ "0" = "${_queryresult}" ]; then
-					eval /usr/local/sbin/rconf service enable ${_rcvar}
+					eval ${RCONF_CMD} service enable ${_rcvar}
 					debug "rcconf: ${_rcscriptname} service enabled"
 				else
-					eval /usr/local/sbin/rconf service disable ${_rcvar}
+					eval ${RCONF_CMD} service disable ${_rcvar}
 					debug "rcconf: ${_rcscriptname} service disabled"
 				fi
 				echo -n "."
@@ -547,7 +606,7 @@ updateservices()
 #				Force off when low memory liveCD
 				if [ ${BOOT_LIVECD} -ne 0 -a ${BOOT_LOWMEM} -ne 0 ]; then
 					if [ "${_rcscriptname}" = "lighttpd" ]; then
-						eval /usr/local/sbin/rconf service disable ${_rcscriptname}
+						eval ${RCONF_CMD} service disable ${_rcscriptname}
 						debug "rcconf: ${_rcscriptname} service disabled"
 						echo -n "."
 					fi
@@ -560,7 +619,7 @@ updateservices()
 	case ${_platform} in
 		*-full)
 			if [ ${BOOT_LOWMEM} -ne 0 ]; then
-				eval /usr/local/sbin/rconf service enable lighttpd
+				eval ${RCONF_CMD} service enable lighttpd
 			fi
 			;;
 	esac
@@ -572,56 +631,56 @@ setoptions()
 	local _option _name _value _platform
 
 #	Unset rc.conf variables configured via WebGUI
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//system/rcconf/param[not(enable)]" \
 			--value-of "concat(name,'')" \
 			--if "position() <= last()" \
 				--nl \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _name; do
-			eval /usr/local/sbin/rconf attribute remove "${_name}"
+			${SYSRC_CMD} -qx "${_name}" > /dev/null 2>&1
 		done
 #	Set rc.conf variables configured via WebGUI.
-	/usr/local/bin/xml sel --template \
+	${XML_CMD} sel --template \
 		--match "//system/rcconf/param[enable]" \
 			--value-of "concat(name,'=',value)" \
 			--if "position() <= last()" \
 				--nl \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc | \
+		${configxml_file} | ${XML_CMD} unesc | \
 		while read _option; do
 			_name=${_option%%=*}
 			_value=${_option#*=}
-			eval /usr/local/sbin/rconf attribute set "${_name}" "${_value}"
+			${SYSRC_CMD} -q "${_name}"="${_value}" > /dev/null 2>&1
 		done
 #	Enable/disable console screensaver. Set default timeout value.
 	_value=`configxml_get "//system/sysconsaver/blanktime"`
-	eval /usr/local/sbin/rconf attribute set blanktime "${_value}";
+	${SYSRC_CMD} -q blanktime="${_value}" > /dev/null 2>&1
 	if configxml_isset "//system/sysconsaver/enable"; then
 		_value="green"
 	else
 		_value=""
 	fi
-	eval /usr/local/sbin/rconf attribute set saver "${_value}";
+	${SYSRC_CMD} -q saver="${_value}" > /dev/null 2>&1
 #	Enable/disable NFSv4
 	if configxml_isset "//nfsd/v4enable"; then
-		eval /usr/local/sbin/rconf service enable "nfsv4_server"
-		eval /usr/local/sbin/rconf service enable "nfsuserd"
+		eval ${RCONF_CMD} service enable "nfsv4_server"
+		eval ${RCONF_CMD} service enable "nfsuserd"
 	else
-		eval /usr/local/sbin/rconf service disable "nfsv4_server"
-		eval /usr/local/sbin/rconf service disable "nfsuserd"
+		eval ${RCONF_CMD} service disable "nfsv4_server"
+		eval ${RCONF_CMD} service disable "nfsuserd"
 	fi
 #	Disable ipfw (enabled by /etc/rc.d/ipfw)
-	sysctl -q net.inet.ip.fw.enable=0 > /dev/null
-	sysctl -q net.inet6.ip6.fw.enable=0 > /dev/null
+	${SYSCTL_CMD} -q net.inet.ip.fw.enable=0 > /dev/null
+	${SYSCTL_CMD} -q net.inet6.ip6.fw.enable=0 > /dev/null
 	_platform=`cat /etc/platform`
 	case ${_platform} in
 		dom0-*)
-			/sbin/kldload -qn if_tap.ko > /dev/null
-			sysctl -q vm.max_wired=-1 > /dev/null
+			${KLDLOAD_CMD} -qn if_tap.ko > /dev/null
+			${SYSCTL_CMD} -q vm.max_wired=-1 > /dev/null
 			;;
 	esac
 }
@@ -630,6 +689,7 @@ setoptions()
 setserialconsole()
 {
 	local _sio _ttyu _ttyuonoff
+	local _sio _uboot _speed
 
 	_ttyu="ttyu0"
 	_ttyuonoff=`sed -n "/^${_ttyu}/ s/.*on.*/on/p" /etc/ttys`
