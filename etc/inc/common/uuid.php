@@ -58,6 +58,11 @@ use function
  *	Wrapper class for autoloading functions
  */
 final class uuid {
+	public const pattern = '/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i';
+//	public const pattern_v3 = '/^[0-9a-f]{8}-[0-9a-f]{4}-3[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i';
+	public const pattern_v4 = '/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i';
+//	public const pattern_v5 = '/^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i';
+
 /**
  *	Create a version 3 UUID according to RFC 4122.
  *	time_low:            xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
@@ -70,7 +75,7 @@ final class uuid {
  *	@param string $namespace
  *	@param string $name
  *	@return string|null
-	public final static function v3_create(string $namespace,string $name): ?string {
+	public final static function create_v3(string $namespace,string $name): ?string {
 		if(self::is($namespace)):
 //			strip dashes from $namespace
 			$namespace_stripped = str_replace('-','',$namespace);
@@ -103,7 +108,7 @@ final class uuid {
  *	node (2-5):          xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  *	@return string|null
  */
-	public final static function v4_create_prb(): ?string {
+	public final static function create_v4_prb(): ?string {
 		try {
 			$prb = random_bytes(16);
 			$prbu = unpack('Ltime_low/Stime_mid/Stime_hi_and_version/Cclk_seq_hi_res/Cclk_seq_lo/Snode0-1/Lnode2-5',$prb);
@@ -131,7 +136,7 @@ final class uuid {
  *	node (2-5):          xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  *	@return string|null
  */
-	public final static function v4_create_orpb(): ?string {
+	public final static function create_v4_orpb(): ?string {
 		$prb = openssl_random_pseudo_bytes(16);
 		if($prb !== false):
 			$prbu = unpack('Ltime_low/Stime_mid/Stime_hi_and_version/Cclk_seq_hi_res/Cclk_seq_lo/Snode0-1/Lnode2-5',$prb);
@@ -156,7 +161,7 @@ final class uuid {
  *	node (2-5):          xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
  *	@return string
  */
-	public final static function v4_create_rand(): string {
+	public final static function create_v4_rand(): string {
 		return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
 			mt_rand(0,0xffff),mt_rand(0,0xffff),
 			mt_rand(0,0xffff),
@@ -173,16 +178,16 @@ final class uuid {
  *	@param bool $allow_insecure Allow to call mt_rand when no appropriate source of randomness was found
  *	@return string|null
  */
-	public final static function v4_create(bool $allow_insecure = true): ?string {
+	public final static function create_v4(bool $allow_insecure = true): ?string {
 //		$uuid = null;
 //		if(is_null($uuid)):
-			$uuid = self::v4_create_rb();
+			$uuid = self::create_v4_prb();
 //		endif;
 		if(is_null($uuid)):
-			$uuid = self::v4_create_orpb();
+			$uuid = self::create_v4_orpb();
 		endif;
 		if(is_null($uuid) && $allow_insecure):
-			$uuid = self::v4_create_rand();
+			$uuid = self::create_v4_rand();
 		endif;
 		return $uuid;
 	}
@@ -198,7 +203,7 @@ final class uuid {
  *	@param string $namespace
  *	@param string $name
  *	@return string|null
-	public final static function v5_create(string $namespace,string $name): ?string {
+	public final static function create_v5(string $namespace,string $name): ?string {
 		if(self::is($namespace)):
 //			strip dashes from $namespace
 			$namespace_stripped = str_replace('-','',$namespace);
@@ -227,14 +232,14 @@ final class uuid {
  *	@return bool returns true if the given string is a valid uuid.
  */
 	public final static function is(string $uuid): bool {
-		return preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i',$uuid) === 1;
+		return preg_match(self::pattern,$uuid) === 1;
 	}
 /**
  *	Returns true if $uuid is a valid version 3 UUID.
  *	@param string $uuid Universal Unique Identifier
  *	@return bool returns true if the given string is a valid uuid.
 	public final static function is_v3(string $uuid): bool {
-		return preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-3[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',$uuid) === 1;
+		return preg_match(self::pattern_v3,$uuid) === 1;
 	}
  */
 /**
@@ -243,14 +248,14 @@ final class uuid {
  *	@return bool returns true if the given string is a valid uuid.
  */
 	public final static function is_v4(string $uuid): bool {
-		return preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',$uuid) === 1;
+		return preg_match(self::pattern_v4,$uuid) === 1;
 	}
 /**
  *	Returns true if $uuid is a valid version 5 UUID.
  *	@param string $uuid Universal Unique Identifier
  *	@return bool returns true if the given string is a valid uuid.
 	public final static function is_v5(string $uuid): bool {
-		return preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i',$uuid) === 1;
+		return preg_match(self::pattern_v5,$uuid) === 1;
 	}
  */
 }
