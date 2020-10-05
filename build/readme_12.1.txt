@@ -114,7 +114,6 @@ Changes:
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Upgrade arcconf to 3.02.23600.
 - Upgrade samba to 4.10.10.
-- Upgrade pecl-APCu to 5.1.18.
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade bsnmp-ucd to 0.4.5.
@@ -139,9 +138,10 @@ Changes:
 - Upgrade msmtp to 1.8.12.
 - Upgrade iperf3 to 3.9.
 - Upgrade syncthing to 1.9.0.
-- Upgrade php to 7.4.10.
 - Upgrade transmission to 3.00.
 - Upgrade sudo to 1.9.3p1.
+- Upgrade pecl-APCu to 5.1.19.
+
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
