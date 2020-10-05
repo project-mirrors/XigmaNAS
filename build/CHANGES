@@ -1,7 +1,7 @@
 XigmaNAS® 11.4.0.4 - Accadia
 ------------------------------
 Changes:
-- Upgrade to FreeBSD 11.4-RELEASE-P3.
+- Upgrade to FreeBSD 11.4-RELEASE-P4.
 - Upgrade nut to 2020.04.14.
 - Upgrade devcpu-data to 1.34.
 - Upgrade jQuery to 3.5.1.
