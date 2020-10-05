@@ -107,7 +107,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 12.1.0.4.7743
 ===================
 Changes:
-- Upgrade to FreeBSD 12.1-RELEASE P9.
+- Upgrade to FreeBSD 12.1-RELEASE P10.
 - Add sesutil.
 - Add sas2ircu.
 - Add sas3ircu.
