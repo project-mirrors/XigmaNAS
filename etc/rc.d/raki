@@ -30,7 +30,7 @@ rraki() {
 			[ ! -d "${_sshdir}" ] && /bin/mkdir -m 700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
 #			prepare authorized_keys file
 			echo '# managed by raki' > "${_akfile}"
-			/bin/chmod 644 "${_akfile}"
+			/bin/chmod 600 "${_akfile}"
 			/usr/sbin/chown "${_login}" "${_akfile}"
 #			populate public keys for root into authorized_keys file
 			/usr/local/bin/xml sel --template \
@@ -63,7 +63,7 @@ ruaki() {
 				[ ! -d "${_sshdir}" ] && /bin/mkdir -m 700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
 #				prepare authorized_keys file
 				echo '# managed by raki' > "${_akfile}"
-				/bin/chmod 644 "${_akfile}"
+				/bin/chmod 600 "${_akfile}"
 				/usr/sbin/chown "${_login}" "${_akfile}"
 #				populate public keys for user into authorized_keys file
 				/usr/local/bin/xml sel --template \
