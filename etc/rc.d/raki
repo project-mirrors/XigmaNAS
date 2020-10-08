@@ -27,10 +27,10 @@ rraki() {
 #		process only when _login and _homedir are not empty and _homedir exists and is not /mnt
 		if [ -n "${_login}" ] && [ -n "${_homedir}" ] && [ -d "${_homedir}" ] && [ "${_homedir}" != "/mnt" ]; then
 #			create .ssh folder if it doesn't exist
-			[ ! -d "${_sshdir}" ] && /bin/mkdir -m 4700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
+			[ ! -d "${_sshdir}" ] && /bin/mkdir -m 700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
 #			prepare authorized_keys file
 			echo '# managed by raki' > "${_akfile}"
-			/bin/chmod 600 "${_akfile}"
+			/bin/chmod 644 "${_akfile}"
 			/usr/sbin/chown "${_login}" "${_akfile}"
 #			populate public keys for root into authorized_keys file
 			/usr/local/bin/xml sel --template \
@@ -60,10 +60,10 @@ ruaki() {
 #			process only when _login and _homedir are not empty and _homedir exists and is not /mnt
 			if [ -n "${_login}" ] && [ -n "${_homedir}" ] && [ -d "${_homedir}" ] && [ "${_homedir}" != "/mnt" ]; then
 #				create ssh folder if it doesn't exist
-				[ ! -d "${_sshdir}" ] && /bin/mkdir -m 4700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
+				[ ! -d "${_sshdir}" ] && /bin/mkdir -m 700 "${_sshdir}" && /usr/sbin/chown "${_login}" "${_sshdir}"
 #				prepare authorized_keys file
 				echo '# managed by raki' > "${_akfile}"
-				/bin/chmod 600 "${_akfile}"
+				/bin/chmod 644 "${_akfile}"
 				/usr/sbin/chown "${_login}" "${_akfile}"
 #				populate public keys for user into authorized_keys file
 				/usr/local/bin/xml sel --template \
