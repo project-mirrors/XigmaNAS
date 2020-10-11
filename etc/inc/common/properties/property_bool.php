@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function array_key_exists,is_bool;
+
 /**
  *	Bool property
  */
@@ -46,9 +50,9 @@ class property_bool extends property {
 	}
 	public function validate_config(array $source) {
 		$key = $this->get_name();
-		if(\array_key_exists($key,$source)):
+		if(array_key_exists($key,$source)):
 			$value = $source[$key];
-			$return_data = \is_bool($value) ? $value : true;
+			$return_data = is_bool($value) ? $value : true;
 		else:
 			$return_data = false;
 		endif;

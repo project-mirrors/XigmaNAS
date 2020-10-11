@@ -31,28 +31,32 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function explode,filter_var,gettext,is_null,is_string;
+
 /**
  *	IPv4 CIDR property
  */
 final class property_cidr_ipv4 extends property_text_callback {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(18)->
-			set_placeholder(\gettext('Network Address'))->
+			set_placeholder(gettext('Network Address'))->
 			set_size(60);
 		return $this;
 	}
 	public function validate($cidr) {
-		if(\is_string($cidr)):
-			list($ipaddress,$subnet) = \explode('/',$cidr,2);
-			if(!\is_null(\filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
-				if(!\is_null(\filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+		if(is_string($cidr)):
+			[$ipaddress,$subnet] = explode('/',$cidr,2);
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 0,'max_range' => 32]]))):
 					return $cidr;
 				endif;
 			endif;
 		endif;
-		return NULL;
+		return null;
 	}
 }

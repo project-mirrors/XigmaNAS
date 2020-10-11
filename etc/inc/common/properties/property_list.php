@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function array_key_exists;
+
 /**
  *	List property
  */
@@ -48,18 +52,18 @@ class property_list extends property {
 		return $this->x_options;
 	}
 	public function validate($option) {
-		if(\array_key_exists($option,$this->get_options())):
+		if(array_key_exists($option,$this->get_options())):
 			return $option;
 		else:
-			return NULL;
+			return null;
 		endif;
 	}
 	public function validate_config(array $source) {
 		$return_data = '';
 		$key = $this->get_name();
-		if(\array_key_exists($key,$source)):
+		if(array_key_exists($key,$source)):
 			$option = $source[$key];
-			if(\array_key_exists($option,$this->get_options())):
+			if(array_key_exists($option,$this->get_options())):
 				$return_data = $option;
 			endif;
 		else:

@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function strncmp;
+
 /**
  *	Container for property collection
  */
@@ -48,7 +52,7 @@ abstract class container {
  */
 	final public function reset() {
 		foreach($this as $key => $value):
-			if(\strncmp($key,'x_',2) === 0):
+			if(strncmp($key,'x_',2) === 0):
 				unset($this->$key);
 			endif;
 		endforeach;

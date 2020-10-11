@@ -31,22 +31,24 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
 /**
  *	Int property
  */
 class property_int extends property_text {
-	public $x_min = NULL;
-	public $x_max = NULL;
+	public $x_min = null;
+	public $x_max = null;
 
-	public function set_min(int $min = NULL) {
+	public function set_min(int $min = null) {
 		$this->x_min = $min;
 		return $this;
 	}
 	public function get_min() {
 		return $this->x_min;
 	}
-	public function set_max(int $max = NULL) {
+	public function set_max(int $max = null) {
 		$this->x_max = $max;
 		return $this;
 	}
@@ -56,7 +58,7 @@ class property_int extends property_text {
 	public function filter_use_default() {
 		$filter_name = 'ui';
 		$options = [];
-		$options['default'] = NULL;
+		$options['default'] = null;
 		$min = $this->get_min();
 		if(isset($min)):
 			$options['min_range'] = $min;

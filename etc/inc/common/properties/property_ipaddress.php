@@ -31,13 +31,17 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
 /**
  *	IP adddress property
  */
 final class property_ipaddress extends property_text {
-	public function __construct($owner = NULL) {
-		$placeholder = \gettext('IP Address');
+	public function __construct($owner = null) {
+		$placeholder = gettext('IP Address');
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
@@ -50,7 +54,7 @@ final class property_ipaddress extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_IP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL],$filter_name);
+			set_filter_options(['default' => null],$filter_name);
 		return $this;
 	}
 }

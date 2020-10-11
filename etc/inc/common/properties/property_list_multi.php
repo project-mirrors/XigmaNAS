@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function array_key_exists,is_scalar;
+
 /**
  *	Multi listproperty
  */
@@ -39,10 +43,10 @@ class property_list_multi extends property_list {
 	public function validate_config(array $source) {
 		$return_data = [];
 		$key = $this->get_name();
-		if(\array_key_exists($key,$source)):
+		if(array_key_exists($key,$source)):
 			$a_option = $source[$key];
 			foreach($a_option as $option):
-				if(\is_scalar($option)):
+				if(is_scalar($option)):
 					$return_data[] = $option;
 				endif;
 			endforeach;

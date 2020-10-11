@@ -31,12 +31,16 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
 /**
  *	Toolbox property
  */
 final class property_toolbox extends property_text {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->set_title(gettext('Toolbox'));
 	}

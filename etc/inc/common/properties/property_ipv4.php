@@ -31,13 +31,17 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
 /**
  *	IPv4 property
  */
 final class property_ipv4 extends property_text {
-	public function __construct($owner = NULL) {
-		$placeholder = \gettext('IPv4 Address');
+	public function __construct($owner = null) {
+		$placeholder = gettext('IPv4 Address');
 		parent::__construct($owner);
 		$this->
 			set_maxlength(15)->
@@ -50,7 +54,7 @@ final class property_ipv4 extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_IP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR | FILTER_FLAG_IPV4,$filter_name)->
-			set_filter_options(['default' => NULL],$filter_name);
+			set_filter_options(['default' => null],$filter_name);
 		return $this;
 	}
 }

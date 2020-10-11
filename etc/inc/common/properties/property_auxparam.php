@@ -31,18 +31,22 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
 /**
  *	auxparam property
  *
  *	property description is empty
- *  @param object $owner The owner of this object or NULL
+ *  @param object $owner The owner of this object or null
  */
 final class property_auxparam extends property_textarea {
-	public function __construct($owner = NULL) {
-		$placeholder = \gettext('Enter additional parameters');
-		$placeholderv = \gettext('No additional parameters');
-		$title = \gettext('Additional Parameters');
+	public function __construct($owner = null) {
+		$placeholder = gettext('Enter additional parameters');
+		$placeholderv = gettext('No additional parameters');
+		$title = gettext('Additional Parameters');
 		parent::__construct($owner);
 		$this->
 			set_defaultvalue('')->
