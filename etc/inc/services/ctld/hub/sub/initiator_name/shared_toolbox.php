@@ -31,9 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\sub\initiator_name;
+
+use common\arr;
 use common\sphere as mys;
 use services\ctld\hub\shared_hub as hub;
+
+use function gettext,sprintf;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -65,7 +71,7 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'ctld','ctl_sub_initiator_name','param');
+		$sphere->grid = &arr::make_branch($config,'ctld','ctl_sub_initiator_name','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere

@@ -31,9 +31,16 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\sub\chap;
+
+use common\arr;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use function count,gettext,is_bool,new_page,updatenotify_exists,
+		updatenotify_get_mode;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,7 +70,7 @@ final class grid_toolbox {
 			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected CHAP users?'))->
 			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected CHAP users?'));
 		if(!empty($sphere->grid)):
-			array_sort_key($sphere->grid,'name');
+			arr::sort_key($sphere->grid,'name');
 		endif;
 		return $sphere;
 	}

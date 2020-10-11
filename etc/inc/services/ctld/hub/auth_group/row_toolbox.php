@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\auth_group;
 
 use common\properties as myp;
@@ -40,6 +41,9 @@ use services\ctld\hub\sub\chap\grid_toolbox as tbc;
 use services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm;
 use services\ctld\hub\sub\initiator_name\grid_toolbox as tbin;
 use services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
+
+use function array_key_exists,gettext,in_array,is_array,is_bool,is_string;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -83,17 +87,17 @@ final class row_toolbox {
 		$options = [];
 		$selected = [];
 		foreach($sphere->grid as $sphere->row_id => $sphere->row):
-			if(\array_key_exists($key_enabled,$sphere->row)):
+			if(array_key_exists($key_enabled,$sphere->row)):
 				$enabled = is_bool($sphere->row[$key_enabled]) ? $sphere->row[$key_enabled] : true;
 //				process enabled entries
 				if($enabled):
 //					add name to options
-					if(\array_key_exists($key_option,$sphere->row)):
+					if(array_key_exists($key_option,$sphere->row)):
 						$name = $sphere->row[$key_option];
 						if(is_string($name)):
 							$options[$name] = $name;
 //							add name to selected when group contains needle
-							if(\array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
+							if(array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
 								$selected[$name] = $name;
 							endif;
 						endif;

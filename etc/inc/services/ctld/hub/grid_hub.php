@@ -38,6 +38,11 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 
+use function file_exists,filter_var,header,config_lock,config_unlock,
+		get_std_save_message,rc_update_reload_service,updatenotify_cbm_delete,
+		updatenotify_cbm_disable,updatenotify_cbm_enable,
+		updatenotify_cbm_toggle,updatenotify_process,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
