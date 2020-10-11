@@ -39,20 +39,11 @@ namespace common;
 use Throwable;
 
 use function
-//		chr,
-//		hexdec,
-//		strlen,
-//		str_replace,
-//		substr,
+//		chr,hexdec,strlen,str_replace,substr,
 //		md5,
 //		sha1,
-		is_null,
-		preg_match,
-		sprintf,
-		random_bytes,
-		openssl_random_pseudo_bytes,
-		mt_rand,
-		unpack;
+		is_null,preg_match,sprintf,random_bytes,openssl_random_pseudo_bytes,
+		mt_rand,unpack;
 
 /**
  *	Wrapper class for autoloading functions
