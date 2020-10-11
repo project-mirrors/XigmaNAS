@@ -34,6 +34,8 @@
 
 namespace common\sphere;
 
+use function implode;
+
 /**
  *	sphere object for row pages
  *	root -> hub -> row
@@ -57,7 +59,7 @@ final class row extends hub {
 			$output[] = '</script>';
 			$output[] = '';
 		endif;
-		return \implode("\n",$output);
+		return implode("\n",$output);
 	}
 	public function upsert() {
 //		soft update existing grid record with row record or add row record to grid

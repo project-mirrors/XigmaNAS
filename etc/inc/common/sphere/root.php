@@ -34,6 +34,8 @@
 
 namespace common\sphere;
 
+use function is_null;
+
 /*
  *	sphere top level object for settings, services, row and grid
  *	root -> hub -> row
@@ -66,7 +68,7 @@ class root {
 		);
 	}
 	public function set_script(string $basename,string $extension = 'php'): self {
-		if(\is_null($this->x_script_this)):
+		if(is_null($this->x_script_this)):
 			$this->x_script_this = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -75,7 +77,7 @@ class root {
 		return $this->x_script_this;
 	}
 	public function set_inform(string $basename,string $extension = 'php'): self {
-		if(\is_null($this->x_script_inform)):
+		if(is_null($this->x_script_inform)):
 			$this->x_script_inform = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -84,7 +86,7 @@ class root {
 		return $this->x_script_inform;
 	}
 	public function set_maintain(string $basename,string $extension = 'php'): self {
-		if(\is_null($this->x_script_maintain)):
+		if(is_null($this->x_script_maintain)):
 			$this->x_script_maintain = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -93,7 +95,7 @@ class root {
 		return $this->x_script_maintain;
 	}
 	public function set_modify(string $basename,string $extension = 'php'): self {
-		if(\is_null($this->x_script_modify)):
+		if(is_null($this->x_script_modify)):
 			$this->x_script_modify = new scriptname($basename,$extension);
 		endif;
 		return $this;
@@ -102,7 +104,7 @@ class root {
 		return $this->x_script_modify;
 	}
 	public function set_parent(string $basename,string $extension = 'php'): self {
-		if(\is_null($this->x_script_parent)):
+		if(is_null($this->x_script_parent)):
 			$this->x_script_parent = new scriptname($basename,$extension);
 		endif;
 		return $this;
