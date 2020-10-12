@@ -31,13 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
+use common\arr;
 use services\ctld\hub\sub\port\row_toolbox as toolbox;
 use services\ctld\hub\sub\port\shared_toolbox;
-
+/*
+use function array_key_exists,count,file_exists,gettext,header,in_array,is_null,
+		is_scalar,is_string,preg_match,sprintf,
+		get_std_save_message,new_page,updatenotify_get_mode,updatenotify_set,
+		write_config;
+*/
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
@@ -50,18 +57,18 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 //	part 1: collect all defined targets
 $all_parents = [];
-$known_parents = &array_make_branch($config,'ctld','ctl_target','param');
+$known_parents = &arr::make_branch($config,'ctld','ctl_target','param');
 foreach($known_parents as $known_parent):
-	if(\array_key_exists('name',$known_parent) && is_scalar($known_parent['name'])):
+	if(array_key_exists('name',$known_parent) && is_scalar($known_parent['name'])):
 		$all_parents[$known_parent['name']] = $known_parent['name'];
-		if(\array_key_exists('description',$known_parent) && is_string($known_parent['description']) && preg_match('/\S/',$known_parent['description'])):
+		if(array_key_exists('description',$known_parent) && is_string($known_parent['description']) && preg_match('/\S/',$known_parent['description'])):
 			$all_parents[$known_parent['name']] .= sprintf(' - %s',$known_parent['description'] ?? '');
 		endif;
 	endif;
 endforeach;
 $cop->get_group()->set_options($all_parents);
 $rmo = toolbox::init_rmo();
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -80,7 +87,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'cancel': // cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -95,7 +102,7 @@ switch($page_method):
 		break;
 endswitch;
 /*
- *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ *	exit if $sphere->row[$sphere->row_identifier()] is null
  */
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
@@ -104,13 +111,13 @@ endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
+if($sphere->row_id === false): // record does not exist in config
 	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -133,13 +140,13 @@ else: // record found in configuration
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode): // oops, something went wrong
+if($record_mode === RECORD_ERROR): // oops, something went wrong
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$isrecordnew = (RECORD_NEW === $record_mode);
-$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
-$isrecordmodify = (RECORD_MODIFY === $record_mode);
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
@@ -161,7 +168,7 @@ switch($page_mode):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
 		endforeach;
-		//	adjust page mode
+//		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
@@ -172,7 +179,7 @@ switch($page_mode):
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
-		// apply post values that are applicable for all record modes
+//		apply post values that are applicable for all record modes
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
@@ -185,7 +192,7 @@ switch($page_mode):
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+			elseif($updatenotify_mode == UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -195,10 +202,10 @@ switch($page_mode):
 		break;
 endswitch;
 //	part 2: collect all linked targets, including orphaned
-$linked_parents = &array_make_branch($sphere->row,$cop->get_group()->get_name());
+$linked_parents = &arr::make_branch($sphere->row,$cop->get_group()->get_name());
 foreach($linked_parents as $linked_parent):
 	if(is_scalar($linked_parent)):
-		if(!\array_key_exists($linked_parent,$all_parents)):
+		if(!array_key_exists($linked_parent,$all_parents)):
 			$all_parents[$linked_parent] = sprintf('%s - %s',$linked_parent,gettext('Orphaned'));
 		endif;
 	endif;
