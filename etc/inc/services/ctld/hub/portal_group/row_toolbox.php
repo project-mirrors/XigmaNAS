@@ -40,7 +40,7 @@ use common\sphere as mys;
 use services\ctld\hub\sub\listen\grid_toolbox as tbl;
 use services\ctld\hub\sub\option\grid_toolbox as tbo;
 
-use function array_key_exists,in_array,is_array,is_bool,is_string;
+use function array_key_exists,gettext,in_array,is_array,is_bool,is_string;
 
 /**
  *	Wrapper class for autoloading functions

@@ -53,7 +53,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(32)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_secret(): myp\property_text {
@@ -70,7 +70,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(32)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
+			set_filter_options(['default' => null,'regexp' => $regexp])->
 			filter_use_empty()->
 			set_filter_group('ui',['empty','ui']);
 		return $property;
@@ -103,7 +103,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(32)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_mutual_secret(): myp\property_text {
@@ -120,7 +120,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(32)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
+			set_filter_options(['default' => null,'regexp' => $regexp])->
 			filter_use_empty()->
 			set_filter_group('ui',['empty','ui']);
 		return $property;
