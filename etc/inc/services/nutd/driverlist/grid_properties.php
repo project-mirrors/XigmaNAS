@@ -36,6 +36,8 @@ namespace services\nutd\driverlist;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container {
 	protected $x_manufacturer;
 	public function init_manufacturer(): myp\property_text {

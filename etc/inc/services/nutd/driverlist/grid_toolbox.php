@@ -36,13 +36,16 @@ namespace services\nutd\driverlist;
 
 use common\sphere as mys;
 
+use function count,file,gettext,is_array,preg_match,
+		new_page;
+
 /**
  *	Wrapper class for autoloading functions
  */
 final class grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -52,7 +55,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \system\access\group\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -65,14 +68,14 @@ final class grid_toolbox {
 	protected static function make_grid() {
 		$grid = [];
 //		read file
-		$rows = @\file('/usr/local/etc/nut/driver.list',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-		if(\is_array($rows)):
+		$rows = @file('/usr/local/etc/nut/driver.list',FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		if(is_array($rows)):
 //			parse data
 			foreach($rows as $row):
 //				syntax should look like: '"<manufacturer>" "<device type>" "<support level>" "<model name>" "<model extra>" "<driver>"'.
 				$regex = '/^"(?<manufacturer>.*)"\s*"(?<devicetype>.*)"\s*"(?<supportlevel>.*)"\s*"(?<modelname>.*)"\s*"(?<modelextra>.*)"\s*"(?<driver>.*)"/';
 				unset($matches);
-				if(\preg_match($regex,$row,$matches) === 1):
+				if(preg_match($regex,$row,$matches) === 1):
 					$driverinfo = [];
 					$driverinfo['manufacturer'] = $matches['manufacturer'] ?? '';
 					$driverinfo['devicetype'] = $matches['devicetype'] ?? '';
@@ -91,21 +94,21 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \system\access\group\grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param grid_properties $cop
+ *	@param grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
-		$pgtitle = [\gettext('Services'),\gettext('UPS'),\gettext('Driver List')];
+		$pgtitle = [gettext('Services'),gettext('UPS'),gettext('Driver List')];
 		$sphere->grid = self::make_grid();
-		$row_count = \count($sphere->grid);
+		$row_count = count($sphere->grid);
 		$row_exists = ($row_count > 0);
 		$use_tablesort = ($row_count > 1);
 		$a_col_width = ['25%','25%','25%','25%'];
-		$n_col_width = \count($a_col_width);
+		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname(),'notabnav','tablesort');
+			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'notabnav','tablesort');
 		else:
-			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname(),'notabnav');
+			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'notabnav');
 		endif;
 //		get areas
 		$pagecontent = $document->getElementById('pagecontent');
