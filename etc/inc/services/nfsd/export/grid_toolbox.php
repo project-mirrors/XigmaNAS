@@ -31,10 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\nfsd\export;
+
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use function count,file_exists,filter_var,gettext,header,is_bool,
+		config_lock,config_unlock,get_std_save_message,new_page,
+		rc_reload_service_if_running_and_enabled,updatenotify_cbm_delete,
+		updatenotify_cbm_disable,updatenotify_cbm_enable,
+		updatenotify_cbm_toggle,updatenotify_exists,updatenotify_get_mode,
+		updatenotify_process,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -105,14 +115,14 @@ final class grid_toolbox {
 		else:
 			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 		endif;
-		//	add tab navigation
+//		add tab navigation
 		shared_toolbox::add_tabnav($document);
-		//	get areas
+//		get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	create data area
+//		create data area
 		$content = $pagecontent->add_area_data();
-		//	display information, warnings and errors
+//		display information, warnings and errors
 		$content->
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
@@ -178,7 +188,7 @@ final class grid_toolbox {
 			add_area_buttons()->
 				ins_cbm_button_enadis($sphere)->
 				ins_cbm_button_delete($sphere);
-		//	additional javascript code
+//		additional javascript code
 		$body->ins_javascript($sphere->get_js());
 		$body->add_js_on_load($sphere->get_js_on_load());
 		$body->add_js_document_ready($sphere->get_js_document_ready());
@@ -204,12 +214,12 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
 					case $sphere->get_script()->get_basename():
-						//	catch error code
+//						catch error code
 						$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 						unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
 						$savemsg = get_std_save_message($retval);
@@ -222,12 +232,13 @@ final class grid_toolbox {
 						$retval = 0;
 						$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 						config_lock();
-						$retval |= rc_update_service('rpcbind'); // !!! Do
-						$retval |= rc_update_service('mountd');  // !!! not
-						$retval |= rc_update_service('nfsd');    // !!! change
-						$retval |= rc_update_service('statd');   // !!! this
-						$retval |= rc_update_service('lockd');   // !!! order
-						$retval |= rc_update_service('mdnsresponder');
+//						$retval |= rc_update_service('rpcbind'); // !!! Do
+//						$retval |= rc_update_service('mountd');  // !!! not
+//						$retval |= rc_update_service('nfsd');    // !!! change
+//						$retval |= rc_update_service('statd');   // !!! this
+//						$retval |= rc_update_service('lockd');   // !!! order
+//						$retval |= rc_update_service('mdnsresponder');
+						$retval |= rc_reload_service_if_running_and_enabled('mountd');
 						config_unlock();
 						$_SESSION['submit'] = $sphere->get_script()->get_basename();
 						$_SESSION[$sphere->get_script()->get_basename()] = $retval;
