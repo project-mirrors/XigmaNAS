@@ -35,9 +35,11 @@ namespace system\backup;
 
 use common\properties as myp;
 
+use function gettext;
+
 final class setting_properties extends grid_properties {
 	public function init_reminderintervalshow(): myp\property_int {
-		$description = \gettext('Set the number of days until a reminder is shown to backup system configuration. The default is 28 days. A value of 0 disables the reminder.');
+		$description = gettext('Set the number of days until a reminder is shown to backup system configuration. The default is 28 days. A value of 0 disables the reminder.');
 		$placeholder = '28';
 		$property = parent::init_reminderintervalshow();
 		$property->

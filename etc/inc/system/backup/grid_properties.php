@@ -35,10 +35,12 @@ namespace system\backup;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container {
 	protected $x_reminderintervalshow;
 	public function init_reminderintervalshow(): myp\property_int {
-		$title = \gettext('Show Interval');
+		$title = gettext('Show Interval');
 		$property = $this->x_reminderintervalshow = new myp\property_int($this);
 		$property->
 			set_name('reminderintervalshow')->
