@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\sshd;
+
 use common\properties as myp;
+
+use function gettext;
 
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {

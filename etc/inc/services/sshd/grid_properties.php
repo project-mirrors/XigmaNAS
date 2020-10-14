@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\sshd;
+
 use common\properties as myp;
+
+use function gettext;
 
 class grid_properties extends myp\container {
 	protected $x_enable;
@@ -194,97 +198,4 @@ class grid_properties extends myp\container {
 	final public function get_auxparam(): myp\property_auxparam {
 		return $this->x_auxparam ?? $this->init_auxparam();
 	}
-/*
-	AllowTcpForwarding
-	ChallengeResponseAuthentication
-	Compression
-	GSSAPIAuthentication
-	KbdInteractiveAuthentication
-	LogLevel
-	PasswordAuthentication
-	PermitRootLogin
-	Port
-	PubkeyAuthentication
-	Subsystem
-
-	AcceptEnv
-	AddressFamily
-	AllowAgentForwarding
-	AllowGroups
-	AllowStreamLocalForwarding
-	AllowUsers
-	AuthenticationMethods
-	AuthorizedKeysCommand
-	AuthorizedKeysCommandUser
-	AuthorizedKeysFile
-	AuthorizedPrincipalsCommand
-	AuthorizedPrincipalsCommandUser
-	AuthorizedPrincipalsFile
-	Banner
-	ChrootDirectory
-	Ciphers
-	ClientAliveCountMax
-	ClientAliveInterval
-	DenyGroups
-	DenyUsers
-	DisableForwarding
-	ExposeAuthInfo
-	FingerprintHash
-	ForceCommand
-	GatewayPorts
-	GSSAPICleanupCredentials
-	GSSAPIStrictAcceptorCheck
-	HostbasedAcceptedKeyTypes
-	HostbasedAuthentication
-	HostbasedUsesNameFromPacketOnly
-	HostCertificate
-	HostKey
-	HostKeyAgent
-	HostKeyAlgorithms
-	IgnoreRhosts
-	IgnoreUserKnownHosts
-	IPQoS
-	KerberosAuthentication
-	KerberosGetAFSToken
-	KerberosOrLocalPasswd
-	KerberosTicketCleanup
-	KexAlgorithms
-	ListenAddress
-	LoginGraceTime
-	MACs
-	Match
-	MaxAuthTries
-	MaxSessions
-	MaxStartups
-	PermitEmptyPasswords
-	PermitListen
-	PermitOpen
-	PermitTTY
-	PermitTunnel
-	PermitUserEnvironment
-	PermitUserRC
-	PidFile
-	PrintLastLog
-	PrintMotd
-	PubkeyAcceptedKeyTypes
-	PubkeyAuthentication
-	RekeyLimit
-	RevokedKeys
-	RDomain
-	SetEnv
-	StreamLocalBindMask
-	StreamLocalBindUnlink
-	StrictModes
-	SyslogFacility
-	TCPKeepAlive
-	TrustedUserCAKeys
-	UseBlacklist
-	UseDNS
-	UsePAM
-	VersionAddendum
-	X11DisplayOffset
-	X11Forwarding
-	X11UseLocalhost
-	XAuthLocation
- */
 }
