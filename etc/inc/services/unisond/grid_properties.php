@@ -31,9 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\unisond;
 
 use common\properties as myp;
+
+use function gettext;
 
 class grid_properties extends myp\container {
 	protected $x_enable;
