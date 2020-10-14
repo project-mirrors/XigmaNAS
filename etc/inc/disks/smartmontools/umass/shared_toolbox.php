@@ -31,8 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\smartmontools\umass;
+
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -49,7 +55,7 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
-		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
@@ -82,7 +88,7 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'smartmontools','umass','param');
+		$sphere->grid = &arr::make_branch($config,'smartmontools','umass','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
