@@ -35,6 +35,8 @@ namespace system\access\publickey;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container_row {
 	protected $x_name;
 	public function init_name(): myp\property_list {
