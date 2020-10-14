@@ -33,7 +33,11 @@
 */
 namespace system\access\user;
 
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -50,7 +54,7 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
-		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
@@ -84,7 +88,7 @@ final class shared_toolbox {
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
 			set_lock(false);
-		$sphere->grid = &array_make_branch($config,'access','user');
+		$sphere->grid = &arr::make_branch($config,'access','user');
 	}
 /**
  *	Add the tab navigation menu of this sphere

@@ -31,8 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\access\user;
+
 use common\properties as myp;
+
+use function gettext,in_array,is_string,preg_match,strlen,
+		locale_get_display_name;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
@@ -55,7 +60,7 @@ final class row_properties extends grid_properties {
 				$result = null;
 				if(is_string($subject)):
 					if(strlen($subject) > 0 && strlen($subject) < 17):
-						if(1 === preg_match($regexp,$subject) && !in_array($subject,$reservedlogin)):
+						if(preg_match($regexp,$subject) && !in_array($subject,$reservedlogin) === 1):
 							return $subject;
 						endif;
 					endif;
@@ -197,7 +202,7 @@ final class row_properties extends grid_properties {
 		$options['auto'] = gettext('Autodetect');
 		foreach($g_languages as $key => $val):
 			if('auto' !== $key):
-				$options[$key] = \locale_get_display_name($key,$key);
+				$options[$key] = locale_get_display_name($key,$key);
 			endif;
 		endforeach;
 		$property = parent::init_language();
