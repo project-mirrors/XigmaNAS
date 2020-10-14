@@ -31,10 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\iscsid;
+
+use common\arr;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use function count,file_exists,filter_var,gettext,header,is_bool,strtolower,
+		config_lock,config_unlock,get_std_save_message,new_page,
+		rc_update_service,updatenotify_cbm_delete,updatenotify_cbm_disable,
+		updatenotify_cbm_enable,updatenotify_cbm_toggle,updatenotify_exists,
+		updatenotify_get_mode,updatenotify_process,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,7 +73,7 @@ final class grid_toolbox {
 			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected iSCSI initiators?'))->
 			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected iSCSI initiators?'));
 		if(count($sphere->grid) > 1):
-			array_sort_key($sphere->grid,'name');
+			arr::sort_key($sphere->grid,'name');
 		endif;
 		return $sphere;
 	}
@@ -90,7 +100,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\iscsid\grid_properties $cop
+ *	@param grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
@@ -207,7 +217,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):

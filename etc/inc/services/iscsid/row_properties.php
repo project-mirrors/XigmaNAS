@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\iscsid;
+
 use common\properties as myp;
+
+use function gettext;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
@@ -120,7 +124,7 @@ final class row_properties extends grid_properties {
 			set_size(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_chapsecret(): myp\property_text {
@@ -137,7 +141,7 @@ final class row_properties extends grid_properties {
 			set_size(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
+			set_filter_options(['default' => null,'regexp' => $regexp])->
 			filter_use_empty()->
 			set_filter_group('ui',['empty','ui']);
 		return $property;
@@ -156,7 +160,7 @@ final class row_properties extends grid_properties {
 			set_size(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_tgtchapsecret(): myp\property_text {
@@ -173,7 +177,7 @@ final class row_properties extends grid_properties {
 			set_size(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp])->
+			set_filter_options(['default' => null,'regexp' => $regexp])->
 			filter_use_empty()->
 			set_filter_group('ui',['empty','ui']);
 		return $property;
@@ -240,7 +244,7 @@ final class row_properties extends grid_properties {
 			set_size(60)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_sessionstate(): myp\property_list {
