@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\samba;
 
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -64,7 +69,7 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(true);
-		$sphere->grid = &array_make_branch($config,'samba');
+		$sphere->grid = &arr::make_branch($config,'samba');
 	}
 /**
  *	Add the tab navigation menu of this sphere

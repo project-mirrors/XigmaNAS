@@ -31,9 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\samba;
 
 use common\properties as myp;
+
+use function gettext,sprintf;
 
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
@@ -143,7 +146,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_workgroup(): myp\property_text {
@@ -161,7 +164,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_if(): myp\property_list {
@@ -376,7 +379,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_directorymask(): myp\property_text {
@@ -391,7 +394,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_sndbuf(): myp\property_int {

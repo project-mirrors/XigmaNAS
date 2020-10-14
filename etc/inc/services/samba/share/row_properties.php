@@ -31,9 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\samba\share;
 
 use common\properties as myp;
+
+use function gettext,sprintf;
 
 final class row_properties extends grid_properties {
 	public function init_afpcompat(): myp\property_bool {
@@ -68,7 +71,7 @@ final class row_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_directorymask(): myp\property_text {
@@ -83,7 +86,7 @@ final class row_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_forcegroup(): myp\property_list {
@@ -254,7 +257,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/(^$|\S)/']);
+			set_filter_options(['default' => null,'regexp' => '/(^$|\S)/']);
 		return $property;
 	}
 	public function init_hostsdeny(): myp\property_text {
@@ -268,7 +271,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/(^$|\S)/']);
+			set_filter_options(['default' => null,'regexp' => '/(^$|\S)/']);
 		return $property;
 	}
 	public function init_shadowcopy(): myp\property_bool {
