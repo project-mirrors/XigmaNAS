@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\mariadb;
+
 use common\properties as myp;
+
+use function gettext;
 
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
@@ -87,7 +91,7 @@ final class setting_properties extends grid_properties {
 			set_maxlength(128)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 }
