@@ -38,6 +38,8 @@ namespace system\cron;
 
 use common\properties as myp;
 
+use function gettext;
+
 final class row_properties extends grid_properties {
 	public function init_scheduler(): myp\property_text {
 		$property = parent::init_scheduler();
@@ -50,8 +52,8 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_command(): myp\property_text {
-		$description = \gettext('Specifies the command to be run.');
-		$placeholder = \gettext('Enter Command');
+		$description = gettext('Specifies the command to be run.');
+		$placeholder = gettext('Enter Command');
 		$property = parent::init_command();
 		$property->
 			set_defaultvalue('')->
@@ -64,7 +66,7 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_who(): myp\property_list {
-		$description = \gettext('Running user');
+		$description = gettext('Running user');
 		$property = parent::init_who();
 		$property->
 			set_defaultvalue('root')->

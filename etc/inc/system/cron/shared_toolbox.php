@@ -34,7 +34,10 @@
 
 namespace system\cron;
 
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear,write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -52,7 +55,7 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
-		$sphere->row_id = \array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
@@ -61,11 +64,11 @@ final class shared_toolbox {
 				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 				case UPDATENOTIFY_MODE_DIRTY:
 					unset($sphere->grid[$sphere->row_id]);
-					\write_config();
+					write_config();
 					break;
 			endswitch;
 		endif;
-		\updatenotify_clear($sphere->get_notifier(),$data);
+		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
 /**
@@ -78,11 +81,11 @@ final class shared_toolbox {
 
 		$sphere->
 			set_notifier(self::NOTIFICATION_NAME)->
-			set_notifier_processor(\sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
+			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
 			set_lock(false);
-		$sphere->grid = &\array_make_branch($config,'cron','job');
+		$sphere->grid = &arr::make_branch($config,'cron','job');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -94,17 +97,17 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('system_advanced.php',\gettext('Advanced'))->
-					ins_tabnav_record('system_email.php',\gettext('Email'))->
-					ins_tabnav_record('system_email_reports.php',\gettext('Email Reports'))->
-					ins_tabnav_record('system_monitoring.php',\gettext('Monitoring'))->
-					ins_tabnav_record('system_swap.php',\gettext('Swap'))->
-					ins_tabnav_record('system_rc.php',\gettext('Command Scripts'))->
-					ins_tabnav_record('system_cron.php',\gettext('Cron'),\gettext('Reload page'),true)->
-					ins_tabnav_record('system_loaderconf.php',\gettext('loader.conf'))->
-					ins_tabnav_record('system_rcconf.php',\gettext('rc.conf'))->
-					ins_tabnav_record('system_sysctl.php',\gettext('sysctl.conf'))->
-					ins_tabnav_record('system_syslogconf.php',\gettext('syslog.conf'));
+					ins_tabnav_record('system_advanced.php',gettext('Advanced'))->
+					ins_tabnav_record('system_email.php',gettext('Email'))->
+					ins_tabnav_record('system_email_reports.php',gettext('Email Reports'))->
+					ins_tabnav_record('system_monitoring.php',gettext('Monitoring'))->
+					ins_tabnav_record('system_swap.php',gettext('Swap'))->
+					ins_tabnav_record('system_rc.php',gettext('Command Scripts'))->
+					ins_tabnav_record('system_cron.php',gettext('Cron'),gettext('Reload page'),true)->
+					ins_tabnav_record('system_loaderconf.php',gettext('loader.conf'))->
+					ins_tabnav_record('system_rcconf.php',gettext('rc.conf'))->
+					ins_tabnav_record('system_sysctl.php',gettext('sysctl.conf'))->
+					ins_tabnav_record('system_syslogconf.php',gettext('syslog.conf'));
 		return $retval;
 	}
 }

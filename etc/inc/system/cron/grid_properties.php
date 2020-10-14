@@ -38,10 +38,12 @@ namespace system\cron;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container_row {
 	protected $x_scheduler;
 	public function init_scheduler(): myp\property_text {
-		$title = \gettext('Schedule Time');
+		$title = gettext('Schedule Time');
 		$property = $this->x_scheduler = new myp\property_text($this);
 		$property->
 			set_name('scheduler')->
@@ -53,7 +55,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_command;
 	public function init_command(): myp\property_text {
-		$title = \gettext('Command');
+		$title = gettext('Command');
 		$property = $this->x_command = new myp\property_text($this);
 		$property->
 			set_name('command')->
@@ -65,7 +67,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_who;
 	public function init_who(): myp\property_list {
-		$title = \gettext('Who');
+		$title = gettext('Who');
 		$property = $this->x_who = new myp\property_list($this);
 		$property->
 			set_name('who')->
@@ -85,7 +87,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_minutes;
 	public function init_minutes(): myp\property_list_multi {
-		$title = \gettext('Minutes');
+		$title = gettext('Minutes');
 		$property = $this->x_minutes = new myp\property_list_multi($this);
 		$property->
 			set_name('minute')->
@@ -97,7 +99,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_hours;
 	public function init_hours(): myp\property_list_multi {
-		$title = \gettext('Hours');
+		$title = gettext('Hours');
 		$property = $this->x_hours = new myp\property_list_multi($this);
 		$property->
 			set_name('hour')->
@@ -109,7 +111,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_days;
 	public function init_days(): myp\property_list_multi {
-		$title = \gettext('Days');
+		$title = gettext('Days');
 		$property = $this->x_days = new myp\property_list_multi($this);
 		$property->
 			set_name('day')->
@@ -121,7 +123,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_months;
 	public function init_months(): myp\property_list_multi {
-		$title = \gettext('Months');
+		$title = gettext('Months');
 		$property = $this->x_months = new myp\property_list_multi($this);
 		$property->
 			set_name('month')->
@@ -133,7 +135,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_weekdays;
 	public function init_weekdays(): myp\property_list_multi {
-		$title = \gettext('Weekdays');
+		$title = gettext('Weekdays');
 		$property = $this->x_weekdays = new myp\property_list_multi($this);
 		$property->
 			set_name('weekday')->
@@ -145,7 +147,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_all_minutes;
 	public function init_all_minutes(): myp\property_int {
-		$title = \gettext('All Minutes');
+		$title = gettext('All Minutes');
 		$property = $this->x_all_minutes = new myp\property_int($this);
 		$property->
 			set_name('all_mins')->
@@ -157,7 +159,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_all_hours;
 	public function init_all_hours(): myp\property_int {
-		$title = \gettext('All Hours');
+		$title = gettext('All Hours');
 		$property = $this->x_all_hours = new myp\property_int($this);
 		$property->
 			set_name('all_hours')->
@@ -169,7 +171,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_all_days;
 	public function init_all_days(): myp\property_int {
-		$title = \gettext('All Days');
+		$title = gettext('All Days');
 		$property = $this->x_all_days = new myp\property_int($this);
 		$property->
 			set_name('all_days')->
@@ -181,7 +183,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_all_months;
 	public function init_all_months(): myp\property_int {
-		$title = \gettext('All Months');
+		$title = gettext('All Months');
 		$property = $this->x_all_months = new myp\property_int($this);
 		$property->
 			set_name('all_months')->
@@ -193,7 +195,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_all_weekdays;
 	public function init_all_weekdays(): myp\property_int {
-		$title = \gettext('All Weekdays');
+		$title = gettext('All Weekdays');
 		$property = $this->x_all_weekdays = new myp\property_int($this);
 		$property->
 			set_name('all_weekdays')->
