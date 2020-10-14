@@ -35,6 +35,8 @@ namespace services\websrv\webdav;
 
 use common\properties as myp;
 
+use function gettext;
+
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the WebDAV Record.');
@@ -50,7 +52,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(223)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_folderpattern(): myp\property_text {
@@ -67,7 +69,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(223)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_isreadonly(): myp\property_bool {

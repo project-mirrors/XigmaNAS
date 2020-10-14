@@ -31,11 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\websrv\webdav;
 
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use function count,file_exists,filter_var,gettext,header,is_bool,
+		config_lock,config_unlock,get_std_save_message,new_page,
+		rc_update_reload_service,updatenotify_cbm_delete,
+		updatenotify_cbm_disable,updatenotify_cbm_enable,
+		updatenotify_cbm_toggle,updatenotify_exists,updatenotify_get_mode,
+		updatenotify_process,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -77,7 +86,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \services\websrv\webdav\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -88,7 +97,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\websrv\webdav\grid_properties $cop
+ *	@param grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
@@ -102,9 +111,9 @@ final class grid_toolbox {
 		$a_col_width = ['5%','20%','10%','35%','20%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 		endif;
 //		add tab navigation
 		shared_toolbox::add_tabnav($document);
@@ -205,7 +214,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
