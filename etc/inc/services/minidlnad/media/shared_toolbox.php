@@ -34,7 +34,10 @@
 
 namespace services\minidlnad\media;
 
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear,write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -52,8 +55,8 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
-		$sphere->row_id = \array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
 					break;
@@ -61,15 +64,15 @@ final class shared_toolbox {
 					break;
 				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 					unset($sphere->grid[$sphere->row_id]);
-					\write_config();
+					write_config();
 					break;
 				case UPDATENOTIFY_MODE_DIRTY:
 					unset($sphere->grid[$sphere->row_id]);
-					\write_config();
+					write_config();
 					break;
 			endswitch;
 		endif;
-		\updatenotify_clear($sphere->get_notifier(),$data);
+		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
 /**
@@ -86,7 +89,7 @@ final class shared_toolbox {
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
 			set_lock(false);
-		$sphere->grid = &\array_make_branch($config,'minidlna','media','param');
+		$sphere->grid = &arr::make_branch($config,'minidlna','media','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -99,12 +102,12 @@ final class shared_toolbox {
 			add_area_tabnav()->
 				push()->
 				add_tabnav_upper()->
-					ins_tabnav_record('services_fuppes.php',\gettext('Fuppes'))->
-					ins_tabnav_record('services_minidlna.php',\gettext('MiniDLNA'),\gettext('Reload page'),true)->
+					ins_tabnav_record('services_fuppes.php',gettext('Fuppes'))->
+					ins_tabnav_record('services_minidlna.php',gettext('MiniDLNA'),gettext('Reload page'),true)->
 				pop()->
 				add_tabnav_lower()->
-					ins_tabnav_record('services_minidlna.php',\gettext('Settings'))->
-					ins_tabnav_record('services_minidlna_media.php',\gettext('Media Folder'),\gettext('Reload page'),true);
+					ins_tabnav_record('services_minidlna.php',gettext('Settings'))->
+					ins_tabnav_record('services_minidlna_media.php',gettext('Media Folder'),gettext('Reload page'),true);
 		return $retval;
 	}
 }

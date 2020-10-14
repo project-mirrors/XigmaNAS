@@ -36,10 +36,12 @@ namespace services\minidlnad\media;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container_row {
 	protected $x_filesystem;
 	public function init_filesystem(): myp\property_text {
-		$title = \gettext('Path');
+		$title = gettext('Path');
 		$property = $this->x_filesystem = new myp\property_text($this);
 		$property->
 			set_name('path')->
@@ -51,7 +53,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_type;
 	public function init_type(): myp\property_list {
-		$title = \gettext('Media Type');
+		$title = gettext('Media Type');
 		$property = $this->x_type = new myp\property_list($this);
 		$property->
 			set_name('type')->

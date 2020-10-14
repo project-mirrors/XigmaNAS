@@ -36,6 +36,8 @@ namespace services\minidlnad;
 
 use common\properties as myp;
 
+use function gettext;
+
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
@@ -44,8 +46,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_friendlyname(): myp\property_text {
-		$description = \gettext('Media Server Name.');
-		$placeholder = \gettext('Name');
+		$description = gettext('Media Server Name.');
+		$placeholder = gettext('Name');
 		$property = parent::init_friendlyname();
 		$property->
 			set_id('name')->
@@ -58,14 +60,14 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_loglevel(): myp\property_list {
-		$description = \gettext('Verbosity of information that is logged.');
+		$description = gettext('Verbosity of information that is logged.');
 		$options = [
-			'off' => \gettext('Off'),
-			'fatal' => \gettext('Fatal'),
-			'error' => \gettext('Error'),
-			'warn' => \gettext('Warning'),
-			'info' => \gettext('Info'),
-			'debug' => \gettext('Debug')
+			'off' => gettext('Off'),
+			'fatal' => gettext('Fatal'),
+			'error' => gettext('Error'),
+			'warn' => gettext('Warning'),
+			'info' => gettext('Info'),
+			'debug' => gettext('Debug')
 		];
 		$property = parent::init_loglevel();
 		$property->
@@ -77,8 +79,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_inotify(): myp\property_bool {
-		$caption = \gettext('Enable inotify.');
-		$description = \gettext('Use inotify monitoring to automatically discover new media files.');
+		$caption = gettext('Enable inotify.');
+		$description = gettext('Use inotify monitoring to automatically discover new media files.');
 		$property = parent::init_inotify();
 		$property->
 			set_id('inotify')->
@@ -89,8 +91,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_notifyinterval(): myp\property_int {
-		$description = \gettext('Broadcasts its availability every configured seconds on the network, the default is 300 seconds.');
-		$placeholder = \gettext('300');
+		$description = gettext('Broadcasts its availability every configured seconds on the network, the default is 300 seconds.');
+		$placeholder = gettext('300');
 		$property = parent::init_notifyinterval();
 		$property->
 			set_id('notify_int')->
@@ -106,7 +108,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_interface(): myp\property_list {
-		$description = \gettext('Select which interface to use.');
+		$description = gettext('Select which interface to use.');
 		$property = parent::init_interface();
 		$property->
 			set_id('if')->
@@ -116,8 +118,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_port(): myp\property_int {
-		$description = \gettext('Port to listen on. Port number must be between 1024 and 65535. Default port is 8200.');
-		$placeholder = \gettext('8200');
+		$description = gettext('Port to listen on. Port number must be between 1024 and 65535. Default port is 8200.');
+		$placeholder = gettext('8200');
 		$property = parent::init_port();
 		$property->
 			set_id('port')->
@@ -133,8 +135,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_strict(): myp\property_bool {
-		$caption = \gettext('Enable to strictly adhere to DLNA standards.');
-		$description = \gettext('This will allow server-side downscaling of very large JPEG images, it can impact JPEG serving performance on some DLNA devices.');
+		$caption = gettext('Enable to strictly adhere to DLNA standards.');
+		$description = gettext('This will allow server-side downscaling of very large JPEG images, it can impact JPEG serving performance on some DLNA devices.');
 		$property = parent::init_strict();
 		$property->
 			set_id('strict')->
@@ -145,8 +147,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_enabletivo(): myp\property_bool {
-		$caption = \gettext('Enable TiVo support.');
-		$description = \gettext('This will support streaming .jpg and .mp3 files to a TiVo supporting HMO.');
+		$caption = gettext('Enable TiVo support.');
+		$description = gettext('This will support streaming .jpg and .mp3 files to a TiVo supporting HMO.');
 		$property = parent::init_enabletivo();
 		$property->
 			set_id('tivo')->
@@ -159,8 +161,8 @@ final class setting_properties extends grid_properties {
 	public function init_home(): myp\property_text {
 		global $g;
 
-		$description = \gettext('Location of the media content database.');
-		$placeholder = \gettext('Path');
+		$description = gettext('Location of the media content database.');
+		$placeholder = gettext('Path');
 		$property = parent::init_home();
 		$property->
 			set_id('home')->
@@ -171,7 +173,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_widelinks(): myp\property_bool {
-		$caption = \gettext('Allow symlinks that point outside defined media folders.');
+		$caption = gettext('Allow symlinks that point outside defined media folders.');
 		$property = parent::init_widelinks();
 		$property->
 			set_id('wide_links')->
@@ -181,20 +183,20 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_auxparam(): myp\property_auxparam {
-		$description = \gettext('These parameters will be added to minidlna.conf');
+		$description = gettext('These parameters will be added to minidlna.conf');
 		$property = parent::init_auxparam();
 		$property->
 			set_description($description);
 		return $property;
 	}
 	public function init_rootcontainer(): myp\property_list {
-		$description = \gettext('Select a container as the root of the tree exposed to clients.');
+		$description = gettext('Select a container as the root of the tree exposed to clients.');
 		$options = [
-			'.' => \gettext('Use the standard container (this is the default)'),
-			'B' => \gettext('Use the "Browse Directory" container'),
-			'M' => \gettext('Use the "Music" container'),
-			'V' => \gettext('Use the "Video" container'),
-			'P' => \gettext('Use the "Pictures" container')
+			'.' => gettext('Use the standard container (this is the default)'),
+			'B' => gettext('Use the "Browse Directory" container'),
+			'M' => gettext('Use the "Music" container'),
+			'V' => gettext('Use the "Video" container'),
+			'P' => gettext('Use the "Pictures" container')
 		];
 		$property = parent::init_rootcontainer();
 		$property->
@@ -206,8 +208,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_forcesortcriteria(): myp\property_text {
-		$description = \gettext('Overwrite the sort criteria passed by the client.');
-		$placeholder = \gettext('+upnp:class,+upnp:originalTrackNumber,+dc:title');
+		$description = gettext('Overwrite the sort criteria passed by the client.');
+		$placeholder = gettext('+upnp:class,+upnp:originalTrackNumber,+dc:title');
 		 $property = parent::init_forcesortcriteria();
 		$property->
 			set_id('force_sort_criteria')->
@@ -220,7 +222,7 @@ final class setting_properties extends grid_properties {
 	 return $property;
 	}
 	public function init_disablesubtitles(): myp\property_bool {
-		$caption = \gettext('Disable subtitle support on unknown clients.');
+		$caption = gettext('Disable subtitle support on unknown clients.');
 		$property = parent::init_disablesubtitles();
 		$property->
 			set_id('disablesubtitles')->
