@@ -37,6 +37,8 @@ namespace system\sysctl\info;
 use common\properties as myp;
 use common\sphere as mys;
 
+use function count,gettext,new_page,updatenotify_exists;
+
 /**
  *	Wrapper class for autoloading functions
  */

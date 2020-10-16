@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\sysctl\info;
 
 use common\sphere as mys;
+
+use function gettext;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -82,4 +86,3 @@ final class shared_toolbox {
 		return $retval;
 	}
 }
-
