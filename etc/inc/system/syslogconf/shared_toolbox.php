@@ -31,8 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\syslogconf;
+
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -49,7 +55,7 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
-		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
@@ -72,7 +78,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
@@ -83,14 +89,14 @@ final class shared_toolbox {
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
 			set_lock(true);
-		$sphere->grid = &array_make_branch($config,'system','syslogconf','param');
+		$sphere->grid = &arr::make_branch($config,'system','syslogconf','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
+ *	@param co_DOMDocument $document
  *	@return int
  */
-	public static function add_tabnav(\co_DOMDocument $document) {
+	public static function add_tabnav(co_DOMDocument $document) {
 		$retval = 0;
 		$document->
 			add_area_tabnav()->
