@@ -113,20 +113,20 @@ final class grid_toolbox {
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','25%','25%','10%','25%','10%'];
 		$n_col_width = count($a_col_width);
-		//	prepare additional javascript code
+//		prepare additional javascript code
 		if($use_tablesort):
 			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
 			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 		endif;
-		//	get areas
+//		get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	add tab navigation
+//		add tab navigation
 		shared_toolbox::add_tabnav($document);
-		//	create data area
+//		create data area
 		$content = $pagecontent->add_area_data();
-		//	display information, warnings and errors
+//		display information, warnings and errors
 		$content->
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
@@ -134,7 +134,7 @@ final class grid_toolbox {
 		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
-		//	add content
+//		add content
 		$table = $content->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',$a_col_width);
 		$thead = $table->addTHEAD();
@@ -192,7 +192,7 @@ final class grid_toolbox {
 			add_area_buttons()->
 				ins_cbm_button_enadis($sphere)->
 				ins_cbm_button_delete($sphere);
-		//	additional javascript code
+//		additional javascript code
 		$body->ins_javascript($sphere->get_js());
 		$body->add_js_on_load($sphere->get_js_on_load());
 		$body->add_js_document_ready($sphere->get_js_document_ready());
@@ -223,7 +223,7 @@ final class grid_toolbox {
 			case 'SESSION':
 				switch($page_action):
 					case $sphere->get_script()->get_basename():
-						//	catch error code
+//						catch error code
 						$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 						unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
 						$savemsg = get_std_save_message($retval);
