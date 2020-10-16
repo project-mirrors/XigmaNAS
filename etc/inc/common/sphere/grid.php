@@ -402,7 +402,7 @@ final class grid extends hub {
 	}
 	public function get_js_on_load(): string {
 		$output = [];
-		//	Init action buttons.
+//		init action buttons.
 		if($this->is_enadis_enabled()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
@@ -420,13 +420,13 @@ final class grid extends hub {
 		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
 		$output[] = "\t\t" . 'return confirm(' . unicode_escape_javascript($this->getmsg_cbm_delete_confirm()) . ');';
 		$output[] = "\t" . '});';
-		//	Disable action buttons.
+//		disable action buttons.
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
-		//	Init toggle checkbox.
+//		init toggle checkbox.
 		$output[] = "\t" . '$("#' . $this->get_cbm_checkbox_id_toggle() . '").click(function() {';
 		$output[] = "\t\t" . 'cb_tbn' . $this->get_cbm_suffix() . '(this,"' . $this->get_cbm_name() . '[]");';
 		$output[] = "\t" . '});';
-		//	Init member checkboxes.
+//		init member checkboxes.
 		$output[] = "\t" . '$("input[name=\'' . $this->get_cbm_name() . '[]\']").click(function() {';
 		$output[] = "\t\t" . 'ab_control' . $this->get_cbm_suffix() . '(this,"' . $this->get_cbm_name() . '[]");';
 		$output[] = "\t" . '});';

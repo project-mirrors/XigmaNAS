@@ -50,7 +50,7 @@ final class row extends hub {
 			$output[] = '//<![CDATA[';
 		endif;
 		$output[] = '$(window).on("load", function() {';
-		//	Init spinner.
+//		init spinner
 		$output[] = "\t" . '$("#iform").submit(function() { spinner(); });';
 		$output[] = "\t" . '$(".spin").click(function() { spinner(); });';
 		$output[] = '});';
