@@ -31,11 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\rc;
 
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use function array_key_exists,count,file_exists,filter_var,is_bool,gettext,
+		header,get_std_save_message,new_page,updatenotify_cbm_delete,
+		updatenotify_cbm_disable,updatenotify_cbm_enable,
+		updatenotify_cbm_toggle,updatenotify_exists,updatenotify_get_mode,
+		updatenotify_process,write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -43,7 +51,7 @@ final class grid_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return \common\sphere\grid
+ *	@return grid
  */
 	public static function init_sphere() {
 		global $config;
@@ -72,7 +80,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
@@ -80,7 +88,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \system\rc\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -91,8 +99,8 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \system\rc\grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param grid_properties $cop
+ *	@param grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
@@ -163,7 +171,7 @@ final class grid_toolbox {
 				$dc = $is_enabled ? '' : 'd';
 				$typeid_name = $cop->get_typeid()->get_name();
 				$typeid_options = $cop->get_typeid()->get_options();
-				if(\array_key_exists($sphere->row[$typeid_name],$typeid_options)):
+				if(array_key_exists($sphere->row[$typeid_name],$typeid_options)):
 					$typeid_value = $typeid_options[$sphere->row[$typeid_name]];
 				else:
 					$typeid_value = gettext('Unknown');
@@ -207,9 +215,9 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param container $cop
+ *	@param root $sphere
+ *	@param rmo $rmo
  */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
@@ -221,7 +229,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
