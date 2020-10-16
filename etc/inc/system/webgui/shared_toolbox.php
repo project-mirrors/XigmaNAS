@@ -31,8 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\webgui;
+
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -54,7 +60,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
@@ -63,14 +69,14 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(false);
-		$sphere->grid = &array_make_branch($config,'system','webgui');
+		$sphere->grid = &arr::make_branch($config,'system','webgui');
 	}
 /**
  *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
+ *	@param co_DOMDocument $document
  *	@return int
  */
-	public static function add_tabnav(\co_DOMDocument $document) {
+	public static function add_tabnav(co_DOMDocument $document) {
 		$retval = 0;
 		$document->
 			add_area_tabnav()->
