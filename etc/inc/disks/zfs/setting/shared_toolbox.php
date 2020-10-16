@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\zfs\setting;
 
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -49,7 +54,7 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = setting_toolbox::init_sphere();
-		\updatenotify_clear($sphere->get_notifier(),$data);
+		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
 /**
@@ -64,7 +69,7 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(false);
-		$sphere->grid = &\array_make_branch($config,'zfs','settings');
+		$sphere->grid = &arr::make_branch($config,'zfs','settings');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -76,12 +81,12 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('disks_zfs_zpool.php',\gettext('Pools'))->
-					ins_tabnav_record('disks_zfs_dataset.php',\gettext('Datasets'))->
-					ins_tabnav_record('disks_zfs_volume.php',\gettext('Volumes'))->
-					ins_tabnav_record('disks_zfs_snapshot.php',\gettext('Snapshots'))->
-					ins_tabnav_record('disks_zfs_config.php',\gettext('Configuration'))->
-					ins_tabnav_record('disks_zfs_settings.php',\gettext('Settings'),\gettext('Reload page'),true);
+					ins_tabnav_record('disks_zfs_zpool.php',gettext('Pools'))->
+					ins_tabnav_record('disks_zfs_dataset.php',gettext('Datasets'))->
+					ins_tabnav_record('disks_zfs_volume.php',gettext('Volumes'))->
+					ins_tabnav_record('disks_zfs_snapshot.php',gettext('Snapshots'))->
+					ins_tabnav_record('disks_zfs_config.php',gettext('Configuration'))->
+					ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'),gettext('Reload page'),true);
 		return $retval;
 	}
 }
