@@ -35,6 +35,8 @@ namespace system\route;
 
 use common\properties as myp;
 
+use function gettext;
+
 final class row_properties extends grid_properties {
 	public function init_interface(): \common\properties\property_list {
 		$description = gettext('Choose which interface this route applies to.');

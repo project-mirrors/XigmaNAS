@@ -35,6 +35,8 @@ namespace system\route;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container_row {
 	public function init_description(): myp\property_text {
 		$property = parent::init_description();
