@@ -41,8 +41,8 @@ namespace common\sphere;
  *	root -> settings
  */
 class hub extends root {
-	public $row_id = NULL;
-	public function set_row_key($key = NULL) {
+	public $row_id = null;
+	public function set_row_key($key = null) {
 		$this->row_id = $key;
 		return $this;
 	}

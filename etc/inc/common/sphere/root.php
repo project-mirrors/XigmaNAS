@@ -174,6 +174,20 @@ class root {
 	public function get_row_identifier_value(): ?string {
 		return $this->row[$this->x_row_identifier] ?? null;
 	}
+	protected array $x_page_title = [];
+	public function add_page_title(string ...$items): self {
+		foreach($items as $item):
+			$this->x_page_title[] = $item;
+		endforeach;
+		return $this;
+	}
+	public function get_page_title(): array {
+		return $this->x_page_title;
+	}
+	public function reset_page_title(): self {
+		$this->x_page_title = [];
+		return $this;
+	}
 	public function get_js_on_load(): string {
 		return '';
 	}
