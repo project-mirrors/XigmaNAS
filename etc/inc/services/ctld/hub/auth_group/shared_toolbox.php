@@ -70,7 +70,8 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
-			set_enadis(true);
+			set_enadis(true)->
+			add_page_title(gettext('Services'),gettext('CAM Target Layer'),gettext('Auth Groups'));
 		$sphere->grid = &arr::make_branch($config,'ctld','ctl_auth_group','param');
 	}
 /**
