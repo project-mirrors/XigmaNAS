@@ -138,7 +138,7 @@ Changes:
 - Upgrade transmission to 3.00.
 - Upgrade sudo to 1.9.3p1.
 - Upgrade pecl-APCu to 5.1.19.
-- Upgrade php to 7.4.11.
+- Upgrade php to 7.4.13.
 
 Fixes:
 
