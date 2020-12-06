@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-09-13 22:33+0000\n"
-"PO-Revision-Date: 2020-09-25 06:52+0000\n"
+"PO-Revision-Date: 2020-09-29 13:09+0000\n"
 "Last-Translator: Piotr Łobuz <ericsson@go2.pl>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-09-25 11:45+0000\n"
-"X-Generator: Launchpad (build a314d157ca9be8d00eae0214fc0d7dff1cd406e4)\n"
+"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
+"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
 "X-Poedit-Language: Polish\n"
@@ -26,7 +26,7 @@ msgid " was assigned to "
 msgstr " został przypisany do "
 
 msgid " | State: "
-msgstr ""
+msgstr " / Stan "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -38,7 +38,7 @@ msgstr ""
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s użyte, %3$s dostępne"
 
 #, php-format
 msgid "%d days"
@@ -489,7 +489,7 @@ msgid "Action"
 msgstr "Działanie"
 
 msgid "Actions"
-msgstr ""
+msgstr "Akcje"
 
 msgid "Activate"
 msgstr "Aktywuj"
@@ -862,6 +862,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Wszystkie dane w wybranej lokalizacji są nadpisane. Zaleca sie użycie "
+"pustego katalogu UFS lub pustego schematu ZFS"
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Wszystkie dane zostaną utracone po wybraniu tej opcji!"
@@ -898,7 +900,7 @@ msgid "Allow Serial Ports"
 msgstr "Pozwalaj na porty szeregowe"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "Zezwalaj na przekierowanie TCP"
 
 msgid "Allow TLS connections only."
 msgstr "Zezwalaj tylko na połączenia TLS"
@@ -1087,6 +1089,8 @@ msgid ""
 "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
 "services can cause problems."
 msgstr ""
+"Inna usługa DLNA/UPnP już działa. Uruchamianie wielu usług DLNA/UPnP może "
+"powodować problemy."
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -1143,13 +1147,13 @@ msgid "Archive"
 msgstr "Archiwum"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "Archiwizuj element(y)"
 
 msgid "Archive mode."
 msgstr "Tryb archiwizacji."
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Jesteś pewny że chcesz usunąć wybrany element(y) ?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Czy na pewno chcesz, aby ponownie uruchomić serwer?"
@@ -1157,6 +1161,8 @@ msgstr "Czy na pewno chcesz, aby ponownie uruchomić serwer?"
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
 msgstr ""
+"Jesteś pewny że chcesz przywrócić konfigurację systemu do ustawień "
+"fabrycznych?"
 
 msgid "Are you sure you want to shutdown the server?"
 msgstr "Czy na pewno chcesz wyłączyć serwer?"
@@ -1354,10 +1360,10 @@ msgstr ""
 "Średni czas startu dysku (Od zera obrotów do pełnej prędkości operacyjnej"
 
 msgid "BMP Image"
-msgstr ""
+msgstr "Obraz BMP"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "Archiwum BZIP2"
 
 msgid "Back"
 msgstr "Wstecz"
@@ -1381,15 +1387,21 @@ msgid ""
 "Backup configuration reminder. The last configuration backup is older than "
 "the configured interval."
 msgstr ""
+"Przypomnienie konfiguracji kopii zapasowej. Ostatnia konfiguracja jest "
+"starsza niz skonfigurowany interwał."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup cannot be "
 "found."
 msgstr ""
+"Konfiguracja kopii zapasowej. Data ostaniej konfiguracji kopii zapasowej nie "
+"może być znaleziona."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup is invalid."
 msgstr ""
+"Konfiguracja kopii zapasowej. Data ostatniej konfiguracji kopii zapasowej "
+"jest nieprawidłowa."
 
 msgid "Backup/Restore"
 msgstr "Backup/Przywróć"
@@ -1427,7 +1439,7 @@ msgid "Battery Details"
 msgstr "Szczegóły baterii"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Poziom baterii"
 
 msgid "Battery Low"
 msgstr "Niski poziom baterii"
@@ -1489,10 +1501,10 @@ msgid "Best available"
 msgstr "Najlepszy dostępny"
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Wersje Beta"
 
 msgid "Binary Prefix"
-msgstr ""
+msgstr "Prefiks binarny"
 
 msgid "Bind DN"
 msgstr "Powiązana DN"
@@ -1515,7 +1527,7 @@ msgid "Blank Time"
 msgstr ""
 
 msgid "Block"
-msgstr ""
+msgstr "Zablokuj"
 
 msgid "Block Size"
 msgstr "Rozmiar bloku"
@@ -1589,10 +1601,10 @@ msgid "Browseable"
 msgstr "Widoczny"
 
 msgid "Button Location"
-msgstr ""
+msgstr "Lokalizjacja przycisku"
 
 msgid "Button Settings"
-msgstr ""
+msgstr "Ustawienia przycisku"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Domyślnie, tylko już istniejące pliki zostaną wysłane."
@@ -1601,13 +1613,13 @@ msgid "Bytes/sec"
 msgstr "Bajty/sek"
 
 msgid "C File"
-msgstr ""
+msgstr "Plik C"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "Nagłówek pliku C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Plik źródłowy C++"
 
 msgid "CACHE"
 msgstr "BUFOR"
@@ -1645,10 +1657,10 @@ msgid "CCMP TKIP"
 msgstr "CCMP TKIP"
 
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 msgid "CD/DVD"
 msgstr "CD/DVD"
@@ -1657,10 +1669,10 @@ msgid "CD/DVD drive"
 msgstr "Napęd CD/DVD"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "Skrypt CGI"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "ZMIEŃ UPRAWNIENIA"
 
 msgid "CHANGED"
 msgstr "ZMIENIONO"
@@ -1690,7 +1702,7 @@ msgid "CHAP-Mutual"
 msgstr ""
 
 msgid "COPY"
-msgstr ""
+msgstr "KOPIUJ"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cyrilica)"
@@ -1760,16 +1772,16 @@ msgstr ""
 "FIS)"
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "Plik CSS"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Ustawienia pliku CSS"
 
 msgid "CTL LUN"
-msgstr ""
+msgstr "CTL LUN"
 
 msgid "Calibration Battery"
 msgstr "Kalibracja baterii"
@@ -1841,13 +1853,13 @@ msgid "Change"
 msgstr "Zmień"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "Zmień uprawnienia"
 
 msgid "Change below file"
 msgstr "Zmień poniższy plik"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "Zmień uprawnienia"
 
 msgid "Change the IP address of your computer"
 msgstr "Zmień adres IP Twojego komputera"
@@ -1897,7 +1909,7 @@ msgid "Choose which interface this route applies to."
 msgstr "Wskaż interfejs, dla którego jest ten ruting."
 
 msgid "Choose..."
-msgstr ""
+msgstr "Wybierz..."
 
 msgid "Clear"
 msgstr "Wyczyść"
@@ -1941,7 +1953,7 @@ msgid "Clone Configuration"
 msgstr "Klonuj konfigurację"
 
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Zbieranie danych inicjalizacyjnych, proszę czekać..."
@@ -2007,7 +2019,7 @@ msgid "Comment"
 msgstr "Komentarz"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Błąd komunikacji"
 
 msgid "Community"
 msgstr "Społeczność"
@@ -2253,17 +2265,17 @@ msgid "Copies"
 msgstr "Liczba kopii"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopiuj"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Kopiuj z /%s do /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Kopiuj elementy"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Błąd kopiowania"
 
 msgid "Core"
 msgstr "Rdzeń"
@@ -2377,7 +2389,7 @@ msgid ""
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Utwórz"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr ""
@@ -2401,7 +2413,7 @@ msgid "Create Work Directory"
 msgstr ""
 
 msgid "Create ZFS on a GPT partition."
-msgstr ""
+msgstr "Utwórz ZFS na partycji GPT"
 
 msgid "Create a L2ARC device for ARC"
 msgstr ""
@@ -2418,18 +2430,21 @@ msgstr ""
 msgid ""
 "Create a virtual device containing a single device or concatenated devices"
 msgstr ""
+"Utwórz wirtualne urządzanie zawierające pojedyńcze lub skoncentrowane "
+"urządzenia."
 
 msgid "Create a virtual device containing mirrored devices"
-msgstr ""
+msgstr "Utwórz urządzenie wirtualne zawierające zmirrorowane urządzenia"
 
 msgid "Create a virtual device which tolerates 2 device failures"
 msgstr ""
 
 msgid "Create a virtual device which tolerates 3 device failures"
-msgstr ""
+msgstr "Utwórz wirtualne urządzenie z tolerancją 3 uszkodzonych urządzeń"
 
 msgid "Create a virtual device which tolerates a single device failure"
 msgstr ""
+"Utwórz wirtualne urządzenine z tolerancją uszkodzenia jednego urządzenia"
 
 msgid "Create and initialize RAID."
 msgstr "Utwórz i zainicjuj macierz RAID"
@@ -2477,19 +2492,19 @@ msgid "Current"
 msgstr "Bieżący"
 
 msgid "Current Password"
-msgstr ""
+msgstr "Bieżące hasło"
 
 msgid "Current Setting"
-msgstr ""
+msgstr "Bieżące ustaswienia"
 
 msgid "Current Version"
-msgstr ""
+msgstr "Aktualna wersja"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Obecny i poprzedni miesiąc"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Obecny i poprzedni rok"
 
 msgid "Current internal temperature."
 msgstr "Aktualna temperatura wewnątrz"
@@ -2498,7 +2513,7 @@ msgid "Current password"
 msgstr "Aktualne hasło"
 
 msgid "Current password is incorrectly entered."
-msgstr ""
+msgstr "Źle wprowadzone aktualne hasło"
 
 msgid "Current quarter"
 msgstr ""
@@ -2509,7 +2524,7 @@ msgstr ""
 msgid ""
 "Current system password is using the default password. You should choose a "
 "different password."
-msgstr ""
+msgstr "Aktualne hasło zawiera domyślne hasło. Powinieneś użyć innego hasła"
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Aktualna wartość mocy pozornej (Wolty-Ampery)"
@@ -2518,7 +2533,7 @@ msgid "Current value of real power (Watts)"
 msgstr "Wartość realnej mocy (Waty)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Obecny rok"
 
 msgid "Custom"
 msgstr "Własny"
@@ -2554,7 +2569,7 @@ msgid "DEBUG3 - log all debugging information"
 msgstr ""
 
 msgid "DELETE"
-msgstr ""
+msgstr "USUŃ"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -2563,10 +2578,10 @@ msgid "DHCP cannot be used for LAN interface."
 msgstr "DHCP nie może zostać użyte dla interfejsu LAN"
 
 msgid "DHX Authentication"
-msgstr ""
+msgstr "Uwierzytelnienie DHX"
 
 msgid "DHX2 Authentication"
-msgstr ""
+msgstr "Uwierzytelnienie DHX2"
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2581,7 +2596,7 @@ msgid "DNS"
 msgstr "DNS"
 
 msgid "DNS Domain"
-msgstr ""
+msgstr "Domena DNS"
 
 msgid "DNS Forwarder"
 msgstr ""
@@ -2598,16 +2613,16 @@ msgid ""
 msgstr ""
 
 msgid "DOWNLOAD"
-msgstr ""
+msgstr "POBIERZ"
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "Plik audio DTS"
 
 msgid "DVD"
 msgstr "DVD"
 
 msgid "DVD-ROM"
-msgstr ""
+msgstr "DVD-ROM"
 
 msgid "Daemon"
 msgstr "Demon"
@@ -2619,7 +2634,7 @@ msgid "Daemon log"
 msgstr "Daemon log"
 
 msgid "Data"
-msgstr ""
+msgstr "Dane"
 
 msgid "Data Digest"
 msgstr ""
@@ -2628,7 +2643,7 @@ msgid "Data Integrity"
 msgstr ""
 
 msgid "Data Type"
-msgstr ""
+msgstr "Typ danych"
 
 msgid "Data digest"
 msgstr "Przetwarzane dane"
@@ -2664,7 +2679,7 @@ msgid "Date & Time"
 msgstr "Data i czas"
 
 msgid "Date Format"
-msgstr ""
+msgstr "Format daty"
 
 msgid "Day"
 msgstr "Dzień"
@@ -2760,7 +2775,7 @@ msgid "Delete ARP entry"
 msgstr "Usuń wpisy ARP"
 
 msgid "Delete Algorithm"
-msgstr ""
+msgstr "Usuń algorytm"
 
 msgid "Delete Host"
 msgstr "Usuń hosta"
@@ -2769,7 +2784,7 @@ msgid "Delete Login Info"
 msgstr "Usuń informacje logowania"
 
 msgid "Delete Permission"
-msgstr ""
+msgstr "Usuń dostęp"
 
 msgid "Delete Selected Auth Groups"
 msgstr ""
@@ -2790,13 +2805,13 @@ msgid "Delete Selected Datasets"
 msgstr "Usuń zaznaczone zbiory danych"
 
 msgid "Delete Selected Disks"
-msgstr ""
+msgstr "Usuń wybrane dyski"
 
 msgid "Delete Selected Encrypted Volumes"
-msgstr ""
+msgstr "Usuń wybrane szyfrowane woluminy"
 
 msgid "Delete Selected Groups"
-msgstr ""
+msgstr "Usuń wybrane grupy"
 
 msgid "Delete Selected Initiator Names"
 msgstr ""
@@ -2808,7 +2823,7 @@ msgid "Delete Selected Jobs"
 msgstr "Usuń wybrane zadania."
 
 msgid "Delete Selected LAGGs"
-msgstr ""
+msgstr "Usuń wybrane LAGGs"
 
 msgid "Delete Selected LUN Records"
 msgstr ""
@@ -2856,7 +2871,7 @@ msgid "Delete Selected RAID Volumes"
 msgstr "Usuń wybrane woluminy RAID"
 
 msgid "Delete Selected Records"
-msgstr ""
+msgstr "Usuń wybrane rekordy"
 
 msgid "Delete Selected Resources"
 msgstr ""
@@ -2868,7 +2883,7 @@ msgid "Delete Selected Rsync Jobs"
 msgstr ""
 
 msgid "Delete Selected Rsync Modules"
-msgstr ""
+msgstr "Usuń wybrane moduły Rsync"
 
 msgid "Delete Selected Samba Shares"
 msgstr ""
@@ -2973,7 +2988,7 @@ msgid "Deleting MBR and partition table"
 msgstr "Usuwananie zawartości MBR oraz tablicy partycji."
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "Usuwanie nieudane"
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -2993,7 +3008,7 @@ msgid "Destination"
 msgstr "Przeznaczenie"
 
 msgid "Destination Network"
-msgstr ""
+msgstr "Sieć docelowa"
 
 msgid "Destination Share"
 msgstr ""
@@ -3005,7 +3020,7 @@ msgid "Destination email address. Separate email addresses by semi-colon."
 msgstr "Docelowe adresy e-mail. Oddziel adresy e-mail średnikiem."
 
 msgid "Destination host name or IP address."
-msgstr ""
+msgstr "Docelowa nazwa hosta lub adres IP"
 
 msgid "Destination network for this static route."
 msgstr ""
@@ -3024,7 +3039,7 @@ msgid "Destroyed"
 msgstr "Zniszczone"
 
 msgid "Detach"
-msgstr ""
+msgstr "Odłącz"
 
 msgid "Detach a data device from a mirror"
 msgstr ""
@@ -3036,16 +3051,16 @@ msgid "Detailed"
 msgstr "Szczegóły"
 
 msgid "Details"
-msgstr ""
+msgstr "Szczegóły"
 
 msgid "Detected"
 msgstr "Wykryty"
 
 msgid "Detected Disks"
-msgstr ""
+msgstr "Wykryte dyski"
 
 msgid "Detected Remote Shares"
-msgstr ""
+msgstr "Wykryte zdalne udziały"
 
 msgid "Detected an error while importing."
 msgstr "Wykryto błąd podczas importowania"
@@ -3071,7 +3086,7 @@ msgid "Device /dev/%s - %s"
 msgstr "Urządzenie /dev/%s - %s"
 
 msgid "Device ID"
-msgstr ""
+msgstr "Identyfikator urządzenia"
 
 msgid "Device IP"
 msgstr "Adres IP urządzenia"
@@ -3092,7 +3107,7 @@ msgid "Device Serial"
 msgstr "Numer seryjny urządzenia"
 
 msgid "Device Type"
-msgstr ""
+msgstr "Typ urządzenia"
 
 msgid "Device contains boot partition"
 msgstr "Urządzenie zawiera partycję rozruchową."
@@ -3137,7 +3152,7 @@ msgid "Digital Audio Access Protocol"
 msgstr "Digital Audio Access Protocol"
 
 msgid "Direct"
-msgstr ""
+msgstr "Bezpośredni"
 
 msgid "Direction"
 msgstr "Kierunek"
@@ -3153,7 +3168,7 @@ msgid "Directory Mask"
 msgstr ""
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Nieudane tworzenie katalogu"
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr ""
@@ -3169,13 +3184,13 @@ msgid "Directory to watch for new .torrent files."
 msgstr "Katalog w którym znajdują się pliki .torrent."
 
 msgid "Disable"
-msgstr ""
+msgstr "Wyłącz"
 
 msgid "Disable Extension Menu"
 msgstr ""
 
 msgid "Disable Firmware Upgrade"
-msgstr ""
+msgstr "Wyłącz uprade'owanie firmware'u"
 
 msgid "Disable Selected Auth Groups"
 msgstr ""
@@ -3184,10 +3199,10 @@ msgid "Disable Selected CHAP Users"
 msgstr ""
 
 msgid "Disable Selected Commands"
-msgstr ""
+msgstr "Wyłącz Wybrane Polecenia"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Wyłącz Wybrane Grupy"
 
 msgid "Disable Selected Initiator Names"
 msgstr ""
@@ -3247,7 +3262,7 @@ msgid "Disable Selected Rsync Modules"
 msgstr ""
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "Wyłącz Wybrane Udziały Samby"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr ""
@@ -3256,7 +3271,7 @@ msgid "Disable Selected Targets"
 msgstr ""
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Wyłącz Wybranych Użytkowników"
 
 msgid "Disable Selected WebDAV Records"
 msgstr ""
@@ -3268,7 +3283,7 @@ msgid "Disable Selected iSNS Servers"
 msgstr ""
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Wyłącz napisy"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "Wyłącz TCP wrapper (moduł mod_wrap)"
@@ -3277,7 +3292,7 @@ msgid "Disable console menu."
 msgstr "Wyłącz menu konsoli."
 
 msgid "Disable file manager."
-msgstr ""
+msgstr "Wyłącz Menadżera Plików"
 
 msgid "Disable firmware version check."
 msgstr "Wyłącz sprawdzanie wersji oprogramowania."
@@ -3286,7 +3301,7 @@ msgid "Disable scanning of folders for existing extension menus."
 msgstr ""
 
 msgid "Disable speaker beep on startup and shutdown."
-msgstr ""
+msgstr "Wyłącz głośni systemowy na starcie i zamknięciu."
 
 msgid "Disable subtitle support on unknown clients."
 msgstr ""
@@ -3330,13 +3345,13 @@ msgid "Disk"
 msgstr "Dysk"
 
 msgid "Disk Partition Information"
-msgstr ""
+msgstr "Informacje o partycjach na dysku"
 
 msgid "Disk Selection"
 msgstr ""
 
 msgid "Disk Settings"
-msgstr ""
+msgstr "Ustawienie Dysku"
 
 msgid "Disk Space Usage"
 msgstr "Użycie przestrzeni dyskowej."
@@ -3345,13 +3360,13 @@ msgid "Disk Usage"
 msgstr "Użycie dysku"
 
 msgid "Disk is locked"
-msgstr ""
+msgstr "Dysk jest zablokowany"
 
 msgid "Disk is marked for deletion"
-msgstr ""
+msgstr "Dysk oznaczony do usunięcia"
 
 msgid "Disk is unlocked"
-msgstr ""
+msgstr "Dysk jest odblokowany"
 
 msgid "Disks"
 msgstr "Dyski"
@@ -3360,7 +3375,7 @@ msgid "Disks (Info)"
 msgstr "Dyski (Info)"
 
 msgid "Disks (Info) Information"
-msgstr ""
+msgstr "Informacje o Dyskach"
 
 msgid "Disks | Mount Point | Management"
 msgstr "Dyski | Punkty Montowania | Zarządzanie."
@@ -3369,7 +3384,7 @@ msgid "Display"
 msgstr "Ekran"
 
 msgid "Display Options"
-msgstr ""
+msgstr "Opcje wyświetlania"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -3377,7 +3392,7 @@ msgid ""
 msgstr ""
 
 msgid "Display ZFS command history"
-msgstr ""
+msgstr "Wyświetl historie komend ZFS"
 
 msgid ""
 "Display action buttons in the scrollable area instead of the footer area."
@@ -3396,7 +3411,7 @@ msgid "Distributed Hash Table"
 msgstr ""
 
 msgid "Do not abort the firmware upgrade process once it has started."
-msgstr ""
+msgstr "Nie przerywać procesu upgrade'u firmware jak został uruchomiony"
 
 msgid "Do not activate this option if you want to add an existing RAID."
 msgstr ""
@@ -3483,7 +3498,7 @@ msgid "Do you really want to uninstall this package?"
 msgstr "Czy na pewno chcesz odinstalować ten pakiet?"
 
 msgid "Do you want to apply these settings?"
-msgstr ""
+msgstr "Czy chcesz zastosować wybrane ustawienia"
 
 msgid "Do you want to create a JBOD from selected disks?"
 msgstr "Czy chcesz utworzyć JBOD z zaznaczonych dysków ?"
@@ -13900,4 +13915,4 @@ msgid "visible"
 msgstr ""
 
 msgid "yes"
-msgstr ""
+msgstr "Tak"

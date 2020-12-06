@@ -3,19 +3,19 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-09-13 22:33+0000\n"
-"PO-Revision-Date: 2020-06-15 16:03+0000\n"
-"Last-Translator: Pavel Borecki <Unknown>\n"
+"PO-Revision-Date: 2020-12-06 19:22+0000\n"
+"Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-09-25 11:44+0000\n"
-"X-Generator: Launchpad (build a314d157ca9be8d00eae0214fc0d7dff1cd406e4)\n"
+"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
+"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Žádný soukromý klíč"
 
 msgid " interfaces:"
 msgstr " rozhraní:"
@@ -24,7 +24,7 @@ msgid " was assigned to "
 msgstr " bylo přiřazeno k "
 
 msgid " | State: "
-msgstr ""
+msgstr " | Stát: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -32,11 +32,11 @@ msgstr "Z %1$s je vytvořeno %2$s svazků."
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr ""
+msgstr "%1$s spravováno, %2$s použito, %3$s k dispozici"
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s použito, %3$s dostupný"
 
 #, php-format
 msgid "%d days"
@@ -56,7 +56,7 @@ msgstr "%d rok"
 
 #, php-format
 msgid "%d years"
-msgstr "%d let"
+msgstr "%d roků"
 
 #, php-format
 msgid "%dB / block"
@@ -191,7 +191,7 @@ msgid "*** Imported duplicate ***"
 msgstr "*** Importovaný duplikát ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/mnt"
 msgstr "/mnt"
@@ -222,7 +222,7 @@ msgid "1000"
 msgstr "1000"
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
@@ -427,7 +427,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Je třeba zadat platnou předponu (1 až 128)."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3 zvukový soubor"
 
 msgid "ACL Inherit"
 msgstr "Převzít ACL seznamy"
@@ -469,10 +469,10 @@ msgid "ARP Tables List"
 msgstr "Seznam ARP tabulek"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI soubor"
 
 msgid "Accept remote syslog messages."
 msgstr "Přijímat syslog zprávy z ostatních systémů."
@@ -496,13 +496,13 @@ msgid "Access the webGUI with the new IP address"
 msgstr "Přistupte k webovému správnímu rozhraní touto novou IP adresou"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Akustická úroveň"
 
 msgid "Action"
 msgstr "Akce"
 
 msgid "Actions"
-msgstr ""
+msgstr "Akce"
 
 msgid "Activate"
 msgstr "Aktivovat"
@@ -558,7 +558,7 @@ msgid "Add CHAP User"
 msgstr "Přidat CHAP uživatele"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Přidat příkaz"
 
 msgid "Add Dataset"
 msgstr "Přidat datovou sadu"
@@ -729,7 +729,7 @@ msgid "Add self-test"
 msgstr "Přidat samotest"
 
 msgid "Add sysctl setting"
-msgstr ""
+msgstr "Přidat nastavení sysctl"
 
 msgid "Add target"
 msgstr "Přidat cíl"
@@ -775,7 +775,7 @@ msgid "Admin Password"
 msgstr "Heslo správce"
 
 msgid "Admin access"
-msgstr ""
+msgstr "Administrátorský přístup"
 
 msgid "Administration Password"
 msgstr "Heslo pro správu"
@@ -796,7 +796,7 @@ msgid "Advanced Options"
 msgstr "Pokročilé předvolby"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "Pokročilé nastavení SMB"
 
 msgid "Advanced Settings"
 msgstr "Pokročilá nastavení"
@@ -854,22 +854,22 @@ msgid "All"
 msgstr "Vše"
 
 msgid "All Days"
-msgstr ""
+msgstr "Každý den"
 
 msgid "All Hours"
-msgstr ""
+msgstr "Každou hodinu"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Všechna rozhraní"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "Každou minitu"
 
 msgid "All Months"
-msgstr ""
+msgstr "Každý měsíc"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "Každý den  z týdne"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Byly smazány veškeré údaje z následujících statistik:"
@@ -878,6 +878,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Všechna data ve zvolené cestě budou smazána. Použití prázdného adresáře UFS "
+"anebo prázdného ZFS datasetu je doporučeno."
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Použitím této volby budou všechna data ztracena!"
@@ -905,7 +907,7 @@ msgid "Allow"
 msgstr "Umožnit"
 
 msgid "Allow GSSAPI authentication."
-msgstr ""
+msgstr "Povolit GSSAPI autentikaci"
 
 msgid "Allow New Files"
 msgstr "Umožnit nové soubory"
@@ -914,7 +916,7 @@ msgid "Allow Serial Ports"
 msgstr "Umožnit používání seriových portů"
 
 msgid "Allow TCP forwarding."
-msgstr ""
+msgstr "Povolit přesměrování TCP"
 
 msgid "Allow TLS connections only."
 msgstr "Umožnit pouze šifrovaná spojení (TLS)."
@@ -950,19 +952,19 @@ msgid "Allow new files to be created."
 msgstr "Umožnit vytváření nových souborů."
 
 msgid "Allow password authentication."
-msgstr ""
+msgstr "Povolit ověření heslem."
 
 msgid "Allow public key authentication."
-msgstr ""
+msgstr "Povolit ověření pomocí veřejného klíče."
 
 msgid "Allow root to login via ssh."
-msgstr ""
+msgstr "Povolit příhlášení rootem do ssh."
 
 msgid "Allow symlinks that point outside defined media folders."
-msgstr ""
+msgstr "Povolit symlinky odkazující mimo definovaný adresář média."
 
 msgid "Allow the server to try and become a local master browser."
-msgstr ""
+msgstr "Povolit serveru stát se local master browser."
 
 msgid "Allow to start UPS from battery"
 msgstr ""
@@ -1132,13 +1134,13 @@ msgstr ""
 "platné nebo dostupné!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Připojit obsah do výchozího CSS souboru"
 
 msgid "Append user defined shares"
 msgstr "Připojit (přidat) uživatelsky definovaná sdílení"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Připojit uživatelem definované sdílené položky."
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -1171,13 +1173,13 @@ msgid "Archive"
 msgstr "Archivace"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "Archivovat položku/y"
 
 msgid "Archive mode."
 msgstr "Režim archivace."
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Chceš opravdu smazat vybranou položku/vybrané položky?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Opravdu chcete server restartovat?"
@@ -1386,10 +1388,10 @@ msgstr ""
 "provozní otáčky)."
 
 msgid "BMP Image"
-msgstr ""
+msgstr "obrázek BMP"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "BZIP2 archív"
 
 msgid "Back"
 msgstr "Zpět"
@@ -1516,13 +1518,13 @@ msgstr "Před – smazání souborů bude provedeno před zahájením přenosu."
 
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
-msgstr ""
+msgstr "Než začne klient Unison fungovat, je zapotřebí provést následující:"
 
 msgid "Best available"
 msgstr "Nejlepší dostupné"
 
 msgid "Beta Versions"
-msgstr ""
+msgstr "Beta verze"
 
 msgid "Binary Prefix"
 msgstr "Binární předpony"
@@ -1625,7 +1627,7 @@ msgid "Button Location"
 msgstr "Umístění tlačítka"
 
 msgid "Button Settings"
-msgstr ""
+msgstr "Nastavení tlačítek"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -1636,13 +1638,13 @@ msgid "Bytes/sec"
 msgstr "Bajtů/sek"
 
 msgid "C File"
-msgstr ""
+msgstr "C soubor"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "hlavičkový soubor C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Zdrojový soubor v C++"
 
 msgid "CACHE"
 msgstr "MEZIPAMĚŤ"
@@ -1694,7 +1696,7 @@ msgid "CGI Script"
 msgstr ""
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "ZMĚNA PRÁV"
 
 msgid "CHANGED"
 msgstr "ZMĚNĚNO"
@@ -1724,7 +1726,7 @@ msgid "CHAP-Mutual"
 msgstr "Vzájemný CHAP"
 
 msgid "COPY"
-msgstr ""
+msgstr "KOPÍROVAT"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (cyrilice)"
@@ -1797,10 +1799,10 @@ msgid "CRC32C"
 msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "soubor CSS"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Nastavení CSS"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1984,7 +1986,7 @@ msgid "Clone Configuration"
 msgstr "Klonovat nastavení"
 
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Shromažďování údajů – čekejte…"
@@ -2036,10 +2038,10 @@ msgstr ""
 "%s)."
 
 msgid "Command is locked"
-msgstr ""
+msgstr "Příkaz je uzamčen."
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "Příkaz je označen k vymazání."
 
 msgid "Command is unlocked"
 msgstr "Příkaz je odemčen"
@@ -2054,7 +2056,7 @@ msgid "Comment"
 msgstr "Komentář"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Chyba v komunikaci"
 
 msgid "Community"
 msgstr "Komunita (přihlašovací jméno)"
@@ -2118,7 +2120,7 @@ msgid "Consider replacing this drive"
 msgstr "Zvažte výměnu této jednotky datového úložiště"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Automatické přihlášení na konzoli"
 
 msgid "Console Menu"
 msgstr "Nabídka v textové konzoli"
@@ -2307,7 +2309,7 @@ msgstr ""
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Kopírovat z /%s na /%s "
 
 msgid "Copy item(s)"
 msgstr ""
@@ -2496,7 +2498,7 @@ msgid "Create Permission"
 msgstr ""
 
 msgid "Create Work Directory"
-msgstr ""
+msgstr "Vytvoř pracovní adresář"
 
 msgid "Create ZFS on a GPT partition."
 msgstr "Vytvořit ZFS nad GPT oddílem."
@@ -2588,10 +2590,10 @@ msgid "Current Version"
 msgstr "Stávající verze"
 
 msgid "Current and previous month"
-msgstr ""
+msgstr "Tento a následující měsíc"
 
 msgid "Current and previous year"
-msgstr ""
+msgstr "Tento a následující rok"
 
 msgid "Current internal temperature."
 msgstr "Vnitřní teplota v tomto okamžiku"
@@ -2623,7 +2625,7 @@ msgid "Current value of real power (Watts)"
 msgstr "Aktuální výše činného výkonu (W)"
 
 msgid "Current year"
-msgstr ""
+msgstr "Tento rok"
 
 msgid "Custom"
 msgstr "Vlastní"
@@ -2647,19 +2649,19 @@ msgid "DAAP"
 msgstr "DAAP"
 
 msgid "DEBUG - log debugging information"
-msgstr ""
+msgstr "DEBUG - logování ladících zpráv"
 
 msgid "DEBUG1 - same as DEBUG"
-msgstr ""
+msgstr "DEBUG1 - stejně jako DEBUG"
 
 msgid "DEBUG2 - log detailed debugging information"
-msgstr ""
+msgstr "DEBUG - logování detailních ladících zpráv"
 
 msgid "DEBUG3 - log all debugging information"
-msgstr ""
+msgstr "DEBUG3 - logování všech ladících zpráv"
 
 msgid "DELETE"
-msgstr ""
+msgstr "DELETE"
 
 msgid "DHCP"
 msgstr "Automaticky (DHCP)"
@@ -2698,7 +2700,7 @@ msgid "DNS server is empty."
 msgstr "Není vyplněn DNS jmenný server."
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "znaková stránka DOS"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
@@ -2709,7 +2711,7 @@ msgid "DOWNLOAD"
 msgstr ""
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "DTS audio sourbor"
 
 msgid "DVD"
 msgstr "DVD"
@@ -3879,13 +3881,13 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Opravdu chcete vypnout označené skupiny portálů?"
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "Chcete zakázat zvolené veřejné klíče?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Opravdu vypnout označené záznamy?"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "Chcete zakázat zvolené routy?"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Opravdu vypnout označené rsync úlohy?"
@@ -3972,7 +3974,7 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Opravdu chcete zapnout označené skupiny portálu?"
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "Chcete povolit vybrané veřejné klíče?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Opravdu zapnout označené záznamy?"
@@ -3987,7 +3989,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Opravdu zapnout označené rsync moduly?"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "Chcete povolit vybraná nastavení sysctl?"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Opravdu chcete zapnout označené cíle?"
@@ -14648,4 +14650,4 @@ msgid "visible"
 msgstr "viditelné"
 
 msgid "yes"
-msgstr ""
+msgstr "ano"

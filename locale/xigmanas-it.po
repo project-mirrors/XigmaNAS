@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-09-13 22:33+0000\n"
-"PO-Revision-Date: 2019-11-24 15:26+0000\n"
-"Last-Translator: luigi mascia <Unknown>\n"
+"PO-Revision-Date: 2020-11-18 16:39+0000\n"
+"Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-09-25 11:44+0000\n"
-"X-Generator: Launchpad (build a314d157ca9be8d00eae0214fc0d7dff1cd406e4)\n"
+"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
+"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -426,7 +426,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Specificare un prefisso valido (1-128)."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "File audio AC3"
 
 msgid "ACL Inherit"
 msgstr "ACL Inherit"
@@ -471,7 +471,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "File AVI"
 
 msgid "Accept remote syslog messages."
 msgstr "accettare i messaggi remoti syslog"
@@ -495,13 +495,13 @@ msgid "Access the webGUI with the new IP address"
 msgstr "Accedere alla webGUI con il nuovo indirizzo IP"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Livello acustico"
 
 msgid "Action"
 msgstr "Azione"
 
 msgid "Actions"
-msgstr ""
+msgstr "Azioni"
 
 msgid "Activate"
 msgstr "Attiva"
@@ -850,22 +850,22 @@ msgid "All"
 msgstr "Tutto"
 
 msgid "All Days"
-msgstr ""
+msgstr "Tutti i giorni"
 
 msgid "All Hours"
-msgstr ""
+msgstr "Tutte le ore"
 
 msgid "All Interfaces"
 msgstr "Tutte le interfacce"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "Tutti i minuti"
 
 msgid "All Months"
-msgstr ""
+msgstr "Tutti i mesi"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "Tutti i giorni della settimana"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "I seguenti dati statistici sono stati cancellati:"
@@ -874,6 +874,8 @@ msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
 msgstr ""
+"Tutti i dati nel percorso selezionato, verranno sovrascritti. E' "
+"consigliabile usare una directory UFS vuota oppure un dataset ZFS vuoto"
 
 msgid "All data will be lost when you activate this option!"
 msgstr "Tutti i dati saranno persi quando attivi questa opzione!"
@@ -957,9 +959,12 @@ msgstr "Consenti login come root attraverso ssh"
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
+"Consenti link simbolici che indirizzano al di fuori della cartella media "
+"definita."
 
 msgid "Allow the server to try and become a local master browser."
 msgstr ""
+"Consenti al server di provare a diventare un browser principale locale"
 
 msgid "Allow to start UPS from battery"
 msgstr "Permetti l'avvio da batteria dell'UPS"
@@ -1111,6 +1116,8 @@ msgid ""
 "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
 "services can cause problems."
 msgstr ""
+"Un altro servizio DLNA/UPnP è attivato. Eseguire diversi servizi DLNA/UPnP "
+"contemporaneamente, può creare problemi."
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -1128,13 +1135,13 @@ msgstr ""
 "diventare inaccessibili!"
 
 msgid "Append content to the default CSS file"
-msgstr ""
+msgstr "Aggiungere il contenuto al file CSS di default."
 
 msgid "Append user defined shares"
 msgstr "Aggiungi le condivisioni definite dall'utente."
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Aggiungere alle condivizione di default."
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -1167,13 +1174,13 @@ msgid "Archive"
 msgstr "Archivio"
 
 msgid "Archive item(s)"
-msgstr ""
+msgstr "Oggetto/i dell'archivio"
 
 msgid "Archive mode."
 msgstr "Modalità archivio"
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Sicuro di voler cancellare il/i file selezionati/o?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Sei sicuro di voler riavviare il server?"
@@ -1383,10 +1390,10 @@ msgid "Average time of spindle spin up (from zero RPM to fully operational)."
 msgstr "Tempo medio di spin up (da zero RPM fino a rotazione operativa)"
 
 msgid "BMP Image"
-msgstr ""
+msgstr "Immagine BMP"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "Archivio BZIP2"
 
 msgid "Back"
 msgstr "Indietro"
@@ -1410,6 +1417,8 @@ msgid ""
 "Backup configuration reminder. The last configuration backup is older than "
 "the configured interval."
 msgstr ""
+"Promemoria salvataggio configurazione. L'ultimo salvataggio della "
+"configurazione è più vecchio di quanto previsto."
 
 msgid ""
 "Backup configuration. The date of the last configuration backup cannot be "
@@ -1521,6 +1530,8 @@ msgstr ""
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
 msgstr ""
+"Prima che il client Unison possa cominciare a funzionare, si devono eseguire "
+"i seguenti:"
 
 msgid "Best available"
 msgstr "Il migliore disponibile"
@@ -1622,6 +1633,8 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
+"La disponibilità di trasmissione nella rete, ogni numero di secondi "
+"configurati: il default è 300 secondi."
 
 msgid "Browseable"
 msgstr "Esplorabile"
@@ -1641,13 +1654,13 @@ msgid "Bytes/sec"
 msgstr "Bytes/sec"
 
 msgid "C File"
-msgstr ""
+msgstr "File C"
 
 msgid "C++ Header File"
-msgstr ""
+msgstr "Header C++"
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "File sorgente C++"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1697,10 +1710,10 @@ msgid "CD/DVD drive"
 msgstr "Periferica CD/DVD"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "Script CGI"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "CAMBIO PERMESSI"
 
 msgid "CHANGED"
 msgstr "MODIFICATO"
@@ -1709,10 +1722,10 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr ""
+msgstr "Nome CHAP"
 
 msgid "CHAP Secret"
-msgstr ""
+msgstr "Segreto CHAP"
 
 msgid "CHAP User is locked"
 msgstr "L'utente CHAP è bloccato"
@@ -1730,7 +1743,7 @@ msgid "CHAP-Mutual"
 msgstr "CHAP mutuo"
 
 msgid "COPY"
-msgstr ""
+msgstr "COPIA"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cirillico)"
@@ -1800,10 +1813,10 @@ msgstr ""
 "errore FIS CRC)."
 
 msgid "CRC32C"
-msgstr ""
+msgstr "CRC32C"
 
 msgid "CSS File"
-msgstr ""
+msgstr "File CSS"
 
 msgid "CSS Settings"
 msgstr "Impostazioni CSS"
@@ -1877,7 +1890,7 @@ msgstr ""
 "controllare per i certificati revocati."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Autenticazione \"Challenge-Response\""
 
 msgid "Change"
 msgstr "Cambia"
@@ -1889,7 +1902,7 @@ msgid "Change below file"
 msgstr "Modifica i file sottostanti"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "Cambio permessi"
 
 msgid "Change the IP address of your computer"
 msgstr "Cambia l'indirizzo IP del tuo computer"
@@ -1987,7 +2000,7 @@ msgid "Clone Configuration"
 msgstr "Configurazione copia"
 
 msgid "Close"
-msgstr ""
+msgstr "Chiudere"
 
 msgid "Collecting initial data, please wait..."
 msgstr "Ottengo i primi dati, attendere..."
@@ -1996,7 +2009,7 @@ msgid "Collisions"
 msgstr "Collisioni"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Indicatori colorati"
 
 msgid "Cols"
 msgstr "Colonne"
@@ -2038,7 +2051,7 @@ msgid "Command is locked"
 msgstr "Comando bloccato"
 
 msgid "Command is marked for deletion"
-msgstr ""
+msgstr "I comandi sono settati per la cancellazione"
 
 msgid "Command is unlocked"
 msgstr "Comando sbloccato"
@@ -2098,6 +2111,11 @@ msgid ""
 "execute upon subsystem request. Leave this field empty to use the default "
 "settings."
 msgstr ""
+"Configurare un sottosistema esterno (per esempio un daemon per il "
+"trasferimento file). Gli argomenti possono essere nome e comando (con "
+"argomenti opzionali) di un sottosistema da eseguire su richiesta del "
+"sottosistema. Lasciando il campo vuoto, sono utilizzati i settaggi di "
+"default."
 
 msgid "Configuring"
 msgstr "Configurando"
@@ -2118,7 +2136,7 @@ msgid "Consider replacing this drive"
 msgstr "Considerate la sostituzione di questo disco"
 
 msgid "Console Autologin"
-msgstr ""
+msgstr "Console Autologin"
 
 msgid "Console Menu"
 msgstr "Menu console"
@@ -2306,17 +2324,17 @@ msgid "Copies"
 msgstr "Copie"
 
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Copia da /%s a /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Copia elemento(i)"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Copia fallita"
 
 msgid "Core"
 msgstr "Core"
@@ -2485,7 +2503,7 @@ msgstr ""
 "comandi FIS crc. Il valore si resetta allo spegnimento del sistema"
 
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr "Crea wrapper 4KB (dispositivo nop)."
@@ -2610,7 +2628,7 @@ msgid "Current password is incorrectly entered."
 msgstr "La password corrente è inserita in maniera errata"
 
 msgid "Current quarter"
-msgstr ""
+msgstr "Quarto attuale"
 
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr ""
@@ -2654,19 +2672,19 @@ msgid "DAAP"
 msgstr "DAAP"
 
 msgid "DEBUG - log debugging information"
-msgstr ""
+msgstr "DEBUG - informazione di log per il debugging"
 
 msgid "DEBUG1 - same as DEBUG"
-msgstr ""
+msgstr "DEBUG1 - come DEBUG"
 
 msgid "DEBUG2 - log detailed debugging information"
-msgstr ""
+msgstr "DEBUG2 - log con informazioni dettagliate per il debug"
 
 msgid "DEBUG3 - log all debugging information"
-msgstr ""
+msgstr "DEBUG3 - log con tutte le informazioni per il debug"
 
 msgid "DELETE"
-msgstr ""
+msgstr "ELIMINA"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -2702,7 +2720,7 @@ msgid "DNS server is empty."
 msgstr "Server DNS vuoto."
 
 msgid "DOS Charset"
-msgstr ""
+msgstr "Set caratteri DOS"
 
 msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
@@ -2710,10 +2728,10 @@ msgid ""
 msgstr ""
 
 msgid "DOWNLOAD"
-msgstr ""
+msgstr "DOWNLOAD"
 
 msgid "DTS Audio File"
-msgstr ""
+msgstr "File Audio DTS"
 
 msgid "DVD"
 msgstr "DVD"
@@ -2895,7 +2913,7 @@ msgid "Delete Login Info"
 msgstr "Elimina le informazioni di login"
 
 msgid "Delete Permission"
-msgstr ""
+msgstr "Rimuovi autorizzazione"
 
 msgid "Delete Selected Auth Groups"
 msgstr "Elimina i gruppi Auth selezionati"
@@ -2946,16 +2964,16 @@ msgid "Delete Selected Listen Records"
 msgstr "Elimina i record di ascolto selezionati"
 
 msgid "Delete Selected Media Folders"
-msgstr ""
+msgstr "Cancella la Cartella Media Selezionata"
 
 msgid "Delete Selected Mutual CHAP Users"
 msgstr "Cancella gli utenti Mutual CHAP selezionati"
 
 msgid "Delete Selected NFS Exports"
-msgstr ""
+msgstr "Cancellare le esportazioni NFS selezionate"
 
 msgid "Delete Selected NFS Root Directories"
-msgstr ""
+msgstr "Cancellare le directory NFS Root selezionate"
 
 msgid "Delete Selected Notifier"
 msgstr "Cancella il Notificatore selezionato"
@@ -2976,7 +2994,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Elimina i gruppi portale selezionati"
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "Cancellare le chiavi pubbliche selezionate"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "Cancella i Volumi RAID selezionati"
@@ -3006,7 +3024,7 @@ msgid "Delete Selected Snapshots"
 msgstr "Cancella gli Snapshot selezionati"
 
 msgid "Delete Selected Sysctl Settings"
-msgstr ""
+msgstr "Cancellare i settaggi Sysctl selezionati"
 
 msgid "Delete Selected Targets"
 msgstr "Elimina i Target selezionati"
@@ -3030,7 +3048,7 @@ msgid "Delete Selected WebDAV Records"
 msgstr "Cancella i Record WebDAV selezionati"
 
 msgid "Delete Selected iSCSI Initiators"
-msgstr ""
+msgstr "Cancellare gli iniziatori iSCSI selezionati"
 
 msgid "Delete Selected iSNS Servers"
 msgstr "Cancella i Server iSNS selezionati"
@@ -3101,7 +3119,7 @@ msgid "Deleting MBR and partition table"
 msgstr "Eliminare MBR e tavola di partizione"
 
 msgid "Deleting failed."
-msgstr ""
+msgstr "Cancellazione non riuscita"
 
 msgid ""
 "Delta between most-worn and least-worn Flash blocks. It describes how "
@@ -3169,7 +3187,7 @@ msgid "Detailed"
 msgstr "Dettagliato"
 
 msgid "Details"
-msgstr ""
+msgstr "Dettagli"
 
 msgid "Detected"
 msgstr "Rilevato"
@@ -3288,7 +3306,7 @@ msgid "Directory Mask"
 msgstr "Maschera della directory"
 
 msgid "Directory creation failed."
-msgstr ""
+msgstr "Creazione directory fallita"
 
 msgid "Directory for incomplete files. An empty field means disable."
 msgstr "Cartella per file incompleti. Il campo vuoto significa disattiva."
@@ -3321,7 +3339,7 @@ msgid "Disable Selected Commands"
 msgstr "Disabilita i comandi selezionati"
 
 msgid "Disable Selected Groups"
-msgstr ""
+msgstr "Disabilitare i gruppi selezionati"
 
 msgid "Disable Selected Initiator Names"
 msgstr "Disabilita i nomi Inizializzatori selezionati"
@@ -3342,16 +3360,16 @@ msgid "Disable Selected Listen Records"
 msgstr "Disabilita i record di ascolto selezionati"
 
 msgid "Disable Selected Media Folders"
-msgstr ""
+msgstr "Disattivare le directory dei media selezionate"
 
 msgid "Disable Selected Mutual CHAP Users"
 msgstr "Disabilita gli utenti Mutual CHAP selezionati"
 
 msgid "Disable Selected NFS Exports"
-msgstr ""
+msgstr "Disattivare le esportazioni NFS selezionate"
 
 msgid "Disable Selected NFS Root Directories"
-msgstr ""
+msgstr "Disattivare le directory NFS Root selezionate"
 
 msgid "Disable Selected Option Records"
 msgstr "Disabilita le Opzioni di Registrazione selezionata"
@@ -3366,13 +3384,13 @@ msgid "Disable Selected Portal Groups"
 msgstr "Disabilita i gruppi Portal selezionati"
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "Disattivare le chiavi pubbliche selezionate"
 
 msgid "Disable Selected Records"
 msgstr "Disattiva i record selezionati"
 
 msgid "Disable Selected Routes"
-msgstr ""
+msgstr "Disabilita le Rotte Selezionate"
 
 msgid "Disable Selected Rsync Jobs"
 msgstr "Disattiva i lavori Rsync selezionati"
@@ -3381,28 +3399,28 @@ msgid "Disable Selected Rsync Modules"
 msgstr "Disattiva i moduli Rsync selezionati"
 
 msgid "Disable Selected Samba Shares"
-msgstr ""
+msgstr "Disabilita le Condivisioni SAMBA Selezionate"
 
 msgid "Disable Selected Sysctl Settings"
-msgstr ""
+msgstr "Disattivare i settaggi Sysctl selezionati"
 
 msgid "Disable Selected Targets"
 msgstr "Disabilita i Target selezionati"
 
 msgid "Disable Selected Users"
-msgstr ""
+msgstr "Disabilita gli Utanti Selezionati"
 
 msgid "Disable Selected WebDAV Records"
 msgstr "Disabilita i Record WebDAV selezionati"
 
 msgid "Disable Selected iSCSI Initiators"
-msgstr ""
+msgstr "Disattivare gli iniziatori iSCSI selezionati"
 
 msgid "Disable Selected iSNS Servers"
 msgstr "Disabilita i server iSNS selezionati"
 
 msgid "Disable Subtitles"
-msgstr ""
+msgstr "Disattiva i Sottotitoli"
 
 msgid "Disable TCP wrapper (mod_wrap module)."
 msgstr "DIsabilita il wrapper TCP (modulo mod_wrap)."
@@ -3425,7 +3443,7 @@ msgid "Disable speaker beep on startup and shutdown."
 msgstr "Disabilita il cicalino di sistema all'avvio e allo spegnimento"
 
 msgid "Disable subtitle support on unknown clients."
-msgstr ""
+msgstr "Disattivare il supporto sottotitoli sui clients sconosciuti"
 
 msgid "Disable the compression of repeating lines."
 msgstr "Disattivare la compressione delle linee ripetute"
@@ -3443,7 +3461,7 @@ msgid "Discard - Do not inherit entries"
 msgstr "Scarica - Non ereditare modifiche"
 
 msgid "Discovery"
-msgstr ""
+msgstr "Scoperta"
 
 msgid "Discovery Auth Group"
 msgstr "Gruppo di autenticazione per la scoperta"
@@ -3508,7 +3526,7 @@ msgid "Display"
 msgstr "Display"
 
 msgid "Display Options"
-msgstr ""
+msgstr "Opzioni di Visualizzazione"
 
 msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
@@ -3758,7 +3776,7 @@ msgid "Do you want to delete selected listen records?"
 msgstr "Vuoi cancellare i record di ascolto selezionati?"
 
 msgid "Do you want to delete selected media folders?"
-msgstr ""
+msgstr "Vuoi cancellare le cartelle Media selezionate?"
 
 msgid "Do you want to delete selected notifier?"
 msgstr "Desideri eliminare il notificatore selezionato?"
@@ -3779,7 +3797,7 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Desideri cancellare i gruppi di portali selezionati?"
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "Vuoi cancellare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Desideri cancellare i record selezionati?"
@@ -3839,7 +3857,7 @@ msgid "Do you want to disable selected NFS root directories?"
 msgstr ""
 
 msgid "Do you want to disable selected Samba shares?"
-msgstr ""
+msgstr "Vuoi disattivare le condivisioni SAMBA selezionate?"
 
 msgid "Do you want to disable selected WebDAV records?"
 msgstr "Vuoi disabilitare i record WebDAV selezionati?"
@@ -3851,7 +3869,7 @@ msgid "Do you want to disable selected commands?"
 msgstr "Vuoi disabilitare i comandi selezionati?"
 
 msgid "Do you want to disable selected groups?"
-msgstr ""
+msgstr "Vuoi disatttivare i gruppi selezionati?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
 msgstr ""
@@ -3986,7 +4004,7 @@ msgid "Do you want to enable selected routes?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync jobs?"
-msgstr "Vuoi disattivare i lavori rsync selezionati?"
+msgstr "Vuoi attivare i lavori rsync selezionati?"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Vuoi disattivare i moduli rsync selezionati?"
