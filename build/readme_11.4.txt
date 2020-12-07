@@ -129,7 +129,6 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.44.
 - Upgrade bash to 5.0 P18.
 - Upgrade rsync to 3.2.3.
-- Upgrade nano to 5.2.
 - Upgrade msmtp to 1.8.12.
 - Upgrade iperf3 to 3.9.
 - Upgrade syncthing to 1.9.0.
@@ -141,6 +140,7 @@ Changes:
 - Upgrade devcpu-data to 1.37.
 - Upgrade dialog to 1.3-20201126.
 - Upgrade nut to 2020.11.30.
+- Upgrade nano to 5.4.
 
 
 Fixes:
