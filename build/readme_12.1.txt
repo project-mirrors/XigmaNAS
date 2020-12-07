@@ -122,7 +122,6 @@ Changes:
 - Upgrade dialog to 1.3-20200327.
 - Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
-- Upgrade devcpu-data to 1.34.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade proftpd to 1.3.6d.
@@ -142,6 +141,7 @@ Changes:
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade php to 7.4.13.
 - Upgrade zoneinfo to 2020d.
+- Upgrade devcpu-data to 1.37.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
