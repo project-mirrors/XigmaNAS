@@ -120,7 +120,6 @@ Changes:
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade dialog to 1.3-20200327.
-- Upgrade zoneinfo to 2020a.
 - Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
 - Upgrade devcpu-data to 1.34.
@@ -142,6 +141,7 @@ Changes:
 - Upgrade sudo to 1.9.3p1.
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade php to 7.4.13.
+- Upgrade zoneinfo to 2020d.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
