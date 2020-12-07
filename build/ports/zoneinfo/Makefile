@@ -12,7 +12,7 @@ WRKSRC=	${WRKDIR}
 PREFIX=	/usr
 
 TZFILES=	africa antarctica asia australasia etcetera europe \
-		factory northamerica southamerica systemv
+		factory northamerica southamerica
 POSIXRULES=	America/New_York
 
 .include <bsd.port.pre.mk>
