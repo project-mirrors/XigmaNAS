@@ -1,5 +1,5 @@
 PORTNAME=		gzip
-PORTVERSION=	1.9
+PORTVERSION=	1.10
 PORTREVISION?=  0
 CATEGORIES=	archivers
 COMMENT=	A compression utility designed to be a replacement for compress

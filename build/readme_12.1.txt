@@ -141,6 +141,7 @@ Changes:
 - Upgrade nut to 2020.11.30.
 - Upgrade nano to 5.4.
 - Upgrade syncthing to 1.12.0.
+- Upgrade gzip to 1.10.
 
 
 Fixes:
