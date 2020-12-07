@@ -120,7 +120,6 @@ Changes:
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade tmux to 3.1a.
-- Upgrade nut to 2020.04.14.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade proftpd to 1.3.6d.
@@ -142,6 +141,8 @@ Changes:
 - Upgrade zoneinfo to 2020d.
 - Upgrade devcpu-data to 1.37.
 - Upgrade dialog to 1.3-20201126.
+- Upgrade nut to 2020.11.30.
+
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
