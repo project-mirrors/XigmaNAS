@@ -1,5 +1,5 @@
 PORTNAME=		tmux
-PORTVERSION=	3.1a
+PORTVERSION=	3.1c
 PORTREVISION=	0
 CATEGORIES=	sysutils
 COMMENT=	Terminal Multiplexer
