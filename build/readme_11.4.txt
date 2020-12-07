@@ -120,7 +120,6 @@ Changes:
 - Upgrade to FreeBSD 11.4-RELEASE-P5.
 - WebGUI code & framework improvements.
 - Update translations.
-- Upgrade nut to 2020.04.14.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade proftpd to 1.3.6d.
@@ -141,6 +140,7 @@ Changes:
 - Upgrade zoneinfo to 2020d.
 - Upgrade devcpu-data to 1.37.
 - Upgrade dialog to 1.3-20201126.
+- Upgrade nut to 2020.11.30.
 
 
 Fixes:
