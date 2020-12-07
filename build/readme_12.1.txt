@@ -118,7 +118,6 @@ Changes:
 - Upgrade sudo to 1.8.31.
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade e2fsprogs to 1.45.6.
-- Upgrade tmux to 3.1a.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade proftpd to 1.3.6d.
@@ -143,6 +142,7 @@ Changes:
 - Upgrade msmtp to 1.8.13.
 - Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
+- Upgrade tmux to 3.1c.
 
 
 Fixes:
