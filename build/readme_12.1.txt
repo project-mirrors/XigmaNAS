@@ -142,6 +142,7 @@ Changes:
 - Upgrade gzip to 1.10.
 - Upgrade msmtp to 1.8.13.
 - Upgrade phpmyadmin to 5.0.4.
+- Upgrade unison to 2.51.3.
 
 
 Fixes:
