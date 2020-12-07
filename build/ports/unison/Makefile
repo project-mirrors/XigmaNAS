@@ -1,5 +1,5 @@
 PORTNAME=		unison
-PORTVERSION=	2.51.2
+PORTVERSION=	2.51.3
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
 COMMENT=	A user-level file synchronization tool
