@@ -119,7 +119,6 @@ Changes:
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
-- Upgrade dialog to 1.3-20200327.
 - Upgrade tmux to 3.1a.
 - Upgrade nut to 2020.04.14.
 - Upgrade jQuery to 3.5.1.
@@ -142,6 +141,7 @@ Changes:
 - Upgrade php to 7.4.13.
 - Upgrade zoneinfo to 2020d.
 - Upgrade devcpu-data to 1.37.
+- Upgrade dialog to 1.3-20201126.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
