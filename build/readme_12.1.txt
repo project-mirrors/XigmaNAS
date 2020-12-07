@@ -130,7 +130,6 @@ Changes:
 - Upgrade virtualbox-ose to 5.2.44.
 - Upgrade bash to 5.0 P18.
 - Upgrade rsync to 3.2.3.
-- Upgrade msmtp to 1.8.12.
 - Upgrade iperf3 to 3.9.
 - Upgrade transmission to 3.00.
 - Upgrade pecl-APCu to 5.1.19.
@@ -142,6 +141,7 @@ Changes:
 - Upgrade nano to 5.4.
 - Upgrade syncthing to 1.12.0.
 - Upgrade gzip to 1.10.
+- Upgrade msmtp to 1.8.13.
 
 
 Fixes:
