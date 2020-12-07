@@ -117,7 +117,6 @@ Changes:
 - Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade bsnmp-ucd to 0.4.5.
-- Upgrade phpmyadmin to 5.0.2.
 - Upgrade e2fsprogs to 1.45.6.
 - Upgrade tmux to 3.1a.
 - Upgrade jQuery to 3.5.1.
@@ -142,6 +141,7 @@ Changes:
 - Upgrade syncthing to 1.12.0.
 - Upgrade gzip to 1.10.
 - Upgrade msmtp to 1.8.13.
+- Upgrade phpmyadmin to 5.0.4.
 
 
 Fixes:
