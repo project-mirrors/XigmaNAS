@@ -1,5 +1,5 @@
 PORTNAME=	phpMyAdmin
-DISTVERSION=	5.0.2
+DISTVERSION=	5.0.4
 PORTREVISION=	0
 CATEGORIES=	databases www
 MASTER_SITES=	https://files.phpmyadmin.net/${PORTNAME}/${DISTVERSION}/
@@ -7,8 +7,6 @@ DISTNAME=	${PORTNAME}-${DISTVERSION}-all-languages
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Set of PHP-scripts to manage MySQL over the web
-
-LICENSE=	GPLv2
 
 DISABLE_VULNERABILITIES=yes
 USES=		cpe tar:xz
