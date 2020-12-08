@@ -26,7 +26,7 @@
 -- OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 -- SUCH DAMAGE.
 --
--- $FreeBSD: releng/12.0/stand/lua/drawer.lua 338067 2018-08-19 18:43:10Z kevans $
+-- $FreeBSD: releng/11.4/stand/lua/drawer.lua 352349 2019-09-15 02:48:15Z kevans $
 --
 
 local color = require("color")
@@ -144,13 +144,20 @@ local function drawmenu(menudef)
 	return alias_table
 end
 
+local function defaultframe()
+	if core.isSerialConsole() then
+		return "ascii"
+	end
+	return "double"
+end
+
 local function drawbox()
 	local x = menu_position.x - 3
 	local y = menu_position.y - 1
 	local w = frame_size.w
 	local h = frame_size.h
 
-	local framestyle = loader.getenv("loader_menu_frame") or "double"
+	local framestyle = loader.getenv("loader_menu_frame") or defaultframe()
 	local framespec = drawer.frame_styles[framestyle]
 	-- If we don't have a framespec for the current frame style, just don't
 	-- draw a box.
