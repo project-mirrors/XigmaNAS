@@ -124,7 +124,6 @@ Changes:
 - Upgrade mDNSResponder to 1096.40.7.
 - Upgrade proftpd to 1.3.6d.
 - Upgrade open-vm-tools to 11.1.0
-- Upgrade samba to 4.10.17.
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
 - Upgrade bash to 5.0 P18.
@@ -145,6 +144,7 @@ Changes:
 - Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
+- Upgrade samba to 4.11.15.
 
 
 Fixes:
