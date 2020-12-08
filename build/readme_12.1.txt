@@ -114,7 +114,6 @@ Changes:
 - Add Aquantia AQtion (Atlantic) AQC107 Network Driver.
 - Upgrade arcconf to 3.02.23600.
 - Upgrade samba to 4.10.10.
-- Upgrade lighttpd to 1.4.55.
 - Upgrade sudo to 1.8.31.
 - Upgrade bsnmp-ucd to 0.4.5.
 - Upgrade e2fsprogs to 1.45.6.
@@ -143,6 +142,7 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade samba to 4.11.15.
+- Upgrade lighttpd to 1.4.56.
 
 
 Fixes:
