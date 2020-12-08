@@ -26,7 +26,7 @@
 -- OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 -- SUCH DAMAGE.
 --
--- $FreeBSD: releng/12.0/stand/lua/drawer.lua 338067 2018-08-19 18:43:10Z kevans $
+-- $FreeBSD: releng/12.1/stand/lua/drawer.lua 352349 2019-09-15 02:48:15Z kevans $
 --
 
 local color = require("color")
@@ -142,6 +142,13 @@ local function drawmenu(menudef)
 		::continue::
 	end
 	return alias_table
+end
+
+local function defaultframe()
+	if core.isSerialConsole() then
+		return "ascii"
+	end
+	return "double"
 end
 
 local function drawbox()
