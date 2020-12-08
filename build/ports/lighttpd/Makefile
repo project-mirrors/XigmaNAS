@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.55
+PORTVERSION=	1.4.56
 PORTREVISION=	0
 CATEGORIES=	www
 
@@ -57,7 +57,6 @@ do-install:
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_auth.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_authn_file.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_cgi.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
-		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_compress.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_deflate.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_dirlisting.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_evasive.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
