@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-09-13 22:33+0000\n"
+"POT-Creation-Date: 2020-12-09 15:31+0000\n"
 "PO-Revision-Date: 2020-09-14 06:10+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
-"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
+"X-Launchpad-Export-Date: 2020-12-09 16:21+0000\n"
+"X-Generator: Launchpad (build 4853cb86c14c5a9e513816c8a61121c639b30835)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -19,9 +19,6 @@ msgstr " Kein privater Schlüssel"
 
 msgid " interfaces:"
 msgstr " Schnittstellen:"
-
-msgid " was assigned to "
-msgstr " wurde zugewiesen an "
 
 msgid " | State: "
 msgstr " | Status: "
@@ -7763,6 +7760,9 @@ msgstr "Network File System"
 msgid "Network Latency"
 msgstr "Netzwerk Latenzzeit"
 
+msgid "Network Port"
+msgstr ""
+
 msgid "Network Traffic"
 msgstr "Netzwerkverkehr"
 
@@ -7772,9 +7772,6 @@ msgid ""
 msgstr ""
 "Autorisiertes Netzwerk mit Zugriff auf das iSCSI Ziel. Beinhaltet IP oder "
 "CIDR Adresse oder 'ALL' für jede IP."
-
-msgid "Network port"
-msgstr "Netzwerkport"
 
 msgid "Networks"
 msgstr "Netzwerke"
@@ -8717,9 +8714,6 @@ msgstr "Pools"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port "
-msgstr "Port "
 
 #, php-format
 msgid "Port %ld is already used by another service."
@@ -14801,5 +14795,17 @@ msgstr "unbekannt"
 msgid "visible"
 msgstr "sichtbar"
 
+msgid "was assigned to"
+msgstr ""
+
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Network port"
+#~ msgstr "Netzwerkport"
+
+#~ msgid "Port "
+#~ msgstr "Port "
+
+#~ msgid " was assigned to "
+#~ msgstr " wurde zugewiesen an "

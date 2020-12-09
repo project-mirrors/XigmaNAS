@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-09-13 22:33+0000\n"
+"POT-Creation-Date: 2020-12-09 15:31+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
-"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
+"X-Launchpad-Export-Date: 2020-12-09 16:21+0000\n"
+"X-Generator: Launchpad (build 4853cb86c14c5a9e513816c8a61121c639b30835)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -21,9 +21,6 @@ msgstr " 秘密鍵なし"
 
 msgid " interfaces:"
 msgstr " インターフェース:"
-
-msgid " was assigned to "
-msgstr " は次の項目にアサインされています "
 
 msgid " | State: "
 msgstr ""
@@ -7282,6 +7279,9 @@ msgstr "NFS (Network File System)"
 msgid "Network Latency"
 msgstr ""
 
+msgid "Network Port"
+msgstr ""
+
 msgid "Network Traffic"
 msgstr ""
 
@@ -7289,9 +7289,6 @@ msgid ""
 "Network authorised to access to the iSCSI target. It takes IP or CIDR "
 "addresses or 'ALL' for any IPs."
 msgstr "iSCSI ターゲットへのアクセスを許可するネットワーク。IP または CIDR で指定するか、'ALL' で全てを許可します。"
-
-msgid "Network port"
-msgstr "ネットワークポート"
 
 msgid "Networks"
 msgstr "ネットワーク"
@@ -8205,9 +8202,6 @@ msgstr "プール"
 
 msgid "Port"
 msgstr "ポート"
-
-msgid "Port "
-msgstr "ポート "
 
 #, php-format
 msgid "Port %ld is already used by another service."
@@ -13670,5 +13664,17 @@ msgstr ""
 msgid "visible"
 msgstr ""
 
+msgid "was assigned to"
+msgstr ""
+
 msgid "yes"
 msgstr ""
+
+#~ msgid " was assigned to "
+#~ msgstr " は次の項目にアサインされています "
+
+#~ msgid "Network port"
+#~ msgstr "ネットワークポート"
+
+#~ msgid "Port "
+#~ msgstr "ポート "

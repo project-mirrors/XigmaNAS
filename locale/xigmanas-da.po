@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-09-13 22:33+0000\n"
+"POT-Creation-Date: 2020-12-09 15:31+0000\n"
 "PO-Revision-Date: 2019-02-21 17:23+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
-"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
+"X-Launchpad-Export-Date: 2020-12-09 16:21+0000\n"
+"X-Generator: Launchpad (build 4853cb86c14c5a9e513816c8a61121c639b30835)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
 "X-Poedit-Language: Danish\n"
@@ -21,9 +21,6 @@ msgstr ""
 
 msgid " interfaces:"
 msgstr " grænseflader:"
-
-msgid " was assigned to "
-msgstr " var tildelt til "
 
 msgid " | State: "
 msgstr ""
@@ -7327,6 +7324,9 @@ msgstr "Netværks Fil System"
 msgid "Network Latency"
 msgstr ""
 
+msgid "Network Port"
+msgstr ""
+
 msgid "Network Traffic"
 msgstr ""
 
@@ -7336,9 +7336,6 @@ msgid ""
 msgstr ""
 "Netværk godkendt til at tilgå iSCSI mål. Godtager IP eller CIDR adresser "
 "eller 'ALL' for alle IPer."
-
-msgid "Network port"
-msgstr "Netværks port"
 
 msgid "Networks"
 msgstr "Netværk"
@@ -8260,9 +8257,6 @@ msgstr "Puljer"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port "
-msgstr "Port "
 
 #, php-format
 msgid "Port %ld is already used by another service."
@@ -13840,5 +13834,17 @@ msgstr ""
 msgid "visible"
 msgstr ""
 
+msgid "was assigned to"
+msgstr ""
+
 msgid "yes"
 msgstr ""
+
+#~ msgid " was assigned to "
+#~ msgstr " var tildelt til "
+
+#~ msgid "Network port"
+#~ msgstr "Netværks port"
+
+#~ msgid "Port "
+#~ msgstr "Port "

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-09-13 22:33+0000\n"
+"POT-Creation-Date: 2020-12-09 15:31+0000\n"
 "PO-Revision-Date: 2020-09-15 08:39+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-06 20:25+0000\n"
-"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
+"X-Launchpad-Export-Date: 2020-12-09 16:21+0000\n"
+"X-Generator: Launchpad (build 4853cb86c14c5a9e513816c8a61121c639b30835)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -21,9 +21,6 @@ msgstr " Δεν υπάρχει προσωπικό κλειδί"
 
 msgid " interfaces:"
 msgstr " διασυνδέσεις:"
-
-msgid " was assigned to "
-msgstr " έχει ανατεθεί σε "
 
 msgid " | State: "
 msgstr " |Κατάσταση: "
@@ -7867,6 +7864,9 @@ msgstr "Δικτυακό σύστημα αρχείων"
 msgid "Network Latency"
 msgstr "Αδράνεια Δικτύου"
 
+msgid "Network Port"
+msgstr ""
+
 msgid "Network Traffic"
 msgstr "Κίνηση Δικτύου"
 
@@ -7876,9 +7876,6 @@ msgid ""
 msgstr ""
 "Το δίκτυο που επιτρέπεται να έχει πρόσβαση στον προορισμό iSCSI. Παίρνει τις "
 "IP ή CIDR διευθύνσεις  ή 'ALL' για οποιεσδήποτε IPs."
-
-msgid "Network port"
-msgstr "Θύρα δικτύου"
 
 msgid "Networks"
 msgstr "Δίκτυα"
@@ -8828,9 +8825,6 @@ msgstr "Pools"
 
 msgid "Port"
 msgstr "Θύρα"
-
-msgid "Port "
-msgstr "Η θύρα "
 
 #, php-format
 msgid "Port %ld is already used by another service."
@@ -14965,5 +14959,17 @@ msgstr "άγνωστο"
 msgid "visible"
 msgstr "ορατό"
 
+msgid "was assigned to"
+msgstr ""
+
 msgid "yes"
 msgstr "ναι"
+
+#~ msgid " was assigned to "
+#~ msgstr " έχει ανατεθεί σε "
+
+#~ msgid "Network port"
+#~ msgstr "Θύρα δικτύου"
+
+#~ msgid "Port "
+#~ msgstr "Η θύρα "
