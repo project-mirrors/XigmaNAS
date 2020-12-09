@@ -2187,6 +2187,14 @@ copy_files() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/pecl-APCu /usr/ports/devel
 	echo "===> Copy new port files to /usr/ports/devel/pecl-APCu done!"
 	echo ""
+	echo "===> Delete current libvncserver from ports"
+	rm -rf /usr/ports/net/libvncserver
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port libvncserver to ports/net/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/libvncserver /usr/ports/net
+	echo "===> Copy new port files to /usr/ports/net/libvncserver done!"
+	echo ""
 	echo "===> Delete current virtualbox-ose from ports"
 	rm -rf /usr/ports/emulators/virtualbox-ose
 	echo "===> Delete completed!"
