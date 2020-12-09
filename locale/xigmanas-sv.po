@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-09-13 22:33+0000\n"
+"POT-Creation-Date: 2020-12-09 15:31+0000\n"
 "PO-Revision-Date: 2020-09-15 09:02+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-06 20:24+0000\n"
-"X-Generator: Launchpad (build 15cd58601e77a273f7390fc4f4fcd16efe814a43)\n"
+"X-Launchpad-Export-Date: 2020-12-09 16:21+0000\n"
+"X-Generator: Launchpad (build 4853cb86c14c5a9e513816c8a61121c639b30835)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -21,9 +21,6 @@ msgstr " Ingen privat nyckel"
 
 msgid " interfaces:"
 msgstr " gränssnitt:"
-
-msgid " was assigned to "
-msgstr " tilldelades "
 
 msgid " | State: "
 msgstr " | Status: "
@@ -7620,6 +7617,9 @@ msgstr "Network File System"
 msgid "Network Latency"
 msgstr "Nätverksaccestid"
 
+msgid "Network Port"
+msgstr ""
+
 msgid "Network Traffic"
 msgstr "Nätverkstrafik"
 
@@ -7629,9 +7629,6 @@ msgid ""
 msgstr ""
 "Nätverk auktoriserat för åtkomst till iSCSI-målet. Tar IP-adresser, tillika "
 "CIDR. Ange 'ALL' för obestämd IP-adress."
-
-msgid "Network port"
-msgstr "Nätverksport"
 
 msgid "Networks"
 msgstr "Nätverk"
@@ -8565,9 +8562,6 @@ msgstr "Pooler"
 
 msgid "Port"
 msgstr "Port"
-
-msgid "Port "
-msgstr "Port "
 
 #, php-format
 msgid "Port %ld is already used by another service."
@@ -14477,5 +14471,17 @@ msgstr "okänd"
 msgid "visible"
 msgstr "synlig"
 
+msgid "was assigned to"
+msgstr ""
+
 msgid "yes"
 msgstr "ja"
+
+#~ msgid " was assigned to "
+#~ msgstr " tilldelades "
+
+#~ msgid "Network port"
+#~ msgstr "Nätverksport"
+
+#~ msgid "Port "
+#~ msgstr "Port "
