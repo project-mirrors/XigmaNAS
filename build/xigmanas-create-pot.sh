@@ -30,12 +30,6 @@ xgettext ${PARAMETERS} *.*
 cd ${XIGMANAS_SVNDIR}/www
 xgettext ${PARAMETERS} --join-existing *.*
 
-cd ${XIGMANAS_SVNDIR}/www/quixplorer/_config
-xgettext ${PARAMETERS} --join-existing *.*
-
-cd ${XIGMANAS_SVNDIR}/www/quixplorer/_include
-xgettext ${PARAMETERS} --join-existing *.*
-
 cd ${XIGMANAS_SVNDIR}/etc/inc
 # xgettext ${PARAMETERS} --join-existing *.*
 find . -iname "*.php" | xargs xgettext ${PARAMETERS} --join-existing
