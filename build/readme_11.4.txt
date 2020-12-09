@@ -126,7 +126,6 @@ Changes:
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
-- Upgrade bash to 5.0 P18.
 - Upgrade rsync to 3.2.3.
 - Upgrade iperf3 to 3.9.
 - Upgrade transmission to 3.00.
@@ -145,6 +144,7 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade samba to 4.11.15.
+- Upgrade bash to 5.1.
 
 
 Fixes:
