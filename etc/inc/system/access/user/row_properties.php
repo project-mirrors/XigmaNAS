@@ -60,7 +60,7 @@ final class row_properties extends grid_properties {
 				$result = null;
 				if(is_string($subject)):
 					if(strlen($subject) > 0 && strlen($subject) < 17):
-						if(preg_match($regexp,$subject) && !in_array($subject,$reservedlogin) === 1):
+						if(preg_match($regexp,$subject) === 1 && !in_array($subject,$reservedlogin)):
 							return $subject;
 						endif;
 					endif;
