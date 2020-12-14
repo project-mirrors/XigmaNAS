@@ -24,7 +24,15 @@
 \ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 \ SUCH DAMAGE.
 \ 
-\ $FreeBSD: releng/12.1/stand/forth/menu.4th 298831 2016-04-30 02:47:41Z pfg $
+\ $FreeBSD: releng/12.2/stand/forth/menu.4th 354010 2019-10-24 04:05:53Z kevans $
+\ 
+\ Part of XigmaNAS® (https://www.xigmanas.com).
+\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
+\ All Rights Reserved.
+\
+\ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
+\ All Rights Reserved.
+\ 
 
 marker task-menu.4th
 
@@ -397,7 +405,7 @@ also menu-infrastructure definitions
 		setenv
 
 		\ Assign third to ansi_caption[x][y]
-		kerncapbuf 0 s" @[1mK@[37mernel: " [char] @ escc! strcat
+		kerncapbuf 0 s" @[1mK@[mernel: " [char] @ escc! strcat
 		kernmenuidx @ [char] 0 = if
 			s" default/@[32m"
 		else
@@ -405,7 +413,7 @@ also menu-infrastructure definitions
 		then
 		[char] @ escc! strcat
 		2over strcat
-		s" @[37m" [char] @ escc! strcat
+		s" @[m" [char] @ escc! strcat
 		kernidx @ kernmenuidx @ ansi_caption[x][y]
 		setenv
 
