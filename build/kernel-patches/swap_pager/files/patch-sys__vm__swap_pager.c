@@ -1,11 +1,11 @@
---- sys/vm/swap_pager.c.orig	2019-11-05 23:02:47.065992000 +0100
-+++ sys/vm/swap_pager.c	2019-11-05 23:09:49.000000000 +0100
-@@ -896,7 +896,7 @@
+--- sys/vm/swap_pager.c.orig	2020-12-14 01:04:08.424197000 +0100
++++ sys/vm/swap_pager.c	2020-12-14 01:10:18.000000000 +0100
+@@ -904,7 +904,7 @@
  	VM_OBJECT_WLOCK(object);
  	while (size) {
  		if (n == 0) {
 -			n = BLIST_MAX_ALLOC;
-+			n = min(BLIST_MAX_ALLOC, size); /* Happy with small size */
++			n = min(BLIST_MAX_ALLOC, size); /* We are happy with small size */
  			while ((blk = swp_pager_getswapspace(n)) == SWAPBLK_NONE) {
  				n >>= 1;
  				if (n == 0) {
