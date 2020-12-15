@@ -262,7 +262,6 @@ samba_mkconf_cmd()
 	/usr/local/bin/xml sel --template \
 		--output '[global]' --nl \
 		--output 'server role = standalone' --nl \
-		--output 'encrypt passwords = yes' --nl \
 		--if 'string-length(//samba/netbiosname) > 0' \
 			--value-of 'concat("netbios name = ",//samba/netbiosname)' --nl \
 		--break \
