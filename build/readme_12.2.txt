@@ -108,6 +108,7 @@ BUILD 12.2.0.4.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P2.
+- Upgrade lighttpd to 1.4.57.
 
 
 Fixes:
