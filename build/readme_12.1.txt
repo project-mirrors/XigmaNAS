@@ -142,8 +142,8 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade samba to 4.11.15.
-- Upgrade bash to 5.1.
 - Upgrade lighttpd to 1.4.57.
+- Upgrade bash to 5.1 p4.
 
 
 Fixes:
