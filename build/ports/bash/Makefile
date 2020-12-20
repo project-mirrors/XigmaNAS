@@ -1,9 +1,6 @@
 PORTNAME=		bash
-#PATCHLEVEL=		0
-# Please don't remove commented lines, they become relevant once the first
-# patch for 5.1 has been released.
-# PORTVERSION=		5.0.${PATCHLEVEL:S/^0//g}
-PORTVERSION=            5.1
+PATCHLEVEL=		4
+PORTVERSION=		5.1.${PATCHLEVEL:S/^0//g}
 PORTREVISION?=		0
 CATEGORIES=		shells
 
@@ -11,14 +8,14 @@ COMMENT=		GNU Project's Bourne Again SHell
 MAINTAINER=		zoon01@xigmanas.com
 
 MASTER_SITES=		GNU
-#DISTNAME=		${PORTNAME}-${PORTVERSION:R}
+DISTNAME=		${PORTNAME}-${PORTVERSION:R}
 DIST_SUBDIR=		${PORTNAME}
 EXTRACT_ONLY=		${DISTNAME}${EXTRACT_SUFX}
 
-#PATCH_SITES=		GNU/${PORTNAME}/${DISTNAME}-patches/
-#PATCHFILES!=		/usr/bin/jot -s " " -w \
-#			${PORTNAME}${PORTVERSION:R:S/.//g}-%03d \
-#			${PATCHLEVEL} 1 ${PATCHLEVEL}
+PATCH_SITES=		GNU/${PORTNAME}/${DISTNAME}-patches/
+PATCHFILES!=		/usr/bin/jot -s " " -w \
+			${PORTNAME}${PORTVERSION:R:S/.//g}-%03d \
+			${PATCHLEVEL} 1 ${PATCHLEVEL}
 
 OPTIONS_DEFINE=         HELP NLS
 HELP_DESC=		Enable builtin help
