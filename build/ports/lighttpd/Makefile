@@ -15,7 +15,7 @@ LIB_DEPENDS+=	libmemcached.so:${PORTSDIR}/databases/libmemcached
 LIB_DEPENDS+=	libev.so:${PORTSDIR}/devel/libev
 
 GNU_CONFIGURE=	yes
-USES=		autoreconf gmake libtool pkgconfig tar:xz
+USES=		autoreconf compiler:c11 gmake libtool pkgconfig tar:xz
 #USE_CSTD=	gnu99
 USE_BZIP2=	yes
 
