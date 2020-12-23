@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.57
+PORTVERSION=	1.4.55
 PORTREVISION=	0
 CATEGORIES=	www
 
@@ -15,7 +15,7 @@ LIB_DEPENDS+=	libmemcached.so:${PORTSDIR}/databases/libmemcached
 LIB_DEPENDS+=	libev.so:${PORTSDIR}/devel/libev
 
 GNU_CONFIGURE=	yes
-USES=		autoreconf compiler:c11 gmake libtool pkgconfig tar:xz
+USES=		autoreconf gmake libtool pkgconfig tar:xz
 #USE_CSTD=	gnu99
 USE_BZIP2=	yes
 
@@ -57,6 +57,7 @@ do-install:
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_auth.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_authn_file.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_cgi.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
+		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_compress.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_deflate.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_dirlisting.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_evasive.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
