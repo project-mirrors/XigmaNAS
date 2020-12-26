@@ -130,7 +130,6 @@ Changes:
 - Upgrade transmission to 3.00.
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade php to 7.4.13.
-- Upgrade zoneinfo to 2020d.
 - Upgrade devcpu-data to 1.37.
 - Upgrade dialog to 1.3-20201126.
 - Upgrade nut to 2020.11.30.
@@ -144,6 +143,7 @@ Changes:
 - Upgrade samba to 4.11.15.
 - Upgrade bash to 5.1 p4.
 - Upgrade lighttpd to 1.4.57.
+- Upgrade zoneinfo to 2020e.
 
 
 Fixes:
