@@ -964,6 +964,9 @@ usr/sbin/wpa_passphrase
 ## zhack -- ZFS debugging tool
 usr/sbin/zhack
 
+## zonectl -- Shingled Magnetic Recording Zone Control utility
+usr/sbin/zonectl
+
 ####### contents of /usr/libexec
 # ld-elf.so.1, ld.so, rtld -- run-time link-editor
 libexec/ld-elf.so.1:usr/libexec/ld-elf.so.1
