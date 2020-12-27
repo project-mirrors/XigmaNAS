@@ -87,7 +87,8 @@ function _download_items($dir,$items) {
 function _download(string $file,string $localname) {
 	header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 	header(sprintf('Content-Disposition: attachment; filename="%s"',$localname));
-	header(sprintf('Content-Type: application/octet-stream; name="%s"',$localname));
+	header('Content-Type: application/octet-stream');
+	header('Content-Length: ' . filesize($file));
 	header(sprintf('X-Sendfile: %s',$file));
 	exit;
 }
