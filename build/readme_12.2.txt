@@ -111,6 +111,7 @@ Changes:
 - Upgrade lighttpd to 1.4.57.
 - Upgrade bash to 5.1 p4.
 - Upgrade zoneinfo to 2020e.
+- Upgrade samba to 4.13.1.
 
 
 Fixes:
