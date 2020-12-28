@@ -141,9 +141,9 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
-- Upgrade lighttpd to 1.4.57.
 - Upgrade zoneinfo to 2020e.
 - Upgrade samba to 4.13.1.
+- Upgrade lighttpd to 1.4.58.
 
 
 Fixes:
