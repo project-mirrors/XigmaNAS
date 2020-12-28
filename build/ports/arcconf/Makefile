@@ -1,28 +1,31 @@
 PORTNAME=	arcconf
-DISTVERSION=	v3_02_23600
+DISTVERSION=	v3_04_23699
 PORTREVISION=	0
-CATEGORIES=	sysutils
-COMMENT=	Adaptec SCSI/SAS RAID administration tool
-MAINTAINER=	zoon01@xigmanas.com
+CATEGORIES=		sysutils
+COMMENT=		Adaptec SCSI/SAS RAID administration tool
+MAINTAINER=		zoon01@xigmanas.com
 
-MASTER_SITES=	http://download.adaptec.com/raid/storage_manager/
+MASTER_SITES=		https://download.adaptec.com/raid/storage_manager/
 
-DISTNAME=	arcconf_${DISTVERSION}
-USES=		zip
+DISTNAME=		arcconf_${DISTVERSION}
 
-ONLY_FOR_ARCHS=	amd64
-RESTRICTED=	May not be redistributed in binary form
-NO_CDROM=	May not be redistributed in binary form
+LICENSE=		Microsemi
+LICENSE_NAME=		Microsemi License
+LICENSE_FILE=		${WRKSRC}/freebsd${DIST_TYPE}/cmdline/License.txt
+LICENSE_PERMS=		no-pkg-sell no-dist-sell no-dist-mirror auto-accept
+
+ONLY_FOR_ARCHS=		amd64
+USES=			zip
+LIB_DEPENDS+=    	libstdc++.so.6:lang/gcc${GCC_DEFAULT}
+USE_GCC=        	yes
 
 .include <bsd.port.pre.mk>
-
-DIST_TYPE=	12_x64
-
-NO_BUILD=	yes
+DIST_TYPE=		12_x64
+NO_BUILD=		yes
 NO_WRKSUBDIR=	yes
 
-
 do-install:
-	${INSTALL_PROGRAM} -v ${WRKSRC}/freebsd${DIST_TYPE}/cmdline/arcconf ${XIGMANAS_ROOTFS}/${PREFIX}/sbin
+# XigmaNAS® install
+	${INSTALL_PROGRAM} -v ${WRKSRC}/freebsd${DIST_TYPE}/cmdline/arcconf ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 
 .include <bsd.port.post.mk>
