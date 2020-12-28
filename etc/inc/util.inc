@@ -71,7 +71,7 @@ function is_ipv6addr($ipv6addr) {
  */
 function is_subnet($subnet) {
 	if(is_string($subnet)):
-		list($hp,$np) = explode('/',$subnet);
+		[$hp,$np] = explode('/',$subnet);
 //		if it's an IPv4 address, but with a bitcount outside 1-32 range, there is a problem
 		if(is_ipv4addr($hp) && is_numeric($np) && ($np > 0) && ($np <= 32)):
 			return true;
@@ -1634,7 +1634,7 @@ function ipcmp($a,$b) {
  *	return true if $addr is in $subnet, false if not
  */
 function ip_in_subnet($addr,$subnet) {
-	list($ip,$mask) = explode('/',$subnet);
+	[$ip,$mask] = explode('/',$subnet);
 	$mask = 0xffffffff << (32 - $mask);
 	return ((ip2long($addr) & $mask) == (ip2long($ip) & $mask));
 }
