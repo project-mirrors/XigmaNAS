@@ -29,6 +29,7 @@ Changes:
 - Upgrade lighttpd to 1.4.57.
 - Upgrade zoneinfo to 2020e.
 - Upgrade samba to 4.13.1.
+- Upgrade lighttpd to 1.4.58.
 
 Fixes:
 

@@ -143,9 +143,9 @@ Changes:
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
 - Upgrade sudo to 1.9.4p2.
-- Upgrade lighttpd to 1.4.57.
 - Upgrade zoneinfo to 2020e.
 - Upgrade samba to 4.13.1.
+- Upgrade lighttpd to 1.4.58.
 
 
 
