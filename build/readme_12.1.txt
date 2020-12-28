@@ -144,6 +144,7 @@ Changes:
 - Upgrade zoneinfo to 2020e.
 - Upgrade samba to 4.13.1.
 - Upgrade lighttpd to 1.4.58.
+- Upgrade arcconf to 3_04_23699.
 
 
 Fixes:
