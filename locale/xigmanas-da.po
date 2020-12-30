@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-12-09 15:31+0000\n"
-"PO-Revision-Date: 2019-02-21 17:23+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2020-12-30 12:56+0000\n"
+"Last-Translator: Birger Hebsgaard <bhebsgaard@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-18 14:41+0000\n"
+"X-Launchpad-Export-Date: 2020-12-30 13:02+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Ingen privat nøgle"
 
 msgid " interfaces:"
 msgstr " grænseflader:"
@@ -35,7 +35,7 @@ msgstr ""
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s brugt, %3$s tilgængelig"
 
 #, php-format
 msgid "%d days"
@@ -63,7 +63,7 @@ msgstr "%dB / blok"
 
 #, php-format
 msgid "%s Interface"
-msgstr "%s grænsesnit"
+msgstr "%s grænseflade"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -71,7 +71,7 @@ msgstr "%s eksisterer allerede som en %s."
 
 #, php-format
 msgid "%s already exists."
-msgstr "%s eksisterer allerede"
+msgstr "%s eksisterer allerede."
 
 #, php-format
 msgid "%s available of %s"
@@ -79,19 +79,19 @@ msgstr "%s til rådighed af %s"
 
 #, php-format
 msgid "%s is already configured as a filesystem."
-msgstr "%s er allerede konfiguret som et filsystem"
+msgstr "%s er allerede konfigureret som et filsystem."
 
 #, php-format
 msgid "%s is already configured as a volume."
-msgstr "%s allerede konfigureret som et drev"
+msgstr "%s er allerede konfigureret som et drev."
 
 #, php-format
 msgid "%s is based upon/includes various free software packages."
-msgstr "%s er baseret på / indeholder forskellige gratis softwarepakker"
+msgstr "%s er baseret på / indeholder forskellige gratis softwarepakker."
 
 #, php-format
 msgid "%s is too long."
-msgstr "%s er for lang"
+msgstr "%s er for lang."
 
 #, php-format
 msgid "%s of %s"
@@ -123,7 +123,7 @@ msgid ""
 "192 for 3DES)."
 msgstr ""
 "(Standardlængder er: 128 for AES, 128 for Blowfish, 128 for Camellia og 192 "
-"for 3DES)"
+"for 3DES)."
 
 msgid "(Found in a Maxtor 6B200M0 200GB and Maxtor 2R015H1 15GB disks)."
 msgstr "(Fundet i en Maxtor 6B200M0 200 GB og Maxtor 2R015H1 15 GB diske)."
@@ -133,18 +133,18 @@ msgid ""
 "the total number of Flash erase operation failures since the drive was "
 "deployed. This Attribute is identical to Attribute 182."
 msgstr ""
-"(Kingston)Tæller antallet af flashfejl. Denne egenskab returnerer det totale "
-"antal fejl i Flash-sletningsoperationer, siden drevet blev implementeret. "
-"Denne egenskab er identisk med attribut 182"
+"(Kingston)Tæller antallet af flash slette fejl. Denne Attribut returnerer "
+"det totale antal fejl i Flash sletningsoperationer siden drevet blev sat i "
+"drift. Denne Attribut er identisk med Attribut 182."
 
 msgid ""
 "(Kingston)Counts the number of flash program failures. This Attribute "
 "returns the total number of Flash program operation failures since the drive "
 "was deployed. This attribute is identical to attribute 181."
 msgstr ""
-"(Kingston)Tæller antallet af flashprogramfejl. Denne egenskab returnerer det "
-"totale antal funktionsfejl i Flash-programmet, siden drevet blev "
-"implementeret. Denne attribut er identisk med attributten 181."
+"(Kingston)Tæller antallet af flash program fejl. Denne Attribut returnerer "
+"det totale antal af Flash program operationsfejl siden drevet blev sat i "
+"drift. Denne attribut er identisk med attribut 181."
 
 msgid ""
 "(Vendor specific raw value.) Rate of seek errors of the magnetic heads. If "
@@ -154,11 +154,12 @@ msgid ""
 "different structure for different vendors and is often not meaningful as a "
 "decimal number."
 msgstr ""
-"(Leverandørspecifik angivelse.) Angiver søgefejl fra læsehovedet. Hvis der "
-"er en delvis fejl i det mekaniske positioneringssystem, vil der opstå "
-"søgefejl. Fejlen kan skyldes mange faktorer, såsom skade på aktuatorer eller "
-"udvidelse af harddisken på grund af varme. Værdien har forskellig struktur "
-"fra forskellige leverandører, og er ofte ikke meningsfuld som et decimaltal."
+"(Leverandørspecifik rå værdi.) Angiver søgefejl fra det magnetiske læse "
+"hoved. Hvis der er en delvis fejl i det mekaniske positioneringssystem, vil "
+"der opstå søgefejl. Sådan fejl kan skyldes mange faktorer, såsom skade på en "
+"servo eller fysisk udvidelse af harddisken på grund af varme. Den rå værdi "
+"har forskellig struktur for forskellige leverandører, og giver ofte ikke "
+"mening som et decimaltal."
 
 msgid ""
 "(Vendor specific raw value.) Stores data related to the rate of hardware "
@@ -166,17 +167,17 @@ msgid ""
 "value has different structure for different vendors and is often not "
 "meaningful as a decimal number."
 msgstr ""
-"(Leverandørspecifik angivelse.) Gemmer data relateret til fejlrate under "
-"læsning der skyldes hardware under indlæsning fra overfladen på diske. "
-"Værdien har forskellig struktur fra forskellige leverandører, og er ofte "
-"ikke meningsfuld som et decimaltal."
+"(Leverandørspecifik rå værdi.) Gemmer data relateret til hardware fejlrate "
+"under læsning der skete ved indlæsning af data fra overfladen på diske. Den "
+"rå værdi har forskellig struktur for forskellige leverandører, og giver ofte "
+"ikke mening som et decimaltal."
 
 msgid ""
 "(Vendor-specific raw value.) The raw value has different structure for "
 "different vendors and is often not meaningful as a decimal number."
 msgstr ""
-"(Leverandørspecifik angivelse.) Værdien har forskellig struktur fra "
-"forskellige leverandører, og er ofte ikke meningsfuld som et decimaltal."
+"(Leverandørspecifik rå værdi.) Den rå værdi har forskellig struktur for "
+"forskellige leverandører, og giver ofte ikke mening som et decimaltal."
 
 #, php-format
 msgid "(default %s %s"
@@ -189,10 +190,10 @@ msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "000"
-msgstr ""
+msgstr "000"
 
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=deaktiveret, 1-255=aktiveret kommando kø med angivet dybde."
@@ -201,58 +202,58 @@ msgid "1"
 msgstr "1"
 
 msgid "1 or more disks are required to build a JBOD volume."
-msgstr "1 eller flere diske kræves for at danne JBOD volume"
+msgstr "Der kræves 1 eller flere diske for at danne et JBOD drev."
 
 msgid "1 or more disks are required to build a RAID-1 volume."
-msgstr "2 eller flere diske kræves for at danne RAID-1 volume"
+msgstr "Der kræves 2 eller flere diske for at danne et RAID-1 drev."
 
 msgid "1.8\""
-msgstr "1.8 tomme"
+msgstr "1.8\""
 
 msgid "1000"
-msgstr ""
+msgstr "1000"
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
 msgstr "16 KiB"
 
 msgid "16384"
-msgstr ""
+msgstr "16384"
 
 msgid "192.168.0.0/24"
-msgstr ""
+msgstr "192.168.0.0/24"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 KiB"
-msgstr ""
+msgstr "2 KiB"
 
 msgid "2 or more disks are required to build a RAID-0 volume."
-msgstr "2 eller flere diske kræves for at danne RAID-0 volume"
+msgstr "Der kræves 2 eller flere diske for at danne et RAID-0 drev."
 
 msgid "2 or more disks are required to build a RAID-1 volume."
-msgstr "2 eller flere diske kræves for at danne RAID-1 volume"
+msgstr "Der kræves 2 eller flere diske for at danne et RAID-1 drev."
 
 msgid "2.5\""
-msgstr "2.5 tomme"
+msgstr "2.5\""
 
 msgid "22"
-msgstr ""
+msgstr "22"
 
 msgid "3"
 msgstr "3"
 
 msgid "3 or more disks are required to build a RAID-5 volume."
-msgstr "3 eller flere diske kræves for at danne RAID-5 volume"
+msgstr "Der kræves 3 eller flere diske for at danne et RAID-5 drev."
 
 msgid "3.5\""
 msgstr "3.5\""
 
 msgid "300"
-msgstr ""
+msgstr "300"
 
 msgid "32 KiB"
 msgstr "32 KiB"
@@ -285,7 +286,7 @@ msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN mærkat (mellem 1 og 4094)."
 
 msgid "8200"
-msgstr ""
+msgstr "8200"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -298,6 +299,8 @@ msgid ""
 "A Portal Group is identified by a tag number and defines IP addresses and "
 "listening TCP ports."
 msgstr ""
+"En Portal Gruppe er identificeret ved et mærke nummer og definere IP "
+"adresser og TCP lytte porte."
 
 #, php-format
 msgid "A VLAN with the tag %s is already defined on this interface."
@@ -352,7 +355,7 @@ msgid "A rescan has been issued."
 msgstr ""
 
 msgid "A sysvol folder was found."
-msgstr ""
+msgstr "En sysvol mappe blev fundet."
 
 msgid ""
 "A tally of spindle start/stop cycles. The spindle turns on, and hence the "
@@ -401,16 +404,16 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Et gyldigt præfiks (1-128) skal angives."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "AC3 Lyd Fil"
 
 msgid "ACL Inherit"
-msgstr ""
+msgstr "ACL nedarv"
 
 msgid "ACL Mode"
 msgstr ""
 
 msgid "ACL inherit"
-msgstr ""
+msgstr "ACL nedarv"
 
 msgid "ACL mode"
 msgstr ""
@@ -428,10 +431,10 @@ msgid "AG"
 msgstr "AG"
 
 msgid "AIO Read Size"
-msgstr ""
+msgstr "AIO Læse Størrelse"
 
 msgid "AIO Write Size"
-msgstr ""
+msgstr "AIO Skrive Størrelse"
 
 msgid "AP mode"
 msgstr "AP tilstand"
@@ -440,16 +443,16 @@ msgid "ARP Tables"
 msgstr "ARP Tabeller"
 
 msgid "ARP Tables List"
-msgstr ""
+msgstr "ARP Tabeller Liste"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "AVI Fil"
 
 msgid "Accept remote syslog messages."
-msgstr ""
+msgstr "Accepter syslog fjernbeskeder."
 
 msgid "Access"
 msgstr "Adgang"
@@ -470,13 +473,13 @@ msgid "Access the webGUI with the new IP address"
 msgstr ""
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Akustisk Niveau"
 
 msgid "Action"
 msgstr "Handling"
 
 msgid "Actions"
-msgstr ""
+msgstr "Handlinger"
 
 msgid "Activate"
 msgstr "Aktiver"
@@ -492,7 +495,7 @@ msgstr ""
 "ny fejl opdages, eller hvis en S.M.A.R.T. kommando til en disk fejler."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Aktiver den valgte enhed."
 
 msgid "Active"
 msgstr "Aktive"
@@ -519,28 +522,28 @@ msgid "Add"
 msgstr "Tilføj"
 
 msgid "Add Auth Group"
-msgstr ""
+msgstr "Tilføj Auth Gruppe"
 
 msgid "Add Bridge"
-msgstr ""
+msgstr "Tilføj Bro"
 
 msgid "Add CARP"
-msgstr ""
+msgstr "Tilføj CARP"
 
 msgid "Add CHAP User"
-msgstr ""
+msgstr "Tilføj CHAP Bruger"
 
 msgid "Add Command"
-msgstr ""
+msgstr "Tilføj kommando"
 
 msgid "Add Dataset"
-msgstr ""
+msgstr "Tilføj Datasæt"
 
 msgid "Add Disk"
 msgstr "Tilføj disk"
 
 msgid "Add Encrypted Volume"
-msgstr ""
+msgstr "Tilføj Enkrypteret Volume"
 
 msgid "Add Group"
 msgstr "Tilføj gruppe"
@@ -549,13 +552,13 @@ msgid "Add Host"
 msgstr "Tilføj vært"
 
 msgid "Add Initiator Name"
-msgstr ""
+msgstr "Tilføj Initiator Navn"
 
 msgid "Add Initiator Portal"
-msgstr ""
+msgstr "Tilføj Initiator Portal"
 
 msgid "Add LAGG"
-msgstr ""
+msgstr "Tilføj LAGG"
 
 msgid "Add LUN"
 msgstr ""

@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2020-12-09 15:31+0000\n"
-"PO-Revision-Date: 2020-03-28 01:39+0000\n"
-"Last-Translator: elsof <Unknown>\n"
+"PO-Revision-Date: 2020-12-18 21:08+0000\n"
+"Last-Translator: Ivan Gorinov <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-18 14:41+0000\n"
+"X-Launchpad-Export-Date: 2020-12-30 13:02+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "X-Poedit-Country: BULGARIA\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
-msgstr ""
+msgstr " Няма частен ключ"
 
 msgid " interfaces:"
 msgstr " интерфейси:"
@@ -31,7 +31,7 @@ msgstr "%1$s е използвано за създаването на %2$s дя�
 
 #, php-format
 msgid "%1$s managed, %2$s used, %3$s available"
-msgstr "%1$s всичко, %2$s исползвано, %3$s достъпно"
+msgstr "%1$s всичко, %2$s използвано, %3$s достъпно"
 
 #, php-format
 msgid "%2$s used, %3$s available"
@@ -87,7 +87,7 @@ msgstr "%s вече е конфигурирано като том."
 
 #, php-format
 msgid "%s is based upon/includes various free software packages."
-msgstr ""
+msgstr "%s е основано на/включва различни свободни софтуерни пакети"
 
 #, php-format
 msgid "%s is too long."
@@ -251,19 +251,19 @@ msgid "5.25\""
 msgstr "5.25\""
 
 msgid "512 Bytes"
-msgstr ""
+msgstr "Байта"
 
 msgid "514"
 msgstr "514"
 
 msgid "64 KiB"
-msgstr ""
+msgstr "64 KB"
 
 msgid "69"
 msgstr "69"
 
 msgid "8 KiB"
-msgstr ""
+msgstr "8 KB"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN етикет (между 1 и 4094)."
@@ -430,7 +430,7 @@ msgid "ARP Tables List"
 msgstr "ARP Таблици Списък"
 
 msgid "ASCII"
-msgstr ""
+msgstr "Текстов (ASCII)"
 
 msgid "AVI File"
 msgstr "AVI Файл"
@@ -479,7 +479,7 @@ msgstr ""
 "или нова грешка , или ако S.M.A.R.T. команда на диска се провали."
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "Активиране на избраното устройтво"
 
 msgid "Active"
 msgstr "Активен"
@@ -527,7 +527,7 @@ msgid "Add Disk"
 msgstr "Добавяне на Диск"
 
 msgid "Add Encrypted Volume"
-msgstr ""
+msgstr "Добавяне на шифрован дял"
 
 msgid "Add Group"
 msgstr "Нова група"
@@ -554,7 +554,7 @@ msgid "Add Listen Record"
 msgstr ""
 
 msgid "Add Media Folder"
-msgstr ""
+msgstr "Добавяне на мултимедийна папка"
 
 msgid "Add Mutual CHAP User"
 msgstr ""
@@ -566,7 +566,7 @@ msgid "Add NFS Root"
 msgstr ""
 
 msgid "Add Option"
-msgstr ""
+msgstr "Добавяне на опция"
 
 msgid "Add Option Record"
 msgstr ""
@@ -581,7 +581,7 @@ msgid "Add Portal Group"
 msgstr ""
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "Добавяне ба публичен ключ"
 
 msgid "Add RAID"
 msgstr "Добави RAID"
