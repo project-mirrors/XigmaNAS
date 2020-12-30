@@ -31,9 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\samba;
 
 use common\properties as myp;
+
+use function gettext,sprintf;
 
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
@@ -61,11 +64,20 @@ final class setting_properties extends grid_properties {
 		$options = [
 			'' => gettext('Default'),
 			'SMB3' => gettext('SMB3'),
-			'SMB3_11' => gettext('SMB3_11 (Windows 10)'),
+			'SMB3_11' => gettext('SMB3 (Windows 10)'),
+//			'SMB3_10' => gettext('SMB3 (Early technical preview of Windows 10'),
 			'SMB3_02' => gettext('SMB3 (Windows 8.1)'),
 			'SMB3_00' => gettext('SMB3 (Windows 8)'),
 			'SMB2' => gettext('SMB2'),
+//			'SMB2_24' => gettext('SMB2 (Windows 8 beta SMB2 version)'),
+//			'SMB2_22' => gettext('SMB2 (Early Windows 8 SMB2 version)'),
+//			'SMB2_10' => gettext('SMB2 (Windows 7 SMB2 version)'),
+//			'SMB2_02' => gettext('SMB2 (The earliest SMB2 version)'),
 			'NT1' => gettext('NT1 (CIFS)')
+//			'LANMAN2' => gettext('LANMAN2 (Updates to Lanman1 protocol)'),
+//			'LANMAN1' => gettext('LANMAN1 (First modern version of the protocol. Long filename support)'),
+//			'COREPLUS' => gettext('COREPLUS (Slight improvements on CORE for efficiency)'),
+//			'CORE' => gettext('CORE (Earliest version. No concept of user names)')
 		];
 		return $options;
 	}
@@ -143,7 +155,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_workgroup(): myp\property_text {
@@ -161,7 +173,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_if(): myp\property_list {
@@ -376,7 +388,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_directorymask(): myp\property_text {
@@ -391,7 +403,7 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_sndbuf(): myp\property_int {
