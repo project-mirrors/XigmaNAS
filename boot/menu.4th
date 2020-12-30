@@ -1,3 +1,11 @@
+\
+\ Part of XigmaNAS® (https://www.xigmanas.com).
+\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
+\ All Rights Reserved.
+\
+\ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
+\ All Rights Reserved.
+\
 \ Copyright (c) 2003 Scott Long <scottl@FreeBSD.org>
 \ Copyright (c) 2003 Aleksander Fafula <alex@fafula.com>
 \ Copyright (c) 2006-2015 Devin Teske <dteske@FreeBSD.org>

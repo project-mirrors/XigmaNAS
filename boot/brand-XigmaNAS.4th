@@ -1,3 +1,11 @@
+\
+\ Part of XigmaNAS® (https://www.xigmanas.com).
+\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
+\ All Rights Reserved.
+\
+\ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
+\ All Rights Reserved.
+\
 \ Copyright (c) 2006-2015 Devin Teske <dteske@FreeBSD.org>
 \ All rights reserved.
 \ 
@@ -21,15 +29,6 @@
 \ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
 \ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 \ SUCH DAMAGE.
-\ 
-\ $FreeBSD: releng/12.2/stand/forth/brand-fbsd.4th 280975 2015-04-02 01:48:12Z dteske $
-
-\ Part of XigmaNAS® (https://www.xigmanas.com).
-\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
-\ All Rights Reserved.
-\ 
-\ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
-\ All Rights Reserved.
 \ 
 
 2 brandX ! 1 brandY ! \ Initialize brand placement defaults
