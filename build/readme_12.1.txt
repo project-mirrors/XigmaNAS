@@ -141,11 +141,10 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
-- Upgrade zoneinfo to 2020e.
 - Upgrade samba to 4.13.1.
 - Upgrade lighttpd to 1.4.58.
 - Upgrade arcconf to 3_04_23699.
-
+- Upgrade zoneinfo to 2020f.
 
 Fixes:
 - Display releases of minor/major OS upgrades and minor/major product upgrades, beta versions and nightlies.
