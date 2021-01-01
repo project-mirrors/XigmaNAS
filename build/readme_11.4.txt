@@ -137,7 +137,6 @@ Changes:
 - Upgrade nano to 5.4.
 - Upgrade syncthing to 1.12.0.
 - Upgrade gzip to 1.10.
-- Upgrade msmtp to 1.8.13.
 - Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
@@ -147,6 +146,7 @@ Changes:
 - Upgrade lighttpd to 1.4.58.
 - Upgrade arcconf to 3_04_23699.
 - Upgrade zoneinfo to 2020f.
+- Upgrade msmtp to 1.8.14.
 
 Fixes:
 
