@@ -991,6 +991,49 @@ function get_upsinfo() {
 				$disp_status = gtext('Communication Error');
 			endif;
 			$row['disp_status'] = $disp_status;
+			unset($disp_status);
+//			collect remaining runtime
+			if(array_key_exists('battery.runtime',$ups_query)):
+				$battery_runtime_seconds = $ups_query['battery.runtime'];
+				if($battery_runtime_seconds < 0):
+					$battery_runtime_seconds = 0;
+				endif;
+			else:
+				$battery_runtime_seconds = 0;
+			endif;
+			if($battery_runtime_seconds > 86400):
+				$juice_left = gtext('More than a day');
+			elseif($battery_runtime_seconds === 0):
+				$juice_left = gtext('No data');
+			else:
+//				convert seconds to hours, minutes and seconds
+				$processor = [
+					'h' => ['eq1' => gtext('%u hour'),'gt1' => gtext('%u hours'),'div' => 3600],
+					'm' => ['eq1' => gtext('%u minute'),'gt1' => gtext('%u minutes'),'div' => 60],
+					's' => ['eq1' => gtext('%u second'),'gt1' => gtext('%u seconds'),'div' => 1]
+				];
+				$result = [];
+				foreach($processor as $data):
+					$value = intdiv($battery_runtime_seconds,$data['div']);
+					$battery_runtime_seconds %= $data['div'];
+					if($value > 1):
+						$result[] = sprintf($data['gt1'],$value);
+					elseif($value === 1):
+						$result[] = sprintf($data['eq1'],$value);
+					endif;
+				endforeach;
+				unset($data,$processor,$value,$battery_runtime_seconds);
+				if(count($result) > 1):
+					$last = array_pop($result);
+					$juice_left = sprintf('%s %s %s',implode(', ',$result),gtext('and'),$last);
+					unset($last);
+				else:
+					$juice_left = implode(' ',$result);
+				endif;
+				unset($result);
+			endif;
+			$row['juice_left'] = $juice_left;
+			unset($juice_left);
 			$sphere[] = $row;
 			unset($row);
 		endif;

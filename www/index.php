@@ -405,6 +405,11 @@ function render_upsinfo() {
 					'</td>';
 				echo '<td class="nopad100"></td>';
 				echo '</tr>';
+				echo '<tr>';
+				echo '<td class="padr03">',gtext('Remaining:'),'</td>',
+					'<td class="nopad" colspan="2" id="',$id,'juice_left">',$ui['juice_left'],'</td>',
+					'<td class="nopad100"></td>';
+				echo '</tr>';
 				$index++;
 				if($index < $sphere_elements):
 					echo '<tr><td class="nopad" colspan="4"><hr /></td></tr>';
@@ -580,6 +585,9 @@ $(document).ready(function(){
 				}
 				if($(id_prefix+'disp_status').length) {
 					$(id_prefix+'disp_status').text(ui.disp_status);
+				}
+				if($(id_prefix+'juice_left').length) {
+					$(id_prefix+'juice_left').text(ui.juice_left);
 				}
 				var uil = ui['load'];
 				var id_prefix = '#ups_status_'+ui.id+'_load_';
