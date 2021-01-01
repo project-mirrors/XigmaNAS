@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2020-12-09 15:31+0000\n"
+"POT-Creation-Date: 2021-01-02 00:17+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -107,6 +107,30 @@ msgstr ""
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
+msgstr ""
+
+#, php-format
+msgid "%u hour"
+msgstr ""
+
+#, php-format
+msgid "%u hours"
+msgstr ""
+
+#, php-format
+msgid "%u minute"
+msgstr ""
+
+#, php-format
+msgid "%u minutes"
+msgstr ""
+
+#, php-format
+msgid "%u second"
+msgstr ""
+
+#, php-format
+msgid "%u seconds"
 msgstr ""
 
 #, php-format
@@ -6511,6 +6535,9 @@ msgstr ""
 msgid "Months"
 msgstr ""
 
+msgid "More than a day"
+msgstr ""
+
 msgid "More than one DLNA/UPnP service is active. This configuration might cause issues."
 msgstr ""
 
@@ -6912,6 +6939,9 @@ msgid "No configured pools."
 msgstr ""
 
 msgid "No configured virtual devices."
+msgstr ""
+
+msgid "No data"
 msgstr ""
 
 msgid "No devices have been selected"
@@ -8368,6 +8398,9 @@ msgstr ""
 msgid "Remaining battery runtime"
 msgstr ""
 
+msgid "Remaining:"
+msgstr ""
+
 msgid "Reminder Settings"
 msgstr ""
 
@@ -8636,6 +8669,9 @@ msgstr ""
 msgid "Rule"
 msgstr ""
 
+msgid "Rule #"
+msgstr ""
+
 msgid "Rule number"
 msgstr ""
 
@@ -8705,13 +8741,13 @@ msgstr ""
 msgid "SMB3"
 msgstr ""
 
+msgid "SMB3 (Windows 10)"
+msgstr ""
+
 msgid "SMB3 (Windows 8)"
 msgstr ""
 
 msgid "SMB3 (Windows 8.1)"
-msgstr ""
-
-msgid "SMB3_11 (Windows 10)"
 msgstr ""
 
 msgid "SMTP Authentication"
