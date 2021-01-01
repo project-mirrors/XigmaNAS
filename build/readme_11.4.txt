@@ -171,5 +171,5 @@ Default Login
 
  * It is recommended to change default passwords after the initial setup is completed.
 
-XigmaNAS® is copyright © 2018 - 2020 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
+XigmaNAS® is copyright © 2018 - 2021 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
 XigmaNAS® is a registered trademark of Michael Zoon (zoon01@xigmanas.com). All Rights Reserved.
