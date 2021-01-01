@@ -147,6 +147,7 @@ Changes:
 - Upgrade arcconf to 3_04_23699.
 - Upgrade zoneinfo to 2020f.
 - Upgrade msmtp to 1.8.14.
+- Upgrade smartmontools to 7.2.
 
 Fixes:
 
