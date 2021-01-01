@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-12-09 15:31+0000\n"
+"POT-Creation-Date: 2021-01-02 00:17+0000\n"
 "PO-Revision-Date: 2020-12-06 19:22+0000\n"
 "Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-30 13:02+0000\n"
+"X-Launchpad-Export-Date: 2021-01-01 23:37+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -111,6 +111,30 @@ msgstr "%s by rád(a) poděkoval(a) autorům tohoto software za jejich úsilí."
 #, php-format
 msgid "%s%d %s is already used by %s%d."
 msgstr "%s%d %s je už používáno %s%d."
+
+#, php-format
+msgid "%u hour"
+msgstr ""
+
+#, php-format
+msgid "%u hours"
+msgstr ""
+
+#, php-format
+msgid "%u minute"
+msgstr ""
+
+#, php-format
+msgid "%u minutes"
+msgstr ""
+
+#, php-format
+msgid "%u second"
+msgstr ""
+
+#, php-format
+msgid "%u seconds"
+msgstr ""
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -7447,6 +7471,9 @@ msgstr ""
 msgid "Months"
 msgstr "Měsíce"
 
+msgid "More than a day"
+msgstr ""
+
 msgid ""
 "More than one DLNA/UPnP service is active. This configuration might cause "
 "issues."
@@ -7881,6 +7908,9 @@ msgstr "Nejsou nastavené žádné fondy úložišť."
 
 msgid "No configured virtual devices."
 msgstr "Nejsou nastavená žádná virtuální zařízení."
+
+msgid "No data"
+msgstr ""
 
 msgid "No devices have been selected"
 msgstr "Nejsou označená žádná zařízení"
@@ -9442,6 +9472,9 @@ msgstr "Načíst stránku znovu"
 msgid "Remaining battery runtime"
 msgstr "Zbývající doba provozu z akumulátorů"
 
+msgid "Remaining:"
+msgstr ""
+
 msgid "Reminder Settings"
 msgstr "Nastavení připomínky"
 
@@ -9726,6 +9759,9 @@ msgstr "Rsync úloha je odemčená"
 msgid "Rule"
 msgstr "Pravidlo"
 
+msgid "Rule #"
+msgstr ""
+
 msgid "Rule number"
 msgstr "Číslo pravidla"
 
@@ -9801,14 +9837,14 @@ msgstr "SMB2"
 msgid "SMB3"
 msgstr "SMB3"
 
+msgid "SMB3 (Windows 10)"
+msgstr ""
+
 msgid "SMB3 (Windows 8)"
 msgstr "SMB3 (Windows 8)"
 
 msgid "SMB3 (Windows 8.1)"
 msgstr "SMB3 (Windows 8.1)"
-
-msgid "SMB3_11 (Windows 10)"
-msgstr "SMB3_11 (Windows 10)"
 
 msgid "SMTP Authentication"
 msgstr "SMTP ověření"

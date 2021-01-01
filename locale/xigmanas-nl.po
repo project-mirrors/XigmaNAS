@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-12-09 15:31+0000\n"
-"PO-Revision-Date: 2020-12-09 16:11+0000\n"
+"POT-Creation-Date: 2021-01-02 00:17+0000\n"
+"PO-Revision-Date: 2021-01-01 23:35+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-30 13:01+0000\n"
+"X-Launchpad-Export-Date: 2021-01-01 23:37+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -113,6 +113,30 @@ msgstr "%s wil de auteurs van deze software bedanken voor hun inspanningen."
 #, php-format
 msgid "%s%d %s is already used by %s%d."
 msgstr "%s%d %s is reeds gebruikt door %s%d."
+
+#, php-format
+msgid "%u hour"
+msgstr "%u uur"
+
+#, php-format
+msgid "%u hours"
+msgstr "%u uren"
+
+#, php-format
+msgid "%u minute"
+msgstr "%u minuut"
+
+#, php-format
+msgid "%u minutes"
+msgstr "%u minuten"
+
+#, php-format
+msgid "%u second"
+msgstr "%u seconde"
+
+#, php-format
+msgid "%u seconds"
+msgstr "%u seconden"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -7502,6 +7526,9 @@ msgstr "Monitoring Gebruiker"
 msgid "Months"
 msgstr "Maanden"
 
+msgid "More than a day"
+msgstr "Meer dan een dag"
+
 msgid ""
 "More than one DLNA/UPnP service is active. This configuration might cause "
 "issues."
@@ -7936,6 +7963,9 @@ msgstr "Er zijn geen pools geconfigureerd."
 
 msgid "No configured virtual devices."
 msgstr "Er zijn geen virtuele schijven geconfigureerd."
+
+msgid "No data"
+msgstr "Geen data"
 
 msgid "No devices have been selected"
 msgstr "Er zijn geen schijven geselecteerd"
@@ -9499,6 +9529,9 @@ msgstr "Pagina herladen"
 msgid "Remaining battery runtime"
 msgstr "Resterende batterijduur"
 
+msgid "Remaining:"
+msgstr "Resterend:"
+
 msgid "Reminder Settings"
 msgstr "Herinneringsinstellingen"
 
@@ -9789,6 +9822,9 @@ msgstr "Rsync taak is ontgrendeld"
 msgid "Rule"
 msgstr "Regel"
 
+msgid "Rule #"
+msgstr "Regel #"
+
 msgid "Rule number"
 msgstr "Regelnummer"
 
@@ -9863,14 +9899,14 @@ msgstr "SMB2"
 msgid "SMB3"
 msgstr "SMB3"
 
+msgid "SMB3 (Windows 10)"
+msgstr "SMB3 (Windows 10)"
+
 msgid "SMB3 (Windows 8)"
 msgstr "SMB3 (Windows 8)"
 
 msgid "SMB3 (Windows 8.1)"
 msgstr "SMB3 (Windows 8.1)"
-
-msgid "SMB3_11 (Windows 10)"
-msgstr "SMB3_11 (Windows 10)"
 
 msgid "SMTP Authentication"
 msgstr "SMTP Verificatie"

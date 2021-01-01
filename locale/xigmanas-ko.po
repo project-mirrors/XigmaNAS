@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2020-12-09 15:31+0000\n"
+"POT-Creation-Date: 2021-01-02 00:17+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-12-30 13:01+0000\n"
+"X-Launchpad-Export-Date: 2021-01-01 23:37+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -111,6 +111,30 @@ msgstr ""
 #, php-format
 msgid "%s%d %s is already used by %s%d."
 msgstr "%s%d %s은(는) %s%d에 의해 사용중입니다."
+
+#, php-format
+msgid "%u hour"
+msgstr ""
+
+#, php-format
+msgid "%u hours"
+msgstr ""
+
+#, php-format
+msgid "%u minute"
+msgstr ""
+
+#, php-format
+msgid "%u minutes"
+msgstr ""
+
+#, php-format
+msgid "%u second"
+msgstr ""
+
+#, php-format
+msgid "%u seconds"
+msgstr ""
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -7030,6 +7054,9 @@ msgstr ""
 msgid "Months"
 msgstr "월"
 
+msgid "More than a day"
+msgstr ""
+
 msgid ""
 "More than one DLNA/UPnP service is active. This configuration might cause "
 "issues."
@@ -7446,6 +7473,9 @@ msgstr "풀이 구성되지 않았습니다."
 
 msgid "No configured virtual devices."
 msgstr "가상 장치가 구성되지 않았습니다."
+
+msgid "No data"
+msgstr ""
 
 msgid "No devices have been selected"
 msgstr "장치들이 선택되지 않음"
@@ -8955,6 +8985,9 @@ msgstr "페이지 다시 읽기"
 msgid "Remaining battery runtime"
 msgstr "남은 베터리 가동 시간"
 
+msgid "Remaining:"
+msgstr ""
+
 msgid "Reminder Settings"
 msgstr ""
 
@@ -9231,6 +9264,9 @@ msgstr "Rsync 작업 잠금 해제됨"
 msgid "Rule"
 msgstr "규칙"
 
+msgid "Rule #"
+msgstr ""
+
 msgid "Rule number"
 msgstr "규칙 번호"
 
@@ -9302,14 +9338,14 @@ msgstr "SMB2"
 msgid "SMB3"
 msgstr "SMB3"
 
+msgid "SMB3 (Windows 10)"
+msgstr ""
+
 msgid "SMB3 (Windows 8)"
 msgstr "SMB3 (Windows 8)"
 
 msgid "SMB3 (Windows 8.1)"
 msgstr "SMB3 (Windows 8.1)"
-
-msgid "SMB3_11 (Windows 10)"
-msgstr "SMB3_11 (Windows 10)"
 
 msgid "SMTP Authentication"
 msgstr "SMTP 인증"
