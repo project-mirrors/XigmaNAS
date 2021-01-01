@@ -1,6 +1,6 @@
 \
 \ Part of XigmaNAS® (https://www.xigmanas.com).
-\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
+\ XigmaNAS® Copyright © 2018-2021 XigmaNAS® (info@xigmanas.com).
 \ All Rights Reserved.
 \
 \ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
@@ -35,7 +35,7 @@
 \ $FreeBSD: releng/12.2/stand/forth/menu.4th 354010 2019-10-24 04:05:53Z kevans $
 \ 
 \ Part of XigmaNAS® (https://www.xigmanas.com).
-\ XigmaNAS® Copyright © 2018-2020 XigmaNAS® (info@xigmanas.com).
+\ XigmaNAS® Copyright © 2018-2021 XigmaNAS® (info@xigmanas.com).
 \ All Rights Reserved.
 \
 \ XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
