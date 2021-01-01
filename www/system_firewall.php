@@ -31,19 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $pconfig['enable'] = isset($config['system']['firewall']['enable']);
 if(isset($_POST['export']) && $_POST['export']):
-	$doc = new DOMDocument('1.0', 'UTF-8');
+	$doc = new DOMDocument('1.0','UTF-8');
 	$doc->formatOutput = true;
 	$elm = $doc->createElement(get_product_name());
 	$elm->setAttribute('version', get_product_version());
 	$elm->setAttribute('revision', get_product_revision());
 	$node = $doc->appendChild($elm);
 
-	// export as XML
+//	export as XML
 	array_sort_key($config['system']['firewall']['rule'],'ruleno');
 	foreach($config['system']['firewall']['rule'] as $k => $v):
 		$elm = $doc->createElement('rule');
@@ -64,13 +65,13 @@ if(isset($_POST['export']) && $_POST['export']):
 		header(sprintf('Content-Length: %d',strlen($data)));
 		header('Pragma: hack');
 		echo $data;
-		ob_flush(); 
-		flush(); 
+		ob_flush();
+		flush();
 		exit;
 	endif;
 elseif(isset($_POST['import']) && $_POST['import']):
 	if(is_uploaded_file($_FILES['rulesfile']['tmp_name'])):
-		// import from XML
+//		import from XML
 		$xml = file_get_contents($_FILES['rulesfile']['tmp_name']);
 		$doc = new DOMDocument();
 		$data = [];
@@ -96,14 +97,14 @@ elseif(isset($_POST['import']) && $_POST['import']):
 		if(empty($data['rule'])):
 			$errormsg = gtext('Invalid file format.');
 		else:
-			// Take care array already exists.
+//			Take care array already exists.
 			array_make_branch($config,'system','firewall','rule');
-			// Import rules.
+//			Import rules.
 			foreach ($data['rule'] as $rule):
-				// Check if rule already exists.
+//				Check if rule already exists.
 				$index = array_search_ex($rule['uuid'], $config['system']['firewall']['rule'], "uuid");
 				if(false !== $index):
-					// Create new uuid and mark rule as duplicate (modify description).
+//					Create new uuid and mark rule as duplicate (modify description).
 					$rule['uuid'] = uuid();
 					$rule['desc'] = gtext('*** Imported duplicate ***') . " {$rule['desc']}";
 				endif;
@@ -228,23 +229,25 @@ $(window).on("load", function() {
 
 		<table class="area_data_selection">
 			<colgroup>
-				<col style="width:4%">
 				<col style="width:5%">
-				<col style="width:20%">
+				<col style="width:10%">
 				<col style="width:5%">
-				<col style="width:20%">
+				<col style="width:15%">
+				<col style="width:5%">
+				<col style="width:15%">
 				<col style="width:5%">
 				<col style="width:5%">
-				<col style="width:26%">
+				<col style="width:25%">
 				<col style="width:10%">
 			</colgroup>
 			<thead>
 <?php
-				html_separator(9);
-				html_titleline2(gettext('Firewall Rules'),9);
+				html_separator2(9);
+				html_titleline2(gettext('Firewall Rules'),10);
 ?>
 				<tr>
 					<th class="lhelc">&nbsp;</th>
+					<th class="lhell"><?=gtext('Rule #');?></th>
 					<th class="lhell"><?=gtext('Protocol');?></th>
 					<th class="lhell"><?=gtext('Source');?></th>
 					<th class="lhell"><?=gtext('Port');?></th>
@@ -274,12 +277,13 @@ $(window).on("load", function() {
 ?>
 					<tr>
 						<td class="<?=$enable?'lcelc':'lcelcd';?>"><img src="<?=$actionimg;?>" alt=""/></td>
+						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars($rule['ruleno'] ?? '');?></td>
 						<td class="<?=$enable?'lcell':'lcelld';?>"><?=strtoupper($rule['protocol']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['src']) ? "*" : $rule['src']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['srcport']) ? "*" : $rule['srcport']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['dst']) ? "*" : $rule['dst']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['dstport']) ? "*" : $rule['dstport']);?>&nbsp;</td>
-						<td class="<?=$enable?'lcelc':'lcelcd';?>"><?=empty($rule['direction']) ? "*" : strtoupper($rule['direction']);?>&nbsp;</td>
+						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['src']) ? '*' : $rule['src']);?>&nbsp;</td>
+						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['srcport']) ? '*' : $rule['srcport']);?>&nbsp;</td>
+						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['dst']) ? '*' : $rule['dst']);?>&nbsp;</td>
+						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars(empty($rule['dstport']) ? '*' : $rule['dstport']);?>&nbsp;</td>
+						<td class="<?=$enable?'lcelc':'lcelcd';?>"><?=empty($rule['direction']) ? '*' : strtoupper($rule['direction']);?>&nbsp;</td>
 						<td class="<?=$enable?'lcell':'lcelld';?>"><?=htmlspecialchars($rule['desc']);?>&nbsp;</td>
 						<td class="lcebld">
 <?php
@@ -302,7 +306,7 @@ $(window).on("load", function() {
 			</tbody>
 			<tfoot>
 				<tr>
-					<td class="lcenl" colspan="8"></td>
+					<td class="lcenl" colspan="9"></td>
 					<td class="lceadd">
 						<a href="system_firewall_edit.php"><img src="images/add.png" title="<?=gtext('Add rule');?>" border="0" alt="<?=gtext('Add rule');?>" /></a>
 <?php
