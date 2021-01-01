@@ -269,20 +269,42 @@ function system_get_user_list() {
 
 // SMBIOS get various info
 function get_smbios_info() {
-	$smbios = [];
+	$smbios = [
+		'bios' => ['reldate' => null,'vendor' => null,'version' => null],
+		'planar' => ['maker' => null,'product' => null],
+		'system' => ['maker' => null,'product' => null]
+	];
 	$cmd = '/bin/kenv -q';
 	unset($rawdata,$rc);
 	mwexec2($cmd,$rawdata,$rc);
 	if($rc != 0):
 		return $smbios;
 	endif;
+	$smbios_bios_options = array_keys($smbios['bios']);
+	$smbios_planar_options = array_keys($smbios['planar']);
+	$smbios_system_options = array_keys($smbios['system']);
 	foreach($rawdata as $line):
-		if(preg_match("/^smbios\.([^\.=]+)\.([^\.=]+)=\"(.*)\"/",$line,$match)):
-			$smbios[$match[1]][$match[2]] = $match[3];
+		if(preg_match('/^smbios\.(bios|planar|system)\.([^\.=]+)="(.*)"/',$line,$match)):
+			switch($match[1]):
+				case 'bios':
+					if(in_array($match[2],$smbios_bios_options)):
+						$smbios[$match[1]][$match[2]] = $match[3];
+					endif;
+					break;
+				case 'planar':
+					if(in_array($match[2],$smbios_planar_options)):
+						$smbios[$match[1]][$match[2]] = $match[3];
+					endif;
+					break;
+				case 'system':
+					if(in_array($match[2],$smbios_system_options)):
+						$smbios[$match[1]][$match[2]] = $match[3];
+					endif;
+					break;
+			endswitch;
 		endif;
 	endforeach;
-	$platform = get_platform_type();
-	if($smbios['bios']['vendor'] == 'BHYVE'):
+	if($smbios['bios']['vendor'] === 'BHYVE'):
 		$smbios['bios']['reldate'] = '01/01/2015';
 		$smbios['bios']['vendor'] = 'BHyVe';
 		$smbios['bios']['version'] = '1.0';
