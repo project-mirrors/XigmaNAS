@@ -36,7 +36,6 @@ $pgperm['allowuser'] = true;
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'zfs.inc';
 
 $use_meter_tag = calc_showcolorfulmeter();
 $pgtitle = [gtext('System Information')];
@@ -46,6 +45,7 @@ $sysinfo = system_get_sysinfo();
 if(is_ajax()):
 	render_ajax($sysinfo);
 endif;
+$smbios = get_smbios_info();
 /**
  *	render function for cpu usage
  *	@global bool $use_meter_tag
@@ -57,7 +57,7 @@ function render_cpuusage() {
 
 	if(Session::isAdmin()):
 		$sphere = $sysinfo['cpuusage'];
-		$o = new \co_DOMDocument();
+		$o = new co_DOMDocument();
 		$td = $o->addTR()->insTDwC('celltag',gettext('CPU Usage'))->addTDwC('celldata');
 		if($use_meter_tag):
 			$inner = $td->addElement('meter',['id' => 'cpuusagev','class' => 'cpuusage','min' => 0,'optimum' => 45,'low' => 90,'high' => 95,'max' => 100,'value' => $sphere['pu'],'title' => $sphere['tu']]);
@@ -628,10 +628,10 @@ $(document).ready(function(){
 		$errormsg .= "<br />\n";
 	endif;
 //	check DNS
-	list($v4dns1,$v4dns2) = get_ipv4dnsserver();
-	list($v6dns1,$v6dns2) = get_ipv6dnsserver();
+	[$v4dns1,$v4dns2] = get_ipv4dnsserver();
+	[$v6dns1,$v6dns2] = get_ipv6dnsserver();
 	if(empty($v4dns1) && empty($v4dns2) && empty($v6dns1) && empty($v6dns2)):
-		// need by service/firmware check?
+//		needed by service/firmware check?
 		if(!isset($config['system']['disablefirmwarecheck']) || isset($config['ftpd']['enable'])):
 			$errormsg .= gtext('No DNS setting found.');
 			$errormsg .= "<br />\n";
@@ -697,13 +697,13 @@ $(document).ready(function(){
 			exec('/sbin/sysctl -n kern.version',$osversion);
 			html_textinfo2('platform_os',gettext('Platform OS'),sprintf('%s',$osversion[0]));
 			html_textinfo2('platform',gettext('Platform'),sprintf(gettext('%s on %s'),$g['fullplatform'],$sysinfo['cpumodel']));
-			if(isset($smbios['planar']) && is_array($smbios['planar'])):
-				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['planar']['maker'] ?? '',$smbios['planar']['product'] ?? ''));
-			elseif(isset($smbios['system']) && is_array($smbios['system'])):
-				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['system']['maker'] ?? '',$smbios['system']['product'] ?? ''));
+			if(!is_null($smbios['planar']['maker']) && !is_null($smbios['planar']['product'])):
+				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['planar']['maker'],$smbios['planar']['product']));
+			elseif(!is_null($smbios['system']['maker']) && !is_null($smbios['system']['product'])):
+				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['system']['maker'],$smbios['system']['product']));
 			endif;
-			if(isset($smbios['bios']) && is_array($smbios['bios'])):
-				html_textinfo2('system_bios',gettext('System BIOS'),sprintf('%s %s %s %s',$smbios['bios']['vendor'] ?? '',gettext('Version:'),$smbios['bios']['version'] ?? '',$smbios['bios']['reldate'] ?? ''));
+			if(!is_null($smbios['bios']['reldate']) && !is_null($smbios['bios']['vendor']) && !is_null($smbios['bios']['version'])):
+				html_textinfo2('system_bios',gettext('System BIOS'),sprintf('%s %s %s %s',$smbios['bios']['vendor'],gettext('Version:'),$smbios['bios']['version'],$smbios['bios']['reldate']));
 			endif;
 			html_textinfo2('system_datetime',gettext('System Time'),$sysinfo['date']);
 			html_textinfo2('system_uptime',gettext('System Uptime'),$sysinfo['uptime']);
@@ -759,7 +759,7 @@ $(document).ready(function(){
 								foreach($vmlist as $vmpath):
 									$vm = basename($vmpath);
 									unset($temp);
-									exec("/usr/sbin/bhyvectl ".escapeshellarg("--vm=$vm")." --get-lowmem | sed -e 's/.*\\///'",$temp);
+									exec("/usr/sbin/bhyvectl " . escapeshellarg("--vm=$vm") . " --get-lowmem | sed -e 's/.*\\///'",$temp);
 									$vram = $temp[0] / 1024 / 1024;
 									echo "<tr><td><div id='vminfo_$index'>";
 									echo htmlspecialchars("$vmtype: $vm ($vram MiB)");
