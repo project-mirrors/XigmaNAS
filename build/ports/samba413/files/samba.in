@@ -180,7 +180,7 @@ samba_mkconf_user_shares()
 					--break \
 				--nl \
 				--if 'count(zfsacl) > 0' \
-					--output 'nfs4:mode = special' --nl \
+					--output 'nfs4:mode = simple' --nl \
 					--output 'nfs4:acedup = merge' --nl \
 					--output 'nfs4:chown = yes' --nl \
 				--break \
