@@ -11,8 +11,7 @@ geom/geom_vinum/geom_vinum.ko
 geom/geom_virstor/geom_virstor.ko
 
 # Interfaces
-if_tap/if_tap.ko
-if_tun/if_tun.ko
+if_tuntap/if_tuntap.ko
 carp/carp.ko
 
 # File systems
