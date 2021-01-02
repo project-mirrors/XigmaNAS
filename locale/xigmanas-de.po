@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-01-02 00:17+0000\n"
-"PO-Revision-Date: 2020-12-13 12:54+0000\n"
+"PO-Revision-Date: 2021-01-02 09:41+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-01 23:37+0000\n"
+"X-Launchpad-Export-Date: 2021-01-02 19:02+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -114,27 +114,27 @@ msgstr "%s%d %s wird bereits verwendet von %s%d ."
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u Stunde"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u Stunden"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u Minute"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u Minuten"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u Sekunde"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u Sekunden"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -7502,7 +7502,7 @@ msgid "Months"
 msgstr "Monate"
 
 msgid "More than a day"
-msgstr ""
+msgstr "Mehr als einen Tag"
 
 msgid ""
 "More than one DLNA/UPnP service is active. This configuration might cause "
@@ -7937,7 +7937,7 @@ msgid "No configured virtual devices."
 msgstr "Keine virtuellen Geräte konfiguriert."
 
 msgid "No data"
-msgstr ""
+msgstr "Keine Daten"
 
 msgid "No devices have been selected"
 msgstr "Es wurden keine Geräte ausgewählt"
@@ -9497,7 +9497,7 @@ msgid "Remaining battery runtime"
 msgstr "verfügbare Restlaufzeit im Batteriebetrieb"
 
 msgid "Remaining:"
-msgstr ""
+msgstr "Verbleibend:"
 
 msgid "Reminder Settings"
 msgstr "Einstellungen für Erinnerungen"
@@ -9790,7 +9790,7 @@ msgid "Rule"
 msgstr "Regel"
 
 msgid "Rule #"
-msgstr ""
+msgstr "Regel #"
 
 msgid "Rule number"
 msgstr "Regelnummer"
@@ -9866,7 +9866,7 @@ msgid "SMB3"
 msgstr "SMB3"
 
 msgid "SMB3 (Windows 10)"
-msgstr ""
+msgstr "SMB3 (Windows 10)"
 
 msgid "SMB3 (Windows 8)"
 msgstr "SMB3 (Windows 8)"
