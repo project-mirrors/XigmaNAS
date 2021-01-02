@@ -34,13 +34,6 @@
 -- SUCH DAMAGE.
 --
 -- $FreeBSD: releng/12.2/stand/lua/drawer.lua 361817 2020-06-05 02:52:07Z kevans $
---
--- Part of XigmaNAS® (https://www.xigmanas.com).
--- XigmaNAS® Copyright © 2018-2021 XigmaNAS® (info@xigmanas.com).
--- All Rights Reserved.
--- 
--- XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
--- All Rights Reserved.
 -- 
 
 local color = require("color")
