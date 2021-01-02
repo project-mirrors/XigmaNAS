@@ -1,13 +1,15 @@
 PORTNAME=		tftp-hpa
 PORTVERSION=	5.2
+PORTREVISION=	1
 CATEGORIES=		ftp
 COMMENT=		An advanced tftp server
 MAINTAINER=		zoon01@xigmanas.com
 
-MASTER_SITES=	ftp://ftp.kernel.org/pub/software/network/tftp/tftp-hpa/
+MASTER_SITES=	KERNEL_ORG/software/network/tftp/tftp-hpa
 
+USES=		gmake tar:xz
 GNU_CONFIGURE=	yes
-USES=           gmake tar:xz
+USE_RC_SUBR=	tftpd
 
 CONFIGURE_ARGS+=	--enable-largefile
 
