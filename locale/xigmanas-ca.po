@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-01-02 00:17+0000\n"
-"PO-Revision-Date: 2020-12-10 00:27+0000\n"
+"PO-Revision-Date: 2021-01-02 00:05+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-01 23:37+0000\n"
+"X-Launchpad-Export-Date: 2021-01-02 19:02+0000\n"
 "X-Generator: Launchpad (build 34b3ffd45c9543b7f7aa5aa313925241e9e7ca3f)\n"
 "Language: ca_ES\n"
 
@@ -120,27 +120,27 @@ msgstr "%s%d %s ja està utilitzada per %s%d."
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u hora"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u hores"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u minut"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u minuts"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u segon"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u segons"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -7525,7 +7525,7 @@ msgid "Months"
 msgstr "Mesos"
 
 msgid "More than a day"
-msgstr ""
+msgstr "Mès d'un dia"
 
 msgid ""
 "More than one DLNA/UPnP service is active. This configuration might cause "
@@ -7966,7 +7966,7 @@ msgid "No configured virtual devices."
 msgstr "Dispositius virtuals no configurats."
 
 msgid "No data"
-msgstr ""
+msgstr "Sense dades"
 
 msgid "No devices have been selected"
 msgstr "No s'han seleccionat dispositius"
@@ -9533,7 +9533,7 @@ msgid "Remaining battery runtime"
 msgstr "Temps de funcionament amb bateria"
 
 msgid "Remaining:"
-msgstr ""
+msgstr "Restant:"
 
 msgid "Reminder Settings"
 msgstr "Configuració del recordatori"
@@ -9825,7 +9825,7 @@ msgid "Rule"
 msgstr "Regla"
 
 msgid "Rule #"
-msgstr ""
+msgstr "Regla #"
 
 msgid "Rule number"
 msgstr "Regla número"
@@ -9902,7 +9902,7 @@ msgid "SMB3"
 msgstr "SMB3"
 
 msgid "SMB3 (Windows 10)"
-msgstr ""
+msgstr "SMB3 (Windows 10)"
 
 msgid "SMB3 (Windows 8)"
 msgstr "SMB3 (Windows 8)"
