@@ -310,7 +310,7 @@ EOF
 	if [ "${_protocol}" = "https" ]; then
 		if checkyesno lighttpd_certpem_webgui; then
 			_certificate=`configxml_get "//system/webgui/certificate"`
-			# create pem file from webgui congiguration
+			# create .pem file from webgui configuration
 			if [ -n "${_certificate}" ]; then
 				_tmpfile=/tmp/lighttpd$$.tmp
 				echo "${_certificate}" > ${_tmpfile}

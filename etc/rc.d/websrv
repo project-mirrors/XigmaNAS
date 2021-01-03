@@ -38,6 +38,7 @@ websrv_enable=${websrv_enable:-"NO"}
 websrv_conf=${websrv_conf:-"/var/etc/websrv.conf"}
 websrv_uploaddir_conf=${websrv_uploaddir_conf:-"/var/etc/websrv-uploaddir.conf"}
 websrv_certpem=${websrv_certpem:-"/var/etc/websrvcert.pem"}
+websrv_certpem_webgui=${websrv_certpem_webgui:-"YES"}
 websrv_server_maxwriteidle=${websrv_server_maxwriteidle:-"360"}
 ARCH=`uname -p`
 if [ "$ARCH" = "amd64" ]; then
@@ -49,6 +50,14 @@ pidfile="/var/run/websrv.pid"
 command=/usr/local/sbin/lighttpd
 command_args="-f ${websrv_conf} -m /usr/local/lib/lighttpd"
 sig_reload="-INT"
+
+sslconfig() {
+	cat <<-SSLCONFIG
+		ssl.engine = "enable"
+		ssl.pemfile = "${websrv_certpem}"
+		ssl.use-sslv3 = "disable"
+	SSLCONFIG
+}
 
 websrv_mkconf()
 {
@@ -102,8 +111,7 @@ websrv_mkconf()
 			--output ')' --nl \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${websrv_conf}
-	
-	cat <<EOF >> ${websrv_conf}	
+	cat <<EOF >> ${websrv_conf}
 server.errorlog-use-syslog = "enable"
 # debugmode debug.log-request-handling enable/disable
 debug.log-request-handling = "disable"
@@ -209,11 +217,10 @@ EOF
 
 	# Set temporary directory
 	echo "${_uploaddir}" > ${websrv_uploaddir_conf}
-	cat <<EOF >> ${websrv_conf}
-server.upload-dirs = ( "${_uploaddir}" )
-server.max-request-size = ${websrv_maxrequestsize}
-EOF
-	
+	cat <<-EOF >> ${websrv_conf}
+		server.upload-dirs = ( "${_uploaddir}" )
+		server.max-request-size = ${websrv_maxrequestsize}
+	EOF
 	# Add auxparam
 	/usr/local/bin/xml sel -t -m "//websrv" \
 		-m "auxparam" \
@@ -226,11 +233,10 @@ EOF
 		local _htpasswd="${_documentroot}/.websrv_htpasswd"
 
 		# Add authentication configuration.
-		cat <<EOF >> ${websrv_conf}
-auth.backend = "htpasswd"
-auth.backend.htpasswd.userfile = "${_htpasswd}"
-EOF
-
+		cat <<-EOF >> ${websrv_conf}
+			auth.backend = "htpasswd"
+			auth.backend.htpasswd.userfile = "${_htpasswd}"
+		EOF
 		/usr/local/bin/xml sel --template \
 			--match '//websrv/authentication' \
 				--output 'auth.require = ( ' \
@@ -275,24 +281,23 @@ EOF
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${websrv_conf}
 	if [ "${_protocol}" = "https" ]; then
-		cat <<EOF >> ${websrv_conf}
-ssl.engine = "enable"
-ssl.pemfile = "${websrv_certpem}"
-ssl.use-sslv3 = "disable"
-EOF
-
-		# Create .pem file (required)
-		if [ -n "${_certificate}" -a -n "${_privatekey}" ]; then
-			_tmpfile=/tmp/websrv$$.tmp
-
-			echo "${_certificate}" > ${_tmpfile}
-			/usr/bin/uudecode -m -p -r ${_tmpfile} > ${websrv_certpem}
-			echo "" >> ${websrv_certpem}
-			echo "${_privatekey}" > ${_tmpfile}
-			/usr/bin/uudecode -m -p -r ${_tmpfile} >> ${websrv_certpem}
-			/bin/chmod 0600 ${websrv_certpem}
-
-			/bin/rm -f ${_tmpfile}
+		cat <<-EOF >> ${websrv_conf}
+			$(sslconfig)
+		EOF
+		if checkyesno websrv_certpem_webgui; then
+			# create .pem file from webgui configuration
+			if [ -n "${_certificate}" ]; then
+				_tmpfile=/tmp/websrv$$.tmp
+				echo "${_certificate}" > ${_tmpfile}
+				/usr/bin/uudecode -m -p -r ${_tmpfile} > ${websrv_certpem}
+				if [ -n "${_privatekey}" ]; then
+					echo "" >> ${websrv_certpem}
+					echo "${_privatekey}" > ${_tmpfile}
+					/usr/bin/uudecode -m -p -r ${_tmpfile} >> ${websrv_certpem}
+				fi
+				/bin/rm -f ${_tmpfile}
+			fi
+			[ -e ${websrv_certpem} ] && /bin/chmod 0600 ${websrv_certpem}
 		fi
 	fi
 }
