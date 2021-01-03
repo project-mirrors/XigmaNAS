@@ -280,8 +280,8 @@ sbin/mksnap_ffs
 ## devd -- device state change daemon
 sbin/devd
 
-# devmatch -- device state change daemon
-sbin/devmatch -- print information about unattached devices(devd dependency)
+# devmatch -- print information about unattached devices
+sbin/devmatch
 
 ## ipfw -- IP firewall and traffic shaper control program
 sbin/ipfw
@@ -1178,9 +1178,8 @@ etc/rc.d/zfsd
 etc/rc.d/zfsbe
 
 ####### contents of /usr/share/snmp/defs
-usr/share/snmp/defs/atm_freebsd.def
-usr/share/snmp/defs/atm_tree.def
 usr/share/snmp/defs/bridge_tree.def
+usr/share/snmp/defs/hast_tree.def
 usr/share/snmp/defs/hostres_tree.def
 usr/share/snmp/defs/mibII_tree.def
 usr/share/snmp/defs/netgraph_tree.def
@@ -1188,8 +1187,6 @@ usr/share/snmp/defs/pf_tree.def
 usr/share/snmp/defs/tree.def
 
 ####### contents of /usr/share/snmp/mibs
-usr/share/snmp/mibs/BEGEMOT-ATM.txt
-usr/share/snmp/mibs/BEGEMOT-ATM-FREEBSD-MIB.txt
 usr/share/snmp/mibs/BEGEMOT-BRIDGE-MIB.txt
 usr/share/snmp/mibs/BEGEMOT-HOSTRES-MIB.txt
 usr/share/snmp/mibs/BEGEMOT-IP-MIB.txt
@@ -1240,17 +1237,3 @@ etc/pkg/FreeBSD.conf
 usr/share/keys/pkg/trusted/*
 etc/gss/mech
 etc/gss/qop
-
-# casperd
-#sbin/casperd
-etc/casper/system.dns
-etc/casper/system.grp
-etc/casper/system.pwd
-etc/casper/system.random
-etc/casper/system.sysctl
-#etc/rc.d/casperd
-#libexec/casper/dns
-#libexec/casper/grp
-#libexec/casper/pwd
-#libexec/casper/random
-#libexec/casper/sysctl
