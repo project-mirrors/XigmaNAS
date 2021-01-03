@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'session.inc';
 
 Session::start();
@@ -41,13 +42,21 @@ if(!Session::isLogin()):
 endif;
 //	Check page permission
 if(!Session::isAdmin() && (!isset($pgperm['allowuser']) || !$pgperm['allowuser'])):
+//	403: forbidden
 	http_response_code(403);
 	Session::destroy();
 	exit;
 endif;
 //	Check if request is valid and authorized
 if($_SERVER['REQUEST_METHOD'] === 'POST'):
-	if(!isset($_POST['authtoken']) || !Session::isValidAuthToken($_POST['authtoken'])):
+	if(!isset($_POST['authtoken'])):
+//		401: unauthorized
+		http_response_code(401);
+		Session::destroy();
+		exit;
+	endif;
+	if(!Session::isValidAuthToken($_POST['authtoken'])):
+//		401: unauthorized
 		http_response_code(401);
 		Session::destroy();
 		exit;
