@@ -815,9 +815,9 @@ $(document).ready(function(){
 										$info = get_xen_info();
 										$cpus = $info['nr_cpus']['value'];
 										$th = $info['threads_per_core']['value'];
-										if(empty($th)) {
+										if(empty($th)):
 											$th = 1;
-										}
+										endif;
 										$core =(int)($cpus / $th);
 										$mem = $info['total_memory']['value'];
 										$ver = $info['xen_version']['value'];
@@ -851,13 +851,13 @@ $(document).ready(function(){
 										$vnc = $v['config']['b_info']['type.hvm']['vnc'];
 										$vncport = 'unknown';
 /*
-										if(isset($vnc['display'])) {
+										if(isset($vnc['display'])):
 											$vncdisplay = $vnc['display'];
 											$vncport = 5900 + $vncdisplay;
-										} else if(isset($vnc['findunused'])) {
+										elseif(isset($vnc['findunused'])):
 											$vncport = $vncport_unused;
 											$vncport_unused++;
-										}
+										endif;
 */
 										$console = get_xen_console($domid);
 										if(!empty($console) && isset($console['vnc-port'])):
