@@ -11,6 +11,9 @@
 # REQUIRE: htpasswd DAEMON
 # KEYWORD: shutdown
 
+# Test configuration: lighttpd -tt -f /var/etc/lighttpd.conf
+# Show configuration: lighttpd -p -f /var/etc/lighttpd.conf
+
 . /etc/rc.subr
 . /etc/util.subr
 . /etc/configxml.subr
@@ -35,6 +38,7 @@ extra_commands="reload check mkconf"
 lighttpd_enable=${lighttpd_enable:-"NO"}
 lighttpd_conf=${lighttpd_conf:-"/var/etc/lighttpd.conf"}
 lighttpd_certpem=${lighttpd_certpem:-"/var/etc/cert.pem"}
+lighttpd_certpem_webgui=${lighttpd_certpem_webgui:-"YES"}
 lighttpd_docroot=${lighttpd_docroot:-"/usr/local/www"}
 lighttpd_server_maxwriteidle=${lighttpd_server_maxwriteidle:-"360"}
 lighttpd_pidfile=${lighttpd_pidfile:-"/var/run/${name}.pid"}
@@ -304,19 +308,23 @@ EOF
 	fi
 	# configure webgui for HTTPS
 	if [ "${_protocol}" = "https" ]; then
-		_certificate=`configxml_get "//system/webgui/certificate"`
-		_privatekey=`configxml_get "//system/webgui/privatekey"`
-		# create /var/etc/cert.pem file
-		if [ -n "${_certificate}" -a -n "${_privatekey}" ]; then
-			_tmpfile=/tmp/lighttpd$$.tmp
-			echo "${_certificate}" > ${_tmpfile}
-			/usr/bin/uudecode -m -p -r ${_tmpfile} > ${lighttpd_certpem}
-			echo "" >> ${lighttpd_certpem}
-			echo "${_privatekey}" > ${_tmpfile}
-			/usr/bin/uudecode -m -p -r ${_tmpfile} >> ${lighttpd_certpem}
-			/bin/rm -f ${_tmpfile}
+		if checkyesno lighttpd_certpem_webgui; then
+			_certificate=`configxml_get "//system/webgui/certificate"`
+			# create pem file from webgui congiguration
+			if [ -n "${_certificate}" ]; then
+				_tmpfile=/tmp/lighttpd$$.tmp
+				echo "${_certificate}" > ${_tmpfile}
+				/usr/bin/uudecode -m -p -r ${_tmpfile} > ${lighttpd_certpem}
+				_privatekey=`configxml_get "//system/webgui/privatekey"`
+				if [ -n "${_privatekey}" ]; then
+					echo "" >> ${lighttpd_certpem}
+					echo "${_privatekey}" > ${_tmpfile}
+					/usr/bin/uudecode -m -p -r ${_tmpfile} >> ${lighttpd_certpem}
+				fi
+				/bin/rm -f ${_tmpfile}
+			fi
+			[ -e ${lighttpd_certpem} ] && /bin/chmod 0600 ${lighttpd_certpem}
 		fi
-		[ -e ${lighttpd_certpem} ] && /bin/chmod 0600 ${lighttpd_certpem}
 		# add IPv4 as bind
 		if [ -n "${_ipaddr}" ]; then
 			cat <<-EOF >> ${lighttpd_conf}
