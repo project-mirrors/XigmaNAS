@@ -21,13 +21,14 @@ trap : 2
 trap "echo 'Boot interrupted'; exit 1" 3
 
 HOME=/
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
-export HOME PATH
+PATH=${PATH}:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
+export HOME
+export PATH
 
 # Get operating platform
-PLATFORM=`/bin/cat /etc/platform`
-XARCH=`/bin/echo ${PLATFORM} | /usr/bin/sed -e 's/-.*//'`
-ARCH=`/usr/bin/uname -m`
+PLATFORM=$(/bin/cat /etc/platform)
+XARCH=$(/bin/echo ${PLATFORM} | /usr/bin/sed -e 's/-.*//')
+ARCH=$(/usr/bin/uname -m)
 ZROOT=$(/sbin/mount | awk -F '/' '/ \/ / {print $1}')
 
 # Fixed values requested by build/make.sh
@@ -35,34 +36,36 @@ MDLOCALSIZE=1312m
 SWAPSIZE=512m
 
 # XigmaNAS® request 2GB for swapless running
-mem=`/sbin/sysctl -n hw.physmem`
-mem=`/bin/expr ${mem} / 1024 / 1024`
+mem=$(/sbin/sysctl -n hw.physmem)
+mem=$(/bin/expr ${mem} / 1024 / 1024)
 BOOT_LOWMEM=0
 BOOT_LIVECD=0
-if [ ${mem} -le 1536 ]; then
+if [ "${mem}" -le 1536 ]; then
 	# less than or equal to 1.5GB
 	echo "Booting with low memory"
 	BOOT_LOWMEM=1
 fi
-export BOOT_LOWMEM BOOT_LIVECD
+export BOOT_LOWMEM
+export BOOT_LIVECD
 #/bin/kenv -q boot_lowmem=${BOOT_LOWMEM} > /dev/null
+
 case ${PLATFORM} in
 	*-full)
 		if ! zpool list -H -o bootfs | grep -qw "${ZROOT}/ROOT"; then
 			# Do a fsck on root file system.
-			/etc/rc.d/fsck root;
+			/etc/rc.d/fsck root
 		fi
 		# If running from full, mount the root (/) in read-write.
-			/sbin/mount -u -o rw /;
+			/sbin/mount -u -o rw /
 		;;
 	*)
 		# If running from liveCD or embedded, mount the root (ramdisk) in read-write.
-		/sbin/mount -u -o rw,noatime,acls /dev/md0 /;
+		/sbin/mount -u -o rw,noatime,acls /dev/md0 /
 
 		/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
 		# Timer
 		sleep 3
-		md=`/sbin/mdconfig -t malloc -o compress -s ${MDLOCALSIZE}`
+		md=$(/sbin/mdconfig -t malloc -o compress -s ${MDLOCALSIZE})
 		case ${PLATFORM} in
 			*-liveUSB)
 				# To deal with "the secondary GPT header is not in the last LBA."
@@ -76,22 +79,22 @@ case ${PLATFORM} in
 					fi
 				fi
 
-				root=`/sbin/glabel status -s | /usr/bin/awk '/liveboot/{print $3;exit 0}'`
-				gptswap=`/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}'`
+				root=$(/sbin/glabel status -s | /usr/bin/awk '/liveboot/{print $3;exit 0}')
+				gptswap=$(/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}')
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
 					sleep 30; halt
 				fi
 
 				# use default swap if exists
-				swap=`/bin/echo ${root} | /usr/bin/sed -e 's/s[1234]a$/s2b/'`
+				swap=$(/bin/echo ${root} | /usr/bin/sed -e 's/s[1234]a$/s2b/')
 				if [ -n "${gptswap}" -a -e "/dev/${gptswap}" ]; then
 					swap=$gptswap
 				elif [ "${swap}" = "${root}" ]; then
 					swap=NONE
 				fi
 				rm -f /etc/swapdevice
-				if [ ${BOOT_LOWMEM} -ne 0 ]; then
+				if [ "${BOOT_LOWMEM}" -ne 0 ]; then
 					if [ "${swap}" != "NONE" -a -e "/dev/${swap}" ]; then
 						/sbin/swapon /dev/${swap}
 						echo "/dev/${swap}" > /etc/swapdevice
@@ -106,9 +109,8 @@ case ${PLATFORM} in
 				fi
 
 				/sbin/mount -r /dev/${root} /mnt
-				if [ -f /mnt/mdlocal.xz ]; then
-					/usr/bin/xz -dcv /mnt/mdlocal.xz | \
-					    /bin/dd of=/dev/${md} bs=1m status=none
+				if [ -f "/mnt/mdlocal.xz" ]; then
+					/usr/bin/xz -dcv /mnt/mdlocal.xz | /bin/dd of=/dev/${md} bs=1m status=none
 				else
 					echo "can't find mdlocal"
 					sleep 30; halt
@@ -116,8 +118,8 @@ case ${PLATFORM} in
 				/sbin/umount /mnt
 				;;
 			*-embedded)
-				root=`/sbin/glabel status -s | /usr/bin/awk '/embboot/{print $3;exit 0}'`
-				gptswap=`/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}'`
+				root=$(/sbin/glabel status -s | /usr/bin/awk '/embboot/{print $3;exit 0}')
+				gptswap=$(/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}')
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
 					sleep 30; halt
@@ -127,14 +129,14 @@ case ${PLATFORM} in
 				fi
 
 				# use default swap if exists
-				swap=`/bin/echo ${root} | /usr/bin/sed -e 's/s[1234]a$/s2b/'`
+				swap=$(/bin/echo ${root} | /usr/bin/sed -e 's/s[1234]a$/s2b/')
 				if [ -n "${gptswap}" -a -e "/dev/${gptswap}" ]; then
 					swap=$gptswap
 				elif [ "${swap}" = "${root}" ]; then
 					swap=NONE
 				fi
 				rm -f /etc/swapdevice
-				if [ ${BOOT_LOWMEM} -ne 0 ]; then
+				if [ "${BOOT_LOWMEM}" -ne 0 ]; then
 					if [ "${swap}" != "NONE" -a -e "/dev/${swap}" ]; then
 						/sbin/swapon /dev/${swap}
 						echo "/dev/${swap}" > /etc/swapdevice
@@ -149,9 +151,8 @@ case ${PLATFORM} in
 				fi
 
 				/sbin/mount -r /dev/${root} /mnt
-				if [ -f /mnt/mdlocal.xz ]; then
-					/usr/bin/xz -dcv /mnt/mdlocal.xz | \
-					    /bin/dd of=/dev/${md} bs=1m status=none
+				if [ -f "/mnt/mdlocal.xz" ]; then
+					/usr/bin/xz -dcv /mnt/mdlocal.xz | /bin/dd of=/dev/${md} bs=1m status=none
 				else
 					echo "can't find mdlocal"
 					sleep 30; halt
@@ -161,7 +162,7 @@ case ${PLATFORM} in
 				;;
 			*-liveCD)
 				BOOT_LIVECD=1
-				root=`/sbin/glabel status -s | /usr/bin/awk '/LiveCD/{print $3;exit 0}'`
+				root=$(/sbin/glabel status -s | /usr/bin/awk '/LiveCD/{print $3;exit 0}')
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
 					sleep 30; halt
@@ -170,18 +171,16 @@ case ${PLATFORM} in
 				rm -f /etc/swapdevice
 
 				/sbin/mount -t cd9660 /dev/${root} /mnt
-				if [ ${BOOT_LOWMEM} -ne 0 ]; then
+				if [ "${BOOT_LOWMEM}" -ne 0 ]; then
 					# no live mode, installation only
-					if [ -f /mnt/mdlocal-mini.xz ]; then
-						/usr/bin/xz -dcv /mnt/mdlocal-mini.xz | \
-						    /bin/dd of=/dev/${md} bs=1m status=none
+					if [ -f "/mnt/mdlocal-mini.xz" ]; then
+						/usr/bin/xz -dcv /mnt/mdlocal-mini.xz | /bin/dd of=/dev/${md} bs=1m status=none
 					else
 						echo "can't find mdlocal-mini"
 						sleep 30; halt
 					fi
-				elif [ -f /mnt/mdlocal.xz ]; then
-					/usr/bin/xz -dcv /mnt/mdlocal.xz | \
-					    /bin/dd of=/dev/${md} bs=1m status=none
+				elif [ -f "/mnt/mdlocal.xz" ]; then
+					/usr/bin/xz -dcv /mnt/mdlocal.xz | /bin/dd of=/dev/${md} bs=1m status=none
 				else
 					echo "can't find mdlocal"
 					sleep 30; halt
@@ -201,7 +200,7 @@ for dir in /var/run /var/log /var/etc /var/etc/ssh /var/etc/ssl/private /var/etc
 	[ ! -d "${dir}" ] && mkdir -p ${dir}
 done
 chmod 0750 /var/backups /var/cron /var/cron/tabs
-if [ ! -d /var/tmp ]; then
+if [ ! -d "/var/tmp" ]; then
 	mkdir -p /var/tmp
 	chmod 1777 /var/tmp
 fi
@@ -228,7 +227,7 @@ chmod 1777 /var/tmp
 BOOTING=1
 export BOOTING
 
-if [ "$1" = autoboot ]; then
+if [ "$1" = "autoboot" ]; then
 	autoboot=yes
 	_boot="faststart"
 	rc_fast=yes        # run_rc_command(): do fast booting
@@ -245,7 +244,7 @@ echo "Loading configuration files."
 load_rc_config 'XXX'
 
 skip="-s nostart"
-if [ `/sbin/sysctl -n security.jail.jailed` -eq 1 ]; then
+if [ $(/sbin/sysctl -n security.jail.jailed) -eq 1 ]; then
 	skip="$skip -s nojail"
 	if [ "$early_late_divider" = "FILESYSTEMS" ]; then
 		early_late_divider=NETWORKING
@@ -254,7 +253,7 @@ fi
 
 # Do a first pass to get everything up to $early_late_divider so that
 # we can do a second pass that includes $local_startup directories
-files=`rcorder ${skip} /etc/rc.d/* 2>/dev/null`
+files=$(rcorder ${skip} /etc/rc.d/* 2>/dev/null)
 
 for _rc_elem in ${files}; do
 	run_rc_script ${_rc_elem} ${_boot}
@@ -279,7 +278,7 @@ case ${local_startup} in
 *)	find_local_scripts_new ;;
 esac
 
-files=`rcorder ${skip} /etc/rc.d/* ${local_rc} 2>/dev/null`
+files=$(rcorder ${skip} /etc/rc.d/* ${local_rc} 2>/dev/null)
 _skip_early=1
 for _rc_elem in ${files}; do
 	case "$_skip_early" in
