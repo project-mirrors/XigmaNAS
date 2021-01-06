@@ -48,6 +48,9 @@ bin/echo
 ## expr -- evaluate expression
 bin/expr
 
+## freebsd-version -- print the version and patch level of the installed system
+bin/freebsd-version
+
 ## hostname -- set or print name of current host system
 bin/hostname
 
@@ -113,9 +116,6 @@ bin/setfacl
 
 ## uuidgen -- generate universally unique identifiers
 bin/uuidgen
-
-## freebsd-version -- print the version and patch level of the installed system
-bin/freebsd-version
 
 ####### contents of /sbin
 ## adjkerntz -- adjust local time CMOS clock to reflect time zone changes and keep current timezone offset for the kernel
@@ -1028,15 +1028,16 @@ usr/lib/libcasper.so
 
 ####### contents of /usr/lib/engines
 # needed for samba-nsupdate
-usr/lib/engines/libgost.so
+#usr/lib/engines/libgost.so
 
 ####### contents of /lib/casper
-lib/casper/libcap_*.so
+lib/casper/libcap_*.so*
 
 # SNMP modules
 usr/lib/snmp_hostres.so.*:usr/lib/snmp_hostres.so
 
 # SNMP modules
+usr/lib/snmp_hast.so.*:usr/lib/snmp_hast.so
 usr/lib/snmp_hostres.so.*:usr/lib/snmp_hostres.so
 usr/lib/snmp_mibII.so.*:usr/lib/snmp_mibII.so
 usr/lib/snmp_netgraph.so.*:usr/lib/snmp_netgraph.so
@@ -1154,6 +1155,7 @@ etc/rc.d/dhclient
 etc/rc.d/dmesg
 etc/rc.d/FILESYSTEMS
 etc/rc.d/hostid
+etc/rc.d/hostid_save
 etc/rc.d/ip6addrctl
 etc/rc.d/ipfilter
 etc/rc.d/ipfw
@@ -1188,6 +1190,7 @@ usr/share/snmp/defs/tree.def
 
 ####### contents of /usr/share/snmp/mibs
 usr/share/snmp/mibs/BEGEMOT-BRIDGE-MIB.txt
+usr/share/snmp/mibs/BEGEMOT-HAST-MIB.txt
 usr/share/snmp/mibs/BEGEMOT-HOSTRES-MIB.txt
 usr/share/snmp/mibs/BEGEMOT-IP-MIB.txt
 usr/share/snmp/mibs/BEGEMOT-MIB.txt
@@ -1213,6 +1216,7 @@ usr/share/vt/keymaps/
 libexec/resolvconf/dnsmasq
 libexec/resolvconf/libc
 libexec/resolvconf/named
+libexec/resolvconf/pdns_recursor
 libexec/resolvconf/pdnsd
 libexec/resolvconf/unbound
 
