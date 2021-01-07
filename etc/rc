@@ -62,6 +62,8 @@ platform_wait() {
 		fi
 		RETRY=$(/bin/expr ${RETRY} + 1); sleep 1
 		platform_wait
+	else
+		/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
 	fi
 }
 
@@ -78,7 +80,6 @@ case ${PLATFORM} in
 		# If running from liveCD or embedded, mount the root (ramdisk) in read-write.
 		/sbin/mount -u -o rw,noatime,acls /dev/md0 /
 
-		/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
 		# Timer
 		sleep 3
 		md=$(/sbin/mdconfig -t malloc -o compress -s ${MDLOCALSIZE})
