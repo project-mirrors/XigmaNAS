@@ -1,7 +1,7 @@
 PORTNAME=		bash
 PATCHLEVEL=		4
 PORTVERSION=		5.1.${PATCHLEVEL:S/^0//g}
-PORTREVISION?=		0
+PORTREVISION?=		1
 CATEGORIES=		shells
 
 COMMENT=		GNU Project's Bourne Again SHell
@@ -34,6 +34,9 @@ CONFIGURE_ARGS=			--without-bash-malloc \
 					--with-libiconv-prefix=${ICONV_PREFIX} \
 					--disable-help-builtin \
 					--disable-static-link
+
+MAKE_ARGS+=     TERMCAP_LIB=-lncursesw
+
 CPPFLAGS+=	${PTHREAD_CFLAGS} \
 					-I${LOCALBASE}/include
 LDFLAGS+=				-L${LOCALBASE}/lib
