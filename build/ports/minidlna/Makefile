@@ -1,6 +1,6 @@
 PORTNAME=	minidlna
-PORTVERSION=	1.2.1
-PORTREVISION=   6
+PORTVERSION=	1.3.0
+PORTREVISION=   0
 PORTEPOCH=      1
 CATEGORIES=	net multimedia www
 
@@ -25,7 +25,7 @@ USES=		autoreconf gettext-tools iconv jpeg
 
 USE_GITHUB=     yes 
 GH_ACCOUNT=     glebius 
-GH_TAGNAME=     bdfa906 
+GH_TAGNAME=     1d363c2 
 
 
 PKGMESSAGE=	${WRKSRC}/pkg-message
