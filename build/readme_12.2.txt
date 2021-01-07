@@ -116,6 +116,7 @@ Changes:
 - Upgrade msmtp to 1.8.14.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
+- Upgrade php to 7.4.14.
 
 Fixes:
 
