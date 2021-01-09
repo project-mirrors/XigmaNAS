@@ -12,6 +12,7 @@ Changes:
 - Upgrade minidlna 1.3.0.
 - Upgrade php to 7.4.14.
 - Upgrade syncthing to 1.12.1.
+- Upgrade proftpd to 1.3.7a.
 
 Fixes:
 
