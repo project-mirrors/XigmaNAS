@@ -1,5 +1,5 @@
 PORTNAME=		proftpd
-PORTVERSION=	1.3.6d
+PORTVERSION=	1.3.7a
 PORTREVISION=	0
 CATEGORIES=		ftp
 COMMENT=		Highly configurable FTP daemon
@@ -13,7 +13,7 @@ MASTER_SITES=		ftp://ftp.proftpd.org/distrib/source/ \
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
-MAKE_JOBS_UNSAFE=       yes
+#MAKE_JOBS_UNSAFE=       yes
 USES+=           cpe gmake libtool
 USE_AUTOTOOLS=	autoconf
 GNU_CONFIGURE=	yes
@@ -22,6 +22,7 @@ USES+=          ssl
 
 MODULES=	mod_ratio:mod_readme:mod_rewrite:mod_site_misc:mod_tls:mod_wrap:mod_wrap2:mod_wrap2_file:mod_ban:mod_ctrls_admin:mod_ifsession:mod_sftp
 
+IPV6_CONFIGURE_ENABLE=ipv6
 OPTIONS+=       WRAP "Include mod_wrap2" on
 
 CONFIGURE_ARGS=	--localstatedir=/var/run \
@@ -38,14 +39,11 @@ CONFIGURE_ARGS=	--localstatedir=/var/run \
 				--enable-ctrls \
 				--with-shared=mod_digest \
 				--enable-largefile
-CONFIGURE_ENV=	"LIBS=-lintl -L${LOCALBASE}/lib -lssl -lcrypto -L${OPENSSLLIB}"
 
+CONFIGURE_ENV=	"LIBS=-lintl -L${LOCALBASE}/lib -lssl -lcrypto -L${OPENSSLLIB}"
 CPPFLAGS+=      -DHAVE_OPENSSL -I${OPENSSLINC}
 
 .include <bsd.port.pre.mk>
-
-# FreeBSD-SA-11:07.chroot
-# EXTRA_PATCHES+=	${FILESDIR}/extra-patch-8-src-fsio.c
 
 MODULES!=${ECHO} ${MODULES} | ${SED} -e 's,^:,,' -e 's,:$$,,'
 

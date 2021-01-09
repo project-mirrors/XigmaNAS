@@ -122,7 +122,6 @@ Changes:
 - Update translations.
 - Upgrade jQuery to 3.5.1.
 - Upgrade mDNSResponder to 1096.40.7.
-- Upgrade proftpd to 1.3.6d.
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
@@ -149,6 +148,7 @@ Changes:
 - Upgrade minidlna 1.3.0.
 - Upgrade php to 7.4.14.
 - Upgrade syncthing to 1.12.1.
+- Upgrade proftpd to 1.3.7a.
 
 Fixes:
 
