@@ -1512,10 +1512,12 @@ trait co_DOMTools {
 			$html_import_successful = false;
 			if($check_for_html && \preg_match('~/[a-z]*>~i',$value)):
 				$backup_use_internal_errors = \libxml_use_internal_errors(true);
+				$backup_disable_entity_loader = \libxml_disable_entity_loader(true);
 				$document = $this->ownerDocument ?? $this;
 				$htmldocument = new DOMDocument('1.0','UTF-8');
 				$html_import_successful = $htmldocument->loadHTML('<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' . $value . '</body></html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 				\libxml_clear_errors();
+				\libxml_disable_entity_loader($backup_disable_entity_loader);
 				\libxml_use_internal_errors($backup_use_internal_errors);
 			endif;
 			if($html_import_successful):
