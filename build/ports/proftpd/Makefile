@@ -20,9 +20,8 @@ GNU_CONFIGURE=	yes
 USE_GETTEXT=		yes
 USES+=          ssl
 
-MODULES=	mod_ratio:mod_readme:mod_rewrite:mod_site_misc:mod_tls:mod_wrap:mod_wrap2:mod_wrap2_file:mod_ban:mod_ctrls_admin:mod_ifsession:mod_sftp
+MODULES=	mod_ratio:mod_ident:mod_readme:mod_rewrite:mod_site_misc:mod_tls:mod_wrap:mod_wrap2:mod_wrap2_file:mod_ban:mod_ctrls_admin:mod_ifsession:mod_sftp
 
-IPV6_CONFIGURE_ENABLE=ipv6
 OPTIONS+=       WRAP "Include mod_wrap2" on
 
 CONFIGURE_ARGS=	--localstatedir=/var/run \
@@ -48,11 +47,11 @@ CPPFLAGS+=      -DHAVE_OPENSSL -I${OPENSSLINC}
 MODULES!=${ECHO} ${MODULES} | ${SED} -e 's,^:,,' -e 's,:$$,,'
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|-lsupp|-lsupp -lintl|g' ${WRKSRC}/Makefile.in
-	@${REINPLACE_CMD} -e 's|proftpd\.conf|proftpd.conf.sample|g' ${WRKSRC}/Makefile.in
+	@${REINPLACE_CMD} -e 's|proftpd\.conf |proftpd.conf.sample |g' ${WRKSRC}/Makefile.in
 
 pre-configure:
-	@${ECHO_MSG} "==> Configuring with ${MODULES}"
+	@${ECHO_MSG} "==> Configuring with following modules:"
+	@${ECHO_MSG} "${MODULES:C/^://g}"
 
 post-configure:
 	${REINPLACE_CMD} -e 's: -lnsl::' ${WRKSRC}/Make.rules
@@ -60,13 +59,22 @@ post-configure:
 		-e 's:/usr/bin:${PREFIX}/bin:' \
 		${WRKSRC}/src/proftpd.8 ${WRKSRC}/utils/ftpshut.8 \
 		${WRKSRC}/utils/ftpcount.1
+pre-build:
+	@cd ${WRKSRC} && ${MAKE_CMD} include/buildstamp.h
 
-do-install:
+post-install:
+# XigmaNAS® install
+	@echo "Install to ${XIGMANAS_ROOTFS}"
+# rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
-
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/ftpwho ${XIGMANAS_ROOTFS}/${PREFIX}/bin
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/ftptop ${XIGMANAS_ROOTFS}/${PREFIX}/bin
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/ftpdctl ${XIGMANAS_ROOTFS}/${PREFIX}/bin
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/${PORTNAME} ${XIGMANAS_ROOTFS}/${PREFIX}/sbin
+	@${LN} -fsv /var/etc/proftpd.conf ${XIGMANAS_ROOTFS}/usr/local/etc/proftpd.conf
+# sbin
+.for file in proftpd
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/sbin/${file} ${XIGMANAS_ROOTFS}/usr/local/sbin
+.endfor
+# bin
+.for file in ftpdctl ftptop ftpwho
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
+.endfor
 
 .include <bsd.port.post.mk>
