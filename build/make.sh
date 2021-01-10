@@ -1612,6 +1612,22 @@ create_full() {
 	return 0
 }
 
+create_all_images() {
+	echo "Generating all $XIGMANAS_PRODUCTNAME release images at once...."
+	echo
+
+	# List of the images to be generated, comment to disable.
+	create_embedded
+	create_usb
+	create_usb_gpt
+	create_iso
+	#create_iso_tiny
+	create_full
+
+	echo "All $XIGMANAS_PRODUCTNAME release images created successfully!"
+	return 0
+}
+
 #	Update Subversion Sources.
 update_svn() {
 #	Update sources from repository.
@@ -1891,7 +1907,8 @@ ${XIGMANAS_PRODUCTNAME} Build Environment
 14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
 15 - Create 'Full' (TGZ) Update File."
 	echo -n "
-16 - Create 'xigmanas.pot' file from Source files.
+16 - Create all release images at once.
+17 - Create 'xigmanas.pot' file from Source files.
 *  - Exit.
 
 Press # "
@@ -1905,7 +1922,8 @@ Press # "
 		13)	create_iso;;
 		14)	create_iso_tiny;;
 		15)	create_full;;
-		16)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
+		16) create_all_images;;
+		17)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
 		*)	exit 0;;
 	esac
 
