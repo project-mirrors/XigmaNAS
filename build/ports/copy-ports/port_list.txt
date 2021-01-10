@@ -1,7 +1,7 @@
 PORT					REASON
 ==============================================================================================================
 libftdi1				Broken install on freebsd ports.
-pecl-APCu				Build against current version, not older versions.
+pecl-APCu				Keep version control.
 libvncserver				Upgraded to fix broken libvncserver on freebsd ports.
 virtualbox-ose				Used for new/keep current release.
 virtualbox-ose-additions		Used for new/keep current release.

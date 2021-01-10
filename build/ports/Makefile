@@ -44,6 +44,8 @@
     SUBDIR += pam_mkhomedir
     SUBDIR += php74
     SUBDIR += php74-APCu
+    SUBDIR += php80
+    SUBDIR += php80-APCu
     SUBDIR += phpmyadmin
     SUBDIR += phpvirtualbox
     SUBDIR += proftpd
