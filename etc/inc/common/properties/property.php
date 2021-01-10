@@ -212,7 +212,7 @@ abstract class property {
  *	@param array $filter_names
  *	@return object Returns $this.
  */
-	public function set_filter_group(string $root_filter_name = 'ui', array $filter_names) {
+	public function set_filter_group(string $root_filter_name = 'ui', array $filter_names = []) {
 		$this->x_filter_group[$root_filter_name] = $filter_names;
 		return $this;
 	}
