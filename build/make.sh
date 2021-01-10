@@ -1630,6 +1630,22 @@ create_full() {
 	return 0
 }
 
+create_all_images() {
+	echo "Generating all $XIGMANAS_PRODUCTNAME release images at once...."
+	echo
+
+	# List of the images to be generated, comment to disable.
+	create_embedded
+	create_usb
+	create_usb_gpt
+	create_iso
+	#create_iso_tiny
+	create_full
+
+	echo "All $XIGMANAS_PRODUCTNAME release images created successfully!"
+	return 0
+}
+
 custom_rpi() {
 	# RPI settings
 	echo "kern.hz=100" >>$XIGMANAS_TMPDIR/boot/loader.conf
@@ -2377,7 +2393,8 @@ ${XIGMANAS_PRODUCTNAME} Build Environment
 21 - Create 'RPI2 SD (IMG) File."
 	fi
 	echo -n "
-16 - Create 'xigmanas.pot' file from Source files.
+16 - Create all release images at once.
+17 - Create 'xigmanas.pot' file from Source files.
 *  - Exit.
 
 Press # "
@@ -2391,7 +2408,8 @@ Press # "
 		13)	create_iso;;
 		14)	create_iso_tiny;;
 		15)	create_full;;
-		16)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
+		16) create_all_images;;
+		17)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
 		20)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpisd; fi;;
 		21)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpi2sd; fi;;
 		*)	exit 0;;
