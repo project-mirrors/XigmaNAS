@@ -36,10 +36,29 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 
+function disks_crypt_get_sphere() {
+	global $config;
+	$sphere = new co_sphere_grid('disks_crypt','php');
+	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
+	$sphere->set_notifier('geli');
+	$sphere->set_row_identifier('uuid');
+	$sphere->set_enadis(false);
+	$sphere->set_lock(false);
+	$sphere->
+		setmsg_sym_add(gettext('Add Encrypted Volume'))->
+		setmsg_sym_mod(gettext('Edit Encrypted Volume'))->
+		setmsg_sym_del(gettext('Encrypted volume is marked for deletion'))->
+		setmsg_sym_loc(gettext('Encrypted volume is protected'))->
+		setmsg_sym_unl(gettext('Encrypted volume is unlocked'))->
+		setmsg_cbm_delete(gettext('Delete Selected Encrypted Volumes'))->
+		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected encrypted volumes?'));
+	$sphere->grid = &array_make_branch($config,'geli','vdisk');
+	return $sphere;
+}
 function geli_process_updatenotification($mode, $data) {
 	global $config;
 	$retval = 0;
-	$sphere = &disks_crypt_get_sphere();
+	$sphere = disks_crypt_get_sphere();
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 		case UPDATENOTIFY_MODE_MODIFIED:
@@ -62,25 +81,6 @@ function geli_process_updatenotification($mode, $data) {
 			break;
 	endswitch;
 	return $retval;
-}
-function disks_crypt_get_sphere() {
-	global $config;
-	$sphere = new co_sphere_grid('disks_crypt','php');
-	$sphere->get_modify()->set_basename($sphere->get_basename() . '_edit');
-	$sphere->set_notifier('geli');
-	$sphere->set_row_identifier('uuid');
-	$sphere->set_enadis(false);
-	$sphere->set_lock(false);
-	$sphere->
-		setmsg_sym_add(gettext('Add Encrypted Volume'))->
-		setmsg_sym_mod(gettext('Edit Encrypted Volume'))->
-		setmsg_sym_del(gettext('Encrypted volume is marked for deletion'))->
-		setmsg_sym_loc(gettext('Encrypted volume is protected'))->
-		setmsg_sym_unl(gettext('Encrypted volume is unlocked'))->
-		setmsg_cbm_delete(gettext('Delete Selected Encrypted Volumes'))->
-		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected encrypted volumes?'));
-	$sphere->grid = &array_make_branch($config,'geli','vdisk');
-	return $sphere;
 }
 $sphere = disks_crypt_get_sphere();
 array_sort_key($sphere->grid,'devicespecialfile');
