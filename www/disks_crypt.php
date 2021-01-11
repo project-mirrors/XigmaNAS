@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
@@ -81,7 +82,7 @@ function disks_crypt_get_sphere() {
 	$sphere->grid = &array_make_branch($config,'geli','vdisk');
 	return $sphere;
 }
-$sphere = &disks_crypt_get_sphere();
+$sphere = disks_crypt_get_sphere();
 array_sort_key($sphere->grid,'devicespecialfile');
 $errormsg = '';
 $input_errors = [];
@@ -124,8 +125,7 @@ if($_POST):
 						$input_errors[] = gtext('Errors have been detected during import.');
 						break;
 				endswitch;
-				
-				//	ensure at least an empty array is available
+//				ensure at least an empty array is available
 				$sphere->grid = &array_make_branch($config,'geli','vdisk');
 //				header($sphere->get_location());
 //				exit;
@@ -208,7 +208,7 @@ if($_POST):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 						else:
-							$sphere->grid[$sphere->row_id]['enable'] = true;					
+							$sphere->grid[$sphere->row_id]['enable'] = true;
 						endif;
 						$updateconfig = true;
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->row_identifier()]);
