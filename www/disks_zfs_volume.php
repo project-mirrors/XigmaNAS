@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'properties_disks_zfs_volume.php';
@@ -77,13 +78,15 @@ function zfsvolume_process_updatenotification($mode,$data) {
 			$retval |= zfs_volume_properties($data);
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			if($sphere->row_id !== false):
 				$retval |= zfs_volume_destroy($data);
 				if($retval === 0):
 					unset($sphere->grid[$sphere->row_id]);
@@ -94,17 +97,29 @@ function zfsvolume_process_updatenotification($mode,$data) {
 	endswitch;
 	return $retval;
 }
-function get_zfs_volume_info($pool,$name) {
-	$cmd = sprintf('zfs get -pH -o value volsize,used,volblocksize %s 2>&1',escapeshellarg($pool . '/' . $name));
-	mwexec2($cmd,$rawdata,$exitstatus);
+/**
+ *	Collect information from zfs volume
+ *	On failure, returned array contains null values
+ *	@param string $pool name of the pool
+ *	@param string $name name of the volume
+ *	@return array
+ */
+function get_zfs_volume_info(string $pool,string $name) {
+	$retarr = [
+		'volsize' => null,
+		'used' => null,
+		'volblocksize' => null,
+		'compression' => null
+	];
 	$is_si = is_sidisksizevalues();
-	if($exitstatus !== 0):
-		$rawdata = [];
+	$cmd = sprintf('zfs get -pH -o value volsize,used,volblocksize,compression %s 2>&1',escapeshellarg($pool . '/' . $name));
+	mwexec2($cmd,$rawdata,$exitstatus);
+	if($exitstatus === 0):
+		$retarr['volsize'] = format_bytes($rawdata[0] ?? 0,2,false,$is_si);
+		$retarr['used'] = format_bytes($rawdata[1] ?? 0,2,false,$is_si);
+		$retarr['volblocksize'] = format_bytes($rawdata[2] ?? 0,0,false,false);
+		$retarr['compression'] = $rawdata[3];
 	endif;
-	$retarr = [];
-	$retarr[0] = format_bytes($rawdata[0] ?? 0,2,false,$is_si);
-	$retarr[1] = format_bytes($rawdata[1] ?? 0,2,false,$is_si);
-	$retarr[2] = format_bytes($rawdata[2] ?? 0,0,false,false);
 	return $retarr;
 }
 $sphere = get_sphere_disks_zfs_volume();
@@ -119,7 +134,7 @@ switch($page_action):
 	case 'apply':
 		$retval = 0;
 		if(!file_exists($d_sysrebootreqd_path)):
-			//	Process notifications
+//			Process notifications
 			$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 		endif;
 		$savemsg = get_std_save_message($retval);
@@ -230,17 +245,25 @@ if($record_exists):
 			$title = gettext('Disabled');
 			$dc = 'd';
 		endif;
-		if(UPDATENOTIFY_MODE_MODIFIED == $notificationmode || UPDATENOTIFY_MODE_NEW == $notificationmode || UPDATENOTIFY_MODE_DIRTY_CONFIG == $notificationmode):
-			$volsize = $sphere->row[$cop->get_volsize()->get_name()] ?? '';
-			$sparse = $is_sparse ? gettext('on') : '-';
-			$volblocksize = $sphere->row[$cop->get_volblocksize()->get_name()] ?? '';
-		else:
-			list($volsize,$sparse,$volblocksize) = get_zfs_volume_info($sphere->row[$cop->get_pool()->get_name()][0],$sphere->row[$cop->get_name()->get_name()]);
-			if($is_sparse):
-			else:
-				$sparse = '-';
-			endif;
-		endif;
+		switch($notificationmode):
+			case UPDATENOTIFY_MODE_MODIFIED:
+			case UPDATENOTIFY_MODE_NEW:
+			case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+//				collect config data
+				$volsize = $sphere->row[$cop->get_volsize()->get_name()] ?? '';
+				$sparse = $is_sparse ? gettext('on') : '-';
+				$volblocksize = $sphere->row[$cop->get_volblocksize()->get_name()] ?? '';
+				$compression = $sphere->row[$cop->get_compression()->get_name()] ?? '';
+				break;
+			default:
+//				collect live data
+				$livedata = get_zfs_volume_info($sphere->row[$cop->get_pool()->get_name()][0],$sphere->row[$cop->get_name()->get_name()]);
+				$volsize = $livedata['volsize'] ?? ($sphere->row[$cop->get_volsize()->get_name()] ?? '');
+				$sparse = $livedata['used'] ?? ($is_sparse ? gettext('on') : '-');
+				$volblocksize = $livedata['volblocksize'] ?? ($sphere->row[$cop->get_volblocksize()->get_name()] ?? '');
+				$compression = $livedata['compression'] ?? ($sphere->row[$cop->get_compression()->get_name()] ?? '');
+				break;
+		endswitch;
 		$tbody->
 			addTR()->
 				push()->
@@ -250,7 +273,7 @@ if($record_exists):
 				insTDwC('lcell' . $dc,$sphere->row[$cop->get_pool()->get_name()][0] ?? '')->
 				insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
 				insTDwC('lcell' . $dc,$volsize)->
-				insTDwC('lcell' . $dc,$sphere->row[$cop->get_compression()->get_name()] ?? '')->
+				insTDwC('lcell' . $dc,$compression)->
 				insTDwC('lcell' . $dc,$sparse)->
 				insTDwC('lcell' . $dc,$volblocksize)->
 				insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
