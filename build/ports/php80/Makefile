@@ -139,8 +139,8 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/sapi/cgi/php-cgi ${XIGMANAS_ROOTFS}${PREFIX}/bin/
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/sapi/cli/php ${XIGMANAS_ROOTFS}${PREFIX}/bin/
 
-	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
-	${INSTALL_DATA} ${WRKSRC}/ext/opcache/.libs/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
+	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20200930
+	${INSTALL_DATA} ${WRKSRC}/ext/opcache/.libs/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20200930
 	@${CP} -pv ${FILESDIR}/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
 
 .include <bsd.port.mk>

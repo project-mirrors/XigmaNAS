@@ -18,7 +18,7 @@ do-install:
 	@echo "Install to ${XIGMANAS_ROOTFS}"
 	@${CP} -pv ${FILESDIR}/apcu.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
 
-	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
-	${INSTALL_DATA} ${DEP_STAGEDIR}/usr/local/lib/php/20190902/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20190902
+	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20200930
+	${INSTALL_DATA} ${DEP_STAGEDIR}/usr/local/lib/php/20200930/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20200930
 
 .include <bsd.port.mk>
