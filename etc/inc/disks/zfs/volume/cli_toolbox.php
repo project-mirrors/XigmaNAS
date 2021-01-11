@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\zfs\volume;
+
+use function array_map,count,escapeshellarg,gettext,implode,is_array,sprintf,
+		mwexec2;
 
 /**
  *	Wrapper class for autoloading functions
@@ -42,36 +46,36 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, only basic information of the specified zfs volume is returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = NULL): string {
+	public static function get_list(string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-t','volume','-o','name,used,avail,refer'];
 		if(isset($entity_name)):
-			$a_cmd[] = \escapeshellarg($entity_name);
+			$a_cmd[] = escapeshellarg($entity_name);
 		endif;
 		$a_cmd[] = '2>&1';
-		$cmd = \implode(' ',$a_cmd);
-		\mwexec2($cmd,$output);
-		return \implode("\n",$output);
+		$cmd = implode(' ',$a_cmd);
+		mwexec2($cmd,$output);
+		return implode("\n",$output);
 	}
 /**
  *	Returns all properties of a single zfs volume or all zfs volumes.
  *	@param string $entity_name If provided, the properties of the specified zfs volume are returned.
  *	@return string An unescaped string.
  */
-	public static function get_properties(string $entity_name = NULL): string {
+	public static function get_properties(string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-H','-o','name','-t','volume'];
 		if(isset($entity_name)):
-			$a_cmd[] = \escapeshellarg($entity_name);
+			$a_cmd[] = escapeshellarg($entity_name);
 		endif;
 		$a_cmd[] = '2>&1';
-		$cmd = \implode(' ',$a_cmd);
-		\mwexec2($cmd,$a_names);
-		if(\is_array($a_names) && \count($a_names) > 0):
-			$names = \implode(' ',\array_map('escapeshellarg',$a_names));
-			$cmd = \sprintf('zfs get all %s 2>&1',$names);
-			\mwexec2($cmd,$output);
+		$cmd = implode(' ',$a_cmd);
+		mwexec2($cmd,$a_names,$exitstatus);
+		if($exitstatus === 0):
+			$names = implode(' ',array_map('escapeshellarg',$a_names));
+			$cmd = sprintf('zfs get all %s 2>&1',$names);
+			mwexec2($cmd,$output);
 		else:
-			$output = [\gettext('No ZFS volume information available.')];
+			$output = [gettext('No ZFS volume information available.')];
 		endif;
-		return \implode("\n",$output);
+		return implode("\n",$output);
 	}
 }
