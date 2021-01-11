@@ -96,12 +96,16 @@ function zfsvolume_process_updatenotification($mode,$data) {
 }
 function get_zfs_volume_info($pool,$name) {
 	$cmd = sprintf('zfs get -pH -o value volsize,used,volblocksize %s 2>&1',escapeshellarg($pool . '/' . $name));
-	mwexec2($cmd,$rawdata);
+	mwexec2($cmd,$rawdata,$exitstatus);
 	$is_si = is_sidisksizevalues();
-	$rawdata[0] = format_bytes($rawdata[0],2,false,$is_si);
-	$rawdata[1] = format_bytes($rawdata[1],2,false,$is_si);
-	$rawdata[2] = format_bytes($rawdata[2],0,false,false);
-	return $rawdata;
+	if($exitstatus !== 0):
+		$rawdata = [];
+	endif;
+	$retarr = [];
+	$retarr[0] = format_bytes($rawdata[0] ?? 0,2,false,$is_si);
+	$retarr[1] = format_bytes($rawdata[1] ?? 0,2,false,$is_si);
+	$retarr[2] = format_bytes($rawdata[2] ?? 0,0,false,false);
+	return $retarr;
 }
 $sphere = get_sphere_disks_zfs_volume();
 $cop = new properties_disks_zfs_volume();
