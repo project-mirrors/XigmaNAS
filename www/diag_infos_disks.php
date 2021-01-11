@@ -90,7 +90,7 @@ $tbody = $content->
 		pop()->
 		addTBODY();
 foreach($a_phy_disk as $disk):
-	$disk['desc'] = $config_disks[$disk['devicespecialfile']]['desc'];
+	$disk['desc'] = $config_disks[$disk['devicespecialfile']]['desc'] ?? '';
 	$temperature = (false !== ($device_temperature = system_get_device_temp($disk['devicespecialfile']))) ? sprintf('%s °C',$device_temperature) : gettext('n/a');
 	if($disk['type'] == 'HAST'):
 		$role = $a_phy_disk[$disk['name']]['role'];
