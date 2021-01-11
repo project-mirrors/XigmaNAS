@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'config.inc';
 require_once 'util.inc';
 
@@ -385,7 +386,7 @@ function clc_device_path_from_guid($guid,$data_devices) {
 	endif;
 	return $retval;
 }
-function render_pooldev_view($items = [],$data_devices) { // $items can be an array or a string
+function render_pooldev_view($items = [],$data_devices = []) { // $items can be an array or a string
 /*
  *	Displays the items in a comma seperated list
  *	Embedded in the body of a table with 2 columns
