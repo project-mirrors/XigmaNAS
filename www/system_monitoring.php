@@ -31,46 +31,58 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
  */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_notifier = 'rrdgraphs';
-
 array_make_branch($config,'rrdgraphs');
-
 $upsname = !empty($config['ups']['upsname']) ? $config['ups']['upsname'] : "identifier";
 $upsip = !empty($config['ups']['ip']) ? $config['ups']['ip'] : "host-ip-address";
 
 /* Check if the directory exists, the mountpoint has at least o=rx permissions and
  * set the permission to 775 for the last directory in the path.
  */
-function change_perms($dir) {
+function rrdgraphs_change_perms($dir) {
 	global $input_errors;
 
-	$path = rtrim($dir,'/');	// remove trailing slash
-	if (strlen($path) > 1) {
-		if (!is_dir($path)) {	// check if directory exists
-			$input_errors[] = sprintf(gtext("Directory %s doesn't exist!"), $path);
-		} else {
-			$path_check = explode('/', $path);	// split path to get directory names
-			$path_elements = count($path_check);	// get path depth
-			$fp = substr(sprintf('%o', fileperms("/$path_check[1]/$path_check[2]")), -1);	// get mountpoint permissions for others
-			if ($fp >= 5) {							// transmission needs at least read & search permission at the mountpoint
-				$directory = "/$path_check[1]/$path_check[2]";		// set to the mountpoint
-				for ($i = 3; $i < $path_elements - 1; $i++) {		// traverse the path and set permissions to rx
-					$directory = $directory."/$path_check[$i]";	// add next level
-					exec("chmod o=+r+x \"$directory\"");		// set permissions to o=+r+x
-				}
+//	remove trailing slash
+	$path = rtrim($dir,'/');
+	if(strlen($path) > 1):
+//		check if directory exists
+		if(!is_dir($path)):
+			$input_errors[] = sprintf(gtext("Directory %s doesn't exist!"),$path);
+		else:
+//			split path to get directory names
+			$path_check = explode('/',$path);
+//			get path depth
+			$path_elements = count($path_check);
+//			get mountpoint permissions for others
+			$fp = substr(sprintf('%o',fileperms("/$path_check[1]/$path_check[2]")),-1);
+//			need at least read & search permission at the origin
+			if($fp >= 5):
+//				set to the mountpoint
+				$directory = "/$path_check[1]/$path_check[2]";
+//				traverse the path and set permissions to rx
+				for($i = 3;$i < $path_elements - 1;$i++):
+//					add next level
+					$directory = $directory . "/$path_check[$i]";
+//					set permissions to o=+r+x
+					exec("chmod o=+r+x \"$directory\"");
+				endfor;
 				$path_elements = $path_elements - 1;
-				$directory = $directory."/$path_check[$path_elements]";	// add last level
-				exec("chmod 775 {$directory}");				// set permissions to 775
-				exec("chown {$_POST['who']} {$directory}*");
-			} else {
-				$input_errors[] = sprintf(gtext("RRDGraphs needs at least read & execute permissions at the mount point for directory %s! Set the Read and Execute bits for Others (Access Restrictions | Mode) for the mount point %s (in <a href='disks_mount.php'>Disks | Mount Point | Management</a> or <a href='disks_zfs_dataset.php'>Disks | ZFS | Datasets</a>) and hit Save in order to take them effect."), $path, "/{$path_check[1]}/{$path_check[2]}");
-			}
-		}
-	}
+				$directory = $directory . "/$path_check[$path_elements]";	// add last level
+//				set permissions to 775
+				chmod($directory,0775);
+				if(array_key_exists('who',$_POST)):
+					chown($directory,$_POST['who']);
+				endif;
+			else:
+				$input_errors[] = sprintf(gtext("RRDGraphs needs at least read & execute permissions at the mount point for directory %s! Set the Read and Execute bits for Others (Access Restrictions | Mode) for the mount point %s (in <a href='disks_mount.php'>Disks | Mount Point | Management</a> or <a href='disks_zfs_dataset.php'>Disks | ZFS | Datasets</a>) and hit Save in order to take them effect."),$path,"/{$path_check[1]}/{$path_check[2]}");
+			endif;
+		endif;
+	endif;
 }
 if(isset($_POST['save']) && $_POST['save']):
 	unset($input_errors);
@@ -95,7 +107,7 @@ if(isset($_POST['save']) && $_POST['save']):
 			endif;
 			if(!is_dir("{$_POST['storage_path']}/rrd")):
 				mkdir("{$_POST['storage_path']}/rrd",0775,true);	// new destination or first install
-				change_perms("{$_POST['storage_path']}/rrd");	// check/set permissions
+				rrdgraphs_change_perms("{$_POST['storage_path']}/rrd");	// check/set permissions
 			endif;
 			$config['rrdgraphs']['storage_path'] = $_POST['storage_path'];
 			$_POST['graph_h'] = trim($_POST['graph_h']);
@@ -148,7 +160,6 @@ if(isset($_POST['save']) && $_POST['save']):
 		endif;
 	endif;
 endif;
-
 if(isset($_POST['reset_graphs']) && $_POST['reset_graphs']):
 	write_log('rrdgraphs service execute delete statistical data ...');
 	$savemsg = gtext('All data from the following statistics have been deleted:');
@@ -186,14 +197,12 @@ if(isset($_POST['reset_graphs']) && $_POST['reset_graphs']):
 	endforeach;
 	require '/usr/local/share/rrdgraphs/rrd-start.php';
 endif;
-
 $pconfig['enable'] = isset($config['rrdgraphs']['enable']) ? true : false;
 $pconfig['storage_path'] = !empty($config['rrdgraphs']['storage_path']) ? $config['rrdgraphs']['storage_path'] : $g['media_path'];
 $pconfig['graph_h'] = !empty($config['rrdgraphs']['graph_h']) ? $config['rrdgraphs']['graph_h'] : 200;
 $pconfig['refresh_time'] = !empty($config['rrdgraphs']['refresh_time']) ? $config['rrdgraphs']['refresh_time'] : 300;
 $pconfig['autoscale'] = isset($config['rrdgraphs']['autoscale']) ? true : false;
 $pconfig['background_white'] = isset($config['rrdgraphs']['background_white']) ? true : false;
-
 // available graphs
 $pconfig['cpu_frequency'] = isset($config['rrdgraphs']['cpu_frequency']) ? true : false;
 $pconfig['cpu_temperature'] = isset($config['rrdgraphs']['cpu_temperature']) ? true : false;
@@ -217,31 +226,29 @@ $pconfig['uptime'] = isset($config['rrdgraphs']['uptime']) ? true : false;
 $pconfig['arc_usage'] = isset($config['rrdgraphs']['arc_usage']) ? true : false;
 $pconfig['l2arc_usage'] = isset($config['rrdgraphs']['l2arc_usage']) ? true : false;
 $pconfig['arc_efficiency'] = isset($config['rrdgraphs']['arc_efficiency']) ? true : false;
-
 $a_interface = get_interface_list();
 // Add VLAN interfaces
 array_make_branch($config,'vinterfaces','vlan');
-if(!empty($config['vinterfaces']['vlan'])) {
-	foreach ($config['vinterfaces']['vlan'] as $vlanv) {
+if(!empty($config['vinterfaces']['vlan'])):
+	foreach($config['vinterfaces']['vlan'] as $vlanv):
 		$a_interface[$vlanv['if']] = $vlanv;
 		$a_interface[$vlanv['if']]['isvirtual'] = true;
-	}
-}
+	endforeach;
+endif;
 // Add LAGG interfaces
 array_make_branch($config,'vfinterfaces','lagg');
-if(!empty($config['vinterfaces']['lagg'])) {
-	foreach ($config['vinterfaces']['lagg'] as $laggv) {
+if(!empty($config['vinterfaces']['lagg'])):
+	foreach($config['vinterfaces']['lagg'] as $laggv):
 		$a_interface[$laggv['if']] = $laggv;
 		$a_interface[$laggv['if']]['isvirtual'] = true;
-	}
-}
+	endforeach;
+endif;
 // Use first interface as default if it is not set.
 if(empty($pconfig['latency_interface']) && is_array($a_interface)):
 	$pconfig['latency_interface'] = key($a_interface);
 endif;
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Monitoring Setup')];
-?>
-<?php include 'fbegin.inc';?>
+include 'fbegin.inc';?>
 <script type="text/javascript">
 //<![CDATA[
 $(window).on("load", function() {
@@ -412,20 +419,20 @@ $document->render();
 			html_inputbox2('latency_host',gettext('Host'),$pconfig['latency_host'],gettext('Destination host name or IP address.'),false,20);
 			$a_option = [];
 			$s_option = '';
-			foreach($a_interface as $if => $ifinfo) {
+			foreach($a_interface as $if => $ifinfo):
 				$ifinfo = get_interface_info($if);
-				if (('up' == $ifinfo['status']) || ('associated' == $ifinfo['status'])) {
+				if(('up' == $ifinfo['status']) || ('associated' == $ifinfo['status'])):
 					$a_option[] = $if;
-					if ($if == $pconfig['latency_interface']) {
+					if($if == $pconfig['latency_interface']):
 						$s_option = $if;
-					}
-				}
-			}
+					endif;
+				endif;
+			endforeach;
 			html_combobox2('latency_interface',gettext('Interface Selection'),$s_option,$a_option,gettext('Select the interface (only selectable if your server has more than one) to use for the source IP address in outgoing packets.'));
 			$latency_a_count = [];
-			for ($i = 1; $i <= 20; $i++) {
+			for($i = 1; $i <= 20; $i++):
 				$latency_a_count[$i] = $i;
-			}
+			endfor;
 			html_combobox2('latency_count',gettext('Count'),$pconfig['latency_count'],$latency_a_count,gettext('Stop after sending (and receiving) N packets.'),false);
 			$helpinghand = gettext('These parameters will be added to the ping command.')
 				. ' '
