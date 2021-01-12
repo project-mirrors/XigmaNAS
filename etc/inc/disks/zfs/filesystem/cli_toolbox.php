@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\zfs\filesystem;
+
+use function array_map,count,escapeshellarg,gettext,implode,is_array,sprintf,
+		mwexec2;
 
 /**
  *	Wrapper class for autoloading functions
@@ -45,12 +49,12 @@ final class cli_toolbox {
 	public static function get_list(string $entity_name = NULL): string {
 		$a_cmd = ['zfs','list','-t','filesystem','-o','name,used,avail,refer,mountpoint'];
 		if(isset($entity_name)):
-			$a_cmd[] = \escapeshellarg($entity_name);
+			$a_cmd[] = escapeshellarg($entity_name);
 		endif;
 		$a_cmd[] = '2>&1';
-		$cmd = \implode(' ',$a_cmd);
-		\mwexec2($cmd,$output);
-		return \implode("\n",$output);
+		$cmd = implode(' ',$a_cmd);
+		mwexec2($cmd,$output);
+		return implode("\n",$output);
 	}
 /**
  *	Returns all properties of a single zfs filesystem or all zfs filesystems.
@@ -60,18 +64,18 @@ final class cli_toolbox {
 	public static function get_properties(string $entity_name = NULL): string {
 		$a_cmd = ['zfs','list','-H','-o','name','-t','filesystem'];
 		if(isset($entity_name)):
-			$a_cmd[] = \escapeshellarg($entity_name);
+			$a_cmd[] = escapeshellarg($entity_name);
 		endif;
 		$a_cmd[] = '2>&1';
-		$cmd = \implode(' ',$a_cmd);
-		\mwexec2($cmd,$a_names);
-		if(\is_array($a_names) && \count($a_names) > 0):
-			$names = \implode(' ',\array_map('escapeshellarg',$a_names));
-			$cmd = \sprintf('zfs get all %s 2>&1',$names);
-			\mwexec2($cmd,$output);
+		$cmd = implode(' ',$a_cmd);
+		mwexec2($cmd,$a_names,$exitstatus);
+		if($exitstatus === 0):
+			$names = implode(' ',array_map('escapeshellarg',$a_names));
+			$cmd = sprintf('zfs get all %s 2>&1',$names);
+			mwexec2($cmd,$output);
 		else:
-			$output = [\gettext('No ZFS filesystem information available.')];
+			$output = [gettext('No ZFS filesystem information available.')];
 		endif;
-		return \implode("\n",$output);
+		return implode("\n",$output);
 	}
 }
