@@ -67,7 +67,6 @@ sslconfig() {
 	cat <<-SSLCONFIG
 		ssl.engine = "enable"
 		ssl.pemfile = "${lighttpd_certpem}"
-		ssl.use-sslv3 = "disable"
 	SSLCONFIG
 }
 
