@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
@@ -81,24 +82,24 @@ function zfspool_process_updatenotification($mode,$data) {
 			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 			if(false !== $sphere->row_id):
 				$sphere->row = $sphere->grid[$sphere->row_id];
-				//	check if pool exists
+//				check if pool exists
 				$a_pools = [];
 				if(array_key_exists('name',$sphere->row)):
 					$a_pools = cli_zpool_info($sphere->row['name'],'name');
 				endif;
-				if(0 < count($a_pools)):
-					//	delete pool
+				if(count($a_pools) > 0):
+//					delete pool
 					$retval |= zfs_zpool_destroy($data);
 					if($retval === 0):
 						unset($sphere->grid[$sphere->row_id]);
 						write_config();
-						//	remove existing pool cache
+//						remove existing pool cache
 						conf_mount_rw();
 						unlink_if_exists(sprintf('%s/boot/zfs/zpool.cache',$g['cf_path']));
 						conf_mount_ro();
 					endif;
 				else:
-					//	delete orphaned config record
+//					delete orphaned config record
 					unset($sphere->grid[$sphere->row_id]);
 					write_config();
 				endif;
@@ -239,7 +240,7 @@ $document->render();
 			foreach($sphere->grid as $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
+				$is_enabled = $sphere->is_enadis_enabled() ? isset($sphere->row['enable']) : true;
 				$notprotected = $sphere->is_lock_enabled() ? !isset($sphere->row['protected']) : true;
 				switch($notificationmode):
 					case UPDATENOTIFY_MODE_NEW:
@@ -256,7 +257,7 @@ $document->render();
 					$sphere_addon_row = $sphere_addon_grid[$sphere->row['name']];
 					if($showusedavail):
 						if(($sphere_addon_row['used'] < 0) && ($sphere_addon_row['avail'] < 0)):
-							$size = $used = $avail = \gettext('Unknown');
+							$size = $used = $avail = gtext('Unknown');
 						else:
 							$size = format_bytes($sphere_addon_row['used'] + $sphere_addon_row['avail'],2,false,$use_si);
 							$used = format_bytes($sphere_addon_row['used'],2,false,$use_si);
@@ -275,7 +276,7 @@ $document->render();
 				endif;
 ?>
 				<tr>
-					<td class="<?=$enabled ? "lcelc" : "lcelcd";?>">
+					<td class="<?=$is_enabled ? "lcelc" : "lcelcd";?>">
 <?php
 						if($notdirty && $notprotected):
 							echo $sphere->html_checkbox_cbm(false);
@@ -284,15 +285,15 @@ $document->render();
 						endif;
 ?>
 					</td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=isset($sphere->row['name']) ? htmlspecialchars($sphere->row['name']) : '';?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$size;?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$used;?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$avail;?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$frag;?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$cap;?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$dedup;?></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><a href="disks_zfs_zpool_info.php?pool=<?=$sphere->row['name']?>"><?=$health;?></a></td>
-					<td class="<?=$enabled ? "lcell" : "lcelld";?>"><?=$altroot;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=isset($sphere->row['name']) ? htmlspecialchars($sphere->row['name']) : '';?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$size;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$used;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$avail;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$frag;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$cap;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$dedup;?></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><a href="disks_zfs_zpool_info.php?pool=<?=$sphere->row['name']?>"><?=$health;?></a></td>
+					<td class="<?=$is_enabled ? "lcell" : "lcelld";?>"><?=$altroot;?></td>
 					<td class="lcebld">
 						<table class="area_data_selection_toolbox"><colgroup><col style="width:33%"><col style="width:34%"><col style="width:33%"></colgroup><tbody><tr>
 <?php
