@@ -55,7 +55,6 @@ sslconfig() {
 	cat <<-SSLCONFIG
 		ssl.engine = "enable"
 		ssl.pemfile = "${websrv_certpem}"
-		ssl.use-sslv3 = "disable"
 	SSLCONFIG
 }
 
