@@ -1563,6 +1563,9 @@ create_full() {
 	echo 'hint.acpi_throttle.0.disabled="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'hint.p4tcc.0.disabled="0"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'autoboot_delay="3"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	echo 'hostuuid_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	echo 'hostuuid_name="/etc/hostid"' >> $XIGMANAS_TMPDIR/boot/loader.conf
+	echo 'hostuuid_type="hostuuid"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'if_atlantic_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'zfs_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
@@ -1918,11 +1921,11 @@ Press # "
 		2)	build_system;;
 		10)	create_embedded;;
 		11)	create_usb;;
-		12) create_usb_gpt;;
+		12)	create_usb_gpt;;
 		13)	create_iso;;
 		14)	create_iso_tiny;;
 		15)	create_full;;
-		16) create_all_images;;
+		16)	create_all_images;;
 		17)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
 		*)	exit 0;;
 	esac

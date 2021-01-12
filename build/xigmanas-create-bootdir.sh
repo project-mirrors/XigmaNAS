@@ -151,6 +151,9 @@ echo "Generate $MINIBSD_DIR/loader.conf"
 echo 'mfsroot_load="YES"' > $MINIBSD_DIR/loader.conf
 echo 'mfsroot_type="mfs_root"' >> $MINIBSD_DIR/loader.conf
 echo 'mfsroot_name="/mfsroot"' >> $MINIBSD_DIR/loader.conf
+echo 'hostuuid_load="YES"' >> $MINIBSD_DIR/loader.conf
+echo 'hostuuid_name="/etc/hostid"' >> $MINIBSD_DIR/loader.conf
+echo 'hostuuid_type="hostuuid"' >> $MINIBSD_DIR/loader.conf
 echo 'hw.est.msr_info="0"' >> $MINIBSD_DIR/loader.conf
 echo 'hw.hptrr.attach_generic="0"' >> $MINIBSD_DIR/loader.conf
 echo 'hw.msk.msi_disable="1"' >> $MINIBSD_DIR/loader.conf
