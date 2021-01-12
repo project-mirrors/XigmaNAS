@@ -57,38 +57,38 @@ endif;
 //	RootOnZFS
 $g['zroot'] = (0 == mwexec('/sbin/mount | awk "/ \/ / {print $1}" | grep -q ".*/ROOT/.*"')) ? true : false;
 if(is_booting()):
-	//	Find the device where config.xml resides and write out an fstab
+//	find the device where config.xml resides and write out an fstab
 	unset($cfgdevice);
-	//	Check if there's already an fstab ('full' release booting?)
+//	check if there's already an fstab ('full' release booting?)
 	if(!file_exists("{$g['etc_path']}/fstab")):
-		//	Display platform type.
+//		display platform type.
 		echo "Booting platform: {$g['platform']}",PHP_EOL;
 		echo 'Looking for configuration file:';
-		//	Get list of kernel known disks
+//		get list of kernel known disks
 		$disks = explode(' ',exec('/sbin/sysctl -q -n kern.disks'));
 		if(stristr($g['platform'],'livecd') || stristr($g['platform'],'liveusb')):
-			//	Config is on floppy disk/USB stick for LiveCD version per default
+//			config is on floppy disk/USB stick for LiveCD version per default
 			$cfgdevice = $cfgpartition = 'fd0';
 			$cfgfstype = 'msdos';
-			//	Display progress...
+//			display progress...
 			echo ' fd0';
-			//	Check if there is any USB device that can be used
-			//	Set minimum capacity of a media to 128KiB for storing config.xml
+//			check if there is any USB device that can be used
+//			set minimum capacity of a media to 128KiB for storing config.xml
 			$min_media_size = 131072;
 			foreach($disks as $disk):
 				$found = false;
-				//	Skip non USB (SCSI) device. The filesystem type must be MSDOS
+//				skip non USB (SCSI) device. The filesystem type must be MSDOS
 				if(false == preg_match('/da[0-9]/',$disk)):
 					continue;
 				endif;
-				//	Display progress...
+//				display progress...
 				echo " {$disk}";
-				//	Try to mount device using file system MSDOS (FAT16/32)
+//				try to mount device using file system MSDOS (FAT16/32)
 				if(!$found):
 					$test_dev = sprintf('/dev/%ss1',$disk);
 					$cmd = sprintf('/sbin/mount -r -t %s %s %s','msdos',$test_dev,$g['cf_path']);
 					if(0 == mwexec($cmd)):
-						//	Validate partition size, should be at least $min_size
+//						validate partition size, should be at least $min_size
 						$diskinfo = disks_get_diskinfo($test_dev);
 						if(!empty($diskinfo)):
 							$media_size = $diskinfo['mediasize_bytes'] ?? 0;
@@ -106,7 +106,7 @@ if(is_booting()):
 					$test_dev = sprintf('/dev/%s',$disk);
 					$cmd = sprintf('/sbin/mount -r -t %s %s %s','msdos',$test_dev,$g['cf_path']);
 					if(0 == mwexec($cmd)):
-						//	Validate disk size, should be at least $min_size
+//						validate disk size, should be at least $min_size
 						$diskinfo = disks_get_diskinfo($test_dev);
 						if(!empty($diskinfo)):
 							$media_size = $diskinfo['mediasize_bytes'] ?? 0;
@@ -120,12 +120,12 @@ if(is_booting()):
 						mwexec($cmd);
 					endif;
 				endif;
-				//	Exit loop when found
+//				exit loop when found
 				if($found):
 					break;
 				endif;
 			endforeach;
-			//	Display device information used to store the configuration
+//			display device information used to store the configuration
 			echo PHP_EOL;
 			echo "Using device=/dev/{$cfgpartition} fstype={$cfgfstype} to store configuration.",PHP_EOL;
 		else:
@@ -143,22 +143,22 @@ if(is_booting()):
 					$disks = $new_disks;
 				endif;
 			endif;
-			//	Probe kernel known disks until we find one with config.xml
+//			probe kernel known disks until we find one with config.xml
 			foreach($disks as $disk):
-				//	Skip mfs-mounted filesystems
+//				skip mfs-mounted filesystems
 				if(false != preg_match('/md[0-9]/',$disk)):
 					continue;
 				endif;
-				//	Display progress...
+//				display progress...
 				echo " {$disk}";
-				//	Try to mount device using UFS
+//				try to mount device using UFS
 				if(0 == mwexec("/sbin/mount -r /dev/{$disk}s1a {$g['cf_path']}")): // Search on slice 1
 					if(file_exists("{$g['cf_conf_path']}/config.xml")):
 						$cfgdevice = $disk;
 						$cfgpartition = "{$cfgdevice}s1a";
 						$cfgfstype = 'ufs';
 					endif;
-					//	Unmount device
+//					unmount device
 					mwexec("/sbin/umount -f {$g['cf_path']}");
 				elseif(0 == mwexec("/sbin/mount -r /dev/{$disk}p2 {$g['cf_path']}")): // Search on GPT/p2
 					if(file_exists("{$g['cf_conf_path']}/config.xml")):
@@ -166,7 +166,7 @@ if(is_booting()):
 						$cfgpartition = "{$cfgdevice}p2";
 						$cfgfstype = 'ufs';
 					endif;
-					//	Unmount device
+//					unmount device
 					mwexec("/sbin/umount -f {$g['cf_path']}");
 				elseif(0 == mwexec("/sbin/mount -r /dev/{$disk}a {$g['cf_path']}")): // Search on partition 'a'
 					if(file_exists("{$g['cf_conf_path']}/config.xml")):
@@ -174,31 +174,31 @@ if(is_booting()):
 						$cfgpartition = "{$cfgdevice}a";
 						$cfgfstype = 'ufs';
 					endif;
-					//	Unmount device
+//					unmount device
 					mwexec("/sbin/umount -f {$g['cf_path']}");
 				endif;
-				//	Device found, exit
+//				device found, exit
 				if($cfgdevice):
 					break;
 				endif;
 			endforeach;
 			if(!$cfgdevice):
-				//	Check if there is any USB device that can be used
+//				check if there is any USB device that can be used
 				foreach($disks as $disk):
-					//	Skip non USB (SCSI) device. The filesystem type must be MSDOS
+//					skip non USB (SCSI) device. The filesystem type must be MSDOS
 					if(false == preg_match('/da[0-9]/',$disk)):
 						continue;
 					endif;
-					//	Display progress...
+//					display progress...
 					echo " {$disk}";
-					//	Try to mount device using file system MSDOS (FAT16/32)
+//					try to mount device using file system MSDOS (FAT16/32)
 					if(0 == mwexec("/sbin/mount -r -t msdos /dev/{$disk}s1 {$g['cf_path']}")):
 						if(file_exists("{$g['cf_conf_path']}/config.xml")):
 							$cfgdevice = $disk;
 							$cfgpartition = "{$cfgdevice}s1";
 							$cfgfstype = 'msdos';
 						endif;
-						//	Unmount device
+//						unmount device
 						mwexec("/sbin/umount -f {$g['cf_path']}");
 					elseif(0 == mwexec("/sbin/mount -r -t msdos /dev/{$disk} {$g['cf_path']}")):
 						if(file_exists("{$g['cf_conf_path']}/config.xml")):
@@ -206,23 +206,23 @@ if(is_booting()):
 							$cfgpartition = $cfgdevice;
 							$cfgfstype = 'msdos';
 						endif;
-						//	Unmount device
+//						unmount device
 						mwexec("/sbin/umount -f {$g['cf_path']}");
 					endif;
-					//	Device found, exit
+//					device found, exit
 					if($cfgdevice):
 						break;
 					endif;
 				endforeach;
 			endif;
-			//	Display device information where configuration is found
+//			display device information where configuration is found
 			echo PHP_EOL;
 			if($cfgdevice):
 				echo "Found configuration on device=/dev/{$cfgpartition} fstype={$cfgfstype}.",PHP_EOL;
 			endif;
 		endif;
 		if(!$cfgdevice):
-			//	No device found, print an error and die
+//			no device found, print an error and die
 			echo PHP_EOL;
 			echo "*******************************************************************************",PHP_EOL;
 			echo "FATAL ERROR!",PHP_EOL;
@@ -233,33 +233,33 @@ if(is_booting()):
 			mwexec('/sbin/halt');
 			exit;
 		endif;
-		//	Write device name to a file (used by rc.firmware for example)
+//		write device name to a file (used by rc.firmware for example)
 		@file_put_contents("{$g['etc_path']}/cfdevice",$cfgpartition,FILE_TEXT);
-		//	Write /etc/fstab
+//		write /etc/fstab
 		$data = "/dev/{$cfgpartition} {$g['cf_path']} {$cfgfstype} ro 1 1\n";
 		@file_put_contents("{$g['etc_path']}/fstab",$data,FILE_TEXT);
 	endif;
-	//	Append if not found
+//	append if not found
 	if(mwexec("/usr/bin/grep '^proc ' {$g['etc_path']}/fstab") != 0):
-		//	Append process file system to /etc/fstab
+//		append process file system to /etc/fstab
 		$data = "proc /proc procfs rw 0 0\n";
 		@file_put_contents("{$g['etc_path']}/fstab",$data,FILE_TEXT | FILE_APPEND);
 	endif;
-	//	Mount all filesystems
+//	mount all filesystems
 	mwexec('/sbin/mount -a');
 endif;
 //	parse configuration
 if(!isset($noparseconfig) || !$noparseconfig):
 	config_lock();
-	//	See if there's a newer cache file
+//	see if there's a newer cache file
 	if(file_exists("{$g['tmp_path']}/config.cache") && (@filemtime("{$g['tmp_path']}/config.cache") >= @filemtime("{$g['conf_path']}/config.xml")) && !is_booting()):
-		//	Read cache
+//		read cache
 		$config = unserialize(file_get_contents("{$g['tmp_path']}/config.cache"));
 	else:
 		if(!file_exists("{$g['conf_path']}/config.xml")):
 			if(is_booting()):
 				if(stristr($g['platform'],'livecd') || stristr($g['platform'],'liveusb')):
-					//	Try copying the default config.xml to the floppy disk/USB stick media
+//					try copying the default config.xml to the floppy disk/USB stick media
 					config_unlock();
 					reset_factory_defaults();
 					config_lock();
@@ -287,7 +287,7 @@ if(!isset($noparseconfig) || !$noparseconfig):
 		endif;
 		$config_filename = $g['conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 		if(isset($load_raw_config) && $load_raw_config != 0):
-			//	Load all root objects, but never write to cache
+//			load all root objects, but never write to cache
 			$config = parse_xml_config_raw($config_filename);
 			if(false === $config):
 				echo "Error: Failed to load '$config_filename' file. {$productname} cannot continue booting.",PHP_EOL;
@@ -295,7 +295,7 @@ if(!isset($noparseconfig) || !$noparseconfig):
 				exit;
 			endif;
 		else:
-			//	Load configuration file into array.
+//			load configuration file into array.
 			$config_filename = $g['conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 			$config = parse_xml_config($config_filename,false,$g['xml_rootobj'],'nas4free');
 			if(false === $config):
@@ -314,42 +314,40 @@ if(!isset($noparseconfig) || !$noparseconfig):
 					echo "*******************************************************************************",PHP_EOL;
 				endif;
 			endif;
-			//	Write configuration cache file
+//			write configuration cache file
 			config_write_cache($config);
 		endif;
 	endif;
 	config_unlock();
 	global $config_disks;
-	//	get S.M.A.R.T. arguments from config and store it in a hash to get better performance:
-	if(is_array($config['disks']) && is_array($config['disks']['disk'])):
-		foreach ($config['disks']['disk'] as $disk):
-			$config_disks[$disk['devicespecialfile']]['smart']['devicefilepath'] = $disk['smart']['devicefilepath'];
-			$config_disks[$disk['devicespecialfile']]['smart']['devicetypearg'] = $disk['smart']['devicetypearg'];
-			$config_disks[$disk['devicespecialfile']]['desc'] = $disk['desc'];
-		endforeach;
-	endif;
+//	get S.M.A.R.T. arguments from config and store it in a hash to get better performance:
+	array_make_branch($config,'disks','disk');
+	foreach ($config['disks']['disk'] as $disk):
+		$config_disks[$disk['devicespecialfile']]['smart']['devicefilepath'] = $disk['smart']['devicefilepath'];
+		$config_disks[$disk['devicespecialfile']]['smart']['devicetypearg'] = $disk['smart']['devicetypearg'];
+		$config_disks[$disk['devicespecialfile']]['desc'] = $disk['desc'];
+	endforeach;
 endif;
 
 /* mount flash card read/write */
 function conf_mount_rw() {
 	global $g;
 
-	if ($g['platform'] != "full") {
-		/* don't use mount -u anymore
-		(doesn't sync the files properly and /bin/sync won't help either) */
+	if($g['platform'] != 'full'):
+//		don't use mount -u anymore (doesn't sync the files properly and /bin/sync won't help either)
 		mwexec("/sbin/umount -f {$g['cf_path']}");
 		mwexec("/sbin/mount -w -o noatime {$g['cf_path']}");
-	}
+	endif;
 }
 
 /* mount flash card read only */
 function conf_mount_ro() {
 	global $g;
 
-	if ($g['platform'] != "full") {
+	if($g['platform'] != 'full'):
 		mwexec("/sbin/umount -f {$g['cf_path']}");
 		mwexec("/sbin/mount -r {$g['cf_path']}");
-	}
+	endif;
 }
 
 /**
@@ -361,16 +359,16 @@ function write_config() {
 	$bom = ''; // "\xEF\xBB\xBF";
 	config_lock();
 	conf_mount_rw();
-	//	Make sure the clock settings is plausible
+//	make sure the clock settings is plausible
 	if(function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')):
 		@date_default_timezone_set(@date_default_timezone_get());
 	endif;
 	if(time() > mktime(0,0,0,9,1,2004)):
 		$config['lastchange'] = time();
 	endif;
-	//	Dump configuration as XML data
+//	dump configuration as XML data
 	$xmlconfig =  $bom . dump_xml_config($config,$g['xml_rootobj'],system_get_language_codeset());
-	//	Save current configuration file
+//	save current configuration file
 	$filename = $g['cf_conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 	if(file_exists($filename)):
 		for($n = 6;--$n > 0;):
@@ -388,19 +386,19 @@ function write_config() {
 			die(sprintf('Error: Failed to rename configuration file %s',escapeshellarg($filename)));
 		endif;
 	endif;
-	//	Write configuration file
+//	write configuration file
 	if(!file_put_contents_safe($filename,$xmlconfig)):
 		die(sprintf('Error: Failed to write configuration file %s',escapeshellarg($filename)));
 	endif;
-	//	Modify file permissions
+//	modify file permissions
 	@chmod($filename,0600);
 	conf_mount_ro();
-	//	Re-read configuration
+//	re-read configuration
 	$config_filename = $g['conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 	$config = parse_xml_config($config_filename,true,$g['xml_rootobj'],'nas4free');
-	//	Write config cache (to prevent parsing on every access)
+//	write config cache (to prevent parsing on every access)
 	config_write_cache($config);
-	//	Force completion of pending disk writes
+//	force completion of pending disk writes
 	mwexec('/bin/sync');
 	config_unlock();
 }
@@ -412,7 +410,7 @@ function write_config() {
 function write_loader_config(){
 	global $g,$config;
 
-	// Make sure the clock settings is plausible
+//	make sure the clock settings is plausible
 	if(function_exists('date_default_timezone_set') and function_exists('date_default_timezone_get')):
 		@date_default_timezone_set(@date_default_timezone_get());
 	endif;
@@ -420,10 +418,10 @@ function write_loader_config(){
 		$config['lastchange'] = time();
 	endif;
 	if(!isset($config['system']['loaderconf']['param'])):
-		//	Load configuration file into array.
+//		load configuration file into array.
 		$config_filename = $g['conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 		$config = parse_xml_config($config_filename,true,$g['xml_rootobj'],'nas4free');
-		//	read platform
+//		read platform
 		$platform_filename = sprintf('%s/platform',$g['etc_path']);
 		if(file_exists($platform_filename)):
 			$g['fullplatform'] = strtolower(chop(file_get_contents($platform_filename)));
@@ -435,7 +433,7 @@ function write_loader_config(){
 	if(isset($config['system']['loaderconf']['param']) && is_array($config['system']['loaderconf']['param'])):
 		config_lock();
 		conf_mount_rw();
-		//	Set loader.conf.local location
+//		set loader.conf.local location
 		if($g['platform'] === 'full' ):
 			$loader_filename = '/boot/loader.conf.local';
 		else:
@@ -458,15 +456,15 @@ function write_loader_config(){
 				@unlink($loader_filename);
 			endif;
 		else:
-			//	Write configuration file
+//			write configuration file
 			if(false === file_put_contents_safe($loader_filename,$lines)):
 				die(sprintf('Error: Failed to write configuration file %s',escapeshellarg($loader_filename)));
 			endif;
 		endif;
-		//	Modify file permissions
+//		modify file permissions
 		@chmod($loader_filename,0600);
 		conf_mount_ro();
-		//	Force completion of pending disk writes
+//		force completion of pending disk writes
 		mwexec('/bin/sync');
 		config_unlock();
 	endif;
@@ -481,11 +479,11 @@ function reset_factory_defaults() {
 
 	config_lock();
 	conf_mount_rw();
-	//	create conf directory, if necessary
+//	create conf directory, if necessary
 	if(!file_exists("{$g['cf_conf_path']}")):
 		@mkdir("{$g['cf_conf_path']}");
 	endif;
-	//	clear /conf
+//	clear /conf
 	$dh = opendir($g['conf_path']);
 	while($filename = readdir($dh)) {
 		if(($filename != '.') && ($filename != '..')):
@@ -493,11 +491,11 @@ function reset_factory_defaults() {
 		endif;
 	}
 	closedir($dh);
-	//	copy default configuration
+//	copy default configuration
 	@copy("{$g['conf_default_path']}/config.xml", "{$g['conf_path']}/config.xml");
-	//	modify file permissions
+//	modify file permissions
 	@chmod("{$g['cf_conf_path']}/config.xml", 0600);
-	//	remove existing pool cache
+//	remove existing pool cache
 	unlink_if_exists("{$g['cf_path']}/boot/zfs/zpool.cache");
 	$loader_filename = "{$g['cf_path']}/boot/loader.conf.local";
 	if(file_exists($loader_filename) && unlink($loader_filename) === false):
@@ -542,13 +540,13 @@ function config_lock() {
 	$lockfile = "{$g['varrun_path']}/config.lock";
 	$n = 0;
 	while($n < 15) {
-		//	open the lock file in append mode to avoid race condition
+//		open the lock file in append mode to avoid race condition
 		if($fd = @fopen($lockfile, "x")):
-			//	succeeded
+//			succeeded
 			fclose($fd);
 			return;
 		else:
-			//	file locked, wait and try again
+//			file locked, wait and try again
 			sleep(1);
 			$n++;
 		endif;
@@ -582,13 +580,13 @@ function config_write_cache($data) {
 
 	$filename = "{$g['tmp_path']}/config.cache";
 
-	// Ensure configuration cache file is written
+//	ensure configuration cache file is written
 	if (!file_put_contents_safe($filename, serialize($data), TRUE)) {
 		write_log("Error: Failed to write configuration cache file '{$filename}'.");
 		return FALSE;
 	}
 
-	// Modify file permissions
+//	modify file permissions
 	@chmod($filename, 0600);
 
 	return TRUE;
@@ -686,12 +684,12 @@ function config_upgrade_1dot2() {
 			$config['system']['sysctl']['param'][$index]['value'] = '50000';
 		endif;
 	endif;
-	//	remove unused key
+//	remove unused key
 	$index = array_search_ex('hw.ata.to',$config['system']['sysctl']['param'],'name');
 	if($index !== false):
 		unset($config['system']['sysctl']['param'][$index]);
 	endif;
-	//	remove empty entry
+//	remove empty entry
 	if(isset($config['system']['hosts'])):
 		$hosts_tmp = [];
 		foreach($config['system']['hosts'] as &$host):
@@ -702,7 +700,7 @@ function config_upgrade_1dot2() {
 		endforeach;
 		$config['system']['hosts'] = $hosts_tmp;
 	endif;
-	//	add missing values
+//	add missing values
 	array_make_branch($config,'zfs','pools','pool');
 	foreach($config['zfs']['pools']['pool'] as &$pool):
 		$pool['desc'] = $pool['desc'] ?? '';
@@ -720,7 +718,7 @@ function config_upgrade_1dot2() {
 	foreach($config['zfs']['volumes']['volume'] as &$volume):
 		$volume['desc'] = $volume['desc'] ?? '';
 	endforeach;
-	//	replace certificate and privatekey
+//	replace certificate and privatekey
 	array_make_branch($config,'system','webgui');
 	if(md5($config['system']['webgui']['certificate']) === 'ee3e3c2ddc0f186e8d40e797e8af6f36'):
 		$config['system']['webgui']['certificate'] = 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlEWURDQ0FrZ0NDUUNZaG9rNlRyekZCakFOQmdrcWhraUc5dzBCQVFVRkFEQnlNUXN3Q1FZRFZRUUdFd0pLDQpVREVUTUJFR0ExVUVDQk1LVTI5dFpTMVRkR0YwWlRFUk1BOEdBMVVFQ2hNSVRrRlRORVp5WldVeEZ6QVZCZ05WDQpCQU1URG01aGN6Um1jbVZsTG14dlkyRnNNU0l3SUFZSktvWklodmNOQVFrQkZoTnBibVp2UUc1aGN6Um1jbVZsDQpMbXh2WTJGc01CNFhEVEV5TURreE56RXlNVEkxTmxvWERUTXlNRGt4TWpFeU1USTFObG93Y2pFTE1Ba0dBMVVFDQpCaE1DU2xBeEV6QVJCZ05WQkFnVENsTnZiV1V0VTNSaGRHVXhFVEFQQmdOVkJBb1RDRTVCVXpSR2NtVmxNUmN3DQpGUVlEVlFRREV3NXVZWE0wWm5KbFpTNXNiMk5oYkRFaU1DQUdDU3FHU0liM0RRRUpBUllUYVc1bWIwQnVZWE0wDQpabkpsWlM1c2IyTmhiRENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMSCtTR1hrDQpjSzRnNVp2MWRSRFJKQVh0NVhHMVVpZVEzZ1UzdlIvZjBYZnJ5RFBPNjJ3WkhnTWdONTJocGVRL1VvNXl4dTRMDQp1azJtUlpTYlpPai92b0xSZWlpSy8zY0grUStRVml4SFpaMlpQNThBeWpHTXNUOGJ0T3pwYlN4MWtkQkEvUkhqDQpmYmpPamRFK0FocDJiWkVoQzVmaXlYVjlrdjFzTmZmMnFlM0REMUZtd0RGbDM0cVdPT1g2SEFYNHpWOWcrY1dJDQo0S0FRdEYwZ3FJWWd5Z29OckM5dDI4VVc4Z2dqcWs4T0EycnNMUFRsMmkzMk5DanVJSThjL1EzOUhYNkZBRUdvDQo1VGZGL3V0WTlBaFBaaHpWbk0zazJtUFR1RGdMbVZaZmtieml1eHVES293ZzBGUC9IZlZabWRoMkV3M3Y1NmZGDQpDLzh3N1F2QkdPRjF2SXNDQXdFQUFUQU5CZ2txaGtpRzl3MEJBUVVGQUFPQ0FRRUFidWxJNlJCTXFJTzFMT21jDQo1OGg5aHJ1Z25vTFkxNndIRFZQdTE4WmpUSzZYcDBDYWlONVYyR1MwdWdUNzJ2QzVrcXQ0cW1CUWFBa2MwbVdWDQpQQi9YUXhyaEFTd25VMzh1TGVJeWlnMzFCWkx3Yll5S3IzTUJ4cVI5dWwvdWY1MWErR2dVOGFETk42VDRQbGJJDQp5Z0M2dDUxa2E1VzBLbFFGeWhwNTlXT21GOElLOURRTlZpQWpTWkk0WUZsZXhJc1dFTC9DNCtMTGNhTVp3YUUzDQpLUTVKK1lFcG5qMFBKOUYvU1Y4MHFNdnE0RWJ4YmUzbGpFSGlMSVU0VktwV2I0VWJMSWxVNEZNeWtTSzNYMGp4DQpESzJGcERPRnUxL3c2d0FrYW5KanFSQXozUVViRVVocFhCNnVUVUVGcTVJSHNqNkZkbTBkMThkU2NiT0xWcmJGDQpBYlYrZHc9PQ0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==';
@@ -734,7 +732,7 @@ function config_upgrade_1dot2() {
 function config_upgrade_1dot3() {
 	global $config;
 
-	//	add missing values
+//	add missing values
 	array_make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
 		$dataset['dedup'] = $dataset['dedup'] ?? 'off';
@@ -753,7 +751,7 @@ function config_upgrade_1dot3() {
 function config_upgrade_1dot4() {
 	global $config;
 
-	// add missing values
+// add missing values
 	array_make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
 		$dataset['reservation'] = $dataset['reservation'] ?? '';
@@ -1210,7 +1208,7 @@ function config_upgrade_2dot6() {
 function config_upgrade_2dot7() {
 	global $config;
 
-	//	convert command scripts
+//	convert command scripts
 	array_make_branch($config,'rc','param');
 	array_make_branch($config,'rc','preinit','cmd');
 	foreach($config['rc']['preinit']['cmd'] as $cmd):
@@ -1276,7 +1274,7 @@ function config_upgrade_2dot9() {
 function config_upgrade_3dot0() {
 	global $config;
 
-	//	Remove attribute monitorpassword.
+//	remove attribute monitorpassword.
 	$grid = &array_make_branch($config,'ups');
 	if(isset($grid['monitorpassword'])):
 		unset($grid['monitorpassword']);
@@ -1289,7 +1287,7 @@ function config_upgrade_3dot0() {
 function config_upgrade_3dot1() {
 	global $config;
 
-	//	Encrypt user passwords
+//	encrypt user passwords
 	$grid = &array_make_branch($config,'access','user');
 	foreach($grid as $k_user => $r_user):
 		if(isset($grid[$k_user]['password'])):
@@ -1308,7 +1306,7 @@ function config_upgrade_3dot1() {
 function config_upgrade_3dot2() {
 	global $config;
 
-	//	Add min_auto_ashift for zfs because of code changes
+//	add min_auto_ashift for zfs because of code changes
 	$grid = &array_make_branch($config,'system','sysctl','param');
 	$param_name = 'vfs.zfs.min_auto_ashift';
 	if(false === ($index = array_search_ex($param_name,$grid,'name'))):
@@ -1328,7 +1326,7 @@ function config_upgrade_3dot2() {
 function config_upgrade_3dot3() {
 	global $config;
 
-	//	netatalk authentication methods
+//	netatalk authentication methods
 	$grid = &array_make_branch($config,'afp');
 	array_make_branch($grid,'auxparam');
 	if(isset($grid['guest'])):
@@ -1351,8 +1349,8 @@ function config_upgrade_3dot3() {
 function config_upgrade_3dot4() {
 	global $config;
 
-	//	syslogd parameter
-	//	find existing console records, skip configuration when found
+//	syslogd parameter
+//	find existing console records, skip configuration when found
 	$record_not_found = true;
 	$grid = &array_make_branch($config,'system','syslogconf','param');
 	foreach($grid as $row):
@@ -1382,7 +1380,7 @@ function config_upgrade_3dot4() {
 function config_upgrade_3dot5() {
 	global $config;
 
-	//	email parameter
+//	email parameter
 	$grid = &array_make_branch($config,'system','email');
 	$grid['security'] = $grid['security'] ?? true;
 	switch($grid['security']):
@@ -1410,7 +1408,7 @@ function config_upgrade_3dot5() {
 function config_upgrade_36() {
 	global $config;
 
-	//	ZFS Settings
+//	ZFS Settings
 	$grid = &array_make_branch($config,'zfs','settings');
 	if(!array_key_exists('showusedavail',$grid)):
 		$grid['showusedavail'] = false;
@@ -1429,7 +1427,7 @@ function config_upgrade_36() {
 function config_upgrade_37() {
 	global $config;
 
-	//	Update WebGUI certificate and private key.
+//	update WebGUI certificate and private key.
 	$grid_webgui = &array_make_branch($config,'system','webgui');
 	$install_new_cert = false;
 	if(isset($grid_webgui['certificate']) && isset($grid_webgui['privatekey'])):
@@ -1443,7 +1441,7 @@ function config_upgrade_37() {
 		$grid_webgui['certificate'] = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlEMnpDQ0FzT2dBd0lCQWdJSkFMWm9teUJQZkpIbU1BMEdDU3FHU0liM0RRRUJDd1VBTUlHRE1Rc3dDUVlEDQpWUVFHRXdKT1RERVVNQklHQTFVRUNBd0xUbVYwYUdWeWJHRnVaSE14RWpBUUJnTlZCQWNNQ1VGdGMzUmxjbVJoDQpiVEVSTUE4R0ExVUVDZ3dJV0dsbmJXRk9RVk14RlRBVEJnTlZCQU1NREhocFoyMWhibUZ6TG1OdmJURWdNQjRHDQpDU3FHU0liM0RRRUpBUllSYVc1bWIwQjRhV2R0WVc1aGN5NWpiMjB3SGhjTk1UZ3dOekE1TVRNME16QXpXaGNODQpNamd3TnpBMk1UTTBNekF6V2pDQmd6RUxNQWtHQTFVRUJoTUNUa3d4RkRBU0JnTlZCQWdNQzA1bGRHaGxjbXhoDQpibVJ6TVJJd0VBWURWUVFIREFsQmJYTjBaWEprWVcweEVUQVBCZ05WQkFvTUNGaHBaMjFoVGtGVE1SVXdFd1lEDQpWUVFEREF4NGFXZHRZVzVoY3k1amIyMHhJREFlQmdrcWhraUc5dzBCQ1FFV0VXbHVabTlBZUdsbmJXRnVZWE11DQpZMjl0TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEyQkloV1Q2NjZQemlLeW1CDQpNaGRMNUJRaWd0YkFUMjNYTi9MZmErcExrZW91YitQdmduS0pnd25mcGd6Ty9JZXFuYXhSVmQ4bnRMSlRqaGh5DQovVU5LU0dkQy9OUjZGSWt5QWZlM25IOVM2eGZRaU92MjBsUXBGV2lqUzg4TmVRZEpXUVpsSVlwZmloWVJXemdBDQpvWEp4dWkxcHd0Y1dUODN1WDg5VXBhbjhTRUNGcFJDNURXTTNCWjRRYzk2K05VdDR4N2puaWszMURNTHE5ZGhlDQo3RjdhT0ZEWnNZV2xpM0REbi9va01HVmF5MzMzVHpDMGxSNzJISVo0SkRLcmJjNUFFbWN3dkFuRnVFWC80RTQzDQpwWHFsY2lhQzRDeWNlQ2JQSUlJWHcyNDArQ3lNQm9BYlBqTkZVcTBCTEhzYlVyOWdidnFlcDkxWWdUamxUZUtMDQo0QTR2VVFJREFRQUJvMUF3VGpBZEJnTlZIUTRFRmdRVUlmUThDMFY5cFpkZjVWUkdUWkNvcC92WUlQVXdId1lEDQpWUjBqQkJnd0ZvQVVJZlE4QzBWOXBaZGY1VlJHVFpDb3AvdllJUFV3REFZRFZSMFRCQVV3QXdFQi96QU5CZ2txDQpoa2lHOXcwQkFRc0ZBQU9DQVFFQUpzNlo5dTA3Y3cvRFpyRFRyQVpnYzYxeDhORHRwSUhUdExYVjZvUkY0WFZMDQp6M0xPaXJaU2REUHZLRWNLM2RqRmxzU3VkckxabFpnQUJzTHVpSEhjTTBYL2VKdG0vOExYQjA2K0ZuYmtvbHhzDQpVWHpXNlRSSEg4L3JHMTFjZGhpNUpkR2xuNEYzd2FQYzRtVGJHSW41eUNNNU13UTdUbUtvcFV6WjlMdUxmQndKDQpyRzlJWUozTEVJZFYrbDJ6SHgvYjErdjFnYlE3ZGFuamxxYksyNnJ6aUJxSHBnUkYvcjFJWDZ0c0t1bVgveENjDQpZR0NRcU16T0EvMyt2QWphSDdYdUU2emo2ZGVZWExoNGRzekFLSlRURU95cXBNQWZmc1JISkJoc2p0RkFmN0syDQorSFExakJ6TDBhUHZGaFhNczBMYy9icFo0NWh1Rk1GaHFWS0t5aHorUEE9PQ0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==";
 		$grid_webgui['privatekey'] = "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQ0KTUlJRXBRSUJBQUtDQVFFQTJCSWhXVDY2NlB6aUt5bUJNaGRMNUJRaWd0YkFUMjNYTi9MZmErcExrZW91YitQdg0KZ25LSmd3bmZwZ3pPL0llcW5heFJWZDhudExKVGpoaHkvVU5LU0dkQy9OUjZGSWt5QWZlM25IOVM2eGZRaU92Mg0KMGxRcEZXaWpTODhOZVFkSldRWmxJWXBmaWhZUld6Z0FvWEp4dWkxcHd0Y1dUODN1WDg5VXBhbjhTRUNGcFJDNQ0KRFdNM0JaNFFjOTYrTlV0NHg3am5pazMxRE1McTlkaGU3RjdhT0ZEWnNZV2xpM0REbi9va01HVmF5MzMzVHpDMA0KbFI3MkhJWjRKREtyYmM1QUVtY3d2QW5GdUVYLzRFNDNwWHFsY2lhQzRDeWNlQ2JQSUlJWHcyNDArQ3lNQm9BYg0KUGpORlVxMEJMSHNiVXI5Z2J2cWVwOTFZZ1RqbFRlS0w0QTR2VVFJREFRQUJBb0lCQVFEQ2o4alJ1T2ZMaG5NTg0KMUtqT2R5WFNNY05GdDZTaG9WSEx3bm9taldvUThTTnhnM2tYS0pYa2xnNTZVa3hNSHNtbWd4VVdVd1JJOU03Qw0KUkFlL1FFbHlXdkY2QXNZUEdkOGE0SG5JaE9vZ1lXaFk4c2xsYVgwNUZ1ajhDV3lqVDhsZlRaL2hETjJzMU9RNg0KRkhxVTVoMjhQTXBnTlJlVk11VDBCeGk4dUExQTdKZjlsUzkrNmxPbDIvdDRqYnByMWdEZzd6d1ZzZGljRFBnaA0KUFdacm9JMGJZbVY5Si8yRVlwdG1Sdm5lNEpseWtMWU8vdThuMmxsWFV4TEV5eHdjZHlLcU9JeVppVlRsY21FZw0KWlU2ZkhnV2xqdmRFanJTL05XZko0ejRjZGhPOXhjelo3MUZ0ZWNLMGVHWjk4WDhVcXdZUm4wTEJtV1FNVWJ1Mg0KSFIzUU1BYXhBb0dCQVB6bkRadTNZSk13QmtTSVVhczFnWHAwREJCTWVWSlZTbUpFYjduSXNpMHRRbkowQVk2OA0KOHJadXZoSVdmMzl5aW04dW80VXRjRDQyYWNlQ1V1NmdxdDlyS2wvWm9JRjB5K1FDT2VENGVTcW5YK1orQU9lRw0KTWlYMGlEM0V4VGs0NWtWZUdiR3poUEI4RnVGdlVsc1p4bDl0ckM5WUpUTXFhU0doRUdNNlluRDFBb0dCQU5xMw0KbUhBVldsQTdLQTFJZnl6ZmdPdXVxaStTbnpxVk1ZM3JYd1pabjFJQVZKb08wY0l2K3ZkSktWMVBaOGllbHNYNQ0KeGg4Q0dNSzE3WVNTVVg1M09QVnJoeXpEY2xnaCtTUWpBa0h5WmY0bVBZOXgrV29zM3FyRE40SUhqNWVQb3VQaQ0KN0hPUElxUk5IQXNiRXJ3N0dRelJyN240TG45WWcxWThhaXI3NlZ0dEFvR0JBTFRVVUxxaXAvOFdPNlVOQTdneg0KamQwTTFRTmlhdTBmNXd2VWV6NlA3amEzUWVlc1l1QzQ0YUxvRkNmQ3htOU9hd1dNaDRkV01nZUp5S0RLNHBtVg0KY0JoSC9BaUZCMnNKSkRCb0Z4SnhGOUlUMDFKdmpoMzlxaVhSYndrYmhSbWhRYVVmMzZkY0FSWWk1QWxWRzhIZg0KOENPVHU2WXVsSXE5TEdiTFQzaGo2cmR4QW9HQkFLRVFydnRyWGhUVFc0MWNvL3JocE1qcTJYMHJGb05IdHpSeA0KN29wNG1YRUR1VW15UEJvcXgwQXY2bnhDcTRUNzlNQmFUZUlyNHh3UWFaZEZRU3BHbGZWMWVCZ28zaDIwOXduNw0KbGdBR2g4Ri9XN28xRHAxMzZZb0xOT2RXdGhIQXZ3M2U0STNCREp1K0JUYlFleDJPejhXMjdSZWdnbTFaTzI3WQ0KRXI4UXdDcUpBb0dBWlZBdnlmUmhEMjUzTC9xQTJXaDRaNGg0WlJVZTRNZythTC9xQUF3OG5VTnhtdjlEdlVEWA0KZGVxRnBPczlrVHpLMjdUWmZhbkxuN1VRV05remtqOXdDR2FtelA2RWFXT05Na1JFUGtwOFZjbFVra1V3OVN5aQ0KUFMyOVhKQ2dKazIzVnJLOE5hejFtZ25QMm5pd3pHaTBDdUZCcE1EN2h6dWp1S0lmOGlNOVdUaz0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0t";
 	endif;
-	//	Update motd
+//	update motd
 	$grid_system = &array_make_branch($config,'system');
 	if(array_key_exists('motd',$grid_system) && is_string($grid_system['motd'])):
 		$helpinghand = base64_decode($grid_system['motd']);
@@ -1459,17 +1457,17 @@ function config_upgrade_37() {
 function config_upgrade_38() {
 	global $config;
 
-	//	Encode ftp welcome message
+//	encode ftp welcome message
 	array_make_branch($config,'ftpd');
 	$banner = $config['ftpd']['banner'] ?? '';
-	//	Detect base64 string.
+//	detect base64 string.
 	if(preg_match('~^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$~',$banner)):
 		$encoded_banner = $banner;
 	else:
 		$encoded_banner = base64_encode($banner);
 	endif;
 	$config['ftpd']['banner'] = $encoded_banner;
-	//	remove duplicate users
+//	remove duplicate users
 	$user_tmp = [];
 	$user_as_key = [];
 	array_make_branch($config,'system','usermanagement','user');
@@ -1480,7 +1478,7 @@ function config_upgrade_38() {
 		endif;
 	endforeach;
 	$config['system']['usermanagement']['user'] = $user_tmp;
-	//	remove duplicate groups
+//	remove duplicate groups
 	$group_tmp = [];
 	$group_as_key = [];
 	array_make_branch($config,'system','usermanagement','group');
@@ -1815,7 +1813,7 @@ function config_postinit() {
 	global $g,$config;
 
 	$need_write_config = false;
-	//	save current uuid if not found in config
+//	save current uuid if not found in config
 	if(stristr($g['platform'],'embedded')):
 		$uuid = @exec('/bin/kenv -q smbios.system.uuid');
 		$hostuuid = @exec('/sbin/sysctl -qn kern.hostuuid');
