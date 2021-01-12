@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -43,6 +44,7 @@ $pconfig['allowusbserial'] = isset($config['vbox']['allowusbserial']);
 $vbox_user = rc_getenv_ex('vbox_user','vboxusers');
 $vbox_group = rc_getenv_ex('vbox_group','vboxusers');
 if($_POST):
+	$retval = 0;
 	unset($input_errors);
 	unset($errormsg);
 	$pconfig = $_POST;
@@ -53,7 +55,7 @@ if($_POST):
 		do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
 		do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 	else:
-		// disable VirtualBox
+//		disable VirtualBox
 		config_lock();
 		$retval |= rc_exec_script('/etc/rc.d/vbox onestop');
 		config_unlock();
@@ -77,7 +79,6 @@ if($_POST):
 			$config['system']['usermanagement']['user'][$index]['extraoptions'] = $opt;
 		endif;
 		write_config();
-		$retval = 0;
 		config_lock();
 		$retval |= rc_exec_service('userdb');
 		config_unlock();
@@ -135,7 +136,7 @@ $(window).on("load", function() {
 ?>
 		</thead>
 		<tbody>
-<?php			
+<?php
 			html_filechooser2('homedir',gettext('Home Directory'),$pconfig['homedir'],gettext('Enter the path to the home directory of VirtualBox. VM config and HDD image will be created under the specified directory.'),$g['media_path'],false,60);
 ?>
 		</tbody>
@@ -152,7 +153,7 @@ $(window).on("load", function() {
 ?>
 		</thead>
 		<tbody>
-<?php			
+<?php
 			html_checkbox2('allowusb',gettext('Allow USB'),!empty($pconfig['allowusb']),gettext('Enable this option to make host USB available to clients.'));
 			html_checkbox2('allowserial',gettext('Allow Serial Ports'),!empty($pconfig['allowserial']),gettext('Enable this option to make host serial ports available to clients.'));
 			html_checkbox2('allowusbserial',gettext('Allow USB Serial Ports'),!empty($pconfig['allowusbserial']),gettext('Enable this option to make host USB serial ports available to clients.'));
@@ -161,7 +162,7 @@ $(window).on("load", function() {
 ?>
 		</tbody>
 	</table>
-<?php			
+<?php
 	if($enabled):
 ?>
 		<table class="area_data_settings">
