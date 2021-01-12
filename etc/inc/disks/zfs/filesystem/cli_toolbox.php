@@ -69,7 +69,7 @@ final class cli_toolbox {
 		$a_cmd[] = '2>&1';
 		$cmd = implode(' ',$a_cmd);
 		mwexec2($cmd,$a_names,$exitstatus);
-		if($exitstatus === 0):
+		if($exitstatus === 0 && is_array($a_names) && count($a_names) > 0):
 			$names = implode(' ',array_map('escapeshellarg',$a_names));
 			$cmd = sprintf('zfs get all %s 2>&1',$names);
 			mwexec2($cmd,$output);
