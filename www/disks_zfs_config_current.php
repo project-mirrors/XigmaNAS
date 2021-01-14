@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -38,53 +39,62 @@ array_make_branch($config,'zfs','pools','pool');
 array_make_branch($config,'zfs','vdevices','vdevice');
 array_make_branch($config,'zfs','datasets','dataset');
 array_make_branch($config,'zfs','volumes','volume');
-$zfs = $config['zfs'];
-foreach($zfs['pools']['pool'] as $index => $pool):
-	$zfs['pools']['pool'][$index]['size'] = gettext('Unknown');
-	$zfs['pools']['pool'][$index]['used'] = gettext('Unknown');
-	$zfs['pools']['pool'][$index]['avail'] = gettext('Unknown');
-	$zfs['pools']['pool'][$index]['cap'] = gettext('Unknown');
-	$zfs['pools']['pool'][$index]['health'] = gettext('Unknown');
-	foreach($pool['vdevice'] as $vdevice):
-		if(false === ($index = array_search_ex($vdevice,$zfs['vdevices']['vdevice'],'name'))):
-			continue;
+$zfs_info = $config['zfs'];
+//	add additional fields
+foreach($zfs_info['pools']['pool'] as $index => $zfs_info_pool):
+	$unknown = gettext('Unknown');
+	$zfs_info['pools']['pool'][$index]['size'] = $unknown;
+	$zfs_info['pools']['pool'][$index]['used'] = $unknown;
+	$zfs_info['pools']['pool'][$index]['avail'] = $unknown;
+	$zfs_info['pools']['pool'][$index]['expandsz'] = $unknown;
+	$zfs_info['pools']['pool'][$index]['frag'] = $unknown;
+	$zfs_info['pools']['pool'][$index]['dedup'] = $unknown;
+	$zfs_info['pools']['pool'][$index]['health'] = $unknown;
+	foreach($zfs_info_pool['vdevice'] as $vdevice):
+		$index = array_search_ex($vdevice,$zfs_info['vdevices']['vdevice'],'name');
+		if($index !== false):
+			$zfs_info['vdevices']['vdevice'][$index]['pool'] = $zfs_info_pool['name'];
 		endif;
-		$zfs['vdevices']['vdevice'][$index]['pool'] = $pool['name'];
 	endforeach;
 endforeach;
+//	collect information from pools via zfs command
 unset($rawdata);
-unset($retval);
+unset($exitstatus);
 $cmd = 'zfs list -pH -t filesystem -o name,used,available';
-mwexec2($cmd,$rawdata,$retval);
-if(0 == $retval):
+mwexec2($cmd,$rawdata,$exitstatus);
+if($exitstatus == 0):
 	foreach($rawdata as $line):
 		if($line == 'no datasets available'):
 			continue;
 		endif;
-		list($fname,$used,$avail) = explode("\t",$line);
-		if(false !== ($index = array_search_ex($fname,$zfs['pools']['pool'],'name'))):
-			if(strpos($fname,'/') === false): // zpool
-				$zfs['pools']['pool'][$index]['used'] = format_bytes($used,2,false,is_sidisksizevalues());
-				$zfs['pools']['pool'][$index]['avail'] = format_bytes($avail,2,false,is_sidisksizevalues());
+		[$fname,$used,$avail] = explode("\t",$line);
+		$index = array_search_ex($fname,$zfs_info['pools']['pool'],'name');
+		if($index !== false):
+			if(strpos($fname,'/') === false):
+//				pool found
+				$zfs_info['pools']['pool'][$index]['used'] = format_bytes($used,2,false,is_sidisksizevalues());
+				$zfs_info['pools']['pool'][$index]['avail'] = format_bytes($avail,2,false,is_sidisksizevalues());
 			endif;
 		endif;
 	endforeach;
 endif;
+//	collect information from pools via zpool command
 unset($rawdata);
-unset($retval);
-$cmd = 'zpool list -pH -o name,altroot,size,allocated,free,capacity,expandsz,frag,health,dedup';
-mwexec2($cmd,$rawdata,$retval);
-if(0 == $retval):
+unset($exitstatus);
+$cmd = 'zpool list -pH -o name,altroot,size,allocated,free,expandsz,frag,health,dedup';
+mwexec2($cmd,$rawdata,$exitstatus);
+if($exitstatus == 0):
 	foreach($rawdata as $line):
 		if($line == 'no pools available'):
 			continue;
 		endif;
-		list($pool,$root,$size,$alloc,$free,$cap,$expandsz,$frag,$health,$dedup) = explode("\t",$line);
-		if(false === ($index = array_search_ex($pool,$zfs['pools']['pool'],'name'))):
+		[$poolname,$root,$size,$alloc,$free,$expandsz,$frag,$health,$dedup] = explode("\t",$line);
+		$index = array_search_ex($poolname,$zfs_info['pools']['pool'],'name');
+		if($index === false):
 			continue;
 		endif;
 		unset($row);
-		$row = &$zfs['pools']['pool'][$index];
+		$row = &$zfs_info['pools']['pool'][$index];
 		if($root != '-'):
 			$row['root'] = $root;
 		endif;
@@ -93,13 +103,12 @@ if(0 == $retval):
 		$row['free'] = format_bytes($free,2,false,is_sidisksizevalues());
 		$row['expandsz'] = $expandsz;
 		$row['frag'] = $frag;
-		$row['cap'] = sprintf('%d%%',$cap);
-		$row['health'] = $health;
 		$row['dedup'] = $dedup;
+		$row['health'] = $health;
 	endforeach;
 endif;
 unset($rawdata);
-unset($retval);
+unset($exitstatus);
 if(updatenotify_exists('zfs_import_config')):
 	$notifications = updatenotify_get('zfs_import_config');
 	$retval = 0;
@@ -146,7 +155,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $tfoot = $table->addTFOOT();
 $thead->
-	ins_titleline(sprintf('%s (%d)',gettext('Pools'),count($zfs['pools']['pool'])),$n_col_width);
+	ins_titleline(sprintf('%s (%d)',gettext('Pools'),count($zfs_info['pools']['pool'])),$n_col_width);
 $tr = $thead->addTR();
 $tr->
 	insTHwC('lhell',gettext('Name'))->
@@ -167,27 +176,27 @@ $tr->
 	insTHwC('lhell',gettext('Health'))->
 	insTHwC('lhell',gettext('Mount Point'))->
 	insTHwC('lhebl',gettext('AltRoot'));
-foreach($zfs['pools']['pool'] as $pool):
+foreach($zfs_info['pools']['pool'] as $zfs_info_pool):
 	$tr = $tbody->addTR();
 	$tr->
-		insTDwC('lcell',$pool['name'])->
-		insTDwC('lcell',$pool['size']);
+		insTDwC('lcell',$zfs_info_pool['name'])->
+		insTDwC('lcell',$zfs_info_pool['size']);
 		if($showusedavail):
 			$tr->
-				insTDwC('lcell',$pool['used'])->
-				insTDwC('lcell',$pool['avail']);
+				insTDwC('lcell',$zfs_info_pool['used'])->
+				insTDwC('lcell',$zfs_info_pool['avail']);
 		else:
 			$tr->
-				insTDwC('lcell',$pool['alloc'])->
-				insTDwC('lcell',$pool['free']);
+				insTDwC('lcell',$zfs_info_pool['alloc'])->
+				insTDwC('lcell',$zfs_info_pool['free']);
 		endif;
 	$tr->
-		insTDwC('lcell',$pool['expandsz'])->
-		insTDwC('lcell',$pool['frag'])->
-		insTDwC('lcell',$pool['dedup'])->
-		insTDwC('lcell',$pool['health'])->
-		insTDwC('lcell',empty($pool['mountpoint']) ? sprintf('/mnt/%s',$pool['name']) : $pool['mountpoint'])->
-		insTDwC('lcebl',empty($pool['root']) ? '-' : $pool['root']);
+		insTDwC('lcell',$zfs_info_pool['expandsz'])->
+		insTDwC('lcell',$zfs_info_pool['frag'])->
+		insTDwC('lcell',$zfs_info_pool['dedup'])->
+		insTDwC('lcell',$zfs_info_pool['health'])->
+		insTDwC('lcell',empty($zfs_info_pool['mountpoint']) ? sprintf('/mnt/%s',$zfs_info_pool['name']) : $zfs_info_pool['mountpoint'])->
+		insTDwC('lcebl',empty($zfs_info_pool['root']) ? '-' : $zfs_info_pool['root']);
 endforeach;
 $tfoot->
 	addTR()->
@@ -201,14 +210,14 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $tfoot = $table->addTFOOT();
 $thead->
-	ins_titleline(sprintf('%s (%d)',gettext('Virtual Devices'),count($zfs['vdevices']['vdevice'])),$n_col_width);
+	ins_titleline(sprintf('%s (%d)',gettext('Virtual Devices'),count($zfs_info['vdevices']['vdevice'])),$n_col_width);
 $thead->
 	addTR()->
 		insTHwC('lhell',gettext('Name'))->
 		insTHwC('lhell',gettext('Type'))->
 		insTHwC('lhell',gettext('Pool'))->
 		insTHwC('lhebl',gettext('Devices'));
-foreach($zfs['vdevices']['vdevice'] as $vdevice):
+foreach($zfs_info['vdevices']['vdevice'] as $vdevice):
 	$tbody->
 		addTR()->
 			insTDwC('lcell',$vdevice['name'])->
@@ -226,7 +235,7 @@ $table->
 	ins_colgroup_with_styles('width',$a_col_width);
 $thead = $table->addTHEAD();
 $thead->
-	ins_titleline(sprintf('%s (%d)',gettext('Datasets'),count($zfs['datasets']['dataset'])),$n_col_width);
+	ins_titleline(sprintf('%s (%d)',gettext('Datasets'),count($zfs_info['datasets']['dataset'])),$n_col_width);
 $thead->
 	addTR()->
 		insTHwC('lhell',gettext('Name'))->
@@ -241,20 +250,20 @@ $thead->
 		insTHwC('lhell',gettext('Readonly'))->
 		insTHwC('lhebl',gettext('Snapshot Visibility'));
 $tbody = $table->addTBODY();
-foreach($zfs['datasets']['dataset'] as $dataset):
+foreach($zfs_info['datasets']['dataset'] as $zfs_info_filesystem):
 	$tbody->
 		addTR()->
-			insTDwC('lcell',$dataset['name'])->
-			insTDwC('lcell',$dataset['pool'][0])->
-			insTDwC('lcell',$dataset['compression'])->
-			insTDwC('lcell',$dataset['dedup'])->
-			insTDwC('lcell',$dataset['sync'])->
-			insTDwC('lcell',$dataset['aclinherit'])->
-			insTDwC('lcell',$dataset['aclmode'])->
-			insTDwC('lcell',isset($dataset['canmount']) ? gettext('on') : gettext('off'))->
-			insTDwC('lcell',empty($dataset['quota']) ? gettext('none') : $dataset['quota'])->
-			insTDwC('lcell',isset($dataset['readonly']) ? gettext('on') : gettext('off'))->
-			insTDwC('lcebl',isset($dataset['snapdir']) ? gettext('visible') : gettext('hidden'));
+			insTDwC('lcell',$zfs_info_filesystem['name'])->
+			insTDwC('lcell',$zfs_info_filesystem['pool'][0])->
+			insTDwC('lcell',$zfs_info_filesystem['compression'])->
+			insTDwC('lcell',$zfs_info_filesystem['dedup'])->
+			insTDwC('lcell',$zfs_info_filesystem['sync'])->
+			insTDwC('lcell',$zfs_info_filesystem['aclinherit'])->
+			insTDwC('lcell',$zfs_info_filesystem['aclmode'])->
+			insTDwC('lcell',isset($zfs_info_filesystem['canmount']) ? gettext('on') : gettext('off'))->
+			insTDwC('lcell',empty($zfs_info_filesystem['quota']) ? gettext('none') : $zfs_info_filesystem['quota'])->
+			insTDwC('lcell',isset($zfs_info_filesystem['readonly']) ? gettext('on') : gettext('off'))->
+			insTDwC('lcebl',isset($zfs_info_filesystem['snapdir']) ? gettext('visible') : gettext('hidden'));
 endforeach;
 $tfoot = $table->addTFOOT();
 $tfoot->
@@ -268,7 +277,7 @@ $table->
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $thead->
-	ins_titleline(sprintf('%s (%d)',gettext('Volumes'),count($zfs['volumes']['volume'])),$n_col_width);
+	ins_titleline(sprintf('%s (%d)',gettext('Volumes'),count($zfs_info['volumes']['volume'])),$n_col_width);
 $thead->
 	addTR()->
 		insTHwC('lhell',gettext('Name'))->
@@ -279,17 +288,17 @@ $thead->
 		insTHwC('lhell',gettext('Compression'))->
 		insTHwC('lhell',gettext('Dedup'))->
 		insTHwC('lhebl',gettext('Sync'));
-foreach($zfs['volumes']['volume'] as $volume):
+foreach($zfs_info['volumes']['volume'] as $zfs_info_volume):
 	$tbody->
 		addTR()->
-			insTDwC('lcell',$volume['name'])->
-			insTDwC('lcell',$volume['pool'][0])->
-			insTDwC('lcell',$volume['volsize'])->
-			insTDwC('lcell',!empty($volume['volblocksize']) ? $volume['volblocksize'] : '-')->
-			insTDwC('lcell',!isset($volume['sparse']) ? '-' : gettext('on'))->
-			insTDwC('lcell',$volume['compression'])->
-			insTDwC('lcell',$volume['dedup'])->
-			insTDwC('lcebl',$volume['sync']);
+			insTDwC('lcell',$zfs_info_volume['name'])->
+			insTDwC('lcell',$zfs_info_volume['pool'][0])->
+			insTDwC('lcell',$zfs_info_volume['volsize'])->
+			insTDwC('lcell',!empty($zfs_info_volume['volblocksize']) ? $zfs_info_volume['volblocksize'] : '-')->
+			insTDwC('lcell',!isset($zfs_info_volume['sparse']) ? '-' : gettext('on'))->
+			insTDwC('lcell',$zfs_info_volume['compression'])->
+			insTDwC('lcell',$zfs_info_volume['dedup'])->
+			insTDwC('lcebl',$zfs_info_volume['sync']);
 endforeach;
 $content->
 	add_area_remarks()->
