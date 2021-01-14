@@ -100,18 +100,10 @@
 	--txc-footer: #FFFFFF;
 }
 
-body,
-td,
-th,
-input,
-select
+body
 {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
-}
-
-body
-{
 	margin: 0 auto;
 	padding: 0em;
 	min-width: inherit;
@@ -129,6 +121,16 @@ body
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+}
+
+table,
+td,
+th,
+input,
+select
+{
+	font-family: inherit;
+	font-size: 1em;
 }
 
 body,
