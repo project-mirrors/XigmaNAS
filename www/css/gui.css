@@ -127,7 +127,12 @@ table,
 td,
 th,
 input,
-select
+select,
+textarea,
+.formpre,
+.formprero,
+.formbtn,
+.label
 {
 	font-family: inherit;
 	font-size: 1em;
@@ -442,13 +447,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	margin-top: 0.3em;
 }
 
-.formpre,
-.formprero
-{
-	font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif;
-	font-size: 1em;
-}
-
 .formprero
 {
 	background-color: transparent;
@@ -456,8 +454,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 
 .formbtn
 {
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-size: 1em;
 	font-weight: bold;
 }
 
@@ -748,8 +744,6 @@ table#area_data_settings_submit
 
 .label
 {
-	font-family: tahoma, verdana, arial, helvetica;
-	font-size: 1em;
 	font-weight: bold;
 }
 
