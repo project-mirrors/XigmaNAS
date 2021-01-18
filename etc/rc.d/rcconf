@@ -304,9 +304,9 @@ setifconfig()
 	${XML_CMD} sel --text --template \
 		--match '//interfaces/*[((name()="lan") or (starts-with(name(),"opt") and enable)) and starts-with(if,"lagg")]' \
 			--var lagginterface='.' \
-			--match '//vinterfaces/lagg[if=$lagginterface/if]' \
-				--if 'string-length(laggport) > 0' \
-					--value-of 'concat(laggport," ",$lagginterface/mtu)' \
+			--match '//vinterfaces/lagg[if=$lagginterface/if]/laggport' \
+				--if 'string-length(.) > 0' \
+					--value-of 'concat(.," ",$lagginterface/mtu)' \
 					--nl \
 				--break \
 			--break \
