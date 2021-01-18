@@ -176,9 +176,9 @@ $(window).on("load", function() {
 			elseif($hlm_enabled):
 ?>
 				<tr>
-					<td class="celltag"><?=gtext('Mode');?></td>
+					<td class="celltag"><?=gtext('Highlight View');?></td>
 					<td class="celldata">
-						<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightdis"><?=gtext('Edit Mode');?></button>
+						<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightdis"><?=gtext('Disable');?></button>
 						<input type="hidden" name="rows" value="<?=$rows;?>"/>
 						<input type="hidden" name="cols" value="<?=$cols;?>"/>
 						<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
@@ -196,9 +196,9 @@ $(window).on("load", function() {
 					</td>
 				</tr>
 				<tr>
-					<td class="celltag"><?=gtext('Mode');?></td>
+					<td class="celltag"><?=gtext('Highlight View');?></td>
 					<td class="celldata">
-						<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightena"><?=gtext('Highlight Mode');?></button>
+						<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightena"><?=gtext('Enable');?></button>
 						<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
 					</td>
 				</tr>
