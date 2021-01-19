@@ -3,7 +3,7 @@
 	cli_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -68,8 +68,8 @@ final class cli_toolbox {
 		endif;
 		$a_cmd[] = '2>&1';
 		$cmd = implode(' ',$a_cmd);
-		mwexec2($cmd,$a_names);
-		if(is_array($a_names) && count($a_names) > 0):
+		mwexec2($cmd,$a_names,$exitstatus);
+		if($exitstatus === 0 && is_array($a_names) && count($a_names) > 0):
 			$names = implode(' ',array_map('escapeshellarg',$a_names));
 			$cmd = sprintf('zfs get all %s 2>&1',$names);
 			mwexec2($cmd,$output);

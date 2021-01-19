@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
-# Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
+# Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # Service remote NFS mount requests
@@ -23,23 +23,23 @@
 
 name="mountd"
 desc="Service remote NFS mount requests"
-rcvar=mountd_enable
+rcvar="mountd_enable"
 
 command="/usr/sbin/${name}"
 pidfile="/var/run/${name}.pid"
 mountd_config=${mountd_config:-"/var/etc/exports"}
 required_files="${mountd_config}"
 start_precmd="mountd_precmd"
-reload_cmd="mountd_prereload"
+reload_precmd="mountd_prereload"
 mkconf_cmd="mountd_mkconf"
 extra_commands="reload mkconf"
-# clear existing exports file
-cat /dev/null > ${mountd_config}
 
 mountd_mkconf()
 {
+#	clear existing exports file
+	cat /dev/null > ${mountd_config}
 #	create export from config
-	/usr/local/bin/xml sel --template \
+	/usr/local/bin/xml sel --text --template \
 		--match '//nfsd/export/param[enable]' \
 			--if 'string-length(path) > 0' \
 				--value-of 'path' \
@@ -110,7 +110,7 @@ mountd_mkconf()
 		--break \
 	${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
 #	create root from config
-	/usr/local/bin/xml sel --template \
+	/usr/local/bin/xml sel --text --template \
 		--match '//nfsd/root/param[enable]' \
 			--if 'string-length(path) > 0' \
 				--value-of 'concat("V4: ",path)' \
@@ -133,7 +133,7 @@ mountd_mkconf()
 		--break \
 	${configxml_file} | /usr/local/bin/xml unesc >> ${mountd_config}
 #	append auxparam to exports file
-	/usr/local/bin/xml sel --template \
+	/usr/local/bin/xml sel --text --template \
 		--match '//nfsd/auxparam' \
 			--if 'position() < last() or string-length(.) > 0' \
 				--value-of '.' --nl \
@@ -168,9 +168,6 @@ mountd_precmd()
 
 mountd_prereload()
 {
-#	clear existing file
-	cat /dev/null > ${mountd_config}
-#	create configuration file
 	mountd_mkconf
 }
 

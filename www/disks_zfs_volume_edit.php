@@ -3,7 +3,7 @@
 	disks_zfs_volume_edit.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
@@ -211,12 +212,21 @@ $a_poollist = zfs_get_pool_list();
 $l_poollist = [];
 $use_si = is_sidisksizevalues();
 foreach($a_pool as $r_pool):
-	$r_poollist = $a_poollist[$r_pool['name']];
-	$helpinghand = sprintf('%s: %s',$r_pool['name'],format_bytes($r_poollist['size'],2,false,$use_si));
-	if(!empty($r_pool['desc'])):
-		$helpinghand .= ' ' . $r_pool['desc'];
+	if(array_key_exists($r_pool['name'],$a_poollist)):
+		$r_poollist = $a_poollist[$r_pool['name']];
+		$helpinghand = sprintf('%s: %s',$r_pool['name'],format_bytes($r_poollist['size'],2,false,$use_si));
+		if(!empty($r_pool['desc'])):
+			$helpinghand .= ' ' . $r_pool['desc'];
+		endif;
+		$l_poollist[$r_pool['name']] = htmlspecialchars($helpinghand);
+	elseif(!$isrecordnewornewmodify):
+//		pool is orphaned at this stage
+		$helpinghand = sprintf('%s: %s',$r_pool['name'],gettext('Orphaned'));
+		if(!empty($r_pool['desc'])):
+			$helpinghand .= ' ' . $r_pool['desc'];
+		endif;
+		$l_poollist[$r_pool['name']] = htmlspecialchars($helpinghand);
 	endif;
-	$l_poollist[$r_pool['name']] = htmlspecialchars($helpinghand);
 endforeach;
 $a_referrer = ['checksum','compression','dedup','logbias','primarycache','secondarycache','sync','volblocksize','volmode','volsize'];
 switch($page_mode):

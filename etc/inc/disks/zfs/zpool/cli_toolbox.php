@@ -3,7 +3,7 @@
 	cli_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -46,7 +46,7 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, only basic information of this specific zfs zpool is returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = NULL): string {
+	public static function get_list(string $entity_name = null): string {
 		$a_cmd = ['zpool','list','-o','name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -61,15 +61,15 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, only the properties of this specific zfs zpool are returned.
  *	@return string An unescaped string.
  */
-	public static function get_properties(string $entity_name = NULL): string {
+	public static function get_properties(string $entity_name = null): string {
 		$a_cmd = ['zpool','list','-H','-o','name'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
 		endif;
 		$a_cmd[] = '2>&1';
 		$cmd = implode(' ',$a_cmd);
-		mwexec2($cmd,$a_names);
-		if(is_array($a_names) && count($a_names) > 0):
+		mwexec2($cmd,$a_names,$exitstatus);
+		if($exitstatus === 0 && is_array($a_names) && count($a_names) > 0):
 			$names = implode(' ',array_map('escapeshellarg',$a_names));
 			$cmd = sprintf('zpool get all %s 2>&1',$names);
 			mwexec2($cmd,$output);
@@ -82,7 +82,7 @@ final class cli_toolbox {
  *	Returns the status of a single zfs zpool or all zfs zpools.
  *	@return string An unescaped string.
  */
-	public static function get_status(string $entity_name = NULL): string {
+	public static function get_status(string $entity_name = null): string {
 		$a_cmd = ['zpool','status','-v','-T','d'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);

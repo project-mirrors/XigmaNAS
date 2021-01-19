@@ -3,7 +3,7 @@
 	cli_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -46,7 +46,7 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, only basic information of the specified zfs volume is returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = NULL): string {
+	public static function get_list(string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-t','volume','-o','name,used,avail,refer'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -61,15 +61,15 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, the properties of the specified zfs volume are returned.
  *	@return string An unescaped string.
  */
-	public static function get_properties(string $entity_name = NULL): string {
+	public static function get_properties(string $entity_name = null): string {
 		$a_cmd = ['zfs','list','-H','-o','name','-t','volume'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
 		endif;
 		$a_cmd[] = '2>&1';
 		$cmd = implode(' ',$a_cmd);
-		mwexec2($cmd,$a_names);
-		if(is_array($a_names) && count($a_names) > 0):
+		mwexec2($cmd,$a_names,$exitstatus);
+		if($exitstatus === 0 && is_array($a_names) && count($a_names) > 0):
 			$names = implode(' ',array_map('escapeshellarg',$a_names));
 			$cmd = sprintf('zfs get all %s 2>&1',$names);
 			mwexec2($cmd,$output);
