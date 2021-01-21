@@ -9,7 +9,7 @@ MASTER_SITES=		${MASTER_SITE_PHP:S,$,:release,}
 MASTER_SITE_SUBDIR=	distributions/:release
 DISTNAME=		php-${PORTVERSION:S/.r/RC/}
 DISTFILES=			${DISTNAME}${EXTRACT_SUFX}:release
-USES+=			compiler:c++11-lib tar:xz cpe iconv gnome
+USES+=			compiler:c++11-lib tar:xz cpe iconv:translit gnome
 USE_CXXSTD=		gnu++11
 CPE_PRODUCT=		php
 NO_OPTIONS_SORT=	yes
@@ -52,7 +52,6 @@ CONFIGURE_ARGS+=	\
 		--with-gettext \
 		--with-libxml \
 		--enable-mysqlnd \
-		--with-mysql=mysqlnd \
 		--with-mysqli=mysqlnd \
 		--with-zlib-dir=/usr \
 		--with-config-file-path=/usr/local/etc \
@@ -61,7 +60,7 @@ CONFIGURE_ARGS+=	\
 		--with-pdo-mysql=mysqlnd \
 		--with-pdo-sqlite=${LOCALBASE} \
 		--with-sqlite3 \
-		--with-iconv-dir=${LOCALBASE} \
+		--with-iconv=${LOCALBASE} \
 		--with-bz2=/usr \
 		--with-curl \
 		--enable-exif \
@@ -71,21 +70,21 @@ CONFIGURE_ARGS+=	\
 		--enable-intl \
 		--with-ldap=${LOCALBASE} \
 		--enable-mbstring \
-		--with-mcrypt=${LOCALBASE} \
+		--enable-mcrypt=${LOCALBASE} \
 		--with-gmp=${LOCALBASE} \
 		--enable-bcmath \
-		--enable-hash \
 		--with-mhash \
 		--enable-ftp \
 		--with-imap=${LOCALBASE} \
 		--with-imap-ssl=${OPENSSLBASE} \
 		--enable-soap \
+		--enable-session \
 		--enable-sockets \
 		--enable-sysvmsg \
 		--enable-sysvsem \
 		--enable-sysvshm \
 		--enable-tokenizer \
-		--with-xmlrpc \
+		--enable-simplexml \
 		--with-zip \
 		--with-zlib=/usr \
 		--enable-opcache \
