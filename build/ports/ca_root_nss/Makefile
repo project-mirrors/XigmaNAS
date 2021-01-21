@@ -4,7 +4,7 @@ PORTREVISION=		1
 CATEGORIES=		security
 
 COMMENT=		The root certificate bundle from the Mozilla Project
-MAINTAINER=		aoyama@xigmanas.com
+MAINTAINER=		zoon01@xigmanas.com
 
 DISTFILES=
 NO_BUILD=		yes
@@ -19,8 +19,13 @@ DEP_STAGEDIR=		${PORTSDIR}/security/ca_root_nss/work/stage
 do-install:
 # XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/etc/ssl
-	@${INSTALL_DATA} -v ${DEP_STAGEDIR}${PREFIX}/etc/ssl/cert.pem.sample ${XIGMANAS_ROOTFS}/usr/local/etc/ssl/cert.pem
-	@${LN} -fsv ${PREFIX}/etc/ssl/cert.pem ${XIGMANAS_ROOTFS}/etc/ssl/cert.pem
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/share/certs
+	${INSTALL_DATA} -v ${DEP_STAGEDIR}${PREFIX}/share/certs/ca-root-nss.crt ${XIGMANAS_ROOTFS}${PREFIX}/share/certs
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/etc/ssl
+	${LN} -fsv ${PREFIX}/share/certs/ca-root-nss.crt ${XIGMANAS_ROOTFS}${PREFIX}/etc/ssl/cert.pem.sample
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/openssl
+	${LN} -fsv ${PREFIX}/share/certs/ca-root-nss.crt ${XIGMANAS_ROOTFS}${PREFIX}/openssl/cert.pem.sample
+# ETCSYMLINK
+	${LN} -fsv ${PREFIX}/share/certs/ca-root-nss.crt ${XIGMANAS_ROOTFS}/etc/ssl/cert.pem
 
 .include <bsd.port.mk>
