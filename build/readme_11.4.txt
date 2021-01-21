@@ -132,7 +132,6 @@ Changes:
 - Upgrade devcpu-data to 1.37.
 - Upgrade dialog to 1.3-20201126.
 - Upgrade nut to 2020.11.30.
-- Upgrade nano to 5.4.
 - Upgrade gzip to 1.10.
 - Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
@@ -149,8 +148,11 @@ Changes:
 - Upgrade php to 7.4.14.
 - Upgrade syncthing to 1.12.1.
 - Upgrade proftpd to 1.3.7a.
+- Upgrade nano to 5.5.
 
 Fixes:
+- Fix only first lagg member is brought up.
+- Fix reload issue.
 
 Default Login
 =============
