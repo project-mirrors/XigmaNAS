@@ -119,8 +119,11 @@ Changes:
 - Upgrade syncthing to 1.12.1.
 - Upgrade proftpd to 1.3.7a.
 - Upgrade php to 8.0.1.
+- Upgrade nano to 5.5.
 
 Fixes:
+- Fix only first lagg member is brought up.
+- Fix reload issue.
 
 Default login credentials:
 ==========================
