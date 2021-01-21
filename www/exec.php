@@ -36,6 +36,9 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use common\arr;
 
 function exec_get_sphere() {
 //	global $config;
@@ -48,6 +51,67 @@ function exec_get_sphere() {
 	$sphere->scriptname = $sphere->basename . $sphere->extension;
 	$sphere->header = 'Location: ' . $sphere->scriptname;
 	return $sphere;
+}
+/**
+ *	Reads http proxy information from config and set environment variables for request
+ *	@global type $config
+ */
+function putenv_http_proxy() {
+	global $config;
+
+	$cfg_http_proxy = arr::make_branch($config,'system','proxy','http');
+	$test = $cfg_http_proxy['enable'] ?? false;
+	if(is_bool($test) ? $test : true):
+		$cfg_http_proxy_address = $cfg_http_proxy['address'] ?? null;
+		$cfg_http_proxy_port = $cfg_http_proxy['port'] ?? null;
+		if(!is_null($cfg_http_proxy_address)):
+			if(is_null($cfg_http_proxy_port)):
+				putenv(sprintf('HTTP_PROXY="%s"',$cfg_http_proxy_address));
+			else:
+				putenv(sprintf('HTTP_PROXY="%s:%s"',$cfg_http_proxy_address,$cfg_http_proxy_port));
+			endif;
+		endif;
+		$test = $cfg_http_proxy['auth'] ?? false;
+		if(is_bool($test) ? $test : true):
+			$cfg_http_proxy_username = $cfg_http_proxy['username'] ?? null;
+			$cfg_http_proxy_password = $cfg_http_proxy['password'] ?? null;
+			if(!(is_null($cfg_http_proxy_username) || is_null($cfg_http_proxy_password))):
+				putenv(sprintf('HTTP_PROXY_AUTH="%s:%s:%s:%s"','basic','*',$cfg_http_proxy_username,$cfg_http_proxy_password));
+			endif;
+		endif;
+	endif;
+}
+/**
+ *	Reads ftp proxy information from config and set environment variables for request
+ *	@global type $config
+ */
+function putenv_ftp_proxy() {
+	global $config;
+
+	$cfg_ftp_proxy = arr::make_branch($config,'system','proxy','ftp');
+	$test = $cfg_ftp_proxy['enable'] ?? false;
+	if(is_bool($test) ? $test : true):
+		$cfg_ftp_proxy_address = $cfg_ftp_proxy['address'] ?? null;
+		$cfg_ftp_proxy_port = $cfg_ftp_proxy['port'] ?? null;
+		if(!is_null($cfg_ftp_proxy_address)):
+			if(is_null($cfg_ftp_proxy_port)):
+				putenv(sprintf('FTP_PROXY="%s"',$cfg_ftp_proxy_address));
+			else:
+				putenv(sprintf('FTP_PROXY="%s:%s"',$cfg_ftp_proxy_address,$cfg_ftp_proxy_port));
+			endif;
+		endif;
+		$test = $cfg_ftp_proxy['auth'] ?? false;
+		if(is_bool($test) ? $test : true):
+			$cfg_ftp_proxy_username = $cfg_ftp_proxy['username'] ?? null;
+			$cfg_ftp_proxy_password = $cfg_ftp_proxy['password'] ?? null;
+			if(!is_null($cfg_ftp_proxy_username)):
+				putenv(sprintf('FTP_LOGIN="%s"',$cfg_ftp_proxy_username));
+			endif;
+			if(!is_null($cfg_ftp_proxy_password)):
+				putenv(sprintf('FTP_PASSWORD="%s"',$cfg_ftp_proxy_password));
+			endif;
+		endif;
+	endif;
 }
 //	get environment
 $sphere = exec_get_sphere();
@@ -304,9 +368,11 @@ endif;
 				</tbody>
 			</table>
 <?php
-			echo '<div class="celldata">','<pre>';
+			echo '<div class="celldata">','<pre class="cmdoutput">';
 			echo "\$ ",htmlspecialchars($_POST['txtCommand']),"\n";
 			putenv('PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin');
+			putenv_http_proxy();
+			putenv_ftp_proxy();
 			putenv('COLUMNS=1024');
 			putenv('SCRIPT_FILENAME=' . strtok($_POST['txtCommand'],' ')); /* PHP scripts */
 			$ph = popen($_POST['txtCommand'],'r');
@@ -335,7 +401,7 @@ endif;
 				</tbody>
 			</table>
 <?php
-			echo '<div class="celldata">','<pre>';
+			echo '<div class="celldata">','<pre class="cmdoutput">';
 			require_once 'config.inc';
 			require_once 'functions.inc';
 			require_once 'util.inc';
