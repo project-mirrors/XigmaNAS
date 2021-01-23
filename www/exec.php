@@ -34,11 +34,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
 use common\arr;
+use system\proxy\ftp\cfg_toolbox as cfg_proxy_ftp_toolbox;
+use system\proxy\http\cfg_toolbox as cfg_proxy_http_toolbox;
 
 function exec_get_sphere() {
 //	global $config;
@@ -51,67 +54,6 @@ function exec_get_sphere() {
 	$sphere->scriptname = $sphere->basename . $sphere->extension;
 	$sphere->header = 'Location: ' . $sphere->scriptname;
 	return $sphere;
-}
-/**
- *	Reads http proxy information from config and set environment variables for request
- *	@global type $config
- */
-function putenv_http_proxy() {
-	global $config;
-
-	$cfg_http_proxy = arr::make_branch($config,'system','proxy','http');
-	$test = $cfg_http_proxy['enable'] ?? false;
-	if(is_bool($test) ? $test : true):
-		$cfg_http_proxy_address = $cfg_http_proxy['address'] ?? null;
-		$cfg_http_proxy_port = $cfg_http_proxy['port'] ?? null;
-		if(!is_null($cfg_http_proxy_address)):
-			if(is_null($cfg_http_proxy_port)):
-				putenv(sprintf('HTTP_PROXY="%s"',$cfg_http_proxy_address));
-			else:
-				putenv(sprintf('HTTP_PROXY="%s:%s"',$cfg_http_proxy_address,$cfg_http_proxy_port));
-			endif;
-		endif;
-		$test = $cfg_http_proxy['auth'] ?? false;
-		if(is_bool($test) ? $test : true):
-			$cfg_http_proxy_username = $cfg_http_proxy['username'] ?? null;
-			$cfg_http_proxy_password = $cfg_http_proxy['password'] ?? null;
-			if(!(is_null($cfg_http_proxy_username) || is_null($cfg_http_proxy_password))):
-				putenv(sprintf('HTTP_PROXY_AUTH="%s:%s:%s:%s"','basic','*',$cfg_http_proxy_username,$cfg_http_proxy_password));
-			endif;
-		endif;
-	endif;
-}
-/**
- *	Reads ftp proxy information from config and set environment variables for request
- *	@global type $config
- */
-function putenv_ftp_proxy() {
-	global $config;
-
-	$cfg_ftp_proxy = arr::make_branch($config,'system','proxy','ftp');
-	$test = $cfg_ftp_proxy['enable'] ?? false;
-	if(is_bool($test) ? $test : true):
-		$cfg_ftp_proxy_address = $cfg_ftp_proxy['address'] ?? null;
-		$cfg_ftp_proxy_port = $cfg_ftp_proxy['port'] ?? null;
-		if(!is_null($cfg_ftp_proxy_address)):
-			if(is_null($cfg_ftp_proxy_port)):
-				putenv(sprintf('FTP_PROXY="%s"',$cfg_ftp_proxy_address));
-			else:
-				putenv(sprintf('FTP_PROXY="%s:%s"',$cfg_ftp_proxy_address,$cfg_ftp_proxy_port));
-			endif;
-		endif;
-		$test = $cfg_ftp_proxy['auth'] ?? false;
-		if(is_bool($test) ? $test : true):
-			$cfg_ftp_proxy_username = $cfg_ftp_proxy['username'] ?? null;
-			$cfg_ftp_proxy_password = $cfg_ftp_proxy['password'] ?? null;
-			if(!is_null($cfg_ftp_proxy_username)):
-				putenv(sprintf('FTP_LOGIN="%s"',$cfg_ftp_proxy_username));
-			endif;
-			if(!is_null($cfg_ftp_proxy_password)):
-				putenv(sprintf('FTP_PASSWORD="%s"',$cfg_ftp_proxy_password));
-			endif;
-		endif;
-	endif;
 }
 //	get environment
 $sphere = exec_get_sphere();
@@ -161,36 +103,36 @@ else:
 endif;
 ?>
 <?php
-	//	Set pointer to end of recall buffer.
+//	Set pointer to end of recall buffer.
 ?>
 	var intRecallPtr = arrRecallBuffer.length;
 <?php
-	//	Functions to extend String class.
+//	Functions to extend String class.
 ?>
 	function str_encode() { return escape( this ) }
 	function str_decode() { return unescape( this ) }
 <?php
-	//	Extend string class to include encode() and decode() functions.
+//	Extend string class to include encode() and decode() functions.
 ?>
 	String.prototype.encode = str_encode
 	String.prototype.decode = str_decode
 <?php
-	//	Function: is Blank
-	//	Returns boolean true or false if argument is blank.
+//	Function: is Blank
+//	Returns boolean true or false if argument is blank.
 ?>
 	function isBlank( strArg ) { return strArg.match( /^\s*$/ ) }
 <?php
-	//	Function: frmExecPlus onSubmit (event handler)
-	//	Builds the recall buffer from the command string on submit.
+//	Function: frmExecPlus onSubmit (event handler)
+//	Builds the recall buffer from the command string on submit.
 ?>
 	function frmExecPlus_onSubmit( form ) {
 		if (!isBlank(form.txtCommand.value)) {
 <?php
-			//	If this command is repeat of last command, then do not store command.
+//			If this command is a repetition of the previous command, then do not store command.
 ?>
 			if (form.txtCommand.value.encode() == arrRecallBuffer[arrRecallBuffer.length-1]) { return true }
 <?php
-			//	Stuff encoded command string into the recall buffer.
+//				Stuff encoded command string into the recall buffer.
 ?>
 			if (isBlank(form.txtRecallBuffer.value))
 				form.txtRecallBuffer.value = form.txtCommand.value.encode();
@@ -200,12 +142,12 @@ endif;
 		return true;
 	}
 <?php
-	//	Function: btnRecall onClick (event handler)
-	//	Recalls command buffer going either up or down.
+//	Function: btnRecall onClick (event handler)
+//	Recalls command buffer going either up or down.
 ?>
 	function btnRecall_onClick( form, n ) {
 <?php
-		//	If nothing in recall buffer, then error.
+//		If nothing in recall buffer, then error.
 ?>
 		if (!arrRecallBuffer.length) {
 <?php
@@ -215,38 +157,38 @@ endif;
 			return;
 		}
 <?php
-		//	Increment recall buffer pointer in positive or negative direction
-		//	according to <n>.
+//		Increment recall buffer pointer in positive or negative direction
+//		according to <n>.
 ?>
 		intRecallPtr += n;
 <?php
-		// Make sure the buffer stays circular.
+//		Make sure the buffer stays circular.
 ?>
 		if (intRecallPtr < 0) { intRecallPtr = arrRecallBuffer.length - 1 }
 		if (intRecallPtr > (arrRecallBuffer.length - 1)) { intRecallPtr = 0 }
 <?php
-		//	Recall the command.
+//		Recall the command.
 ?>
 		form.txtCommand.value = arrRecallBuffer[intRecallPtr].decode();
 	}
 <?php
-	//	Function: Reset onClick (event handler)
-	//	Resets form on reset button click event.
+//		Function: Reset onClick (event handler)
+//		Resets form on reset button click event.
 ?>
 	function Reset_onClick( form ) {
 <?php
-		//	Reset recall buffer pointer.
+//		Reset recall buffer pointer.
 ?>
 		intRecallPtr = arrRecallBuffer.length;
 <?php
-		//	Clear form (could have spaces in it) and return focus ready for cmd.
+//		Clear form (could have spaces in it) and return focus ready for cmd.
 ?>
 		form.txtCommand.value = '';
 		form.txtCommand.focus();
 		return true;
 	}
 <?php
-	//	hansmi, 2005-01-13
+//	hansmi, 2005-01-13
 ?>
 	function txtCommand_onKey(e) {
 		if(!e) var e = window.event; // IE-Fix
@@ -371,8 +313,8 @@ endif;
 			echo '<div class="celldata">','<pre class="cmdoutput">';
 			echo "\$ ",htmlspecialchars($_POST['txtCommand']),"\n";
 			putenv('PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin');
-			putenv_http_proxy();
-			putenv_ftp_proxy();
+			cfg_proxy_http_toolbox::putenv_http_proxy();
+			cfg_proxy_ftp_toolbox::putenv_ftp_proxy();
 			putenv('COLUMNS=1024');
 			putenv('SCRIPT_FILENAME=' . strtok($_POST['txtCommand'],' ')); /* PHP scripts */
 			$ph = popen($_POST['txtCommand'],'r');
