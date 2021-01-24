@@ -21,7 +21,7 @@
 # port number for both TCP and UDP; hence, most entries here have two entries
 # even if the protocol doesn't support UDP operations.
 #
-# XigmaNAS® Checked: etc/services Revision 358903
+# XigmaNAS® Checked: releng/12.2/usr.sbin/services_mkdb/services 362345
 #
 #	From: @(#)services	5.8 (Berkeley) 5/9/91
 #
@@ -1607,6 +1607,8 @@ pptp		1723/tcp   #Point-to-point tunnelling protocol
 # IMPORTANT NOTE: See comments for ports 1645/1646 when using older equipment
 radius		1812/udp   #RADIUS authentication protocol (IANA sanctioned)
 radacct		1813/udp   #RADIUS accounting protocol (IANA sanctioned)
+ssdp		1900/tcp   #Selective Service Discovery Protocol (UPnP)
+ssdp		1900/udp   #Selective Service Discovery Protocol (UPnP)
 licensedaemon	1986/tcp   #cisco license management
 licensedaemon	1986/udp   #cisco license management
 tr-rsrb-p1	1987/tcp   #cisco RSRB Priority 1 port
@@ -1835,6 +1837,8 @@ vat-control	3457/tcp   #VAT default control
 vat-control	3457/udp   #VAT default control
 nut		3493/tcp   #Network UPS Tools
 nut		3493/udp   #Network UPS Tools
+lsp-ping	3503/tcp   #MPLS LSP-echo (RFC8029)
+lsp-ping	3503/udp   #MPLS LSP-echo (RFC8029)
 m2pa		3565/tcp   #M2PA
 m2pa		3565/sctp  #M2PA
 tsp		3653/tcp   #Tunnel Setup Protocol
@@ -2050,6 +2054,7 @@ aurora		9084/tcp   #IBM AURORA Performance Visualizer
 aurora		9084/udp   #IBM AURORA Performance Visualizer
 aurora		9084/sctp  #IBM AURORA Performance Visualizer
 jetdirect	9100/tcp   #HP JetDirect card
+prom-sysctl	9124/tcp   #prometheus_sysctl_exporter(8)
 git		9418/tcp   #git pack transfer service
 git		9418/udp   #git pack transfer service
 man		9535/tcp
