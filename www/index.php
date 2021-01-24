@@ -89,8 +89,8 @@ function render_cpuusage2() {
 	if(Session::isAdmin()):
 //		limit the number of CPU's shown to 16 cpus
 		$sphere = $sysinfo['cpuusage2'];
-		$cpus = min($sysinfo['cpus'],$show_max_cpus);
-		if($cpus > 1):
+		if($sysinfo['cpus'] > 1 && $show_max_cpus > 0):
+			$cpus = min($sysinfo['cpus'],$show_max_cpus);
 			echo '<tr>';
 				echo '<td class="celltag">',gtext('CPU Core Usage'),'</td>';
 				echo '<td class="celldata">';
