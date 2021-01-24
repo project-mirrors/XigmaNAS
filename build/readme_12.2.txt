@@ -121,6 +121,7 @@ Changes:
 - Upgrade php to 8.0.1.
 - Upgrade nano to 5.5.
 - Upgrade dialog to 1.3-20210117.
+- Upgrade nut to 2021.01.08.
 
 Fixes:
 - Fix only first lagg member is brought up.
