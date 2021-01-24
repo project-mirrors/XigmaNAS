@@ -38,7 +38,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $use_meter_tag = calc_showcolorfulmeter();
-if(isset($config['system']['webgui']['showmaxcpus']) && is_int($config['system']['webgui']['showmaxcpus'])):
+if(isset($config['system']['webgui']['showmaxcpus']) && is_numeric($config['system']['webgui']['showmaxcpus'])):
 	$show_max_cpus = min(256,max(0,$config['system']['webgui']['showmaxcpus']));
 else:
 	$show_max_cpus = 16;
