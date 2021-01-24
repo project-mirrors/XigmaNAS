@@ -583,7 +583,7 @@ create_mfsroot() {
 #	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 #	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
 	echo "Compressing mfsroot"
-	gzip -9kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	gzip -8kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	echo "Compressing mdlocal"
 	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
@@ -612,7 +612,7 @@ update_mfsroot() {
 	cd $XIGMANAS_WORKINGDIR
 #	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 #	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	gzip -9kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	gzip -8kfnv $XIGMANAS_WORKINGDIR/mfsroot
 #	xz -8kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	return 0
@@ -628,7 +628,7 @@ copy_kmod() {
 			continue;
 		fi
 		b=`basename ${f}`
-#		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -9 $XIGMANAS_TMPDIR/boot/kernel/${b})
+#		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -8 $XIGMANAS_TMPDIR/boot/kernel/${b})
 		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
 	done
 	return 0;
@@ -1219,7 +1219,7 @@ create_usb () {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	create_checksum_file;
 
@@ -1442,7 +1442,7 @@ create_usb_gpt() {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	create_checksum_file;
 
@@ -1600,7 +1600,7 @@ create_full() {
 	if [ "${EXTENSION}" = "tgz" ]; then
 		tar cvfz ${FULLFILENAME} -C ${XIGMANAS_TMPDIR} ./
 	elif [ "${EXTENSION}" = "txz" ]; then
-		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -9 -v --threads=0 > ${FULLFILENAME}
+		tar -c -f - -C ${XIGMANAS_TMPDIR} ./ | xz -8 -v --threads=0 > ${FULLFILENAME}
 	fi
 
 #	Cleanup.
@@ -1897,20 +1897,20 @@ main() {
 	cd $XIGMANAS_WORKINGDIR
 
 	echo -n "
---------------------------
-${XIGMANAS_PRODUCTNAME} Build Environment
---------------------------
+---------------------------
+XigmaNAS® Build Environment
+---------------------------
 
 1  - Update XigmaNAS® Source Files to CURRENT.
-2  - XigmaNAS® Compile Menu.
+2  - Select Compile Menu.
 10 - Create 'Embedded.img.xz' File. (Firmware Update)
 11 - Create 'LiveUSB.img.gz MBR' File. (Rawrite to USB Key)
 12 - Create 'LiveUSB.img.gz GPT' File. (Rawrite to USB Key)
 13 - Create 'LiveCD' (ISO) File.
 14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
-15 - Create 'Full' (TGZ) Update File."
-	echo -n "
-16 - Create all release images at once.
+15 - Create 'Full' (TGZ) Update File.
+16 - Create All Release Files at once.
+"-----------------------------------------------------------"
 17 - Create 'xigmanas.pot' file from Source files.
 *  - Exit.
 
