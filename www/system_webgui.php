@@ -66,10 +66,11 @@ $a_referer = [
 	$cop->get_navbartoplevelstyle(),
 	$cop->get_nonsidisksizevalues(),
 	$cop->get_showcolorfulmeter(),
-	$cop->get_skipviewmode()
+	$cop->get_skipviewmode(),
+	$cop->get_showmaxcpus()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -111,7 +112,7 @@ switch($page_action):
 				case 'auxparam':
 					if(array_key_exists($name,$source)):
 						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
+							$source[$name] = implode("\n",$source[$name]);
 						endif;
 					endif;
 					break;
@@ -145,11 +146,7 @@ switch($page_action):
 				$name = $referer->get_name();
 				switch($name):
 					case 'auxparam':
-						$auxparam_grid = [];
-						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $auxparam_grid;
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
@@ -164,7 +161,7 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $input_errors_found = count($input_errors) > 0;
 //	create document
 $pgtitle = [gettext('System'),gettext('General'),gettext('WebGUI')];
@@ -207,6 +204,7 @@ $content->
 		addTBODY()->
 			c2_checkbox($cop->get_nonsidisksizevalues(),$sphere,false,$is_readonly)->
 			c2_checkbox($cop->get_showcolorfulmeter(),$sphere,false,$is_readonly)->
+			c2_input_text($cop->get_showmaxcpus(),$sphere,false,$is_readonly)->
 		pop()->
 		addTFOOT()->
 			c2_separator();
