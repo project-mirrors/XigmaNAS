@@ -77,7 +77,7 @@ endif;
 if(!isset($pconfig['ntp_updateinterval'])):
 	$pconfig['ntp_updateinterval'] = 300;
 endif;
-if($_POST) {
+if($_POST):
 	unset($input_errors);
 	$input_errors = [];
 	$reboot_required = false;
@@ -158,7 +158,7 @@ if($_POST) {
 		$oldwebguiport = $config['system']['webgui']['port'];
 		$oldwebguihostsallow = $config['system']['webgui']['hostsallow'];
 		$oldwebguihostsallow_disable = $config['system']['webgui']['hostsallow_disable'];
-		$oldlanguage = $config['system']['language'];
+		$oldlanguage = $config['system']['language'] ?? '';
 		$config['system']['hostname'] = strtolower($_POST['hostname']);
 		$config['system']['domain'] = strtolower($_POST['domain']);
 		$config['system']['username'] = $_POST['username'];
@@ -166,7 +166,7 @@ if($_POST) {
 		$config['system']['webgui']['port'] = $_POST['webguiport'];
 		$config['system']['webgui']['hostsallow'] = $_POST['webguihostsallow'];
 		$config['system']['webgui']['hostsallow_disable'] = filter_input(INPUT_POST,'webguihostsallow_disable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$config['system']['language'] = $_POST['language'];
+		$config['system']['language'] = $_POST['language'] ?? '';
 //		Write auxiliary parameters.
 		unset($config['system']['webgui']['auxparam']);
 		foreach(explode("\n",$_POST['auxparam']) as $auxparam):
@@ -239,6 +239,14 @@ if($_POST) {
 		if($reboot_required):
 			touch($d_sysrebootreqd_path);
 		endif;
+		if($oldlanguage !== $config['system']['language']):
+			if(array_key_exists('userlang',$_SESSION)):
+				unset($_SESSION['userlang']);
+			endif;
+			if(array_key_exists('g',$_SESSION) && array_key_exists('headermenu',$_SESSION['g'])):
+				$_SESSION['g']['headermenu'] = [];
+			endif;
+		endif;
 		$retval = 0;
 		if(!$reboot_required):
 			config_lock();
@@ -273,7 +281,7 @@ if($_POST) {
 		header('Location: system.php');
 		exit;
 	endif;
-}
+endif;
 $pglocalheader = <<< EOD
 <link rel="stylesheet" type="text/css" href="js/datechooser.css" />
 <script type="text/javascript" src="js/datechooser.js"></script>
@@ -318,13 +326,16 @@ function webguiproto_change() {
 }
 //]]>
 </script>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="system.php" title="<?=gtext('Reload page');?>"><span><?=gtext('General');?></span></a></li>
-		<li class="tabinact"><a href="system_webgui.php"><span><?=gtext('WebGUI');?></span></a></li>
-		<li class="tabinact"><a href="system_password.php"><span><?=gtext('Password');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
+<?php
+$document = new co_DOMDocument();
+$document->
+	add_area_tabnav()->
+		add_tabnav_upper()->
+			ins_tabnav_record('system.php',gettext('General'),gettext('Reload page'),true)->
+			ins_tabnav_record('system_webgui.php',gettext('WebGUI'))->
+			ins_tabnav_record('system_password.php',gettext('Password'));
+$document->render();
+?>
 <form action="system.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
