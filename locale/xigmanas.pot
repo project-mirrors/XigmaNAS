@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-01-02 00:17+0000\n"
+"POT-Creation-Date: 2021-01-24 19:24+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -5189,7 +5189,7 @@ msgstr ""
 msgid "High voltage trimming transfer point"
 msgstr ""
 
-msgid "Highlighting"
+msgid "Highlight View"
 msgstr ""
 
 msgid "Hint"
@@ -5948,6 +5948,9 @@ msgid "Life time"
 msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
+msgstr ""
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
 msgstr ""
 
 msgid "Limits the amount of space a dataset and its descendants can consume. This property enforces a hard limit on the amount of space used. This includes all space consumed by descendants, including file systems and snapshots. To specify the size use the following human-readable suffixes (for example, 'k', 'KB', 'M', 'Gb', etc.)."
@@ -7112,6 +7115,9 @@ msgstr ""
 msgid "Not attached"
 msgstr ""
 
+msgid "Not available"
+msgstr ""
+
 msgid "Note"
 msgstr ""
 
@@ -7640,6 +7646,9 @@ msgid "Please check the documentation."
 msgstr ""
 
 msgid "Please check the log files"
+msgstr ""
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
 msgstr ""
 
 msgid "Please read the documentation"
@@ -9209,6 +9218,9 @@ msgstr ""
 msgid "Session Type"
 msgstr ""
 
+msgid "Set"
+msgstr ""
+
 msgid "Set UID"
 msgstr ""
 
@@ -9373,6 +9385,9 @@ msgid "Show Interval"
 msgstr ""
 
 msgid "Show Log Entries"
+msgstr ""
+
+msgid "Show Max CPUs"
 msgstr ""
 
 msgid "Show Process Information"
