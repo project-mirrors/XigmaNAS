@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-02 00:17+0000\n"
-"PO-Revision-Date: 2021-01-01 23:35+0000\n"
+"POT-Creation-Date: 2021-01-24 19:24+0000\n"
+"PO-Revision-Date: 2021-01-24 19:17+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-11 16:41+0000\n"
-"X-Generator: Launchpad (build fe617ea08df036edd5c842aded2b315e1c090677)\n"
+"X-Launchpad-Export-Date: 2021-01-24 19:21+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -4809,8 +4809,7 @@ msgid "Enable the server power control utility."
 msgstr "Inschakelen server energiebeheer modus."
 
 msgid "Enable this option if you want to display colorful meter states."
-msgstr ""
-"Schakelen deze optie in als u kleurrijke meterstatussen wilt weergeven."
+msgstr "Inschakelen om kleurrijke meter statussen weer te geven."
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -5952,8 +5951,8 @@ msgstr "Hoog voltage overschakelpunt"
 msgid "High voltage trimming transfer point"
 msgstr "Hoog voltage trimming overschakelpunt"
 
-msgid "Highlighting"
-msgstr "Oplichten"
+msgid "Highlight View"
+msgstr "Markeer View"
 
 msgid "Hint"
 msgstr "Tip"
@@ -6872,6 +6871,11 @@ msgstr "Levens duur"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
+"Stel het maximale aantal CPU's in dat in het systeemoverzicht mag worden "
+"weergegeven."
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -8147,6 +8151,9 @@ msgstr ""
 msgid "Not attached"
 msgstr "Niet verbonden"
 
+msgid "Not available"
+msgstr "Niet beschikbaar"
+
 msgid "Note"
 msgstr "Opmerking"
 
@@ -8721,6 +8728,9 @@ msgstr "Bekijk de documentatie."
 
 msgid "Please check the log files"
 msgstr "Controleer de logbestanden"
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr "Voer een getal in tussen 0 en 256 of laat dit veld leeg."
 
 msgid "Please read the documentation"
 msgstr "Lees de documentatie"
@@ -10433,6 +10443,9 @@ msgstr "Sessie Staat"
 msgid "Session Type"
 msgstr "Sessie Type"
 
+msgid "Set"
+msgstr "Instellen"
+
 msgid "Set UID"
 msgstr "UID (Instellen"
 
@@ -10692,7 +10705,10 @@ msgid "Show Interval"
 msgstr "Toon Interval"
 
 msgid "Show Log Entries"
-msgstr "Totaal Logregels"
+msgstr "Aantal Logregels"
+
+msgid "Show Max CPUs"
+msgstr "Toon Max CPU's"
 
 msgid "Show Process Information"
 msgstr "Processen Weergeven"
@@ -11267,7 +11283,7 @@ msgid "System BIOS"
 msgstr "Systeem BIOS"
 
 msgid "System Config Change"
-msgstr "Systeem Config Wijziging"
+msgstr "Systeemconfiguratie Wijziging"
 
 msgid "System Email Report Settings"
 msgstr "Systeem E-mail Repportage Instellingen"
@@ -14822,3 +14838,6 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Highlighting"
+#~ msgstr "Oplichten"

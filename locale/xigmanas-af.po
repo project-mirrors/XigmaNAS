@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-01-02 00:17+0000\n"
+"POT-Creation-Date: 2021-01-24 19:24+0000\n"
 "PO-Revision-Date: 2020-12-09 16:12+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-11 16:41+0000\n"
-"X-Generator: Launchpad (build fe617ea08df036edd5c842aded2b315e1c090677)\n"
+"X-Launchpad-Export-Date: 2021-01-24 19:21+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 
 msgid " No private key"
 msgstr " Geen privaat sleutel"
@@ -5885,8 +5885,8 @@ msgstr "Hoë spanning oordrag punt"
 msgid "High voltage trimming transfer point"
 msgstr "Hoë spanning snoei oordrag punt"
 
-msgid "Highlighting"
-msgstr "Beklemtoon"
+msgid "Highlight View"
+msgstr ""
 
 msgid "Hint"
 msgstr "Hint"
@@ -6804,6 +6804,9 @@ msgstr "lewe tyd"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Liggewig Directory Toegangs Protokol"
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -8065,6 +8068,9 @@ msgstr ""
 msgid "Not attached"
 msgstr "Nie aangeheg"
 
+msgid "Not available"
+msgstr ""
+
 msgid "Note"
 msgstr "Nota"
 
@@ -8635,6 +8641,9 @@ msgstr "Tjek asseblief die dokumentasie."
 
 msgid "Please check the log files"
 msgstr "Tjek asseblief die log lêers"
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr ""
 
 msgid "Please read the documentation"
 msgstr "Lees asseblief die dokumentasie"
@@ -10332,6 +10341,9 @@ msgstr "Sessie Staat"
 msgid "Session Type"
 msgstr "Sessie Tipe"
 
+msgid "Set"
+msgstr ""
+
 msgid "Set UID"
 msgstr "Stel UID"
 
@@ -10591,6 +10603,9 @@ msgstr "Wys Interval"
 
 msgid "Show Log Entries"
 msgstr "Wys Log Inskrywings"
+
+msgid "Show Max CPUs"
+msgstr ""
 
 msgid "Show Process Information"
 msgstr "Wys Proses Inligting"
@@ -14693,3 +14708,6 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Highlighting"
+#~ msgstr "Beklemtoon"

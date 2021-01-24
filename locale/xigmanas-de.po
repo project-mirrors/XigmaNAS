@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-02 00:17+0000\n"
+"POT-Creation-Date: 2021-01-24 19:24+0000\n"
 "PO-Revision-Date: 2021-01-02 09:41+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-11 16:41+0000\n"
-"X-Generator: Launchpad (build fe617ea08df036edd5c842aded2b315e1c090677)\n"
+"X-Launchpad-Export-Date: 2021-01-24 19:20+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -5912,8 +5912,8 @@ msgstr "Maximale Eingangspannung"
 msgid "High voltage trimming transfer point"
 msgstr "Maximale Eingangspannungerhöhung"
 
-msgid "Highlighting"
-msgstr "Hervorheben"
+msgid "Highlight View"
+msgstr ""
 
 msgid "Hint"
 msgstr "Hinweis"
@@ -6844,6 +6844,9 @@ msgstr "Lebenszeit"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -8118,6 +8121,9 @@ msgstr ""
 msgid "Not attached"
 msgstr "Nicht hinzugefügt"
 
+msgid "Not available"
+msgstr ""
+
 msgid "Note"
 msgstr "Hinweis"
 
@@ -8690,6 +8696,9 @@ msgstr "Bitte schauen Sie in die Dokumentation."
 
 msgid "Please check the log files"
 msgstr "Bitte die Log-Dateien überprüfen"
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr ""
 
 msgid "Please read the documentation"
 msgstr "Bitte lesen sie das Handbuch !"
@@ -10411,6 +10420,9 @@ msgstr "Sitzungszustand"
 msgid "Session Type"
 msgstr "Sitzungsart"
 
+msgid "Set"
+msgstr ""
+
 msgid "Set UID"
 msgstr "Benutzer-ID (UID) setzen"
 
@@ -10676,6 +10688,9 @@ msgstr "Zeige Intervall"
 
 msgid "Show Log Entries"
 msgstr "Zeige Log Einträge"
+
+msgid "Show Max CPUs"
+msgstr ""
 
 msgid "Show Process Information"
 msgstr "Prozessinformationen anzeigen"
@@ -14836,3 +14851,6 @@ msgstr "wurde zugewiesen an"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Highlighting"
+#~ msgstr "Hervorheben"
