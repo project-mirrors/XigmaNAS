@@ -166,7 +166,7 @@ function system_language_load(string $language_to_try = null) {
 	textdomain($domain);
 	if(array_key_exists('userlang',$_SESSION)):
 		if($_SESSION['userlang'] !== $language):
-			unset($_SESSION['g']['headermenu']);
+			$_SESSION['g']['headermenu'] = [];
 			$_SESSION['userlang'] = $language;
 		endif;
 	else:
