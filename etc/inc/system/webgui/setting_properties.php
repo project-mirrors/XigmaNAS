@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\webgui;
+
 use common\properties as myp;
+
+use function gettext;
 
 final class setting_properties extends grid_properties {
 	public function init_adddivsubmittodataframe(): myp\property_bool {
@@ -273,6 +277,25 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue(false)->
 			filter_use_default();
+		return $property;
+	}
+	public function init_showmaxcpus(): myp\property_int {
+		$caption = gettext('Please enter a number between 0 and 256 or leave this field empty.');
+		$description = gettext('Limit the maximum number of CPUs to be displayed on the home page.');
+		$placeholder = '16';
+		$property = parent::init_showmaxcpus();
+		$property->
+			set_caption($caption)->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('showmaxcpus')->
+			set_max(256)->
+			set_maxlength(5)->
+			set_min(0)->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholder)->
+			set_size(4)->
+			filter_use_default_or_empty();
 		return $property;
 	}
 }

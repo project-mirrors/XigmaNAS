@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\webgui;
+
 use common\properties as myp;
+
+use function gettext;
 
 class grid_properties extends myp\container {
 	protected $x_adddivsubmittodataframe;
@@ -232,5 +236,17 @@ class grid_properties extends myp\container {
 	}
 	final public function get_skipviewmode(): myp\property_bool {
 		return $this->x_skipviewmode ?? $this->init_skipviewmode();
+	}
+	protected $x_showmaxcpus;
+	public function init_showmaxcpus(): myp\property_int {
+		$title = gettext('Show Max CPUs');
+		$property = $this->x_showmaxcpus = new myp\property_int();
+		$property->
+			set_name('showmaxcpus')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_showmaxcpus(): myp\property_int {
+		return $this->x_showmaxcpus ?? $this->init_showmaxcpus();
 	}
 }
