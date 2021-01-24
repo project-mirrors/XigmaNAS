@@ -4,8 +4,8 @@
 # Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# $FreeBSD: rc.d/NETWORKING
-# Changes: added REQUIRE: resolv, Removed REQUIRE: ppp ipfw stf faith REQUIRE: static_arp static_ndp
+# XigmaNAS® Checked: rc.d/NETWORKING
+# XigmaNAS® Changes: added REQUIRE: resolv, Removed REQUIRE: ppp ipfw stf faith REQUIRE: static_arp static_ndp
 #
 
 # PROVIDE: NETWORKING NETWORK

@@ -6,9 +6,9 @@
 #
 # Set the date and time via NTP
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/ntpdate	Revision 314531
-# Changes:	- Remove requirement 'named'
-# 		- Add mkconf command
+# XigmaNAS® Checked: /etc/rc.d/ntpdate		Revision 314531
+# XigmaNAS® Changes: - Remove requirement 'named'
+# 		     - Add mkconf command
 #
 
 # PROVIDE: ntpdate

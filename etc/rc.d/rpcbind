@@ -6,8 +6,8 @@
 #
 # Universal addresses to RPC program number mapper
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/rpcbind	Revision 339434
-# Changes: Remove useless requirements named
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/rpcbind	Revision 339434
+# XigmaNAS® Changes: Remove useless requirements named
 #
 
 # PROVIDE: rpcbind

@@ -6,9 +6,9 @@
 #
 # Configure the system console
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/syscons	Revision 339434
-# Changes: Reorder code to unload screen saver kernel modules. This is necessary
-#          to be able to disable console screen saver.
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/syscons	Revision 339434
+# XigmaNAS® Changes: - Reorder code to unload screen saver kernel modules. This is necessary
+#          	     to be able to disable console screen saver.
 #
 
 # PROVIDE: syscons

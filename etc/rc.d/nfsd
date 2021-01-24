@@ -6,8 +6,8 @@
 #
 # Remote NFS server
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/nfsd	Revision r346910
-# Changes: modified for XigmaNAS®, removed REQUIRE: gssd
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/nfsd		Revision r346910
+# XigmaNAS® Changes: modified for XigmaNAS®, removed REQUIRE: gssd
 #
 
 # PROVIDE: nfsd

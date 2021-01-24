@@ -6,8 +6,8 @@
 #
 # NFS file locking daemon
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/lockd		Revision 339434
-# Changes:	- Remove nfsclient
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/lockd		Revision 339434
+# XigmaNAS® Changes:	- Remove nfsclient
 #
 
 # PROVIDE: lockd

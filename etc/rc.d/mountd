@@ -6,9 +6,9 @@
 #
 # Service remote NFS mount requests
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/mountd		Revision 339434
-# Changes:	- Remove nfsserver quota
-# 		- Add mkconf command
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/mountd		Revision 339434
+# XigmaNAS® Changes: - Remove nfsserver quota
+# 		     - Add mkconf command
 #
 
 # PROVIDE: mountd

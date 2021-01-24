@@ -6,9 +6,9 @@
 #
 # Name-service switch
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/nsswitch	Revision  339434
-# Changes:	- Add 'var' as requirement
-# 		- Add code to create configuration file from config.xml
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/nsswitch	Revision  339434
+# XigmaNAS® Changes: - Add 'var' as requirement
+# 		     - Add code to create configuration file from config.xml
 #
 
 # PROVIDE: nsswitch

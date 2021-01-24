@@ -6,7 +6,8 @@
 #
 # Mount critical remote filesystems
 #
-# Changes:	- Modify prereq's and remove REQUIRE: ipsec
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/mountcritremote		Revision 339434
+# XigmaNAS® Changes: - Modify prereq's and remove REQUIRE: ipsec
 #
 
 # PROVIDE: mountcritremote

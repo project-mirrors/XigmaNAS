@@ -4,7 +4,7 @@
 # Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/hostapd	Revision 339434
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/hostapd	Revision 339434
 #
 # Authenticator for IEEE 802.11 networks
 #

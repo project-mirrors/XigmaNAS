@@ -6,7 +6,7 @@
 #
 # Modify the power profile
 #
-# $FreeBSD: /stable/12/libexec/rc/rc.d/powerd		Revision 339434
+# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/powerd		Revision 339434
 #
 
 # PROVIDE: powerd
