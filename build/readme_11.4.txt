@@ -130,7 +130,6 @@ Changes:
 - Upgrade transmission to 3.00.
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade devcpu-data to 1.37.
-- Upgrade nut to 2020.11.30.
 - Upgrade gzip to 1.10.
 - Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
@@ -149,6 +148,7 @@ Changes:
 - Upgrade proftpd to 1.3.7a.
 - Upgrade nano to 5.5.
 - Upgrade dialog to 1.3-20210117.
+- Upgrade nut to 2021.01.08.
 
 Fixes:
 - Fix only first lagg member is brought up.
