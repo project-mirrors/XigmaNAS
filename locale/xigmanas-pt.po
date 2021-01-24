@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-02 00:17+0000\n"
+"POT-Creation-Date: 2021-01-24 19:24+0000\n"
 "PO-Revision-Date: 2020-04-29 14:11+0000\n"
 "Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-11 16:41+0000\n"
-"X-Generator: Launchpad (build fe617ea08df036edd5c842aded2b315e1c090677)\n"
+"X-Launchpad-Export-Date: 2021-01-24 19:21+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -5680,8 +5680,8 @@ msgstr ""
 msgid "High voltage trimming transfer point"
 msgstr ""
 
-msgid "Highlighting"
-msgstr "Realçar"
+msgid "Highlight View"
+msgstr ""
 
 msgid "Hint"
 msgstr "Dica"
@@ -6540,6 +6540,9 @@ msgstr "Tempo de vida"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -7769,6 +7772,9 @@ msgstr ""
 msgid "Not attached"
 msgstr "Não anexado"
 
+msgid "Not available"
+msgstr ""
+
 msgid "Note"
 msgstr "Nota"
 
@@ -8331,6 +8337,9 @@ msgid "Please check the documentation."
 msgstr ""
 
 msgid "Please check the log files"
+msgstr ""
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
 msgstr ""
 
 msgid "Please read the documentation"
@@ -9972,6 +9981,9 @@ msgstr ""
 msgid "Session Type"
 msgstr ""
 
+msgid "Set"
+msgstr ""
+
 msgid "Set UID"
 msgstr ""
 
@@ -10188,6 +10200,9 @@ msgid "Show Interval"
 msgstr ""
 
 msgid "Show Log Entries"
+msgstr ""
+
+msgid "Show Max CPUs"
 msgstr ""
 
 msgid "Show Process Information"
@@ -14017,3 +14032,6 @@ msgstr ""
 
 msgid "yes"
 msgstr "Sim"
+
+#~ msgid "Highlighting"
+#~ msgstr "Realçar"

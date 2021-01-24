@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-02 00:17+0000\n"
-"PO-Revision-Date: 2020-11-18 16:39+0000\n"
+"POT-Creation-Date: 2021-01-24 19:24+0000\n"
+"PO-Revision-Date: 2021-01-21 16:52+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-11 16:41+0000\n"
-"X-Generator: Launchpad (build fe617ea08df036edd5c842aded2b315e1c090677)\n"
+"X-Launchpad-Export-Date: 2021-01-24 19:21+0000\n"
+"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -117,27 +117,27 @@ msgstr "%s%d %s è già utilizzata da %s%d."
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u ora"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u ore"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u minuto"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u minuti"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u secondo"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u secondi"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -2747,6 +2747,9 @@ msgid ""
 "DOS SMB clients assume the server has the same charset as they do. This "
 "option specifies which charset Samba should talk to DOS clients."
 msgstr ""
+"I client DOS SMB presumono che il server abbia il loro stesso set di "
+"caratteri. Questa opzione, specifica quale set caratteri, Samba deve "
+"indicare ai client DOS."
 
 msgid "DOWNLOAD"
 msgstr "DOWNLOAD"
@@ -2773,7 +2776,7 @@ msgid "Data"
 msgstr "Dati"
 
 msgid "Data Digest"
-msgstr ""
+msgstr "Data Digest"
 
 msgid "Data Integrity"
 msgstr "Integrità dei dati"
@@ -2897,6 +2900,7 @@ msgstr ""
 
 msgid "Define iSCSI hardware offload driver. The default is \"None\"."
 msgstr ""
+"Definire il driver per l'offload hardware iSCSI. Il default è \"None\"."
 
 msgid "Defines the checksum algorithm."
 msgstr "Indica l'algoritmo del checksum"
@@ -3473,7 +3477,7 @@ msgid "Disabled"
 msgstr "Disabilitato"
 
 msgid "Disabled variable names will be removed from /etc/rc.conf."
-msgstr ""
+msgstr "Il nome della variabile disattivato, sarà rimosso da /etc/rc.conf."
 
 msgid "Discard - Discard ACL"
 msgstr "Abbandonare - Abbandonare ACL"
@@ -3736,10 +3740,10 @@ msgid "Do you want to delete selected Mutual CHAP users?"
 msgstr "Desideri cancellare gli utenti Mutual CHAP selezionati?"
 
 msgid "Do you want to delete selected NFS exports?"
-msgstr ""
+msgstr "Vuoi cancellare le esportazioni NFS selezionate"
 
 msgid "Do you want to delete selected NFS root directories?"
-msgstr ""
+msgstr "Vuoi cancellare le directory NFS selezionate?"
 
 msgid "Do you want to delete selected RAID volumes?"
 msgstr "Vuoi cancellare i volumi RAID selezionati?"
@@ -3779,7 +3783,7 @@ msgid "Do you want to delete selected groups?"
 msgstr "Vuoi eliminare i gruppi selezionati?"
 
 msgid "Do you want to delete selected iSCSI initiators?"
-msgstr ""
+msgstr "Vuoi cancellare gli inizializzatori iSCSI selezionati?"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "Desideri cancellare i server ISNS selezionati?"
@@ -3842,7 +3846,7 @@ msgid "Do you want to delete selected snapshots?"
 msgstr "Vuoi cancellare gli Snapshots selezionati?"
 
 msgid "Do you want to delete selected sysctl settings?"
-msgstr ""
+msgstr "Vuoi cancellare i settaggi sysctl selezionati?"
 
 msgid "Do you want to delete selected targets?"
 msgstr "Desideri cancellare i target selezionati?"
@@ -3872,10 +3876,10 @@ msgid "Do you want to disable selected Mutual CHAP users?"
 msgstr "Vuoi disabilitare gli utenti CHAP Mutual selezionati?"
 
 msgid "Do you want to disable selected NFS exports?"
-msgstr ""
+msgstr "Vuoi disabilitare le esportazioni NFS selezionate"
 
 msgid "Do you want to disable selected NFS root directories?"
-msgstr ""
+msgstr "Vuoi disabilitare le directory NFS selezionate?"
 
 msgid "Do you want to disable selected Samba shares?"
 msgstr "Vuoi disattivare le condivisioni SAMBA selezionate?"
@@ -3893,7 +3897,7 @@ msgid "Do you want to disable selected groups?"
 msgstr "Vuoi disatttivare i gruppi selezionati?"
 
 msgid "Do you want to disable selected iSCSI initiators?"
-msgstr ""
+msgstr "Vuoi disattivare gli inizializzatori iSCSI selezionati?"
 
 msgid "Do you want to disable selected iSNS servers?"
 msgstr "Vuoi disabilitare i server iSNS selezionati?"
@@ -3911,7 +3915,7 @@ msgid "Do you want to disable selected listen records?"
 msgstr "Vuoi disabilitare i record di ascolto selezionati?"
 
 msgid "Do you want to disable selected media folders?"
-msgstr ""
+msgstr "Vuoi disattivare le cartelle multimediali selezionate?"
 
 msgid "Do you want to disable selected option records?"
 msgstr "Vuoi disabilitare la registrazione delle voci selezionate?"
@@ -3926,13 +3930,13 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Vuoi disattivare i gruppi di portali selezionati?"
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "Vuoi disattivare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Vuoi disattivare i record selezionati?"
 
 msgid "Do you want to disable selected routes?"
-msgstr ""
+msgstr "Vuoi disattivare i percorsi selezionati?"
 
 msgid "Do you want to disable selected rsync jobs?"
 msgstr "Vuoi disattivare i lavori rsync selezionati?"
@@ -3941,13 +3945,13 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Vuoi disattivarei moduli rsync selezionati?"
 
 msgid "Do you want to disable selected sysctl settings?"
-msgstr ""
+msgstr "Vuoi disattivare i settaggi sysctl selezionati?"
 
 msgid "Do you want to disable selected targets?"
 msgstr "Desideri disabilitare i target selezionati?"
 
 msgid "Do you want to disable selected users?"
-msgstr ""
+msgstr "Vuoi disattivare gli utenti selezionati?"
 
 msgid "Do you want to enable selected CHAP users?"
 msgstr "Vuoi abilitare gli utenti CHAP selezionati?"
@@ -3962,13 +3966,13 @@ msgid "Do you want to enable selected Mutual CHAP users?"
 msgstr "Desideri abilitare gli utenti Mutual CHAP selezionati?"
 
 msgid "Do you want to enable selected NFS exports?"
-msgstr ""
+msgstr "Vuoi attivare le esportazioni NFS selezionate?"
 
 msgid "Do you want to enable selected NFS root directories?"
-msgstr ""
+msgstr "Vuoi attivare le directory NFS root selezionate?"
 
 msgid "Do you want to enable selected Samba shares?"
-msgstr ""
+msgstr "Vuoi attivare le condivisioni Samba selezionate?"
 
 msgid "Do you want to enable selected WebDAV records?"
 msgstr "Vuoi abilitare i record WebDAV selezionati?"
@@ -3980,10 +3984,10 @@ msgid "Do you want to enable selected commands?"
 msgstr "Vuoi attivare i comandi selezionati?"
 
 msgid "Do you want to enable selected groups?"
-msgstr ""
+msgstr "Vuoi attivare i gruppi selezionati?"
 
 msgid "Do you want to enable selected iSCSI initiators?"
-msgstr ""
+msgstr "Vuoi attivare gli iniziatori iSCSI selezionati?"
 
 msgid "Do you want to enable selected iSNS servers?"
 msgstr "Desideri abilitare i server iSNS selezionati?"
@@ -4001,7 +4005,7 @@ msgid "Do you want to enable selected listen records?"
 msgstr "Vuoi attivare il record di controllo selezionato?"
 
 msgid "Do you want to enable selected media folders?"
-msgstr ""
+msgstr "Vuoi attivare le cartelle multimediali selezionate?"
 
 msgid "Do you want to enable selected option records?"
 msgstr "Vuoi attivare l'opzione di record selezionata?"
@@ -4016,13 +4020,13 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Vuoi abilitare i portali gruppo selezionati?"
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "Vuoi attivare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Vuoi attivare i record selezionati?"
 
 msgid "Do you want to enable selected routes?"
-msgstr ""
+msgstr "Vuoi attivare i percorsi selezionati?"
 
 msgid "Do you want to enable selected rsync jobs?"
 msgstr "Vuoi attivare i lavori rsync selezionati?"
@@ -4031,13 +4035,13 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Vuoi disattivare i moduli rsync selezionati?"
 
 msgid "Do you want to enable selected sysctl settings?"
-msgstr ""
+msgstr "Vuoi attivare i settaggi sysctl selezionati?"
 
 msgid "Do you want to enable selected targets?"
 msgstr "Vuoi abilitare i target selezionati?"
 
 msgid "Do you want to enable selected users?"
-msgstr ""
+msgstr "Vuoi attivare gli utenti selezionati?"
 
 msgid "Do you want to import disks?"
 msgstr "Vuoi importare i dischi?"
@@ -4061,13 +4065,13 @@ msgid "Do you want to toggle selected Mutual CHAP users?"
 msgstr "Desideri rimuovere gli utenti Mutual CHAP selezionati?"
 
 msgid "Do you want to toggle selected NFS exports?"
-msgstr ""
+msgstr "Vuoi attivare le esportazioni NFS selezionate?"
 
 msgid "Do you want to toggle selected NFS root directories?"
-msgstr ""
+msgstr "Vuoi attivare le directory NFS root selezionate?"
 
 msgid "Do you want to toggle selected Samba shares?"
-msgstr ""
+msgstr "Vuoi attivare le condivisioni Samba selezionate?"
 
 msgid "Do you want to toggle selected WebDAV records?"
 msgstr "Vuoi inviare i record WebDav?"
@@ -4079,10 +4083,10 @@ msgid "Do you want to toggle selected commands?"
 msgstr "Vuoi deselezionare i comandi selezionati?"
 
 msgid "Do you want to toggle selected groups?"
-msgstr ""
+msgstr "Vuoi attivare i gruppi selezionati?"
 
 msgid "Do you want to toggle selected iSCSI initiators?"
-msgstr ""
+msgstr "Vuoi attivare gli iniziatori iSCSI selezionati?"
 
 msgid "Do you want to toggle selected iSNS servers?"
 msgstr "Desideri rimuovere i servers iSNS selezionati?"
@@ -4100,7 +4104,7 @@ msgid "Do you want to toggle selected listen records?"
 msgstr "Vuoi attivare i records di controllo selezionati?"
 
 msgid "Do you want to toggle selected media folders?"
-msgstr ""
+msgstr "Vuoi attivare le cartelle multimediali selezionate?"
 
 msgid "Do you want to toggle selected option records?"
 msgstr "Vuoi attivare le opzioni dei records selezionate?"
@@ -4115,13 +4119,13 @@ msgid "Do you want to toggle selected portal groups?"
 msgstr "Vuoi attivare i gruppi portali selezionati?"
 
 msgid "Do you want to toggle selected public keys?"
-msgstr ""
+msgstr "Vuoi attivare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Vuoi rimuovere i record selezionati?"
 
 msgid "Do you want to toggle selected routes?"
-msgstr ""
+msgstr "Vuoi attivare i percorsi selezionati?"
 
 msgid "Do you want to toggle selected rsync jobs?"
 msgstr "Vuoi rimuovere i job di rsync selezionati?"
@@ -4130,13 +4134,13 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Vuoi rimuovere i moduli di rsync selezionati?"
 
 msgid "Do you want to toggle selected sysctl settings?"
-msgstr ""
+msgstr "Vuoi attivare i settaggi sysctl selezionati?"
 
 msgid "Do you want to toggle selected targets?"
 msgstr "Vuoi attivare gli obiettivi selezionati?"
 
 msgid "Do you want to toggle selected users?"
-msgstr ""
+msgstr "Vuoi attivare gli utenti selezionati?"
 
 msgid "Do you want to unlock selected records?"
 msgstr "Vuoi sbloccare i record selezionati?"
@@ -4210,7 +4214,7 @@ msgid "Driver List"
 msgstr "Lista Driver"
 
 msgid "Driver Name"
-msgstr ""
+msgstr "Nome driver"
 
 msgid "Driver Parameter"
 msgstr "Parametri Driver"
@@ -4246,16 +4250,16 @@ msgid "EA Support"
 msgstr "Supporto EA"
 
 msgid "EDIT"
-msgstr ""
+msgstr "Modifica"
 
 msgid "EFI/GPT partition can be use with UFS only."
 msgstr "La partizione EFI/GPT puo' essere usata solo con UFS."
 
 msgid "ERROR - log errors"
-msgstr ""
+msgstr "ERROR - log errori"
 
 msgid "ERROR(S)"
-msgstr ""
+msgstr "ERRORE(/I)"
 
 msgid "ERROR:"
 msgstr "ERRORE:"
@@ -4279,7 +4283,7 @@ msgid "Edit CHAP User"
 msgstr "Modificare l'utente CHAP"
 
 msgid "Edit Command"
-msgstr ""
+msgstr "Modifica comando"
 
 msgid "Edit Dataset"
 msgstr "Modifica il Dataset"
@@ -4315,16 +4319,16 @@ msgid "Edit Listen Record"
 msgstr "Modifica il record di ascolto"
 
 msgid "Edit Media Folder"
-msgstr ""
+msgstr "Modifica cartella multimediale"
 
 msgid "Edit Mutual CHAP User"
 msgstr "Modifica l'utente CHAP Mutual"
 
 msgid "Edit NFS Export"
-msgstr ""
+msgstr "Modifica esportazione NFS"
 
 msgid "Edit NFS Root"
-msgstr ""
+msgstr "Modifica Root NFS"
 
 msgid "Edit Option"
 msgstr "Modifica opzione"
@@ -4342,7 +4346,7 @@ msgid "Edit Portal Group"
 msgstr "Modifica il gruppo portale"
 
 msgid "Edit Public Key"
-msgstr ""
+msgstr "Modifica chiave pubblica"
 
 msgid "Edit RAID"
 msgstr "Modifica RAID"
@@ -4408,10 +4412,10 @@ msgid "Edit extent"
 msgstr "Modifica limite"
 
 msgid "Edit file"
-msgstr ""
+msgstr "Modifica il file"
 
 msgid "Edit iSCSI Initiator"
-msgstr ""
+msgstr "Modifica l'iniziatore iSCSI"
 
 msgid "Edit iSNS Server"
 msgstr "Modifica il server iSNS"
@@ -4435,7 +4439,7 @@ msgid "Edit self-test"
 msgstr "Modifica l'auto-test"
 
 msgid "Edit sysctl setting"
-msgstr ""
+msgstr "Modifica settaggi sysctl"
 
 msgid "Edit target"
 msgstr "Modifica Target"
@@ -4476,7 +4480,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Attiva Advanced Format (Settori da 4KB)."
 
 msgid "Enable Asynchronous I/O."
-msgstr ""
+msgstr "Abilita I/O asincrono"
 
 msgid "Enable FXP protocol."
 msgstr "Abilita il protocollo FXP."
@@ -4504,7 +4508,7 @@ msgid "Enable SMTP authentication."
 msgstr "Attiva l'autenticazione SMTP."
 
 msgid "Enable SSH service"
-msgstr ""
+msgstr "Abilita servizio SSH"
 
 msgid ""
 "Enable SSL/TLS for secured connections. You also need to configure the TLS "
@@ -4527,7 +4531,7 @@ msgid "Enable Selected Commands"
 msgstr "Attiva i comandi selezionati"
 
 msgid "Enable Selected Groups"
-msgstr ""
+msgstr "Abilita gruppi selezionati"
 
 msgid "Enable Selected Initiator Names"
 msgstr "Attiva l'iniziatore dei nomi selezionato"
@@ -4548,16 +4552,16 @@ msgid "Enable Selected Listen Records"
 msgstr "Attiva i records di ascolto selezionati"
 
 msgid "Enable Selected Media Folders"
-msgstr ""
+msgstr "Abilita cartelle multimediali selezionate"
 
 msgid "Enable Selected Mutual CHAP Users"
 msgstr "Attiva gli utenti CHAP mutui selezionati"
 
 msgid "Enable Selected NFS Exports"
-msgstr ""
+msgstr "Abilita le esportazioni NFS selezionate"
 
 msgid "Enable Selected NFS Root Directories"
-msgstr ""
+msgstr "Abilita le directory NFS root selezionate"
 
 msgid "Enable Selected Option Records"
 msgstr "Attiva le opzioni dei records selezionate"
@@ -4572,13 +4576,13 @@ msgid "Enable Selected Portal Groups"
 msgstr "Attiva i gruppi portale selezionati"
 
 msgid "Enable Selected Public Keys"
-msgstr ""
+msgstr "Abilita le chiavi pubbliche selezionate"
 
 msgid "Enable Selected Records"
 msgstr "Attiva record selezionati"
 
 msgid "Enable Selected Routes"
-msgstr ""
+msgstr "Abilita i percorsi selezionati"
 
 msgid "Enable Selected Rsync Jobs"
 msgstr "Attiva lavori rsync selezionati"
@@ -4587,22 +4591,22 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Attiva moduli rsync selezionati"
 
 msgid "Enable Selected Samba Shares"
-msgstr ""
+msgstr "Abilita le condivisione Samba selezionate"
 
 msgid "Enable Selected Sysctl Settings"
-msgstr ""
+msgstr "Abilita i settaggi Sysctl selezionati"
 
 msgid "Enable Selected Targets"
 msgstr "Attiva gli obiettivi selezionati"
 
 msgid "Enable Selected Users"
-msgstr ""
+msgstr "Abilita gli utenti selezionati"
 
 msgid "Enable Selected WebDAV Records"
 msgstr "Abilita i record WebDav selezionati"
 
 msgid "Enable Selected iSCSI Initiators"
-msgstr ""
+msgstr "Abilita gli inizializzatori iSCSI selezionati"
 
 msgid "Enable Selected iSNS Servers"
 msgstr "Attiva i server iSNS selezionati"
@@ -4657,7 +4661,7 @@ msgid "Enable collecting ZFS L2ARC usage statistics."
 msgstr "Abilita la raccolta delle statistiche d'uso di ZFS L2ARC"
 
 msgid "Enable collecting ZFS cache efficiency statistics."
-msgstr ""
+msgstr "Attiva la raccolta statistica dell'efficenza della cache ZFS"
 
 msgid "Enable collecting average system load statistics."
 msgstr "Attiva raccolta della statistica del carico medio del sistema."
@@ -4682,6 +4686,7 @@ msgstr "Attiva raccolta della statistica dell'uptime."
 
 msgid "Enable compression after the user has authenticated successfully."
 msgstr ""
+"Abilita la compressione dopo che l'utente si è autenticato correttamente"
 
 msgid "Enable console screensaver."
 msgstr "Abilita console salvaschermo."
@@ -4736,6 +4741,8 @@ msgid ""
 "Enable or disable the session. State can be either \"On\" or \"Off\". "
 "Default is \"On\"."
 msgstr ""
+"Abilita o disabilita la sessione. Lo stato può essere sia \"On\" che "
+"\"Off\". Default è \"On\""
 
 msgid "Enable peer exchange (PEX)."
 msgstr "Abilita peer exchange (PEX)."
@@ -4787,6 +4794,7 @@ msgstr "Attiva l'utilità di controllo energetico del server."
 
 msgid "Enable this option if you want to display colorful meter states."
 msgstr ""
+"Attiva questa opzione se vuoi visualizzare un diagramma colorato sullo stato."
 
 msgid ""
 "Enable this option if you want to edit configuration pages directly without "
@@ -4841,13 +4849,16 @@ msgid "Enabled"
 msgstr "Abilitato"
 
 msgid "Enabled options will be added to /etc/rc.conf."
-msgstr ""
+msgstr "Le opzioni abilitate saranno aggiunte a /etc/rc.conf."
 
 msgid ""
 "Enabling this option may be a security risk. Anyone who can physically "
 "obtain access to this server can gain access to all it's data contents, "
 "including any network it is connected to."
 msgstr ""
+"Attivare questa opzione potrebbe essere un rischio per la sicurezza. "
+"Chiunque può accedere a questo server, può accedere a tutti i dati in esso "
+"contenuti, inclusa ogni rete a cui è connesso."
 
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
@@ -4921,7 +4932,7 @@ msgid "Enter Universally Unique Identifier"
 msgstr "Inserire un identificativo universalmente univoco"
 
 msgid "Enter Value"
-msgstr ""
+msgstr "Inserire un valore"
 
 msgid "Enter Volume Name"
 msgstr "Inserire il nome del volume"
@@ -4935,6 +4946,7 @@ msgstr ""
 
 msgid "Enter a custom port number if you do not want to use default port 22."
 msgstr ""
+"Inserire un numero di porta se non vuoi usare la porta di default (porta 22)."
 
 msgid "Enter a custom port number if you do not want to use default port 69."
 msgstr ""
@@ -5000,7 +5012,7 @@ msgid "Enter facility name"
 msgstr "Inserire il nome della struttura"
 
 msgid "Enter group name."
-msgstr ""
+msgstr "Inserire il nome di un gruppo."
 
 msgid "Enter hostname or IP address."
 msgstr "Inserisci hostname o indirizzo IP"
@@ -5009,13 +5021,15 @@ msgid "Enter level name"
 msgstr "Inserire un nome per il livello"
 
 msgid "Enter login name."
-msgstr ""
+msgstr "Inserire il nome per il login."
 
 msgid "Enter mutual user name."
 msgstr "Inserire un nome utente mutuo"
 
 msgid "Enter passthrough device address bus:path:lun"
 msgstr ""
+"Inserire l'indirizzo di un dispositivo di passaggio con la sintassi "
+"bus:path:lun"
 
 msgid "Enter secret."
 msgstr "Inserire la chiave segreta."
@@ -5031,19 +5045,19 @@ msgstr ""
 "connesso l'UPS. (anche host remoti)"
 
 msgid "Enter the full user name."
-msgstr ""
+msgstr "Inserire il nome utente completo."
 
 msgid "Enter the location of the share"
 msgstr "Inserire la posizione della condivisione"
 
 msgid "Enter the name of the master user account."
-msgstr ""
+msgstr "Inserire il nome dell'account dell'utente master."
 
 msgid "Enter the name of the share"
 msgstr "Inserire il nome della condivisione"
 
 msgid "Enter the network that is authorised to access the NFS share."
-msgstr ""
+msgstr "Inserire la rete autorizzata ad accedere alla condivisione NFS."
 
 msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
@@ -5053,7 +5067,7 @@ msgstr ""
 "essere compresa tra gli 8 e i 63 caratteri."
 
 msgid "Enter the password of the master user account."
-msgstr ""
+msgstr "Inserire la password dell'account dell'utente principale."
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
@@ -5079,6 +5093,8 @@ msgid ""
 "Enter the path to the home directory of the user. Leave this field empty to "
 "use default path /mnt."
 msgstr ""
+"Inserire il percorso per la directory home dell'utente. Lasciare questo "
+"campo vuoto per usare il percorso di default /mnt"
 
 msgid ""
 "Enter the path to the home directory. This directory will store the "
@@ -5125,13 +5141,13 @@ msgid "Example: pkg install packagename."
 msgstr "Ad esempio: pkg install Nome_Package"
 
 msgid "Excel Sheet"
-msgstr ""
+msgstr "Foglio Excel"
 
 msgid "Exec"
 msgstr "Esegui"
 
 msgid "Executable File"
-msgstr ""
+msgstr "File eseguibile"
 
 msgid "Execute"
 msgstr "Esegui"
@@ -5158,7 +5174,7 @@ msgid "Export Rules"
 msgstr "Esporta le regole"
 
 msgid "Export Subfolders"
-msgstr ""
+msgstr "Esporta sottodirectory"
 
 msgid "Export a pool from the system"
 msgstr "Esporta un pool dal sistema"
@@ -5167,16 +5183,16 @@ msgid "Export all the directories in the specified path."
 msgstr "Esporta tutte le directory nel percrso specificato."
 
 msgid "Export as WebNFS."
-msgstr ""
+msgstr "Esporta come WebNFS."
 
 msgid "Export the file system in read-only mode."
-msgstr ""
+msgstr "Esporta il file system in sola lettura."
 
 msgid "Exported"
 msgstr "Esportato"
 
 msgid "Exports Configuration File"
-msgstr ""
+msgstr "Esporta il file di configurazione"
 
 msgid "Extended Attributes"
 msgstr "Attributi Estesi"
@@ -5231,16 +5247,16 @@ msgid "Extra options to rsync (usually empty)."
 msgstr "Opzioni extra di rsync (normalmente vuoto)."
 
 msgid "Extracting"
-msgstr ""
+msgstr "Estrazione"
 
 msgid "FAT32"
 msgstr "FAT32"
 
 msgid "FATAL - log fatal errors only"
-msgstr ""
+msgstr "FATAL -solo errori fatali nel log"
 
 msgid "FLAC Audio File"
-msgstr ""
+msgstr "File audio FLAC"
 
 msgid "FRU Information"
 msgstr "Informazioni su FRU"
@@ -5311,7 +5327,7 @@ msgid "Failed to send test email."
 msgstr "Invio email di test fallito."
 
 msgid "Failed to unzip archive."
-msgstr ""
+msgstr "Impossibile scompattare l'archivio"
 
 msgid "Failed to upload file."
 msgstr "Upload del file fallito."
@@ -5353,7 +5369,7 @@ msgstr ""
 "Netatalk"
 
 msgid "File Chooser"
-msgstr ""
+msgstr "Selettore file"
 
 msgid "File Editor"
 msgstr "Editor di file"
@@ -5362,13 +5378,13 @@ msgid "File Manager"
 msgstr "Gestore file"
 
 msgid "File Manager Access"
-msgstr ""
+msgstr "Accesso al File Manager"
 
 msgid "File Mask"
 msgstr "Maschera file"
 
 msgid "File Mode"
-msgstr ""
+msgstr "Modalità file"
 
 msgid "File Path"
 msgstr "Percorso File"
@@ -5387,13 +5403,13 @@ msgid "File Transfer Protocol"
 msgstr "Protocollo di Trasferimento File"
 
 msgid "File creation failed."
-msgstr ""
+msgstr "Creazione file fallita"
 
 msgid "File not found"
 msgstr "File non trovato"
 
 msgid "File opening failed."
-msgstr ""
+msgstr "Apertura file fallita."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
@@ -5406,7 +5422,7 @@ msgstr ""
 "Percorso file (e.g. /mnt/nomeshare/extent/%s) utilizzato come extent."
 
 msgid "File saving failed."
-msgstr ""
+msgstr "Salvataggio file fallito."
 
 msgid "File size"
 msgstr "Dimensione file"
@@ -5478,7 +5494,7 @@ msgid "Flags"
 msgstr "Flags"
 
 msgid "Flash File"
-msgstr ""
+msgstr "File flash"
 
 msgid "Folder Pattern"
 msgstr ""
@@ -5490,7 +5506,7 @@ msgid "Force Delete"
 msgstr "Forza l'eliminazione"
 
 msgid "Force Group"
-msgstr ""
+msgstr "Forzare gruppo"
 
 msgid "Force Operation"
 msgstr "Forzare l'operazione"
@@ -5499,7 +5515,7 @@ msgid "Force Use"
 msgstr "Forzare l'uso"
 
 msgid "Force User"
-msgstr ""
+msgstr "Forzare utente"
 
 msgid "Forced Update Period"
 msgstr "Forzare il periodo di aggiornamento"
@@ -5515,7 +5531,7 @@ msgid "Foreign"
 msgstr "Straniero"
 
 msgid "Forget about devices which are not connected."
-msgstr ""
+msgstr "Dimenticarsi dei dispositivi non connessi."
 
 msgid "Form Factor"
 msgstr "Fattore Forma"
@@ -5582,7 +5598,7 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 
 msgid "Function unavailable."
-msgstr ""
+msgstr "Funzione non disponibile"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5606,16 +5622,16 @@ msgid "GEOM VINUM Software RAID"
 msgstr "GEOM VINUM Software RAID"
 
 msgid "GEOM details not available."
-msgstr ""
+msgstr "Dettagli GEOM non disponibili."
 
 msgid "GEOM not found."
-msgstr ""
+msgstr "GEOM non trovato."
 
 msgid "GEOM vinum"
-msgstr ""
+msgstr "GEOM vinum"
 
 msgid "GIF Image"
-msgstr ""
+msgstr "Immagine GIF"
 
 msgid "GNU General Public License"
 msgstr "GNU General Public License"
@@ -5636,13 +5652,13 @@ msgid "GPT partition"
 msgstr "Partizione GPT"
 
 msgid "GSSAPI Authentication"
-msgstr ""
+msgstr "Autenticazione GSSAPI"
 
 msgid "GUI"
-msgstr ""
+msgstr "Interfaccia Grafica"
 
 msgid "GZIP Archive"
-msgstr ""
+msgstr "Archivio GZIP"
 
 msgid "Gateway"
 msgstr "Gateway"
@@ -5669,7 +5685,7 @@ msgid "Get a list of available drivers"
 msgstr "Ottieni la lista dei driver disponibili"
 
 msgid "Getting permissions failed."
-msgstr ""
+msgstr "Ottenimento permessi fallito."
 
 msgid "GiB"
 msgstr "GiB"
@@ -5694,25 +5710,25 @@ msgstr ""
 "Identificatore numerico globale da usare per uno specifico LUN entro CTL."
 
 msgid "Go Back"
-msgstr ""
+msgstr "Indietro"
 
 msgid "Grant access to the file manager."
-msgstr ""
+msgstr "Consentire l'accesso al file manager."
 
 msgid "Grant create permission"
-msgstr ""
+msgstr "Consentire il permesso alla creazione"
 
 msgid "Grant delete permission"
-msgstr ""
+msgstr "Consentire il permesso di cancellare"
 
 msgid "Grant modify permission"
-msgstr ""
+msgstr "Consentire il permesso alla modifica"
 
 msgid "Grant read permission"
-msgstr ""
+msgstr "Consentire il permesso alla lettura"
 
 msgid "Grant shell access to user"
-msgstr ""
+msgstr "Consentire l'accesso shell all'utente"
 
 msgid "Graph shows last 120 seconds"
 msgstr "Il grafico mostra l'ultima 120 secondi"
@@ -5743,7 +5759,7 @@ msgid "Group ID"
 msgstr "Id del gruppo"
 
 msgid "Group Name"
-msgstr ""
+msgstr "Nome Gruppo"
 
 msgid "Group Settings"
 msgstr "Impostazioni gruppo"
@@ -5827,13 +5843,13 @@ msgid "HDD standby time"
 msgstr "HDD standby time"
 
 msgid "HOME"
-msgstr ""
+msgstr "HOME"
 
 msgid "HOT SPARE"
 msgstr "HOT SPARE"
 
 msgid "HTML Page"
-msgstr ""
+msgstr "Pagina HTML"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -5885,13 +5901,13 @@ msgid "Hidden"
 msgstr "Invisibile"
 
 msgid "Hidden Items"
-msgstr ""
+msgstr "Oggetti nascosti"
 
 msgid "Hide Dot Files"
 msgstr "Nascondi file punto"
 
 msgid "Hide System Groups"
-msgstr ""
+msgstr "Nascondi sistemi gruppi"
 
 msgid "Hide System Users"
 msgstr ""
@@ -5905,8 +5921,8 @@ msgstr "Punto di trasferimento alta tensione"
 msgid "High voltage trimming transfer point"
 msgstr "Punto di trasferimento trimmer alta tensione"
 
-msgid "Highlighting"
-msgstr "Evidenziazione"
+msgid "Highlight View"
+msgstr ""
 
 msgid "Hint"
 msgstr "Suggerimento"
@@ -6817,6 +6833,9 @@ msgstr "Durata"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Protocollo leggero di accesso alle cartelle"
+
+msgid "Limit the maximum number of CPUs to be displayed on the home page."
+msgstr ""
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -8063,6 +8082,9 @@ msgstr ""
 msgid "Not attached"
 msgstr "Non agganciato"
 
+msgid "Not available"
+msgstr ""
+
 msgid "Note"
 msgstr "Nota"
 
@@ -8632,6 +8654,9 @@ msgstr "Per favore controllare la documentazione"
 
 msgid "Please check the log files"
 msgstr "Per favore controllare i file di log"
+
+msgid "Please enter a number between 0 and 256 or leave this field empty."
+msgstr ""
 
 msgid "Please read the documentation"
 msgstr "Per favore leggi la documentazione"
@@ -10322,6 +10347,9 @@ msgstr ""
 msgid "Session Type"
 msgstr ""
 
+msgid "Set"
+msgstr ""
+
 msgid "Set UID"
 msgstr "Imposta UID"
 
@@ -10544,6 +10572,9 @@ msgstr ""
 
 msgid "Show Log Entries"
 msgstr "Mostra linee di log"
+
+msgid "Show Max CPUs"
+msgstr ""
 
 msgid "Show Process Information"
 msgstr "Mostra informazioni sul processo"
@@ -14348,7 +14379,7 @@ msgid "hidden"
 msgstr "nascosto"
 
 msgid "iSCSI"
-msgstr ""
+msgstr "iSCSI"
 
 msgid "iSCSI Initiator"
 msgstr "iSCSI Initiator"
@@ -14450,7 +14481,7 @@ msgid ""
 msgstr ""
 
 msgid "missing"
-msgstr ""
+msgstr "mancanti"
 
 msgid "mount"
 msgstr "mount"
@@ -14472,7 +14503,7 @@ msgid "network traffic"
 msgstr "traffico di rete"
 
 msgid "no"
-msgstr ""
+msgstr "no"
 
 msgid "no pools available"
 msgstr ""
@@ -14487,7 +14518,7 @@ msgid "on"
 msgstr "acceso"
 
 msgid "phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin"
 
 msgid "phpVirtualBox"
 msgstr "phpVirtualBox"
@@ -14511,7 +14542,7 @@ msgid "seconds)"
 msgstr "secondi)"
 
 msgid "sh - Bourne Shell"
-msgstr ""
+msgstr "sh - Shell Bourne"
 
 msgid "smallest settable high voltage transfer point"
 msgstr "valore minimo impostabile del punto di trasferimento alta tensione"
@@ -14523,7 +14554,7 @@ msgid "successfully."
 msgstr "con successo."
 
 msgid "sys - Use AUTH_SYS authentication."
-msgstr ""
+msgstr "sys- Usare autenticazione AUTH_SYS"
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
@@ -14532,10 +14563,10 @@ msgid "syslog.conf"
 msgstr "syslog.conf"
 
 msgid "tcsh - TENEX C Shell"
-msgstr ""
+msgstr "tcsh - Shell C TENEX"
 
 msgid "testparm"
-msgstr ""
+msgstr "testparm"
 
 msgid "to"
 msgstr "verso"
@@ -14544,13 +14575,16 @@ msgid "umount"
 msgstr "smonta"
 
 msgid "unknown"
-msgstr ""
+msgstr "sconosciuto"
 
 msgid "visible"
 msgstr "visibile"
 
 msgid "was assigned to"
-msgstr ""
+msgstr "stato assegnato a"
 
 msgid "yes"
-msgstr ""
+msgstr "sì"
+
+#~ msgid "Highlighting"
+#~ msgstr "Evidenziazione"
