@@ -42,20 +42,20 @@ elif [ "i386" = ${XIGMANAS_ARCH} ]; then
 	echo "->> build script does not support 32-bit builds for the i386 architecture"
 	exit
 elif [ "armv6" = ${XIGMANAS_ARCH} ]; then
-    XIGMANAS_ARCH="arm"
-    PLATFORM=$(sysctl -n hw.platform)
-    if [ "bcm2835" = ${PLATFORM} ]; then
-	XIGMANAS_XARCH="rpi"
-    elif [ "bcm2836" = ${PLATFORM} ]; then
-	XIGMANAS_XARCH="rpi2"
-    elif [ "meson8b" = ${PLATFORM} ]; then
-	XIGMANAS_XARCH="oc1"
-    else
+		XIGMANAS_ARCH="arm"
+	PLATFORM=$(sysctl -n hw.platform)
+	if [ "bcm2835" = ${PLATFORM} ]; then
+		XIGMANAS_XARCH="rpi"
+	elif [ "bcm2836" = ${PLATFORM} ]; then
+		XIGMANAS_XARCH="rpi2"
+	elif [ "meson8b" = ${PLATFORM} ]; then
+		XIGMANAS_XARCH="oc1"
+	else
 	XIGMANAS_XARCH=$XIGMANAS_ARCH
-    fi
-    XIGMANAS_KERNCONF="$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:lower:]' '[:upper:]')-${XIGMANAS_XARCH}"
+	fi
+	XIGMANAS_KERNCONF="$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:lower:]' '[:upper:]')-${XIGMANAS_XARCH}"
 else
-    XIGMANAS_XARCH=$XIGMANAS_ARCH
+	XIGMANAS_XARCH=$XIGMANAS_ARCH
 fi
 XIGMANAS_OBJDIRPREFIX="/usr/obj/$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:upper:]' '[:lower:]')"
 XIGMANAS_BOOTDIR="$XIGMANAS_ROOTDIR/bootloader"
@@ -146,9 +146,9 @@ XIGMANAS_IMG_POFFSET=16
 XIGMANAS_IMG_PSTART=`expr \( \( \( $XIGMANAS_IMG_SSTART + $XIGMANAS_IMG_POFFSET + $XIGMANAS_IMG_BLKSEC - 1 \) / $XIGMANAS_IMG_BLKSEC \) \* $XIGMANAS_IMG_BLKSEC \) - $XIGMANAS_IMG_SSTART`
 XIGMANAS_IMG_PSIZE0=`expr $XIGMANAS_IMG_SSIZE - $XIGMANAS_IMG_PSTART`
 if [ `expr $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC` -ne 0 ]; then
-    XIGMANAS_IMG_PSIZE=`expr $XIGMANAS_IMG_PSIZE0 - \( $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC \)`
+	XIGMANAS_IMG_PSIZE=`expr $XIGMANAS_IMG_PSIZE0 - \( $XIGMANAS_IMG_PSIZE0 % $XIGMANAS_IMG_BLKSEC \)`
 else
-    XIGMANAS_IMG_PSIZE=$XIGMANAS_IMG_PSIZE0
+	XIGMANAS_IMG_PSIZE=$XIGMANAS_IMG_PSIZE0
 fi
 
 #	BSD partition only
@@ -450,6 +450,15 @@ add_libs() {
 	return 0
 }
 
+#	Create checksum file
+create_checksum_file() {
+	echo "Generating SHA512 CHECKSUM File"
+	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
+	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.txz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+
+	return 0
+}
+
 #	Creating mdlocal-mini
 create_mdlocal_mini() {
 	echo "--------------------------------------------------------------"
@@ -594,6 +603,7 @@ create_mfsroot() {
 	if [ "arm" = ${XIGMANAS_ARCH} ]; then
 		mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mdlocal
 	fi
+	echo "Compressing mdlocal"
 	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	create_mdlocal_mini;
@@ -960,9 +970,7 @@ create_iso () {
 	fi
 	[ 0 != $? ] && return 1 # successful?
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -986,7 +994,9 @@ create_iso_tiny() {
 }
 
 create_embedded() {
+	echo "Embedded: Start generating the $XIGMANAS_PRODUCTNAME Image file"
 	create_image;
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -998,6 +1008,9 @@ create_embedded() {
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.xz
 	[ -f $XIGMANAS_WORKINGDIR/image.bin.xz ] && rm -f $XIGMANAS_WORKINGDIR/image.bin.xz
+	echo "Embedded: Finished generating the $XIGMANAS_PRODUCTNAME Image file"
+
+	return 0
 }
 
 create_usb () {
@@ -1229,9 +1242,7 @@ create_usb () {
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
 	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -1455,9 +1466,7 @@ create_usb_gpt() {
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
 	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 #	Cleanup.
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
@@ -1624,9 +1633,7 @@ create_full() {
 	fi
 	[ -d $XIGMANAS_TMPDIR ] && rm -rf $XIGMANAS_TMPDIR
 
-	echo "Generating SHA512 CHECKSUM File"
-	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
-	cd ${XIGMANAS_ROOTDIR} && sha512 *.img.gz *.xz *.iso *.txz > ${XIGMANAS_ROOTDIR}/${XIGMANAS_CHECKSUMFILENAME}
+	create_checksum_file;
 
 	return 0
 }
@@ -2317,13 +2324,13 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 
 	case ${choice} in
 		build|rebuild)
-			# Set ports options
+#			Set ports options
 			echo;
 			echo "--------------------------------------------------------------";
 			echo ">>> Set Ports Options.";
 			echo "--------------------------------------------------------------";
 			cd ${XIGMANAS_SVNDIR}/build/ports/options && make
-			# Clean ports.
+#			Clean ports.
 			echo;
 			echo "--------------------------------------------------------------";
 			echo ">>> Cleaning Ports.";
@@ -2333,10 +2340,10 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 				make clean;
 			done;
 			if [ "i386" = ${XIGMANAS_ARCH} ]; then
-				# workaround patch
+#				workaround patch
 				cp ${XIGMANAS_SVNDIR}/build/ports/vbox/files/extra-patch-src-VBox-Devices-Graphics-DevVGA.h /usr/ports/emulators/virtualbox-ose/files/patch-src-VBox-Devices-Graphics-DevVGA.h
 			fi
-			# Build ports.
+#			Build ports.
 			for port in $(cat $ports | tr -d '"'); do
 				echo;
 				echo "--------------------------------------------------------------";
@@ -2357,7 +2364,7 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 				echo ">>> Installing Port: ${port}";
 				echo "--------------------------------------------------------------";
 				cd ${XIGMANAS_SVNDIR}/build/ports/${port};
-				# Delete cookie first, otherwise Makefile will skip this step.
+#				Delete cookie first, otherwise Makefile will skip this step.
 				rm -f ./work/.install_done.* ./work/.stage_done.*;
 				env PKG_DBDIR=$XIGMANAS_WORKINGDIR/pkg FORCE_PKG_REGISTER=1 make install;
 				[ 0 != $? ] && return 1; # successful?
@@ -2366,11 +2373,11 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 	esac
 	rm ${ports}
 
-  return 0
+	return 0
 }
 
 main() {
-	# Ensure we are in $XIGMANAS_WORKINGDIR
+#	Ensure we are in $XIGMANAS_WORKINGDIR
 	[ ! -d "$XIGMANAS_WORKINGDIR" ] && mkdir $XIGMANAS_WORKINGDIR
 	[ ! -d "$XIGMANAS_WORKINGDIR/pkg" ] && mkdir $XIGMANAS_WORKINGDIR/pkg
 	cd $XIGMANAS_WORKINGDIR
@@ -2381,7 +2388,7 @@ XigmaNAS® Build Environment
 ---------------------------
 
 1  - Update XigmaNAS® Source Files to CURRENT.
-2  - XigmaNAS® Compile Menu.
+2  - Select Compile Menu.
 10 - Create 'Embedded.img.xz' File. (Firmware Update)
 11 - Create 'LiveUSB.img.gz MBR' File. (Rawrite to USB Key)
 12 - Create 'LiveUSB.img.gz GPT' File. (Rawrite to USB Key)
@@ -2406,11 +2413,11 @@ Press # "
 		2)	build_system;;
 		10)	create_embedded;;
 		11)	create_usb;;
-		12) create_usb_gpt;;
+		12)	create_usb_gpt;;
 		13)	create_iso;;
 		14)	create_iso_tiny;;
 		15)	create_full;;
-		16) create_all_images;;
+		16)	create_all_images;;
 		17)	$XIGMANAS_SVNDIR/build/xigmanas-create-pot.sh;;
 		20)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpisd; fi;;
 		21)	if [ "arm" = ${XIGMANAS_ARCH} ]; then create_rpi2sd; fi;;
