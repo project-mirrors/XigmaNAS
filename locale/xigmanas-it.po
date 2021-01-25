@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-01-24 19:24+0000\n"
-"PO-Revision-Date: 2021-01-21 16:52+0000\n"
+"PO-Revision-Date: 2021-01-25 16:57+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-24 19:21+0000\n"
-"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
+"X-Launchpad-Export-Date: 2021-01-25 19:57+0000\n"
+"X-Generator: Launchpad (build e00fb96b2e64b75333d0178ec15cb78e5aadb64d)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -5497,7 +5497,7 @@ msgid "Flash File"
 msgstr "File flash"
 
 msgid "Folder Pattern"
-msgstr ""
+msgstr "Modello di cartella"
 
 msgid "Follow"
 msgstr "Segui"
@@ -5580,22 +5580,22 @@ msgid "Full Name"
 msgstr "Nome completo"
 
 msgid "Fully qualified file name of a custom GUI CSS file."
-msgstr ""
+msgstr "Nome completo di un file CSS contenente la GUI."
 
 msgid "Fully qualified file name of a custom file chooser CSS file."
-msgstr ""
+msgstr "Nome completo di un file CSS contente il selettore file."
 
 msgid "Fully qualified file name of a custom file manager CSS file."
-msgstr ""
+msgstr "Nome completo di un file CSS contente il file manager."
 
 msgid "Fully qualified file name of a custom login CSS file."
-msgstr ""
+msgstr "Nome completo di un file CSS contente il login."
 
 msgid "Fully qualified file name of a custom navigation bar CSS file."
-msgstr ""
+msgstr "Nome completo di un file CSS contente la barra di navigazione."
 
 msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
+msgstr "Nome completo di un file CSS contente la tabella."
 
 msgid "Function unavailable."
 msgstr "Funzione non disponibile"
@@ -5734,7 +5734,7 @@ msgid "Graph shows last 120 seconds"
 msgstr "Il grafico mostra l'ultima 120 secondi"
 
 msgid "Graph shows recent 120 seconds."
-msgstr ""
+msgstr "Il grafico mostra i 120 secondi più recenti."
 
 #, php-format
 msgid "Graph updates every %d seconds."
@@ -5867,7 +5867,7 @@ msgid "Hard Disk"
 msgstr "Disco fisso"
 
 msgid "Header Digest"
-msgstr ""
+msgstr "Header digest"
 
 msgid "Header and Data digest"
 msgstr "Digest dell'intestazione e dei dati"
@@ -5910,7 +5910,7 @@ msgid "Hide System Groups"
 msgstr "Nascondi sistemi gruppi"
 
 msgid "Hide System Users"
-msgstr ""
+msgstr "Nascondi gli utenti di sistema"
 
 msgid "High voltage boosting transfer point"
 msgstr "Punto di trasferimento boosting alta tensione"
@@ -5922,7 +5922,7 @@ msgid "High voltage trimming transfer point"
 msgstr "Punto di trasferimento trimmer alta tensione"
 
 msgid "Highlight View"
-msgstr ""
+msgstr "Vista evidenziata"
 
 msgid "Hint"
 msgstr "Suggerimento"
@@ -5995,7 +5995,7 @@ msgid "IG"
 msgstr "IG"
 
 msgid "INFO - log status messages"
-msgstr ""
+msgstr "INFO - log con messaggi di status"
 
 msgid "IP"
 msgstr "IP"
@@ -6031,7 +6031,7 @@ msgid "IPv4 DNS Servers"
 msgstr "Lista Server DNS IPv4"
 
 msgid "IPv4 Routes"
-msgstr ""
+msgstr "Percorsi IPv4"
 
 msgid "IPv4 Settings"
 msgstr "Impostazioni IPv4"
@@ -6067,7 +6067,7 @@ msgid "IPv6 Prefix"
 msgstr "Prefisso IPv6"
 
 msgid "IPv6 Routes"
-msgstr ""
+msgstr "Percorsi IPv6"
 
 msgid "IPv6 Settings"
 msgstr "Impostazioni IPv6"
@@ -6221,7 +6221,7 @@ msgid "Import on-disk ZFS config"
 msgstr "Importa la configurazione ZFS che risiede sui dischi."
 
 msgid "Import pool in read-only mode"
-msgstr ""
+msgstr "Importa il pool in sola lettura"
 
 msgid "Import using GPT ID"
 msgstr "Importa utilizzando GPT ID"
@@ -6521,7 +6521,7 @@ msgid "Invalid file format."
 msgstr "Formato file non valido."
 
 msgid "Invalid firmware file."
-msgstr ""
+msgstr "File del firmware non valido."
 
 msgid "Invalid login credentials."
 msgstr "Dati per l'accesso non validi."
@@ -6569,22 +6569,22 @@ msgstr ""
 "l'accesso alla WebGUI, inserire il nome utente qui."
 
 msgid "Item(s)"
-msgstr ""
+msgstr "Oggetto(i)"
 
 msgid "JBOD"
 msgstr "JBOD"
 
 msgid "JBOD Details"
-msgstr ""
+msgstr "Dettagli JBOD"
 
 msgid "JBOD Maintenance"
 msgstr "JBOD Maintenance"
 
 msgid "JBOD Status"
-msgstr ""
+msgstr "Status JBOD"
 
 msgid "JPG Image"
-msgstr ""
+msgstr "Immagine JPG"
 
 msgid "Jailed"
 msgstr "Jailed"
@@ -6596,13 +6596,13 @@ msgid "January"
 msgstr "Gennaio"
 
 msgid "Java Class File"
-msgstr ""
+msgstr "File Classe Java"
 
 msgid "Java Source File"
-msgstr ""
+msgstr "File sorgente Java"
 
 msgid "Javascript File"
-msgstr ""
+msgstr "File JavaScript"
 
 msgid "Job is locked"
 msgstr "L'attività è bloccata"
@@ -6642,7 +6642,7 @@ msgid "Key Management Protocol"
 msgstr "Protocollo di gestione della chiave"
 
 msgid "Keyboard-Interactive Authentication"
-msgstr ""
+msgstr "Autenticazione con tastiera interattiva"
 
 msgid "L2 Cache"
 msgstr "Cache L2"
@@ -6722,7 +6722,7 @@ msgid "LUN SCSI Name"
 msgstr "Nome SCSI LUN"
 
 msgid "LUN UUID"
-msgstr ""
+msgstr "LUN UUID"
 
 msgid "LUN Vendor"
 msgstr ""
@@ -6761,7 +6761,7 @@ msgid "Large Read/Write"
 msgstr "Estesa Lettura/Scrittura"
 
 msgid "Last month"
-msgstr ""
+msgstr "Scorso mese"
 
 msgid ""
 "Last test result as microseconds to discharge cap, saturated at its maximum "
@@ -6787,7 +6787,7 @@ msgstr ""
 "altrimento è settato a 100."
 
 msgid "Last week"
-msgstr ""
+msgstr "La settimana precedente"
 
 msgid "Latency"
 msgstr "Latenza"
@@ -6857,7 +6857,7 @@ msgid "Limits the amount of space a dataset can consume."
 msgstr "Limitare l'ammontare di spazio che un dataset può consumare."
 
 msgid "Link"
-msgstr ""
+msgstr "Collegamento"
 
 msgid "Link Down Action"
 msgstr "Azione di scollegamento"
@@ -6931,7 +6931,7 @@ msgstr ""
 "Carico dell'UPS al quale commutare alla condizione di sovraccarico (\"OVER\")"
 
 msgid "Load:"
-msgstr ""
+msgstr "Carico:"
 
 msgid "Loadbalance"
 msgstr "Bilanciamento del carico"
@@ -7034,7 +7034,7 @@ msgid "Login"
 msgstr "Login"
 
 msgid "Login Name"
-msgstr ""
+msgstr "Nome per accesso"
 
 msgid "Login for CHAP authentication."
 msgstr ""
@@ -14585,6 +14585,3 @@ msgstr "stato assegnato a"
 
 msgid "yes"
 msgstr "sì"
-
-#~ msgid "Highlighting"
-#~ msgstr "Evidenziazione"
