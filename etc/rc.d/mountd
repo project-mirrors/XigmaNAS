@@ -28,7 +28,6 @@ rcvar="mountd_enable"
 command="/usr/sbin/${name}"
 pidfile="/var/run/${name}.pid"
 mountd_config=${mountd_config:-"/var/etc/exports"}
-required_files="${mountd_config}"
 start_precmd="mountd_precmd"
 reload_precmd="mountd_prereload"
 mkconf_cmd="mountd_mkconf"
@@ -171,8 +170,5 @@ mountd_prereload()
 	mountd_mkconf
 }
 
-if [ ! -e ${mountd_config} ]; then
-	mountd_mkconf
-fi
 load_rc_config $name
 run_rc_command "$1"
