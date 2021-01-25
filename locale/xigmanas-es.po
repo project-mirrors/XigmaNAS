@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-01-24 19:24+0000\n"
-"PO-Revision-Date: 2021-01-02 00:07+0000\n"
+"PO-Revision-Date: 2021-01-25 12:25+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-24 19:21+0000\n"
-"X-Generator: Launchpad (build 2d1d5e352f0d063d660df2300e31f66bed027fa5)\n"
+"X-Launchpad-Export-Date: 2021-01-25 19:57+0000\n"
+"X-Generator: Launchpad (build e00fb96b2e64b75333d0178ec15cb78e5aadb64d)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -5917,7 +5917,7 @@ msgid "High voltage trimming transfer point"
 msgstr "Ajuste del punto de conmutación para alta tensión."
 
 msgid "Highlight View"
-msgstr ""
+msgstr "Vista resaltada."
 
 msgid "Hint"
 msgstr "Sugerencia"
@@ -6848,6 +6848,7 @@ msgstr "Lightweight Directory Access Protocol"
 
 msgid "Limit the maximum number of CPUs to be displayed on the home page."
 msgstr ""
+"Limita el número de CPU's que serán mostradas en la página de inicio."
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -8114,7 +8115,7 @@ msgid "Not attached"
 msgstr "Sin agregar"
 
 msgid "Not available"
-msgstr ""
+msgstr "No disponible"
 
 msgid "Note"
 msgstr "Nota"
@@ -8690,7 +8691,7 @@ msgid "Please check the log files"
 msgstr "Por favor revise los logs"
 
 msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr ""
+msgstr "Entrar un número entre 0 y 255 o dejar este campo vacío."
 
 msgid "Please read the documentation"
 msgstr "Por favor, lea la documentación."
@@ -10410,7 +10411,7 @@ msgid "Session Type"
 msgstr "Tipo de sesión"
 
 msgid "Set"
-msgstr ""
+msgstr "Establecer"
 
 msgid "Set UID"
 msgstr "Asignar UID"
@@ -10676,7 +10677,7 @@ msgid "Show Log Entries"
 msgstr "Mostrar entradas del log"
 
 msgid "Show Max CPUs"
-msgstr ""
+msgstr "Mostrar número máximo CPU's"
 
 msgid "Show Process Information"
 msgstr "Mostar información de los procesos"
@@ -14773,6 +14774,3 @@ msgstr "fue asignado a"
 
 msgid "yes"
 msgstr "si"
-
-#~ msgid "Highlighting"
-#~ msgstr "Resaltar"
