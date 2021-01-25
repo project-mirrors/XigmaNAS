@@ -589,7 +589,7 @@ create_mfsroot() {
 
 	#mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 	#chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	gzip -9kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	gzip -8kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	if [ "arm" = ${XIGMANAS_ARCH} ]; then
 		mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mdlocal
 	fi
@@ -620,7 +620,7 @@ update_mfsroot() {
 	cd $XIGMANAS_WORKINGDIR
 	#mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 	#chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	gzip -9kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	gzip -8kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	#xz -8kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	return 0
@@ -636,7 +636,7 @@ copy_kmod() {
 			continue;
 		fi
 		b=`basename ${f}`
-		#(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -9 $XIGMANAS_TMPDIR/boot/kernel/${b})
+		#(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -8 $XIGMANAS_TMPDIR/boot/kernel/${b})
 		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
 	done
 	return 0;
@@ -1226,7 +1226,7 @@ create_usb () {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	echo "Generating SHA512 CHECKSUM File"
 	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
@@ -1452,7 +1452,7 @@ create_usb_gpt() {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -9n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	echo "Generating SHA512 CHECKSUM File"
 	XIGMANAS_CHECKSUMFILENAME="${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}.SHA512-CHECKSUM"
@@ -2375,9 +2375,9 @@ main() {
 	cd $XIGMANAS_WORKINGDIR
 
 	echo -n "
---------------------------
-${XIGMANAS_PRODUCTNAME} Build Environment
---------------------------
+---------------------------
+XigmaNAS® Build Environment
+---------------------------
 
 1  - Update XigmaNAS® Source Files to CURRENT.
 2  - XigmaNAS® Compile Menu.
@@ -2394,6 +2394,7 @@ ${XIGMANAS_PRODUCTNAME} Build Environment
 	fi
 	echo -n "
 16 - Create all release images at once.
+"-----------------------------------------------------------"
 17 - Create 'xigmanas.pot' file from Source files.
 *  - Exit.
 
