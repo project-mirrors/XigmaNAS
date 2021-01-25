@@ -49,22 +49,22 @@ export BOOT_LOWMEM
 export BOOT_LIVECD
 #/bin/kenv -q boot_lowmem=${BOOT_LOWMEM} > /dev/null
 
-# Max wait retries in secs for a platform to be ready.
-RETRY=0
-RETRY_MAX=15
-
 platform_wait() {
-	# Wait for the platform device/label to be ready before halt.
-	if ! /sbin/glabel status -s | /usr/bin/grep -q "${BOOT_PLATFORM}"; then
-		if [ "${RETRY}" -eq "${RETRY_MAX}" ]; then
+	local _retry _retry_zzz retry_loops
+
+	_retry=0
+#	Wait interval
+	_retry_zzz=5
+#	Max retries for platform to become ready
+	_retry_loops=15
+#	Wait for the platform device/label to be ready before halt.
+	while ! /sbin/glabel status -s | /usr/bin/grep -q "${BOOT_PLATFORM}"; do
+		if [ "${_retry}" -ge "${_retry_loops}" ]; then
 			echo "Waiting for ${BOOT_PLATFORM} retries exhausted!"
 			sleep 30; halt
 		fi
-		RETRY=$(/bin/expr ${RETRY} + 1); sleep 1
-		platform_wait
-	else
-		/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
-	fi
+		_retry=$(/bin/expr ${_retry} + 1); sleep ${_retry_zzz}
+	done
 }
 
 case ${PLATFORM} in
@@ -87,6 +87,7 @@ case ${PLATFORM} in
 			*-liveUSB)
 				BOOT_PLATFORM="ufs/liveboot"
 				platform_wait
+				/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
 				# To deal with "the secondary GPT header is not in the last LBA."
 				SYSUFS=$(glabel status -s | grep -q "ufs\/liveboot"; echo $?)
 				GPTUSB=$(glabel status -s | awk '/gpt\/usbsysdisk/{print $3}' | tr -d 'p3')
@@ -139,6 +140,7 @@ case ${PLATFORM} in
 			*-embedded)
 				BOOT_PLATFORM="embboot"
 				platform_wait
+				/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
 				root=$(/sbin/glabel status -s | /usr/bin/awk '/embboot/{print $3;exit 0}')
 				gptswap=$(/sbin/glabel status -s | /usr/bin/awk '/gptswap/{print $3;exit 0}')
 				if [ -z "${root}" ]; then
@@ -185,6 +187,7 @@ case ${PLATFORM} in
 				BOOT_LIVECD=1
 				BOOT_PLATFORM="LiveCD"
 				platform_wait
+				/bin/echo "Creating 2nd memory disk for ${PLATFORM}"
 				root=$(/sbin/glabel status -s | /usr/bin/awk '/LiveCD/{print $3;exit 0}')
 				if [ -z "${root}" ]; then
 					echo "can't determine rootfs"
