@@ -171,5 +171,8 @@ mountd_prereload()
 	mountd_mkconf
 }
 
+if [ ! -e ${mountd_config} ]; then
+	mountd_mkconf
+fi
 load_rc_config $name
 run_rc_command "$1"
