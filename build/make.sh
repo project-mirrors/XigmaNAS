@@ -104,8 +104,10 @@ if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_IMG_SIZE=480
 fi
 
-# Set compression level from 1 to 9; 1 offers the fastest compression speed but at a lower ratio, and 9 offers the highest compression ratio but at a lower speed.
+#	Set compression level from 1 to 9 
+#	1 offers the fastest compression speed but at a lower ratio, and 9 offers the highest compression ratio but at a lower speed.
 XIGMANAS_COMPLEVEL=8
+XIGMANAS_KERNCOMPLEVEL=9
 
 XIGMANAS_XMD_SEGLEN=32768
 #	XIGMANAS_XMD_SEGLEN=65536
@@ -370,7 +372,7 @@ build_kernel() {
 #				Compiling and compressing the kernel.
 				cd /usr/src;
 				env MAKEOBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX} make -j2 buildkernel KERNCONF=${XIGMANAS_KERNCONF};
-				gzip -9cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
+				gzip -${XIGMANAS_KERNCOMPLEVEL}cnv ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/kernel > ${XIGMANAS_WORKINGDIR}/kernel.gz;;
 			install)
 #				Installing the modules.
 				echo "--------------------------------------------------------------";
