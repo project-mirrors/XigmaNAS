@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -102,7 +103,7 @@ $document->render();
 			<tr>
 				<td class="celltag"><?=gtext('Information & Status');?></td>
 				<td class="celldata">
-					<pre><span id="zfs_snapshot_list"><?=zfs_get_snapshot_list($entity_name);?></span></pre>
+					<pre class="cmdoutput"><span id="zfs_snapshot_list"><?=zfs_get_snapshot_list($entity_name);?></span></pre>
 				</td>
 			</tr>
 		</tbody>
@@ -126,7 +127,7 @@ $document->render();
 			<tr>
 				<td class="celltag"><?=gtext('Properties');?></td>
 				<td class="celldata">
-					<pre><span id="zfs_snapshot_properties"><?=zfs_get_snapshot_properties($entity_name);?></span></pre>
+					<pre class="cmdoutput"><span id="zfs_snapshot_properties"><?=zfs_get_snapshot_properties($entity_name);?></span></pre>
 				</td>
 			</tr>
 		<tbody>
@@ -134,4 +135,3 @@ $document->render();
 </td></tr></tbody></table>
 <?php
 include 'fend.inc';
-?>
