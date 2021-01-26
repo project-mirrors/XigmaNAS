@@ -19,6 +19,7 @@ load_rc_config "${name}"
 
 # Defaults
 msmtp_config=${msmtp_config:-"/var/etc/msmtp.conf"}
+msmtp_tlstrustfile=${msmtp_tlstrustfile:-"/usr/local/share/certs/ca-root-nss.crt"}
 msmtprc=${msmtprc:-"/usr/local/etc/msmtprc"}
 
 # Create msmtp.conf configuration
@@ -61,7 +62,7 @@ msmtprc=${msmtprc:-"/usr/local/etc/msmtprc"}
 		--break \
 		--if "count(//system/email/tls_certcheck) > 0" \
 			--if "count(//system/email/tls_use_default_trust_file) > 0" \
-				-o "tls_trust_file /usr/local/etc/ssl/cert.pem" -n \
+				-o "tls_trust_file ${msmtp_tlstrustfile}" -n \
 			--elif "string-length(//system/email/tls_trust_file) > 0" \
 				-v "concat('tls_trust_file ',//system/email/tls_trust_file)" -n \
 			--break \
