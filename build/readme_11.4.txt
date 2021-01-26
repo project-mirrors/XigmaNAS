@@ -147,9 +147,9 @@ Changes:
 - Upgrade nano to 5.5.
 - Upgrade dialog to 1.3-20210117.
 - Upgrade nut to 2021.01.08.
-- Upgrade sudo to 1.9.5p1.
 - Upgrade mDNSResponder to 1096.60.2.
 - Upgrade dmidecode to 3.3.
+- Upgrade sudo to 1.9.5p2.
 
 Fixes:
 - Fix only first lagg member is brought up.
