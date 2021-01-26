@@ -103,8 +103,8 @@ if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_MDLOCAL_MINI_SIZE=40
 	XIGMANAS_IMG_SIZE=480
 fi
-#	xz9->673MB/64MB, 8->369MB/32MB, 7->185MB/16MB, 6->93MB/8MB, 5->47MB/4MB
-#	4->24MB/2.1MB, 3->12.6MB/1.1MB, 2->4.8MB/576KB, 1->1.4MB/128KB
+
+# Set compression level from 1 to 9; 1 offers the fastest compression speed but at a lower ratio, and 9 offers the highest compression ratio but at a lower speed.
 XIGMANAS_COMPLEVEL=8
 
 XIGMANAS_XMD_SEGLEN=32768
@@ -583,7 +583,7 @@ create_mfsroot() {
 #	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 #	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
 	echo "Compressing mfsroot"
-	gzip -8kfnv $XIGMANAS_WORKINGDIR/mfsroot
+	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	echo "Compressing mdlocal"
 	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
@@ -612,8 +612,8 @@ update_mfsroot() {
 	cd $XIGMANAS_WORKINGDIR
 #	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
 #	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
-	gzip -8kfnv $XIGMANAS_WORKINGDIR/mfsroot
-#	xz -8kv $XIGMANAS_WORKINGDIR/mdlocal
+	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
+#	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	return 0
 }
@@ -628,16 +628,16 @@ copy_kmod() {
 			continue;
 		fi
 		b=`basename ${f}`
-#		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -8 $XIGMANAS_TMPDIR/boot/kernel/${b})
+#		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b}; gzip -${XIGMANAS_COMPLEVEL} $XIGMANAS_TMPDIR/boot/kernel/${b})
 		(cd ${XIGMANAS_OBJDIRPREFIX}/usr/src/amd64.amd64/sys/${XIGMANAS_KERNCONF}/modules/usr/src/sys/modules; install -v -o root -g wheel -m 555 ${f} $XIGMANAS_TMPDIR/boot/kernel/${b})
 	done
 	return 0;
 }
 
 create_image() {
-	echo "--------------------------------------------------------------"
-	echo ">>> Generating ${XIGMANAS_PRODUCTNAME} IMG File (to be rawrite on CF/USB/HD/SSD)"
-	echo "--------------------------------------------------------------"
+	echo "------------------------------------------------------------------"
+	echo ">>> Generating ${XIGMANAS_PRODUCTNAME} image File (to be rawrite on CF/USB/HD/SSD)"
+	echo "------------------------------------------------------------------"
 
 #	Check if rootfs (containing OS image) exists.
 	if [ ! -d "$XIGMANAS_ROOTFS" ]; then
@@ -666,7 +666,7 @@ create_image() {
 	mkdir $XIGMANAS_TMPDIR
 	create_mfsroot;
 
-	echo "===> Creating Empty IMG File"
+	echo "===> Creating Empty image File"
 #	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=${XIGMANAS_IMG_SECTS}b count=`expr ${XIGMANAS_IMG_SIZE_SEC} / ${XIGMANAS_IMG_SECTS} + 64`
 	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=512 seek=`expr ${XIGMANAS_IMG_SIZE_SEC}` count=0
 	echo "===> Use IMG as a memory disk"
@@ -828,7 +828,6 @@ create_iso () {
 
 #	Set Revision.
 	echo ${XIGMANAS_REVISION} > ${XIGMANAS_ROOTFS}/etc/prd.revision
-
 	echo "ISO: Generating temporary folder '$XIGMANAS_TMPDIR'"
 	mkdir $XIGMANAS_TMPDIR
 	if [ $TINY_ISO ]; then
@@ -935,11 +934,11 @@ create_iso () {
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
 	if [ ! $TINY_ISO ]; then
-		echo "ISO: Copying IMG file to $XIGMANAS_TMPDIR"
+		echo "ISO: Copying image file to $XIGMANAS_TMPDIR"
 		cp ${XIGMANAS_WORKINGDIR}/image.bin.xz ${XIGMANAS_TMPDIR}/${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-embedded.xz
 	fi
 
-	echo "ISO: Generating ISO File"
+	echo "ISO: Generating $XIGMANAS_PRODUCTNAME ISO File"
 	if [ "${OPT_EFIBOOT_SUPPORT}" = 0 ]; then
 #		Generate standard iso file.
 		mkisofs -b "boot/cdboot" -no-emul-boot -r -J -A "${XIGMANAS_PRODUCTNAME} CD-ROM image" -publisher "${XIGMANAS_URL}" -V "${VOLUMEID}" -o "${XIGMANAS_ROOTDIR}/${LABEL}.iso" ${XIGMANAS_TMPDIR}
@@ -1012,7 +1011,7 @@ create_usb () {
 	[ -f ${XIGMANAS_WORKINGDIR}/usb-image.bin ] && rm -f ${XIGMANAS_WORKINGDIR}/usb-image.bin
 	[ -f ${XIGMANAS_WORKINGDIR}/usb-image.bin.gz ] && rm -f ${XIGMANAS_WORKINGDIR}/usb-image.bin.gz
 
-	echo "USB: Generating the $XIGMANAS_PRODUCTNAME Image file for MBR:"
+	echo "USB: Start generating the $XIGMANAS_PRODUCTNAME Image file for MBR:"
 	create_image;
 
 #	Set Platform Informations.
@@ -1099,7 +1098,7 @@ create_usb () {
 	gpart set -a active -i 1 ${md}
 	gpart bootcode -b ${XIGMANAS_BOOTDIR}/mbr ${md}
 
-#	 s1 (UFS/SYSTEM)
+#	s1 (UFS/SYSTEM)
 	gpart create -s bsd ${md}s1
 	gpart bootcode -b ${XIGMANAS_BOOTDIR}/boot ${md}s1
 	gpart add -a 4m -s ${USBROOTM}m -t freebsd-ufs ${md}s1
@@ -1219,7 +1218,7 @@ create_usb () {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	gzip -${XIGMANAS_COMPLEVEL}n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	create_checksum_file;
 
@@ -1442,7 +1441,7 @@ create_usb_gpt() {
 	mdconfig -d -u ${md}
 	cp $XIGMANAS_WORKINGDIR/usb-image.bin $XIGMANAS_ROOTDIR/$IMGFILENAME
 	echo "Compress LiveUSB.img to LiveUSB.img.gz"
-	gzip -8n $XIGMANAS_ROOTDIR/$IMGFILENAME
+	gzip -${XIGMANAS_COMPLEVEL}n $XIGMANAS_ROOTDIR/$IMGFILENAME
 
 	create_checksum_file;
 
@@ -1464,11 +1463,10 @@ create_usb_gpt() {
 create_full() {
 	[ -d $XIGMANAS_SVNDIR ] && use_svn ;
 
-	# Set archive extension
-	# Set between tgz and txz
+#	Set archive format tgz or txz
 	EXTENSION="txz"
 
-	echo "FULL: Generating $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
+	echo "FULL: Start generating the $XIGMANAS_PRODUCTNAME-x64-full.${EXTENSION} image file"
 
 #	Set platform information.
 	PLATFORM="${XIGMANAS_XARCH}-full"
@@ -1619,12 +1617,12 @@ create_all_images() {
 	echo "Generating all $XIGMANAS_PRODUCTNAME release images at once...."
 	echo
 
-	# List of the images to be generated, comment to disable.
+#	List of the images to be generated, comment to disable.
 	create_embedded
 	create_usb
 	create_usb_gpt
 	create_iso
-	#create_iso_tiny
+#	create_iso_tiny
 	create_full
 
 	echo "All $XIGMANAS_PRODUCTNAME release images created successfully!"
