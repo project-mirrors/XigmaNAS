@@ -121,7 +121,6 @@ Changes:
 - WebGUI code & framework improvements.
 - Update translations.
 - Upgrade jQuery to 3.5.1.
-- Upgrade mDNSResponder to 1096.40.7.
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade mariadb to 10.5.
 - Upgrade virtualbox-ose to 5.2.44.
@@ -149,6 +148,7 @@ Changes:
 - Upgrade dialog to 1.3-20210117.
 - Upgrade nut to 2021.01.08.
 - Upgrade sudo to 1.9.5p1.
+- Upgrade mDNSResponder to 1096.60.2.
 
 Fixes:
 - Fix only first lagg member is brought up.
