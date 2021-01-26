@@ -299,7 +299,7 @@ $document->render();
 			html_checkbox2('security',gettext('Use TLS'),!empty($pconfig['security']),gettext('Enable SSL/TLS for secured connections. You also need to configure the TLS trust file. For some servers you may need to disable STARTTLS.'),'',false);
 			html_checkbox2('starttls',gettext('Enable STARTTLS'),!empty($pconfig['starttls']),gettext('Start TLS from within the session.'),'',false);
 			html_checkbox2('tls_certcheck',gettext('TLS Server Certificate Check'),!empty($pconfig['tls_certcheck']),gettext('Enable checks of the server certificate.'),'',false);
-			html_checkbox2('tls_use_default_trust_file',gettext('Use Default TLS Trust File'),!empty($pconfig['tls_use_default_trust_file']),gettext('Use default TLS trust file /usr/local/etc/ssl/cert.pem.'),'',false);
+			html_checkbox2('tls_use_default_trust_file',gettext('Use Default TLS Trust File'),!empty($pconfig['tls_use_default_trust_file']),gettext('Use default TLS trust file.'),'',false);
 			html_filechooser2('tls_trust_file',gettext('TLS Trust File'),$pconfig['tls_trust_file'],gettext('The name of the TLS trust file. The file must be in PEM format containing one or more certificates of trusted Certification Authorities (CAs).'),$g['media_path'],false,60);
 			html_inputbox2('tls_fingerprint',gettext('TLS Fingerprint'),$pconfig['tls_fingerprint'],gettext('Set the fingerprint of a single certificate to accept for TLS.'),false,60);
 			html_filechooser2('tls_crl_file',gettext('TLS CRL File'),$pconfig['tls_crl_file'],gettext('Certificate revocation list (CRL) file for TLS, to check for revoked certificates.'),$g['media_path'],false,60);
