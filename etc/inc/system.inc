@@ -617,16 +617,16 @@ function system_get_device_temp(string $devicespecialfile): ?string {
 			return $result;
 		endif;
 	endif;
-	if(empty($_SESSION[$devicespecialfile]['temp']['value'])):
+	if(empty($_SESSION['dev'][$devicespecialfile]['temp']['value'])):
 //		devicespecialfile hasn't been queried yet
 		$run_cmd = true;
-	elseif((time() - $_SESSION[$devicespecialfile]['temp']['timestamp']) > $timeout):
+	elseif((time() - $_SESSION['dev'][$devicespecialfile]['temp']['timestamp']) > $timeout):
 //		devicespecialfile last query has expired
 		$run_cmd = true;
 	else:
 //		report cached temperature
 		$run_cmd = false;
-		$result = $_SESSION[$devicespecialfile]['temp']['value'];
+		$result = $_SESSION['dev'][$devicespecialfile]['temp']['value'];
 	endif;
 	if($run_cmd):
 		$cfg_disks = array_make_branch($config,'disks','disk');
@@ -659,8 +659,8 @@ function system_get_device_temp(string $devicespecialfile): ?string {
 					break;
 				endif;
 			endforeach;
-			$_SESSION[$devicespecialfile]['temp']['value'] = $result;
-			$_SESSION[$devicespecialfile]['temp']['timestamp'] = time();
+			$_SESSION['dev'][$devicespecialfile]['temp']['value'] = $result;
+			$_SESSION['dev'][$devicespecialfile]['temp']['timestamp'] = time();
 		endif;
 	endif;
 	return $result;
