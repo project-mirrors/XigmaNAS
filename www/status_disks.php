@@ -37,10 +37,17 @@ require_once 'co_sphere.php';
 
 function get_sphere_status_disks() {
 	global $config;
+
 	$sphere = new co_sphere_row('status_disks','php');
 	return $sphere;
 }
-function status_disks_render($root = NULL) {
+/**
+ *	Render details of this page
+ *	@global array $config
+ *	@param co_DOMDocument $root
+ *	@return \co_DOMDocument
+ */
+function status_disks_render($root = null) {
 	global $config;
 
 	if(isset($root)):
@@ -58,28 +65,22 @@ function status_disks_render($root = NULL) {
 	else:
 		array_sort_key($a_disk_conf,'name');
 	endif;
-	$raidstatus = get_sraid_disks_list();
 	foreach($a_disk_conf as $disk):
 		$iostat_value = system_get_device_iostat($disk['name']);
-		$iostat_available = (false !== $iostat_value);
-		if($iostat_available):
-			$gt_iostat = sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
+		if($iostat_value !== false):
+			$gt_iostat = sprintf('%s KiB/t, %s tps, %s MiB/s',$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
 		else:
 			$gt_iostat = gettext('n/a');
 		endif;
 		$temp_value = system_get_device_temp($disk['devicespecialfile']);
-		$temp_available = (false !== $temp_value);
-		if($temp_available):
-			$gt_temp = sprintf("%s °C",$temp_value);
-		endif;
 		$gt_name = $disk['name'];
 		if($disk['type'] == 'HAST'):
 			$role = $a_phy_hast[$disk['name']]['role'];
 			$gt_size = $a_phy_hast[$disk['name']]['size'];
-			$gt_status = sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING'),$role);
+			$gt_status = sprintf('%s (%s)',(disks_exists($disk['devicespecialfile']) == 0) ? gettext('ONLINE') : gettext('MISSING'),$role);
 		else:
 			$gt_size = $disk['size'];
-			$gt_status = (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING');
+			$gt_status = (disks_exists($disk['devicespecialfile']) == 0) ? gettext('ONLINE') : gettext('MISSING');
 		endif;
 		$gt_model = $disk['model'];
 		$gt_description = empty($disk['desc']) ? gettext('n/a') : $disk['desc'];
@@ -94,7 +95,10 @@ function status_disks_render($root = NULL) {
 			insTDwC('lcell',$gt_serial)->
 			insTDwC('lcell',$gt_fstype)->
 			insTDwC('lcell',$gt_iostat);
-		if($temp_available):
+		if(is_null($temp_value)):
+			$tr->insTDwC('lcell',gettext('n/a'));
+		else:
+			$gt_temp = sprintf('%s °C',$temp_value);
 			if(!empty($pconfig['temp_crit']) && $temp_value >= $pconfig['temp_crit']):
 				$tr->addTDwC('lcell')->addDIV(['class'=> 'errortext'],$gt_temp);
 			elseif(!empty($pconfig['temp_info']) && $temp_value >= $pconfig['temp_info']):
@@ -102,24 +106,18 @@ function status_disks_render($root = NULL) {
 			else:
 				$tr->insTDwC('lcell',$gt_temp);
 			endif;
-		else:
-			$tr->insTDwC('lcell',gettext('n/a'));
 		endif;
 		$tr->insTDwC('lcebld',$gt_status);
 	endforeach;
+	$raidstatus = get_sraid_disks_list();
 	foreach($raidstatus as $diskk => $diskv):
 		$iostat_value = system_get_device_iostat($diskk);
-		$iostat_available = (false !== $iostat_value);
-		if($iostat_available):
+		if($iostat_value !== false):
 			$gt_iostat = sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
 		else:
 			$gt_iostat = gettext('n/a');
 		endif;
 		$temp_value = system_get_device_temp($disk['devicespecialfile']);
-		$temp_available = (false !== $temp_value);
-		if($temp_available):
-			$gt_temp = sprintf("%s °C",$temp_value);
-		endif;
 		$gt_name = $diskk;
 		$gt_size = $diskv['size'];
 		$gt_model = gettext('n/a');
@@ -136,7 +134,10 @@ function status_disks_render($root = NULL) {
 			insTDwC('lcell',$gt_serial)->
 			insTDwC('lcell',$gt_fstype)->
 			insTDwC('lcell',$gt_iostat);
-		if($temp_available):
+		if(is_null($temp_value)):
+			$tr->insTDwC('lcell',gettext('n/a'));
+		else:
+			$gt_temp = sprintf("%s °C",$temp_value);
 			if(!empty($pconfig['temp_crit']) && $temp_value >= $pconfig['temp_crit']):
 				$tr->addTDwC('lcell')->addDIV(['class'=> 'errortext'],$gt_temp);
 			elseif(!empty($pconfig['temp_info']) && $temp_value >= $pconfig['temp_info']):
@@ -144,8 +145,6 @@ function status_disks_render($root = NULL) {
 			else:
 				$tr->insTDwC('lcell',$gt_temp);
 			endif;
-		else:
-			$tr->insTDwC('lcell',gettext('n/a'));
 		endif;
 		$tr->insTDwC('lcebld',$gt_status);
 	endforeach;

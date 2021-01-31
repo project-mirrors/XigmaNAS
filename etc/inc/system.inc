@@ -594,38 +594,67 @@ function system_get_device_iostat($device) {
 
 /**
  *	Get device temperature.
- *	@param[in] device	The device name, e.g. ad1
- *	@return	The temperature in C if available, otherwise false.
+ *	@global array $config
+ *	@param string $devicespecialfile The device name
+ *	@return	string|null The temperature if available, otherwise null.
  */
-function system_get_device_temp($devicespecialfile) {
+function system_get_device_temp(string $devicespecialfile): ?string {
 	global $config;
-	global $config_disks;
 
-	$result = false;
-//	without smart
-	$cmd = sprintf("ataidle %s 2>/dev/null | grep 'SMART Enabled'",$devicespecialfile);
-	mwexec2($cmd,$rawdata);
-	if(!empty($rawdata) && 1 === preg_match("/^SMART Enabled:\s+(\S+)/",$rawdata[0],$matches)):
+//	define the timeout for smartctl queries
+	$timeout = 60;
+	$result = null;
+//	check with ataidle if S.M.A.R.T. is disabled
+	$params = ['ataidle'];
+	$params[] = escapeshellarg($devicespecialfile);
+	$params[] = '2>/dev/null | grep "SMART Enabled"';
+	$cmd = implode(' ',$params);
+	unset($raw_ataidle);
+	mwexec2($cmd,$raw_ataidle);
+	if(!empty($raw_ataidle) && (preg_match('/^SMART Enabled:\s+(\S+)/',$raw_ataidle[0],$matches) === 1)):
 		if(strcasecmp($matches[1],'no') == 0):
-//			S.M.A.R.T. disabled
+//			nothing to do when S.M.A.R.T. is disabled
 			return $result;
 		endif;
 	endif;
-	if(empty($_SESSION[$devicespecialfile]['temp']['value']) or time() - $_SESSION[$devicespecialfile]['temp']['timestamp'] > 120):
-		if(array_key_exists($devicespecialfile,$config_disks)):
-			$type_arg = '';
-			if(!empty($config_disks[$devicespecialfile]['smart']['devicetypearg'])):
-				$type_arg = sprintf('-d %s ',$config_disks[$devicespecialfile]['smart']['devicetypearg']);
-			endif;
-//			get temperature from S.M.A.R.T.
+	if(empty($_SESSION[$devicespecialfile]['temp']['value'])):
+//		devicespecialfile hasn't been queried yet
+		$run_cmd = true;
+	elseif((time() - $_SESSION[$devicespecialfile]['temp']['timestamp']) > $timeout):
+//		devicespecialfile last query has expired
+		$run_cmd = true;
+	else:
+//		report cached temperature
+		$run_cmd = false;
+		$result = $_SESSION[$devicespecialfile]['temp']['value'];
+	endif;
+	if($run_cmd):
+		$cfg_disks = array_make_branch($config,'disks','disk');
+		$index = array_search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
+		if($index !== false):
+			$cfg_disk = $cfg_disks[$index];
+//			compile smartctl command
+			$params = ['smartctl'];
 			$smartd_drivedb_arg = get_smartmontools_drivedb_arg();
-			mwexec2('smartctl ' . $smartd_drivedb_arg . '-A ' . $type_arg . escapeshellarg($config_disks[$devicespecialfile]['smart']['devicefilepath']) . " | grep -i 'Temperature'" ,$rawdata);
-			foreach($rawdata as $rawdatav):
-				$arawdatav = preg_split("/\s+/",$rawdatav);
-				if(!empty($arawdatav[1]) && ((0 == strncmp(trim($arawdatav[1]),"Temperature_",12)) || (0 == strncmp(trim($arawdatav[1]),"Airflow_Temperature_",20))) && ((0 != strcmp(trim($arawdatav[0]),'190')) || (0 != strcmp(trim($arawdatav[0]),'194')) )):
+			if(!empty($smartd_drivedb_arg)):
+				$params[] = trim($smartd_drivedb_arg);
+			endif;
+			$params[] = '-A';
+			if(!empty($cfg_disk['smart']['devicetypearg'])):
+				$params[] = '-d';
+				$params[] = $cfg_disk['smart']['devicetypearg'];
+			endif;
+			$params[] = escapeshellarg($cfg_disk['smart']['devicefilepath']);
+			$params[] = '| grep -i temperature';
+			$cmd = implode(' ',$params);
+			unset($raw_smartctl);
+			mwexec2($cmd,$raw_smartctl);
+			foreach($raw_smartctl as $raw_smartctl_row):
+				$arawdatav = preg_split('/\s+/',$raw_smartctl_row);
+				if(!empty($arawdatav[1]) && ((strncmp(trim($arawdatav[1]),'Temperature_',12) == 0) || (strncmp(trim($arawdatav[1]),'Airflow_Temperature_',20) == 0)) && ((strcmp(trim($arawdatav[0]),'190') != 0) || (strcmp(trim($arawdatav[0]),'194') != 0))):
 					$result = rtrim($arawdatav[9]);
 					break;
-				elseif(preg_match("/Current Drive Temperature:\s+(\d+) C.*/",$rawdatav,$matches)):
+				elseif(preg_match('/Current Drive Temperature:\s+(\d+) C.*/',$raw_smartctl_row,$matches) === 1):
 					$result = $matches[1];
 					break;
 				endif;
@@ -633,9 +662,6 @@ function system_get_device_temp($devicespecialfile) {
 			$_SESSION[$devicespecialfile]['temp']['value'] = $result;
 			$_SESSION[$devicespecialfile]['temp']['timestamp'] = time();
 		endif;
-		return $result;
-	else:
-		return $_SESSION[$devicespecialfile]['temp']['value'];
 	endif;
 	return $result;
 }
