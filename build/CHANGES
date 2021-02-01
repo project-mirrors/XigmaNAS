@@ -1,7 +1,7 @@
 XigmaNAS® 12.2.0.4 - Ornithopter
 --------------------------------
 Changes:
-- Upgrade to FreeBSD 12.2-RELEASE P2.
+- Upgrade to FreeBSD 12.2-RELEASE P3.
 - Upgrade bash to 5.1 p4.
 - Upgrade samba to 4.13.1.
 - Upgrade lighttpd to 1.4.58.
