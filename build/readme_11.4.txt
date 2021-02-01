@@ -137,7 +137,6 @@ Changes:
 - Upgrade samba to 4.13.1.
 - Upgrade lighttpd to 1.4.58.
 - Upgrade arcconf to 3_04_23699.
-- Upgrade zoneinfo to 2020f.
 - Upgrade msmtp to 1.8.14.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
@@ -150,6 +149,7 @@ Changes:
 - Upgrade mDNSResponder to 1096.60.2.
 - Upgrade dmidecode to 3.3.
 - Upgrade sudo to 1.9.5p2.
+- Upgrade zoneinfo to 2021a.
 
 Fixes:
 - Fix only first lagg member is brought up.
