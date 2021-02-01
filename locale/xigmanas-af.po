@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-26 23:16+0000\n"
+"X-Launchpad-Export-Date: 2021-02-01 13:05+0000\n"
 "X-Generator: Launchpad (build e00fb96b2e64b75333d0178ec15cb78e5aadb64d)\n"
 
 msgid " No private key"
@@ -14708,6 +14708,3 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Use default TLS trust file /usr/local/etc/ssl/cert.pem."
-#~ msgstr "Gebruik verstek TLS trust lêer /usr/local/etc/ssl/cert.pem."

@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-01-26 23:58+0000\n"
-"PO-Revision-Date: 2021-01-10 12:11+0000\n"
+"PO-Revision-Date: 2021-01-31 14:58+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-01-26 23:17+0000\n"
+"X-Launchpad-Export-Date: 2021-02-01 13:04+0000\n"
 "X-Generator: Launchpad (build e00fb96b2e64b75333d0178ec15cb78e5aadb64d)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -5885,7 +5885,7 @@ msgid "High voltage trimming transfer point"
 msgstr "Верхня межа напруги для режиму зниження (trimming)"
 
 msgid "Highlight View"
-msgstr ""
+msgstr "Перегляд з підсвічуванням"
 
 msgid "Hint"
 msgstr "Підказка"
@@ -6805,6 +6805,8 @@ msgstr "Спрощений протокол доступу до каталогі
 
 msgid "Limit the maximum number of CPUs to be displayed on the home page."
 msgstr ""
+"Обмежте максимальну кількість процесорів, які відображатимуться на домашній "
+"сторінці."
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -8072,7 +8074,7 @@ msgid "Not attached"
 msgstr "Не під'єднано"
 
 msgid "Not available"
-msgstr ""
+msgstr "Недоступно"
 
 msgid "Note"
 msgstr "Примітка"
@@ -8646,7 +8648,7 @@ msgid "Please check the log files"
 msgstr "Будь ласка, перевірте файли журналів"
 
 msgid "Please enter a number between 0 and 256 or leave this field empty."
-msgstr ""
+msgstr "Введіть число від 0 до 256 або залиште це поле порожнім."
 
 msgid "Please read the documentation"
 msgstr "Будь ласка, ознайомтеся з документацією"
@@ -10348,7 +10350,7 @@ msgid "Session Type"
 msgstr "Тип сеансу"
 
 msgid "Set"
-msgstr ""
+msgstr "Набір"
 
 msgid "Set UID"
 msgstr "Встановити UID"
@@ -10610,7 +10612,7 @@ msgid "Show Log Entries"
 msgstr "Показувати записи журналу"
 
 msgid "Show Max CPUs"
-msgstr ""
+msgstr "Показати максимальну кількість процесорів"
 
 msgid "Show Process Information"
 msgstr "Переглянути інформацію про процеси"
@@ -13578,7 +13580,7 @@ msgid "Use as sparse volume (thin provisioning)."
 msgstr "Використовувати як розріджений том (тонкий резерв)."
 
 msgid "Use default TLS trust file."
-msgstr ""
+msgstr "Використовувати файл довіри TLS за замовчуванням."
 
 msgid "Use inotify monitoring to automatically discover new media files."
 msgstr ""
@@ -14684,7 +14686,3 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
-
-#~ msgid "Use default TLS trust file /usr/local/etc/ssl/cert.pem."
-#~ msgstr ""
-#~ "Використовувати типовий файл довіри  TLS /usr/local/etc/ssl/cert.pem."
