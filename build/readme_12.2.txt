@@ -110,7 +110,6 @@ Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P3.
 - Upgrade bash to 5.1 p4.
 - Upgrade samba to 4.13.1.
-- Upgrade lighttpd to 1.4.58.
 - Upgrade arcconf to 3_04_23699.
 - Upgrade msmtp to 1.8.14.
 - Upgrade smartmontools to 7.2.
@@ -125,6 +124,7 @@ Changes:
 - Upgrade sudo to 1.9.5p2.
 - Upgrade zoneinfo to 2021a.
 - Upgrade nut to 2021.01.28.
+- Upgrade lighttpd to 1.4.59.
 
 Fixes:
 - Fix only first lagg member is brought up.
