@@ -1,7 +1,7 @@
 XigmaNAS® 11.4.0.4 - Accadia
 ------------------------------
 Changes:
-- Upgrade to FreeBSD 11.4-RELEASE-P6.
+- Upgrade to FreeBSD 11.4-RELEASE-P7.
 - Upgrade jQuery to 3.5.1.
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade mariadb to 10.5.
