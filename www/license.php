@@ -133,7 +133,7 @@ $software = [
 	]],
 	['jQuery',[
 		'A fast, small, and feature-rich JavaScript library (<a href="http://jquery.com" target="_blank" rel="noreferrer">http://jquery.com</a>).',
-		'Copyright © 2019 jQuery Foundation. All Rights Reserved.'
+		'Copyright © 2020 jQuery Foundation. All Rights Reserved.'
 	]],
 	['LCDproc',[
 		'A client/server suite for LCD devices (<a href="http://lcdproc.org" target="_blank" rel="noreferrer">http://lcdproc.org</a>).',
@@ -185,7 +185,7 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="http://www.php.net" target="_blank" rel="noreferrer">http://www.php.net</a>).',
-		'Copyright © 1999-2020 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2021 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
@@ -194,7 +194,7 @@ $software = [
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
 		'Copyright © 2011-2015 Ian Moore, Inc. All Rights Reserved.',
-		'Copyright © 2017-2019 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
+		'Copyright © 2017-2021 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
 	]],
 	['ProFTPD',[
 		'A highly configurable FTP server (<a href="http://www.proftpd.org" target="_blank" rel="noreferrer">http://www.proftpd.org</a>).',
@@ -222,7 +222,7 @@ $software = [
 	]],
 	['smartmontools',[
 		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="http://sourceforge.net/projects/smartmontools/" target="_blank" rel="noreferrer">http://sourceforge.net/projects/smartmontools</a>).',
-		'Copyright © 2002-2019 Bruce Allen, Christian Franke. All Rights Reserved.',
+		'Copyright © 2002-2020 Bruce Allen, Christian Franke. All Rights Reserved.',
 	]],
 	['Spinner.js',[
 		'A spinning activity indicator (<a href="https://github.com/fgnass/spin.js" target="_blank" rel="noreferrer">https://github.com/fgnass/spin.js</a>).',
