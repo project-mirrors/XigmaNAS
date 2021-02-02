@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -91,27 +92,32 @@ $tbody = $content->
 		addTBODY();
 foreach($a_phy_disk as $disk):
 	$disk['desc'] = $config_disks[$disk['devicespecialfile']]['desc'] ?? '';
-	$temperature = (false !== ($device_temperature = system_get_device_temp($disk['devicespecialfile']))) ? sprintf('%s °C',$device_temperature) : gettext('n/a');
+	$device_temperature = system_get_device_temp($disk['devicespecialfile']);
+	if(is_null($device_temperature)):
+		$temperature = gettext('n/a');
+	else:
+		$temperature = sprintf('%s °C',$device_temperature);
+	endif;
 	if($disk['type'] == 'HAST'):
 		$role = $a_phy_disk[$disk['name']]['role'];
-		$status = sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING'),$role);
+		$status = sprintf('%s (%s)',(disks_exists($disk['devicespecialfile']) == 0) ? gettext('ONLINE') : gettext('MISSING'),$role);
 		$disk['size'] = $a_phy_disk[$disk['name']]['size'];
 	else:
-		$status = (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING');
+		$status = (disks_exists($disk['devicespecialfile']) == 0) ? gettext('ONLINE') : gettext('MISSING');
 	endif;
 	$matches = preg_split('/[\s\,]+/',$disk['smart']['smart_support']);
 	$smartsupport = '';
 	if(isset($matches[0])):
-		if(0 == strcasecmp($matches[0],'available')):
+		if(strcasecmp($matches[0],'available') == 0):
 			$smartsupport .= gettext('Available');
 			if(isset($matches[1])):
-				if(0 == strcasecmp($matches[1],'enabled')):
+				if(strcasecmp($matches[1],'enabled') == 0):
 					$smartsupport .= (', ' . gettext('Enabled'));
-				elseif(0 ==  strcasecmp($matches[1],'disabled')):
+				elseif(strcasecmp($matches[1],'disabled') == 0):
 					$smartsupport .= (', ' . gettext('Disabled'));
 				endif;
 			endif;
-		elseif(0 == strcasecmp($matches[0],'unavailable')):
+		elseif(strcasecmp($matches[0],'unavailable') == 0):
 			$smartsupport .= gettext('Unavailable');
 		endif;
 	endif;

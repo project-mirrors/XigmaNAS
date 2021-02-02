@@ -31,123 +31,128 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 
+/**
+ *	Create sphere
+ *	@global array $config
+ *	@return \co_sphere_row
+ */
 function get_sphere_status_disks() {
 	global $config;
+
 	$sphere = new co_sphere_row('status_disks','php');
 	return $sphere;
 }
-function status_disks_render($root = NULL) {
+/**
+ *	Render details of this page
+ *	@global array $config
+ *	@param co_DOMDocument $root
+ *	@return \co_DOMDocument
+ */
+function status_disks_render($root = null) {
 	global $config;
 
-	if(isset($root)):
-		$is_DOM = true;
-	else:
+	if(is_null($root)):
 		$is_DOM = false;
 		$root = new co_DOMDocument();
+	else:
+		$is_DOM = true;
 	endif;
 	$pconfig = [];
 	$pconfig['temp_info'] = $config['smartd']['temp']['info'] ?? 0;
 	$pconfig['temp_crit'] = $config['smartd']['temp']['crit'] ?? 0;
 	$a_phy_hast = array_merge((array)get_hast_disks_list());
-	$a_disk_conf = &array_make_branch($config,'disks','disk');
-	if(empty($a_disk_conf)):
+	$cfg_disks = array_make_branch($config,'disks','disk');
+	if(empty($cfg_disks)):
 	else:
-		array_sort_key($a_disk_conf,'name');
+		array_sort_key($cfg_disks,'name');
 	endif;
-	$raidstatus = get_sraid_disks_list();
-	foreach($a_disk_conf as $disk):
-		$iostat_value = system_get_device_iostat($disk['name']);
-		$iostat_available = (false !== $iostat_value);
-		if($iostat_available):
-			$gt_iostat = sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
+	foreach($cfg_disks as $cfg_disk):
+//		init loop values
+		$lv = [];
+		$lv['iostat_value'] = system_get_device_iostat($cfg_disk['name']);
+		if($lv['iostat_value'] !== false):
+			$lv['iostat'] = sprintf('%s KiB/t, %s tps, %s MiB/s',$lv['iostat_value']['kpt'],$lv['iostat_value']['tps'],$lv['iostat_value']['mps']);
 		else:
-			$gt_iostat = gettext('n/a');
+			$lv['iostat'] = gettext('n/a');
 		endif;
-		$temp_value = system_get_device_temp($disk['devicespecialfile']);
-		$temp_available = (false !== $temp_value);
-		if($temp_available):
-			$gt_temp = sprintf("%s °C",$temp_value);
-		endif;
-		$gt_name = $disk['name'];
-		if($disk['type'] == 'HAST'):
-			$role = $a_phy_hast[$disk['name']]['role'];
-			$gt_size = $a_phy_hast[$disk['name']]['size'];
-			$gt_status = sprintf("%s (%s)", (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING'),$role);
+		$lv['temp_value'] = system_get_device_temp($cfg_disk['devicespecialfile']);
+		$lv['name'] = $cfg_disk['name'];
+		if($cfg_disk['type'] == 'HAST'):
+			$role = $a_phy_hast[$cfg_disk['name']]['role'];
+			$lv['size'] = $a_phy_hast[$cfg_disk['name']]['size'];
+			$lv['status'] = sprintf('%s (%s)',(disks_exists($cfg_disk['devicespecialfile']) == 0) ? gettext('ONLINE') : gettext('MISSING'),$role);
 		else:
-			$gt_size = $disk['size'];
-			$gt_status = (0 == disks_exists($disk['devicespecialfile'])) ? gettext('ONLINE') : gettext('MISSING');
+			$lv['size'] = $cfg_disk['size'];
+			$lv['status'] = (disks_exists($cfg_disk['devicespecialfile']) == 0) ? gettext('ONLINE') : gettext('MISSING');
 		endif;
-		$gt_model = $disk['model'];
-		$gt_description = empty($disk['desc']) ? gettext('n/a') : $disk['desc'];
-		$gt_serial = empty($disk['serial']) ? gettext('n/a') : $disk['serial'];
-		$gt_fstype = empty($disk['fstype']) ? gettext('Unknown or unformatted') : get_fstype_shortdesc($disk['fstype']);
+		$lv['model'] = $cfg_disk['model'];
+		$lv['description'] = empty($cfg_disk['desc']) ? gettext('n/a') : $cfg_disk['desc'];
+		$lv['serial'] = empty($cfg_disk['serial']) ? gettext('n/a') : $cfg_disk['serial'];
+		$lv['fstype'] = empty($cfg_disk['fstype']) ? gettext('Unknown or unformatted') : get_fstype_shortdesc($cfg_disk['fstype']);
+		$lv['temp'] = is_null($lv['temp_value']) ? gettext('n/a') : sprintf('%s °C',$lv['temp_value']);
 		$tr = $root->addTR();
 		$tr->
-			insTDwC('lcell',$gt_name)->
-			insTDwC('lcell',$gt_size)->
-			insTDwC('lcell',$gt_model)->
-			insTDwC('lcell',$gt_description)->
-			insTDwC('lcell',$gt_serial)->
-			insTDwC('lcell',$gt_fstype)->
-			insTDwC('lcell',$gt_iostat);
-		if($temp_available):
-			if(!empty($pconfig['temp_crit']) && $temp_value >= $pconfig['temp_crit']):
-				$tr->addTDwC('lcell')->addDIV(['class'=> 'errortext'],$gt_temp);
-			elseif(!empty($pconfig['temp_info']) && $temp_value >= $pconfig['temp_info']):
-				$tr->addTDwC('lcell')->addDIV(['class'=> 'warningtext'],$gt_temp);
-			else:
-				$tr->insTDwC('lcell',$gt_temp);
-			endif;
+			insTDwC('lcell',$lv['name'])->
+			insTDwC('lcell',$lv['size'])->
+			insTDwC('lcell',$lv['model'])->
+			insTDwC('lcell',$lv['description'])->
+			insTDwC('lcell',$lv['serial'])->
+			insTDwC('lcell',$lv['fstype'])->
+			insTDwC('lcell',$lv['iostat']);
+		if(is_null($lv['temp_value'])):
+			$tr->insTDwC('lcell',$lv['temp']);
+		elseif(!empty($pconfig['temp_crit']) && $lv['temp_value'] >= $pconfig['temp_crit']):
+			$tr->addTDwC('lcell')->addDIV(['class'=> 'errortext'],$lv['temp']);
+		elseif(!empty($pconfig['temp_info']) && $lv['temp_value'] >= $pconfig['temp_info']):
+			$tr->addTDwC('lcell')->addDIV(['class'=> 'warningtext'],$lv['temp']);
 		else:
-			$tr->insTDwC('lcell',gettext('n/a'));
+			$tr->insTDwC('lcell',$lv['temp']);
 		endif;
-		$tr->insTDwC('lcebld',$gt_status);
+		$tr->insTDwC('lcebld',$lv['status']);
 	endforeach;
-	foreach($raidstatus as $diskk => $diskv):
-		$iostat_value = system_get_device_iostat($diskk);
-		$iostat_available = (false !== $iostat_value);
-		if($iostat_available):
-			$gt_iostat = sprintf("%s KiB/t, %s tps, %s MiB/s",$iostat_value['kpt'],$iostat_value['tps'],$iostat_value['mps']);
+	$geom_raid_disks = get_sraid_disks_list();
+	foreach($geom_raid_disks as $geom_raid_disk_key => $geom_raid_disk):
+//		init loop values
+		$lv = [];
+		$lv['iostat_value'] = system_get_device_iostat($geom_raid_disk_key);
+		if($lv['iostat_value'] !== false):
+			$lv['iostat'] = sprintf('%s KiB/t, %s tps, %s MiB/s',$lv['iostat_value']['kpt'],$lv['iostat_value']['tps'],$lv['iostat_value']['mps']);
 		else:
-			$gt_iostat = gettext('n/a');
+			$lv['iostat'] = gettext('n/a');
 		endif;
-		$temp_value = system_get_device_temp($disk['devicespecialfile']);
-		$temp_available = (false !== $temp_value);
-		if($temp_available):
-			$gt_temp = sprintf("%s °C",$temp_value);
-		endif;
-		$gt_name = $diskk;
-		$gt_size = $diskv['size'];
-		$gt_model = gettext('n/a');
-		$gt_description = gettext('Software RAID');
-		$gt_serial = gettext('n/a');
-		$gt_fstype = empty($diskv['fstype']) ? gettext('UFS') : get_fstype_shortdesc($diskv['fstype']);
-		$gt_status = $diskv['state'];
+		$lv['temp_value'] = system_get_device_temp($geom_raid_disk_key);
+		$lv['name'] = $geom_raid_disk_key;
+		$lv['size'] = $geom_raid_disk['size'];
+		$lv['model'] = gettext('n/a');
+		$lv['description'] = gettext('Software RAID');
+		$lv['serial'] = gettext('n/a');
+		$lv['fstype'] = empty($geom_raid_disk['fstype']) ? gettext('UFS') : get_fstype_shortdesc($geom_raid_disk['fstype']);
+		$lv['temp'] = is_null($lv['temp_value']) ? gettext('n/a') : sprintf('%s °C',$lv['temp_value']);
+		$lv['status'] = $geom_raid_disk['state'];
 		$tr = $root->addTR();
 		$tr->
-			insTDwC('lcell',$gt_name)->
-			insTDwC('lcell',$gt_size)->
-			insTDwC('lcell',$gt_model)->
-			insTDwC('lcell',$gt_description)->
-			insTDwC('lcell',$gt_serial)->
-			insTDwC('lcell',$gt_fstype)->
-			insTDwC('lcell',$gt_iostat);
-		if($temp_available):
-			if(!empty($pconfig['temp_crit']) && $temp_value >= $pconfig['temp_crit']):
-				$tr->addTDwC('lcell')->addDIV(['class'=> 'errortext'],$gt_temp);
-			elseif(!empty($pconfig['temp_info']) && $temp_value >= $pconfig['temp_info']):
-				$tr->addTDwC('lcell')->addDIV(['class'=> 'warningtext'],$gt_temp);
-			else:
-				$tr->insTDwC('lcell',$gt_temp);
-			endif;
+			insTDwC('lcell',$lv['name'])->
+			insTDwC('lcell',$lv['size'])->
+			insTDwC('lcell',$lv['model'])->
+			insTDwC('lcell',$lv['description'])->
+			insTDwC('lcell',$lv['serial'])->
+			insTDwC('lcell',$lv['fstype'])->
+			insTDwC('lcell',$lv['iostat']);
+		if(is_null($lv['temp_value'])):
+			$tr->insTDwC('lcell',$lv['temp']);
+		elseif(!empty($pconfig['temp_crit']) && $lv['temp_value'] >= $pconfig['temp_crit']):
+			$tr->addTDwC('lcell')->addDIV(['class'=> 'errortext'],$lv['temp']);
+		elseif(!empty($pconfig['temp_info']) && $lv['temp_value'] >= $pconfig['temp_info']):
+			$tr->addTDwC('lcell')->addDIV(['class'=> 'warningtext'],$lv['temp']);
 		else:
-			$tr->insTDwC('lcell',gettext('n/a'));
+			$tr->insTDwC('lcell',$lv['temp']);
 		endif;
-		$tr->insTDwC('lcebld',$gt_status);
+		$tr->insTDwC('lcebld',$lv['status']);
 	endforeach;
 	if($is_DOM):
 		return $root;
@@ -173,7 +178,7 @@ $(document).ready(function(){
 EOJ;
 $a_colwidth = ['5%','7%','15%','17%','13%','10%','18%','8%','7%'];
 $n_colwidth = count($a_colwidth);
-$document = new_page([gettext('Status'),gettext('Disks')],NULL,'tablesort');
+$document = new_page([gettext('Status'),gettext('Disks')],null,'tablesort');
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
 $body->ins_javascript($jcode);

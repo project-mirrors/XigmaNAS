@@ -689,55 +689,158 @@ function system_get_device_iostat($device) {
 	endif;
 	return $result;
 }
-
 /**
- *	Get device temperature.
- *	@param[in] device	The device name, e.g. ad1
- *	@return	The temperature in C if available, otherwise false.
+ *	Get device temperature, using grep.
+ *	@global array $config
+ *	@param string $devicespecialfile The device name
+ *	@return	string|null The temperature if available, otherwise null.
  */
-function system_get_device_temp($devicespecialfile) {
+function system_get_device_temp_grep(string $devicespecialfile): ?string {
 	global $config;
-	global $config_disks;
 
-	$result = false;
-//	without smart
-	$cmd = sprintf("ataidle %s 2>/dev/null | grep 'SMART Enabled'",$devicespecialfile);
-	mwexec2($cmd,$rawdata);
-	if(!empty($rawdata) && 1 === preg_match("/^SMART Enabled:\s+(\S+)/",$rawdata[0],$matches)):
+	$result = null;
+//	define the timeout in seconds for caching smartctl queries
+	$timeout = 120;
+//	check first with ataidle if S.M.A.R.T. is disabled
+	$params = ['/usr/local/sbin/ataidle'];
+	$params[] = escapeshellarg($devicespecialfile);
+	$params[] = '2>/dev/null | /usr/bin/grep "SMART Enabled"';
+	$cmd = implode(' ',$params);
+	unset($raw_ataidle);
+	mwexec2($cmd,$raw_ataidle);
+	if(!empty($raw_ataidle) && (preg_match('/^SMART Enabled:\s+(\S+)/',$raw_ataidle[0],$matches) === 1)):
 		if(strcasecmp($matches[1],'no') == 0):
-//			S.M.A.R.T. disabled
+//			nothing to do when S.M.A.R.T. is disabled
 			return $result;
 		endif;
 	endif;
-	if(empty($_SESSION[$devicespecialfile]['temp']['value']) or time() - $_SESSION[$devicespecialfile]['temp']['timestamp'] > 120):
-		if(array_key_exists($devicespecialfile,$config_disks)):
-			$type_arg = '';
-			if(!empty($config_disks[$devicespecialfile]['smart']['devicetypearg'])):
-				$type_arg = sprintf('-d %s ',$config_disks[$devicespecialfile]['smart']['devicetypearg']);
+	$timestamp = time();
+	if(empty($_SESSION['dev'][$devicespecialfile]['temp']['value'])):
+//		devicespecialfile hasn't been queried yet
+		$run_cmd = true;
+	elseif(($timestamp - $_SESSION['dev'][$devicespecialfile]['temp']['timestamp']) >= $timeout):
+//		devicespecialfile last query has expired
+		$run_cmd = true;
+	else:
+//		report cached temperature
+		$run_cmd = false;
+		$result = $_SESSION['dev'][$devicespecialfile]['temp']['value'];
+	endif;
+	if($run_cmd):
+		$cfg_disks = array_make_branch($config,'disks','disk');
+		$index = array_search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
+		if($index !== false):
+			$cfg_disk = $cfg_disks[$index];
+//			compile smartctl command
+			$params = ['/usr/local/sbin/smartctl'];
+			$smartd_drivedb_arg = trim(get_smartmontools_drivedb_arg());
+			if(!empty($smartd_drivedb_arg)):
+				$params[] = $smartd_drivedb_arg;
 			endif;
-//			get temperature from S.M.A.R.T.
-			$smartd_drivedb_arg = get_smartmontools_drivedb_arg();
-			mwexec2('smartctl ' . $smartd_drivedb_arg . '-A ' . $type_arg . escapeshellarg($config_disks[$devicespecialfile]['smart']['devicefilepath']) . " | grep -i 'Temperature'" ,$rawdata);
-			foreach($rawdata as $rawdatav):
-				$arawdatav = preg_split("/\s+/",$rawdatav);
-				if(!empty($arawdatav[1]) && ((0 == strncmp(trim($arawdatav[1]),"Temperature_",12)) || (0 == strncmp(trim($arawdatav[1]),"Airflow_Temperature_",20))) && ((0 != strcmp(trim($arawdatav[0]),'190')) || (0 != strcmp(trim($arawdatav[0]),'194')) )):
+			$params[] = '-A';
+			$params[] = '-T';
+			$params[] = 'permissive';
+			if(!empty($cfg_disk['smart']['devicetypearg'])):
+				$params[] = '-d';
+				$params[] = $cfg_disk['smart']['devicetypearg'];
+			endif;
+			$params[] = escapeshellarg($cfg_disk['smart']['devicefilepath']);
+			$params[] = '| /usr/bin/grep -i temperature';
+			$cmd = implode(' ',$params);
+			unset($raw_smartctl);
+			mwexec2($cmd,$raw_smartctl);
+			foreach($raw_smartctl as $raw_smartctl_row):
+				$arawdatav = preg_split('/\s+/',$raw_smartctl_row);
+				if(!empty($arawdatav[1]) && ((strncmp(trim($arawdatav[1]),'Temperature_',12) == 0) || (strncmp(trim($arawdatav[1]),'Airflow_Temperature_',20) == 0)) && ((strcmp(trim($arawdatav[0]),'190') != 0) || (strcmp(trim($arawdatav[0]),'194') != 0))):
 					$result = rtrim($arawdatav[9]);
 					break;
-				elseif(preg_match("/Current Drive Temperature:\s+(\d+) C.*/",$rawdatav,$matches)):
+				elseif(preg_match('/Current Drive Temperature:\s+(\d+) C.*/',$raw_smartctl_row,$matches) === 1):
 					$result = $matches[1];
 					break;
 				endif;
 			endforeach;
-			$_SESSION[$devicespecialfile]['temp']['value'] = $result;
-			$_SESSION[$devicespecialfile]['temp']['timestamp'] = time();
+			$_SESSION['dev'][$devicespecialfile]['temp']['value'] = $result;
+			$_SESSION['dev'][$devicespecialfile]['temp']['timestamp'] = $timestamp;
+		else:
+//			orphaned, kill it
+			unset($_SESSION['dev'][$devicespecialfile]);
 		endif;
-		return $result;
-	else:
-		return $_SESSION[$devicespecialfile]['temp']['value'];
 	endif;
 	return $result;
 }
+/**
+ *	Get device temperature, using json method.
+ *	@global array $config
+ *	@param string $devicespecialfile The device name
+ *	@return	string|null The temperature if available, otherwise null.
+ */
+function system_get_device_temp_json(string $devicespecialfile): ?string {
+	global $config;
 
+	$result = null;
+//	define the timeout in seconds for caching smartctl queries
+	$timeout = 60;
+	$timestamp = time();
+	if(empty($_SESSION['dev'][$devicespecialfile]['smartctl']['result'])):
+//		devicespecialfile hasn't been queried yet
+		$run_cmd = true;
+	elseif(($timestamp - $_SESSION['dev'][$devicespecialfile]['smartctl']['timestamp']) >= $timeout):
+//		devicespecialfile last query has expired
+		$run_cmd = true;
+	else:
+//		report cached temperature
+		$run_cmd = false;
+	endif;
+	if($run_cmd):
+		$cfg_disks = array_make_branch($config,'disks','disk');
+		$index = array_search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
+		if($index !== false):
+			$cfg_disk = $cfg_disks[$index];
+//			compile smartctl command
+			$params = ['/usr/local/sbin/smartctl'];
+			$smartd_drivedb_arg = trim(get_smartmontools_drivedb_arg());
+			if(!empty($smartd_drivedb_arg)):
+				$params[] = $smartd_drivedb_arg;
+			endif;
+			$params[] = '--json=c';
+			$params[] = '-a';
+			$params[] = '-T';
+			$params[] = 'verypermissive';
+			if(!empty($cfg_disk['smart']['devicetypearg'])):
+				$params[] = '-d';
+				$params[] = $cfg_disk['smart']['devicetypearg'];
+			endif;
+			$params[] = escapeshellarg($cfg_disk['smart']['devicefilepath']);
+			$cmd = implode(' ',$params);
+			$json_string = shell_exec($cmd);
+			$_SESSION['dev'][$devicespecialfile]['smartctl']['result'] = json_decode($json_string,true) ?? [];
+			$_SESSION['dev'][$devicespecialfile]['smartctl']['timestamp'] = $timestamp;
+		else:
+//			orphaned, kill it
+			unset($_SESSION['dev'][$devicespecialfile]);
+		endif;
+	endif;
+	if(!empty($_SESSION['dev'][$devicespecialfile]['smartctl']['result']['temperature']['current'])):
+		$result = $_SESSION['dev'][$devicespecialfile]['smartctl']['result']['temperature']['current'];
+	endif;
+	return $result;
+}
+/**
+ *	Get device temperature via smartctl.
+ *	@param string $devicespecialfile The device name
+ *	@param int $use_version
+ *	@return	string|null
+ */
+function system_get_device_temp(string $devicespecialfile,int $use_version = 2): ?string {
+	switch($use_version):
+		default:
+			return system_get_device_temp_grep($devicespecialfile);
+			break;
+		case 2:
+			return system_get_device_temp_json($devicespecialfile);
+			break;
+	endswitch;
+}
 /**
  * Get controller
  * @param[in] device	The device name, e.g. /dev/ad1
