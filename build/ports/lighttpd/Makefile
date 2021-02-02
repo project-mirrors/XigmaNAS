@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.58
+PORTVERSION=	1.4.59
 PORTREVISION=	0
 CATEGORIES=	www
 
@@ -28,6 +28,9 @@ USE_GNOME+=	libxml2
 #WEBDAV_LIB_DEPENDS=	libuuid.so:misc/e2fsprogs-libuuid \
 #			libsqlite3.so:databases/sqlite3
 
+ZSTD_DESC=      	mod_deflate support for zstd (Zstandard)
+ZSTD_LIB_DEPENDS=       libzstd.so:archivers/zstd
+
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
 
@@ -44,6 +47,7 @@ CONFIGURE_ARGS+=	--libdir=${PREFIX}/lib/lighttpd --enable-static \
 			--with-brotli \
 			--without-lua \
 			--without-bzip2 \
+			--with-zstd \
 			--with-webdav-props \
 			--with-webdav-locks
 
@@ -54,6 +58,7 @@ do-install:
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_access.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_accesslog.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_alias.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
+		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_ajp13.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_auth.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_authn_file.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 		@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_cgi.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd

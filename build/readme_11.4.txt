@@ -135,7 +135,6 @@ Changes:
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
 - Upgrade samba to 4.13.1.
-- Upgrade lighttpd to 1.4.58.
 - Upgrade arcconf to 3_04_23699.
 - Upgrade msmtp to 1.8.14.
 - Upgrade smartmontools to 7.2.
