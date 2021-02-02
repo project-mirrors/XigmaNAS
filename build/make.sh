@@ -1468,7 +1468,7 @@ create_full() {
 #	Set archive format tgz or txz
 	EXTENSION="txz"
 
-	echo "FULL: Start generating the $XIGMANAS_PRODUCTNAME-x64-full.${EXTENSION} image file"
+	echo "FULL: Start generating the $XIGMANAS_PRODUCTNAME ${EXTENSION} update file"
 
 #	Set platform information.
 	PLATFORM="${XIGMANAS_XARCH}-full"
