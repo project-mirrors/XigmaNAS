@@ -8,11 +8,12 @@ MAINTAINER=	zoon01@xigmanas.com
 
 MASTER_SITES=	https://download.lighttpd.net/lighttpd/releases-1.4.x/
 
-LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre
-LIB_DEPENDS+=	libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
-		libsqlite3.so:${PORTSDIR}/databases/sqlite3
-LIB_DEPENDS+=	libmemcached.so:${PORTSDIR}/databases/libmemcached
-LIB_DEPENDS+=	libbrotlicommon.so:archivers/brotli
+LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre \
+		libuuid.so:${PORTSDIR}/misc/e2fsprogs-libuuid \
+		libsqlite3.so:${PORTSDIR}/databases/sqlite3 \
+		libmemcached.so:${PORTSDIR}/databases/libmemcached \
+		libbrotlicommon.so:archivers/brotli \
+		libzstd.so:archivers/zstd
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf compiler:c11 gmake libtool pkgconfig tar:xz
@@ -23,13 +24,7 @@ OPENSSL_USES=	ssl
 OPENSSL_CONFIGURE_WITH=	openssl
 OPENSSL_CONFIGURE_ON=	--with-openssl-includes=${OPENSSLINC} --with-openssl-libs=${OPENSSLLIB}
 
-# Only used for webdav
 USE_GNOME+=	libxml2
-#WEBDAV_LIB_DEPENDS=	libuuid.so:misc/e2fsprogs-libuuid \
-#			libsqlite3.so:databases/sqlite3
-
-ZSTD_DESC=      	mod_deflate support for zstd (Zstandard)
-ZSTD_LIB_DEPENDS=       libzstd.so:archivers/zstd
 
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
