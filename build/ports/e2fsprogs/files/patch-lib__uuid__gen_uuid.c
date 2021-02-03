@@ -54,4 +54,3 @@
 +#if __GNUC_PREREQ__ (4, 6)
  #pragma GCC diagnostic pop
  #endif
- 

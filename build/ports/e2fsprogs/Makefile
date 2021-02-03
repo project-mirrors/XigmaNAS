@@ -1,6 +1,6 @@
 PORTNAME=	e2fsprogs
-PORTVERSION=	1.45.6
-PORTREVISION?=	3
+PORTVERSION=	1.45.7
+PORTREVISION?=	0
 CATEGORIES?=	sysutils
 MASTER_SITES=	KERNEL_ORG/linux/kernel/people/tytso/${PORTNAME}/v${PORTVERSION}
 
@@ -205,19 +205,16 @@ _CHECK_JOBS=${_MAKE_JOBS}
 _CHECK_JOBS=
 .endif
 
+_checkaddargs=
 .if ${PORT_OPTIONS:MBASHTESTS}
 _CHECK_SHELL=${SHELL}
+_checkaddargs+=--eval SHELL:=${BASH_CMD}
 .else
 _CHECK_SHELL=${LOCALBASE}/bin/bash
 .endif
 
-_checkaddargs=
 .if !defined(TMPDIR)
 _checkaddargs+=TMPDIR=${WRKDIR}/tmp
-.endif
-
-.if ${PORT_OPTIONS:MBASHTESTS}
-_checkaddargs+=--eval SHELL:=${LOCALBASE}/bin/bash
 .endif
 
 .if ${PORT_OPTIONS:MSLOWTESTS}
@@ -244,7 +241,8 @@ post-build:
 		&& ${MAKE_CMD} e2fsck V=1 \
 		LIBS="-static-libgcc -lc -Bstatic ../lib/libsupport.a ../lib/libext2fs.a ../lib/libcom_err.a \
 		${_staticlibs} /usr/lib/libexecinfo.a /usr/lib/libelf.a \
-		${LOCALBASE}/lib/libblkid.a ${LOCALBASE}/lib/libuuid.a ${libintl} ../lib/libe2p.a "
+		${LOCALBASE}/lib/libblkid.a ${LOCALBASE}/lib/libuuid.a ${libintl} ../lib/libe2p.a " \
+		&& ${STRIP_CMD} e2fsck
 # Regression check: avoid a port (not upstream!) regression from 1.40.5,
 # check that e2fsck isn't dynalinked against anything but libc.so:
 	@${ECHO_CMD} -n "===>  checking that e2fsck depends on no shared objects outside /lib: "
@@ -284,7 +282,25 @@ post-build:
 .endif
 
 post-install:
+	# pkg workaround time again;
+	# the whole purpose of this dance is to move the necessities for
+	# /etc/fstab fsck'ing into /sbin, and symlink to these guys
+	# in the regular hierarchy, normally $PREFIX/sbin. Hard links may
+	# crash the install if /usr[/local] is a separate file system from /,
+	# and pkg 1.15.4 can't automatically unroll or install relative symlinks.
+#	${MKDIR} ${STAGEDIR}/sbin
+#	${MV} -f ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}/sbin/ # from INSTALL_TARGET
+#	${INSTALL_PROGRAM} ${WRKSRC}/fsck_ext2fs ${STAGEDIR}/sbin/  # from port
+	# according to TPH 6.1.1 Handling Symbolic Links, these are to be absolute,
+	# yet stage-qa warns about these on 2020-09-16:
+#	${LN} -fs /sbin/fsck_ext2fs ${STAGEDIR}${PREFIX}/sbin/
+#	${LN} -fs /sbin/e2fsck      ${STAGEDIR}${PREFIX}/sbin/
+	# these are made hardlinks to symlinks - -P avoids following them to /sbin:
+#	${LN} -fP ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext2
+#	${LN} -fP ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext3
+#	${LN} -fP ${STAGEDIR}${PREFIX}/sbin/e2fsck ${STAGEDIR}${PREFIX}/sbin/fsck.ext4
 	${INSTALL_PROGRAM} ${WRKSRC}/fsck_ext2fs ${STAGEDIR}${PREFIX}/sbin/
+	# now the remainder of the usual post-install jobs:
 	${INSTALL_MAN} ${FILESDIR}/fsck_ext2fs.8 ${STAGEDIR}${PREFIX}/man/man8/
 .if ${PORT_OPTIONS:MDOCS}
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
