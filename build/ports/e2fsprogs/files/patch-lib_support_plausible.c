@@ -8,4 +8,3 @@
 +		magic_handle = dlopen("libmagic.so", RTLD_NOW);
  		if (!magic_handle)
  			return 0;
- 
