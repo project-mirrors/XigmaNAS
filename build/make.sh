@@ -263,6 +263,12 @@ build_world() {
 	(cd ${XIGMANAS_WORLD}/; find -x usr/lib/i18n | cpio -pdv ${XIGMANAS_ROOTFS})
 	(cd ${XIGMANAS_WORLD}/; find -x usr/share/i18n | cpio -pdv ${XIGMANAS_ROOTFS})
 
+#	Copy required custom files from SVN to ROOTFS(early mfsroot)
+	cp -v ${XIGMANAS_SVNDIR}/boot/loader.efi ${XIGMANAS_ROOTFS}/boot
+	cp -v ${XIGMANAS_SVNDIR}/boot/loader_4th.efi ${XIGMANAS_ROOTFS}/boot
+	cp -v ${XIGMANAS_SVNDIR}/boot/loader_lua.efi ${XIGMANAS_ROOTFS}/boot
+	cp -v ${XIGMANAS_SVNDIR}/boot/loader_simp.efi ${XIGMANAS_ROOTFS}/boot
+
 #	Cleanup
 	chflags -R noschg $XIGMANAS_TMPDIR
 	chflags -R noschg $XIGMANAS_ROOTFS

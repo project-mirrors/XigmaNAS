@@ -70,7 +70,7 @@ mkdir $MINIBSD_DIR/lua
 mkdir $MINIBSD_DIR/modules
 mkdir $MINIBSD_DIR/zfs
 
-# Copy required files
+# Copy required files from WORLD
 cp -v ${XIGMANAS_WORLD}/boot/defaults/loader.conf $MINIBSD_DIR/defaults
 cp -v ${XIGMANAS_WORLD}/boot/loader $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/boot $MINIBSD_DIR
@@ -94,14 +94,17 @@ cp -v ${XIGMANAS_WORLD}/boot/lua/password.lua $MINIBSD_DIR/lua
 cp -v ${XIGMANAS_WORLD}/boot/lua/screen.lua $MINIBSD_DIR/lua
 cp -v ${XIGMANAS_WORLD}/boot/efi.4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_4th $MINIBSD_DIR
-cp -v ${XIGMANAS_WORLD}/boot/loader_4th.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_lua $MINIBSD_DIR
-cp -v ${XIGMANAS_WORLD}/boot/loader_lua.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_simp $MINIBSD_DIR
-cp -v ${XIGMANAS_WORLD}/boot/loader_simp.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/userboot_4th.so $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/userboot_lua.so $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/kernel/linker.hints $MINIBSD_DIR/kernel
+
+# Copy required custom files from SVNDIR
+cp -v ${XIGMANAS_SVNDIR}/boot/loader.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_SVNDIR}/boot/loader_4th.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_SVNDIR}/boot/loader_lua.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_SVNDIR}/boot/loader_simp.efi $MINIBSD_DIR
 
 # Copy files required by bootmenu
 if [ 0 != $opt_m ]; then
@@ -126,13 +129,13 @@ cat << EOF > $MINIBSD_DIR/loader.rc
 
 \ Includes additional commands
 include /boot/loader.4th
-\ include /boot/efi.4th
+include /boot/efi.4th
 try-include /boot/loader.rc.local
 
 \ Reads and processes loader.conf variables
 initialize
 
-\ maybe-efi-resizecons
+maybe-efi-resizecons
 
 \ Tests for password -- executes autoboot first if a password was defined
 check-password

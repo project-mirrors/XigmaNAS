@@ -29,7 +29,7 @@ GELISECTOR="4096"
 GELIBACKUP="/var/backups"
 
 tmpfile=/tmp/zfsinstall.$$
-trap "rm -f ${tmpfile}" 0 1 2 3 5 6 9 15
+trap "rm -f ${tmpfile}" 0 1 2 5 15
 
 # Mount CD/USB drive.
 mount_cdrom()
@@ -39,9 +39,9 @@ mount_cdrom()
 	mkdir -p ${CDPATH}
 
 	# Search for LiveMedia label information.
-	if glabel status | grep -q "iso9660/XigmaNAS"; then
-		FS_DEVICE="$(glabel status | grep "iso9660/XigmaNAS" | awk '{print $1}')"
-		CD_DEVICE="$(glabel status | grep "iso9660/XigmaNAS" | awk '{print $3}')"
+	if glabel status -s | grep -q "iso9660/XigmaNAS"; then
+		FS_DEVICE="$(glabel status -s | grep "iso9660/XigmaNAS" | awk '{print $1}')"
+		CD_DEVICE="$(glabel status -s | grep "iso9660/XigmaNAS" | awk '{print $3}')"
 		# Check if cd-rom is mounted else auto mount cd-rom.
 		if [ ! -f "${CDPATH}/version" ]; then
 			# Try to auto mount cd-rom.
@@ -49,8 +49,8 @@ mount_cdrom()
 			mount_cd9660 /dev/${FS_DEVICE} ${CDPATH} > /dev/null 2>&1 || \
 			mount_cd9660 /dev/${CD_DEVICE} ${CDPATH} > /dev/null 2>&1
 		fi
-	elif glabel status | grep -q "ufs/liveboot"; then
-		USB_DEVICE="$(glabel status | grep "ufs/liveboot" | awk '{print $3}')"
+	elif glabel status -s | grep -q "ufs/liveboot"; then
+		USB_DEVICE="$(glabel status -s | grep "ufs/liveboot" | awk '{print $3}')"
 		# Check if liveusb is mounted else auto mount liveusb.
 		if [ ! -f "${CDPATH}/version" ]; then
 			# Try to auto mount liveusb.
@@ -476,7 +476,14 @@ zroot_init()
 			echo "Updating MBR boot loader on ${DISK}"
 			dd if="/boot/zfsboot" of="/dev/${DISK}s1a" skip=1 seek=1024 > /dev/null 2>&1
 		elif [ "${BOOT_MODE}" = 2 ]; then
-			gpart bootcode -p /boot/boot1.efifat -i 1 ${DISK}
+			#gpart bootcode -p /boot/boot1.efifat -i 1 ${DISK} # Legacy efi bootcode, keep for reference.
+			newfs_msdos -F 16 -L "EFISYS" /dev/${DISK}p1
+			mkdir -p /tmp/zfsinstall_etc/esp
+			mount -t msdosfs /dev/${DISK}p1 /tmp/zfsinstall_etc/esp
+			mkdir -p /tmp/zfsinstall_etc/esp/efi/boot
+			cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/boot/BOOTx64.efi
+			echo "BOOTx64.efi" > /tmp/zfsinstall_etc/esp/efi/boot/startup.nsh
+			umount /tmp/zfsinstall_etc/esp
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 2 ${DISK}
 		else
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${DISK}
@@ -547,20 +554,17 @@ zroot_init()
 	# Create user Dataset on request.
 	create_user_dataset
 
-	# Creates system default snapshot after install.
-	create_default_snapshot
-
-	# Flush disk cache and wait 1 second.
-	sync; sleep 1
 	if zpool status | grep -q ${ZROOT}; then
 		if [ "${BOOT_MODE}" = 3 ]; then
 			if zpool status | grep -q ${BOOTPOOL}; then
 				zpool export ${BOOTPOOL}
 			fi
 		fi
-
 		zpool export ${ZROOT}
 	fi
+
+	# Flush disk cache and wait 1 second.
+	sync; sleep 1
 
 	# Final message.
 	if [ $? -eq 0 ]; then
@@ -761,21 +765,6 @@ create_user_dataset()
 			echo "Error: A problem has occurred while creating ${DATASET_NAME} dataset."
 			exit 1
 		fi
-		echo "Done!"
-		sleep 1
-	fi
-}
-
-create_default_snapshot()
-{
-	echo "Creating system default snapshot..."
-	zfs snapshot ${ZROOT}${DATASET}${BOOTENV}@factory-defaults
-	echo "Done!"
-	sleep 1
-
-	if [ "${BOOT_MODE}" = 3 ]; then
-		echo "Creating ${BOOTPOOL} default snapshot..."
-		zfs snapshot ${BOOTPOOL}@factory-defaults
 		echo "Done!"
 		sleep 1
 	fi
