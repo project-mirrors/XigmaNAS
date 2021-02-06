@@ -1082,7 +1082,7 @@ boot/userboot.so
 
 ####### EFI boot
 boot/boot1.efi
-boot/boot1.efifat
+#boot/boot1.efifat
 #boot/loader.efi
 
 ####### ZFS boot
