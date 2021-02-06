@@ -200,14 +200,6 @@ fi
 # preload kernel drivers
   echo 'zfs_load="YES"' >> $MINIBSD_DIR/loader.conf
 
-# Xen
-if [ "dom0" == ${XIGMANAS_XARCH} ]; then
-    echo 'xen_kernel="/boot/xen"' >> $MINIBSD_DIR/loader.conf
-    echo 'xen_cmdline="dom0_mem=4096M dom0_max_vcpus=4 dom0pvh=1 com1=115200,8n1 guest_loglvl=all loglvl=all console=com1,vga"' >> $MINIBSD_DIR/loader.conf
-    echo 'vfs.zfs.arc_max="2G"' >> $MINIBSD_DIR/loader.conf
-    echo 'vfs.zfs.arc_min="1G"' >> $MINIBSD_DIR/loader.conf
-fi
-
 # Copy kernel.
 if [ -e "${XIGMANAS_WORKINGDIR}/kernel.gz" ] ; then
   cp ${XIGMANAS_WORKINGDIR}/kernel.gz $MINIBSD_DIR/kernel
