@@ -72,7 +72,6 @@ echo "XIGMANAS_OBJDIRPREFIX=${XIGMANAS_OBJDIRPREFIX}" >> ${XIGMANAS_MK}
 echo "XIGMANAS_BOOTDIR=${XIGMANAS_BOOTDIR}" >> ${XIGMANAS_MK}
 echo "XIGMANAS_REVISION=${XIGMANAS_REVISION}" >> ${XIGMANAS_MK}
 echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
-#	echo "XIGMANAS_BUILD_DOM0=${XIGMANAS_BUILD_DOM0}" >> ${XIGMANAS_MK}
 
 #	Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
@@ -772,12 +771,6 @@ create_image() {
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
-#	Xen
-	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
-		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
-		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
-	fi
-
 	echo "===> Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
@@ -925,12 +918,6 @@ create_iso () {
 #	Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
-#	Xen
-	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
-		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
-		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
 	echo "ISO: Creating linker.hints"
@@ -1204,12 +1191,6 @@ create_usb () {
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
-#	Xen
-	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
-		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
-		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
-	fi
-
 	echo "USB: Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
@@ -1428,12 +1409,6 @@ create_usb_gpt() {
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
-#	Xen.
-	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
-		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
-		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
-	fi
-
 	echo "USB: Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
@@ -1582,12 +1557,6 @@ create_full() {
 #	Mellanox ConnectX EN
 	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
 		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
-#	Xen
-	if [ "dom0" == ${XIGMANAS_XARCH} ]; then
-		install -v -o root -g wheel -m 555 ${XIGMANAS_BOOTDIR}/xen ${XIGMANAS_TMPDIR}/boot
-		install -v -o root -g wheel -m 644 ${XIGMANAS_BOOTDIR}/xen.4th ${XIGMANAS_TMPDIR}/boot
 	fi
 
 	echo "FULL: Creating linker.hints"
