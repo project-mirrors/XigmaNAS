@@ -85,6 +85,7 @@ When all is done, use one of the following options:
 13 - Create 'LiveCD' (ISO) File.
 14 - Create 'LiveCD-Tin' (ISO) without 'Embedded' File.
 15 - Create 'Full' (TGZ) Update File.
+16 - Create All Release Files at once.
 
 =================================
 4. Building kernel
