@@ -671,7 +671,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						break;
 					case 'efi':
 //						install efi boot code
-						if(file_exists('/boot/boot2.efifat')):
+						if(file_exists('/boot/boot1.efifat')):
 							$param = $param_geom_part;
 							$param['command'] = 'bootcode';
 							$param['testmode'] = $test_mode;
@@ -855,7 +855,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				endif;
 				break;
 			case 'efi':
-				if(file_exists('/boot/boot2.efifat')):
+				if(file_exists('/boot/boot1.efifat')):
 //					nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
 				else:
 //					build esp manually
