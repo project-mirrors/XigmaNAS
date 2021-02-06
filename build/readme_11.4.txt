@@ -147,9 +147,9 @@ Changes:
 - Upgrade sudo to 1.9.5p2.
 - Upgrade zoneinfo to 2021a.
 - Upgrade nut to 2021.01.28.
-- Upgrade e2fsprogs to 1.45.7.
 - Upgrade syncthing to 1.13.0.
 - Upgrade php to 7.4.15.
+- Upgrade e2fsprogs to 1.46.0.
 
 Fixes:
 - Fix only first lagg member is brought up.
