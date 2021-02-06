@@ -866,6 +866,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						'run' => '/sbin/newfs_msdos',
 						'fattype' => '-F 32',
 						'label' => '-L EFISYS',
+						'spc' => '-c 1',
 						'geom' => escapeshellarg($destination_device)
 					];
 					$command = implode(' ',$param);
@@ -875,7 +876,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						write_console($message . "\n");
 						return false;
 					endif;
-					if(!mkdir($destination_mount)):
+					if(is_dir($destination_mount)):
+					elseif(!mkdir($destination_mount,0777,true)):
 						set_kern_geom_debugflags(0);
 						$message = ' error, creating mount folder failed';
 						write_console($message . "\n");
@@ -893,7 +895,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						write_console($message . "\n");
 						return false;
 					endif;
-					if(!mkdir($destination_folder)):
+					if(is_dir($destination_folder)):
+					elseif(!mkdir($destination_folder,0777,true)):
 						set_kern_geom_debugflags(0);
 						$message = ' error, creating subfolder failed';
 						write_console($message . "\n");
