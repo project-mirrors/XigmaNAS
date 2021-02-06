@@ -857,6 +857,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			case 'efi':
 				if(file_exists('/boot/boot1.efifat')):
 //					nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
+					$message = ' skipped';
+					write_console($message . "\n");
 				else:
 //					build esp manually
 					$destination_mount = '/tmp/esp';
