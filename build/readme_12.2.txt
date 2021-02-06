@@ -115,7 +115,6 @@ Changes:
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade proftpd to 1.3.7a.
-- Upgrade php to 7.4.14.
 - Upgrade nano to 5.5.
 - Upgrade dialog to 1.3-20210117.
 - Upgrade mDNSResponder to 1096.60.2.
@@ -126,10 +125,12 @@ Changes:
 - Upgrade lighttpd to 1.4.59.
 - Upgrade e2fsprogs to 1.45.7.
 - Upgrade syncthing to 1.13.0.
+- Upgrade php to 7.4.15.
 
 Fixes:
 - Fix only first lagg member is brought up.
 - Fix reload issue.
+- Fix cookie expire phpvirtualbox.
 
 Default login credentials:
 ==========================
