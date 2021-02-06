@@ -671,7 +671,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						break;
 					case 'efi':
 //						install efi boot code
-						if(file_exists('/boot/boot1.efifat')):
+						if(file_exists('/boot/boot2.efifat')):
 							$param = $param_geom_part;
 							$param['command'] = 'bootcode';
 							$param['testmode'] = $test_mode;
@@ -855,7 +855,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				endif;
 				break;
 			case 'efi':
-				if(file_exists('/boot/boot1.efifat')):
+				if(file_exists('/boot/boot2.efifat')):
 //					nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
 				else:
 //					build esp manually
@@ -869,7 +869,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						'geom' => escapeshellarg($destination_device)
 					];
 					$command = implode(' ',$param);
-					if(mwexec($command)):
+					if(mwexec($command) !== 0):
 						set_kern_geom_debugflags(0);
 						$message = ' error, creating filesystem failed';
 						write_console($message . "\n");
@@ -887,7 +887,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 						'mountpoint' => escapeshellarg($destination_mount)
 					];
 					$command = implode(' ',$param);
-					if(mwexec($command)):
+					if(mwexec($command) !== 0):
 						set_kern_geom_debugflags(0);
 						$message = ' error, mounting efi partition failed';
 						write_console($message . "\n");
