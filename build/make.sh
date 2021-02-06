@@ -28,16 +28,8 @@ if [ -f "${XIGMANAS_SVNDIR}/local.revision" ]; then
 fi
 XIGMANAS_ARCH=$(uname -p)
 XIGMANAS_KERNCONF="$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:lower:]' '[:upper:]')-${XIGMANAS_ARCH}"
-XIGMANAS_BUILD_DOM0=0
-if [ -f ${XIGMANAS_ROOTDIR}/build-dom0 ]; then
-	XIGMANAS_BUILD_DOM0=1
-fi
 if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_XARCH="x64"
-	if [ ${XIGMANAS_BUILD_DOM0} -ne 0 ]; then
-		XIGMANAS_XARCH="dom0"
-		XIGMANAS_KERNCONF="$(echo ${XIGMANAS_PRODUCTNAME} | tr '[:lower:]' '[:upper:]')-${XIGMANAS_XARCH}"
-	fi
 elif [ "i386" = ${XIGMANAS_ARCH} ]; then
 	echo "->> build script does not support 32-bit builds for the i386 architecture"
 exit 1
@@ -1666,11 +1658,6 @@ use_svn() {
 	cd ${XIGMANAS_SVNDIR}/www && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/usr/local/www
 	cd ${XIGMANAS_SVNDIR}/conf && find . \! -iregex ".*/\.svn.*" -print | cpio -pdumv ${XIGMANAS_ROOTFS}/conf.default
 
-#	adjust for dom0
-	if [ "dom0" = ${XIGMANAS_XARCH} ]; then
-		sed -i '' -e "/^xc0/ s/off/on /" ${XIGMANAS_ROOTFS}/etc/ttys
-	fi
-
 	return 0
 }
 
@@ -1814,13 +1801,6 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 		[ ! -d "$s" ] && continue
 		port=`basename $s`
 		state=`cat $s/pkg-state`
-		if [ "dom0" = ${XIGMANAS_XARCH} ]; then
-			for forceoff in firefly fuppes grub2-bhyve inadyn-mt minidlna netatalk3 open-vm-tools phpvirtualbox samba42 transmission vbox vbox-additions; do
-				if [ "$port" = "$forceoff" ]; then
-					state="OFF"; break;
-				fi
-			done
-		fi
 		case ${choice} in
 			rebuild)
 				t=`echo $s/work/.build_done.*`
