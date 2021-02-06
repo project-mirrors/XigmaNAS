@@ -34,6 +34,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'util.inc';
 require_once 'co_geom_info.inc';
 
@@ -193,7 +194,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 	$diskinfo = $geom->gather_provider_by_name($destination);
 	if(empty($diskinfo)):
 		$message = 'The selected device is invalid.';
-		write_console($message . PHP_EOL);
+		write_console($message . "\n");
 		tui_wait_keypress($message);
 		return false;
 	endif;
@@ -209,7 +210,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 	unset($diskinfo);
 	if(0 === $base['sectorsize']['bytes']):
 		$message = 'The destination device reported a sector size of 0.';
-		write_console($message . PHP_EOL);
+		write_console($message . "\n");
 		tui_wait_keypress($message);
 		return false;
 	endif;
@@ -228,7 +229,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		case 'mbr':
 			$base['entries'] = 4;
 			$message = 'MBR partitioning scheme is not supported by this function.';
-			write_console($message . PHP_EOL);
+			write_console($message . "\n");
 			tui_display_message('Error',$message,60,5);
 			return false;
 			break;
@@ -239,15 +240,15 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		if(is_bool($test = $row['enabled'] ?? false) ? $test : false):
 			$partition = [
 				'partition' => $row['partition'],
-				'fstype' => is_string($test = $row['fstype'] ?? NULL) ? $test : NULL,
-				'volname' => is_string($test = $row['volname'] ?? NULL) ? $test : NULL,
+				'fstype' => is_string($test = $row['fstype'] ?? null) ? $test : null,
+				'volname' => is_string($test = $row['volname'] ?? null) ? $test : null,
 				'friendly_name' => is_string($test = $row['friendly_name'] ?? 'unknown') ? $test : 'unknown',
 				'allow_edit' => is_bool($test = $row['allow_edit'] ?? false) ? $test : false,
 				'allow_star' => is_bool($test = $row['allow_star'] ?? false) ? $test : false,
-				'alignment' => NULL,
-				'minimum' => NULL,
-				'maximum' => NULL,
-				'size' => NULL,
+				'alignment' => null,
+				'minimum' => null,
+				'maximum' => null,
+				'size' => null,
 				'is_last' => false
 			];
 /*
@@ -377,12 +378,12 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			];
 			$command = implode(' ',$param);
 			$message = sprintf('Wiping first %d sectors on %s.',$count,$destination);
-			write_console($message . PHP_EOL);
+			write_console($message . "\n");
 			mwexec($command);
 			$param['seek'] = sprintf('seek=%d',($base['mediasize']['bytes'] >> $base['sectorsize']['shift']) - $count);
 			$command = implode(' ',$param);
 			$message = sprintf('Wiping last %d sectors on %s.',$count,$destination);
-			write_console($message . PHP_EOL);
+			write_console($message . "\n");
 			mwexec($command);
 			break;
 	endswitch;
@@ -409,7 +410,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				geom_part_undo($uncommitted_device_names);
 				set_kern_geom_debugflags(0);
 				$message = sprintf('Failed to create GPT partitioning scheme on %s.',$destination);
-				write_console($message . PHP_EOL);
+				write_console($message . "\n");
 				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
@@ -424,7 +425,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				geom_part_undo($uncommitted_device_names);
 				set_kern_geom_debugflags(0);
 				$message = sprintf('Failed to install PMBR on %s.',$destination);
-				write_console($message . PHP_EOL);
+				write_console($message . "\n");
 				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
@@ -443,7 +444,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				geom_part_undo($uncommitted_device_names);
 				set_kern_geom_debugflags(0);
 				$message = sprintf('Failed to create MBR partitioning scheme on %s.',$destination);
-				write_console($message . PHP_EOL);
+				write_console($message . "\n");
 				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
@@ -458,13 +459,13 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				geom_part_undo($uncommitted_device_names);
 				set_kern_geom_debugflags(0);
 				$message = sprintf('Failed to install MBR bootcode on %s.',$destination);
-				write_console($message . PHP_EOL);
+				write_console($message . "\n");
 				tui_display_message('Error',$message,60,5);
 				return false;
 			endif;
 			break;
  */
-	endswitch;		
+	endswitch;
 	$partition_layout_index = 0;
 	foreach($partition_layout as $k_partition => &$r_partition):
 //		gather first and last sector from geom
@@ -495,7 +496,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			geom_part_undo($uncommitted_device_names);
 			set_kern_geom_debugflags(0);
 			$message = sprintf('Not enough space available on device %s.',$destination);
-			write_console($message . PHP_EOL);
+			write_console($message . "\n");
 			tui_display_message('Error',$message,60,5);
 			return false;
 		endif;
@@ -525,7 +526,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				$boundaries[] = sprintf('maximum: %s',$r_partition['maximum']['size'] ?? 'n/a');
 			endif;
 			if(!empty($boundaries)):
-				$input_text .= PHP_EOL . '(' . implode(', ',$boundaries) . ')';
+				$input_text .= "\n" . '(' . implode(', ',$boundaries) . ')';
 			endif;
 //			user input
 			$nocigar = true;
@@ -533,7 +534,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			unset($error_message);
 			while($nocigar):
 				if(isset($error_message)):
-					$enhanced_input_text =  $error_message . PHP_EOL . PHP_EOL . $input_text;
+					$enhanced_input_text =  $error_message . "\n\n" . $input_text;
 					unset($error_message);
 				else:
 					$enhanced_input_text = $input_text;
@@ -623,63 +624,69 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					geom_part_undo($uncommitted_device_names);
 					set_kern_geom_debugflags(0);
 					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination);
-					write_console($message . PHP_EOL);
+					write_console($message . "\n");
 					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
 				switch($k_partition):
 					case 'boot':
 //						install gpt boot code
-						$param = $param_geom_part;
-						$param['command'] = 'bootcode';
-						$param['testmode'] = $test_mode;
-						$param['boot'] = '-p /boot/gptboot';
-						$param['index'] = $partition_index;
-						$param['geom'] = escapeshellarg($destination);
-						$command = implode(' ',$param);
-						if(mwexec($command)):
-							geom_part_undo($uncommitted_device_names);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to install GPT bootcode on %s.',$destination);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
+						if(file_exists('/boot/gptboot')):
+							$param = $param_geom_part;
+							$param['command'] = 'bootcode';
+							$param['testmode'] = $test_mode;
+							$param['boot'] = '-p /boot/gptboot';
+							$param['index'] = $partition_index;
+							$param['geom'] = escapeshellarg($destination);
+							$command = implode(' ',$param);
+							if(mwexec($command)):
+								geom_part_undo($uncommitted_device_names);
+								set_kern_geom_debugflags(0);
+								$message = sprintf('Failed to install GPT bootcode on %s.',$destination);
+								write_console($message . "\n");
+								tui_display_message('Error',$message,60,5);
+								return false;
+							endif;
 						endif;
 						break;
 					case 'zfsboot':
 //						install gpt zfs boot code
-						$param = $param_geom_part;
-						$param['command'] = 'bootcode';
-						$param['testmode'] = $test_mode;
-						$param['boot'] = '-p /boot/gptzfsboot';
-						$param['index'] = $partition_index;
-						$param['geom'] = escapeshellarg($destination);
-						$command = implode(' ',$param);
-						if(mwexec($command)):
-							geom_part_undo($uncommitted_device_names);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to install GPT ZFS bootcode on %s.',$destination);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
+						if(file_exists('/boot/gptzfsboot')):
+							$param = $param_geom_part;
+							$param['command'] = 'bootcode';
+							$param['testmode'] = $test_mode;
+							$param['boot'] = '-p /boot/gptzfsboot';
+							$param['index'] = $partition_index;
+							$param['geom'] = escapeshellarg($destination);
+							$command = implode(' ',$param);
+							if(mwexec($command)):
+								geom_part_undo($uncommitted_device_names);
+								set_kern_geom_debugflags(0);
+								$message = sprintf('Failed to install GPT ZFS bootcode on %s.',$destination);
+								write_console($message . "\n");
+								tui_display_message('Error',$message,60,5);
+								return false;
+							endif;
 						endif;
 						break;
 					case 'efi':
 //						install efi boot code
-						$param = $param_geom_part;
-						$param['command'] = 'bootcode';
-						$param['testmode'] = $test_mode;
-						$param['boot'] = '-p /boot/boot1.efifat';
-						$param['index'] = $partition_index;
-						$param['geom'] = escapeshellarg($destination);
-						$command = implode(' ',$param);
-						if(mwexec($command)):
-							geom_part_undo($uncommitted_device_names);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to install EFI bootcode on partition %sp%s.',$destination,$partition_index);
-							write_console($message . PHP_EOL);
-							tui_display_message('Error',$message,60,5);
-							return false;
+						if(file_exists('/boot/boot1.efifat')):
+							$param = $param_geom_part;
+							$param['command'] = 'bootcode';
+							$param['testmode'] = $test_mode;
+							$param['boot'] = '-p /boot/boot1.efifat';
+							$param['index'] = $partition_index;
+							$param['geom'] = escapeshellarg($destination);
+							$command = implode(' ',$param);
+							if(mwexec($command)):
+								geom_part_undo($uncommitted_device_names);
+								set_kern_geom_debugflags(0);
+								$message = sprintf('Failed to install EFI bootcode on partition %sp%s.',$destination,$partition_index);
+								write_console($message . "\n");
+								tui_display_message('Error',$message,60,5);
+								return false;
+							endif;
 						endif;
 						break;
 				endswitch;
@@ -705,7 +712,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					geom_part_undo($uncommitted_device_names);
 					set_kern_geom_debugflags(0);
 					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination);
-					write_console($message . PHP_EOL);
+					write_console($message . "\n");
 					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
@@ -729,7 +736,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					geom_part_undo($uncommitted_device_names);
 					set_kern_geom_debugflags(0);
 					$message = sprintf('Failed to create BSD scheme on %s.',$destination_slice);
-					write_console($message . PHP_EOL);
+					write_console($message . "\n");
 					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
@@ -746,7 +753,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							geom_part_undo($uncommitted_device_names);
 							set_kern_geom_debugflags(0);
 							$message = sprintf('Failed to install bootcode on %s.',$destination_slice);
-							write_console($message . PHP_EOL);
+							write_console($message . "\n");
 							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
@@ -761,7 +768,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							geom_part_undo($uncommitted_device_names);
 							set_kern_geom_debugflags(0);
 							$message = sprintf('Failed to activate partition on %s.',$destination);
-							write_console($message . PHP_EOL);
+							write_console($message . "\n");
 							tui_display_message('Error',$message,60,5);
 							return false;
 						endif;
@@ -788,7 +795,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					geom_part_undo($uncommitted_device_names);
 					set_kern_geom_debugflags(0);
 					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination_slice);
-					write_console($message . PHP_EOL);
+					write_console($message . "\n");
 					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
@@ -802,14 +809,14 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 	if(!geom_part_commit($uncommitted_device_names)):
 		geom_part_undo($uncommitted_device_names);
 		set_kern_geom_debugflags(0);
-		$message = sprintf('Failed to commit all changes on %s.' . PHP_EOL,$destination);
-		write_console($message . PHP_EOL);
+		$message = sprintf('Failed to commit all changes on %s.' . "\n",$destination);
+		write_console($message . "\n");
 		tui_display_message('Error',$message,60,5);
 		return false;
 	endif;
 //	create file systems and set volume label.
 	$message = 'Create file system on partition:';
-	write_console($message . PHP_EOL);
+	write_console($message . "\n");
 	foreach($partition_layout as $k_partition => $r_partition):
 		switch($base['scheme']):
 			case 'gpt':
@@ -840,16 +847,75 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				if(mwexec($command)):
 					set_kern_geom_debugflags(0);
 					$message = ' error';
-					write_console($message . PHP_EOL);
+					write_console($message . "\n");
 					return false;
 				else:
 					$message = ' success';
-					write_console($message . PHP_EOL);
+					write_console($message . "\n");
+				endif;
+				break;
+			case 'efi':
+				if(file_exists('/boot/boot1.efifat')):
+//					nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
+				else:
+//					build esp manually
+					$destination_mount = '/tmp/esp';
+					$destination_folder = $destination_mount . '/efi/boot';
+					$destination_device = sprintf('/dev/%s',$destination_partition);
+					$param = [
+						'run' => '/sbin/newfs_msdos',
+						'fattype' => '-F 32',
+						'label' => '-L EFISYS',
+						'geom' => escapeshellarg($destination_device)
+					];
+					$command = implode(' ',$param);
+					if(mwexec($command)):
+						set_kern_geom_debugflags(0);
+						$message = ' error';
+						write_console($message . "\n");
+						return false;
+					endif;
+					$success = mkdir($destination_mount);
+					if($success):
+						$param = [
+							'run' => '/sbin/mount_msdosfs',
+							'device' => escapeshellarg($destination_device),
+							'mountpoint' => escapeshellarg($destination_mount)
+						];
+						$command = implode(' ',$param);
+						$success = mwexec($command) == 0;
+					endif;
+					if($success):
+						$success = mkdir($destination_folder);
+					endif;
+					if($success):
+						$success = copy('/boot/loader.efi',$destination_folder . '/BOOTx64.efi');
+					endif;
+					if($success):
+						$success = file_put_contents($destination_folder . '/startup.nsh','BOOTx64.efi') !== false;
+					endif;
+					if($success):
+						$param = [
+							'run' => '/sbin/umount',
+							'mountpoint' => escapeshellarg($destination_mount)
+						];
+						$command = implode(' ',$param);
+						$success = mwexec($command) == 0;
+					endif;
+					if($success):
+						$message = ' success';
+						write_console($message . "\n");
+					else:
+						set_kern_geom_debugflags(0);
+						$message = ' error';
+						write_console($message . "\n");
+						return false;
+					endif;
 				endif;
 				break;
 			default:
 				$message = ' skipped';
-				write_console($message . PHP_EOL);
+				write_console($message . "\n");
 				break;
 		endswitch;
 	endforeach;
