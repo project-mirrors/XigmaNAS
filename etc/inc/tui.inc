@@ -871,46 +871,59 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					$command = implode(' ',$param);
 					if(mwexec($command)):
 						set_kern_geom_debugflags(0);
-						$message = ' error';
+						$message = ' error, creating filesystem failed';
 						write_console($message . "\n");
 						return false;
 					endif;
-					$success = mkdir($destination_mount);
-					if($success):
-						$param = [
-							'run' => '/sbin/mount_msdosfs',
-							'device' => escapeshellarg($destination_device),
-							'mountpoint' => escapeshellarg($destination_mount)
-						];
-						$command = implode(' ',$param);
-						$success = mwexec($command) == 0;
-					endif;
-					if($success):
-						$success = mkdir($destination_folder);
-					endif;
-					if($success):
-						$success = copy('/boot/loader.efi',$destination_folder . '/BOOTx64.efi');
-					endif;
-					if($success):
-						$success = file_put_contents($destination_folder . '/startup.nsh','BOOTx64.efi') !== false;
-					endif;
-					if($success):
-						$param = [
-							'run' => '/sbin/umount',
-							'mountpoint' => escapeshellarg($destination_mount)
-						];
-						$command = implode(' ',$param);
-						$success = mwexec($command) == 0;
-					endif;
-					if($success):
-						$message = ' success';
-						write_console($message . "\n");
-					else:
+					if(!mkdir($destination_mount)):
 						set_kern_geom_debugflags(0);
-						$message = ' error';
+						$message = ' error, creating mount folder failed';
 						write_console($message . "\n");
 						return false;
 					endif;
+					$param = [
+						'run' => '/sbin/mount_msdosfs',
+						'device' => escapeshellarg($destination_device),
+						'mountpoint' => escapeshellarg($destination_mount)
+					];
+					$command = implode(' ',$param);
+					if(mwexec($command)):
+						set_kern_geom_debugflags(0);
+						$message = ' error, mounting efi partition failed';
+						write_console($message . "\n");
+						return false;
+					endif;
+					if(!mkdir($destination_folder)):
+						set_kern_geom_debugflags(0);
+						$message = ' error, creating subfolder failed';
+						write_console($message . "\n");
+						return false;
+					endif;
+					if(!copy('/boot/loader.efi',$destination_folder . '/BOOTx64.efi')):
+						set_kern_geom_debugflags(0);
+						$message = ' error, copying loader failed';
+						write_console($message . "\n");
+						return false;
+					endif;
+					if(file_put_contents($destination_folder . '/startup.nsh','BOOTx64.efi') === false):
+						set_kern_geom_debugflags(0);
+						$message = ' error, creating startup failed';
+						write_console($message . "\n");
+						return false;
+					endif;
+					$param = [
+						'run' => '/sbin/umount',
+						'mountpoint' => escapeshellarg($destination_mount)
+					];
+					$command = implode(' ',$param);
+					if(mwexec($command)):
+						set_kern_geom_debugflags(0);
+						$message = ' error, unmounting efi partition failed.';
+						write_console($message . "\n");
+						return false;
+					endif;
+					$message = ' success';
+					write_console($message . "\n");
 				endif;
 				break;
 			default:
