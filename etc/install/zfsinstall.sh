@@ -21,6 +21,8 @@ BOOTENV="/default-install"
 ZROOT="zroot"
 BOOTPOOL="bootpool"
 GMIRRORBAL="load"
+SYSBACKUP="/tmp/sysbackup"
+DIRNOSCHG="bin lib libexec sbin usr"
 
 # GELI options(bsdinstall).
 GELIALGO="AES-XTS"
@@ -557,14 +559,7 @@ zroot_init()
 	# Flush disk cache and wait 1 second.
 	sync; sleep 1
 
-	if zpool status | grep -q ${ZROOT}; then
-		if [ "${BOOT_MODE}" = 3 ]; then
-			if zpool status | grep -q ${BOOTPOOL}; then
-				zpool export ${BOOTPOOL}
-			fi
-		fi
-		zpool export ${ZROOT}
-	fi
+	zpool_export
 
 	# Final message.
 	if [ $? -eq 0 ]; then
@@ -572,6 +567,150 @@ zroot_init()
 		exit 0
 	else
 		echo "Error: A problem has occurred during the installation."
+		exit 1
+	fi
+}
+
+backup_chflags() {
+	# Dump chflag from common directories/* to zipped files.
+	cd ${ALTROOT}
+ 	for FILES in ${DIRNOSCHG}; do
+ 		mtree -q -P -c -p ${FILES} | gzip > ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz
+ 	done
+	if [ 0 != $? ]; then
+		echo "ERROR: Failed to backup chflags."
+		exit 1
+	fi
+}
+
+remove_chflags() {
+	# Remove chflag from common directories/*.
+	cd ${ALTROOT}
+ 	for FILES in ${DIRNOSCHG}; do
+ 		chflags -R noschg ${FILES}
+ 		chmod -R u+rw ${FILES}
+ 	done
+	if [ 0 != $? ]; then
+		echo "ERROR: Failed to remove chflags."
+		exit 1
+	fi
+}
+
+restore_chflags() {
+	# Restore chflag from previous zipped files.
+	cd ${ALTROOT}
+ 	for FILES in ${DIRNOSCHG}; do
+		zcat ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz | mtree -q -P -U -p ${FILES}
+ 	done
+	if [ 0 != $? ]; then
+		echo "ERROR: Failed to restore chflags."
+		exit 1
+	fi
+}
+
+backup_sys_files() {
+	# Backup common system configuration files.
+	# Only files present in the firmware upgrade file are affected.
+	echo "Backup system configuration..."
+
+	if [ ! -d "${SYSBACKUP}" ]; then
+		mkdir -p ${SYSBACKUP}
+	fi
+
+	if [ -f "${BOOTPATH}/boot/loader.conf" ]; then
+		cp -p ${BOOTPATH}/boot/loader.conf ${SYSBACKUP}/
+	fi
+	if [ -f "${ALTROOT}/etc/rc.conf" ]; then
+		cp -p ${ALTROOT}/etc/rc.conf ${SYSBACKUP}/
+	fi
+
+	# Keep a copy of the previous kernel on each upgrade.
+	if [ -d "${BOOTPATH}/boot/kernel" ]; then
+		if [ "${MBRPART}" = 1 ]; then
+			# Keep a copy of the previous kernel and append the date on mbr installs.
+			KDATE=$(date +%Y-%m-%d-%H%M)
+			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old.${KDATE}
+		else
+			if [ -d "${BOOTPATH}/boot/kernel.old" ]; then
+				# Keep only the current kernel per boot environment.
+				rm -rf ${BOOTPATH}/boot/kernel.old
+			fi
+			mv ${BOOTPATH}/boot/kernel ${BOOTPATH}/boot/kernel.old
+		fi
+	fi
+}
+
+restore_sys_files() {
+	# Restore previous backup files on the boot environment.
+	# Only files present in the firmware upgrade file are affected.
+	echo "Restore system configuration..."
+
+	if [ -f "${SYSBACKUP}/loader.conf" ]; then
+		cp -pf ${SYSBACKUP}/loader.conf ${BOOTPATH}/boot/
+	fi
+	if [ -f "${SYSBACKUP}/rc.conf" ]; then
+		cp -pf ${SYSBACKUP}/rc.conf ${ALTROOT}/etc/
+	fi
+	cd
+}
+
+# Upgrade RootOnZFS.
+upgrade_init()
+{
+	export BEPATH=${ALTROOT}
+
+	# Begin installation.
+	printf '\033[1;37;44m RootOnZFS Working... \033[0m\033[1;37m\033[0m\n'
+
+	# Mount cd-rom.
+	mount_cdrom
+
+	# Set the proper boot path for zfs/mbr.
+	BOOTPATH=${ALTROOT}
+	if [ "${MBRPART}" = 1 ]; then
+		BOOTPATH=${ALTROOT}/${BOOTPOOL}
+	fi
+
+	# Backup system configuration.
+	backup_sys_files
+	if [ 0 -ne $? ]; then
+		echo "Error: Failed to backup configuration."
+		exit 1
+	fi
+
+	# Start upgrade script to remove obsolete files. This should be done
+	# before system is updated because it may happen that some files
+	# may be reintroduced in the system.
+	echo "Remove obsolete files..."
+	${BEPATH}/etc/install/upgrade.sh clean ${BEPATH}
+
+	# Backup chflags before removal.
+	backup_chflags
+
+	# Remove chflags for protected files before upgrade process.
+	remove_chflags
+
+	# Upgrade system files.
+	upgrade_sys_files
+
+	# Restore system configuration.
+	restore_sys_files
+
+	# Unmount cd-rom.
+	umount_cdrom
+
+	# Flush disk cache and wait 1 second.
+	sync; sleep 1
+
+	# Export zpool
+	zpool_export
+
+	# Final message.
+	if [ $? -eq 0 ]; then
+		cdialog --msgbox "${PRDNAME} ${APPNAME} Successfully Upgraded!" 6 60
+		exit 0
+	else
+		echo "Error: A problem has occurred during the upgrade."
 		exit 1
 	fi
 }
@@ -696,24 +835,57 @@ EOF
 	echo "Done!"
 }
 
+upgrade_sys_files()
+{
+	EXCLUDEBOOT=
+	if [ "${MBRPART}" = 1 ]; then
+		echo "Extracting files for ${BOOTPOOL}..."
+		RESULT=1
+		EXCLUDEBOOT="--exclude=boot/"
+		# Extract boot to /bootpool on ZFS/MBR installs since boot is a symlink.
+		tar --keep-newer-files -c -f - -C /boot . | tar -xpf - -C ${ALTROOT}/${BOOTPOOL}/boot
+		RESULT=$?
+		if [ 0 != ${RESULT} ]; then
+			echo "ERROR: Failed file extraction for ${BOOTPOOL}."
+			exit 1
+		fi
+	fi
+
+	# Install system files and discard unwanted folders.
+	echo "Upgrading system files on ${BOOTENV_ITEM}..."
+	EXCLUDEDIRS="${EXCLUDEBOOT} --exclude=.snap/ --exclude=resources/ --exclude=mnt/ --exclude=dev/ --exclude=var/ --exclude=tmp/ --exclude=cf/ --exclude=version --exclude=platform --exclude=fstab --exclude=cfdevice"
+	tar ${EXCLUDEDIRS} --keep-newer-files -c -f - -C / . | tar -xpf - -C ${ALTROOT}
+
+	# Copy files from live media source.
+	copy_media_files
+}
+
 copy_media_files()
 {
 	# Copy files from live media source.
-	mkdir -p ${ALTROOT}/dev
-	mkdir -p ${ALTROOT}/mnt
-	mkdir -p ${ALTROOT}/tmp
-	mkdir -p ${ALTROOT}/var
-	chmod 1777 ${ALTROOT}/tmp
-	mkdir -p ${ALTROOT}/boot/defaults
-	cp -r ${CDPATH}/boot/* ${ALTROOT}/boot/
-	cp -r ${CDPATH}/boot/defaults/* ${ALTROOT}/boot/defaults/
-	cp -r ${CDPATH}/boot/kernel/* ${ALTROOT}/boot/kernel/
+	if [ "${UPDATE}" != 0 ]; then
+		mkdir -p ${ALTROOT}/dev
+		mkdir -p ${ALTROOT}/mnt
+		mkdir -p ${ALTROOT}/tmp
+		mkdir -p ${ALTROOT}/var
+		chmod 1777 ${ALTROOT}/tmp
+		mkdir -p ${ALTROOT}/boot/defaults
+	fi
+
+	BOOTPATH=${ALTROOT}
+	if [ "${MBRPART}" = 1 ]; then
+		BOOTPATH=${ALTROOT}/${BOOTPOOL}
+	fi
+
+	cp -r ${CDPATH}/boot/* ${BOOTPATH}/boot/
+	cp -r ${CDPATH}/boot/defaults/* ${BOOTPATH}/boot/defaults/
+	cp -r ${CDPATH}/boot/kernel/* ${BOOTPATH}/boot/kernel/
 
 	# Decompress kernel.
-	gzip -d -f ${ALTROOT}/boot/kernel/kernel.gz
+	gzip -d -f ${BOOTPATH}/boot/kernel/kernel.gz
 
 	# Decompress modules (legacy versions).
-	cd ${ALTROOT}/boot/kernel
+	cd ${BOOTPATH}/boot/kernel
 	for FILE in *.gz
 	do
 		if [ -f "${FILE}" ]; then
@@ -787,7 +959,7 @@ zpool_check()
 		echo "Proceeding..."
 		# Export existing zroot pool.
 		if zpool status | grep -q ${ZROOT}; then
-			zpool export -f ${ZROOT} > /dev/null 2>&1
+			zpool export ${ZROOT} > /dev/null 2>&1
 		fi
 	fi
 }
@@ -809,7 +981,7 @@ bootpool_check()
 		echo "Proceeding..."
 		# Export existing zroot pool.
 		if zpool status | grep -q ${BOOTPOOL}; then
-			zpool export -f ${BOOTPOOL} > /dev/null 2>&1
+			zpool export ${BOOTPOOL} > /dev/null 2>&1
 		fi
 	fi
 }
@@ -823,6 +995,19 @@ install_yesno()
 	if [ 0 -ne $? ]; then
 		exit 0
 	fi
+}
+
+upgrade_yesno()
+{
+	set +e
+	cdialog --title "Proceed with ${PRDNAME} ${APPNAME} Upgrade" \
+	--backtitle "${PRDNAME} ${APPNAME} Installer" \
+	--yesno "Continuing with the upgrade will overwrite system data on <${BOOTENV_ITEM}> Boot Environment, do you really want to continue?" 0 0
+	if [ 0 -ne $? ]; then
+		zpool_export
+		exit 0
+	fi
+	set -e
 }
 
 menu_poolname()
@@ -965,7 +1150,7 @@ ERROR: Can not create ZFS ${VERIFY_TOPIC} with '${DATASETNAME}' name.
       Dot: (.)
       Colon: (:)
 
-    Name '${CHECK_NAME}' which uses only allowed characters can be used.
+    Name '${CHECK_NAME}' wish uses only allowed characters can be used.
 "
 		read -p "Press Enter to retry." RETRY
 		${FUNC_CMD}
@@ -1045,6 +1230,16 @@ menu_zroot_create()
 	menu_encryption
 	install_yesno
 	zroot_init
+}
+
+menu_zroot_update()
+{
+	menu_poolname
+	update_zroot_check
+	menu_beselect
+	update_bootpool_check
+	upgrade_yesno
+	upgrade_init
 }
 
 sort_disklist()
@@ -1197,17 +1392,166 @@ menu_install()
 	rm -f ${tmplist}
 }
 
+update_zroot_check()
+{
+	# Check if the defined zroot pool exist.
+	echo
+	echo "Checking for ${pool_name} pool existence..."
+	if ! zpool status | grep -qw ${pool_name}; then
+		if zpool import | grep -qw ${pool_name}; then
+			printf '\033[1;37;43m WARNING \033[0m\033[1;37m Pool '${pool_name}' found and may be importable.\033[0m\n'
+			while :
+				do
+					read -p "Do you wish to proceed with ${pool_name} import? [y/N]:" yn
+					case ${yn} in
+					[Yy]) break;;
+					[Nn]) exit 0;;
+					esac
+				done
+			echo "Trying to import ${pool_name}..."
+			# Try import existing zroot pool.
+			if ! zpool import -f -R ${ALTROOT} ${pool_name}; then
+				echo "Error: A problem has occurred while trying to import ${pool_name}."
+				exit 1
+			fi
+		else
+			read -p "Error: Pool ${pool_name} not found." _wait_
+			exit 1
+		fi
+	else
+		echo "Error: Looks like ${pool_name} pool has been already imported."
+		read -p "Please export the pool manually and retry upgrade." _wait_
+		exit 1
+	fi
+}
+
+update_bootpool_check()
+{
+	# Check if a bootpool pool exist and auto import it.
+	echo
+	echo "Check for existing ${BOOTPOOL} pool existence..."
+	if ! zpool status | grep -qw ${BOOTPOOL}; then
+		if zpool import | grep -qw ${BOOTPOOL}; then
+			#printf '\033[1;37;43m WARNING \033[0m\033[1;37m Pool '${BOOTPOOL}' found and may be importable.\033[0m\n'
+			#while :
+			#	do
+			#		read -p "Do you wish to proceed with the ${BOOTPOOL} import? [y/N]:" yn
+			#		case ${yn} in
+			#		[Yy]) break;;
+			#		[Nn]) exit 0;;
+			#		esac
+			#	done
+			#echo "Proceeding..."
+			#MBRPART=1
+			# Try import existing bootpool pool.
+			if ! zpool import -f -R ${ALTROOT} ${BOOTPOOL}; then
+				echo "Error: A problem has occurred while trying to import ${BOOTPOOL}."
+				zpool_export
+				exit 1
+			else
+				MBRPART=1
+			fi
+		#else
+		#	read -p "Error: Pool ${BOOTPOOL} not found." _wait_
+		#	exit 1
+		fi
+	else
+		echo "Error: Looks like ${BOOTPOOL} pool has been already imported."
+		read -p "Please export the pool manually and retry upgrade." _wait_
+		exit 1
+	fi
+}
+
+zpool_export()
+{
+	if zpool status | grep -q ${ZROOT}; then
+		if [ "${BOOT_MODE}" = 3 ] || [ "${MBRPART}" = 1 ]; then
+			if zpool status | grep -q ${BOOTPOOL}; then
+				zpool export ${BOOTPOOL}
+			fi
+		fi
+		zpool export ${ZROOT}
+	fi
+}
+
+get_be_list()
+{
+	BOOTENV_LIST=$(zfs list -H -r "${pool_name}${DATASET}" | awk '{print $1}' | sed "s|${pool_name}${DATASET}/*||;1d")
+	VAL=""
+	local BE
+	for BE in ${BOOTENV_LIST}; do
+		VAL="${VAL} ${BE}"
+	done
+	VAL=$(echo ${VAL} | tr ' ' '\n')
+}
+
+menu_beselect()
+{
+	# Build the Boot Environments selection menu.
+	get_be_list
+	BE="${VAL}"
+	list=""
+	items=0
+	for BE in ${BE}; do
+		if [ "${ITEMSTATS}" != 0 ]; then
+			list="${list} ${BE} '${desc}' off"
+		else
+			list="${list} ${BE} '' off"
+		fi
+		items=$((${items} + 1))
+	done
+
+	if [ "${items}" -ge 10 ]; then
+		items=10
+		menuheight=20
+	else
+		menuheight=10
+		menuheight=$((${menuheight} + ${items}))
+	fi
+
+	if [ "${items}" -eq 0 ]; then
+		eval "dialog --title 'Select Boot Environment' --msgbox 'No Boot Environments available!' 5 60" \
+		2>${tmpfile}
+		zpool_export
+		exit 1
+	fi
+
+	set +e
+	eval "dialog --backtitle '${PRDNAME} ${APPNAME} Installer' --title 'Select Boot Environment' \
+		--radiolist 'Select any Boot Environment you wish to upgrade, use [up] [down] keys to navigate the menu then select a item with the [spacebar].' \
+		${menuheight} 80 ${items} ${list}" \
+		2>${tmpfile}
+	if [ 0 -ne $? ]; then
+		zpool_export
+		exit 0
+	fi
+	set -e
+
+	BOOTENV_ITEM=$(cat ${tmpfile})
+	if [ -z "${BOOTENV_ITEM}" ]; then
+		menu_beselect
+	else
+		# Try to mount the selected boot environment.
+		if ! zfs mount ${pool_name}${DATASET}/${BOOTENV_ITEM}; then
+			echo "Error: A problem has occurred while trying mount ${BOOTENV_ITEM} Boot Environment."
+			zpool_export
+			exit 1
+		fi
+	fi
+}
+
 menu_main()
 {
 	while :
 		do
-			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --clear --title "${PRDNAME} Installer Options" --cancel-label "Exit" --menu "" 12 50 10 \
+			cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --clear --title "${PRDNAME} Installer Options" --cancel-label "Exit" --menu "" 13 50 10 \
 			"1" "Install ${PRDNAME} ${APPNAME} on Stripe" \
 			"2" "Install ${PRDNAME} ${APPNAME} on Mirror" \
 			"3" "Install ${PRDNAME} ${APPNAME} on RAID10" \
 			"4" "Install ${PRDNAME} ${APPNAME} on RAIDZ1" \
 			"5" "Install ${PRDNAME} ${APPNAME} on RAIDZ2" \
 			"6" "Install ${PRDNAME} ${APPNAME} on RAIDZ3" \
+			"7" "Upgrade ${PRDNAME} ${APPNAME} from Media" \
 			2>${tmpfile}
 			if [ 0 -ne $? ]; then
 				exit 0
@@ -1220,6 +1564,7 @@ menu_main()
 				4) RAIDZ1="0" && menu_zroot_create ;;
 				5) RAIDZ2="0" && menu_zroot_create ;;
 				6) RAIDZ3="0" && menu_zroot_create ;;
+				7) UPDATE="0" && menu_zroot_update ;;
 			esac
 		done
 }
