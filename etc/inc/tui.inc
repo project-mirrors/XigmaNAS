@@ -164,6 +164,106 @@ function geom_part_commit(array $device_list) {
 	return $return_value;
 }
 /**
+ *	Manually build esp (EFI system partition)
+ *	If /boot/boot1.efifat doesn't exist, the esp is build using /boot/loader.efi
+ *	@param string $partition_name
+ *	@param string|null $message
+ *	@return bool
+ */
+function make_esp(string $partition_name,?string &$message): bool {
+//	global $g;
+
+	$message = '';
+	if(file_exists('/boot/boot1.efifat')):
+//		nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
+		$message .= ' skipped';
+		return true;
+	else:
+//		preset variables
+		$node = '/tmp/esp';
+		$source_efi_boot =  '/boot/loader.efi';
+//		from: UEFI specifications 2.8 Errata B, May 2020, 13.3.1.3 Directory Structure
+		$efi_boot_folder = '/efi/boot';
+//		from: UEFI specification 2.8 Errata B, May 2020, table 15, File Name Convention
+		$machine_type_short_name = 'x64';
+/*
+ *		$machine_type_short_name = $g['arch'] ?? 'x64';
+ *		if(!in_array($machine_type_short_name,['IA32','x64','IA64','ARM','AA64','RISCV32','RISCV64','RISCV128'])):
+ *			$message .= ' unconventional machine type';
+ *		endif;
+ */
+		$efi_boot_filename = 'BOOT' . $machine_type_short_name . '.efi';
+		$efi_startup_filename = 'startup.nsh';
+//		calculated variables
+		$device = sprintf('/dev/%s',$partition_name);
+		$fqn_work_folder = $node . $efi_boot_folder;
+		$fqfn_efi_boot = $fqn_work_folder . '/' . $efi_boot_filename;
+		$fqfn_efi_startup = $fqn_work_folder . '/' . $efi_startup_filename;
+//		create FAT32 filesystem
+		$param_newfs = [
+			'run' => '/sbin/newfs_msdos',
+			'fattype' => '-F 32',
+			'label' => '-L EFISYS',
+			'spc' => '-c 1',
+			'device' => escapeshellarg($device)
+		];
+		$command_newfs = implode(' ',$param_newfs);
+		if(mwexec($command_newfs) !== 0):
+			$message .= ' error, creating filesystem failed';
+			return false;
+		endif;
+		unset($command_newfs,$param_newfs);
+//		create mount folder
+		if(is_dir($node)):
+		elseif(!mkdir($node,0777,true)):
+			$message .= ' error, creating mount folder failed';
+			return false;
+		endif;
+//		mount FAT32 partition
+		$param_mount = [
+			'run' => '/sbin/mount_msdosfs',
+			'device' => escapeshellarg($device),
+			'node' => escapeshellarg($node)
+		];
+		$command_mount = implode(' ',$param_mount);
+		if(mwexec($command_mount) !== 0):
+			$message .= ' error, mounting efi partition failed';
+			return false;
+		endif;
+		unset($command_mount,$param_mount);
+//		create subfolder
+		if(is_dir($fqn_work_folder)):
+		elseif(!mkdir($fqn_work_folder,0777,true)):
+			$message .= ' error, creating subfolder failed';
+			return false;
+		endif;
+//		copy loader
+		if(!copy($source_efi_boot,$fqfn_efi_boot)):
+			$message .= ' error, copying loader failed';
+			return false;
+		endif;
+//		create startup file
+		if(file_put_contents($fqfn_efi_startup,$efi_boot_filename) === false):
+			$message .= ' error, creating startup failed';
+			return false;
+		endif;
+//		unmount partition
+		$param_umount = [
+			'run' => '/sbin/umount',
+			'node' => escapeshellarg($node)
+		];
+		$command_umount = implode(' ',$param_umount);
+		if(mwexec($command_umount)):
+			$message .= ' error, unmounting efi partition failed.';
+			return false;
+		endif;
+		unset($command_umount,$param_umount);
+//		no need to delete the esp folder, it will disappear after reboot
+		$message .= ' success';
+	endif;
+	return true;
+}
+/**
  *	TUI dialog for flexible partitions
  *	The partition layout is an array with partition records:
  *
@@ -208,7 +308,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		'bytes' => (int)$diskinfo[$destination]->mediasize
 	];
 	unset($diskinfo);
-	if(0 === $base['sectorsize']['bytes']):
+	if($base['sectorsize']['bytes'] === 0):
 		$message = 'The destination device reported a sector size of 0.';
 		write_console($message . "\n");
 		tui_wait_keypress($message);
@@ -237,7 +337,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 //	initialize layout
 	$partition_layout = [];
 	foreach($partlayout as $key => $row):
-		if(is_bool($test = $row['enabled'] ?? false) ? $test : false):
+		$test = $row['enabled'] ?? false;
+		if(is_bool($test) ? $test : false):
 			$partition = [
 				'partition' => $row['partition'],
 				'fstype' => is_string($test = $row['fstype'] ?? null) ? $test : null,
@@ -268,13 +369,14 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				$details['uom'] = strtoupper($matches[2]);
 				unset($matches);
 				$details['shift'] = 0;
-				//	set shift from SI prefix
+//				set shift from SI prefix
 				if(!empty($details['uom'])):
-					if(false !== ($test = strpos('_KMGTPEZY',$details['uom']))):
+					$test = strpos('_KMGTPEZY',$details['uom']);
+					if($test !== false):
 						$details['shift'] = 10 * $test;
 					endif;
 				endif;
-				//	add shift from value
+//				add shift from value
 				$test = $details['value'];
 				while($test > 1):
 					$details['shift']++;
@@ -307,8 +409,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					$details['uom'] = strtoupper($matches[2]);
 					$details['uomshift'] = 0;
 					if(!empty($details['uom'])):
-						// set power of 2 of SI prefix
-						if(false !== ($test = strpos('_KMGTPEZY',$details['uom']))):
+//						set power of 2 of SI prefix
+						$test = strpos('_KMGTPEZY',$details['uom']);
+						if($test !== false):
 							$details['uomshift'] = 10 * $test;
 						endif;
 					endif;
@@ -347,7 +450,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 	set_kern_geom_debugflags(0x10);
 //	force delete existing partitions (ignore errors)
 	$partition_info = $geom->gather_part_by_name($destination);
-	if(false !== $partition_info):
+	if($partition_info !== false):
 		$current_scheme = (string)$partition_info[$destination]->config->scheme;
 	else:
 		$current_scheme = '';
@@ -509,6 +612,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			$minimum_bytes = 0;
 			$maximum_bytes = ($last_available_sector - $virtual_first + 1) << $base['sectorsize']['shift'];
 		endif;
+/*
+ *		user dialog to adjust partition size
+ */
 		if($r_partition['allow_edit']):
 //			prepare info string
 			$input_text = sprintf('Enter the size of the %s partition',$r_partition['friendly_name']);
@@ -540,7 +646,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					$enhanced_input_text = $input_text;
 				endif;
 				$result = tui_display_input($enhanced_input_text,60,11,$entered_size);
-				if(0 !== $result):
+				if($result !== 0):
 					geom_part_undo($uncommitted_device_names);
 					set_kern_geom_debugflags(0);
 					return false;
@@ -556,7 +662,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					$details['uomshift'] = 0;
 					if(!empty($details['uom'])):
 //						set power of 2 of SI prefix
-						if(false !== ($test = strpos('_KMGTPEZY',$details['uom']))):
+						$test = strpos('_KMGTPEZY',$details['uom']);
+						if($test !== false):
 							$details['uomshift'] = 10 * $test;
 						endif;
 					endif;
@@ -572,7 +679,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				elseif($r_partition['is_last'] && $r_partition['allow_star'] && is_string($entered_size) && in_array(strtolower($entered_size),['*','all','max'])):
 					$r_partition['size']['size'] = '*';
 					$nocigar = false;
-				elseif('' === $entered_size):
+				elseif($entered_size === ''):
 					$error_message = 'Error: No value was entered.';
 				else:
 					$error_message = 'Error: The entered value is invalid.';
@@ -580,6 +687,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			endwhile;
 			unset($input_text);
 		endif;
+/*
+ *		create partition and install boot code
+ */
 		switch($base['scheme']):
 			case 'gpt':
 				$partition_index = sprintf('-i %s',$r_partition['partition']);
@@ -600,22 +710,28 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				$param['geom'] = escapeshellarg($destination);
 				switch($k_partition):
 					case 'boot':
-					case 'zfsboot':	//	add boot partition
+					case 'zfsboot':
+//						add boot partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-boot');
 						break;
-					case 'efi':	//	add efi partition
+					case 'efi':
+//						add efi partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'efi');
 						break;
-					case 'root':	//	add root partition
+					case 'root':
+//						add root partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
 						break;
-					case 'swap':	//	add swap partition
+					case 'swap':
+//						add swap partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-swap');
 						break;
-					case 'zfsroot':	//	add root partition
+					case 'zfsroot':
+//						add root partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-zfs');
 						break;
-					default:	//	add other partitions
+					default:
+//						default, add ufs partition
 						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
 						break;
 				endswitch;
@@ -628,6 +744,9 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 					tui_display_message('Error',$message,60,5);
 					return false;
 				endif;
+/*
+ *				install boot code
+ */
 				switch($k_partition):
 					case 'boot':
 //						install gpt boot code
@@ -687,6 +806,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 								tui_display_message('Error',$message,60,5);
 								return false;
 							endif;
+//						else:
+//							manually build esp. See section create file systems below
 						endif;
 						break;
 				endswitch;
@@ -814,21 +935,23 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 		tui_display_message('Error',$message,60,5);
 		return false;
 	endif;
-//	create file systems and set volume label.
+/*
+ *	create file systems and set volume label.
+ */
 	$message = 'Create file system on partition:';
 	write_console($message . "\n");
 	foreach($partition_layout as $k_partition => $r_partition):
 		switch($base['scheme']):
 			case 'gpt':
-				$destination_partition = sprintf('%sp%s',$destination,$r_partition['partition']);
+				$destination_partition_name = sprintf('%sp%s',$destination,$r_partition['partition']);
 				break;
 /*
 			case 'mbr':
-				$destination_partition = sprintf('%ss%sa',$destination,$r_partition['partition']);
+				$destination_partition_name = sprintf('%ss%sa',$destination,$r_partition['partition']);
 				break;
  */
 		endswitch;
-		$message = sprintf('  %s:',$destination_partition);
+		$message = sprintf('  %s:',$destination_partition_name);
 		write_console($message);
 		switch($r_partition['fstype']):
 			case 'freebsd-ufs':
@@ -842,7 +965,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				if(isset($r_partition['volname'])):
 					$param['label'] = sprintf('-L %s',$r_partition['volname']);
 				endif;
-				$param['geom'] = sprintf('/dev/%s',$destination_partition);
+				$param['geom'] = sprintf('/dev/%s',$destination_partition_name);
 				$command = implode(' ',$param);
 				if(mwexec($command)):
 					set_kern_geom_debugflags(0);
@@ -855,80 +978,12 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				endif;
 				break;
 			case 'efi':
-				if(file_exists('/boot/boot1.efifat')):
-//					nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
-					$message = ' skipped';
+				if(make_esp($destination_partition_name,$message)):
 					write_console($message . "\n");
 				else:
-//					build esp manually
-					$destination_mount = '/tmp/esp';
-					$destination_folder = $destination_mount . '/efi/boot';
-					$destination_device = sprintf('/dev/%s',$destination_partition);
-					$param = [
-						'run' => '/sbin/newfs_msdos',
-						'fattype' => '-F 32',
-						'label' => '-L EFISYS',
-						'spc' => '-c 1',
-						'geom' => escapeshellarg($destination_device)
-					];
-					$command = implode(' ',$param);
-					if(mwexec($command) !== 0):
-						set_kern_geom_debugflags(0);
-						$message = ' error, creating filesystem failed';
-						write_console($message . "\n");
-						return false;
-					endif;
-					if(is_dir($destination_mount)):
-					elseif(!mkdir($destination_mount,0777,true)):
-						set_kern_geom_debugflags(0);
-						$message = ' error, creating mount folder failed';
-						write_console($message . "\n");
-						return false;
-					endif;
-					$param = [
-						'run' => '/sbin/mount_msdosfs',
-						'device' => escapeshellarg($destination_device),
-						'mountpoint' => escapeshellarg($destination_mount)
-					];
-					$command = implode(' ',$param);
-					if(mwexec($command) !== 0):
-						set_kern_geom_debugflags(0);
-						$message = ' error, mounting efi partition failed';
-						write_console($message . "\n");
-						return false;
-					endif;
-					if(is_dir($destination_folder)):
-					elseif(!mkdir($destination_folder,0777,true)):
-						set_kern_geom_debugflags(0);
-						$message = ' error, creating subfolder failed';
-						write_console($message . "\n");
-						return false;
-					endif;
-					if(!copy('/boot/loader.efi',$destination_folder . '/BOOTx64.efi')):
-						set_kern_geom_debugflags(0);
-						$message = ' error, copying loader failed';
-						write_console($message . "\n");
-						return false;
-					endif;
-					if(file_put_contents($destination_folder . '/startup.nsh','BOOTx64.efi') === false):
-						set_kern_geom_debugflags(0);
-						$message = ' error, creating startup failed';
-						write_console($message . "\n");
-						return false;
-					endif;
-					$param = [
-						'run' => '/sbin/umount',
-						'mountpoint' => escapeshellarg($destination_mount)
-					];
-					$command = implode(' ',$param);
-					if(mwexec($command)):
-						set_kern_geom_debugflags(0);
-						$message = ' error, unmounting efi partition failed.';
-						write_console($message . "\n");
-						return false;
-					endif;
-					$message = ' success';
+					set_kern_geom_debugflags(0);
 					write_console($message . "\n");
+					return false;
 				endif;
 				break;
 			default:
