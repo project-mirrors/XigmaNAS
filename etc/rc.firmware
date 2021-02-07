@@ -41,14 +41,16 @@ DIRNOSCHG="bin lib libexec sbin usr"
 
 usage() {
 # Display basic script usage.
-echo -e	"Usage: $(basename $0) [option] | [upgrade | fullupgrade file]
+echo -e	"Usage: $(basename $0) [Command] [/path/file]
+
+Commands:
     enable       Create a RAM disk in /var/tmp/ftmp.
     disable      Erase RAM disk.
     upgrade      Perform an embedded platform upgrade using the .XZ file.
     fullupgrade  Perform a full platform upgrade using the .TXZ file."
 }
 
-enable_upgrade() {
+enable_memdisk() {
 	program="FW_Enable"
 	/usr/bin/logger -t "${program}" -p console.info "processing."
 #
@@ -82,7 +84,7 @@ enable_upgrade() {
 	/usr/bin/logger -t "${program}" -p console.info "success."
 }
 
-disable_upgrade() {
+disable_memdisk() {
 	program="FW_Disable"
 	/usr/bin/logger -t "${program}" -p console.info "processing."
 #
@@ -612,7 +614,7 @@ full_upgrade() {
 	sleep 2
 
 	# Create a temp directory for the upgrade.
-	BEPATH=$(/usr/bin/mktemp -d -t be_upgrade)
+	export BEPATH=$(/usr/bin/mktemp -d -t be_upgrade)
 
 	# Set the proper boot path for backup.
 	set_boot_path
@@ -661,7 +663,7 @@ full_upgrade() {
 		msg="ERROR: Failed to backup configuration."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
 		disable_bootenv
-		disable_upgrade
+		disable_memdisk
 		exit 1
 	fi
 
@@ -676,7 +678,7 @@ full_upgrade() {
 		msg="ERROR: Failed obsolete file list extraction."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
 		disable_bootenv
-		disable_upgrade
+		disable_memdisk
 		exit 1
 	fi
 
@@ -710,7 +712,7 @@ full_upgrade() {
 			msg="ERROR: Failed file extraction for ${BOOTPOOL}."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			disable_bootenv
-			disable_upgrade
+			disable_memdisk
 			exit 1
 		fi
 	fi
@@ -725,7 +727,7 @@ full_upgrade() {
 		msg="ERROR: Failed file extraction for ${ZROOT}."
 		/usr/bin/logger -p console.err "UPGRADE ${msg}"
 		disable_bootenv
-		disable_upgrade
+		disable_memdisk
 		exit 1
 	else
 		# Restore system configuration.
@@ -734,7 +736,7 @@ full_upgrade() {
 			msg="ERROR: Failed to restore configuration."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			disable_bootenv
-			disable_upgrade
+			disable_memdisk
 			exit 1
 		fi
 
@@ -747,7 +749,7 @@ full_upgrade() {
 			msg="ERROR: Failed post upgrade configuration."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			disable_bootenv
-			disable_upgrade
+			disable_memdisk
 			exit 1
 		fi
 
@@ -772,7 +774,7 @@ full_upgrade() {
 			msg="ERROR: Failed to unmount/activate boot environment."
 			/usr/bin/logger -p console.err "UPGRADE ${msg}"
 			disable_bootenv
-			disable_upgrade
+			disable_memdisk
 			exit 1
 		fi
 		msg="System upgraded successfully."
@@ -805,12 +807,19 @@ full_upgrade() {
 	fi
 }
 
-case ${1} in
-	enable) enable_upgrade ;;
-	disable) disable_upgrade ;;
-	upgrade) embedded_upgrade ;;
-	fullupgrade) full_upgrade ;;
-	help|-h|--help) usage;;
-	*) exit 1 ;;
+case "${1}" in
+	enable)
+		enable_memdisk;;
+	disable) 
+		disable_memdisk;;
+	upgrade)
+		embedded_upgrade;;
+	fullupgrade)
+		full_upgrade;;
+	help|-h|--help)
+		usage;;
+	*)
+		usage
+		exit 1;;
 esac
 exit 0

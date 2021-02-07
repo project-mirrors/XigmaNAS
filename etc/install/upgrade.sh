@@ -17,13 +17,13 @@ clean_cmd="upgrade_clean"
 
 # Check for ZFS Boot Environments and set default path.
 ZROOT=$(/sbin/mount | awk -F '/' '/ \/ / {print $1}')
-BEPATH=""
+BE_PATH=""
 if zpool list -H -o bootfs | grep -qw "${ZROOT}/ROOT"; then
-	BEPATH="/var/tmp/be_upgrade"
+	BE_PATH=${BEPATH}
 fi
 
 # Defaults
-upgrade_obsoletefiles=${upgrade_obsoletefiles:-"${BEPATH}/etc/install/ObsoleteFiles.inc"}
+upgrade_obsoletefiles=${upgrade_obsoletefiles:-"${BE_PATH}/etc/install/ObsoleteFiles.inc"}
 
 upgrade_clean()
 {

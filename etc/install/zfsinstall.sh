@@ -554,6 +554,9 @@ zroot_init()
 	# Create user Dataset on request.
 	create_user_dataset
 
+	# Flush disk cache and wait 1 second.
+	sync; sleep 1
+
 	if zpool status | grep -q ${ZROOT}; then
 		if [ "${BOOT_MODE}" = 3 ]; then
 			if zpool status | grep -q ${BOOTPOOL}; then
@@ -562,9 +565,6 @@ zroot_init()
 		fi
 		zpool export ${ZROOT}
 	fi
-
-	# Flush disk cache and wait 1 second.
-	sync; sleep 1
 
 	# Final message.
 	if [ $? -eq 0 ]; then
