@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-01-26 23:58+0000\n"
-"PO-Revision-Date: 2021-01-25 16:57+0000\n"
+"PO-Revision-Date: 2021-02-05 16:49+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-02-01 13:05+0000\n"
-"X-Generator: Launchpad (build e00fb96b2e64b75333d0178ec15cb78e5aadb64d)\n"
+"X-Launchpad-Export-Date: 2021-02-07 12:21+0000\n"
+"X-Generator: Launchpad (build 3d7abcb776ec05aa0a89112accc21bf8b41dfc24)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -5701,6 +5701,8 @@ msgid ""
 "Logging with a DEBUG level violates the privacy of users and is not "
 "recommended."
 msgstr ""
+"Indicare il livello di informazioni che sono inviate quando connessi con "
+"sshd. Il livello DEBUG viola la privacy degli utenti e non è raccomandato"
 
 msgid "Global Settings"
 msgstr "Impostazioni globali"
@@ -5745,6 +5747,7 @@ msgstr "Altezza del grafico"
 
 msgid "Greeting banner displayed to client when first connection comes in."
 msgstr ""
+"Messaggio di benvenuto visualizzato dal client alla prima connessione."
 
 msgid "Group"
 msgstr "Gruppo"
@@ -6047,12 +6050,20 @@ msgid ""
 "initiators attempting to connect to portal belonging to this portal-group "
 "will get redirected using \"Target moved temporarily\" login response."
 msgstr ""
+"Indirizzo IPv4 o IPv6 da reindirizzare agli iniziatori. Quando configurato, "
+"tutti gli iniziatori tenteranno di connettersi al portale al quale "
+"appartengono, saranno reindirizzati  usando la risposta con login "
+"\"Obiettivo spostato momentaneamente\"."
 
 msgid ""
 "IPv4 or IPv6 address to redirect initiators to. When configured, all "
 "initiators attempting to connect to this target will get redirected using "
 "\"Target moved temporarily\" login response."
 msgstr ""
+"Indirizzo IPv4 o IPv6 da reindirizzare agli iniziatori. Quando configurato, "
+"tutti gli iniziatori tenteranno di connettersi a questo obiettivo, saranno "
+"reindirizzati  usando la risposta con login \"Obiettivo spostato "
+"momentaneamente\"."
 
 msgid "IPv6 Address"
 msgstr "Indirizzo IPv6"
@@ -6102,7 +6113,7 @@ msgid "Identifier"
 msgstr "Identificativo"
 
 msgid "Identifier:"
-msgstr ""
+msgstr "Identificatore:"
 
 msgid ""
 "Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the "
@@ -6243,6 +6254,7 @@ msgstr "In modalità 'slave' è il nome (Identifier) dell'UPS 'master'."
 
 msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr ""
+"In questa directory, verrà creato il file di configurazione 'my.cnf'."
 
 msgid "In/Out Errors"
 msgstr "Errore In/Out"
@@ -6725,7 +6737,7 @@ msgid "LUN UUID"
 msgstr "LUN UUID"
 
 msgid "LUN Vendor"
-msgstr ""
+msgstr "LUN Vendor"
 
 msgid "LUN is locked"
 msgstr "LUN bloccato"
@@ -6835,7 +6847,7 @@ msgid "Lightweight Directory Access Protocol"
 msgstr "Protocollo leggero di accesso alle cartelle"
 
 msgid "Limit the maximum number of CPUs to be displayed on the home page."
-msgstr ""
+msgstr "Limitare il numero massio di CPU visualizzate nella Homepage."
 
 msgid ""
 "Limits the amount of space a dataset and its descendants can consume. This "
@@ -6869,6 +6881,8 @@ msgid ""
 "Link chap configuration to auth-groups. Note that an auth-group may contain "
 "either chap or chap-mutual entries, but not both."
 msgstr ""
+"Configurazione di connessione chap al gruppo auth. Nota che il gruppo auth "
+"può contenere sia elementi chap che chap-mutual ma non entrambi."
 
 msgid ""
 "Link initiator-name to auth-groups. An Initiator with this name will be "
@@ -6891,7 +6905,7 @@ msgid ""
 msgstr ""
 
 msgid "Link this option to selected portal-groups."
-msgstr ""
+msgstr "Collega questa opzione al portale gruppi selezionato."
 
 msgid "List"
 msgstr "Elenco"
@@ -6974,7 +6988,7 @@ msgid "Location where the content database file will be stored."
 msgstr "Posizione del file di database dei contenuti."
 
 msgid "Location where work files will be stored."
-msgstr ""
+msgstr "Locazione dove i file di lavoro saranno salvati."
 
 msgid "Lock Selected Records"
 msgstr "Bloccare i records selezionati"
@@ -7037,10 +7051,10 @@ msgid "Login Name"
 msgstr "Nome per accesso"
 
 msgid "Login for CHAP authentication."
-msgstr ""
+msgstr "Login per l'autenticazione CHAP."
 
 msgid "Login user root automatically into console on boot."
-msgstr ""
+msgstr "Login per l'utente root automaticamente in console al boot."
 
 msgid "Logout"
 msgstr "Esci"
@@ -7074,10 +7088,10 @@ msgid "MBR partition"
 msgstr "Partizione MBR"
 
 msgid "MD4 Password"
-msgstr ""
+msgstr "Password MD4"
 
 msgid "MIDI File"
-msgstr ""
+msgstr "File MIDI"
 
 msgid "MIRROR"
 msgstr "MIRROR"
@@ -7086,31 +7100,31 @@ msgid "MISSING"
 msgstr "MANCANTE"
 
 msgid "MKV File"
-msgstr ""
+msgstr "File MKV"
 
 msgid "MOTD"
 msgstr "MOTD"
 
 msgid "MOV File"
-msgstr ""
+msgstr "File MOV"
 
 msgid "MOVE"
-msgstr ""
+msgstr "Sposta"
 
 msgid "MOVED TO"
 msgstr "SPOSTATO IN"
 
 msgid "MP3 Audio File"
-msgstr ""
+msgstr "File Audio MP3"
 
 msgid "MP3 Playlist"
-msgstr ""
+msgstr "Playlist MP3"
 
 msgid "MP4 File"
-msgstr ""
+msgstr "File MP4"
 
 msgid "MPEG File"
-msgstr ""
+msgstr "File MPEG"
 
 msgid "MS Active Directory"
 msgstr "MS Active Directory"
@@ -7134,10 +7148,10 @@ msgid "Maintenance Tool Settings"
 msgstr "Configurazione dei tool di manutenzione"
 
 msgid "Major OS Version Upgrades"
-msgstr ""
+msgstr "Aggiornamento principale della versione OS"
 
 msgid "Major Product Version Updates"
-msgstr ""
+msgstr "Migliorie principale della versione prodotto"
 
 msgid "Make sure to select the optimal number of devices"
 msgstr "Assicurarsi di selezionare il numero ottimale di devices"
@@ -7158,10 +7172,10 @@ msgid "Manufacturing date"
 msgstr "Data di fabbricazione"
 
 msgid "Map All To User"
-msgstr ""
+msgstr "Mappa a tutti gli utenti"
 
 msgid "Map Root To User"
-msgstr ""
+msgstr "Mappa all'utente root"
 
 msgid "Map to Guest"
 msgstr "Mappare tra gli ospiti"
@@ -7173,7 +7187,7 @@ msgid "Map users or map root to the specified user."
 msgstr ""
 
 msgid "Mapping"
-msgstr ""
+msgstr "Mappatura"
 
 msgid "Mapping DOS Attributes"
 msgstr "Mappare attributi DOS"
@@ -7195,19 +7209,19 @@ msgid "MariaDB"
 msgstr "MariaDB"
 
 msgid "Mark the selected device as inactive."
-msgstr ""
+msgstr "Settare il dispositivo selezionato come invattivo."
 
 msgid "Masquerade Address"
 msgstr "Indirizzo mascherato"
 
 msgid "Master"
-msgstr ""
+msgstr "Master"
 
 msgid "Master Password"
-msgstr ""
+msgstr "Password principale"
 
 msgid "Master User"
-msgstr ""
+msgstr "Utente principale"
 
 msgid "Max Processes"
 msgstr "Numero massimo di processi"
@@ -7308,28 +7322,28 @@ msgid "Media Directory"
 msgstr "Cartella dei media"
 
 msgid "Media Folder"
-msgstr ""
+msgstr "Cartella multimediale"
 
 msgid "Media Folder is locked"
-msgstr ""
+msgstr "La cartella multimediale è bloccata"
 
 msgid "Media Folder is marked for deletion"
-msgstr ""
+msgstr "La cartella multimediale è settata per la cancellazione"
 
 msgid "Media Folder is unlocked"
-msgstr ""
+msgstr "La cartella multimediale è sbloccata"
 
 msgid "Media Library"
 msgstr "Raccolta multimediale"
 
 msgid "Media Server Name."
-msgstr ""
+msgstr "Nome del server multimediale"
 
 msgid "Media Size"
 msgstr "Dimensione del supporto"
 
 msgid "Media Type"
-msgstr ""
+msgstr "Tipo di Media"
 
 msgid "Media library"
 msgstr "Libreria multimediale"
@@ -7459,19 +7473,19 @@ msgid "Monitoring"
 msgstr "Monitoraggio"
 
 msgid "Monitoring Password"
-msgstr ""
+msgstr "Monitoraggio password"
 
 msgid "Monitoring Setup"
 msgstr "Impostazioni monitoraggio"
 
 msgid "Monitoring User"
-msgstr ""
+msgstr "Monitoraggio utente"
 
 msgid "Months"
 msgstr "Mesi"
 
 msgid "More than a day"
-msgstr ""
+msgstr "Più di un giorno"
 
 msgid ""
 "More than one DLNA/UPnP service is active. This configuration might cause "
@@ -7516,23 +7530,23 @@ msgid "Mounts"
 msgstr "Mounts"
 
 msgid "Move"
-msgstr ""
+msgstr "Sposta"
 
 msgid "Move down"
 msgstr "Sposta in basso"
 
 #, php-format
 msgid "Move from /%s to /%s "
-msgstr ""
+msgstr "Spostare da /%s a /%s "
 
 msgid "Move item(s)"
-msgstr ""
+msgstr "Spostare l'oggetto(i)"
 
 msgid "Move up"
 msgstr "Sposta in alto"
 
 msgid "Moving failed."
-msgstr ""
+msgstr "Spostamento fallito."
 
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Public License Version 2.0 (MPLv2)"
@@ -7556,31 +7570,31 @@ msgid "Mutual CHAP"
 msgstr "CHAP reciproco"
 
 msgid "Mutual CHAP Name"
-msgstr ""
+msgstr "Nome del CHAP mutuo"
 
 msgid "Mutual CHAP Secret"
-msgstr ""
+msgstr "Segreto CHAP mutuo"
 
 msgid "Mutual CHAP User is locked"
-msgstr ""
+msgstr "Utente CHAP mutuo bloccato"
 
 msgid "Mutual CHAP User is marked for deletion"
-msgstr ""
+msgstr "Utente CHAP mutuo selezionato per la cancellazione"
 
 msgid "Mutual CHAP User is unlocked"
-msgstr ""
+msgstr "Utente CHAP mutuo sbloccato"
 
 msgid "Mutual CHAP Users"
 msgstr "Utenti CHAP reciproco"
 
 msgid "Mutual Secret"
-msgstr ""
+msgstr "Segreto mutuo"
 
 msgid "Mutual User"
-msgstr ""
+msgstr "Utente mutuo"
 
 msgid "Mutual-CHAP"
-msgstr ""
+msgstr "CHAP mutuo"
 
 msgid "NAA Identifier"
 msgstr "Identificatore NAA"
@@ -7589,22 +7603,22 @@ msgid "NFS"
 msgstr "NFS"
 
 msgid "NFS Export is locked"
-msgstr ""
+msgstr "Esportazione NFS bloccata"
 
 msgid "NFS Export is marked for deletion"
-msgstr ""
+msgstr "Esportazione NFS settata per la cancellazione"
 
 msgid "NFS Export is unlocked"
-msgstr ""
+msgstr "Esportazione NFS sbloccata"
 
 msgid "NFS Root is locked"
-msgstr ""
+msgstr "Root NFS bloccato"
 
 msgid "NFS Root is marked for deletion"
-msgstr ""
+msgstr "Root NFS selezionato per la cancellazione"
 
 msgid "NFS Root is unlocked"
-msgstr ""
+msgstr "Root NFS sbloccato"
 
 msgid "NFSv4"
 msgstr "NFSv4"
@@ -7671,7 +7685,7 @@ msgid "Name of the WebDAV Record."
 msgstr "Nome del  Record WebDAV"
 
 msgid "Name of the command."
-msgstr ""
+msgstr "Nome del comando."
 
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
@@ -7700,13 +7714,13 @@ msgid "Native - store characters with their native ASCII value."
 msgstr "Nativo - memorizza i caratteri con il loro valore ASCII originario."
 
 msgid "Navbar Style"
-msgstr ""
+msgstr "Stile della barra di navigazione"
 
 msgid "Navigation Bar"
-msgstr ""
+msgstr "Barra di navigazione"
 
 msgid "Navigation Menu"
-msgstr ""
+msgstr "Menù di navigazione"
 
 msgid "Neither user data nor metadata will be cached in ARC."
 msgstr "Dati utente e metadati non saranno salvati in ARC."
@@ -7724,7 +7738,7 @@ msgid "NetBIOS Name"
 msgstr "Nome NetBIOS"
 
 msgid "NetIf"
-msgstr ""
+msgstr "Netif"
 
 msgid "Netatalk (default) - use Netatalk compatible xattr."
 msgstr "Netatalk (default) - utilizzare xattr compatibile con Netatalk"
@@ -7754,7 +7768,7 @@ msgid "Network Latency"
 msgstr "Latenza rete"
 
 msgid "Network Port"
-msgstr ""
+msgstr "Porta di rete"
 
 msgid "Network Traffic"
 msgstr "Traffico rete"
@@ -7799,7 +7813,7 @@ msgid "Next"
 msgstr "Avanti"
 
 msgid "Nightly Builds"
-msgstr ""
+msgstr "Builds serali"
 
 msgid "No"
 msgstr "No"
@@ -7808,7 +7822,7 @@ msgid "No (default) - Disables advertising Time Machine support."
 msgstr "No (default) - Disabilita il supporto annunciazione di Time Machine."
 
 msgid "No CHAP users found."
-msgstr ""
+msgstr "Nessun utente CHAP trovato."
 
 msgid "No DNS server have been configured."
 msgstr "Nessun server NDS configurato"
@@ -7835,28 +7849,28 @@ msgid "No IPMI Sensor data available."
 msgstr "Nessun dato su sensori IPMI"
 
 msgid "No IPv4 routing information found."
-msgstr ""
+msgstr "Non è stata trovata nessuna informazione sul percorso IPv4."
 
 msgid "No IPv6 routing information found."
-msgstr ""
+msgstr "Non è stata trovata nessuna informazione sul percorso IPv6."
 
 msgid "No Initiator Group has been configured."
 msgstr "Nessun Initiatior Group configurato."
 
 msgid "No LUNs found."
-msgstr ""
+msgstr "LUNs non trovati."
 
 msgid "No Login"
-msgstr ""
+msgstr "Nessun Login"
 
 msgid "No Mutual-CHAP users found."
-msgstr ""
+msgstr "Nessun utente mutuo CHAP trovato."
 
 msgid "No Parity"
 msgstr "Nessuna parità"
 
 msgid "No Placeholder"
-msgstr ""
+msgstr "Nessun segnaposto"
 
 msgid "No Portal Group has been configured."
 msgstr "Nessun Portal Group configurato."
@@ -7865,22 +7879,22 @@ msgid "No RSYNC Client configured."
 msgstr "Nessun client RSYNC configurato"
 
 msgid "No ZFS filesystem information available."
-msgstr ""
+msgstr "Non è disponibile nessuna informazione sul filesystem ZFS."
 
 msgid "No ZFS volume information available."
-msgstr ""
+msgstr "Non è disponibile nessuna informazione sul volume ZFS."
 
 msgid "No ZFS zpool information available."
-msgstr ""
+msgstr "Non è disponibile nessuna informazione sul zpool ZFS."
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "Nessun accesso al portale utente"
 
 msgid "No additional parameters"
 msgstr "Nessun parametro addizionale"
 
 msgid "No auth groups found."
-msgstr ""
+msgstr "Nessun gruppo auth trovato."
 
 msgid "No configured Auth Group."
 msgstr "Nessun Auth Group configurato."
@@ -7901,7 +7915,7 @@ msgid "No configured virtual devices."
 msgstr "Nessuna virtual device configurata."
 
 msgid "No data"
-msgstr ""
+msgstr "Dati Mancanti"
 
 msgid "No devices have been selected"
 msgstr "Nessuna device selezionata."
@@ -7922,10 +7936,10 @@ msgid "No information available."
 msgstr "Nessuna informazione disponibile."
 
 msgid "No initiator names found."
-msgstr ""
+msgstr "Nessun nome iniziatore trovato."
 
 msgid "No initiator portals found."
-msgstr ""
+msgstr "Nessun portale iniziatore trovato."
 
 msgid "No listeners found."
 msgstr ""
@@ -7940,10 +7954,10 @@ msgid "No new software RAID disk found."
 msgstr "Nessun nuovo disco RAID software."
 
 msgid "No online information available."
-msgstr ""
+msgstr "Non è disponibile nessuna informazione online."
 
 msgid "No options found."
-msgstr ""
+msgstr "Nessuna opzione trovata."
 
 msgid "No pool devices have been selected"
 msgstr "Nessuna pool device selezionata."
@@ -7955,16 +7969,16 @@ msgid "No pools have been selected"
 msgstr "Nessun pool selezionato."
 
 msgid "No portal groups found."
-msgstr ""
+msgstr "Nessun portale di gruppi trovato."
 
 msgid "No ports found."
-msgstr ""
+msgstr "Nessuna porta trovata."
 
 msgid "No records found."
 msgstr "Nessuna registrazione trovata"
 
 msgid "No results available."
-msgstr ""
+msgstr "Nessun risultato disponibile"
 
 msgid "No snapshot information available."
 msgstr "Nessuna informazione di snapshot."
@@ -7982,7 +7996,7 @@ msgid "No suitable virtual devices found."
 msgstr "Nessuna virtual device trovata."
 
 msgid "No targets found."
-msgstr ""
+msgstr "Nessun obiettivo trovato."
 
 msgid "No virtual devices have been selected"
 msgstr "Nessuna virtual device selezionata."
@@ -8042,10 +8056,10 @@ msgid "Nominal value of real power (Watts)"
 msgstr "Valore nominale della potenza reale (W)"
 
 msgid "Non-Critical"
-msgstr "Non-Critical"
+msgstr "Non critico"
 
 msgid "Non-Recoverable"
-msgstr "Non-Recoverable"
+msgstr "Non ricoverabile"
 
 msgid "None"
 msgstr "Nessuno"
@@ -8068,7 +8082,7 @@ msgstr ""
 "protocollo più indicato"
 
 msgid "Not Reported"
-msgstr ""
+msgstr "Non pervenuto"
 
 msgid ""
 "Not all drivers/NICs support 802.1Q VLAN tagging properly. On cards that do "
@@ -8083,7 +8097,7 @@ msgid "Not attached"
 msgstr "Non agganciato"
 
 msgid "Not available"
-msgstr ""
+msgstr "Non disponibile"
 
 msgid "Note"
 msgstr "Nota"
@@ -8139,7 +8153,7 @@ msgid "Numeric identifier of the group."
 msgstr "Identificatore numerico del gruppo."
 
 msgid "OGG Audio File"
-msgstr ""
+msgstr "File Audio OGG"
 
 msgid "OK"
 msgstr "OK"
@@ -8151,7 +8165,7 @@ msgid "OPT Only"
 msgstr "Solo OPT"
 
 msgid "OS Version Upgrades"
-msgstr ""
+msgstr "Aggiornamenti versione OS"
 
 msgid "Object name"
 msgstr "Nome Oggetto"
@@ -8166,40 +8180,40 @@ msgid "October"
 msgstr "Ottobre"
 
 msgid "Off"
-msgstr "Inattivo"
+msgstr "Off"
 
 msgid "Offline Immediate Test"
 msgstr "Test offline immediato"
 
 msgid "Offload"
-msgstr ""
+msgstr "Scarico"
 
 msgid "Offload Driver"
-msgstr ""
+msgstr "Driver scarico"
 
 msgid "Old Passphrase"
 msgstr "Vecchia frase d'accesso"
 
 msgid "Older than last month"
-msgstr ""
+msgstr "Più vecchio del mese scorso"
 
 msgid "Older than last week"
-msgstr ""
+msgstr "Più vecchio della settimana scorsa"
 
 msgid "Older than previous quarter"
-msgstr ""
+msgstr "Più vecchio del trimestre precedente"
 
 msgid "Older than previous year"
-msgstr ""
+msgstr "Più vecchio dell'anno scorso"
 
 msgid "Older than yesterday"
-msgstr ""
+msgstr "Più vecchio di ieri"
 
 msgid "On"
-msgstr "Attivo"
+msgstr "On"
 
 msgid "On-Disk Configuration"
-msgstr ""
+msgstr "Configurazione On-Disk"
 
 msgid "Online Information"
 msgstr "Informazione online"
@@ -8224,10 +8238,10 @@ msgid "Option"
 msgstr "Opzione"
 
 msgid "Option Name"
-msgstr ""
+msgstr "Nome opzione"
 
 msgid "Option Value"
-msgstr ""
+msgstr "Valore opzione"
 
 msgid "Option is locked"
 msgstr "L'opzione è bloccata"
@@ -8239,13 +8253,13 @@ msgid "Option is unlocked"
 msgstr "L'opzione è sbloccata"
 
 msgid "Option record is locked"
-msgstr ""
+msgstr "Il record opzione è bloccato"
 
 msgid "Option record is marked for deletion"
-msgstr ""
+msgstr "Il record opzione è selezionato per la cancellazione"
 
 msgid "Option record is unlocked"
-msgstr ""
+msgstr "Il record opzione è sbloccato"
 
 msgid "Optional"
 msgstr "Facoltativo"
@@ -8260,7 +8274,7 @@ msgid "Origin"
 msgstr "Sorgente"
 
 msgid "Orphaned"
-msgstr ""
+msgstr "Orfano"
 
 msgid "Others"
 msgstr "Altri"
@@ -8312,7 +8326,7 @@ msgid "Overwrite disks configuration"
 msgstr "Sovrascrivi la configurazione dei dischi"
 
 msgid "Overwrite the sort criteria passed by the client."
-msgstr ""
+msgstr "Sovrascrive il criterio di ordinamento passato dal client."
 
 msgid "Owner"
 msgstr "Proprietario"
@@ -8321,10 +8335,10 @@ msgid "PAM authentication is selected."
 msgstr "Autenticazione PAM selezionata."
 
 msgid "PDF File"
-msgstr ""
+msgstr "File PDF"
 
 msgid "PERL Script"
-msgstr ""
+msgstr "Script PERL"
 
 msgid "PG"
 msgstr "PG"
@@ -8339,10 +8353,10 @@ msgid "PHP License"
 msgstr "Licenza PHP"
 
 msgid "PHP Script"
-msgstr ""
+msgstr "Script PHP"
 
 msgid "PNG Image"
-msgstr ""
+msgstr "Immagine PNG"
 
 msgid "PPPoE"
 msgstr "PPPoE"
@@ -8408,13 +8422,13 @@ msgid "Partitions"
 msgstr "Partizioni"
 
 msgid "Pascal File"
-msgstr ""
+msgstr "File Pascal"
 
 msgid "Passive Port Max."
-msgstr ""
+msgstr "Max porte passive."
 
 msgid "Passive Port Min."
-msgstr ""
+msgstr "Min porte passive."
 
 msgid ""
 "Passive ports restricts the range of ports from which the server will select "
@@ -8496,7 +8510,7 @@ msgstr ""
 "di Active Directory)"
 
 msgid "Paste a RSA PRIVATE KEY in PEM format"
-msgstr ""
+msgstr "Incollare una CHIAVE RSA PRIVATA in formato PEM"
 
 msgid "Paste a private key in PEM format here."
 msgstr "Incollare qui una chiave in formato PEM."
@@ -8517,7 +8531,7 @@ msgid "Path of the URL relative to document root."
 msgstr "Percorso dell'URL relativo al root del documento"
 
 msgid "Path to be included."
-msgstr ""
+msgstr "Percorso da includere."
 
 msgid "Path to be shared to be synchronized."
 msgstr "Percorso alla condivisione che deve essere sincronizzata"
@@ -8542,7 +8556,7 @@ msgid "Peer User"
 msgstr "Utente peer"
 
 msgid "Percentage of apparent power related to maximum load"
-msgstr ""
+msgstr "Percentuale di potenza in proporzione al carico massimo"
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
@@ -8552,10 +8566,10 @@ msgid "Permission"
 msgstr "Permesso"
 
 msgid "Permission-change failed."
-msgstr ""
+msgstr "Cambio permessi fallito"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Permessi"
 
 msgid "Permit Root Login"
 msgstr "Consenti login come Root"
@@ -8567,13 +8581,13 @@ msgid "Permit discovery without authentication"
 msgstr "Permetti la ricerca senza autenticazione"
 
 msgid "Photoshop File"
-msgstr ""
+msgstr "File Photoshop"
 
 msgid "Physical Block Offset"
-msgstr ""
+msgstr "Offset di un blocco fisico"
 
 msgid "Physical Block Size"
-msgstr ""
+msgstr "Dimensione del blocco fisico"
 
 msgid "Physical Interface"
 msgstr "Interfaccia Fisica"
@@ -8657,6 +8671,7 @@ msgstr "Per favore controllare i file di log"
 
 msgid "Please enter a number between 0 and 256 or leave this field empty."
 msgstr ""
+"Per favore, inserire un numero tra 0 e 256 o lasciare questo campo vuoto."
 
 msgid "Please read the documentation"
 msgstr "Per favore leggi la documentazione"
@@ -8668,16 +8683,16 @@ msgid "Pool"
 msgstr "Pool"
 
 msgid "Pool Avail Threshold"
-msgstr ""
+msgstr "Soglia disponibilità del pool"
 
 msgid "Pool Devices"
 msgstr "Device del Pool"
 
 msgid "Pool Information"
-msgstr ""
+msgstr "Informazioni sul pool"
 
 msgid "Pool Space Usage"
-msgstr ""
+msgstr "Spazio usato del pool"
 
 msgid "Pool State"
 msgstr "Stato del Pool"
@@ -8686,7 +8701,7 @@ msgid "Pool Status"
 msgstr "Stato del Pool"
 
 msgid "Pool Used Threshold"
-msgstr ""
+msgstr "Soglia del pool usato"
 
 msgid "Pool Version"
 msgstr "Versione del Pool"
@@ -8734,7 +8749,7 @@ msgid "Port number of the iSNS server."
 msgstr "Numero della porta del server iSNS"
 
 msgid "Port of the SSH service. Leave blank to use the default port."
-msgstr ""
+msgstr "Porta del servizio SSH. Lasciare vuoto per la porta di default."
 
 msgid "Port of the TFTP service. Leave blank to use the default port."
 msgstr ""
@@ -8777,6 +8792,8 @@ msgid ""
 "Port to listen on. Port number must be between 1024 and 65535. Default port "
 "is 8200."
 msgstr ""
+"Porta da controllare. La porta deve essere compresa tra 1024 e 65536. "
+"Default è 8200."
 
 msgid "Portal Group"
 msgstr "Gruppo portale"
@@ -8831,7 +8848,7 @@ msgid "Power management"
 msgstr "Gestione energia"
 
 msgid "Powerpoint Presentation"
-msgstr ""
+msgstr "Presentazione Powerpoint"
 
 msgid "Pre-Fail' Attribute used at least in HP devices."
 msgstr "Attributo pre rottura usata nei dispositivi HP."
@@ -8870,10 +8887,10 @@ msgid "Prevent deep discharge of battery"
 msgstr "Impedisci la scarica profonda della batteria"
 
 msgid "Previous quarter"
-msgstr ""
+msgstr "Trimestre precedente"
 
 msgid "Previous year"
-msgstr ""
+msgstr "Anno precedente"
 
 msgid "Primary"
 msgstr "Primario"
@@ -8885,13 +8902,13 @@ msgid "Primary Group"
 msgstr "Gruppo Primario"
 
 msgid "Print detailed information."
-msgstr ""
+msgstr "Stampa informazioni dettagliate."
 
 msgid "Print general information."
-msgstr ""
+msgstr "Stampa informazioni generali."
 
 msgid "Privacy Extension"
-msgstr ""
+msgstr "Estensione privacy"
 
 msgid ""
 "Private (default) - store characters as encoded by the OS X client: mapped "
@@ -8919,7 +8936,7 @@ msgid "Product ID"
 msgstr "ID Prodotto"
 
 msgid "Product Version Updates"
-msgstr ""
+msgstr "Miglioria della versione prodotto"
 
 msgid "Profile"
 msgstr "Profilo"
@@ -8949,37 +8966,37 @@ msgid "Provider"
 msgstr "Provider"
 
 msgid "Provisioning Type"
-msgstr ""
+msgstr "Tipo approvigionamento"
 
 msgid "Proxy"
 msgstr "Proxy"
 
 msgid "Public"
-msgstr ""
+msgstr "Pubblico"
 
 msgid "Public Key"
-msgstr ""
+msgstr "Chiave pubblica"
 
 msgid "Public Key Authentication"
-msgstr ""
+msgstr "Autenticazione chiave pubblica"
 
 msgid "Public Key Settings"
-msgstr ""
+msgstr "Settaggi chiave pubblica"
 
 msgid "Public Keys"
-msgstr ""
+msgstr "Chiavi pubbliche"
 
 msgid "Public key information."
-msgstr ""
+msgstr "Informazioni chiave pubblica."
 
 msgid "Public key is marked for deletion"
-msgstr ""
+msgstr "Chiave pubblica settata per la cancellazione"
 
 msgid "Public key is protected"
-msgstr ""
+msgstr "Chiave pubblica protetta"
 
 msgid "Public key is unlocked"
-msgstr ""
+msgstr "Chiave pubblica sbloccata"
 
 msgid "Pull"
 msgstr "Pull"
@@ -8995,10 +9012,10 @@ msgstr ""
 "selezionata di tempo dall'ultimo accesso."
 
 msgid "Python Script"
-msgstr ""
+msgstr "Script Python"
 
 msgid "QUIET - disable logging"
-msgstr ""
+msgstr "QUIET - disattiva il logging"
 
 msgid "Queue Depth"
 msgstr "Lughezza coda"
@@ -9082,175 +9099,175 @@ msgid "RAID0"
 msgstr "RAID0"
 
 msgid "RAID0 Details"
-msgstr ""
+msgstr "Dettagli sul RAID0"
 
 msgid "RAID0 Status"
-msgstr ""
+msgstr "Status del RAID0"
 
 msgid "RAID1"
 msgstr "RAID1"
 
 msgid "RAID1 Details"
-msgstr ""
+msgstr "Dettagli sul RAID1"
 
 msgid "RAID1 Status"
-msgstr ""
+msgstr "Status RAID1"
 
 msgid "RAID5"
 msgstr "RAID5"
 
 msgid "RAID5 Details"
-msgstr ""
+msgstr "Dettagli sul RAID5"
 
 msgid "RAID5 Status"
-msgstr ""
+msgstr "Status RAID5"
 
 msgid "RAM Disk"
 msgstr "Disco RAM"
 
 msgid "RAR Archive"
-msgstr ""
+msgstr "Archivio RAR"
 
 msgid "RAW info"
 msgstr "Informazione RAW"
 
 msgid "RELOAD"
-msgstr ""
+msgstr "Ricarica"
 
 msgid "RPM"
 msgstr "giri/min"
 
 msgid "RRDGraphs Daily ARC Efficiency Graph"
-msgstr ""
+msgstr "Grafico RRDGraph sull'efficienza giornaliera ARC"
 
 msgid "RRDGraphs Daily ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero ARC"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sulla frequenza CPU"
 
 msgid "RRDGraphs Daily CPU Temperature Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sulla temperatura CPU"
 
 msgid "RRDGraphs Daily CPU Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sull'utilizzo CPU"
 
 msgid "RRDGraphs Daily L2ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero L2ARC"
 
 msgid "RRDGraphs Daily Load Averages Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sul carico medio"
 
 msgid "RRDGraphs Daily Network Latency Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sulla latenza di rete"
 
 msgid "RRDGraphs Daily Processes Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sui processi"
 
 msgid "RRDGraphs Daily UPS Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sulla UPS"
 
 msgid "RRDGraphs Daily Uptime Graph"
-msgstr ""
+msgstr "Grafico RRDGraph giornaliero sull'attivazione"
 
 msgid "RRDGraphs Monthly ARC Efficiency Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sull'efficienza ARC"
 
 msgid "RRDGraphs Monthly ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sul ARC"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sulla frequenza CPU"
 
 msgid "RRDGraphs Monthly CPU Temperature Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sulla temperatura CPU"
 
 msgid "RRDGraphs Monthly CPU Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sull'utilizzo CPU"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile su L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sul carico medio"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sulla latenza di rete"
 
 msgid "RRDGraphs Monthly Processes Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sui processi"
 
 msgid "RRDGraphs Monthly UPS Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sul UPS"
 
 msgid "RRDGraphs Monthly Uptime Graph"
-msgstr ""
+msgstr "Grafico RRDGraph mensile sull'attivazione"
 
 msgid "RRDGraphs Weekly ARC Efficiency Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sull'efficienza ARC"
 
 msgid "RRDGraphs Weekly ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale su ARC"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sulla frequenza CPU"
 
 msgid "RRDGraphs Weekly CPU Temperature Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sulla temperatura CPU"
 
 msgid "RRDGraphs Weekly CPU Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sull'utilizzo CPU"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale su L2ARC"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sul carico medio"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sulla latenza di rete"
 
 msgid "RRDGraphs Weekly Processes Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale sui processi"
 
 msgid "RRDGraphs Weekly UPS Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale su UPS"
 
 msgid "RRDGraphs Weekly Uptime Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs settimanale su tempo accensione"
 
 msgid "RRDGraphs Yearly ARC Efficiency Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sull'efficienza ARC"
 
 msgid "RRDGraphs Yearly ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale su ARC"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sulla frequenza CPU"
 
 msgid "RRDGraphs Yearly CPU Temperature Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sulla temperatura CPU"
 
 msgid "RRDGraphs Yearly CPU Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sull'uso CPU"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale su L2ARC"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sul carico medio"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sulla latenza di rete"
 
 msgid "RRDGraphs Yearly Processes Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sui processi"
 
 msgid "RRDGraphs Yearly UPS Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale su UPS"
 
 msgid "RRDGraphs Yearly Uptime Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs annuale sui tempi di accensione"
 
 #, php-format
 msgid ""
@@ -9313,7 +9330,7 @@ msgid "Read Only Access"
 msgstr "Accesso in Sola Lettura"
 
 msgid "Read Permission"
-msgstr ""
+msgstr "Permissi di lettura"
 
 msgid "Read from biggest priority"
 msgstr "Leggi dalla priorità più alta"
@@ -9367,7 +9384,7 @@ msgid "Readonly"
 msgstr "Sola lettura"
 
 msgid "RealAudio File"
-msgstr ""
+msgstr "File RealAudio"
 
 msgid "Realm"
 msgstr "Dominio"
@@ -9385,7 +9402,7 @@ msgid "Reboot Required"
 msgstr "Richiesto riavvio"
 
 msgid "Rebuild the selected device forcibly."
-msgstr ""
+msgstr "Ricostruisci forzatamente il dispositivo selezionato."
 
 msgid "Receive Buffer"
 msgstr "Buffer di ricezione"
@@ -9433,7 +9450,7 @@ msgid "Refresh"
 msgstr "Aggiorna"
 
 msgid "Regular Product Updates"
-msgstr ""
+msgstr "Aggiornamenti regolari prodotto"
 
 msgid "Reject"
 msgstr "Rifiuta"
@@ -9460,16 +9477,16 @@ msgid "Remaining battery runtime"
 msgstr "Tempo rimanente con batteria"
 
 msgid "Remaining:"
-msgstr ""
+msgstr "Rimanente:"
 
 msgid "Reminder Settings"
-msgstr ""
+msgstr "Settaggi sul promemoria"
 
 msgid "Remote Address"
 msgstr "Indirizzo remoto"
 
 msgid "Remote Module"
-msgstr ""
+msgstr "Modulo remoto"
 
 msgid "Remote Module (Source)"
 msgstr "Modulo remoto (sorgente)"
@@ -9538,13 +9555,13 @@ msgid "Remove the %s first before proceeding."
 msgstr "Rimuovere il %s prima di procedere."
 
 msgid "Remove the selected device from the mirror."
-msgstr ""
+msgstr "Rimuovi il dispositivo selezionato dal mirror."
 
 msgid "Reorder"
 msgstr "Riordina"
 
 msgid "Reordering"
-msgstr ""
+msgstr "Riordinamento"
 
 msgid "Replace Battery UPS"
 msgstr "Sostituire la batteria dell'UPS"
@@ -9553,7 +9570,7 @@ msgid "Replace a device"
 msgstr "Sostituire un dispositivo"
 
 msgid "Replace the default CSS file"
-msgstr ""
+msgstr "Sostituisci il file CSS default"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -9591,7 +9608,7 @@ msgid "Reservation"
 msgstr "Riservazione"
 
 msgid "Reset"
-msgstr ""
+msgstr "Resetta"
 
 msgid "Reset Graphs"
 msgstr "Resetta il grafico"
@@ -9602,7 +9619,7 @@ msgstr ""
 "funzionamento"
 
 msgid "Resize pool to the maximum possible size"
-msgstr ""
+msgstr "Ridimensiona il pool al massima dimensione possibile"
 
 msgid "Resolve IP"
 msgstr "Risoluzione IP"
@@ -9617,7 +9634,7 @@ msgid "Resource Name"
 msgstr "Nome risorsa"
 
 msgid "Resource Provisioning"
-msgstr ""
+msgstr "Approvigionamento risorse"
 
 msgid "Resource is marked for deletion"
 msgstr "Risorsa segnalata per la cancellazione"
@@ -9644,7 +9661,7 @@ msgid "Restore metadata from the given file to the given provider."
 msgstr "Ripristina metadati dal file fornito verso il provider specificato."
 
 msgid "Restrict folder to a specific media type."
-msgstr ""
+msgstr "Cartella con restrizione ad uno specifico tipo di file multimediale."
 
 msgid "Restricted"
 msgstr "Limitato"
@@ -9666,7 +9683,7 @@ msgid "Retry"
 msgstr "Riprova"
 
 msgid "Return to Command Page"
-msgstr ""
+msgstr "Ritorna alla pagina di comando"
 
 msgid "Reverse DNS lookup"
 msgstr "Risoluzione DNS inversa"
@@ -9690,10 +9707,10 @@ msgid "Root Bind Password"
 msgstr "Password root Bind"
 
 msgid "Root Directory"
-msgstr ""
+msgstr "Directory radice"
 
 msgid "Root Login"
-msgstr ""
+msgstr "Root Login"
 
 msgid "Rotation Rate"
 msgstr "Velocità di rotazione"
@@ -9705,7 +9722,7 @@ msgid "Roundrobin"
 msgstr "Roundrobin"
 
 msgid "Route is locked"
-msgstr ""
+msgstr "Il percorso è bloccato"
 
 msgid "Route is marked for deletion"
 msgstr "Route segnalata per la cancellazione"
@@ -9750,7 +9767,7 @@ msgid "Rule"
 msgstr "Regola"
 
 msgid "Rule #"
-msgstr ""
+msgstr "Regola #"
 
 msgid "Rule number"
 msgstr "Numero della regola"
@@ -9785,19 +9802,19 @@ msgid "S.M.A.R.T. Monitoring"
 msgstr "Monitoraggio S.M.A.R.T."
 
 msgid "S.M.A.R.T. Options"
-msgstr ""
+msgstr "Opzioni S.M.A.R.T."
 
 msgid "S.M.A.R.T. log"
 msgstr "Log di S.M.A.R.T."
 
 msgid "SCSI Name"
-msgstr ""
+msgstr "Nome SCSI"
 
 msgid "SEARCH"
-msgstr ""
+msgstr "CERCA"
 
 msgid "SHA Password"
-msgstr ""
+msgstr "Password SHA"
 
 msgid "SHA-256, Verify"
 msgstr "SHA-256, Verifica"
@@ -9809,16 +9826,16 @@ msgid "SHA256, Verify"
 msgstr "SHA256, Verifica"
 
 msgid "SMB"
-msgstr ""
+msgstr "SMB"
 
 msgid "SMB Settings"
-msgstr ""
+msgstr "Settaggi SMB"
 
 msgid "SMB is disabled."
-msgstr ""
+msgstr "SMB è disabilitato."
 
 msgid "SMB is enabled."
-msgstr ""
+msgstr "SMB è abilitato."
 
 msgid "SMB2"
 msgstr "SMB2"
@@ -9827,7 +9844,7 @@ msgid "SMB3"
 msgstr "SMB3"
 
 msgid "SMB3 (Windows 10)"
-msgstr ""
+msgstr "SMB3 (Windows 10)"
 
 msgid "SMB3 (Windows 8)"
 msgstr "SMB3 (Windows 8)"
@@ -9848,7 +9865,7 @@ msgid "SNMP Modules"
 msgstr "Moduli SNMP"
 
 msgid "SQL File"
-msgstr ""
+msgstr "File SQL"
 
 msgid "SSH"
 msgstr "SSH"
@@ -9872,7 +9889,7 @@ msgid "Samba Active Directory Domain Controller"
 msgstr "Controller domain Active Directory di Samba"
 
 msgid "Samba Share is locked"
-msgstr ""
+msgstr "La condivisione Samba è bloccata"
 
 msgid "Samba Share is marked for deletion"
 msgstr "La condivisione Samba è segnalata per la cancellazione"
@@ -9936,19 +9953,19 @@ msgstr ""
 "di amministrazione."
 
 msgid "Scan folder for all media types."
-msgstr ""
+msgstr "Analisi cartelle per tutti i formati multimediali."
 
 msgid "Scan folder for audio files."
-msgstr ""
+msgstr "Analisi cartelle per file audio."
 
 msgid "Scan folder for image files."
-msgstr ""
+msgstr "Analisi cartelle per file immagini."
 
 msgid "Scan folder for video and image files."
-msgstr ""
+msgstr "Analisi cartelle per file video ed immagini."
 
 msgid "Scan folder for video files."
-msgstr ""
+msgstr "Analisi cartelle per file video."
 
 msgid "Schedule Time"
 msgstr "Orario programmato"
@@ -9987,14 +10004,14 @@ msgid "Search"
 msgstr "Ricerca"
 
 msgid "Search Directory"
-msgstr ""
+msgstr "Cerca nella directory"
 
 msgid "Search Filter"
-msgstr ""
+msgstr "Filtro di Ricerca"
 
 #, php-format
 msgid "Search Result for %1$s"
-msgstr ""
+msgstr "Risultato ricerca per %1$s"
 
 msgid "Search event"
 msgstr "Evento di ricerca"
@@ -10003,7 +10020,7 @@ msgid "Search for and import all disks found"
 msgstr "Cercare per importare tutti i dischi trovati"
 
 msgid "Search subdirectories"
-msgstr ""
+msgstr "Cerca nelle sottocartelle"
 
 msgid "Second"
 msgstr "Secondo"
@@ -10021,7 +10038,7 @@ msgid "Secret"
 msgstr "Segreto"
 
 msgid "Secret for CHAP authentication."
-msgstr ""
+msgstr "Segreto per autenticazione CHAP"
 
 msgid "Security Flavor"
 msgstr ""
@@ -10209,7 +10226,7 @@ msgid "Selected interface:"
 msgstr "Interfaccia selezionata:"
 
 msgid "Selected..."
-msgstr ""
+msgstr "Selezionati..."
 
 msgid "Selection"
 msgstr "Selezione"
@@ -10342,13 +10359,13 @@ msgid "Services"
 msgstr "Servizi"
 
 msgid "Session State"
-msgstr ""
+msgstr "Stato Sessione"
 
 msgid "Session Type"
 msgstr ""
 
 msgid "Set"
-msgstr ""
+msgstr "Imposta"
 
 msgid "Set UID"
 msgstr "Imposta UID"
@@ -10366,7 +10383,7 @@ msgstr ""
 "Pone l'intervallo di controllo disco a N secondi. Il valore minimo è 10."
 
 msgid "Set password"
-msgstr ""
+msgstr "Imposta password"
 
 msgid "Set per-LUN/per-pool thin provisioning soft threshold."
 msgstr ""
@@ -10559,7 +10576,7 @@ msgid "Shell"
 msgstr "Shell"
 
 msgid "Shell Script"
-msgstr ""
+msgstr "Script Shell"
 
 msgid "Shock During Write."
 msgstr "Urto durante la scrittura"
@@ -10583,7 +10600,7 @@ msgid "Show RAW UPS Info"
 msgstr "Mostra informazioni RAW UPS"
 
 msgid "Show System Groups"
-msgstr ""
+msgstr "Visualizza i Gruppi di Sistema"
 
 msgid "Show System Users"
 msgstr ""
@@ -10615,7 +10632,7 @@ msgid "Show symbol only"
 msgstr ""
 
 msgid "Show text only"
-msgstr ""
+msgstr "Mostra solo testo"
 
 msgid "Shrink Page Header"
 msgstr "Contrai la parte alta della pagina"
@@ -10726,7 +10743,7 @@ msgid "Sort"
 msgstr "Ordina"
 
 msgid "Sort Criteria"
-msgstr ""
+msgstr "Criterio di ordinamento"
 
 msgid "Source"
 msgstr "Sorgente"
@@ -13936,7 +13953,7 @@ msgid "Watch Directory"
 msgstr "Directory di controllo"
 
 msgid "WebDAV"
-msgstr ""
+msgstr "WebDAV"
 
 msgid "WebDAV Name"
 msgstr ""
@@ -14082,7 +14099,7 @@ msgid "Wrong permission on %s."
 msgstr "Permessi non corretti su %s."
 
 msgid "XML File"
-msgstr ""
+msgstr "File XML"
 
 msgid "Xen"
 msgstr "Xen"
@@ -14100,7 +14117,7 @@ msgid "Yes - Enables Time Machine support for this share."
 msgstr "Si - Attiva il supporto Time Machine per questa condivisione."
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ieri"
 
 msgid "You are not allowed to access the target directory."
 msgstr ""
@@ -14350,7 +14367,7 @@ msgid "chroot() everyone, but root."
 msgstr "Chiunque dentro chroot, tranne root."
 
 msgid "csh - C Shell"
-msgstr ""
+msgstr "csh - C shell"
 
 msgid ""
 "decoded as: byte 0-1-2 = good block count (big endian) and byte 3-4 = "
