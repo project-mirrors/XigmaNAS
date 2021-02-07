@@ -166,11 +166,11 @@ function geom_part_commit(array $device_list) {
 /**
  *	Manually build esp (EFI system partition)
  *	If /boot/boot1.efifat doesn't exist, the esp is build using /boot/loader.efi
- *	@param string $partition_name
+ *	@param string $partition_name, i.e. ada0p42
  *	@param string|null $message
  *	@return bool
  */
-function make_esp(string $partition_name,?string &$message): bool {
+function make_esp(string $partition_name,string $label,?string &$message): bool {
 //	global $g;
 
 	$message = '';
@@ -181,7 +181,7 @@ function make_esp(string $partition_name,?string &$message): bool {
 	else:
 //		preset variables
 		$node = '/tmp/esp';
-		$source_efi_boot =  '/boot/loader.efi';
+		$source_efi_boot = '/boot/loader.efi';
 //		from: UEFI specifications 2.8 Errata B, May 2020, 13.3.1.3 Directory Structure
 		$efi_boot_folder = '/efi/boot';
 //		from: UEFI specification 2.8 Errata B, May 2020, table 15, File Name Convention
@@ -203,7 +203,7 @@ function make_esp(string $partition_name,?string &$message): bool {
 		$param_newfs = [
 			'run' => '/sbin/newfs_msdos',
 			'fattype' => '-F 32',
-			'label' => '-L EFISYS',
+			'label' => sprintf('-L %s',escapeshellarg($label)),
 			'spc' => '-c 1',
 			'device' => escapeshellarg($device)
 		];
@@ -806,8 +806,10 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 								tui_display_message('Error',$message,60,5);
 								return false;
 							endif;
-//						else:
-//							manually build esp. See section create file systems below
+/*
+ *						else:
+ *							manually build esp. See section create file systems below
+ */
 						endif;
 						break;
 				endswitch;
@@ -978,7 +980,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				endif;
 				break;
 			case 'efi':
-				if(make_esp($destination_partition_name,$message)):
+				if(make_esp($destination_partition_name,$r_partition['volname'],$message)):
 					write_console($message . "\n");
 				else:
 					set_kern_geom_debugflags(0);
