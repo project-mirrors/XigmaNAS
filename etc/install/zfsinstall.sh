@@ -63,7 +63,8 @@ mount_cdrom()
 	fi
 	# If no cd/usb is mounted ask for manual mount.
 	if [ ! -f "${CDPATH}/version" ]; then
-		manual_cdmount
+		read -p "Failed to detect/mount any CD/USB Drive" _wait_
+		exit 1
 	fi
 }
 
@@ -88,30 +89,6 @@ umount_cdrom()
 umount_cmd()
 {
 	umount ${FORCE_UMOUNT} ${CDPATH} > /dev/null 2>&1
-}
-
-manual_cdmount()
-{
-	DRIVES=$(camcontrol devlist)
-	cdialog --backtitle "${PRDNAME} ${APPNAME} Installer" --title "Select the Install Media Source" \
-	--form "${DRIVES}" 0 0 0 \
-	"Select CD/USB Drive e.g: cd0:" 1 1 "" 1 30 30 30 \
-	2>${tmpfile}
-	if [ 0 -ne $? ]; then
-		exit 0
-	fi
-
-	# Try to mount from specified device.
-	mkdir -p ${CDPATH}
-	echo "Mounting CD/USB Drive"
-	DEVICE=$(cat ${tmpfile} | tr -d' ')
-	mount /dev/ufs/liveboot ${CDPATH} > /dev/null 2>&1 || mount /dev/${DEVICE}s1a ${CDPATH} > /dev/null 2>&1 || \
-	mount /dev/${DEVICE}p3 ${CDPATH} > /dev/null 2>&1 || mount_cd9660 /dev/${DEVICE} ${CDPATH} > /dev/null 2>&1
-	# Check if mounted cd/usb is accessible.
-	if [ ! -f "${CDPATH}/version" ]; then
-		# Re-try loop.
-		mount_cdrom
-	fi
 }
 
 # Clean any existing metadata on selected disks.
@@ -447,7 +424,6 @@ zroot_init()
 	zfs create -o mountpoint=none ${ZROOT}${DATASET}
 	zfs create -o mountpoint=/ ${ZROOT}${DATASET}${BOOTENV}
 	zfs create -o mountpoint=/tmp -o exec=on -o setuid=off ${ZROOT}/tmp
-	#zfs create -o mountpoint=/var ${ZROOT}/var
 	zfs create -o mountpoint=/var -o canmount=off ${ZROOT}/var
 	zfs create -o exec=off -o setuid=off ${ZROOT}/var/log
 	zfs create -o setuid=off ${ZROOT}/var/tmp
@@ -479,7 +455,7 @@ zroot_init()
 			dd if="/boot/zfsboot" of="/dev/${DISK}s1a" skip=1 seek=1024 > /dev/null 2>&1
 		elif [ "${BOOT_MODE}" = 2 ]; then
 			#gpart bootcode -p /boot/boot1.efifat -i 1 ${DISK} # Legacy efi bootcode, keep for reference.
-			newfs_msdos -F 16 -L "EFISYS" /dev/${DISK}p1
+			newfs_msdos -F 16 -L "EFISYS" /dev/${DISK}p1 > /dev/null 2>&1
 			mkdir -p /tmp/zfsinstall_etc/esp
 			mount -t msdosfs /dev/${DISK}p1 /tmp/zfsinstall_etc/esp
 			mkdir -p /tmp/zfsinstall_etc/esp/efi/boot
@@ -571,12 +547,20 @@ zroot_init()
 	fi
 }
 
+set_boot_path()
+{
+	BOOTPATH=${ALTROOT}
+	if [ "${MBRPART}" = 1 ]; then
+		BOOTPATH=${ALTROOT}/${BOOTPOOL}
+	fi
+}
+
 backup_chflags() {
 	# Dump chflag from common directories/* to zipped files.
 	cd ${ALTROOT}
- 	for FILES in ${DIRNOSCHG}; do
- 		mtree -q -P -c -p ${FILES} | gzip > ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz
- 	done
+	for FILES in ${DIRNOSCHG}; do
+		mtree -q -P -c -p ${FILES} | gzip > ${SYSBACKUP}/chflags.${ZROOT}.${FILES}.gz
+	done
 	if [ 0 != $? ]; then
 		echo "ERROR: Failed to backup chflags."
 		exit 1
@@ -586,10 +570,10 @@ backup_chflags() {
 remove_chflags() {
 	# Remove chflag from common directories/*.
 	cd ${ALTROOT}
- 	for FILES in ${DIRNOSCHG}; do
- 		chflags -R noschg ${FILES}
- 		chmod -R u+rw ${FILES}
- 	done
+	for FILES in ${DIRNOSCHG}; do
+		chflags -R noschg ${FILES}
+		chmod -R u+rw ${FILES}
+	done
 	if [ 0 != $? ]; then
 		echo "ERROR: Failed to remove chflags."
 		exit 1
@@ -599,9 +583,9 @@ remove_chflags() {
 restore_chflags() {
 	# Restore chflag from previous zipped files.
 	cd ${ALTROOT}
- 	for FILES in ${DIRNOSCHG}; do
-		zcat ${SYSBACKUP}/chflags.${BENAME}.${FILES}.gz | mtree -q -P -U -p ${FILES}
- 	done
+	for FILES in ${DIRNOSCHG}; do
+		zcat ${SYSBACKUP}/chflags.${ZROOT}.${FILES}.gz | mtree -q -P -U -p ${FILES}
+	done
 	if [ 0 != $? ]; then
 		echo "ERROR: Failed to restore chflags."
 		exit 1
@@ -620,8 +604,27 @@ backup_sys_files() {
 	if [ -f "${BOOTPATH}/boot/loader.conf" ]; then
 		cp -p ${BOOTPATH}/boot/loader.conf ${SYSBACKUP}/
 	fi
+	if [ -f "${BOOTPATH}/boot/loader.conf.local" ]; then
+		cp -p ${BOOTPATH}/boot/loader.conf.local ${SYSBACKUP}/
+	fi
+
+	if [ -f "${ALTROOT}/boot.config" ]; then
+		cp -p ${ALTROOT}/boot.config ${SYSBACKUP}/
+	fi
+	if [ -f "${ALTROOT}/etc/fstab" ]; then
+		cp -p ${ALTROOT}/etc/fstab ${SYSBACKUP}/
+	fi
+	if [ -f "${ALTROOT}/etc/cfdevice" ]; then
+		cp -p ${ALTROOT}/etc/cfdevice ${SYSBACKUP}/
+	fi
+	if [ -f "${ALTROOT}/etc/platform" ]; then
+		cp -p ${ALTROOT}/etc/platform ${SYSBACKUP}/
+	fi
 	if [ -f "${ALTROOT}/etc/rc.conf" ]; then
 		cp -p ${ALTROOT}/etc/rc.conf ${SYSBACKUP}/
+	fi
+	if [ -f "${ALTROOT}/etc/rc.conf.local" ]; then
+		cp -p ${ALTROOT}/etc/rc.conf.local ${SYSBACKUP}/
 	fi
 
 	# Keep a copy of the previous kernel on each upgrade.
@@ -665,11 +668,8 @@ upgrade_init()
 	# Mount cd-rom.
 	mount_cdrom
 
-	# Set the proper boot path for zfs/mbr.
-	BOOTPATH=${ALTROOT}
-	if [ "${MBRPART}" = 1 ]; then
-		BOOTPATH=${ALTROOT}/${BOOTPOOL}
-	fi
+	# Set the proper boot path for backup.
+	set_boot_path
 
 	# Backup system configuration.
 	backup_sys_files
@@ -699,7 +699,8 @@ upgrade_init()
 	# Unmount cd-rom.
 	umount_cdrom
 
-	# Flush disk cache and wait 1 second.
+	# Flush disk cache, cleanup and sync.
+	rm -rf ${SYSBACKUP}
 	sync; sleep 1
 
 	# Export zpool
@@ -872,10 +873,8 @@ copy_media_files()
 		mkdir -p ${ALTROOT}/boot/defaults
 	fi
 
-	BOOTPATH=${ALTROOT}
-	if [ "${MBRPART}" = 1 ]; then
-		BOOTPATH=${ALTROOT}/${BOOTPOOL}
-	fi
+	# Set the proper boot path for copying.
+	set_boot_path
 
 	cp -r ${CDPATH}/boot/* ${BOOTPATH}/boot/
 	cp -r ${CDPATH}/boot/defaults/* ${BOOTPATH}/boot/defaults/
@@ -1430,30 +1429,16 @@ update_bootpool_check()
 	# Check if a bootpool pool exist and auto import it.
 	echo
 	echo "Check for existing ${BOOTPOOL} pool existence..."
+	MBRPART=
 	if ! zpool status | grep -qw ${BOOTPOOL}; then
 		if zpool import | grep -qw ${BOOTPOOL}; then
-			#printf '\033[1;37;43m WARNING \033[0m\033[1;37m Pool '${BOOTPOOL}' found and may be importable.\033[0m\n'
-			#while :
-			#	do
-			#		read -p "Do you wish to proceed with the ${BOOTPOOL} import? [y/N]:" yn
-			#		case ${yn} in
-			#		[Yy]) break;;
-			#		[Nn]) exit 0;;
-			#		esac
-			#	done
-			#echo "Proceeding..."
-			#MBRPART=1
+			MBRPART=1
 			# Try import existing bootpool pool.
 			if ! zpool import -f -R ${ALTROOT} ${BOOTPOOL}; then
 				echo "Error: A problem has occurred while trying to import ${BOOTPOOL}."
 				zpool_export
 				exit 1
-			else
-				MBRPART=1
 			fi
-		#else
-		#	read -p "Error: Pool ${BOOTPOOL} not found." _wait_
-		#	exit 1
 		fi
 	else
 		echo "Error: Looks like ${BOOTPOOL} pool has been already imported."
