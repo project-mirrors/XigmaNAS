@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
 # Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -33,12 +33,22 @@ GELIBACKUP="/var/backups"
 tmpfile=/tmp/zfsinstall.$$
 trap "rm -f ${tmpfile}" 0 1 2 5 15
 
+# Notify message on error and exit.
+error_exit()
+{
+	echo "$*" 1>&2
+	read -p "Press enter to return to main installer menu." _wait_
+	exit 1
+}
+
 # Mount CD/USB drive.
 mount_cdrom()
 {
 	# Unmount for stale/interrupted previous attempts.
 	umount_cdrom
-	mkdir -p ${CDPATH}
+	if [ ! -d "${CDPATH}" ]; then
+		mkdir -p ${CDPATH}
+	fi
 
 	# Search for LiveMedia label information.
 	if glabel status -s | grep -q "iso9660/XigmaNAS"; then
@@ -48,28 +58,43 @@ mount_cdrom()
 		if [ ! -f "${CDPATH}/version" ]; then
 			# Try to auto mount cd-rom.
 			echo "Mounting CD-ROM Drive"
-			mount_cd9660 /dev/${FS_DEVICE} ${CDPATH} > /dev/null 2>&1 || \
-			mount_cd9660 /dev/${CD_DEVICE} ${CDPATH} > /dev/null 2>&1
+			if ! mount_cd9660 /dev/${FS_DEVICE} ${CDPATH}; then
+				echo "Unable to mount using gpt/label."
+				echo "Trying to mount using device id..."
+				if ! mount_cd9660 /dev/${CD_DEVICE} ${CDPATH}; then
+					error_exit "Unable to mount using using device id."
+				fi
+			fi
 		fi
 	elif glabel status -s | grep -q "ufs/liveboot"; then
-		USB_DEVICE="$(glabel status -s | grep "ufs/liveboot" | awk '{print $3}')"
+		USB_DEVICE_FS="$(glabel status -s | grep "ufs/liveboot" | awk '{print $1}')"
+		USB_DEVICE_ID="$(glabel status -s | grep "ufs/liveboot" | awk '{print $3}')"
 		# Check if liveusb is mounted else auto mount liveusb.
 		if [ ! -f "${CDPATH}/version" ]; then
 			# Try to auto mount liveusb.
 			echo "Mounting LiveUSB Drive"
-			mount /dev/ufs/liveboot ${CDPATH} > /dev/null 2>&1 || \
-			mount /dev/${USB_DEVICE} ${CDPATH} > /dev/null 2>&1
+			if ! mount /dev/${USB_DEVICE_FS} ${CDPATH}; then
+				echo "Unable to mount using gpt/label."
+				echo "Trying to mount using device id..."
+				if ! mount /dev/${USB_DEVICE_ID} ${CDPATH}; then
+					error_exit "Unable to mount using using device id."
+				fi
+			fi
+
 		fi
+	else
+		error_exit "Unable to detect ${PRDNAME} LiveMedia on this system."
 	fi
-	# If no cd/usb is mounted ask for manual mount.
+
+	# If no cd/usb is mounted notify user.
 	if [ ! -f "${CDPATH}/version" ]; then
-		read -p "Failed to detect/mount any CD/USB Drive" _wait_
-		exit 1
+		error_exit "Failed to detect/mount any CD/USB Drive"
 	fi
 }
 
 umount_cdrom()
 {
+	FORCE_UMOUNT=
 	if [ -d "${CDPATH}" ]; then
 		echo "Unmount CD/USB Drive"
 		# Properly unmount live media
@@ -99,7 +124,6 @@ cleandisk_init()
 
 	# Ignore errors here since they may be expected.
 	# We need this section to try to deal with problematic disk metadata.
-	set +e
 
 	# Destroy existing geom mirror/swap.
 	if kldstat | grep -q geom_mirror; then
@@ -148,7 +172,6 @@ cleandisk_init()
 			done
 			NUM=$(expr $NUM + 1)
 	done
-	set -e
 }
 
 load_kmods()
@@ -309,8 +332,7 @@ geom_geli_init()
 		if [ "${RETURN}" -eq 0 ]; then
 			echo "Encryption success!"
 		else
-			echo "Encryption failed, exiting!"
-			exit 1
+			error_exit "Encryption failed!"
 		fi
 	done
 }
@@ -329,8 +351,7 @@ geli_meta_backup()
 				mv -f ${ITEM} ${ALTROOT}${GELIBACKUP}/${ITEM}
 				RETURN=$?
 				if [ "${RETURN}" -ne 0 ]; then
-					echo "Failed to backup geli providers metadata, exiting!"
-					exit 1
+					error_exit "Failed to backup geli providers metadata!"
 				fi
 			fi
 		done
@@ -430,9 +451,8 @@ zroot_init()
 	zfs set mountpoint=/${ZROOT} ${ZROOT}
 	zpool set bootfs=${ZROOT}${DATASET}${BOOTENV} ${ZROOT}
 	#zfs set canmount=noauto ${ZROOT}${DATASET}${BOOTENV}
-	if [ $? -eq 1 ]; then
-		echo "Error: A problem has occurred while creating ${ZROOT} pool."
-		exit 1
+	if [ $? -ne 0 ]; then
+		error_exit "Error: A problem has occurred while creating ${ZROOT} pool."
 	fi
 
 	# Install system files.
@@ -455,7 +475,9 @@ zroot_init()
 			dd if="/boot/zfsboot" of="/dev/${DISK}s1a" skip=1 seek=1024 > /dev/null 2>&1
 		elif [ "${BOOT_MODE}" = 2 ]; then
 			#gpart bootcode -p /boot/boot1.efifat -i 1 ${DISK} # Legacy efi bootcode, keep for reference.
-			newfs_msdos -F 16 -L "EFISYS" /dev/${DISK}p1 > /dev/null 2>&1
+			if ! newfs_msdos -F 16 -L "EFISYS" /dev/${DISK}p1 > /dev/null 2>&1; then
+				error_exit "Failed to create new filesystem on ${DISK}p1"
+			fi
 			mkdir -p /tmp/zfsinstall_etc/esp
 			mount -t msdosfs /dev/${DISK}p1 /tmp/zfsinstall_etc/esp
 			mkdir -p /tmp/zfsinstall_etc/esp/efi/boot
@@ -542,8 +564,7 @@ zroot_init()
 		cdialog --msgbox "${PRDNAME} ${APPNAME} Successfully Installed!" 6 60
 		exit 0
 	else
-		echo "Error: A problem has occurred during the installation."
-		exit 1
+		error_exit "Error: A problem has occurred during the installation."
 	fi
 }
 
@@ -562,8 +583,7 @@ backup_chflags() {
 		mtree -q -P -c -p ${FILES} | gzip > ${SYSBACKUP}/chflags.${ZROOT}.${FILES}.gz
 	done
 	if [ 0 != $? ]; then
-		echo "ERROR: Failed to backup chflags."
-		exit 1
+		error_exit "Error: Failed to backup chflags."
 	fi
 }
 
@@ -575,8 +595,7 @@ remove_chflags() {
 		chmod -R u+rw ${FILES}
 	done
 	if [ 0 != $? ]; then
-		echo "ERROR: Failed to remove chflags."
-		exit 1
+		error_exit "Error: Failed to remove chflags."
 	fi
 }
 
@@ -587,8 +606,7 @@ restore_chflags() {
 		zcat ${SYSBACKUP}/chflags.${ZROOT}.${FILES}.gz | mtree -q -P -U -p ${FILES}
 	done
 	if [ 0 != $? ]; then
-		echo "ERROR: Failed to restore chflags."
-		exit 1
+		error_exit "Error: Failed to restore chflags."
 	fi
 }
 
@@ -601,16 +619,18 @@ backup_sys_files() {
 		mkdir -p ${SYSBACKUP}
 	fi
 
+	# Look for possible files in /boot
 	if [ -f "${BOOTPATH}/boot/loader.conf" ]; then
 		cp -p ${BOOTPATH}/boot/loader.conf ${SYSBACKUP}/
 	fi
 	if [ -f "${BOOTPATH}/boot/loader.conf.local" ]; then
 		cp -p ${BOOTPATH}/boot/loader.conf.local ${SYSBACKUP}/
 	fi
-
 	if [ -f "${ALTROOT}/boot.config" ]; then
 		cp -p ${ALTROOT}/boot.config ${SYSBACKUP}/
 	fi
+
+	# Look for possible files in /etc
 	if [ -f "${ALTROOT}/etc/fstab" ]; then
 		cp -p ${ALTROOT}/etc/fstab ${SYSBACKUP}/
 	fi
@@ -674,8 +694,7 @@ upgrade_init()
 	# Backup system configuration.
 	backup_sys_files
 	if [ 0 -ne $? ]; then
-		echo "Error: Failed to backup configuration."
-		exit 1
+		error_exit "Error: Failed to backup configuration."
 	fi
 
 	# Start upgrade script to remove obsolete files. This should be done
@@ -711,8 +730,7 @@ upgrade_init()
 		cdialog --msgbox "${PRDNAME} ${APPNAME} Successfully Upgraded!" 6 60
 		exit 0
 	else
-		echo "Error: A problem has occurred during the upgrade."
-		exit 1
+		error_exit "Error: A problem has occurred during the upgrade."
 	fi
 }
 
@@ -846,9 +864,8 @@ upgrade_sys_files()
 		# Extract boot to /bootpool on ZFS/MBR installs since boot is a symlink.
 		tar --keep-newer-files -c -f - -C /boot . | tar -xpf - -C ${ALTROOT}/${BOOTPOOL}/boot
 		RESULT=$?
-		if [ 0 != ${RESULT} ]; then
-			echo "ERROR: Failed file extraction for ${BOOTPOOL}."
-			exit 1
+		if [ 0 != "${RESULT}" ]; then
+			error_exit "Error: Failed file extraction for ${BOOTPOOL}."
 		fi
 	fi
 
@@ -932,9 +949,8 @@ create_user_dataset()
 		# So we will set canmount after dataset creation for safety.
 		zfs create -o compression=lz4 -o canmount=off -o atime=off -o mountpoint=${ALTROOT}/${DATASET_NAME} ${ZROOT}/${DATASET_NAME}
 		zfs set canmount=on ${ZROOT}/${DATASET_NAME}
-		if [ $? -eq 1 ]; then
-			echo "Error: A problem has occurred while creating ${DATASET_NAME} dataset."
-			exit 1
+		if [ $? -ne 0 ]; then
+			error_exit "Error: A problem has occurred while creating ${DATASET_NAME} dataset."
 		fi
 		echo "Done!"
 		sleep 1
@@ -998,7 +1014,6 @@ install_yesno()
 
 upgrade_yesno()
 {
-	set +e
 	cdialog --title "Proceed with ${PRDNAME} ${APPNAME} Upgrade" \
 	--backtitle "${PRDNAME} ${APPNAME} Installer" \
 	--yesno "Continuing with the upgrade will overwrite system data on <${BOOTENV_ITEM}> Boot Environment, do you really want to continue?" 0 0
@@ -1006,7 +1021,6 @@ upgrade_yesno()
 		zpool_export
 		exit 0
 	fi
-	set -e
 }
 
 menu_poolname()
@@ -1410,17 +1424,14 @@ update_zroot_check()
 			echo "Trying to import ${pool_name}..."
 			# Try import existing zroot pool.
 			if ! zpool import -f -R ${ALTROOT} ${pool_name}; then
-				echo "Error: A problem has occurred while trying to import ${pool_name}."
-				exit 1
+				error_exit "Error: A problem has occurred while trying to import ${pool_name}."
 			fi
 		else
-			read -p "Error: Pool ${pool_name} not found." _wait_
-			exit 1
+			error_exit "Error: Pool ${pool_name} not found."
 		fi
 	else
 		echo "Error: Looks like ${pool_name} pool has been already imported."
-		read -p "Please export the pool manually and retry upgrade." _wait_
-		exit 1
+		error_exit "Please export the pool manually and retry upgrade."
 	fi
 }
 
@@ -1435,20 +1446,19 @@ update_bootpool_check()
 			MBRPART=1
 			# Try import existing bootpool pool.
 			if ! zpool import -f -R ${ALTROOT} ${BOOTPOOL}; then
-				echo "Error: A problem has occurred while trying to import ${BOOTPOOL}."
 				zpool_export
-				exit 1
+				error_exit "Error: A problem has occurred while trying to import ${BOOTPOOL}."
 			fi
 		fi
 	else
 		echo "Error: Looks like ${BOOTPOOL} pool has been already imported."
-		read -p "Please export the pool manually and retry upgrade." _wait_
-		exit 1
+		error_exit "Please export the pool manually and retry upgrade."
 	fi
 }
 
 zpool_export()
 {
+	# Export zroot and bootpool if any.
 	if zpool status | grep -q ${ZROOT}; then
 		if [ "${BOOT_MODE}" = 3 ] || [ "${MBRPART}" = 1 ]; then
 			if zpool status | grep -q ${BOOTPOOL}; then
@@ -1461,6 +1471,7 @@ zpool_export()
 
 get_be_list()
 {
+	# Generate a list of possible Boot Environments.
 	BOOTENV_LIST=$(zfs list -H -r "${pool_name}${DATASET}" | awk '{print $1}' | sed "s|${pool_name}${DATASET}/*||;1d")
 	VAL=""
 	local BE
@@ -1501,7 +1512,6 @@ menu_beselect()
 		exit 1
 	fi
 
-	set +e
 	eval "dialog --backtitle '${PRDNAME} ${APPNAME} Installer' --title 'Select Boot Environment' \
 		--radiolist 'Select any Boot Environment you wish to upgrade, use [up] [down] keys to navigate the menu then select a item with the [spacebar].' \
 		${menuheight} 80 ${items} ${list}" \
@@ -1510,7 +1520,6 @@ menu_beselect()
 		zpool_export
 		exit 0
 	fi
-	set -e
 
 	BOOTENV_ITEM=$(cat ${tmpfile})
 	if [ -z "${BOOTENV_ITEM}" ]; then
@@ -1518,9 +1527,8 @@ menu_beselect()
 	else
 		# Try to mount the selected boot environment.
 		if ! zfs mount ${pool_name}${DATASET}/${BOOTENV_ITEM}; then
-			echo "Error: A problem has occurred while trying mount ${BOOTENV_ITEM} Boot Environment."
 			zpool_export
-			exit 1
+			error_exit "Error: A problem has occurred while trying mount ${BOOTENV_ITEM} Boot Environment."
 		fi
 	fi
 }
