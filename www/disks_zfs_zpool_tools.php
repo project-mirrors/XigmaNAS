@@ -992,7 +992,18 @@ $document->render();
 					break;
 				case 'import':
 					$subcommand = 'import';
-					$o_flags = new co_zpool_flags(['force','gptlabel','gptid','import.autoexpand','import.readonly'],$sphere_array['flag']);
+					$dev_flags = array_filter([
+						'force',
+						is_dir('/dev/gpt') ? 'gptlabel' : null,
+						is_dir('/dev/gptid') ? 'gptid' : null,
+						is_dir('/dev/ufs') ? 'ufslabel' : null,
+						is_dir('/dev/ufsid') ? 'ufsid' : null,
+						is_dir('/dev/diskid') ? 'diskid' : null,
+						is_dir('/dev') ? 'devlabel' : null,
+						'import.autoexpand',
+						'import.readonly'
+					]);
+					$o_flags = new co_zpool_flags($dev_flags,$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2: // import page: get flags
 							render_set_start();
@@ -1026,6 +1037,26 @@ $document->render();
 												$a_param[] = '-d /dev/gptid';
 											endif;
 											break;
+										case 'ufslabel':
+											if(is_dir('/dev/ufs')):
+												$a_param[] = '-d /dev/ufs';
+											endif;
+											break;
+										case 'ufsid':
+											if(is_dir('/dev/ufsid')):
+												$a_param[] = '-d /dev/ufsid';
+											endif;
+											break;
+										case 'diskid':
+											if(is_dir('/dev/diskid')):
+												$a_param[] = '-d /dev/diskid';
+											endif;
+											break;
+										case 'devlabel':
+											if(is_dir('/dev')):
+												$a_param[] = '-d /dev';
+											endif;
+											break;
 										case 'import.readonly':
 											$a_param[]= '-o readonly=on';
 											break;
@@ -1034,9 +1065,6 @@ $document->render();
 											break;
 									endswitch;
 								endforeach;
-								if(is_dir('/dev')):
-									$a_param[] = '-d /dev';
-								endif;
 								$a_param[] = '-a';
 								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
 							endif;
@@ -1048,19 +1076,33 @@ $document->render();
 					break;
 				case 'importlist':
 					$subcommand = 'import';
-					$o_flags = new co_zpool_flags(['gptlabel','gptid'],$sphere_array['flag']);
+					$dev_flags = array_filter([
+						is_dir('/dev/gpt') ? 'gptlabel' : null,
+						is_dir('/dev/gptid') ? 'gptid' : null,
+						is_dir('/dev/ufs') ? 'ufslabel' : null,
+						is_dir('/dev/ufsid') ? 'ufsid' : null,
+						is_dir('/dev/diskid') ? 'diskid' : null,
+						is_dir('/dev') ? 'devlabel' : null,
+					]);
+					if(!empty($dev_flags)):
+						$o_flags = new co_zpool_flags($dev_flags,$sphere_array['flag']);
+					endif;
 					switch($sphere_array['pageindex']):
 						case 2: // import page: get flags
 							render_set_start();
 							render_activity_view($c_activity);
-							$o_flags->render_available_keys();
+							if(!empty($dev_flags)):
+								$o_flags->render_available_keys();
+							endif;
 							render_set_end();
 							render_submit(3,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],[]);
 							break;
 						case 3: // import page: process
 							render_set_start();
 							render_activity_view($c_activity);
-							$o_flags->render_selected_keys();
+							if(!empty($dev_flags)):
+								$o_flags->render_selected_keys();
+							endif;
 							$prerequisites_ok = true;
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
@@ -1079,9 +1121,28 @@ $document->render();
 												$a_param[] = '-d /dev/gptid';
 											endif;
 											break;
+										case 'ufslabel':
+											if(is_dir('/dev/ufs')):
+												$a_param[] = '-d /dev/ufs';
+											endif;
+											break;
+										case 'ufsid':
+											if(is_dir('/dev/ufsid')):
+												$a_param[] = '-d /dev/ufsid';
+											endif;
+											break;
+										case 'diskid':
+											if(is_dir('/dev/diskid')):
+												$a_param[] = '-d /dev/diskid';
+											endif;
+											break;
+										case 'devlabel':
+											if(is_dir('/dev')):
+												$a_param[] = '-d /dev';
+											endif;
+											break;
 									endswitch;
 								endforeach;
-								$a_param[] = '-d /dev';
 								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
 							endif;
 							render_command_result($result);
