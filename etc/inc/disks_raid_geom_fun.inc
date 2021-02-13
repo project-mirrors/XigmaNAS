@@ -92,7 +92,7 @@ function geomraid_processinfo_get() {
  */
 function geomraid_config_get(&$a_record) {
 	global $config;
-	
+
 	$a_record = [];
 	array_make_branch($config,'gconcat','vdisk');
 	array_make_branch($config,'gmirror','vdisk');
@@ -122,7 +122,7 @@ function geomraid_config_get(&$a_record) {
  */
 function geomraid_config_set(&$a_record) {
 	global $config;
-	
+
 	$a_gconcat = [];
 	$a_gconcat['vdisk'] = [];
 	$a_gmirror = [];
@@ -173,7 +173,7 @@ function is_geomraid_mounted($devicespecialfile,&$a_mount) {
  */
 function gconcat_process_updatenotification($mode,$data) {
 	global $config;
-	
+
 	$retval = 0;
 	array_make_branch($config,'gconcat','vdisk');
 	switch($mode):
@@ -205,7 +205,7 @@ function gconcat_process_updatenotification($mode,$data) {
  */
 function gmirror_process_updatenotification($mode,$data) {
 	global $config;
-	
+
 	$retval = 0;
 	array_make_branch($config,'gmirror','vdisk');
 	switch($mode):
@@ -237,7 +237,7 @@ function gmirror_process_updatenotification($mode,$data) {
  */
 function graid5_process_updatenotification($mode,$data) {
 	global $config;
-	
+
 	$retval = 0;
 	array_make_branch($config,'graid5','vdisk');
 	switch($mode):
@@ -270,7 +270,7 @@ function graid5_process_updatenotification($mode,$data) {
  */
 function gstripe_process_updatenotification($mode,$data) {
 	global $config;
-	
+
 	$retval = 0;
 	array_make_branch($config,'gstripe','vdisk');
 	switch($mode):

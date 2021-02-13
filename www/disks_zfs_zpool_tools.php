@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
@@ -85,7 +86,7 @@ endforeach;
 $o_geom = new co_geom_info();
 $a_geom_available_provider = $o_geom->get_available_provider();
 $a_reserved_devices = [
-	'ufs/embboot','gpt/gptboot','gpt/gptroot'
+	'gpt/efiboot%','gpt/gptboot','gpt/gptroot','gpt/gptswap','gpt/swap%','gpt/sysboot%','gpt/sysdisk%','ufs/embboot','ufs/liveboot'
 ];
 /*
  *	Eliminate devices
@@ -134,7 +135,8 @@ $l_command = [
 	'export' => ['name' => 'activity','value' => 'export','show' => $b_pool,'default' => false,'longname' => gettext('Export a pool from the system')],
 //	'get' => ['name' => 'activity','value' => 'get','show' => $b_pool && false,'default' => false,'longname' => gettext('Get properties of a pool')],
 	'history' => ['name' => 'activity','value' => 'history','show' => $b_pool,'default' => true,'longname' => gettext('Display ZFS command history')],
-	'import' => ['name' => 'activity','value' => 'import','show' => true,'default' => false,'longname' => gettext('List or import pools')],
+	'import' => ['name' => 'activity','value' => 'import','show' => true,'default' => false,'longname' => gettext('Import pools')],
+	'importlist' => ['name' => 'activity','value' => 'importlist','show' => true,'default' => false,'longname' => gettext('List pools available to import')],
 //	'iostat' => ['name' => 'activity','value' => 'iostat','show' => $b_pool && false,'default' => false,'longname' => gettext('Display I/O statistics')],
 	'labelclear' => ['name' => 'activity','value' => 'labelclear','show' => true,'default' => false,'longname' => gettext('Remove ZFS label information from a device')],
 //	'list' => ['name' => 'activity','value' => 'list','show' => $b_pool && false,'default' => false,'longname' => gettext('List the status of pools')],
@@ -990,7 +992,7 @@ $document->render();
 					break;
 				case 'import':
 					$subcommand = 'import';
-					$o_flags = new co_zpool_flags(['sfaiapf','force','gptlabel','import.autoexpand','import.readonly','gptid'],$sphere_array['flag']);
+					$o_flags = new co_zpool_flags(['force','gptlabel','gptid','import.autoexpand','import.readonly'],$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2: // import page: get flags
 							render_set_start();
@@ -1030,11 +1032,56 @@ $document->render();
 										case 'import.autoexpand':
 											$a_param[]= '-o autoexpand=on';
 											break;
-										case 'sfaiapf':
-											$a_param[] = '-a';
+									endswitch;
+								endforeach;
+								if(is_dir('/dev')):
+									$a_param[] = '-d /dev';
+								endif;
+								$a_param[] = '-a';
+								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
+							endif;
+							render_command_result($result);
+							render_set_end();
+							render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
+							break;
+					endswitch;
+					break;
+				case 'importlist':
+					$subcommand = 'import';
+					$o_flags = new co_zpool_flags(['gptlabel','gptid'],$sphere_array['flag']);
+					switch($sphere_array['pageindex']):
+						case 2: // import page: get flags
+							render_set_start();
+							render_activity_view($c_activity);
+							$o_flags->render_available_keys();
+							render_set_end();
+							render_submit(3,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],[]);
+							break;
+						case 3: // import page: process
+							render_set_start();
+							render_activity_view($c_activity);
+							$o_flags->render_selected_keys();
+							$prerequisites_ok = true;
+							html_separator2(2);
+							html_titleline2(gettext('Output'),2);
+							$result = $prerequisites_ok ? 0 : 15;
+							if($prerequisites_ok):
+								$a_param = [];
+								foreach($sphere_array['flag'] as $tmp_flag):
+									switch($tmp_flag):
+										case 'gptlabel':
+											if(is_dir('/dev/gpt')):
+												$a_param[] = '-d /dev/gpt';
+											endif;
+											break;
+										case 'gptid':
+											if(is_dir('/dev/gptid')):
+												$a_param[] = '-d /dev/gptid';
+											endif;
 											break;
 									endswitch;
 								endforeach;
+								$a_param[] = '-d /dev';
 								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
 							endif;
 							render_command_result($result);
