@@ -996,10 +996,13 @@ $document->render();
 						'force',
 						is_dir('/dev/gpt') ? 'gptlabel' : null,
 						is_dir('/dev/gptid') ? 'gptid' : null,
+						is_dir('/dev/ufs') ? 'ufslabel' : null,
+						is_dir('/dev/ufsid') ? 'ufsid' : null,
 						is_dir('/dev/diskid') ? 'diskid' : null,
 						is_dir('/dev') ? 'devlabel' : null,
 						'import.autoexpand',
-						'import.readonly'
+						'import.readonly',
+						'destroyed.pools'
 					]);
 					$o_flags = new co_zpool_flags($dev_flags,$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
@@ -1023,33 +1026,47 @@ $document->render();
 								foreach($sphere_array['flag'] as $tmp_flag):
 									switch($tmp_flag):
 										case 'force':
-											$a_param[] = '-f';
+											$a_param['force'] = '-f';
 											break;
 										case 'gptlabel':
 											if(is_dir('/dev/gpt')):
-												$a_param[] = '-d /dev/gpt';
+												$a_param['gptlabel'] = '-d /dev/gpt';
 											endif;
 											break;
 										case 'gptid':
 											if(is_dir('/dev/gptid')):
-												$a_param[] = '-d /dev/gptid';
+												$a_param['gptid'] = '-d /dev/gptid';
+											endif;
+											break;
+										case 'ufslabel':
+											if(is_dir('/dev/ufs')):
+												$a_param['ufslabel'] = '-d /dev/ufs';
+											endif;
+											break;
+										case 'ufsid':
+											if(is_dir('/dev/ufsid')):
+												$a_param['ufsid'] = '-d /dev/ufsid';
 											endif;
 											break;
 										case 'diskid':
 											if(is_dir('/dev/diskid')):
-												$a_param[] = '-d /dev/diskid';
+												$a_param['diskid'] = '-d /dev/diskid';
 											endif;
 											break;
 										case 'devlabel':
 											if(is_dir('/dev')):
-												$a_param[] = '-d /dev';
+												$a_param['devlabel'] = '-d /dev';
 											endif;
 											break;
 										case 'import.readonly':
-											$a_param[]= '-o readonly=on';
+											$a_param['import.readonly']= '-o readonly=on';
 											break;
 										case 'import.autoexpand':
-											$a_param[]= '-o autoexpand=on';
+											$a_param['import.autoexpand']= '-o autoexpand=on';
+											break;
+										case 'destroyed.pools':
+											$a_param['force'] = '-f';
+											$a_param['destroyed.pools'] = '-D';
 											break;
 									endswitch;
 								endforeach;
@@ -1067,28 +1084,25 @@ $document->render();
 					$dev_flags = array_filter([
 						is_dir('/dev/gpt') ? 'gptlabel' : null,
 						is_dir('/dev/gptid') ? 'gptid' : null,
+						is_dir('/dev/ufs') ? 'ufslabel' : null,
+						is_dir('/dev/ufsid') ? 'ufsid' : null,
 						is_dir('/dev/diskid') ? 'diskid' : null,
 						is_dir('/dev') ? 'devlabel' : null,
+						'destroyed.pools'
 					]);
-					if(!empty($dev_flags)):
-						$o_flags = new co_zpool_flags($dev_flags,$sphere_array['flag']);
-					endif;
+					$o_flags = new co_zpool_flags($dev_flags,$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2: // import page: get flags
 							render_set_start();
 							render_activity_view($c_activity);
-							if(!empty($dev_flags)):
-								$o_flags->render_available_keys();
-							endif;
+							$o_flags->render_available_keys();
 							render_set_end();
 							render_submit(3,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],[]);
 							break;
 						case 3: // import page: process
 							render_set_start();
 							render_activity_view($c_activity);
-							if(!empty($dev_flags)):
-								$o_flags->render_selected_keys();
-							endif;
+							$o_flags->render_selected_keys();
 							$prerequisites_ok = true;
 							html_separator2(2);
 							html_titleline2(gettext('Output'),2);
@@ -1107,6 +1121,16 @@ $document->render();
 												$a_param[] = '-d /dev/gptid';
 											endif;
 											break;
+										case 'ufslabel':
+											if(is_dir('/dev/ufs')):
+												$a_param[] = '-d /dev/ufs';
+											endif;
+											break;
+										case 'ufsid':
+											if(is_dir('/dev/ufsid')):
+												$a_param[] = '-d /dev/ufsid';
+											endif;
+											break;
 										case 'diskid':
 											if(is_dir('/dev/diskid')):
 												$a_param[] = '-d /dev/diskid';
@@ -1116,6 +1140,9 @@ $document->render();
 											if(is_dir('/dev')):
 												$a_param[] = '-d /dev';
 											endif;
+											break;
+										case 'destroyed.pools':
+											$a_param[] = '-D';
 											break;
 									endswitch;
 								endforeach;
