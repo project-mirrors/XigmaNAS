@@ -996,8 +996,6 @@ $document->render();
 						'force',
 						is_dir('/dev/gpt') ? 'gptlabel' : null,
 						is_dir('/dev/gptid') ? 'gptid' : null,
-						is_dir('/dev/ufs') ? 'ufslabel' : null,
-						is_dir('/dev/ufsid') ? 'ufsid' : null,
 						is_dir('/dev/diskid') ? 'diskid' : null,
 						is_dir('/dev') ? 'devlabel' : null,
 						'import.autoexpand',
@@ -1037,16 +1035,6 @@ $document->render();
 												$a_param[] = '-d /dev/gptid';
 											endif;
 											break;
-										case 'ufslabel':
-											if(is_dir('/dev/ufs')):
-												$a_param[] = '-d /dev/ufs';
-											endif;
-											break;
-										case 'ufsid':
-											if(is_dir('/dev/ufsid')):
-												$a_param[] = '-d /dev/ufsid';
-											endif;
-											break;
 										case 'diskid':
 											if(is_dir('/dev/diskid')):
 												$a_param[] = '-d /dev/diskid';
@@ -1079,8 +1067,6 @@ $document->render();
 					$dev_flags = array_filter([
 						is_dir('/dev/gpt') ? 'gptlabel' : null,
 						is_dir('/dev/gptid') ? 'gptid' : null,
-						is_dir('/dev/ufs') ? 'ufslabel' : null,
-						is_dir('/dev/ufsid') ? 'ufsid' : null,
 						is_dir('/dev/diskid') ? 'diskid' : null,
 						is_dir('/dev') ? 'devlabel' : null,
 					]);
@@ -1119,16 +1105,6 @@ $document->render();
 										case 'gptid':
 											if(is_dir('/dev/gptid')):
 												$a_param[] = '-d /dev/gptid';
-											endif;
-											break;
-										case 'ufslabel':
-											if(is_dir('/dev/ufs')):
-												$a_param[] = '-d /dev/ufs';
-											endif;
-											break;
-										case 'ufsid':
-											if(is_dir('/dev/ufsid')):
-												$a_param[] = '-d /dev/ufsid';
 											endif;
 											break;
 										case 'diskid':
