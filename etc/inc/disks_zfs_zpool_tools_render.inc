@@ -720,10 +720,13 @@ class co_zpool_flag_base {
 		$this->a_pool_keys['force'] = ['name' => 'flag','value' => 'force','show' => true,'default' => false,'longname' => gettext('Force Operation')];
 		$this->a_pool_keys['gptlabel'] = ['name' => 'flag','value' => 'gptlabel','show' => true,'default' => false,'longname' => gettext('Include GPT labels into scan/import')];
 		$this->a_pool_keys['gptid'] = ['name' => 'flag','value' => 'gptid','show' => true,'default' => false,'longname' => gettext('Include GPT ID into scan/import')];
+		$this->a_pool_keys['ufslabel'] = ['name' => 'flag','value' => 'ufslabel','show' => true,'default' => false,'longname' => gettext('Include UFS labels into scan/import')];
+		$this->a_pool_keys['ufsid'] = ['name' => 'flag','value' => 'ufsid','show' => true,'default' => false,'longname' => gettext('Include UFS ID into scan/import')];
 		$this->a_pool_keys['diskid'] = ['name' => 'flag','value' => 'diskid','show' => true,'default' => false,'longname' => gettext('Include Disk ID into scan/import')];
 		$this->a_pool_keys['devlabel'] = ['name' => 'flag','value' => 'devlabel','show' => true,'default' => false,'longname' => gettext('Include /dev into scan/import')];
 		$this->a_pool_keys['import.readonly'] = ['name' => 'flag','value' => 'import.readonly','show' => true,'default' => false,'longname' => gettext('Import pool in read-only mode')];
 		$this->a_pool_keys['import.autoexpand'] = ['name' => 'flag','value' => 'import.autoexpand','show' => true,'default' => false,'longname' => gettext('Resize pool to the maximum possible size')];
+		$this->a_pool_keys['destroyed.pools'] = ['name' => 'flag','value' => 'destroyed.pools','show' => true,'default' => false,'longname' => gettext('Scan/Import destroyed pools only')];
 		$this->a_pool_keys['test'] = ['name' => 'flag','value' => 'test','show' => true,'default' => false,'longname' => gettext('Test Mode')];
 		return true;
 	}
