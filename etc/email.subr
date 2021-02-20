@@ -13,7 +13,7 @@
 # Return 0 if successful, nonzero otherwise.
 # $1 - Recipients
 # $2 - Subject
-# $2 - Message
+# $3 - Message
 send_email()
 {
 	local _recipients _subject _message _rfcdate _result
