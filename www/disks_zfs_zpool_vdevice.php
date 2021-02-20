@@ -232,7 +232,7 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline2(gtext('Overview'), 5);
+			html_titleline2(gettext('Overview'),5);
 ?>
 			<tr>
 				<th class="lhelc"><input type="checkbox" class="oneemhigh" id="togglemembers" name="togglemembers" title="<?=gtext('Invert Selection');?>"/></th>
