@@ -31,15 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
 /**
  *	Protected property
  */
 final class property_protected extends property_bool {
-	public function __construct($owner = NULL) {
-		$caption = \gettext('Protect');
+	public function __construct($owner = null) {
+		$caption = gettext('Protect');
 		$description = '';
-		$title = \gettext('Protect Setting');
+		$title = gettext('Protect Setting');
 		parent::__construct($owner);
 		$this->
 			set_name('protected')->

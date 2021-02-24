@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_REGEXP;
+
 /**
  *	Text property
  */
@@ -74,7 +78,7 @@ class property_text extends property {
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => '/\S/'],$filter_name);
+			set_filter_options(['default' => null,'regexp' => '/\S/'],$filter_name);
 		return $this;
 	}
 	public function filter_use_empty() {
@@ -83,7 +87,7 @@ class property_text extends property {
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp],$filter_name);
+			set_filter_options(['default' => null,'regexp' => $regexp],$filter_name);
 		return $this;
 	}
 	public function filter_use_default_or_empty() {

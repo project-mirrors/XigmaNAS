@@ -31,15 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
 /**
  *	Enable property
  */
 final class property_enable extends property_bool {
-	public function __construct($owner = NULL) {
-		$caption = \gettext('Enable');
+	public function __construct($owner = null) {
+		$caption = gettext('Enable');
 		$description = '';
-		$title = \gettext('Enable Setting');
+		$title = gettext('Enable Setting');
 		parent::__construct($owner);
 		$this->
 			set_name('enable')->

@@ -31,24 +31,30 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function gettext;
+
+use const FILTER_REQUIRE_SCALAR,FILTER_UNSAFE_RAW;
+
 /**
  *	Class for row properties
  */
 abstract class container_row extends container {
 	protected $x_uuid;
-	public function init_uuid() {
+	public function init_uuid(): property_uuid {
 		$property = $this->x_uuid = new property_uuid($this);
 		return $property;
 	}
-	public function get_uuid() {
+	final public function get_uuid(): property_uuid {
 		return $this->x_uuid ?? $this->init_uuid();
 	}
 	protected $x_description;
-	public function init_description() {
-		$description = \gettext('Enter a description for your reference.');
-		$placeholder = \gettext('Enter a description');
-		$title = \gettext('Description');
+	public function init_description(): property_text {
+		$description = gettext('Enter a description for your reference.');
+		$placeholder = gettext('Enter a description');
+		$title = gettext('Description');
 		$property = new property_text($this);
 		$property->
 			set_name('description')->
@@ -65,34 +71,34 @@ abstract class container_row extends container {
 			set_filter_options(['default' => '']);
 		return $property;
 	}
-	public function get_description() {
+	final public function get_description(): property_text {
 		return $this->x_description ?? $this->init_description();
 	}
 	protected $x_enable;
-	public function init_enable() {
+	public function init_enable(): property_enable {
 		$property = $this->x_enable = new property_enable($this);
 		return $property;
 	}
-	public function get_enable() {
+	final public function get_enable(): property_enable {
 		return $this->x_enable ?? $this->init_enable();
 	}
 	protected $x_protected;
-	public function init_protected() {
+	public function init_protected(): property_protected {
 		$property = $this->x_protected = new property_protected($this);
 		return $property;
 	}
-	public function get_protected() {
+	final public function get_protected(): property_protected {
 		return $this->x_protected ?? $this->init_protected();
 	}
 	protected $x_toolbox;
-	public function init_toolbox() {
+	public function init_toolbox(): property_toolbox {
 		$property = $this->x_toolbox = new property_toolbox($this);
 		return $property;
 	}
-	public function get_toolbox() {
+	final public function get_toolbox(): property_toolbox {
 		return $this->x_toolbox ?? $this->init_toolbox();
 	}
-	public function get_row_identifier() {
+	public function get_row_identifier():property_uuid {
 		return $this->get_uuid();
 	}
 }

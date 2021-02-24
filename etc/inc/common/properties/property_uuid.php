@@ -31,15 +31,23 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use common\uuid;
+
+use function gettext;
+
+use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_REGEXP;
+
 /**
  *	UUID property
  */
 final class property_uuid extends property_text {
-	public function __construct($owner = NULL) {
-		$description = \gettext('The UUID of the record.');
-		$placeholder = \gettext('Enter Universally Unique Identifier');
-		$title = \gettext('Universally Unique Identifier');
+	public function __construct($owner = null) {
+		$description = gettext('The UUID of the record.');
+		$placeholder = gettext('Enter Universally Unique Identifier');
+		$title = gettext('Universally Unique Identifier');
 		parent::__construct($owner);
 		$this->
 			set_name('uuid')->
@@ -59,10 +67,10 @@ final class property_uuid extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => '/^[0-9a-f]{4}([0-9a-f]{4}-){2}4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i'],$filter_name);
+			set_filter_options(['default' => null,'regexp' => uuid::pattern_v4],$filter_name);
 		return $this;
 	}
 	public function get_defaultvalue() {
-		return \uuid();
+		return uuid::create_v4();
 	}
 }

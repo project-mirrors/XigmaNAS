@@ -31,12 +31,18 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function explode,filter_var,gettext,is_null,is_string;
+
+use const FILTER_FLAG_IPV4,FILTER_FLAG_IPV6,FILTER_VALIDATE_INT,FILTER_VALIDATE_IP;
+
 /**
  *	CIDR property
  */
 final class property_cidr extends property_text_callback {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(49)->
@@ -45,18 +51,18 @@ final class property_cidr extends property_text_callback {
 		return $this;
 	}
 	public function validate($cidr) {
-		if(\is_string($cidr)):
-			list($ipaddress,$subnet) = \explode('/',$cidr,2);
-			if(!\is_null(\filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
-				if(!\is_null(\filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+		if(is_string($cidr)):
+			[$ipaddress,$subnet] = explode('/',$cidr,2);
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 1,'max_range' => 32]]))):
 					return $cidr;
 				endif;
-			elseif(!\is_null(\filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
-				if(!\is_null(\filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
+			elseif(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 1,'max_range' => 128]]))):
 					return $cidr;
 				endif;
 			endif;
 		endif;
-		return NULL;
+		return null;
 	}
 }

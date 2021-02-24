@@ -31,14 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\properties;
+
+use function is_null;
+
+use const FILTER_CALLBACK;
+
 /**
  *	Text property with callback validation
  */
 abstract class property_text_callback extends property_text {
 	abstract public function validate($test);
 	public function validate_or_default($test) {
-		if(\is_null($this->validate($test))):
+		if(is_null($this->validate($test))):
 			return $this->get_defaultvalue();
 		else:
 			return $test;
