@@ -37,6 +37,8 @@ namespace common\properties;
 use function array_key_exists,count,end,filter_input,filter_var,gettext,get_class,is_array,is_null,
 		is_object,is_scalar,is_string,key,sprintf,strpos;
 
+use const INPUT_POST;
+
 /**
  *	Adds additional characteristics to a variable
  */

@@ -36,6 +36,8 @@ namespace common\properties;
 
 use function array_key_exists,is_scalar;
 
+use const FILTER_DEFAULT,FILTER_REQUIRE_ARRAY;
+
 /**
  *	Multi listproperty
  */

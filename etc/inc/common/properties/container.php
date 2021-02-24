@@ -67,9 +67,9 @@ abstract class container {
 		$a_objects = [];
 		foreach($this as $key => $value):
 			unset($matches);
-			if(1 === \preg_match('/^x_(.+)/',$key,$matches)):
+			if(preg_match('/^x_(.+)/',$key,$matches) === 1):
 				$method_name = 'get_' . $matches[1];
-				if(\method_exists($this,$method_name)):
+				if(method_exists($this,$method_name)):
 					$a_objects[] = $this->$method_name();
 				endif;
 			endif;

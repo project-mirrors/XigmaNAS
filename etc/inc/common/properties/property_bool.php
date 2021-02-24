@@ -36,6 +36,8 @@ namespace common\properties;
 
 use function array_key_exists,is_bool;
 
+use const FILTER_NULL_ON_FAILURE,FILTER_VALIDATE_BOOLEAN;
+
 /**
  *	Bool property
  */

@@ -36,6 +36,8 @@ namespace common\properties;
 
 use function gettext;
 
+use const FILTER_FLAG_IPV6,FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_IP;
+
 /**
  *	IPv6 property
  */

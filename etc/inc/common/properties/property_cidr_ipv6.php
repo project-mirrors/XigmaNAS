@@ -36,6 +36,8 @@ namespace common\properties;
 
 use function explode,filter_var,gettext,is_null,is_string;
 
+use const FILTER_FLAG_IPV6,FILTER_VALIDATE_INT,FILTER_VALIDATE_IP;
+
 /**
  *	IPv6 CIDR property
  */
@@ -52,7 +54,7 @@ final class property_cidr_ipv6 extends property_text_callback {
 		if(is_string($cidr)):
 			[$ipaddress,$subnet] = explode('/',$cidr,2);
 			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => null]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 0,'max_range' => 128]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 1,'max_range' => 128]]))):
 					return $cidr;
 				endif;
 			endif;

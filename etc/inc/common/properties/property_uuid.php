@@ -38,6 +38,8 @@ use common\uuid;
 
 use function gettext;
 
+use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_REGEXP;
+
 /**
  *	UUID property
  */

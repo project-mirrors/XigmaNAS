@@ -36,6 +36,8 @@ namespace common\properties;
 
 use function is_null;
 
+use const FILTER_CALLBACK;
+
 /**
  *	Text property with callback validation
  */

@@ -34,6 +34,8 @@
 
 namespace common\properties;
 
+use const FILTER_DEFAULT;
+
 /**
  *	Textarea property
  */

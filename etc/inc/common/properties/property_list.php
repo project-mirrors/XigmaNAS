@@ -36,6 +36,8 @@ namespace common\properties;
 
 use function array_key_exists;
 
+use const FILTER_CALLBACK;
+
 /**
  *	List property
  */
