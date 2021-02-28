@@ -40,6 +40,19 @@
 function gtext(string $data = '') {
 	return htmlspecialchars(gettext($data),ENT_QUOTES|ENT_HTML5,'UTF-8',false);
 }
+/**
+ *	Convert special characters into html entities
+ *	& => &amp;
+ *	" => &quot;
+ *	' => &apos; (ENT_QUOTES + ENT_HTML5)
+ *	< => &lt;
+ *	> => &gt;
+ *	@param string $data
+ *	@return string
+ */
+function strtohtml(string $data = ''): string {
+	return htmlspecialchars($data,ENT_QUOTES|ENT_HTML5,'UTF-8',false);
+}
 function gxmltext(string $data = '') {
 	return xmlspecialchars(gettext($data));
 }
