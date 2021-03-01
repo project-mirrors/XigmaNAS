@@ -34,9 +34,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-//------------------------------------------------------------------------------
+
 require_once('fm_qxpage.php');
 require_once('fm_lib_zipstream.php');
+require_once 'fm_permissions.php';
 
 /**
  * _zip
@@ -97,7 +98,6 @@ function tar_items($dir,$name) {
 function tgz_items($dir,$name) {
 }
 function archive_items($dir) {
-	include_once 'fm_permissions.php';
 //	archive is only allowed if user may change files
 	if(!permissions_grant($dir,null,'change')):
 		show_error(gtext('You are not allowed to use this function.'));
@@ -122,7 +122,7 @@ function archive_items($dir) {
 		header('Location: ' . make_link('list',$dir,null));
 	endif;
 	show_header(gtext('Archive item(s)'));
-	echo '<br>',"\n";
+	echo '<div id="area_data_frame">',"\n";
 	echo '<form name="archform" method="post" action="',make_link('arch',$dir,null) . '">',"\n";
 	$cnt = count($GLOBALS['__POST']['selitems']);
 	for($i = 0;$i < $cnt;++$i):
@@ -158,7 +158,6 @@ function archive_items($dir) {
 				'</tr>',
 			'</table>';
 	echo '</form>';
-	echo '<br>',"\n";
 ?>
 <script>
 //<![CDATA[
@@ -166,4 +165,5 @@ function archive_items($dir) {
 //]]>
 </script>
 <?php
+	echo '</div>',"\n";
 }

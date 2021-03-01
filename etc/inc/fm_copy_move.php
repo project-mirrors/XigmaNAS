@@ -35,17 +35,18 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'fm_permissions.php';
 
 function dir_list($dir) { // make list of directories
-	// this list is used to copy/move items to a specific location
+//	this list is used to copy/move items to a specific location
 	$dir_list = [];
 	$handle = @opendir(get_abs_dir($dir));
 	if($handle === false):
 		return; // unable to open dir
 	endif;
 	while(($new_item = readdir($handle)) !== false):
-		//if(!@file_exists(get_abs_item($dir, $new_item))) continue;
+//		if(!@file_exists(get_abs_item($dir, $new_item))) continue;
 		if(!get_show_item($dir,$new_item)):
 			continue;
 		endif;
@@ -54,16 +55,17 @@ function dir_list($dir) { // make list of directories
 		endif;
 		$dir_list[$new_item] = $new_item;
 	endwhile;
-	// sort
+//	sort
 	if(is_array($dir_list)):
 		ksort($dir_list);
 	endif;
 	return $dir_list;
 }
 //------------------------------------------------------------------------------
-function dir_print($dir_list,$new_dir) { // print list of directories
-	// this list is used to copy/move items to a specific location
-	// Link to Parent Directory
+function dir_print($dir_list,$new_dir) {
+//	print list of directories
+//	this list is used to copy/move items to a specific location
+//	Link to Parent Directory
 	$dir_up = dirname($new_dir);
 	if($dir_up == '.'):
 		$dir_up = '';
@@ -81,7 +83,7 @@ function dir_print($dir_list,$new_dir) { // print list of directories
 				'</div></a>',
 			'</td>',"\n",
 		'</tr>',"\n";
-	// Print List Of Target Directories
+//	Print List Of Target Directories
 	if(!is_array($dir_list)):
 		return;
 	endif;
@@ -106,16 +108,16 @@ function dir_print($dir_list,$new_dir) { // print list of directories
 	endforeach;
 }
 //------------------------------------------------------------------------------
-	// copy/move file/dir
+//	copy/move file/dir
 function copy_move_items($dir) {
-	// copy and move are only allowed if the user may read and change files
+//	copy and move are only allowed if the user may read and change files
 	if($GLOBALS['action'] == 'copy' && !permissions_grant($dir,null,'copy')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
 	if($GLOBALS['action'] == 'move' && !permissions_grant($dir,null,'move')):
 		show_error(gtext('You are not allowed to use this function.'));
 	endif;
-	// Vars
+//	Vars
 	$first = $GLOBALS['__POST']['first'];
 	if($first == 'y'):
 		$new_dir = $dir;
@@ -126,19 +128,19 @@ function copy_move_items($dir) {
 		$new_dir = '';
 	endif;
 	$cnt = count($GLOBALS['__POST']['selitems']);
-	// Copy or Move?
+//	Copy or Move?
 	if($GLOBALS['action'] != 'move'):
 		$_img = '/images/fm_img/__copy.gif';
 	else:
 		$_img = '/images/fm_img/__cut.gif';
 	endif;
-	// Get New Location & Names
+//	Get New Location & Names
 	if(!isset($GLOBALS['__POST']['confirm']) || $GLOBALS['__POST']['confirm'] != 'true'):
 		$msg = $GLOBALS['action'] != 'move' ? gtext('Copy item(s)') : gtext('Move item(s)');
 		show_header($msg);
-
-		// JavaScript for Form:
-		// Select new target directory / execute action
+		echo '<div id="area_data_frame">',"\n";
+//		JavaScript for Form:
+//		Select new target directory / execute action
 ?>
 <script>
 //<![CDATA[
@@ -152,7 +154,7 @@ function Execute() {
 //]]>
 </script>
 <?php
-		// "Copy / Move from .. to .."
+//		"Copy / Move from .. to .."
 		$s_dir = $dir;
 		if(strlen($s_dir) > 40):
 			$s_dir = '...' . substr($s_dir,-37);
@@ -161,7 +163,7 @@ function Execute() {
 		if(strlen($s_ndir) > 40):
 			$s_ndir = '...' . substr($s_ndir,-37);
 		endif;
-		// Form for Target Directory & New Names
+//		Form for Target Directory & New Names
 		echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">';
 		echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 		echo	'<table class="area_data_selection">',"\n",
@@ -231,7 +233,7 @@ function Execute() {
 		endfor;
 		echo		'</tbody>',
 				'</table>';
-		// Submit & Cancel
+//		Submit & Cancel
 		echo	'<div id="submit">',
 					'<input type="submit" class="formbtn" value="',($GLOBALS['action'] != 'move' ? gtext('Copy') : gtext('Move')),'" onclick="javascript:Execute();">',
 					'<input type="button" class="formbtn" value="',gtext('Cancel'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';">',
@@ -241,10 +243,11 @@ function Execute() {
 					'<input type="hidden" name="new_dir" value="',htmlspecialchars($new_dir),'">',"\n",
 				'</div>';
 		echo '</form>',"\n";
+		echo '</div>',"\n";
 		return;
 	endif;
-	// DO COPY/MOVE
-	// ALL OK?
+//	DO COPY/MOVE
+//	ALL OK?
 	if(!@file_exists(get_abs_dir($new_dir))):
 		show_error($new_dir . ': ' . gtext("The target directory doesn't exist."));
 	endif;
@@ -254,7 +257,7 @@ function Execute() {
 	if(!down_home(get_abs_dir($new_dir))):
 		show_error($new_dir . ': ' . gtext('The target directory may not be above the home directory.'));
 	endif;
-	// copy / move files
+//	copy / move files
 	$err = false;
 	$items = [];
 	for($i = 0;$i < $cnt;++$i):
@@ -287,7 +290,7 @@ function Execute() {
 		// Copy / Move
 		if($GLOBALS['action'] == 'copy'):
 			if(@is_link($abs_item) || @is_file($abs_item)):
-				// check file-exists to avoid error with 0-size files (PHP 4.3.0)
+//				check file-exists to avoid error with 0-size files (PHP 4.3.0)
 				$ok = @copy($abs_item,$abs_new_item);    //||@file_exists($abs_new_item);
 			elseif(@is_dir($abs_item)):
 				$ok = copy_dir($abs_item,$abs_new_item);
@@ -302,7 +305,8 @@ function Execute() {
 		endif;
 		$error[$i] = null;
 	endfor;
-	if($err): // there were errors
+	if($err):
+//		there were errors
 		$err_msg = '';
 		for($i = 0;$i < $cnt;++$i):
 			if($error[$i] == null):
