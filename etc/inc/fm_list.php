@@ -230,6 +230,7 @@ function list_dir($dir) {
 		$s_dir = '...' . substr($s_dir,-47);
 	endif;
 	show_header(gtext('Directory') . ': ' . _breadcrumbs_list($dir));
+	echo '<div class="area_data_pot">',"\n";
 //	Javascript functions:
 	include 'fm_javascript.php';
 //	Sorting of items
@@ -242,8 +243,9 @@ function list_dir($dir) {
 		$_img .= '_arrowdown.gif" alt="v">';
 	endif;
 //	Toolbar
-	echo '<table class="area_data_settings"><tbody><tr>';
-	echo '<td><table><tbody><tr>',"\n";
+	echo '<table class="area_data_settings"><thead><tr>',"\n";
+	echo '<th class="lhell">',"\n";
+	echo '<table><tbody><tr>',"\n";
 //	PARENT DIR
 	echo '<td style="padding-right:4px"><a href="',make_link('list',path_up($dir),null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['up'],'" alt="',gtext('UP'),'" title="',gtext('UP'),'">',
@@ -260,14 +262,15 @@ function list_dir($dir) {
 	echo '<td style="padding-right:4px"><a href="',make_link('search',$dir,null),'">',
 			'<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['search'],'" alt="',gtext('SEARCH'),'" title="',gtext('SEARCH'),'">',
 		'</a></td>',"\n";
-	echo '<td style="padding-right:8px"></td>';
+	echo '<td style="padding-right:8px"></td>',"\n";
 	_print_link('download_selected',permissions_grant($dir,null,'read'),$dir,null); // print the download button
 	_print_edit_buttons($dir); // print the edit buttons
-	echo '</tr></tbody></table></td>',"\n";
+	echo '</tr></tbody></table>',"\n";
+	echo '</th>',"\n";
 //	Create File / Dir
 	if(permissions_grant($dir,null,'create')):
-		echo '<td style="text-align:right">',"\n";
-		echo '<form action="',make_link('mkitem',$dir,null),'" method="post">',"\n";
+		echo '<th class="lherr">',"\n";
+		echo '<form name="mkiform" method="post" action="',make_link('mkitem',$dir,null),'">',"\n";
 		echo '<div id="formextension1">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 		echo '<table style="width:100%"><tbody><tr><td>',"\n";
 		echo '<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['add'],'" alt="">',"\n";
@@ -279,11 +282,13 @@ function list_dir($dir) {
 		echo '<input type="submit" value="',gtext('Create'),'">',"\n";
 		echo '</td></tr></tbody></table>',"\n";
 		echo '</form>',"\n";
-		echo '</td>',"\n";
+		echo '</th>',"\n";
 	endif;
-	echo "</tr></tbody></table>\n";
+	echo "</tr></thead></table>\n";
+	echo '</div>',"\n";
 //	End Toolbar
 //	Begin Table + Form for checkboxes
+	echo '<div id="area_data_frame">',"\n";
 	echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">',"\n";
 	echo '<div id="formextension2">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 	echo '<table class="area_data_selection">';
@@ -365,7 +370,7 @@ function list_dir($dir) {
 ?>
 <script>
 //<![CDATA[
-	// Uncheck all items (to avoid problems with new items)
+//	Uncheck all items (to avoid problems with new items)
 	var ml = document.selform;
 	var len = ml.elements.length;
 	for(var i=0; i<len; ++i) {
@@ -375,7 +380,9 @@ function list_dir($dir) {
 		}
 	}
 //]]>
-</script><?php
+</script>
+<?php
+	echo '</div>',"\n";
 }
 
 // *** HELPER FUNCTIONS
@@ -425,7 +432,7 @@ function _get_link_info($dir,$item) {
 		$type = $type[0];
 	endif;
 	if(!file_exists(get_abs_item($dir,$item))):
-		return '<span style="background:red;">'.$type.'</span>';
+		return '<span style="background:red;">' . $type . '</span>';
 	endif;
 	return $type;
 }
