@@ -126,7 +126,7 @@ $(window).on("load", function() {
 //]]>
 </script>
 <form action="system_edit.php" method="post" name="iform" id="iform">
-	<div id="area_data_top"></div>
+	<div class="area_data_top"></div>
 	<div id="area_data_frame">
 <?php
 	if(!empty($savemsg)):
@@ -220,7 +220,7 @@ $(window).on("load", function() {
 include 'formend.inc';
 ?>
 </div>
-<div id="area_data_pot"></div>
+<div class="area_data_pot"></div>
 </form>
 <?php
 if($hlm_available && $hlm_enabled):
