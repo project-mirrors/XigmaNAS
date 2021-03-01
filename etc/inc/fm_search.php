@@ -34,6 +34,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 //	find items
 function find_item($dir,$regex,&$list,$recur) {
 	$handle = @opendir(get_abs_dir($dir));
@@ -124,6 +125,7 @@ function search_items($dir) {
 		$subdir = true;
 	endif;
 	show_header(gtext('Search Directory') . ': ' . _breadcrumbs_search($dir));
+	echo '<div class="area_data_pot">',"\n";
 //	search box
 	echo '<form name="searchform" action="',make_link('search',$dir,null),'" method="post">',"\n";
 	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
@@ -133,32 +135,20 @@ function search_items($dir) {
 				'</colgroup>',
 				'<thead>',
 					'<tr>',
-						'<td class="gap"></td>',
-					'</tr>',
-					'<tr>',
-						'<th class="lhetop">',gtext('Search Filter'),'</th>',
-					'</tr>',
-					'<tr>',
-						'<td class="gap"></td>',
-					'</tr>',
-				'</thead>',
-				'<tbody class="donothighlight">',
-					'<tr>',
-						'<td>',
-							'<input name="searchitem" type="text" size="25" value="',htmlspecialchars($searchitem),'">',
+						'<th class="lhebl">',
+							'<input name="searchitem" type="text" size="25" value="',htmlspecialchars($searchitem),'" placeholder="',gtext('Search Filter'),'">',
+							'<input type="checkbox" name="subdir" value="y"',($subdir ? ' checked' : ''),'>',
+							'<span style="font-weight:normal">',gtext('Search subfolder'),'&nbsp;</span>',
 							'<input type="submit" value="',gtext('Search'),'">','&nbsp;',
 							'<input type="button" value="',gtext('Close'),'" onClick="javascript:location=\'',make_link('list',$dir,null),'\';">',
-						'</td>',
+						'</th>',
 					'</tr>',
-					'<tr>',
-						'<td>',
-							'<input type="checkbox" name="subdir" value="y"',($subdir ? ' checked' : ''),'>',gtext('Search subdirectories'),
-						'</td>',
-					'</tr>',
-				'</tbody>',
+				'</thead>',
 			'</table>',"\n";
 	echo '</form>',"\n";
+	echo '</div>',"\n";
 //	search result
+	echo '<div id="area_data_frame">',"\n";
 	if($searchitem !== null):
 		$lhetop_string = sprintf(gettext('Search Result for %1$s'),$searchitem);
 		echo '<table class="area_data_selection">',"\n";
@@ -167,9 +157,6 @@ function search_items($dir) {
 					'<col style="width:58%">',
 				'</colgroup>',"\n";
 		echo	'<thead>',"\n";
-		echo		'<tr>',
-						'<th class="gap" colspan="2"></th>',
-					'</tr>',"\n";
 		echo		'<tr>',
 						'<th class="lhetop" colspan="2">', htmlspecialchars($lhetop_string),'</th>',
 					'</tr>',"\n";
@@ -202,6 +189,7 @@ function search_items($dir) {
 	echo '	if(document.searchform) document.searchform.searchitem.focus();',"\n";
 	echo '//]]>',"\n";
 	echo '</script>',"\n";
+	echo '</div>',"\n";
 }
 /**
  *	The breadcrumbs function will take the user's current path and build a breadcrumb.
