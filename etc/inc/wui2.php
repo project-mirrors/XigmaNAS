@@ -1731,10 +1731,10 @@ trait co_DOMTools {
 	 *	@return DOMNode $subnode
 	 */
 	public function add_area_data() {
-		$this->insDIV(['id' => 'area_data_top']);
+		$this->insDIV(['class' => 'area_data_top']);
 		$subnode = $this->
 			addDIV(['id' => 'area_data_frame']);
-		$this->insDIV(['id' => 'area_data_pot']);
+		$this->insDIV(['class' => 'area_data_pot']);
 		return $subnode;
 	}
 	public function ins_input_errors(array $input_errors = []) {
