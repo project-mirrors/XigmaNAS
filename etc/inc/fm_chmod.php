@@ -76,8 +76,8 @@ function chmod_item($dir,$item) {
 		$s_item = '...' . substr($s_item,-47);
 	endif;
 	show_header(gtext('Change permissions') . ': /'.$s_item);
+	echo '<div id="area_data_frame">',"\n";
 //	form
-	echo '<br>',"\n";
 	echo '<form method="post" action="',make_link('chmod',$dir,$item),'">',"\n";
 	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
 	echo 	'<table width="175">',"\n",
@@ -109,5 +109,5 @@ function chmod_item($dir,$item) {
 				'</tr>',
 			'</table>',"\n";
 	echo '</form>',"\n";
-	echo '<br>',"\n";
+	echo '</div>',"\n";
 }
