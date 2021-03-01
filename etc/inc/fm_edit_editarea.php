@@ -34,6 +34,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once('fm_permissions.php');
 
 //	save edited file
@@ -82,6 +83,8 @@ function edit_file($dir,$item) {
 		$s_item = '...' . substr($s_item,-47);
 	endif;
 	show_header(gtext('Edit file') . ': /' . htmlspecialchars($s_item));
+	echo '<div id="area_data_frame">',"\n";
+
 //	Word-wrap checkbox controller
 ?>
 <script>
@@ -133,4 +136,5 @@ function edit_file($dir,$item) {
 //]]>
 </script>
 <?php
+	echo '</div>',"\n";
 }
