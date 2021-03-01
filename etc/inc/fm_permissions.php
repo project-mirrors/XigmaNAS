@@ -34,6 +34,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'session.inc';
+require_once 'autoload.php';
+
+use common\arr;
+
 /**
  *	This function decides wether a specific action is allowed or not,
  *	depending the rights of the current user.
@@ -53,9 +59,9 @@ function permissions_grant(string $dir = null,string $file = null,string $action
 
 	$user = Session::getUserName();
 	if($user !== false):
-		$sphere = array_make_branch($config,'access','user');
+		$sphere = arr::make_branch($config,'access','user');
 //		lookup user
-		$sphere_rowid = array_search_ex($user,$sphere,'login');
+		$sphere_rowid = arr::search_ex($user,$sphere,'login');
 		if($sphere_rowid !== false):
 			$sphere_row = $sphere[$sphere_rowid];
 //			verify that user is permitted to use file manager
