@@ -127,7 +127,12 @@ table,
 td,
 th,
 input,
-select
+select,
+textarea,
+.formpre,
+.formprero,
+.formbtn,
+.label
 {
 	font-family: inherit;
 	font-size: 1em;
@@ -442,13 +447,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 	margin-top: 0.3em;
 }
 
-.formpre,
-.formprero
-{
-	font-family: Tahoma,Verdana,Arial,Helvetica,sans-serif;
-	font-size: 1em;
-}
-
 .formprero
 {
 	background-color: transparent;
@@ -456,8 +454,6 @@ input[type='checkbox']:checked ~ div.hideifchecked
 
 .formbtn
 {
-	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-	font-size: 1em;
 	font-weight: bold;
 }
 
@@ -709,27 +705,57 @@ td#area_data_frame
 
 div#area_data_frame
 {
-	padding: 0 1.5em;
 	flex: 1 1 auto;
 	overflow: auto;
 }
 
-div#area_data_top,
-div#area_data_pot
+.area_data_top,
+.area_data_pot,
+div#area_data_frame
 {
-	padding-top: 1.5em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
+.area_data_top,
+.area_data_pot
+{
 	flex: 0 0 auto;
 }
+
+.area_data_top
+{
+	padding-top: 1.5em;
+}
+
+.area_data_pot
+{
+	padding-bottom: 1.5em;
+}
+
+.area_data_top,
+div#area_data_frame
+{
+	padding-bottom: 0;
+}
+
+.area_data_pot,
+div#area_data_frame
+{
+	padding-top: 0;
+}
+
+.area_data_top,
+.area_data_pot,
 div#area_data_frame,
-div#area_data_top,
-div#area_data_pot,
 td#area_data_frame
 {
 	background-color: #EEEEEE;
 	background-color: var(--bgc-area-data);
 }
 
-div#area_data_frame > table > thead tr:last-child th[class^="lhe"]
+div#area_data_frame > table > thead tr:last-child th[class^="lhe"],
+div#area_data_frame > form > table > thead tr:last-child th[class^="lhe"]
 {
 	position: -webkit-sticky;
 	position: sticky;
@@ -748,8 +774,6 @@ table#area_data_settings_submit
 
 .label
 {
-	font-family: tahoma, verdana, arial, helvetica;
-	font-size: 1em;
 	font-weight: bold;
 }
 
@@ -1151,7 +1175,8 @@ div#swapusage .capofsize
 */
 
 .lhell,.lhelc,.lhelr,
-.lhebl,.lhebc,.lhebr
+.lhebl,.lhebc,.lhebr,
+.lherl,.lherc,.lherr
 {
 	background-color: #BBBBBB;
 	background-color: var(--bgc-lhe);
@@ -1166,6 +1191,7 @@ div#swapusage .capofsize
 .lhetop,
 .lhell,.lhelc,.lhelr,
 .lhebl,.lhebc,.lhebr,
+.lherl,.lherc,.lherr,
 .lcell,.lcelc,.lcelr,
 .lcebl,.lcebc,.lcebr,
 .lcelld,.lcelcd,.lcelrd,
@@ -1208,6 +1234,7 @@ div#swapusage .capofsize
 
 .lhell,.lhelc,.lhelr,
 .lhebl,.lhebc,.lhebr,
+.lherl,.lherc,.lherr,
 .lcell,.lcelc,.lcelr,
 .lcebl,.lcebc,.lcebr,
 .lcelld,.lcelcd,.lcelrd,
@@ -1236,6 +1263,7 @@ div#swapusage .capofsize
 }
 
 .lhebl,.lhebc,.lhebr,
+.lherl,.lherc,.lherr,
 .lcebl,.lcebc,.lcebr,
 .lcebld,.lcebcd,.lcebrd,
 .lceadd
@@ -1244,7 +1272,7 @@ div#swapusage .capofsize
 	border-right: var(--bop-cell);
 }
 
-.lhell,.lhebl,
+.lhell,.lhebl,.lherl,
 .lcell,.lcebl,
 .lcelld,.lcebld,
 .lceadd,
@@ -1253,14 +1281,14 @@ div#swapusage .capofsize
 	text-align: left;
 }
 
-.lhelc,.lhebc,
+.lhelc,.lhebc,.lherc,
 .lcelc,.lcebc,
 .lcelcd,.lcebcd
 {
 	text-align: center;
 }
 
-.lhelr,.lhebr,
+.lhelr,.lhebr,.lherr,
 .lcelr,.lcebr,
 .lcelrd,.lcebrd
 {
