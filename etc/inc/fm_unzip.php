@@ -35,8 +35,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'fm_permissions.php';
 require_once 'fm_debug.php';
+
 //------------------------------------------------------------------------------
 // File Clone of copy_move.php
 //------------------------------------------------------------------------------
@@ -134,6 +136,7 @@ function unzip_item($dir) {
 	// Get New Location & Names
 	if(!isset($GLOBALS['__POST']['confirm']) || $GLOBALS['__POST']['confirm'] != 'true'):
 		show_header(gtext('Extracting'));
+		echo '<div id="area_data_frame">',"\n";
 
 		// JavaScript for Form:
 		// Select new target directory / execute action
@@ -219,6 +222,7 @@ function Execute() {
 					'<input type="hidden" name="new_dir" value="',htmlspecialchars($new_dir),'">',"\n",
 				'</div>';
 		echo '</form>',"\n";
+		echo '</div',"\n";
 		return;
 	endif;
 	// DO COPY/MOVE
