@@ -34,6 +34,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'fm_header.php';
 require_once 'fm_debug.php';
 
@@ -46,14 +47,16 @@ function show_error($error,$extra = null) {
     $backmsg = gtext('Go Back');
 	show_header($errmsg);
 ?>
-	<center>
-		<h2><?php echo $errmsg ?></h2>
-		<?php echo $error ?>
-		<h3><a href="javascript:window.history.back()"><?php echo $backmsg ?></a><h3>
+	<div id="area_data_frame">
+		<center>
+			<h2><?php echo $errmsg ?></h2>
+			<?php echo $error ?>
+			<h3><a href="javascript:window.history.back()"><?php echo $backmsg ?></a><h3>
 <?php
-		if($extra != NULL) echo ' - ' . $extra;
+			if($extra != null) echo ' - ' . $extra;
 ?>
-    </center>
+		</center>
+	</div>
 <?php
 	show_footer();
 	exit;
