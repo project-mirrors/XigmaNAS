@@ -35,14 +35,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 // XigmaNAS® Code
 // footer for html-page
 function show_footer() {
 	global $d_sysrebootreqd_path;
+
 	$output = [];
-	$output[] = '</td></tr></tbody></table>';
+	$output[] = '<div class="area_data_pot"></div>';
 	$output[] = '</div>';
-//	$output[] = '</div>';
 	$output[] = '</main>';
 	$output[] = '<footer id="g4f">';
 	$output[] = '<div id="gapfooter"></div>';

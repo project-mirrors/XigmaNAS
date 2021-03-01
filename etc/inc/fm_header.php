@@ -94,22 +94,23 @@ function show_header($title) {
 	echo '<header id="g4h">',"\n";
 	display_headermenu();
 	echo '<div id="gapheader"></div>',"\n";
-	echo '</header>',"\n";
-	echo '<main id="g4m">',"\n";
-	echo '<div id="pagecontent">';
 //	QuiXplorer Header
 	if(!isset($pgtitle_omit) || !$pgtitle_omit):
-		echo '<p class="pgtitle">',gentitle($pgtitle),'</p>',"\n";
+		echo '<p class="pgtitle" style="padding:0em 2em;">',gentitle($pgtitle),'</p>',"\n";
 	endif;
-	echo '<table id="area_data"><tbody><tr><td id="area_data_frame">',"\n",
-			'<table class="area_data_settings"><tbody><tr>',"\n",
-				'<td class="lhetop" style="text-align:left">';
+	echo '</header>',"\n";
+	echo '<main id="g4m2">',"\n";
+	echo '<div id="pagecontent">',"\n";
+	echo '<div class="area_data_top">',"\n";
+	echo	'<table class="area_data_settings"><thead><tr>',"\n",
+				'<th class="lhetop">';
 					$uname = Session::getUserName();
 					if($uname !== false):
-						echo '[', htmlspecialchars($uname),'] ';
+						echo '[',strtohtml($uname),'] ';
 					endif;
 					echo $title;
-	echo		'</td>',"\n",
-				'<td class="lhetop" style="text-align:right">Powered by QuiXplorer</td>',"\n",
-			'</tr></tbody></table>',"\n";
+	echo		'</th>',"\n",
+				'<th class="lhetop" style="text-align:right">Powered by QuiXplorer</th>',"\n",
+			'</tr></thead></table>',"\n";
+	echo '</div>',"\n";
 }
