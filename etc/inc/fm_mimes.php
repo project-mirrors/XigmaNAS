@@ -63,8 +63,8 @@ $fm_globals['used_mime_types'] = [
 	'js' => [gtext('Javascript File'),'filetypes/icon_js.gif','/\.(js)$/i','js'],
 	'css' => [gtext('CSS File'),'src.gif','/\.(css)$/i','css'],
 	'cgi' => [gtext('CGI Script'),'exe.gif','/\.(cgi)$/i','cgi'],
-	'py' => [gtext('Python Script'),'py.gif','/\.(py)$/i','py'],
-	'sh' => [gtext('Shell Script'),'sh.gif','/\.(sh)$/i','sh'],
+	'py' => [gtext('Python Script'),'filetypes/document-text.png','/\.(py)$/i','py'],
+	'sh' => [gtext('Shell Script'),'filetypes/document-text.png','/\.(sh)$/i','sh'],
 //	C++
 	'c' => [gtext('C File'),'filetypes/page_white_c.png','/\.(c)$/i','c'],
 	'cpps' => [gtext('C++ Source File'),'filetypes/page_white_cplusplus.png','/\.(cpp|cc|cxx)$/i','cpp'],
