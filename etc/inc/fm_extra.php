@@ -141,57 +141,38 @@ function parse_file_perms($mode) {
 function get_file_size($dir, $item) {
 	return @filesize(get_abs_item($dir, $item));
 }
-// parsed file size
-/*
- *	replaced by format_bytes
- */
-/*
-function parse_file_size($size) {
-	if($size >= 1073741824) {
-		$size = round($size / 1073741824 * 100) / 100 . " GiB";
-	} elseif($size >= 1048576) {
-		$size = round($size / 1048576 * 100) / 100 . " MiB";
-	} elseif($size >= 1024) {
-		$size = round($size / 1024 * 100) / 100 . " KiB";
-	} else $size = $size . " Bytes";
-	if($size==0) $size="-";
-
-	return $size;
-}
-		*/
 // file date
 function get_file_date($dir,$item) {
 	return @filemtime(get_abs_item($dir, $item));
 }
-// is this file an image?
-function get_is_image($dir,$item) {
-	if(!get_is_file($dir,$item)):
-		return false;
-	endif;
-	return preg_match('/' . $GLOBALS['images_ext'] . '/i',$item);
-}
-// is this file editable?
+/**
+ *	is this file editable?
+ *	@global array $fm_globals
+ *	@param string $dir
+ *	@param string $item
+ *	@return boolean
+ */
 function get_is_editable($dir,$item) {
-	if(!get_is_file($dir,$item)):
-		return false;
+	global $fm_globals;
+
+	if(get_is_file($dir,$item)):
+		return (preg_match($fm_globals['editable_ext'],$item) === 1);
 	endif;
-	foreach($GLOBALS['editable_ext'] as $pat):
-		if(preg_match('/' . $pat . '/i',$item)):
-			return true;
-		endif;
-	endforeach;
 	return false;
 }
-// is this file editable?
+/**
+ *	is this file unzipable?
+ *	@global array $fm_globals
+ *	@param string $dir
+ *	@param string $item
+ *	@return boolean
+ */
 function get_is_unzipable($dir,$item) {
-	if(!get_is_file($dir,$item)):
-		return false;
+	global $fm_globals;
+
+	if(get_is_file($dir,$item)):
+		return (preg_match($fm_globals['unzipable_ext'],$item) === 1);
 	endif;
-	foreach($GLOBALS['unzipable_ext'] as $pat):
-		if(preg_match('/' . $pat . '/i',$item)):
-			return true;
-		endif;
-	endforeach;
 	return false;
 }
 /**
@@ -200,9 +181,11 @@ function get_is_unzipable($dir,$item) {
  *	@return array
  */
 function _get_used_mime_info($item) {
-    foreach($GLOBALS['used_mime_types'] as $mime):
-        list($desc,$img,$ext,$type) = $mime;
-		if(preg_match('/' . $ext . '/i',$item)):
+	global $fm_globals;
+
+	foreach($fm_globals['used_mime_types'] as $mime):
+        [$desc,$img,$regex_ext,$type] = $mime;
+		if(preg_match($regex_ext,$item) === 1):
             return [$mime,$img,$type];
 		endif;
 	endforeach;
@@ -216,39 +199,41 @@ function _get_used_mime_info($item) {
  *	@return mixed
  */
 function get_mime_type($dir,$item,$query) {
+	global $fm_globals;
+
 	$fqfn = get_abs_item($dir,$item);
-	switch(@\filetype($fqfn)):
+	switch(@filetype($fqfn)):
 		case false:
 //			error filetype
-			_debug(\sprintf('error calling filetype for file [%s]',$fqfn));
-			$mime_type = $GLOBALS['super_mimes']['file'][0];
-			$image = $GLOBALS['super_mimes']['file'][1];
+			_debug(sprintf('error calling filetype for file [%s]',$fqfn));
+			$mime_type = $fm_globals['super_mimes']['file'][0];
+			$image = $fm_globals['super_mimes']['file'][1];
 			break;
 		case 'dir':
-			$mime_type = $GLOBALS['super_mimes']['dir'][0];
-			$image = $GLOBALS['super_mimes']['dir'][1];
+			$mime_type = $fm_globals['super_mimes']['dir'][0];
+			$image = $fm_globals['super_mimes']['dir'][1];
 			break;
 		case 'link':
-			$mime_type = $GLOBALS['super_mimes']['link'][0];
-			$image = $GLOBALS['super_mimes']['link'][1];
+			$mime_type = $fm_globals['super_mimes']['link'][0];
+			$image = $fm_globals['super_mimes']['link'][1];
 			break;
 		default:
-			list($mime_type,$image,$type) = _get_used_mime_info($item);
+			[$mime_type,$image,$type] = _get_used_mime_info($item);
 			if($mime_type != null):
 				_debug("found mime type $mime_type[0]");
 				break;
 			endif;
-			if(@\is_executable($fqfn)):
-				$mime_type = $GLOBALS['super_mimes']['exe'][0];
-				$image = $GLOBALS['super_mimes']['exe'][1];
-			elseif(\preg_match('/' . $GLOBALS['super_mimes']['exe'][2] . '/i',$item)):
-				$mime_type = $GLOBALS['super_mimes']['exe'][0];
-				$image = $GLOBALS['super_mimes']['exe'][1];
+			if(@is_executable($fqfn)):
+				$mime_type = $fm_globals['super_mimes']['exe'][0];
+				$image = $fm_globals['super_mimes']['exe'][1];
+			elseif(preg_match($fm_globals['super_mimes']['exe'][2],$item)):
+				$mime_type = $fm_globals['super_mimes']['exe'][0];
+				$image = $fm_globals['super_mimes']['exe'][1];
 			else:
 //				unknown file
-				_debug(\sprintf('unknown file type for file [%s]',$fqfn));
-				$mime_type = $GLOBALS['super_mimes']['file'][0];
-				$image = $GLOBALS['super_mimes']['file'][1];
+				_debug(sprintf('unknown file type for file [%s]',$fqfn));
+				$mime_type = $fm_globals['super_mimes']['file'][0];
+				$image = $fm_globals['super_mimes']['file'][1];
 			endif;
 			break;
 	endswitch;
@@ -289,7 +274,7 @@ function get_show_item($directory,$file) {
 			return false;
 		endif;
 	endif;
-//	check if user is allowed to acces shidden files
+//	check if user is allowed to access hidden files
     global $show_hidden;
     if(!$show_hidden):
         if ($file[0] == '.'):
@@ -366,7 +351,7 @@ function remove($item) {
 // get php max_upload_file_size
 function get_max_file_size() {
 	$max = get_cfg_var('upload_max_filesize');
-	if (preg_match('/G$/i',$max)):
+	if(preg_match('/G$/i',$max)):
 		$max = substr($max,0,-1);
 		$max = round($max*1073741824);
 	elseif(preg_match('/M$/i',$max)):
