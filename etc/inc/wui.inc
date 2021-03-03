@@ -184,7 +184,7 @@ class HTMLPasswordBox extends HTMLEditBox {
 		$size = $this->GetSize();
 		$param = $this->GetParam();
 
-		echo "		<input name='{$ctrlname}' type='password' class='formfld' id='{$ctrlname}' size='{$size}' value='{$value}' {$param} />\n";
+		echo "		<input name='{$ctrlname}' type='password' autocomplete='off' class='formfld' id='{$ctrlname}' size='{$size}' value='{$value}' {$param} />\n";
 	}
 }
 
@@ -227,8 +227,8 @@ class HTMLPasswordConfBox extends HTMLEditBox {
 		$param = $this->GetParam();
 		$caption = gtext("Confirmation");
 
-		echo "		<input name='{$ctrlname}' type='password' class='formfld' id='{$ctrlname}' size='{$size}' value='{$value}' {$param} /><br />\n";
-		echo "    <input name='{$ctrlnameconf}' type='password' class='formfld' id='{$ctrlnameconf}' size='{$size}' value='{$valueconf}' {$param} />&nbsp;({$caption})\n";
+		echo "		<input name='{$ctrlname}' type='password' autocomplete='off' class='formfld' id='{$ctrlname}' size='{$size}' value='{$value}' {$param} /><br />\n";
+		echo "		<input name='{$ctrlnameconf}' type='password' autocomplete='off' class='formfld' id='{$ctrlnameconf}' size='{$size}' value='{$valueconf}' {$param} />&nbsp;({$caption})\n";
 	}
 }
 
