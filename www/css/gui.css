@@ -53,6 +53,7 @@
 	--bgc-box-info: #D9DEE8;
 	--bgc-box-error: #FFD9D1;
 	--bgc-box-warning: #F7F2B9;
+	--txc-box: #000000;
 /*
 	tag column
 */
@@ -72,8 +73,14 @@
 	list cell element
 */
 	--bgc-lce: #FCFCFC;
+	--bgc-lce-odd: #FCFCFC;
+	--bgc-lce-even: #F4F4F4;
 	--bgc-lce-dark: #E0E0E0;
 	--bgc-lce-hover: #CCCCCC;
+/*
+	list footer element
+*/
+	--bgc-lfe: #FCFCFC;
 /*
 	cell
 */
@@ -293,6 +300,16 @@ pre.cmdoutput
 	border-collapse: separate;
 	width: 100%;
 	table-layout: fixed;
+}
+
+.area_data_selection > tbody > tr:nth-child(even) {
+	background-color: #F4F4F4;
+	background-color: var(--bgc-lce-even);
+}
+
+.area_data_selection > tbody > tr:nth-child(odd) {
+	background-color: #FCFCFC;
+	background-color: var(--bgc-lce-odd);
 }
 
 .area_data_selection tbody:not(.donothighlight) tr:hover > td
@@ -812,6 +829,7 @@ div#errorbox div.message,
 div#warningbox div.message
 {
 	color: #000000;
+	color: var(--txc-box);
 	padding-left: 0.73em;
 	font-weight: bold;
 }
@@ -1295,11 +1313,11 @@ div#swapusage .capofsize
 	text-align: right;
 }
 
-.lcell,.lcelc,.lcelr,
-.lcebl,.lcebc,.lcebr
+th.lcell,th.lcelc,th.lcelr,
+th.lcebl,th.lcebc,th.lcebr
 {
 	background-color: #FCFCFC;
-	background-color: var(--bgc-lce);
+	background-color: var(--bgc-lfe);
 }
 
 .lcelld,.lcelcd,.lcelrd,
