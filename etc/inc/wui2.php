@@ -362,6 +362,7 @@ class HTMLPasswordBox2 extends HTMLEditBox2 {
 			'id' => $ctrlname,
 			'name' => $ctrlname,
 			'class' => $this->GetClassOfInputPassword(),
+			'autocomplete' => 'off',
 			'size' => $this->GetSize(),
 			'value'=> $this->GetValue()
 		];
@@ -425,6 +426,7 @@ class HTMLPasswordConfBox2 extends HTMLEditBox2 {
 			'id' => $ctrlname,
 			'name' => $ctrlname,
 			'class' => $this->GetClassOfInputPassword(),
+			'autocomplete' => "off",
 			'size' => $this->GetSize(),
 			'value'=> $this->GetValue()
 		];
@@ -436,6 +438,7 @@ class HTMLPasswordConfBox2 extends HTMLEditBox2 {
 			'id' => $ctrlnameconf,
 			'name' => $ctrlnameconf,
 			'class' => $this->GetClassOfInputPassword(),
+			'autocomplete' => "off",
 			'size' => $this->GetSize(),
 			'value' => $this->GetValueConf()
 		];
@@ -2089,6 +2092,7 @@ trait co_DOMTools {
 				break;
 			case 1:
 				$input_attributes['type'] = 'password';
+				$input_attributes['autocomplete'] = 'off';
 				break;
 		endswitch;
 		if($is_readonly):
