@@ -145,11 +145,11 @@ Changes:
 - Upgrade sudo to 1.9.5p2.
 - Upgrade zoneinfo to 2021a.
 - Upgrade nut to 2021.01.28.
-- Upgrade php to 7.4.15.
 - Upgrade jQuery to 3.6.0.
 - Upgrade nano to 5.6.1.
 - Upgrade e2fsprogs to 1.46.1.
 - Upgrade syncthing to 1.14.0.
+- Upgrade php to 7.4.16.
 
 Fixes:
 - Fix only first lagg member is brought up.
