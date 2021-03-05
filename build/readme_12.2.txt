@@ -124,9 +124,9 @@ Changes:
 - Upgrade lighttpd to 1.4.59.
 - Upgrade syncthing to 1.13.0.
 - Upgrade php to 7.4.15.
-- Upgrade e2fsprogs to 1.46.0.
 - Upgrade jQuery to 3.6.0.
 - Upgrade nano to 5.6.1.
+- Upgrade e2fsprogs to 1.46.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
