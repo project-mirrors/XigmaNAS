@@ -117,7 +117,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 11.4.0.4.8056
 ===================
 Changes:
-- Upgrade to FreeBSD 11.4-RELEASE-P7.
+- Upgrade to FreeBSD 11.4-RELEASE-P8.
 - WebGUI code & framework improvements.
 - Update translations.
 - Upgrade jQuery to 3.5.1.
