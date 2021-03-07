@@ -133,7 +133,6 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
-- Upgrade samba to 4.13.1.
 - Upgrade arcconf to 3_04_23699.
 - Upgrade msmtp to 1.8.14.
 - Upgrade smartmontools to 7.2.
@@ -150,6 +149,7 @@ Changes:
 - Upgrade e2fsprogs to 1.46.1.
 - Upgrade syncthing to 1.14.0.
 - Upgrade php to 7.4.16.
+- Upgrade samba to 4.13.4.
 
 Fixes:
 - Fix only first lagg member is brought up.
