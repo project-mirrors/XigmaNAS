@@ -127,6 +127,7 @@ Changes:
 - Upgrade syncthing to 1.14.0.
 - Upgrade php to 7.4.16.
 - Upgrade samba to 4.13.4.
+- Upgrade devcpu-data to 1.38.
 
 Fixes:
 - Fix only first lagg member is brought up.
