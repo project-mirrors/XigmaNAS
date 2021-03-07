@@ -1,5 +1,5 @@
 PORTNAME=		mDNSResponder
-PORTVERSION=	1096.60.2
+PORTVERSION=	1310.80.1
 PORTREVISION=	0
 CATEGORIES=	net dns
 COMMENT=	Apple's mDNSResponder
@@ -12,11 +12,13 @@ USE_LDCONFIG=	YES
 
 MAKE_ARGS+=	os=freebsd LOCALBASE=${PREFIX}
 BUILD_WRKSRC=	${WRKSRC}/mDNSPosix
-# lib/libdns_sd.so.1 sbin/mdnsd
-CONFLICTS_INSTALL=      avahi-libdns- openmdns-
 
-OPTIONS_DEFINE=	IPV6
 USES=		compiler:c11 cpe gmake
+
+# lib/libdns_sd.so.1 sbin/mdnsd
+CONFLICTS_INSTALL=      avahi-libdns openmdns
+
+OPTIONS_DEFINE= IPV6
 
 CPE_VENDOR=	apple
 CPE_PRODUCT=	${PORTNAME:tl}

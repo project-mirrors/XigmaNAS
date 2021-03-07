@@ -115,7 +115,6 @@ Changes:
 - Upgrade minidlna 1.3.0.
 - Upgrade proftpd to 1.3.7a.
 - Upgrade dialog to 1.3-20210117.
-- Upgrade mDNSResponder to 1096.60.2.
 - Upgrade dmidecode to 3.3.
 - Upgrade sudo to 1.9.5p2.
 - Upgrade zoneinfo to 2021a.
@@ -128,6 +127,7 @@ Changes:
 - Upgrade php to 7.4.16.
 - Upgrade samba to 4.13.4.
 - Upgrade devcpu-data to 1.38.
+- Upgrade mDNSResponder to 1310.80.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
