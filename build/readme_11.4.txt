@@ -127,7 +127,6 @@ Changes:
 - Upgrade iperf3 to 3.9.
 - Upgrade transmission to 3.00.
 - Upgrade pecl-APCu to 5.1.19.
-- Upgrade devcpu-data to 1.37.
 - Upgrade gzip to 1.10.
 - Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
@@ -150,6 +149,7 @@ Changes:
 - Upgrade syncthing to 1.14.0.
 - Upgrade php to 7.4.16.
 - Upgrade samba to 4.13.4.
+- Upgrade devcpu-data to 1.38.
 
 Fixes:
 - Fix only first lagg member is brought up.

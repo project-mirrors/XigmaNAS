@@ -1,5 +1,5 @@
 PORTNAME=	devcpu-data
-PORTVERSION=	1.37
+PORTVERSION=	1.38
 PORTREVISION=   0
 CATEGORIES=	sysutils
 MASTER_SITES=   LOCAL/sbruno:amd
@@ -17,7 +17,7 @@ LICENSE_PERMS=	dist-mirror no-dist-sell pkg-mirror no-pkg-sell auto-accept
 USE_GITHUB=	yes
 GH_ACCOUNT=	intel
 GH_PROJECT=	Intel-Linux-Processor-Microcode-Data-Files
-GH_TAGNAME=	microcode-20201118
+GH_TAGNAME=	microcode-20210216
 
 ONLY_FOR_ARCHS=	amd64 i386
 NO_ARCH=	yes
@@ -35,7 +35,7 @@ post-extract:
 
 do-install:
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Install for ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/cpucontrol
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update
 # mcodes
@@ -46,4 +46,5 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/mcodes/* ${XIGMANAS_ROOTFS}/${PREFIX}/share/cpucontrol/
 	${MKDIR} ${XIGMANAS_ROOTFS}${FWDIR}
 	${INSTALL_DATA} ${WRKSRC}/intel-ucode.bin ${XIGMANAS_ROOTFS}${FWDIR}/
+	@echo "End install for ${XIGMANAS_ROOTFS}"
 .include <bsd.port.mk>
