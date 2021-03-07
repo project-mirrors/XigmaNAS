@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-01-26 23:58+0000\n"
-"PO-Revision-Date: 2021-02-05 16:49+0000\n"
+"PO-Revision-Date: 2021-02-08 10:56+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-02-07 12:21+0000\n"
-"X-Generator: Launchpad (build 3d7abcb776ec05aa0a89112accc21bf8b41dfc24)\n"
+"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
+"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -6888,21 +6888,29 @@ msgid ""
 "Link initiator-name to auth-groups. An Initiator with this name will be "
 "allowed to connect to the selected auth-groups."
 msgstr ""
+"Collega l'iniziatore del nome ad un gruppo auth. Un iniziatore con questo "
+"nome, avrà il permesso di connettersi ai gruppi auth selezionati."
 
 msgid ""
 "Link initiator-portal to auth-groups. An Initiator matching this address "
 "will be allowed to connect to the selected auth-groups."
 msgstr ""
+"Collega l'iniziatore del portale ad un gruppo auth. Un iniziatore conforme a "
+"questo indirizzo, avrà il permesso di connettersi ai gruppi auth selezionati."
 
 msgid ""
 "Link listener to portal groups. Selected portal groups will listen on this "
 "address for incoming connections."
 msgstr ""
+"Collega i \"controllori\" ai portali dei gruppi. I gruppi portale "
+"selezionati, controllerano questo indirizzo per connessioni in entrata."
 
 msgid ""
 "Link mutual-chap configuration to auth-groups. Note that an auth-group may "
 "contain either chap or chap-mutual entries, but not both."
 msgstr ""
+"Collega la configurazione mutual-chap ad un gruppo auth. Notare che un "
+"gruppo auth può contenere sia chap che chap-mutui ma non entrambi."
 
 msgid "Link this option to selected portal-groups."
 msgstr "Collega questa opzione al portale gruppi selezionato."
@@ -7184,7 +7192,7 @@ msgid "Map to User"
 msgstr "Mappare tra gli utenti"
 
 msgid "Map users or map root to the specified user."
-msgstr ""
+msgstr "Mappa gli utenti o mappa l'utente root ad uno specifico utente."
 
 msgid "Mapping"
 msgstr "Mappatura"
@@ -7667,6 +7675,8 @@ msgid ""
 "Name of selected protocol. It can be either \"iSER\", for iSCSI over RDMA, "
 "or \"iSCSI\". Default is \"iSCSI\"."
 msgstr ""
+"Nome del protocollo selezionato. Può essere \"iSER\" per iSCSI over RDMA "
+"oppure \"iSCSI\". Default è \"iSCSI\"."
 
 msgid "Name of the Auth Group."
 msgstr "Name del gruppo Auth (autenticazione)"
@@ -7942,7 +7952,7 @@ msgid "No initiator portals found."
 msgstr "Nessun portale iniziatore trovato."
 
 msgid "No listeners found."
-msgstr ""
+msgstr "Nessun controllore trovato."
 
 msgid "No new disk found."
 msgstr "Nessun nuovo disco è stato trovato."
@@ -8065,7 +8075,7 @@ msgid "None"
 msgstr "Nessuno"
 
 msgid "None (default) - no cross protocol locking."
-msgstr ""
+msgstr "Nessuno (default)- nessun protocollo incrociato bloccato."
 
 msgid "Normal"
 msgstr "Normale"
@@ -8104,6 +8114,7 @@ msgstr "Nota"
 
 msgid "Note that only one file system can be WebNFS exported on a server."
 msgstr ""
+"Nota che solo un file system può essere esportato via WebNFS ad un server."
 
 msgid ""
 "Note: Ctrl-click (or command-click on the Mac) to select multiple entries."
@@ -9339,7 +9350,7 @@ msgid "Read from lowest load"
 msgstr "Leggi dal carico minore"
 
 msgid "Read on-disk configuration."
-msgstr ""
+msgstr "Configurazione di una lettura on-disk."
 
 msgid "Read only"
 msgstr "Sola lettura"
@@ -9379,6 +9390,8 @@ msgid ""
 "Reading the configuration from the disks is slower than reading from cache "
 "file."
 msgstr ""
+"Leggere la configurazione dai dischi è più lento che leggerla dai file in "
+"cache."
 
 msgid "Readonly"
 msgstr "Sola lettura"
@@ -9516,6 +9529,9 @@ msgid ""
 "Remote accesses by root will result in using a credential of 65534:65533. "
 "All other users will be mapped to their remote credential."
 msgstr ""
+"Accessi remoti da utente root implicherà l'uso della credenziale di "
+"65534:65533. Tutti gli altri utenti saranno mappati alle loro credenziali "
+"remote."
 
 msgid ""
 "Remote monitoring password. Must be equal on both master and slave system."
@@ -9671,7 +9687,7 @@ msgstr ""
 "Limitato - Eredita tutto eccetto \"scrivi ACL\" e \"cambia proprietario\""
 
 msgid "Result of testjoin"
-msgstr ""
+msgstr "Risultato del testjoin."
 
 msgid "Results of last self test"
 msgstr "Risultato dell'ultima auto-diagnostica"
@@ -9790,7 +9806,7 @@ msgstr ""
 "usare a vostro rischio!"
 
 msgid "Running user"
-msgstr ""
+msgstr "Utente in esecuzione"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -10102,6 +10118,7 @@ msgstr "Selezionare il dispositivo di scorta"
 
 msgid "Select a container as the root of the tree exposed to clients."
 msgstr ""
+"Selezionare un contenitore come radice dell'albero esposto ai clients."
 
 msgid "Select a date format."
 msgstr "Seleziona formato data."
@@ -10120,22 +10137,25 @@ msgid "Select configuration file:"
 msgstr "Selezionare il file di configurazione:"
 
 msgid "Select file mode of the custom GUI CSS file."
-msgstr ""
+msgstr "Selezionare la modalità per il file CSS GUI customizzato."
 
 msgid "Select file mode of the custom file chooser CSS file."
 msgstr ""
+"Selezionare la modalità per il file CSS della selezione file customizzato."
 
 msgid "Select file mode of the custom file manager CSS file."
 msgstr ""
+"Selezionare la modalità per il file CSS del file manager customizzato."
 
 msgid "Select file mode of the custom login CSS file."
-msgstr ""
+msgstr "Selezionare la modalità per il file CSS login customizzato."
 
 msgid "Select file mode of the custom navigation bar CSS file."
 msgstr ""
+"Selezionare la modalità per il file CSS della barra navigazione customizzato."
 
 msgid "Select file mode of the custom tabs CSS file."
-msgstr ""
+msgstr "Selezionare la modalità per il file CSS delle tabs customizzato."
 
 msgid "Select file system format."
 msgstr "Selezionare il formato del file system"
@@ -10169,13 +10189,15 @@ msgid "Select read balance algorithm."
 msgstr "Selezionare l'algoritmo di lettura bilanciata"
 
 msgid "Select targets."
-msgstr ""
+msgstr "Selezionare gli obiettivi."
 
 msgid "Select the FreeBSD package to be installed."
 msgstr "Selezione il pacchetto FreeBSD da installare."
 
 msgid "Select the display mode of the top-level items in the navigation bar."
 msgstr ""
+"Selezionare la modalità di visualizzazione dell'oggetto principale nella "
+"barra di navigazione."
 
 msgid ""
 "Select the interface (only selectable if your server has more than one) to "
@@ -10188,7 +10210,7 @@ msgid "Select the language of the WebGUI."
 msgstr "Seleziona la lingua per la WebGUI."
 
 msgid "Select the language of the user portal for this user."
-msgstr ""
+msgstr "Selezionare la lingua del portale utente per questo utente."
 
 msgid "Select the location closest to you."
 msgstr "Selezionare la localita' piu' vicina."
@@ -10211,7 +10233,7 @@ msgid "Select which key length to use for given cryptographic algorithm."
 msgstr "Selezionare la lunghezza della chiave per l'algoritmo di criptazione"
 
 msgid "Selected UPS"
-msgstr ""
+msgstr "UPS selezionato"
 
 msgid "Selected device or label does not exist."
 msgstr "Il dispositivo o l'etichetta scelti non esistono."
@@ -10314,13 +10336,13 @@ msgid "Serial number"
 msgstr "Numero di serie"
 
 msgid "Serialize Sequence"
-msgstr ""
+msgstr "Serializzare la sequenza"
 
 msgid "Serialize consecutive reads"
-msgstr ""
+msgstr "Serializzare letture consecutive"
 
 msgid "Serialize consecutive reads/writes"
-msgstr ""
+msgstr "Serializzare letture/scritture consecutive"
 
 msgid "Server"
 msgstr "Server"
@@ -10350,7 +10372,7 @@ msgid "Service"
 msgstr "Servizio"
 
 msgid "Service Active"
-msgstr ""
+msgstr "Servizio attivo"
 
 msgid "Service Enabled"
 msgstr "Servizio attivo"
@@ -10362,7 +10384,7 @@ msgid "Session State"
 msgstr "Stato Sessione"
 
 msgid "Session Type"
-msgstr ""
+msgstr "Tipo di sessione"
 
 msgid "Set"
 msgstr "Imposta"
@@ -10371,7 +10393,7 @@ msgid "Set UID"
 msgstr "Imposta UID"
 
 msgid "Set User Password"
-msgstr ""
+msgstr "Settare la password utente"
 
 msgid "Set browseable."
 msgstr "Setta come navigabile."
@@ -10404,7 +10426,7 @@ msgstr ""
 "affinché le modifiche abbiano effetto."
 
 msgid "Set the account's primary group."
-msgstr ""
+msgstr "Selezionare il gruppo primario dell'account."
 
 msgid "Set the content location(s) to or from the media library."
 msgstr ""
@@ -10437,7 +10459,7 @@ msgid ""
 msgstr ""
 
 msgid "Set the warning threshold to a value between 80 and 89."
-msgstr ""
+msgstr "Settare la soglia di attenzione ad un valore compreso tra 80 e 89."
 
 msgid "Set title scrolling speed between 0-10 (default 10)."
 msgstr ""
@@ -10585,13 +10607,13 @@ msgid "Short Self-Test"
 msgstr "Autocontrollo veloce"
 
 msgid "Show Interval"
-msgstr ""
+msgstr "Mostra intervallo"
 
 msgid "Show Log Entries"
 msgstr "Mostra linee di log"
 
 msgid "Show Max CPUs"
-msgstr ""
+msgstr "Mostra il massimo delle cpu"
 
 msgid "Show Process Information"
 msgstr "Mostra informazioni sul processo"
@@ -10603,7 +10625,7 @@ msgid "Show System Groups"
 msgstr "Visualizza i Gruppi di Sistema"
 
 msgid "Show System Users"
-msgstr ""
+msgstr "Mostra il utenti di sistema"
 
 msgid "Show UPS Information"
 msgstr "Mostra informazioni UPS"
@@ -10612,7 +10634,7 @@ msgid "Show Used/Avail"
 msgstr "Mostra Usati/Disponibili"
 
 msgid "Show hidden items"
-msgstr ""
+msgstr "Mostra oggetti nascosti"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr "Mostra le voci di log in ordine inverso (le più recenti in alto)."
@@ -10626,10 +10648,10 @@ msgstr ""
 "insieme alla scala logaritmica)."
 
 msgid "Show symbol and text"
-msgstr ""
+msgstr "Mostra testo e simboli"
 
 msgid "Show symbol only"
-msgstr ""
+msgstr "Mostra solo simboli"
 
 msgid "Show text only"
 msgstr "Mostra solo testo"
@@ -10683,7 +10705,7 @@ msgid "Skip View Mode"
 msgstr "Evitare la modalità vista"
 
 msgid "Slave"
-msgstr ""
+msgstr "Slave"
 
 msgid "Sleep - Check the device unless it is in SLEEP mode."
 msgstr ""
@@ -10980,7 +11002,7 @@ msgid "Status report successfully sent."
 msgstr "Il rapporto di stato risulta inviato con successo."
 
 msgid "Status:"
-msgstr ""
+msgstr "Stato:"
 
 msgid "Step"
 msgstr "Passo"
@@ -11192,7 +11214,7 @@ msgid "System tuning"
 msgstr "Tuning di sistema"
 
 msgid "TAR Archive"
-msgstr ""
+msgstr "Archivio TAR"
 
 msgid "TCP Forwarding"
 msgstr "TCP Forwarding"
@@ -11213,7 +11235,7 @@ msgid "TFTP"
 msgstr "TFTP"
 
 msgid "TIF Image"
-msgstr ""
+msgstr "Immagine TIF"
 
 msgid "TKIP"
 msgstr "TKIP"
@@ -11222,10 +11244,10 @@ msgid "TLS"
 msgstr "TLS"
 
 msgid "TLS CRL File"
-msgstr ""
+msgstr "File TLS CRL"
 
 msgid "TLS Cert File"
-msgstr ""
+msgstr "File TLS CRT"
 
 msgid "TLS Fingerprint"
 msgstr ""
@@ -11243,10 +11265,10 @@ msgid "TLS Trust File"
 msgstr "TLS Trust File"
 
 msgid "TS File"
-msgstr ""
+msgstr "Tile TS"
 
 msgid "Tabs"
-msgstr ""
+msgstr "Schede"
 
 msgid "Tag"
 msgstr "Tag"
@@ -11367,7 +11389,7 @@ msgid "Test mode, no command execution"
 msgstr "Modalità di test: nessun comando eseguito"
 
 msgid "Text File"
-msgstr ""
+msgstr "File di testo"
 
 msgid ""
 "The  deny  option specifies users and groups who are not allowed access to "
