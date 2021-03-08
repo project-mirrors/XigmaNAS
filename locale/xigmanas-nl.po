@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
-"PO-Revision-Date: 2021-01-26 23:15+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"PO-Revision-Date: 2021-03-08 16:47+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -794,6 +794,9 @@ msgstr "Adres"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 "Adres van de remote hastd daemon. Het moet een statisch IP-adres zijn."
+
+msgid "Admin Name"
+msgstr "Administrator Naam"
 
 msgid "Admin Password"
 msgstr "Admin Wachtwoord"
@@ -2219,6 +2222,9 @@ msgstr "Controller IP-adres"
 msgid "Controller Model"
 msgstr "Controller Model"
 
+msgid "Controller Name"
+msgstr "Controller naam"
+
 msgid "Controller TCP Port"
 msgstr "TCP-poort Controller"
 
@@ -2745,6 +2751,9 @@ msgstr "DNS Domein"
 
 msgid "DNS Forwarder"
 msgstr "DNS Forwarder"
+
+msgid "DNS Name"
+msgstr "DNS Naam"
 
 msgid "DNS server is empty."
 msgstr "DNS server is leeg."
@@ -3529,7 +3538,7 @@ msgid "Disk Settings"
 msgstr "Schijf Instellingen"
 
 msgid "Disk Space Usage"
-msgstr "Schijfruimte Gebruik"
+msgstr "Schijf Ruimtegebruik"
 
 msgid "Disk Usage"
 msgstr "Schijfgebruik"
@@ -6261,11 +6270,8 @@ msgstr "Importeer op-schijf ZFS config"
 msgid "Import pool in read-only mode"
 msgstr "Importeer pool in alleen-lezen mode"
 
-msgid "Import using GPT ID"
-msgstr "Importeer gebruikte GPT ID"
-
-msgid "Import using GPT labels"
-msgstr "Importeer gebruikte GPT labels"
+msgid "Import pools"
+msgstr "Importeer pools"
 
 msgid "Imported Users"
 msgstr "Geïmporteerde Gebruikers"
@@ -6287,6 +6293,24 @@ msgstr "In/Uitgaande Fouten"
 
 msgid "In/Out Packets"
 msgstr "In/Uitgaande Pakketten"
+
+msgid "Include /dev into scan/import"
+msgstr "Voeg /dev toe aan scan/import"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Voeg Schijf ID toe aan scan/import"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Voeg GPT ID toe aan scan/import"
+
+msgid "Include GPT labels into scan/import"
+msgstr "Voeg GPT labels toe aan scan/import"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Voeg UFS ID toe aan scan/import"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Voeg UFS labels toe aan scan/import"
 
 msgid "Incoming Line/Power Information"
 msgstr "Binnenkomende Netspanning/Stroom Informatie"
@@ -6958,8 +6982,8 @@ msgstr ""
 "van:CCMP (AES in Teller mode met CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
-msgstr "Lijst of importeer pools"
+msgid "List pools available to import"
+msgstr "Lijst pools beschikbaar om te importeren"
 
 msgid "Listen"
 msgstr "Luister"
@@ -7645,6 +7669,9 @@ msgstr "Wederzijds-CHAP"
 
 msgid "NAA Identifier"
 msgstr "NAA identificatie"
+
+msgid "NETBIOS Name"
+msgstr "NETBIOS Naam"
 
 msgid "NFS"
 msgstr "NFS"
@@ -8561,8 +8588,8 @@ msgstr "Het wachtwoord komt niet overeen."
 msgid "Password for the administrative pages."
 msgstr "Wachtwoord voor de administratieve WebGUI."
 
-msgid "Password of domain administrator account."
-msgstr "Wachtwoord van het domein administrator account"
+msgid "Password of the administrator account."
+msgstr "Wachtwoord van het administrator account."
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -10033,6 +10060,9 @@ msgstr "Scan folder voor  video- en afbeeldingsbestanden."
 msgid "Scan folder for video files."
 msgstr "Scan folder voor videobestanden."
 
+msgid "Scan/Import destroyed pools only"
+msgstr "Scannen /importeren van alleen vernietigde pools"
+
 msgid "Schedule Time"
 msgstr "Tijdsplanning"
 
@@ -10082,11 +10112,8 @@ msgstr "Zoekresultaat voor %1$s"
 msgid "Search event"
 msgstr "Zoek Gebeurtenis"
 
-msgid "Search for and import all disks found"
-msgstr "Zoek en importeer alle gevonden schijven"
-
-msgid "Search subdirectories"
-msgstr "Zoeken in onderliggende folders"
+msgid "Search subfolder"
+msgstr "Zoek subfolder"
 
 msgid "Second"
 msgstr "Seconde"
@@ -13148,10 +13175,9 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Om het voor alle IP-adressen te laten gelden kunt u dit veld leeg laten."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
-"Om de Active Directory te gebruiken zal de CIFS/SMB service ook ingeschakeld "
-"worden."
+"Om Active Directory te gebruiken, wordt de SMB-service ook ingeschakeld."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr "Om submappen te gebruiken, moet je elke map aankoppelen."
@@ -14837,3 +14863,26 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "Importeer gebruikte GPT ID"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "Importeer gebruikte GPT labels"
+
+#~ msgid "List or import pools"
+#~ msgstr "Lijst of importeer pools"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Wachtwoord van het domein administrator account"
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "Zoek en importeer alle gevonden schijven"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr ""
+#~ "Om de Active Directory te gebruiken zal de CIFS/SMB service ook ingeschakeld "
+#~ "worden."
+
+#~ msgid "Search subdirectories"
+#~ msgstr "Zoeken in onderliggende folders"

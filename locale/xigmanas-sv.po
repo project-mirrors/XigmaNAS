@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
-"PO-Revision-Date: 2021-01-27 04:19+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"PO-Revision-Date: 2021-03-08 16:33+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -769,6 +769,9 @@ msgstr "Adress"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adress till fjärr hastd demonen. Det måste vara en fast IP-adress."
+
+msgid "Admin Name"
+msgstr "Administratörsnamn"
 
 msgid "Admin Password"
 msgstr "Administratörslösenord"
@@ -2164,6 +2167,9 @@ msgstr "IP Adress för hanterare"
 msgid "Controller Model"
 msgstr "Diskkontrollermodell"
 
+msgid "Controller Name"
+msgstr "Controllernamn"
+
 msgid "Controller TCP Port"
 msgstr "TCP Port för hanterare"
 
@@ -2662,6 +2668,9 @@ msgstr "DNS Domän"
 
 msgid "DNS Forwarder"
 msgstr "DNS vidarebefodrare"
+
+msgid "DNS Name"
+msgstr "DNS-namn"
 
 msgid "DNS server is empty."
 msgstr "DNS-server är tom."
@@ -6119,11 +6128,8 @@ msgstr "Importera diskbaserad ZFS konfiguration"
 msgid "Import pool in read-only mode"
 msgstr "Importera pooler i endast läsläge"
 
-msgid "Import using GPT ID"
-msgstr "Importera genom att använda GPT ID"
-
-msgid "Import using GPT labels"
-msgstr "Importera genom att använda GPT etiketter"
+msgid "Import pools"
+msgstr "Importera pooler"
 
 msgid "Imported Users"
 msgstr "Importerade användare"
@@ -6145,6 +6151,24 @@ msgstr "In/Ut fel"
 
 msgid "In/Out Packets"
 msgstr "In/Ut paket"
+
+msgid "Include /dev into scan/import"
+msgstr "Inkludera /dev i scanna/importera"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Inkludera Disk ID i scanna/importera"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Inkludera GPT ID i scanna/importera"
+
+msgid "Include GPT labels into scan/import"
+msgstr "Inkludera GPT etiketter i scanna/importera"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Inkludera UFS ID i scanna/importera"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Inkludera UFS etiketter i scanna/importera"
 
 msgid "Incoming Line/Power Information"
 msgstr "Nätdata"
@@ -6803,8 +6827,8 @@ msgstr ""
 "CCMP (AES i Counter-läge med CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
-msgstr "Lista eller importera pooler"
+msgid "List pools available to import"
+msgstr "Lista pooler tillgängliga för import"
 
 msgid "Listen"
 msgstr "Lyssna"
@@ -7476,6 +7500,9 @@ msgstr "Ösesidig CHAP"
 
 msgid "NAA Identifier"
 msgstr "NAA Identifierare"
+
+msgid "NETBIOS Name"
+msgstr "NETBIOS Namn"
 
 msgid "NFS"
 msgstr "NFS"
@@ -8377,8 +8404,8 @@ msgstr "Lösenordet stämmer inte."
 msgid "Password for the administrative pages."
 msgstr "Lösenord för de administrativa sidorna."
 
-msgid "Password of domain administrator account."
-msgstr "Lösenord för domänadministratörskonto."
+msgid "Password of the administrator account."
+msgstr "Lösenord för administratörskontot"
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9839,6 +9866,9 @@ msgstr "Skanna katalogen efter video- och bildfiler."
 msgid "Scan folder for video files."
 msgstr "Skanna katalogen efter videofiler."
 
+msgid "Scan/Import destroyed pools only"
+msgstr "Scanna/Importera bara förstörda pooler"
+
 msgid "Schedule Time"
 msgstr "Körtid"
 
@@ -9888,11 +9918,8 @@ msgstr "Sökresultat för %1$s"
 msgid "Search event"
 msgstr "Sök händelse"
 
-msgid "Search for and import all disks found"
-msgstr "Sök efter och importera alla diskar som hittas"
-
-msgid "Search subdirectories"
-msgstr "Sök i underkataloger"
+msgid "Search subfolder"
+msgstr "Sök uderkatalog"
 
 msgid "Second"
 msgstr "Sekund"
@@ -12860,8 +12887,9 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "För att matcha varje IP-adress lämna detta fält tomt."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-msgstr "För att använda Active Directory kommer CIFS/SMB tjänsten aktiveras."
+msgid "To use Active Directory the SMB service will be enabled as well."
+msgstr ""
+"För att använda Active Directory kommer SMB tjänsten också aktiveras."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr "För att använda underkataloger behöver du montera varje katalog."
@@ -14528,3 +14556,24 @@ msgstr "var tilldelad till"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "Importera genom att använda GPT ID"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "Importera genom att använda GPT etiketter"
+
+#~ msgid "List or import pools"
+#~ msgstr "Lista eller importera pooler"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Lösenord för domänadministratörskonto."
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "Sök efter och importera alla diskar som hittas"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr "För att använda Active Directory kommer CIFS/SMB tjänsten aktiveras."
+
+#~ msgid "Search subdirectories"
+#~ msgstr "Sök i underkataloger"

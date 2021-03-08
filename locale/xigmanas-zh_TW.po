@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2020-12-21 09:46+0000\n"
 "Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -734,6 +734,9 @@ msgstr "地址"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "遠程hastd守護進程的地址。 它必須是靜態IP地址。"
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "管理密碼"
@@ -2044,6 +2047,9 @@ msgstr "控制器的IP地址"
 msgid "Controller Model"
 msgstr "控制器型號"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "控制器的TCP端口"
 
@@ -2492,6 +2498,9 @@ msgstr "DNS域"
 
 msgid "DNS Forwarder"
 msgstr "DNS轉發器"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS伺服器是空白的。"
@@ -5802,11 +5811,8 @@ msgstr "從硬碟上導入ZFS設置"
 msgid "Import pool in read-only mode"
 msgstr ""
 
-msgid "Import using GPT ID"
-msgstr "使用GPT ID導入"
-
-msgid "Import using GPT labels"
-msgstr "使用GPT標籤導入"
+msgid "Import pools"
+msgstr ""
 
 msgid "Imported Users"
 msgstr ""
@@ -5828,6 +5834,24 @@ msgstr "入/出錯誤"
 
 msgid "In/Out Packets"
 msgstr "入/出數據包"
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
 msgid "Incoming Line/Power Information"
 msgstr "輸入線/電源資訊"
@@ -6440,8 +6464,8 @@ msgstr ""
 "可接受的成對（單播）為WPA密碼的列表。一個或多個：CCMP（AES計數器模式CBC-"
 "MAC，RFC3610，IEEE802.11i/D7.0），TKIP（臨時密鑰完整性協議，IEEE802.11i/D7.0）。"
 
-msgid "List or import pools"
-msgstr "列出或導入池"
+msgid "List pools available to import"
+msgstr ""
 
 msgid "Listen"
 msgstr ""
@@ -7102,6 +7126,9 @@ msgid "Mutual-CHAP"
 msgstr ""
 
 msgid "NAA Identifier"
+msgstr ""
+
+msgid "NETBIOS Name"
 msgstr ""
 
 msgid "NFS"
@@ -7975,8 +8002,8 @@ msgstr "密碼不匹配。"
 msgid "Password for the administrative pages."
 msgstr "管理頁面的密碼。"
 
-msgid "Password of domain administrator account."
-msgstr "域管理員帳號的密碼。"
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9395,6 +9422,9 @@ msgstr ""
 msgid "Scan folder for video files."
 msgstr ""
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "排程時間"
 
@@ -9444,10 +9474,7 @@ msgstr ""
 msgid "Search event"
 msgstr "搜索事件"
 
-msgid "Search for and import all disks found"
-msgstr "搜索並導入找到的所有磁片"
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -12068,8 +12095,8 @@ msgstr "要獲得有關如何配置UPS的更多資訊，請查看NUT（網路UPS
 msgid "To match any IP address leave this field empty."
 msgstr "要匹配任何IP地址的話，請保留此字段為空白。"
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-msgstr "要使用Active Directory，也將啟用CIFS / SMB服務。"
+msgid "To use Active Directory the SMB service will be enabled as well."
+msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr ""
@@ -13640,3 +13667,21 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "使用GPT ID導入"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "使用GPT標籤導入"
+
+#~ msgid "List or import pools"
+#~ msgstr "列出或導入池"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "域管理員帳號的密碼。"
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "搜索並導入找到的所有磁片"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr "要使用Active Directory，也將啟用CIFS / SMB服務。"

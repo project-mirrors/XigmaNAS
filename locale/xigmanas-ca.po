@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2021-01-27 09:29+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:48+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -786,6 +786,9 @@ msgstr "Adreça"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adreça del dimoni remot hastd. Ha de esser una adreça IP estàtica."
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "Contrasenya d'administrador"
@@ -2210,6 +2213,9 @@ msgstr "Adreça IP de controlador"
 msgid "Controller Model"
 msgstr "Model de controlador"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "Port TCP de controlador"
 
@@ -2736,6 +2742,9 @@ msgstr "Domini DNS"
 
 msgid "DNS Forwarder"
 msgstr "Re-enviament DNS"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "Servidor DNS està buida."
@@ -6262,11 +6271,8 @@ msgstr "Importar configuració ZFS del disc"
 msgid "Import pool in read-only mode"
 msgstr "Importar grup en mode de només lectura"
 
-msgid "Import using GPT ID"
-msgstr "Importa fent servir el ID de GPT"
-
-msgid "Import using GPT labels"
-msgstr "Importa fent servir les etiquetes GPT"
+msgid "Import pools"
+msgstr ""
 
 msgid "Imported Users"
 msgstr "Usuaris importats"
@@ -6288,6 +6294,24 @@ msgstr "Errors d'Entrada/Sortida"
 
 msgid "In/Out Packets"
 msgstr "Paquets d'Entrada/Sortida"
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
 msgid "Incoming Line/Power Information"
 msgstr "Informació d'entrada de linea/alimentació"
@@ -6959,8 +6983,8 @@ msgstr ""
 "de: CCMP (AES en mode de Contador amb CBC-MAC, RFC 3610, IEEE 802.11i / "
 "D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i / D7.0)."
 
-msgid "List or import pools"
-msgstr "Llista o importa piscines"
+msgid "List pools available to import"
+msgstr ""
 
 msgid "Listen"
 msgstr "Escolta"
@@ -7642,6 +7666,9 @@ msgstr "CHAP mutu"
 
 msgid "NAA Identifier"
 msgstr "Identificador NAA"
+
+msgid "NETBIOS Name"
+msgstr ""
 
 msgid "NFS"
 msgstr "NFS"
@@ -8559,8 +8586,8 @@ msgstr "Les contrassenyas no coincideixen"
 msgid "Password for the administrative pages."
 msgstr "Contrasenya per les pàgines administratives"
 
-msgid "Password of domain administrator account."
-msgstr "Contrasenya del compte d'administrador de domini."
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -10034,6 +10061,9 @@ msgstr "Escaneja la carpeta per a fitxers de vídeo i imatge."
 msgid "Scan folder for video files."
 msgstr "Escaneja la carpeta per a fitxers de vídeo."
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Temps programat"
 
@@ -10083,11 +10113,8 @@ msgstr "Resultat de la cerca per a %1$s"
 msgid "Search event"
 msgstr "Cercar esdeveniment"
 
-msgid "Search for and import all disks found"
-msgstr "Cercar i importar tots els discos que es troben"
-
-msgid "Search subdirectories"
-msgstr "Cerca subdirectoris"
+msgid "Search subfolder"
+msgstr ""
 
 msgid "Second"
 msgstr "Segon"
@@ -13140,9 +13167,8 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "Per fer coincidir qualsevol adreça IP, deixeu aquest camp buit."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
-"Per utilitzar Active Directory el servei CIFS / SMB serà permès també."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr "Per utilitzar subdirectoris, heu de muntar cada directori."
@@ -14827,3 +14853,25 @@ msgstr "va ser assignat a"
 
 msgid "yes"
 msgstr "sí"
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "Importa fent servir el ID de GPT"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "Importa fent servir les etiquetes GPT"
+
+#~ msgid "List or import pools"
+#~ msgstr "Llista o importa piscines"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Contrasenya del compte d'administrador de domini."
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "Cercar i importar tots els discos que es troben"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr ""
+#~ "Per utilitzar Active Directory el servei CIFS / SMB serà permès també."
+
+#~ msgid "Search subdirectories"
+#~ msgstr "Cerca subdirectoris"

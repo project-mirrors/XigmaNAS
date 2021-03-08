@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -747,6 +747,9 @@ msgstr "주소"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "원격지 hastd데몬 주소. 이 값은 고정 IP 주소여야 합니다."
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "관리자 암호"
@@ -2069,6 +2072,9 @@ msgstr "컨트롤러 IP 주소"
 msgid "Controller Model"
 msgstr "컨트롤러 모델"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "컨트롤러 TCP 포트"
 
@@ -2531,6 +2537,9 @@ msgstr "DNS 도메인"
 
 msgid "DNS Forwarder"
 msgstr "DNS 전달자"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS 서버가 비어 있습니다."
@@ -5861,11 +5870,8 @@ msgstr "온-디스크 ZFS 설정 불러오기"
 msgid "Import pool in read-only mode"
 msgstr ""
 
-msgid "Import using GPT ID"
-msgstr "GPT ID를 이용해 불러오기"
-
-msgid "Import using GPT labels"
-msgstr "GTP 라벨을 이용해 불러오기"
+msgid "Import pools"
+msgstr ""
 
 msgid "Imported Users"
 msgstr ""
@@ -5887,6 +5893,24 @@ msgstr "입/출력 오류"
 
 msgid "In/Out Packets"
 msgstr "입/출력 패킷"
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
 msgid "Incoming Line/Power Information"
 msgstr "입력 라인/전원 정보"
@@ -6503,8 +6527,8 @@ msgstr ""
 "CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP(Temporal Key Integrity Protocol, "
 "IEEE 802.11i/D7.0) 중 하나 이상."
 
-msgid "List or import pools"
-msgstr "풀 목록 보기 또는 가져오기"
+msgid "List pools available to import"
+msgstr ""
 
 msgid "Listen"
 msgstr ""
@@ -7167,6 +7191,9 @@ msgid "Mutual-CHAP"
 msgstr ""
 
 msgid "NAA Identifier"
+msgstr ""
+
+msgid "NETBIOS Name"
 msgstr ""
 
 msgid "NFS"
@@ -8046,8 +8073,8 @@ msgstr "암호가 일치하지 않습니다."
 msgid "Password for the administrative pages."
 msgstr "관리자 페이지를 위한 암호."
 
-msgid "Password of domain administrator account."
-msgstr "도메인 관리 계정의 함호."
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9464,6 +9491,9 @@ msgstr ""
 msgid "Scan folder for video files."
 msgstr ""
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "예약된 시간"
 
@@ -9513,10 +9543,7 @@ msgstr ""
 msgid "Search event"
 msgstr "이벤트 검색"
 
-msgid "Search for and import all disks found"
-msgstr "감지된 모든 디스크 검색"
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -12177,8 +12204,8 @@ msgstr "UPS를 어떻게 설정하는지에 대한 더 많은 정보를 얻으�
 msgid "To match any IP address leave this field empty."
 msgstr "모든 IP 주소로 설정하려면 이 난을 비워 두십시오."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-msgstr "Active Directory를 사용하기 위해 CIFS/SMB 서비스도 활성화 됩니다."
+msgid "To use Active Directory the SMB service will be enabled as well."
+msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr ""
@@ -13754,3 +13781,21 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "GPT ID를 이용해 불러오기"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "GTP 라벨을 이용해 불러오기"
+
+#~ msgid "List or import pools"
+#~ msgstr "풀 목록 보기 또는 가져오기"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "도메인 관리 계정의 함호."
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "감지된 모든 디스크 검색"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr "Active Directory를 사용하기 위해 CIFS/SMB 서비스도 활성화 됩니다."

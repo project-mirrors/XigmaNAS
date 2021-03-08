@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2021-01-27 07:02+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:48+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -802,6 +802,9 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 "Διεύθυνση του απομακρυσμένου δαίμονα hastd. Πρέπει να είναι στατική "
 "διεύθυνση IP."
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "Κωδικός Διαχειριστή"
@@ -2240,6 +2243,9 @@ msgstr "Διεύθυνση IP του Ελεγκτή"
 msgid "Controller Model"
 msgstr "Μοντέλο Ελεγκτή"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "Θύρα TCP του Ελεγκτή"
 
@@ -2773,6 +2779,9 @@ msgstr "Τομέας DNS"
 
 msgid "DNS Forwarder"
 msgstr "Διαβιβαστής DNS"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "Το πεδίο για το διακομιστή DNS είναι άδειο."
@@ -6321,11 +6330,8 @@ msgstr "Εισαγωγή ZFS ρύθμισης από τον δίσκο"
 msgid "Import pool in read-only mode"
 msgstr "Εισαγωγή του pool σε λειτουργία μόνο για ανάγνωση"
 
-msgid "Import using GPT ID"
-msgstr "Εισαγωγή με τη χρήση  GPT ID"
-
-msgid "Import using GPT labels"
-msgstr "Εισαγωγή με τη χρήση ετικετών GPT"
+msgid "Import pools"
+msgstr ""
 
 msgid "Imported Users"
 msgstr "Χρήστες που Εισήχθησαν"
@@ -6348,6 +6354,24 @@ msgstr "Σφάλματα Εισόδου/Εξόδου"
 
 msgid "In/Out Packets"
 msgstr "Πακέτα Εισόδου/Εξόδου"
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
 msgid "Incoming Line/Power Information"
 msgstr "Πληροφορίες Γραμμής/Ισχύος εισόδου"
@@ -7033,8 +7057,8 @@ msgstr ""
 "από το: CCMP (AES στη λειτουργία Counter με CBC-MAC, RFC 3610, IEEE "
 "802.11i/D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
-msgstr "Λίστα ή εισαγωγή pools"
+msgid "List pools available to import"
+msgstr ""
 
 msgid "Listen"
 msgstr "Αναμονή"
@@ -7721,6 +7745,9 @@ msgstr "Αμοιβαίο-CHAP"
 
 msgid "NAA Identifier"
 msgstr "Αναγνωριστικό NAA"
+
+msgid "NETBIOS Name"
+msgstr ""
 
 msgid "NFS"
 msgstr "NFS"
@@ -8641,8 +8668,8 @@ msgstr "Οι κωδικοί δεν ταιριάζουν."
 msgid "Password for the administrative pages."
 msgstr "Κωδικός για τις σελίδες διαχείρισης."
 
-msgid "Password of domain administrator account."
-msgstr "Κωδικός για τον λογαριασμού του διαχειριστή του τομέα."
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -10123,6 +10150,9 @@ msgstr "Σάρωση φακέλου για αρχεία βίντεο και ει
 msgid "Scan folder for video files."
 msgstr "Σάρωση φακέλου για αρχεία βίντεο."
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Προγραμματισμένη ώρα"
 
@@ -10172,11 +10202,8 @@ msgstr "Αποτέλεσμα Αναζήτησης για %1$s"
 msgid "Search event"
 msgstr "Αναζήτηση συμβάντος"
 
-msgid "Search for and import all disks found"
-msgstr "Εύρεση και εισαγωγή όλων των δίσκων που θα βρεθούν"
-
-msgid "Search subdirectories"
-msgstr "Αναζήτηση σε υποφακέλους"
+msgid "Search subfolder"
+msgstr ""
 
 msgid "Second"
 msgstr "Δευτερόλεπτο"
@@ -13304,10 +13331,8 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Για να ταιριάζει με οποιαδήποτε διεύθυνση IP αφήσετε κενό αυτό το πεδίο."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
-"Για να χρησιμοποιήσετε Active Directory θα ενεργοποιηθεί επίσης και η "
-"υπηρεσία CIFS/SMB."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr ""
@@ -15017,3 +15042,26 @@ msgstr "ανατέθηκε στο"
 
 msgid "yes"
 msgstr "ναι"
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "Εισαγωγή με τη χρήση  GPT ID"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "Εισαγωγή με τη χρήση ετικετών GPT"
+
+#~ msgid "List or import pools"
+#~ msgstr "Λίστα ή εισαγωγή pools"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Κωδικός για τον λογαριασμού του διαχειριστή του τομέα."
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "Εύρεση και εισαγωγή όλων των δίσκων που θα βρεθούν"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr ""
+#~ "Για να χρησιμοποιήσετε Active Directory θα ενεργοποιηθεί επίσης και η "
+#~ "υπηρεσία CIFS/SMB."
+
+#~ msgid "Search subdirectories"
+#~ msgstr "Αναζήτηση σε υποφακέλους"
