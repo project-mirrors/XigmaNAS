@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -683,6 +683,9 @@ msgid "Address"
 msgstr ""
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
+msgstr ""
+
+msgid "Admin Name"
 msgstr ""
 
 msgid "Admin Password"
@@ -1904,6 +1907,9 @@ msgstr ""
 msgid "Controller Model"
 msgstr ""
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr ""
 
@@ -2260,6 +2266,9 @@ msgid "DNS Domain"
 msgstr ""
 
 msgid "DNS Forwarder"
+msgstr ""
+
+msgid "DNS Name"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -5423,10 +5432,7 @@ msgstr ""
 msgid "Import pool in read-only mode"
 msgstr ""
 
-msgid "Import using GPT ID"
-msgstr ""
-
-msgid "Import using GPT labels"
+msgid "Import pools"
 msgstr ""
 
 msgid "Imported Users"
@@ -5448,6 +5454,24 @@ msgid "In/Out Errors"
 msgstr ""
 
 msgid "In/Out Packets"
+msgstr ""
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
 msgstr ""
 
 msgid "Incoming Line/Power Information"
@@ -5995,7 +6019,7 @@ msgstr ""
 msgid "List of acceptable pairwise (unicast) ciphers for WPA. One or more of: CCMP (AES in Counter mode with CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 msgstr ""
 
-msgid "List or import pools"
+msgid "List pools available to import"
 msgstr ""
 
 msgid "Listen"
@@ -6645,6 +6669,9 @@ msgid "Mutual-CHAP"
 msgstr ""
 
 msgid "NAA Identifier"
+msgstr ""
+
+msgid "NETBIOS Name"
 msgstr ""
 
 msgid "NFS"
@@ -7482,7 +7509,7 @@ msgstr ""
 msgid "Password for the administrative pages."
 msgstr ""
 
-msgid "Password of domain administrator account."
+msgid "Password of the administrator account."
 msgstr ""
 
 msgid "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -8857,6 +8884,9 @@ msgstr ""
 msgid "Scan folder for video files."
 msgstr ""
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr ""
 
@@ -8906,10 +8936,7 @@ msgstr ""
 msgid "Search event"
 msgstr ""
 
-msgid "Search for and import all disks found"
-msgstr ""
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -11146,7 +11173,7 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr ""
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
