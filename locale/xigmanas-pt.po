@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2020-04-29 14:11+0000\n"
 "Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -784,6 +784,9 @@ msgstr "Endereço"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 "Endereço do hastd daemon remoto. Tem que ser um endereço IP estático."
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "Senha do Admin"
@@ -2185,6 +2188,9 @@ msgstr "Controlador de endereço IP"
 msgid "Controller Model"
 msgstr "Modelo do Controlador"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "Controlador de porta TCP"
 
@@ -2615,6 +2621,9 @@ msgid "DNS Domain"
 msgstr "Dominio DNS"
 
 msgid "DNS Forwarder"
+msgstr ""
+
+msgid "DNS Name"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -5969,10 +5978,7 @@ msgstr "Importar configurar de disco ZFS"
 msgid "Import pool in read-only mode"
 msgstr ""
 
-msgid "Import using GPT ID"
-msgstr ""
-
-msgid "Import using GPT labels"
+msgid "Import pools"
 msgstr ""
 
 msgid "Imported Users"
@@ -5994,6 +6000,24 @@ msgid "In/Out Errors"
 msgstr ""
 
 msgid "In/Out Packets"
+msgstr ""
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
 msgstr ""
 
 msgid "Incoming Line/Power Information"
@@ -6613,7 +6637,7 @@ msgstr ""
 "mais de:  CCMP (AES em Counter mode com CBC-MAC, RFC 3610, IEEE "
 "802.11i/D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
+msgid "List pools available to import"
 msgstr ""
 
 msgid "Listen"
@@ -7278,6 +7302,9 @@ msgid "Mutual-CHAP"
 msgstr ""
 
 msgid "NAA Identifier"
+msgstr ""
+
+msgid "NETBIOS Name"
 msgstr ""
 
 msgid "NFS"
@@ -8172,8 +8199,8 @@ msgstr "As senhas não coincidem."
 msgid "Password for the administrative pages."
 msgstr "Senha para as páginas administrativas."
 
-msgid "Password of domain administrator account."
-msgstr "Senha da conta do administrador de domínio."
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9602,6 +9629,9 @@ msgstr ""
 msgid "Scan folder for video files."
 msgstr ""
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr ""
 
@@ -9651,10 +9681,7 @@ msgstr ""
 msgid "Search event"
 msgstr ""
 
-msgid "Search for and import all disks found"
-msgstr ""
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -12406,7 +12433,7 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "Para utilizar qualquer endereço IP deixe este campo vazio."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
@@ -14032,3 +14059,6 @@ msgstr ""
 
 msgid "yes"
 msgstr "Sim"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Senha da conta do administrador de domínio."

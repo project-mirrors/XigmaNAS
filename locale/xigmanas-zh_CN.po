@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2021-01-28 14:46+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -734,6 +734,9 @@ msgstr "地址"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "远程hastd守护进程的地址。 它必须是静态IP地址。"
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "管理密码"
@@ -2044,6 +2047,9 @@ msgstr "控制器的IP地址"
 msgid "Controller Model"
 msgstr "控制器型号"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "控制器的TCP端口"
 
@@ -2492,6 +2498,9 @@ msgstr "DNS域"
 
 msgid "DNS Forwarder"
 msgstr "DNS转发器"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS服务器是空白的。"
@@ -5802,11 +5811,8 @@ msgstr "从硬盘上导入ZFS设置"
 msgid "Import pool in read-only mode"
 msgstr "以只读模式导入存储池"
 
-msgid "Import using GPT ID"
-msgstr "使用GPT ID导入"
-
-msgid "Import using GPT labels"
-msgstr "使用GPT标签导入"
+msgid "Import pools"
+msgstr ""
 
 msgid "Imported Users"
 msgstr "导入的用户"
@@ -5828,6 +5834,24 @@ msgstr "入/出错误"
 
 msgid "In/Out Packets"
 msgstr "入/出数据包"
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
 msgid "Incoming Line/Power Information"
 msgstr "输入线/电源信息"
@@ -6442,8 +6466,8 @@ msgstr ""
 "可接受的成对（单播）为WPA密码的列表。一个或多个：CCMP（AES计数器模式CBC-"
 "MAC，RFC3610，IEEE802.11i/D7.0），TKIP（临时密钥完整性协议，IEEE802.11i/D7.0）。"
 
-msgid "List or import pools"
-msgstr "列出或导入池"
+msgid "List pools available to import"
+msgstr ""
 
 msgid "Listen"
 msgstr "侦听"
@@ -7105,6 +7129,9 @@ msgstr "Mutual-CHAP"
 
 msgid "NAA Identifier"
 msgstr "NAA标识符"
+
+msgid "NETBIOS Name"
+msgstr ""
 
 msgid "NFS"
 msgstr "NFS"
@@ -7977,8 +8004,8 @@ msgstr "密码不匹配。"
 msgid "Password for the administrative pages."
 msgstr "管理页面的密码。"
 
-msgid "Password of domain administrator account."
-msgstr "域管理员账号的密码。"
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9397,6 +9424,9 @@ msgstr "扫描文件夹的视频和图片文件。"
 msgid "Scan folder for video files."
 msgstr "扫描文件夹的视频文件。"
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "排程时间"
 
@@ -9446,11 +9476,8 @@ msgstr "%1$s的搜索结果"
 msgid "Search event"
 msgstr "搜索事件"
 
-msgid "Search for and import all disks found"
-msgstr "搜索并导入找到的所有磁盘"
-
-msgid "Search subdirectories"
-msgstr "搜索子目录"
+msgid "Search subfolder"
+msgstr ""
 
 msgid "Second"
 msgstr "秒"
@@ -12084,8 +12111,8 @@ msgstr "要获得有关如何配置UPS的更多信息，请查看NUT（网络UPS
 msgid "To match any IP address leave this field empty."
 msgstr "要匹配任何IP地址的话，请保留此字段为空白。"
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-msgstr "要使用Active Directory，也将启用CIFS / SMB服务。"
+msgid "To use Active Directory the SMB service will be enabled as well."
+msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr "要使用子目录，必须挂载每个目录。"
@@ -13658,3 +13685,24 @@ msgstr "被分配给"
 
 msgid "yes"
 msgstr "是"
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "使用GPT ID导入"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "使用GPT标签导入"
+
+#~ msgid "List or import pools"
+#~ msgstr "列出或导入池"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "域管理员账号的密码。"
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "搜索并导入找到的所有磁盘"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr "要使用Active Directory，也将启用CIFS / SMB服务。"
+
+#~ msgid "Search subdirectories"
+#~ msgstr "搜索子目录"

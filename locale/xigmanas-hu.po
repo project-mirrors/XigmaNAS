@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -770,6 +770,9 @@ msgstr "Cím"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Remote hastd daemon címe. Statikus IP címnek kell lennie."
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "Rendszergazda jelszava"
@@ -2164,6 +2167,9 @@ msgstr "Kontroller IP cím"
 msgid "Controller Model"
 msgstr "Kontroller modell"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "Kontroller IP port"
 
@@ -2660,6 +2666,9 @@ msgstr "DNS domain"
 
 msgid "DNS Forwarder"
 msgstr "DNS továbbító"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS szerver üres."
@@ -6137,11 +6146,8 @@ msgstr "Lemezen levő ZFS beállítás importálása"
 msgid "Import pool in read-only mode"
 msgstr "Tároló importálás írásvédett módban"
 
-msgid "Import using GPT ID"
-msgstr "Importálás GPT azonosító használatával"
-
-msgid "Import using GPT labels"
-msgstr "Importálás GPT címkék használatával"
+msgid "Import pools"
+msgstr ""
 
 msgid "Imported Users"
 msgstr "Importált felhasználók"
@@ -6164,6 +6170,24 @@ msgstr "Be/Ki hiba"
 
 msgid "In/Out Packets"
 msgstr "Be/Ki csomagok"
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
+msgstr ""
 
 msgid "Incoming Line/Power Information"
 msgstr "Bemeneti áram/teljesítmény információ"
@@ -6833,8 +6857,8 @@ msgstr ""
 "következőkből: CCMP (AES számoló módban CBC-MAC-kel, RFC 3610, IEEE "
 "802.11i/D7.0), TKIP (Temporal Key Integrity Protokoll, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
-msgstr "Tárolók felsorolása vagy importálása"
+msgid "List pools available to import"
+msgstr ""
 
 msgid "Listen"
 msgstr "Figyelés"
@@ -7513,6 +7537,9 @@ msgstr "Kölcsönös-CHAP"
 
 msgid "NAA Identifier"
 msgstr "NAA azonosító"
+
+msgid "NETBIOS Name"
+msgstr ""
 
 msgid "NFS"
 msgstr "NFS"
@@ -8424,8 +8451,8 @@ msgstr "Jelszó nem egyezik."
 msgid "Password for the administrative pages."
 msgstr "Jelszó az rendszergazdai oldalakhoz."
 
-msgid "Password of domain administrator account."
-msgstr "Tartományi rendszergazda jelszava."
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9894,6 +9921,9 @@ msgstr "Videó- és képfájlok keresése a mappában."
 msgid "Scan folder for video files."
 msgstr "Videófájlok keresése a mappában."
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Ütemezett időpont"
 
@@ -9943,10 +9973,7 @@ msgstr ""
 msgid "Search event"
 msgstr "Esemény keresése"
 
-msgid "Search for and import all disks found"
-msgstr "Keresés és összes talált eszköz importálása"
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -12917,9 +12944,8 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "Hagyd üresen, ha minden IP címre szeretnéd ezt a szabályt."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
-"Az Címtárszolgáltatás használatához a CIF/SMB szolgáltatást is bekapcsolod."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr "Az almappák használatához mindegyik mappát be kell csatolnod."
@@ -14576,3 +14602,22 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "Importálás GPT azonosító használatával"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "Importálás GPT címkék használatával"
+
+#~ msgid "List or import pools"
+#~ msgstr "Tárolók felsorolása vagy importálása"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Tartományi rendszergazda jelszava."
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "Keresés és összes talált eszköz importálása"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr ""
+#~ "Az Címtárszolgáltatás használatához a CIF/SMB szolgáltatást is bekapcsolod."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
-"PO-Revision-Date: 2021-03-07 04:37+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"PO-Revision-Date: 2021-03-08 10:48+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -781,6 +781,9 @@ msgstr "Адрес"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Адрес удалённой службы hastd. Это должен быть статический IP-адрес."
+
+msgid "Admin Name"
+msgstr "Имя администратора"
 
 msgid "Admin Password"
 msgstr "Пароль администратора"
@@ -2196,6 +2199,9 @@ msgstr "IP-адрес контроллера"
 msgid "Controller Model"
 msgstr "Модель контроллера"
 
+msgid "Controller Name"
+msgstr "Имя контроллера"
+
 msgid "Controller TCP Port"
 msgstr "TCP-порт контроллера"
 
@@ -2708,6 +2714,9 @@ msgstr "DNS домен"
 
 msgid "DNS Forwarder"
 msgstr "DNS Forwarder"
+
+msgid "DNS Name"
+msgstr "Имя DNS"
 
 msgid "DNS server is empty."
 msgstr "DNS сервер пуст."
@@ -6196,11 +6205,8 @@ msgstr "Импортировать конфигурацию с дисков ZFS"
 msgid "Import pool in read-only mode"
 msgstr "Импорт пула в режиме только для чтения"
 
-msgid "Import using GPT ID"
-msgstr "Импорт с использованием GPT ID"
-
-msgid "Import using GPT labels"
-msgstr "Импорт с использованием GPT меток"
+msgid "Import pools"
+msgstr "Импорт пулов"
 
 msgid "Imported Users"
 msgstr "Импортированные пользователи"
@@ -6222,6 +6228,24 @@ msgstr "Ошибки ввода/вывода"
 
 msgid "In/Out Packets"
 msgstr "Пакеты ввода/вывода"
+
+msgid "Include /dev into scan/import"
+msgstr "Включить /dev в сканирование/импорт"
+
+msgid "Include Disk ID into scan/import"
+msgstr "Включить Disk ID в сканирование/импорт"
+
+msgid "Include GPT ID into scan/import"
+msgstr "Включить GPT ID в сканирование/импорт"
+
+msgid "Include GPT labels into scan/import"
+msgstr "Включать GPT labels в сканирование/импорт"
+
+msgid "Include UFS ID into scan/import"
+msgstr "Включить UFS ID в сканирование/импорт"
+
+msgid "Include UFS labels into scan/import"
+msgstr "Включить UFS labels в сканирование/импорт"
 
 msgid "Incoming Line/Power Information"
 msgstr "Информация о входной линии"
@@ -6898,8 +6922,8 @@ msgstr ""
 "(AES in Counter mode with CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
-msgstr "Список или импорт пулов (List or import pools)"
+msgid "List pools available to import"
+msgstr "Список пулов, доступных для импорта"
 
 msgid "Listen"
 msgstr "Прослушивание"
@@ -7584,6 +7608,9 @@ msgstr "Mutual-CHAP"
 
 msgid "NAA Identifier"
 msgstr "NAA идентификатор"
+
+msgid "NETBIOS Name"
+msgstr "Имя NETBIOS"
 
 msgid "NFS"
 msgstr "NFS"
@@ -8494,8 +8521,8 @@ msgstr "Пароли не совпадают."
 msgid "Password for the administrative pages."
 msgstr "Пароль на web-интерфейс управления."
 
-msgid "Password of domain administrator account."
-msgstr "Пароль администратора домена."
+msgid "Password of the administrator account."
+msgstr "Пароль учетной записи администратора."
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9963,6 +9990,9 @@ msgstr "Сканирование папки для видео и файлов и
 msgid "Scan folder for video files."
 msgstr "Сканирование папки на наличие видеофайлов."
 
+msgid "Scan/Import destroyed pools only"
+msgstr "Сканировать/импортировать только разрушенные пулы"
+
 msgid "Schedule Time"
 msgstr "Время расписаний"
 
@@ -10012,11 +10042,8 @@ msgstr "Результат поиска для %1$s"
 msgid "Search event"
 msgstr "Искать событие"
 
-msgid "Search for and import all disks found"
-msgstr "Искать и импортировать все найденные диски"
-
-msgid "Search subdirectories"
-msgstr "Поиск в подкаталогах"
+msgid "Search subfolder"
+msgstr "Подпапка поиска"
 
 msgid "Second"
 msgstr "сек."
@@ -13027,8 +13054,8 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "Для применения ко всем IP-адресам оставьте это поле пустым."
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-msgstr "Чтобы использовать Active Directory CIFS/SMB так же будет включен."
+msgid "To use Active Directory the SMB service will be enabled as well."
+msgstr "Для использования Active Directory также будет включена служба SMB."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr ""
@@ -14728,3 +14755,24 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
+
+#~ msgid "Import using GPT ID"
+#~ msgstr "Импорт с использованием GPT ID"
+
+#~ msgid "Import using GPT labels"
+#~ msgstr "Импорт с использованием GPT меток"
+
+#~ msgid "List or import pools"
+#~ msgstr "Список или импорт пулов (List or import pools)"
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Пароль администратора домена."
+
+#~ msgid "Search for and import all disks found"
+#~ msgstr "Искать и импортировать все найденные диски"
+
+#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgstr "Чтобы использовать Active Directory CIFS/SMB так же будет включен."
+
+#~ msgid "Search subdirectories"
+#~ msgstr "Поиск в подкаталогах"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "Language: \n"
 "X-Poedit-Language: Slovenian\n"
@@ -741,6 +741,9 @@ msgid "Address"
 msgstr "Naslov"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
+msgstr ""
+
+msgid "Admin Name"
 msgstr ""
 
 msgid "Admin Password"
@@ -2065,6 +2068,9 @@ msgstr "IP naslov kontrolerja"
 msgid "Controller Model"
 msgstr "Model krmilnika"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "TCP vrata kontrolerja"
 
@@ -2495,6 +2501,9 @@ msgid "DNS Domain"
 msgstr ""
 
 msgid "DNS Forwarder"
+msgstr ""
+
+msgid "DNS Name"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -5832,10 +5841,7 @@ msgstr "Uvozi nastavitve na ZFS disku"
 msgid "Import pool in read-only mode"
 msgstr ""
 
-msgid "Import using GPT ID"
-msgstr ""
-
-msgid "Import using GPT labels"
+msgid "Import pools"
 msgstr ""
 
 msgid "Imported Users"
@@ -5857,6 +5863,24 @@ msgid "In/Out Errors"
 msgstr ""
 
 msgid "In/Out Packets"
+msgstr ""
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
 msgstr ""
 
 msgid "Incoming Line/Power Information"
@@ -6470,7 +6494,7 @@ msgstr ""
 "CCMP (AES in Counter mode z CBC-MAC, RFC 3610, IEEE 802.11i/SeD7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
-msgid "List or import pools"
+msgid "List pools available to import"
 msgstr ""
 
 msgid "Listen"
@@ -7138,6 +7162,9 @@ msgid "Mutual-CHAP"
 msgstr ""
 
 msgid "NAA Identifier"
+msgstr ""
+
+msgid "NETBIOS Name"
 msgstr ""
 
 msgid "NFS"
@@ -8022,8 +8049,8 @@ msgstr "Gesli se ne ujemata"
 msgid "Password for the administrative pages."
 msgstr "Geslo za administrativne strani."
 
-msgid "Password of domain administrator account."
-msgstr "Geslo za domenskega administratorja."
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9452,6 +9479,9 @@ msgstr ""
 msgid "Scan folder for video files."
 msgstr ""
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr ""
 
@@ -9501,10 +9531,7 @@ msgstr ""
 msgid "Search event"
 msgstr ""
 
-msgid "Search for and import all disks found"
-msgstr ""
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -12130,7 +12157,7 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr ""
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
@@ -13702,3 +13729,6 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "Geslo za domenskega administratorja."

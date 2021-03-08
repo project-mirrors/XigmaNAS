@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-01-26 23:58+0000\n"
+"POT-Creation-Date: 2021-03-08 11:36+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-07 12:49+0000\n"
-"X-Generator: Launchpad (build fc09074b06b3b9178bd28175bdab646b3b5abfce)\n"
+"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
+"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -746,6 +746,9 @@ msgstr "アドレス"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "リモート hastd デーモンのアドレス。固定IPアドレスでなければいけません。"
+
+msgid "Admin Name"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "管理者パスワード"
@@ -2067,6 +2070,9 @@ msgstr "コントローラ IP アドレス"
 msgid "Controller Model"
 msgstr "コントローラーモデル"
 
+msgid "Controller Name"
+msgstr ""
+
 msgid "Controller TCP Port"
 msgstr "コントローラ TCP ポート"
 
@@ -2516,6 +2522,9 @@ msgstr "DNSドメイン"
 
 msgid "DNS Forwarder"
 msgstr "DNSフォワーダ"
+
+msgid "DNS Name"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS サーバが空欄です。"
@@ -5833,10 +5842,7 @@ msgstr "ディスク上のZFS設定をインポート"
 msgid "Import pool in read-only mode"
 msgstr ""
 
-msgid "Import using GPT ID"
-msgstr ""
-
-msgid "Import using GPT labels"
+msgid "Import pools"
 msgstr ""
 
 msgid "Imported Users"
@@ -5858,6 +5864,24 @@ msgid "In/Out Errors"
 msgstr ""
 
 msgid "In/Out Packets"
+msgstr ""
+
+msgid "Include /dev into scan/import"
+msgstr ""
+
+msgid "Include Disk ID into scan/import"
+msgstr ""
+
+msgid "Include GPT ID into scan/import"
+msgstr ""
+
+msgid "Include GPT labels into scan/import"
+msgstr ""
+
+msgid "Include UFS ID into scan/import"
+msgstr ""
+
+msgid "Include UFS labels into scan/import"
 msgstr ""
 
 msgid "Incoming Line/Power Information"
@@ -6477,7 +6501,7 @@ msgstr ""
 "Protocol, RFC 3610, IEEE 802.11i/D7.0)、TKIP (Temporal Key Integrity "
 "Protocol, IEEE 802.11i/D7.0)。"
 
-msgid "List or import pools"
+msgid "List pools available to import"
 msgstr ""
 
 msgid "Listen"
@@ -7141,6 +7165,9 @@ msgid "Mutual-CHAP"
 msgstr ""
 
 msgid "NAA Identifier"
+msgstr ""
+
+msgid "NETBIOS Name"
 msgstr ""
 
 msgid "NFS"
@@ -8018,8 +8045,8 @@ msgstr "パスワードが一致しません。"
 msgid "Password for the administrative pages."
 msgstr "管理画面のパスワード"
 
-msgid "Password of domain administrator account."
-msgstr "ドメイン管理者アカウントのパスワードを入力して下さい。"
+msgid "Password of the administrator account."
+msgstr ""
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9437,6 +9464,9 @@ msgstr ""
 msgid "Scan folder for video files."
 msgstr ""
 
+msgid "Scan/Import destroyed pools only"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "スケジュール時刻"
 
@@ -9486,10 +9516,7 @@ msgstr ""
 msgid "Search event"
 msgstr ""
 
-msgid "Search for and import all disks found"
-msgstr ""
-
-msgid "Search subdirectories"
+msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
@@ -12143,7 +12170,7 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "全ての IP アドレスにマッチさせる場合は、このフィールドを空にして下さい。"
 
-msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
 msgid "To use subdirectories, you must mount each directory."
@@ -13720,3 +13747,6 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Password of domain administrator account."
+#~ msgstr "ドメイン管理者アカウントのパスワードを入力して下さい。"
