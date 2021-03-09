@@ -1,9 +1,9 @@
 <?php
 /*
-	common\properties\property_int.php
+	property_hex.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2020 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
@@ -34,18 +34,18 @@
 
 namespace common\properties;
 
-use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_INT;
+use const FILTER_FLAG_ALLOW_HEX,FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_INT;
 
 /**
- *	Int property
+ *	Hex property
  */
-class property_int extends abstract_property_numeric {
+class property_hex extends abstract_property_numeric {
 	public function filter_use_default() {
 		parent::filter_use_default();
 		$filter_name = 'ui';
 		$this->
 			set_filter(FILTER_VALIDATE_INT,$filter_name)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name);
+			set_filter_flags(FILTER_REQUIRE_SCALAR | FILTER_FLAG_ALLOW_HEX,$filter_name);
 		return $this;
 	}
 }
