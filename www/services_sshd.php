@@ -65,7 +65,7 @@ $a_referer = [
 	$cop->get_auxparam()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -254,7 +254,7 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (rc_is_service_running('sshd') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
