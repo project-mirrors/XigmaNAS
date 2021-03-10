@@ -49,6 +49,7 @@
 	* 	Arguably, a full client install could be done too to
 	allow XigmaNAS® to XigmaNAS® syncing.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -72,7 +73,7 @@ $a_referer = [
 	$cop->get_mkdir()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	catch error code
 switch($page_method):
 	case 'SESSION':
@@ -137,6 +138,7 @@ switch($page_method):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
+				break;
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
@@ -209,9 +211,9 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === rc_is_service_running('unison'));
+$is_running = (rc_is_service_running('unison') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 $remark = gettext('Before a Unison client can start to work, you need to perform the following:')
 	. '<div id="enumeration"><ul>'
