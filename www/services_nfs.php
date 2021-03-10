@@ -55,7 +55,7 @@ $a_referer = [
 	$cop->get_auxparam()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -80,6 +80,8 @@ switch($page_method):
 				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 				config_lock();
 				rc_exec_script('/etc/rc.d/nfsuserd forcestop');
+				$sphere->grid[$cop->get_support_nfs_v4()->get_name()] ??= false;
+				$sphere->grid[$cop->get_enable()->get_name()] ??= false;
 				if($sphere->grid[$cop->get_support_nfs_v4()->get_name()] && $sphere->grid[$cop->get_enable()->get_name()]):
 					$retval |= mwexec('/usr/local/sbin/rconf service enable nfsv4_server');
 					$retval |= mwexec('/usr/local/sbin/rconf service enable nfsuserd');
@@ -103,6 +105,7 @@ switch($page_method):
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
 					write_config();
@@ -125,9 +128,11 @@ switch($page_method):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
+				break;
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
@@ -136,6 +141,7 @@ switch($page_method):
 					write_config();
 					config_lock();
 					rc_exec_script('/etc/rc.d/nfsuserd forcestop');
+					$sphere->grid[$cop->get_support_nfs_v4()->get_name()] ??= false;
 					if($sphere->grid[$cop->get_support_nfs_v4()->get_name()]):
 						$retval |= mwexec('/usr/local/sbin/rconf service enable nfsv4_server');
 						$retval |= mwexec('/usr/local/sbin/rconf service enable nfsuserd');
@@ -169,10 +175,8 @@ switch($page_action):
 			$name = $referer->get_name();
 			switch($name):
 				case 'auxparam':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
-						endif;
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
@@ -206,7 +210,7 @@ switch($page_action):
 				switch($name):
 					case 'auxparam':
 						$auxparam_grid = [];
-						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
+						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
 							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
 						endforeach;
 						$sphere->row[$name] = $auxparam_grid;
@@ -224,9 +228,9 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === rc_is_service_running('nfsd'));
+$is_running = (rc_is_service_running('nfsd') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('NFS'),gettext('Settings')];
