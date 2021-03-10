@@ -31,13 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
 use services\ctld\setting_toolbox as toolbox;
 use services\ctld\shared_toolbox;
-
+/*
+use function array_key_exists,explode,file_exists,filter_var,gettext,header,
+		implode,is_array,is_null,is_scalar,max,min,substr_count,trim,
+		calc_skipviewmode,config_lock,config_unlock,get_std_save_message,
+		new_page,rc_is_service_running,rc_update_service_ex,updatenotify_exists,
+		updatenotify_process,updatenotify_set,write_config;
+*/
 //	init indicators
 $input_errors = [];
 //	preset $savemsg when a reboot is pending
@@ -58,7 +65,7 @@ $a_referer = [
 	$cop->get_auxparam()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -92,6 +99,7 @@ switch($page_method):
 			case 'reload':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] && !$pending_changes):
 					config_lock();
 					$retval |= rc_update_service_ex('ctld',true);
@@ -108,6 +116,7 @@ switch($page_method):
 			case 'restart':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] && !$pending_changes):
 					config_lock();
 					$retval |= rc_update_service_ex('ctld');
@@ -124,6 +133,7 @@ switch($page_method):
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
 					write_config();
@@ -138,9 +148,11 @@ switch($page_method):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
+				break;
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
@@ -168,16 +180,14 @@ switch($page_action):
 			$name = $referer->get_name();
 			switch($name):
 				case 'auxparam':
-					if(\array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
-						endif;
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
 			$sphere->row[$name] = $referer->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
-				if(\array_key_exists($name,$source) && is_scalar($source[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -192,7 +202,7 @@ switch($page_action):
 			$sphere->row[$name] = $referer->validate_input();
 			if(is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
-				if(\array_key_exists($name,$source) && is_scalar($source[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -205,7 +215,7 @@ switch($page_action):
 				switch($name):
 					case 'auxparam':
 						$auxparam_grid = [];
-						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
+						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
 							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
 						endforeach;
 						$sphere->row[$name] = $auxparam_grid;
@@ -223,9 +233,9 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === rc_is_service_running('ctld'));
+$is_running = (rc_is_service_running('ctld') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Settings')];
