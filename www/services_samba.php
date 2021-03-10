@@ -168,6 +168,7 @@ switch($page_method):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
+				break;
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
