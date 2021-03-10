@@ -41,8 +41,8 @@ use services\tftpd\shared_toolbox;
 //	init indicators
 $input_errors = [];
 //	preset $savemsg when a reboot is pending
-if(\file_exists($d_sysrebootreqd_path)):
-	$savemsg = \get_std_save_message(0);
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
 //	init properties, sphere and rmo
 $cop = toolbox::init_properties();
@@ -60,20 +60,20 @@ $a_referer = [
 	$cop->get_username()
 ];
 $a_system_user = [];
-foreach(\system_get_user_list() as $key => $val):
-	$a_system_user[\strtolower($key)] = $key;
+foreach(system_get_user_list() as $key => $val):
+	$a_system_user[strtolower($key)] = $key;
 endforeach;
 ksort($a_system_user);
 $cop->get_username()->set_options($a_system_user);
-$pending_changes = \updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
 			case $sphere->get_script()->get_basename():
-				$retval = \filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
-				$savemsg = \get_std_save_message($retval);
+				$savemsg = get_std_save_message($retval);
 				if($retval !== 0):
 					$page_action = 'edit';
 					$page_mode = PAGE_MODE_EDIT;
@@ -88,13 +88,13 @@ switch($page_method):
 		switch($page_action):
 			case 'apply':
 				$retval = 0;
-				$retval |= \updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
-				\config_lock();
-				$retval |= \rc_update_service('tftpd');
-				\config_unlock();
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_update_service('tftpd');
+				config_unlock();
 				$_SESSION['submit'] = $sphere->get_script()->get_basename();
 				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-				\header($sphere->get_script()->get_location());
+				header($sphere->get_script()->get_location());
 				exit;
 				break;
 /*
@@ -103,12 +103,12 @@ switch($page_method):
 				$name = $cop->get_enable()->get_name();
 				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] && !$pending_changes):
-					\config_lock();
-					$retval |= \rc_update_service('tftpd',true);
-					\config_unlock();
+					config_lock();
+					$retval |= rc_update_service('tftpd',true);
+					config_unlock();
 					$_SESSION['submit'] = $sphere->get_script()->get_basename();
 					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					\header($sphere->get_script()->get_location());
+					header($sphere->get_script()->get_location());
 				else:
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
@@ -121,12 +121,12 @@ switch($page_method):
 				$name = $cop->get_enable()->get_name();
 				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] && !$pending_changes):
-					\config_lock();
-					$retval |= \rc_update_service('tftpd');
-					\config_unlock();
+					config_lock();
+					$retval |= rc_update_service('tftpd');
+					config_unlock();
 					$_SESSION['submit'] = $sphere->get_script()->get_basename();
 					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					\header($sphere->get_script()->get_location());
+					header($sphere->get_script()->get_location());
 					exit;
 				else:
 					$page_action = 'view';
@@ -139,18 +139,19 @@ switch($page_method):
 				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
-					\write_config();
-					\config_lock();
-					$retval |= \rc_update_service('tftpd');
-					\config_unlock();
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('tftpd');
+					config_unlock();
 					$_SESSION['submit'] = $sphere->get_script()->get_basename();
 					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					\header($sphere->get_script()->get_location());
+					header($sphere->get_script()->get_location());
 					exit;
 				else:
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
 				endif;
+				break;
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
@@ -160,13 +161,13 @@ switch($page_method):
 					$page_mode = PAGE_MODE_VIEW;
 				else:
 					$sphere->grid[$name] = true;
-					\write_config();
-					\config_lock();
-					$retval |= \rc_update_service('tftpd');
-					\config_unlock();
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('tftpd');
+					config_unlock();
 					$_SESSION['submit'] = $sphere->get_script()->get_basename();
 					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					\header($sphere->get_script()->get_location());
+					header($sphere->get_script()->get_location());
 					exit;
 				endif;
 				break;
@@ -182,14 +183,14 @@ switch($page_action):
 			$name = $referer->get_name();
 			switch($name):
 				case 'auxparam':
-					if(\array_key_exists($name,$source) && \is_array($source[$name])):
-						$source[$name] = \implode("\n",$source[$name]);
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
 			$sphere->row[$name] = $referer->validate_array_element($source);
-			if(\is_null($sphere->row[$name])):
-				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -202,9 +203,9 @@ switch($page_action):
 		foreach($a_referer as $referer):
 			$name = $referer->get_name();
 			$sphere->row[$name] = $referer->validate_input();
-			if(\is_null($sphere->row[$name])):
+			if(is_null($sphere->row[$name])):
 				$input_errors[] = $referer->get_message_error();
-				if(\array_key_exists($name,$source) && \is_scalar($source[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
 					$sphere->row[$name] = $referer->get_defaultvalue();
@@ -217,17 +218,17 @@ switch($page_action):
 				switch($name):
 					case 'auxparam':
 						$auxparam_grid = [];
-						foreach(\explode("\n",$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = \trim($auxparam_row,"\t\n\r");
+						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
+							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
 						endforeach;
 						$sphere->row[$name] = $auxparam_grid;
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
 			endforeach;
-			\write_config();
-			\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
-			\header($sphere->get_script()->get_location());
+			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
 			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
@@ -235,13 +236,13 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = \calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === \rc_is_service_running('tftpd'));
-$is_running_message = $is_running ? \gettext('Yes') : \gettext('No');
-$input_errors_found = \count($input_errors) > 0;
-$pgtitle = [\gettext('Services'),\gettext('TFTP')];
-$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$is_running = (rc_is_service_running('tftpd') === 0);
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+$input_errors_found = count($input_errors) > 0;
+$pgtitle = [gettext('Services'),gettext('TFTP')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -261,7 +262,7 @@ endif;
 $tds = $content->add_table_data_settings();
 $tds->ins_colgroup_data_settings();
 $thead = $tds->addTHEAD();
-$title = \gettext('Trivial File Transfer Protocol');
+$title = gettext('Trivial File Transfer Protocol');
 switch($page_mode):
 	case PAGE_MODE_VIEW:
 		$thead->c2_titleline($title);
@@ -271,7 +272,7 @@ switch($page_mode):
 		break;
 endswitch;
 $tds->addTBODY()->
-	c2_textinfo('running',\gettext('Service Active'),$is_running_message)->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
 	c2_filechooser($cop->get_dir(),$sphere,true,$is_readonly)->
 	c2_checkbox($cop->get_allowfilecreation(),$sphere,false,$is_readonly)->
 	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
