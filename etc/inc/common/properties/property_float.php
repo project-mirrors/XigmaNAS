@@ -34,18 +34,24 @@
 
 namespace common\properties;
 
-use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_FLOAT;
+use const FILTER_VALIDATE_FLOAT;
 
 /**
- *	Hex property
+ *	Float property
  */
-class property_hex extends abstract_property_numeric {
+class property_float extends abstract_property_numeric {
+	public function set_min(float $min = null) {
+		$this->x_min = $min;
+		return $this;
+	}
+	public function set_max(float $max = null) {
+		$this->x_max = $max;
+		return $this;
+	}
 	public function filter_use_default() {
 		parent::filter_use_default();
 		$filter_name = 'ui';
-		$this->
-			set_filter(FILTER_VALIDATE_FLOAT,$filter_name)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name);
+		$this->set_filter(FILTER_VALIDATE_FLOAT,$filter_name);
 		return $this;
 	}
 }

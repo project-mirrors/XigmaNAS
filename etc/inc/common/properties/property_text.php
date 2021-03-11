@@ -72,13 +72,11 @@ class property_text extends property {
 	public function get_size() {
 		return $this->x_size;
 	}
-	public function filter_use_not_empty() {
-//		must contain at least one printable character
-		$filter_name = 'ui';
-		$this->
-			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => null,'regexp' => '/\S/'],$filter_name);
+	protected $x_filter_use_default_regexp = '/\S/';
+	public function filter_use_default_set_regexp(string $regexp) {
+//		if(preg_match($regexp,'') !== false):
+			$this->x_filter_use_default_regexp = $regexp;
+//		endif;
 		return $this;
 	}
 	public function filter_use_empty() {
@@ -97,7 +95,11 @@ class property_text extends property {
 		return $this;
 	}
 	public function filter_use_default() {
-		$this->filter_use_not_empty();
+		$filter_name = 'ui';
+		$this->
+			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
+			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
+			set_filter_options(['default' => null,'regexp' => $this->x_filter_use_default_regexp],$filter_name);
 		return $this;
 	}
 }

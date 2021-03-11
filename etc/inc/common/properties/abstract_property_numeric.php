@@ -34,40 +34,36 @@
 
 namespace common\properties;
 
+use const FILTER_REQUIRE_SCALAR;
+
 /**
  *	Numeric property
  */
 abstract class abstract_property_numeric extends property_text {
-	public $x_min = null;
-	public $x_max = null;
-
-	public function set_min(int $min = null) {
-		$this->x_min = $min;
-		return $this;
-	}
+	protected $x_min = null;
+	abstract public function set_min();
 	public function get_min() {
 		return $this->x_min;
 	}
-	public function set_max(int $max = null) {
-		$this->x_max = $max;
-		return $this;
-	}
+	protected $x_max = null;
+	abstract public function set_max();
 	public function get_max() {
 		return $this->x_max;
 	}
 	public function filter_use_default() {
 		$filter_name = 'ui';
-		$options = [];
-		$options['default'] = null;
+		$options = ['default' => null];
 		$min = $this->get_min();
-		if(isset($min)):
+		if(!is_null($min)):
 			$options['min_range'] = $min;
 		endif;
 		$max = $this->get_max();
-		if(isset($max)):
+		if(!is_null($max)):
 			$options['max_range'] = $max;
 		endif;
-		$this->set_filter_options($options,$filter_name);
+		$this->
+			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
+			set_filter_options($options,$filter_name);
 		return $this;
 	}
 }
