@@ -31,252 +31,345 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'services.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'bittorrent');
-$os_release = exec('uname -r | cut -d - -f1');
+use services\torrent\setting_toolbox as toolbox;
+use services\torrent\shared_toolbox;
 
-$pconfig['enable'] = isset($config['bittorrent']['enable']);
-$pconfig['port'] = $config['bittorrent']['port'];
-$pconfig['downloaddir'] = $config['bittorrent']['downloaddir'];
-$pconfig['configdir'] = $config['bittorrent']['configdir'];
-$pconfig['username'] = $config['bittorrent']['username'];
-$pconfig['password'] = $config['bittorrent']['password'];
-$pconfig['authrequired'] = isset($config['bittorrent']['authrequired']);
-$pconfig['peerport'] = $config['bittorrent']['peerport'];
-$pconfig['portforwarding'] = isset($config['bittorrent']['portforwarding']);
-$pconfig['uplimit'] = !empty($config['bittorrent']['uplimit']) ? $config['bittorrent']['uplimit'] : "";
-$pconfig['downlimit'] = !empty($config['bittorrent']['downlimit']) ? $config['bittorrent']['downlimit'] : "";
-$pconfig['pex'] = isset($config['bittorrent']['pex']);
-$pconfig['dht'] = isset($config['bittorrent']['dht']);
-$pconfig['preallocation'] = $config['bittorrent']['preallocation'];
-$pconfig['encryption'] = $config['bittorrent']['encryption'];
-$pconfig['watchdir'] = $config['bittorrent']['watchdir'];
-$pconfig['incompletedir'] = !empty($config['bittorrent']['incompletedir']) ? $config['bittorrent']['incompletedir'] : "";
-$pconfig['umask'] = $config['bittorrent']['umask'];
-$pconfig['extraoptions'] = $config['bittorrent']['extraoptions'];
-
-// Set default values.
-if (!$pconfig['port']) $pconfig['port'] = "9091";
-
-// Function to check directories (if exists & permisssions)
-function change_perms($dir) {
-	global $input_errors;
-
-	$path = rtrim($dir,'/'); // remove trailing slash
-	if (strlen($path) > 1) {
-		if (!is_dir($path)) { // check if directory exists
-			$input_errors[] = "Directory $path doesn't exist!";
-		} else {
-			$path_check = explode("/",$path); // split path to get directory names
-			$path_elements = count($path_check); // get path depth
-			$fp = substr(sprintf('%o',fileperms("/$path_check[1]/$path_check[2]")),-1); // get mountpoint permissions for others
-			if ($fp >= 5) { // transmission needs at least read & search permission at the mountpoint
-				$directory = "/$path_check[1]/$path_check[2]"; // set to the mountpoint
-				for ($i = 3; $i < $path_elements - 1; $i++) { // traverse the path and set permissions to rx
-					$directory = $directory."/$path_check[$i]"; // add next level
-					exec("chmod o=+r+x \"$directory\""); // set permissions to o=+r+x
-				}
-				$path_elements = $path_elements - 1;
-				$directory = $directory."/$path_check[$path_elements]"; // add last level
-				exec("chmod o=rwx \"$directory\""); // set permissions to o=rwx
-			} else {
-				$link = '<a href="'
-					. 'disks_mount.php'
-					. '">'
-					. gtext('Disks | Mount Point | Management')
-					. '</a>.';
-				$helpinghand = sprintf(gtext('BitTorrent needs at least read & execute permissions at the mount point for directory %s!'),$path)
-					. ' '
-					. sprintf(gtext('Set the Read and Execute bits permission for Others (Access Restrictions | Mode) for the mount point %s in %s and hit Save in order to take them effect.'), '/' . $path_check[1] . '/' . $path_check[2], $link);
-				$input_errors[] = $helpinghand;
-			}
-		}
-	}
-}
-
-if ($_POST) {
-	unset($input_errors);
-	$pconfig = $_POST;
-
-	// Input validation.
-	if (isset($_POST['enable']) && $_POST['enable']) {
-		$reqdfields = ['port','downloaddir','peerport'];
-		$reqdfieldsn = [gtext('Port'),gtext('Download Directory'),gtext('Peer Port')];
-		$reqdfieldst = ['port','string','port'];
-
-		if (!empty($_POST['authrequired'])) {
-			// !!! Note !!! It seems TransmissionBT does not support special characters,
-			// so use 'alias' instead of 'password' check.
-			$reqdfields = array_merge($reqdfields, ['username','password']);
-			$reqdfieldsn = array_merge($reqdfieldsn, [gtext('Username'),gtext('Password')]);
-			$reqdfieldst = array_merge($reqdfieldst, ['alias','alias']);
-		}
-
-		do_input_validation($_POST, $reqdfields, $reqdfieldsn, $input_errors);
-
-		// Add additional type checks
-		if (isset($_POST['umask'])) {
-			$reqdfields = array_merge($reqdfields, ['umask']);
-			$reqdfieldsn = array_merge($reqdfieldsn, [gtext('User Mask')]);
-			$reqdfieldst = array_merge($reqdfieldst, ['filemode']);
-		}
-
-		do_input_validation_type($_POST, $reqdfields, $reqdfieldsn, $reqdfieldst, $input_errors);
-
-		// Check if port is already used.
-		if (services_is_port_used($_POST['port'], "bittorrent")) {
-			$input_errors[] = sprintf(gtext("Port %ld is already used by another service."), $_POST['port']);
-		}
-
-		// Check port range.
-		if ($_POST['port'] && ((1024 > $_POST['port']) || (65535 < $_POST['port']))) {
-			$input_errors[] = sprintf(gtext("The attribute '%s' must be in the range from %d to %d."), gtext("Port"), 1024, 65535);
-		}
-	
-		// Check directories (if exist & permisssions)
-		if (!empty($_POST['incompletedir'])) change_perms($_POST['incompletedir']);
-		if (!empty($_POST['watchdir'])) change_perms($_POST['watchdir']);
-		if (!empty($_POST['downloaddir'])) change_perms($_POST['downloaddir']);
-		if (!empty($_POST['configdir'])) change_perms($_POST['configdir']);
-	}
-
-	if (empty($input_errors)) {
-		$config['bittorrent']['enable'] = isset($_POST['enable']) ? true : false;
-		$config['bittorrent']['port'] = $_POST['port'];
-		$config['bittorrent']['downloaddir'] = strlen($_POST['downloaddir']) > 1 ? rtrim($_POST['downloaddir'],'/') : $_POST['downloaddir'];
-		$config['bittorrent']['configdir'] = strlen($_POST['configdir']) > 1 ? rtrim($_POST['configdir'],'/') : $_POST['configdir'];
-		$config['bittorrent']['username'] = $_POST['username'];
-		$config['bittorrent']['password'] = $_POST['password'];
-		$config['bittorrent']['authrequired'] = isset($_POST['authrequired']) ? true : false;
-		$config['bittorrent']['peerport'] = $_POST['peerport'];
-		$config['bittorrent']['portforwarding'] = isset($_POST['portforwarding']) ? true : false;
-		$config['bittorrent']['uplimit'] = $_POST['uplimit'];
-		$config['bittorrent']['downlimit'] = $_POST['downlimit'];
-		$config['bittorrent']['pex'] = isset($_POST['pex']) ? true : false;
-		$config['bittorrent']['dht'] = isset($_POST['dht']) ? true : false;
-		$config['bittorrent']['preallocation'] = $_POST['preallocation'];
-		$config['bittorrent']['encryption'] = $_POST['encryption'];
-		$config['bittorrent']['watchdir'] = strlen($_POST['watchdir']) > 1 ? rtrim($_POST['watchdir'],'/') : $_POST['watchdir'];
-		$config['bittorrent']['incompletedir'] = strlen($_POST['incompletedir']) > 1 ? rtrim($_POST['incompletedir'],'/') : $_POST['incompletedir'];
-		$config['bittorrent']['umask'] = $_POST['umask'];
-		$config['bittorrent']['extraoptions'] = $_POST['extraoptions'];
-
-		write_config();
-
-		$retval = 0;
-		if (!file_exists($d_sysrebootreqd_path)) {
-			config_lock();
-			$retval |= rc_update_service("transmission");
-			$retval |= rc_update_service("mdnsresponder");
-			config_unlock();
-		}
-
-		$savemsg = get_std_save_message($retval);
-	}
-}
-$pgtitle = [gtext('Services'),gtext('BitTorrent')];
-?>
-<?php include 'fbegin.inc';?>
-<script type="text/javascript">
-<!--
-function enable_change(enable_change) {
-	var endis = !(document.iform.enable.checked || enable_change);
-	document.iform.port.disabled = endis;
-	document.iform.downloaddir.disabled = endis;
-	document.iform.downloaddirbrowsebtn.disabled = endis;
-	document.iform.configdir.disabled = endis;
-	document.iform.configdirbrowsebtn.disabled = endis;
-	document.iform.authrequired.disabled = endis;
-	document.iform.username.disabled = endis;
-	document.iform.password.disabled = endis;
-	document.iform.peerport.disabled = endis;
-	document.iform.portforwarding.disabled = endis;
-	document.iform.uplimit.disabled = endis;
-	document.iform.downlimit.disabled = endis;
-	document.iform.pex.disabled = endis;
-	document.iform.dht.disabled = endis;
-	document.iform.preallocation.disabled = endis;
-	document.iform.encryption.disabled = endis;
-	document.iform.watchdir.disabled = endis;
-	document.iform.watchdirbrowsebtn.disabled = endis;
-	document.iform.incompletedir.disabled = endis;
-	document.iform.incompletedirbrowsebtn.disabled = endis;
-	document.iform.umask.disabled = endis;
-	document.iform.extraoptions.disabled = endis;
-}
-
-function authrequired_change() {
-	switch (document.iform.authrequired.checked) {
-		case true:
-			showElementById('username_tr','show');
-			showElementById('password_tr','show');
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
+endif;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$a_referer = [
+	$cop->get_authrequired(),
+	$cop->get_configdir(),
+	$cop->get_dht(),
+	$cop->get_download(),
+	$cop->get_downloaddir(),
+	$cop->get_enable(),
+	$cop->get_encryption(),
+	$cop->get_extraoptions(),
+	$cop->get_incompletedir(),
+	$cop->get_lpd(),
+	$cop->get_messagelevel(),
+	$cop->get_password(),
+	$cop->get_peerport(),
+	$cop->get_pex(),
+	$cop->get_port(),
+	$cop->get_portforwarding(),
+	$cop->get_preallocation(),
+	$cop->get_rpchostwhitelistenabled(),
+	$cop->get_rpchostwhitelist(),
+	$cop->get_umask(),
+	$cop->get_upload(),
+	$cop->get_username(),
+	$cop->get_utp(),
+	$cop->get_watchdir()
+];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+[$page_method,$page_action,$page_mode] = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_update_service('transmission');
+				$retval |= rc_update_service('mdnsresponder');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+/*
+			case 'reload':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service_ex('transmission',true);
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+ */
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('transmission');
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					$retval |= rc_update_service('transmission');
+					$retval |= rc_update_service('mdnsresponder');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
+		break;
+endswitch;
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			switch($name):
+				case 'auxparam':
+					if(array_key_exists($name,$source)):
+						if(is_array($source[$name])):
+							$source[$name] = implode("\n",$source[$name]);
+						endif;
+					endif;
+					break;
+			endswitch;
+			$sphere->row[$name] = $referer->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		break;
+	case 'save':
+		$source = $_POST;
+		foreach($a_referer as $referer):
+			$name = $referer->get_name();
+			$sphere->row[$name] = $referer->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $referer->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $referer->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		if(empty($input_errors)):
+			foreach($a_referer as $referer):
+				$name = $referer->get_name();
+				switch($name):
+					case 'auxparam':
+						$auxparam_grid = [];
+						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
+							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
+						endforeach;
+						$sphere->row[$name] = $auxparam_grid;
+						break;
+				endswitch;
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
+			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
+			exit;
+		else:
+			$page_mode = PAGE_MODE_EDIT;
+		endif;
+		break;
+endswitch;
+//	determine final page mode and calculate readonly flag
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
+$is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = (rc_is_service_running('transmission') === 0);
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+//	create document
+$pgtitle = [gettext('Services'),gettext('BitTorrent'),gettext('Settings')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes):
+	$content->ins_config_has_changed_box();
+endif;
+//	add content section 1
+$tds1 = $content->add_table_data_settings();
+$tds1->ins_colgroup_data_settings();
+$thead1 = $tds1->addTHEAD();
+$tbody1 = $tds1->addTBODY();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$thead1->c2_titleline(gettext('BitTorrent Settings'));
+		break;
+	case PAGE_MODE_EDIT:
+		$thead1->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('BitTorrent Settings'));
+		break;
+endswitch;
+$tbody1->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message);
+$tbody1->
+	c2_input_text($cop->get_peerport(),$sphere,false,$is_readonly)->
+	c2_filechooser($cop->get_downloaddir(),$sphere,true,$is_readonly)->
+	c2_filechooser($cop->get_configdir(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_portforwarding(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_pex(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_dht(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_lpd(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_utp(),$sphere,false,$is_readonly)->
+	c2_radio_grid($cop->get_preallocation(),$sphere,false,$is_readonly)->
+	c2_radio_grid($cop->get_encryption(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_upload(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_download(),$sphere,false,$is_readonly)->
+	c2_filechooser($cop->get_watchdir(),$sphere,false,$is_readonly)->
+	c2_filechooser($cop->get_incompletedir(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_umask(),$sphere,false,$is_readonly)->
+	c2_radio_grid($cop->get_messagelevel(),$sphere,false,$is_readonly)->
+	c2_input_text($cop->get_extraoptions(),$sphere,false,$is_readonly);
+//	add content section 2
+$tds2 = $content->add_table_data_settings();
+$tds2->ins_colgroup_data_settings();
+$tds2->addTHEAD()->
+	c2_separator()->
+	c2_titleline(gettext('Transmission Web Interface'));
+$tbody2 = $tds2->addTBODY();
+$tbody2->
+	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
+	c2_checkbox($cop->get_authrequired(),$sphere,false,$is_readonly);
+$authrequired_hooks = $document->get_hooks();
+foreach($authrequired_hooks as $hook_key => $hook_obj):
+	$hook_obj->
+		addDIV(['class' => 'showifchecked'])->
+			ins_input($cop->get_username(),$sphere,false,$is_readonly)->
+			ins_description($cop->get_username());
+	$hook_obj->
+		addDIV(['class' => 'showifchecked'])->
+			ins_input($cop->get_password(),$sphere,false,$is_readonly,1)->
+			ins_description($cop->get_password());
+endforeach;
+$tbody2->
+	c2_radio_grid($cop->get_rpchostwhitelistenabled(),$sphere,false,$is_readonly);
+$rpchostwhitelistenabled_hooks = $document->get_hooks();
+foreach($rpchostwhitelistenabled_hooks as $hook_key => $hook_obj):
+	switch($hook_key):
+		case 'true':
+			$hook_obj->
+				addDIV(['class' => 'showifchecked'])->
+					ins_input($cop->get_rpchostwhitelist(),$sphere,false,$is_readonly)->
+					ins_description($cop->get_rpchostwhitelist());
 			break;
-
-		case false:
-			showElementById('username_tr','hide');
-			showElementById('password_tr','hide');
-			break;
-	}
-}
-//-->
-</script>
-<form action="services_bittorrent.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td class="tabcont">
-				<?php if (!empty($input_errors)) print_input_errors($input_errors);?>
-				<?php if (!empty($savemsg)) print_info_box($savemsg);?>
-				<table width="100%" border="0" cellpadding="6" cellspacing="0">
-					<?php
-					html_titleline_checkbox('enable',gtext('BitTorrent'),!empty($pconfig['enable']) ? true : false,gtext('Enable'),'enable_change(false)');
-					html_inputbox('peerport',gtext('Peer Port'),$pconfig['peerport'],sprintf(gtext("Port to listen for incoming peer connections. (Default is %d)."),51413),true,5);
-					html_filechooser("downloaddir",gtext("Download Directory"),$pconfig['downloaddir'],gtext("Where to save downloaded data."),$g['media_path'],true,60);
-					html_filechooser("configdir",gtext("Configuration Directory"),$pconfig['configdir'],gtext("Alternative configuration directory."),$g['media_path'],false,60);
-					html_checkbox("portforwarding",gtext("Port Forwarding"),!empty($pconfig['portforwarding']) ? true : false,gtext("Enable port forwarding via NAT-PMP or UPnP."),"",false);
-					html_checkbox("pex",gtext("Peer Exchange"),!empty($pconfig['pex']) ? true : false,gtext("Enable peer exchange (PEX)."),"",false);
-					html_checkbox("dht",gtext("Distributed Hash Table"),!empty($pconfig['dht']) ? true : false,gtext("Enable distributed hash table."),"",false);
-					html_combobox("preallocation",gtext("Preallocation"),$pconfig['preallocation'],['0' => gtext('Disabled'),'1' => gtext('Fast'),'2' => gtext('Full')],gtext("Select pre-allocation mode for files. (Default is Fast)."),false);
-					html_combobox("encryption",gtext("Encryption"),$pconfig['encryption'],['0' => gtext('Tolerated'),'1' => gtext('Preferred'),'2' => gtext('Required')],gtext("The peer connection encryption mode."),false);
-					html_inputbox("uplimit",gtext("Upload Bandwidth"),$pconfig['uplimit'],gtext("The maximum upload bandwith in KB/s. An empty field means infinity."),false,5);
-					html_inputbox("downlimit",gtext("Download Bandwidth"),$pconfig['downlimit'],gtext("The maximum download bandwith in KiB/s. An empty field means infinity."),false,5);
-					html_filechooser("watchdir",gtext("Watch Directory"),$pconfig['watchdir'],gtext("Directory to watch for new .torrent files."),$g['media_path'],false,60);
-					html_filechooser("incompletedir",gtext("Incomplete Directory"),$pconfig['incompletedir'],gtext("Directory for incomplete files. An empty field means disable."),$g['media_path'],false,60);
-					html_inputbox("umask",gtext("User Mask"),$pconfig['umask'],sprintf(gtext("Use this option to override the default permission modes for newly created files. (%s by default)."),"0002"),false,3);
-					$helpinghand = '<a href="'
-						. 'http://www.freebsd.org/cgi/man.cgi?query=transmission-remote&sektion=1&manpath=FreeBSD+Ports+' . $os_release . '-RELEASE&arch=default&format=html'
-						. '" target="_blank">'
-						. gtext('Please check the documentation')
-						. '</a>.';
-					html_inputbox("extraoptions",gtext("Extra Options"),$pconfig['extraoptions'],gtext("Extra options to pass over rpc using transmission-remote.") . " " . $helpinghand,false,40);
-					html_separator();
-					html_titleline(gtext("Administrative WebGUI"));
-					html_inputbox("port",gtext("Port"),$pconfig['port'],sprintf(gtext("Port to listen on. Default port is %d."),9091),true,5);
-					html_checkbox("authrequired",gtext("Authentication"),!empty($pconfig['authrequired']) ? true : false,gtext("Require authentication."),"",false,"authrequired_change()");
-					html_inputbox("username",gtext("Username"),$pconfig['username'],"",true,20);
-					html_passwordbox("password",gtext("Password"),$pconfig['password'],gtext("Password for the administrative pages."),true,20);
-					$if = get_ifname($config['interfaces']['lan']['if']);
-					$ipaddr = get_ipaddr($if);
-					$url = htmlspecialchars("http://{$ipaddr}:{$pconfig['port']}");
-					$text = "<a href='{$url}' target='_blank'>{$url}</a>";
-					html_text("url",gtext("URL"),$text);
-					?>
-				</table>
-				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save & Restart");?>" onclick="enable_change(true)" />
-				</div>
-			</td>
-		</tr>
-	</table>
-	<?php include 'formend.inc';?>
-</form>
-<script type="text/javascript">
-<!--
-enable_change(false);
-authrequired_change();
-//-->
-</script>
-<?php include 'fend.inc';?>
-
+	endswitch;
+endforeach;
+if($is_running):
+	$if = get_ifname($config['interfaces']['lan']['if']);
+	$ipaddr = get_ipaddr($if);
+	$value = $cop->get_port()->validate_config($sphere->grid);
+	if($value == ''):
+		$value = $cop->get_port()->get_defaultvalue();
+	endif;
+	if($value == ''):
+		$url = sprintf('http://%s',$ipaddr);
+	else:
+		$url = sprintf('http://%s:%s',$ipaddr,$value);
+	endif;
+	$text = sprintf('<a href="%1$s" target="_blank">%1$s</a>',$url);
+	$tbody2->c2_textinfo('url',gettext('URL'),$text);
+endif;
+//	add buttons
+$buttons = $document->add_area_buttons();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->ins_button_enadis(!$is_enabled);
+//			$buttons->ins_button_restart($is_enabled);
+//			$buttons->ins_button_reload($is_enabled);
+		endif;
+		break;
+	case PAGE_MODE_EDIT:
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
+		break;
+endswitch;
+/*
+//	additional javascript code
+$js_code = [];
+$js_code[PAGE_MODE_VIEW] = '';
+$js_code[PAGE_MODE_EDIT] = '';
+//	additional javascript code
+$js_on_load = [];
+$js_on_load[PAGE_MODE_EDIT] = '';
+$js_on_load[PAGE_MODE_VIEW] = '';
+//	additional javascript code
+$js_document_ready = [];
+$js_document_ready[PAGE_MODE_EDIT] = '';
+$js_document_ready[PAGE_MODE_VIEW] = '';
+//	add additional javascript code
+$body->ins_javascript($js_code[$page_mode]);
+$body->add_js_on_load($js_on_load[$page_mode]);
+$body->add_js_document_ready($js_document_ready[$page_mode]);
+ */
+//	showtime
+$document->render();
