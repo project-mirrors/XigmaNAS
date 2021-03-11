@@ -34,18 +34,24 @@
 
 namespace common\properties;
 
-use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_INT;
+use const FILTER_VALIDATE_INT;
 
 /**
  *	Int property
  */
 class property_int extends abstract_property_numeric {
+	public function set_min(int $min = null) {
+		$this->x_min = $min;
+		return $this;
+	}
+	public function set_max(int $max = null) {
+		$this->x_max = $max;
+		return $this;
+	}
 	public function filter_use_default() {
 		parent::filter_use_default();
 		$filter_name = 'ui';
-		$this->
-			set_filter(FILTER_VALIDATE_INT,$filter_name)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name);
+		$this->set_filter(FILTER_VALIDATE_INT,$filter_name);
 		return $this;
 	}
 }

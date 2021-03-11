@@ -34,18 +34,13 @@
 
 namespace common\properties;
 
-use const FILTER_FLAG_ALLOW_HEX,FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_INT;
-
 /**
  *	Hex property
  */
-class property_hex extends abstract_property_numeric {
-	public function filter_use_default() {
-		parent::filter_use_default();
-		$filter_name = 'ui';
-		$this->
-			set_filter(FILTER_VALIDATE_INT,$filter_name)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR | FILTER_FLAG_ALLOW_HEX,$filter_name);
+final class property_hex extends property_text {
+	public function __construct($owner = null) {
+		parent::__construct($owner);
+		$this->filter_use_default_set_regexp('/^(?:0x)?[[:xdigit:]]+$/');
 		return $this;
 	}
 }
