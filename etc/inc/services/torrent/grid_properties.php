@@ -157,7 +157,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_utp;
 	public function init_utp(): myp\property_bool {
-		$title = gettext('uTP');
+		$title = gettext('µTP');
 		$property = $this->x_utp = new myp\property_bool($this);
 		$property->
 			set_name('utp')->
