@@ -157,7 +157,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_utp;
 	public function init_utp(): myp\property_bool {
-		$title = gettext('µTP');
+		$title = gettext('uTP');
 		$property = $this->x_utp = new myp\property_bool($this);
 		$property->
 			set_name('utp')->
@@ -323,4 +323,363 @@ class grid_properties extends myp\container {
 	final public function get_rpchostwhitelist(): myp\property_text {
 		return $this->x_rpchostwhitelist ?? $this->init_rpchostwhitelist();
 	}
+/*	json "alt-speed-down": <integer>
+	protected $x_altspeeddown;
+	public function init_altspeeddown(): myp\property_int {
+		$title = gettext('Alternative Download Speed');
+		$property = $this->x_altspeeddown = new myp\property_int($this);
+		$property->
+			set_name('altspeeddown')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeeddown(): myp\property_int {
+		return $this->x_altspeeddown ?? $this->init_altspeeddown();
+	}
+ */
+/*	json "alt-speed-enabled": <boolean>
+	protected $x_altspeedenabled;
+	public function init_altspeedenabled(): myp\property_bool {
+		$title = gettext('Alternative Speed');
+		$property = $this->x_altspeedenabled = new myp\property_bool($this);
+		$property->
+			set_name('altspeedenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeedenabled(): myp\property_bool {
+		return $this->x_altspeedenabled ?? $this->init_altspeedenabled();
+	}
+ */
+/*	json "alt-speed-time-begin": <integer>
+	protected $x_altspeedtimebegin;
+	public function init_altspeedtimebegin(): myp\property_int {
+		$title = gettext('Alternative Speed Start Time');
+		$property = $this->x_altspeedtimebegin = new myp\property_int($this);
+		$property->
+			set_name('altspeedtimebegin')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeedtimebegin(): myp\property_int {
+		return $this->x_altspeedtimebegin ?? $this->init_altspeedtimebegin();
+	}
+ */
+/*	json "alt-speed-time-day": <integer>
+	protected $x_altspeedtimeday;
+	public function init_altspeedtimeday(): myp\property_int {
+		$title = gettext('Alternative Speed Days');
+		$property = $this->x_altspeedtimeday = new myp\property_int($this);
+		$property->
+			set_name('altspeedtimeday')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeedtimeday(): myp\property_int {
+		return $this->x_altspeedtimeday ?? $this->init_altspeedtimeday();
+	}
+ */
+/*	json "alt-speed-time-enabled": <boolean>
+	protected $x_altspeedtimeenabled;
+	public function init_altspeedtimeenabled(): myp\property_bool {
+		$title = gettext('Alternative Speed Schedule');
+		$property = $this->x_altspeedtimeenabled = new myp\property_bool($this);
+		$property->
+			set_name('altspeedtimeenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeedtimeenabled(): myp\property_bool {
+		return $this->x_altspeedtimeenabled ?? $this->init_altspeedtimeenabled();
+	}
+ */
+/*	json "alt-speed-time-end": <integer>
+	protected $x_altspeedtimeend;
+	public function init_altspeedtimeend(): myp\property_int {
+		$title = gettext('Alternative Speed End Time');
+		$property = $this->x_altspeedtimeend = new myp\property_int($this);
+		$property->
+			set_name('altspeedtimeend')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeedtimeend(): myp\property_int {
+		return $this->x_altspeedtimeend ?? $this->init_altspeedtimeend();
+	}
+ */
+/*	json "alt-speed-up": <integer>
+	protected $x_altspeedup;
+	public function init_altspeedup(): myp\property_int {
+		$title = gettext('Alternative Upload Speed');
+		$property = $this->x_altspeedup = new myp\property_int($this);
+		$property->
+			set_name('altspeedup')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_altspeedup(): myp\property_int {
+		return $this->x_altspeedup ?? $this->init_altspeedup();
+	}
+ */
+/*	json "bind-address-ipv4": <string> */
+/*	json "bind-address-ipv6": <string> */
+/*	json "blocklist-enabled": <boolean>
+	protected $x_blocklistenabled;
+	public function init_blocklistenabled(): myp\property_bool {
+		$title = gettext('Enable Blocklist');
+		$property = $this->x_blocklistenabled = new myp\property_bool($this);
+		$property->
+			set_name('blocklistenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_blocklistenabled(): myp\property_bool {
+		return $this->x_blocklistenabled ?? $this->init_blocklistenabled();
+	}
+ */
+/*	json "blocklist-url": <string> */
+/*	json "cache-size-mb": <integer> */
+/*	json "download-queue-enabled": <boolean>
+	protected $x_downloadqueueenabled;
+	public function init_downloadqueueenabled(): myp\property_bool {
+		$title = gettext('Download Queue');
+		$property = $this->x_downloadqueueenabled = new myp\property_bool($this);
+		$property->
+			set_name('downloadqueueenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_downloadqueueenabled(): myp\property_bool {
+		return $this->x_downloadqueueenabled ?? $this->init_downloadqueueenabled();
+	}
+ */
+/*	json "download-queue-size": <integer> */
+/*	json "idle-seeding-limit": <integer> */
+/*	json "idle-seeding-limit-enabled": <boolean>
+	protected $x_idleseedinglimitenabled;
+	public function init_idleseedinglimitenabled(): myp\property_bool {
+		$title = gettext('Enable Idle Seeding Limit');
+		$property = $this->x_idleseedinglimitenabled = new myp\property_bool($this);
+		$property->
+			set_name('idleseedinglimitenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_idleseedinglimitenabled(): myp\property_bool {
+		return $this->x_idleseedinglimitenabled ?? $this->init_idleseedinglimitenabled();
+	}
+ */
+/*	json "incomplete-dir-enabled": <boolean>
+	protected $x_incompletedirenabled;
+	public function init_incompletedirenabled(): myp\property_bool {
+		$title = gettext('Enable Incomplete Folder');
+		$property = $this->x_incompletedirenabled = new myp\property_bool($this);
+		$property->
+			set_name('incompletedirenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_incompletedirenabled(): myp\property_bool {
+		return $this->x_incompletedirenabled ?? $this->init_incompletedirenabled();
+	}
+ */
+/*	json "peer-congestion-algorithm": <string> */
+/*	json "peer-id-ttl-hours": <integer> */
+/*	json "peer-limit-global": <integer> */
+/*	json "peer-limit-per-torrent": <integer> */
+/*	json "peer-port-random-high": <integer> */
+/*	json "peer-port-random-low": <integer> */
+/*	json "peer-port-random-on-start": <boolean>
+	protected $x_peerportrandomonstart;
+	public function init_peerportrandomonstart(): myp\property_bool {
+		$title = gettext('Random Peer Port');
+		$property = $this->x_peerportrandomonstart = new myp\property_bool($this);
+		$property->
+			set_name('peerportrandomonstart')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_peerportrandomonstart(): myp\property_bool {
+		return $this->x_peerportrandomonstart ?? $this->init_peerportrandomonstart();
+	}
+ */
+/*	json "peer-socket-tos": <string> */
+/*	json "prefetch-enabled": <boolean>
+	protected $x_prefetchenabled;
+	public function init_prefetchenabled(): myp\property_bool {
+		$title = gettext('Prefetch');
+		$property = $this->x_prefetchenabled = new myp\property_bool($this);
+		$property->
+			set_name('prefetchenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_prefetchenabled(): myp\property_bool {
+		return $this->x_prefetchenabled ?? $this->init_prefetchenabled();
+	}
+ */
+/*	json "queue-stalled-enabled": <boolean>
+	protected $x_queuestalledenabled;
+	public function init_queuestalledenabled(): myp\property_bool {
+		$title = gettext('Queue Stall');
+		$property = $this->x_queuestalledenabled = new myp\property_bool($this);
+		$property->
+			set_name('queuestalledenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_queuestalledenabled(): myp\property_bool {
+		return $this->x_queuestalledenabled ?? $this->init_queuestalledenabled();
+	}
+ */
+/*	json "queue-stalled-minutes": <integer> */
+/*	json "ratio-limit": <float> */
+/*	json "ratio-limit-enabled": <boolean>
+	protected $x_ratiolimitenabled;
+	public function init_ratiolimitenabled(): myp\property_bool {
+		$title = gettext('Ratio Limit');
+		$property = $this->x_ratiolimitenabled = new myp\property_bool($this);
+		$property->
+			set_name('ratiolimitenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_ratiolimitenabled(): myp\property_bool {
+		return $this->x_ratiolimitenabled ?? $this->init_ratiolimitenabled();
+	}
+ */
+/*	json "rename-partial-files": <boolean>
+	protected $x_renamepartialfiles;
+	public function init_renamepartialfiles(): myp\property_bool {
+		$title = gettext('Rename Partial Files');
+		$property = $this->x_renamepartialfiles = new myp\property_bool($this);
+		$property->
+			set_name('renamepartialfiles')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_renamepartialfiles(): myp\property_bool {
+		return $this->x_renamepartialfiles ?? $this->init_renamepartialfiles();
+	}
+ */
+/*	json "rpc-bind-address": <string> */
+/*	json "rpc-enabled": <boolean>
+	protected $x_rpcenabled;
+	public function init_rpcenabled(): myp\property_bool {
+		$title = gettext('Enable RPC');
+		$property = $this->x_rpcenabled = new myp\property_bool($this);
+		$property->
+			set_name('rpcenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_rpcenabled(): myp\property_bool {
+		return $this->x_rpcenabled ?? $this->init_rpcenabled();
+	}
+ */
+/*	json "rpc-url": <string> */
+/*	json "rpc-whitelist": <string> */
+/*	json "rpc-whitelist-enabled": <boolean>
+	protected $x_rpcwhitelistenabled;
+	public function init_rpcwhitelistenabled(): myp\property_bool {
+		$title = gettext('Enable RPC Whitelist');
+		$property = $this->x_rpcwhitelistenabled = new myp\property_bool($this);
+		$property->
+			set_name('rpcwhitelistenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_rpcwhitelistenabled(): myp\property_bool {
+		return $this->x_rpcwhitelistenabled ?? $this->init_rpcwhitelistenabled();
+	}
+ */
+/*	json "scrape-paused-torrents-enabled": <boolean>
+	protected $x_scrapepausedtorrentsenabled;
+	public function init_scrapepausedtorrentsenabled(): myp\property_bool {
+		$title = gettext('Scrape Paused Torrents');
+		$property = $this->x_scrapepausedtorrentsenabled = new myp\property_bool($this);
+		$property->
+			set_name('scrapepausedtorrentsenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_scrapepausedtorrentsenabled(): myp\property_bool {
+		return $this->x_scrapepausedtorrentsenabled ?? $this->init_scrapepausedtorrentsenabled();
+	}
+ */
+/*	json "script-torrent-done-enabled": <boolean>
+	protected $x_scripttorrentdoneenabled;
+	public function init_scripttorrentdoneenabled(): myp\property_bool {
+		$title = gettext('Script After Completion');
+		$property = $this->x_scripttorrentdoneenabled = new myp\property_bool($this);
+		$property->
+			set_name('scripttorrentdoneenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_scripttorrentdoneenabled(): myp\property_bool {
+		return $this->x_scripttorrentdoneenabled ?? $this->init_scripttorrentdoneenabled();
+	}
+ */
+/*	json "script-torrent-done-filename": <string> */
+/*	json "seed-queue-enabled": <boolean> */
+/*	json "seed-queue-size": <integer> */
+/*	json "speed-limit-down-enabled": <boolean>
+	protected $x_speedlimitdownenabled;
+	public function init_speedlimitdownenabled(): myp\property_bool {
+		$title = gettext('Limit Download Speed');
+		$property = $this->x_speedlimitdownenabled = new myp\property_bool($this);
+		$property->
+			set_name('speedlimitdownenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_speedlimitdownenabled(): myp\property_bool {
+		return $this->x_speedlimitdownenabled ?? $this->init_speedlimitdownenabled();
+	}
+ */
+/*	json "speed-limit-up-enabled": <boolean>
+	protected $x_speedlimitupenabled;
+	public function init_speedlimitupenabled(): myp\property_bool {
+		$title = gettext('Limit Upload Speed');
+		$property = $this->x_speedlimitupenabled = new myp\property_bool($this);
+		$property->
+			set_name('speedlimitupenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_speedlimitupenabled(): myp\property_bool {
+		return $this->x_speedlimitupenabled ?? $this->init_speedlimitupenabled();
+	}
+ */
+/*	json "start-added-torrents": <boolean>
+	protected $x_startaddedtorrents;
+	public function init_startaddedtorrents(): myp\property_bool {
+		$title = gettext('Start Added Torrents');
+		$property = $this->x_startaddedtorrents = new myp\property_bool($this);
+		$property->
+			set_name('startaddedtorrents')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_startaddedtorrents(): myp\property_bool {
+		return $this->x_startaddedtorrents ?? $this->init_startaddedtorrents();
+	}
+ */
+/*	json "trash-original-torrent-files": <boolean> */
+/*	json "upload-slots-per-torrent": <integer> */
+/*	json "watch-dir-enabled": <boolean>
+	protected $x_watchdirenabled;
+	public function init_watchdirenabled(): myp\property_bool {
+		$title = gettext('Enable Watch Folder');
+		$property = $this->x_watchdirenabled = new myp\property_bool($this);
+		$property->
+			set_name('watchdirenabled')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_watchdirenabled(): myp\property_bool {
+		return $this->x_watchdirenabled ?? $this->init_watchdirenabled();
+	}
+ */
 }
