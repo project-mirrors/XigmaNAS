@@ -196,7 +196,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_download(): myp\property_int {
-		$description = gettext('The maximum upload bandwith in KB/s. Leave this field empty to allow unlimited download bandwidth.');
+		$description = gettext('The maximum download bandwith in KB/s. Leave this field empty to allow unlimited download bandwidth.');
 		$placeholder = gettext('KB/s');
 		$placeholderv = gettext('Unlimited');
 		$property = parent::init_download();
