@@ -41,7 +41,9 @@ use function exec,gettext,sprintf;
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
-		$property->set_defaultvalue(false);
+		$property->
+			set_input_type('titleline-checkbox')->
+			set_defaultvalue(false);
 		return $property;
 	}
 	public function init_peerport(): myp\property_int {
@@ -69,6 +71,7 @@ final class setting_properties extends grid_properties {
 		$placeholder = $defaultvalue;
 		$property = parent::init_configdir();
 		$property->
+			set_input_type('filechooser')->
 			set_id('configdir')->
 			set_description($description)->
 			set_placeholder($placeholder)->
@@ -86,6 +89,7 @@ final class setting_properties extends grid_properties {
 		$placeholder = $defaultvalue;
 		$property = parent::init_incompletedir();
 		$property->
+			set_input_type('filechooser')->
 			set_id('incompletedir')->
 			set_description($description)->
 			set_placeholder($placeholder)->
@@ -103,6 +107,7 @@ final class setting_properties extends grid_properties {
 		$placeholder = $defaultvalue;
 		$property = parent::init_downloaddir();
 		$property->
+			set_input_type('filechooser')->
 			set_id('downloaddir')->
 			set_description($description)->
 			set_placeholder($placeholder)->
@@ -120,6 +125,7 @@ final class setting_properties extends grid_properties {
 		$placeholder = $defaultvalue;
 		$property = parent::init_watchdir();
 		$property->
+			set_input_type('filechooser')->
 			set_id('watchdir')->
 			set_description($description)->
 			set_placeholder($placeholder)->
@@ -133,6 +139,7 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Enable port forwarding via NAT-PMP or UPnP.');
 		$property = parent::init_portforwarding();
 		$property->
+			set_input_type('checkbox')->
 			set_id('portforwarding')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
@@ -143,6 +150,7 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Enable peer exchange (PEX).');
 		$property = parent::init_pex();
 		$property->
+			set_input_type('checkbox')->
 			set_id('pex')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
@@ -153,6 +161,7 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Enable distributed hash table.');
 		$property = parent::init_dht();
 		$property->
+			set_input_type('checkbox')->
 			set_id('dht')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
@@ -163,6 +172,7 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Enable local peer discovery.');
 		$property = parent::init_lpd();
 		$property->
+			set_input_type('checkbox')->
 			set_id('lpd')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
@@ -173,6 +183,7 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Enable uTP for peer connections.');
 		$property = parent::init_utp();
 		$property->
+			set_input_type('checkbox')->
 			set_id('utp')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
@@ -235,6 +246,7 @@ final class setting_properties extends grid_properties {
 		$description = sprintf(gettext('Select preallocation mode for files. The default preallocation mode is "%s".'),$options[$defaultvalue]);
 		$property = parent::init_preallocation();
 		$property->
+			set_input_type('radio-grid')->
 			set_id('preallocation')->
 			set_description($description)->
 			set_options($options)->
@@ -252,6 +264,7 @@ final class setting_properties extends grid_properties {
 		$description = sprintf(gettext('The peer connection encryption mode. The default encryption mode is "%s"'),$options[$defaultvalue]);
 		$property = parent::init_encryption();
 		$property->
+			set_input_type('radio-grid')->
 			set_id('encryption')->
 			set_description($description)->
 			set_options($options)->
@@ -270,6 +283,7 @@ final class setting_properties extends grid_properties {
 		$description = sprintf(gettext('Set verbosity of transmission messages. The default message level is "%s"'),$options[$defaultvalue]);
 		$property = parent::init_messagelevel();
 		$property->
+			set_input_type('radio-grid')->
 			set_id('messagelevel')->
 			set_description($description)->
 			set_options($options)->
@@ -327,6 +341,7 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Require authentication.');
 		$property = parent::init_authrequired();
 		$property->
+			set_input_type('checkbox')->
 			set_id('authrequired')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
@@ -354,6 +369,7 @@ final class setting_properties extends grid_properties {
 		$placeholder = gettext('Password');
 		$property = parent::init_password();
 		$property->
+			set_input_type('password')->
 			set_id('password')->
 			set_description($description)->
 			set_placeholder($placeholder)->
@@ -372,6 +388,7 @@ final class setting_properties extends grid_properties {
 		$defaultvalue = 'true';
 		$property = parent::init_rpchostwhitelistenabled();
 		$property->
+			set_input_type('radio-grid')->
 			set_id('rpcwhitelistenabled')->
 			set_defaultvalue($defaultvalue)->
 			set_options($options)->
