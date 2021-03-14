@@ -34,16 +34,16 @@
 
 namespace common\properties;
 
-use function array_key_exists,count,end,filter_input,filter_var,gettext,get_class,is_array,is_null,
-		is_object,is_scalar,is_string,key,sprintf,strpos;
-
 use const INPUT_POST;
+
+use function array_key_exists,count,end,filter_input,filter_var,get_class,gettext,is_array,is_null,is_object,is_scalar,is_string,key,sprintf,strpos;
 
 /**
  *	Adds additional characteristics to a variable
  */
 abstract class property {
 	protected $x_owner = null;
+	protected string $x_input_type = 'text';
 	protected $x_id = null;
 	protected $x_name = null;
 	protected $x_title = null;
@@ -71,6 +71,13 @@ abstract class property {
 	}
 	public function get_owner() {
 		return $this->x_owner;
+	}
+	public function set_input_type(string $input_type) {
+		$this->x_input_type = $input_type;
+		return $this;
+	}
+	public function get_input_type() {
+		return $this->x_input_type;
 	}
 	public function set_id(string $id = null) {
 		$this->x_id = $id;
