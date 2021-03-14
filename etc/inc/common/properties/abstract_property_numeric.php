@@ -36,6 +36,8 @@ namespace common\properties;
 
 use const FILTER_REQUIRE_SCALAR;
 
+use function is_null;
+
 /**
  *	Numeric property
  */
