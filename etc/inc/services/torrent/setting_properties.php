@@ -170,7 +170,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_utp(): myp\property_bool {
-		$caption = gettext('Enable µTP for peer connections.');
+		$caption = gettext('Enable uTP for peer connections.');
 		$property = parent::init_utp();
 		$property->
 			set_id('utp')->
