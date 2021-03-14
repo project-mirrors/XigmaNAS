@@ -263,29 +263,29 @@ switch($page_mode):
 		$thead1->c2_titleline(gettext('BitTorrent Settings'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead1->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('BitTorrent Settings'));
+		$thead1->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('BitTorrent Settings'));
 		break;
 endswitch;
 $tbody1->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message);
 $tbody1->
-	c2_input_text($cop->get_peerport(),$sphere,false,$is_readonly)->
-	c2_filechooser($cop->get_downloaddir(),$sphere,true,$is_readonly)->
-	c2_filechooser($cop->get_configdir(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_portforwarding(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_pex(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_dht(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_lpd(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_utp(),$sphere,false,$is_readonly)->
-	c2_radio_grid($cop->get_preallocation(),$sphere,false,$is_readonly)->
-	c2_radio_grid($cop->get_encryption(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_upload(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_download(),$sphere,false,$is_readonly)->
-	c2_filechooser($cop->get_watchdir(),$sphere,false,$is_readonly)->
-	c2_filechooser($cop->get_incompletedir(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_umask(),$sphere,false,$is_readonly)->
-	c2_radio_grid($cop->get_messagelevel(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_extraoptions(),$sphere,false,$is_readonly);
+	c2($cop->get_peerport(),$sphere,false,$is_readonly)->
+	c2($cop->get_downloaddir(),$sphere,true,$is_readonly)->
+	c2($cop->get_configdir(),$sphere,false,$is_readonly)->
+	c2($cop->get_portforwarding(),$sphere,false,$is_readonly)->
+	c2($cop->get_pex(),$sphere,false,$is_readonly)->
+	c2($cop->get_dht(),$sphere,false,$is_readonly)->
+	c2($cop->get_lpd(),$sphere,false,$is_readonly)->
+	c2($cop->get_utp(),$sphere,false,$is_readonly)->
+	c2($cop->get_preallocation(),$sphere,false,$is_readonly)->
+	c2($cop->get_encryption(),$sphere,false,$is_readonly)->
+	c2($cop->get_upload(),$sphere,false,$is_readonly)->
+	c2($cop->get_download(),$sphere,false,$is_readonly)->
+	c2($cop->get_watchdir(),$sphere,false,$is_readonly)->
+	c2($cop->get_incompletedir(),$sphere,false,$is_readonly)->
+	c2($cop->get_umask(),$sphere,false,$is_readonly)->
+	c2($cop->get_messagelevel(),$sphere,false,$is_readonly)->
+	c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add content section 2
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
@@ -294,29 +294,20 @@ $tds2->addTHEAD()->
 	c2_titleline(gettext('Transmission Web Interface'));
 $tbody2 = $tds2->addTBODY();
 $tbody2->
-	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_authrequired(),$sphere,false,$is_readonly);
+	c2($cop->get_port(),$sphere,false,$is_readonly)->
+	c2($cop->get_authrequired(),$sphere,false,$is_readonly);
 $authrequired_hooks = $document->get_hooks();
 foreach($authrequired_hooks as $hook_key => $hook_obj):
-	$hook_obj->
-		addDIV(['class' => 'showifchecked'])->
-			ins_input($cop->get_username(),$sphere,false,$is_readonly)->
-			ins_description($cop->get_username());
-	$hook_obj->
-		addDIV(['class' => 'showifchecked'])->
-			ins_input($cop->get_password(),$sphere,false,$is_readonly,1)->
-			ins_description($cop->get_password());
+	$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_username(),$sphere,false,$is_readonly);
+	$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_password(),$sphere,false,$is_readonly);
 endforeach;
 $tbody2->
-	c2_radio_grid($cop->get_rpchostwhitelistenabled(),$sphere,false,$is_readonly);
+	c2($cop->get_rpchostwhitelistenabled(),$sphere,false,$is_readonly);
 $rpchostwhitelistenabled_hooks = $document->get_hooks();
 foreach($rpchostwhitelistenabled_hooks as $hook_key => $hook_obj):
 	switch($hook_key):
 		case 'true':
-			$hook_obj->
-				addDIV(['class' => 'showifchecked'])->
-					ins_input($cop->get_rpchostwhitelist(),$sphere,false,$is_readonly)->
-					ins_description($cop->get_rpchostwhitelist());
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_rpchostwhitelist(),$sphere,false,$is_readonly);
 			break;
 	endswitch;
 endforeach;
