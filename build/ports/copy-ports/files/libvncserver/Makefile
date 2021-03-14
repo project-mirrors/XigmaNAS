@@ -1,13 +1,14 @@
-# Created by: ijliao
-# $FreeBSD: head/net/libvncserver/Makefile 556980 2020-12-04 12:50:50Z dinoex $
-
 PORTNAME=	libvncserver
 PORTVERSION=	0.9.13
 DISTVERSIONPREFIX=	LibVNCServer-
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	net devel
 
-MAINTAINER=	ports@FreeBSD.org
+PATCH_SITES=	https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/commit/
+PATCHFILES+=	132c1389390c.patch:-p1 # https://github.com/LibVNC/libvncserver/pull/453
+PATCHFILES+=	0becaf749e83.patch:-p1 # https://github.com/LibVNC/libvncserver/pull/453
+
+MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Provide an easy API to a custom vnc server
 
 LICENSE=	GPLv2
