@@ -142,7 +142,6 @@ Changes:
 - Upgrade nut to 2021.01.28.
 - Upgrade jQuery to 3.6.0.
 - Upgrade nano to 5.6.1.
-- Upgrade e2fsprogs to 1.46.1.
 - Upgrade syncthing to 1.14.0.
 - Upgrade php to 7.4.16.
 - Upgrade samba to 4.13.4.
@@ -150,6 +149,7 @@ Changes:
 - Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
 - Upgrade sudo to 1.9.6.
+- Upgrade e2fsprogs to 1.46.2.
 
 Fixes:
 - Fix only first lagg member is brought up.
