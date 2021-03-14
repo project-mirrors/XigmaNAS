@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-03-14 11:37+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10534,13 +10534,13 @@ msgstr ""
 msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr ""
 
+msgid "The maximum download bandwith in KB/s. Leave this field empty to allow unlimited download bandwidth."
+msgstr ""
+
 msgid "The maximum idle time must be a number."
 msgstr ""
 
 msgid "The maximum port to allocate for PASV style data connections (0 = use any port)."
-msgstr ""
-
-msgid "The maximum upload bandwith in KB/s. Leave this field empty to allow unlimited download bandwidth."
 msgstr ""
 
 msgid "The maximum upload bandwith in KB/s. Leave this field empty to allow unlimited upload bandwidth."
