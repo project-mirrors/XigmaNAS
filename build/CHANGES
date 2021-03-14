@@ -4,7 +4,6 @@ Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P4.
 - Upgrade bash to 5.1 p4.
 - Upgrade arcconf to 3_04_23699.
-- Upgrade msmtp to 1.8.14.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade proftpd to 1.3.7a.
@@ -22,6 +21,7 @@ Changes:
 - Upgrade samba to 4.13.4.
 - Upgrade devcpu-data to 1.38.
 - Upgrade mDNSResponder to 1310.80.1.
+- Upgrade msmtp to 1.8.15.
 
 Fixes:
 - Fix only first lagg member is brought up.
