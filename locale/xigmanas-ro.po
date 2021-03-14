@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1028,9 +1028,6 @@ msgstr "Flux de date alternativ"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Port TCP alternativ (Implicit 873)."
 
-msgid "Alternative configuration directory."
-msgstr "Director configurație alternativă."
-
 msgid "Always"
 msgstr "Întodeauna"
 
@@ -1557,13 +1554,8 @@ msgstr "Parolă legare"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
-"BitTorrent are nevoie cel puțin de permisiuni de citire & execuție în "
-"punctul de montare pentru directorul %s!"
 
 msgid "Blank Time"
 msgstr "Blank Time"
@@ -2091,8 +2083,8 @@ msgstr "Compresie"
 msgid "Configuration"
 msgstr "Configurație"
 
-msgid "Configuration Directory"
-msgstr "Director configurare"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2720,6 +2712,9 @@ msgstr "Forwarder DNS"
 msgid "DNS Name"
 msgstr ""
 
+msgid "DNS Rebind Protection"
+msgstr ""
+
 msgid "DNS server is empty."
 msgstr "Serverul DNS este nul."
 
@@ -3308,22 +3303,17 @@ msgstr "MAscă directoare"
 msgid "Directory creation failed."
 msgstr ""
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr ""
-"Folderul pentru fișiere incomplete. Cîmp necompletat înseamnă că opțiunea "
-"este dezactivată."
-
 msgid "Directory listing"
 msgstr "Listare foldere"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Folder care conține medii detașabile. (ex. /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Folder pentru urmărirea apariției fișierelor noi tip .torrent."
-
 msgid "Disable"
 msgstr "Dezactivare"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "Dezactivare Meniu extensie"
@@ -3517,9 +3507,6 @@ msgstr "Discuri (Info)"
 
 msgid "Disks (Info) Information"
 msgstr "Informații (Info) Disc"
-
-msgid "Disks | Mount Point | Management"
-msgstr "Discuri | Punct de montare | Management"
 
 msgid "Display"
 msgstr "Afișare"
@@ -4136,6 +4123,9 @@ msgstr "Nume Domeniu (DNS/Realm-Name)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "Nume Domeniu (NetBIOS-Name)"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "Domeniul nu are definit numele de nivel 2."
 
@@ -4163,8 +4153,8 @@ msgstr "Lățime de bandă pentru download"
 msgid "Download Configuration"
 msgstr "Descărcare configurație"
 
-msgid "Download Directory"
-msgstr "Director pentru download"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "Temperatura discului."
@@ -4446,6 +4436,9 @@ msgstr "Activare Advanced Format (sectoare de 4KB)."
 msgid "Enable Asynchronous I/O."
 msgstr ""
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "Activare protocol FXP."
 
@@ -4687,6 +4680,9 @@ msgstr "Activare inotify."
 msgid "Enable large read/write."
 msgstr "Activare citire/scriere blocuri mari."
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "Activare mapare atribute DOS."
 
@@ -4798,6 +4794,9 @@ msgstr "Activare transcodare."
 
 msgid "Enable traps."
 msgstr "Activare capcane software (traps)."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Activare fundal alb (implicit fundalul este negru)."
@@ -5185,11 +5184,14 @@ msgstr "Opțiuni suplimentare"
 msgid "Extra options (usually empty)."
 msgstr "Opțiuni suplimentare (nu sînt absolut necesare)"
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Opțiuni suplimentare pentru ifconfig (nu sînt absolut necesare)"
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr "Extra opțiuni de transmis remote prin rpc."
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Opțiuni suplimentare pentru rsync (nu sînt absolut necesare)"
@@ -5443,6 +5445,9 @@ msgid "Flash File"
 msgstr ""
 
 msgid "Folder Pattern"
+msgstr ""
+
+msgid "Folder to monitor for new .torrent files."
 msgstr ""
 
 msgid "Follow"
@@ -6219,8 +6224,8 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr "Informații circuit alimentare"
 
-msgid "Incomplete Directory"
-msgstr "Director incomplet"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6589,6 +6594,9 @@ msgstr "Iun"
 msgid "June"
 msgstr "Iunie"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr ""
 
@@ -6872,6 +6880,9 @@ msgstr ""
 "CCMP (AES în modul Counter cu CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6908,6 +6919,9 @@ msgstr "Local"
 
 msgid "Local Master Browser"
 msgstr "Master Browser Local"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr ""
@@ -7320,6 +7334,9 @@ msgstr "Utilizare memorie"
 
 msgid "Message Board"
 msgstr "Forum"
+
+msgid "Message Level"
+msgstr ""
 
 msgid "Message of the day."
 msgstr "Mesajul Zilei."
@@ -8460,6 +8477,9 @@ msgstr "Parolele nu coincid."
 msgid "Password for the administrative pages."
 msgstr "Parola pentru paginile de administrare."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8726,8 +8746,8 @@ msgid "Port record is unlocked"
 msgstr ""
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
-msgstr "Port activ pentru conexiuni de intrare (implicit %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
+msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Portul utilizat de iTunes (implicit 3689)."
@@ -8820,8 +8840,11 @@ msgstr "PreInițializare"
 msgid "Preallocation"
 msgstr "Prealocare"
 
-msgid "Preferred"
-msgstr "Preferat"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefix"
@@ -9544,8 +9567,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Necesită autentificare."
 
-msgid "Required"
-msgstr "Necesar"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "Rescanare"
@@ -10115,8 +10138,11 @@ msgstr ""
 "Selectați opțiunea 'Neformatat' pentru discuri neformatate și formatați-le "
 "folosind"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "Selectare mod prealocare pentru fișiere (implicit rapid)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "Selectați algoritmul de balans."
@@ -10345,15 +10371,6 @@ msgstr "Setare doar citire."
 msgid "Set share password."
 msgstr "Setare parolă partajare."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"Definiți biții de permisiuni Citire respectiv Execută pentru Alții (Acces "
-"Restricționat | Mod) pentru punctul de montare %s în %s și selectați "
-"opțiunea Salvare pentru a valida modificările."
-
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -10420,6 +10437,11 @@ msgid "Set user login shell."
 msgstr "Setare shell autentificare utilizator."
 
 msgid "Set user password."
+msgstr ""
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
 
 msgid "Setkey"
@@ -10950,6 +10972,15 @@ msgstr "Oprit"
 
 msgid "Storage"
 msgstr "Spațiu stocare"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "Stocare atribute DOS"
@@ -11853,10 +11884,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "Numărul maxim de clienți trebuie să fie în intervalul 1-50."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
-"Viteza maximă de descărcare în KiB/s. Lăsați cîmpul necompletat pentru "
-"viteză maximă."
 
 msgid "The maximum idle time must be a number."
 msgstr "Timpul maxim pentru modul idle trebuie să fie un număr."
@@ -11866,10 +11896,10 @@ msgid ""
 "port)."
 msgstr "Portul maxim alocat pentru modul de conectare PASV (0 = orice port)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
 msgstr ""
-"Viteza maximă de încărcare în KiB/s. Lăsați cîmpul necompletat pentru viteză "
-"maximă."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12010,8 +12040,10 @@ msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
 
-msgid "The peer connection encryption mode."
-msgstr "Mod criptare conexiune în grup."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12961,9 +12993,6 @@ msgstr ""
 msgid "Toggle Selected iSNS Servers"
 msgstr ""
 
-msgid "Tolerated"
-msgstr "Tolerat"
-
 msgid "Toolbox"
 msgstr "Trusa de unelte"
 
@@ -13057,6 +13086,9 @@ msgstr "Rata de transfer"
 
 msgid "Transfer mode"
 msgstr "Mod transfer"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Layer de transport securizat (TLS)"
@@ -13336,6 +13368,9 @@ msgstr "Necunoscut sau neformatat"
 msgid "Unknown size"
 msgstr "Dimensiune necunoscută"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Descărcare"
 
@@ -13583,6 +13618,9 @@ msgstr "Nume Utilizator"
 
 msgid "Username of a domain administrator account."
 msgstr "Nume utilizator folosit pentru contul de administrator."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Utilizatori"
@@ -13865,8 +13903,12 @@ msgstr "Atenție"
 msgid "Warning Level"
 msgstr "NIvel avertizare"
 
-msgid "Watch Directory"
-msgstr "Director Watch"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr ""
@@ -13944,9 +13986,6 @@ msgid ""
 msgstr ""
 "Cînd un client se conectează inițial la server protocolul ident este folosit "
 "pentru identificarea utilizatorului."
-
-msgid "Where to save downloaded data."
-msgstr "Folderul unde vor fi salvate datele descărcate."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr "Dacă colecțiile ar trebui listate în Artiști Diverși."
@@ -14500,6 +14539,9 @@ msgstr ""
 msgid "to"
 msgstr "către"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "demontare"
 
@@ -14515,22 +14557,81 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "Import folosind GPT ID"
+#~ msgid "Alternative configuration directory."
+#~ msgstr "Director configurație alternativă."
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "Import folosind etichete GPT"
-
-#~ msgid "List or import pools"
-#~ msgstr "Listare sau import pool"
-
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Parola contului de administrator."
-
-#~ msgid "Search for and import all disks found"
-#~ msgstr "Căutare și import discuri găsite"
-
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
 #~ msgstr ""
-#~ "Pentru a utiliza Active Directory serviciul CIFS/SMS va fi de asemenea "
-#~ "activat."
+#~ "BitTorrent are nevoie cel puțin de permisiuni de citire & execuție în "
+#~ "punctul de montare pentru directorul %s!"
+
+#~ msgid "Configuration Directory"
+#~ msgstr "Director configurare"
+
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr ""
+#~ "Folderul pentru fișiere incomplete. Cîmp necompletat înseamnă că opțiunea "
+#~ "este dezactivată."
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Folder pentru urmărirea apariției fișierelor noi tip .torrent."
+
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "Discuri | Punct de montare | Management"
+
+#~ msgid "Download Directory"
+#~ msgstr "Director pentru download"
+
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr "Extra opțiuni de transmis remote prin rpc."
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "Director incomplet"
+
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr "Port activ pentru conexiuni de intrare (implicit %d)."
+
+#~ msgid "Preferred"
+#~ msgstr "Preferat"
+
+#~ msgid "Required"
+#~ msgstr "Necesar"
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "Selectare mod prealocare pentru fișiere (implicit rapid)."
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr ""
+#~ "Definiți biții de permisiuni Citire respectiv Execută pentru Alții (Acces "
+#~ "Restricționat | Mod) pentru punctul de montare %s în %s și selectați "
+#~ "opțiunea Salvare pentru a valida modificările."
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Viteza maximă de descărcare în KiB/s. Lăsați cîmpul necompletat pentru "
+#~ "viteză maximă."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Viteza maximă de încărcare în KiB/s. Lăsați cîmpul necompletat pentru viteză "
+#~ "maximă."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "Mod criptare conexiune în grup."
+
+#~ msgid "Tolerated"
+#~ msgstr "Tolerat"
+
+#~ msgid "Watch Directory"
+#~ msgstr "Director Watch"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Folderul unde vor fi salvate datele descărcate."

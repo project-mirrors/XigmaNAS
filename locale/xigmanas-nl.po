@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
-"PO-Revision-Date: 2021-03-08 16:47+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"PO-Revision-Date: 2021-03-14 13:18+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -1042,9 +1042,6 @@ msgstr "Alternatieve Gegevensstromen"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Alternatieve TCP poort. (Standaard 873)."
 
-msgid "Alternative configuration directory."
-msgstr "Alternatieve configuratie map."
-
 msgid "Always"
 msgstr "Altijd"
 
@@ -1578,13 +1575,8 @@ msgstr "Koppel Wachtwoord"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
-msgstr ""
-"BitTorrent moet ten minste lees & schrijf machtigingen hebben op het "
-"koppelpunt voor de map %s!"
+msgid "BitTorrent Settings"
+msgstr "BitTorrent Instellingen"
 
 msgid "Blank Time"
 msgstr "Wachttijd Schermbeveiliging"
@@ -2123,8 +2115,8 @@ msgstr "Compressie"
 msgid "Configuration"
 msgstr "Configuratie"
 
-msgid "Configuration Directory"
-msgstr "Configuratie Map"
+msgid "Configuration Folder"
+msgstr "Configuratie Folder"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2755,6 +2747,9 @@ msgstr "DNS Forwarder"
 msgid "DNS Name"
 msgstr "DNS Naam"
 
+msgid "DNS Rebind Protection"
+msgstr "DNS Rebinding Bescherming"
+
 msgid "DNS server is empty."
 msgstr "DNS server is leeg."
 
@@ -3348,22 +3343,17 @@ msgstr "Map Rechten"
 msgid "Directory creation failed."
 msgstr "Folder maken mislukt."
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr ""
-"De map voor incomplete bestanden. Een leeg gelaten veld betekend "
-"uitgeschakeld."
-
 msgid "Directory listing"
 msgstr "Mappenlijst"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "De locatie die de verwijderbare media bevat . (bijv. /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Map om in te kijken voor nieuwe .torrent bestanden."
-
 msgid "Disable"
 msgstr "Uitschakelen"
+
+msgid "Disable DNS rebind protection"
+msgstr "Uitschakelen DNS rebinding bescherming"
 
 msgid "Disable Extension Menu"
 msgstr "Uitschakelen Extensies Menu"
@@ -3560,9 +3550,6 @@ msgstr "Schijf (info)"
 
 msgid "Disks (Info) Information"
 msgstr "Schijven (Info) Informatie"
-
-msgid "Disks | Mount Point | Management"
-msgstr "Schijven | Koppelpunten | Management"
 
 msgid "Display"
 msgstr "Weergave"
@@ -4191,6 +4178,9 @@ msgstr "Domeinnaam (DNS/Realm-Name)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "Domeinnaam (NetBIOS-Name)"
 
+msgid "Domain Names"
+msgstr "Domeinnamen"
+
 msgid "Domain is missing 2nd level name."
 msgstr "Domein mist de 2e level naam."
 
@@ -4218,8 +4208,8 @@ msgstr "Download Bandbreedte"
 msgid "Download Configuration"
 msgstr "Configuratie Opslaan"
 
-msgid "Download Directory"
-msgstr "Downloadmap"
+msgid "Download Folder"
+msgstr "Download Folder"
 
 msgid "Drive Temperature."
 msgstr "Schijf temperatuur."
@@ -4503,6 +4493,9 @@ msgstr "Inschakelen Geavanceerd Formatteren (4KB sector grootte)."
 msgid "Enable Asynchronous I/O."
 msgstr "Inschakelen Asynchrone I/O."
 
+msgid "Enable DNS rebind protection"
+msgstr "Inschakelen DNS rebinding bescherming"
+
 msgid "Enable FXP protocol."
 msgstr "Inschakelen FXP protocol."
 
@@ -4751,6 +4744,9 @@ msgstr "Inschakelen inotify"
 msgid "Enable large read/write."
 msgstr "Inschakelen groot lezen/schrijven."
 
+msgid "Enable local peer discovery."
+msgstr "Inschakelen lokale peer ontdekking."
+
 msgid "Enable mapping DOS attributes."
 msgstr "Inschakelen mapping DOS attributen."
 
@@ -4861,6 +4857,9 @@ msgstr "Inschakelen hercoderen."
 
 msgid "Enable traps."
 msgstr "Traps inschakelen."
+
+msgid "Enable uTP for peer connections."
+msgstr "Inschakelen uTP voor peer verbindingen."
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Inschakelen witte achtergrond grafieken. (standaard zwart)"
@@ -5260,12 +5259,14 @@ msgstr "Extra Opties"
 msgid "Extra options (usually empty)."
 msgstr "Extra opties (normaal leeg)."
 
+msgid "Extra options for transmission-remote"
+msgstr "Extra opties voor transmission-remote"
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Extra opties voor de ifconfig (normaal leeg)."
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr ""
-"Extra opties door te geven via rpc met gebruik van transmission-remote."
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr "Extra opties om door te geven via RPC door transmission-remote."
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Extra opties voor de rsync (normaal leeg)."
@@ -5522,6 +5523,9 @@ msgstr "Flash Bestand"
 
 msgid "Folder Pattern"
 msgstr "Mappatroon"
+
+msgid "Folder to monitor for new .torrent files."
+msgstr "Map om te controleren op nieuwe .torrent bestanden."
 
 msgid "Follow"
 msgstr "Volgen"
@@ -6315,8 +6319,8 @@ msgstr "Voeg UFS labels toe aan scan/import"
 msgid "Incoming Line/Power Information"
 msgstr "Binnenkomende Netspanning/Stroom Informatie"
 
-msgid "Incomplete Directory"
-msgstr "Incompleetmap"
+msgid "Incomplete Folder"
+msgstr "Incompleet Map"
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6683,6 +6687,9 @@ msgstr "Jun"
 msgid "June"
 msgstr "Juni"
 
+msgid "KB/s"
+msgstr "KB/s"
+
 msgid "Keep MBR"
 msgstr "MBR Behouden"
 
@@ -6982,6 +6989,9 @@ msgstr ""
 "van:CCMP (AES in Teller mode met CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
+msgid "List of allowed domain names."
+msgstr "Lijst met toegestane domeinnamen."
+
 msgid "List pools available to import"
 msgstr "Lijst pools beschikbaar om te importeren"
 
@@ -7018,6 +7028,9 @@ msgstr "Lokaal"
 
 msgid "Local Master Browser"
 msgstr "Lokaal Hoofd Browser"
+
+msgid "Local Peer Discovery"
+msgstr "Local Peer Discovery"
 
 msgid "Local Share"
 msgstr "Lokaal Gedeeld"
@@ -7439,6 +7452,9 @@ msgstr "Geheugen Gebruik"
 
 msgid "Message Board"
 msgstr "Berichten"
+
+msgid "Message Level"
+msgstr "Berichtniveau"
 
 msgid "Message of the day."
 msgstr "Bericht van de dag"
@@ -8588,6 +8604,9 @@ msgstr "Het wachtwoord komt niet overeen."
 msgid "Password for the administrative pages."
 msgstr "Wachtwoord voor de administratieve WebGUI."
 
+msgid "Password for the transmission web interface."
+msgstr "Wachtwoord voor de transmission webpagina."
+
 msgid "Password of the administrator account."
 msgstr "Wachtwoord van het administrator account."
 
@@ -8857,9 +8876,10 @@ msgid "Port record is unlocked"
 msgstr "Poort record is ontgrendeld"
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
-"Poort te gebruiken voor binnenkomende peer verbindingen. (Standaard is %d)."
+"Poort om op te luisteren naar inkomende peer verbindingen. De standaardpoort "
+"is %d."
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Poort om op te luisteren. Standaard iTunes poort 3689."
@@ -8950,8 +8970,11 @@ msgstr "PreInit"
 msgid "Preallocation"
 msgstr "Preallocation"
 
-msgid "Preferred"
-msgstr "Voorkeur"
+msgid "Prefer encrypted connections"
+msgstr "Geef de voorkeur aan gecodeerde verbindingen"
+
+msgid "Prefer unencrypted connections"
+msgstr "Geef de voorkeur aan ongecodeerde verbindingen"
 
 msgid "Prefix"
 msgstr "Voorvoegsel"
@@ -9682,8 +9705,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Verificatie vereist."
 
-msgid "Required"
-msgstr "Vereist"
+msgid "Require encrypted connections"
+msgstr "Vereisen van gecodeerde verbindingen"
 
 msgid "Rescan"
 msgstr "Herscannen"
@@ -10261,8 +10284,13 @@ msgstr ""
 "Selecteer de optie 'Ongeformatteerd' voor  ongeformatteerde schijven en "
 "formatteer deze met de"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "Selecteer pre-allocation mode voor bestanden. (Standaard is Snel)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
+"Selecteer de preallocation modus voor bestanden. De standaard "
+"preallocatiemodus is \"%s\"."
 
 msgid "Select read balance algorithm."
 msgstr "Selecteer lees balans algoritme."
@@ -10501,15 +10529,6 @@ msgstr "Alleen-lezen activeren."
 msgid "Set share password."
 msgstr "Vul het delings wachtwoord in."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"U moet de lees en uitvoeringsrechten voor Anderen instellen (Toegangsrechten "
-"| Modus) voor de koppelpunt %s in %s en druk Opslaan om van kracht te laten "
-"worden."
-
 msgid "Set the account's primary group."
 msgstr "Stel de primaire groep van het account in."
 
@@ -10588,6 +10607,13 @@ msgstr "Instellen login-shell gebruiker."
 
 msgid "Set user password."
 msgstr "Stel gebruikerswachtwoord in."
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
+"Stel de breedsprakigheid van transmission berichten in. Het standaard "
+"berichtniveau is \"%s\""
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -11171,6 +11197,15 @@ msgstr "Gestopt"
 
 msgid "Storage"
 msgstr "Opslag"
+
+msgid "Storage location of configuration information."
+msgstr "Opslaglocatie van configuratie informatie."
+
+msgid "Storage location of downloaded files."
+msgstr "Opslaglocatie van gedownloade bestanden."
+
+msgid "Storage location of partially downloaded files."
+msgstr "Opslaglocatie van gedeeltelijk gedownloade bestanden."
 
 msgid "Store DOS Attributes"
 msgstr "Opslaan DOS Attributen"
@@ -12104,10 +12139,11 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "Het max. aantal cliënten moet binnen het bereik van 1 tot 50 zijn."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
-"De maximum download bandbreedte in KB/s. Een leeg gelaten veld betekent "
-"onbeperkt."
+"De maximale downloadbandbreedte in KB/s. Laat dit veld leeg om onbeperkte "
+"downloadbandbreedte toe te staan."
 
 msgid "The maximum idle time must be a number."
 msgstr "De maximale rusttijd dient een getal te zijn."
@@ -12119,10 +12155,12 @@ msgstr ""
 "De maximale poort die toegewezen mag worden voor de PASV type "
 "dataverbindingen (0 = gebruik alle poorten)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
 msgstr ""
-"De maximum upload bandbreedte in KB/s. Een leeg gelaten veld betekent "
-"onbeperkt."
+"De maximale uploadbandbreedte in KB/s. Laat dit veld leeg om onbeperkte "
+"uploadbandbreedte toe te staan."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12277,8 +12315,12 @@ msgstr ""
 "Het pad naar het bestand, schijfknooppunt of zfs volume gebruikt terug naar "
 "de LUN."
 
-msgid "The peer connection encryption mode."
-msgstr "Encryptie mode voor peer-to-peer verbindingen."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
+"De coderingsmodus van de peer verbinding. De standaard coderingsmodus is "
+"\"%s\""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -13278,9 +13320,6 @@ msgstr "Geselecteerde iSCSI Initiators Omschakelen"
 msgid "Toggle Selected iSNS Servers"
 msgstr "Geselecteerde iSNS Servers omschakelen?"
 
-msgid "Tolerated"
-msgstr "Toelaten"
-
 msgid "Toolbox"
 msgstr "Toolbox"
 
@@ -13376,6 +13415,9 @@ msgstr "Overdrachtssnelheid"
 
 msgid "Transfer mode"
 msgstr "Overdracht mode"
+
+msgid "Transmission Web Interface"
+msgstr "Transmission Webpagina"
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Transport Layer Security (TLS)"
@@ -13658,6 +13700,9 @@ msgstr "Onbekend of ongeformatteerd"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
+msgid "Unlimited"
+msgstr "Onbegrensd"
+
 msgid "Unload"
 msgstr "Verwijder"
 
@@ -13912,6 +13957,9 @@ msgstr "Gebruikersnaam"
 
 msgid "Username of a domain administrator account."
 msgstr "Gebruikersnaam van een domein administrator account."
+
+msgid "Username to log into the transmission web interface."
+msgstr "Gebruikersnaam om in te loggen op de transmission webpagina."
 
 msgid "Users"
 msgstr "Gebruikers"
@@ -14198,8 +14246,12 @@ msgstr "Waarschuwing"
 msgid "Warning Level"
 msgstr "Waarschuwingsniveau"
 
-msgid "Watch Directory"
-msgstr "Kijkmap"
+msgid "Watch Folder"
+msgstr "Kijk Map"
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr "Webpagina poort. De standaardpoort is %d."
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -14283,9 +14335,6 @@ msgid ""
 msgstr ""
 "Wanneer een cliënt aanvankelijk verbinding maakt met de server wordt het "
 "ident protocol gebruikt om de externe gebruikersnaam te identificeren."
-
-msgid "Where to save downloaded data."
-msgstr "Map waarin de gedownloade bestanden opgeslagen worden."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr "Of compilaties samen worden weergegeven onder Various Artists."
@@ -14849,6 +14898,9 @@ msgstr "testparm"
 msgid "to"
 msgstr "naar"
 
+msgid "uTP"
+msgstr "uTP"
+
 msgid "umount"
 msgstr "loskoppelen"
 
@@ -14864,25 +14916,83 @@ msgstr "was toegewezen aan"
 msgid "yes"
 msgstr "ja"
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "Importeer gebruikte GPT ID"
-
-#~ msgid "Import using GPT labels"
-#~ msgstr "Importeer gebruikte GPT labels"
-
-#~ msgid "List or import pools"
-#~ msgstr "Lijst of importeer pools"
-
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Wachtwoord van het domein administrator account"
-
-#~ msgid "Search for and import all disks found"
-#~ msgstr "Zoek en importeer alle gevonden schijven"
-
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
 #~ msgstr ""
-#~ "Om de Active Directory te gebruiken zal de CIFS/SMB service ook ingeschakeld "
+#~ "BitTorrent moet ten minste lees & schrijf machtigingen hebben op het "
+#~ "koppelpunt voor de map %s!"
+
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr ""
+#~ "De map voor incomplete bestanden. Een leeg gelaten veld betekend "
+#~ "uitgeschakeld."
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Map om in te kijken voor nieuwe .torrent bestanden."
+
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "Schijven | Koppelpunten | Management"
+
+#~ msgid "Download Directory"
+#~ msgstr "Downloadmap"
+
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr ""
+#~ "Extra opties door te geven via rpc met gebruik van transmission-remote."
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "Incompleetmap"
+
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr ""
+#~ "Poort te gebruiken voor binnenkomende peer verbindingen. (Standaard is %d)."
+
+#~ msgid "Preferred"
+#~ msgstr "Voorkeur"
+
+#~ msgid "Required"
+#~ msgstr "Vereist"
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "Selecteer pre-allocation mode voor bestanden. (Standaard is Snel)."
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr ""
+#~ "U moet de lees en uitvoeringsrechten voor Anderen instellen (Toegangsrechten "
+#~ "| Modus) voor de koppelpunt %s in %s en druk Opslaan om van kracht te laten "
 #~ "worden."
 
-#~ msgid "Search subdirectories"
-#~ msgstr "Zoeken in onderliggende folders"
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "De maximum download bandbreedte in KB/s. Een leeg gelaten veld betekent "
+#~ "onbeperkt."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "De maximum upload bandbreedte in KB/s. Een leeg gelaten veld betekent "
+#~ "onbeperkt."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "Encryptie mode voor peer-to-peer verbindingen."
+
+#~ msgid "Tolerated"
+#~ msgstr "Toelaten"
+
+#~ msgid "Watch Directory"
+#~ msgstr "Kijkmap"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Map waarin de gedownloade bestanden opgeslagen worden."
+
+#~ msgid "Alternative configuration directory."
+#~ msgstr "Alternatieve configuratie map."
+
+#~ msgid "Configuration Directory"
+#~ msgstr "Configuratie Map"

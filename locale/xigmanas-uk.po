@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
-"PO-Revision-Date: 2021-01-31 14:58+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"PO-Revision-Date: 2021-03-08 20:18+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -779,7 +779,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Адреса віддаленого демона hastd. Повинна бути статична IP адреса."
 
 msgid "Admin Name"
-msgstr ""
+msgstr "Ім'я адміна"
 
 msgid "Admin Password"
 msgstr "Пароль адміністратора"
@@ -1026,9 +1026,6 @@ msgstr "Альтернативні потоки даних"
 
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Альтернативний TCP-порт. (За замовчуванням - 873)."
-
-msgid "Alternative configuration directory."
-msgstr "Альтернативний каталог конфігурації."
 
 msgid "Always"
 msgstr "Завжди"
@@ -1556,13 +1553,8 @@ msgstr "Зв'язати пароль"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
-"BitTorrent необхідні дозволи принаймні на читання і на виконання в точці "
-"монтування каталогу <b>%s</b>!"
 
 msgid "Blank Time"
 msgstr "Пусте значення часу"
@@ -2093,8 +2085,8 @@ msgstr "Стиснення"
 msgid "Configuration"
 msgstr "Конфігурація"
 
-msgid "Configuration Directory"
-msgstr "Каталог конфігурації"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2193,7 +2185,7 @@ msgid "Controller Model"
 msgstr "Модель контролера"
 
 msgid "Controller Name"
-msgstr ""
+msgstr "Ім'я контролера"
 
 msgid "Controller TCP Port"
 msgstr "TCP порт контролера"
@@ -2709,6 +2701,9 @@ msgid "DNS Forwarder"
 msgstr "DNS Forwarder"
 
 msgid "DNS Name"
+msgstr "Ім'я DNS"
+
+msgid "DNS Rebind Protection"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -3305,24 +3300,17 @@ msgstr "Маска каталогу"
 msgid "Directory creation failed."
 msgstr "Відмова створення каталогу."
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr ""
-"Каталог для незавершених файлів. Не заповнене поле означає не "
-"використовувати."
-
 msgid "Directory listing"
 msgstr "Список каталогів"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Каталог, що містить змінний носій (наприклад /mnt/iscsi/)."
 
-msgid "Directory to watch for new .torrent files."
-msgstr ""
-"Каталог очікування нових .torrent-файлів. Не заповнене поле означає не "
-"використовувати."
-
 msgid "Disable"
 msgstr "Вимкнути"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "Вимкнути меню розширення"
@@ -3516,9 +3504,6 @@ msgstr "Диски (інфо)"
 
 msgid "Disks (Info) Information"
 msgstr "Інформація про диски"
-
-msgid "Disks | Mount Point | Management"
-msgstr "Диски | Точка монтування | Управління"
 
 msgid "Display"
 msgstr "Дисплей"
@@ -4143,6 +4128,9 @@ msgstr "Ім'я домену (DNS/Realm-ім'я)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "Ім'я домену (NetBIOS-ім'я)"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "У домена відсутне ім'я 2-го рівня."
 
@@ -4170,8 +4158,8 @@ msgstr "Пропускна смуга на завантаження"
 msgid "Download Configuration"
 msgstr "Зберегти конфігурацію"
 
-msgid "Download Directory"
-msgstr "Каталог завантаження"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "Температура диска."
@@ -4453,6 +4441,9 @@ msgstr "Дозволити Advanced Format (розмір сектора 4КБ)"
 msgid "Enable Asynchronous I/O."
 msgstr "Увімкнути асинхронний ввід/вивід."
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "Дозволити протокол FXP"
 
@@ -4699,6 +4690,9 @@ msgstr "Дозволити inotify."
 msgid "Enable large read/write."
 msgstr "Дозволити довге читання/запис."
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "Дозволити мапінг DOS атрибутів."
 
@@ -4809,6 +4803,9 @@ msgstr "Дозволити перекодування."
 
 msgid "Enable traps."
 msgstr "Увімкнути повідомлення (traps)."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Увімкнути білий фон графіків. (Чорний за замовчуванням)"
@@ -5203,12 +5200,14 @@ msgstr "Додаткові параметри"
 msgid "Extra options (usually empty)."
 msgstr "Додаткові опції (зазвичай не заповнюють)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Додаткові опції для ifconfig (зазвичай не заповнюють)"
 
-msgid "Extra options to pass over rpc using transmission-remote."
+msgid "Extra options to pass over RPC using transmission-remote."
 msgstr ""
-"Розширені опції для передавання через rpc використовуючи transmission-remote."
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Додаткові опції rsync (зазвичай не заповнюють)."
@@ -5467,6 +5466,9 @@ msgstr "Файл Flash"
 
 msgid "Folder Pattern"
 msgstr "Шаблон каталогу"
+
+msgid "Folder to monitor for new .torrent files."
+msgstr ""
 
 msgid "Follow"
 msgstr "Стежити"
@@ -6199,7 +6201,7 @@ msgid "Import pool in read-only mode"
 msgstr "Імпортувати пул у режимі тільки для читання"
 
 msgid "Import pools"
-msgstr ""
+msgstr "Імпортувати пули"
 
 msgid "Imported Users"
 msgstr "Імпортовані користувачі"
@@ -6223,28 +6225,28 @@ msgid "In/Out Packets"
 msgstr "Пакети вводу/виводу"
 
 msgid "Include /dev into scan/import"
-msgstr ""
+msgstr "Включити /dev до scan/import"
 
 msgid "Include Disk ID into scan/import"
-msgstr ""
+msgstr "Включити Disk ID до scan/import"
 
 msgid "Include GPT ID into scan/import"
-msgstr ""
+msgstr "Включити GPT ID  до scan/import"
 
 msgid "Include GPT labels into scan/import"
-msgstr ""
+msgstr "Включити мітки GPT до scan/import"
 
 msgid "Include UFS ID into scan/import"
-msgstr ""
+msgstr "Включити UFS ID до scan/import"
 
 msgid "Include UFS labels into scan/import"
-msgstr ""
+msgstr "Включити мітки UFS до scan/import"
 
 msgid "Incoming Line/Power Information"
 msgstr "Інформація про вхідну лінію/потужність"
 
-msgid "Incomplete Directory"
-msgstr "Каталог незавершених"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6612,6 +6614,9 @@ msgstr "Чер."
 msgid "June"
 msgstr "Червень"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr "Зберігти MBR"
 
@@ -6913,8 +6918,11 @@ msgstr ""
 "(AES в режимі лічильника з CBC-MAC, RFC 3610, IEEE 802.11i / D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i / D7.0)."
 
-msgid "List pools available to import"
+msgid "List of allowed domain names."
 msgstr ""
+
+msgid "List pools available to import"
+msgstr "Список пулів, доступні для імпорту"
 
 msgid "Listen"
 msgstr "Прослуховування"
@@ -6948,6 +6956,9 @@ msgstr "Локальний"
 
 msgid "Local Master Browser"
 msgstr "Локальний основний оглядач мережі"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr "Локальні ресурси"
@@ -7361,6 +7372,9 @@ msgstr "Використання пам'яті"
 msgid "Message Board"
 msgstr "Дошка повідомлень"
 
+msgid "Message Level"
+msgstr ""
+
 msgid "Message of the day."
 msgstr "Повідомлення дня."
 
@@ -7593,7 +7607,7 @@ msgid "NAA Identifier"
 msgstr "Ідентифікатор NAA"
 
 msgid "NETBIOS Name"
-msgstr ""
+msgstr "Ім'я NETBIOS"
 
 msgid "NFS"
 msgstr "NFS"
@@ -8506,8 +8520,11 @@ msgstr "Паролі не однакові"
 msgid "Password for the administrative pages."
 msgstr "Пароль для адміністративних сторінок"
 
-msgid "Password of the administrator account."
+msgid "Password for the transmission web interface."
 msgstr ""
+
+msgid "Password of the administrator account."
+msgstr "Пароль облікового запису адміністратора."
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -8776,9 +8793,8 @@ msgid "Port record is unlocked"
 msgstr "Запис порту розблокований"
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
-"Порт для прослуховування вхідних пірінгових з'єднань (за замовчуванням %d)."
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Вхідний порт. Порт для iTunes за замовчуванням - 3689."
@@ -8869,8 +8885,11 @@ msgstr "Перед ініціалізацією"
 msgid "Preallocation"
 msgstr "Попереднє виділення простору"
 
-msgid "Preferred"
-msgstr "Бажано"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Префікс"
@@ -9599,8 +9618,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Вимагати автентифікацію."
 
-msgid "Required"
-msgstr "Вимагати"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "Пересканувати"
@@ -9975,7 +9994,7 @@ msgid "Scan folder for video files."
 msgstr "Сканувати каталог на відеофайли."
 
 msgid "Scan/Import destroyed pools only"
-msgstr ""
+msgstr "Сканувати / Імпортувати лише знищені пули"
 
 msgid "Schedule Time"
 msgstr "Час розкладів"
@@ -10027,7 +10046,7 @@ msgid "Search event"
 msgstr "Шукати подію"
 
 msgid "Search subfolder"
-msgstr ""
+msgstr "Шукати підкаталогами"
 
 msgid "Second"
 msgstr "Секунда"
@@ -10165,8 +10184,11 @@ msgstr ""
 "Виберіть варіант \"Неформатований\" для неформатованих дисків і "
 "відформатуйте їх за допомогою"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "Визначте виділення простору для файлів (за замовчуванням Швидке)"
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "Виберіть алгоритм балансування читання."
@@ -10407,15 +10429,6 @@ msgstr "Встановити тільки для читання."
 msgid "Set share password."
 msgstr "Встановлює пароль загального ресурсу."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"Встановіть дозвіл на читання і виконання для Інших (Обмеження доступу | "
-"Режим) для точки монтування %s в %s і натисніть кнопку Зберегти, щоб "
-"застосувати."
-
 msgid "Set the account's primary group."
 msgstr "Встановіть основну групу облікового запису."
 
@@ -10495,6 +10508,11 @@ msgstr "Встановить оболонку користувацького в�
 
 msgid "Set user password."
 msgstr "Встановіть пароль користувача."
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
 
 msgid "Setkey"
 msgstr "Встановити ключ шифрування"
@@ -11060,6 +11078,15 @@ msgstr "Зупинено"
 
 msgid "Storage"
 msgstr "Накопичувач"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "Зберігати атрибути DOS"
@@ -11983,9 +12010,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "Максимальне число клієнтів повинно бути в діапазоні від 1 до 50."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
-"Максимальна швидкість завантаження в КіБ/с. Пусте поле означає без обмежень."
 
 msgid "The maximum idle time must be a number."
 msgstr "Максимальний час простою повинен бути числом."
@@ -11997,9 +12024,10 @@ msgstr ""
 "Максимальний номер використовуваного порту при PASV з'єднанні (0 = "
 "використовувати будь-який порт)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
 msgstr ""
-"Максимальна швидкість вивантаження в КБ/с. Пусте поле означає без обмежень."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12153,8 +12181,10 @@ msgstr ""
 "Шлях до файлу, вузла пристрою або тому zfs, що використовується для "
 "підтримки LUN."
 
-msgid "The peer connection encryption mode."
-msgstr "Режим шифрування з'єднань."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -13025,7 +13055,7 @@ msgstr ""
 "Для того, щоб будь-яка IP адреса була відповідною, залиште це поле порожнім."
 
 msgid "To use Active Directory the SMB service will be enabled as well."
-msgstr ""
+msgstr "Для використання Active Directory потрібно буде включити сервіс SMB."
 
 msgid "To use subdirectories, you must mount each directory."
 msgstr "Щоб використовувати підкаталоги, потрібно змонтувати кожен каталог."
@@ -13126,9 +13156,6 @@ msgstr "Перемкнути обрані ініціатори iSCSI"
 msgid "Toggle Selected iSNS Servers"
 msgstr "Перемкнути обрані сервери iSNS"
 
-msgid "Tolerated"
-msgstr "Припустимо"
-
 msgid "Toolbox"
 msgstr "Інструменти"
 
@@ -13224,6 +13251,9 @@ msgstr "Швидкість передачі"
 
 msgid "Transfer mode"
 msgstr "Режим передачі"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Безпека транспортного шару (TLS)"
@@ -13508,6 +13538,9 @@ msgstr "Невідомий або невідформатований"
 msgid "Unknown size"
 msgstr "Розмір невідомий"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Вивантажити"
 
@@ -13765,6 +13798,9 @@ msgstr "Ім'я користувача"
 
 msgid "Username of a domain administrator account."
 msgstr "Ім'я користувача облікового запису адміністратора домену."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Користувачі"
@@ -14050,8 +14086,12 @@ msgstr "Попередження"
 msgid "Warning Level"
 msgstr "Рівень попередження"
 
-msgid "Watch Directory"
-msgstr "Каталог спостереження"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -14133,9 +14173,6 @@ msgid ""
 msgstr ""
 "Коли клієнт підключається до сервера спочатку використовується ident "
 "протокол, щоб спробувати ідентифікувати віддаленого користувача."
-
-msgid "Where to save downloaded data."
-msgstr "Куди зберігати завантажені дані."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr ""
@@ -14699,6 +14736,9 @@ msgstr "testparm"
 msgid "to"
 msgstr "до"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "umount"
 
@@ -14714,23 +14754,83 @@ msgstr "був призначений до"
 msgid "yes"
 msgstr "так"
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Пароль адміністратора домену."
+#~ msgid "Alternative configuration directory."
+#~ msgstr "Альтернативний каталог конфігурації."
 
-#~ msgid "Search for and import all disks found"
-#~ msgstr "Шукати і імпортувати всі знайдені диски"
+#~ msgid "Configuration Directory"
+#~ msgstr "Каталог конфігурації"
 
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-#~ msgstr "Щоб використовувати Active Directory служба CIFS/SMB буде увімкнена."
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "Диски | Точка монтування | Управління"
 
-#~ msgid "List or import pools"
-#~ msgstr "Перелік або імпорт пулів"
+#~ msgid "Download Directory"
+#~ msgstr "Каталог завантаження"
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "Імпортувати з використанням GPS міток"
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr ""
+#~ "Розширені опції для передавання через rpc використовуючи transmission-remote."
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "Імпортувати з використанням GPT ID"
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr ""
+#~ "Порт для прослуховування вхідних пірінгових з'єднань (за замовчуванням %d)."
 
-#~ msgid "Search subdirectories"
-#~ msgstr "Підкаталоги пошуку"
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Максимальна швидкість завантаження в КіБ/с. Пусте поле означає без обмежень."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Максимальна швидкість вивантаження в КБ/с. Пусте поле означає без обмежень."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "Режим шифрування з'єднань."
+
+#~ msgid "Tolerated"
+#~ msgstr "Припустимо"
+
+#~ msgid "Watch Directory"
+#~ msgstr "Каталог спостереження"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Куди зберігати завантажені дані."
+
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
+#~ msgstr ""
+#~ "BitTorrent необхідні дозволи принаймні на читання і на виконання в точці "
+#~ "монтування каталогу <b>%s</b>!"
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr ""
+#~ "Встановіть дозвіл на читання і виконання для Інших (Обмеження доступу | "
+#~ "Режим) для точки монтування %s в %s і натисніть кнопку Зберегти, щоб "
+#~ "застосувати."
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "Визначте виділення простору для файлів (за замовчуванням Швидке)"
+
+#~ msgid "Preferred"
+#~ msgstr "Бажано"
+
+#~ msgid "Required"
+#~ msgstr "Вимагати"
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "Каталог незавершених"
+
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr ""
+#~ "Каталог для незавершених файлів. Не заповнене поле означає не "
+#~ "використовувати."
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr ""
+#~ "Каталог очікування нових .torrent-файлів. Не заповнене поле означає не "
+#~ "використовувати."

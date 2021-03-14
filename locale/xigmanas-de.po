@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2021-03-08 10:59+0000\n"
 "Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:24+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1050,9 +1050,6 @@ msgstr "Alternativer Datenstrom"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Alternativer TCP-Port. (Standard 873)."
 
-msgid "Alternative configuration directory."
-msgstr "Alternatives konfigurationsverzeichnis."
-
 msgid "Always"
 msgstr "immer"
 
@@ -1589,13 +1586,8 @@ msgstr "Leeres Passwort"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
-"BitTorrent erfordert lese und Asuführunghsrechte am Einhängepunkt (Mount "
-"Point)  für das Verzeichnis %s!"
 
 msgid "Blank Time"
 msgstr "Leerzeit"
@@ -2131,8 +2123,8 @@ msgstr "Komprimierung"
 msgid "Configuration"
 msgstr "Konfiguration"
 
-msgid "Configuration Directory"
-msgstr "Konfigurationsverzeichnis"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2722,6 +2714,9 @@ msgstr "DNS Weiterleitung"
 
 msgid "DNS Name"
 msgstr "DNS-Name"
+
+msgid "DNS Rebind Protection"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "Der Eintrag für den DNS Server ist leer."
@@ -3316,21 +3311,17 @@ msgstr "Verzeichnismaske"
 msgid "Directory creation failed."
 msgstr "Die Verzeichniserstellung ist fehlgeschlagen."
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr ""
-"Ordner für unvollständige Dateien. Ein leeres Feld bedeutet deaktivieren."
-
 msgid "Directory listing"
 msgstr "Verzeichnisauflistung"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Verzeichnis, welches wechselbare Medien enthält (bspw. /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Zu beobachtendes Verzeichnis für neue .torrent Dateien."
-
 msgid "Disable"
 msgstr "Deaktivieren"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "Erweiterungsmenü deaktivieren"
@@ -3525,9 +3516,6 @@ msgstr "Festplatten (Info)"
 
 msgid "Disks (Info) Information"
 msgstr "Platteninformationen (Info)"
-
-msgid "Disks | Mount Point | Management"
-msgstr "Festplatten | Einhängepunkt | Management"
 
 msgid "Display"
 msgstr "Anzeige"
@@ -4159,6 +4147,9 @@ msgstr "Domänenname (DNS/ Bereich)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "Domain Name (NetBIOS-Name)"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "Domäne fehlt der zweite Teil des Namens."
 
@@ -4186,8 +4177,8 @@ msgstr "Download-Bandbreite"
 msgid "Download Configuration"
 msgstr "Sichern der Konfigurationsdatei"
 
-msgid "Download Directory"
-msgstr "Download-Verzeichnis"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "Festplattentemperatur"
@@ -4470,6 +4461,9 @@ msgstr "Advanced Format aktivierem (4KB Sektoren)."
 msgid "Enable Asynchronous I/O."
 msgstr "Asynchrone E / A aktivieren."
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "Aktiviere FXP-Protokoll."
 
@@ -4716,6 +4710,9 @@ msgstr "inotify aktivieren"
 msgid "Enable large read/write."
 msgstr "Aktiviere 'large read/write'"
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "Aktivierung Dos Atribute Abbilden"
 
@@ -4828,6 +4825,9 @@ msgstr "Umwandlung aktivieren."
 
 msgid "Enable traps."
 msgstr "Traps aktivieren."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Verwende weisse Hintergrund Kurven. (Standard ist schwarz)"
@@ -5225,11 +5225,14 @@ msgstr "Weitere Optionen"
 msgid "Extra options (usually empty)."
 msgstr "Extra Einstellungen (meist leer)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Zusätzliche Optionen für ifconfig (normalerweise leer)."
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr "Extra Optionen um rpc zu übergehen mit der entfernten Übertragung."
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Zusätzliche Optionen für rsync (normalerweise leer)."
@@ -5486,6 +5489,9 @@ msgstr "Flash Datei"
 
 msgid "Folder Pattern"
 msgstr "Ordnermuster"
+
+msgid "Folder to monitor for new .torrent files."
+msgstr ""
 
 msgid "Follow"
 msgstr "Nachfolgen"
@@ -6281,8 +6287,8 @@ msgstr "Beziehe UFS-Labels in die Suche und den Import ein"
 msgid "Incoming Line/Power Information"
 msgstr "Zuleitungs/ Netz Informationen"
 
-msgid "Incomplete Directory"
-msgstr "Unvollständiges Verzeichnis"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6651,6 +6657,9 @@ msgstr "Jun."
 msgid "June"
 msgstr "Juni"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr "Erhalte MBR"
 
@@ -6958,6 +6967,9 @@ msgstr ""
 "802i/D7.0), TKIP (temporäres Schlüssel Integritätsprotokoll, IEEE "
 "802.11i/D7.0)."
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr "Für den Import verfügbare Pools auflisten"
 
@@ -6993,6 +7005,9 @@ msgstr "Lokal"
 
 msgid "Local Master Browser"
 msgstr "Local Master Browser"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr "Lokale Freigabe"
@@ -7415,6 +7430,9 @@ msgstr "Speicherverwendung"
 
 msgid "Message Board"
 msgstr "Forum"
+
+msgid "Message Level"
+msgstr ""
 
 msgid "Message of the day."
 msgstr "Nachricht des Tages."
@@ -8557,6 +8575,9 @@ msgstr "Passwort FALSCH."
 msgid "Password for the administrative pages."
 msgstr "Passwort für die administrativen Einstellungen."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr "Passwort des Administratorkontos."
 
@@ -8829,8 +8850,8 @@ msgid "Port record is unlocked"
 msgstr "Portaufzeichnungen ist entsperrt"
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
-msgstr "Port zum Abhören für eingehende Verbindungen. (Standard ist %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
+msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Alternativer TCP Port (Standard: 3689)."
@@ -8921,8 +8942,11 @@ msgstr "PreInit"
 msgid "Preallocation"
 msgstr "Vorbelegung"
 
-msgid "Preferred"
-msgstr "Bevorzugt"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Präfix"
@@ -9653,8 +9677,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Erfordert Authentifikation."
 
-msgid "Required"
-msgstr "Erforderlich"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "Erneut Scannen"
@@ -10239,9 +10263,11 @@ msgstr ""
 "Wählen Sie 'unformatiert' für unformatierte Festplatten und formatieren Sie "
 "diese mit dem"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
 msgstr ""
-"Wählen Sie den Modus der Vorab-Zuweisung für Dateien. (Standard ist schnell)."
 
 msgid "Select read balance algorithm."
 msgstr "Wählen Sie den Read-Balance Algorithmus"
@@ -10482,15 +10508,6 @@ msgstr "Nur Lesen"
 msgid "Set share password."
 msgstr "Setze Passwort für Freigabe."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"Aktiviere Lesen und Ausführen für Sonstige (Zugriffsbeschränkungen | Modus) "
-"für den Einhängepunkt %s in %s und drücke Speichern damit die Änderungen "
-"wirksam werden."
-
 msgid "Set the account's primary group."
 msgstr "Legen Sie die primäre Gruppe des Kontos fest."
 
@@ -10571,6 +10588,11 @@ msgstr "Wählen Sie die Benutzerschnittstelle (login shell)"
 
 msgid "Set user password."
 msgstr "Benutzerpasswort festlegen."
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
 
 msgid "Setkey"
 msgstr "Schlüssel setzen"
@@ -11149,6 +11171,15 @@ msgstr "Gestoppt"
 
 msgid "Storage"
 msgstr "Datenträger"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "Speichere DOS Attribute"
@@ -12098,10 +12129,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "Die maximale Anzahl an Clients muss im Bereich von 1 bis 50 sein."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
-"Die maximale Download-Bandbreite in KiB/s. Ein leeres Feld steht für "
-"unbegrenzt."
 
 msgid "The maximum idle time must be a number."
 msgstr "Die maximale Leerlaufzeit muss eine Nummer sein."
@@ -12113,10 +12143,10 @@ msgstr ""
 "Der höchstmögliche zuweisbare Port, der 'PASV style' Datenverbindungen "
 "ermöglicht (0 = verwendet jeden Port)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
 msgstr ""
-"Die maximale Upload-Bandbreite in KiB/s. Ein leeres Feld steht für "
-"unbegrenzt."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12271,8 +12301,10 @@ msgstr ""
 "Der Pfad zur Datei, zum Geräteknoten oder zum ZFS Volumen verwendet, um das "
 "LUN mitzutragen (back the LUN)."
 
-msgid "The peer connection encryption mode."
-msgstr "Der Verschlüsselungsmodus von Peer-Verbindung."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -13286,9 +13318,6 @@ msgstr "Schalte ausgewählte iSCSI Initiatoren um"
 msgid "Toggle Selected iSNS Servers"
 msgstr "Ausgewählte iSNS Server umschalten"
 
-msgid "Tolerated"
-msgstr "Toleriert"
-
 msgid "Toolbox"
 msgstr "Werkzeuge"
 
@@ -13382,6 +13411,9 @@ msgstr "Übertragungsrate"
 
 msgid "Transfer mode"
 msgstr "Übertragungs Modus"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Transport-Ebenen-Sicherheit (TLS)"
@@ -13665,6 +13697,9 @@ msgstr "Unbekannt oder nicht formatiert"
 msgid "Unknown size"
 msgstr "Unbekannte Größe"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Auswerfen"
 
@@ -13925,6 +13960,9 @@ msgstr "Benutzername"
 
 msgid "Username of a domain administrator account."
 msgstr "Benutzername eines 'Domain Administrator Account'."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Benutzer"
@@ -14208,8 +14246,12 @@ msgstr "Warnung"
 msgid "Warning Level"
 msgstr "Detailgrad der Warnungen"
 
-msgid "Watch Directory"
-msgstr "Verzeichnis überwachen"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -14292,9 +14334,6 @@ msgid ""
 msgstr ""
 "Wenn ein Client sich mit dem Server verbindet, dann wird versucht durch das "
 "Ident Protokoll den Remote-Benutzernamen zu identifizieren."
-
-msgid "Where to save downloaded data."
-msgstr "Wo sollen die heruntergeladenen Daten gespeichert werden?"
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr ""
@@ -14867,6 +14906,9 @@ msgstr "testparm"
 msgid "to"
 msgstr "bis"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "aushängen"
 
@@ -14882,25 +14924,81 @@ msgstr "wurde zugewiesen an"
 msgid "yes"
 msgstr "ja"
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "Import nutzt die GPT ID"
+#~ msgid "Alternative configuration directory."
+#~ msgstr "Alternatives konfigurationsverzeichnis."
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "Import nutzt die GPT Labels"
-
-#~ msgid "List or import pools"
-#~ msgstr "Auflisten oder Importieren von Pools"
-
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Passwort für das Domain-Administratorkonto"
-
-#~ msgid "Search for and import all disks found"
-#~ msgstr "Suche und Importiere alle gefundenen Geräte"
-
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
 #~ msgstr ""
-#~ "Um Active Directory zu benutzen, wird der CIFS/SMB Dienst ebenfalls "
-#~ "aktiviert."
+#~ "BitTorrent erfordert lese und Asuführunghsrechte am Einhängepunkt (Mount "
+#~ "Point)  für das Verzeichnis %s!"
 
-#~ msgid "Search subdirectories"
-#~ msgstr "Unterverzeichnisse der Suche"
+#~ msgid "Configuration Directory"
+#~ msgstr "Konfigurationsverzeichnis"
+
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr ""
+#~ "Ordner für unvollständige Dateien. Ein leeres Feld bedeutet deaktivieren."
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Zu beobachtendes Verzeichnis für neue .torrent Dateien."
+
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "Festplatten | Einhängepunkt | Management"
+
+#~ msgid "Download Directory"
+#~ msgstr "Download-Verzeichnis"
+
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr "Extra Optionen um rpc zu übergehen mit der entfernten Übertragung."
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "Unvollständiges Verzeichnis"
+
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr "Port zum Abhören für eingehende Verbindungen. (Standard ist %d)."
+
+#~ msgid "Preferred"
+#~ msgstr "Bevorzugt"
+
+#~ msgid "Required"
+#~ msgstr "Erforderlich"
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr ""
+#~ "Wählen Sie den Modus der Vorab-Zuweisung für Dateien. (Standard ist schnell)."
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr ""
+#~ "Aktiviere Lesen und Ausführen für Sonstige (Zugriffsbeschränkungen | Modus) "
+#~ "für den Einhängepunkt %s in %s und drücke Speichern damit die Änderungen "
+#~ "wirksam werden."
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Die maximale Download-Bandbreite in KiB/s. Ein leeres Feld steht für "
+#~ "unbegrenzt."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Die maximale Upload-Bandbreite in KiB/s. Ein leeres Feld steht für "
+#~ "unbegrenzt."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "Der Verschlüsselungsmodus von Peer-Verbindung."
+
+#~ msgid "Tolerated"
+#~ msgstr "Toleriert"
+
+#~ msgid "Watch Directory"
+#~ msgstr "Verzeichnis überwachen"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Wo sollen die heruntergeladenen Daten gespeichert werden?"

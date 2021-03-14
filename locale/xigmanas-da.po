@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2020-12-30 12:56+0000\n"
 "Last-Translator: Birger Hebsgaard <bhebsgaard@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:24+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: DENMARK\n"
 "Language: \n"
 "X-Poedit-Language: Danish\n"
@@ -999,9 +999,6 @@ msgstr ""
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Alternativ TCP port (standard er 873)."
 
-msgid "Alternative configuration directory."
-msgstr ""
-
 msgid "Always"
 msgstr "Altid"
 
@@ -1490,10 +1487,7 @@ msgstr ""
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
 
 msgid "Blank Time"
@@ -2009,7 +2003,7 @@ msgstr "Komprimering"
 msgid "Configuration"
 msgstr "Konfiguration"
 
-msgid "Configuration Directory"
+msgid "Configuration Folder"
 msgstr ""
 
 msgid ""
@@ -2537,6 +2531,9 @@ msgid "DNS Forwarder"
 msgstr ""
 
 msgid "DNS Name"
+msgstr ""
+
+msgid "DNS Rebind Protection"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -3108,19 +3105,16 @@ msgstr ""
 msgid "Directory creation failed."
 msgstr ""
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr "Folder for u-fuldstændige filer. Tomt felt betyder \"anvendes ikke\""
-
 msgid "Directory listing"
 msgstr "Indholdsliste"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Mappe der indeholder flytbare medier. (F.eks. /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Mappe der skal overvåges for nye .torrent-filer."
-
 msgid "Disable"
+msgstr ""
+
+msgid "Disable DNS rebind protection"
 msgstr ""
 
 msgid "Disable Extension Menu"
@@ -3312,9 +3306,6 @@ msgid "Disks (Info)"
 msgstr ""
 
 msgid "Disks (Info) Information"
-msgstr ""
-
-msgid "Disks | Mount Point | Management"
 msgstr ""
 
 msgid "Display"
@@ -3922,6 +3913,9 @@ msgstr ""
 msgid "Domain Name (NetBIOS-Name)"
 msgstr ""
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr ""
 
@@ -3949,7 +3943,7 @@ msgstr ""
 msgid "Download Configuration"
 msgstr ""
 
-msgid "Download Directory"
+msgid "Download Folder"
 msgstr ""
 
 msgid "Drive Temperature."
@@ -4230,6 +4224,9 @@ msgstr ""
 msgid "Enable Asynchronous I/O."
 msgstr ""
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "Aktiver FXP protokol."
 
@@ -4467,6 +4464,9 @@ msgstr ""
 msgid "Enable large read/write."
 msgstr ""
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr ""
 
@@ -4564,6 +4564,9 @@ msgstr "Aktiver omkodning"
 
 msgid "Enable traps."
 msgstr "Aktiver traps."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -4934,10 +4937,13 @@ msgstr ""
 msgid "Extra options (usually empty)."
 msgstr "Ekstra indstillinger (som regel tom)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Ekstra indstillinger til ifconf (som regel tom)."
 
-msgid "Extra options to pass over rpc using transmission-remote."
+msgid "Extra options to pass over RPC using transmission-remote."
 msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
@@ -5189,6 +5195,9 @@ msgid "Flash File"
 msgstr ""
 
 msgid "Folder Pattern"
+msgstr ""
+
+msgid "Folder to monitor for new .torrent files."
 msgstr ""
 
 msgid "Follow"
@@ -5931,7 +5940,7 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr ""
 
-msgid "Incomplete Directory"
+msgid "Incomplete Folder"
 msgstr ""
 
 msgid ""
@@ -6271,6 +6280,9 @@ msgstr ""
 msgid "June"
 msgstr ""
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr ""
 
@@ -6542,6 +6554,9 @@ msgstr ""
 "(AES i Counter tilstand med CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protokol, IEEE 802.11i/D7.0)."
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6577,6 +6592,9 @@ msgstr "Lokal"
 
 msgid "Local Master Browser"
 msgstr "Lokal Master Browser"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr ""
@@ -6984,6 +7002,9 @@ msgid "Memory Usage"
 msgstr ""
 
 msgid "Message Board"
+msgstr ""
+
+msgid "Message Level"
 msgstr ""
 
 msgid "Message of the day."
@@ -8103,6 +8124,9 @@ msgstr "Kodeorderne passer ikke sammen."
 msgid "Password for the administrative pages."
 msgstr "Kodeord til de administrative sider."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8367,7 +8391,7 @@ msgid "Port record is unlocked"
 msgstr ""
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
@@ -8455,8 +8479,11 @@ msgstr "PreInit"
 msgid "Preallocation"
 msgstr ""
 
-msgid "Preferred"
-msgstr "Foretrukken"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Præfiks"
@@ -9166,8 +9193,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Kræver godkendelse."
 
-msgid "Required"
-msgstr "Påkrævet"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr ""
@@ -9718,7 +9745,10 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
 msgstr ""
 
 msgid "Select read balance algorithm."
@@ -9942,12 +9972,6 @@ msgstr ""
 msgid "Set share password."
 msgstr "Share kodeord"
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -10012,6 +10036,11 @@ msgid "Set user login shell."
 msgstr ""
 
 msgid "Set user password."
+msgstr ""
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
 
 msgid "Setkey"
@@ -10523,6 +10552,15 @@ msgstr "Stoppet"
 
 msgid "Storage"
 msgstr "Lagring"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr ""
@@ -11390,9 +11428,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr ""
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
-"Maksimum download båndbredde i KiB/s. Et tomt felt betyder uendeligt."
 
 msgid "The maximum idle time must be a number."
 msgstr ""
@@ -11404,8 +11442,10 @@ msgstr ""
 "Maksimum porten der allokeres til PASV data forbindelser (0 = brug hvilken "
 "som helst port)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-msgstr "Maksimum upload båndbredde i KB/s. Et tomt felt betyder uendeligt."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
+msgstr ""
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -11542,8 +11582,10 @@ msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
 
-msgid "The peer connection encryption mode."
-msgstr "Peer forbindelses krypterings tilstanden"
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12434,9 +12476,6 @@ msgstr ""
 msgid "Toggle Selected iSNS Servers"
 msgstr ""
 
-msgid "Tolerated"
-msgstr "Tolereret"
-
 msgid "Toolbox"
 msgstr ""
 
@@ -12517,6 +12556,9 @@ msgstr ""
 
 msgid "Transfer mode"
 msgstr "Overførsels tilstand"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr ""
@@ -12791,6 +12833,9 @@ msgstr "Ukendt eller uformateret"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Fjern"
 
@@ -13028,6 +13073,9 @@ msgstr "Brugernavn"
 
 msgid "Username of a domain administrator account."
 msgstr "Brugernavnet på domæne administrator kontoen."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Brugere"
@@ -13300,7 +13348,11 @@ msgstr "Advarsel"
 msgid "Warning Level"
 msgstr ""
 
-msgid "Watch Directory"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
 msgstr ""
 
 msgid "WebDAV"
@@ -13375,9 +13427,6 @@ msgid ""
 msgstr ""
 "Når en klient først opretter forbindelse til serveren, vil ident protokollen "
 "forsøge at identificere det fjerne brugernavn."
-
-msgid "Where to save downloaded data."
-msgstr "Hvor de downloadede data skal gemmes."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr ""
@@ -13906,6 +13955,9 @@ msgstr ""
 msgid "to"
 msgstr "til"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "umount"
 
@@ -13921,5 +13973,31 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Kodeord til domæne administratorens konto."
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr "Folder for u-fuldstændige filer. Tomt felt betyder \"anvendes ikke\""
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Mappe der skal overvåges for nye .torrent-filer."
+
+#~ msgid "Preferred"
+#~ msgstr "Foretrukken"
+
+#~ msgid "Required"
+#~ msgstr "Påkrævet"
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "Maksimum download båndbredde i KiB/s. Et tomt felt betyder uendeligt."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr "Maksimum upload båndbredde i KB/s. Et tomt felt betyder uendeligt."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "Peer forbindelses krypterings tilstanden"
+
+#~ msgid "Tolerated"
+#~ msgstr "Tolereret"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Hvor de downloadede data skal gemmes."

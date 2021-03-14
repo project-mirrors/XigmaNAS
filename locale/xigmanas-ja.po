@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -972,9 +972,6 @@ msgstr "代替データストリーム"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "代替TCPポート。(デフォルトは 873)"
 
-msgid "Alternative configuration directory."
-msgstr "代替設定ディレクトリ。"
-
 msgid "Always"
 msgstr "常に"
 
@@ -1458,11 +1455,8 @@ msgstr "パスワードバインド"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
-msgstr "BitTorrent はディレクトリ %s に少なくとも読み込みと実行権限が必要です！"
+msgid "BitTorrent Settings"
+msgstr ""
 
 msgid "Blank Time"
 msgstr "待機時間"
@@ -1976,8 +1970,8 @@ msgstr "圧縮"
 msgid "Configuration"
 msgstr "設定"
 
-msgid "Configuration Directory"
-msgstr "設定ディレクトリ"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2524,6 +2518,9 @@ msgid "DNS Forwarder"
 msgstr "DNSフォワーダ"
 
 msgid "DNS Name"
+msgstr ""
+
+msgid "DNS Rebind Protection"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -3090,20 +3087,17 @@ msgstr ""
 msgid "Directory creation failed."
 msgstr ""
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr "未完了ファイルの保存ディレクトリ。空欄は無効です。"
-
 msgid "Directory listing"
 msgstr "ディレクトリリスト"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "リムーバブルメディアを格納するディレクトリ。(例: /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "新しい .torrent ファイルを監視するディレクトリ。"
-
 msgid "Disable"
 msgstr "無効"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr ""
@@ -3294,9 +3288,6 @@ msgid "Disks (Info)"
 msgstr ""
 
 msgid "Disks (Info) Information"
-msgstr ""
-
-msgid "Disks | Mount Point | Management"
 msgstr ""
 
 msgid "Display"
@@ -3899,6 +3890,9 @@ msgstr ""
 msgid "Domain Name (NetBIOS-Name)"
 msgstr ""
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr ""
 
@@ -3926,7 +3920,7 @@ msgstr ""
 msgid "Download Configuration"
 msgstr "設定のダウンロード"
 
-msgid "Download Directory"
+msgid "Download Folder"
 msgstr ""
 
 msgid "Drive Temperature."
@@ -4207,6 +4201,9 @@ msgstr ""
 msgid "Enable Asynchronous I/O."
 msgstr ""
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "FXP プロトコルを有効にします。"
 
@@ -4444,6 +4441,9 @@ msgstr "inotifyを有効にします。"
 msgid "Enable large read/write."
 msgstr ""
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "DOS 属性マッピングを有効にする。"
 
@@ -4540,6 +4540,9 @@ msgstr "トランスコーディングを有効にします。"
 
 msgid "Enable traps."
 msgstr "トラップを有効にします。"
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -4902,10 +4905,13 @@ msgstr ""
 msgid "Extra options (usually empty)."
 msgstr "拡張オプション (通常は空)"
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "ifconfig の拡張オプション (通常は空)"
 
-msgid "Extra options to pass over rpc using transmission-remote."
+msgid "Extra options to pass over RPC using transmission-remote."
 msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
@@ -5156,6 +5162,9 @@ msgid "Flash File"
 msgstr ""
 
 msgid "Folder Pattern"
+msgstr ""
+
+msgid "Folder to monitor for new .torrent files."
 msgstr ""
 
 msgid "Follow"
@@ -5887,7 +5896,7 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr "入力電源情報"
 
-msgid "Incomplete Directory"
+msgid "Incomplete Folder"
 msgstr ""
 
 msgid ""
@@ -6226,6 +6235,9 @@ msgstr ""
 msgid "June"
 msgstr "6月"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr ""
 
@@ -6501,6 +6513,9 @@ msgstr ""
 "Protocol, RFC 3610, IEEE 802.11i/D7.0)、TKIP (Temporal Key Integrity "
 "Protocol, IEEE 802.11i/D7.0)。"
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6536,6 +6551,9 @@ msgstr "ローカル"
 
 msgid "Local Master Browser"
 msgstr "ローカルマスタブラウザ"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr ""
@@ -6939,6 +6957,9 @@ msgid "Memory Usage"
 msgstr ""
 
 msgid "Message Board"
+msgstr ""
+
+msgid "Message Level"
 msgstr ""
 
 msgid "Message of the day."
@@ -8045,6 +8066,9 @@ msgstr "パスワードが一致しません。"
 msgid "Password for the administrative pages."
 msgstr "管理画面のパスワード"
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8309,7 +8333,7 @@ msgid "Port record is unlocked"
 msgstr ""
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
@@ -8395,8 +8419,11 @@ msgstr "初期化前"
 msgid "Preallocation"
 msgstr ""
 
-msgid "Preferred"
-msgstr "優先"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "プレフィックス"
@@ -9098,8 +9125,8 @@ msgstr "温度が N ℃以上の場合に通知します。0 に設定する事�
 msgid "Require authentication."
 msgstr "認証を要求します。"
 
-msgid "Required"
-msgstr "必須"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr ""
@@ -9648,7 +9675,10 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
 msgstr ""
 
 msgid "Select read balance algorithm."
@@ -9872,12 +9902,6 @@ msgstr ""
 msgid "Set share password."
 msgstr "共有パスワードを設定します。"
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -9941,6 +9965,11 @@ msgid "Set user login shell."
 msgstr ""
 
 msgid "Set user password."
+msgstr ""
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
 
 msgid "Setkey"
@@ -10444,6 +10473,15 @@ msgstr "停止"
 
 msgid "Storage"
 msgstr "ストレージ"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "DOS 属性の保存"
@@ -11284,8 +11322,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "クライアントの最大数は 1 から 50 の間である必要があります。"
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
-msgstr "ダウンロード時の最大帯域を KiB/s で指定してください。空の場合は制限無しとなります。"
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
+msgstr ""
 
 msgid "The maximum idle time must be a number."
 msgstr "最大アイドルタイムは数値の必要があります。"
@@ -11295,8 +11334,10 @@ msgid ""
 "port)."
 msgstr "PASV スタイルのデータ接続に割り当てる最大のポート (0 = いずれかのポート)。"
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-msgstr "アップロード時の最大帯域を KB/sで指定してください。空の場合は制限無しとなります。"
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
+msgstr ""
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -11428,8 +11469,10 @@ msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
 
-msgid "The peer connection encryption mode."
-msgstr "ピア接続時の暗号化モード"
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12272,9 +12315,6 @@ msgstr ""
 msgid "Toggle Selected iSNS Servers"
 msgstr ""
 
-msgid "Tolerated"
-msgstr "許容"
-
 msgid "Toolbox"
 msgstr ""
 
@@ -12355,6 +12395,9 @@ msgstr "転送速度"
 
 msgid "Transfer mode"
 msgstr "転送モード"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr ""
@@ -12631,6 +12674,9 @@ msgstr "不明又は未フォーマット"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "アンロード"
 
@@ -12861,6 +12907,9 @@ msgstr "ユーザ名"
 
 msgid "Username of a domain administrator account."
 msgstr "ドメイン管理者アカウントのユーザ名"
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "ユーザ"
@@ -13133,8 +13182,12 @@ msgstr "警告"
 msgid "Warning Level"
 msgstr "警告レベル"
 
-msgid "Watch Directory"
-msgstr "監視ディレクトリ"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr ""
@@ -13207,9 +13260,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to "
 "attempt to identify the remote username."
 msgstr "クライアントが最初にサーバに接続する際、ident プロトコルはリモートのユーザ名の識別を試みます。"
-
-msgid "Where to save downloaded data."
-msgstr "ダウンロードしたデータを保存する場所"
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr "Various Artists としてコンピレーションを表示させるかどうか。"
@@ -13733,6 +13783,9 @@ msgstr ""
 msgid "to"
 msgstr "から"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "アンマウント"
 
@@ -13748,5 +13801,45 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "ドメイン管理者アカウントのパスワードを入力して下さい。"
+#~ msgid "Alternative configuration directory."
+#~ msgstr "代替設定ディレクトリ。"
+
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
+#~ msgstr "BitTorrent はディレクトリ %s に少なくとも読み込みと実行権限が必要です！"
+
+#~ msgid "Configuration Directory"
+#~ msgstr "設定ディレクトリ"
+
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr "未完了ファイルの保存ディレクトリ。空欄は無効です。"
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "新しい .torrent ファイルを監視するディレクトリ。"
+
+#~ msgid "Preferred"
+#~ msgstr "優先"
+
+#~ msgid "Required"
+#~ msgstr "必須"
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr "ダウンロード時の最大帯域を KiB/s で指定してください。空の場合は制限無しとなります。"
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr "アップロード時の最大帯域を KB/sで指定してください。空の場合は制限無しとなります。"
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "ピア接続時の暗号化モード"
+
+#~ msgid "Tolerated"
+#~ msgstr "許容"
+
+#~ msgid "Watch Directory"
+#~ msgstr "監視ディレクトリ"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "ダウンロードしたデータを保存する場所"

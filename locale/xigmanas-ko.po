@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -975,9 +975,6 @@ msgstr "대체 데이터 스트림"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "대체 TCP 포트(기본값: 873)"
 
-msgid "Alternative configuration directory."
-msgstr "대체 구성 디렉터리."
-
 msgid "Always"
 msgstr "항상"
 
@@ -1463,11 +1460,8 @@ msgstr "바인드 암호"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
-msgstr "BitTorrent는 탑제 지점 디렉터리 %s에 적어도 읽기 및 실행 허가가 필요합니다!"
+msgid "BitTorrent Settings"
+msgstr ""
 
 msgid "Blank Time"
 msgstr "반응불가시간"
@@ -1980,8 +1974,8 @@ msgstr "압축"
 msgid "Configuration"
 msgstr "설정"
 
-msgid "Configuration Directory"
-msgstr "설정 디렉터리"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2539,6 +2533,9 @@ msgid "DNS Forwarder"
 msgstr "DNS 전달자"
 
 msgid "DNS Name"
+msgstr ""
+
+msgid "DNS Rebind Protection"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -3114,20 +3111,17 @@ msgstr "디렉터리 마스크"
 msgid "Directory creation failed."
 msgstr ""
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr "완료되지 않은 파일용 디렉터리. 비워 두면 사용되지 않습니다."
-
 msgid "Directory listing"
 msgstr "디렉터리 리스트"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "이동식 미디어를 포함하는 디렉터리.(예 /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "새 .torrent 파일들을 감시할 디렉터리"
-
 msgid "Disable"
 msgstr "사용 안 함"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "확장 메뉴 사용 안 함"
@@ -3319,9 +3313,6 @@ msgstr "디스크(정보)"
 
 msgid "Disks (Info) Information"
 msgstr "디스크(정보) 정보"
-
-msgid "Disks | Mount Point | Management"
-msgstr "디스크 | 탑제 지점 | 관리"
 
 msgid "Display"
 msgstr "표시"
@@ -3923,6 +3914,9 @@ msgstr "도메인 이름(DNS/구역 이름)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "도메인 이름(NetBIOS 이름)"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "도메인에 2단계 이름이 없습니다."
 
@@ -3950,8 +3944,8 @@ msgstr "다운로드 대역폭"
 msgid "Download Configuration"
 msgstr "다운로드 설정"
 
-msgid "Download Directory"
-msgstr "다운로드 디렉터리"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "드라이브 온도"
@@ -4231,6 +4225,9 @@ msgstr "고급 포맷 사용 함(4KB 섹터 크기)"
 msgid "Enable Asynchronous I/O."
 msgstr ""
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "FXP 프로토콜 활성화."
 
@@ -4470,6 +4467,9 @@ msgstr "inotify를 사용합니다."
 msgid "Enable large read/write."
 msgstr "대형 읽기/쓰기를 사용합니다."
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "DOS 속성 매핑을 사용합니다."
 
@@ -4566,6 +4566,9 @@ msgstr "트랜스코딩 활성화."
 
 msgid "Enable traps."
 msgstr "트랩 활성화."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "흰색 배경 그래프를 사용합니다. (검정색이 기본입니다.)"
@@ -4928,11 +4931,14 @@ msgstr "추가 옵션"
 msgid "Extra options (usually empty)."
 msgstr "추가 옵션(보통 비워 둠)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "ifconfig에 대한 추가 옵션(보통 비워 둠)."
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr "RPC를 통해 transmission-remote에 전달되는 특수 옵션."
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "rsync에 대한 추가 옵션(보통 비워 둠)."
@@ -5182,6 +5188,9 @@ msgid "Flash File"
 msgstr ""
 
 msgid "Folder Pattern"
+msgstr ""
+
+msgid "Folder to monitor for new .torrent files."
 msgstr ""
 
 msgid "Follow"
@@ -5915,8 +5924,8 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr "입력 라인/전원 정보"
 
-msgid "Incomplete Directory"
-msgstr "미완성 디렉터리"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6258,6 +6267,9 @@ msgstr "6월"
 msgid "June"
 msgstr "6월"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr ""
 
@@ -6527,6 +6539,9 @@ msgstr ""
 "CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP(Temporal Key Integrity Protocol, "
 "IEEE 802.11i/D7.0) 중 하나 이상."
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6562,6 +6577,9 @@ msgstr "로컬"
 
 msgid "Local Master Browser"
 msgstr "로컬 마스터 브라우저"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr ""
@@ -6966,6 +6984,9 @@ msgstr "메모리 사용량"
 
 msgid "Message Board"
 msgstr "메시지 보드"
+
+msgid "Message Level"
+msgstr ""
 
 msgid "Message of the day."
 msgstr "오늘의 메시지."
@@ -8073,6 +8094,9 @@ msgstr "암호가 일치하지 않습니다."
 msgid "Password for the administrative pages."
 msgstr "관리자 페이지를 위한 암호."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8337,8 +8361,8 @@ msgid "Port record is unlocked"
 msgstr ""
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
-msgstr "들어오는 피어 접속 포트 번호(기본 값은 %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
+msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "listen 할 포트. 기본 iTunes 포트는 3689입니다."
@@ -8423,8 +8447,11 @@ msgstr "초기화 전"
 msgid "Preallocation"
 msgstr "선할당"
 
-msgid "Preferred"
-msgstr "선호됨"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "접두사"
@@ -9126,8 +9153,8 @@ msgstr "온도가 섭씨 N도 이상이면 보고합니다. 0으로 설정하면
 msgid "Require authentication."
 msgstr "인증이 필요함."
 
-msgid "Required"
-msgstr "필요함"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "재검사"
@@ -9676,8 +9703,11 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "포맷하지 않은 디스크의 경우 '포맷되지 않음' 옵션을 선택하고 다음 방식으로 포맷:"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "파일 선할당 모드를 선택하십시오(기본 값은 빠름)"
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "읽기 균형 알고리듬을 선택하십시오."
@@ -9901,14 +9931,6 @@ msgstr "읽기 전용 설정."
 msgid "Set share password."
 msgstr "공유 암호 설정."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"마운트 지점 %s2 중 %s1의 경우 읽기(Read)와 실행(Execute)의 비트 권한을 기타(Others)로 설정한 후 이 설정을 "
-"유효화하기 위해 저장(Save)버튼을 누르시오."
-
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -9971,6 +9993,11 @@ msgid "Set user login shell."
 msgstr "사용자 로그인 쉘 설정."
 
 msgid "Set user password."
+msgstr ""
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
 
 msgid "Setkey"
@@ -10477,6 +10504,15 @@ msgstr "정지됨"
 
 msgid "Storage"
 msgstr "저장 공간"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "DOS 속성 저장"
@@ -11315,8 +11351,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "최대 클라이언트 수는 1에서 50 범위 안에 있어야 합니다."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
-msgstr "KB/s 단위의 최대 다운로드 대역 폭. 빈 필드는 무한을 의미합니다."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
+msgstr ""
 
 msgid "The maximum idle time must be a number."
 msgstr "최대 유휴 시간은 숫자여야 합니다."
@@ -11326,8 +11363,10 @@ msgid ""
 "port)."
 msgstr "PASV 스타일의 데이터 연결을 위해 할당된 최대 포트(0 = 아무 포트나 사용)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-msgstr "KB/s 단위의 최대 업로드 대역 폭. 빈 필드는 무한을 의미합니다."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
+msgstr ""
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -11459,8 +11498,10 @@ msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
 
-msgid "The peer connection encryption mode."
-msgstr "피어 연결 암호화 모드."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12306,9 +12347,6 @@ msgstr ""
 msgid "Toggle Selected iSNS Servers"
 msgstr ""
 
-msgid "Tolerated"
-msgstr "용인됨"
-
 msgid "Toolbox"
 msgstr "도구 상자"
 
@@ -12389,6 +12427,9 @@ msgstr "전송율"
 
 msgid "Transfer mode"
 msgstr "전송 모드"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "전송 계층 보안(TLS)"
@@ -12665,6 +12706,9 @@ msgstr "알 수 없거나 포맷 되지 않음"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Unload"
 
@@ -12894,6 +12938,9 @@ msgstr "사용자 이름"
 
 msgid "Username of a domain administrator account."
 msgstr "도메인 관리 계정의 사용자 이름."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "사용자"
@@ -13168,8 +13215,12 @@ msgstr "경고"
 msgid "Warning Level"
 msgstr "경고 수준"
 
-msgid "Watch Directory"
-msgstr "감시할 디렉터리"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr ""
@@ -13241,9 +13292,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to "
 "attempt to identify the remote username."
 msgstr "클라이언트가 서버에 처음 연결할 때 원격 사용자 이름을 확인하기 위한 시도로서 ident 프로토콜이 이용됩니다."
-
-msgid "Where to save downloaded data."
-msgstr "다운로드 한 데이터를 저장하는 곳."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr ""
@@ -13767,6 +13815,9 @@ msgstr ""
 msgid "to"
 msgstr ""
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "탑재 해제"
 
@@ -13782,20 +13833,72 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "GPT ID를 이용해 불러오기"
+#~ msgid "Alternative configuration directory."
+#~ msgstr "대체 구성 디렉터리."
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "GTP 라벨을 이용해 불러오기"
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
+#~ msgstr "BitTorrent는 탑제 지점 디렉터리 %s에 적어도 읽기 및 실행 허가가 필요합니다!"
 
-#~ msgid "List or import pools"
-#~ msgstr "풀 목록 보기 또는 가져오기"
+#~ msgid "Configuration Directory"
+#~ msgstr "설정 디렉터리"
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "도메인 관리 계정의 함호."
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr "완료되지 않은 파일용 디렉터리. 비워 두면 사용되지 않습니다."
 
-#~ msgid "Search for and import all disks found"
-#~ msgstr "감지된 모든 디스크 검색"
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "새 .torrent 파일들을 감시할 디렉터리"
 
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-#~ msgstr "Active Directory를 사용하기 위해 CIFS/SMB 서비스도 활성화 됩니다."
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "디스크 | 탑제 지점 | 관리"
+
+#~ msgid "Download Directory"
+#~ msgstr "다운로드 디렉터리"
+
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr "RPC를 통해 transmission-remote에 전달되는 특수 옵션."
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "미완성 디렉터리"
+
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr "들어오는 피어 접속 포트 번호(기본 값은 %d)."
+
+#~ msgid "Preferred"
+#~ msgstr "선호됨"
+
+#~ msgid "Required"
+#~ msgstr "필요함"
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "파일 선할당 모드를 선택하십시오(기본 값은 빠름)"
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr ""
+#~ "마운트 지점 %s2 중 %s1의 경우 읽기(Read)와 실행(Execute)의 비트 권한을 기타(Others)로 설정한 후 이 설정을 "
+#~ "유효화하기 위해 저장(Save)버튼을 누르시오."
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr "KB/s 단위의 최대 다운로드 대역 폭. 빈 필드는 무한을 의미합니다."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr "KB/s 단위의 최대 업로드 대역 폭. 빈 필드는 무한을 의미합니다."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "피어 연결 암호화 모드."
+
+#~ msgid "Tolerated"
+#~ msgstr "용인됨"
+
+#~ msgid "Watch Directory"
+#~ msgstr "감시할 디렉터리"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "다운로드 한 데이터를 저장하는 곳."

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2018-07-06 10:29+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: NORWAY\n"
 "Language: \n"
 "X-Poedit-Language: Norwegian Bokmal\n"
@@ -974,9 +974,6 @@ msgstr ""
 msgid "Alternate TCP port. (Default is 873)."
 msgstr ""
 
-msgid "Alternative configuration directory."
-msgstr ""
-
 msgid "Always"
 msgstr ""
 
@@ -1460,10 +1457,7 @@ msgstr ""
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
 
 msgid "Blank Time"
@@ -1979,7 +1973,7 @@ msgstr "Komprimering"
 msgid "Configuration"
 msgstr "Konfigurasjon"
 
-msgid "Configuration Directory"
+msgid "Configuration Folder"
 msgstr ""
 
 msgid ""
@@ -2507,6 +2501,9 @@ msgid "DNS Forwarder"
 msgstr ""
 
 msgid "DNS Name"
+msgstr ""
+
+msgid "DNS Rebind Protection"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -3078,19 +3075,16 @@ msgstr ""
 msgid "Directory creation failed."
 msgstr ""
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr ""
-
 msgid "Directory listing"
 msgstr "Kataloglisting"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Katalog som inneholder fjernbar media. (eks. /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Katalog for å oppdage nye .torrent-filer"
-
 msgid "Disable"
+msgstr ""
+
+msgid "Disable DNS rebind protection"
 msgstr ""
 
 msgid "Disable Extension Menu"
@@ -3282,9 +3276,6 @@ msgid "Disks (Info)"
 msgstr ""
 
 msgid "Disks (Info) Information"
-msgstr ""
-
-msgid "Disks | Mount Point | Management"
 msgstr ""
 
 msgid "Display"
@@ -3889,6 +3880,9 @@ msgstr ""
 msgid "Domain Name (NetBIOS-Name)"
 msgstr ""
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr ""
 
@@ -3916,7 +3910,7 @@ msgstr ""
 msgid "Download Configuration"
 msgstr ""
 
-msgid "Download Directory"
+msgid "Download Folder"
 msgstr ""
 
 msgid "Drive Temperature."
@@ -4197,6 +4191,9 @@ msgstr ""
 msgid "Enable Asynchronous I/O."
 msgstr ""
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "Slå på FXP protokollen."
 
@@ -4436,6 +4433,9 @@ msgstr ""
 msgid "Enable large read/write."
 msgstr ""
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr ""
 
@@ -4534,6 +4534,9 @@ msgstr "Slå på transkoding"
 
 msgid "Enable traps."
 msgstr "Aktiver feller."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -4901,10 +4904,13 @@ msgstr ""
 msgid "Extra options (usually empty)."
 msgstr "Ekstra alternativer (vanligvis tom)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Ekstra alternativer til ifconfig (vanligvis tomt)."
 
-msgid "Extra options to pass over rpc using transmission-remote."
+msgid "Extra options to pass over RPC using transmission-remote."
 msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
@@ -5155,6 +5161,9 @@ msgid "Flash File"
 msgstr ""
 
 msgid "Folder Pattern"
+msgstr ""
+
+msgid "Folder to monitor for new .torrent files."
 msgstr ""
 
 msgid "Follow"
@@ -5885,7 +5894,7 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr ""
 
-msgid "Incomplete Directory"
+msgid "Incomplete Folder"
 msgstr ""
 
 msgid ""
@@ -6222,6 +6231,9 @@ msgstr ""
 msgid "June"
 msgstr ""
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr ""
 
@@ -6485,6 +6497,9 @@ msgid ""
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 msgstr ""
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6519,6 +6534,9 @@ msgid "Local"
 msgstr "Lokal"
 
 msgid "Local Master Browser"
+msgstr ""
+
+msgid "Local Peer Discovery"
 msgstr ""
 
 msgid "Local Share"
@@ -6922,6 +6940,9 @@ msgid "Memory Usage"
 msgstr ""
 
 msgid "Message Board"
+msgstr ""
+
+msgid "Message Level"
 msgstr ""
 
 msgid "Message of the day."
@@ -8035,6 +8056,9 @@ msgstr "Passordene er ikke like"
 msgid "Password for the administrative pages."
 msgstr "Passord for de administrative sidene."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8299,7 +8323,7 @@ msgid "Port record is unlocked"
 msgstr ""
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
@@ -8387,8 +8411,11 @@ msgstr "PreInit"
 msgid "Preallocation"
 msgstr ""
 
-msgid "Preferred"
-msgstr "Foretrukket"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefiks"
@@ -9094,8 +9121,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Krev autentisering."
 
-msgid "Required"
-msgstr "Obligatorisk"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr ""
@@ -9639,7 +9666,10 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
 msgstr ""
 
 msgid "Select read balance algorithm."
@@ -9863,12 +9893,6 @@ msgstr ""
 msgid "Set share password."
 msgstr "Set delings passord."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-
 msgid "Set the account's primary group."
 msgstr ""
 
@@ -9929,6 +9953,11 @@ msgid "Set user login shell."
 msgstr ""
 
 msgid "Set user password."
+msgstr ""
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
 
 msgid "Setkey"
@@ -10431,6 +10460,15 @@ msgstr "Stoppet"
 
 msgid "Storage"
 msgstr "Lagring"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr ""
@@ -11258,7 +11296,8 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr ""
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
 
 msgid "The maximum idle time must be a number."
@@ -11269,7 +11308,9 @@ msgid ""
 "port)."
 msgstr ""
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
 msgstr ""
 
 msgid ""
@@ -11398,7 +11439,9 @@ msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
 
-msgid "The peer connection encryption mode."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
 msgstr ""
 
 msgid ""
@@ -12218,9 +12261,6 @@ msgstr ""
 msgid "Toggle Selected iSNS Servers"
 msgstr ""
 
-msgid "Tolerated"
-msgstr ""
-
 msgid "Toolbox"
 msgstr ""
 
@@ -12301,6 +12341,9 @@ msgstr ""
 
 msgid "Transfer mode"
 msgstr "Overføringsmodus"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr ""
@@ -12575,6 +12618,9 @@ msgstr "Ukjent eller uformatert"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr ""
 
@@ -12804,6 +12850,9 @@ msgstr "Brukernavn"
 
 msgid "Username of a domain administrator account."
 msgstr "Brukernavnet til domeneadministrator kontoen."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Brukere"
@@ -13076,7 +13125,11 @@ msgstr "Advarsel"
 msgid "Warning Level"
 msgstr ""
 
-msgid "Watch Directory"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
 msgstr ""
 
 msgid "WebDAV"
@@ -13148,9 +13201,6 @@ msgstr ""
 msgid ""
 "When a client initially connects to the server the ident protocol is used to "
 "attempt to identify the remote username."
-msgstr ""
-
-msgid "Where to save downloaded data."
 msgstr ""
 
 msgid "Whether compilations should be shown together under Various Artists."
@@ -13678,6 +13728,9 @@ msgstr ""
 msgid "to"
 msgstr ""
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "avmontér"
 
@@ -13693,5 +13746,11 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Passordet til domenets administrator konto."
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Katalog for å oppdage nye .torrent-filer"
+
+#~ msgid "Preferred"
+#~ msgstr "Foretrukket"
+
+#~ msgid "Required"
+#~ msgstr "Obligatorisk"
