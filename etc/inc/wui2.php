@@ -2627,106 +2627,51 @@ EOJ;
 		endif;
 		return $this;
 	}
-//	c2 blocks
-	public function c2_row($p,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
-		if($is_readonly):
-			$class_tag = 'celltag';
-			$class_data = 'celldata';
-			$is_required = false;
-		else:
-			$class_tag = 'celltag';
-			$class_data = 'celldata';
-		endif;
-		if($is_required):
-			$class_tag = 'celltagreq';
-			$class_data = 'celldatareq';
-		endif;
-		$tr = $this->addTR(['id' => \sprintf('%s_tr',$p->get_id())]);
-		if($tagaslabel):
-			$tr->addTDwC($class_tag)->addElement('label',['for' => $p->get_id()],$p->get_title());
-		else:
-			$tr->addTDwC($class_tag,$p->get_title());
-		endif;
-		$subnode = $tr->addTDwC($class_data);
-		return $subnode;
-	}
-	public function c2_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->
-			c2_row($p,$is_required,$is_readonly,true)->
-				ins_checkbox($p,$value,$is_required,$is_readonly)->
-				ins_description($p);
+//	cr blocks
+	public function cr_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_checkbox($p,$value,$is_required,$is_readonly)->ins_description($p);
 		return $this;
 	}
-	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->
-			c2_row($p,$is_required,$is_readonly,false)->
-				ins_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->
-				ins_description($p);
+	public function cr_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->ins_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->ins_description($p);
 		return $this;
 	}
-	public function c2_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$hook = $this->c2_row($p,$is_required,$is_readonly,true);
-		$hook->
-			ins_filechooser($p,$value,$is_required,$is_readonly)->
-			ins_description($p);
-		$this->reset_hooks();
-		$this->add_hook($hook,'fc');
+	public function cr_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_filechooser($p,$value,$is_required,$is_readonly)->ins_description($p);
 		return $this;
 	}
-	public function c2_input_text($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->
-			c2_row($p,$is_required,$is_readonly,true)->
-				ins_input($p,$value,$is_required,$is_readonly,0)->
-				ins_description($p);
+	public function cr_input_text($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_input($p,$value,$is_required,$is_readonly,0)->ins_description($p);
 		return $this;
 	}
-	public function c2_input_password($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->
-			c2_row($p,$is_required,$is_readonly,true)->
-				ins_input($p,$value,$is_required,$is_readonly,1)->
-				ins_description($p);
+	public function cr_input_password($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_input($p,$value,$is_required,$is_readonly,1)->ins_description($p);
 		return $this;
 	}
-	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->
-			c2_row($p,$is_required,$is_readonly,false)->
-				ins_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->
-				ins_description($p);
+	public function cr_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->ins_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->ins_description($p);
 		return $this;
 	}
-/**
- *	Adds a scheduler
- *	@param array $cops Array containing cop-objects for
- *		scheduler,
- *		all_minutes, all_hours, all_days, all_months, all_weekdays,
- *		minutes, hours, days, months and weekdays
- *	@param object $sphere
- *	@param bool $is_required
- *	@param bool $is_readonly
- *	@return $this
- */
-	public function c2_scheduler($cops,$sphere,bool $is_required = false,bool $is_readonly = false) {
+	public function cr_scheduler($cops,$sphere,bool $is_required = false,bool $is_readonly = false) {
 //		init matrix
 		$matrix = [];
-		if(\array_key_exists('all_minutes',$cops) && \array_key_exists('minutes',$cops)):
+		if(array_key_exists('all_minutes',$cops) && array_key_exists('minutes',$cops)):
 			$matrix['minutes'] = ['all' => $cops['all_minutes'],'sel' => $cops['minutes'],'val_min' => 0,'val_steps' => 60,'val_break' => 15];
 		endif;
-		if(\array_key_exists('all_hours',$cops) && \array_key_exists('hours',$cops)):
+		if(array_key_exists('all_hours',$cops) && array_key_exists('hours',$cops)):
 			$matrix['hours'] = ['all' => $cops['all_hours'],'sel' => $cops['hours'],'val_min' => 0,'val_steps' => 24,'val_break' => 6];
 		endif;
-		if(\array_key_exists('all_days',$cops) && \array_key_exists('days',$cops)):
+		if(array_key_exists('all_days',$cops) && array_key_exists('days',$cops)):
 			$matrix['days'] = ['all' => $cops['all_days'],'sel' => $cops['days'],'val_min' => 1,'val_steps' => 31,'val_break' => 7];
 		endif;
-		if(\array_key_exists('all_months',$cops) && \array_key_exists('months',$cops)):
+		if(array_key_exists('all_months',$cops) && array_key_exists('months',$cops)):
 			$matrix['months'] = ['all' => $cops['all_months'],'sel' => $cops['months']];
 		endif;
-		if(\array_key_exists('all_weekdays',$cops) && \array_key_exists('weekdays',$cops)):
+		if(array_key_exists('all_weekdays',$cops) && array_key_exists('weekdays',$cops)):
 			$matrix['weekdays'] = ['all' => $cops['all_weekdays'],'sel' => $cops['weekdays']];
 		endif;
-//		insert row
-		$hook = $this->c2_row($cops['scheduler'],$is_required,$is_readonly,false);
-		$div = $hook->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
-		$hook->ins_description($cops['scheduler']);
+		$div = $this->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
+		$this->ins_description($cops['scheduler']);
 //		insert elements
 		foreach($matrix as $matrix_key => $control):
 			$all_id = $control['all']->get_id();
@@ -2753,7 +2698,7 @@ EOJ;
 						addDIV(['class' => 'rlbo'])->
 							addElement('label')->
 								insINPUT($attr_sel)->
-								insSPAN(['class' => 'rblo'],\gettext('Selected...'))->
+								insSPAN(['class' => 'rblo'],gettext('Selected...'))->
 								addTABLE()->
 									addTBODY(['class' => 'donothighlight'])->
 										addTR();
@@ -2765,7 +2710,7 @@ EOJ;
 					$val_count = $control['val_steps'];
 					$val_max = $val_min + $val_count - 1;
 					$val_break = $control['val_break'];
-					$outer_max = \ceil($val_count / $val_break) - 1;
+					$outer_max = ceil($val_count / $val_break) - 1;
 					$inner_max = $val_min + $val_break - 1;
 					for($outer = 0;$outer <= $outer_max;$outer++):
 						$td = $tr->addTDwC('lcefl');
@@ -2778,7 +2723,7 @@ EOJ;
 									'onchange' => \sprintf('set_selected("%s0")',$all_id),
 									'value' => $key
 								];
-								if(isset($sphere->row[$sel_name]) && \is_array($sphere->row[$sel_name]) && \in_array((string)$key,$sphere->row[$sel_name])):
+								if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name]) && in_array((string)$key,$sphere->row[$sel_name])):
 									$attributes['checked'] = 'checked';
 								endif;
 								$td->
@@ -2799,11 +2744,11 @@ EOJ;
 						$attributes = [
 							'type' => 'checkbox',
 							'class' => 'cblo',
-							'name' => \sprintf('%s[]',$sel_name),
-							'onchange' => \sprintf('set_selected("%s0")',$all_id),
+							'name' => sprintf('%s[]',$sel_name),
+							'onchange' => sprintf('set_selected("%s0")',$all_id),
 							'value' => $key
 						];
-						if(isset($sphere->row[$sel_name]) && \is_array($sphere->row[$sel_name]) && \in_array((string)$key,$sphere->row[$sel_name])):
+						if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name]) && in_array((string)$key,$sphere->row[$sel_name])):
 							$attributes['checked'] = 'checked';
 						endif;
 						$td->
@@ -2823,12 +2768,12 @@ EOJ;
 							'onchange' => \sprintf('set_selected("%s0")',$all_id),
 							'value' => $key
 						];
-						if(isset($sphere->row[$sel_name]) && \is_array($sphere->row[$sel_name])):
-							if(\in_array((string)$key,$sphere->row[$sel_name])):
+						if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name])):
+							if(in_array((string)$key,$sphere->row[$sel_name])):
 								$attributes['checked'] = 'checked';
 							elseif($key == 7):
 //								compatibility for non-ISO day of week 0 for Sunday
-								if(\in_array('0',$sphere->row[$sel_name])):
+								if(in_array('0',$sphere->row[$sel_name])):
 									$attributes['checked'] = 'checked';
 								endif;
 							endif;
@@ -2844,11 +2789,136 @@ EOJ;
 		endforeach;
 		return $this;
 	}
+	public function cr_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_select($p,$value,$is_required,$is_readonly)->ins_description($p);
+		return $this;
+	}
+	public function cr_textarea($p,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
+		if($n_cols > 0):
+			$p->set_cols($n_cols);
+		endif;
+		if($n_rows > 0):
+			$p->set_rows($n_rows);
+		endif;
+		$this->ins_textarea($p,$value,$is_required,$is_readonly)->ins_description($p);
+		return $this;
+	}
+/**
+ *	Hub for cr methods
+ *	@param property $p
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param array $additional_parameter
+ *	@return $this
+ */
+	public function cr($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
+		switch($p->get_input_type()):
+			case 'text':
+				$this->cr_input_text($p,$value,$is_required,$is_readonly);
+				break;
+			case 'checkbox':
+				$this->cr_checkbox($p,$value,$is_required,$is_readonly);
+				break;
+			case 'checkbox-grid':
+				$param_tablesort = $additional_parameter[0] ?? false;
+				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$this->cr_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				break;
+			case 'radio-grid':
+				$param_tablesort = $additional_parameter[0] ?? false;
+				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$this->cr_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				break;
+			case 'textarea':
+				$param_cols = $additional_parameter[0] ?? 0;
+				$n_cols = is_int($param_cols) ? $param_cols : 0;
+				$param_rows = $additional_parameter[1] ?? 0;
+				$n_rows = is_int($param_rows) ? $param_rows : 0;
+				$this->cr_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
+				break;
+			case 'select':
+				$this->cr_select($p,$value,$is_required,$is_readonly);
+				break;
+			case 'password':
+				$this->cr_input_password($p,$value,$is_required,$is_readonly);
+				break;
+			case 'filechooser':
+				$this->cr_filechooser($p,$value,$is_required,$is_readonly);
+				break;
+			case 'scheduler':
+				$this->cr_scheduler($p,$value,$is_required,$is_readonly);
+				break;
+		endswitch;
+		return $this;
+	}
+//	c2 blocks
+	public function c2_row($p,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
+		if($is_readonly):
+			$class_tag = 'celltag';
+			$class_data = 'celldata';
+			$is_required = false;
+		else:
+			$class_tag = 'celltag';
+			$class_data = 'celldata';
+		endif;
+		if($is_required):
+			$class_tag = 'celltagreq';
+			$class_data = 'celldatareq';
+		endif;
+		$tr = $this->addTR(['id' => \sprintf('%s_tr',$p->get_id())]);
+		if($tagaslabel):
+			$tr->addTDwC($class_tag)->addElement('label',['for' => $p->get_id()],$p->get_title());
+		else:
+			$tr->addTDwC($class_tag,$p->get_title());
+		endif;
+		$subnode = $tr->addTDwC($class_data);
+		return $subnode;
+	}
+	public function c2_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($p,$is_required,$is_readonly,true)->cr_checkbox($p,$value,$is_required,$is_readonly);
+		return $this;
+	}
+	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->c2_row($p,$is_required,$is_readonly,false)->cr_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+		return $this;
+	}
+	public function c2_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$hook = $this->c2_row($p,$is_required,$is_readonly,true);
+		$hook->cr_filechooser($p,$value,$is_required,$is_readonly);
+		$this->reset_hooks();
+		$this->add_hook($hook,'fc');
+		return $this;
+	}
+	public function c2_input_text($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($p,$is_required,$is_readonly,true)->cr_input_text($p,$value,$is_required,$is_readonly);
+		return $this;
+	}
+	public function c2_input_password($p,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($p,$is_required,$is_readonly,true)->cr_input_password($p,$value,$is_required,$is_readonly);
+		return $this;
+	}
+	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->c2_row($p,$is_required,$is_readonly,false)->cr_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+		return $this;
+	}
+/**
+ *	Adds a scheduler
+ *	@param array $cops Array containing cop-objects for
+ *		scheduler,
+ *		all_minutes, all_hours, all_days, all_months, all_weekdays,
+ *		minutes, hours, days, months and weekdays
+ *	@param object $sphere
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_scheduler($cops,$sphere,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($cops['scheduler'],$is_required,$is_readonly,false)->cr_scheduler($cops,$sphere,$is_required,$is_readonly);
+		return $this;
+	}
 	public function c2_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->
-			c2_row($p,$is_required,$is_readonly,true)->
-				ins_select($p,$value,$is_required,$is_readonly)->
-				ins_description($p);
+		$this->c2_row($p,$is_required,$is_readonly,true)->cr_select($p,$value,$is_required,$is_readonly);
 		return $this;
 	}
 	public function c2_separator() {
@@ -2856,16 +2926,7 @@ EOJ;
 		return $this;
 	}
 	public function c2_textarea($p,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
-		if($n_cols > 0):
-			$p->set_cols($n_cols);
-		endif;
-		if($n_rows > 0):
-			$p->set_rows($n_rows);
-		endif;
-		$this->
-			c2_row($p,$is_required,$is_readonly,true)->
-				ins_textarea($p,$value,$is_required,$is_readonly)->
-				ins_description($p);
+		$this->c2_row($p,$is_required,$is_readonly,true)->cr_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 		return $this;
 	}
 	public function c2_textinfo(string $id,string $title,$value) {
@@ -2886,6 +2947,15 @@ EOJ;
 		$this->ins_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title,2);
 		return $this;
 	}
+/**
+ *	Hub for c2 methods
+ *	@param property $p
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param array $additional_parameter
+ *	@return $this
+ */
 	public function c2($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
 		switch($p->get_input_type()):
 			case 'text':
