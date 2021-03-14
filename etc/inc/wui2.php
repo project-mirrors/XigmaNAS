@@ -2886,6 +2886,51 @@ EOJ;
 		$this->ins_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title,2);
 		return $this;
 	}
+	public function c2($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
+		switch($p->get_input_type()):
+			case 'text':
+				$this->c2_input_text($p,$value,$is_required,$is_readonly);
+				break;
+			case 'checkbox':
+				$this->c2_checkbox($p,$value,$is_required,$is_readonly);
+				break;
+			case 'checkbox-grid':
+				$param_tablesort = $additional_parameter[0] ?? false;
+				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$this->c2_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				break;
+			case 'radio-grid':
+				$param_tablesort = $additional_parameter[0] ?? false;
+				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
+				$this->c2_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				break;
+			case 'textarea':
+				$param_cols = $additional_parameter[0] ?? 0;
+				$n_cols = is_int($param_cols) ? $param_cols : 0;
+				$param_rows = $additional_parameter[1] ?? 0;
+				$n_rows = is_int($param_rows) ? $param_rows : 0;
+				$this->c2_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
+				break;
+			case 'select':
+				$this->c2_select($p,$value,$is_required,$is_readonly);
+				break;
+			case 'password':
+				$this->c2_input_password($p,$value,$is_required,$is_readonly);
+				break;
+			case 'filechooser':
+				$this->c2_filechooser($p,$value,$is_required,$is_readonly);
+				break;
+			case 'titleline-checkbox':
+				$param_title = $additional_parameter[0] ?? '';
+				$title = is_string($param_title) ? $param_title : '';
+				$this->c2_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title);
+				break;
+			case 'scheduler':
+				$this->c2_scheduler($p,$value,$is_required,$is_readonly);
+				break;
+		endswitch;
+		return $this;
+	}
 //	submit area macros
 	public function add_area_buttons(bool $use_config_setting = true) {
 		global $config;
