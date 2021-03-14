@@ -1,5 +1,5 @@
 PORTNAME=		msmtp
-PORTVERSION=	1.8.14
+PORTVERSION=	1.8.15
 PORTREVISION=	0
 CATEGORIES=		mail
 COMMENT=		SMTP client
@@ -67,7 +67,12 @@ post-stage:
 
 post-install:
 # XigmaNAS® install
+	@echo "Install to ${XIGMANAS_ROOTFS}"
+# rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
+# bin
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/msmtp ${XIGMANAS_ROOTFS}/usr/local/bin
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
