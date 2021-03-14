@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:53+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -1014,9 +1014,6 @@ msgstr "Alternatív adatfolyamok"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Alternatív TCP port (alapértelmezetten 873)."
 
-msgid "Alternative configuration directory."
-msgstr "Alternatív konfigurációs mappa."
-
 msgid "Always"
 msgstr "Mindig"
 
@@ -1537,13 +1534,8 @@ msgstr "Kötés jelszava"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
-"BitTorrentnek legalább olvasási és futtatási jogosultságra van szüksége a "
-"csatolási pont %s mappáján."
 
 msgid "Blank Time"
 msgstr "Üres idő"
@@ -2068,8 +2060,8 @@ msgstr "Tömörítés"
 msgid "Configuration"
 msgstr "Beállítások"
 
-msgid "Configuration Directory"
-msgstr "Beállítások mappája"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2670,6 +2662,9 @@ msgstr "DNS továbbító"
 msgid "DNS Name"
 msgstr ""
 
+msgid "DNS Rebind Protection"
+msgstr ""
+
 msgid "DNS server is empty."
 msgstr "DNS szerver üres."
 
@@ -3263,20 +3258,17 @@ msgstr "Mappamaszk"
 msgid "Directory creation failed."
 msgstr ""
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr "Befejezetlen fájlok mappája. Az üres mező tiltást jelent."
-
 msgid "Directory listing"
 msgstr "Mappa listázása"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Cserélhető médiát tartalmazó mappa. (pl.: /mnt/iscsi/)"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Mappa a .torrent fájlok figyelésére."
-
 msgid "Disable"
 msgstr "Kikapcsolás"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "Bővítmények menü letiltása"
@@ -3471,9 +3463,6 @@ msgstr "Lemezek (információ)"
 
 msgid "Disks (Info) Information"
 msgstr "Lemezekről információ"
-
-msgid "Disks | Mount Point | Management"
-msgstr "Lemez | Csatolási pont | Kezelés"
 
 msgid "Display"
 msgstr "Kijelző"
@@ -4103,6 +4092,9 @@ msgstr "Domain név (DNS/Területnév)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "Domain név (NetBIOS név)"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "Domainhoz hiányzik a másodlagos név."
 
@@ -4130,8 +4122,8 @@ msgstr "Letöltési sávszélesség"
 msgid "Download Configuration"
 msgstr "Konfiguráció letöltése"
 
-msgid "Download Directory"
-msgstr "Letöltések mappája"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "Meghajtó hőmérséklete."
@@ -4411,6 +4403,9 @@ msgstr "Fejlett formázás bekapcsolása (4KB-os szektorméret)"
 msgid "Enable Asynchronous I/O."
 msgstr "Aszinkron I/O engedélyezése"
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "FXP protokoll engedélyezése."
 
@@ -4654,6 +4649,9 @@ msgstr "Inotify engedélyezése"
 msgid "Enable large read/write."
 msgstr "Óriás írás/olvasás bekapcsolása."
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "DOS attribútum leképezésének bekapcsolása."
 
@@ -4763,6 +4761,9 @@ msgstr "Transcoding engedélyezése."
 
 msgid "Enable traps."
 msgstr "Csapdák engedélyezése."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr ""
@@ -5156,11 +5157,14 @@ msgstr "További lehetőségek"
 msgid "Extra options (usually empty)."
 msgstr "Extra beállítások (általában üres)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Extra beállítások az ifconfighoz (általában üres)"
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr "Átvitelirányítóhoz rpc használata esetén extra opció használata."
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Extra beállítások az rsynchez (általában üres)"
@@ -5415,6 +5419,9 @@ msgstr ""
 
 msgid "Folder Pattern"
 msgstr "Mappaminták"
+
+msgid "Folder to monitor for new .torrent files."
+msgstr ""
 
 msgid "Follow"
 msgstr "Követés"
@@ -6192,8 +6199,8 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr "Bemeneti áram/teljesítmény információ"
 
-msgid "Incomplete Directory"
-msgstr "Nem teljes mappa"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6555,6 +6562,9 @@ msgstr "Jún"
 msgid "June"
 msgstr "Június"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr "MBR megtartása"
 
@@ -6857,6 +6867,9 @@ msgstr ""
 "következőkből: CCMP (AES számoló módban CBC-MAC-kel, RFC 3610, IEEE "
 "802.11i/D7.0), TKIP (Temporal Key Integrity Protokoll, IEEE 802.11i/D7.0)."
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6892,6 +6905,9 @@ msgstr "Helyi"
 
 msgid "Local Master Browser"
 msgstr "Local Master Browser"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr "Helyi megosztás"
@@ -7306,6 +7322,9 @@ msgstr "Memóriafelhasználás"
 
 msgid "Message Board"
 msgstr "Üzenőfal"
+
+msgid "Message Level"
+msgstr ""
 
 msgid "Message of the day."
 msgstr "A nap üzenete."
@@ -8451,6 +8470,9 @@ msgstr "Jelszó nem egyezik."
 msgid "Password for the administrative pages."
 msgstr "Jelszó az rendszergazdai oldalakhoz."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8719,8 +8741,8 @@ msgid "Port record is unlocked"
 msgstr "A portbejegyzés zárolását feloldották"
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
-msgstr "Bejövő peer kapcsolatok figyelésének portja (alapértelmezetten %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
+msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Figyelendő port. Alap iTunes port: 3689."
@@ -8811,8 +8833,11 @@ msgstr "Indítás előtt"
 msgid "Preallocation"
 msgstr "Előre lefoglalás"
 
-msgid "Preferred"
-msgstr "Preferált"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Előtag"
@@ -9542,8 +9567,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Hitelesítést igényel."
 
-msgid "Required"
-msgstr "Kötelező"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "Újrakeresés"
@@ -10115,8 +10140,11 @@ msgstr ""
 "Válaszd a 'Formázatlan' beállítást a nem formázott lemezekhez, majd formázd "
 "meg őket"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "Válassz ki az előre lefoglalás módját (alapértelmezett: Gyors)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "Olvasó egyensúly algoritmus kiválasztása"
@@ -10355,15 +10383,6 @@ msgstr "Csak olvashatónak beállítás."
 msgid "Set share password."
 msgstr "Megosztási jelszó beállítása"
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"Állítsd be Olvasási és Futtatási biteket a Többieknek (Hozzáférési "
-"jogosultságok | Mód) %s csatolási pontra (%s) és nyomd meg a Mentés gombot, "
-"hogy életbe lépjen."
-
 msgid "Set the account's primary group."
 msgstr "A fiók elsődleges csoportjának beállítása"
 
@@ -10438,6 +10457,11 @@ msgstr "Felhasználó-bejelentkezési parancsértelmező beállítása."
 
 msgid "Set user password."
 msgstr "A felhasználó jelszavának beállítása."
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
 
 msgid "Setkey"
 msgstr "Kulcsbeállítás"
@@ -11010,6 +11034,15 @@ msgstr "Leállítva"
 
 msgid "Storage"
 msgstr "Tároló"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "DOS attribútumok tárolása"
@@ -11928,9 +11961,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "A kliensek maximális száma 1 és 50 közötti szám kell, hogy legyen."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
 msgstr ""
-"A maximális letöltési sávszélességet KB/s-ben. Üresen hagyva végtelen."
 
 msgid "The maximum idle time must be a number."
 msgstr "A maximális tétlenségi idő értéke szám kell, hogy legyen."
@@ -11942,9 +11975,10 @@ msgstr ""
 "A PASV stílusú adatkapcsolatoknak legnagyobb kiosztható port (0 = bármely "
 "port)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
 msgstr ""
-"A maximális feltöltési sávszélesség KB/s-ban. Üresen hagyva végtelen."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12095,8 +12129,10 @@ msgstr ""
 "A LUN-hoz visszaállításhoz használandó fájl,  eszközcsomópont vagy zfs kötet "
 "útvonala."
 
-msgid "The peer connection encryption mode."
-msgstr "A peer kapcsolat titkosítás módú."
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -13046,9 +13082,6 @@ msgstr "Kiválasztott iSCSI kezdeményezők átkapcsolása"
 msgid "Toggle Selected iSNS Servers"
 msgstr "A kiválasztott iSNS szerverek átkapcsolása"
 
-msgid "Tolerated"
-msgstr "Hibajavított"
-
 msgid "Toolbox"
 msgstr "Eszköztár"
 
@@ -13142,6 +13175,9 @@ msgstr "Átviteli sebesség"
 
 msgid "Transfer mode"
 msgstr "Átviteli mód"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Továbbítási Rétegbiztonság (TLS = Transport Layer Security)"
@@ -13423,6 +13459,9 @@ msgstr "Ismeretlen vagy formázatlan"
 msgid "Unknown size"
 msgstr "Ismeretlen méret"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Eltávolítás"
 
@@ -13670,6 +13709,9 @@ msgstr "Felhasználónév"
 
 msgid "Username of a domain administrator account."
 msgstr "Tartományi rendszergazdai fiók felhasználóneve."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Felhasználók"
@@ -13949,8 +13991,12 @@ msgstr "Figyelmeztetés"
 msgid "Warning Level"
 msgstr "Figyelmeztetési szint"
 
-msgid "Watch Directory"
-msgstr "Figyelőmappa"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -14032,9 +14078,6 @@ msgid ""
 msgstr ""
 "Amikor egy kliens először csatlakozik a szerverre, az ident protokoll "
 "használatával próbálja meg azonosítani a távoli felhasználó névét."
-
-msgid "Where to save downloaded data."
-msgstr "Letöltött fájlok mentése ide"
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr "A válogatások együtt jelenjenek meg az Egyéb Művészek alatt."
@@ -14588,6 +14631,9 @@ msgstr ""
 msgid "to"
 msgstr "eddig:"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "leválasztás"
 
@@ -14603,21 +14649,77 @@ msgstr ""
 msgid "yes"
 msgstr ""
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "Importálás GPT azonosító használatával"
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "Lemez | Csatolási pont | Kezelés"
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "Importálás GPT címkék használatával"
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr "Átvitelirányítóhoz rpc használata esetén extra opció használata."
 
-#~ msgid "List or import pools"
-#~ msgstr "Tárolók felsorolása vagy importálása"
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr "Bejövő peer kapcsolatok figyelésének portja (alapértelmezetten %d)."
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Tartományi rendszergazda jelszava."
+#~ msgid "Preferred"
+#~ msgstr "Preferált"
 
-#~ msgid "Search for and import all disks found"
-#~ msgstr "Keresés és összes talált eszköz importálása"
+#~ msgid "Required"
+#~ msgstr "Kötelező"
 
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "Válassz ki az előre lefoglalás módját (alapértelmezett: Gyors)."
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
 #~ msgstr ""
-#~ "Az Címtárszolgáltatás használatához a CIF/SMB szolgáltatást is bekapcsolod."
+#~ "Állítsd be Olvasási és Futtatási biteket a Többieknek (Hozzáférési "
+#~ "jogosultságok | Mód) %s csatolási pontra (%s) és nyomd meg a Mentés gombot, "
+#~ "hogy életbe lépjen."
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "A maximális letöltési sávszélességet KB/s-ben. Üresen hagyva végtelen."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr ""
+#~ "A maximális feltöltési sávszélesség KB/s-ban. Üresen hagyva végtelen."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "A peer kapcsolat titkosítás módú."
+
+#~ msgid "Tolerated"
+#~ msgstr "Hibajavított"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Letöltött fájlok mentése ide"
+
+#~ msgid "Alternative configuration directory."
+#~ msgstr "Alternatív konfigurációs mappa."
+
+#~ msgid "Configuration Directory"
+#~ msgstr "Beállítások mappája"
+
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
+#~ msgstr ""
+#~ "BitTorrentnek legalább olvasási és futtatási jogosultságra van szüksége a "
+#~ "csatolási pont %s mappáján."
+
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Mappa a .torrent fájlok figyelésére."
+
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr "Befejezetlen fájlok mappája. Az üres mező tiltást jelent."
+
+#~ msgid "Download Directory"
+#~ msgstr "Letöltések mappája"
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "Nem teljes mappa"
+
+#~ msgid "Watch Directory"
+#~ msgstr "Figyelőmappa"

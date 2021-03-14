@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
-"PO-Revision-Date: 2021-03-08 16:33+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"PO-Revision-Date: 2021-03-11 05:41+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -1012,9 +1012,6 @@ msgstr "Alaternativa dataströmmar"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "Alternativ TCP-port. (standard är 873)"
 
-msgid "Alternative configuration directory."
-msgstr "Alternativt konfigurationskatalog"
-
 msgid "Always"
 msgstr "Alltid"
 
@@ -1535,13 +1532,8 @@ msgstr "Bind Lösenord"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
+msgid "BitTorrent Settings"
 msgstr ""
-"BitTorrent kräver minst läs- & körrättigheter i monteringspunkten för "
-"katalog %s!"
 
 msgid "Blank Time"
 msgstr "Tid skärmsläckning"
@@ -1955,7 +1947,7 @@ msgstr ""
 "Rensa konfigurationsinformation innan mjukvaru RAID diskar importeras."
 
 msgid "Clear device errors"
-msgstr "Rensa enhetsfel"
+msgstr "Åtgärda enhetsfel"
 
 msgid "Clear metadata on the selected device."
 msgstr "Ta bort metadata på den valda enheten."
@@ -2068,8 +2060,8 @@ msgstr "Komprimering"
 msgid "Configuration"
 msgstr "Konfiguration"
 
-msgid "Configuration Directory"
-msgstr "Konfigurationskatalog"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2141,7 +2133,7 @@ msgid "Content Locations"
 msgstr "Innehållsplatser"
 
 msgid "Control"
-msgstr "Kontroll"
+msgstr "Åtgärd"
 
 msgid "Controller"
 msgstr "Diskkontroller"
@@ -2671,6 +2663,9 @@ msgstr "DNS vidarebefodrare"
 
 msgid "DNS Name"
 msgstr "DNS-namn"
+
+msgid "DNS Rebind Protection"
+msgstr ""
 
 msgid "DNS server is empty."
 msgstr "DNS-server är tom."
@@ -3261,21 +3256,17 @@ msgstr "Katalogmask"
 msgid "Directory creation failed."
 msgstr "Skapande av katalog misslyckades."
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr ""
-"Katalog för filer som inte är kompletta. Ett tomt fält innebär inaktivera."
-
 msgid "Directory listing"
 msgstr "Kataloglista"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "Katalog som innehåller flyttbar media"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "Katalog att bevaka efter .torrentfiler"
-
 msgid "Disable"
 msgstr "Inaktivera"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "Inaktivera Tiläggsmeny"
@@ -3471,9 +3462,6 @@ msgstr "Diskar (Info)"
 
 msgid "Disks (Info) Information"
 msgstr "Diskinformation"
-
-msgid "Disks | Mount Point | Management"
-msgstr "Diskar | Monteringspunkt | Hantering"
 
 msgid "Display"
 msgstr "Visa"
@@ -4089,6 +4077,9 @@ msgstr "Domännamn (DNS/Realm-namn)"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "Domännamn (NetBIOS-namn)"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "Domänen saknar nivå 2 namn."
 
@@ -4116,8 +4107,8 @@ msgstr "Nedladdningsbandbredd"
 msgid "Download Configuration"
 msgstr "Ladda ner konfiguration"
 
-msgid "Download Directory"
-msgstr "Nedladdningskatalog"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "Disktemperatur"
@@ -4396,7 +4387,10 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Aktivera avancerat format (4KB sektorstorlek)"
 
 msgid "Enable Asynchronous I/O."
-msgstr "Aktivera Asynkkron I/O."
+msgstr "Aktivera Asynkron I/O."
+
+msgid "Enable DNS rebind protection"
+msgstr ""
 
 msgid "Enable FXP protocol."
 msgstr "Aktivera FXP-protokoll."
@@ -4643,6 +4637,9 @@ msgstr "Aktivera inotify."
 msgid "Enable large read/write."
 msgstr "Aktivera stor läs/skriv."
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "Aktivera översättning av DOS attribut."
 
@@ -4754,6 +4751,9 @@ msgstr "Aktivera omkodning."
 
 msgid "Enable traps."
 msgstr "Aktivera fällor."
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Aktivera vit bakgrund för grafer. (svart som standard)"
@@ -5146,11 +5146,14 @@ msgstr "Extra alternativ"
 msgid "Extra options (usually empty)."
 msgstr "Tilläggsfunktioner (vanligtvis tomt)."
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Extra val till ifconfig (vanligtvis tom)."
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr "Extra alternativ att skicka över rpc genom \"transmission-remote\"."
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Extra val till rsync (vantligtvis tom)."
@@ -5406,6 +5409,9 @@ msgstr "Flashfil"
 
 msgid "Folder Pattern"
 msgstr "Katalogmönster"
+
+msgid "Folder to monitor for new .torrent files."
+msgstr ""
 
 msgid "Follow"
 msgstr "Följ"
@@ -6173,8 +6179,8 @@ msgstr "Inkludera UFS etiketter i scanna/importera"
 msgid "Incoming Line/Power Information"
 msgstr "Nätdata"
 
-msgid "Incomplete Directory"
-msgstr "Inkomplett katalog"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6543,6 +6549,9 @@ msgstr "Jun"
 msgid "June"
 msgstr "juni"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr "Behåll MBR"
 
@@ -6827,6 +6836,9 @@ msgstr ""
 "CCMP (AES i Counter-läge med CBC-MAC, RFC 3610, IEEE 802.11i/D7.0), TKIP "
 "(Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr "Lista pooler tillgängliga för import"
 
@@ -6843,7 +6855,7 @@ msgid "Listen record is unlocked"
 msgstr "Lyssnarposten är olåst"
 
 msgid "Load"
-msgstr "Belastning"
+msgstr "Ladda"
 
 msgid "Load Averages"
 msgstr "Belastningsmedelvärden"
@@ -6862,6 +6874,9 @@ msgstr "Lokal"
 
 msgid "Local Master Browser"
 msgstr "Lokal prioriterad bläddrare (Local Master Browser)"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr "Lokal utdelning"
@@ -7051,7 +7066,7 @@ msgid "Maintenance"
 msgstr "Underhåll"
 
 msgid "Maintenance Tool Settings"
-msgstr "Underhållsverktygsintällningar"
+msgstr "Underhållsverktygsinställningar"
 
 msgid "Major OS Version Upgrades"
 msgstr "Större OS versionsuppgraderingar"
@@ -7271,6 +7286,9 @@ msgstr "Minnesanvändning"
 
 msgid "Message Board"
 msgstr "Anslagstavla"
+
+msgid "Message Level"
+msgstr ""
 
 msgid "Message of the day."
 msgstr "Dagens meddelande."
@@ -8404,6 +8422,9 @@ msgstr "Lösenordet stämmer inte."
 msgid "Password for the administrative pages."
 msgstr "Lösenord för de administrativa sidorna."
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr "Lösenord för administratörskontot"
 
@@ -8672,9 +8693,8 @@ msgid "Port record is unlocked"
 msgstr "Portpost är olåst"
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
+msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
-"Port att lyssna på efter inkommande peer anslutningar. ( Standard är %d)."
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Port att lyssna på. Standard iTunes port är 3689."
@@ -8765,8 +8785,11 @@ msgstr "Förinitiering"
 msgid "Preallocation"
 msgstr "Förallokering"
 
-msgid "Preferred"
-msgstr "Föredragen"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "Prefix"
@@ -9492,8 +9515,8 @@ msgstr ""
 msgid "Require authentication."
 msgstr "Kräv autentisering."
 
-msgid "Required"
-msgstr "Obligatorisk"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "Sök igen"
@@ -9900,7 +9923,7 @@ msgid "Script has been uploaded."
 msgstr "Skript har laddats upp."
 
 msgid "Scrub a pool"
-msgstr "Rensa en pool"
+msgstr "Städa en pool"
 
 msgid "Search"
 msgstr "Sök"
@@ -10056,8 +10079,11 @@ msgid ""
 msgstr ""
 "Välj alternativet 'Oformaterad' för oformaterade diskar och formatera dem med"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "Välj förallokeringsläge för filer. (Standard är Snabb)."
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "Välj läsbalanseringsalgoritm"
@@ -10292,14 +10318,6 @@ msgstr "Sätt skrivskyddad."
 msgid "Set share password."
 msgstr "Välj lösenord för utdelningen."
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr ""
-"Sätt Läs- och Kör bitar rättigheter för Others (Åtkomstbegränsningar | Mod) "
-"för monteringspunkt %s i %s och Spara för att aktivera dem."
-
 msgid "Set the account's primary group."
 msgstr "Sätt kontots primära grupp."
 
@@ -10376,6 +10394,11 @@ msgstr "Sätt skal för användarinloggning."
 msgid "Set user password."
 msgstr "Sätt användarlösenord."
 
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
+
 msgid "Setkey"
 msgstr "Inställningsnyckel"
 
@@ -10391,8 +10414,8 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
-"Sätter autentiseringstyp. Typ kan vara endera \"None\", eller \"CHAP\". "
-"Standard är \"None\". När CHAP valts måste både chapIName och chapSecret "
+"Sätter autentiseringstyp. Typ kan vara endera \"Inget\", eller \"CHAP\". "
+"Standard är \"Inget\". När CHAP valts måste både chapIName och chapSecret "
 "definieras."
 
 msgid ""
@@ -10402,7 +10425,7 @@ msgid ""
 msgstr ""
 "Välj datasammanställning; en checksumma kalkylerad av Datasektionen i iSCSI "
 "PDUer, och verifierad vid mottagning. Sammanställning kan vara endera "
-"\"None\", eller \"CRC32C\". Standard är \"None\"."
+"\"Inget\", eller \"CRC32C\". Standard är \"Inget\"."
 
 msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
@@ -10411,7 +10434,7 @@ msgid ""
 msgstr ""
 "Välj rubriksammanställning; en checksumma kalkylerad av rubriken i iSCSI "
 "PDUer, och verifierad vid mottagning. Sammanställning kan vara endera "
-"\"None\", eller \"CRC32C\". Standard är \"None\"."
+"\"Inget\", eller \"CRC32C\". Standard är \"Inget\"."
 
 msgid ""
 "Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
@@ -10420,11 +10443,11 @@ msgid ""
 "connecting to all the targets returned by SendTargets iSCSI discovery with "
 "the defined TargetAddress."
 msgstr ""
-"Sätter sessionstypen. Typ kan vara endera \"Discovery\", eller \"Normal\". "
+"Sätter sessionstypen. Typ kan vara endera \"Utforska\", eller \"Normal\". "
 "Standard är \"Normal\". För normala sessioner måste målnamnet definieras. "
-"Discovery sessioner ignorerar målnamnet och kommer resultera i att "
-"initiatorn ansluter till alla mål som  returneras av SendTargets iSCSI "
-"discovery med de definierade måladdresserna."
+"Utforska sessioner ignorerar målnamnet och kommer resultera i att initiatorn "
+"ansluter till alla mål som  returneras av SendTargets iSCSI discovery med de "
+"definierade måladdresserna."
 
 msgid ""
 "Sets the umask for newly created files. The default is 000 (anyone can read "
@@ -10944,6 +10967,15 @@ msgstr "Stoppad"
 
 msgid "Storage"
 msgstr "Lagring"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "Lagra DOS attribut"
@@ -11861,8 +11893,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "Maximalt antal klienter måste vara mellan 1 och 50."
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
-msgstr "Max bandbredd vid nedladdning i KiB/s. Tomt fält innebär oändligt."
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
+msgstr ""
 
 msgid "The maximum idle time must be a number."
 msgstr "Maximal vilotid måste vara ett nummer."
@@ -11874,8 +11907,10 @@ msgstr ""
 "Max port att ställa in för PASV-typ data-uppkopplingar. (0=använd vilken "
 "port som helst)."
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-msgstr "Max bandbredd vid uppladdning i KB/s. Tomt fält innebär oändligt."
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
+msgstr ""
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12022,8 +12057,10 @@ msgstr ""
 "Sökvägen till filen, enhetsnoden, eller ZFS volymen som används till backup "
 "av LUNet."
 
-msgid "The peer connection encryption mode."
-msgstr "Peer-anslutning i krypteringsläge"
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12990,9 +13027,6 @@ msgstr "Växla valda iSCSI initierare"
 msgid "Toggle Selected iSNS Servers"
 msgstr "Växla valda iSNS servrar."
 
-msgid "Tolerated"
-msgstr "Tolererat"
-
 msgid "Toolbox"
 msgstr "Verktygslåda"
 
@@ -13087,6 +13121,9 @@ msgstr "Överföringshastighet"
 
 msgid "Transfer mode"
 msgstr "Överföringsläge"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Transport Lager Säkerhet (TLS)"
@@ -13368,6 +13405,9 @@ msgstr "Okänd eller oformaterad"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "Mata ut"
 
@@ -13495,7 +13535,7 @@ msgid "Use the \"Video\" container"
 msgstr "Använd \"Video\" behållaren."
 
 msgid "Use the ZFS ACL driver."
-msgstr "Anvvänd ZPS ACL-drivrutin."
+msgstr "Anvvänd ZFS ACL-drivrutin."
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -13621,6 +13661,9 @@ msgstr "Användarnamn"
 
 msgid "Username of a domain administrator account."
 msgstr "Användarnamn för ett domänadministratörskonto."
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "Användare"
@@ -13902,8 +13945,12 @@ msgstr "Varning"
 msgid "Warning Level"
 msgstr "Varningsnivåer"
 
-msgid "Watch Directory"
-msgstr "Övervakningskatalog"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -13982,9 +14029,6 @@ msgid ""
 msgstr ""
 "När en klient först ansluter till servern används ident-protokollet för att "
 "försöka identifiera fjärr-användarnamnet."
-
-msgid "Where to save downloaded data."
-msgstr "Var nedladdade filer sparas."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr "Om samlingar skall visas tillsammans under Blandade Artister."
@@ -14542,6 +14586,9 @@ msgstr "testparametrar"
 msgid "to"
 msgstr "till"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "umount"
 
@@ -14557,23 +14604,76 @@ msgstr "var tilldelad till"
 msgid "yes"
 msgstr "ja"
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "Importera genom att använda GPT ID"
+#~ msgid "Alternative configuration directory."
+#~ msgstr "Alternativt konfigurationskatalog"
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "Importera genom att använda GPT etiketter"
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
+#~ msgstr ""
+#~ "BitTorrent kräver minst läs- & körrättigheter i monteringspunkten för "
+#~ "katalog %s!"
 
-#~ msgid "List or import pools"
-#~ msgstr "Lista eller importera pooler"
+#~ msgid "Configuration Directory"
+#~ msgstr "Konfigurationskatalog"
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "Lösenord för domänadministratörskonto."
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr ""
+#~ "Katalog för filer som inte är kompletta. Ett tomt fält innebär inaktivera."
 
-#~ msgid "Search for and import all disks found"
-#~ msgstr "Sök efter och importera alla diskar som hittas"
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "Katalog att bevaka efter .torrentfiler"
 
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-#~ msgstr "För att använda Active Directory kommer CIFS/SMB tjänsten aktiveras."
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "Diskar | Monteringspunkt | Hantering"
 
-#~ msgid "Search subdirectories"
-#~ msgstr "Sök i underkataloger"
+#~ msgid "Download Directory"
+#~ msgstr "Nedladdningskatalog"
+
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr "Extra alternativ att skicka över rpc genom \"transmission-remote\"."
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "Inkomplett katalog"
+
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr ""
+#~ "Port att lyssna på efter inkommande peer anslutningar. ( Standard är %d)."
+
+#~ msgid "Preferred"
+#~ msgstr "Föredragen"
+
+#~ msgid "Required"
+#~ msgstr "Obligatorisk"
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "Välj förallokeringsläge för filer. (Standard är Snabb)."
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr ""
+#~ "Sätt Läs- och Kör bitar rättigheter för Others (Åtkomstbegränsningar | Mod) "
+#~ "för monteringspunkt %s i %s och Spara för att aktivera dem."
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr "Max bandbredd vid nedladdning i KiB/s. Tomt fält innebär oändligt."
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "Peer-anslutning i krypteringsläge"
+
+#~ msgid "Tolerated"
+#~ msgstr "Tolererat"
+
+#~ msgid "Watch Directory"
+#~ msgstr "Övervakningskatalog"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "Var nedladdade filer sparas."
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr "Max bandbredd vid uppladdning i KB/s. Tomt fält innebär oändligt."

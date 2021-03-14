@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-08 11:36+0000\n"
+"POT-Creation-Date: 2021-03-14 13:29+0000\n"
 "PO-Revision-Date: 2021-01-28 14:46+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-08 16:52+0000\n"
-"X-Generator: Launchpad (build f41ce4c616a9df6b2066606b5a16a036a6d2f6bb)\n"
+"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -959,9 +959,6 @@ msgstr "备用数据流"
 msgid "Alternate TCP port. (Default is 873)."
 msgstr "备用TCP端口。 （默认值为873）。"
 
-msgid "Alternative configuration directory."
-msgstr "备用配置目录。"
-
 msgid "Always"
 msgstr "总是"
 
@@ -1443,11 +1440,8 @@ msgstr "绑定密码"
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
-#, php-format
-msgid ""
-"BitTorrent needs at least read & execute permissions at the mount point for "
-"directory %s!"
-msgstr "BitTorrent至少需要读取和执行权限在目录%s的安装点！"
+msgid "BitTorrent Settings"
+msgstr ""
 
 msgid "Blank Time"
 msgstr "空白时间"
@@ -1957,8 +1951,8 @@ msgstr "资料压缩"
 msgid "Configuration"
 msgstr "配置"
 
-msgid "Configuration Directory"
-msgstr "配置目录"
+msgid "Configuration Folder"
+msgstr ""
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2500,6 +2494,9 @@ msgid "DNS Forwarder"
 msgstr "DNS转发器"
 
 msgid "DNS Name"
+msgstr ""
+
+msgid "DNS Rebind Protection"
 msgstr ""
 
 msgid "DNS server is empty."
@@ -3067,20 +3064,17 @@ msgstr "目录掩码"
 msgid "Directory creation failed."
 msgstr "目录创建失败。"
 
-msgid "Directory for incomplete files. An empty field means disable."
-msgstr "不完整文件的目录。 空字段表示禁用。"
-
 msgid "Directory listing"
 msgstr "目录清单"
 
 msgid "Directory that contains removable media. (e.g /mnt/iscsi/)"
 msgstr "含有可移动媒体的目录。 （例如 /mnt/iscsi/）"
 
-msgid "Directory to watch for new .torrent files."
-msgstr "监视新 .torrent 文件的目录。"
-
 msgid "Disable"
 msgstr "禁用"
+
+msgid "Disable DNS rebind protection"
+msgstr ""
 
 msgid "Disable Extension Menu"
 msgstr "禁用扩展菜单"
@@ -3272,9 +3266,6 @@ msgstr "磁盘（信息）"
 
 msgid "Disks (Info) Information"
 msgstr "磁盘（信息）信息"
-
-msgid "Disks | Mount Point | Management"
-msgstr "磁盘| 挂载点| 管理"
 
 msgid "Display"
 msgstr "显示"
@@ -3876,6 +3867,9 @@ msgstr "域名（DNS/真名）"
 msgid "Domain Name (NetBIOS-Name)"
 msgstr "域名（NetBIOS名称）"
 
+msgid "Domain Names"
+msgstr ""
+
 msgid "Domain is missing 2nd level name."
 msgstr "域缺少第二级名称。"
 
@@ -3903,8 +3897,8 @@ msgstr "下载 带宽"
 msgid "Download Configuration"
 msgstr "下载配置"
 
-msgid "Download Directory"
-msgstr "下载目录"
+msgid "Download Folder"
+msgstr ""
 
 msgid "Drive Temperature."
 msgstr "硬盘温度。"
@@ -4184,6 +4178,9 @@ msgstr "启用高级格式（4KB扇区大小）"
 msgid "Enable Asynchronous I/O."
 msgstr "启用异步I/O。"
 
+msgid "Enable DNS rebind protection"
+msgstr ""
+
 msgid "Enable FXP protocol."
 msgstr "启用 FXP 协议。"
 
@@ -4421,6 +4418,9 @@ msgstr "启用inotify。"
 msgid "Enable large read/write."
 msgstr "启用大型读/写。"
 
+msgid "Enable local peer discovery."
+msgstr ""
+
 msgid "Enable mapping DOS attributes."
 msgstr "启用映射DOS属性。"
 
@@ -4516,6 +4516,9 @@ msgstr "启用转码功能。"
 
 msgid "Enable traps."
 msgstr "启用 traps。"
+
+msgid "Enable uTP for peer connections."
+msgstr ""
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "启用白色背景图形。 （默认为黑色）"
@@ -4878,11 +4881,14 @@ msgstr "额外选项"
 msgid "Extra options (usually empty)."
 msgstr "额外选项（通常为空白）。"
 
+msgid "Extra options for transmission-remote"
+msgstr ""
+
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "ifconfig 的额外选项（通常为空白）。"
 
-msgid "Extra options to pass over rpc using transmission-remote."
-msgstr "使用传输远程传递rpc的额外选项。"
+msgid "Extra options to pass over RPC using transmission-remote."
+msgstr ""
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "rsync 的额外选项（通常为空白）。"
@@ -5131,6 +5137,9 @@ msgstr "FLASH文件"
 
 msgid "Folder Pattern"
 msgstr "文件夹模式"
+
+msgid "Folder to monitor for new .torrent files."
+msgstr ""
 
 msgid "Follow"
 msgstr "跟随"
@@ -5856,8 +5865,8 @@ msgstr ""
 msgid "Incoming Line/Power Information"
 msgstr "输入线/电源信息"
 
-msgid "Incomplete Directory"
-msgstr "不完整的目录"
+msgid "Incomplete Folder"
+msgstr ""
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6193,6 +6202,9 @@ msgstr "6月"
 msgid "June"
 msgstr "6 月"
 
+msgid "KB/s"
+msgstr ""
+
 msgid "Keep MBR"
 msgstr "保留MBR分区表"
 
@@ -6466,6 +6478,9 @@ msgstr ""
 "可接受的成对（单播）为WPA密码的列表。一个或多个：CCMP（AES计数器模式CBC-"
 "MAC，RFC3610，IEEE802.11i/D7.0），TKIP（临时密钥完整性协议，IEEE802.11i/D7.0）。"
 
+msgid "List of allowed domain names."
+msgstr ""
+
 msgid "List pools available to import"
 msgstr ""
 
@@ -6501,6 +6516,9 @@ msgstr "本地"
 
 msgid "Local Master Browser"
 msgstr "局域网主浏览器（Local Master Browser）。"
+
+msgid "Local Peer Discovery"
+msgstr ""
 
 msgid "Local Share"
 msgstr "本地共享"
@@ -6903,6 +6921,9 @@ msgstr "内存使用量"
 
 msgid "Message Board"
 msgstr "信息板"
+
+msgid "Message Level"
+msgstr ""
 
 msgid "Message of the day."
 msgstr "每日讯息（每次登录时显示）。"
@@ -8004,6 +8025,9 @@ msgstr "密码不匹配。"
 msgid "Password for the administrative pages."
 msgstr "管理页面的密码。"
 
+msgid "Password for the transmission web interface."
+msgstr ""
+
 msgid "Password of the administrator account."
 msgstr ""
 
@@ -8268,8 +8292,8 @@ msgid "Port record is unlocked"
 msgstr "端口记录已解锁"
 
 #, php-format
-msgid "Port to listen for incoming peer connections. (Default is %d)."
-msgstr "用于侦听传入对等连接的端口。 （默认值为%d）。"
+msgid "Port to listen for incoming peer connections. The default port is %d."
+msgstr ""
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "监听端口。iTunes的默认端口是3689 。"
@@ -8354,8 +8378,11 @@ msgstr "前置初始动作（PreInit）"
 msgid "Preallocation"
 msgstr "预分配"
 
-msgid "Preferred"
-msgstr "首选"
+msgid "Prefer encrypted connections"
+msgstr ""
+
+msgid "Prefer unencrypted connections"
+msgstr ""
 
 msgid "Prefix"
 msgstr "前缀"
@@ -9060,8 +9087,8 @@ msgstr "如果温度差异大于或等于N 的指定温度（摄氏）便报告�
 msgid "Require authentication."
 msgstr "需要认证。"
 
-msgid "Required"
-msgstr "必填"
+msgid "Require encrypted connections"
+msgstr ""
 
 msgid "Rescan"
 msgstr "重新扫描"
@@ -9606,8 +9633,11 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "为未格式化的磁盘选择“未格式化”选项，并用右边的工具格式化它们:"
 
-msgid "Select pre-allocation mode for files. (Default is Fast)."
-msgstr "选择文件的预分配模式。 （默认为快速）。"
+#, php-format
+msgid ""
+"Select preallocation mode for files. The default preallocation mode is "
+"\"%s\"."
+msgstr ""
 
 msgid "Select read balance algorithm."
 msgstr "选择读取平衡算法。"
@@ -9830,12 +9860,6 @@ msgstr "设为只读。"
 msgid "Set share password."
 msgstr "设置共享密码。"
 
-#, php-format
-msgid ""
-"Set the Read and Execute bits permission for Others (Access Restrictions | "
-"Mode) for the mount point %s in %s and hit Save in order to take them effect."
-msgstr "为其他人设置读取和执行位权限（访问限制|模式）用于%s中的挂载点%s，并单击保存以使其生效。"
-
 msgid "Set the account's primary group."
 msgstr "设置帐户的主要组。"
 
@@ -9898,6 +9922,11 @@ msgstr "设置用户登录shell。"
 
 msgid "Set user password."
 msgstr "设置用户密码"
+
+#, php-format
+msgid ""
+"Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -10404,6 +10433,15 @@ msgstr "已停止"
 
 msgid "Storage"
 msgstr "存储空间"
+
+msgid "Storage location of configuration information."
+msgstr ""
+
+msgid "Storage location of downloaded files."
+msgstr ""
+
+msgid "Storage location of partially downloaded files."
+msgstr ""
 
 msgid "Store DOS Attributes"
 msgstr "存储DOS属性"
@@ -11240,8 +11278,9 @@ msgid "The max. number of clients must be in the range from 1 to 50."
 msgstr "最大客户端数必须在1到50的范围内。"
 
 msgid ""
-"The maximum download bandwith in KiB/s. An empty field means infinity."
-msgstr "最大下载频宽于 KiB/s。空白表示没限制。"
+"The maximum download bandwith in KB/s. Leave this field empty to allow "
+"unlimited download bandwidth."
+msgstr ""
 
 msgid "The maximum idle time must be a number."
 msgstr "最大空闲时间必须是一个数字。"
@@ -11251,8 +11290,10 @@ msgid ""
 "port)."
 msgstr "设定PASV 式数据连接的最大端口（0 =使用任何端口）。"
 
-msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-msgstr "最大上传频宽于 KB/s。空白表示没限制。"
+msgid ""
+"The maximum upload bandwith in KB/s. Leave this field empty to allow "
+"unlimited upload bandwidth."
+msgstr ""
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -11382,8 +11423,10 @@ msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr "用于备份LUN的文件，设备节点或zfs卷的路径。"
 
-msgid "The peer connection encryption mode."
-msgstr "对等连接加密模式。"
+#, php-format
+msgid ""
+"The peer connection encryption mode. The default encryption mode is \"%s\""
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12213,9 +12256,6 @@ msgstr "切换选定的iSCSI启动器"
 msgid "Toggle Selected iSNS Servers"
 msgstr "切换选定的iSNS服务器"
 
-msgid "Tolerated"
-msgstr "容许"
-
 msgid "Toolbox"
 msgstr "工具箱"
 
@@ -12296,6 +12336,9 @@ msgstr "传输速率"
 
 msgid "Transfer mode"
 msgstr "传输模式"
+
+msgid "Transmission Web Interface"
+msgstr ""
 
 msgid "Transport Layer Security (TLS)"
 msgstr "传输层安全性（TLS）"
@@ -12572,6 +12615,9 @@ msgstr "不详/未格式化"
 msgid "Unknown size"
 msgstr "未知大小"
 
+msgid "Unlimited"
+msgstr ""
+
 msgid "Unload"
 msgstr "卸载"
 
@@ -12801,6 +12847,9 @@ msgstr "用户名"
 
 msgid "Username of a domain administrator account."
 msgstr "请在此设置管理员的帐号。"
+
+msgid "Username to log into the transmission web interface."
+msgstr ""
 
 msgid "Users"
 msgstr "用户"
@@ -13073,8 +13122,12 @@ msgstr "警告"
 msgid "Warning Level"
 msgstr "警告级别"
 
-msgid "Watch Directory"
-msgstr "监视目录"
+msgid "Watch Folder"
+msgstr ""
+
+#, php-format
+msgid "Web interface port. The default port is %d."
+msgstr ""
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -13146,9 +13199,6 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to "
 "attempt to identify the remote username."
 msgstr "当客户端最初连接到服务器时使用ident 协议来识别远程用户名。"
-
-msgid "Where to save downloaded data."
-msgstr "在哪里保存已下载的数据"
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr "是否应该在各个艺术家一起展示编译。"
@@ -13671,6 +13721,9 @@ msgstr "测试参数"
 msgid "to"
 msgstr "到"
 
+msgid "uTP"
+msgstr ""
+
 msgid "umount"
 msgstr "卸载"
 
@@ -13686,23 +13739,70 @@ msgstr "被分配给"
 msgid "yes"
 msgstr "是"
 
-#~ msgid "Import using GPT ID"
-#~ msgstr "使用GPT ID导入"
+#~ msgid "Alternative configuration directory."
+#~ msgstr "备用配置目录。"
 
-#~ msgid "Import using GPT labels"
-#~ msgstr "使用GPT标签导入"
+#, php-format
+#~ msgid ""
+#~ "BitTorrent needs at least read & execute permissions at the mount point for "
+#~ "directory %s!"
+#~ msgstr "BitTorrent至少需要读取和执行权限在目录%s的安装点！"
 
-#~ msgid "List or import pools"
-#~ msgstr "列出或导入池"
+#~ msgid "Configuration Directory"
+#~ msgstr "配置目录"
 
-#~ msgid "Password of domain administrator account."
-#~ msgstr "域管理员账号的密码。"
+#~ msgid "Directory for incomplete files. An empty field means disable."
+#~ msgstr "不完整文件的目录。 空字段表示禁用。"
 
-#~ msgid "Search for and import all disks found"
-#~ msgstr "搜索并导入找到的所有磁盘"
+#~ msgid "Directory to watch for new .torrent files."
+#~ msgstr "监视新 .torrent 文件的目录。"
 
-#~ msgid "To use Active Directory the CIFS/SMB service will enabled as well."
-#~ msgstr "要使用Active Directory，也将启用CIFS / SMB服务。"
+#~ msgid "Disks | Mount Point | Management"
+#~ msgstr "磁盘| 挂载点| 管理"
 
-#~ msgid "Search subdirectories"
-#~ msgstr "搜索子目录"
+#~ msgid "Download Directory"
+#~ msgstr "下载目录"
+
+#~ msgid "Extra options to pass over rpc using transmission-remote."
+#~ msgstr "使用传输远程传递rpc的额外选项。"
+
+#~ msgid "Incomplete Directory"
+#~ msgstr "不完整的目录"
+
+#, php-format
+#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
+#~ msgstr "用于侦听传入对等连接的端口。 （默认值为%d）。"
+
+#~ msgid "Preferred"
+#~ msgstr "首选"
+
+#~ msgid "Required"
+#~ msgstr "必填"
+
+#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
+#~ msgstr "选择文件的预分配模式。 （默认为快速）。"
+
+#, php-format
+#~ msgid ""
+#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
+#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
+#~ msgstr "为其他人设置读取和执行位权限（访问限制|模式）用于%s中的挂载点%s，并单击保存以使其生效。"
+
+#~ msgid ""
+#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
+#~ msgstr "最大下载频宽于 KiB/s。空白表示没限制。"
+
+#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
+#~ msgstr "最大上传频宽于 KB/s。空白表示没限制。"
+
+#~ msgid "The peer connection encryption mode."
+#~ msgstr "对等连接加密模式。"
+
+#~ msgid "Tolerated"
+#~ msgstr "容许"
+
+#~ msgid "Watch Directory"
+#~ msgstr "监视目录"
+
+#~ msgid "Where to save downloaded data."
+#~ msgstr "在哪里保存已下载的数据"
