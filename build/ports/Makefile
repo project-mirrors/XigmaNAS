@@ -21,6 +21,7 @@
     SUBDIR += grub2-bhyve
     SUBDIR += gzip
     SUBDIR += icu
+    SUBDIR += inadyn
     SUBDIR += inadyn-mt
     SUBDIR += iperf3
     SUBDIR += ipmitool

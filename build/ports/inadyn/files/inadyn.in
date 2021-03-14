@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# Part of XigmaNAS® (https://www.xigmanas.com).
+# Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+# All rights reserved.
+# 
+# Simple dynamic dns client
+#
+# $FreeBSD: head/dns/inadyn/files/inadyn.in 529066 2020-03-24 21:43:36Z mandree $
+#
+# PROVIDE: inadyn
+# REQUIRE: NETWORKING
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# inadyn_enable (bool):		Set it to "YES" to enable inadyn
+#				Default is "NO"
+# inadyn_config (str):		Set full path to configuration file.
+#				Default is "%%PREFIX%%/etc/inadyn.conf"
+# inadyn_pidfile (str):		Set full path to pid file.
+#				Default is "/var/run/inadyn/inadyn.pid"
+#
+
+. /etc/rc.subr
+
+name="inadyn"
+rcvar=inadyn_enable
+
+start_precmd="inadyn_checkconfig"
+restart_precmd="inadyn_checkconfig"
+configtest_precmd="inadyn_checkconfig"
+extra_commands="configtest"
+
+load_rc_config $name
+
+: ${inadyn_enable:="NO"}
+: ${inadyn_config:="%%PREFIX%%/etc/inadyn.conf"}
+: ${inadyn_pidfile:="/var/run/inadyn/inadyn.pid"}
+
+command=%%PREFIX%%/sbin/inadyn
+command_args="-p inadyn:inadyn -f ${inadyn_config} -P ${inadyn_pidfile}"
+pidfile=${inadyn_pidfile}
+required_files=${inadyn_config}
+
+inadyn_checkconfig()
+{
+	echo "Performing sanity check on ${name} configuration:"
+	eval ${command} ${command_args} --check-config
+}
+
+run_rc_command "$1"
