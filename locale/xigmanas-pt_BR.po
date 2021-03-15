@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:17+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: Brazilian Portuguese\n"
 "Language: \n"
@@ -14228,55 +14228,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "sim"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Diretório de configuração alternativo."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent necessita ao menos as permissões de leitura e execução no ponto "
-#~ "de montagem do diretório %s!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Diretório de configuração"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "Diretório para arquivos incompletos. Vazio significa desativado."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Diretório onde buscar novos arquivos .torrent."
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Discos | Ponto de montagem | Gestão"
-
-#~ msgid "Download Directory"
-#~ msgstr "Diretório de Download"
-
-#~ msgid "Preferred"
-#~ msgstr "Preferido"
-
-#~ msgid "Required"
-#~ msgstr "Requerido"
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "A largura de banda máxima para downloas em KB/s. Em branco significa sem "
-#~ "limite."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "A largura de banda máxima para upload em KB/s. Em branco significa sem "
-#~ "limite."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "O modo de criptografia da conexão do peer."
-
-#~ msgid "Tolerated"
-#~ msgstr "Tolerado"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Onde salvar os downloads."

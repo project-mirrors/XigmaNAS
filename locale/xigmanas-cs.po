@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:24+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -14771,78 +14771,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Alternativní složka s nastaveními."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent potřebuje přinejmenším práva pro čtení a vstup (execute) do "
-#~ "přípojného bodu složky %s!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Složka s nastaveními"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "Složka pro neúplné soubory. Nevyplněno znamená nepoužívat."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Složka, ve které sledovat výskyt nových .torrent souborů."
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Disky | Přípojný bod | Správa"
-
-#~ msgid "Download Directory"
-#~ msgstr "Složka do které se stahuje"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr "Další předvolby které předat přes rpc pomocí transmission-remote."
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "Složka pro nedokočené"
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr "Port na kterém očekávat příchozí spojení protějšku (výchozí je %d)."
-
-#~ msgid "Preferred"
-#~ msgstr "Upřednostňováno"
-
-#~ msgid "Required"
-#~ msgstr "Vyžadováno"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr "Vyberte řežim předpřidělení pro soubory (výchozí je Rychlé)."
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "Nastavte právo čtení a vstupu pro Ostatní (Omezení přístupu | práva) pro "
-#~ "přípojný bod %s v %s a změny uveďte v život kliknutím na Uložit."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Nejvyšší umožněná rychlost stahování (v KiB/s). Nevyplněno znamená bez "
-#~ "omezení."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Nejvyšší umožněná rychlost odesílání v KB/s. Nevyplněno znamená bez omezení."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "Režim šifrování při spojení s protějškem."
-
-#~ msgid "Tolerated"
-#~ msgstr "Tolerováno"
-
-#~ msgid "Watch Directory"
-#~ msgstr "Hlídat složku"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Kam ukládat stažená data."

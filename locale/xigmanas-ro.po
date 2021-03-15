@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:17+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -14556,82 +14556,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Director configurație alternativă."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent are nevoie cel puțin de permisiuni de citire & execuție în "
-#~ "punctul de montare pentru directorul %s!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Director configurare"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr ""
-#~ "Folderul pentru fișiere incomplete. Cîmp necompletat înseamnă că opțiunea "
-#~ "este dezactivată."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Folder pentru urmărirea apariției fișierelor noi tip .torrent."
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Discuri | Punct de montare | Management"
-
-#~ msgid "Download Directory"
-#~ msgstr "Director pentru download"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr "Extra opțiuni de transmis remote prin rpc."
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "Director incomplet"
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr "Port activ pentru conexiuni de intrare (implicit %d)."
-
-#~ msgid "Preferred"
-#~ msgstr "Preferat"
-
-#~ msgid "Required"
-#~ msgstr "Necesar"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr "Selectare mod prealocare pentru fișiere (implicit rapid)."
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "Definiți biții de permisiuni Citire respectiv Execută pentru Alții (Acces "
-#~ "Restricționat | Mod) pentru punctul de montare %s în %s și selectați "
-#~ "opțiunea Salvare pentru a valida modificările."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Viteza maximă de descărcare în KiB/s. Lăsați cîmpul necompletat pentru "
-#~ "viteză maximă."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Viteza maximă de încărcare în KiB/s. Lăsați cîmpul necompletat pentru viteză "
-#~ "maximă."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "Mod criptare conexiune în grup."
-
-#~ msgid "Tolerated"
-#~ msgstr "Tolerat"
-
-#~ msgid "Watch Directory"
-#~ msgstr "Director Watch"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Folderul unde vor fi salvate datele descărcate."

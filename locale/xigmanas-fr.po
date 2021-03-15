@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -14954,93 +14954,3 @@ msgstr "a été assigné à"
 
 msgid "yes"
 msgstr "oui"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Répertoire de configuration alternatif."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent a besoin au moins d'être autorisé à lire et exécuter  au point de "
-#~ "montage pour le répertoire% s!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Répertoire de configuration"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr ""
-#~ "Dossier des fichiers incomplets. Un champ vide désactive cette "
-#~ "fonctionnalité."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Répertoire où rechercher des nouveaux fichiers .torrent."
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Disques | Point de Montage | Gestion"
-
-#~ msgid "Download Directory"
-#~ msgstr "Répertoire de téléchargement"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr ""
-#~ "Options supplémentaires pour passer sur rpc en utilisant le transmission "
-#~ "distant."
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "Répertoire incomplet"
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr ""
-#~ "Port pour écouter les connexions entrantes. (La valeur par défaut est %d)."
-
-#~ msgid "Preferred"
-#~ msgstr "Préféré"
-
-#~ msgid "Required"
-#~ msgstr "Requis"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr ""
-#~ "Sélectionnez le mode de pré-allocation des fichiers. (La valeur par défaut "
-#~ "est Rapide)."
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "Réglez l'autorisation de la lecture et de l'exécution avec les bits de "
-#~ "permission pour les autres(Restrictions d'accès | Mode) pour le point de "
-#~ "montage %s dans %s et cliquez sur Enregistrer afin qu'elles prennent effet."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "La bande passante maximale pour le download en KiB/s. Le champ vide signifie "
-#~ "infini."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "La bande passante maximale en upload en KiB/s. Le champ vide signifie infini."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "Le mode de chiffrement de la connexion avec le pair."
-
-#~ msgid "Tolerated"
-#~ msgstr "Toléré"
-
-#~ msgid "Watch Directory"
-#~ msgstr "Répertoire de surveillance"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Répertoire de sauvegarde des données téléchargées."
-
-#~ msgid ""
-#~ "The maximum upload bandwith in KB/s. Leave this field empty to allow "
-#~ "unlimited download bandwidth."
-#~ msgstr ""
-#~ "La bande passante de téléchargement maximale en Ko / s. Laissez ce champ "
-#~ "vide pour autoriser une bande passante de téléchargement illimitée."

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:17+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
@@ -13726,20 +13726,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "evet"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Alternatif ayar klasörü."
-
-#~ msgid "Required"
-#~ msgstr "Gerekli"
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent'in %s bağlantı noktasında çalışabilmesi için en az okuma ve yazma "
-#~ "yetkilerine ihtiyacı varıdır!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Konfigürasyon Klasörü"
