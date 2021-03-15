@@ -1,19 +1,23 @@
-PORTNAME=	phpvirtualbox
-DISTVERSION=	5.2-0
+PORTNAME=		phpvirtualbox
+DISTVERSION=	6.1
 PORTREVISION=	0
 CATEGORIES=	www
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Web Interface for VirtualBox
 
+# XigmaNAS® contains license files
 LICENSE=	GPLv3
-NO_ARCH=	yes
-NO_BUILD=	yes
+
 USES=		dos2unix php
 # XigmaNAS
 #USE_PHP=	json session soap simplexml xml
 
+NO_ARCH=	yes
+NO_BUILD=	yes
+
 USE_GITHUB=	yes
+GH_TAGNAME=	cf82d58f2
 
 DOS2UNIX_REGEX=	.*\.(php|txt|js|css|html)
 ETCDIR=		${WWWDIR}
@@ -29,9 +33,11 @@ do-install:
 	    ${STAGEDIR}${WWWDIR}/config.php.sample
 
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 	@${RM} -f ${STAGEDIR}${WWWDIR}/*.txt
 	#@${MKDIR} -p ${XIGMANAS_ROOTFS}${WWWDIR}
 	@${CP} -Rpv ${STAGEDIR}${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
+# XigmaNAS® end install
+	@echo "End install for ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
