@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -14648,78 +14648,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Lemez | Csatolási pont | Kezelés"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr "Átvitelirányítóhoz rpc használata esetén extra opció használata."
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr "Bejövő peer kapcsolatok figyelésének portja (alapértelmezetten %d)."
-
-#~ msgid "Preferred"
-#~ msgstr "Preferált"
-
-#~ msgid "Required"
-#~ msgstr "Kötelező"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr "Válassz ki az előre lefoglalás módját (alapértelmezett: Gyors)."
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "Állítsd be Olvasási és Futtatási biteket a Többieknek (Hozzáférési "
-#~ "jogosultságok | Mód) %s csatolási pontra (%s) és nyomd meg a Mentés gombot, "
-#~ "hogy életbe lépjen."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "A maximális letöltési sávszélességet KB/s-ben. Üresen hagyva végtelen."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "A maximális feltöltési sávszélesség KB/s-ban. Üresen hagyva végtelen."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "A peer kapcsolat titkosítás módú."
-
-#~ msgid "Tolerated"
-#~ msgstr "Hibajavított"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Letöltött fájlok mentése ide"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Alternatív konfigurációs mappa."
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Beállítások mappája"
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrentnek legalább olvasási és futtatási jogosultságra van szüksége a "
-#~ "csatolási pont %s mappáján."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Mappa a .torrent fájlok figyelésére."
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "Befejezetlen fájlok mappája. Az üres mező tiltást jelent."
-
-#~ msgid "Download Directory"
-#~ msgstr "Letöltések mappája"
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "Nem teljes mappa"
-
-#~ msgid "Watch Directory"
-#~ msgstr "Figyelőmappa"

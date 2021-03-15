@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
@@ -13800,46 +13800,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "代替設定ディレクトリ。"
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr "BitTorrent はディレクトリ %s に少なくとも読み込みと実行権限が必要です！"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "設定ディレクトリ"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "未完了ファイルの保存ディレクトリ。空欄は無効です。"
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "新しい .torrent ファイルを監視するディレクトリ。"
-
-#~ msgid "Preferred"
-#~ msgstr "優先"
-
-#~ msgid "Required"
-#~ msgstr "必須"
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr "ダウンロード時の最大帯域を KiB/s で指定してください。空の場合は制限無しとなります。"
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr "アップロード時の最大帯域を KB/sで指定してください。空の場合は制限無しとなります。"
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "ピア接続時の暗号化モード"
-
-#~ msgid "Tolerated"
-#~ msgstr "許容"
-
-#~ msgid "Watch Directory"
-#~ msgstr "監視ディレクトリ"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "ダウンロードしたデータを保存する場所"

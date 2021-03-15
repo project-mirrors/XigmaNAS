@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:17+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -13720,71 +13720,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "備用配置目錄。"
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr "BitTorrent至少需要讀取和執行許可權在目錄%s的安裝點！"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "配置目錄"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "不完整檔的目錄。 空字段表示禁用。"
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "監視新 .torrent 檔的目錄。"
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "磁片| 掛載點| 管理"
-
-#~ msgid "Download Directory"
-#~ msgstr "下載目錄"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr "使用傳輸遠程傳遞rpc的額外選項。"
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "不完整的目錄"
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr "用於偵聽傳入對等連接的端口。 （默認值為%d）。"
-
-#~ msgid "Preferred"
-#~ msgstr "首選"
-
-#~ msgid "Required"
-#~ msgstr "必填"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr "選擇檔的預分配模式。 （默認為快速）。"
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr "為其他人設置讀取和執行位許可權（訪問限制|模式）用於%s中的掛載點%s，並單擊保存以使其生效。"
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr "最大下載頻寬於 KiB/s。空白表示沒限制。"
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr "最大上傳頻寬於 KB/s。空白表示沒限制。"
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "對等連接加密模式。"
-
-#~ msgid "Tolerated"
-#~ msgstr "容許"
-
-#~ msgid "Watch Directory"
-#~ msgstr "觀看目錄"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "在哪里保存已下載的數據"

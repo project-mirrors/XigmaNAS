@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:24+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: ca_ES\n"
 
@@ -14895,83 +14895,3 @@ msgstr "va ser assignat a"
 
 msgid "yes"
 msgstr "sí"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Directori de configuració alternativa."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent necessita al menys permisos de lectura i execució en el punt de "
-#~ "muntatge per al directori %s!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Directori de configuració"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "Directori d'arxius incomplets. Un camp buit indica deshabilitat."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Directori per veure els nous fitxers .torrent."
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Discs | Punt de muntatge | Gestió"
-
-#~ msgid "Download Directory"
-#~ msgstr "Directori de descàrrega"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr ""
-#~ "Opcions addicionals per passar a través de RPC que utilitzen la transmissió "
-#~ "a distància."
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "Directori incomplet"
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr ""
-#~ "Port per escoltar les connexions entrants de parells. (Per defecte és %d)."
-
-#~ msgid "Preferred"
-#~ msgstr "Preferit"
-
-#~ msgid "Required"
-#~ msgstr "Necessari"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr ""
-#~ "Seleccioneu el mode de pre-assignació d'arxius. (Per defecte és ràpid)."
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "Ajusta els bits de permís de lectura i execució per altres (Restriccions "
-#~ "d'accés | Mode) al punt de muntatge%s en %s i premeu Desar per tal que "
-#~ "entrin en vigor."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "L'ample de banda màxim de descàrrega en KiB/s. Un camp buit significa "
-#~ "l'infinit."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "El màxim ample de banda de pujada en KB/s. Un camp buit significa l'infinit."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "La manera de xifrat de connexió entre peers."
-
-#~ msgid "Tolerated"
-#~ msgstr "Tolerat"
-
-#~ msgid "Watch Directory"
-#~ msgstr "Directori de vigilancia"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "On guardar les dades descarregades."

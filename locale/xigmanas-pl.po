@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:17+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
@@ -14037,50 +14037,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "Tak"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Alternatywny katalog konfiguracji."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent wymaga przynajmniej uprawnień odczytu i uruchomienia w punkcie "
-#~ "montowania dla katalogu %s!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Katalog konfiguracyjny"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr ""
-#~ "Lokalizacja dla niekompletnych plików. Puste pole oznacza wyłączenie funkcji"
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "Katalog w którym znajdują się pliki .torrent."
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Dyski | Punkty Montowania | Zarządzanie."
-
-#~ msgid "Preferred"
-#~ msgstr "Preferowany"
-
-#~ msgid "Required"
-#~ msgstr "Wymagany"
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Maksymalna przepustowość w KB/s podczas ściągania. Puste pole oznacza brak "
-#~ "ograniczeń."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Maksymalna przepustowość w KB/s podczas wysyłania. Puste pole oznacza brak "
-#~ "ograniczeń."
-
-#~ msgid "Tolerated"
-#~ msgstr "Dopuszczane"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Miejsce zapisu odebranych danych."

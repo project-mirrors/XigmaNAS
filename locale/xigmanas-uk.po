@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:17+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -14753,84 +14753,3 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "Альтернативний каталог конфігурації."
-
-#~ msgid "Configuration Directory"
-#~ msgstr "Каталог конфігурації"
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "Диски | Точка монтування | Управління"
-
-#~ msgid "Download Directory"
-#~ msgstr "Каталог завантаження"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr ""
-#~ "Розширені опції для передавання через rpc використовуючи transmission-remote."
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr ""
-#~ "Порт для прослуховування вхідних пірінгових з'єднань (за замовчуванням %d)."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Максимальна швидкість завантаження в КіБ/с. Пусте поле означає без обмежень."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr ""
-#~ "Максимальна швидкість вивантаження в КБ/с. Пусте поле означає без обмежень."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "Режим шифрування з'єднань."
-
-#~ msgid "Tolerated"
-#~ msgstr "Припустимо"
-
-#~ msgid "Watch Directory"
-#~ msgstr "Каталог спостереження"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "Куди зберігати завантажені дані."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr ""
-#~ "BitTorrent необхідні дозволи принаймні на читання і на виконання в точці "
-#~ "монтування каталогу <b>%s</b>!"
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "Встановіть дозвіл на читання і виконання для Інших (Обмеження доступу | "
-#~ "Режим) для точки монтування %s в %s і натисніть кнопку Зберегти, щоб "
-#~ "застосувати."
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr "Визначте виділення простору для файлів (за замовчуванням Швидке)"
-
-#~ msgid "Preferred"
-#~ msgstr "Бажано"
-
-#~ msgid "Required"
-#~ msgstr "Вимагати"
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "Каталог незавершених"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr ""
-#~ "Каталог для незавершених файлів. Не заповнене поле означає не "
-#~ "використовувати."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr ""
-#~ "Каталог очікування нових .torrent-файлів. Не заповнене поле означає не "
-#~ "використовувати."

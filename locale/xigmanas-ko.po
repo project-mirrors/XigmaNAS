@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-14 13:25+0000\n"
+"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
 "X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -13832,73 +13832,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Alternative configuration directory."
-#~ msgstr "대체 구성 디렉터리."
-
-#, php-format
-#~ msgid ""
-#~ "BitTorrent needs at least read & execute permissions at the mount point for "
-#~ "directory %s!"
-#~ msgstr "BitTorrent는 탑제 지점 디렉터리 %s에 적어도 읽기 및 실행 허가가 필요합니다!"
-
-#~ msgid "Configuration Directory"
-#~ msgstr "설정 디렉터리"
-
-#~ msgid "Directory for incomplete files. An empty field means disable."
-#~ msgstr "완료되지 않은 파일용 디렉터리. 비워 두면 사용되지 않습니다."
-
-#~ msgid "Directory to watch for new .torrent files."
-#~ msgstr "새 .torrent 파일들을 감시할 디렉터리"
-
-#~ msgid "Disks | Mount Point | Management"
-#~ msgstr "디스크 | 탑제 지점 | 관리"
-
-#~ msgid "Download Directory"
-#~ msgstr "다운로드 디렉터리"
-
-#~ msgid "Extra options to pass over rpc using transmission-remote."
-#~ msgstr "RPC를 통해 transmission-remote에 전달되는 특수 옵션."
-
-#~ msgid "Incomplete Directory"
-#~ msgstr "미완성 디렉터리"
-
-#, php-format
-#~ msgid "Port to listen for incoming peer connections. (Default is %d)."
-#~ msgstr "들어오는 피어 접속 포트 번호(기본 값은 %d)."
-
-#~ msgid "Preferred"
-#~ msgstr "선호됨"
-
-#~ msgid "Required"
-#~ msgstr "필요함"
-
-#~ msgid "Select pre-allocation mode for files. (Default is Fast)."
-#~ msgstr "파일 선할당 모드를 선택하십시오(기본 값은 빠름)"
-
-#, php-format
-#~ msgid ""
-#~ "Set the Read and Execute bits permission for Others (Access Restrictions | "
-#~ "Mode) for the mount point %s in %s and hit Save in order to take them effect."
-#~ msgstr ""
-#~ "마운트 지점 %s2 중 %s1의 경우 읽기(Read)와 실행(Execute)의 비트 권한을 기타(Others)로 설정한 후 이 설정을 "
-#~ "유효화하기 위해 저장(Save)버튼을 누르시오."
-
-#~ msgid ""
-#~ "The maximum download bandwith in KiB/s. An empty field means infinity."
-#~ msgstr "KB/s 단위의 최대 다운로드 대역 폭. 빈 필드는 무한을 의미합니다."
-
-#~ msgid "The maximum upload bandwith in KB/s. An empty field means infinity."
-#~ msgstr "KB/s 단위의 최대 업로드 대역 폭. 빈 필드는 무한을 의미합니다."
-
-#~ msgid "The peer connection encryption mode."
-#~ msgstr "피어 연결 암호화 모드."
-
-#~ msgid "Tolerated"
-#~ msgstr "용인됨"
-
-#~ msgid "Watch Directory"
-#~ msgstr "감시할 디렉터리"
-
-#~ msgid "Where to save downloaded data."
-#~ msgstr "다운로드 한 데이터를 저장하는 곳."
