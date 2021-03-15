@@ -122,7 +122,6 @@ Changes:
 - Update translations.
 - Upgrade open-vm-tools to 11.1.0
 - Upgrade mariadb to 10.5.
-- Upgrade virtualbox-ose to 5.2.44.
 - Upgrade rsync to 3.2.3.
 - Upgrade iperf3 to 3.9.
 - Upgrade transmission to 3.00.
@@ -150,6 +149,7 @@ Changes:
 - Upgrade msmtp to 1.8.15.
 - Upgrade sudo to 1.9.6.
 - Upgrade e2fsprogs to 1.46.2.
+- Upgrade virtualbox-ose to 6.1.18.
 
 Fixes:
 - Fix only first lagg member is brought up.

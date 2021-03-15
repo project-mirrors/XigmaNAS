@@ -9,8 +9,6 @@ MAINTAINER=		zoon01@xigmanas.com
 DISTFILES=
 NO_BUILD=		yes
 NO_PKG_REGISTER=	yes
-#ALWAYS_BUILD_DEPENDS=	yes
-#DISABLE_VULNERABILITIES=yes
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=	${NONEXISTENT}:emulators/virtualbox-ose
@@ -20,7 +18,7 @@ KMOD_STAGEDIR=	${PORTSDIR}/emulators/virtualbox-ose-kmod/work/stage
 
 do-install:
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 # kmod
 .for file in vboxdrv.ko vboxnetadp.ko vboxnetflt.ko
 	@${INSTALL_KLD} -v ${KMOD_STAGEDIR}/boot/modules/${file} ${XIGMANAS_ROOTFS}/boot/modules
@@ -49,5 +47,7 @@ do-install:
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.7/site-packages/vboxapi ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.7/site-packages/xpcom ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
+# XigmaNAS® end install
+	@echo "End install for ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

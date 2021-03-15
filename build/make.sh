@@ -2182,7 +2182,7 @@ Press # '
 		sleep 1
 	done
 }
-#	Copy files/ports. Copying required files from 'distfiles & copy-ports'.
+#	Copy files/ports. Copying required files from 'distfiles & base-ports'.
 copy_files() {
 #	Copy required sources to FreeBSD distfiles directory.
 	echo;
@@ -2208,7 +2208,7 @@ copy_files() {
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port pecl-APCu to ports/devel/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/pecl-APCu /usr/ports/devel
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/pecl-APCu /usr/ports/devel
 	echo "===> Copy new port files to /usr/ports/devel/pecl-APCu done!"
 	echo ""
 	echo "===> Delete current libvncserver from ports"
@@ -2216,7 +2216,7 @@ copy_files() {
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port libvncserver to ports/net/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/libvncserver /usr/ports/net
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/libvncserver /usr/ports/net
 	echo "===> Copy new port files to /usr/ports/net/libvncserver done!"
 	echo ""
 	echo "===> Delete current virtualbox-ose from ports"
@@ -2224,7 +2224,7 @@ copy_files() {
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port virtualbox-ose to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose /usr/ports/emulators
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/virtualbox-ose /usr/ports/emulators
 	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose done!"
 	echo ""
 	echo "===> Delete current virtualbox-ose-additions from ports"
@@ -2232,7 +2232,7 @@ copy_files() {
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port virtualbox-ose-additions to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-additions /usr/ports/emulators
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/virtualbox-ose-additions /usr/ports/emulators
 	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-additions done!"
 	echo ""
 	echo "===> Delete current virtualbox-ose-kmod from ports"
@@ -2240,7 +2240,7 @@ copy_files() {
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/copy-ports/files/virtualbox-ose-kmod /usr/ports/emulators
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-kmod done!"
 	return 0
 }

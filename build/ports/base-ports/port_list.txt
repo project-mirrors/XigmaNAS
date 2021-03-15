@@ -1,7 +1,7 @@
 PORT					REASON
 ==============================================================================================================
-pecl-APCu				Build against current version, not older versions.
-libvncserver				Upgraded to fix broken libvncserver on freebsd ports.
+libvncserver				Used for new/keep current release.
+pecl-APCu				Used for new/keep current release.
 virtualbox-ose				Used for new/keep current release.
 virtualbox-ose-additions		Used for new/keep current release.
 virtualbox-ose-kmod			Used for new/keep current release.
