@@ -4,7 +4,7 @@ CATEGORIES=		sysutils
 COMMENT=		Memory Disk driver by Daisuke Aoyama (aoyama@peach.ne.jp)
 
 MAINTAINER=		aoyama@xigmanas.com
-MASTER_SITES=		http://www.peach.ne.jp/archives/xigmanas/xmd/
+MASTER_SITES=		http://www.peach.ne.jp/archives/nas4free/xmd/
 
 #NO_BUILD=		yes
 NO_PKG_REGISTER=	yes
