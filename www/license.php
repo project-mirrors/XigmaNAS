@@ -70,11 +70,11 @@ $software = [
 		'Copyright © 2004-2005 Bruce Cran (<a href="mailto:bruce@cran.org.uk">bruce@cran.org.uk</a>). All Rights Reserved.'
 	]],
 	['Apple Bonjour',[
-		'Bonjour, known as zero-configuration networking, using multicast Domain Name System (mDNS) records (<a href="http://developer.apple.com/networking/bonjour" target="_blank" rel="noreferrer">http://developer.apple.com/networking/bonjour</a>).',
+		'Bonjour, known as zero-configuration networking, using multicast Domain Name System (mDNS) records (<a href="https://developer.apple.com/bonjour" target="_blank" rel="noreferrer">https://developer.apple.com/bonjour</a>).',
 		'Copyright © Apple Public Source License. All Rights Reserved.'
 	]],
 	['cdialog',[
-		'Display simple dialog boxes from shell scripts (<a href="http://invisible-island.net/dialog/" target="_blank" rel="noreferrer">http://invisible-island.net/dialog</a>).',
+		'Display simple dialog boxes from shell scripts (<a href="https://invisible-island.net/dialog" target="_blank" rel="noreferrer">https://invisible-island.net/dialog</a>).',
 		'Copyright © 2000-2006, 2007 Thomas E. Dickey. All Rights Reserved.'
 	]],
 	['e2fsprogs',[
@@ -86,7 +86,7 @@ $software = [
 		'Copyright © 1989, 1991 Free Software Foundation. All Rights Reserved.'
 	]],
 	['FreeBSD',[
-		'The FreeBSD Project (<a href="http://www.freebsd.org" target="_blank" rel="noreferrer">http://www.freebsd.org</a>).',
+		'The FreeBSD Project (<a href="https://www.freebsd.org" target="_blank" rel="noreferrer">https://www.freebsd.org</a>).',
 		'Copyright © 1995-2019 The FreeBSD Project. All Rights Reserved.'
 	]],
 	['Freenas 7',[
@@ -132,7 +132,7 @@ $software = [
 		'Copyright © 2008-2018 Daisuke Aoyama (<a href="mailto:aoyama@peach.ne.jp">aoyama@peach.ne.jp</a>). All Rights Reserved.'
 	]],
 	['jQuery',[
-		'A fast, small, and feature-rich JavaScript library (<a href="http://jquery.com" target="_blank" rel="noreferrer">http://jquery.com</a>).',
+		'A fast, small, and feature-rich JavaScript library (<a href="https://jquery.com" target="_blank" rel="noreferrer">https://jquery.com</a>).',
 		'Copyright © 2020 jQuery Foundation. All Rights Reserved.'
 	]],
 	['LCDproc',[
@@ -140,7 +140,7 @@ $software = [
 		'Copyright © 1998-2017 William Ferrell, Selene Scriven and many other contributors. All Rights Reserved.'
 	]],
 	['Lighttpd',[
-		'A lighty fast webserver (<a href="http://www.lighttpd.net" target="_blank" rel="noreferrer">http://www.lighttpd.net</a>).',
+		'A lighty fast webserver (<a href="https://www.lighttpd.net" target="_blank" rel="noreferrer">https://www.lighttpd.net</a>).',
 		'Copyright © 2004 Jan Kneschke (<a href="mailto:jan@kneschke.de">jan@kneschke.de</a>). All Rights Reserved.'
 	]],
 	['MariaDB',[
@@ -201,8 +201,8 @@ $software = [
 		'Copyright © 1999, 2000-2020 The ProFTPD Project. All Rights Reserved.'
 	]],
 	['Python',[
-		'A programming language (<a href="http://www.python.org" target="_blank" rel="noreferrer">http://www.python.org</a>).',
-		'Copyright © 2001-2020 Python Software Foundation. All Rights Reserved.'
+		'A programming language (<a href="https://www.python.org" target="_blank" rel="noreferrer">https://www.python.org</a>).',
+		'Copyright © 2001-2021 Python Software Foundation. All Rights Reserved.'
 	]],
 	['QuiXplorer',[
 		'A Web-based file-management browser (<a href="https://github.com/realtimeprojects/quixplorer" target="_blank" rel="noreferrer">https://github.com/realtimeprojects/quixplorer</a>).',
@@ -229,8 +229,8 @@ $software = [
 		'Copyright © 2011-2015 Felix Gnass. All Rights Reserved.'
 	]],
 	['sudo',[
-		'A tool to allow a sysadmin to give limited root privileges. (<a href="http://www.sudo.ws" target="_blank" rel="noreferrer">http://www.sudo.ws</a>).',
-		'Copyright © 1994-1996, 1998-2020 Todd C. Miller. All Rights Reserved.'
+		'A tool to allow a sysadmin to give limited root privileges. (<a href="https://www.sudo.ws" target="_blank" rel="noreferrer">https://www.sudo.ws</a>).',
+		'Copyright © 1994-1996, 1998-2021 Todd C. Miller. All Rights Reserved.'
 	]],
 	['Syncthing',[
 		'Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. (<a href="https://syncthing.net" target="_blank" rel="noreferrer">https://syncthing.net</a>).',
@@ -250,19 +250,19 @@ $software = [
 		'Copyright © 1999, 2000-2009 The tftp-hpa series is maintained by H. Peter Anvin (<a href="mailto:hpa@zytor.com">hpa@zytor.com</a>). All Rights Reserved.'
 	]],
 	['tmux',[
-		'A terminal multiplexer. (<a href="http://tmux.github.io/" target="_blank" rel="noreferrer">http://tmux.github.io</a>).',
+		'A terminal multiplexer. (<a href="https://github.com/tmux/tmux" target="_blank" rel="noreferrer">https://github.com/tmux/tmux</a>).',
 		'Copyright © 2010 Nicholas Marriott. All Rights Reserved.'
 	]],
 	['Transmission',[
-		'A fast, easy, and free multi-platform BitTorrent client (<a href="http://www.transmissionbt.com" target="_blank" rel="noreferrer">http://www.transmissionbt.com</a>).',
+		'A fast, easy, and free multi-platform BitTorrent client (<a href="https://transmissionbt.com" target="_blank" rel="noreferrer">https://transmissionbt.com</a>).',
 		'Copyright © 2008-2018 Transmission Project. All Rights Reserved.'
 	]],
 	['VirtualBox',[
-		'Open Source Edition (OSE) & (Guest Additions) (<a href="http://www.virtualbox.org" target="_blank" rel="noreferrer">http://www.virtualbox.org</a>).',
-		'Copyright © 2010-2020, Oracle and/or its affiliates. All Rights Reserved.'
+		'Open Source Edition (OSE) & (Guest Additions) (<a href="https://www.virtualbox.org" target="_blank" rel="noreferrer">https://www.virtualbox.org</a>).',
+		'Copyright © 2010-2021, Oracle and/or its affiliates. All Rights Reserved.'
 	]],
 	['VMXNET3',[
-		'A NIC driver for FreeBSD (<a href="http://www.vmware.com" target="_blank" rel="noreferrer">http://www.vmware.com</a>).',
+		'A NIC driver for FreeBSD (<a href="https://www.vmware.com" target="_blank" rel="noreferrer">https://www.vmware.com</a>).',
 		'Copyright © 2010 VMware, Inc. All Rights Reserved.'
 	]],
 	['XMLStarlet',[
