@@ -150,6 +150,7 @@ Changes:
 - Upgrade sudo to 1.9.6.
 - Upgrade e2fsprogs to 1.46.2.
 - Upgrade virtualbox-ose to 6.1.18.
+- Upgrade phpvirtualbox to 6.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
