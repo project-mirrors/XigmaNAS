@@ -138,7 +138,6 @@ Changes:
 - Upgrade dialog to 1.3-20210117.
 - Upgrade dmidecode to 3.3.
 - Upgrade zoneinfo to 2021a.
-- Upgrade nut to 2021.01.28.
 - Upgrade jQuery to 3.6.0.
 - Upgrade nano to 5.6.1.
 - Upgrade syncthing to 1.14.0.
@@ -151,6 +150,7 @@ Changes:
 - Upgrade e2fsprogs to 1.46.2.
 - Upgrade virtualbox-ose to 6.1.18.
 - Upgrade phpvirtualbox to 6.1.
+- Upgrade nut to 2021.03.14.
 
 Fixes:
 - Fix only first lagg member is brought up.
