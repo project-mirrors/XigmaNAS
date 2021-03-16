@@ -35,6 +35,9 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'cs_scheduletime.php';
+require_once 'autoload.php';
+
+use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -154,7 +157,7 @@ function set_selected(name) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->

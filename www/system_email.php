@@ -34,9 +34,13 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
-array_make_branch($config,'system','email');
+arr::make_branch($config,'system','email');
 $pconfig['from'] = $config['system']['email']['from'];
 $pconfig['server'] = $config['system']['email']['server'];
 $pconfig['port'] = $config['system']['email']['port'];
@@ -59,7 +63,7 @@ $pconfig['sendto'] = isset($config['system']['email']['sendto']) ? $config['syst
 if($_POST):
 	unset($input_errors);
 	$pconfig = $_POST;
-	// Input validation.
+//	input validation.
 	$reqdfields = ['from','sendto','server','port'];
 	$reqdfieldsn = [gtext('From Email Address'),gtext('To Email Address'),gtext('SMTP Server'),gtext('Port')];
 	$reqdfieldst = ['string','string','string','string'];
@@ -72,7 +76,7 @@ if($_POST):
 	endif;
 	do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
 	do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-	// Check for a password mismatch.
+//	check for a password mismatch.
 	if(isset($_POST['auth']) && ($_POST['password'] !== $_POST['passwordconf'])) :
 		$input_errors[] = gtext('The passwords do not match.');
 	endif;
@@ -101,7 +105,7 @@ if($_POST):
 			$retval |= rc_exec_service('msmtp');
 			config_unlock();
 		endif;
-		// Send test email.
+//		send test email.
 		if(isset($_POST['submit'])):
 			if($_POST['submit'] == 'sendtestemail'):
 				$subject = sprintf(gettext('Test email from host: %s'),system_get_hostname());
@@ -215,7 +219,7 @@ function tls_use_default_trust_file_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
