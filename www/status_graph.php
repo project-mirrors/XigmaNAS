@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
 
 $status_graph = true;
 $graph_width = 397;
@@ -61,7 +65,7 @@ $gt_notsupported = gtext('Your browser does not support this svg object type.') 
 		'<br/>';
 $pgtitle = [gtext('Status'),gtext('Monitoring'),gtext('System Load')];
 include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = new document();
 include 'status_graph_tabs.inc';
 $document->render();
 ?>
@@ -82,7 +86,7 @@ $document->render();
 <?php
 					$a_object['id'] = 'id="graph"';
 					$a_object['data'] = sprintf('data="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs[$curif]));
-					$a_param['value'] = sprintf('value="graph.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs[$curif]));
+					$a_param['value'] = sprintf('value="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs[$curif]));
 					echo sprintf('<object %s>',implode(' ',$a_object));
 					echo sprintf('<param %s/>',implode(' ',$a_param));
 					echo $gt_notsupported;
