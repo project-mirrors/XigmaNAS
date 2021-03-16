@@ -31,9 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\backup;
 
+use DOMDocument;
+use common\arr;
 use common\sphere as mys;
+
+use function gettext,sprintf,updatenotify_clear;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -49,7 +55,7 @@ final class shared_toolbox {
 	public static function process_notification(int $mode,string $data) {
 		$retval = 0;
 		$sphere = setting_toolbox::init_sphere();
-		\updatenotify_clear($sphere->get_notifier(),$data);
+		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
 /**
@@ -64,25 +70,25 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(false);
-		$sphere->grid = &\array_make_branch($config,'system','backup','settings');
+		$sphere->grid = &arr::make_branch($config,'system','backup','settings');
 	}
 /**
  *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
+ *	@param DOMDocument $document
  *	@return int
  */
-	public static function add_tabnav(\co_DOMDocument $document) {
+	public static function add_tabnav(DOMDocument $document) {
 		$retval = 0;
 		$document->
 			add_area_tabnav()->
 				push()->
 				add_tabnav_upper()->
-					ins_tabnav_record('system_backup.php',\gettext('Backup Configuration'),\gettext('Reload page'),true)->
-					ins_tabnav_record('system_restore.php',\gettext('Restore Configuration'))->
+					ins_tabnav_record('system_backup.php',gettext('Backup Configuration'),gettext('Reload page'),true)->
+					ins_tabnav_record('system_restore.php',gettext('Restore Configuration'))->
 				pop()->
 				add_tabnav_lower()->
-					ins_tabnav_record('system_backup.php',\gettext('Backup'))->
-					ins_tabnav_record('system_backup_settings.php',\gettext('Settings'),\gettext('Reload page'),true);
+					ins_tabnav_record('system_backup.php',gettext('Backup'))->
+					ins_tabnav_record('system_backup_settings.php',gettext('Settings'),gettext('Reload page'),true);
 		return $retval;
 	}
 }
