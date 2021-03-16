@@ -32,6 +32,8 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+use gui\document;
+
 if(function_exists("date_default_timezone_set") and function_exists("date_default_timezone_get")) {
 	@date_default_timezone_set(@date_default_timezone_get());
 }
@@ -264,15 +266,6 @@ function print_input_errors($input_errors) {
 
 function verify_xz_file($fname) {
 	$returnvar = mwexec("/usr/bin/xz -t " . escapeshellarg($fname),true);
-	if($returnvar != 0):
-		return 0;
-	else:
-		return 1;
-	endif;
-}
-
-function verify_gzip_file($fname) {
-	$returnvar = mwexec("/usr/bin/gzip -t " . escapeshellarg($fname),true);
 	if($returnvar != 0):
 		return 0;
 	else:
@@ -739,13 +732,6 @@ function html_folderbox2($ctrlname,$title,$value,$desc,$path,$required = false,$
 	$ctrl->Compose()->render();
 }
 
-function html_minidlnabox2($ctrlname,$title,$value,$desc,$path,$required = false,$readonly = false) {
-	$ctrl = new HTMLFolderBox12($ctrlname,$title,$value,$desc);
-	$ctrl->SetRequired($required);
-	$ctrl->SetReadOnly($readonly);
-	$ctrl->SetPath($path);
-	$ctrl->Compose()->render();
-}
 function html_button(string $value = NULL,string $content = NULL,string $id = NULL) {
 	$element = 'button';
 	$class = 'formbtn';
@@ -768,24 +754,8 @@ function html_button(string $value = NULL,string $content = NULL,string $id = NU
 	if($value === 'cancel'):
 		$button_attributes['formnovalidate'] = 'formnovalidate';
 	endif;
-	$root = new co_DOMDocument();
+	$root = new document();
 	$o_button = $root->addElement($element,$button_attributes,$content);
-	return $root->get_html();
-}
-function html_row_toolbox(string $link = '',string $gt_record_mod = '',string $gt_record_del = '',string $gt_record_loc = '',bool $notprotected = true,bool $notdirty = true) {
-	global $g_img;
-	$root = new co_DOMDocument();
-	$o = $root->addElement('td');
-	if($notdirty && $notprotected): // editable
-		$o_a = $o->addElement('a',['href' => $link]);
-		$o_a->addElement('img',['src' => $g_img['mod'],'title' => $gt_record_mod,'alt' => $gt_record_mod,'class' => 'spin']);
-	else:
-		if($notprotected): // dirty
-			$o->addElement('img',['src' => $g_img['del'],'title' => $gt_record_del,'alt' => $gt_record_del]);
-		else: // protected
-			$o->addElement('img',['src' => $g_img['loc'],'title' => $gt_record_loc,'alt' => $gt_record_loc]);
-		endif;
-	endif;
 	return $root->get_html();
 }
 function get_weekday_names(bool $longnames = true,bool $localized = true) {
@@ -793,7 +763,6 @@ function get_weekday_names(bool $longnames = true,bool $localized = true) {
 
 	return $longnames ? ($localized ? $g_weekdays : $g_weekdays_en) : ($localized ? $g_weekdays_short : $g_weekdays_en_short);
 }
-
 function get_month_names(bool $longnames = true,bool $localized = true) {
 	global $g_months,$g_month_short,$g_month_en,$g_month_en_short;
 
