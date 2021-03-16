@@ -34,6 +34,10 @@
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 if(isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
@@ -44,7 +48,7 @@ endif;
 $pgtitle = [gtext('Disks'),gtext('Management'),gtext('Disk'),isset($uuid) ? gtext('Edit') : gtext('Add')];
 //	Get all physical disks including CDROM.
 $a_phy_disk = array_merge((array)get_physical_disks_list(),(array)get_cdrom_list());
-$a_disk = &array_make_branch($config,'disks','disk');
+$a_disk = &arr::make_branch($config,'disks','disk');
 if(empty($a_disk)):
 else:
 	array_sort_key($a_disk,'name');
@@ -178,7 +182,7 @@ function smart_enable_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->

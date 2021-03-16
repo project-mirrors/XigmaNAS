@@ -34,6 +34,10 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 $pgtitle = [gtext('Disks'),gtext('Management'),gtext('S.M.A.R.T.')];
 
@@ -98,8 +102,8 @@ if($_POST):
 		endif;
 	endif;
 endif;
-array_make_branch($config,'disks','disk');
-$a_selftest = &array_make_branch($config,'smartd','selftest');
+arr::make_branch($config,'disks','disk');
+$a_selftest = &arr::make_branch($config,'smartd','selftest');
 $a_type = ['S' => gtext('Short Self-Test'),'L' => gtext('Long Self-Test'),'C' => gtext('Conveyance Self-Test'),'O' => gtext('Offline Immediate Test')];
 
 if(isset($_GET['act']) && $_GET['act'] === "del"):
@@ -168,7 +172,7 @@ function enable_change(enable_change) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->add_tabnav_upper()->
@@ -262,7 +266,7 @@ $document->render();
 							</tr>
 						</thead>
 						<tbody>
-<?php 
+<?php
 							foreach($a_selftest as $selftest):
 								$notificationmode = updatenotify_get_mode('smartssd',$selftest['uuid']);
 ?>
@@ -316,7 +320,7 @@ $document->render();
 			html_inputbox2('email_to',gettext('To Email Address'),!empty($pconfig['email_to']) ? $pconfig['email_to'] : '',sprintf('%s %s',gettext('Destination email address.'),gettext('Separate email addresses by semi-colon.')),true,60);
 			html_checkbox2('email_testemail',gettext('Test Email'),!empty($pconfig['email_testemail']) ? true : false,gettext('Send a TEST warning email on startup.'));
 ?>
-		</tbody>		
+		</tbody>
 	</table>
 	<div id="submit">
 		<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save and Restart');?>" onclick="enable_change(true)" />
@@ -337,4 +341,3 @@ enable_change(false);
 </script>
 <?php
 include 'fend.inc';
-?>
