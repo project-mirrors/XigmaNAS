@@ -34,6 +34,10 @@
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once('autoload.php');
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_scriptname_child = 'system_cron_edit.php';
@@ -72,14 +76,14 @@ $img_path = [
 ];
 
 // sunrise: verify if setting exists, otherwise run init tasks
-$sphere_array = &array_make_branch($config,'cron','job');
+$sphere_array = &arr::make_branch($config,'cron','job');
 if($_POST):
 	if(isset($_POST['apply']) && $_POST['apply']):
 		$retval = 0;
 		if(!file_exists($d_sysrebootreqd_path)):
-			$retval |= updatenotify_process($sphere_notifier, 'cronjob_process_updatenotification');
+			$retval |= updatenotify_process($sphere_notifier,'cronjob_process_updatenotification');
 			config_lock();
-			$retval |= rc_update_service("cron");
+			$retval |= rc_update_service('cron');
 			config_unlock();
 		endif;
 		$savemsg = get_std_save_message($retval);
@@ -93,13 +97,14 @@ if($_POST):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		$updateconfigfile = false;
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record, $sphere_array, 'uuid'))):
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+			if($index !== false):
 				if(!(isset($sphere_array[$index]['enable']))):
 					$sphere_array[$index]['enable'] = true;
 					$updateconfigfile = true;
-					$mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_array[$index]['uuid']);
+					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
 					if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
-						updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_array[$index]['uuid']);
+						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_MODIFIED,$sphere_array[$index]['uuid']);
 					endif;
 				endif;
 			endif;
@@ -115,13 +120,14 @@ if($_POST):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		$updateconfigfile = false;
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record, $sphere_array, 'uuid'))):
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+			if($index !== false):
 				if(isset($sphere_array[$index]['enable'])):
 					unset($sphere_array[$index]['enable']);
 					$updateconfigfile = true;
-					$mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_array[$index]['uuid']);
+					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
 					if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
-						updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_array[$index]['uuid']);
+						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_MODIFIED,$sphere_array[$index]['uuid']);
 					endif;
 				endif;
 			endif;
@@ -137,16 +143,17 @@ if($_POST):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		$updateconfigfile = false;
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record, $sphere_array, 'uuid'))):
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+			if($index !== false):
 				if(isset($sphere_array[$index]['enable'])):
 					unset($sphere_array[$index]['enable']);
 				else:
 					$sphere_array[$index]['enable'] = true;
 				endif;
 				$updateconfigfile = true;
-				$mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_array[$index]['uuid']);
+				$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
 				if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
-					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_array[$index]['uuid']);
+					updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_MODIFIED,$sphere_array[$index]['uuid']);
 				endif;
 			endif;
 		endforeach;
@@ -160,19 +167,20 @@ if($_POST):
 	if(isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record, $sphere_array, 'uuid'))):
-				$mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_array[$index]['uuid']);
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+			if($index !== false):
+				$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
 				switch($mode_updatenotify):
 					case UPDATENOTIFY_MODE_NEW:
-						updatenotify_clear($sphere_notifier, $sphere_array[$index]['uuid']);
-						updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_DIRTY_CONFIG, $sphere_array[$index]['uuid']);
+						updatenotify_clear($sphere_notifier,$sphere_array[$index]['uuid']);
+						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY_CONFIG,$sphere_array[$index]['uuid']);
 						break;
 					case UPDATENOTIFY_MODE_MODIFIED:
-						updatenotify_clear($sphere_notifier, $sphere_array[$index]['uuid']);
-						updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_DIRTY, $sphere_array[$index]['uuid']);
+						updatenotify_clear($sphere_notifier,$sphere_array[$index]['uuid']);
+						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY,$sphere_array[$index]['uuid']);
 						break;
 					case UPDATENOTIFY_MODE_UNKNOWN:
-						updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_DIRTY, $sphere_array[$index]['uuid']);
+						updatenotify_set($sphere_notifier,UPDATENOTIFY_MODE_DIRTY,$sphere_array[$index]['uuid']);
 				endswitch;
 			endif;
 		endforeach;
@@ -289,7 +297,7 @@ function controlactionbuttons(ego, triggerbyname) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -330,7 +338,7 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline2(gettext('Overview'), 6);
+			html_titleline2(gettext('Overview'),6);
 ?>
 			<tr>
 				<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="<?=gtext('Invert Selection');?>"/></th>
