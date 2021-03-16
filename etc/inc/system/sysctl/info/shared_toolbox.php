@@ -34,6 +34,7 @@
 
 namespace system\sysctl\info;
 
+use DOMDocument;
 use common\sphere as mys;
 
 use function gettext;
@@ -59,10 +60,10 @@ final class shared_toolbox {
 	}
 /**
  *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
+ *	@param DOMDocument $document
  *	@return int
  */
-	public static function add_tabnav(\co_DOMDocument $document) {
+	public static function add_tabnav(DOMDocument $document) {
 		$retval = 0;
 		$document->
 			add_area_tabnav()->
