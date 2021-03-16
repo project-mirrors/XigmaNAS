@@ -33,6 +33,9 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
 
 $a_disk = get_physical_disks_list();
 
@@ -132,7 +135,7 @@ $smartValueInfo = [
 $smartd_drivedb_arg = get_smartmontools_drivedb_arg();
 $pgtitle = [gtext('Diagnostics'),gtext('Information'),gtext('S.M.A.R.T.')];
 include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -160,7 +163,7 @@ $document->render();
 <?php
 	$regex = '/^\s*(\d+)\s+([A-Za-z0-9_\-]+)\s+(0x[0-9a-fA-F]+)\s+(\d+)\s+(\d+)\s+(\d+).*\s+\-\s+(\d+)/';
 	$do_seperator = false;
-	foreach($a_disk as $diskk => $diskv):
+	foreach($a_disk as $diskk => $single_disk):
 ?>
 		<table class="area_data_settings">
 			<colgroup>
@@ -174,7 +177,7 @@ $document->render();
 				else:
 					$do_seperator = true;
 				endif;
-				html_titleline2(sprintf('%s /dev/%s - %s',gettext('Device'),$diskk,$diskv['desc']),2);
+				html_titleline2(sprintf('%s /dev/%s - %s',gettext('Device'),$diskk,$single_disk['desc']),2);
 ?>
 			</thead>
 			<tbody>
@@ -182,36 +185,40 @@ $document->render();
 					<td class="celltag"><?=gtext('Information');?></td>
 					<td class="celldata">
 <?php
-						$a_command_i = ['/usr/local/sbin/smartctl'];
+						$a_command_info = ['/usr/local/sbin/smartctl'];
+						$a_command_info[] = '--info';
 						if(preg_match('/\S/',$smartd_drivedb_arg)):
-							$a_command_i[] = $smartd_drivedb_arg;
+							$a_command_info[] = $smartd_drivedb_arg;
 						endif;
-						$a_command_i[] = sprintf('-i %s',$diskv['smart']['devicefilepath']);
-						if(preg_match('/\S/',$diskv['smart']['devicetypearg'] ?? '')):
-							$a_command_i[] = sprintf('-d %s',$diskv['smart']['devicetypearg']);
+						if(preg_match('/\S/',$single_disk['smart']['devicetypearg'] ?? '')):
+							$a_command_info[] = '-d';
+							$a_command_info[] = $single_disk['smart']['devicetypearg'];
 						endif;
-						if(preg_match('/\S/',$diskv['smart']['extraoptions'] ?? '')):
-							$a_command_i[] = $diskv['smart']['extraoptions'];
+						if(preg_match('/\S/',$single_disk['smart']['extraoptions'] ?? '')):
+							$a_command_info[] = $single_disk['smart']['extraoptions'];
 						endif;
-						$cmd_i = implode(' ',$a_command_i);
-						exec($cmd_i,$rawdata_i);
-						$rawdata = array_slice($rawdata_i,3);
+						$a_command_info[] = escapeshellarg($single_disk['smart']['devicefilepath']);
+						$command_info = implode(' ',$a_command_info);
+						exec($command_info,$rawdata_info);
+						$rawdata = array_slice($rawdata_info,3);
 						echo '<pre class="cmdoutput">',htmlspecialchars(implode(PHP_EOL,$rawdata)),'</pre>';
-						unset($a_command_i,$cmd_i,$rawdata_i,$rawdata);
+						unset($a_command_info,$command_info,$rawdata_info,$rawdata);
 						$hasdata = false;
-						$a_command_a = ['/usr/local/sbin/smartctl'];
+						$a_command_all = ['/usr/local/sbin/smartctl'];
+						$a_command_all[] = '--all';
 						if(preg_match('/\S/',$smartd_drivedb_arg)):
-							$a_command_a[] = $smartd_drivedb_arg;
+							$a_command_all[] = $smartd_drivedb_arg;
 						endif;
-						$a_command_a[] = sprintf('-a %s',$diskv['smart']['devicefilepath']);
-						if(preg_match('/\S/',$diskv['smart']['devicetypearg'] ?? '')):
-							$a_command_a[] = sprintf('-d %s',$diskv['smart']['devicetypearg']);
+						if(preg_match('/\S/',$single_disk['smart']['devicetypearg'] ?? '')):
+							$a_command_all[] = '-d';
+							$a_command_all[] = $single_disk['smart']['devicetypearg'];
 						endif;
-						if(preg_match('/\S/',$diskv['smart']['extraoptions'] ?? '')):
-							$a_command_a[] = $diskv['smart']['extraoptions'];
+						if(preg_match('/\S/',$single_disk['smart']['extraoptions'] ?? '')):
+							$a_command_all[] = $single_disk['smart']['extraoptions'];
 						endif;
-						$cmd_a = implode(' ',$a_command_a);
-						exec($cmd_a,$rawdata_a);
+						$a_command_all[] = escapeshellarg($single_disk['smart']['devicefilepath']);
+						$command_all = implode(' ',$a_command_all);
+						exec($command_all,$rawdata_a);
 						$rawdata = array_slice($rawdata_a,3);
 ?>
 						<table class="area_data_selection">
@@ -283,23 +290,27 @@ $document->render();
 							</tbody>
 						</table>
 <?php
-						unset($a_command_a,$cmd_a,$rawdata_a,$rawdata);
+						unset($a_command_all,$command_all,$rawdata_a,$rawdata);
 						$a_command_ach = ['/usr/local/sbin/smartctl'];
+						$a_command_ach[] = '-AcH';
 						if(preg_match('/\S/',$smartd_drivedb_arg)):
 							$a_command_ach[] = $smartd_drivedb_arg;
 						endif;
-						$a_command_ach[] = sprintf('-AcH -l selftest -l error -l selective %s',$diskv['smart']['devicefilepath']);
-						if(preg_match('/\S/',$diskv['smart']['devicetypearg'] ?? '')):
-							$a_command_ach[] = sprintf('-d %s',$diskv['smart']['devicetypearg']);
+						$a_command_ach[] = '-l selftest';
+						$a_command_ach[] = '-l error';
+						$a_command_ach[] = '-l selective';
+						if(preg_match('/\S/',$single_disk['smart']['devicetypearg'] ?? '')):
+							$a_command_ach[] = sprintf('-d %s',$single_disk['smart']['devicetypearg']);
 						endif;
-						if(preg_match('/\S/',$diskv['smart']['extraoptions'] ?? '')):
-							$a_command_ach[] = $diskv['smart']['extraoptions'];
+						if(preg_match('/\S/',$single_disk['smart']['extraoptions'] ?? '')):
+							$a_command_ach[] = $single_disk['smart']['extraoptions'];
 						endif;
-						$cmd_ach = implode(' ',$a_command_ach);
-						exec($cmd_ach,$rawdata_ach);
+						$a_command_ach[] = escapeshellarg($single_disk['smart']['devicefilepath']);
+						$command_ach = implode(' ',$a_command_ach);
+						exec($command_ach,$rawdata_ach);
 						$rawdata = array_slice($rawdata_ach,3);
 						echo '<pre class="cmdoutput">',htmlspecialchars(implode(PHP_EOL,$rawdata)),'</pre>';
-						unset($a_command_ach,$cmd_ach,$rawdata_ach,$rawdata);
+						unset($a_command_ach,$command_ach,$rawdata_ach,$rawdata);
 ?>
 					</td>
 				</tr>
