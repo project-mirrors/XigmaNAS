@@ -31,10 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'system','swap');
+use gui\document;
+use common\arr;
+
+arr::make_branch($config,'system','swap');
 $pconfig['enable'] = isset($config['system']['swap']['enable']);
 $pconfig['type'] = $config['system']['swap']['type'];
 $pconfig['mountpoint'] = !empty($config['system']['swap']['mountpoint']) ? $config['system']['swap']['mountpoint'] : "";
@@ -119,7 +124,7 @@ function type_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -226,4 +231,3 @@ type_change(false);
 </script>
 <?php
 include 'fend.inc';
-?>
