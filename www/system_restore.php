@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
 
 //	omit no-cache headers because it confuses IE with file downloads
 $omit_nocacheheaders = true;
@@ -53,7 +57,7 @@ if($_POST):
 
 	$encrypted = false;
 	if(is_uploaded_file($_FILES['conffile']['tmp_name'])):
-		// Validate configuration backup
+//		Validate configuration backup
 		$valid_config = false;
 		if(pathinfo($_FILES['conffile']['name'],PATHINFO_EXTENSION) == 'gz'):
 			$encrypted = true;
@@ -74,10 +78,10 @@ if($_POST):
 		if(!$valid_config):
 			$errormsg = gtext('The configuration could not be restored.') . ' ' . gtext('Invalid file format or incorrect password.');
 		else:
-			//	void loaderconf section to force read $config
+//			void loaderconf section to force read $config
 			$loaderconf = &array_make_branch($config,'system','loaderconf');
 			$loaderconf = [];
-			// Install configuration backup
+//			Install configuration backup
 			if($encrypted):
 				$ret = config_install($tempfile);
 				unlink($tempfile);
@@ -97,7 +101,7 @@ if($_POST):
 endif;
 $pgtitle = [gtext('System'),gtext('Restore Configuration')];
 include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -158,4 +162,3 @@ if($cmd_system_reboot):
 	sleep(5);
 	system_reboot();
 endif;
-?>
