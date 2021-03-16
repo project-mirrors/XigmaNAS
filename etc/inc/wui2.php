@@ -233,7 +233,7 @@ class HTMLBaseControl2 {
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(\is_null($anchor)):
-			$anchor = new co_DOMDocument();
+			$anchor = new document();
 		endif;
 		$description = $this->GetDescriptionOutput();
 //		compose
@@ -985,7 +985,7 @@ class HTMLSeparator2 extends HTMLBaseControl2 {
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(\is_null($anchor)):
-			$anchor = new co_DOMDocument();
+			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
@@ -1023,7 +1023,7 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(\is_null($anchor)):
-			$anchor = new co_DOMDocument();
+			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
@@ -1065,7 +1065,7 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(\is_null($anchor)):
-			$anchor = new co_DOMDocument();
+			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
@@ -1111,7 +1111,7 @@ class HTMLTextInfo2 extends HTMLBaseControl2 {
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(\is_null($anchor)):
-			$anchor = new co_DOMDocument();
+			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
@@ -1136,7 +1136,7 @@ class HTMLRemark2 extends HTMLBaseControl2 {
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
 		if(\is_null($anchor)):
-			$anchor = new co_DOMDocument();
+			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
