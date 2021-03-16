@@ -53,7 +53,7 @@ function render_scheduler(array $pconfig,bool $with_minutes = true): void {
 	$matrix['days'    ] = ['header' => \gettext('Days'    ),'all' => 'all_days'    ,'sel' => 'day'    ,'val_min' => 1,'val_steps' => 31,'val_break' =>  7];
 	$matrix['months'  ] = ['header' => \gettext('Months'  ),'all' => 'all_months'  ,'sel' => 'month'];
 	$matrix['weekdays'] = ['header' => \gettext('Weekdays'),'all' => 'all_weekdays','sel' => 'weekday'];
-	$document = new \co_DOMDocument();
+	$document = new gui\document();
 	$div = $document->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
 	foreach($matrix as $matrix_key => $control):
 		$attributes_1 = ['type' => 'radio','class' => 'rblo','name' => $control['all'],'id' => $control['all'] . '1','value' => '1'];
