@@ -106,7 +106,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(4)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_device_id(): myp\property_text {
@@ -125,7 +125,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(48)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_device_type(): myp\property_list {
@@ -179,7 +179,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(18)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_path(): myp\property_text {
@@ -194,7 +194,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(223)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_serial(): myp\property_text {
@@ -209,7 +209,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_size(): myp\property_text {
@@ -224,7 +224,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_vendor(): myp\property_text {
@@ -242,7 +242,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(8)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_product(): myp\property_text {
@@ -260,7 +260,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_revision(): myp\property_text {
@@ -278,7 +278,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(4)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_scsiname(): myp\property_text {
@@ -295,7 +295,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(223)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_eui(): myp\property_text {
@@ -312,7 +312,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_naa(): myp\property_text {
@@ -329,7 +329,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(32)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_uuid(): myp\property_text {
@@ -346,7 +346,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(36)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_ha_role(): myp\property_list {
@@ -469,7 +469,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_pblockoffset(): myp\property_text {
@@ -484,7 +484,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_ublocksize(): myp\property_text {
@@ -499,7 +499,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_ublockoffset(): myp\property_text {
@@ -514,7 +514,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_rpm(): myp\property_text {
@@ -533,7 +533,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(5)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_formfactor(): myp\property_list {
@@ -601,7 +601,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_unmap_max_descr(): myp\property_text {
@@ -616,7 +616,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_write_same_max_lba(): myp\property_text {
@@ -631,7 +631,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_avail_threshold(): myp\property_text {
@@ -646,7 +646,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_used_threshold(): myp\property_text {
@@ -661,7 +661,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_pool_avail_threshold(): myp\property_text {
@@ -676,7 +676,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_pool_used_threshold(): myp\property_text {
@@ -691,7 +691,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(10)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_writecache(): myp\property_list {
@@ -719,7 +719,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_num_threads(): myp\property_text {
@@ -734,7 +734,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(10)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_opt_capacity(): myp\property_text {
@@ -749,7 +749,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(12)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auxparam(): myp\property_auxparam {

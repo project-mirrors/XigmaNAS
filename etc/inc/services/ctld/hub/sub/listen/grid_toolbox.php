@@ -105,15 +105,14 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Portal Groups'),gettext('Listen')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','25%','10%','10%','40%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		add tab navigation
 		shared_toolbox::add_tabnav($document);

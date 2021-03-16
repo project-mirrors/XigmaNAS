@@ -34,6 +34,7 @@
 
 namespace services\ctld\hub\sub\isnsserver;
 
+use DOMDocument;
 use common\arr;
 use common\sphere as mys;
 use services\ctld\hub\shared_hub as hub;
@@ -70,15 +71,16 @@ final class shared_toolbox {
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
-			set_enadis(true);
+			set_enadis(true)->
+			add_page_title(gettext('Services'),gettext('CAM Target Layer'),gettext('Settings'),gettext('iSNS Servers'));
 		$sphere->grid = &arr::make_branch($config,'ctld','ctl_sub_isnsserver','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
- *	@param \co_DOMDocument $document
+ *	@param DOMDocument $document
  *	@return int
  */
-	public static function add_tabnav(\co_DOMDocument $document) {
+	public static function add_tabnav(DOMDocument $document) {
 		$retval = 0;
 		$document->
 			add_area_tabnav()->
