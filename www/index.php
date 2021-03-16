@@ -31,11 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-// Configure page permission
+
+//	configure page permission
 $pgperm['allowuser'] = true;
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
 
 $use_meter_tag = calc_showcolorfulmeter();
 if(isset($config['system']['webgui']['showmaxcpus']) && is_numeric($config['system']['webgui']['showmaxcpus'])):
@@ -62,7 +66,7 @@ function render_cpuusage() {
 
 	if(Session::isAdmin()):
 		$sphere = $sysinfo['cpuusage'];
-		$o = new co_DOMDocument();
+		$o = new document();
 		$td = $o->addTR()->insTDwC('celltag',gettext('CPU Usage'))->addTDwC('celldata');
 		if($use_meter_tag):
 			$inner = $td->addElement('meter',['id' => 'cpuusagev','class' => 'cpuusage','min' => 0,'optimum' => 45,'low' => 90,'high' => 95,'max' => 100,'value' => $sphere['pu'],'title' => $sphere['tu']]);
@@ -158,7 +162,7 @@ function render_memusage() {
 
 	if(Session::isAdmin()):
 		$sphere = $sysinfo['memusage'];
-		$o = new co_DOMDocument();
+		$o = new document();
 		$td = $o->addTR()->insTDwC('celltag',gettext('Memory Usage'))->addTDwC('celldata');
 		if($use_meter_tag):
 			$inner = $td->addElement('meter',['id' => 'memusagev','class' => 'memusage','min' => 0,'high' => 98,'max' => 100,'value' => $sphere['pu'],'title' => $sphere['tu']]);
