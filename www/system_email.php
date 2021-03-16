@@ -34,9 +34,13 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
-array_make_branch($config,'system','email');
+arr::make_branch($config,'system','email');
 $pconfig['from'] = $config['system']['email']['from'];
 $pconfig['server'] = $config['system']['email']['server'];
 $pconfig['port'] = $config['system']['email']['port'];
@@ -215,7 +219,7 @@ function tls_use_default_trust_file_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->

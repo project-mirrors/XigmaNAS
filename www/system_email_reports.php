@@ -37,9 +37,13 @@ require_once 'guiconfig.inc';
 require_once 'email.inc';
 require_once 'report.inc';
 require_once 'cs_scheduletime.php';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
-array_make_branch($config,'statusreport');
+arr::make_branch($config,'statusreport');
 $pconfig['enable'] = isset($config['statusreport']['enable']);
 $pconfig['to'] = $config['statusreport']['to'];
 $pconfig['subject'] = $config['statusreport']['subject'];
@@ -58,7 +62,7 @@ $pconfig['all_weekdays'] = $config['statusreport']['all_weekdays'];
 if($_POST):
 	unset($input_errors);
 	$pconfig = $_POST;
-	// Input validation.
+//	input validation.
 	if(isset($_POST['enable']) && $_POST['enable']):
 		$reqdfields = ['to'];
 		$reqdfieldsn = [gtext('To Email')];
@@ -66,10 +70,10 @@ if($_POST):
 		do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
 		do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 		if(isset($_POST['Submit']) && $_POST['Submit']):
-			// Validate synchronization time
+//			validate synchronization time
 			do_input_validate_synctime($_POST,$input_errors);
 		endif;
-		// custom script
+//		custom script
 		if(is_array($_POST['report']) && in_array('script',$_POST['report'])):
 			if($_POST['report_scriptname'] == ''):
 				$input_errors[] = gtext('Custom script is required.');
@@ -96,7 +100,7 @@ if($_POST):
 		$config['statusreport']['all_weekdays'] = $_POST['all_weekdays'];
 		write_config();
 		if(isset($_POST['SendReportNow']) && $_POST['SendReportNow']):
-			// Send an email status report now.
+//			send an email status report now.
 			$retval = @report_send_mail();
 			if(0 == $retval):
 				$savemsg = gtext('Status report successfully sent.');
@@ -104,7 +108,7 @@ if($_POST):
 				$failmsg = gtext('Failed to send status report.') . ' ' . '<a href="diag_log.php">' . gtext('Please check the log files') . '.</a>';
 			endif;
 		else:
-			// Configure cron job.
+//			configure cron job.
 			if(!file_exists($d_sysrebootreqd_path)):
 				config_lock();
 				$retval = rc_update_service('cron');
@@ -141,7 +145,7 @@ function set_selected(name) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->

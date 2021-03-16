@@ -34,10 +34,14 @@
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_notifier = 'rrdgraphs';
-array_make_branch($config,'rrdgraphs');
+arr::make_branch($config,'rrdgraphs');
 $upsname = !empty($config['ups']['upsname']) ? $config['ups']['upsname'] : "identifier";
 $upsip = !empty($config['ups']['ip']) ? $config['ups']['ip'] : "host-ip-address";
 
@@ -358,7 +362,7 @@ function enable_change(enable_change) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
