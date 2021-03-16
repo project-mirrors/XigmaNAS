@@ -33,6 +33,9 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
 
 if($_POST):
 	$upsc_enable = $_POST['raw_upsc_enable'];
@@ -140,7 +143,7 @@ function upsc_enable_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -343,7 +346,7 @@ $document->render();
 					tblrow(gtext('Nominal value of apparent power (Volt-Amps)'), $ups['ups.power.nominal'], 'VA');
 					tblrow(gtext('Current value of real power (Watts)'), $ups['ups.realpower'], 'W');
 					tblrow(gtext('Nominal value of real power (Watts)'), $ups['ups.realpower.nominal'], 'W');
-					tblrow(gtext('Percentage of apparent power related to maximum load'), $ups['power.percent'], '%');					
+					tblrow(gtext('Percentage of apparent power related to maximum load'), $ups['power.percent'], '%');
 					tblrow(gtext('UPS beeper status'), $ups['ups.beeper.status']);
 					tblrow(gtext('UPS type'), $ups['ups.type']);
 					tblrow(gtext('UPS watchdog status'), $ups['ups.watchdog.status']);
