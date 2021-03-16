@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -328,7 +329,6 @@ $tbody1->
 	c2_select($cop->get_localmaster(),$sphere,false,$is_readonly)->
 	c2_select($cop->get_timesrv(),$sphere,false,$is_readonly);
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
-/** @var \co_DOMElement $tbody2 */
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
 $tds2->addTHEAD()->
