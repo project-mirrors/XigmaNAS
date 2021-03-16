@@ -34,6 +34,10 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 function lagg_inuse($ifn) {
 	global $config, $g;
@@ -65,11 +69,11 @@ function interfaces_lagg_get_sphere() {
 		setmsg_sym_unl(gettext('LAGG is unlocked'))->
 		setmsg_cbm_delete(gettext('Delete Selected LAGGs'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected LAGGs?'));
-	$sphere->grid = &array_make_branch($config,'vinterfaces','lagg');
+	$sphere->grid = &arr::make_branch($config,'vinterfaces','lagg');
 	return $sphere;
 }
 $sphere = interfaces_lagg_get_sphere();
-array_sort_key($sphere->grid,'if');
+arr::sort_key($sphere->grid,'if');
 if($_POST):
 	if(isset($_POST['submit'])):
 		switch($_POST['submit']):
@@ -77,9 +81,10 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
 						$sphere->row = $sphere->grid[$sphere->record_id];
-						//	Check if interface is still in use.
+//						check if interface is still in use.
 						if(lagg_inuse($sphere->row['if'])):
 							$input_errors[] = htmlspecialchars($sphere->row['if']) . ': ' . gtext('LAGG cannot be deleted because it is still being used as an interface.');
 						else:
@@ -128,7 +133,7 @@ $pgtitle = [gtext('Network'),gtext('Interface Management'),gtext('LAGG')];
 include 'fbegin.inc';
 echo $sphere->doj();
 //	add tab navigation
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->

@@ -34,13 +34,17 @@
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 /*
 	In this file, "port" refers to the physical port name,
 	while "interface" refers to LAN, WAN, or OPTn.
 */
 
-array_make_branch($config,'interfaces');
+arr::make_branch($config,'interfaces');
 //	get list without VLAN interfaces
 $portlist = get_interface_list();
 foreach($portlist as $key => $val):
@@ -48,21 +52,21 @@ foreach($portlist as $key => $val):
 endforeach;
 unset($key,$val);
 //	add WLAN interfaces
-$cfg_wlan = array_make_branch($config,'vinterfaces','wlan');
+$cfg_wlan = arr::make_branch($config,'vinterfaces','wlan');
 foreach($cfg_wlan as $wlanv):
 	$portlist[$wlanv['if']] = $wlanv;
 	$portlist[$wlanv['if']]['isvirtual'] = true;
 endforeach;
 unset($wlanv,$cfg_wlan);
 //	add VLAN interfaces
-$cfg_vlan = array_make_branch($config,'vinterfaces','vlan');
+$cfg_vlan = arr::make_branch($config,'vinterfaces','vlan');
 foreach($cfg_vlan as $vlanv):
 	$portlist[$vlanv['if']] = $vlanv;
 	$portlist[$vlanv['if']]['isvirtual'] = true;
 endforeach;
 unset($vlanv,$cfg_vlan);
 //	add LAGG interfaces
-$cfg_lagg = array_make_branch($config,'vinterfaces','lagg');
+$cfg_lagg = arr::make_branch($config,'vinterfaces','lagg');
 foreach($cfg_lagg as $laggv):
 	$portlist[$laggv['if']] = $laggv;
 	$portlist[$laggv['if']]['isvirtual'] = true;
@@ -99,7 +103,7 @@ if($_POST):
 					$config['interfaces'][$ifname]['if'] = $ifport;
 //					check for wireless interfaces, set or clear ['wireless']
 					if(preg_match($g['wireless_regex'],$ifport) === 1):
-						array_make_branch($config,'interfaces',$ifname,'wireless');
+						arr::make_branch($config,'interfaces',$ifname,'wireless');
 					else:
 						unset($config['interfaces'][$ifname]['wireless']);
 					endif;
@@ -150,7 +154,7 @@ if(isset($_GET['act']) && $_GET['act'] == 'add'):
 		$i++;
 	endwhile;
 	$newifname = 'opt' . $i;
-	array_make_branch($config,'interfaces',$newifname);
+	arr::make_branch($config,'interfaces',$newifname);
 	$config['interfaces'][$newifname] = [];
 	$config['interfaces'][$newifname]['descr'] = 'OPT' . $i;
 //	Set IPv4 to 'DHCP' and IPv6 to 'Auto' per default.
@@ -181,7 +185,7 @@ if(isset($_GET['act']) && $_GET['act'] == 'add'):
 endif;
 $pgtitle = [gtext('Network'),gtext('Interface Management')];
 include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
