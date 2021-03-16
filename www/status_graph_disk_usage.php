@@ -33,8 +33,12 @@
 */
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'rrdgraphs');
+use gui\document;
+use common\arr;
+
+arr::make_branch($config,'rrdgraphs');
 $rrd_disk_usage = true;
 $disk_types = 0;
 if(!empty($config['rrdgraphs']['mounts'])):
@@ -77,7 +81,7 @@ include 'fbegin.inc';
 ?>
 <meta http-equiv="refresh" content="<?=$refresh?>">
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 include 'status_graph_tabs.inc';
 $document->render();
 ?>

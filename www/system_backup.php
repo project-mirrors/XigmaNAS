@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
+
+use gui\document;
 
 //	omit no-cache headers because it confuses IE with file downloads
 $omit_nocacheheaders = true;
@@ -133,7 +137,7 @@ $(document).ready(function(){
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -192,4 +196,3 @@ $document->render();
 </form></td></tr></tbody></table>
 <?php
 include 'fend.inc';
-?>

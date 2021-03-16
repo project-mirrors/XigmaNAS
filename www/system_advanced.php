@@ -31,10 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 require_once 'properties_system_advanced.php';
+require_once 'autoload.php';
+
+use gui\document;
 
 function get_sysctl_kern_vty() {
 	return trim(`/sbin/sysctl -n kern.vty`);
@@ -268,7 +272,7 @@ endif;
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -306,7 +310,7 @@ $document->render();
 		</thead>
 		<tbody>
 <?php
-			$node = new co_DOMDocument();
+			$node = new document();
 			$node->c2_checkbox($cop->get_zeroconf(),!empty($pconfig['zeroconf']));
 			$node->c2_checkbox($cop->get_disablefm(),!empty($pconfig['disablefm']));
 			if($g['zroot'] || ('full' !== $g['platform'])):
@@ -331,7 +335,7 @@ $document->render();
 		</thead>
 		<tbody>
 <?php
-			$node = new co_DOMDocument();
+			$node = new document();
 			$node->c2_checkbox($cop->get_disablebeep(),!empty($pconfig['disablebeep']));
 			$node->c2_checkbox($cop->get_microcode_update(),!empty($pconfig['microcode_update']));
 			$node->c2_checkbox($cop->get_powerd(),!empty($pconfig['powerd']));
@@ -366,7 +370,7 @@ $document->render();
 		</thead>
 		<tbody>
 <?php
-			$node = new co_DOMDocument();
+			$node = new document();
 			$node->c2_checkbox($cop->get_consoleautologin(),!empty($pconfig['consoleautologin']));
 			$node->c2_checkbox($cop->get_disableconsolemenu(),!empty($pconfig['disableconsolemenu']));
 			$node->c2_checkbox($cop->get_enableserialconsole(),!empty($pconfig['enableserialconsole']));
