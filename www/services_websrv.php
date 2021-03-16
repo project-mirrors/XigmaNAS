@@ -34,9 +34,13 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'services.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'websrv','authentication','url');
-array_make_branch($config,'websrv','auxparam');
+use gui\document;
+use common\arr;
+
+arr::make_branch($config,'websrv','authentication','url');
+arr::make_branch($config,'websrv','auxparam');
 $default_uploaddir = '/var/tmp/ftmp';
 $default_runas = 'server.username = "www"';
 $pconfig['enable'] = isset($config['websrv']['enable']);
@@ -125,7 +129,7 @@ function websrvauth_process_updatenotification($mode,$data) {
 		case UPDATENOTIFY_MODE_MODIFIED:
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			$cnid = array_search_ex($data,$config['websrv']['authentication']['url'],'uuid');
+			$cnid = arr::search_ex($data,$config['websrv']['authentication']['url'],'uuid');
 			if(false !== $cnid):
 				unset($config['websrv']['authentication']['url'][$cnid]);
 				write_config();
@@ -173,7 +177,7 @@ function authentication_change() {
 </script>
 <?php
 //	add tab navigation
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
