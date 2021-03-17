@@ -1695,50 +1695,58 @@ copy_files() {
 	echo "===> Copy SAS3IRCU_P16.zip done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/fuppes-0.692.tar.gz /usr/ports/distfiles
 	echo "===> Copy fuppes-0.692.tar.gz done!"
-#	Copy required ports to FreeBSD ports directory.
 	echo;
+#	Copy base-ports files to FreeBSD ports directory.
 	echo "----------------------------------------------------------";
 	echo ">>> Copy new files/ports to base directory in FreeBSD usr/ports/*.";
 	echo "----------------------------------------------------------";
-	echo "===> Delete current pecl-APCu from ports"
-	rm -rf /usr/ports/devel/pecl-APCu
-	echo "===> Delete completed!"
-	echo ""
-	echo "===> Copy new port pecl-APCu to ports/devel/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/pecl-APCu /usr/ports/devel
-	echo "===> Copy new port files to /usr/ports/devel/pecl-APCu done!"
-	echo ""
-	echo "===> Delete current libvncserver from ports"
+	echo "===> Delete current libvncserver port from base OS"
 	rm -rf /usr/ports/net/libvncserver
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port libvncserver to ports/net/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/libvncserver /usr/ports/net
-	echo "===> Copy new port files to /usr/ports/net/libvncserver done!"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/libvncserver /usr/ports/net
+	echo "===> New port libvncserver has been created!"
 	echo ""
-	echo "===> Delete current virtualbox-ose from ports"
+	echo "===> Delete current pecl-APCu port from base OS"
+	rm -rf /usr/ports/devel/pecl-APCu
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port pecl-APCu to ports/devel/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/pecl-APCu /usr/ports/devel
+	echo "===> New port pecl-APCu has been created!"
+	echo ""
+	echo "===> Delete current sudo port from base OS"
+	rm -rf /usr/ports/security/sudo
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port sudo to ports/security/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/sudo /usr/ports/security
+	echo "===> New port sudo has been created!"
+	echo ""
+	echo "===> Delete current virtualbox-ose from base OS"
 	rm -rf /usr/ports/emulators/virtualbox-ose
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port virtualbox-ose to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/virtualbox-ose /usr/ports/emulators
-	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose done!"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose /usr/ports/emulators
+	echo "===> New port virtualbox-ose has been created!"
 	echo ""
-	echo "===> Delete current virtualbox-ose-additions from ports"
+	echo "===> Delete current virtualbox-ose-additions from base OS"
 	rm -rf /usr/ports/emulators/virtualbox-ose-additions
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port virtualbox-ose-additions to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/virtualbox-ose-additions /usr/ports/emulators
-	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-additions done!"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-additions /usr/ports/emulators
+	echo "===> New port virtualbox-ose-additions has been created!"
 	echo ""
-	echo "===> Delete current virtualbox-ose-kmod from ports"
+	echo "===> Delete current virtualbox-ose-kmod from base OS"
 	rm -rf /usr/ports/emulators/virtualbox-ose-kmod
 	echo "===> Delete completed!"
 	echo ""
 	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
-	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/files/virtualbox-ose-kmod /usr/ports/emulators
-	echo "===> Copy new port files to /usr/ports/emulators/virtualbox-ose-kmod done!"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod /usr/ports/emulators
+	echo "===> New port virtualbox-ose-kmod has been created!"
 	return 0
 }
 build_ports() {
