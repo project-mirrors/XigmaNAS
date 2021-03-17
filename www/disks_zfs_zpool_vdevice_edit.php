@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_geom_info.inc';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -44,6 +49,7 @@ $sphere_record = [];
 $checkbox_member_name = 'checkbox_member_array';
 $checkbox_member_array = [];
 $checkbox_member_record = [];
+$gt_confirm_single = gtext('Do you want to create a virtual device from selected disk?');
 $gt_confirm_stripe = gtext('Do you want to create a striped virtual device from selected disks?');
 $gt_confirm_mirror = gtext('Do you want to create a mirrored virtual device from selected disks?');
 $gt_confirm_raidz1 = gtext('Do you want to create a RAID-Z1 from selected disks?');
@@ -85,13 +91,13 @@ else:
 	endif;
 endif;
 
-$sphere_array = &array_make_branch($config,'zfs','vdevices','vdevice');
+$sphere_array = &arr::make_branch($config,'zfs','vdevices','vdevice');
 if(empty($sphere_array)):
 else:
-	array_sort_key($sphere_array,'name');
+	arr::sort_key($sphere_array,'name');
 endif;
 
-$index = array_search_ex($sphere_record['uuid'],$sphere_array,'uuid'); // find index of uuid
+$index = arr::search_ex($sphere_record['uuid'],$sphere_array,'uuid'); // find index of uuid
 $mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_record['uuid']); // get updatenotify mode for uuid
 $mode_record = RECORD_ERROR;
 if(false !== $index): // uuid found
@@ -132,7 +138,6 @@ if($isrecordnewornewmodify && (empty($a_disk)) && (empty($a_encrypteddisk))):
 		. '</a>';
 	$prerequisites_ok = false;
 endif;
-
 $a_device = [];
 foreach($a_disk as $r_disk):
 	$helpinghand = $r_disk['devicespecialfile'] . (isset($r_disk['zfsgpt']) ? $r_disk['zfsgpt'] : '');
@@ -148,11 +153,9 @@ foreach($a_disk as $r_disk):
 		'desc' => $r_disk['desc']
 	];
 endforeach;
-
 $o_geom = new co_geom_info();
 $a_provider = $o_geom->get_provider();
-
-if(PAGE_MODE_POST === $mode_page): // at this point we know it's a POST but (except Cancel) we don't know which one
+if(PAGE_MODE_POST === $mode_page):
 	unset($input_errors);
 	if(isset($_POST['submit']) && $_POST['submit']): // Submit is coming from Save button which is only shown when an existing vdevice is modified (RECORD_MODIFY)
 		$sphere_record['name'] = $sphere_array[$index]['name'];
@@ -167,26 +170,23 @@ if(PAGE_MODE_POST === $mode_page): // at this point we know it's a POST but (exc
 		$sphere_record['aft4k'] = isset($_POST['aft4k']);
 		$sphere_record['desc'] = $_POST['desc'];
 	endif;
-
-	// Input validation
+//	Input validation
 	$reqdfields = ['name','type'];
 	$reqdfieldsn = [gtext('Name'),gtext('Type')];
 	$reqdfieldst = ['string','string'];
-
 	do_input_validation($sphere_record,$reqdfields,$reqdfieldsn,$input_errors);
 	do_input_validation_type($sphere_record,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-
-	// Check for duplicate name
+//	Check for duplicate name
 	if($prerequisites_ok && empty($input_errors)):
 		switch ($mode_record):
 			case RECORD_NEW: // Error if name is found in the list of vdevice names
-				if(false !== array_search_ex($sphere_record['name'],$sphere_array,'name')):
+				if(false !== arr::search_ex($sphere_record['name'],$sphere_array,'name')):
 					$input_errors[] = gtext('This virtual device name already exists.');
 				endif;
 				break;
 			case RECORD_NEW_MODIFY: // Error if modified name is found in the list of vdevice names
 				if($sphere_record['name'] !== $sphere_array[$index]['name']):
-					if(false !== array_search_ex($sphere_record['name'],$sphere_array,'name')):
+					if(false !== arr::search_ex($sphere_record['name'],$sphere_array,'name')):
 						$input_errors[] = gtext('This virtual device name already exists.');
 					endif;
 				endif;
@@ -276,6 +276,7 @@ $(window).on("load", function() {
 	$("#togglebox").click(function() {
 		toggleselection($(this)[0], "<?=$checkbox_member_name;?>[]");
 	});
+	$("#button_single").click(function () { return confirm('<?=$gt_confirm_single;?>'); });
 	$("#button_stripe").click(function () { return confirm('<?=$gt_confirm_stripe;?>'); });
 	$("#button_mirror").click(function () { return confirm('<?=$gt_confirm_mirror;?>'); });
 	$("#button_raidz1").click(function () { return confirm('<?=$gt_confirm_raidz1;?>'); });
@@ -294,23 +295,24 @@ function disableactionbuttons(n) {
 	var ab_element;
 	var ab_disable = [];
 	if (typeof(n) !== 'number') { n = 0; }
- 	switch (n) { //           stripe, mirror, raidz1, raidz2, raidz3, hotspa, cache , log   , log mirror
-		case  0: ab_disable = [true  , true  , true  , true  , true  , true  , true  , true  , true  ]; break;
-		case  1: ab_disable = [false , true  , true  , true  , true  , false , false , false , true  ]; break;
-		case  2: ab_disable = [false , false , true  , true  , true  , true  , true  , true  , false ]; break;
-		case  3: ab_disable = [false , false , false , true  , true  , true  , true  , true  , false ]; break;
-		case  4: ab_disable = [false , false , false , false , true  , true  , true  , true  , false ]; break;
-		default: ab_disable = [false , false , false , false , false , true  , true  , true  , false ]; break; // setting for 5 or more disks
-	}		
-	ab_element = document.getElementById('button_stripe'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[0])) { ab_element.disabled = ab_disable[0]; }
-	ab_element = document.getElementById('button_mirror'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[1])) { ab_element.disabled = ab_disable[1]; }
-	ab_element = document.getElementById('button_raidz1'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[2])) { ab_element.disabled = ab_disable[2]; }
-	ab_element = document.getElementById('button_raidz2'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[3])) { ab_element.disabled = ab_disable[3]; }
-	ab_element = document.getElementById('button_raidz3'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[4])) { ab_element.disabled = ab_disable[4]; }
-	ab_element = document.getElementById('button_spare') ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[5])) { ab_element.disabled = ab_disable[5]; }
-	ab_element = document.getElementById('button_cache') ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[6])) { ab_element.disabled = ab_disable[6]; }
-	ab_element = document.getElementById('button_log')   ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[7])) { ab_element.disabled = ab_disable[7]; }
-	ab_element = document.getElementById('button_logmir'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[8])) { ab_element.disabled = ab_disable[8]; }
+	switch (n) { //            single, stripe, mirror, raidz1, raidz2, raidz3, hotspa, cache , log   , logmir
+		case  0: ab_disable = [true  , true  , true  , true  , true  , true  , true  , true  , true  , true  ]; break;
+		case  1: ab_disable = [false , false , true  , true  , true  , true  , false , false , false , true  ]; break;
+		case  2: ab_disable = [true  , false , false , true  , true  , true  , true  , true  , true  , false ]; break;
+		case  3: ab_disable = [true  , false , false , false , true  , true  , true  , true  , true  , false ]; break;
+		case  4: ab_disable = [true  , false , false , false , false , true  , true  , true  , true  , false ]; break;
+		default: ab_disable = [true  , false , false , false , false , false , true  , true  , true  , false ]; break; // setting for 5 or more disks
+	}
+	ab_element = document.getElementById('button_single'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[0])) { ab_element.disabled = ab_disable[0]; }
+	ab_element = document.getElementById('button_stripe'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[1])) { ab_element.disabled = ab_disable[1]; }
+	ab_element = document.getElementById('button_mirror'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[2])) { ab_element.disabled = ab_disable[2]; }
+	ab_element = document.getElementById('button_raidz1'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[3])) { ab_element.disabled = ab_disable[3]; }
+	ab_element = document.getElementById('button_raidz2'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[4])) { ab_element.disabled = ab_disable[4]; }
+	ab_element = document.getElementById('button_raidz3'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[5])) { ab_element.disabled = ab_disable[5]; }
+	ab_element = document.getElementById('button_spare') ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[6])) { ab_element.disabled = ab_disable[6]; }
+	ab_element = document.getElementById('button_cache') ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[7])) { ab_element.disabled = ab_disable[7]; }
+	ab_element = document.getElementById('button_log')   ; if ((ab_element !== null) && (ab_element.disabled !== ab_disable[8])) { ab_element.disabled = ab_disable[8]; }
+	ab_element = document.getElementById('button_logmir'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[9])) { ab_element.disabled = ab_disable[9]; }
 }
 function controlactionbuttons(ego, triggerbyname) {
 	var a_trigger = document.getElementsByName(triggerbyname);
@@ -343,7 +345,7 @@ function toggleselection(ego, triggerbyname) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -377,7 +379,8 @@ $document->render();
 	if ($isrecordnewornewmodify):
 ?>
 		<div id="submit" style="margin-bottom:10px">
-			<button name="action" id="button_stripe" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing a single device or concatenated devices');?>"><?=gtext('STRIPE');?></button>
+			<button name="action" id="button_single" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing a single device');?>"><?=gtext('DISK');?></button>
+			<button name="action" id="button_stripe" type="submit" class="formbtn" value="stripe" title="<?=gtext('Create a virtual device containing concatenated devices');?>"><?=gtext('STRIPE');?></button>
 			<button name="action" id="button_mirror" type="submit" class="formbtn" value="mirror" title="<?=gtext('Create a virtual device containing mirrored devices');?>"><?=gtext('MIRROR');?></button>
 			<button name="action" id="button_raidz1" type="submit" class="formbtn" value="raidz1" title="<?=gtext('Create a virtual device which tolerates a single device failure');?>"><?=gtext('RAID-Z1');?></button>
 			<button name="action" id="button_raidz2" type="submit" class="formbtn" value="raidz2" title="<?=gtext('Create a virtual device which tolerates 2 device failures');?>"><?=gtext('RAID-Z2');?></button>
@@ -458,7 +461,7 @@ $document->render();
 <?php
 			if($isrecordnewornewmodify):
 				foreach($a_device as $r_device):
-					$isnotmemberofavdev = (false === array_search_ex($r_device['devicespecialfile'],$sphere_array,'device'));
+					$isnotmemberofavdev = (false === arr::search_ex($r_device['devicespecialfile'],$sphere_array,'device'));
 					$ismemberofthisvdev = (isset($sphere_record['device']) && is_array($sphere_record['device']) && in_array($r_device['devicespecialfile'],$sphere_record['device']));
 					if($isnotmemberofavdev || $ismemberofthisvdev):
 ?>
@@ -476,13 +479,13 @@ $document->render();
 								endif;
 ?>
 							</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['name']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['partition']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['model']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['serial']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['size']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['controller']);?>&nbsp;</td>
-							<td class="lcell"><?=htmlspecialchars($r_device['desc']);?>&nbsp;</td>
+							<td class="lcell"><?=htmlspecialchars($r_device['name']);?></td>
+							<td class="lcell"><?=htmlspecialchars($r_device['partition']);?></td>
+							<td class="lcell"><?=htmlspecialchars($r_device['model']);?></td>
+							<td class="lcell"><?=htmlspecialchars($r_device['serial']);?></td>
+							<td class="lcell"><?=htmlspecialchars($r_device['size']);?></td>
+							<td class="lcell"><?=htmlspecialchars($r_device['controller']);?></td>
+							<td class="lcell"><?=htmlspecialchars($r_device['desc']);?></td>
 							<td class="lcebld">
 <?php
 								if($ismemberofthisvdev):
@@ -500,20 +503,20 @@ $document->render();
 				$use_si = is_sidisksizevalues();
 				foreach($sphere_record['device'] as $config_device):
 					$r_device = [];
-					//	strip /dev/ from $config_device
+//					strip /dev/ from $config_device
 					unset($matches);
 					if(preg_match('#^/dev/(.+)$#',$config_device,$matches)):
 						$r_device['name'] = $matches[1];
 					else:
 						$r_device['name'] = $config_device;
 					endif;
-					//	search disks
-					$index = array_search_ex($r_device['name'],$a_device,'name');
+//					search disks
+					$index = arr::search_ex($r_device['name'],$a_device,'name');
 					if(false !== $index):
 						$r_device = $a_device[$index];
 					else:
-						//	search geom provider
-						$index = array_search_ex($r_device['name'],$a_provider,'name');
+//						search geom provider
+						$index = arr::search_ex($r_device['name'],$a_provider,'name');
 						if(false !== $index):
 							$r_device['devicespecialfile'] = $config_device;
 							$r_device['partition'] = '';
@@ -537,13 +540,13 @@ $document->render();
 						<td class="lcelcd">
 							<input type="checkbox" name="<?=$checkbox_member_name;?>[]" value="<?=$r_device['devicespecialfile'];?>" checked="checked" disabled="disabled"/>
 						</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['name']);?>&nbsp;</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['partition']);?>&nbsp;</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['model']);?>&nbsp;</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['serial']);?>&nbsp;</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['size']);?>&nbsp;</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['controller']);?>&nbsp;</td>
-						<td class="lcelld"><?=htmlspecialchars($r_device['desc']);?>&nbsp;</td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['name']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['partition']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['model']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['serial']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['size']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['controller']);?></td>
+						<td class="lcelld"><?=htmlspecialchars($r_device['desc']);?></td>
 						<td class="lcebld">
 							<img src="<?=$img_path['loc'];?>" title="<?=$gt_record_loc;?>" alt="<?=$gt_record_loc;?>"/>
 						</td>
@@ -564,20 +567,6 @@ $document->render();
 ?>
 		<input name="cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>"/>
 		<input name="uuid" type="hidden" value="<?=$sphere_record['uuid'];?>"/>
-	</div>
-	<div id="remarks">
-<?php
-		if($isrecordnewornewmodify):
-			$helpinghand = gettext('Make sure to select the optimal number of devices')
-				. ':'
-				. '<div id="enumeration">' . '<ul>'
-				. '<li>' . gettext('RAID-Z1 should have 3, 5, or 9 disks in each vdev.') . '</li>'
-				. '<li>' . gettext('RAID-Z2 should have 4, 6, or 10 disks in each vdev.') . '</li>'
-				. '<li>' . gettext('RAID-Z3 should have 5, 7, or 11 disks in each vdev.') . '</li>'
-				. '</ul></div>';
-			html_remark2('note',gettext('Note'),$helpinghand);
-		endif;
-?>
 	</div>
 <?php
 	include 'formend.inc';
