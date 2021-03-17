@@ -99,9 +99,6 @@ fi
 XIGMANAS_COMPLEVEL=8
 XIGMANAS_KERNCOMPLEVEL=9
 
-XIGMANAS_XMD_SEGLEN=32768
-#	XIGMANAS_XMD_SEGLEN=65536
-
 #	Media geometry, only relevant if bios doesn't understand LBA.
 XIGMANAS_IMG_SIZE_SEC=`expr ${XIGMANAS_IMG_SIZE} \* 2048`
 XIGMANAS_IMG_SECTS=63
@@ -233,11 +230,6 @@ build_world() {
 		if [ ! -d $dir ]; then
 			mkdir -pv $dir
 		fi
-#		if [ "$(echo $file | grep '*')" == "" -a ! -f ${XIGMANAS_WORLD}/$file ]; then
-#			echo "skip: $file ($dir)"
-#			continue;
-#		fi
-
 #		Copy files from world.
 		cp -Rpv ${XIGMANAS_WORLD}/$file $(echo $file | rev | cut -d "/" -f 2- | rev)
 
@@ -456,7 +448,6 @@ create_mdlocal_mini() {
 	cp $XIGMANAS_SVNDIR/build/xigmanas-mdlocal-mini.files $XIGMANAS_WORKINGDIR/mdlocal-mini.files
 
 #	Make mfsroot to have the size of the XIGMANAS_MFSROOT_SIZE variable
-#	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mdlocal-mini bs=1k count=$(expr ${XIGMANAS_MDLOCAL_MINI_SIZE} \* 1024)
 	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mdlocal-mini bs=1k seek=$(expr ${XIGMANAS_MDLOCAL_MINI_SIZE} \* 1024) count=0
 #	Configure this file as a memory disk
 	md=`mdconfig -a -t vnode -f $XIGMANAS_WORKINGDIR/mdlocal-mini`
@@ -526,7 +517,6 @@ create_mdlocal_mini() {
 
 	echo "Compressing mdlocal-mini"
 	xz -${XIGMANAS_COMPLEVEL}v $XIGMANAS_WORKINGDIR/mdlocal-mini
-
 	[ -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal-mini.files
 
 	return 0
@@ -549,8 +539,6 @@ create_mfsroot() {
 	[ -d $XIGMANAS_SVNDIR ] && use_svn ;
 
 #	Make mfsroot to have the size of the XIGMANAS_MFSROOT_SIZE variable
-#	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mfsroot bs=1k count=$(expr ${XIGMANAS_MFSROOT_SIZE} \* 1024)
-#	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mdlocal bs=1k count=$(expr ${XIGMANAS_MDLOCAL_SIZE} \* 1024)
 	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mfsroot bs=1k seek=$(expr ${XIGMANAS_MFSROOT_SIZE} \* 1024) count=0
 	dd if=/dev/zero of=$XIGMANAS_WORKINGDIR/mdlocal bs=1k seek=$(expr ${XIGMANAS_MDLOCAL_SIZE} \* 1024) count=0
 #	Configure this file as a memory disk
@@ -579,8 +567,6 @@ create_mfsroot() {
 	mdconfig -d -u ${md2}
 	mdconfig -d -u ${md}
 
-#	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
-#	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
 	echo "Compressing mfsroot"
 	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
 	echo "Compressing mdlocal"
@@ -605,14 +591,9 @@ update_mfsroot() {
 #	Cleanup.
 	[ -f $XIGMANAS_WORKINGDIR/mfsroot.gz ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.gz
 	[ -f $XIGMANAS_WORKINGDIR/mfsroot.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mfsroot.uzip
-#	[ -f $XIGMANAS_WORKINGDIR/mdlocal.xz ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.xz
-#	[ -f $XIGMANAS_WORKINGDIR/mdlocal.uzip ] && rm -f $XIGMANAS_WORKINGDIR/mdlocal.uzip
 
 	cd $XIGMANAS_WORKINGDIR
-#	mkuzip -s ${XIGMANAS_XMD_SEGLEN} $XIGMANAS_WORKINGDIR/mfsroot
-#	chmod 644 $XIGMANAS_WORKINGDIR/mfsroot.uzip
 	gzip -${XIGMANAS_COMPLEVEL}kfnv $XIGMANAS_WORKINGDIR/mfsroot
-#	xz -${XIGMANAS_COMPLEVEL}kv $XIGMANAS_WORKINGDIR/mdlocal
 
 	return 0
 }
@@ -666,7 +647,6 @@ create_image() {
 	create_mfsroot;
 
 	echo "===> Creating Empty image File"
-#	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=${XIGMANAS_IMG_SECTS}b count=`expr ${XIGMANAS_IMG_SIZE_SEC} / ${XIGMANAS_IMG_SECTS} + 64`
 	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/image.bin bs=512 seek=`expr ${XIGMANAS_IMG_SIZE_SEC}` count=0
 	echo "===> Use IMG as a memory disk"
 	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/image.bin -x ${XIGMANAS_IMG_SECTS} -y ${XIGMANAS_IMG_HEADS}`
@@ -693,9 +673,7 @@ create_image() {
 	mount /dev/${mdp} $XIGMANAS_TMPDIR
 	echo "===> Copying previously generated MFSROOT file to memory disk"
 	cp $XIGMANAS_WORKINGDIR/mfsroot.gz $XIGMANAS_TMPDIR
-#	cp $XIGMANAS_WORKINGDIR/mfsroot.uzip $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal.xz $XIGMANAS_TMPDIR
-#	cp $XIGMANAS_WORKINGDIR/mdlocal.uzip $XIGMANAS_TMPDIR
 	echo "${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
 
 	echo "===> Copying Bootloader File(s) to memory disk"
@@ -843,7 +821,6 @@ create_iso () {
 
 	echo "ISO: Copying previously generated MFSROOT file to $XIGMANAS_TMPDIR"
 	cp $XIGMANAS_WORKINGDIR/mfsroot.gz $XIGMANAS_TMPDIR
-#	cp $XIGMANAS_WORKINGDIR/mfsroot.uzip $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal.xz $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal-mini.xz $XIGMANAS_TMPDIR
 	echo "${LABEL}" > $XIGMANAS_TMPDIR/version
@@ -1031,59 +1008,27 @@ create_usb () {
 #	for 1GB USB stick
 	IMGSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/image.bin.xz)
 	MFSSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.gz)
-#	MFS2SIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.uzip)
 	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
 	MDLSIZE2=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz)
-#	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MFS2SIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
 	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
 	USBROOTM=768
-#	USBSWAPM=512
-#	USBDATAM=12
-#	USB_SECTS=64
-#	USB_HEADS=32
 	USB_SECTS=63
 	USB_HEADS=255
 
 #	4MB alignment 800M image.
-#	USBSYSSIZEM=$(expr $USBROOTM + $IMGSIZEM + 4)
 	USBSYSSIZEM=$(expr $USBROOTM + 4)
-#	USBSWPSIZEM=$(expr $USBSWAPM + 4)
-#	USBDATSIZEM=$(expr $USBDATAM + 4)
-#	USBIMGSIZEM=$(expr $USBSYSSIZEM + $USBSWPSIZEM + $USBDATSIZEM + 1)
 	USBIMGSIZEM=$(expr $USBSYSSIZEM + 28)
 
 #	4MB aligned USB stick
 	echo "USB: Creating Empty IMG File"
-#	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m count=${USBIMGSIZEM}
 	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m seek=${USBIMGSIZEM} count=0
 	echo "USB: Use IMG as a memory disk"
 	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS}`
 	diskinfo -v ${md}
 
 	echo "USB: Creating BSD partition on this memory disk"
-#	gpart create -s bsd ${md}
-#	gpart bootcode -b ${XIGMANAS_BOOTDIR}/boot ${md}
-#	gpart add -s ${USBSYSSIZEM}m -t freebsd-ufs ${md}
-#	gpart add -s ${USBSWAPM}m -t freebsd-swap ${md}
-#	gpart add -s ${USBDATSIZEM}m -t freebsd-ufs ${md}
-#	mdp=${md}a
-
-#	gpart create -s mbr ${md}
-#	gpart add -i 4 -t freebsd ${md}
-#	gpart set -a active -i 4 ${md}
-#	gpart bootcode -b ${XIGMANAS_BOOTDIR}/mbr ${md}
-#	mdp=${md}s4
-#	gpart create -s bsd ${mdp}
-#	gpart bootcode -b ${XIGMANAS_BOOTDIR}/boot ${mdp}
-#	gpart add -a 1m -s ${USBSYSSIZEM}m -t freebsd-ufs ${mdp}
-#	gpart add -a 1m -s ${USBSWAPM}m -t freebsd-swap ${mdp}
-#	gpart add -a 1m -s ${USBDATSIZEM}m -t freebsd-ufs ${mdp}
-#	mdp=${mdp}a
-
 	gpart create -s mbr ${md}
 	gpart add -s ${USBSYSSIZEM}m -t freebsd ${md}
-#	gpart add -s ${USBSWPSIZEM}m -t freebsd ${md}
-#	gpart add -s ${USBDATSIZEM}m -t freebsd ${md}
 	gpart set -a active -i 1 ${md}
 	gpart bootcode -b ${XIGMANAS_BOOTDIR}/mbr ${md}
 
@@ -1091,29 +1036,17 @@ create_usb () {
 	gpart create -s bsd ${md}s1
 	gpart bootcode -b ${XIGMANAS_BOOTDIR}/boot ${md}s1
 	gpart add -a 4m -s ${USBROOTM}m -t freebsd-ufs ${md}s1
-#	s2 (SWAP)
-#	gpart create -s bsd ${md}s2
-#	gpart add -i2 -a 4m -s ${USBSWAPM}m -t freebsd-swap ${md}s2
-#	s3 (UFS/DATA) dummy
-#	gpart create -s bsd ${md}s3
-#	gpart add -a 4m -s ${USBDATAM}m -t freebsd-ufs ${md}s3
 #	SYSTEM partition
 	mdp=${md}s1a
 
 	echo "USB: Formatting this memory disk using UFS"
-#	newfs -S 512 -b 32768 -f 4096 -O2 -U -j -o time -m 8 -L "liveboot" /dev/${mdp}
-#	newfs -S $XIGMANAS_IMGFMT_SECTOR -b $XIGMANAS_IMGFMT_BSIZE -f $XIGMANAS_IMGFMT_FSIZE -O2 -U -o space -m 0 -L "liveboot" /dev/${mdp}
 	newfs -S 4096 -b 32768 -f 4096 -O2 -U -j -o space -m 0 -L "liveboot" /dev/${mdp}
 
 	echo "USB: Mount this virtual disk on $XIGMANAS_TMPDIR"
 	mount /dev/${mdp} $XIGMANAS_TMPDIR
 
-#	echo "USB: Creating swap file on the memory disk"
-#	dd if=/dev/zero of=$XIGMANAS_TMPDIR/swap.dat bs=1m seek=${USBSWAPM} count=0
-
 	echo "USB: Copying previously generated MFSROOT file to memory disk"
 	cp $XIGMANAS_WORKINGDIR/mfsroot.gz $XIGMANAS_TMPDIR
-#	cp $XIGMANAS_WORKINGDIR/mfsroot.uzip $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal.xz $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal-mini.xz $XIGMANAS_TMPDIR
 	echo "${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-LiveUSB-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
@@ -1271,21 +1204,16 @@ create_usb_gpt() {
 #	For 1GB USB stick.
 	IMGSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/image.bin.xz)
 	MFSSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.gz)
-#	MFS2SIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mfsroot.uzip)
 	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
 	MDLSIZE2=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz)
-#	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MFS2SIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
 	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
 	UEFISIZE=16
 	BOOTSIZE=512
 	USBROOTM=768
-#	USBSWAPM=512
-#	USBDATAM=12
 	USB_SECTS=63
 	USB_HEADS=255
 
 #	4MB alignment, 800M image.
-#	USBSYSSIZEM=$(expr $USBROOTM + $IMGSIZEM + 4)
 	USBEFISIZEM=$(expr $UEFISIZE + 4)
 	USBROOTSIZEM=$(expr $USBROOTM + 4)
 	USBIMGSIZEM=$(expr $USBEFISIZEM + $USBROOTSIZEM + 8)
@@ -1297,7 +1225,6 @@ create_usb_gpt() {
 
 #	4MB aligned USB stick.
 	echo "USB: Creating Empty IMG File"
-#	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m count=${USBIMGSIZEM}
 	dd if=/dev/zero of=${XIGMANAS_WORKINGDIR}/usb-image.bin bs=1m seek=${USBIMGSIZEM} count=0
 	echo "USB: Use IMG as a memory disk"
 	md=`mdconfig -a -t vnode -f ${XIGMANAS_WORKINGDIR}/usb-image.bin -x ${USB_SECTS} -y ${USB_HEADS}`
@@ -1317,8 +1244,6 @@ create_usb_gpt() {
 	echo "USB: Writing boot code on this memory disk"
 	gpart bootcode -p /boot/boot1.efifat -i 1 /dev/${md}
 	gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 2 /dev/${md}
-#	gpart bootcode -p ${XIGMANAS_BOOTDIR}/boot1.efifat -i 1 /dev/${md}
-#	gpart bootcode -b ${XIGMANAS_BOOTDIR}/pmbr -p /boot/gptboot -i 2 /dev/${md}
 
 #	SYSTEM partition.
 	mdp=${md}p3
@@ -1331,7 +1256,6 @@ create_usb_gpt() {
 
 	echo "USB: Copying previously generated MFSROOT file to memory disk"
 	cp $XIGMANAS_WORKINGDIR/mfsroot.gz $XIGMANAS_TMPDIR
-#	cp $XIGMANAS_WORKINGDIR/mfsroot.uzip $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal.xz $XIGMANAS_TMPDIR
 	cp $XIGMANAS_WORKINGDIR/mdlocal-mini.xz $XIGMANAS_TMPDIR
 	echo "${XIGMANAS_PRODUCTNAME}-${XIGMANAS_XARCH}-LiveUSB-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
@@ -1464,7 +1388,6 @@ create_full() {
 #	Copying all XigmaNAS® rootfilesystem (including symlink) on this folder
 	cd $XIGMANAS_TMPDIR
 	tar -cf - -C $XIGMANAS_ROOTFS ./ | tar -xvpf -
-#	tar -cf - -C $XIGMANAS_ROOTFS ./ | tar -xvpf - -C $XIGMANAS_TMPDIR
 	echo "${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
 
 	echo "Copying bootloader file(s) to root filesystem"
