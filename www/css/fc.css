@@ -96,7 +96,7 @@ body {
 .filechooser .filelist table tr.parent td {
 	height: 18px;
 	border-bottom: 1px solid #eee;
-	text-color: #ffffff;
+	color: #ffffff;
 	background: #435370 url("/images/listtopic_bg.png");
 }
 .filechooser .filelist table tr.parent a {
