@@ -32,9 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use gui\document;
+use common\arr;
 
 function disks_crypt_get_sphere() {
 	global $config;
@@ -52,7 +56,7 @@ function disks_crypt_get_sphere() {
 		setmsg_sym_unl(gettext('Encrypted volume is unlocked'))->
 		setmsg_cbm_delete(gettext('Delete Selected Encrypted Volumes'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected encrypted volumes?'));
-	$sphere->grid = &array_make_branch($config,'geli','vdisk');
+	$sphere->grid = &arr::make_branch($config,'geli','vdisk');
 	return $sphere;
 }
 function geli_process_updatenotification($mode, $data) {
@@ -64,13 +68,13 @@ function geli_process_updatenotification($mode, $data) {
 		case UPDATENOTIFY_MODE_MODIFIED:
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			if(false !== ($sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			if(false !== ($sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
+			if(false !== ($sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier()))):
 				//	Kill encrypted volume.
 				disks_geli_kill($sphere->grid[$sphere->row_id]['devicespecialfile']);
 				//	Reset disk file system type attribute ('fstype') in configuration.
@@ -83,7 +87,7 @@ function geli_process_updatenotification($mode, $data) {
 	return $retval;
 }
 $sphere = disks_crypt_get_sphere();
-array_sort_key($sphere->grid,'devicespecialfile');
+arr::sort_key($sphere->grid,'devicespecialfile');
 $errormsg = '';
 $input_errors = [];
 if($_POST):
@@ -126,13 +130,13 @@ if($_POST):
 						break;
 				endswitch;
 //				ensure at least an empty array is available
-				$sphere->grid = &array_make_branch($config,'geli','vdisk');
+				$sphere->grid = &arr::make_branch($config,'geli','vdisk');
 //				header($sphere->get_location());
 //				exit;
 			case $sphere->get_cbm_button_val_delete():
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
 						//	disks_exists: 0 = yes, 1 = no
 						if(disks_exists($sphere->grid[$sphere->row_id]['devicespecialfile'])):
 							$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
@@ -160,7 +164,7 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->row_identifier()))):
+					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->row_identifier()))):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 							$updateconfig = true;
@@ -182,7 +186,7 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->row_identifier()))):
+					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->row_identifier()))):
 						if(!(isset($sphere->grid[$sphere->row_id]['enable']))):
 							$sphere->grid[$sphere->row_id]['enable'] = true;
 							$updateconfig = true;
@@ -204,7 +208,7 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->row_identifier()))):
+					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->row_identifier()))):
 						if(isset($sphere->grid[$sphere->row_id]['enable'])):
 							unset($sphere->grid[$sphere->row_id]['enable']);
 						else:
@@ -231,7 +235,7 @@ endif;
 $pgtitle = [gtext('Disks'),gtext('Encryption'),gtext('Management')];
 include 'fbegin.inc';
 echo $sphere->doj();
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
