@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
+
+use gui\document;
+use common\arr;
 
 function get_zfs_snapshots(): array {
 	$result = [];
@@ -284,7 +289,7 @@ if($_POST):
 	if(isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record,$sphere_array,'snapshot'))):
+			if(false !== ($index = arr::search_ex($checkbox_member_record,$sphere_array,'snapshot'))):
 				$identifier = serialize(['snapshot' => $checkbox_member_record,'recursive' => false]);
 				if(!isset($sphere_array[$index]['protected'])):
 					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$identifier);
@@ -371,7 +376,7 @@ function controlactionbuttons(ego, triggerbyname) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->

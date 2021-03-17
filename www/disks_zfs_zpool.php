@@ -32,10 +32,14 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 require_once 'co_sphere.php';
+
+use gui\document;
+use common\arr;
 
 function disks_zfs_zpool_get_sphere() {
 	global $config;
@@ -56,7 +60,7 @@ function disks_zfs_zpool_get_sphere() {
 		setmsg_sym_unl(gettext('Pool is unlocked'))->
 		setmsg_cbm_delete(gettext('Delete Selected Pools'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected pools?'));
-	$sphere->grid = &array_make_branch($config,'zfs','pools','pool');
+	$sphere->grid = &arr::make_branch($config,'zfs','pools','pool');
 	return $sphere;
 }
 function zfspool_process_updatenotification($mode,$data) {
@@ -72,14 +76,14 @@ function zfspool_process_updatenotification($mode,$data) {
 			$retval |= zfs_zpool_properties($data);
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 			if(false !== $sphere->row_id):
 				unset($sphere->grid[$sphere->row_id]);
 				write_config();
 			endif;
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
-			$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+			$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 			if(false !== $sphere->row_id):
 				$sphere->row = $sphere->grid[$sphere->row_id];
 //				check if pool exists
@@ -111,7 +115,7 @@ function zfspool_process_updatenotification($mode,$data) {
 $sphere = disks_zfs_zpool_get_sphere();
 if(empty($sphere->grid)):
 else:
-	array_sort_key($sphere->grid,'name');
+	arr::sort_key($sphere->grid,'name');
 endif;
 if($_POST):
 	if(isset($_POST['apply']) && $_POST['apply']):
@@ -131,7 +135,7 @@ if($_POST):
 			case $sphere->get_cbm_button_val_delete():
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
 						$mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->grid[$sphere->row_id][$sphere->get_row_identifier()]);
 						switch($mode_updatenotify):
 							case UPDATENOTIFY_MODE_NEW:
@@ -160,7 +164,7 @@ $use_si = is_sidisksizevalues();
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Pools'),gtext('Management')];
 include 'fbegin.inc';
 echo $sphere->doj();
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->

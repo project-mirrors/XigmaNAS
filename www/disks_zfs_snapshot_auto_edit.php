@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
+
+use gui\document;
+use common\arr;
 
 if(isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
@@ -42,16 +47,16 @@ if(isset($_POST['uuid'])):
 	$uuid = $_POST['uuid'];
 endif;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Auto Snapshot'), isset($uuid) ? gtext('Edit') : gtext('Add')];
-$a_autosnapshot = &array_make_branch($config,'zfs','autosnapshots','autosnapshot');
+$a_autosnapshot = &arr::make_branch($config,'zfs','autosnapshots','autosnapshot');
 if(empty($a_autosnapshot)):
 else:
-	array_sort_key($a_autosnapshot,'path');
+	arr::sort_key($a_autosnapshot,'path');
 endif;
 
-$a_pool = &array_make_branch($config,'zfs','pools','pool');
+$a_pool = &arr::make_branch($config,'zfs','pools','pool');
 if(empty($a_pool)):
 else:
-	array_sort_key($a_pool,'name');
+	arr::sort_key($a_pool,'name');
 endif;
 function get_zfs_paths() {
 	$result = [];
@@ -94,7 +99,7 @@ if(!isset($uuid) && (!sizeof($a_pool))):
 	$helpinghand = sprintf($helpinghand, $link);
 	$errormsg = $helpinghand;
 endif;
-if(isset($uuid) && (FALSE !== ($cnid = array_search_ex($uuid, $a_autosnapshot,'uuid')))):
+if(isset($uuid) && (false !== ($cnid = arr::search_ex($uuid, $a_autosnapshot,'uuid')))):
 	$pconfig['uuid'] = $a_autosnapshot[$cnid]['uuid'];
 	$pconfig['type'] = $a_autosnapshot[$cnid]['type'];
 	$pconfig['path'] = $a_autosnapshot[$cnid]['path'];
@@ -180,7 +185,7 @@ function enable_change(enable_change) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->

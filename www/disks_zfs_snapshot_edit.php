@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
+
+use gui\document;
+use common\arr;
 
 if(isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
@@ -42,10 +47,10 @@ if(isset($_POST['uuid'])):
 	$uuid = $_POST['uuid'];
 endif;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Snapshot'),gtext('Edit')];
-$a_pool = &array_make_branch($config,'zfs','pools','pool');
+$a_pool = &arr::make_branch($config,'zfs','pools','pool');
 if(empty($a_pool)):
 else:
-	array_sort_key($a_pool,'name');
+	arr::sort_key($a_pool,'name');
 endif;
 function get_zfs_paths() {
 	$result = [];
@@ -211,7 +216,7 @@ function action_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -287,4 +292,3 @@ action_change();
 </script>
 <?php
 include 'fend.inc';
-?>
