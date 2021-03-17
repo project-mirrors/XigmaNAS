@@ -31,8 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_scriptname_child = 'disks_zfs_zpool_vdevice_edit.php';
@@ -64,10 +69,10 @@ $img_path = [
 	'inf' => 'images/info.png'
 ];
 // sunrise: verify if setting exists, otherwise run init tasks
-$sphere_array = &array_make_branch($config,'zfs','vdevices','vdevice');
+$sphere_array = &arr::make_branch($config,'zfs','vdevices','vdevice');
 if(empty($sphere_array)):
 else:
-	array_sort_key($sphere_array,'name');
+	arr::sort_key($sphere_array,'name');
 endif;
 if($_POST):
 	if(isset($_POST['apply']) && $_POST['apply']):
@@ -85,7 +90,7 @@ if($_POST):
 	if(isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record, $sphere_array, 'uuid'))):
+			if(false !== ($index = arr::search_ex($checkbox_member_record, $sphere_array, 'uuid'))):
 				$mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_array[$index]['uuid']);
 				switch($mode_updatenotify):
 					case UPDATENOTIFY_MODE_NEW:
@@ -117,7 +122,7 @@ function zfsvdev_process_updatenotification($mode, $data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 		case UPDATENOTIFY_MODE_DIRTY:
-			$index = array_search_ex($data, $config['zfs']['vdevices']['vdevice'], 'uuid');
+			$index = arr::search_ex($data, $config['zfs']['vdevices']['vdevice'], 'uuid');
 			if(false !== $index):
 				unset($config['zfs']['vdevices']['vdevice'][$index]);
 				write_config();
@@ -126,7 +131,7 @@ function zfsvdev_process_updatenotification($mode, $data) {
 	endswitch;
 	return $retval;
 }
-$a_pool = &array_make_branch($config,'zfs','pools','pool');
+$a_pool = &arr::make_branch($config,'zfs','pools','pool');
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Pools'),gtext('Virtual Device')];
 include 'fbegin.inc';
 ?>
@@ -190,7 +195,7 @@ function controlactionbuttons(ego, triggerbyname) {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -248,7 +253,7 @@ $document->render();
 				$notificationmode = updatenotify_get_mode($sphere_notifier, $sphere_record['uuid']);
 				$notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				$notprotected = !isset($sphere_record['protected']);
-				$isnotmemberofapool = (false === array_search_ex($sphere_record['name'], $a_pool, 'vdevice'));
+				$isnotmemberofapool = (false === arr::search_ex($sphere_record['name'], $a_pool, 'vdevice'));
 ?>
 				<tr>
 					<td class="lcelc">
@@ -311,4 +316,3 @@ $document->render();
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
