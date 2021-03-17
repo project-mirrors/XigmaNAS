@@ -31,8 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use gui\document;
+use common\arr;
 
 $use_si = is_sidisksizevalues();
 $zfs = [
@@ -42,22 +47,27 @@ $zfs = [
 	'volumes' => ['volume' => []],
 ];
 
-if (isset($_POST['import'])) {
-	$cmd = 'zpool import -d /dev -a';
-	if (isset($_POST['import_force'])) {
-		$cmd .= ' -f';
-	}
+if(isset($_POST['import'])):
+	$param = [];
+	$param['cmd'] = 'zpool';
+	$param['sub'] = 'import';
+	$param['gpt'] = is_dir('/dev/gpt') ? '-d /dev/gpt' : null;
+	$param['gptid'] = is_dir('/dev/gptid') ? '-d /dev/gptid' : null;
+	$param['dev'] = is_dir('/dev') ? '-d /dev' : null;
+	$param['all'] = '-a';
+	$param['force'] = isset($_POST['import_force']) ? '-f' : null;
+	$cmd = implode(' ',array_filter($param));
 	$retval = mwexec($cmd);
-	// remove existing pool cache
+//	remove existing pool cache
 	conf_mount_rw();
 	unlink_if_exists("{$g['cf_path']}/boot/zfs/zpool.cache");
 	conf_mount_ro();
-}
+endif;
 $cmd = 'zfs list -H -t filesystem -o name,mountpoint,compression,canmount,quota,used,available,xattr,snapdir,readonly,origin,reservation,dedup,sync,atime,aclinherit,aclmode,primarycache,secondarycache';
 unset($rawdata);
 unset($retval);
 mwexec2($cmd,$rawdata,$retval);
-if(0 == $retval):
+if($retval == 0):
 	foreach($rawdata as $line):
 		if($line == 'no datasets available'):
 			continue;
@@ -132,7 +142,7 @@ $cmd = 'zfs list -pH -t volume -o name,volsize,volblocksize,compression,origin,d
 unset($rawdata);
 unset($retval);
 mwexec2($cmd,$rawdata,$retval);
-if(0 == $retval):
+if($retval == 0):
 	foreach($rawdata as $line):
 		if($line == 'no datasets available'):
 			continue;
@@ -163,7 +173,7 @@ $cmd = 'zpool list -pH -o name,altroot,size,allocated,free,capacity,expandsz,fra
 unset($rawdata);
 unset($retval);
 mwexec2($cmd,$rawdata,$retval);
-if(0 == $retval):
+if($retval == 0):
 	foreach($rawdata as $line):
 		if($line == 'no pools available'):
 			continue;
@@ -328,8 +338,8 @@ HTML;
 endif;
 $health = true;
 if(!empty($zfs['extra']) && !empty($zfs['extra']['pools']) && !empty($zfs['extra']['pools']['pool'])):
-	$health &= (bool)!array_search_ex('DEGRADED',$zfs['extra']['pools']['pool'],'health');
-	$health &= (bool)!array_search_ex('FAULTED',$zfs['extra']['pools']['pool'],'health');
+	$health &= (bool)!arr::search_ex('DEGRADED',$zfs['extra']['pools']['pool'],'health');
+	$health &= (bool)!arr::search_ex('FAULTED',$zfs['extra']['pools']['pool'],'health');
 endif;
 if(!$health):
 	$message_box_type = 'warning';
@@ -338,7 +348,7 @@ endif;
 $showusedavail = isset($config['zfs']['settings']['showusedavail']);
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Configuration'),gtext('Detected')];
 include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
