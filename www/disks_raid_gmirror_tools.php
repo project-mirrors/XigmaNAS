@@ -31,13 +31,17 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-$a_raid = &array_make_branch($config,'gmirror','vdisk');
-if(empty($a_raid)):
-else: 
-	array_sort_key($a_raid,'name');
+use gui\document;
+use common\arr;
+
+$a_raid = &arr::make_branch($config,'gmirror','vdisk');
+if(!empty($a_raid)):
+	arr::sort_key($a_raid,'name');
 endif;
 if($_POST):
 	unset($input_errors);
@@ -75,12 +79,12 @@ $l_action = [
 $pgtitle = [gtext('Disks'),gtext('Software RAID'),gtext('RAID-1'),gtext('Maintenance')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init spinner onsubmit()
 	$("#iform").submit(function() { spinner(); });
-}); 
+});
 function raid_change() {
 	var next = null;
 <?php
@@ -114,7 +118,7 @@ function raid_change() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -151,9 +155,9 @@ $document->render();
 					<select name="raid" class="formfld" id="raid" onchange="raid_change()">
 						<option value=""><?=gtext('Must choose one');?></option>
 <?php
-						foreach ($a_raid as $raidv):
+						foreach($a_raid as $raidv):
 ?>
-						<option value="<?=$raidv['name'];?>" <?php if ($raid === $raidv['name']) echo "selected=\"selected\"";?>><?=htmlspecialchars($raidv['name']);?></option>
+							<option value="<?=$raidv['name'];?>" <?php if($raid === $raidv['name']) echo 'selected="selected"';?>><?=htmlspecialchars($raidv['name']);?></option>
 <?php
 						endforeach;
 ?>
@@ -176,6 +180,24 @@ $document->render();
 	</div>
 <?php
 	if($do_action):
+		$class = 'mirror';
+		$be_verbose = true;
+		switch($action):
+			default: $do_action = false; break;
+			case 'rebuild'   : $a_parameter = ['-v',escapeshellarg($raid),escapeshellarg($disk)]; break;
+			case 'list'      : $a_parameter = [     escapeshellarg($raid)                      ]; break;
+			case 'status'    : $a_parameter = [     escapeshellarg($raid)                      ]; break;
+			case 'remove'    : $a_parameter = ['-v',escapeshellarg($raid),escapeshellarg($disk)]; break;
+			case 'activate'  : $a_parameter = ['-v',escapeshellarg($raid),escapeshellarg($disk)]; break;
+			case 'deactivate': $a_parameter = ['-v',escapeshellarg($raid),escapeshellarg($disk)]; break;
+			case 'forget'    : $a_parameter = ['-v',escapeshellarg($raid)                      ]; break;
+			case 'insert'    : $a_parameter = ['-v',escapeshellarg($raid),escapeshellarg($disk)]; break;
+			case 'clear'     : $a_parameter = ['-v'                      ,escapeshellarg($disk)]; break;
+			case 'stop'      : $a_parameter = ['-v',escapeshellarg($raid)                      ]; break;
+		endswitch;
+	endif;
+	if($do_action):
+		$parameter = implode(' ',$a_parameter);
 ?>
 		<table class="area_data_settings">
 			<colgroup>
@@ -193,39 +215,7 @@ $document->render();
 					<td class="celltag"><?=gtext('Command Output');?></td>
 					<td class="celldata"><pre class="cmdoutput">
 <?php
-						//	ob_end_flush();
-						switch($action):
-							case 'rebuild':
-								disks_geom_cmd('mirror','rebuild -v',"{$raid} {$disk}",true);
-								break;
-							case 'list':
-								disks_geom_cmd('mirror','list',$raid,true);
-								break;
-							case 'status':
-								disks_geom_cmd('mirror','status',$raid,true);
-								break;
-							case 'remove':
-								disks_geom_cmd('mirror','remove -v',"{$raid} {$disk}",true);
-								break;
-							case 'activate':
-								disks_geom_cmd('mirror','activate -v',"{$raid} {$disk}",true);
-								break;
-							case 'deactivate':
-								disks_geom_cmd('mirror','deactivate -v',"{$raid} {$disk}",true);
-								break;
-							case 'forget':
-								disks_geom_cmd('mirror','forget -v',$raid,true);
-								break;
-							case 'insert':
-								disks_geom_cmd('mirror','insert -v',"{$raid} {$disk}",true);
-								break;
-							case 'clear':
-								disks_geom_cmd('mirror','clear -v',$disk,true);
-								break;
-							case 'stop':
-								disks_geom_cmd('mirror','stop -v',$raid,true);
-								break;
-						endswitch;
+						disks_geom_cmd($class,$action,$parameter,$be_verbose);
 ?>
 					</pre></td>
 				</tr>
@@ -236,7 +226,7 @@ $document->render();
 ?>
 	<div id="remarks">
 <?php
-		$helpinghand = 
+		$helpinghand =
 			'1. ' . gettext('Use these specials actions for debugging only!') .
 			'<br />' .
 			'2. ' . gettext('There is no need to start a RAID volume from here (It starts automatically).');
@@ -247,7 +237,7 @@ $document->render();
 	include 'formend.inc';
 ?>
 </td></tr></tbody></table></form>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 raid_change();
 //]]>
