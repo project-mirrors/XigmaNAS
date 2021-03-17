@@ -31,8 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use gui\document;
+use common\arr;
 
 function get_geli_info($device) {
 	$result = [];
@@ -46,17 +51,17 @@ function get_geli_info($device) {
 	endforeach;
 	return $result;
 }
-array_make_branch($config,'disks','disk');
-array_make_branch($config,'geli','vdisk');
-array_make_branch($config,'zfs','vdevices','vdevice');
-array_make_branch($config,'zfs','pools','pool');
-array_make_branch($config,'zfs','datasets','dataset');
-array_make_branch($config,'zfs','volumes','volume');
+arr::make_branch($config,'disks','disk');
+arr::make_branch($config,'geli','vdisk');
+arr::make_branch($config,'zfs','vdevices','vdevice');
+arr::make_branch($config,'zfs','pools','pool');
+arr::make_branch($config,'zfs','datasets','dataset');
+arr::make_branch($config,'zfs','volumes','volume');
 $zfs = [];
-array_make_branch($zfs,'vdevices','vdevice');
-array_make_branch($zfs,'pools','pool');
-array_make_branch($zfs,'datasets','dataset');
-array_make_branch($zfs,'volumes','volume');
+arr::make_branch($zfs,'vdevices','vdevice');
+arr::make_branch($zfs,'pools','pool');
+arr::make_branch($zfs,'datasets','dataset');
+arr::make_branch($zfs,'volumes','volume');
 $properties_filesystem = [
 	'name',
 	'mountpoint',
@@ -347,11 +352,11 @@ endforeach;
 if(isset($_POST['import_config'])):
 	$import = false;
 	$cfg = [];
-	array_make_branch($cfg,'zfs','vdevices','vdevice');
-	array_make_branch($cfg,'zfs','pools','pool');
-	array_make_branch($cfg,'zfs','datasets','dataset');
-	array_make_branch($cfg,'zfs','volumes','volume');
-	array_make_branch($cfg,'zfs','autosnapshots');
+	arr::make_branch($cfg,'zfs','vdevices','vdevice');
+	arr::make_branch($cfg,'zfs','pools','pool');
+	arr::make_branch($cfg,'zfs','datasets','dataset');
+	arr::make_branch($cfg,'zfs','volumes','volume');
+	arr::make_branch($cfg,'zfs','autosnapshots');
 	$a_posted = [];
 	foreach(['vdev','pool','dset','vol'] as $ref):
 		$a_posted[$ref] = filter_input(INPUT_POST,$ref,FILTER_UNSAFE_RAW,['flags' => FILTER_FORCE_ARRAY,'options' => ['default' => []]]);
@@ -411,10 +416,10 @@ if(isset($_POST['import_config'])):
 				endif;
 				$index = false;
 				if(!empty($cfg['disks']['disk'])):
-					$index = array_search_ex($device,$cfg['disks']['disk'],'devicespecialfile');
+					$index = arr::search_ex($device,$cfg['disks']['disk'],'devicespecialfile');
 				endif;
 				if($index === false && isset($_POST['import_disks'])):
-					$disk = array_search_ex($device,$disks,'devicespecialfile');
+					$disk = arr::search_ex($device,$disks,'devicespecialfile');
 					$disk = $disks[$disk];
 					$serial = "";
 					if(!empty($disk['serial'])):
@@ -457,10 +462,10 @@ if(isset($_POST['import_config'])):
 					endif;
 				endif;
 				if($encrypted):
-					$index = array_search_ex($device,$cfg['geli']['vdisk'],'device');
+					$index = arr::search_ex($device,$cfg['geli']['vdisk'],'device');
 					$geli_info = get_geli_info($device);
 					if($index === false && !empty($geli_info) && isset($_POST['import_disks'])):
-						$disk = array_search_ex($device,$disks,'devicespecialfile');
+						$disk = arr::search_ex($device,$disks,'devicespecialfile');
 						$disk = $disks[$disk];
 						$cfg['geli']['vdisk'][] = [
 							'uuid' => uuid(),
@@ -503,8 +508,8 @@ if(isset($_POST['import_config'])):
 endif;
 $health = true;
 if(!empty($zfs['extra']) && !empty($zfs['extra']['pools']) && !empty($zfs['extra']['pools']['pool'])):
-	$health &= (bool)!array_search_ex('DEGRADED',$zfs['extra']['pools']['pool'],'health');
-	$health &= (bool)!array_search_ex('FAULTED',$zfs['extra']['pools']['pool'],'health');
+	$health &= (bool)!arr::search_ex('DEGRADED',$zfs['extra']['pools']['pool'],'health');
+	$health &= (bool)!arr::search_ex('FAULTED',$zfs['extra']['pools']['pool'],'health');
 endif;
 if(!$health):
 	$message_box_type = 'warning';
@@ -524,7 +529,7 @@ $(window).on("load",function() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->

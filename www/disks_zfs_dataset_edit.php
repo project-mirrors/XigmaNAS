@@ -32,10 +32,14 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 require_once 'co_sphere.php';
+
+use gui\document;
+use common\arr;
 
 function disks_zfs_dataset_edit_get_sphere() {
 	global $config;
@@ -67,9 +71,9 @@ function disks_zfs_dataset_edit_get_sphere() {
 			'mode' => '0777'
 		]
 	];
-	$sphere->grid = &array_make_branch($config,'zfs','datasets','dataset');
+	$sphere->grid = &arr::make_branch($config,'zfs','datasets','dataset');
 	if(!empty($sphere->grid)):
-		array_sort_key($sphere->grid,'name');
+		arr::sort_key($sphere->grid,'name');
 	endif;
 	return $sphere;
 }
@@ -134,19 +138,19 @@ else:
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$a_volume = &array_make_branch($config,'zfs','volumes','volume');
+$a_volume = &arr::make_branch($config,'zfs','volumes','volume');
 if(empty($a_volume)):
 else:
-	array_sort_key($a_volume,'name');
+	arr::sort_key($a_volume,'name');
 endif;
-$a_pool = &array_make_branch($config,'zfs','pools','pool');
+$a_pool = &arr::make_branch($config,'zfs','pools','pool');
 if(empty($a_pool)):
 	$errormsg = gtext('No configured pools.') . ' ' . '<a href="' . 'disks_zfs_zpool.php' . '">' . gtext('Please add a pool first.') . '</a>';
 	$prerequisites_ok = false;
 else:
-	array_sort_key($a_pool,'name');
+	arr::sort_key($a_pool,'name');
 endif;
-$sphere->row_id = array_search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
 //	determine record update mode
 $mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]); // get updatenotify mode
 $mode_record = RECORD_ERROR;
@@ -412,6 +416,7 @@ endforeach;
 $l_compressionmode = [
 	'on' => gettext('On'),
 	'off' => gettext('Off'),
+//	'zstd' => gettext('Z Standard'),
 	'lz4' => 'LZ4',
 	'lzjb' => 'LZJB',
 	'gzip' => 'GZIP',
@@ -477,7 +482,7 @@ endfor;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Datasets'),gtext('Dataset'),$isrecordnew ? gtext('Add') : gtext('Edit')];
 include 'fbegin.inc';
 $sphere->doj();
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
