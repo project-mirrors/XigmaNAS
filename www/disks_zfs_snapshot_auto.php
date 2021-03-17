@@ -31,20 +31,25 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 
+use gui\document;
+use common\arr;
+
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Auto Snapshot')];
-$a_autosnapshot = &array_make_branch($config,'zfs','autosnapshots','autosnapshot');
+$a_autosnapshot = &arr::make_branch($config,'zfs','autosnapshots','autosnapshot');
 if(empty($a_autosnapshot)):
 else:
-	array_sort_key($a_autosnapshot,'path');
+	arr::sort_key($a_autosnapshot,'path');
 endif;
-$a_pool = &array_make_branch($config,'zfs','pools','pool');
+$a_pool = &arr::make_branch($config,'zfs','pools','pool');
 if(empty($a_pool)):
 else:
-	array_sort_key($a_pool,'name');
+	arr::sort_key($a_pool,'name');
 endif;
 if(!isset($uuid) && (!sizeof($a_pool))):
 	$link = sprintf('<a href="%1$s">%2$s</a>', 'disks_zfs_zpool.php', gtext('pools'));
@@ -111,8 +116,8 @@ function zfsautosnapshot_process_updatenotification($mode, $data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
 			$data = unserialize($data);
-			$cnid = array_search_ex($data['uuid'], $config['zfs']['autosnapshots']['autosnapshot'],'uuid');
-			if(false !== $cnid):
+			$cnid = arr::search_ex($data['uuid'], $config['zfs']['autosnapshots']['autosnapshot'],'uuid');
+			if($cnid !== false):
 				unset($config['zfs']['autosnapshots']['autosnapshot'][$cnid]);
 				write_config();
 			endif;
@@ -131,7 +136,7 @@ $(window).on("load",function() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->

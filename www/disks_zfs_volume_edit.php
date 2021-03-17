@@ -32,11 +32,15 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 require_once 'co_sphere.php';
 require_once 'properties_zfs_dataset.php';
+
+use gui\document;
+use common\arr;
 
 function get_volblocksize($pool,$name) {
 	$cmd = sprintf('zfs get -H -o value volblocksize %s 2>&1',escapeshellarg(sprintf('%s/%s',$pool,$name)));
@@ -53,9 +57,9 @@ function get_sphere_disks_zfs_volume_edit() {
 	$sphere->set_row_identifier('uuid');
 	$sphere->get_parent()->set_basename('disks_zfs_volume','php');
 	$sphere->set_notifier('zfsvolume');
-	$sphere->grid = &array_make_branch($config,'zfs','volumes','volume');
+	$sphere->grid = &arr::make_branch($config,'zfs','volumes','volume');
 	if(!empty($sphere->grid)):
-		array_sort_key($sphere->grid,'name');
+		arr::sort_key($sphere->grid,'name');
 	endif;
 	return $sphere;
 }
@@ -156,7 +160,7 @@ endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = array_search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
@@ -196,17 +200,17 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$a_pool = &array_make_branch($config,'zfs','pools','pool');
+$a_pool = &arr::make_branch($config,'zfs','pools','pool');
 if(empty($a_pool)): // Throw error message if no pool exists
 	$errormsg = gtext('No configured pools.') . ' ' . '<a href="' . 'disks_zfs_zpool.php' . '">' . gtext('Please add new pools first.') . '</a>';
 	$prerequisites_ok = false;
 else:
-	array_sort_key($a_pool,'name');
+	arr::sort_key($a_pool,'name');
 endif;
-$a_dataset = &array_make_branch($config,'zfs','datasets','dataset');
+$a_dataset = &arr::make_branch($config,'zfs','datasets','dataset');
 if(empty($a_dataset)):
 else:
-	array_sort_key($a_dataset,'name');
+	arr::sort_key($a_dataset,'name');
 endif;
 $a_poollist = zfs_get_pool_list();
 $l_poollist = [];
@@ -379,7 +383,7 @@ endswitch;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Volumes'),gtext('Volume'),($isrecordnew) ? gtext('Add') : gtext('Edit')];
 include 'fbegin.inc';
 $sphere->doj();
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -423,11 +427,11 @@ $document->render();
 			html_inputbox2('name',gettext('Name'),$sphere->row['name'],'',true,60,$isrecordmodify,false,128,gettext('Enter a name for this volume'));
 			html_combobox2('pool',gettext('Pool'),$sphere->row['pool'],$l_poollist,'',true,$isrecordmodify);
 			html_inputbox2('desc',gettext('Description'),$sphere->row['desc'],gettext('You may enter a description here for your reference.'),false,40,false,false,40,gettext('Enter a description'));
-			$node = new co_DOMDocument();
+			$node = new document();
 			$node->c2_input_text($property->volsize,$sphere->row['volsize'],true,false);
 			$node->render();
 			html_checkbox2('sparse',gettext('Sparse Volume'),!empty($sphere->row['sparse']) ? true : false,gettext('Use as sparse volume (thin provisioning).'),'',false);
-			$node = new co_DOMDocument();
+			$node = new document();
 			$node->c2_radio_grid($property->volmode,$sphere->row['volmode'],true);
 			$node->c2_select($property->compression,$sphere->row['compression'],true);
 			$node->c2_select($property->dedup,$sphere->row['dedup'],true);

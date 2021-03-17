@@ -32,8 +32,11 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use gui\document;
 
 function zfs_get_snapshot_list(string $entity_name = NULL) {
 	if(isset($entity_name)):
@@ -69,7 +72,7 @@ if(isset($_GET['uuid']) && is_string($_GET['uuid'])):
 endif;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Information')];
 include 'fbegin.inc';
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->

@@ -31,16 +31,21 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 
+use gui\document;
+use common\arr;
+
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Snapshots'),gtext('Clone')];
 
-$a_snapshot = &array_make_branch($config,'zfs','snapshots','snapshot');
+$a_snapshot = &arr::make_branch($config,'zfs','snapshots','snapshot');
 if(empty($a_snapshot)):
 else:
-	array_sort_key($a_snapshot,'name');
+	arr::sort_key($a_snapshot,'name');
 endif;
 
 function get_zfs_clones() {
@@ -128,7 +133,7 @@ $(window).on("load",function() {
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -217,4 +222,3 @@ $document->render();
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
