@@ -31,9 +31,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
 require_once 'array.inc';
-require_once 'autoload.php';
 
 use gui\document;
 
@@ -1296,14 +1297,12 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$div2->insINPUT($attributes);
 	}
 }
-class co_DOMDocument extends document {
-}
 /**
  *
  * @param array $page_title
  * @param string $action_url
  * @param string ...$options
- * @return \co_DOMDocument
+ * @return DOMDocument
  */
 /*
  *	login
@@ -1318,7 +1317,7 @@ class co_DOMDocument extends document {
  *		sorter-radio
  */
 function new_page(array $page_title = [],string $action_url = null,string ...$options) {
-	$document = new co_DOMDocument();
+	$document = new document();
 	$document->
 		loadHTML('<!DOCTYPE html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 	$document->
