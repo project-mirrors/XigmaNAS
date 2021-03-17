@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use gui\document;
+use common\arr;
 
 function interfaces_lagg_edit_get_sphere() {
 	global $config;
@@ -47,9 +52,9 @@ function interfaces_lagg_edit_get_sphere() {
 		'laggport' => [],
 		'desc' => ''
 	];
-	$sphere->grid = &array_make_branch($config,'vinterfaces','lagg');
+	$sphere->grid = &arr::make_branch($config,'vinterfaces','lagg');
 	if(!empty($sphere->grid)):
-		array_sort_key($sphere->grid,'if');
+		arr::sort_key($sphere->grid,'if');
 	endif;
 	return $sphere;
 }
@@ -119,7 +124,7 @@ else:
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$sphere->row_id = array_search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
 $isrecordnew = (false === $sphere->row_id);
 switch($mode_page):
 	case PAGE_MODE_ADD:
@@ -134,7 +139,7 @@ switch($mode_page):
 		do {
 			$interface_name = sprintf($interface_format,$interface_id);
 			$interface_id++;
-		} while(false !== array_search_ex($interface_name,$sphere->grid,'if'));
+		} while(false !== arr::search_ex($interface_name,$sphere->grid,'if'));
 		$sphere->row['if'] = $interface_name;
 		$sphere->row['laggproto'] = $sphere->row_default['laggproto'];
 		$sphere->row['laggport'] = $sphere->row_default['laggport'];
@@ -152,7 +157,7 @@ switch($mode_page):
 		do {
 			$interface_name = sprintf($interface_format,$interface_id);
 			$interface_id++;
-		} while(false !== array_search_ex($interface_name,$sphere->grid,'if'));
+		} while(false !== arr::search_ex($interface_name,$sphere->grid,'if'));
 		$sphere->row['if'] = $interface_name;
 		$sphere->row['laggproto'] = filter_input(INPUT_POST,'laggproto',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['laggproto']]]);
 		$sphere->row['laggport'] = filter_input(INPUT_POST,'laggport',FILTER_UNSAFE_RAW,['flags' => FILTER_FORCE_ARRAY,'options' => ['default' => $sphere->row_default['laggport']]]);
@@ -203,7 +208,7 @@ switch($mode_page):
 		endif;
 		if(empty($input_errors)):
 			if($isrecordnew):
-				if(false !== array_search_ex($sphere->row['if'],$sphere->grid,'if')):
+				if(false !== arr::search_ex($sphere->row['if'],$sphere->grid,'if')):
 					$input_errors[] = gtext('The LAGG interface cannot be added because the interface name already exists.');
 					$hide_button_save = true;
 				endif;
@@ -251,7 +256,7 @@ $pgtitle = [gtext('Network'),gtext('Interface Management'),gtext('LAGG'),$isreco
 include 'fbegin.inc';
 $sphere->doj();
 //	add tab navigation
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
