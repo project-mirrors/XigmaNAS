@@ -35,6 +35,10 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+require_once 'autoload.php';
+
+use gui\document;
+use common\arr;
 
 /**
  *	Create sphere
@@ -50,15 +54,15 @@ function get_sphere_status_disks() {
 /**
  *	Render details of this page
  *	@global array $config
- *	@param co_DOMDocument $root
- *	@return \co_DOMDocument
+ *	@param DOMDocument $root
+ *	@return DOMDocument
  */
 function status_disks_render($root = null) {
 	global $config;
 
 	if(is_null($root)):
 		$is_DOM = false;
-		$root = new co_DOMDocument();
+		$root = new document();
 	else:
 		$is_DOM = true;
 	endif;
@@ -66,7 +70,7 @@ function status_disks_render($root = null) {
 	$pconfig['temp_info'] = $config['smartd']['temp']['info'] ?? 0;
 	$pconfig['temp_crit'] = $config['smartd']['temp']['crit'] ?? 0;
 	$a_phy_hast = array_merge((array)get_hast_disks_list());
-	$cfg_disks = array_make_branch($config,'disks','disk');
+	$cfg_disks = arr::make_branch($config,'disks','disk');
 	if(empty($cfg_disks)):
 	else:
 		array_sort_key($cfg_disks,'name');

@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use gui\document;
+use common\arr;
 
 function vlan_inuse($ifn) {
 	global $config, $g;
@@ -66,11 +71,11 @@ function interfaces_vlan_get_sphere() {
 		setmsg_sym_unl(gettext('VLAN is unlocked'))->
 		setmsg_cbm_delete(gettext('Delete Selected VLANs'))->
 		setmsg_cbm_delete_confirm(gettext('Do you want to delete selected VLANs?'));
-	$sphere->grid = &array_make_branch($config,'vinterfaces','vlan');
+	$sphere->grid = &arr::make_branch($config,'vinterfaces','vlan');
 	return $sphere;
 }
 $sphere = interfaces_vlan_get_sphere();
-array_sort_key($sphere->grid,'if');
+arr::sort_key($sphere->grid,'if');
 if($_POST):
 	if(isset($_POST['submit'])):
 		switch($_POST['submit']):
@@ -78,7 +83,7 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
+					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
 						$sphere->row = $sphere->grid[$sphere->record_id];
 						//	Check if interface is still in use.
 						if(vlan_inuse($sphere->row['if'])):
@@ -105,7 +110,7 @@ $pgtitle = [gtext('Network'),gtext('Interface Management'),gtext('VLAN')];
 include 'fbegin.inc';
 echo $sphere->doj();
 //	add tab navigation
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
