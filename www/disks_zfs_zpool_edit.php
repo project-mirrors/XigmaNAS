@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'zfs.inc';
+
+use gui\document;
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -71,13 +76,13 @@ else:
 	$sphere_record['uuid'] = uuid();
 endif;
 
-$sphere_array = &array_make_branch($config,'zfs','pools','pool');
+$sphere_array = &arr::make_branch($config,'zfs','pools','pool');
 if(empty($sphere_array)):
 else:
-	array_sort_key($sphere_array,'name');
+	arr::sort_key($sphere_array,'name');
 endif;
 
-$index = array_search_ex($sphere_record['uuid'], $sphere_array, 'uuid'); // find index of uuid
+$index = arr::search_ex($sphere_record['uuid'], $sphere_array, 'uuid'); // find index of uuid
 $mode_updatenotify = updatenotify_get_mode($sphere_notifier, $sphere_record['uuid']); // get updatenotify mode for uuid
 $mode_record = RECORD_ERROR;
 if(false !== $index): // uuid found
@@ -110,7 +115,7 @@ $isrecordnewmodify = (RECORD_NEW_MODIFY == $mode_record);
 $isrecordmodify = (RECORD_MODIFY === $mode_record);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 
-$a_vdevice = &array_make_branch($config,'zfs','vdevices','vdevice');
+$a_vdevice = &arr::make_branch($config,'zfs','vdevices','vdevice');
 if(empty($a_vdevice)):
 	$errormsg = gtext('No configured virtual devices.')
 		. ' '
@@ -119,7 +124,7 @@ if(empty($a_vdevice)):
 		. '</a>';
 	$prerequisites_ok = false;
 else:
-	array_sort_key($a_vdevice,'name');
+	arr::sort_key($a_vdevice,'name');
 endif;
 
 if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit", already checked
@@ -175,17 +180,17 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit", already checked
 				endswitch;
 		endswitch;
 	endif;
-			
+
 	if($prerequisites_ok && empty($input_errors)):
 		switch($mode_record): // verify config
 			case RECORD_NEW: // pool name must not exist in config at all
-				if(false !== array_search_ex($sphere_record['name'], $sphere_array, 'name')):
+				if(false !== arr::search_ex($sphere_record['name'], $sphere_array, 'name')):
 					$input_errors[] = gtext('This pool name already exists.');
 				endif;
 				break;
 			case RECORD_NEW_MODIFY: // if the pool name has changed it shouldn't be found in config
 				if($sphere_record['name'] !== $sphere_array[$index]['name']): // pool name has changed
-					if(false !== array_search_ex($sphere_record['name'], $sphere_array, 'name')):
+					if(false !== arr::search_ex($sphere_record['name'], $sphere_array, 'name')):
 						$input_errors[] = gtext('This pool name already exists.');
 					endif;
 				endif;
@@ -203,7 +208,7 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit", already checked
 	if(isset($sphere_record['vdevice']) && is_array($sphere_record['vdevice'])):
 		$n = 0;
 		foreach($sphere_record['vdevice'] as $vdevice_name):
-			$i = array_search_ex($vdevice_name, $a_vdevice, 'name');
+			$i = arr::search_ex($vdevice_name, $a_vdevice, 'name');
 			if($i !== false):
 				$r_vdevice = $a_vdevice[$i];
 				// flag if hast devices have been selected
@@ -247,7 +252,7 @@ else: // EDIT / ADD
 			$sphere_record['root'] = '';
 			$sphere_record['mountpoint'] = '';
 			$sphere_record['force'] = false;
-			$sphere_record['desc'] = '';	
+			$sphere_record['desc'] = '';
 			break;
 		case RECORD_NEW_MODIFY:
 		case RECORD_MODIFY:
@@ -256,7 +261,7 @@ else: // EDIT / ADD
 			$sphere_record['root'] = $sphere_array[$index]['root'];
 			$sphere_record['mountpoint'] = $sphere_array[$index]['mountpoint'];
 			$sphere_record['force'] = isset($a_dataset[$index]['force']);
-			$sphere_record['desc'] = $sphere_array[$index]['desc'];	
+			$sphere_record['desc'] = $sphere_array[$index]['desc'];
 			break;
 	endswitch;
 endif;
@@ -269,11 +274,11 @@ $(window).on("load", function() {
 	// Init spinner onsubmit()
 	$("#iform").submit(function() { spinner(); });
 	$(".spin").click(function() { spinner(); });
-}); 
+});
 //]]>
 </script>
 <?php
-$document = new co_DOMDocument();
+$document = new document();
 $document->
 	add_area_tabnav()->
 		push()->
@@ -294,7 +299,7 @@ $document->
 $document->render();
 ?>
 <form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php 
+<?php
 	if(!empty($errormsg)):
 		print_error_box($errormsg);
 	endif;
@@ -349,7 +354,7 @@ $document->render();
 		<tbody>
 <?php
 			foreach($a_vdevice as $r_vdevice):
-				$isnotmemberofapool = (false === array_search_ex($r_vdevice['name'], $sphere_array, 'vdevice'));
+				$isnotmemberofapool = (false === arr::search_ex($r_vdevice['name'], $sphere_array, 'vdevice'));
 				$ismemberofthispool = (isset($sphere_record['vdevice']) && is_array($sphere_record['vdevice']) && in_array($r_vdevice['name'], $sphere_record['vdevice']));
 				if($isrecordnewornewmodify):
 					if($isnotmemberofapool || $ismemberofthispool):
@@ -416,4 +421,3 @@ $document->render();
 </td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
-?>
