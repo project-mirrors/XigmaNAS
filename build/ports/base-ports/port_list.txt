@@ -1,7 +1,0 @@
-PORT					REASON
-==============================================================================================================
-libvncserver				Used for new/keep current release.
-pecl-APCu				Used for new/keep current release.
-virtualbox-ose				Used for new/keep current release.
-virtualbox-ose-additions		Used for new/keep current release.
-virtualbox-ose-kmod			Used for new/keep current release.
