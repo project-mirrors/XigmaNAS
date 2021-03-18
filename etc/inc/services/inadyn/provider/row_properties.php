@@ -67,46 +67,12 @@ final class row_properties extends grid_properties {
 	}
 	public function init_provider(): myp\property_list {
 		$description = gettext('Select one of the predefined providers.');
-		$options = [
-			'dyndns.org' => 'dyndns.org',
-			'freedns.afraid.org' => 'freedns.afraid.org',
-			'zoneedit.com' => 'zoneedit.com',
-			'no-ip.com' => 'no-ip.com',
-			'3322.org' => '3322.org',
-			'easydns.com' => 'easydns.com',
-			'sitelutions.com' => 'sitelutions.com',
-			'dnsomatic.com' => 'dnsomatic.com',
-			'ipv6tb.he.net' => 'ipv6tb.he.net',
-			'tzo.com' => 'tzo.com',
-			'dynsip.org' => 'dynsip.org',
-			'dhis.org' => 'dhis.org',
-			'zerigo.com' => 'zerigo.com',
-			'two-dns.de' => 'two-dns.de',
-			'www.dnsdynamic.org' => 'www.dnsdynamic.org',
-			'dnspark.com' => 'dnspark.com',
-			'regfish.de' => 'regfish.de',
-			'www.ovh.com' => 'www.ovh.com',
-			'joker.com' => 'joker.com',
-			'dyndns.strato.com' => 'dyndns.strato.com',
-			'system-ns.com' => 'system-ns.com',
-//			'dtdns.com' => 'dtdns.com',
-			'changeip.com' => 'changeip.com',
-			'dnsexit.com' => 'dnsexit.com',
-			'nsupdate.com' => 'nsupdate.com',
-			'loopia.com' => 'loopia.com',
-			'duckdns.org' => 'duckdns.org',
-			'dy.fi' => 'dy.fi',
-			'ddnss.de' => 'ddnss.de',
-			'dynv6.com' => 'dynv6.com',
-			'selfhost.de' => 'selfhost.de'
-		];
 		$property = parent::init_provider();
 		$property->
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('provider')->
 			set_input_type('select')->
-			set_options($options)->
 			filter_use_default();
 		return $property;
 	}

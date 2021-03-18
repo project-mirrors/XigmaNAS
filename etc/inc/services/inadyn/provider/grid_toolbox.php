@@ -173,7 +173,8 @@ final class grid_toolbox {
 				insTHwC('lhelc',gettext('Status'))->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
-		$provider_options = $cop->get_recordtype()->get_options();
+		$recordtype_options = $cop->get_recordtype()->get_options();
+		$provider_options = $cop->get_provider()->get_options();
 		if($record_exists):
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
@@ -181,19 +182,26 @@ final class grid_toolbox {
 				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
 				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
-				$recordtype = $sphere->row[$cop->get_recordtype()->get_name()] ?? '';
-				switch($recordtype):
+				$recordtype_key = $sphere->row[$cop->get_recordtype()->get_name()] ?? '';
+				switch($recordtype_key):
 					case 'custom':
-						$recordtype_value = $provider_options[$recordtype] ?? '';
+						$recordtype_value = $recordtype_options[$recordtype_key] ?? '';
 						$provider_value = $sphere->row[$cop->get_customprovider()->get_name()] ?? '';
 						break;
 					case 'provider':
-						$recordtype_value = $provider_options[$recordtype] ?? '';
-						$provider_value = $sphere->row[$cop->get_provider()->get_name()] ?? '';
+						$recordtype_value = $recordtype_options[$recordtype_key] ?? '';
+						$provider_key = $sphere->row[$cop->get_provider()->get_name()] ?? null;
+						if(is_null($provider_key)):
+							$provider_value = gettext('Missing Provider');
+						elseif(array_key_exists($provider_key,$provider_options)):
+							$provider_value = $provider_options[$provider_key];
+						else:
+							$provider_value = gettext('Orphaned Provider');
+						endif;
 						break;
 					default:
-						$recordtype_value = 'Undefined';
-						$provider_value = '';
+						$recordtype_value = gettext('Undefined Type');
+						$provider_value = gettext('Unknown Provider');
 						break;
 				endswitch;
 //				print_r($sphere);
