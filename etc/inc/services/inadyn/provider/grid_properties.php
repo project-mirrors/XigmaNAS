@@ -57,10 +57,46 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_provider;
 	public function init_provider(): myp\property_list {
+		$options = [
+			'default@freedns.afraid.org' => 'freedns.afraid.org',
+			'ipv4@nsupdate.info' => 'nsupdate.info',
+			'default@duckdns.org' => 'duckdns.org',
+			'default@freemyip.com' => 'freemyip.com',
+			'default@loopia.com' => 'www.loopia.com',
+			'default@dyndns.org' => 'www.dyndns.org',
+			'default@noip.com' => 'www.noip.com',
+			'default@no-ip.com' => 'www.no-ip.com',
+			'default@easydns.com' => 'www.easydns.com',
+			'default@dnsomatic.com' => 'www.dnsomatic.com',
+			'dyndns@he.net' => 'dns.he.net',
+			'default@tunnelbroker.netIPv6 ' => 'www.tunnelbroker.net',
+			'default@sitelutions.com' => 'www.sitelutions.com',
+			'default@dnsexit.com' => 'www.dnsexit.com',
+			'default@zoneedit.com' => 'zoneedit.com',
+			'default@changeip.com' => 'www.changeip.com',
+			'default@dhis.org' => 'www.dhis.org',
+			'default@domains.google.com' => 'domains.google',
+			'default@ovh.com' => 'www.ovh.com',
+			'default@gira.de' => 'giradns.com',
+			'default@duiadns.net' => 'www.duiadns.net',
+			'default@ddnss.de' => 'ddnss.de',
+			'default@dynv6.com' => 'dynv6.com',
+			'default@ipv4.dynv6.com' => 'ipv4.dynv6.com',
+			'default@spdyn.de' => 'spdyn.de',
+			'default@strato.com' => 'www.strato.com',
+			'default@cloudxns.net' => 'www.cloudxns.net',
+			'dyndns@3322.org' => 'www.3322.org',
+			'default@dnspod.cn' => 'www.dnspod.cn',
+			'default@dynu.com' => 'www.dynu.com',
+			'default@selfhost.de' => 'www.selfhost.de',
+			'default@pdd.yandex.ru' => 'connect.yandex.ru',
+			'default@cloudflare.com' => 'www.cloudflare.com'
+		];
 		$title = gettext('Provider');
 		$property = $this->x_provider = new myp\property_list($this);
 		$property->
 			set_name('provider')->
+			set_options($options)->
 			set_title($title);
 		return $property;
 	}
