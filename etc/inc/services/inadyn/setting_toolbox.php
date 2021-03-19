@@ -70,7 +70,7 @@ final class setting_toolbox {
 			add('POST','apply',PAGE_MODE_VIEW)->
 			add('POST','edit',PAGE_MODE_EDIT)->
 			add('POST','reload',PAGE_MODE_VIEW)->
-//			add('POST','restart',PAGE_MODE_VIEW)->
+			add('POST','restart',PAGE_MODE_VIEW)->
 			add('POST','save',PAGE_MODE_POST)->
 			add('POST','view',PAGE_MODE_VIEW)->
 			add('SESSION',$sphere->get_script()->get_basename(),PAGE_MODE_VIEW);
