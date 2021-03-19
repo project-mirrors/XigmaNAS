@@ -68,7 +68,7 @@ inadyn_mkconf()
 	chmod 600 ${inadyn_config}
 	/usr/local/bin/xml sel --text --template \
 		--output '# global settings' --nl \
-		--match '//inadyn/settings' \
+		--match '//inadyn' \
 			--output 'verify-address = ' --if 'count(verifyaddress) > 0' --output 'true' --else --output 'false' --break --nl \
 			--output 'fake-address = ' --if 'count(fakeaddress) > 0' --output 'true' --else --output 'false' --break --nl \
 			--output 'allow-ipv6 = ' --if 'count(allowipv6) > 0' --output 'true' --else --output 'false' --break --nl \
