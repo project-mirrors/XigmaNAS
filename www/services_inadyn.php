@@ -104,7 +104,24 @@ switch($page_method):
 				$name = $cop->get_enable()->get_name();
 				if($sphere->grid[$name] && !$pending_changes):
 					config_lock();
-					$retval |= rc_update_service_ex('inadyn',true);
+					$retval |= rc_update_reload_service('inadyn');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'restart':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
+				if($sphere->grid[$name] && !$pending_changes):
+					config_lock();
+					$retval |= rc_update_service('inadyn');
 					config_unlock();
 					$_SESSION['submit'] = $sphere->get_script()->get_basename();
 					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
@@ -282,7 +299,7 @@ switch($page_mode):
 			$buttons->ins_button_enadis(!$is_enabled);
 		elseif(!$pending_changes):
 			$buttons->ins_button_enadis(!$is_enabled);
-//			$buttons->ins_button_restart($is_enabled);
+			$buttons->ins_button_restart($is_enabled);
 			$buttons->ins_button_reload($is_enabled);
 		endif;
 		break;

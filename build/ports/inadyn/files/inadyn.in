@@ -36,9 +36,10 @@ load_rc_config "${name}"
 
 start_precmd="inadyn_prestart"
 restart_precmd="inadyn_prerestart"
+reload_precmd="inadyn_prereload"
 mkconf_cmd="inadyn_mkconf"
 configtest_precmd="inadyn_checkconfig"
-extra_commands="configtest mkconf"
+extra_commands="reload configtest mkconf"
 
 load_rc_config $name
 
@@ -138,6 +139,12 @@ inadyn_prestart()
 }
 
 inadyn_prerestart()
+{
+	inadyn_mkconf
+	inadyn_checkconfig
+}
+
+inadyn_prereload()
 {
 	inadyn_mkconf
 	inadyn_checkconfig
