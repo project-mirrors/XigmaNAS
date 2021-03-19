@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>49</version>
+	<version>50</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -941,7 +941,7 @@
 				<pool>xxx<pool>
 				<quota>xxx(k|KB|M|Gb)<quota>
 				<readonly/>
-				<compression>on|off|lzjb|gzip|gzip-N</compression>
+				<compression>on|off|zstd|lzjb|gzip|gzip-N|zle</compression>
 				<canmount/>
 				<xattr/>
 				<reservation>xxx</reservation>
@@ -1574,6 +1574,10 @@
 		<auxparam>bind_policy soft</auxparam>
 		<auxparam>pam_ldap_attribute uid</auxparam>
 	</ldap>
+	<inadyn>
+		<verifyaddress/>
+		<securessl/>
+	</inadyn>
 	<ups>
 		<upsname>ups1</upsname>
 		<shutdownmode>onbatt</shutdownmode>
