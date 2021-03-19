@@ -1706,12 +1706,12 @@ function config_upgrade_48() {
 function config_upgrade_49() {
 	global $config;
 
-	if(!array_key_exists('inadyn',$config['system'])):
+	if(!array_key_exists('inadyn',$config)):
 		$a_inadyn_settings = [
 			'verifyaddress' => true,
 			'securessl' => true
 		];
-		 $config['system']['inadyn'] = $a_inadyn_settings;
+		 $config['inadyn'] = $a_inadyn_settings;
 	endif;
 }
 /**
