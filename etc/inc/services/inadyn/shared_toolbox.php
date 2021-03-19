@@ -72,7 +72,7 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_enadis(true)->
 			add_page_title(gettext('Services'),gettext('Dynamic DNS'),gettext('Settings'));
-		$sphere->grid = &arr::make_branch($config,'inadyn','settings');
+		$sphere->grid = &arr::make_branch($config,'inadyn');
 	}
 /**
  *	Add the tab navigation menu of this sphere
