@@ -55,7 +55,6 @@ $a_copobj = [
 	$cop->get_brokenrtc(),
 	$cop->get_cachedir(),
 	$cop->get_catrustfile(),
-	$cop->get_configfile(),
 	$cop->get_enable(),
 	$cop->get_fakeaddress(),
 	$cop->get_forceupdate(),
@@ -271,8 +270,7 @@ $s01_tbody->
 	c2($cop->get_securessl(),$sphere,false,$is_readonly)->
 	c2($cop->get_startupdelay(),$sphere,false,$is_readonly)->
 	c2($cop->get_useragent(),$sphere,false,$is_readonly)->
-	c2($cop->get_verifyaddress(),$sphere,false,$is_readonly)->
-	c2($cop->get_configfile(),$sphere,false,$is_readonly);
+	c2($cop->get_verifyaddress(),$sphere,false,$is_readonly);
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $s01_tbody->c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons

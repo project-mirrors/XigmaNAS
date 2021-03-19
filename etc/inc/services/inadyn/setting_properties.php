@@ -186,22 +186,6 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_configfile(): myp\property_text {
-		global $g;
-
-		$description = gettext('Alternative file for configuration.');
-		$placeholderv = $placeholder = $g['media_path'];
-		$property = parent::init_configfile();
-		$property->
-			set_description($description)->
-			set_id('configfile')->
-			set_input_type('filechooser')->
-			set_placeholder($placeholder)->
-			set_placeholderv($placeholderv)->
-			set_size(60)->
-			filter_use_default_or_empty();
-		return $property;
-	}
 	public function init_cachedir(): myp\property_text {
 		$description = gettext('Set directory for persistent cache files, The cache files are used to keep track of which addresses have been successfully sent to their respective DDNS provider and when.');
 		$placeholder = $placeholderv = '/var/cache/inadyn';

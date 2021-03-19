@@ -54,8 +54,6 @@ required_files=${inadyn_config}
 # log level is command_args
 # cache dir is command args
 # startupdelay is command args
-#
-# alternative config file shouldn't call mkconf
 
 inadyn_checkconfig()
 {
