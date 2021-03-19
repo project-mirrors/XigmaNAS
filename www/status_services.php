@@ -62,7 +62,7 @@ function status_services_sphere() {
 		$sphere->grid[] = ['name' => gettext('DLNA/UPnP Fuppes'),'link' => 'services_fuppes.php','config' => 'upnp','scriptname' => 'fuppes'];
 		$sphere->grid[] = ['name' => gettext('DLNA/UPnP MiniDLNA'),'link' => 'services_minidlna.php','config' => 'minidlna','scriptname' => 'minidlna'];
 		$sphere->grid[] = ['name' => gettext('iTunes/DAAP'),'link' => 'services_daap.php','config' => 'daap','scriptname' => 'mt-daapd'];
-		$sphere->grid[] = ['name' => gettext('Dynamic DNS'),'link' => 'services_dynamicdns.php','config' => 'dynamicdns','scriptname' => 'inadyn'];
+		$sphere->grid[] = ['name' => gettext('Dynamic DNS'),'link' => 'services_inadyn.php','config' => 'inadyn','scriptname' => 'inadyn'];
 		$sphere->grid[] = ['name' => gettext('SNMP'),'link' => 'services_snmp.php','config' => 'snmpd','scriptname' => 'bsnmpd'];
 		$sphere->grid[] = ['name' => gettext('UPS'),'link' => 'services_ups.php','config' => 'ups','scriptname' => $ups_script];
 		$sphere->grid[] = ['name' => gettext('Webserver'),'link' => 'services_websrv.php','config' => 'websrv','scriptname' => 'websrv'];
