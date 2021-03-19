@@ -34,9 +34,9 @@
 
 use gui\document;
 
-if(function_exists("date_default_timezone_set") and function_exists("date_default_timezone_get")) {
+if(function_exists("date_default_timezone_set") and function_exists("date_default_timezone_get")):
 	@date_default_timezone_set(@date_default_timezone_get());
-}
+endif;
 
 /* make sure nothing is cached */
 if(isset($omit_nocacheheaders) && $omit_nocacheheaders):
@@ -871,7 +871,7 @@ function get_headermenu(): array {
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iSCSI Target ISTGT'),'link' => '/services_iscsitarget.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('DLNA/UPnP'),'link' => '/services_fuppes.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('iTunes/DAAP'),'link' => '/services_daap.php'];
-			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Dynamic DNS'),'link' => '/services_dynamicdns.php'];
+			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Dynamic DNS'),'link' => '/services_inadyn.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('SNMP'),'link' => '/services_snmp.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('UPS'),'link' => '/services_ups.php'];
 			$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Webserver'),'link' => '/services_websrv.php'];
