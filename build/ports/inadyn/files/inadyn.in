@@ -52,9 +52,18 @@ command_args="-p inadyn:inadyn -f ${inadyn_config} -P ${inadyn_pidfile}"
 pidfile=${inadyn_pidfile}
 required_files=${inadyn_config}
 
-# log level is command_args
-# cache dir is command args
-# startupdelay is command args
+_loglevel=`configxml_get "//inadyn/loglevel"`
+if [ -n "${_loglevel}" ]; then
+	command_args="${command_args} -l ${_loglevel}"
+fi
+_startupdelay=`configxml_get "//inadyn/startupdelay"`
+if [ -n "${_startupdelay}" ]; then
+	command_args="${command_args} -t ${_startupdelay}"
+fi
+_cachedir=`configxml_get "//inadyn/cachedir"`
+if [ -n "${_cachedir}" ]; then
+	command_args="${command_args} --cache-dir=${_cachedir}"
+fi
 
 inadyn_checkconfig()
 {
