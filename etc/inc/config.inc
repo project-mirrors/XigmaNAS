@@ -32,6 +32,7 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'globals.inc';
 require_once 'util.inc';
 require_once 'xmlparse.inc';
@@ -40,6 +41,8 @@ require_once 'array.inc';
 require_once 'rc.inc';
 require_once 'tui.inc';
 require_once 'disks.inc';
+
+use common\arr;
 
 //	Get product information
 $productname = get_product_name();
@@ -78,7 +81,7 @@ if(is_booting()):
 			foreach($disks as $disk):
 				$found = false;
 //				skip non USB (SCSI) device. The filesystem type must be MSDOS
-				if(false == preg_match('/da[0-9]/',$disk)):
+				if(preg_match('/da[0-9]/',$disk) == false):
 					continue;
 				endif;
 //				display progress...
@@ -146,7 +149,7 @@ if(is_booting()):
 //			probe kernel known disks until we find one with config.xml
 			foreach($disks as $disk):
 //				skip mfs-mounted filesystems
-				if(false != preg_match('/md[0-9]/',$disk)):
+				if(preg_match('/md[0-9]/',$disk) != false):
 					continue;
 				endif;
 //				display progress...
@@ -202,7 +205,7 @@ if(is_booting()):
 //				check if there is any USB device that can be used
 				foreach($disks as $disk):
 //					skip non USB (SCSI) device. The filesystem type must be MSDOS
-					if(false == preg_match('/da[0-9]/',$disk)):
+					if(preg_match('/da[0-9]/',$disk) == false):
 						continue;
 					endif;
 //					display progress...
@@ -313,7 +316,7 @@ if(!isset($noparseconfig) || !$noparseconfig):
 		if(isset($load_raw_config) && $load_raw_config != 0):
 //			load all root objects, but never write to cache
 			$config = parse_xml_config_raw($config_filename);
-			if(false === $config):
+			if($config === false):
 				echo "Error: Failed to load '$config_filename' file. {$productname} cannot continue booting.",PHP_EOL;
 				mwexec('/sbin/halt');
 				exit;
@@ -322,7 +325,7 @@ if(!isset($noparseconfig) || !$noparseconfig):
 //			load configuration file into array.
 			$config_filename = $g['conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 			$config = parse_xml_config($config_filename,false,$g['xml_rootobj'],'nas4free');
-			if(false === $config):
+			if($config === false):
 				echo "Error: Failed to load '{$g['conf_path']}/config.xml' file. {$productname} cannot continue booting.",PHP_EOL;
 				mwexec('/sbin/halt');
 				exit;
@@ -345,8 +348,8 @@ if(!isset($noparseconfig) || !$noparseconfig):
 	config_unlock();
 	global $config_disks;
 //	get S.M.A.R.T. arguments from config and store it in a hash to get better performance:
-	array_make_branch($config,'disks','disk');
-	foreach ($config['disks']['disk'] as $disk):
+	arr::make_branch($config,'disks','disk');
+	foreach($config['disks']['disk'] as $disk):
 		$config_disks[$disk['devicespecialfile']]['smart']['devicefilepath'] = $disk['smart']['devicefilepath'];
 		$config_disks[$disk['devicespecialfile']]['smart']['devicetypearg'] = $disk['smart']['devicetypearg'];
 		$config_disks[$disk['devicespecialfile']]['desc'] = $disk['desc'];
@@ -463,7 +466,7 @@ function write_loader_config(){
 		else:
 			$loader_filename = sprintf('%s/boot/loader.conf.local',$g['cf_path']);
 		endif;
-		array_sort_key($config['system']['loaderconf']['param'],'name');
+		arr::sort_key($config['system']['loaderconf']['param'],'name');
 		$lines = '';
 		$loader_param_list = &$config['system']['loaderconf']['param'];
 		foreach($loader_param_list as $param):
@@ -481,7 +484,7 @@ function write_loader_config(){
 			endif;
 		else:
 //			write configuration file
-			if(false === file_put_contents_safe($loader_filename,$lines)):
+			if(file_put_contents_safe($loader_filename,$lines) === false):
 				die(sprintf('Error: Failed to write configuration file %s',escapeshellarg($loader_filename)));
 			endif;
 		endif;
@@ -548,7 +551,7 @@ function config_install($conffile) {
 	$result = copy($conffile,"{$g['conf_path']}/config.xml");
 	conf_mount_ro();
 	config_unlock();
-	if(true === $result):
+	if($result === true):
 		write_loader_config();
 		return 0;
 	endif;
@@ -563,7 +566,7 @@ function config_lock() {
 
 	$lockfile = "{$g['varrun_path']}/config.lock";
 	$n = 0;
-	while($n < 15) {
+	while($n < 15):
 //		open the lock file in append mode to avoid race condition
 		if($fd = @fopen($lockfile, "x")):
 //			succeeded
@@ -574,12 +577,12 @@ function config_lock() {
 			sleep(1);
 			$n++;
 		endif;
-	}
+	endwhile;
 	mwexec("/usr/bin/logger 'Lock error {$lockfile}'");
-	while(1) {
+	while(1):
 		/* can't continue without lock */
 		sleep(1);
-	}
+	endwhile;
 	exit;
 }
 /**
@@ -605,15 +608,15 @@ function config_write_cache($data) {
 	$filename = "{$g['tmp_path']}/config.cache";
 
 //	ensure configuration cache file is written
-	if (!file_put_contents_safe($filename, serialize($data), TRUE)) {
+	if(!file_put_contents_safe($filename, serialize($data), true)):
 		write_log("Error: Failed to write configuration cache file '{$filename}'.");
-		return FALSE;
-	}
+		return false;
+	endif;
 
 //	modify file permissions
 	@chmod($filename, 0600);
 
-	return TRUE;
+	return true;
 }
 /**
  *	THIS IS FOR A BLACKLISTED CONFIGURATION
@@ -639,9 +642,9 @@ function config_upgrade_blacklisted() {
 function config_upgrade_0dot9() {
 	global $config;
 
-	array_make_branch($config,'system');
+	arr::make_branch($config,'system');
 	$config['system']['hostname'] = 'xigmanas';
-	array_make_branch($config,'samba');
+	arr::make_branch($config,'samba');
 	$config['samba']['netbiosname'] = 'xigmanas';
 	$config['samba']['serverdesc'] = 'XigmaNAS® Server';
 }
@@ -658,7 +661,7 @@ function config_upgrade_1dot0() {
 function config_upgrade_1dot1() {
 	global $config;
 
-	array_make_branch($config,'lcdproc','param');
+	arr::make_branch($config,'lcdproc','param');
 	unset($config['lcdproc']['param']);
 	$params = [
 		'# USB connected HD44780 based LCD',
@@ -685,14 +688,14 @@ function config_upgrade_1dot1() {
 function config_upgrade_1dot2() {
 	global $config;
 
-	array_make_branch($config,'samba');
+	arr::make_branch($config,'samba');
 	if($config['samba']['aiorsize'] < 4096):
 		$config['samba']['aiorsize'] = 4096;
 	endif;
 	if($config['samba']['aiowsize'] < 4096):
 		$config['samba']['aiowsize'] = 4096;
 	endif;
-	array_make_branch($config,'iscsitarget');
+	arr::make_branch($config,'iscsitarget');
 	if(empty($config['iscsitarget']['uctladdress'])):
 		$config['iscsitarget']['uctladdress'] = '127.0.0.1';
 		$config['iscsitarget']['uctlport'] = '3261';
@@ -701,15 +704,15 @@ function config_upgrade_1dot2() {
 		$config['iscsitarget']['uctlauthgroup'] = 0;
 		$config['iscsitarget']['mediadirectory'] = '/mnt';
 	endif;
-	array_make_branch($config,'system','sysctl','param');
-	$index = array_search_ex('kern.maxfilesperproc',$config['system']['sysctl']['param'],'name');
+	arr::make_branch($config,'system','sysctl','param');
+	$index = arr::search_ex('kern.maxfilesperproc',$config['system']['sysctl']['param'],'name');
 	if($index !== false):
 		if($config['system']['sysctl']['param'][$index]['value'] === '32768'):
 			$config['system']['sysctl']['param'][$index]['value'] = '50000';
 		endif;
 	endif;
 //	remove unused key
-	$index = array_search_ex('hw.ata.to',$config['system']['sysctl']['param'],'name');
+	$index = arr::search_ex('hw.ata.to',$config['system']['sysctl']['param'],'name');
 	if($index !== false):
 		unset($config['system']['sysctl']['param'][$index]);
 	endif;
@@ -725,25 +728,25 @@ function config_upgrade_1dot2() {
 		$config['system']['hosts'] = $hosts_tmp;
 	endif;
 //	add missing values
-	array_make_branch($config,'zfs','pools','pool');
+	arr::make_branch($config,'zfs','pools','pool');
 	foreach($config['zfs']['pools']['pool'] as &$pool):
 		$pool['desc'] = $pool['desc'] ?? '';
 	endforeach;
-	array_make_branch($config,'zfs','vdevices','vdevice');
+	arr::make_branch($config,'zfs','vdevices','vdevice');
 	foreach($config['zfs']['vdevices']['vdevice'] as &$vdevice):
 		$vdevice['desc'] = $vdevice['desc'] ?? '';
 	endforeach;
-	array_make_branch($config,'zfs','datasets','dataset');
+	arr::make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
 		$dataset['desc'] = $dataset['desc'] ?? '';
 		$dataset['atime'] = $dataset['atime'] ?? 'on';
 	endforeach;
-	array_make_branch($config,'zfs','volumes','volume');
+	arr::make_branch($config,'zfs','volumes','volume');
 	foreach($config['zfs']['volumes']['volume'] as &$volume):
 		$volume['desc'] = $volume['desc'] ?? '';
 	endforeach;
 //	replace certificate and privatekey
-	array_make_branch($config,'system','webgui');
+	arr::make_branch($config,'system','webgui');
 	if(md5($config['system']['webgui']['certificate']) === 'ee3e3c2ddc0f186e8d40e797e8af6f36'):
 		$config['system']['webgui']['certificate'] = 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlEWURDQ0FrZ0NDUUNZaG9rNlRyekZCakFOQmdrcWhraUc5dzBCQVFVRkFEQnlNUXN3Q1FZRFZRUUdFd0pLDQpVREVUTUJFR0ExVUVDQk1LVTI5dFpTMVRkR0YwWlRFUk1BOEdBMVVFQ2hNSVRrRlRORVp5WldVeEZ6QVZCZ05WDQpCQU1URG01aGN6Um1jbVZsTG14dlkyRnNNU0l3SUFZSktvWklodmNOQVFrQkZoTnBibVp2UUc1aGN6Um1jbVZsDQpMbXh2WTJGc01CNFhEVEV5TURreE56RXlNVEkxTmxvWERUTXlNRGt4TWpFeU1USTFObG93Y2pFTE1Ba0dBMVVFDQpCaE1DU2xBeEV6QVJCZ05WQkFnVENsTnZiV1V0VTNSaGRHVXhFVEFQQmdOVkJBb1RDRTVCVXpSR2NtVmxNUmN3DQpGUVlEVlFRREV3NXVZWE0wWm5KbFpTNXNiMk5oYkRFaU1DQUdDU3FHU0liM0RRRUpBUllUYVc1bWIwQnVZWE0wDQpabkpsWlM1c2IyTmhiRENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQkFMSCtTR1hrDQpjSzRnNVp2MWRSRFJKQVh0NVhHMVVpZVEzZ1UzdlIvZjBYZnJ5RFBPNjJ3WkhnTWdONTJocGVRL1VvNXl4dTRMDQp1azJtUlpTYlpPai92b0xSZWlpSy8zY0grUStRVml4SFpaMlpQNThBeWpHTXNUOGJ0T3pwYlN4MWtkQkEvUkhqDQpmYmpPamRFK0FocDJiWkVoQzVmaXlYVjlrdjFzTmZmMnFlM0REMUZtd0RGbDM0cVdPT1g2SEFYNHpWOWcrY1dJDQo0S0FRdEYwZ3FJWWd5Z29OckM5dDI4VVc4Z2dqcWs4T0EycnNMUFRsMmkzMk5DanVJSThjL1EzOUhYNkZBRUdvDQo1VGZGL3V0WTlBaFBaaHpWbk0zazJtUFR1RGdMbVZaZmtieml1eHVES293ZzBGUC9IZlZabWRoMkV3M3Y1NmZGDQpDLzh3N1F2QkdPRjF2SXNDQXdFQUFUQU5CZ2txaGtpRzl3MEJBUVVGQUFPQ0FRRUFidWxJNlJCTXFJTzFMT21jDQo1OGg5aHJ1Z25vTFkxNndIRFZQdTE4WmpUSzZYcDBDYWlONVYyR1MwdWdUNzJ2QzVrcXQ0cW1CUWFBa2MwbVdWDQpQQi9YUXhyaEFTd25VMzh1TGVJeWlnMzFCWkx3Yll5S3IzTUJ4cVI5dWwvdWY1MWErR2dVOGFETk42VDRQbGJJDQp5Z0M2dDUxa2E1VzBLbFFGeWhwNTlXT21GOElLOURRTlZpQWpTWkk0WUZsZXhJc1dFTC9DNCtMTGNhTVp3YUUzDQpLUTVKK1lFcG5qMFBKOUYvU1Y4MHFNdnE0RWJ4YmUzbGpFSGlMSVU0VktwV2I0VWJMSWxVNEZNeWtTSzNYMGp4DQpESzJGcERPRnUxL3c2d0FrYW5KanFSQXozUVViRVVocFhCNnVUVUVGcTVJSHNqNkZkbTBkMThkU2NiT0xWcmJGDQpBYlYrZHc9PQ0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ==';
 		$config['system']['webgui']['privatekey'] = 'LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQ0KTUlJRXBBSUJBQUtDQVFFQXNmNUlaZVJ3cmlEbG0vVjFFTkVrQmUzbGNiVlNKNURlQlRlOUg5L1JkK3ZJTTg3cg0KYkJrZUF5QTNuYUdsNUQ5U2puTEc3Z3U2VGFaRmxKdGs2UCsrZ3RGNktJci9kd2Y1RDVCV0xFZGxuWmsvbndESw0KTVl5eFB4dTA3T2x0TEhXUjBFRDlFZU45dU02TjBUNENHblp0a1NFTGwrTEpkWDJTL1d3MTkvYXA3Y01QVVdiQQ0KTVdYZmlwWTQ1Zm9jQmZqTlgyRDV4WWpnb0JDMFhTQ29oaURLQ2cyc0wyM2J4UmJ5Q0NPcVR3NERhdXdzOU9YYQ0KTGZZMEtPNGdqeHo5RGYwZGZvVUFRYWpsTjhYKzYxajBDRTltSE5XY3plVGFZOU80T0F1WlZsK1J2T0s3RzRNcQ0KakNEUVUvOGQ5Vm1aMkhZVERlL25wOFVML3pEdEM4RVk0WFc4aXdJREFRQUJBb0lCQUU0TTFTNXBCOGd6Z0x2cw0KM0pLdFF3Q2VteGhMakdUeEw0cFdNTWFEWE5VYlBVVUtuVTFmamp1TXF4YWlSWjVhN2hhczJmS1VqZk55ejl3aw0KY0JHRDQ4UjFtdjJnUmZtcU0xclJ6aGZJanhTV21NRmVsVXM1Q0poRnpBWi9MWEpyYzY5QWNEaWg2d1ZZL2ZNZA0KSDhyKzEzam1ackVKcjVHbnFRY2JwbWEvY1RCaXR2TnNib3VSZmlQSFB5ck84UlBEdXVIc3k1VXovSVB6cDFMTA0KWmNNd2hwK1RsSjlnVmNDMHRvN2VlemxUMEZ6a2hsMTgwVTlla09wTlB1WUJGc1NsdWZyVEhqTnBzRVE5aGtmKw0KeGJjQjdlZTFvZXJtUjdOSmdBRWVHeS9FeXVuK0UvOWZpOUovb1JCbjZnVXhiaDkvQ1dPd2VGeVRZVVZvd1d1RA0KUC9NY0prRUNnWUVBNUs4YzJKdmtQbWhpWGtNRU9GQkxZQkxvaFBKa2hqdU0rQWlMaERxeENpRTg4S0pod3d3WQ0KdWFpaU0rbXkraTcrbzBDZVF5NlJvb0d2UVRYVHRFUkhEMldtaS9JZzlDdFF0cWNibnRsbEtGYVQrcnZHdmp0RA0KZ3dzV1Y0N09Ia3pwUThWUkZueVZOMnBLZVNudzVnR1F3a2RXaFdIR0wwdXBJNklIakExVVI1c0NnWUVBeDBFYg0KY01BYXVkNXZlZW1NQzN5ZmZTMEx0Z2dtR2dGMGxLSFBJTm5XbXBWdkhjTkZZaGtXMENKMVdNQm5sTlhESkdJKw0KWHkyU3lBNVlteWZCN2FTWWdxVTI5S3ZSejJVR0kvOUlJY1NTM09TK2NEdjcyQjljQjlQN3VMUVBSN281S0s3eA0KSEM4NkxuWVIrb2lqbDBXYzJYUmxrdmt4U0h0YkhVVm8yUXIzeGRFQ2dZRUFubmgyN2VnQm4vbW9DUmc1eVdoag0KQTEyM0FjSVRSUzNwUDB4MG1ob3Q2dzRqYzhHaks0MnJhS1RpV2tVZGdOK21GNjFFdnR0N2tuaDU0UitTNkQzVQ0KWEdnZHBLY1NqUUdqT2gvTk5TUURSSlBTa2hNajQxbWdMQ1EzeEU4eXFLNjFpd0FtZEFXN1JaNkRvemtjTmRkcA0KNENlZFhtcmw4b3BrMkV1RkhWbHpTUGNDZ1lCdFRsb3ZVRE5aSTUwajArcnZvajRiL1VvZllma0U2eWQ1SWdydQ0KaXBJZjJ6cEpxWVcyZXV6NDRPNWU4YTNoQ0NNMUltLzA1cHRQQkErM2plZms1aGFFRlA1QTJzRU9kTzBaY2tHdg0KeEphTWR5L0JnaVoyT1QzVFRZY1puQzJGdTdML2pualdiVklOaXRmeUNHTTE2UXBTZ0hmNFdKdWdsNHMwVTQ5aA0KQVpOTEFRS0JnUURKZzNlUWV0TWR3WUpKbjFzZmVTbUVnTVFNMjZOLzNidURSUG1rTUVtdTgvcVJRYTM4T3VXOA0KUUFmTFVNOC83Vm5OUlhvbmZMR2s0eUpKdG5RSlQ0TlZLdjEvUzgweldNSXJ5azM4L3ZreGVsbDA1Q1Y2Rnp5eA0KdGVtcjRZcE8yMDBxWFl5MjR0aC9QM0RhbFYwcDhWcXJvemJ4eExiS1k5TUpLSWZpWHo5bnV3PT0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0t';
@@ -757,12 +760,12 @@ function config_upgrade_1dot3() {
 	global $config;
 
 //	add missing values
-	array_make_branch($config,'zfs','datasets','dataset');
+	arr::make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
 		$dataset['dedup'] = $dataset['dedup'] ?? 'off';
 		$dataset['sync'] = $dataset['sync'] ?? 'standard';
 	endforeach;
-	array_make_branch($config,'zfs','volumes','volume');
+	arr::make_branch($config,'zfs','volumes','volume');
 	foreach($config['zfs']['volumes']['volume'] as &$volume):
 		$volume['dedup'] = $volume['dedup'] ?? 'off';
 		$volume['sync'] = $volume['sync'] ?? 'standard';
@@ -776,10 +779,10 @@ function config_upgrade_1dot4() {
 	global $config;
 
 // add missing values
-	array_make_branch($config,'zfs','datasets','dataset');
+	arr::make_branch($config,'zfs','datasets','dataset');
 	foreach($config['zfs']['datasets']['dataset'] as &$dataset):
 		$dataset['reservation'] = $dataset['reservation'] ?? '';
-		array_make_branch($dataset,'accessrestrictions');
+		arr::make_branch($dataset,'accessrestrictions');
 		$dataset['accessrestrictions']['owner'] = $dataset['accessrestrictions']['owner'] ?? 'root';
 		$dataset['accessrestrictions']['group'] = $dataset['accessrestrictions']['group'] ?? 'wheel';
 		$dataset['accessrestrictions']['mode'] = $dataset['accessrestrictions']['mode'] ?? '0777';
@@ -792,13 +795,13 @@ function config_upgrade_1dot4() {
 function config_upgrade_1dot5() {
 	global $config;
 
-	array_make_branch($config,'system');
+	arr::make_branch($config,'system');
 	$config['system']['pwmode'] = $config['system']['pwmode'] ?? 'hiadaptive';
 	$config['system']['pwmax'] = $config['system']['pwmax'] ?? '';
 	$config['system']['pwmin'] = $config['system']['pwmin'] ?? '';
 	$pwopt = '-a hiadaptive -b hiadaptive -n hiadaptive';
-	array_make_branch($config,'system','rcconf','param');
-	$index = array_search_ex('powerd_flags',$config['system']['rcconf']['param'],'name');
+	arr::make_branch($config,'system','rcconf','param');
+	$index = arr::search_ex('powerd_flags',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		$config['system']['rcconf']['param'][$index]['value'] = $pwopt;
 	else:
@@ -818,14 +821,14 @@ function config_upgrade_1dot5() {
 function config_upgrade_1dot6() {
 	global $config;
 
-	array_make_branch($config,'system','sysctl','param');
-	$index = array_search_ex('kern.maxfilesperproc',$config['system']['sysctl']['param'],'name');
+	arr::make_branch($config,'system','sysctl','param');
+	$index = arr::search_ex('kern.maxfilesperproc',$config['system']['sysctl']['param'],'name');
 	if($index !== false):
 		if($config['system']['sysctl']['param'][$index]['value'] < 50000):
 			$config['system']['sysctl']['param'][$index]['value'] = '50000';
 		endif;
 	endif;
-	array_make_branch($config,'ldap');
+	arr::make_branch($config,'ldap');
 	if(!empty($config['ldap']['hostname'])):
 		$config['ldap']['hostname'] = sprintf('ldap://%s',$config['ldap']['hostname']);
 	endif;
@@ -837,7 +840,7 @@ function config_upgrade_1dot6() {
 function config_upgrade_1dot7() {
 	global $config;
 
-	array_make_branch($config,'system','sysctl','param');
+	arr::make_branch($config,'system','sysctl','param');
 	$a_mib = [
 		'net.inet.tcp.sendspace' => 131072,
 		'net.inet.tcp.recvspace' => 131072,
@@ -849,14 +852,14 @@ function config_upgrade_1dot7() {
 		'kern.ipc.nmbjumbo16' => 16384,
 		'kern.maxfilesperproc' => 60000
 	];
-	foreach ($a_mib as $key => $val):
-		$index = array_search_ex($key,$config['system']['sysctl']['param'],'name');
+	foreach($a_mib as $key => $val):
+		$index = arr::search_ex($key,$config['system']['sysctl']['param'],'name');
 		if($index !== false):
 			$config['system']['sysctl']['param'][$index]['value'] = $val;
 		endif;
 	endforeach;
-	array_make_branch($config,'system','rcconf','param');
-	$index = array_search_ex('varsize',$config['system']['rcconf']['param'],'name');
+	arr::make_branch($config,'system','rcconf','param');
+	$index = arr::search_ex('varsize',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		$config['system']['rcconf']['param'][$index]['value'] = '128m';
 	else:
@@ -868,7 +871,7 @@ function config_upgrade_1dot7() {
 			'enable' => true
 		];
 	endif;
-	$index = array_search_ex('vartmpsize',$config['system']['rcconf']['param'],'name');
+	$index = arr::search_ex('vartmpsize',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		$config['system']['rcconf']['param'][$index]['value'] = '64m';
 	else:
@@ -879,7 +882,7 @@ function config_upgrade_1dot7() {
 			'comment' => 'Default /var/tmp size',
 			'enable' => true ];
 	endif;
-	array_make_branch($config,'samba');
+	arr::make_branch($config,'samba');
 	if($config['samba']['security'] == 'share'):
 		$config['samba']['security'] = 'user';
 		$config['samba']['maptoguest'] = 'Bad User';
@@ -892,8 +895,8 @@ function config_upgrade_1dot7() {
 function config_upgrade_1dot8() {
 	global $config;
 
-	array_make_branch($config,'system','rcconf','param');
-	$index = array_search_ex('varsize',$config['system']['rcconf']['param'],'name');
+	arr::make_branch($config,'system','rcconf','param');
+	$index = arr::search_ex('varsize',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		$config['system']['rcconf']['param'][$index]['value'] = '256m';
 	else:
@@ -905,7 +908,7 @@ function config_upgrade_1dot8() {
 			'enable' => true
 		];
 	endif;
-	$index = array_search_ex('vartmpsize',$config['system']['rcconf']['param'],'name');
+	$index = arr::search_ex('vartmpsize',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		$config['system']['rcconf']['param'][$index]['value'] = '128m';
 	else:
@@ -917,7 +920,7 @@ function config_upgrade_1dot8() {
 			'enable' => true
 		];
 	endif;
-	array_make_branch($config,'samba');
+	arr::make_branch($config,'samba');
 	if($config['samba']['rcvbuf'] < 128480):
 		$config['samba']['rcvbuf'] = 128480;
 	endif;
@@ -938,8 +941,8 @@ function config_upgrade_1dot8() {
 function config_upgrade_1dot9() {
 	global $config;
 
-	array_make_branch($config,'system','firewall','rule');
-	array_sort_key($config['system']['firewall']['rule'],'ruleno');
+	arr::make_branch($config,'system','firewall','rule');
+	arr::sort_key($config['system']['firewall']['rule'],'ruleno');
 	$ruleno = 10100;
 	if($config['system']['firewall']['rule'][0]['ruleno'] < $ruleno):
 		foreach($config['system']['firewall']['rule'] as $k => &$v):
@@ -948,7 +951,7 @@ function config_upgrade_1dot9() {
 		endforeach;
 		unset($v);
 	endif;
-	array_make_branch($config,'afp','share');
+	arr::make_branch($config,'afp','share');
 	foreach($config['afp']['share'] as &$a):
 		if(isset($a['adisk']) && isset($a['adisk']['advf'])):
 			$a['timemachine'] = true;
@@ -958,14 +961,14 @@ function config_upgrade_1dot9() {
 		unset($a['adisk']);
 	endforeach;
 	unset($a);
-	array_make_branch($config,'samba','share');
+	arr::make_branch($config,'samba','share');
 	foreach($config['samba']['share'] as &$a):
 		if(empty($a['aiomodule'])):
 			$a['aiomodule'] = 'aio_pthread';
 		endif;
 	endforeach;
 	unset($a);
-	array_make_branch($config,'system');
+	arr::make_branch($config,'system');
 	if(!preg_match('/^\$6\$/',$config['system']['password'])):
 		$config['system']['password'] = mkpasswd($config['system']['password']);
 	endif;
@@ -984,8 +987,8 @@ function config_upgrade_2dot0() {
 		'primarygroup' => '933',
 		'extraoptions' => '-c "DLNA Daemon" -d /nonexistent -s /usr/sbin/nologin'
 	];
-	array_make_branch($config,'system','usermanagement','user');
-	$index = array_search_ex('dlna',$config['system']['usermanagement']['user'],'name');
+	arr::make_branch($config,'system','usermanagement','user');
+	$index = arr::search_ex('dlna',$config['system']['usermanagement']['user'],'name');
 	if($index !== false):
 		$config['system']['usermanagement']['user'][$index] = $user;
 	else:
@@ -996,14 +999,14 @@ function config_upgrade_2dot0() {
 		'name' => 'dlna',
 		'id' => '933'
 	];
-	array_make_branch($config,'system','usermanagement','group');
-	$index = array_search_ex('dlna',$config['system']['usermanagement']['group'],'name');
+	arr::make_branch($config,'system','usermanagement','group');
+	$index = arr::search_ex('dlna',$config['system']['usermanagement']['group'],'name');
 	if($index !== false):
 		$config['system']['usermanagement']['group'][$index] = $group;
 	else:
 		$config['system']['usermanagement']['group'][] = $group;
 	endif;
-	array_make_branch($config,'samba');
+	arr::make_branch($config,'samba');
 	unset($config['samba']['usesendfile']);
 }
 /**
@@ -1020,8 +1023,8 @@ function config_upgrade_2dot1() {
 		'primarygroup' => '920',
 		'extraoptions' => '-c "Virtualbox user" -d /nonexistent -s /usr/sbin/nologin'
 	];
-	array_make_branch($config,'system','usermanagement','user');
-	$index = array_search_ex('vboxusers',$config['system']['usermanagement']['user'],'name');
+	arr::make_branch($config,'system','usermanagement','user');
+	$index = arr::search_ex('vboxusers',$config['system']['usermanagement']['user'],'name');
 	if($index !== false):
 		$config['system']['usermanagement']['user'][$index] = $user;
 	else:
@@ -1032,14 +1035,14 @@ function config_upgrade_2dot1() {
 		'name' => 'vboxusers',
 		'id' => '920'
 	];
-	array_make_branch($config,'system','usermanagement','group');
+	arr::make_branch($config,'system','usermanagement','group');
 	$index = array_search('vboxusers',$config['system']['usermanagement']['group'],'name');
 	if($index !== false):
 		$config['system']['usermanagement']['group'][$index] = $group;
 	else:
 		$config['system']['usermanagement']['group'][] = $group;
 	endif;
-	array_make_branch($config,'vbox');
+	arr::make_branch($config,'vbox');
 	$config['vbox']['homedir'] = $config['vbox']['homedir'] ?? '';
 }
 /**
@@ -1056,8 +1059,8 @@ function config_upgrade_2dot2() {
 		'primarygroup' => '983',
 		'extraoptions' => '-c "Syncthing Daemon" -d /var/tmp/syncthing -s /usr/sbin/nologin'
 	];
-	array_make_branch($config,'system','usermanagement','user');
-	$index = array_search_ex('syncthing',$config['system']['usermanagement']['user'],'name');
+	arr::make_branch($config,'system','usermanagement','user');
+	$index = arr::search_ex('syncthing',$config['system']['usermanagement']['user'],'name');
 	if($index !== false):
 		$config['system']['usermanagement']['user'][$index] = $user;
 	else:
@@ -1068,20 +1071,20 @@ function config_upgrade_2dot2() {
 		'name' => 'syncthing',
 		'id' => '983'
 	];
-	array_make_branch($config,'system','usermanagement','group');
+	arr::make_branch($config,'system','usermanagement','group');
 	$index = array_search('syncthing',$config['system']['usermanagement']['group'],'name');
 	if($index !== false):
 		$config['system']['usermanagement']['group'][$index] = $group;
 	else:
 		$config['system']['usermanagement']['group'][] = $group;
 	endif;
-	array_make_branch($config,'minidlna');
+	arr::make_branch($config,'minidlna');
 	$config['minidlna']['port'] = $config['minidlna']['port'] ?? '8200';
 	$config['minidlna']['notify_int'] = $config['minidlna']['notify_int'] ?? '300';
 	$config['minidlna']['container'] = $config['minidlna']['container'] ?? 'B';
 	$config['minidlna']['loglevel'] = $config['minidlna']['loglevel'] ?? 'info';
 	$config['minidlna']['inotify'] = $config['minidlna']['inotify'] ?? true;
-	array_make_branch($config,'samba');
+	arr::make_branch($config,'samba');
 	$config['samba']['timesrv'] = $config['samba']['timesrv'] ?? 'yes';
 	$config['samba']['doscharset'] = $config['samba']['doscharset'] ?? 'CP437';
 	$config['samba']['unixcharset'] = $config['samba']['unixcharset'] ?? 'UTF-8';
@@ -1096,7 +1099,7 @@ function config_upgrade_2dot3() {
 
 	$user_tmp = [];
 	$user_syncthing_found = false;
-	array_make_branch($config,'system','usermanagement','user');
+	arr::make_branch($config,'system','usermanagement','user');
 	foreach($config['system']['usermanagement']['user'] as $user):
 		if($user['name'] != 'syncthing'):
 			$user_tmp[] = $user;
@@ -1110,7 +1113,7 @@ function config_upgrade_2dot3() {
 	$config['system']['usermanagement']['user'] = $user_tmp;
 	$group_tmp = [];
 	$group_syncthing_found = false;
-	array_make_branch($config,'system','usermanagement','group');
+	arr::make_branch($config,'system','usermanagement','group');
 	foreach($config['system']['usermanagement']['group'] as $group):
 		if($group['name'] != 'syncthing'):
 			$group_tmp[] = $group;
@@ -1120,22 +1123,22 @@ function config_upgrade_2dot3() {
 		endif;
 	endforeach;
 	$config['system']['usermanagement']['group'] = $group_tmp;
-	array_make_branch($config,'system','rcconf','param');
-	$index = array_search_ex('varsize',$config['system']['rcconf']['param'],'name');
+	arr::make_branch($config,'system','rcconf','param');
+	$index = arr::search_ex('varsize',$config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		if($config['system']['rcconf']['param'][$index]['value'] == '256m'):
 			$config['system']['rcconf']['param'][$index]['value'] = '512m';
 		endif;
 	endif;
-	$index = array_search_ex('vartmpsize', $config['system']['rcconf']['param'],'name');
+	$index = arr::search_ex('vartmpsize', $config['system']['rcconf']['param'],'name');
 	if($index !== false):
 		if($config['system']['rcconf']['param'][$index]['value'] == '128m'):
 			$config['system']['rcconf']['param'][$index]['value'] = '256m';
 		endif;
 	endif;
-	array_make_branch($config,'system','loaderconf','param');
-	$index = array_search_ex('vfs.zfs.arc_max',$config['system']['loaderconf']['param'],'name');
-	if(false !== $index):
+	arr::make_branch($config,'system','loaderconf','param');
+	$index = arr::search_ex('vfs.zfs.arc_max',$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid(),
 			'name' => 'vfs.zfs.arc_max',
@@ -1143,8 +1146,8 @@ function config_upgrade_2dot3() {
 			'comment' => 'ZFS maximum ARC size'
 		];
 	endif;
-	$index = array_search_ex('vfs.zfs.arc_min',$config['system']['loaderconf']['param'],'name');
-	if(false !== $index):
+	$index = arr::search_ex('vfs.zfs.arc_min',$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid(),
 			'name' => 'vfs.zfs.arc_min',
@@ -1152,8 +1155,8 @@ function config_upgrade_2dot3() {
 			'comment' => 'ZFS minimum ARC size'
 		];
 	endif;
-	$index = array_search_ex('vfs.zfs.prefetch_disable',$config['system']['loaderconf']['param'],'name');
-	if(false !== $index):
+	$index = arr::search_ex('vfs.zfs.prefetch_disable',$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid(),
 			'name' => 'vfs.zfs.prefetch_disable',
@@ -1169,15 +1172,15 @@ function config_upgrade_2dot3() {
 function config_upgrade_2dot4() {
 	global $config;
 
-	array_make_branch($config,'ups');
+	arr::make_branch($config,'ups');
 	if($config['ups']['upsname'] === 'ups'):
 		$config['ups']['upsname'] = 'ups1';
 	endif;
-	array_make_branch($config,'system','email');
+	arr::make_branch($config,'system','email');
 	$config['system']['email']['tls_certcheck'] = 'tls_certcheck off';
-	array_make_branch($config,'system','loaderconf','param');
-	$index = array_search_ex('arcsas_load',$config['system']['loaderconf']['param'],'name');
-	if(false !== $index):
+	arr::make_branch($config,'system','loaderconf','param');
+	$index = arr::search_ex('arcsas_load',$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid(),
 			'name' => 'arcsas_load',
@@ -1185,8 +1188,8 @@ function config_upgrade_2dot4() {
 			'comment' => 'Areca non-RAID HBAs ARC-1300/ARC-1320 series Driver'
 		];
 	endif;
-	$index = array_search_ex('ipmi_load',$config['system']['loaderconf']['param'],'name');
-	if(false !== $index):
+	$index = arr::search_ex('ipmi_load',$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid(),
 			'name' => 'ipmi_load',
@@ -1202,12 +1205,12 @@ function config_upgrade_2dot4() {
 function config_upgrade_2dot5() {
 	global $config;
 
-	array_make_branch($config,'system','sysctl','param');
-	$index = array_search_ex('a4bd7970-1c77-43d7-8bc8-7924d9f86077',$config['system']['sysctl']['param'],'uuid');
-	if(false !== $index):
+	arr::make_branch($config,'system','sysctl','param');
+	$index = arr::search_ex('a4bd7970-1c77-43d7-8bc8-7924d9f86077',$config['system']['sysctl']['param'],'uuid');
+	if($index !== false):
 		unset($config['system']['sysctl']['param'][$index]);
 	endif;
-	$index = array_search_ex('kern.maxfiles',$config['system']['sysctl']['param'],'name');
+	$index = arr::search_ex('kern.maxfiles',$config['system']['sysctl']['param'],'name');
 	if($index !== false):
 		$config['system']['sysctl']['param'][$index]['value'] = '6289573';
 	endif;
@@ -1219,9 +1222,9 @@ function config_upgrade_2dot5() {
 function config_upgrade_2dot6() {
 	global $config;
 
-	array_make_branch($config,'system','loaderconf','param');
-	$index = array_search_ex('arcsas_load',$config['system']['loaderconf']['param'],'name');
-	if(false !== $index):
+	arr::make_branch($config,'system','loaderconf','param');
+	$index = arr::search_ex('arcsas_load',$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
 		unset($config['system']['loaderconf']['param'][$index]);
 	endif;
 }
@@ -1233,8 +1236,8 @@ function config_upgrade_2dot7() {
 	global $config;
 
 //	convert command scripts
-	array_make_branch($config,'rc','param');
-	array_make_branch($config,'rc','preinit','cmd');
+	arr::make_branch($config,'rc','param');
+	arr::make_branch($config,'rc','preinit','cmd');
 	foreach($config['rc']['preinit']['cmd'] as $cmd):
 		$config['rc']['param'][] = [
 			'uuid' => uuid(),
@@ -1247,7 +1250,7 @@ function config_upgrade_2dot7() {
 		];
 	endforeach;
 	unset($config['rc']['preinit']);
-	array_make_branch($config,'rc','postinit','cmd');
+	arr::make_branch($config,'rc','postinit','cmd');
 	foreach($config['rc']['postinit']['cmd'] as $cmd):
 		$config['rc']['param'][] = [
 			'uuid' => uuid(),
@@ -1260,7 +1263,7 @@ function config_upgrade_2dot7() {
 		];
 	endforeach;
 	unset($config['rc']['postinit']);
-	array_make_branch($config,'rc','shutdown','cmd');
+	arr::make_branch($config,'rc','shutdown','cmd');
 	foreach($config['rc']['shutdown']['cmd'] as $cmd):
 		$config['rc']['param'][] = [
 			'uuid' => uuid(),
@@ -1281,7 +1284,7 @@ function config_upgrade_2dot7() {
 function config_upgrade_2dot8() {
 	global $config;
 
-	$grid = &array_make_branch($config,'bittorrent');
+	$grid = &arr::make_branch($config,'bittorrent');
 	if(!isset($grid['preallocation'])):
 		$grid['preallocation'] = '1';
 	endif;
@@ -1299,7 +1302,7 @@ function config_upgrade_3dot0() {
 	global $config;
 
 //	remove attribute monitorpassword.
-	$grid = &array_make_branch($config,'ups');
+	$grid = &arr::make_branch($config,'ups');
 	if(isset($grid['monitorpassword'])):
 		unset($grid['monitorpassword']);
 	endif;
@@ -1312,7 +1315,7 @@ function config_upgrade_3dot1() {
 	global $config;
 
 //	encrypt user passwords
-	$grid = &array_make_branch($config,'access','user');
+	$grid = &arr::make_branch($config,'access','user');
 	foreach($grid as $k_user => $r_user):
 		if(isset($grid[$k_user]['password'])):
 			if(is_string($grid[$k_user]['password'])):
@@ -1331,9 +1334,10 @@ function config_upgrade_3dot2() {
 	global $config;
 
 //	add min_auto_ashift for zfs because of code changes
-	$grid = &array_make_branch($config,'system','sysctl','param');
+	$grid = &arr::make_branch($config,'system','sysctl','param');
 	$param_name = 'vfs.zfs.min_auto_ashift';
-	if(false === ($index = array_search_ex($param_name,$grid,'name'))):
+	$index = arr::search_ex($param_name,$grid,'name');
+	if($index === false):
 		$grid[] = [
 			'uuid' => uuid(),
 			'enable' => true,
@@ -1351,8 +1355,8 @@ function config_upgrade_3dot3() {
 	global $config;
 
 //	netatalk authentication methods
-	$grid = &array_make_branch($config,'afp');
-	array_make_branch($grid,'auxparam');
+	$grid = &arr::make_branch($config,'afp');
+	arr::make_branch($grid,'auxparam');
 	if(isset($grid['guest'])):
 		$grid['uams_guest'] = true;
 		unset($grid['guest']);
@@ -1376,7 +1380,7 @@ function config_upgrade_3dot4() {
 //	syslogd parameter
 //	find existing console records, skip configuration when found
 	$record_not_found = true;
-	$grid = &array_make_branch($config,'system','syslogconf','param');
+	$grid = &arr::make_branch($config,'system','syslogconf','param');
 	foreach($grid as $row):
 		if(is_array($row)):
 			$test = sprintf('%s.%s',trim($row['facility'] ?? ''),trim($row['level'] ?? ''));
@@ -1405,7 +1409,7 @@ function config_upgrade_3dot5() {
 	global $config;
 
 //	email parameter
-	$grid = &array_make_branch($config,'system','email');
+	$grid = &arr::make_branch($config,'system','email');
 	$grid['security'] = $grid['security'] ?? true;
 	switch($grid['security']):
 		default:
@@ -1433,7 +1437,7 @@ function config_upgrade_36() {
 	global $config;
 
 //	ZFS Settings
-	$grid = &array_make_branch($config,'zfs','settings');
+	$grid = &arr::make_branch($config,'zfs','settings');
 	if(!array_key_exists('showusedavail',$grid)):
 		$grid['showusedavail'] = false;
 	endif;
@@ -1452,7 +1456,7 @@ function config_upgrade_37() {
 	global $config;
 
 //	update WebGUI certificate and private key.
-	$grid_webgui = &array_make_branch($config,'system','webgui');
+	$grid_webgui = &arr::make_branch($config,'system','webgui');
 	$install_new_cert = false;
 	if(isset($grid_webgui['certificate']) && isset($grid_webgui['privatekey'])):
 		if($grid_webgui['certificate'] === 'LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFT1RDQ0F5R2dBd0lCQWdJSkFQUnVoc3FVRWdKcE1BMEdDU3FHU0liM0RRRUJDd1VBTUhBeEN6QUpCZ05WDQpCQVlUQWtwUU1STXdFUVlEVlFRSUV3cFRiMjFsTFZOMFlYUmxNUkV3RHdZRFZRUUtFd2hPUVZNMFJuSmxaVEVYDQpNQlVHQTFVRUF4TU9ibUZ6TkdaeVpXVXViRzlqWVd3eElEQWVCZ2txaGtpRzl3MEJDUUVXRVdsdVptOUFibUZ6DQpOR1p5WldVdWIzSm5NQjRYRFRFME1USXdNekF3TURJd01sb1hEVE0wTVRJd016QXdNREl3TWxvd2NERUxNQWtHDQpBMVVFQmhNQ1NsQXhFekFSQmdOVkJBZ1RDbE52YldVdFUzUmhkR1V4RVRBUEJnTlZCQW9UQ0U1QlV6UkdjbVZsDQpNUmN3RlFZRFZRUURFdzV1WVhNMFpuSmxaUzVzYjJOaGJERWdNQjRHQ1NxR1NJYjNEUUVKQVJZUmFXNW1iMEJ1DQpZWE0wWm5KbFpTNXZjbWN3Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRQ3RqVTRnDQpWY1hWSG1BUzBVbW5mRzZ0K050N2JzZ3Y1TytSR3dRa1NSVk0rdTZ0d0dZc2Jmck4zSHpNV3I1elBHUGJxNU9kDQpiN1JZa0plVVBIM1kxRXhoMlUwNVA5YmorWkpXVGxrTXZSbXVJU2hlZWJ2Qlp2WjNlQXhuaC9IWVozWDVabisyDQpibVR0bzVTOVRNMXNoeEFtenNGdVBMZFRuSFhRWjdWZzl4VHZXNFYvUklMWGZNQ3hjVUtwVjZyQjVpN1BjVW9SDQpmNWErNEpWWjBNMlVPdTZSdllHdmQvT09yUkhWbEd0cUpIclBiOVo1ODBkMFFzOCt4cVgzWThHc3l2VmYrTUJtDQpycmQ1UzZqNGdSWlpGeUJzeS9QcGhEcWt0bks2VHBjMlN1VE5xbWtLd0JadTZyZzlDNTB4a011dVp5dFA3UkpRDQpYS3lNVWs3bHg2MU1Na0xSQWdNQkFBR2pnZFV3Z2RJd0hRWURWUjBPQkJZRUZHcEZWMHV6RGJYK3dNc3FjQkVFDQpJOTArMER1dE1JR2lCZ05WSFNNRWdab3dnWmVBRkdwRlYwdXpEYlgrd01zcWNCRUVJOTArMER1dG9YU2tjakJ3DQpNUXN3Q1FZRFZRUUdFd0pLVURFVE1CRUdBMVVFQ0JNS1UyOXRaUzFUZEdGMFpURVJNQThHQTFVRUNoTUlUa0ZUDQpORVp5WldVeEZ6QVZCZ05WQkFNVERtNWhjelJtY21WbExteHZZMkZzTVNBd0hnWUpLb1pJaHZjTkFRa0JGaEZwDQpibVp2UUc1aGN6Um1jbVZsTG05eVo0SUpBUFJ1aHNxVUVnSnBNQXdHQTFVZEV3UUZNQU1CQWY4d0RRWUpLb1pJDQpodmNOQVFFTEJRQURnZ0VCQUQ3aUxLaWVsRHBVVk9BWGVCeDk0MDVmZ0p4ZUtLVXZUMDVBNWtSQVhTanFnYkdjDQp2eWkySUpWaTNadlV4OWJtL3RyME5MclhQaVBMRlU5T3pTd0tQQXJnbGdjY2JKbDlBV0xTN3d3RTdaQzRnTTE5DQpBSmYyR09RcEwzYnoyaXk0TTBkdGJjUnBHdDRHV2szdDZ6NXozZTdJblNaNDdTcWhtbVNIekUwdTlhWTRJUWZwDQovVHJ1ZTBVYTVYNGJsVUhvTnhVb2xmQ1ptdTU3VkZpWlJLSlhEZGhVSHFKbEhMT1BUYmxtZWZtSTg3RVhDTjFBDQo5YWIyVEhWWVZhSnlVM2p5VUo3by9xNmtzYlB5UDlTeFBSZCsvSmszbHVJemp4V1NHRXZoNDhZc0dlWWo2MVN1DQpkVUZoUWZ6S3FzeXNUN21ZQ1NuL1RqUkpnYnZOaWpVaGZiemtMZUE9DQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t'):
@@ -1466,7 +1470,7 @@ function config_upgrade_37() {
 		$grid_webgui['privatekey'] = "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQ0KTUlJRXBRSUJBQUtDQVFFQTJCSWhXVDY2NlB6aUt5bUJNaGRMNUJRaWd0YkFUMjNYTi9MZmErcExrZW91YitQdg0KZ25LSmd3bmZwZ3pPL0llcW5heFJWZDhudExKVGpoaHkvVU5LU0dkQy9OUjZGSWt5QWZlM25IOVM2eGZRaU92Mg0KMGxRcEZXaWpTODhOZVFkSldRWmxJWXBmaWhZUld6Z0FvWEp4dWkxcHd0Y1dUODN1WDg5VXBhbjhTRUNGcFJDNQ0KRFdNM0JaNFFjOTYrTlV0NHg3am5pazMxRE1McTlkaGU3RjdhT0ZEWnNZV2xpM0REbi9va01HVmF5MzMzVHpDMA0KbFI3MkhJWjRKREtyYmM1QUVtY3d2QW5GdUVYLzRFNDNwWHFsY2lhQzRDeWNlQ2JQSUlJWHcyNDArQ3lNQm9BYg0KUGpORlVxMEJMSHNiVXI5Z2J2cWVwOTFZZ1RqbFRlS0w0QTR2VVFJREFRQUJBb0lCQVFEQ2o4alJ1T2ZMaG5NTg0KMUtqT2R5WFNNY05GdDZTaG9WSEx3bm9taldvUThTTnhnM2tYS0pYa2xnNTZVa3hNSHNtbWd4VVdVd1JJOU03Qw0KUkFlL1FFbHlXdkY2QXNZUEdkOGE0SG5JaE9vZ1lXaFk4c2xsYVgwNUZ1ajhDV3lqVDhsZlRaL2hETjJzMU9RNg0KRkhxVTVoMjhQTXBnTlJlVk11VDBCeGk4dUExQTdKZjlsUzkrNmxPbDIvdDRqYnByMWdEZzd6d1ZzZGljRFBnaA0KUFdacm9JMGJZbVY5Si8yRVlwdG1Sdm5lNEpseWtMWU8vdThuMmxsWFV4TEV5eHdjZHlLcU9JeVppVlRsY21FZw0KWlU2ZkhnV2xqdmRFanJTL05XZko0ejRjZGhPOXhjelo3MUZ0ZWNLMGVHWjk4WDhVcXdZUm4wTEJtV1FNVWJ1Mg0KSFIzUU1BYXhBb0dCQVB6bkRadTNZSk13QmtTSVVhczFnWHAwREJCTWVWSlZTbUpFYjduSXNpMHRRbkowQVk2OA0KOHJadXZoSVdmMzl5aW04dW80VXRjRDQyYWNlQ1V1NmdxdDlyS2wvWm9JRjB5K1FDT2VENGVTcW5YK1orQU9lRw0KTWlYMGlEM0V4VGs0NWtWZUdiR3poUEI4RnVGdlVsc1p4bDl0ckM5WUpUTXFhU0doRUdNNlluRDFBb0dCQU5xMw0KbUhBVldsQTdLQTFJZnl6ZmdPdXVxaStTbnpxVk1ZM3JYd1pabjFJQVZKb08wY0l2K3ZkSktWMVBaOGllbHNYNQ0KeGg4Q0dNSzE3WVNTVVg1M09QVnJoeXpEY2xnaCtTUWpBa0h5WmY0bVBZOXgrV29zM3FyRE40SUhqNWVQb3VQaQ0KN0hPUElxUk5IQXNiRXJ3N0dRelJyN240TG45WWcxWThhaXI3NlZ0dEFvR0JBTFRVVUxxaXAvOFdPNlVOQTdneg0KamQwTTFRTmlhdTBmNXd2VWV6NlA3amEzUWVlc1l1QzQ0YUxvRkNmQ3htOU9hd1dNaDRkV01nZUp5S0RLNHBtVg0KY0JoSC9BaUZCMnNKSkRCb0Z4SnhGOUlUMDFKdmpoMzlxaVhSYndrYmhSbWhRYVVmMzZkY0FSWWk1QWxWRzhIZg0KOENPVHU2WXVsSXE5TEdiTFQzaGo2cmR4QW9HQkFLRVFydnRyWGhUVFc0MWNvL3JocE1qcTJYMHJGb05IdHpSeA0KN29wNG1YRUR1VW15UEJvcXgwQXY2bnhDcTRUNzlNQmFUZUlyNHh3UWFaZEZRU3BHbGZWMWVCZ28zaDIwOXduNw0KbGdBR2g4Ri9XN28xRHAxMzZZb0xOT2RXdGhIQXZ3M2U0STNCREp1K0JUYlFleDJPejhXMjdSZWdnbTFaTzI3WQ0KRXI4UXdDcUpBb0dBWlZBdnlmUmhEMjUzTC9xQTJXaDRaNGg0WlJVZTRNZythTC9xQUF3OG5VTnhtdjlEdlVEWA0KZGVxRnBPczlrVHpLMjdUWmZhbkxuN1VRV05remtqOXdDR2FtelA2RWFXT05Na1JFUGtwOFZjbFVra1V3OVN5aQ0KUFMyOVhKQ2dKazIzVnJLOE5hejFtZ25QMm5pd3pHaTBDdUZCcE1EN2h6dWp1S0lmOGlNOVdUaz0NCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0t";
 	endif;
 //	update motd
-	$grid_system = &array_make_branch($config,'system');
+	$grid_system = &arr::make_branch($config,'system');
 	if(array_key_exists('motd',$grid_system) && is_string($grid_system['motd'])):
 		$helpinghand = base64_decode($grid_system['motd']);
 	else:
@@ -1482,7 +1486,7 @@ function config_upgrade_38() {
 	global $config;
 
 //	encode ftp welcome message
-	array_make_branch($config,'ftpd');
+	arr::make_branch($config,'ftpd');
 	$banner = $config['ftpd']['banner'] ?? '';
 //	detect base64 string.
 	if(preg_match('~^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$~',$banner)):
@@ -1494,7 +1498,7 @@ function config_upgrade_38() {
 //	remove duplicate users
 	$user_tmp = [];
 	$user_as_key = [];
-	array_make_branch($config,'system','usermanagement','user');
+	arr::make_branch($config,'system','usermanagement','user');
 	foreach($config['system']['usermanagement']['user'] as $user):
 		if(array_key_exists('name',$user) && is_string($user['name']) && !array_key_exists($user['name'],$user_as_key)):
 			$user_tmp[] = $user;
@@ -1505,7 +1509,7 @@ function config_upgrade_38() {
 //	remove duplicate groups
 	$group_tmp = [];
 	$group_as_key = [];
-	array_make_branch($config,'system','usermanagement','group');
+	arr::make_branch($config,'system','usermanagement','group');
 	foreach($config['system']['usermanagement']['group'] as $group):
 		if(array_key_exists('name',$group) && is_string($group['name']) && !array_key_exists($group['name'],$group_as_key)):
 			$group_tmp[] = $group;
@@ -1521,10 +1525,10 @@ function config_upgrade_38() {
 function config_upgrade_39() {
 	global $config;
 
-	$groups = &array_make_branch($config,'system','usermanagement','group');
+	$groups = &arr::make_branch($config,'system','usermanagement','group');
 	$group_name = 'mysql';
-	$index = array_search_ex($group_name,$groups,'name');
-	if(false === $index):
+	$index = arr::search_ex($group_name,$groups,'name');
+	if($index === false):
 		$group = [
 			'uuid' => uuid(),
 			'name' => $group_name,
@@ -1532,10 +1536,10 @@ function config_upgrade_39() {
 		];
 		$groups[] = $group;
 	endif;
-	$users = &array_make_branch($config,'system','usermanagement','user');
+	$users = &arr::make_branch($config,'system','usermanagement','user');
 	$user_name = 'mysql';
-	$index = array_search_ex($user_name,$users,'name');
-	if(false === $index):
+	$index = arr::search_ex($user_name,$users,'name');
+	if($index === false):
 		$user = [
 			'uuid' => uuid(),
 			'name' => $user_name,
@@ -1553,9 +1557,9 @@ function config_upgrade_39() {
 function config_upgrade_40() {
 	global $config;
 
-	$a_share = &array_make_branch($config,'nfsd','share');
-	$a_export = &array_make_branch($config,'nfsd','export','param');
-	$a_root = &array_make_branch($config,'nfsd','root','param');
+	$a_share = &arr::make_branch($config,'nfsd','share');
+	$a_export = &arr::make_branch($config,'nfsd','export','param');
+	$a_root = &arr::make_branch($config,'nfsd','root','param');
 	foreach($a_share as $r_share):
 		$r_param = [];
 		$r_param['enable'] = true;
@@ -1582,8 +1586,8 @@ function config_upgrade_40() {
 function config_upgrade_41() {
 	global $config;
 
-	$a_source = &array_make_branch($config,'minidlna','content');
-	$a_destination = &array_make_branch($config,'minidlna','media','param');
+	$a_source = &arr::make_branch($config,'minidlna','content');
+	$a_destination = &arr::make_branch($config,'minidlna','media','param');
 	$r_param = [
 		'enable' => true,
 		'description' => ''
@@ -1606,7 +1610,7 @@ function config_upgrade_41() {
 function config_upgrade_42() {
 	global $config;
 
-	$a_source = &array_make_branch($config,'access','user');
+	$a_source = &arr::make_branch($config,'access','user');
 	foreach($a_source as $r_source):
 		if(array_key_exists('enable',$r_source)):
 			return;
@@ -1623,10 +1627,10 @@ function config_upgrade_42() {
 function config_upgrade_43() {
 	global $config;
 
-	$a_source = &array_make_branch($config,'system','rcconf','param');
+	$a_source = &arr::make_branch($config,'system','rcconf','param');
 	$rcconf_param_name = 'netwait_enable';
-	$index = array_search_ex($rcconf_param_name,$a_source,'name');
-	if(false === $index):
+	$index = arr::search_ex($rcconf_param_name,$a_source,'name');
+	if($index === false):
 		$rcconf_param = [
 			'uuid' => uuid(),
 			'name' => $rcconf_param_name,
@@ -1643,7 +1647,7 @@ function config_upgrade_43() {
 function config_upgrade_44() {
 	global $config;
 
-	$a_source = &array_make_branch($config,'syslogd','remote');
+	$a_source = &arr::make_branch($config,'syslogd','remote');
 	if(array_key_exists('system',$a_source)):
 		$a_source['sendsystemeventmessages'] = $a_source['system'];
 		unset($a_source['system']);
@@ -1656,8 +1660,8 @@ function config_upgrade_44() {
 function config_upgrade_45() {
 	global $config;
 
-	$a_source = &array_make_branch($config,'system');
-	$a_dest = &array_make_branch($config,'system','webgui');
+	$a_source = &arr::make_branch($config,'system');
+	$a_dest = &arr::make_branch($config,'system','webgui');
 	foreach(['adddivsubmittodataframe','enabletogglemode','nonsidisksizevalues','showcolorfulmeter','skipviewmode'] as $param):
 		if(array_key_exists($param,$a_source)):
 			$a_dest[$param] = $a_source[$param];
@@ -1667,8 +1671,24 @@ function config_upgrade_45() {
 }
 /**
  *	Align with 12.1 trunk
+ *
  */
 function config_upgrade_46() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 /**
  *	Upgrade configuration from 47
@@ -1677,10 +1697,10 @@ function config_upgrade_46() {
 function config_upgrade_47() {
 	global $config;
 
-	$a_source  = &\array_make_branch($config,'cron','job');
+	$a_source  = &arr::make_branch($config,'cron','job');
 	foreach($a_source as $r_key => $r_source):
 		if(\is_array($r_source) && !\array_key_exists('uuid',$r_source)):
-			$a_source[$r_key]['uuid'] = \uuid();
+			$a_source[$r_key]['uuid'] = uuid();
 		endif;
 	endforeach;
 }
@@ -1691,8 +1711,8 @@ function config_upgrade_47() {
 function config_upgrade_48() {
 	global $config;
 
-	$a_source  = &\array_make_branch($config,'system','loaderconf','param');
-	$index = array_search_ex('aesni_load',$a_source,'name');
+	$a_source  = &arr::make_branch($config,'system','loaderconf','param');
+	$index = arr::search_ex('aesni_load',$a_source,'name');
 	if($index !== false):
 		$a_source[] = [
 			'enable' => true,
@@ -1701,6 +1721,21 @@ function config_upgrade_48() {
 			'value' => 'YES',
 			'comment' => 'Driver for the AES and SHA accelerator on	x86 CPUs'
 		];
+	endif;
+}
+/**
+ *	Upgrade configuration from 49
+ *	@global array $config
+ */
+function config_upgrade_49() {
+	global $config;
+
+	if(!array_key_exists('inadyn',$config['system'])):
+		$a_inadyn_settings = [
+			'verifyaddress' => true,
+			'securessl' => true
+		];
+		 $config['system']['inadyn'] = $a_inadyn_settings;
 	endif;
 }
 /**
@@ -1756,7 +1791,8 @@ function config_upgrade() {
 		'46' => [$kf => 'config_upgrade_46',$kv => '47'],
 		'47' => [$kf => 'config_upgrade_47',$kv => '48'],
 		'48' => [$kf => 'config_upgrade_48',$kv => '49'],
-		'49' => [$kf => NULL,$kv => NULL]
+		'49' => [$kf => 'config_upgrade_49',$kv => '50'],
+		'50' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
@@ -1845,15 +1881,15 @@ function config_encrypt($password) {
 	global $g;
 
 	$config = file_get_contents("{$g['conf_path']}/config.xml");
-	if (false === $config):
+	if($config === false):
 		return false;
 	endif;
 	$b64enc_config = encrypt_aes256cbc($password,$config);
-	if(false === $b64enc_config):
+	if($b64enc_config === false):
 		return false;
 	endif;
 	$gz_config = gzencode($b64enc_config,9);
-	if(false === $gz_config):
+	if($gz_config === false):
 		return false;
 	endif;
 	return $gz_config;
@@ -1866,11 +1902,11 @@ function config_encrypt($password) {
  */
 function config_decrypt($password,$gz_config) {
 	$b64enc_data = gzdecode($gz_config);
-	if(false === $b64enc_data):
+	if($b64enc_data === false):
 		return false;
 	endif;
 	$config = decrypt_aes256cbc($password,$b64enc_data);
-	if(false === $config):
+	if($config === false):
 		return false;
 	endif;
 	return $config;

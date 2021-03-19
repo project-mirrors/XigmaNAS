@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>49</version>
+	<version>50</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -1567,6 +1567,10 @@
 		<auxparam>bind_policy soft</auxparam>
 		<auxparam>pam_ldap_attribute uid</auxparam>
 	</ldap>
+	<inadyn>
+		<verifyaddress/>
+		<securessl/>
+	</inadyn>
 	<ups>
 		<upsname>ups1</upsname>
 		<shutdownmode>onbatt</shutdownmode>
