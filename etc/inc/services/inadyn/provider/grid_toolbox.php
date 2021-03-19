@@ -123,7 +123,7 @@ final class grid_toolbox {
 
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
-		$a_col_width = ['5%','15%','30%','30%','10%','10%'];
+		$a_col_width = ['5%','15%','20%','10%','30%','10%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
 			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
@@ -161,6 +161,7 @@ final class grid_toolbox {
 				pop()->
 				insTHwC('lhell',$cop->get_recordtype()->get_title())->
 				insTHwC('lhell',$cop->get_provider()->get_title())->
+				insTHwC('lhell',$cop->get_identifier()->get_title())->
 				insTHwC('lhell',$cop->get_hostnames()->get_title())->
 				insTHwC('lhelc sorter-image',gettext('Status'))->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
@@ -169,6 +170,7 @@ final class grid_toolbox {
 				insTHwC('lhelc')->
 				insTHwC('lhell',$cop->get_recordtype()->get_title())->
 				insTHwC('lhell',$cop->get_provider()->get_title())->
+				insTHwC('lhell',$cop->get_identifier()->get_title())->
 				insTHwC('lhell',$cop->get_hostnames()->get_title())->
 				insTHwC('lhelc',gettext('Status'))->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
@@ -213,6 +215,7 @@ final class grid_toolbox {
 						pop()->
 						insTDwC('lcell' . $dc,$recordtype_value)->
 						insTDwC('lcell' . $dc,$provider_value)->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_identifier()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_hostnames()->get_name()] ?? '')->
 						ins_enadis_icon($is_enabled)->
 						add_toolbox_area()->
