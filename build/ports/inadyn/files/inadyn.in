@@ -11,7 +11,7 @@
 # PROVIDE: inadyn
 # REQUIRE: NETWORKING
 # KEYWORD: shutdown
-# XQUERY: --if "count(//inadyn/settings/enable) > 0" --output "0" --else --output "1" --break
+# XQUERY: --if "count(//inadyn/enable) > 0" --output "0" --else --output "1" --break
 # RCVAR: inadyn
 #
 # Add the following lines to /etc/rc.conf.local or /etc/rc.conf
