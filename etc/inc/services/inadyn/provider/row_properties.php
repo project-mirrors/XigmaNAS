@@ -107,7 +107,7 @@ final class row_properties extends grid_properties {
 	}
 	public function init_hostnames(): myp\property_text {
 		$defaultvalue = '';
-		$description = gettext('The list of hostnames. Use a space to separate multiple alias names.');
+		$description = gettext('The list of hostnames. Use a comma to separate multiple names.');
 		$placeholder = gettext('Hostnames');
 		$property = parent::init_hostnames();
 		$property->
