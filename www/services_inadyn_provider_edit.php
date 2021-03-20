@@ -138,7 +138,7 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$a_referer = [
+$cop_grid = [
 	$cop->get_append_myip(),
 	$cop->get_auxparam(),
 	$cop->get_checkip_command(),
@@ -161,24 +161,25 @@ $a_referer = [
 ];
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cop_grid as $cop_item):
+			$sphere->row[$cop_item->get_name()] = $cop_item->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$sphere->row[$name] = $cop_item->validate_input() ?? $cop_item->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			switch($name):
-				case $cop->get_auxparam()->get_name():
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$input_type = $cop_item->get_input_type();
+			switch($input_type):
+				case 'textarea':
 					if(array_key_exists($name,$source)):
 						if(is_array($source[$name])):
 							$source[$name] = implode("\n",$source[$name]);
@@ -186,28 +187,33 @@ switch($page_mode):
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_config($source);
+			$sphere->row[$name] = $cop_item->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
 //		apply post values that are applicable for all record modes
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$sphere->row[$name] = $cop_item->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cop_item->get_message_error();
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
-			$name = $cop->get_auxparam()->get_name();
-			$auxparam_grid = [];
-			if(array_key_exists($name,$sphere->row)):
-				foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
-					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-				endforeach;
-				$sphere->row[$name] = $auxparam_grid;
-			endif;
+			foreach($cop_grid as $cop_item):
+				$name = $cop_item->get_name();
+				$input_type = $cop_item->get_input_type();
+				switch($input_type):
+					case 'textarea':
+						$textarea_grid = [];
+						foreach(explode("\n",$sphere->row[$name]) as $textarea_row):
+							$textarea_grid[] = trim($textarea_row,"\t\n\r");
+						endforeach;
+						$sphere->row[$name] = $textarea_grid;
+						break;
+				endswitch;
+			endforeach;
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
