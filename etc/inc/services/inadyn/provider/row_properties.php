@@ -66,7 +66,7 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_provider(): myp\property_list {
-		$description = gettext('Select one of the predefined providers.');
+		$description = gettext('Select from predefined providers.');
 		$property = parent::init_provider();
 		$property->
 			set_defaultvalue('')->
