@@ -142,7 +142,7 @@ final class row_toolbox {
 			c2($cop->get_checkip_ssl(),$sphere,false,$is_readonly)->
 			c2($cop->get_checkip_command(),$sphere,false,$is_readonly)->
 			c2($cop->get_useragent(),$sphere,false,$is_readonly)->
-			c2($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+			c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 		$buttons = $document->add_area_buttons();
 		if($isrecordnew):
 			$buttons->ins_button_add();
