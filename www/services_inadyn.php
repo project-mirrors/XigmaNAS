@@ -49,7 +49,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_copobj = [
+$cop_grid = [
 	$cop->get_allowipv6(),
 	$cop->get_auxparam(),
 	$cop->get_brokenrtc(),
@@ -176,46 +176,46 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_copobj as $copobj):
-			$name = $copobj->get_name();
-			$input_type = $copobj->get_input_type();
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$input_type = $cop_item->get_input_type();
 			switch($input_type):
 				case 'textarea':
 					if(array_key_exists($name,$source)):
-					if(is_array($source[$name])):
-						$source[$name] = implode("\n",$source[$name]);
+						if(is_array($source[$name])):
+							$source[$name] = implode("\n",$source[$name]);
+						endif;
 					endif;
-				endif;
-				break;
+					break;
 			endswitch;
-			$sphere->row[$name] = $copobj->validate_array_element($source);
+			$sphere->row[$name] = $cop_item->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $copobj->get_defaultvalue();
+					$sphere->row[$name] = $cop_item->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_copobj as $copobj):
-			$name = $copobj->get_name();
-			$sphere->row[$name] = $copobj->validate_input();
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$sphere->row[$name] = $cop_item->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $copobj->get_message_error();
+				$input_errors[] = $cop_item->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $copobj->get_defaultvalue();
+					$sphere->row[$name] = $cop_item->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_copobj as $copobj):
-				$name = $copobj->get_name();
-				$input_type = $copobj->get_input_type();
+			foreach($cop_grid as $cop_item):
+				$name = $cop_item->get_name();
+				$input_type = $cop_item->get_input_type();
 				switch($input_type):
 					case 'textarea':
 						$textarea_grid = [];
