@@ -32,8 +32,6 @@ name="inadyn"
 desc="Simple dynamic dns client"
 rcvar=inadyn_enable
 
-load_rc_config "${name}"
-
 start_precmd="inadyn_prestart"
 restart_precmd="inadyn_prerestart"
 reload_precmd="inadyn_prereload"
@@ -41,7 +39,7 @@ mkconf_cmd="inadyn_mkconf"
 configtest_precmd="inadyn_checkconfig"
 extra_commands="reload configtest mkconf"
 
-load_rc_config $name
+load_rc_config "${name}"
 
 : ${inadyn_enable:="NO"}
 : ${inadyn_config:="/var/etc/inadyn.conf"}
