@@ -1715,6 +1715,38 @@ function config_upgrade_49() {
 	endif;
 }
 /**
+ *	Upgrade configuration from 50
+ *	@global array $config
+ */
+function config_upgrade_50() {
+	global $config;
+
+	$groups = &arr::make_branch($config,'system','usermanagement','group');
+	$group_name = '_wsdd';
+	$index = arr::search_ex($group_name,$groups,'name');
+	if($index === false):
+		$group = [
+			'uuid' => '839cd65c-f1f1-4694-8f01-2db1f88e66d8',
+			'name' => $group_name,
+			'id' => 888,
+		];
+		$groups[] = $group;
+	endif;
+	$users = &arr::make_branch($config,'system','usermanagement','user');
+	$user_name = '_wsdd';
+	$index = arr::search_ex($user_name,$users,'name');
+	if($index === false):
+		$user = [
+			'uuid' => 'e9bf1d89-71ff-4289-89b6-4b81d6e97045',
+			'name' => $user_name,
+			'id' => 888,
+			'primarygroup' => 888,
+			'extraoptions' => '-c "WSD user" -d /nonexistent -s /usr/sbin/nologin'
+		];
+		$users[] = $user;
+	endif;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1768,7 +1800,8 @@ function config_upgrade() {
 		'47' => [$kf => 'config_upgrade_47',$kv => '48'],
 		'48' => [$kf => 'config_upgrade_48',$kv => '49'],
 		'49' => [$kf => 'config_upgrade_49',$kv => '50'],
-		'50' => [$kf => NULL,$kv => NULL]
+		'50' => [$kf => 'config_upgrade_49',$kv => '51'],
+		'51' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;

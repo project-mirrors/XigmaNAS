@@ -497,6 +497,13 @@
 				<primarygroup>88</primarygroup>
 				<extraoptions>-c &quot;MySQL user&quot; -d /nonexistent -s /usr/sbin/nologin</extraoptions>
 			</user>
+			<user>
+				<uuid>e9bf1d89-71ff-4289-89b6-4b81d6e97045</uuid>
+				<name>_wsdd</name>
+				<id>888</id>
+				<primarygroup>888</primarygroup>
+				<extraoptions>-c &quot;WSD user&quot; -d /nonexistent -s /usr/sbin/nologin</extraoptions>
+			</user>
 			<group>
 				<uuid>e8cc78b8-7c3d-46de-a34c-11b1c260a37e</uuid>
 				<id>999</id>
@@ -526,6 +533,11 @@
 				<uuid>ef381dd2-6aa6-44e9-821c-94228a1ef63c</uuid>
 				<id>88</id>
 				<name>mysql</name>
+			</group>
+			<group>
+				<uuid>839cd65c-f1f1-4694-8f01-2db1f88e66d8</uuid>
+				<id>888</id>
+				<name>_wsdd</name>
 			</group>
 		</usermanagement>
 		<firewall>
