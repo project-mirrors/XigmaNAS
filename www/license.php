@@ -274,6 +274,7 @@ $software_licenses = [
 	sprintf('<a href="third-party_licenses/gpl-license.txt">%s</a> (',gettext('GNU General Public License')) .
 	sprintf('<a href="third-party_licenses/gpl-license.txt">%s</a>, ',gettext('GPLv2')) .
 	sprintf('<a href="third-party_licenses/gpl3-license.txt">%s</a>)',gettext('GPLv3')),
+	sprintf('<a href="third-party_licenses/mit-license.txt">%s</a>)',gettext('MIT License')),
 	sprintf('<a href="third-party_licenses/lgpl-license.txt">%s</a>',gettext('GNU Lesser General Public License (LGPL)')),
 	sprintf('<a href="third-party_licenses/mpl2-license.txt">%s</a>',gettext('Mozilla Public License Version 2.0 (MPLv2)')),
 	sprintf('<a href="third-party_licenses/apple-license.txt">%s</a>',gettext('Apple Public Source License')),
