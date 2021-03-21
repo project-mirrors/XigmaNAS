@@ -24,10 +24,6 @@ NO_BUILD=	yes
 USERS=		_wsdd
 GROUPS=		_wsdd
 
-PLIST_FILES=	bin/${PORTNAME} \
-		etc/rc.d/${PORTNAME} \
-		man/man1/${PORTNAME}.1.gz
-
 post-patch:
 	${REINPLACE_CMD} 's|PYTHON|${PYTHON_CMD}|' ${WRKSRC}/etc/rc.d/${PORTNAME}
 
