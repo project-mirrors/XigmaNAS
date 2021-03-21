@@ -82,7 +82,7 @@ final class shared_toolbox {
 		$document->
 			add_area_tabnav()->
 				add_tabnav_upper()->
-					ins_tabnav_record('services_wsdd.php',gettext('Global Settings'),gettext('Reload page'),true);
+					ins_tabnav_record('services_wsd.php',gettext('Global Settings'),gettext('Reload page'),true);
 		return $retval;
 	}
 }
