@@ -21,8 +21,8 @@ SHEBANG_FILES=	src/${PORTNAME}.py
 NO_ARCH=	yes
 NO_BUILD=	yes
 
-USERS=		_wsdd
-GROUPS=		_wsdd
+USERS=		wsdd
+GROUPS=		wsdd
 
 post-patch:
 	${REINPLACE_CMD} 's|PYTHON|${PYTHON_CMD}|' ${WRKSRC}/etc/rc.d/${PORTNAME}
