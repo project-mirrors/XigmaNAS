@@ -28,9 +28,18 @@ stop_cmd="mysqldb_stop"
 status_cmd="mysqldb_status"
 mkconf_cmd="mysqldb_mkconf"
 
+load_rc_config "${name}"
+
 mariadbhomedir=`configxml_get "//mariadb/homedir"`
-if [ "$mariadbhomedir" = "" ]; then
-    mariadbhomedir="/nonexistent"
+if [ -z "${mariadbhomedir}" ]; then
+	echo "${name}: home folder is not defined, exiting."
+	exit 1
+elif [ ! -d "${mariadbhomedir}" ]; then
+	echo "${name}: home folder is not a directory, exiting."
+	exit 1
+elif [ "$(df ${mariadbhomedir} | grep -E '/dev/x?md[0-9]|tmpfs')" ];then
+	echo "${name}: home folder on memory disk detected, exiting."
+	exit 1
 fi
 
 phpmyadmin_conf=${phpmyadmin_conf:-"/usr/local/www/phpMyAdmin/config.inc.php"}
@@ -45,7 +54,7 @@ mysql_piddir="${mysql_piddir=/var/run/mysql}"
 
 mysqldb_mkconf()
 {
-	# Create mysql config minimum
+#	create mysql config minimum
 	cat /dev/null > ${mysqldb_conf}
 	chmod 600 ${mysqldb_conf}
 	/usr/local/bin/xml sel --template \
@@ -67,20 +76,14 @@ mysqldb_mkconf()
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${mysqldb_conf}
 
-	# Create symbolic link to homedir and create DB if not exist
+#	create symbolic link to homedir and create DB if not exist
 	unlink /var/db/mysql
 	ln -s "${mariadbhomedir}" /var/db/mysql
 	if [ ! -d "${mariadbhomedir}/mysql/." ]; then
-		if [ "$(df ${mariadbhomedir} | grep -E '/dev/x?md[0-9]|tmpfs')" ]; then
-			echo "Home folder on memory disk detected, unable to install core."
-			exit 1
-		else
-			/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --force
-		fi
+		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --force
 	fi
 	chown -R ${mysql_user}:${mysql_group} ${mariadbhomedir}
-
-	# Create phpMyAdmin config
+#	create phpMyAdmin config
 	cat /dev/null > ${phpmyadmin_conf}
 	/usr/local/bin/xml sel --template \
 		--match '//mariadb' \
@@ -140,5 +143,4 @@ mysqldb_stop()
 	echo ""
 }
 
-load_rc_config "${name}"
 run_rc_command "$1"
