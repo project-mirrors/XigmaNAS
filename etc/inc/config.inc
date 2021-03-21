@@ -1800,7 +1800,7 @@ function config_upgrade() {
 		'47' => [$kf => 'config_upgrade_47',$kv => '48'],
 		'48' => [$kf => 'config_upgrade_48',$kv => '49'],
 		'49' => [$kf => 'config_upgrade_49',$kv => '50'],
-		'50' => [$kf => 'config_upgrade_49',$kv => '51'],
+		'50' => [$kf => 'config_upgrade_50',$kv => '51'],
 		'51' => [$kf => NULL,$kv => NULL]
 	];
 	$version = $config['version'] ?? 'notset';
