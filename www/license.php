@@ -265,6 +265,10 @@ $software = [
 		'A NIC driver for FreeBSD (<a href="https://www.vmware.com" target="_blank" rel="noreferrer">https://www.vmware.com</a>).',
 		'Copyright © 2010 VMware, Inc. All Rights Reserved.'
 	]],
+	['WSD',[
+		'Web Service Discovery (<a href="https://github.com/christgau/wsdd" target="_blank" rel="noreferrer">https://github.com/christgau/wsdd</a>))',
+		'Copyright (c) 2017 Steffen Christgau.'
+	]],
 	['XMLStarlet',[
 		'Command Line XML Toolkit (<a href="http://xmlstar.sourceforge.net" target="_blank" rel="noreferrer">http://xmlstar.sourceforge.net</a>).',
 		'Copyright © 2002 Mikhail Grushinskiy. All Rights Reserved.'
