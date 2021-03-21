@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
@@ -49,6 +50,7 @@ function status_services_sphere() {
 	if('dom0' !== $g['arch']):
 		$sphere->grid[] = ['name' => gettext('HAST'),'link' => 'services_hast.php','config' => 'hast','scriptname' => 'hastd'];
 		$sphere->grid[] = ['name' => gettext('SMB'),'link' => 'services_samba.php','config' => 'samba','scriptname' => 'samba'];
+		$sphere->grid[] = ['name' => gettext('WSD'),'link' => 'services_wsd.php','config' => 'wsdd','scriptname' => 'wsdd'];
 		$sphere->grid[] = ['name' => gettext('FTP'),'link' => 'services_ftp.php','config' => 'ftpd','scriptname' => 'proftpd'];
 		$sphere->grid[] = ['name' => gettext('TFTP'),'link' => 'services_tftp.php','config' => 'tftpd','scriptname' => 'tftpd'];
 		$sphere->grid[] = ['name' => gettext('SSH'),'link' => 'services_sshd.php','config' => 'sshd','scriptname' => 'sshd'];
@@ -106,8 +108,9 @@ $thead->addTR()->
 	insTHwC('lhelc sorter-false parser-false',$cop->get_status()->get_title())->
 	insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 foreach($sphere->grid as $sphere->row_id => $sphere->row):
-	$is_enabled = is_bool($test = $config[$sphere->row['config']]['enable'] ?? false) ? $test : true;
-	$is_running = (0 == rc_is_service_running($sphere->row['scriptname']));
+	$test = $config[$sphere->row['config']]['enable'] ?? false;
+	$is_enabled = is_bool($test) ? $test : true;
+	$is_running = (rc_is_service_running($sphere->row['scriptname']) == 0);
 	$dc = $is_enabled ? '' : 'd';
 	$tba = $tbody->
 		addTR()->
