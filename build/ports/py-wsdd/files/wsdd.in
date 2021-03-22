@@ -59,7 +59,7 @@ elif [ -n "$wsdd_group" ]; then
 fi
 
 command="/usr/local/bin/wsdd"
-procname="PYTHON"
+command_interpreter="/usr/local/bin/python"
 pidfile="/var/run/${name}.pid"
 
 start_cmd="${name}_start"
