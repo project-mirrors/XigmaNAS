@@ -26,8 +26,6 @@ do-install:
 .for file in python3.7
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
 .endfor
-# ETCSYMLINK
-	${LN} -fsv /usr/local/bin/python3.7 ${XIGMANAS_ROOTFS}/usr/local/bin/python
 # lib
 .for file in python3.7
 	find ${DEP_STAGEDIR}${PREFIX}/lib/libpython3.7m.so.1.0-gdb.py -delete
