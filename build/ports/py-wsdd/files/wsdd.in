@@ -13,22 +13,16 @@
 # XQUERY: --if "count(//wsdd/enable) > 0" --output "0" --else --output "1" --break
 # RCVAR: wsdd
 
-# Add the following line in /etc/rc.conf to enable wsdd:
-#
-# wsdd_enable="YES"
-# wsdd_flags="<set as needed>"
-# wsdd_domain="<set if your host is an AD member>"
-# wsdd_group="<set if you want to set the workgroup manually>"
-#
-# Do not specify -d DOMAIN or -w WORKGROUP in wsdd_flags. Instead, set
-# wsdd_domain="DOMAIN" or wsdd_group="WORKGROUP", otherwise it will be
-# overridden by automatically detected workgroup.
-#
-
 . /etc/rc.subr
 
 name=wsdd
 rcvar=wsdd_enable
+
+# Defaults
+start_cmd="wsdd_start"
+command="/usr/local/bin/wsdd"
+command_interpreter="/usr/local/bin/python*.*"
+pidfile="/var/run/wsdd.pid"
 
 load_rc_config ${name}
 
@@ -57,12 +51,6 @@ if [ -n "$wsdd_domain" ]; then
 elif [ -n "$wsdd_group" ]; then
 	wsdd_opts="${wsdd_opts} -w ${wsdd_group}"
 fi
-
-command="/usr/local/bin/wsdd"
-command_interpreter="/usr/local/bin/python"
-pidfile="/var/run/${name}.pid"
-
-start_cmd="${name}_start"
 
 wsdd_start()
 {
