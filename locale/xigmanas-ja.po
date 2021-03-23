@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
@@ -201,7 +201,13 @@ msgstr "*** 重複インポート ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
 
+msgid "/"
+msgstr ""
+
 msgid "/mnt"
+msgstr ""
+
+msgid "/update?domain="
 msgstr ""
 
 msgid "000"
@@ -600,6 +606,9 @@ msgstr ""
 msgid "Add Portal Group"
 msgstr ""
 
+msgid "Add Provider"
+msgstr ""
+
 msgid "Add Public Key"
 msgstr ""
 
@@ -878,6 +887,9 @@ msgstr "許可"
 msgid "Allow GSSAPI authentication."
 msgstr "GSSAPI認証を許可"
 
+msgid "Allow IPv6"
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "新規ファイルを許可"
 
@@ -1073,6 +1085,12 @@ msgstr "このディスクを利用しているサービスが無効もしくは
 msgid "Append content to the default CSS file"
 msgstr "デフォルトのCSSに追加"
 
+msgid "Append my IP"
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "ユーザー定義の共有を追加します"
 
@@ -1182,9 +1200,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "属性名"
-
-msgid "Audio"
-msgstr "音楽"
 
 msgid "Aug"
 msgstr "8月"
@@ -1531,6 +1546,9 @@ msgid ""
 "default is 300 seconds."
 msgstr ""
 
+msgid "Broken RTC"
+msgstr ""
+
 msgid "Browseable"
 msgstr "ブラウズ可能"
 
@@ -1538,6 +1556,13 @@ msgid "Button Location"
 msgstr "ボタンの位置"
 
 msgid "Button Settings"
+msgstr ""
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
 msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
@@ -1553,6 +1578,9 @@ msgid "C++ Header File"
 msgstr ""
 
 msgid "C++ Source File"
+msgstr ""
+
+msgid "CA Trusted Certificates"
 msgstr ""
 
 msgid "CACHE"
@@ -1714,6 +1742,9 @@ msgstr ""
 msgid "CTL LUN"
 msgstr ""
 
+msgid "Cache Directory"
+msgstr ""
+
 msgid "Calibration Battery"
 msgstr "バッテリーキャリブレーション"
 
@@ -1805,6 +1836,21 @@ msgstr "チャネル"
 
 msgid "Charging Battery"
 msgstr "バッテリー充電中"
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check Interval"
+msgstr ""
 
 msgid "Check System|General Setup before initializing"
 msgstr "初期化の前にシステム|基本設定を確認してください"
@@ -2346,8 +2392,10 @@ msgstr ""
 msgid "Create a spare device"
 msgstr ""
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
+msgid "Create a virtual device containing a single device"
+msgstr ""
+
+msgid "Create a virtual device containing concatenated devices"
 msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
@@ -2454,6 +2502,9 @@ msgstr ""
 msgid "Custom"
 msgstr "カスタム"
 
+msgid "Custom Provider"
+msgstr ""
+
 msgid "Custom Script"
 msgstr "カスタムスクリプト"
 
@@ -2471,6 +2522,20 @@ msgstr "カスタムスクリプトが存在しません。"
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - デバッグ情報を出力"
@@ -2498,6 +2563,9 @@ msgstr "DHX 認証"
 
 msgid "DHX2 Authentication"
 msgstr "DHX2 認証"
+
+msgid "DISK"
+msgstr ""
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2784,6 +2852,9 @@ msgid "Delete Selected Port Records"
 msgstr ""
 
 msgid "Delete Selected Portal Groups"
+msgstr ""
+
+msgid "Delete Selected Providers"
 msgstr ""
 
 msgid "Delete Selected Public Keys"
@@ -3159,6 +3230,9 @@ msgstr ""
 msgid "Disable Selected Portal Groups"
 msgstr ""
 
+msgid "Disable Selected Providers"
+msgstr ""
+
 msgid "Disable Selected Public Keys"
 msgstr ""
 
@@ -3443,6 +3517,9 @@ msgstr ""
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+
 msgid "Do you want to delete selected CARPs?"
 msgstr ""
 
@@ -3540,6 +3617,9 @@ msgid "Do you want to delete selected port records?"
 msgstr ""
 
 msgid "Do you want to delete selected portal groups?"
+msgstr ""
+
+msgid "Do you want to delete selected providers?"
 msgstr ""
 
 msgid "Do you want to delete selected public keys?"
@@ -3650,6 +3730,9 @@ msgstr ""
 msgid "Do you want to disable selected portal groups?"
 msgstr ""
 
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
 msgid "Do you want to disable selected public keys?"
 msgstr ""
 
@@ -3738,6 +3821,9 @@ msgid "Do you want to enable selected port records?"
 msgstr ""
 
 msgid "Do you want to enable selected portal groups?"
+msgstr ""
+
+msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
@@ -3837,6 +3923,9 @@ msgid "Do you want to toggle selected port records?"
 msgstr ""
 
 msgid "Do you want to toggle selected portal groups?"
+msgstr ""
+
+msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
@@ -3963,6 +4052,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "ダイナミック DNS"
 
+msgid "Dynamic DNS Settings"
+msgstr ""
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "動的IP (DHCP) はHASTリソースに使うことが出来ません。"
 
@@ -4063,6 +4155,9 @@ msgid "Edit Port Record"
 msgstr ""
 
 msgid "Edit Portal Group"
+msgstr ""
+
+msgid "Edit Provider"
 msgstr ""
 
 msgid "Edit Public Key"
@@ -4292,6 +4387,9 @@ msgstr ""
 msgid "Enable Selected Portal Groups"
 msgstr ""
 
+msgid "Enable Selected Providers"
+msgstr ""
+
 msgid "Enable Selected Public Keys"
 msgstr ""
 
@@ -4415,6 +4513,11 @@ msgstr "ディレクトリリストを有効にします。"
 msgid "Enable distributed hash table."
 msgstr "分散ハッシュテーブルを有効にします。"
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
 msgid "Enable domain wildcarding."
 msgstr "ワイルドカードドメインを有効にします。"
 
@@ -4511,6 +4614,16 @@ msgid ""
 "Enable this option if you want to edit configuration pages directly without "
 "the need to switch to edit mode."
 msgstr "編集モードへの切り替え操作なしで設定ページを直接編集したい場合は、このオプションを有効化してください。"
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr "WebGUIへすべてのIPアドレスからアクセスを許可する場合は、このオプションを有効化してください。"
@@ -4682,6 +4795,9 @@ msgstr ""
 msgid "Enter an iSCSI initiator name."
 msgstr ""
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
 msgid "Enter comment for the share"
 msgstr ""
 
@@ -4799,6 +4915,9 @@ msgid "Error Code"
 msgstr ""
 
 msgid "Error Level"
+msgstr ""
+
+msgid "Errors"
 msgstr ""
 
 msgid "Errors have been detected during import."
@@ -5015,6 +5134,9 @@ msgstr "失敗。"
 msgid "Failover"
 msgstr "フェイルオーバ"
 
+msgid "Fake Address"
+msgstr ""
+
 msgid "Fast"
 msgstr ""
 
@@ -5177,6 +5299,9 @@ msgid "Force Group"
 msgstr ""
 
 msgid "Force Operation"
+msgstr ""
+
+msgid "Force Update Interval"
 msgstr ""
 
 msgid "Force Use"
@@ -5592,6 +5717,9 @@ msgstr "ホスト"
 msgid "Host Access Control"
 msgstr ""
 
+msgid "Host Names"
+msgstr ""
+
 msgid "Host Resources"
 msgstr ""
 
@@ -5602,6 +5730,9 @@ msgid "Hostname"
 msgstr "ホスト名"
 
 msgid "Hostname Database"
+msgstr ""
+
+msgid "Hostnames"
 msgstr ""
 
 msgid "Hosts"
@@ -5623,6 +5754,11 @@ msgid "Hours"
 msgstr "時"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr "IP アドレスのチェック間隔。秒単位で指定して下さい (最大 10日)。"
 
@@ -5630,6 +5766,11 @@ msgid ""
 "How often the IP is updated even if it is not changed. The period is in "
 "seconds (max. is 10 days)."
 msgstr "IP アドレスの更新間隔。アドレスに変更が無くても更新を行います。秒単位で指定して下さい (最大 10日)。"
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
 
 msgid "I/O Statistics"
 msgstr "I/O 統計"
@@ -5656,6 +5797,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "IP アドレス"
 
+msgid "IP Address Family"
+msgstr ""
+
 msgid "IP Address Prefix"
 msgstr ""
 
@@ -5663,6 +5807,10 @@ msgid "IP address"
 msgstr "IP アドレス"
 
 msgid "IP address of the remote syslog server."
+msgstr ""
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
 msgstr ""
 
 msgid ""
@@ -5689,6 +5837,9 @@ msgstr ""
 
 msgid "IPv4 addresses"
 msgstr "IPv4 アドレス"
+
+msgid "IPv4 only"
+msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr ""
@@ -5728,6 +5879,9 @@ msgstr "IPv6 アドレス"
 
 msgid "IPv6 addresses"
 msgstr "IPv6 アドレス一覧"
+
+msgid "IPv6 only"
+msgstr ""
 
 msgid "IRC Live Support"
 msgstr "IRC ライブサポート"
@@ -5822,6 +5976,11 @@ msgid ""
 msgstr "このプロパティを有効にすると、スナップショットが .zfs ディレクトリ内に表示されます。"
 
 msgid "If this property is set to off, the file system cannot be mounted."
+msgstr ""
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
 msgstr ""
 
 msgid "Ignore Hosts Allow"
@@ -5957,6 +6116,9 @@ msgstr "ダイジェスト初期値"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "初期 ramdisk (例: %s)。"
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
 
 msgid "Initialize"
 msgstr "初期化"
@@ -6182,6 +6344,9 @@ msgid ""
 msgstr "WebGUIにアクセスするためのデフォルトユーザ名とパスワードを変更することを推奨します。ここにユーザ名を入力してください。"
 
 msgid "Item(s)"
+msgstr ""
+
+msgid "Iterations"
 msgstr ""
 
 msgid "JBOD"
@@ -6696,6 +6861,9 @@ msgstr ""
 msgid "MISSING"
 msgstr "失敗"
 
+msgid "MIT License"
+msgstr ""
+
 msgid "MKV File"
 msgstr ""
 
@@ -6748,9 +6916,6 @@ msgid "Major OS Version Upgrades"
 msgstr ""
 
 msgid "Major Product Version Updates"
-msgstr ""
-
-msgid "Make sure to select the optimal number of devices"
 msgstr ""
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
@@ -7013,6 +7178,9 @@ msgstr "分"
 msgid "Minutes between the next network time synchronization."
 msgstr "時間同期の間隔を分で指定"
 
+msgid "Missing Provider"
+msgstr ""
+
 msgid "Missing a temporary folder."
 msgstr "テンポラリフォルダがありません。"
 
@@ -7188,6 +7356,9 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr ""
 
@@ -7353,6 +7524,9 @@ msgstr ""
 
 msgid "Network File System"
 msgstr "NFS (Network File System)"
+
+msgid "Network Interface"
+msgstr ""
 
 msgid "Network Latency"
 msgstr ""
@@ -7694,6 +7868,9 @@ msgstr "注意: Ctrl (Mac は command)を押しながらクリックすれば複
 msgid "Nothing to synchronize"
 msgstr "同期を取るものがありません"
 
+msgid "Notice"
+msgstr ""
+
 msgid "Notice Level"
 msgstr ""
 
@@ -7840,6 +8017,9 @@ msgstr ""
 msgid "Optional"
 msgstr ""
 
+msgid "Optional server path for check IP server"
+msgstr ""
+
 msgid "Optional user-friendly string of the target."
 msgstr "オプションでターゲットのユーザフレンドリな文字列を付ける事が出来ます。"
 
@@ -7850,6 +8030,9 @@ msgid "Origin"
 msgstr "オリジン"
 
 msgid "Orphaned"
+msgstr ""
+
+msgid "Orphaned Provider"
 msgstr ""
 
 msgid "Others"
@@ -7887,6 +8070,9 @@ msgstr "ハードディスクドライブの全体的な(一般的な)スルー�
 
 msgid "Overload"
 msgstr "オーバーロード"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr ""
@@ -8158,9 +8344,6 @@ msgstr ""
 
 msgid "Physical Interface"
 msgstr "物理インタフェース"
-
-msgid "Pictures"
-msgstr "画像"
 
 msgid "Ping"
 msgstr "Ping"
@@ -8521,6 +8704,18 @@ msgstr ""
 msgid "Provider"
 msgstr "プロバイダ"
 
+msgid "Provider Name"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -8634,19 +8829,10 @@ msgstr ""
 msgid "RAID-Z1"
 msgstr ""
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr ""
-
 msgid "RAID-Z2"
 msgstr ""
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr ""
-
 msgid "RAID-Z3"
-msgstr ""
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
 msgstr ""
 
 msgid "RAID0"
@@ -8955,6 +9141,9 @@ msgid "Record Information"
 msgstr ""
 
 msgid "Record Maintenance"
+msgstr ""
+
+msgid "Record Type"
 msgstr ""
 
 msgid "Record is locked"
@@ -9439,6 +9628,12 @@ msgid ""
 "this value. (%d by default)."
 msgstr "要求サイズがこの値より大きい場合、Sambaはファイルに非同期で書き込む。(デフォルトは %d)。"
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
 msgid "Sat"
 msgstr "土曜"
 
@@ -9564,6 +9759,9 @@ msgstr "シークレット"
 msgid "Secret for CHAP authentication."
 msgstr ""
 
+msgid "Secure SSL"
+msgstr ""
+
 msgid "Security Flavor"
 msgstr ""
 
@@ -9576,6 +9774,11 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "E8属性を参照してください。"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr ""
@@ -9634,6 +9837,9 @@ msgstr "使用する暗号化アルゴリズムを選択"
 msgid "Select at which stage the command should be executed."
 msgstr ""
 
+msgid "Select between domain mode and workgroup mode."
+msgstr ""
+
 msgid "Select configuration file:"
 msgstr "設定ファイルを選択:"
 
@@ -9657,6 +9863,9 @@ msgstr ""
 
 msgid "Select file system format."
 msgstr "ファイルシステムの初期化方法を選択"
+
+msgid "Select from predefined providers."
+msgstr ""
 
 msgid "Select item to remove from the list"
 msgstr "リストから削除するアイテムを選択"
@@ -9840,6 +10049,9 @@ msgstr "サーバー最大プロトコル"
 msgid "Server Min. Protocol"
 msgstr "サーバー最小プロトコル"
 
+msgid "Server Mode"
+msgstr ""
+
 msgid "Server Name"
 msgstr "サーバ名"
 
@@ -9848,6 +10060,9 @@ msgstr "サーバの説明。通常は空白のままで構いません。"
 
 msgid "Server information"
 msgstr "サーバー情報"
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
 
 msgid "Server version"
 msgstr "サーバーバージョン"
@@ -9886,8 +10101,20 @@ msgid "Set browseable."
 msgstr ""
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Set domain name"
+msgstr ""
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
+msgstr ""
+
+msgid "Set log level"
 msgstr ""
 
 msgid "Set password"
@@ -9926,6 +10153,10 @@ msgstr ""
 "インタフェースの最大転送ユニットサイズ (MTU) を指定して下さい。デフォルトはインタフェース固有の値です。MTU "
 "はインタフェース上に転送されるパケットのサイズを制限する為に使用されます。インタフェースによっては MTU "
 "の設定をサポートしないものや、指定可能な範囲に制限があるものがあります。"
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -9970,6 +10201,9 @@ msgstr ""
 #, php-format
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
+
+msgid "Set workgroup name"
 msgstr ""
 
 msgid "Setkey"
@@ -10074,6 +10308,11 @@ msgid "Shell"
 msgstr "シェル"
 
 msgid "Shell Script"
+msgstr ""
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
 msgstr ""
 
 msgid "Shock During Write."
@@ -10402,6 +10641,11 @@ msgstr ""
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
 msgid "Specify the group numeric id."
 msgstr ""
 
@@ -10413,6 +10657,9 @@ msgstr "分割リクエスト"
 
 msgid "Standard"
 msgstr "標準"
+
+msgid "Standard Provider"
+msgstr ""
 
 msgid "Standard Reports"
 msgstr ""
@@ -10433,6 +10680,9 @@ msgid "Start"
 msgstr "開始"
 
 msgid "Start TLS from within the session."
+msgstr ""
+
+msgid "Startup Delay"
 msgstr ""
 
 msgid "Static"
@@ -11314,6 +11564,9 @@ msgid ""
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr "IP アドレス毎の最大接続数は 0 (無制限)かそれ以上を指定する必要があります。"
@@ -11438,6 +11691,9 @@ msgstr "パスワードに利用できない文字が含まれています。 ':
 
 msgid "The password encryption protocol to use."
 msgstr "パスワード暗号化で利用される形式。"
+
+msgid "The password, if applicable."
+msgstr ""
 
 msgid "The passwords do not match."
 msgstr "パスワードが一致しません。"
@@ -11626,6 +11882,9 @@ msgstr "アップロードされたファイルは、php.ini の upload_max_file
 msgid "The uploaded file was only partially uploaded."
 msgstr "アップロードされたファイルは部分的にだけアップロードされています。"
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr ""
 
@@ -11678,6 +11937,9 @@ msgid ""
 "loaded."
 msgstr ""
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "ここで指定したパラメータは %s に追加されます。"
@@ -11703,6 +11965,9 @@ msgid "These parameters are appended to /etc/ssh/sshd_config."
 msgstr "これらのパラメーターは/etc/ssh/sshd_configに追記されます。"
 
 msgid "These parameters are appended to the exports file."
+msgstr ""
+
+msgid "These parameters are appended to the inadyn.conf file."
 msgstr ""
 
 #, php-format
@@ -11747,6 +12012,9 @@ msgid "These parameters will be added to this lun."
 msgstr ""
 
 msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this provider configuration"
 msgstr ""
 
 msgid "These parameters will be added to this target."
@@ -11905,6 +12173,10 @@ msgid ""
 msgstr "このオプションは rsync に、宛て先のパーミッションをソースのパーミッションと同一になるように設定します。"
 
 msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules. By setting this to false you can create "
 "hidden modules."
@@ -12057,6 +12329,17 @@ msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
 msgstr "サーバーが使用を許可するプロトコルの最小バージョンを指定します。"
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
 
 msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
@@ -12213,6 +12496,12 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "全ての IP アドレスにマッチさせる場合は、このフィールドを空にして下さい。"
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
@@ -12277,6 +12566,9 @@ msgid "Toggle Selected Port Records"
 msgstr ""
 
 msgid "Toggle Selected Portal Groups"
+msgstr ""
+
+msgid "Toggle Selected Providers"
 msgstr ""
 
 msgid "Toggle Selected Public Keys"
@@ -12621,6 +12913,9 @@ msgstr "オペレーティングシステムに報告された未修正の読み
 msgid "Undefined"
 msgstr ""
 
+msgid "Undefined Type"
+msgstr ""
+
 msgid "Unformated"
 msgstr "フォーマットしない"
 
@@ -12661,6 +12956,9 @@ msgstr "不明なアクティビティ"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "不明なアグリゲーションプロトコル"
+
+msgid "Unknown Provider"
+msgstr ""
 
 msgid "Unknown or Unformatted"
 msgstr ""
@@ -12750,6 +13048,14 @@ msgstr ""
 msgid "Use Encryption"
 msgstr "暗号化する"
 
+msgid "Use HTTPS"
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "ユーザの認証にPAM (Pluggable Authentication Module) を使う"
 
@@ -12815,6 +13121,16 @@ msgstr ""
 msgid "Use these specials actions for debugging only!"
 msgstr "これらの特定の操作はデバッグ用途のみで利用してください。通常は利用する必要はありません。"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -12866,6 +13182,9 @@ msgstr ""
 msgid "User"
 msgstr "ユーザ"
 
+msgid "User Agent"
+msgstr ""
+
 msgid "User ID"
 msgstr "ユーザ ID"
 
@@ -12897,6 +13216,9 @@ msgid "User account is protected"
 msgstr ""
 
 msgid "User account is unlocked"
+msgstr ""
+
+msgid "User agent string"
 msgstr ""
 
 msgid "User portal permission."
@@ -13010,6 +13332,9 @@ msgstr ""
 msgid "Verify"
 msgstr "確認"
 
+msgid "Verify Address"
+msgstr ""
+
 msgid "Version"
 msgstr "バージョン"
 
@@ -13018,9 +13343,6 @@ msgstr "バージョン:"
 
 msgid "Vibration During Write."
 msgstr "書き込み中の振動。"
-
-msgid "Video"
-msgstr "動画"
 
 msgid "Virtual Device"
 msgstr "仮想デバイス"
@@ -13167,6 +13489,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr ""
+
 msgid "Wait Time"
 msgstr "待ち時間"
 
@@ -13183,6 +13508,12 @@ msgid "Warning Level"
 msgstr "警告レベル"
 
 msgid "Watch Folder"
+msgstr ""
+
+msgid "Web Service Discovery"
+msgstr ""
+
+msgid "Web Service Discovery Settings"
 msgstr ""
 
 #, php-format
@@ -13282,6 +13613,9 @@ msgstr ""
 msgid "Wildcard"
 msgstr "ワイルドカード"
 
+msgid "Wildcard Domain"
+msgstr ""
+
 msgid "Winbindd Availability"
 msgstr ""
 
@@ -13296,6 +13630,9 @@ msgstr "作業ディレクトリ"
 
 msgid "Workgroup"
 msgstr "ワークグループ"
+
+msgid "Workgroup Name"
+msgstr ""
 
 msgid "Wrap text:"
 msgstr ""
@@ -13554,6 +13891,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr ""
 
+msgid "api.ipify.org"
+msgstr ""
+
 msgid "bash - Bourne Again Shell"
 msgstr ""
 
@@ -13717,6 +14057,9 @@ msgstr "ネットワークトラフィック"
 msgid "no"
 msgstr ""
 
+msgid "no delay"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13792,6 +14135,9 @@ msgstr "アンマウント"
 msgid "unknown"
 msgstr ""
 
+msgid "update.example.com"
+msgstr ""
+
 msgid "visible"
 msgstr ""
 
@@ -13800,3 +14146,12 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Audio"
+#~ msgstr "音楽"
+
+#~ msgid "Pictures"
+#~ msgstr "画像"
+
+#~ msgid "Video"
+#~ msgstr "動画"

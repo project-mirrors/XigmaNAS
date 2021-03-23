@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
-"PO-Revision-Date: 2021-03-18 12:09+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
+"PO-Revision-Date: 2021-03-23 09:15+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -219,8 +219,14 @@ msgstr "*** Εισήσχθησαν εις διπλούν ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr "/"
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr "/update?domain="
 
 msgid "000"
 msgstr "000"
@@ -653,6 +659,9 @@ msgstr "Προσθήκη Εγγραφής Θύρας"
 msgid "Add Portal Group"
 msgstr "Προσθήκη Ομάδας Portal"
 
+msgid "Add Provider"
+msgstr "Προσθήκη Παρόχου"
+
 msgid "Add Public Key"
 msgstr "Προσθήκη Δημόσιου Κλειδιού"
 
@@ -946,6 +955,9 @@ msgstr "Επιτρέπονται"
 msgid "Allow GSSAPI authentication."
 msgstr "Να επιτρέπεται πιστοποίηση GSSAPI."
 
+msgid "Allow IPv6"
+msgstr "Να επιτρέπεται IPv6"
+
 msgid "Allow New Files"
 msgstr "Να Επτρέπονται Νέα αρχεία"
 
@@ -1184,6 +1196,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr "Προσθήκη περιεχομένου στο προεπιλεγμένο αρχείο CSS"
 
+msgid "Append my IP"
+msgstr "Προσθήκη της IP μου"
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "Προσάρτηση κοινόχρηστων φακέλων των χρηστών."
 
@@ -1301,9 +1319,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Όνομα χαρακτηριστικού"
-
-msgid "Audio"
-msgstr "Ήχος"
 
 msgid "Aug"
 msgstr "Αύγ."
@@ -1678,6 +1693,9 @@ msgstr ""
 "Μεταδίδει τη διαθεσιμότητά του στο δίκτυο κάθε x δευτερόλεπτα, η προεπιλογή "
 "είναι 300 δευτερόλεπτα."
 
+msgid "Broken RTC"
+msgstr "Χαλασμένο RTC"
+
 msgid "Browseable"
 msgstr "Περιηγήσιμα"
 
@@ -1686,6 +1704,17 @@ msgstr "Τοποθεσία Κουμπιού"
 
 msgid "Button Settings"
 msgstr "Ρυθμίσεις Κουμπιού"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"Από προεπιλογή το inadyn επαληθεύει διευθύνσεις IPv4 αλλά και IPv6, "
+"εξασφαλίζοντας ότι η διέυθυνση είναι μια έγκυρη διεύθυνση ίντερνετ. Οι μη "
+"έγκυρες διευθύνσεις είναι π.χ. link local, loopback, multicast and γνωστές "
+"πειραματικές διευθύνσεις. Για περισσότερες πληροφορίες, δείτε το RFC3330."
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Από προεπιλογή, μόνο ήδη υπάρχοντα αρχεία μπορούν να ανεβούν."
@@ -1701,6 +1730,9 @@ msgstr "Αρχείο Κεφαλίδας C++"
 
 msgid "C++ Source File"
 msgstr "Πηγαίο Αρχείο C/C++"
+
+msgid "CA Trusted Certificates"
+msgstr "Αξιόπιστα Πιστοποιητικά CA"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1865,6 +1897,9 @@ msgstr "Ρυθμίσεις CSS"
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr "Φάκελος Κρυφής Μνήμης"
+
 msgid "Calibration Battery"
 msgstr "Βαθμονόμηση μπαταρίας"
 
@@ -1961,6 +1996,21 @@ msgstr "Κανάλι"
 
 msgid "Charging Battery"
 msgstr "Μπαταρία σε φόρτιση"
+
+msgid "Check IP Command"
+msgstr "Εντολή Ελέγχου IP"
+
+msgid "Check IP Path"
+msgstr "Διαδρομή ελέγχου IP"
+
+msgid "Check IP Server"
+msgstr "Διακομιστής Ελέγχου IP"
+
+msgid "Check IP using HTTPS"
+msgstr "Έλεγχος IP με χρήση HTTPS"
+
+msgid "Check Interval"
+msgstr "Μεσοδιάστημα ελέγχου"
 
 msgid "Check System|General Setup before initializing"
 msgstr "Ελέγξτε το Σύστημα|Γενικές Ρυθμίσεις πριν την αρχικοποίηση"
@@ -2592,11 +2642,11 @@ msgstr "Δημιουργία μιας συσκευής mirrored SLOG για ZIL"
 msgid "Create a spare device"
 msgstr "Δημιουργία μιας συσκευής spare"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
-msgstr ""
-"Δημιουργία μιας εικονικής συσκευής που περιέχει μόνο μια ή πολλές "
-"ενοποιημένες φυσικές συσκευές"
+msgid "Create a virtual device containing a single device"
+msgstr "Δημιουργία εικονικής συσκευής με χρήση μιας μόνο συσκευής"
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr "Δημιουργία εικονικής συσκευής με χρήση ενοποιημένων συσκευών"
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr ""
@@ -2709,6 +2759,9 @@ msgstr "Τρέχον έτος"
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
+msgid "Custom Provider"
+msgstr "Προσαρμοσμένος Πάροχος"
+
 msgid "Custom Script"
 msgstr "Προσαρμοσμένο αρχείο εντολών"
 
@@ -2726,6 +2779,22 @@ msgstr "Δεν βρέθηκε προσαρμοσμένο αρχείο εντολ
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr "Όνομα διακομιστή DDNS, όχι το πλήρες URL."
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"Διαδρομή διακομιστή DDNS. Από προεπιλογή, το όνομα προστίθεται στη διαδρομή, "
+"εκτός και αν έχει επιλεχθεί το προσθήκη της IP μου."
+
+msgid "DDNS-Path"
+msgstr "DDNS-Διαδρομή"
+
+msgid "DDNS-Server"
+msgstr "DDNS-Διακομιστής"
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - καταγραφή πληροφοριών αποσφαλμάτωσης"
@@ -2753,6 +2822,9 @@ msgstr "Πιστοποίηση DHX"
 
 msgid "DHX2 Authentication"
 msgstr "Πιστοποίηση DHX2"
+
+msgid "DISK"
+msgstr "ΔΙΣΚΟΣ"
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -3058,6 +3130,9 @@ msgstr "Διαγραφή Επιλεγμένων Εγγραφών Θυρών"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Διαγραφή Επιλεγμένων Ομάδων Portal"
+
+msgid "Delete Selected Providers"
+msgstr "Διαγραφή Επιλεγμένων Παρόχων"
 
 msgid "Delete Selected Public Keys"
 msgstr "Διαγραφή Επιλεγμένων Δημόσιων Κλειδιών"
@@ -3447,6 +3522,9 @@ msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών Θ�
 msgid "Disable Selected Portal Groups"
 msgstr "Απενεργοποίηση Επιλεγμένων Ομάδων Portal"
 
+msgid "Disable Selected Providers"
+msgstr "Απενεργοποίηση Επιλεγμένων Παρόχων"
+
 msgid "Disable Selected Public Keys"
 msgstr "Απενεργοποίηση Επιλεγμένων Δημόσιων Κλειδιών"
 
@@ -3768,6 +3846,10 @@ msgstr ""
 "Θέλετε να δημιουργήσετε μια striped εικονική συσκευή με τους επιλεγμένους "
 "δίσκους;"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+"Θέλετε να δημιουργήσετε μια εικονική συσκευή από τον επιλεγμένο δίσκο;"
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Θέλετε να διαγράψετε τα επιλεγμένα CARP;"
 
@@ -3866,6 +3948,9 @@ msgstr "Θέλετε να διαγράψετε τις επιλεγμένες ε�
 
 msgid "Do you want to delete selected portal groups?"
 msgstr "Θέλετε να διαγράψετε τις επιλεγμένες ομάδες portal;"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Θέλετε να διαγράψετε τους επιλεγμένους παρόχους;"
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Θέλετε να διαγράψετε τα επιλεγμένα δημόσια κλειδιά;"
@@ -3976,6 +4061,9 @@ msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμ
 msgid "Do you want to disable selected portal groups?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες ομάδες portal;"
 
+msgid "Do you want to disable selected providers?"
+msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγμένους παρόχους;"
+
 msgid "Do you want to disable selected public keys?"
 msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα δημόσια κλειδιά;"
 
@@ -4065,6 +4153,9 @@ msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμέν
 
 msgid "Do you want to enable selected portal groups?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες ομάδες portal;"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμένους παρόχους;"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα δημόσια κλειδιά;"
@@ -4164,6 +4255,9 @@ msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες �
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες ομάδες portal;"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Θέλετε να κάνετε εναλλαγή επιλογής των επιλεγμένων παρόχων;"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα δημόσια κλειδιά;"
@@ -4293,6 +4387,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "Δυναμικό DNS"
 
+msgid "Dynamic DNS Settings"
+msgstr "Ρυθμίσεις Δυναμικού DNS"
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr ""
 "Δεν μπορείτε να χρησιμοποιήσετε δυναμική απόδοση διευθύνσεων IP (DHCP) για "
@@ -4396,6 +4493,9 @@ msgstr "Επεξεργασία Εγγραφής Θύρας"
 
 msgid "Edit Portal Group"
 msgstr "Επεξεργασία Ομάδας Portal"
+
+msgid "Edit Provider"
+msgstr "Επεξεργασία Παρόχου"
 
 msgid "Edit Public Key"
 msgstr "Επεξεργασία Δημόσιου Κλειδιού"
@@ -4629,6 +4729,9 @@ msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών Θυρ�
 msgid "Enable Selected Portal Groups"
 msgstr "Ενεργοποίηση Επιλεγμένων Ομάδων Portal"
 
+msgid "Enable Selected Providers"
+msgstr "Ενεργοποίηση Επιλεγμένων Παρόχων"
+
 msgid "Enable Selected Public Keys"
 msgstr "Ενεργοποίηση Επιλεγμένων Δημόσιων Κλειδιών"
 
@@ -4756,6 +4859,13 @@ msgstr "Ενεργοποίηση δημιουργίας λίστας περιε�
 msgid "Enable distributed hash table."
 msgstr "Ενεργοποίηση διανεμημένου πίνακα κατακερματισμού."
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Ενεργοποίηση χρήσης χαρακτήρων μπαλαντέρ στο όνομα τομέα, για τους παρόχους "
+"DDNS που το υποστηρίζουν."
+
 msgid "Enable domain wildcarding."
 msgstr "Ενεργοποίηση μπαλαντέρ ονομάτων δικτύου."
 
@@ -4864,6 +4974,20 @@ msgid ""
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή αν θέλετε να επεξεργάζεστε κατευθείαν τις "
 "σελίδες ρύθμισης χωρίς την ανάγκη να αλλάξετε σε λειτουργία επεξεργασίας."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή μόνο σε συστήματα χωρίς υλικό ρολογιού real-"
+"time και προπιλεγμένη ώρα εκκίνηση πολύ πίσω στο παρελθόν."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή για ματαίωση της ενημέρωσης DDNS αν η "
+"επικύρωση του πιστοποιητικού HTTPS αποτύχει."
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -5064,6 +5188,9 @@ msgstr "Εισάγετε πρόσθετες παραμέτρους"
 msgid "Enter an iSCSI initiator name."
 msgstr "Εισάγετε ένα όνομα εκκινητή iSCSI."
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Εισάγετε ένα αναγνωριστικό για αυτή την προσαρμοσμένη ρύθμιση DDNS."
+
 msgid "Enter comment for the share"
 msgstr "Εισάγετε σχόλιο για το κοινόχρηστο"
 
@@ -5204,6 +5331,9 @@ msgstr "Κωδικός Σφάλματος"
 
 msgid "Error Level"
 msgstr "Επίπεδο Σφαλμάτων"
+
+msgid "Errors"
+msgstr "Σφάλματα"
 
 msgid "Errors have been detected during import."
 msgstr "Ανιχνεύθηκαν σφάλματα κατά τη διαδικασία της εισαγωγής."
@@ -5423,6 +5553,9 @@ msgstr "Απέτυχε."
 msgid "Failover"
 msgstr "Ανακατεύθυνση"
 
+msgid "Fake Address"
+msgstr "Ψεύτική Διεύθυνση"
+
 msgid "Fast"
 msgstr "Γρήγορη"
 
@@ -5595,6 +5728,9 @@ msgstr "Επιβολή Ομάδας"
 
 msgid "Force Operation"
 msgstr "Επιβολή Λειτουργίας"
+
+msgid "Force Update Interval"
+msgstr "Αναγκαστική Ενημέρωση Μεσοδιαστήματος"
 
 msgid "Force Use"
 msgstr "Εξαναγκασμένη Χρήση"
@@ -6033,6 +6169,9 @@ msgstr "Υπολογιστής"
 msgid "Host Access Control"
 msgstr "Έλεγχος Πρόσβασης υπολογιστών"
 
+msgid "Host Names"
+msgstr "Ονόματα Υπολογιστών"
+
 msgid "Host Resources"
 msgstr "Πόροι του διακομιστή"
 
@@ -6044,6 +6183,9 @@ msgstr "Όνομα υπολογιστή"
 
 msgid "Hostname Database"
 msgstr "Βάση Ονομάτων υπολογιστών"
+
+msgid "Hostnames"
+msgstr "Ονόματα Υπολογιστών"
 
 msgid "Hosts"
 msgstr "Υπολογιστές"
@@ -6064,6 +6206,11 @@ msgid "Hours"
 msgstr "Ώρες"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr ""
 "Πόσο συχνά ελέγχεται η IP. Η περίοδος είναι σε δευτερόλεπτα (το μέγιστο "
@@ -6075,6 +6222,14 @@ msgid ""
 msgstr ""
 "Πόσο συχνά ανανεώνεται η IP ακόμα και αν δεν είναι αλλαγμένη. Η περίοδος "
 "είναι σε δευτερόλεπτα (το μέγιστο είναι 10 ημέρες)."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"Πόσο συχνά πρέπει να ενημερώνεται αυτή η IP, ακόμη και αν δεν έχει αλλάξει. "
+"Αυτός ο χρόνος θα πρέπει να δοθεί σε δευτερόλεπτα. Η προεπιλογή ισούται με "
+"30 ημέρες."
 
 msgid "I/O Statistics"
 msgstr "Στατιστικά I/O"
@@ -6101,6 +6256,9 @@ msgstr "Διεύθυνση IP"
 msgid "IP Address"
 msgstr "Διεύθυνση IP"
 
+msgid "IP Address Family"
+msgstr "Οικογένεια Διευθύνσεων IP"
+
 msgid "IP Address Prefix"
 msgstr "Πρόθεμα Διεύθυνσης IP"
 
@@ -6109,6 +6267,12 @@ msgstr "Διεύθυνση IP"
 
 msgid "IP address of the remote syslog server."
 msgstr "Διεύθυνση IP του απομακρυσμένου διακομιστή syslog."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"Η επικύρωση της διέυθυνσης IP μπορεί να απενεργοποιηθεί με τον ορισμό αυτής "
+"της επιλογής."
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6136,6 +6300,9 @@ msgstr "Ρυθμίσεις IPv4"
 
 msgid "IPv4 addresses"
 msgstr "Διευθύνσεις IPv4"
+
+msgid "IPv4 only"
+msgstr "Μόνο IPv4"
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr ""
@@ -6184,6 +6351,9 @@ msgstr "Διεύθυνση IPv6"
 
 msgid "IPv6 addresses"
 msgstr "Διευθύνσεις IPv6"
+
+msgid "IPv6 only"
+msgstr "Μόνο IPv6"
 
 msgid "IRC Live Support"
 msgstr "Ζωντανή υποστήριξη μέσω IRC"
@@ -6307,6 +6477,14 @@ msgid "If this property is set to off, the file system cannot be mounted."
 msgstr ""
 "Αν αυτή η ιδιότητα είναι ρυθμισμένη σε  off, το σύστημα αρχείων δεν μπορεί "
 "να προσαρτηθεί."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+"Αν αυτλη η ρύθμιση δεν ενεργοποιηθεί, προστίθεται το όνομα υπολογιστή. Σε "
+"περίπτωση που η ddns-διαδρομή παρέχεται με προσδιοριστές μορφής αυτή η "
+"ρύθμιση δεν χρησιμοποιείται."
 
 msgid "Ignore Hosts Allow"
 msgstr "Αγνόηση του Υπολογιστές που Επιτρέπονται"
@@ -6456,6 +6634,9 @@ msgstr "Αρχικό digest"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "Αρχικό ramdisk (π.χ. %s)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Αρχική καθυστέρηση εκκίνησς. Η προεπιλογή είναι χωρίς καθυστέρηση."
 
 msgid "Initialize"
 msgstr "Αρχικοποίηση"
@@ -6706,6 +6887,9 @@ msgstr ""
 
 msgid "Item(s)"
 msgstr "Αντικείμενα"
+
+msgid "Iterations"
+msgstr "Επαναλήψεις"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7253,6 +7437,9 @@ msgstr "MIRROR"
 msgid "MISSING"
 msgstr "ΛΕΙΠΕΙ"
 
+msgid "MIT License"
+msgstr "Άδεια MIT"
+
 msgid "MKV File"
 msgstr "Αρχείο MKV"
 
@@ -7306,9 +7493,6 @@ msgstr "Μείζονες Ενημερώσεις Έκδοσης Λειτουργ�
 
 msgid "Major Product Version Updates"
 msgstr "Μείζονες Ενημερώσεις Έκδοσης Προϊόντος"
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Σιγουρευτείτε ότι επιλέγετε το βέλτιστο αριθμό συσκευών"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "Βεβαιωθείτε ότι έχετε ενεργοποιήσει το S.M.A.R.T. στις συσκευές σας."
@@ -7584,6 +7768,9 @@ msgstr "Λεπτά"
 msgid "Minutes between the next network time synchronization."
 msgstr "Λεπτά μεταξύ των συγχρονισμών ώρας."
 
+msgid "Missing Provider"
+msgstr "Ο Πάροχος Λείπει"
+
 msgid "Missing a temporary folder."
 msgstr "Λείπει ένας προσωρινός φάκελος."
 
@@ -7763,6 +7950,9 @@ msgstr "Αμοιβαίο-CHAP"
 msgid "NAA Identifier"
 msgstr "Αναγνωριστικό NAA"
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr "Όνομα NETBIOS"
 
@@ -7936,6 +8126,9 @@ msgstr "Διεύθυνση Δικτύου"
 
 msgid "Network File System"
 msgstr "Δικτυακό σύστημα αρχείων"
+
+msgid "Network Interface"
+msgstr "Διεπαφή Δικτύου"
 
 msgid "Network Latency"
 msgstr "Αδράνεια Δικτύου"
@@ -8292,6 +8485,9 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Τίποτα προς συγχρονισμό"
 
+msgid "Notice"
+msgstr "Ειδοποίηση"
+
 msgid "Notice Level"
 msgstr "Επίπεδο Ειδοποίησης"
 
@@ -8445,6 +8641,9 @@ msgstr "Η εγγραφή επιλογής είναι ξεκλείδωτη"
 msgid "Optional"
 msgstr "Προαιρετικό"
 
+msgid "Optional server path for check IP server"
+msgstr "Προεραιτική διαδρομή διακομιστή για τον διακομιστή ελέγχου IP"
+
 msgid "Optional user-friendly string of the target."
 msgstr "Προαιρετικό, φιλικό προς το χρήστη, όνομα του προορισμού."
 
@@ -8456,6 +8655,9 @@ msgstr "Προέλευση"
 
 msgid "Orphaned"
 msgstr "Ορφανά"
+
+msgid "Orphaned Provider"
+msgstr "Ορφανός Πάροχος"
 
 msgid "Others"
 msgstr "Άλλοι"
@@ -8495,6 +8697,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Υπερφόρτωση"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "Επισκόπηση"
@@ -8779,9 +8984,6 @@ msgstr "Μέγεθος Φυσικού Μπλοκ"
 
 msgid "Physical Interface"
 msgstr "Φυσική διασύνδεση"
-
-msgid "Pictures"
-msgstr "Φωτογραφίες"
 
 msgid "Ping"
 msgstr "Ping"
@@ -9163,6 +9365,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Πάροχος"
 
+msgid "Provider Name"
+msgstr "Όνομα Παρόχου"
+
+msgid "Provider is locked"
+msgstr "Ο πάροχος είναι κλειδωμένος"
+
+msgid "Provider is marked for deletion"
+msgstr "Ο πάροχος έχει σημειωθεί προς διαγραφή"
+
+msgid "Provider is unlocked"
+msgstr "Ο πάροχος είναι ξεκλείδωτος"
+
 msgid "Provisioning Type"
 msgstr "Τύπος Provisioning"
 
@@ -9278,20 +9492,11 @@ msgstr "Συντήρηση RAID-5"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "Το RAID-Z1 πρέπει να έχει 3,5, ή 9 δίσκους σε κάθε vdev."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "Το RAID-Z2 πρέπει να έχει 4,6, ή 10 δίσκους σε κάθε vdev."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "Το RAID-Z3 πρέπει να έχει 5,7, ή 11 δίσκους σε κάθε vdev."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9613,6 +9818,9 @@ msgstr "Πληροφορίες Εγγραφής"
 
 msgid "Record Maintenance"
 msgstr "Συντήρηση Εγγραφής"
+
+msgid "Record Type"
+msgstr "Τύπος Εγγραφής"
 
 msgid "Record is locked"
 msgstr "Η εγγραφή είναι κλειδωμένη"
@@ -10119,6 +10327,15 @@ msgstr ""
 "Η Samba θα γράφει το αρχείο ασύγχρονα όταν το μέγεθος του αιτήματος είναι "
 "μεγαλύτερο από αυτήν την τιμή. (%d από προεπιλογή)."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+"Το ίδιο με την καθολική ρύθμιση, αλλά μόνο για αυτόν τον πάροχο. Αν "
+"παραλειφθεί, ορίζεται από την καθολική ρύθμιση, που αν δεν επιλεχθεί "
+"χρησιμοποιεί το προεπιλεγμένο user agent string."
+
 msgid "Sat"
 msgstr "Σαβ."
 
@@ -10246,6 +10463,9 @@ msgstr "Συνθηματικό"
 msgid "Secret for CHAP authentication."
 msgstr "Μυστικό για την πιστοποίηση CHAP."
 
+msgid "Secure SSL"
+msgstr "Ασφαλές SSL"
+
 msgid "Security Flavor"
 msgstr "Τύπος Ασφάλειας"
 
@@ -10260,6 +10480,13 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Δείτε το χαρακτηριστικό E8."
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+"Επιλέξτε \"Προσαρμοσμένος Πάροχος\" για να παραμετροποιήσετε τις "
+"λεπτομέρειες ενημέρωσης του διακομιστή DDNS."
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Επιλέξτε 'CD/DVD' αν θέλετε να προσαρτήσετε έναν τόμο CD/DVD."
@@ -10326,6 +10553,9 @@ msgstr "Επιλέξτε έναν αλγόριθμο κρυπτογράφηση�
 msgid "Select at which stage the command should be executed."
 msgstr "Επιλέξτε σε ποιο στάδιο θα πρέπει να εκτελείται η εντολή."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr "Επιλέξτε μεταξύ λειτουργίας τομέα και ομάδας εργασίας."
+
 msgid "Select configuration file:"
 msgstr "Επιλογή αρχείου ρυθμίσεων:"
 
@@ -10358,6 +10588,9 @@ msgstr ""
 
 msgid "Select file system format."
 msgstr "Επιλογή διαμόρφωσης του συστήματος αρχείων."
+
+msgid "Select from predefined providers."
+msgstr "Επιλέξτε από τους προκαθορισμένους παρόχους."
 
 msgid "Select item to remove from the list"
 msgstr "Επιλέξτε το αντικείμενο που θέλετε να αφαιρεθεί από τη λίστα"
@@ -10562,6 +10795,9 @@ msgstr "Μεγ. Πρωτόκολλο Διακομιστή"
 msgid "Server Min. Protocol"
 msgstr "Ελάχ. Πρωτόκολλο Διακομιστή"
 
+msgid "Server Mode"
+msgstr "Λειτουργία Διακομιστή"
+
 msgid "Server Name"
 msgstr "Όνομα Διακομιστή"
 
@@ -10570,6 +10806,9 @@ msgstr "Περιγραφή του διακομιστή. Αυτό, συνήθως
 
 msgid "Server information"
 msgstr "Πληροφορίες διακομιστή"
+
+msgid "Server to use for periodic IP address changes"
+msgstr "Διακομιστής προς χρήση για τις περιοδικές αλλαγές της διεύθυνσης IP"
 
 msgid "Server version"
 msgstr "Έκδοση διακομιστή"
@@ -10608,11 +10847,26 @@ msgid "Set browseable."
 msgstr "Ορισμός ως περιηγήσιμο."
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+"Ορίστε το φάκελο για μόνιμα αρχεία κρυφής μνήμης. Τα αρχεία κρυφής μνήμης "
+"χρησιμοποιούνται για παρακολούθηση ποιών διεύθύνσεων έχουν αποσταλεί με "
+"επιτυχία στον αντίστοιχο πάροχο DDNS και πότε."
+
+msgid "Set domain name"
+msgstr "Ορισμός ονόματος τομέα"
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
 "Επιλέξτε μεσοδιάστημα μεταξύ ελέγχων των δίσκων σε Ν δευτερόλεπτα. Η "
 "ελάχιστη επιτρεπόμενη τιμή είναι 10."
+
+msgid "Set log level"
+msgstr "Ορισμός επιπέδου καταγραφής"
 
 msgid "Set password"
 msgstr "Ορισμός Κωδικού"
@@ -10655,6 +10909,12 @@ msgstr ""
 "περιορίσει το μέγεθος των πακέτων που μεταδίδονται σε μια κάρτα διασύνδεση. "
 "Δεν υποστηρίζουν όλες οι διασυνδέσεις την ρύθμιση MTU, και κάποιες έχουν "
 "περιορισμούς στο εύρος της ρύθμισης."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+"Ορίστε τον αριθμό των ενημερώσεων DNS. Η προεπιλογή είναι 0, που σημαίνει "
+"άπειρες."
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -10713,6 +10973,9 @@ msgid ""
 msgstr ""
 "Ορισμός αναλυτικότητας των μηνυμάτων μεταφοράς. Το προεπιλεγμένο επίπεδο για "
 "τα μηνύματα είναι  \"%s\""
+
+msgid "Set workgroup name"
+msgstr "Ορισμός ονόματος ομάδας εργασίας"
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -10850,6 +11113,13 @@ msgstr "Κέλυφος"
 
 msgid "Shell Script"
 msgstr "Αρχείο"
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+"Εντολή κελύφους ή σκριπτ για έλεγχο ενημέρωσης της διεύθυνσης IP. Η εντολή "
+"πρέπει να παράγει ένα κείμενο με τη διέυθυνση IP στην τυπική της μορφή."
 
 msgid "Shock During Write."
 msgstr "Δόνηση κατά τη διάρκεια της εγγραφής."
@@ -11226,6 +11496,13 @@ msgstr ""
 "Καθορίστε τον τύπο συσκευής SCSI που θα χρησιμοποιείται κατά τη δημιουργία "
 "του LUN."
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+"Ορίστε το User-Agent string που θα σταλεί στον πάροχο DDNS κατά τη διάρκεια "
+"των αιτημάτων ενημέρωσης και ελέγχου IP."
+
 msgid "Specify the group numeric id."
 msgstr "Ορίστε το αριθμητικό id της ομάδας."
 
@@ -11237,6 +11514,9 @@ msgstr "Αίτημα διαχωρισμού"
 
 msgid "Standard"
 msgstr "Τυπικό"
+
+msgid "Standard Provider"
+msgstr "Τυπικός Πάροχος"
 
 msgid "Standard Reports"
 msgstr "Κανονικές Αναφορές"
@@ -11259,6 +11539,9 @@ msgstr "Έναρξη"
 
 msgid "Start TLS from within the session."
 msgstr "Εκκίνηση TLS από μέσα από τη συνεδρία."
+
+msgid "Startup Delay"
+msgstr "Καθυστέρηση Εκκίνησης"
 
 msgid "Static"
 msgstr "Στατική"
@@ -12261,6 +12544,11 @@ msgstr ""
 "χειρίζονται τις εισερχόμενες συνδέσεις. Η προεπιλογή είναι 30. Ορίζοντάς το "
 "σε 0 απενεργοποιεί το όριο."
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+"Η λίστα των ονομάτων υπολογιστών. Χρησιμοποιήστε κόμμα για να διαχωρίσετε "
+"πολλαπλά ονόματα."
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
@@ -12417,6 +12705,9 @@ msgstr "Ο κωδικός περιέχει τον μη επιτρεπτό χαρ
 
 msgid "The password encryption protocol to use."
 msgstr "Το πρωτόκολλο  κρυπρογράφησης κωδικών που θα χρησιμοποιηθεί."
+
+msgid "The password, if applicable."
+msgstr "Ο κωδικός, αν υπάρχει."
 
 msgid "The passwords do not match."
 msgstr "Οι κωδικοί δεν ταιριάζουν."
@@ -12635,6 +12926,9 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr "Το μεταφορτωμένο αρχείο φορτώθηκε μόνο μερικώς."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr "Το όνομα χρήστη, αν υπάρχει. Αυτό μπορεί να αναφέρεται ως hash."
+
 msgid "The value is invalid."
 msgstr "Η τιμή δεν είναι έγκυρη."
 
@@ -12699,6 +12993,9 @@ msgstr ""
 "επιτρέπει να καθορίσετε παραμέτρους που θα περάσουν στον πυρήνα και επιπλέον "
 "αρθρώματα για να φορτωθούν."
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr "Αυτές οι επιλογές προστίθενται στη γραμμή εντολών του σκριπτ wsdd."
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Οι παράμετροι αυτοί προστίθονται στο %s."
@@ -12729,6 +13026,9 @@ msgstr "Αυτοί οι παράμετροι προστίθενται στο /et
 
 msgid "These parameters are appended to the exports file."
 msgstr "Αυτές οι παράμετροι προστίθενται στο αρχείο exports."
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "Αυτοί οι παράμετροι προστίθονται στο αρχείο inadyn.conf."
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12776,6 +13076,9 @@ msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυ
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτή την ομάδα portal."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr "Αυτοί οι παράμετροι θα προστεθούν στη ρύθμιση αυτού του παρόχου"
 
 msgid "These parameters will be added to this target."
 msgstr "Αυτές οι παράμετροι θα προστεθούν σε αυτόν τον προορισμό."
@@ -12985,6 +13288,11 @@ msgstr ""
 "προορισμό ώστε να είναι η ίδια με τα δικαιώματα της πηγής."
 
 msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+"Αυτή η επιλογή ελέγχει αν οι διευθύνσεις IPv6 επιτρέπονται ή απορρίπτονται."
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules. By setting this to false you can create "
 "hidden modules."
@@ -13188,6 +13496,23 @@ msgstr ""
 "ο διακομιστής να χρησιμοποιήσει ο υπολογιστής-πελάτης."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+"Αυτή η ρύθμιση παρακάμπτει τις ενσωματωμένες διαδρομές και τις εναλλακτικές "
+"τοποθεσίες και παρέχει ένα τρόπο για να καθοριστεί η διαδρομή προς αξιόπιστα "
+"πιστοποιητικά CA, σε μορφή PEM, ομαδοποιημένα σε ένα αρχείο."
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+"Αυτή η ρύθμιση συνήθως ακολουθεί τη ρύθμιση ssl, αλλά μπορεί να "
+"χρησιμοποιηθεί για την απενργοποίηση του HTTPS κατά τον έλεγχο της "
+"διεύθυνσης IP."
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -13371,6 +13696,15 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Για να ταιριάζει με οποιαδήποτε διεύθυνση IP αφήσετε κενό αυτό το πεδίο."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+"Για υποστήριξη πολλαπλών χρηστών του ίδιου παρόχου DDNS, πρέπει να οριστεί "
+"ένα αναγνωριστικό. Το αναγνωριστικό μπορεί να είναι οποιοδήποτε ελεύθερη "
+"μορφή αλφαριθμητικού κειμένου, αρκεί ο συνδυασμός να είναι μοναδικός."
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 "Για χρήση Active Directory θα ενεργοποιηθεί επίσης και η υπηρεσία SMB."
@@ -13438,6 +13772,9 @@ msgstr "Μεταβολή Επιλεγμένων Εγγραφών Θυρών"
 
 msgid "Toggle Selected Portal Groups"
 msgstr "Μεταβολή Επιλεγμένων Ομάδων Portal"
+
+msgid "Toggle Selected Providers"
+msgstr "Εναλλαγή Επιλογής Επιλεγμένων Παρόχων"
 
 msgid "Toggle Selected Public Keys"
 msgstr "Μεταβολή Επιλεγμένων Δημόσιων Κλειδιών"
@@ -13803,6 +14140,9 @@ msgstr ""
 msgid "Undefined"
 msgstr "Μη ορισμένο"
 
+msgid "Undefined Type"
+msgstr "Απροσδιόριστος Τύπος"
+
 msgid "Unformated"
 msgstr "Αδιαμόρφωτο"
 
@@ -13845,6 +14185,9 @@ msgstr "Άγνωστη δραστηριότητα"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Άγνωστο Πρωτόκολλο Συσσωμάτωσης"
+
+msgid "Unknown Provider"
+msgstr "Άγνωστος Πάροχος"
 
 msgid "Unknown or Unformatted"
 msgstr "Άγνωστο ή Μη-μορφοποιημένο"
@@ -13940,6 +14283,16 @@ msgstr "Χρήση προεπιλεγμένου αρχείου TLS Trust"
 msgid "Use Encryption"
 msgstr "Χρήση Κρυπτογράφησης"
 
+msgid "Use HTTPS"
+msgstr "Χρήση HTTPS"
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+"Χρήση HTTPS και για τον έλεγχο αλλαγής τηα IP αλλά και για την ενημέρωση της "
+"εγγραφής DNS. Η προεπιλογή είναι χρήση HTTPS."
+
 msgid "Use PAM for user authentication."
 msgstr "Χρήση PAM για πιστοποίηση χρηστών."
 
@@ -14011,6 +14364,21 @@ msgstr "Χρήση του κανονικού container (αυτό είναι η �
 
 msgid "Use these specials actions for debugging only!"
 msgstr "Χρησιμοποιήστε αυτές τις ειδικές ενέργειες μόνο για αποσφαλμάτωση!"
+
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+"Χρήση αυτής της διεπαφής δικτύου σαν πηγή για αλλαγές της διεύθυνσης IP, "
+"αντί για έλεγχο σε κάποιον εξωτερικό διακομιστή."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+"Χρήση αυτής της επιλογή για μίμηση μιας ψεύτικης ενημέρωσης διεύθυνσης με "
+"μια \"τυχαία\" διεύθυνση στο εύρος του 203.0.113.0/24, πριν την ενημέρωση με "
+"την πραγματική διεύθυνση IP."
 
 #, php-format
 msgid ""
@@ -14084,6 +14452,9 @@ msgstr ""
 msgid "User"
 msgstr "Χρήστης"
 
+msgid "User Agent"
+msgstr "User Agent"
+
 msgid "User ID"
 msgstr "ID χρήστη"
 
@@ -14116,6 +14487,9 @@ msgstr "Ο λογαριασμός χρήστη είναι προστατευμέ
 
 msgid "User account is unlocked"
 msgstr "Ο λογαριασμός χρήστη είναι ξεκλείδωτος"
+
+msgid "User agent string"
+msgstr "User agent string"
 
 msgid "User portal permission."
 msgstr "Δικαιώματα portal χρήστη"
@@ -14234,6 +14608,9 @@ msgstr "Επίπεδο λεπτομερειών των πληροφοριών π
 msgid "Verify"
 msgstr "Επαλήθευση"
 
+msgid "Verify Address"
+msgstr "Επιβεβαίωση Διεύθυνσης"
+
 msgid "Version"
 msgstr "Έκδοση"
 
@@ -14242,9 +14619,6 @@ msgstr "Έκδοση:"
 
 msgid "Vibration During Write."
 msgstr "Δόνηση κατά την εγγραφή."
-
-msgid "Video"
-msgstr "Βίντεο"
 
 msgid "Virtual Device"
 msgstr "Εικονική Συσκευή"
@@ -14399,6 +14773,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr "WSD"
+
 msgid "Wait Time"
 msgstr "Χρόνος Αναμονής"
 
@@ -14416,6 +14793,12 @@ msgstr "Επίπεδο Προειδοποίησης"
 
 msgid "Watch Folder"
 msgstr "Φάκελος Παρακολούθησης"
+
+msgid "Web Service Discovery"
+msgstr "Web Service Discovery"
+
+msgid "Web Service Discovery Settings"
+msgstr ""
 
 #, php-format
 msgid "Web interface port. The default port is %d."
@@ -14530,6 +14913,9 @@ msgstr "Wide Links"
 msgid "Wildcard"
 msgstr "Μπαλαντέρ"
 
+msgid "Wildcard Domain"
+msgstr "Χαρακτήρες Μπαλαντέρ Τομέα"
+
 msgid "Winbindd Availability"
 msgstr "Διαθεσιμότητα Winbindd"
 
@@ -14544,6 +14930,9 @@ msgstr "Φάκελος Εργασίας"
 
 msgid "Workgroup"
 msgstr "Ομάδα εργασίας"
+
+msgid "Workgroup Name"
+msgstr "Όνομα Ομάδας Εργασίας"
 
 msgid "Wrap text:"
 msgstr "Αναδίπλωση κειμένου:"
@@ -14833,6 +15222,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "και"
 
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
 msgid "bash - Bourne Again Shell"
 msgstr "bash - Bourne Again Shell"
 
@@ -15010,6 +15402,9 @@ msgstr "κίνηση δικτύου"
 msgid "no"
 msgstr "όχι"
 
+msgid "no delay"
+msgstr "χωρίς καθυστέρηση"
+
 msgid "no pools available"
 msgstr "δεν υπάρχουν διαθέσιμα pool"
 
@@ -15085,6 +15480,9 @@ msgstr "αποπροσάρτηση"
 msgid "unknown"
 msgstr "άγνωστο"
 
+msgid "update.example.com"
+msgstr "update.example.com"
+
 msgid "visible"
 msgstr "ορατό"
 
@@ -15093,3 +15491,41 @@ msgstr "ανατέθηκε στο"
 
 msgid "yes"
 msgstr "ναι"
+
+#~ msgid "Audio"
+#~ msgstr "Ήχος"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Δημιουργία μιας εικονικής συσκευής που περιέχει μόνο μια ή πολλές "
+#~ "ενοποιημένες φυσικές συσκευές"
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Σιγουρευτείτε ότι επιλέγετε το βέλτιστο αριθμό συσκευών"
+
+#~ msgid "Pictures"
+#~ msgstr "Φωτογραφίες"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "Το RAID-Z1 πρέπει να έχει 3,5, ή 9 δίσκους σε κάθε vdev."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "Το RAID-Z2 πρέπει να έχει 4,6, ή 10 δίσκους σε κάθε vdev."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "Το RAID-Z3 πρέπει να έχει 5,7, ή 11 δίσκους σε κάθε vdev."
+
+#~ msgid "Video"
+#~ msgstr "Βίντεο"
+
+#~ msgid "Append the current IP to the the DDNS server update path."
+#~ msgstr ""
+#~ "Προσθήκη της τρέχουσας IP στη διαδρομή ενημέρωσης του διακομιστή DDNS."
+
+#~ msgid ""
+#~ "How often the IP is checked, in seconds. Default: apxrox. 1 minute. Max: 10 "
+#~ "days."
+#~ msgstr ""
+#~ "Πόσο συχνά ελέγχεται αυτή η IP, σε δευτερόλεπτα. Προεπιλογή: περίπου 1 "
+#~ "λεπτό. Μέγιστο: 10 ημέρες."

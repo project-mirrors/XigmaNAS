@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
 "PO-Revision-Date: 2021-03-20 21:45+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: ca_ES\n"
 
@@ -220,8 +220,14 @@ msgstr "*** Duplicat importat ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr ""
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr ""
 
 msgid "000"
 msgstr "000"
@@ -639,6 +645,9 @@ msgstr "Afegeix port de registre"
 msgid "Add Portal Group"
 msgstr "Afegeix grup de Portal"
 
+msgid "Add Provider"
+msgstr ""
+
 msgid "Add Public Key"
 msgstr "Afegeix una clau pública"
 
@@ -931,6 +940,9 @@ msgstr "Permet"
 msgid "Allow GSSAPI authentication."
 msgstr "Permet autenticació GSSAPI."
 
+msgid "Allow IPv6"
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "Permetre nous arxius"
 
@@ -1160,6 +1172,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr "Afegeix contingut al fitxer CSS predeterminat"
 
+msgid "Append my IP"
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "Annexar recursos definits per l'usuari"
 
@@ -1276,9 +1294,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Nom de l'atribut"
-
-msgid "Audio"
-msgstr "Àudio"
 
 msgid "Aug"
 msgstr "Ago"
@@ -1653,6 +1668,9 @@ msgstr ""
 "Transmet la seva disponibilitat cada segon configurat a la xarxa, per "
 "defecte és de 300 segons."
 
+msgid "Broken RTC"
+msgstr ""
+
 msgid "Browseable"
 msgstr "Navegable"
 
@@ -1661,6 +1679,13 @@ msgstr "Ubicació del botó"
 
 msgid "Button Settings"
 msgstr "Configuració del botó"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Per defecte només els arxius existents poden ser pujats"
@@ -1676,6 +1701,9 @@ msgstr "Fitxer de capçalera C ++"
 
 msgid "C++ Source File"
 msgstr "Fitxer de codi C++"
+
+msgid "CA Trusted Certificates"
+msgstr ""
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1839,6 +1867,9 @@ msgstr "Configuració CSS"
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr ""
+
 msgid "Calibration Battery"
 msgstr "Calibra-cio bateria"
 
@@ -1934,6 +1965,21 @@ msgstr "Canal"
 
 msgid "Charging Battery"
 msgstr "Carregant bateria"
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check Interval"
+msgstr ""
 
 msgid "Check System|General Setup before initializing"
 msgstr "Comprovar el sistema | Configuració general abans de inicialitzar"
@@ -2559,11 +2605,11 @@ msgstr "Creeu un dispositiu SLOG reflectit per a ZIL"
 msgid "Create a spare device"
 msgstr "Crea un dispositiu de recanvi"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
+msgid "Create a virtual device containing a single device"
 msgstr ""
-"Creeu un dispositiu virtual que contingui un únic dispositiu o dispositius "
-"concatenats"
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Creeu un dispositiu virtual que contingui dispositius enmirallats"
@@ -2672,6 +2718,9 @@ msgstr "Any actual"
 msgid "Custom"
 msgstr "Personalitzat"
 
+msgid "Custom Provider"
+msgstr ""
+
 msgid "Custom Script"
 msgstr "Script de personalització"
 
@@ -2689,6 +2738,20 @@ msgstr "Script personalitzat no trobat."
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG: registra informació de depuració"
@@ -2716,6 +2779,9 @@ msgstr "Autenticació DHX"
 
 msgid "DHX2 Authentication"
 msgstr "desxifrat contrasenya DHX2"
+
+msgid "DISK"
+msgstr ""
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -3020,6 +3086,9 @@ msgstr "Elimineu els registres de ports seleccionats"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Suprimeix grups de Portal seleccionats"
+
+msgid "Delete Selected Providers"
+msgstr ""
 
 msgid "Delete Selected Public Keys"
 msgstr "Suprimeix les claus públiques seleccionades"
@@ -3407,6 +3476,9 @@ msgstr "Desactiva els registres de ports seleccionats"
 msgid "Disable Selected Portal Groups"
 msgstr "Desactiveu els grups de portal seleccionats"
 
+msgid "Disable Selected Providers"
+msgstr ""
+
 msgid "Disable Selected Public Keys"
 msgstr "Desactiva les claus públiques seleccionades"
 
@@ -3721,6 +3793,9 @@ msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr ""
 "Vols crear un dispositiu virtual segmentat des de els discs seleccionats?"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Vols eliminar els CARP's seleccionats?"
 
@@ -3819,6 +3894,9 @@ msgstr "Voleu eliminar els registres de ports seleccionats?"
 
 msgid "Do you want to delete selected portal groups?"
 msgstr "Voleu eliminar els grups de portal seleccionats?"
+
+msgid "Do you want to delete selected providers?"
+msgstr ""
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Voleu eliminar les claus públiques seleccionades?"
@@ -3928,6 +4006,9 @@ msgstr "Voleu desactivar els registres de ports seleccionats?"
 msgid "Do you want to disable selected portal groups?"
 msgstr "Voleu desactivar els grups de portal seleccionats?"
 
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
 msgid "Do you want to disable selected public keys?"
 msgstr "Voleu desactivar les claus públiques seleccionades?"
 
@@ -4017,6 +4098,9 @@ msgstr "Voleu activar els registres de ports seleccionats?"
 
 msgid "Do you want to enable selected portal groups?"
 msgstr "Voleu activar els grups de portal seleccionats?"
+
+msgid "Do you want to enable selected providers?"
+msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Voleu habilitar les claus públiques seleccionades?"
@@ -4116,6 +4200,9 @@ msgstr "Voleu canviar els registres de ports seleccionats?"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Voleu canviar els grups de portal seleccionats?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Voleu canviar les claus públiques seleccionades?"
@@ -4244,6 +4331,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "DNS dinàmica"
 
+msgid "Dynamic DNS Settings"
+msgstr ""
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "IP dinàmica (DHCP) no pot ser utilitzat pels recursos HAST."
 
@@ -4345,6 +4435,9 @@ msgstr "Edita el registre del port"
 
 msgid "Edit Portal Group"
 msgstr "Editar Grup de portal"
+
+msgid "Edit Provider"
+msgstr ""
 
 msgid "Edit Public Key"
 msgstr "Editeu clau pùblica"
@@ -4580,6 +4673,9 @@ msgstr "Activa els registres de ports seleccionats"
 msgid "Enable Selected Portal Groups"
 msgstr "Activar els grups de portal seleccionats?"
 
+msgid "Enable Selected Providers"
+msgstr ""
+
 msgid "Enable Selected Public Keys"
 msgstr "Activeu claus pùbliques"
 
@@ -4705,6 +4801,11 @@ msgstr "Habilitar llista de directoris."
 msgid "Enable distributed hash table."
 msgstr "Habilitar taula hash distribuïda."
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
 msgid "Enable domain wildcarding."
 msgstr "Habilitar els comodins de domini."
 
@@ -4810,6 +4911,16 @@ msgid ""
 msgstr ""
 "Activa aquesta opció si voleu editar les pàgines de configuració directament "
 "sense la necessitat de canviar al mode d'edició."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -5007,6 +5118,9 @@ msgstr "Introduïu paràmetres addicionals"
 msgid "Enter an iSCSI initiator name."
 msgstr "Introduïu un nom de iniciador iSCSI."
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
 msgid "Enter comment for the share"
 msgstr "Introduïu el comentari per el compartit"
 
@@ -5144,6 +5258,9 @@ msgstr "Errada de codi"
 
 msgid "Error Level"
 msgstr "Nivell d'error"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Errors have been detected during import."
 msgstr "S'han detectat errors durant la importació."
@@ -5363,6 +5480,9 @@ msgstr "Ha fallat."
 msgid "Failover"
 msgstr "Commutació per error"
 
+msgid "Fake Address"
+msgstr ""
+
 msgid "Fast"
 msgstr "Ràpid"
 
@@ -5534,6 +5654,9 @@ msgstr "Força el grup"
 
 msgid "Force Operation"
 msgstr "Força operació"
+
+msgid "Force Update Interval"
+msgstr ""
 
 msgid "Force Use"
 msgstr "forçar l'ús"
@@ -5979,6 +6102,9 @@ msgstr "Amfitrió"
 msgid "Host Access Control"
 msgstr "Control d'Accés a l'amfitrió"
 
+msgid "Host Names"
+msgstr ""
+
 msgid "Host Resources"
 msgstr "Recursos del servidor"
 
@@ -5990,6 +6116,9 @@ msgstr "Nom de l'amfitrió"
 
 msgid "Hostname Database"
 msgstr "Base de dades d'amfitrió"
+
+msgid "Hostnames"
+msgstr ""
 
 msgid "Hosts"
 msgstr "Màquinas"
@@ -6010,6 +6139,11 @@ msgid "Hours"
 msgstr "Hores"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr ""
 "Amb quina freqüència es comprova la IP. El període és en segons (màx. És de "
@@ -6021,6 +6155,11 @@ msgid ""
 msgstr ""
 "Amb quina freqüència s'actualitza la IP, encara que no es canvia. El període "
 "és en segons (màx. És de 10 dies)."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
 
 msgid "I/O Statistics"
 msgstr "Estadística de E/S"
@@ -6047,6 +6186,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "Adreça IP"
 
+msgid "IP Address Family"
+msgstr ""
+
 msgid "IP Address Prefix"
 msgstr "Prefix d'adreça IP"
 
@@ -6055,6 +6197,10 @@ msgstr "Adreça IP"
 
 msgid "IP address of the remote syslog server."
 msgstr "Adreça IP del servidor syslog remot."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6082,6 +6228,9 @@ msgstr "Paràmetres IPv4"
 
 msgid "IPv4 addresses"
 msgstr "Adreças IPv4"
+
+msgid "IPv4 only"
+msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "Adreça IPv4 o IPv6 d'un servidor iSNS per registrar-se."
@@ -6129,6 +6278,9 @@ msgstr "Adreça IPv6"
 
 msgid "IPv6 addresses"
 msgstr "Adreças IPv6"
+
+msgid "IPv6 only"
+msgstr ""
 
 msgid "IRC Live Support"
 msgstr "IRC Live Support"
@@ -6249,6 +6401,11 @@ msgid "If this property is set to off, the file system cannot be mounted."
 msgstr ""
 "Si aquesta propietat està desactivada, el sistema de fitxers no es pot "
 "muntar."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
 
 msgid "Ignore Hosts Allow"
 msgstr "Ignora els Amfitrions permesos"
@@ -6395,6 +6552,9 @@ msgstr "Resum inicial"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "Disc RAM inicial (ex. %s)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
 
 msgid "Initialize"
 msgstr "Inicialitza"
@@ -6639,6 +6799,9 @@ msgstr ""
 
 msgid "Item(s)"
 msgstr "element(s)"
+
+msgid "Iterations"
+msgstr ""
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7180,6 +7343,9 @@ msgstr "MIRALL"
 msgid "MISSING"
 msgstr "Perdut"
 
+msgid "MIT License"
+msgstr ""
+
 msgid "MKV File"
 msgstr "Arxiu MKV"
 
@@ -7233,9 +7399,6 @@ msgstr "Principals actualitzacions de la versió del sistema operatiu"
 
 msgid "Major Product Version Updates"
 msgstr "Principals actualitzacions del producte"
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Assegureu-vos de seleccionar el nombre òptim de dispositius"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "Assegureu-vos que ha activat S.M.A.R.T. per als seus dispositius."
@@ -7506,6 +7669,9 @@ msgstr "Minuts"
 msgid "Minutes between the next network time synchronization."
 msgstr "Minuts entre la propera sincronització a la xarxa."
 
+msgid "Missing Provider"
+msgstr ""
+
 msgid "Missing a temporary folder."
 msgstr "S'ha perdut un directori temporal."
 
@@ -7685,6 +7851,9 @@ msgstr "CHAP mutu"
 msgid "NAA Identifier"
 msgstr "Identificador NAA"
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr "Nom NETBIOS"
 
@@ -7860,6 +8029,9 @@ msgstr "Adreça de xarxa"
 
 msgid "Network File System"
 msgstr "Sistema d'arxius de xarxa"
+
+msgid "Network Interface"
+msgstr ""
 
 msgid "Network Latency"
 msgstr "Latència de xarxa"
@@ -8214,6 +8386,9 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Res per sincronitzar"
 
+msgid "Notice"
+msgstr ""
+
 msgid "Notice Level"
 msgstr "Nivell d'avís"
 
@@ -8367,6 +8542,9 @@ msgstr "El registre d'opcions està desbloquejat"
 msgid "Optional"
 msgstr "Opcional"
 
+msgid "Optional server path for check IP server"
+msgstr ""
+
 msgid "Optional user-friendly string of the target."
 msgstr "Cadena de fàcil ús opcional de l'objectiu."
 
@@ -8378,6 +8556,9 @@ msgstr "Origen"
 
 msgid "Orphaned"
 msgstr "Orfe"
+
+msgid "Orphaned Provider"
+msgstr ""
 
 msgid "Others"
 msgstr "Altres"
@@ -8417,6 +8598,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Sobrecàrrega"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "Vista general"
@@ -8698,9 +8882,6 @@ msgstr "Mida del bloc físic"
 
 msgid "Physical Interface"
 msgstr "Interfície física"
-
-msgid "Pictures"
-msgstr "Fotografies"
 
 msgid "Ping"
 msgstr "Ping"
@@ -9079,6 +9260,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Proveïdor"
 
+msgid "Provider Name"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Tipus de subministrament"
 
@@ -9194,20 +9387,11 @@ msgstr "Manteniment RAID-5"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "RAID-Z1 ha de tenir 3, 5, o 9 discos en cada vdev."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "RAID-Z2 ha de tenir 4, 6, o 10 discos en cada vdev."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "RAID-Z3 ha de tenir 5, 7, o 11 discos en cada vdev."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9529,6 +9713,9 @@ msgstr "Informació registre"
 
 msgid "Record Maintenance"
 msgstr "Manyeniment de registre"
+
+msgid "Record Type"
+msgstr ""
 
 msgid "Record is locked"
 msgstr "Registre està bloquejat"
@@ -10032,6 +10219,12 @@ msgstr ""
 "Samba escriurà l'arxiu de forma asíncrona quan la mida de la sol·licitud és "
 "més gran que aquest valor. (%d per defecte)."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
 msgid "Sat"
 msgstr "Ds"
 
@@ -10159,6 +10352,9 @@ msgstr "Secret"
 msgid "Secret for CHAP authentication."
 msgstr "Secret de l'autenticació CHAP."
 
+msgid "Secure SSL"
+msgstr ""
+
 msgid "Security Flavor"
 msgstr "Sabor de seguretat"
 
@@ -10173,6 +10369,11 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Veure atribut E8"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Seleccioneu \"CD / DVD\" si vols muntar un volum de CD / DVD."
@@ -10234,6 +10435,9 @@ msgstr "Seleccionar el algoritme de xifrat a utilitzar."
 msgid "Select at which stage the command should be executed."
 msgstr "Selecciona en quina etapa s'ha d'executar l'ordre."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr ""
+
 msgid "Select configuration file:"
 msgstr "Selecciona arxiu de configuració:"
 
@@ -10264,6 +10468,9 @@ msgstr "Seleccioneu el mode de fitxer de les pestanyes personalitzades."
 
 msgid "Select file system format."
 msgstr "Seleccionar el format de sistema de fitxers."
+
+msgid "Select from predefined providers."
+msgstr ""
 
 msgid "Select item to remove from the list"
 msgstr "Seleccionar element per eliminar-lo de la llista"
@@ -10468,6 +10675,9 @@ msgstr "Màxim protocol de servidor"
 msgid "Server Min. Protocol"
 msgstr "Mínim protocol de servidor"
 
+msgid "Server Mode"
+msgstr ""
+
 msgid "Server Name"
 msgstr "Nom del servidor"
 
@@ -10476,6 +10686,9 @@ msgstr "Descripció del servidor. Això en general pot deixar-se en blanc."
 
 msgid "Server information"
 msgstr "Informació del servidor"
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
 
 msgid "Server version"
 msgstr "Versió del servidor"
@@ -10514,11 +10727,23 @@ msgid "Set browseable."
 msgstr "Fes-ho navegable."
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Set domain name"
+msgstr ""
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
 "Establir l'interval entre comprovacions de disc de N segons. El valor mínim "
 "permès és de 10."
+
+msgid "Set log level"
+msgstr ""
 
 msgid "Set password"
 msgstr "Definiu la contrasenya"
@@ -10562,6 +10787,10 @@ msgstr ""
 "paquets que es transmeten en una interfície. No totes les interfícies "
 "admeten l'establiment de la MTU, i algunes interfícies tenen restriccions de "
 "rang."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -10621,6 +10850,9 @@ msgid ""
 msgstr ""
 "Estableix la verbositat dels missatges de transmissió. El nivell de missatge "
 "per defecte és \"%s\""
+
+msgid "Set workgroup name"
+msgstr ""
 
 msgid "Setkey"
 msgstr "Fixar la clau"
@@ -10755,6 +10987,11 @@ msgstr "Intèrpret de comandaments"
 
 msgid "Shell Script"
 msgstr "Script Shell"
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
 
 msgid "Shock During Write."
 msgstr "Xoc durant escriptura."
@@ -11130,6 +11367,11 @@ msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
 "Especifiqueu el tipus de dispositiu SCSI que s'utilitzarà en crear el LUN."
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
 msgid "Specify the group numeric id."
 msgstr "Especifiqueu l’identificador numèric del grup."
 
@@ -11141,6 +11383,9 @@ msgstr "Sol·licitud de divisiò"
 
 msgid "Standard"
 msgstr "Estàndard"
+
+msgid "Standard Provider"
+msgstr ""
 
 msgid "Standard Reports"
 msgstr "Informes estàndard"
@@ -11162,6 +11407,9 @@ msgstr "Inicia"
 
 msgid "Start TLS from within the session."
 msgstr "Inicieu TLS des de dins de la sessió."
+
+msgid "Startup Delay"
+msgstr ""
 
 msgid "Static"
 msgstr "Estàtic"
@@ -12133,6 +12381,9 @@ msgstr ""
 "connexions entrants. El valor predeterminat és 30. Una configuració de 0 "
 "desactiva el límit."
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
@@ -12284,6 +12535,9 @@ msgstr "La contrasenya inclou el caràcter i legal ':'."
 
 msgid "The password encryption protocol to use."
 msgstr "El protocol de xifrat de la contrasenya a fer servir."
+
+msgid "The password, if applicable."
+msgstr ""
 
 msgid "The passwords do not match."
 msgstr "Les contrasenyes no coincideixen"
@@ -12499,6 +12753,9 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr "El fitxer només s'ha pogut desar parcialment al servidor."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "El valor no és vàlid."
 
@@ -12561,6 +12818,9 @@ msgstr ""
 "especificar els paràmetres que s'han de passar al nucli i els mòduls "
 "addicionals que es carregaran."
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Aquests paràmetres s'afegeixen a %s."
@@ -12591,6 +12851,9 @@ msgstr "Aquests paràmetres s’afegeixen a /etc/ssh/sshd_config."
 
 msgid "These parameters are appended to the exports file."
 msgstr "Aquests paràmetres s’afegeixen al fitxer d'exportacions."
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12636,6 +12899,9 @@ msgstr "Aquests paràmetres s'afegiran a aquest LUN."
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Aquests paràmetres s'afegiran a aquest grup de portal."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr ""
 
 msgid "These parameters will be added to this target."
 msgstr "Aquests paràmetres s'afegiran a aquest objetiu."
@@ -12827,6 +13093,10 @@ msgid ""
 msgstr ""
 "Aquesta opció fa que el rsync rebuts estableixi els permisos de destinació "
 "per ser els mateixos que els permisos d'origen."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -13031,6 +13301,17 @@ msgstr ""
 "que el client utilitzi."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -13211,6 +13492,12 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "Per fer coincidir qualsevol adreça IP, deixeu aquest camp buit."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 "Per utilitzar Active Directory, el servei SMB també estarà habilitat."
@@ -13277,6 +13564,9 @@ msgstr "Commuta els registres de ports seleccionats"
 
 msgid "Toggle Selected Portal Groups"
 msgstr "Commuta els grups de portal seleccionats"
+
+msgid "Toggle Selected Providers"
+msgstr ""
 
 msgid "Toggle Selected Public Keys"
 msgstr "Commuta les claus públiques seleccionats"
@@ -13640,6 +13930,9 @@ msgstr "Errors de lectura no corregits notifiquen al sistema operatiu."
 msgid "Undefined"
 msgstr "No s'ha definit"
 
+msgid "Undefined Type"
+msgstr ""
+
 msgid "Unformated"
 msgstr "Sense formatar"
 
@@ -13682,6 +13975,9 @@ msgstr "Activitat desconeguda"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Protocol d'agregació desconegut"
+
+msgid "Unknown Provider"
+msgstr ""
 
 msgid "Unknown or Unformatted"
 msgstr "Desconegut o no formatat."
@@ -13775,6 +14071,14 @@ msgstr "Utilitzeu el fitxer de confiança TLS per defecte"
 msgid "Use Encryption"
 msgstr "Utilitza xifrat"
 
+msgid "Use HTTPS"
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "Utilitza PAM per a l'autenticació d'usuari."
 
@@ -13848,6 +14152,16 @@ msgstr "Utilitzeu el contenidor estàndard (aquest és el valor predeterminat)"
 msgid "Use these specials actions for debugging only!"
 msgstr "Utilitzeu aquests especials mesures per a la depuració només!"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -13918,6 +14232,9 @@ msgstr ""
 msgid "User"
 msgstr "Usuari"
 
+msgid "User Agent"
+msgstr ""
+
 msgid "User ID"
 msgstr "ID d'usuari"
 
@@ -13950,6 +14267,9 @@ msgstr "El compte d'usuari està protegit"
 
 msgid "User account is unlocked"
 msgstr "El compte d'usuari està desbloquejat"
+
+msgid "User agent string"
+msgstr ""
 
 msgid "User portal permission."
 msgstr "Permís del portal d’usuaris."
@@ -14069,6 +14389,9 @@ msgstr "Verbositat de la informació que es registra."
 msgid "Verify"
 msgstr "Verificar"
 
+msgid "Verify Address"
+msgstr ""
+
 msgid "Version"
 msgstr "Versió"
 
@@ -14077,9 +14400,6 @@ msgstr "Versió:"
 
 msgid "Vibration During Write."
 msgstr "Vibracions durant escriptura."
-
-msgid "Video"
-msgstr "Vídeo"
 
 msgid "Virtual Device"
 msgstr "Dispositiu virtual"
@@ -14233,6 +14553,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr ""
+
 msgid "Wait Time"
 msgstr "Temps d'espera"
 
@@ -14250,6 +14573,12 @@ msgstr "Nivell d'avís"
 
 msgid "Watch Folder"
 msgstr "Carpeta de visualització"
+
+msgid "Web Service Discovery"
+msgstr ""
+
+msgid "Web Service Discovery Settings"
+msgstr ""
 
 #, php-format
 msgid "Web interface port. The default port is %d."
@@ -14360,6 +14689,9 @@ msgstr "Enllaços amplis."
 msgid "Wildcard"
 msgstr "Comodí"
 
+msgid "Wildcard Domain"
+msgstr ""
+
 msgid "Winbindd Availability"
 msgstr "Disponibilitat Winbindd"
 
@@ -14374,6 +14706,9 @@ msgstr "Directori de treball"
 
 msgid "Workgroup"
 msgstr "Grup de treball"
+
+msgid "Workgroup Name"
+msgstr ""
 
 msgid "Wrap text:"
 msgstr "Ajustar el text:"
@@ -14650,6 +14985,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "i"
 
+msgid "api.ipify.org"
+msgstr ""
+
 msgid "bash - Bourne Again Shell"
 msgstr "bash - Bourne Again Shell"
 
@@ -14826,6 +15164,9 @@ msgstr "Tràfic de xarxa"
 msgid "no"
 msgstr "no"
 
+msgid "no delay"
+msgstr ""
+
 msgid "no pools available"
 msgstr "no hi ha piscines disponibles"
 
@@ -14901,6 +15242,9 @@ msgstr "desmontar"
 msgid "unknown"
 msgstr "desconegut"
 
+msgid "update.example.com"
+msgstr ""
+
 msgid "visible"
 msgstr "visible"
 
@@ -14909,3 +15253,30 @@ msgstr "va ser assignat a"
 
 msgid "yes"
 msgstr "sí"
+
+#~ msgid "Audio"
+#~ msgstr "Àudio"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Creeu un dispositiu virtual que contingui un únic dispositiu o dispositius "
+#~ "concatenats"
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Assegureu-vos de seleccionar el nombre òptim de dispositius"
+
+#~ msgid "Pictures"
+#~ msgstr "Fotografies"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "RAID-Z1 ha de tenir 3, 5, o 9 discos en cada vdev."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "RAID-Z2 ha de tenir 4, 6, o 10 discos en cada vdev."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "RAID-Z3 ha de tenir 5, 7, o 11 discos en cada vdev."
+
+#~ msgid "Video"
+#~ msgstr "Vídeo"

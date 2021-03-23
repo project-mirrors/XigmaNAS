@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
 "PO-Revision-Date: 2020-12-06 19:22+0000\n"
 "Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -214,8 +214,14 @@ msgstr "*** Importovaný duplikát ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr ""
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr ""
 
 msgid "000"
 msgstr "000"
@@ -641,6 +647,9 @@ msgstr "Přidat záznam pro port"
 msgid "Add Portal Group"
 msgstr "Přidat skupinu portálu"
 
+msgid "Add Provider"
+msgstr ""
+
 msgid "Add Public Key"
 msgstr "Přidat veřejný klíč"
 
@@ -933,6 +942,9 @@ msgstr "Umožnit"
 msgid "Allow GSSAPI authentication."
 msgstr "Povolit GSSAPI autentikaci"
 
+msgid "Allow IPv6"
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "Umožnit nové soubory"
 
@@ -1157,6 +1169,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr "Připojit obsah do výchozího CSS souboru"
 
+msgid "Append my IP"
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "Připojit (přidat) uživatelsky definovaná sdílení"
 
@@ -1271,9 +1289,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Název atributu"
-
-msgid "Audio"
-msgstr "Zvuk"
 
 msgid "Aug"
 msgstr "srp"
@@ -1636,6 +1651,9 @@ msgid ""
 "default is 300 seconds."
 msgstr ""
 
+msgid "Broken RTC"
+msgstr ""
+
 msgid "Browseable"
 msgstr "Možné procházet"
 
@@ -1644,6 +1662,13 @@ msgstr "Umístění tlačítka"
 
 msgid "Button Settings"
 msgstr "Nastavení tlačítek"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -1661,6 +1686,9 @@ msgstr "hlavičkový soubor C++"
 
 msgid "C++ Source File"
 msgstr "Zdrojový soubor v C++"
+
+msgid "CA Trusted Certificates"
+msgstr ""
 
 msgid "CACHE"
 msgstr "MEZIPAMĚŤ"
@@ -1823,6 +1851,9 @@ msgstr "Nastavení CSS"
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr ""
+
 msgid "Calibration Battery"
 msgstr "Kalibrace akumulátorů"
 
@@ -1921,6 +1952,21 @@ msgstr "Kanál"
 
 msgid "Charging Battery"
 msgstr "Nabíjení akumulátorů"
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check Interval"
+msgstr ""
 
 msgid "Check System|General Setup before initializing"
 msgstr "Před inicializací zkontrolujte Systém | Obecná nastavení"
@@ -2534,10 +2580,11 @@ msgstr "Vytvořit zrcadlené SLOG zařízení pro ZIL"
 msgid "Create a spare device"
 msgstr "Vytvořit zařízení pro pohotovostní náhradu"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
+msgid "Create a virtual device containing a single device"
 msgstr ""
-"Vytvořit virtuální zařízení obsahující jedno nebo více zřetězených zařízení."
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Vytvořit virtuální zařízení obsahující zrcadlená zařízení"
@@ -2649,6 +2696,9 @@ msgstr "Tento rok"
 msgid "Custom"
 msgstr "Vlastní"
 
+msgid "Custom Provider"
+msgstr ""
+
 msgid "Custom Script"
 msgstr "Vlastní skript"
 
@@ -2666,6 +2716,20 @@ msgstr "Vlastní skript nebyl nalezen."
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - logování ladících zpráv"
@@ -2696,6 +2760,9 @@ msgstr "DHX ověřování"
 
 msgid "DHX2 Authentication"
 msgstr "DHX2 ověřování"
+
+msgid "DISK"
+msgstr ""
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2995,6 +3062,9 @@ msgstr "Smazat záznamy pro označený port"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Smazat označené skupiny portálu"
+
+msgid "Delete Selected Providers"
+msgstr ""
 
 msgid "Delete Selected Public Keys"
 msgstr "Smazat označené veřejné klíče"
@@ -3383,6 +3453,9 @@ msgstr "Vypnout označené záznamy portu"
 msgid "Disable Selected Portal Groups"
 msgstr "Vypnout označené skupiny portálů"
 
+msgid "Disable Selected Providers"
+msgstr ""
+
 msgid "Disable Selected Public Keys"
 msgstr "Zakázat označené veřejné klíče"
 
@@ -3688,6 +3761,9 @@ msgstr ""
 "Opravdu z označených jednotek datového úložiště vytvořit virtuální zařízení "
 "pro střídavý zápis (stripe)?"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Opravdu smazat označené CARP?"
 
@@ -3786,6 +3862,9 @@ msgstr "Opravdu chcete označené záznamy pro porty smazat?"
 
 msgid "Do you want to delete selected portal groups?"
 msgstr "Opravdu chcete označené skupiny portálů smazat?"
+
+msgid "Do you want to delete selected providers?"
+msgstr ""
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Chcete označené veřejné klíče smazat?"
@@ -3899,6 +3978,9 @@ msgstr "Opravdu chcete vypnout označené záznamy pro porty?"
 msgid "Do you want to disable selected portal groups?"
 msgstr "Opravdu chcete vypnout označené skupiny portálů?"
 
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
 msgid "Do you want to disable selected public keys?"
 msgstr "Chcete zakázat zvolené veřejné klíče?"
 
@@ -3991,6 +4073,9 @@ msgstr "Opravdu chcete zapnout označené záznamy pro port?"
 
 msgid "Do you want to enable selected portal groups?"
 msgstr "Opravdu chcete zapnout označené skupiny portálu?"
+
+msgid "Do you want to enable selected providers?"
+msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Chcete povolit vybrané veřejné klíče?"
@@ -4094,6 +4179,9 @@ msgstr "Opravdu chcete přepnout označené záznamy pro port?"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Opravdu chcete přepnout označené skupiny portálu?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr ""
@@ -4221,6 +4309,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "Služba dynamického DNS"
 
+msgid "Dynamic DNS Settings"
+msgstr ""
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "Dynamická IP adresa (DHCP) nemůže být použita pro HAST prostředky."
 
@@ -4322,6 +4413,9 @@ msgstr "Upravit záznam pro port"
 
 msgid "Edit Portal Group"
 msgstr "Upravit skupinu portálu"
+
+msgid "Edit Provider"
+msgstr ""
 
 msgid "Edit Public Key"
 msgstr ""
@@ -4554,6 +4648,9 @@ msgstr "Zapnout označené záznamy pro port"
 msgid "Enable Selected Portal Groups"
 msgstr "Zapnout označené skupiny portálu"
 
+msgid "Enable Selected Providers"
+msgstr ""
+
 msgid "Enable Selected Public Keys"
 msgstr ""
 
@@ -4678,6 +4775,11 @@ msgstr "Umožnit vypsat obsah složky."
 msgid "Enable distributed hash table."
 msgstr "Používat distribuovanou tabulku otisků (hash)."
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
 msgid "Enable domain wildcarding."
 msgstr "Umožnit používání zástupných znaků v názvech domén."
 
@@ -4783,6 +4885,16 @@ msgid ""
 msgstr ""
 "Tuto předvolbu zapněte pokud chcete upravovat stránky s nastavením přímo bez "
 "potřeby přepnutí do režimu úprav."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -4965,6 +5077,9 @@ msgstr "Zadejte další parametry"
 msgid "Enter an iSCSI initiator name."
 msgstr "Zadejte název iSCSI iniciátoru."
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
 msgid "Enter comment for the share"
 msgstr "Zadejte komentář pro sdílení"
 
@@ -5099,6 +5214,9 @@ msgstr "Kód chyby"
 
 msgid "Error Level"
 msgstr "Úroveň chybových stavů"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Errors have been detected during import."
 msgstr "Při importu byly zjištěny chyby."
@@ -5316,6 +5434,9 @@ msgstr "Nezdařilo se."
 msgid "Failover"
 msgstr "Převzetí služby v případě výpadku"
 
+msgid "Fake Address"
+msgstr ""
+
 msgid "Fast"
 msgstr "Rychle"
 
@@ -5487,6 +5608,9 @@ msgstr "Vynutit skupinu"
 
 msgid "Force Operation"
 msgstr "Vynutit operaci"
+
+msgid "Force Update Interval"
+msgstr ""
 
 msgid "Force Use"
 msgstr "Vynutit použití"
@@ -5916,6 +6040,9 @@ msgstr "Stroj"
 msgid "Host Access Control"
 msgstr "Řízení přístupu ke stroji"
 
+msgid "Host Names"
+msgstr ""
+
 msgid "Host Resources"
 msgstr "Prostředky stroje"
 
@@ -5927,6 +6054,9 @@ msgstr "Název stroje"
 
 msgid "Hostname Database"
 msgstr "Databáze názvů strojů"
+
+msgid "Hostnames"
+msgstr ""
 
 msgid "Hosts"
 msgstr "Stroje"
@@ -5947,6 +6077,11 @@ msgid "Hours"
 msgstr "Hodiny"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr ""
 "Jak často kontrolovat danou IP adresu. Časový úsek v sekundách (nejvýše "
@@ -5958,6 +6093,11 @@ msgid ""
 msgstr ""
 "Jak často aktualizovat IP adresu i v případě, že se nezměnila. Časový úsek v "
 "sekundách (nejvýše 864000 s, tj. 10 dnů)."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
 
 msgid "I/O Statistics"
 msgstr "Statistiky vst./výst."
@@ -5984,6 +6124,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "IP adresa"
 
+msgid "IP Address Family"
+msgstr ""
+
 msgid "IP Address Prefix"
 msgstr "Předpona IP adresy"
 
@@ -5992,6 +6135,10 @@ msgstr "IP adresa"
 
 msgid "IP address of the remote syslog server."
 msgstr "IP adresa vzdáleného syslog serveru."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6019,6 +6166,9 @@ msgstr "IPv4 nastavení"
 
 msgid "IPv4 addresses"
 msgstr "IPv4 adresy"
+
+msgid "IPv4 only"
+msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "IPv4 nebo IPv6 adresa iSNS serveru na kterém zaregistrovat."
@@ -6065,6 +6215,9 @@ msgstr "IPv6 adresa"
 
 msgid "IPv6 addresses"
 msgstr "IPv6 adresy"
+
+msgid "IPv6 only"
+msgstr ""
 
 msgid "IRC Live Support"
 msgstr "Bezprostřední podpora prostřednictvím IRC"
@@ -6182,6 +6335,11 @@ msgid "If this property is set to off, the file system cannot be mounted."
 msgstr ""
 "Pokud je tato vlastnost vypnutá, souborový systém není možné připojit "
 "(mount)."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
 
 msgid "Ignore Hosts Allow"
 msgstr "Nevšímat si seznamu strojů kterým je umožněn přístup"
@@ -6325,6 +6483,9 @@ msgstr "Úvodní otisk"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "Počáteční disk v operační paměti (např. %s)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
 
 msgid "Initialize"
 msgstr "Inicializovat"
@@ -6571,6 +6732,9 @@ msgstr ""
 
 msgid "Item(s)"
 msgstr "Položek"
+
+msgid "Iterations"
+msgstr ""
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7125,6 +7289,9 @@ msgstr "ZRCADLO"
 msgid "MISSING"
 msgstr "CHYBĚJÍCÍ"
 
+msgid "MIT License"
+msgstr ""
+
 msgid "MKV File"
 msgstr "MKV soubor"
 
@@ -7178,9 +7345,6 @@ msgstr "Velké aktualizace verze operačního systému"
 
 msgid "Major Product Version Updates"
 msgstr "Velké aktualizace verze produktu"
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Určitě vyberte optimální počet zařízení"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "Zkontrolujte, zda máte zapnuté SMART dohledování u svých zařízení."
@@ -7454,6 +7618,9 @@ msgstr "Minuty"
 msgid "Minutes between the next network time synchronization."
 msgstr "Minut mezi příští synchronizací času ze sítě."
 
+msgid "Missing Provider"
+msgstr ""
+
 msgid "Missing a temporary folder."
 msgstr "Chybí dočasná složka."
 
@@ -7635,6 +7802,9 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr "NAA identifikátor"
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr ""
 
@@ -7806,6 +7976,9 @@ msgstr "Síťová adresa"
 
 msgid "Network File System"
 msgstr "Síťový souborový systém"
+
+msgid "Network Interface"
+msgstr ""
 
 msgid "Network Latency"
 msgstr "Prodleva sítě"
@@ -8159,6 +8332,9 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Nic k synchronizaci"
 
+msgid "Notice"
+msgstr ""
+
 msgid "Notice Level"
 msgstr "Oznámení"
 
@@ -8313,6 +8489,9 @@ msgstr "Záznam pro volbu je odemčen"
 msgid "Optional"
 msgstr "Volitelné"
 
+msgid "Optional server path for check IP server"
+msgstr ""
+
 msgid "Optional user-friendly string of the target."
 msgstr "Nepoviný, uživateli srozumitelný název cíle."
 
@@ -8324,6 +8503,9 @@ msgstr "Původ"
 
 msgid "Orphaned"
 msgstr "Osiřelé"
+
+msgid "Orphaned Provider"
+msgstr ""
 
 msgid "Others"
 msgstr "Ostatní"
@@ -8362,6 +8544,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Přetížení"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "Přehled"
@@ -8638,9 +8823,6 @@ msgstr "Velikost fyzického bloku"
 
 msgid "Physical Interface"
 msgstr "Fyzické rozhraní"
-
-msgid "Pictures"
-msgstr "Obrázky"
 
 msgid "Ping"
 msgstr "Ping"
@@ -9015,6 +9197,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Poskytovatel"
 
+msgid "Provider Name"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Typ poskytování"
 
@@ -9130,25 +9324,11 @@ msgstr "RAID-5 údržba"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr ""
-"RAID-Z1 by mělo obsahovat 3, 5, nebo 9 jednotek datového úložiště v každém "
-"virt. zařízení (vdev)."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr ""
-"RAID-Z2 by mělo obsahovat 4, 6, nebo 10 disků v každém virt. zařízení (vdev)."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr ""
-"RAID-Z3 by mělo obsahovat 5, 7, nebo 11 jednotek datového úložiště v každém "
-"virt. zařízení (vdev)."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9468,6 +9648,9 @@ msgstr "Informace o záznamu"
 
 msgid "Record Maintenance"
 msgstr "Údržba záznamu"
+
+msgid "Record Type"
+msgstr ""
 
 msgid "Record is locked"
 msgstr "Záznam je uzamčený"
@@ -9968,6 +10151,12 @@ msgstr ""
 "Když je velikost požadavku vyšší, než tato hodnota (%d ve výchozím stavu), "
 "Samba bude zapisovat do souboru asynchronně."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
 msgid "Sat"
 msgstr "so"
 
@@ -10095,6 +10284,9 @@ msgstr "Heslo"
 msgid "Secret for CHAP authentication."
 msgstr "Tajemství pro CHAP ověřování."
 
+msgid "Secure SSL"
+msgstr ""
+
 msgid "Security Flavor"
 msgstr ""
 
@@ -10109,6 +10301,11 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Viz atribut E8"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Vyberte „CD/DVD/BD“ pokud chcete připojit CD/DVD/BD svazek."
@@ -10171,6 +10368,9 @@ msgstr "Vyberte který šifrovací algoritmus používat."
 msgid "Select at which stage the command should be executed."
 msgstr "Vyberte která fáze příkazu má být vykonána."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr ""
+
 msgid "Select configuration file:"
 msgstr "Vyberte soubor s nastaveními:"
 
@@ -10194,6 +10394,9 @@ msgstr ""
 
 msgid "Select file system format."
 msgstr "Vyberte formát souborového systému."
+
+msgid "Select from predefined providers."
+msgstr ""
 
 msgid "Select item to remove from the list"
 msgstr "Vyberte položku kterou chcete odstranit ze seznamu"
@@ -10393,6 +10596,9 @@ msgstr "Max. verze protokolu serveru"
 msgid "Server Min. Protocol"
 msgstr "Min. verze protokolu serveru"
 
+msgid "Server Mode"
+msgstr ""
+
 msgid "Server Name"
 msgstr "Název serveru"
 
@@ -10401,6 +10607,9 @@ msgstr "Popis serveru. Toto obvykle zůstává nevyplněno."
 
 msgid "Server information"
 msgstr "Informace o serveru"
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
 
 msgid "Server version"
 msgstr "Verze serveru"
@@ -10439,10 +10648,22 @@ msgid "Set browseable."
 msgstr "Umožnit procházení."
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Set domain name"
+msgstr ""
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
 "Nastavit interval mezi kontrolami disku na N sekund. Minimální hodnota je 10."
+
+msgid "Set log level"
+msgstr ""
 
 msgid "Set password"
 msgstr ""
@@ -10481,6 +10702,10 @@ msgstr ""
 "hodnota je dle typu rozhraní. MTU slouží pro omezení velikosti paketů "
 "přenášených rozhraním. Ne všechna rozhraní umožňují změnu MTU a některá jen "
 "v určitém rozsahu."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -10533,6 +10758,9 @@ msgstr ""
 #, php-format
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
+
+msgid "Set workgroup name"
 msgstr ""
 
 msgid "Setkey"
@@ -10659,6 +10887,11 @@ msgid "Shell"
 msgstr "Terminál"
 
 msgid "Shell Script"
+msgstr ""
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
 msgstr ""
 
 msgid "Shock During Write."
@@ -11024,6 +11257,11 @@ msgstr "Zadejte velikost fyzického bloku zařízení."
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr "Zadejte jaký typ SCSI zařízení použít při vytváření LUN."
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
 msgid "Specify the group numeric id."
 msgstr ""
 
@@ -11035,6 +11273,9 @@ msgstr "Rozdělit požadavek"
 
 msgid "Standard"
 msgstr "Standardní"
+
+msgid "Standard Provider"
+msgstr ""
 
 msgid "Standard Reports"
 msgstr "Standardní hlášení"
@@ -11057,6 +11298,9 @@ msgstr "Spustit"
 
 msgid "Start TLS from within the session."
 msgstr "Spustit TLS ze sezení"
+
+msgid "Startup Delay"
+msgstr ""
 
 msgid "Static"
 msgstr "Statické"
@@ -12040,6 +12284,9 @@ msgstr ""
 "Limit souběžně spuštěných podřízených procesů obsluhujících příchozí "
 "spojení. Výchozí je 30. Nastavení na 0 (nula) tento limit vypíná."
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
@@ -12189,6 +12436,9 @@ msgstr "Heslo obsahuje neplatný znak „:“ (dvojtečka)."
 
 msgid "The password encryption protocol to use."
 msgstr "Protokol který použít pro šifrování hesla."
+
+msgid "The password, if applicable."
+msgstr ""
 
 msgid "The passwords do not match."
 msgstr "Zadání hesla se neshodují."
@@ -12398,6 +12648,9 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr "Na server dorazila pouze část souboru."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "Zadaná hodnota není platná."
 
@@ -12454,6 +12707,9 @@ msgid ""
 "loaded."
 msgstr ""
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Tyto parametry jsou přidány k %s."
@@ -12482,6 +12738,9 @@ msgstr ""
 
 msgid "These parameters are appended to the exports file."
 msgstr "Tyto parametry jsou připojeny k souboru s exporty."
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12526,6 +12785,9 @@ msgstr "Tyto parametry budou přidány do tohoto LUN."
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Tyto parametry budou přidány do této skupiny portálu."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr ""
 
 msgid "These parameters will be added to this target."
 msgstr "Tyto parametry budou přidány do tohoto cíle."
@@ -12711,6 +12973,10 @@ msgid ""
 msgstr ""
 "Tato předvolba zajistí, že přijímající nástroj rsync nastaví přístupová "
 "práva na souborech a složkách přesně tak, jako jsou na straně odesílajícího."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -12912,6 +13178,17 @@ msgstr ""
 "použít."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -13079,6 +13356,12 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Pokud má platit pro jakoukoli IP adresu, ponechte kolonku nevyplněnou."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
@@ -13144,6 +13427,9 @@ msgstr "Vyp/zap označené záznamy portálu"
 
 msgid "Toggle Selected Portal Groups"
 msgstr "Vyp/zap označené skupiny portálu"
+
+msgid "Toggle Selected Providers"
+msgstr ""
 
 msgid "Toggle Selected Public Keys"
 msgstr ""
@@ -13509,6 +13795,9 @@ msgstr "Neopravené chyby čtení, nahlášené operačnímu systému."
 msgid "Undefined"
 msgstr "Neurčeno"
 
+msgid "Undefined Type"
+msgstr ""
+
 msgid "Unformated"
 msgstr "Bez souborového systému"
 
@@ -13551,6 +13840,9 @@ msgstr "Neznámá aktivita"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Neznámý agregační protokol"
+
+msgid "Unknown Provider"
+msgstr ""
 
 msgid "Unknown or Unformatted"
 msgstr "Neznámý nebo bez souborového systému"
@@ -13644,6 +13936,14 @@ msgstr "Použít výchozí soubor s TLS důvěryhodnost"
 msgid "Use Encryption"
 msgstr "Šifrovat"
 
+msgid "Use HTTPS"
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "Ověřovat uživatele pomocí PAM podsystému."
 
@@ -13717,6 +14017,16 @@ msgstr ""
 msgid "Use these specials actions for debugging only!"
 msgstr "Tyto zvláštní akce slouží pouze pro účely ladění!"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -13779,6 +14089,9 @@ msgstr ""
 msgid "User"
 msgstr "Uživatel"
 
+msgid "User Agent"
+msgstr ""
+
 msgid "User ID"
 msgstr "Identifikátor uživatele"
 
@@ -13811,6 +14124,9 @@ msgstr "Uživatelský účet je chráněný"
 
 msgid "User account is unlocked"
 msgstr "Uživatelský účet je odemčený"
+
+msgid "User agent string"
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -13928,6 +14244,9 @@ msgstr ""
 msgid "Verify"
 msgstr "Ověřit"
 
+msgid "Verify Address"
+msgstr ""
+
 msgid "Version"
 msgstr "Verze systému"
 
@@ -13936,9 +14255,6 @@ msgstr "Verze:"
 
 msgid "Vibration During Write."
 msgstr "Vibrace při zápisu."
-
-msgid "Video"
-msgstr "Video"
 
 msgid "Virtual Device"
 msgstr "Virtuální zařízení"
@@ -14091,6 +14407,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr ""
+
 msgid "Wait Time"
 msgstr "Čas čekání"
 
@@ -14107,6 +14426,12 @@ msgid "Warning Level"
 msgstr "Stupeň varování"
 
 msgid "Watch Folder"
+msgstr ""
+
+msgid "Web Service Discovery"
+msgstr ""
+
+msgid "Web Service Discovery Settings"
 msgstr ""
 
 #, php-format
@@ -14217,6 +14542,9 @@ msgstr "Široké odkazy"
 msgid "Wildcard"
 msgstr "Zástupný znak"
 
+msgid "Wildcard Domain"
+msgstr ""
+
 msgid "Winbindd Availability"
 msgstr "Dostupnost Winbindd"
 
@@ -14231,6 +14559,9 @@ msgstr "Pracovní složka"
 
 msgid "Workgroup"
 msgstr "Pracovní skupina"
+
+msgid "Workgroup Name"
+msgstr ""
 
 msgid "Wrap text:"
 msgstr ""
@@ -14512,6 +14843,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "a"
 
+msgid "api.ipify.org"
+msgstr ""
+
 msgid "bash - Bourne Again Shell"
 msgstr ""
 
@@ -14684,6 +15018,9 @@ msgstr "síťový provoz"
 msgid "no"
 msgstr ""
 
+msgid "no delay"
+msgstr ""
+
 msgid "no pools available"
 msgstr "žádné fondy k dispozici"
 
@@ -14763,6 +15100,9 @@ msgstr "odpojit (umount)"
 msgid "unknown"
 msgstr "neznámé"
 
+msgid "update.example.com"
+msgstr ""
+
 msgid "visible"
 msgstr "viditelné"
 
@@ -14771,3 +15111,34 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
+
+#~ msgid "Audio"
+#~ msgstr "Zvuk"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Vytvořit virtuální zařízení obsahující jedno nebo více zřetězených zařízení."
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Určitě vyberte optimální počet zařízení"
+
+#~ msgid "Pictures"
+#~ msgstr "Obrázky"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr ""
+#~ "RAID-Z1 by mělo obsahovat 3, 5, nebo 9 jednotek datového úložiště v každém "
+#~ "virt. zařízení (vdev)."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr ""
+#~ "RAID-Z2 by mělo obsahovat 4, 6, nebo 10 disků v každém virt. zařízení (vdev)."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr ""
+#~ "RAID-Z3 by mělo obsahovat 5, 7, nebo 11 jednotek datového úložiště v každém "
+#~ "virt. zařízení (vdev)."
+
+#~ msgid "Video"
+#~ msgstr "Video"
