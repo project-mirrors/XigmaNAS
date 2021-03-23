@@ -36,6 +36,7 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+use common\arr;
 use services\wsdd\setting_toolbox as toolbox,
 	services\wsdd\shared_toolbox;
 
@@ -50,8 +51,36 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 $cop_grid = [
+	$cop->get_domain(),
 	$cop->get_enable(),
+	$cop->get_extraoptions(),
+	$cop->get_address_family(),
+	$cop->get_server_mode(),
+	$cop->get_workgroup()
 ];
+arr::make_branch($config,'sambaad');
+$test = $config['sambaad']['enable'] ?? false;
+$is_domain = is_bool($test) ? $test : true;
+if($is_domain):
+	$domain_name = $config['sambaad']['dns_domain'] ?? null;
+	$is_domain = !is_null($domain_name);
+endif;
+if($is_domain):
+	$cop->get_server_mode()->set_defaultvalue('domain');
+	$cop->get_domain()->set_defaultvalue($domain_name);
+else:
+	arr::make_branch($config,'samba');
+	$test = $config['samba']['enable'] ?? false;
+	$is_workgroup = is_bool($test) ? $test : true;
+	if($is_workgroup):
+		$workgroup_name = $config['samba']['workgroup'] ?? null;
+		$is_workgroup = !is_null($workgroup_name);
+	endif;
+	if($is_workgroup):
+		$cop->get_server_mode()->set_defaultvalue('workgroup');
+		$cop->get_workgroup()->set_defaultvalue($workgroup_name);
+	endif;
+endif;
 $pending_changes = updatenotify_exists($sphere->get_notifier());
 [$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
@@ -259,7 +288,23 @@ switch($page_mode):
 		$s01_thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('Settings'));
 		break;
 endswitch;
-$s01_tbody->c2_textinfo('running',gettext('Service Active'),$is_running_message);
+$s01_tbody->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2($cop->get_server_mode(),$sphere,false,$is_readonly);
+$server_mode_hooks = $document->get_hooks();
+foreach($server_mode_hooks as $hook_key => $hook_obj):
+	switch($hook_key):
+		case 'domain':
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_domain(),$sphere,false,$is_readonly);
+			break;
+		case 'workgroup':
+			$hook_obj->addDIV(['class' => 'showifchecked'])->cr($cop->get_workgroup(),$sphere,false,$is_readonly);
+			break;
+	endswitch;
+endforeach;
+$s01_tbody->
+	c2($cop->get_address_family(),$sphere,false,$is_readonly);
+$s01_tbody->c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):

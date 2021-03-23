@@ -37,11 +37,86 @@ namespace services\wsdd;
 use common\properties as myp;
 
 final class setting_properties extends grid_properties {
+	public function init_address_family(): myp\property_list {
+		$defaultvalue = '';
+		$description =gettext('');
+		$options = [
+			'' => gettext('Default'),
+			'4' => gettext('IPv4 only'),
+			'6' => gettext('IPv6 only')
+		];
+		$property = parent::init_address_family();
+		$property->
+			set_defaultvalue($defaultvalue)->
+			set_description($description)->
+			set_id('ipprotocol')->
+			set_input_type('radio-grid')->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_domain(): myp\property_text {
+		$defaultvalue = '';
+		$description = gettext('Set domain name');
+		$placeholder = gettext('Domain');
+		$parent = parent::init_domain();
+		$parent->
+			set_defaultvalue($defaultvalue)->
+			set_description($description)->
+			set_id('domain')->
+			set_size(60)->
+			filter_use_default_or_empty();
+		return $parent;
+	}
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->
 			set_input_type('titleline-checkbox')->
 			set_defaultvalue(false);
+		return $property;
+	}
+	public function init_extraoptions(): myp\property_text {
+		$description = gettext('These options are appended to the command line of the wsdd script.');
+		$placeholder = gettext('Enter extra options');
+		$property = parent::init_extraoptions();
+		$property->
+			set_id('extraoptions')->
+			set_description($description)->
+			set_placeholder($placeholder)->
+			set_defaultvalue('')->
+			set_size(60)->
+			set_maxlength(4096)->
+			filter_use_default_or_empty();
+		return $property;
+	}
+	public function init_server_mode(): myp\property_list {
+		$defaultvalue = 'workgroup';
+		$description = gettext('Select between domain mode and workgroup mode.');
+		$options = [
+			'domain' => gettext('Domain'),
+			'workgroup' => gettext('Workgroup')
+		];
+		$property = parent::init_server_mode();
+		$property->
+			set_defaultvalue($defaultvalue)->
+			set_description($description)->
+			set_id('servermode')->
+			set_input_type('radio-grid')->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
+	public function init_workgroup(): myp\property_text {
+		$defaultvalue = '';
+		$description = gettext('Set workgroup name');
+		$placeholder = gettext('Workgroup');
+		$property = parent::init_workgroup();
+		$property->
+			set_defaultvalue($defaultvalue)->
+			set_description($description)->
+			set_id('workgroup')->
+			set_size(60)->
+			filter_use_default_or_empty();
 		return $property;
 	}
 }
