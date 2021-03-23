@@ -265,7 +265,7 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_append_myip(): myp\property_bool {
-		$caption = gettext('Append the current IP to the the DDNS server update path.');
+		$caption = gettext('Append the current IP to the DDNS server update path.');
 		$defaultvalue = false;
 		$description = gettext('If this setting is not enabled, the hostname is appended. Unless the ddns-path is given with format specifiers, in which case this setting is unused.');
 		$property = parent::init_append_myip();
