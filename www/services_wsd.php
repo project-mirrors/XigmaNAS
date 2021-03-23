@@ -283,10 +283,10 @@ $s01_thead = $s01_tds->addTHEAD();
 $s01_tbody = $s01_tds->addTBODY();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$s01_thead->c2_titleline(gettext('Settings'));
+		$s01_thead->c2_titleline(gettext('Web Service Discovery Settings'));
 		break;
 	case PAGE_MODE_EDIT:
-		$s01_thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('Settings'));
+		$s01_thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('Web Service Discovery Settings'));
 		break;
 endswitch;
 $s01_tbody->
