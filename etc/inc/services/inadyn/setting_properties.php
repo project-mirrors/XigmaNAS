@@ -135,7 +135,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_securessl(): myp\property_bool {
-		$caption = gettext('Enable this option to abort an DDNS update if the HTTPS certificate validation fails..');
+		$caption = gettext('Enable this option to abort an DDNS update if the HTTPS certificate validation fails.');
 		$defaultvalue = true;
 		$property = parent::init_securessl();
 		$property->
@@ -147,7 +147,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_brokenrtc(): myp\property_bool {
-		$caption = gettext('Enable this option only on systems without hardware real-time clock and default bootup time far in the past,');
+		$caption = gettext('Enable this option only on systems without hardware real-time clock and default bootup time far in the past.');
 		$defaultvalue = false;
 		$property = parent::init_brokenrtc();
 		$property->
