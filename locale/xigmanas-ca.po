@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-03-14 13:29+0000\n"
-"PO-Revision-Date: 2021-03-09 00:36+0000\n"
+"PO-Revision-Date: 2021-03-20 21:45+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
-"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
+"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -1570,7 +1570,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "Configuració de BitTorrent"
 
 msgid "Blank Time"
 msgstr "Temps en blanc"
@@ -2107,7 +2107,7 @@ msgid "Configuration"
 msgstr "Configuració"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "Carpeta de configuració"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2739,7 +2739,7 @@ msgid "DNS Name"
 msgstr "Nom DNS"
 
 msgid "DNS Rebind Protection"
-msgstr ""
+msgstr "Protecció de reconnexió de DNS"
 
 msgid "DNS server is empty."
 msgstr "Servidor DNS està buida."
@@ -3345,7 +3345,7 @@ msgid "Disable"
 msgstr "Deshabilitar"
 
 msgid "Disable DNS rebind protection"
-msgstr ""
+msgstr "Desactiveu la protecció contra la reconnexió del DNS"
 
 msgid "Disable Extension Menu"
 msgstr "Desactivar menú estès"
@@ -4170,7 +4170,7 @@ msgid "Domain Name (NetBIOS-Name)"
 msgstr "Nom de domini (Nom NetBIOS)"
 
 msgid "Domain Names"
-msgstr ""
+msgstr "Noms de domini"
 
 msgid "Domain is missing 2nd level name."
 msgstr "No es troba segon nom de nivell de domini."
@@ -4200,7 +4200,7 @@ msgid "Download Configuration"
 msgstr "Descàrrega de la configuració"
 
 msgid "Download Folder"
-msgstr ""
+msgstr "Carpeta de baixada"
 
 msgid "Drive Temperature."
 msgstr "Temperatura del disc/driver."
@@ -4485,7 +4485,7 @@ msgid "Enable Asynchronous I/O."
 msgstr "Activa E/S asíncrones."
 
 msgid "Enable DNS rebind protection"
-msgstr ""
+msgstr "Activa la protecció contra la reconnexió del DNS"
 
 msgid "Enable FXP protocol."
 msgstr "Habilitar protocol FXP."
@@ -4734,7 +4734,7 @@ msgid "Enable large read/write."
 msgstr "Habilitar lectura/escriptura gran."
 
 msgid "Enable local peer discovery."
-msgstr ""
+msgstr "Activeu el descobriment local de parells."
 
 msgid "Enable mapping DOS attributes."
 msgstr "Habilitar l'assignació d'atributs de DOS."
@@ -4852,7 +4852,7 @@ msgid "Enable traps."
 msgstr "Activar les trampes."
 
 msgid "Enable uTP for peer connections."
-msgstr ""
+msgstr "Activeu uTP per a connexions entre parells."
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Habilitar el fons blanc de els gràfics. (negre per defecte)"
@@ -5252,13 +5252,14 @@ msgid "Extra options (usually empty)."
 msgstr "Opcions extra (generalment buit)."
 
 msgid "Extra options for transmission-remote"
-msgstr ""
+msgstr "Opcions addicionals per a transmissió remota"
 
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Opcions addicionals per ifconfig (generalment buit)."
 
 msgid "Extra options to pass over RPC using transmission-remote."
 msgstr ""
+"Opcions addicionals per passar per RPC mitjançant transmissió remota."
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Opcions addicionals per rsync (generalment buit)."
@@ -5520,7 +5521,7 @@ msgid "Folder Pattern"
 msgstr "Patró de carpeta"
 
 msgid "Folder to monitor for new .torrent files."
-msgstr ""
+msgstr "Carpeta per controlar nous fitxers .torrent."
 
 msgid "Follow"
 msgstr "Seguir"
@@ -6322,7 +6323,7 @@ msgid "Incoming Line/Power Information"
 msgstr "Informació d'entrada de linea/alimentació"
 
 msgid "Incomplete Folder"
-msgstr ""
+msgstr "Carpeta incomplerta"
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6691,7 +6692,7 @@ msgid "June"
 msgstr "Juny"
 
 msgid "KB/s"
-msgstr ""
+msgstr "KB/s"
 
 msgid "Keep MBR"
 msgstr "Mantenir el MBR"
@@ -6992,7 +6993,7 @@ msgstr ""
 "D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i / D7.0)."
 
 msgid "List of allowed domain names."
-msgstr ""
+msgstr "Llista de noms de domini permesos."
 
 msgid "List pools available to import"
 msgstr "Llista de grups disponibles per importar"
@@ -7031,7 +7032,7 @@ msgid "Local Master Browser"
 msgstr "Local Màster Browser"
 
 msgid "Local Peer Discovery"
-msgstr ""
+msgstr "Descobriment local de parells"
 
 msgid "Local Share"
 msgstr "Compartició local"
@@ -7452,7 +7453,7 @@ msgid "Message Board"
 msgstr "Tauler de missatges"
 
 msgid "Message Level"
-msgstr ""
+msgstr "Nivell de missatge"
 
 msgid "Message of the day."
 msgstr "Missatge del dia."
@@ -8604,7 +8605,7 @@ msgid "Password for the administrative pages."
 msgstr "Contrasenya per les pàgines administratives"
 
 msgid "Password for the transmission web interface."
-msgstr ""
+msgstr "Contrasenya per a la interfície web de transmissió."
 
 msgid "Password of the administrator account."
 msgstr "Contrasenya del compte d'administrador."
@@ -8879,6 +8880,8 @@ msgstr "El registre del port està desbloquejat"
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
+"Port per escoltar les connexions de parells entrants. El port per defecte és "
+"%d."
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Port d'escolta. Per defecte el port iTunes és 3689."
@@ -8971,10 +8974,10 @@ msgid "Preallocation"
 msgstr "Preassignació"
 
 msgid "Prefer encrypted connections"
-msgstr ""
+msgstr "Preferiu les connexions xifrades"
 
 msgid "Prefer unencrypted connections"
-msgstr ""
+msgstr "Preferiu les connexions sense xifrar"
 
 msgid "Prefix"
 msgstr "Prefix"
@@ -9706,7 +9709,7 @@ msgid "Require authentication."
 msgstr "Requereix autenticació."
 
 msgid "Require encrypted connections"
-msgstr ""
+msgstr "Requereixen connexions xifrades"
 
 msgid "Rescan"
 msgstr "Reescaneja"
@@ -10288,6 +10291,8 @@ msgid ""
 "Select preallocation mode for files. The default preallocation mode is "
 "\"%s\"."
 msgstr ""
+"Seleccioneu el mode de preassignació dels fitxers. El mode de preassignació "
+"per defecte és \"%s\"."
 
 msgid "Select read balance algorithm."
 msgstr "Seleccionar algoritme d'equilibri de lectura."
@@ -10614,6 +10619,8 @@ msgstr "Definiu la contrasenya de l’usuari."
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
+"Estableix la verbositat dels missatges de transmissió. El nivell de missatge "
+"per defecte és \"%s\""
 
 msgid "Setkey"
 msgstr "Fixar la clau"
@@ -11196,13 +11203,13 @@ msgid "Storage"
 msgstr "Emmagatzematge"
 
 msgid "Storage location of configuration information."
-msgstr ""
+msgstr "Ubicació d’emmagatzematge de la informació de configuració."
 
 msgid "Storage location of downloaded files."
-msgstr ""
+msgstr "Ubicació d'emmagatzematge dels fitxers descarregats."
 
 msgid "Storage location of partially downloaded files."
-msgstr ""
+msgstr "Ubicació d'emmagatzematge de fitxers parcialment descarregats."
 
 msgid "Store DOS Attributes"
 msgstr "Emmagatzema atributs DOS"
@@ -12138,6 +12145,8 @@ msgid ""
 "The maximum download bandwith in KB/s. Leave this field empty to allow "
 "unlimited download bandwidth."
 msgstr ""
+"Amplada de banda màxima de baixada en KB/s. Deixeu aquest camp buit per "
+"permetre una amplada de banda de descàrrega il·limitada."
 
 msgid "The maximum idle time must be a number."
 msgstr "El temps màxim inactiu a d'ésser un nombre."
@@ -12153,6 +12162,8 @@ msgid ""
 "The maximum upload bandwith in KB/s. Leave this field empty to allow "
 "unlimited upload bandwidth."
 msgstr ""
+"Amplada de banda màxima de càrrega en KB/s. Deixeu aquest camp buit per "
+"permetre una amplada de banda de càrrega il·limitada."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12310,6 +12321,8 @@ msgstr ""
 msgid ""
 "The peer connection encryption mode. The default encryption mode is \"%s\""
 msgstr ""
+"El mode de xifratge de connexió entre iguals. El mode de xifratge per "
+"defecte és \"%s\""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -13400,7 +13413,7 @@ msgid "Transfer mode"
 msgstr "Mode de Transferència"
 
 msgid "Transmission Web Interface"
-msgstr ""
+msgstr "Interfície web de transmissió"
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Seguretat de la capa de transport (TLS)"
@@ -13683,7 +13696,7 @@ msgid "Unknown size"
 msgstr "Mida desconeguda"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Il·limitat"
 
 msgid "Unload"
 msgstr "Descarregar"
@@ -13949,6 +13962,7 @@ msgstr "Nom d'usuari d'un compte d'administrador de domini."
 
 msgid "Username to log into the transmission web interface."
 msgstr ""
+"Nom d'usuari per iniciar la sessió a la interfície web de transmision."
 
 msgid "Users"
 msgstr "Usuaris"
@@ -14235,11 +14249,11 @@ msgid "Warning Level"
 msgstr "Nivell d'avís"
 
 msgid "Watch Folder"
-msgstr ""
+msgstr "Carpeta de visualització"
 
 #, php-format
 msgid "Web interface port. The default port is %d."
-msgstr ""
+msgstr "Port de la interfície web. El port per defecte és%d."
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -14879,7 +14893,7 @@ msgid "to"
 msgstr "cap a"
 
 msgid "uTP"
-msgstr ""
+msgstr "uTP"
 
 msgid "umount"
 msgstr "desmontar"

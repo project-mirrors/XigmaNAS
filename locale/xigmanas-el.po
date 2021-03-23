@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-03-14 13:29+0000\n"
-"PO-Revision-Date: 2021-03-09 07:19+0000\n"
+"PO-Revision-Date: 2021-03-18 12:09+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-15 20:16+0000\n"
-"X-Generator: Launchpad (build d4fcb062545ed29d3cd7773e52e43615e042623f)\n"
+"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -1596,7 +1596,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "Ρυθμίσεις BitTorrent"
 
 msgid "Blank Time"
 msgstr "Κενός Χρόνος"
@@ -2136,7 +2136,7 @@ msgid "Configuration"
 msgstr "Ρύθμιση"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "Φάκελος Ρυθμίσεων"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2776,7 +2776,7 @@ msgid "DNS Name"
 msgstr "Όνομα DNS"
 
 msgid "DNS Rebind Protection"
-msgstr ""
+msgstr "Προστασία DNS Rebind"
 
 msgid "DNS server is empty."
 msgstr "Το πεδίο για το διακομιστή DNS είναι άδειο."
@@ -3385,7 +3385,7 @@ msgid "Disable"
 msgstr "Απενεργοποίηση"
 
 msgid "Disable DNS rebind protection"
-msgstr ""
+msgstr "Απενεργοποίηση προστασίας DNS Rebind"
 
 msgid "Disable Extension Menu"
 msgstr "Απενεργοποίηση Μενού Επεκτάσεων"
@@ -4219,7 +4219,7 @@ msgid "Domain Name (NetBIOS-Name)"
 msgstr "Όνομα Τομέα (όνομα NetBIOS)"
 
 msgid "Domain Names"
-msgstr ""
+msgstr "Ονόματα Τομέων"
 
 msgid "Domain is missing 2nd level name."
 msgstr "Από τον τομέα λείπει το όνομα 2ου επιπέδου."
@@ -4249,7 +4249,7 @@ msgid "Download Configuration"
 msgstr "Μεταφόρτωση αρχείου ρυθμίσεων"
 
 msgid "Download Folder"
-msgstr ""
+msgstr "Φάκελος Λήψης"
 
 msgid "Drive Temperature."
 msgstr "Θερμοκρασία δίσκου."
@@ -4534,7 +4534,7 @@ msgid "Enable Asynchronous I/O."
 msgstr "Ενεργοποίηση Ασύγχρονου I/O."
 
 msgid "Enable DNS rebind protection"
-msgstr ""
+msgstr "Ενεργοποίηση προστασίας DNS Rebind"
 
 msgid "Enable FXP protocol."
 msgstr "Ενεργοποίηση πρωτοκόλλου FXP."
@@ -4785,7 +4785,7 @@ msgid "Enable large read/write."
 msgstr "Ενεργοποίηση μεγάλου διαβάσματος/εγγραφής."
 
 msgid "Enable local peer discovery."
-msgstr ""
+msgstr "Ενεργοποίηση αναζήτησης τοπικών peers"
 
 msgid "Enable mapping DOS attributes."
 msgstr "Ενεργοποίηση αντιστοίχισης χαρακτηριστικών DOS."
@@ -4907,7 +4907,7 @@ msgid "Enable traps."
 msgstr "Ενεργοποίηση παγίδων."
 
 msgid "Enable uTP for peer connections."
-msgstr ""
+msgstr "Ενεργοποίηση uTP για συνδέσεις peer"
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Ενεργοποίηση λευκού φόντου γραφημάτων. (μαύρο από προεπιλογή)"
@@ -5312,13 +5312,14 @@ msgid "Extra options (usually empty)."
 msgstr "Επιπλέον επιλογές (συνήθως κενό)."
 
 msgid "Extra options for transmission-remote"
-msgstr ""
+msgstr "Επιπλέον ρυθμίσεις για το transmission-remote"
 
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Επιπλέον επιλογές στο ifconfig (συνήθως κενό)."
 
 msgid "Extra options to pass over RPC using transmission-remote."
 msgstr ""
+"Επιπλέον επιλογές παράκαμψης του RPC με τη χρήση του transmission-remote."
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Επιπλέον επιλογές στο rsync (συνήθως κενό)."
@@ -5581,7 +5582,7 @@ msgid "Folder Pattern"
 msgstr "Πρότυπο Φακέλων"
 
 msgid "Folder to monitor for new .torrent files."
-msgstr ""
+msgstr "Φάκελος για παρακολούθηση για νέα αρχεία  .torrent."
 
 msgid "Follow"
 msgstr "Ακολούθησε"
@@ -6381,7 +6382,7 @@ msgid "Incoming Line/Power Information"
 msgstr "Πληροφορίες Γραμμής/Ισχύος εισόδου"
 
 msgid "Incomplete Folder"
-msgstr ""
+msgstr "Φάκελος μη Ολοκληρωμένων"
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6758,7 +6759,7 @@ msgid "June"
 msgstr "Ιούνιος"
 
 msgid "KB/s"
-msgstr ""
+msgstr "KB/s"
 
 msgid "Keep MBR"
 msgstr "Διατήρηση MBR"
@@ -7065,7 +7066,7 @@ msgstr ""
 "802.11i/D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
 msgid "List of allowed domain names."
-msgstr ""
+msgstr "Λίστα επιτρεπόμενων ονομάτων τομέα."
 
 msgid "List pools available to import"
 msgstr "Λίστα των pool που είναι διαθέσιμα προς εισαγωγή"
@@ -7105,7 +7106,7 @@ msgid "Local Master Browser"
 msgstr "Κεντρικός Τοπικός Περιηγητής"
 
 msgid "Local Peer Discovery"
-msgstr ""
+msgstr "Αναζήτηση Τοπικών Peer"
 
 msgid "Local Share"
 msgstr "Τοπικό Κοινόχρηστο"
@@ -7529,7 +7530,7 @@ msgid "Message Board"
 msgstr "Δημόσια Συζήτηση"
 
 msgid "Message Level"
-msgstr ""
+msgstr "Επίπεδο Μηνύματος"
 
 msgid "Message of the day."
 msgstr "Μήνυμα Της Ημέρας"
@@ -8685,7 +8686,7 @@ msgid "Password for the administrative pages."
 msgstr "Κωδικός για τις σελίδες διαχείρισης."
 
 msgid "Password for the transmission web interface."
-msgstr ""
+msgstr "Κωδικός για το web περιβάλλον χρήστη του transmission"
 
 msgid "Password of the administrator account."
 msgstr "Κωδικός του λογαριασμού διαχειριστή."
@@ -8961,6 +8962,8 @@ msgstr "Η εγγραφή θύρας είναι ξεκλείδωτη"
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
+"Θύρα αναμονής για εισερχόμενες συνδέσεις peer. Η προεπιλεγμένη θύρα είναι η "
+"%d."
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Θύρα ακρόασης. Η προεπιλεγμένη θύρα για το iTunes είναι 3689."
@@ -9055,10 +9058,10 @@ msgid "Preallocation"
 msgstr "Προκατανομή"
 
 msgid "Prefer encrypted connections"
-msgstr ""
+msgstr "Προτίμηση κρυπτογραφημένων συνδέσεων"
 
 msgid "Prefer unencrypted connections"
-msgstr ""
+msgstr "Προτίμηση μη κρυπρογραφημένων συνδέσεων"
 
 msgid "Prefix"
 msgstr "Πρόθεμα"
@@ -9791,7 +9794,7 @@ msgid "Require authentication."
 msgstr "Απαιτείται πιστοποίηση"
 
 msgid "Require encrypted connections"
-msgstr ""
+msgstr "Απαίτηση κρυπτογραφημένων συνδέσων"
 
 msgid "Rescan"
 msgstr "Επανασάρωση"
@@ -10383,6 +10386,8 @@ msgid ""
 "Select preallocation mode for files. The default preallocation mode is "
 "\"%s\"."
 msgstr ""
+"Επιλογή λειτουργίας προ-κατανομής για τα αρχεία. Η προεπιλεγμένη λειτουργία "
+"προ-κατανομής είναι \"%s\"."
 
 msgid "Select read balance algorithm."
 msgstr "Επιλογή αλγόριθμου ισορροπίας ανάγνωσης."
@@ -10706,6 +10711,8 @@ msgstr "Ορισμός κωδικού χρήστη."
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
+"Ορισμός αναλυτικότητας των μηνυμάτων μεταφοράς. Το προεπιλεγμένο επίπεδο για "
+"τα μηνύματα είναι  \"%s\""
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -11293,13 +11300,13 @@ msgid "Storage"
 msgstr "Αποθήκευση"
 
 msgid "Storage location of configuration information."
-msgstr ""
+msgstr "Τοποθεσία αποθήκευσης των πληροφοριών ρύθμισης."
 
 msgid "Storage location of downloaded files."
-msgstr ""
+msgstr "Τοποθεσία αποθήκευσης των ληφθέντων αρχείων."
 
 msgid "Storage location of partially downloaded files."
-msgstr ""
+msgstr "Τοποθεσία αποθήκευσης των ημιτελών ληφθέντων αρχείων."
 
 msgid "Store DOS Attributes"
 msgstr "Αποθήκευση Χαρακτηριστικών DOS"
@@ -12268,6 +12275,8 @@ msgid ""
 "The maximum download bandwith in KB/s. Leave this field empty to allow "
 "unlimited download bandwidth."
 msgstr ""
+"Η μέγιστη ταχύτητα λήψης σε KB/s. Αφήστε το πεδίο κενό για να επιτρέπεται "
+"απεριόριστη ταχύτητα λήψης."
 
 msgid "The maximum idle time must be a number."
 msgstr "Ο μέγιστος χρόνος αδράνειας πρέπει να είναι αριθμός."
@@ -12283,6 +12292,8 @@ msgid ""
 "The maximum upload bandwith in KB/s. Leave this field empty to allow "
 "unlimited upload bandwidth."
 msgstr ""
+"Η μέγιστη ταχύτητα αποστολής σε KB/s. Αφήστε το πεδίο κενό για να "
+"επιτρέπεται απεριόριστη ταχύτητα αποστολής."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12443,6 +12454,8 @@ msgstr ""
 msgid ""
 "The peer connection encryption mode. The default encryption mode is \"%s\""
 msgstr ""
+"Η λειτουργία κρυπτογράφησης της σύνδεσης peer. Η προεπιλεγμένη λειτουργία "
+"κρυπτογράφησης είναι \"%s\""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -13561,7 +13574,7 @@ msgid "Transfer mode"
 msgstr "Λειτουργία μεταφοράς"
 
 msgid "Transmission Web Interface"
-msgstr ""
+msgstr "Web Περιβάλλον Χρήσης Transmission"
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Transport Layer Security (TLS)"
@@ -13846,7 +13859,7 @@ msgid "Unknown size"
 msgstr "Άγνωστο μέγεθος"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Απεριόριστο"
 
 msgid "Unload"
 msgstr "Ξεφόρτωμα"
@@ -14114,7 +14127,7 @@ msgid "Username of a domain administrator account."
 msgstr "Όνομα χρήστη ενός λογαριασμού διαχειριστή τομέα."
 
 msgid "Username to log into the transmission web interface."
-msgstr ""
+msgstr "Όνομα χρήστη για το web περιβάλλον χρήσης του transmission."
 
 msgid "Users"
 msgstr "Χρήστες"
@@ -14402,11 +14415,11 @@ msgid "Warning Level"
 msgstr "Επίπεδο Προειδοποίησης"
 
 msgid "Watch Folder"
-msgstr ""
+msgstr "Φάκελος Παρακολούθησης"
 
 #, php-format
 msgid "Web interface port. The default port is %d."
-msgstr ""
+msgstr "Θύρα του web περιβάλλοντος χρήσης. Η προεπιλεγμένη θύρα είναι η %d."
 
 msgid "WebDAV"
 msgstr "WebDAV"
@@ -15064,7 +15077,7 @@ msgid "to"
 msgstr "σε"
 
 msgid "uTP"
-msgstr ""
+msgstr "uTP"
 
 msgid "umount"
 msgstr "αποπροσάρτηση"
