@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
 "PO-Revision-Date: 2021-03-20 13:10+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:53+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -216,8 +216,14 @@ msgstr "*** Імпортований дублікат ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr ""
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr ""
 
 msgid "000"
 msgstr "000"
@@ -631,6 +637,9 @@ msgstr "Додати запис порту"
 msgid "Add Portal Group"
 msgstr "Додати групу портала"
 
+msgid "Add Provider"
+msgstr ""
+
 msgid "Add Public Key"
 msgstr "Додати приватний ключ"
 
@@ -921,6 +930,9 @@ msgstr "Дозволити"
 msgid "Allow GSSAPI authentication."
 msgstr "Дозволити автентифікацію GSSAPI."
 
+msgid "Allow IPv6"
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "Дозволити нові файли"
 
@@ -1148,6 +1160,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr "Додати вміст до CSS файлу за замовчуванням"
 
+msgid "Append my IP"
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "Додати визначені користувачем спільні ресурси"
 
@@ -1263,9 +1281,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Назва атрибуту"
-
-msgid "Audio"
-msgstr "Аудіо"
 
 msgid "Aug"
 msgstr "Серп."
@@ -1633,6 +1648,9 @@ msgstr ""
 "Налаштування часу трансляції доступності в мережі в секундах, за "
 "замовчуванням 300 секунд."
 
+msgid "Broken RTC"
+msgstr ""
+
 msgid "Browseable"
 msgstr "Доступний для перегляду"
 
@@ -1641,6 +1659,13 @@ msgstr "Розташуваня кнопки"
 
 msgid "Button Settings"
 msgstr "Налаштування кнопки"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "За замовчуванням, тільки вже існуючі файли можуть бути вивантажені."
@@ -1656,6 +1681,9 @@ msgstr "Файл заголовка C++"
 
 msgid "C++ Source File"
 msgstr "Вихідний файл C++"
+
+msgid "CA Trusted Certificates"
+msgstr ""
 
 msgid "CACHE"
 msgstr "КЕШ"
@@ -1820,6 +1848,9 @@ msgstr "Налаштування CSS"
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr ""
+
 msgid "Calibration Battery"
 msgstr "Калібрування батареї"
 
@@ -1914,6 +1945,21 @@ msgstr "Канал"
 
 msgid "Charging Battery"
 msgstr "Батарея заряджається"
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check Interval"
+msgstr ""
 
 msgid "Check System|General Setup before initializing"
 msgstr "Перевірте 'Система | Загальні' перед ініціалізуванням"
@@ -2525,11 +2571,11 @@ msgstr "Створити дзеркальний пристрій SLOG для ZIL
 msgid "Create a spare device"
 msgstr "Створити запасний пристрій"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
+msgid "Create a virtual device containing a single device"
 msgstr ""
-"Створити віртуальний пристрій, який містить один пристрій або об'єднані "
-"пристрої"
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Створити віртуальний пристрій, який містить дзеркальні пристрої"
@@ -2637,6 +2683,9 @@ msgstr "Поточний рік"
 msgid "Custom"
 msgstr "Користувацький"
 
+msgid "Custom Provider"
+msgstr ""
+
 msgid "Custom Script"
 msgstr "Користувацький скрипт"
 
@@ -2654,6 +2703,20 @@ msgstr "Користувацький скрипт не знайдений."
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - реєструвати інформацію про налагодження"
@@ -2681,6 +2744,9 @@ msgstr "Автентифікація DHX"
 
 msgid "DHX2 Authentication"
 msgstr "Автентифікація DHX2"
+
+msgid "DISK"
+msgstr ""
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2988,6 +3054,9 @@ msgstr "Видалити обрані записи портів"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Видалити обрані групи порталів"
+
+msgid "Delete Selected Providers"
+msgstr ""
 
 msgid "Delete Selected Public Keys"
 msgstr "Видалення обраних публічних ключей"
@@ -3372,6 +3441,9 @@ msgstr "Вимкнути обрані записи  порту"
 msgid "Disable Selected Portal Groups"
 msgstr "Вимкнути обрані групи порталів"
 
+msgid "Disable Selected Providers"
+msgstr ""
+
 msgid "Disable Selected Public Keys"
 msgstr "Вимкнути обрані публічні ключі"
 
@@ -3680,6 +3752,9 @@ msgstr ""
 "Ви підтверджуєте створення віртуального пристрою з розподілом даних "
 "(striping) з обраних дисків?"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Ви підтверджуєте видалення обраних CARP?"
 
@@ -3778,6 +3853,9 @@ msgstr "Ви підтверджуєте видалення обраних зап
 
 msgid "Do you want to delete selected portal groups?"
 msgstr "Ви підтверджуєте видалення обраних груп порталів?"
+
+msgid "Do you want to delete selected providers?"
+msgstr ""
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Ви підтверджуєте видалення обраних публічних ключів?"
@@ -3887,6 +3965,9 @@ msgstr "Ви підтверджуєте вимкнення обраних зап
 msgid "Do you want to disable selected portal groups?"
 msgstr "Ви підтверджуєте вимкнення обраних груп порталу?"
 
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
 msgid "Do you want to disable selected public keys?"
 msgstr "Ви підтверджуєте вимкнення обраних публічних ключів?"
 
@@ -3976,6 +4057,9 @@ msgstr "Ви підтверджуєте увімкнення обраних за
 
 msgid "Do you want to enable selected portal groups?"
 msgstr "Ви підтверджуєте увімкнення обраних груп порталу?"
+
+msgid "Do you want to enable selected providers?"
+msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Ви підтверджуєте увімкнення обраних публічних ключів?"
@@ -4075,6 +4159,9 @@ msgstr "Ви підтверджуєте перемикання обраних з
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Ви підтверджуєте перемикання обраних груп портала?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Ви підтверджуєте перемикання обраних публічних ключів?"
@@ -4203,6 +4290,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "Динамічний DNS"
 
+msgid "Dynamic DNS Settings"
+msgstr ""
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "Динамічний IP (DHCP) не може використовуватися для ресурсів HAST."
 
@@ -4304,6 +4394,9 @@ msgstr "Редагувати запис порту"
 
 msgid "Edit Portal Group"
 msgstr "Редагувати групу портала"
+
+msgid "Edit Provider"
+msgstr ""
 
 msgid "Edit Public Key"
 msgstr "Змінити публічний ключ"
@@ -4537,6 +4630,9 @@ msgstr "Дозволити обрані записи порта"
 msgid "Enable Selected Portal Groups"
 msgstr "Дозволити обрані групи портала"
 
+msgid "Enable Selected Providers"
+msgstr ""
+
 msgid "Enable Selected Public Keys"
 msgstr "Дозволити обрані публічні ключі"
 
@@ -4661,6 +4757,11 @@ msgstr "Дозволити перегляд каталогів."
 msgid "Enable distributed hash table."
 msgstr "Дозволити використання розподіленої хеш-таблиці (DHT)"
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
 msgid "Enable domain wildcarding."
 msgstr "Дозволити шаблони у домені."
 
@@ -4766,6 +4867,16 @@ msgid ""
 msgstr ""
 "Увімкнути цю опцію, якщо ви бажаєте редагувати сторінки конфігурації "
 "безпосередньо без необхідності перемикання до режиму редагування."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -4959,6 +5070,9 @@ msgstr "Введіть додаткові параметри"
 msgid "Enter an iSCSI initiator name."
 msgstr "Введіть ім'я ініціатора iSCSI."
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
 msgid "Enter comment for the share"
 msgstr "Введіть коментар до спільного ресурсу"
 
@@ -5093,6 +5207,9 @@ msgstr "Код помилки"
 
 msgid "Error Level"
 msgstr "Рівень помилки"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Errors have been detected during import."
 msgstr "В процесі імпорту були виявлені помилки."
@@ -5311,6 +5428,9 @@ msgstr "Помилка."
 msgid "Failover"
 msgstr "Перехоплення"
 
+msgid "Fake Address"
+msgstr ""
+
 msgid "Fast"
 msgstr "Швидке"
 
@@ -5482,6 +5602,9 @@ msgstr "Примусова група"
 
 msgid "Force Operation"
 msgstr "Примусове виконання (-f)"
+
+msgid "Force Update Interval"
+msgstr ""
 
 msgid "Force Use"
 msgstr "Примусове Використання"
@@ -5911,6 +6034,9 @@ msgstr "Хост"
 msgid "Host Access Control"
 msgstr "Керування Доступом до Хосту"
 
+msgid "Host Names"
+msgstr ""
+
 msgid "Host Resources"
 msgstr "Ресурси хосту"
 
@@ -5922,6 +6048,9 @@ msgstr "Ім'я комп'ютера"
 
 msgid "Hostname Database"
 msgstr "База Даних Імен Хостів"
+
+msgid "Hostnames"
+msgstr ""
 
 msgid "Hosts"
 msgstr "Хости"
@@ -5942,6 +6071,11 @@ msgid "Hours"
 msgstr "год."
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr "Як часто перевіряється IP. Період в секундах (макс. 10 днів)"
 
@@ -5951,6 +6085,11 @@ msgid ""
 msgstr ""
 "Як часто поновлювати ІР адресу, навіть, якщо вона не мінялася. Значення в "
 "секундах (макс. 10 днів)."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
 
 msgid "I/O Statistics"
 msgstr "Статистика введення/виведення"
@@ -5977,6 +6116,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "IP адреса"
 
+msgid "IP Address Family"
+msgstr ""
+
 msgid "IP Address Prefix"
 msgstr "Префікс IP адреси"
 
@@ -5985,6 +6127,10 @@ msgstr "IP адреса"
 
 msgid "IP address of the remote syslog server."
 msgstr "Адреса IP віддаленого syslog сервера."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6010,6 +6156,9 @@ msgstr "Налаштування IPv4"
 
 msgid "IPv4 addresses"
 msgstr "Адреси IPv4"
+
+msgid "IPv4 only"
+msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "IPv4 або IPv6 адреса сервера iSNS для реєстрації."
@@ -6056,6 +6205,9 @@ msgstr "IPv6 адреса"
 
 msgid "IPv6 addresses"
 msgstr "IPv6 адреси"
+
+msgid "IPv6 only"
+msgstr ""
 
 msgid "IRC Live Support"
 msgstr "IRC канал підтримки"
@@ -6173,6 +6325,11 @@ msgstr ""
 
 msgid "If this property is set to off, the file system cannot be mounted."
 msgstr "Якщо вимкнено, файлову систему неможливо змонтувати."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
 
 msgid "Ignore Hosts Allow"
 msgstr "Ігнорувати дозволені хости"
@@ -6319,6 +6476,9 @@ msgstr "Початковий дайджест"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "Початковий RAM-диск (напр. <b>%s</b>)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
 
 msgid "Initialize"
 msgstr "Ініціалізувати"
@@ -6563,6 +6723,9 @@ msgstr ""
 
 msgid "Item(s)"
 msgstr "Елементи"
+
+msgid "Iterations"
+msgstr ""
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7105,6 +7268,9 @@ msgstr "MIRROR"
 msgid "MISSING"
 msgstr "ВІДСУТНІЙ"
 
+msgid "MIT License"
+msgstr ""
+
 msgid "MKV File"
 msgstr "Відеофайл MKV"
 
@@ -7158,9 +7324,6 @@ msgstr "Оновлення основної версії ОС"
 
 msgid "Major Product Version Updates"
 msgstr "Оновлення основної версії програми"
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Переконайтеся в тому, щоб вибрати оптимальну кількість пристроїв"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "Переконайтесь, що ви активували S.M.A.R.T. для вашого пристрою."
@@ -7428,6 +7591,9 @@ msgstr "хв."
 msgid "Minutes between the next network time synchronization."
 msgstr "Минут до наступної мережевої синхронізації часу."
 
+msgid "Missing Provider"
+msgstr ""
+
 msgid "Missing a temporary folder."
 msgstr "Тимчасовий каталог відсутній."
 
@@ -7607,6 +7773,9 @@ msgstr "Взаємний CHAP"
 msgid "NAA Identifier"
 msgstr "Ідентифікатор NAA"
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr "Ім'я NETBIOS"
 
@@ -7781,6 +7950,9 @@ msgstr "Мережева адреса"
 
 msgid "Network File System"
 msgstr "Мережева файлова система"
+
+msgid "Network Interface"
+msgstr ""
 
 msgid "Network Latency"
 msgstr "Затримка мережі"
@@ -8135,6 +8307,9 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Синхронізувати нічого"
 
+msgid "Notice"
+msgstr ""
+
 msgid "Notice Level"
 msgstr "Рівень повідомлення"
 
@@ -8286,6 +8461,9 @@ msgstr "Запис опції розблокований"
 msgid "Optional"
 msgstr "Необов'язкове"
 
+msgid "Optional server path for check IP server"
+msgstr ""
+
 msgid "Optional user-friendly string of the target."
 msgstr "Не обв'язковий зручний для сприйняття опис цілі."
 
@@ -8297,6 +8475,9 @@ msgstr "Походження"
 
 msgid "Orphaned"
 msgstr "Покинуті (Orphaned)"
+
+msgid "Orphaned Provider"
+msgstr ""
 
 msgid "Others"
 msgstr "Інші"
@@ -8336,6 +8517,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Перевантаження"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "Огляд"
@@ -8614,9 +8798,6 @@ msgstr "Розмір фізичного блока"
 
 msgid "Physical Interface"
 msgstr "Фізичний інтерфейс"
-
-msgid "Pictures"
-msgstr "Зображення"
 
 msgid "Ping"
 msgstr "Пінг"
@@ -8992,6 +9173,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Провайдер"
 
+msgid "Provider Name"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Тип забезпечення"
 
@@ -9105,20 +9298,11 @@ msgstr "Обслуговування RAID-5"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "RAID-Z1 повинен мати 3, 5 або 9 дисків в кожному vdev."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "RAID-Z2 повинен мати 4, 6 або 10 дисків в кожному vdev."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "RAID-Z3 повинен мати 5, 7 або 11 дисків в кожному vdev."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9439,6 +9623,9 @@ msgstr "Інформація про Запис"
 
 msgid "Record Maintenance"
 msgstr "Обслуговування Запису"
+
+msgid "Record Type"
+msgstr ""
 
 msgid "Record is locked"
 msgstr "Запис заблоковано"
@@ -9942,6 +10129,12 @@ msgstr ""
 "Samba буде писати до файлу асінхронно коли розмір запиту більше ніж це "
 "значення (за замовчуванням %d)."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
 msgid "Sat"
 msgstr "Сб"
 
@@ -10068,6 +10261,9 @@ msgstr "Таємна фраза"
 msgid "Secret for CHAP authentication."
 msgstr "Пароль автентифікації CHAP."
 
+msgid "Secure SSL"
+msgstr ""
+
 msgid "Security Flavor"
 msgstr "Вкладка безпеки"
 
@@ -10082,6 +10278,11 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Переглянути атрибут E8."
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Виберіть 'CD/DVD' якщо ви хочете змонтувати том CD/DVD."
@@ -10141,6 +10342,9 @@ msgstr "Оберіть алгоритм шифрування."
 msgid "Select at which stage the command should be executed."
 msgstr "Оберіть на якому етапі команда повинна бути виконана."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr ""
+
 msgid "Select configuration file:"
 msgstr "Оберіть файл конфігураціії:"
 
@@ -10164,6 +10368,9 @@ msgstr "Оберіть режим користувацького CSS файлу 
 
 msgid "Select file system format."
 msgstr "Виберіть формат файлової системи."
+
+msgid "Select from predefined providers."
+msgstr ""
 
 msgid "Select item to remove from the list"
 msgstr "Виберіть елемент для видалення із списку"
@@ -10369,6 +10576,9 @@ msgstr "Максимальний Протокол Серверу"
 msgid "Server Min. Protocol"
 msgstr "Мінімальний Протокол Серверу"
 
+msgid "Server Mode"
+msgstr ""
+
 msgid "Server Name"
 msgstr "Назва сервера"
 
@@ -10377,6 +10587,9 @@ msgstr "Описання сервера. Можна не заповнювати.
 
 msgid "Server information"
 msgstr "Інформація про сервер"
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
 
 msgid "Server version"
 msgstr "Версія сервера"
@@ -10415,11 +10628,23 @@ msgid "Set browseable."
 msgstr "Зробити таким, що проглядається."
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Set domain name"
+msgstr ""
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
 "Встановити інтервал між перевірками дисків N секунд. Мінімальне допустиме "
 "значення 10."
+
+msgid "Set log level"
+msgstr ""
 
 msgid "Set password"
 msgstr "Встановити пароль"
@@ -10462,6 +10687,10 @@ msgstr ""
 "обмеження розміру пакетів на інтерфейсі. Не всі інтерфейси підтримують "
 "установку розміру MTU і деякі інтерфейси мають обмеження на інтервал "
 "настройки параметра."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -10519,6 +10748,9 @@ msgid ""
 msgstr ""
 "Встановити рівень логування повідомлень Transmission. Стандартний рівень "
 "повідомлень - \"%s\""
+
+msgid "Set workgroup name"
+msgstr ""
 
 msgid "Setkey"
 msgstr "Встановити ключ шифрування"
@@ -10649,6 +10881,11 @@ msgstr "Командна оболонка"
 
 msgid "Shell Script"
 msgstr "Скрипт Shell"
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
 
 msgid "Shock During Write."
 msgstr "Струс під час запису."
@@ -11013,6 +11250,11 @@ msgstr "Визначає розмір фізичного блоку пристр
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr "Визначає тип пристрою SCSI для використання під час створювання LUN."
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
 msgid "Specify the group numeric id."
 msgstr "Вкажіть числовий ідентифікатор групи."
 
@@ -11024,6 +11266,9 @@ msgstr "Розділений запит"
 
 msgid "Standard"
 msgstr "Стандартно"
+
+msgid "Standard Provider"
+msgstr ""
 
 msgid "Standard Reports"
 msgstr "Стандартні звіти"
@@ -11045,6 +11290,9 @@ msgstr "Стартувати"
 
 msgid "Start TLS from within the session."
 msgstr "Використовувати TLS у сеансі."
+
+msgid "Startup Delay"
+msgstr ""
 
 msgid "Static"
 msgstr "Статичний"
@@ -12006,6 +12254,9 @@ msgstr ""
 "Обмеження для одночасного запуску дочірніх процесів, що обробляють вхідні "
 "з'єднання. Значення за замовчуванням - 30. Параметр 0 вимикає ліміт."
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
@@ -12156,6 +12407,9 @@ msgstr "Пароль містить неприпустимий символ ':'.
 
 msgid "The password encryption protocol to use."
 msgstr "Протокол шифрування пароля."
+
+msgid "The password, if applicable."
+msgstr ""
 
 msgid "The passwords do not match."
 msgstr "Паролі не збігаються."
@@ -12363,6 +12617,9 @@ msgstr "Вивантажений файл перевищує директиву 
 msgid "The uploaded file was only partially uploaded."
 msgstr "Файл був лише частково вивантежний."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "Помилкове значення."
 
@@ -12424,6 +12681,9 @@ msgstr ""
 "Ці налаштування будуть додані до /boot/loader.conf.local.  Це дозволить вам "
 "передавати ці параметри до ядра та завантажувати розширені модулі."
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Ці параметри додаються в %s."
@@ -12450,6 +12710,9 @@ msgstr "Ці параметри додаються до /etc/ssh/sshd_config."
 
 msgid "These parameters are appended to the exports file."
 msgstr "Ці параметри додаються до файла експортів."
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr ""
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12494,6 +12757,9 @@ msgstr "Ці параметри будуть додані до цього LUN."
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Ці параметри будуть додані до цієї групи порталу."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr ""
 
 msgid "These parameters will be added to this target."
 msgstr "Ці параметри будуть додані до цієї цілі."
@@ -12684,6 +12950,10 @@ msgid ""
 msgstr ""
 "Ця опція дозволяє rsync встановлювати права доступу одержувача такими ж, як "
 "у джерела"
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -12882,6 +13152,17 @@ msgstr ""
 "використовувати клієнту."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -13063,6 +13344,12 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Для того, щоб будь-яка IP адреса була відповідною, залиште це поле порожнім."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr "Для використання Active Directory потрібно буде включити сервіс SMB."
 
@@ -13128,6 +13415,9 @@ msgstr "Перемкнути обрані записи порту"
 
 msgid "Toggle Selected Portal Groups"
 msgstr "Перемкнути обрані групи порталу"
+
+msgid "Toggle Selected Providers"
+msgstr ""
 
 msgid "Toggle Selected Public Keys"
 msgstr "Перемкнути обрані публічні ключі"
@@ -13492,6 +13782,9 @@ msgstr ""
 msgid "Undefined"
 msgstr "Невизначено"
 
+msgid "Undefined Type"
+msgstr ""
+
 msgid "Unformated"
 msgstr "Неформатований"
 
@@ -13534,6 +13827,9 @@ msgstr "Невідома активність"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Невідомий агрегатний протокол"
+
+msgid "Unknown Provider"
+msgstr ""
 
 msgid "Unknown or Unformatted"
 msgstr "Невідомий або Неформатований"
@@ -13623,6 +13919,14 @@ msgstr "Використовувати Типовий Файл Довіри TLS"
 msgid "Use Encryption"
 msgstr "Використовувати шифрування"
 
+msgid "Use HTTPS"
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr ""
 "Використовувати для автентифікації користувача модуль, що під'єднується "
@@ -13698,6 +14002,16 @@ msgstr "Використовувати стандартний контейнер
 msgid "Use these specials actions for debugging only!"
 msgstr "Використовуйте ці спеціальні дії тільки для відлагодження!"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -13766,6 +14080,9 @@ msgstr ""
 msgid "User"
 msgstr "Користувач"
 
+msgid "User Agent"
+msgstr ""
+
 msgid "User ID"
 msgstr "Ідентифікатор користувача"
 
@@ -13798,6 +14115,9 @@ msgstr "Обліковий запис користувача захищений"
 
 msgid "User account is unlocked"
 msgstr "Обліковий запис користувача розблокований"
+
+msgid "User agent string"
+msgstr ""
 
 msgid "User portal permission."
 msgstr "Дозволи порталу користувача."
@@ -13916,6 +14236,9 @@ msgstr "Деталізація інформації, що реєструєтьс
 msgid "Verify"
 msgstr "Перевіряти"
 
+msgid "Verify Address"
+msgstr ""
+
 msgid "Version"
 msgstr "Версія"
 
@@ -13924,9 +14247,6 @@ msgstr "Версія:"
 
 msgid "Vibration During Write."
 msgstr "Вібрація впродовж запису"
-
-msgid "Video"
-msgstr "Відео"
 
 msgid "Virtual Device"
 msgstr "Віртуальний пристрій"
@@ -14080,6 +14400,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr ""
+
 msgid "Wait Time"
 msgstr "Час очікування"
 
@@ -14097,6 +14420,12 @@ msgstr "Рівень попередження"
 
 msgid "Watch Folder"
 msgstr "Каталог спостереження"
+
+msgid "Web Service Discovery"
+msgstr ""
+
+msgid "Web Service Discovery Settings"
+msgstr ""
 
 #, php-format
 msgid "Web interface port. The default port is %d."
@@ -14206,6 +14535,9 @@ msgstr "Символічні посилання"
 msgid "Wildcard"
 msgstr "Шаблон"
 
+msgid "Wildcard Domain"
+msgstr ""
+
 msgid "Winbindd Availability"
 msgstr "Наявність Winbindd"
 
@@ -14220,6 +14552,9 @@ msgstr "Робочий каталог"
 
 msgid "Workgroup"
 msgstr "Робоча група"
+
+msgid "Workgroup Name"
+msgstr ""
 
 msgid "Wrap text:"
 msgstr "Розгорнути текст:"
@@ -14501,6 +14836,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "та"
 
+msgid "api.ipify.org"
+msgstr ""
+
 msgid "bash - Bourne Again Shell"
 msgstr "bash - Bourne Again Shell"
 
@@ -14679,6 +15017,9 @@ msgstr "Мережевий трафік"
 msgid "no"
 msgstr "ні"
 
+msgid "no delay"
+msgstr ""
+
 msgid "no pools available"
 msgstr "доступних пулів немає"
 
@@ -14754,6 +15095,9 @@ msgstr "umount"
 msgid "unknown"
 msgstr "невідомий"
 
+msgid "update.example.com"
+msgstr ""
+
 msgid "visible"
 msgstr "видимий"
 
@@ -14762,3 +15106,30 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
+
+#~ msgid "Audio"
+#~ msgstr "Аудіо"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Створити віртуальний пристрій, який містить один пристрій або об'єднані "
+#~ "пристрої"
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Переконайтеся в тому, щоб вибрати оптимальну кількість пристроїв"
+
+#~ msgid "Pictures"
+#~ msgstr "Зображення"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "RAID-Z1 повинен мати 3, 5 або 9 дисків в кожному vdev."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "RAID-Z2 повинен мати 4, 6 або 10 дисків в кожному vdev."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "RAID-Z3 повинен мати 5, 7 або 11 дисків в кожному vdev."
+
+#~ msgid "Video"
+#~ msgstr "Відео"

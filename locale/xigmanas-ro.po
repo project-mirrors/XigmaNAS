@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:53+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -217,8 +217,14 @@ msgstr "*** Duplicat importat ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr ""
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr ""
 
 msgid "000"
 msgstr "000"
@@ -639,6 +645,9 @@ msgstr "Adauga Registru de porturi"
 msgid "Add Portal Group"
 msgstr "Adăugare Grup Portal"
 
+msgid "Add Provider"
+msgstr ""
+
 msgid "Add Public Key"
 msgstr "Adăugare cheie pblică"
 
@@ -926,6 +935,9 @@ msgstr "Permite"
 msgid "Allow GSSAPI authentication."
 msgstr "Persmisiune autentificare GSSAPI"
 
+msgid "Allow IPv6"
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "Permite fișiere noi"
 
@@ -1147,6 +1159,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr ""
 
+msgid "Append my IP"
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "Adaugă partajările definite"
 
@@ -1262,9 +1280,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Nume atribut"
-
-msgid "Audio"
-msgstr "Audio"
 
 msgid "Aug"
 msgstr "Aug"
@@ -1630,6 +1645,9 @@ msgid ""
 "default is 300 seconds."
 msgstr ""
 
+msgid "Broken RTC"
+msgstr ""
+
 msgid "Browseable"
 msgstr "Navigabil"
 
@@ -1637,6 +1655,13 @@ msgid "Button Location"
 msgstr "Localizare buton"
 
 msgid "Button Settings"
+msgstr ""
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
 msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
@@ -1652,6 +1677,9 @@ msgid "C++ Header File"
 msgstr ""
 
 msgid "C++ Source File"
+msgstr ""
+
+msgid "CA Trusted Certificates"
 msgstr ""
 
 msgid "CACHE"
@@ -1815,6 +1843,9 @@ msgstr ""
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr ""
+
 msgid "Calibration Battery"
 msgstr "Calibrare acumulator"
 
@@ -1911,6 +1942,21 @@ msgstr "Canal"
 
 msgid "Charging Battery"
 msgstr "Încărcare acumulator"
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check Interval"
+msgstr ""
 
 msgid "Check System|General Setup before initializing"
 msgstr "Verifică Sistem|Setări Generale înainte de inițializare"
@@ -2534,11 +2580,11 @@ msgstr "Creare dispozitiv oglindă SLOG pentru ZIL"
 msgid "Create a spare device"
 msgstr "CReare dispozitiv rezervă"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
+msgid "Create a virtual device containing a single device"
 msgstr ""
-"Crează un dispozitiv virtual conținând un singur sau mai multe dispozitive "
-"concatenate."
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Crează un dispozitiv virtual conținând dispozitive oglindite"
@@ -2646,6 +2692,9 @@ msgstr ""
 msgid "Custom"
 msgstr "Personalizat"
 
+msgid "Custom Provider"
+msgstr ""
+
 msgid "Custom Script"
 msgstr "Script utilizator"
 
@@ -2663,6 +2712,20 @@ msgstr "Scriptul utilizator nu a fost găsit."
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
 
 msgid "DEBUG - log debugging information"
 msgstr ""
@@ -2690,6 +2753,9 @@ msgstr "Autentificare DHX"
 
 msgid "DHX2 Authentication"
 msgstr "Autentificare DHX2"
+
+msgid "DISK"
+msgstr ""
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2991,6 +3057,9 @@ msgstr "Ștergere porturi înregistrări selectate"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Ștergere Gruprui portal selectate"
+
+msgid "Delete Selected Providers"
+msgstr ""
 
 msgid "Delete Selected Public Keys"
 msgstr ""
@@ -3375,6 +3444,9 @@ msgstr "Dezactivare înregistrări porturi selectate"
 msgid "Disable Selected Portal Groups"
 msgstr "Dezactivare Grupuri portal selectate"
 
+msgid "Disable Selected Providers"
+msgstr ""
+
 msgid "Disable Selected Public Keys"
 msgstr ""
 
@@ -3676,6 +3748,9 @@ msgstr "Creați un dispozitiv virtual oglindă folosind discurile selectate?"
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr "Creați un dispozitiv virtual tip strip folosind discurile selectate?"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Ștergeți protocoalele CARP selectate?"
 
@@ -3773,6 +3848,9 @@ msgid "Do you want to delete selected port records?"
 msgstr ""
 
 msgid "Do you want to delete selected portal groups?"
+msgstr ""
+
+msgid "Do you want to delete selected providers?"
 msgstr ""
 
 msgid "Do you want to delete selected public keys?"
@@ -3883,6 +3961,9 @@ msgstr ""
 msgid "Do you want to disable selected portal groups?"
 msgstr ""
 
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
 msgid "Do you want to disable selected public keys?"
 msgstr ""
 
@@ -3971,6 +4052,9 @@ msgid "Do you want to enable selected port records?"
 msgstr ""
 
 msgid "Do you want to enable selected portal groups?"
+msgstr ""
+
+msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
@@ -4070,6 +4154,9 @@ msgid "Do you want to toggle selected port records?"
 msgstr ""
 
 msgid "Do you want to toggle selected portal groups?"
+msgstr ""
+
+msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
@@ -4198,6 +4285,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "DNS Dinamic"
 
+msgid "Dynamic DNS Settings"
+msgstr ""
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "Pentru HAST nu pot fi utilizate IP-uri Dinamice (DHCP)."
 
@@ -4298,6 +4388,9 @@ msgid "Edit Port Record"
 msgstr ""
 
 msgid "Edit Portal Group"
+msgstr ""
+
+msgid "Edit Provider"
 msgstr ""
 
 msgid "Edit Public Key"
@@ -4529,6 +4622,9 @@ msgstr ""
 msgid "Enable Selected Portal Groups"
 msgstr ""
 
+msgid "Enable Selected Providers"
+msgstr ""
+
 msgid "Enable Selected Public Keys"
 msgstr ""
 
@@ -4652,6 +4748,11 @@ msgstr "Activare listare foldere."
 msgid "Enable distributed hash table."
 msgstr "Activare tabelă  distribuită de asocieri."
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
 msgid "Enable domain wildcarding."
 msgstr "Activare caractere speciale pentru domeniu."
 
@@ -4754,6 +4855,16 @@ msgid ""
 msgstr ""
 "Activați această opțiune dacă doriți să editați direct paginile de "
 "configurare fără a mai trece în modul editare."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -4945,6 +5056,9 @@ msgstr ""
 msgid "Enter an iSCSI initiator name."
 msgstr ""
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
 msgid "Enter comment for the share"
 msgstr "Introduceți comentariul pentru partajare"
 
@@ -5077,6 +5191,9 @@ msgstr "Cod eroare"
 
 msgid "Error Level"
 msgstr "Nivel eroare"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Errors have been detected during import."
 msgstr "Eroare la import."
@@ -5295,6 +5412,9 @@ msgstr "Eroare."
 msgid "Failover"
 msgstr "Protecție la Erori"
 
+msgid "Fake Address"
+msgstr ""
+
 msgid "Fast"
 msgstr "Rapid"
 
@@ -5461,6 +5581,9 @@ msgstr ""
 
 msgid "Force Operation"
 msgstr "Forțare operațiune"
+
+msgid "Force Update Interval"
+msgstr ""
 
 msgid "Force Use"
 msgstr "Forțare utilizare"
@@ -5888,6 +6011,9 @@ msgstr "Sistem"
 msgid "Host Access Control"
 msgstr "Control acces gazdă"
 
+msgid "Host Names"
+msgstr ""
+
 msgid "Host Resources"
 msgstr "Rasurse gazdă"
 
@@ -5899,6 +6025,9 @@ msgstr "Nume Sistem"
 
 msgid "Hostname Database"
 msgstr "Bază de date nume sisteme"
+
+msgid "Hostnames"
+msgstr ""
 
 msgid "Hosts"
 msgstr "Sisteme"
@@ -5919,6 +6048,11 @@ msgid "Hours"
 msgstr "Ore"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr ""
 "Perioada la care se verifică adresa IP (definită în secunde). Valoarea "
@@ -5931,6 +6065,11 @@ msgstr ""
 "Specifică cît de des este actualizat IP-ul (chiar dacă acesta nu este "
 "schimbat). Perioada este definită în secunde, valoarea maximă fiind de 10 "
 "zile."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
 
 msgid "I/O Statistics"
 msgstr "Statistici I/O"
@@ -5957,6 +6096,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "Adresă IP"
 
+msgid "IP Address Family"
+msgstr ""
+
 msgid "IP Address Prefix"
 msgstr ""
 
@@ -5965,6 +6107,10 @@ msgstr "Adresa IP"
 
 msgid "IP address of the remote syslog server."
 msgstr "Adresa IP a serverului syslog remote."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -5992,6 +6138,9 @@ msgstr "Setări IPv4"
 
 msgid "IPv4 addresses"
 msgstr "Adrese IPv4"
+
+msgid "IPv4 only"
+msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr ""
@@ -6031,6 +6180,9 @@ msgstr "Adresă IPv6"
 
 msgid "IPv6 addresses"
 msgstr "Adrese IPv6"
+
+msgid "IPv6 only"
+msgstr ""
 
 msgid "IRC Live Support"
 msgstr "Suport Live IRC"
@@ -6150,6 +6302,11 @@ msgid "If this property is set to off, the file system cannot be mounted."
 msgstr ""
 "Dacă această opțiune este dezactivată, sistemul de fișiere nu poate fi "
 "montat."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
 
 msgid "Ignore Hosts Allow"
 msgstr "Ignorare Hosts Allow"
@@ -6295,6 +6452,9 @@ msgstr "Rezumat Inițial"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "Ramdisk inițial (ex. %s)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
 
 msgid "Initialize"
 msgstr "Inițializare"
@@ -6541,6 +6701,9 @@ msgstr ""
 "numele de utilizator."
 
 msgid "Item(s)"
+msgstr ""
+
+msgid "Iterations"
 msgstr ""
 
 msgid "JBOD"
@@ -7067,6 +7230,9 @@ msgstr "MIRROR"
 msgid "MISSING"
 msgstr "LIPSĂ"
 
+msgid "MIT License"
+msgstr ""
+
 msgid "MKV File"
 msgstr ""
 
@@ -7120,9 +7286,6 @@ msgstr ""
 
 msgid "Major Product Version Updates"
 msgstr ""
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Asigurați-vă că selectați numărul optim de discuri"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "Verificați dacă ați activat S.M.A.R.T."
@@ -7391,6 +7554,9 @@ msgstr "Minute"
 msgid "Minutes between the next network time synchronization."
 msgstr "Minute până la următoarea sincronizare."
 
+msgid "Missing Provider"
+msgstr ""
+
 msgid "Missing a temporary folder."
 msgstr "Lipsește un folder temporar."
 
@@ -7568,6 +7734,9 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr ""
 
@@ -7737,6 +7906,9 @@ msgstr ""
 
 msgid "Network File System"
 msgstr "Sistem Fișiere Rețea"
+
+msgid "Network Interface"
+msgstr ""
 
 msgid "Network Latency"
 msgstr "Latență rețea"
@@ -8088,6 +8260,9 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Nimic de sincronizat"
 
+msgid "Notice"
+msgstr ""
+
 msgid "Notice Level"
 msgstr "Nivel notificare"
 
@@ -8240,6 +8415,9 @@ msgstr ""
 msgid "Optional"
 msgstr "Opţional"
 
+msgid "Optional server path for check IP server"
+msgstr ""
+
 msgid "Optional user-friendly string of the target."
 msgstr "Text opțional pentru destinație."
 
@@ -8250,6 +8428,9 @@ msgid "Origin"
 msgstr "Origine"
 
 msgid "Orphaned"
+msgstr ""
+
+msgid "Orphaned Provider"
 msgstr ""
 
 msgid "Others"
@@ -8290,6 +8471,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Supraîncărcare"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "Sumar"
@@ -8569,9 +8753,6 @@ msgstr ""
 
 msgid "Physical Interface"
 msgstr "Interfață fizică"
-
-msgid "Pictures"
-msgstr "Imagini"
 
 msgid "Ping"
 msgstr "Ping"
@@ -8944,6 +9125,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Furnizor"
 
+msgid "Provider Name"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -9057,20 +9250,11 @@ msgstr "Mentenanță RAID-5"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "RAID-Z1 trebuie să aibă 3, 5 sau 9 discuri în fiecare vdev."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "RAID-Z2 trebuie să aibă 4, 6 sau 10 discuri în fiecare vdev."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "RAID-Z3 trebuie să aibă 5, 7 sau 11 discuri în fiecare vdev."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9390,6 +9574,9 @@ msgstr "Informații înregistrare"
 
 msgid "Record Maintenance"
 msgstr "Mentenanță înregistrare"
+
+msgid "Record Type"
+msgstr ""
 
 msgid "Record is locked"
 msgstr "Înregistrare blocată"
@@ -9890,6 +10077,12 @@ msgstr ""
 "Samba va scrie fișierul asincron când mărimea cererii este mai mare ca "
 "această valoare (implicit %d)."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
 msgid "Sat"
 msgstr "Sâm"
 
@@ -10016,6 +10209,9 @@ msgstr "Secret"
 msgid "Secret for CHAP authentication."
 msgstr ""
 
+msgid "Secure SSL"
+msgstr ""
+
 msgid "Security Flavor"
 msgstr ""
 
@@ -10030,6 +10226,11 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Vezi valoarea E8."
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Selectați 'CD/DVD' dacă doriți să montați un volum CD/DVD."
@@ -10093,6 +10294,9 @@ msgstr "Selectați algortimul de criptare de utilizat."
 msgid "Select at which stage the command should be executed."
 msgstr "Selectați momentul în care va fi executată comanda."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr ""
+
 msgid "Select configuration file:"
 msgstr "Selectare fișier configurare:"
 
@@ -10116,6 +10320,9 @@ msgstr ""
 
 msgid "Select file system format."
 msgstr "Selectare format sistem fișiere."
+
+msgid "Select from predefined providers."
+msgstr ""
 
 msgid "Select item to remove from the list"
 msgstr "Selectați un element din listă pentru eliminare"
@@ -10307,6 +10514,9 @@ msgstr "Protocol max. server"
 msgid "Server Min. Protocol"
 msgstr "Protocol min. server"
 
+msgid "Server Mode"
+msgstr ""
+
 msgid "Server Name"
 msgstr "Nume Server"
 
@@ -10315,6 +10525,9 @@ msgstr "Descriere server. Cîmpul poate fi lăsat necompletat."
 
 msgid "Server information"
 msgstr "Informații server"
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
 
 msgid "Server version"
 msgstr "Versiune server"
@@ -10353,11 +10566,23 @@ msgid "Set browseable."
 msgstr "Permite navigarea"
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Set domain name"
+msgstr ""
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
 "Setare interval între două verificări a discurilor la N secunde. Valoarea "
 "minimă acceptată: 10."
+
+msgid "Set log level"
+msgstr ""
 
 msgid "Set password"
 msgstr ""
@@ -10398,6 +10623,10 @@ msgstr ""
 "transmise printr-o interfață. Nu toate interfețele permit modificarea "
 "valorii MTU, unele dintre ele putînd avea restricții privind valorile "
 "posibile."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -10442,6 +10671,9 @@ msgstr ""
 #, php-format
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
+
+msgid "Set workgroup name"
 msgstr ""
 
 msgid "Setkey"
@@ -10548,6 +10780,11 @@ msgid "Shell"
 msgstr "Shell"
 
 msgid "Shell Script"
+msgstr ""
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
 msgstr ""
 
 msgid "Shock During Write."
@@ -10900,6 +11137,11 @@ msgstr ""
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
 msgid "Specify the group numeric id."
 msgstr ""
 
@@ -10911,6 +11153,9 @@ msgstr "Cerere splitare"
 
 msgid "Standard"
 msgstr "Standard"
+
+msgid "Standard Provider"
+msgstr ""
 
 msgid "Standard Reports"
 msgstr "Rapoarte standard"
@@ -10932,6 +11177,9 @@ msgid "Start"
 msgstr "Start"
 
 msgid "Start TLS from within the session."
+msgstr ""
+
+msgid "Startup Delay"
 msgstr ""
 
 msgid "Static"
@@ -11876,6 +12124,9 @@ msgid ""
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr "Numărul maxim de conexiuni pe IP pote fi 0 (nelimitat) sau mai mare."
@@ -12009,6 +12260,9 @@ msgstr "Parola conține caracterul ilegal ':'."
 
 msgid "The password encryption protocol to use."
 msgstr "Protocolul de criptare a parolei de utilizat."
+
+msgid "The password, if applicable."
+msgstr ""
 
 msgid "The passwords do not match."
 msgstr "Parolele nu coincid."
@@ -12212,6 +12466,9 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr "Fișierul a fost parțial încărcat."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "Valoare invalidă."
 
@@ -12269,6 +12526,9 @@ msgid ""
 "loaded."
 msgstr ""
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Acești parametri sînt adăugați la %s."
@@ -12296,6 +12556,9 @@ msgid "These parameters are appended to /etc/ssh/sshd_config."
 msgstr ""
 
 msgid "These parameters are appended to the exports file."
+msgstr ""
+
+msgid "These parameters are appended to the inadyn.conf file."
 msgstr ""
 
 #, php-format
@@ -12341,6 +12604,9 @@ msgid "These parameters will be added to this lun."
 msgstr ""
 
 msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this provider configuration"
 msgstr ""
 
 msgid "These parameters will be added to this target."
@@ -12528,6 +12794,10 @@ msgid ""
 msgstr ""
 "Această opțiune determină serviciul rsync să seteze permisiunile la "
 "destinație conform celor de la sursă."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -12723,6 +12993,17 @@ msgstr ""
 "clientului să-l utilizeze."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -12891,6 +13172,12 @@ msgstr ""
 msgid "To match any IP address leave this field empty."
 msgstr "Pentru a permite orice adresă IP lăsați acest cîmp necompletat."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
@@ -12955,6 +13242,9 @@ msgid "Toggle Selected Port Records"
 msgstr ""
 
 msgid "Toggle Selected Portal Groups"
+msgstr ""
+
+msgid "Toggle Selected Providers"
 msgstr ""
 
 msgid "Toggle Selected Public Keys"
@@ -13315,6 +13605,9 @@ msgstr "Numărul de erori necorectate raportate de sistemul de operare."
 msgid "Undefined"
 msgstr ""
 
+msgid "Undefined Type"
+msgstr ""
+
 msgid "Unformated"
 msgstr "Neformatat"
 
@@ -13355,6 +13648,9 @@ msgstr "Activitate necunoscută"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Protocol necunoscut de agregare."
+
+msgid "Unknown Provider"
+msgstr ""
 
 msgid "Unknown or Unformatted"
 msgstr "Necunoscut sau neformatat"
@@ -13446,6 +13742,14 @@ msgstr ""
 msgid "Use Encryption"
 msgstr "Utilizare criptare"
 
+msgid "Use HTTPS"
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "Utilizare PAM pentru autentificare."
 
@@ -13517,6 +13821,16 @@ msgstr ""
 msgid "Use these specials actions for debugging only!"
 msgstr "Folosiți aceste acțiuni speciale doar pentru debuging!"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -13577,6 +13891,9 @@ msgstr ""
 msgid "User"
 msgstr "Utilizator"
 
+msgid "User Agent"
+msgstr ""
+
 msgid "User ID"
 msgstr "ID Utilizator"
 
@@ -13609,6 +13926,9 @@ msgstr "Contul utilizator este protejat"
 
 msgid "User account is unlocked"
 msgstr "Contul utilizator este deblocat"
+
+msgid "User agent string"
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -13725,6 +14045,9 @@ msgstr ""
 msgid "Verify"
 msgstr "Verificare"
 
+msgid "Verify Address"
+msgstr ""
+
 msgid "Version"
 msgstr "Versiune XigmaNAS"
 
@@ -13733,9 +14056,6 @@ msgstr "Versiune:"
 
 msgid "Vibration During Write."
 msgstr "Vibrații în timpul scrierii"
-
-msgid "Video"
-msgstr "Video"
 
 msgid "Virtual Device"
 msgstr "Dispozitiv virtual"
@@ -13888,6 +14208,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr ""
+
 msgid "Wait Time"
 msgstr "Timp de așteptare"
 
@@ -13904,6 +14227,12 @@ msgid "Warning Level"
 msgstr "NIvel avertizare"
 
 msgid "Watch Folder"
+msgstr ""
+
+msgid "Web Service Discovery"
+msgstr ""
+
+msgid "Web Service Discovery Settings"
 msgstr ""
 
 #, php-format
@@ -14009,6 +14338,9 @@ msgstr ""
 msgid "Wildcard"
 msgstr "Caractere Speciale"
 
+msgid "Wildcard Domain"
+msgstr ""
+
 msgid "Winbindd Availability"
 msgstr "Disponibilitate Winbindd"
 
@@ -14023,6 +14355,9 @@ msgstr "Director de lucru"
 
 msgid "Workgroup"
 msgstr "Grup de Lucru"
+
+msgid "Workgroup Name"
+msgstr ""
 
 msgid "Wrap text:"
 msgstr ""
@@ -14306,6 +14641,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "și"
 
+msgid "api.ipify.org"
+msgstr ""
+
 msgid "bash - Bourne Again Shell"
 msgstr ""
 
@@ -14473,6 +14811,9 @@ msgstr "trafic rețea"
 msgid "no"
 msgstr ""
 
+msgid "no delay"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -14548,6 +14889,9 @@ msgstr "demontare"
 msgid "unknown"
 msgstr ""
 
+msgid "update.example.com"
+msgstr ""
+
 msgid "visible"
 msgstr "vizibil"
 
@@ -14556,3 +14900,30 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Crează un dispozitiv virtual conținând un singur sau mai multe dispozitive "
+#~ "concatenate."
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Asigurați-vă că selectați numărul optim de discuri"
+
+#~ msgid "Pictures"
+#~ msgstr "Imagini"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "RAID-Z1 trebuie să aibă 3, 5 sau 9 discuri în fiecare vdev."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "RAID-Z2 trebuie să aibă 4, 6 sau 10 discuri în fiecare vdev."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "RAID-Z3 trebuie să aibă 5, 7 sau 11 discuri în fiecare vdev."
+
+#~ msgid "Video"
+#~ msgstr "Video"

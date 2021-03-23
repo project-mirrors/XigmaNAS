@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
-"PO-Revision-Date: 2021-03-19 18:45+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
+"PO-Revision-Date: 2021-03-23 11:08+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:52+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
@@ -216,8 +216,14 @@ msgstr "*** Règle importée dupliquée ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr "/"
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr "/mise à jour?domaine="
 
 msgid "000"
 msgstr "000"
@@ -643,6 +649,9 @@ msgstr "Ajouter un enregistrement de port"
 msgid "Add Portal Group"
 msgstr "Ajouter un groupe  portail"
 
+msgid "Add Provider"
+msgstr "Ajouter un fournisseur"
+
 msgid "Add Public Key"
 msgstr "Ajouter une clé publique"
 
@@ -933,6 +942,9 @@ msgstr "Autoriser"
 msgid "Allow GSSAPI authentication."
 msgstr "Autoriser l'authentification GSSAPI."
 
+msgid "Allow IPv6"
+msgstr "Autoriser IPv6"
+
 msgid "Allow New Files"
 msgstr "Autoriser les nouveaux fichiers"
 
@@ -1159,6 +1171,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr "Ajouter du contenu au fichier CSS par défaut"
 
+msgid "Append my IP"
+msgstr "Ajouter mon IP"
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "Ajout d'actions définies par l'utilisateur"
 
@@ -1275,9 +1293,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Nom d'attribut"
-
-msgid "Audio"
-msgstr "Audio"
 
 msgid "Aug"
 msgstr "Août"
@@ -1655,6 +1670,9 @@ msgstr ""
 "Diffuse sa disponibilité toutes les secondes configurées sur le réseau. La "
 "valeur par défaut est 300 secondes."
 
+msgid "Broken RTC"
+msgstr "Horloge temps réel cassée"
+
 msgid "Browseable"
 msgstr "Navigable"
 
@@ -1663,6 +1681,17 @@ msgstr "Emplacement des Boutons d'Action"
 
 msgid "Button Settings"
 msgstr "Paramètres  Bouton"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"Par défaut, inadyn vérifie les adresses IPv4 et IPv6, en s'assurant que "
+"l'adresse est une adresse Internet valide. Les adresses non valides sont, "
+"par exemple, des adresses de liaison locale, de bouclage, de multidiffusion "
+"et expérimentales connues. Pour plus d'informations, consultez la RFC3330."
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -1679,6 +1708,9 @@ msgstr "Fichier d'en-tête C ++"
 
 msgid "C++ Source File"
 msgstr "Fichier source C++"
+
+msgid "CA Trusted Certificates"
+msgstr "Certificats de confiance AC"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1843,6 +1875,9 @@ msgstr "Paramètres CSS"
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr "Répertoire de cache"
+
 msgid "Calibration Battery"
 msgstr "Calibration de la batterie"
 
@@ -1939,6 +1974,21 @@ msgstr "Canal"
 
 msgid "Charging Battery"
 msgstr "Charge de Batterie"
+
+msgid "Check IP Command"
+msgstr "Vérifier la Commande IP"
+
+msgid "Check IP Path"
+msgstr "Vérifier le Chemin IP"
+
+msgid "Check IP Server"
+msgstr "Vérifier l'IP de Serveur"
+
+msgid "Check IP using HTTPS"
+msgstr "Vérifier l'IP en Utilisant HTTPS"
+
+msgid "Check Interval"
+msgstr "Intervalle des Vérifications"
 
 msgid "Check System|General Setup before initializing"
 msgstr "Vérifier le système | Configuration générale avant d'initialiser"
@@ -2561,11 +2611,11 @@ msgstr "Créer un périphérique SLOG en miroir pour ZIL"
 msgid "Create a spare device"
 msgstr "Créer un périphérique de rechange"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
-msgstr ""
-"Créer un périphérique virtuel contenant un seul périphérique ou des "
-"périphériques concaténés"
+msgid "Create a virtual device containing a single device"
+msgstr "Créer un périphérique virtuel contenant un seul périphérique"
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr "Créer un périphérique virtuel contenant des périphériques concaténés"
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Créer un périphérique virtuel contenant des périphériques en miroir"
@@ -2673,6 +2723,9 @@ msgstr "Année en cours"
 msgid "Custom"
 msgstr "Personnaliser"
 
+msgid "Custom Provider"
+msgstr "Fournisseur Personnalisé"
+
 msgid "Custom Script"
 msgstr "Script personnalisé"
 
@@ -2690,6 +2743,22 @@ msgstr "Script personnalisé non trouvé."
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr "Nom du serveur DDNS, pas l'URL complète."
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"Chemin du serveur DDNS. Par défaut, le nom d'hôte est ajouté au chemin, sauf "
+"si ajouter mon ip est défini."
+
+msgid "DDNS-Path"
+msgstr "Chemin DDNS"
+
+msgid "DDNS-Server"
+msgstr "Serveur DDNS"
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - journal des informations de débogage"
@@ -2717,6 +2786,9 @@ msgstr "Authentification DHX"
 
 msgid "DHX2 Authentication"
 msgstr "Authentification DHX2"
+
+msgid "DISK"
+msgstr "Disque"
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -3023,6 +3095,9 @@ msgstr "Supprimer les enregistrements de ports sélectionnés"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Supprimer les groupes de portails sélectionnés"
+
+msgid "Delete Selected Providers"
+msgstr "Supprimer les Fournisseurs Sélectionnés"
 
 msgid "Delete Selected Public Keys"
 msgstr "Supprimer les clés publiques sélectionnées"
@@ -3410,6 +3485,9 @@ msgstr "Désactiver les Enregistrements de Ports Sélectionnés"
 msgid "Disable Selected Portal Groups"
 msgstr "Désactiver les groupes portail sélectionnés"
 
+msgid "Disable Selected Providers"
+msgstr "Désactiver les Fournisseurs Sélectionnés"
+
 msgid "Disable Selected Public Keys"
 msgstr "Désactiver les clés publiques sélectionnées"
 
@@ -3732,6 +3810,10 @@ msgstr ""
 "Voulez vous créer un périphérique virtuel agrégé depuis le disque "
 "sélectionné."
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+"Voulez-vous créer un périphérique virtuel à partir du disque sélectionné?"
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Voulez-vous supprimer les CARP sélectionnés?"
 
@@ -3830,6 +3912,9 @@ msgstr "Voulez-vous supprimer les enregistrements de ports sélectionnés?"
 
 msgid "Do you want to delete selected portal groups?"
 msgstr "Voulez-vous supprimer les groupes de portails sélectionnés?"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Voulez-vous supprimer les fournisseurs sélectionnés?"
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Voulez-vous supprimer les clés publiques sélectionnées?"
@@ -3941,6 +4026,9 @@ msgstr "Voulez-vous désactiver les enregistrements de ports sélectionnés?"
 msgid "Do you want to disable selected portal groups?"
 msgstr "Voulez-vous désactiver les groupes de portails sélectionnés?"
 
+msgid "Do you want to disable selected providers?"
+msgstr "Voulez-vous désactiver les fournisseurs sélectionnés?"
+
 msgid "Do you want to disable selected public keys?"
 msgstr "Voulez-vous désactiver les clés publiques sélectionnées?"
 
@@ -4031,6 +4119,9 @@ msgstr "Voulez-vous activer les enregistrements de ports sélectionnés?"
 
 msgid "Do you want to enable selected portal groups?"
 msgstr "Voulez-vous activer les groupes de portails sélectionnés?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Voulez-vous activer les fournisseurs sélectionnés?"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Voulez-vous activer les clés publiques sélectionnées?"
@@ -4135,6 +4226,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Voulez-vous changer d'état les groupes  portail sélectionnés?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Voulez-vous changer d'état les fournisseurs sélectionnés?"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Voulez-vous changer d'état les clés publiques sélectionnées?"
@@ -4262,6 +4356,9 @@ msgstr ""
 msgid "Dynamic DNS"
 msgstr "DNS Dynamique"
 
+msgid "Dynamic DNS Settings"
+msgstr "Paramètres DNS Dynamiques"
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "Les ressources HAST ne peuvent utiliser les IP dynamiques (DHCP)"
 
@@ -4363,6 +4460,9 @@ msgstr "Modifier l'nrgistrement du port"
 
 msgid "Edit Portal Group"
 msgstr "Modifier le groupe  portail"
+
+msgid "Edit Provider"
+msgstr "Modifier le Fournisseur"
 
 msgid "Edit Public Key"
 msgstr "Modifier la Clé Publique"
@@ -4597,6 +4697,9 @@ msgstr "Activer les enregistrements de ports sélectionnés"
 msgid "Enable Selected Portal Groups"
 msgstr "Activer les groupes de portails sélectionnés"
 
+msgid "Enable Selected Providers"
+msgstr "Activer les Fournisseurs Sélectionnés"
+
 msgid "Enable Selected Public Keys"
 msgstr "Activer les Clés Publiques Sélectionnées"
 
@@ -4723,6 +4826,13 @@ msgstr "Activer le listage des répertoires."
 msgid "Enable distributed hash table."
 msgstr "Activer les tables de hash distribuées"
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Activez le caractère générique du nom de domaine , pour les fournisseurs "
+"DDNS qui le prennent en charge."
+
 msgid "Enable domain wildcarding."
 msgstr "Activer les wildcards pour les domaines"
 
@@ -4829,6 +4939,20 @@ msgid ""
 msgstr ""
 "Activez cette option si vous souhaitez modifier directement les pages de "
 "configuration sans avoir à passer en mode d'édition."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Activez cette option uniquement sur les systèmes sans horloge matérielle en "
+"temps réel et sans heure de démarrage par défaut."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Activez cette option pour abandonner une mise à jour DDNS si la validation "
+"du certificat HTTPS échoue."
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -5026,6 +5150,9 @@ msgstr "Veuillez spécifier les paramètres supplémentaires"
 msgid "Enter an iSCSI initiator name."
 msgstr "Entrez un nom d'initiateur iSCSI."
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Entrez un identifiant pour cette configuration DDNS personnalisée."
+
 msgid "Enter comment for the share"
 msgstr "Entrez un commentaire pour le partage"
 
@@ -5162,6 +5289,9 @@ msgstr "Code Erreur"
 
 msgid "Error Level"
 msgstr "Niveau d’erreur"
+
+msgid "Errors"
+msgstr "Erreurs"
 
 msgid "Errors have been detected during import."
 msgstr "Des erreurs ont été détectées lors de l'importation."
@@ -5381,6 +5511,9 @@ msgstr "Echec"
 msgid "Failover"
 msgstr "Basculement (failover)"
 
+msgid "Fake Address"
+msgstr "Fausse Adresse"
+
 msgid "Fast"
 msgstr "Rapide"
 
@@ -5553,6 +5686,9 @@ msgstr "Groupe Public"
 
 msgid "Force Operation"
 msgstr "Forcer l'opération"
+
+msgid "Force Update Interval"
+msgstr "Forcer l'Intervalle de Mise à jour"
 
 msgid "Force Use"
 msgstr "Forcer l'usage"
@@ -5991,6 +6127,9 @@ msgstr "Hôte"
 msgid "Host Access Control"
 msgstr "Contrôle d'Accès de l'Hôte"
 
+msgid "Host Names"
+msgstr "Noms d'Hôtes"
+
 msgid "Host Resources"
 msgstr "Ressources hôtes"
 
@@ -6002,6 +6141,9 @@ msgstr "Nom d'hôte"
 
 msgid "Hostname Database"
 msgstr "Base de données de nom d'Hôte"
+
+msgid "Hostnames"
+msgstr "Noms d'hôtes"
 
 msgid "Hosts"
 msgstr "Hôtes"
@@ -6022,6 +6164,11 @@ msgid "Hours"
 msgstr "Heures"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr ""
 "Intervalle de vérification de l'IP. La période est en secondes (10 jours "
@@ -6033,6 +6180,14 @@ msgid ""
 msgstr ""
 "Indique l'intervalle de mise à jour de l'IP si celle-ci n'a pas changé. La "
 "période est en secondes (10 jours maximum)."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"La fréquence à laquelle l'adresse IP doit être mise à jour même si elle "
+"n'est pas modifiée. L'heure doit être donnée en secondes. La valeur par "
+"défaut est égale à 30 jours."
 
 msgid "I/O Statistics"
 msgstr "Statistiques E/S"
@@ -6059,6 +6214,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "Adresse IP"
 
+msgid "IP Address Family"
+msgstr "Famille d'Adresses IP"
+
 msgid "IP Address Prefix"
 msgstr "Préfixe d'adresse IP"
 
@@ -6067,6 +6225,12 @@ msgstr "Adresse IP"
 
 msgid "IP address of the remote syslog server."
 msgstr "Adresse IP du serveur syslog distant."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"La validation de l'adresse IP peut être désactivée en définissant cette "
+"option sur fausse."
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6093,6 +6257,9 @@ msgstr "Paramètres IPv4"
 
 msgid "IPv4 addresses"
 msgstr "Adresses IPv4"
+
+msgid "IPv4 only"
+msgstr "IPv4 seulement"
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "Adresse IPv4 ou IPv6 d'un serveur iSNS à enregistrer."
@@ -6139,6 +6306,9 @@ msgstr "Adresse IPv6"
 
 msgid "IPv6 addresses"
 msgstr "Adresses IPv6"
+
+msgid "IPv6 only"
+msgstr "IPv6 seulement"
 
 msgid "IRC Live Support"
 msgstr "Aide en ligne via IRC"
@@ -6257,6 +6427,14 @@ msgid "If this property is set to off, the file system cannot be mounted."
 msgstr ""
 "Si cette propriété est désactivée, le système de fichiers ne peut pas être "
 "installé."
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+"Si ce paramètre n'est pas activé, le nom d'hôte est ajouté. Sauf si le "
+"chemin ddns est donné avec des spécificateurs de format, auquel cas ce "
+"paramètre est inutilisé."
 
 msgid "Ignore Hosts Allow"
 msgstr "Ignorer les règles d'autorisation des hôtes"
@@ -6407,6 +6585,9 @@ msgstr "Contrôle Initial"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "Disque ram initial (e.g. %s)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Délai de démarrage initial. La valeur par défaut est aucun délai."
 
 msgid "Initialize"
 msgstr "Initialiser"
@@ -6657,6 +6838,9 @@ msgstr ""
 
 msgid "Item(s)"
 msgstr "Elément(s)"
+
+msgid "Iterations"
+msgstr "Itérations"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -7202,6 +7386,9 @@ msgstr "MIROIR"
 msgid "MISSING"
 msgstr "MANQUANT"
 
+msgid "MIT License"
+msgstr "Licence MIT"
+
 msgid "MKV File"
 msgstr "Fichier MKV"
 
@@ -7255,9 +7442,6 @@ msgstr "Mises à jour majeures de la version du système d'exploitation"
 
 msgid "Major Product Version Updates"
 msgstr "Principale Version des Mises à Jour  du Mirologiciel"
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Assurez vous d'avoir sélectionné le nombre de périphériques optimal"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "Assurez-vous que vous avez activé S.M.A.R.T. pour vos périphériques."
@@ -7528,6 +7712,9 @@ msgstr "Minutes"
 msgid "Minutes between the next network time synchronization."
 msgstr "Délai entre deux synchronisations de l'heure"
 
+msgid "Missing Provider"
+msgstr "Fournisseur Manquant"
+
 msgid "Missing a temporary folder."
 msgstr "Il manque un dossier temporaire."
 
@@ -7707,6 +7894,9 @@ msgstr "Mutuel-CHAP"
 msgid "NAA Identifier"
 msgstr "Identifiant NAA"
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr "Nom NETBIOS"
 
@@ -7881,6 +8071,9 @@ msgstr "Adresse du Réseau"
 
 msgid "Network File System"
 msgstr "Network File System (NFS)"
+
+msgid "Network Interface"
+msgstr "Interface Réseau"
 
 msgid "Network Latency"
 msgstr "Latence Réseau"
@@ -8235,6 +8428,9 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Rien à synchroniser"
 
+msgid "Notice"
+msgstr "Information"
+
 msgid "Notice Level"
 msgstr "Niveau d'information"
 
@@ -8386,6 +8582,9 @@ msgstr "L'enregistrement d'option est déverrouillé"
 msgid "Optional"
 msgstr "Facultatif"
 
+msgid "Optional server path for check IP server"
+msgstr "Chemin d'accès au serveur facultatif pour vérifier l'IP du seveur"
+
 msgid "Optional user-friendly string of the target."
 msgstr "Un nom pour identifier facilement la cible (optionnel)"
 
@@ -8397,6 +8596,9 @@ msgstr "Origine"
 
 msgid "Orphaned"
 msgstr "Orphelin"
+
+msgid "Orphaned Provider"
+msgstr "Fournisseur Orphelin"
 
 msgid "Others"
 msgstr "Autres"
@@ -8435,6 +8637,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Surcharge"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "Vue d' Ensemble"
@@ -8715,9 +8920,6 @@ msgstr "Taille du bloc physique"
 
 msgid "Physical Interface"
 msgstr "Interface physique"
-
-msgid "Pictures"
-msgstr "Images"
 
 msgid "Ping"
 msgstr "Ping"
@@ -9096,6 +9298,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Fournisseur"
 
+msgid "Provider Name"
+msgstr "Nom du Fournisseur"
+
+msgid "Provider is locked"
+msgstr "Le fournisseur est verrouillé"
+
+msgid "Provider is marked for deletion"
+msgstr "Le fournisseur est marqué pour suppression"
+
+msgid "Provider is unlocked"
+msgstr "Le fournisseur est déverrouillé"
+
 msgid "Provisioning Type"
 msgstr "Type de provisioning"
 
@@ -9211,20 +9425,11 @@ msgstr "Maintenance RAID-5"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "RAID-Z1 doit avoir 3, 5 ou 9 disques dans chaque vdev."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "RAID-Z2 doit avoir 4, 6 ou 10 disques dans chaque vdev."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "RAID-Z3 doit avoir 5, 7 ou 11 disques dans chaque vdev."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9546,6 +9751,9 @@ msgstr "Informations sur l'enregistrement"
 
 msgid "Record Maintenance"
 msgstr "Entretien des Enregistrements"
+
+msgid "Record Type"
+msgstr "Type d’Enregistrement"
 
 msgid "Record is locked"
 msgstr "L'enregistrement est verrouillé."
@@ -10050,6 +10258,15 @@ msgstr ""
 "Samba écrira  le fichier de manière asynchrone lorsque la taille de la "
 "requête est supérieure à cette valeur. (%d par défaut)."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+"Identique au paramètre global, mais uniquement pour ce fournisseur. S'il est "
+"omis, il utilise par défaut le paramètre global qui, s'il n'est pas défini, "
+"utilise la chaîne d'agent utilisateur par défaut."
+
 msgid "Sat"
 msgstr "Sam"
 
@@ -10178,6 +10395,9 @@ msgstr "Secret"
 msgid "Secret for CHAP authentication."
 msgstr "Secret pour l'authentification CHAP."
 
+msgid "Secure SSL"
+msgstr "SSL sécurisé"
+
 msgid "Security Flavor"
 msgstr "Caractéristiques de Sécurité"
 
@@ -10192,6 +10412,13 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Voir l'attribut E8"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+"Sélectionnez «Fournisseur personnalisé» pour personnaliser les paramètres "
+"des détails du serveur de mise à jour DDNS."
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Sélectionnez 'CD / DVD' si vous voulez monter un volume de CD / DVD."
@@ -10255,6 +10482,9 @@ msgstr "Sélectionnez un algorithme de cryptage à utiliser."
 msgid "Select at which stage the command should be executed."
 msgstr "Sélectionnez à quel stade la commande doit être exécutée."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr "Sélectionnez entre le mode domaine et le mode groupe de travail."
+
 msgid "Select configuration file:"
 msgstr "Sélectionnez le fichier de configuration:"
 
@@ -10288,6 +10518,9 @@ msgstr ""
 
 msgid "Select file system format."
 msgstr "Sélectionnez le format de système de fichiers."
+
+msgid "Select from predefined providers."
+msgstr "Sélectionnez parmi les fournisseurs prédéfinis."
 
 msgid "Select item to remove from the list"
 msgstr "Sélectionner l'item à supprimer de la liste"
@@ -10491,6 +10724,9 @@ msgstr "Protocole maximum du serveur"
 msgid "Server Min. Protocol"
 msgstr "Protocole minimum du serveur"
 
+msgid "Server Mode"
+msgstr "Mode serveur"
+
 msgid "Server Name"
 msgstr "Nom du serveur"
 
@@ -10499,6 +10735,9 @@ msgstr "Description du serveur. Ce champ peut rester vide."
 
 msgid "Server information"
 msgstr "Information sur le serveur"
+
+msgid "Server to use for periodic IP address changes"
+msgstr "Serveur à utiliser pour les changements d'adresse IP périodiques"
 
 msgid "Server version"
 msgstr "Version du serveur"
@@ -10537,11 +10776,26 @@ msgid "Set browseable."
 msgstr "Définir comme navigable."
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+"Définissez le répertoire pour les fichiers de cache persistants. Les "
+"fichiers de cache sont utilisés pour garder une trace des adresses qui ont "
+"été envoyées avec succès à leur fournisseur DDNS respectif et à quel moment."
+
+msgid "Set domain name"
+msgstr "Définir le nom de domaine"
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
 "Définissez l'intervalle entre les contrôles de disque à N secondes. La "
 "valeur minimale autorisée est 10."
+
+msgid "Set log level"
+msgstr "Définir le niveau de journalisation"
 
 msgid "Set password"
 msgstr "Définir le mot de passe"
@@ -10582,6 +10836,12 @@ msgstr ""
 "taille des paquets qui sont transmis au moyen d'une interface. Toutes les "
 "interfaces ne supportent pas la MTU, et certaines interfaces imposent la "
 "restriction à certaines plages de valeurs."
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+"Définissez le nombre de mises à jour DNS. La valeur par défaut est 0, ce qui "
+"signifie l'infini."
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -10641,6 +10901,9 @@ msgid ""
 msgstr ""
 "Définissez la verbosité des messages de transmission. Le niveau de message "
 "par défaut est \"%s\""
+
+msgid "Set workgroup name"
+msgstr "Définir le nom du groupe de travail"
 
 msgid "Setkey"
 msgstr "Touche de réglage"
@@ -10774,6 +11037,14 @@ msgstr "Shell"
 
 msgid "Shell Script"
 msgstr "Script shell"
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+"Commande Shell, ou script, pour la vérification de la mise à jour de "
+"l'adresse IP. La commande doit générer un texte avec l'adresse IP vers sa "
+"sortie standard."
 
 msgid "Shock During Write."
 msgstr "Choc pendant l'écriture"
@@ -11146,6 +11417,13 @@ msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
 "Indiquez le type de périphérique SCSI à utiliser lors de la création du LUN."
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+"Spécifiez la chaîne User-Agent à envoyer au fournisseur DDNS lors de la "
+"vérification et des demandes de mise à jour."
+
 msgid "Specify the group numeric id."
 msgstr "Spécifiez l'id numérique du groupe."
 
@@ -11157,6 +11435,9 @@ msgstr "Distribuer les requêtes (split)"
 
 msgid "Standard"
 msgstr "Standard"
+
+msgid "Standard Provider"
+msgstr "Fournisseur Standard"
 
 msgid "Standard Reports"
 msgstr "Rapports standard"
@@ -11179,6 +11460,9 @@ msgstr "Démarrer"
 
 msgid "Start TLS from within the session."
 msgstr "Démarrez TLS à partir de la session."
+
+msgid "Startup Delay"
+msgstr "Délai de Démarrage"
 
 msgid "Static"
 msgstr "Statique"
@@ -12161,6 +12445,10 @@ msgstr ""
 "La limite pour les processus enfants exécutant simultanément des connexions "
 "entrantes. La valeur par défaut est 30. Un réglage de 0 désactive la limite."
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+"La liste des noms d'hôte. Utilisez une virgule pour séparer plusieurs noms."
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
@@ -12314,6 +12602,9 @@ msgstr "Le mot de passe contient le caractère invalide ':'."
 
 msgid "The password encryption protocol to use."
 msgstr "Le protocole de chiffrement à utiliser pour le mot de passe."
+
+msgid "The password, if applicable."
+msgstr "Le mot de passe, le cas échéant."
 
 msgid "The passwords do not match."
 msgstr "Les mots de passe ne correspondent pas."
@@ -12531,6 +12822,9 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr "Le fichier n'a été uploadé que partiellement."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr "Le nom d'utilisateur, le cas échéant. Cela peut être appelé hachage."
+
 msgid "The value is invalid."
 msgstr "La valeur est invalide."
 
@@ -12594,6 +12888,9 @@ msgstr ""
 "spécifier les paramètres à transmettre au noyau et les modules "
 "supplémentaires à charger."
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr "Ces options sont ajoutées à la ligne de commande du script wsdd."
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Ces paramètres sont ajoutés à %s."
@@ -12623,6 +12920,9 @@ msgstr "Ces paramètres sont ajoutés à / etc / ssh / sshd_config."
 
 msgid "These parameters are appended to the exports file."
 msgstr "Ces paramètres sont ajoutés au fichier des exportations."
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "Ces paramètres sont ajoutés au fichier inadyn.conf."
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12668,6 +12968,9 @@ msgstr "Ces paramètres vont être ajoutés à ce LUN"
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Ces paramètres vont être jaoutés à ce portal-group"
+
+msgid "These parameters will be added to this provider configuration"
+msgstr "Ces paramètres seront ajoutés à cette configuration de fournisseur"
 
 msgid "These parameters will be added to this target."
 msgstr "Ces paramèetres vont être ajoutés à cette target (destination)"
@@ -12862,6 +13165,12 @@ msgid ""
 msgstr ""
 "Configure le rsync récepteur de manière à mettre les permissions de la "
 "destination comme celles de la source."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+"Cette option contrôle si les adresses IPv6 doivent être autorisées ou "
+"rejetées."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -13060,6 +13369,22 @@ msgstr ""
 "permettra au client d'utiliser."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+"Ce paramètre remplace les chemins intégrés et les emplacements de secours et "
+"fournit un moyen de spécifier le chemin vers un ensemble approuvé de "
+"certificats CA, au format PEM, regroupés dans un seul fichier."
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+"Ce paramètre suit généralement le paramètre ssl, mais peut être utilisé pour "
+"désactiver HTTPS pour la vérification de l'adresse IP."
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -13244,6 +13569,15 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Laisser ce champ vide pour signifier toutes les adresses IP (ie any)."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+"Pour prendre en charge plusieurs utilisateurs du même fournisseur DDNS, un "
+"identifiant doit être défini. L'identifiant peut être n'importe quelle "
+"chaîne alphanumérique de forme libre tant que la combinaison est unique."
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 "Pour utiliser Active Directory, le service SMB sera également activé."
@@ -13311,6 +13645,9 @@ msgstr "Changer d'état les Enregistrements de Port Sélectionnés"
 
 msgid "Toggle Selected Portal Groups"
 msgstr "Changer d'état les Groupes Portail Sélectionnés"
+
+msgid "Toggle Selected Providers"
+msgstr "Changer d'état les Fournisseurs Sélectionnés"
 
 msgid "Toggle Selected Public Keys"
 msgstr "Changer d'état les Clés Publiques Sélectionnées"
@@ -13675,6 +14012,9 @@ msgstr "Taux d’erreurs non corrigées transmises au système d’exploitation.
 msgid "Undefined"
 msgstr "Indéfini"
 
+msgid "Undefined Type"
+msgstr "Type Indéfini"
+
 msgid "Unformated"
 msgstr "Non formaté"
 
@@ -13717,6 +14057,9 @@ msgstr "Activité inconnue"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Protocole d'agrégation inconnue"
+
+msgid "Unknown Provider"
+msgstr "Fournisseur inconnu"
 
 msgid "Unknown or Unformatted"
 msgstr "Inconnu ou non Formaté"
@@ -13809,6 +14152,17 @@ msgstr "Utiliser le fichier de confiance TLS par défaut"
 msgid "Use Encryption"
 msgstr "Utiliser le chiffrement"
 
+msgid "Use HTTPS"
+msgstr "Utiliser HTTPS"
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+"Utilisez HTTPS, à la fois lors de la vérification des modifications IP et de "
+"la mise à jour de l'enregistrement DNS. La valeur par défaut est d'utiliser "
+"HTTPS."
+
 msgid "Use PAM for user authentication."
 msgstr "Utilisez PAM pour l'authentification des utilisateurs."
 
@@ -13881,6 +14235,21 @@ msgstr "Utiliser le conteneur standard (par défaut)"
 msgid "Use these specials actions for debugging only!"
 msgstr "Utilisez ces actions spéciales seulement pour le débogage!"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+"Utilisez cette interface réseau comme source des changements d'adresse IP au "
+"lieu d'interroger un serveur externe."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+"Utilisez cette option pour simuler une mise à jour d'adresse avec une "
+"adresse \"aléatoire\" dans la plage 203.0.113.0/24 avant la mise à jour avec "
+"l'adresse IP réelle."
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -13951,6 +14320,9 @@ msgstr ""
 msgid "User"
 msgstr "Utilisateur"
 
+msgid "User Agent"
+msgstr "Agent Utilisateur"
+
 msgid "User ID"
 msgstr "Identifiant de l'utilisateur"
 
@@ -13983,6 +14355,9 @@ msgstr "Le compte utilisateur est protégé"
 
 msgid "User account is unlocked"
 msgstr "Le compte d'utilisateur est déverrouillé"
+
+msgid "User agent string"
+msgstr "Chaîne de l'agent utilisateur"
 
 msgid "User portal permission."
 msgstr "Autorisation du portail utilisateur."
@@ -14103,6 +14478,9 @@ msgstr "Verbosité des informations consignées."
 msgid "Verify"
 msgstr "Vérifiez"
 
+msgid "Verify Address"
+msgstr "Vérifier l'Adresse"
+
 msgid "Version"
 msgstr "Version"
 
@@ -14111,9 +14489,6 @@ msgstr "Version:"
 
 msgid "Vibration During Write."
 msgstr "Vibration pendant l'écriture"
-
-msgid "Video"
-msgstr "Vidéo"
 
 msgid "Virtual Device"
 msgstr "Périphérique Virtuel"
@@ -14268,6 +14643,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr "WSD"
+
 msgid "Wait Time"
 msgstr "Temps d'attente"
 
@@ -14285,6 +14663,12 @@ msgstr "Niveau d'avertissement"
 
 msgid "Watch Folder"
 msgstr "Dossier des torrents complets"
+
+msgid "Web Service Discovery"
+msgstr "Découverte de Service Web"
+
+msgid "Web Service Discovery Settings"
+msgstr ""
 
 #, php-format
 msgid "Web interface port. The default port is %d."
@@ -14396,6 +14780,9 @@ msgstr "Liens Etendus"
 msgid "Wildcard"
 msgstr "Caractère de remplacement"
 
+msgid "Wildcard Domain"
+msgstr "Domaine Générique"
+
 msgid "Winbindd Availability"
 msgstr "Disponibilité Winbindd"
 
@@ -14410,6 +14797,9 @@ msgstr "Répertoire de travail"
 
 msgid "Workgroup"
 msgstr "Groupe de travail (workgroup Windows)"
+
+msgid "Workgroup Name"
+msgstr "Nom du Groupe de Travail"
 
 msgid "Wrap text:"
 msgstr "Renvoi à la ligne:"
@@ -14692,6 +15082,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "et"
 
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
 msgid "bash - Bourne Again Shell"
 msgstr "bash - Bourne Again Shell"
 
@@ -14869,6 +15262,9 @@ msgstr "trafic réseau"
 msgid "no"
 msgstr "aucun"
 
+msgid "no delay"
+msgstr "sans délais"
+
 msgid "no pools available"
 msgstr "pas de pools disponibles"
 
@@ -14946,6 +15342,9 @@ msgstr "démontage"
 msgid "unknown"
 msgstr "inconnu"
 
+msgid "update.example.com"
+msgstr "update.example.com"
+
 msgid "visible"
 msgstr "visible"
 
@@ -14954,3 +15353,41 @@ msgstr "a été assigné à"
 
 msgid "yes"
 msgstr "oui"
+
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Créer un périphérique virtuel contenant un seul périphérique ou des "
+#~ "périphériques concaténés"
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Assurez vous d'avoir sélectionné le nombre de périphériques optimal"
+
+#~ msgid "Pictures"
+#~ msgstr "Images"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "RAID-Z1 doit avoir 3, 5 ou 9 disques dans chaque vdev."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "RAID-Z2 doit avoir 4, 6 ou 10 disques dans chaque vdev."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "RAID-Z3 doit avoir 5, 7 ou 11 disques dans chaque vdev."
+
+#~ msgid "Video"
+#~ msgstr "Vidéo"
+
+#~ msgid "Append the current IP to the the DDNS server update path."
+#~ msgstr ""
+#~ "Ajoutez l'adresse IP actuelle au chemin de mise à jour du serveur DDNS."
+
+#~ msgid ""
+#~ "How often the IP is checked, in seconds. Default: apxrox. 1 minute. Max: 10 "
+#~ "days."
+#~ msgstr ""
+#~ "Fréquence de vérification de l'adresse IP, en secondes. Par défaut: approx. "
+#~ "1 minute. Max: 10 jours."

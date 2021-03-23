@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
 "PO-Revision-Date: 2020-12-21 09:46+0000\n"
 "Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:53+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -196,7 +196,13 @@ msgstr "*** 重複匯入 ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
 
+msgid "/"
+msgstr ""
+
 msgid "/mnt"
+msgstr ""
+
+msgid "/update?domain="
 msgstr ""
 
 msgid "000"
@@ -588,6 +594,9 @@ msgstr ""
 msgid "Add Portal Group"
 msgstr ""
 
+msgid "Add Provider"
+msgstr ""
+
 msgid "Add Public Key"
 msgstr ""
 
@@ -865,6 +874,9 @@ msgstr "允許"
 msgid "Allow GSSAPI authentication."
 msgstr ""
 
+msgid "Allow IPv6"
+msgstr ""
+
 msgid "Allow New Files"
 msgstr "允許新檔"
 
@@ -1060,6 +1072,12 @@ msgstr "所有使用這些磁碟的服務可能會不可用或不可訪問"
 msgid "Append content to the default CSS file"
 msgstr ""
 
+msgid "Append my IP"
+msgstr ""
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr ""
+
 msgid "Append user defined shares"
 msgstr "追加用戶自定義的用戶共用"
 
@@ -1167,9 +1185,6 @@ msgstr "試圖使用其他檔類型，如FAT，FAT32，EXT2，EXT3，EXT4，或�
 
 msgid "Attribute Name"
 msgstr "屬性名稱"
-
-msgid "Audio"
-msgstr "音頻"
 
 msgid "Aug"
 msgstr "八月"
@@ -1514,6 +1529,9 @@ msgid ""
 "default is 300 seconds."
 msgstr ""
 
+msgid "Broken RTC"
+msgstr ""
+
 msgid "Browseable"
 msgstr "可流覽"
 
@@ -1521,6 +1539,13 @@ msgid "Button Location"
 msgstr "按鈕位置"
 
 msgid "Button Settings"
+msgstr ""
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
 msgstr ""
 
 msgid "By default, only already existing files can be uploaded."
@@ -1536,6 +1561,9 @@ msgid "C++ Header File"
 msgstr ""
 
 msgid "C++ Source File"
+msgstr ""
+
+msgid "CA Trusted Certificates"
 msgstr ""
 
 msgid "CACHE"
@@ -1697,6 +1725,9 @@ msgstr ""
 msgid "CTL LUN"
 msgstr ""
 
+msgid "Cache Directory"
+msgstr ""
+
 msgid "Calibration Battery"
 msgstr "電池校正"
 
@@ -1786,6 +1817,21 @@ msgstr "頻道"
 
 msgid "Charging Battery"
 msgstr "充電中"
+
+msgid "Check IP Command"
+msgstr ""
+
+msgid "Check IP Path"
+msgstr ""
+
+msgid "Check IP Server"
+msgstr ""
+
+msgid "Check IP using HTTPS"
+msgstr ""
+
+msgid "Check Interval"
+msgstr ""
 
 msgid "Check System|General Setup before initializing"
 msgstr "在初始化之前檢查系統|常規設置"
@@ -2322,9 +2368,11 @@ msgstr "為ZIL創建鏡像的SLOG設備"
 msgid "Create a spare device"
 msgstr "創建一個備用設備"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
-msgstr "創建包含單個設備或串聯設備的虛擬設備"
+msgid "Create a virtual device containing a single device"
+msgstr ""
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr ""
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "創建一個包含鏡像設備的虛擬設備"
@@ -2430,6 +2478,9 @@ msgstr ""
 msgid "Custom"
 msgstr "自定"
 
+msgid "Custom Provider"
+msgstr ""
+
 msgid "Custom Script"
 msgstr "自定義腳本"
 
@@ -2447,6 +2498,20 @@ msgstr "自定義腳本未找到"
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr ""
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+
+msgid "DDNS-Path"
+msgstr ""
+
+msgid "DDNS-Server"
+msgstr ""
 
 msgid "DEBUG - log debugging information"
 msgstr ""
@@ -2474,6 +2539,9 @@ msgstr "DHX驗證"
 
 msgid "DHX2 Authentication"
 msgstr "DHX2驗證"
+
+msgid "DISK"
+msgstr ""
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2762,6 +2830,9 @@ msgid "Delete Selected Port Records"
 msgstr ""
 
 msgid "Delete Selected Portal Groups"
+msgstr ""
+
+msgid "Delete Selected Providers"
 msgstr ""
 
 msgid "Delete Selected Public Keys"
@@ -3136,6 +3207,9 @@ msgstr ""
 msgid "Disable Selected Portal Groups"
 msgstr ""
 
+msgid "Disable Selected Providers"
+msgstr ""
+
 msgid "Disable Selected Public Keys"
 msgstr ""
 
@@ -3420,6 +3494,9 @@ msgstr "是否要從選中的磁片創建鏡像虛擬設備？"
 msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr "是否要從選中的磁片創建條帶化虛擬設備？"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr ""
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "您要刪除選中的CARP嗎？"
 
@@ -3517,6 +3594,9 @@ msgid "Do you want to delete selected port records?"
 msgstr ""
 
 msgid "Do you want to delete selected portal groups?"
+msgstr ""
+
+msgid "Do you want to delete selected providers?"
 msgstr ""
 
 msgid "Do you want to delete selected public keys?"
@@ -3627,6 +3707,9 @@ msgstr ""
 msgid "Do you want to disable selected portal groups?"
 msgstr ""
 
+msgid "Do you want to disable selected providers?"
+msgstr ""
+
 msgid "Do you want to disable selected public keys?"
 msgstr ""
 
@@ -3715,6 +3798,9 @@ msgid "Do you want to enable selected port records?"
 msgstr ""
 
 msgid "Do you want to enable selected portal groups?"
+msgstr ""
+
+msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
@@ -3814,6 +3900,9 @@ msgid "Do you want to toggle selected port records?"
 msgstr ""
 
 msgid "Do you want to toggle selected portal groups?"
+msgstr ""
+
+msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
@@ -3940,6 +4029,9 @@ msgstr "期間-檔-刪除將隨著傳輸發生逐步完成。"
 msgid "Dynamic DNS"
 msgstr "動態 DNS"
 
+msgid "Dynamic DNS Settings"
+msgstr ""
+
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "HAST資源不能使用動態IP（DHCP）。"
 
@@ -4040,6 +4132,9 @@ msgid "Edit Port Record"
 msgstr ""
 
 msgid "Edit Portal Group"
+msgstr ""
+
+msgid "Edit Provider"
 msgstr ""
 
 msgid "Edit Public Key"
@@ -4269,6 +4364,9 @@ msgstr ""
 msgid "Enable Selected Portal Groups"
 msgstr ""
 
+msgid "Enable Selected Providers"
+msgstr ""
+
 msgid "Enable Selected Public Keys"
 msgstr ""
 
@@ -4392,6 +4490,11 @@ msgstr "啟用目錄列表。"
 msgid "Enable distributed hash table."
 msgstr "啟用分散式雜湊表。"
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+
 msgid "Enable domain wildcarding."
 msgstr "啟用域通配符。"
 
@@ -4487,6 +4590,16 @@ msgid ""
 "Enable this option if you want to edit configuration pages directly without "
 "the need to switch to edit mode."
 msgstr "如果要直接編輯配置頁面而不需要切換到編輯模式，請啟用此選項。"
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr "啟用此選項以允許任何IP地址訪問WebGUI。"
@@ -4658,6 +4771,9 @@ msgstr ""
 msgid "Enter an iSCSI initiator name."
 msgstr ""
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr ""
+
 msgid "Enter comment for the share"
 msgstr "輸入對該共享的評論"
 
@@ -4776,6 +4892,9 @@ msgstr "錯誤代碼"
 
 msgid "Error Level"
 msgstr "錯誤級別"
+
+msgid "Errors"
+msgstr ""
 
 msgid "Errors have been detected during import."
 msgstr "導入期間檢測到錯誤。"
@@ -4989,6 +5108,9 @@ msgstr "失敗"
 msgid "Failover"
 msgstr "故障轉移"
 
+msgid "Fake Address"
+msgstr ""
+
 msgid "Fast"
 msgstr "快速"
 
@@ -5152,6 +5274,9 @@ msgstr ""
 
 msgid "Force Operation"
 msgstr "強制操作"
+
+msgid "Force Update Interval"
+msgstr ""
 
 msgid "Force Use"
 msgstr "強制使用"
@@ -5566,6 +5691,9 @@ msgstr "主機"
 msgid "Host Access Control"
 msgstr "主機訪問控制"
 
+msgid "Host Names"
+msgstr ""
+
 msgid "Host Resources"
 msgstr "主機資源"
 
@@ -5577,6 +5705,9 @@ msgstr "主機名稱"
 
 msgid "Hostname Database"
 msgstr "主機名數據庫"
+
+msgid "Hostnames"
+msgstr ""
 
 msgid "Hosts"
 msgstr "主機列表"
@@ -5597,6 +5728,11 @@ msgid "Hours"
 msgstr "小時"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr "多久檢查一次 IP。以秒為單位（最多為 10 天）"
 
@@ -5604,6 +5740,11 @@ msgid ""
 "How often the IP is updated even if it is not changed. The period is in "
 "seconds (max. is 10 days)."
 msgstr "多久強制更新一次 IP 資訊。以秒為單位（最多 10 天）"
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
 
 msgid "I/O Statistics"
 msgstr "I/O 統計"
@@ -5630,6 +5771,9 @@ msgstr "IP 地址"
 msgid "IP Address"
 msgstr "IP 地址"
 
+msgid "IP Address Family"
+msgstr ""
+
 msgid "IP Address Prefix"
 msgstr ""
 
@@ -5638,6 +5782,10 @@ msgstr "IP 地址"
 
 msgid "IP address of the remote syslog server."
 msgstr "遠程日誌伺服器的IP地址。"
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -5663,6 +5811,9 @@ msgstr "IPv4 設置"
 
 msgid "IPv4 addresses"
 msgstr "IPv4 地址"
+
+msgid "IPv4 only"
+msgstr ""
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr ""
@@ -5702,6 +5853,9 @@ msgstr "IPv6 地址"
 
 msgid "IPv6 addresses"
 msgstr "IPv6 地址"
+
+msgid "IPv6 only"
+msgstr ""
 
 msgid "IRC Live Support"
 msgstr "IRC 線上支援"
@@ -5792,6 +5946,11 @@ msgstr "如果啟用此屬性，.zfs 目錄裏會顯示快照。"
 
 msgid "If this property is set to off, the file system cannot be mounted."
 msgstr "如果此屬性設置為關閉，則無法掛載文件系統。"
+
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
 
 msgid "Ignore Hosts Allow"
 msgstr "忽略主機允許"
@@ -5926,6 +6085,9 @@ msgstr "初步摘要"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "初始ramdisk（例如%s）。"
+
+msgid "Initial startup delay. Default is no delay."
+msgstr ""
 
 msgid "Initialize"
 msgstr "初始化"
@@ -6149,6 +6311,9 @@ msgid ""
 msgstr "如果需要用WebGUI登錄，我們推薦您更改系統默認的用戶名和密碼，請在這裏輸入用戶名。"
 
 msgid "Item(s)"
+msgstr ""
+
+msgid "Iterations"
 msgstr ""
 
 msgid "JBOD"
@@ -6657,6 +6822,9 @@ msgstr "鏡像"
 msgid "MISSING"
 msgstr "遺失"
 
+msgid "MIT License"
+msgstr ""
+
 msgid "MKV File"
 msgstr ""
 
@@ -6710,9 +6878,6 @@ msgstr ""
 
 msgid "Major Product Version Updates"
 msgstr ""
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "確保選擇最佳設備數量"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr "請確定您已經啟用裝置的 S.M.A.R.T.。"
@@ -6974,6 +7139,9 @@ msgstr "分鐘"
 msgid "Minutes between the next network time synchronization."
 msgstr "在下次網路時間同步之間的分鐘數。"
 
+msgid "Missing Provider"
+msgstr ""
+
 msgid "Missing a temporary folder."
 msgstr "遺失了一個暫存檔夾。"
 
@@ -7149,6 +7317,9 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
+msgid "NETBIOS Hostname"
+msgstr ""
+
 msgid "NETBIOS Name"
 msgstr ""
 
@@ -7314,6 +7485,9 @@ msgstr ""
 
 msgid "Network File System"
 msgstr "網路檔系統"
+
+msgid "Network Interface"
+msgstr ""
 
 msgid "Network Latency"
 msgstr "網路延遲"
@@ -7653,6 +7827,9 @@ msgstr "注意：按住Ctrl鍵（或在Mac上按住command鍵）可以選擇和�
 msgid "Nothing to synchronize"
 msgstr "沒有可同步的"
 
+msgid "Notice"
+msgstr ""
+
 msgid "Notice Level"
 msgstr "通知級別"
 
@@ -7799,6 +7976,9 @@ msgstr ""
 msgid "Optional"
 msgstr "可選的"
 
+msgid "Optional server path for check IP server"
+msgstr ""
+
 msgid "Optional user-friendly string of the target."
 msgstr "自選易用的目標字串。"
 
@@ -7809,6 +7989,9 @@ msgid "Origin"
 msgstr "來源"
 
 msgid "Orphaned"
+msgstr ""
+
+msgid "Orphaned Provider"
 msgstr ""
 
 msgid "Others"
@@ -7846,6 +8029,9 @@ msgstr "硬碟驅動器的總體（一般）吞吐量性能。 如果此屬性�
 
 msgid "Overload"
 msgstr "負載"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr ""
 
 msgid "Overview"
 msgstr "概述"
@@ -8115,9 +8301,6 @@ msgstr ""
 
 msgid "Physical Interface"
 msgstr "物理介面"
-
-msgid "Pictures"
-msgstr "圖片"
 
 msgid "Ping"
 msgstr "Ping"
@@ -8478,6 +8661,18 @@ msgstr "向ZFS提供有關在此數據集中處理同步請求的提示。"
 msgid "Provider"
 msgstr "提供者"
 
+msgid "Provider Name"
+msgstr ""
+
+msgid "Provider is locked"
+msgstr ""
+
+msgid "Provider is marked for deletion"
+msgstr ""
+
+msgid "Provider is unlocked"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -8591,20 +8786,11 @@ msgstr "RAID-5維護"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "RAID-Z1在每個vdev中應具有3個，5個或9個磁片。"
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "RAID-Z2在每個vdev中應該有4個，6個或10個磁片。"
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "RAID-Z3在每個vdev中應該有5,7或11個磁片。"
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -8916,6 +9102,9 @@ msgstr "記錄資訊"
 
 msgid "Record Maintenance"
 msgstr "記錄維護"
+
+msgid "Record Type"
+msgstr ""
 
 msgid "Record is locked"
 msgstr "記錄被鎖定"
@@ -9399,6 +9588,12 @@ msgid ""
 "this value. (%d by default)."
 msgstr "當請求大小大於此值時，Samba將非同步寫入檔。 （默認為%d）。"
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+
 msgid "Sat"
 msgstr "週六"
 
@@ -9522,6 +9717,9 @@ msgstr "密鑰"
 msgid "Secret for CHAP authentication."
 msgstr ""
 
+msgid "Secure SSL"
+msgstr ""
+
 msgid "Security Flavor"
 msgstr ""
 
@@ -9534,6 +9732,11 @@ msgstr "使用此功能之前請參閱ZFS數據集和重複數據刪除wiki文�
 
 msgid "See attribute E8."
 msgstr "參見屬性E8。"
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "如果要安裝CD / DVD卷，請選擇“CD / DVD”。"
@@ -9590,6 +9793,9 @@ msgstr "選擇要使用的加密演算法。"
 msgid "Select at which stage the command should be executed."
 msgstr "選擇命令應在哪個階段執行。"
 
+msgid "Select between domain mode and workgroup mode."
+msgstr ""
+
 msgid "Select configuration file:"
 msgstr "選擇配置文件："
 
@@ -9613,6 +9819,9 @@ msgstr ""
 
 msgid "Select file system format."
 msgstr "選擇檔系統格式。"
+
+msgid "Select from predefined providers."
+msgstr ""
 
 msgid "Select item to remove from the list"
 msgstr "請從列表中選擇要刪除的專案"
@@ -9796,6 +10005,9 @@ msgstr "伺服器最大協議"
 msgid "Server Min. Protocol"
 msgstr "伺服器最小協議"
 
+msgid "Server Mode"
+msgstr ""
+
 msgid "Server Name"
 msgstr "伺服器名稱"
 
@@ -9804,6 +10016,9 @@ msgstr "伺服器描述文字。通常可以留空。"
 
 msgid "Server information"
 msgstr "伺服器資訊"
+
+msgid "Server to use for periodic IP address changes"
+msgstr ""
 
 msgid "Server version"
 msgstr "伺服器版本"
@@ -9842,9 +10057,21 @@ msgid "Set browseable."
 msgstr "設為可流覽。"
 
 msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+
+msgid "Set domain name"
+msgstr ""
+
+msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr "將磁片檢查的間隔設置為N秒。 最小允許值為10。"
+
+msgid "Set log level"
+msgstr ""
 
 msgid "Set password"
 msgstr ""
@@ -9880,6 +10107,10 @@ msgid ""
 "some interfaces have range restrictions."
 msgstr ""
 "設置介面的最大傳輸單位為n，默認為指定的介面。 MTU用於限制在介面上傳輸的數據包的大小。 並非所有介面都支持設置MTU，並且一些介面具有範圍限制。"
+
+msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
@@ -9924,6 +10155,9 @@ msgstr ""
 #, php-format
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
+msgstr ""
+
+msgid "Set workgroup name"
 msgstr ""
 
 msgid "Setkey"
@@ -10028,6 +10262,11 @@ msgid "Shell"
 msgstr "命令殼 (shell)"
 
 msgid "Shell Script"
+msgstr ""
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
 msgstr ""
 
 msgid "Shock During Write."
@@ -10356,6 +10595,11 @@ msgstr ""
 msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+
 msgid "Specify the group numeric id."
 msgstr ""
 
@@ -10367,6 +10611,9 @@ msgstr "拆分請求"
 
 msgid "Standard"
 msgstr "標準"
+
+msgid "Standard Provider"
+msgstr ""
 
 msgid "Standard Reports"
 msgstr "標準報告"
@@ -10386,6 +10633,9 @@ msgstr "啟動"
 
 msgid "Start TLS from within the session."
 msgstr "從會話中啟動TLS。"
+
+msgid "Startup Delay"
+msgstr ""
 
 msgid "Static"
 msgstr "靜態"
@@ -11258,6 +11508,9 @@ msgid ""
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr "每個IP地址的最大連接數必須為0（無限制）或更大。"
@@ -11380,6 +11633,9 @@ msgstr "密碼包含了無效的字元 ':'。"
 
 msgid "The password encryption protocol to use."
 msgstr "此參數指定密碼加密協議。"
+
+msgid "The password, if applicable."
+msgstr ""
 
 msgid "The passwords do not match."
 msgstr "您輸入的密碼不符合。"
@@ -11565,6 +11821,9 @@ msgstr "上傳的檔大小超過在php.ini 裏指定的upload_max_filesize 限�
 msgid "The uploaded file was only partially uploaded."
 msgstr "只上傳了部分的檔。"
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "該值無效。"
 
@@ -11617,6 +11876,9 @@ msgid ""
 "loaded."
 msgstr ""
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "這些參數都被添加到 %s。"
@@ -11642,6 +11904,9 @@ msgid "These parameters are appended to /etc/ssh/sshd_config."
 msgstr ""
 
 msgid "These parameters are appended to the exports file."
+msgstr ""
+
+msgid "These parameters are appended to the inadyn.conf file."
 msgstr ""
 
 #, php-format
@@ -11686,6 +11951,9 @@ msgid "These parameters will be added to this lun."
 msgstr ""
 
 msgid "These parameters will be added to this portal-group."
+msgstr ""
+
+msgid "These parameters will be added to this provider configuration"
 msgstr ""
 
 msgid "These parameters will be added to this target."
@@ -11841,6 +12109,10 @@ msgid ""
 msgstr "此選項會導致接收 rsync 以本地的許可權來更新目的端的許可權。"
 
 msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules. By setting this to false you can create "
 "hidden modules."
@@ -11982,6 +12254,17 @@ msgid ""
 "This setting controls the minimum protocol version that the server will "
 "allow the client to use."
 msgstr "此設置控制伺服器將允許客戶端使用的最小協議版本。"
+
+msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
 
 msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
@@ -12138,6 +12421,12 @@ msgstr "要獲得有關如何配置UPS的更多資訊，請查看NUT（網路UPS
 msgid "To match any IP address leave this field empty."
 msgstr "要匹配任何IP地址的話，請保留此字段為空白。"
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 
@@ -12202,6 +12491,9 @@ msgid "Toggle Selected Port Records"
 msgstr ""
 
 msgid "Toggle Selected Portal Groups"
+msgstr ""
+
+msgid "Toggle Selected Providers"
 msgstr ""
 
 msgid "Toggle Selected Public Keys"
@@ -12546,6 +12838,9 @@ msgstr "未校正的讀取錯誤報告給操作系統。"
 msgid "Undefined"
 msgstr ""
 
+msgid "Undefined Type"
+msgstr ""
+
 msgid "Unformated"
 msgstr "尚未格式化"
 
@@ -12586,6 +12881,9 @@ msgstr "未知活動"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "未知聚合協議"
+
+msgid "Unknown Provider"
+msgstr ""
 
 msgid "Unknown or Unformatted"
 msgstr "未知或未格式化"
@@ -12675,6 +12973,14 @@ msgstr "使用默認的TLS信任文件"
 msgid "Use Encryption"
 msgstr "使用加密"
 
+msgid "Use HTTPS"
+msgstr ""
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+
 msgid "Use PAM for user authentication."
 msgstr "使用PAM進行用戶認證。"
 
@@ -12739,6 +13045,16 @@ msgstr ""
 msgid "Use these specials actions for debugging only!"
 msgstr "使用這些特殊操作僅用於調試！"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -12788,6 +13104,9 @@ msgstr "在考慮所有冗餘後，使用/可用列出存儲信息，但受到�
 msgid "User"
 msgstr "用戶"
 
+msgid "User Agent"
+msgstr ""
+
 msgid "User ID"
 msgstr "用戶 ID"
 
@@ -12820,6 +13139,9 @@ msgstr "用戶帳戶被保護"
 
 msgid "User account is unlocked"
 msgstr "用戶帳號被解鎖"
+
+msgid "User agent string"
+msgstr ""
 
 msgid "User portal permission."
 msgstr ""
@@ -12932,6 +13254,9 @@ msgstr ""
 msgid "Verify"
 msgstr "驗證"
 
+msgid "Verify Address"
+msgstr ""
+
 msgid "Version"
 msgstr "版本"
 
@@ -12940,9 +13265,6 @@ msgstr "版本："
 
 msgid "Vibration During Write."
 msgstr "寫入期間振動。"
-
-msgid "Video"
-msgstr "視頻"
 
 msgid "Virtual Device"
 msgstr "虛擬設備"
@@ -13089,6 +13411,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr ""
+
 msgid "Wait Time"
 msgstr "等待時間"
 
@@ -13105,6 +13430,12 @@ msgid "Warning Level"
 msgstr "警告級別"
 
 msgid "Watch Folder"
+msgstr ""
+
+msgid "Web Service Discovery"
+msgstr ""
+
+msgid "Web Service Discovery Settings"
 msgstr ""
 
 #, php-format
@@ -13202,6 +13533,9 @@ msgstr ""
 msgid "Wildcard"
 msgstr "通配符"
 
+msgid "Wildcard Domain"
+msgstr ""
+
 msgid "Winbindd Availability"
 msgstr ""
 
@@ -13216,6 +13550,9 @@ msgstr "工作目錄"
 
 msgid "Workgroup"
 msgstr "工作群組（Workgroup）"
+
+msgid "Workgroup Name"
+msgstr ""
 
 msgid "Wrap text:"
 msgstr ""
@@ -13474,6 +13811,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "and"
 
+msgid "api.ipify.org"
+msgstr ""
+
 msgid "bash - Bourne Again Shell"
 msgstr ""
 
@@ -13637,6 +13977,9 @@ msgstr "網路流量"
 msgid "no"
 msgstr ""
 
+msgid "no delay"
+msgstr ""
+
 msgid "no pools available"
 msgstr ""
 
@@ -13712,6 +14055,9 @@ msgstr "卸載"
 msgid "unknown"
 msgstr ""
 
+msgid "update.example.com"
+msgstr ""
+
 msgid "visible"
 msgstr "可見"
 
@@ -13720,3 +14066,28 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "Audio"
+#~ msgstr "音頻"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr "創建包含單個設備或串聯設備的虛擬設備"
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "確保選擇最佳設備數量"
+
+#~ msgid "Pictures"
+#~ msgstr "圖片"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "RAID-Z1在每個vdev中應具有3個，5個或9個磁片。"
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "RAID-Z2在每個vdev中應該有4個，6個或10個磁片。"
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "RAID-Z3在每個vdev中應該有5,7或11個磁片。"
+
+#~ msgid "Video"
+#~ msgstr "視頻"

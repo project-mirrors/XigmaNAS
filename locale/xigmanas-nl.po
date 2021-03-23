@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-14 13:29+0000\n"
-"PO-Revision-Date: 2021-03-22 23:17+0000\n"
+"POT-Creation-Date: 2021-03-23 19:00+0000\n"
+"PO-Revision-Date: 2021-03-23 18:05+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-22 23:53+0000\n"
+"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -217,8 +217,14 @@ msgstr "*** Geïmporteerde duplicaat ***"
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
+msgid "/"
+msgstr "/"
+
 msgid "/mnt"
 msgstr "/mnt"
+
+msgid "/update?domain="
+msgstr "/update?domein="
 
 msgid "000"
 msgstr "000"
@@ -343,7 +349,7 @@ msgstr "Een VLAN met de markering %s is al gedefineerd op deze netwerkkaart."
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
 msgstr ""
-"Een cronjob moet worden ingesteld om script /etc/capacitycheck.zfs in te "
+"Een cron taak moet zijn ingesteld om het script /etc/capacitycheck.zfs te "
 "plannen."
 
 msgid ""
@@ -370,9 +376,9 @@ msgid ""
 "either as a plain string or as a string of hexadecimal digits preceded by "
 "'0x'."
 msgstr ""
-"Een sleutel zal bestaan uit 5 of 13 karakters (40 of 104 bits) afhankelijk "
-"van het lokale netwerk en de mogelijkheden van de adapter. Het kan "
-"gespecificeerd worden als gewone text of als een reeks van hexadecimale "
+"Een sleutel bestaat uit 5 of 13 tekens (40 of 104 bits) afhankelijk van het "
+"lokale netwerk en de mogelijkheden van de adapter. Het kan gespecificeerd "
+"worden als gewone text tekenreeks of als een tekenreeks van hexadecimale "
 "cijfers voorafgegaan met '0x'."
 
 msgid "A mounted RAID volume cannot be deleted."
@@ -645,6 +651,9 @@ msgstr "Voeg poort record toe"
 
 msgid "Add Portal Group"
 msgstr "Portaal Groep Toevoegen"
+
+msgid "Add Provider"
+msgstr "Provider Toevoegen"
 
 msgid "Add Public Key"
 msgstr "Publieke Sleutel Toevoegen"
@@ -937,6 +946,9 @@ msgstr "Toestaan"
 msgid "Allow GSSAPI authentication."
 msgstr "GSSAPI verificatie toestaan."
 
+msgid "Allow IPv6"
+msgstr "IPv6 Toestaan"
+
 msgid "Allow New Files"
 msgstr "Toestaan Nieuwe Bestanden"
 
@@ -1164,6 +1176,12 @@ msgstr ""
 msgid "Append content to the default CSS file"
 msgstr "Voeg inhoud toe aan het standaard CSS bestand"
 
+msgid "Append my IP"
+msgstr "Voeg mijn IP toe"
+
+msgid "Append the current IP to the DDNS server update path."
+msgstr "Voeg het huidige IP adres toe aan de DDNS server update pad."
+
 msgid "Append user defined shares"
 msgstr "Toevoegen gebruiker gedefinieerde delingen"
 
@@ -1280,9 +1298,6 @@ msgstr ""
 
 msgid "Attribute Name"
 msgstr "Attribuutnaam"
-
-msgid "Audio"
-msgstr "Audio"
 
 msgid "Aug"
 msgstr "Aug"
@@ -1658,6 +1673,9 @@ msgstr ""
 "Elke geconfigureerde seconden de beschikbaarheid uitzenden op het netwerk, "
 "de standaard is 300 seconden."
 
+msgid "Broken RTC"
+msgstr "Gebroken RTC"
+
 msgid "Browseable"
 msgstr "Verkenbaar"
 
@@ -1666,6 +1684,17 @@ msgstr "Knop Locatie"
 
 msgid "Button Settings"
 msgstr "Knop Instellingen"
+
+msgid ""
+"By default inadyn verifies both IPv4 and IPv6 addresses, making sure the "
+"address is a valid Internet address. Invalid addresses are, e.g., link "
+"local, loopback, multicast and known experimental addresses. For more "
+"information, see RFC3330."
+msgstr ""
+"Standaard verifieert inadyn zowel IPv4 als IPv6 adressen en zorgt ervoor dat "
+"het adres een geldig internetadres is. Ongeldige adressen zijn bijvoorbeeld "
+"link local, loopback, multicast en bekende experimentele adressen. Zie "
+"RFC3330 voor meer informatie."
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "Standaard kunnen alleen bestaande bestanden geupload worden."
@@ -1681,6 +1710,9 @@ msgstr "C++ Header Bestand"
 
 msgid "C++ Source File"
 msgstr "C++ Bron Bestand"
+
+msgid "CA Trusted Certificates"
+msgstr "CA Vertrouwde Certificaten"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1845,6 +1877,9 @@ msgstr "CSS Instellingen"
 msgid "CTL LUN"
 msgstr "CTL LUN"
 
+msgid "Cache Directory"
+msgstr "Cache Map"
+
 msgid "Calibration Battery"
 msgstr "Kalibreren Batterij"
 
@@ -1943,6 +1978,21 @@ msgstr "Kanaal"
 msgid "Charging Battery"
 msgstr "Opladen Batterij"
 
+msgid "Check IP Command"
+msgstr "Controleer IP Command"
+
+msgid "Check IP Path"
+msgstr "Controleer IP pad"
+
+msgid "Check IP Server"
+msgstr "Controleer IP Server"
+
+msgid "Check IP using HTTPS"
+msgstr "Controleer IP met HTTPS"
+
+msgid "Check Interval"
+msgstr "Controle Interval"
+
 msgid "Check System|General Setup before initializing"
 msgstr "Controleer Systeem|Algemene Instellingen alvorens te initialiseren"
 
@@ -1952,8 +2002,8 @@ msgstr "Controleer en vervang de kabel"
 msgid ""
 "Check the FreeBSD documentation for detailed information about TCP Wrappers"
 msgstr ""
-"Voor gedetailleerde informatie over TCP Wrappers bekijkt u de FreeBSD "
-"documentatie."
+"Raadpleeg de FreeBSD documentatie voor gedetailleerde informatie over TCP "
+"wrappers"
 
 msgid "Check the list of available drivers"
 msgstr "Bekijk de lijst met beschikbare stuurprogramma's."
@@ -2569,11 +2619,11 @@ msgstr "Creëer een gespiegelde SLOG schijf voor ZIL"
 msgid "Create a spare device"
 msgstr "Creëer een spare schijf"
 
-msgid ""
-"Create a virtual device containing a single device or concatenated devices"
-msgstr ""
-"Creëer een virtuele schijf met een enkele schijf of aaneengeschakelde "
-"schijven"
+msgid "Create a virtual device containing a single device"
+msgstr "Maak een virtueel apparaat met een enkel apparaat"
+
+msgid "Create a virtual device containing concatenated devices"
+msgstr "Maak een virtueel apparaat met aaneengeschakelde apparaten"
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Creëer een virtuele schijf met gespiegelde schijven"
@@ -2681,6 +2731,9 @@ msgstr "Huidige jaar"
 msgid "Custom"
 msgstr "Aangepast"
 
+msgid "Custom Provider"
+msgstr "Aangepaste provider"
+
 msgid "Custom Script"
 msgstr "Aangepast script"
 
@@ -2698,6 +2751,22 @@ msgstr "Er is geen aangepast script gevonden."
 
 msgid "DAAP"
 msgstr "DAAP"
+
+msgid "DDNS server name, not the full URL."
+msgstr "DDNS servernaam, niet de volledige URL."
+
+msgid ""
+"DDNS server path. By default the hostname is appended to the path, unless "
+"append-myip is set."
+msgstr ""
+"DDNS server pad. Standaard wordt de hostnaam aan het pad toegevoegd, tenzij "
+"voeg mijn ip toe is ingesteld."
+
+msgid "DDNS-Path"
+msgstr "DDNS-Pad"
+
+msgid "DDNS-Server"
+msgstr "DDNS-Server"
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - log foutopsporing informatie"
@@ -2725,6 +2794,9 @@ msgstr "DHX Verificatie"
 
 msgid "DHX2 Authentication"
 msgstr "DHX2 Verificatie"
+
+msgid "DISK"
+msgstr "SCHIJF"
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -3029,6 +3101,9 @@ msgstr "Geselecteerde Poort Records Verwijderen"
 
 msgid "Delete Selected Portal Groups"
 msgstr "Geselecteerde Portaal Groepen Verwijderen"
+
+msgid "Delete Selected Providers"
+msgstr "Geselecteerde Providers Verwijderen"
 
 msgid "Delete Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Verwijderen"
@@ -3415,6 +3490,9 @@ msgstr "Geselecteerde Poort Items Uitschakelen"
 msgid "Disable Selected Portal Groups"
 msgstr "Geselecteerde  Portaal Groepen Uitschakelen"
 
+msgid "Disable Selected Providers"
+msgstr "Geselecteerde Providers Uitschakelen"
+
 msgid "Disable Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Uitschakelen"
 
@@ -3729,6 +3807,9 @@ msgstr ""
 "Wilt u een striped virtuele schijf maken op basis van de geselecteerde "
 "schijven?"
 
+msgid "Do you want to create a virtual device from selected disk?"
+msgstr "Wilt u een virtueel apparaat maken van de geselecteerde schijf?"
+
 msgid "Do you want to delete selected CARPs?"
 msgstr "Wilt u de geselecteerde CARPs verwijderen?"
 
@@ -3790,7 +3871,7 @@ msgid "Do you want to delete selected groups?"
 msgstr "Wilt u de geselecteerde groepen verwijderen?"
 
 msgid "Do you want to delete selected iSCSI initiators?"
-msgstr "Wilt u geselecteerde iSCSI initiators verwijderen?"
+msgstr "Wilt u de geselecteerde iSCSI initiators verwijderen?"
 
 msgid "Do you want to delete selected iSNS servers?"
 msgstr "Wilt u de geselecteerde iSNS servers verwijderen?"
@@ -3827,6 +3908,9 @@ msgstr "Wilt u de geselecteerde poort records verwijderen?"
 
 msgid "Do you want to delete selected portal groups?"
 msgstr "Wilt u de geselecteerde portaalgroepen verwijderen?"
+
+msgid "Do you want to delete selected providers?"
+msgstr "Wilt u de geselecteerde providers verwijderen?"
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels verwijderen?"
@@ -3936,6 +4020,9 @@ msgstr "Wilt u de geselecteerde poort records uitschakelen?"
 msgid "Do you want to disable selected portal groups?"
 msgstr "Wilt u de geselecteerde portaalgroepen uitschakelen?"
 
+msgid "Do you want to disable selected providers?"
+msgstr "Wilt u de geselecteerde providers uischakelen?"
+
 msgid "Do you want to disable selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels uitschakelen?"
 
@@ -4025,6 +4112,9 @@ msgstr "Wilt u de geselecteerde poort items inschakelen?"
 
 msgid "Do you want to enable selected portal groups?"
 msgstr "Wilt u de geselecteerde portaalgroepen inschakelen?"
+
+msgid "Do you want to enable selected providers?"
+msgstr "Wilt u de geselecteerde providers inschakelen?"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels inschakelen?"
@@ -4124,6 +4214,9 @@ msgstr "Wilt u de geselecteerde poort records omschakelen?"
 
 msgid "Do you want to toggle selected portal groups?"
 msgstr "Wilt u de geselecteerde portaalgroepen omschakelen?"
+
+msgid "Do you want to toggle selected providers?"
+msgstr "Wilt u de geselecteerde providers omschakelen?"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels omschakelen?"
@@ -4251,7 +4344,10 @@ msgstr ""
 "loopt."
 
 msgid "Dynamic DNS"
-msgstr "Dynamic DNS"
+msgstr "Dynamisch DNS"
+
+msgid "Dynamic DNS Settings"
+msgstr "Dynamisch DNS Instellingen"
 
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr ""
@@ -4355,6 +4451,9 @@ msgstr "Wijzig poort record"
 
 msgid "Edit Portal Group"
 msgstr "Portaal Groep Bewerken"
+
+msgid "Edit Provider"
+msgstr "Provider Bewerken"
 
 msgid "Edit Public Key"
 msgstr "Publieke Sleutels Bewerken"
@@ -4548,7 +4647,7 @@ msgid "Enable Selected Groups"
 msgstr "Geselecteerde Groepen Inschakelen"
 
 msgid "Enable Selected Initiator Names"
-msgstr "Inschakelen Geselecteerde Initiator Namen"
+msgstr "Geselecteerde Initiator Namen Inschakelen"
 
 msgid "Enable Selected Initiator Portals"
 msgstr "Activeer Geselecteerde Initiator Portalen"
@@ -4588,6 +4687,9 @@ msgstr "Activeer geselecteerde poort records"
 
 msgid "Enable Selected Portal Groups"
 msgstr "Activeer de geselecteerde portaalgroepen"
+
+msgid "Enable Selected Providers"
+msgstr "Geselecteerde Providers Inschakelen"
 
 msgid "Enable Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Inschakelen"
@@ -4716,6 +4818,13 @@ msgstr "Inschakelen mappenlijst."
 msgid "Enable distributed hash table."
 msgstr "Inschakelen gedistribueerde hashtabel (DHT)."
 
+msgid ""
+"Enable domain name wildcarding of the domain name, for DDNS providers that "
+"support this."
+msgstr ""
+"Schakel domeinnaam jokertekens (wildcarding) van de domeinnaam in, voor DDNS "
+"providers die dit ondersteunen."
+
 msgid "Enable domain wildcarding."
 msgstr "Inschakelen domein wildcard"
 
@@ -4822,6 +4931,20 @@ msgid ""
 msgstr ""
 "Inschakelen als u de configuratiepagina's rechtstreeks wilt bedienen, zonder "
 "de noodzaak om over te schakelen naar de bewerkingsmodus."
+
+msgid ""
+"Enable this option only on systems without hardware real-time clock and "
+"default bootup time far in the past."
+msgstr ""
+"Schakel deze optie alleen in op systemen zonder hardware real-time klok en "
+"de standaard opstarttijd ver in het verleden."
+
+msgid ""
+"Enable this option to abort an DDNS update if the HTTPS certificate "
+"validation fails."
+msgstr ""
+"Schakel deze optie in om een DDNS update af te breken indien de HTTPS "
+"certificaatvalidatie mislukt."
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr "Inschakelen om elk IP-adres toegang tot de WebGUI te geven."
@@ -4941,7 +5064,7 @@ msgid "Enter IP address prefix length."
 msgstr "Geef de prefixlengte van het IP-adres op."
 
 msgid "Enter Identifier"
-msgstr "Geef identificator"
+msgstr "Identificatie Opgeven"
 
 msgid "Enter Password"
 msgstr "Geef Wachtwoord"
@@ -4950,7 +5073,7 @@ msgid "Enter Subject"
 msgstr "Vul het onderwerp in"
 
 msgid "Enter Universally Unique Identifier"
-msgstr "Geef Universeel Unieke Identificator op"
+msgstr "Universeel Unieke identificatie Opgeven"
 
 msgid "Enter Value"
 msgstr "Voer waarde in"
@@ -5014,6 +5137,9 @@ msgstr "Geef hier optionele parameters op"
 msgid "Enter an iSCSI initiator name."
 msgstr "Voeg een iSCSI initiator naam toe"
 
+msgid "Enter an identifier for this custom DDNS configuration."
+msgstr "Geef een identificatie op voor deze aangepaste DDNS configuratie."
+
 msgid "Enter comment for the share"
 msgstr "Opmerking opgeven voor de deling"
 
@@ -5061,8 +5187,8 @@ msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
 "connected to. (this also can be a remote host)"
 msgstr ""
-"Vul de UPS ID en host IP-adres in van de computer waarop de UPS is "
-"aangesloten. (dit kan ook een extern host te zijn)"
+"Geef een UPS identificatie en host IP adres op van de computer waarop de UPS "
+"is aangesloten. (dit kan ook een extern host te zijn)"
 
 msgid "Enter the full user name."
 msgstr "Geef de volledige gebruikersnaam."
@@ -5152,6 +5278,9 @@ msgstr "Fout Code"
 
 msgid "Error Level"
 msgstr "Fout niveau"
+
+msgid "Errors"
+msgstr "Fouten"
 
 msgid "Errors have been detected during import."
 msgstr "Er zijn fouten opgetreden tijdens het importeren."
@@ -5369,6 +5498,9 @@ msgstr "Mislukt."
 msgid "Failover"
 msgstr "Failover (Overname bij storing)"
 
+msgid "Fake Address"
+msgstr "Nep adres"
+
 msgid "Fast"
 msgstr "Snel"
 
@@ -5538,6 +5670,9 @@ msgstr "Groep Afdwingen"
 
 msgid "Force Operation"
 msgstr "Forceer Opdracht"
+
+msgid "Force Update Interval"
+msgstr "Forceer Update Interval"
 
 msgid "Force Use"
 msgstr "Gebruik Geforceerd"
@@ -5710,7 +5845,7 @@ msgid "General Setup"
 msgstr "Algemene Instellingen"
 
 msgid "Generate a new unique identifier for a pool"
-msgstr "Genereer een nieuwe unieke identificatiecode voor een pool"
+msgstr "Genereer een nieuwe unieke identificatie voor een pool"
 
 msgid "Generate password if left empty."
 msgstr "Wachtwoord genereren indien leeg gelaten."
@@ -5979,6 +6114,9 @@ msgstr "Host"
 msgid "Host Access Control"
 msgstr "Host toegangsbeheer"
 
+msgid "Host Names"
+msgstr "Hostnamen"
+
 msgid "Host Resources"
 msgstr "Hostbronnen"
 
@@ -5990,6 +6128,9 @@ msgstr "Hostnaam"
 
 msgid "Hostname Database"
 msgstr "Hostnaam Database"
+
+msgid "Hostnames"
+msgstr "Hostnamen"
 
 msgid "Hosts"
 msgstr "Hosten"
@@ -6010,6 +6151,13 @@ msgid "Hours"
 msgstr "Uren"
 
 msgid ""
+"How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
+"days."
+msgstr ""
+"Hoe vaak het IP wordt gecontroleerd, in seconden. Standaard: ca. 1 minuut. "
+"Max: 10 dagen."
+
+msgid ""
 "How often the IP is checked. The period is in seconds (max. is 10 days)."
 msgstr ""
 "Hoe vaak het IP-adres wordt gecontroleerd. De periode is in seconden (max. "
@@ -6021,6 +6169,14 @@ msgid ""
 msgstr ""
 "Hoe vaak het IP-adres geupdate wordt zelfs wanneer het niet is gewijzigd. De "
 "periode is in seconden (max. 10 dagen)."
+
+msgid ""
+"How often the IP should be updated even if it is not changed. The time "
+"should be given in seconds. Default is equal to 30 days."
+msgstr ""
+"Hoe vaak het IP adres moet worden bijgewerkt, zelfs als het niet is "
+"gewijzigd. De tijd moet in seconden worden opgegeven. Standaard is gelijk "
+"aan 30 dagen."
 
 msgid "I/O Statistics"
 msgstr "I/U Statistieken"
@@ -6047,6 +6203,9 @@ msgstr "IP"
 msgid "IP Address"
 msgstr "IP Adres"
 
+msgid "IP Address Family"
+msgstr "IP Adres Familie"
+
 msgid "IP Address Prefix"
 msgstr "IP-adres Voorvoegsel"
 
@@ -6055,6 +6214,12 @@ msgstr "IP-adres"
 
 msgid "IP address of the remote syslog server."
 msgstr "Vul hier het IP-adres in van de externe syslog server."
+
+msgid ""
+"IP address validation can be disabled by setting this option to false."
+msgstr ""
+"IP adres validatie kan worden uitgeschakeld door deze optie in te stellen op "
+"vals."
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6082,6 +6247,9 @@ msgstr "IPv4 Instellingen"
 
 msgid "IPv4 addresses"
 msgstr "IPv4-adressen"
+
+msgid "IPv4 only"
+msgstr "Alleen IPv4"
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "IPv4 of IPv6 adres van een iSNS server waarop aan te melden."
@@ -6129,6 +6297,9 @@ msgstr "IPv6-adres"
 
 msgid "IPv6 addresses"
 msgstr "IPv6-adressen"
+
+msgid "IPv6 only"
+msgstr "Alleen IPv6"
 
 msgid "IRC Live Support"
 msgstr "IRC Live Ondersteuning"
@@ -6247,6 +6418,14 @@ msgstr ""
 "Als deze eigenschap is uitgeschakeld, kan het bestandssysteem niet worden "
 "aangekoppeld."
 
+msgid ""
+"If this setting is not enabled, the hostname is appended. Unless the ddns-"
+"path is given with format specifiers, in which case this setting is unused."
+msgstr ""
+"Als deze instelling niet is ingeschakeld, wordt de hostnaam toegevoegd. "
+"Tenzij het ddns-pad is opgegeven met formaatspecificaties, in welk geval "
+"deze instelling niet gebruikt wordt."
+
 msgid "Ignore Hosts Allow"
 msgstr "Negeer Hosten Toestaan"
 
@@ -6293,7 +6472,7 @@ msgid "In this directory, the configuration file 'my.cnf' will be created."
 msgstr "In deze folder wordt het configuratiebestand 'my.cnf' aangemaakt."
 
 msgid "In/Out Errors"
-msgstr "In/Uitgaande Fouten"
+msgstr "In/Uit Fouten"
 
 msgid "In/Out Packets"
 msgstr "In/Uitgaande Pakketten"
@@ -6390,6 +6569,9 @@ msgstr "Aanvankelijke Overzicht"
 #, php-format
 msgid "Initial ramdisk (e.g. %s)."
 msgstr "initiële ramschijf (bijv. %s)."
+
+msgid "Initial startup delay. Default is no delay."
+msgstr "Initiële opstartvertraging. Standaard is geen vertraging."
 
 msgid "Initialize"
 msgstr "Initialiseer"
@@ -6635,6 +6817,9 @@ msgstr ""
 
 msgid "Item(s)"
 msgstr "Item(s)"
+
+msgid "Iterations"
+msgstr "Iteraties"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -6905,7 +7090,7 @@ msgstr "Lightweight Directory Access Protocol"
 
 msgid "Limit the maximum number of CPUs to be displayed on the home page."
 msgstr ""
-"Stel het maximale aantal CPU's in dat in het systeemoverzicht mag worden "
+"Beperk het maximale aantal CPU's dat op het systeemoverzicht mag worden "
 "weergegeven."
 
 msgid ""
@@ -7180,6 +7365,9 @@ msgstr "SPIEGEL"
 msgid "MISSING"
 msgstr "ONTBREKEND"
 
+msgid "MIT License"
+msgstr "MIT Licentie"
+
 msgid "MKV File"
 msgstr "MKV Bestand"
 
@@ -7233,9 +7421,6 @@ msgstr "Hoger OS Versie Upgrades"
 
 msgid "Major Product Version Updates"
 msgstr "Hoger Product Versie Updates"
-
-msgid "Make sure to select the optimal number of devices"
-msgstr "Zorg ervoor dat u het juiste aantal schijven selecteert"
 
 msgid "Make sure you have activated S.M.A.R.T. for your devices."
 msgstr ""
@@ -7507,6 +7692,9 @@ msgstr "Minuten"
 msgid "Minutes between the next network time synchronization."
 msgstr "Het aantal minuten tot de volgende netwerk tijdsynchronisatie."
 
+msgid "Missing Provider"
+msgstr "Ontbrekende Provider"
+
 msgid "Missing a temporary folder."
 msgstr "Een tijdelijke map ontbreekt."
 
@@ -7684,7 +7872,10 @@ msgid "Mutual-CHAP"
 msgstr "Wederzijds-CHAP"
 
 msgid "NAA Identifier"
-msgstr "NAA identificatie"
+msgstr "NAA Identificatie"
+
+msgid "NETBIOS Hostname"
+msgstr "NETBIOS Hostnaam"
 
 msgid "NETBIOS Name"
 msgstr "NETBIOS Naam"
@@ -7727,7 +7918,7 @@ msgid "NOT YET AVAILABLE"
 msgstr "NOG NIET BESCHIKBAAR"
 
 msgid "NOTE"
-msgstr "Opmerking"
+msgstr "AANTEKENING"
 
 msgid "NT1 (CIFS)"
 msgstr "NT1 (CIFS)"
@@ -7858,6 +8049,9 @@ msgstr "Netwerkadres"
 
 msgid "Network File System"
 msgstr "Netwerk Bestandssysteem"
+
+msgid "Network Interface"
+msgstr "Netwerk Interface"
 
 msgid "Network Latency"
 msgstr "Netwerkvertraging"
@@ -8198,7 +8392,7 @@ msgid "Not available"
 msgstr "Niet beschikbaar"
 
 msgid "Note"
-msgstr "Opmerking"
+msgstr "Aantekening"
 
 msgid "Note that only one file system can be WebNFS exported on a server."
 msgstr ""
@@ -8214,8 +8408,11 @@ msgstr ""
 msgid "Nothing to synchronize"
 msgstr "Er is niets om te synchroniseren"
 
+msgid "Notice"
+msgstr "Notitie"
+
 msgid "Notice Level"
-msgstr "Opmerking niveau"
+msgstr "Bericht Niveau"
 
 #, php-format
 msgid "Notification email from host: %s"
@@ -8250,7 +8447,7 @@ msgstr ""
 "maximale fysieke wis cycli waarop de schijf is ontworpen te verduren."
 
 msgid "Numeric identifier of the group."
-msgstr "Numeriek identificator van de groep."
+msgstr "Numerieke identificatie van de groep."
 
 msgid "OGG Audio File"
 msgstr "OGG Audio Bestand"
@@ -8366,8 +8563,11 @@ msgstr "Optie record is ontgrendeld"
 msgid "Optional"
 msgstr "Optioneel"
 
+msgid "Optional server path for check IP server"
+msgstr "Optioneel server pad voor controle IP server"
+
 msgid "Optional user-friendly string of the target."
-msgstr "Optioneel gebruiksvriendelijke naam van het doel."
+msgstr "Optioneel gebruiksvriendelijke tekenreeks van het doel."
 
 msgid "Options"
 msgstr "Opties"
@@ -8377,6 +8577,9 @@ msgstr "Afkomst"
 
 msgid "Orphaned"
 msgstr "Orphaned"
+
+msgid "Orphaned Provider"
+msgstr "Verweesde Provider"
 
 msgid "Others"
 msgstr "Overige"
@@ -8415,6 +8618,9 @@ msgstr ""
 
 msgid "Overload"
 msgstr "Overbelasting"
+
+msgid "Override (NETBIOS) hostname to be used."
+msgstr "Overschrijven de (NETBIOS) hostnaam die moet worden gebruikt."
 
 msgid "Overview"
 msgstr "Overzicht"
@@ -8697,9 +8903,6 @@ msgstr "Fysieke Blokgrootte"
 
 msgid "Physical Interface"
 msgstr "Fysiek Netwerk"
-
-msgid "Pictures"
-msgstr "Afbeeldingen"
 
 msgid "Ping"
 msgstr "Ping"
@@ -9076,6 +9279,18 @@ msgstr ""
 msgid "Provider"
 msgstr "Provider"
 
+msgid "Provider Name"
+msgstr "Provider Naam"
+
+msgid "Provider is locked"
+msgstr "Provider is vergrendeld"
+
+msgid "Provider is marked for deletion"
+msgstr "De provider is gemarkeerd voor verwijdering"
+
+msgid "Provider is unlocked"
+msgstr "Provider is ontgrendeld"
+
 msgid "Provisioning Type"
 msgstr "Provisioning Type"
 
@@ -9191,20 +9406,11 @@ msgstr "RAID-5 Onderhoud"
 msgid "RAID-Z1"
 msgstr "RAID-Z1"
 
-msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-msgstr "RAID-Z1 zou 3, 5, of 9 schijven in elke vdev moeten gebruiken."
-
 msgid "RAID-Z2"
 msgstr "RAID-Z2"
 
-msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-msgstr "RAID-Z2 zou 4, 6, of 10 schijven in elke vdev moeten gebruiken."
-
 msgid "RAID-Z3"
 msgstr "RAID-Z3"
-
-msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-msgstr "RAID-Z3 zou 5, 7, of 11 schijven in elke vdev moeten gebruiken."
 
 msgid "RAID0"
 msgstr "RAID0"
@@ -9525,6 +9731,9 @@ msgstr "Item Informatie"
 
 msgid "Record Maintenance"
 msgstr "Item Onderhoud"
+
+msgid "Record Type"
+msgstr "Record Type"
 
 msgid "Record is locked"
 msgstr "Item is vergrendeld"
@@ -10029,6 +10238,15 @@ msgstr ""
 "Samba zal het bestand asynchroon schrijven als de grootte van aanvraag "
 "groter is dan deze waarde. (standaard %d)."
 
+msgid ""
+"Same as the global setting, but only for this provider. If omitted it "
+"defaults to the global setting, which if unset uses the default user agent "
+"string."
+msgstr ""
+"Hetzelfde als de algemene instelling, maar alleen voor deze provider. Indien "
+"weggelaten, wordt standaard de algemene instelling gebruikt, die indien niet "
+"ingesteld de standaard user agent tekenreeks gebruikt."
+
 msgid "Sat"
 msgstr "Za"
 
@@ -10156,6 +10374,9 @@ msgstr "Wachtwoord"
 msgid "Secret for CHAP authentication."
 msgstr "Wachtwoord voor CHAP verificatie."
 
+msgid "Secure SSL"
+msgstr "Beveiligde SSL"
+
 msgid "Security Flavor"
 msgstr "Beveiligingssmaak"
 
@@ -10170,6 +10391,13 @@ msgstr ""
 
 msgid "See attribute E8."
 msgstr "Zie attribuut E8."
+
+msgid ""
+"Select \"Custom Provider\" for customizing the DDNS update server details "
+"settings."
+msgstr ""
+"Kies \"Aangepaste Provider\" voor aangepaste DDNS update server opdracht "
+"instellingen."
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Selecteer 'CD/DVD' als u een CD/DVD volume wilt aankoppelen."
@@ -10234,6 +10462,9 @@ msgstr "Selecteer een encryptiealgoritme om te gebruiken."
 msgid "Select at which stage the command should be executed."
 msgstr "Selecteer in welk stadium de opdracht moet worden uitgevoerd."
 
+msgid "Select between domain mode and workgroup mode."
+msgstr "Kies tussen domein modus en werkgroep modus."
+
 msgid "Select configuration file:"
 msgstr "Selecteer configuratiebestand:"
 
@@ -10261,6 +10492,9 @@ msgstr "Selecteer de bestandsmodus van de aangepaste tabbladen CSS bestand."
 
 msgid "Select file system format."
 msgstr "Selecteer het bestandssysteem voor het formatteren."
+
+msgid "Select from predefined providers."
+msgstr "Maak een keuze uit vooraf gedefinieerde providers."
 
 msgid "Select item to remove from the list"
 msgstr "Selecteer het item om van de lijst te verwijderen"
@@ -10465,6 +10699,9 @@ msgstr "Server Max. Protocol"
 msgid "Server Min. Protocol"
 msgstr "Server Min. Protocol"
 
+msgid "Server Mode"
+msgstr "Server Mode"
+
 msgid "Server Name"
 msgstr "Servernaam"
 
@@ -10473,6 +10710,9 @@ msgstr "Omschrijving server. Dit kan gewoonlijk leeg gelaten worden."
 
 msgid "Server information"
 msgstr "Server informatie"
+
+msgid "Server to use for periodic IP address changes"
+msgstr "Server om te gebruiken voor periodieke IP adreswijzigingen"
 
 msgid "Server version"
 msgstr "Server versie"
@@ -10502,13 +10742,25 @@ msgid "Set"
 msgstr "Instellen"
 
 msgid "Set UID"
-msgstr "UID (Instellen"
+msgstr "UID Instellen"
 
 msgid "Set User Password"
-msgstr "Stel gebruikerswachtwoord in"
+msgstr "Gebruikerswachtwoord Instellen"
 
 msgid "Set browseable."
-msgstr "Verkenbaar activeren."
+msgstr "Verkenbaar instellen."
+
+msgid ""
+"Set directory for persistent cache files, The cache files are used to keep "
+"track of which addresses have been successfully sent to their respective "
+"DDNS provider and when."
+msgstr ""
+"Map voor permanente cache bestanden instellen. De cache bestanden worden "
+"gebruikt om bij te houden welke adressen met succes naar hun "
+"respectievelijke DDNS provider zijn verzonden en wanneer."
+
+msgid "Set domain name"
+msgstr "Domeinnaam instellen"
 
 msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
@@ -10517,33 +10769,36 @@ msgstr ""
 "Geef de tijdsinterval op tussen de hardeschijf controle's in X seconden. De "
 "minimum toegestane waarde is 10."
 
+msgid "Set log level"
+msgstr "Log niveau instellen"
+
 msgid "Set password"
-msgstr "Stel wachtwoord in"
+msgstr "Wachtwoord instellen"
 
 msgid "Set per-LUN/per-pool thin provisioning soft threshold."
-msgstr "Instellen Per-LUN/per-pool thin provisioning zachte drempel."
+msgstr "Per-LUN/per-pool thin provisioning zachte drempel Instellen."
 
 msgid "Set read only."
-msgstr "Alleen-lezen activeren."
+msgstr "Alleen-lezen instellen."
 
 msgid "Set share password."
-msgstr "Vul het delings wachtwoord in."
+msgstr "Wachtwoord voor delen instellen."
 
 msgid "Set the account's primary group."
-msgstr "Stel de primaire groep van het account in."
+msgstr "Primaire groep van het account instellen."
 
 msgid "Set the content location(s) to or from the media library."
-msgstr "Zet de media locatie(s) in of uit de mediabibliotheek."
+msgstr "Media locatie(s) instellen van of naar de mediabibliotheek."
 
 msgid "Set the critical threshold to a value between 90 and 95."
-msgstr "Stel de kritieke drempel in op een waarde tussen 90 en 95."
+msgstr "Kritieke drempel instellen op een waarde tussen 90 en 95."
 
 msgid "Set the desired Service Set Identifier (aka network name)."
-msgstr "Stel de gewenste Service Set Identificator in (aka netwerk naam)."
+msgstr "Gewenste Service Set Identificatie instellen (aka netwerknaam)."
 
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
-"Stel de vingerafdruk in van één certificaat om te accepteren voor TLS."
+"Vingerafdruk instellen voor een enkel certificaat om TLS te accepteren."
 
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
@@ -10551,25 +10806,30 @@ msgid ""
 "transmitted on an interface. Not all interfaces support setting the MTU, and "
 "some interfaces have range restrictions."
 msgstr ""
-"Zet de maximale fysieke datapakketgrootte van de netwerkkaart naar X, "
+"Maximale fysieke datapakketgrootte van de netwerkkaart instellen naar X, "
 "standaard is netwerkaart specifiek. De MTU wordt gebruikt om de grootte van "
 "de pakketten te beperken die via een netwerkkaart worden overgebracht. Niet "
 "alle netwerkkaarten ondersteunen het aanpassen van de MTU waarde, sommige "
 "netwerkkaarten hebben namelijk een te beperkt bereik."
 
 msgid ""
+"Set the number of DNS updates. The default is 0, which means infinity."
+msgstr ""
+"Aantal DNS-updates instellen. De standaardwaarde is 0, wat oneindig betekent."
+
+msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
-"Stel het aantal dagen in totdat een herinnering wordt getoond voor de "
-"configuratie van het back-upsysteem. De standaardwaarde is 28 dagen. Een "
-"waarde van 0 schakelt de herinnering uit."
+"Aantal dagen instellen voor een herinnering wordt getoond om een backup te "
+"maken van de systeemconfiguratie. De standaardwaarde is 28 dagen. Een waarde "
+"van 0 schakelt de herinnering uit."
 
 msgid "Set the warning threshold to a value between 80 and 89."
-msgstr "Stel de waarschuwingsdrempel in op een waarde tussen 80 en 89."
+msgstr "Waarschuwingsdrempel instellen op een waarde tussen 80 en 89."
 
 msgid "Set title scrolling speed between 0-10 (default 10)."
-msgstr "Stel de regel scroll snelheid in tussen 0 en 10 (standaard 10)."
+msgstr "Regel scroll snelheid instellen tussen 0 en 10 (standaard 10)."
 
 msgid ""
 "Set to \"off\", disables read caching for the LUN, if supported by the "
@@ -10599,21 +10859,24 @@ msgid ""
 "Set to \"unrestricted\", allows target to process commands with SIMPLE task "
 "attribute in arbitrary order."
 msgstr ""
-"Stel in als \"onbeperkt\", staat het doel toe opdrachten te verwerken met "
+"Instellen naar \"onbeperkt\", staat het doel toe opdrachten te verwerken met "
 "SIMPLE taakattribuut in een willekeurige volgorde."
 
 msgid "Set user login shell."
 msgstr "Instellen login-shell gebruiker."
 
 msgid "Set user password."
-msgstr "Stel gebruikerswachtwoord in."
+msgstr "Gebruikerswachtwoord instellen"
 
 #, php-format
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
-"Stel de breedsprakigheid van transmission berichten in. Het standaard "
+"Breedsprakigheid van transmission berichten instellen. Het standaard "
 "berichtniveau is \"%s\""
+
+msgid "Set workgroup name"
+msgstr "Werkgroep naam instellen"
 
 msgid "Setkey"
 msgstr "Setkey"
@@ -10630,7 +10893,7 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
-"Stel de authenticatie type in. Type kan \"Geen\" of \"CHAP\" zijn. Standaard "
+"Authenticatie type instellen. Type kan \"Geen\" of \"CHAP\" zijn. Standaard "
 "is \"Geen\". Indien ingesteld op CHAP, moeten zowel chapINaam als "
 "chapWachtwoord worden gedefinieerd."
 
@@ -10639,8 +10902,8 @@ msgid ""
 "PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
-"Stel de data overzicht in; een controlesom berekend over de data sectie van "
-"iSCSI PDU's en geverifieerd bij ontvangst. Overzicht kan \"Geen\" of "
+"Data samenvatting instellen; een controlesom berekend over de data sectie "
+"van iSCSI PDU's en geverifieerd bij ontvangst. Overzicht kan \"Geen\" of "
 "\"CRC32C\" zijn. Standaard is \"Geen\"."
 
 msgid ""
@@ -10648,7 +10911,7 @@ msgid ""
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
-"Stel de overzicht van de kop in; een controlesom berekend over de header van "
+"Header samenvatting instellen; een controlesom berekend over de header van "
 "iSCSI PDU's en geverifieerd bij ontvangst. overzicht kan \"Geen\" of "
 "\"CRC32C\" zijn. Standaard is \"Geen\"."
 
@@ -10659,8 +10922,8 @@ msgid ""
 "connecting to all the targets returned by SendTargets iSCSI discovery with "
 "the defined TargetAddress."
 msgstr ""
-"Stel het sessie type in. Het type kan \"Ontdekking\", of \"Normaal\" zijn. "
-"De standaard is \"Normaal\". Voor normale sessies, moet de Doelnaam worden "
+"Sessie type instellen. Het type kan \"Ontdekking\", of \"Normaal\" zijn. De "
+"standaard is \"Normaal\". Voor normale sessies, moet de Doelnaam worden "
 "gedefinieerd. Ontdekking sessies negeren de Doelnaam en zal resulteren dat "
 "de initiator zal verbinden met alle doelstellingen geretourneerd door "
 "Stuurdoelen iSCSI-ontdekking met de gedefinieerde Doeladres."
@@ -10669,7 +10932,7 @@ msgid ""
 "Sets the umask for newly created files. The default is 000 (anyone can read "
 "or write)."
 msgstr ""
-"Stel de bestandsrechten in voor nieuw gecreëerde bestanden. Standaard 000 "
+"Bestandsrechten voor nieuw gecreëerde bestanden instellen. Standaard 000 "
 "(iedereen kan lezen of schrijven)."
 
 msgid ""
@@ -10747,6 +11010,13 @@ msgstr "Shell"
 
 msgid "Shell Script"
 msgstr "Shell Script"
+
+msgid ""
+"Shell command, or script, for IP address update checking. The command must "
+"output a text with the IP address to its standard output."
+msgstr ""
+"Shell opdracht, of script, voor het controleren van IP adres updates. De "
+"opdracht moet een tekst met het IP adres naar zijn standaard uitgang sturen."
 
 msgid "Shock During Write."
 msgstr "Schokken tijdens schrijven."
@@ -10971,19 +11241,19 @@ msgid "Specifies LUN NAA identifier."
 msgstr "Specificeert de LUN NAA identificatie"
 
 msgid "Specifies LUN SCSI name string."
-msgstr "Specificeert de LUN SCSI naam"
+msgstr "Specificeert de LUN SCSI tekenreeks."
 
 msgid "Specifies LUN locally assigned RFC 4122 UUID."
 msgstr "Specificeert de LUN's lokaal toegewezen RFC 4122 UUID"
 
 msgid "Specifies LUN product string up to 16 chars."
-msgstr "Specificeert de LUN product naam, maximaal 16 tekens"
+msgstr "Specificeert LUN product tekenreeks tot 16 tekens."
 
 msgid "Specifies LUN revision string up to 4 chars."
-msgstr "Specificeert de LUN versie, maximaal 4 tekens"
+msgstr "Specificeert LUN revisie tekenreeks tot 4 tekens."
 
 msgid "Specifies LUN vendor string up to 8 chars."
-msgstr "Specificeert de LUN leveranciersnaam, maximaal 8 tekens"
+msgstr "Specificeert de LUN leverancier tekenreeks tot 8 tekens."
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -11125,6 +11395,13 @@ msgid "Specify the SCSI device type to use when creating the LUN."
 msgstr ""
 "Geef het SCSI schijf type op te gebruiken bij het aanmaken van de LUN."
 
+msgid ""
+"Specify the User-Agent string to send to the DDNS provider on checkip and "
+"update requests."
+msgstr ""
+"Specificeer de User-Agent tekenreeks die naar de DDNS provider moet worden "
+"verzonden bij checkip en update verzoeken."
+
 msgid "Specify the group numeric id."
 msgstr "Geef de groep numerieke id op."
 
@@ -11136,6 +11413,9 @@ msgstr "Aanvragen opsplitsen"
 
 msgid "Standard"
 msgstr "Standaard"
+
+msgid "Standard Provider"
+msgstr "Standaard Provider"
 
 msgid "Standard Reports"
 msgstr "Standaard Rapporten"
@@ -11158,6 +11438,9 @@ msgstr "Start"
 
 msgid "Start TLS from within the session."
 msgstr "Start TLS vanuit de sessie."
+
+msgid "Startup Delay"
+msgstr "Opstartvertraging"
 
 msgid "Static"
 msgstr "Statisch"
@@ -11232,11 +11515,11 @@ msgstr "Strikte DLNA"
 msgid ""
 "String displayed in the dialog presented to the user when accessing the URL."
 msgstr ""
-"De text getoond in een dialoog dat gepresenteerd word aan de gebruiker voor "
-"de toegang naar de URL."
+"Tekenreeks getoond in een dialoog dat gepresenteerd word aan de gebruiker "
+"voor de toegang naar de URL."
 
 msgid "String identifier of the extent."
-msgstr "Text identificator van de extent."
+msgstr "Tekenreeks identificatie van de extentie."
 
 msgid "Subject"
 msgstr "Onderwerp"
@@ -11639,7 +11922,8 @@ msgstr ""
 "geïnitialiseerd tijdens de productie."
 
 msgid "The SCSI Device Identification string presented to the initiator."
-msgstr "Het SCSI Schijf Identificatie reeks gepresenteerd aan de initiator."
+msgstr ""
+"Het SCSI Schijf Identificatie tekenreeks gepresenteerd aan de initiator."
 
 msgid "The SCSI serial number presented to the initiator."
 msgstr "Het SCSI serienummer gepresenteerd aan de initiator."
@@ -12130,6 +12414,10 @@ msgstr ""
 "afhandelen van inkomende verbindingen. De standaardinstelling is 30. Een "
 "instelling van 0 schakelt de limiet uit."
 
+msgid "The list of hostnames. Use a comma to separate multiple names."
+msgstr ""
+"De lijst met hostnamen. Gebruik een komma om meerdere namen te scheiden."
+
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
@@ -12282,6 +12570,9 @@ msgstr "Het wachtwoord bevat het ongeldige karakter ':'."
 
 msgid "The password encryption protocol to use."
 msgstr "Het te gebruiken encryptie protocol voor wachtwoorden."
+
+msgid "The password, if applicable."
+msgstr "Het wachtwoord, indien van toepassing."
 
 msgid "The passwords do not match."
 msgstr "De wachtwoorden komen niet overeen."
@@ -12494,6 +12785,10 @@ msgstr ""
 msgid "The uploaded file was only partially uploaded."
 msgstr "Het geuploade bestand werd slechts gedeeltelijk geupload."
 
+msgid "The username, if applicable. This might be referred to as hash."
+msgstr ""
+"De gebruikersnaam, indien van toepassing. Dit kan hash worden genoemd."
+
 msgid "The value is invalid."
 msgstr "De waarde is ongeldig."
 
@@ -12557,6 +12852,10 @@ msgstr ""
 "parameters opgeven die aan de kernel worden doorgegeven en extra modules "
 "worden geladen."
 
+msgid "These options are appended to the command line of the wsdd script."
+msgstr ""
+"Deze opties worden toegevoegd aan de command line van het wsdd-script."
+
 #, php-format
 msgid "These parameters are added to %s."
 msgstr "Deze parameters worden toegevoegd aan %s."
@@ -12588,6 +12887,9 @@ msgstr "Deze parameters zijn toegevoegd aan /etc/ssh/sshd_config."
 
 msgid "These parameters are appended to the exports file."
 msgstr "Deze parameters worden toegevoegd aan het exportbestand."
+
+msgid "These parameters are appended to the inadyn.conf file."
+msgstr "Deze parameters worden toegevoegd aan het  inadyn.conf bestand."
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12638,6 +12940,9 @@ msgstr "Deze parameters worden toegevoegd aan deze lun."
 
 msgid "These parameters will be added to this portal-group."
 msgstr "Deze parameters worden toegevoegd aan deze portaal-groep."
+
+msgid "These parameters will be added to this provider configuration"
+msgstr "Deze parameters worden aan deze providerconfiguratie toegevoegd"
 
 msgid "These parameters will be added to this target."
 msgstr "Deze parameters worden toegevoegd aan deze doel."
@@ -12833,6 +13138,11 @@ msgid ""
 msgstr ""
 "Deze optie zorgt er voor dat de ontvangende rsync bestemmings toestemmingen "
 "het zelfde blijven als de bron toestemmingen."
+
+msgid ""
+"This option controls if IPv6 addresses should be allowed or discarded."
+msgstr ""
+"Deze optie bepaalt of IPv6 adressen moeten worden toegestaan of verwijderd."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -13035,6 +13345,22 @@ msgstr ""
 "zal toestaan te laten gebruiken."
 
 msgid ""
+"This setting overrides the built-in paths and fallback locations and "
+"provides a way to specify the path to a trusted set of CA certificates, in "
+"PEM format, bundled into one file."
+msgstr ""
+"Deze instelling overschrijft de ingebouwde paden en reserve locaties en "
+"biedt een manier om het pad op te geven naar een vertrouwde set CA "
+"certificaten, in PEM-indeling, gebundeld in een enkel bestand."
+
+msgid ""
+"This setting usually follows the ssl setting, but can be used to disable "
+"HTTPS for the IP address check."
+msgstr ""
+"Deze instelling volgt meestal de ssl instelling, maar kan worden gebruikt om "
+"HTTPS uit te schakelen voor de IP adres controle."
+
+msgid ""
 "This specifies a UNIX group name that will be assigned as the default "
 "primary group for all users connecting to this service. This is useful for "
 "sharing files by ensuring that all access to files on service will use the "
@@ -13217,6 +13543,15 @@ msgid "To match any IP address leave this field empty."
 msgstr ""
 "Om het voor alle IP-adressen te laten gelden kunt u dit veld leeg laten."
 
+msgid ""
+"To support multiple users of the same DDNS provider, an identifier must be "
+"defined. The identifier can be any free form alphanumeric string as long as "
+"the combination is unique."
+msgstr ""
+"Om meerdere gebruikers van dezelfde DDNS provider te ondersteunen, moet een "
+"identificatie worden gedefinieerd. De identificatie kan elke vrije "
+"alfanumerieke tekenreeks zijn, zolang de combinatie maar uniek is."
+
 msgid "To use Active Directory the SMB service will be enabled as well."
 msgstr ""
 "Om Active Directory te gebruiken, wordt de SMB-service ook ingeschakeld."
@@ -13283,6 +13618,9 @@ msgstr "Geselecteerde Poort Records Omschakelen"
 
 msgid "Toggle Selected Portal Groups"
 msgstr "Geselecteerde Portaal Groepen Omschakelen"
+
+msgid "Toggle Selected Providers"
+msgstr "Geselecteerde Providers Omschakelen"
 
 msgid "Toggle Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Omschakelen"
@@ -13429,10 +13767,10 @@ msgid "Trap Port"
 msgstr "Trap Poort"
 
 msgid "Trap String"
-msgstr "Trap String"
+msgstr "Trap Tekenreeks"
 
 msgid "Trap string."
-msgstr "Trap string."
+msgstr "Trap tekenreeks."
 
 msgid "Traps"
 msgstr "Traps"
@@ -13592,7 +13930,7 @@ msgid "UPS status"
 msgstr "UPS status"
 
 msgid "UPS system identifier"
-msgstr "UPS systeem identificator"
+msgstr "UPS systeem identificatie"
 
 msgid "UPS temperature"
 msgstr "UPS temperatuur"
@@ -13645,6 +13983,9 @@ msgstr "Niet-gecorrigeerde leesfouten gemeld aan het besturingssysteem."
 msgid "Undefined"
 msgstr "Ongedefinieerd"
 
+msgid "Undefined Type"
+msgstr "Ongedefinieerd Type"
+
 msgid "Unformated"
 msgstr "Niet geformatteerd"
 
@@ -13671,7 +14012,7 @@ msgid "Unison"
 msgstr "Unison"
 
 msgid "Universally Unique Identifier"
-msgstr "Universeel Unieke Identificator"
+msgstr "Universeel Unieke Identificatie"
 
 msgid "Unix Charset"
 msgstr "UNIX Karakterset"
@@ -13687,6 +14028,9 @@ msgstr "Onbekende Activiteit"
 
 msgid "Unknown Aggregation Protocol"
 msgstr "Onbekend Aggregation Protocol"
+
+msgid "Unknown Provider"
+msgstr "Onbekende Provider"
 
 msgid "Unknown or Unformatted"
 msgstr "Onbekend of Ongeformatteerd"
@@ -13779,6 +14123,16 @@ msgstr "Gebruik Standaard TLS Trust Bestand"
 msgid "Use Encryption"
 msgstr "Encryptie Gebruiken"
 
+msgid "Use HTTPS"
+msgstr "HTTPS Gebruiken"
+
+msgid ""
+"Use HTTPS, both when checking for IP changes and updating the DNS record. "
+"Default is to use HTTPS."
+msgstr ""
+"Gebruik HTTPS, zowel bij het controleren op IP wijzigingen als het bijwerken "
+"van de DNS record. Standaard wordt HTTPS gebruikt."
+
 msgid "Use PAM for user authentication."
 msgstr "Gebruik PAM voor gebruiker verificatie."
 
@@ -13851,6 +14205,21 @@ msgstr "Gebruik de standaard container (dit is de standaard)"
 msgid "Use these specials actions for debugging only!"
 msgstr "Gebruik deze speciale opdrachten alléén voor fout opsporingen!"
 
+msgid ""
+"Use this network interface as source of IP address changes instead of "
+"querying an external server."
+msgstr ""
+"Gebruik dit netwerk interface als bron van IP adres wijzigingen in plaats "
+"van opvragen van een externe server."
+
+msgid ""
+"Use this option to fake an address update with a \"random\" address in the "
+"203.0.113.0/24 range before updating with the actual IP address."
+msgstr ""
+"Gebruik deze optie om een adres update te vervalsen met een \"willekeurig\" "
+"adres in het bereik 203.0.113.0/24 voordat u het actualiseert met het "
+"daadwerkelijke IP adres."
+
 #, php-format
 msgid ""
 "Use this option to override the default permission modes for newly created "
@@ -13916,6 +14285,9 @@ msgstr ""
 msgid "User"
 msgstr "Gebruiker"
 
+msgid "User Agent"
+msgstr "User Agent"
+
 msgid "User ID"
 msgstr "Gebruiker ID"
 
@@ -13948,6 +14320,9 @@ msgstr "Gebruikersaccount is beschermd"
 
 msgid "User account is unlocked"
 msgstr "Gebruikersaccount is ontgrendeld"
+
+msgid "User agent string"
+msgstr "User agent tekenreeks"
 
 msgid "User portal permission."
 msgstr "Gebruikersportaal toestemming."
@@ -14067,6 +14442,9 @@ msgstr "Breedsprakigheid van informatie die is vastgelegd."
 msgid "Verify"
 msgstr "Verifiëren"
 
+msgid "Verify Address"
+msgstr "Adres Verifiëren"
+
 msgid "Version"
 msgstr "Versie"
 
@@ -14075,9 +14453,6 @@ msgstr "Versie:"
 
 msgid "Vibration During Write."
 msgstr "Trillingen Tijdens Schrijven."
-
-msgid "Video"
-msgstr "Video"
 
 msgid "Virtual Device"
 msgstr "Virtuele Schijf"
@@ -14231,6 +14606,9 @@ msgstr "WPA-PSK WPA-EAP"
 msgid "WPA2"
 msgstr "WPA2"
 
+msgid "WSD"
+msgstr "WSD"
+
 msgid "Wait Time"
 msgstr "Wachttijd"
 
@@ -14248,6 +14626,12 @@ msgstr "Waarschuwingsniveau"
 
 msgid "Watch Folder"
 msgstr "Kijk Map"
+
+msgid "Web Service Discovery"
+msgstr "Web Service Discovery"
+
+msgid "Web Service Discovery Settings"
+msgstr "Web Service Discovery Instellingen"
 
 #, php-format
 msgid "Web interface port. The default port is %d."
@@ -14359,6 +14743,9 @@ msgstr "Wide Links"
 msgid "Wildcard"
 msgstr "Wildcard"
 
+msgid "Wildcard Domain"
+msgstr "Wildcard Domein"
+
 msgid "Winbindd Availability"
 msgstr "Winbindd Beschikbaarheid"
 
@@ -14373,6 +14760,9 @@ msgstr "Werkmap"
 
 msgid "Workgroup"
 msgstr "Werkgroep"
+
+msgid "Workgroup Name"
+msgstr "Werkgroepnaam"
 
 msgid "Wrap text:"
 msgstr "Tekst terugzetten:"
@@ -14657,6 +15047,9 @@ msgstr "Zeroconf/Bonjour"
 msgid "and"
 msgstr "en"
 
+msgid "api.ipify.org"
+msgstr "api.ipify.org"
+
 msgid "bash - Bourne Again Shell"
 msgstr "bash - Bourne Again Shell"
 
@@ -14832,6 +15225,9 @@ msgstr "Netwerkverkeer"
 msgid "no"
 msgstr "nee"
 
+msgid "no delay"
+msgstr "geen vertraging"
+
 msgid "no pools available"
 msgstr "geen pools beschikbaar"
 
@@ -14907,6 +15303,9 @@ msgstr "loskoppelen"
 msgid "unknown"
 msgstr "onbekend"
 
+msgid "update.example.com"
+msgstr "update.voorbeeld.com"
+
 msgid "visible"
 msgstr "zichtbaar"
 
@@ -14915,3 +15314,40 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgid ""
+#~ "Create a virtual device containing a single device or concatenated devices"
+#~ msgstr ""
+#~ "Creëer een virtuele schijf met een enkele schijf of aaneengeschakelde "
+#~ "schijven"
+
+#~ msgid "Make sure to select the optimal number of devices"
+#~ msgstr "Zorg ervoor dat u het juiste aantal schijven selecteert"
+
+#~ msgid "Pictures"
+#~ msgstr "Afbeeldingen"
+
+#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
+#~ msgstr "RAID-Z1 zou 3, 5, of 9 schijven in elke vdev moeten gebruiken."
+
+#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
+#~ msgstr "RAID-Z2 zou 4, 6, of 10 schijven in elke vdev moeten gebruiken."
+
+#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
+#~ msgstr "RAID-Z3 zou 5, 7, of 11 schijven in elke vdev moeten gebruiken."
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Append the current IP to the the DDNS server update path."
+#~ msgstr "Voeg het huidige IP adres toe aan het update pad van de DDNS-server."
+
+#~ msgid ""
+#~ "How often the IP is checked, in seconds. Default: apxrox. 1 minute. Max: 10 "
+#~ "days."
+#~ msgstr ""
+#~ "Hoe vaak het IP adres wordt gecontroleerd in seconden. Standaard: ca. 1 "
+#~ "minuut. Max: 10 dagen."
