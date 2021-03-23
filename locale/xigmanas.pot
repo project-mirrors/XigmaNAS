@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-03-23 04:17+0000\n"
+"POT-Creation-Date: 2021-03-23 13:45+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -985,7 +985,7 @@ msgstr ""
 msgid "Append my IP"
 msgstr ""
 
-msgid "Append the current IP to the the DDNS server update path."
+msgid "Append the current IP to the DDNS server update path."
 msgstr ""
 
 msgid "Append user defined shares"
@@ -5374,7 +5374,7 @@ msgstr ""
 msgid "Hours"
 msgstr ""
 
-msgid "How often the IP is checked, in seconds. Default: apxrox. 1 minute. Max: 10 days."
+msgid "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 days."
 msgstr ""
 
 msgid "How often the IP is checked. The period is in seconds (max. is 10 days)."
