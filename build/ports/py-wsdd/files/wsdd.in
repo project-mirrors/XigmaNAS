@@ -14,6 +14,7 @@
 # RCVAR: wsdd
 
 . /etc/rc.subr
+. /etc/configxml.subr
 
 name=wsdd
 rcvar=wsdd_enable
@@ -32,16 +33,54 @@ load_rc_config ${name}
 : ${wsdd_group:=""}
 : ${wsdd_smb_config_file:="/usr/local/etc/smb4.conf"}
 
-if [ -z "${wsdd_group}" ]; then
-#	automatic detection of workgroup
-	wsdd_group=$(/usr/local/bin/testparm -s --parameter-name workgroup 2>/dev/null)
-
-#	try to manually extract workgroup from samba configuration if testparm failed
-	if [ -z "$wsdd_group" ] && [ -r $wsdd_smb_config_file ]; then
-		wsdd_group="$(grep -i '^[[:space:]]*workgroup[[:space:]]*=' $wsdd_smb_config_file | cut -f2 -d= | tr -d '[:blank:]')"
+cfg_wsdd_hostname=$(configxml_get "//wsdd/hostname")
+cfg_wsdd_ipprotocol=$(configxml_get "//wsdd/ipprotocol")
+cfg_wsdd_servermode=$(configxml_get "//wsdd/servermode")
+#	domain
+priority_domain=""
+#	read domain from wsdd in config.xml
+if [ "${cfg_wsdd_servermode}" = "domain" ]; then
+	priority_domain=$(configxml_get "//wsdd/domain")
+fi
+#	read domain from sambaad in config.xml
+if [ -z "${priority_domain}" ]; then
+	if configxml_isset "//sambaad/enable"; then
+		priority_domain=$(configxml_get "//sambaad/dns_domain")
 	fi
 fi
-
+#	overwrite wsdd domain with existing priority domain
+if [ -n "${priority_domain}" ]; then
+	wsdd_domain="${priority_domain}"
+fi
+#	workgroup
+if [ -z "${wsdd_domain}" ]; then
+	priority_group=""
+#	read workgroup from wsdd in config.xml
+	if [ "${cfg_wsdd_servermode}" = "workgroup" ]; then
+		priority_group=$(configxml_get "//wsdd/workgroup")
+	fi
+#	detect workgroup from samba in config.xml
+	if [ -z "${priority_group}" ]; then
+		if configxml_isset "//samba/enable"; then
+			priority_group=$(configxml_get "//samba/workgroup")
+		fi
+	fi
+#	detect workgroup from testparm
+	if [ -z "${priority_group}" ]; then
+		priority_group=$(/usr/local/bin/testparm -s --parameter-name workgroup 2>/dev/null)
+	fi
+#	detect workgroup from smb.conf
+	if [ -z "${priority_group}" ]; then
+		if [ -r $wsdd_smb_config_file ]; then
+			priority_group="$(grep -i '^[[:space:]]*workgroup[[:space:]]*=' $wsdd_smb_config_file | cut -f2 -d= | tr -d '[:blank:]')"
+		fi
+	fi
+#	overwrite wsdd group with existing priority group
+	if [ -n "${priority_group}" ]; then
+		wsdd_group="${priority_group}"
+	fi
+fi
+#	compile options
 wsdd_opts=""
 if [ -n "${wsdd_flags}" ]; then
 	wsdd_opts="${wsdd_flags}"
@@ -50,6 +89,16 @@ if [ -n "$wsdd_domain" ]; then
 	wsdd_opts="${wsdd_opts} -d ${wsdd_domain}"
 elif [ -n "$wsdd_group" ]; then
 	wsdd_opts="${wsdd_opts} -w ${wsdd_group}"
+fi
+if [ -n "${cfg_wsdd_hostname}" ]; then
+	wsdd_opts="${wsdd_opts} -n ${cfg_wsdd_hostname}"
+fi
+if [ -n "${cfg_wsdd_ipprotocol}" ]; then
+	if [ "${cfg_wsdd_ipprotocol}" = "4" ]; then
+		wsdd_opts="${wsdd_opts} -4"
+	elif [ "${cfg_wsdd_ipprotocol}" = "6" ]; then
+		wsdd_opts="${wsdd_opts} -6"
+	fi
 fi
 
 wsdd_start()
