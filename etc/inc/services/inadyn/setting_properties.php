@@ -106,7 +106,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_period(): myp\property_int {
-		$description = gettext('How often the IP is checked, in seconds. Default: apxrox. 1 minute. Max: 10 days.');
+		$description = gettext('How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 days.');
 		$placeholder = $placeholderv = '60';
 		$property = parent::init_period();
 		$property->
