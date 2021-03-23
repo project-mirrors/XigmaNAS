@@ -51,10 +51,11 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 $cop_grid = [
+	$cop->get_address_family(),
 	$cop->get_domain(),
 	$cop->get_enable(),
 	$cop->get_extraoptions(),
-	$cop->get_address_family(),
+	$cop->get_hostname(),
 	$cop->get_server_mode(),
 	$cop->get_workgroup()
 ];
@@ -303,6 +304,7 @@ foreach($server_mode_hooks as $hook_key => $hook_obj):
 	endswitch;
 endforeach;
 $s01_tbody->
+	c2($cop->get_hostname(),$sphere,false,$is_readonly)->
 	c2($cop->get_address_family(),$sphere,false,$is_readonly);
 $s01_tbody->c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add buttons

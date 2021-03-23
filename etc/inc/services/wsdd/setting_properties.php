@@ -35,11 +35,13 @@
 namespace services\wsdd;
 
 use common\properties as myp;
+use function gettext,
+	preg_quote;
 
 final class setting_properties extends grid_properties {
 	public function init_address_family(): myp\property_list {
 		$defaultvalue = '';
-		$description =gettext('');
+		$description = '';
 		$options = [
 			'' => gettext('Default'),
 			'4' => gettext('IPv4 only'),
@@ -59,11 +61,14 @@ final class setting_properties extends grid_properties {
 		$defaultvalue = '';
 		$description = gettext('Set domain name');
 		$placeholder = gettext('Domain');
+		$placeholderv = gettext('Autodetect');
 		$parent = parent::init_domain();
 		$parent->
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('domain')->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholderv)->
 			set_size(60)->
 			filter_use_default_or_empty();
 		return $parent;
@@ -80,12 +85,34 @@ final class setting_properties extends grid_properties {
 		$placeholder = gettext('Enter extra options');
 		$property = parent::init_extraoptions();
 		$property->
-			set_id('extraoptions')->
-			set_description($description)->
-			set_placeholder($placeholder)->
 			set_defaultvalue('')->
-			set_size(60)->
+			set_description($description)->
+			set_id('extraoptions')->
 			set_maxlength(4096)->
+			set_placeholder($placeholder)->
+			set_size(60)->
+			filter_use_default_or_empty();
+		return $property;
+	}
+	public function init_hostname(): myp\property_text {
+//		disallowed 1st character: .\/:*?"<>|
+//		disallowed characters: \/:*?"<>|
+		$regexp_quote_1 = preg_quote('.','/');
+		$regexp_quote_2 = preg_quote('\/:*?"<>|','/');
+		$regexp = '/^[^\s' . $regexp_quote_1 . $regexp_quote_2 . '][^\s' . $regexp_quote_2 . ']{0,14}$/';
+		$defaultvalue = '';
+		$description = gettext('Override (NETBIOS) hostname to be used.');
+		$placeholder = gettext('Hostname');
+		$placeholderv = gettext('Autodetect');
+		$property = parent::init_hostname();
+		$property->
+			set_defaultvalue($defaultvalue)->
+			set_description($description)->
+			set_id('hostname')->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholderv)->
+			set_size(60)->
+			filter_use_default_set_regexp($regexp)->
 			filter_use_default_or_empty();
 		return $property;
 	}
@@ -107,15 +134,24 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_workgroup(): myp\property_text {
+//		disallowed 1st character: .\/:*?"<>|
+//		disallowed characters: \/:*?"<>|
+		$regexp_quote_1 = preg_quote('.','/');
+		$regexp_quote_2 = preg_quote('\/:*?"<>|','/');
+		$regexp = '/^[^\s' . $regexp_quote_1 . $regexp_quote_2 . '][^\s' . $regexp_quote_2 . ']{0,14}$/';
 		$defaultvalue = '';
 		$description = gettext('Set workgroup name');
 		$placeholder = gettext('Workgroup');
+		$placeholderv = gettext('Autodetect');
 		$property = parent::init_workgroup();
 		$property->
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('workgroup')->
+			set_placeholder($placeholder)->
+			set_placeholderv($placeholderv)->
 			set_size(60)->
+			filter_use_default_set_regexp($regexp)->
 			filter_use_default_or_empty();
 		return $property;
 	}
