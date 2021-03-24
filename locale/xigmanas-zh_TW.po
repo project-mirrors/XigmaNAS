@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:09+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -14066,28 +14066,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Audio"
-#~ msgstr "音頻"
-
-#~ msgid ""
-#~ "Create a virtual device containing a single device or concatenated devices"
-#~ msgstr "創建包含單個設備或串聯設備的虛擬設備"
-
-#~ msgid "Make sure to select the optimal number of devices"
-#~ msgstr "確保選擇最佳設備數量"
-
-#~ msgid "Pictures"
-#~ msgstr "圖片"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr "RAID-Z1在每個vdev中應具有3個，5個或9個磁片。"
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr "RAID-Z2在每個vdev中應該有4個，6個或10個磁片。"
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr "RAID-Z3在每個vdev中應該有5,7或11個磁片。"
-
-#~ msgid "Video"
-#~ msgstr "視頻"

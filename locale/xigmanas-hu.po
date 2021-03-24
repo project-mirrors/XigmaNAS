@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:08+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -14992,30 +14992,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Audio"
-#~ msgstr "audió"
-
-#~ msgid ""
-#~ "Create a virtual device containing a single device or concatenated devices"
-#~ msgstr ""
-#~ "Egy egyetlen eszközt vagy összekapcsolt eszközöket tartalmazó virtuális "
-#~ "eszköz létrehozása"
-
-#~ msgid "Make sure to select the optimal number of devices"
-#~ msgstr "Győződjön meg arról, hogy optimális számú eszközt választott ki."
-
-#~ msgid "Pictures"
-#~ msgstr "Képek"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr "RAID-Z1 mindegyik vdev-ében 3, 5 vagy 9 lemeznek kell lennie."
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr "RAID-Z2 mindegyik vdev-ében 4, 6 vagy 10 lemeznek kell lennie."
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr "RAID-Z3 mindegyik vdev-ében 5, 7 vagy 11 lemeznek kell lennie."
-
-#~ msgid "Video"
-#~ msgstr "Videó"

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:08+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -14178,24 +14178,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid "Audio"
-#~ msgstr "오디오"
-
-#~ msgid "Make sure to select the optimal number of devices"
-#~ msgstr "최적의 장치 수 선택"
-
-#~ msgid "Pictures"
-#~ msgstr "사진"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr "RAID-Z1은 가상 장치 당 3, 5, 9개의 디스크를 가져야 합니다."
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr "RAID-Z2는 가상 장치 당 4, 6, 10개의 디스크를 가져야 합니다."
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr "RAID-Z3은 가상 장치 당 5, 7, 11개의 디스크를 가져야 합니다."
-
-#~ msgid "Video"
-#~ msgstr "동영상"
