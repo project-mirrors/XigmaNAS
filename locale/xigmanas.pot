@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-03-23 19:00+0000\n"
+"POT-Creation-Date: 2021-03-24 23:06+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11043,7 +11043,7 @@ msgstr ""
 msgid "These option(s) will be added to /boot/loader.conf.local. This allows you to specify parameters to be passed to the kernel and additional modules to be loaded."
 msgstr ""
 
-msgid "These options are appended to the command line of the wsdd script."
+msgid "These options are appended to the command line parameters of the wsdd script."
 msgstr ""
 
 #, php-format
