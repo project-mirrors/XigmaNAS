@@ -50,12 +50,28 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
+//	list of configured interfaces
+$a_interface = get_interface_list();
+$l_interfaces = [
+	'' => gettext('All Interfaces')
+];
+foreach($a_interface as $interface_key => $interface_data):
+//	$interface_data = get_interface_info($interface_key);
+//	switch($interface_data['status']):
+//		case 'up':
+//		case 'associated':
+			$l_interfaces[$interface_key] = $interface_key;
+//			break;
+//	endswitch;
+endforeach;
+$cop->get_interface()->set_options($l_interfaces);
 $cop_grid = [
 	$cop->get_address_family(),
 	$cop->get_domain(),
 	$cop->get_enable(),
 	$cop->get_extraoptions(),
 	$cop->get_hostname(),
+	$cop->get_interface(),
 	$cop->get_server_mode(),
 	$cop->get_workgroup()
 ];
@@ -304,8 +320,9 @@ foreach($server_mode_hooks as $hook_key => $hook_obj):
 	endswitch;
 endforeach;
 $s01_tbody->
-	c2($cop->get_hostname(),$sphere,false,$is_readonly)->
-	c2($cop->get_address_family(),$sphere,false,$is_readonly);
+	c2($cop->get_interface(),$sphere,false,$is_readonly)->
+	c2($cop->get_address_family(),$sphere,false,$is_readonly)->
+	c2($cop->get_hostname(),$sphere,false,$is_readonly);
 $s01_tbody->c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();

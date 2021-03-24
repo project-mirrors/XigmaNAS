@@ -116,6 +116,17 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
+	public function init_interface(): myp\property_list {
+		$description = gettext('Select which interface to use.');
+		$property = parent::init_interface();
+		$property->
+			set_defaultvalue('')->
+			set_description($description)->
+			set_id('if')->
+			set_input_type('radio-grid')->
+			filter_use_default();
+		return $property;
+	}
 	public function init_server_mode(): myp\property_list {
 		$defaultvalue = 'workgroup';
 		$description = gettext('Select between domain mode and workgroup mode.');
