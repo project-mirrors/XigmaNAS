@@ -36,7 +36,8 @@ namespace services\wsdd;
 
 use common\properties as myp;
 use function gettext,
-	preg_quote;
+	preg_quote,
+	sprintf;
 
 final class setting_properties extends grid_properties {
 	public function init_address_family(): myp\property_list {
@@ -81,7 +82,9 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_extraoptions(): myp\property_text {
-		$description = gettext('These options are appended to the command line of the wsdd script.');
+		$text_1 = gettext('These options are appended to the command line parameters of the wsdd script.');
+		$text_2 = '<a href="https://github.com/christgau/wsdd#options" target="_blank">' . gettext('Please check the documentation') . '</a>.';
+		$description = sprintf('%s %s',$text_1,$text_2);
 		$placeholder = gettext('Enter extra options');
 		$property = parent::init_extraoptions();
 		$property->
