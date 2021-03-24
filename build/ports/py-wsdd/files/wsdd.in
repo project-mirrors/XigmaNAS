@@ -33,7 +33,9 @@ load_rc_config ${name}
 : ${wsdd_group:=""}
 : ${wsdd_smb_config_file:="/usr/local/etc/smb4.conf"}
 
+cfg_wsdd_extraoptions=$(configxml_get "//wsdd/extraoptions")
 cfg_wsdd_hostname=$(configxml_get "//wsdd/hostname")
+cfg_wsdd_if=$(configxml_get "//wsdd/if")
 cfg_wsdd_ipprotocol=$(configxml_get "//wsdd/ipprotocol")
 cfg_wsdd_servermode=$(configxml_get "//wsdd/servermode")
 #	domain
@@ -99,6 +101,12 @@ if [ -n "${cfg_wsdd_ipprotocol}" ]; then
 	elif [ "${cfg_wsdd_ipprotocol}" = "6" ]; then
 		wsdd_opts="${wsdd_opts} -6"
 	fi
+fi
+if [ -n "${cfg_wsdd_if}" ]; then
+	wsdd_opts="${wsdd_opts} -i ${cfg_wsdd_if}"
+fi
+if [ -n "${cfg_wsdd_extraoptions}" ]; then
+	wsdd_opts="${wsdd_opts} ${cfg_wsdd_extraoptions}"
 fi
 
 wsdd_start()
