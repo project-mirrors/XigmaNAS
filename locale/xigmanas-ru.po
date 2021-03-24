@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-03-23 19:00+0000\n"
-"PO-Revision-Date: 2021-03-23 15:42+0000\n"
+"PO-Revision-Date: 2021-03-24 02:43+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:09+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -14516,7 +14516,7 @@ msgid "Web Service Discovery"
 msgstr "Обнаружение веб-сервисов"
 
 msgid "Web Service Discovery Settings"
-msgstr ""
+msgstr "Настройки обнаружения веб-служб"
 
 #, php-format
 msgid "Web interface port. The default port is %d."
@@ -15202,57 +15202,3 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
-
-#~ msgid "Audio"
-#~ msgstr "Аудио"
-
-#~ msgid ""
-#~ "Create a virtual device containing a single device or concatenated devices"
-#~ msgstr ""
-#~ "Создание виртуального устройства, содержащее одно устройство или связанные "
-#~ "устройства"
-
-#~ msgid "Make sure to select the optimal number of devices"
-#~ msgstr "Убедитесь, что выбрано оптимальное число устройств"
-
-#~ msgid "Pictures"
-#~ msgstr "Изображения"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z1 должен иметь 3, 5, 7 или 9 дисков в каждом виртуальном устройстве."
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z2 должен иметь 4, 6, 8 или 10 дисков в каждом виртуальном устройстве."
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z3 должен иметь 5, 7, 9 или 11 дисков в каждом виртуальном устройстве."
-
-#~ msgid "Video"
-#~ msgstr "Видео"
-
-#~ msgid "Append the current IP to the the DDNS server update path."
-#~ msgstr "Добавьте текущий IP-адрес в путь обновления сервера DDNS."
-
-#~ msgid ""
-#~ "Enable this option to abort an DDNS update if the HTTPS certificate "
-#~ "validation fails.."
-#~ msgstr ""
-#~ "Включите этот параметр, чтобы прервать обновление DDNS в случае сбоя "
-#~ "проверки сертификата HTTPS."
-
-#~ msgid ""
-#~ "Enable this option only on systems without hardware real-time clock and "
-#~ "default bootup time far in the past,"
-#~ msgstr ""
-#~ "Включите эту опцию только в системах без аппаратных часов реального времени "
-#~ "и времени загрузки по умолчанию в далеком прошлом,"
-
-#~ msgid ""
-#~ "How often the IP is checked, in seconds. Default: apxrox. 1 minute. Max: 10 "
-#~ "days."
-#~ msgstr ""
-#~ "Как часто проверяется IP в секундах. По умолчанию: средн. 1 минута. Макс: 10 "
-#~ "дней."

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:08+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
@@ -15038,29 +15038,3 @@ msgstr "stato assegnato a"
 
 msgid "yes"
 msgstr "sì"
-
-#~ msgid "Audio"
-#~ msgstr "Audio"
-
-#~ msgid ""
-#~ "Create a virtual device containing a single device or concatenated devices"
-#~ msgstr ""
-#~ "Crea un device virtuale contenente un singolo device o  device concatenati."
-
-#~ msgid "Make sure to select the optimal number of devices"
-#~ msgstr "Assicurarsi di selezionare il numero ottimale di devices"
-
-#~ msgid "Pictures"
-#~ msgstr "Immagini"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr "RAID-Z1 dovrebbe avere 3, 5 o 9 dischi in ogni vdev."
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr "RAID-Z1 dovrebbe avere 4, 6 o 10 dischi in ogni vdev."
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr "RAID-Z1 dovrebbe avere 5, 7 o 11 dischi in ogni vdev."
-
-#~ msgid "Video"
-#~ msgstr "Video"

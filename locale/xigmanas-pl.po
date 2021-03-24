@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:09+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
@@ -14378,30 +14378,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "Tak"
-
-#~ msgid "Audio"
-#~ msgstr "Dźwięk"
-
-#~ msgid "Pictures"
-#~ msgstr "Obrazy"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z1, powinien mieć 3,5 lub 9 dysków w każdym wirtualnym urządzeniu."
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z2 powinien mieć 4,6 lub 10 dysków w każdym wirtualnym urządzeniu"
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z3 powinien mieć 5,7 lub 11 dysków w każdym wirtualnym urządzeniu"
-
-#~ msgid "Video"
-#~ msgstr "Wideo"
-
-#~ msgid ""
-#~ "Create a virtual device containing a single device or concatenated devices"
-#~ msgstr ""
-#~ "Utwórz wirtualne urządzanie zawierające pojedyńcze lub skoncentrowane "
-#~ "urządzenia."

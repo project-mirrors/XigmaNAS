@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-23 18:21+0000\n"
+"X-Launchpad-Export-Date: 2021-03-24 19:08+0000\n"
 "X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -15111,34 +15111,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
-
-#~ msgid "Audio"
-#~ msgstr "Zvuk"
-
-#~ msgid ""
-#~ "Create a virtual device containing a single device or concatenated devices"
-#~ msgstr ""
-#~ "Vytvořit virtuální zařízení obsahující jedno nebo více zřetězených zařízení."
-
-#~ msgid "Make sure to select the optimal number of devices"
-#~ msgstr "Určitě vyberte optimální počet zařízení"
-
-#~ msgid "Pictures"
-#~ msgstr "Obrázky"
-
-#~ msgid "RAID-Z1 should have 3, 5, or 9 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z1 by mělo obsahovat 3, 5, nebo 9 jednotek datového úložiště v každém "
-#~ "virt. zařízení (vdev)."
-
-#~ msgid "RAID-Z2 should have 4, 6, or 10 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z2 by mělo obsahovat 4, 6, nebo 10 disků v každém virt. zařízení (vdev)."
-
-#~ msgid "RAID-Z3 should have 5, 7, or 11 disks in each vdev."
-#~ msgstr ""
-#~ "RAID-Z3 by mělo obsahovat 5, 7, nebo 11 jednotek datového úložiště v každém "
-#~ "virt. zařízení (vdev)."
-
-#~ msgid "Video"
-#~ msgstr "Video"
