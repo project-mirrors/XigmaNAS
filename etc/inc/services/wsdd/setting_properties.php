@@ -130,6 +130,18 @@ final class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
+	public function init_preservecase(): myp\property_bool{
+		$caption = gettext('Preserve case of the provided/detected hostname.');
+		$defaultvalue = false;
+		$property = parent::init_preservecase();
+		$property->
+			set_caption($caption)->
+			set_defaultvalue($defaultvalue)->
+			set_id('preservecase')->
+			set_input_type('checkbox')->
+			filter_use_default();
+		return $property;
+	}
 	public function init_server_mode(): myp\property_list {
 		$defaultvalue = 'workgroup';
 		$description = gettext('Select between domain mode and workgroup mode.');

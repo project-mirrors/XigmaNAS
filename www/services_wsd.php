@@ -72,6 +72,7 @@ $cop_grid = [
 	$cop->get_extraoptions(),
 	$cop->get_hostname(),
 	$cop->get_interface(),
+	$cop->get_preservecase(),
 	$cop->get_server_mode(),
 	$cop->get_workgroup()
 ];
@@ -322,7 +323,8 @@ endforeach;
 $s01_tbody->
 	c2($cop->get_interface(),$sphere,false,$is_readonly)->
 	c2($cop->get_address_family(),$sphere,false,$is_readonly)->
-	c2($cop->get_hostname(),$sphere,false,$is_readonly);
+	c2($cop->get_hostname(),$sphere,false,$is_readonly)->
+	c2($cop->get_preservecase(),$sphere,false,$is_readonly);
 $s01_tbody->c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
