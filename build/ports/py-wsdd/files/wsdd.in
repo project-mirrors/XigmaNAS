@@ -73,8 +73,8 @@ if [ -z "${wsdd_domain}" ]; then
 	fi
 #	detect workgroup from smb.conf
 	if [ -z "${priority_group}" ]; then
-		if [ -r $wsdd_smb_config_file ]; then
-			priority_group="$(grep -i '^[[:space:]]*workgroup[[:space:]]*=' $wsdd_smb_config_file | cut -f2 -d= | tr -d '[:blank:]')"
+		if [ -r "${wsdd_smb_config_file}" ]; then
+			priority_group="$(grep -i '^[[:space:]]*workgroup[[:space:]]*=' ${wsdd_smb_config_file} | cut -f2 -d= | tr -d '[:blank:]')"
 		fi
 	fi
 #	overwrite wsdd group with existing priority group
@@ -87,9 +87,9 @@ wsdd_opts=""
 if [ -n "${wsdd_flags}" ]; then
 	wsdd_opts="${wsdd_flags}"
 fi
-if [ -n "$wsdd_domain" ]; then
+if [ -n "${wsdd_domain}" ]; then
 	wsdd_opts="${wsdd_opts} -d ${wsdd_domain}"
-elif [ -n "$wsdd_group" ]; then
+elif [ -n "${wsdd_group}" ]; then
 	wsdd_opts="${wsdd_opts} -w ${wsdd_group}"
 fi
 if [ -n "${cfg_wsdd_hostname}" ]; then
@@ -104,6 +104,9 @@ if [ -n "${cfg_wsdd_ipprotocol}" ]; then
 fi
 if [ -n "${cfg_wsdd_if}" ]; then
 	wsdd_opts="${wsdd_opts} -i ${cfg_wsdd_if}"
+fi
+if configxml_isset "//wsdd/preservecase"; then
+	wsdd_opts="${wsdd_opts} -p"
 fi
 if [ -n "${cfg_wsdd_extraoptions}" ]; then
 	wsdd_opts="${wsdd_opts} ${cfg_wsdd_extraoptions}"

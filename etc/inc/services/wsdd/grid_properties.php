@@ -107,6 +107,18 @@ class grid_properties extends myp\container {
 	final function get_interface(): myp\property_list {
 		return $this->x_interface ?? $this->init_interface();
 	}
+	protected $x_preservecase;
+	public function init_preservecase(): myp\property_bool {
+		$title = gettext('Preserve Case');
+		$property = $this->x_preservecase = new myp\property_bool($this);
+		$property->
+			set_name('preservecase')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_preservecase(): myp\property_bool {
+		return $this->x_preservecase ?? $this->init_preservecase();
+	}
 	protected $x_server_mode;
 	public function init_server_mode(): myp\property_list {
 		$title = gettext('Server Mode');
