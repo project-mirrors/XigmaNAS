@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-23 19:00+0000\n"
+"POT-Creation-Date: 2021-03-25 18:58+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-24 19:08+0000\n"
-"X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
+"X-Launchpad-Export-Date: 2021-03-26 18:32+0000\n"
+"X-Generator: Launchpad (build 21fefc602783aa4ba863a4a6c29d38d788ce04ad)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -9026,6 +9026,9 @@ msgstr "Előtag"
 msgid "Preformatted file system"
 msgstr "Előreformázott fájlrendszer"
 
+msgid "Preserve Case"
+msgstr ""
+
 msgid "Preserve Extended Attributes"
 msgstr "Kiterjesztett attribútumok megőrzése"
 
@@ -9034,6 +9037,9 @@ msgstr "Kiterjesztett attribútumok megőrzése"
 
 msgid "Preserve Permissions"
 msgstr "Jogosultságok megőrzése"
+
+msgid "Preserve case of the provided/detected hostname."
+msgstr ""
 
 msgid "Preserve modification times."
 msgstr "Módosítások időpontjának megőrzése."
@@ -12616,7 +12622,8 @@ msgid ""
 "loaded."
 msgstr ""
 
-msgid "These options are appended to the command line of the wsdd script."
+msgid ""
+"These options are appended to the command line parameters of the wsdd script."
 msgstr ""
 
 #, php-format

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-23 19:00+0000\n"
+"POT-Creation-Date: 2021-03-25 18:58+0000\n"
 "PO-Revision-Date: 2021-03-20 13:10+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-24 19:09+0000\n"
-"X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
+"X-Launchpad-Export-Date: 2021-03-26 18:33+0000\n"
+"X-Generator: Launchpad (build 21fefc602783aa4ba863a4a6c29d38d788ce04ad)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -9080,6 +9080,9 @@ msgstr "Префікс"
 msgid "Preformatted file system"
 msgstr "Попередньо форматована файлова система"
 
+msgid "Preserve Case"
+msgstr ""
+
 msgid "Preserve Extended Attributes"
 msgstr "Зберігання Розширених Атрибутів"
 
@@ -9088,6 +9091,9 @@ msgstr "Зберігати розширені атрибути"
 
 msgid "Preserve Permissions"
 msgstr "Зберігання Дозволів"
+
+msgid "Preserve case of the provided/detected hostname."
+msgstr ""
 
 msgid "Preserve modification times."
 msgstr "Зберегти час зміни."
@@ -12681,7 +12687,8 @@ msgstr ""
 "Ці налаштування будуть додані до /boot/loader.conf.local.  Це дозволить вам "
 "передавати ці параметри до ядра та завантажувати розширені модулі."
 
-msgid "These options are appended to the command line of the wsdd script."
+msgid ""
+"These options are appended to the command line parameters of the wsdd script."
 msgstr ""
 
 #, php-format
