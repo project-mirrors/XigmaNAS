@@ -40,7 +40,6 @@ final class property_description extends property_text {
 /**
  *
  *	@param object $owner The owner of this object or null
- *	@return $this
  */
 	public function __construct($owner = null) {
 		$description = gettext('Enter a description for your reference.');

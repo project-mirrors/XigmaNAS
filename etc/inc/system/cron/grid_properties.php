@@ -78,7 +78,7 @@ class grid_properties extends myp\container_row {
 		return $this->x_who ?? $this->init_who();
 	}
 	protected $x_desc;
-	public function init_description(): myp\property_text {
+	public function init_description(): myp\property_description {
 		$property = parent::init_description();
 		$property->
 			set_id('desc')->

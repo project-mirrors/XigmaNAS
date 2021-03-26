@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
  */
+
 namespace system\route;
 
 use common\properties as myp;
@@ -38,7 +39,7 @@ use common\properties as myp;
 use function gettext;
 
 class grid_properties extends myp\container_row {
-	public function init_description(): myp\property_text {
+	public function init_description(): myp\property_description {
 		$property = parent::init_description();
 		$property->
 			set_id('descr')->
