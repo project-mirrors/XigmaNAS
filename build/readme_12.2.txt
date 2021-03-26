@@ -121,7 +121,6 @@ Changes:
 - Upgrade nano to 5.6.1.
 - Upgrade syncthing to 1.14.0.
 - Upgrade php to 7.4.16.
-- Upgrade samba to 4.13.4.
 - Upgrade devcpu-data to 1.38.
 - Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
@@ -130,6 +129,7 @@ Changes:
 - Upgrade phpvirtualbox to 6.1.
 - Upgrade nut to 2021.03.14.
 - Upgrade sudo to 1.9.6p1.
+- Upgrade samba to 4.13.7.
 
 Fixes:
 - Fix only first lagg member is brought up.
