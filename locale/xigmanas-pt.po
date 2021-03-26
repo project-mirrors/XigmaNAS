@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-23 19:00+0000\n"
-"PO-Revision-Date: 2020-04-29 14:11+0000\n"
+"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"PO-Revision-Date: 2021-03-25 19:30+0000\n"
 "Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-03-24 19:09+0000\n"
-"X-Generator: Launchpad (build 4446feb642ca86be4f6eceb855b408397dad6a50)\n"
+"X-Launchpad-Export-Date: 2021-03-26 18:33+0000\n"
+"X-Generator: Launchpad (build 21fefc602783aa4ba863a4a6c29d38d788ce04ad)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -117,27 +117,27 @@ msgstr "%s%d %s já está a ser usado por %s%d."
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u hora"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u horas"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u minuto"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u minutos"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u segundo"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u segundos"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -526,7 +526,7 @@ msgid "Action"
 msgstr "Acção"
 
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 msgid "Activate"
 msgstr "Ativar"
@@ -644,7 +644,7 @@ msgid "Add Portal Group"
 msgstr "Adicionar Portal Grupo"
 
 msgid "Add Provider"
-msgstr ""
+msgstr "Adicionar um Fornecedor"
 
 msgid "Add Public Key"
 msgstr "Adicionar Chave Publica"
@@ -795,7 +795,7 @@ msgstr ""
 "Endereço do hastd daemon remoto. Tem que ser um endereço IP estático."
 
 msgid "Admin Name"
-msgstr ""
+msgstr "Nome Administrador"
 
 msgid "Admin Password"
 msgstr "Senha do Admin"
@@ -881,22 +881,22 @@ msgid "All"
 msgstr "Todos"
 
 msgid "All Days"
-msgstr ""
+msgstr "Todos os Dias"
 
 msgid "All Hours"
-msgstr ""
+msgstr "Todas as Horas"
 
 msgid "All Interfaces"
-msgstr ""
+msgstr "Todos os Interfaces"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "Todos os Minutos"
 
 msgid "All Months"
-msgstr ""
+msgstr "Todos os Meses"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "Todos os Dias da Semana"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Todos os dados relativos às seguintes estatisticas foram apagados:"
@@ -935,7 +935,7 @@ msgid "Allow GSSAPI authentication."
 msgstr "Permitir autenticação GSSAPI"
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "Permite IPv6"
 
 msgid "Allow New Files"
 msgstr "Permitir Arquivos Novos"
@@ -1161,7 +1161,7 @@ msgid "Append content to the default CSS file"
 msgstr ""
 
 msgid "Append my IP"
-msgstr ""
+msgstr "Adicionar o meu IP"
 
 msgid "Append the current IP to the DDNS server update path."
 msgstr ""
@@ -1576,7 +1576,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "Defenições do BitTorrent"
 
 msgid "Blank Time"
 msgstr "Tempo em Branco"
@@ -1609,6 +1609,8 @@ msgid ""
 "Boot partition is too small. You need to reinstall from LiveCD/LiveUSB or "
 "resize boot partition of %s.\n"
 msgstr ""
+"Partição de Boot sem o espaço necessário. Tem que reinstalar a partir de um "
+"LiveCD/LiveUSB ou redimensionar a partição de boot de %s.\n"
 
 msgid "Bootloader"
 msgstr "Bootloader"
@@ -8768,6 +8770,9 @@ msgstr "Prefixo"
 msgid "Preformatted file system"
 msgstr "Sistema de ficheiros pré-formatado"
 
+msgid "Preserve Case"
+msgstr ""
+
 msgid "Preserve Extended Attributes"
 msgstr ""
 
@@ -8775,6 +8780,9 @@ msgid "Preserve Extended attributes"
 msgstr ""
 
 msgid "Preserve Permissions"
+msgstr ""
+
+msgid "Preserve case of the provided/detected hostname."
 msgstr ""
 
 msgid "Preserve modification times."
@@ -12154,7 +12162,8 @@ msgid ""
 "loaded."
 msgstr ""
 
-msgid "These options are appended to the command line of the wsdd script."
+msgid ""
+"These options are appended to the command line parameters of the wsdd script."
 msgstr ""
 
 #, php-format
