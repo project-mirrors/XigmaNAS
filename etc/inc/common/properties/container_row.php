@@ -51,27 +51,11 @@ abstract class container_row extends container {
 		return $this->x_uuid ?? $this->init_uuid();
 	}
 	protected $x_description;
-	public function init_description(): property_text {
-		$description = gettext('Enter a description for your reference.');
-		$placeholder = gettext('Enter a description');
-		$title = gettext('Description');
-		$property = new property_text($this);
-		$property->
-			set_name('description')->
-			set_title($title);
-		$property->
-			set_id('description')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_defaultvalue('')->
-			set_size(60)->
-			set_maxlength(256)->
-			set_filter(FILTER_UNSAFE_RAW)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => '']);
+	public function init_description(): property_description {
+		$property = $this->x_description = new property_description($this);
 		return $property;
 	}
-	final public function get_description(): property_text {
+	final public function get_description(): property_description {
 		return $this->x_description ?? $this->init_description();
 	}
 	protected $x_enable;

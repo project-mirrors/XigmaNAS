@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\access\group;
+
 use common\properties as myp;
+
+use function gettext;
 
 class grid_properties extends myp\container_row {
 	protected $x_name;
@@ -57,7 +61,7 @@ class grid_properties extends myp\container_row {
 	final public function get_gid(): myp\property_int {
 		return $this->x_gid ?? $this->init_gid();
 	}
-	public function init_description(): myp\property_text {
+	public function init_description(): myp\property_description {
 		$property = parent::init_description();
 		$property->
 			set_id('desc')->
