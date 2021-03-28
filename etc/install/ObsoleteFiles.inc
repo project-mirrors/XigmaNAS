@@ -127,3 +127,5 @@ usr/local/www/quixplorer
 etc/rc.d/fmperm
 # 7532
 usr/local/sbin/beadm
+# 8277
+usr/local/www/services_dynamicdns.php
