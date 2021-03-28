@@ -13,7 +13,7 @@ DEPENDS_TARGET=	clean build
 
 BUILD_DEPENDS=	${NONEXISTENT}:emulators/open-vm-tools:build
 
-BLDSRC=${PORTSDIR}/emulators/open-vm-tools/work/open-vm-tools-*
+BLDSRC=${PORTSDIR}/emulators/open-vm-tools/work-default/open-vm-tools-stable-*
 WRKSRC=${WRKDIR}/open-vm-tools
 
 do-install:
