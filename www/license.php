@@ -111,9 +111,9 @@ $software = [
 		'Copyright © Rewritten by Eric Wassenaar, Nikhef-H, (<a href="mailto:e07@nikhef.nl">e07@nikhef.nl</a>). All Rights Reserved.'
 	]],
 	['inadyn-mt',[
-		'Simple Dynamic DNS client (<a href="http://sourceforge.net/projects/inadyn-mt" target="_blank" rel="noreferrer">http://sourceforge.net/projects/inadyn-mt</a>).',
-		'Inadyn Copyright © 2003-2004 Narcis Ilisei. All Rights Reserved.',
-		'Inadyn-mt Copyright © 2007 Bryan Hoover (<a href="mailto:bhoover@wecs.com">bhoover@wecs.com</a>). All Rights Reserved.'
+		'Simple Dynamic DNS client (<a href="https://github.com/troglobit/inadyn" target="_blank" rel="noreferrer">https://github.com/troglobit/inadyn</a>).',
+		'Inadyn Copyright © 2003-2010 up to v1.96.2 Narcis Ilisei. All Rights Reserved.',
+		'Inadyn-mt Copyright © 2010-2021 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
 	]],
 	['iperf3',[
 		'A tool to measure TCP and UDP bandwidth. (<a href="http://software.es.net/iperf/" target="_blank" rel="noreferrer">http://software.es.net/iperf</a>).',
