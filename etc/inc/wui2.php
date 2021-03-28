@@ -38,6 +38,11 @@ require_once 'array.inc';
 
 use gui\document;
 
+/*
+ *	compatibility to previous versions which directly instantiate from co_DOMDocument.
+ */
+class_alias('gui\document','co_DOMDocument',true);
+
 class HTMLBaseControl2 {
 	var $_ctrlname = '';
 	var $_title = '';
