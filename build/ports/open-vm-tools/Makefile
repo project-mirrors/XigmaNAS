@@ -1,6 +1,6 @@
 PORTNAME=		xigmanas-open-vm-tools
 PORTVERSION=	1.0
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=		emulators
 MAINTAINER=		zoon01@xigmanas.com
 COMMENT=		Open VMware tools for FreeBSD VMware guests
@@ -11,12 +11,14 @@ NO_PKG_REGISTER=	yes
 ALWAYS_BUILD_DEPENDS=		yes
 DEPENDS_TARGET=	clean build
 
-BUILD_DEPENDS=	${NONEXISTENT}:emulators/open-vm-tools-nox11:build
+BUILD_DEPENDS=	${NONEXISTENT}:emulators/open-vm-tools:build
 
-BLDSRC=${PORTSDIR}/emulators/open-vm-tools-nox11/work/open-vm-tools-*
-WRKSRC=${WRKDIR}/open-vm-tools-nox11
+BLDSRC=${PORTSDIR}/emulators/open-vm-tools/work/open-vm-tools-*
+WRKSRC=${WRKDIR}/open-vm-tools
 
 do-install:
+# XigmaNAS® install
+	@echo "Install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libguestlib/.libs/libguestlib.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib
 	@${LN} -f -v -s libguestlib.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libguestlib.so
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libhgfs/.libs/libhgfs.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib
@@ -54,6 +56,8 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${BLDSRC}/open-vm-tools/scripts/common/statechange.subr ${XIGMANAS_ROOTFS}${PREFIX}/share/vmware-tools
 	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/share/vmware-tools/scripts/vmware
 	@${INSTALL_SCRIPT} -v ${BLDSRC}/open-vm-tools/scripts/freebsd/network ${XIGMANAS_ROOTFS}${PREFIX}/share/vmware-tools/scripts/vmware
+# XigmaNAS® install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
 .include <../xigmanas.mk>
