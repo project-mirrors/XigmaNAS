@@ -1322,8 +1322,18 @@ function new_page(array $page_title = [],string $action_url = null,string ...$op
 		loadHTML('<!DOCTYPE html>',LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 	$document->
 		set_options(...$options)->
-		addElement('html',['lang' => \system_get_language_code()])->
+		addElement('html',['lang' => system_get_language_code()])->
 			ins_head($page_title)->
 			ins_body($page_title,$action_url);
+	return $document;
+}
+/**
+ *	create a DOMDocument with GUI functions
+ *	@param string $version
+ *	@param string $encoding
+ *	@return document
+ */
+function new_document(string $version = '1.0',string $encoding = 'UTF-8') {
+	$document = new document($version,$encoding);
 	return $document;
 }
