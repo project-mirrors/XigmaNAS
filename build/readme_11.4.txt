@@ -45,6 +45,11 @@ After upgrade you may need to clear your browser's cache to avoid display issues
 
 ** After the upgrade please do make a new backup of your configuration! see: System|Backup/Restore on menu **
 
+Dynamic DNS note
+================
+Existing users of service "Dynamic DNS" need to setup this service again.
+On 11.4.0.4.8282 we have inadyn-mt replaced by inadyn, for this new webgui pages with more options are introduced.
+
 ZFS Upgrade note
 ================
 Upgrade ZFS and add all supported feature flags on a pool only if you are ready for it!
