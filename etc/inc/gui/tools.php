@@ -34,23 +34,48 @@
 
 namespace gui;
 
-use DOMDocument;
-use Session;
-use common\uuid;
-
-use const ENT_HTML5,ENT_QUOTES,LIBXML_HTML_NODEFDTD,LIBXML_HTML_NOIMPLIED,PHP_QUERY_RFC3986,PHP_VERSION_ID;
-
-use function array_key_exists;
-use function calc_adddivsubmittodataframe,ceil,count;
-use function date;
-use function file_exists;
-use function gettext,get_headermenu,get_product_copyright,get_product_url;
-use function htmlspecialchars_decode,http_build_query;
-use function implode,in_array,ini_get,is_array,is_bool,is_int,is_null,is_object,is_scalar,is_string;
-use function libxml_clear_errors,libxml_disable_entity_loader,libxml_use_internal_errors;
-use function make_headermenu_extensions;
-use function preg_match;
-use function sprintf,system_get_hostname,system_get_language_codeset;
+use common\uuid,
+	DOMDocument,
+	DOMNode,
+	Session;
+use const ENT_HTML5,
+	ENT_QUOTES,
+	FILTER_VALIDATE_REGEXP,
+	LIBXML_HTML_NODEFDTD,
+	LIBXML_HTML_NOIMPLIED,
+	PHP_QUERY_RFC3986,
+	PHP_VERSION_ID;
+use function array_key_exists,
+	calc_adddivsubmittodataframe,
+	ceil,
+	count,
+	date,
+	file_exists,
+	filter_var,
+	get_headermenu,
+	get_product_copyright,
+	get_product_url,
+	gettext,
+	htmlspecialchars_decode,
+	http_build_query,
+	implode,
+	in_array,
+	ini_get,
+	is_array,
+	is_bool,
+	is_int,
+	is_null,
+	is_object,
+	is_scalar,
+	is_string,
+	libxml_clear_errors,
+	libxml_disable_entity_loader,
+	libxml_use_internal_errors,
+	make_headermenu_extensions,
+	preg_match,
+	sprintf,
+	system_get_hostname,
+	system_get_language_codeset;
 
 trait tools {
 /**
@@ -676,7 +701,7 @@ trait tools {
 			$input_attributes['required'] = 'required';
 		endif;
 		$hook = $this->addDIV(['class' => $class_checkbox]);
-		$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $id],$p->get_caption());
+		$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $id],filter_var($p->get_caption(),FILTER_VALIDATE_REGEXP,['options' => ['default' => "\xc2\xa0",'regexp' => '/\S/']]));
 		$this->add_hook($hook,$id);
 		return $this;
 	}
