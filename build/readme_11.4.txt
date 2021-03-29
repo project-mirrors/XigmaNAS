@@ -135,7 +135,6 @@ Changes:
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade proftpd to 1.3.7a.
-- Upgrade dialog to 1.3-20210117.
 - Upgrade dmidecode to 3.3.
 - Upgrade zoneinfo to 2021a.
 - Upgrade jQuery to 3.6.0.
@@ -151,6 +150,7 @@ Changes:
 - Upgrade nut to 2021.03.14.
 - Upgrade sudo to 1.9.6p1.
 - Upgrade samba to 4.13.7.
+- Upgrade dialog to 1.3-20210324.
 
 Fixes:
 - Fix only first lagg member is brought up.
