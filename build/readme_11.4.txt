@@ -120,7 +120,6 @@ Changes:
 - Upgrade to FreeBSD 11.4-RELEASE-P8.
 - WebGUI code & framework improvements.
 - Update translations.
-- Upgrade open-vm-tools to 11.1.0
 - Upgrade mariadb to 10.5.
 - Upgrade rsync to 3.2.3.
 - Upgrade iperf3 to 3.9.
@@ -145,6 +144,7 @@ Changes:
 - Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
 - Upgrade e2fsprogs to 1.46.2.
+- Upgrade open-vm-tools to 11.2.5.
 - Upgrade virtualbox-ose to 6.1.18.
 - Upgrade phpvirtualbox to 6.1.
 - Upgrade nut to 2021.03.14.
