@@ -187,7 +187,7 @@ if(isset($_POST['submit']) && is_string($_POST['submit'])):
 	$sphere_array['submit'] = true;
 endif;
 if(isset($_POST['pageindex']) && is_string($_POST['pageindex'])):
-	$sphere_array['pageindex'] = $_POST['pageindex'];
+	$sphere_array['pageindex'] = (int)$_POST['pageindex'];
 endif;
 if(isset($_POST['activity']) && is_array($_POST['activity'])):
 	$sphere_array['activity'] = $_POST['activity'][0];
