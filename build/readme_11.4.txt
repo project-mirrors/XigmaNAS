@@ -131,7 +131,6 @@ Changes:
 - Upgrade transmission to 3.00.
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade gzip to 1.10.
-- Upgrade phpmyadmin to 5.0.4.
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
@@ -156,6 +155,7 @@ Changes:
 - Upgrade sudo to 1.9.6p1.
 - Upgrade samba to 4.13.7.
 - Upgrade dialog to 1.3-20210324.
+- Upgrade phpmyadmin to 5.1.0.
 
 Fixes:
 - Fix only first lagg member is brought up.
