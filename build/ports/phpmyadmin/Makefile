@@ -1,5 +1,5 @@
 PORTNAME=	phpMyAdmin
-DISTVERSION=	5.0.4
+DISTVERSION=	5.1.0
 PORTREVISION=	0
 CATEGORIES=	databases www
 MASTER_SITES=	https://files.phpmyadmin.net/${PORTNAME}/${DISTVERSION}/
@@ -8,11 +8,11 @@ DISTNAME=	${PORTNAME}-${DISTVERSION}-all-languages
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Set of PHP-scripts to manage MySQL over the web
 
-DISABLE_VULNERABILITIES=yes
 USES=		cpe tar:xz
 CPE_PRODUCT=	${PORTNAME:tl}
 ETCDIR=	${WWWDIR}
 
+#DISABLE_VULNERABILITIES=yes
 NO_ARCH=	yes
 NO_BUILD=	yes
 
@@ -35,9 +35,11 @@ do-install:
 	done
 
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Install to ${XIGMANAS_ROOTFS}"
 	@${RM} -rf ${STAGEDIR}${WWWDIR}$${dst}/test
 	@${RM} -rf ${STAGEDIR}${WWWDIR}$${dst}/setup
 	@${CP} -Rpv ${STAGEDIR}${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
