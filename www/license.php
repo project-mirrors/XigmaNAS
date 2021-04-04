@@ -87,7 +87,7 @@ $software = [
 	]],
 	['FreeBSD',[
 		'The FreeBSD Project (<a href="https://www.freebsd.org" target="_blank" rel="noreferrer">https://www.freebsd.org</a>).',
-		'Copyright © 1995-2019 The FreeBSD Project. All Rights Reserved.'
+		'Copyright © 1995-2021 The FreeBSD Project. All Rights Reserved.'
 	]],
 	['Freenas 7',[
 		'Freenas 7 (<a href="https://github.com/freenas/freenas7" target="_blank" rel="noreferrer">https://github.com/freenas/freenas7</a>).',
@@ -104,16 +104,16 @@ $software = [
 	['GEOM RAID5',[
 		'GEOM RAID5 module (<a href="http://www.wgboome.org/geom_raid5-html" target="_blank" rel="noreferrer">http://www.wgboome.org/geom_raid5-html</a> & <a href="http://lev.serebryakov.spb.ru/download/graid5/" target="_blank" rel="noreferrer">http://lev.serebryakov.spb.ru/download/graid5</a>).',
 		'Copyright © 2006-2010 Originally written by Arne Woerner (<a href="mailto:graid5@wgboome.org">graid5@wgboome.org</a>).',
-		'Copyright © 2010-2014 Now maintained by Lev Serebryakov (<a href="mailto:lev@FreeBSD.org">lev@FreeBSD.org</a>).'
+		'Copyright © 2010-2014 maintained by Lev Serebryakov (<a href="mailto:lev@FreeBSD.org">lev@FreeBSD.org</a>).'
 	]],
 	['host',[
 		'An utility to query DNS servers.',
 		'Copyright © Rewritten by Eric Wassenaar, Nikhef-H, (<a href="mailto:e07@nikhef.nl">e07@nikhef.nl</a>). All Rights Reserved.'
 	]],
-	['inadyn-mt',[
+	['inadyn',[
 		'Simple Dynamic DNS client (<a href="https://github.com/troglobit/inadyn" target="_blank" rel="noreferrer">https://github.com/troglobit/inadyn</a>).',
 		'Inadyn Copyright © 2003-2010 up to v1.96.2 Narcis Ilisei. All Rights Reserved.',
-		'Inadyn-mt Copyright © 2010-2021 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
+		'Inadyn Copyright © 2010-2021 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
 	]],
 	['iperf3',[
 		'A tool to measure TCP and UDP bandwidth. (<a href="http://software.es.net/iperf/" target="_blank" rel="noreferrer">http://software.es.net/iperf</a>).',
@@ -133,7 +133,7 @@ $software = [
 	]],
 	['jQuery',[
 		'A fast, small, and feature-rich JavaScript library (<a href="https://jquery.com" target="_blank" rel="noreferrer">https://jquery.com</a>).',
-		'Copyright © 2020 jQuery Foundation. All Rights Reserved.'
+		'Copyright © 2021 jQuery Foundation. All Rights Reserved.'
 	]],
 	['LCDproc',[
 		'A client/server suite for LCD devices (<a href="http://lcdproc.org" target="_blank" rel="noreferrer">http://lcdproc.org</a>).',
@@ -189,7 +189,7 @@ $software = [
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2020 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2021 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
