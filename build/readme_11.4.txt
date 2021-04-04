@@ -134,7 +134,6 @@ Changes:
 - Upgrade unison to 2.51.3.
 - Upgrade tmux to 3.1c.
 - Upgrade bash to 5.1 p4.
-- Upgrade arcconf to 3_04_23699.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade proftpd to 1.3.7a.
@@ -155,6 +154,7 @@ Changes:
 - Upgrade sudo to 1.9.6p1.
 - Upgrade samba to 4.13.7.
 - Upgrade dialog to 1.3-20210324.
+- Upgrade arcconf to 3_07_23971.
 - Upgrade phpmyadmin to 5.1.0.
 
 Fixes:
