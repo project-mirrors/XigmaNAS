@@ -131,3 +131,6 @@ etc/rc.d/fmperm
 usr/local/sbin/beadm
 # 8277
 usr/local/www/services_dynamicdns.php
+# 8293
+usr/local/bin/python3.6
+usr/local/lib/libpython3.6m.so.1.0
