@@ -28,6 +28,12 @@ Install from scratch instructions:
 - Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
 - Boot from the LiveCD/USB device and perform a XigmaNAS® installation onto a new boot media.
 
+Upgrade note!
+=============
+In case you upgrade any current server with running service "Dynamic DNS", please disable this service first!
+After the upgrade you need to setup Dynamic DNS again. The 3th party software inadyn-mt has been replaced for inadyn.
+Please make a backup of your current server configuration, the configuration file will be upgraded to v51.
+
 Warning:
 ========
 Do not shortcut the installation procedure!
@@ -104,7 +110,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 12.2.0.4.8125
+BUILD 12.2.0.4.8291
 ===================
 Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P5.
