@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'functions.inc';
 require_once 'util.inc';
 require_once 'rc.inc';
@@ -164,13 +165,15 @@ function system_language_load(string $language_to_try = null) {
 	bindtextdomain($domain,'/usr/local/share/locale');
 	bind_textdomain_codeset($domain,$codeset);
 	textdomain($domain);
-	if(array_key_exists('userlang',$_SESSION)):
-		if($_SESSION['userlang'] !== $language):
-			$_SESSION['g']['headermenu'] = [];
+	if(isset($_SESSION)):
+		if(array_key_exists('userlang',$_SESSION)):
+			if($_SESSION['userlang'] !== $language):
+				$_SESSION['g']['headermenu'] = [];
+				$_SESSION['userlang'] = $language;
+			endif;
+		else:
 			$_SESSION['userlang'] = $language;
 		endif;
-	else:
-		$_SESSION['userlang'] = $language;
 	endif;
 }
 /**
