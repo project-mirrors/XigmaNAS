@@ -2018,7 +2018,7 @@ EOJ;
 		$header->ins_header_menu();
 		$header->addDIV(['id' => 'gapheader']);
 		if(!empty($page_title)):
-			$header->addP(['class' => 'pgtitle','style' => 'padding:0em 2em;' ],$this->clc_page_title($page_title));
+			$header->addDIV(['id' => 'pgtitle'])->addP(['class' => 'pgtitle'],$this->clc_page_title($page_title));
 		endif;
 		return $this;
 	}
