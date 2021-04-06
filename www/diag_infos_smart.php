@@ -36,8 +36,6 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
-use gui\document;
-
 $a_disk = get_physical_disks_list();
 
 $smartValueInfo = [
