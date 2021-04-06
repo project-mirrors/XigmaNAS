@@ -31,13 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
 function diag_infos_iscsi_ajax() {
 	$cmd = '/usr/bin/iscsictl -L 2>&1';
 	mwexec2($cmd,$rawdata);
-	return implode(PHP_EOL,$rawdata);
+	return implode("\n",$rawdata);
 }
 if(is_ajax()):
 	$status['area_refresh'] = diag_infos_iscsi_ajax();
