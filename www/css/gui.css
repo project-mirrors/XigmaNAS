@@ -1052,9 +1052,14 @@ div#pagefooter span a:hover
 	color: #999999;
 }
 
+div#pgtitle,
 div#pagecontent
 {
 	padding: 0em 2em;
+}
+
+div#pagecontent
+{
 	overflow: auto;
 	height: 100%;
 }
