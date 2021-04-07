@@ -42,7 +42,8 @@ final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->
-			set_defaultvalue(false);
+			set_defaultvalue(false)->
+			set_input_type('titleline-checkbox');
 		return $property;
 	}
 	public function init_friendlyname(): myp\property_text {
@@ -74,6 +75,7 @@ final class setting_properties extends grid_properties {
 			set_id('loglevel')->
 			set_description($description)->
 			set_defaultvalue('info')->
+			set_input_type('select')->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -87,6 +89,7 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_description($description)->
 			set_defaultvalue(true)->
+			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -114,6 +117,7 @@ final class setting_properties extends grid_properties {
 			set_id('if')->
 			set_description($description)->
 			set_defaultvalue('')->
+			set_input_type('select')->
 			filter_use_default();
 		return $property;
 	}
@@ -139,10 +143,11 @@ final class setting_properties extends grid_properties {
 		$description = gettext('This will allow server-side downscaling of very large JPEG images, it can impact JPEG serving performance on some DLNA devices.');
 		$property = parent::init_strict();
 		$property->
-			set_id('strict')->
 			set_caption($caption)->
-			set_description($description)->
 			set_defaultvalue(false)->
+			set_description($description)->
+			set_id('strict')->
+			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -151,10 +156,11 @@ final class setting_properties extends grid_properties {
 		$description = gettext('This will support streaming .jpg and .mp3 files to a TiVo supporting HMO.');
 		$property = parent::init_enabletivo();
 		$property->
-			set_id('tivo')->
 			set_caption($caption)->
-			set_description($description)->
 			set_defaultvalue(false)->
+			set_description($description)->
+			set_id('tivo')->
+			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -165,10 +171,11 @@ final class setting_properties extends grid_properties {
 		$placeholder = gettext('Path');
 		$property = parent::init_home();
 		$property->
-			set_id('home')->
-			set_description($description)->
-			set_placeholder($placeholder)->
 			set_defaultvalue($g['media_path'])->
+			set_description($description)->
+			set_id('home')->
+			set_input_type('filechooser')->
+			set_placeholder($placeholder)->
 			filter_use_default();
 		return $property;
 	}
@@ -176,9 +183,10 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Allow symlinks that point outside defined media folders.');
 		$property = parent::init_widelinks();
 		$property->
-			set_id('wide_links')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
+			set_id('wide_links')->
+			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -203,6 +211,7 @@ final class setting_properties extends grid_properties {
 			set_id('container')->
 			set_description($description)->
 			set_defaultvalue('.')->
+			set_input_type('radio-grid')->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -225,9 +234,10 @@ final class setting_properties extends grid_properties {
 		$caption = gettext('Disable subtitle support on unknown clients.');
 		$property = parent::init_disablesubtitles();
 		$property->
-			set_id('disablesubtitles')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
+			set_id('disablesubtitles')->
+			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}

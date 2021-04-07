@@ -36,6 +36,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
+use common\arr;
 use services\minidlnad\setting_toolbox as toolbox;
 use services\minidlnad\shared_toolbox;
 
@@ -237,10 +238,12 @@ $dlna_service_me = 'minidlna';
 $dlna_status = 0;
 foreach($dlna_services as $dlna_service):
 	if($dlna_service === $dlna_service_me):
-		$dlna_status |= is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? ($test ? 1 : 0) : 1;
+		$test = $sphere->row[$cop->get_enable()->get_name()] ?? false;
+		$dlna_status |= is_bool($test) ? ($test ? 1 : 0) : 1;
 	else:
-		array_make_branch($config,$dlna_service);
-		$dlna_status |= is_bool($test = $config[$dlna_service]['enable'] ?? false) ? ($test ? 2 : 0) : 2;
+		arr::make_branch($config,$dlna_service);
+		$test = $config[$dlna_service]['enable'] ?? false;
+		$dlna_status |= is_bool($test) ? ($test ? 2 : 0) : 2;
 	endif;
 endforeach;
 switch($dlna_status):
@@ -286,24 +289,24 @@ switch($page_mode):
 		$thead->c2_titleline(gettext('MiniDLNA'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('MiniDLNA'));
+		$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('MiniDLNA'));
 		break;
 endswitch;
 $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_input_text($cop->get_friendlyname(),$sphere,true,$is_readonly)->
-	c2_select($cop->get_interface(),$sphere,true,$is_readonly)->
-	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_notifyinterval(),$sphere,false,$is_readonly)->
-	c2_filechooser($cop->get_home(),$sphere,true,$is_readonly)->
-	c2_checkbox($cop->get_inotify(),$sphere,false,$is_readonly)->
-	c2_radio_grid($cop->get_rootcontainer(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_strict(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_enabletivo(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_widelinks(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_loglevel(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_forcesortcriteria(),$sphere,false,$is_readonly)->
-	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_friendlyname(),$sphere,true,$is_readonly)->
+	c2($cop->get_interface(),$sphere,true,$is_readonly)->
+	c2($cop->get_port(),$sphere,false,$is_readonly)->
+	c2($cop->get_notifyinterval(),$sphere,false,$is_readonly)->
+	c2($cop->get_home(),$sphere,true,$is_readonly)->
+	c2($cop->get_inotify(),$sphere,false,$is_readonly)->
+	c2($cop->get_rootcontainer(),$sphere,false,$is_readonly)->
+	c2($cop->get_strict(),$sphere,false,$is_readonly)->
+	c2($cop->get_enabletivo(),$sphere,false,$is_readonly)->
+	c2($cop->get_widelinks(),$sphere,false,$is_readonly)->
+	c2($cop->get_loglevel(),$sphere,false,$is_readonly)->
+	c2($cop->get_forcesortcriteria(),$sphere,false,$is_readonly)->
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 if($is_running):
 	$tbody->addTFOOT()->c2_separator();
 	$if = get_ifname($sphere->row['if']);
