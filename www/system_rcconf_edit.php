@@ -36,6 +36,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
+use common\arr;
 use system\rcconf\row_toolbox as toolbox;
 use system\rcconf\shared_toolbox;
 
@@ -44,7 +45,7 @@ $input_errors = [];
 $prerequisites_ok = true;
 //	preset $savemsg when a reboot is pending
 if(file_exists($d_sysrebootreqd_path)):
-	$savemsg = \get_std_save_message(0);
+	$savemsg = get_std_save_message(0);
 endif;
 //	init properties and sphere
 $cop = toolbox::init_properties();
@@ -86,21 +87,21 @@ endswitch;
 /*
  *	exit if $sphere->row[$sphere->row_identifier()] is NULL
  */
-if(\is_null($sphere->get_row_identifier_value())):
-	\header($sphere->get_parent()->get_location());
+if(is_null($sphere->get_row_identifier_value())):
+	header($sphere->get_parent()->get_location());
 	exit;
 endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = \array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
-$updatenotify_mode = \updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
+$updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
 if($sphere->row_id === false): // record does not exist in config
-	if(\in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
+	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
 				$record_mode = RECORD_NEW;
@@ -108,7 +109,7 @@ if($sphere->row_id === false): // record does not exist in config
 		endswitch;
 	endif;
 else: // record found in configuration
-	if(\in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
+	if(in_array($page_mode,[PAGE_MODE_EDIT,PAGE_MODE_POST,PAGE_MODE_VIEW],true)): // EDIT or POST or VIEW
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_NEW:
 				$record_mode = RECORD_NEW_MODIFY;
@@ -124,7 +125,7 @@ else: // record found in configuration
 endif;
 if($record_mode === RECORD_ERROR):
 //	oops, something went wrong
-	\header($sphere->get_parent()->get_location());
+	header($sphere->get_parent()->get_location());
 	exit;
 endif;
 $isrecordnew = (RECORD_NEW === $record_mode);
@@ -174,18 +175,18 @@ switch($page_mode):
 		if($prerequisites_ok && empty($input_errors)):
 			$sphere->upsert();
 			if($isrecordnew):
-				\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
-				\updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
+				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
-			\write_config();
-			\header($sphere->get_parent()->get_location()); // cleanup
+			write_config();
+			header($sphere->get_parent()->get_location()); // cleanup
 			exit;
 		endif;
 		break;
 endswitch;
-$pgtitle = [\gettext('System'),\gettext('Advanced'),\gettext('rc.conf'),$isrecordnew ? \gettext('Add') : \gettext('Edit')];
-$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$pgtitle = [gettext('System'),gettext('Advanced'),gettext('rc.conf'),$isrecordnew ? gettext('Add') : gettext('Edit')];
+$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -198,14 +199,14 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-if(\file_exists($d_sysrebootreqd_path)):
+if(file_exists($d_sysrebootreqd_path)):
 	$content->ins_info_box(get_std_save_message(0));
 endif;
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,\gettext('Configuration'))->
+		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
 		c2_input_text($cop->get_name(),$sphere,true)->
