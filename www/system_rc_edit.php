@@ -35,6 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
+use common\arr;
 use system\rc\row_toolbox as toolbox;
 use system\rc\shared_toolbox;
 
@@ -94,7 +95,7 @@ if(is_null($sphere->get_row_identifier_value())):
 	exit;
 endif;
 //	search resource id in sphere
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 //	start determine record update mode
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
