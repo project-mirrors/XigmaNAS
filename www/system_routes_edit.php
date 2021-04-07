@@ -31,10 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
+use common\arr;
 use system\route\row_toolbox as toolbox;
 use system\route\shared_toolbox;
 
@@ -92,7 +94,7 @@ endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
