@@ -37,6 +37,7 @@ require_once 'guiconfig.inc';
 require_once 'cs_scheduletime.php';
 require_once 'autoload.php';
 
+use common\arr;
 use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
@@ -52,8 +53,8 @@ endif;
 if(isset($_POST['uuid'])):
 	$uuid = $_POST['uuid'];
 endif;
-$a_cronjob = &array_make_branch($config,'cron','job');
-if(isset($uuid) && (false !== ($cnid = array_search_ex($uuid,$a_cronjob,'uuid')))):
+$a_cronjob = &arr::make_branch($config,'cron','job');
+if(isset($uuid) && (false !== ($cnid = arr::search_ex($uuid,$a_cronjob,'uuid')))):
 	$pconfig['enable'] = isset($a_cronjob[$cnid]['enable']);
 	$pconfig['uuid'] = $a_cronjob[$cnid]['uuid'];
 	$pconfig['desc'] = $a_cronjob[$cnid]['desc'];
