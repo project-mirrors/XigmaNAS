@@ -36,8 +36,8 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
-use gui\document;
 use common\arr;
+use gui\document;
 
 arr::make_branch($config,'rrdgraphs');
 $rrd_lan = true;

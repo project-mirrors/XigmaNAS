@@ -31,10 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+require_once 'autoload.php';
 
-array_make_branch($config,'rrdgraphs');
+use common\arr;
+
+arr::make_branch($config,'rrdgraphs');
 $rrd_cpu_freq = true;
 $refresh = 300;
 if(isset($config['rrdgraphs']['refresh_time'])):
