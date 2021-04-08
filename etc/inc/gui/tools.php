@@ -898,7 +898,7 @@ EOJ;
 	}
 	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+		$preset = (string)(is_object($value) ? $value->row[$p->get_name()] : $value);
 		$table = $this->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
@@ -919,7 +919,7 @@ EOJ;
 			$option_tag = (string)$option_key;
 			$input_attributes['value'] = $option_tag;
 			$input_attributes['id'] = sprintf('radio_%s',uuid::create_v4());
-			if($option_tag === $preset):
+			if($option_tag == $preset):
 				$input_attributes['checked'] = 'checked';
 			elseif(array_key_exists('checked',$input_attributes)):
 				unset($input_attributes['checked']);
@@ -953,7 +953,7 @@ EOJ;
 		return $this;
 	}
 	public function ins_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+		$preset = (string)(is_object($value) ? $value->row[$p->get_name()] : $value);
 		$caption = $p->get_caption();
 		$select_attributes = [
 			'id' => $p->get_id(),
@@ -971,9 +971,10 @@ EOJ;
 		if($is_required):
 			$select->addElement('option',['value' => ''],gettext('Choose...'));
 		endif;
-		foreach($p->get_options() as $option_tag => $option_val):
+		foreach($p->get_options() as $option_key => $option_val):
+			$option_tag = (string)$option_key;
 			$option_attributes = ['value' => $option_tag];
-			if($option_tag === $preset):
+			if($option_tag == $preset):
 				$option_attributes['selected'] = 'selected';
 			endif;
 			$select->addElement('option',$option_attributes,$option_val);
