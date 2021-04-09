@@ -34,16 +34,29 @@
 
 namespace disks\smartmontools\umass;
 
-use common\arr;
-use common\properties as myp;
-use common\rmo as myr;
-use common\sphere as mys;
-
-use function count,filter_var,file_exists,gettext,header,is_bool,
-		get_std_save_message,new_page,updatenotify_cbm_delete,
-		updatenotify_cbm_disable,updatenotify_cbm_enable,
-		updatenotify_cbm_toggle,updatenotify_exists,
-		updatenotify_get_mode,updatenotify_process,write_config;
+use common\arr,
+	common\properties as myp,
+	common\rmo as myr,
+	common\sphere as mys;
+use const FILTER_VALIDATE_INT,
+	UPDATENOTIFY_MODE_DIRTY,
+	UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use function count,
+	file_exists,
+	filter_var,
+	get_std_save_message,
+	gettext,
+	header,
+	is_bool,
+	new_page,
+	updatenotify_cbm_delete,
+	updatenotify_cbm_disable,
+	updatenotify_cbm_enable,
+	updatenotify_cbm_toggle,
+	updatenotify_exists,
+	updatenotify_get_mode,
+	updatenotify_process,
+	write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -89,7 +102,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \system\syslogconf\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
