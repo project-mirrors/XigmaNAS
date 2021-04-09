@@ -31,10 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-array_make_branch($config,'syncthing');
+use common\arr;
+
+arr::make_branch($config,'syncthing');
 $pconfig['enable'] = isset($config['syncthing']['enable']);
 $pconfig['homedir'] = $config['syncthing']['homedir'] ?? '';
 $if = get_ifname($config['interfaces']['lan']['if']);
@@ -86,7 +90,7 @@ if($_POST):
 		endif;
 		$savemsg = get_std_save_message($retval);
 		if($retval == 0 && !isset($config['syncthing']['enable']) && file_exists('/var/run/syncthing.pid')):
-			// remove pidfile if service is disabled
+//			remove pidfile if service is disabled
 			unlink('/var/run/syncthing.pid');
 		endif;
 	endif;
@@ -94,7 +98,8 @@ endif;
 $pgtitle = [gtext('Services'),gtext('Syncthing')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">//<![CDATA[
+<script>
+//<![CDATA[
 $(document).ready(function(){
 	function enable_change(enable_change) {
 		var endis = !($('#enable').prop('checked') || enable_change);
@@ -116,44 +121,68 @@ $(document).ready(function(){
 });
 //]]>
 </script>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-		<td class="tabcont">
-			<form action="services_syncthing.php" method="post" name="iform" id="iform" onsubmit="spinner()">
+<form action="services_syncthing.php" method="post" name="iform" id="iform" onsubmit="spinner()">
+	<table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
-				if(!empty($errormsg)):
-					print_error_box($errormsg);
-				endif;
-				if(!empty($input_errors)):
-					print_input_errors($input_errors);
-				endif;
-				if(!empty($savemsg)):
-					print_info_box($savemsg);
-				endif;
-				$enabled = isset($config['syncthing']['enable']);
+		if(!empty($errormsg)):
+			print_error_box($errormsg);
+		endif;
+		if(!empty($input_errors)):
+			print_input_errors($input_errors);
+		endif;
+		if(!empty($savemsg)):
+			print_info_box($savemsg);
+		endif;
+		$enabled = isset($config['syncthing']['enable']);
 ?>
-				<table width="100%" border="0" cellpadding="6" cellspacing="0">
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
 <?php
-					html_titleline_checkbox2('enable',gettext('Syncthing'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'');
-					html_filechooser2('homedir',gettext('Database Directory'),$pconfig['homedir'],gettext('Enter the path to the database directory. The config files will be created under the specified directory.'),$g['media_path'],false,60);
-					if($enabled):
-						html_separator2();
-						html_titleline2(gettext('Administrative WebGUI'));
-						$url = "http://${gui_ipaddr}:${gui_port}/";
-						$text = "<a href='${url}' id='a_url' target='_blank'>{$url}</a>";
-						html_text2('url',gettext('URL'),$text);
-					endif;
+				html_titleline_checkbox2('enable',gettext('Syncthing'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'');
 ?>
-				</table>
-				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save & Restart');?>" />
-				</div>
+			</thead>
+			<tbody>
 <?php
-				include 'formend.inc';
+				html_filechooser2('homedir',gettext('Database Directory'),$pconfig['homedir'],gettext('Enter the path to the database directory. The config files will be created under the specified directory.'),$g['media_path'],false,60);
 ?>
-			</form>
-		</td>
-	</tr>
-</table>
+			</tbody>
+		</table>
+<?php
+		if($enabled):
+?>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
+<?php
+				html_separator2();
+				html_titleline2(gettext('Administrative WebGUI'));
+?>
+			</thead>
+			<tbody>
+<?php
+				$url = "http://${gui_ipaddr}:${gui_port}/";
+				$text = "<a href='${url}' id='a_url' target='_blank'>{$url}</a>";
+				html_text2('url',gettext('URL'),$text);
+?>
+			</tbody>
+		</table>
+<?php
+		endif;
+?>
+		<div id="submit">
+			<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save & Restart');?>" />
+		</div>
+<?php
+		include 'formend.inc';
+?>
+	</td></tr></tbody></table>
+</form>
 <?php
 include 'fend.inc';
