@@ -34,7 +34,11 @@
 
 namespace common;
 
-use function array_key_exists,in_array,is_array,strnatcmp,uasort;
+use function array_key_exists,
+	in_array,
+	is_array,
+	strnatcmp,
+	uasort;
 
 /**
  *	Wrapper class for autoloading functions
