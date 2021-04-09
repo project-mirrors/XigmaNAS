@@ -161,6 +161,8 @@ Fixes:
 - Fix only first lagg member is brought up.
 - Fix reload issue.
 - Fix cookie expire phpvirtualbox.
+- Fix stop torrents before stopping service.
+- Fix edit user, the default group kept resetting.
 
 Default Login
 =============
