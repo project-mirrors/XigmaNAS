@@ -35,32 +35,44 @@
 namespace common\properties;
 
 use const INPUT_POST;
-
-use function array_key_exists,count,end,filter_input,filter_var,get_class,gettext,is_array,is_null,is_object,is_scalar,is_string,key,sprintf,strpos;
+use function array_key_exists,
+	count,
+	end,
+	filter_input,
+	filter_var,
+	get_class,
+	gettext,
+	is_array,
+	is_null,
+	is_object,
+	is_scalar,
+	is_string,
+	key,
+	sprintf,
+	strpos;
 
 /**
  *	Adds additional characteristics to a variable
  */
 abstract class property {
 	protected $x_owner = null;
-	protected string $x_input_type = 'text';
-	protected $x_id = null;
-	protected $x_name = null;
-	protected $x_title = null;
-	protected $x_description = null;
-	protected $x_caption = null;
+	protected ?string $x_input_type = null;
+	protected ?string $x_id = null;
+	protected ?string $x_name = null;
+	protected ?string $x_title = null;
+	protected ?string $x_description = null;
+	protected ?string $x_caption = null;
 	protected $x_defaultvalue = null;
-	protected $x_editableonadd = true;
-	protected $x_editableonmodify = true;
-	protected $x_filter = [];
-	protected $x_filter_group = [];
-	protected $x_message_error = null;
-	protected $x_message_info = null;
-	protected $x_message_warning = null;
+	protected bool $x_editableonadd = true;
+	protected bool $x_editableonmodify = true;
+	protected array $x_filter = [];
+	protected array $x_filter_group = [];
+	protected ?string $x_message_error = null;
+	protected ?string $x_message_info = null;
+	protected ?string $x_message_warning = null;
 
 	public function __construct($owner = null) {
 		$this->set_owner($owner);
-		return $this;
 	}
 	abstract public function filter_use_default();
 	public function set_owner($owner = null) {
@@ -72,6 +84,11 @@ abstract class property {
 	public function get_owner() {
 		return $this->x_owner;
 	}
+/**
+ *	indicates the input type for the gui
+ *	@param string $input_type checkbox checkbox-grid filechooser password radio-grid scheduler select text textarea titleline-checkbox
+ *	@return $this
+ */
 	public function set_input_type(string $input_type) {
 		$this->x_input_type = $input_type;
 		return $this;
