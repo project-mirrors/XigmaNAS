@@ -35,6 +35,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
 
+use common\arr;
 use services\samba\share\row_toolbox as toolbox;
 use services\samba\share\shared_toolbox;
 
@@ -47,7 +48,7 @@ function get_mount_info($path){
 	$a_mounts = [];
 	mwexec2('/sbin/mount -p',$rawdata);
 	foreach($rawdata as $line):
-		list($dev,$dir,$fs,$opt,$dump,$pass) = preg_split('/\s+/',$line);
+		[$dev,$dir,$fs,$opt,$dump,$pass] = preg_split('/\s+/',$line);
 		$a_mounts[] = [
 			'dev' => $dev,
 			'dir' => $dir,
@@ -89,7 +90,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo();
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -112,7 +113,7 @@ switch($page_method):
 				break;
 			case 'cancel':
 //				cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -128,17 +129,17 @@ switch($page_method):
 		endswitch;
 		break;
 endswitch;
-//	exit if $sphere->row[$sphere->row_identifier()] is NULL
+//	exit if $sphere->row[$sphere->row_identifier()] is null
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
 //	search resource id in sphere
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 //	start determine record update mode
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id):
+if($sphere->row_id === false):
 //	record does not exist in config
 	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)):
 //		ADD or CLONDE or POST
@@ -165,17 +166,17 @@ else:
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode):
+if($record_mode === RECORD_ERROR):
 //	something went wrong
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$isrecordnew = (RECORD_NEW === $record_mode);
-$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
-$isrecordmodify = (RECORD_MODIFY === $record_mode);
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 //	end determine record update mode
-$a_referer = [
+$cop_grid = [
 	$cop->get_name(),
 	$cop->get_path(),
 	$cop->get_comment(),
@@ -222,47 +223,47 @@ $cop->get_forcegroup()->set_options($a_group);
 unset($val,$key,$a_group);
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cop_grid as $cop_item):
+			$sphere->row[$cop_item->get_name()] = $cop_item->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$sphere->row[$name] = $cop_item->validate_input() ?? $cop_item->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			switch($name):
-				case $cop->get_auxparam()->get_name():
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			switch($cop_item->get_input_type()):
+				case 'textarea':
 					if(array_key_exists($name,$source)):
 						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
+							$source[$name] = implode("\n",$source[$name]);
 						endif;
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_config($source);
+			$sphere->row[$name] = $cop_item->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cop_grid as $cop_item):
+			$name = $cop_item->get_name();
+			$sphere->row[$name] = $cop_item->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cop_item->get_message_error();
 			endif;
 		endforeach;
 //		check for duplicate name.
 		$name = $cop->get_name()->get_name();
-		$index = array_search_ex($sphere->row[$name],$sphere->grid,$name);
-		if(false !== $index):
+		$index = arr::search_ex($sphere->row[$name],$sphere->grid,$name);
+		if($index !== false):
 			if($isrecordnew):
 				$input_errors[] = gettext('The share name is already used.');
 			elseif($index !== $sphere->row_id):
@@ -278,14 +279,18 @@ switch($page_mode):
 			endif;
 		endif;
 		if(empty($input_errors)):
-			$name = $cop->get_auxparam()->get_name();
-			if(array_key_exists($name,$sphere->row)):
-				$auxparam_grid = [];
-				foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
-					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-				endforeach;
-				$sphere->row[$name] = $auxparam_grid;
-			endif;
+			foreach($cop_grid as $cop_item):
+				switch($cop_item->get_input_type()):
+					case 'textarea':
+						$name = $cop_item->get_name();
+						$textarea_grid = [];
+						foreach(explode("\n",$sphere->row[$name]) as $textarea_row):
+							$textarea_grid[] = trim($textarea_row,"\t\n\r");
+						endforeach;
+						$sphere->row[$name] = $textarea_grid;
+						break;
+				endswitch;
+			endforeach;
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
@@ -356,42 +361,42 @@ $content->
 			c2_titleline(gettext('Share Settings'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_name(),$sphere,true)->
-			c2_input_text($cop->get_comment(),$sphere,true)->
-			c2_filechooser($cop->get_path(),$sphere,true)->
-			c2_checkbox($cop->get_readonly(),$sphere)->
-			c2_checkbox($cop->get_browseable(),$sphere)->
-			c2_checkbox($cop->get_guest(),$sphere)->
-			c2_select($cop->get_forceuser(),$sphere)->
-			c2_select($cop->get_forcegroup(),$sphere)->
-			c2_checkbox($cop->get_inheritpermissions(),$sphere)->
-			c2_checkbox($cop->get_recyclebin(),$sphere)->
-			c2_checkbox($cop->get_hidedotfiles(),$sphere)->
-			c2_checkbox($cop->get_shadowcopy(),$sphere)->
-			c2_input_text($cop->get_shadowformat(),$sphere)->
-			c2_checkbox($cop->get_zfsacl(),$sphere)->
-			c2_checkbox($cop->get_inheritacls(),$sphere)->
-			c2_checkbox($cop->get_storealternatedatastreams(),$sphere)->
-			c2_checkbox($cop->get_storentfsacls(),$sphere)->
-			c2_input_text($cop->get_createmask(),$sphere)->
-			c2_input_text($cop->get_directorymask(),$sphere)->
-			c2_input_text($cop->get_hostsallow(),$sphere)->
-			c2_input_text($cop->get_hostsdeny(),$sphere);
+			c2($cop->get_name(),$sphere,true)->
+			c2($cop->get_comment(),$sphere,true)->
+			c2($cop->get_path(),$sphere,true)->
+			c2($cop->get_readonly(),$sphere)->
+			c2($cop->get_browseable(),$sphere)->
+			c2($cop->get_guest(),$sphere)->
+			c2($cop->get_forceuser(),$sphere)->
+			c2($cop->get_forcegroup(),$sphere)->
+			c2($cop->get_inheritpermissions(),$sphere)->
+			c2($cop->get_recyclebin(),$sphere)->
+			c2($cop->get_hidedotfiles(),$sphere)->
+			c2($cop->get_shadowcopy(),$sphere)->
+			c2($cop->get_shadowformat(),$sphere)->
+			c2($cop->get_zfsacl(),$sphere)->
+			c2($cop->get_inheritacls(),$sphere)->
+			c2($cop->get_storealternatedatastreams(),$sphere)->
+			c2($cop->get_storentfsacls(),$sphere)->
+			c2($cop->get_createmask(),$sphere)->
+			c2($cop->get_directorymask(),$sphere)->
+			c2($cop->get_hostsallow(),$sphere)->
+			c2($cop->get_hostsdeny(),$sphere);
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_separator()->
-			c2_titleline_with_checkbox($cop->get_afpcompat(),$sphere,false,false,gettext('Apple Filing Protocol (AFP) Compatibility Settings'))->
+			c2($cop->get_afpcompat(),$sphere,false,false,gettext('Apple Filing Protocol (AFP) Compatibility Settings'))->
 		pop()->
 		addTBODY()->
-			c2_radio_grid($cop->get_vfs_fruit_resource(),$sphere)->
-			c2_radio_grid($cop->get_vfs_fruit_time_machine(),$sphere)->
-			c2_radio_grid($cop->get_vfs_fruit_metadata(),$sphere)->
-			c2_radio_grid($cop->get_vfs_fruit_locking(),$sphere)->
-			c2_radio_grid($cop->get_vfs_fruit_encoding(),$sphere);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+			c2($cop->get_vfs_fruit_resource(),$sphere)->
+			c2($cop->get_vfs_fruit_time_machine(),$sphere)->
+			c2($cop->get_vfs_fruit_metadata(),$sphere)->
+			c2($cop->get_vfs_fruit_locking(),$sphere)->
+			c2($cop->get_vfs_fruit_encoding(),$sphere);
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $content->
 	add_table_data_settings()->
 		push()->
@@ -401,7 +406,7 @@ $content->
 			c2_titleline(gettext('Additional Parameters'))->
 		pop()->
 		addTBODY()->
-			c2_textarea($cop->get_auxparam(),$sphere,false,false,65,$n_auxparam_rows);
+			c2($cop->get_auxparam(),$sphere,false,false,65,$n_auxparam_rows);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
