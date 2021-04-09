@@ -31,18 +31,24 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\samba\share;
 
 use common\properties as myp;
+use const FILTER_REQUIRE_SCALAR,
+	FILTER_VALIDATE_REGEXP;
+use function gettext,
+	sprintf;
 
 final class row_properties extends grid_properties {
 	public function init_afpcompat(): myp\property_bool {
 		$caption = gettext('Enable');
 		$property = parent::init_afpcompat();
 		$property->
-			set_id('afpcompat')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
+			set_id('afpcompat')->
+			set_input_type('titleline-checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -68,7 +74,7 @@ final class row_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_directorymask(): myp\property_text {
@@ -83,7 +89,7 @@ final class row_properties extends grid_properties {
 			filter_use_default_or_empty()->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/^(|0[0-7]{3})$/']);
+			set_filter_options(['default' => null,'regexp' => '/^(|0[0-7]{3})$/']);
 		return $property;
 	}
 	public function init_forcegroup(): myp\property_list {
@@ -93,6 +99,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('forcegroup')->
+			set_input_type('select')->
 			filter_use_default();
 		return $property;
 	}
@@ -103,6 +110,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('forceuser')->
+			set_input_type('select')->
 			filter_use_default();
 		return $property;
 	}
@@ -131,6 +139,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('native')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -146,6 +155,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('netatalk')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -161,6 +171,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('netatalk')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -177,6 +188,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('file')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -192,6 +204,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('no')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -254,7 +267,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/(^$|\S)/']);
+			set_filter_options(['default' => null,'regexp' => '/(^$|\S)/']);
 		return $property;
 	}
 	public function init_hostsdeny(): myp\property_text {
@@ -268,7 +281,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/(^$|\S)/']);
+			set_filter_options(['default' => null,'regexp' => '/(^$|\S)/']);
 		return $property;
 	}
 	public function init_shadowcopy(): myp\property_bool {
@@ -395,6 +408,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(1024)->
 			set_description($description)->
 			set_defaultvalue('')->
+			set_input_type('filechooser')->
 			set_placeholder($placeholder)->
 			filter_use_default()->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Must not be empty.')));
