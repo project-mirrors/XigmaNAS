@@ -34,12 +34,17 @@
 
 namespace common\properties;
 
-use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_REGEXP;
+use const FILTER_REQUIRE_SCALAR,
+	FILTER_VALIDATE_REGEXP;
 
 /**
  *	Text property
  */
 class property_text extends property {
+	public function __construct($owner = null){
+		parent::__construct($owner);
+		$this->set_input_type('text');
+	}
 	protected $x_maxlength = 0;
 	public function set_maxlength(int $maxlength = 0) {
 		$this->x_maxlength = $maxlength;

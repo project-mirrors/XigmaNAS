@@ -52,12 +52,10 @@ final class property_auxparam extends property_textarea {
 			set_defaultvalue('')->
 			set_description('')->
 			set_id('auxparam')->
-			set_input_type('textarea')->
 			set_name('auxparam')->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
 			set_title($title)->
 			filter_use_default();
-		return $this;
 	}
 }

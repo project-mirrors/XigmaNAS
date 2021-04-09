@@ -46,14 +46,13 @@ final class property_enable extends property_bool {
 		$title = gettext('Enable Setting');
 		parent::__construct($owner);
 		$this->
-			set_name('enable')->
-			set_title($title);
-		$this->
-			set_id('enable')->
 			set_caption($caption)->
-			set_description($description)->
 			set_defaultvalue(true)->
+			set_description($description)->
+			set_id('enable')->
+			set_input_type('titleline-checkbox')->
+			set_name('enable')->
+			set_title($title)->
 			filter_use_default();
-		return $this;
 	}
 }

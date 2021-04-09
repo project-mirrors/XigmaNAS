@@ -34,14 +34,19 @@
 
 namespace common\properties;
 
-use function array_key_exists,is_bool;
-
-use const FILTER_NULL_ON_FAILURE,FILTER_VALIDATE_BOOLEAN;
+use const FILTER_NULL_ON_FAILURE,
+	FILTER_VALIDATE_BOOLEAN;
+use function array_key_exists,
+	is_bool;
 
 /**
  *	Bool property
  */
 class property_bool extends property {
+	public function __construct($owner = null) {
+		parent::__construct($owner);
+		$this->set_input_type('checkbox');
+	}
 	public function filter_use_default() {
 		$filter_name = 'ui';
 		$this->
