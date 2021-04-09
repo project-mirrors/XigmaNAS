@@ -242,74 +242,102 @@ endif;
 //]]>
 </script>
 <form action="interfaces_lan.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-		<tr>
-			<td class="tabcont">
+	<table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
-				if(!empty($input_errors)):
-					print_input_errors($input_errors);
+		if(!empty($input_errors)):
+			print_input_errors($input_errors);
+		endif;
+		if(file_exists($d_sysrebootreqd_path)):
+			print_info_box(get_std_save_message(0));
+		endif;
+?>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
+<?php
+				html_titleline2(gettext('IPv4 Settings'));
+?>
+			</thead>
+			<tbody>
+<?php
+				html_combobox2('type',gettext('Type'),$pconfig['type'],['Static' => gettext('Static'),'DHCP' => 'DHCP'],'',true,false,'type_change()');
+				html_ipv4addrbox2('ipaddr','subnet',gettext('IP Address'),$pconfig['ipaddr'],$pconfig['subnet'],'',true);
+				html_inputbox2('gateway',gettext('Gateway'),$pconfig['gateway'],'',true,20);
+?>
+			</tbody>
+		</table>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
+<?php
+				html_separator2();
+				html_titleline_checkbox2('ipv6_enable',gettext('IPv6 Settings'),!empty($pconfig['ipv6_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
+?>
+			</thead>
+			<tbody>
+<?php
+				html_combobox2('ipv6type',gettext('Type'),$pconfig['ipv6type'],['Static' => gettext('Static'),'Auto' => gettext('Auto')],'',true,false,'ipv6_type_change()');
+				html_ipv6addrbox2('ipv6addr','ipv6subnet',gettext('IP Address'),!empty($pconfig['ipv6addr']) ? $pconfig['ipv6addr'] : '',!empty($pconfig['ipv6subnet']) ? $pconfig['ipv6subnet'] : '','',true);
+				html_inputbox2('ipv6gateway',gettext('Gateway'),!empty($pconfig['ipv6gateway']) ? $pconfig['ipv6gateway'] : '','',true,20);
+				html_checkbox2('ipv6privacy',gettext('Privacy Extension'),!empty($pconfig['ipv6privacy']) ? true : false,gettext('Enable IPv6 privacy extensions.'),'',true);
+?>
+			</tbody>
+		</table>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
+<?php
+				html_separator2();
+				html_titleline2(gettext('Advanced Settings'));
+?>
+			</thead>
+			<tbody>
+<?php
+				html_inputbox2('mtu',gettext('MTU'),$pconfig['mtu'],gettext('Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions.'),false,5);
+//				html_checkbox2('polling',gettext('Device Polling'),$pconfig['polling'] ? true : false,gettext('Enable device polling'),gettext('Device polling is a technique that lets the system periodically poll network devices for new data instead of relying on interrupts. This can reduce CPU load and therefore increase throughput, at the expense of a slightly higher forwarding delay (the devices are polled 1000 times per second). Not all NICs support polling.'),false);
+				html_combobox2('media',gettext('Media'),$pconfig['media'],['autoselect' => gettext('Autoselect'),'10baseT/UTP' => '10baseT/UTP','100baseTX' => '100baseTX','1000baseTX' => '1000baseTX','1000baseSX' => '1000baseSX',],'',false,false,'media_change()');
+				html_combobox2('mediaopt',gettext('Duplex'),$pconfig['mediaopt'],['half-duplex' => 'half-duplex','full-duplex' => 'full-duplex'],'',false);
+				if(!empty($ifinfo['wolevents'])):
+					$wakeonoptions = [
+						'off' => gettext('Off'),
+						'wol' => gettext('On')];
+					foreach ($ifinfo['wolevents'] as $woleventv):
+						$wakeonoptions[$woleventv] = $woleventv;
+					endforeach;
+					html_combobox2('wakeon',gettext('Wake On LAN'),$pconfig['wakeon'],$wakeonoptions,'',false);
+				else:
+					html_text2('wakeon',gettext('Wake On LAN'),gettext('Not available'));
 				endif;
-				if(file_exists($d_sysrebootreqd_path)):
-					print_info_box(get_std_save_message(0));
+				html_inputbox2('extraoptions',gettext('Extra Options'),$pconfig['extraoptions'],gettext('Extra options to ifconfig (usually empty).'),false,40);
+				if(isset($lancfg['wireless'])):
+					wireless_config_print();
 				endif;
 ?>
-				<table width="100%" border="0" cellpadding="6" cellspacing="0">
+			</tbody>
+		</table>
+		<div id="submit">
+			<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>" onclick="enable_change(true)" />
+		</div>
+		<div id="remarks">
 <?php
-					html_titleline2(gettext('IPv4 Settings'));
-					html_combobox2('type',gettext('Type'),$pconfig['type'],['Static' => gettext('Static'),'DHCP' => 'DHCP'],'',true,false,'type_change()');
-					html_ipv4addrbox2('ipaddr','subnet',gettext('IP Address'),$pconfig['ipaddr'],$pconfig['subnet'],'',true);
-					html_inputbox2('gateway',gettext('Gateway'),$pconfig['gateway'],'',true,20);
-					html_separator2();
-					html_titleline_checkbox2('ipv6_enable',gettext('IPv6 Settings'),!empty($pconfig['ipv6_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
-					html_combobox2('ipv6type',gettext('Type'),$pconfig['ipv6type'],['Static' => gettext('Static'),'Auto' => gettext('Auto')],'',true,false,'ipv6_type_change()');
-					html_ipv6addrbox2('ipv6addr','ipv6subnet',gettext('IP Address'),!empty($pconfig['ipv6addr']) ? $pconfig['ipv6addr'] : '',!empty($pconfig['ipv6subnet']) ? $pconfig['ipv6subnet'] : '','',true);
-					html_inputbox2('ipv6gateway',gettext('Gateway'),!empty($pconfig['ipv6gateway']) ? $pconfig['ipv6gateway'] : '','',true,20);
-					html_checkbox2('ipv6privacy',gettext('Privacy Extension'),!empty($pconfig['ipv6privacy']) ? true : false,gettext('Enable IPv6 privacy extensions.'),'',true);
-					html_separator2();
-					html_titleline2(gettext('Advanced Settings'));
-					html_inputbox2('mtu',gettext('MTU'),$pconfig['mtu'],gettext('Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions.'),false,5);
+			$helpinghand = gettext('After you click "Save" you may also have to do one or more of the following steps before you can access this server again:')
+				. '<ul>'
+				. '<li>' . gettext('Change the IP address of your computer') . '</li>'
+				. '<li>' . gettext('Access the webGUI with the new IP address') . '</li>'
+				. '</ul>';
+			html_remark2('warning',gettext('Warning'),$helpinghand);
 ?>
-<!--
-<?php
-					html_checkbox2('polling',gettext('Device Polling'),$pconfig['polling'] ? true : false,gettext('Enable device polling'),gettext('Device polling is a technique that lets the system periodically poll network devices for new data instead of relying on interrupts. This can reduce CPU load and therefore increase throughput, at the expense of a slightly higher forwarding delay (the devices are polled 1000 times per second). Not all NICs support polling.'),false);
-?>
--->
-<?php
-					html_combobox2('media',gettext('Media'),$pconfig['media'],['autoselect' => gettext('Autoselect'),'10baseT/UTP' => '10baseT/UTP','100baseTX' => '100baseTX','1000baseTX' => '1000baseTX','1000baseSX' => '1000baseSX',],'',false,false,'media_change()');
-					html_combobox2('mediaopt',gettext('Duplex'),$pconfig['mediaopt'],['half-duplex' => 'half-duplex','full-duplex' => 'full-duplex'],'',false);
-					if(!empty($ifinfo['wolevents'])):
-						$wakeonoptions = [
-							'off' => gettext('Off'),
-							'wol' => gettext('On')];
-						foreach ($ifinfo['wolevents'] as $woleventv):
-							$wakeonoptions[$woleventv] = $woleventv;
-						endforeach;
-						html_combobox2('wakeon',gettext('Wake On LAN'),$pconfig['wakeon'],$wakeonoptions,'',false);
-					else:
-						html_text2('wakeon',gettext('Wake On LAN'),gettext('Not available'));
-					endif;
-					html_inputbox2('extraoptions',gettext('Extra Options'),$pconfig['extraoptions'],gettext('Extra options to ifconfig (usually empty).'),false,40);
-					if(isset($lancfg['wireless'])):
-						wireless_config_print();
-					endif;
-?>
-				</table>
-				<div id="submit">
-					<input name="Submit" type="submit" class="formbtn" value="<?=gtext('Save');?>" onclick="enable_change(true)" />
-				</div>
-				<div id="remarks">
-<?php
-				$helpinghand = gettext('After you click "Save" you may also have to do one or more of the following steps before you can access this server again:')
-					. '<ul>'
-					. '<li>' . gettext('Change the IP address of your computer') . '</li>'
-					. '<li>' . gettext('Access the webGUI with the new IP address') . '</li>'
-					. '</ul>';
-				html_remark2('warning',gettext('Warning'),$helpinghand);
-?>
-			</div>
-		</td>
-	</tr>
-</table>
+		</div>
+	</td></tr></tbody></table>
 <?php
 include 'formend.inc';
 ?>
