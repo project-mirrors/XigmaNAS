@@ -34,12 +34,11 @@
 
 namespace common;
 
-use function
-		array_key_exists,
-		in_array,
-		is_array,
-		strnatcmp,
-		uasort;
+use function array_key_exists,
+	in_array,
+	is_array,
+	strnatcmp,
+	uasort;
 
 /**
  *	Wrapper class for autoloading functions
@@ -93,7 +92,7 @@ final class arr {
 	}
 /**
  *	Create a chain of arrays in a given array if it doesnn't exist.
- *	array_make_branch($config,'zfs','datasets','dataset') will create
+ *	make_branch($config,'zfs','datasets','dataset') will create
  *	- $config['zfs'] = [] if zfs doesn't exist or is not an array.
  *	- $config['zfs']['datasets'] = [] if datasets doesn't exist or is not an array.
  *	- $config['zfs']['datasets']['dataset'] = [] if dataset doesn't exist or is not an array.
