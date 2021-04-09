@@ -35,17 +35,20 @@
 namespace services\samba\share;
 
 use common\properties as myp;
-
-use function gettext,sprintf;
+use const FILTER_REQUIRE_SCALAR,
+	FILTER_VALIDATE_REGEXP;
+use function gettext,
+	sprintf;
 
 final class row_properties extends grid_properties {
 	public function init_afpcompat(): myp\property_bool {
 		$caption = gettext('Enable');
 		$property = parent::init_afpcompat();
 		$property->
-			set_id('afpcompat')->
 			set_caption($caption)->
 			set_defaultvalue(false)->
+			set_id('afpcompat')->
+			set_input_type('titleline-checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -96,6 +99,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('forcegroup')->
+			set_input_type('select')->
 			filter_use_default();
 		return $property;
 	}
@@ -106,6 +110,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('forceuser')->
+			set_input_type('select')->
 			filter_use_default();
 		return $property;
 	}
@@ -134,6 +139,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('native')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -149,6 +155,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('netatalk')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -164,6 +171,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('netatalk')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -180,6 +188,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('file')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -195,6 +204,7 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('no')->
+			set_input_type('radio-grid')->
 			filter_use_default();
 		return $property;
 	}
@@ -398,6 +408,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(1024)->
 			set_description($description)->
 			set_defaultvalue('')->
+			set_input_type('filechooser')->
 			set_placeholder($placeholder)->
 			filter_use_default()->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Must not be empty.')));
