@@ -178,8 +178,7 @@ switch($page_action):
 		$source = $sphere->grid;
 		foreach($cop_grid as $cop_item):
 			$name = $cop_item->get_name();
-			$input_type = $cop_item->get_input_type();
-			switch($input_type):
+			switch($cop_item->get_input_type()):
 				case 'textarea':
 					if(array_key_exists($name,$source)):
 						if(is_array($source[$name])):
@@ -215,8 +214,7 @@ switch($page_action):
 		if(empty($input_errors)):
 			foreach($cop_grid as $cop_item):
 				$name = $cop_item->get_name();
-				$input_type = $cop_item->get_input_type();
-				switch($input_type):
+				switch($cop_item->get_input_type()):
 					case 'textarea':
 						$textarea_grid = [];
 						foreach(explode("\n",$sphere->row[$name]) as $textarea_row):
