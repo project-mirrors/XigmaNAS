@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'autoload.php';
@@ -67,7 +68,8 @@ $a_referer = [
 	$cop->get_nonsidisksizevalues(),
 	$cop->get_showcolorfulmeter(),
 	$cop->get_skipviewmode(),
-	$cop->get_showmaxcpus()
+	$cop->get_showmaxcpus(),
+	$cop->get_lp_diag_infos()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
 [$page_method,$page_action,$page_mode] = $rmo->validate();
@@ -93,6 +95,9 @@ switch($page_method):
 			case 'apply':
 				$retval = 0;
 				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				if(array_key_exists('g',$_SESSION) && array_key_exists('headermenu',$_SESSION['g'])):
+					$_SESSION['g']['headermenu'] = [];
+				endif;
 				$_SESSION['submit'] = $sphere->get_script()->get_basename();
 				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
 				header($sphere->get_script()->get_location());
@@ -222,14 +227,15 @@ $content->
 		pop()->
 		addTFOOT()->
 			c2_separator();
-$tbody = $content->
-	add_table_data_settings()->
-		push()->
-		ins_colgroup_data_settings()->
-		addTHEAD()->
-			c2_titleline(gettext('CSS Settings'))->
-		pop()->
-		addTBODY();
+$css_settings = $content->add_table_data_settings();
+$css_settings->
+	ins_colgroup_data_settings()->
+	addTHEAD()->
+		c2_titleline(gettext('CSS Settings'));
+$tbody = $css_settings->addTBODY();
+$css_settings->
+	addTFOOT()->
+		c2_separator();
 $hooks_cssguifile = $tbody->c2_filechooser($cop->get_cssguifile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssguifile['fc']->
 	insDIV(['class' => 'gap'])->
@@ -260,6 +266,15 @@ $hooks_cssstylefile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_cssstylefilemode(),$sphere,false,$is_readonly)->
 	ins_description($cop->get_cssstylefilemode());
+$content->
+	add_table_data_settings()->
+		push()->
+		ins_colgroup_data_settings()->
+		addTHEAD()->
+			c2_titleline(gettext('Landing Pages'))->
+		pop()->
+		addTBODY()->
+			c2($cop->get_lp_diag_infos(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):

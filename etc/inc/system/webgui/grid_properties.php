@@ -249,4 +249,15 @@ class grid_properties extends myp\container {
 	final public function get_showmaxcpus(): myp\property_int {
 		return $this->x_showmaxcpus ?? $this->init_showmaxcpus();
 	}
+	protected $x_lp_diag_infos;
+	public function init_lp_diag_infos(): myp\property_list {
+		$property = $this->x_lp_diag_infos = new myp\property_list($this);
+		$property->
+			set_name('lp_diag_infos')->
+			set_title(gettext('Diagnostics Information'));
+		return $property;
+	}
+	final public function get_lp_diag_infos(): myp\property_list {
+		return $this->x_lp_diag_infos ?? $this->init_lp_diag_infos();
+	}
 }

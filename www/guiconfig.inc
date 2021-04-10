@@ -935,7 +935,8 @@ function get_headermenu(): array {
 		$menu[$menu_name] = ['type' => 'nolink','visible' => $isAdminSession,'img' => '','symbol' => "\u{2695}\u{FE0F}",'description' => gettext('Diagnostics'),'link' => '','menuitem' => []];
 		$menu_items = &$menu[$menu_name]['menuitem'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Log'),'link' => '/diag_log.php'];
-		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Information'),'link' => '/diag_infos_disks.php'];
+		$lp_diag_infos = $config['system']['webgui']['lp_diag_infos'] ?? '/diag_infos_disks.php';
+		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Information'),'link' => $lp_diag_infos];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Updatenotifier'),'link' => '/diag_updatenotifier.php'];
 		$menu_items[] = ['type' => 'separator','visible' => $isAdminSession,'description' => '','link' => '/index.php'];
 		$menu_items[] = ['type' => 'internal','visible' => $isAdminSession,'description' => gettext('Ping/Traceroute'),'link' => '/diag_ping.php'];
