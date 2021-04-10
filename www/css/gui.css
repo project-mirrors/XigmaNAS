@@ -1346,6 +1346,7 @@ th.lcebl,th.lcebc,th.lcebr
 	font-weight: bold;
 	color: #FFFFFF;
 	color: var(--txc-topic);
+	height: 1em;
 }
 
 td[class^="lce"] > label
