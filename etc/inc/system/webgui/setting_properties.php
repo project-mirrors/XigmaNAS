@@ -298,4 +298,36 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
+	public function init_lp_diag_infos(): myp\property_list{
+		$description = gettext('Set the landing page for the Diagnostics > Information menu.');
+		$options = [
+			'/diag_infos_disks.php' => gettext('Disks'),
+			'/diag_infos_disks_info.php' => gettext('Disks (Info)'),
+			'/diag_infos_part.php' => gettext('Partitions'),
+			'/diag_infos_smart.php' => gettext('S.M.A.R.T.'),
+			'/diag_infos_space.php' => gettext('Space Used'),
+			'/diag_infos_swap.php' => gettext('Swap'),
+			'/diag_infos_mount.php' => gettext('Mounts'),
+			'/diag_infos_raid.php' => gettext('Software RAID'),
+			'/diag_infos_iscsi.php' => gettext('iSCSI Initiator'),
+			'/diag_infos_ad.php' => gettext('MS Domain'),
+			'/diag_infos_samba.php' => gettext('SMB'),
+			'/diag_infos_testparm.php' => gettext('testparm'),
+			'/diag_infos_ftpd.php' => gettext('FTP'),
+			'/diag_infos_rsync_client.php' => gettext('RSYNC Client'),
+			'/diag_infos_netstat.php' => gettext('Netstat'),
+			'/diag_infos_sockets.php' => gettext('Sockets'),
+			'/diag_infos_ipmi.php' => gettext('IPMI Stats'),
+			'/diag_infos_ups.php' => gettext('UPS')
+		];
+		$property = parent::init_lp_diag_infos();
+		$property->
+			set_id('lp_diag_infos')->
+			set_description($description)->
+			set_defaultvalue('diag_infos_disks.php')->
+			set_input_type('radio-grid')->
+			set_options($options)->
+			filter_use_default();
+		return $property;
+	}
 }
