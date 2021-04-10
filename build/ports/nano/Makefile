@@ -1,14 +1,18 @@
 PORTNAME=		nano
 PORTVERSION=	5.6.1
-PORTREVISION?=  0
+PORTREVISION?=  1
 CATEGORIES=	editors
 COMMENT=	Nano's ANOther editor, an enhanced free Pico clone
 MAINTAINER=	zoon01@xigmanas.com
 
 MASTER_SITES=	http://www.nano-editor.org/dist/v${PORTVERSION:R}/ GNU
 
+# XigmaNAS® contains license files
+NO_LICENSES_INSTALL=		yes
+NO_LICENSES_DIALOGS=		yes
 LICENSE=	GPLv3
-CONFLICTS=	nano-devel-2*
+#LICENSE_FILE=	${WRKSRC}/COPYING
+
 USES=		ncurses
 GNU_CONFIGURE=	yes
 
@@ -45,6 +49,9 @@ post-install:
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/doc/sample.nanorc ${STAGEDIR}${EXAMPLESDIR}
 # XigmaNAS® install
+	@echo "Install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/src/nano ${XIGMANAS_ROOTFS}/usr/local/bin;
+# XigmaNAS® install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
