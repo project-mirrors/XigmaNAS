@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -290,9 +290,6 @@ msgid "A directory listing is generated when no index-files (index.php, index.ht
 msgstr ""
 
 msgid "A firmware upgrade is in progress."
-msgstr ""
-
-msgid "A host name alias. This option can appear multiple times, for each domain that has the same IP. Use a space to separate multiple alias names."
 msgstr ""
 
 msgid "A key will be either 5 or 13 characters (40 or 104 bits) depending of the local network and the capabilities of the adaptor. It may be specified either as a plain string or as a string of hexadecimal digits preceded by '0x'."
@@ -2243,9 +2240,6 @@ msgstr ""
 msgid "Current year"
 msgstr ""
 
-msgid "Custom"
-msgstr ""
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -2814,9 +2808,6 @@ msgstr ""
 msgid "Device Pass-through"
 msgstr ""
 
-msgid "Device Polling"
-msgstr ""
-
 msgid "Device Serial"
 msgstr ""
 
@@ -2846,6 +2837,9 @@ msgid "Devices"
 msgstr ""
 
 msgid "Diagnostics"
+msgstr ""
+
+msgid "Diagnostics Information"
 msgstr ""
 
 msgid "Difference"
@@ -3669,9 +3663,6 @@ msgstr ""
 msgid "Domain Controller Name"
 msgstr ""
 
-msgid "Domain Name"
-msgstr ""
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr ""
 
@@ -4207,9 +4198,6 @@ msgid "Enable distributed hash table."
 msgstr ""
 
 msgid "Enable domain name wildcarding of the domain name, for DDNS providers that support this."
-msgstr ""
-
-msgid "Enable domain wildcarding."
 msgstr ""
 
 msgid "Enable encryption."
@@ -4949,9 +4937,6 @@ msgstr ""
 msgid "Force User"
 msgstr ""
 
-msgid "Forced Update Period"
-msgstr ""
-
 msgid "Forces use of vdevs, even if they appear in use or specify different size. (This is not recommended.)"
 msgstr ""
 
@@ -5375,12 +5360,6 @@ msgid "Hours"
 msgstr ""
 
 msgid "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 days."
-msgstr ""
-
-msgid "How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-
-msgid "How often the IP is updated even if it is not changed. The period is in seconds (max. is 10 days)."
 msgstr ""
 
 msgid "How often the IP should be updated even if it is not changed. The time should be given in seconds. Default is equal to 30 days."
@@ -6070,6 +6049,9 @@ msgid "LUN record is unlocked"
 msgstr ""
 
 msgid "LUNs"
+msgstr ""
+
+msgid "Landing Pages"
 msgstr ""
 
 msgid "Language"
@@ -7064,9 +7046,6 @@ msgid "No DNS server have been configured."
 msgstr ""
 
 msgid "No DNS setting found."
-msgstr ""
-
-msgid "No Data"
 msgstr ""
 
 msgid "No Extent has been configured."
@@ -9524,6 +9503,9 @@ msgstr ""
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid "Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions."
 msgstr ""
 
@@ -11087,10 +11069,6 @@ msgstr ""
 msgid "These parameters will be added to [global] settings in %s."
 msgstr ""
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr ""
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr ""
 
@@ -11940,12 +11918,6 @@ msgstr ""
 msgid "Up"
 msgstr ""
 
-msgid "Update Period"
-msgstr ""
-
-msgid "Update period"
-msgstr ""
-
 msgid "Updatenotifier"
 msgstr ""
 
@@ -12501,9 +12473,6 @@ msgid "Who"
 msgstr ""
 
 msgid "Wide Links"
-msgstr ""
-
-msgid "Wildcard"
 msgstr ""
 
 msgid "Wildcard Domain"
