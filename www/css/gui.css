@@ -333,6 +333,7 @@ pre.cmdoutput
 .celltagalt,
 .celltagreqalt
 {
+	padding-right: 0.5em;
 	background-color: #D6D6D6;
 	background-color: var(--bgc-setting-tag);
 }
@@ -347,6 +348,14 @@ pre.cmdoutput
 .celltagreqalt
 {
 	font-weight: bold;
+}
+
+.celldata,
+.celldatareq,
+.celldataalt,
+.celldatareqalt
+{
+	padding-right: 0;
 }
 
 .celltag,
@@ -377,7 +386,6 @@ pre.cmdoutput
 .celldatareqalt
 {
 	padding-left: 0.7em;
-	padding-right: 0.5em;
 	vertical-align: top;
 	border-bottom: 1px solid #999999;
 	border-bottom: var(--bop-cell);
