@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -356,14 +356,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Se actualizează firmware-ul."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Un alias pentru numele sistemului. Această opțiune poate să apară de mai "
-"multe ori, pentru fiecare domeniu care are aceeași adresă IP. Utilizați câte "
-"un caracter ' ' (spațiu) pentru separarea mai multor nume alias."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2689,9 +2681,6 @@ msgstr "Valoarea curentă pentru puterea reală (Wați)"
 msgid "Current year"
 msgstr ""
 
-msgid "Custom"
-msgstr "Personalizat"
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -3302,9 +3291,6 @@ msgstr "Model dispozitiv"
 msgid "Device Pass-through"
 msgstr "Dispozitiv Pass-through"
 
-msgid "Device Polling"
-msgstr "Device Polling"
-
 msgid "Device Serial"
 msgstr "Serial dispozitiv"
 
@@ -3346,6 +3332,9 @@ msgstr "Dispozitive"
 
 msgid "Diagnostics"
 msgstr "Diagnoză"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Diferență"
@@ -4201,9 +4190,6 @@ msgstr "Domeniu"
 msgid "Domain Controller Name"
 msgstr "Nume Controler Domeniu"
 
-msgid "Domain Name"
-msgstr "Nume Domeniu"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Nume Domeniu (DNS/Realm-Name)"
 
@@ -4752,9 +4738,6 @@ msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
 msgstr ""
-
-msgid "Enable domain wildcarding."
-msgstr "Activare caractere speciale pentru domeniu."
 
 msgid "Enable encryption."
 msgstr "Activare criptare."
@@ -5591,9 +5574,6 @@ msgstr "Forțare utilizare"
 msgid "Force User"
 msgstr ""
 
-msgid "Forced Update Period"
-msgstr "Perioadă actualizare forțată"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -6051,20 +6031,6 @@ msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
 msgstr ""
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-"Perioada la care se verifică adresa IP (definită în secunde). Valoarea "
-"maximă este de 10 zile."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Specifică cît de des este actualizat IP-ul (chiar dacă acesta nu este "
-"schimbat). Perioada este definită în secunde, valoarea maximă fiind de 10 "
-"zile."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6887,6 +6853,9 @@ msgstr ""
 
 msgid "LUNs"
 msgstr "Numere Unităţi Logice (LUNs)"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "Limba"
@@ -7976,9 +7945,6 @@ msgstr "Nu a fost configurat niciun server DNS."
 
 msgid "No DNS setting found."
 msgstr "Nu există setări DNS definite."
-
-msgid "No Data"
-msgstr "Lipsă date"
 
 msgid "No Extent has been configured."
 msgstr "Nicio Extensie nu a fost configurată."
@@ -10617,6 +10583,9 @@ msgstr "Definire Set Identificator Serviciu (adică nume rețea)"
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12576,10 +12545,6 @@ msgstr "Acești parametri vor fi adăugați la %s."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Acești parametri vor fi adăugați la setările [globale] în %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Acești parametri vor fi adăugați la setările globale în %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr ""
 
@@ -13698,12 +13663,6 @@ msgstr ""
 msgid "Up"
 msgstr "Activ"
 
-msgid "Update Period"
-msgstr "Perioadă de actualizare"
-
-msgid "Update period"
-msgstr "Perioada de actualizare"
-
 msgid "Updatenotifier"
 msgstr ""
 
@@ -14342,9 +14301,6 @@ msgstr "Utilizator"
 msgid "Wide Links"
 msgstr ""
 
-msgid "Wildcard"
-msgstr "Caractere Speciale"
-
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14907,3 +14863,56 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Un alias pentru numele sistemului. Această opțiune poate să apară de mai "
+#~ "multe ori, pentru fiecare domeniu care are aceeași adresă IP. Utilizați câte "
+#~ "un caracter ' ' (spațiu) pentru separarea mai multor nume alias."
+
+#~ msgid "Custom"
+#~ msgstr "Personalizat"
+
+#~ msgid "Device Polling"
+#~ msgstr "Device Polling"
+
+#~ msgid "Domain Name"
+#~ msgstr "Nume Domeniu"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Activare caractere speciale pentru domeniu."
+
+#~ msgid "Forced Update Period"
+#~ msgstr "Perioadă actualizare forțată"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Perioada la care se verifică adresa IP (definită în secunde). Valoarea "
+#~ "maximă este de 10 zile."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Specifică cît de des este actualizat IP-ul (chiar dacă acesta nu este "
+#~ "schimbat). Perioada este definită în secunde, valoarea maximă fiind de 10 "
+#~ "zile."
+
+#~ msgid "No Data"
+#~ msgstr "Lipsă date"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Acești parametri vor fi adăugați la setările globale în %s."
+
+#~ msgid "Update Period"
+#~ msgstr "Perioadă de actualizare"
+
+#~ msgid "Update period"
+#~ msgstr "Perioada de actualizare"
+
+#~ msgid "Wildcard"
+#~ msgstr "Caractere Speciale"

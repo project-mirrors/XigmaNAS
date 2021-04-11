@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2021-03-26 04:47+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -354,14 +354,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Обновление встроенного программного обеспечения."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Псевдоним сервера (hostname alias). Эта настройка может иметь несколько "
-"строк для каждого домена с одним и тем же IP. Используйте пробел для "
-"разделения нескольких псевдонимов."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2691,9 +2683,6 @@ msgstr "Текущее значение действующей можности 
 msgid "Current year"
 msgstr "Текущий год"
 
-msgid "Custom"
-msgstr "Custom"
-
 msgid "Custom Provider"
 msgstr "Пользовательский поставщик"
 
@@ -3310,9 +3299,6 @@ msgstr "Модель устройства"
 msgid "Device Pass-through"
 msgstr "Сквозное (pass-through) устройство"
 
-msgid "Device Polling"
-msgstr "Опрос устройства"
-
 msgid "Device Serial"
 msgstr "Серийный номер устройства"
 
@@ -3354,6 +3340,9 @@ msgstr "Устройства"
 
 msgid "Diagnostics"
 msgstr "Диагностика"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Изменение"
@@ -4219,9 +4208,6 @@ msgstr "Домен"
 msgid "Domain Controller Name"
 msgstr "Имя контроллера домена"
 
-msgid "Domain Name"
-msgstr "Имя домена"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Имя домена (DNS/Realm-имя)"
 
@@ -4778,9 +4764,6 @@ msgid ""
 msgstr ""
 "Включите подстановочные знаки имени домена для доменного имени для "
 "поставщиков DDNS, которые это поддерживают."
-
-msgid "Enable domain wildcarding."
-msgstr "Разрешить подстановочные символы для домена"
 
 msgid "Enable encryption."
 msgstr "Включить шифрование."
@@ -5634,9 +5617,6 @@ msgstr "Использовать принудительно"
 msgid "Force User"
 msgstr "Принудительный пользователь"
 
-msgid "Forced Update Period"
-msgstr "Принудительный период обновления"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -6099,17 +6079,6 @@ msgid ""
 msgstr ""
 "Как часто проверяется IP в секундах. По умолчанию: прибл. 1 минута. Макс: 10 "
 "дней."
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr "Частота проверки IP-адреса, интервал в секундах (максимум 10 дней)."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Частота обновления IP-адреса, даже если он прежний. Интервал в секундах "
-"(максимум 10 дней)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6943,6 +6912,9 @@ msgstr "Запись LUN разблокирована"
 
 msgid "LUNs"
 msgstr "Логические номера устройств"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "Язык"
@@ -8058,9 +8030,6 @@ msgstr "DNS-серверы не сконфигурированы."
 
 msgid "No DNS setting found."
 msgstr "Настройка DNS не найдена."
-
-msgid "No Data"
-msgstr "Нет данных"
 
 msgid "No Extent has been configured."
 msgstr "Ни один Extent не сконфигурирован."
@@ -10726,6 +10695,9 @@ msgstr ""
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Установить отпечаток одного сертификата для приема TLS."
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12802,10 +12774,6 @@ msgstr "Эти параметры будут добавлены к %s."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Эти параметры будут добавлены к секции [global] в %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Эти параметры будут добавлены к глобальным настройкам %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr "Эти параметры будут добавлены в minidlna.conf"
 
@@ -13958,12 +13926,6 @@ msgstr "Unzip"
 msgid "Up"
 msgstr "Вверх"
 
-msgid "Update Period"
-msgstr "Период обновления"
-
-msgid "Update period"
-msgstr "Период обновления"
-
 msgid "Updatenotifier"
 msgstr "Уведомления"
 
@@ -14631,9 +14593,6 @@ msgstr "Кто"
 msgid "Wide Links"
 msgstr "Большие ссылки"
 
-msgid "Wildcard"
-msgstr "Подстановочные символы"
-
 msgid "Wildcard Domain"
 msgstr "Wildcard домен"
 
@@ -15210,3 +15169,53 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Псевдоним сервера (hostname alias). Эта настройка может иметь несколько "
+#~ "строк для каждого домена с одним и тем же IP. Используйте пробел для "
+#~ "разделения нескольких псевдонимов."
+
+#~ msgid "Custom"
+#~ msgstr "Custom"
+
+#~ msgid "Device Polling"
+#~ msgstr "Опрос устройства"
+
+#~ msgid "Domain Name"
+#~ msgstr "Имя домена"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Разрешить подстановочные символы для домена"
+
+#~ msgid "Forced Update Period"
+#~ msgstr "Принудительный период обновления"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr "Частота проверки IP-адреса, интервал в секундах (максимум 10 дней)."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Частота обновления IP-адреса, даже если он прежний. Интервал в секундах "
+#~ "(максимум 10 дней)."
+
+#~ msgid "No Data"
+#~ msgstr "Нет данных"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Эти параметры будут добавлены к глобальным настройкам %s."
+
+#~ msgid "Update Period"
+#~ msgstr "Период обновления"
+
+#~ msgid "Update period"
+#~ msgstr "Период обновления"
+
+#~ msgid "Wildcard"
+#~ msgstr "Подстановочные символы"

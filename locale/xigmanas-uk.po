@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2021-03-28 08:42+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -353,14 +353,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Оновлення прошивки в процесі."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Псевдонім імені хосту. Ця опція може застосовуватися декілька разів, для "
-"кожного домену, що має той же IP. Використовуйте пробіли для розділення "
-"декількох псевдонімів."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2684,9 +2676,6 @@ msgstr "Поточне значення діючої потужності (Вт)
 msgid "Current year"
 msgstr "Поточний рік"
 
-msgid "Custom"
-msgstr "Користувацький"
-
 msgid "Custom Provider"
 msgstr "Користувацький постачальник"
 
@@ -3306,9 +3295,6 @@ msgstr "Модель пристрою"
 msgid "Device Pass-through"
 msgstr "Pass-through (наскрізний) пристрій"
 
-msgid "Device Polling"
-msgstr "Опитування пристрою"
-
 msgid "Device Serial"
 msgstr "Серійний номер пристрою"
 
@@ -3349,6 +3335,9 @@ msgstr "Пристрої"
 
 msgid "Diagnostics"
 msgstr "Діагностика"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Різниця"
@@ -4212,9 +4201,6 @@ msgstr "Домен"
 msgid "Domain Controller Name"
 msgstr "Ім'я контролера домену"
 
-msgid "Domain Name"
-msgstr "Ім'я домену"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Ім'я домену (DNS/Realm-ім'я)"
 
@@ -4769,9 +4755,6 @@ msgid ""
 msgstr ""
 "Увімкніть знаки підстановки в імені домена для доменного імені для "
 "постачальників DDNS, які це підтримують."
-
-msgid "Enable domain wildcarding."
-msgstr "Дозволити шаблони у домені."
 
 msgid "Enable encryption."
 msgstr "Увімкнути шифруванння."
@@ -5624,9 +5607,6 @@ msgstr "Примусове Використання"
 msgid "Force User"
 msgstr "Примусовий користувач"
 
-msgid "Forced Update Period"
-msgstr "Період Примусового Оновлення"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -6088,17 +6068,6 @@ msgid ""
 msgstr ""
 "Як часто перевіряти IP, в секундах. За замовчуванням: прибл. 1 хвилина. "
 "Макс: 10 днів."
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr "Як часто перевіряється IP. Період в секундах (макс. 10 днів)"
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Як часто поновлювати ІР адресу, навіть, якщо вона не мінялася. Значення в "
-"секундах (макс. 10 днів)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6930,6 +6899,9 @@ msgstr "Запис LUN заблокований"
 
 msgid "LUNs"
 msgstr "LUN'и"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "Мова"
@@ -8042,9 +8014,6 @@ msgstr "Немає сконфігурованих DNS серверів."
 
 msgid "No DNS setting found."
 msgstr "DNS налаштавання не знайдені"
-
-msgid "No Data"
-msgstr "Немає даних"
 
 msgid "No Extent has been configured."
 msgstr "Жоден Extent не налаштований."
@@ -10712,6 +10681,9 @@ msgstr ""
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Встановити відбиток одного сертифіката для прийому TLS"
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12766,10 +12738,6 @@ msgstr "Ці параметри будуть додані до %s."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Ці параметри будуть додані до налаштувань [global] файлу %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Ці параметри будуть додані до загальних налаштувань в %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr "Ці параметри будуть додані до minidlna.conf"
 
@@ -13922,12 +13890,6 @@ msgstr "Розпакування"
 msgid "Up"
 msgstr "За максимальним"
 
-msgid "Update Period"
-msgstr "Період Оновлення"
-
-msgid "Update period"
-msgstr "Період оновлення"
-
 msgid "Updatenotifier"
 msgstr "Сповіщувач оновлень"
 
@@ -14591,9 +14553,6 @@ msgstr "Хто"
 msgid "Wide Links"
 msgstr "Символічні посилання"
 
-msgid "Wildcard"
-msgstr "Шаблон"
-
 msgid "Wildcard Domain"
 msgstr "Знаки підстановки домена"
 
@@ -15165,3 +15124,53 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Псевдонім імені хосту. Ця опція може застосовуватися декілька разів, для "
+#~ "кожного домену, що має той же IP. Використовуйте пробіли для розділення "
+#~ "декількох псевдонімів."
+
+#~ msgid "Custom"
+#~ msgstr "Користувацький"
+
+#~ msgid "Device Polling"
+#~ msgstr "Опитування пристрою"
+
+#~ msgid "Domain Name"
+#~ msgstr "Ім'я домену"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Дозволити шаблони у домені."
+
+#~ msgid "Forced Update Period"
+#~ msgstr "Період Примусового Оновлення"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr "Як часто перевіряється IP. Період в секундах (макс. 10 днів)"
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Як часто поновлювати ІР адресу, навіть, якщо вона не мінялася. Значення в "
+#~ "секундах (макс. 10 днів)."
+
+#~ msgid "No Data"
+#~ msgstr "Немає даних"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Ці параметри будуть додані до загальних налаштувань в %s."
+
+#~ msgid "Update Period"
+#~ msgstr "Період Оновлення"
+
+#~ msgid "Update period"
+#~ msgstr "Період оновлення"
+
+#~ msgid "Wildcard"
+#~ msgstr "Шаблон"

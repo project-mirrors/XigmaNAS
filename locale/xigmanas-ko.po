@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:45+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -331,13 +331,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "펌웨어 업그레이드가 진행 중입니다."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"호스트 이름의 별칭. 이 옵션은 동일한 IP를 가진 각각의 도메인에서 여러 번 나타날 수도 있습니다. 공백 문자를 이용해서 여러 개의 "
-"별칭 이름을 분리합니다."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2514,9 +2507,6 @@ msgstr "현재 실 전류 값(와트)"
 msgid "Current year"
 msgstr ""
 
-msgid "Custom"
-msgstr "사용자 정의"
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -3115,9 +3105,6 @@ msgstr "장치 모델"
 msgid "Device Pass-through"
 msgstr "장치 창구"
 
-msgid "Device Polling"
-msgstr "장치 폴링"
-
 msgid "Device Serial"
 msgstr "장치 일련번호"
 
@@ -3156,6 +3143,9 @@ msgstr "장치"
 
 msgid "Diagnostics"
 msgstr "진단"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "차이"
@@ -3994,9 +3984,6 @@ msgstr "도메인"
 msgid "Domain Controller Name"
 msgstr "도메인 컨트롤러 이름"
 
-msgid "Domain Name"
-msgstr "도메인 이름"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "도메인 이름(DNS/구역 이름)"
 
@@ -4543,9 +4530,6 @@ msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
 msgstr ""
-
-msgid "Enable domain wildcarding."
-msgstr "도메인 와일드 카드 활성화."
 
 msgid "Enable encryption."
 msgstr "암호화를 사용합니다."
@@ -5336,9 +5320,6 @@ msgstr "강제로 사용"
 msgid "Force User"
 msgstr ""
 
-msgid "Forced Update Period"
-msgstr "강제 갱신 주기"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -5786,15 +5767,6 @@ msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
 msgstr ""
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr "얼마나 자주 IP가 확인 되는 지를 설정. 간격은 초 단위입니다(최대는 10일)."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr "변경되지 않더라도 얼마나 자주 IP가 갱신되는 지를 설정. 간격은 초 단위입니다(최대는 10일)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6562,6 +6534,9 @@ msgstr ""
 
 msgid "LUNs"
 msgstr "LUNs"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "언어"
@@ -7614,9 +7589,6 @@ msgstr "DNS 서버가 구성되지 않았습니다."
 
 msgid "No DNS setting found."
 msgstr "DNS 설정을 찾을 수 없습니다."
-
-msgid "No Data"
-msgstr "데이터 없음"
 
 msgid "No Extent has been configured."
 msgstr "범위가 구성되지 않았습니다."
@@ -10179,6 +10151,9 @@ msgstr "원하는 서비스 셋 식별자(네트워크 이름으로도 알려짐
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12013,10 +11988,6 @@ msgstr "이 매개 변수들이 %s에 추가될 것입니다."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "이 매개 변수들이 %s의 [global] 섹션에 추가될 것입니다."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "이 매개 변수들은 %s의 전역 설정에 추가될 것입니다."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr ""
 
@@ -13038,12 +13009,6 @@ msgstr ""
 msgid "Up"
 msgstr "Up"
 
-msgid "Update Period"
-msgstr "갱신 주기"
-
-msgid "Update period"
-msgstr "갱신 간격"
-
 msgid "Updatenotifier"
 msgstr ""
 
@@ -13649,9 +13614,6 @@ msgstr "수행자"
 msgid "Wide Links"
 msgstr ""
 
-msgid "Wildcard"
-msgstr "와일드 카드"
-
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14185,3 +14147,50 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "호스트 이름의 별칭. 이 옵션은 동일한 IP를 가진 각각의 도메인에서 여러 번 나타날 수도 있습니다. 공백 문자를 이용해서 여러 개의 "
+#~ "별칭 이름을 분리합니다."
+
+#~ msgid "Custom"
+#~ msgstr "사용자 정의"
+
+#~ msgid "Device Polling"
+#~ msgstr "장치 폴링"
+
+#~ msgid "Domain Name"
+#~ msgstr "도메인 이름"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "도메인 와일드 카드 활성화."
+
+#~ msgid "Forced Update Period"
+#~ msgstr "강제 갱신 주기"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr "얼마나 자주 IP가 확인 되는 지를 설정. 간격은 초 단위입니다(최대는 10일)."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr "변경되지 않더라도 얼마나 자주 IP가 갱신되는 지를 설정. 간격은 초 단위입니다(최대는 10일)."
+
+#~ msgid "No Data"
+#~ msgstr "데이터 없음"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "이 매개 변수들은 %s의 전역 설정에 추가될 것입니다."
+
+#~ msgid "Update Period"
+#~ msgstr "갱신 주기"
+
+#~ msgid "Update period"
+#~ msgstr "갱신 간격"
+
+#~ msgid "Wildcard"
+#~ msgstr "와일드 카드"
