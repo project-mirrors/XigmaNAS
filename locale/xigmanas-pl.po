@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
-"PO-Revision-Date: 2020-09-29 13:09+0000\n"
-"Last-Translator: Piotr Łobuz <ericsson@go2.pl>\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"PO-Revision-Date: 2021-04-04 22:51+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: POLAND\n"
 "Language: \n"
 "X-Poedit-Language: Polish\n"
@@ -215,7 +215,7 @@ msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr ""
 
 msgid "/"
-msgstr ""
+msgstr "/"
 
 msgid "/mnt"
 msgstr "/mnt"
@@ -350,14 +350,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Aktualizacja oprogramowania w toku."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Alias nazwy hosta. Ta opcja występuje wiele razy, dla każdej domeny "
-"posiadającej ten sam adres IP. Użyj spacji do oddzielenia różnych aliasów "
-"nazw."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2600,9 +2592,6 @@ msgstr "Wartość realnej mocy (Waty)"
 msgid "Current year"
 msgstr "Obecny rok"
 
-msgid "Custom"
-msgstr "Własny"
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -3194,9 +3183,6 @@ msgstr "Model urządzenia"
 msgid "Device Pass-through"
 msgstr "Dopuszczone urządzenia."
 
-msgid "Device Polling"
-msgstr ""
-
 msgid "Device Serial"
 msgstr "Numer seryjny urządzenia"
 
@@ -3238,6 +3224,9 @@ msgstr "Urządzenia"
 
 msgid "Diagnostics"
 msgstr "Diagnostyka"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Różnica"
@@ -4083,9 +4072,6 @@ msgstr "Domena"
 msgid "Domain Controller Name"
 msgstr ""
 
-msgid "Domain Name"
-msgstr ""
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr ""
 
@@ -4633,9 +4619,6 @@ msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
 msgstr ""
-
-msgid "Enable domain wildcarding."
-msgstr "Włącz symbole wieloznaczne w domenach."
 
 msgid "Enable encryption."
 msgstr "Włącz szyfrowanie"
@@ -5439,9 +5422,6 @@ msgstr ""
 msgid "Force User"
 msgstr ""
 
-msgid "Forced Update Period"
-msgstr ""
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -5885,17 +5865,6 @@ msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
 msgstr ""
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr "Jak często sprawdzany jest adres IP. Okres w sekundach (max 10 dni)."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Jak często adres IP jest odświeżany, mimo że nie jest zmieniany. Okres w "
-"sekundach (max 10 dni)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6683,6 +6652,9 @@ msgstr ""
 
 msgid "LUNs"
 msgstr "LUN-y"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "Język"
@@ -7743,9 +7715,6 @@ msgstr ""
 
 msgid "No DNS setting found."
 msgstr "Nie znaleziono ustawień DNS"
-
-msgid "No Data"
-msgstr ""
 
 msgid "No Extent has been configured."
 msgstr ""
@@ -10320,6 +10289,9 @@ msgstr "Wybierz identyfikator usługi (nazwa sieciowa)"
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12188,10 +12160,6 @@ msgstr "Parametry te zostaną dodane do %s."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Parametry te zostaną dodane do sekcji [global] w %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Parametry te zostaną dodane do ustawień globalnych w pliku %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr ""
 
@@ -13224,12 +13192,6 @@ msgstr ""
 msgid "Up"
 msgstr "W górę"
 
-msgid "Update Period"
-msgstr ""
-
-msgid "Update period"
-msgstr "Odstęp między aktualizacjami"
-
 msgid "Updatenotifier"
 msgstr ""
 
@@ -13846,9 +13808,6 @@ msgstr "Kto"
 msgid "Wide Links"
 msgstr ""
 
-msgid "Wildcard"
-msgstr "Znak wieloznaczny"
-
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14385,3 +14344,38 @@ msgstr ""
 
 msgid "yes"
 msgstr "Tak"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Alias nazwy hosta. Ta opcja występuje wiele razy, dla każdej domeny "
+#~ "posiadającej ten sam adres IP. Użyj spacji do oddzielenia różnych aliasów "
+#~ "nazw."
+
+#~ msgid "Custom"
+#~ msgstr "Własny"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Włącz symbole wieloznaczne w domenach."
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr "Jak często sprawdzany jest adres IP. Okres w sekundach (max 10 dni)."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Jak często adres IP jest odświeżany, mimo że nie jest zmieniany. Okres w "
+#~ "sekundach (max 10 dni)."
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Parametry te zostaną dodane do ustawień globalnych w pliku %s."
+
+#~ msgid "Update period"
+#~ msgstr "Odstęp między aktualizacjami"
+
+#~ msgid "Wildcard"
+#~ msgstr "Znak wieloznaczny"

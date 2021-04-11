@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2021-01-28 14:46+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -325,11 +325,6 @@ msgstr "当在目录中找不到索引文件（index.php，index.html，index.ht
 
 msgid "A firmware upgrade is in progress."
 msgstr "正在进行固件升级。"
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr "主机别名。在同一IP地址上有多个域名时，此选项可多次出现。使用空格分隔多个别名。"
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2475,9 +2470,6 @@ msgstr "当前的实际功率（瓦特）"
 msgid "Current year"
 msgstr "今年"
 
-msgid "Custom"
-msgstr "自定"
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -3069,9 +3061,6 @@ msgstr "设备型号"
 msgid "Device Pass-through"
 msgstr "设备直通（Device Pass-through）"
 
-msgid "Device Polling"
-msgstr "设备轮询"
-
 msgid "Device Serial"
 msgstr "设备编号"
 
@@ -3109,6 +3098,9 @@ msgstr "设备"
 
 msgid "Diagnostics"
 msgstr "诊断"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "差异"
@@ -3947,9 +3939,6 @@ msgstr "域"
 msgid "Domain Controller Name"
 msgstr "域控制器名"
 
-msgid "Domain Name"
-msgstr "域名"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "域名（DNS/真名）"
 
@@ -4494,9 +4483,6 @@ msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
 msgstr ""
-
-msgid "Enable domain wildcarding."
-msgstr "启用域通配符。"
 
 msgid "Enable encryption."
 msgstr "启用加密。"
@@ -5284,9 +5270,6 @@ msgstr "强制使用"
 msgid "Force User"
 msgstr "Force用户"
 
-msgid "Forced Update Period"
-msgstr "强制更新周期"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -5731,15 +5714,6 @@ msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
 msgstr ""
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr "多久检查一次 IP。以秒为单位（最多为 10 天）"
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr "多久强制更新一次 IP 资讯。以秒为单位（最多 10 天）"
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6497,6 +6471,9 @@ msgstr "LUN记录已解锁"
 
 msgid "LUNs"
 msgstr "LUNs"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "语言设置"
@@ -7550,9 +7527,6 @@ msgstr "未配置DNS服务器。"
 
 msgid "No DNS setting found."
 msgstr "找不到 DNS 配置。"
-
-msgid "No Data"
-msgstr "无数据"
 
 msgid "No Extent has been configured."
 msgstr "未配置Extent。"
@@ -10108,6 +10082,9 @@ msgstr "设置所需的服务集标识符（Service Set Identifier）（也称�
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "设置单个证书的指纹以接受TLS。"
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -11936,10 +11913,6 @@ msgstr "这些参数将被添加到 %s 。"
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "这些参数将被添加到 %s 的 [global] 设置。"
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "这些参数将被添加到 %s 的全局设置。"
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr "这些参数将添加到minidlna.conf中"
 
@@ -12947,12 +12920,6 @@ msgstr "UNZIP"
 msgid "Up"
 msgstr "上"
 
-msgid "Update Period"
-msgstr "更新周期"
-
-msgid "Update period"
-msgstr "更新间隔"
-
 msgid "Updatenotifier"
 msgstr "更新通知程序"
 
@@ -13555,9 +13522,6 @@ msgstr "执行用户"
 msgid "Wide Links"
 msgstr "宽链接"
 
-msgid "Wildcard"
-msgstr "通配符"
-
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14091,3 +14055,48 @@ msgstr "被分配给"
 
 msgid "yes"
 msgstr "是"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr "主机别名。在同一IP地址上有多个域名时，此选项可多次出现。使用空格分隔多个别名。"
+
+#~ msgid "Custom"
+#~ msgstr "自定"
+
+#~ msgid "Device Polling"
+#~ msgstr "设备轮询"
+
+#~ msgid "Domain Name"
+#~ msgstr "域名"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "启用域通配符。"
+
+#~ msgid "Forced Update Period"
+#~ msgstr "强制更新周期"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr "多久检查一次 IP。以秒为单位（最多为 10 天）"
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr "多久强制更新一次 IP 资讯。以秒为单位（最多 10 天）"
+
+#~ msgid "No Data"
+#~ msgstr "无数据"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "这些参数将被添加到 %s 的全局设置。"
+
+#~ msgid "Update Period"
+#~ msgstr "更新周期"
+
+#~ msgid "Update period"
+#~ msgstr "更新间隔"
+
+#~ msgid "Wildcard"
+#~ msgstr "通配符"

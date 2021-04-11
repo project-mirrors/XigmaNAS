@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2021-03-25 19:29+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -347,14 +347,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "En uppgradering av systemmjukvaran pågår."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Ett alias för värdnamnet. Detta val kan förekomma flera gånger för varje "
-"domän som använder samma IP-adress. Använd mellanslag för att separera flera "
-"alias."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2645,9 +2637,6 @@ msgstr "Aktuell effekt (W)"
 msgid "Current year"
 msgstr "Detta år"
 
-msgid "Custom"
-msgstr "Anpassad"
-
 msgid "Custom Provider"
 msgstr "Anpassad leverantör"
 
@@ -3261,9 +3250,6 @@ msgstr "Enhetstyp"
 msgid "Device Pass-through"
 msgstr "Komponent genomströmning"
 
-msgid "Device Polling"
-msgstr "Enhetspolling"
-
 msgid "Device Serial"
 msgstr "Serieport"
 
@@ -3305,6 +3291,9 @@ msgstr "Enheter"
 
 msgid "Diagnostics"
 msgstr "Diagnostik"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Skillnad"
@@ -4161,9 +4150,6 @@ msgstr "Domän"
 msgid "Domain Controller Name"
 msgstr "Namn på domänkontroller"
 
-msgid "Domain Name"
-msgstr "Domännamn"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Domännamn (DNS/Realm-namn)"
 
@@ -4717,9 +4703,6 @@ msgid ""
 msgstr ""
 "Aktivera möjlighet att använda jokertecken för domännamnet, för DDNS "
 "leverantörer som stöder detta"
-
-msgid "Enable domain wildcarding."
-msgstr "Aktivera wildcard för domän."
 
 msgid "Enable encryption."
 msgstr "Tillåt kryptering"
@@ -5567,9 +5550,6 @@ msgstr "Kräv användning"
 msgid "Force User"
 msgstr "Tvinga Användare"
 
-msgid "Forced Update Period"
-msgstr "Tvingande uppdateringsperiod"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -6027,19 +6007,6 @@ msgid ""
 msgstr ""
 "Hur ofta IP kontrolleras, i sekunder. Standard: ungefär 1 minut. Max: 10 "
 "dagar."
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-"Hur ofta IP adressen ska kontrolleras. Perioden anges i sekunder (max "
-"tillåten tid är 10 dagar)"
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Hur ofta IP adressen uppdateras även om den är oförändrad. Perioden anges i "
-"sekunder (max tid är 10 dagar)"
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6865,6 +6832,9 @@ msgstr "LUN posten är olåst"
 
 msgid "LUNs"
 msgstr "LUNs"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "Språk"
@@ -7949,9 +7919,6 @@ msgstr "Ingen DNS server har konfigurerats."
 
 msgid "No DNS setting found."
 msgstr "Ingen DNS-inställning hittades"
-
-msgid "No Data"
-msgstr "Ingen data"
 
 msgid "No Extent has been configured."
 msgstr "Inga utökningar har konfigurerats."
@@ -10595,6 +10562,9 @@ msgstr "Välj önskat SSID (Nätverksnamn)"
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Sätt fingeravtrycket för ett certifikat att acceptera för TLS."
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12643,10 +12613,6 @@ msgstr "Dessa parametrar kommer att läggas till %s."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Dessa parametrar kommer att läggas till i avsnittet [global] i %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Detta kommer att läggas till i de globala inställningarna i %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr "Dessa parametrar läggs till i minidlna.conf"
 
@@ -13788,12 +13754,6 @@ msgstr "Packa upp"
 msgid "Up"
 msgstr "Uppåt"
 
-msgid "Update Period"
-msgstr "Uppdateringsperiod"
-
-msgid "Update period"
-msgstr "Uppdateringsperiod"
-
 msgid "Updatenotifier"
 msgstr "Uppdateringsindikering"
 
@@ -14446,9 +14406,6 @@ msgstr "Vem"
 msgid "Wide Links"
 msgstr "Wide Links"
 
-msgid "Wildcard"
-msgstr "Jokertecken"
-
 msgid "Wildcard Domain"
 msgstr "Wildcard Domän"
 
@@ -15014,3 +14971,55 @@ msgstr "var tilldelad till"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Ett alias för värdnamnet. Detta val kan förekomma flera gånger för varje "
+#~ "domän som använder samma IP-adress. Använd mellanslag för att separera flera "
+#~ "alias."
+
+#~ msgid "Custom"
+#~ msgstr "Anpassad"
+
+#~ msgid "Device Polling"
+#~ msgstr "Enhetspolling"
+
+#~ msgid "Domain Name"
+#~ msgstr "Domännamn"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Aktivera wildcard för domän."
+
+#~ msgid "Forced Update Period"
+#~ msgstr "Tvingande uppdateringsperiod"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Hur ofta IP adressen ska kontrolleras. Perioden anges i sekunder (max "
+#~ "tillåten tid är 10 dagar)"
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Hur ofta IP adressen uppdateras även om den är oförändrad. Perioden anges i "
+#~ "sekunder (max tid är 10 dagar)"
+
+#~ msgid "No Data"
+#~ msgstr "Ingen data"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Detta kommer att läggas till i de globala inställningarna i %s."
+
+#~ msgid "Update Period"
+#~ msgstr "Uppdateringsperiod"
+
+#~ msgid "Update period"
+#~ msgstr "Uppdateringsperiod"
+
+#~ msgid "Wildcard"
+#~ msgstr "Jokertecken"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
-"PO-Revision-Date: 2021-03-25 18:23+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"PO-Revision-Date: 2021-04-10 23:58+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -361,14 +361,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Een firmware upgrade wordt nu uitgevoerd."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Een hostnaam alias. Deze optie kan veelvoudig verschijnen, voor elk domein "
-"dat het zelfde IP-adres gebruikt. Gebruik een spatie om meerdere alias namen "
-"te scheiden."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2728,9 +2720,6 @@ msgstr "Huidige waarde van het reële vermogen (watt)"
 msgid "Current year"
 msgstr "Huidige jaar"
 
-msgid "Custom"
-msgstr "Aangepast"
-
 msgid "Custom Provider"
 msgstr "Aangepaste provider"
 
@@ -3348,9 +3337,6 @@ msgstr "Modelnaam"
 msgid "Device Pass-through"
 msgstr "Apparaat Pass-through"
 
-msgid "Device Polling"
-msgstr "Netwerk Polling"
-
 msgid "Device Serial"
 msgstr "Serienummer"
 
@@ -3392,6 +3378,9 @@ msgstr "Schijven"
 
 msgid "Diagnostics"
 msgstr "Diagnose"
+
+msgid "Diagnostics Information"
+msgstr "Diagnostische informatie"
 
 msgid "Difference"
 msgstr "Verschil"
@@ -4262,9 +4251,6 @@ msgstr "Domein"
 msgid "Domain Controller Name"
 msgstr "Domeincontroller Naam"
 
-msgid "Domain Name"
-msgstr "Domein Naam"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Domeinnaam (DNS/Realm-Name)"
 
@@ -4824,9 +4810,6 @@ msgid ""
 msgstr ""
 "Schakel domeinnaam jokertekens (wildcarding) van de domeinnaam in, voor DDNS "
 "providers die dit ondersteunen."
-
-msgid "Enable domain wildcarding."
-msgstr "Inschakelen domein wildcard"
 
 msgid "Enable encryption."
 msgstr "Encryptie gebruiken."
@@ -5453,7 +5436,7 @@ msgid "Facility"
 msgstr "Faciliteit"
 
 msgid "Factory Defaults"
-msgstr "Fabrieks-instellingen"
+msgstr "Fabrieksinstelling"
 
 msgid "Failed"
 msgstr "Mislukt"
@@ -5679,9 +5662,6 @@ msgstr "Gebruik Geforceerd"
 
 msgid "Force User"
 msgstr "Gebruiker Afdwingen"
-
-msgid "Forced Update Period"
-msgstr "Geforceerde Update Periode"
 
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
@@ -6156,19 +6136,6 @@ msgid ""
 msgstr ""
 "Hoe vaak het IP wordt gecontroleerd, in seconden. Standaard: ca. 1 minuut. "
 "Max: 10 dagen."
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-"Hoe vaak het IP-adres wordt gecontroleerd. De periode is in seconden (max. "
-"10 dagen)."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Hoe vaak het IP-adres geupdate wordt zelfs wanneer het niet is gewijzigd. De "
-"periode is in seconden (max. 10 dagen)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -7004,6 +6971,9 @@ msgstr "LUN record is ontgrendeld"
 
 msgid "LUNs"
 msgstr "LUNs"
+
+msgid "Landing Pages"
+msgstr "Bestemmingspagina's"
 
 msgid "Language"
 msgstr "Taal"
@@ -8120,9 +8090,6 @@ msgstr "Er zijn geen DNS-server geconfigureerd."
 
 msgid "No DNS setting found."
 msgstr "Er zijn geen DNS instellingen gevonden."
-
-msgid "No Data"
-msgstr "Geen Data"
 
 msgid "No Extent has been configured."
 msgstr "Er is geen Extent geconfigureerd."
@@ -10806,6 +10773,10 @@ msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 "Vingerafdruk instellen voor een enkel certificaat om TLS te accepteren."
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+"Stel de standaard bestemmingspagina in voor het menu Diagnose > Informatie."
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12908,11 +12879,6 @@ msgid "These parameters will be added to [global] settings in %s."
 msgstr ""
 "Deze parameters worden toegevoegd aan [algemene] instellingen van %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr ""
-"Deze parameters worden toegevoegd aan de algemene instellingen van %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr "Deze parameters worden toegevoegd aan minidlna.conf"
 
@@ -14079,12 +14045,6 @@ msgstr "Uitpakken"
 msgid "Up"
 msgstr "Boven"
 
-msgid "Update Period"
-msgstr "Update Periode"
-
-msgid "Update period"
-msgstr "Update periode"
-
 msgid "Updatenotifier"
 msgstr "Updatenotifier"
 
@@ -14748,9 +14708,6 @@ msgstr "Wie"
 msgid "Wide Links"
 msgstr "Wide Links"
 
-msgid "Wildcard"
-msgstr "Wildcard"
-
 msgid "Wildcard Domain"
 msgstr "Wildcard Domein"
 
@@ -15322,3 +15279,56 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Een hostnaam alias. Deze optie kan veelvoudig verschijnen, voor elk domein "
+#~ "dat het zelfde IP-adres gebruikt. Gebruik een spatie om meerdere alias namen "
+#~ "te scheiden."
+
+#~ msgid "Custom"
+#~ msgstr "Aangepast"
+
+#~ msgid "Device Polling"
+#~ msgstr "Netwerk Polling"
+
+#~ msgid "Domain Name"
+#~ msgstr "Domein Naam"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Inschakelen domein wildcard"
+
+#~ msgid "Forced Update Period"
+#~ msgstr "Geforceerde Update Periode"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Hoe vaak het IP-adres wordt gecontroleerd. De periode is in seconden (max. "
+#~ "10 dagen)."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Hoe vaak het IP-adres geupdate wordt zelfs wanneer het niet is gewijzigd. De "
+#~ "periode is in seconden (max. 10 dagen)."
+
+#~ msgid "No Data"
+#~ msgstr "Geen Data"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr ""
+#~ "Deze parameters worden toegevoegd aan de algemene instellingen van %s."
+
+#~ msgid "Update Period"
+#~ msgstr "Update Periode"
+
+#~ msgid "Update period"
+#~ msgstr "Update periode"
+
+#~ msgid "Wildcard"
+#~ msgstr "Wildcard"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2020-10-12 12:38+0000\n"
 "Last-Translator: Sebastião Luiz Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:44+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: Brazilian Portuguese\n"
 "Language: \n"
 "X-Poedit-Language: Brazilian Portuguese\n"
@@ -356,14 +356,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Atualização de firmware em andamento."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Um apelido de máquina (hostname). Esta opção pode aparecer várias vezes, "
-"para cada domínio que use o mesmo IP. Use um espaço para separar múltiplos "
-"nomes de apelidos."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2654,9 +2646,6 @@ msgstr "Potência Real (Watts)"
 msgid "Current year"
 msgstr "Ano atual"
 
-msgid "Custom"
-msgstr "Personalizado"
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -3263,9 +3252,6 @@ msgstr "Modelo do Dispositivo"
 msgid "Device Pass-through"
 msgstr "Dispositivo de Passagem"
 
-msgid "Device Polling"
-msgstr "Polling de Dispositivos"
-
 msgid "Device Serial"
 msgstr "Dispositivo Serial"
 
@@ -3307,6 +3293,9 @@ msgstr "Dispositivos"
 
 msgid "Diagnostics"
 msgstr "Diagnóstico"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Diferença"
@@ -4172,9 +4161,6 @@ msgstr "Domínio"
 msgid "Domain Controller Name"
 msgstr "Nome do Controlador de Domínio"
 
-msgid "Domain Name"
-msgstr "Nome do Domínio"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Nome de domínio (DNS/Realm-Name)"
 
@@ -4727,9 +4713,6 @@ msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
 msgstr ""
-
-msgid "Enable domain wildcarding."
-msgstr "Permitir uso de curinga no domínio."
 
 msgid "Enable encryption."
 msgstr "Ative criptografia."
@@ -5540,9 +5523,6 @@ msgstr ""
 msgid "Force User"
 msgstr ""
 
-msgid "Forced Update Period"
-msgstr ""
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -5986,19 +5966,6 @@ msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
 msgstr ""
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-"Frequência com que o endereço IP é verificado. Este tempo é dado em segundos "
-"(max. é 10 dias)."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Frequência com que o endereço IP é atualizado mesmo que não se altere. Este "
-"tempo é dado em segundos (max. é 10 dias)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -6786,6 +6753,9 @@ msgstr ""
 
 msgid "LUNs"
 msgstr "LUNs"
+
+msgid "Landing Pages"
+msgstr ""
 
 msgid "Language"
 msgstr "Idioma"
@@ -7852,9 +7822,6 @@ msgstr ""
 
 msgid "No DNS setting found."
 msgstr "Nenhuma configuração de DNS encontrada."
-
-msgid "No Data"
-msgstr ""
 
 msgid "No Extent has been configured."
 msgstr ""
@@ -10440,6 +10407,9 @@ msgstr ""
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12344,10 +12314,6 @@ msgstr "Esses parâmetros serão adicionados a %s."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Esses parâmetros serão adicionados às definições [global] em %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Esses parâmetros serão adicionados às definições globais em %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr ""
 
@@ -13407,12 +13373,6 @@ msgstr ""
 msgid "Up"
 msgstr "Para cima"
 
-msgid "Update Period"
-msgstr ""
-
-msgid "Update period"
-msgstr "Período de atualização"
-
 msgid "Updatenotifier"
 msgstr ""
 
@@ -14031,9 +13991,6 @@ msgstr "Quem"
 msgid "Wide Links"
 msgstr ""
 
-msgid "Wildcard"
-msgstr "Caracter especial"
-
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14579,3 +14536,46 @@ msgstr ""
 
 msgid "yes"
 msgstr "sim"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Um apelido de máquina (hostname). Esta opção pode aparecer várias vezes, "
+#~ "para cada domínio que use o mesmo IP. Use um espaço para separar múltiplos "
+#~ "nomes de apelidos."
+
+#~ msgid "Custom"
+#~ msgstr "Personalizado"
+
+#~ msgid "Device Polling"
+#~ msgstr "Polling de Dispositivos"
+
+#~ msgid "Domain Name"
+#~ msgstr "Nome do Domínio"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Permitir uso de curinga no domínio."
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Frequência com que o endereço IP é verificado. Este tempo é dado em segundos "
+#~ "(max. é 10 dias)."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Frequência com que o endereço IP é atualizado mesmo que não se altere. Este "
+#~ "tempo é dado em segundos (max. é 10 dias)."
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Esses parâmetros serão adicionados às definições globais em %s."
+
+#~ msgid "Update period"
+#~ msgstr "Período de atualização"
+
+#~ msgid "Wildcard"
+#~ msgstr "Caracter especial"

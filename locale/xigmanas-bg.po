@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
 "PO-Revision-Date: 2020-12-18 21:08+0000\n"
 "Last-Translator: Ivan Gorinov <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:45+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:02+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: BULGARIA\n"
 "Language: \n"
 "X-Poedit-Language: Bulgarian\n"
@@ -327,14 +327,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Ъпдейт на системата е в процес."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Хост име - псевдоним. Тази опция може да се появи многократно, за всеки "
-"домейн който има същото IP. Използвайте space, за да разделите няколко "
-"псевдонима."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2575,9 +2567,6 @@ msgstr "Текуща стойност на истинската мощност(�
 msgid "Current year"
 msgstr ""
 
-msgid "Custom"
-msgstr "Потребителски"
-
 msgid "Custom Provider"
 msgstr ""
 
@@ -3169,9 +3158,6 @@ msgstr "Модел на Устройство"
 msgid "Device Pass-through"
 msgstr "Пропускливост на Устройство"
 
-msgid "Device Polling"
-msgstr ""
-
 msgid "Device Serial"
 msgstr "Сериен номер на Устройство"
 
@@ -3207,6 +3193,9 @@ msgstr "Устройства"
 
 msgid "Diagnostics"
 msgstr "Диагностика"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Разлика"
@@ -4048,9 +4037,6 @@ msgstr "Домейн"
 msgid "Domain Controller Name"
 msgstr ""
 
-msgid "Domain Name"
-msgstr ""
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr ""
 
@@ -4594,9 +4580,6 @@ msgstr ""
 msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
-msgstr ""
-
-msgid "Enable domain wildcarding."
 msgstr ""
 
 msgid "Enable encryption."
@@ -5387,9 +5370,6 @@ msgstr ""
 msgid "Force User"
 msgstr ""
 
-msgid "Forced Update Period"
-msgstr ""
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -5830,15 +5810,6 @@ msgstr ""
 msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
-msgstr ""
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
 msgstr ""
 
 msgid ""
@@ -6593,6 +6564,9 @@ msgid "LUN record is unlocked"
 msgstr ""
 
 msgid "LUNs"
+msgstr ""
+
+msgid "Landing Pages"
 msgstr ""
 
 msgid "Language"
@@ -7637,9 +7611,6 @@ msgid "No DNS server have been configured."
 msgstr ""
 
 msgid "No DNS setting found."
-msgstr ""
-
-msgid "No Data"
 msgstr ""
 
 msgid "No Extent has been configured."
@@ -10188,6 +10159,9 @@ msgstr ""
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -11997,10 +11971,6 @@ msgstr ""
 msgid "These parameters will be added to [global] settings in %s."
 msgstr ""
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr ""
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr ""
 
@@ -12993,12 +12963,6 @@ msgstr ""
 msgid "Up"
 msgstr "Нагоре"
 
-msgid "Update Period"
-msgstr ""
-
-msgid "Update period"
-msgstr ""
-
 msgid "Updatenotifier"
 msgstr ""
 
@@ -13601,9 +13565,6 @@ msgstr ""
 msgid "Wide Links"
 msgstr ""
 
-msgid "Wildcard"
-msgstr ""
-
 msgid "Wildcard Domain"
 msgstr ""
 
@@ -14138,3 +14099,14 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Хост име - псевдоним. Тази опция може да се появи многократно, за всеки "
+#~ "домейн който има същото IP. Използвайте space, за да разделите няколко "
+#~ "псевдонима."
+
+#~ msgid "Custom"
+#~ msgstr "Потребителски"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-03-25 18:58+0000\n"
-"PO-Revision-Date: 2021-03-25 19:25+0000\n"
+"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"PO-Revision-Date: 2021-04-06 05:11+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-03 16:45+0000\n"
-"X-Generator: Launchpad (build 57f1f603f707b9cfa764cae8dd0f3999026b4763)\n"
+"X-Launchpad-Export-Date: 2021-04-11 00:02+0000\n"
+"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -360,14 +360,6 @@ msgstr ""
 
 msgid "A firmware upgrade is in progress."
 msgstr "Une mise à niveau du micrologiciel est en cours."
-
-msgid ""
-"A host name alias. This option can appear multiple times, for each domain "
-"that has the same IP. Use a space to separate multiple alias names."
-msgstr ""
-"Un alias de nom de serveur. Cette option peut apparaître un certain nombre "
-"de fois, pour chaque domaine ayant la même IP. Utiliser un espace pour "
-"séparer les alias multiples."
 
 msgid ""
 "A key will be either 5 or 13 characters (40 or 104 bits) depending of the "
@@ -2721,9 +2713,6 @@ msgstr "Valeur courante de la puissance réelle (Watts)"
 msgid "Current year"
 msgstr "Année en cours"
 
-msgid "Custom"
-msgstr "Personnaliser"
-
 msgid "Custom Provider"
 msgstr "Fournisseur Personnalisé"
 
@@ -3343,9 +3332,6 @@ msgstr "Modèle du peripherique"
 msgid "Device Pass-through"
 msgstr "Périphérique Pass-through"
 
-msgid "Device Polling"
-msgstr "Détection de périphérique"
-
 msgid "Device Serial"
 msgstr "Interface série"
 
@@ -3388,6 +3374,9 @@ msgstr "Périphérique"
 
 msgid "Diagnostics"
 msgstr "Diagnostics"
+
+msgid "Diagnostics Information"
+msgstr ""
 
 msgid "Difference"
 msgstr "Différence"
@@ -4273,9 +4262,6 @@ msgstr "Domaine"
 msgid "Domain Controller Name"
 msgstr "Nom du contrôleur de domaine"
 
-msgid "Domain Name"
-msgstr "Nom de Domaine"
-
 msgid "Domain Name (DNS/Realm-Name)"
 msgstr "Nom de domaine (DNS / nom de domaine)"
 
@@ -4833,9 +4819,6 @@ msgid ""
 msgstr ""
 "Activez le caractère générique du nom de domaine , pour les fournisseurs "
 "DDNS qui le prennent en charge."
-
-msgid "Enable domain wildcarding."
-msgstr "Activer les wildcards pour les domaines"
 
 msgid "Enable encryption."
 msgstr "Encryption autorisée."
@@ -5697,9 +5680,6 @@ msgstr "Forcer l'usage"
 msgid "Force User"
 msgstr "Utilisateur Public"
 
-msgid "Forced Update Period"
-msgstr "Période de mise à jour forcée"
-
 msgid ""
 "Forces use of vdevs, even if they appear in use or specify different size. "
 "(This is not recommended.)"
@@ -6170,19 +6150,6 @@ msgid ""
 msgstr ""
 "Fréquence de vérification de l'adresse IP, en secondes. Par défaut: environ "
 "1 minute. Max: 10 jours."
-
-msgid ""
-"How often the IP is checked. The period is in seconds (max. is 10 days)."
-msgstr ""
-"Intervalle de vérification de l'IP. La période est en secondes (10 jours "
-"maximum)."
-
-msgid ""
-"How often the IP is updated even if it is not changed. The period is in "
-"seconds (max. is 10 days)."
-msgstr ""
-"Indique l'intervalle de mise à jour de l'IP si celle-ci n'a pas changé. La "
-"période est en secondes (10 jours maximum)."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -7029,6 +6996,9 @@ msgstr "L'enregistrement de LUN est déverrouillé"
 msgid "LUNs"
 msgstr "LUNs"
 
+msgid "Landing Pages"
+msgstr ""
+
 msgid "Language"
 msgstr "Langue"
 
@@ -7220,7 +7190,7 @@ msgid "Listen record is unlocked"
 msgstr "L'enregistrement d'écoute est déverrouillé"
 
 msgid "Load"
-msgstr "Charge"
+msgstr "Charger"
 
 msgid "Load Averages"
 msgstr "Moyennes de charge"
@@ -8144,9 +8114,6 @@ msgstr "Aucun serveur DNS n'a été configuré."
 
 msgid "No DNS setting found."
 msgstr "Pas de configuration DNS trouvée."
-
-msgid "No Data"
-msgstr "Pas de données"
 
 msgid "No Extent has been configured."
 msgstr "Aucune extension n'a été configurée"
@@ -10834,6 +10801,9 @@ msgstr "Configure le SSID (Identifiant du service, ou nom du réseau)"
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Définissez l'empreinte d'un seul certificat à accepter pour TLS."
 
+msgid "Set the landing page for the Diagnostics > Information menu."
+msgstr ""
+
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
 "interface specific. The MTU is used to limit the size of packets that are "
@@ -12943,10 +12913,6 @@ msgstr "Ces paramètres vont être ajoutés à '%s'."
 msgid "These parameters will be added to [global] settings in %s."
 msgstr "Ces paramètres seront ajoutés à la section [global] dans %s."
 
-#, php-format
-msgid "These parameters will be added to global settings in %s."
-msgstr "Ces paramètres seront ajoutés à la configuration globale dans %s."
-
 msgid "These parameters will be added to minidlna.conf"
 msgstr "Ces paramètres seront ajoutés à minidlna.conf"
 
@@ -14111,12 +14077,6 @@ msgstr "Unzip"
 msgid "Up"
 msgstr "Haut"
 
-msgid "Update Period"
-msgstr "Intervalle de mise à jour"
-
-msgid "Update period"
-msgstr "Période de mise à jour"
-
 msgid "Updatenotifier"
 msgstr "Mettre à jour le notificateur"
 
@@ -14788,9 +14748,6 @@ msgstr "Utilisateur"
 msgid "Wide Links"
 msgstr "Liens Etendus"
 
-msgid "Wildcard"
-msgstr "Caractère de remplacement"
-
 msgid "Wildcard Domain"
 msgstr "Domaine Générique"
 
@@ -15364,3 +15321,55 @@ msgstr "a été assigné à"
 
 msgid "yes"
 msgstr "oui"
+
+#~ msgid ""
+#~ "A host name alias. This option can appear multiple times, for each domain "
+#~ "that has the same IP. Use a space to separate multiple alias names."
+#~ msgstr ""
+#~ "Un alias de nom de serveur. Cette option peut apparaître un certain nombre "
+#~ "de fois, pour chaque domaine ayant la même IP. Utiliser un espace pour "
+#~ "séparer les alias multiples."
+
+#~ msgid "Custom"
+#~ msgstr "Personnaliser"
+
+#~ msgid "Device Polling"
+#~ msgstr "Détection de périphérique"
+
+#~ msgid "Domain Name"
+#~ msgstr "Nom de Domaine"
+
+#~ msgid "Enable domain wildcarding."
+#~ msgstr "Activer les wildcards pour les domaines"
+
+#~ msgid "Forced Update Period"
+#~ msgstr "Période de mise à jour forcée"
+
+#~ msgid ""
+#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Intervalle de vérification de l'IP. La période est en secondes (10 jours "
+#~ "maximum)."
+
+#~ msgid ""
+#~ "How often the IP is updated even if it is not changed. The period is in "
+#~ "seconds (max. is 10 days)."
+#~ msgstr ""
+#~ "Indique l'intervalle de mise à jour de l'IP si celle-ci n'a pas changé. La "
+#~ "période est en secondes (10 jours maximum)."
+
+#~ msgid "No Data"
+#~ msgstr "Pas de données"
+
+#, php-format
+#~ msgid "These parameters will be added to global settings in %s."
+#~ msgstr "Ces paramètres seront ajoutés à la configuration globale dans %s."
+
+#~ msgid "Update Period"
+#~ msgstr "Intervalle de mise à jour"
+
+#~ msgid "Update period"
+#~ msgstr "Période de mise à jour"
+
+#~ msgid "Wildcard"
+#~ msgstr "Caractère de remplacement"
