@@ -240,9 +240,14 @@ transmission_prestart()
 
 transmission_poststart()
 {
-	local _command_args
+	local _command_args _exitstatus _retry _retry_loops _retry_zzz
 
-	_command_args=`/usr/local/bin/xml sel --template \
+#	set retry counter, wait interval and max retries for transmission-daemon web interface to become ready
+	_retry=0
+	_retry_zzz=1
+	_retry_loops=15
+
+	_command_args=$( /usr/local/bin/xml sel --template \
 		--match "//bittorrent" \
 			--if "count(authrequired) > 0" \
 				--if "string-length(username) > 0 and string-length(password) > 0" \
@@ -293,9 +298,19 @@ transmission_poststart()
 				--value-of "concat(' ',extraoptions)" \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
-	/usr/local/bin/transmission-remote${_command_args} >/dev/null 2>&1
-	sleep 1
+		${configxml_file} | /usr/local/bin/xml unesc )
+#	wait for transmission-remote to finish successfully or exit after retries exhausted.
+	while true; do
+		/usr/local/bin/transmission-remote${_command_args} >/dev/null 2>&1
+		_exitstatus=$?
+		if [ "${_exitstatus}" -eq 0 ]; then
+			break
+		elif [ "${_retry}" -ge "${_retry_loops}" ]; then
+			break
+		fi
+		_retry=$(/bin/expr ${_retry} + 1)
+		sleep ${_retry_zzz}
+	done
 }
 
 transmission_prestop() {
