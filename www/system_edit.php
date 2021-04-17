@@ -56,7 +56,7 @@ if(isset($_POST['submit'])):
 		case 'highlightdis':
 		case 'highlightena':
 			$content = $_POST['code'] ?? null;
-		case 'edit':
+		case 'open':
 			if(preg_match('/\S/',$savetopath)):
 				if(file_exists($savetopath) && is_file($savetopath)):
 					$content ??= file_get_contents($savetopath);
@@ -103,7 +103,7 @@ if(isset($_POST['submit'])):
 		case 'save':
 			if(preg_match('/\S/',$savetopath)):
 				conf_mount_rw();
-				$content = preg_replace('/\r/','',$_POST['code']) ;
+				$content = preg_replace("/\r/",'',$_POST['code']) ;
 				file_put_contents($savetopath,$content);
 				$savemsg = sprintf('%s %s',gtext('Saved file to'),$savetopath);
 				if($savetopath === "{$g['cf_conf_path']}/config.xml"):
@@ -129,98 +129,98 @@ $(window).on("load", function() {
 	<div class="area_data_top"></div>
 	<div id="area_data_frame">
 <?php
-	if(!empty($savemsg)):
-		print_info_box($savemsg);
-	endif;
+		if(!empty($savemsg)):
+			print_info_box($savemsg);
+		endif;
 ?>
-	<table class="area_data_settings">
-		<colgroup>
-			<col class="area_data_settings_col_tag">
-			<col class="area_data_settings_col_data">
-		</colgroup>
-		<thead>
+		<table class="area_data_settings">
+			<colgroup>
+				<col class="area_data_settings_col_tag">
+				<col class="area_data_settings_col_data">
+			</colgroup>
+			<thead>
 <?php
-			html_titleline2(gettext('File Editor'),2);
+				html_titleline2(gettext('File Editor'),2);
 ?>
-		</thead>
-		<tbody>
-			<tr>
-				<td class="celltag"><?=gtext('File Path');?></td>
-				<td class="celldata">
-					<input size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>" />
-					<input name="browse" type="button" class="formbtn" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="..." />
-					<button name="submit" type="submit" class="formbtn" id="Edit" value="edit"><?=gtext('Load');?></button>
-<?php
-					if($hlm_available && $hlm_enabled):
-					else:
-?>
-						<button name="submit" type="submit" class="formbtn" id="Save" value="save"><?=gtext('Save');?></button>
-<?php
-					endif;
-?>
-				</td>
-			</tr>
-<?php
-			if((!$hlm_available)):
-?>
+			</thead>
+			<tbody>
 				<tr>
-					<td class="celltag"><?=gtext('Size');?></td>
+					<td class="celltag"><?=gtext('File Path');?></td>
 					<td class="celldata">
-						<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
-						<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
-						<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
-						<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+						<input size="42" id="savetopath" name="savetopath" value="<?=$savetopath;?>" />
+						<input name="browse" type="button" class="formbtn" id="Browse" onclick='ifield = form.savetopath; filechooser = window.open("filechooser.php?p="+encodeURIComponent(ifield.value),"filechooser","scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300"); filechooser.ifield = ifield; window.ifield = ifield;' value="..." />
+						<button name="submit" type="submit" class="formbtn" id="open" value="open"><?=gtext('Open File');?></button>
+<?php
+						if($hlm_available && $hlm_enabled):
+						else:
+?>
+							<button name="submit" type="submit" class="formbtn" id="Save" value="save"><?=gtext('Save File');?></button>
+<?php
+						endif;
+?>
 					</td>
 				</tr>
 <?php
-			elseif($hlm_enabled):
+				if((!$hlm_available)):
+?>
+					<tr>
+						<td class="celltag"><?=gtext('Size');?></td>
+						<td class="celldata">
+							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
+							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
+							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
+							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+						</td>
+					</tr>
+<?php
+				elseif($hlm_enabled):
+?>
+					<tr>
+						<td class="celltag"><?=gtext('Highlight View');?></td>
+						<td class="celldata">
+							<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightdis"><?=gtext('Disable');?></button>
+							<input type="hidden" name="rows" value="<?=$rows;?>"/>
+							<input type="hidden" name="cols" value="<?=$cols;?>"/>
+							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+						</td>
+					</tr>
+<?php
+				else:
+?>
+					<tr>
+						<td class="celltag"><?=gtext('Size');?></td>
+						<td class="celldata">
+							<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
+							<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
+							<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
+						</td>
+					</tr>
+					<tr>
+						<td class="celltag"><?=gtext('Highlight View');?></td>
+						<td class="celldata">
+							<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightena"><?=gtext('Enable');?></button>
+							<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+						</td>
+					</tr>
+<?php
+				endif;
 ?>
 				<tr>
-					<td class="celltag"><?=gtext('Highlight View');?></td>
+					<td class="celltag"><?=gtext('Content');?></td>
 					<td class="celldata">
-						<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightdis"><?=gtext('Disable');?></button>
-						<input type="hidden" name="rows" value="<?=$rows;?>"/>
-						<input type="hidden" name="cols" value="<?=$cols;?>"/>
-						<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
+<?php
+//						NOTE: The opening and the closing textarea tag must be on the same line.
+?>
+						<textarea style="width:100%;margin:0;white-space:pre;font-family:'Courier New',Courier,monospace" class="<?=$language;?>:showcolumns" rows="<?=$rows;?>" cols="<?=$cols;?>" name="code"><?=htmlspecialchars(!empty($content) ? $content : '');?></textarea>
 					</td>
 				</tr>
-<?php
-			else:
-?>
-				<tr>
-					<td class="celltag"><?=gtext('Size');?></td>
-					<td class="celldata">
-						<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
-						<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
-						<button type="submit" name="submit" class="formbtn" id="rowcol" value="rowcol"><?=gtext('Set');?></button>
-					</td>
-				</tr>
-				<tr>
-					<td class="celltag"><?=gtext('Highlight View');?></td>
-					<td class="celldata">
-						<button type="submit" name="submit" class="formbtn" id="highlight" value="highlightena"><?=gtext('Enable');?></button>
-						<input type="hidden" name="hlm" value="<?=($hlm_enabled ? 'enabled' : 'disabled');?>"/>
-					</td>
-				</tr>
-<?php
-			endif;
-?>
-			<tr>
-				<td class="celltag"><?=gtext('Content');?></td>
-				<td class="celldata">
-<?php
-//					NOTE: The opening and the closing textarea tag must be on the same line.
-?>
-					<textarea style="width:100%;margin:0;white-space:pre;font-family:'Courier New',Courier,monospace" class="<?=$language;?>:showcolumns" rows="<?=$rows;?>" cols="<?=$cols;?>" name="code"><?=htmlspecialchars(!empty($content) ? $content : '');?></textarea>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+			</tbody>
+		</table>
 <?php
 include 'formend.inc';
 ?>
-</div>
-<div class="area_data_pot"></div>
+	</div>
+	<div class="area_data_pot"></div>
 </form>
 <?php
 if($hlm_available && $hlm_enabled):
@@ -230,14 +230,14 @@ if($hlm_available && $hlm_enabled):
 ?>
 <script>
 //<![CDATA[
-//	Append css for syntax highlighter.
+//	append css for syntax highlighter.
 	var head = document.getElementsByTagName("head")[0];
 	var linkObj = document.createElement("link");
 	linkObj.setAttribute("type","text/css");
 	linkObj.setAttribute("rel","stylesheet");
 	linkObj.setAttribute("href","syntaxhighlighter/SyntaxHighlighter.css");
 	head.appendChild(linkObj);
-//	Activate dp.SyntaxHighlighter
+//	activate dp.SyntaxHighlighter
 	dp.SyntaxHighlighter.HighlightAll('code',true,true);
 //]]>
 </script>
