@@ -31,51 +31,58 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 $savetopath = '';
-if (isset($_POST['savetopath']))  {
+if(isset($_POST['savetopath'])):
 	$savetopath = htmlspecialchars($_POST['savetopath']);
-}
-if(isset($_POST['submit'])) {
-	switch($_POST['submit']) {
-		case 'edit':
-			if(preg_match('/\S/', $savetopath)) {
-				if(file_exists($savetopath) && is_file($savetopath)) {
+endif;
+if(isset($_POST['submit'])):
+	switch($_POST['submit']):
+		case 'open':
+			if(preg_match('/\S/',$savetopath)):
+				if(file_exists($savetopath) && is_file($savetopath)):
 					$content = file_get_contents($savetopath);
-					$edit_area = "";
-					if (stristr($savetopath, ".php") == true) $language = "php";
-					else if (stristr($savetopath, ".inc") == true) $language = "php";
-					else if (stristr($savetopath, ".sh") == true) $language = "core";
-					else if (stristr($savetopath, ".xml") == true) $language = "xml";
-					else if (stristr($savetopath, ".js") == true) $language = "js";
-					else if (stristr($savetopath, ".css") == true) $language = "css";
-				} else {
-					$savemsg = sprintf('%s %s', gtext('File not found'), $savetopath);
+					$edit_area = '';
+					if(stristr($savetopath,'.php') == true):
+						$language = 'php';
+					elseif(stristr($savetopath,'.inc') == true):
+						$language = 'php';
+					elseif(stristr($savetopath,'.sh') == true):
+						$language = 'core';
+					elseif(stristr($savetopath,'.xml') == true):
+						$language = 'xml';
+					elseif(stristr($savetopath,'.js') == true):
+						$language = 'js';
+					elseif(stristr($savetopath,'.css') == true):
+						$language = 'css';
+					endif;
+				else:
+					$savemsg = sprintf('%s %s',gtext('File not found'),$savetopath);
 					$content = '';
-					$savetopath = '';			
-				}
-			}
+					$savetopath = '';
+				endif;
+			endif;
 			break;
 		case 'save':
-			if(preg_match('/\S/', $savetopath)) {
+			if(preg_match('/\S/',$savetopath)):
 				conf_mount_rw();
-				$content = preg_replace("/\r/","",$_POST['code']) ;
-				file_put_contents($savetopath, $content);
-				$edit_area = "";
-				$savemsg = sprintf('%s %s', gtext('Saved file to'), $savetopath);
-				if ($savetopath === "{$g['cf_conf_path']}/config.xml") {
+				$content = preg_replace("/\r/",'',$_POST['code']) ;
+				file_put_contents($savetopath,$content);
+				$edit_area = '';
+				$savemsg = sprintf('%s %s',gtext('Saved file to'),$savetopath);
+				if($savetopath === "{$g['cf_conf_path']}/config.xml"):
 					unlink_if_exists("{$g['tmp_path']}/config.cache");
-				}
+				endif;
 				conf_mount_ro();
-			}
+			endif;
 			break;
-	}
-}
-
-if(isset($_POST['highlight']) && !empty($_POST['highlight'])) {
-	switch($_POST['highlight']) {
+	endswitch;
+endif;
+if(isset($_POST['highlight']) && !empty($_POST['highlight'])):
+	switch($_POST['highlight']):
 		case 'yes':
 		case 'enabled':
 			$highlight = 'yes';
@@ -83,22 +90,22 @@ if(isset($_POST['highlight']) && !empty($_POST['highlight'])) {
 		default:
 			$highlight = 'no';
 			break;
-	}
-}
-if(isset($_POST['rows']) && !empty($_POST['rows'])) {
+	endswitch;
+endif;
+if(isset($_POST['rows']) && !empty($_POST['rows'])):
 	$rows = $_POST['rows'];
-} else {
+else:
 	$rows = 30;
-}
-if(isset($_POST['cols']) && !empty($_POST['cols'])) {
+endif;
+if(isset($_POST['cols']) && !empty($_POST['cols'])):
 	$cols = $_POST['cols'];
-} else {
+else:
 	$cols = 66;
-}
-$pgtitle = [gtext('Tools'), gtext('File Editor')];
+endif;
+$pgtitle = [gtext('Tools'),gtext('File Editor')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php	// Init spinner onsubmit()?>
@@ -106,7 +113,7 @@ $(window).on("load", function() {
 });
 //]]>
 </script>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="system_edit.php" method="post" name="iform" id="iform">
+<form action="system_edit.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if(!empty($savemsg)):
 		print_info_box($savemsg);
@@ -131,7 +138,7 @@ $(window).on("load", function() {
 					<hr noshade="noshade" />
 <?php
 					if(isset($_POST['highlight']) && $_POST['highlight'] == "no"):
-?>						
+?>
 						<?=gtext('Rows'); ?>: <input size="3" name="rows" value="<?=$rows;?>"/>
 						<?=gtext('Cols'); ?>: <input size="3" name="cols" value="<?=$cols;?>"/>
 <?php
@@ -153,7 +160,7 @@ $(window).on("load", function() {
 				<td valign="top" class="label">
 					<div style="background: #eeeeee;" id="textareaitem">
 <?php
-						//	NOTE: The opening *and* the closing textarea tag must be on the same line.
+//						NOTE: The opening and the closing textarea tag must be on the same line.
 ?>
 						<textarea style="width:100%; margin:0;" class="<?=$language;?>:showcolumns" rows="<?=$rows;?>" cols="<?=$cols;?>" name="code"><?=htmlspecialchars(!empty($content) ? $content : '');?></textarea>
 					</div>
@@ -164,7 +171,7 @@ $(window).on("load", function() {
 <?php
 include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</td></tr></tbody></table></form>
 <script type="text/javascript" src="syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="syntaxhighlighter/shBrushCSharp.js"></script>
 <script type="text/javascript" src="syntaxhighlighter/shBrushPhp.js"></script>
@@ -177,26 +184,24 @@ include 'formend.inc';
 <script type="text/javascript" src="syntaxhighlighter/shBrushPython.js"></script>
 <script type="text/javascript" src="syntaxhighlighter/shBrushRuby.js"></script>
 <script type="text/javascript" src="syntaxhighlighter/shBrushCss.js"></script>
-<script type="text/javascript">
+<script>
 //<![CDATA[
-  // Set focus.
-  document.forms[0].savetopath.focus();
-
-  // Append css for syntax highlighter.
-  var head = document.getElementsByTagName("head")[0];
-  var linkObj = document.createElement("link");
-  linkObj.setAttribute("type","text/css");
-  linkObj.setAttribute("rel","stylesheet");
-  linkObj.setAttribute("href","syntaxhighlighter/SyntaxHighlighter.css");
-  head.appendChild(linkObj);
-
-  // Activate dp.SyntaxHighlighter?
-  <?php
-  if($_POST['highlight'] == "yes") {
-    echo "dp.SyntaxHighlighter.HighlightAll('code', true, true);\n";
-    // Disable 'Save' button.
-    echo "document.forms[0].Save.disabled = 1;\n";
-  }
+//	set focus.
+	document.forms[0].savetopath.focus();
+//	append css for syntax highlighter.
+	var head = document.getElementsByTagName("head")[0];
+	var linkObj = document.createElement("link");
+	linkObj.setAttribute("type","text/css");
+	linkObj.setAttribute("rel","stylesheet");
+	linkObj.setAttribute("href","syntaxhighlighter/SyntaxHighlighter.css");
+	head.appendChild(linkObj);
+//	activate dp.SyntaxHighlighter?
+<?php
+	if($_POST['highlight'] == 'yes'):
+		echo "dp.SyntaxHighlighter.HighlightAll('code', true, true);\n";
+//		disable 'Save' button.
+		echo "document.forms[0].Save.disabled = 1;\n";
+	endif;
 ?>
 //]]>
 </script>
