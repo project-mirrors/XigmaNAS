@@ -116,7 +116,7 @@ server.errorlog-use-syslog = "enable"
 debug.log-request-handling = "disable"
 server.event-handler = "freebsd-kqueue"
 server.max-write-idle = ${websrv_server_maxwriteidle}
-index-file.names   = ( "index.php", "index.html", "index.htm", "index.shtml", "default.htm" )
+index-file.names = ( "index.php", "index.html", "index.htm", "index.shtml", "default.htm" )
 
 # set trust path
 setenv.add-environment = ( "PATH" => "/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin" )
@@ -288,11 +288,11 @@ EOF
 			if [ -n "${_certificate}" ]; then
 				_tmpfile=/tmp/websrv$$.tmp
 				echo "${_certificate}" > ${_tmpfile}
-				/usr/bin/uudecode -m -p -r ${_tmpfile} > ${websrv_certpem}
+				/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' > ${websrv_certpem}
 				if [ -n "${_privatekey}" ]; then
 					echo "" >> ${websrv_certpem}
 					echo "${_privatekey}" > ${_tmpfile}
-					/usr/bin/uudecode -m -p -r ${_tmpfile} >> ${websrv_certpem}
+					/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' >> ${websrv_certpem}
 				fi
 				/bin/rm -f ${_tmpfile}
 			fi
