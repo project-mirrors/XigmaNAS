@@ -29,11 +29,11 @@ stop_cmd="fusefs_stop"
 fusefs_enable=${fusefs_enable:-"NO"}
 fusefs_safe=${fusefs_safe:-"NO"}
 fusefs_safe_evil=${fusefs_safe_evil:-"NO"}
-kmod="/boot/kernel/fuse.ko"
+kmod="/boot/kernel/fusefs.ko"
 
 fusefs_start()
 {
-	if kldstat | grep -q fuse\\.ko; then
+	if kldstat | grep -q fusefs\\.ko; then
 		echo "${name} is already running."
 		return 0
 	fi
@@ -43,7 +43,7 @@ fusefs_start()
 
 fusefs_stop()
 {
-	if ! kldstat | grep -q fuse\\.ko; then
+	if ! kldstat | grep -q fusefs\\.ko; then
 		echo "${name} is not running."
 		return 1
 	fi
