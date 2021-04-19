@@ -62,4 +62,3 @@ aesni/aesni.ko
 hifn/hifn.ko
 safe/safe.ko
 padlock/padlock.ko
-ubsec/ubsec.ko
