@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -7430,6 +7430,9 @@ msgstr ""
 msgid "Only metadata will be cached in L2ARC."
 msgstr ""
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr ""
 
@@ -9037,6 +9040,9 @@ msgid "Save"
 msgstr ""
 
 msgid "Save & Restart"
+msgstr ""
+
+msgid "Save File"
 msgstr ""
 
 msgid "Save and Restart"
