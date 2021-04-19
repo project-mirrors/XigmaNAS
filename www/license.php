@@ -101,11 +101,6 @@ $software = [
 		'Filesystem in Userspace (<a href="https://github.com/libfuse/libfuse" target="_blank" rel="noreferrer">https://github.com/libfuse/libfuse</a>).',
 		'Copyright © GNU General Public License. All Rights Reserved.'
 	]],
-	['GEOM RAID5',[
-		'GEOM RAID5 module (<a href="http://www.wgboome.org/geom_raid5-html" target="_blank" rel="noreferrer">http://www.wgboome.org/geom_raid5-html</a> & <a href="http://lev.serebryakov.spb.ru/download/graid5/" target="_blank" rel="noreferrer">http://lev.serebryakov.spb.ru/download/graid5</a>).',
-		'Copyright © 2006-2010 Originally written by Arne Woerner (<a href="mailto:graid5@wgboome.org">graid5@wgboome.org</a>).',
-		'Copyright © 2010-2014 maintained by Lev Serebryakov (<a href="mailto:lev@FreeBSD.org">lev@FreeBSD.org</a>).'
-	]],
 	['host',[
 		'An utility to query DNS servers.',
 		'Copyright © Rewritten by Eric Wassenaar, Nikhef-H, (<a href="mailto:e07@nikhef.nl">e07@nikhef.nl</a>). All Rights Reserved.'
