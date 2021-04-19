@@ -313,12 +313,12 @@ EOF
 			if [ -n "${_certificate}" ]; then
 				_tmpfile=/tmp/lighttpd$$.tmp
 				echo "${_certificate}" > ${_tmpfile}
-				/usr/bin/uudecode -m -p -r ${_tmpfile} > ${lighttpd_certpem}
+				/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' > ${lighttpd_certpem}
 				_privatekey=`configxml_get "//system/webgui/privatekey"`
 				if [ -n "${_privatekey}" ]; then
 					echo "" >> ${lighttpd_certpem}
 					echo "${_privatekey}" > ${_tmpfile}
-					/usr/bin/uudecode -m -p -r ${_tmpfile} >> ${lighttpd_certpem}
+					/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' >> ${lighttpd_certpem}
 				fi
 				/bin/rm -f ${_tmpfile}
 			fi
