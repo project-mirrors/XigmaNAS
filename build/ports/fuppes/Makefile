@@ -65,9 +65,11 @@ pre-configure:
 	@(cd ${WRKDIR}/${DISTNAME}; autoreconf -vfi)
 
 do-install:
+# XigmaNAS® Install
+	@echo "Install to ${XIGMANAS_ROOTFS}"
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/${PORTNAME}d ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/libfuppes.so.* ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 
 	# Presentation
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}
@@ -105,5 +107,6 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libsource_bliptv.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${CP} -Rpv ${WRKSRC}/src/plugins/.libs/libsource_itunes.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/plugins/.libs/libsource_itunes.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib/${PORTNAME}
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.14.0
+PORTVERSION=	1.15.1
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -24,8 +24,10 @@ PORTDOCS=	*
 USERS=		syncthing
 GROUPS=		syncthing
 
-STRIP=		# stripping can break go binaries
+# Anonymize
+MAKE_ENV+=	BUILD_USER=ports BUILD_HOST=xigmanas
 
+STRIP=		# stripping can break go binaries
 NO_WRKSUBDIR=   yes
 
 # XigmaNAS
@@ -44,8 +46,11 @@ do-build:
 do-install:
 # XigmaNAS® install
 	@echo "install for ${XIGMANAS_ROOTFS}"
+# rc
+	@${INSTALL_SCRIPT} -v ${FILESDIR}/syncthing.in ${XIGMANAS_ROOTFS}/etc/rc.d/syncthing
+# bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/${PORTNAME}/syncthing \
 		${XIGMANAS_ROOTFS}${PREFIX}/bin/
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/syncthing.in ${XIGMANAS_ROOTFS}/etc/rc.d/syncthing
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

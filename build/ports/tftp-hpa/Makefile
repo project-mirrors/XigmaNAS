@@ -2,10 +2,10 @@ PORTNAME=		tftp-hpa
 PORTVERSION=	5.2
 PORTREVISION=	1
 CATEGORIES=		ftp
-COMMENT=		An advanced tftp server
-MAINTAINER=		zoon01@xigmanas.com
-
 MASTER_SITES=	KERNEL_ORG/software/network/tftp/tftp-hpa
+
+COMMENT=		Advanced TFTP server
+MAINTAINER=		zoon01@xigmanas.com
 
 USES=		gmake tar:xz
 GNU_CONFIGURE=	yes
@@ -22,7 +22,9 @@ post-patch:
 	    ${WRKSRC}/tftpd/tftpd.c
 
 do-install:
+# XigmaNAS® install
+	@echo "install for ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/tftpd.in ${XIGMANAS_ROOTFS}/etc/rc.d/tftpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/tftpd/tftpd ${XIGMANAS_ROOTFS}/usr/local/libexec/tftpd
-
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 .include <bsd.port.mk>
