@@ -3,7 +3,7 @@
 # Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# List of files required for XIGMANAS.
+# Files required for XIGMANAS.
 #
 # Lines with colons (':') in them list files that should be soft-linked
 # to each other, e.g.
@@ -1002,7 +1002,6 @@ usr/share/bsdconfig/sysrc.subr
 usr/share/examples/bhyve/vmrun.sh
 
 ####### contents of /usr/share/misc
-usr/share/misc/bc.library
 usr/share/misc/init.ee
 usr/share/misc/magic
 usr/share/misc/scsi_modes
