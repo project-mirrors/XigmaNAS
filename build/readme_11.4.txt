@@ -141,7 +141,6 @@ Changes:
 - Upgrade zoneinfo to 2021a.
 - Upgrade jQuery to 3.6.0.
 - Upgrade nano to 5.6.1.
-- Upgrade syncthing to 1.14.0.
 - Upgrade php to 7.4.16.
 - Upgrade devcpu-data to 1.38.
 - Upgrade mDNSResponder to 1310.80.1.
@@ -156,6 +155,7 @@ Changes:
 - Upgrade dialog to 1.3-20210324.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade phpmyadmin to 5.1.0.
+- Upgrade syncthing to 1.15.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
