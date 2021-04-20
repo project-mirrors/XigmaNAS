@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
-"PO-Revision-Date: 2021-03-26 04:47+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"PO-Revision-Date: 2021-04-19 11:38+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -3342,7 +3342,7 @@ msgid "Diagnostics"
 msgstr "Диагностика"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "Диагностическая информация"
 
 msgid "Difference"
 msgstr "Изменение"
@@ -6914,7 +6914,7 @@ msgid "LUNs"
 msgstr "Логические номера устройств"
 
 msgid "Landing Pages"
-msgstr ""
+msgstr "Целевые страницы"
 
 msgid "Language"
 msgstr "Язык"
@@ -8437,6 +8437,9 @@ msgstr "Только метаданные будут кэшироваться в
 
 msgid "Only metadata will be cached in L2ARC."
 msgstr "В L2ARC будут кешироваться только метаданные."
+
+msgid "Open File"
+msgstr "Открыть файл"
 
 msgid "Option"
 msgstr "Параметр"
@@ -10165,6 +10168,9 @@ msgstr "Сохранить"
 msgid "Save & Restart"
 msgstr "Сохранить и перезапустить"
 
+msgid "Save File"
+msgstr "Сохранить Файл"
+
 msgid "Save and Restart"
 msgstr "Сохранить и перезапустить"
 
@@ -10696,7 +10702,7 @@ msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Установить отпечаток одного сертификата для приема TLS."
 
 msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr ""
+msgstr "Задайте целевую страницу для меню Диагностика > Информация."
 
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
@@ -15169,53 +15175,3 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Псевдоним сервера (hostname alias). Эта настройка может иметь несколько "
-#~ "строк для каждого домена с одним и тем же IP. Используйте пробел для "
-#~ "разделения нескольких псевдонимов."
-
-#~ msgid "Custom"
-#~ msgstr "Custom"
-
-#~ msgid "Device Polling"
-#~ msgstr "Опрос устройства"
-
-#~ msgid "Domain Name"
-#~ msgstr "Имя домена"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Разрешить подстановочные символы для домена"
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Принудительный период обновления"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr "Частота проверки IP-адреса, интервал в секундах (максимум 10 дней)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Частота обновления IP-адреса, даже если он прежний. Интервал в секундах "
-#~ "(максимум 10 дней)."
-
-#~ msgid "No Data"
-#~ msgstr "Нет данных"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Эти параметры будут добавлены к глобальным настройкам %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Период обновления"
-
-#~ msgid "Update period"
-#~ msgstr "Период обновления"
-
-#~ msgid "Wildcard"
-#~ msgstr "Подстановочные символы"

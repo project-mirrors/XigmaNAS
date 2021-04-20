@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
-"PO-Revision-Date: 2021-03-26 10:13+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"PO-Revision-Date: 2021-04-19 13:01+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:02+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -3413,7 +3413,7 @@ msgid "Diagnostics"
 msgstr "Διαγνωστικά"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "Διαγνωστικές Πληροφορίες"
 
 msgid "Difference"
 msgstr "Διαφορά"
@@ -7046,7 +7046,7 @@ msgid "LUNs"
 msgstr "LUNs"
 
 msgid "Landing Pages"
-msgstr ""
+msgstr "Σελίδες Προορισμού"
 
 msgid "Language"
 msgstr "Γλώσσα"
@@ -8580,6 +8580,9 @@ msgstr "Μόνο τα μεταδεδομένα θα μπουν στην κρυφ
 
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Μόνο τα μεταδεδομένα θα μπουν στην κρυφή μνήμη L2ARC."
+
+msgid "Open File"
+msgstr "Άνοιγμα Αρχείου"
 
 msgid "Option"
 msgstr "Επιλογή"
@@ -10325,6 +10328,9 @@ msgstr "Αποθήκευση"
 msgid "Save & Restart"
 msgstr "Αποθήκευση & Επανεκκίνηση"
 
+msgid "Save File"
+msgstr "Αποθήκευση Αρχείου"
+
 msgid "Save and Restart"
 msgstr "Αποθήκευση και Επανεκκίνηση"
 
@@ -10876,7 +10882,7 @@ msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Ορίστε το αποτύπωμα ενός πιστοποιητικού για αποδοχή από το TLS."
 
 msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr ""
+msgstr "Ορίστε τη σελίδα προορισμού για το μενού Διαγνωστικά > Πληροφορίες"
 
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
@@ -15461,55 +15467,3 @@ msgstr "ανατέθηκε στο"
 
 msgid "yes"
 msgstr "ναι"
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Ένα ψευδώνυμο ονόματος υπολογιστή. Αυτή η επιλογή μπορεί να εμφανίζεται "
-#~ "πολλές φορές, για κάθε τομέα που έχει την ίδια IP. Χρησιμοποιήστε κενό "
-#~ "χαρακτήρα για να διαχωρίσετε πολλαπλά ψευδώνυμα."
-
-#~ msgid "Custom"
-#~ msgstr "Προσαρμοσμένο"
-
-#~ msgid "Device Polling"
-#~ msgstr "Έλεγχος συσκευής"
-
-#~ msgid "Domain Name"
-#~ msgstr "Όνομα Τομέα"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Ενεργοποίηση μπαλαντέρ ονομάτων δικτύου."
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Περίοδος Εξαναγκασμένης Ενημέρωσης"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Πόσο συχνά ελέγχεται η IP. Η περίοδος είναι σε δευτερόλεπτα (το μέγιστο "
-#~ "είναι 10 ημέρες)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Πόσο συχνά ανανεώνεται η IP ακόμα και αν δεν είναι αλλαγμένη. Η περίοδος "
-#~ "είναι σε δευτερόλεπτα (το μέγιστο είναι 10 ημέρες)."
-
-#~ msgid "No Data"
-#~ msgstr "Δεν υπάρχουν Δεδομένα"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Αυτές οι παράμετροι θα προστεθούν ως καθολικές ρυθμίσεις στο %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Περίοδος Ενημέρωσης"
-
-#~ msgid "Update period"
-#~ msgstr "Περίοδος ανανέωσης"
-
-#~ msgid "Wildcard"
-#~ msgstr "Μπαλαντέρ"

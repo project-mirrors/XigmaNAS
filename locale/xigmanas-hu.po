@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -8348,6 +8348,9 @@ msgstr "Csak a metaadatot gyorsítótárazzuk az ARC-ban."
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Csak a metaadatot gyorsítótárazzuk az L2ARC-ban."
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr "Beállítás"
 
@@ -10071,6 +10074,9 @@ msgstr "Mentés"
 
 msgid "Save & Restart"
 msgstr "Mentés és újraindítás"
+
+msgid "Save File"
+msgstr ""
 
 msgid "Save and Restart"
 msgstr "Mentés és újraindítás"
@@ -14957,54 +14963,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Egy állomás álnév. Ez az opció többször jelenhet meg, minden tartomány "
-#~ "számára amelyben az IP azonos. Használj szóközt több álnév felsorolásához."
-
-#~ msgid "Custom"
-#~ msgstr "Egyéni"
-
-#~ msgid "Device Polling"
-#~ msgstr "Eszköz lehívása"
-
-#~ msgid "Domain Name"
-#~ msgstr "Tartománynév"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Domain wildcarding engedélyezése"
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Kierőszakolt frissítés időköze."
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Milyen gyakran ellenőrizze az IP címet. Másodpercben adandó meg (maximuma 10 "
-#~ "nap)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Milyen gyakran elfrissítse az IP címet, még ha az nem is változott. "
-#~ "Másodpercben adandó meg (maximuma 10 nap)."
-
-#~ msgid "No Data"
-#~ msgstr "Nincs adat"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Ezek a paraméterek hozzáadódnak a következő global részéhez: %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Frissítési időköz"
-
-#~ msgid "Update period"
-#~ msgstr "Frissítési időköz"
-
-#~ msgid "Wildcard"
-#~ msgstr "Helyettesítő karakter"

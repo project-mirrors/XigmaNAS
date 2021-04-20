@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -8351,6 +8351,9 @@ msgstr "Doar metadatele vor fi stocate ăn ARC."
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Doar metadatele vor fi stocate în L2ARC."
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr "Opțiune"
 
@@ -10066,6 +10069,9 @@ msgstr "Salvare"
 
 msgid "Save & Restart"
 msgstr "Salvare & Repornire"
+
+msgid "Save File"
+msgstr ""
 
 msgid "Save and Restart"
 msgstr "Salvare și Repornire"
@@ -14863,56 +14869,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Un alias pentru numele sistemului. Această opțiune poate să apară de mai "
-#~ "multe ori, pentru fiecare domeniu care are aceeași adresă IP. Utilizați câte "
-#~ "un caracter ' ' (spațiu) pentru separarea mai multor nume alias."
-
-#~ msgid "Custom"
-#~ msgstr "Personalizat"
-
-#~ msgid "Device Polling"
-#~ msgstr "Device Polling"
-
-#~ msgid "Domain Name"
-#~ msgstr "Nume Domeniu"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Activare caractere speciale pentru domeniu."
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Perioadă actualizare forțată"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Perioada la care se verifică adresa IP (definită în secunde). Valoarea "
-#~ "maximă este de 10 zile."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Specifică cît de des este actualizat IP-ul (chiar dacă acesta nu este "
-#~ "schimbat). Perioada este definită în secunde, valoarea maximă fiind de 10 "
-#~ "zile."
-
-#~ msgid "No Data"
-#~ msgstr "Lipsă date"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Acești parametri vor fi adăugați la setările globale în %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Perioadă de actualizare"
-
-#~ msgid "Update period"
-#~ msgstr "Perioada de actualizare"
-
-#~ msgid "Wildcard"
-#~ msgstr "Caractere Speciale"

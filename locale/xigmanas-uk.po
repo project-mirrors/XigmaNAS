@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
-"PO-Revision-Date: 2021-03-28 08:42+0000\n"
-"Last-Translator: uniss <uniss@ua.fm>\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"PO-Revision-Date: 2021-04-19 19:29+0000\n"
+"Last-Translator: Boleslaw Smialy <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:42+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -3337,7 +3337,7 @@ msgid "Diagnostics"
 msgstr "Діагностика"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "Діагностична інформація"
 
 msgid "Difference"
 msgstr "Різниця"
@@ -6901,7 +6901,7 @@ msgid "LUNs"
 msgstr "LUN'и"
 
 msgid "Landing Pages"
-msgstr ""
+msgstr "Цільові сторінки"
 
 msgid "Language"
 msgstr "Мова"
@@ -8420,6 +8420,9 @@ msgstr "Тільки метадані будуть кешуватися в ARC."
 
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Тільки метадані будуть кешуватися в L2ARC."
+
+msgid "Open File"
+msgstr "Відкрити файл"
 
 msgid "Option"
 msgstr "Опція"
@@ -10146,6 +10149,9 @@ msgstr "Зберегти"
 msgid "Save & Restart"
 msgstr "Зберегти і перезапустити"
 
+msgid "Save File"
+msgstr "Зберегти файл"
+
 msgid "Save and Restart"
 msgstr "Зберегти і перезавантажити"
 
@@ -10682,7 +10688,7 @@ msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr "Встановити відбиток одного сертифіката для прийому TLS"
 
 msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr ""
+msgstr "Встановіть цільову сторінку для меню Діагностика > Інформація."
 
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
@@ -15124,53 +15130,3 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Псевдонім імені хосту. Ця опція може застосовуватися декілька разів, для "
-#~ "кожного домену, що має той же IP. Використовуйте пробіли для розділення "
-#~ "декількох псевдонімів."
-
-#~ msgid "Custom"
-#~ msgstr "Користувацький"
-
-#~ msgid "Device Polling"
-#~ msgstr "Опитування пристрою"
-
-#~ msgid "Domain Name"
-#~ msgstr "Ім'я домену"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Дозволити шаблони у домені."
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Період Примусового Оновлення"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr "Як часто перевіряється IP. Період в секундах (макс. 10 днів)"
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Як часто поновлювати ІР адресу, навіть, якщо вона не мінялася. Значення в "
-#~ "секундах (макс. 10 днів)."
-
-#~ msgid "No Data"
-#~ msgstr "Немає даних"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Ці параметри будуть додані до загальних налаштувань в %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Період Оновлення"
-
-#~ msgid "Update period"
-#~ msgstr "Період оновлення"
-
-#~ msgid "Wildcard"
-#~ msgstr "Шаблон"

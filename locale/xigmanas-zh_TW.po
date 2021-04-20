@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: 2020-12-21 09:46+0000\n"
 "Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:42+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "Language: zh_TW\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -7920,6 +7920,9 @@ msgstr "只有元數據將緩存在ARC中。"
 msgid "Only metadata will be cached in L2ARC."
 msgstr "只有元數據將被緩存在L2ARC中。"
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr "選項"
 
@@ -9585,6 +9588,9 @@ msgstr "保存"
 
 msgid "Save & Restart"
 msgstr "保存並重啟服務"
+
+msgid "Save File"
+msgstr ""
 
 msgid "Save and Restart"
 msgstr "保存並重啟服務"
@@ -14037,48 +14043,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr "主機別名。在同一IP地址上有多個功能變數名稱時，此選項可多次出現。使用空格分隔多個別名。"
-
-#~ msgid "Custom"
-#~ msgstr "自定"
-
-#~ msgid "Device Polling"
-#~ msgstr "設備輪詢"
-
-#~ msgid "Domain Name"
-#~ msgstr "功能變數名稱"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "啟用域通配符。"
-
-#~ msgid "Forced Update Period"
-#~ msgstr "強制更新週期"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr "多久檢查一次 IP。以秒為單位（最多為 10 天）"
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr "多久強制更新一次 IP 資訊。以秒為單位（最多 10 天）"
-
-#~ msgid "No Data"
-#~ msgstr "無資料"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "這些參數將被添加到 %s 的全局設置。"
-
-#~ msgid "Update Period"
-#~ msgstr "更新週期"
-
-#~ msgid "Update period"
-#~ msgstr "更新間隔"
-
-#~ msgid "Wildcard"
-#~ msgstr "通配符"
