@@ -31,36 +31,29 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function disks_zfs_zpool_io_ajax(bool $firstrun = false) {
 	if($firstrun):
-		//	calling zpool iostat with no configured pools returns ['no pools available'].
+//		calling zpool iostat with no configured pools returns ['no pools available'].
 		if(isset($_GET['pool']) && is_string($_GET['pool'])):
-			$cmd = sprintf('zpool iostat -v %s 2>&1',escapeshellarg($_GET['pool']));
+			$cmd = sprintf('zpool iostat -v -y %s 2>&1',escapeshellarg($_GET['pool']));
 		else:
-			$cmd = 'zpool iostat -v 2>&1';
+			$cmd = 'zpool iostat -v -y 2>&1';
 		endif;
 		mwexec2($cmd,$rawdata);
-		return implode(PHP_EOL,$rawdata);
+		return implode("\n",$rawdata);
 	else:
-		//	calling zpool iostat with no configured pools returns an empty array.
+//		calling zpool iostat with no configured pools returns an empty array.
 		if(isset($_GET['pool']) && is_string($_GET['pool'])):
-			$cmd = sprintf('zpool iostat -v %s 5 2 2>&1',escapeshellarg($_GET['pool']));
+			$cmd = sprintf('zpool iostat -v -y %s 5 1 2>&1',escapeshellarg($_GET['pool']));
 		else:
-			$cmd = 'zpool iostat -v 5 2 2>&1';
+			$cmd = 'zpool iostat -v -y 5 1 2>&1';
 		endif;
 		mwexec2($cmd,$rawdata);
-		$divider = array_keys(preg_grep('/^\s*$/',$rawdata));
-		if(count($divider) > 1):
-			$n_high = array_pop($divider);
-			$n_low = array_pop($divider);
-			$returndata = array_slice($rawdata,$n_low - $n_high);
-		else:
-			$returndata = [gettext('no pools available')];
-		endif;
-		return implode(PHP_EOL,$returndata);
+		return implode("\n",$rawdata);
 	endif;
 }
 if(is_ajax()):
