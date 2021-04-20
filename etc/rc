@@ -282,6 +282,7 @@ fi
 files=$(rcorder ${skip} /etc/rc.d/* 2>/dev/null)
 
 for _rc_elem in ${files}; do
+	echo "run ${_rc_elem}"
 	run_rc_script ${_rc_elem} ${_boot}
 
 	# Force reloading of rc.conf file
@@ -314,7 +315,7 @@ for _rc_elem in ${files}; do
 		continue
 		;;
 	esac
-
+	echo "run ${_rc_elem}"
 	run_rc_script ${_rc_elem} ${_boot}
 done
 
