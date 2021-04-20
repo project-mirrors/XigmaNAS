@@ -9,6 +9,7 @@
 #
 
 # PROVIDE: raki
+# REQUIRE: FILESYSTEMS
 # BEFORE: LOGIN
 
 . /etc/rc.subr

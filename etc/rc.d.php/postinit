@@ -32,9 +32,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'config.inc';
 require_once 'functions.inc';
 
-	// postinit functions
-	config_postinit();
-?>
+//	postinit functions
+config_postinit();

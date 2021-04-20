@@ -32,17 +32,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
 require_once 'functions.inc';
 
-	if (!is_array($config['mounts']) || !is_array($config['mounts']['mount']))
-		return 0;
-	// remount all
-	foreach ($config['mounts']['mount'] as $mount) {
-		// skip mounted entry
-		if (disks_ismounted($mount))
-			continue;
-		disks_mount($mount);
-	}
-	return 0;
-?>
+use common\arr;
+
+$cfg_mounts = arr::make_branch($config,'mounts','mount');
+//	remount all
+foreach($cfg_mounts as $mount):
+//	skip mounted entry
+	if(disks_ismounted($mount)):
+		continue;
+	endif;
+	disks_mount($mount);
+endforeach;
+return 0;
