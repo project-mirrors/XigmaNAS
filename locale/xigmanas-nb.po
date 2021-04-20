@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: 2018-07-06 10:29+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: NORWAY\n"
 "Language: \n"
 "X-Poedit-Language: Norwegian Bokmal\n"
@@ -7944,6 +7944,9 @@ msgstr ""
 msgid "Only metadata will be cached in L2ARC."
 msgstr ""
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr "Alternativ"
 
@@ -9615,6 +9618,9 @@ msgid "Save"
 msgstr "Lagre"
 
 msgid "Save & Restart"
+msgstr ""
+
+msgid "Save File"
 msgstr ""
 
 msgid "Save and Restart"
@@ -14057,34 +14063,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Kallenavn på vert. Denne innstillingen kan forekomme flere ganger for hvert "
-#~ "domene som har samme IP. Bruk et mellomrom for å skille kallenavnene."
-
-#~ msgid "Custom"
-#~ msgstr "Egendefinert"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Slå på domenejoker."
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Hvor ofte blir IP'en sjekket. Perioden er i sekunder (maks er 10 dager)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Hvor ofte IP'en blir oppdatert selv om den ikke er endret. Perioden er i "
-#~ "sekunder (maks er 10 dager)."
-
-#~ msgid "Update period"
-#~ msgstr "Oppdaterings periode"
-
-#~ msgid "Wildcard"
-#~ msgstr "Joker"

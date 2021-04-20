@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
-"PO-Revision-Date: 2021-04-10 23:58+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"PO-Revision-Date: 2021-04-19 19:23+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -8500,6 +8500,9 @@ msgstr "Alleen metadata wordt gecached in ARC."
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Alleen metadata wordt gecached in L2ARC."
 
+msgid "Open File"
+msgstr "Bestand Openen"
+
 msgid "Option"
 msgstr "Optie"
 
@@ -10231,6 +10234,9 @@ msgstr "Opslaan"
 
 msgid "Save & Restart"
 msgstr "Opslaan & Herstarten"
+
+msgid "Save File"
+msgstr "Bestand Opslaan"
 
 msgid "Save and Restart"
 msgstr "Opslaan en Herstarten"
@@ -15279,56 +15285,3 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Een hostnaam alias. Deze optie kan veelvoudig verschijnen, voor elk domein "
-#~ "dat het zelfde IP-adres gebruikt. Gebruik een spatie om meerdere alias namen "
-#~ "te scheiden."
-
-#~ msgid "Custom"
-#~ msgstr "Aangepast"
-
-#~ msgid "Device Polling"
-#~ msgstr "Netwerk Polling"
-
-#~ msgid "Domain Name"
-#~ msgstr "Domein Naam"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Inschakelen domein wildcard"
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Geforceerde Update Periode"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Hoe vaak het IP-adres wordt gecontroleerd. De periode is in seconden (max. "
-#~ "10 dagen)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Hoe vaak het IP-adres geupdate wordt zelfs wanneer het niet is gewijzigd. De "
-#~ "periode is in seconden (max. 10 dagen)."
-
-#~ msgid "No Data"
-#~ msgstr "Geen Data"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr ""
-#~ "Deze parameters worden toegevoegd aan de algemene instellingen van %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Update Periode"
-
-#~ msgid "Update period"
-#~ msgstr "Update periode"
-
-#~ msgid "Wildcard"
-#~ msgstr "Wildcard"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: 2021-04-01 15:39+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
 "X-Poedit-Language: Italian\n"
@@ -8436,6 +8436,9 @@ msgstr "Solo i metadati saranno salvati in ARC."
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Solo i metadati saranno salvati in L2ARC."
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr "Opzione"
 
@@ -10160,6 +10163,9 @@ msgstr "Salva"
 
 msgid "Save & Restart"
 msgstr "Salva & Riavvia"
+
+msgid "Save File"
+msgstr ""
 
 msgid "Save and Restart"
 msgstr "Salva e Riavvia"
@@ -15004,53 +15010,3 @@ msgstr "stato assegnato a"
 
 msgid "yes"
 msgstr "sì"
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Alias per un host. L'opzione può ripetersi più volte, per ogni dominio che "
-#~ "condivide lo stesso IP. Separare gli alias con uno spazio."
-
-#~ msgid "Custom"
-#~ msgstr "Personalizzato"
-
-#~ msgid "Device Polling"
-#~ msgstr "Polling periferica"
-
-#~ msgid "Domain Name"
-#~ msgstr "Nome Dominio"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Abilita caratteri jolly per i domini."
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Forzare il periodo di aggiornamento"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Ogni quanto si verifica l'IP. Il periodo è  in secondi (massimo 10 giorni)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Ogni quanto un IP viene aggiornato anche se non è  stato cambiato. Il "
-#~ "periodo è  in secondi (max. è 10 giorni)."
-
-#~ msgid "No Data"
-#~ msgstr "Nessun dato"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Questi parametri verranno aggiunti al'impostazione globale in %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Periodo di aggiornamento"
-
-#~ msgid "Update period"
-#~ msgstr "Aggiorna periodo"
-
-#~ msgid "Wildcard"
-#~ msgstr "Carattere jolly"
