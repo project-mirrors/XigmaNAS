@@ -166,21 +166,21 @@ function config_upgrade_old() {
 			}
 		}
 
-		// Add fullname (/dev/mirror/toto) under gmirror
+//		add fullname (/dev/mirror/toto) under gmirror
 		for ($i = 0; isset($config['gmirror']['vdisk'][$i]); $i++) {
 			if (isset($config['gmirror']['vdisk'][$i]['name'])) 	{
 				$config['gmirror']['vdisk'][$i]['fullname']="/dev/mirror/{$config['gmirror']['vdisk'][$i]['name']}";
 			}
 		}
 
-		// Add fullname (/dev/gvinum/toto) under gvinum
+//		add fullname (/dev/gvinum/toto) under gvinum
 		for ($i = 0; isset($config['gvinum']['vdisk'][$i]); $i++) {
 			if (isset($config['gvinum']['vdisk'][$i]['name'])) 	{
 				$config['gvinum']['vdisk'][$i]['fullname']="/dev/gvinum/{$config['gvinum']['vdisk'][$i]['name']}";
 			}
 		}
 
-		// Add fullname (/dev/raid5/toto) under graid5
+//		add fullname (/dev/raid5/toto) under graid5
 		for ($i = 0; isset($config['graid5']['vdisk'][$i]); $i++) {
 			if (isset($config['graid5']['vdisk'][$i]['name'])) 	{
 				$config['graid5']['vdisk'][$i]['fullname']="/dev/raid5/{$config['graid5']['vdisk'][$i]['name']}";
@@ -253,7 +253,7 @@ function config_upgrade_old() {
 		unset ($config['rsyncclient']);
 
 		} else if (is_array($config['rsyncclient'])) {
-			// Clean old unused code
+//			clean old unused code
 			unset ($config['rsyncclient']);
 		}
 		if (isset($config['rsync_local']['enable'])) {
@@ -623,7 +623,7 @@ function config_upgrade_old() {
 					unset($config[$class]['vdisk'][$i]['diskr']);
 				}
 
-				// GEli special handling.
+//				GEli special handling.
 				if ("geli" === $class) {
 					$config[$class]['vdisk'][$i]['device'] = $config[$class]['vdisk'][$i]['name'];
 					$config[$class]['vdisk'][$i]['name'] = str_replace("/dev/", "", $config[$class]['vdisk'][$i]['name']);
@@ -1542,10 +1542,10 @@ function config_upgrade_old() {
 		unset($config['graid5']);
 		unset($config['geli']);
 		*/
-		// convert all ad devices to ada, and clear ZFS settings.
+//		convert all ad devices to ada, and clear ZFS settings.
 		disks_convert_to_ada();
 
-		// this was converted from 0.7.2.
+//		this was converted from 0.7.2.
 		$config['old_after072'] = true;
 
 		$config['version'] = "9.0";
@@ -1566,7 +1566,6 @@ function config_upgrade_old() {
 			"net.inet.tcp.sendbuf_inc" => 262144,
 			"net.inet.tcp.sendbuf_auto" => 1,
 			"net.inet.tcp.recvbuf_max" => 4194304,
-			"net.inet.tcp.recvbuf_inc" => 262144,
 			"net.inet.tcp.recvbuf_auto" => 1,
 			"net.inet.udp.recvspace" => 65536,
 			"net.inet.udp.maxdgram" => 57344,
@@ -1582,7 +1581,7 @@ function config_upgrade_old() {
 			"kern.maxfilesperproc" => 32768,
 			"net.inet.icmp.icmplim" => 300,
 			"net.inet.icmp.icmplim_output" => 1,
-			//"net.inet.tcp.inflight.enable" => 0,
+//			"net.inet.tcp.inflight.enable" => 0,
 			"net.inet.tcp.path_mtu_discovery" => 0,
 			"hw.intr_storm_threshold" => 9000,
 		);
@@ -1672,7 +1671,7 @@ function config_upgrade_old() {
 			"driver" => "hd44780",
 			"port" => 13666,
 			"waittime" => 10,
-		);	
+		);
 		$config['lcdproc']['lcdproc'] = array();
 		$a1 = array(
 			"# USB connected FT245R based LCD",
@@ -1776,7 +1775,7 @@ function config_upgrade_old() {
 
 	/* Convert 9.4 -> 9.5 */
 	if ($config['version'] === "9.4") {
-		// remove entities
+//		remove entities
 		if (is_array($config['lcdproc']['lcdproc']['param'])) {
 			$tmp = array();
 			foreach ($config['lcdproc']['lcdproc']['param'] as $param) {
@@ -1786,11 +1785,11 @@ function config_upgrade_old() {
 			unset($config['lcdproc']['lcdproc']['param']);
 			$config['lcdproc']['lcdproc']['param'] = $tmp;
 		}
-		// enable lcdproc
+//		enable lcdproc
 		if (isset($config['lcdproc']['enable'])) {
 			$config['lcdproc']['lcdproc']['enable'] = true;
 		}
-		// disk serial
+//		disk serial
 		if (isset($config['disks']) && isset($config['disks']['disk'])
 		    && is_array($config['disks']['disk'])) {
 			foreach ($config['disks']['disk'] as &$a) {
@@ -1813,7 +1812,7 @@ function config_upgrade_old() {
 
 	/* Convert 9.5 -> 9.6 */
 	if ($config['version'] === "9.5") {
-		// modify device type IDE to SCSI
+//		modify device type IDE to SCSI
 		if (isset($config['disks']) && isset($config['disks']['disk'])
 		    && is_array($config['disks']['disk'])) {
 			foreach ($config['disks']['disk'] as &$a) {
@@ -1823,7 +1822,7 @@ function config_upgrade_old() {
 			}
 			unset($a);
 		}
-		// guest access
+//		guest access
 		if (isset($config['samba']) && isset($config['samba']['share'])
 		    && is_array($config['samba']['share'])) {
 			foreach ($config['samba']['share'] as &$a) {
@@ -1831,7 +1830,7 @@ function config_upgrade_old() {
 			}
 			unset($a);
 		}
-		// remove polling
+//		remove polling
 		unset($config['interfaces']['lan']['polling']);
 		for ($i = 1; isset($config['interfaces']['opt' . $i]); $i++) {
 			unset($config['interfaces']['opt' . $i]['polling']);
@@ -1840,15 +1839,14 @@ function config_upgrade_old() {
 		$config['version'] = "9.6";
 	}
 
-	// mark as older converted config
+//	mark as older converted config
 	$config['version'] = "0.9";
 
-	// DO NOT WRITE HERE
-	//write_config();
+//	DO NOT WRITE HERE
+//	write_config();
 
 	if (is_booting())
 		echo "done\n";
 
 	return 0;
 }
-?>

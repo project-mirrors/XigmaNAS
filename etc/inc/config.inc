@@ -821,7 +821,6 @@ function config_upgrade_1dot7() {
 		'net.inet.tcp.sendspace' => 131072,
 		'net.inet.tcp.recvspace' => 131072,
 		'net.inet.tcp.sendbuf_inc' => 131072,
-		'net.inet.tcp.recvbuf_inc' => 131072,
 		'kern.ipc.nmbclusters' => 131072,
 		'kern.ipc.nmbjumbop' => 131072,
 		'kern.ipc.nmbjumbo9' => 32768,

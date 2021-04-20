@@ -279,13 +279,6 @@
 				<enable/>
 			</param>
 			<param>
-				<uuid>c1ef4e9f-0a3e-4ae0-b903-056392d121e1</uuid>
-				<name>net.inet.tcp.recvbuf_inc</name>
-				<value>131070</value>
-				<comment>System tuning</comment>
-				<enable/>
-			</param>
-			<param>
 				<uuid>d6b049e9-2aef-4dbf-8bd5-b8fca087a97d</uuid>
 				<name>net.inet.tcp.recvbuf_auto</name>
 				<value>1</value>
