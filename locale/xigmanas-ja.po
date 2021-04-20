@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:01+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -7960,6 +7960,9 @@ msgstr ""
 msgid "Only metadata will be cached in L2ARC."
 msgstr ""
 
+msgid "Open File"
+msgstr ""
+
 msgid "Option"
 msgstr "オプション"
 
@@ -9624,6 +9627,9 @@ msgstr "保存"
 
 msgid "Save & Restart"
 msgstr "保存して再起動"
+
+msgid "Save File"
+msgstr ""
 
 msgid "Save and Restart"
 msgstr "保存して再起動"
@@ -14116,40 +14122,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "ホストの別名。このオプションで 1つの IP に複数の名前を持たせる事が出来ます。複数の名前を定義する場合はスペースで区切って記述して下さい。"
-
-#~ msgid "Custom"
-#~ msgstr "カスタム"
-
-#~ msgid "Device Polling"
-#~ msgstr "デバイスのポーリング"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "ワイルドカードドメインを有効にします。"
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr "IP アドレスのチェック間隔。秒単位で指定して下さい (最大 10日)。"
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr "IP アドレスの更新間隔。アドレスに変更が無くても更新を行います。秒単位で指定して下さい (最大 10日)。"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "ここで指定したパラメータは %s のグローバル設定に追加されます。"
-
-#~ msgid "Update period"
-#~ msgstr "アップデート間隔"
-
-#~ msgid "Wildcard"
-#~ msgstr "ワイルドカード"
-
-#~ msgid "Update Period"
-#~ msgstr "アップデート間隔"

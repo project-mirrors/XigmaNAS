@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-11 01:36+0000\n"
-"PO-Revision-Date: 2021-03-26 07:25+0000\n"
+"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"PO-Revision-Date: 2021-04-11 08:51+0000\n"
 "Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-11 00:02+0000\n"
-"X-Generator: Launchpad (build f3c8a1aed7c0b9bc4f5601dbf2698b30e1ab66f1)\n"
+"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
+"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -3368,7 +3368,7 @@ msgid "Diagnostics"
 msgstr "Diagnóstico"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "Información de diagnostico"
 
 msgid "Difference"
 msgstr "Diferencia"
@@ -6944,7 +6944,7 @@ msgid "LUNs"
 msgstr "LUNs"
 
 msgid "Landing Pages"
-msgstr ""
+msgstr "Pagina por defecto"
 
 msgid "Language"
 msgstr "Idioma"
@@ -8459,6 +8459,9 @@ msgstr "Solo los metadatos serán cacheados en la ARC"
 
 msgid "Only metadata will be cached in L2ARC."
 msgstr "Solo los metadatos serán cacheados en la L2ARC"
+
+msgid "Open File"
+msgstr ""
 
 msgid "Option"
 msgstr "Opcion"
@@ -10197,6 +10200,9 @@ msgstr "Guardar"
 msgid "Save & Restart"
 msgstr "Salvar y reiniciar"
 
+msgid "Save File"
+msgstr ""
+
 msgid "Save and Restart"
 msgstr "Guardar y Reiniciar"
 
@@ -10743,6 +10749,7 @@ msgstr "Usar la huella de un certificadopara aceptar TLS"
 
 msgid "Set the landing page for the Diagnostics > Information menu."
 msgstr ""
+"Seleccionar la pagina por defecto a mostrar en Diagnostico -> Información."
 
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
@@ -15211,54 +15218,3 @@ msgstr "fue asignado a"
 
 msgid "yes"
 msgstr "si"
-
-#~ msgid ""
-#~ "A host name alias. This option can appear multiple times, for each domain "
-#~ "that has the same IP. Use a space to separate multiple alias names."
-#~ msgstr ""
-#~ "Alias del anfitrión. Esta opción puede aparecer múltiples veces, para cada "
-#~ "dominio que use la misma IP. Usa un espacio para separar los múltiples alias."
-
-#~ msgid "Custom"
-#~ msgstr "Personalizado"
-
-#~ msgid "Device Polling"
-#~ msgstr "Device Polling"
-
-#~ msgid "Domain Name"
-#~ msgstr "Nombre de Dominio"
-
-#~ msgid "Enable domain wildcarding."
-#~ msgstr "Habilitar \"comodines\" en el dominio."
-
-#~ msgid "Forced Update Period"
-#~ msgstr "Periodo de actualización forzada."
-
-#~ msgid ""
-#~ "How often the IP is checked. The period is in seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Indica la frecuencia con que es revisada la IP. El periodo es en segundos "
-#~ "(max. son 10 dias)."
-
-#~ msgid ""
-#~ "How often the IP is updated even if it is not changed. The period is in "
-#~ "seconds (max. is 10 days)."
-#~ msgstr ""
-#~ "Indica la frecuencia con que es actualizada la IP, incluso si no es "
-#~ "cambiada. El periodo es en segundos (max. son 10 dias)."
-
-#~ msgid "No Data"
-#~ msgstr "Sin Datos"
-
-#, php-format
-#~ msgid "These parameters will be added to global settings in %s."
-#~ msgstr "Estos parametros se añadiran a las preferencias globales en %s."
-
-#~ msgid "Update Period"
-#~ msgstr "Período de actualización"
-
-#~ msgid "Update period"
-#~ msgstr "Período de actualización"
-
-#~ msgid "Wildcard"
-#~ msgstr "Caracter Usado como \"Comodin\""
