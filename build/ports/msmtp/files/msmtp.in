@@ -8,7 +8,7 @@
 #
 
 # PROVIDE: msmtp
-# REQUIRE: SYSTEMINIT
+# REQUIRE: CONFIG
 # BEFORE: DAEMON
 
 . /etc/rc.subr
