@@ -35,26 +35,15 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-function disks_zfs_zpool_io_ajax(bool $firstrun = false) {
-	if($firstrun):
-//		calling zpool iostat with no configured pools returns ['no pools available'].
-		if(isset($_GET['pool']) && is_string($_GET['pool'])):
-			$cmd = sprintf('zpool iostat -v -y %s 2>&1',escapeshellarg($_GET['pool']));
-		else:
-			$cmd = 'zpool iostat -v -y 2>&1';
-		endif;
-		mwexec2($cmd,$rawdata);
-		return implode("\n",$rawdata);
+function disks_zfs_zpool_io_ajax() {
+//	calling zpool iostat with no configured pools returns ['no pools available'].
+	if(isset($_GET['pool']) && is_string($_GET['pool'])):
+		$cmd = sprintf('zpool iostat -vy %s 2>&1',escapeshellarg($_GET['pool']));
 	else:
-//		calling zpool iostat with no configured pools returns an empty array.
-		if(isset($_GET['pool']) && is_string($_GET['pool'])):
-			$cmd = sprintf('zpool iostat -v -y %s 5 1 2>&1',escapeshellarg($_GET['pool']));
-		else:
-			$cmd = 'zpool iostat -v -y 5 1 2>&1';
-		endif;
-		mwexec2($cmd,$rawdata);
-		return implode("\n",$rawdata);
+		$cmd = 'zpool iostat -vy 2>&1';
 	endif;
+	mwexec2($cmd,$rawdata);
+	return implode("\n",$rawdata);
 }
 if(is_ajax()):
 	$status['area_refresh'] = disks_zfs_zpool_io_ajax();
@@ -96,11 +85,11 @@ $pagecontent->
 					insTDwC('celltag',gettext('Information'))->
 					addTDwC('celldata')->
 						addElement('pre',['class' => 'cmdoutput'])->
-							addElement('span',['id' => 'area_refresh'],disks_zfs_zpool_io_ajax(true));
+							addElement('span',['id' => 'area_refresh'],disks_zfs_zpool_io_ajax());
 //	add additional javascript code
 $js_document_ready = <<<'EOJ'
 	var gui = new GUI;
-	gui.recall(0,7000,'disks_zfs_zpool_io.php',null,function(data) {
+	gui.recall(0,5000,'disks_zfs_zpool_io.php',null,function(data) {
 		if($('#area_refresh').length > 0) {
 			$('#area_refresh').text(data.area_refresh);
 		}
