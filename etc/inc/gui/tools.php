@@ -1624,9 +1624,6 @@ EOJ;
 				$title = is_string($param_title) ? $param_title : '';
 				$this->c2_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title);
 				break;
-			case 'scheduler':
-				$this->c2_scheduler($p,$value,$is_required,$is_readonly);
-				break;
 		endswitch;
 		return $this;
 	}
