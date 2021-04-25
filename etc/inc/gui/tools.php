@@ -1300,6 +1300,8 @@ EOJ;
 			$matrix['weekdays'] = ['all' => $cops['all_weekdays'],'sel' => $cops['weekdays']];
 		endif;
 		$div = $this->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
+//		insert scheduler java code
+		$div->ins_javascript(implode("\n",["function set_selected(elid) {","\tdocument.getElementById(elid).checked = true;","}"]));
 		$this->ins_description($cops['scheduler']);
 //		insert elements
 		foreach($matrix as $matrix_key => $control):
