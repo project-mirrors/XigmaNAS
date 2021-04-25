@@ -1475,9 +1475,6 @@ EOJ;
 			case 'filechooser':
 				$this->cr_filechooser($p,$value,$is_required,$is_readonly);
 				break;
-			case 'scheduler':
-				$this->cr_scheduler($p,$value,$is_required,$is_readonly);
-				break;
 		endswitch;
 		return $this;
 	}
