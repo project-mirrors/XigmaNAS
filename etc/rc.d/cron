@@ -40,11 +40,9 @@ crontab_allowuser()
 	local _user
 
 	_user=$1
-
 	if [ "${_user}" != "root" ]; then
 		echo "${_user}" >> ${cron_allow}
-
-		# Remove duplicate entries in /var/cron/allow
+#		Remove duplicate entries in /var/cron/allow
 		/usr/bin/sort -u ${cron_allow} -o ${cron_allow}
 	fi
 }
@@ -53,48 +51,51 @@ crontab_allowuser()
 # Write a job to the corresponding crontab.
 crontab_addline()
 {
-	local _user _data _home
+	local _user _data _home _isodate
 
 	_user=$1
 	_data=$2
-
+	_isodate=$( /bin/date "+%FT%T%z" )
 	if [ "${_user}" = "root" ]; then
 		echo "${_data}" >> ${cron_config}
 	else
-		# Create user crontab if necessary
+#		Create user crontab if necessary
 		if [ ! -e "${cron_tabspath}/${_user}" ]; then
-			# get users initial home directory
-			_home=`pw user show ${_user} -7F | cut -d : -f 6`
+#			get users initial home directory
+			_home=$( pw user show ${_user} -7F | cut -d : -f 6 )
 			if [ ! -d "${_home}" ]; then
 				_home="/var/log"
 			fi
-			# Create /var/cron/tabs/xxx
-			echo "SHELL=/bin/sh" > ${cron_tabspath}/${_user}
-			echo "PATH=/etc:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin" >> ${cron_tabspath}/${_user}
-			echo "HOME=${_home}" >> ${cron_tabspath}/${_user}
-			echo "#" >> ${cron_tabspath}/${_user}
-			echo "#minute	hour	mday	month	wday	who	command" >> ${cron_tabspath}/${_user}
-			echo "#" >> ${cron_tabspath}/${_user}
+#			Create /var/cron/tabs/xxx
+			cat <<- EOF > ${cron_tabspath}/${_user}
+				# created: ${_isodate}
+				SHELL=/bin/sh
+				PATH=/etc:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+				HOME=${_home}
+				#
+				#minute	hour	mday	month	wday	who	command
+				#
+			EOF
 		fi
-		# Write crontab line
+#		Write crontab line
 		echo "${_data}" >> ${cron_tabspath}/${_user}
 	fi
 }
 
 cron_mkconf()
 {
-	local _index _user _data
+	local _interval _mins _hours
+	local _count _index _user _data _xpaex _isodate
+	local _uuid _scriptname _path _command _param
 
-	# Make sure /var/cron/tabs path exists
+	_isodate=$( /bin/date "+%FT%T%z" )
+#	Make sure /var/cron/tabs path exists
 	[ ! -d "${cron_tabspath}" ] && mkdir "${cron_tabspath}"
-
-	# Empty /var/cron/allow
+#	Empty /var/cron/allow
 	cat /dev/null > ${cron_allow}
-
-	# Remove all existing user crontabs
+#	Remove all existing user crontabs
 	rm ${cron_tabspath}/* > /dev/null 2>&1
-
-	# Create /etc/newsyslog.conf
+#	Create /etc/newsyslog.conf
 	cat << EOF > /etc/newsyslog.conf
 # logfilename          [owner:group]    mode count size when  flags [/pid_file] [sig_num]
 
@@ -102,236 +103,278 @@ cron_mkconf()
 <include> /usr/local/etc/newsyslog.conf.d/*
 EOF
 
-	# Create /etc/crontab
-	echo "SHELL=/bin/sh
-PATH=/etc:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
-HOME=/var/log
-#
-#minute	hour	mday	month	wday	who	command
-#
-# Rotate log files every hour, if necessary.
-0	*	*	*	*	root	newsyslog
-#
-# Perform daily/weekly/monthly maintenance.
-1	3	*	*	*	root	periodic daily
-15	4	*	*	6	root	periodic weekly
-30	5	1	*	*	root	periodic monthly
-#" > ${cron_config}
-
-	# Time synchronization
-	if [ 0 -lt `configxml_get_count "//system/ntp/enable"` ]; then
-		_interval=`configxml_get "//system/ntp/updateinterval"`
-		_mins=$(expr ${_interval} % 60)
-		_hours=$(expr ${_interval} / 60)
-
+#	Create /etc/crontab
+	cat <<- EOF > ${cron_config}
+		# created: ${_isodate}
+		SHELL=/bin/sh
+		PATH=/etc:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+		HOME=/var/log
+		#
+		#minute	hour	mday	month	wday	who	command
+		#
+		# Rotate log files every hour, if necessary.
+		0	*	*	*	*	root	newsyslog
+		#
+		# Perform daily/weekly/monthly maintenance.
+		1	3	*	*	*	root	periodic daily
+		15	4	*	*	6	root	periodic weekly
+		30	5	1	*	*	root	periodic monthly
+		#
+	EOF
+#	Time synchronization
+	_xpaex="//system/ntp/enable"
+	if configxml_isset "${_xpaex}"; then
+		_interval=$( configxml_get "//system/ntp/updateinterval" )
+		_mins=$( expr ${_interval} % 60 )
+		_hours=$( expr ${_interval} / 60 )
 		if [ "0" -ne "${_mins}" ]; then
 			_mins="*/${_mins}"
 		fi
-
 		if [ "0" -eq "${_hours}" ]; then
 			_hours="*"
 		else
 			_hours="*/${_hours}"
 		fi
-
 		echo "# Perform time synchronization via NTP." >> ${cron_config}
 		echo "${_mins} ${_hours} * * * root /etc/rc.d/ntpdate restart" >> ${cron_config}
 	fi
-
-	# Auto Snapshot
-	if [ 0 -lt `configxml_get_count "//zfs/autosnapshots"` ]; then
-		echo "# autosnapshot" >> ${cron_config}
-		echo   "0	*/1	*	*	*	root	/usr/local/sbin/autosnapshot >/dev/null 2>&1" >> ${cron_config}
+#	Auto Snapshot every hour
+	_xpaex="//zfs/autosnapshots/autosnapshot"
+	_count=$( configxml_get_count "${_xpaex}" )
+	if [ ${_count} -gt 0 ]; then
+		echo "# ZFS autosnapshot" >> ${cron_config}
+		echo "@hourly root /usr/local/sbin/autosnapshot >/dev/null 2>&1" >> ${cron_config}
 	fi
-
-	# Auto Update Monitoring Graphs every 5 minutes
-	if [ 0 -lt `configxml_get_count "//rrdgraphs/enable"` ]; then
-		echo "# rrdgraphsautautopdate" >> ${cron_config}
-		echo   "0,5,10,15,20,25,30,35,40,45,50,55 * * * * root /usr/local/share/rrdgraphs/rrd-update.sh" >> ${cron_config}
+#	Auto Update Monitoring Graphs every 5 minutes
+	_xpaex="//rrdgraphs/enable"
+	if configxml_isset "${_xpaex}"; then
+		echo "# rrdgraphs autoupdate" >> ${cron_config}
+		echo "*/5 * * * * root /usr/local/share/rrdgraphs/rrd-update.sh" >> ${cron_config}
 	fi
-
-	# RSYNC client
-	_index=`configxml_get_count "//rsync/rsyncclient[enable]"`
-	if [ 0 -lt ${_index} ]; then
-		while [ ${_index} -gt 0 ]
-		do
-			# Get user
-			_user=`configxml_get "//rsync/rsyncclient[enable][position()=${_index}]/who"`
-
-			# Get the crontab data
-			_data=`/usr/local/bin/xml sel -t -m "//rsync/rsyncclient[enable][position()=${_index}]" \
-				-i "all_mins[. = "0"]" -m minute -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_mins[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_hours[. = "0"]" -m hour -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_hours[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_days[. = "0"]" -m day -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_days[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_months[. = "0"]" -m month -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_months[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_weekdays[. = "0"]" -m weekday -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_weekdays[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "who[. = 'root']" -v "concat(who,' ')" -b \
-				-v "concat('/var/run/rsync_client_',uuid,'.sh')" \
-				${configxml_file} | /usr/local/bin/xml unesc`
-
-				# Register user
-				crontab_allowuser "${_user}"
-
-				# Write the crontab data
-				crontab_addline "${_user}" "${_data}"
-
-				_index=$(( ${_index} - 1 ))
-		done
-	fi
-
-	# RSYNC local
-	_index=`configxml_get_count "//rsync/rsynclocal[enable]"`
-	if [ 0 -lt ${_index} ]; then
-		while [ ${_index} -gt 0 ]
-		do
-			# Get user
-			_user=`configxml_get "//rsync/rsynclocal[enable][position()=${_index}]/who"`
-
-			# Get the crontab data
-			_data=`/usr/local/bin/xml sel -t -m "//rsync/rsynclocal[enable][position()=${_index}]" \
-				-i "all_mins[. = "0"]" -m minute -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_mins[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_hours[. = "0"]" -m hour -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_hours[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_days[. = "0"]" -m day -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_days[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_months[. = "0"]" -m month -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_months[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_weekdays[. = "0"]" -m weekday -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_weekdays[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "who[. = 'root']" -v "concat(who,' ')" -b \
-				-v "concat('/var/run/rsync_local_',uuid,'.sh')" \
-				${configxml_file} | /usr/local/bin/xml unesc`
-
-				# Register user
-				crontab_allowuser "${_user}"
-
-				# Write the crontab data
-				crontab_addline "${_user}" "${_data}"
-
-				_index=$(( ${_index} - 1 ))
-		done
-	fi
-
-	# Scheduled shutdown
-	if [ 0 -lt `configxml_get_count "//shutdown/enable"` ]; then
-		echo "# Perform scheduled shutdown." >> ${cron_config}
-		/usr/local/bin/xml sel -t -m "//shutdown" \
-			-i "all_mins[. = "0"]" -m minute -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_mins[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_hours[. = "0"]" -m hour -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_hours[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_days[. = "0"]" -m day -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_days[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_months[. = "0"]" -m month -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_months[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_weekdays[. = "0"]" -m weekday -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_weekdays[. != "0"]" -o "*" -b \
-			-o " " \
-			-o "root /sbin/shutdown -p now
-" ${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
-	fi
-
-	# Scheduled reboot
-	if [ 0 -lt `configxml_get_count "//reboot/enable"` ]; then
-		echo "# Perform scheduled reboot." >> ${cron_config}
-		/usr/local/bin/xml sel -t -m "//reboot" \
-			-i "all_mins[. = "0"]" -m minute -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_mins[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_hours[. = "0"]" -m hour -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_hours[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_days[. = "0"]" -m day -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_days[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_months[. = "0"]" -m month -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_months[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_weekdays[. = "0"]" -m weekday -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_weekdays[. != "0"]" -o "*" -b \
-			-o " " \
-			-o "root /sbin/shutdown -r now
-" ${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
-	fi
-
-	# Email status notification
-	if [ 0 -lt `configxml_get_count "//statusreport/enable"` ]; then
-		echo "# Perform email status report." >> ${cron_config}
-		/usr/local/bin/xml sel -t -m "//statusreport" \
-			-i "all_mins[. = "0"]" -m minute -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_mins[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_hours[. = "0"]" -m hour -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_hours[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_days[. = "0"]" -m day -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_days[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_months[. = "0"]" -m month -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_months[. != "0"]" -o "*" -b \
-			-o " " \
-			-i "all_weekdays[. = "0"]" -m weekday -i "position() > 1" -o "," -b -v "." -b -b \
-			-i "all_weekdays[. != "0"]" -o "*" -b \
-			-o " " \
-			-o "root /etc/mail/sendreport
-" ${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
-	fi
-
-	# Additional cron jobs
-	_index=`configxml_get_count "//cron/job[enable]"`
-	if [ 0 -lt ${_index} ]; then
-		while [ ${_index} -gt 0 ]
-		do
-			# Get user
-			_user=`configxml_get "//cron/job[enable][position()=${_index}]/who"`
-
-			# Get the crontab data
-			_data=`/usr/local/bin/xml sel -t -m "//cron/job[enable][position()=${_index}]" \
-				-i "all_mins[. = "0"]" -m minute -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_mins[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_hours[. = "0"]" -m hour -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_hours[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_days[. = "0"]" -m day -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_days[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_months[. = "0"]" -m month -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_months[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "all_weekdays[. = "0"]" -m weekday -i "position() > 1" -o "," -b -v "." -b -b \
-				-i "all_weekdays[. != "0"]" -o "*" -b \
-				-o " " \
-				-i "who[. = 'root']" -v "concat(who,' ')" -b \
-				-v command -n \
-				${configxml_file} | /usr/local/bin/xml unesc`
-
-			# Register user
+#	RSYNC client
+	_xpaex="//rsync/rsyncclient[enable]"
+	_index=$( configxml_get_count "${_xpaex}" )
+	if [ ${_index} -gt 0 ]; then
+		echo "# rsync (client)" >> ${cron_config}
+		while [ ${_index} -gt 0 ]; do
+#			Get user
+			_user=$( configxml_get "${_xpaex}[position()=${_index}]/who" )
+#			Get crontab data
+			_data=$( /usr/local/bin/xml sel --text --template \
+				--match "${_xpaex}[position()=${_index}]" \
+					--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "who[. = 'root']" --value-of "concat(who,' ')" --break \
+					--value-of "concat('/var/run/rsync_client_',uuid,'.sh')" \
+				--break \
+				${configxml_file} | /usr/local/bin/xml unesc )
+#			Register user
 			crontab_allowuser "${_user}"
-
-			# Write the crontab data
+#			Write to crontab
 			crontab_addline "${_user}" "${_data}"
-
+			_index=$(( ${_index} - 1 ))
+		done
+	fi
+#	RSYNC local
+	_xpaex="//rsync/rsynclocal[enable]"
+	_index=$( configxml_get_count "${_xpaex}" )
+	if [ ${_index} -gt 0 ]; then
+		echo "# rsync (local)" >> ${cron_config}
+		while [ ${_index} -gt 0 ]; do
+#			Get user
+			_user=$( configxml_get "${_xpaex}[position()=${_index}]/who" )
+#			Get crontab data
+			_data=$( /usr/local/bin/xml sel --text --template \
+				--match "${_xpaex}[position()=${_index}]" \
+					--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "who[. = 'root']" --value-of "concat(who,' ')" --break \
+					--value-of "concat('/var/run/rsync_local_',uuid,'.sh')" \
+				--break \
+				${configxml_file} | /usr/local/bin/xml unesc )
+#			Register user
+			crontab_allowuser "${_user}"
+#			Write to crontab
+			crontab_addline "${_user}" "${_data}"
+			_index=$(( ${_index} - 1 ))
+		done
+	fi
+#	ZFS snapshots
+	_xpaex="//zfs/scheduler/snapshotcreate/param[enable]"
+#	check if there are any schedules
+	_index=$( configxml_get_count "${_xpaex}" )
+	if [ ${_index} -gt 0 ]; then
+		echo "# create ZFS snapshots" >> ${cron_config}
+#		root is creating snapshots
+		_user="root"
+		while [ ${_index} -gt 0 ]; do
+			_uuid=$( configxml_get "${_xpaex}[position()=${_index}]/uuid" )
+			_scriptname="/var/run/snapshot_create_${_uuid}.sh"
+			_path=$( configxml_get "${_xpaex}[position()=${_index}]/path" )
+			_command="/sbin/zfs snapshot"
+			_param=""
+			if configxml_isset "${_xpaex}[position()=${_index}]/recursive"; then
+				_param="${_param} -r"
+			fi
+#			create crontab entry
+			/usr/local/bin/xml sel --text --template \
+				--match "${_xpaex}[position()=${_index}]" \
+					--if 'preset="" or preset="custom"' \
+						--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+						--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+						--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+						--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+						--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+						--else \
+							--if 'all_mins="1"' --output '*' --else --match minute --if 'position()>1' --output ',' --break --value-of '.' --break  --break --output ' ' \
+							--if 'all_hours="1"' --output '*' --else --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --break --output ' ' \
+							--if 'all_days="1"' --output '*' --else  --match day --if 'position()>1' --output ',' --break --value-of '.' --break --break --output ' ' \
+							--if 'all_months="1"' --output '*' --else --match month --if 'position()>1' --output ',' --break --value-of '.' --break --break --output ' ' \
+							--if 'all_weekdays="1"' --output '*' --else --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --break \
+						--break \
+					--elif 'preset="@hourly"' --output '@hourly' \
+					--elif 'preset="@daily"' --output '@daily' \
+					--elif 'preset="@weekly"' --output '@weekly' \
+					--elif 'preset="@monthly"' --output '@monthly' \
+					--elif 'preset="@yearly"' --output '@yearly' \
+					--else \
+						--output '# invalid preset #' \
+					--break \
+					--output " ${_user} ${_scriptname}" \
+					--nl \
+				--break \
+				${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
+#			create the script containing the snapshot command
+			cat <<- EOF > "${_scriptname}"
+				#!/bin/sh
+				_tag="snapshot"
+				_now=\$( /bin/date -u "+%Y%m%d-%H%M%S" )
+				_fqfn="${_path}@auto-\${_now}"
+				/usr/bin/logger -t "\${_tag}" "${_command}${_param} \${_fqfn}"
+				${_command}${_param} "\${_fqfn}" >/dev/null 2>&1
+			EOF
+#			restrict access to the snapshot script
+			chmod 0700 "${_scriptname}"
+			_index=$(( ${_index} - 1 ))
+		done
+	fi
+#	Scheduled shutdown
+	_xpaex="//shutdown/enable"
+	if configxml_isset "${_xpaex}"; then
+		echo "# shutdown" >> ${cron_config}
+		_user="root"
+		/usr/local/bin/xml sel --text --template \
+			--match "//shutdown" \
+				--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--output "${_user}" \
+				--output " " \
+				--output "/sbin/shutdown -p now" \
+				--nl \
+			--break \
+			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
+	fi
+#	Scheduled reboot
+	_xpaex="//reboot/enable"
+	if configxml_isset "${_xpaex}"; then
+		echo "# reboot" >> ${cron_config}
+		_user="root"
+		/usr/local/bin/xml sel --text --template \
+			--match "//reboot" \
+				--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--output "${_user}" \
+				--output " " \
+				--output "/sbin/shutdown -r now" \
+				--nl \
+			--break \
+			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
+	fi
+#	Email status notification
+	_xpaex="//statusreport/enable"
+	if configxml_isset "${_xpaex}"; then
+		echo "# email status report" >> ${cron_config}
+		_user="root"
+		/usr/local/bin/xml sel --text --template \
+			--match "//statusreport" \
+				--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+				--output " " \
+				--output "${_user}" \
+				--output " " \
+				--output "/etc/mail/sendreport" \
+				--nl \
+			--break \
+			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
+	fi
+#	Additional cron jobs
+	_xpaex="//cron/job[enable]"
+	_index=$( configxml_get_count "${_xpaex}" )
+	if [ ${_index} -gt 0 ]; then
+		echo "# user defined cron jobs" >> ${cron_config}
+		while [ ${_index} -gt 0 ]; do
+#			Get user
+			_user=$( configxml_get "${_xpaex}[position()=${_index}]/who" )
+#			Get crontab data
+			_data=$( /usr/local/bin/xml sel --text --template \
+				--match "${_xpaex}[position()=${_index}]" \
+					--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
+					--output " " \
+					--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --if "all_months[. != "0"]" --output "*" --break \
+					--output " " \
+					--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --if "all_weekdays[. != "0"]" --output "*" --break \
+					--output " " \
+					--if "who[. = 'root']" --value-of "concat(who,' ')" --break \
+					--value-of command \
+				--break \
+				${configxml_file} | /usr/local/bin/xml unesc )
+#			Register user
+			crontab_allowuser "${_user}"
+#			Write to crontab
+			crontab_addline "${_user}" "${_data}"
 			_index=$(( ${_index} - 1 ))
 		done
 	fi
