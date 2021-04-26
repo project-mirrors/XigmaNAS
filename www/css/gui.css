@@ -312,7 +312,7 @@ pre.cmdoutput
 	background-color: var(--bgc-lce-odd);
 }
 
-.area_data_selection tbody:not(.donothighlight) tr:hover > td
+.area_data_selection tbody:not(.donothighlight) > tr:hover > td
 {
 	background-color: #CCCCCC;
 	background-color: var(--bgc-lce-hover);
@@ -422,7 +422,7 @@ pre.cmdoutput
 }
 
 .celldatacheckbox label,
-.celldataradio label,
+.celldataradio > label,
 .showifchecked,
 .hideifchecked
 {

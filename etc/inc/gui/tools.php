@@ -1299,8 +1299,17 @@ EOJ;
 		if(array_key_exists('all_weekdays',$cops) && array_key_exists('weekdays',$cops)):
 			$matrix['weekdays'] = ['all' => $cops['all_weekdays'],'sel' => $cops['weekdays']];
 		endif;
-		$div = $this->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
-		$this->ins_description($cops['scheduler']);
+		$root_for_scheduler = $this;
+		if(array_key_exists('preset',$cops)):
+			$this->cr($cops['preset'],$sphere,$is_required,$is_readonly);
+			$hooks = $this->get_hooks();
+			if(array_key_exists('custom',$hooks)):
+				$root_for_scheduler = $hooks['custom']->addDIV(['class' => 'showifchecked']);
+			endif;
+		endif;
+//		scheduler
+		$div = $root_for_scheduler->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
+		$root_for_scheduler->ins_description($cops['scheduler']);
 //		insert elements
 		foreach($matrix as $matrix_key => $control):
 			$all_id = $control['all']->get_id();
