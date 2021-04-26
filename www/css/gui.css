@@ -1396,12 +1396,18 @@ input[type="radio"].rblo
 	display: none;
 }
 
+input[type="radio"].rblo:checked + label > span,
 input[type="radio"].rblo:checked + span
 {
 	background-color: #F08080;
 	background-color: var(--bgc-rblo);
 	color: #FFFFFF;
 	color: var(--txc-rblo);
+}
+
+input[type="radio"].rblo:not(:checked) ~ table
+{
+	opacity: 25%;
 }
 
 div.rblo

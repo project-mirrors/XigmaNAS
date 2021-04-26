@@ -1300,8 +1300,6 @@ EOJ;
 			$matrix['weekdays'] = ['all' => $cops['all_weekdays'],'sel' => $cops['weekdays']];
 		endif;
 		$div = $this->addDIV(['style' => 'display: flex;flex-flow: row wrap;justify-content: flex-start;']);
-//		insert scheduler java code
-		$div->ins_javascript(implode("\n",["function set_selected(elid) {","\tdocument.getElementById(elid).checked = true;","}"]));
 		$this->ins_description($cops['scheduler']);
 //		insert elements
 		foreach($matrix as $matrix_key => $control):
@@ -1322,17 +1320,19 @@ EOJ;
 					addDIV(['class' => 'lcebl'])->
 						push()->
 						addDIV(['class' => 'rlbo'])->
-							addElement('label')->
-								insINPUT($attr_all)->
+							insINPUT($attr_all)->
+							addElement('label',['for' => sprintf('%s1',$all_id)])->
 								insSPAN(['class' => 'rblo'],gettext('All'))->
 						pop()->
 						addDIV(['class' => 'rlbo'])->
-							addElement('label')->
-								insINPUT($attr_sel)->
-								insSPAN(['class' => 'rblo'],gettext('Selected...'))->
-								addTABLE()->
-									addTBODY(['class' => 'donothighlight'])->
-										addTR();
+							push()->
+							insINPUT($attr_sel)->
+								addElement('label',['for' => sprintf('%s0',$all_id)])->
+									insSPAN(['class' => 'rblo'],gettext('Selected...'))->
+							pop()->
+							addTABLE()->
+								addTBODY(['class' => 'donothighlight'])->
+									addTR();
 			switch($matrix_key):
 				case 'minutes':
 				case 'hours':
@@ -1351,7 +1351,6 @@ EOJ;
 									'type' => 'checkbox',
 									'class' => 'cblo',
 									'name' => sprintf('%s[]',$sel_name),
-									'onchange' => sprintf('set_selected("%s0")',$all_id),
 									'value' => $key
 								];
 								if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name]) && in_array((string)$key,$sphere->row[$sel_name])):
@@ -1376,7 +1375,6 @@ EOJ;
 							'type' => 'checkbox',
 							'class' => 'cblo',
 							'name' => sprintf('%s[]',$sel_name),
-							'onchange' => sprintf('set_selected("%s0")',$all_id),
 							'value' => $key
 						];
 						if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name]) && in_array((string)$key,$sphere->row[$sel_name])):
@@ -1396,7 +1394,6 @@ EOJ;
 							'type' => 'checkbox',
 							'class' => 'cblo',
 							'name' => sprintf('%s[]',$sel_name),
-							'onchange' => sprintf('set_selected("%s0")',$all_id),
 							'value' => $key
 						];
 						if(isset($sphere->row[$sel_name]) && is_array($sphere->row[$sel_name])):
