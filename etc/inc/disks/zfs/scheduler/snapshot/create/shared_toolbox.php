@@ -109,7 +109,7 @@ final class shared_toolbox {
 					ins_tabnav_record('disks_zfs_dataset.php',gettext('Datasets'))->
 					ins_tabnav_record('disks_zfs_volume.php',gettext('Volumes'))->
 					ins_tabnav_record('disks_zfs_snapshot.php',gettext('Snapshots'))->
-					ins_tabnav_record('disks_zfs_snapshot.php',gettext('Scheduler'),gettext('Reload page'),true)->
+					ins_tabnav_record('disks_zfs_scheduler_snapshot_create.php',gettext('Scheduler'),gettext('Reload page'),true)->
 					ins_tabnav_record('disks_zfs_config.php',gettext('Configuration'))->
 					ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'))->
 				pop()->
