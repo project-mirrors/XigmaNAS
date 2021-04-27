@@ -155,24 +155,26 @@ EOF
 	_xpaex="//rsync/rsyncclient[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
-		echo "# rsync (client)" >> ${cron_config}
 		while [ ${_index} -gt 0 ]; do
 #			Get user
 			_user=$( configxml_get "${_xpaex}[position()=${_index}]/who" )
 #			Get crontab data
 			_data=$( /usr/local/bin/xml sel --text --template \
 				--match "${_xpaex}[position()=${_index}]" \
-					--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "who[. = 'root']" --value-of "concat(who,' ')" --break \
+					--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+					--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+					--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+					--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+					--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+					--else \
+						--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+					--break \
+					--output ' ' \
+					--if 'who="root"' --output 'root ' --break \
 					--value-of "concat('/var/run/rsync_client_',uuid,'.sh')" \
 				--break \
 				${configxml_file} | /usr/local/bin/xml unesc )
@@ -187,24 +189,26 @@ EOF
 	_xpaex="//rsync/rsynclocal[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
-		echo "# rsync (local)" >> ${cron_config}
 		while [ ${_index} -gt 0 ]; do
 #			Get user
 			_user=$( configxml_get "${_xpaex}[position()=${_index}]/who" )
 #			Get crontab data
 			_data=$( /usr/local/bin/xml sel --text --template \
 				--match "${_xpaex}[position()=${_index}]" \
-					--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "who[. = 'root']" --value-of "concat(who,' ')" --break \
+					--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+					--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+					--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+					--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+					--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+					--else \
+						--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+					--break \
+					--output ' ' \
+					--if 'who="root"' --output 'root ' --break \
 					--value-of "concat('/var/run/rsync_local_',uuid,'.sh')" \
 				--break \
 				${configxml_file} | /usr/local/bin/xml unesc )
@@ -242,11 +246,11 @@ EOF
 						--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
 						--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
 						--else \
-							--if 'all_mins="1"' --output '*' --else --match minute --if 'position()>1' --output ',' --break --value-of '.' --break  --break --output ' ' \
-							--if 'all_hours="1"' --output '*' --else --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --break --output ' ' \
-							--if 'all_days="1"' --output '*' --else  --match day --if 'position()>1' --output ',' --break --value-of '.' --break --break --output ' ' \
-							--if 'all_months="1"' --output '*' --else --match month --if 'position()>1' --output ',' --break --value-of '.' --break --break --output ' ' \
-							--if 'all_weekdays="1"' --output '*' --else --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --break \
+							--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+							--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+							--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+							--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+							--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
 						--break \
 					--elif 'preset="@hourly"' --output '@hourly' \
 					--elif 'preset="@daily"' --output '@daily' \
@@ -281,19 +285,19 @@ EOF
 		_user="root"
 		/usr/local/bin/xml sel --text --template \
 			--match "//shutdown" \
-				--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--output "${_user}" \
-				--output " " \
-				--output "/sbin/shutdown -p now" \
+				--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+				--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+				--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+				--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+				--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+				--else \
+					--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+				--break \
+				--output " ${_user} /sbin/shutdown -p now" \
 				--nl \
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
@@ -305,19 +309,19 @@ EOF
 		_user="root"
 		/usr/local/bin/xml sel --text --template \
 			--match "//reboot" \
-				--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--output "${_user}" \
-				--output " " \
-				--output "/sbin/shutdown -r now" \
+				--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+				--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+				--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+				--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+				--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+				--else \
+					--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+				--break \
+				--output " ${_user} /sbin/shutdown -r now" \
 				--nl \
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
@@ -329,19 +333,19 @@ EOF
 		_user="root"
 		/usr/local/bin/xml sel --text --template \
 			--match "//statusreport" \
-				--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-				--output " " \
-				--output "${_user}" \
-				--output " " \
-				--output "/etc/mail/sendreport" \
+				--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+				--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+				--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+				--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+				--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+				--else \
+					--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+					--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+				--break \
+				--output " ${_user} /etc/mail/sendreport" \
 				--nl \
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
@@ -350,24 +354,26 @@ EOF
 	_xpaex="//cron/job[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
-		echo "# user defined cron jobs" >> ${cron_config}
 		while [ ${_index} -gt 0 ]; do
 #			Get user
 			_user=$( configxml_get "${_xpaex}[position()=${_index}]/who" )
 #			Get crontab data
 			_data=$( /usr/local/bin/xml sel --text --template \
 				--match "${_xpaex}[position()=${_index}]" \
-					--if "all_mins[. = "0"]" --match minute --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_hours[. = "0"]" --match hour --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_days[. = "0"]" --match day --if "position() > 1" --output "," --break --value-of "." --break --else --output "*" --break \
-					--output " " \
-					--if "all_months[. = "0"]" --match month --if "position() > 1" --output "," --break --value-of "." --break --else --if "all_months[. != "0"]" --output "*" --break \
-					--output " " \
-					--if "all_weekdays[. = "0"]" --match weekday --if "position() > 1" --output "," --break --value-of "." --break --else --if "all_weekdays[. != "0"]" --output "*" --break \
-					--output " " \
-					--if "who[. = 'root']" --value-of "concat(who,' ')" --break \
+					--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+					--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+					--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+					--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+					--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+					--else \
+						--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output ' ' \
+						--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+					--break \
+					--output ' ' \
+					--if 'who="root"' --output 'root ' --break \
 					--value-of command \
 				--break \
 				${configxml_file} | /usr/local/bin/xml unesc )
