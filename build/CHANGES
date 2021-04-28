@@ -44,6 +44,7 @@ Fixes:
 - Fastcgi issue with filter_input of INPUT_SERVER.
 - Fix checking for changes in auxparam always flags reboot.
 - Fix Aquantia driver AQC100 and AQC100S adapter bind. (BR417)
+- Fix ntp interval calculation.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
