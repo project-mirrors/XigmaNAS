@@ -150,6 +150,7 @@ CREATE_UPSVARS ()
 #   battery.charge      %
 #   ups.load            %
 #   battery.voltage     V
+#   output.voltage      V
 #   input.voltage       V
 #   battery.runtime     m
 #   ups.status          OL [CHRG]
@@ -162,7 +163,8 @@ while [ "${1}" != "" ]; do
 	case ${1} in
 		battery.charge:)    charge=${2};;
 		ups.load:)          load=${2};;
-		output.voltage:|battery.voltage:)   bvoltage=${2};;
+		battery.voltage:)   bvoltage=${2};;
+		output.voltage:)    ovoltage=$(2);;
 		input.voltage:)     ivoltage=${2};;
 		battery.runtime:)   runtime=`echo -e $2 | awk '{calc=$1/60; print calc}'`;;
 		ups.status:)    case ${2} in
@@ -386,6 +388,7 @@ if [ "$RUN_UPS" -eq 1 ]; then
 			'DS:charge:GAUGE:600:U:U' \
 			'DS:load:GAUGE:600:U:U' \
 			'DS:bvoltage:GAUGE:600:U:U' \
+			'DS:ovoltage:GAUGE:600:U:U' \
 			'DS:ivoltage:GAUGE:600:U:U' \
 			'DS:runtime:GAUGE:600:U:U' \
 			'DS:OL:GAUGE:600:U:U' \
@@ -398,7 +401,7 @@ if [ "$RUN_UPS" -eq 1 ]; then
 			'RRA:AVERAGE:0.5:144:1460'
 	fi
 	if [ -f "$FILE" ]; then
-		/usr/local/bin/rrdtool update "$FILE" N:$charge:$load:$bvoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:$charge:$load:$bvoltage:$ovoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 #	Latency
