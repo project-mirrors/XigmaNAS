@@ -152,6 +152,7 @@ CREATE_UPSVARS ()
 #		battery.charge      %
 #		ups.load            %
 #		battery.voltage     V
+#		output.voltage      V
 #		input.voltage       V
 #		battery.runtime     m
 #		ups.status          OL [CHRG]
@@ -161,6 +162,7 @@ CREATE_UPSVARS ()
 charge=0
 load=0
 bvoltage=0
+ovoltage=0
 ivoltage=0
 runtime=0
 OL=0
@@ -179,8 +181,11 @@ while [ "$1" != "" ]; do
 		ups.load:)
 			load="$2"
 			;;
-		output.voltage:|battery.voltage:)
+		battery.voltage:)
 			bvoltage="$2"
+			;;
+		output.voltage:)
+			ovoltage="$2"
 			;;
 		input.voltage:)
 			ivoltage="$2"
@@ -522,6 +527,7 @@ if [ "$RUN_UPS" -eq 1 ]; then
 			'DS:charge:GAUGE:600:U:U' \
 			'DS:load:GAUGE:600:U:U' \
 			'DS:bvoltage:GAUGE:600:U:U' \
+			'DS:ovoltage:GAUGE:600:U:U' \
 			'DS:ivoltage:GAUGE:600:U:U' \
 			'DS:runtime:GAUGE:600:U:U' \
 			'DS:OL:GAUGE:600:U:U' \
@@ -536,7 +542,7 @@ if [ "$RUN_UPS" -eq 1 ]; then
 	if [ -f "$FILE" ]; then
 		CMD=`/usr/local/bin/upsc ${UPS_AT}`
 		CREATE_UPSVARS ${CMD}
-		/usr/local/bin/rrdtool update "$FILE" N:"$charge":"$load":"$bvoltage":"$ivoltage":"$runtime":"$OL":"$OF":"$OB":"$CG" 2>> /tmp/rrdgraphs-error.log
+		/usr/local/bin/rrdtool update "$FILE" N:"$charge":"$load":"$bvoltage":"$ovoltage":"$ivoltage":"$runtime":"$OL":"$OF":"$OB":"$CG" 2>> /tmp/rrdgraphs-error.log
 	fi
 fi
 #	Latency

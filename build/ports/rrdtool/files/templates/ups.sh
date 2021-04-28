@@ -12,6 +12,7 @@ $BACKGROUND \
 "DEF:charge=$STORAGE_PATH/rrd/ups.rrd:charge:AVERAGE" \
 "DEF:load=$STORAGE_PATH/rrd/ups.rrd:load:AVERAGE" \
 "DEF:bvoltage=$STORAGE_PATH/rrd/ups.rrd:bvoltage:AVERAGE" \
+"DEF:ovoltage=$STORAGE_PATH/rrd/ups.rrd:ovoltage:AVERAGE" \
 "DEF:ivoltage=$STORAGE_PATH/rrd/ups.rrd:ivoltage:AVERAGE" \
 "DEF:runtime=$STORAGE_PATH/rrd/ups.rrd:runtime:AVERAGE" \
 "DEF:OL=$STORAGE_PATH/rrd/ups.rrd:OL:AVERAGE" \
@@ -47,6 +48,12 @@ $BACKGROUND \
 "GPRINT:ivoltage:MAX:Max\\:%6.1lf" \
 "GPRINT:ivoltage:AVERAGE:Avg\\:%6.1lf" \
 "GPRINT:ivoltage:LAST:Last\\:%6.1lf" \
+"COMMENT:\n" \
+"LINE2:ovoltage#FFFF00:Output voltage      [V]" \
+"GPRINT:ovoltage:MIN:Min\\:%6.1lf" \
+"GPRINT:ovoltage:MAX:Max\\:%6.1lf" \
+"GPRINT:ovoltage:AVERAGE:Avg\\:%6.1lf" \
+"GPRINT:ovoltage:LAST:Last\\:%6.1lf" \
 "COMMENT:\n" \
 "COMMENT:UPS status\\:" \
 "LINE2:OL#009900:Online" \
