@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
@@ -50,7 +51,7 @@ $rmo->add('POST','save',PAGE_MODE_POST);
 $rmo->add('POST','cancel',PAGE_MODE_POST);
 $rmo->add('SESSION',$sphere->get_scriptname(),PAGE_MODE_VIEW);
 $rmo->set_default('GET','view',PAGE_MODE_VIEW);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -90,7 +91,8 @@ $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
 			ins_tabnav_record('reboot.php',gettext('Now'),gettext('Reload page'),true)->
-			ins_tabnav_record('reboot_sched.php',gettext('Scheduled'));
+			ins_tabnav_record('reboot_sched.php',gettext('Scheduled'))->
+			ins_tabnav_record('system_scheduler_reboot.php',gettext('Enhanced Scheduler'));
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
