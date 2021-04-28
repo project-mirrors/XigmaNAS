@@ -43,6 +43,7 @@ Fixes:
 - Fix cookie expire phpvirtualbox.
 - Fix stop torrents before stopping service.
 - Fix edit user, the default group kept resetting.
+- Fix ntp interval calculation.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
