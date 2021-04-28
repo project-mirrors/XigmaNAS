@@ -1,7 +1,4 @@
 #!/bin/sh
-#
-# $FreeBSD: head/emulators/virtualbox-ose-kmod/files/vboxnet.in 418931 2016-07-22 20:28:01Z jkim $
-#
 
 # PROVIDE:	vboxnet
 # BEFORE:	NETWORKING

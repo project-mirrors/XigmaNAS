@@ -1,7 +1,4 @@
 #!/bin/sh
-#
-# $FreeBSD: head/emulators/virtualbox-ose-additions/files/vboxguest.in 419152 2016-07-26 21:49:12Z jkim $
-#
 
 # PROVIDE:	vboxguest
 # REQUIRE:	FILESYSTEMS
