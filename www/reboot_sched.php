@@ -32,12 +32,15 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'cs_scheduletime.php';
 
+use common\arr;
+
 $sphere_scriptname = basename(__FILE__);
-array_make_branch($config,'reboot');
+arr::make_branch($config,'reboot');
 $pconfig['enable'] = isset($config['reboot']['enable']);
 $pconfig['minute'] = $config['reboot']['minute'];
 $pconfig['hour'] = $config['reboot']['hour'];
@@ -96,6 +99,7 @@ function set_selected(name) {
 	<tr><td class="tabnavtbl"><ul id="tabnav">
 		<li class="tabinact"><a href="reboot.php"><span><?=gtext('Now');?></span></a></li>
 		<li class="tabact"><a href="reboot_sched.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Scheduled');?></span></a></li>
+		<li class="tabinact"><a href="system_scheduler_reboot.php"><span><?=gtext('Enhanced Scheduler');?></span></a></li>
 	</ul></td></tr>
 </table>
 <form action="<?=$sphere_scriptname;?>" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
