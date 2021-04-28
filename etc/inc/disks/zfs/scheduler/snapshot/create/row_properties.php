@@ -1,5 +1,4 @@
 <?php
-
 /*
 	row_properties.php
 
