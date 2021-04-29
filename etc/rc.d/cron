@@ -297,7 +297,7 @@ EOF
 			#
 			# destroy ZFS snapshots
 		EOF
-#		root is deleting snapshots
+#		root is destroying snapshots
 		_user="root"
 		while [ ${_index} -gt 0 ]; do
 			_uuid=$( configxml_get "${_xpaex}[position()=${_index}]/uuid" )
