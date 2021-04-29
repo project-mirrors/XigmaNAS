@@ -157,7 +157,7 @@ CREATE_UPSVARS ()
 #                       OFF
 #                       OB
 # $1: var name $2: value $3: CHRG
-charge=0; load=0; bvoltage=0; ivoltage=0; runtime=0; OL=0; OF=0; OB=0; CG=0;
+charge=0; load=0; bvoltage=0; ovoltage=0; ivoltage=0; runtime=0; OL=0; OF=0; OB=0; CG=0;
 if [ "${CMD}" == "" ]; then OF=100; return; fi
 while [ "${1}" != "" ]; do
 	case ${1} in
