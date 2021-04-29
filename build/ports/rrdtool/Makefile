@@ -1,6 +1,6 @@
 PORTNAME=		rrdtool
 PORTVERSION=		1.7.2
-PORTREVISION=		1
+PORTREVISION=		0
 CATEGORIES=		databases graphics
 
 COMMENT=		Round Robin Database Tools
@@ -16,7 +16,7 @@ DISABLE_VULNERABILITIES=yes
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=		${NONEXISTENT}:databases/rrdtool
-DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py37/stage
+DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py38/stage
 PANGO_MODULES=		${PREFIX}/lib/pango/1.8.0/modules
 
 do-install:
@@ -41,7 +41,6 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/ups.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/ups.sh
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/uptime.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/uptime.sh
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/zfs_arc.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/zfs_arc.sh
-	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/zfs_arceff.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/zfs_arceff.sh
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/templates/zfs_l2arc.sh ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates/zfs_l2arc.sh
 
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/rrdcached ${XIGMANAS_ROOTFS}/usr/local/bin
@@ -59,7 +58,7 @@ do-install:
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/RRDs.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/RRDp.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}
-	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.so ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}/
+	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.cpython-38.so ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}/
 # fonts
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/share/fonts
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/etc/fonts/conf.avail

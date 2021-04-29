@@ -706,15 +706,15 @@ post-install:
 # share
 	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba413 ${XIGMANAS_ROOTFS}/usr/local/share
 # misc
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
-	for file in talloc.so tdb.so; do \
-		${CP} -pv ${PREFIX}/lib/python3.7/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages; \
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
+	for file in talloc.cpython-38.so tdb.cpython-38.so; do \
+		${CP} -pv ${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
 	done
 # from bundeled location 
-	for file in ldb.so; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.7/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages; \
+	for file in ldb.cpython-38.so; do \
+		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
 	done
-	@${CP} -Rpv ${PREFIX}/lib/python3.7/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.7/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.8/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
 
 # ldb/tdb
