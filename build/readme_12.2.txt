@@ -138,6 +138,7 @@ Changes:
 - Upgrade phpmyadmin to 5.1.0.
 - Upgrade syncthing to 1.15.1.
 - Upgrade virtualbox-ose to 6.1.20.
+- Upgrade python to 3.8.x.
 
 Fixes:
 - Fix only first lagg member is brought up.
