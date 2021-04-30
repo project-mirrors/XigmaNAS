@@ -115,7 +115,8 @@ final class shared_toolbox {
 				pop()->
 				add_tabnav_lower()->
 					ins_tabnav_record('disks_zfs_scheduler_snapshot_create.php',gettext('Create Snapshot'),gettext('Reload page'),true)->
-					ins_tabnav_record('disks_zfs_scheduler_snapshot_destroy.php',gettext('Destroy Snapshot'));
+					ins_tabnav_record('disks_zfs_scheduler_snapshot_destroy.php',gettext('Destroy Snapshot'))->
+					ins_tabnav_record('disks_zfs_scheduler_pool_scrub.php',gettext('Scrub Pool'));
 		return $retval;
 	}
 }

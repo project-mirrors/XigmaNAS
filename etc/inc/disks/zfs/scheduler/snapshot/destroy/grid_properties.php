@@ -111,10 +111,19 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_preset;
 	public function init_preset(): myp\property_list {
-		$title = gettext('Presets');
+		$options = [
+			'@hourly' => gettext('Hourly'),
+			'@daily' => gettext('Daily'),
+			'@weekly' => gettext('Weekly'),
+			'@monthly' => gettext('Monthly'),
+			'@yearly' => gettext('Yearly'),
+			'custom' => gettext('Custom Setting')
+		];
+		$title = gettext('Schedule');
 		$property = $this->x_preset = new myp\property_list($this);
 		$property->
 			set_name('preset')->
+			set_options($options)->
 			set_title($title);
 		return $property;
 	}
