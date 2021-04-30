@@ -153,7 +153,7 @@ $cops = [
 ];
 $a_poolname = [];
 $exit_status = 0;
-mwexec2('zpool list -Ho name',$rawdata,$exit_status);
+mwexec2('zpool list -Ho name 2>&1',$rawdata,$exit_status);
 if($exit_status == 0):
 	foreach($rawdata as $line):
 		$a_poolname[$line] = $line;

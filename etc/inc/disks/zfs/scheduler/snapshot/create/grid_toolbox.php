@@ -120,7 +120,7 @@ final class grid_toolbox {
 		$pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Scheduler'),gettext('Snapshot'),gettext('Create')];
 		$record_exists = count($sphere->grid) > 0;
 		$morethanonerecord = count($sphere->grid) > 1;
-		$a_col_width = ['5%','30%','10%','10%','35%','10%'];
+		$a_col_width = ['5%','15%','15%','10%','35%','10%','10%'];
 		$n_col_width = count($a_col_width);
 		if($morethanonerecord):
 			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
@@ -157,26 +157,35 @@ final class grid_toolbox {
 					ins_cbm_checkbox_toggle($sphere)->
 				pop()->
 				insTHwC('lhell',$cop->get_path()->get_title())->
+				insTHwC('lhell',$cop->get_preset()->get_title())->
 				insTHwC('lhelc',$cop->get_recursive()->get_title())->
-				insTHwC('lhelc sorter-image',gettext('Status'))->
 				insTHwC('lhell',$cop->get_description()->get_title())->
+				insTHwC('lhelc sorter-image',gettext('Status'))->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 		else:
 			$tr->
 				insTHwC('lhelc')->
 				insTHwC('lhell',$cop->get_path()->get_title())->
+				insTHwC('lhell',$cop->get_preset()->get_title())->
 				insTHwC('lhelc',$cop->get_recursive()->get_title())->
-				insTHwC('lhelc',gettext('Status'))->
 				insTHwC('lhell',$cop->get_description()->get_title())->
+				insTHwC('lhelc',gettext('Status'))->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
 		if($record_exists):
+			$preset_name = $cop->get_preset()->get_name();
+			$preset_options = $cop->get_preset()->get_options();
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 				$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
 				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
 				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
+				if(array_key_exists($sphere->row[$preset_name],$preset_options)):
+					$preset_value = $preset_options[$sphere->row[$preset_name]];
+				else:
+					$preset_value = gettext('Invalid');
+				endif;
 				$tbody->
 					addTR()->
 						push()->
@@ -184,9 +193,10 @@ final class grid_toolbox {
 							ins_cbm_checkbox($sphere,!($is_notdirty && $is_notprotected))->
 						pop()->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_path()->get_name()] ?? '')->
+						insTDwC('lcell' . $dc,$preset_value)->
 						ins_enadis_icon($sphere->row[$cop->get_recursive()->get_name()] ?? false)->
-						ins_enadis_icon($is_enabled)->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
+						ins_enadis_icon($is_enabled)->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
 							ins_maintainbox($sphere,false)->
