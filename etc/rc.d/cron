@@ -33,10 +33,11 @@ start_precmd="cron_mkconf"
 mkconf_cmd="cron_mkconf"
 extra_commands="mkconf"
 
+_isodate=$( /bin/date "+%FT%T%z" )
+
 # crontab_allowuser [user]
 # Register user to allow them to execute cron jobs.
-crontab_allowuser()
-{
+crontab_allowuser() {
 	local _user
 
 	_user=$1
@@ -46,16 +47,13 @@ crontab_allowuser()
 		/usr/bin/sort -u ${cron_allow} -o ${cron_allow}
 	fi
 }
-
 # crontab_addline [user] [data]
 # Write a job to the corresponding crontab.
-crontab_addline()
-{
-	local _user _data _home _isodate
+crontab_addline() {
+	local _user _data _home
 
 	_user=$1
 	_data=$2
-	_isodate=$( /bin/date "+%FT%T%z" )
 	if [ "${_user}" = "root" ]; then
 		echo "${_data}" >> ${cron_config}
 	else
@@ -81,46 +79,10 @@ crontab_addline()
 		echo "${_data}" >> ${cron_tabspath}/${_user}
 	fi
 }
-
-cron_mkconf()
-{
-	local _interval _seconds
-	local _count _index _user _data _xpaex _isodate
-	local _uuid _scriptname _path _command _param _value1 _value2
-
-	_isodate=$( /bin/date "+%FT%T%z" )
-#	Make sure /var/cron/tabs path exists
-	[ ! -d "${cron_tabspath}" ] && mkdir "${cron_tabspath}"
-#	Empty /var/cron/allow
-	cat /dev/null > ${cron_allow}
-#	Remove all existing user crontabs
-	rm ${cron_tabspath}/* > /dev/null 2>&1
-#	Create /etc/newsyslog.conf
-	cat << EOF > /etc/newsyslog.conf
-# logfilename          [owner:group]    mode count size when  flags [/pid_file] [sig_num]
-
-<include> /etc/newsyslog.conf.d/*
-<include> /usr/local/etc/newsyslog.conf.d/*
-EOF
-
-#	Create /etc/crontab
-	cat <<- EOF > ${cron_config}
-		# created: ${_isodate}
-		SHELL=/bin/sh
-		PATH=/etc:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
-		HOME=/var/log
-		#
-		#minute	hour	mday	month	wday	who	command
-		#
-		# Rotate log files every hour, if necessary.
-		0	*	*	*	*	root	newsyslog
-		#
-		# Perform daily/weekly/monthly maintenance.
-		1	3	*	*	*	root	periodic daily
-		15	4	*	*	6	root	periodic weekly
-		30	5	1	*	*	root	periodic monthly
-	EOF
 #	Time synchronization
+mkconf_ntp() {
+	local _xpaex _interval _seconds
+
 	_xpaex="//system/ntp/enable"
 	if configxml_isset "${_xpaex}"; then
 		_interval=$( configxml_get "//system/ntp/updateinterval" )
@@ -133,7 +95,11 @@ EOF
 			EOF
 		fi
 	fi
+}
 #	Auto Snapshot every hour
+mkconf_autosnapshot() {
+	local _xpaex _count
+
 	_xpaex="//zfs/autosnapshots/autosnapshot"
 	_count=$( configxml_get_count "${_xpaex}" )
 	if [ ${_count} -gt 0 ]; then
@@ -143,7 +109,11 @@ EOF
 			@hourly	root	/usr/local/sbin/autosnapshot >/dev/null 2>&1
 		EOF
 	fi
+}
 #	Auto Update Monitoring Graphs every 5 minutes
+mkconf_rrdgraphs() {
+	local _xpaex
+
 	_xpaex="//rrdgraphs/enable"
 	if configxml_isset "${_xpaex}"; then
 		cat <<- EOF >> ${cron_config}
@@ -152,7 +122,11 @@ EOF
 			@300	root	/usr/local/share/rrdgraphs/rrd-update.sh
 		EOF
 	fi
+}
 #	RSYNC client
+mkkonf_rsyncclient() {
+	local _xpaex _index _user _data
+
 	_xpaex="//rsync/rsyncclient[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
@@ -186,7 +160,11 @@ EOF
 			_index=$(( ${_index} - 1 ))
 		done
 	fi
+}
 #	RSYNC local
+mkconf_rsynclocal() {
+	local _xpaex _index _user _data
+
 	_xpaex="//rsync/rsynclocal[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
@@ -220,7 +198,11 @@ EOF
 			_index=$(( ${_index} - 1 ))
 		done
 	fi
+}
 #	ZFS snapshots - create
+mkconf_snapshotcreate() {
+	local _xpaex _index _user _uuid _scriptname _path _command _param
+
 	_xpaex="//zfs/scheduler/snapshotcreate/param[enable]"
 #	check if there are any schedules
 	_index=$( configxml_get_count "${_xpaex}" )
@@ -288,7 +270,11 @@ EOF
 			_index=$(( ${_index} - 1 ))
 		done
 	fi
+}
 #	ZFS snapshots - destroy
+mkconf_snapshotdestroy() {
+	local _xpaex _index _user _uuid _scriptname _path _command _param _value1 _value2
+
 	_xpaex="//zfs/scheduler/snapshotdestroy/param[enable]"
 #	check if there are any schedules
 	_index=$( configxml_get_count "${_xpaex}" )
@@ -383,7 +369,59 @@ EOF
 			_index=$(( ${_index} - 1 ))
 		done
 	fi
+}
+#	ZFS pools - scrub
+mkconf_poolscrub() {
+	local _xpaex _index _user _command
+
+	_xpaex="//zfs/scheduler/poolscrub/param[enable]"
+#	check if there are any schedules
+	_index=$( configxml_get_count "${_xpaex}" )
+	if [ ${_index} -gt 0 ]; then
+		cat <<- EOF >> ${cron_config}
+			#
+			# scrub ZFS pools
+		EOF
+#		root is scrubbing pools
+		_user="root"
+		_command="/sbin/zpool scrub"
+#		create crontab entry
+		/usr/local/bin/xml sel --text --template \
+			--match "${_xpaex}" \
+				--if 'preset="" or preset="custom"' \
+					--if 'all_mins="0" and count(minute)=0' --output '# undefined minutes #' \
+					--elif 'all_hours="0" and count(hour)=0' --output '# undefined hours #' \
+					--elif 'all_days="0" and count(day)=0' --output '# undefined days #' \
+					--elif 'all_months="0" and count(month)=0' --output '# undefined months #' \
+					--elif 'all_weekdays="0" and count(weekday)=0' --output '# undefined weekdays #' \
+					--else \
+						--if 'all_mins="0"' --match minute --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output '&#9;' \
+						--if 'all_hours="0"' --match hour --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output '&#9;' \
+						--if 'all_days="0"' --match day --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output '&#9;' \
+						--if 'all_months="0"' --match month --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break --output '&#9;' \
+						--if 'all_weekdays="0"' --match weekday --if 'position()>1' --output ',' --break --value-of '.' --break --else --output '*' --break \
+					--break \
+				--elif 'preset="@hourly"' --output '@hourly' \
+				--elif 'preset="@daily"' --output '@daily' \
+				--elif 'preset="@weekly"' --output '@weekly' \
+				--elif 'preset="@monthly"' --output '@monthly' \
+				--elif 'preset="@yearly"' --output '@yearly' \
+				--else \
+					--output '# invalid preset #' \
+				--break \
+				--output "&#9;${_user}&#9;${_command} " \
+				--output '"' \
+				--value-of poolname \
+				--output '"' \
+				--nl \
+			--break \
+			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
+	fi
+}
 #	Scheduled shutdown
+mkconf_shutdown() {
+	local _xpaex _user _command
+
 	_xpaex="//shutdown/enable"
 	if configxml_isset "${_xpaex}"; then
 		cat <<- EOF >> ${cron_config}
@@ -411,7 +449,11 @@ EOF
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
 	fi
-#	Scheduled reboot
+}
+#	Scheduled reboot (deprecated)
+mkconf_rebootdeprecated() {
+	local _xpaex _user _command
+
 	_xpaex="//reboot/enable"
 	if configxml_isset "${_xpaex}"; then
 		cat <<- EOF >> ${cron_config}
@@ -439,7 +481,11 @@ EOF
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
 	fi
-#	New scheduled reboot
+}
+#	Scheduled reboot
+mkconf_reboot() {
+	local _xpaex _index _user _command
+
 	_xpaex="//system/scheduler/reboot/param[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
@@ -478,7 +524,11 @@ EOF
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
 	fi
+}
 #	Email status notification
+mkconf_statusreport() {
+	local _xpaex _user _command
+
 	_xpaex="//statusreport/enable"
 	if configxml_isset "${_xpaex}"; then
 		cat <<- EOF >> ${cron_config}
@@ -506,7 +556,11 @@ EOF
 			--break \
 			${configxml_file} | /usr/local/bin/xml unesc >> ${cron_config}
 	fi
+}
 #	Additional cron jobs
+mkconf_cronjobs() {
+	local _xpaex _index _user _data
+
 	_xpaex="//cron/job[enable]"
 	_index=$( configxml_get_count "${_xpaex}" )
 	if [ ${_index} -gt 0 ]; then
@@ -540,6 +594,51 @@ EOF
 			_index=$(( ${_index} - 1 ))
 		done
 	fi
+}
+
+cron_mkconf() {
+#	Make sure /var/cron/tabs path exists
+	[ ! -d "${cron_tabspath}" ] && mkdir "${cron_tabspath}"
+#	Empty /var/cron/allow
+	cat /dev/null > ${cron_allow}
+#	Remove all existing user crontabs
+	rm ${cron_tabspath}/* > /dev/null 2>&1
+#	Create /etc/newsyslog.conf
+	cat <<- EOF > /etc/newsyslog.conf
+		# logfilename          [owner:group]    mode count size when  flags [/pid_file] [sig_num]
+
+		<include> /etc/newsyslog.conf.d/*
+		<include> /usr/local/etc/newsyslog.conf.d/*
+	EOF
+	cat <<- EOF > ${cron_config}
+		# created: ${_isodate}
+		SHELL=/bin/sh
+		PATH=/etc:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+		HOME=/var/log
+		#
+		#minute	hour	mday	month	wday	who	command
+		#
+		# Rotate log files every hour, if necessary.
+		0	*	*	*	*	root	newsyslog
+		#
+		# Perform daily/weekly/monthly maintenance.
+		1	3	*	*	*	root	periodic daily
+		15	4	*	*	6	root	periodic weekly
+		30	5	1	*	*	root	periodic monthly
+	EOF
+	mkconf_ntp
+	mkconf_autosnapshot
+	mkconf_rrdgraphs
+	mkkonf_rsyncclient
+	mkconf_rsynclocal
+	mkconf_snapshotcreate
+	mkconf_snapshotdestroy
+	mkconf_poolscrub
+	mkconf_shutdown
+	mkconf_rebootdeprecated
+	mkconf_reboot
+	mkconf_statusreport
+	mkconf_cronjobs
 }
 
 load_rc_config $name
