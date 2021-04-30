@@ -155,10 +155,13 @@ $cops = [
 	'all_months' => $cop->get_all_months()
 ];
 $a_path = [];
-mwexec2('zfs list -H -o name -t filesystem,volume 2>&1',$rawdata);
-foreach($rawdata as $line):
-	$a_path[$line] = $line;
-endforeach;
+$exit_status = 0;
+mwexec2('zfs list -H -o name -t filesystem,volume 2>&1',$rawdata,$exit_status);
+if($exit_status == 0):
+	foreach($rawdata as $line):
+		$a_path[$line] = $line;
+	endforeach;
+endif;
 $cop->get_path()->set_options($a_path);
 switch($page_mode):
 	case PAGE_MODE_ADD:

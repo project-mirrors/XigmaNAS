@@ -98,21 +98,13 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_preset(): myp\property_list {
-		$options = [
-			'@hourly' => gettext('Hourly'),
-			'@daily' => gettext('Daily'),
-			'@weekly' => gettext('Weekly'),
-			'@monthly' => gettext('Monthly'),
-			'@yearly' => gettext('Yearly'),
-			'custom' => gettext('Custom Setting')
-		];
+		$title = gettext('Presets');
 		$property = parent::init_preset();
 		$property->
 			set_defaultvalue('@daily')->
-			set_description($description)->
 			set_id('preset')->
 			set_input_type('radio-grid')->
-			set_options($options)->
+			set_title($title)->
 			filter_use_default();
 		return $property;
 	}
