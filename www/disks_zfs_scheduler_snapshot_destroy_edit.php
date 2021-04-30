@@ -1,6 +1,6 @@
 <?php
 /*
-	disks_zfs_scheduler_snapshot_create_edit.php
+	disks_zfs_scheduler_snapshot_destroy_edit.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,8 +37,8 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 use common\arr;
-use disks\zfs\scheduler\snapshot\create\row_toolbox as toolbox;
-use disks\zfs\scheduler\snapshot\create\shared_toolbox;
+use disks\zfs\scheduler\snapshot\destroy\row_toolbox as toolbox;
+use disks\zfs\scheduler\snapshot\destroy\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -138,6 +138,8 @@ $cops = [
 	'enable' => $cop->get_enable(),
 	'path' => $cop->get_path(),
 	'recursive' => $cop->get_recursive(),
+	'lifetimeval' => $cop->get_lifetime_val(),
+	'lifetimeuom' => $cop->get_lifetime_uom(),
 	'description' => $cop->get_description(),
 	'scheduler' => $cop->get_scheduler(),
 	'preset' => $cop->get_preset(),
@@ -213,7 +215,7 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Scheduler'),gettext('Snapshot'),gettext('Create'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Scheduler'),gettext('Snapshot'),gettext('Destroy'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
 $document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
@@ -237,6 +239,8 @@ $content->
 		addTBODY()->
 			c2($cops['path'],$sphere,true,$cops['path']->is_readonly_rowmode($isrecordnewornewmodify))->
 			c2($cops['recursive'],$sphere,false,$cops['recursive']->is_readonly_rowmode($isrecordnewornewmodify))->
+			c2($cops['lifetimeval'],$sphere,false,$cops['lifetimeval']->is_readonly_rowmode($isrecordnewornewmodify))->
+			c2($cops['lifetimeuom'],$sphere,false,$cops['lifetimeval']->is_readonly_rowmode($isrecordnewornewmodify))->
 			c2($cops['description'],$sphere,false,$cops['description']->is_readonly_rowmode($isrecordnewornewmodify))->
 			c2_scheduler($cops,$sphere,false,$cops['scheduler']->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();

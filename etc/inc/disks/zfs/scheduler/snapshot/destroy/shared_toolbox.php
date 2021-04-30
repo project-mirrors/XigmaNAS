@@ -32,7 +32,7 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-namespace disks\zfs\scheduler\snapshot\create;
+namespace disks\zfs\scheduler\snapshot\destroy;
 
 use common\arr,
 	common\sphere as mys,
@@ -92,7 +92,7 @@ final class shared_toolbox {
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
 			set_lock(false);
-		$sphere->grid = &arr::make_branch($config,'zfs','scheduler','snapshotcreate','param');
+		$sphere->grid = &arr::make_branch($config,'zfs','scheduler','snapshotdestroy','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -114,8 +114,8 @@ final class shared_toolbox {
 					ins_tabnav_record('disks_zfs_settings.php',gettext('Settings'))->
 				pop()->
 				add_tabnav_lower()->
-					ins_tabnav_record('disks_zfs_scheduler_snapshot_create.php',gettext('Create Snapshot'),gettext('Reload page'),true)->
-					ins_tabnav_record('disks_zfs_scheduler_snapshot_destroy.php',gettext('Destroy Snapshot'));
+					ins_tabnav_record('disks_zfs_scheduler_snapshot_create.php',gettext('Create Snapshot'))->
+					ins_tabnav_record('disks_zfs_scheduler_snapshot_destroy.php',gettext('Destroy Snapshot'),gettext('Reload page'),true);
 		return $retval;
 	}
 }
