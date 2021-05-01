@@ -122,14 +122,12 @@ Changes:
 - Upgrade zoneinfo to 2021a.
 - Upgrade lighttpd to 1.4.59.
 - Upgrade jQuery to 3.6.0.
-- Upgrade nano to 5.6.1.
 - Upgrade php to 7.4.16.
 - Upgrade devcpu-data to 1.38.
 - Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
 - Upgrade e2fsprogs to 1.46.2.
 - Upgrade open-vm-tools to 11.2.5.
-- Upgrade phpvirtualbox to 6.1.
 - Upgrade nut to 2021.03.14.
 - Upgrade sudo to 1.9.6p1.
 - Upgrade samba to 4.13.7.
@@ -139,6 +137,7 @@ Changes:
 - Upgrade syncthing to 1.15.1.
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
+- Upgrade nano to 5.7.
 
 Fixes:
 - Fix only first lagg member is brought up.
