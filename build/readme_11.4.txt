@@ -140,7 +140,6 @@ Changes:
 - Upgrade dmidecode to 3.3.
 - Upgrade zoneinfo to 2021a.
 - Upgrade jQuery to 3.6.0.
-- Upgrade php to 7.4.16.
 - Upgrade devcpu-data to 1.38.
 - Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
@@ -156,6 +155,7 @@ Changes:
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
 - Upgrade nano to 5.7.
+- Upgrade php to 7.4.18.
 
 Fixes:
 - Fix only first lagg member is brought up.
