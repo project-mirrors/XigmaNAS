@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
 "PO-Revision-Date: 2021-03-25 19:30+0000\n"
 "Last-Translator: Ricardo Fialho <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: PORTUGAL\n"
 "Language: \n"
 "X-Poedit-Language: Portuguese\n"
@@ -661,6 +661,9 @@ msgstr "Adicionar Modulo Rsync"
 
 msgid "Add Samba Share"
 msgstr "Adicionar Partilha Samba"
+
+msgid "Add Schedule"
+msgstr ""
 
 msgid "Add Share"
 msgstr "Adicionar Partilha"
@@ -2095,6 +2098,12 @@ msgstr "Resultado do comando"
 msgid "Command output:"
 msgstr "Comandos de saída:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+
 msgid "Comment"
 msgstr "Comentário"
 
@@ -2466,6 +2475,9 @@ msgstr ""
 msgid "Create Permission"
 msgstr ""
 
+msgid "Create Snapshot"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Criar Directório de Trabalho"
 
@@ -2597,6 +2609,9 @@ msgstr ""
 msgid "Custom Script"
 msgstr ""
 
+msgid "Custom Setting"
+msgstr ""
+
 msgid "Custom device"
 msgstr ""
 
@@ -2711,6 +2726,9 @@ msgstr ""
 
 msgid "Daemon log"
 msgstr "Registo de serviços"
+
+msgid "Daily"
+msgstr ""
 
 msgid "Data"
 msgstr "Dados"
@@ -2968,6 +2986,9 @@ msgid "Delete Selected Rsync Modules"
 msgstr ""
 
 msgid "Delete Selected Samba Shares"
+msgstr ""
+
+msgid "Delete Selected Schedules"
 msgstr ""
 
 msgid "Delete Selected Shares"
@@ -3345,6 +3366,9 @@ msgid "Disable Selected Rsync Modules"
 msgstr ""
 
 msgid "Disable Selected Samba Shares"
+msgstr ""
+
+msgid "Disable Selected Schedules"
 msgstr ""
 
 msgid "Disable Selected Sysctl Settings"
@@ -3741,6 +3765,9 @@ msgstr ""
 msgid "Do you want to delete selected rsync modules?"
 msgstr ""
 
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected shares?"
 msgstr ""
 
@@ -3849,6 +3876,9 @@ msgstr ""
 msgid "Do you want to disable selected rsync modules?"
 msgstr ""
 
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr ""
 
@@ -3940,6 +3970,9 @@ msgid "Do you want to enable selected rsync jobs?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync modules?"
+msgstr ""
+
+msgid "Do you want to enable selected schedules?"
 msgstr ""
 
 msgid "Do you want to enable selected sysctl settings?"
@@ -4042,6 +4075,9 @@ msgid "Do you want to toggle selected rsync jobs?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync modules?"
+msgstr ""
+
+msgid "Do you want to toggle selected schedules?"
 msgstr ""
 
 msgid "Do you want to toggle selected sysctl settings?"
@@ -4282,6 +4318,9 @@ msgstr ""
 msgid "Edit Samba Share"
 msgstr ""
 
+msgid "Edit Schedule"
+msgstr ""
+
 msgid "Edit Share"
 msgstr ""
 
@@ -4504,6 +4543,9 @@ msgid "Enable Selected Rsync Modules"
 msgstr ""
 
 msgid "Enable Selected Samba Shares"
+msgstr ""
+
+msgid "Enable Selected Schedules"
 msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
@@ -5849,6 +5891,9 @@ msgid "Hosts Setup"
 msgstr ""
 
 msgid "Hour"
+msgstr ""
+
+msgid "Hourly"
 msgstr ""
 
 msgid "Hours"
@@ -7348,6 +7393,9 @@ msgstr ""
 msgid "Monitoring User"
 msgstr ""
 
+msgid "Monthly"
+msgstr ""
+
 msgid "Months"
 msgstr "Meses"
 
@@ -8758,6 +8806,9 @@ msgstr ""
 msgid "Preserve modification times."
 msgstr "Manter tempos de modificação."
 
+msgid "Presets"
+msgstr ""
+
 msgid "Prevent deep discharge of battery"
 msgstr ""
 
@@ -9300,6 +9351,9 @@ msgstr "Recurso nas directorias."
 msgid "Recursive"
 msgstr "Recursivo"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
 msgid "Recycle Bin"
 msgstr ""
 
@@ -9836,6 +9890,15 @@ msgstr ""
 msgid "Schedule Time"
 msgstr ""
 
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
 msgid "Schedule time"
 msgstr "Agendar em"
 
@@ -9855,6 +9918,9 @@ msgid "Scheduled Shutdown"
 msgstr ""
 
 msgid "Scheduled Tests"
+msgstr ""
+
+msgid "Scheduler"
 msgstr ""
 
 msgid "Script"
@@ -9956,6 +10022,9 @@ msgid "Select Pool"
 msgstr ""
 
 msgid "Select Pool Device"
+msgstr ""
+
+msgid "Select Pool, Filesystem or Volume"
 msgstr ""
 
 msgid "Select Pools"
@@ -12827,6 +12896,9 @@ msgstr ""
 msgid "Toggle Selected Samba Shares"
 msgstr ""
 
+msgid "Toggle Selected Schedules"
+msgstr ""
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
 
@@ -13822,6 +13894,9 @@ msgstr ""
 msgid "Weekdays"
 msgstr ""
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Western Digital attribute."
 msgstr "Atributo do Western Digital."
 
@@ -13930,6 +14005,9 @@ msgid "Xen Virtual Machine"
 msgstr "Máquina Virtual Xen"
 
 msgid "Y-axis Range"
+msgstr ""
+
+msgid "Yearly"
 msgstr ""
 
 msgid "Yes"
@@ -14336,9 +14414,6 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
-msgstr ""
-
-msgid "no pools available"
 msgstr ""
 
 msgid "none"

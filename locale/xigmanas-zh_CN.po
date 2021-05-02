@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
 "PO-Revision-Date: 2021-01-28 14:46+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:42+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -615,6 +615,9 @@ msgstr "添加Rsync模块"
 
 msgid "Add Samba Share"
 msgstr "添加Samba共享"
+
+msgid "Add Schedule"
+msgstr ""
 
 msgid "Add Share"
 msgstr "添加共享"
@@ -1962,6 +1965,12 @@ msgstr "命令输出"
 msgid "Command output:"
 msgstr "命令输出："
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+
 msgid "Comment"
 msgstr "注释"
 
@@ -2345,6 +2354,9 @@ msgstr "创建PV客户机"
 msgid "Create Permission"
 msgstr "创建权限"
 
+msgid "Create Snapshot"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "创建工作目录"
 
@@ -2476,6 +2488,9 @@ msgstr ""
 msgid "Custom Script"
 msgstr "自定义脚本"
 
+msgid "Custom Setting"
+msgstr ""
+
 msgid "Custom device"
 msgstr "自定义设备"
 
@@ -2590,6 +2605,9 @@ msgstr "守护进程事件"
 
 msgid "Daemon log"
 msgstr "守护进程记录"
+
+msgid "Daily"
+msgstr ""
 
 msgid "Data"
 msgstr "数据"
@@ -2850,6 +2868,9 @@ msgstr "删除选中的Rsync模块"
 
 msgid "Delete Selected Samba Shares"
 msgstr "删除选中的Samba共享"
+
+msgid "Delete Selected Schedules"
+msgstr ""
 
 msgid "Delete Selected Shares"
 msgstr "删除选中的共享"
@@ -3219,6 +3240,9 @@ msgstr "禁用选中的Rsync模块"
 
 msgid "Disable Selected Samba Shares"
 msgstr "禁用选定的Samba共享"
+
+msgid "Disable Selected Schedules"
+msgstr ""
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "禁用选定的Sysctl设置"
@@ -3609,6 +3633,9 @@ msgstr "您是否要删除选中的rsync任务？"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "要删除选中的rsync模块吗？"
 
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected shares?"
 msgstr "要删除选中的共享吗？"
 
@@ -3717,6 +3744,9 @@ msgstr "是否要禁用选中的rsync任务？"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "是否要禁用选中的rsync模块？"
 
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "是否要禁用选定的sysctl设置？"
 
@@ -3809,6 +3839,9 @@ msgstr "是否要启用选中的rsync任务？"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "是否要启用选中的rsync模块？"
+
+msgid "Do you want to enable selected schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "是否要启用选定的sysctl设置？"
@@ -3911,6 +3944,9 @@ msgstr "要切换选中的rsync任务吗？"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "要切换选中的rsync模块吗？"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "是否要切换选定的sysctl设置？"
@@ -4150,6 +4186,9 @@ msgstr "编辑Rsync模块"
 msgid "Edit Samba Share"
 msgstr "编辑Samba共享"
 
+msgid "Edit Schedule"
+msgstr ""
+
 msgid "Edit Share"
 msgstr "编辑共享"
 
@@ -4373,6 +4412,9 @@ msgstr "启用选中的Rsync模块"
 
 msgid "Enable Selected Samba Shares"
 msgstr "启用选定的Samba共享"
+
+msgid "Enable Selected Schedules"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "启用选定的sysctl设置"
@@ -5706,6 +5748,9 @@ msgstr "主机设置"
 
 msgid "Hour"
 msgstr "小时"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hours"
 msgstr "小时"
@@ -7181,6 +7226,9 @@ msgstr "监控设置"
 msgid "Monitoring User"
 msgstr "监控用户"
 
+msgid "Monthly"
+msgstr ""
+
 msgid "Months"
 msgstr "月"
 
@@ -8568,6 +8616,9 @@ msgstr ""
 msgid "Preserve modification times."
 msgstr "保留更改次数。"
 
+msgid "Presets"
+msgstr ""
+
 msgid "Prevent deep discharge of battery"
 msgstr "防止电池深度漏电"
 
@@ -9109,6 +9160,9 @@ msgstr "递归入目录。"
 msgid "Recursive"
 msgstr "递归"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
 msgid "Recycle Bin"
 msgstr "回收站"
 
@@ -9638,6 +9692,15 @@ msgstr ""
 msgid "Schedule Time"
 msgstr "排程时间"
 
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
 msgid "Schedule time"
 msgstr "排程时间"
 
@@ -9658,6 +9721,9 @@ msgstr "定时关机"
 
 msgid "Scheduled Tests"
 msgstr "计划测试"
+
+msgid "Scheduler"
+msgstr ""
 
 msgid "Script"
 msgstr "脚本"
@@ -9759,6 +9825,9 @@ msgstr "选择池"
 
 msgid "Select Pool Device"
 msgstr "选择池设备"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
 
 msgid "Select Pools"
 msgstr "选择池"
@@ -12516,6 +12585,9 @@ msgstr "切换选中的Rsync模块"
 msgid "Toggle Selected Samba Shares"
 msgstr "切换选定的Samba共享"
 
+msgid "Toggle Selected Schedules"
+msgstr ""
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "切换选中的Sysctl设置。"
 
@@ -13482,6 +13554,9 @@ msgstr "平日"
 msgid "Weekdays"
 msgstr "工作日"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Western Digital attribute."
 msgstr "西部数据属性。"
 
@@ -13582,6 +13657,9 @@ msgstr "Xen 虚拟机"
 
 msgid "Y-axis Range"
 msgstr "Y轴范围"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yes"
 msgstr "是"
@@ -13974,9 +14052,6 @@ msgstr "否"
 
 msgid "no delay"
 msgstr ""
-
-msgid "no pools available"
-msgstr "没有可用的池"
 
 msgid "none"
 msgstr "无"

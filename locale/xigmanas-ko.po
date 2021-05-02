@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -626,6 +626,9 @@ msgstr "rsync 모듈 추가"
 
 msgid "Add Samba Share"
 msgstr "Samba 공유 추가"
+
+msgid "Add Schedule"
+msgstr ""
 
 msgid "Add Share"
 msgstr "공유 추가"
@@ -1983,6 +1986,12 @@ msgstr "명령 출력"
 msgid "Command output:"
 msgstr "명령 출력:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+
 msgid "Comment"
 msgstr "설명"
 
@@ -2382,6 +2391,9 @@ msgstr "PV Guest 생성"
 msgid "Create Permission"
 msgstr ""
 
+msgid "Create Snapshot"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr ""
 
@@ -2513,6 +2525,9 @@ msgstr ""
 msgid "Custom Script"
 msgstr "사용자 스크립트"
 
+msgid "Custom Setting"
+msgstr ""
+
 msgid "Custom device"
 msgstr "사용자 장치"
 
@@ -2627,6 +2642,9 @@ msgstr "데몬 이벤트"
 
 msgid "Daemon log"
 msgstr "데몬 로그"
+
+msgid "Daily"
+msgstr ""
 
 msgid "Data"
 msgstr ""
@@ -2890,6 +2908,9 @@ msgstr "선택된 rsync 모듈들 삭제"
 
 msgid "Delete Selected Samba Shares"
 msgstr "선택된 Samba 공유 삭제"
+
+msgid "Delete Selected Schedules"
+msgstr ""
 
 msgid "Delete Selected Shares"
 msgstr "선택된 공유 삭제"
@@ -3263,6 +3284,9 @@ msgid "Disable Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 사용 안 함"
 
 msgid "Disable Selected Samba Shares"
+msgstr ""
+
+msgid "Disable Selected Schedules"
 msgstr ""
 
 msgid "Disable Selected Sysctl Settings"
@@ -3654,6 +3678,9 @@ msgstr "선택된 rsync 작업들을 삭제하시겠습니까?"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "선택된 rsync 모듈들을 삭제하시겠습니까?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected shares?"
 msgstr "선택된 공유를 삭제하시겠습니까?"
 
@@ -3762,6 +3789,9 @@ msgstr "선택된 rsync 작업들을 사용하지 않으시겠습니까?"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "선택된 rsync 모듈들을 사용하지 않으시겠습니까?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr ""
 
@@ -3854,6 +3884,9 @@ msgstr "선택된 rsync 작업들을 사용하시겠습니까?"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "선택된 rsync 모듈들을 사용하시겠습니까?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr ""
@@ -3956,6 +3989,9 @@ msgstr "선택된 rsync 작업들을 전환하시겠습니까?"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "선택된 rsync 모듈들을 전환하시겠습니까?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr ""
@@ -4195,6 +4231,9 @@ msgstr "rsync 모듈 수정"
 msgid "Edit Samba Share"
 msgstr "Samba 공유 수정"
 
+msgid "Edit Schedule"
+msgstr ""
+
 msgid "Edit Share"
 msgstr "공유 수정"
 
@@ -4419,6 +4458,9 @@ msgid "Enable Selected Rsync Modules"
 msgstr "선택된 rsync 모듈들 사용 함"
 
 msgid "Enable Selected Samba Shares"
+msgstr ""
+
+msgid "Enable Selected Schedules"
 msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
@@ -5759,6 +5801,9 @@ msgstr "Hosts 설정"
 
 msgid "Hour"
 msgstr "시간"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hours"
 msgstr "시간"
@@ -7242,6 +7287,9 @@ msgstr "감시 설정"
 msgid "Monitoring User"
 msgstr ""
 
+msgid "Monthly"
+msgstr ""
+
 msgid "Months"
 msgstr "월"
 
@@ -8635,6 +8683,9 @@ msgstr ""
 msgid "Preserve modification times."
 msgstr "변경 시간 보존."
 
+msgid "Presets"
+msgstr ""
+
 msgid "Prevent deep discharge of battery"
 msgstr "배터리의 심한 방전 방지"
 
@@ -9173,6 +9224,9 @@ msgstr "디렉터리로 재귀 순환."
 msgid "Recursive"
 msgstr "재귀적"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
 msgid "Recycle Bin"
 msgstr "휴지통"
 
@@ -9703,6 +9757,15 @@ msgstr ""
 msgid "Schedule Time"
 msgstr "예약된 시간"
 
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
 msgid "Schedule time"
 msgstr "시간 일정"
 
@@ -9723,6 +9786,9 @@ msgstr "예약된 종료"
 
 msgid "Scheduled Tests"
 msgstr "예약된 테스트"
+
+msgid "Scheduler"
+msgstr ""
 
 msgid "Script"
 msgstr "스크립트"
@@ -9827,6 +9893,9 @@ msgstr "풀 선택"
 
 msgid "Select Pool Device"
 msgstr "풀 장치 선택"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
 
 msgid "Select Pools"
 msgstr "풀 선택"
@@ -12605,6 +12674,9 @@ msgstr "선택된 rsync 모듈들 전환"
 msgid "Toggle Selected Samba Shares"
 msgstr ""
 
+msgid "Toggle Selected Schedules"
+msgstr ""
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
 
@@ -13573,6 +13645,9 @@ msgstr "요일"
 msgid "Weekdays"
 msgstr "요일"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Western Digital attribute."
 msgstr "웨스턴 디지털 속성."
 
@@ -13674,6 +13749,9 @@ msgstr "Xen 가상 머신"
 
 msgid "Y-axis Range"
 msgstr "Y 축 범위"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yes"
 msgstr "예"
@@ -14065,9 +14143,6 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
-msgstr ""
-
-msgid "no pools available"
 msgstr ""
 
 msgid "none"

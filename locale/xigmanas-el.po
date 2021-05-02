@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
-"PO-Revision-Date: 2021-04-19 13:01+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"PO-Revision-Date: 2021-04-27 12:53+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
 "X-Poedit-Language: Greek\n"
@@ -677,6 +677,9 @@ msgstr "Προσθήκη Αρθρώματος Rsync"
 
 msgid "Add Samba Share"
 msgstr "Προσθήκη Κοινόχρηστου Samba"
+
+msgid "Add Schedule"
+msgstr "Προσθήκη Προγράμματος"
 
 msgid "Add Share"
 msgstr "Προσθήκη Κοινόχρηστου"
@@ -2148,6 +2151,16 @@ msgstr "Έξοδος εντολής"
 msgid "Command output:"
 msgstr "Έξοδος εντολής:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Οι εντολές εντελούνται βάση προγράμματος όταν πεδία για τα λεπτά, την ώρα "
+"και το μήνα ταιριάζουν με την τρέχουσα χρονική στιγμή και όταν τουλάχιστον "
+"ένα από τα δύο πεδία ημέρας (ημέρα του μήνα ή ημέρα της εβδομάδας) ταιριάζει "
+"με την τρέχουσα χρονική στιγμή."
+
 msgid "Comment"
 msgstr "Σχόλιο"
 
@@ -2617,6 +2630,9 @@ msgstr "Δημιουργία PV Guest"
 msgid "Create Permission"
 msgstr "Δημιουργία Πρόσβασης"
 
+msgid "Create Snapshot"
+msgstr "Δημιουργία Snapshot"
+
 msgid "Create Work Directory"
 msgstr "Δημιουργία Φακέλου Εργασίας"
 
@@ -2661,7 +2677,7 @@ msgid "Create and initialize RAID."
 msgstr "Δημιουργία και αρχικοποίηση RAID."
 
 msgid "Create recursive snapshot."
-msgstr "Δημιουργία αναδρομικού snapshot."
+msgstr "Δημιουργία αναδρομικού στιγμιότυπου."
 
 msgid "Create work directory if it doesn't exist."
 msgstr "Δημιουργία φακέλου εργασίας εάν δεν υπάρχει."
@@ -2754,6 +2770,9 @@ msgstr "Προσαρμοσμένος Πάροχος"
 
 msgid "Custom Script"
 msgstr "Προσαρμοσμένο αρχείο εντολών"
+
+msgid "Custom Setting"
+msgstr "Προσαρμοσμένη Ρύθμιση"
 
 msgid "Custom device"
 msgstr "Προσαρμοσμένη συσκευή"
@@ -2874,6 +2893,9 @@ msgstr "Συμβάντα Δαίμονα"
 
 msgid "Daemon log"
 msgstr "Καταγραφή Δαίμονα"
+
+msgid "Daily"
+msgstr "Ημερησίως"
 
 msgid "Data"
 msgstr "Δεδομένα"
@@ -3147,6 +3169,9 @@ msgstr "Διαγραφή Επιλεγμένων Αρθρωμάτων Rsync"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Διαγραφή Επιλεγμένων Κοινόχρηστων Samba"
+
+msgid "Delete Selected Schedules"
+msgstr "Διαγραφή Επιλεγμένων Προγραμμάτων"
 
 msgid "Delete Selected Shares"
 msgstr "Διαγραφή Επιλεγμένων Κοινόχρηστων"
@@ -3532,6 +3557,9 @@ msgstr "Απενεργοποίηση Επιλεγμένων Αρθρωμάτων
 
 msgid "Disable Selected Samba Shares"
 msgstr "Απενεργοποίηση Επιλεγμένων Κοινόχρηστων Samba"
+
+msgid "Disable Selected Schedules"
+msgstr "Απενεργοποίηση Επιλεγμένων Προγραμμάτων"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Απενεργοποίηση Επιλεγμένων Ρυθμίσεων Sysctl"
@@ -3960,6 +3988,9 @@ msgstr "Θέλετε να διαγράψετε τις επιλεγμένες ε�
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Θέλετε να διαγράψετε τα επιλεγμένα αρθρώματα rsync;"
 
+msgid "Do you want to delete selected schedules?"
+msgstr "Θέλετε να διαγράψετε τα επιλεγμένα προγράμματα;"
+
 msgid "Do you want to delete selected shares?"
 msgstr "Θέλετε να διαγράψετε τα επιλεγμένα κοινόχρηστα;"
 
@@ -4069,6 +4100,9 @@ msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμ
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα αρθρώματα rsync;"
 
+msgid "Do you want to disable selected schedules?"
+msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα προγράμματα;"
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες ρυθμίσεις sysctl;"
 
@@ -4161,6 +4195,9 @@ msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμέν
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα αρθρώματα rsync;"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα προγράμματα;"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες ρυθμίσεις sysctl;"
@@ -4263,6 +4300,9 @@ msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες �
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα αρθρώματα rsync;"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Θέλετε να κάνετε εναλλαγή επιλογής των επιλεγμένων προγραμμάτων;"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες ρυθμίσεις sysctl;"
@@ -4508,6 +4548,9 @@ msgstr "Επεξεργασία Αρθρώματος Rsync"
 msgid "Edit Samba Share"
 msgstr "Επεξεργασία Κοινόχρηστου Samba"
 
+msgid "Edit Schedule"
+msgstr "Επεξεργασία Προγράμματος"
+
 msgid "Edit Share"
 msgstr "Επεξεργασία Κοινόχρηστου"
 
@@ -4736,6 +4779,9 @@ msgstr "Ενεργοποίηση Επιλεγμένων Αρθρωμάτων Rsy
 
 msgid "Enable Selected Samba Shares"
 msgstr "Ενεργοποίηση Επιλεγμένων Κοινόχρηστων Samba"
+
+msgid "Enable Selected Schedules"
+msgstr "Ενεργοποίηση Επιλεγμένων Προγραμμάτων"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Ενεργοποίηση Επιλεγμένων Ρυθμίσεων Sysctl"
@@ -6182,6 +6228,9 @@ msgstr "Ρύθμιση Υπολογιστών"
 
 msgid "Hour"
 msgstr "Ώρα"
+
+msgid "Hourly"
+msgstr "Ωριαίο"
 
 msgid "Hours"
 msgstr "Ώρες"
@@ -7804,6 +7853,9 @@ msgstr "Ρύθμιση Παρακολούθησης"
 msgid "Monitoring User"
 msgstr "Χρήστης Παρακολούθησης"
 
+msgid "Monthly"
+msgstr "Μηνιαίο"
+
 msgid "Months"
 msgstr "Μήνες"
 
@@ -9263,6 +9315,9 @@ msgstr ""
 msgid "Preserve modification times."
 msgstr "Διατήρηση της ημν/ίας τροποποίησης."
 
+msgid "Presets"
+msgstr "Προεπιλογές"
+
 msgid "Prevent deep discharge of battery"
 msgstr "Αποτροπή πλήρους αποφόρτισης μπαταρίας"
 
@@ -9819,6 +9874,9 @@ msgstr "Συμπερίληψη και των υποκαταλόγων"
 
 msgid "Recursive"
 msgstr "Υποκατάλογοι"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Δημιουργία αναδρομικού στιγμιότυπου για όλα τα dataset - απογόνους."
 
 msgid "Recycle Bin"
 msgstr "Κάδος Ανακύκλωσης"
@@ -10379,6 +10437,15 @@ msgstr "Ανίχνευση/Εισαγωγή μόνω κατεστραμμένω�
 msgid "Schedule Time"
 msgstr "Προγραμματισμένη ώρα"
 
+msgid "Schedule is locked"
+msgstr "Το πρόγραμμα είναι κλειδωμένο"
+
+msgid "Schedule is marked for deletion"
+msgstr "Το πρόγραμμα έχει σημειωθεί προς διαγραφή"
+
+msgid "Schedule is unlocked"
+msgstr "Το πρόγραμμα είναι ξεκλείδωτο"
+
 msgid "Schedule time"
 msgstr "Προγραμματισμένη ώρα"
 
@@ -10399,6 +10466,9 @@ msgstr "Προγραμματισμένος Τερματισμός Υπολογι
 
 msgid "Scheduled Tests"
 msgstr "Χρονοπρογραμματισμένες Δοκιμές"
+
+msgid "Scheduler"
+msgstr "Χρονοπρογραμματισμός"
 
 msgid "Script"
 msgstr "Script"
@@ -10511,6 +10581,9 @@ msgstr "Επιλογή Pool"
 
 msgid "Select Pool Device"
 msgstr "Επιλογή Συσκευής Pool"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Επιλέξτε Pool, Σύστημα αρχείων ή Τόμο"
 
 msgid "Select Pools"
 msgstr "Επιλογή Pool"
@@ -13779,6 +13852,9 @@ msgstr "Μεταβολή Επιλεγμένων Αρθρωμάτων rsync"
 msgid "Toggle Selected Samba Shares"
 msgstr "Μεταβολή Επιλεγμένων Κοινόχρηστων Samba"
 
+msgid "Toggle Selected Schedules"
+msgstr "Εναλλαγή Επιλεγμένων Προγραμμάτων"
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Μεταβολή Επιλεγμένων Ρυθμίσεων Sysctl"
 
@@ -14825,6 +14901,9 @@ msgstr "Ημέρες Εβδομάδας"
 msgid "Weekdays"
 msgstr "Ημέρες Εβδομάδας"
 
+msgid "Weekly"
+msgstr "Εβδομαδιαίο"
+
 msgid "Western Digital attribute."
 msgstr "Χαρακτηριστικό των Western Digital."
 
@@ -14943,6 +15022,9 @@ msgstr "Εικονική Μηχανή Xen"
 
 msgid "Y-axis Range"
 msgstr "Εύρος άξονα Υ"
+
+msgid "Yearly"
+msgstr "Ετήσιο"
 
 msgid "Yes"
 msgstr "Ναι"
@@ -15380,9 +15462,6 @@ msgstr "όχι"
 
 msgid "no delay"
 msgstr "χωρίς καθυστέρηση"
-
-msgid "no pools available"
-msgstr "δεν υπάρχουν διαθέσιμα pool"
 
 msgid "none"
 msgstr "κανένα"

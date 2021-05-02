@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
-"PO-Revision-Date: 2021-04-12 00:21+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"PO-Revision-Date: 2021-04-28 22:29+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -663,6 +663,9 @@ msgstr "Afegir mòdul Rsync"
 
 msgid "Add Samba Share"
 msgstr "Afegir recurs Samba"
+
+msgid "Add Schedule"
+msgstr "Afegeix una programació"
 
 msgid "Add Share"
 msgstr "Afegeix recurs"
@@ -2118,6 +2121,16 @@ msgstr "Sortida d'ordre"
 msgid "Command output:"
 msgstr "Sortida del comandament:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Els comandaments els executa el programador quan els camps de minuts, hores "
+"i mes de l'any coincideixen amb l'hora actual i quan almenys un dels dos "
+"camps de dos dies (dia del mes o dia de la setmana) coincideix amb l'hora "
+"actual."
+
 msgid "Comment"
 msgstr "comentaris"
 
@@ -2583,6 +2596,9 @@ msgstr "Crea un hoste PV"
 msgid "Create Permission"
 msgstr "Crea permisos"
 
+msgid "Create Snapshot"
+msgstr "Crea una instantània"
+
 msgid "Create Work Directory"
 msgstr "Crea un directori de treball"
 
@@ -2717,6 +2733,9 @@ msgstr "Proveïdor personalitzat"
 msgid "Custom Script"
 msgstr "Script de personalització"
 
+msgid "Custom Setting"
+msgstr "Configuració personalitzada"
+
 msgid "Custom device"
 msgstr "Dispositiu personalitzat"
 
@@ -2836,6 +2855,9 @@ msgstr "Esdeveniments del dimoni"
 
 msgid "Daemon log"
 msgstr "Registre del Dimoni"
+
+msgid "Daily"
+msgstr "Diàriament"
 
 msgid "Data"
 msgstr "Dades"
@@ -3108,6 +3130,9 @@ msgstr "Suprimeix mòduls seleccionats Rsync"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Suprimeix recursos seleccionats Samba"
+
+msgid "Delete Selected Schedules"
+msgstr "Suprimeix els horaris seleccionats"
 
 msgid "Delete Selected Shares"
 msgstr "Suprimeix recursos seleccionats"
@@ -3491,6 +3516,9 @@ msgstr "Eliminar mòduls seleccionats Rsync"
 
 msgid "Disable Selected Samba Shares"
 msgstr "Desactiva les accions de Samba seleccionades"
+
+msgid "Disable Selected Schedules"
+msgstr "Desactiva els horaris seleccionats"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Desactiva la configuració de Sysctl seleccionada"
@@ -3911,6 +3939,9 @@ msgstr "Vols eliminar els treballs Rsync seleccionats?"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Vols eliminar els mòduls Rsync seleccionats?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr "Vols suprimir els horaris seleccionats?"
+
 msgid "Do you want to delete selected shares?"
 msgstr "Voleu eliminar els recursos seleccionats?"
 
@@ -4019,6 +4050,9 @@ msgstr "Vols desactivar els treballs Rsync seleccionats?"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Vols desactivar els mòduls Rsync seleccionats?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr "Vols desactivar els horaris seleccionats?"
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Voleu desactivar la configuració de sysctl seleccionada?"
 
@@ -4111,6 +4145,9 @@ msgstr "Vols activar els treballs Rsync seleccionats"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Vols activar els mòduls Rsync seleccionats?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Vols activar els horaris seleccionats?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Voleu activar la configuració de sysctl seleccionada?"
@@ -4213,6 +4250,9 @@ msgstr "Voleu mostrar els treballs seleccionats Rsync?"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Voleu mostrar els mòduls seleccionats Rsync?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Voleu canviar els horaris seleccionats?"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Voleu canviar la configuració de sysctl seleccionada?"
@@ -4455,6 +4495,9 @@ msgstr "Editar mòdul Rsync"
 msgid "Edit Samba Share"
 msgstr "Editar recurs Samba"
 
+msgid "Edit Schedule"
+msgstr "Edita la programació"
+
 msgid "Edit Share"
 msgstr "Edita recurs"
 
@@ -4685,6 +4728,9 @@ msgstr "Activar els mòduls Rsync seleccionats"
 
 msgid "Enable Selected Samba Shares"
 msgstr "Activa les accions de Samba seleccionades"
+
+msgid "Enable Selected Schedules"
+msgstr "Activa els horaris seleccionats"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Activa la configuració de Sysctl seleccionada"
@@ -6127,6 +6173,9 @@ msgstr "Configuració de hosts"
 
 msgid "Hour"
 msgstr "Hora"
+
+msgid "Hourly"
+msgstr "Cada hora"
 
 msgid "Hours"
 msgstr "Hores"
@@ -7724,6 +7773,9 @@ msgstr "Configuració de monitorització"
 msgid "Monitoring User"
 msgstr "Supervisant usuari"
 
+msgid "Monthly"
+msgstr "Mensualment"
+
 msgid "Months"
 msgstr "Mesos"
 
@@ -8502,7 +8554,7 @@ msgid "Only metadata will be cached in L2ARC."
 msgstr "Només les metadades s'emmagatzemen en memòria cau en L2ARC."
 
 msgid "Open File"
-msgstr ""
+msgstr "Obre el fitxer"
 
 msgid "Option"
 msgstr "Opció"
@@ -9176,6 +9228,9 @@ msgstr "Manteniu les mayúscules/minúscules del amfitrió previst/detectat."
 msgid "Preserve modification times."
 msgstr "Preservar temps de modificació."
 
+msgid "Presets"
+msgstr "Prearranjaments"
+
 msgid "Prevent deep discharge of battery"
 msgstr "Evitar descàrrega profunda de la bateria"
 
@@ -9733,6 +9788,10 @@ msgstr "Recursivament en directoris."
 msgid "Recursive"
 msgstr "Recursiu"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+"Creeu recursivament instantànies de tots els conjunts de dades descendents."
+
 msgid "Recycle Bin"
 msgstr "Paperera de reciclatge"
 
@@ -10239,7 +10298,7 @@ msgid "Save & Restart"
 msgstr "Desar i Reiniciar"
 
 msgid "Save File"
-msgstr ""
+msgstr "Desa el fitxer"
 
 msgid "Save and Restart"
 msgstr "Desa i reinicia"
@@ -10289,6 +10348,15 @@ msgstr "Escanejar/importar només agrupacions destruïdes"
 msgid "Schedule Time"
 msgstr "Temps programat"
 
+msgid "Schedule is locked"
+msgstr "La programació està bloquejada"
+
+msgid "Schedule is marked for deletion"
+msgstr "La programació està marcada per esborrar"
+
+msgid "Schedule is unlocked"
+msgstr "La programació està desbloquejada"
+
 msgid "Schedule time"
 msgstr "Temps programat"
 
@@ -10309,6 +10377,9 @@ msgstr "Apagat programat"
 
 msgid "Scheduled Tests"
 msgstr "Proves programades"
+
+msgid "Scheduler"
+msgstr "Planificador"
 
 msgid "Script"
 msgstr "Script"
@@ -10418,6 +10489,9 @@ msgstr "Seleccionar piscina"
 
 msgid "Select Pool Device"
 msgstr "Seleccionar dispositiu de la piscina"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Seleccioneu Agrupació, Sistema de fitxers o Volum"
 
 msgid "Select Pools"
 msgstr "Seleccionar piscines"
@@ -13613,6 +13687,9 @@ msgstr "Alternar mòduls Rsync seleccionats"
 msgid "Toggle Selected Samba Shares"
 msgstr "Activeu les accions de Samba seleccionades"
 
+msgid "Toggle Selected Schedules"
+msgstr "Commuta els horaris seleccionats"
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Commuta la configuració de Sysctl seleccionada"
 
@@ -14653,6 +14730,9 @@ msgstr "Dies de la setmana"
 msgid "Weekdays"
 msgstr "Setmanal"
 
+msgid "Weekly"
+msgstr "Setmanalment"
+
 msgid "Western Digital attribute."
 msgstr "Atribut de Western Digital."
 
@@ -14767,6 +14847,9 @@ msgstr "Màquina virtual Xen"
 
 msgid "Y-axis Range"
 msgstr "Abast de l'eix Y"
+
+msgid "Yearly"
+msgstr "Anualment"
 
 msgid "Yes"
 msgstr "Si"
@@ -15190,9 +15273,6 @@ msgstr "no"
 
 msgid "no delay"
 msgstr "Sense retard"
-
-msgid "no pools available"
-msgstr "no hi ha piscines disponibles"
 
 msgid "none"
 msgstr "cap"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
 "PO-Revision-Date: 2020-12-06 19:22+0000\n"
 "Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -665,6 +665,9 @@ msgstr "Přidat Rsync modul"
 
 msgid "Add Samba Share"
 msgstr "Přidat Samba sdílení"
+
+msgid "Add Schedule"
+msgstr ""
 
 msgid "Add Share"
 msgstr "Přidat sdílení"
@@ -2106,6 +2109,12 @@ msgstr "Výstup z příkazu"
 msgid "Command output:"
 msgstr "Výstup z příkazu:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+
 msgid "Comment"
 msgstr "Komentář"
 
@@ -2554,6 +2563,9 @@ msgstr "Vytvořit virtualizační kontejner (PV)"
 msgid "Create Permission"
 msgstr ""
 
+msgid "Create Snapshot"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Vytvoř pracovní adresář"
 
@@ -2691,6 +2703,9 @@ msgstr ""
 msgid "Custom Script"
 msgstr "Vlastní skript"
 
+msgid "Custom Setting"
+msgstr ""
+
 msgid "Custom device"
 msgstr "Vlasní zařízení"
 
@@ -2808,6 +2823,9 @@ msgstr "Události v procesu služby"
 
 msgid "Daemon log"
 msgstr "Záznam událostí na straně procesu služby"
+
+msgid "Daily"
+msgstr ""
 
 msgid "Data"
 msgstr "Data"
@@ -3078,6 +3096,9 @@ msgstr "Smazat označené Rsync moduly"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Smazat označená Samba sdílení"
+
+msgid "Delete Selected Schedules"
+msgstr ""
 
 msgid "Delete Selected Shares"
 msgstr "Smazat označená sdílení"
@@ -3462,6 +3483,9 @@ msgstr "Vypnout označené Rsync moduly"
 
 msgid "Disable Selected Samba Shares"
 msgstr "Zakázat označená Samba sdílení"
+
+msgid "Disable Selected Schedules"
+msgstr ""
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Zakázat označená sysctl nastavení"
@@ -3873,6 +3897,9 @@ msgstr "Opravdu smazat označené rsync úlohy?"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Opravdu smazat označené rsync moduly?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected shares?"
 msgstr "Opravdu smazat označená sdílení?"
 
@@ -3985,6 +4012,9 @@ msgstr "Opravdu vypnout označené rsync úlohy?"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Opravdu vypnout označené rsync moduly?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr ""
 
@@ -4080,6 +4110,9 @@ msgstr "Opravdu zapnout označené rsync úlohy?"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Opravdu zapnout označené rsync moduly?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Chcete povolit vybraná nastavení sysctl?"
@@ -4186,6 +4219,9 @@ msgstr "Opravdu přepnout označené rsync úlohy?"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Opravdu přepnout označené rsync moduly?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr ""
@@ -4427,6 +4463,9 @@ msgstr "Upravit Rsync modul"
 msgid "Edit Samba Share"
 msgstr "Upravit Samba sdílení"
 
+msgid "Edit Schedule"
+msgstr ""
+
 msgid "Edit Share"
 msgstr "Upravit sdílení"
 
@@ -4653,6 +4692,9 @@ msgid "Enable Selected Rsync Modules"
 msgstr "Používat označené Rsync moduly"
 
 msgid "Enable Selected Samba Shares"
+msgstr ""
+
+msgid "Enable Selected Schedules"
 msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
@@ -6052,6 +6094,9 @@ msgstr "Nastavení strojů"
 
 msgid "Hour"
 msgstr "Hodina"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hours"
 msgstr "Hodiny"
@@ -7651,6 +7696,9 @@ msgstr "Nastavení dohledování"
 msgid "Monitoring User"
 msgstr ""
 
+msgid "Monthly"
+msgstr ""
+
 msgid "Months"
 msgstr "Měsíce"
 
@@ -9091,6 +9139,9 @@ msgstr ""
 msgid "Preserve modification times."
 msgstr "Zachovat časy úprav."
 
+msgid "Presets"
+msgstr ""
+
 msgid "Prevent deep discharge of battery"
 msgstr "Zabraňovat hlubokému vybití akumulátoru"
 
@@ -9646,6 +9697,9 @@ msgstr "Včetně podsložek"
 msgid "Recursive"
 msgstr "Rekurzivní"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
 msgid "Recycle Bin"
 msgstr "Koš"
 
@@ -10196,6 +10250,15 @@ msgstr ""
 msgid "Schedule Time"
 msgstr "Časový plán"
 
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
 msgid "Schedule time"
 msgstr "Časový plán"
 
@@ -10216,6 +10279,9 @@ msgstr "Naplánované vypnutí"
 
 msgid "Scheduled Tests"
 msgstr "Naplánované testy"
+
+msgid "Scheduler"
+msgstr ""
 
 msgid "Script"
 msgstr "Skript"
@@ -10323,6 +10389,9 @@ msgstr "Vyberte fond"
 
 msgid "Select Pool Device"
 msgstr "Vyberte zařízení fondu"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
 
 msgid "Select Pools"
 msgstr "Vyberte fondy"
@@ -13428,6 +13497,9 @@ msgstr "Přepnout označené Rsync moduly"
 msgid "Toggle Selected Samba Shares"
 msgstr ""
 
+msgid "Toggle Selected Schedules"
+msgstr ""
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
 
@@ -14453,6 +14525,9 @@ msgstr "Dny v týdnu"
 msgid "Weekdays"
 msgstr "Všední dny"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Western Digital attribute."
 msgstr "Atribut specifický jednotkám od Western Digital."
 
@@ -14566,6 +14641,9 @@ msgstr "Xen virtuální stroj"
 
 msgid "Y-axis Range"
 msgstr "Rozsah svislé (Y) osy"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yes"
 msgstr "Ano"
@@ -14990,9 +15068,6 @@ msgstr ""
 
 msgid "no delay"
 msgstr ""
-
-msgid "no pools available"
-msgstr "žádné fondy k dispozici"
 
 msgid "none"
 msgstr "žádné"
