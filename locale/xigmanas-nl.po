@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
-"PO-Revision-Date: 2021-04-19 19:23+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"PO-Revision-Date: 2021-04-26 21:30+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
 "X-Poedit-Language: Dutch\n"
@@ -670,6 +670,9 @@ msgstr "Rsync Module Toevoegen"
 
 msgid "Add Samba Share"
 msgstr "Samba Deling Toevoegen"
+
+msgid "Add Schedule"
+msgstr "Planning Toevoegen"
 
 msgid "Add Share"
 msgstr "Deling Toevoegen"
@@ -2127,6 +2130,16 @@ msgstr "Opdracht uitkomst"
 msgid "Command output:"
 msgstr "Opdracht uitkomst:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Opdrachten worden door de planner uitgevoerd wanneer de velden voor minuten, "
+"uren en maanden van het jaar overeenkomen met de huidige tijd en wanneer ten "
+"minste een van de twee dagvelden (dag van de maand of dag van de week) "
+"overeenkomt met de huidige tijd."
+
 msgid "Comment"
 msgstr "Opmerking"
 
@@ -2593,6 +2606,9 @@ msgstr "Creëer PV Gast"
 msgid "Create Permission"
 msgstr "Toestemming Creëren"
 
+msgid "Create Snapshot"
+msgstr "Creëer Snapshot"
+
 msgid "Create Work Directory"
 msgstr "Werkmap Maken"
 
@@ -2726,6 +2742,9 @@ msgstr "Aangepaste provider"
 msgid "Custom Script"
 msgstr "Aangepast script"
 
+msgid "Custom Setting"
+msgstr "Aangepaste Instelling"
+
 msgid "Custom device"
 msgstr "Custom schijf"
 
@@ -2845,6 +2864,9 @@ msgstr "Daemon Gebeurtenissen"
 
 msgid "Daemon log"
 msgstr "Daemon log"
+
+msgid "Daily"
+msgstr "Dagelijks"
 
 msgid "Data"
 msgstr "Data"
@@ -3117,6 +3139,9 @@ msgstr "Geselecteerde Rsync Modules Verwijderen"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Geselecteerde Samba Delingen Verwijderen"
+
+msgid "Delete Selected Schedules"
+msgstr "Geselecteerde Planningen Verwijderen"
 
 msgid "Delete Selected Shares"
 msgstr "Geselecteerde Delingen Verwijderen"
@@ -3468,7 +3493,7 @@ msgid "Disable Selected NFS Root Directories"
 msgstr "Geselecteerde NFS Root Mappen Uitschakelen"
 
 msgid "Disable Selected Option Records"
-msgstr "Geselecteerde Optie Items Uitschakelen"
+msgstr "Geselecteerde Optie Record Uitschakelen"
 
 msgid "Disable Selected Options"
 msgstr "Geselecteerde Opties Uitschakelen"
@@ -3499,6 +3524,9 @@ msgstr "Geselecteerde Rsync Modules Uitschakelen"
 
 msgid "Disable Selected Samba Shares"
 msgstr "Geselecteerde Samba Delingen Uitschakelen"
+
+msgid "Disable Selected Schedules"
+msgstr "Geselecteerde Planningen Uitschakelen"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Geselecteerde Sysctl Instellingen Uitschakelen"
@@ -3919,6 +3947,9 @@ msgstr "Wilt u de geselecteerde rsync taken verwijderen?"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Wilt u de geselecteerde rsync modules verwijderen?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr "Wilt u de geselecteerde planningen verwijderen?"
+
 msgid "Do you want to delete selected shares?"
 msgstr "Wilt u de geselecteerde delingen verwijderen?"
 
@@ -4027,6 +4058,9 @@ msgstr "Wilt u de geselecteerde rsync taken uitschakelen?"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Wilt u de geselecteerde rsync modules uitschakelen?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr "Wilt u de geselecteerde planningen uitschakelen?"
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Wilt u de geselecteerde sysctl instellingen uitschakelen?"
 
@@ -4119,6 +4153,9 @@ msgstr "Wilt u de geselecteerde rsync taken inschakelen?"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Wilt u de geselecteerde rsync modules inschakelen?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Wilt u de geselecteerde planningen inschakelen?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Wilt u de geselecteerde sysctl instellingen inschakelen?"
@@ -4221,6 +4258,9 @@ msgstr "Wilt u de geselecteerde rsync taken omschakelen?"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Wilt u de geselecteerde rsync modules omschakelen?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Wilt u de geselecteerde planningen omschakelen?"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Wilt u de geselecteerde sysctl instellingen omschakelen?"
@@ -4465,6 +4505,9 @@ msgstr "Rsync Module Bewerken"
 msgid "Edit Samba Share"
 msgstr "Samba Deling Bewerken"
 
+msgid "Edit Schedule"
+msgstr "Planning Bewerken"
+
 msgid "Edit Share"
 msgstr "Delingen Bewerken"
 
@@ -4663,7 +4706,7 @@ msgid "Enable Selected NFS Root Directories"
 msgstr "Geselecteerde NFS Root Mappen Inschakelen"
 
 msgid "Enable Selected Option Records"
-msgstr "Activeer geselecteerde optie record"
+msgstr "Geselecteerde Optie Record Inschakelen"
 
 msgid "Enable Selected Options"
 msgstr "Geselecteerde Opties Inschakelen"
@@ -4694,6 +4737,9 @@ msgstr "Geselecteerde Rsync Modules Inschakelen"
 
 msgid "Enable Selected Samba Shares"
 msgstr "Inschakelen Geselecteerde Samba Delingen"
+
+msgid "Enable Selected Schedules"
+msgstr "Geselecteerde Planningen Inschakelen"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Geselecteerde Sysctl Instellingen Inschakelen"
@@ -6126,6 +6172,9 @@ msgstr "Hosts Instellen"
 
 msgid "Hour"
 msgstr "Uur"
+
+msgid "Hourly"
+msgstr "Uurlijks"
 
 msgid "Hours"
 msgstr "Uren"
@@ -7725,6 +7774,9 @@ msgstr "Monitoring Instellingen"
 msgid "Monitoring User"
 msgstr "Monitoring Gebruiker"
 
+msgid "Monthly"
+msgstr "Maandelijks"
+
 msgid "Months"
 msgstr "Maanden"
 
@@ -9173,6 +9225,9 @@ msgstr "Preserve case van de opgegeven/gedetecteerde hostnaam."
 msgid "Preserve modification times."
 msgstr "Reserveer modificatie tijden."
 
+msgid "Presets"
+msgstr "Voorinstelling"
+
 msgid "Prevent deep discharge of battery"
 msgstr "Voorkom diep ontladen van de batterij"
 
@@ -9728,6 +9783,9 @@ msgstr "Recursief naar mappen."
 
 msgid "Recursive"
 msgstr "Recursief"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Creëer recursief snapshots van alle afstammende datasets."
 
 msgid "Recycle Bin"
 msgstr "Prullenbak"
@@ -10286,6 +10344,15 @@ msgstr "Scannen /importeren van alleen vernietigde pools"
 msgid "Schedule Time"
 msgstr "Tijdsplanning"
 
+msgid "Schedule is locked"
+msgstr "Planning is vergrendeld"
+
+msgid "Schedule is marked for deletion"
+msgstr "Planning is gemarkeerd voor verwijdering"
+
+msgid "Schedule is unlocked"
+msgstr "Planning is ontgrendeld"
+
 msgid "Schedule time"
 msgstr "Plan tijd"
 
@@ -10306,6 +10373,9 @@ msgstr "Gepland Uitschakelen"
 
 msgid "Scheduled Tests"
 msgstr "Gepland testen"
+
+msgid "Scheduler"
+msgstr "Planner"
 
 msgid "Script"
 msgstr "Script"
@@ -10417,6 +10487,9 @@ msgstr "Selecteer Pool"
 
 msgid "Select Pool Device"
 msgstr "Selecteer Pool Schijf"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Selecteer Pool, Bestandssysteem of Volume"
 
 msgid "Select Pools"
 msgstr "Selecteer Pools"
@@ -13620,6 +13693,9 @@ msgstr "Geselecteerde Rsync Modules Omschakelen"
 msgid "Toggle Selected Samba Shares"
 msgstr "Geselecteerde Samba Delingen Omschakelen"
 
+msgid "Toggle Selected Schedules"
+msgstr "Geselecteerde Planningen Omschakelen"
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Omschakelen Geselecteerde Sysctl Instellingen"
 
@@ -14653,6 +14729,9 @@ msgstr "Weekdagen"
 msgid "Weekdays"
 msgstr "Weekdagen"
 
+msgid "Weekly"
+msgstr "Wekelijks"
+
 msgid "Western Digital attribute."
 msgstr "Western Digital attribuut."
 
@@ -14768,6 +14847,9 @@ msgstr "Xen Virtuele Machine"
 
 msgid "Y-axis Range"
 msgstr "Y-as Bereik"
+
+msgid "Yearly"
+msgstr "Jaarlijks"
 
 msgid "Yes"
 msgstr "Ja"
@@ -15198,9 +15280,6 @@ msgstr "nee"
 
 msgid "no delay"
 msgstr "geen vertraging"
-
-msgid "no pools available"
-msgstr "geen pools beschikbaar"
 
 msgid "none"
 msgstr "geen"

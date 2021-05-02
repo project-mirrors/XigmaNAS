@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
 "PO-Revision-Date: 2021-04-19 11:38+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
 "X-Poedit-Language: Russian\n"
@@ -659,6 +659,9 @@ msgstr "Добавить модуль Rsync"
 
 msgid "Add Samba Share"
 msgstr "Добавить общий ресурс Samba"
+
+msgid "Add Schedule"
+msgstr ""
 
 msgid "Add Share"
 msgstr "Добавить общий ресурс"
@@ -2104,6 +2107,12 @@ msgstr "Вывод команды"
 msgid "Command output:"
 msgstr "Результат выполнения:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -2553,6 +2562,9 @@ msgstr "Создать гостевую систему PV"
 msgid "Create Permission"
 msgstr "Создать разрешения"
 
+msgid "Create Snapshot"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "Создать рабочий каталог"
 
@@ -2689,6 +2701,9 @@ msgstr "Пользовательский поставщик"
 msgid "Custom Script"
 msgstr "Пользовательский скрипт"
 
+msgid "Custom Setting"
+msgstr ""
+
 msgid "Custom device"
 msgstr "Пользовательские устройства"
 
@@ -2808,6 +2823,9 @@ msgstr "События процессов"
 
 msgid "Daemon log"
 msgstr "Журнал процесса"
+
+msgid "Daily"
+msgstr ""
 
 msgid "Data"
 msgstr "Данные"
@@ -3082,6 +3100,9 @@ msgstr "Удалить выбранные модули RSYNC"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Удалить выбранные общие ресурсы Samba"
+
+msgid "Delete Selected Schedules"
+msgstr ""
 
 msgid "Delete Selected Shares"
 msgstr "Удалить выбранные общие ресурсы"
@@ -3461,6 +3482,9 @@ msgstr "Отключить выбранные модули RSYNC"
 
 msgid "Disable Selected Samba Shares"
 msgstr "Отключить выбранные общие ресурсы Samba"
+
+msgid "Disable Selected Schedules"
+msgstr ""
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Отключить выбранные настройки Sysctl"
@@ -3875,6 +3899,9 @@ msgstr "Вы хотите удалить выбранные задания rsync
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Вы хотите удалить выбранные модули rsync?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected shares?"
 msgstr "Вы хотите удалить выбранные общие ресурсы?"
 
@@ -3984,6 +4011,9 @@ msgstr "Вы хотите отключить выбранные задания r
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Вы хотите отключить выбранные модули rsync?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Вы хотите отключить выбранные настройки sysctl?"
 
@@ -4076,6 +4106,9 @@ msgstr "Вы хотите включить выбранные задания rsy
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Вы хотите включить выбранные модули rsync?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Вы хотите включить выбранные настройки sysctl?"
@@ -4178,6 +4211,9 @@ msgstr "Вы хотите переключить выбранные задани
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Вы хотите переключить выбранные модули rsync?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Вы хотите переключать выбранные настройки sysctl?"
@@ -4422,6 +4458,9 @@ msgstr "Редактировать модуль Rsync"
 msgid "Edit Samba Share"
 msgstr "Редактировать общий ресурс Samba"
 
+msgid "Edit Schedule"
+msgstr ""
+
 msgid "Edit Share"
 msgstr "Редактировать общий ресурс"
 
@@ -4650,6 +4689,9 @@ msgstr "Включить выбранные модули Rsync"
 
 msgid "Enable Selected Samba Shares"
 msgstr "Включить выбранные общие ресурсы Samba"
+
+msgid "Enable Selected Schedules"
+msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Включить выбранные настройки Sysctl"
@@ -6069,6 +6111,9 @@ msgstr "Настройка хостов"
 
 msgid "Hour"
 msgstr "час."
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hours"
 msgstr "Час."
@@ -7667,6 +7712,9 @@ msgstr "Настройки мониторинга"
 msgid "Monitoring User"
 msgstr "Пользователь мониторинга"
 
+msgid "Monthly"
+msgstr ""
+
 msgid "Months"
 msgstr "Месяцы"
 
@@ -9110,6 +9158,9 @@ msgstr "Учитывать регистр предоставленного/об�
 msgid "Preserve modification times."
 msgstr "Сохранять время изменения"
 
+msgid "Presets"
+msgstr ""
+
 msgid "Prevent deep discharge of battery"
 msgstr "Предотвращать глубокий разряд батареи"
 
@@ -9665,6 +9716,9 @@ msgstr "Рекурсивно внутри каталогов"
 msgid "Recursive"
 msgstr "Рекурсивно"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
 msgid "Recycle Bin"
 msgstr "Корзина"
 
@@ -10217,6 +10271,15 @@ msgstr "Сканировать/импортировать только разр�
 msgid "Schedule Time"
 msgstr "Время расписаний"
 
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
 msgid "Schedule time"
 msgstr "Запланированное время"
 
@@ -10237,6 +10300,9 @@ msgstr "Выключение по расписанию"
 
 msgid "Scheduled Tests"
 msgstr "Запланированные тесты"
+
+msgid "Scheduler"
+msgstr ""
 
 msgid "Script"
 msgstr "Сценарий"
@@ -10345,6 +10411,9 @@ msgstr "Выберите пул"
 
 msgid "Select Pool Device"
 msgstr "Выберите устройство пула"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
 
 msgid "Select Pools"
 msgstr "Выберите пулы"
@@ -13498,6 +13567,9 @@ msgstr "Переключить выбранные модули Rsync"
 msgid "Toggle Selected Samba Shares"
 msgstr "Переключить выбранные общие ресурсы Samba"
 
+msgid "Toggle Selected Schedules"
+msgstr ""
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Переключить выбранные настройки Sysctl"
 
@@ -14540,6 +14612,9 @@ msgstr "Дни недели"
 msgid "Weekdays"
 msgstr "Будни"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Western Digital attribute."
 msgstr "Western Digital атрибут."
 
@@ -14653,6 +14728,9 @@ msgstr "Виртуальная машина Xen"
 
 msgid "Y-axis Range"
 msgstr "Диапазон по оси Y"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yes"
 msgstr "Да"
@@ -15086,9 +15164,6 @@ msgstr "нет"
 
 msgid "no delay"
 msgstr "без задержки"
-
-msgid "no pools available"
-msgstr "нет доступных пулов"
 
 msgid "none"
 msgstr "none"

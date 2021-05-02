@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
-"PO-Revision-Date: 2021-04-19 11:27+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"PO-Revision-Date: 2021-04-27 03:29+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
 "X-Poedit-Language: French\n"
@@ -667,6 +667,9 @@ msgstr "Ajouter le module Rsync"
 
 msgid "Add Samba Share"
 msgstr "Ajouter un partage Samba"
+
+msgid "Add Schedule"
+msgstr "Ajouter une Planification"
 
 msgid "Add Share"
 msgstr "Ajouter un partage"
@@ -2126,6 +2129,16 @@ msgstr "Résultat de la commande"
 msgid "Command output:"
 msgstr "Résultat de la commande:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Les commandes sont exécutées par le planificateur lorsque les champs minute, "
+"heure et mois de l'année correspondent à l'heure actuelle et lorsqu'au moins "
+"l'un des deux champs jour (jour du mois ou jour de la semaine) correspond à "
+"l'heure actuelle."
+
 msgid "Comment"
 msgstr "Commentaire"
 
@@ -2586,6 +2599,9 @@ msgstr "creer un invite PV"
 msgid "Create Permission"
 msgstr "Créer les Droits d'Accès"
 
+msgid "Create Snapshot"
+msgstr "Créer un Instantané"
+
 msgid "Create Work Directory"
 msgstr "Créer un répertoire de travail"
 
@@ -2719,6 +2735,9 @@ msgstr "Fournisseur Personnalisé"
 msgid "Custom Script"
 msgstr "Script personnalisé"
 
+msgid "Custom Setting"
+msgstr "Paramètre personnalisé"
+
 msgid "Custom device"
 msgstr "périphérique adapté"
 
@@ -2838,6 +2857,9 @@ msgstr "Evénements Daemon"
 
 msgid "Daemon log"
 msgstr "Journal des démons"
+
+msgid "Daily"
+msgstr "Quotidien"
 
 msgid "Data"
 msgstr "Donnée"
@@ -3112,6 +3134,9 @@ msgstr "Supprimer les modules Rsync sélectionnés"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Supprimer les actions Samba sélectionnées"
+
+msgid "Delete Selected Schedules"
+msgstr "Effacer les Planification sélectionnées"
 
 msgid "Delete Selected Shares"
 msgstr "Supprimer les Partages Sélectionnés"
@@ -3495,6 +3520,9 @@ msgstr "Désactiver les modules Rsync sélectionnés"
 
 msgid "Disable Selected Samba Shares"
 msgstr "Désactiver les Partages Samba Sélectionnés"
+
+msgid "Disable Selected Schedules"
+msgstr "Desactiver les Planification sélectionnées"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Désactiver les paramètres Sysctl sélectionnés"
@@ -3924,6 +3952,9 @@ msgstr "Voulez-vous supprimer des tâches rsync sélectionnées?"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Voulez-vous supprimer les modules rsync sélectionnés?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr "Voulez vous effacer les planifications sélectionnées?"
+
 msgid "Do you want to delete selected shares?"
 msgstr "Voulez-vous supprimer des partages sélectionnés?"
 
@@ -4034,6 +4065,9 @@ msgstr "Voulez-vous désactiver les tâches rsync sélectionnées?"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Voulez-vous désactiver les modules rsync sélectionnés?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr "Voulez-vous désactiver les planifications sélectionnées?"
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Voulez-vous désactiver les paramètres sysctl sélectionnés?"
 
@@ -4127,6 +4161,9 @@ msgstr "Voulez-vous activer les tâches rsync sélectionnées?"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Voulez-vous activer les modules rsync sélectionnés?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Voulez-vous activer les planifications sélectionnées?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Voulez-vous activer les paramètres sysctl sélectionnés?"
@@ -4234,6 +4271,9 @@ msgstr "Voulez-vous changer d'état les travaux rsync sélectionnés?"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Voulez-vous changer d'état les modules rsync sélectionnés?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Voulez-vous changer d'état les planifications sélectionnées"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Voulez-vous changerd'état les paramètres sysctl sélectionnés?"
@@ -4475,6 +4515,9 @@ msgstr "Modifier le module Rsync"
 msgid "Edit Samba Share"
 msgstr "Modifier le Partage Samba"
 
+msgid "Edit Schedule"
+msgstr "Modifier la Planification"
+
 msgid "Edit Share"
 msgstr "Modifier le partage"
 
@@ -4704,6 +4747,9 @@ msgstr "Activer les modules Rsync sélectionnés"
 
 msgid "Enable Selected Samba Shares"
 msgstr "Activer les Partages Samba Sélectionnés"
+
+msgid "Enable Selected Schedules"
+msgstr "Activer les Planifications Sélectionnées"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Activer les paramètres Sysctl sélectionnés"
@@ -6140,6 +6186,9 @@ msgstr "Configuration de l'hôte"
 
 msgid "Hour"
 msgstr "Heure"
+
+msgid "Hourly"
+msgstr "Toutes les heures"
 
 msgid "Hours"
 msgstr "Heures"
@@ -7748,6 +7797,9 @@ msgstr "Configuration de la surveillance"
 msgid "Monitoring User"
 msgstr "Surveillance de l'Utilisateur"
 
+msgid "Monthly"
+msgstr "Mensuel"
+
 msgid "Months"
 msgstr "Mois"
 
@@ -9195,6 +9247,9 @@ msgstr "Préserver la casse du nom d'hôte fourni / détecté."
 msgid "Preserve modification times."
 msgstr "Conserver les heures de modification."
 
+msgid "Presets"
+msgstr "Présélections"
+
 msgid "Prevent deep discharge of battery"
 msgstr "Évitez les grosses décharge de la batterie"
 
@@ -9751,6 +9806,11 @@ msgstr "Parcourir récursivement les répertoires."
 
 msgid "Recursive"
 msgstr "Récursif"
+
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+"Créez de manière récursive des instantanés de tous les ensembles de données "
+"descendants."
 
 msgid "Recycle Bin"
 msgstr "Corbeille"
@@ -10310,6 +10370,15 @@ msgstr "Scan / importer uniquement les pools détruits"
 msgid "Schedule Time"
 msgstr "Heure de début programmée"
 
+msgid "Schedule is locked"
+msgstr "La Planification est verrouillée"
+
+msgid "Schedule is marked for deletion"
+msgstr "La planification est marqué pour suppression"
+
+msgid "Schedule is unlocked"
+msgstr "La Planification est déverrouillée"
+
 msgid "Schedule time"
 msgstr "Planification"
 
@@ -10330,6 +10399,9 @@ msgstr "Arrêt programmé"
 
 msgid "Scheduled Tests"
 msgstr "Tests programmés"
+
+msgid "Scheduler"
+msgstr "Planificateur"
 
 msgid "Script"
 msgstr "Script"
@@ -10440,6 +10512,9 @@ msgstr "Sélectionner un Pool"
 
 msgid "Select Pool Device"
 msgstr "Sélectionner un Périphérique de Pool"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Sélectionner un Pool, un Système de Fichiers ou un Volume"
 
 msgid "Select Pools"
 msgstr "Sélectionner des Pools"
@@ -13650,6 +13725,9 @@ msgstr "Changer d'état les Modules Rsync Sélectionnés"
 msgid "Toggle Selected Samba Shares"
 msgstr "Changer d'état les partages Samba sélectionnés"
 
+msgid "Toggle Selected Schedules"
+msgstr "Changer d'état les Planifications Sélectionnées"
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Changer d'état les paramètres sysctl sélectionnés"
 
@@ -14693,6 +14771,9 @@ msgstr "Jours de la Semaine"
 msgid "Weekdays"
 msgstr "Les jours de semaine"
 
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
 msgid "Western Digital attribute."
 msgstr "Attribut Western Digital"
 
@@ -14808,6 +14889,9 @@ msgstr "Machine Virtuelle Xen"
 
 msgid "Y-axis Range"
 msgstr "Etendue de l'axe des Y"
+
+msgid "Yearly"
+msgstr "annuelle"
 
 msgid "Yes"
 msgstr "Oui"
@@ -15238,9 +15322,6 @@ msgstr "aucun"
 
 msgid "no delay"
 msgstr "sans délais"
-
-msgid "no pools available"
-msgstr "pas de pools disponibles"
 
 msgid "none"
 msgstr "aucun"
