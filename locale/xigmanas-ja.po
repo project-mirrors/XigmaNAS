@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
 "X-Poedit-Language: Japanese\n"
@@ -626,6 +626,9 @@ msgstr "Rsync モジュール追加"
 
 msgid "Add Samba Share"
 msgstr "Samba 共有追加"
+
+msgid "Add Schedule"
+msgstr ""
 
 msgid "Add Share"
 msgstr "共有を追加"
@@ -1980,6 +1983,12 @@ msgstr "コマンド出力"
 msgid "Command output:"
 msgstr "コマンド出力:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+
 msgid "Comment"
 msgstr "コメント"
 
@@ -2368,6 +2377,9 @@ msgstr "PV ゲスト作成"
 msgid "Create Permission"
 msgstr ""
 
+msgid "Create Snapshot"
+msgstr ""
+
 msgid "Create Work Directory"
 msgstr "作業ディレクトリを作成"
 
@@ -2499,6 +2511,9 @@ msgstr ""
 msgid "Custom Script"
 msgstr "カスタムスクリプト"
 
+msgid "Custom Setting"
+msgstr ""
+
 msgid "Custom device"
 msgstr "カスタムデバイス"
 
@@ -2613,6 +2628,9 @@ msgstr "デーモンイベント"
 
 msgid "Daemon log"
 msgstr "デーモン ログ"
+
+msgid "Daily"
+msgstr ""
 
 msgid "Data"
 msgstr ""
@@ -2871,6 +2889,9 @@ msgstr ""
 
 msgid "Delete Selected Samba Shares"
 msgstr "選択したSambaの共有の削除"
+
+msgid "Delete Selected Schedules"
+msgstr ""
 
 msgid "Delete Selected Shares"
 msgstr "選択した共有の削除"
@@ -3240,6 +3261,9 @@ msgid "Disable Selected Rsync Modules"
 msgstr ""
 
 msgid "Disable Selected Samba Shares"
+msgstr ""
+
+msgid "Disable Selected Schedules"
 msgstr ""
 
 msgid "Disable Selected Sysctl Settings"
@@ -3631,6 +3655,9 @@ msgstr ""
 msgid "Do you want to delete selected rsync modules?"
 msgstr ""
 
+msgid "Do you want to delete selected schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected shares?"
 msgstr ""
 
@@ -3739,6 +3766,9 @@ msgstr ""
 msgid "Do you want to disable selected rsync modules?"
 msgstr ""
 
+msgid "Do you want to disable selected schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr ""
 
@@ -3830,6 +3860,9 @@ msgid "Do you want to enable selected rsync jobs?"
 msgstr ""
 
 msgid "Do you want to enable selected rsync modules?"
+msgstr ""
+
+msgid "Do you want to enable selected schedules?"
 msgstr ""
 
 msgid "Do you want to enable selected sysctl settings?"
@@ -3932,6 +3965,9 @@ msgid "Do you want to toggle selected rsync jobs?"
 msgstr ""
 
 msgid "Do you want to toggle selected rsync modules?"
+msgstr ""
+
+msgid "Do you want to toggle selected schedules?"
 msgstr ""
 
 msgid "Do you want to toggle selected sysctl settings?"
@@ -4172,6 +4208,9 @@ msgstr ""
 msgid "Edit Samba Share"
 msgstr ""
 
+msgid "Edit Schedule"
+msgstr ""
+
 msgid "Edit Share"
 msgstr ""
 
@@ -4394,6 +4433,9 @@ msgid "Enable Selected Rsync Modules"
 msgstr ""
 
 msgid "Enable Selected Samba Shares"
+msgstr ""
+
+msgid "Enable Selected Schedules"
 msgstr ""
 
 msgid "Enable Selected Sysctl Settings"
@@ -5730,6 +5772,9 @@ msgid "Hosts Setup"
 msgstr ""
 
 msgid "Hour"
+msgstr ""
+
+msgid "Hourly"
 msgstr ""
 
 msgid "Hours"
@@ -7217,6 +7262,9 @@ msgstr "モニタリング設定"
 msgid "Monitoring User"
 msgstr ""
 
+msgid "Monthly"
+msgstr ""
+
 msgid "Months"
 msgstr "月"
 
@@ -8608,6 +8656,9 @@ msgstr ""
 msgid "Preserve modification times."
 msgstr "更新時刻を保持します。"
 
+msgid "Presets"
+msgstr ""
+
 msgid "Prevent deep discharge of battery"
 msgstr "バッテリー過充電保護"
 
@@ -9146,6 +9197,9 @@ msgstr "ディレクトリの再帰を行います。"
 msgid "Recursive"
 msgstr "再帰"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
 msgid "Recycle Bin"
 msgstr ""
 
@@ -9677,6 +9731,15 @@ msgstr ""
 msgid "Schedule Time"
 msgstr "スケジュール時刻"
 
+msgid "Schedule is locked"
+msgstr ""
+
+msgid "Schedule is marked for deletion"
+msgstr ""
+
+msgid "Schedule is unlocked"
+msgstr ""
+
 msgid "Schedule time"
 msgstr "スケジュール時刻"
 
@@ -9697,6 +9760,9 @@ msgstr "シャットダウンスケジュール"
 
 msgid "Scheduled Tests"
 msgstr "テストの予定"
+
+msgid "Scheduler"
+msgstr ""
 
 msgid "Script"
 msgstr "スクリプト"
@@ -9800,6 +9866,9 @@ msgstr "プールを選択"
 
 msgid "Select Pool Device"
 msgstr "プールデバイスを選択"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr ""
 
 msgid "Select Pools"
 msgstr "プールを選択"
@@ -12574,6 +12643,9 @@ msgstr ""
 msgid "Toggle Selected Samba Shares"
 msgstr ""
 
+msgid "Toggle Selected Schedules"
+msgstr ""
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr ""
 
@@ -13541,6 +13613,9 @@ msgstr ""
 msgid "Weekdays"
 msgstr "週"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Western Digital attribute."
 msgstr "ウエスタンデジタルの属性。"
 
@@ -13643,6 +13718,9 @@ msgstr "Xen 仮想マシン"
 
 msgid "Y-axis Range"
 msgstr "Y 軸の範囲"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yes"
 msgstr "Yes"
@@ -14034,9 +14112,6 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
-msgstr ""
-
-msgid "no pools available"
 msgstr ""
 
 msgid "none"

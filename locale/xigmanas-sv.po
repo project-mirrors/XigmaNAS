@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-19 13:03+0000\n"
-"PO-Revision-Date: 2021-04-19 15:41+0000\n"
+"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"PO-Revision-Date: 2021-04-27 03:34+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-04-20 15:41+0000\n"
-"X-Generator: Launchpad (build 1552fceb1603b3da6cfa437575d9c9fc4b2e683a)\n"
+"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
 "X-Poedit-Language: Swedish\n"
@@ -646,6 +646,9 @@ msgstr "Lägg till Rsync modul"
 
 msgid "Add Samba Share"
 msgstr "Lägg till Sambautdelning"
+
+msgid "Add Schedule"
+msgstr "Lägg till schema"
 
 msgid "Add Share"
 msgstr "Lägg ttill utdelning"
@@ -2072,6 +2075,15 @@ msgstr "Kommandoutmatning"
 msgid "Command output:"
 msgstr "Kommandoutmatning:"
 
+msgid ""
+"Commands are executed by the scheduler when the minute, hour, and month of "
+"year fields match the current time, and when at least one of the two day "
+"fields (day of month, or day of week) matches the current time."
+msgstr ""
+"Kommandot körs av schemaläggaren när minuten, timmen, och månaden på året "
+"matchar den aktuella tiden, och när minst en av de två fälten (dag i månad "
+"eller veckodag) matchar aktuell tid."
+
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -2510,6 +2522,9 @@ msgstr "Skapa PV gäst"
 msgid "Create Permission"
 msgstr "Skapa rättigheter"
 
+msgid "Create Snapshot"
+msgstr "Skapa avbild"
+
 msgid "Create Work Directory"
 msgstr "Skapa arbetskatalog"
 
@@ -2643,6 +2658,9 @@ msgstr "Anpassad leverantör"
 msgid "Custom Script"
 msgstr "Användarskript"
 
+msgid "Custom Setting"
+msgstr "Anpassade inställningar"
+
 msgid "Custom device"
 msgstr "Anpassad enhet"
 
@@ -2761,6 +2779,9 @@ msgstr "Demonhändelser"
 
 msgid "Daemon log"
 msgstr "Daemon logg"
+
+msgid "Daily"
+msgstr "Dagligen"
 
 msgid "Data"
 msgstr "Data"
@@ -3033,6 +3054,9 @@ msgstr "Ta bort valda Rsync moduler"
 
 msgid "Delete Selected Samba Shares"
 msgstr "Ta bort valda Sambautdelningar"
+
+msgid "Delete Selected Schedules"
+msgstr "Ta bort valda schemaläggningar"
 
 msgid "Delete Selected Shares"
 msgstr "Ta bort valda utdelningar"
@@ -3412,6 +3436,9 @@ msgstr "Inaktivera valda Rsync moduler"
 
 msgid "Disable Selected Samba Shares"
 msgstr "Inaktivera valda Samba utdelningar"
+
+msgid "Disable Selected Schedules"
+msgstr "Inaktivera valda schemaläggningar"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Inaktivera vald Sysctl inställning"
@@ -3820,6 +3847,9 @@ msgstr "Vill du ta bort valda Rsync jobb?"
 msgid "Do you want to delete selected rsync modules?"
 msgstr "Vill du ta bort valda Rsync moduler?"
 
+msgid "Do you want to delete selected schedules?"
+msgstr "Vill du ta bort valda schemaläggningar?"
+
 msgid "Do you want to delete selected shares?"
 msgstr "Vill du ta bort valda utdelningar?"
 
@@ -3928,6 +3958,9 @@ msgstr "Vill du inaktivera valda rsync jobb?"
 msgid "Do you want to disable selected rsync modules?"
 msgstr "Vill du inaktivera valda rsync moduler?"
 
+msgid "Do you want to disable selected schedules?"
+msgstr "Vill du inaktivera valda schemaläggningar?"
+
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Vill du inaktivera vald Sysctl inställning?"
 
@@ -4020,6 +4053,9 @@ msgstr "Vill du aktivera valda rsync jobb?"
 
 msgid "Do you want to enable selected rsync modules?"
 msgstr "Vill du aktivera valda rsync moduler?"
+
+msgid "Do you want to enable selected schedules?"
+msgstr "Vill du aktivera valda schemaläggningar?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Vill du aktivera vald Sysctl inställning?"
@@ -4122,6 +4158,9 @@ msgstr "Vill du växla valda rsync jobb?"
 
 msgid "Do you want to toggle selected rsync modules?"
 msgstr "Vill du växla valda rsync moduler?"
+
+msgid "Do you want to toggle selected schedules?"
+msgstr "Vill du växla valda schemaläggningar?"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Vill du växla vald Sysctl inställning?"
@@ -4362,6 +4401,9 @@ msgstr "Ändra Rsync modul"
 msgid "Edit Samba Share"
 msgstr "Ändra Sambautdelning"
 
+msgid "Edit Schedule"
+msgstr "Ändra schemaläggning"
+
 msgid "Edit Share"
 msgstr "Ändra Utdelning"
 
@@ -4589,6 +4631,9 @@ msgstr "Aktivera valda Rsynk moduler"
 
 msgid "Enable Selected Samba Shares"
 msgstr "Aktivera valda Samba utdelningar"
+
+msgid "Enable Selected Schedules"
+msgstr "Aktivera valda schemaläggningar"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Aktivera vald Sysctl inställning?"
@@ -5997,6 +6042,9 @@ msgstr "Hosts Inställningar"
 
 msgid "Hour"
 msgstr "Timme"
+
+msgid "Hourly"
+msgstr "Varje timme"
 
 msgid "Hours"
 msgstr "Timmar"
@@ -7559,6 +7607,9 @@ msgstr "Övervakningsinställning"
 msgid "Monitoring User"
 msgstr "Övervakning användare"
 
+msgid "Monthly"
+msgstr "Varje månad"
+
 msgid "Months"
 msgstr "Månader"
 
@@ -8989,6 +9040,9 @@ msgstr "Behåll skiftläge på det erhållna/upptäckta värdnamnet."
 msgid "Preserve modification times."
 msgstr "Bevara modifieringstidsstämplar."
 
+msgid "Presets"
+msgstr "Förinställningar"
+
 msgid "Prevent deep discharge of battery"
 msgstr "Undvik djupurladdning av batteri"
 
@@ -9542,6 +9596,9 @@ msgstr "Upprepa i kataloger."
 msgid "Recursive"
 msgstr "Rekursiv"
 
+msgid "Recursively create snapshots of all descendent datasets."
+msgstr "Skapa avbilder för alla underliggande dataset."
+
 msgid "Recycle Bin"
 msgstr "Papperskorg"
 
@@ -10093,6 +10150,15 @@ msgstr "Scanna/Importera bara förstörda pooler"
 msgid "Schedule Time"
 msgstr "Körtid"
 
+msgid "Schedule is locked"
+msgstr "Schemaläggningen är låst"
+
+msgid "Schedule is marked for deletion"
+msgstr "Schemaläggningen är markerad för borttagning"
+
+msgid "Schedule is unlocked"
+msgstr "Schemaläggningen är olåst"
+
 msgid "Schedule time"
 msgstr "Schematid"
 
@@ -10113,6 +10179,9 @@ msgstr "Schemalagd avstängning"
 
 msgid "Scheduled Tests"
 msgstr "Schemalagda tester"
+
+msgid "Scheduler"
+msgstr "Schemaläggare"
 
 msgid "Script"
 msgstr "Skript"
@@ -10222,6 +10291,9 @@ msgstr "Välj Pool"
 
 msgid "Select Pool Device"
 msgstr "Välj Poolenhet"
+
+msgid "Select Pool, Filesystem or Volume"
+msgstr "Välj Pool, Filsystem eller Volym"
 
 msgid "Select Pools"
 msgstr "Välj Pooler"
@@ -13331,6 +13403,9 @@ msgstr "Växla valda Rsync moduler"
 msgid "Toggle Selected Samba Shares"
 msgstr "Växla valda Sambautdelningar"
 
+msgid "Toggle Selected Schedules"
+msgstr "Växla valda schemaläggningar"
+
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Växla vald Sysctl inställningar"
 
@@ -14356,6 +14431,9 @@ msgstr "Veckodagar"
 msgid "Weekdays"
 msgstr "Veckodagar"
 
+msgid "Weekly"
+msgstr "Varje vecka"
+
 msgid "Western Digital attribute."
 msgstr "Western Digital attribut."
 
@@ -14466,6 +14544,9 @@ msgstr "Xen Virtuell Maskin"
 
 msgid "Y-axis Range"
 msgstr "Y-axelns intervall"
+
+msgid "Yearly"
+msgstr "Varje år"
 
 msgid "Yes"
 msgstr "Ja"
@@ -14890,9 +14971,6 @@ msgstr "nej"
 
 msgid "no delay"
 msgstr "Ingen fördröjning"
-
-msgid "no pools available"
-msgstr "inga pooler tillgängliga"
 
 msgid "none"
 msgstr "ingen"
