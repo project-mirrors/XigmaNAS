@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
-"PO-Revision-Date: 2021-04-26 21:30+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
+"PO-Revision-Date: 2021-05-03 15:50+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
@@ -579,7 +579,7 @@ msgid "Add CARP"
 msgstr "CARP Toevoegen"
 
 msgid "Add CHAP User"
-msgstr "Voeg CHAP gebruiker toe"
+msgstr "CHAP Gebruiker Toevoegen"
 
 msgid "Add Command"
 msgstr "Opdracht Toevoegen"
@@ -600,7 +600,7 @@ msgid "Add Host"
 msgstr "Host Toevoegen"
 
 msgid "Add Initiator Name"
-msgstr "Voeg Initiator naam toe"
+msgstr "Initiator Naam Toevoegen"
 
 msgid "Add Initiator Portal"
 msgstr "Initiator Portaal Toevoegen"
@@ -612,7 +612,7 @@ msgid "Add LUN"
 msgstr "LUN Toevoegen"
 
 msgid "Add LUN Record"
-msgstr "Toevoegen LUN Item"
+msgstr "LUN Item Toevoegen"
 
 msgid "Add Listen Record"
 msgstr "Luister Record Toevoegen"
@@ -621,7 +621,7 @@ msgid "Add Media Folder"
 msgstr "Media Folder Toevoegen"
 
 msgid "Add Mutual CHAP User"
-msgstr "Voeg wederzijdse CHAP gebruiker toe"
+msgstr "Wederzijdse CHAP Gebruiker Toevoegen"
 
 msgid "Add NFS Export"
 msgstr "NFS Export Toevoegen"
@@ -633,13 +633,13 @@ msgid "Add Option"
 msgstr "Optie Toevoegen"
 
 msgid "Add Option Record"
-msgstr "Voeg opties record toe"
+msgstr "Optie Record Toevoegen"
 
 msgid "Add Pool"
 msgstr "Pool Toevoegen"
 
 msgid "Add Port Record"
-msgstr "Voeg poort record toe"
+msgstr "Poort Record Toevoegen"
 
 msgid "Add Portal Group"
 msgstr "Portaal Groep Toevoegen"
@@ -651,7 +651,10 @@ msgid "Add Public Key"
 msgstr "Publieke Sleutel Toevoegen"
 
 msgid "Add RAID"
-msgstr "RAID toevoegen"
+msgstr "RAID Toevoegen"
+
+msgid "Add Reboot Schedule"
+msgstr "Herstart Schema Toevoegen"
 
 msgid "Add Record"
 msgstr "Item  Toevoegen"
@@ -702,7 +705,7 @@ msgid "Add WLAN"
 msgstr "WLAN Toevoegen"
 
 msgid "Add WebDAV Record"
-msgstr "Toevoegen WebDAV Item"
+msgstr "WebDAV Item Toevoegen"
 
 msgid "Add a cache device to a pool"
 msgstr "Voeg een cache schijf toe aan een pool"
@@ -1776,10 +1779,10 @@ msgid "CHAP Secret"
 msgstr "CHAP Wachtwoord"
 
 msgid "CHAP User is locked"
-msgstr "CHAP gebruiker is geblokkeerd"
+msgstr "CHAP Gebruiker is vergrendeld"
 
 msgid "CHAP User is marked for deletion"
-msgstr "CHAP gebruiker is geselecteerd om verwijderd te worden"
+msgstr "CHAP Gebruiker is gemarkeerd voor verwijdering"
 
 msgid "CHAP User is unlocked"
 msgstr "CHAP gebruiker is vrijgegeven"
@@ -2919,6 +2922,9 @@ msgstr "Datumformaat"
 msgid "Day"
 msgstr "Dag"
 
+msgid "Day(s)"
+msgstr "Dag(en)"
+
 msgid "Days"
 msgstr "Dagen"
 
@@ -3122,6 +3128,9 @@ msgstr "Geselecteerde Publieke Sleutels Verwijderen"
 msgid "Delete Selected RAID Volumes"
 msgstr "Geselecteerde RAID Volumes Verwijderen"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr "Geselecteerde Herstart Planning Verwijderen"
+
 msgid "Delete Selected Records"
 msgstr "Geselecteerde Items Verwijderen"
 
@@ -3288,6 +3297,12 @@ msgstr "Bestemmingsnetwerk voor deze statische route."
 
 msgid "Destination port"
 msgstr "Bestemmingspoort"
+
+msgid "Destroy"
+msgstr "Vernietigen"
+
+msgid "Destroy Snapshot"
+msgstr "Snapshot Vernietigen"
 
 msgid "Destroy a pool"
 msgstr "Vernietig een pool"
@@ -3509,6 +3524,9 @@ msgstr "Geselecteerde Providers Uitschakelen"
 
 msgid "Disable Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Uitschakelen"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Geselecteerde Herstart Planning Uitschakelen"
 
 msgid "Disable Selected Records"
 msgstr "Geselecteerde Items Uitschakelen"
@@ -3932,6 +3950,9 @@ msgstr "Wilt u de geselecteerde providers verwijderen?"
 msgid "Do you want to delete selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels verwijderen?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Wilt u de geselecteerde herstart planningen verwijderen?"
+
 msgid "Do you want to delete selected records?"
 msgstr "Wilt u de geselecteerde items verwijderen?"
 
@@ -4046,6 +4067,9 @@ msgstr "Wilt u de geselecteerde providers uischakelen?"
 msgid "Do you want to disable selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels uitschakelen?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Wilt u de geselecteerde herstart planningen uitschakelen?"
+
 msgid "Do you want to disable selected records?"
 msgstr "Wilt u de geselecteerde items uitschakelen?"
 
@@ -4141,6 +4165,9 @@ msgstr "Wilt u de geselecteerde providers inschakelen?"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels inschakelen?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Wilt u de geselecteerde herstart planningen inschakelen?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Wilt u de geselecteerde items inschakelen?"
@@ -4246,6 +4273,9 @@ msgstr "Wilt u de geselecteerde providers omschakelen?"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Wilt u de geselecteerde publieke sleutels omschakelen?"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Wilt u de geselecteerde herstart planningen omschakelen?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Wilt u de geselecteerde items omschakelen?"
@@ -4487,6 +4517,9 @@ msgstr "Publieke Sleutels Bewerken"
 msgid "Edit RAID"
 msgstr "Bewerk RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr "Herstart Planning Bewerken"
+
 msgid "Edit Record"
 msgstr "Item Bewerken"
 
@@ -4722,6 +4755,9 @@ msgstr "Geselecteerde Providers Inschakelen"
 
 msgid "Enable Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Inschakelen"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Geselecteerde Herstart Planningen Inschakelen"
 
 msgid "Enable Selected Records"
 msgstr "Geselecteerde Items Inschakelen"
@@ -5082,6 +5118,9 @@ msgstr "Encryptie Hulpmiddelen"
 
 msgid "Encryption algorithm"
 msgstr "Encryptie algoritme"
+
+msgid "Enhanced Scheduler"
+msgstr "Verbeterde Planning"
 
 msgid "Enter Command"
 msgstr "Geef Commando"
@@ -6173,6 +6212,9 @@ msgstr "Hosts Instellen"
 msgid "Hour"
 msgstr "Uur"
 
+msgid "Hour(s)"
+msgstr "U(u)r(en)"
+
 msgid "Hourly"
 msgstr "Uurlijks"
 
@@ -6772,6 +6814,9 @@ msgstr "Interval te wachten voor het herstarten van de UPS)"
 msgid "Interval to wait before restarting the load"
 msgstr "Interval te wachten voor het opnieuw starten van de belasting"
 
+msgid "Invalid"
+msgstr "Ongeldig"
+
 msgid "Invalid command line option"
 msgstr "Ongeldige command line optie"
 
@@ -7103,6 +7148,15 @@ msgstr "Levensduur"
 
 msgid "Life time"
 msgstr "Levens duur"
+
+msgid "Lifetime"
+msgstr "Levensduur"
+
+msgid "Lifetime Units"
+msgstr "Levensduur Eenheden"
+
+msgid "Lifetime Value"
+msgstr "Levensduur Waarde"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
@@ -7705,6 +7759,9 @@ msgstr "Minimum temperatuur gezien (graden C)"
 msgid "Minute"
 msgstr "Minuut"
 
+msgid "Minute(s)"
+msgstr "Minu(u)t(en)"
+
 msgid "Minutes"
 msgstr "Minuten"
 
@@ -7773,6 +7830,9 @@ msgstr "Monitoring Instellingen"
 
 msgid "Monitoring User"
 msgstr "Monitoring Gebruiker"
+
+msgid "Month(s)"
+msgstr "Maand(en)"
 
 msgid "Monthly"
 msgstr "Maandelijks"
@@ -9751,6 +9811,15 @@ msgstr "Herstarten"
 msgid "Reboot Required"
 msgstr "Herstart Vereist"
 
+msgid "Reboot Schedule is locked"
+msgstr "Herstart Planning is vergrendeld"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "Herstart Planning is gemarkeerd voor verwijdering"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Reboot Schedule is unlocked"
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Herbouw de geselecteerde schijf geforceerd."
 
@@ -9786,6 +9855,9 @@ msgstr "Recursief"
 
 msgid "Recursively create snapshots of all descendent datasets."
 msgstr "Creëer recursief snapshots van alle afstammende datasets."
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Vernietig recursief snapshots van alle afstammende datasets."
 
 msgid "Recycle Bin"
 msgstr "Prullenbak"
@@ -10341,6 +10413,9 @@ msgstr "Scan folder voor videobestanden."
 msgid "Scan/Import destroyed pools only"
 msgstr "Scannen /importeren van alleen vernietigde pools"
 
+msgid "Schedule"
+msgstr "Planning"
+
 msgid "Schedule Time"
 msgstr "Tijdsplanning"
 
@@ -10383,6 +10458,12 @@ msgstr "Script"
 msgid "Script has been uploaded."
 msgstr "Script is geupload."
 
+msgid "Scrub"
+msgstr "Scrub"
+
+msgid "Scrub Pool"
+msgstr "Scrub Pool"
+
 msgid "Scrub a pool"
 msgstr "Scrub een pool"
 
@@ -10407,6 +10488,9 @@ msgstr "Zoek subfolder"
 
 msgid "Second"
 msgstr "Seconde"
+
+msgid "Second(s)"
+msgstr "Seconde(n)"
 
 msgid "Secondary"
 msgstr "Secundair"
@@ -10570,6 +10654,9 @@ msgstr ""
 "Selecteer de optie 'Ongeformatteerd' voor  ongeformatteerde schijven en "
 "formatteer deze met de"
 
+msgid "Select pool."
+msgstr "Selecteer pool."
+
 #, php-format
 msgid ""
 "Select preallocation mode for files. The default preallocation mode is "
@@ -10649,7 +10736,7 @@ msgid "Self-Monitoring, Analysis & Reporting Technology"
 msgstr "Zelf-Controle, Analyseren & Rapportage Techniek"
 
 msgid "Self-Test Schedules"
-msgstr "Self-Test Roosters"
+msgstr "Self-Test Planningen"
 
 msgid "Send Buffer"
 msgstr "Verzend Buffer"
@@ -13678,6 +13765,9 @@ msgstr "Geselecteerde Providers Omschakelen"
 msgid "Toggle Selected Public Keys"
 msgstr "Geselecteerde Publieke Sleutels Omschakelen"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Geselecteerde Herstart Planningen Omschakelen"
+
 msgid "Toggle Selected Records"
 msgstr "Geselecteerde Items Omschakelen"
 
@@ -14726,6 +14816,9 @@ msgstr "Woensdag"
 msgid "Week Days"
 msgstr "Weekdagen"
 
+msgid "Week(s)"
+msgstr "We(e)k(en)"
+
 msgid "Weekdays"
 msgstr "Weekdagen"
 
@@ -14847,6 +14940,9 @@ msgstr "Xen Virtuele Machine"
 
 msgid "Y-axis Range"
 msgstr "Y-as Bereik"
+
+msgid "Year(s)"
+msgstr "Ja(a)r(en)"
 
 msgid "Yearly"
 msgstr "Jaarlijks"

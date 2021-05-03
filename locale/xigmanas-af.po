@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2021-04-04 22:54+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 
 msgid " No private key"
@@ -640,6 +640,9 @@ msgstr "Voeg Openbare Sleutel"
 
 msgid "Add RAID"
 msgstr "Voeg RAID"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "Voeg Rekord"
@@ -2868,6 +2871,9 @@ msgstr "Datum Formaat"
 msgid "Day"
 msgstr "Dag"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "Dae"
 
@@ -3069,6 +3075,9 @@ msgstr "Skrap Geselekteerde Openbare Sleutels"
 msgid "Delete Selected RAID Volumes"
 msgstr "Vee Geselekteerde RAID Volumes Uit"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "Skrap Geselekteerde Rekords"
 
@@ -3232,6 +3241,12 @@ msgstr "Bestemming netwerk vir hierdie statiese roete."
 
 msgid "Destination port"
 msgstr "Bestemming poort"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "Vernietig 'n poel"
@@ -3453,6 +3468,9 @@ msgstr ""
 
 msgid "Disable Selected Public Keys"
 msgstr "Deaktiveer Geselekteerde Openbare Sleutels"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Deaktiveer Geselekteerde Rekords"
@@ -3871,6 +3889,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr "Wil jy geselekteerde openbare sleutels skrap?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "Wil jy geselekteerde rekords skrap?"
 
@@ -3985,6 +4006,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr "Wil jy geselekteerde openbare sleutels deaktiveer?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "Wil jy geselekteerde rekords deaktiveer?"
 
@@ -4080,6 +4104,9 @@ msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Wil jy geselekteerde openbare sleutels Inskakel?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Wil jy geselekteerde rekords inskakel?"
@@ -4185,6 +4212,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Doen jy wil geselekteerde openbare sleutels toggle?"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "Doen jy wil geselekteerde rekords toggle?"
@@ -4423,6 +4453,9 @@ msgstr "Wysig Openbare Sleutel"
 msgid "Edit RAID"
 msgstr "Redigeer RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "Redigeer Rekord"
 
@@ -4658,6 +4691,9 @@ msgstr ""
 
 msgid "Enable Selected Public Keys"
 msgstr "Inskakel Geselekteerde Openbare Sleutels"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "Inskakel Geselekteerde Rekord"
@@ -5010,6 +5046,9 @@ msgstr "Enkripteer Gereedskap"
 
 msgid "Encryption algorithm"
 msgstr "Enkripteer algoritme"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "Ingaan Bevel"
@@ -6095,6 +6134,9 @@ msgstr "Gasheer Stel op"
 msgid "Hour"
 msgstr "Uur"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6685,6 +6727,9 @@ msgstr "Interval om wag voor herbegin tans die UPS)"
 msgid "Interval to wait before restarting the load"
 msgstr "Interval om te wag om te wag om die las weer aan te skakel"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "Ongeldige bevel lyn opsie"
 
@@ -7014,6 +7059,15 @@ msgstr "Lewe Tyd"
 
 msgid "Life time"
 msgstr "lewe tyd"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Liggewig Directory Toegangs Protokol"
@@ -7604,6 +7658,9 @@ msgstr "Minimum temperatuur gesien (grade C)"
 msgid "Minute"
 msgstr "Minuut"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "Minute"
 
@@ -7672,6 +7729,9 @@ msgstr "Monitering Opset"
 
 msgid "Monitoring User"
 msgstr "Monitering Gebruiker"
+
+msgid "Month(s)"
+msgstr ""
 
 msgid "Monthly"
 msgstr ""
@@ -9638,6 +9698,15 @@ msgstr "Herlaai"
 msgid "Reboot Required"
 msgstr "Herselflaai Benodig"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Herbou die geselekteerde toestel gedwing."
 
@@ -9672,6 +9741,9 @@ msgid "Recursive"
 msgstr "Rekursief"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -10222,6 +10294,9 @@ msgstr "Skandeer volder vir video lêers."
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Skedule Tyd"
 
@@ -10264,6 +10339,12 @@ msgstr "Script"
 msgid "Script has been uploaded."
 msgstr "Skrip gewees het opgelaai."
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "Skrop die poel"
 
@@ -10288,6 +10369,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "Tweede"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "Sekondêre"
@@ -10440,6 +10524,9 @@ msgid ""
 msgstr ""
 "Kies die opsie 'Ongeformatteerd' vir ongeformatteerde skywe en formateer "
 "hulle met die keuse"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -13500,6 +13587,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr "Toggle Geselekteerde Publiek Sleutels"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "Toggle Geselekteerde Rekords"
 
@@ -14538,6 +14628,9 @@ msgstr "Woensdag"
 msgid "Week Days"
 msgstr "Week Dae"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "Weeksdae"
 
@@ -14659,6 +14752,9 @@ msgstr "Xen Virtuele Masjien"
 
 msgid "Y-axis Range"
 msgstr "Y-axis Range"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""

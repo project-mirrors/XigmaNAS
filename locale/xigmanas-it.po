@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2021-04-01 15:39+0000\n"
 "Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
@@ -646,6 +646,9 @@ msgstr "Aggiungere chiave pubblica"
 
 msgid "Add RAID"
 msgstr "Aggiungi RAID"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "Aggiungi un record"
@@ -2902,6 +2905,9 @@ msgstr "Formato Data"
 msgid "Day"
 msgstr "Giorno"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "Giorni"
 
@@ -3106,6 +3112,9 @@ msgstr "Cancellare le chiavi pubbliche selezionate"
 msgid "Delete Selected RAID Volumes"
 msgstr "Cancella i Volumi RAID selezionati"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "Cancella i record selezionati"
 
@@ -3272,6 +3281,12 @@ msgstr "Rete di destinazione per questo percorso statico."
 
 msgid "Destination port"
 msgstr "Porta destinazione"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "Distruggi un pool"
@@ -3495,6 +3510,9 @@ msgstr ""
 
 msgid "Disable Selected Public Keys"
 msgstr "Disattivare le chiavi pubbliche selezionate"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Disattiva i record selezionati"
@@ -3915,6 +3933,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr "Vuoi cancellare le chiavi pubbliche selezionate?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "Desideri cancellare i record selezionati?"
 
@@ -4029,6 +4050,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr "Vuoi disattivare le chiavi pubbliche selezionate?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "Vuoi disattivare i record selezionati?"
 
@@ -4124,6 +4148,9 @@ msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Vuoi attivare le chiavi pubbliche selezionate?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Vuoi attivare i record selezionati?"
@@ -4229,6 +4256,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Vuoi attivare le chiavi pubbliche selezionate?"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "Vuoi rimuovere i record selezionati?"
@@ -4469,6 +4499,9 @@ msgstr "Modifica chiave pubblica"
 msgid "Edit RAID"
 msgstr "Modifica RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "Modifica record"
 
@@ -4704,6 +4737,9 @@ msgstr ""
 
 msgid "Enable Selected Public Keys"
 msgstr "Abilita le chiavi pubbliche selezionate"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "Attiva record selezionati"
@@ -5057,6 +5093,9 @@ msgstr "Strumenti crittografia"
 
 msgid "Encryption algorithm"
 msgstr "Algoritmo di cifratura"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "Inserisci comando"
@@ -6135,6 +6174,9 @@ msgstr "Settaggi degli hosts"
 msgid "Hour"
 msgstr "Ora"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6729,6 +6771,9 @@ msgstr "Intervallo di attesa prima di riavviare l'UPS"
 msgid "Interval to wait before restarting the load"
 msgstr "Intervallo di attesa prima di riavviare il carico"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "Invalida opzione di linea di comando"
 
@@ -7057,6 +7102,15 @@ msgstr "Tempo di Vita"
 
 msgid "Life time"
 msgstr "Durata"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Protocollo leggero di accesso alle cartelle"
@@ -7647,6 +7701,9 @@ msgstr "Temperatura minima rilevata (°C)"
 msgid "Minute"
 msgstr "Minuto"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "Minuti"
 
@@ -7715,6 +7772,9 @@ msgstr "Impostazioni monitoraggio"
 
 msgid "Monitoring User"
 msgstr "Monitoraggio utente"
+
+msgid "Month(s)"
+msgstr ""
 
 msgid "Monthly"
 msgstr ""
@@ -9679,6 +9739,15 @@ msgstr "Riavvia"
 msgid "Reboot Required"
 msgstr "Richiesto riavvio"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Ricostruisci forzatamente il dispositivo selezionato."
 
@@ -9713,6 +9782,9 @@ msgid "Recursive"
 msgstr "Ricorsivo"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -10266,6 +10338,9 @@ msgstr "Analisi cartelle per file video."
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Orario programmato"
 
@@ -10308,6 +10383,12 @@ msgstr "Script"
 msgid "Script has been uploaded."
 msgstr "Lo script è stato caricato."
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "Pulire il pool"
 
@@ -10332,6 +10413,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "Secondo"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "Secondario"
@@ -10489,6 +10573,9 @@ msgid ""
 msgstr ""
 "Selezionare l'opzione 'non formattato' per dischi non formattati e "
 "formattarli con"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -13437,6 +13524,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr ""
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "Attiva i records selezionati"
 
@@ -14459,6 +14549,9 @@ msgstr "Mercoledì"
 msgid "Week Days"
 msgstr "Giorni della settimana"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "Giorni della settimana"
 
@@ -14580,6 +14673,9 @@ msgstr "Xen Virtual Machine"
 
 msgid "Y-axis Range"
 msgstr "Intervallo dell'asse Y"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""
