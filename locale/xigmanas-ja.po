@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
@@ -608,6 +608,9 @@ msgstr ""
 
 msgid "Add RAID"
 msgstr "RAID の追加"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "レコード追加"
@@ -2683,6 +2686,9 @@ msgstr "日付のフォーマット"
 msgid "Day"
 msgstr "日"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "日"
 
@@ -2872,6 +2878,9 @@ msgstr ""
 msgid "Delete Selected RAID Volumes"
 msgstr "選択したRAIDボリュームの削除"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "選択したレコードの削除"
 
@@ -3032,6 +3041,12 @@ msgstr ""
 
 msgid "Destination port"
 msgstr "宛て先ポート"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr ""
@@ -3246,6 +3261,9 @@ msgid "Disable Selected Providers"
 msgstr ""
 
 msgid "Disable Selected Public Keys"
+msgstr ""
+
+msgid "Disable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Disable Selected Records"
@@ -3640,6 +3658,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr ""
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr ""
 
@@ -3754,6 +3775,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr ""
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr ""
 
@@ -3848,6 +3872,9 @@ msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
+msgstr ""
+
+msgid "Do you want to enable selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
@@ -3953,6 +3980,9 @@ msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
+msgstr ""
+
+msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
@@ -4190,6 +4220,9 @@ msgstr ""
 msgid "Edit RAID"
 msgstr "RAID を編集"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr ""
 
@@ -4418,6 +4451,9 @@ msgid "Enable Selected Providers"
 msgstr ""
 
 msgid "Enable Selected Public Keys"
+msgstr ""
+
+msgid "Enable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Enable Selected Records"
@@ -4748,6 +4784,9 @@ msgstr ""
 
 msgid "Encryption algorithm"
 msgstr "暗号化アルゴリズム"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr ""
@@ -5774,6 +5813,9 @@ msgstr ""
 msgid "Hour"
 msgstr ""
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6314,6 +6356,9 @@ msgstr "UPS再起動の待ち時間"
 msgid "Interval to wait before restarting the load"
 msgstr "再始動の待ち時間"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr ""
 
@@ -6626,6 +6671,15 @@ msgstr "生存期間"
 
 msgid "Life time"
 msgstr "生存期間"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
@@ -7193,6 +7247,9 @@ msgstr "最少温度(セ氏)"
 msgid "Minute"
 msgstr ""
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "分"
 
@@ -7260,6 +7317,9 @@ msgid "Monitoring Setup"
 msgstr "モニタリング設定"
 
 msgid "Monitoring User"
+msgstr ""
+
+msgid "Month(s)"
 msgstr ""
 
 msgid "Monthly"
@@ -9164,6 +9224,15 @@ msgstr "リブート"
 msgid "Reboot Required"
 msgstr ""
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr ""
 
@@ -9198,6 +9267,9 @@ msgid "Recursive"
 msgstr "再帰"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -9728,6 +9800,9 @@ msgstr ""
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "スケジュール時刻"
 
@@ -9770,6 +9845,12 @@ msgstr "スクリプト"
 msgid "Script has been uploaded."
 msgstr "スクリプトがアップロードされました。"
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr ""
 
@@ -9793,6 +9874,9 @@ msgid "Search subfolder"
 msgstr ""
 
 msgid "Second"
+msgstr ""
+
+msgid "Second(s)"
 msgstr ""
 
 msgid "Secondary"
@@ -9936,6 +10020,9 @@ msgstr "ICMP ECHO REQUESTの数値を選択してください。"
 
 msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
+msgstr ""
+
+msgid "Select pool."
 msgstr ""
 
 #, php-format
@@ -12628,6 +12715,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr ""
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr ""
 
@@ -13610,6 +13700,9 @@ msgstr "水曜"
 msgid "Week Days"
 msgstr ""
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "週"
 
@@ -13718,6 +13811,9 @@ msgstr "Xen 仮想マシン"
 
 msgid "Y-axis Range"
 msgstr "Y 軸の範囲"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""

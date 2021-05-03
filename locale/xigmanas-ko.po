@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -608,6 +608,9 @@ msgstr ""
 
 msgid "Add RAID"
 msgstr "RAID 추가"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "항목 추가"
@@ -2697,6 +2700,9 @@ msgstr "날짜 형식"
 msgid "Day"
 msgstr "일"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "일"
 
@@ -2891,6 +2897,9 @@ msgstr ""
 msgid "Delete Selected RAID Volumes"
 msgstr "선택된 RAID 볼륨들 삭제"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "선택된 항목 삭제"
 
@@ -3053,6 +3062,12 @@ msgstr "이 고정 경로를 위한 대상 네트워크."
 
 msgid "Destination port"
 msgstr "대상 포트"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "풀 제거"
@@ -3269,6 +3284,9 @@ msgid "Disable Selected Providers"
 msgstr ""
 
 msgid "Disable Selected Public Keys"
+msgstr ""
+
+msgid "Disable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Disable Selected Records"
@@ -3663,6 +3681,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr ""
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "선택된 항목을 삭제하시겠습니까?"
 
@@ -3777,6 +3798,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr ""
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "선택된 항목을 사용하지 않으시겠습니까?"
 
@@ -3871,6 +3895,9 @@ msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
+msgstr ""
+
+msgid "Do you want to enable selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
@@ -3976,6 +4003,9 @@ msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
+msgstr ""
+
+msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
@@ -4213,6 +4243,9 @@ msgstr ""
 msgid "Edit RAID"
 msgstr "RAID 편집"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "항목 수정"
 
@@ -4443,6 +4476,9 @@ msgid "Enable Selected Providers"
 msgstr ""
 
 msgid "Enable Selected Public Keys"
+msgstr ""
+
+msgid "Enable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Enable Selected Records"
@@ -4773,6 +4809,9 @@ msgstr "암호화 도구"
 
 msgid "Encryption algorithm"
 msgstr "암호화 알고리즘"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "명령어 입력"
@@ -5802,6 +5841,9 @@ msgstr "Hosts 설정"
 msgid "Hour"
 msgstr "시간"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6345,6 +6387,9 @@ msgstr "UPS 재시동 전에 대기할 간격)"
 msgid "Interval to wait before restarting the load"
 msgstr "다시 로드를 시작할 때까지 기다려야 하는 시간"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "잘못된 명령줄 옵션"
 
@@ -6651,6 +6696,15 @@ msgstr "수명"
 
 msgid "Life time"
 msgstr "수명"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "경량 디렉터리 접근 프로토콜"
@@ -7218,6 +7272,9 @@ msgstr "확인된 최소 온도(℃)"
 msgid "Minute"
 msgstr "분"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "분"
 
@@ -7285,6 +7342,9 @@ msgid "Monitoring Setup"
 msgstr "감시 설정"
 
 msgid "Monitoring User"
+msgstr ""
+
+msgid "Month(s)"
 msgstr ""
 
 msgid "Monthly"
@@ -9191,6 +9251,15 @@ msgstr "재시동"
 msgid "Reboot Required"
 msgstr "재시동 필요"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr ""
 
@@ -9225,6 +9294,9 @@ msgid "Recursive"
 msgstr "재귀적"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -9754,6 +9826,9 @@ msgstr ""
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "예약된 시간"
 
@@ -9796,6 +9871,12 @@ msgstr "스크립트"
 msgid "Script has been uploaded."
 msgstr "스크립트가 업로드 되었습니다."
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "풀 스크럽"
 
@@ -9820,6 +9901,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "초"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "보조"
@@ -9964,6 +10048,9 @@ msgstr "ICMP echo 요청 패킷의 수를 선택하십시오."
 msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "포맷하지 않은 디스크의 경우 '포맷되지 않음' 옵션을 선택하고 다음 방식으로 포맷:"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -12659,6 +12746,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr ""
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "선택된 항목 상태 전환"
 
@@ -13642,6 +13732,9 @@ msgstr "수요일"
 msgid "Week Days"
 msgstr "요일"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "요일"
 
@@ -13749,6 +13842,9 @@ msgstr "Xen 가상 머신"
 
 msgid "Y-axis Range"
 msgstr "Y 축 범위"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""

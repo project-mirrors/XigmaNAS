@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -631,6 +631,9 @@ msgstr "Nyilvános kulcs hozzáadása"
 
 msgid "Add RAID"
 msgstr "RAID hozzáadása"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "Bejegyzés hozzáadása"
@@ -2825,6 +2828,9 @@ msgstr "Dátumformátum"
 msgid "Day"
 msgstr "Nap"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "Nap"
 
@@ -3030,6 +3036,9 @@ msgstr "A kiválasztott nyilvános kulcsok törlése"
 msgid "Delete Selected RAID Volumes"
 msgstr "Kiválasztott RAID kötetek törlése"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "Kijelölt bejegyzések törlése"
 
@@ -3193,6 +3202,12 @@ msgstr "Ezen statikus útvonlat célhálózata."
 
 msgid "Destination port"
 msgstr "Cél port"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "Tároló megsemmisítése"
@@ -3415,6 +3430,9 @@ msgstr ""
 
 msgid "Disable Selected Public Keys"
 msgstr "A kiválasztott nyilvános kulcsok tiltása"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Kijelölt bejegyzések tiltása"
@@ -3837,6 +3855,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr "Biztos, hogy törlöd a kiválasztott nyilvános kulcsokat?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "Biztos, hogy törlöd a kijelölt bejegyzéseket?"
 
@@ -3951,6 +3972,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr "Biztos, hogy kikapcsolod a kiválasztott nyilvános kulcsokat?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "Biztos, hogy kikapcsolod a kijelölt bejegyzéseket?"
 
@@ -4047,6 +4071,9 @@ msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Biztos, hogy bekapcsolod a kiválasztott nyilvános kulcsokat?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Biztos, hogy bekapcsolod a kijelölt bejegyzéseket?"
@@ -4152,6 +4179,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Biztos, hogy ki-. bekapcsolod a kiválasztott nyilvános kulcsokat?"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "Biztos, hogy átkapcsolod a kijelölt bejegyzéseket?"
@@ -4389,6 +4419,9 @@ msgstr "Nyilvános kulcs módosítása"
 msgid "Edit RAID"
 msgstr "RAID szerkesztése"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "Bejegyzés módosítása"
 
@@ -4623,6 +4656,9 @@ msgstr ""
 
 msgid "Enable Selected Public Keys"
 msgstr "Kiválasztott nyilvános kulcsok bekapcsolása"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "Kijelölt bejegyzések bekapcsolása"
@@ -4971,6 +5007,9 @@ msgstr "Titkosító eszközök"
 
 msgid "Encryption algorithm"
 msgstr "Titkosítási algoritmus"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "Parancs megadása"
@@ -6040,6 +6079,9 @@ msgstr "Kiszolgálók beállítása"
 msgid "Hour"
 msgstr "Óra"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6626,6 +6668,9 @@ msgstr "A szünetmentes újraindítása előtti várakozási idő."
 msgid "Interval to wait before restarting the load"
 msgstr "A töltés újraindítása előtti várakozási idő"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "Érvénytelen parancssori opció"
 
@@ -6958,6 +7003,15 @@ msgstr "Élettartam"
 
 msgid "Life time"
 msgstr "Élettartam"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protokoll"
@@ -7552,6 +7606,9 @@ msgstr "Valaha minimum hőmérséklet (fok Celsius)"
 msgid "Minute"
 msgstr "Perc"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "Perc"
 
@@ -7620,6 +7677,9 @@ msgstr "Figyelés beállításai"
 
 msgid "Monitoring User"
 msgstr "Felügyeleti felhasználó"
+
+msgid "Month(s)"
+msgstr ""
 
 msgid "Monthly"
 msgstr ""
@@ -9588,6 +9648,15 @@ msgstr "Újraindítás"
 msgid "Reboot Required"
 msgstr "Újraindítás szükséges"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr "A kiválasztott eszközök kierőszakolt újraépítése."
 
@@ -9622,6 +9691,9 @@ msgid "Recursive"
 msgstr "Rekurzív"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -10176,6 +10248,9 @@ msgstr "Videófájlok keresése a mappában."
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Ütemezett időpont"
 
@@ -10218,6 +10293,12 @@ msgstr "Skript"
 msgid "Script has been uploaded."
 msgstr "Szkriptet sikeresen feltöltötted."
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "Tároló ellenőrzése"
 
@@ -10242,6 +10323,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "Másodperc"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "Másodlagos"
@@ -10395,6 +10479,9 @@ msgid ""
 msgstr ""
 "Válaszd a 'Formázatlan' beállítást a nem formázott lemezekhez, majd formázd "
 "meg őket"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -13388,6 +13475,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr "A kiválasztott nyilvános kulcsok be-, kikapcsolása"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "A kiválasztott bejegyzések átkapcsolása"
 
@@ -14412,6 +14502,9 @@ msgstr "Szerda"
 msgid "Week Days"
 msgstr "Hétköznapok"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "Hétköznapok"
 
@@ -14531,6 +14624,9 @@ msgstr "Xen Virtuális Gép"
 
 msgid "Y-axis Range"
 msgstr "Y tengely tartománya"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""

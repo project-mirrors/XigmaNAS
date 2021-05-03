@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2021-01-28 14:46+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: zh_CN\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
@@ -597,6 +597,9 @@ msgstr "添加公钥"
 
 msgid "Add RAID"
 msgstr "添加RAID"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "新增记录"
@@ -2660,6 +2663,9 @@ msgstr "日期格式"
 msgid "Day"
 msgstr "日"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "天"
 
@@ -2851,6 +2857,9 @@ msgstr "删除选定的公钥"
 msgid "Delete Selected RAID Volumes"
 msgstr "删除选中的RAID卷"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "删除选中的记录"
 
@@ -3011,6 +3020,12 @@ msgstr "此静态路由的目的网络"
 
 msgid "Destination port"
 msgstr "目的地端口"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "销毁一个池"
@@ -3225,6 +3240,9 @@ msgstr ""
 
 msgid "Disable Selected Public Keys"
 msgstr "禁用所选公钥"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "禁用选中的记录"
@@ -3618,6 +3636,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr "要删除所选的公钥吗？"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "要删除选中的记录吗？"
 
@@ -3732,6 +3753,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr "要禁用所选公钥吗？"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "要禁用选中的记录吗？"
 
@@ -3827,6 +3851,9 @@ msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "要启用所选公钥吗？"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "要启用选中的记录吗？"
@@ -3932,6 +3959,9 @@ msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "要切换选定的公钥吗？"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "要切换选中的记录吗？"
@@ -4168,6 +4198,9 @@ msgstr "编辑公钥"
 msgid "Edit RAID"
 msgstr "编辑RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "编辑记录"
 
@@ -4397,6 +4430,9 @@ msgstr ""
 
 msgid "Enable Selected Public Keys"
 msgstr "启用选定的公钥"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "启用选中的记录"
@@ -4725,6 +4761,9 @@ msgstr "加密工具"
 
 msgid "Encryption algorithm"
 msgstr "加密演算法"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "输入命令"
@@ -5749,6 +5788,9 @@ msgstr "主机设置"
 msgid "Hour"
 msgstr "小时"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6282,6 +6324,9 @@ msgstr "重新启动 UPS 前的等待间隔"
 msgid "Interval to wait before restarting the load"
 msgstr "重新启动负载之前的等待间隔"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "命令行选项无效"
 
@@ -6592,6 +6637,15 @@ msgstr "寿命"
 
 msgid "Life time"
 msgstr "寿命"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "轻型目录访问协议（Lightweight Directory Access Protocol）"
@@ -7157,6 +7211,9 @@ msgstr "最低气温（摄氏度）"
 msgid "Minute"
 msgstr "分钟"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "分钟"
 
@@ -7225,6 +7282,9 @@ msgstr "监控设置"
 
 msgid "Monitoring User"
 msgstr "监控用户"
+
+msgid "Month(s)"
+msgstr ""
 
 msgid "Monthly"
 msgstr ""
@@ -9127,6 +9187,15 @@ msgstr "重启"
 msgid "Reboot Required"
 msgstr "需要重启"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr "强制重建选中设备"
 
@@ -9161,6 +9230,9 @@ msgid "Recursive"
 msgstr "递归"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -9689,6 +9761,9 @@ msgstr "扫描文件夹的视频文件。"
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "排程时间"
 
@@ -9731,6 +9806,12 @@ msgstr "脚本"
 msgid "Script has been uploaded."
 msgstr "脚本已上传"
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "擦洗池"
 
@@ -9755,6 +9836,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "秒"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "次要"
@@ -9896,6 +9980,9 @@ msgstr "选择ICMP ECHO REQUEST报文个数。"
 msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr "为未格式化的磁盘选择“未格式化”选项，并用右边的工具格式化它们:"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -12570,6 +12657,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr "切换选定的公钥"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "切换选中的记录"
 
@@ -13551,6 +13641,9 @@ msgstr "周三"
 msgid "Week Days"
 msgstr "平日"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "工作日"
 
@@ -13657,6 +13750,9 @@ msgstr "Xen 虚拟机"
 
 msgid "Y-axis Range"
 msgstr "Y轴范围"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""
