@@ -159,7 +159,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_path()->get_title())->
 				insTHwC('lhell',$cop->get_preset()->get_title())->
 				insTHwC('lhelc',$cop->get_recursive()->get_title())->
-				insTHwC('lhelr',$cop->get_lifetime_val()->get_title())->
+				insTHwC('lhell',$cop->get_lifetime_val()->get_title())->
 				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhelc sorter-image',gettext('Status'))->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
