@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
-"PO-Revision-Date: 2021-04-19 11:38+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
+"PO-Revision-Date: 2021-05-03 06:32+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
@@ -642,6 +642,9 @@ msgstr "Добавить публичный ключ"
 msgid "Add RAID"
 msgstr "Добавить RAID-массив"
 
+msgid "Add Reboot Schedule"
+msgstr "Добавить расписание перезагрузки"
+
 msgid "Add Record"
 msgstr "Добавить запись"
 
@@ -661,7 +664,7 @@ msgid "Add Samba Share"
 msgstr "Добавить общий ресурс Samba"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Добавить расписание"
 
 msgid "Add Share"
 msgstr "Добавить общий ресурс"
@@ -2112,6 +2115,9 @@ msgid ""
 "year fields match the current time, and when at least one of the two day "
 "fields (day of month, or day of week) matches the current time."
 msgstr ""
+"Команды выполняются планировщиком, когда поля минут, часов и месяцев года "
+"соответствуют текущему времени и когда хотя бы одно из двух полей дня (день "
+"месяца или день недели) совпадает с текущим временем."
 
 msgid "Comment"
 msgstr "Комментарий"
@@ -2563,7 +2569,7 @@ msgid "Create Permission"
 msgstr "Создать разрешения"
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "Создать снимок"
 
 msgid "Create Work Directory"
 msgstr "Создать рабочий каталог"
@@ -2702,7 +2708,7 @@ msgid "Custom Script"
 msgstr "Пользовательский скрипт"
 
 msgid "Custom Setting"
-msgstr ""
+msgstr "Пользовательская настройка"
 
 msgid "Custom device"
 msgstr "Пользовательские устройства"
@@ -2825,7 +2831,7 @@ msgid "Daemon log"
 msgstr "Журнал процесса"
 
 msgid "Daily"
-msgstr ""
+msgstr "Каждый день"
 
 msgid "Data"
 msgstr "Данные"
@@ -2877,6 +2883,9 @@ msgstr "Формат даты"
 
 msgid "Day"
 msgstr "дн."
+
+msgid "Day(s)"
+msgstr "Дни"
 
 msgid "Days"
 msgstr "Дн."
@@ -3083,6 +3092,9 @@ msgstr "Удалить выбранные публичные ключи"
 msgid "Delete Selected RAID Volumes"
 msgstr "Удалить выбранные RAID тома"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr "Удалить выбранные расписания перезагрузки"
+
 msgid "Delete Selected Records"
 msgstr "Удалить выбранные записи"
 
@@ -3102,7 +3114,7 @@ msgid "Delete Selected Samba Shares"
 msgstr "Удалить выбранные общие ресурсы Samba"
 
 msgid "Delete Selected Schedules"
-msgstr ""
+msgstr "Удалить выбранные расписания"
 
 msgid "Delete Selected Shares"
 msgstr "Удалить выбранные общие ресурсы"
@@ -3247,6 +3259,12 @@ msgstr "Сеть назначения для этого статического
 
 msgid "Destination port"
 msgstr "Порт назначения"
+
+msgid "Destroy"
+msgstr "Уничтожить"
+
+msgid "Destroy Snapshot"
+msgstr "Уничтожить снимок"
 
 msgid "Destroy a pool"
 msgstr "Разрушить пул (Destroy a pool)"
@@ -3468,6 +3486,9 @@ msgstr "Отключить выбранных поставщиков"
 msgid "Disable Selected Public Keys"
 msgstr "Отключить выбранные публичные ключи"
 
+msgid "Disable Selected Reboot Schedules"
+msgstr "Отключить выбранные расписания перезагрузки"
+
 msgid "Disable Selected Records"
 msgstr "Отключить выбранные записи"
 
@@ -3484,7 +3505,7 @@ msgid "Disable Selected Samba Shares"
 msgstr "Отключить выбранные общие ресурсы Samba"
 
 msgid "Disable Selected Schedules"
-msgstr ""
+msgstr "Отключить выбранные расписания"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Отключить выбранные настройки Sysctl"
@@ -3884,6 +3905,9 @@ msgstr "Вы хотите удалить выбранных провайдеро
 msgid "Do you want to delete selected public keys?"
 msgstr "Вы хотите удалить выбранные публичные ключи?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Вы хотите удалить выбранные расписания перезагрузки?"
+
 msgid "Do you want to delete selected records?"
 msgstr "Вы хотите удалить выбранные записи?"
 
@@ -3900,7 +3924,7 @@ msgid "Do you want to delete selected rsync modules?"
 msgstr "Вы хотите удалить выбранные модули rsync?"
 
 msgid "Do you want to delete selected schedules?"
-msgstr ""
+msgstr "Вы хотите удалить выбранные расписания?"
 
 msgid "Do you want to delete selected shares?"
 msgstr "Вы хотите удалить выбранные общие ресурсы?"
@@ -3999,6 +4023,9 @@ msgstr "Вы хотите отключить выбранных провайде
 msgid "Do you want to disable selected public keys?"
 msgstr "Вы хотите отключить выбранные публичные ключи?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Вы хотите отключить выбранные расписания перезагрузки?"
+
 msgid "Do you want to disable selected records?"
 msgstr "Вы хотите отключить выбранные записи?"
 
@@ -4012,7 +4039,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Вы хотите отключить выбранные модули rsync?"
 
 msgid "Do you want to disable selected schedules?"
-msgstr ""
+msgstr "Вы хотите отключить выбранные расписания?"
 
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Вы хотите отключить выбранные настройки sysctl?"
@@ -4095,6 +4122,9 @@ msgstr "Вы хотите включить выбранных поставщик
 msgid "Do you want to enable selected public keys?"
 msgstr "Вы хотите включить выбранные публичные ключи?"
 
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Вы хотите включить выбранные расписания перезагрузки?"
+
 msgid "Do you want to enable selected records?"
 msgstr "Вы хотите включить выбранные записи?"
 
@@ -4108,7 +4138,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Вы хотите включить выбранные модули rsync?"
 
 msgid "Do you want to enable selected schedules?"
-msgstr ""
+msgstr "Вы хотите включить выбранные расписания?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Вы хотите включить выбранные настройки sysctl?"
@@ -4200,6 +4230,9 @@ msgstr "Вы хотите переключить выбранных постав
 msgid "Do you want to toggle selected public keys?"
 msgstr "Вы хотите переключить выбранные публичные ключи?"
 
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Вы хотите переключить выбранные расписания перезагрузки?"
+
 msgid "Do you want to toggle selected records?"
 msgstr "Вы хотите инвертировать выбранные записи?"
 
@@ -4213,7 +4246,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Вы хотите переключить выбранные модули rsync?"
 
 msgid "Do you want to toggle selected schedules?"
-msgstr ""
+msgstr "Вы хотите переключить выбранные расписания?"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Вы хотите переключать выбранные настройки sysctl?"
@@ -4440,6 +4473,9 @@ msgstr "Редактировать корневой каталог NFS"
 msgid "Edit RAID"
 msgstr "Изменить RAID-массив"
 
+msgid "Edit Reboot Schedule"
+msgstr "Изменить расписание перезагрузки"
+
 msgid "Edit Record"
 msgstr "Редактировать запись"
 
@@ -4459,7 +4495,7 @@ msgid "Edit Samba Share"
 msgstr "Редактировать общий ресурс Samba"
 
 msgid "Edit Schedule"
-msgstr ""
+msgstr "Изменить расписание"
 
 msgid "Edit Share"
 msgstr "Редактировать общий ресурс"
@@ -4675,6 +4711,9 @@ msgstr "Включить выбранных поставщиков"
 msgid "Enable Selected Public Keys"
 msgstr "Включить выбранные публичные ключи"
 
+msgid "Enable Selected Reboot Schedules"
+msgstr "Включить выбранные расписания перезагрузки"
+
 msgid "Enable Selected Records"
 msgstr "Включить выбранные записи"
 
@@ -4691,7 +4730,7 @@ msgid "Enable Selected Samba Shares"
 msgstr "Включить выбранные общие ресурсы Samba"
 
 msgid "Enable Selected Schedules"
-msgstr ""
+msgstr "Включить выбранные расписания"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Включить выбранные настройки Sysctl"
@@ -5030,6 +5069,9 @@ msgstr "Инструменты шифрования"
 
 msgid "Encryption algorithm"
 msgstr "Алгоритм шифрования"
+
+msgid "Enhanced Scheduler"
+msgstr "Расширенный планировщик"
 
 msgid "Enter Command"
 msgstr "Введите Команду"
@@ -6112,8 +6154,11 @@ msgstr "Настройка хостов"
 msgid "Hour"
 msgstr "час."
 
+msgid "Hour(s)"
+msgstr "Час(ов)"
+
 msgid "Hourly"
-msgstr ""
+msgstr "Ежечасно"
 
 msgid "Hours"
 msgstr "Час."
@@ -6711,6 +6756,9 @@ msgstr "Задержка после перезапуска ИБП"
 msgid "Interval to wait before restarting the load"
 msgstr "Задержка перед подключением нагрузки"
 
+msgid "Invalid"
+msgstr "Недопустимый"
+
 msgid "Invalid command line option"
 msgstr "неверная опция командной строки"
 
@@ -7042,6 +7090,15 @@ msgstr "Время жизни"
 
 msgid "Life time"
 msgstr "Время жизни"
+
+msgid "Lifetime"
+msgstr "Пожизненно"
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol (LDAP)"
@@ -7643,6 +7700,9 @@ msgstr ""
 msgid "Minute"
 msgstr "мин."
 
+msgid "Minute(s)"
+msgstr "Минута(ы)"
+
 msgid "Minutes"
 msgstr "мин."
 
@@ -7712,8 +7772,11 @@ msgstr "Настройки мониторинга"
 msgid "Monitoring User"
 msgstr "Пользователь мониторинга"
 
+msgid "Month(s)"
+msgstr "Месяц (ы)"
+
 msgid "Monthly"
-msgstr ""
+msgstr "Ежемесячно"
 
 msgid "Months"
 msgstr "Месяцы"
@@ -9159,7 +9222,7 @@ msgid "Preserve modification times."
 msgstr "Сохранять время изменения"
 
 msgid "Presets"
-msgstr ""
+msgstr "Предустановки"
 
 msgid "Prevent deep discharge of battery"
 msgstr "Предотвращать глубокий разряд батареи"
@@ -9683,6 +9746,15 @@ msgstr "Перезагрузка"
 msgid "Reboot Required"
 msgstr "Требуется перезагрузка"
 
+msgid "Reboot Schedule is locked"
+msgstr "Расписание перезагрузки заблокировано"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "График перезагрузки отмечен для удаления"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Расписание перезагрузки разблокировано"
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Восстановите выбранное устройство принудительно."
 
@@ -9717,7 +9789,10 @@ msgid "Recursive"
 msgstr "Рекурсивно"
 
 msgid "Recursively create snapshots of all descendent datasets."
-msgstr ""
+msgstr "Рекурсивно создавать снимки всех дочерних наборов данных."
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Рекурсивно уничтожить снимки всех дочерних наборов данных."
 
 msgid "Recycle Bin"
 msgstr "Корзина"
@@ -10268,17 +10343,20 @@ msgstr "Сканирование папки на наличие видеофай
 msgid "Scan/Import destroyed pools only"
 msgstr "Сканировать/импортировать только разрушенные пулы"
 
+msgid "Schedule"
+msgstr "Расписание"
+
 msgid "Schedule Time"
 msgstr "Время расписаний"
 
 msgid "Schedule is locked"
-msgstr ""
+msgstr "Расписание заблокировано"
 
 msgid "Schedule is marked for deletion"
-msgstr ""
+msgstr "Расписание отмечено для удаления"
 
 msgid "Schedule is unlocked"
-msgstr ""
+msgstr "Расписание разблокировано"
 
 msgid "Schedule time"
 msgstr "Запланированное время"
@@ -10302,13 +10380,19 @@ msgid "Scheduled Tests"
 msgstr "Запланированные тесты"
 
 msgid "Scheduler"
-msgstr ""
+msgstr "Планировщик"
 
 msgid "Script"
 msgstr "Сценарий"
 
 msgid "Script has been uploaded."
 msgstr "Сценарий был загружен."
+
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr "Проверка пула"
 
 msgid "Scrub a pool"
 msgstr "Проверка пула (Scrub a pool)"
@@ -10334,6 +10418,9 @@ msgstr "Подпапка поиска"
 
 msgid "Second"
 msgstr "сек."
+
+msgid "Second(s)"
+msgstr "секунд"
 
 msgid "Secondary"
 msgstr "Вторичный (Secondary)"
@@ -10413,7 +10500,7 @@ msgid "Select Pool Device"
 msgstr "Выберите устройство пула"
 
 msgid "Select Pool, Filesystem or Volume"
-msgstr ""
+msgstr "Выберите пул, файловую систему или том"
 
 msgid "Select Pools"
 msgstr "Выберите пулы"
@@ -10486,6 +10573,9 @@ msgid ""
 msgstr ""
 "Выберите вариант “Unformatted” для не форматированных дисков и "
 "отформатируйте их с помощью"
+
+msgid "Select pool."
+msgstr "Выберите пул."
 
 #, php-format
 msgid ""
@@ -13552,6 +13642,9 @@ msgstr "Переключить выбранных поставщиков"
 msgid "Toggle Selected Public Keys"
 msgstr "Переключить выбранные публичные ключи"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Переключить выбранные расписания перезагрузки"
+
 msgid "Toggle Selected Records"
 msgstr "Переключение выбранных записей"
 
@@ -13568,7 +13661,7 @@ msgid "Toggle Selected Samba Shares"
 msgstr "Переключить выбранные общие ресурсы Samba"
 
 msgid "Toggle Selected Schedules"
-msgstr ""
+msgstr "Переключить выбранные расписания"
 
 msgid "Toggle Selected Sysctl Settings"
 msgstr "Переключить выбранные настройки Sysctl"
@@ -14609,11 +14702,14 @@ msgstr "среда"
 msgid "Week Days"
 msgstr "Дни недели"
 
+msgid "Week(s)"
+msgstr "Неделя(ли)"
+
 msgid "Weekdays"
 msgstr "Будни"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Еженедельно"
 
 msgid "Western Digital attribute."
 msgstr "Western Digital атрибут."
@@ -14729,8 +14825,11 @@ msgstr "Виртуальная машина Xen"
 msgid "Y-axis Range"
 msgstr "Диапазон по оси Y"
 
+msgid "Year(s)"
+msgstr "Года(лет)"
+
 msgid "Yearly"
-msgstr ""
+msgstr "Ежегодно"
 
 msgid "Yes"
 msgstr "Да"

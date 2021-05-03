@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2020-12-06 19:22+0000\n"
 "Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -647,6 +647,9 @@ msgstr "Přidat veřejný klíč"
 
 msgid "Add RAID"
 msgstr "Přidat RAID pole"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "Přidat záznam"
@@ -2878,6 +2881,9 @@ msgstr "Formát datumu"
 msgid "Day"
 msgstr "Den"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "Dny"
 
@@ -3079,6 +3085,9 @@ msgstr "Smazat označené veřejné klíče"
 msgid "Delete Selected RAID Volumes"
 msgstr "Smazat označené RAID svazky"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "Smazat označené záznamy"
 
@@ -3246,6 +3255,12 @@ msgstr "Cílová síť pro toto statické směrování."
 
 msgid "Destination port"
 msgstr "Cílový port"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "Zrušit tento fond úložišť"
@@ -3468,6 +3483,9 @@ msgstr ""
 
 msgid "Disable Selected Public Keys"
 msgstr "Zakázat označené veřejné klíče"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Vypnout označené záznamy"
@@ -3882,6 +3900,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr "Chcete označené veřejné klíče smazat?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "Opravdu smazat označené záznamy?"
 
@@ -4000,6 +4021,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr "Chcete zakázat zvolené veřejné klíče?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "Opravdu vypnout označené záznamy?"
 
@@ -4098,6 +4122,9 @@ msgstr ""
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Chcete povolit vybrané veřejné klíče?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Opravdu zapnout označené záznamy?"
@@ -4206,6 +4233,9 @@ msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
+msgstr ""
+
+msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
@@ -4445,6 +4475,9 @@ msgstr ""
 msgid "Edit RAID"
 msgstr "Upravit RAID pole"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "Upravit záznam"
 
@@ -4677,6 +4710,9 @@ msgid "Enable Selected Providers"
 msgstr ""
 
 msgid "Enable Selected Public Keys"
+msgstr ""
+
+msgid "Enable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Enable Selected Records"
@@ -5024,6 +5060,9 @@ msgstr "Šifrovací nástroje"
 
 msgid "Encryption algorithm"
 msgstr "Šifrovací algoritmus"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "Zadejte příkaz"
@@ -6095,6 +6134,9 @@ msgstr "Nastavení strojů"
 msgid "Hour"
 msgstr "Hodina"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6684,6 +6726,9 @@ msgstr "Prodleva restartu UPS zdroje)"
 msgid "Interval to wait before restarting the load"
 msgstr "Prodleva obnovení napájení do připojených zařízení"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "Neplatný parametr příkazového řádku"
 
@@ -7020,6 +7065,15 @@ msgstr "Životnost"
 
 msgid "Life time"
 msgstr "Životnost"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr ""
@@ -7627,6 +7681,9 @@ msgstr "Nejnižší zaznamenaná teplota (stupně Celsia)"
 msgid "Minute"
 msgstr "Minuta"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "Minuty"
 
@@ -7694,6 +7751,9 @@ msgid "Monitoring Setup"
 msgstr "Nastavení dohledování"
 
 msgid "Monitoring User"
+msgstr ""
+
+msgid "Month(s)"
 msgstr ""
 
 msgid "Monthly"
@@ -9664,6 +9724,15 @@ msgstr "Restartovat"
 msgid "Reboot Required"
 msgstr "Je třeba restart"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Vynutit znovusestavení označeného zařízení."
 
@@ -9698,6 +9767,9 @@ msgid "Recursive"
 msgstr "Rekurzivní"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -10247,6 +10319,9 @@ msgstr ""
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Časový plán"
 
@@ -10289,6 +10364,12 @@ msgstr "Skript"
 msgid "Script has been uploaded."
 msgstr "Skript by nahrán na server."
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "Zkontrolovat fond úložišť na chyby"
 
@@ -10313,6 +10394,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "Sekunda"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "Vedlejší"
@@ -10466,6 +10550,9 @@ msgid ""
 msgstr ""
 "V případě předem nepřipravených disků vyberte možnost „nenaformátovaný“ a "
 "připravte je tak pomocí"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -13482,6 +13569,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr ""
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "Přepnout označené záznamy"
 
@@ -14522,6 +14612,9 @@ msgstr "středa"
 msgid "Week Days"
 msgstr "Dny v týdnu"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "Všední dny"
 
@@ -14641,6 +14734,9 @@ msgstr "Xen virtuální stroj"
 
 msgid "Y-axis Range"
 msgstr "Rozsah svislé (Y) osy"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2021-04-27 12:53+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:53+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: Greece\n"
 "Language: \n"
@@ -659,6 +659,9 @@ msgstr "Προσθήκη Δημόσιου Κλειδιού"
 
 msgid "Add RAID"
 msgstr "Προσθήκη RAID"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "Προσθήκη Eγγραφής"
@@ -2948,6 +2951,9 @@ msgstr "Μορφή Ημερομηνίας"
 msgid "Day"
 msgstr "Ημέρα"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "Ημέρες"
 
@@ -3152,6 +3158,9 @@ msgstr "Διαγραφή Επιλεγμένων Δημόσιων Κλειδιώ�
 msgid "Delete Selected RAID Volumes"
 msgstr "Διαγραφή Επιλεγμένων τόμων RAID"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "Διαγραφή Επιλεγμένων Εγγραφών"
 
@@ -3319,6 +3328,12 @@ msgstr "Δίκτυο προορισμού για αυτή τη στατική δ
 
 msgid "Destination port"
 msgstr "Θύρα προορισμού"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "Καταστροφή ενός pool"
@@ -3542,6 +3557,9 @@ msgstr "Απενεργοποίηση Επιλεγμένων Παρόχων"
 
 msgid "Disable Selected Public Keys"
 msgstr "Απενεργοποίηση Επιλεγμένων Δημόσιων Κλειδιών"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Disable Selected Records"
 msgstr "Απενεργοποίηση Επιλεγμένων Εγγραφών"
@@ -3973,6 +3991,9 @@ msgstr "Θέλετε να διαγράψετε τους επιλεγμένους
 msgid "Do you want to delete selected public keys?"
 msgstr "Θέλετε να διαγράψετε τα επιλεγμένα δημόσια κλειδιά;"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "Θέλετε να διαγράψετε τις επιλεγμένες εγγραφές;"
 
@@ -4088,6 +4109,9 @@ msgstr "Θέλετε να απενεργοποιήσετε τους επιλεγ
 msgid "Do you want to disable selected public keys?"
 msgstr "Θέλετε να απενεργοποιήσετε τα επιλεγμένα δημόσια κλειδιά;"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "Θέλετε να απενεργοποιήσετε τις επιλεγμένες εγγραφές;"
 
@@ -4183,6 +4207,9 @@ msgstr "Θέλετε να ενεργοποιήσετε τους επιλεγμέ
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Θέλετε να ενεργοποιήσετε τα επιλεγμένα δημόσια κλειδιά;"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to enable selected records?"
 msgstr "Θέλετε να ενεργοποιήσετε τις επιλεγμένες εγγραφές;"
@@ -4288,6 +4315,9 @@ msgstr "Θέλετε να κάνετε εναλλαγή επιλογής των 
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Θέλετε να μεταβάλλετε τα επιλεγμένα δημόσια κλειδιά;"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr ""
 
 msgid "Do you want to toggle selected records?"
 msgstr "Θέλετε να μεταβάλλετε τις επιλεγμένες εγγραφές;"
@@ -4530,6 +4560,9 @@ msgstr "Επεξεργασία Δημόσιου Κλειδιού"
 msgid "Edit RAID"
 msgstr "Επεξεργασία RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "Επεξεργασία Εγγραφής"
 
@@ -4764,6 +4797,9 @@ msgstr "Ενεργοποίηση Επιλεγμένων Παρόχων"
 
 msgid "Enable Selected Public Keys"
 msgstr "Ενεργοποίηση Επιλεγμένων Δημόσιων Κλειδιών"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr ""
 
 msgid "Enable Selected Records"
 msgstr "Ενεργοποίηση Επιλεγμένων Εγγραφών"
@@ -5134,6 +5170,9 @@ msgstr "Εργαλεία Κρυπτογράφησης"
 
 msgid "Encryption algorithm"
 msgstr "Αλγόριθμος κρυπτογράφησης"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "Εισαγωγή Εντολής"
@@ -6229,6 +6268,9 @@ msgstr "Ρύθμιση Υπολογιστών"
 msgid "Hour"
 msgstr "Ώρα"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr "Ωριαίο"
 
@@ -6844,6 +6886,9 @@ msgstr "Μεσοδιάστημα αναμονής πριν την επανεκκ
 msgid "Interval to wait before restarting the load"
 msgstr "Μεσοδιάστημα αναμονής πριν την επανεκκίνηση του φορτίου"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "Μη έγκυρη επιλογή γραμμής εντολών"
 
@@ -7178,6 +7223,15 @@ msgstr "Διάρκεια ζωής"
 
 msgid "Life time"
 msgstr "Διάρκεια ζωής"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "'Ελαφρύ' πρωτόκολλο πρόσβασης καταλόγων"
@@ -7784,6 +7838,9 @@ msgstr "Ελάχιστη εμφανιζόμενη θερμοκρασία (βαθ
 msgid "Minute"
 msgstr "Λεπτό"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "Λεπτά"
 
@@ -7852,6 +7909,9 @@ msgstr "Ρύθμιση Παρακολούθησης"
 
 msgid "Monitoring User"
 msgstr "Χρήστης Παρακολούθησης"
+
+msgid "Month(s)"
+msgstr ""
 
 msgid "Monthly"
 msgstr "Μηνιαίο"
@@ -9842,6 +9902,15 @@ msgstr "Επανεκκίνηση"
 msgid "Reboot Required"
 msgstr "Χρειάζεται Επανεκκίνηση"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Rebuild της επιλεγμένης συσκευής με το ζόρι."
 
@@ -9877,6 +9946,9 @@ msgstr "Υποκατάλογοι"
 
 msgid "Recursively create snapshots of all descendent datasets."
 msgstr "Δημιουργία αναδρομικού στιγμιότυπου για όλα τα dataset - απογόνους."
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr ""
 
 msgid "Recycle Bin"
 msgstr "Κάδος Ανακύκλωσης"
@@ -10434,6 +10506,9 @@ msgstr "Σάρωση φακέλου για αρχεία βίντεο."
 msgid "Scan/Import destroyed pools only"
 msgstr "Ανίχνευση/Εισαγωγή μόνω κατεστραμμένων pool"
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Προγραμματισμένη ώρα"
 
@@ -10476,6 +10551,12 @@ msgstr "Script"
 msgid "Script has been uploaded."
 msgstr "Το script έχει μεταφορτωθεί"
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "Scrub ενός pool"
 
@@ -10500,6 +10581,9 @@ msgstr "Αναζήτηση σε υποφάκελο"
 
 msgid "Second"
 msgstr "Δευτερόλεπτο"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "Δευτερεύων"
@@ -10669,6 +10753,9 @@ msgid ""
 msgstr ""
 "Διαλέξτε την επιλογή 'Αδιαμόρφωτο' για αδιαμόρφωτους δίσκους και διαμορφώστε "
 "τους με"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -13837,6 +13924,9 @@ msgstr "Εναλλαγή Επιλογής Επιλεγμένων Παρόχων"
 msgid "Toggle Selected Public Keys"
 msgstr "Μεταβολή Επιλεγμένων Δημόσιων Κλειδιών"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "Μεταβολή Επιλεγμένων Εγγραφών"
 
@@ -14898,6 +14988,9 @@ msgstr "Τετάρτη"
 msgid "Week Days"
 msgstr "Ημέρες Εβδομάδας"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "Ημέρες Εβδομάδας"
 
@@ -15022,6 +15115,9 @@ msgstr "Εικονική Μηχανή Xen"
 
 msgid "Y-axis Range"
 msgstr "Εύρος άξονα Υ"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr "Ετήσιο"

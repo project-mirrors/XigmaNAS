@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
 "PO-Revision-Date: 2019-07-30 06:25+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -645,6 +645,9 @@ msgstr "Adăugare cheie pblică"
 
 msgid "Add RAID"
 msgstr "Adăugare RAID"
+
+msgid "Add Reboot Schedule"
+msgstr ""
 
 msgid "Add Record"
 msgstr "Adăugare înregistrare"
@@ -2871,6 +2874,9 @@ msgstr "Format dată"
 msgid "Day"
 msgstr "Zi"
 
+msgid "Day(s)"
+msgstr ""
+
 msgid "Days"
 msgstr "Zile"
 
@@ -3074,6 +3080,9 @@ msgstr ""
 msgid "Delete Selected RAID Volumes"
 msgstr "Ștergere volume RAID selectate"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr ""
+
 msgid "Delete Selected Records"
 msgstr "Ștergere înregistrări selectate"
 
@@ -3238,6 +3247,12 @@ msgstr "Rețea destinație pentru această rută statică."
 
 msgid "Destination port"
 msgstr "Port destinație"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Snapshot"
+msgstr ""
 
 msgid "Destroy a pool"
 msgstr "Distrugere pool"
@@ -3458,6 +3473,9 @@ msgid "Disable Selected Providers"
 msgstr ""
 
 msgid "Disable Selected Public Keys"
+msgstr ""
+
+msgid "Disable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Disable Selected Records"
@@ -3869,6 +3887,9 @@ msgstr ""
 msgid "Do you want to delete selected public keys?"
 msgstr ""
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to delete selected records?"
 msgstr "Ștergeți înregistrările selectate?"
 
@@ -3983,6 +4004,9 @@ msgstr ""
 msgid "Do you want to disable selected public keys?"
 msgstr ""
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr ""
+
 msgid "Do you want to disable selected records?"
 msgstr "Dezactivați înregistrările selectate?"
 
@@ -4077,6 +4101,9 @@ msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
+msgstr ""
+
+msgid "Do you want to enable selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to enable selected records?"
@@ -4182,6 +4209,9 @@ msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
+msgstr ""
+
+msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
 
 msgid "Do you want to toggle selected records?"
@@ -4421,6 +4451,9 @@ msgstr ""
 msgid "Edit RAID"
 msgstr "Editare RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr ""
+
 msgid "Edit Record"
 msgstr "Editare înregistrare"
 
@@ -4651,6 +4684,9 @@ msgid "Enable Selected Providers"
 msgstr ""
 
 msgid "Enable Selected Public Keys"
+msgstr ""
+
+msgid "Enable Selected Reboot Schedules"
 msgstr ""
 
 msgid "Enable Selected Records"
@@ -5000,6 +5036,9 @@ msgstr "Unelte criptare"
 
 msgid "Encryption algorithm"
 msgstr "Algoritm criptare"
+
+msgid "Enhanced Scheduler"
+msgstr ""
 
 msgid "Enter Command"
 msgstr "Introducere comandă"
@@ -6066,6 +6105,9 @@ msgstr "Setări sisteme"
 msgid "Hour"
 msgstr "Oră"
 
+msgid "Hour(s)"
+msgstr ""
+
 msgid "Hourly"
 msgstr ""
 
@@ -6653,6 +6695,9 @@ msgstr "Timp de așteptare pînă la repornirea UPS-ului"
 msgid "Interval to wait before restarting the load"
 msgstr "Timp de așteptare pînă la repornirea sarcinii"
 
+msgid "Invalid"
+msgstr ""
+
 msgid "Invalid command line option"
 msgstr "Opțiune invalidă în linia de comandă"
 
@@ -6982,6 +7027,15 @@ msgstr "Timp de viață"
 
 msgid "Life time"
 msgstr "Timp de viață"
+
+msgid "Lifetime"
+msgstr ""
+
+msgid "Lifetime Units"
+msgstr ""
+
+msgid "Lifetime Value"
+msgstr ""
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Protocol LDAP"
@@ -7562,6 +7616,9 @@ msgstr "Temperatură minimă (grade C)"
 msgid "Minute"
 msgstr "Minut"
 
+msgid "Minute(s)"
+msgstr ""
+
 msgid "Minutes"
 msgstr "Minute"
 
@@ -7629,6 +7686,9 @@ msgid "Monitoring Setup"
 msgstr "Setări monitorizare"
 
 msgid "Monitoring User"
+msgstr ""
+
+msgid "Month(s)"
 msgstr ""
 
 msgid "Monthly"
@@ -9589,6 +9649,15 @@ msgstr "Repornire"
 msgid "Reboot Required"
 msgstr "Necesită repornirea"
 
+msgid "Reboot Schedule is locked"
+msgstr ""
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr ""
+
+msgid "Reboot Schedule is unlocked"
+msgstr ""
+
 msgid "Rebuild the selected device forcibly."
 msgstr ""
 
@@ -9623,6 +9692,9 @@ msgid "Recursive"
 msgstr "Recursiv"
 
 msgid "Recursively create snapshots of all descendent datasets."
+msgstr ""
+
+msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
 
 msgid "Recycle Bin"
@@ -10171,6 +10243,9 @@ msgstr ""
 msgid "Scan/Import destroyed pools only"
 msgstr ""
 
+msgid "Schedule"
+msgstr ""
+
 msgid "Schedule Time"
 msgstr "Timp programat"
 
@@ -10213,6 +10288,12 @@ msgstr "Script"
 msgid "Script has been uploaded."
 msgstr "Scriptul a fost încărcat."
 
+msgid "Scrub"
+msgstr ""
+
+msgid "Scrub Pool"
+msgstr ""
+
 msgid "Scrub a pool"
 msgstr "Curățare pool"
 
@@ -10237,6 +10318,9 @@ msgstr ""
 
 msgid "Second"
 msgstr "Secundă"
+
+msgid "Second(s)"
+msgstr ""
 
 msgid "Secondary"
 msgstr "Secundar"
@@ -10391,6 +10475,9 @@ msgid ""
 msgstr ""
 "Selectați opțiunea 'Neformatat' pentru discuri neformatate și formatați-le "
 "folosind"
+
+msgid "Select pool."
+msgstr ""
 
 #, php-format
 msgid ""
@@ -13297,6 +13384,9 @@ msgstr ""
 msgid "Toggle Selected Public Keys"
 msgstr ""
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr ""
+
 msgid "Toggle Selected Records"
 msgstr "Inversare stare selecție înregistrări"
 
@@ -14322,6 +14412,9 @@ msgstr "Miercuri"
 msgid "Week Days"
 msgstr "Zilele săptămânii"
 
+msgid "Week(s)"
+msgstr ""
+
 msgid "Weekdays"
 msgstr "Zilele săptămânii"
 
@@ -14436,6 +14529,9 @@ msgstr "Mașină virtuală Xen"
 
 msgid "Y-axis Range"
 msgstr "Domeniu axa Y"
+
+msgid "Year(s)"
+msgstr ""
 
 msgid "Yearly"
 msgstr ""

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
-"PO-Revision-Date: 2021-04-27 03:34+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
+"PO-Revision-Date: 2021-05-03 03:57+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
@@ -628,6 +628,9 @@ msgstr "Lägg till publik nyckel"
 
 msgid "Add RAID"
 msgstr "Lägg till RAID"
+
+msgid "Add Reboot Schedule"
+msgstr "Lägg till schemalagd omstart"
 
 msgid "Add Record"
 msgstr "Lägg till post"
@@ -2834,6 +2837,9 @@ msgstr "Datumformat"
 msgid "Day"
 msgstr "Dag"
 
+msgid "Day(s)"
+msgstr "Dag(ar)"
+
 msgid "Days"
 msgstr "Dagar"
 
@@ -3037,6 +3043,9 @@ msgstr "Ta bort valda publika nycklar"
 msgid "Delete Selected RAID Volumes"
 msgstr "Ta bort valda RAID volymer"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr "Ta bort vald schemalagd omstart"
+
 msgid "Delete Selected Records"
 msgstr "Ta bort valda poster"
 
@@ -3199,6 +3208,12 @@ msgstr "Destinationsnätverk för denna statiska rutt."
 
 msgid "Destination port"
 msgstr "Målport"
+
+msgid "Destroy"
+msgstr "Förstör"
+
+msgid "Destroy Snapshot"
+msgstr "Förstör ögonblicksbild"
 
 msgid "Destroy a pool"
 msgstr "Förstör en pool"
@@ -3421,6 +3436,9 @@ msgstr "Inaktivera valda leverantörer"
 
 msgid "Disable Selected Public Keys"
 msgstr "Inaktivera valda publika nycklar"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Inaktivera vald schemalagd omstart"
 
 msgid "Disable Selected Records"
 msgstr "Inaktivera valda rutter"
@@ -3832,6 +3850,9 @@ msgstr "Vill du ta bort valda leverantörer?"
 msgid "Do you want to delete selected public keys?"
 msgstr "Vill du ta bort valda publika nycklar?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Vill du ta bort vald schemalagd omstart"
+
 msgid "Do you want to delete selected records?"
 msgstr "Vill du ta bort valda poster?"
 
@@ -3946,6 +3967,9 @@ msgstr "Vill du inaktivera valda leverantörer?"
 msgid "Do you want to disable selected public keys?"
 msgstr "Vill du inaktivera valda publika nycklar?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Vill du inaktivera vald schemalagd omstart"
+
 msgid "Do you want to disable selected records?"
 msgstr "Vill du inaktivera valda poster?"
 
@@ -4041,6 +4065,9 @@ msgstr "Vill du aktivera valda leverantörer?"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Vill du aktivera valda publika nyckalr?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Vill du aktivera vald schemalagd omstart"
 
 msgid "Do you want to enable selected records?"
 msgstr "Vill du aktivera valda poster?"
@@ -4146,6 +4173,9 @@ msgstr "Vill du växla valda leverantörer?"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Vill du växla valda publika nycklar?"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Vill du växla vald schemalagd omstart"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Vill du växla valda poster?"
@@ -4383,6 +4413,9 @@ msgstr "Ändra publik nyckel"
 msgid "Edit RAID"
 msgstr "Redigera RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr "Ändra schemalagd omstart"
+
 msgid "Edit Record"
 msgstr "Ändra post"
 
@@ -4616,6 +4649,9 @@ msgstr "Aktivera valda leverantörer"
 
 msgid "Enable Selected Public Keys"
 msgstr "Aktivera valda publika nycklar"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Aktivera vald schemalagd omstart"
 
 msgid "Enable Selected Records"
 msgstr "Aktivera valda poster"
@@ -4975,6 +5011,9 @@ msgstr "Krypteringsverktyg"
 
 msgid "Encryption algorithm"
 msgstr "Krypteringsalgoritm"
+
+msgid "Enhanced Scheduler"
+msgstr "Utökad schemaläggare"
 
 msgid "Enter Command"
 msgstr "Mata in kommando"
@@ -6043,6 +6082,9 @@ msgstr "Hosts Inställningar"
 msgid "Hour"
 msgstr "Timme"
 
+msgid "Hour(s)"
+msgstr "Timme(-ar)"
+
 msgid "Hourly"
 msgstr "Varje timme"
 
@@ -6633,6 +6675,9 @@ msgstr "Omstartsintervall för UPS"
 msgid "Interval to wait before restarting the load"
 msgstr "Fördröjning innan återinkoppling av last"
 
+msgid "Invalid"
+msgstr "Ogiltig"
+
 msgid "Invalid command line option"
 msgstr "Felaktig komandoradsoption"
 
@@ -6952,6 +6997,15 @@ msgstr "Livstid"
 
 msgid "Life time"
 msgstr "Livstid"
+
+msgid "Lifetime"
+msgstr "Livstid"
+
+msgid "Lifetime Units"
+msgstr "Livstidsenhet"
+
+msgid "Lifetime Value"
+msgstr "Livstidsvärde"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
@@ -7538,6 +7592,9 @@ msgstr "Lägsta uppmätta temperatur (grader C)"
 msgid "Minute"
 msgstr "Minut"
 
+msgid "Minute(s)"
+msgstr "Minut/-er"
+
 msgid "Minutes"
 msgstr "Minuter"
 
@@ -7606,6 +7663,9 @@ msgstr "Övervakningsinställning"
 
 msgid "Monitoring User"
 msgstr "Övervakning användare"
+
+msgid "Month(s)"
+msgstr "Månad(er)"
 
 msgid "Monthly"
 msgstr "Varje månad"
@@ -9563,6 +9623,15 @@ msgstr "Starta om"
 msgid "Reboot Required"
 msgstr "Omstart krävs"
 
+msgid "Reboot Schedule is locked"
+msgstr "Schemalagd omstart är låst"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "Schemalagd omstart är markerad för borttagning"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Schemalagd omstart är olåst"
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Tvinga ombyggnad av den valda enheten."
 
@@ -9598,6 +9667,9 @@ msgstr "Rekursiv"
 
 msgid "Recursively create snapshots of all descendent datasets."
 msgstr "Skapa avbilder för alla underliggande dataset."
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Förstör ögonblicksbilder av alla länkade dataset."
 
 msgid "Recycle Bin"
 msgstr "Papperskorg"
@@ -10147,6 +10219,9 @@ msgstr "Skanna katalogen efter videofiler."
 msgid "Scan/Import destroyed pools only"
 msgstr "Scanna/Importera bara förstörda pooler"
 
+msgid "Schedule"
+msgstr "Schemalägg"
+
 msgid "Schedule Time"
 msgstr "Körtid"
 
@@ -10189,6 +10264,12 @@ msgstr "Skript"
 msgid "Script has been uploaded."
 msgstr "Skript har laddats upp."
 
+msgid "Scrub"
+msgstr "Rensa"
+
+msgid "Scrub Pool"
+msgstr "Rensa Pool"
+
 msgid "Scrub a pool"
 msgstr "Städa en pool"
 
@@ -10213,6 +10294,9 @@ msgstr "Sök uderkatalog"
 
 msgid "Second"
 msgstr "Sekund"
+
+msgid "Second(s)"
+msgstr "Sekund(er)"
 
 msgid "Secondary"
 msgstr "Sekundär"
@@ -10364,6 +10448,9 @@ msgid ""
 "Select option 'Unformatted' for unformatted disks and format them with the"
 msgstr ""
 "Välj alternativet 'Oformaterad' för oformaterade diskar och formatera dem med"
+
+msgid "Select pool."
+msgstr "Välj pool"
 
 #, php-format
 msgid ""
@@ -13388,6 +13475,9 @@ msgstr "Växla valda leverantörer"
 msgid "Toggle Selected Public Keys"
 msgstr "Växla valda publika nycklar"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Växla valda schemalagda omstarter"
+
 msgid "Toggle Selected Records"
 msgstr "Växla valda poster"
 
@@ -14428,6 +14518,9 @@ msgstr "onsdag"
 msgid "Week Days"
 msgstr "Veckodagar"
 
+msgid "Week(s)"
+msgstr "Vecka(-or)"
+
 msgid "Weekdays"
 msgstr "Veckodagar"
 
@@ -14544,6 +14637,9 @@ msgstr "Xen Virtuell Maskin"
 
 msgid "Y-axis Range"
 msgstr "Y-axelns intervall"
+
+msgid "Year(s)"
+msgstr "År"
 
 msgid "Yearly"
 msgstr "Varje år"

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-04-26 22:06+0000\n"
-"PO-Revision-Date: 2021-05-01 18:03+0000\n"
+"POT-Creation-Date: 2021-05-03 03:09+0000\n"
+"PO-Revision-Date: 2021-05-03 09:28+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-02 20:52+0000\n"
+"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
 "X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -38,7 +38,7 @@ msgstr "%2$s використано, %3$s доступно"
 
 #, php-format
 msgid "%d days"
-msgstr "%d днів"
+msgstr "%d дн."
 
 #, php-format
 msgid "%d week"
@@ -50,11 +50,11 @@ msgstr "%d тижнів"
 
 #, php-format
 msgid "%d year"
-msgstr "%d рік"
+msgstr "%d рк."
 
 #, php-format
 msgid "%d years"
-msgstr "%d років"
+msgstr "%d рк."
 
 #, php-format
 msgid "%dB / block"
@@ -118,27 +118,27 @@ msgstr "%s%d %s вже використовується %s%d."
 
 #, php-format
 msgid "%u hour"
-msgstr "%u година"
+msgstr "%u год."
 
 #, php-format
 msgid "%u hours"
-msgstr "%u годин"
+msgstr "%u год."
 
 #, php-format
 msgid "%u minute"
-msgstr "%u хвилина"
+msgstr "%u хв."
 
 #, php-format
 msgid "%u minutes"
-msgstr "%u хвилин"
+msgstr "%u хв."
 
 #, php-format
 msgid "%u second"
-msgstr "%u секунда"
+msgstr "%u сек."
 
 #, php-format
 msgid "%u seconds"
-msgstr "%u секунд"
+msgstr "%u сек."
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -637,6 +637,9 @@ msgstr "Додати приватний ключ"
 
 msgid "Add RAID"
 msgstr "Додати RAID"
+
+msgid "Add Reboot Schedule"
+msgstr "Додати розклад перезавантаження"
 
 msgid "Add Record"
 msgstr "Додати запис"
@@ -2874,6 +2877,9 @@ msgstr "Формат дати"
 msgid "Day"
 msgstr "День"
 
+msgid "Day(s)"
+msgstr "Дн."
+
 msgid "Days"
 msgstr "дн."
 
@@ -3080,6 +3086,9 @@ msgstr "Видалення обраних публічних ключей"
 msgid "Delete Selected RAID Volumes"
 msgstr "Видалити вибраний RAID масив"
 
+msgid "Delete Selected Reboot Schedules"
+msgstr "Видалити обрані розклади перезавантаження"
+
 msgid "Delete Selected Records"
 msgstr "Видалити обрані записи"
 
@@ -3246,6 +3255,12 @@ msgstr "Мережа призначення для цього статичног
 
 msgid "Destination port"
 msgstr "Порт призначення"
+
+msgid "Destroy"
+msgstr "Знищити"
+
+msgid "Destroy Snapshot"
+msgstr "Знищіти знімок"
 
 msgid "Destroy a pool"
 msgstr "Зруйнувати пул"
@@ -3465,6 +3480,9 @@ msgstr "Вимкнути обраних постачальників"
 
 msgid "Disable Selected Public Keys"
 msgstr "Вимкнути обрані публічні ключі"
+
+msgid "Disable Selected Reboot Schedules"
+msgstr "Вимкнути обрані розклади перезавантаження"
 
 msgid "Disable Selected Records"
 msgstr "Вимкнути обрані записи"
@@ -3882,6 +3900,9 @@ msgstr "Видалити обраних постачальників?"
 msgid "Do you want to delete selected public keys?"
 msgstr "Ви підтверджуєте видалення обраних публічних ключів?"
 
+msgid "Do you want to delete selected reboot schedules?"
+msgstr "Ви дійсно бажаєте видалити обрані розклади перезавантаження"
+
 msgid "Do you want to delete selected records?"
 msgstr "Ви підтверджуєте видалення обраних записів?"
 
@@ -3996,6 +4017,9 @@ msgstr "Вимкнути обраних постачальників?"
 msgid "Do you want to disable selected public keys?"
 msgstr "Ви підтверджуєте вимкнення обраних публічних ключів?"
 
+msgid "Do you want to disable selected reboot schedules?"
+msgstr "Ви дійсно бажаєте вимкнути обрані розклади перезавантаження"
+
 msgid "Do you want to disable selected records?"
 msgstr "Ви підтверджуєте вимкнення обраних записів?"
 
@@ -4091,6 +4115,9 @@ msgstr "Ви бажаєте увімкнути обраних постачаль
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Ви підтверджуєте увімкнення обраних публічних ключів?"
+
+msgid "Do you want to enable selected reboot schedules?"
+msgstr "Ви дійсно бажаєте увімкнути обрані розклади перезавантаження"
 
 msgid "Do you want to enable selected records?"
 msgstr "Ви підтверджуєте увімкнення обраних записів?"
@@ -4196,6 +4223,9 @@ msgstr "Ви бажаєте перемкнути обраних постачал
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Ви підтверджуєте перемикання обраних публічних ключів?"
+
+msgid "Do you want to toggle selected reboot schedules?"
+msgstr "Ви дійсно бажаєте перемкнути обрані розклади перезавантаження"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Ви підтверджуєте перемикання обраних записів?"
@@ -4435,6 +4465,9 @@ msgstr "Змінити публічний ключ"
 msgid "Edit RAID"
 msgstr "Редагувати RAID"
 
+msgid "Edit Reboot Schedule"
+msgstr "Змінити розклад перезавантаження"
+
 msgid "Edit Record"
 msgstr "Редагувати запис"
 
@@ -4669,6 +4702,9 @@ msgstr "Увімкнути обраних постачальників"
 
 msgid "Enable Selected Public Keys"
 msgstr "Дозволити обрані публічні ключі"
+
+msgid "Enable Selected Reboot Schedules"
+msgstr "Увімкнути обрані розклади перезавантаження"
 
 msgid "Enable Selected Records"
 msgstr "Дозволити обрані записи"
@@ -5026,6 +5062,9 @@ msgstr "Інструмент шифрування"
 
 msgid "Encryption algorithm"
 msgstr "Алгоритм шифрування"
+
+msgid "Enhanced Scheduler"
+msgstr "Розширений розклад"
 
 msgid "Enter Command"
 msgstr "Уведіть команду"
@@ -6102,13 +6141,16 @@ msgid "Hosts Setup"
 msgstr "Встановлення хостів"
 
 msgid "Hour"
-msgstr "год."
+msgstr "Год."
+
+msgid "Hour(s)"
+msgstr "Год."
 
 msgid "Hourly"
 msgstr "Щогодини"
 
 msgid "Hours"
-msgstr "год."
+msgstr "Год."
 
 msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
@@ -6703,6 +6745,9 @@ msgstr "Інтервал очікування перед перезапуско�
 msgid "Interval to wait before restarting the load"
 msgstr "Інтервал очікування перед повторним запуском навантаження"
 
+msgid "Invalid"
+msgstr "Помилковий"
+
 msgid "Invalid command line option"
 msgstr "Невірна опція командного рядка"
 
@@ -7033,6 +7078,15 @@ msgstr "Час життя"
 
 msgid "Life time"
 msgstr "Пожиттєвий"
+
+msgid "Lifetime"
+msgstr "Час життя"
+
+msgid "Lifetime Units"
+msgstr "Одиниці часу життя"
+
+msgid "Lifetime Value"
+msgstr "Значення часу життя"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Спрощений протокол доступу до каталогів"
@@ -7518,7 +7572,7 @@ msgid "Maximum temperature seen (degrees C)"
 msgstr "Максимальне зафіксоване значення температури (градуси Цельсія)"
 
 msgid "May"
-msgstr "Травень"
+msgstr "Трав."
 
 msgid "Maybe"
 msgstr "Можливо"
@@ -7624,7 +7678,10 @@ msgid "Minimum temperature seen (degrees C)"
 msgstr "Мінімальна зафіксована температура (в градусах Цельсія)"
 
 msgid "Minute"
-msgstr "Хвилина"
+msgstr "Хв."
+
+msgid "Minute(s)"
+msgstr "Хв."
 
 msgid "Minutes"
 msgstr "хв."
@@ -7695,11 +7752,14 @@ msgstr "Налаштування спостереження"
 msgid "Monitoring User"
 msgstr "Користувач моніторингу"
 
+msgid "Month(s)"
+msgstr "Місяці(-ів)"
+
 msgid "Monthly"
 msgstr "Щомісяця"
 
 msgid "Months"
-msgstr "Місяців"
+msgstr "Місяці"
 
 msgid "More than a day"
 msgstr "Більше одного дня"
@@ -9665,6 +9725,15 @@ msgstr "Перезавантаження"
 msgid "Reboot Required"
 msgstr "Потрібне перезавантаження"
 
+msgid "Reboot Schedule is locked"
+msgstr "Розклад перезавантаження заблокований"
+
+msgid "Reboot Schedule is marked for deletion"
+msgstr "Розклад перезавантаження маркований для видалення"
+
+msgid "Reboot Schedule is unlocked"
+msgstr "Розклад перезавантаження розблокований"
+
 msgid "Rebuild the selected device forcibly."
 msgstr "Перебудувати обраний пристрій примусово."
 
@@ -9700,6 +9769,9 @@ msgstr "Рекурсивно"
 
 msgid "Recursively create snapshots of all descendent datasets."
 msgstr "Рекурсивно створювати знімки всіх нащадкових наборів даних."
+
+msgid "Recursively destroy snapshots of all descendent datasets."
+msgstr "Рекурсивно знищує знімки всіх нащадкових наборів даних."
 
 msgid "Recycle Bin"
 msgstr "Смітник"
@@ -10253,6 +10325,9 @@ msgstr "Сканувати каталог на відеофайли."
 msgid "Scan/Import destroyed pools only"
 msgstr "Сканувати / Імпортувати лише знищені пули"
 
+msgid "Schedule"
+msgstr "Розклад"
+
 msgid "Schedule Time"
 msgstr "Час розкладів"
 
@@ -10295,6 +10370,12 @@ msgstr "Скрипт"
 msgid "Script has been uploaded."
 msgstr "Скріпт був вивантажений."
 
+msgid "Scrub"
+msgstr "Чищення"
+
+msgid "Scrub Pool"
+msgstr "Чищення пулу"
+
 msgid "Scrub a pool"
 msgstr "Перевірка пулу"
 
@@ -10318,7 +10399,10 @@ msgid "Search subfolder"
 msgstr "Шукати підкаталогами"
 
 msgid "Second"
-msgstr "Секунда"
+msgstr "Сек."
+
+msgid "Second(s)"
+msgstr "Сек."
 
 msgid "Secondary"
 msgstr "Вторинна"
@@ -10327,7 +10411,7 @@ msgid "Secondary Cache"
 msgstr "Вторинний кеш"
 
 msgid "Seconds"
-msgstr "сек."
+msgstr "Сек."
 
 msgid "Secret"
 msgstr "Таємна фраза"
@@ -10471,6 +10555,9 @@ msgid ""
 msgstr ""
 "Виберіть варіант \"Неформатований\" для неформатованих дисків і "
 "відформатуйте їх за допомогою"
+
+msgid "Select pool."
+msgstr "Оберіть пул."
 
 #, php-format
 msgid ""
@@ -13520,6 +13607,9 @@ msgstr "Перемкнути обраних постачальників"
 msgid "Toggle Selected Public Keys"
 msgstr "Перемкнути обрані публічні ключі"
 
+msgid "Toggle Selected Reboot Schedules"
+msgstr "Перемкнути обрані розклади перезавантаження"
+
 msgid "Toggle Selected Records"
 msgstr "Перемикання Обраних Записів"
 
@@ -14572,8 +14662,11 @@ msgstr "Середа"
 msgid "Week Days"
 msgstr "Дні тижня"
 
+msgid "Week(s)"
+msgstr "Тижні(-ів)"
+
 msgid "Weekdays"
-msgstr "У робочі дні"
+msgstr "Дні тижня"
 
 msgid "Weekly"
 msgstr "Щотижня"
@@ -14691,6 +14784,9 @@ msgstr "Віртуальна машина Xen"
 
 msgid "Y-axis Range"
 msgstr "Діапазон значень на осі Y"
+
+msgid "Year(s)"
+msgstr "Рк."
 
 msgid "Yearly"
 msgstr "Щороку"
