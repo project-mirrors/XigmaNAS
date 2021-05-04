@@ -164,7 +164,7 @@ while [ "${1}" != "" ]; do
 		battery.charge:)    charge=${2};;
 		ups.load:)          load=${2};;
 		battery.voltage:)   bvoltage=${2};;
-		output.voltage:)    ovoltage=$(2);;
+		output.voltage:)    ovoltage=${2};;
 		input.voltage:)     ivoltage=${2};;
 		battery.runtime:)   runtime=`echo -e $2 | awk '{calc=$1/60; print calc}'`;;
 		ups.status:)    case ${2} in
