@@ -1,4 +1,4 @@
-# DS: $charge:$load:$bvoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG
+# DS: $charge:$load:$bvoltage:$ovoltage:$ivoltage:$runtime:$OL:$OF:$OB:$CG
 /usr/local/bin/rrdtool graph $WORKING_DIR/rrd/rrd-${GRAPH}_${GRAPH_NAME}.png \
 "-v UPS usage" \
 "-s" "$START_TIME" \
