@@ -253,6 +253,7 @@ mkconf_snapshotcreate() {
 #			create the script
 			cat <<- EOF > "${_scriptname}"
 				#!/bin/sh
+				# created: ${_isodate}
 				_tag="snapshot"
 				_command="${_command}"
 				_param="${_param}"
@@ -327,6 +328,7 @@ mkconf_snapshotdestroy() {
 #			create the script
 			cat <<- EOF > "${_scriptname}"
 				#!/bin/sh
+				# created: ${_isodate}
 				_tag="snapshot"
 				_command="${_command}"
 				_param="${_param}"
