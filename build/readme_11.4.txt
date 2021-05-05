@@ -62,6 +62,11 @@ This may have an impact on very old clients that don't support NTLMv2 yet.
 Only if you really need NTLMv1 Authentication you can set in Services > CIFS/SMB > Settings on
 Additional Parameters: "ntlm auth = yes".
 
+UPS note
+=============
+We have added output voltage to graphs. 
+Ups users need to reset current ups graph data!
+
 ExtendedGUI note
 ================
 Warning! Extended GUI is not compatible with this release.
