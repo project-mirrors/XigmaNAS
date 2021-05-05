@@ -294,6 +294,9 @@ transmission_poststart()
 			--else \
 				--output " -D" \
 			--break \
+			--if "count(startafterstart) > 0" \
+				--output " -tall -s" \
+			--break \
 			--if "string-length(extraoptions) > 0" \
 				--value-of "concat(' ',extraoptions)" \
 			--break \
@@ -316,18 +319,20 @@ transmission_poststart()
 transmission_prestop() {
 	local _command_args
 
-	_command_args=$( /usr/local/bin/xml sel --text --template \
-		--match "//bittorrent" \
-			--if "count(authrequired) > 0" \
-				--if "string-length(username) > 0 and string-length(password) > 0" \
-					--value-of "concat(' -n ',username,':',password)" \
+	if configxml_isset //bittorrent/stopbeforestop; then
+		_command_args=$( /usr/local/bin/xml sel --text --template \
+			--match "//bittorrent" \
+				--if "count(authrequired) > 0" \
+					--if "string-length(username) > 0 and string-length(password) > 0" \
+						--value-of "concat(' -n ',username,':',password)" \
+					--break \
 				--break \
+				--output ' -tall -S' \
 			--break \
-			--output ' -tall --stop' \
-		--break \
-		${configxml_file} | /usr/local/bin/xml unesc )
-	/usr/local/bin/transmission-remote${_command_args} >/dev/null 2>&1
-	sleep 1
+			${configxml_file} | /usr/local/bin/xml unesc )
+		/usr/local/bin/transmission-remote${_command_args} >/dev/null 2>&1
+		sleep 1
+	fi
 }
 
 transmission_updateblocklist()
