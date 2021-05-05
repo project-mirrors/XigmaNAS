@@ -63,6 +63,11 @@ From Samba 4.5.0 onwards, the "ntlm auth" option has been disabled by default.
 This may have an impact on very old clients that support NTLMv1 only.
 Only if really required, NTLMv1 authentication can be enabled by adding "ntlm auth = yes" in the additional parameter field in Services > CIFS/SMB > Settings.
 
+UPS note
+=============
+We have added improved output voltage to graphs data. 
+Ups users need to reset current ups graph data!
+
 Community extension "Extended GUI" warning:
 ===========================================
 Warning! Extended GUI is not compatible with this release. Disable and remove the extension before upgrading.
