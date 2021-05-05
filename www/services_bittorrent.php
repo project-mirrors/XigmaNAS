@@ -69,6 +69,8 @@ $a_referer = [
 	$cop->get_preallocation(),
 	$cop->get_rpchostwhitelistenabled(),
 	$cop->get_rpchostwhitelist(),
+	$cop->get_startafterstart(),
+	$cop->get_stopbeforestop(),
 	$cop->get_umask(),
 	$cop->get_upload(),
 	$cop->get_username(),
@@ -285,6 +287,8 @@ $tbody1->
 	c2($cop->get_incompletedir(),$sphere,false,$is_readonly)->
 	c2($cop->get_umask(),$sphere,false,$is_readonly)->
 	c2($cop->get_messagelevel(),$sphere,false,$is_readonly)->
+	c2($cop->get_startafterstart(),$sphere,false,$is_readonly)->
+	c2($cop->get_stopbeforestop(),$sphere,false,$is_readonly)->
 	c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add content section 2
 $tds2 = $content->add_table_data_settings();

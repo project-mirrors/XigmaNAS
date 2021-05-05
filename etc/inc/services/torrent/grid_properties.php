@@ -323,6 +323,30 @@ class grid_properties extends myp\container {
 	final public function get_rpchostwhitelist(): myp\property_text {
 		return $this->x_rpchostwhitelist ?? $this->init_rpchostwhitelist();
 	}
+	protected $x_startafterstart;
+	public function init_startafterstart(): myp\property_bool {
+		$title = gettext('Start Torrents');
+		$property = $this->x_startafterstart = new myp\property_bool($this);
+		$property->
+			set_name('startafterstart')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_startafterstart(): myp\property_bool {
+		return $this->x_startafterstart ?? $this->init_startafterstart();
+	}
+	protected $x_stopbeforestop;
+	public function init_stopbeforestop(): myp\property_bool {
+		$title = gettext('Stop Torrents');
+		$property = $this->x_stopbeforestop = new myp\property_bool($this);
+		$property->
+			set_name('stopbeforestop')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_stopbeforestop(): myp\property_bool {
+		return $this->x_stopbeforestop ?? $this->init_stopbeforestop();
+	}
 /*	json "alt-speed-down": <integer>
 	protected $x_altspeeddown;
 	public function init_altspeeddown(): myp\property_int {
