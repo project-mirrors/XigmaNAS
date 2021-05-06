@@ -341,7 +341,7 @@ mkconf_snapshotdestroy() {
 					exit
 				fi
 				#	get a list of snapshots, oldest first
-				_checklist=\$( /sbin/zfs list -Hpo creation,name -t snapshot -s creation "\${_path}" 2>&1 )
+				_checklist=\$( /sbin/zfs list -Hp -o creation,name -d 1 -t snapshot -s creation "\${_path}" 2>&1 )
 				if [ \$? -ne 0 ]; then
 					exit
 				fi
