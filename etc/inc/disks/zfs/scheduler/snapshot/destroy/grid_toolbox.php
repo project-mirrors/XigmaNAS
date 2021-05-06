@@ -202,7 +202,7 @@ final class grid_toolbox {
 							ins_cbm_checkbox($sphere,!($is_notdirty && $is_notprotected))->
 						pop()->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_path()->get_name()] ?? '')->
-						insTHwC('lcell' . $dc,$preset_value)->
+						insTDwC('lcell' . $dc,$preset_value)->
 						ins_enadis_icon($sphere->row[$cop->get_recursive()->get_name()] ?? false)->
 						insTDwC('lcell' . $dc,$lifetime_value)->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
