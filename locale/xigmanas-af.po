@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-05-03 03:09+0000\n"
+"POT-Creation-Date: 2021-05-05 21:46+0000\n"
 "PO-Revision-Date: 2021-04-04 22:54+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-03 16:48+0000\n"
-"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
+"X-Launchpad-Export-Date: 2021-05-06 15:36+0000\n"
+"X-Generator: Launchpad (build d6ba96cccb3d3e356754af3137c6128a6c17e2a8)\n"
 
 msgid " No private key"
 msgstr " Geen privaat sleutel"
@@ -11433,6 +11433,12 @@ msgstr "Begin"
 msgid "Start TLS from within the session."
 msgstr "Begin TLS vanaf binne die sessie."
 
+msgid "Start Torrents"
+msgstr ""
+
+msgid "Start/resume previously stopped torrents after service has started."
+msgstr ""
+
 msgid "Startup Delay"
 msgstr ""
 
@@ -11463,11 +11469,17 @@ msgstr "Stap"
 msgid "Stop"
 msgstr "Stop"
 
+msgid "Stop Torrents"
+msgstr ""
+
 msgid "Stop after sending (and receiving) N packets."
 msgstr "Stop na N pakkete gestuur (en ontvang) is."
 
 msgid "Stop the selected mirror."
 msgstr "Stop die gekose spieël."
+
+msgid "Stop torrents before stopping service."
+msgstr ""
 
 msgid "Stopped"
 msgstr "Gestop"
