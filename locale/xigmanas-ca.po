@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-05-03 03:09+0000\n"
-"PO-Revision-Date: 2021-04-28 22:29+0000\n"
+"POT-Creation-Date: 2021-05-05 21:46+0000\n"
+"PO-Revision-Date: 2021-05-03 20:14+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-03 16:49+0000\n"
-"X-Generator: Launchpad (build 02afa4875ac52c169f5cddf0d1bcdd6e149a3754)\n"
+"X-Launchpad-Export-Date: 2021-05-06 15:36+0000\n"
+"X-Generator: Launchpad (build d6ba96cccb3d3e356754af3137c6128a6c17e2a8)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -647,7 +647,7 @@ msgid "Add RAID"
 msgstr "Afegir RAID"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Afegiu una programació de reinici"
 
 msgid "Add Record"
 msgstr "Afegeix registre"
@@ -2914,7 +2914,7 @@ msgid "Day"
 msgstr "Dia"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "Dia/es"
 
 msgid "Days"
 msgstr "Dies"
@@ -3120,7 +3120,7 @@ msgid "Delete Selected RAID Volumes"
 msgstr "Suprimeix volums RAID seleccionats"
 
 msgid "Delete Selected Reboot Schedules"
-msgstr ""
+msgstr "Esborrar les programacions d'reinici seleccionades"
 
 msgid "Delete Selected Records"
 msgstr "Suprimeix registres seleccionats"
@@ -3289,10 +3289,10 @@ msgid "Destination port"
 msgstr "Port de destinació"
 
 msgid "Destroy"
-msgstr ""
+msgstr "Destrueix"
 
 msgid "Destroy Snapshot"
-msgstr ""
+msgstr "Destrueix Captures"
 
 msgid "Destroy a pool"
 msgstr "Destrueix piscina"
@@ -3518,7 +3518,7 @@ msgid "Disable Selected Public Keys"
 msgstr "Desactiva les claus públiques seleccionades"
 
 msgid "Disable Selected Reboot Schedules"
-msgstr ""
+msgstr "Descativar les programacions d'reinici seleccionades"
 
 msgid "Disable Selected Records"
 msgstr "Desactivar registres seleccionats"
@@ -3943,7 +3943,7 @@ msgid "Do you want to delete selected public keys?"
 msgstr "Voleu eliminar les claus públiques seleccionades?"
 
 msgid "Do you want to delete selected reboot schedules?"
-msgstr ""
+msgstr "Voleu suprimir les planificacions de reinici seleccionades?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Voleu eliminar els registres seleccionats?"
@@ -4060,7 +4060,7 @@ msgid "Do you want to disable selected public keys?"
 msgstr "Voleu desactivar les claus públiques seleccionades?"
 
 msgid "Do you want to disable selected reboot schedules?"
-msgstr ""
+msgstr "Voleu desactivar les planificacions de reinici seleccionades?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Voleu desactivar els registres seleccionats?"
@@ -4159,7 +4159,7 @@ msgid "Do you want to enable selected public keys?"
 msgstr "Voleu habilitar les claus públiques seleccionades?"
 
 msgid "Do you want to enable selected reboot schedules?"
-msgstr ""
+msgstr "Voleu habilitar les planificacions de reinici seleccionades?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Voleu activar els registres seleccionats?"
@@ -4267,7 +4267,7 @@ msgid "Do you want to toggle selected public keys?"
 msgstr "Voleu canviar les claus públiques seleccionades?"
 
 msgid "Do you want to toggle selected reboot schedules?"
-msgstr ""
+msgstr "Voleu canviar les planificacions de reinici seleccionades?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Voleu conmutar els registres seleccionats?"
@@ -4508,7 +4508,7 @@ msgid "Edit RAID"
 msgstr "Editar RAID"
 
 msgid "Edit Reboot Schedule"
-msgstr ""
+msgstr "Edita la programació de reinici"
 
 msgid "Edit Record"
 msgstr "Edita registre"
@@ -4748,7 +4748,7 @@ msgid "Enable Selected Public Keys"
 msgstr "Activeu claus pùbliques"
 
 msgid "Enable Selected Reboot Schedules"
-msgstr ""
+msgstr "Activeu les planificacions de reinici seleccionats"
 
 msgid "Enable Selected Records"
 msgstr "Activa els registres seleccionats"
@@ -5113,7 +5113,7 @@ msgid "Encryption algorithm"
 msgstr "Algoritme d'encriptació"
 
 msgid "Enhanced Scheduler"
-msgstr ""
+msgstr "Planificador ampliat"
 
 msgid "Enter Command"
 msgstr "Introduïu l'ordre"
@@ -6214,7 +6214,7 @@ msgid "Hour"
 msgstr "Hora"
 
 msgid "Hour(s)"
-msgstr ""
+msgstr "Hora/es"
 
 msgid "Hourly"
 msgstr "Cada hora"
@@ -6820,7 +6820,7 @@ msgid "Interval to wait before restarting the load"
 msgstr "Interval d'espera abans de reiniciar la càrrega"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Invàlid"
 
 msgid "Invalid command line option"
 msgstr "Opció de línia de comanda no vàlid"
@@ -7153,13 +7153,13 @@ msgid "Life time"
 msgstr "Temps de vida"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Temps de funcionament"
 
 msgid "Lifetime Units"
-msgstr ""
+msgstr "Unitats de temps de funcionament"
 
 msgid "Lifetime Value"
-msgstr ""
+msgstr "Valor de temps de funcionament"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Protocol lleuger d'accés a directoris"
@@ -7759,7 +7759,7 @@ msgid "Minute"
 msgstr "Minut"
 
 msgid "Minute(s)"
-msgstr ""
+msgstr "Minut/s"
 
 msgid "Minutes"
 msgstr "Minuts"
@@ -7831,7 +7831,7 @@ msgid "Monitoring User"
 msgstr "Supervisant usuari"
 
 msgid "Month(s)"
-msgstr ""
+msgstr "Mes/os"
 
 msgid "Monthly"
 msgstr "Mensualment"
@@ -9816,13 +9816,13 @@ msgid "Reboot Required"
 msgstr "Cal reiniciar"
 
 msgid "Reboot Schedule is locked"
-msgstr ""
+msgstr "La planificació de reinici está bloquejada"
 
 msgid "Reboot Schedule is marked for deletion"
-msgstr ""
+msgstr "La planificació de reinici está marcada per esborrar"
 
 msgid "Reboot Schedule is unlocked"
-msgstr ""
+msgstr "La planificació de reinici esta desbloquejada"
 
 msgid "Rebuild the selected device forcibly."
 msgstr "Reconstrueix el dispositiu seleccionat forçadament."
@@ -9863,6 +9863,8 @@ msgstr ""
 
 msgid "Recursively destroy snapshots of all descendent datasets."
 msgstr ""
+"Destruïu recursivament instantànies de tots els conjunts de dades "
+"descendents."
 
 msgid "Recycle Bin"
 msgstr "Paperera de reciclatge"
@@ -10418,7 +10420,7 @@ msgid "Scan/Import destroyed pools only"
 msgstr "Escanejar/importar només agrupacions destruïdes"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planificació"
 
 msgid "Schedule Time"
 msgstr "Temps programat"
@@ -10463,10 +10465,10 @@ msgid "Script has been uploaded."
 msgstr "Script ha estat carregat."
 
 msgid "Scrub"
-msgstr ""
+msgstr "Fregat"
 
 msgid "Scrub Pool"
-msgstr ""
+msgstr "Piscina de fregat"
 
 msgid "Scrub a pool"
 msgstr "Fregui piscina"
@@ -10494,7 +10496,7 @@ msgid "Second"
 msgstr "Segon"
 
 msgid "Second(s)"
-msgstr ""
+msgstr "Segon(s)"
 
 msgid "Secondary"
 msgstr "Secundari"
@@ -10658,7 +10660,7 @@ msgstr ""
 "format amb el"
 
 msgid "Select pool."
-msgstr ""
+msgstr "Seleccioneu piscina"
 
 #, php-format
 msgid ""
@@ -11587,6 +11589,12 @@ msgstr "Inicia"
 msgid "Start TLS from within the session."
 msgstr "Inicieu TLS des de dins de la sessió."
 
+msgid "Start Torrents"
+msgstr ""
+
+msgid "Start/resume previously stopped torrents after service has started."
+msgstr ""
+
 msgid "Startup Delay"
 msgstr "Retard d'inici"
 
@@ -11617,11 +11625,17 @@ msgstr "Pas"
 msgid "Stop"
 msgstr "Atura"
 
+msgid "Stop Torrents"
+msgstr ""
+
 msgid "Stop after sending (and receiving) N packets."
 msgstr "Aturar després d'enviar (i rebre) N paquets."
 
 msgid "Stop the selected mirror."
 msgstr "Atureu el mirall seleccionat."
+
+msgid "Stop torrents before stopping service."
+msgstr ""
 
 msgid "Stopped"
 msgstr "Aturat"
@@ -13760,7 +13774,7 @@ msgid "Toggle Selected Public Keys"
 msgstr "Commuta les claus públiques seleccionats"
 
 msgid "Toggle Selected Reboot Schedules"
-msgstr ""
+msgstr "Commuta les planificacions de reinici seleccionats"
 
 msgid "Toggle Selected Records"
 msgstr "Activa registres seleccionats"
@@ -14818,7 +14832,7 @@ msgid "Week Days"
 msgstr "Dies de la setmana"
 
 msgid "Week(s)"
-msgstr ""
+msgstr "Setmana(es)"
 
 msgid "Weekdays"
 msgstr "Setmanal"
@@ -14942,7 +14956,7 @@ msgid "Y-axis Range"
 msgstr "Abast de l'eix Y"
 
 msgid "Year(s)"
-msgstr ""
+msgstr "Any(s)"
 
 msgid "Yearly"
 msgstr "Anualment"
