@@ -72,18 +72,14 @@ transmission_prestart()
 {
 	local _command_args
 	local _umask _preallocation _messagelevel _rpchostwhitelistenabled _rpchostwhitelist _jsonkey _jsonval
-	local _homedir _password _configfile
+	local _homedir _configfile
 	local _downloaddir _configdir _watchdir _incompletedir
 
 #	get user's homedirectory
 	_homedir=`su -l "${transmission_user}" -c 'echo $HOME'`
 	[ -z "${_homedir}" ] && _homedir="/home/transmission"
-
 #	save quotes in rc script and login shell and sh
-	_password=`configxml_get "//bittorrent/password"`
-	_password=`safe_shellquote "${_password}"`
 	_downloaddir=`configxml_get "//bittorrent/downloaddir"`
-	_downloaddir=`safe_shellquote "${_downloaddir}"`
 	_configdir=`configxml_get "//bittorrent/configdir"`
 	if [ -z "${_configdir}" ]; then
 #		use default directory
@@ -97,28 +93,23 @@ transmission_prestart()
 			exit 1
 		fi
 	fi
-	_configdir=`safe_shellquote "${_configdir}"`
 	_watchdir=`configxml_get "//bittorrent/watchdir"`
-	_watchdir=`safe_shellquote "${_watchdir}"`
 	_incompletedir=`configxml_get "//bittorrent/incompletedir"`
+#	quote directories
+	_downloaddir=`safe_shellquote "${_downloaddir}"`
+	_configdir=`safe_shellquote "${_configdir}"`
+	_watchdir=`safe_shellquote "${_watchdir}"`
 	_incompletedir=`safe_shellquote "${_incompletedir}"`
 #	escape XML/XSLT/XPath special
-	_password=`safe_xmlescape "${_password}"`
 	_downloaddir=`safe_xmlescape "${_downloaddir}"`
 	_configdir=`safe_xmlescape "${_configdir}"`
 	_watchdir=`safe_xmlescape "${_watchdir}"`
 	_incompletedir=`safe_xmlescape "${_incompletedir}"`
 #	create command args line.
-	_command_args=`/usr/local/bin/xml sel --template \
+	_command_args=$( /usr/local/bin/xml sel --text --template \
 		--match "//bittorrent" \
-			--if "count(authrequired) > 0" \
-				--output " -t" \
-				--if "string-length(username) > 0" \
-					--value-of "concat(' -u ',username)" \
-				--break \
-				--if "string-length(password) > 0" \
-					--output " -v ${_password}" \
-				--break \
+			--if "count(authrequired) > 0 and string-length(username) > 0 and string-length(password) > 0" \
+				--value-of "concat(' -t -u ',username,' -v ',password)" \
 			--else \
 				--output " -T" \
 			--break \
@@ -127,10 +118,14 @@ transmission_prestart()
 			--break \
 			--if "string-length(port) > 0" \
 				--value-of "concat(' -p ',port)" \
+			--else \
+				--output " -p 9091" \
 			--break \
 			--output " -g ${_configdir}" \
 			--if "string-length(peerport) > 0" \
 				--value-of "concat(' -P ',peerport)" \
+			--else \
+				--output " -P 51413" \
 			--break \
 			--if "count(portforwarding) > 0" \
 				--output " -m" \
@@ -148,7 +143,7 @@ transmission_prestart()
 				--output " --no-incomplete-dir" \
 			--break \
 		--break \
-		${configxml_file} | /usr/local/bin/xml unesc`
+		${configxml_file} | /usr/local/bin/xml unesc )
 	if checkyesno transmission_blocklist; then
 		_command_args="${_command_args} -b"
 	else
@@ -247,15 +242,13 @@ transmission_poststart()
 	_retry_zzz=1
 	_retry_loops=15
 
-	_command_args=$( /usr/local/bin/xml sel --template \
+	_command_args=$( /usr/local/bin/xml sel --text --template \
 		--match "//bittorrent" \
-			--if "count(authrequired) > 0" \
-				--if "string-length(username) > 0 and string-length(password) > 0" \
-					--value-of "concat(' -n ',username,':',password)" \
-				--break \
-			--break \
 			--if "string-length(port) > 0" \
 				--value-of "concat(' ',port)" \
+			--break \
+			--if "count(authrequired) > 0 and string-length(username) > 0 and string-length(password) > 0" \
+				--value-of "concat(' -n ',username,':',password)" \
 			--break \
 			--if "count(pex) > 0" \
 				--output " -x" \
@@ -322,10 +315,8 @@ transmission_prestop() {
 	if configxml_isset //bittorrent/stopbeforestop; then
 		_command_args=$( /usr/local/bin/xml sel --text --template \
 			--match "//bittorrent" \
-				--if "count(authrequired) > 0" \
-					--if "string-length(username) > 0 and string-length(password) > 0" \
-						--value-of "concat(' -n ',username,':',password)" \
-					--break \
+				--if "count(authrequired) > 0 and string-length(username) > 0 and string-length(password) > 0" \
+					--value-of "concat(' -n ',username,':',password)" \
 				--break \
 				--output ' -tall -S' \
 			--break \
