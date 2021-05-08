@@ -142,7 +142,7 @@ Changes:
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
 - Upgrade nano to 5.7.
-- Upgrade php to 7.4.18.
+- Upgrade php to 7.4.19.
 
 Fixes:
 - Fix only first lagg member is brought up.
