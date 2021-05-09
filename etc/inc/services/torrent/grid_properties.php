@@ -167,29 +167,29 @@ class grid_properties extends myp\container {
 	final public function get_utp(): myp\property_bool {
 		return $this->x_utp ?? $this->init_utp();
 	}
-	protected $x_upload;
-	public function init_upload(): myp\property_int {
+	protected $x_uplimit;
+	public function init_uplimit(): myp\property_int {
 		$title = gettext('Upload Bandwidth');
-		$property = $this->x_upload = new myp\property_int($this);
+		$property = $this->x_uplimit = new myp\property_int($this);
 		$property->
-			set_name('upload')->
+			set_name('uplimit')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_upload(): myp\property_int {
-		return $this->x_upload ?? $this->init_upload();
+	final public function get_uplimit(): myp\property_int {
+		return $this->x_uplimit ?? $this->init_uplimit();
 	}
-	protected $x_download;
-	public function init_download(): myp\property_int {
+	protected $x_downlimit;
+	public function init_downlimit(): myp\property_int {
 		$title = gettext('Download Bandwidth');
-		$property = $this->x_download = new myp\property_int($this);
+		$property = $this->x_downlimit = new myp\property_int($this);
 		$property->
-			set_name('download')->
+			set_name('downlimit')->
 			set_title($title);
 		return $property;
 	}
-	final public function get_download(): myp\property_int {
-		return $this->x_download ?? $this->init_download();
+	final public function get_downlimit(): myp\property_int {
+		return $this->x_downlimit ?? $this->init_downlimit();
 	}
 	protected $x_umask;
 	public function init_umask(): myp\property_octal {
