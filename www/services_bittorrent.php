@@ -53,7 +53,7 @@ $a_referer = [
 	$cop->get_authrequired(),
 	$cop->get_configdir(),
 	$cop->get_dht(),
-	$cop->get_download(),
+	$cop->get_downlimit(),
 	$cop->get_downloaddir(),
 	$cop->get_enable(),
 	$cop->get_encryption(),
@@ -72,7 +72,7 @@ $a_referer = [
 	$cop->get_startafterstart(),
 	$cop->get_stopbeforestop(),
 	$cop->get_umask(),
-	$cop->get_upload(),
+	$cop->get_uplimit(),
 	$cop->get_username(),
 	$cop->get_utp(),
 	$cop->get_watchdir()
@@ -281,8 +281,8 @@ $tbody1->
 	c2($cop->get_utp(),$sphere,false,$is_readonly)->
 	c2($cop->get_preallocation(),$sphere,false,$is_readonly)->
 	c2($cop->get_encryption(),$sphere,false,$is_readonly)->
-	c2($cop->get_upload(),$sphere,false,$is_readonly)->
-	c2($cop->get_download(),$sphere,false,$is_readonly)->
+	c2($cop->get_uplimit(),$sphere,false,$is_readonly)->
+	c2($cop->get_downlimit(),$sphere,false,$is_readonly)->
 	c2($cop->get_watchdir(),$sphere,false,$is_readonly)->
 	c2($cop->get_incompletedir(),$sphere,false,$is_readonly)->
 	c2($cop->get_umask(),$sphere,false,$is_readonly)->
