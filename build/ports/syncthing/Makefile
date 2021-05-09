@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.15.1
+PORTVERSION=	1.16.1
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -25,7 +25,7 @@ USERS=		syncthing
 GROUPS=		syncthing
 
 # Anonymize
-MAKE_ENV+=	BUILD_USER=ports BUILD_HOST=xigmanas
+MAKE_ENV+=	BUILD_USER=ports BUILD_HOST=XigmaNAS
 
 STRIP=		# stripping can break go binaries
 NO_WRKSUBDIR=   yes
