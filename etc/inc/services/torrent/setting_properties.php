@@ -190,13 +190,13 @@ final class setting_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_upload(): myp\property_int {
+	public function init_uplimit(): myp\property_int {
 		$description = gettext('The maximum upload bandwith in KB/s. Leave this field empty to allow unlimited upload bandwidth.');
 		$placeholder = gettext('KB/s');
 		$placeholderv = gettext('Unlimited');
-		$property = parent::init_upload();
+		$property = parent::init_uplimit();
 		$property->
-			set_id('upload')->
+			set_id('uplimit')->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
@@ -206,13 +206,13 @@ final class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_download(): myp\property_int {
+	public function init_downlimit(): myp\property_int {
 		$description = gettext('The maximum download bandwith in KB/s. Leave this field empty to allow unlimited download bandwidth.');
 		$placeholder = gettext('KB/s');
 		$placeholderv = gettext('Unlimited');
-		$property = parent::init_download();
+		$property = parent::init_downlimit();
 		$property->
-			set_id('download')->
+			set_id('downlimit')->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
