@@ -115,7 +115,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 12.2.0.4.8410
+BUILD 12.2.0.4.8419
 ===================
 Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P6.
