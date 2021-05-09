@@ -156,11 +156,11 @@ Changes:
 - Upgrade dialog to 1.3-20210324.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade phpmyadmin to 5.1.0.
-- Upgrade syncthing to 1.15.1.
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
 - Upgrade nano to 5.7.
 - Upgrade php to 7.4.19.
+- Upgrade syncthing to 1.16.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
