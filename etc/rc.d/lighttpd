@@ -37,8 +37,10 @@ extra_commands="reload check mkconf"
 # Defaults
 lighttpd_enable=${lighttpd_enable:-"NO"}
 lighttpd_conf=${lighttpd_conf:-"/var/etc/lighttpd.conf"}
-lighttpd_certpem=${lighttpd_certpem:-"/var/etc/cert.pem"}
-lighttpd_certpem_webgui=${lighttpd_certpem_webgui:-"YES"}
+lighttpd_certpem_gui=${lighttpd_certpem_gui:-"/var/etc/webguicert.pem"}
+lighttpd_privpem_gui=${lighttpd_privpem_gui:-"/var/etc/webguipriv.pem"}
+lighttpd_certpem=${lighttpd_certpem:-"${lighttpd_certpem_gui}"}
+lighttpd_privpem=${lighttpd_privpem:-"${lighttpd_privpem_gui}"}
 lighttpd_docroot=${lighttpd_docroot:-"/usr/local/www"}
 lighttpd_server_maxwriteidle=${lighttpd_server_maxwriteidle:-"360"}
 lighttpd_pidfile=${lighttpd_pidfile:-"/var/run/${name}.pid"}
@@ -62,17 +64,30 @@ chmod 1777 "${lighttpd_uploaddir}/ftmp"
 # FastCGI socket directory
 mkdir -p /var/tmp/fastcgi
 chmod 755 /var/tmp/fastcgi
-
+if [ "${lighttpd_certpem}" = "${lighttpd_certpem_gui}" -o "${lighttpd_privpem}" = "${lighttpd_privpem_gui}" ]; then
+	use_gui_pem=true
+else
+	use_gui_pem=false
+fi
 sslconfig() {
-	cat <<-SSLCONFIG
-		ssl.engine = "enable"
-		ssl.pemfile = "${lighttpd_certpem}"
-	SSLCONFIG
+	if checkyesno use_gui_pem; then
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${lighttpd_certpem_gui}"
+			ssl.privkey = "${lighttpd_privpem_gui}"
+		SSLCONFIG
+	else
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${lighttpd_certpem}"
+			ssl.privkey = "${lighttpd_privpem}"
+		SSLCONFIG
+	fi
 }
 
 lighttpd_mkconf()
 {
-	local _protocol _certificate _privatekey _tmpfile
+	local _protocol _certificate _privatekey
 	local _ifn _ipaddr _ipv6addr _port
 	local _subnet _network _ipv6subnet _ipv6network _hostsallow
 
@@ -307,35 +322,32 @@ EOF
 	fi
 	# configure webgui for HTTPS
 	if [ "${_protocol}" = "https" ]; then
-		if checkyesno lighttpd_certpem_webgui; then
-			_certificate=`configxml_get "//system/webgui/certificate"`
-			# create .pem file from webgui configuration
+		if checkyesno use_gui_pem; then
+			_certificate=$( configxml_get //system/webgui/certificate )
+			# create cert.pem file from webgui configuration
 			if [ -n "${_certificate}" ]; then
-				_tmpfile=/tmp/lighttpd$$.tmp
-				echo "${_certificate}" > ${_tmpfile}
-				/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' > ${lighttpd_certpem}
-				_privatekey=`configxml_get "//system/webgui/privatekey"`
-				if [ -n "${_privatekey}" ]; then
-					echo "" >> ${lighttpd_certpem}
-					echo "${_privatekey}" > ${_tmpfile}
-					/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' >> ${lighttpd_certpem}
-				fi
-				/bin/rm -f ${_tmpfile}
+				echo "${_certificate}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${lighttpd_certpem_gui}"
 			fi
-			[ -e ${lighttpd_certpem} ] && /bin/chmod 0600 ${lighttpd_certpem}
+			[ -e "${lighttpd_certpem_gui}" ] && /bin/chmod 0600 "${lighttpd_certpem_gui}"
+			_privatekey=$( configxml_get //system/webgui/privatekey )
+			# create priv.pem file from webgui configuration
+			if [ -n "${_privatekey}" ]; then
+				echo "${_privatekey}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${lighttpd_privpem_gui}"
+			fi
+			[ -e "${lighttpd_privpem_gui}" ] && /bin/chmod 0600 "${lighttpd_privpem_gui}"
 		fi
 		# add IPv4 as bind
 		if [ -n "${_ipaddr}" ]; then
 			cat <<-EOF >> ${lighttpd_conf}
 				server.bind = "${_ipaddr}"
 				server.port = "${_port}"
-				$(sslconfig)
+				$( sslconfig )
 			EOF
 			# add IPv6 as socket if available
 			if [ -n "${_ipv6addr}" ]; then
 				cat <<-EOF >> ${lighttpd_conf}
 					\$SERVER["socket"] == "[${_ipv6addr}]:${_port}" {
-					$(sslconfig)
+					$( sslconfig )
 					}
 				EOF
 			fi
@@ -344,7 +356,7 @@ EOF
 			cat <<-EOF >> ${lighttpd_conf}
 				server.bind = "[${_ipv6addr}]"
 				server.port = "${_port}"
-				$(sslconfig)
+				$( sslconfig )
 			EOF
 		fi
 	fi
