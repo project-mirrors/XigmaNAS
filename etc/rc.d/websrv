@@ -37,10 +37,12 @@ extra_commands="reload check mkconf"
 websrv_enable=${websrv_enable:-"NO"}
 websrv_conf=${websrv_conf:-"/var/etc/websrv.conf"}
 websrv_uploaddir_conf=${websrv_uploaddir_conf:-"/var/etc/websrv-uploaddir.conf"}
-websrv_certpem=${websrv_certpem:-"/var/etc/websrvcert.pem"}
-websrv_certpem_webgui=${websrv_certpem_webgui:-"YES"}
+websrv_certpem_gui=${websrv_certpem_gui:-"/var/etc/websrvcert.pem"}
+websrv_privpem_gui=${websrv_privpem_gui:-"/var/etc/websrvpriv.pem"}
+websrv_certpem=${websrv_certpem:-"${websrv_certpem_gui}"}
+websrv_privpem=${websrv_privpem:-"${websrv_privpem_gui}"}
 websrv_server_maxwriteidle=${websrv_server_maxwriteidle:-"360"}
-ARCH=`uname -p`
+ARCH=$( uname -p )
 if [ "$ARCH" = "amd64" ]; then
 	websrv_maxrequestsize=${websrv_maxrequestsize:-"16777216"}
 else
@@ -52,10 +54,24 @@ command_args="-f ${websrv_conf} -m /usr/local/lib/lighttpd"
 sig_reload="-INT"
 
 sslconfig() {
-	cat <<-SSLCONFIG
-		ssl.engine = "enable"
-		ssl.pemfile = "${websrv_certpem}"
-	SSLCONFIG
+	if [ "${websrv_certpem}" = "${websrv_certpem_gui}" ]; then
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${websrv_certpem_gui}"
+			ssl.privkey = "${websrv_privpem_gui}"
+		SSLCONFIG
+	elif [ "${websrv_privpem}" = "${websrv_privpem_gui}" ]; then
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${websrv_certpem}"
+		SSLCONFIG
+	else
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${websrv_certpem}"
+			ssl.privkey = "${websrv_privpem}"
+		SSLCONFIG
+	fi
 }
 
 websrv_mkconf()
@@ -64,12 +80,10 @@ websrv_mkconf()
 	local _runasuser _runasgroup
 
 	# Get configuration data
-	_protocol=`configxml_get "//websrv/protocol"`
-	_certificate=`configxml_get "//websrv/certificate"`
-	_privatekey=`configxml_get "//websrv/privatekey"`
-	_documentroot=`configxml_get "//websrv/documentroot"`
-	_uploaddir=`configxml_get "//websrv/uploaddir"`
-	_runasuser=`configxml_get "//websrv/runasuser"`
+	_protocol=$( configxml_get //websrv/protocol )
+	_documentroot=$( configxml_get //websrv/documentroot )
+	_uploaddir=$( configxml_get //websrv/uploaddir )
+	_runasuser=$( configxml_get //websrv/runasuser )
 	_runasgroup=""
 	if [ -n "$_runasuser" ]; then
 		_runasgroup="server.groupname = \"www\""
@@ -281,22 +295,21 @@ EOF
 		${configxml_file} | /usr/local/bin/xml unesc >> ${websrv_conf}
 	if [ "${_protocol}" = "https" ]; then
 		cat <<-EOF >> ${websrv_conf}
-			$(sslconfig)
+			$( sslconfig )
 		EOF
-		if checkyesno websrv_certpem_webgui; then
-			# create .pem file from webgui configuration
+		if [ "${websrv_certpem}" = "${websrv_certpem_gui}" ]; then
+#			create cert.pem file from websrv configuration
+			_certificate=$( configxml_get //websrv/certificate )
 			if [ -n "${_certificate}" ]; then
-				_tmpfile=/tmp/websrv$$.tmp
-				echo "${_certificate}" > ${_tmpfile}
-				/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' > ${websrv_certpem}
-				if [ -n "${_privatekey}" ]; then
-					echo "" >> ${websrv_certpem}
-					echo "${_privatekey}" > ${_tmpfile}
-					/usr/bin/uudecode -m -p -r ${_tmpfile} | /usr/bin/tr -d '\r' >> ${websrv_certpem}
-				fi
-				/bin/rm -f ${_tmpfile}
+				echo "${_certificate}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${websrv_certpem_gui}"
+				[ -e "${websrv_certpem_gui}" ] && /bin/chmod 0600 "${websrv_certpem_gui}"
 			fi
-			[ -e ${websrv_certpem} ] && /bin/chmod 0600 ${websrv_certpem}
+#			create priv.pem file from websrv configuration
+			_privatekey=$( configxml_get //websrv/privatekey )
+			if [ -n "${_privatekey}" ]; then
+				echo "${_privatekey}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${websrv_privpem_gui}"
+				[ -e "${websrv_privpem_gui}" ] && /bin/chmod 0600 "${websrv_privpem_gui}"
+			fi
 		fi
 	fi
 }
