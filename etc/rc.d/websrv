@@ -52,17 +52,18 @@ pidfile="/var/run/websrv.pid"
 command=/usr/local/sbin/lighttpd
 command_args="-f ${websrv_conf} -m /usr/local/lib/lighttpd"
 sig_reload="-INT"
-if [ "${websrv_certpem}" = "${websrv_certpem_gui}" -o "${websrv_privpem}" = "${websrv_privpem_gui}" ]; then
-	use_gui_pem=true
-else
-	use_gui_pem=false
-fi
+
 sslconfig() {
-	if checkyesno use_gui_pem; then
+	if [ "${websrv_certpem}" = "${websrv_certpem_gui}" ]; then
 		cat <<-SSLCONFIG
 			ssl.engine = "enable"
 			ssl.pemfile = "${websrv_certpem_gui}"
 			ssl.privkey = "${websrv_privpem_gui}"
+		SSLCONFIG
+	elif [ "${websrv_privpem}" = "${websrv_privpem_gui}" ]; then
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${websrv_certpem}"
 		SSLCONFIG
 	else
 		cat <<-SSLCONFIG
@@ -80,8 +81,6 @@ websrv_mkconf()
 
 	# Get configuration data
 	_protocol=$( configxml_get //websrv/protocol )
-	_certificate=$( configxml_get //websrv/certificate )
-	_privatekey=$( configxml_get //websrv/privatekey )
 	_documentroot=$( configxml_get //websrv/documentroot )
 	_uploaddir=$( configxml_get //websrv/uploaddir )
 	_runasuser=$( configxml_get //websrv/runasuser )
@@ -298,17 +297,19 @@ EOF
 		cat <<-EOF >> ${websrv_conf}
 			$( sslconfig )
 		EOF
-		if checkyesno use_gui_pem; then
+		if [ "${websrv_certpem}" = "${websrv_certpem_gui}" ]; then
 #			create cert.pem file from websrv configuration
+			_certificate=$( configxml_get //websrv/certificate )
 			if [ -n "${_certificate}" ]; then
 				echo "${_certificate}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${websrv_certpem_gui}"
 				[ -e "${websrv_certpem_gui}" ] && /bin/chmod 0600 "${websrv_certpem_gui}"
 			fi
 #			create priv.pem file from websrv configuration
+			_privatekey=$( configxml_get //websrv/privatekey )
 			if [ -n "${_privatekey}" ]; then
 				echo "${_privatekey}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${websrv_privpem_gui}"
+				[ -e "${websrv_privpem_gui}" ] && /bin/chmod 0600 "${websrv_privpem_gui}"
 			fi
-			[ -e "${websrv_privpem_gui}" ] && /bin/chmod 0600 "${websrv_privpem_gui}"
 		fi
 	fi
 }

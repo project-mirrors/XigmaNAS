@@ -64,17 +64,18 @@ chmod 1777 "${lighttpd_uploaddir}/ftmp"
 # FastCGI socket directory
 mkdir -p /var/tmp/fastcgi
 chmod 755 /var/tmp/fastcgi
-if [ "${lighttpd_certpem}" = "${lighttpd_certpem_gui}" -o "${lighttpd_privpem}" = "${lighttpd_privpem_gui}" ]; then
-	use_gui_pem=true
-else
-	use_gui_pem=false
-fi
+
 sslconfig() {
-	if checkyesno use_gui_pem; then
+	if [ "${lighttpd_certpem}" = "${lighttpd_certpem_gui}" ]; then
 		cat <<-SSLCONFIG
 			ssl.engine = "enable"
 			ssl.pemfile = "${lighttpd_certpem_gui}"
 			ssl.privkey = "${lighttpd_privpem_gui}"
+		SSLCONFIG
+	elif [ "${lighttpd_privpem}" = "${lighttpd_privpem_gui}" ]; then
+		cat <<-SSLCONFIG
+			ssl.engine = "enable"
+			ssl.pemfile = "${lighttpd_certpem}"
 		SSLCONFIG
 	else
 		cat <<-SSLCONFIG
@@ -322,19 +323,19 @@ EOF
 	fi
 	# configure webgui for HTTPS
 	if [ "${_protocol}" = "https" ]; then
-		if checkyesno use_gui_pem; then
+		if [ "${lighttpd_certpem}" = "${lighttpd_certpem_gui}" ]; then
+#			create cert.pem file from webgui configuration
 			_certificate=$( configxml_get //system/webgui/certificate )
-			# create cert.pem file from webgui configuration
 			if [ -n "${_certificate}" ]; then
 				echo "${_certificate}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${lighttpd_certpem_gui}"
+				[ -e "${lighttpd_certpem_gui}" ] && /bin/chmod 0600 "${lighttpd_certpem_gui}"
 			fi
-			[ -e "${lighttpd_certpem_gui}" ] && /bin/chmod 0600 "${lighttpd_certpem_gui}"
+#			create priv.pem file from webgui configuration
 			_privatekey=$( configxml_get //system/webgui/privatekey )
-			# create priv.pem file from webgui configuration
 			if [ -n "${_privatekey}" ]; then
 				echo "${_privatekey}" | /usr/bin/uudecode -m -r | /usr/bin/tr -d '\r' > "${lighttpd_privpem_gui}"
+				[ -e "${lighttpd_privpem_gui}" ] && /bin/chmod 0600 "${lighttpd_privpem_gui}"
 			fi
-			[ -e "${lighttpd_privpem_gui}" ] && /bin/chmod 0600 "${lighttpd_privpem_gui}"
 		fi
 		# add IPv4 as bind
 		if [ -n "${_ipaddr}" ]; then
