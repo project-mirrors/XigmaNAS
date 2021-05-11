@@ -192,7 +192,8 @@ update_sources() {
 			portsnap)
 				portsnap fetch update;;
 			git_clone)
-				rm -rf /usr/src; git clone -b ${XIGMANAS_GIT_BRANCH} ${XIGMANAS_GIT_SRCTREE} /usr/src;;
+				rm -rf /usr/src;
+				mkdir /usr/src; git clone -b ${XIGMANAS_GIT_BRANCH} ${XIGMANAS_GIT_SRCTREE} /usr/src;;
 			git_pull)
 				cd /usr/src; git pull;;
 			portupgrade)
