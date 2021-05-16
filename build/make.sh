@@ -1469,7 +1469,6 @@ create_full() {
 	echo 'hostuuid_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'hostuuid_name="/etc/hostid"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'hostuuid_type="hostuuid"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	echo 'if_atlantic_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'isboot_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	echo 'zfs_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 

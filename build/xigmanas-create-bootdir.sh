@@ -195,8 +195,6 @@ if [ 0 != $opt_a ]; then
 fi
 # iSCSI driver
   echo 'isboot_load="YES"' >> $MINIBSD_DIR/loader.conf
-# Aquantia AQtion (Atlantic) Network Driver
-  echo 'if_atlantic_load="YES"' >> $MINIBSD_DIR/loader.conf
 # preload kernel drivers
   echo 'zfs_load="YES"' >> $MINIBSD_DIR/loader.conf
 

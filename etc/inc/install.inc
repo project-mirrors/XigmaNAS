@@ -255,7 +255,6 @@ hostuuid_load="YES"
 hostuuid_name="/etc/hostid"
 hostuuid_type="hostuuid"
 isboot_load="YES"
-if_atlantic_load="YES"
 zfs_load="YES"
 
 EOD;
