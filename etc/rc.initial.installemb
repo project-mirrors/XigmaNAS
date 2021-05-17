@@ -43,9 +43,10 @@ $amenuitem['1'] = ['tag' => '1','item' => "Install 'Embedded' OS/GPT on HDD/SSD/
 $amenuitem['2'] = ['tag' => '2','item' => "Install 'Embedded' OS/EFI on HDD/SSD/CF/USB (Preferred)"];
 $amenuitem['3'] = ['tag' => '3','item' => "Install 'Embedded' OS/MBR on HDD/SSD/CF/USB (Legacy)"];
 $amenuitem['4'] = ['tag' => '4','item' => "Install 'Embedded' OS/GPT without SWAP/DATA (For Expert)"];
-$amenuitem['5'] = ['tag' => '5','item' => "Install 'Embedded' OS/MBR without SWAP/DATA (For Expert)"];
+$amenuitem['5'] = ['tag' => '5','item' => "Install 'Embedded' OS/EFI without SWAP/DATA (For Expert)"];
+$amenuitem['6'] = ['tag' => '6','item' => "Install 'Embedded' OS/MBR without SWAP/DATA (For Expert)"];
 
-$result = tui_display_menu("{$productname} Embedded Install Options Menu",'',68,11,5,$amenuitem,$installopt);
+$result = tui_display_menu("{$productname} Embedded Install Options Menu",'',68,12,5,$amenuitem,$installopt);
 if(0 != $result):
 	exit(0);
 endif;
@@ -64,5 +65,8 @@ if($installopt == 4):
 	require_once ('/etc/rc.initial.install1gpt');
 endif;
 if($installopt == 5):
+	require_once ('/etc/rc.initial.install1efi');
+endif;
+if($installopt == 6):
 	require_once ('/etc/rc.initial.install1');
 endif;
