@@ -707,7 +707,7 @@ create_image() {
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/lua/gfx-${XIGMANAS_PRODUCTNAME}.lua $XIGMANAS_TMPDIR/boot/lua
-		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/images
+		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/boot/images
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
@@ -859,7 +859,7 @@ create_iso () {
 		cp $XIGMANAS_SVNDIR/boot/boot1.efifat $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/lua/gfx-${XIGMANAS_PRODUCTNAME}.lua $XIGMANAS_TMPDIR/boot/lua
-		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/images
+		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/boot/images
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 #		cp $XIGMANAS_ROOTFS/boot/loader.efi $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/loader.efi $XIGMANAS_TMPDIR/boot
@@ -1086,7 +1086,7 @@ create_usb () {
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/lua/gfx-${XIGMANAS_PRODUCTNAME}.lua $XIGMANAS_TMPDIR/boot/lua
-		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/images
+		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/boot/images
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
@@ -1297,7 +1297,7 @@ create_usb_gpt() {
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/lua/gfx-${XIGMANAS_PRODUCTNAME}.lua $XIGMANAS_TMPDIR/boot/lua
-		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/images
+		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/boot/images
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
@@ -1428,7 +1428,7 @@ create_full() {
 	if [ 0 != $OPT_BOOTMENU ]; then
 		cp $XIGMANAS_SVNDIR/boot/lua/drawer.lua $XIGMANAS_TMPDIR/boot/lua
 		cp $XIGMANAS_SVNDIR/boot/lua/gfx-${XIGMANAS_PRODUCTNAME}.lua $XIGMANAS_TMPDIR/boot/lua
-		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/images
+		cp $XIGMANAS_SVNDIR/boot/images/xigmanas-brand-rev.png $XIGMANAS_TMPDIR/boot/images
 		cp $XIGMANAS_SVNDIR/boot/brand-${XIGMANAS_PRODUCTNAME}.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_SVNDIR/boot/menu.4th $XIGMANAS_TMPDIR/boot
 		cp $XIGMANAS_BOOTDIR/menu.rc $XIGMANAS_TMPDIR/boot
