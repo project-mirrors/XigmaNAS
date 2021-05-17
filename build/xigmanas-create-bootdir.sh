@@ -106,6 +106,7 @@ cp -v ${XIGMANAS_SVNDIR}/boot/loader.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_SVNDIR}/boot/loader_4th.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_SVNDIR}/boot/loader_lua.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_SVNDIR}/boot/loader_simp.efi $MINIBSD_DIR
+cp -v ${XIGMANAS_SVNDIR}/boot/images/xigmanas-brand-rev.png $MINIBSD_DIR/images
 
 # Copy files required by bootmenu
 if [ 0 != $opt_m ]; then
