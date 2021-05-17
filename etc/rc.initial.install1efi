@@ -1,7 +1,7 @@
 #!/usr/local/bin/php-cgi -f
 <?php
 /*
-	rc.initial.install2efi
+	rc.initial.install1efi
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -41,8 +41,6 @@ require_once 'tui.inc';
 //	default size of slice/partition 1 (used for OS)
 $part1size = sprintf('%sM',$g_install['part1size_embedded']);
 //	$part1min = sprintf('%sM',$g_install['part1min_embedded']);
-$swapsize = sprintf('%sM',$g_install['default_swap']);
-$swapsizemin = sprintf('%sM',$g_install['default_swap'] >> 1);
 
 //	default slice/partition layout
 $schemelayout =
@@ -90,32 +88,6 @@ $partlayout = [
 //		'allow_star' => false,
 		'friendly_name' => 'OS'
 	],
-	'swap' => [
-		'enabled' => true,
-		'partition' => 3,
-		'fstype' => 'freebsd-swap',
-		'volname' => 'gptswap',
-		'size' => $swapsize,
-		'align' => '1m',
-		'minimum' => $swapsizemin,
-//		'maximum' => '*',
-		'allow_edit' => true,
-//		'allow_star' => false,
-		'friendly_name' => 'SWAP'
-	],
-	'data' => [
-		'enabled' => true,
-		'partition' => 4,
-		'fstype' => 'freebsd-ufs',
-		'volname' => 'data',
-		'align' => '1m',
-		'size' => '',
-		'minimum' => '256m',
-//		'maximum' => '*',
-		'allow_edit' => true,
-		'allow_star' => true,
-		'friendly_name' => 'DATA'
-	]
 ];
 
 //	get product information
@@ -129,12 +101,11 @@ $text = <<<EOD
 - Create GPT partition 1, for non-EFI boot
 - Create GPT partition 42, for EFI-boot
 - Create GPT partition 2, using UFS, customizable size for OS image
-- Create GPT partition 3, SWAP partition, size is customizable
-- Create GPT partition 4, using UFS, for DATA
 - Uses a RAM disk to limit read/write access to the device
 
 WARNING: There will be some limitations:
 1. This will erase ALL partitions and data on the destination disk!
+2. You can't use your destination disk for sharing data.
 
 EOD;
 $result = tui_display_message_ex("{$productname} Embedded Installation",$text,74,15);
@@ -205,14 +176,6 @@ if(install_dd_image("{$harddrive}p2")):
 	exit(0);
 endif;
 
-/*
-if(add_default_swap("{$harddrive}p3")):
-	install_unmount_cd();
-	tui_wait_keypress('There was a problem while adding swap.');
-	exit(0);
-endif;
-*/
-
 install_unmount_cd();
 
 //	display final message
@@ -237,34 +200,5 @@ You can now safely remove the LiveCD/USB and reboot the server.
 
 EOD;
 endif;
-
-$text .= <<<EOD
-
-To use the DATA partition:
-- Add the disk {$harddrive} on the 'Disks|Management' page.
-- Add the mount point on the 'Disks|Mount Point|Management' page.
-  Use the following parameters:
-  Disk {$harddrive}, Partition 4, Partition type GPT, Filesystem UFS
-
-EOD;
-
-/*
-if(0 < $swapsize):
-	$text .= <<<EOD
-
-To use the SWAP partition:
-- Enable swap space usage on the 'System|Advanced|Swap' page.
-  Use the following parameters:
-  Type: Device, Device: /dev/{$harddrive}p3
-
-EOD;
-endif;
-*/
-
-$text .= <<<EOD
-
-DO NOT format the drive {$harddrive}! The DATA partition has already been
-formated as part of the installation!
-EOD;
 
 tui_wait_keypress($text);

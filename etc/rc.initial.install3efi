@@ -1,7 +1,7 @@
 #!/usr/local/bin/php-cgi -f
 <?php
 /*
-	rc.initial.install3gpt
+	rc.initial.install3efi
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
