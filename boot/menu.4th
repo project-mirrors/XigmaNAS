@@ -32,8 +32,7 @@
 \ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 \ SUCH DAMAGE.
 \ 
-\ $FreeBSD$ releng/13.0/stand/forth/menu.4th Jan 2, 2021 3630506
-\ 
+\ $FreeBSD$
 
 marker task-menu.4th
 
@@ -498,8 +497,7 @@ also menu-infrastructure definitions
 	if ( use default center alignement? )
 		menuX @ 19 + over 2 / - menuY @ 1-
 	then
-	swap 1- swap
-	at-xy space type space
+	at-xy type 
 
 	\ If $menu_init is set, evaluate it (allowing for whole menus to be
 	\ constructed dynamically -- as this function could conceivably set
