@@ -34,9 +34,6 @@
 
 require_once 'properties.php';
 
-use function gettext,
-	sprintf;
-
 class properties_system_advanced extends co_property_container {
 	protected $x_consoleautologin;
 	public function init_consoleautologin() {
