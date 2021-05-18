@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-05-05 21:46+0000\n"
+"POT-Creation-Date: 2021-05-19 01:29+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -4377,7 +4377,7 @@ msgstr ""
 msgid "Enable this option to make host serial ports available to clients."
 msgstr ""
 
-msgid "Enable this option to reduce the height of the page header to a minimum."
+msgid "Enable this option to reduce the height of the page header to a minimum for the duration of this session."
 msgstr ""
 
 msgid "Enable this option to update the CPU microcode on startup."
