@@ -681,8 +681,13 @@ create_image() {
 	echo "===> Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
 	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/images
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel
+	mkdir -p $XIGMANAS_TMPDIR/boot/lua
+	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
+	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
+
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
@@ -832,7 +837,12 @@ create_iso () {
 	echo "ISO: Copying Bootloader file(s) to $XIGMANAS_TMPDIR"
 	mkdir -p $XIGMANAS_TMPDIR/boot
 	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/images
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel
+	mkdir -p $XIGMANAS_TMPDIR/boot/lua
+	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
+	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
+
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
 	cp $XIGMANAS_ROOTFS/boot/efi.4th $XIGMANAS_TMPDIR/boot
 	cp $XIGMANAS_ROOTFS/boot/loader_4th $XIGMANAS_TMPDIR/boot
@@ -1060,8 +1070,13 @@ create_usb () {
 	echo "USB: Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
 	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/images
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel
+	mkdir -p $XIGMANAS_TMPDIR/boot/lua
+	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
+	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
+
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/entropy $XIGMANAS_TMPDIR/boot
@@ -1271,8 +1286,13 @@ create_usb_gpt() {
 	echo "USB: Copying Bootloader File(s) to memory disk"
 	mkdir -p $XIGMANAS_TMPDIR/boot
 	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/images
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel
+	mkdir -p $XIGMANAS_TMPDIR/boot/lua
+	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
+	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
 	mkdir -p $XIGMANAS_TMPDIR/conf
+
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/kernel/kernel.gz $XIGMANAS_TMPDIR/boot/kernel
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
@@ -1401,8 +1421,14 @@ create_full() {
 	echo "${XIGMANAS_PRODUCTNAME}-${PLATFORM}-${XIGMANAS_VERSION}.${XIGMANAS_REVISION}" > $XIGMANAS_TMPDIR/version
 
 	echo "Copying bootloader file(s) to root filesystem"
+	mkdir -p $XIGMANAS_TMPDIR/boot
 	mkdir -p $XIGMANAS_TMPDIR/boot/dtb/overlays
-	mkdir -p $XIGMANAS_TMPDIR/boot/kernel $XIGMANAS_TMPDIR/boot/lua $XIGMANAS_TMPDIR/boot/defaults $XIGMANAS_TMPDIR/boot/zfs
+	mkdir -p $XIGMANAS_TMPDIR/boot/images
+	mkdir -p $XIGMANAS_TMPDIR/boot/kernel
+	mkdir -p $XIGMANAS_TMPDIR/boot/lua
+	mkdir -p $XIGMANAS_TMPDIR/boot/defaults
+	mkdir -p $XIGMANAS_TMPDIR/boot/zfs
+
 #	mkdir $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_ROOTFS/conf.default/config.xml $XIGMANAS_TMPDIR/conf
 	cp $XIGMANAS_BOOTDIR/lua/*.lua $XIGMANAS_TMPDIR/boot/lua
