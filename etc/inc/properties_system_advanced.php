@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
  */
+
 require_once 'properties.php';
+
+use function gettext,
+	sprintf;
 
 class properties_system_advanced extends co_property_container {
 	protected $x_consoleautologin;
@@ -259,7 +263,7 @@ class properties_system_advanced extends co_property_container {
 		if(!empty($clocks)):
 			$a_tmp = preg_split("/\s/", $clocks);
 			foreach ($a_tmp as $val):
-				list($freq,$tmp) = preg_split("/\//", $val);
+				[$freq,$tmp] = preg_split("/\//", $val);
 				if(!empty($freq)):
 					$a_freq[] = $freq;
 				endif;
@@ -297,7 +301,7 @@ class properties_system_advanced extends co_property_container {
 			set_title(gettext('Shrink Page Header'));
 		$property->
 			set_id('shrinkpageheader')->
-			set_caption(gettext('Enable this option to reduce the height of the page header to a minimum.'))->
+			set_caption(gettext('Enable this option to reduce the height of the page header to a minimum for the duration of this session.'))->
 			set_description('')->
 			set_defaultvalue(false)->
 			filter_use_default()->
@@ -347,7 +351,7 @@ class properties_system_advanced extends co_property_container {
 		$property->
 			set_id('enableserialconsole')->
 			set_caption(gettext('Enable serial console.'))->
-			set_description(sprintf('<span class="red"><strong>%s</strong></span><br />%s',gettext('The COM port in BIOS has to be enabled before enabling this option.'), gettext('Changes to this option will take effect after a reboot.')))->
+			set_description(sprintf('<span class="red"><strong>%s</strong></span><br />%s',gettext('The COM port in BIOS has to be enabled before enabling this option.'),gettext('Changes to this option will take effect after a reboot.')))->
 			set_defaultvalue(false)->
 			filter_use_default()->
 			set_editableonadd(true)->
