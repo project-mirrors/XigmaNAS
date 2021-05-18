@@ -603,7 +603,7 @@ restore_chflags() {
 	# Restore chflag from previous zipped files.
 	cd ${ALTROOT}
 	for FILES in ${DIRNOSCHG}; do
-		zcat ${SYSBACKUP}/chflags.${ZROOT}.${FILES}.gz | mtree -q -P -U -p ${FILES}
+		zcat ${SYSBACKUP}/chflags.${ZROOT}.${FILES}.gz | mtree -q -P -U -p ${FILES} > /dev/null
 	done
 	if [ 0 != $? ]; then
 		error_exit "Error: Failed to restore chflags."
@@ -711,6 +711,9 @@ upgrade_init()
 
 	# Upgrade system files.
 	upgrade_sys_files
+
+	# Restore chflags.
+	restore_chflags
 
 	# Restore system configuration.
 	restore_sys_files
