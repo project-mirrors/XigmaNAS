@@ -36,6 +36,9 @@ require_once 'autoload.php';
 require_once 'config.inc';
 require_once 'array.inc';
 
+use common\arr;
+use common\lang;
+use common\uuid;
 use gui\document;
 
 /*
@@ -163,21 +166,21 @@ class HTMLBaseControl2 {
 		$suppressbr = true;
 		if(!empty($description)):
 //			string or array
-			if(\is_string($description)):
+			if(is_string($description)):
 				$description_output = $description;
-			elseif(\is_array($description)):
+			elseif(is_array($description)):
 				foreach($description as $description_row):
-					if(\is_string($description_row)):
+					if(is_string($description_row)):
 						if($suppressbr):
 							$description_output .= $description_row;
 							$suppressbr = false;
 						else:
 							$description_output .= ('<br />' . $description_row);
 						endif;
-					elseif(\is_array($description_row)):
-						switch(\count($description_row)):
+					elseif(is_array($description_row)):
+						switch(count($description_row)):
 							case 1:
-								if(\is_string($description_row[0])):
+								if(is_string($description_row[0])):
 									if($suppressbr):
 										$suppressbr = false;
 									else:
@@ -187,12 +190,12 @@ class HTMLBaseControl2 {
 								endif;
 								break;
 							case 2:
-								if(\is_string($description_row[0])):
+								if(is_string($description_row[0])):
 									$color = null;
-									if(\is_string($description_row[1])):
+									if(is_string($description_row[1])):
 										$color = $description_row[1];
 									endif;
-									if(\is_bool($description_row[1])):
+									if(is_bool($description_row[1])):
 										$suppressbr = $description_row[1];
 									endif;
 									if($suppressbr):
@@ -200,21 +203,21 @@ class HTMLBaseControl2 {
 									else:
 										$description_output .= '<br />';
 									endif;
-									if(\is_null($color)):
+									if(is_null($color)):
 										$description_output .= $description_row[0];
 									else:
-										$description_output .= \sprintf('<span style="color:%2$s">%1$s</span>',$description_row[0],$color);
+										$description_output .= sprintf('<span style="color:%2$s">%1$s</span>',$description_row[0],$color);
 									endif;
 								endif;
 								break;
 							case 3:
 //								allow not to break
-								if(\is_string($description_row[0])):
+								if(is_string($description_row[0])):
 									$color = null;
-									if(\is_string($description_row[1])):
+									if(is_string($description_row[1])):
 										$color = $description_row[1];
 									endif;
-									if(\is_bool($description_row[2])):
+									if(is_bool($description_row[2])):
 										$suppressbr = $description_row[2];
 									endif;
 									if($suppressbr):
@@ -222,10 +225,10 @@ class HTMLBaseControl2 {
 									else:
 										$description_output .= '<br />';
 									endif;
-									if(\is_null($color)):
+									if(is_null($color)):
 										$description_output .= $description_row[0];
 									else:
-										$description_output .= \sprintf('<span style="color:%2$s">%1$s</span>',$description_row[0],$color);
+										$description_output .= sprintf('<span style="color:%2$s">%1$s</span>',$description_row[0],$color);
 									endif;
 								endif;
 								break;
@@ -238,12 +241,12 @@ class HTMLBaseControl2 {
 	}
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
-		if(\is_null($anchor)):
+		if(is_null($anchor)):
 			$anchor = new document();
 		endif;
 		$description = $this->GetDescriptionOutput();
 //		compose
-		$attributes = ['id' => \sprintf('%s_tr',$this->GetCtrlName())];
+		$attributes = ['id' => sprintf('%s_tr',$this->GetCtrlName())];
 		$tr = $anchor->addTR($attributes);
 		$attributes = ['class' => $this->GetClassOfTag()];
 //		if($this->GetReadOnly()):
@@ -322,7 +325,7 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 			$attributes['readonly'] = 'readonly';
 		endif;
 		$tagval = $this->GetPlaceholder();
-		if(\preg_match('/\S/',$tagval)):
+		if(preg_match('/\S/',$tagval)):
 			$attributes['placeholder'] = $tagval;
 		endif;
 		$tagval = $this->GetMaxLength();
@@ -419,7 +422,7 @@ class HTMLPasswordConfBox2 extends HTMLEditBox2 {
 	function GetAttributesConfirm(array &$attributes = []) {
 		$attributes = $this->GetAttributes($attributes);
 		$tagval = $this->GetPlaceholderConfirm();
-		if(\preg_match('/\S/',$tagval)):
+		if(preg_match('/\S/',$tagval)):
 			$attributes['placeholder'] = $tagval;
 		endif;
 		return $attributes;
@@ -555,14 +558,14 @@ class HTMLFileChooser2 extends HTMLEditBox2 {
 		$this->GetAttributes($attributes);
 		$anchor->insINPUT($attributes);
 //		file chooser
-		$js = \sprintf('%1$sifield = form.%1$s;',$ctrlname)
+		$js = sprintf('%1$sifield = form.%1$s;',$ctrlname)
 			. 'filechooser = window.open("filechooser.php?p="+'
-			. \sprintf('encodeURIComponent(%sifield.value)+',$ctrlname)
-			. \sprintf('"&sd=%s",',$this->GetPath())
+			. sprintf('encodeURIComponent(%sifield.value)+',$ctrlname)
+			. sprintf('"&sd=%s",',$this->GetPath())
 			. '"filechooser",'
 			. '"scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300");'
-			. \sprintf('filechooser.ifield = %sifield;',$ctrlname)
-			. \sprintf('window.ifield = %sifield;',$ctrlname);
+			. sprintf('filechooser.ifield = %sifield;',$ctrlname)
+			. sprintf('window.ifield = %sifield;',$ctrlname);
 		$attributes = [
 			'type' => 'button',
 			'id' => $ctrlname . 'browsebtn',
@@ -626,7 +629,7 @@ class HTMLIPv4AddressBox2 extends HTMLIPAddressBox2 {
 		$anchor->appendChild($slash);
 		$attributes = ['id' => $ctrlnamenetmask,'name' => $ctrlnamenetmask,'class' => 'formfld'];
 		$o_select = $anchor->addElement('select',$attributes);
-		foreach(\range(1,32) as $netmask):
+		foreach(range(1,32) as $netmask):
 			$attributes = ['value' => $netmask];
 			if($netmask == $valuenetmask):
 				$attributes['selected'] = 'selected';
@@ -801,7 +804,7 @@ class HTMLMultiSelectControl2 extends HTMLSelectControl2 {
 		$options = $this->GetOptions();
 		$attributes = [
 			'id' => $ctrlname,
-			'name' => \sprintf('%s[]',$ctrlname),
+			'name' => sprintf('%s[]',$ctrlname),
 			'class' => $this->GetCtrlClass(),
 			'multiple' => 'multiple',
 			'size' => $this->GetSize()
@@ -810,7 +813,7 @@ class HTMLMultiSelectControl2 extends HTMLSelectControl2 {
 		$select = $anchor->addElement('select',$attributes);
 		foreach($options as $option_tag => $option_val):
 			$attributes = ['value' => $option_tag];
-			if(\is_array($value) && \in_array($option_tag,$value)):
+			if(is_array($value) && in_array($option_tag,$value)):
 				$attributes['selected'] = 'selected';
 			endif;
 			$select->addElement('option',$attributes,$option_val);
@@ -840,7 +843,7 @@ class HTMLRadioBox2 extends HTMLComboBox2 {
 		foreach($options as $option_tag => $option_val):
 //			create a unique identifier for each row.
 //			use label tag for text column to allow enabling the radio button by clicking on the text
-			$uuid = \sprintf('radio_%s',\uuid());
+			$uuid = sprintf('radio_%s',uuid::create_v4());
 			$tr = $tbody->addTR();
 			$tdl = $tr->addTDwC('lcelc');
 			$attributes = [
@@ -864,10 +867,10 @@ class HTMLMountComboBox2 extends HTMLComboBox2 {
 		global $config;
 
 //		generate options.
-		$a_mounts = &\array_make_branch($config,'mounts','mount');
-		\array_sort_key($a_mounts,'devicespecialfile');
+		$a_mounts = &arr::make_branch($config,'mounts','mount');
+		arr::sort_key($a_mounts,'devicespecialfile');
 		$options = [];
-		$options[''] = \gettext('Must choose one');
+		$options[''] = gettext('Must choose one');
 		foreach($a_mounts as $r_mount):
 			$options[$r_mount['uuid']] = $r_mount['sharename'];
 		endforeach;
@@ -878,17 +881,17 @@ class HTMLTimeZoneComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
 //		get time zone data.
 		function is_timezone($elt) {
-			return !\preg_match("/\/$/",$elt);
+			return !preg_match("/\/$/",$elt);
 		}
-		\exec('/usr/bin/tar -tf /usr/share/zoneinfo.txz',$timezonelist);
-		$timezonelist = \array_filter($timezonelist,'is_timezone');
-		\sort($timezonelist);
+		exec('/usr/bin/tar -tf /usr/share/zoneinfo.txz',$timezonelist);
+		$timezonelist = array_filter($timezonelist,'is_timezone');
+		sort($timezonelist);
 //		generate options.
 		$options = [];
 		foreach($timezonelist as $tzv):
 			if(!empty($tzv)):
 //				Remove leading './'
-				$tzv = \substr($tzv,2);
+				$tzv = substr($tzv,2);
 				$options[$tzv] = $tzv;
 			endif;
 		endforeach;
@@ -897,17 +900,7 @@ class HTMLTimeZoneComboBox2 extends HTMLComboBox2 {
 }
 class HTMLLanguageComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
-		global $g_languages;
-
-//		generate options.
-		$options = [];
-		foreach($g_languages as $key => $val):
-			if('auto' == $key):
-				$options[$key] = \gettext('Autodetect');
-			else:
-				$options[$key] = \locale_get_display_name($key,$key);
-			endif;
-		endforeach;
+		$options = lang::get_options();
 		parent::__construct($ctrlname,$title,$value,$options,$description);
 	}
 }
@@ -947,16 +940,16 @@ class HTMLCheckboxBox2 extends HTMLListBox2 {
 		foreach($options as $option_tag => $option_val):
 //			create a unique identifier for each row.
 //			use label tag for text column to allow toggling the checkbox button by clicking on the text
-			$uuid = \sprintf('checkbox_%s',\uuid());
+			$uuid = sprintf('checkbox_%s',uuid::create_v4());
 			$tr = $tbody->addTR();
 			$tdl = $tr->addTDwC('lcelc');
 			$attributes = [
-				'name' => \sprintf('%s[]',$ctrlname),
+				'name' => sprintf('%s[]',$ctrlname),
 				'value' => $option_tag,
 				'type' => 'checkbox',
 				'id' => $uuid
 			];
-			if(\is_array($value) && \in_array($option_tag,$value)):
+			if(is_array($value) && in_array($option_tag,$value)):
 				$attributes['checked'] = 'checked';
 			endif;
 			$tdl->insINPUT($attributes);
@@ -990,14 +983,14 @@ class HTMLSeparator2 extends HTMLBaseControl2 {
 	}
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
-		if(\is_null($anchor)):
+		if(is_null($anchor)):
 			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
 //		compose
 		$attributes = [];
-		if(\preg_match('/\S/',$ctrlname)):
+		if(preg_match('/\S/',$ctrlname)):
 			$attributes['id'] = $ctrlname;
 		endif;
 		$o_tr = $anchor->addTR($attributes);
@@ -1028,14 +1021,14 @@ class HTMLTitleLine2 extends HTMLBaseControl2 {
 	}
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
-		if(\is_null($anchor)):
+		if(is_null($anchor)):
 			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
 //		compose
 		$attributes = [];
-		if(\preg_match('/\S/',$ctrlname)):
+		if(preg_match('/\S/',$ctrlname)):
 			$attributes['id'] = $ctrlname;
 		endif;
 		$tr = $anchor->addTR($attributes);
@@ -1070,13 +1063,13 @@ class HTMLTitleLineCheckBox2 extends HTMLCheckBox2 {
 	}
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
-		if(\is_null($anchor)):
+		if(is_null($anchor)):
 			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
 //		compose
-		$attributes = ['id' => \sprintf('%s_tr',$ctrlname)];
+		$attributes = ['id' => sprintf('%s_tr',$ctrlname)];
 		$tr = $anchor->addTR($attributes);
 		$attributes = ['class' => $this->GetClassOfTopic(),'colspan' => $this->GetColSpan()];
 		$th = $tr->addTH($attributes);
@@ -1116,13 +1109,13 @@ class HTMLTextInfo2 extends HTMLBaseControl2 {
 	}
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
-		if(\is_null($anchor)):
+		if(is_null($anchor)):
 			$anchor = new document();
 		endif;
 //		helping variables
 		$ctrlname = $this->GetCtrlName();
 //		compose
-		$attributes = ['id' => \sprintf('%s_tr',$ctrlname)];
+		$attributes = ['id' => sprintf('%s_tr',$ctrlname)];
 		$tr = $anchor->addTR($attributes);
 		$attributes = ['class' => $this->GetClassOfTag()];
 		$tdtag = $tr->addTD($attributes,$this->GetTitle());
@@ -1141,7 +1134,7 @@ class HTMLRemark2 extends HTMLBaseControl2 {
 	}
 	function Compose(DOMNode &$anchor = null) {
 //		create root DOM if anchor not provided
-		if(\is_null($anchor)):
+		if(is_null($anchor)):
 			$anchor = new document();
 		endif;
 //		helping variables
@@ -1175,14 +1168,14 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$value = $this->GetValue();
 //		control code for folders
 		$t = [];
-		$t[] = \sprintf('function onchange_%s() {',$ctrlname);
-		$t[] = "\t" . \sprintf('document.getElementById("%s").value = document.getElementById("%s").value;',$ctrlnamedata,$ctrlname);
+		$t[] = sprintf('function onchange_%s() {',$ctrlname);
+		$t[] = "\t" . sprintf('document.getElementById("%s").value = document.getElementById("%s").value;',$ctrlnamedata,$ctrlname);
 		$t[] = '}';
-		$t[] = \sprintf('function onclick_add_%s() {',$ctrlname);
-		$t[] = "\t" . \sprintf('var value = document.getElementById("%s").value;',$ctrlnamedata);
+		$t[] = sprintf('function onclick_add_%s() {',$ctrlname);
+		$t[] = "\t" . sprintf('var value = document.getElementById("%s").value;',$ctrlnamedata);
 		$t[] = "\t" . 'if (value != "") {';
 		$t[] = "\t\t" . 'var found = false;';
-		$t[] = "\t\t" . \sprintf('var element = document.getElementById("%s");',$ctrlname);
+		$t[] = "\t\t" . sprintf('var element = document.getElementById("%s");',$ctrlname);
 		$t[] = "\t\t" . 'for (var i = 0; i < element.length; i++) {';
 		$t[] = "\t\t\t" . 'if (element.options[i].text == value) {';
 		$t[] = "\t\t\t\t" . 'found = true;';
@@ -1191,32 +1184,32 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 		$t[] = "\t\t" . '}';
 		$t[] = "\t\t" . 'if (found != true) {';
 		$t[] = "\t\t\t" . 'element.options[element.length] = new Option(value, value, false, true);';
-		$t[] = "\t\t\t" . \sprintf('document.getElementById("%s").value = "";',$ctrlnamedata);
+		$t[] = "\t\t\t" . sprintf('document.getElementById("%s").value = "";',$ctrlnamedata);
 		$t[] = "\t\t" . '}';
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$t[] = \sprintf('function onclick_delete_%s() {',$ctrlname);
-		$t[] = "\t" . \sprintf('var element = document.getElementById("%s");',$ctrlname);
+		$t[] = sprintf('function onclick_delete_%s() {',$ctrlname);
+		$t[] = "\t" . sprintf('var element = document.getElementById("%s");',$ctrlname);
 		$t[] = "\t" . 'if (element.value != "") {';
-		$t[] = "\t\t" . \sprintf('var msg = confirm(%s);',\unicode_escape_javascript(\gettext('Do you really want to remove the selected item from the list?')));
+		$t[] = "\t\t" . sprintf('var msg = confirm(%s);',unicode_escape_javascript(gettext('Do you really want to remove the selected item from the list?')));
 		$t[] = "\t\t" . 'if (msg == true) {';
 		$t[] = "\t\t\t" . 'element.options[element.selectedIndex] = null;';
-		$t[] = "\t\t\t" . \sprintf('document.getElementById("%s").value = "";',$ctrlnamedata);
+		$t[] = "\t\t\t" . sprintf('document.getElementById("%s").value = "";',$ctrlnamedata);
 		$t[] = "\t\t" . '}';
 		$t[] = "\t" . '} else {';
-		$t[] = "\t\t" . \sprintf('alert(%s);',\unicode_escape_javascript(\gettext('Select item to remove from the list')));
+		$t[] = "\t\t" . sprintf('alert(%s);',unicode_escape_javascript(gettext('Select item to remove from the list')));
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$t[] = \sprintf('function onclick_change_%s() {',$ctrlname);
-		$t[] = "\t" . \sprintf('var element = document.getElementById("%s");',$ctrlname);
+		$t[] = sprintf('function onclick_change_%s() {',$ctrlname);
+		$t[] = "\t" . sprintf('var element = document.getElementById("%s");',$ctrlname);
 		$t[] = "\t" . 'if (element.value != "") {';
-		$t[] = "\t\t" . \sprintf('var value = document.getElementById("%s").value;',$ctrlnamedata);
+		$t[] = "\t\t" . sprintf('var value = document.getElementById("%s").value;',$ctrlnamedata);
 		$t[] = "\t\t" . 'element.options[element.selectedIndex].text = value;';
 		$t[] = "\t\t" . 'element.options[element.selectedIndex].value = value;';
 		$t[] = "\t" . '}';
 		$t[] = '}';
-		$t[] = \sprintf('function onsubmit_%s() {',$ctrlname);
-		$t[] = "\t" . \sprintf('var element = document.getElementById("%s");',$ctrlname);
+		$t[] = sprintf('function onsubmit_%s() {',$ctrlname);
+		$t[] = "\t" . sprintf('var element = document.getElementById("%s");',$ctrlname);
 		$t[] = "\t" . 'for (var i = 0; i < element.length; i++) {';
 		$t[] = "\t\t" . 'if (element.options[i].value != "")';
 		$t[] = "\t\t\t" . 'element.options[i].selected = true;';
@@ -1228,12 +1221,12 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 //		selected folder
 		$attributes = [
 			'id' => $ctrlname,
-			'name' => \sprintf('%s[]',$ctrlname),
+			'name' => sprintf('%s[]',$ctrlname),
 			'class' => 'formfld',
 			'multiple' => 'multiple',
 			'size' => '4',
 			'style' => 'width:350px',
-			'onchange' => \sprintf('onchange_%s()',$ctrlname)
+			'onchange' => sprintf('onchange_%s()',$ctrlname)
 		];
 		$select = $div1->addElement('select',$attributes);
 		foreach ($value as $value_key => $value_val):
@@ -1243,11 +1236,11 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 //		delete button
 		$attributes = [
 			'type' => 'button',
-			'id' => \sprintf('%sdeletebtn',$ctrlname),
-			'name' => \sprintf('%sdeletebtn',$ctrlname),
+			'id' => sprintf('%sdeletebtn',$ctrlname),
+			'name' => sprintf('%sdeletebtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => \gettext('Delete'),
-			'onclick' => \sprintf('onclick_delete_%s()',$ctrlname)
+			'value' => gettext('Delete'),
+			'onclick' => sprintf('onclick_delete_%s()',$ctrlname)
 		];
 		$div1->insINPUT($attributes);
 //		section 2: choose, add + change
@@ -1255,26 +1248,26 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 //		path input field
 		$attributes = [
 			'type' => 'text',
-			'id' => \sprintf('%sdata',$ctrlname),
-			'name' => \sprintf('%sdata',$ctrlname),
+			'id' => sprintf('%sdata',$ctrlname),
+			'name' => sprintf('%sdata',$ctrlname),
 			'class' => 'formfld',
 			'value' => '',
 			'size' => 60
 		];
 		$div2->insINPUT($attributes);
 //		choose button
-		$js = \sprintf('ifield = form.%s;',$ctrlnamedata)
+		$js = sprintf('ifield = form.%s;',$ctrlnamedata)
 			. ' filechooser = window.open("filechooser.php'
 			. '?p="+encodeURIComponent(ifield.value)+"'
-			. \sprintf('&sd=%s",',$this->GetPath())
+			. sprintf('&sd=%s",',$this->GetPath())
 			. ' "filechooser",'
 			. ' "scrollbars=yes,toolbar=no,menubar=no,statusbar=no,width=550,height=300");'
 			. ' filechooser.ifield = ifield;'
 			. ' window.ifield = ifield;';
 		$attributes = [
 			'type' => 'button',
-			'id' => \sprintf('%sbrowsebtn',$ctrlname),
-			'name' => \sprintf('%sbrowsebtn',$ctrlname),
+			'id' => sprintf('%sbrowsebtn',$ctrlname),
+			'name' => sprintf('%sbrowsebtn',$ctrlname),
 			'class' => 'formbtn',
 			'value' => '...',
 			'onclick' => $js
@@ -1283,21 +1276,21 @@ class HTMLFolderBox2 extends HTMLBaseControl2 {
 //		add button
 		$attributes = [
 			'type' => 'button',
-			'id' => \sprintf('%saddbtn',$ctrlname),
-			'name' => \sprintf('%saddbtn',$ctrlname),
+			'id' => sprintf('%saddbtn',$ctrlname),
+			'name' => sprintf('%saddbtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => \gettext('Add'),
-			'onclick' => \sprintf('onclick_add_%s()',$ctrlname)
+			'value' => gettext('Add'),
+			'onclick' => sprintf('onclick_add_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
 //		change button
 		$attributes = [
 			'type' => 'button',
-			'id' => \sprintf('%schangebtn',$ctrlname),
-			'name' => \sprintf('%schangebtn',$ctrlname),
+			'id' => sprintf('%schangebtn',$ctrlname),
+			'name' => sprintf('%schangebtn',$ctrlname),
 			'class' => 'formbtn',
-			'value' => \gettext('Change'),
-			'onclick' => \sprintf('onclick_change_%s()',$ctrlname)
+			'value' => gettext('Change'),
+			'onclick' => sprintf('onclick_change_%s()',$ctrlname)
 		];
 		$div2->insINPUT($attributes);
 	}
