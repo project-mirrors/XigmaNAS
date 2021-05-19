@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-05 21:46+0000\n"
-"PO-Revision-Date: 2021-04-19 14:06+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"PO-Revision-Date: 2021-05-16 08:38+0000\n"
+"Last-Translator: Winfried Hyronimus <winfried.hyronimus@googlemail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-09 13:04+0000\n"
-"X-Generator: Launchpad (build dccd804998035922efb3da0a725ecc923e2255f3)\n"
+"X-Launchpad-Export-Date: 2021-05-19 18:12+0000\n"
+"X-Generator: Launchpad (build 716e08a550b901207b3abbeb098dd682f9ecb267)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -336,8 +336,8 @@ msgid ""
 "A Portal Group is identified by a tag number and defines IP addresses and "
 "listening TCP ports."
 msgstr ""
-"Eine Portalgruppe wird durch eine Tag Nummer identifiziert und definiert IP-"
-"Adressen und lauschende TCP Ports."
+"Eine Portalgruppe wird durch eine Tag-Nummer identifiziert, und definiert IP-"
+"Adressen und zugewiesene TCP-Ports."
 
 #, php-format
 msgid "A VLAN with the tag %s is already defined on this interface."
@@ -656,7 +656,7 @@ msgid "Add RAID"
 msgstr "RAID Hinzufügen"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Neustart Zeitplan hinzufügen"
 
 msgid "Add Record"
 msgstr "Dataset hinzufügen"
@@ -677,7 +677,7 @@ msgid "Add Samba Share"
 msgstr "Samba Share Hinzufügen"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Zeitplan hinzufügen"
 
 msgid "Add Share"
 msgstr "Share Hinzufügen"
@@ -722,7 +722,7 @@ msgid "Add a virtual device to a pool"
 msgstr "Ein virtuelles gerät zu einem pool hinzufügen"
 
 msgid "Add additional scheduled self-test."
-msgstr "Zusätzliche planmäßige selbsttests hinzufügen."
+msgstr "Zusätzliche planmäßige Selbsttests hinzufügen."
 
 msgid "Add any supplemental parameters."
 msgstr "Ergänzende parameter hinzufügen"
@@ -862,8 +862,8 @@ msgid ""
 "After you click \"Save\" you must reboot the server to make the changes take "
 "effect."
 msgstr ""
-"Nach dem sie 'Abspeichern' oder 'Save' angeklickt haben, müssen Sie "
-"neustarten, damit die Änderungen effektiv werden."
+"Nach dem Abspeichern der Konfiguration wird ein Neustart benötigt, um die "
+"Änderungen zu übernehmen."
 
 msgid "Aggregation Protocol"
 msgstr "Aggregation Protokol"
@@ -1459,7 +1459,7 @@ msgid "Backup"
 msgstr "Sicherung"
 
 msgid "Backup Configuration"
-msgstr "Sicherungskonfiguration"
+msgstr "Konfiguration sichern"
 
 msgid "Backup File"
 msgstr "Sicherungsdatei"
@@ -1650,7 +1650,7 @@ msgid "Bridge"
 msgstr "Netzwerkbrücke"
 
 msgid "Bridge Settings"
-msgstr "Bridge Einstellung"
+msgstr "Bridge-Einstellungen"
 
 msgid ""
 "Bridge cannot be deleted because it is still being used as an interface."
@@ -1665,7 +1665,7 @@ msgid "Bridge is protected"
 msgstr "Die Brücke ist geschützt."
 
 msgid "Bridge is unlocked"
-msgstr "Die Brücke ist entsperrt"
+msgstr "Brücke ist entsperrt"
 
 msgid "Bring a device online"
 msgstr "Ein Gerät online schalten"
@@ -2281,7 +2281,7 @@ msgid "Controller Name"
 msgstr "Controller Name"
 
 msgid "Controller TCP Port"
-msgstr "Kontroller TCP Port"
+msgstr "TCP-Port des Controllers"
 
 msgid ""
 "Controls how the set of illegal NTFS ASCII character are stored in the "
@@ -2574,7 +2574,7 @@ msgid "Create Permission"
 msgstr "Berechtigung zuweisen"
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "Snapshot erstellen"
 
 msgid "Create Work Directory"
 msgstr "Arbeitsverzeichnis anlegen"
@@ -2711,7 +2711,7 @@ msgid "Custom Script"
 msgstr "benutzereigenes Skript"
 
 msgid "Custom Setting"
-msgstr ""
+msgstr "Benutzerdefinierte Einstellung"
 
 msgid "Custom device"
 msgstr "Eigenes Gerät"
@@ -2799,7 +2799,7 @@ msgid "DNS Rebind Protection"
 msgstr "DNS-Rebind-Schutz"
 
 msgid "DNS server is empty."
-msgstr "Der Eintrag für den DNS Server ist leer."
+msgstr "Der Eintrag für den DNS-Server ist leer."
 
 msgid "DOS Charset"
 msgstr "DOS Zeichensatz"
@@ -2834,7 +2834,7 @@ msgid "Daemon log"
 msgstr "Dienstprotokoll"
 
 msgid "Daily"
-msgstr ""
+msgstr "Täglich"
 
 msgid "Data"
 msgstr "Daten"
@@ -2888,7 +2888,7 @@ msgid "Day"
 msgstr "Tag"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "Tag(e)"
 
 msgid "Days"
 msgstr "Tage"
@@ -3011,7 +3011,7 @@ msgid "Delete Selected Auth Groups"
 msgstr "Lösche ausgewählte Authentifizierungsgruppen"
 
 msgid "Delete Selected Bridges"
-msgstr "Ausgewählte Bridge Konfigurationen löschen"
+msgstr "Ausgewählte Bridge-Konfigurationen löschen"
 
 msgid "Delete Selected CARPs"
 msgstr "Ausgewählte CARP Konfigurationen löschen"
@@ -3095,7 +3095,7 @@ msgid "Delete Selected RAID Volumes"
 msgstr "Ausgewählte RAID Volumen löschen"
 
 msgid "Delete Selected Reboot Schedules"
-msgstr ""
+msgstr "Ausgewählte Neustart Zeitpläne löschen"
 
 msgid "Delete Selected Records"
 msgstr "Ausgewählte Datensätze löschen"
@@ -3116,7 +3116,7 @@ msgid "Delete Selected Samba Shares"
 msgstr "Ausgewählte Samba Freigaben löschen"
 
 msgid "Delete Selected Schedules"
-msgstr ""
+msgstr "Ausgewählte Zeitpläne löschen"
 
 msgid "Delete Selected Shares"
 msgstr "Ausgewählte Freigaben löschen"
@@ -3251,7 +3251,9 @@ msgid "Destination email address."
 msgstr "E-Mail Adresse des Empfängers."
 
 msgid "Destination email address. Separate email addresses by semi-colon."
-msgstr "Ziel-E-Mail-Adresse. Trennen Sie mehrere Adressen durch Semikolons."
+msgstr ""
+"E-Mail-Adresse des Empfängers. Mehrere Adressen können durch Semikola "
+"getrennt angegeben werden."
 
 msgid "Destination host name or IP address."
 msgstr "Host Name oder IP-Adresse des Ziel-Hosts."
@@ -3263,10 +3265,10 @@ msgid "Destination port"
 msgstr "Ziel-Port"
 
 msgid "Destroy"
-msgstr ""
+msgstr "Zerstören"
 
 msgid "Destroy Snapshot"
-msgstr ""
+msgstr "Snapshot zerstören"
 
 msgid "Destroy a pool"
 msgstr "Einen Pool auflösen"
@@ -3491,7 +3493,7 @@ msgid "Disable Selected Public Keys"
 msgstr "Ausgewählte öffentliche Schlüssel abschalten"
 
 msgid "Disable Selected Reboot Schedules"
-msgstr ""
+msgstr "Ausgewählte Neustart Zeitpläne deaktivieren"
 
 msgid "Disable Selected Records"
 msgstr "Ausgewählte Datensätze deaktivieren"
@@ -3509,7 +3511,7 @@ msgid "Disable Selected Samba Shares"
 msgstr "Ausgewählte Samba-Freigaben deaktivieren"
 
 msgid "Disable Selected Schedules"
-msgstr ""
+msgstr "Ausgewählte Zeitpläne deaktivieren"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Ausgewählte Sysctl Einstellungen deaktivieren"
@@ -3919,7 +3921,7 @@ msgid "Do you want to delete selected public keys?"
 msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel löschen?"
 
 msgid "Do you want to delete selected reboot schedules?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Neustart Zeitpläne löschen?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Möchten Sie die gewählten Einträge löschen?"
@@ -3937,7 +3939,7 @@ msgid "Do you want to delete selected rsync modules?"
 msgstr "Möchten Sie die gewählten rsync Module löschen?"
 
 msgid "Do you want to delete selected schedules?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Zeitpläne deaktivieren?"
 
 msgid "Do you want to delete selected shares?"
 msgstr "Möchten Sie ausgewählte Freigaben löschen?"
@@ -4037,7 +4039,7 @@ msgid "Do you want to disable selected public keys?"
 msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel abschalten?"
 
 msgid "Do you want to disable selected reboot schedules?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Neustart Zeitpläne deaktivieren?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Möchten Sie die ausgewählten Portalgruppen deaktivieren?"
@@ -4052,7 +4054,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Möchten Sie die ausgewählten RSYNC-Module deaktivieren?"
 
 msgid "Do you want to disable selected schedules?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Zeitpläne deaktivieren?"
 
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Möchten Sie die ausgewählten Sysctl Einstellungen deaktivieren?"
@@ -4136,7 +4138,7 @@ msgid "Do you want to enable selected public keys?"
 msgstr "Möchten Sie die ausgewählten öffentlichen Schlüssel einschalten?"
 
 msgid "Do you want to enable selected reboot schedules?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Neustart Zeitpläne aktivieren?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Möchten Sie die gewählten Einträge aktivieren?"
@@ -4151,7 +4153,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Möchten Sie die ausgewählten RSYNC-Module aktivieren?"
 
 msgid "Do you want to enable selected schedules?"
-msgstr ""
+msgstr "Möchten Sie die ausgewählten Zeitpläne aktivieren?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Möchten Sie die ausgewählten Sysctl Einstellungen aktivieren?"
@@ -4323,7 +4325,7 @@ msgid "Download Bandwidth"
 msgstr "Download-Bandbreite"
 
 msgid "Download Configuration"
-msgstr "Sichern der Konfigurationsdatei"
+msgstr "Konfigurationsdatei sichern"
 
 msgid "Download Folder"
 msgstr "Download-Ordner"
@@ -4486,7 +4488,7 @@ msgid "Edit RAID"
 msgstr "RAID bearbeiten"
 
 msgid "Edit Reboot Schedule"
-msgstr ""
+msgstr "Neustart Zeitplan bearbeiten"
 
 msgid "Edit Record"
 msgstr "Eintrag bearbeiten"
@@ -4507,7 +4509,7 @@ msgid "Edit Samba Share"
 msgstr "Samba Freigabe bearbeiten"
 
 msgid "Edit Schedule"
-msgstr ""
+msgstr "Zeitplan bearbeiten"
 
 msgid "Edit Share"
 msgstr "Freigabe bearbeiten"
@@ -4723,7 +4725,7 @@ msgid "Enable Selected Public Keys"
 msgstr "Aktiviert die ausgewählten öffentlichen Schlüssel"
 
 msgid "Enable Selected Reboot Schedules"
-msgstr ""
+msgstr "Ausgewählte Neustart Zeitpläne aktivieren"
 
 msgid "Enable Selected Records"
 msgstr "Ausgewählten Einträge aktivieren"
@@ -4741,7 +4743,7 @@ msgid "Enable Selected Samba Shares"
 msgstr "Ausgewählte Samba-Freigaben aktivieren"
 
 msgid "Enable Selected Schedules"
-msgstr ""
+msgstr "Ausgewählte Zeitpläne aktivieren"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Ausgewählte Sysctl Einstellungen aktivieren"
@@ -4996,10 +4998,9 @@ msgstr ""
 "Clienten verfügbar zu machen."
 
 msgid ""
-"Enable this option to reduce the height of the page header to a minimum."
+"Enable this option to reduce the height of the page header to a minimum for "
+"the duration of this session."
 msgstr ""
-"Aktivieren Sie diese Option, um die Höhe der Kopfzeile auf ein Minimum zu "
-"reduzieren."
 
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr "Mikrocode des Prozessors beim Systemstart aktualisieren."
@@ -5040,8 +5041,8 @@ msgstr ""
 msgid ""
 "Enabling this option may expose your system to additional security risk!"
 msgstr ""
-"Das Erlauben dieser Einstellung kann Ihr System einem zusätzlichen "
-"Sicherheitsrisiko aussetzten."
+"Das Aktivieren dieser Einstellung kann ihr System zusätzlichen "
+"Sicherheitsrisiken aussetzen."
 
 msgid "Encrypt password"
 msgstr "Passwort verschlüsseln"
@@ -5075,7 +5076,7 @@ msgid "Encryption Management"
 msgstr "Konfiguration der Verschlüsselungsparameter"
 
 msgid "Encryption Password"
-msgstr "Verschlüsselungspasswort"
+msgstr "Passwort für die Verschlüsselung"
 
 msgid "Encryption Settings"
 msgstr "Verschlüsselungseinstellungen"
@@ -5256,14 +5257,15 @@ msgstr "Gebens Sie bitte das Passwort des Hauptbenutzerzuganges ein."
 
 msgid ""
 "Enter the path of the home directory for databases and configuration files."
-msgstr "Eingabe Hauptverzeichnis fuer Datenbanken und Konfigurationsdateien"
+msgstr ""
+"Geben Sie das Basisverzeichnis für Datenbanken und Konfigurationsdateien an."
 
 msgid ""
 "Enter the path to the database directory. The config files will be created "
 "under the specified directory."
 msgstr ""
-"Bitte den Pfrad zum Datenbankverzeichnis eingeben. Die Konfigurationsdateien "
-"werden in einem spezifischen Unterordner angelegt."
+"Bitte geben Sie den Pfad des Datenbankverzeichnisses ein. Die "
+"Konfigurationsdateien werden im angegebenen Verzeichnis angelegt."
 
 msgid ""
 "Enter the path to the home directory of VirtualBox. VM config and HDD image "
@@ -6179,10 +6181,10 @@ msgid "Hour"
 msgstr "Stunde"
 
 msgid "Hour(s)"
-msgstr ""
+msgstr "Stunde(n)"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Stündlich"
 
 msgid "Hours"
 msgstr "Stunden"
@@ -6261,7 +6263,7 @@ msgid "IPv4 Address"
 msgstr "IPv4-Adresse"
 
 msgid "IPv4 DNS Servers"
-msgstr "IPv4 DNS Server"
+msgstr "IPv4 DNS-Server"
 
 msgid "IPv4 Routes"
 msgstr "IPv4 Routen"
@@ -6302,7 +6304,7 @@ msgid "IPv6 Address"
 msgstr "IPv6-Adresse"
 
 msgid "IPv6 DNS Servers"
-msgstr "IPv6 DNS Server"
+msgstr "IPv6 DNS-Server"
 
 msgid "IPv6 Gateway"
 msgstr "IPv6 Gateway"
@@ -6339,7 +6341,7 @@ msgid "ISO file to be mounted."
 msgstr "ISO-Datei die eingehängt werden soll."
 
 msgid "ISP DNS Servers"
-msgstr "ISP DNS Server"
+msgstr "ISP DNS-Server"
 
 msgid "IdentLookups"
 msgstr "Identitäten abfragen"
@@ -6787,7 +6789,7 @@ msgid "Interval to wait before restarting the load"
 msgstr "Warteintervall bis zum Wiederanlauf der Leistung"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Ungültig"
 
 msgid "Invalid command line option"
 msgstr "ungültige Kommandozeilen Option"
@@ -7128,13 +7130,13 @@ msgid "Life time"
 msgstr "Lebenszeit"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Lebensdauer"
 
 msgid "Lifetime Units"
-msgstr ""
+msgstr "Lebensdauer-Einheit"
 
 msgid "Lifetime Value"
-msgstr ""
+msgstr "Lebensdauer-Wert"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Lightweight Directory Access Protocol"
@@ -7356,7 +7358,7 @@ msgstr "Login Information LUC (Logical Unit Controller)"
 
 #, php-format
 msgid "Logical Unit Controller TCP port (%d by default)"
-msgstr "Logischer Unit-Controller TCP Port (standardmäßig %d)"
+msgstr "TCP-Port des Logical Unit Controllers (standardmäßig %d)"
 
 msgid "Logical Unit Type mapped to LUN."
 msgstr "Logical Unit Type zugewiesen zur LUN."
@@ -7739,7 +7741,7 @@ msgid "Minute"
 msgstr "Minute"
 
 msgid "Minute(s)"
-msgstr ""
+msgstr "Minute(n)"
 
 msgid "Minutes"
 msgstr "Minuten"
@@ -7811,10 +7813,10 @@ msgid "Monitoring User"
 msgstr "Monitoring Benutzer"
 
 msgid "Month(s)"
-msgstr ""
+msgstr "Monat(e)"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Monatlich"
 
 msgid "Months"
 msgstr "Monate"
@@ -7988,7 +7990,7 @@ msgid "NTFS ACLs"
 msgstr "NTFS Zugangs Kontroll Listen"
 
 msgid "NTP Time Server"
-msgstr "NTP Zeitserver"
+msgstr "NTP-Zeitserver"
 
 msgid "NTP is not enabled."
 msgstr "NTP ist deaktiviert"
@@ -8174,7 +8176,7 @@ msgid "No CHAP users found."
 msgstr "Keine CHAP Nutzer gefunden."
 
 msgid "No DNS server have been configured."
-msgstr "Es wurde kein DNS Server eingetragen."
+msgstr "Es wurde kein DNS-Server eingetragen."
 
 msgid "No DNS setting found."
 msgstr "Keine DNS-Einstellung gefunden."
@@ -8436,8 +8438,8 @@ msgid ""
 "may cause problems."
 msgstr ""
 "Nicht alle Treiber/Netzwerkkarten unterstützen 802.1Q VLAN-Tagging korrekt. "
-"Auf nicht unterstützen Netzwerkkarten wird VLAN-Tagging laufen, jedoch kann "
-"es wegen der reduzierten MTU-Size zu Problemen kommen."
+"Auf nicht unterstützten Netzwerkkarten wird VLAN-Tagging laufen, jedoch kann "
+"es wegen der reduzierten MTU-Größe zu Problemen kommen."
 
 msgid "Not attached"
 msgstr "Nicht hinzugefügt"
@@ -9142,7 +9144,7 @@ msgstr ""
 "Port ist %d."
 
 msgid "Port to listen on. Default iTunes port is 3689."
-msgstr "Alternativer TCP Port (Standard: 3689)."
+msgstr "Geöffneter TCP-Port (Standard für iTunes ist: 3689)."
 
 #, php-format
 msgid "Port to listen on. Default port is %d."
@@ -9188,8 +9190,8 @@ msgid ""
 "Portal Groups contains IP addresses and listening on TCP ports to connect "
 "the target from the initiator."
 msgstr ""
-"Haupt Gruppen beinhalten IP Adressen und Abhören an TCP Ports, um das Ziel "
-"zu verbinden vom Initiator aus."
+"Portalgruppen beinhalten IP-Adressen und zugewiesene TCP-Ports, um vom "
+"Initiator aus eine Verbindung zum Ziel herzustellen."
 
 msgid "Portals"
 msgstr "Portale"
@@ -9262,7 +9264,7 @@ msgid "Preserve modification times."
 msgstr "Zeit der letzten Änderung beibehalten"
 
 msgid "Presets"
-msgstr ""
+msgstr "Voreinstellungen"
 
 msgid "Prevent deep discharge of battery"
 msgstr "Tiefentladung der Batttierie verhindern"
@@ -9787,13 +9789,13 @@ msgid "Reboot Required"
 msgstr "Neustart erforderlich"
 
 msgid "Reboot Schedule is locked"
-msgstr ""
+msgstr "Zeitplan für Neustarten ist gesperrt"
 
 msgid "Reboot Schedule is marked for deletion"
-msgstr ""
+msgstr "Zeitplan für Neustarten ist zur Löschung markiert"
 
 msgid "Reboot Schedule is unlocked"
-msgstr ""
+msgstr "Zeitplan für Neustarten ist entsperrt"
 
 msgid "Rebuild the selected device forcibly."
 msgstr "Ausgewähltes Gerät zwangsweise erneuern."
@@ -10060,7 +10062,7 @@ msgid "Restore"
 msgstr "Wiederherstellen"
 
 msgid "Restore Configuration"
-msgstr "Die Konfiguration wird wieder hergestellt."
+msgstr "Konfiguration wiederherstellen"
 
 msgid "Restore metadata from the given file to the given provider."
 msgstr ""
@@ -10346,7 +10348,7 @@ msgid "Save and Restart"
 msgstr "Speichern und Neustart"
 
 msgid "Save login information in configuration file."
-msgstr "Speichere Logininformationen in Konfigurationsdatei."
+msgstr "Speichere Login-Informationen in der Konfigurationsdatei."
 
 msgid "Saved file to"
 msgstr "Datei wurde gespeichert nach"
@@ -10420,7 +10422,7 @@ msgid "Scheduled Shutdown"
 msgstr "geplantes Ausschalten des Systems"
 
 msgid "Scheduled Tests"
-msgstr "geplante Tests"
+msgstr "Geplante Tests"
 
 msgid "Scheduler"
 msgstr ""
@@ -10791,7 +10793,7 @@ msgid "Sep"
 msgstr "Sep."
 
 msgid "Separate email addresses by semi-colon."
-msgstr "Semikolon getrennte Liste von E-Mail Adressen."
+msgstr "Mehrere Adressen können durch Semikola getrennt angegeben werden."
 
 msgid "September"
 msgstr "September"
@@ -10891,7 +10893,7 @@ msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
 "10."
 msgstr ""
-"Setze das Zeitintervall zwischen den Laufwerkschecks zu N Sekunden. Der "
+"Setzt das Zeitintervall zwischen den Laufwerksprüfungen auf N Sekunden. Der "
 "kleinste erlaubte Wert ist 10."
 
 msgid "Set log level"
@@ -11405,9 +11407,9 @@ msgid ""
 "Specifies how many servers to create. There should be enough to handle the "
 "maximum level of concurrency from its clients, typically four to six."
 msgstr ""
-"Legt fest, wieviele Server anzulegen sind. Es sollten ausreichend sein um "
-"das maximale Niveau der Gleichzeitigkeit der Clienten bahandeln zu können, "
-"typischerweise vier bis sechs."
+"Legt die Anzahl der angelegten Server fest. Diese sollte hoch genug sein um "
+"bestmögliche Unterstützung gleichzeitiger Client-Zugriffe zu ermöglichen, "
+"typische Werte liegen bei vier bis sechs."
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "Spezifiziert wie das 'Volume' dem Betriebssystem dargestellt wird."
@@ -11830,7 +11832,7 @@ msgid "TCP Forwarding"
 msgstr "TCP Weiterleitung"
 
 msgid "TCP Port"
-msgstr "TCP Port"
+msgstr "TCP-Port"
 
 msgid "TCP Wrapper"
 msgstr "TCP Schnittstelle"
@@ -11839,7 +11841,7 @@ msgid "TCP port is 5900+N, where N is VNC display number."
 msgstr "TCP-Port-Nr. ist 5900+N, wobei N für die VNC-Displaynummer steht"
 
 msgid "TCP port to bind the server to."
-msgstr "TCP Port zum Bind Server."
+msgstr "TCP-Port, an den der Server gebunden wird."
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -12069,7 +12071,7 @@ msgid "The SCSI serial number presented to the initiator."
 msgstr "Der SCSI Seriennummer die dem Initiator übergeben wird."
 
 msgid "The TCP Port must be a valid port number."
-msgstr "Der TCP Port muß eine gültige Portnummer sein."
+msgstr "Für den TCP-Port muss eine gültige Port-Nummer angegeben werden."
 
 msgid "The UPS identifier and IP address"
 msgstr "Die USV-Kennung und IP-Adresse"
@@ -12852,8 +12854,8 @@ msgstr "Der Server wird mit minimale benötigten Parametern gestartet"
 msgid ""
 "The server will reboot after the configuration was successfully restored."
 msgstr ""
-"Der Server wird neu starten, nachdem die Konfiguration erfolgreich wieder "
-"hergestellt wurde."
+"Der Server wird automatisch neu gestartet, nachdem die Konfiguration "
+"erfolgreich wiederhergestellt wurde."
 
 msgid "The share name is already used."
 msgstr "Der Freigabenamen ist bereits vergeben."
@@ -13185,8 +13187,8 @@ msgid ""
 "This configuration settings are used to generate the ups.conf configuration "
 "file which is required by the NUT UPS daemon."
 msgstr ""
-"Diese Konfigurations Einstellungen werden benutzt um die ups.conf "
-"Konfigurationsdatei zu erstellen welche vom NUT UPS Dämon benötigt wird."
+"Diese Konfigurations-Einstellungen werden benutzt, um die ups.conf-"
+"Konfigurationsdatei zu erstellen, die vom NUT UPS-Daemon benötigt wird."
 
 msgid "This controls the access a remote host has to this module."
 msgstr ""
@@ -13735,7 +13737,7 @@ msgid "Today"
 msgstr "Heute"
 
 msgid "Toggle Mode"
-msgstr "Modus umschalten"
+msgstr "Umschaltmodus"
 
 msgid "Toggle Selected Auth Groups"
 msgstr "Ausgewählte Authentifizierungsgruppen umschalten"
@@ -14322,7 +14324,7 @@ msgid ""
 "up at least one DNS server if you enter a host name here!"
 msgstr ""
 "Benutzen Sie ein Leerzeichen um mehrere Hosts zu trennen (es ist nur ein "
-"Host nötig). Denken Sie daran, einen DNS Server einzutragen, wenn Sie hier "
+"Host nötig). Denken Sie daran, einen DNS-Server einzutragen, wenn Sie hier "
 "einen Hostnamen eintragen!"
 
 msgid "Use as sparse volume (thin provisioning)."
@@ -14370,7 +14372,7 @@ msgstr ""
 "(eingeführt mit Windows 2000')"
 
 msgid "Use the specified NTP server."
-msgstr "Verwendet den angegebenen NTP Server."
+msgstr "Verwendet den angegebenen NTP-Server."
 
 msgid "Use the standard container (this is the default)"
 msgstr "Verwenden Sie den Standardcontainer (dies istdie Voreinstellung)"
@@ -14438,7 +14440,8 @@ msgstr ""
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr ""
-"Verwendung von Umschaltknöpfen anstelle von Aktivieren-/Deaktivieren-Knöpfen."
+"Verwendung von Umschaltknöpfen anstelle von Aktivieren- / Deaktivieren-"
+"Schaltflächen."
 
 msgid "Use zfsacl"
 msgstr "Verwende zfsacl"
@@ -14851,13 +14854,13 @@ msgid "Week Days"
 msgstr "Wochentage"
 
 msgid "Week(s)"
-msgstr ""
+msgstr "Woche(n)"
 
 msgid "Weekdays"
 msgstr "An Werktagen"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Wöchentlich"
 
 msgid "Western Digital attribute."
 msgstr "WD Attribut (herstellerspezifisch)"
@@ -14977,10 +14980,10 @@ msgid "Y-axis Range"
 msgstr "Y-Achsen-Bereich"
 
 msgid "Year(s)"
-msgstr ""
+msgstr "Jahr(e)"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Jährlich"
 
 msgid "Yes"
 msgstr "Ja"
@@ -15502,3 +15505,9 @@ msgstr "wurde zugewiesen an"
 
 msgid "yes"
 msgstr "ja"
+
+#~ msgid ""
+#~ "Enable this option to reduce the height of the page header to a minimum."
+#~ msgstr ""
+#~ "Aktivieren Sie diese Option, um die Höhe der Kopfzeile auf ein Minimum zu "
+#~ "reduzieren."
