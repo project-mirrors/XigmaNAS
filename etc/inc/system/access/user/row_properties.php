@@ -34,10 +34,16 @@
 
 namespace system\access\user;
 
-use common\properties as myp;
-
-use function gettext,in_array,is_string,preg_match,strlen,
-		locale_get_display_name;
+use common\lang,
+	common\properties as myp;
+use const FILTER_CALLBACK,
+	FILTER_REQUIRE_SCALAR,
+	FILTER_VALIDATE_REGEXP;
+use function gettext,
+	in_array,
+	is_string,
+	preg_match,
+	strlen;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
@@ -195,16 +201,8 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_language(): myp\property_list {
-		global $g_languages;
-
 		$description = gettext('Select the language of the user portal for this user.');
-		$options = [];
-		$options['auto'] = gettext('Autodetect');
-		foreach($g_languages as $key => $val):
-			if('auto' !== $key):
-				$options[$key] = locale_get_display_name($key,$key);
-			endif;
-		endforeach;
+		$options = lang::get_options();
 		$property = parent::init_language();
 		$property->
 			set_defaultvalue('auto')->
