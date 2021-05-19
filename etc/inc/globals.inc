@@ -95,41 +95,6 @@ $g_install = [
 	'part1size_embedded' => '2048',
 	'part1size_full' => '3072'
 ];
-/*
- *	available languages/locales. Function array_flip is used in system.inc
- */
-$g_languages = [
-	'auto'	=> 'auto',
-	'af'    => 'af',
-	'bg'    => 'bg',
-	'ca'    => 'ca',
-	'cs'    => 'cs',
-	'zh_CN' => 'zh_cn',
-	'zh_TW' => 'zh_tw',
-	'nl'    => 'nl',
-	'da'    => 'da',
-	'en_US' => 'en_us',
-	'fi'    => 'fi',
-	'fr'    => 'fr',
-	'de'    => 'de',
-	'el'    => 'el',
-	'hu'    => 'hu',
-	'it'    => 'it',
-	'ja'    => 'ja',
-	'ko'    => 'ko',
-	'nb'    => 'nb',
-	'pl'    => 'pl',
-	'pt_BR' => 'pt_br',
-	'pt'    => 'pt',
-	'ro'    => 'ro',
-	'ru'    => 'ru',
-	'sl'    => 'sl',
-	'es'    => 'es',
-	'sv'    => 'sv',
-	'sk'    => 'sk',
-	'tr'    => 'tr',
-	'uk'    => 'uk'
-];
 $g_months = [
 	1 => gtext('January'),
 	2 => gtext('February'),
