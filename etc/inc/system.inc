@@ -32,10 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'functions.inc';
 require_once 'util.inc';
 require_once 'rc.inc';
 require_once 'zfs.inc';
+
+use common\lang;
 
 /**
  *	Initiate halt. Everything will be done automatically
@@ -99,17 +102,14 @@ function get_http_accept_language(): array {
 }
 /**
  *	Get the language from browser and return a supported language or null
- *	@global array $g_languages
  *	@return string|null
  */
 function get_language_from_browser(): ?string {
-	global $g_languages;
-
 	$language = null;
 	$accepted_languages = get_http_accept_language();
 	if(!empty($accepted_languages)):
-		$available_languages = array_flip($g_languages);
-		$matching_languages = \array_intersect_key($accepted_languages,$available_languages);
+		$available_languages = lang::get_list_lokey();
+		$matching_languages = array_intersect_key($accepted_languages,$available_languages);
 		$first_highest_q = 0.0;
 		foreach($matching_languages as $key => $val):
 			if($val > $first_highest_q):
@@ -126,9 +126,8 @@ function get_language_from_browser(): ?string {
  *	@return string The supported language
  */
 function get_supported_language_of(string $language_to_verify): string {
-	global $g_languages;
-
-	$language = array_key_exists($language_to_verify,$g_languages) ? $language_to_verify : 'en_US';
+	$available_languages = lang::get_list_loval();
+	$language = array_key_exists($language_to_verify,$available_languages) ? $language_to_verify : 'en_US';
 	if($language === 'auto'):
 		$language = get_language_from_browser() ?? 'en_US';
 	endif;
