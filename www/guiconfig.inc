@@ -949,7 +949,7 @@ function get_headermenu(): array {
 		$menu_items = &$menu[$menu_name]['menuitem'];
 		$menu_items[] = ['type' => 'external','visible' => true,'description' => gettext('Forum'),'link' => 'https://www.xigmanas.com/forums/'];
 		$menu_items[] = ['type' => 'external','visible' => true,'description' => gettext('Information & Manual'),'link' => 'https://www.xigmanas.com/wiki/doku.php'];
-		$menu_items[] = ['type' => 'external','visible' => true,'description' => gettext('IRC Live Support'),'link' => 'https://webchat.freenode.net/?channels=#xigmanas'];
+		$menu_items[] = ['type' => 'external','visible' => true,'description' => gettext('IRC Live Support'),'link' => 'https://kiwiirc.com/client/irc.libera.chat/#xigmanas'];
 		$menu_items[] = ['type' => 'separator','visible' => true,'description' => '','link' => '/index.php'];
 		$menu_items[] = ['type' => 'internal','visible' => true,'description' => gettext('Release Notes'),'link' => '/changes.php'];
 		$menu_items[] = ['type' => 'internal','visible' => true,'description' => gettext('License & Credits'),'link' => '/license.php'];

@@ -228,7 +228,7 @@ $loginpagedata->
 			last()->addLI(['style' => 'padding: 0 4px;'])->
 				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.xigmanas.com/wiki/doku.php'],\gettext('Information & Manuals'))->
 			last()->addLI(['style' => 'padding: 0 4px;'])->
-				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://webchat.freenode.net/?channels=#xigmanas'],\gettext('IRC XigmaNAS'))->
+				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://kiwiirc.com/client/irc.libera.chat/#xigmanas'],\gettext('IRC XigmaNAS'))->
 			pop()->addLI(['style' => 'padding-left: 4px;'])->
 				insA(['target' => '_blank','rel' => 'noreferrer','href' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40xigmanas%2ecom&lc=US&item_name=XigmaNAS&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted'],\gettext('Donate'));
 if(!empty($input_errors)):
