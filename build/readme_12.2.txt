@@ -132,7 +132,6 @@ Changes:
 - Upgrade msmtp to 1.8.15.
 - Upgrade e2fsprogs to 1.46.2.
 - Upgrade open-vm-tools to 11.2.5.
-- Upgrade nut to 2021.03.14.
 - Upgrade sudo to 1.9.6p1.
 - Upgrade dialog to 1.3-20210324.
 - Upgrade arcconf to 3_07_23971.
@@ -143,6 +142,7 @@ Changes:
 - Upgrade php to 7.4.19.
 - Upgrade syncthing to 1.16.1.
 - Upgrade samba to 4.13.8.
+- Upgrade nut to 2021.05.24.
 
 Fixes:
 - Fix only first lagg member is brought up.
