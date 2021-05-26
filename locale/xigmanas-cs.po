@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-19 18:12+0000\n"
-"X-Generator: Launchpad (build 716e08a550b901207b3abbeb098dd682f9ecb267)\n"
+"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
+"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -15265,7 +15265,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
-
-#~ msgid ""
-#~ "Enable this option to reduce the height of the page header to a minimum."
-#~ msgstr "Zapnutí této předvolby zmenší výšku záhlaví stránky na minimum."
