@@ -151,7 +151,6 @@ Changes:
 - Upgrade e2fsprogs to 1.46.2.
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade sudo to 1.9.6p1.
-- Upgrade dialog to 1.3-20210324.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade phpmyadmin to 5.1.0.
 - Upgrade python to 3.8.x.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade syncthing to 1.16.1.
 - Upgrade samba to 4.13.8.
 - Upgrade nut to 2021.05.24.
+- Upgrade dialog to 1.3-20210509.
 
 Fixes:
 - Fix only first lagg member is brought up.
