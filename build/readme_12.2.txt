@@ -118,7 +118,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 12.2.0.4.8419
 ===================
 Changes:
-- Upgrade to FreeBSD 12.2-RELEASE P6.
+- Upgrade to FreeBSD 12.2-RELEASE P7.
 - Upgrade bash to 5.1 p4.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
