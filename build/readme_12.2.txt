@@ -119,7 +119,6 @@ BUILD 12.2.0.4.8419
 ===================
 Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P7.
-- Upgrade bash to 5.1 p4.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade proftpd to 1.3.7a.
@@ -143,6 +142,7 @@ Changes:
 - Upgrade samba to 4.13.8.
 - Upgrade nut to 2021.05.24.
 - Upgrade dialog to 1.3-20210509.
+- Upgrade bash to 5.1 p8.
 
 Fixes:
 - Fix only first lagg member is brought up.
