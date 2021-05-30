@@ -1,7 +1,7 @@
 PORTNAME=		bash
-PATCHLEVEL=		4
+PATCHLEVEL=		8
 PORTVERSION=		5.1.${PATCHLEVEL:S/^0//g}
-PORTREVISION?=		1
+PORTREVISION?=		0
 CATEGORIES=		shells
 
 COMMENT=		GNU Project's Bourne Again SHell
@@ -50,6 +50,9 @@ post-patch:
 	@${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/doc/bash.1
 	@${REINPLACE_CMD} -e "s|\(/etc/profile\)|${LOCALBASE}\1|" \
 		${WRKSRC}/pathnames.h.in
+	@${REINPLACE_CMD} -e "s|/etc/[iI]nputrc|${LOCALBASE}/etc/inputrc|g" \
+		${WRKSRC}/doc/*.info ${WRKSRC}/doc/*.html ${WRKSRC}/doc/*.1 \
+		${WRKSRC}/lib/readline/rlconf.h
 post-configure:
 	@${FIND} ${WRKSRC} -name Makefile -print0 | ${XARGS} -0 \
 	${REINPLACE_CMD} -e "s|^DESTDIR *=|& ${DESTDIR}|"
@@ -73,6 +76,6 @@ cklatest:
 	@${MAKE} -V PATCHLEVEL
 	-ncftpls \
 		${PATCH_SITES:Mftp*:Ox:[1]} \
-		| fgrep -v .sig | ${TAIL}
+		| fgrep -v .sig | ${SORT} | ${TAIL}
 
 .include <bsd.port.post.mk>
