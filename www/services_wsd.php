@@ -214,10 +214,8 @@ switch($page_action):
 			$name = $cop_item->get_name();
 			switch($cop_item->get_input_type()):
 				case 'textarea':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode("\n",$source[$name]);
-						endif;
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
