@@ -80,7 +80,7 @@ mysqldb_mkconf()
 	unlink /var/db/mysql
 	ln -s "${mariadbhomedir}" /var/db/mysql
 	if [ ! -d "${mariadbhomedir}/mysql/." ]; then
-		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --force
+		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --auth-root-authentication-method=normal --force
 	fi
 	chown -R ${mysql_user}:${mysql_group} ${mariadbhomedir}
 #	create phpMyAdmin config
