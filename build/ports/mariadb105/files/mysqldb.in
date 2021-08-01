@@ -30,7 +30,7 @@ mkconf_cmd="mysqldb_mkconf"
 
 load_rc_config "${name}"
 
-mariadbhomedir=`configxml_get "//mariadb/homedir"`
+mariadbhomedir=$(configxml_get "//mariadb/homedir")
 if [ -z "${mariadbhomedir}" ]; then
 	echo "${name}: home folder is not defined, exiting."
 	exit 1
@@ -75,12 +75,11 @@ mysqldb_mkconf()
 			--break \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${mysqldb_conf}
-
 #	create symbolic link to homedir and create DB if not exist
 	unlink /var/db/mysql
 	ln -s "${mariadbhomedir}" /var/db/mysql
 	if [ ! -d "${mariadbhomedir}/mysql/." ]; then
-		/usr/local/bin/mysql_install_db --basedir=/usr/local --datadir=${mariadbhomedir} --auth-root-authentication-method=normal --force
+		/usr/local/bin/mariadb-install-db --basedir=/usr/local --datadir=${mariadbhomedir} --auth-root-authentication-method=normal --skip-test-db --force
 	fi
 	chown -R ${mysql_user}:${mysql_group} ${mariadbhomedir}
 #	create phpMyAdmin config
@@ -102,7 +101,8 @@ mysqldb_mkconf()
 			--output "\$cfg['UploadDir'] = '';" --nl \
 			--output "\$cfg['SaveDir'] = '';" --nl \
 			--output "\$cfg['VersionCheck'] = false;" --nl \
-			--output "?>" --nl \
+			--output "\$cfg['ShowAll'] = true;" --nl \
+			--output '?>' --nl \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc >> ${phpmyadmin_conf}
 }
@@ -128,8 +128,7 @@ mysqldb_stop()
 
 	echo "MySQL stop..."
 	/usr/local/etc/rc.d/mysql-server onestop
-
-	# Waiting mysql-server shutdown
+#	Waiting mysql-server shutdown
 	_wait=15
 	echo -n "Shutdown mysql-server"
 	while [ ${_wait} -gt 0 ]; do
