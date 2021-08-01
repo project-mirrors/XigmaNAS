@@ -56,6 +56,7 @@ use function array_key_exists,
 	get_product_copyright,
 	get_product_url,
 	gettext,
+	header,
 	htmlspecialchars_decode,
 	http_build_query,
 	implode,
@@ -706,6 +707,7 @@ trait tools {
 		return $this;
 	}
 	public function ins_input($p,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
+		$this->reset_hooks();
 		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
 		$id = $p->get_id();
 		$caption = $p->get_caption();
@@ -748,15 +750,16 @@ trait tools {
 		if($maxlength > 0):
 			$input_attributes['maxlength'] = $maxlength;
 		endif;
-		$div = $this->addDIV();
-		$div->insINPUT($input_attributes);
+		$hook = $this->addDIV();
+		$hook->insINPUT($input_attributes);
 		if(isset($caption)):
 			if($is_readonly):
-				$div->insSPAN(['style' => 'margin-left: 0.7em;'],$caption);
+				$hook->insSPAN(['style' => 'margin-left: 0.7em;'],$caption);
 			else:
-				$div->addElement('label',['style' => 'margin-left: 0.7em;','for' => $id],$caption);
+				$hook->addElement('label',['style' => 'margin-left: 0.7em;','for' => $id],$caption);
 			endif;
 		endif;
+		$this->add_hook($hook,$id);
 		return $this;
 	}
 	public function ins_input_hidden(string $name = null,$value = '') {
@@ -1782,6 +1785,7 @@ EOJ;
 		if($this->option_exists('login')):
 			$head->
 				insElement('link',['href' => '/css/login.css.php','rel' => 'stylesheet','type' => 'text/css']);
+			header("Content-Security-Policy: frame-ancestors 'none'");
 		endif;
 		$head->
 			insElement('style',[],'.avoid-fouc { visibility:hidden; }');
