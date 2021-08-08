@@ -1,7 +1,7 @@
 XigmaNAS® 11.4.0.4 - Accadia
 ------------------------------
 Changes:
-- Upgrade to FreeBSD 11.4-RELEASE-P9.
+- Upgrade to FreeBSD 11.4-RELEASE-P10.
 - Upgrade mariadb to 10.5.
 - Upgrade bash to 5.0 P18.
 - Upgrade rsync to 3.2.3.
