@@ -86,7 +86,7 @@ abstract class property {
 	}
 /**
  *	indicates the input type for the gui
- *	@param string $input_type checkbox checkbox-grid filechooser password radio-grid scheduler select text textarea titleline-checkbox
+ *	@param string $input_type checkbox checkbox-grid filechooser password radio-grid select text textarea titleline-checkbox
  *	@return $this
  */
 	public function set_input_type(string $input_type) {
