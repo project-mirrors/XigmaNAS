@@ -31,9 +31,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use common\arr;
 
@@ -50,7 +51,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_homedir(),
 	$cop->get_auxparam(),
@@ -171,8 +172,8 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
 			switch($name):
 				case 'auxparam':
 					if(array_key_exists($name,$source) && is_array($source[$name])):
@@ -180,33 +181,33 @@ switch($page_action):
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_array_element($source);
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_referer as $referer):
-				$name = $referer->get_name();
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
 				switch($name):
 					case 'auxparam':
 						$auxparam_grid = [];
@@ -223,7 +224,7 @@ switch($page_action):
 			else:
 				$usermysqlhomedir = '/nonexistent';
 			endif;
-			// update user mysql home dir
+//			update user mysql home dir
 			$extraoptions_changed = false;
 			$users = &arr::make_branch($config,'system','usermanagement','user');
 			$index = arr::search_ex('mysql',$users,'name');
