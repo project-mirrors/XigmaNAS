@@ -77,6 +77,7 @@ final class setting_properties extends grid_properties {
 							return null;
 						endif;
 					endforeach;
+//					test passed
 					return $test;
 				endif;
 			endif;
@@ -119,7 +120,7 @@ final class setting_properties extends grid_properties {
 			set_id('phrasecookieauth')->
 			set_description($description)->
 			set_placeholder($placeholder)->
-			set_placeholder($placeholderv)->
+			set_placeholderv($placeholderv)->
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(128)->
