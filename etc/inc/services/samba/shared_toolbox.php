@@ -34,11 +34,13 @@
 
 namespace services\samba;
 
-use DOMDocument;
-use common\arr;
-use common\sphere as mys;
+use common\arr,
+	common\sphere as mys,
+	DOMDocument;
 
-use function gettext,sprintf,updatenotify_clear;
+use function gettext,
+	sprintf,
+	updatenotify_clear;
 
 /**
  *	Wrapper class for autoloading functions
@@ -69,7 +71,8 @@ final class shared_toolbox {
 		$sphere->
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
+			set_enadis(true)->
+			add_page_title(gettext('Services'),gettext('SMB'),gettext('Settings'));
 		$sphere->grid = &arr::make_branch($config,'samba');
 	}
 /**
