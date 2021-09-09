@@ -32,9 +32,9 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use system\webgui\setting_toolbox as toolbox;
 use system\webgui\shared_toolbox;
@@ -49,7 +49,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_referer = [
+$cops = [
 	$cop->get_adddivsubmittodataframe(),
 	$cop->get_enabletogglemode(),
 	$cop->get_cssfcfile(),
@@ -111,10 +111,10 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			switch($name):
-				case 'auxparam':
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
+				case 'textarea':
 					if(array_key_exists($name,$source)):
 						if(is_array($source[$name])):
 							$source[$name] = implode("\n",$source[$name]);
@@ -122,35 +122,35 @@ switch($page_action):
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_array_element($source);
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_referer as $referer):
-				$name = $referer->get_name();
-				switch($name):
-					case 'auxparam':
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
+				switch($cops_element->get_input_type()):
+					case 'textarea':
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
@@ -169,8 +169,7 @@ endswitch;
 [$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $input_errors_found = count($input_errors) > 0;
 //	create document
-$pgtitle = [gettext('System'),gettext('General'),gettext('WebGUI')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
