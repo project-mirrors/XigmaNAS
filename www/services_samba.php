@@ -32,12 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use services\samba\setting_toolbox as toolbox;
-use services\samba\shared_toolbox;
+use services\samba\setting_toolbox as toolbox,
+	services\samba\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -49,7 +49,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_referer = [
+$cops = [
 	$cop->get_aio(),
 	$cop->get_aiorsize(),
 	$cop->get_aiowsize(),
@@ -103,7 +103,7 @@ endforeach;
 $cop->get_forcegroup()->set_options($a_group);
 unset($val,$key,$a_group);
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -197,51 +197,45 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			switch($name):
-				case 'auxparam':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
-						endif;
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
+				case 'textarea':
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_array_element($source);
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_referer as $referer):
-				$name = $referer->get_name();
-				switch($name):
-					case 'auxparam':
-						$auxparam_grid = [];
-						foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $auxparam_grid;
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
+				switch($cops_element->get_input_type()):
+					case 'textarea':
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
@@ -256,13 +250,12 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = (0 === rc_is_service_running('samba'));
+$is_running = (rc_is_service_running('samba') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
-$pgtitle = [gettext('Services'),gettext('SMB'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -328,7 +321,7 @@ $tbody1->
 	c2_select($cop->get_loglevel(),$sphere,false,$is_readonly)->
 	c2_select($cop->get_localmaster(),$sphere,false,$is_readonly)->
 	c2_select($cop->get_timesrv(),$sphere,false,$is_readonly);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
 $tds2->addTHEAD()->
