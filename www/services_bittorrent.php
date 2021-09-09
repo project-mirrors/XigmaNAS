@@ -32,12 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use services\torrent\setting_toolbox as toolbox;
-use services\torrent\shared_toolbox;
+use services\torrent\setting_toolbox as toolbox,
+	services\torrent\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -49,7 +49,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_referer = [
+$cops = [
 	$cop->get_authrequired(),
 	$cop->get_configdir(),
 	$cop->get_dht(),
@@ -174,51 +174,45 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			switch($name):
-				case 'auxparam':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode("\n",$source[$name]);
-						endif;
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
+				case 'textarea':
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_array_element($source);
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_referer as $referer):
-				$name = $referer->get_name();
-				switch($name):
-					case 'auxparam':
-						$auxparam_grid = [];
-						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $auxparam_grid;
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
+				switch($cops_element->get_input_type()):
+					case 'textarea':
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
@@ -238,8 +232,7 @@ $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (rc_is_service_running('transmission') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
-$pgtitle = [gettext('Services'),gettext('BitTorrent'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
