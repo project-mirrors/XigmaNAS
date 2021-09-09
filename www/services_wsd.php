@@ -65,7 +65,7 @@ foreach($a_interface as $interface_key => $interface_data):
 //	endswitch;
 endforeach;
 $cop->get_interface()->set_options($l_interfaces);
-$cop_grid = [
+$cops = [
 	$cop->get_address_family(),
 	$cop->get_domain(),
 	$cop->get_enable(),
@@ -210,49 +210,45 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($cop_grid as $cop_item):
-			$name = $cop_item->get_name();
-			switch($cop_item->get_input_type()):
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
 				case 'textarea':
 					if(array_key_exists($name,$source) && is_array($source[$name])):
 						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $cop_item->validate_array_element($source);
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $cop_item->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($cop_grid as $cop_item):
-			$name = $cop_item->get_name();
-			$sphere->row[$name] = $cop_item->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $cop_item->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $cop_item->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($cop_grid as $cop_item):
-				$name = $cop_item->get_name();
-				switch($cop_item->get_input_type()):
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
+				switch($cops_element->get_input_type()):
 					case 'textarea':
-						$textarea_grid = [];
-						foreach(explode("\n",$sphere->row[$name]) as $textarea_row):
-							$textarea_grid[] = trim($textarea_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $textarea_grid;
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
@@ -272,8 +268,7 @@ $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (rc_is_service_running('wsdd') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
-$pgtitle = [gettext('Services'),gettext('Web Service Discovery'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
