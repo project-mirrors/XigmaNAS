@@ -34,7 +34,9 @@
 
 namespace common\sphere;
 
-use function is_null;
+use function calc_enabletogglemode,
+	is_bool,
+	is_null;
 
 /*
  *	sphere top level object for settings, services, row and grid
@@ -131,8 +133,8 @@ class root {
 	public function toggle(): bool {
 		global $config;
 
-		$test = \calc_enabletogglemode();
-		return $this->is_enadis_enabled() && (\is_bool($test) ? $test : true);
+		$test = calc_enabletogglemode();
+		return $this->is_enadis_enabled() && (is_bool($test) ? $test : true);
 	}
 /**
  *	Enable/disable record lock support
