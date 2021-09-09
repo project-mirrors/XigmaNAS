@@ -174,8 +174,8 @@ switch($page_action):
 		$source = $sphere->grid;
 		foreach($cops as $cops_element):
 			$name = $cops_element->get_name();
-			switch($name):
-				case 'auxparam':
+			switch($cops_element->get_input_type()):
+				case 'textarea':
 					if(array_key_exists($name,$source) && is_array($source[$name])):
 						$source[$name] = implode("\n",$source[$name]);
 					endif;
@@ -208,13 +208,9 @@ switch($page_action):
 		if(empty($input_errors)):
 			foreach($cops as $cops_element):
 				$name = $cops_element->get_name();
-				switch($name):
-					case 'auxparam':
-						$auxparam_grid = [];
-						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $auxparam_grid;
+				switch($cops_element->get_input_type()):
+					case 'textarea':
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 				$sphere->grid[$name] = $sphere->row[$name];
@@ -252,8 +248,7 @@ $is_running = (rc_is_service_running('mysqldb') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 $input_errors_found = count($input_errors) > 0;
 //	create document
-$pgtitle = [gettext('Services'),gettext('MariaDB'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
