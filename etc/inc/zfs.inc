@@ -95,16 +95,16 @@ function zfs_get_pool_list() {
  *	If you specify zpool properties, they must be separated with a comma.
  *	Property names returned are lowercase.
  *	The function returns an empty array on error or when the zpool is unknown to zfs.
- *	@param string $poolname The name of the pool or NULL.
+ *	@param string $poolname The name of the pool or null.
  *	@param string $zpool_properties A comma separated list of zpool properties.
  *	@return array Array with zpool properties of all zpools or the given zpool.
  */
-function cli_zpool_info(string $poolname = NULL,string $zpool_properties = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot') {
+function cli_zpool_info(string $poolname = null,string $zpool_properties = 'name,size,alloc,free,expandsz,frag,cap,dedup,health,altroot') {
 //	initialize return value
 	$a_return_result = [];
 //	poolname must contain at least one printable character
 	if(preg_match('/\S/',$poolname) !== 1):
-		$poolname = NULL;
+		$poolname = null;
 	endif;
 //	get the property fields
 	$a_property_name = explode(',',$zpool_properties);
@@ -184,7 +184,7 @@ function cli_zfs_info($name = '',$options = '') {
 //	get the key fields
 	$a_key = explode(',',$clioptions);
 //	has the all option been selected?
-	if(false !== array_search('all',$a_key)):
+	if(array_search('all',$a_key) !== false):
 //		reset other options, they are included in 'all'
 		$clioptions = 'all';
 		$a_key = [];
@@ -273,7 +273,7 @@ function zfs_zpool_configure(string $uuid) {
 	$a_vdevices = array_make_branch($config,'zfs','vdevices','vdevice');
 //	get pool
 	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-	if(false === $sphere_row_id):
+	if($sphere_row_id === false):
 		return 1;
 	endif;
 	$pool = $sphere_grid[$sphere_row_id];
@@ -322,7 +322,7 @@ function zfs_zpool_configure(string $uuid) {
 //	add pool vdevs
 	foreach($pool['vdevice'] as $vdevicev):
 		$index = array_search_ex($vdevicev,$a_vdevices,'name');
-		if(false === $index):
+		if($index === false):
 			return 1;
 		endif;
 		$vdevice = $a_vdevices[$index];
@@ -453,13 +453,13 @@ function zfs_zpool_destroy(string $uuid) {
 		$a_vdevices = array_make_branch($config,'zfs','vdevices','vdevice');
 //		get pool configuration
 		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-		if(false !== $sphere_row_id):
+		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
 //				get pool name and mountpoint
 				$pool_filter = [
-					'name' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']],
-					'mountpoint' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]
+					'name' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']],
+					'mountpoint' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]
 				];
 				$pool_filtered = filter_var_array($sphere_row,$pool_filter,true);
 				if(!is_null($pool_filtered['name'])):
@@ -483,7 +483,7 @@ function zfs_zpool_destroy(string $uuid) {
 						array_make_branch($sphere_row,'vdevice');
 						foreach($sphere_row['vdevice'] as $vdevice_name):
 							$a_vdevices_row_key = array_search_ex($vdevice_name,$a_vdevices,'name');
-							if(false !== $a_vdevices_row_key):
+							if($a_vdevices_row_key !== false):
 								$a_vdevice = $a_vdevices[$a_vdevices_row_key];
 								if(isset($a_vdevice['aft4k'])):
 									array_make_branch($a_vdevice,'device');
@@ -529,13 +529,13 @@ function zfs_zpool_properties(string $uuid) {
 	if(is_uuid_v4($uuid)):
 		$sphere_grid = array_make_branch($config,'zfs','pools','pool');
 		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-		if(false !== $sphere_row_id):
+		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
 //				get pool name and mountpoint
 				$pool_filter = [
-					'name' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']],
-					'mountpoint' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]
+					'name' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']],
+					'mountpoint' => ['filter' => FILTER_VALIDATE_REGEXP,'flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]
 				];
 				$pool_filtered = filter_var_array($sphere_row,$pool_filter,true);
 				if(!is_null($pool_filtered['name'])):
@@ -598,14 +598,14 @@ function zfs_zpool_cmd(string $command,string $param,bool $verbose = false,bool 
 	$result = 1;
 	$cmd = sprintf('zpool %s %s',$command,$param);
 	write_log($cmd);
-	if(true === $verbose):
-		if(true === $stderr):
+	if($verbose === true):
+		if($stderr === true):
 //			redirect error message to stdout
 			$cmd .= ' 2>&1';
 		endif;
 		system($cmd,$result);
 	else:
-		if(true === $out):
+		if($out === true):
 			mwexec2($cmd,$output,$result);
 		else:
 			$result = mwexec($cmd,true);
@@ -625,7 +625,7 @@ function zfs_dataset_configure(string $uuid) {
 //	get dataset
 	$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
 	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-	if(false === $sphere_row_id):
+	if($sphere_row_id === false):
 		return 1;
 	endif;
 	$sphere_row = $sphere_grid[$sphere_row_id];
@@ -749,7 +749,7 @@ function zfs_dataset_destroy(string $uuid,bool $recursively = false) {
 //		get dataset
 		$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
 		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-		if(false !== $sphere_row_id):
+		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
 //				get pool and filesystem name
@@ -795,7 +795,7 @@ function zfs_dataset_properties(string $uuid) {
 	$sphere_grid = array_make_branch($config,'zfs','datasets','dataset');
 //	get dataset
 	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-	if(false === $sphere_row_id):
+	if($sphere_row_id === false):
 		return 1;
 	endif;
 	$sphere_row = $sphere_grid[$sphere_row_id];
@@ -955,7 +955,7 @@ function zfs_volume_configure(string $uuid) {
 	];
 //	get volume
 	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-	if(false === $sphere_row_id):
+	if($sphere_row_id === false):
 		return 1;
 	endif;
 	$sphere_row = $sphere_grid[$sphere_row_id];
@@ -1011,7 +1011,7 @@ function zfs_volume_configure(string $uuid) {
 				break;
 		endswitch;
 	endforeach;
-	if(0 < $required_properties):
+	if($required_properties > 0):
 		return 1;
 	endif;
 //	add volume name
@@ -1035,7 +1035,7 @@ function zfs_volume_destroy(string $uuid,bool $recursively = false) {
 //		get volume
 		$sphere_grid = array_make_branch($config,'zfs','volumes','volume');
 		$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-		if(false !== $sphere_row_id):
+		if($sphere_row_id !== false):
 			$sphere_row = $sphere_grid[$sphere_row_id];
 			if(is_array($sphere_row)):
 //				get pool and volume name
@@ -1103,7 +1103,7 @@ function zfs_volume_properties(string $uuid) {
 	$prop = new properties_zfs_dataset();
 //	get volume
 	$sphere_row_id = array_search_ex($uuid,$sphere_grid,'uuid');
-	if(false === $sphere_row_id):
+	if($sphere_row_id === false):
 		return 1;
 	endif;
 	$sphere_row = $sphere_grid[$sphere_row_id];
@@ -1124,7 +1124,8 @@ function zfs_volume_properties(string $uuid) {
 	$referer = 'volsize';
 	$volsize = $prop->$referer->validate_value($sphere_row[$referer]);
 	if(isset($volsize)):
-		if(false === ($reservation = zfs_get_volume_reservation($volsize))):
+		$reservation = zfs_get_volume_reservation($volsize);
+		if($reservation === false):
 			return 1;
 		endif;
 	endif;
@@ -1435,23 +1436,23 @@ function zfs_updatenotify_process($key,$function) {
  *	Validate the name for a ZFS pool..
  *	- Pool name must be of type string.
  *	- An empty pool name is not allowed.
- *	- The pool name must begin with a letter, followed by alphanumeric,
- *	  underscore, dash, blank and period characters.
+ *	- The pool name must begin with a letter, followed by alphanumeric, underscore, dash, colon, space and period characters.
  *	- The length of the pool name must be less than 256 characters.
  *	@param string $name ZFS pool name
  *	@return boolean
  */
 function zfs_is_valid_poolname($name) {
+//	The pool name must begin with a	letter, and can only contain alphanumeric characters as well as underscore ("_"), dash ("-"), colon (":"), space (" "), and period (".").
 	$helpinghand = preg_quote('.-_: ','/');
 	$regexp = '/^[A-Za-z][0-9A-Za-z' . $helpinghand . '.-_: ]*$/';
-	$result = filter_var($name,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
+	$result = filter_var($name,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => $regexp]]);
 	if(isset($result)):
-//		pool names beginning with "mirror", "raidz" and "spare" are not allowed, as are names beginning with the pattern "c[0-9]".
-		if(preg_match('/^(mirror|raidz|spare|c[0-9])/',$name)):
+//		pool names beginning with "mirror", "raidz", "draid" and "spare" are not allowed, as are names beginning with the pattern "c[0-9]".
+		if(preg_match('/^(mirror|raidz|draid|spare|c[0-9])/',$name) === 1):
 			return false;
 		endif;
-//		log is a reserved word
-		if(0 == strcmp('log',$name)):
+//		pool name cannot be "log"
+		if(strcmp('log',$name) == 0):
 			return false;
 		endif;
 		if(strlen($name) > 255):
