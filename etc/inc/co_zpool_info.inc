@@ -56,7 +56,7 @@ class co_zpool_info {
 		$this->set_exclude_devices_not_present(false);
 	}
 	public function configuration_loaded() {
-		$b_ret = (false !== $this->a_xml);
+		$b_ret = ($this->a_xml !== false);
 		return $b_ret;
 	}
 	public function pool_state_to_name($n_state = 0) {
@@ -139,7 +139,7 @@ class co_zpool_info {
 		$r_ret =[];
 		$x_pool = '/pools/pool';
 		$a_pool = $this->a_xml->xpath($x_pool);
-		if(false !== $a_pool):
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -166,7 +166,8 @@ class co_zpool_info {
 		else:
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="disk"]]';
 		endif;
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				if(!$this->exclude_devices_not_present):
@@ -174,7 +175,8 @@ class co_zpool_info {
 				else:
 					$x_device = './vdev_tree/children[is_log="0" and type="disk"]';
 				endif;
-				if(false !== ($a_device = $r_pool->xpath($x_device))):
+				$a_device = $r_pool->xpath($x_device);
+				if($a_device !== false):
 					foreach($a_device as $r_device):
 						$this->devicevdev_info_to_array($r_device,$ret);
 						$this->device_info_to_array($r_device,$r_ret);
@@ -195,11 +197,13 @@ class co_zpool_info {
 		else:
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="mirror"]]';
 		endif;
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$x_vdev = './vdev_tree/children[is_log="0" and type="mirror"]';
-				if(false !== ($a_vdev = $r_pool->xpath($x_vdev))):
+				$a_vdev = $r_pool->xpath($x_vdev);
+				if($a_vdev !== false):
 					foreach($a_vdev as $r_vdev):
 						$this->vdev_info_to_array($r_vdev,$r_ret);
 						if($this->exclude_devices_not_present):
@@ -207,7 +211,8 @@ class co_zpool_info {
 						else:
 							$x_device = './/children[is_log="0" and type="disk"]';
 						endif;
-						if(false !== ($a_device = $r_vdev->xpath($x_device))):
+						$a_device = $r_vdev->xpath($x_device);
+						if($a_device !== false):
 							foreach($a_device as $r_device):
 								$this->device_info_to_array($r_device,$r_ret);
 								$a_ret[(string)$r_device->guid] = $r_ret;
@@ -229,19 +234,22 @@ class co_zpool_info {
 		else:
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="raidz"]]';
 		endif;
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$x_vdev = './vdev_tree/children[is_log="0" and type="raidz"]';
-				if(false !== ($a_vdev = $r_pool->xpath($x_vdev))):
+				$a_vdev = $r_pool->xpath($x_vdev);
+				if($a_vdev !== false):
 					foreach($a_vdev as $r_vdev):
 						$this->devicevdev_info_to_array($r_device,$ret);
 						if($this->exclude_devices_not_present):
-							$x_device = './/children[is_log="0" and type="disk and not(not_present)]';
+							$x_device = './/children[is_log="0" and type="disk" and not(not_present)]';
 						else:
 							$x_device = './/children[is_log="0" and type="disk"]';
 						endif;
-						if(false !== ($a_device = $r_vdev->xpath($x_device))):
+						$a_device = $r_vdev->xpath($x_device);
+						if($a_device !== false):
 							foreach($a_device as $r_device):
 								$this->device_info_to_array($r_device,$r_ret);
 								$a_ret[(string)$r_device->guid] = $r_ret;
@@ -269,10 +277,12 @@ class co_zpool_info {
 			$x_pool = '/pools/pool[vdev_tree/children[is_log="1" and type="disk"]]';
 		endif;
 		$x_device = './vdev_tree/children[is_log="1" and type="disk"]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
-				if(false !== ($a_device = $r_pool->xpath($x_device))):
+				$a_device = $r_pool->xpath($x_device);
+				if($a_device !== false):
 					foreach($a_device as $r_device):
 						$this->devicevdev_info_to_array($r_device,$ret);
 						$this->device_info_to_array($r_device,$r_ret);
@@ -295,13 +305,16 @@ class co_zpool_info {
 		endif;
 		$x_vdev = './vdev_tree/children[is_log="1" and type="mirror"]';
 		$x_device = './/children[is_log="1" and type="disk"]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
-				if(false !== ($a_vdev = $r_pool->xpath($x_vdev))):
+				$a_vdev = $r_pool->xpath($x_vdev);
+				if($a_vdev !== false):
 					foreach($a_vdev as $r_vdev):
 						$this->devicevdev_info_to_array($r_device,$ret);
-						if(false !== ($a_device = $r_vdev->xpath($x_device))):
+						$a_device = $r_vdev->xpath($x_device);
+						if($a_device !== false):
 							foreach($a_device as $r_device):
 								$this->device_info_to_array($r_device,$r_ret);
 								$a_ret[(string)$r_device->guid] = $r_ret;
@@ -328,10 +341,12 @@ class co_zpool_info {
 			$x_pool = '/pools/pool[caches]';
 		endif;
 		$x_device = './caches/.//children[is_cache="1"]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
-				if(false !== ($a_device = $r_pool->xpath($x_device))):
+				$a_device = $r_pool->xpath($x_device);
+				if($a_device !== false):
 					foreach($a_device as $r_device):
 						$this->devicevdev_info_to_array($r_device,$ret);
 						$this->device_info_to_array($r_device,$r_ret);
@@ -357,10 +372,12 @@ class co_zpool_info {
 			$x_pool = '/pools/pool[spares]';
 		endif;
 		$x_device = './spares/.//children[is_spare="1"]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
-				if(false !== ($a_device = $r_pool->xpath($x_device))):
+				$a_device = $r_pool->xpath($x_device);
+				if($a_device !== false):
 					foreach($a_device as $r_device):
 						$this->devicevdev_info_to_array($r_device,$ret);
 						$this->device_info_to_array($r_device,$r_ret);
@@ -387,7 +404,8 @@ class co_zpool_info {
 	public function get_pools_with_single_data_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="disk"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -398,7 +416,8 @@ class co_zpool_info {
 	public function get_pools_with_mirrored_data_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="mirror"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -409,7 +428,8 @@ class co_zpool_info {
 	public function get_pools_with_raidz_data_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[vdev_tree/children[is_log="0" and type="raidz"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -424,7 +444,8 @@ class co_zpool_info {
 	public function get_pools_with_single_cache_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[caches/children[is_cache="1" and type="disk"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -440,7 +461,8 @@ class co_zpool_info {
 	public function get_pools_with_single_log_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[vdev_tree/children[is_log="1" and type="disk"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -451,7 +473,8 @@ class co_zpool_info {
 	public function get_pools_with_mirrored_log_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[vdev_tree/children[is_log="1" and type="mirror"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -466,7 +489,8 @@ class co_zpool_info {
 	public function get_pools_with_single_spare_devices(&$a_ret = []) {
 		$r_ret = [];
 		$x_pool = '/pools/pool[spares/children[is_spare="1"]]';
-		if(false !== ($a_pool = $this->a_xml->xpath($x_pool))):
+		$a_pool = $this->a_xml->xpath($x_pool);
+		if($a_pool !== false):
 			foreach($a_pool as $r_pool):
 				$this->pool_info_to_array($r_pool,$r_ret);
 				$a_ret[(string)$r_pool->pool_guid] = $r_ret;
@@ -484,7 +508,6 @@ class co_zpool_info {
 		$this->get_mirrored_data_devices($a_ret);
 		return $a_ret;
 	}
-
 	public function get_pools_for_attach_log(&$a_ret = []) {
 		$this->get_pools_with_single_log_devices($a_ret);
 		$this->get_pools_with_mirrored_log_devices($a_ret);
@@ -495,7 +518,6 @@ class co_zpool_info {
 		$this->get_mirrored_log_devices($a_ret);
 		return $a_ret;
 	}
-
 	public function get_pools_for_offline_data(&$a_ret = []) {
 		$this->get_pools_with_mirrored_data_devices($a_ret);
 		$this->get_pools_with_raidz_data_devices($a_ret);
@@ -506,7 +528,6 @@ class co_zpool_info {
 		$this->get_raidz_data_devices($a_ret);
 		return $a_ret;
 	}
-
 	public function get_pools_for_online_data(&$a_ret = []) {
 		$this->get_pools_with_single_data_devices($a_ret);
 		$this->get_pools_with_mirrored_data_devices($a_ret);
@@ -554,19 +575,20 @@ class co_zpool_info {
 		return $a_ret;
 	}
 	private function inject_more_pool_info(array $a_pool) {
-		// read pool status and add additional information to the pool
+//		read pool status and add additional information to the pool
 		foreach($a_pool as $r_pool):
 			$x_pool = sprintf('/pools/pool[pool_guid="%s"]',$r_pool['pool.guid']);
-			if(false === ($a_pool = $this->a_xml->xpath($x_pool))):
+			$a_pool = $this->a_xml->xpath($x_pool);
+			if($a_pool === false):
 				continue;
 			endif;
 			$cmd = sprintf('zpool status %s',escapeshellarg($r_pool['pool.name']));
 			$a_row = [];
 			$retval = 0;
 			mwexec2($cmd,$a_row,$retval);
-			// amend pool
+//			amend pool
 			foreach($a_pool as $r_pool):
-				// add spares
+//				add spares
 				$n_spare = 0;
 				$spares_root = $r_pool->addChild('spares');
 				foreach($a_row as $r_row):
@@ -575,7 +597,8 @@ class co_zpool_info {
 						$n_spare = strlen($a_match[1][0]) + 2;
 						continue;
 					endif;
-					if(0 < $n_spare): // read all lines until indent no longer matches
+					if($n_spare > 0):
+//						read all lines until indent no longer matches
 						$a_match = [];
 						if(preg_match_all('/^\t(\s+)(\S+)/',$r_row,$a_match)):
 							if($n_spare === strlen($a_match[1][0])):
@@ -594,7 +617,7 @@ class co_zpool_info {
 						endif;
 					endif;
 				endforeach;
-				// add cache
+//				add cache
 				$n_cache = 0;
 				$caches_root = $r_pool->addChild('caches');
 				foreach($a_row as $r_row):
@@ -603,7 +626,8 @@ class co_zpool_info {
 						$n_cache = strlen($a_match[1][0]) + 2;
 						continue;
 					endif;
-					if(0 < $n_cache): // read all lines until indent no longer matches
+					if($n_cache > 0):
+//						read all lines until indent no longer matches
 						$a_match = [];
 						if(preg_match_all('/^\t(\s+)(\S+)/',$r_row,$a_match)):
 							if($n_cache === strlen($a_match[1][0])):
@@ -626,21 +650,21 @@ class co_zpool_info {
 		return true;
 	}
 	private function adjust_is_log() {
-		// vdev_tree: set is_log = 0 on all vdev that are not log vdevs or single log disks
+//		vdev_tree: set is_log = 0 on all vdev that are not log vdevs or single log disks
 		if($this->configuration_loaded()):
 			$x_device = '/pools/pool/vdev_tree/children[is_log="0"]/.//children[not(is_log)]';
 			$a_device = $this->a_xml->xpath($x_device);
-			if(false !== $a_device):
+			if($a_device !== false):
 				foreach($a_device as $r_device):
 					$r_device->addChild('is_log','0');
 				endforeach;
 			endif;
 		endif;
-		// vdev_tree: set is_log = 1 on all vdev that are log vdevs or single log disks
+//		vdev_tree: set is_log = 1 on all vdev that are log vdevs or single log disks
 		if($this->configuration_loaded()):
 			$x_device = '/pools/pool/vdev_tree/children[is_log="1"]/.//children[not(is_log)]';
 			$a_device = $this->a_xml->xpath($x_device);
-			if(false !== $a_device):
+			if($a_device !== false):
 				foreach($a_device as $r_device):
 					$r_device->addChild('is_log','1');
 				endforeach;
@@ -649,18 +673,19 @@ class co_zpool_info {
 		return true;
 	}
 	public function scan_cache() {
-		// init object related information
+//		init object related information
 		$this->a_xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><pools/>');
 		$a_stack = [];
 		$n_stack = 0;
 		$a_stack[$n_stack] = ['element' => $this->a_xml,'indent' => -1];
 		$candidate = [];
-		// read cached zfs configuration
+//		read cached zfs configuration
 		$cmd = '/usr/sbin/zdb -C';
 		$a_row = [];
 		$retval = 0;
 		mwexec2($cmd,$a_row,$retval);
-		if($retval !== 0): // zdb command error, no pool information is available
+		if($retval !== 0):
+//			zdb command error, no pool information is available
 			return false;
 		endif;
 		$old_indent = 0;  // 1st row is expected to have an indent of 0
@@ -673,11 +698,13 @@ class co_zpool_info {
 				$new_item['tag'] = 'pool';
 			endif;
 			switch($new_item['indent'] <=> $old_indent):
-				case 1: // indent is greater than old indent
+				case 1:
+//					indent is greater than old indent
 					$n_stack++;
 					$a_stack[$n_stack] = $candidate;
 					break;
-				case -1: // indent is lesser than old indent
+				case -1:
+//					indent is lesser than old indent
 					while(($n_stack >= 0) && ($a_stack[$n_stack]['indent'] >= $new_item['indent'])):
 						$n_stack--;
 					endwhile;
@@ -697,12 +724,13 @@ class co_zpool_info {
 		$c_xml .= sprintf("<%s>\n",'pools'); // everything starts with pools
 		$ap_pool = cli_zpool_info('','name,guid,health'); // get all available pools
 		foreach($ap_pool as $rp_pool):
-			// get structure of each pool (zdb lists data vdevs and log vdevs but not spare and cache devices)
+//			get structure of each pool (zdb lists data vdevs and log vdevs but not spare and cache devices)
 			$cmd = sprintf('/usr/sbin/zdb -C %s',escapeshellarg($rp_pool['name']));
 			$a_row = [];
 			$retval = 0;
 			mwexec2($cmd,$a_row,$retval);
-			if($retval === 0): // zdb command successful, pool information is available
+			if($retval === 0):
+//				zdb command successful, pool information is available
 				$c_xml .= sprintf("<%s>\n",'pool'); // open pool tag
 				$indent_previous = 0;
 				foreach($a_row as $r_row):
@@ -725,7 +753,8 @@ class co_zpool_info {
 							$b_tag = true;
 						endif;
 //					endif;
-					if(!$b_tag): // no tag without value detected, now check for [tag: value]
+					if(!$b_tag):
+//					no tag without value detected, now check for [tag: value]
 /*
  * 	the following tags of [tag: value] pairs are currently used:
  *  Summary:	pool_guid, name, version, state, type, id, guid, ashift, asize, is_log, path, phys_path, not_present
@@ -744,14 +773,15 @@ class co_zpool_info {
 						endif;
 					endif;
 					if($b_tag || $b_val):
-						// remove [(number)] from tag
+//						remove [(number)] from tag
 						unset($a_matches);
 						if(preg_match_all('/(\S+)\[\d+\]/',$tag,$a_matches)): // extract tag from tag{index]
 							$tag = $a_matches[1][0];
 						endif;
 						switch($indent_current <=> $indent_previous):
-							case -1: { // level up, we need to close some tags before we process the line
-								// determine how many levels must be closed
+							case -1: {
+//								level up, we need to close some tags before we process the line
+//								determine how many levels must be closed
 								$indent_diff = intdiv(($indent_previous - $indent_current),4);
 								for($index = 0; $index < $indent_diff; $index++):
 									$c_xml .= sprintf("</%s>\n",$tag_open[$tag_index]);
@@ -793,18 +823,18 @@ class co_zpool_info {
 						endswitch;
 					endif;
 				endforeach;
-				// close tags
+//				close tags
 				for($index = $tag_index; $index > -1; $index--):
 					$c_xml .= sprintf("</%s>\n",$tag_open[$tag_index]);
 					unset($tag_open[$tag_index]);
 					$tag_index--;
 				endfor;
-				// read pool status and add additional information to the pool
+//				read pool status and add additional information to the pool
 				$cmd = sprintf('zpool status %s',escapeshellarg($rp_pool['name']));
 				$a_row = [];
 				$retval = 0;
 				mwexec2($cmd,$a_row,$retval);
-				// add spares
+//				add spares
 				$c_xml .= sprintf("<%s>\n",'spares');
 				$a_spare = [];
 				$n_spare = 0;
@@ -814,7 +844,8 @@ class co_zpool_info {
 						$n_spare = strlen($a_match[1][0]) + 2;
 						continue;
 					endif;
-					if(0 < $n_spare): // read all lines until indent no longer matches
+					if($n_spare > 0):
+//						read all lines until indent no longer matches
 						$a_match = [];
 						if(preg_match_all('/^\t(\s+)(\S+)/',$r_row,$a_match)):
 							if($n_spare === strlen($a_match[1][0])):
@@ -825,7 +856,8 @@ class co_zpool_info {
 						endif;
 					endif;
 				endforeach;
-				foreach($a_spare as $r_spare): // it is not confirmed that the spare device is a disk
+				foreach($a_spare as $r_spare):
+//					it is not confirmed that the spare device is a disk
 					$c_xml .= "<children>\n";
 					$c_xml .= sprintf("<type>%s</type>\n",'disk');
 					$c_xml .= sprintf("<guid>%s</guid>\n",uuid()); // temporary ID
@@ -835,7 +867,7 @@ class co_zpool_info {
 					$c_xml .= '</children>';
 				endforeach;
 				$c_xml .= sprintf("</%s>\n",'spares');
-				// add cache
+//				add cache
 				$c_xml .= sprintf("<%s>\n",'caches');
 				$a_cache = [];
 				$n_cache = 0;
@@ -845,7 +877,8 @@ class co_zpool_info {
 						$n_cache = strlen($a_match[1][0]) + 2;
 						continue;
 					endif;
-					if(0 < $n_cache): // read all lines until indent no longer matches
+					if($n_cache > 0):
+//						read all lines until indent no longer matches
 						$a_match = [];
 						if(preg_match_all('/^\t(\s+)(\S+)/',$r_row,$a_match)):
 							if($n_cache === strlen($a_match[1][0])):
@@ -856,7 +889,8 @@ class co_zpool_info {
 						endif;
 					endif;
 				endforeach;
-				foreach($a_cache as $r_cache): // it is not confirmed that the cache device is a disk
+				foreach($a_cache as $r_cache):
+//					it is not confirmed that the cache device is a disk
 					$c_xml .= "<children>\n";
 					$c_xml .= sprintf("<type>%s</type>\n",'disk');
 					$c_xml .= sprintf("<guid>%s</guid>\n",uuid()); // temporary ID
@@ -871,8 +905,9 @@ class co_zpool_info {
 			endif;
 		endforeach;
 		$c_xml .= sprintf("</%s>\n",'pools'); // final end tag
-		// load the string into xml
-		$previous_libxml_use_internal_errors = libxml_use_internal_errors(true); // suppress exeptions
+//		load the string into xml
+//		suppress exeptions
+		$previous_libxml_use_internal_errors = libxml_use_internal_errors(true);
 		libxml_clear_errors();
 		$this->a_xml = simplexml_load_string($c_xml);
 		if(!$this->configuration_loaded()):
@@ -892,7 +927,7 @@ class co_zpool_info {
 		else:
 			$this->scan_cache();
 			if($this->configuration_loaded()):
-				$a_pool = $this->get_all_pools(); // get all pools
+				$a_pool = $this->get_all_pools();
 				$this->inject_more_pool_info($a_pool);
 			endif;
 		endif;
