@@ -154,13 +154,13 @@ Changes:
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
 - Upgrade nano to 5.7.
-- Upgrade php to 7.4.19.
 - Upgrade syncthing to 1.16.1.
 - Upgrade samba to 4.13.8.
 - Upgrade nut to 2021.05.24.
 - Upgrade dialog to 1.3-20210509.
 - Upgrade bash to 5.1 p8.
 - Upgrade proftpd to 1.3.7c.
+- Upgrade php to 7.4.23.
 
 Fixes:
 - Fix only first lagg member is brought up.
