@@ -125,7 +125,6 @@ Changes:
 - Upgrade zoneinfo to 2021a.
 - Upgrade lighttpd to 1.4.59.
 - Upgrade jQuery to 3.6.0.
-- Upgrade devcpu-data to 1.38.
 - Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
 - Upgrade e2fsprogs to 1.46.2.
@@ -143,6 +142,7 @@ Changes:
 - Upgrade bash to 5.1 p8.
 - Upgrade proftpd to 1.3.7c.
 - Upgrade php to 7.4.23.
+- Upgrade devcpu-data to 1.39.
 
 Fixes:
 - Fix only first lagg member is brought up.
