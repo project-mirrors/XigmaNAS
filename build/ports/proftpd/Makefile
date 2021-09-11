@@ -1,5 +1,5 @@
 PORTNAME=		proftpd
-PORTVERSION=	1.3.7a
+PORTVERSION=	1.3.7c
 PORTREVISION=	0
 CATEGORIES=		ftp
 COMMENT=		Highly configurable FTP daemon
@@ -13,12 +13,15 @@ MASTER_SITES=		ftp://ftp.proftpd.org/distrib/source/ \
 DISTFILES=	${DISTNAME}${EXTRACT_SUFX}
 EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
 
+CPE_VENDOR=	proftpd
+CPE_PRODUCT=	proftpd
+
 #MAKE_JOBS_UNSAFE=       yes
-USES+=           cpe gmake libtool
+USES+=          gmake libtool
 USE_AUTOTOOLS=	autoconf
 GNU_CONFIGURE=	yes
 USE_GETTEXT=		yes
-USES+=          ssl
+USES+=          cpe ssl
 
 MODULES=	mod_ratio:mod_ident:mod_readme:mod_rewrite:mod_site_misc:mod_tls:mod_wrap:mod_wrap2:mod_wrap2_file:mod_ban:mod_ctrls_admin:mod_ifsession:mod_sftp
 
