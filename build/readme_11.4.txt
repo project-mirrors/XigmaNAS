@@ -140,7 +140,6 @@ Changes:
 - Upgrade tmux to 3.1c.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
-- Upgrade proftpd to 1.3.7a.
 - Upgrade dmidecode to 3.3.
 - Upgrade zoneinfo to 2021a.
 - Upgrade jQuery to 3.6.0.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade nut to 2021.05.24.
 - Upgrade dialog to 1.3-20210509.
 - Upgrade bash to 5.1 p8.
+- Upgrade proftpd to 1.3.7c.
 
 Fixes:
 - Fix only first lagg member is brought up.
