@@ -142,7 +142,6 @@ Changes:
 - Upgrade dmidecode to 3.3.
 - Upgrade zoneinfo to 2021a.
 - Upgrade jQuery to 3.6.0.
-- Upgrade mDNSResponder to 1310.80.1.
 - Upgrade msmtp to 1.8.15.
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade sudo to 1.9.6p1.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade devcpu-data to 1.39.
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
+- Upgrade mDNSResponder to 1310.120.71.
 
 Fixes:
 - Fix only first lagg member is brought up.
