@@ -1,5 +1,6 @@
 PORTNAME=	virtualbox-ose
-PORTVERSION=	6.1.22
+PORTVERSION=	6.1.26
+PORTREVISION=	1
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/
 PKGNAMESUFFIX?=	-additions
@@ -39,6 +40,7 @@ CONFIGURE_ARGS+=	--nofatal --with-gcc="${CC}" --with-g++="${CXX}"
 
 CONFLICTS_INSTALL=	virtualbox-ose-[0-9]* \
 			virtualbox-ose-additions-devel-[0-9]* \
+			virtualbox-ose-additions-legacy-[0-9]* \
 			virtualbox-ose-devel-[0-9]* \
 			virtualbox-ose-legacy-[0-9]* \
 			virtualbox-ose-lite-[0-9]* \
