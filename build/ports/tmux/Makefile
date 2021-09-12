@@ -32,8 +32,6 @@ OPTIONS_DEFINE=	DOCS EXAMPLES LIBEVENT_STATIC BACKSPACE
 LIBEVENT_STATIC_DESC=	 Build with static libevent
 BACKSPACE_DESC=		 Build with tty/keys patch
 
-BACKSPACE_EXTRA_PATCHES= ${PATCHDIR}/extra-patch-tty-keys.c
-
 LIBEVENT_STATIC_LIB_DEPENDS_OFF=        libevent.so:devel/libevent
 LIBEVENT_STATIC_BUILD_DEPENDS=  ${LOCALBASE}/lib/libevent.a:devel/libevent
 LIBEVENT_STATIC_VARS=   LESTATIC=${LOCALBASE}/lib/libevent.a
