@@ -31,39 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use disks\geom\concat\cfg_toolbox as cfg;
-use disks\geom\concat\cli_toolbox as cli;
+use common\uuid,
+	disks\geom\concat\cfg_toolbox as cfg,
+	disks\geom\concat\cli_toolbox as cli;
 
-if(isset($_GET['uuid']) && \is_string($_GET['uuid']) && \is_uuid_v4($_GET['uuid'])):
+if(isset($_GET['uuid']) && is_string($_GET['uuid']) && uuid::is_v4($_GET['uuid'])):
 //	collect information from a single geom (via uuid)
 	$uuid = $_GET['uuid'];
 	$entity_name = cfg::name_of_uuid($uuid);
 	if(isset($entity_name)):
 		$status = ['ars' => cli::get_status($entity_name),'arl' => cli::get_list($entity_name)];
 	else:
-		$status = ['ars' => \gettext('GEOM not found.'),'arl' => \gettext('GEOM details not available.')];
+		$status = ['ars' => gettext('GEOM not found.'),'arl' => gettext('GEOM details not available.')];
 	endif;
-	$json_string = \json_encode(['submit' => 'inform','uuid' => $uuid]);
-elseif(isset($_GET['name']) && \is_string($_GET['name'])):
+	$json_string = json_encode(['submit' => 'inform','uuid' => $uuid]);
+elseif(isset($_GET['name']) && is_string($_GET['name'])):
 //	collect information from a single geom (via geom name)
 	$entity_name = $_GET['name'];
 	$status = ['ars' => cli::get_status($entity_name),'arl' => cli::get_list($entity_name)];
-	$json_string = \json_encode(['submit' => 'inform','name' => $entity_name]);
+	$json_string = json_encode(['submit' => 'inform','name' => $entity_name]);
 else:
 //	collect information from all gconcats
-	$entity_name = NULL;
+	$entity_name = null;
 	$status = ['ars' => cli::get_status()];
 	$json_string = 'null';
 endif;
-if(\is_ajax()):
-	\render_ajax($status);
+if(is_ajax()):
+	render_ajax($status);
 endif;
-$pgtitle = [\gettext('Disks'),\gettext('Software RAID'),\gettext('JBOD'),\gettext('Information')];
-$document = \new_page($pgtitle);
+$pgtitle = [gettext('Disks'),gettext('Software RAID'),gettext('JBOD'),gettext('Information')];
+$document = new_page($pgtitle);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -72,24 +74,24 @@ $document->
 	add_area_tabnav()->
 		push()->
 		add_tabnav_upper()->
-			ins_tabnav_record('disks_raid_geom.php',\gettext('GEOM'),\gettext('Reload page'),true)->
-			ins_tabnav_record('disks_raid_gvinum.php',\gettext('RAID 0/1/5'))->
+			ins_tabnav_record('disks_raid_geom.php',gettext('GEOM'),gettext('Reload page'),true)->
+			ins_tabnav_record('disks_raid_gvinum.php',gettext('RAID 0/1/5'))->
 		pop()->
 		add_tabnav_lower()->
-			ins_tabnav_record('disks_raid_geom.php',\gettext('Management'))->
-			ins_tabnav_record('disks_raid_gconcat_tools.php',\gettext('Maintenance'))->
-			ins_tabnav_record('disks_raid_gconcat_info.php',\gettext('Information'),\gettext('Reload page'),true);
+			ins_tabnav_record('disks_raid_geom.php',gettext('Management'))->
+			ins_tabnav_record('disks_raid_gconcat_tools.php',gettext('Maintenance'))->
+			ins_tabnav_record('disks_raid_gconcat_info.php',gettext('Information'),gettext('Reload page'),true);
 $content = $pagecontent->add_area_data();
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_titleline(\gettext('JBOD Status'))->
+			c2_titleline(gettext('JBOD Status'))->
 		pop()->
 		addTBODY()->
 			addTR()->
-				insTDwC('celltag',\gettext('Status'))->
+				insTDwC('celltag',gettext('Status'))->
 				addTDwC('celldata')->
 					addElement('pre',['class' => 'cmdoutput'])->
 						insSPAN(['id' => 'ars'],$status['ars']);
@@ -100,11 +102,11 @@ $content->
 		push()->
 		addTHEAD()->
 			c2_separator()->
-			c2_titleline(\gettext('JBOD Details'))->
+			c2_titleline(gettext('JBOD Details'))->
 		pop()->
 		addTBODY()->
 			addTR()->
-				insTDwC('celltag',\gettext('Details'))->
+				insTDwC('celltag',gettext('Details'))->
 				addTDwC('celldata')->
 					addElement('pre',['class' => 'cmdoutput'])->
 						insSPAN(['id' => 'arl'],$status['arl']);
