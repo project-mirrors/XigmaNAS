@@ -2251,9 +2251,12 @@ copy_files() {
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> New port virtualbox-ose-kmod has been created!"
 	echo ""
+	echo "===> Add new port libhid to ports/devel/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/libhid /usr/ports/devel
+	echo "===> New port libhid has been added!"
+	echo ""
 	echo "===> Add new port graid5 to ports/sysutils/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/graid5 /usr/ports/sysutils
-	echo "    SUBDIR += graid5" >>/usr/ports/sysutils/Makefile
 	echo "===> New port graid5 has been added!"
 	return 0
 }
