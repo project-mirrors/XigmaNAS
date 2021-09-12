@@ -136,7 +136,6 @@ Changes:
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade gzip to 1.10.
 - Upgrade unison to 2.51.3.
-- Upgrade tmux to 3.1c.
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade dmidecode to 3.3.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade nano to 5.8.
 - Upgrade nut to 2021.08.27.
 - Upgrade phpmyadmin to 5.1.1.
+- Upgrade tmux to 3.2a.
 
 Fixes:
 - Fix only first lagg member is brought up.
