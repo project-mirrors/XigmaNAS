@@ -49,7 +49,7 @@ final class arr {
  *	@param mixed $needle String or array of needles to search for.
  *	@param array $haystack The array to search.
  *	@param mixed $key String or array of keys to search.
- *	@return mixed Key on success or FALSE on failure.
+ *	@return mixed Key on success or false on failure.
  */
 	public final static function search_ex($needle,$haystack,$key) {
 		if(is_array($haystack) && $needle !== '' && $key !== ''):
@@ -80,7 +80,7 @@ final class arr {
  *	Sort an array by values using a user-defined key.
  *	@param array $array The array to sort.
  *	@param string $key The key used as sort criteria.
- *	@return boolean TRUE on success or FALSE on failure.
+ *	@return boolean true on success or false on failure.
  */
 	public final static function sort_key(array &$array,$key) {
 		if(empty($array) || ($key === '')):
