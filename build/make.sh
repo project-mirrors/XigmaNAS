@@ -2250,6 +2250,11 @@ copy_files() {
 	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> New port virtualbox-ose-kmod has been created!"
+	echo ""
+	echo "===> Add new port graid5 to ports/sysutils/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/graid5 /usr/ports/sysutils
+	echo "    SUBDIR += graid5" >>/usr/ports/sysutils/Makefile
+	echo "===> New port graid5 has been added!"
 	return 0
 }
 build_ports() {
