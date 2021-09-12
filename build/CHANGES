@@ -24,7 +24,6 @@ Changes:
 - Upgrade phpmyadmin to 5.1.0.
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
-- Upgrade nano to 5.7.
 - Upgrade syncthing to 1.16.1.
 - Upgrade samba to 4.13.8.
 - Upgrade nut to 2021.05.24.
@@ -36,6 +35,7 @@ Changes:
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
 - Upgrade mDNSResponder to 1310.120.71.
+- Upgrade nano to 5.8.
 
 Fixes:
 - Fix only first lagg member is brought up.
