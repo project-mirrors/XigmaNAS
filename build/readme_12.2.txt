@@ -144,6 +144,7 @@ Changes:
 - Upgrade nano to 5.8.
 - Upgrade nut to 2021.08.27.
 - Upgrade phpmyadmin to 5.1.1.
+- Upgrade tmux to 3.2a.
 
 Fixes:
 - Fix only first lagg member is brought up.
