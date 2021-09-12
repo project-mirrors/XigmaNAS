@@ -132,7 +132,6 @@ Changes:
 - Update translations.
 - Upgrade mariadb to 10.5.
 - Upgrade rsync to 3.2.3.
-- Upgrade iperf3 to 3.9.
 - Upgrade transmission to 3.00.
 - Upgrade pecl-APCu to 5.1.19.
 - Upgrade gzip to 1.10.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade php to 7.4.23.
 - Upgrade devcpu-data to 1.39.
 - Upgrade e2fsprogs to 1.46.4.
+- Upgrade iperf3 to 3.10.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
