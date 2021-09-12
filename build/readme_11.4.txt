@@ -146,7 +146,6 @@ Changes:
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade sudo to 1.9.6p1.
 - Upgrade arcconf to 3_07_23971.
-- Upgrade phpmyadmin to 5.1.0.
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
 - Upgrade syncthing to 1.16.1.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade mDNSResponder to 1310.120.71.
 - Upgrade nano to 5.8.
 - Upgrade nut to 2021.08.27.
+- Upgrade phpmyadmin to 5.1.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
