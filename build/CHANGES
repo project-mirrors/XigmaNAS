@@ -28,6 +28,7 @@ Changes:
 - Upgrade php to 7.4.23.
 - Upgrade devcpu-data to 1.39.
 - Upgrade e2fsprogs to 1.46.4.
+- Upgrade iperf3 to 3.10.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
