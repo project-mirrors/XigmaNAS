@@ -147,7 +147,6 @@ Changes:
 - Upgrade arcconf to 3_07_23971.
 - Upgrade python to 3.8.x.
 - Upgrade virtualbox-ose to 6.1.22.
-- Upgrade syncthing to 1.16.1.
 - Upgrade samba to 4.13.8.
 - Upgrade dialog to 1.3-20210509.
 - Upgrade bash to 5.1 p8.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade nut to 2021.08.27.
 - Upgrade phpmyadmin to 5.1.1.
 - Upgrade tmux to 3.2a.
+- Upgrade syncthing to 1.18.2.
 
 Fixes:
 - Fix only first lagg member is brought up.
