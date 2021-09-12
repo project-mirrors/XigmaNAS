@@ -31,13 +31,17 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function disk_raid_gvinum_info_ajax() {
 	$cmd = '/sbin/gvinum list';
 	mwexec2($cmd,$rawdata);
-	return (0 === count($rawdata)) ? gettext('No GEOM vinum information found.') : implode(PHP_EOL,$rawdata);
+	if(count($rawdata) === 0):
+		return gettext('No GEOM vinum information found.');
+	endif;
+	return implode("\n",$rawdata);
 }
 if(is_ajax()):
 	$status['area_refresh'] = disk_raid_gvinum_info_ajax();
