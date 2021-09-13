@@ -57,7 +57,7 @@ class FileChooser {
 		//$this->cfg['dateFormat'] = 'F d, Y g:i A'; // date format.
 		$this->cfg['dateFormat'] = $config['system']['datetimeformat'] ?? 'Y/m/d H:i'; // date format.
 		$this->cfg['startDirectory'] = '/';
-		
+
 		// Get path if browsing a tree.
 		$path = (isset($_GET['p'])) ? urldecode(htmlspecialchars($_GET['p'])) : false;
 		// If no path is available, set it to root.
@@ -83,7 +83,7 @@ class FileChooser {
 			$dir .= '/';
 		endif;
 		// Get sorting vars from URL, if nothing is set, sort by N [file Name].
-		$this->cfg['sortMode'] = (isset($_GET['N']) ? 'N' : 
+		$this->cfg['sortMode'] = (isset($_GET['N']) ? 'N' :
 			(isset($_GET['S']) ? 'S' :
 			(isset($_GET['T']) ? 'T' :
 			(isset($_GET['M']) ? 'M' : 'N' ))));
@@ -170,11 +170,11 @@ EOD;
 				$folders[] = $file;
 			elseif(is_file("{$dir}/{$file}")):
 				$files[] = $file;
-			elseif(preg_match('#^/dev/zvol/#', "{$dir}") && strpos($file, '@') == FALSE):
+			elseif(preg_match('#^/dev/zvol/#', "{$dir}") && strpos($file, '@') == false):
 				/* pickup ZFS volume but not snapshot */
 				$S_IFCHR = 0020000;
 				$st = stat("{$dir}/{$file}");
-				if ($st != FALSE && $st['mode'] & $S_IFCHR):
+				if ($st != false && $st['mode'] & $S_IFCHR):
 					$files[] = $file;
 				endif;
 			endif;
@@ -411,7 +411,7 @@ header("Content-Type: text/html; charset=" . system_get_language_codeset());
 		<link href="css/gui.css.php" rel="stylesheet" type="text/css">
 		<link href="css/fc.css.php" rel="stylesheet" type="text/css">
 		<script type="text/javascript">
-//![CDATA[
+//<![CDATA[
 			function onSubmit() {
 				var slash = eval("opener.slash_"+opener.ifield.id);
 				if (typeof slash === "undefined" || slash == 0) {
@@ -425,7 +425,7 @@ header("Content-Type: text/html; charset=" . system_get_language_codeset());
 			function onReset() {
 				close();
 			}
-//]]
+//]]>
 		</script>
 	</head>
 	<body class="filechooser">
