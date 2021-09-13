@@ -57,7 +57,7 @@ function gxmltext(string $data = '') {
 	return xmlspecialchars(gettext($data));
 }
 function unicode_escape_javascript(string $data = '',int $flags = JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP): string {
-	return \json_encode($data,$flags);
+	return json_encode($data,$flags);
 }
 function xmlspecialchars(string $data = '') {
 /*
