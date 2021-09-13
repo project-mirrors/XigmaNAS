@@ -120,41 +120,45 @@ class config_xml_reader {
 	public $config;
 	public $havedata;
 	public $attributes;
-	
+
 	public function __construct() {
-		//	Create XML parser.
+//		Create XML parser.
 		$this->parser = xml_parser_create('UTF-8');
-		xml_set_object($this->parser,$this);
-		//	Initialize start element handler and end element handler.
-		xml_set_element_handler($this->parser,'startelementhandler','endelementhandler');
-		//	Initialize data handler.
-		xml_set_character_data_handler($this->parser,'datahandler');
+		if($this->parser !== false):
+			xml_set_object($this->parser,$this);
+//			Initialize start element handler and end element handler.
+			xml_set_element_handler($this->parser,'startelementhandler','endelementhandler');
+//			Initialize data handler.
+			xml_set_character_data_handler($this->parser,'datahandler');
+		endif;
 	}
 	public function __destruct() {
-		//	Destroy parser
+//		Destroy parser
 		xml_parser_free($this->parser);
-		//	Free memory
+//		Free memory
 		unset($this->parser);
 	}
 	public function startelementhandler($parser,$name,$attributes) {
 		global $listtags;
-		
+
 		$lowercase_name = strtolower($name);
-		//	Push start element
+//		Push start element
 		array_push($this->curpath,$lowercase_name);
 		$ptr = &$this->config;
 		foreach($this->curpath as $path):
 			$ptr = &$ptr[$path];
 		endforeach;
-		//	Is it an element that belongs to a list?
+//		Is it an element that belongs to a list?
 		if(array_key_exists($lowercase_name,$listtags)):
-			if(!is_array($ptr)): // is there an array already?
-				$ptr = []; // make an array
+//			is there an array already?
+			if(!is_array($ptr)):
+//				make an array
+				$ptr = [];
 			endif;
-			//	Push array index
+//			Push array index
 			array_push($this->curpath,count($ptr));
 		elseif(isset($ptr)):
-			//	multiple entries not allowed for this element, bail out
+//			multiple entries not allowed for this element, bail out
 			die(sprintf("XML error: %s at line %d cannot occur more than once\n",$name,xml_get_current_line_number($parser)));
 		endif;
 		$this->depth++;
@@ -166,7 +170,7 @@ class config_xml_reader {
 	}
 	public function endelementhandler($parser,$name) {
 		global $listtags;
-		
+
 		$lowercase_name = strtolower($name);
 		if($this->havedata == $this->depth):
 			$ptr = &$this->config;
@@ -189,10 +193,10 @@ class config_xml_reader {
 				$ptr = &$ptr[$path];
 			endforeach;
 			if(is_string($ptr)):
-				//	Multiline
+//				Multiline
 				$ptr .= $trimmed_data;
 			elseif(preg_match('/\S/',$trimmed_data)):
-				//	Data is not empty, check for type attribute
+//				Data is not empty, check for type attribute
 				if(array_key_exists('type',$this->attributes)):
 					switch($this->attributes['type']):
 						case 'bool':
@@ -215,23 +219,23 @@ class config_xml_reader {
 		$this->depth = 0;
 		$this->havedata = 0;
 		$this->attributes = [];
-		//	Read configuration file.
+//		Read configuration file.
 		$data = file_get_contents($cffile);
 		if(false === $data):
 			die("Error: could not open XML input\n");
 		endif;
-		//	Detect and set output character encoding. Default output encoding is UTF-8
+//		Detect and set output character encoding. Default output encoding is UTF-8
 		if(preg_match('/<?xml.*encoding=[\'"](.*?)[\'"].*?>/m',$data,$m)):
 			$encoding = strtoupper($m[1]);
 			xml_parser_set_option($this->parser,XML_OPTION_TARGET_ENCODING,$encoding);
 		else:
 			$encoding = 'UTF-8';
 		endif;
-		//	Parse configuration.
+//		Parse configuration.
 		if(!xml_parse($this->parser,$data,true)):
 			die(sprintf("XML error: %s at line %d\n",xml_error_string(xml_get_error_code($this->parser)),xml_get_current_line_number($this->parser)));
 		endif;
-		//	Remember document encoding on each root node
+//		Remember document encoding on each root node
 		foreach($this->config as &$root_node):
 			$root_node['encoding'] = $encoding;
 		endforeach;
@@ -250,7 +254,7 @@ function parse_xml_config($cffile,bool $allowtodie,string ...$root_objects) {
 		endif;
 	endforeach;
 	if($allowtodie):
-		die('XML error: no valid root object found!' . PHP_EOL);
+		die('XML error: no valid root object found!' . "\n");
 	endif;
 	return false;
 }
@@ -277,65 +281,65 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 			if(array_key_exists(strtolower($ent),$listtags)): // is it a list of multiple values?
 				foreach($val as $cval):
 					if(is_array($cval)):
-						$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . PHP_EOL;
+						$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
 						$xmlconfig .= dump_xml_config_sub($cval,$indent + 1,$inbound_charset,$outbound_charset);
-						$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . PHP_EOL;
+						$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
 					elseif(is_bool($cval)):
 						if($cval):
-							$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . PHP_EOL;
+							$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
 //						else:
-//							$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . PHP_EOL;
+//							$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
 						endif;
-					elseif('' === $cval):
-						$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . PHP_EOL;
+					elseif($cval === ''):
+						$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 					elseif($must_convert):
 						$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 						$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$cval));
-						$xmlconfig .= sprintf('</%s>',$ent) . PHP_EOL;
+						$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 					else:
 						$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 						$xmlconfig .= htmlspecialchars($cval);
-						$xmlconfig .= sprintf('</%s>',$ent) . PHP_EOL;
+						$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 					endif;
 				endforeach;
 			else: // it's an array
-				$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . PHP_EOL;
+				$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
 				$xmlconfig .= dump_xml_config_sub($val,$indent + 1,$inbound_charset,$outbound_charset);
-				$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . PHP_EOL;
+				$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
 			endif;
 		elseif(is_bool($val)):
 			if($val):
-				$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . PHP_EOL;
+				$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
 //			else:
-//				$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . PHP_EOL;
+//				$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
 			endif;
-		elseif('' === $val):
-			$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . PHP_EOL;
+		elseif($val === ''):
+			$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 		elseif($must_convert):
 			$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 			$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$val));
-			$xmlconfig .= sprintf('</%s>',$ent) . PHP_EOL;
+			$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 		else:
 			$xmlconfig .= $s_indent . sprintf("<%s>",$ent);
 			$xmlconfig .= htmlspecialchars($val);
-			$xmlconfig .= sprintf('</%s>',$ent) . PHP_EOL;
+			$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 		endif;
 	endforeach;
 	return $xmlconfig;
 }
 function dump_xml_config($arr,$rootobj,$encoding) {
-	//	Set inbound / outbound encoding
+//	Set inbound / outbound encoding
 	$inbound_charset = $arr['encoding'] ?? 'UTF-8';
-	if(1 !== preg_match('/\S/',$inbound_charset)):
+	if(preg_match('/\S/',$inbound_charset) !== 1):
 		$inbound_charset = 'UTF-8';
 	endif;
 	$outbound_charset = $encoding;
-	//	Do not dump temporary encoding attribute
+//	Do not dump temporary encoding attribute
 	unset($arr['encoding']);
-	$xmlconfig = sprintf('<?xml version="1.0" encoding="%s"?>',$encoding) . PHP_EOL;
-	$xmlconfig .= sprintf('<%s>',$rootobj) . PHP_EOL;
+	$xmlconfig = sprintf('<?xml version="1.0" encoding="%s"?>',$encoding) . "\n";
+	$xmlconfig .= sprintf('<%s>',$rootobj) . "\n";
 	$xmlconfig .= dump_xml_config_sub($arr,1,$inbound_charset,$outbound_charset);
-	$xmlconfig .= sprintf('</%s>',$rootobj) . PHP_EOL;
+	$xmlconfig .= sprintf('</%s>',$rootobj) . "\n";
 	return $xmlconfig;
 }
 /**
@@ -345,7 +349,7 @@ function dump_xml_config($arr,$rootobj,$encoding) {
  *	@return bool True if valid, otherwise false.
  */
 function validate_xml_config($cffile,string ...$root_objects) {
-	//	Parse the configuration
+//	Parse the configuration
 	$raw_config = parse_xml_config_raw($cffile);
 	foreach($root_objects as $rootobj):
 		if(array_key_exists($rootobj,$raw_config)):
