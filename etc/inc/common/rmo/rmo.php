@@ -34,7 +34,12 @@
 
 namespace common\rmo;
 
-use function array_key_exists,filter_var;
+use const FILTER_CALLBACK,
+	INPUT_GET,
+	INPUT_POST;
+
+use function array_key_exists,
+	filter_var;
 
 /**
  *	Request Method Object
@@ -74,14 +79,14 @@ final class rmo {
  *	Returns the default method
  *	@return array
  */
-	public function get_default() : array {
+	public function get_default(): array {
 		return $this->x_default;
 	}
 /**
  *	Validate request method and submit parameter
  *	@return array
  */
-	public function validate() : array {
+	public function validate(): array {
 //		check $_SESSION settings first
 		$this->x_method = 'SESSION';
 		if(array_key_exists($this->x_method,$this->x_activities) && array_key_exists('submit',$_SESSION)):
