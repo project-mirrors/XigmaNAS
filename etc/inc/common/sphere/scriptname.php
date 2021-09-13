@@ -42,6 +42,7 @@ use function sprintf;
 final class scriptname {
 	protected $x_basename;
 	protected $x_extension;
+
 	public function __construct(string $basename,string $extension = 'php') {
 		$this->set_basename($basename);
 		$this->set_extension($extension);
