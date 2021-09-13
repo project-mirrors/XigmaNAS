@@ -34,12 +34,15 @@
 
 namespace common\sphere;
 
+use function sprintf;
+
 /**
  *	Class containing information about the name of a script
  */
 final class scriptname {
 	protected $x_basename;
 	protected $x_extension;
+
 	public function __construct(string $basename,string $extension = 'php') {
 		$this->set_basename($basename);
 		$this->set_extension($extension);
@@ -59,9 +62,9 @@ final class scriptname {
 		return $this->x_extension;
 	}
 	public function get_scriptname() {
-		return \sprintf('%s.%s',$this->x_basename,$this->x_extension);
+		return sprintf('%s.%s',$this->x_basename,$this->x_extension);
 	}
 	public function get_location() {
-		return \sprintf('Location: %s.%s',$this->x_basename,$this->x_extension);
+		return sprintf('Location: %s.%s',$this->x_basename,$this->x_extension);
 	}
 }
