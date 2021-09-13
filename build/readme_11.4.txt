@@ -143,7 +143,6 @@ Changes:
 - Upgrade jQuery to 3.6.0.
 - Upgrade msmtp to 1.8.15.
 - Upgrade open-vm-tools to 11.2.5.
-- Upgrade sudo to 1.9.6p1.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade python to 3.8.x.
 - Upgrade samba to 4.13.8.
@@ -161,6 +160,7 @@ Changes:
 - Upgrade tmux to 3.2a.
 - Upgrade syncthing to 1.18.2.
 - Upgrade virtualbox-ose to 6.1.26.
+- Upgrade sudo to 1.9.8.
 
 Fixes:
 - Fix only first lagg member is brought up.
