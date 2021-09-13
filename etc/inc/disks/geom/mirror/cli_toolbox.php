@@ -34,7 +34,9 @@
 
 namespace disks\geom\mirror;
 
-use function escapeshellarg,implode,mwexec2;
+use function escapeshellarg,
+	implode,
+	mwexec2;
 
 /**
  *	Wrapper class for autoloading functions
@@ -45,7 +47,7 @@ final class cli_toolbox {
  *	@param string $entity_name If provided, only details of this specific gmirror are returned.
  *	@return string An unescaped string.
  */
-	public static function get_list(string $entity_name = NULL): string {
+	public static function get_list(string $entity_name = null): string {
 		$a_cmd = ['/sbin/geom','mirror','list'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
@@ -59,7 +61,7 @@ final class cli_toolbox {
  *	Returns the status of a single gmirror or all gmirrors.
  *	@return string An unescaped string.
  */
-	public static function get_status(string $entity_name = NULL): string {
+	public static function get_status(string $entity_name = null): string {
 		$a_cmd = ['/sbin/geom','mirror','status'];
 		if(isset($entity_name)):
 			$a_cmd[] = escapeshellarg($entity_name);
