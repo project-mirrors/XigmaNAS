@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
+
+use common\arr;
 
 $runtime_dir = '/usr/local/share/rrdgraphs';
 if(isset($config['rrdgraphs']['enable'])):
@@ -70,11 +74,11 @@ if(isset($config['rrdgraphs']['enable'])):
 		if(isset($config['rrdgraphs']['mounts'])):
 			unset($config['rrdgraphs']['mounts']);
 		endif;
-		array_make_branch($config,'rrdgraphs','mounts');
+		arr::make_branch($config,'rrdgraphs','mounts');
 		if(isset($config['rrdgraphs']['pools'])):
 			unset($config['rrdgraphs']['pools']);
 		endif;
-		array_make_branch($config,'rrdgraphs','pools');
+		arr::make_branch($config,'rrdgraphs','pools');
 		if(is_array($config['mounts']) && is_array($config['mounts']['mount'])):
 			for($i = 0; $i < count($config['mounts']['mount']); ++$i):
 				$config['rrdgraphs']['mounts']["mount{$i}"] = $config['mounts']['mount'][$i]['sharename'];
