@@ -31,13 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
-require_once 'autoload.php';
 
-use gui\document;
-use common\arr;
+use common\arr,
+	gui\document;
 
 $pgtitle = [gtext('Disks'),gtext('Management'),gtext('S.M.A.R.T.')];
 
@@ -129,7 +130,7 @@ function smartssd_process_updatenotification($mode, $data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY:
 			if(is_array($config['smartd']['selftest'])):
-				$index = array_search_ex($data, $config['smartd']['selftest'], "uuid");
+				$index = arr::search_ex($data, $config['smartd']['selftest'], "uuid");
 				if(false !== $index):
 					unset($config['smartd']['selftest'][$index]);
 					write_config();
@@ -140,10 +141,10 @@ function smartssd_process_updatenotification($mode, $data) {
 
 	return $retval;
 }
+include 'fbegin.inc';
 ?>
-<?php include 'fbegin.inc';?>
-<script type="text/javascript">
-//![CDATA[
+<script>
+//<![CDATA[
 function enable_change(enable_change) {
 	var endis = !(document.iform.enable.checked || enable_change);
 
@@ -334,8 +335,8 @@ $document->render();
 	include 'formend.inc';
 ?>
 </td></tr></tbody></table></form>
-<script type="text/javascript">
-//![CDATA[
+<script>
+//<![CDATA[
 enable_change(false);
 //]]>
 </script>
