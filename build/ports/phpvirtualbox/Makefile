@@ -7,7 +7,7 @@ MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Web Interface for VirtualBox
 
 # XigmaNAS® contains license files
-LICENSE=	GPLv3
+#LICENSE=	GPLv3
 
 USES=		dos2unix php
 # XigmaNAS
@@ -23,8 +23,8 @@ DOS2UNIX_REGEX=	.*\.(php|txt|js|css|html)
 ETCDIR=		${WWWDIR}
 
 post-patch:
-	@${REINPLACE_CMD} -e 's#/usr/share/phpvirtualbox#${WWWDIR}#g' ${WRKSRC}/phpvirtualbox.conf
-
+	@${REINPLACE_CMD} -e 's#/usr/share/phpvirtualbox#${WWWDIR}#g' \
+		${WRKSRC}/phpvirtualbox.conf
 do-install:
 	${MKDIR} ${STAGEDIR}${WWWDIR}
 	(cd ${WRKSRC}/ && ${COPYTREE_SHARE} "*" ${STAGEDIR}${WWWDIR} \
