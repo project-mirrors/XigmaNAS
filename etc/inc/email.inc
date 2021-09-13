@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
 require_once 'util.inc';
 require_once 'system.inc';
+
+use common\arr;
 
 /**
  *	Checks if email settings are valid.
@@ -43,7 +47,7 @@ require_once 'system.inc';
 function email_validate_settings() {
 	global $config;
 
-	$email = array_make_branch($config,'system','email');
+	$email = arr::make_branch($config,'system','email');
 	if(empty($email['server']) || empty($email['port']) || empty($email['from'])):
 		return 1;
 	endif;
@@ -62,17 +66,17 @@ function email_validate_settings() {
 function get_email_header_from() {
 	global $config;
 
-	array_make_branch($config,'system','email');
+	arr::make_branch($config,'system','email');
 	$cfg_hostname = $config['system']['hostname'] ?? '';
-	$flt_hostname = filter_var($cfg_hostname,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]);
+	$flt_hostname = filter_var($cfg_hostname,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]);
 	if(is_null($flt_hostname)):
 		$flt_hostname = get_product_name();
 	endif;
 	$cfg_from = $config['system']['email']['from'] ?? '';
-	$flt_from = filter_var($cfg_from,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]);
+	$flt_from = filter_var($cfg_from,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]);
 	if(is_null($flt_from)):
 		$cfg_domain = $config['system']['domain'] ?? '';
-		$flt_domain = filter_var($cfg_domain,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => '/\S/']]);
+		$flt_domain = filter_var($cfg_domain,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]);
 		if(is_null($flt_domain)):
 			$flt_domain = get_product_name() . '.local';
 		endif;
@@ -102,7 +106,7 @@ function email_send($address,$subject,$message,&$error) {
 			'input-charset' => 'UTF-8',
 			'output-charset' => 'UTF-8',
 			'line-length' => 76,
-			'line-break-chars' => PHP_EOL
+			'line-break-chars' => "\n"
 		];
 		$email_from = get_email_header_from();
 //		substitute special characters in subject
@@ -116,17 +120,17 @@ function email_send($address,$subject,$message,&$error) {
 //		generate message content
 		$data = '';
 		foreach(explode(' ',$address) as $addressv):
-			$data .= 'To: ' . $addressv . PHP_EOL;
+			$data .= 'To: ' . $addressv . "\n";
 		endforeach;
-		$data .= 'From: ' . $email_from . PHP_EOL;
-		$data .= $subject_final . PHP_EOL;
-		$data .= 'Date: ' . $rfcdate . PHP_EOL;
-		$data .= 'MIME-Version: 1.0' . PHP_EOL;
-		$data .= 'Content-Type: text/plain; charset=UTF-8' . PHP_EOL;
-		$data .= 'Content-Transfer-Encoding: 8bit' . PHP_EOL;
-		$data .= PHP_EOL;
+		$data .= 'From: ' . $email_from . "\n";
+		$data .= $subject_final . "\n";
+		$data .= 'Date: ' . $rfcdate . "\n";
+		$data .= 'MIME-Version: 1.0' . "\n";
+		$data .= 'Content-Type: text/plain; charset=UTF-8' . "\n";
+		$data .= 'Content-Transfer-Encoding: 8bit' . "\n";
+		$data .= "\n";
 		$data .= $message;
-		$data .= PHP_EOL;
+		$data .= "\n";
 //		write message to file
 		if(false !== file_put_contents($msgfilepath,$data)):
 //			send email via external SMTP client
