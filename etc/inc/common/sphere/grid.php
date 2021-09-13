@@ -34,6 +34,11 @@
 
 namespace common\sphere;
 
+use function gettext,
+	implode,
+	preg_match,
+	unicode_escape_javascript;
+
 /**
  *	sphere object for grid pages
  *	root -> hub -> row
@@ -84,7 +89,7 @@ final class grid extends hub {
 		return $this->x_cbm_suffix;
 	}
 	public function set_cbm_suffix(string $value) {
-		if(\preg_match('/^[a-z\d_]+$/i',$value)):
+		if(preg_match('/^[a-z\d_]+$/i',$value)):
 			$this->x_cbm_suffix = $value;
 		endif;
 		return $this;
@@ -93,7 +98,7 @@ final class grid extends hub {
 		return $this->x_cbm_name . $this->get_cbm_suffix();
 	}
 	public function set_cbm_name(string $value) {
-		if(\preg_match('/^\S+$/i',$value)):
+		if(preg_match('/^\S+$/i',$value)):
 			$this->x_cbm_name = $value;
 		endif;
 		return $this;
@@ -102,7 +107,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_id_delete . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_delete(string $id) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_id_delete = $id;
 		endif;
 		return $this;
@@ -111,7 +116,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_id_disable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_disable(string $id) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_id_disable = $id;
 		endif;
 		return $this;
@@ -120,7 +125,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_id_enable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_enable(string $id) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_id_enable = $id;
 		endif;
 		return $this;
@@ -129,7 +134,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_id_toggle . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_id_toggle(string $id) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_id_toggle = $id;
 		endif;
 		return $this;
@@ -138,7 +143,7 @@ final class grid extends hub {
 		return $this->x_cbm_checkbox_id_toggle . $this->get_cbm_suffix();
 	}
 	public function set_cbm_checkbox_id_toggle(string $id) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_checkbox_id_toggle = $id;
 		endif;
 		return $this;
@@ -147,7 +152,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_val_delete . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_delete(string $value) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_val_delete = $value;
 		endif;
 		return $this;
@@ -156,7 +161,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_val_disable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_disable(string $value) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_val_disable = $value;
 		endif;
 		return $this;
@@ -165,7 +170,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_val_enable . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_enable(string $value) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_val_enable = $value;
 		endif;
 		return $this;
@@ -174,7 +179,7 @@ final class grid extends hub {
 		return $this->x_cbm_button_val_toggle . $this->get_cbm_suffix();
 	}
 	public function set_cbm_button_val_toggle(string $value) {
-		if(\preg_match('/^\S+$/',$id)):
+		if(preg_match('/^\S+$/',$id)):
 			$this->x_cbm_button_val_toggle = $value;
 		endif;
 		return $this;
@@ -183,136 +188,136 @@ final class grid extends hub {
 		if(isset($message)):
 			$this->x_cbm_delete = $message;
 		endif;
-		return $this->x_cbm_delete ?? \gettext('Delete Selected Records');
+		return $this->x_cbm_delete ?? gettext('Delete Selected Records');
 	}
 	public function cbm_delete_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_delete_confirm = $message;
 		endif;
-		return $this->x_cbm_delete_confirm ?? \gettext('Do you want to delete selected records?');
+		return $this->x_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
 	}
 	public function cbm_disable(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_disable = $message;
 		endif;
-		return $this->x_cbm_disable ?? \gettext('Disable Selected Records');
+		return $this->x_cbm_disable ?? gettext('Disable Selected Records');
 	}
 	public function cbm_disable_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_disable_confirm = $message;
 		endif;
-		return $this->x_cbm_disable_confirm ?? \gettext('Do you want to disable selected records?');
+		return $this->x_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
 	}
 	public function cbm_enable(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_enable = $message;
 		endif;
-		return $this->x_cbm_enable ?? \gettext('Enable Selected Records');
+		return $this->x_cbm_enable ?? gettext('Enable Selected Records');
 	}
 	public function cbm_enable_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_enable_confirm = $message;
 		endif;
-		return $this->x_cbm_enable_confirm ?? \gettext('Do you want to enable selected records?');
+		return $this->x_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
 	}
 	public function cbm_lock(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_lock = $message;
 		endif;
-		return $this->x_cbm_lock ?? \gettext('Lock Selected Records');
+		return $this->x_cbm_lock ?? gettext('Lock Selected Records');
 	}
 	public function cbm_lock_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_lock_confirm = $message;
 		endif;
-		return $this->x_cbm_lock_confirm ?? \gettext('Do you want to lock selected records?');
+		return $this->x_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
 	}
 	public function cbm_toggle(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_toggle = $message;
 		endif;
-		return $this->x_cbm_toggle ?? \gettext('Toggle Selected Records');
+		return $this->x_cbm_toggle ?? gettext('Toggle Selected Records');
 	}
 	public function cbm_toggle_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_toggle_confirm = $message;
 		endif;
-		return $this->x_cbm_toggle_confirm ?? \gettext('Do you want to toggle selected records?');
+		return $this->x_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
 	}
 	public function cbm_unlock(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_unlock = $message;
 		endif;
-		return $this->x_cbm_unlock ?? \gettext('Unlock Selected Records');
+		return $this->x_cbm_unlock ?? gettext('Unlock Selected Records');
 	}
 	public function cbm_unlock_confirm(string $message = null) {
 		if(isset($message)):
 			$this->x_cbm_unlock_confirm = $message;
 		endif;
-		return $this->x_cbm_unlock_confirm ?? \gettext('Do you want to unlock selected records?');
+		return $this->x_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
 	public function getmsg_cbm_delete() {
-		return $this->x_cbm_delete ?? \gettext('Delete Selected Records');
+		return $this->x_cbm_delete ?? gettext('Delete Selected Records');
 	}
 	public function getmsg_cbm_delete_confirm() {
-		return $this->x_cbm_delete_confirm ?? \gettext('Do you want to delete selected records?');
+		return $this->x_cbm_delete_confirm ?? gettext('Do you want to delete selected records?');
 	}
 	public function getmsg_cbm_disable() {
-		return $this->x_cbm_disable ?? \gettext('Disable Selected Records');
+		return $this->x_cbm_disable ?? gettext('Disable Selected Records');
 	}
 	public function getmsg_cbm_disable_confirm() {
-		return $this->x_cbm_disable_confirm ?? \gettext('Do you want to disable selected records?');
+		return $this->x_cbm_disable_confirm ?? gettext('Do you want to disable selected records?');
 	}
 	public function getmsg_cbm_enable() {
-		return $this->x_cbm_enable ?? \gettext('Enable Selected Records');
+		return $this->x_cbm_enable ?? gettext('Enable Selected Records');
 	}
 	public function getmsg_cbm_enable_confirm() {
-		return $this->x_cbm_enable_confirm ?? \gettext('Do you want to enable selected records?');
+		return $this->x_cbm_enable_confirm ?? gettext('Do you want to enable selected records?');
 	}
 	public function getmsg_cbm_lock() {
-		return $this->x_cbm_lock ?? \gettext('Lock Selected Records');
+		return $this->x_cbm_lock ?? gettext('Lock Selected Records');
 	}
 	public function getmsg_cbm_lock_confirm() {
-		return $this->x_cbm_lock_confirm ?? \gettext('Do you want to lock selected records?');
+		return $this->x_cbm_lock_confirm ?? gettext('Do you want to lock selected records?');
 	}
 	public function getmsg_cbm_toggle() {
-		return $this->x_cbm_toggle ?? \gettext('Toggle Selected Records');
+		return $this->x_cbm_toggle ?? gettext('Toggle Selected Records');
 	}
 	public function getmsg_cbm_toggle_confirm() {
-		return $this->x_cbm_toggle_confirm ?? \gettext('Do you want to toggle selected records?');
+		return $this->x_cbm_toggle_confirm ?? gettext('Do you want to toggle selected records?');
 	}
 	public function getmsg_cbm_unlock() {
-		return $this->x_cbm_unlock ?? \gettext('Unlock Selected Records');
+		return $this->x_cbm_unlock ?? gettext('Unlock Selected Records');
 	}
 	public function getmsg_cbm_unlock_confirm() {
-		return $this->x_cbm_unlock_confirm ?? \gettext('Do you want to unlock selected records?');
+		return $this->x_cbm_unlock_confirm ?? gettext('Do you want to unlock selected records?');
 	}
 	public function getmsg_sym_add() {
-		return $this->x_sym_add ?? \gettext('Add Record');
+		return $this->x_sym_add ?? gettext('Add Record');
 	}
 	public function getmsg_sym_del(string $message = null) {
-		return $this->x_sym_del ?? \gettext('Record is marked for deletion');
+		return $this->x_sym_del ?? gettext('Record is marked for deletion');
 	}
 	public function getmsg_sym_inf() {
-		return $this->x_sym_inf ?? \gettext('Record Information');
+		return $this->x_sym_inf ?? gettext('Record Information');
 	}
 	public function getmsg_sym_loc() {
-		return $this->x_sym_loc ?? \gettext('Record is protected');
+		return $this->x_sym_loc ?? gettext('Record is protected');
 	}
 	public function getmsg_sym_mai() {
-		return $this->x_sym_mai ?? \gettext('Record Maintenance');
+		return $this->x_sym_mai ?? gettext('Record Maintenance');
 	}
 	public function getmsg_sym_mdn() {
-		return $this->x_sym_mdn ?? \gettext('Move down');
+		return $this->x_sym_mdn ?? gettext('Move down');
 	}
 	public function getmsg_sym_mod() {
-		return $this->x_sym_mod ?? \gettext('Edit Record');
+		return $this->x_sym_mod ?? gettext('Edit Record');
 	}
 	public function getmsg_sym_mup() {
-		return $this->x_sym_mup ?? \gettext('Move up');
+		return $this->x_sym_mup ?? gettext('Move up');
 	}
 	public function getmsg_sym_unl() {
-		return $this->x_sym_unl ?? \gettext('Record is unlocked');
+		return $this->x_sym_unl ?? gettext('Record is unlocked');
 	}
 	public function setmsg_cbm_delete(string $message = null) {
 		$this->x_cbm_delete = $message;
@@ -400,35 +405,35 @@ final class grid extends hub {
 	}
 	public function get_js_on_load(): string {
 		$output = [];
-		//	Init action buttons.
+//		init action buttons.
 		if($this->is_enadis_enabled()):
 			if($this->toggle()):
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_toggle() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm(' . \unicode_escape_javascript($this->getmsg_cbm_toggle_confirm()) . ');';
+				$output[] = "\t\t" . 'return confirm(' . unicode_escape_javascript($this->getmsg_cbm_toggle_confirm()) . ');';
 				$output[] = "\t" . '});';
 			else:
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_enable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm(' . \unicode_escape_javascript($this->getmsg_cbm_enable_confirm()) . ');';
+				$output[] = "\t\t" . 'return confirm(' . unicode_escape_javascript($this->getmsg_cbm_enable_confirm()) . ');';
 				$output[] = "\t" . '});';
 				$output[] = "\t" . '$("#' . $this->get_cbm_button_id_disable() . '").click(function () {';
-				$output[] = "\t\t" . 'return confirm(' . \unicode_escape_javascript($this->getmsg_cbm_disable_confirm()) . ');';
+				$output[] = "\t\t" . 'return confirm(' . unicode_escape_javascript($this->getmsg_cbm_disable_confirm()) . ');';
 				$output[] = "\t" . '});';
 			endif;
 		endif;
 		$output[] = "\t" . '$("#' . $this->get_cbm_button_id_delete() . '").click(function () {';
-		$output[] = "\t\t" . 'return confirm(' . \unicode_escape_javascript($this->getmsg_cbm_delete_confirm()) . ');';
+		$output[] = "\t\t" . 'return confirm(' . unicode_escape_javascript($this->getmsg_cbm_delete_confirm()) . ');';
 		$output[] = "\t" . '});';
-		//	Disable action buttons.
+//		disable action buttons.
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(true);';
-		//	Init toggle checkbox.
+//		init toggle checkbox.
 		$output[] = "\t" . '$("#' . $this->get_cbm_checkbox_id_toggle() . '").click(function() {';
 		$output[] = "\t\t" . 'cb_tbn' . $this->get_cbm_suffix() . '(this,"' . $this->get_cbm_name() . '[]");';
 		$output[] = "\t" . '});';
-		//	Init member checkboxes.
+//		init member checkboxes.
 		$output[] = "\t" . '$("input[name=\'' . $this->get_cbm_name() . '[]\']").click(function() {';
 		$output[] = "\t\t" . 'ab_control' . $this->get_cbm_suffix() . '(this,"' . $this->get_cbm_name() . '[]");';
 		$output[] = "\t" . '});';
-		return \implode("\n",$output);
+		return implode("\n",$output);
 	}
 	public function get_js(): string {
 		$output = [];
@@ -453,6 +458,6 @@ final class grid extends hub {
 		$output[] = "\t" . 'var cba = $("input[name=\'"+tbn+"\']").filter(":enabled");';
 		$output[] = "\t" . 'ab_disable' . $this->get_cbm_suffix() . '(1 > cba.filter(":checked").length);';
 		$output[] = '}';
-		return \implode("\n",$output);
+		return implode("\n",$output);
 	}
 }
