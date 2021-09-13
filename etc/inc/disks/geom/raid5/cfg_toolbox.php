@@ -31,14 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\geom\raid5;
+
+use common\arr;
+
+use function is_string;
 
 /**
  *	Wrapper class for autoloading functions
  */
 final class cfg_toolbox {
 /**
- *	Returns the graid5 name of $uuid or NULL.
+ *	Returns the graid5 name of $uuid or null.
  *	@global array $config The global config file.
  *	@param string $uuid UUID of the graid5.
  *	@return string|null graid5 name.
@@ -46,13 +51,13 @@ final class cfg_toolbox {
 	public static function name_of_uuid(string $uuid): ?string {
 		global $config;
 
-		$entity_name = NULL;
-		$sphere_array = &\array_make_branch($config,'graid5','vdisk');
-		$sphere_rowid = \array_search_ex($uuid,$sphere_array,'uuid');
+		$entity_name = null;
+		$sphere_array = &arr::make_branch($config,'graid5','vdisk');
+		$sphere_rowid = arr::search_ex($uuid,$sphere_array,'uuid');
 		if($sphere_rowid !== false):
 			$sphere_record = $sphere_array[$sphere_rowid];
-			$sr_name = $sphere_record['name'] ?? NULL;
-			if(isset($sr_name) && \is_string($sr_name)):
+			$sr_name = $sphere_record['name'] ?? null;
+			if(isset($sr_name) && is_string($sr_name)):
 				$entity_name = $sr_name;
 			endif;
 		endif;
