@@ -36,8 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\ctld\setting_toolbox as toolbox;
-use services\ctld\shared_toolbox;
+use services\ctld\setting_toolbox as toolbox,
+	services\ctld\shared_toolbox;
+
 /*
 use function array_key_exists,explode,file_exists,filter_var,gettext,header,
 		implode,is_array,is_null,is_scalar,max,min,substr_count,trim,
@@ -251,7 +252,7 @@ if($pending_changes):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds = $content->add_table_data_settings();
 $tds->ins_colgroup_data_settings();
 $thead = $tds->addTHEAD();
