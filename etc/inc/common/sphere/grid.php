@@ -34,7 +34,10 @@
 
 namespace common\sphere;
 
-use function gettext,implode,preg_match,unicode_escape_javascript;
+use function gettext,
+	implode,
+	preg_match,
+	unicode_escape_javascript;
 
 /**
  *	sphere object for grid pages
