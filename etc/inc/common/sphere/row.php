@@ -63,7 +63,7 @@ final class row extends hub {
 	}
 	public function upsert() {
 //		soft update existing grid record with row record or add row record to grid
-		if(false === $this->row_id):
+		if($this->row_id === false):
 			$this->grid[] = $this->row;
 		else:
 			foreach($this->row as $row_key => $row_val):
