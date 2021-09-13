@@ -34,7 +34,9 @@
 
 namespace disks\geom\concat;
 
-use function escapeshellarg,implode,mwexec2;
+use function escapeshellarg,
+	implode,
+	mwexec2;
 
 /**
  *	Wrapper class for autoloading functions
