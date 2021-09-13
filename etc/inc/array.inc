@@ -36,7 +36,7 @@
  *	@param mixed $needle String or array of needles to search for.
  *	@param array $haystack The array to search.
  *	@param mixed $key String or array of keys to search.
- *	@return mixed Key on success or FALSE on failure.
+ *	@return mixed Key on success or false on failure.
  */
 function array_search_ex($needle,$haystack,$key) {
 	if(is_array($haystack)):
@@ -69,7 +69,7 @@ function array_search_ex($needle,$haystack,$key) {
  *	Sort an array by values using a user-defined key.
  *	@param array $array The array to sort.
  *	@param string $key The key used as sort criteria.
- *	@return boolean TRUE on success or FALSE on failure.
+ *	@return boolean true on success or false on failure.
  */
 function array_sort_key(array &$array,$key) {
 	if(empty($array) || ($key === '')):
@@ -77,26 +77,6 @@ function array_sort_key(array &$array,$key) {
 	else:
 		$result = uasort($array,function($a,$b) use ($key) { return isset($a[$key]) ? (isset($b[$key]) ? strnatcmp($a[$key],$b[$key]) : 1) : (isset($b[$key]) ? -1 : 0); });
 	endif;
-	return $result;
-}
-/**
- *	Remove duplicate values by user-defined key.
- *	@param array $array The array to be processed.
- *	@param string $key The key used as filter criteria.
- *	@return mixed Array or FALSE on failure.
- */
-function array_remove_duplicate($array,$key) {
-	$result = [];
-	if(!is_array($array)):
-		return false;
-	endif;
-	$subarray = [];
-	foreach($array as $value):
-		$subarray[] = $value[$key];
-	endforeach;
-	foreach(array_unique($subarray) as $k => $value):
-		$result[] = $array[$k];
-	endforeach;
 	return $result;
 }
 /**
