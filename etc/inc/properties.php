@@ -32,33 +32,36 @@
 	of XigmaNAS®, either expressed or implied.
  */
 
+require_once 'autoload.php';
 require_once 'util.inc';
+
+use common\uuid;
 
 /**
  *	Adds additional characteristics to a variable
  */
 abstract class property {
-	protected $x_owner = NULL;
-	protected $x_id = NULL;
-	protected $x_name = NULL;
-	protected $x_title = NULL;
-	protected $x_description = NULL;
-	protected $x_caption = NULL;
-	protected $x_defaultvalue = NULL;
-	protected $x_editableonadd = NULL;
-	protected $x_editableonmodify = NULL;
+	protected $x_owner = null;
+	protected $x_id = null;
+	protected $x_name = null;
+	protected $x_title = null;
+	protected $x_description = null;
+	protected $x_caption = null;
+	protected $x_defaultvalue = null;
+	protected $x_editableonadd = null;
+	protected $x_editableonmodify = null;
 	protected $x_filter = [];
 	protected $x_filter_group = [];
-	protected $x_message_error = NULL;
-	protected $x_message_info = NULL;
-	protected $x_message_warning = NULL;
+	protected $x_message_error = null;
+	protected $x_message_info = null;
+	protected $x_message_warning = null;
 
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		$this->set_owner($owner);
 		return $this;
 	}
 	abstract public function filter_use_default();
-	public function set_owner($owner = NULL) {
+	public function set_owner($owner = null) {
 		if(is_object($owner)):
 			$this->x_owner = $owner;
 		endif;
@@ -67,42 +70,42 @@ abstract class property {
 	public function get_owner() {
 		return $this->x_owner;
 	}
-	public function set_id(string $id = NULL) {
+	public function set_id(string $id = null) {
 		$this->x_id = $id;
 		return $this;
 	}
 	public function get_id() {
 		return $this->x_id;
 	}
-	public function set_name(string $name = NULL) {
+	public function set_name(string $name = null) {
 		$this->x_name = $name;
 		return $this;
 	}
 	public function get_name() {
 		return $this->x_name;
 	}
-	public function set_title(string $title = NULL) {
+	public function set_title(string $title = null) {
 		$this->x_title = $title;
 		return $this;
 	}
 	public function get_title() {
 		return $this->x_title;
 	}
-	public function set_description($description = NULL) {
+	public function set_description($description = null) {
 		$this->x_description = $description;
 		return $this;
 	}
 	public function get_description() {
 		return $this->x_description;
 	}
-	public function set_caption(string $caption = NULL) {
+	public function set_caption(string $caption = null) {
 		$this->x_caption = $caption;
 		return $this;
 	}
 	public function get_caption() {
 		return $this->x_caption;
 	}
-	public function set_defaultvalue($defaultvalue = NULL) {
+	public function set_defaultvalue($defaultvalue = null) {
 		$this->x_defaultvalue = $defaultvalue;
 		return $this;
 	}
@@ -123,7 +126,7 @@ abstract class property {
 	public function get_editableonmodify() {
 		return $this->x_editableonmodify;
 	}
-	public function set_message_error(string $message_error = NULL) {
+	public function set_message_error(string $message_error = null) {
 		$this->x_message_error = $message_error;
 		return $this;
 	}
@@ -133,14 +136,14 @@ abstract class property {
 		endif;
 		return $this->x_message_error;
 	}
-	public function set_message_info(string $message_info = NULL) {
+	public function set_message_info(string $message_info = null) {
 		$this->x_message_info = $message_info;
 		return $this;
 	}
 	public function get_message_info() {
 		return $this->x_message_info;
 	}
-	public function set_message_warning(string $message_warning = NULL) {
+	public function set_message_warning(string $message_warning = null) {
 		$this->x_message_warning = $message_warning;
 		return $this;
 	}
@@ -153,12 +156,12 @@ abstract class property {
  *	@param string $filter_name Name of the filter, default is 'ui'.
  *	@return object Returns $this.
  */
-	public function set_filter($value = NULL,string $filter_name = 'ui') {
+	public function set_filter($value = null,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
 		if(array_key_exists($filter_name,$this->x_filter)):
 			$this->x_filter[$filter_name]['filter'] = $value;
 		else:
-			$this->x_filter[$filter_name] = ['filter' => $value,'flags' => NULL,'options' => NULL];
+			$this->x_filter[$filter_name] = ['filter' => $value,'flags' => null,'options' => null];
 		endif;
 		return $this;
 	}
@@ -168,12 +171,12 @@ abstract class property {
  *	@param string $filter_name Name of the filter, default is 'ui'.
  *	@return object Returns $this.
  */
-	public function set_filter_flags($value = NULL,string $filter_name = 'ui') {
+	public function set_filter_flags($value = null,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
 		if(array_key_exists($filter_name,$this->x_filter)):
 			$this->x_filter[$filter_name]['flags'] = $value;
 		else:
-			$this->x_filter[$filter_name] = ['filter' => NULL,'flags' => $value,'options' => NULL];
+			$this->x_filter[$filter_name] = ['filter' => null,'flags' => $value,'options' => null];
 		endif;
 		return $this;
 	}
@@ -183,25 +186,25 @@ abstract class property {
  *	@param string $filter_name Name of the filter, default is 'ui'.
  *	@return object Returns $this.
  */
-	public function set_filter_options($value = NULL,string $filter_name = 'ui') {
+	public function set_filter_options($value = null,string $filter_name = 'ui') {
 //		create array element if it doesn't exist.
 		if(array_key_exists($filter_name,$this->x_filter)):
 			$this->x_filter[$filter_name]['options'] = $value;
 		else:
-			$this->x_filter[$filter_name] = ['filter' => NULL,'flags' => NULL,'options' => $value];
+			$this->x_filter[$filter_name] = ['filter' => null,'flags' => null,'options' => $value];
 		endif;
 		return $this;
 	}
 /**
  *	Method returns the filter settings of $filter_name:
  *	@param string $filter_name Name of the filter, default is 'ui'.
- *	@return array If $filter_name exists the filter configuration is returned, otherwise NULL is returned.
+ *	@return array If $filter_name exists the filter configuration is returned, otherwise null is returned.
  */
 	public function get_filter(string $filter_name = 'ui') {
 		if(array_key_exists($filter_name,$this->x_filter)):
 			return $this->x_filter[$filter_name];
 		endif;
-		return NULL;
+		return null;
 	}
 /**
  *	Method to set a filter group
@@ -241,13 +244,13 @@ abstract class property {
 	}
 /**
  *	Method to apply filter to an input element.
- *	A list of filters will be processed until a filter does not return NULL.
+ *	A list of filters will be processed until a filter does not return null.
  *	@param int $input_type Input type. Check the PHP manual for supported input types.
  *	@param mixed $filter Single filter name or list of filters names to validate, default is ['ui'].
  *	@return mixed Filter result.
  */
 	public function validate_input(int $input_type = INPUT_POST,$filter = 'ui') {
-		$result = NULL;
+		$result = null;
 		$filter_names = $this->get_filter_names($filter);
 		foreach($filter_names as $filter_name):
 			if(is_string($filter_name)):
@@ -278,21 +281,21 @@ abstract class property {
 	}
 /**
  *	Method to validate a value.
- *	A list of filters will be processed until a filter does not return NULL.
+ *	A list of filters will be processed until a filter does not return null.
  *	If an array of values is provided all values must pass validation.
  *	@param mixed $value The value to be tested.
  *	@param mixed $filter Single filter name or list of filters names to validate, default is ['ui'].
  *	@return mixed Filter result.
  */
 	public function validate_value($content,$filter = 'ui') {
-		$result = NULL;
+		$result = null;
 		$filter_names = $this->get_filter_names($filter);
 		switch(true):
 			case is_scalar($content):
 				$value = $content;
-				$row_results = NULL;
+				$row_results = null;
 				foreach($filter_names as $filter_name):
-					$filter_result = NULL;
+					$filter_result = null;
 					if(is_string($filter_name)):
 						$filter_parameter = $this->get_filter($filter_name);
 						if(isset($filter_parameter)):
@@ -325,12 +328,12 @@ abstract class property {
 			case is_array($content):
 				$row_results = [];
 				foreach($content as $value):
-					$row_results[] = NULL;
+					$row_results[] = null;
 					end($row_results);
 					$row_results_key = key($row_results);
 					if(is_scalar($value)):
 						foreach($filter_names as $filter_name):
-							$filter_result = NULL;
+							$filter_result = null;
 							if(is_string($filter_name)):
 								$filter_parameter = $this->get_filter($filter_name);
 								if(isset($filter_parameter)):
@@ -371,14 +374,14 @@ abstract class property {
 	}
 /**
  *	Method to validate an array value. Key/Index is the name property of $this.
- *	A list of filters will be processed until a filter does not return NULL.
+ *	A list of filters will be processed until a filter does not return null.
  *	If an array of values is provided all values must pass validation.
  *	@param array $variable The variable to be tested.
  *	@param mixed $filter Single filter name or list of filters names to validate, default is ['ui'].
  *	@return mixed Filter result.
  */
 	public function validate_array_element(array $variable,$filter = 'ui') {
-		$result = NULL;
+		$result = null;
 		$filter_names = $this->get_filter_names($filter);
 		$key = $this->get_name();
 		if(array_key_exists($key,$variable)):
@@ -386,9 +389,9 @@ abstract class property {
 			switch(true):
 				case is_scalar($content):
 					$value = $content;
-					$row_results = NULL;
+					$row_results = null;
 					foreach($filter_names as $filter_name): //	loop through filters
-						$filter_result = NULL;
+						$filter_result = null;
 						if(is_string($filter_name)):
 							$filter_parameter = $this->get_filter($filter_name);
 							if(isset($filter_parameter)):
@@ -421,12 +424,12 @@ abstract class property {
 				case is_array($content):
 					$row_results = [];
 					foreach($content as $value): // loop through array elements
-						$row_results[] = NULL;
+						$row_results[] = null;
 						end($row_results);
 						$row_results_key = key($row_results);
 						if(is_scalar($value)):
 							foreach($filter_names as $filter_name): //	loop through filters
-								$filter_result = NULL;
+								$filter_result = null;
 								if(is_string($filter_name)):
 									$filter_parameter = $this->get_filter($filter_name);
 									if(isset($filter_parameter)):
@@ -483,8 +486,8 @@ abstract class property {
 }
 class property_text extends property {
 	public $x_maxlength = 0;
-	public $x_placeholder = NULL;
-	public $x_placeholderv = NULL;
+	public $x_placeholder = null;
+	public $x_placeholderv = null;
 	public $x_size = 40;
 
 	public function set_maxlength(int $maxlength = 0) {
@@ -494,14 +497,14 @@ class property_text extends property {
 	public function get_maxlength() {
 		return $this->x_maxlength;
 	}
-	public function set_placeholder(string $placeholder = NULL) {
+	public function set_placeholder(string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
 	}
-	public function set_placeholderv(string $placeholderv = NULL) {
+	public function set_placeholderv(string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
@@ -521,7 +524,7 @@ class property_text extends property {
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => '/\S/'],$filter_name);
+			set_filter_options(['default' => null,'regexp' => '/\S/'],$filter_name);
 		return $this;
 	}
 	public function filter_use_empty() {
@@ -530,7 +533,7 @@ class property_text extends property {
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp],$filter_name);
+			set_filter_options(['default' => null,'regexp' => $regexp],$filter_name);
 		return $this;
 	}
 	public function filter_use_default_or_empty() {
@@ -560,8 +563,8 @@ abstract class property_text_callback extends property_text {
 class property_textarea extends property {
 	public $x_cols = 65;
 	public $x_maxlength = 0;
-	public $x_placeholder = NULL;
-	public $x_placeholderv = NULL;
+	public $x_placeholder = null;
+	public $x_placeholderv = null;
 	public $x_rows = 5;
 	public $x_wrap = false;
 
@@ -579,14 +582,14 @@ class property_textarea extends property {
 	public function get_maxlength() {
 		return $this->x_maxlength;
 	}
-	public function set_placeholder(string $placeholder = NULL) {
+	public function set_placeholder(string $placeholder = null) {
 		$this->x_placeholder = $placeholder;
 		return $this;
 	}
 	public function get_placeholder() {
 		return $this->x_placeholder;
 	}
-	public function set_placeholderv(string $placeholderv = NULL) {
+	public function set_placeholderv(string $placeholderv = null) {
 		$this->x_placeholderv = $placeholderv;
 		return $this;
 	}
@@ -614,7 +617,7 @@ class property_textarea extends property {
 	}
 }
 class property_auxparam extends property_textarea {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		$placeholder = gettext('Enter additional parameters');
 		$placeholderv = gettext('No additional parameters');
 		$title = gettext('Additional Parameters');
@@ -634,7 +637,7 @@ class property_auxparam extends property_textarea {
 	}
 }
 class property_ipaddress extends property_text {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
@@ -647,12 +650,12 @@ class property_ipaddress extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_IP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL],$filter_name);
+			set_filter_options(['default' => null],$filter_name);
 		return $this;
 	}
 }
 class property_ipv4 extends property_text {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(15)->
@@ -665,12 +668,12 @@ class property_ipv4 extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_IP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR | FILTER_FLAG_IPV4,$filter_name)->
-			set_filter_options(['default' => NULL],$filter_name);
+			set_filter_options(['default' => null],$filter_name);
 		return $this;
 	}
 }
 class property_ipv6 extends property_text {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(45)->
@@ -683,12 +686,12 @@ class property_ipv6 extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_IP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR | FILTER_FLAG_IPV6,$filter_name)->
-			set_filter_options(['default' => NULL],$filter_name);
+			set_filter_options(['default' => null],$filter_name);
 		return $this;
 	}
 }
 class property_cidr extends property_text_callback {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(49)->
@@ -699,21 +702,21 @@ class property_cidr extends property_text_callback {
 	public function validate($cidr) {
 		if(is_string($cidr)):
 			[$ipaddress,$subnet] = explode('/',$cidr,2);
-			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 0,'max_range' => 32]]))):
 					return $cidr;
 				endif;
-			elseif(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
+			elseif(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 0,'max_range' => 128]]))):
 					return $cidr;
 				endif;
 			endif;
 		endif;
-		return NULL;
+		return null;
 	}
 }
 class property_cidr_ipv4 extends property_text_callback {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(18)->
@@ -724,17 +727,17 @@ class property_cidr_ipv4 extends property_text_callback {
 	public function validate($cidr) {
 		if(is_string($cidr)):
 			[$ipaddress,$subnet] = explode('/',$cidr,2);
-			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 32]]))):
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV4,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 0,'max_range' => 32]]))):
 					return $cidr;
 				endif;
 			endif;
 		endif;
-		return NULL;
+		return null;
 	}
 }
 class property_cidr_ipv6 extends property_text_callback {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_maxlength(49)->
@@ -745,27 +748,27 @@ class property_cidr_ipv6 extends property_text_callback {
 	public function validate($cidr) {
 		if(is_string($cidr)):
 			[$ipaddress,$subnet] = explode('/',$cidr,2);
-			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => NULL]]))):
-				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => NULL,'min_range' => 0,'max_range' => 128]]))):
+			if(!is_null(filter_var($ipaddress,FILTER_VALIDATE_IP,['flags' => FILTER_FLAG_IPV6,'options' => ['default' => null]]))):
+				if(!is_null(filter_var($subnet,FILTER_VALIDATE_INT,['options' => ['default' => null,'min_range' => 0,'max_range' => 128]]))):
 					return $cidr;
 				endif;
 			endif;
 		endif;
-		return NULL;
+		return null;
 	}
 }
 class property_int extends property_text {
-	public $x_min = NULL;
-	public $x_max = NULL;
+	public $x_min = null;
+	public $x_max = null;
 
-	public function set_min(int $min = NULL) {
+	public function set_min(int $min = null) {
 		$this->x_min = $min;
 		return $this;
 	}
 	public function get_min() {
 		return $this->x_min;
 	}
-	public function set_max(int $max = NULL) {
+	public function set_max(int $max = null) {
 		$this->x_max = $max;
 		return $this;
 	}
@@ -775,7 +778,7 @@ class property_int extends property_text {
 	public function filter_use_default() {
 		$filter_name = 'ui';
 		$options = [];
-		$options['default'] = NULL;
+		$options['default'] = null;
 		$min = $this->get_min();
 		if(isset($min)):
 			$options['min_range'] = $min;
@@ -792,13 +795,13 @@ class property_int extends property_text {
 	}
 }
 class property_toolbox extends property_text {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->set_title(gettext('Toolbox'));
 	}
 }
 class property_uuid extends property_text {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_name('uuid')->
@@ -819,17 +822,17 @@ class property_uuid extends property_text {
 		$this->
 			set_filter(FILTER_VALIDATE_REGEXP,$filter_name)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR,$filter_name)->
-			set_filter_options(['default' => NULL,'regexp' => '/^[\da-f]{4}([\da-f]{4}-){2}4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i'],$filter_name);
+			set_filter_options(['default' => null,'regexp' => '/^[\da-f]{4}([\da-f]{4}-){2}4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/i'],$filter_name);
 		return $this;
 	}
 	public function get_defaultvalue() {
-		return uuid();
+		return uuid::create_v4();
 	}
 }
 class property_list extends property {
-	public $x_options = NULL;
+	public $x_options = null;
 
-	public function set_options(array $options = NULL) {
+	public function set_options(array $options = null) {
 		$this->x_options = $options;
 		return $this;
 	}
@@ -843,7 +846,7 @@ class property_list extends property {
 		if(array_key_exists($option,$this->get_options())):
 			return $option;
 		else:
-			return NULL;
+			return null;
 		endif;
 	}
 	public function validate_config(array $source) {
@@ -918,7 +921,7 @@ class property_bool extends property {
 	}
 }
 class property_enable extends property_bool {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_name('enable')->
@@ -936,7 +939,7 @@ class property_enable extends property_bool {
 	}
 }
 class property_protected extends property_bool {
-	public function __construct($owner = NULL) {
+	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->
 			set_name('protected')->
@@ -964,13 +967,13 @@ abstract class co_property_container {
 		$this->reset();
 	}
 /**
- *	Sets all 'x_*' properties to NULL
+ *	Sets all 'x_*' properties to null
  *	@return $this
  */
 	public function reset() {
 		foreach($this as $key => $value):
 			if(strncmp($key,'x_',2) === 0):
-				$this->$key = NULL;
+				$this->$key = null;
 			endif;
 		endforeach;
 		return $this;
