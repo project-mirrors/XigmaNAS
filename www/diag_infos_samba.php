@@ -31,16 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function diag_infos_samba_1_ajax() {
 	global $config;
 
-	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
+	$test = $config['samba']['enable'] ?? false;
+	if(is_bool($test) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -b | grep -v 'Samba version'";
 		mwexec2($cmd,$rawdata);
-		return trim(implode(PHP_EOL,$rawdata));
+		return trim(implode("\n",$rawdata));
 	else:
 		return gettext('SMB is disabled.');
 	endif;
@@ -48,10 +51,11 @@ function diag_infos_samba_1_ajax() {
 function diag_infos_samba_2_ajax() {
 	global $config;
 
-	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
+	$test = $config['samba']['enable'] ?? false;
+	if(is_bool($test) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -S";
 		mwexec2($cmd,$rawdata);
-		return trim(implode(PHP_EOL,$rawdata));
+		return trim(implode("\n",$rawdata));
 	else:
 		return gettext('No information available.');
 	endif;
@@ -59,10 +63,11 @@ function diag_infos_samba_2_ajax() {
 function diag_infos_samba_3_ajax() {
 	global $config;
 
-	if(is_bool($test = $config['samba']['enable'] ?? false) ? $test : true):
+	$test = $config['samba']['enable'] ?? false;
+	if(is_bool($test) ? $test : true):
 		$cmd = "/usr/bin/env LC_ALL=en_US.UTF-8 smbstatus -L | grep -v 'Locked files'";
 		mwexec2($cmd,$rawdata);
-		return trim(implode(PHP_EOL,$rawdata));
+		return trim(implode("\n",$rawdata));
 	else:
 		return gettext('No information available.');
 	endif;
