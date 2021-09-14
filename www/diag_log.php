@@ -31,17 +31,18 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'diag_log.inc';
-require_once 'autoload.php';
 
 use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
 
-$log = filter_input(INPUT_GET,'log',FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'min_range' => 0]]);
+$log = filter_input(INPUT_GET,'log',FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'min_range' => 0]]);
 if(is_null($log)):
 	$log = filter_input(INPUT_POST,'log',FILTER_VALIDATE_INT,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => 0,'min_range' => 0]]);
 endif;
@@ -70,7 +71,7 @@ endswitch;
 $pgtitle = [gtext('Diagnostics'),gtext('Log')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 var allowspinner = true;
 $(window).on("load",function() {
@@ -158,15 +159,15 @@ $document->render();
 			$column_header = [];
 			if(is_array($loginfo[$log])):
 				$columns = count($loginfo[$log]['columns']);
-				echo '<tr><th class="gap" colspan="',$columns,'"></th></tr>',PHP_EOL;
+				echo '<tr><th class="gap" colspan="',$columns,'"></th></tr>',"\n";
 				html_titleline2(gettext('Log'),$columns);
-				echo '<tr>',PHP_EOL;
+				echo '<tr>',"\n";
 				foreach($loginfo[$log]['columns'] as $column_key => $column_val):
-					echo sprintf('<th class="%1$s" %2$s>%3$s</th>',$column_val['hdrclass'],$column_val['param'],$column_val['title']),PHP_EOL;
+					echo sprintf('<th class="%1$s" %2$s>%3$s</th>',$column_val['hdrclass'],$column_val['param'],$column_val['title']),"\n";
 				endforeach;
-				echo '</tr>',PHP_EOL;
+				echo '</tr>',"\n";
 			else:
-				echo '<th class="gap"></th>',PHP_EOL;
+				echo '<th class="gap"></th>',"\n";
 				html_titleline2(gettext('Log'),1);
 			endif;
 ?>
@@ -196,11 +197,11 @@ $document->render();
 							$matches['msg'] = sprintf('%s: %s',$matches_rfc5424['appname'] ?? '-',$matches_rfc5424['msg'] ?? '-');
 						endif;
 					endif;
-					echo '<tr>',PHP_EOL;
+					echo '<tr>',"\n";
 						foreach($loginfo[$log]['columns'] as $column_key => $column_val):
 							echo sprintf('<td class="%1$s" %2$s>%3$s</td>',$column_val['class'],$column_val['param'],htmlspecialchars($matches[$column_val['pmid']]));
 						endforeach;
-					echo '</tr>',PHP_EOL;
+					echo '</tr>',"\n";
 				endforeach;
 			endif;
 ?>
