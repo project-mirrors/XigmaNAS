@@ -31,10 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-array_make_branch($config,'ad');
+use common\arr;
+
+arr::make_branch($config,'ad');
 $pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('MS Active Directory')];
 $document = new_page($pgtitle);
 //	get areas
@@ -77,7 +81,7 @@ if(is_bool($test = $config['ad']['enable'] ?? false) ? $test : true):
 		insTDwC('celltag',gettext('Result of testjoin'))->
 		addTDwC('celldata')->
 			addElement('pre',['class' => 'cmdoutput'])->
-				addElement('span',[],implode(PHP_EOL,$rawdata));
+				addElement('span',[],implode("\n",$rawdata));
 	unset($rawdata);
 	$cmd = '/usr/local/bin/wbinfo -p 2>&1';
 	exec($cmd,$rawdata);
@@ -85,7 +89,7 @@ if(is_bool($test = $config['ad']['enable'] ?? false) ? $test : true):
 		insTDwC('celltag',gettext('Winbindd Availability'))->
 		addTDwC('celldata')->
 			addElement('pre',['class' => 'cmdoutput'])->
-				addElement('span',[],implode(PHP_EOL,$rawdata));
+				addElement('span',[],implode("\n",$rawdata));
 	unset($rawdata);
 	$cmd = '/usr/local/bin/wbinfo -t 2>&1';
 	exec($cmd,$rawdata);
@@ -93,7 +97,7 @@ if(is_bool($test = $config['ad']['enable'] ?? false) ? $test : true):
 		insTDwC('celltag',gettext('Trust Account Status'))->
 		addTDwC('celldata')->
 			addElement('pre',['class' => 'cmdoutput'])->
-				addElement('span',[],implode(PHP_EOL,$rawdata));
+				addElement('span',[],implode("\n",$rawdata));
 	$tfoot->c2_separator();
 	$table = $area_data->add_table_data_settings();
 	$table->ins_colgroup_data_settings();
@@ -110,7 +114,7 @@ if(is_bool($test = $config['ad']['enable'] ?? false) ? $test : true):
 		insTDwC('celltag',gettext('Information'))->
 		addTDwC('celldata')->
 			addElement('pre',['class' => 'cmdoutput'])->
-				addElement('span',[],implode(PHP_EOL,$rawdata));
+				addElement('span',[],implode("\n",$rawdata));
 else:
 	$tbody->addTR()->
 		insTDwC('celltag',gettext('Information'))->
