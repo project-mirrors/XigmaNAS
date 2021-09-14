@@ -34,12 +34,23 @@
 
 namespace system\access\publickey;
 
-use DOMDocument;
-use common\arr;
-use common\sphere as mys;
+use common\arr,
+	common\sphere as mys,
+	DOMDocument;
 
-use function escapeshellarg,file_exists,gettext,sprintf,unlink,mwexec2,
-		updatenotify_clear,write_config;
+use const UPDATENOTIFY_MODE_DIRTY,
+	UPDATENOTIFY_MODE_DIRTY_CONFIG,
+	UPDATENOTIFY_MODE_MODIFIED,
+	UPDATENOTIFY_MODE_NEW;
+
+use function escapeshellarg,
+	file_exists,
+	gettext,
+	mwexec2,
+	sprintf,
+	unlink,
+	updatenotify_clear,
+	write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -102,7 +113,8 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
-			set_lock(false);
+			set_lock(false)->
+			add_page_title(gettext('Access'),gettext('Public Key'));
 		$sphere->grid = &arr::make_branch($config,'access','publickey','param');
 	}
 /**

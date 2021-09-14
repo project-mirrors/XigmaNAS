@@ -34,8 +34,8 @@
 
 namespace system\access\publickey;
 
-use common\rmo as myr;
-use common\sphere as mys;
+use common\rmo as myr,
+	common\sphere as mys;
 
 /**
  *	Wrapper class for autoloading functions
@@ -65,7 +65,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\access\publickey\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();

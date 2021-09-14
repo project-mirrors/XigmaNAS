@@ -61,4 +61,3 @@ class grid_properties extends myp\container_row {
 		return $this->x_publickey ?? $this->init_publickey();
 	}
 }
-
