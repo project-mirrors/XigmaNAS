@@ -31,10 +31,18 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\access\group;
 
-use common\rmo as myr;
-use common\sphere as mys;
+use common\arr,
+	common\rmo as myr,
+	common\sphere as mys;
+
+use function exec,
+	explode,
+	intval,
+	strval;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,7 +71,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\access\group\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
@@ -72,7 +80,7 @@ final class row_toolbox {
 /**
  *	Get the next available gid from system
  *	@global array $config System configuration
- *	@return	type int
+ *	@return	int
  */
 	public static function get_next_gid(): int {
 		global $config;
@@ -84,8 +92,8 @@ final class row_toolbox {
 //		Check if gid is already in use. If the user does not press the 'Apply'
 //		button 'pw' does not recognize that there are already several new users
 //		configured because the user db is not updated until 'Apply' is pressed.
-		$a_group = array_make_branch($config,'access','group');
-		while(false !== array_search_ex(strval($result),$a_group,'id')):
+		$a_group = arr::make_branch($config,'access','group');
+		while(arr::search_ex(strval($result),$a_group,'id') !== false):
 			$result++;
 		endwhile;
 		return $result;
