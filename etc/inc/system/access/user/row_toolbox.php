@@ -34,11 +34,14 @@
 
 namespace system\access\user;
 
-use common\arr;
-use common\rmo as myr;
-use common\sphere as mys;
+use common\arr,
+	common\rmo as myr,
+	common\sphere as mys;
 
-use function explode,exec,intval,strval;
+use function exec,
+	explode,
+	intval,
+	strval;
 
 /**
  *	Wrapper class for autoloading functions
@@ -68,7 +71,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\access\user\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
