@@ -35,7 +35,12 @@ namespace system\access\group;
 
 use common\properties as myp;
 
-use function gettext,is_string,preg_match,strlen;
+use const FILTER_CALLBACK;
+
+use function gettext,
+	is_string,
+	preg_match,
+	strlen;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
