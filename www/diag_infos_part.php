@@ -31,6 +31,8 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -94,7 +96,7 @@ else:
 		$cmd = sprintf('/sbin/gpart show %s',escapeshellarg($diskk));
 		unset($geom_rawdata);
 		exec($cmd,$geom_rawdata);
-		$geom_output = implode(PHP_EOL,$geom_rawdata);
+		$geom_output = implode("\n",$geom_rawdata);
 		unset($geom_rawdata);
 		if(preg_match('/\S/',$geom_output)):
 		else:
@@ -108,7 +110,7 @@ else:
 		$cmd = sprintf('/sbin/fdisk %s',escapeshellarg($diskk));
 		unset($fdisk_rawdata);
 		exec($cmd,$fdisk_rawdata);
-		$fdisk_output = implode(PHP_EOL,$fdisk_rawdata);
+		$fdisk_output = implode("\n",$fdisk_rawdata);
 		unset($fdisk_rawdata);
 		if(preg_match('/\S/',$fdisk_output)):
 		else:
