@@ -92,7 +92,7 @@ cp -v ${XIGMANAS_WORLD}/boot/lua/loader.lua $MINIBSD_DIR/lua
 cp -v ${XIGMANAS_WORLD}/boot/lua/menu.lua $MINIBSD_DIR/lua
 cp -v ${XIGMANAS_WORLD}/boot/lua/password.lua $MINIBSD_DIR/lua
 cp -v ${XIGMANAS_WORLD}/boot/lua/screen.lua $MINIBSD_DIR/lua
-cp -v ${XIGMANAS_WORLD}/boot/efi.4th $MINIBSD_DIR
+#cp -v ${XIGMANAS_WORLD}/boot/efi.4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_4th $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_4th.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/loader_lua $MINIBSD_DIR
