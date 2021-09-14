@@ -31,17 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function diag_infos_ftpd_ajax() {
 	global $config;
 
-	if(is_bool($test = $config['ftpd']['enable'] ?? false) ? $test : true):
+	$test = $config['ftpd']['enable'] ?? false;
+	if(is_bool($test) ? $test : true):
 		$cmd = '/usr/local/bin/ftpwho -v';
 		mwexec2($cmd,$rawdata);
 		$rawdata = array_slice($rawdata,1);
-		return implode(PHP_EOL,$rawdata);
+		return implode("\n",$rawdata);
 	else:
 		return gettext('FTP service is disabled.');
 	endif;
