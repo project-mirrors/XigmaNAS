@@ -32,14 +32,11 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use gui\document;
-
-$sphere_scriptname = basename(__FILE__);
-$sphere_header = 'Location: '.$sphere_scriptname;
 
 function get_ipmi_sensor() {
 	$a_sensor = [];
@@ -55,7 +52,6 @@ function get_ipmi_sensor() {
 	unset($a_output);
 	return $a_sensor;
 }
-
 function get_ipmi_fru() {
 	$a_fru = [];
 	mwexec2('ipmitool fru',$a_output);
@@ -74,17 +70,17 @@ function diag_infos_ipmi_ajax() {
 	$a_ipmi_sensor = get_ipmi_sensor();
 	$body_output = '';
 	foreach($a_ipmi_sensor as $r_ipmi_sensor):
-		$body_output .= '<tr>';
-		$body_output .= '<td class="lcell">' . htmlspecialchars($r_ipmi_sensor[0]) . '</td>';
-		$body_output .= '<td class="lcell">' . htmlspecialchars($r_ipmi_sensor[1] . ' ' . $r_ipmi_sensor[2]) . '</td>';
-		$body_output .= '<td class="lcell">' . htmlspecialchars($r_ipmi_sensor[3]) . '</td>';
-		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[4]) . '</td>';
-		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[9]) . '</td>';
-		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[6]) . '</td>';
-		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[7]) . '</td>';
-		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[5]) . '</td>';
-		$body_output .= '<td class="lcebr">' . htmlspecialchars($r_ipmi_sensor[8]) . '</td>';
-		$body_output .= '</tr>' . PHP_EOL;
+		$body_output .= '<tr>' . "\n";
+		$body_output .= '<td class="lcell">' . htmlspecialchars($r_ipmi_sensor[0]) . '</td>' . "\n";
+		$body_output .= '<td class="lcell">' . htmlspecialchars($r_ipmi_sensor[1] . ' ' . $r_ipmi_sensor[2]) . '</td>' . "\n";
+		$body_output .= '<td class="lcell">' . htmlspecialchars($r_ipmi_sensor[3]) . '</td>' . "\n";
+		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[4]) . '</td>' . "\n";
+		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[9]) . '</td>' . "\n";
+		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[6]) . '</td>' . "\n";
+		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[7]) . '</td>' . "\n";
+		$body_output .= '<td class="lcelr">' . htmlspecialchars($r_ipmi_sensor[5]) . '</td>' . "\n";
+		$body_output .= '<td class="lcebr">' . htmlspecialchars($r_ipmi_sensor[8]) . '</td>' . "\n";
+		$body_output .= '</tr>' . "\n";
 	endforeach;
 	return $body_output;
 }
@@ -97,7 +93,7 @@ endif;
 $pgtitle = [gtext('Diagnostics'),gtext('Information'),gtext('IPMI Stats')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(document).ready(function(){
 	var gui = new GUI;
@@ -174,21 +170,21 @@ $document->render();
 				html_titleline2(gettext('Sensor Information'),9);
 ?>
 				<tr>
-					<td class="lhelc" colspan="3"><?=gtext('Sensor List');?></td>
-					<td class="lhelc" colspan="2"><?=gtext('Non-Recoverable');?></td>
-					<td class="lhelc" colspan="2"><?=gtext('Non-Critical');?></td>
-					<td class="lhebc" colspan="2"><?=gtext('Critical');?></td>
+					<th class="lhelc" colspan="3"><?=gtext('Sensor List');?></th>
+					<th class="lhelc" colspan="2"><?=gtext('Non-Recoverable');?></th>
+					<th class="lhelc" colspan="2"><?=gtext('Non-Critical');?></th>
+					<th class="lhebc" colspan="2"><?=gtext('Critical');?></th>
 				</tr>
 				<tr>
-					<td class="lhell"><?=gtext('Sensor');?></td>
-					<td class="lhell"><?=gtext('Reading');?></td>
-					<td class="lhell"><?=gtext('Status');?></td>
-					<td class="lhell"><?=gtext('Lower');?></td>
-					<td class="lhell"><?=gtext('Upper');?></td>
-					<td class="lhell"><?=gtext('Lower');?></td>
-					<td class="lhell"><?=gtext('Upper');?></td>
-					<td class="lhell"><?=gtext('Lower');?></td>
-					<td class="lhebl"><?=gtext('Upper');?></td>
+					<th class="lhell"><?=gtext('Sensor');?></th>
+					<th class="lhell"><?=gtext('Reading');?></th>
+					<th class="lhell"><?=gtext('Status');?></th>
+					<th class="lhell"><?=gtext('Lower');?></th>
+					<th class="lhell"><?=gtext('Upper');?></th>
+					<th class="lhell"><?=gtext('Lower');?></th>
+					<th class="lhell"><?=gtext('Upper');?></th>
+					<th class="lhell"><?=gtext('Lower');?></th>
+					<th class="lhebl"><?=gtext('Upper');?></th>
 				</tr>
 			</thead>
 			<tbody id="area_refresh"><?=diag_infos_ipmi_ajax();?></tbody>
@@ -230,8 +226,8 @@ $document->render();
 				html_titleline2(gettext('FRU Information'),2);
 ?>
 				<tr>
-					<td class="lhell"><?=gtext('Tag');?></td>
-					<td class="lhebl"><?=gtext('Value');?></td>
+					<th class="lhell"><?=gtext('Tag');?></th>
+					<th class="lhebl"><?=gtext('Value');?></th>
 				</tr>
 			</thead>
 			<tbody>
