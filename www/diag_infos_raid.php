@@ -31,6 +31,8 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -79,12 +81,12 @@ foreach($sphere_array as $sphere_record):
 			insTDwC('celltag',gettext('Information'))->
 			addTDwC('celldata')->
 				addElement('pre',['class' => 'cmdoutput']);
-	if(0 >= count(get_conf_disks_filtered_ex('class',sprintf('g%s',$sphere_record)))):
-		$pre->addElement('span',[],gettext('n/a'));
-	else:
+	if(count(get_conf_disks_filtered_ex('class',sprintf('g%s',$sphere_record))) > 0):
 		unset($rawdata);
 		disks_geom_cmd($sphere_record,'list','',true,false,$rawdata);
-		$pre->addElement('span',[],implode(PHP_EOL,$rawdata));
+		$pre->addElement('span',[],implode("\n",$rawdata));
+	else:
+		$pre->addElement('span',[],gettext('n/a'));
 	endif;
 endforeach;
 $document->render();
