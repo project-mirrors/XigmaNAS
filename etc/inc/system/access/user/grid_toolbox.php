@@ -31,11 +31,46 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\access\user;
 
-use common\properties as myp;
-use common\rmo as myr;
-use common\sphere as mys;
+use common\properties as myp,
+	common\rmo as myr,
+	common\sphere as mys;
+
+use const FILTER_VALIDATE_INT,
+	PAGE_MODE_POST,
+	UPDATENOTIFY_MODE_DIRTY,
+	UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function array_key_exists,
+	array_search,
+	config_lock,
+	config_unlock,
+	count,
+	file_exists,
+	filter_var,
+	get_std_save_message,
+	gettext,
+	header,
+	implode,
+	is_array,
+	is_bool,
+	is_scalar,
+	new_page,
+	rc_exec_service,
+	rc_update_service,
+	system_get_group_list,
+	system_get_user_list,
+	updatenotify_cbm_delete,
+	updatenotify_cbm_disable,
+	updatenotify_cbm_enable,
+	updatenotify_cbm_toggle,
+	updatenotify_exists,
+	updatenotify_get_mode,
+	updatenotify_process,
+	write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -81,7 +116,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \system\access\user\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -92,7 +127,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \system\access\user\grid_properties $cop
+ *	@param grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
@@ -101,17 +136,16 @@ final class grid_toolbox {
 		global $savemsg;
 
 		$hidesystemusers = is_bool($test = $_SESSION['access.hidesystemusers'] ?? false) ? $test : true;
-		$known_users = ($hidesystemusers ? [] : \system_get_user_list());
-		$pgtitle = [gettext('Access'),gettext('Users')];
+		$known_users = ($hidesystemusers ? [] : system_get_user_list());
 		$row_count = count($sphere->grid) + count($known_users);
 		$row_exists = $row_count > 0;
 		$use_tablesort = $row_count > 1;
 		$a_col_width = ['5%','20%','20%','10%','10%','25%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		get areas
 		$body = $document->getElementById('main');
@@ -169,12 +203,12 @@ final class grid_toolbox {
 //				identify group membership
 				$a_group_key = [];
 				$ref_name = $cop->get_primary_group()->get_name();
-				if(\array_key_exists($ref_name,$sphere->row) && is_scalar($sphere->row[$ref_name])):
+				if(array_key_exists($ref_name,$sphere->row) && is_scalar($sphere->row[$ref_name])):
 					$group_name = array_search($sphere->row[$ref_name],$a_group);
 					$a_group_key[$group_name] = $group_name;
 				endif;
 				$ref_name = $cop->get_additional_groups()->get_name();
-				if(\array_key_exists($ref_name,$sphere->row) && is_array($sphere->row[$ref_name])):
+				if(array_key_exists($ref_name,$sphere->row) && is_array($sphere->row[$ref_name])):
 					foreach($sphere->row[$ref_name] as $r_group_member):
 						if(is_scalar($r_group_member)):
 							$group_name = array_search($r_group_member,$a_group);
@@ -258,7 +292,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):

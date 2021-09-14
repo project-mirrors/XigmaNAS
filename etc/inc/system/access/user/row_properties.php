@@ -36,9 +36,11 @@ namespace system\access\user;
 
 use common\lang,
 	common\properties as myp;
+
 use const FILTER_CALLBACK,
 	FILTER_REQUIRE_SCALAR,
 	FILTER_VALIDATE_REGEXP;
+
 use function gettext,
 	in_array,
 	is_string,

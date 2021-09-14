@@ -35,10 +35,12 @@ namespace system\access\user;
 
 use common\properties as myp;
 
+use function gettext;
+
 class grid_properties extends myp\container_row {
 	protected $x_name;
 	public function init_name(): myp\property_text {
-		$title = \gettext('Login Name');
+		$title = gettext('Login Name');
 		$property = $this->x_name = new myp\property_text($this);
 		$property->
 			set_name('login')->
@@ -50,7 +52,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fullname;
 	public function init_fullname(): myp\property_text {
-		$title = \gettext('Full Name');
+		$title = gettext('Full Name');
 		$property = $this->x_fullname = new myp\property_text($this);
 		$property->
 			set_name('fullname')->
@@ -62,7 +64,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_uid;
 	public function init_uid(): myp\property_int {
-		$title = \gettext('User ID');
+		$title = gettext('User ID');
 		$property = $this->x_uid = new myp\property_int($this);
 		$property->
 			set_name('id')->
@@ -74,7 +76,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_password;
 	public function init_password(): myp\property_text {
-		$title = \gettext('Password');
+		$title = gettext('Password');
 		$property = $this->x_password = new myp\property_text($this);
 		$property->
 			set_name('password')->
@@ -86,7 +88,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_passwordsha;
 	public function init_passwordsha(): myp\property_text {
-		$title = \gettext('SHA Password');
+		$title = gettext('SHA Password');
 		$property = $this->x_passwordsha = new myp\property_text($this);
 		$property->
 			set_name('passwordsha')->
@@ -98,7 +100,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_passwordmd4;
 	public function init_passwordmd4(): myp\property_text {
-		$title = \gettext('MD4 Password');
+		$title = gettext('MD4 Password');
 		$property = $this->x_passwordmd4 = new myp\property_text($this);
 		$property->
 			set_name('passwordmd4')->
@@ -110,7 +112,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_usershell;
 	public function init_usershell(): myp\property_list {
-		$title = \gettext('Shell');
+		$title = gettext('Shell');
 		$property = $this->x_usershell = new myp\property_list($this);
 		$property->
 			set_name('shell')->
@@ -122,7 +124,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_primary_group;
 	public function init_primary_group(): myp\property_list {
-		$title = \gettext('Primary Group');
+		$title = gettext('Primary Group');
 		$property = $this->x_primary_group = new myp\property_list($this);
 		$property->
 			set_name('primarygroup')->
@@ -134,7 +136,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_additional_groups;
 	public function init_additional_groups(): myp\property_list_multi {
-		$title = \gettext('Groups');
+		$title = gettext('Groups');
 		$property = $this->x_additional_groups = new myp\property_list_multi($this);
 		$property->
 			set_name('group')->
@@ -146,7 +148,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_homedir;
 	public function init_homedir(): myp\property_text {
-		$title = \gettext('Home Directory');
+		$title = gettext('Home Directory');
 		$property = $this->x_homedir = new myp\property_text($this);
 		$property->
 			set_name('homedir')->
@@ -158,7 +160,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_user_portal_access;
 	public function init_user_portal_access(): myp\property_list {
-		$title = \gettext('User Portal');
+		$title = gettext('User Portal');
 		$property = $this->x_user_portal_access = new myp\property_list();
 		$property->
 			set_name('userportal')->
@@ -170,7 +172,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_language;
 	public function init_language(): myp\property_list {
-		$title = \gettext('Language');
+		$title = gettext('Language');
 		$property = $this->x_language = new myp\property_list();
 		$property->
 			set_name('language')->
@@ -182,7 +184,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fm_enable;
 	public function init_fm_enable(): myp\property_bool {
-		$title = \gettext('File Manager Access');
+		$title = gettext('File Manager Access');
 		$property = $this->x_fm_enable = new myp\property_bool();
 		$property->
 			set_name('fm_enable')->
@@ -194,7 +196,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fmp_show_hidden_items;
 	public function init_fmp_show_hidden_items(): myp\property_bool {
-		$title = \gettext('Hidden Items');
+		$title = gettext('Hidden Items');
 		$property = $this->x_fmp_show_hidden_items = new myp\property_bool();
 		$property->
 			set_name('fmp_show_hidden_items')->
@@ -206,7 +208,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fmp_read;
 	public function init_fmp_read(): myp\property_bool {
-		$title = \gettext('Read Permission');
+		$title = gettext('Read Permission');
 		$property = $this->x_fmp_read = new myp\property_bool();
 		$property->
 			set_name('fmp_read')->
@@ -218,7 +220,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fmp_create;
 	public function init_fmp_create(): myp\property_bool {
-		$title = \gettext('Create Permission');
+		$title = gettext('Create Permission');
 		$property = $this->x_fmp_create = new myp\property_bool();
 		$property->
 			set_name('fmp_create')->
@@ -230,7 +232,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fmp_change;
 	public function init_fmp_change(): myp\property_bool {
-		$title = \gettext('Change Permission');
+		$title = gettext('Change Permission');
 		$property = $this->x_fmp_change = new myp\property_bool();
 		$property->
 			set_name('fmp_change')->
@@ -242,7 +244,7 @@ class grid_properties extends myp\container_row {
 	}
 	protected $x_fmp_delete;
 	public function init_fmp_delete(): myp\property_bool {
-		$title = \gettext('Delete Permission');
+		$title = gettext('Delete Permission');
 		$property = $this->x_fmp_delete = new myp\property_bool();
 		$property->
 			set_name('fmp_delete')->

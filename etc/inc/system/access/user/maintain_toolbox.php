@@ -31,10 +31,17 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\access\user;
 
-use common\rmo as myr;
-use common\sphere as mys;
+use common\rmo as myr,
+	common\sphere as mys;
+
+use const PAGE_MODE_EDIT,
+	PAGE_MODE_POST;
+
+use function gettext;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -51,7 +58,8 @@ final class maintain_toolbox {
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
 			set_script('access_users_maintain')->
-			set_parent('access_users');
+			set_parent('access_users')->
+			add_page_title(gettext('Password'));
 		return $sphere;
 	}
 /**
@@ -70,7 +78,7 @@ final class maintain_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\access\user\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
