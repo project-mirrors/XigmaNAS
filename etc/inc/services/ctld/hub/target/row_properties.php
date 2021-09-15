@@ -31,8 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\target;
+
 use common\properties as myp;
+
+use const FILTER_REQUIRE_SCALAR,
+	FILTER_VALIDATE_REGEXP;
+
+use function gettext;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
@@ -49,7 +56,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(223)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auxparam(): myp\property_auxparam {
@@ -72,7 +79,7 @@ final class row_properties extends grid_properties {
 			set_maxlength(128)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => $regexp]);
+			set_filter_options(['default' => null,'regexp' => $regexp]);
 		return $property;
 	}
 	public function init_auth_group(): myp\property_list {
