@@ -36,6 +36,9 @@ namespace services\ctld\hub\target;
 
 use common\properties as myp;
 
+use const FILTER_REQUIRE_SCALAR,
+	FILTER_VALIDATE_REGEXP;
+
 use function gettext;
 
 final class row_properties extends grid_properties {

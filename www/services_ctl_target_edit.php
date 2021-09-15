@@ -32,19 +32,14 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use common\arr;
-use services\ctld\hub\target\row_toolbox as toolbox;
-use services\ctld\hub\target\shared_toolbox;
-/*
-use function array_key_exists,explode,file_exists,gettext,header,implode,
-		in_array,is_null,preg_match,sprintf,substr_count,
-		get_std_save_message,new_page,updatenotify_get_mode,updatenotify_set,
-		write_config;
-*/
+use common\arr,
+	services\ctld\hub\target\row_toolbox as toolbox,
+	services\ctld\hub\target\shared_toolbox;
+
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
@@ -139,7 +134,7 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_name(),
 	$cop->get_description(),
@@ -179,57 +174,51 @@ foreach($ctl_portal_groups as $ctl_portal_group):
 endforeach;
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
 			switch($name):
 				case $cop->get_auxparam()->get_name():
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
-						endif;
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_config($source);
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
 //		apply post values that are applicable for all record modes
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
 			$name = $cop->get_auxparam()->get_name();
-			$auxparam_grid = [];
 			if(array_key_exists($name,$sphere->row)):
-				foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
-					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-				endforeach;
-				$sphere->row[$name] = $auxparam_grid;
+				$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 			endif;
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif($updatenotify_mode == UPDATENOTIFY_MODE_UNKNOWN):
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -238,8 +227,8 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Target'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort','sorter-checkbox');
+$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort','sorter-checkbox');
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -252,7 +241,7 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
