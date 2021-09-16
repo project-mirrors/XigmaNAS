@@ -495,13 +495,13 @@ sambaad_mkconf_cmd()
 {
 	local _dns_domain _netbios_domain _path _hostname _realm _domain _name
 
-	_dns_domain=`configxml_get "//sambaad/dns_domain"`
-	_netbios_domain=`configxml_get "//sambaad/netbios_domain"`
-	_path=`configxml_get "//sambaad/path"`
-	_hostname=`configxml_get "//system/hostname"`
-	_realm=`echo ${_dns_domain} | tr '[:lower:]' '[:upper:]'`
-	_domain=`echo ${_netbios_domain} | tr '[:lower:]' '[:upper:]'`
-	_name=`echo ${_hostname} | tr '[:lower:]' '[:upper:]'`
+	_dns_domain=$(configxml_get "//sambaad/dns_domain")
+	_netbios_domain=$(configxml_get "//sambaad/netbios_domain")
+	_path=$(configxml_get "//sambaad/path")
+	_hostname=$(configxml_get "//system/hostname")
+	_realm=$(echo ${_dns_domain} | tr '[:lower:]' '[:upper:]')
+	_domain=$(echo ${_netbios_domain} | tr '[:lower:]' '[:upper:]')
+	_name=$(echo ${_hostname} | tr '[:lower:]' '[:upper:]')
 
 	# Create smb4.conf file
 	/usr/local/bin/xml sel -t \
@@ -545,7 +545,7 @@ sambaad_mkconf_cmd()
 
 sambaad_resolv() {
 	# Update resolv.conf for AD DC
-	_ipaddress=`configxml_get "//interfaces/lan/ipaddr"`
+	_ipaddress=$(configxml_get "//interfaces/lan/ipaddr")
 	if [ "dhcp" != "${_ipaddress}" ]; then
 		#echo "Updating resolv.conf."
 		# Set the domain, IP4 and IP6 DNS servers.
@@ -617,8 +617,8 @@ samba_reload_cmd() {
 	local name rcvar command pidfile
 	local _enable _role
 
-	_enable=`configxml_get_count "//hast/enable"`
-	_role=`get_hast_role`
+	_enable=$(configxml_get_count "//hast/enable")
+	_role=$(get_hast_role)
 	if [ "$_enable" != "0" -a "$_role" != "primary" -a "$_rc_prefix" != "force" ]; then
 		return 0;
 	fi
@@ -647,8 +647,8 @@ safe_shellquote()
 {
 	local _result
 	# replace inside quote &<>| => \X, ' => '\''
-	#_result=`echo "$@" | sed -e "s/\([\&\<\>\|]\)/\\\\\\\\\1/g" -e "s/'/'\\\\\\''/g"`
-	_result=`echo "$@" | sed -e 's/"/"\\\\\\\\\\\\""/g'`
+	#_result=$(echo "$@" | sed -e "s/\([\&\<\>\|]\)/\\\\\\\\\1/g" -e "s/'/'\\\\\\''/g")
+	_result=$(echo "$@" | sed -e 's/"/"\\\\\\\\\\\\""/g')
 	# return quoted string
 	echo "${_result}"
 }
@@ -657,8 +657,8 @@ samba_cmd() {
 	local name rcvar command pidfile samba_daemons all_status
 	local _enable _role
 
-	_enable=`configxml_get_count "//hast/enable"`
-	_role=`get_hast_role`
+	_enable=$(configxml_get_count "//hast/enable")
+	_role=$(get_hast_role)
 	if [ "${rc_arg}" != "status" -a "$_enable" != "0" -a "$_role" != "primary" -a "$_rc_prefix" != "force" ]; then
  		return 0;
 	fi
@@ -670,16 +670,29 @@ samba_cmd() {
 	fi
 	# Start additional processes when starting
 	if [ "${rc_arg}" = "start" ]; then
+		echo 'Looking for additional processes'
 		if [ 0 -eq ${samba_idmap} ]; then
-			local _srvname=`configxml_get "//ad/domaincontrollername"`
-			local _username=`configxml_get "//ad/username"`
-			local _password=`configxml_get "//ad/password"`
-			local _up=`safe_shellquote "${_username}%${_password}"`
-			/usr/local/bin/net rpc join -S ${_srvname} -U "${_up}"
+			echo 'Connecting to AD service'
+			local _srvname=$(configxml_get "//ad/domaincontrollername")
+			local _username=$(configxml_get "//ad/username")
+			local _password_encoded=$(configxml_get "//ad/password_encoded")
+			if [ -n "${_password_encoded}" ]; then
+				local _password=$(echo ${_password_encoded} | /usr/bin/b64decode -r)
+			else
+				local _password=$(configxml_get "//ad/password")
+			fi
+			local _up=$(safe_shellquote "${_username}%${_password}")
+			/usr/local/bin/net rpc join -S "${_srvname}" -U "${_up}"
 		fi
  		if [ 0 -eq ${samba_ldap} ]; then
-			local _password=`configxml_get "//ldap/rootbindpw"`
-			local _p=`safe_shellquote "${_password}"`
+			echo 'Connecting to LDAP service'
+			local _password_encoded=$(configxml_get "//ldap/rootbindpw_encoded")
+			if [ -n "${_password_encoded}" ]; then
+				local _password=$(echo ${_password_encoded} | /usr/bin/b64decode -r)
+			else
+				local _password=$(configxml_get "//ldap/rootbindpw")
+			fi
+			local _p=$(safe_shellquote "${_password}")
 			/usr/local/bin/smbpasswd -w "${_p}"
 		fi
 	fi
