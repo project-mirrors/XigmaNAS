@@ -31,128 +31,259 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use common\arr;
+use common\arr,
+	system\access\ad\setting_toolbox as toolbox,
+	system\access\ad\shared_toolbox;
 
-arr::make_branch($config,'ad');
 arr::make_branch($config,'samba');
-
-$pconfig['enable'] = isset($config['ad']['enable']);
-$pconfig['domaincontrollername'] = $config['ad']['domaincontrollername'];
-$pconfig['domainname_dns'] = $config['ad']['domainname_dns'];
-$pconfig['domainname_netbios'] = $config['ad']['domainname_netbios'];
-$pconfig['username'] = $config['ad']['username'];
-$pconfig['password'] = $config['ad']['password'];
-$pconfig['password2'] = $config['ad']['password'];
-if($_POST):
-	unset($input_errors);
-	$pconfig = $_POST;
-//	Input validation.
-	if(isset($_POST['enable']) && $_POST['enable']):
-		$reqdfields = ['domaincontrollername','domainname_dns','domainname_netbios','username','password'];
-		$reqdfieldsn = [gtext('Domain Controller Name'),gtext('Domain Name (DNS/Realm-Name)'),gtext('Domain Name (NetBIOS-Name)'),gtext('Administrator Name'),gtext('Administration Password')];
-		$reqdfieldst = ['string','domain','netbios','string','string'];
-		do_input_validation($_POST,$reqdfields,$reqdfieldsn,$input_errors);
-		do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
-		if(($_POST['password'] !== $_POST['password2'])):
-			$input_errors[] = gtext('The confirmed password does not match. Please ensure the passwords match exactly.');
-		endif;
-	endif;
-	if(empty($input_errors)):
-		$config['ad']['domaincontrollername'] = $_POST['domaincontrollername'];
-		$config['ad']['domainname_dns'] = $_POST['domainname_dns'];
-		$config['ad']['domainname_netbios'] = $_POST['domainname_netbios'];
-		$config['ad']['username'] = $_POST['username'];
-		$config['ad']['password'] = $_POST['password'];
-		$config['ad']['enable'] = isset($_POST['enable']) ? true : false;
-		if($config['ad']['enable']):
-			$config['samba']['enable'] = true;
-			$config['samba']['security'] = 'ads';
-			$config['samba']['workgroup'] = $_POST['domainname_netbios'];
-		endif;
-		write_config();
-		$retval = 0;
-		if(!file_exists($d_sysrebootreqd_path)):
-			config_lock();
-			rc_exec_service('pam');
-			rc_exec_service('ldap');
-			rc_start_service('nsswitch');
-			rc_update_service('samba');
-			config_unlock();
-		endif;
-		$savemsg = get_std_save_message($retval);
-	endif;
+//	init indicators
+$input_errors = [];
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-$pgtitle = [gtext('Access'),gtext('Active Directory')];
-include 'fbegin.inc';
-?>
-<script type="text/javascript">
-//<![CDATA[
-function enable_change(enable_change) {
-	var endis = !(document.iform.enable.checked || enable_change);
-	document.iform.domaincontrollername.disabled = endis;
-	document.iform.domainname_dns.disabled = endis;
-	document.iform.domainname_netbios.disabled = endis;
-	document.iform.username.disabled = endis;
-	document.iform.password.disabled = endis;
-	document.iform.password2.disabled = endis;
-}
-//]]>
-</script>
-<form action="access_ad.php" method="post" name="iform" id="iform" onsubmit="spinner()">
-	<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-		if(!empty($input_errors)):
-			print_input_errors($input_errors);
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$cops = [
+	$cop->get_enable(),
+	$cop->get_domaincontrollername(),
+	$cop->get_domainname_dns(),
+	$cop->get_domainname_netbios(),
+	$cop->get_username(),
+	$cop->get_password_encoded()
+];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+[$page_method,$page_action,$page_mode] = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				if($config['ad']['enable']):
+					$config['samba']['enable'] = true;
+					$config['samba']['security'] = 'ads';
+					$config['samba']['workgroup'] = $sphere->row[$cop->get_domainname_netbios()->get_name()];
+				endif;
+				rc_exec_service('pam');
+				rc_exec_service('ldap');
+				rc_start_service('nsswitch');
+				$retval |= rc_update_service('samba');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
+				break;
+			case 'disable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name]):
+					$sphere->grid[$name] = false;
+					write_config();
+					config_lock();
+					if($config['ad']['enable']):
+						$config['samba']['enable'] = true;
+						$config['samba']['security'] = 'ads';
+						$config['samba']['workgroup'] = $sphere->row[$cop->get_domainname_netbios()->get_name()];
+					endif;
+					rc_exec_service('pam');
+					rc_exec_service('ldap');
+					rc_start_service('nsswitch');
+					$retval |= rc_update_service('samba');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
+				break;
+			case 'enable':
+				$retval = 0;
+				$name = $cop->get_enable()->get_name();
+				if($sphere->grid[$name] || $pending_changes):
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				else:
+					$sphere->grid[$name] = true;
+					write_config();
+					config_lock();
+					if($config['ad']['enable']):
+						$config['samba']['enable'] = true;
+						$config['samba']['security'] = 'ads';
+						$config['samba']['workgroup'] = $sphere->row[$cop->get_domainname_netbios()->get_name()];
+					endif;
+					rc_exec_service('pam');
+					rc_exec_service('ldap');
+					rc_start_service('nsswitch');
+					$retval |= rc_update_service('samba');
+					config_unlock();
+					$_SESSION['submit'] = $sphere->get_script()->get_basename();
+					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+					header($sphere->get_script()->get_location());
+					exit;
+				endif;
+				break;
+		endswitch;
+		break;
+endswitch;
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
+				case 'textarea':
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
+					endif;
+					break;
+				case 'password':
+					$source[$name] = '';
+					break;
+			endswitch;
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		break;
+	case 'save':
+		$source = $_POST;
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $cops_element->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
+				endif;
+			endif;
+		endforeach;
+		if(empty($input_errors)):
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
+				switch($cops_element->get_input_type()):
+					case 'textarea':
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
+						break;
+					case 'password':
+						$sphere->row[$name] = base64_encode($sphere->row[$name]);
+						break;
+				endswitch;
+				$sphere->grid[$name] = $sphere->row[$name];
+			endforeach;
+			write_config();
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
+			exit;
+		else:
+			$sphere->row[$cop->get_password_encoded()->get_name()] = '';
+			$page_mode = PAGE_MODE_EDIT;
 		endif;
-		if($savemsg):
-			print_info_box($savemsg);
+		break;
+endswitch;
+//	determine final page mode and calculate readonly flag
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
+$is_enabled = $sphere->row[$cop->get_enable()->get_name()];
+$is_running = $is_enabled;
+$is_running_message = $is_running ? gettext('Yes') : gettext('No');
+//	create document
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+$content->
+	ins_input_errors($input_errors)->
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes):
+	$content->ins_config_has_changed_box();
+endif;
+//	add content
+$tds = $content->add_table_data_settings();
+$tds->ins_colgroup_data_settings();
+$thead = $tds->addTHEAD();
+$tbody = $tds->addTBODY();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$thead->c2_titleline(gettext('Active Directory'));
+		break;
+	case PAGE_MODE_EDIT:
+		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Active Directory'));
+		break;
+endswitch;
+$tbody->
+	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
+	c2($cop->get_domaincontrollername(),$sphere,true,$is_readonly)->
+	c2($cop->get_domainname_dns(),$sphere,true,$is_readonly)->
+	c2($cop->get_domainname_netbios(),$sphere,true,$is_readonly)->
+	c2($cop->get_username(),$sphere,true,$is_readonly)->
+	c2($cop->get_password_encoded(),$sphere,true,$is_readonly);
+//	add buttons
+$buttons = $document->add_area_buttons();
+switch($page_mode):
+	case PAGE_MODE_VIEW:
+		$buttons->ins_button_edit();
+		if($pending_changes && $is_enabled):
+			$buttons->ins_button_enadis(!$is_enabled);
+		elseif(!$pending_changes):
+			$buttons->ins_button_enadis(!$is_enabled);
+//			$buttons->ins_button_restart($is_enabled);
+//			$buttons->ins_button_reload($is_enabled);
 		endif;
-?>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php
-				html_titleline_checkbox2('enable',gettext('Active Directory'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'enable_change(false)');
-?>
-			</thead>
-			<tbody>
-<?php
-				html_inputbox2('domaincontrollername',gettext('Domain Controller Name'),htmlspecialchars($pconfig['domaincontrollername']),gettext('AD or PDC name.'),true,60,false,false,256,gettext('Controller Name'));
-				html_inputbox2('domainname_dns',gettext('Domain Name (DNS/Realm-Name)'),htmlspecialchars($pconfig['domainname_dns']),gettext('Domain name, e.g. example.com.'),true,60,false,false,256,gettext('DNS Name'));
-				html_inputbox2('domainname_netbios',gettext('Domain Name (NetBIOS-Name)'),htmlspecialchars($pconfig['domainname_netbios']),gettext('Domain name in old format, e.g. EXAMPLE.'),true,60,false,false,256,gettext('NETBIOS Name'));
-				html_inputbox2('username',gettext('Administrator Name'),htmlspecialchars($pconfig['username']),gettext('Username of a domain administrator account.'),true,60,false,false,256,gettext('Admin Name'));
-				html_passwordconfbox2('password','password2',gettext('Administration Password'),$pconfig['password'],$pconfig['password2'],gettext('Password of the administrator account.'),true,60,false,gettext('Enter Password'),gettext('Confirm Password'));
-?>
-			</tbody>
-		</table>
-		<div id="submit">
-			<input name="Submit" type="submit" class="formbtn" value="<?=gtext("Save");?>" onclick="enable_change(true)" />
-		</div>
-		<div id="remarks">
-<?php
-			$helpinghand  = gtext('To use Active Directory the SMB service will be enabled as well.');
-			$helpinghand .= ' ';
-			$helpinghand .= gtext('The following services will use AD authentication:');
-			$helpinghand .= "<div id='enumeration'><ul><li>SMB</li><li>SSH</li><li>FTP</li><li>AFP</li><li>System</li></ul></div>";
-			html_remark2('note',gettext('Note'),$helpinghand);
-?>
-		</div>
-	</td></tr></tbody></table>
-<?php
-	include 'formend.inc';
-?>
-</form>
-<script type="text/javascript">
-//<![CDATA[
-enable_change(false);
-//]]>
-</script>
-<?php
-include 'fend.inc';
+		break;
+	case PAGE_MODE_EDIT:
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
+		break;
+endswitch;
+$helpinghand  = gettext('To use Active Directory the SMB service will be enabled as well.');
+$helpinghand .= ' ';
+$helpinghand .= gettext('The following services will use AD authentication:');
+$helpinghand .= "<div id='enumeration'><ul><li>SMB</li><li>SSH</li><li>FTP</li><li>AFP</li><li>System</li></ul></div>";
+$content->
+	add_area_remarks()->
+		ins_remark('note',gettext('Note'),$helpinghand);
+//	showtime
+$document->render();
