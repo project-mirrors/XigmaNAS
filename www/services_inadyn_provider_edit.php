@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr;
-use services\inadyn\provider\row_toolbox as toolbox;
-use services\inadyn\provider\shared_toolbox;
+use common\arr,
+	services\inadyn\provider\row_toolbox as toolbox;
+
 /*
 use function array_key_exists,explode,file_exists,gettext,header,implode,
 		in_array,is_array,is_null,trim,get_std_save_message,
@@ -138,7 +138,7 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$cop_grid = [
+$cops = [
 	$cop->get_append_myip(),
 	$cop->get_auxparam(),
 	$cop->get_checkip_command(),
@@ -161,52 +161,48 @@ $cop_grid = [
 ];
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($cop_grid as $cop_item):
-			$sphere->row[$cop_item->get_name()] = $cop_item->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($cop_grid as $cop_item):
-			$name = $cop_item->get_name();
-			$sphere->row[$name] = $cop_item->validate_input() ?? $cop_item->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($cop_grid as $cop_item):
-			$name = $cop_item->get_name();
-			switch($cop_item->get_input_type()):
-				case 'textarea':
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			switch($cops_element->get_input_type()):
+				case $cops_element::INPUT_TYPE_TEXTAREA:
 					if(array_key_exists($name,$source) && is_array($source[$name])):
 						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $cop_item->validate_config($source);
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
 //		apply post values that are applicable for all record modes
-		foreach($cop_grid as $cop_item):
-			$name = $cop_item->get_name();
-			$sphere->row[$name] = $cop_item->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $cop_item->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
-			foreach($cop_grid as $cop_item):
-				switch($cop_item->get_input_type()):
-					case 'textarea':
-						$name = $cop_item->get_name();
-						$textarea_grid = [];
-						foreach(explode("\n",$sphere->row[$name]) as $textarea_row):
-							$textarea_grid[] = trim($textarea_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $textarea_grid;
+			foreach($cops as $cops_element):
+				switch($cops_element->get_input_type()):
+					case $cops_element::INPUT_TYPE_TEXTAREA:
+						$name = $cops_element->get_name();
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
 			endforeach;
