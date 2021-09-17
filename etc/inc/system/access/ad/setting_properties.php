@@ -196,7 +196,7 @@ final class setting_properties extends grid_properties {
 			set_id('password_encoded')->
 			set_description($description)->
 			set_defaultvalue('')->
-			set_input_type('password')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_placeholder($placeholder)->
 			set_size(60)->
 			set_maxlength(256)->

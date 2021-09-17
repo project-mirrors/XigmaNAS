@@ -35,6 +35,7 @@
 namespace services\inadyn\provider;
 
 use common\properties as myp;
+
 use function gettext;
 
 final class row_properties extends grid_properties {
@@ -42,8 +43,7 @@ final class row_properties extends grid_properties {
 		$defaultvalue = true;
 		$property = parent::init_enable();
 		$property->
-			set_defaultvalue($defaultvalue)->
-			set_input_type('titleline-checkbox');
+			set_defaultvalue($defaultvalue);
 		return $property;
 	}
 	public function init_recordtype(): myp\property_list {
@@ -60,7 +60,7 @@ final class row_properties extends grid_properties {
 			set_description($description)->
 			set_defaultvalue($defaultvalue)->
 			set_id('recordtype')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 //			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -72,7 +72,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('provider')->
-			set_input_type('select')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
@@ -141,7 +141,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('password')->
-			set_input_type('password')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_placeholder($placeholder)->
 			filter_use_default_or_empty();
 		return $property;
@@ -154,7 +154,6 @@ final class row_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('wildcard')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -166,7 +165,6 @@ final class row_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('usessl')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -206,7 +204,6 @@ final class row_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('checkipssl')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -274,7 +271,6 @@ final class row_properties extends grid_properties {
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('appendmyip')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}

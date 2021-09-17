@@ -35,14 +35,14 @@
 namespace services\inadyn;
 
 use common\properties as myp;
+
 use function gettext;
 
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->
-			set_defaultvalue(false)->
-			set_input_type('titleline-checkbox');
+			set_defaultvalue(false);
 		return $property;
 	}
 	public function init_verifyaddress(): myp\property_bool {
@@ -54,7 +54,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue(true)->
 			set_description($description)->
 			set_id('verifyaddress')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -66,7 +65,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('fakeaddress')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -78,7 +76,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('allowipv6')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -88,7 +85,7 @@ final class setting_properties extends grid_properties {
 		$property->
 			set_caption($caption)->
 			set_id('iface')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -142,7 +139,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('securessl')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -154,7 +150,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('brokenrtc')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -167,7 +162,7 @@ final class setting_properties extends grid_properties {
 		$property->
 			set_description($description)->
 			set_id('catrustfile')->
-			set_input_type('filechooser')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
 			set_size(60)->
@@ -193,7 +188,7 @@ final class setting_properties extends grid_properties {
 		$property->
 			set_description($description)->
 			set_id('cachedir')->
-			set_input_type('filechooser')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
 			set_size(60)->
@@ -228,7 +223,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_loglevel();
 		$property->
 			set_id('loglevel')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_caption($caption)->
 			set_options($options)->
 			set_defaultvalue($defaultvalue)->
@@ -239,7 +234,6 @@ final class setting_properties extends grid_properties {
 		$description = gettext('These parameters are appended to the inadyn.conf file.');
 		$property = parent::init_auxparam();
 		$property->
-			set_input_type('textarea')->
 			set_description($description);
 		return $property;
 	}
