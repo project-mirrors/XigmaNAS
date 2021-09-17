@@ -39,11 +39,6 @@ require_once 'guiconfig.inc';
 use common\arr,
 	services\ctld\hub\auth_group\row_toolbox as toolbox;
 
-/*
-use function array_key_exists,explode,file_exists,gettext,header,implode,
-		in_array,is_array,is_null,trim,get_std_save_message,
-		updatenotify_get_mode,updatenotify_set,write_config;
-*/
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
