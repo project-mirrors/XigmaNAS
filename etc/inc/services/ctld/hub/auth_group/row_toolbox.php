@@ -34,16 +34,27 @@
 
 namespace services\ctld\hub\auth_group;
 
-use common\properties as myp;
-use common\rmo as myr;
-use common\sphere as mys;
-use services\ctld\hub\sub\chap\grid_toolbox as tbc;
-use services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm;
-use services\ctld\hub\sub\initiator_name\grid_toolbox as tbin;
-use services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
+use common\properties as myp,
+	common\rmo as myr,
+	common\sphere as mys,
+	services\ctld\hub\sub\chap\grid_toolbox as tbc,
+	services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm,
+	services\ctld\hub\sub\initiator_name\grid_toolbox as tbin,
+	services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
 
-use function array_key_exists,gettext,in_array,is_array,is_bool,is_string,max,
-		min,substr_count,new_page;
+use const RECORD_MODIFY,
+	RECORD_NEW;
+
+use function array_key_exists,
+	gettext,
+	in_array,
+	is_array,
+	is_bool,
+	is_string,
+	max,
+	min,
+	new_page,
+	substr_count;
 
 /**
  *	Wrapper class for autoloading functions
@@ -70,7 +81,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \services\ctld\hub\auth_group\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
