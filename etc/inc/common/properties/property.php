@@ -35,6 +35,7 @@
 namespace common\properties;
 
 use const INPUT_POST;
+
 use function array_key_exists,
 	count,
 	end,
@@ -55,6 +56,16 @@ use function array_key_exists,
  *	Adds additional characteristics to a variable
  */
 abstract class property {
+	const INPUT_TYPE_TEXT = '8469';
+	const INPUT_TYPE_CHECKBOX = '6772';
+	const INPUT_TYPE_TITLELINE_CHECKBOX = '8467';
+	const INPUT_TYPE_TEXTAREA = '8465';
+	const INPUT_TYPE_PASSWORD = '8065';
+	const INPUT_TYPE_RADIO_GRID = '8271';
+	const INPUT_TYPE_CHECKBOX_GRID = '6771';
+	const INPUT_TYPE_SELECT = '8369';
+	const INPUT_TYPE_FILECHOOSER = '7067';
+
 	protected $x_owner = null;
 	protected ?string $x_input_type = null;
 	protected ?string $x_id = null;

@@ -43,7 +43,7 @@ use const FILTER_REQUIRE_SCALAR,
 class property_text extends property {
 	public function __construct($owner = null){
 		parent::__construct($owner);
-		$this->set_input_type('text');
+		$this->set_input_type(self::INPUT_TYPE_TEXT);
 	}
 	protected $x_maxlength = 0;
 	public function set_maxlength(int $maxlength = 0) {
