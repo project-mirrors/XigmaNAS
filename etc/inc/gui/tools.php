@@ -1458,27 +1458,22 @@ EOJ;
 	public function cr($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
 		switch($p->get_input_type()):
 			case propconst::INPUT_TYPE_TEXT:
-			case 'text':
 				$this->cr_input_text($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_CHECKBOX:
-			case 'checkbox':
 				$this->cr_checkbox($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_CHECKBOX_GRID:
-			case 'checkbox-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->cr_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
 			case propconst::INPUT_TYPE_RADIO_GRID:
-			case 'radio-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->cr_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
 			case propconst::INPUT_TYPE_TEXTAREA:
-			case 'textarea':
 				$param_cols = $additional_parameter[0] ?? 0;
 				$n_cols = is_int($param_cols) ? $param_cols : 0;
 				$param_rows = $additional_parameter[1] ?? 0;
@@ -1486,15 +1481,12 @@ EOJ;
 				$this->cr_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
 			case propconst::INPUT_TYPE_SELECT:
-			case 'select':
 				$this->cr_select($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_PASSWORD:
-			case 'password':
 				$this->cr_input_password($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_FILECHOOSER:
-			case 'filechooser':
 				$this->cr_filechooser($p,$value,$is_required,$is_readonly);
 				break;
 		endswitch;
@@ -1607,27 +1599,22 @@ EOJ;
 	public function c2($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
 		switch($p->get_input_type()):
 			case propconst::INPUT_TYPE_TEXT:
-			case 'text':
 				$this->c2_input_text($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_CHECKBOX:
-			case 'checkbox':
 				$this->c2_checkbox($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_CHECKBOX_GRID:
-			case 'checkbox-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->c2_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
 			case propconst::INPUT_TYPE_RADIO_GRID:
-			case 'radio-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->c2_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
 			case propconst::INPUT_TYPE_TEXTAREA:
-			case 'textarea':
 				$param_cols = $additional_parameter[0] ?? 0;
 				$n_cols = is_int($param_cols) ? $param_cols : 0;
 				$param_rows = $additional_parameter[1] ?? 0;
@@ -1635,19 +1622,15 @@ EOJ;
 				$this->c2_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
 			case propconst::INPUT_TYPE_SELECT:
-			case 'select':
 				$this->c2_select($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_PASSWORD:
-			case 'password':
 				$this->c2_input_password($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_FILECHOOSER:
-			case 'filechooser':
 				$this->c2_filechooser($p,$value,$is_required,$is_readonly);
 				break;
 			case propconst::INPUT_TYPE_TITLELINE_CHECKBOX:
-			case 'titleline-checkbox':
 				$param_title = $additional_parameter[0] ?? '';
 				$title = is_string($param_title) ? $param_title : '';
 				$this->c2_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title);
