@@ -183,7 +183,7 @@ switch($page_action):
 		foreach($cops as $cops_element):
 			$name = $cops_element->get_name();
 			switch($cops_element->get_input_type()):
-				case 'textarea':
+				case $cops_element::INPUT_TYPE_TEXTAREA:
 					if(array_key_exists($name,$source) && is_array($source[$name])):
 						$source[$name] = implode("\n",$source[$name]);
 					endif;
@@ -217,7 +217,7 @@ switch($page_action):
 			foreach($cops as $cops_element):
 				$name = $cops_element->get_name();
 				switch($cops_element->get_input_type()):
-					case 'textarea':
+					case $cops_element::INPUT_TYPE_TEXTAREA:
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
