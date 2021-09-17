@@ -42,8 +42,7 @@ final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->
-			set_defaultvalue(false)->
-			set_input_type('titleline-checkbox');
+			set_defaultvalue(false);
 		return $property;
 	}
 	public function init_friendlyname(): myp\property_text {
@@ -75,7 +74,7 @@ final class setting_properties extends grid_properties {
 			set_id('loglevel')->
 			set_description($description)->
 			set_defaultvalue('info')->
-			set_input_type('select')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -89,7 +88,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_description($description)->
 			set_defaultvalue(true)->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -117,7 +115,7 @@ final class setting_properties extends grid_properties {
 			set_id('if')->
 			set_description($description)->
 			set_defaultvalue('')->
-			set_input_type('select')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
@@ -147,7 +145,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue(false)->
 			set_description($description)->
 			set_id('strict')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -160,7 +157,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue(false)->
 			set_description($description)->
 			set_id('tivo')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -174,7 +170,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue($g['media_path'])->
 			set_description($description)->
 			set_id('home')->
-			set_input_type('filechooser')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_placeholder($placeholder)->
 			filter_use_default();
 		return $property;
@@ -186,7 +182,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue(false)->
 			set_id('wide_links')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -211,7 +206,7 @@ final class setting_properties extends grid_properties {
 			set_id('container')->
 			set_description($description)->
 			set_defaultvalue('.')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -237,7 +232,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue(false)->
 			set_id('disablesubtitles')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
