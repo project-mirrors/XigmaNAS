@@ -89,7 +89,8 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
-			set_lock(false);
+			set_lock(false)->
+			add_page_title(gettext('Services'),gettext('Webserver'),gettext('WebDAV'));
 		$sphere->grid = &arr::make_branch($config,'websrv','webdav','param');
 	}
 /**
