@@ -50,7 +50,7 @@ final class property_enable extends property_bool {
 			set_defaultvalue(true)->
 			set_description($description)->
 			set_id('enable')->
-			set_input_type('titleline-checkbox')->
+			set_input_type(self::INPUT_TYPE_TITLELINE_CHECKBOX)->
 			set_name('enable')->
 			set_title($title)->
 			filter_use_default();

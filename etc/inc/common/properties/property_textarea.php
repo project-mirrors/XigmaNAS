@@ -42,7 +42,7 @@ use const FILTER_DEFAULT;
 class property_textarea extends property {
 	public function __construct($owner = null) {
 		parent::__construct($owner);
-		$this->set_input_type('textarea');
+		$this->set_input_type(self::INPUT_TYPE_TEXTAREA);
 	}
 	protected $x_cols = 65;
 	public function set_cols(int $cols = 65) {
