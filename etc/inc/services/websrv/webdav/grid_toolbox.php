@@ -34,16 +34,33 @@
 
 namespace services\websrv\webdav;
 
-use common\properties as myp;
-use common\rmo as myr;
-use common\sphere as mys;
+use common\properties as myp,
+	common\rmo as myr,
+	common\sphere as mys;
 
-use function count,file_exists,filter_var,gettext,header,is_bool,
-		config_lock,config_unlock,get_std_save_message,new_page,
-		rc_update_reload_service,updatenotify_cbm_delete,
-		updatenotify_cbm_disable,updatenotify_cbm_enable,
-		updatenotify_cbm_toggle,updatenotify_exists,updatenotify_get_mode,
-		updatenotify_process,write_config;
+use const FILTER_VALIDATE_INT,
+	UPDATENOTIFY_MODE_DIRTY,
+	UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock,
+	config_unlock,
+	count,
+	file_exists,
+	filter_var,
+	get_std_save_message,
+	gettext,
+	header,
+	is_bool,
+	new_page,
+	rc_update_reload_service,
+	updatenotify_cbm_delete,
+	updatenotify_cbm_disable,
+	updatenotify_cbm_enable,
+	updatenotify_cbm_toggle,
+	updatenotify_exists,
+	updatenotify_get_mode,
+	updatenotify_process,
+	write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -105,15 +122,14 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Services'),gettext('Webserver'),gettext('WebDAV')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','20%','10%','35%','20%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		add tab navigation
 		shared_toolbox::add_tabnav($document);
