@@ -31,15 +31,31 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\auth_group;
 
-use common\properties as myp;
-use common\rmo as myr;
-use common\sphere as mys;
-use services\ctld\hub\sub\chap\grid_toolbox as tbc;
-use services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm;
-use services\ctld\hub\sub\initiator_name\grid_toolbox as tbin;
-use services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
+use common\properties as myp,
+	common\rmo as myr,
+	common\sphere as mys,
+	services\ctld\hub\sub\chap\grid_toolbox as tbc,
+	services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm,
+	services\ctld\hub\sub\initiator_name\grid_toolbox as tbin,
+	services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
+
+use const RECORD_MODIFY,
+	RECORD_NEW;
+
+use function array_key_exists,
+	gettext,
+	in_array,
+	is_array,
+	is_bool,
+	is_string,
+	max,
+	min,
+	new_page,
+	substr_count;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -65,7 +81,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \services\ctld\hub\auth_group\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
@@ -83,17 +99,17 @@ final class row_toolbox {
 		$options = [];
 		$selected = [];
 		foreach($sphere->grid as $sphere->row_id => $sphere->row):
-			if(\array_key_exists($key_enabled,$sphere->row)):
+			if(array_key_exists($key_enabled,$sphere->row)):
 				$enabled = is_bool($sphere->row[$key_enabled]) ? $sphere->row[$key_enabled] : true;
 //				process enabled entries
 				if($enabled):
 //					add name to options
-					if(\array_key_exists($key_option,$sphere->row)):
+					if(array_key_exists($key_option,$sphere->row)):
 						$name = $sphere->row[$key_option];
 						if(is_string($name)):
 							$options[$name] = $name;
 //							add name to selected when group contains needle
-							if(\array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
+							if(array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
 								$selected[$name] = $name;
 							endif;
 						endif;
@@ -191,5 +207,79 @@ final class row_toolbox {
 			set_message_info(gettext('No initiator portals found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
+	}
+	public static function render(row_properties $cop,mys\row $sphere,int $record_mode,bool $prerequisites_ok) {
+		global $input_errors;
+		global $errormsg;
+		global $savemsg;
+
+		$isrecordnew = ($record_mode === RECORD_NEW);
+//		$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+		$isrecordmodify = ($record_mode === RECORD_MODIFY);
+//		$isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
+		$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
+		$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort','sorter-checkbox');
+//		add tab navigation
+		shared_toolbox::add_tabnav($document);
+//		get areas
+		$body = $document->getElementById('main');
+		$pagecontent = $document->getElementById('pagecontent');
+//		create data area
+		$content = $pagecontent->add_area_data();
+//		display information, warnings and errors
+		$content->
+			ins_input_errors($input_errors)->
+			ins_info_box($savemsg)->
+			ins_error_box($errormsg);
+		$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
+		$content->add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+			pop()->
+			addTBODY()->
+				c2_input_text($cop->get_name(),$sphere,true,false)->
+				c2_input_text($cop->get_description(),$sphere,false,false)->
+				c2_radio_grid($cop->get_auth_type(),$sphere,false,false)->
+				c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+		if($isrecordmodify):
+			$table = $content->add_table_data_settings();
+			$table->ins_colgroup_data_settings();
+			$thead = $table->addTHEAD();
+			$tbody = $table->addTBODY();
+			$thead->
+				c2_separator()->
+				c2_titleline(gettext('Additional Information'));
+			$iam = $sphere->row[$cop->get_name()->get_name()];
+			$ai1 = self::get_chap_info($iam);
+			$tbody->c2_checkbox_grid($ai1['property'],$ai1['selected'],false,true,true);
+			unset($ai1);
+			$ai2 = self::get_chap_mutual_info($iam);
+			$tbody->c2_checkbox_grid($ai2['property'],$ai2['selected'],false,true,true);
+			unset($ai2);
+			$ai3 = self::get_initiator_name_info($iam);
+			$tbody->c2_checkbox_grid($ai3['property'],$ai3['selected'],false,true,true);
+			unset($ai3);
+			$ai4 = self::get_initiator_portal_info($iam);
+			$tbody->c2_checkbox_grid($ai4['property'],$ai4['selected'],false,true,true);
+			unset($ai4);
+		endif;
+		$buttons = $document->add_area_buttons();
+		if($isrecordnew):
+			$buttons->ins_button_add();
+		else:
+			$buttons->ins_button_save();
+			if($prerequisites_ok && empty($input_errors)):
+				$buttons->ins_button_clone();
+			endif;
+		endif;
+		$buttons->ins_button_cancel();
+		$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//		additional javascript code
+		$body->ins_javascript($sphere->get_js());
+		$body->add_js_on_load($sphere->get_js_on_load());
+		$body->add_js_document_ready($sphere->get_js_document_ready());
+		$document->render();
 	}
 }
