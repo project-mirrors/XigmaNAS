@@ -37,10 +37,15 @@ namespace disks\zfs\scheduler\pool\scrub;
 use common\properties as myp,
 	common\rmo as myr,
 	common\sphere as mys;
+
 use const FILTER_VALIDATE_INT,
 	UPDATENOTIFY_MODE_DIRTY,
 	UPDATENOTIFY_MODE_DIRTY_CONFIG;
-use function count,
+
+use function array_key_exists,
+	config_lock,
+	config_unlock,
+	count,
 	file_exists,
 	filter_var,
 	get_std_save_message,
@@ -48,6 +53,7 @@ use function count,
 	header,
 	is_bool,
 	new_page,
+	rc_update_service,
 	updatenotify_cbm_delete,
 	updatenotify_cbm_disable,
 	updatenotify_cbm_enable,
@@ -117,15 +123,14 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Scheduler'),gettext('Pool'),gettext('Scrub')];
 		$record_exists = count($sphere->grid) > 0;
 		$morethanonerecord = count($sphere->grid) > 1;
 		$a_col_width = ['5%','15%','15%','45%','10%','10%'];
 		$n_col_width = count($a_col_width);
 		if($morethanonerecord):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		get areas
 		$body = $document->getElementById('main');
