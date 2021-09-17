@@ -34,10 +34,12 @@
 
 namespace gui;
 
-use common\uuid,
+use common\properties\property as propconst,
+	common\uuid,
 	DOMDocument,
 	DOMNode,
 	Session;
+
 use const ENT_HTML5,
 	ENT_QUOTES,
 	FILTER_VALIDATE_REGEXP,
@@ -45,6 +47,7 @@ use const ENT_HTML5,
 	LIBXML_HTML_NOIMPLIED,
 	PHP_QUERY_RFC3986,
 	PHP_VERSION_ID;
+
 use function array_key_exists,
 	calc_adddivsubmittodataframe,
 	ceil,
@@ -730,7 +733,7 @@ trait tools {
 			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = $p->get_placeholderv();
+			$placeholder = $p->get_placeholderv() ?? $p->get_placeholder();
 		else:
 			$input_attributes['class'] = 'formfld';
 			$maxlength = $p->get_maxlength();
@@ -846,7 +849,7 @@ trait tools {
 			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = $p->get_placeholderv();
+			$placeholder = $p->get_placeholderv() ?? $p->get_placeholder();
 		else:
 			$input_attributes['class'] = 'formfld';
 			$maxlength = $p->get_maxlength();
@@ -1017,7 +1020,7 @@ EOJ;
 			$textarea_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = $p->get_placeholderv();
+			$placeholder = $p->get_placeholderv() ?? $p->get_placeholder();
 		else:
 			$textarea_attributes['class'] = 'formpre';
 			$maxlength = $p->get_maxlength();
@@ -1454,22 +1457,27 @@ EOJ;
  */
 	public function cr($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
 		switch($p->get_input_type()):
+			case propconst::INPUT_TYPE_TEXT:
 			case 'text':
 				$this->cr_input_text($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_CHECKBOX:
 			case 'checkbox':
 				$this->cr_checkbox($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_CHECKBOX_GRID:
 			case 'checkbox-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->cr_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
+			case propconst::INPUT_TYPE_RADIO_GRID:
 			case 'radio-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->cr_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
+			case propconst::INPUT_TYPE_TEXTAREA:
 			case 'textarea':
 				$param_cols = $additional_parameter[0] ?? 0;
 				$n_cols = is_int($param_cols) ? $param_cols : 0;
@@ -1477,12 +1485,15 @@ EOJ;
 				$n_rows = is_int($param_rows) ? $param_rows : 0;
 				$this->cr_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
+			case propconst::INPUT_TYPE_SELECT:
 			case 'select':
 				$this->cr_select($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_PASSWORD:
 			case 'password':
 				$this->cr_input_password($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_FILECHOOSER:
 			case 'filechooser':
 				$this->cr_filechooser($p,$value,$is_required,$is_readonly);
 				break;
@@ -1595,22 +1606,27 @@ EOJ;
  */
 	public function c2($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
 		switch($p->get_input_type()):
+			case propconst::INPUT_TYPE_TEXT:
 			case 'text':
 				$this->c2_input_text($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_CHECKBOX:
 			case 'checkbox':
 				$this->c2_checkbox($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_CHECKBOX_GRID:
 			case 'checkbox-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->c2_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
+			case propconst::INPUT_TYPE_RADIO_GRID:
 			case 'radio-grid':
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
 				$this->c2_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
+			case propconst::INPUT_TYPE_TEXTAREA:
 			case 'textarea':
 				$param_cols = $additional_parameter[0] ?? 0;
 				$n_cols = is_int($param_cols) ? $param_cols : 0;
@@ -1618,15 +1634,19 @@ EOJ;
 				$n_rows = is_int($param_rows) ? $param_rows : 0;
 				$this->c2_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
+			case propconst::INPUT_TYPE_SELECT:
 			case 'select':
 				$this->c2_select($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_PASSWORD:
 			case 'password':
 				$this->c2_input_password($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_FILECHOOSER:
 			case 'filechooser':
 				$this->c2_filechooser($p,$value,$is_required,$is_readonly);
 				break;
+			case propconst::INPUT_TYPE_TITLELINE_CHECKBOX:
 			case 'titleline-checkbox':
 				$param_title = $additional_parameter[0] ?? '';
 				$title = is_string($param_title) ? $param_title : '';
@@ -2036,11 +2056,11 @@ EOJ;
 				addDIV(['id' => 'pagecontent']);
 		return $this;
 	}
-	/**
-	 *
-	 * @global string $d_sysrebootreqd_path
-	 * @return $this
-	 */
+/**
+ *	Insert footer
+ *	@global string $d_sysrebootreqd_path
+ *	@return $this
+ */
 	public function ins_footer() {
 		global $d_sysrebootreqd_path;
 

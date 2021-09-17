@@ -36,6 +36,7 @@ namespace common\properties;
 
 use const FILTER_NULL_ON_FAILURE,
 	FILTER_VALIDATE_BOOLEAN;
+
 use function array_key_exists,
 	is_bool;
 
@@ -45,7 +46,7 @@ use function array_key_exists,
 class property_bool extends property {
 	public function __construct($owner = null) {
 		parent::__construct($owner);
-		$this->set_input_type('checkbox');
+		$this->set_input_type(self::INPUT_TYPE_CHECKBOX);
 	}
 	public function filter_use_default() {
 		$filter_name = 'ui';
