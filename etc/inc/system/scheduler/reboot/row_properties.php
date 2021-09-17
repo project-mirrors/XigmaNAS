@@ -37,6 +37,7 @@ declare(strict_types = 1);
 namespace system\scheduler\reboot;
 
 use common\properties as myp;
+
 use function gettext;
 
 final class row_properties extends grid_properties {
@@ -47,7 +48,6 @@ final class row_properties extends grid_properties {
 			set_defaultvalue(true)->
 			set_description($description)->
 			set_id('scheduler')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -65,7 +65,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('@daily')->
 			set_description($description)->
 			set_id('preset')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -79,7 +79,7 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('minute')->
-			set_input_type('checkbox_grid')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -93,7 +93,7 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('hour')->
-			set_input_type('checkbox_grid')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -107,7 +107,7 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('day')->
-			set_input_type('checkbox_grid')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -120,7 +120,7 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('month')->
-			set_input_type('checkbox_grid')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -133,7 +133,7 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('weekday')->
-			set_input_type('checkbox_grid')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;

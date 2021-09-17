@@ -325,7 +325,7 @@ final class setting_properties extends grid_properties {
 			set_id('lp_diag_infos')->
 			set_description($description)->
 			set_defaultvalue('diag_infos_disks.php')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
