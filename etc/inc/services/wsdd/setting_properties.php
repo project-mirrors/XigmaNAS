@@ -53,7 +53,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('ipprotocol')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -77,7 +77,6 @@ final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->
-			set_input_type('titleline-checkbox')->
 			set_defaultvalue(false);
 		return $property;
 	}
@@ -126,7 +125,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('if')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -138,7 +137,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_defaultvalue($defaultvalue)->
 			set_id('preservecase')->
-			set_input_type('checkbox')->
 			filter_use_default();
 		return $property;
 	}
@@ -154,7 +152,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('servermode')->
-			set_input_type('radio-grid')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
