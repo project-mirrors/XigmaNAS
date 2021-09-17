@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use system\backup\setting_toolbox as toolbox;
-use system\backup\shared_toolbox;
+use system\backup\setting_toolbox as toolbox,
+	system\backup\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -53,7 +53,7 @@ $cops = [
 	$cop->get_reminderintervalshow()
 ];
 $pending_changes = updatenotify_exists($sphere->get_notifier());
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'SESSION':
 		switch($page_action):
@@ -92,11 +92,9 @@ switch($page_action):
 		foreach($cops as $cops_element):
 			$name = $cops_element->get_name();
 			switch($cops_element->get_input_type()):
-				case 'textarea':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode("\n",$source[$name]);
-						endif;
+				case $cops_element::INPUT_TYPE_TEXTAREA:
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
@@ -128,7 +126,7 @@ switch($page_action):
 			foreach($cops as $cops_element):
 				$name = $cops_element->get_name();
 				switch($cops_element->get_input_type()):
-					case 'textarea':
+					case $cops_element::INPUT_TYPE_TEXTAREA:
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
@@ -144,7 +142,7 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $input_errors_found = count($input_errors) > 0;
 //	create document
 $document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());

@@ -175,7 +175,7 @@ switch($page_action):
 		foreach($cops as $cops_element):
 			$name = $cops_element->get_name();
 			switch($cops_element->get_input_type()):
-				case 'textarea':
+				case $cops_element::INPUT_TYPE_TEXTAREA:
 					if(array_key_exists($name,$source) && is_array($source[$name])):
 						$source[$name] = implode("\n",$source[$name]);
 					endif;
@@ -209,7 +209,7 @@ switch($page_action):
 			foreach($cops as $cops_element):
 				$name = $cops_element->get_name();
 				switch($cops_element->get_input_type()):
-					case 'textarea':
+					case $cops_element::INPUT_TYPE_TEXTAREA:
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;
@@ -265,7 +265,7 @@ if($pending_changes && !$input_errors_found):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds1 = $content->add_table_data_settings();
 $tds1->ins_colgroup_data_settings();
 $thead1 = $tds1->addTHEAD();

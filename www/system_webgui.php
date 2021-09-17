@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use system\webgui\setting_toolbox as toolbox;
-use system\webgui\shared_toolbox;
+use system\webgui\setting_toolbox as toolbox,
+	system\webgui\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -114,11 +114,9 @@ switch($page_action):
 		foreach($cops as $cops_element):
 			$name = $cops_element->get_name();
 			switch($cops_element->get_input_type()):
-				case 'textarea':
-					if(array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode("\n",$source[$name]);
-						endif;
+				case $cops_element::INPUT_TYPE_TEXTAREA:
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
@@ -150,7 +148,7 @@ switch($page_action):
 			foreach($cops as $cops_element):
 				$name = $cops_element->get_name();
 				switch($cops_element->get_input_type()):
-					case 'textarea':
+					case $cops_element::INPUT_TYPE_TEXTAREA:
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 				endswitch;

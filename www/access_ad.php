@@ -162,12 +162,12 @@ switch($page_action):
 		foreach($cops as $cops_element):
 			$name = $cops_element->get_name();
 			switch($cops_element->get_input_type()):
-				case 'textarea':
+				case $cops_element::INPUT_TYPE_TEXTAREA:
 					if(array_key_exists($name,$source) && is_array($source[$name])):
 						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
-				case 'password':
+				case $cops_element::INPUT_TYPE_PASSWORD:
 					$source[$name] = '';
 					break;
 			endswitch;
@@ -199,10 +199,10 @@ switch($page_action):
 			foreach($cops as $cops_element):
 				$name = $cops_element->get_name();
 				switch($cops_element->get_input_type()):
-					case 'textarea':
+					case $cops_element::INPUT_TYPE_TEXTAREA:
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
-					case 'password':
+					case $cops_element::INPUT_TYPE_PASSWORD:
 						$sphere->row[$name] = base64_encode($sphere->row[$name]);
 						break;
 				endswitch;
@@ -221,8 +221,6 @@ endswitch;
 //	determine final page mode and calculate readonly flag
 [$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
-$is_running = $is_enabled;
-$is_running_message = $is_running ? gettext('Yes') : gettext('No');
 //	create document
 $document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
@@ -245,16 +243,8 @@ $tds = $content->add_table_data_settings();
 $tds->ins_colgroup_data_settings();
 $thead = $tds->addTHEAD();
 $tbody = $tds->addTBODY();
-switch($page_mode):
-	case PAGE_MODE_VIEW:
-		$thead->c2_titleline(gettext('Active Directory'));
-		break;
-	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Active Directory'));
-		break;
-endswitch;
+$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('Active Directory'));
 $tbody->
-	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
 	c2($cop->get_domaincontrollername(),$sphere,true,$is_readonly)->
 	c2($cop->get_domainname_dns(),$sphere,true,$is_readonly)->
 	c2($cop->get_domainname_netbios(),$sphere,true,$is_readonly)->
