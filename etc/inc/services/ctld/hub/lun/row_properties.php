@@ -66,10 +66,11 @@ final class row_properties extends grid_properties {
 		];
 		$property = parent::init_backend();
 		$property->
-			set_id('backend')->
-			set_description($description)->
-			set_options($options)->
 			set_defaultvalue('')->
+			set_description($description)->
+			set_id('backend')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
+			set_options($options)->
 			filter_use_default();
 		return $property;
 	}
@@ -88,6 +89,7 @@ final class row_properties extends grid_properties {
 		$property = $property = parent::init_blocksize();
 		$property->
 			set_id('blocksize')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -161,9 +163,10 @@ final class row_properties extends grid_properties {
 		$property = parent::init_device_type();
 		$property->
 			set_id('device_type')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_description($description)->
 			set_options($options)->
-			set_defaultvalue('')->
+			set_defaultvalue('disk')->
 			filter_use_default();
 		return $property;
 	}
@@ -199,12 +202,14 @@ final class row_properties extends grid_properties {
 	}
 	public function init_serial(): myp\property_text {
 		$description = gettext('The SCSI serial number presented to the initiator.');
+		$placeholder = '10000001';
 		$regexp = '/^(?:|.{1,40})$/';
 		$property = parent::init_serial();
 		$property->
 			set_id('serial')->
 			set_description($description)->
 			set_defaultvalue('')->
+			set_placeholder($placeholder)->
 			set_size(60)->
 			set_maxlength(40)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
@@ -229,15 +234,14 @@ final class row_properties extends grid_properties {
 	}
 	public function init_opt_vendor(): myp\property_text {
 		$description = gettext('Specifies LUN vendor string up to 8 chars.');
-		$placeholder = 'FreeBSD';
+		$defaultvalue = $placeholder = 'FreeBSD';
 		$regexp = '/^.{0,8}$/';
 		$property = parent::init_opt_vendor();
 		$property->
 			set_id('opt_vendor')->
 			set_description($description)->
 			set_placeholder($placeholder)->
-//			set_defaultvalue('FreeBSD')->
-			set_defaultvalue('')->
+			set_defaultvalue($defaultvalue)->
 			set_size(10)->
 			set_maxlength(8)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
@@ -247,15 +251,14 @@ final class row_properties extends grid_properties {
 	}
 	public function init_opt_product(): myp\property_text {
 		$description = gettext('Specifies LUN product string up to 16 chars.');
-		$placeholder = 'iSCSI Disk';
+		$defaultvalue = $placeholder = 'iSCSI Disk';
 		$regexp = '/^.{0,16}$/';
 		$property = parent::init_opt_product();
 		$property->
 			set_id('opt_product')->
 			set_description($description)->
 			set_placeholder($placeholder)->
-//			set_defaultvalue('iSCSI Disk')->
-			set_defaultvalue('')->
+			set_defaultvalue($defaultvalue)->
 			set_size(18)->
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
@@ -265,15 +268,14 @@ final class row_properties extends grid_properties {
 	}
 	public function init_opt_revision(): myp\property_text {
 		$description = gettext('Specifies LUN revision string up to 4 chars.');
-		$placeholder = '0123';
+		$defaultvalue = $placeholder = '0123';
 		$regexp = '/^.{0,4}$/';
 		$property = parent::init_opt_revision();
 		$property->
 			set_id('opt_revision')->
 			set_description($description)->
 			set_placeholder($placeholder)->
-//			set_defaultvalue('0123')->
-			set_defaultvalue('')->
+			set_defaultvalue($defaultvalue)->
 			set_size(6)->
 			set_maxlength(4)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
@@ -359,6 +361,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_ha_role();
 		$property->
 			set_id('opt_ha_role')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -374,6 +377,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_insecure_tpc();
 		$property->
 			set_id('opt_insecure_tpc')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -389,6 +393,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_readcache();
 		$property->
 			set_id('opt_readcache')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -404,6 +409,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_readonly();
 		$property->
 			set_id('opt_readonly')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -419,6 +425,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_removable();
 		$property->
 			set_id('opt_removable')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -434,6 +441,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_reordering();
 		$property->
 			set_id('opt_reordering')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -451,6 +459,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_serseq();
 		$property->
 			set_id('opt_serseq')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -527,7 +536,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_rpm();
 		$property->
 			set_id('opt_rpm')->
-			set_defaultvalue('')->
+			set_defaultvalue('7200')->
 			set_description($description)->
 			set_size(7)->
 			set_maxlength(5)->
@@ -550,9 +559,10 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_formfactor();
 		$property->
 			set_id('opt_formfactor')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
-			set_defaultvalue('')->
+			set_defaultvalue('2')->
 			filter_use_default();
 		return $property;
 	}
@@ -567,6 +577,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_provisioning_type();
 		$property->
 			set_id('opt_provisioning_type')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -583,6 +594,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_unmap();
 		$property->
 			set_id('opt_unmap')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -703,6 +715,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_writecache();
 		$property->
 			set_id('opt_writecache')->
+			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->

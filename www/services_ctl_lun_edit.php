@@ -31,12 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use services\ctld\hub\lun\row_toolbox as toolbox;
-use services\ctld\hub\lun\shared_toolbox;
+use common\arr,
+	services\ctld\hub\lun\row_toolbox as toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -49,7 +50,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo();
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -68,7 +69,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'cancel': // cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -83,7 +84,7 @@ switch($page_method):
 		break;
 endswitch;
 /*
- *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ *	exit if $sphere->row[$sphere->row_identifier()] is null
  */
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
@@ -92,13 +93,13 @@ endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
+if($sphere->row_id === false): // record does not exist in config
 	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -121,18 +122,18 @@ else: // record found in configuration
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode): // oops, something went wrong
+if($record_mode === RECORD_ERROR): // oops, something went wrong
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$isrecordnew = (RECORD_NEW === $record_mode);
-$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
-$isrecordmodify = (RECORD_MODIFY === $record_mode);
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_name(),
 	$cop->get_description(),
@@ -185,57 +186,51 @@ $a_referer = [
 ];
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
-		//	adjust page mode
+//		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
 			switch($name):
 				case $cop->get_auxparam()->get_name():
-					if(\array_key_exists($name,$source)):
-						if(is_array($source[$name])):
-							$source[$name] = implode(PHP_EOL,$source[$name]);
-						endif;
+					if(array_key_exists($name,$source) && is_array($source[$name])):
+						$source[$name] = implode("\n",$source[$name]);
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_config($source);
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
-		// apply post values that are applicable for all record modes
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+//		apply post values that are applicable for all record modes
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
 			$name = $cop->get_auxparam()->get_name();
-			$auxparam_grid = [];
-			if(\array_key_exists($name,$sphere->row)):
-				foreach(explode(PHP_EOL,$sphere->row[$name]) as $auxparam_row):
-					$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-				endforeach;
-				$sphere->row[$name] = $auxparam_grid;
+			if(array_key_exists($name,$sphere->row)):
+				$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 			endif;
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -244,121 +239,4 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('LUN'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
-//	add tab navigation
-shared_toolbox::add_tabnav($document);
-//	get areas
-$body = $document->getElementById('main');
-$pagecontent = $document->getElementById('pagecontent');
-//	create data area
-$content = $pagecontent->add_area_data();
-//	display information, warnings and errors
-$content->
-	ins_input_errors($input_errors)->
-	ins_info_box($savemsg)->
-	ins_error_box($errormsg);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
-$content->add_table_data_settings()->
-	ins_colgroup_data_settings()->
-	push()->
-	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
-	pop()->
-	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere,true,false)->
-		c2_input_text($cop->get_description(),$sphere,false,false)->
-		c2_radio_grid($cop->get_backend(),$sphere,false,false)->
-		c2_radio_grid($cop->get_blocksize(),$sphere,false,false)->
-		c2_input_text($cop->get_ctl_lun(),$sphere,false,false)->
-		c2_input_text($cop->get_device_id(),$sphere,false,false)->
-		c2_select($cop->get_device_type(),$sphere,false,false)->
-		c2_input_text($cop->get_path(),$sphere,false,false)->
-		c2_input_text($cop->get_serial(),$sphere,false,false)->
-		c2_input_text($cop->get_size(),$sphere,false,false)->
- 		c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
-$content->add_table_data_settings()->
-	ins_colgroup_data_settings()->
-	push()->
-	addTHEAD()->
-		c2_separator()->
-		c2_titleline(gettext('Options'))->
-	pop()->
-	addTBODY()->
-		c2_input_text($cop->get_opt_vendor(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_product(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_revision(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_scsiname(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_eui(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_naa(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_uuid(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_ha_role(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_insecure_tpc(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_readcache(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_readonly(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_removable(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_reordering(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_serseq(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_pblocksize(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_pblockoffset(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_ublocksize(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_ublockoffset(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_rpm(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_formfactor(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_provisioning_type(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_unmap(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_unmap_max_lba(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_unmap_max_descr(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_write_same_max_lba(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_avail_threshold(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_used_threshold(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_pool_avail_threshold(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_pool_used_threshold(),$sphere,false,false)->
-		c2_radio_grid($cop->get_opt_writecache(),$sphere,false,false);
-$content->add_table_data_settings()->
-	ins_colgroup_data_settings()->
-	push()->
-	addTHEAD()->
-		c2_separator()->
-		c2_titleline(gettext('Additional Options for Block Backend'))->
-	pop()->
-	addTBODY()->
-		c2_input_text($cop->get_opt_file(),$sphere,false,false)->
-		c2_input_text($cop->get_opt_num_threads(),$sphere,false,false);
-$content->add_table_data_settings()->
-	ins_colgroup_data_settings()->
-	push()->
-	addTHEAD()->
-		c2_separator()->
-		c2_titleline(gettext('Additional Options for RAM Disk Backend'))->
-	pop()->
-	addTBODY()->
-		c2_input_text($cop->get_opt_capacity(),$sphere,false,false);
-/*
-$content->add_table_data_settings()->
-	ins_colgroup_data_settings()->
-	push()->
-	addTHEAD()->
-		c2_separator()->
-		c2_titleline(gettext('Additional Options for Passthrough Backend'))->
-	pop()->
-	addTBODY()->
-		c2_input_text($cop->get_passthrough_address(),$sphere,false,false);
- */
-//	add buttons
-$buttons = $document->add_area_buttons();
-if($isrecordnew):
-	$buttons->ins_button_add();
-else:
-	$buttons->ins_button_save();
-	if($prerequisites_ok && empty($input_errors)):
-		$buttons->ins_button_clone();
-	endif;
-endif;
-$buttons->ins_button_cancel();
-$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
-//	additional javascript code
-$body->ins_javascript($sphere->get_js());
-$body->add_js_on_load($sphere->get_js_on_load());
-$body->add_js_document_ready($sphere->get_js_document_ready());
-$document->render();
+toolbox::render($cop,$sphere,$record_mode,$prerequisites_ok);
