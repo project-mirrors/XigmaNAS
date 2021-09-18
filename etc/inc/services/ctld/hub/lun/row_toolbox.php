@@ -34,8 +34,12 @@
 
 namespace services\ctld\hub\lun;
 
-use common\rmo as myr;
-use common\sphere as mys;
+use common\rmo as myr,
+	common\sphere as mys;
+
+use const RECORD_NEW;
+
+use function new_page;
 
 /**
  *	Wrapper class for autoloading functions
@@ -62,10 +66,138 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \services\ctld\hub\lun\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
 		return $cop;
+	}
+	public static function render(row_properties $cop,mys\row $sphere,int $record_mode,bool $prerequisites_ok) {
+		global $input_errors;
+		global $errormsg;
+		global $savemsg;
+
+		$isrecordnew = ($record_mode === RECORD_NEW);
+//		$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+//		$isrecordmodify = ($record_mode === RECORD_MODIFY);
+//		$isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
+		$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
+		$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
+//		add tab navigation
+		shared_toolbox::add_tabnav($document);
+//		get areas
+		$body = $document->getElementById('main');
+		$pagecontent = $document->getElementById('pagecontent');
+//		create data area
+		$content = $pagecontent->add_area_data();
+//		display information, warnings and errors
+		$content->
+			ins_input_errors($input_errors)->
+			ins_info_box($savemsg)->
+			ins_error_box($errormsg);
+		$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
+		$content->add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+			pop()->
+			addTBODY()->
+				c2($cop->get_name(),$sphere,true,false)->
+				c2($cop->get_description(),$sphere,false,false)->
+				c2($cop->get_backend(),$sphere,false,false)->
+				c2($cop->get_blocksize(),$sphere,false,false)->
+				c2($cop->get_ctl_lun(),$sphere,false,false)->
+				c2($cop->get_device_id(),$sphere,false,false)->
+				c2($cop->get_device_type(),$sphere,false,false)->
+				c2($cop->get_path(),$sphere,false,false)->
+				c2($cop->get_serial(),$sphere,false,false)->
+				c2($cop->get_size(),$sphere,false,false)->
+				c2($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+		$content->add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_separator()->
+				c2_titleline(gettext('Options'))->
+			pop()->
+			addTBODY()->
+				c2($cop->get_opt_vendor(),$sphere,false,false)->
+				c2($cop->get_opt_product(),$sphere,false,false)->
+				c2($cop->get_opt_revision(),$sphere,false,false)->
+				c2($cop->get_opt_scsiname(),$sphere,false,false)->
+				c2($cop->get_opt_eui(),$sphere,false,false)->
+				c2($cop->get_opt_naa(),$sphere,false,false)->
+				c2($cop->get_opt_uuid(),$sphere,false,false)->
+				c2($cop->get_opt_ha_role(),$sphere,false,false)->
+				c2($cop->get_opt_insecure_tpc(),$sphere,false,false)->
+				c2($cop->get_opt_readcache(),$sphere,false,false)->
+				c2($cop->get_opt_readonly(),$sphere,false,false)->
+				c2($cop->get_opt_removable(),$sphere,false,false)->
+				c2($cop->get_opt_reordering(),$sphere,false,false)->
+				c2($cop->get_opt_serseq(),$sphere,false,false)->
+				c2($cop->get_opt_pblocksize(),$sphere,false,false)->
+				c2($cop->get_opt_pblockoffset(),$sphere,false,false)->
+				c2($cop->get_opt_ublocksize(),$sphere,false,false)->
+				c2($cop->get_opt_ublockoffset(),$sphere,false,false)->
+				c2($cop->get_opt_rpm(),$sphere,false,false)->
+				c2($cop->get_opt_formfactor(),$sphere,false,false)->
+				c2($cop->get_opt_provisioning_type(),$sphere,false,false)->
+				c2($cop->get_opt_unmap(),$sphere,false,false)->
+				c2($cop->get_opt_unmap_max_lba(),$sphere,false,false)->
+				c2($cop->get_opt_unmap_max_descr(),$sphere,false,false)->
+				c2($cop->get_opt_write_same_max_lba(),$sphere,false,false)->
+				c2($cop->get_opt_avail_threshold(),$sphere,false,false)->
+				c2($cop->get_opt_used_threshold(),$sphere,false,false)->
+				c2($cop->get_opt_pool_avail_threshold(),$sphere,false,false)->
+				c2($cop->get_opt_pool_used_threshold(),$sphere,false,false)->
+				c2($cop->get_opt_writecache(),$sphere,false,false);
+		$content->add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_separator()->
+				c2_titleline(gettext('Additional Options for Block Backend'))->
+			pop()->
+			addTBODY()->
+				c2($cop->get_opt_file(),$sphere,false,false)->
+				c2($cop->get_opt_num_threads(),$sphere,false,false);
+		$content->add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_separator()->
+				c2_titleline(gettext('Additional Options for RAM Disk Backend'))->
+			pop()->
+			addTBODY()->
+				c2($cop->get_opt_capacity(),$sphere,false,false);
+/*
+		$content->add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_separator()->
+				c2_titleline(gettext('Additional Options for Passthrough Backend'))->
+			pop()->
+			addTBODY()->
+				c2_input_text($cop->get_passthrough_address(),$sphere,false,false);
+ */
+//		add buttons
+		$buttons = $document->add_area_buttons();
+		if($isrecordnew):
+			$buttons->ins_button_add();
+		else:
+			$buttons->ins_button_save();
+			if($prerequisites_ok && empty($input_errors)):
+				$buttons->ins_button_clone();
+			endif;
+		endif;
+		$buttons->ins_button_cancel();
+		$buttons->ins_input_hidden($sphere->get_row_identifier(),$sphere->get_row_identifier_value());
+//		additional javascript code
+		$body->ins_javascript($sphere->get_js());
+		$body->add_js_on_load($sphere->get_js_on_load());
+		$body->add_js_document_ready($sphere->get_js_document_ready());
+		$document->render();
 	}
 }
