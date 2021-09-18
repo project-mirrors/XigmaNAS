@@ -38,11 +38,22 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 
-use function array_column,array_multisort,count,file_exists,filter_var,gettext,
-		header,is_bool,config_lock,config_unlock,get_std_save_message,new_page,
-		rc_exec_service,updatenotify_cbm_delete,updatenotify_cbm_disable,
-		updatenotify_cbm_enable,updatenotify_cbm_toggle,updatenotify_exists,
-		updatenotify_get_mode,updatenotify_process,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_exec_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -113,15 +124,14 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('System'),gettext('Advanced'),gettext('rc.conf')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','30%','20%','5%','30%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 		//	add tab navigation
 		shared_toolbox::add_tabnav($document);
@@ -248,33 +258,33 @@ final class grid_toolbox {
 						config_unlock();
 						$_SESSION['submit'] = $sphere->get_script()->get_basename();
 						$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_delete():
 						updatenotify_cbm_delete($sphere,$cop);
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_toggle():
 						if(updatenotify_cbm_toggle($sphere,$cop)):
 							write_config();
 						endif;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_enable():
 						if(updatenotify_cbm_enable($sphere,$cop)):
 							write_config();
 						endif;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_disable():
 						if(updatenotify_cbm_disable($sphere,$cop)):
 							write_config();
 						endif;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 				endswitch;
