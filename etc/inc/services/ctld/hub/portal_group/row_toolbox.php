@@ -40,8 +40,6 @@ use common\sphere as mys;
 use services\ctld\hub\sub\listen\grid_toolbox as tbl;
 use services\ctld\hub\sub\option\grid_toolbox as tbo;
 
-use function array_key_exists,gettext,in_array,is_array,is_bool,is_string;
-
 /**
  *	Wrapper class for autoloading functions
  */
@@ -67,7 +65,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \services\ctld\hub\portal_group\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
@@ -127,6 +125,7 @@ final class row_toolbox {
 			set_id('gridlisten')->
 			set_title(gettext('Listen'))->
 			set_name('gridlisten')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_message_info(gettext('No listeners found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
@@ -148,6 +147,7 @@ final class row_toolbox {
 			set_id('gridoption')->
 			set_title(gettext('Option'))->
 			set_name('gridoption')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_message_info(gettext('No options found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
