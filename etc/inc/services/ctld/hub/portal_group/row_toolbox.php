@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\portal_group;
 
 use common\properties as myp;
@@ -38,6 +39,7 @@ use common\rmo as myr;
 use common\sphere as mys;
 use services\ctld\hub\sub\listen\grid_toolbox as tbl;
 use services\ctld\hub\sub\option\grid_toolbox as tbo;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,7 +65,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \services\ctld\hub\portal_group\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
@@ -81,17 +83,17 @@ final class row_toolbox {
 		$options = [];
 		$selected = [];
 		foreach($sphere->grid as $sphere->row_id => $sphere->row):
-			if(\array_key_exists($key_enabled,$sphere->row)):
+			if(array_key_exists($key_enabled,$sphere->row)):
 				$enabled = is_bool($sphere->row[$key_enabled]) ? $sphere->row[$key_enabled] : true;
 //				process enabled entries
 				if($enabled):
 //					add name to options
-					if(\array_key_exists($key_option,$sphere->row)):
+					if(array_key_exists($key_option,$sphere->row)):
 						$name = $sphere->row[$key_option];
 						if(is_string($name)):
 							$options[$name] = $name;
 //							add name to selected when group contains needle
-							if(\array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
+							if(array_key_exists($key_selected,$sphere->row) && is_array($sphere->row[$key_selected]) && in_array($needle,$sphere->row[$key_selected])):
 								$selected[$name] = $name;
 							endif;
 						endif;
@@ -123,6 +125,7 @@ final class row_toolbox {
 			set_id('gridlisten')->
 			set_title(gettext('Listen'))->
 			set_name('gridlisten')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_message_info(gettext('No listeners found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
@@ -144,6 +147,7 @@ final class row_toolbox {
 			set_id('gridoption')->
 			set_title(gettext('Option'))->
 			set_name('gridoption')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_message_info(gettext('No options found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
