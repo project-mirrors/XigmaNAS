@@ -34,8 +34,8 @@
 
 namespace disks\zfs\scheduler\snapshot\destroy;
 
-use common\rmo as myr,
-	common\sphere as mys;
+use common\rmo as myr;
+use common\sphere as mys;
 
 /**
  *	Wrapper class for autoloading functions
