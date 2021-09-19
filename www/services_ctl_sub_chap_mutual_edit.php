@@ -221,9 +221,9 @@ endforeach;
 $cop->get_group()->set_options($all_parents);
 $use_tablesort = count($all_parents) > 1;
 if($use_tablesort):
-	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+	$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 else:
-	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+	$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 endif;
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
