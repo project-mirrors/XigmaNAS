@@ -31,12 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use services\ctld\hub\sub\chap\grid_toolbox as toolbox;
 use services\ctld\hub\grid_hub as hub;
+use services\ctld\hub\sub\chap\grid_toolbox as toolbox;
 
 //	init properties, sphere and rmo
 $cop = toolbox::init_properties();
