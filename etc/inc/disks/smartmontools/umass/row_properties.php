@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\smartmontools\umass;
+
 use common\properties as myp;
 
 final class row_properties extends grid_properties {
@@ -61,7 +63,7 @@ final class row_properties extends grid_properties {
 			set_placeholder($placeholder)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => NULL,'regexp' => '/.*/']);
+			set_filter_options(['default' => null,'regexp' => '/.*/']);
 		return $property;
 	}
 }
