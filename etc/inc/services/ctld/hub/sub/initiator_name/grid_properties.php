@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\sub\initiator_name;
+
 use common\properties as myp;
 
 class grid_properties extends myp\container_row {
