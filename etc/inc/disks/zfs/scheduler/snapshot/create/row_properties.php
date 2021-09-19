@@ -37,7 +37,6 @@ declare(strict_types = 1);
 namespace disks\zfs\scheduler\snapshot\create;
 
 use common\properties as myp;
-use function gettext;
 
 final class row_properties extends grid_properties {
 	public function init_path(): myp\property_list {

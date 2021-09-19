@@ -70,7 +70,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'cancel': // cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -85,7 +85,7 @@ switch($page_method):
 		break;
 endswitch;
 /*
- *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ *	exit if $sphere->row[$sphere->row_identifier()] is null
  */
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
@@ -163,43 +163,43 @@ endif;
 $cop->get_path()->set_options($a_path);
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($cops as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($cops as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($cops as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_config($source);
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
 		if($isrecordmodify):
 			$source = $sphere->grid[$sphere->row_id];
 		endif;
-		foreach($cops as $referer):
-			$name = $referer->get_name();
-			if($isrecordmodify && !$referer->get_editableonmodify()):
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			if($isrecordmodify && !$cops_element->get_editableonmodify()):
 //				validate protected items from config
-				$sphere->row[$name] = $referer->validate_config($source);
+				$sphere->row[$name] = $cops_element->validate_config($source);
 				if(is_null($sphere->row[$name])):
 					$sphere->row[$name] = $source[$name] ?? '';
-					$input_errors[] = $referer->get_message_error();
+					$input_errors[] = $cops_element->get_message_error();
 				endif;
 			else:
-				$sphere->row[$name] = $referer->validate_input();
+				$sphere->row[$name] = $cops_element->validate_input();
 				if(is_null($sphere->row[$name])):
 					$sphere->row[$name] = filter_input(INPUT_POST,$name,FILTER_DEFAULT) ?? '';
-					$input_errors[] = $referer->get_message_error();
+					$input_errors[] = $cops_element->get_message_error();
 				endif;
 			endif;
 		endforeach;
@@ -207,7 +207,7 @@ switch($page_mode):
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -216,8 +216,8 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Scheduler'),gettext('Snapshot'),gettext('Create'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
