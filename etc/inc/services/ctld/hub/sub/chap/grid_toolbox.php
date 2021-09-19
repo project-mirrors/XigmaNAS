@@ -38,8 +38,12 @@ use common\arr;
 use common\rmo as myr;
 use common\sphere as mys;
 
-use function count,gettext,is_bool,new_page,updatenotify_exists,
-		updatenotify_get_mode;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function new_page;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
 
 /**
  *	Wrapper class for autoloading functions
@@ -86,7 +90,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \services\ctld\hub\sub\chap\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -97,7 +101,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\ctld\hub\sub\chap\grid_properties $cop
+ *	@param grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
@@ -158,7 +162,7 @@ final class grid_toolbox {
 		if($record_exists):
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
 				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
-				$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
+				$is_notdirty = (($notificationmode !== UPDATENOTIFY_MODE_DIRTY) && ($notificationmode !== UPDATENOTIFY_MODE_DIRTY_CONFIG));
 				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true): true;
 				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
