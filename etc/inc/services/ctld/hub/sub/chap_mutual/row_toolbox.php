@@ -34,6 +34,9 @@
 
 namespace services\ctld\hub\sub\chap_mutual;
 
+use common\rmo as myr;
+use common\sphere as mys;
+
 /**
  *	Wrapper class for autoloading functions
  */
