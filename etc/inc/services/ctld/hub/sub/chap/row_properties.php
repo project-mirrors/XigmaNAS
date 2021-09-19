@@ -36,8 +36,6 @@ namespace services\ctld\hub\sub\chap;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Enter user name.');
@@ -63,6 +61,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_secret();
 		$property->
 			set_id('secret')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_placeholder($placeholder)->
@@ -82,6 +81,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_group();
 		$property->
 			set_id('group')->
+			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
