@@ -34,29 +34,24 @@
 
 namespace disks\smartmontools\umass;
 
-use common\arr,
-	common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys;
-use const FILTER_VALIDATE_INT,
-	UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG;
-use function count,
-	file_exists,
-	filter_var,
-	get_std_save_message,
-	gettext,
-	header,
-	is_bool,
-	new_page,
-	updatenotify_cbm_delete,
-	updatenotify_cbm_disable,
-	updatenotify_cbm_enable,
-	updatenotify_cbm_toggle,
-	updatenotify_exists,
-	updatenotify_get_mode,
-	updatenotify_process,
-	write_config;
+use common\arr;
+use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function get_std_save_message;
+use function new_page;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -121,16 +116,15 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Disks'),gettext('Management'),gettext('S.M.A.R.T.'),gettext('USB Mass Storage Devices')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','25%','25%','10%','25%','10%'];
 		$n_col_width = count($a_col_width);
 //		prepare additional javascript code
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		get areas
 		$body = $document->getElementById('main');
