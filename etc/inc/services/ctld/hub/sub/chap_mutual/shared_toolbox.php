@@ -34,12 +34,10 @@
 
 namespace services\ctld\hub\sub\chap_mutual;
 
-use DOMDocument;
 use common\arr;
 use common\sphere as mys;
+use DOMDocument;
 use services\ctld\hub\shared_hub as hub;
-
-use function gettext,sprintf;
 
 /**
  *	Wrapper class for autoloading functions
@@ -62,7 +60,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
