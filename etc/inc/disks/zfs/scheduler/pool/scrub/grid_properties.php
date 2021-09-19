@@ -37,7 +37,6 @@ declare(strict_types = 1);
 namespace disks\zfs\scheduler\pool\scrub;
 
 use common\properties as myp;
-use function gettext;
 
 class grid_properties extends myp\container_row {
 	protected $x_poolname;
