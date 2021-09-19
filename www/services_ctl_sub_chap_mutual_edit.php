@@ -220,7 +220,6 @@ foreach($linked_parents as $linked_parent):
 endforeach;
 $cop->get_group()->set_options($all_parents);
 $use_tablesort = count($all_parents) > 1;
-$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Auth Groups'),gettext('Mutual CHAP'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
 if($use_tablesort):
 	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
 else:
