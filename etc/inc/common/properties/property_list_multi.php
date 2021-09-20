@@ -34,14 +34,14 @@
 
 namespace common\properties;
 
-use function array_key_exists,is_scalar;
-
-use const FILTER_DEFAULT,FILTER_REQUIRE_ARRAY;
-
 /**
- *	Multi listproperty
+ *	Multi list property
  */
 class property_list_multi extends property_list {
+	public function __construct($owner = null) {
+		parent::__construct($owner);
+		$this->set_input_type(self::INPUT_TYPE_CHECKBOX_GRID);
+	}
 	public function validate_config(array $source) {
 		$return_data = [];
 		$key = $this->get_name();

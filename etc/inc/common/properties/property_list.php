@@ -34,14 +34,14 @@
 
 namespace common\properties;
 
-use function array_key_exists;
-
-use const FILTER_CALLBACK;
-
 /**
  *	List property
  */
 class property_list extends property {
+	public function __construct($owner = null) {
+		parent::__construct($owner);
+		$this->set_input_type(self::INPUT_TYPE_RADIO_GRID);
+	}
 	protected $x_options = [];
 	public function set_options(array $options) {
 		$this->x_options = $options;
