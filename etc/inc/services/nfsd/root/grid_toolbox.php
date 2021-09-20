@@ -31,11 +31,30 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\nfsd\root;
 
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_reload_service_if_running_and_enabled;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -77,7 +96,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \services\nfsd\root\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -88,7 +107,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\nfsd\root\grid_properties $cop
+ *	@param grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
@@ -96,15 +115,14 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Services'),gettext('NFS'),gettext('Root Directory')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','25%','25%','10%','25%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 		//	add tab navigation
 		shared_toolbox::add_tabnav($document);
@@ -205,7 +223,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
@@ -223,12 +241,13 @@ final class grid_toolbox {
 						$retval = 0;
 						$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
 						config_lock();
-						$retval |= rc_update_service('rpcbind'); // !!! Do
-						$retval |= rc_update_service('mountd');  // !!! not
-						$retval |= rc_update_service('nfsd');    // !!! change
-						$retval |= rc_update_service('statd');   // !!! this
-						$retval |= rc_update_service('lockd');   // !!! order
-						$retval |= rc_update_service('mdnsresponder');
+//						$retval |= rc_update_service('rpcbind'); // !!! Do
+//						$retval |= rc_update_service('mountd');  // !!! not
+//						$retval |= rc_update_service('nfsd');    // !!! change
+//						$retval |= rc_update_service('statd');   // !!! this
+//						$retval |= rc_update_service('lockd');   // !!! order
+//						$retval |= rc_update_service('mdnsresponder');
+						$retval |= rc_reload_service_if_running_and_enabled('mountd');
 						config_unlock();
 						$_SESSION['submit'] = $sphere->get_script()->get_basename();
 						$_SESSION[$sphere->get_script()->get_basename()] = $retval;
