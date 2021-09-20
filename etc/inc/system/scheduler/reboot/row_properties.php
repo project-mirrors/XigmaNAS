@@ -38,8 +38,6 @@ namespace system\scheduler\reboot;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_scheduler(): myp\property_bool {
 		$description = gettext('Commands are executed by the scheduler when the minute, hour, and month of year fields match the current time, and when at least one of the two day fields (day of month, or day of week) matches the current time.');
@@ -63,9 +61,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_preset();
 		$property->
 			set_defaultvalue('@daily')->
-			set_description($description)->
 			set_id('preset')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -79,7 +75,6 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('minute')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -93,7 +88,6 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('hour')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -107,7 +101,6 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('day')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -120,7 +113,6 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('month')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -133,7 +125,6 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('')->
 			set_id('weekday')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
