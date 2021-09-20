@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\nfsd\setting_toolbox as toolbox,
-	services\nfsd\shared_toolbox;
+use services\nfsd\setting_toolbox as toolbox;
+use services\nfsd\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -258,20 +258,20 @@ switch($page_mode):
 		$thead->c2_titleline(gettext('Network File System'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Network File System'));
+		$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('Network File System'));
 		break;
 endswitch;
 $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_checkbox($cop->get_support_nfs_v4(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_numproc(),$sphere,false,$is_readonly);
+	c2($cop->get_support_nfs_v4(),$sphere,false,$is_readonly)->
+	c2($cop->get_numproc(),$sphere,false,$is_readonly);
 $tfoot->c2_separator();
 $tds_exports = $content->add_table_data_settings();
 $tds_exports->ins_colgroup_data_settings();
 $thead_exports = $tds_exports->addTHEAD();
 $tbody_exports = $tds_exports->addTBODY();
 $thead_exports->c2_titleline(gettext('Exports Configuration File'));
-$tbody_exports->c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+$tbody_exports->c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
