@@ -125,7 +125,6 @@ final class row_toolbox {
 			set_id('gridlisten')->
 			set_title(gettext('Listen'))->
 			set_name('gridlisten')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_message_info(gettext('No listeners found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;
@@ -147,7 +146,6 @@ final class row_toolbox {
 			set_id('gridoption')->
 			set_title(gettext('Option'))->
 			set_name('gridoption')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_message_info(gettext('No options found.'));
 		$retval = self::get_additional_info($needle,$key_enable,$key_option,$key_selected,$sphere,$property);
 		return $retval;

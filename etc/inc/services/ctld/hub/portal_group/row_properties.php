@@ -90,7 +90,6 @@ final class row_properties extends grid_properties {
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
