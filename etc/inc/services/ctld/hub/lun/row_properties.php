@@ -36,8 +36,6 @@ namespace services\ctld\hub\lun;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the LUN.');
@@ -69,7 +67,6 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('backend')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -89,7 +86,6 @@ final class row_properties extends grid_properties {
 		$property = $property = parent::init_blocksize();
 		$property->
 			set_id('blocksize')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -361,7 +357,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_ha_role();
 		$property->
 			set_id('opt_ha_role')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -377,7 +372,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_insecure_tpc();
 		$property->
 			set_id('opt_insecure_tpc')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -393,7 +387,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_readcache();
 		$property->
 			set_id('opt_readcache')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -409,7 +402,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_readonly();
 		$property->
 			set_id('opt_readonly')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -425,7 +417,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_removable();
 		$property->
 			set_id('opt_removable')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -441,7 +432,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_reordering();
 		$property->
 			set_id('opt_reordering')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -459,7 +449,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_serseq();
 		$property->
 			set_id('opt_serseq')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -559,7 +548,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_formfactor();
 		$property->
 			set_id('opt_formfactor')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('2')->
@@ -577,7 +565,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_provisioning_type();
 		$property->
 			set_id('opt_provisioning_type')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -594,7 +581,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_unmap();
 		$property->
 			set_id('opt_unmap')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -715,7 +701,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_opt_writecache();
 		$property->
 			set_id('opt_writecache')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->

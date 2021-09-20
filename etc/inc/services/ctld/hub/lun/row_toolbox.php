@@ -34,8 +34,8 @@
 
 namespace services\ctld\hub\lun;
 
-use common\rmo as myr,
-	common\sphere as mys;
+use common\rmo as myr;
+use common\sphere as mys;
 
 use const RECORD_NEW;
 
@@ -180,7 +180,7 @@ final class row_toolbox {
 				c2_titleline(gettext('Additional Options for Passthrough Backend'))->
 			pop()->
 			addTBODY()->
-				c2_input_text($cop->get_passthrough_address(),$sphere,false,false);
+				c2($cop->get_passthrough_address(),$sphere,false,false);
  */
 //		add buttons
 		$buttons = $document->add_area_buttons();
