@@ -36,8 +36,6 @@ namespace services\nfsd;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
@@ -52,6 +50,17 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue(false)->
 			set_description('')->
 			set_id('v4enable')->
+			filter_use_default();
+		return $property;
+	}
+	public function init_nfs_v4_only(): myp\property_bool{
+		$caption = gettext('Enable support for NFSv4 only.');
+		$property = parent::init_nfs_v4_only();
+		$property->
+			set_caption($caption)->
+			set_defaultvalue(false)->
+			set_description('')->
+			set_id('v4only')->
 			filter_use_default();
 		return $property;
 	}
