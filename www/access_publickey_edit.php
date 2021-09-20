@@ -36,10 +36,10 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	system\access\publickey\row_toolbox as toolbox,
-	system\access\publickey\shared_toolbox,
-	system\access\user\grid_toolbox as toolbox_user;
+use common\arr;
+use system\access\publickey\row_toolbox as toolbox;
+use system\access\publickey\shared_toolbox;
+use system\access\user\grid_toolbox as toolbox_user;
 
 //	init indicators
 $input_errors = [];
@@ -222,11 +222,11 @@ $table = $content->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Public Key Settings'));
+$thead->c2($cop->get_enable(),$sphere,false,false,gettext('Public Key Settings'));
 $tbody->
 	c2_select($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_publickey(),$sphere,true,$cop->get_publickey()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2($cop->get_publickey(),$sphere,true,$cop->get_publickey()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
