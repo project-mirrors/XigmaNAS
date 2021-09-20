@@ -34,27 +34,18 @@
 
 namespace services\ctld\hub\auth_group;
 
-use common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys,
-	services\ctld\hub\sub\chap\grid_toolbox as tbc,
-	services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm,
-	services\ctld\hub\sub\initiator_name\grid_toolbox as tbin,
-	services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
+use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+use services\ctld\hub\sub\chap\grid_toolbox as tbc;
+use services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm;
+use services\ctld\hub\sub\initiator_name\grid_toolbox as tbin;
+use services\ctld\hub\sub\initiator_portal\grid_toolbox as tbip;
 
-use const RECORD_MODIFY,
-	RECORD_NEW;
+use const RECORD_MODIFY;
+use const RECORD_NEW;
 
-use function array_key_exists,
-	gettext,
-	in_array,
-	is_array,
-	is_bool,
-	is_string,
-	max,
-	min,
-	new_page,
-	substr_count;
+use function new_page;
 
 /**
  *	Wrapper class for autoloading functions
@@ -236,13 +227,13 @@ final class row_toolbox {
 			ins_colgroup_data_settings()->
 			push()->
 			addTHEAD()->
-				c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+				c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 			pop()->
 			addTBODY()->
-				c2_input_text($cop->get_name(),$sphere,true,false)->
-				c2_input_text($cop->get_description(),$sphere,false,false)->
-				c2_radio_grid($cop->get_auth_type(),$sphere,false,false)->
-				c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+				c2($cop->get_name(),$sphere,true,false)->
+				c2($cop->get_description(),$sphere,false,false)->
+				c2($cop->get_auth_type(),$sphere,false,false)->
+				c2($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
 		if($isrecordmodify):
 			$table = $content->add_table_data_settings();
 			$table->ins_colgroup_data_settings();
@@ -253,16 +244,16 @@ final class row_toolbox {
 				c2_titleline(gettext('Additional Information'));
 			$iam = $sphere->row[$cop->get_name()->get_name()];
 			$ai1 = self::get_chap_info($iam);
-			$tbody->c2_checkbox_grid($ai1['property'],$ai1['selected'],false,true,true);
+			$tbody->c2($ai1['property'],$ai1['selected'],false,true,true);
 			unset($ai1);
 			$ai2 = self::get_chap_mutual_info($iam);
-			$tbody->c2_checkbox_grid($ai2['property'],$ai2['selected'],false,true,true);
+			$tbody->c2($ai2['property'],$ai2['selected'],false,true,true);
 			unset($ai2);
 			$ai3 = self::get_initiator_name_info($iam);
-			$tbody->c2_checkbox_grid($ai3['property'],$ai3['selected'],false,true,true);
+			$tbody->c2($ai3['property'],$ai3['selected'],false,true,true);
 			unset($ai3);
 			$ai4 = self::get_initiator_portal_info($iam);
-			$tbody->c2_checkbox_grid($ai4['property'],$ai4['selected'],false,true,true);
+			$tbody->c2($ai4['property'],$ai4['selected'],false,true,true);
 			unset($ai4);
 		endif;
 		$buttons = $document->add_area_buttons();
