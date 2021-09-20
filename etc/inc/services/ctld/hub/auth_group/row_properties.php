@@ -36,11 +36,6 @@ namespace services\ctld\hub\auth_group;
 
 use common\properties as myp;
 
-use const FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_REGEXP;
-
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the Auth Group.');
