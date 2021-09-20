@@ -61,7 +61,6 @@ final class row_properties extends grid_properties {
 		$property = parent::init_group();
 		$property->
 			set_id('group')->
-			set_input_type($property::INPUT_TYPE_CHECKBOX_GRID)->
 			set_description($description)->
 			set_defaultvalue([])->
 			set_options($options)->
