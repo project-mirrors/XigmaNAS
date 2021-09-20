@@ -34,18 +34,8 @@
 
 namespace system\access\user;
 
-use common\lang,
-	common\properties as myp;
-
-use const FILTER_CALLBACK,
-	FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_REGEXP;
-
-use function gettext,
-	in_array,
-	is_string,
-	preg_match,
-	strlen;
+use common\lang;
+use common\properties as myp;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
@@ -104,6 +94,7 @@ final class row_properties extends grid_properties {
 			set_description($description)->
 			set_editableonmodify(false)->
 			set_id('password')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_maxlength(128)->
 			set_placeholder($placeholder)->
 			set_size(40)->
@@ -154,6 +145,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('31')->
 			set_description($description)->
 			set_id('primarygroup')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options([])->
 			filter_use_default();
 		return $property;
@@ -179,6 +171,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue($g['media_path'])->
 			set_description($description)->
 			set_id('homedir')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_maxlength(1024)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -210,6 +203,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('auto')->
 			set_description($description)->
 			set_id('language')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
