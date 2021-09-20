@@ -34,34 +34,27 @@
 
 namespace system\access\publickey;
 
-use common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys;
+use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
 
-use const FILTER_VALIDATE_INT,
-	PAGE_MODE_POST,
-	UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const PAGE_MODE_POST;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
 
-use function config_lock,
-	config_unlock,
-	count,
-	file_exists,
-	filter_var,
-	get_std_save_message,
-	gettext,
-	header,
-	is_bool,
-	new_page,
-	rc_exec_service,
-	updatenotify_cbm_delete,
-	updatenotify_cbm_disable,
-	updatenotify_cbm_enable,
-	updatenotify_cbm_toggle,
-	updatenotify_exists,
-	updatenotify_get_mode,
-	updatenotify_process,
-	write_config;
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_exec_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions

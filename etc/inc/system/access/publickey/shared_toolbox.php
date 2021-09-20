@@ -34,23 +34,18 @@
 
 namespace system\access\publickey;
 
-use common\arr,
-	common\sphere as mys,
-	DOMDocument;
+use common\arr;
+use common\sphere as mys;
+use DOMDocument;
 
-use const UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG,
-	UPDATENOTIFY_MODE_MODIFIED,
-	UPDATENOTIFY_MODE_NEW;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
 
-use function escapeshellarg,
-	file_exists,
-	gettext,
-	mwexec2,
-	sprintf,
-	unlink,
-	updatenotify_clear,
-	write_config;
+use function mwexec2;
+use function updatenotify_clear;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
