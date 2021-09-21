@@ -224,7 +224,7 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $thead->c2($cop->get_enable(),$sphere,false,false,gettext('Public Key Settings'));
 $tbody->
-	c2_select($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2($cop->get_publickey(),$sphere,true,$cop->get_publickey()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();

@@ -42,6 +42,7 @@ final class row_properties extends grid_properties {
 		$property->
 			set_defaultvalue('root')->
 			set_id('login')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options([])->
 			filter_use_default();
 		return $property;
