@@ -36,8 +36,6 @@ namespace services\tftpd;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container {
 	protected $x_allowfilecreation;
 	public function init_allowfilecreation(): myp\property_bool {

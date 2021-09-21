@@ -37,6 +37,10 @@ namespace services\tftpd;
 use common\rmo as myr;
 use common\sphere as mys;
 
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
+
 /**
  *	Wrapper class for autoloading functions
  */

@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\tftpd\setting_toolbox as toolbox,
-	services\tftpd\shared_toolbox;
+use services\tftpd\setting_toolbox as toolbox;
+use services\tftpd\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -264,19 +264,19 @@ switch($page_mode):
 		$thead->c2_titleline($title);
 		break;
 	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,$title);
+		$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,$title);
 		break;
 endswitch;
 $tds->addTBODY()->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_filechooser($cop->get_dir(),$sphere,true,$is_readonly)->
-	c2_checkbox($cop->get_allowfilecreation(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_username(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_umask(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_maxblocksize(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_extraoptions(),$sphere,false,$is_readonly);
+	c2($cop->get_dir(),$sphere,true,$is_readonly)->
+	c2($cop->get_allowfilecreation(),$sphere,false,$is_readonly)->
+	c2($cop->get_port(),$sphere,false,$is_readonly)->
+	c2($cop->get_username(),$sphere,false,$is_readonly)->
+	c2($cop->get_umask(),$sphere,false,$is_readonly)->
+	c2($cop->get_timeout(),$sphere,false,$is_readonly)->
+	c2($cop->get_maxblocksize(),$sphere,false,$is_readonly)->
+	c2($cop->get_extraoptions(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):

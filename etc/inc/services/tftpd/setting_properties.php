@@ -36,8 +36,6 @@ namespace services\tftpd;
 
 use common\properties as myp;
 
-use function gettext,sprintf;
-
 final class setting_properties extends grid_properties {
 	public function init_allowfilecreation(): myp\property_bool {
 		$caption = gettext('Allow new files to be created.');
@@ -61,6 +59,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_dir();
 		$property->
 			set_id('dir')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_defaultvalue($g['media_path'])->
@@ -185,6 +184,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_username();
 		$property->
 			set_id('username')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_caption($caption)->
 			set_defaultvalue('nobody')->
 			filter_use_default();
