@@ -36,8 +36,6 @@ namespace system\webgui;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class setting_properties extends grid_properties {
 	public function init_adddivsubmittodataframe(): myp\property_bool {
 		$caption = gettext('Display action buttons in the scrollable area instead of the footer area.');
@@ -55,6 +53,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_cssfcfile();
 		$property->
 			set_id('cssfcfile')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -84,6 +83,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_cssguifile();
 		$property->
 			set_id('cssguifile')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -113,6 +113,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_cssloginfile();
 		$property->
 			set_id('cssloginfile')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -142,6 +143,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_cssnavbarfile();
 		$property->
 			set_id('cssnavbarfile')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -171,6 +173,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_cssstylefile();
 		$property->
 			set_id('cssstylefile')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -200,6 +203,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_csstabsfile();
 		$property->
 			set_id('csstabsfile')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholder)->
@@ -325,7 +329,6 @@ final class setting_properties extends grid_properties {
 			set_id('lp_diag_infos')->
 			set_description($description)->
 			set_defaultvalue('diag_infos_disks.php')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;

@@ -34,13 +34,11 @@
 
 namespace system\webgui;
 
-use common\arr,
-	common\sphere as mys,
-	DOMDocument;
+use common\arr;
+use common\sphere as mys;
+use DOMDocument;
 
-use function gettext,
-	sprintf,
-	updatenotify_clear;
+use function updatenotify_clear;
 
 /**
  *	Wrapper class for autoloading functions
