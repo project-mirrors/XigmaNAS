@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use system\webgui\setting_toolbox as toolbox,
-	system\webgui\shared_toolbox;
+use system\webgui\setting_toolbox as toolbox;
+use system\webgui\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -192,7 +192,7 @@ $content->
 			c2_titleline(gettext('Navigation Menu'))->
 		last()->
 		addTBODY()->
-			c2_radio_grid($cop->get_navbartoplevelstyle(),$sphere,false,$is_readonly)->
+			c2($cop->get_navbartoplevelstyle(),$sphere,false,$is_readonly)->
 		pop()->
 		addTFOOT()->
 			c2_separator();
@@ -204,9 +204,9 @@ $content->
 			c2_titleline(gettext('Display Options'))->
 		last()->
 		addTBODY()->
-			c2_checkbox($cop->get_nonsidisksizevalues(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_showcolorfulmeter(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_showmaxcpus(),$sphere,false,$is_readonly)->
+			c2($cop->get_nonsidisksizevalues(),$sphere,false,$is_readonly)->
+			c2($cop->get_showcolorfulmeter(),$sphere,false,$is_readonly)->
+			c2($cop->get_showmaxcpus(),$sphere,false,$is_readonly)->
 		pop()->
 		addTFOOT()->
 			c2_separator();
@@ -218,9 +218,9 @@ $content->
 			c2_titleline(gettext('Button Settings'))->
 		last()->
 		addTBODY()->
-			c2_checkbox($cop->get_enabletogglemode(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_skipviewmode(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_adddivsubmittodataframe(),$sphere,false,$is_readonly)->
+			c2($cop->get_enabletogglemode(),$sphere,false,$is_readonly)->
+			c2($cop->get_skipviewmode(),$sphere,false,$is_readonly)->
+			c2($cop->get_adddivsubmittodataframe(),$sphere,false,$is_readonly)->
 		pop()->
 		addTFOOT()->
 			c2_separator();
@@ -233,32 +233,32 @@ $tbody = $css_settings->addTBODY();
 $css_settings->
 	addTFOOT()->
 		c2_separator();
-$hooks_cssguifile = $tbody->c2_filechooser($cop->get_cssguifile(),$sphere,false,$is_readonly)->get_hooks();
+$hooks_cssguifile = $tbody->c2($cop->get_cssguifile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssguifile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_cssguifilemode(),$sphere,false,$is_readonly)->
 	ins_description($cop->get_cssguifilemode());
-$hooks_cssnavbarfile = $tbody->c2_filechooser($cop->get_cssnavbarfile(),$sphere,false,$is_readonly)->get_hooks();
+$hooks_cssnavbarfile = $tbody->c2($cop->get_cssnavbarfile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssnavbarfile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_cssnavbarfilemode(),$sphere,false,$is_readonly)->
 	ins_description($cop->get_cssnavbarfilemode());
-$hooks_csstabsfile = $tbody->c2_filechooser($cop->get_csstabsfile(),$sphere,false,$is_readonly)->get_hooks();
+$hooks_csstabsfile = $tbody->c2($cop->get_csstabsfile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_csstabsfile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_csstabsfilemode(),$sphere,false,$is_readonly)->
 	ins_description($cop->get_csstabsfilemode());
-$hooks_cssloginfile = $tbody->c2_filechooser($cop->get_cssloginfile(),$sphere,false,$is_readonly)->get_hooks();
+$hooks_cssloginfile = $tbody->c2($cop->get_cssloginfile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssloginfile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_cssloginfilemode(),$sphere,false,$is_readonly)->
 	ins_description($cop->get_cssloginfilemode());
-$hooks_cssfcfile = $tbody->c2_filechooser($cop->get_cssfcfile(),$sphere,false,$is_readonly)->get_hooks();
+$hooks_cssfcfile = $tbody->c2($cop->get_cssfcfile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssfcfile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_cssfcfilemode(),$sphere,false,$is_readonly)->
 	ins_description($cop->get_cssfcfilemode());
-$hooks_cssstylefile = $tbody->c2_filechooser($cop->get_cssstylefile(),$sphere,false,$is_readonly)->get_hooks();
+$hooks_cssstylefile = $tbody->c2($cop->get_cssstylefile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssstylefile['fc']->
 	insDIV(['class' => 'gap'])->
 	ins_radio_grid($cop->get_cssstylefilemode(),$sphere,false,$is_readonly)->

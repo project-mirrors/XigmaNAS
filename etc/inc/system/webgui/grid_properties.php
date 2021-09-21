@@ -36,8 +36,6 @@ namespace system\webgui;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container {
 	protected $x_adddivsubmittodataframe;
 	public function init_adddivsubmittodataframe(): myp\property_bool {
