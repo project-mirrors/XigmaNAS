@@ -37,6 +37,10 @@ namespace services\sshd;
 use common\rmo as myr;
 use common\sphere as mys;
 
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -54,7 +58,7 @@ final class setting_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \services\sshd\setting_properties $cop
+ *	@param setting_properties $cop
  *	@param \common\sphere\settings $sphere
  *	@return \common\rmo\rmo The request method object
  */
@@ -80,7 +84,7 @@ final class setting_toolbox {
 	}
 /**
  *	Creates the property object
- *	@return \services\sshd\setting_properties
+ *	@return setting_properties
  */
 	public static function init_properties() {
 		$cop = new setting_properties();

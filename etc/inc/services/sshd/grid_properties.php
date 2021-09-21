@@ -36,8 +36,6 @@ namespace services\sshd;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container {
 	protected $x_enable;
 	public function init_enable(): myp\property_enable {

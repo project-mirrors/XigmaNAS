@@ -32,9 +32,9 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use services\sshd\setting_toolbox as toolbox;
 use services\sshd\shared_toolbox;
@@ -49,7 +49,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_port(),
 	$cop->get_allowpa(),
@@ -182,8 +182,8 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
 			switch($name):
 				case $cop->get_auxparam()->get_name():
 					if(array_key_exists($name,$source) && is_array($source[$name])):
@@ -200,40 +200,36 @@ switch($page_action):
 					endif;
 					break;
 			endswitch;
-			$sphere->row[$name] = $referer->validate_array_element($source);
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_referer as $referer):
-				$name = $referer->get_name();
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
 				switch($name):
 					case $cop->get_auxparam()->get_name():
-						$auxparam_grid = [];
-						foreach(explode("\n",$sphere->row[$name]) as $auxparam_row):
-							$auxparam_grid[] = trim($auxparam_row,"\t\n\r");
-						endforeach;
-						$sphere->row[$name] = $auxparam_grid;
+						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 					case $cop->get_rawprivatekey()->get_name():
 						$privatekey = base64_encode($sphere->row[$name]);
@@ -259,10 +255,9 @@ $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (rc_is_service_running('sshd') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 $input_errors_found = count($input_errors) > 0;
-$pgtitle = [gettext('Services'),gettext('SSH')];
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],PHP_EOL)));
-$n_rawprivatekey_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_rawprivatekey()->get_name()],PHP_EOL)));
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
+$n_rawprivatekey_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_rawprivatekey()->get_name()],"\n")));
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
@@ -288,24 +283,24 @@ switch($page_mode):
 		$thead->c2_titleline($title);
 		break;
 	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,$title);
+		$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,$title);
 		break;
 endswitch;
 $tbody = $tds->addTBODY();
 $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_allowpa(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_allowcra(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_allowkia(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_allowpka(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_permitrootlogin(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_allowtcpforwarding(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_compression(),$sphere,false,$is_readonly)->
-	c2_textarea($cop->get_rawprivatekey(),$sphere,false,$is_readonly,60,$n_rawprivatekey_rows)->
-	c2_input_text($cop->get_subsystem(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_loglevel(),$sphere,false,$is_readonly)->
-	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_port(),$sphere,false,$is_readonly)->
+	c2($cop->get_allowpa(),$sphere,false,$is_readonly)->
+	c2($cop->get_allowcra(),$sphere,false,$is_readonly)->
+	c2($cop->get_allowkia(),$sphere,false,$is_readonly)->
+	c2($cop->get_allowpka(),$sphere,false,$is_readonly)->
+	c2($cop->get_permitrootlogin(),$sphere,false,$is_readonly)->
+	c2($cop->get_allowtcpforwarding(),$sphere,false,$is_readonly)->
+	c2($cop->get_compression(),$sphere,false,$is_readonly)->
+	c2($cop->get_rawprivatekey(),$sphere,false,$is_readonly,60,$n_rawprivatekey_rows)->
+	c2($cop->get_subsystem(),$sphere,false,$is_readonly)->
+	c2($cop->get_loglevel(),$sphere,false,$is_readonly)->
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
