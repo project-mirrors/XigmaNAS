@@ -34,8 +34,6 @@
 
 namespace common\properties;
 
-use const FILTER_VALIDATE_INT;
-
 /**
  *	Int property
  */

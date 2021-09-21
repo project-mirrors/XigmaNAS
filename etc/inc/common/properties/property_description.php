@@ -34,8 +34,6 @@
 
 namespace common\properties;
 
-use function gettext;
-
 final class property_description extends property_text {
 /**
  *

@@ -34,10 +34,6 @@
 
 namespace common\properties;
 
-use function gettext;
-
-use const FILTER_REQUIRE_SCALAR,FILTER_UNSAFE_RAW;
-
 /**
  *	Class for row properties
  */
