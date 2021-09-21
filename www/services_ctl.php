@@ -36,16 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\ctld\setting_toolbox as toolbox,
-	services\ctld\shared_toolbox;
+use services\ctld\setting_toolbox as toolbox;
+use services\ctld\shared_toolbox;
 
-/*
-use function array_key_exists,explode,file_exists,filter_var,gettext,header,
-		implode,is_array,is_null,is_scalar,max,min,substr_count,trim,
-		calc_skipviewmode,config_lock,config_unlock,get_std_save_message,
-		new_page,rc_is_service_running,rc_update_service_ex,updatenotify_exists,
-		updatenotify_process,updatenotify_set,write_config;
-*/
 //	init indicators
 $input_errors = [];
 //	preset $savemsg when a reboot is pending
@@ -262,17 +255,17 @@ switch($page_mode):
 		$thead->c2_titleline(gettext('CAM Target Layer'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('CAM Target Layer'));
+		$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('CAM Target Layer'));
 		break;
 endswitch;
 $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_input_text($cop->get_debug(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_maxproc(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_timeout(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_isns_period(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
-	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_debug(),$sphere,false,$is_readonly)->
+	c2($cop->get_maxproc(),$sphere,false,$is_readonly)->
+	c2($cop->get_timeout(),$sphere,false,$is_readonly)->
+	c2($cop->get_isns_period(),$sphere,false,$is_readonly)->
+	c2($cop->get_isns_timeout(),$sphere,false,$is_readonly)->
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
