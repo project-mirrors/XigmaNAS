@@ -36,8 +36,6 @@ namespace system\sysctl;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_list {
 		$options = [];
