@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	system\access\user\row_toolbox as toolbox,
-	system\access\user\shared_toolbox;
+use common\arr;
+use system\access\user\row_toolbox as toolbox;
+use system\access\user\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -249,20 +249,20 @@ $table = $content->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('User Settings'));
+$thead->c2($cop->get_enable(),$sphere,false,false,gettext('User Settings'));
 $tbody->
 	c2($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2($cop->get_fullname(),$sphere,true,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify));
 if($isrecordnewornewmodify):
-	$tbody->c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
+	$tbody->c2($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
 endif;
 $tbody->
 	c2($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify))->
 	c2($cop->get_uid(),$sphere,true,$cop->get_uid()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_radio_grid($cop->get_usershell(),$sphere,true,$cop->get_usershell()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_filechooser($cop->get_homedir(),$sphere,false,$cop->get_homedir()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_select($cop->get_primary_group(),$sphere,true,$cop->get_primary_group()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_checkbox_grid($cop->get_additional_groups(),$sphere,false,$cop->get_additional_groups()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2($cop->get_usershell(),$sphere,true,$cop->get_usershell()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_homedir(),$sphere,false,$cop->get_homedir()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_primary_group(),$sphere,true,$cop->get_primary_group()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_additional_groups(),$sphere,false,$cop->get_additional_groups()->is_readonly_rowmode($isrecordnewornewmodify));
 $table_up = $content->add_table_data_settings();
 $table_up->ins_colgroup_data_settings();
 $thead_up = $table_up->addTHEAD();
@@ -271,8 +271,8 @@ $thead_up->
 	c2_separator()->
 	c2_titleline(gettext('User Portal'));
 $tbody_up->
-	c2_radio_grid($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_select($cop->get_language(),$sphere,false,$cop->get_language()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_language(),$sphere,false,$cop->get_language()->is_readonly_rowmode($isrecordnewornewmodify));
 $table_fm = $content->add_table_data_settings();
 $table_fm->ins_colgroup_data_settings();
 $thead_fm = $table_fm->addTHEAD();

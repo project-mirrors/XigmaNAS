@@ -34,14 +34,9 @@
 
 namespace system\access\user;
 
-use common\arr,
-	common\rmo as myr,
-	common\sphere as mys;
-
-use function exec,
-	explode,
-	intval,
-	strval;
+use common\arr;
+use common\rmo as myr;
+use common\sphere as mys;
 
 /**
  *	Wrapper class for autoloading functions

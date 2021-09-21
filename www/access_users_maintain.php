@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	system\access\user\maintain_toolbox as toolbox,
-	system\access\user\shared_toolbox;
+use common\arr;
+use system\access\user\maintain_toolbox as toolbox;
+use system\access\user\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -200,6 +200,7 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
+$sphere->add_page_title(gettext('Password'));
 $document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
@@ -219,9 +220,9 @@ $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
 $thead->c2_titleline(gettext('Set User Password'));
 $tbody->
-	c2_input_text($cop->get_name(),$sphere,false,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_fullname(),$sphere,false,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_password($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2($cop->get_name(),$sphere,false,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_fullname(),$sphere,false,$cop->get_fullname()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_password(),$sphere,true,$cop->get_password()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
