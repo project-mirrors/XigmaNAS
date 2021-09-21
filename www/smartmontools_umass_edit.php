@@ -202,12 +202,12 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Settings'))->
+		c2($cop->get_enable(),$sphere,false,false,gettext('Settings'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere,true,false)->
-		c2_input_text($cop->get_type(),$sphere,false,false)->
-		c2_input_text($cop->get_description(),$sphere,false,false);
+		c2($cop->get_name(),$sphere,true,false)->
+		c2($cop->get_type(),$sphere,false,false)->
+		c2($cop->get_description(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
