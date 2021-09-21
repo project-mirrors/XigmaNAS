@@ -34,11 +34,11 @@
 
 namespace services\unisond;
 
-use DOMDocument;
 use common\arr;
 use common\sphere as mys;
+use DOMDocument;
 
-use function gettext,sprintf,updatenotify_clear;
+use function updatenotify_clear;
 
 /**
  *	Wrapper class for autoloading functions
@@ -69,7 +69,8 @@ final class shared_toolbox {
 		$sphere->
 			set_notifier(self::NOTIFICATION_NAME)->
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
-			set_enadis(true);
+			set_enadis(true)->
+			add_page_title(gettext('Services'),gettext('Unison'),gettext('Settings'));
 		$sphere->grid = &arr::make_branch($config,'unison');
 	}
 /**

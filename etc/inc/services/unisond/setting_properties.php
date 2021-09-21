@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\unisond;
 
 use common\properties as myp;
@@ -49,6 +50,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_workdir();
 		$property->
 			set_id('workdir')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_defaultvalue($g['media_path'])->
