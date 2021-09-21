@@ -37,7 +37,6 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 use common\arr;
-
 use services\mariadb\setting_toolbox as toolbox;
 use services\mariadb\shared_toolbox;
 
@@ -276,18 +275,18 @@ switch($page_mode):
 		$thead1->c2_titleline(gettext('MariaDB'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead1->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('MariaDB'));
+		$thead1->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('MariaDB'));
 		break;
 endswitch;
 $tbody1->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_filechooser($cop->get_homedir(),$sphere->row[$cop->get_homedir()->get_name()],true,$is_readonly)->
-	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_homedir(),$sphere->row[$cop->get_homedir()->get_name()],true,$is_readonly)->
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
 $thead2 = $tds2->addTHEAD()->c2_titleline(sprintf('%s (%s)',gettext('Administrative WebGUI'),gettext('phpMyAdmin')));
 $tbody2 = $tds2->addTBODY();
-$tbody2->c2_input_password($cop->get_phrasecookieauth(),$sphere,false,$is_readonly);
+$tbody2->c2($cop->get_phrasecookieauth(),$sphere,false,$is_readonly);
 if($is_running):
 	$tbody2->c2_textinfo('url1',gettext('URL'),sprintf('<a href="%1$s" id="a_url1" target="_blank">%1$s</a>',htmlspecialchars('/phpMyAdmin/index.php')));
 endif;
