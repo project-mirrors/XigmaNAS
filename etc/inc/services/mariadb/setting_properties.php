@@ -36,20 +36,6 @@ namespace services\mariadb;
 
 use common\properties as myp;
 
-use const FILTER_CALLBACK,
-	FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_REGEXP;
-
-use function escapeshellarg,
-	gettext,
-	is_array,
-	is_dir,
-	is_string,
-	json_decode,
-	preg_match,
-	shell_exec,
-	sprintf;
-
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
@@ -97,6 +83,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_homedir();
 		$property->
 			set_id('homedir')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
@@ -118,6 +105,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_phrasecookieauth();
 		$property->
 			set_id('phrasecookieauth')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
