@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub\sub\isnsserver;
+
 use common\properties as myp;
 
 final class row_properties extends grid_properties {
