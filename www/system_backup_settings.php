@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use system\backup\setting_toolbox as toolbox,
-	system\backup\shared_toolbox;
+use system\backup\setting_toolbox as toolbox;
+use system\backup\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -170,7 +170,7 @@ $content->
 			c2_titleline(gettext('Reminder Settings'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_reminderintervalshow(),$sphere,false,$is_readonly);
+			c2($cop->get_reminderintervalshow(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
