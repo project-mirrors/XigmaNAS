@@ -38,12 +38,22 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 
-use function count,file_exists,filter_var,gettext,header,is_bool,
-		config_lock,config_unlock,get_std_save_message,new_page,
-		rc_reload_service_if_running_and_enabled,updatenotify_cbm_delete,
-		updatenotify_cbm_disable,updatenotify_cbm_enable,
-		updatenotify_cbm_toggle,updatenotify_exists,updatenotify_get_mode,
-		updatenotify_process,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_reload_service_if_running_and_enabled;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -86,7 +96,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \services\nfsd\export\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -105,15 +115,14 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Services'),gettext('NFS'),gettext('Export')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','25%','25%','10%','25%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		add tab navigation
 		shared_toolbox::add_tabnav($document);
