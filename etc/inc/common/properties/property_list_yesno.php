@@ -34,8 +34,6 @@
 
 namespace common\properties;
 
-use function gettext;
-
 final class property_list_yesno extends property_list {
 	public function __construct($owner = null) {
 		$options = [

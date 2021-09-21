@@ -34,8 +34,6 @@
 
 namespace common\properties;
 
-use function strncmp;
-
 /**
  *	Container for property collection
  */

@@ -34,8 +34,6 @@
 
 namespace common\properties;
 
-use function gettext;
-
 /**
  *	Toolbox property
  */

@@ -34,10 +34,6 @@
 
 namespace common\properties;
 
-use function gettext;
-
-use const FILTER_FLAG_IPV4,FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_IP;
-
 /**
  *	IPv4 property
  */
