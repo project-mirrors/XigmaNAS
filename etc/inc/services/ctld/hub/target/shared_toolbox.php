@@ -34,13 +34,10 @@
 
 namespace services\ctld\hub\target;
 
-use common\arr,
-	common\sphere as mys,
-	DOMDocument,
-	services\ctld\hub\shared_hub as hub;
-
-use function gettext,
-	sprintf;
+use common\arr;
+use common\sphere as mys;
+use DOMDocument;
+use services\ctld\hub\shared_hub as hub;
 
 /**
  *	Wrapper class for autoloading functions

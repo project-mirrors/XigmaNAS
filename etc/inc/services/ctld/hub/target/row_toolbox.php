@@ -34,18 +34,11 @@
 
 namespace services\ctld\hub\target;
 
-use common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys,
-	services\ctld\hub\sub\lun\grid_toolbox as tbl,
-	services\ctld\hub\sub\port\grid_toolbox as tbp;
-
-use function array_key_exists,
-	gettext,
-	in_array,
-	is_array,
-	is_bool,
-	is_string;
+use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+use services\ctld\hub\sub\lun\grid_toolbox as tbl;
+use services\ctld\hub\sub\port\grid_toolbox as tbp;
 
 /**
  *	Wrapper class for autoloading functions
