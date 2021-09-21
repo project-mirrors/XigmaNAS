@@ -34,12 +34,9 @@
 
 namespace common;
 
-use Collator,
-	DirectoryIterator,
-	Locale;
-use function array_merge,
-	gettext,
-	strtolower;
+use Collator;
+use DirectoryIterator;
+use Locale;
 
 final class lang {
 	private const PATH = '/usr/local/share/locale';
