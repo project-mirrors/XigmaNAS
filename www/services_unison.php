@@ -67,7 +67,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_workdir(),
 	$cop->get_mkdir()
@@ -165,40 +165,40 @@ switch($page_action):
 	case 'edit':
 	case 'view':
 		$source = $sphere->grid;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_array_element($source);
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
 			if(is_null($sphere->row[$name])):
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					switch($page_action):
 						case 'enable':
-							$input_errors[] = $referer->get_message_error();
+							$input_errors[] = $cops_element->get_message_error();
 							break;
 					endswitch;
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		break;
 	case 'save':
 		$source = $_POST;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(is_null($sphere->row[$name])):
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 				if(array_key_exists($name,$source) && is_scalar($source[$name])):
 					$sphere->row[$name] = $source[$name];
 				else:
-					$sphere->row[$name] = $referer->get_defaultvalue();
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
 				endif;
 			endif;
 		endforeach;
 		if(empty($input_errors)):
-			foreach($a_referer as $referer):
-				$name = $referer->get_name();
+			foreach($cops as $cops_element):
+				$name = $cops_element->get_name();
 				$sphere->grid[$name] = $sphere->row[$name];
 			endforeach;
 			write_config();
@@ -221,8 +221,7 @@ $remark = gettext('Before a Unison client can start to work, you need to perform
 	. '<li><a href="access_users.php">' . gettext('Grant shell access to user') . '</a>.</li>'
 	. '</ul></div>';
 //	create document
-$pgtitle = [gettext('Services'),gettext('Unison'),gettext('Settings')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -249,13 +248,13 @@ switch($page_mode):
 		$thead->c2_titleline(gettext('Unison'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Unison'));
+		$thead->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('Unison'));
 		break;
 endswitch;
 $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
-	c2_filechooser($cop->get_workdir(),$sphere,true,$is_readonly)->
-	c2_checkbox($cop->get_mkdir(),$sphere,false,$is_readonly);
+	c2($cop->get_workdir(),$sphere,true,$is_readonly)->
+	c2($cop->get_mkdir(),$sphere,false,$is_readonly);
 $content->
 	add_area_remarks()->
 		ins_remark('note',gettext('Note'),$remark);

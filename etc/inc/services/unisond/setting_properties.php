@@ -36,8 +36,6 @@ namespace services\unisond;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
@@ -52,6 +50,7 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_workdir();
 		$property->
 			set_id('workdir')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_defaultvalue($g['media_path'])->
