@@ -36,11 +36,6 @@ namespace services\ctld\hub\target;
 
 use common\properties as myp;
 
-use const FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_REGEXP;
-
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the target.');
@@ -91,6 +86,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_auth_group();
 		$property->
 			set_id('auth_group')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->
@@ -105,6 +101,7 @@ final class row_properties extends grid_properties {
 		$property = parent::init_portal_group();
 		$property->
 			set_id('portal_group')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_description($description)->
 			set_options($options)->
 			set_defaultvalue('')->

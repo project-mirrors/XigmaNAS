@@ -34,19 +34,16 @@
 
 namespace services\ctld\hub\target;
 
-use common\arr,
-	common\rmo as myr,
-	common\sphere as mys;
+use common\arr;
+use common\rmo as myr;
+use common\sphere as mys;
 
-use const UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
 
-use function count,
-	gettext,
-	is_bool,
-	new_page,
-	updatenotify_exists,
-	updatenotify_get_mode;
+use function new_page;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
 
 /**
  *	Wrapper class for autoloading functions

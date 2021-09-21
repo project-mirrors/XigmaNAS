@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	services\ctld\hub\target\row_toolbox as toolbox,
-	services\ctld\hub\target\shared_toolbox;
+use common\arr;
+use services\ctld\hub\target\row_toolbox as toolbox;
+use services\ctld\hub\target\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -246,16 +246,16 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+		c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere,true,false)->
-		c2_input_text($cop->get_description(),$sphere,false,false)->
-		c2_input_text($cop->get_alias(),$sphere,false,false)->
-		c2_select($cop->get_auth_group(),$sphere,false,false)->
-		c2_select($cop->get_portal_group(),$sphere,false,false)->
-		c2_input_text($cop->get_redirect(),$sphere,false,false)->
-		c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+		c2($cop->get_name(),$sphere,true,false)->
+		c2($cop->get_description(),$sphere,false,false)->
+		c2($cop->get_alias(),$sphere,false,false)->
+		c2($cop->get_auth_group(),$sphere,false,false)->
+		c2($cop->get_portal_group(),$sphere,false,false)->
+		c2($cop->get_redirect(),$sphere,false,false)->
+		c2($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
 if($isrecordmodify):
 	$table = $content->add_table_data_settings();
 	$table->ins_colgroup_data_settings();
@@ -266,10 +266,10 @@ if($isrecordmodify):
 		c2_titleline(gettext('Additional Information'));
 	$iam = $sphere->row[$cop->get_name()->get_name()];
 	$ai1 = toolbox::get_port_info($iam);
-	$tbody->c2_checkbox_grid($ai1['property'],$ai1['selected'],false,true,true);
+	$tbody->c2($ai1['property'],$ai1['selected'],false,true,true);
 	unset($ai1);
 	$ai2 = toolbox::get_lun_info($iam);
-	$tbody->c2_checkbox_grid($ai2['property'],$ai2['selected'],false,true,true);
+	$tbody->c2($ai2['property'],$ai2['selected'],false,true,true);
 	unset($ai2);
 endif;
 $buttons = $document->
