@@ -31,7 +31,9 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\nfsd\export;
+
 use common\properties as myp;
 
 final class row_properties extends grid_properties {
@@ -45,6 +47,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue($g['media_path'])->
 			set_description($description)->
 			set_id('path')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_maxlength(128)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->

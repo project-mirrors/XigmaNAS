@@ -31,11 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\nfsd\export;
 
-use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
 /**
  *	Wrapper class for autoloading functions
  */
