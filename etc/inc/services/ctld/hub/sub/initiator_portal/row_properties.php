@@ -36,8 +36,6 @@ namespace services\ctld\hub\sub\initiator_portal;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_ipaddress(): myp\property_ipaddress {
 		$description = gettext('An IPv4 or IPv6 address of an iSCSI initiator portal.');
