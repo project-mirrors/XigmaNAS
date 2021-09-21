@@ -31,21 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\access\user;
 
-use common\arr,
-	common\sphere as mys,
-	DOMDocument;
+use common\arr;
+use common\sphere as mys;
+use DOMDocument;
 
-use const UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG,
-	UPDATENOTIFY_MODE_MODIFIED,
-	UPDATENOTIFY_MODE_NEW;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
 
-use function gettext,
-	sprintf,
-	updatenotify_clear,
-	write_config;
+use function updatenotify_clear;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions

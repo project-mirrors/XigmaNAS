@@ -34,13 +34,11 @@
 
 namespace system\access\user;
 
-use common\rmo as myr,
-	common\sphere as mys;
+use common\rmo as myr;
+use common\sphere as mys;
 
-use const PAGE_MODE_EDIT,
-	PAGE_MODE_POST;
-
-use function gettext;
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
 
 /**
  *	Wrapper class for autoloading functions
