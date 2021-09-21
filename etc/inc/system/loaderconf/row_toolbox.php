@@ -65,7 +65,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\loaderconf\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();

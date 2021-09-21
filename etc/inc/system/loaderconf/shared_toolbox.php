@@ -34,11 +34,17 @@
 
 namespace system\loaderconf;
 
-use DOMDocument;
 use common\arr;
 use common\sphere as mys;
+use DOMDocument;
 
-use function gettext,sprintf,updatenotify_clear,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
+
+use function updatenotify_clear;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -85,7 +91,8 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
-			set_lock(true);
+			set_lock(true)->
+			add_page_title(gettext('System'),gettext('Advanced'),gettext('loader.conf'));
 		$sphere->grid = &arr::make_branch($config,'system','loaderconf','param');
 	}
 /**
