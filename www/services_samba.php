@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\samba\setting_toolbox as toolbox,
-	services\samba\shared_toolbox;
+use services\samba\setting_toolbox as toolbox;
+use services\samba\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
@@ -281,13 +281,13 @@ switch($page_mode):
 		$thead1->c2_titleline(gettext('SMB Settings'));
 		break;
 	case PAGE_MODE_EDIT:
-		$thead1->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('SMB Settings'));
+		$thead1->c2($cop->get_enable(),$sphere,false,$is_readonly,gettext('SMB Settings'));
 		break;
 endswitch;
 $tbody1->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message);
 $tbody1->
-	c2_radio_grid($cop->get_security(),$sphere,true,$is_readonly);
+	c2($cop->get_security(),$sphere,true,$is_readonly);
 $security_hooks = $document->get_hooks();
 foreach($security_hooks as $hook_key => $hook_obj):
 	switch($hook_key):
@@ -312,15 +312,15 @@ foreach($security_hooks as $hook_key => $hook_obj):
 endforeach;
 unset($hook_obj,$hook_key,$security_hooks);
 $tbody1->
-	c2_input_text($cop->get_netbiosname(),$sphere,true,$is_readonly)->
-	c2_input_text($cop->get_workgroup(),$sphere,true,$is_readonly)->
-	c2_select($cop->get_if(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_serverdesc(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_doscharset(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_unixcharset(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_loglevel(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_localmaster(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_timesrv(),$sphere,false,$is_readonly);
+	c2($cop->get_netbiosname(),$sphere,true,$is_readonly)->
+	c2($cop->get_workgroup(),$sphere,true,$is_readonly)->
+	c2($cop->get_if(),$sphere,false,$is_readonly)->
+	c2($cop->get_serverdesc(),$sphere,false,$is_readonly)->
+	c2($cop->get_doscharset(),$sphere,false,$is_readonly)->
+	c2($cop->get_unixcharset(),$sphere,false,$is_readonly)->
+	c2($cop->get_loglevel(),$sphere,false,$is_readonly)->
+	c2($cop->get_localmaster(),$sphere,false,$is_readonly)->
+	c2($cop->get_timesrv(),$sphere,false,$is_readonly);
 $n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
@@ -329,18 +329,18 @@ $tds2->addTHEAD()->
 	c2_titleline(gettext('Advanced SMB Settings'));
 $tbody2 = $tds2->addTBODY();
 $tbody2->
-	c2_checkbox($cop->get_nullpasswords(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_guestaccount(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_maptoguest(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_forceuser(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_forcegroup(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_sndbuf(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_rcvbuf(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_easupport(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_storedosattributes(),$sphere,false,$is_readonly)->
-	c2_checkbox($cop->get_mapdosattributes(),$sphere,false,$is_readonly);
+	c2($cop->get_nullpasswords(),$sphere,false,$is_readonly)->
+	c2($cop->get_guestaccount(),$sphere,false,$is_readonly)->
+	c2($cop->get_maptoguest(),$sphere,false,$is_readonly)->
+	c2($cop->get_forceuser(),$sphere,false,$is_readonly)->
+	c2($cop->get_forcegroup(),$sphere,false,$is_readonly)->
+	c2($cop->get_sndbuf(),$sphere,false,$is_readonly)->
+	c2($cop->get_rcvbuf(),$sphere,false,$is_readonly)->
+	c2($cop->get_easupport(),$sphere,false,$is_readonly)->
+	c2($cop->get_storedosattributes(),$sphere,false,$is_readonly)->
+	c2($cop->get_mapdosattributes(),$sphere,false,$is_readonly);
 $tbody2->
-	c2_checkbox($cop->get_aio(),$sphere,false,$is_readonly);
+	c2($cop->get_aio(),$sphere,false,$is_readonly);
 $aio_hooks = $document->get_hooks();
 foreach($aio_hooks as $hook_key => $hook_obj):
 	$hook_obj->
@@ -354,13 +354,13 @@ foreach($aio_hooks as $hook_key => $hook_obj):
 endforeach;
 unset($hook_obj,$hook_key,$aio_hooks);
 $tbody2->
-	c2_input_text($cop->get_createmask(),$sphere,false,$is_readonly)->
-	c2_input_text($cop->get_directorymask(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_maxprotocol(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_minprotocol(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_clientmaxprotocol(),$sphere,false,$is_readonly)->
-	c2_select($cop->get_clientminprotocol(),$sphere,false,$is_readonly)->
-	c2_textarea($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_createmask(),$sphere,false,$is_readonly)->
+	c2($cop->get_directorymask(),$sphere,false,$is_readonly)->
+	c2($cop->get_maxprotocol(),$sphere,false,$is_readonly)->
+	c2($cop->get_minprotocol(),$sphere,false,$is_readonly)->
+	c2($cop->get_clientmaxprotocol(),$sphere,false,$is_readonly)->
+	c2($cop->get_clientminprotocol(),$sphere,false,$is_readonly)->
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
