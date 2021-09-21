@@ -31,14 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\loaderconf;
 
 use common\properties as myp;
 
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
-		$description = \gettext('The name of the variable.');
-		$placeholder = \gettext('Name');
+		$description = gettext('The name of the variable.');
+		$placeholder = gettext('Name');
 		$property = parent::init_name();
 		$property->
 			set_defaultvalue('')->
@@ -51,8 +52,8 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_value(): myp\property_text {
-		$description = \gettext('The value of the variable.');
-		$placeholder = \gettext('Value');
+		$description = gettext('The value of the variable.');
+		$placeholder = gettext('Value');
 		$property = parent::init_value();
 		$property->
 			set_defaultvalue('')->

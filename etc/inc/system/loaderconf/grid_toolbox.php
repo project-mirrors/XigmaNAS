@@ -31,11 +31,28 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\loaderconf;
 
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function get_std_save_message;
+use function new_page;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
+use function write_loader_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -50,19 +67,19 @@ final class grid_toolbox {
 		$sphere->
 			set_script('system_loaderconf')->
 			set_modify('system_loaderconf_edit')->
-			setmsg_sym_add(\gettext('Add Option'))->
-			setmsg_sym_mod(\gettext('Edit Option'))->
-			setmsg_sym_del(\gettext('Option is marked for deletion'))->
-			setmsg_sym_loc(\gettext('Option is locked'))->
-			setmsg_sym_unl(\gettext('Option is unlocked'))->
-			setmsg_cbm_delete(\gettext('Delete Selected Options'))->
-			setmsg_cbm_delete_confirm(\gettext('Do you want to delete selected options?'))->
-			setmsg_cbm_disable(\gettext('Disable Selected Options'))->
-			setmsg_cbm_disable_confirm(\gettext('Do you want to disable selected options?'))->
-			setmsg_cbm_enable(\gettext('Enable Selected Options'))->
-			setmsg_cbm_enable_confirm(\gettext('Do you want to enable selected options?'))->
-			setmsg_cbm_toggle(\gettext('Toggle Selected Options'))->
-			setmsg_cbm_toggle_confirm(\gettext('Do you want to toggle selected options?'));
+			setmsg_sym_add(gettext('Add Option'))->
+			setmsg_sym_mod(gettext('Edit Option'))->
+			setmsg_sym_del(gettext('Option is marked for deletion'))->
+			setmsg_sym_loc(gettext('Option is locked'))->
+			setmsg_sym_unl(gettext('Option is unlocked'))->
+			setmsg_cbm_delete(gettext('Delete Selected Options'))->
+			setmsg_cbm_delete_confirm(gettext('Do you want to delete selected options?'))->
+			setmsg_cbm_disable(gettext('Disable Selected Options'))->
+			setmsg_cbm_disable_confirm(gettext('Do you want to disable selected options?'))->
+			setmsg_cbm_enable(gettext('Enable Selected Options'))->
+			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected options?'))->
+			setmsg_cbm_toggle(gettext('Toggle Selected Options'))->
+			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected options?'));
 		return $sphere;
 	}
 /**
@@ -77,7 +94,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \system\loaderconf\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -88,7 +105,7 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \system\loaderconf\grid_properties $cop
+ *	@param grid_properties $cop
  *	@param \common\sphere\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
@@ -96,38 +113,37 @@ final class grid_toolbox {
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [\gettext('System'),\gettext('Advanced'),\gettext('loader.conf')];
-		$record_exists = \count($sphere->grid) > 0;
-		$morethanonerecord = \count($sphere->grid) > 1;
+		$record_exists = count($sphere->grid) > 0;
+		$morethanonerecord = count($sphere->grid) > 1;
 		$a_col_width = ['5%','30%','20%','5%','30%','10%'];
-		$n_col_width = \count($a_col_width);
+		$n_col_width = count($a_col_width);
 		if($morethanonerecord):
-			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
-		//	get areas
+//		get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	add tab navigation
+//		add tab navigation
 		shared_toolbox::add_tabnav($document);
-		//	create data area
+//		create data area
 		$content = $pagecontent->add_area_data();
-		//	display information, warnings and errors
+//		display information, warnings and errors
 		$content->
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		if(\updatenotify_exists($sphere->get_notifier())):
+		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
-		//	add content
+//		add content
 		$table = $content->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',$a_col_width);
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$tfoot = $table->addTFOOT();
-		$thead->ins_titleline(\gettext('Overview'),$n_col_width);
+		$thead->ins_titleline(gettext('Overview'),$n_col_width);
 		$tr = $thead->addTR();
 		if($morethanonerecord):
 			$tr->
@@ -137,7 +153,7 @@ final class grid_toolbox {
 				pop()->
 				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_value()->get_title())->
-				insTHwC('lhelc sorter-image',\gettext('Status'))->
+				insTHwC('lhelc sorter-image',gettext('Status'))->
 				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 		else:
@@ -145,16 +161,16 @@ final class grid_toolbox {
 				insTHwC('lhelc')->
 				insTHwC('lhell',$cop->get_name()->get_title())->
 				insTHwC('lhell',$cop->get_value()->get_title())->
-				insTHwC('lhelc',\gettext('Status'))->
+				insTHwC('lhelc',gettext('Status'))->
 				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
 		if($record_exists):
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
-				$notificationmode = \updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
+				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 				$is_notdirty = (UPDATENOTIFY_MODE_DIRTY != $notificationmode) && (UPDATENOTIFY_MODE_DIRTY_CONFIG != $notificationmode);
-				$is_enabled = $sphere->is_enadis_enabled() ? (\is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
-				$is_notprotected = $sphere->is_lock_enabled() ? !(\is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
+				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
 				$tbody->
 					addTR()->
@@ -181,8 +197,8 @@ final class grid_toolbox {
 				ins_cbm_button_delete($sphere);
 		$content->
 			add_area_remarks()->
-				ins_remark('note',\gettext('Note'),\gettext('These option(s) will be added to /boot/loader.conf.local. This allows you to specify parameters to be passed to the kernel and additional modules to be loaded.'));
-		//	additional javascript code
+				ins_remark('note',gettext('Note'),gettext('These option(s) will be added to /boot/loader.conf.local. This allows you to specify parameters to be passed to the kernel and additional modules to be loaded.'));
+//		additional javascript code
 		$body->ins_javascript($sphere->get_js());
 		$body->add_js_on_load($sphere->get_js_on_load());
 		$body->add_js_document_ready($sphere->get_js_document_ready());
@@ -205,18 +221,18 @@ final class grid_toolbox {
 		global $savemsg;
 
 //		preset $savemsg in case a reboot is pending
-		if(\file_exists($d_sysrebootreqd_path)):
-			$savemsg = \get_std_save_message(0);
+		if(file_exists($d_sysrebootreqd_path)):
+			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
 					case $sphere->get_script()->get_basename():
 //						catch error code
-						$retval = \filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+						$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 						unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
-						$savemsg = \get_std_save_message($retval);
+						$savemsg = get_std_save_message($retval);
 						break;
 				endswitch;
 				break;
@@ -224,37 +240,37 @@ final class grid_toolbox {
 				switch($page_action):
 					case 'apply':
 						$retval = 0;
-						$retval |= \updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
-						\write_loader_config();
+						$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+						write_loader_config();
 						$_SESSION['submit'] = $sphere->get_script()->get_basename();
 						$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_delete():
-						\updatenotify_cbm_delete($sphere,$cop);
-						\header($sphere->get_script()->get_location());
+						updatenotify_cbm_delete($sphere,$cop);
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_toggle():
-						if(\updatenotify_cbm_toggle($sphere,$cop)):
-							\write_config();
+						if(updatenotify_cbm_toggle($sphere,$cop)):
+							write_config();
 						endif;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_enable():
-						if(\updatenotify_cbm_enable($sphere,$cop)):
-							\write_config();
+						if(updatenotify_cbm_enable($sphere,$cop)):
+							write_config();
 						endif;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 					case $sphere->get_cbm_button_val_disable():
-						if(\updatenotify_cbm_disable($sphere,$cop)):
-							\write_config();
+						if(updatenotify_cbm_disable($sphere,$cop)):
+							write_config();
 						endif;
-						\header($sphere->get_script()->get_location());
+						header($sphere->get_script()->get_location());
 						exit;
 						break;
 				endswitch;

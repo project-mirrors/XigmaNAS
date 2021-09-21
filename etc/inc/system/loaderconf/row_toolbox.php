@@ -31,10 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\loaderconf;
 
 use common\rmo as myr;
 use common\sphere as mys;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -63,7 +65,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\loaderconf\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
