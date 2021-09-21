@@ -34,10 +34,6 @@
 
 namespace common\properties;
 
-use function explode,filter_var,gettext,is_null,is_string;
-
-use const FILTER_FLAG_IPV4,FILTER_VALIDATE_INT,FILTER_VALIDATE_IP;
-
 /**
  *	IPv4 CIDR property
  */

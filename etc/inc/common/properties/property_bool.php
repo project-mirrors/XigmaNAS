@@ -34,12 +34,6 @@
 
 namespace common\properties;
 
-use const FILTER_NULL_ON_FAILURE,
-	FILTER_VALIDATE_BOOLEAN;
-
-use function array_key_exists,
-	is_bool;
-
 /**
  *	Bool property
  */

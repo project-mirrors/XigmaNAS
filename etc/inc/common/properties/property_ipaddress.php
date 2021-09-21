@@ -34,10 +34,6 @@
 
 namespace common\properties;
 
-use function gettext;
-
-use const FILTER_REQUIRE_SCALAR,FILTER_VALIDATE_IP;
-
 /**
  *	IP adddress property
  */
