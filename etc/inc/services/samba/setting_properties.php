@@ -36,8 +36,6 @@ namespace services\samba;
 
 use common\properties as myp;
 
-use function gettext,sprintf;
-
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
@@ -95,6 +93,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('maxprotocol')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($this->get_protocol_options())->
 			filter_use_default();
 		return $property;
@@ -109,6 +108,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('minprotocol')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($this->get_protocol_options())->
 			filter_use_default();
 		return $property;
@@ -123,6 +123,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('clientmaxprotocol')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($this->get_protocol_options())->
 			filter_use_default();
 		return $property;
@@ -137,6 +138,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('clientminprotocol')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($this->get_protocol_options())->
 			filter_use_default();
 		return $property;
@@ -189,6 +191,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('if')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -226,6 +229,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('doscharset')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -246,6 +250,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('unixcharset')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -264,6 +269,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('loglevel')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -279,6 +285,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('yes')->
 			set_description($description)->
 			set_id('localmaster')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -294,6 +301,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('yes')->
 			set_description($description)->
 			set_id('timesrv')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -338,6 +346,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('forcegroup')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
@@ -348,6 +357,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('forceuser')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
@@ -358,6 +368,7 @@ final class setting_properties extends grid_properties {
 		set_defaultvalue('ftp')->
 			set_description($description)->
 			set_id('guestaccount')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			filter_use_default();
 		return $property;
 	}
@@ -372,6 +383,7 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('Never')->
 			set_description($description)->
 			set_id('maptoguest')->
+			set_input_type($property::INPUT_TYPE_SELECT)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
