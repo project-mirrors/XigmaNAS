@@ -36,8 +36,6 @@ namespace services\iscsid;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('This is a nickname and is for information only.');
@@ -136,6 +134,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('chapsecret')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_maxlength(32)->
 			set_placeholder($placeholder)->
 			set_size(40)->
@@ -172,6 +171,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('tgtchapsecret')->
+			set_input_type($property::INPUT_TYPE_PASSWORD)->
 			set_maxlength(32)->
 			set_placeholder($placeholder)->
 			set_size(40)->
