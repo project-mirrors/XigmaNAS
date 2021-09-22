@@ -31,17 +31,38 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\iscsid;
+
+use common\arr;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_update_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
 final class grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -63,7 +84,7 @@ final class grid_toolbox {
 			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected iSCSI initiators?'))->
 			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected iSCSI initiators?'));
 		if(count($sphere->grid) > 1):
-			array_sort_key($sphere->grid,'name');
+			arr::sort_key($sphere->grid,'name');
 		endif;
 		return $sphere;
 	}
@@ -71,7 +92,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
@@ -79,7 +100,7 @@ final class grid_toolbox {
 	}
 /**
  *	Create the property object
- *	@return \system\syslogconf\grid_properties
+ *	@return grid_properties
  */
 	public static function init_properties() {
 		$cop = new grid_properties();
@@ -90,32 +111,31 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\iscsid\grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param grid_properties $cop
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Disks'),gettext('Management'),gettext('iSCSI Initiator')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','20%','30%','20%','15%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
-		//	get areas
+//		get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	add tab navigation
+//		add tab navigation
 		shared_toolbox::add_tabnav($document);
-		//	create data area
+//		create data area
 		$content = $pagecontent->add_area_data();
-		//	display information, warnings and errors
+//		display information, warnings and errors
 		$content->
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
@@ -123,7 +143,7 @@ final class grid_toolbox {
 		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
-		//	add content
+//		add content
 		$table = $content->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',$a_col_width);
 		$thead = $table->addTHEAD();
@@ -181,7 +201,7 @@ final class grid_toolbox {
 			add_area_buttons()->
 				ins_cbm_button_enadis($sphere)->
 				ins_cbm_button_delete($sphere);
-		//	additional javascript code
+//		additional javascript code
 		$body->ins_javascript($sphere->get_js());
 		$body->add_js_on_load($sphere->get_js_on_load());
 		$body->add_js_document_ready($sphere->get_js_document_ready());
@@ -193,9 +213,9 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
@@ -207,7 +227,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
