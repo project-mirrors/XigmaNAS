@@ -34,12 +34,10 @@
 
 namespace services\ctld\hub\sub\option;
 
-use DOMDocument;
 use common\arr;
 use common\sphere as mys;
+use DOMDocument;
 use services\ctld\hub\shared_hub as hub;
-
-use function gettext,sprintf;
 
 /**
  *	Wrapper class for autoloading functions
@@ -62,7 +60,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
@@ -72,7 +70,7 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
-			add_page_title(gettext('Services'),gettext('CAM Target Layer'),gettext('Portal Groups'),gettext('Option'));
+			add_page_title(gettext('Services'),gettext('CAM Target Layer'),gettext('Portal Groups'),gettext('Options'));
 		$sphere->grid = &arr::make_branch($config,'ctld','ctl_sub_option','param');
 	}
 /**
