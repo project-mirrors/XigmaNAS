@@ -44,7 +44,7 @@ final class row_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		global $config;
@@ -58,7 +58,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		$rmo = myr\rmo_row_templates::rmo_with_clone();
@@ -66,7 +66,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the properties object
- *	@return \system\rc\row_properties The properties object
+ *	@return row_properties The properties object
  */
 	public static function init_properties() {
 		$cop = new row_properties();
