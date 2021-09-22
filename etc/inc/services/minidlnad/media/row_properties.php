@@ -36,8 +36,6 @@ namespace services\minidlnad\media;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_filesystem(): myp\property_text {
 		global $g;
@@ -49,6 +47,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue($g['media_path'])->
 			set_description($description)->
 			set_id('path')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_maxlength(128)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
