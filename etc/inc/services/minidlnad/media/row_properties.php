@@ -40,13 +40,14 @@ final class row_properties extends grid_properties {
 	public function init_filesystem(): myp\property_text {
 		global $g;
 
-		$description = \gettext('Path to be included.');
-		$placeholder = $placeholderv = \gettext('Path');
+		$description = gettext('Path to be included.');
+		$placeholder = $placeholderv = gettext('Path');
 		$property = parent::init_filesystem();
 		$property->
 			set_defaultvalue($g['media_path'])->
 			set_description($description)->
 			set_id('path')->
+			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
 			set_maxlength(128)->
 			set_placeholder($placeholder)->
 			set_placeholderv($placeholderv)->
@@ -55,13 +56,13 @@ final class row_properties extends grid_properties {
 		return $property;
 	}
 	public function init_type(): myp\property_list {
-		$description = \gettext('Restrict folder to a specific media type.');
+		$description = gettext('Restrict folder to a specific media type.');
 		$options = [
-			'' => \gettext('Scan folder for all media types.'),
-			'A' => \gettext('Scan folder for audio files.'),
-			'V' => \gettext('Scan folder for video files.'),
-			'P' => \gettext('Scan folder for image files.'),
-			'PV' => \gettext('Scan folder for video and image files.')
+			'' => gettext('Scan folder for all media types.'),
+			'A' => gettext('Scan folder for audio files.'),
+			'V' => gettext('Scan folder for video files.'),
+			'P' => gettext('Scan folder for image files.'),
+			'PV' => gettext('Scan folder for video and image files.')
 		];
 		$property = parent::init_type();
 		$property->
