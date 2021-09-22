@@ -31,10 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
+use common\arr;
 use services\ctld\hub\sub\lun\row_toolbox as toolbox;
 use services\ctld\hub\sub\lun\shared_toolbox;
 
@@ -50,29 +52,29 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 //	part 1: collect all defined targets
 $all_parents = [];
-$known_parents = &array_make_branch($config,'ctld','ctl_target','param');
+$known_parents = &arr::make_branch($config,'ctld','ctl_target','param');
 foreach($known_parents as $known_parent):
-	if(\array_key_exists('name',$known_parent) && is_scalar($known_parent['name'])):
+	if(array_key_exists('name',$known_parent) && is_scalar($known_parent['name'])):
 		$all_parents[$known_parent['name']] = $known_parent['name'];
-		if(\array_key_exists('description',$known_parent) && is_string($known_parent['description']) && preg_match('/\S/',$known_parent['description'])):
+		if(array_key_exists('description',$known_parent) && is_string($known_parent['description']) && preg_match('/\S/',$known_parent['description'])):
 			$all_parents[$known_parent['name']] .= sprintf(' - %s',$known_parent['description'] ?? '');
 		endif;
 	endif;
 endforeach;
 $cop->get_group()->set_options($all_parents);
 $all_luns = [];
-$defined_luns = &array_make_branch($config,'ctld','ctl_lun','param');
+$defined_luns = &arr::make_branch($config,'ctld','ctl_lun','param');
 foreach($defined_luns as $defined_lun):
-	if(\array_key_exists('name',$defined_lun) && is_scalar($defined_lun['name'])):
+	if(array_key_exists('name',$defined_lun) && is_scalar($defined_lun['name'])):
 		$all_luns[$defined_lun['name']] = $defined_lun['name'];
-		if(\array_key_exists('description',$defined_lun) && is_string($defined_lun['description']) && preg_match('/\S/',$defined_lun['description'])):
+		if(array_key_exists('description',$defined_lun) && is_string($defined_lun['description']) && preg_match('/\S/',$defined_lun['description'])):
 			$all_luns[$defined_lun['name']] .= sprintf(' - %s',$defined_lun['description'] ?? '');
 		endif;
 	endif;
 endforeach;
 $cop->get_name()->set_options($all_luns);
 $rmo = toolbox::init_rmo();
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -91,7 +93,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'cancel': // cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -106,7 +108,7 @@ switch($page_method):
 		break;
 endswitch;
 /*
- *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ *	exit if $sphere->row[$sphere->row_identifier()] is null
  */
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
@@ -115,13 +117,13 @@ endif;
 /*
  *	search resource id in sphere
  */
-$sphere->row_id = array_search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
+$sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->grid,$sphere->get_row_identifier());
 /*
  *	start determine record update mode
  */
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
+if($sphere->row_id === false): // record does not exist in config
 	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -144,18 +146,18 @@ else: // record found in configuration
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode): // oops, something went wrong
+if($record_mode === RECORD_ERROR): // oops, something went wrong
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$isrecordnew = (RECORD_NEW === $record_mode);
-$isrecordnewmodify = (RECORD_NEW_MODIFY === $record_mode);
-$isrecordmodify = (RECORD_MODIFY === $record_mode);
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_number(),
 	$cop->get_name(),
@@ -164,40 +166,40 @@ $a_referer = [
 ];
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
-		//	adjust page mode
+//		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_config($source);
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
-		// apply post values that are applicable for all record modes
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+//		apply post values that are applicable for all record modes
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -207,21 +209,21 @@ switch($page_mode):
 		break;
 endswitch;
 //	part 2: collect all linked targets, including orphaned
-$linked_parents = &array_make_branch($sphere->row,$cop->get_group()->get_name());
+$linked_parents = &arr::make_branch($sphere->row,$cop->get_group()->get_name());
 foreach($linked_parents as $linked_parent):
 	if(is_scalar($linked_parent)):
-		if(!\array_key_exists($linked_parent,$all_parents)):
+		if(!array_key_exists($linked_parent,$all_parents)):
 			$all_parents[$linked_parent] = sprintf('%s - %s',$linked_parent,gettext('Orphaned'));
 		endif;
 	endif;
 endforeach;
 $cop->get_group()->set_options($all_parents);
 $use_tablesort = count($all_parents) > 1;
-$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Targets'),gettext('LUN'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
 if($use_tablesort):
-	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+	$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 else:
-	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+	$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 endif;
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
@@ -239,13 +241,13 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+		c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_number(),$sphere,true,false)->
-		c2_radio_grid($cop->get_name(),$sphere,true,false)->
-		c2_input_text($cop->get_description(),$sphere,false,false)->
-		c2_checkbox_grid($cop->get_group(),$sphere,false,false,true);
+		c2($cop->get_number(),$sphere,true,false)->
+		c2($cop->get_name(),$sphere,true,false)->
+		c2($cop->get_description(),$sphere,false,false)->
+		c2($cop->get_group(),$sphere,false,false,true);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
