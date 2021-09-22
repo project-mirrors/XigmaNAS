@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
@@ -48,7 +49,7 @@ function diag_infos_swap_ajax() {
 		$cmd = '/usr/sbin/swapinfo';
 		unset($rawdata);
 		exec($cmd,$rawdata);
-		return implode(PHP_EOL,$rawdata);
+		return implode("\n",$rawdata);
 	endif;
 }
 if(is_ajax()):
