@@ -38,11 +38,19 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 
-use function array_key_exists,count,file_exists,filter_var,is_bool,gettext,
-		header,get_std_save_message,new_page,updatenotify_cbm_delete,
-		updatenotify_cbm_disable,updatenotify_cbm_enable,
-		updatenotify_cbm_toggle,updatenotify_exists,updatenotify_get_mode,
-		updatenotify_process,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function get_std_save_message;
+use function new_page;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -51,7 +59,7 @@ final class grid_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		global $config;
@@ -80,7 +88,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
@@ -100,31 +108,30 @@ final class grid_toolbox {
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('System'),gettext('Advanced'),gettext('Command Scripts')];
 		$record_exists = count($sphere->grid) > 0;
 		$morethanonerecord = count($sphere->grid) > 1;
 		$a_col_width = ['5%','15%','35%','7%','18%','10%','10%'];
 		$n_col_width = count($a_col_width);
 //		if($morethanonerecord):
-//			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+//			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 //		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //		endif;
-		//	add tab navigation
+//		add tab navigation
 		shared_toolbox::add_tabnav($document);
-		//	get areas
+//		get areas
 		$body = $document->getElementById('main');
 		$pagecontent = $document->getElementById('pagecontent');
-		//	create data area
+//		create data area
 		$content = $pagecontent->add_area_data();
-		//	display information, warnings and errors
+//		display information, warnings and errors
 		$content->
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
@@ -132,7 +139,7 @@ final class grid_toolbox {
 		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
-		//	add content
+//		add content
 		$table = $content->add_table_data_selection();
 		$table->ins_colgroup_with_styles('width',$a_col_width);
 		$thead = $table->addTHEAD();
@@ -215,9 +222,9 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param container $cop
- *	@param root $sphere
- *	@param rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
