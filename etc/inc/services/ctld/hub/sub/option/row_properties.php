@@ -36,8 +36,6 @@ namespace services\ctld\hub\sub\option;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the option.');
