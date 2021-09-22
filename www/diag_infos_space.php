@@ -31,13 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function diag_infos_space_ajax() {
 	$cmd = '/bin/df -hT';
 	mwexec2($cmd,$rawdata);
-	return implode(PHP_EOL,$rawdata);
+	return implode("\n",$rawdata);
 }
 if(is_ajax()):
 	$status['area_refresh'] = diag_infos_space_ajax();
