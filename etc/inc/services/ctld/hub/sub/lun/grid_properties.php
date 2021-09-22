@@ -36,8 +36,6 @@ namespace services\ctld\hub\sub\lun;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container_row {
 	protected $x_number;
 	public function init_number(): myp\property_int {
