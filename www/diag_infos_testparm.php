@@ -31,13 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function diag_infos_testparm() {
 	$cmd = '/usr/local/bin/testparm -sv /var/etc/smb4.conf 2>&1';
 	mwexec2($cmd,$rawdata);
-	return trim(implode(PHP_EOL,$rawdata));
+	return trim(implode("\n",$rawdata));
 }
 $pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('testparm')];
 $document = new_page($pgtitle);
