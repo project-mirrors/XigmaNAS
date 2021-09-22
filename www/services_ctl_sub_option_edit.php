@@ -32,19 +32,14 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use common\arr;
 use services\ctld\hub\sub\option\row_toolbox as toolbox;
 use services\ctld\hub\sub\option\shared_toolbox;
-/*
-use function array_key_exists,count,file_exists,gettext,header,in_array,is_null,
-		is_scalar,is_string,preg_match,sprintf,
-		get_std_save_message,new_page,updatenotify_get_mode,updatenotify_set,
-		write_config;
-*/
+
 //	init indicators
 $input_errors = [];
 $prerequisites_ok = true;
@@ -151,7 +146,7 @@ $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 /*
  *	end determine record update mode
  */
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_name(),
 	$cop->get_value(),
@@ -160,40 +155,40 @@ $a_referer = [
 ];
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_config($source);
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
 //		apply post values that are applicable for all record modes
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
 			if(!isset($sphere->row[$name])):
 				$sphere->row[$name] = $_POST[$name] ?? '';
-				$input_errors[] = $referer->get_message_error();
+				$input_errors[] = $cops_element->get_message_error();
 			endif;
 		endforeach;
 		if($prerequisites_ok && empty($input_errors)):
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif($updatenotify_mode == UPDATENOTIFY_MODE_UNKNOWN):
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -213,11 +208,11 @@ foreach($linked_parents as $linked_parent):
 endforeach;
 $cop->get_group()->set_options($all_parents);
 $use_tablesort = count($all_parents) > 1;
-$pgtitle = [gettext('Services'),gettext('CAM Target Layer'),gettext('Portal Groups'),gettext('Option'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
+$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
 if($use_tablesort):
-	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+	$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 else:
-	$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+	$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 endif;
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
@@ -235,13 +230,13 @@ $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
 	addTHEAD()->
-		c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+		c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 	pop()->
 	addTBODY()->
-		c2_input_text($cop->get_name(),$sphere,true,false)->
-		c2_input_text($cop->get_value(),$sphere,false,false)->
-		c2_input_text($cop->get_description(),$sphere,false,false)->
-		c2_checkbox_grid($cop->get_group(),$sphere,false,false,true);
+		c2($cop->get_name(),$sphere,true,false)->
+		c2($cop->get_value(),$sphere,false,false)->
+		c2($cop->get_description(),$sphere,false,false)->
+		c2($cop->get_group(),$sphere,false,false,true);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
