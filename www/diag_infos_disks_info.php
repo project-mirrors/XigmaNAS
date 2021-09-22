@@ -31,10 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-$a_disk = &array_make_branch($config,'disks','disk');
+use common\arr;
+
+$a_disk = &arr::make_branch($config,'disks','disk');
 $pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('Disks (Info)')];
 $document = new_page($pgtitle);
 //	get areas
@@ -91,11 +95,12 @@ else:
 			$do_separator = true;
 		endif;
 		$thead->c2_titleline(sprintf(gettext('Device /dev/%s - %s'),$diskv['name'],$diskv['desc']));
-		exec(sprintf('diskinfo -v %s', escapeshellarg($diskv['devicespecialfile'])),$rawdata);
-		$rawdata = array_slice($rawdata,1); // remove first line
+		exec(sprintf('diskinfo -v %s',escapeshellarg($diskv['devicespecialfile'])),$rawdata);
+//		remove first line
+		$rawdata = array_slice($rawdata,1);
 		foreach($rawdata as $line):
 			$a_line = explode('#',$line);
-			if(2 === count($a_line)):
+			if(count($a_line) === 2):
 				$tbody->
 					addTR()->
 						insTDwC('celltag',ucfirst(trim($a_line[1])))->
