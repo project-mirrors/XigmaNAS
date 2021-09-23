@@ -328,7 +328,7 @@ final class setting_properties extends grid_properties {
 		$property->
 			set_id('lp_diag_infos')->
 			set_description($description)->
-			set_defaultvalue('diag_infos_disks.php')->
+			set_defaultvalue('/diag_infos_disks.php')->
 			set_options($options)->
 			filter_use_default();
 		return $property;
