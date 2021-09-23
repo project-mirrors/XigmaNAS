@@ -31,7 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'globals.inc';
+
+use common\arr;
 
 // Update notification constants
 define('UPDATENOTIFY_MODE_NEW',0);
@@ -205,7 +209,7 @@ function updatenotify_clear($key,$data,$matchwholeword = true) {
 	global $dbh;
 
 	try {
-		if(true === $matchwholeword):
+		if($matchwholeword):
 			$sql = "DELETE FROM updatenotify WHERE key = :key AND data = :data";
 		else:
 			$sql = "DELETE FROM updatenotify WHERE key = :key AND data LIKE '%:data%'";
@@ -227,28 +231,26 @@ function updatenotify_clear($key,$data,$matchwholeword = true) {
  *	@param boolean $matchwholeword
  *	@return int Returns the notification mode, otherwise UPDATENOTIFY_MODE_UNKNOWN
  */
-function updatenotify_get_mode($key,$data,$matchwholeword = true) {
+function updatenotify_get_mode($key,$data,$matchwholeword = true): int {
 	global $dbh;
 
+	$result = UPDATENOTIFY_MODE_UNKNOWN;
 	try {
-		if(true === $matchwholeword):
+		if($matchwholeword):
 			$sql = "SELECT mode FROM updatenotify WHERE key = :key AND data = :data AND id IN (SELECT id FROM (SELECT id, MAX(ts) AS ts FROM updatenotify GROUP BY data))";
 		else:
 			$sql = "SELECT mode FROM updatenotify WHERE key = :key AND data LIKE '%:data%' AND id IN (SELECT id FROM (SELECT id, MAX(ts) AS ts FROM updatenotify GROUP BY data))";
 		endif;
-		// Remove duplicate entries. Last inserted notification wins (last in, first out).
+//		Remove duplicate entries. Last inserted notification wins (last in, first out).
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key,':data' => $data]);
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-		if(false !== $result):
-			$result = $result['mode'];
-		else:
-			$result = UPDATENOTIFY_MODE_UNKNOWN;
+		$dbq_result = $stmt->fetch(PDO::FETCH_ASSOC);
+		if($dbq_result !== false):
+			$result = $dbq_result['mode'];
 		endif;
 		$stmt = null;
 	} catch (PDOException $e) {
 		print $e->getMessage();
-		return UPDATENOTIFY_MODE_UNKNOWN;
 	}
 	return $result;
 }
@@ -285,7 +287,7 @@ function updatenotify_exists_mode($key,$mode) {
 	global $dbh;
 
 	try {
-		// Remove duplicate entries. Last inserted notification wins (last in, first out).
+//		Remove duplicate entries. Last inserted notification wins (last in, first out).
 		$sql = "SELECT COUNT(*) FROM updatenotify WHERE key = :key AND mode = :mode AND id IN (SELECT id FROM (SELECT id, MAX(ts) AS ts FROM updatenotify GROUP BY mode))";
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key,':mode' => $mode]);
@@ -314,10 +316,10 @@ function updatenotify_process($key,string $processor = '') {
 			elseif(preg_match('/\S/',$processor)):
 				$processor_function = $processor;
 			else:
-				$processor_function = NULL;
+				$processor_function = null;
 			endif;
 			if(isset($processor_function) && is_callable($processor_function)):
-				if(0 != call_user_func($processor_function,$r_notification['mode'],$r_notification['data'])):
+				if(call_user_func($processor_function,$r_notification['mode'],$r_notification['data']) != 0):
 					return 1;
 				endif;
 			endif;
@@ -342,8 +344,8 @@ function updatenotify_cbm_delete($sphere,$cop) {
 	endif;
 	$sphere->cbm_grid = filter_input(INPUT_POST,$sphere->get_cbm_name(),FILTER_DEFAULT,['flags' => FILTER_REQUIRE_ARRAY,'options' => ['default' => []]]);
 	foreach($sphere->cbm_grid as $sphere->cbm_row):
-		$sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$id_name);
-		if(false !== $sphere->row_id):
+		$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$id_name);
+		if($sphere->row_id !== false):
 			if($sphere->is_lock_enabled() && method_exists($cop,'get_protected')):
 				$test = $sphere->grid[$sphere->row_id][$cop->get_protected()->get_name()] ?? false;
 				$is_protected = is_bool($test) ? $test : true;
@@ -394,8 +396,8 @@ function updatenotify_cbm_toggle($sphere,$cop) {
 		endif;
 		$sphere->cbm_grid = filter_input(INPUT_POST,$sphere->get_cbm_name(),FILTER_DEFAULT,['flags' => FILTER_REQUIRE_ARRAY,'options' => ['default' => []]]);
 		foreach($sphere->cbm_grid as $sphere->cbm_row):
-			$sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$id_name);
-			if(false !== $sphere->row_id):
+			$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$id_name);
+			if($sphere->row_id !== false):
 				$test = $sphere->grid[$sphere->row_id][$enable_name] ?? false;
 				if(is_bool($test) ? $test : true):
 					$sphere->grid[$sphere->row_id][$enable_name] = false;
@@ -405,7 +407,7 @@ function updatenotify_cbm_toggle($sphere,$cop) {
 				endif;
 				$update_config = true;
 				$mode_updatenotify = updatenotify_get_mode($notifier_name,$sphere->grid[$sphere->row_id][$id_name]);
-				if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+				if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 					updatenotify_set($notifier_name,UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$id_name],$notifier_processor);
 				endif;
 			endif;
@@ -433,15 +435,15 @@ function updatenotify_cbm_enable($sphere,$cop) {
 		endif;
 		$sphere->cbm_grid = filter_input(INPUT_POST,$sphere->get_cbm_name(),FILTER_DEFAULT,['flags' => FILTER_REQUIRE_ARRAY,'options' => ['default' => []]]);
 		foreach($sphere->cbm_grid as $sphere->cbm_row):
-			$sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$id_name);
-			if(false !== $sphere->row_id):
+			$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$id_name);
+			if($sphere->row_id !== false):
 				$test = $sphere->grid[$sphere->row_id][$enable_name] ?? false;
 				if(is_bool($test) ? $test : true):
 				else:
 					$sphere->grid[$sphere->row_id][$enable_name] = true;
 					$update_config = true;
 					$mode_updatenotify = updatenotify_get_mode($notifier_name,$sphere->grid[$sphere->row_id][$id_name]);
-					if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+					if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 						updatenotify_set($notifier_name,UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$id_name],$notifier_processor);
 					endif;
 				endif;
@@ -471,14 +473,14 @@ function updatenotify_cbm_disable($sphere,$cop) {
 		$notifier_processor = method_exists($sphere,'get_notifier_processor') ? $sphere->get_notifier_processor() : '';
 		$sphere->cbm_grid = filter_input(INPUT_POST,$sphere->get_cbm_name(),FILTER_DEFAULT,['flags' => FILTER_REQUIRE_ARRAY,'options' => ['default' => []]]);
 		foreach($sphere->cbm_grid as $sphere->cbm_row):
-			$sphere->row_id = array_search_ex($sphere->cbm_row,$sphere->grid,$id_name);
-			if(false !== $sphere->row_id):
+			$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$id_name);
+			if($sphere->row_id !== false):
 				$test = $sphere->grid[$sphere->row_id][$enable_name] ?? false;
 				if(is_bool($test) ? $test : true):
 					$sphere->grid[$sphere->row_id][$enable_name] = false;
 					$update_config = true;
 					$mode_updatenotify = updatenotify_get_mode($notifier_name,$sphere->grid[$sphere->row_id][$id_name]);
-					if(UPDATENOTIFY_MODE_UNKNOWN == $mode_updatenotify):
+					if($mode_updatenotify == UPDATENOTIFY_MODE_UNKNOWN):
 						updatenotify_set($notifier_name,UPDATENOTIFY_MODE_MODIFIED,$sphere->grid[$sphere->row_id][$id_name],$notifier_processor);
 					endif;
 				endif;
