@@ -34,12 +34,29 @@
 
 namespace common\properties;
 
+use ReflectionMethod;
+
 /**
  *	Container for property collection
  */
 abstract class container {
 	public function __construct() {
 //		$this->reset();
+	}
+/**
+ *	Lazy call of a public get_ method using a non-existing property.
+ *	__get() is utilized for reading data from inaccessible (protected or private) or non-existing properties.
+ *	@param string $name the name of the property
+ *	@return mixed Result of the method
+ */
+	public function __get(string $name) {
+		$method_name = 'get_' . $name;
+		if(method_exists($this,$method_name)):
+			$reflection = new ReflectionMethod($this,$method_name);
+			if($reflection->isPublic()):
+				return $this->{$method_name}();
+			endif;
+		endif;
 	}
 	public function __destruct() {
 //		$this->reset();
