@@ -38,13 +38,6 @@ namespace common;
 
 use Throwable;
 
-use function
-//		chr,hexdec,strlen,str_replace,substr,
-//		md5,
-//		sha1,
-		is_null,preg_match,sprintf,random_bytes,openssl_random_pseudo_bytes,
-		mt_rand,unpack;
-
 /**
  *	Wrapper class for autoloading functions
  */
@@ -109,7 +102,7 @@ final class uuid {
 				($prbu['time_hi_and_version'] & 0x0fff) | 0x4000,
 				($prbu['clk_seq_hi_res'] & 0x3f) | 0x80,$prbu['clk_seq_lo'],
 				$prbu['node0-1'],$prbu['node2-5']);
-		} catch (Throwable $ignore) {
+		} catch(Throwable $ignore) {
 //			random_bytes throws an exception when no appropriate source of randomness was found
 			unset($ignore);
 		}
