@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 //	Configure page permission
 $pgperm['allowuser'] = true;
 
@@ -41,7 +42,7 @@ $cmd = sprintf('/bin/cat %s/CHANGES',$g['www_path']);
 unset($rawdata);
 exec($cmd,$rawdata);
 $pgtitle = [gettext('Help'),gettext('Release Notes')];
-$document = new_page($pgtitle,NULL,'notabnav');
+$document = new_page($pgtitle,null,'notabnav');
 //	get areas
 $pagecontent = $document->getElementById('pagecontent');
 //	create data area
@@ -58,5 +59,5 @@ $pagecontent->
 					insTDwC('celltag',gettext('Information'))->
 					addTDwC('celldata')->
 						addElement('pre',['class' => 'cmdoutput'])->
-							addElement('span',[],implode(PHP_EOL,$rawdata));
+							addElement('span',[],implode("\n",$rawdata));
 $document->render();
