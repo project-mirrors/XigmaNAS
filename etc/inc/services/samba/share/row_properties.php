@@ -36,12 +36,6 @@ namespace services\samba\share;
 
 use common\properties as myp;
 
-use const FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_REGEXP;
-
-use function gettext,
-	sprintf;
-
 final class row_properties extends grid_properties {
 	public function init_afpcompat(): myp\property_bool {
 		$caption = gettext('Enable');
@@ -141,7 +135,6 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('native')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -157,7 +150,6 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('netatalk')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -173,7 +165,6 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('netatalk')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -190,7 +181,6 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('file')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -206,7 +196,6 @@ final class row_properties extends grid_properties {
 			set_options($options)->
 			set_description($description)->
 			set_defaultvalue('no')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
