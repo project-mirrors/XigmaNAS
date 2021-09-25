@@ -34,8 +34,8 @@
 
 namespace system\scheduler\reboot;
 
-use common\rmo as myr,
-	common\sphere as mys;
+use common\rmo as myr;
+use common\sphere as mys;
 
 /**
  *	Wrapper class for autoloading functions
@@ -44,7 +44,7 @@ final class row_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 //		global $config;
@@ -58,7 +58,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
