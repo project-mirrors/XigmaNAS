@@ -36,8 +36,6 @@ namespace services\samba\share;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container_row {
 	protected $x_afpcompat;
 	public function init_afpcompat(): myp\property_bool {
