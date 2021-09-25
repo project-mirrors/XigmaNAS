@@ -298,7 +298,7 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Services'),gettext('SMB'),gettext('Share'),$isrecordnew ? gettext('Add') : gettext('Edit')];
+$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
 if(is_bool($test = $config['system']['showdisabledsections'] ?? false) ? $test : true):
 	$jdr = '';
 else:
@@ -335,7 +335,7 @@ else:
 	$('#{$cop->get_shadowcopy()->get_id()}').change();
 EOJ;
 endif;
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
 //	get areas
