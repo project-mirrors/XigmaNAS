@@ -36,10 +36,10 @@ namespace services\torrent;
 
 use common\properties as myp;
 
-use function exec,
-	gettext,
-	http_build_query,
-	sprintf;
+use function exec;
+use function gettext;
+use function http_build_query;
+use function sprintf;
 
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
@@ -243,7 +243,6 @@ final class setting_properties extends grid_properties {
 		$description = sprintf(gettext('Select preallocation mode for files. The default preallocation mode is "%s".'),$options[$defaultvalue]);
 		$property = parent::init_preallocation();
 		$property->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_id('preallocation')->
 			set_description($description)->
 			set_options($options)->
@@ -261,7 +260,6 @@ final class setting_properties extends grid_properties {
 		$description = sprintf(gettext('The peer connection encryption mode. The default encryption mode is "%s"'),$options[$defaultvalue]);
 		$property = parent::init_encryption();
 		$property->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_id('encryption')->
 			set_description($description)->
 			set_options($options)->
@@ -280,7 +278,6 @@ final class setting_properties extends grid_properties {
 		$description = sprintf(gettext('Set verbosity of transmission messages. The default message level is "%s"'),$options[$defaultvalue]);
 		$property = parent::init_messagelevel();
 		$property->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_id('messagelevel')->
 			set_description($description)->
 			set_options($options)->
@@ -384,7 +381,6 @@ final class setting_properties extends grid_properties {
 		$defaultvalue = 'true';
 		$property = parent::init_rpchostwhitelistenabled();
 		$property->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_id('rpcwhitelistenabled')->
 			set_defaultvalue($defaultvalue)->
 			set_options($options)->
