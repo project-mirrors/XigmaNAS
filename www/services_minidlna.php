@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	services\minidlnad\setting_toolbox as toolbox,
-	services\minidlnad\shared_toolbox;
+use common\arr;
+use services\minidlnad\setting_toolbox as toolbox;
+use services\minidlnad\shared_toolbox;
 
 //	init indicators
 $warnmsg = [];
