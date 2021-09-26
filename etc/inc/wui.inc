@@ -31,8 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
-require_once 'array.inc';
+
+use common\arr;
 
 class HTMLBaseControl {
 	var $_ctrlname = "";
@@ -540,9 +543,9 @@ class HTMLMountComboBox extends HTMLComboBox {
 	function __construct($ctrlname, $title, $value, $description) {
 		global $config;
 
-		// Generate options.
-		array_make_branch($config,'mounts','mount');
-		array_sort_key($config['mounts']['mount'],'devicespecialfile');
+//		Generate options.
+		arr::make_branch($config,'mounts','mount');
+		arr::sort_key($config['mounts']['mount'],'devicespecialfile');
 
 		$options = [];
 		$options[""] = gtext("Must choose one");
@@ -555,7 +558,7 @@ class HTMLMountComboBox extends HTMLComboBox {
 
 class HTMLTimeZoneComboBox extends HTMLComboBox {
 	function __construct($ctrlname, $title, $value, $description) {
-		// Get time zone data.
+//		Get time zone data.
 		function is_timezone($elt) {
 			return !preg_match("/\/$/", $elt);
 		}
@@ -564,7 +567,7 @@ class HTMLTimeZoneComboBox extends HTMLComboBox {
 		$timezonelist = array_filter($timezonelist, 'is_timezone');
 		sort($timezonelist);
 
-		// Generate options.
+//		Generate options.
 		$options = [];
 		foreach ($timezonelist as $tzv) {
 			if (!empty($tzv)) {
@@ -588,7 +591,7 @@ class HTMLSeparator extends HTMLBaseControl {
 	var $_idname = '';
 
 	function __construct() {
-		// Nothing to do here...
+//		Nothing to do here...
 	}
 
 	function GetColSpan() {
@@ -820,4 +823,3 @@ class HTMLFolderBox extends HTMLBaseControl {
 		echo "    <input name='{$ctrlname}changebtn' type='button' class='formbtn' id='{$ctrlname}changebtn' value='".gtext("Change")."' onclick='onclick_change_{$ctrlname}()' />\n";
 	}
 }
-?>
