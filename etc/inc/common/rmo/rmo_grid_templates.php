@@ -31,9 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace common\rmo;
+
 use common\properties as myp;
 use common\sphere as mys;
+
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
+
 /**
  *	Request Method Object Templates
  */
@@ -43,9 +49,9 @@ final class rmo_grid_templates {
  *	<b>SESSION</b>: basename of the script file<br/>
  *	<b>POST</b>: apply, delete, toggle or enable/disable<br/>
  *	<b>GET</b>: view is the default.
- *	@param \common\properties\container $cop the property object
- *	@param \common\sphere\grid $sphere the sphere object
- *	@return \common\rmo\rmo
+ *	@param myp\container $cop the property object
+ *	@param mys\grid $sphere the sphere object
+ *	@return rmo
  */
 	public static function rmo_base(myp\container $cop,mys\grid $sphere) {
 		$rmo = new rmo();
