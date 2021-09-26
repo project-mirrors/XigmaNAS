@@ -43,7 +43,7 @@ use common\sphere as mys;
 final class setting_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\settings();
@@ -54,9 +54,9 @@ final class setting_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \services\minidlna\setting_properties $cop
- *	@param \common\sphere\settings $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@param setting_properties $cop
+ *	@param mys\settings $sphere
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
 		$rmo = new myr\rmo();
@@ -79,7 +79,7 @@ final class setting_toolbox {
 	}
 /**
  *	Creates the property object
- *	@return \services\minidlna\setting_properties
+ *	@return setting_properties
  */
 	public static function init_properties() {
 		$cop = new setting_properties();
