@@ -35,14 +35,6 @@
 namespace gui;
 
 use common\arr;
-use const FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_REGEXP;
-use function file_exists,
-	file_get_contents,
-	filter_var,
-	header,
-	is_null,
-	sprintf;
 
 final class css {
 /**
