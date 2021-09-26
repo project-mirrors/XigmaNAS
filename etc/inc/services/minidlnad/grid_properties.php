@@ -47,7 +47,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_friendlyname;
 	public function init_friendlyname(): myp\property_text {
-		$title = \gettext('Name');
+		$title = gettext('Name');
 		$property = $this->x_friendlyname = new myp\property_text($this);
 		$property->
 			set_name('name')->
@@ -59,7 +59,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_loglevel;
 	public function init_loglevel(): myp\property_list {
-		$title = \gettext('Log Level');
+		$title = gettext('Log Level');
 		$property = $this->x_loglevel = new myp\property_list($this);
 		$property->
 			set_name('loglevel')->
@@ -71,7 +71,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_inotify;
 	public function init_inotify(): myp\property_bool {
-		$title = \gettext('Inotify');
+		$title = gettext('Inotify');
 		$property = $this->x_inotify = new myp\property_bool($this);
 		$property->
 			set_name('inotify')->
@@ -83,7 +83,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_notifyinterval;
 	public function init_notifyinterval(): myp\property_int {
-		$title = \gettext('Broadcast Interval');
+		$title = gettext('Broadcast Interval');
 		$property = $this->x_notifyinterval = new myp\property_int($this);
 		$property->
 			set_name('notify_int')->
@@ -95,7 +95,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_interface;
 	public function init_interface(): myp\property_list {
-		$title = \gettext('Interface');
+		$title = gettext('Interface');
 		$property = $this->x_interface = new myp\property_list($this);
 		$property->
 			set_name('if')->
@@ -107,7 +107,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_port;
 	public function init_port(): myp\property_int {
-		$title = \gettext('Port');
+		$title = gettext('Port');
 		$property = $this->x_port = new myp\property_int($this);
 		$property->
 			set_name('port')->
@@ -119,7 +119,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_strict;
 	public function init_strict(): myp\property_bool {
-		$title = \gettext('Strict DLNA');
+		$title = gettext('Strict DLNA');
 		$property = $this->x_strict = new myp\property_bool($this);
 		$property->
 			set_name('strict')->
@@ -131,7 +131,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_enabletivo;
 	public function init_enabletivo(): myp\property_bool {
-		$title = \gettext('TiVo Support');
+		$title = gettext('TiVo Support');
 		$property = $this->x_enabletivo = new myp\property_bool($this);
 		$property->
 			set_name('tivo')->
@@ -143,7 +143,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_home;
 	public function init_home(): myp\property_text {
-		$title = \gettext('Database Directory');
+		$title = gettext('Database Directory');
 		$property = $this->x_home = new myp\property_text($this);
 		$property->
 			set_name('home')->
@@ -155,7 +155,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_widelinks;
 	public function init_widelinks(): myp\property_bool {
-		$title = \gettext('Wide Links');
+		$title = gettext('Wide Links');
 		$property = $this->x_widelinks = new myp\property_bool($this);
 		$property->
 			set_name('wide_links')->
@@ -175,7 +175,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_rootcontainer;
 	public function init_rootcontainer(): myp\property_list {
-		$title = \gettext('Container');
+		$title = gettext('Container');
 		$property = $this->x_rootcontainer = new myp\property_list($this);
 		$property->
 			set_name('container')->
@@ -187,7 +187,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_forcesortcriteria;
 	public function init_forcesortcriteria(): myp\property_text {
-		$title = \gettext('Sort Criteria');
+		$title = gettext('Sort Criteria');
 		$property = $this->x_forcesortcriteria = new myp\property_text($this);
 		$property->
 			set_name('force_sort_criteria')->
@@ -199,7 +199,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_disablesubtitles;
 	public function init_disablesubtitles(): myp\property_bool {
-		$title = \gettext('Disable Subtitles');
+		$title = gettext('Disable Subtitles');
 		$property = $this->x_disablesubtitles = new myp\property_bool();
 		$property->
 			set_name('disablesubtitles')->
