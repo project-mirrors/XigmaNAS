@@ -34,13 +34,6 @@
 
 namespace common\rmo;
 
-use const FILTER_CALLBACK,
-	INPUT_GET,
-	INPUT_POST;
-
-use function array_key_exists,
-	filter_var;
-
 /**
  *	Request Method Object
  */

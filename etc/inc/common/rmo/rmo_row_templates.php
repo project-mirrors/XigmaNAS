@@ -34,6 +34,11 @@
 
 namespace common\rmo;
 
+use const PAGE_MODE_ADD;
+use const PAGE_MODE_CLONE;
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
+
 /**
  *	Request Method Object Templates
  */
@@ -43,7 +48,7 @@ final class rmo_row_templates {
  *	<b>GET</b>: add & edit<br/>
  *	<b>POST</b>: add, edit, save & cancel<br/>
  *	<b>POST</b>: cancel is the default
- *	@return \common\rmo\rmo
+ *	@return rmo
  */
 	public static function rmo_base() {
 		$rmo = new rmo();
@@ -62,7 +67,7 @@ final class rmo_row_templates {
  *	GET: add & edit
  *	POST: add, edit, clone, save & cancel
  *	POST>cancel is the default
- *	@return \common\rmo
+ *	@return rmo
  */
 	public static function rmo_with_clone() {
 		$rmo = self::rmo_base();
