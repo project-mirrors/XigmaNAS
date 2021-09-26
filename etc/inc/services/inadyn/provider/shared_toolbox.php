@@ -34,13 +34,17 @@
  */
 namespace services\inadyn\provider;
 
-
-use DOMDocument;
 use common\arr;
 use common\sphere as mys;
-use services\ctld\hub\shared_hub as hub;
+use DOMDocument;
 
-use function gettext,sprintf;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
+
+use function updatenotify_clear;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -56,14 +60,32 @@ final class shared_toolbox {
  *	@return int
  */
 	public static function process_notification(int $mode,string $data) {
+		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
-		$retval = hub::process_notification($mode,$data,$sphere);
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		if($sphere->row_id !== false):
+			switch($mode):
+				case UPDATENOTIFY_MODE_NEW:
+					break;
+				case UPDATENOTIFY_MODE_MODIFIED:
+					break;
+				case UPDATENOTIFY_MODE_DIRTY_CONFIG:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+				case UPDATENOTIFY_MODE_DIRTY:
+					unset($sphere->grid[$sphere->row_id]);
+					write_config();
+					break;
+			endswitch;
+		endif;
+		updatenotify_clear($sphere->get_notifier(),$data);
 		return $retval;
 	}
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
@@ -73,7 +95,7 @@ final class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
-			add_page_title(gettext('Services'),gettext('Dynamic DNS'),gettext('Provider'));
+			add_page_title(gettext('Services'),gettext('Dynamic DNS'),gettext('Providers'));
 		$sphere->grid = &arr::make_branch($config,'inadyn','provider','param');
 	}
 /**
