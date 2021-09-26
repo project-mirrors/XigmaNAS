@@ -34,32 +34,26 @@
 
 namespace services\inadyn\provider;
 
-use common\arr,
-	common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys;
-use const FILTER_VALIDATE_INT,
-	UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG;
-use function config_lock,
-	config_unlock,
-	count,
-	file_exists,
-	filter_var,
-	get_std_save_message,
-	gettext,
-	header,
-	is_bool,
-	new_page,
-	rc_reload_service_if_running_and_enabled,
-	updatenotify_cbm_delete,
-	updatenotify_cbm_disable,
-	updatenotify_cbm_enable,
-	updatenotify_cbm_toggle,
-	updatenotify_exists,
-	updatenotify_get_mode,
-	updatenotify_process,
-	write_config;
+use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_reload_service_if_running_and_enabled;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
@@ -67,7 +61,7 @@ use function config_lock,
 final class grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -94,7 +88,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
@@ -114,7 +108,7 @@ final class grid_toolbox {
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
@@ -243,9 +237,9 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;

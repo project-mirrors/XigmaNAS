@@ -35,7 +35,6 @@
 namespace services\inadyn\provider;
 
 use common\properties as myp;
-use function gettext;
 
 class grid_properties extends myp\container_row {
 	protected $x_recordtype;

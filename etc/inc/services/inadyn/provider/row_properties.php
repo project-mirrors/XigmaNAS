@@ -36,8 +36,6 @@ namespace services\inadyn\provider;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class row_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$defaultvalue = true;
@@ -48,20 +46,12 @@ final class row_properties extends grid_properties {
 	}
 	public function init_recordtype(): myp\property_list {
 		$description = gettext('Select "Custom Provider" for customizing the DDNS update server details settings.');
-/*		moved to grid
-		$options = [
-			'provider' => gettext('Standard Provider'),
-			'custom' => gettext('Custom Provider')
-		];
- */
 		$defaultvalue = 'provider';
 		$property = parent::init_recordtype();
 		$property->
 			set_description($description)->
 			set_defaultvalue($defaultvalue)->
 			set_id('recordtype')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
-//			set_options($options)->
 			filter_use_default();
 		return $property;
 	}

@@ -34,21 +34,13 @@
 
 namespace services\inadyn\provider;
 
-use common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys;
-use const RECORD_MODIFY,
-	RECORD_NEW;
-use function array_key_exists,
-	gettext,
-	in_array,
-	is_array,
-	is_bool,
-	is_string,
-	max,
-	min,
-	new_page,
-	substr_count;
+use common\rmo as myr;
+use common\sphere as mys;
+
+use const RECORD_MODIFY;
+use const RECORD_NEW;
+
+use function new_page;
 
 /**
  *	Wrapper class for autoloading functions
@@ -56,7 +48,7 @@ use function array_key_exists,
 final class row_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\row();
@@ -68,7 +60,7 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
@@ -111,7 +103,7 @@ final class row_toolbox {
 			ins_colgroup_data_settings()->
 			push()->
 			addTHEAD()->
-				c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+				c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 			pop()->
 			addTBODY();
 		$tbody->
