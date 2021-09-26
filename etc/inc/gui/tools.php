@@ -34,52 +34,19 @@
 
 namespace gui;
 
-use common\properties\property as propconst,
-	common\uuid,
-	DOMDocument,
-	DOMNode,
-	Session;
+use common\properties\property;
+use common\uuid;
+use DOMDocument;
+use DOMNode;
+use Session;
 
-use const ENT_HTML5,
-	ENT_QUOTES,
-	FILTER_VALIDATE_REGEXP,
-	LIBXML_HTML_NODEFDTD,
-	LIBXML_HTML_NOIMPLIED,
-	PHP_QUERY_RFC3986,
-	PHP_VERSION_ID;
-
-use function array_key_exists,
-	calc_adddivsubmittodataframe,
-	ceil,
-	count,
-	date,
-	file_exists,
-	filter_var,
-	get_headermenu,
-	get_product_copyright,
-	get_product_url,
-	gettext,
-	header,
-	htmlspecialchars_decode,
-	http_build_query,
-	implode,
-	in_array,
-	ini_get,
-	is_array,
-	is_bool,
-	is_int,
-	is_null,
-	is_object,
-	is_scalar,
-	is_string,
-	libxml_clear_errors,
-	libxml_disable_entity_loader,
-	libxml_use_internal_errors,
-	make_headermenu_extensions,
-	preg_match,
-	sprintf,
-	system_get_hostname,
-	system_get_language_codeset;
+use function calc_adddivsubmittodataframe;
+use function get_headermenu;
+use function get_product_copyright;
+use function get_product_url;
+use function make_headermenu_extensions;
+use function system_get_hostname;
+use function system_get_language_codeset;
 
 trait tools {
 /**
@@ -545,11 +512,11 @@ trait tools {
 		$this->addTR($tr_attributes)->addTH($th_attributes)->addSPAN($spanleft_attributes,$title);
 		return $this;
 	}
-	public function ins_titleline_with_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false,string $title = '',int $colspan = 0) {
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+	public function ins_titleline_with_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false,string $title = '',int $colspan = 0) {
+		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
 		$tr_attributes = [];
 		$th_attributes = [];
-		$tr_attributes['id'] = sprintf('%s_tr',$p->get_id());
+		$tr_attributes['id'] = sprintf('%s_tr',$property->get_id());
 		$th_attributes['class'] = 'lhetop';
 		if($this->option_exists('tablesort')):
 			$tr_attributes['class'] = 'tablesorter-ignoreRow';
@@ -561,8 +528,8 @@ trait tools {
 		$spanright_attributes = ['style' => 'float:right'];
 		$input_attributes = [
 			'type' => 'checkbox',
-			'id' => $p->get_id(),
-			'name' => $p->get_name(),
+			'id' => $property->get_id(),
+			'name' => $property->get_name(),
 			'class' => 'formfld cblot',
 			'value' => 'yes',
 			'class' => 'oneemhigh'
@@ -585,10 +552,10 @@ trait tools {
 					addSPAN($spanright_attributes)->
 						addElement('label')->
 							insINPUT($input_attributes)->
-							addSPAN($span_attributes,$p->get_caption());
+							addSPAN($span_attributes,$property->get_caption());
 		return $this;
 	}
-	public function ins_description($p) {
+	public function ins_description(property $property) {
 //		description can be:
 //		string
 //		[string, ...]
@@ -596,7 +563,7 @@ trait tools {
 //		[ [string,no_br], ...]
 //		[ [string,color], ...]
 //		[ [string,color,no_br], ...]
-		$description = $p->get_description();
+		$description = $property->get_description();
 		if(isset($description)):
 			$description_output = '';
 			$suppressbr = true;
@@ -679,14 +646,14 @@ trait tools {
 		endif;
 		return $this;
 	}
-	public function ins_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
+	public function ins_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
-		$id = $p->get_id();
+		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$id = $property->get_id();
 		$input_attributes = [
 			'type' => 'checkbox',
 			'id' => $id,
-			'name' => $p->get_name(),
+			'name' => $property->get_name(),
 			'value' => 'yes',
 			'class' => 'oneemhigh'
 		];
@@ -705,18 +672,18 @@ trait tools {
 			$input_attributes['required'] = 'required';
 		endif;
 		$hook = $this->addDIV(['class' => $class_checkbox]);
-		$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $id],filter_var($p->get_caption(),FILTER_VALIDATE_REGEXP,['options' => ['default' => "\xc2\xa0",'regexp' => '/\S/']]));
+		$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $id],filter_var($property->get_caption(),FILTER_VALIDATE_REGEXP,['options' => ['default' => "\xc2\xa0",'regexp' => '/\S/']]));
 		$this->add_hook($hook,$id);
 		return $this;
 	}
-	public function ins_input($p,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
+	public function ins_input(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $type = 0) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
-		$id = $p->get_id();
-		$caption = $p->get_caption();
+		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$id = $property->get_id();
+		$caption = $property->get_caption();
 		$input_attributes = [
 			'id' => $id,
-			'name' => $p->get_name(),
+			'name' => $property->get_name(),
 			'value' => $preset
 		];
 		switch($type):
@@ -733,11 +700,11 @@ trait tools {
 			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = $p->get_placeholderv() ?? $p->get_placeholder();
+			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
 			$input_attributes['class'] = 'formfld';
-			$maxlength = $p->get_maxlength();
-			$placeholder = $p->get_placeholder();
+			$maxlength = $property->get_maxlength();
+			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
 			$input_attributes['class'] = 'formfld';
@@ -746,7 +713,7 @@ trait tools {
 		if(isset($placeholder)):
 			$input_attributes['placeholder'] = $placeholder;
 		endif;
-		$size = $p->get_size();
+		$size = $property->get_size();
 		if($size > 0):
 			$input_attributes['size'] = $size;
 		endif;
@@ -778,14 +745,14 @@ trait tools {
 		endif;
 		return $this;
 	}
-	public function ins_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+	public function ins_checkbox_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
+		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
 		$table = $this->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$input_attributes = [
-			'name' => sprintf('%s[]',$p->get_name()),
+			'name' => sprintf('%s[]',$property->get_name()),
 			'type' => 'checkbox',
 			'class' => 'oneemhigh'
 		];
@@ -797,7 +764,7 @@ trait tools {
 			$input_attributes['required'] = 'required';
 		endif;
 		$n_options = 0;
-		foreach($p->get_options() as $option_key => $option_val):
+		foreach($property->get_options() as $option_key => $option_val):
 			$option_tag = (string)$option_key;
 			$input_attributes['value'] = $option_tag;
 			$input_attributes['id'] = sprintf('checkbox_%s',uuid::create_v4());
@@ -813,7 +780,7 @@ trait tools {
 		endforeach;
 		switch($n_options <=> 1):
 			case -1:
-				$message_info = $p->get_message_info();
+				$message_info = $property->get_message_info();
 				if(!is_null($message_info)):
 					$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
 				endif;
@@ -831,13 +798,13 @@ trait tools {
 		else:
 			$tr = $thead->addTR();
 		endif;
-		$tr->insTHwC('lhebl',$p->get_title());
+		$tr->insTHwC('lhebl',$property->get_title());
 		return $this;
 	}
-	public function ins_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
-		$id = $p->get_id();
-		$name = $p->get_name();
+	public function ins_filechooser(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$id = $property->get_id();
+		$name = $property->get_name();
 		$input_attributes = [
 			'type' => 'text',
 			'id' => $id,
@@ -849,11 +816,11 @@ trait tools {
 			$input_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = $p->get_placeholderv() ?? $p->get_placeholder();
+			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
 			$input_attributes['class'] = 'formfld';
-			$maxlength = $p->get_maxlength();
-			$placeholder = $p->get_placeholder();
+			$maxlength = $property->get_maxlength();
+			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
 			$input_attributes['class'] = 'formfld';
@@ -862,7 +829,7 @@ trait tools {
 		if(isset($placeholder)):
 			$input_attributes['placeholder'] = $placeholder;
 		endif;
-		$size = $p->get_size();
+		$size = $property->get_size();
 		if($size > 0):
 			$input_attributes['size'] = $size;
 		endif;
@@ -892,24 +859,24 @@ EOJ;
 			$div->insINPUT($button_attributes);
 		endif;
 //	file chooser end
-		$caption = $p->get_caption();
+		$caption = $property->get_caption();
 		if(isset($caption)):
 			if($is_readonly):
 				$div->insSPAN(['style' => 'margin-left: 0.7em;'],$caption);
 			else:
-				$div->addElement('label',['style' => 'margin-left: 0.7em;','for' => $p->get_id()],$p->get_caption());
+				$div->addElement('label',['style' => 'margin-left: 0.7em;','for' => $property->get_id()],$property->get_caption());
 			endif;
 		endif;
 		return $this;
 	}
-	public function ins_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+	public function ins_radio_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
 		$this->reset_hooks();
-		$preset = (string)(is_object($value) ? $value->row[$p->get_name()] : $value);
+		$preset = (string)(is_object($value) ? $value->row[$property->get_name()] : $value);
 		$table = $this->add_table_data_selection();
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY();
 		$input_attributes = [
-			'name' => $p->get_name(),
+			'name' => $property->get_name(),
 			'type' => 'radio',
 			'class' => 'oneemhigh'
 		];
@@ -921,7 +888,7 @@ EOJ;
 			$input_attributes['required'] = 'required';
 		endif;
 		$n_options = 0;
-		foreach($p->get_options() as $option_key => $option_val):
+		foreach($property->get_options() as $option_key => $option_val):
 			$option_tag = (string)$option_key;
 			$input_attributes['value'] = $option_tag;
 			$input_attributes['id'] = sprintf('radio_%s',uuid::create_v4());
@@ -937,7 +904,7 @@ EOJ;
 		endforeach;
 		switch($n_options <=> 1):
 			case -1:
-				$message_info = $p->get_message_info();
+				$message_info = $property->get_message_info();
 				if(!is_null($message_info)):
 					$table->addTFOOT()->addTR()->addTDwC('lcebl',$message_info);
 				endif;
@@ -955,15 +922,15 @@ EOJ;
 		else:
 			$tr = $thead->addTR();
 		endif;
-		$tr->insTHwC('lhebl',$p->get_title());
+		$tr->insTHwC('lhebl',$property->get_title());
 		return $this;
 	}
-	public function ins_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$preset = (string)(is_object($value) ? $value->row[$p->get_name()] : $value);
-		$caption = $p->get_caption();
+	public function ins_select(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$preset = (string)(is_object($value) ? $value->row[$property->get_name()] : $value);
+		$caption = $property->get_caption();
 		$select_attributes = [
-			'id' => $p->get_id(),
-			'name' => $p->get_name(),
+			'id' => $property->get_id(),
+			'name' => $property->get_name(),
 			'class' => 'formfld'
 		];
 		if($is_readonly):
@@ -977,7 +944,7 @@ EOJ;
 		if($is_required):
 			$select->addElement('option',['value' => ''],gettext('Choose...'));
 		endif;
-		foreach($p->get_options() as $option_key => $option_val):
+		foreach($property->get_options() as $option_key => $option_val):
 			$option_tag = (string)$option_key;
 			$option_attributes = ['value' => $option_tag];
 			if($option_tag == $preset):
@@ -1007,24 +974,24 @@ EOJ;
 		$this->addTR($tr_attributes)->addTD($td_attributes);
 		return $this;
 	}
-	public function ins_textarea($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$preset = is_object($value) ? $value->row[$p->get_name()] : $value;
-		$id = $p->get_id();
-		$caption = $p->get_caption();
+	public function ins_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$preset = is_object($value) ? $value->row[$property->get_name()] : $value;
+		$id = $property->get_id();
+		$caption = $property->get_caption();
 		$textarea_attributes = [
 			'id' => $id,
-			'name' => $p->get_name(),
+			'name' => $property->get_name(),
 		];
 		if($is_readonly):
 			$textarea_attributes['class'] = 'formprero';
 			$textarea_attributes['readonly'] = 'readonly';
 			$is_required = false;
 			$maxlength = 0;
-			$placeholder = $p->get_placeholderv() ?? $p->get_placeholder();
+			$placeholder = $property->get_placeholderv() ?? $property->get_placeholder();
 		else:
 			$textarea_attributes['class'] = 'formpre';
-			$maxlength = $p->get_maxlength();
-			$placeholder = $p->get_placeholder();
+			$maxlength = $property->get_maxlength();
+			$placeholder = $property->get_placeholder();
 		endif;
 		if($is_required):
 			$textarea_attributes['class'] = 'formpre';
@@ -1033,15 +1000,17 @@ EOJ;
 		if(isset($placeholder)):
 			$textarea_attributes['placeholder'] = $placeholder;
 		endif;
-		$n_cols = $p->get_cols();
+		$n_cols = $property->get_cols();
 		if($n_cols > 0):
 			$textarea_attributes['cols'] = $n_cols;
 		endif;
-		$n_rows = $p->get_rows();
+		$n_rows = $property->get_rows();
 		if($n_rows > 0):
 			$textarea_attributes['rows'] = $n_rows;
+		elseif($n_rows < 0):
+			$textarea_attributes['rows'] = min(64,max(5,1 + substr_count($preset,"\n")));
 		endif;
-		$textarea_attributes['wrap'] = $p->get_wrap() ? 'hard' : 'soft';
+		$textarea_attributes['wrap'] = $property->get_wrap() ? 'hard' : 'soft';
 		if($maxlength > 0):
 			$textarea_attributes['maxlength'] = $maxlength;
 		endif;
@@ -1263,30 +1232,40 @@ EOJ;
 		return $this;
 	}
 //	cr blocks
-	public function cr_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_checkbox($p,$value,$is_required,$is_readonly)->ins_description($p);
+	public function cr_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_checkbox($property,$value,$is_required,$is_readonly)->ins_description($property);
 		return $this;
 	}
-	public function cr_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->ins_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->ins_description($p);
+	public function cr_checkbox_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->ins_checkbox_grid($property,$value,$is_required,$is_readonly,$use_tablesort)->ins_description($property);
 		return $this;
 	}
-	public function cr_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_filechooser($p,$value,$is_required,$is_readonly)->ins_description($p);
+	public function cr_filechooser(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_filechooser($property,$value,$is_required,$is_readonly)->ins_description($property);
 		return $this;
 	}
-	public function cr_input_text($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_input($p,$value,$is_required,$is_readonly,0)->ins_description($p);
+	public function cr_input_text(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_input($property,$value,$is_required,$is_readonly,0)->ins_description($property);
 		return $this;
 	}
-	public function cr_input_password($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_input($p,$value,$is_required,$is_readonly,1)->ins_description($p);
+	public function cr_input_password(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_input($property,$value,$is_required,$is_readonly,1)->ins_description($property);
 		return $this;
 	}
-	public function cr_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->ins_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort)->ins_description($p);
+	public function cr_radio_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->ins_radio_grid($property,$value,$is_required,$is_readonly,$use_tablesort)->ins_description($property);
 		return $this;
 	}
+/**
+ *	Add scheduler
+ *	@param array $cops Array containing cop-objects for scheduler,
+ *		all_minutes, all_hours, all_days, all_months, all_weekdays,
+ *		minutes, hours, days, months and weekdays
+ *	@param mys\sphere $sphere
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
 	public function cr_scheduler($cops,$sphere,bool $is_required = false,bool $is_readonly = false) {
 //		init matrix
 		$matrix = [];
@@ -1432,123 +1411,197 @@ EOJ;
 		endforeach;
 		return $this;
 	}
-	public function cr_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->ins_select($p,$value,$is_required,$is_readonly)->ins_description($p);
+/**
+ *	add select element and description
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function cr_select(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->ins_select($property,$value,$is_required,$is_readonly)->ins_description($property);
 		return $this;
 	}
-	public function cr_textarea($p,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
+/**
+ *	add textarea element and description
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param int $n_cols
+ *	@param int $n_rows
+ *	@return $this
+ */
+	public function cr_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
 		if($n_cols > 0):
-			$p->set_cols($n_cols);
+			$property->set_cols($n_cols);
 		endif;
-		if($n_rows > 0):
-			$p->set_rows($n_rows);
+		if($n_rows <> 0):
+			$property->set_rows($n_rows);
 		endif;
-		$this->ins_textarea($p,$value,$is_required,$is_readonly)->ins_description($p);
+		$this->ins_textarea($property,$value,$is_required,$is_readonly)->ins_description($property);
 		return $this;
 	}
 /**
  *	Hub for cr methods
- *	@param property $p
+ *	@param property $property
  *	@param mixed $value
  *	@param bool $is_required
  *	@param bool $is_readonly
  *	@param array $additional_parameter
  *	@return $this
  */
-	public function cr($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
-		switch($p->get_input_type()):
-			case propconst::INPUT_TYPE_TEXT:
-				$this->cr_input_text($p,$value,$is_required,$is_readonly);
+	public function cr(property $property,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
+		switch($property->get_input_type()):
+			case property::INPUT_TYPE_TEXT:
+				$this->cr_input_text($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_CHECKBOX:
-				$this->cr_checkbox($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_CHECKBOX:
+				$this->cr_checkbox($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_CHECKBOX_GRID:
+			case property::INPUT_TYPE_CHECKBOX_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
-				$this->cr_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				$this->cr_checkbox_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
-			case propconst::INPUT_TYPE_RADIO_GRID:
+			case property::INPUT_TYPE_RADIO_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
-				$this->cr_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				$this->cr_radio_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
-			case propconst::INPUT_TYPE_TEXTAREA:
+			case property::INPUT_TYPE_TEXTAREA:
 				$param_cols = $additional_parameter[0] ?? 0;
 				$n_cols = is_int($param_cols) ? $param_cols : 0;
 				$param_rows = $additional_parameter[1] ?? 0;
 				$n_rows = is_int($param_rows) ? $param_rows : 0;
-				$this->cr_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
+				$this->cr_textarea($property,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
-			case propconst::INPUT_TYPE_SELECT:
-				$this->cr_select($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_SELECT:
+				$this->cr_select($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_PASSWORD:
-				$this->cr_input_password($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_PASSWORD:
+				$this->cr_input_password($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_FILECHOOSER:
-				$this->cr_filechooser($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_FILECHOOSER:
+				$this->cr_filechooser($property,$value,$is_required,$is_readonly);
 				break;
 		endswitch;
 		return $this;
 	}
 //	c2 blocks
-	public function c2_row($p,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
+/**
+ *	Add code for table row with two columns
+ *	@param property $property
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param bool $tagaslabel
+ *	@return type
+ */
+	public function c2_row(property $property,bool $is_required = false,bool $is_readonly = false,bool $tagaslabel = false) {
 		if($is_readonly):
+//			if readonly, ignore required
 			$class_tag = 'celltag';
 			$class_data = 'celldata';
-			$is_required = false;
-		else:
-			$class_tag = 'celltag';
-			$class_data = 'celldata';
-		endif;
-		if($is_required):
+		elseif($is_required):
 			$class_tag = 'celltagreq';
 			$class_data = 'celldatareq';
-		endif;
-		$tr = $this->addTR(['id' => sprintf('%s_tr',$p->get_id())]);
-		if($tagaslabel):
-			$tr->addTDwC($class_tag)->addElement('label',['for' => $p->get_id()],$p->get_title());
 		else:
-			$tr->addTDwC($class_tag,$p->get_title());
+			$class_tag = 'celltag';
+			$class_data = 'celldata';
+		endif;
+		$tr = $this->addTR(['id' => sprintf('%s_tr',$property->get_id())]);
+		if($tagaslabel):
+			$tr->addTDwC($class_tag)->addElement('label',['for' => $property->get_id()],$property->get_title());
+		else:
+			$tr->addTDwC($class_tag,$property->get_title());
 		endif;
 		$subnode = $tr->addTDwC($class_data);
 		return $subnode;
 	}
-	public function c2_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->c2_row($p,$is_required,$is_readonly,true)->cr_checkbox($p,$value,$is_required,$is_readonly);
+/**
+ *	Add table row witch checkbox
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($property,$is_required,$is_readonly,true)->cr_checkbox($property,$value,$is_required,$is_readonly);
 		return $this;
 	}
-	public function c2_checkbox_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->c2_row($p,$is_required,$is_readonly,false)->cr_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+/**
+ *	Add table row with checkbox grid
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param bool $use_tablesort
+ *	@return $this
+ */
+	public function c2_checkbox_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->c2_row($property,$is_required,$is_readonly,false)->cr_checkbox_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 		return $this;
 	}
-	public function c2_filechooser($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$hook = $this->c2_row($p,$is_required,$is_readonly,true);
-		$hook->cr_filechooser($p,$value,$is_required,$is_readonly);
+/**
+ *	Add table row with filechooser
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_filechooser(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$hook = $this->c2_row($property,$is_required,$is_readonly,true);
+		$hook->cr_filechooser($property,$value,$is_required,$is_readonly);
 		$this->reset_hooks();
 		$this->add_hook($hook,'fc');
 		return $this;
 	}
-	public function c2_input_text($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->c2_row($p,$is_required,$is_readonly,true)->cr_input_text($p,$value,$is_required,$is_readonly);
-		return $this;
-	}
-	public function c2_input_password($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->c2_row($p,$is_required,$is_readonly,true)->cr_input_password($p,$value,$is_required,$is_readonly);
-		return $this;
-	}
-	public function c2_radio_grid($p,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
-		$this->c2_row($p,$is_required,$is_readonly,false)->cr_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+/**
+ *	Add table row with input
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_input_text(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($property,$is_required,$is_readonly,true)->cr_input_text($property,$value,$is_required,$is_readonly);
 		return $this;
 	}
 /**
- *	Adds a scheduler
+ *	Add table row with input password
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_input_password(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($property,$is_required,$is_readonly,true)->cr_input_password($property,$value,$is_required,$is_readonly);
+		return $this;
+	}
+/**
+ *	Add table row with radio grid
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_radio_grid(property $property,$value,bool $is_required = false,bool $is_readonly = false,bool $use_tablesort = false) {
+		$this->c2_row($property,$is_required,$is_readonly,false)->cr_radio_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
+		return $this;
+	}
+/**
+ *	Add table row with scheduler
  *	@param array $cops Array containing cop-objects for
  *		scheduler,
  *		all_minutes, all_hours, all_days, all_months, all_weekdays,
  *		minutes, hours, days, months and weekdays
- *	@param object $sphere
+ *	@param mys\sphere $sphere
  *	@param bool $is_required
  *	@param bool $is_readonly
  *	@return $this
@@ -1557,18 +1610,47 @@ EOJ;
 		$this->c2_row($cops['scheduler'],$is_required,$is_readonly,false)->cr_scheduler($cops,$sphere,$is_required,$is_readonly);
 		return $this;
 	}
-	public function c2_select($p,$value,bool $is_required = false,bool $is_readonly = false) {
-		$this->c2_row($p,$is_required,$is_readonly,true)->cr_select($p,$value,$is_required,$is_readonly);
+/**
+ *	Add table row with select
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@return $this
+ */
+	public function c2_select(property $property,$value,bool $is_required = false,bool $is_readonly = false) {
+		$this->c2_row($property,$is_required,$is_readonly,true)->cr_select($property,$value,$is_required,$is_readonly);
 		return $this;
 	}
+/**
+ *	Add table row with horizontal line
+ *	@return $this
+ */
 	public function c2_separator() {
 		$this->ins_separator(2);
 		return $this;
 	}
-	public function c2_textarea($p,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
-		$this->c2_row($p,$is_required,$is_readonly,true)->cr_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
+/**
+ *	Add table row with textarea
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param int $n_cols
+ *	@param int $n_rows
+ *	@return $this
+ */
+	public function c2_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
+		$this->c2_row($property,$is_required,$is_readonly,true)->cr_textarea($property,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 		return $this;
 	}
+/**
+ *	Add table row with text info
+ *	@param string $id
+ *	@param string $title
+ *	@param mixed $value
+ *	@return $this
+ */
 	public function c2_textinfo(string $id,string $title,$value) {
 		$tr_attributes = [];
 		if(isset($id)):
@@ -1579,61 +1661,75 @@ EOJ;
 		$tr->addTDwC('celldata')->ins_textinfo($id,$value);
 		return $this;
 	}
+/**
+ *	Add table header
+ *	@param string $title
+ *	@return $this
+ */
 	public function c2_titleline(string $title = '') {
 		$this->ins_titleline($title,2);
 		return $this;
 	}
-	public function c2_titleline_with_checkbox($p,$value,bool $is_required = false,bool $is_readonly = false,string $title = '') {
-		$this->ins_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title,2);
+/**
+ *	Add table header with checkbox
+ *	@param property $property
+ *	@param mixed $value
+ *	@param bool $is_required
+ *	@param bool $is_readonly
+ *	@param string $title
+ *	@return $this
+ */
+	public function c2_titleline_with_checkbox(property $property,$value,bool $is_required = false,bool $is_readonly = false,string $title = '') {
+		$this->ins_titleline_with_checkbox($property,$value,$is_required,$is_readonly,$title,2);
 		return $this;
 	}
 /**
  *	Hub for c2 methods
- *	@param property $p
+ *	@param property $property
  *	@param mixed $value
  *	@param bool $is_required
  *	@param bool $is_readonly
  *	@param array $additional_parameter
  *	@return $this
  */
-	public function c2($p,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
-		switch($p->get_input_type()):
-			case propconst::INPUT_TYPE_TEXT:
-				$this->c2_input_text($p,$value,$is_required,$is_readonly);
+	public function c2(property $property,$value,bool $is_required = false,bool $is_readonly = false,...$additional_parameter) {
+		switch($property->get_input_type()):
+			case property::INPUT_TYPE_TEXT:
+				$this->c2_input_text($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_CHECKBOX:
-				$this->c2_checkbox($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_CHECKBOX:
+				$this->c2_checkbox($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_CHECKBOX_GRID:
+			case property::INPUT_TYPE_CHECKBOX_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
-				$this->c2_checkbox_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				$this->c2_checkbox_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
-			case propconst::INPUT_TYPE_RADIO_GRID:
+			case property::INPUT_TYPE_RADIO_GRID:
 				$param_tablesort = $additional_parameter[0] ?? false;
 				$use_tablesort = is_bool($param_tablesort) ? $param_tablesort : false;
-				$this->c2_radio_grid($p,$value,$is_required,$is_readonly,$use_tablesort);
+				$this->c2_radio_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
-			case propconst::INPUT_TYPE_TEXTAREA:
+			case property::INPUT_TYPE_TEXTAREA:
 				$param_cols = $additional_parameter[0] ?? 0;
 				$n_cols = is_int($param_cols) ? $param_cols : 0;
 				$param_rows = $additional_parameter[1] ?? 0;
 				$n_rows = is_int($param_rows) ? $param_rows : 0;
-				$this->c2_textarea($p,$value,$is_required,$is_readonly,$n_cols,$n_rows);
+				$this->c2_textarea($property,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
-			case propconst::INPUT_TYPE_SELECT:
-				$this->c2_select($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_SELECT:
+				$this->c2_select($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_PASSWORD:
-				$this->c2_input_password($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_PASSWORD:
+				$this->c2_input_password($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_FILECHOOSER:
-				$this->c2_filechooser($p,$value,$is_required,$is_readonly);
+			case property::INPUT_TYPE_FILECHOOSER:
+				$this->c2_filechooser($property,$value,$is_required,$is_readonly);
 				break;
-			case propconst::INPUT_TYPE_TITLELINE_CHECKBOX:
+			case property::INPUT_TYPE_TITLELINE_CHECKBOX:
 				$param_title = $additional_parameter[0] ?? '';
 				$title = is_string($param_title) ? $param_title : '';
-				$this->c2_titleline_with_checkbox($p,$value,$is_required,$is_readonly,$title);
+				$this->c2_titleline_with_checkbox($property,$value,$is_required,$is_readonly,$title);
 				break;
 		endswitch;
 		return $this;
