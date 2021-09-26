@@ -36,8 +36,6 @@ namespace gui;
 
 use DOMDocument;
 
-use function array_key_exists,array_key_last,array_pop,array_push,implode,preg_match;
-
 class document extends DOMDocument {
 	use tools;
 
