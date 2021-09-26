@@ -34,11 +34,12 @@
 
 namespace services\inadyn;
 
-use common\rmo as myr,
-	common\sphere as mys;
-use const PAGE_MODE_EDIT,
-	PAGE_MODE_POST,
-	PAGE_MODE_VIEW;
+use common\rmo as myr;
+use common\sphere as mys;
+
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
 
 /**
  *	Wrapper class for autoloading functions
@@ -46,7 +47,7 @@ use const PAGE_MODE_EDIT,
 final class setting_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\settings();
@@ -58,8 +59,8 @@ final class setting_toolbox {
 /**
  *	Create the request method object
  *	@param setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@param mys\row $sphere
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
 		$rmo = new myr\rmo();
