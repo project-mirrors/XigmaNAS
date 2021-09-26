@@ -43,12 +43,36 @@ class property_list extends property {
 		$this->set_input_type(self::INPUT_TYPE_RADIO_GRID);
 	}
 	protected $x_options = [];
+/**
+ *	set options
+ *	@param array $options
+ *	@return $this
+ */
 	public function set_options(array $options) {
-		$this->x_options = $options;
+		$this->x_options = [];
+		$this->upsert_options($options);
 		return $this;
 	}
+/**
+ *	update or append an option
+ *	@param string $key
+ *	@param string $value
+ *	@return $this
+ */
 	public function upsert_option(string $key,string $value) {
-		$this->x_options[$key] = $value;
+		$this->upsert_options([$key => $value]);
+		return $this;
+	}
+/**
+ *	update or append an array of options
+ *	@param array $options
+ *	@return $this
+ */
+	public function upsert_options(array $options) {
+		foreach($options as $key => $value):
+			$this->x_options[$key] = $value;
+		endforeach;
+		return $this;
 	}
 	public function get_options() {
 		return $this->x_options;
