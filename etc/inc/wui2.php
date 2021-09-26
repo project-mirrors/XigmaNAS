@@ -34,7 +34,6 @@
 
 require_once 'autoload.php';
 require_once 'config.inc';
-require_once 'array.inc';
 
 use common\arr;
 use common\lang;
