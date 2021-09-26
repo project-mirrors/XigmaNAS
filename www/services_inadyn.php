@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\inadyn\setting_toolbox as toolbox,
-	services\inadyn\shared_toolbox;
+use services\inadyn\setting_toolbox as toolbox;
+use services\inadyn\shared_toolbox;
 
 //	init indicators
 $input_errors = [];

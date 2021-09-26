@@ -36,8 +36,6 @@ namespace services\inadyn;
 
 use common\properties as myp;
 
-use function gettext;
-
 final class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
@@ -85,7 +83,6 @@ final class setting_properties extends grid_properties {
 		$property->
 			set_caption($caption)->
 			set_id('iface')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -223,7 +220,6 @@ final class setting_properties extends grid_properties {
 		$property = parent::init_loglevel();
 		$property->
 			set_id('loglevel')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_caption($caption)->
 			set_options($options)->
 			set_defaultvalue($defaultvalue)->

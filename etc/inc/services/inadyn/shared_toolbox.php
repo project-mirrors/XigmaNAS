@@ -34,12 +34,11 @@
 
 namespace services\inadyn;
 
-use common\arr,
-	common\sphere as mys,
-	DOMDocument;
-use function gettext,
-	sprintf,
-	updatenotify_clear;
+use common\arr;
+use common\sphere as mys;
+use DOMDocument;
+
+use function updatenotify_clear;
 
 /**
  *	Wrapper class for autoloading functions
@@ -62,7 +61,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
