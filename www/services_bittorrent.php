@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\torrent\setting_toolbox as toolbox,
-	services\torrent\shared_toolbox;
+use services\torrent\setting_toolbox as toolbox;
+use services\torrent\shared_toolbox;
 
 //	init indicators
 $input_errors = [];
