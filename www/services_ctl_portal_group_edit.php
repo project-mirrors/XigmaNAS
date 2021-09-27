@@ -229,7 +229,6 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $content->add_table_data_settings()->
 	ins_colgroup_data_settings()->
 	push()->
@@ -245,7 +244,7 @@ $content->add_table_data_settings()->
 		c2($cop->get_offload(),$sphere,false,false)->
 		c2($cop->get_redirect(),$sphere,false,false)->
 		c2($cop->get_tag(),$sphere,false,false)->
-		c2($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+		c2($cop->get_auxparam(),$sphere,false,false);
 if($isrecordmodify):
 	$table = $content->add_table_data_settings();
 	$table->ins_colgroup_data_settings();
