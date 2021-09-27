@@ -42,8 +42,8 @@ class property_textarea extends property {
 		parent::__construct($owner);
 		$this->set_input_type(self::INPUT_TYPE_TEXTAREA);
 	}
-	protected $x_cols = 65;
-	public function set_cols(int $cols = 65) {
+	protected $x_cols = null;
+	public function set_cols(int $cols = null) {
 		$this->x_cols = $cols;
 		return $this;
 	}
@@ -74,8 +74,8 @@ class property_textarea extends property {
 	public function get_placeholderv() {
 		return $this->x_placeholderv;
 	}
-	protected $x_rows = 5;
-	public function set_rows(int $rows = 5) {
+	protected $x_rows = null;
+	public function set_rows(int $rows = null) {
 		$this->x_rows = $rows;
 		return $this;
 	}
