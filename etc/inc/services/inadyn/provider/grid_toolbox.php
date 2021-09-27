@@ -37,6 +37,7 @@ namespace services\inadyn\provider;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const UPDATENOTIFY_MODE_DIRTY;
 use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
@@ -58,7 +59,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+final class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid
@@ -93,14 +94,6 @@ final class grid_toolbox {
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
-	}
-/**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
 	}
 /**
  *	Render the page
