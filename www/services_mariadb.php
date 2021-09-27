@@ -264,7 +264,6 @@ if($pending_changes && !$input_errors_found):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds1 = $content->add_table_data_settings();
 $tds1->ins_colgroup_data_settings();
 $thead1 = $tds1->addTHEAD();
@@ -281,7 +280,7 @@ endswitch;
 $tbody1->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
 	c2($cop->get_homedir(),$sphere->row[$cop->get_homedir()->get_name()],true,$is_readonly)->
-	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly);
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
 $thead2 = $tds2->addTHEAD()->c2_titleline(sprintf('%s (%s)',gettext('Administrative WebGUI'),gettext('phpMyAdmin')));
