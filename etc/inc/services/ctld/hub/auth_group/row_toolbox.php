@@ -37,6 +37,7 @@ namespace services\ctld\hub\auth_group;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 use services\ctld\hub\sub\chap\grid_toolbox as tbc;
 use services\ctld\hub\sub\chap_mutual\grid_toolbox as tbcm;
 use services\ctld\hub\sub\initiator_name\grid_toolbox as tbin;
@@ -50,10 +51,10 @@ use function new_page;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+final class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\row();
@@ -65,18 +66,10 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
-	}
-/**
- *	Create the properties object
- *	@return row_properties The properties object
- */
-	public static function init_properties() {
-		$cop = new row_properties();
-		return $cop;
 	}
 /**
  *	Collects information from subordinate
@@ -222,7 +215,6 @@ final class row_toolbox {
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 		$content->add_table_data_settings()->
 			ins_colgroup_data_settings()->
 			push()->
@@ -233,7 +225,7 @@ final class row_toolbox {
 				c2($cop->get_name(),$sphere,true,false)->
 				c2($cop->get_description(),$sphere,false,false)->
 				c2($cop->get_auth_type(),$sphere,false,false)->
-				c2($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+				c2($cop->get_auxparam(),$sphere,false,false);
 		if($isrecordmodify):
 			$table = $content->add_table_data_settings();
 			$table->ins_colgroup_data_settings();
