@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use services\ctld\hub\auth_group\grid_toolbox as toolbox,
-	services\ctld\hub\grid_hub as hub;
+use services\ctld\hub\auth_group\grid_toolbox as toolbox;
+use services\ctld\hub\grid_hub as hub;
 
 //	init properties, sphere and rmo
 $cop = toolbox::init_properties();

@@ -37,17 +37,22 @@ namespace services\ctld\hub\auth_group;
 use common\arr;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
-use function count,gettext,is_bool,new_page,updatenotify_exists,
-		updatenotify_get_mode;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function new_page;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+final class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -77,27 +82,19 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return \services\ctld\hub\auth_group\grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
-	}
-/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \services\ctld\hub\auth_group\grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param grid_properties $cop
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
