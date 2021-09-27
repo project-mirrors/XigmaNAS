@@ -1001,14 +1001,18 @@ EOJ;
 			$textarea_attributes['placeholder'] = $placeholder;
 		endif;
 		$n_cols = $property->get_cols();
-		if($n_cols > 0):
+		if(is_null($n_cols)):
+//			default number of columns
+			$textarea_attributes['cols'] = 65;
+		elseif($n_cols > 0):
 			$textarea_attributes['cols'] = $n_cols;
 		endif;
 		$n_rows = $property->get_rows();
-		if($n_rows > 0):
-			$textarea_attributes['rows'] = $n_rows;
-		elseif($n_rows < 0):
+		if(is_null($n_rows)):
+//			calculate the number of rows within min-max
 			$textarea_attributes['rows'] = min(64,max(5,1 + substr_count($preset,"\n")));
+		elseif($n_rows > 0):
+			$textarea_attributes['rows'] = $n_rows;
 		endif;
 		$textarea_attributes['wrap'] = $property->get_wrap() ? 'hard' : 'soft';
 		if($maxlength > 0):
@@ -1433,13 +1437,9 @@ EOJ;
  *	@param int $n_rows
  *	@return $this
  */
-	public function cr_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
-		if($n_cols > 0):
-			$property->set_cols($n_cols);
-		endif;
-		if($n_rows <> 0):
-			$property->set_rows($n_rows);
-		endif;
+	public function cr_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = null,int $n_rows = null) {
+		$property->set_cols($n_cols);
+		$property->set_rows($n_rows);
 		$this->ins_textarea($property,$value,$is_required,$is_readonly)->ins_description($property);
 		return $this;
 	}
@@ -1471,10 +1471,10 @@ EOJ;
 				$this->cr_radio_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
 			case property::INPUT_TYPE_TEXTAREA:
-				$param_cols = $additional_parameter[0] ?? 0;
-				$n_cols = is_int($param_cols) ? $param_cols : 0;
-				$param_rows = $additional_parameter[1] ?? 0;
-				$n_rows = is_int($param_rows) ? $param_rows : 0;
+				$param_cols = $additional_parameter[0] ?? null;
+				$n_cols = is_int($param_cols) ? $param_cols : null;
+				$param_rows = $additional_parameter[1] ?? null;
+				$n_rows = is_int($param_rows) ? $param_rows : null;
 				$this->cr_textarea($property,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
 			case property::INPUT_TYPE_SELECT:
@@ -1640,7 +1640,7 @@ EOJ;
  *	@param int $n_rows
  *	@return $this
  */
-	public function c2_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = 0,int $n_rows = 0) {
+	public function c2_textarea(property $property,$value,bool $is_required = false,bool $is_readonly = false,int $n_cols = null,int $n_rows = null) {
 		$this->c2_row($property,$is_required,$is_readonly,true)->cr_textarea($property,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 		return $this;
 	}
@@ -1711,10 +1711,10 @@ EOJ;
 				$this->c2_radio_grid($property,$value,$is_required,$is_readonly,$use_tablesort);
 				break;
 			case property::INPUT_TYPE_TEXTAREA:
-				$param_cols = $additional_parameter[0] ?? 0;
-				$n_cols = is_int($param_cols) ? $param_cols : 0;
-				$param_rows = $additional_parameter[1] ?? 0;
-				$n_rows = is_int($param_rows) ? $param_rows : 0;
+				$param_cols = $additional_parameter[0] ?? null;
+				$n_cols = is_int($param_cols) ? $param_cols : null;
+				$param_rows = $additional_parameter[1] ?? null;
+				$n_rows = is_int($param_rows) ? $param_rows : null;
 				$this->c2_textarea($property,$value,$is_required,$is_readonly,$n_cols,$n_rows);
 				break;
 			case property::INPUT_TYPE_SELECT:
