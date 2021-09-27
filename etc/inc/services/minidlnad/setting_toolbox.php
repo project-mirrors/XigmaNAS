@@ -36,11 +36,16 @@ namespace services\minidlnad;
 
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
+
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox {
+final class setting_toolbox extends myt\setting_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\row The sphere object
@@ -76,13 +81,5 @@ final class setting_toolbox {
 				add('POST','enable',PAGE_MODE_VIEW);
 		endif;
 		return $rmo;
-	}
-/**
- *	Creates the property object
- *	@return setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
 	}
 }
