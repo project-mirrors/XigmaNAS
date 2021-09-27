@@ -274,7 +274,6 @@ if($pending_changes):
 	$content->ins_config_has_changed_box();
 endif;
 //	add content
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds = $content->add_table_data_settings();
 $tds->ins_colgroup_data_settings();
 $thead = $tds->addTHEAD();
@@ -301,7 +300,7 @@ $tbody->
 	c2($cop->get_widelinks(),$sphere,false,$is_readonly)->
 	c2($cop->get_loglevel(),$sphere,false,$is_readonly)->
 	c2($cop->get_forcesortcriteria(),$sphere,false,$is_readonly)->
-	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly);
 if($is_running):
 	$tbody->addTFOOT()->c2_separator();
 	$if = get_ifname($sphere->row['if']);
