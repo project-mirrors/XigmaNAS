@@ -36,6 +36,7 @@ namespace services\inadyn\provider;
 
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const RECORD_MODIFY;
 use const RECORD_NEW;
@@ -45,7 +46,7 @@ use function new_page;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+final class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\row The sphere object
@@ -64,14 +65,6 @@ final class row_toolbox {
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
-	}
-/**
- *	Create the properties object
- *	@return row_properties The properties object
- */
-	public static function init_properties() {
-		$cop = new row_properties();
-		return $cop;
 	}
 	public static function render(row_properties $cop,mys\row $sphere,int $record_mode,bool $prerequisites_ok) {
 		global $input_errors;
@@ -97,7 +90,6 @@ final class row_toolbox {
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 		$tbody =
 		$content->add_table_data_settings()->
 			ins_colgroup_data_settings()->
@@ -134,7 +126,7 @@ final class row_toolbox {
 			c2($cop->get_checkip_ssl(),$sphere,false,$is_readonly)->
 			c2($cop->get_checkip_command(),$sphere,false,$is_readonly)->
 			c2($cop->get_useragent(),$sphere,false,$is_readonly)->
-			c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+			c2($cop->get_auxparam(),$sphere,false,$is_readonly);
 		$buttons = $document->add_area_buttons();
 		if($isrecordnew):
 			$buttons->ins_button_add();
