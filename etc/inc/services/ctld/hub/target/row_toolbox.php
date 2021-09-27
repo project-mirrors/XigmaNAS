@@ -37,16 +37,18 @@ namespace services\ctld\hub\target;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
+
 use services\ctld\hub\sub\lun\grid_toolbox as tbl;
 use services\ctld\hub\sub\port\grid_toolbox as tbp;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+final class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\row;
@@ -58,18 +60,10 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
-	}
-/**
- *	Create the properties object
- *	@return row_properties The properties object
- */
-	public static function init_properties() {
-		$cop = new row_properties();
-		return $cop;
 	}
 /**
  *	Collects information from subordinate
