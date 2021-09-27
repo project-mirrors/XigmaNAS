@@ -36,8 +36,8 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	services\ctld\hub\lun\row_toolbox as toolbox;
+use common\arr;
+use services\ctld\hub\lun\row_toolbox as toolbox;
 
 //	init indicators
 $input_errors = [];
