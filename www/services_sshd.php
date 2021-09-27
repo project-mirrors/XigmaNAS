@@ -255,8 +255,6 @@ $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (rc_is_service_running('sshd') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
 $input_errors_found = count($input_errors) > 0;
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
-$n_rawprivatekey_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_rawprivatekey()->get_name()],"\n")));
 $document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	add tab navigation
 shared_toolbox::add_tabnav($document);
@@ -297,10 +295,10 @@ $tbody->
 	c2($cop->get_permitrootlogin(),$sphere,false,$is_readonly)->
 	c2($cop->get_allowtcpforwarding(),$sphere,false,$is_readonly)->
 	c2($cop->get_compression(),$sphere,false,$is_readonly)->
-	c2($cop->get_rawprivatekey(),$sphere,false,$is_readonly,60,$n_rawprivatekey_rows)->
+	c2($cop->get_rawprivatekey(),$sphere,false,$is_readonly)->
 	c2($cop->get_subsystem(),$sphere,false,$is_readonly)->
 	c2($cop->get_loglevel(),$sphere,false,$is_readonly)->
-	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
