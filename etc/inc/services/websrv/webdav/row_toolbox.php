@@ -34,17 +34,17 @@
 
 namespace services\websrv\webdav;
 
-use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+final class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row
+ *	@return mys\row
  */
 	public static function init_sphere() {
 		global $config;
@@ -58,17 +58,9 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
-	}
-/**
- *	Create the properties object
- *	@return \services\websrv\webdav\row_properties The properties object
- */
-	public static function init_properties() {
-		$cop = new row_properties();
-		return $cop;
 	}
 }
