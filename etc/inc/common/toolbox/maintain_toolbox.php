@@ -1,6 +1,6 @@
 <?php
 /*
-	toolbox.php
+	maintain_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -34,17 +34,6 @@
 
 namespace common\toolbox;
 
-use ReflectionClass;
-
-abstract class toolbox implements interface_toolbox {
-	protected const PCN = '';
-/**
- *	Static method to instantiate related namespaced properties object
- *	@return object grid_properties
- */
-	public static function init_properties() {
-		$reflection = new ReflectionClass(get_called_class());
-		$fqcn = $reflection->inNamespace() ? sprintf('%s\%s',$reflection->getNamespaceName(),static::PCN) : static::PCN;
-		return new $fqcn();
-	}
+abstract class maintain_toolbox extends toolbox {
+	protected const PCN = 'maintain_properties';
 }
