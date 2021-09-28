@@ -37,6 +37,7 @@ namespace system\access\user;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const PAGE_MODE_POST;
 use const UPDATENOTIFY_MODE_DIRTY;
@@ -62,7 +63,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+final class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid
@@ -101,14 +102,6 @@ final class grid_toolbox {
 		$rmo->add('POST','show',PAGE_MODE_POST);
 		$rmo->add('POST','hide',PAGE_MODE_POST);
 		return $rmo;
-	}
-/**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
 	}
 /**
  *	Render the page

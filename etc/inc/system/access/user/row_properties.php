@@ -37,7 +37,7 @@ namespace system\access\user;
 use common\lang;
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Enter login name.');
 		$placeholder = gettext('Name');
@@ -101,7 +101,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_uid(): myp\property_int {
+	final public function init_uid(): myp\property_int {
 		$caption = gettext('Specify the user/account numeric id.');
 		$description = gettext('The recommended range for the user id is between 1000 and 32000.');
 		$placeholder = gettext('1000');
@@ -119,7 +119,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_usershell(): myp\property_list {
+	final public function init_usershell(): myp\property_list {
 		$description = gettext('Set user login shell.');
 		$options = [
 			'nologin' => gettext('No Login'),
@@ -138,7 +138,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_primary_group(): myp\property_list {
+	final public function init_primary_group(): myp\property_list {
 		$description = gettext("Set the account's primary group.");
 		$property = parent::init_primary_group();
 		$property->
@@ -150,7 +150,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_additional_groups(): myp\property_list_multi {
+	final public function init_additional_groups(): myp\property_list_multi {
 		$description = gettext('Add user to additional groups.');
 		$property = parent::init_additional_groups();
 		$property->
@@ -161,7 +161,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_homedir(): myp\property_text {
+	final public function init_homedir(): myp\property_text {
 		global $g;
 
 		$property = parent::init_homedir();
@@ -179,7 +179,7 @@ final class row_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_user_portal_access(): myp\property_list {
+	final public function init_user_portal_access(): myp\property_list {
 		$description = gettext('User portal permission.');
 		$options = [
 			'' => gettext('No access to the user portal'),
@@ -195,7 +195,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_language(): myp\property_list {
+	final public function init_language(): myp\property_list {
 		$description = gettext('Select the language of the user portal for this user.');
 		$options = lang::get_options();
 		$property = parent::init_language();
@@ -208,7 +208,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_fm_enable(): myp\property_bool {
+	final public function init_fm_enable(): myp\property_bool {
 		$caption = gettext('Grant access to the file manager.');
 		$property = parent::init_fm_enable();
 		$property->
@@ -218,7 +218,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_fmp_show_hidden_items(): myp\property_bool {
+	final public function init_fmp_show_hidden_items(): myp\property_bool {
 		$caption = gettext('Show hidden items');
 		$property = parent::init_fmp_show_hidden_items();
 		$property->
@@ -228,7 +228,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_fmp_read(): myp\property_bool {
+	final public function init_fmp_read(): myp\property_bool {
 		$caption = gettext('Grant read permission');
 		$property = parent::init_fmp_read();
 		$property->
@@ -238,7 +238,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_fmp_create(): myp\property_bool {
+	final public function init_fmp_create(): myp\property_bool {
 		$caption = gettext('Grant create permission');
 		$property = parent::init_fmp_create();
 		$property->
@@ -248,7 +248,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_fmp_change(): myp\property_bool {
+	final public function init_fmp_change(): myp\property_bool {
 		$caption = gettext('Grant modify permission');
 		$property = parent::init_fmp_change();
 		$property->
@@ -258,7 +258,7 @@ final class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_fmp_delete(): myp\property_bool {
+	final public function init_fmp_delete(): myp\property_bool {
 		$caption = gettext('Grant delete permission');
 		$property = parent::init_fmp_delete();
 		$property->
