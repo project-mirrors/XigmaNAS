@@ -1,6 +1,6 @@
 <?php
 /*
-	maintain_toolbox.php
+	maintain_properties.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -30,49 +30,32 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
+ */
 
 namespace system\access\user;
 
-use common\rmo as myr;
-use common\sphere as mys;
-use common\toolbox as myt;
+use common\properties as myp;
 
-use const PAGE_MODE_EDIT;
-use const PAGE_MODE_POST;
-
-/**
- *	Wrapper class for autoloading functions
- */
-final class maintain_toolbox extends myt\maintain_toolbox {
-/**
- *	Create the sphere object
- *	@global array $config
- *	@return mys\row The sphere object
- */
-	public static function init_sphere() {
-		global $config;
-
-		$sphere = new mys\row();
-		shared_toolbox::init_sphere($sphere);
-		$sphere->
-			set_script('access_users_maintain')->
-			set_parent('access_users')->
-			add_page_title(gettext('Password'));
-		return $sphere;
+final class maintain_properties extends row_properties {
+	public function init_name(): myp\property_text {
+		$property = parent::init_name();
+		$property->
+			set_editableonadd(false)->
+			set_editableonmodify(false);
+		return $property;
 	}
-/**
- *	Create the request method object
- *	@return myr\rmo The request method object
- */
-	public static function init_rmo() {
-		$rmo = new myr\rmo();
-		$rmo->
-			set_default('POST','cancel',PAGE_MODE_POST)->
-			add('POST','cancel',PAGE_MODE_POST)->
-			add('GET' ,'maintain',PAGE_MODE_EDIT)->
-			add('POST','maintain',PAGE_MODE_EDIT)->
-			add('POST','save',PAGE_MODE_POST);
-		return $rmo;
+	public function init_fullname(): myp\property_text {
+		$property = parent::init_fullname();
+		$property->
+			set_editableonadd(false)->
+			set_editableonmodify(false);
+		return $property;
+	}
+	public function init_password(): myp\property_text {
+		$property = parent::init_password();
+		$property->
+			set_editableonadd(false)->
+			set_editableonmodify(true);
+		return $property;
 	}
 }

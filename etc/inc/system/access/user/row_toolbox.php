@@ -37,11 +37,12 @@ namespace system\access\user;
 use common\arr;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+final class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
@@ -63,14 +64,6 @@ final class row_toolbox {
  */
 	public static function init_rmo() {
 		return myr\rmo_row_templates::rmo_with_clone();
-	}
-/**
- *	Create the properties object
- *	@return row_properties The properties object
- */
-	public static function init_properties() {
-		$cop = new row_properties();
-		return $cop;
 	}
 /**
  *	Get the next available uid from system
