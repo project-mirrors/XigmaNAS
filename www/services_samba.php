@@ -321,7 +321,6 @@ $tbody1->
 	c2($cop->get_loglevel(),$sphere,false,$is_readonly)->
 	c2($cop->get_localmaster(),$sphere,false,$is_readonly)->
 	c2($cop->get_timesrv(),$sphere,false,$is_readonly);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
 $tds2->addTHEAD()->
@@ -360,7 +359,7 @@ $tbody2->
 	c2($cop->get_minprotocol(),$sphere,false,$is_readonly)->
 	c2($cop->get_clientmaxprotocol(),$sphere,false,$is_readonly)->
 	c2($cop->get_clientminprotocol(),$sphere,false,$is_readonly)->
-	c2($cop->get_auxparam(),$sphere,false,$is_readonly,60,$n_auxparam_rows);
+	c2($cop->get_auxparam(),$sphere,false,$is_readonly);
 //	add buttons
 $buttons = $document->add_area_buttons();
 switch($page_mode):
