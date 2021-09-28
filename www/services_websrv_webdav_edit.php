@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	services\websrv\webdav\row_toolbox as toolbox,
-	services\websrv\webdav\shared_toolbox;
+use common\arr;
+use services\websrv\webdav\row_toolbox as toolbox;
+use services\websrv\webdav\shared_toolbox;
 
 $input_errors = [];
 $prerequisites_ok = true;
@@ -217,21 +217,20 @@ $content->
 	ins_input_errors($input_errors)->
 	ins_info_box($savemsg)->
 	ins_error_box($errormsg);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $content->
 	add_table_data_settings()->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
+			c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
 		pop()->
 		addTBODY()->
-			c2_input_text($cop->get_name(),$sphere,false,false)->
-			c2_input_text($cop->get_description(),$sphere,false,false)->
-			c2_input_text($cop->get_folderpattern(),$sphere,true,false)->
-			c2_checkbox($cop->get_isreadonly(),$sphere,false,false)->
-			c2_checkbox($cop->get_usesqlite(),$sphere,false,false)->
-			c2_textarea($cop->get_auxparam(),$sphere,false,false,60,$n_auxparam_rows);
+			c2($cop->get_name(),$sphere,false,false)->
+			c2($cop->get_description(),$sphere,false,false)->
+			c2($cop->get_folderpattern(),$sphere,true,false)->
+			c2($cop->get_isreadonly(),$sphere,false,false)->
+			c2($cop->get_usesqlite(),$sphere,false,false)->
+			c2($cop->get_auxparam(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
