@@ -391,7 +391,6 @@ $content->
 			c2($cop->get_vfs_fruit_metadata(),$sphere)->
 			c2($cop->get_vfs_fruit_locking(),$sphere)->
 			c2($cop->get_vfs_fruit_encoding(),$sphere);
-$n_auxparam_rows = min(64,max(5,1 + substr_count($sphere->row[$cop->get_auxparam()->get_name()],"\n")));
 $content->
 	add_table_data_settings()->
 		push()->
@@ -401,7 +400,7 @@ $content->
 			c2_titleline(gettext('Additional Parameters'))->
 		pop()->
 		addTBODY()->
-			c2($cop->get_auxparam(),$sphere,false,false,65,$n_auxparam_rows);
+			c2($cop->get_auxparam(),$sphere,false,false);
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();
