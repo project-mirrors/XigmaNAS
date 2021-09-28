@@ -38,20 +38,28 @@ use common\arr;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 use system\rc as myparent;
 
-use function array_key_exists,count,file_exists,gettext,header,is_array,is_bool,
-		is_string,get_std_save_message,new_page,updatenotify_exists,
-		updatenotify_get_mode,write_config;
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function get_std_save_message;
+use function new_page;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+final class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		global $config;
@@ -67,7 +75,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param myparent\grid_properties $cop
  *	@param mys\grid $sphere
- *	@return rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(myparent\grid_properties $cop,mys\grid $sphere) {
 		$rmo = new myr\rmo();
@@ -77,20 +85,12 @@ final class grid_toolbox {
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return myparent\grid_properties
- */
-	public static function init_properties() {
-		$cop = new myparent\grid_properties();
-		return $cop;
-	}
-/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param myparent\grid_properties $cop
- *	@param grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(myparent\grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
@@ -187,9 +187,9 @@ EOJ;
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param container $cop
- *	@param root $sphere
- *	@param rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;

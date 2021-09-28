@@ -1,6 +1,6 @@
 <?php
 /*
-	system_rc_sort.php
+	grid_properties.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -30,17 +30,11 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
+ */
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace system\rc\sort;
 
-use system\rc\sort\grid_toolbox as toolbox;
+use system\rc as myp;
 
-//	init properties, sphere and rmo
-$cop = toolbox::init_properties();
-$sphere = toolbox::init_sphere();
-$rmo = toolbox::init_rmo($cop,$sphere);
-toolbox::looper($cop,$sphere,$rmo);
-toolbox::render($cop,$sphere);
+class grid_properties extends myp\grid_properties {
+}
