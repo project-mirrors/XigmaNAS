@@ -34,19 +34,32 @@
 
 namespace system\rc\sort;
 
+use common\arr;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 use system\rc as myparent;
+
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function get_std_save_message;
+use function new_page;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+final class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		global $config;
@@ -62,7 +75,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param myparent\grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(myparent\grid_properties $cop,mys\grid $sphere) {
 		$rmo = new myr\rmo();
@@ -72,20 +85,12 @@ final class grid_toolbox {
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return myparent\grid_properties
- */
-	public static function init_properties() {
-		$cop = new myparent\grid_properties();
-		return $cop;
-	}
-/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param myparent\grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(myparent\grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
@@ -93,11 +98,11 @@ final class grid_toolbox {
 		global $savemsg;
 		global $g_img;
 
-		$pgtitle = [\gettext('System'),\gettext('Advanced'),\gettext('Command Scripts'),\gettext('Sort')];
-		$record_exists = \count($sphere->grid) > 0;
+		$pgtitle = [gettext('System'),gettext('Advanced'),gettext('Command Scripts'),gettext('Sort')];
+		$record_exists = count($sphere->grid) > 0;
 		$a_col_width = ['5%','15%','35%','7%','18%','10%','10%'];
-		$n_col_width = \count($a_col_width);
-		$document = \new_page($pgtitle,$sphere->get_script()->get_scriptname());
+		$n_col_width = count($a_col_width);
+		$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
 //		add tab navigation
 		shared_toolbox::add_tabnav($document);
 //		get areas
@@ -110,7 +115,7 @@ final class grid_toolbox {
 			ins_input_errors($input_errors)->
 			ins_info_box($savemsg)->
 			ins_error_box($errormsg);
-		if(\updatenotify_exists($sphere->get_notifier())):
+		if(updatenotify_exists($sphere->get_notifier())):
 			$content->ins_config_has_changed_box();
 		endif;
 //		add content
@@ -119,29 +124,29 @@ final class grid_toolbox {
 		$thead = $table->addTHEAD();
 		$tbody = $table->addTBODY(['id' => 'system_rc_list']);
 		$tfoot = $table->addTFOOT();
-		$thead->ins_titleline(\gettext('Overview'),$n_col_width);
+		$thead->ins_titleline(gettext('Overview'),$n_col_width);
 		$tr = $thead->addTR();
 		$tr->
 			insTHwC('lhelc')->
 			insTHwC('lhell',$cop->get_name()->get_title())->
 			insTHwC('lhell',$cop->get_value()->get_title())->
-			insTHwC('lhelc',\gettext('Status'))->
+			insTHwC('lhelc',gettext('Status'))->
 			insTHwC('lhell',$cop->get_description()->get_title())->
 			insTHwC('lhell',$cop->get_typeid()->get_title())->
 			insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		if($record_exists):
 			foreach($sphere->grid as $sphere->row_id => $sphere->row):
-				$notificationmode = \updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
+				$notificationmode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value());
 				$is_notdirty = ($notificationmode != UPDATENOTIFY_MODE_DIRTY) && ($notificationmode != UPDATENOTIFY_MODE_DIRTY_CONFIG);
-				$is_enabled = $sphere->is_enadis_enabled() ? (\is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
-				$is_notprotected = $sphere->is_lock_enabled() ? !(\is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
+				$is_enabled = $sphere->is_enadis_enabled() ? (is_bool($test = $sphere->row[$cop->get_enable()->get_name()] ?? false) ? $test : true) : true;
+				$is_notprotected = $sphere->is_lock_enabled() ? !(is_bool($test = $sphere->row[$cop->get_protected()->get_name()] ?? false) ? $test : true) : true;
 				$dc = $is_enabled ? '' : 'd';
 				$typeid_name = $cop->get_typeid()->get_name();
 				$typeid_options = $cop->get_typeid()->get_options();
-				if(\array_key_exists($sphere->row[$typeid_name],$typeid_options)):
+				if(array_key_exists($sphere->row[$typeid_name],$typeid_options)):
 					$typeid_value = $typeid_options[$sphere->row[$typeid_name]];
 				else:
-					$typeid_value = \gettext('Unknown');
+					$typeid_value = gettext('Unknown');
 				endif;
 				$tbody->
 					addTR()->
@@ -182,9 +187,9 @@ EOJ;
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
 	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
@@ -193,28 +198,28 @@ EOJ;
 		global $savemsg;
 
 //		preset $savemsg in case a reboot is pending
-		if(\file_exists($d_sysrebootreqd_path)):
+		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'POST':
 				switch($page_action):
 					case 'apply':
-						if($_POST[$sphere->get_cbm_name()] && \is_array($_POST[$sphere->get_cbm_name()])):
+						if($_POST[$sphere->get_cbm_name()] && is_array($_POST[$sphere->get_cbm_name()])):
 							$a_param = [];
 							foreach($_POST[$sphere->get_cbm_name()] as $r_member):
-								if(\is_string($r_member)):
-									$index = \array_search_ex($r_member,$sphere->grid,$sphere->get_row_identifier());
+								if(is_string($r_member)):
+									$index = arr::search_ex($r_member,$sphere->grid,$sphere->get_row_identifier());
 									if($index  !== false):
 										$a_param[] = $sphere->grid[$index];
 									endif;
 								endif;
 							endforeach;
 							$sphere->grid = $a_param;
-							\write_config();
+							write_config();
 						endif;
-						\header($sphere->get_parent()->get_location());
+						header($sphere->get_parent()->get_location());
 						exit;
 						break;
 				endswitch;
