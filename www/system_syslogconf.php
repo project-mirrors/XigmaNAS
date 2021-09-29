@@ -31,9 +31,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use system\syslogconf\grid_toolbox as toolbox;
 
@@ -42,7 +43,7 @@ $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo($cop,$sphere);
 //	silent fix identifier
-if(false !== $sphere->get_row_identifier()):
+if($sphere->get_row_identifier() !== false):
 	$updateconfig = false;
 	foreach($sphere->grid as $sphere->row_id => $sphere->row):
 		if(is_array($sphere->row)):

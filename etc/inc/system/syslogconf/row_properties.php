@@ -31,33 +31,16 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace system\syslogconf;
+
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
-	public function init_comment(): myp\property_text {
-		$property = parent::init_comment();
-		$description = '';
-		$placeholder = gettext('Enter a description');
-		$property->
-			set_id('comment')->
-			set_description($description)->
-			set_placeholder($placeholder)->
-			set_defaultvalue('')->
-			set_size(60)->
-			set_maxlength(80)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_filter(FILTER_UNSAFE_RAW)->
-			set_filter_flags(FILTER_REQUIRE_SCALAR)->
-			set_filter_options(['default' => ''])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
-		return $property;
-	}
+class row_properties extends grid_properties {
 	public function init_facility(): myp\property_text {
-		$property = parent::init_facility();
 		$description = '';
 		$placeholder = gettext('Enter facility name');
+		$property = parent::init_facility();
 		$property->
 			set_id('facility')->
 			set_description($description)->
@@ -65,16 +48,13 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(80)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_level(): myp\property_text {
-		$property = parent::init_level();
 		$description = '';
 		$placeholder = gettext('Enter level name');
+		$property = parent::init_level();
 		$property->
 			set_id('level')->
 			set_description($description)->
@@ -82,16 +62,13 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(80)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 	public function init_value(): myp\property_text {
-		$property = parent::init_value();
 		$description = '';
 		$placeholder = gettext('Enter destination');
+		$property = parent::init_value();
 		$property->
 			set_id('value')->
 			set_description($description)->
@@ -99,10 +76,7 @@ final class row_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(80)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
 }
