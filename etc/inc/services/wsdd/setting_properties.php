@@ -35,11 +35,8 @@
 namespace services\wsdd;
 
 use common\properties as myp;
-use function gettext,
-	preg_quote,
-	sprintf;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_address_family(): myp\property_list {
 		$defaultvalue = '';
 		$description = '';
@@ -53,7 +50,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('ipprotocol')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
@@ -125,7 +121,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_description($description)->
 			set_id('if')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			filter_use_default();
 		return $property;
 	}
@@ -152,7 +147,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('servermode')->
-			set_input_type($property::INPUT_TYPE_RADIO_GRID)->
 			set_options($options)->
 			filter_use_default();
 		return $property;
