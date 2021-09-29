@@ -49,7 +49,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
+class shared_toolbox {
 	private const NOTIFICATION_NAME = __NAMESPACE__;
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 	private const ROW_IDENTIFIER = 'uuid';
