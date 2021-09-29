@@ -36,15 +36,16 @@ namespace system\rcconf;
 
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		global $config;
@@ -58,18 +59,10 @@ final class row_toolbox {
 	}
 /**
  *	Create the request method object
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo() {
 		$rmo = myr\rmo_row_templates::rmo_with_clone();
 		return $rmo;
-	}
-/**
- *	Create the properties object
- *	@return row_properties The properties object
- */
-	public static function init_properties() {
-		$cop = new row_properties();
-		return $cop;
 	}
 }
