@@ -36,7 +36,7 @@ namespace system\webgui;
 
 use common\properties as myp;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_adddivsubmittodataframe(): myp\property_bool {
 		$caption = gettext('Display action buttons in the scrollable area instead of the footer area.');
 		$property = parent::init_adddivsubmittodataframe();
