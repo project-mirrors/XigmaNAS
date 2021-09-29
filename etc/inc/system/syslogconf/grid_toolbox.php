@@ -37,20 +37,32 @@ namespace system\syslogconf;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
-use function count,file_exists,filter_var,gettext,header,is_bool,config_lock,
-		config_unlock,get_std_save_message,new_page,rc_restart_service,
-		updatenotify_cbm_delete,updatenotify_cbm_disable,
-		updatenotify_cbm_enable,updatenotify_cbm_toggle,updatenotify_exists,
-		updatenotify_get_mode,updatenotify_process,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_restart_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -77,19 +89,11 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
-	}
-/**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
 	}
 /**
  *	Render the page
@@ -97,22 +101,21 @@ final class grid_toolbox {
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('System'),gettext('Advanced'),gettext('syslog.conf')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','20%','20%','20%','10%','15%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		get areas
 		$body = $document->getElementById('main');
@@ -147,7 +150,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_level()->get_title())->
 				insTHwC('lhell',$cop->get_value()->get_title())->
 				insTHwC('lhelc sorter-image',gettext('Status'))->
-				insTHwC('lhell',$cop->get_comment()->get_title())->
+				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 		else:
 			$tr->
@@ -156,7 +159,7 @@ final class grid_toolbox {
 				insTHwC('lhell',$cop->get_level()->get_title())->
 				insTHwC('lhell',$cop->get_value()->get_title())->
 				insTHwC('lhelc',gettext('Status'))->
-				insTHwC('lhell',$cop->get_comment()->get_title())->
+				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
 		endif;
 		if($record_exists):
@@ -176,7 +179,7 @@ final class grid_toolbox {
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_level()->get_name()] ?? '')->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_value()->get_name()] ?? '')->
 						ins_enadis_icon($is_enabled)->
-						insTDwC('lcell' . $dc,$sphere->row[$cop->get_comment()->get_name()] ?? '')->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						add_toolbox_area()->
 							ins_toolbox($sphere,$is_notprotected,$is_notdirty)->
 							ins_maintainbox($sphere,false)->
@@ -202,11 +205,11 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;
