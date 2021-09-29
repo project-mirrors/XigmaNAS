@@ -36,19 +36,13 @@ namespace system\syslogconf;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container_row {
-	protected $x_comment;
-	public function init_comment(): myp\property_text {
-		$property = $this->x_comment = new myp\property_text($this);
+	public function init_description(): myp\property_description {
+		$property = parent::init_description();
 		$property->
-			set_name('comment')->
-			set_title(gettext('Description'));
+			set_id('comment')->
+			set_name('comment');
 		return $property;
-	}
-	final public function get_comment(): myp\property_text {
-		return $this->x_comment ?? $this->init_comment();
 	}
 	protected $x_facility;
 	public function init_facility(): myp\property_text {
