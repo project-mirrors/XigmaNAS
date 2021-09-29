@@ -32,9 +32,9 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use system\sysctl\info\grid_toolbox as toolbox;
 
@@ -42,9 +42,9 @@ use system\sysctl\info\grid_toolbox as toolbox;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 unset($output);
-\mwexec2('/sbin/sysctl -adet',$output);
+mwexec2('/sbin/sysctl -adet',$output);
 foreach($output as $row):
-	$a_sysctl = \explode('=',$row,3);
+	$a_sysctl = explode('=',$row,3);
 	$sysctl_name = $a_sysctl[0] ?? '';
 	$sysctl_type = $a_sysctl[1] ?? '';
 	$sysctl_info = $a_sysctl[2] ?? '';
@@ -53,12 +53,12 @@ foreach($output as $row):
 	endif;
 endforeach;
 unset($row,$output,$sysctl_name,$sysctl_type,$sysctl_info,$a_sysctl);
-\mwexec2('/sbin/sysctl -ae',$output);
+mwexec2('/sbin/sysctl -ae',$output);
 foreach($output as $row):
-	$a_sysctl = \explode('=',$row,2);
+	$a_sysctl = explode('=',$row,2);
 	$sysctl_name = $a_sysctl[0] ?? '';
 	$sysctl_value = $a_sysctl[1] ?? '';
-	if(\array_key_exists($sysctl_name,$sphere->grid)):
+	if(array_key_exists($sysctl_name,$sphere->grid)):
 		$sphere->grid[$sysctl_name]['value'] = $sysctl_value;
 	endif;
 endforeach;
