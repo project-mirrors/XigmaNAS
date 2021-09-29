@@ -32,9 +32,9 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use common\arr;
 use system\route\row_toolbox as toolbox;
@@ -51,7 +51,7 @@ endif;
 $cop = toolbox::init_properties();
 $sphere = toolbox::init_sphere();
 $rmo = toolbox::init_rmo();
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 //	determine page mode and validate resource id
 switch($page_method):
 	case 'GET':
@@ -70,7 +70,7 @@ switch($page_method):
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
 				break;
 			case 'cancel': // cancel - nothing to do
-				$sphere->row[$sphere->get_row_identifier()] = NULL;
+				$sphere->row[$sphere->get_row_identifier()] = null;
 				break;
 			case 'clone':
 				$sphere->row[$sphere->get_row_identifier()] = $cop->get_row_identifier()->get_defaultvalue();
@@ -85,7 +85,7 @@ switch($page_method):
 		break;
 endswitch;
 /*
- *	exit if $sphere->row[$sphere->row_identifier()] is NULL
+ *	exit if $sphere->row[$sphere->row_identifier()] is null
  */
 if(is_null($sphere->get_row_identifier_value())):
 	header($sphere->get_parent()->get_location());
@@ -100,7 +100,7 @@ $sphere->row_id = arr::search_ex($sphere->get_row_identifier_value(),$sphere->gr
  */
 $updatenotify_mode = updatenotify_get_mode($sphere->get_notifier(),$sphere->get_row_identifier_value()); // get updatenotify mode
 $record_mode = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
+if($sphere->row_id === false): // record does not exist in config
 	if(in_array($page_mode,[PAGE_MODE_ADD,PAGE_MODE_CLONE,PAGE_MODE_POST],true)): // ADD or CLONE or POST
 		switch($updatenotify_mode):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -123,18 +123,18 @@ else: // record found in configuration
 		endswitch;
 	endif;
 endif;
-if(RECORD_ERROR === $record_mode): // oops, something went wrong
+if($record_mode === RECORD_ERROR): // oops, something went wrong
 	header($sphere->get_parent()->get_location());
 	exit;
 endif;
-$isrecordnew = RECORD_NEW === $record_mode;
-$isrecordnewmodify = RECORD_NEW_MODIFY === $record_mode;
-$isrecordmodify = RECORD_MODIFY === $record_mode;
+$isrecordnew = ($record_mode === RECORD_NEW);
+$isrecordnewmodify = ($record_mode === RECORD_NEW_MODIFY);
+$isrecordmodify = ($record_mode === RECORD_MODIFY);
 $isrecordnewornewmodify = $isrecordnew || $isrecordnewmodify;
 /*
  *	end determine record update mode
  */
-$a_referer = [
+$cops = [
 	$cop->get_enable(),
 	$cop->get_interface(),
 	$cop->get_gateway(),
@@ -148,43 +148,43 @@ endfor;
 $cop->get_interface()->set_options($options);
 switch($page_mode):
 	case PAGE_MODE_ADD:
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$sphere->row[$cops_element->get_name()] = $cops_element->get_defaultvalue();
 		endforeach;
 		break;
 	case PAGE_MODE_CLONE:
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_input() ?? $referer->get_defaultvalue();
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input() ?? $cops_element->get_defaultvalue();
 		endforeach;
 //		adjust page mode
 		$page_mode = PAGE_MODE_ADD;
 		break;
 	case PAGE_MODE_EDIT:
 		$source = $sphere->grid[$sphere->row_id];
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			$sphere->row[$name] = $referer->validate_config($source);
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_config($source);
 		endforeach;
 		break;
 	case PAGE_MODE_POST:
 		if($isrecordmodify):
 			$source = $sphere->grid[$sphere->row_id];
 		endif;
-		foreach($a_referer as $referer):
-			$name = $referer->get_name();
-			if($isrecordmodify && !$referer->get_editableonmodify()):
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			if($isrecordmodify && !$cops_element->get_editableonmodify()):
 //				validate protected items from config
-				$sphere->row[$name] = $referer->validate_config($source);
+				$sphere->row[$name] = $cops_element->validate_config($source);
 				if(is_null($sphere->row[$name])):
 					$sphere->row[$name] = $source[$name] ?? '';
-					$input_errors[] = $referer->get_message_error();
+					$input_errors[] = $cops_element->get_message_error();
 				endif;
 			else:
-				$sphere->row[$name] = $referer->validate_input();
+				$sphere->row[$name] = $cops_element->validate_input();
 				if(is_null($sphere->row[$name])):
 					$sphere->row[$name] = filter_input(INPUT_POST,$name,FILTER_DEFAULT) ?? '';
-					$input_errors[] = $referer->get_message_error();
+					$input_errors[] = $cops_element->get_message_error();
 				endif;
 			endif;
 		endforeach;
@@ -192,7 +192,7 @@ switch($page_mode):
 			$sphere->upsert();
 			if($isrecordnew):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_NEW,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
-			elseif(UPDATENOTIFY_MODE_UNKNOWN == $updatenotify_mode):
+			elseif($updatenotify_mode === UPDATENOTIFY_MODE_UNKNOWN):
 				updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 			endif;
 			write_config();
@@ -201,8 +201,8 @@ switch($page_mode):
 		endif;
 		break;
 endswitch;
-$pgtitle = [gettext('Network'),gettext('Static Routes'),($isrecordnew) ? gettext('Add') : gettext('Edit')];
-$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+$sphere->add_page_title($isrecordnew ? gettext('Add') : gettext('Edit'));
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
@@ -219,12 +219,12 @@ $table = $content->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$thead->c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,false,gettext('Static Routes Settings'));
+$thead->c2($cop->get_enable(),$sphere,false,false,gettext('Static Routes Settings'));
 $tbody->
-	c2_radio_grid($cop->get_interface(),$sphere,true,$cop->get_interface()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_gateway(),$sphere,true,$cop->get_gateway()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_network(),$sphere,true,$cop->get_network()->is_readonly_rowmode($isrecordnewornewmodify))->
-	c2_input_text($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
+	c2($cop->get_interface(),$sphere,true,$cop->get_interface()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_gateway(),$sphere,true,$cop->get_gateway()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_network(),$sphere,true,$cop->get_network()->is_readonly_rowmode($isrecordnewornewmodify))->
+	c2($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
 $buttons = $document->add_area_buttons();
 if($isrecordnew):
 	$buttons->ins_button_add();

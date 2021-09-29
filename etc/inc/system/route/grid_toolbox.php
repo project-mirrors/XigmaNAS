@@ -1,48 +1,68 @@
 <?php
 /*
-  grid_toolbox.php
+	grid_toolbox.php
 
-  Part of XigmaNAS® (https://www.xigmanas.com).
-  Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
-  All rights reserved.
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+	All rights reserved.
 
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
+	Redistribution and use in source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:
 
-  1. Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
+	1. Redistributions of source code must retain the above copyright notice, this
+	   list of conditions and the following disclaimer.
 
-  2. Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
+	2. Redistributions in binary form must reproduce the above copyright notice,
+	   this list of conditions and the following disclaimer in the documentation
+	   and/or other materials provided with the distribution.
 
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
-  ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+	ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-  The views and conclusions contained in the software and documentation are those
-  of the authors and should not be interpreted as representing official policies
-  of XigmaNAS®, either expressed or implied.
+	The views and conclusions contained in the software and documentation are those
+	of the authors and should not be interpreted as representing official policies
+	of XigmaNAS®, either expressed or implied.
  */
+
 namespace system\route;
 
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_start_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -69,42 +89,33 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return \system\route\grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
-	}
-/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \system\route\grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param grid_properties $cop
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
 		global $errormsg;
 		global $savemsg;
 
-		$pgtitle = [gettext('Network'),gettext('Static Routes')];
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
 		$a_col_width = ['5%','15%','20%','15%','5%','30%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname(),'tablesort');
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
 		else:
-			$document = new_page($pgtitle,$sphere->get_script()->get_scriptname());
+			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
 		endif;
 //		get areas
 		$body = $document->getElementById('main');
@@ -195,11 +206,11 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;
@@ -209,7 +220,7 @@ final class grid_toolbox {
 		if(file_exists($d_sysrebootreqd_path)):
 			$savemsg = get_std_save_message(0);
 		endif;
-		list($page_method,$page_action,$page_mode) = $rmo->validate();
+		[$page_method,$page_action,$page_mode] = $rmo->validate();
 		switch($page_method):
 			case 'SESSION':
 				switch($page_action):
