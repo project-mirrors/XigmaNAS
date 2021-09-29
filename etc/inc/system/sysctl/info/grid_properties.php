@@ -36,8 +36,6 @@ namespace system\sysctl\info;
 use system\sysctl as myparent;
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myparent\grid_properties {
 	protected $x_sysctlinfo;
 	public function init_sysctlinfo(): myp\property_text {

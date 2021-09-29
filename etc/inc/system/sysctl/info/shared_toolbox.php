@@ -34,28 +34,27 @@
 
 namespace system\sysctl\info;
 
-use DOMDocument;
 use common\sphere as mys;
-
-use function gettext;
+use DOMDocument;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
+class shared_toolbox {
 	private const ROW_IDENTIFIER = 'name';
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
-		global $config;
+//		global $config;
 
 		$sphere->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(false)->
-			set_lock(true);
+			set_lock(true)->
+			add_page_title(gettext('System'),gettext('Advanced'),gettext('sysctl.conf'),gettext('Info'));
 		$sphere->grid = [];
 	}
 /**
