@@ -36,7 +36,7 @@ namespace system\rcconf;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the variable.');
 		$placeholder = gettext('Name');
