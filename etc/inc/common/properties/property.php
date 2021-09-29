@@ -53,7 +53,7 @@ abstract class property {
 	protected ?string $x_id = null;
 	protected ?string $x_name = null;
 	protected ?string $x_title = null;
-	protected ?string $x_description = null;
+	protected $x_description = null;
 	protected ?string $x_caption = null;
 	protected $x_defaultvalue = null;
 	protected bool $x_editableonadd = true;
