@@ -38,7 +38,7 @@ namespace system\scheduler\reboot;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_scheduler(): myp\property_bool {
 		$description = gettext('Commands are executed by the scheduler when the minute, hour, and month of year fields match the current time, and when at least one of the two day fields (day of month, or day of week) matches the current time.');
 		$property = parent::init_scheduler();
