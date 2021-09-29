@@ -36,8 +36,6 @@ namespace services\wsdd;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container {
 	protected $x_address_family;
 	public function init_address_family(): myp\property_list {
@@ -104,7 +102,7 @@ class grid_properties extends myp\container {
 			set_title($title);
 		return $property;
 	}
-	final function get_interface(): myp\property_list {
+	final public function get_interface(): myp\property_list {
 		return $this->x_interface ?? $this->init_interface();
 	}
 	protected $x_preservecase;
