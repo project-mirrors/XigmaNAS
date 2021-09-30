@@ -36,9 +36,6 @@ namespace common\sphere;
 
 /**
  *	sphere object, base for row and grid
- *	root -> hub -> row
- *	root -> hub -> grid
- *	root -> settings
  */
 class hub extends root {
 	public $row_id = null;
