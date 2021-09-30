@@ -1,6 +1,6 @@
 <?php
 /*
-	common\sphere\settings.php
+	settings.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -36,13 +36,10 @@ namespace common\sphere;
 
 /**
  *	sphere object for settings pages
- *	root -> hub -> row
- *	root -> hub -> grid
- *	root -> settings
  */
-final class settings extends root {
-	public function update() {
-//		settings uses one record, therefore row can be soft-copied to grid
+class settings extends root {
+	public function upsert() {
+//		settings are stored in a single record, therefore row can be upserted into grid
 		foreach($this->row as $row_key => $row_val):
 			$this->grid[$row_key] = $row_val;
 		endforeach;
