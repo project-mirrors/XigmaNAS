@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'config.inc';
 require_once 'util.inc';
+
+use common\uuid;
 
 class co_zpool_info {
 /*
@@ -113,7 +117,7 @@ class co_zpool_info {
 	protected function devicevdev_info_to_array($r_device,&$r_ret = []) {
 		$r_ret['vdev.type'] = htmlspecialchars_decode((string)$r_device->type,ENT_XML1 || ENT_NOQUOTES);
 		$r_ret['vdev.id'] = htmlspecialchars_decode((string)$r_device->id,ENT_XML1 || ENT_NOQUOTES);
-		$r_ret['vdev.guid'] = uuid();
+		$r_ret['vdev.guid'] = uuid::create_v4();
 		$r_ret['vdev.ashift'] = htmlspecialchars_decode((string)$r_device->ashift,ENT_XML1 || ENT_NOQUOTES);
 		$r_ret['vdev.asize'] = htmlspecialchars_decode((string)$r_device->asize,ENT_XML1 || ENT_NOQUOTES);
 		$r_ret['vdev.is_log'] = htmlspecialchars_decode((string)$r_device->is_log,ENT_XML1 || ENT_NOQUOTES);
@@ -586,7 +590,7 @@ class co_zpool_info {
 			$a_row = [];
 			$retval = 0;
 			mwexec2($cmd,$a_row,$retval);
-//			amend pool
+//			amend pool details
 			foreach($a_pool as $r_pool):
 //				add spares
 				$n_spare = 0;
@@ -604,12 +608,19 @@ class co_zpool_info {
 							if($n_spare === strlen($a_match[1][0])):
 								$spare = htmlspecialchars($a_match[2][0],ENT_XML1,'UTF-8');
 								$dev_spare = sprintf('/dev/%s',$spare);
-								$guid = uuid(); // to collect guid run zdb -l $dev_spare
+//								temporary ID, to collect guid run zdb -l $dev_spare
+								$guid = uuid::create_v4();
 								$child_root = $spares_root->addChild('children');
 								$child_root->addChild('type','disk'); // it is not confirmed that the spare device is a disk
 								$child_root->addChild('guid',$guid);
-								$child_root->addChild('path',$dev_spare);
-								$child_root->addChild('phys_path',$dev_spare);
+								if(is_numeric($spare[0])):
+//									assuming string is a GUID if it starts with a digit
+									$child_root->addChild('path',$spare);
+									$child_root->addChild('phys_path',$spare);
+								else:
+									$child_root->addChild('path',$dev_spare);
+									$child_root->addChild('phys_path',$dev_spare);
+								endif;
 								$child_root->addChild('is_spare','1');
 							endif;
 						else:
@@ -632,11 +643,20 @@ class co_zpool_info {
 						if(preg_match_all('/^\t(\s+)(\S+)/',$r_row,$a_match)):
 							if($n_cache === strlen($a_match[1][0])):
 								$cache = htmlspecialchars($a_match[2][0],ENT_XML1,'UTF-8');
+								$dev_cache = sprintf('/dev/%s',$cache);
+//								temporary ID, to collect guid run zdb -l $dev_cache
+								$guid = uuid::create_v4();
 								$child_root = $caches_root->addChild('children');
 								$child_root->addChild('type','disk'); // it is not confirmed that the spare device is a disk
-								$child_root->addChild('guid',uuid()); // temporary ID
-								$child_root->addChild('path',sprintf('/dev/%s',$cache));
-								$child_root->addChild('phys_path',sprintf('/dev/%s',$cache));
+								$child_root->addChild('guid',$guid);
+								if(is_numeric($cache[0])):
+//									assuming string is a GUID if it starts with a digit
+									$child_root->addChild('path',$cache);
+									$child_root->addChild('phys_path',$cache);
+								else:
+									$child_root->addChild('path',$dev_cache);
+									$child_root->addChild('phys_path',$dev_cache);
+								endif;
 								$child_root->addChild('is_cache','1');
 								$child_root->addChild('x_type','CACHE');
 							endif;
@@ -779,7 +799,7 @@ class co_zpool_info {
 							$tag = $a_matches[1][0];
 						endif;
 						switch($indent_current <=> $indent_previous):
-							case -1: {
+							case -1:
 //								level up, we need to close some tags before we process the line
 //								determine how many levels must be closed
 								$indent_diff = intdiv(($indent_previous - $indent_current),4);
@@ -797,8 +817,8 @@ class co_zpool_info {
 								endif;
 								$indent_previous = $indent_current;
 								break;
-							}
-							case 0: { // same level, check for new objects / tag -> value, create tags
+							case 0:
+//								same level, check for new objects / tag -> value, create tags
 								if($b_val): // it's a tag:value pair
 									$c_xml .= sprintf("<%s>%s</%s>\n",$tag,$val,$tag);
 								else: // it's a new object
@@ -808,8 +828,7 @@ class co_zpool_info {
 								endif;
 								$indent_previous = $indent_current;
 								break;
-							}
-							case 1: {
+							case 1:
 								if($b_val): // it's a tag:value pair
 									$c_xml .= sprintf("<%s>%s</%s>\n",$tag,$val,$tag);
 								else: // it's a new object
@@ -819,7 +838,6 @@ class co_zpool_info {
 								endif;
 								$indent_previous = $indent_current;
 								break;
-							}
 						endswitch;
 					endif;
 				endforeach;
@@ -860,9 +878,15 @@ class co_zpool_info {
 //					it is not confirmed that the spare device is a disk
 					$c_xml .= "<children>\n";
 					$c_xml .= sprintf("<type>%s</type>\n",'disk');
-					$c_xml .= sprintf("<guid>%s</guid>\n",uuid()); // temporary ID
-					$c_xml .= sprintf("<path>%s%s</path>\n",'/dev/',$r_spare); // /dev/ is an assumption
-					$c_xml .= sprintf("<phys_path>%s%s</phys_path>\n",'/dev/',$r_spare);
+					$c_xml .= sprintf("<guid>%s</guid>\n",uuid::create_v4()); // temporary ID
+					if(is_numeric($r_spare[0])):
+						$c_xml .= sprintf("<path>%s</path>\n",$r_spare);
+						$c_xml .= sprintf("<phys_path>%s</phys_path>\n",$r_spare);
+					else:
+//						/dev/ is an assumption
+						$c_xml .= sprintf("<path>%s%s</path>\n",'/dev/',$r_spare);
+						$c_xml .= sprintf("<phys_path>%s%s</phys_path>\n",'/dev/',$r_spare);
+					endif;
 					$c_xml .= sprintf("<is_spare>%s</is_spare>\n",'1');
 					$c_xml .= '</children>';
 				endforeach;
@@ -893,9 +917,15 @@ class co_zpool_info {
 //					it is not confirmed that the cache device is a disk
 					$c_xml .= "<children>\n";
 					$c_xml .= sprintf("<type>%s</type>\n",'disk');
-					$c_xml .= sprintf("<guid>%s</guid>\n",uuid()); // temporary ID
-					$c_xml .= sprintf("<path>%s%s</path>\n",'/dev/',$r_cache);
-					$c_xml .= sprintf("<phys_path>%s%s</phys_path>\n",'/dev/',$r_cache);
+					$c_xml .= sprintf("<guid>%s</guid>\n",uuid::create_v4()); // temporary ID
+					if(is_numeric($r_cache[0])):
+						$c_xml .= sprintf("<path>%s</path>\n",$r_cache);
+						$c_xml .= sprintf("<phys_path>%s</phys_path>\n",$r_cache);
+					else:
+//						/dev/ is an assumption
+						$c_xml .= sprintf("<path>%s%s</path>\n",'/dev/',$r_cache);
+						$c_xml .= sprintf("<phys_path>%s%s</phys_path>\n",'/dev/',$r_cache);
+					endif;
 					$c_xml .= sprintf("<is_cache>%s</is_cache>\n",'1');
 					$c_xml .= sprintf("<x_type>%s</x_type>\n",'CACHE');
 					$c_xml .= '</children>';
