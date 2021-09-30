@@ -1,6 +1,6 @@
 <?php
 /*
-	common\sphere\row.php
+	row.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -34,15 +34,10 @@
 
 namespace common\sphere;
 
-use function implode;
-
 /**
  *	sphere object for row pages
- *	root -> hub -> row
- *	root -> hub -> grid
- *	root -> settings
  */
-final class row extends hub {
+class row extends hub {
 	public function doj(bool $with_envelope = true): string {
 		$output = [];
 		if($with_envelope):

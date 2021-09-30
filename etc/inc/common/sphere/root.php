@@ -34,15 +34,10 @@
 
 namespace common\sphere;
 
-use function calc_enabletogglemode,
-	is_bool,
-	is_null;
+use function calc_enabletogglemode;
 
 /*
  *	sphere top level object for settings, services, row and grid
- *	root -> hub -> row
- *	root -> hub -> grid
- *	root -> settings
  */
 class root {
 	public $grid = [];

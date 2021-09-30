@@ -1,6 +1,6 @@
 <?php
 /*
-	common\sphere\grid.php
+	grid.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -34,18 +34,12 @@
 
 namespace common\sphere;
 
-use function gettext,
-	implode,
-	preg_match,
-	unicode_escape_javascript;
+use function unicode_escape_javascript;
 
 /**
  *	sphere object for grid pages
- *	root -> hub -> row
- *	root -> hub -> grid
- *	root -> settings
  */
-final class grid extends hub {
+class grid extends hub {
 	protected $x_cbm_suffix = '';
 //	checkbox member array
 	protected $x_cbm_name = 'cbm_grid';

@@ -1,6 +1,6 @@
 <?php
 /*
-	common\sphere\scriptname.php
+	scriptname.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -34,12 +34,10 @@
 
 namespace common\sphere;
 
-use function sprintf;
-
 /**
  *	Class containing information about the name of a script
  */
-final class scriptname {
+class scriptname {
 	protected $x_basename;
 	protected $x_extension;
 
