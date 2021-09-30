@@ -36,7 +36,7 @@ namespace gui;
 
 use common\arr;
 
-final class css {
+class css {
 /**
  *	echo css
  *	@global array $config
@@ -45,7 +45,7 @@ final class css {
  *	@param string $cfg_key_filemode The name of the key containing the filemode for the custom css (blank,append,replace) in config > system > webgui.
  *	@param string $vanilla_filename The name of the shipped css file.
  */
-	public final static function render(string $cfg_key_filename,string $cfg_key_filemode,string $vanilla_filename) {
+	public static function render(string $cfg_key_filename,string $cfg_key_filemode,string $vanilla_filename) {
 		global $config,$g;
 
 		header('Content-type: text/css');
