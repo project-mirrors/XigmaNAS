@@ -103,7 +103,8 @@ $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
 			ins_tabnav_record('diag_log.php',gettext('Log'),gettext('Reload page'),true)->
-			ins_tabnav_record('diag_log_settings.php',gettext('Settings'));
+			ins_tabnav_record('diag_log_settings.php',gettext('Settings'))->
+			ins_tabnav_record('diag_log_settings_remote.php',gettext('Remote Syslog Server'));
 $document->render();
 ?>
 <form action="<?=$sphere_scriptname;?>" method="post" id="iform" name="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
