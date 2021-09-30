@@ -31,293 +31,152 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'properties_diag_log_settings.php';
 
-function get_sphere_diag_log_settings() {
-	global $config;
-	$sphere = new co_sphere_row('diag_log_settings','php');
-	$sphere->grid = &array_make_branch($config,'syslogd');
-	array_make_branch($config,'syslogd','remote');
-	return $sphere;
-}
-//	init properties and sphere
-$cop = new properties_diag_log_settings();
-$sphere = get_sphere_diag_log_settings();
+use system\syslog\setting_toolbox as toolbox;
+use system\syslog\shared_toolbox;
+
+//	init indicators
 $input_errors = [];
-$savemsg = '';
-//	request method
-$methods = ['GET','POST'];
-$methods_regexp = sprintf('/^(%s)$/',implode('|',array_map(function($element) { return preg_quote($element,'/'); },$methods)));
-if(array_key_exists('REQUEST_METHOD',$_SERVER)):
-	$method = filter_var($_SERVER['REQUEST_METHOD'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $methods_regexp]]);
-else:
-	$method = NULL;
+//	preset $savemsg when a reboot is pending
+if(file_exists($d_sysrebootreqd_path)):
+	$savemsg = get_std_save_message(0);
 endif;
-//	determine page mode
-$page_mode = PAGE_MODE_VIEW;
-switch($method):
-	case 'POST':
-		$actions = ['edit','save','cancel'];
-		$actions_regexp = sprintf('/^(%s)$/',implode('|',array_map(function($element) { return preg_quote($element,'/'); },$actions)));
-		$action = filter_input(INPUT_POST,'submit',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '','regexp' => $actions_regexp]]);
-		switch($action):
-			case 'edit':
-				$page_mode = PAGE_MODE_EDIT;
+//	init properties, sphere and rmo
+$cop = toolbox::init_properties();
+$sphere = toolbox::init_sphere();
+$rmo = toolbox::init_rmo($cop,$sphere);
+$cops = [
+	$cop->get_disablecomp(),
+	$cop->get_disablesecure(),
+	$cop->get_nentries(),
+	$cop->get_resolve(),
+	$cop->get_reverse()
+];
+$pending_changes = updatenotify_exists($sphere->get_notifier());
+[$page_method,$page_action,$page_mode] = $rmo->validate();
+switch($page_method):
+	case 'SESSION':
+		switch($page_action):
+			case $sphere->get_script()->get_basename():
+				$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
+				unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
+				$savemsg = get_std_save_message($retval);
+				if($retval !== 0):
+					$page_action = 'edit';
+					$page_mode = PAGE_MODE_EDIT;
+				else:
+					$page_action = 'view';
+					$page_mode = PAGE_MODE_VIEW;
+				endif;
 				break;
-			case 'save':
-				$page_mode = PAGE_MODE_POST;
+		endswitch;
+		break;
+	case 'POST':
+		switch($page_action):
+			case 'apply':
+				$retval = 0;
+				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
+				config_lock();
+				$retval |= rc_restart_service('syslogd');
+				config_unlock();
+				$_SESSION['submit'] = $sphere->get_script()->get_basename();
+				$_SESSION[$sphere->get_script()->get_basename()] = $retval;
+				header($sphere->get_script()->get_location());
+				exit;
 				break;
 		endswitch;
 		break;
 endswitch;
-switch($page_mode):
-	case PAGE_MODE_VIEW:
-	case PAGE_MODE_EDIT:
-		$a_referer = [
-			$cop->get_disablecomp(),
-			$cop->get_disablesecure(),
-			$cop->get_resolve(),
-			$cop->get_reverse()
-		];
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->validate_config($sphere->grid);
+//	validate
+switch($page_action):
+	case 'edit':
+	case 'view':
+		$source = $sphere->grid;
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_array_element($source);
+			if(is_null($sphere->row[$name])):
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
+				endif;
+			endif;
 		endforeach;
-		$a_referer = [
-			$cop->get_daemon(),
-			$cop->get_enable(),
-			$cop->get_ftp(),
-			$cop->get_rsyncd(),
-			$cop->get_smartd(),
-			$cop->get_sshd(),
-			$cop->get_system()
-		];
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->validate_config($sphere->grid['remote']);
-		endforeach;
-		$referer = $cop->get_nentries();
-		$referer_name = $referer->get_name();
-		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid);
-		if(is_null($sphere->row[$referer_name])):
-			if(array_key_exists($referer_name,$sphere->grid) && is_scalar($sphere->grid[$referer_name])):
-				$input_errors[] = $referer->get_message_error();
-				$sphere->row[$referer_name] = $sphere->grid[$referer_name];
-			else:
-				$sphere->row[$referer_name] = $referer->get_defaultvalue();
-			endif;
-		endif;
-		$referer = $cop->get_ipaddr();
-		$referer_name = $referer->get_name();
-		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid['remote']);
-		if(is_null($sphere->row[$referer_name])):
-			$throw_error = $sphere->row[$cop->get_enable()->get_name()];
-			if(array_key_exists($referer_name,$sphere->grid['remote']) && is_string($sphere->grid['remote'][$referer_name]) && preg_match('/\S/',$sphere->grid['remote'][$referer_name])):
-				$throw_error = true;
-				$sphere->row[$referer_name] = $sphere->grid['remote'][$referer_name];
-			else:
-				$sphere->row[$referer_name] = $referer->get_defaultvalue();
-			endif;
-			if($throw_error):
-				$input_errors[] = $referer->get_message_error();
-			endif;
-		endif;
-		$referer = $cop->get_port();
-		$referer_name = $referer->get_name();
-		$sphere->row[$referer_name] = $referer->validate_array_element($sphere->grid['remote'],['ui','514','empty']);
-		if(is_null($sphere->row[$referer_name])):
-			if(array_key_exists($referer_name,$sphere->grid['remote']) && is_scalar($sphere->grid['remote'][$referer_name])):
-				$input_errors[] = $referer->get_message_error();
-				$sphere->row[$referer_name] = $sphere->grid['remote'][$referer_name];
-			else:
-				$sphere->row[$referer_name] = $referer->get_defaultvalue();
-			endif;
-		endif;
 		break;
-	case PAGE_MODE_POST:
-		$a_referer = [
-			$cop->get_disablecomp(),
-			$cop->get_disablesecure(),
-			$cop->get_resolve(),
-			$cop->get_reverse(),
-			$cop->get_daemon(),
-			$cop->get_enable(),
-			$cop->get_ftp(),
-			$cop->get_rsyncd(),
-			$cop->get_smartd(),
-			$cop->get_sshd(),
-			$cop->get_system()
-		];
-		foreach($a_referer as $referer):
-			$sphere->row[$referer->get_name()] = $referer->validate_input();
+	case 'save':
+		$source = $_POST;
+		foreach($cops as $cops_element):
+			$name = $cops_element->get_name();
+			$sphere->row[$name] = $cops_element->validate_input();
+			if(is_null($sphere->row[$name])):
+				$input_errors[] = $cops_element->get_message_error();
+				if(array_key_exists($name,$source) && is_scalar($source[$name])):
+					$sphere->row[$name] = $source[$name];
+				else:
+					$sphere->row[$name] = $cops_element->get_defaultvalue();
+				endif;
+			endif;
 		endforeach;
-		$referer = $cop->get_nentries();
-		$referer_name = $referer->get_name();
-		$sphere->row[$referer_name] = $referer->validate_input();
-		if(is_null($sphere->row[$referer_name])):
-			$input_errors[] = $referer->get_message_error();
-			if(array_key_exists($referer_name,$_POST) && is_scalar($_POST[$referer_name])):
-				$sphere->row[$referer_name] = $_POST[$referer_name];
-			else:
-				$sphere->row[$referer_name] = $referer->get_defaultvalue();
-			endif;
-		endif;
-		//	IP address must be valid when remote syslog is enabled
-		//	IP address can be empty or must be valid when remote syslog is disabled
-		$referer = $cop->get_ipaddr();
-		$referer_name = $referer->get_name();
-		$sphere->row[$referer_name] = $referer->validate_input();
-		if(is_null($sphere->row[$referer_name])):
-			$sphere->row[$referer_name] = filter_input(INPUT_POST,$referer_name,FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
-			if($sphere->row[$cop->get_enable()->get_name()] || preg_match('/\S/',$sphere->row[$referer_name])):
-				$input_errors[] = $referer->get_message_error();
-			endif;
-		endif;
-		//	Port must be empty or a valid port number
-		$referer = $cop->get_port();
-		$referer_name = $referer->get_name();
-		$sphere->row[$referer_name] = $referer->validate_input(INPUT_POST,['ui','514','empty']);
-		if(is_null($sphere->row[$referer_name])):
-			$sphere->row[$referer_name] = $referer->validate_input(INPUT_POST,'scalar');
-			$input_errors[] = $referer->get_message_error();
-		endif;
 		if(empty($input_errors)):
-			$a_referer_name = [
-				$cop->get_disablecomp()->get_name(),
-				$cop->get_disablesecure()->get_name(),
-				$cop->get_nentries()->get_name(),
-				$cop->get_resolve()->get_name(),
-				$cop->get_reverse()->get_name()
-			];
-			foreach($a_referer_name as $referer_name):
-				$sphere->grid[$referer_name] = $sphere->row[$referer_name];
-			endforeach;
-			$a_referer_name = [
-				$cop->get_daemon()->get_name(),
-				$cop->get_enable()->get_name(),
-				$cop->get_ftp()->get_name(),
-				$cop->get_ipaddr()->get_name(),
-				$cop->get_port()->get_name(),
-				$cop->get_rsyncd()->get_name(),
-				$cop->get_smartd()->get_name(),
-				$cop->get_sshd()->get_name(),
-				$cop->get_system()->get_name()
-			];
-			foreach($a_referer_name as $referer_name):
-				$sphere->grid['remote'][$referer_name] = $sphere->row[$referer_name];
-			endforeach;
+			$sphere->upsert();
 			write_config();
-			$retval = 0;
-			if(!file_exists($d_sysrebootreqd_path)):
-				config_lock();
-				$retval = rc_restart_service('syslogd');
-				config_unlock();
-			endif;
-			$savemsg = get_std_save_message($retval);
-			$page_mode = PAGE_MODE_VIEW;
+			updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,'SERVICE',$sphere->get_notifier_processor());
+			header($sphere->get_script()->get_location());
+			exit;
 		else:
 			$page_mode = PAGE_MODE_EDIT;
 		endif;
 		break;
 endswitch;
 //	determine final page mode and calculate readonly flag
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
-//	prepare additional javascript code
-$jcode = [];
-if(is_bool($test = $config['system']['showdisabledsections'] ?? false) ? $test : true):
-	$jcode[PAGE_MODE_EDIT] = NULL;
-	$jcode[PAGE_MODE_VIEW] = NULL;
-else:
-	$jcode[PAGE_MODE_EDIT] = <<<EOJ
-$(document).ready(function() {
-	$('#{$cop->get_enable()->get_id()}').change(function() {
-		switch(this.checked) {
-			case true:
-				$('#{$cop->get_ipaddr()->get_id()}_tr').show();
-				$('#{$cop->get_port()->get_id()}_tr').show();
-				$('#{$cop->get_system()->get_id()}_tr').show();
-				$('#{$cop->get_ftp()->get_id()}_tr').show();
-				$('#{$cop->get_rsyncd()->get_id()}_tr').show();
-				$('#{$cop->get_sshd()->get_id()}_tr').show();
-				$('#{$cop->get_smartd()->get_id()}_tr').show();
-				$('#{$cop->get_daemon()->get_id()}_tr').show();
-				break;
-			case false:
-				$('#{$cop->get_daemon()->get_id()}_tr').hide();
-				$('#{$cop->get_smartd()->get_id()}_tr').hide();
-				$('#{$cop->get_sshd()->get_id()}_tr').hide();
-				$('#{$cop->get_rsyncd()->get_id()}_tr').hide();
-				$('#{$cop->get_ftp()->get_id()}_tr').hide();
-				$('#{$cop->get_system()->get_id()}_tr').hide();
-				$('#{$cop->get_port()->get_id()}_tr').hide();
-				$('#{$cop->get_ipaddr()->get_id()}_tr').hide();
-				break;
-        }
-    });
-	$('#{$cop->get_enable()->get_id()}').change();
-});
-EOJ;
-	$jcode[PAGE_MODE_VIEW] = $jcode[PAGE_MODE_EDIT];
-endif;
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
+$input_errors_found = count($input_errors) > 0;
 //	create document
-$document = new_page([gettext('Diagnostics'),gettext('Log'),gettext('Settings')],$sphere->get_scriptname());
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname());
+//	add tab navigation
+shared_toolbox::add_tabnav($document);
 //	get areas
 $body = $document->getElementById('main');
 $pagecontent = $document->getElementById('pagecontent');
-//	add additional javascript code
-if(isset($jcode[$page_mode])):
-	$body->ins_javascript($jcode[$page_mode]);
-endif;
-//	add tab navigation
-$document->
-	add_area_tabnav()->
-		add_tabnav_upper()->
-			ins_tabnav_record('diag_log.php',gettext('Log'))->
-			ins_tabnav_record('diag_log_settings.php',gettext('Settings'),gettext('Reload page'),true);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 $content->
 	ins_input_errors($input_errors)->
-	ins_info_box($savemsg);
+	ins_info_box($savemsg)->
+	ins_error_box($errormsg);
+if($pending_changes && !$input_errors_found):
+	$content->ins_config_has_changed_box();
+endif;
 //	add content
 $content->
 	add_table_data_settings()->
 		ins_colgroup_data_settings()->
+		push()->
 		addTHEAD()->
 			c2_titleline(gettext('Log Settings'))->
-			parentNode->
+		pop()->
 		addTBODY()->
-			c2_checkbox($cop->get_reverse(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_nentries(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_resolve(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_disablecomp(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_disablesecure(),$sphere,false,$is_readonly);
-$content->
-	add_table_data_settings()->
-		ins_colgroup_data_settings()->
-		addTHEAD()->
-			c2_separator()->
-			c2_titleline_with_checkbox($cop->get_enable(),$sphere,false,$is_readonly,gettext('Remote Syslog Server'))->
-			parentNode->
-		addTBODY()->
-			c2_input_text($cop->get_ipaddr(),$sphere,false,$is_readonly)->
-			c2_input_text($cop->get_port(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_system(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_ftp(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_rsyncd(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_sshd(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_smartd(),$sphere,false,$is_readonly)->
-			c2_checkbox($cop->get_daemon(),$sphere,false,$is_readonly);
+			c2($cop->get_reverse(),$sphere,false,$is_readonly)->
+			c2($cop->get_nentries(),$sphere,false,$is_readonly)->
+			c2($cop->get_resolve(),$sphere,false,$is_readonly)->
+			c2($cop->get_disablecomp(),$sphere,false,$is_readonly)->
+			c2($cop->get_disablesecure(),$sphere,false,$is_readonly);
 //	add buttons
+$buttons = $document->add_area_buttons();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
-		$document->add_area_buttons()->ins_button_edit();
+		$buttons->ins_button_edit();
 		break;
 	case PAGE_MODE_EDIT:
-		$document->add_area_buttons()->ins_button_save()->ins_button_cancel();
+		$buttons->ins_button_save();
+		$buttons->ins_button_cancel();
 		break;
 endswitch;
-//	done
+//	showtime
 $document->render();
