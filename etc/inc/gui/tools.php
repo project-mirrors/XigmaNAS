@@ -1003,7 +1003,7 @@ EOJ;
 		$n_cols = $property->get_cols();
 		if(is_null($n_cols)):
 //			default number of columns
-			$textarea_attributes['cols'] = 65;
+			$textarea_attributes['cols'] = 60;
 		elseif($n_cols > 0):
 			$textarea_attributes['cols'] = $n_cols;
 		endif;
