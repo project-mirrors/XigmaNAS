@@ -134,3 +134,5 @@ usr/local/www/services_dynamicdns.php
 # 8293
 usr/local/bin/python3.6
 usr/local/lib/libpython3.6m.so.1.0
+# 8690
+etc/inc/properties_diag_log_settings.php
