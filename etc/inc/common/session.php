@@ -1,0 +1,165 @@
+<?php
+/*
+	session.php
+
+	Part of XigmaNAS® (https://www.xigmanas.com).
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+	All rights reserved.
+
+	Redistribution and use in source and binary forms, with or without
+	modification, are permitted provided that the following conditions are met:
+
+	1. Redistributions of source code must retain the above copyright notice, this
+	   list of conditions and the following disclaimer.
+
+	2. Redistributions in binary form must reproduce the above copyright notice,
+	   this list of conditions and the following disclaimer in the documentation
+	   and/or other materials provided with the distribution.
+
+	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+	WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+	ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+	(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+	LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+	ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+	(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+	SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+	The views and conclusions contained in the software and documentation are those
+	of the authors and should not be interpreted as representing official policies
+	of XigmaNAS®, either expressed or implied.
+ */
+
+namespace common;
+
+class session {
+/**
+ *	Initialize default session variables.
+ */
+	private static function _init() {
+		session_regenerate_id(true);
+		$_SESSION['login'] = true;
+		$_SESSION['authtoken'] = bin2hex(random_bytes(32));
+		$_SESSION['ts'] = time();
+		$_SESSION['g'] = [
+			'shrinkpageheader' => false,
+			'headermenu' => []
+		];
+	}
+/**
+ *	Start session.
+ *	@return bool
+ */
+	public static function start(): bool {
+		switch(session_status()):
+			case PHP_SESSION_NONE:
+				$success = session_start();
+				if($success):
+					$_SESSION['at'] = time();
+				else:
+					die("Houston, we've had a problem here.");
+				endif;
+				break;
+			case PHP_SESSION_ACTIVE:
+				$success = true;
+				break;
+//			case PHP_SESSION_DISABLED:
+			default:
+				die("Houston, we've had a problem here.");
+				break;
+		endswitch;
+		return $success;
+	}
+/**
+ *	Destroy session.
+ */
+	public static function destroy(): bool {
+ 		if(session_status() === PHP_SESSION_ACTIVE):
+			$success = session_destroy();
+		else:
+			$success = true;
+		endif;
+		return $success;
+	}
+/**
+ *	Initialize user.
+ *	@param uid The user ID.
+ *	@param uname The user name.
+ */
+	public static function initUser($uid,$uname,bool $admin = false) {
+		static::_init();
+		$_SESSION['uid'] = $uid;
+		$_SESSION['uname'] = $uname;
+		$_SESSION['admin'] = $admin;
+	}
+/**
+ *	Has the current user administration permissions?
+ *	@return true if the current user has administration permissions, otherwise false.
+ */
+	public static function isAdmin() {
+		if(!isset($_SESSION['admin']) || !$_SESSION['admin']):
+			return false;
+		endif;
+		return true;
+	}
+/**
+ *	Is the login flag set?
+ */
+	public static function isLogin() {
+		if(!isset($_SESSION['login']) || !$_SESSION['login']):
+			return false;
+		endif;
+	 	return $_SESSION['login'];
+	}
+/**
+ *	Validate the given token.
+ *	@param authtoken The token to be validated.
+ *	@return true if the token is valid, otherwise false.
+ */
+	public static function isValidAuthToken($authtoken) {
+		if(!isset($_SESSION['authtoken']) || !$_SESSION['authtoken']):
+			return false;
+		endif;
+		return hash_equals($_SESSION['authtoken'],$authtoken);
+	}
+/**
+ *	Get the current authentication token.
+ *	@return The current authentication token.
+ */
+	public static function getAuthToken() {
+		return $_SESSION['authtoken'];
+	}
+/**
+ *	Get the current user name.
+ *	@return Returns the current user name, otherwise false.
+ */
+	public static function getUserName() {
+		if(!isset($_SESSION['uname']) || !$_SESSION['uname']):
+			return false;
+		endif;
+	 	return $_SESSION['uname'];
+	}
+/**
+ *	Get the current user ID.
+ *	@return Returns the current user ID, otherwise false.
+ */
+	public static function getUserId() {
+		if(!isset($_SESSION['uid']) || !$_SESSION['uid']):
+			return false;
+		endif;
+	 	return $_SESSION['uid'];
+	}
+}
+/*
+	$_SESSION
+
+	admin	boolean	True when logged in user has admin rights, false otherwise
+	authtoken	string	The authentication token
+	g	array	Global array containing session related information
+	login	boolean	True when user logged in successfully
+	ts	int	Timestamp
+	uname	string	Login name of the user
+	uid	string	User ID
+*/
