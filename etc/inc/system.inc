@@ -38,6 +38,7 @@ require_once 'util.inc';
 require_once 'rc.inc';
 require_once 'zfs.inc';
 
+use common\arr;
 use common\lang;
 
 /**
@@ -141,7 +142,7 @@ function get_supported_language_of(string $language_to_verify): string {
 function get_language_of_webgui(): string {
 	global $config;
 
-	array_make_branch($config,'system');
+	arr::make_branch($config,'system');
 	if(array_key_exists('language',$config['system']) && is_string($config['system']['language'])):
 		$language = get_supported_language_of($config['system']['language']);
 	endif;
@@ -330,22 +331,22 @@ function system_get_cpus() {
  *	@return array
  */
 function system_get_smp_cpu_usage(string $id = '0'): array {
-	$cpus = \rtrim(`sysctl -nq kern.smp.cpus`);
+	$cpus = rtrim(`sysctl -nq kern.smp.cpus`);
 	$var = 'kern.cp_times';
-	$key = \sprintf('%s.%s',$var,$id);
-	$cmd = \sprintf('/sbin/sysctl -nq %s',$var);
+	$key = sprintf('%s.%s',$var,$id);
+	$cmd = sprintf('/sbin/sysctl -nq %s',$var);
 //	get previously stored ticks from session variable, if it doesn't exist, use ticks since boot
 	$c_ticks_1 = $_SESSION[$key] ?? null;
-	$a_ticks_1 = isset($c_ticks_1) ? \explode(' ',$c_ticks_1) : \array_fill(0,$cpus * 5,0);
+	$a_ticks_1 = isset($c_ticks_1) ? explode(' ',$c_ticks_1) : array_fill(0,$cpus * 5,0);
 //	get current ticks and save them in the session variable
-	$_SESSION[$key] = $c_ticks_2 = \rtrim(`{$cmd}`);
-	$a_ticks_2 = \explode(' ',$c_ticks_2);
-	$a_ticks_all = \array_map(fn($a,$b) => \abs($b - $a),$a_ticks_1,$a_ticks_2);
-	$usage = \array_fill_keys(\range(0,$cpus - 1),0);
+	$_SESSION[$key] = $c_ticks_2 = rtrim(`{$cmd}`);
+	$a_ticks_2 = explode(' ',$c_ticks_2);
+	$a_ticks_all = array_map(fn($a,$b) => abs($b - $a),$a_ticks_1,$a_ticks_2);
+	$usage = array_fill_keys(range(0,$cpus - 1),0);
 	for($i = 0;$i < $cpus;$i++):
-		$a_ticks = \array_splice($a_ticks_all,0,5);
+		$a_ticks = array_splice($a_ticks_all,0,5);
 //		CPUSTATES: 0 => user, 1 => nice, 2 => system, 3 => interrupt, 4 => idle
-		$usage[$i] = 100 * ( 1 - $a_ticks[4] / \array_sum($a_ticks));
+		$usage[$i] = 100 * ( 1 - $a_ticks[4] / array_sum($a_ticks));
 	endfor;
 	return $usage;
 }
@@ -356,17 +357,17 @@ function system_get_smp_cpu_usage(string $id = '0'): array {
  */
 function system_get_cpu_usage(string $id = '0'): float {
 	$var = 'kern.cp_time';
-	$key = \sprintf('%s.%s',$var,$id);
-	$cmd = \sprintf('/sbin/sysctl -nq %s',$var);
+	$key = sprintf('%s.%s',$var,$id);
+	$cmd = sprintf('/sbin/sysctl -nq %s',$var);
 //	get previously stored ticks from session variable, if it doesn't exist, use ticks since boot
 	$c_ticks_1 = $_SESSION[$key] ?? null;
-	$a_ticks_1 = isset($c_ticks_1) ? \explode(' ',$c_ticks_1) : \array_fill(0,5,'0');
+	$a_ticks_1 = isset($c_ticks_1) ? explode(' ',$c_ticks_1) : array_fill(0,5,'0');
 //	get current ticks and save them in the session variable
-	$_SESSION[$key] = $c_ticks_2 = \rtrim(`{$cmd}`);
-	$a_ticks_2 = \explode(' ',$c_ticks_2);
-	$a_ticks = \array_map(fn($a,$b) => \abs($b - $a),$a_ticks_1,$a_ticks_2);
+	$_SESSION[$key] = $c_ticks_2 = rtrim(`{$cmd}`);
+	$a_ticks_2 = explode(' ',$c_ticks_2);
+	$a_ticks = array_map(fn($a,$b) => abs($b - $a),$a_ticks_1,$a_ticks_2);
 //	CPUSTATES: 0 => user, 1 => nice, 2 => system, 3 => interrupt, 4 => idle
-	$usage = 100 * ( 1 - $a_ticks[4] / \array_sum($a_ticks));
+	$usage = 100 * ( 1 - $a_ticks[4] / array_sum($a_ticks));
 	return $usage;
 }
 /**
@@ -461,12 +462,13 @@ function get_datetime_locale_samples() {
 	return $retval;
 }
 
-function get_datetime_locale(int $timestamp = null,string $format = NULL) {
+function get_datetime_locale(int $timestamp = null,string $format = null) {
 	global $config;
 
 	$t_timestamp = $timestamp ?? (int)shell_exec('date "+%s"');
 	$t_format = $format ?? $config['system']['datetimeformat'] ?? 'D M d H:i:s T Y';
-	$dto = new DateTime();
+	$tz = $_SESSION['tz'] ?? $config['system']['timezone'] ?? 'UTC';
+	$dto = new DateTime(null,new DateTimeZone($tz));
 	$dto->setTimestamp($t_timestamp);
 	$format_symbols = ['D','l','M','F'];
 	$replacement_symbols = ['%1','%2','%3','%4'];
@@ -574,7 +576,7 @@ function system_get_hostname() {
  * @param[in] device	The device name, e.g. ad1
  * @return	An array containing the I/O statistics kpt (kilobytes per transfer),
  *					tps (transfers per second) and mps (megabytes per second). On
- *					failure, FALSE will be returned.
+ *					failure, false will be returned.
  * @code
  * array(
  *   [kpt] => 11.93
@@ -631,8 +633,8 @@ function system_get_device_temp_grep(string $devicespecialfile): ?string {
 		$result = $_SESSION['dev'][$devicespecialfile]['temp']['value'];
 	endif;
 	if($run_cmd):
-		$cfg_disks = array_make_branch($config,'disks','disk');
-		$index = array_search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
+		$cfg_disks = arr::make_branch($config,'disks','disk');
+		$index = arr::search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
 		if($index !== false):
 			$cfg_disk = $cfg_disks[$index];
 //			compile smartctl command
@@ -696,8 +698,8 @@ function system_get_device_temp_json(string $devicespecialfile): ?string {
 		$run_cmd = false;
 	endif;
 	if($run_cmd):
-		$cfg_disks = array_make_branch($config,'disks','disk');
-		$index = array_search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
+		$cfg_disks = arr::make_branch($config,'disks','disk');
+		$index = arr::search_ex($devicespecialfile,$cfg_disks,'devicespecialfile');
 		if($index !== false):
 			$cfg_disk = $cfg_disks[$index];
 //			compile smartctl command
@@ -792,7 +794,7 @@ function system_get_volume_serial($devicespecialfile) {
 	global $config_disks;
 
 //	try to get serial from S.M.A.R.T.
-	if(\is_array($config_disks) && \array_key_exists($devicespecialfile,$config_disks)):
+	if(is_array($config_disks) && array_key_exists($devicespecialfile,$config_disks)):
 		$smart_arg = get_smartctl_info($config_disks[$devicespecialfile]);
 		if(!empty($smart_arg['serial'])):
 			return $smart_arg['serial'];
@@ -875,7 +877,7 @@ function system_get_mount_usage() {
 
 	$use_si = is_sidisksizevalues();
 	$sphere = [];
-	$a_mount = array_make_branch($config,'mounts','mount');
+	$a_mount = arr::make_branch($config,'mounts','mount');
 	if(count($a_mount) > 0):
 		foreach($a_mount as &$r_mount):
 			$r_mount['fqmn'] = sprintf('%s/%s',$g['media_path'],$r_mount['sharename']);
@@ -1015,7 +1017,7 @@ function get_ups_disp_status($ups_status) {
 function get_upsinfo() {
 	global $config;
 
-	array_make_branch($config,'ups');
+	arr::make_branch($config,'ups');
 	$sphere = [];
 	foreach([1,2] as $ups_index):
 		$row = [];
@@ -1190,7 +1192,7 @@ function get_pool_usage() {
 					$row['vu'] = 0;
 					$row['vf'] = 0;
 					$row['vt'] = $row['vu'] + $row['vf'];
-					$row['vth'] = $row['vuh'] = $row['vfh'] = \gettext('Unknown');
+					$row['vth'] = $row['vuh'] = $row['vfh'] = gettext('Unknown');
 					$row['tt'] = sprintf(gettext('Total: %1$s | Used: %2$s | Available: %3$s'),$row['vth'],$row['vuh'],$row['vfh']);
 				else:
 					$row['vu'] = $r_poolinfo['used'];
@@ -1214,7 +1216,7 @@ function get_pool_usage() {
 			$sphere[] = $row;
 			unset($row);
 		endforeach;
-		array_sort_key($sphere,'name');
+		arr::sort_key($sphere,'name');
 	endif;
 	return $sphere;
 }
@@ -1247,7 +1249,7 @@ function get_swap_usage() {
 			$sphere[] = $row;
 			unset($row);
 		endforeach;
-		array_sort_key($sphere,'name');
+		arr::sort_key($sphere,'name');
 	endif;
 	return $sphere;
 }
@@ -1256,20 +1258,24 @@ function get_swap_usage() {
  *	@return array Array containing system information.
  */
 function system_get_sysinfo() {
+	global $config;
+
 	$sysinfo = [];
-	$sysinfo['vipstatus'] = \get_vip_status();
-	$sysinfo['hostname'] = \system_get_hostname();
-	$sysinfo['date'] = \get_datetime_locale();
-	$sysinfo['uptime'] = \system_get_uptime();
-	$cpuinfo = \system_get_cpu_info();
+	$sysinfo['vipstatus'] = get_vip_status();
+	$sysinfo['hostname'] = system_get_hostname();
+	$sysinfo['builddate'] = get_datetime_locale(get_product_buildtimestamp());
+	$sysinfo['date'] = get_datetime_locale();
+	$sysinfo['uptime'] = system_get_uptime();
+	$sysinfo['lastchange'] = get_datetime_locale($config['lastchange'] ?? 0);
+	$cpuinfo = system_get_cpu_info();
 	$sysinfo['cpumodel'] = $cpuinfo['model'];
 	if(Session::isAdmin()):
 //		get number of CPU's
-		$sysinfo['cpus'] = \system_get_cpus();
+		$sysinfo['cpus'] = system_get_cpus();
 //		get RAM usage
-		$sysinfo['memusage'] = \system_get_ram_info();
+		$sysinfo['memusage'] = system_get_ram_info();
 //		get load average
-		$sysinfo['loadaverage'] = \implode(' ',\array_map(fn($e) => \sprintf('%.2f',$e),\sys_getloadavg()));
+		$sysinfo['loadaverage'] = implode(' ',array_map(fn($e) => sprintf('%.2f',$e),sys_getloadavg()));
 //		get up-to-date CPU informations.
 		$sysinfo['cpufreq'] = $cpuinfo['freq'];
 //		get CPU temperatures
@@ -1281,7 +1287,7 @@ function system_get_sysinfo() {
 		endif;
 		$row = [];
 		$row['vu'] = $cpu_t;
-		$row['vuh'] = \sprintf('%u°C',$row['vu']);
+		$row['vuh'] = sprintf('%u°C',$row['vu']);
 		$row['tu'] = $row['vuh'];
 		$sysinfo['cputemp'] = $row;
 		unset($row);
@@ -1289,24 +1295,24 @@ function system_get_sysinfo() {
 		foreach($a_cpu_t as $k_cpu_t => $r_cpu_t):
 			$row = [];
 			$row['vu'] = $r_cpu_t;
-			$row['vuh'] = \sprintf('%u°C',$row['vu']);
+			$row['vuh'] = sprintf('%u°C',$row['vu']);
 			$row['tu'] = $row['vuh'];
 			$sysinfo['cputemp2'][$k_cpu_t] = $row;
 			unset($row);
 		endforeach;
 //		get CPU usage
 		if($sysinfo['cpus'] > 1):
-			$a_cpu_u = \system_get_smp_cpu_usage('system_get_sysinfo');
-			$cpu_u = \floor(\array_sum($a_cpu_u) / $sysinfo['cpus']);
+			$a_cpu_u = system_get_smp_cpu_usage('system_get_sysinfo');
+			$cpu_u = floor(array_sum($a_cpu_u) / $sysinfo['cpus']);
 		else:
-			$cpu_u = \system_get_cpu_usage('system_get_sysinfo');
+			$cpu_u = system_get_cpu_usage('system_get_sysinfo');
 			$a_cpu_u = [$cpu_u];
 		endif;
 		$row = [];
 		$row['pu'] = $cpu_u;
 		$row['pf'] = 100 - $row['pu'];
-		$row['puh'] = \sprintf('%u%%',$row['pu']);
-		$row['pfh'] = \sprintf('%u%%',$row['pf']);
+		$row['puh'] = sprintf('%u%%',$row['pu']);
+		$row['pfh'] = sprintf('%u%%',$row['pf']);
 		$row['tu'] = $row['puh'];
 		$row['tf'] = $row['pfh'];
 		$row['tt'] = $row['puh'];
@@ -1317,8 +1323,8 @@ function system_get_sysinfo() {
 			$row = [];
 			$row['pu'] = $r_cpu_u;
 			$row['pf'] = 100 - $row['pu'];
-			$row['puh'] = \sprintf('%u%%',$row['pu']);
-			$row['pfh'] = \sprintf('%u%%',$row['pf']);
+			$row['puh'] = sprintf('%u%%',$row['pu']);
+			$row['pfh'] = sprintf('%u%%',$row['pf']);
 			$row['tu'] = $row['puh'];
 			$row['tf'] = $row['pfh'];
 			$row['tt'] = $row['tu'];
@@ -1326,11 +1332,11 @@ function system_get_sysinfo() {
 			unset($row);
 		endforeach;
 //		get storage usage
-		$sysinfo['diskusage'] = \get_disk_usage();
-		$sysinfo['poolusage'] = \get_pool_usage();
-		$sysinfo['swapusage'] = \get_swap_usage();
+		$sysinfo['diskusage'] = get_disk_usage();
+		$sysinfo['poolusage'] = get_pool_usage();
+		$sysinfo['swapusage'] = get_swap_usage();
 //		get UPS status
-		$sysinfo['upsinfo'] = \get_upsinfo();
+		$sysinfo['upsinfo'] = get_upsinfo();
 	endif;
 	return $sysinfo;
 }
