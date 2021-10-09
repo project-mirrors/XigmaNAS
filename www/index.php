@@ -35,10 +35,11 @@
 //	configure page permission
 $pgperm['allowuser'] = true;
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
+use common\arr;
 use gui\document;
 
 $use_meter_tag = calc_showcolorfulmeter();
@@ -49,7 +50,7 @@ else:
 endif;
 $pgtitle = [gtext('System Information')];
 $pgtitle_omit = true;
-array_make_branch($config,'vinterfaces','carp');
+arr::make_branch($config,'vinterfaces','carp');
 $sysinfo = system_get_sysinfo();
 if(is_ajax()):
 	render_ajax($sysinfo);
@@ -295,7 +296,7 @@ function render_poolusage() {
 		if($sphere_elements > 0):
 			echo '<tr>','<td class="celltag">',gtext('Pool Space Usage'),'</td>','<td class="celldata">','<table class="area_data_settings">','<tbody>';
 			$index = 0;
-			$zfs_settings = &array_make_branch($config,'zfs','settings');
+			$zfs_settings = &arr::make_branch($config,'zfs','settings');
 			if(array_key_exists('capacity_warning',$zfs_settings)):
 				$zfs_warning = filter_var($zfs_settings['capacity_warning'],FILTER_VALIDATE_INT,['options' => ['default' => 80,'min' => 80,'max' => 89]]);
 			else:
@@ -331,7 +332,7 @@ function render_poolusage() {
 				endif;
 				echo '<br />';
 				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
-				echo '<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
+				echo '<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
 				echo '</div></td></tr>';
 				$index++;
 				if($index < $sphere_elements):
@@ -438,11 +439,17 @@ $(document).ready(function(){
 		if($('#vipstatus').length) {
 			$('#vipstatus').text(data.vipstatus);
 		}
-		if($('#system_uptime').length) {
-			$('#system_uptime').text(data.uptime);
+		if($('#builddate').length) {
+			$('#builddate').text(data.builddate);
 		}
 		if($('#system_datetime').length) {
 			$('#system_datetime').text(data.date);
+		}
+		if($('#system_uptime').length) {
+			$('#system_uptime').text(data.uptime);
+		}
+		if($('#last_config_change').length) {
+			$('#last_config_change').text(data.lastchange);
 		}
 		if($('#memusagev').length) {
 			$('#memusagev').attr({value:data.memusage.pu,title:data.memusage.tu});
@@ -710,7 +717,7 @@ $(document).ready(function(){
 			endif;
 			html_textinfo2('hostname',gettext('Hostname'),$sysinfo['hostname']);
 			html_textinfo2('version',gettext('Version'),sprintf('<strong>%s %s</strong> (%s %s)',get_product_version(),get_product_versionname(),gettext('revision'),get_product_revision()));
-			html_textinfo2('builddate',gettext('Compiled'),get_datetime_locale(get_product_buildtimestamp()));
+			html_textinfo2('builddate',gettext('Compiled'),$sysinfo['builddate']);
 			exec('/sbin/sysctl -n kern.version',$osversion);
 			html_textinfo2('platform_os',gettext('Platform OS'),sprintf('%s',$osversion[0]));
 			html_textinfo2('platform',gettext('Platform'),sprintf(gettext('%s on %s'),$g['fullplatform'],$sysinfo['cpumodel']));
@@ -726,7 +733,7 @@ $(document).ready(function(){
 			html_textinfo2('system_uptime',gettext('System Uptime'),$sysinfo['uptime']);
 			if(Session::isAdmin()):
 				if($config['lastchange']):
-					html_textinfo2('last_config_change',gettext('System Config Change'),get_datetime_locale($config['lastchange']));
+					html_textinfo2('last_config_change',gettext('System Config Change'),$sysinfo['lastchange']);
 				endif;
 				if(empty($sysinfo['cputemp2'])):
 					if(!empty($sysinfo['cputemp'])):
@@ -805,7 +812,7 @@ $(document).ready(function(){
 										$vncport = $vminfo['vrdeport']['value'];
 										echo htmlspecialchars(sprintf('%s:%s',$vbox_ipaddr,$vncport));
 									endif;
-									echo '</td></tr>',PHP_EOL;
+									echo '</td></tr>',"\n";
 									if(++$index < count($vmlist2)):
 										echo '<tr><td class="nopad"><hr /></td></tr>';
 									endif;
