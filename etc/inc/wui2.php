@@ -878,22 +878,8 @@ class HTMLMountComboBox2 extends HTMLComboBox2 {
 }
 class HTMLTimeZoneComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
-//		get time zone data.
-		function is_timezone($elt) {
-			return !preg_match("/\/$/",$elt);
-		}
-		exec('/usr/bin/tar -tf /usr/share/zoneinfo.txz',$timezonelist);
-		$timezonelist = array_filter($timezonelist,'is_timezone');
-		sort($timezonelist);
-//		generate options.
-		$options = [];
-		foreach($timezonelist as $tzv):
-			if(!empty($tzv)):
-//				Remove leading './'
-				$tzv = substr($tzv,2);
-				$options[$tzv] = $tzv;
-			endif;
-		endforeach;
+		$keyval = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
+		$options = array_combine($keyval,$keyval);
 		parent::__construct($ctrlname,$title,$value,$options,$description);
 	}
 }
