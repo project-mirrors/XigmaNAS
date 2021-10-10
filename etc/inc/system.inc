@@ -563,10 +563,15 @@ function get_datetime_locale_samples() {
 function get_datetime_locale(int $timestamp = null,string $format = null) {
 	global $config;
 
-	$t_timestamp = $timestamp ?? (int)shell_exec('date "+%s"');
+	$t_timestamp = $timestamp ?? time();
 	$t_format = $format ?? $config['system']['datetimeformat'] ?? 'D M d H:i:s T Y';
 	$tz = $_SESSION['tz'] ?? $config['system']['timezone'] ?? 'UTC';
-	$dto = new DateTime(null,new DateTimeZone($tz));
+	try {
+        $dtz = new DateTimeZone($tz);
+	} catch(Exception $e) {
+        $dtz = new DateTimeZone('UTC');
+	}
+	$dto = new DateTime(null,$dtz);
 	$dto->setTimestamp($t_timestamp);
 	$format_symbols = ['D','l','M','F'];
 	$replacement_symbols = ['%1','%2','%3','%4'];
