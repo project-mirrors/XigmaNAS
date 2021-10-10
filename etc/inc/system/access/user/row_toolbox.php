@@ -42,7 +42,7 @@ use common\toolbox as myt;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox extends myt\row_toolbox {
+class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config

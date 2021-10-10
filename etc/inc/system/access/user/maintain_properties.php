@@ -36,7 +36,7 @@ namespace system\access\user;
 
 use common\properties as myp;
 
-final class maintain_properties extends row_properties {
+class maintain_properties extends row_properties {
 	public function init_name(): myp\property_text {
 		$property = parent::init_name();
 		$property->

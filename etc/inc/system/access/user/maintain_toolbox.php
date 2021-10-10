@@ -44,7 +44,7 @@ use const PAGE_MODE_POST;
 /**
  *	Wrapper class for autoloading functions
  */
-final class maintain_toolbox extends myt\maintain_toolbox {
+class maintain_toolbox extends myt\maintain_toolbox {
 /**
  *	Create the sphere object
  *	@global array $config
