@@ -37,6 +37,7 @@ require_once 'config.inc';
 
 use common\arr;
 use common\lang;
+use common\timezone;
 use common\uuid;
 use gui\document;
 
@@ -878,8 +879,7 @@ class HTMLMountComboBox2 extends HTMLComboBox2 {
 }
 class HTMLTimeZoneComboBox2 extends HTMLComboBox2 {
 	function __construct($ctrlname,$title,$value,$description) {
-		$keyval = DateTimeZone::listIdentifiers(DateTimeZone::ALL);
-		$options = array_combine($keyval,$keyval);
+		$options = timezone::get_timezones_for_select();
 		parent::__construct($ctrlname,$title,$value,$options,$description);
 	}
 }
