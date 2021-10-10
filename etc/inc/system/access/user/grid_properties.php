@@ -180,6 +180,18 @@ class grid_properties extends myp\container_row {
 	final public function get_language(): myp\property_list {
 		return $this->x_language ?? $this->init_language();
 	}
+	protected $x_timezone;
+	public function init_timezone(): myp\property_list {
+		$title = gettext('Timezone');
+		$property = $this->x_timezone = new myp\property_list();
+		$property->
+			set_name('timezone')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_timezone(): myp\property_list {
+		return $this->x_timezone ?? $this->init_timezone();
+	}
 	protected $x_fm_enable;
 	public function init_fm_enable(): myp\property_bool {
 		$title = gettext('File Manager Access');
