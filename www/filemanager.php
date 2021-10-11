@@ -40,12 +40,17 @@
 ------------------------------------------------------------------------------*/
 $pgperm['allowuser'] = true;
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+use common\arr;
+
 //	check if service is enabled
-$sphere = array_make_branch($config,'system');
-if(is_bool($test = $sphere['disablefm'] ?? false) ? $test : true):
+$sphere = arr::make_branch($config,'system');
+$test = $sphere['disablefm'] ?? false;
+$disablefm = is_bool($test) ? $test : true;
+if($disablefm):
 	http_response_code(403);
 	Session::destroy();
 	exit;
