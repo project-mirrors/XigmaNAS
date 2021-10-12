@@ -34,6 +34,30 @@
 
 namespace common;
 
+/*
+	$_SESSION
+
+	access.hidesystemgroups -> boolean Hide/show system groups in Access > Groups
+	access.hidesystemusers --> boolean Hide/Show system users in Access > Users
+	admin -------------------> boolean True when logged in user has admin rights, false otherwise
+	at ----------------------> int     Timestamp
+	authtoken ---------------> string  The authentication token
+	cpu ---------------------> array
+	dev ---------------------> array
+	filter_time_id ----------> string  Filter for snapshot overview in disks_zfs_snapshot.php
+	g -----------------------> array   Global array containing session related information
+		headermenu ----------> array   Cache for header menu
+		shrinkpageheader ----> boolean Set this to true to suppress the header
+	login -------------------> boolean True when user logged in successfully
+	{scriptname} ------------> int     Return value of 'Apply' action
+	submit ------------------> string  Name of the script submitting the form
+	ts ----------------------> int     Timestamp
+	tz ----------------------> string  Timezone
+	uid ---------------------> string  User ID
+	uname -------------------> string  Login name of the user
+	userlang ----------------> string  Language
+*/
+
 class session {
 /**
  *	Initialize default session variables.
@@ -88,11 +112,12 @@ class session {
  *	@param uid The user ID.
  *	@param uname The user name.
  */
-	public static function initUser($uid,$uname,bool $admin = false) {
+	public static function initUser($uid,$uname,bool $admin = false,$timezone = null) {
 		static::_init();
 		$_SESSION['uid'] = $uid;
 		$_SESSION['uname'] = $uname;
 		$_SESSION['admin'] = $admin;
+		$_SESSION['tz'] = $timezone;
 	}
 /**
  *	Has the current user administration permissions?
@@ -152,14 +177,3 @@ class session {
 	 	return $_SESSION['uid'];
 	}
 }
-/*
-	$_SESSION
-
-	admin	boolean	True when logged in user has admin rights, false otherwise
-	authtoken	string	The authentication token
-	g	array	Global array containing session related information
-	login	boolean	True when user logged in successfully
-	ts	int	Timestamp
-	uname	string	Login name of the user
-	uid	string	User ID
-*/
