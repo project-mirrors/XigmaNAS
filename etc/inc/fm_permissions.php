@@ -1,6 +1,6 @@
 <?php
 /*
-	permissions.php
+	fm_permissions.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -35,8 +35,8 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-require_once 'session.inc';
 require_once 'autoload.php';
+require_once 'session.inc';
 
 use common\arr;
 
@@ -57,47 +57,53 @@ use common\arr;
 function permissions_grant(string $dir = null,string $file = null,string $action = '') {
 	global $config;
 
-	$user = Session::getUserName();
-	if($user !== false):
-		$sphere = arr::make_branch($config,'access','user');
-//		lookup user
-		$sphere_rowid = arr::search_ex($user,$sphere,'login');
-		if($sphere_rowid !== false):
-			$sphere_row = $sphere[$sphere_rowid];
-//			verify that user is permitted to use file manager
-			if(is_bool($test = $sphere_row['fm_enable'] ?? false) ? $test : true):
-				switch($action):
-					case 'read':
-						return(is_bool($test = $sphere_row['fmp_read'] ?? false) ? $test : true);
-						break;
-					case 'create':
-						return(is_bool($test = $sphere_row['fmp_create'] ?? false) ? $test : true);
-						break;
-					case 'change':
-						return(is_bool($test = $sphere_row['fmp_change'] ?? false) ? $test : true);
-						break;
-					case 'delete':
-						return(is_bool($test = $sphere_row['fmp_delete'] ?? false) ? $test : true);
-						break;
-					case 'copy':
-						return(
-							(is_bool($test = $sphere_row['fmp_read'] ?? false) ? $test : true)
-							&&
-							(is_bool($test = $sphere_row['fmp_create'] ?? false) ? $test : true)
-						);
-						break;
-					case 'move':
-						return(is_bool($test = $sphere_row['fmp_change'] ?? false) ? $test : true);
-						break;
-					default:
-//						unknown action
-						return false;
-						break;
-				endswitch;
+	$has_permission = false;
+	if(Session::isAdmin()):
+		$has_permission = true;
+	else:
+		$user = Session::getUserName();
+		if($user !== false):
+			$sphere = arr::make_branch($config,'access','user');
+//			lookup user
+			$sphere_rowid = arr::search_ex($user,$sphere,'login');
+			if($sphere_rowid !== false):
+				$sphere_row = $sphere[$sphere_rowid];
+//				verify that user is permitted to use file manager
+				$test = $sphere_row['fm_enable'] ?? false;
+				$is_enabled = is_bool($test) ? $test : true;
+				if($is_enabled):
+					switch($action):
+						case 'read':
+							$test = $sphere_row['fmp_read'] ?? false;
+							$has_permission = is_bool($test) ? $test : true;
+							break;
+						case 'create':
+							$test = $sphere_row['fmp_create'] ?? false;
+							$has_permission = is_bool($test) ? $test : true;
+							break;
+						case 'change':
+							$test = $sphere_row['fmp_change'] ?? false;
+							$has_permission = is_bool($test) ? $test : true;
+							break;
+						case 'delete':
+							$test = $sphere_row['fmp_delete'] ?? false;
+							$has_permission = is_bool($test) ? $test : true;
+							break;
+						case 'copy':
+							$test = $test = $sphere_row['fmp_read'] ?? false;
+							$fmp_read = is_bool($test) ? $test : true;
+							$test = $sphere_row['fmp_create'] ?? false;
+							$fmp_create = is_bool($test) ? $test : true;
+							$has_permission = $fmp_read && $fmp_create;
+							break;
+						case 'move':
+							$test = $sphere_row['fmp_change'] ?? false;
+							$has_permission = is_bool($test) ? $test : true;
+							break;
+					endswitch;
+				endif;
 			endif;
-		elseif(Session::isAdmin()):
-			return true;
 		endif;
 	endif;
-	return false;
+	return $has_permission;
 }
