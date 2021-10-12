@@ -37,12 +37,12 @@ require_once 'globals.inc';
 require_once 'util.inc';
 require_once 'xmlparse.inc';
 require_once 'system.inc';
-require_once 'array.inc';
 require_once 'rc.inc';
 require_once 'tui.inc';
 require_once 'disks.inc';
 
 use common\arr;
+use common\uuid;
 
 //	Get product information
 $productname = get_product_name();
@@ -65,7 +65,7 @@ if(is_booting()):
 //	check if there's already an fstab ('full' release booting?)
 	if(!file_exists("{$g['etc_path']}/fstab")):
 //		display platform type.
-		echo "Booting platform: {$g['platform']}",PHP_EOL;
+		echo "Booting platform: {$g['platform']}","\n";
 		echo 'Looking for configuration file:';
 //		get list of kernel known disks
 		$disks = explode(' ',exec('/sbin/sysctl -q -n kern.disks'));
@@ -129,8 +129,8 @@ if(is_booting()):
 				endif;
 			endforeach;
 //			display device information used to store the configuration
-			echo PHP_EOL;
-			echo "Using device=/dev/{$cfgpartition} fstype={$cfgfstype} to store configuration.",PHP_EOL;
+			echo "\n";
+			echo "Using device=/dev/{$cfgpartition} fstype={$cfgfstype} to store configuration.","\n";
 		else:
 			$bootdevice = get_bootdevice();
 			if(!empty($bootdevice)):
@@ -155,7 +155,8 @@ if(is_booting()):
 //				display progress...
 				echo " {$disk}";
 //				try to mount device using UFS
-				if(0 == mwexec("/sbin/mount -r /dev/{$disk}s1a {$g['cf_path']}")): // Search on slice 1
+				if(mwexec("/sbin/mount -r /dev/{$disk}s1a {$g['cf_path']}") == 0):
+//					Search on slice 1
 					if(file_exists("{$g['cf_conf_path']}/config.xml")):
 						$cfgdevice = $disk;
 						$cfgpartition = "{$cfgdevice}s1a";
@@ -163,7 +164,8 @@ if(is_booting()):
 					endif;
 //					unmount device
 					mwexec("/sbin/umount -f {$g['cf_path']}");
-				elseif(0 == mwexec("/sbin/mount -r /dev/{$disk}p2 {$g['cf_path']}")): // Search on GPT/p2
+				elseif(mwexec("/sbin/mount -r /dev/{$disk}p2 {$g['cf_path']}") == 0):
+//					Search on GPT/p2
 					if(file_exists("{$g['cf_conf_path']}/config.xml")):
 						$cfgdevice = $disk;
 						$cfgpartition = "{$cfgdevice}p2";
@@ -171,7 +173,8 @@ if(is_booting()):
 					endif;
 //					unmount device
 					mwexec("/sbin/umount -f {$g['cf_path']}");
-				elseif(0 == mwexec("/sbin/mount -r /dev/{$disk}a {$g['cf_path']}")): // Search on partition 'a'
+				elseif(mwexec("/sbin/mount -r /dev/{$disk}a {$g['cf_path']}") == 0):
+//					Search on partition 'a'
 					if(file_exists("{$g['cf_conf_path']}/config.xml")):
 						$cfgdevice = $disk;
 						$cfgpartition = "{$cfgdevice}a";
@@ -235,20 +238,20 @@ if(is_booting()):
 				endforeach;
 			endif;
 //			display device information where configuration is found
-			echo PHP_EOL;
+			echo "\n";
 			if($cfgdevice):
-				echo "Found configuration on device=/dev/{$cfgpartition} fstype={$cfgfstype}.",PHP_EOL;
+				echo "Found configuration on device=/dev/{$cfgpartition} fstype={$cfgfstype}.","\n";
 			endif;
 		endif;
 		if(!$cfgdevice):
 //			no device found, print an error and die
-			echo PHP_EOL;
-			echo "*******************************************************************************",PHP_EOL;
-			echo "FATAL ERROR!",PHP_EOL;
-			echo "The device that contains the configuration file (config.xml) could not be",PHP_EOL;
-			echo "found. {$productname} cannot continue booting.",PHP_EOL;
-			echo "*******************************************************************************",PHP_EOL;
-			echo PHP_EOL;
+			echo "\n";
+			echo "*******************************************************************************","\n";
+			echo "FATAL ERROR!","\n";
+			echo "The device that contains the configuration file (config.xml) could not be","\n";
+			echo "found. {$productname} cannot continue booting.","\n";
+			echo "*******************************************************************************","\n";
+			echo "\n";
 			mwexec('/sbin/halt');
 			exit;
 		endif;
@@ -290,20 +293,20 @@ if(!isset($noparseconfig) || !$noparseconfig):
 					config_unlock();
 					reset_factory_defaults();
 					config_lock();
-					echo PHP_EOL;
-					echo "*******************************************************************************",PHP_EOL;
-					echo "No XML configuration file found - using factory defaults.",PHP_EOL;
-					echo "Make sure that the media for holding the configuration is MSDOS FAT formatted",PHP_EOL;
-					echo "and that the config.xml file is inserted. If it isn't, your configuration changes",PHP_EOL;
-					echo "will be lost on reboot.",PHP_EOL;
-					echo "*******************************************************************************",PHP_EOL;
-					echo PHP_EOL;
+					echo "\n";
+					echo "*******************************************************************************","\n";
+					echo "No XML configuration file found - using factory defaults.","\n";
+					echo "Make sure that the media for holding the configuration is MSDOS FAT formatted","\n";
+					echo "and that the config.xml file is inserted. If it isn't, your configuration changes","\n";
+					echo "will be lost on reboot.","\n";
+					echo "*******************************************************************************","\n";
+					echo "\n";
 				else:
-					echo PHP_EOL;
-					echo "*******************************************************************************",PHP_EOL;
-					echo "XML configuration file not found. {$productname} cannot continue booting.",PHP_EOL;
-					echo "*******************************************************************************",PHP_EOL;
-					echo PHP_EOL;
+					echo "\n";
+					echo "*******************************************************************************","\n";
+					echo "XML configuration file not found. {$productname} cannot continue booting.","\n";
+					echo "*******************************************************************************","\n";
+					echo "\n";
 					mwexec('/sbin/halt');
 					exit;
 				endif;
@@ -317,7 +320,7 @@ if(!isset($noparseconfig) || !$noparseconfig):
 //			load all root objects, but never write to cache
 			$config = parse_xml_config_raw($config_filename);
 			if($config === false):
-				echo "Error: Failed to load '$config_filename' file. {$productname} cannot continue booting.",PHP_EOL;
+				echo "Error: Failed to load '$config_filename' file. {$productname} cannot continue booting.","\n";
 				mwexec('/sbin/halt');
 				exit;
 			endif;
@@ -326,19 +329,19 @@ if(!isset($noparseconfig) || !$noparseconfig):
 			$config_filename = $g['conf_path'] . DIRECTORY_SEPARATOR . 'config.xml';
 			$config = parse_xml_config($config_filename,false,$g['xml_rootobj'],'nas4free');
 			if($config === false):
-				echo "Error: Failed to load '{$g['conf_path']}/config.xml' file. {$productname} cannot continue booting.",PHP_EOL;
+				echo "Error: Failed to load '{$g['conf_path']}/config.xml' file. {$productname} cannot continue booting.","\n";
 				mwexec('/sbin/halt');
 				exit;
 			endif;
 			if((float)$config['version'] > (float)$g['latest_config']):
 				if(is_booting()):
-					echo "*******************************************************************************",PHP_EOL;
-					echo "WARNING!",PHP_EOL;
-					echo "The current configuration has been created with a newer version of",PHP_EOL;
-					echo "{$productname} than this one! This can lead to serious misbehaviour and",PHP_EOL;
-					echo "even security holes! You are urged to either upgrade to a newer version of",PHP_EOL;
-					echo "{$productname} or revert to the default configuration immediately!",PHP_EOL;
-					echo "*******************************************************************************",PHP_EOL;
+					echo "*******************************************************************************","\n";
+					echo "WARNING!","\n";
+					echo "The current configuration has been created with a newer version of","\n";
+					echo "{$productname} than this one! This can lead to serious misbehaviour and","\n";
+					echo "even security holes! You are urged to either upgrade to a newer version of","\n";
+					echo "{$productname} or revert to the default configuration immediately!","\n";
+					echo "*******************************************************************************","\n";
 				endif;
 			endif;
 //			write configuration cache file
@@ -474,7 +477,7 @@ function write_loader_config(){
 				$name = is_string($test = $param['name'] ?? '') ? $test : '';
 				$value = is_string($test = $param['value'] ?? '') ? $test : '';
 				if(preg_match('/\S/',$name)):
-					$lines .= sprintf('%s="%s"',trim($name),trim($value)) . PHP_EOL;
+					$lines .= sprintf('%s="%s"',trim($name),trim($value)) . "\n";
 				endif;
 			endif;
 		endforeach;
@@ -806,7 +809,7 @@ function config_upgrade_1dot5() {
 		$config['system']['rcconf']['param'][$index]['value'] = $pwopt;
 	else:
 		$config['system']['rcconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'powerd_flags',
 			'value' => $pwopt,
 			'comment' => 'System power control options',
@@ -845,7 +848,6 @@ function config_upgrade_1dot7() {
 		'net.inet.tcp.sendspace' => 131072,
 		'net.inet.tcp.recvspace' => 131072,
 		'net.inet.tcp.sendbuf_inc' => 131072,
-		'net.inet.tcp.recvbuf_inc' => 131072,
 		'kern.ipc.nmbclusters' => 131072,
 		'kern.ipc.nmbjumbop' => 131072,
 		'kern.ipc.nmbjumbo9' => 32768,
@@ -864,7 +866,7 @@ function config_upgrade_1dot7() {
 		$config['system']['rcconf']['param'][$index]['value'] = '128m';
 	else:
 		$config['system']['rcconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'varsize',
 			'value' => '128m',
 			'comment' => 'Default /var size',
@@ -876,7 +878,7 @@ function config_upgrade_1dot7() {
 		$config['system']['rcconf']['param'][$index]['value'] = '64m';
 	else:
 		$config['system']['rcconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'vartmpsize',
 			'value' => '64m',
 			'comment' => 'Default /var/tmp size',
@@ -901,7 +903,7 @@ function config_upgrade_1dot8() {
 		$config['system']['rcconf']['param'][$index]['value'] = '256m';
 	else:
 		$config['system']['rcconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'varsize',
 			'value' => '256m',
 			'comment' => 'Default /var size',
@@ -913,7 +915,7 @@ function config_upgrade_1dot8() {
 		$config['system']['rcconf']['param'][$index]['value'] = '128m';
 	else:
 		$config['system']['rcconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'vartmpsize',
 			'value' => '128m',
 			'comment' => 'Default /var/tmp size',
@@ -981,7 +983,7 @@ function config_upgrade_2dot0() {
 	global $config;
 
 	$user = [
-		'uuid' => uuid(),
+		'uuid' => uuid::create_v4(),
 		'name' => 'dlna',
 		'id' => '933',
 		'primarygroup' => '933',
@@ -995,7 +997,7 @@ function config_upgrade_2dot0() {
 		$config['system']['usermanagement']['user'][] = $user;
 	endif;
 	$group = [
-		'uuid' => uuid(),
+		'uuid' => uuid::create_v4(),
 		'name' => 'dlna',
 		'id' => '933'
 	];
@@ -1017,7 +1019,7 @@ function config_upgrade_2dot1() {
 	global $config;
 
 	$user = [
-		'uuid' => uuid(),
+		'uuid' => uuid::create_v4(),
 		'name' => 'vboxusers',
 		'id' => '920',
 		'primarygroup' => '920',
@@ -1031,7 +1033,7 @@ function config_upgrade_2dot1() {
 		$config['system']['usermanagement']['user'][] = $user;
 	endif;
 	$group = [
-		'uuid' => uuid(),
+		'uuid' => uuid::create_v4(),
 		'name' => 'vboxusers',
 		'id' => '920'
 	];
@@ -1053,7 +1055,7 @@ function config_upgrade_2dot2() {
 	global $config;
 
 	$user = [
-		'uuid' => uuid(),
+		'uuid' => uuid::create_v4(),
 		'name' => 'syncthing',
 		'id' => '983',
 		'primarygroup' => '983',
@@ -1067,7 +1069,7 @@ function config_upgrade_2dot2() {
 		$config['system']['usermanagement']['user'][] = $user;
 	endif;
 	$group = [
-		'uuid' => uuid(),
+		'uuid' => uuid::create_v4(),
 		'name' => 'syncthing',
 		'id' => '983'
 	];
@@ -1140,7 +1142,7 @@ function config_upgrade_2dot3() {
 	$index = arr::search_ex('vfs.zfs.arc_max',$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'vfs.zfs.arc_max',
 			'value' => '2G',
 			'comment' => 'ZFS maximum ARC size'
@@ -1149,7 +1151,7 @@ function config_upgrade_2dot3() {
 	$index = arr::search_ex('vfs.zfs.arc_min',$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'vfs.zfs.arc_min',
 			'value' => '1G',
 			'comment' => 'ZFS minimum ARC size'
@@ -1158,7 +1160,7 @@ function config_upgrade_2dot3() {
 	$index = arr::search_ex('vfs.zfs.prefetch_disable',$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'vfs.zfs.prefetch_disable',
 			'value' => '1',
 			'comment' => 'ZFS prefech disable'
@@ -1182,7 +1184,7 @@ function config_upgrade_2dot4() {
 	$index = arr::search_ex('arcsas_load',$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'arcsas_load',
 			'value' => 'YES',
 			'comment' => 'Areca non-RAID HBAs ARC-1300/ARC-1320 series Driver'
@@ -1191,7 +1193,7 @@ function config_upgrade_2dot4() {
 	$index = arr::search_ex('ipmi_load',$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => 'ipmi_load',
 			'value' => 'YES',
 			'comment' => 'IPMItool Server Management Utility'
@@ -1240,7 +1242,7 @@ function config_upgrade_2dot7() {
 	arr::make_branch($config,'rc','preinit','cmd');
 	foreach($config['rc']['preinit']['cmd'] as $cmd):
 		$config['rc']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => '',
 			'value' => $cmd,
 			'comment' => '',
@@ -1253,7 +1255,7 @@ function config_upgrade_2dot7() {
 	arr::make_branch($config,'rc','postinit','cmd');
 	foreach($config['rc']['postinit']['cmd'] as $cmd):
 		$config['rc']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => '',
 			'value' => $cmd,
 			'comment' => '',
@@ -1266,7 +1268,7 @@ function config_upgrade_2dot7() {
 	arr::make_branch($config,'rc','shutdown','cmd');
 	foreach($config['rc']['shutdown']['cmd'] as $cmd):
 		$config['rc']['param'][] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => '',
 			'value' => $cmd,
 			'comment' => '',
@@ -1339,7 +1341,7 @@ function config_upgrade_3dot2() {
 	$index = arr::search_ex($param_name,$grid,'name');
 	if($index === false):
 		$grid[] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'enable' => true,
 			'name' => $param_name,
 			'value' => '12',
@@ -1392,7 +1394,7 @@ function config_upgrade_3dot4() {
 	endforeach;
 	if($record_not_found):
 		$grid[] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'facility' => 'console',
 			'level' => 'debug',
 			'value' => '/dev/console',
@@ -1474,7 +1476,7 @@ function config_upgrade_37() {
 	if(array_key_exists('motd',$grid_system) && is_string($grid_system['motd'])):
 		$helpinghand = base64_decode($grid_system['motd']);
 	else:
-		$helpinghand = 'Welcome to XigmaNAS!' . PHP_EOL;
+		$helpinghand = 'Welcome to XigmaNAS!' . "\n";
 	endif;
 	$grid_system['motd'] = base64_encode(str_ireplace('NAS4Free','XigmaNAS',$helpinghand));
 }
@@ -1530,7 +1532,7 @@ function config_upgrade_39() {
 	$index = arr::search_ex($group_name,$groups,'name');
 	if($index === false):
 		$group = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => $group_name,
 			'id' => 88,
 		];
@@ -1541,7 +1543,7 @@ function config_upgrade_39() {
 	$index = arr::search_ex($user_name,$users,'name');
 	if($index === false):
 		$user = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => $user_name,
 			'id' => 88,
 			'primarygroup' => 88,
@@ -1563,7 +1565,7 @@ function config_upgrade_40() {
 	foreach($a_share as $r_share):
 		$r_param = [];
 		$r_param['enable'] = true;
-		$r_param['uuid'] = $r_share['uuid'] ?? uuid();
+		$r_param['uuid'] = $r_share['uuid'] ?? uuid::create_v4();
 		$r_param['path'] = $r_share['path'] ?? '/';
 		$r_param['network'] = $r_share['network'] ?? '';
 		$r_param['description'] = $r_share['comment'] ?? '';
@@ -1595,7 +1597,7 @@ function config_upgrade_41() {
 	foreach($a_source as $r_source):
 		unset($matches);
 		if(is_string($r_source) && (1 === preg_match('/^(?:(A|P|V|PV),)?(.*)$/',$r_source,$matches))):
-			$r_param['uuid'] = uuid();
+			$r_param['uuid'] = uuid::create_v4();
 			$r_param['type'] = $matches[1];
 			$r_param['path'] = $matches[2];
 			$a_destination[] = $r_param;
@@ -1632,7 +1634,7 @@ function config_upgrade_43() {
 	$index = arr::search_ex($rcconf_param_name,$a_source,'name');
 	if($index === false):
 		$rcconf_param = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => $rcconf_param_name,
 			'value' => 'YES',
 			'comment' => 'Wait for interface and gateway'
@@ -1699,8 +1701,8 @@ function config_upgrade_47() {
 
 	$a_source  = &arr::make_branch($config,'cron','job');
 	foreach($a_source as $r_key => $r_source):
-		if(\is_array($r_source) && !\array_key_exists('uuid',$r_source)):
-			$a_source[$r_key]['uuid'] = uuid();
+		if(is_array($r_source) && !array_key_exists('uuid',$r_source)):
+			$a_source[$r_key]['uuid'] = uuid::create_v4();
 		endif;
 	endforeach;
 }
@@ -1825,7 +1827,7 @@ function config_upgrade() {
 		'48' => [$kf => 'config_upgrade_48',$kv => '49'],
 		'49' => [$kf => 'config_upgrade_49',$kv => '50'],
 		'50' => [$kf => 'config_upgrade_50',$kv => '51'],
-		'51' => [$kf => NULL,$kv => NULL]
+		'51' => [$kf => null,$kv => null]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
@@ -1839,7 +1841,7 @@ function config_upgrade() {
 					if(is_booting()):
 						echo 'Configuration upgrade from version ',$version,' to version ',$new_version,':';
 						call_user_func($function_name); // call conversion
-						echo ' completed.',PHP_EOL;
+						echo ' completed.',"\n";
 					else:
 						call_user_func($function_name); // call conversion
 					endif;
@@ -1848,10 +1850,10 @@ function config_upgrade() {
 					$stay_in_loop = true;
 				endif;
 			elseif(is_booting()):
-				echo 'Configuration upgrade matrix is missing an element.',PHP_EOL;
+				echo 'Configuration upgrade matrix is missing an element.',"\n";
 			endif;
 		elseif(is_booting()):
-			echo 'Configuration upgrade has found an unknown version (',$version,').',PHP_EOL;
+			echo 'Configuration upgrade has found an unknown version (',$version,').',"\n";
 		endif;
 	} while($stay_in_loop);
 	write_config();
@@ -1867,7 +1869,7 @@ function config_preinit() {
 
 	$need_write_config = false;
 	if($need_write_config):
-		echo 'Saving configuration',PHP_EOL;
+		echo 'Saving configuration',"\n";
 		write_config();
 	endif;
 	if(stristr($g['platform'],'livecd') || stristr($g['platform'],'liveusb')):
@@ -1900,7 +1902,7 @@ function config_postinit() {
 		endif;
 	endif;
 	if($need_write_config):
-		echo 'Saving configuration.',PHP_EOL;
+		echo 'Saving configuration.',"\n";
 		write_config();
 	endif;
 }
