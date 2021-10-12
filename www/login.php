@@ -32,10 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-require_once 'session.inc';
-Session::start();
-require_once 'guiconfig.inc';
 require_once 'autoload.php';
+require_once 'session.inc';
+
+Session::start();
+
+require_once 'guiconfig.inc';
 
 use common\arr;
 
@@ -89,7 +91,6 @@ if(isset($rm_value)):
 					endif;
 					if($authentication_successful):
 						write_log(sprintf('AUTH: %s logged in from IP address %s',$username,$remote_addr));
-//						Session::initAdmin();
 						Session::initUser(0,$username,true);
 						header('Location: index.php');
 						exit;
@@ -100,7 +101,7 @@ if(isset($rm_value)):
 //						check if username is listed as a system user
 						$users = system_get_user_list();
 						$system_user_row_id = arr::search_ex($username,$users,'name');
-						if(false !== $system_user_row_id):
+						if($system_user_row_id !== false):
 							$system_user = $users[$system_user_row_id];
 							$continue_checking = true;
 						else:
@@ -121,7 +122,7 @@ if(isset($rm_value)):
 //						check if it is a local user
 						arr::make_branch($config,'access','user');
 						$portal_user_row_id = arr::search_ex($system_user['uid'],$config['access']['user'],'id');
-						if(false !== $portal_user_row_id):
+						if($portal_user_row_id !== false):
 							$portal_user = $config['access']['user'][$portal_user_row_id];
 							$continue_checking = true;
 						else:
@@ -161,17 +162,27 @@ if(isset($rm_value)):
 							switch($portal_user['userportal']):
 								case 'admin':
 //									user has admin access permission
+									$id = $system_user['uid'];
+									$name = $system_user['name'];
+									$has_admin_rights = true;
+									$language = $portal_user['language'] ?? null;
+									$timezone = $portal_user['timezone'] ?? $config['system']['timezone'] ?? 'UTC';
 									write_log(sprintf('AUTH: %s logged in from IP address %s',$username,$remote_addr));
-									Session::initUser($system_user['uid'],$system_user['name'],true);
-									system_language_load($portal_user['language'] ?? null);
+									Session::initUser($id,$name,$has_admin_rights,$timezone);
+									system_language_load($language);
 									header('Location: index.php');
 									exit;
 									break;
 								case '1':
 //									user has user portal permission
+									$id = $system_user['uid'];
+									$name = $system_user['name'];
+									$has_admin_rights = false;
+									$language = $portal_user['language'] ?? null;
+									$timezone = $portal_user['timezone'] ?? $config['system']['timezone'] ?? 'UTC';
 									write_log(sprintf('AUTH: %s logged in from IP address %s',$username,$remote_addr));
-									Session::initUser($system_user['uid'],$system_user['name'],false);
-									system_language_load($portal_user['language'] ?? null);
+									Session::initUser($id,$name,$has_admin_rights,$timezone);
+									system_language_load($language);
 									header('Location: index.php');
 									exit;
 									break;

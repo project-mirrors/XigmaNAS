@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 class Session {
 /**
  *	Initialize default session variables.
@@ -60,22 +61,16 @@ class Session {
 		session_destroy();
 	}
 /**
-*	Initialize administrator.
-*/
-	public static function initAdmin() {
-		Session::_init();
-		$_SESSION['admin'] = true;
-	}
-/**
  *	Initialize user.
  *	@param uid The user ID.
  *	@param uname The user name.
  */
-	public static function initUser($uid,$uname,$admin = false) {
+	public static function initUser($uid,$uname,$admin = false,$timezone = null) {
 		Session::_init();
 		$_SESSION['uid'] = $uid;
 		$_SESSION['uname'] = $uname;
 		$_SESSION['admin'] = $admin;
+		$_SESSION['tz'] = $timezone;
 	}
 /**
  *	Has the current user administration permissions?
