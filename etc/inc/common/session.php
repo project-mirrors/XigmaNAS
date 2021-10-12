@@ -76,36 +76,16 @@ class session {
  *	Start session.
  *	@return bool
  */
-	public static function start(): bool {
-		switch(session_status()):
-			case PHP_SESSION_NONE:
-				$success = session_start();
-				if($success):
-					$_SESSION['at'] = time();
-				else:
-					die("Houston, we've had a problem here.");
-				endif;
-				break;
-			case PHP_SESSION_ACTIVE:
-				$success = true;
-				break;
-//			case PHP_SESSION_DISABLED:
-			default:
-				die("Houston, we've had a problem here.");
-				break;
-		endswitch;
-		return $success;
+	public static function start() {
+		session_start();
+		$_SESSION['at'] = time();
 	}
 /**
  *	Destroy session.
  */
-	public static function destroy(): bool {
- 		if(session_status() === PHP_SESSION_ACTIVE):
-			$success = session_destroy();
-		else:
-			$success = true;
-		endif;
-		return $success;
+	public static function destroy() {
+		session_start();
+		session_destroy();
 	}
 /**
  *	Initialize user.
