@@ -32,11 +32,8 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+use common\session;
 use gui\document;
-
-if(function_exists("date_default_timezone_set") and function_exists("date_default_timezone_get")):
-	@date_default_timezone_set(@date_default_timezone_get());
-endif;
 
 /* make sure nothing is cached */
 if(isset($omit_nocacheheaders) && $omit_nocacheheaders):
@@ -55,6 +52,9 @@ require_once 'wui.inc';
 require_once 'wui2.php';
 require_once 'updatenotify.inc';
 require_once 'session.inc';
+
+//	set timezone
+ini_set('date.timezone',$_SESSION['tz'] ?? $config['system']['timezone'] ?? 'UTC');
 
 /* Set the current language */
 system_language_load();
@@ -110,7 +110,7 @@ function render_ajax($data,$result = 0) {
 }
 
 function do_input_validation($postdata,$reqdfields,$reqdfieldsn,&$input_errors) {
-	/* check for bad control characters */
+//	check for bad control characters
 	foreach($postdata as $pn => $pd):
 		if(is_string($pd) && preg_match("/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f]/",$pd)):
 			$input_errors[] = sprintf( gtext("The attribute '%s' contains invalid characters."),$pn);
@@ -123,9 +123,9 @@ function do_input_validation($postdata,$reqdfields,$reqdfieldsn,&$input_errors) 
 	endfor;
 }
 
-/* Validate attribute type. */
+//	Validate attribute type.
 function do_input_validation_type($postdata,$reqdfields,$reqdfieldsn,$reqdfieldst,&$input_errors) {
-	/* Validate type. */
+//	Validate type.
 	for($i = 0;$i < count($reqdfields);$i++):
 		if(isset($postdata[$reqdfields[$i]]) && ($postdata[$reqdfields[$i]] !== '')):
 			$valid = false;
@@ -204,7 +204,7 @@ function do_input_validation_type($postdata,$reqdfields,$reqdfieldsn,$reqdfields
 					$message = sprintf( gtext("The attribute '%s' may only consist of the characters a-z, A-Z, 0-9."),$reqdfieldsn[$i]);
 					break;
 				case 'time':
-					$valid = (FALSE !== strptime($postdata[$reqdfields[$i]],"%H:%M:%S"));
+					$valid = (strptime($postdata[$reqdfields[$i]],"%H:%M:%S") !== false);
 					$message = sprintf( gtext("The attribute '%s' is not a valid time value."),$reqdfieldsn[$i]);
 					break;
 				case 'array':
@@ -242,26 +242,26 @@ function print_input_errors($input_errors) {
 	$id = 'errorbox';
 	$src = $g_img['box.error'];
 	$alt = '';
-	echo '<div id="',$id,'">',PHP_EOL;
-	echo '<div class="mbcl-1">',PHP_EOL;
-	echo '<div class="mbcl-2 mbci-min">',PHP_EOL;
-	echo '<div class="icon mbci-min">',PHP_EOL;
-	echo '<img src="',$src,'" alt="',$alt,'">',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '<div class="message mbci-max">',PHP_EOL;
-	echo '<div class="mbcl-3 mbci-min">',PHP_EOL;
-	echo '<div>',gtext('The following input errors were detected'),':',PHP_EOL;
-	echo '<ul>',PHP_EOL;
+	echo '<div id="',$id,'">',"\n";
+	echo '<div class="mbcl-1">',"\n";
+	echo '<div class="mbcl-2 mbci-min">',"\n";
+	echo '<div class="icon mbci-min">',"\n";
+	echo '<img src="',$src,'" alt="',$alt,'">',"\n";
+	echo '</div>',"\n";
+	echo '<div class="message mbci-max">',"\n";
+	echo '<div class="mbcl-3 mbci-min">',"\n";
+	echo '<div>',gtext('The following input errors were detected'),':',"\n";
+	echo '<ul>',"\n";
 	foreach($input_errors as $msg):
-		echo '<li>',$msg,'</li>',PHP_EOL;
+		echo '<li>',$msg,'</li>',"\n";
 	endforeach;
-	echo '</ul>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
+	echo '</ul>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
 }
 
 function verify_xz_file($fname) {
@@ -273,7 +273,7 @@ function verify_xz_file($fname) {
 	endif;
 }
 
-function print_core_box($type,$msg,$mbcl1i2 = NULL) {
+function print_core_box($type,$msg,$mbcl1i2 = null) {
 	global $g_img;
 
 	switch ($type):
@@ -293,36 +293,36 @@ function print_core_box($type,$msg,$mbcl1i2 = NULL) {
 			$alt = '';
 			break;
 	endswitch;
-	echo '<div id="',$id,'">',PHP_EOL;
-	echo '<div class="mbcl-1">',PHP_EOL;
-	echo '<div class="mbcl-2 mbci-min">',PHP_EOL;
-	echo '<div class="icon mbci-min">',PHP_EOL;
-	echo '<img src="',$src,'" alt="',$alt,'">',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '<div class="message mbci-max">',PHP_EOL;
-	echo '<div class="mbcl-3 mbci-min">',PHP_EOL;
-	echo '<div>',$msg,'</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
+	echo '<div id="',$id,'">',"\n";
+	echo '<div class="mbcl-1">',"\n";
+	echo '<div class="mbcl-2 mbci-min">',"\n";
+	echo '<div class="icon mbci-min">',"\n";
+	echo '<img src="',$src,'" alt="',$alt,'">',"\n";
+	echo '</div>',"\n";
+	echo '<div class="message mbci-max">',"\n";
+	echo '<div class="mbcl-3 mbci-min">',"\n";
+	echo '<div>',$msg,'</div>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
+	echo '</div>',"\n";
 	if(is_string($mbcl1i2)):
-		echo '<div class="mbci-min">',PHP_EOL;
-		echo '<div>',$mbcl1i2,'</div>',PHP_EOL;
-		echo '</div>',PHP_EOL;
+		echo '<div class="mbci-min">',"\n";
+		echo '<div>',$mbcl1i2,'</div>',"\n";
+		echo '</div>',"\n";
 	endif;
-	echo '</div>',PHP_EOL;
-	echo '</div>',PHP_EOL;
+	echo '</div>',"\n";
+	echo '</div>',"\n";
 }
 
-function print_info_box($msg,$mbcl1i2 = NULL) {
+function print_info_box($msg,$mbcl1i2 = null) {
 	print_core_box('info',$msg,$mbcl1i2);
 }
 
-function print_error_box($msg,$mbcl1i2 = NULL) {
+function print_error_box($msg,$mbcl1i2 = null) {
 	print_core_box('error',$msg,$mbcl1i2);
 }
 
-function print_warning_box($msg,$mbcl1i2 = NULL) {
+function print_warning_box($msg,$mbcl1i2 = null) {
 	print_core_box('warning',$msg,$mbcl1i2);
 }
 
@@ -411,7 +411,8 @@ function calc_showcolorfulmeter(): bool {
 function is_skipviewmode(): bool {
 	global $config;
 
-	$retbool = \is_bool($test = $config['system']['webgui']['skipviewmode'] ?? false) ? $test : true;
+	$test = $config['system']['webgui']['skipviewmode'] ?? false;
+	$retbool = is_bool($test) ? $test : true;
 	return $retbool;
 }
 /**
@@ -423,7 +424,7 @@ function calc_skipviewmode($page_mode): array {
 	if($page_mode === PAGE_MODE_EDIT):
 		$new_page_mode = PAGE_MODE_EDIT;
 		$is_readonly = false;
-	elseif(\is_skipviewmode()):
+	elseif(is_skipviewmode()):
 		$new_page_mode = PAGE_MODE_EDIT;
 		$is_readonly = false;
 	else:
@@ -479,13 +480,6 @@ function html_combobox($ctrlname,$title,$value,$options,$desc,$required = false,
 
 function html_mountcombobox($ctrlname,$title,$value,$desc,$required = false,$readonly = false) {
 	$ctrl = new HTMLMountComboBox($ctrlname,$title,$value,$desc);
-	$ctrl->SetRequired($required);
-	$ctrl->SetReadOnly($readonly);
-	$ctrl->Render();
-}
-
-function html_timezonecombobox($ctrlname,$title,$value,$desc,$required = false,$readonly = false) {
-	$ctrl = new HTMLTimeZoneComboBox($ctrlname,$title,$value,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetReadOnly($readonly);
 	$ctrl->Render();
@@ -732,7 +726,7 @@ function html_folderbox2($ctrlname,$title,$value,$desc,$path,$required = false,$
 	$ctrl->Compose()->render();
 }
 
-function html_button(string $value = NULL,string $content = NULL,string $id = NULL) {
+function html_button(string $value = null,string $content = null,string $id = null) {
 	$element = 'button';
 	$class = 'formbtn';
 	if(is_null($value)):
@@ -793,10 +787,10 @@ function get_headermenu(): array {
 	if(empty($_SESSION['g']['headermenu'])):
 //		create new menu
 		$menu = [];
-		$isAdminSession = Session::isAdmin();
+		$isAdminSession = session::is_admin();
 //		home
 		$menu_name = 'home';
-		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','symbol' => NULL,'description' => "\u{1F3E0}",'link' => '/index.php','menuitem' => []];
+		$menu[$menu_name] = ['type' => 'internal','visible' => true,'img' => '','symbol' => null,'description' => "\u{1F3E0}",'link' => '/index.php','menuitem' => []];
 //		system
 		$menu_name = 'system';
 		$menu[$menu_name] = ['type' => 'nolink','visible' => true,'img' => '','symbol' => "\u{2699}\u{FE0F}",'description' => gettext('System'),'link' => '','menuitem' => []];
@@ -963,7 +957,7 @@ function make_headermenu_extensions(array &$menu) {
 	global $g;
 	global $config;
 
-	$isAdminSession = Session::isAdmin();
+	$isAdminSession = session::is_admin();
 	if(!$isAdminSession): // only admins allowed
 		return;
 	endif;
