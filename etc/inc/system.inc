@@ -40,6 +40,7 @@ require_once 'zfs.inc';
 
 use common\arr;
 use common\lang;
+use common\session;
 
 /**
  *	Initiate halt. Everything will be done automatically
@@ -497,7 +498,7 @@ function system_get_cpu_info() {
 }
 /**
  *	Get the system uptime (how long the system is already running).
- *	@return The current uptime as string.
+ *	@return string The current uptime as string.
  */
 function system_get_uptime() {
 	exec("/sbin/sysctl -n kern.boottime",$boottime);
@@ -531,7 +532,7 @@ function system_get_uptime() {
 }
 /**
  * Get the system date/time for conversion strings.
- * @return The current uptime as string.
+ * @return string The current uptime as string.
  */
 function get_datetime_locale_samples() {
 	$retval = [];
@@ -668,7 +669,7 @@ function system_get_swap_info() {
 
 /**
  * Get the system hostname.
- * @return The hostname
+ * @return string The hostname
  */
 function system_get_hostname() {
 	return @exec("hostname");
@@ -676,8 +677,8 @@ function system_get_hostname() {
 
 /**
  * Get device I/O statistics.
- * @param[in] device	The device name, e.g. ad1
- * @return	An array containing the I/O statistics kpt (kilobytes per transfer),
+ * @param[in] device The device name, e.g. ad1
+ * @return	array An array containing the I/O statistics kpt (kilobytes per transfer),
  *					tps (transfers per second) and mps (megabytes per second). On
  *					failure, false will be returned.
  * @code
@@ -852,8 +853,8 @@ function system_get_device_temp(string $devicespecialfile,int $use_version = 2):
 }
 /**
  * Get controller
- * @param[in] device	The device name, e.g. /dev/ad1
- * @return The disk device serial number.
+ * @param[in] device The device name, e.g. /dev/ad1
+ * @return string The disk device serial number.
  */
 function system_get_controller($devicespecialfile) {
 	$devlist = [];
@@ -925,8 +926,8 @@ function system_get_volume_serial($devicespecialfile) {
 }
 /**
  * Get volume device model.
- * @param[in] device	The device name, e.g. /dev/ad1
- * @return The disk device model.
+ * @param[in] device The device name, e.g. /dev/ad1
+ * @return string The disk device model.
  */
 function system_get_volume_model($devicespecialfile) {
 	global $config;
@@ -963,7 +964,7 @@ function system_get_volume_model($devicespecialfile) {
 
 /**
  * Get mount point usage information.
- * @return An array containg the requested informations:
+ * @return array An array containg the requested informations:
  * @code
  * [mountpoint] => [
  *   [mountpoint] => /mnt/xyz
@@ -1372,7 +1373,7 @@ function system_get_sysinfo() {
 	$sysinfo['lastchange'] = get_datetime_locale($config['lastchange'] ?? 0);
 	$cpuinfo = system_get_cpu_info();
 	$sysinfo['cpumodel'] = $cpuinfo['model'];
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 //		get number of CPU's
 		$sysinfo['cpus'] = system_get_cpus();
 //		get RAM usage
