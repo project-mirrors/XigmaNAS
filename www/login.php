@@ -33,13 +33,13 @@
 */
 
 require_once 'autoload.php';
-require_once 'session.inc';
-
-Session::start();
-
-require_once 'guiconfig.inc';
 
 use common\arr;
+use common\session;
+
+session::start();
+
+require_once 'guiconfig.inc';
 
 unset($input_errors);
 $rm_name = 'REQUEST_METHOD';
@@ -91,7 +91,7 @@ if(isset($rm_value)):
 					endif;
 					if($authentication_successful):
 						write_log(sprintf('AUTH: %s logged in from IP address %s',$username,$remote_addr));
-						Session::initUser(0,$username,true);
+						session::init(0,$username,true);
 						header('Location: index.php');
 						exit;
 					endif;
@@ -168,7 +168,7 @@ if(isset($rm_value)):
 									$language = $portal_user['language'] ?? null;
 									$timezone = $portal_user['timezone'] ?? $config['system']['timezone'] ?? 'UTC';
 									write_log(sprintf('AUTH: %s logged in from IP address %s',$username,$remote_addr));
-									Session::initUser($id,$name,$has_admin_rights,$timezone);
+									session::init($id,$name,$has_admin_rights,$timezone);
 									system_language_load($language);
 									header('Location: index.php');
 									exit;
@@ -181,7 +181,7 @@ if(isset($rm_value)):
 									$language = $portal_user['language'] ?? null;
 									$timezone = $portal_user['timezone'] ?? $config['system']['timezone'] ?? 'UTC';
 									write_log(sprintf('AUTH: %s logged in from IP address %s',$username,$remote_addr));
-									Session::initUser($id,$name,$has_admin_rights,$timezone);
+									session::init($id,$name,$has_admin_rights,$timezone);
 									system_language_load($language);
 									header('Location: index.php');
 									exit;
