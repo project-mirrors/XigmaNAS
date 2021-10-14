@@ -31,20 +31,23 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 //	configure page permission
 $pgperm['allowuser'] = true;
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
-require_once 'autoload.php';
 
+use common\arr;
+use common\session;
 use system\access\user\row_toolbox as toolbox;
 
 //	init sphere
 $sphere = toolbox::init_sphere();
 //	get user configuration. Ensure current logged in user is available, otherwise exit immediatelly.
-$sphere->row_id = array_search_ex(Session::getUserId(),$sphere->grid,'id');
+$sphere->row_id = arr::search_ex(session::get_user_id(),$sphere->grid,'id');
 if($sphere->row_id === false):
 	header('Location: logout.php');
 	exit;
@@ -71,7 +74,7 @@ if($_POST):
 		write_config();
 		updatenotify_set($sphere->get_notifier(),UPDATENOTIFY_MODE_MODIFIED,$sphere->get_row_identifier_value(),$sphere->get_notifier_processor());
 //		write syslog entry and send an email to the administrator
-		$message = sprintf('User [%s] has changed the password via user portal.\nPlease go to the user administration page and apply the changes.',Session::getUserName());
+		$message = sprintf('User [%s] has changed the password via user portal.\nPlease go to the user administration page and apply the changes.',session::get_user_name());
 		write_log($message);
 		if(@email_validate_settings() == 0):
 			$subject = sprintf(gtext('Notification email from host: %s'),system_get_hostname());
