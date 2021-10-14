@@ -35,10 +35,10 @@
 namespace gui;
 
 use common\properties\property;
+use common\session;
 use common\uuid;
 use DOMDocument;
 use DOMNode;
-use Session;
 
 use function calc_adddivsubmittodataframe;
 use function get_headermenu;
@@ -1852,7 +1852,7 @@ EOJ;
 		$input_attributes = [
 			'name' => 'authtoken',
 			'type' => 'hidden',
-			'value' => Session::getAuthToken()
+			'value' => session::get_authtoken()
 		];
 		$this->insINPUT($input_attributes);
 		return $this;
@@ -2148,7 +2148,7 @@ EOJ;
 				insDIV(['id' => 'gapfooter'])->
 				addDIV(['id' => 'pagefooter','class' => 'lcrgridx']);
 		$g4fl = $g4fx->addDIV(['class' => 'g4fl lcrgridl']);
-		if(Session::isAdmin()):
+		if(session::is_admin()):
 			if(file_exists($d_sysrebootreqd_path)):
 				$img_attributes = [
 					'src' => '/images/notify_reboot.png',
