@@ -32,11 +32,11 @@
 	of XigmaNAS®, either expressed or implied.
 */
 header('Content-Type: text/html; charset=' . system_get_language_codeset());
-  // XML declarations
+//	XML declarations
 /*
-  some browser might be broken.
-  echo '<?xml version="1.0" encoding="'.system_get_language_codeset().'"?>';
-  echo "\n";
+	some browser might be broken.
+	echo '<?xml version="1.0" encoding="'.system_get_language_codeset().'"?>';
+	echo "\n";
 */
 echo '<!DOCTYPE html>',"\n";
 ?>
@@ -59,10 +59,10 @@ echo '<!DOCTYPE html>',"\n";
 		if(isset($pglocalheader) && !empty($pglocalheader)):
 			if(is_array($pglocalheader)):
 				foreach($pglocalheader as $pglocalheaderv):
-					echo $pglocalheaderv,PHP_EOL;
+					echo $pglocalheaderv,"\n";
 				endforeach;
 			else:
-				echo $pglocalheader,PHP_EOL;
+				echo $pglocalheader,"\n";
 			endif;
 		endif;
 ?>
@@ -93,8 +93,7 @@ echo '<!DOCTYPE html>',"\n";
 <script>
 //<![CDATA[
 $(window).on("load", function() {
-	$("#tabnav").on('click', function() { spinner(); });
-	$("#tabnav2").on('click', function() { spinner(); });
+	$(".spin,#tabnav,#tabnav2").click(function() { spinner(); });
 });
 //]]>
 </script>
