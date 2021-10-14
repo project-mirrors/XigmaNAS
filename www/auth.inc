@@ -32,33 +32,36 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-require_once 'session.inc';
+require_once 'autoload.php';
 
-Session::start();
+use common\session;
+
+session::start();
 //	Check if session is valid
-if(!Session::isLogin()):
+if(!session::is_login()):
 	header('Location: /login.php');
 	exit;
 endif;
 //	Check page permission
-if(!Session::isAdmin() && (!isset($pgperm['allowuser']) || !$pgperm['allowuser'])):
+if(!session::is_admin() && (!isset($pgperm['allowuser']) || !$pgperm['allowuser'])):
 //	403: forbidden
 	http_response_code(403);
-	Session::destroy();
+	session::destroy();
 	exit;
 endif;
 //	Check if request is valid and authorized
 if($_SERVER['REQUEST_METHOD'] === 'POST'):
-	if(!isset($_POST['authtoken'])):
+	$authtoken_from_post = filter_input(INPUT_POST,'authtoken',FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]);
+	if(is_null($authtoken_from_post)):
 //		401: unauthorized
 		http_response_code(401);
-		Session::destroy();
+		session::destroy();
 		exit;
 	endif;
-	if(!Session::isValidAuthToken($_POST['authtoken'])):
+	if(!session::is_valid_authtoken($authtoken_from_post)):
 //		401: unauthorized
 		http_response_code(401);
-		Session::destroy();
+		session::destroy();
 		exit;
 	endif;
 endif;
