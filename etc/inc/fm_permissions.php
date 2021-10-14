@@ -36,9 +36,9 @@
 */
 
 require_once 'autoload.php';
-require_once 'session.inc';
 
 use common\arr;
+use common\session;
 
 /**
  *	This function decides wether a specific action is allowed or not,
@@ -58,10 +58,10 @@ function permissions_grant(string $dir = null,string $file = null,string $action
 	global $config;
 
 	$has_permission = false;
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$has_permission = true;
 	else:
-		$user = Session::getUserName();
+		$user = session::get_user_name();
 		if($user !== false):
 			$sphere = arr::make_branch($config,'access','user');
 //			lookup user
