@@ -51,7 +51,6 @@ require_once 'rc.inc';
 require_once 'wui.inc';
 require_once 'wui2.php';
 require_once 'updatenotify.inc';
-require_once 'session.inc';
 
 //	set timezone
 ini_set('date.timezone',$_SESSION['tz'] ?? $config['system']['timezone'] ?? 'UTC');
