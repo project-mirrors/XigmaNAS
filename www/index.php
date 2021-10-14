@@ -40,6 +40,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 use common\arr;
+use common\session;
 use gui\document;
 
 $use_meter_tag = calc_showcolorfulmeter();
@@ -65,7 +66,7 @@ function render_cpuusage() {
 	global $use_meter_tag;
 	global $sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin):
 		$sphere = $sysinfo['cpuusage'];
 		$o = new document();
 		$td = $o->addTR()->insTDwC('celltag',gettext('CPU Usage'))->addTDwC('celldata');
@@ -91,7 +92,7 @@ function render_cpuusage() {
 function render_cpuusage2() {
 	global $use_meter_tag,$show_max_cpus,$sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 //		limit the number of CPU's shown to 16 cpus
 		$sphere = $sysinfo['cpuusage2'];
 		if($sysinfo['cpus'] > 1 && $show_max_cpus > 0):
@@ -161,7 +162,7 @@ function render_cpuusage2() {
 function render_memusage() {
 	global $use_meter_tag,$sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$sphere = $sysinfo['memusage'];
 		$o = new document();
 		$td = $o->addTR()->insTDwC('celltag',gettext('Memory Usage'))->addTDwC('celldata');
@@ -187,7 +188,7 @@ function render_memusage() {
 function render_swapusage() {
 	global $use_meter_tag,$sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$sphere = $sysinfo['swapusage'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
@@ -227,7 +228,7 @@ function render_swapusage() {
 function render_load_averages() {
 	global $sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		echo '<tr>';
 			echo '<td class="celltag">',gtext('Load Averages'),'</td>';
 			echo '<td class="celldata">';
@@ -248,7 +249,7 @@ function render_load_averages() {
 function render_diskusage() {
 	global $use_meter_tag,$sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$sphere = $sysinfo['diskusage'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
@@ -290,7 +291,7 @@ function render_diskusage() {
 function render_poolusage() {
 	global $config,$use_meter_tag,$sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$sphere = $sysinfo['poolusage'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
@@ -350,7 +351,7 @@ function render_poolusage() {
 function render_upsinfo() {
 	global $use_meter_tag,$sysinfo;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$sphere = $sysinfo['upsinfo'];
 		$sphere_elements = count($sphere);
 		if($sphere_elements > 0):
@@ -661,7 +662,7 @@ $(document).ready(function(){
 			$errormsg .= "<br />\n";
 		endif;
 	endif;
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$lastconfigbackupstate = 0;
 		if(isset($config['lastconfigbackup'])):
 			$lastconfigbackup = intval($config['lastconfigbackup']);
@@ -731,7 +732,7 @@ $(document).ready(function(){
 			endif;
 			html_textinfo2('system_datetime',gettext('System Time'),$sysinfo['date']);
 			html_textinfo2('system_uptime',gettext('System Uptime'),$sysinfo['uptime']);
-			if(Session::isAdmin()):
+			if(session::is_admin()):
 				if($config['lastchange']):
 					html_textinfo2('last_config_change',gettext('System Config Change'),$sysinfo['lastchange']);
 				endif;
