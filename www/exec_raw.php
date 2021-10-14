@@ -31,11 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 
-if(Session::isAdmin()):
+use common\session;
+
+if(session::is_admin()):
 	header('Content-Type: text/plain');
-	putenv('PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin');
+	putenv('PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin');
 	passthru($_GET['cmd']);
 	exit(0);
 endif;
