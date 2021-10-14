@@ -31,7 +31,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once 'session.inc';
 
-Session::destroy();
+require_once 'autoload.php';
+
+use common\session;
+
+session::destroy();
 header('Location: login.php');
