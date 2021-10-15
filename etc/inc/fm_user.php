@@ -38,6 +38,7 @@
 require_once 'autoload.php';
 
 use common\arr;
+use common\session;
 
 /**
  *	Activate the user with the given user name.
@@ -54,7 +55,7 @@ use common\arr;
 function user_activate(string $user) {
 	global $config;
 
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		$GLOBALS['home_dir'] = '/';
 		$GLOBALS['home_url'] = sprintf('%s://%s/%s',$config['system']['webgui']['protocol'] ?? 'http',$_SERVER['HTTP_HOST'] ?? 'localhost',$user);
 		$GLOBALS['show_hidden']	= 1;
