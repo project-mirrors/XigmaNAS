@@ -1,6 +1,6 @@
 <?php
 /*
-	copy_move.php
+	fm_copy_move.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -36,7 +36,10 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'fm_permissions.php';
+
+use common\session;
 
 function dir_list($dir) { // make list of directories
 //	this list is used to copy/move items to a specific location
@@ -165,7 +168,7 @@ function Execute() {
 		endif;
 //		Form for Target Directory & New Names
 		echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">';
-		echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+		echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 		echo	'<table class="area_data_selection">',"\n",
 					'<colgroup>',"\n",
 						'<col style="width:5%">',"\n",

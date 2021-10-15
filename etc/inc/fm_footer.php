@@ -1,6 +1,6 @@
 <?php
 /*
-	footer.php
+	fm_footer.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -36,8 +36,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-// XigmaNAS® Code
-// footer for html-page
+require_once 'autoload.php';
+
+use common\session;
+
+//	XigmaNAS® Code
+//	footer for html-page
 function show_footer() {
 	global $d_sysrebootreqd_path;
 
@@ -58,7 +62,7 @@ function show_footer() {
 	$output[] = '<tbody>';
 	$output[] = '<tr>';
 	$output[] = '<td class="g4fl">';
-	if(Session::isAdmin()):
+	if(session::is_admin()):
 		if(file_exists($d_sysrebootreqd_path)):
 			$output[] = '<a href="/reboot.php" class="g4fi">';
 			$output[] = '<img src="/images/notify_reboot.png" title="' . gtext('A reboot is required') . '" alt="' . gtext('Reboot Required') . '>">';

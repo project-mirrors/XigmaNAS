@@ -1,6 +1,6 @@
 <?php
 /*
-	edit_editarea.php
+	fm_edit_editarea.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -35,7 +35,10 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-require_once('fm_permissions.php');
+require_once 'autoload.php';
+require_once 'fm_permissions.php';
+
+use common\session;
 
 //	save edited file
 function savefile($file_name) {
@@ -107,7 +110,7 @@ function edit_file($dir,$item) {
 //	Form
 	echo	'<br>',"\n";
 	echo	'<form name="editfrm" method="post" action="',make_link('edit',$dir,$item),'">',"\n";
-	echo		'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo		'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 	echo		'<input type="hidden" name="dosave" value="yes">',"\n";
 	echo		'<textarea name="code" id="txtedit" rows="27" cols="125" style="font-family: monospace;" wrap="off">',htmlspecialchars($buffer),'</textarea>',"\n";
 	echo		'<br>',"\n";

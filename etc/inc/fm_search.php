@@ -35,6 +35,10 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
+
+use common\session;
+
 //	find items
 function find_item($dir,$regex,&$list,$recur) {
 	$handle = @opendir(get_abs_dir($dir));
@@ -128,7 +132,7 @@ function search_items($dir) {
 	echo '<div class="area_data_pot">',"\n";
 //	search box
 	echo '<form name="searchform" action="',make_link('search',$dir,null),'" method="post">',"\n";
-	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 	echo	'<table class="area_data_selection">',
 				'<colgroup>',
 					'<col style="width:100%">',

@@ -1,6 +1,6 @@
 <?php
 /*
-	chmod.php
+	fm_chmod.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -34,7 +34,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once('fm_permissions.php');
+
+require_once 'autoload.php';
+require_once 'fm_permissions.php';
+
+use common\session;
 
 //	change permissions
 function chmod_item($dir,$item) {
@@ -79,7 +83,7 @@ function chmod_item($dir,$item) {
 	echo '<div id="area_data_frame">',"\n";
 //	form
 	echo '<form method="post" action="',make_link('chmod',$dir,$item),'">',"\n";
-	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo	'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 	echo 	'<table width="175">',"\n",
 				'<input type="hidden" name="confirm" value="true">',"\n";
 //				print table with current perms & checkboxes to change
