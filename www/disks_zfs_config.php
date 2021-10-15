@@ -36,8 +36,10 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use gui\document;
 use common\arr;
+use common\session;
+use common\uuid;
+use gui\document;
 
 $use_si = is_sidisksizevalues();
 $zfs = [
@@ -77,10 +79,10 @@ if($retval == 0):
 			if(empty($origin) || $origin != '-'):
 				continue;
 			endif;
-			list($pool,$name) = explode('/',$fname,2);
+			[$pool,$name] = explode('/',$fname,2);
 			$zfs['datasets']['dataset'][$fname] = [
 				'identifier' => $fname,
-				'uuid' => uuid(),
+				'uuid' => uuid::create_v4(),
 				'name' => $name,
 				'pool' => $pool,
 				'compression' => $compress,
@@ -99,7 +101,9 @@ if($retval == 0):
 				'secondarycache' => $secondarycache,
 				'desc' => '',
 			];
-			list($mp_owner,$mp_group,$mp_mode) = ['root','wheel',0777];
+			$mp_owner = 'root';
+			$mp_group = 'wheel';
+			$mp_mode = 0777;
 			if($canmount == 'on' && !empty($mpoint) && file_exists($mpoint)):
 				$mp_uid = fileowner($mpoint);
 				$mp_gid = filegroup($mpoint);
@@ -121,7 +125,7 @@ if($retval == 0):
 			];
 		else: // zpool
 			$zfs['pools']['pool'][$fname] = [
-				'uuid' => uuid(),
+				'uuid' => uuid::create_v4(),
 				'name' => $fname,
 				'vdevice' => [],
 				'root' => null,
@@ -152,10 +156,10 @@ if($retval == 0):
 			if(empty($origin) || $origin != '-'):
 				continue;
 			endif;
-			list($pool,$name) = explode('/',$fname,2);
+			[$pool,$name] = explode('/',$fname,2);
 			$zfs['volumes']['volume'][$fname] = [
 				'identifier' => $fname,
-				'uuid' => uuid(),
+				'uuid' => uuid::create_v4(),
 				'name' => $name,
 				'pool' => $pool,
 				'volsize' => format_bytes($volsize,2,false,$use_si),
@@ -201,7 +205,7 @@ $pool = null;
 $vdev = null;
 $type = null;
 $i = 0;
-$vdev_type = array('mirror','raidz1','raidz2','raidz3');
+$vdev_type = array('mirror','raidz1','raidz2','raidz3','draid1','draid2','draid3');
 $cmd = 'zpool status';
 unset($rawdata);
 mwexec2($cmd,$rawdata);
@@ -252,7 +256,7 @@ foreach($rawdata as $line):
 		endif;
 		if(!array_key_exists($vdev,$zfs['vdevices']['vdevice'])):
 			$zfs['vdevices']['vdevice'][$vdev] = [
-				'uuid' => uuid(),
+				'uuid' => uuid::create_v4(),
 				'name' => $vdev,
 				'type' => $type,
 				'device' => [],
@@ -309,7 +313,7 @@ if(count($zfs['pools']['pool']) <= 0):
 			if(isset($_POST['import_force'])):
 				$message_box_text = 'error';
 			else:
-				$authToken = Session::getAuthToken();
+				$authToken = session::get_authtoken();
 				$message_box_text .= ' ';
 				$message_box_text .= gtext('Try to force import.');
 				$message_box_text = <<<HTML
@@ -324,7 +328,7 @@ HTML;
 			endif;
 		endif;
 	else:
-		$authToken = Session::getAuthToken();
+		$authToken = session::get_authtoken();
 		$message_box_type = 'info';
 		$text = gtext('No pool was found.').' '.gtext('Try to import from on-disk ZFS config.');
 		$message_box_text = <<<HTML
