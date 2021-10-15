@@ -1,6 +1,6 @@
 <?php
 /*
-	header.php
+	fm_header.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -35,6 +35,10 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
+
+use common\session;
 
 //	header for html-page
 function show_header($title) {
@@ -104,7 +108,7 @@ function show_header($title) {
 				'<div class="area_data_top">',"\n",
 					'<table class="area_data_settings"><thead><tr>',"\n",
 						'<th class="lhetop">';
-							$uname = Session::getUserName();
+							$uname = session::get_user_name();
 							if($uname !== false):
 								echo '[',strtohtml($uname),'] ';
 							endif;

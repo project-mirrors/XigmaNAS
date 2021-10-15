@@ -1,6 +1,6 @@
 <?php
 /*
-	login.php
+	fm_login.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -34,15 +34,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once "fm_user.php";
-require_once "fm_debug.php";
+
+require_once 'autoload.php';
+require_once 'fm_user.php';
+require_once 'fm_debug.php';
+
+use common\session;
 
 //	FIXME update home_dir variable if user is logged in
 function login() {
-	if(!user_activate(Session::getUserName())):
+	if(!user_activate(session::get_user_name())):
 		_debug('Failed to activate user ' . $_SESSION['uname']);
 		http_response_code(403);
-		Session::destroy();
+		session::destroy();
 		exit;
 	endif;
 }

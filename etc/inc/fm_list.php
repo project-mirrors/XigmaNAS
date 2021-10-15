@@ -1,6 +1,6 @@
 <?php
 /*
-	list.php
+	fm_list.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -35,9 +35,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'fm_permissions.php';
 require_once 'fm_login.php';
 require_once 'fm_qxpath.php';
+
+use common\session;
 
 function make_list($_list1,$_list2) { // make list of files
 	$list = [];
@@ -271,7 +274,7 @@ function list_dir($dir) {
 	if(permissions_grant($dir,null,'create')):
 		echo '<th class="lherr">',"\n";
 		echo '<form name="mkiform" method="post" action="',make_link('mkitem',$dir,null),'">',"\n";
-		echo '<div id="formextension1">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+		echo '<div id="formextension1">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 		echo '<table style="width:100%"><tbody><tr><td>',"\n";
 		echo '<img style="vertical-align:middle" width="16" height="16" src="',$GLOBALS['baricons']['add'],'" alt="">',"\n";
 		echo '<select name="mktype">',"\n";
@@ -290,7 +293,7 @@ function list_dir($dir) {
 //	Begin Table + Form for checkboxes
 	echo '<div id="area_data_frame">',"\n";
 	echo '<form name="selform" method="post" action="',make_link('post',$dir,null),'">',"\n";
-	echo '<div id="formextension2">',"\n",'<input name="authtoken" type="hidden" value="',Session::getAuthToken(),'">',"\n",'</div>',"\n";
+	echo '<div id="formextension2">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 	echo '<table class="area_data_selection">';
 	echo	'<colgroup>',
 				'<col style="width:5%">',
