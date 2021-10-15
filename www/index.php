@@ -66,7 +66,7 @@ function render_cpuusage() {
 	global $use_meter_tag;
 	global $sysinfo;
 
-	if(session::is_admin):
+	if(session::is_admin()):
 		$sphere = $sysinfo['cpuusage'];
 		$o = new document();
 		$td = $o->addTR()->insTDwC('celltag',gettext('CPU Usage'))->addTDwC('celldata');
