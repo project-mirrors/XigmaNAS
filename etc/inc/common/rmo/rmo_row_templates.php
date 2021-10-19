@@ -42,7 +42,7 @@ use const PAGE_MODE_POST;
 /**
  *	Request Method Object Templates
  */
-final class rmo_row_templates {
+class rmo_row_templates {
 /**
  *	create and return RMO object with<br/>
  *	<b>GET</b>: add & edit<br/>
