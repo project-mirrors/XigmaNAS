@@ -37,7 +37,7 @@ namespace common;
 /**
  *	Wrapper class for autoloading functions
  */
-final class arr {
+class arr {
 /**
  *	Search in a multidimensional array.
  *	@param mixed $needle String or array of needles to search for.
@@ -45,7 +45,7 @@ final class arr {
  *	@param mixed $key String or array of keys to search.
  *	@return mixed Key on success or false on failure.
  */
-	public final static function search_ex($needle,$haystack,$key) {
+	public static function search_ex($needle,$haystack,$key) {
 		if(is_array($haystack) && $needle !== '' && $key !== ''):
 			foreach($haystack as $haystackval => $value):
 				$found = false;
@@ -76,7 +76,7 @@ final class arr {
  *	@param string $key The key used as sort criteria.
  *	@return boolean true on success or false on failure.
  */
-	public final static function sort_key(array &$array,$key) {
+	public static function sort_key(array &$array,$key) {
 		if(empty($array) || ($key === '')):
 			$result = true;
 		else:
@@ -95,7 +95,7 @@ final class arr {
  *	@param string $leaves
  *	@return array
  */
-	public final static function &make_branch(array &$branch,string ...$leaves) {
+	public static function &make_branch(array &$branch,string ...$leaves) {
 		$active_leaf = &$branch;
 		foreach($leaves as $leaf):
 			if(!(array_key_exists($leaf,$active_leaf) && is_array($active_leaf[$leaf]))):
