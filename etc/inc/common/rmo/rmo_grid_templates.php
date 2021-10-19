@@ -43,7 +43,7 @@ use const PAGE_MODE_VIEW;
 /**
  *	Request Method Object Templates
  */
-final class rmo_grid_templates {
+class rmo_grid_templates {
 /**
  *	create and return RMO object with<br/>
  *	<b>SESSION</b>: basename of the script file<br/>
