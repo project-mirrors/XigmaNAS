@@ -38,7 +38,7 @@ use Collator;
 use DirectoryIterator;
 use Locale;
 
-final class lang {
+class lang {
 	private const PATH = '/usr/local/share/locale';
 
 /**
