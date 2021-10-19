@@ -38,6 +38,17 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function rc_update_reload_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_process;
+use function write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -67,7 +78,7 @@ class grid_hub {
 			case 'SESSION':
 				switch($page_action):
 					case $sphere->get_script()->get_basename():
-						//	catch error code
+//						catch error code
 						$retval = filter_var($_SESSION[$sphere->get_script()->get_basename()],FILTER_VALIDATE_INT,['options' => ['default' => 0]]);
 						unset($_SESSION['submit'],$_SESSION[$sphere->get_script()->get_basename()]);
 						$savemsg = get_std_save_message($retval);

@@ -31,10 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace services\ctld\hub;
-use common\properties as myp;
-use common\rmo as myr;
+
+use common\arr;
 use common\sphere as mys;
+
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
+
+use function updatenotify_clear;
+use function write_config;
+
 /**
  *	Wrapper class for autoloading functions
  */
@@ -48,7 +58,7 @@ class shared_hub {
  */
 	public static function process_notification(int $mode,string $data,mys\grid $sphere) {
 		$retval = 0;
-		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
+		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:

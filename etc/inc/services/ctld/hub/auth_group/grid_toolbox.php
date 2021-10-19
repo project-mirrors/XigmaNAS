@@ -1,6 +1,6 @@
 <?php
 /*
-	toolbox_grid.php
+	grid_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
