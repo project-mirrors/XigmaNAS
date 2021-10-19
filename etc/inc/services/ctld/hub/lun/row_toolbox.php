@@ -45,7 +45,7 @@ use function new_page;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox extends myt\row_toolbox {
+class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\row The sphere object

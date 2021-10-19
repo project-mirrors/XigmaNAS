@@ -42,7 +42,7 @@ use services\ctld\hub\shared_hub as hub;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
+class shared_toolbox {
 	private const NOTIFICATION_NAME = 'services\ctld';
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 	private const ROW_IDENTIFIER = 'uuid';

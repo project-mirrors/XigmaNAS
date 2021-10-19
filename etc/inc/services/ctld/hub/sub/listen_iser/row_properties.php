@@ -32,13 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-namespace services\ctld\hub\sub\initiator_portal;
+namespace services\ctld\hub\sub\listen_iser;
 
 use common\properties as myp;
 
 class row_properties extends grid_properties {
 	public function init_ipaddress(): myp\property_ipaddress {
-		$description = gettext('An IPv4 or IPv6 address of an iSCSI initiator portal.');
+		$description = gettext('An IPv4 or IPv6 address to listen on for incoming connections using iSER (iSCSI over RDMA) protocol.');
 		$placeholder = gettext('IP Address');
 		$property = parent::init_ipaddress();
 		$property->
@@ -49,25 +49,25 @@ class row_properties extends grid_properties {
 			filter_use_default();
 		return $property;
 	}
-	public function init_prefixlen(): myp\property_int {
-		$description = gettext('Enter IP address prefix length.');
+	public function init_port(): myp\property_int {
+		$description = gettext('A port to listen on for incoming connections using iSER (iSCSI over RDMA) protocol.');
 		$placeholder = '';
-		$property = parent::init_prefixlen();
+		$property = parent::init_port();
 		$property->
-			set_id('prefixlen')->
+			set_id('port')->
 			set_description($description)->
 			set_defaultvalue('')->
 			set_placeholder($placeholder)->
 			set_size(10)->
-			set_maxlength(3)->
-			set_min(0)->
-			set_max(128)->
+			set_maxlength(5)->
+			set_min(1024)->
+			set_max(65535)->
 			filter_use_default_or_empty();
 		return $property;
 	}
 	public function init_group(): myp\property_list_multi {
-		$description = gettext('Link initiator-portal to auth-groups. An Initiator matching this address will be allowed to connect to the selected auth-groups.');
-		$message_info = gettext('No auth groups found.');
+		$description = gettext('Link listener to portal groups. Selected portal groups will listen on this address for incoming connections.');
+		$message_info = gettext('No portal groups found.');
 		$options = [];
 		$property = parent::init_group();
 		$property->

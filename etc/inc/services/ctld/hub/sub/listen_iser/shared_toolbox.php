@@ -32,7 +32,7 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-namespace services\ctld\hub\sub\lun;
+namespace services\ctld\hub\sub\listen_iser;
 
 use common\arr;
 use common\sphere as mys;
@@ -60,7 +60,7 @@ class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \mys\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
@@ -70,8 +70,8 @@ class shared_toolbox {
 			set_notifier_processor(sprintf('%s::%s',self::class,self::NOTIFICATION_PROCESSOR))->
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
-			add_page_title(gettext('Services'),gettext('CAM Target Layer'),gettext('Targets'),gettext('LUNs'));
-		$sphere->grid = &arr::make_branch($config,'ctld','ctl_sub_lun','param');
+			add_page_title(gettext('Services'),gettext('CAM Target Layer'),gettext('Portal Groups'),gettext('Listen'));
+		$sphere->grid = &arr::make_branch($config,'ctld','ctl_sub_listen_iser','param');
 	}
 /**
  *	Add the tab navigation menu of this sphere
@@ -85,15 +85,16 @@ class shared_toolbox {
 				push()->
 				add_tabnav_upper()->
 					ins_tabnav_record('services_ctl.php',gettext('Global Settings'))->
-					ins_tabnav_record('services_ctl_target.php',gettext('Targets'),gettext('Reload page'),true)->
+					ins_tabnav_record('services_ctl_target.php',gettext('Targets'))->
 					ins_tabnav_record('services_ctl_lun.php',gettext('LUNs'))->
-					ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'))->
+					ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'),gettext('Reload page'),true)->
 					ins_tabnav_record('services_ctl_auth_group.php',gettext('Auth Groups'))->
 				pop()->
 				add_tabnav_lower()->
-					ins_tabnav_record('services_ctl_target.php',gettext('Targets'))->
-					ins_tabnav_record('services_ctl_sub_port.php',gettext('Ports'))->
-					ins_tabnav_record('services_ctl_sub_lun.php',gettext('LUNs'),gettext('Reload page'),true);
+					ins_tabnav_record('services_ctl_portal_group.php',gettext('Portal Groups'))->
+					ins_tabnav_record('services_ctl_sub_listen.php',gettext('Listen'))->
+					ins_tabnav_record('services_ctl_sub_listen_iser.php',gettext('Listen (iSER)'),gettext('Reload page'),true)->
+					ins_tabnav_record('services_ctl_sub_option.php',gettext('Option'));
 		return $retval;
 	}
 }

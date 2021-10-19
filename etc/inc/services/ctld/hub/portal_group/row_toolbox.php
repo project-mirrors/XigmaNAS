@@ -44,7 +44,7 @@ use services\ctld\hub\sub\option\grid_toolbox as tbo;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox extends myt\row_toolbox {
+class row_toolbox extends myt\row_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\row The sphere object

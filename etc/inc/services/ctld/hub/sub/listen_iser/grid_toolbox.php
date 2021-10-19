@@ -32,11 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-namespace services\ctld\hub\sub\listen;
+namespace services\ctld\hub\sub\listen_iser;
 
 use common\arr;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const UPDATENOTIFY_MODE_DIRTY;
 use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
@@ -48,7 +49,7 @@ use function updatenotify_get_mode;
 /**
  *	Wrapper class for autoloading functions
  */
-class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid
@@ -57,8 +58,8 @@ class grid_toolbox {
 		$sphere = new mys\grid();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('services_ctl_sub_listen')->
-			set_modify('services_ctl_sub_listen_edit')->
+			set_script('services_ctl_sub_listen_iser')->
+			set_modify('services_ctl_sub_listen_iser_edit')->
 			set_parent('services_ctl_auth_group')->
 			setmsg_sym_add(gettext('Add Listen Record'))->
 			setmsg_sym_mod(gettext('Edit Listen Record'))->
@@ -87,14 +88,6 @@ class grid_toolbox {
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
-	}
-/**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
 	}
 /**
  *	Render the page
