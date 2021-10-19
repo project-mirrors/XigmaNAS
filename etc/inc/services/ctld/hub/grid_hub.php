@@ -41,18 +41,18 @@ use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_hub {
+class grid_hub {
 /**
  *	process request method
  *	@global string $d_sysrebootreqd_path
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;

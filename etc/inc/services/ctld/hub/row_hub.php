@@ -35,5 +35,5 @@ namespace services\ctld\hub;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_hub {
+class row_hub {
 }

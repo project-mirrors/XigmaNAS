@@ -36,7 +36,7 @@ namespace services\ctld\hub\sub\listen;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_ipaddress(): myp\property_ipaddress {
 		$description = gettext('An IPv4 or IPv6 address to listen on for incoming connections.');
 		$placeholder = gettext('IP Address');

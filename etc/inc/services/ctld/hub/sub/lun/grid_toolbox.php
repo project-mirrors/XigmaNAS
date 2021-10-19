@@ -48,7 +48,7 @@ use function updatenotify_get_mode;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid

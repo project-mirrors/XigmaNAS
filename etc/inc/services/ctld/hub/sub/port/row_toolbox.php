@@ -40,7 +40,7 @@ use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class row_toolbox {
+class row_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\row The sphere object

@@ -38,7 +38,7 @@ use common\sphere as mys;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_hub {
+class shared_hub {
 /**
  *	Helper function to process row update notifications
  *	@param int $mode
@@ -46,7 +46,7 @@ final class shared_hub {
  *	@param object $sphere
  *	@return int
  */
-	final public static function process_notification(int $mode,string $data,mys\grid $sphere) {
+	public static function process_notification(int $mode,string $data,mys\grid $sphere) {
 		$retval = 0;
 		$sphere->row_id = array_search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):
