@@ -116,18 +116,26 @@ class session {
  *	@param string $timezone
  */
 	public static function init(string $uid,string $uname,bool $admin = false,string $timezone = null) {
-		session_regenerate_id(true);
-		$_SESSION['authtoken'] = bin2hex(random_bytes(32));
-		$_SESSION['admin'] = $admin;
-		$_SESSION['login'] = true;
-		$_SESSION['ts'] = time();
-		$_SESSION['uid'] = $uid;
-		$_SESSION['uname'] = $uname;
-		$_SESSION['tz'] = $timezone;
-		$_SESSION['g'] = [
-			'shrinkpageheader' => false,
-			'headermenu' => []
-		];
+		switch(session_status()):
+//			case PHP_SESSION_DISABLED:
+//				break;
+//			case PHP_SESSION_NONE:
+//				break;
+			case PHP_SESSION_ACTIVE:
+				session_regenerate_id(true);
+				$_SESSION['authtoken'] = bin2hex(random_bytes(32));
+				$_SESSION['admin'] = $admin;
+				$_SESSION['login'] = true;
+				$_SESSION['ts'] = time();
+				$_SESSION['uid'] = $uid;
+				$_SESSION['uname'] = $uname;
+				$_SESSION['tz'] = $timezone;
+				$_SESSION['g'] = [
+					'shrinkpageheader' => false,
+					'headermenu' => []
+				];
+				break;
+		endswitch;
 	}
 /**
  *	Has the current user administration permissions?
