@@ -35,11 +35,15 @@
 namespace services\ctld\hub;
 
 use common\arr;
-use common\properties as myp;
-use common\rmo as myr;
 use common\sphere as mys;
 
-use function updatenotify_clear,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
+
+use function updatenotify_clear;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions

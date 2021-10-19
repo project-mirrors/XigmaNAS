@@ -37,6 +37,7 @@ namespace services\ctld\hub\sub\initiator_portal;
 use common\arr;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const UPDATENOTIFY_MODE_DIRTY;
 use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
@@ -48,7 +49,7 @@ use function updatenotify_get_mode;
 /**
  *	Wrapper class for autoloading functions
  */
-class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid
@@ -87,14 +88,6 @@ class grid_toolbox {
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
 		return $rmo;
-	}
-/**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
 	}
 /**
  *	Render the page
