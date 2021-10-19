@@ -1,6 +1,6 @@
 <?php
 /*
-	row_properties.php
+	row_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -32,51 +32,33 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-namespace services\ctld\hub\sub\initiator_portal;
+namespace services\ctld\hub\sub\listen_iser;
 
-use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+use common\toolbox as myt;
 
-class row_properties extends grid_properties {
-	public function init_ipaddress(): myp\property_ipaddress {
-		$description = gettext('An IPv4 or IPv6 address of an iSCSI initiator portal.');
-		$placeholder = gettext('IP Address');
-		$property = parent::init_ipaddress();
-		$property->
-			set_id('ipaddress')->
-			set_description($description)->
-			set_defaultvalue('')->
-			set_placeholder($placeholder)->
-			filter_use_default();
-		return $property;
+/**
+ *	Wrapper class for autoloading functions
+ */
+class row_toolbox extends myt\row_toolbox {
+/**
+ *	Create the sphere object
+ *	@return mys\row The sphere object
+ */
+	public static function init_sphere() {
+		$sphere = new mys\row;
+		shared_toolbox::init_sphere($sphere);
+		$sphere->
+			set_script('services_ctl_sub_listen_iser_edit')->
+			set_parent('services_ctl_sub_listen_iser');
+		return $sphere;
 	}
-	public function init_prefixlen(): myp\property_int {
-		$description = gettext('Enter IP address prefix length.');
-		$placeholder = '';
-		$property = parent::init_prefixlen();
-		$property->
-			set_id('prefixlen')->
-			set_description($description)->
-			set_defaultvalue('')->
-			set_placeholder($placeholder)->
-			set_size(10)->
-			set_maxlength(3)->
-			set_min(0)->
-			set_max(128)->
-			filter_use_default_or_empty();
-		return $property;
-	}
-	public function init_group(): myp\property_list_multi {
-		$description = gettext('Link initiator-portal to auth-groups. An Initiator matching this address will be allowed to connect to the selected auth-groups.');
-		$message_info = gettext('No auth groups found.');
-		$options = [];
-		$property = parent::init_group();
-		$property->
-			set_id('group')->
-			set_description($description)->
-			set_defaultvalue([])->
-			set_options($options)->
-			filter_use_default()->
-			set_message_info($message_info);
-		return $property;
+/**
+ *	Create the request method object
+ *	@return myr\rmo The request method object
+ */
+	public static function init_rmo() {
+		return myr\rmo_row_templates::rmo_with_clone();
 	}
 }

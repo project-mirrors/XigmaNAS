@@ -35,16 +35,20 @@
 namespace services\ctld\hub;
 
 use common\arr;
-use common\properties as myp;
-use common\rmo as myr;
 use common\sphere as mys;
 
-use function updatenotify_clear,write_config;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const UPDATENOTIFY_MODE_MODIFIED;
+use const UPDATENOTIFY_MODE_NEW;
+
+use function updatenotify_clear;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_hub {
+class shared_hub {
 /**
  *	Helper function to process row update notifications
  *	@param int $mode
@@ -52,7 +56,7 @@ final class shared_hub {
  *	@param object $sphere
  *	@return int
  */
-	final public static function process_notification(int $mode,string $data,mys\grid $sphere) {
+	public static function process_notification(int $mode,string $data,mys\grid $sphere) {
 		$retval = 0;
 		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
 		if(false !== $sphere->row_id):

@@ -32,7 +32,7 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
-namespace services\ctld\hub\sub\option;
+namespace services\ctld\hub\sub\listen_iser;
 
 use common\arr;
 use common\rmo as myr;
@@ -58,22 +58,22 @@ class grid_toolbox extends myt\grid_toolbox {
 		$sphere = new mys\grid();
 		shared_toolbox::init_sphere($sphere);
 		$sphere->
-			set_script('services_ctl_sub_option')->
-			set_modify('services_ctl_sub_option_edit')->
+			set_script('services_ctl_sub_listen_iser')->
+			set_modify('services_ctl_sub_listen_iser_edit')->
 			set_parent('services_ctl_auth_group')->
-			setmsg_sym_add(gettext('Add Option Record'))->
-			setmsg_sym_mod(gettext('Edit Option Record'))->
-			setmsg_sym_del(gettext('Option record is marked for deletion'))->
-			setmsg_sym_loc(gettext('Option record is locked'))->
-			setmsg_sym_unl(gettext('Option record is unlocked'))->
-			setmsg_cbm_delete(gettext('Delete Selected Option Records'))->
-			setmsg_cbm_disable(gettext('Disable Selected Option Records'))->
-			setmsg_cbm_enable(gettext('Enable Selected Option Records'))->
-			setmsg_cbm_toggle(gettext('Toggle Selected Option Records'))->
-			setmsg_cbm_delete_confirm(gettext('Do you want to delete selected option records?'))->
-			setmsg_cbm_disable_confirm(gettext('Do you want to disable selected option records?'))->
-			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected option records?'))->
-			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected option records?'));
+			setmsg_sym_add(gettext('Add Listen Record'))->
+			setmsg_sym_mod(gettext('Edit Listen Record'))->
+			setmsg_sym_del(gettext('Listen record is marked for deletion'))->
+			setmsg_sym_loc(gettext('Listen record is locked'))->
+			setmsg_sym_unl(gettext('Listen record is unlocked'))->
+			setmsg_cbm_delete(gettext('Delete Selected Listen Records'))->
+			setmsg_cbm_disable(gettext('Disable Selected Listen Records'))->
+			setmsg_cbm_enable(gettext('Enable Selected Listen Records'))->
+			setmsg_cbm_toggle(gettext('Toggle Selected Listen Records'))->
+			setmsg_cbm_delete_confirm(gettext('Do you want to delete selected listen records?'))->
+			setmsg_cbm_disable_confirm(gettext('Do you want to disable selected listen records?'))->
+			setmsg_cbm_enable_confirm(gettext('Do you want to enable selected listen records?'))->
+			setmsg_cbm_toggle_confirm(gettext('Do you want to toggle selected listen records?'));
 		if(!empty($sphere->grid)):
 			arr::sort_key($sphere->grid,'name');
 		endif;
@@ -104,7 +104,7 @@ class grid_toolbox extends myt\grid_toolbox {
 
 		$record_exists = count($sphere->grid) > 0;
 		$use_tablesort = count($sphere->grid) > 1;
-		$a_col_width = ['5%','25%','25%','10%','25%','10%'];
+		$a_col_width = ['5%','25%','10%','10%','40%','10%'];
 		$n_col_width = count($a_col_width);
 		if($use_tablesort):
 			$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'tablesort');
@@ -140,16 +140,16 @@ class grid_toolbox extends myt\grid_toolbox {
 				addTHwC('lhelc sorter-false parser-false')->
 					ins_cbm_checkbox_toggle($sphere)->
 				pop()->
-				insTHwC('lhell',$cop->get_name()->get_title())->
-				insTHwC('lhell',$cop->get_value()->get_title())->
+				insTHwC('lhell',$cop->get_ipaddress()->get_title())->
+				insTHwC('lhell',$cop->get_port()->get_title())->
 				insTHwC('lhelc sorter-image',gettext('Status'))->
 				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhebl sorter-false parser-false',$cop->get_toolbox()->get_title());
 		else:
 			$tr->
 				insTHwC('lhelc')->
-				insTHwC('lhell',$cop->get_name()->get_title())->
-				insTHwC('lhell',$cop->get_value()->get_title())->
+				insTHwC('lhell',$cop->get_ipaddress()->get_title())->
+				insTHwC('lhell',$cop->get_port()->get_title())->
 				insTHwC('lhelc',gettext('Status'))->
 				insTHwC('lhell',$cop->get_description()->get_title())->
 				insTHwC('lhebl',$cop->get_toolbox()->get_title());
@@ -167,8 +167,8 @@ class grid_toolbox extends myt\grid_toolbox {
 						addTDwC('lcelc' . $dc)->
 							ins_cbm_checkbox($sphere,!($is_notdirty && $is_notprotected))->
 						pop()->
-						insTDwC('lcell' . $dc,$sphere->row[$cop->get_name()->get_name()] ?? '')->
-						insTDwC('lcell' . $dc,$sphere->row[$cop->get_value()->get_name()] ?? '')->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_ipaddress()->get_name()] ?? '')->
+						insTDwC('lcell' . $dc,$sphere->row[$cop->get_port()->get_name()] ?? '')->
 						ins_enadis_icon($is_enabled)->
 						insTDwC('lcell' . $dc,$sphere->row[$cop->get_description()->get_name()] ?? '')->
 						add_toolbox_area()->

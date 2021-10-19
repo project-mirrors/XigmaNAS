@@ -36,7 +36,7 @@ namespace services\ctld\hub\auth_group;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_name(): myp\property_text {
 		$description = gettext('Name of the Auth Group.');
 		$placeholder = gettext('Auth Group Name');

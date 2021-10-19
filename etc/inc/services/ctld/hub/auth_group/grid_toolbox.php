@@ -1,6 +1,6 @@
 <?php
 /*
-	toolbox_grid.php
+	grid_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -49,7 +49,7 @@ use function updatenotify_get_mode;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox extends myt\grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\grid

@@ -38,26 +38,32 @@ use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
 
-use function file_exists,filter_var,header,config_lock,config_unlock,
-		get_std_save_message,rc_update_reload_service,updatenotify_cbm_delete,
-		updatenotify_cbm_disable,updatenotify_cbm_enable,
-		updatenotify_cbm_toggle,updatenotify_process,write_config;
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function rc_update_reload_service;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_hub {
+class grid_hub {
 /**
  *	process request method
  *	@global string $d_sysrebootreqd_path
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $d_sysrebootreqd_path;
 		global $input_errors;
 		global $errormsg;

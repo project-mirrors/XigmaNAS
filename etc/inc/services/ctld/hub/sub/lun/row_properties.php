@@ -36,7 +36,7 @@ namespace services\ctld\hub\sub\lun;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_number(): myp\property_int {
 		$description = gettext('LUN number');
 		$property = parent::init_number();
