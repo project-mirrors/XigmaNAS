@@ -37,7 +37,7 @@ namespace common\rmo;
 /**
  *	Request Method Object
  */
-final class rmo {
+class rmo {
 	protected $x_activities = [];
 	protected $x_default = [null,null,null];
 	protected $x_method;
@@ -105,7 +105,8 @@ final class rmo {
 		endif;
 		if(isset($this->x_method)):
 			switch($this->x_method):
-				case 'POST': // Validate $_POST['submit']
+				case 'POST':
+//					Validate $_POST['submit']
 					$this->x_action = filter_input(INPUT_POST,'submit',FILTER_CALLBACK,['options' =>
 						fn(string $value) => array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : null
 					]);
@@ -113,31 +114,14 @@ final class rmo {
 						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
 					endif;
 					break;
-				case 'GET': // Validate $_GET['submit']
+				case 'GET':
+//					Validate $_GET['submit']
 					$this->x_action = filter_input(INPUT_GET,'submit',FILTER_CALLBACK,['options' =>
 						fn(string $value) => array_key_exists($value,$this->x_activities[$this->x_method]) ? $value : null
 					]);
 					if(isset($this->x_action)):
 						return [$this->x_method,$this->x_action,$this->x_activities[$this->x_method][$this->x_action]];
 					endif;
-					break;
-/*
-				case 'HEAD':
-					break;
-				case 'PUT':
-					break;
-				case 'DELETE':
-					break;
-				case 'CONNECT':
-					break;
-				case 'OPTIONS':
-					break;
-				case 'TRACE':
-					break;
-				case 'PATCH':
-					break;
- */
-				default:
 					break;
 			endswitch;
 		endif;
