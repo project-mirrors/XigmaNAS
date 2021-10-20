@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	Hex property
  */
-final class property_hex extends property_text {
+class property_hex extends property_text {
 	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->filter_use_default_set_regexp('/^(?:0x)?[[:xdigit:]]+$/');

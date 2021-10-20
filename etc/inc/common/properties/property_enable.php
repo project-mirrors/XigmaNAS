@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_enable.php
+	property_enable.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	Enable property
  */
-final class property_enable extends property_bool {
+class property_enable extends property_bool {
 	public function __construct($owner = null) {
 		$caption = gettext('Enable');
 		$description = '';

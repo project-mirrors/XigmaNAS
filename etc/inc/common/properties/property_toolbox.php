@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_toolbox.php
+	property_toolbox.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	Toolbox property
  */
-final class property_toolbox extends property_text {
+class property_toolbox extends property_text {
 	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->set_title(gettext('Toolbox'));

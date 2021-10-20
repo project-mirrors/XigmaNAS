@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_cidr.php
+	property_cidr.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	CIDR property
  */
-final class property_cidr extends property_text_callback {
+class property_cidr extends property_text_callback {
 	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->

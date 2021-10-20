@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_auxparam.php
+	property_auxparam.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -40,7 +40,7 @@ namespace common\properties;
  *	property description is empty
  *  @param object $owner The owner of this object or null
  */
-final class property_auxparam extends property_textarea {
+class property_auxparam extends property_textarea {
 	public function __construct($owner = null) {
 		$placeholder = gettext('Enter additional parameters');
 		$placeholderv = gettext('No additional parameters');

@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	MAC property
  */
-final class property_macaddress extends property_text {
+class property_macaddress extends property_text {
 	public function __construct($owner = null) {
 		$placeholder = gettext('MAC Address');
 		parent::__construct($owner);
