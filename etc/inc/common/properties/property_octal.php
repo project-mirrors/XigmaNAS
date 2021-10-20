@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	Octal property
  */
-final class property_octal extends property_text {
+class property_octal extends property_text {
 	public function __construct($owner = null) {
 		parent::__construct($owner);
 		$this->filter_use_default_set_regexp('/^0[0-7]*$/');

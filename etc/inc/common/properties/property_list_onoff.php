@@ -34,7 +34,7 @@
 
 namespace common\properties;
 
-final class property_list_onoff extends property_list {
+class property_list_onoff extends property_list {
 	public function __construct($owner = null) {
 		$options = [
 			'on' => gettext('On'),
