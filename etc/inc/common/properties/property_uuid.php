@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_uuid.php
+	property_uuid.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -39,7 +39,7 @@ use common\uuid;
 /**
  *	UUID property
  */
-final class property_uuid extends property_text {
+class property_uuid extends property_text {
 	public function __construct($owner = null) {
 		$description = gettext('The UUID of the record.');
 		$placeholder = gettext('Enter Universally Unique Identifier');

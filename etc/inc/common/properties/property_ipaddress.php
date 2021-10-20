@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_ipaddress.php
+	property_ipaddress.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	IP adddress property
  */
-final class property_ipaddress extends property_text {
+class property_ipaddress extends property_text {
 	public function __construct($owner = null) {
 		$placeholder = gettext('IP Address');
 		parent::__construct($owner);

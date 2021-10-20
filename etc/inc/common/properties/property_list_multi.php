@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_list_multi.php
+	property_list_multi.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.

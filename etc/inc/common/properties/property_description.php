@@ -34,7 +34,7 @@
 
 namespace common\properties;
 
-final class property_description extends property_text {
+class property_description extends property_text {
 /**
  *
  *	@param object $owner The owner of this object or null

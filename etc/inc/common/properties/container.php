@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\container.php
+	container.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -65,7 +65,7 @@ abstract class container {
  *	Unsets all 'x_*' properties
  *	@return $this
  */
-	final public function reset() {
+	public function reset() {
 		foreach($this as $key => $value):
 			if(strncmp($key,'x_',2) === 0):
 				unset($this->$key);
@@ -78,7 +78,7 @@ abstract class container {
  *	@return array Array containing initialized objects
  */
 /*
-	final public function init_all() {
+	public function init_all() {
 		$a_objects = [];
 		foreach($this as $key => $value):
 			unset($matches);

@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_text_callback.php
+	property_text_callback.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.

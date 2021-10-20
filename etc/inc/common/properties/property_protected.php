@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_protected.php
+	property_protected.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	Protected property
  */
-final class property_protected extends property_bool {
+class property_protected extends property_bool {
 	public function __construct($owner = null) {
 		$caption = gettext('Protect');
 		$description = '';

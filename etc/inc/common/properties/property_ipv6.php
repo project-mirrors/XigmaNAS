@@ -1,6 +1,6 @@
 <?php
 /*
-	common\properties\property_ipv6.php
+	property_ipv6.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -37,7 +37,7 @@ namespace common\properties;
 /**
  *	IPv6 property
  */
-final class property_ipv6 extends property_text {
+class property_ipv6 extends property_text {
 	public function __construct($owner = null) {
 		$placeholder = gettext('IPv6 Address');
 		parent::__construct($owner);
