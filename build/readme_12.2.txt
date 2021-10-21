@@ -52,6 +52,7 @@ Post-upgrade tasks:
 ===================
 - You may need to clear your browser's cache to circumvent display issues.
 - Make a backup of your configuration file and store it in a safe location.
+- You may need to backup your databases and update your database tables to the latest version.
 
 ZFS feature flags upgrade warning:
 ==================================
@@ -65,7 +66,7 @@ Only if really required, NTLMv1 authentication can be enabled by adding "ntlm au
 
 UPS note
 =============
-We have added improved output voltage to graphs data. 
+We have added improved output voltage to graphs data.
 Ups users need to reset current ups graph data!
 
 Community extension "Extended GUI" warning:
@@ -153,7 +154,7 @@ Fixes:
 - Fix stop torrents before stopping service.
 - Fix edit user, the default group kept resetting.
 
- 
+
 Default login credentials:
 ==========================
 
