@@ -52,6 +52,7 @@ Post-upgrade tasks:
 ===================
 - You may need to clear your browser's cache to circumvent display issues.
 - Make a backup of your configuration file and store it in a safe location.
+- You may need to backup your databases and update your database tables to the latest version.
 
 ZFS feature flags upgrade warning:
 ==================================
@@ -119,7 +120,7 @@ Changes:
 
 Fixes:
 
- 
+
 Default login credentials:
 ==========================
 
