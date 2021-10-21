@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\zfs\setting;
 
 use common\properties as myp;
@@ -38,7 +39,7 @@ use common\properties as myp;
 class grid_properties extends myp\container {
 	protected $x_showusedavail;
 	public function init_showusedavail(): myp\property_bool {
-		$title = \gettext('Show Used/Avail');
+		$title = gettext('Show Used/Avail');
 		$property = $this->x_showusedavail = new myp\property_bool($this);
 		$property->
 			set_name('showusedavail')->
@@ -50,7 +51,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_scanondisk;
 	public function init_scanondisk(): myp\property_bool {
-		$title = \gettext('On-Disk Configuration');
+		$title = gettext('On-Disk Configuration');
 		$property = $this->x_scanondisk = new myp\property_bool($this);
 		$property->
 			set_name('scanondisk')->
@@ -62,7 +63,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_capacity_warning;
 	public function init_capacity_warning(): myp\property_int {
-		$title = \gettext('Capacity Warning Threshold');
+		$title = gettext('Capacity Warning Threshold');
 		$property = $this->x_capacity_warning = new myp\property_int($this);
 		$property->
 			set_name('capacity_warning')->
@@ -74,7 +75,7 @@ class grid_properties extends myp\container {
 	}
 	protected $x_capacity_critical;
 	public function init_capacity_critical(): myp\property_int {
-		$title = \gettext('Capacity Critical Threshold');
+		$title = gettext('Capacity Critical Threshold');
 		$property = $this->x_capacity_critical = new myp\property_int($this);
 		$property->
 			set_name('capacity_critical')->

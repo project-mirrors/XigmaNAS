@@ -31,14 +31,15 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 namespace disks\zfs\setting;
 
 use common\properties as myp;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_showusedavail(): myp\property_bool {
-		$caption = \gettext('Display Used/Avail information from the filesystem instead of the Alloc/Free information from the pool.');
-		$description = \gettext('Used/Avail lists storage information after all redundancy is taken into account but is impacted by compression, deduplication and quotas. Alloc/Free lists the raw storage information of a pool.');
+		$caption = gettext('Display Used/Avail information from the filesystem instead of the Alloc/Free information from the pool.');
+		$description = gettext('Used/Avail lists storage information after all redundancy is taken into account but is impacted by compression, deduplication and quotas. Alloc/Free lists the raw storage information of a pool.');
 		$property = parent::init_showusedavail();
 		$property->
 			set_id('showusedavail')->
@@ -49,8 +50,8 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_scanondisk(): myp\property_bool {
-		$caption = \gettext('Read on-disk configuration.');
-		$description = \gettext('Reading the configuration from the disks is slower than reading from cache file.');
+		$caption = gettext('Read on-disk configuration.');
+		$description = gettext('Reading the configuration from the disks is slower than reading from cache file.');
 		$property = parent::init_scanondisk();
 		$property->
 			set_id('scanondisk')->
@@ -61,17 +62,17 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function test_capacity_warning($value = '') {
-		if(\is_string($value) && \preg_match('/^(8[0-9])?$/',$value)):
+		if(is_string($value) && preg_match('/^(8[0-9])?$/',$value)):
 			return $value;
 		endif;
-		return NULL;
+		return null;
 	}
 	public function init_capacity_warning(): myp\property_int {
-		$caption = \gettext('Set the warning threshold to a value between 80 and 89.');
+		$caption = gettext('Set the warning threshold to a value between 80 and 89.');
 		$description =
-			\gettext('An alert email is sent when the capacity of a pool exceeds the warning threshold.') .
+			gettext('An alert email is sent when the capacity of a pool exceeds the warning threshold.') .
 			' ' .
-			\gettext('A cron job must be setup to schedule script /etc/capacitycheck.zfs.');
+			gettext('A cron job must be setup to schedule script /etc/capacitycheck.zfs.');
 		$property = parent::init_capacity_warning();
 		$property->
 			set_id('capacity_warning')->
@@ -83,21 +84,21 @@ final class setting_properties extends grid_properties {
 			set_placeholder('80')->
 			set_filter(FILTER_CALLBACK)->
 			set_filter_options([$this,'test_capacity_warning'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),\gettext('Must be a number between 80 and 89.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Must be a number between 80 and 89.')));
 		return $property;
 	}
 	public function test_capacity_critical($value = '') {
-		if(\is_string($value) && \preg_match('/^(9[0-5])?$/',$value)):
+		if(is_string($value) && preg_match('/^(9[0-5])?$/',$value)):
 			return $value;
 		endif;
-		return NULL;
+		return null;
 	}
 	public function init_capacity_critical(): myp\property_int {
-		$caption = \gettext('Set the critical threshold to a value between 90 and 95.');
+		$caption = gettext('Set the critical threshold to a value between 90 and 95.');
 		$description =
-			\gettext('An alert email is sent when the capacity of a pool exceeds the critical threshold.') .
+			gettext('An alert email is sent when the capacity of a pool exceeds the critical threshold.') .
 			' ' .
-			\gettext('A cron job must be setup to schedule script /etc/capacitycheck.zfs.');
+			gettext('A cron job must be setup to schedule script /etc/capacitycheck.zfs.');
 		$property = parent::init_capacity_critical();
 		$property->
 			set_id('capacity_critical')->
@@ -109,7 +110,7 @@ final class setting_properties extends grid_properties {
 			set_placeholder('90')->
 			set_filter(FILTER_CALLBACK)->
 			set_filter_options([$this,'test_capacity_critical'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),\gettext('Must be a number between 90 and 95.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Must be a number between 90 and 95.')));
 		return $property;
 	}
 }
