@@ -36,8 +36,6 @@ namespace disks\zfs\setting;
 
 use common\properties as myp;
 
-use function gettext;
-
 class grid_properties extends myp\container {
 	protected $x_showusedavail;
 	public function init_showusedavail(): myp\property_bool {

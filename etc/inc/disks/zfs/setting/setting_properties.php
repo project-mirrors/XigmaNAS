@@ -36,9 +36,7 @@ namespace disks\zfs\setting;
 
 use common\properties as myp;
 
-use function gettext,is_string,preg_match,sprintf;
-
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_showusedavail(): myp\property_bool {
 		$caption = gettext('Display Used/Avail information from the filesystem instead of the Alloc/Free information from the pool.');
 		$description = gettext('Used/Avail lists storage information after all redundancy is taken into account but is impacted by compression, deduplication and quotas. Alloc/Free lists the raw storage information of a pool.');
