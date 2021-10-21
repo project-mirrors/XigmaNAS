@@ -930,12 +930,14 @@ EOJ;
 		$caption = $property->get_caption();
 		$select_attributes = [
 			'id' => $property->get_id(),
-			'name' => $property->get_name(),
-			'class' => 'formfld'
+			'name' => $property->get_name()
 		];
 		if($is_readonly):
+			$select_attributes['class'] = 'formfldro';
 			$select_attributes['disabled'] = 'disabled';
 			$is_required = false;
+		else:
+			$select_attributes['class'] = 'formfld';
 		endif;
 		if($is_required):
 			$select_attributes['required'] = 'required';
