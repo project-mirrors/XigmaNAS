@@ -41,9 +41,9 @@ Then go to: "System > Firmware Update" and Upgrade your platform Firmware to lat
 
 Upgrade note
 ============
-After upgrade you may need to clear your browser's cache to avoid display issues.
-
-** After the upgrade please do make a new backup of your configuration! see: System|Backup/Restore on menu **
+- After upgrade you may need to clear your browser's cache to avoid display issues.
+- After the upgrade please backup your configuration (Menu System > Backup/Restore).
+- You may need to backup your databases and update your database tables to the latest version.
 
 Dynamic DNS note
 ================
@@ -64,7 +64,7 @@ Additional Parameters: "ntlm auth = yes".
 
 UPS note
 =============
-We have added output voltage to graphs. 
+We have added output voltage to graphs.
 Ups users need to reset current ups graph data!
 
 ExtendedGUI note
