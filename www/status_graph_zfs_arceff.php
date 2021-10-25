@@ -32,20 +32,16 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use common\arr;
+use status\monitor\shared_toolbox as myst;
 
-arr::make_branch($config,'rrdgraphs');
-$rrd_zfs_arceff = true;
-$refresh = 300;
-if(isset($config['rrdgraphs']['refresh_time'])):
-	if(!empty($config['rrdgraphs']['refresh_time'])):
-		$refresh = $config['rrdgraphs']['refresh_time'];
-	endif;
-endif;
+$grid = arr::make_branch($config,'rrdgraphs');
+$refresh = empty($grid['refresh_time']) ? 300 : $grid['refresh_time'];
+$now = time();
 mwexec('/usr/local/share/rrdgraphs/rrd-graph.sh zfs_arceff',true);
 $document = new_page([gettext('Status'),gettext('Monitoring'),gettext('ZFS Cache Efficiency')]);
 //	get areas
@@ -53,22 +49,28 @@ $head = $document->getElementById('head');
 $pagecontent = $document->getElementById('pagecontent');
 $head->insElement('meta',['http-equiv' => 'refresh','content' => $refresh]);
 //	add tab navigation
-include 'status_graph_tabs.inc';
+myst::add_tabnav($document,myst::RRD_ARC_EFFICIENCY);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
 if(file_exists($d_sysrebootreqd_path)):
 	$content->ins_info_box(get_std_save_message(0));
 endif;
-$table = $content->add_table_data_settings();
-$table->addTHEAD()->ins_titleline(gettext('ZFS Cache Efficiency'));
-$now = time();
 $content->
-	ins_remark('remark','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
-$content->
-	addDIV(['class' => 'rrdgraphs'])->
-		insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_daily.png?rand=%s',$now),'alt' => gettext('RRDGraphs Daily ARC Efficiency Graph')])->
-		insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_weekly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Weekly ARC Efficiency Graph')])->
-		insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_monthly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Monthly ARC Efficiency Graph')])->
-		insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_yearly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Yearly ARC Efficiency Graph')]);
+	add_table_data_settings()->
+		push()->
+		addTHEAD()->
+			ins_titleline(gettext('ZFS Cache Efficiency'))->
+		pop()->
+		addTBODY(['class' => 'donothighlight'])->
+			addTR()->
+				addTD()->
+					addDIV(['class' => 'rrdgraphs'])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_daily.png?rand=%s',$now),'alt' => gettext('RRDGraphs Daily ARC Efficiency Graph')])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_weekly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Weekly ARC Efficiency Graph')])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_monthly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Monthly ARC Efficiency Graph')])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_yearly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Yearly ARC Efficiency Graph')]);
+$document->
+	add_area_buttons()->
+		ins_remark('remark','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->render();
