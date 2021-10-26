@@ -64,6 +64,7 @@ namespace common;
 	submit ------------------> string  Name of the script submitting the form
 	userlang ----------------> string  Language
 	statusgraphmemorylevel---> string  Script status_graph_memory.php, reporting level 'memory' or 'memory-detailed'
+	statusgraphnetworkif-----> string Script status_graph_network.php, reporting interface
 */
 
 class session {
