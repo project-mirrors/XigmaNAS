@@ -63,6 +63,7 @@ namespace common;
 	{scriptname} ------------> int     Return value of 'Apply' action
 	submit ------------------> string  Name of the script submitting the form
 	userlang ----------------> string  Language
+	statusgraphmemorylevel---> string  Script status_graph_memory.php, reporting level 'memory' or 'memory-detailed'
 */
 
 class session {
