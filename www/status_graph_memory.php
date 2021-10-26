@@ -32,77 +32,73 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use common\arr;
-use gui\document;
+use common\properties as myp;
+use status\monitor\shared_toolbox as myst;
 
-arr::make_branch($config,'rrdgraphs');
-$rrd_memory = true;
-$refresh = 300;
-if(isset($config['rrdgraphs']['refresh_time'])):
-	if(!empty($config['rrdgraphs']['refresh_time'])):
-		$refresh = $config['rrdgraphs']['refresh_time'];
-	endif;
+$grid = arr::make_branch($config,'rrdgraphs');
+$refresh = empty($grid['refresh_time']) ? 300 : $grid['refresh_time'];
+$now = time();
+$cops_element = new myp\property_list();
+$cops_element->
+	set_options(['memory' => gettext('Standard'),'memory-detailed' => gettext('Detailed')])->
+	set_defaultvalue('memory')->
+	set_id('statusgraphmemorylevel')->
+	set_name('statusgraphmemorylevel')->
+	set_input_type(myp\property::INPUT_TYPE_SELECT)->
+	set_title(gettext('Level'));
+//	populate $statusgraphmemorylevel from $_POST or $_SESSION or default value
+$statusgraphmemorylevel = $_POST['statusgraphmemorylevel'] ?? $_SESSION['statusgraphmemorylevel'] ?? $cops_element->get_defaultvalue();
+if(is_string($statusgraphmemorylevel) && array_key_exists($statusgraphmemorylevel,$cops_element->get_options())):
+else:
+	$statusgraphmemorylevel = $cops_element->get_defaultvalue();
 endif;
+$_SESSION['statusgraphmemorylevel'] = $statusgraphmemorylevel;
 mwexec('/usr/local/share/rrdgraphs/rrd-graph.sh memory',true);
-$pgtitle = [gtext('Status'),gtext('Monitoring'),gtext('Memory Usage')];
-include 'fbegin.inc';
-?>
-<meta http-equiv="refresh" content="<?=$refresh?>">
-<?php
-$document = new document();
-include 'status_graph_tabs.inc';
+$document = new_page([gettext('Status'),gettext('Monitoring'),gettext('Memory Usage')],'status_graph_memory.php');
+//	get areas
+$head = $document->getElementById('head');
+$pagecontent = $document->getElementById('pagecontent');
+$head->insElement('meta',['http-equiv' => 'refresh','content' => $refresh]);
+//	add tab navigation
+myst::add_tabnav($document,myst::RRD_MEMORY_USAGE);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if(file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(get_std_save_message(0));
+endif;
+$content->
+	add_table_data_settings()->
+		ins_colgroup_data_settings()->
+		push()->
+		addTHEAD()->
+			c2_titleline(gettext('Reporting Level'))->
+		last()->
+		addTBODY(['class' => 'donothighlight'])->
+			c2($cops_element,$statusgraphmemorylevel)->
+		pop()->
+		addTFOOT()->
+			c2_separator();
+$content->
+	add_table_data_settings()->
+		push()->
+		addTHEAD()->
+			ins_titleline(gettext('Memory Usage') . sprintf(' (%s)',sprintf(gettext('Graph updates every %d seconds.'),$refresh)))->
+		pop()->
+		addTBODY(['class' => 'donothighlight'])->
+			addTR()->
+				addTD()->
+					addDIV(['class' => 'rrdgraphs'])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_daily.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Daily Memory Graph')])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_weekly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Weekly Memory Graph')])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_monthly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Monthly Memory Graph')])->
+						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_yearly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Yearly Memory Graph')]);
+$document->
+	add_area_buttons()->
+		ins_button_save();
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form name="form2" action="status_graph_memory.php" method="get">
-	<table class="area_data_settings">
-		<colgroup>
-			<col style="width:100%">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('Memory Usage'),1);
-?>
-		</thead>
-		<tbody>
-			<tr><td>
-<?php
-				echo sprintf(gtext('Graph updates every %d seconds.'),$refresh);
-				echo '&nbsp;';
-				echo gtext('Selected graph:');
-				echo '&nbsp;&nbsp;&nbsp;';
-?>
-				<select name="if" class="formfld" onchange="submit()">
-<?php
-					$curif = "memory";
-					if(isset($_GET['if']) && $_GET['if']):
-						$curif = $_GET['if'];
-					endif;
-					$ifnum = $curif;
-					$ifdescrs = ['memory' => gtext('Standard'),'memory-detailed' => gtext('Detailed')];
-					foreach($ifdescrs as $ifn => $ifd):
-						echo '<option value="',$ifn,'"';
-						if ($ifn == $curif):
-							echo ' selected="selected"';
-						endif;
-						echo '>',htmlspecialchars($ifd),'</option>',PHP_EOL;
-					endforeach;
-?>
-				</select>
-			</td></tr>
-			<tr><td>
-				<div class="rrdgraphs">
-					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Memory Graph <?=$ifnum;?>">
-					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Memory Graph">
-					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Memory Graph">
-					<img class="rrdgraphs" src="/images/rrd/rrd-<?=$ifnum;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Memory Graph">
-				</div>
-			</td></tr>
-		</tbody>
-	</table>
-</form></td></tr></tbody></table>
-<?php
-include 'fend.inc';
