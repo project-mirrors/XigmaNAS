@@ -32,107 +32,112 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use common\arr;
-use gui\document;
+use common\properties as myp;
+use status\monitor\shared_toolbox as myst;
 
-arr::make_branch($config,'rrdgraphs');
-$rrd_disk_usage = true;
-$disk_types = 0;
-if(!empty($config['rrdgraphs']['mounts'])):
-	$disk_types += 1;
-endif;
-if(!empty($config['rrdgraphs']['pools'])):
-	$disk_types += 2;
-endif;
+$grid = arr::make_branch($config,'rrdgraphs');
+$refresh = empty($grid['refresh_time']) ? 300 : $grid['refresh_time'];
+$now = time();
+$disk_types = (empty($grid['mounts']) ? 0 : 1) + (empty($grid['pools']) ? 0 : 2);
 switch($disk_types):
 	case 1:
-		$disk_usage_collection = $config['rrdgraphs']['mounts'];
+		$options = $grid['mounts'];
 		break;
 	case 2:
-		$disk_usage_collection = $config['rrdgraphs']['pools'];
+		$options = $grid['pools'];
 		break;
 	case 3:
-		$disk_usage_collection = array_merge($config['rrdgraphs']['mounts'],$config['rrdgraphs']['pools']);
+		$options = array_merge($grid['mounts'],$grid['pools']);
 		break;
 	default:
-		$disk_usage_collection = [];
+		$options = [];
 		break;
 endswitch;
-if(!empty($disk_usage_collection)):
-	asort($disk_usage_collection);
-	if(isset($_GET['selector']) && $_GET['selector'] && array_key_exists($_GET['selector'],$disk_usage_collection)):
-		$current_key = $_GET['selector'];
+if(!empty($options)):
+	asort($options);
+endif;
+$cops_element = new myp\property_list();
+$cops_element->
+	set_defaultvalue('')->
+	set_id('statusgraphdukey')->
+	set_input_type(myp\property::INPUT_TYPE_SELECT)->
+	set_name('statusgraphdukey')->
+	set_options($options)->
+	set_title(gettext('Disk'));
+$record_exists = count($options) > 0;
+if($record_exists):
+	$statusgraphdukey = $_POST['statusgraphdukey'] ?? $_SESSION['statusgraphdukey'] ?? null;
+	if(is_string($statusgraphdukey) && array_key_exists($statusgraphdukey,$options)):
 	else:
-		$current_key = array_key_first($disk_usage_collection);
+		$statusgraphdukey = array_key_first($options);
 	endif;
-	$current_data = $disk_usage_collection[$current_key];
-	$clean_name = strtr(base64_encode($current_data),'+/=','-_~');
-	mwexec(sprintf('/usr/local/share/rrdgraphs/rrd-graph.sh disk_usage %s',escapeshellarg($current_data)),true);
+	$_SESSION['statusgraphdukey'] = $statusgraphdukey;
+	$current_filesystem = $options[$statusgraphdukey];
+	$current_filesystem_enc = strtr(base64_encode($current_filesystem),'+/=','-_~');
+	mwexec(sprintf('/usr/local/share/rrdgraphs/rrd-graph.sh disk_usage %s',escapeshellarg($current_filesystem)),true);
+else:
+	$statusgraphdukey = null;
+	$current_filesystem_enc = null;
 endif;
-$refresh = 300;
-if(isset($config['rrdgraphs']['refresh_time']) && !empty($config['rrdgraphs']['refresh_time'])):
-	$refresh = $config['rrdgraphs']['refresh_time'];
+$document = new_page([gettext('Status'),gettext('Monitoring'),gettext('Disk Usage')],'status_graph_disk_usage.php');
+//	get areas
+$head = $document->getElementById('head');
+$pagecontent = $document->getElementById('pagecontent');
+$head->insElement('meta',['http-equiv' => 'refresh','content' => $refresh]);
+//	add tab navigation
+myst::add_tabnav($document,myst::RRD_DISK_USAGE);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if(file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(get_std_save_message(0));
 endif;
-$pgtitle = [gtext('Status'),gtext('Monitoring'),gtext('Disk Usage')];
-include 'fbegin.inc';
-?>
-<meta http-equiv="refresh" content="<?=$refresh?>">
-<?php
-$document = new document();
-include 'status_graph_tabs.inc';
+if($record_exists):
+	$content->
+		add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_titleline(gettext('Reporting Disk'))->
+			last()->
+			addTBODY(['class' => 'donothighlight'])->
+				c2($cops_element,$statusgraphdukey)->
+			pop()->
+			addTFOOT()->
+				c2_separator();
+	$content->
+		add_table_data_settings()->
+			push()->
+			addTHEAD()->
+				ins_titleline(gettext('Disk Usage') . sprintf(' (%s)',sprintf(gettext('Graph updates every %d seconds.'),$refresh)))->
+			pop()->
+			addTBODY(['class' => 'donothighlight'])->
+				addTR()->
+					addTD()->
+						addDIV(['class' => 'rrdgraphs'])->
+							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_daily.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Daily Disk Usage Graph')])->
+							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_weekly.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Weekly Disk Usage Graph')])->
+							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_monthly.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Monthly Disk Usage Graph')])->
+							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_yearly.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Yearly Disk Usage Graph')]);
+	$document->
+		add_area_buttons(true,true)->
+			ins_button_save();
+	$document->
+		add_js_document_ready('document.getElementById("statusgraphdukey").setAttribute("onchange","submit()");');
+else:
+	$content->
+		add_table_data_settings()->
+			ins_colgroup_data_settings()->
+			push()->
+			addTHEAD()->
+				c2_titleline(gettext('Reporting Disk'))->
+			pop()->
+			addTFOOT()->
+				ins_no_records_found(2);
+endif;
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form name="form2" action="status_graph_disk_usage.php" method="get">
-	<table class="area_data_settings">
-		<colgroup>
-			<col style="width:100%">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('Disk Usage'),1);
-?>
-		</thead>
-<?php
-		if(!empty($disk_usage_collection)):
-?>
-		<tbody>
-			<tr><td>
-<?php
-				echo sprintf(gtext('Graph updates every %d seconds.'),$refresh);
-				echo '&nbsp;';
-				echo gtext('Selected graph:');
-				echo '&nbsp;&nbsp;&nbsp;';
-?>
-				<select name="selector" class="formfld" onchange="submit()">
-<?php
-					$selector_array = $disk_usage_collection;
-					foreach($selector_array as $selector_key => $selector_data):
-						echo '<option value="',$selector_key,'"';
-						if($selector_key == $current_key):
-							echo ' selected="selected"';
-						endif;
-						echo '>',htmlspecialchars($selector_data),'</option>',PHP_EOL;
-					endforeach;
-?>
-				</select>
-		</td></tr>
-		<tr><td>
-			<div class="rrdgraphs">
-				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_daily.png?rand=<?=time()?>" alt="RRDGraphs Daily Disk usage Graph |<?=$clean_name;?>|">
-				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_weekly.png?rand=<?=time()?>" alt="RRDGraphs Weekly Disk usage Graph">
-				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_monthly.png?rand=<?=time()?>" alt="RRDGraphs Monthly Disk usage Graph">
-				<img class="rrdgraphs" src="/images/rrd/rrd-mnt_<?=$clean_name;?>_yearly.png?rand=<?=time()?>" alt="RRDGraphs Yearly Disk usage Graph">
-			</div>
-			</td></tr>
-		</tbody>
-<?php
-		endif;
-?>
-	</table>
-</form></td></tr></tbody></table>
-<?php
-include 'fend.inc';
