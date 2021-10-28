@@ -103,6 +103,8 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_monthly.png?rand=%s',$if_enum,$now),'alt' => gettext('RRDGraphs Monthly Bandwidth Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_yearly.png?rand=%s',$if_enum,$now),'alt' => gettext('RRDGraphs Yearly Bandwidth Graph')]);
 $document->
-	add_area_buttons()->
+	add_area_buttons(true,true)->
 		ins_button_save();
+$document->
+	add_js_document_ready('document.getElementById("statusgraphnetworkif").setAttribute("onchange","submit()");');
 $document->render();
