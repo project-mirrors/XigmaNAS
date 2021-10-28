@@ -99,6 +99,8 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_monthly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Monthly Memory Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_yearly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Yearly Memory Graph')]);
 $document->
-	add_area_buttons()->
+	add_area_buttons(true,true)->
 		ins_button_save();
+$document->
+	add_js_document_ready('document.getElementById("statusgraphmemorylevel").setAttribute("onchange","submit()");');
 $document->render();
