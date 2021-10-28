@@ -63,8 +63,9 @@ namespace common;
 	{scriptname} ------------> int     Return value of 'Apply' action
 	submit ------------------> string  Name of the script submitting the form
 	userlang ----------------> string  Language
+	statusgraphdukey --------> string  Script status_graph_disk_usage, reporting disk
 	statusgraphmemorylevel---> string  Script status_graph_memory.php, reporting level 'memory' or 'memory-detailed'
-	statusgraphnetworkif-----> string Script status_graph_network.php, reporting interface
+	statusgraphnetworkif-----> string  Script status_graph_network.php, reporting interface
 */
 
 class session {
