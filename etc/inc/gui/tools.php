@@ -1223,16 +1223,16 @@ EOJ;
 		return $this;
 	}
 	public function ins_cbm_button_delete($sphere) {
-		$this->ins_button_submit($sphere->get_cbm_button_val_delete(),$sphere->getmsg_cbm_delete(),[],$sphere->get_cbm_button_id_delete());
+		$this->ins_button_submit($sphere->get_cbm_button_id_delete(),null,$sphere->get_cbm_button_val_delete(),$sphere->getmsg_cbm_delete(),null);
 		return $this;
 	}
 	public function ins_cbm_button_enadis($sphere) {
 		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
-				$this->ins_button_submit($sphere->get_cbm_button_val_toggle(),$sphere->getmsg_cbm_toggle(),[],$sphere->get_cbm_button_id_toggle());
+				$this->ins_button_submit($sphere->get_cbm_button_id_toggle(),null,$sphere->get_cbm_button_val_toggle(),$sphere->getmsg_cbm_toggle(),null);
 			else:
-				$this->ins_button_submit($sphere->get_cbm_button_val_enable(),$sphere->getmsg_cbm_enable(),[],$sphere->get_cbm_button_id_enable());
-				$this->ins_button_submit($sphere->get_cbm_button_val_disable(),$sphere->getmsg_cbm_disable(),[],$sphere->get_cbm_button_id_disable());
+				$this->ins_button_submit($sphere->get_cbm_button_id_enable(),null,$sphere->get_cbm_button_val_enable(),$sphere->getmsg_cbm_enable(),null);
+				$this->ins_button_submit($sphere->get_cbm_button_id_disable(),null,$sphere->get_cbm_button_val_disable(),$sphere->getmsg_cbm_disable(),null);
 			endif;
 		endif;
 		return $this;
@@ -1737,7 +1737,7 @@ EOJ;
 		return $this;
 	}
 //	submit area macros
-	public function add_area_buttons(bool $use_config_setting = true) {
+	public function add_area_buttons(bool $use_config_setting = true,bool $noscript = false) {
 		global $config;
 
 		$div_attributes = ['id' => 'submit'];
@@ -1745,33 +1745,46 @@ EOJ;
 			$root = $this->ownerDocument ?? $this;
 			if(calc_adddivsubmittodataframe()):
 				$target = $root->getElementById('area_data_frame') ?? $this;
-				$subnode = $target->addDIV($div_attributes);
+				if($noscript):
+					$subnode = $target->addElement('noscript')->addDIV($div_attributes);
+				else:
+					$subnode = $target->addDIV($div_attributes);
+				endif;
 			else:
 				$target = $root->getElementById('g4f') ?? $this;
 				$div_attributes['style'] = 'padding: 0em 2em;';
-				$subnode = $target->prepend_element('div',$div_attributes);
+				if($noscript):
+					$subnode = $target->prepend_element('noscript')->addElement('div',$div_attributes);
+				else:
+					$subnode = $target->prepend_element('div',$div_attributes);
+				endif;
 			endif;
 		else:
-			$subnode = $this->addDIV($div_attributes);
+			if($noscript):
+				$subnode = $this->addElement('noscript')->addDIV($div_attributes);
+			else:
+				$subnode = $this->addDIV($div_attributes);
+			endif;
 		endif;
 		return $subnode;
 	}
-	public function ins_button_submit(string $value = null,string $content = null,array $attributes = null,string $id = null) {
+	public function ins_button_submit(string $id = null,string $name = null,string $value = null,string $content = null,array $attributes = null) {
 		$element = 'button';
 		$class_button = 'formbtn';
-		$sp_value = $value ?? 'cancel';
-		$sp_content = $content ?? gettext('Cancel');
-		$sp_attributes = $attributes ?? [];
-		$sp_id  = $id ?? sprintf('%1$s_%2$s',$element,$sp_value);
+		$value ??= 'cancel';
+		$content ??= gettext('Cancel');
+		$attributes ??= [];
+		$id ??= sprintf('%s_%s',$element,$value);
+		$name ??= 'submit';
 		$button_attributes  = [
-			'name' => 'submit',
+			'name' => $name,
 			'type' => 'submit',
 			'class' => $class_button,
-			'value' => $sp_value,
-			'id' => $sp_id,
-			'title' => $sp_content
+			'value' => $value,
+			'id' => $id,
+			'title' => $content
 		];
-		foreach($sp_attributes as $key_attribute => $val_attribute):
+		foreach($attributes as $key_attribute => $val_attribute):
 			switch($key_attribute):
 				case 'class+':
 					$button_attributes['class'] += ' ' . $val_attribute;
@@ -1781,63 +1794,116 @@ EOJ;
 					break;
 			endswitch;
 		endforeach;
-		$this->addElement($element,$button_attributes,$sp_content);
+		$this->addElement($element,$button_attributes,$content);
 		return $this;
 	}
-	public function ins_button_add(string $content = null) {
-		$this->ins_button_submit('save',$content ?? gettext('Add'));
+	public function ins_button_add(?string $content = null) {
+		$id = null;
+		$name = null;
+		$value = 'save';
+		$content ??= gettext('Add');
+		$attributes = null;
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 	public function ins_button_apply(string $content = null) {
-		$this->ins_button_submit('apply',$content ?? gettext('Apply Changes'));
+		$id = null;
+		$name = null;
+		$value = 'apply';
+		$content ??= gettext('Apply Changes');
+		$attributes = null;
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 	public function ins_button_cancel(string $content = null) {
-		$this->ins_button_submit('cancel',$content ?? gettext('Cancel'),['formnovalidate' => 'formnovalidate']);
+		$id = null;
+		$name = null;
+		$value = 'cancel';
+		$content ??= gettext('Cancel');
+		$attributes = ['formnovalidate' => 'formnovalidate'];
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 	public function ins_button_clone(string $content = null) {
-		$this->ins_button_submit('clone',$content ?? gettext('Clone Configuration'));
+		$id = null;
+		$name = null;
+		$value = 'clone';
+		$content ??= gettext('Clone Configuration');
+		$attributes = null;
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 	public function ins_button_edit(string $content = null) {
-		$this->ins_button_submit('edit',$content ?? gettext('Edit'));
+		$id = null;
+		$name = null;
+		$value = 'edit';
+		$content ??= gettext('Edit');
+		$attributes = null;
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 	public function ins_button_enadis(bool $enable = false,string $content_on = null,string $content_off = null) {
-		if($enable):
-			$this->ins_button_submit('enable',$content_on ?? gettext('Enable'));
-		else:
-			$this->ins_button_submit('disable',$content_off ?? gettext('Disable'));
-		endif;
+		$id = null;
+		$name = null;
+		$value = $enable ? 'enable' : 'disable';
+		$content_on ??= gettext('Enable');
+		$content_off ??= gettext('Disable');
+		$content = $enable ? $content_on : $content_off;
+		$attributes = null;
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 	public function ins_button_reload(bool $enable = false,string $content = null) {
 		if($enable):
-			$this->ins_button_submit('reload',$content ?? gettext('Reload'));
+			$id = null;
+			$name = null;
+			$value = 'reload';
+			$content ??= gettext('Reload');
+			$attributes = null;
+			$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		endif;
 		return $this;
 	}
 	public function ins_button_reorder(bool $enable = false,string $content = null) {
 		if($enable):
-			$this->ins_button_submit('reorder',$content ?? gettext('Reorder'));
+			$id = null;
+			$name = null;
+			$value = 'reorder';
+			$content ??= gettext('Reorder');
+			$attributes = null;
+			$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		endif;
 		return $this;
 	}
 	public function ins_button_rescan(bool $enable = false,string $content = null) {
 		if($enable):
-			$this->ins_button_submit('rescan',$content ?? gettext('Rescan'));
+			$id = null;
+			$name = null;
+			$value = 'rescan';
+			$content ??= gettext('Rescan');
+			$attributes = null;
+			$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		endif;
 		return $this;
 	}
 	public function ins_button_restart(bool $enable = false,string $content = null) {
 		if($enable):
-			$this->ins_button_submit('restart',$content ?? gettext('Restart'));
+			$id = null;
+			$name = null;
+			$value = 'restart';
+			$content ??= gettext('Restart');
+			$attributes = null;
+			$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		endif;
 		return $this;
 	}
 	public function ins_button_save(string $content = null) {
-		$this->ins_button_submit('save',$content ?? gettext('Apply'));
+		$id = null;
+		$name = null;
+		$value = 'save';
+		$content ??= gettext('Apply');
+		$attributes = null;
+		$this->ins_button_submit($id,$name,$value,$content,$attributes);
 		return $this;
 	}
 //	remark area macros

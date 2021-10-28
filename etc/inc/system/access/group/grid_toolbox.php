@@ -34,43 +34,37 @@
 
 namespace system\access\group;
 
-use common\properties as myp,
-	common\rmo as myr,
-	common\sphere as mys;
+use common\properties as myp;
+use common\rmo as myr;
+use common\sphere as mys;
+use common\toolbox as myt;
 
-use const FILTER_VALIDATE_INT,
-	PAGE_MODE_POST,
-	UPDATENOTIFY_MODE_DIRTY,
-	UPDATENOTIFY_MODE_DIRTY_CONFIG;
+use const PAGE_MODE_POST;
+use const UPDATENOTIFY_MODE_DIRTY;
+use const UPDATENOTIFY_MODE_DIRTY_CONFIG;
 
-use function config_lock,
-	config_unlock,
-	count,
-	file_exists,
-	filter_var,
-	get_std_save_message,
-	gettext,
-	header,
-	is_bool,
-	new_page,
-	rc_exec_service,
-	system_get_group_list,
-	updatenotify_cbm_delete,
-	updatenotify_cbm_disable,
-	updatenotify_cbm_enable,
-	updatenotify_cbm_toggle,
-	updatenotify_exists,
-	updatenotify_get_mode,
-	updatenotify_process,
-	write_config;
+use function config_lock;
+use function config_unlock;
+use function get_std_save_message;
+use function new_page;
+use function rc_exec_service;
+use function system_get_group_list;
+use function updatenotify_cbm_delete;
+use function updatenotify_cbm_disable;
+use function updatenotify_cbm_enable;
+use function updatenotify_cbm_toggle;
+use function updatenotify_exists;
+use function updatenotify_get_mode;
+use function updatenotify_process;
+use function write_config;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -97,7 +91,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
@@ -106,20 +100,12 @@ final class grid_toolbox {
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
-	}
-	/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $config;
@@ -228,9 +214,9 @@ final class grid_toolbox {
 			ins_cbm_button_enadis($sphere)->
 			ins_cbm_button_delete($sphere);
 		if($hidesystemgroups):
-			$buttons->ins_button_submit('show',gettext('Show System Groups'));
+			$buttons->ins_button_submit(null,null,'show',gettext('Show System Groups'),null);
 		else:
-			$buttons->ins_button_submit('hide',gettext('Hide System Groups'));
+			$buttons->ins_button_submit(null,null,'hide',gettext('Hide System Groups'),null);
 		endif;
 //		additional javascript code
 		$body->ins_javascript($sphere->get_js());
@@ -244,11 +230,11 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $config;
 		global $d_sysrebootreqd_path;
 		global $input_errors;

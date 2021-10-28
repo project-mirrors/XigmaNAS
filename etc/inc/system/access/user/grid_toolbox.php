@@ -242,9 +242,9 @@ class grid_toolbox extends myt\grid_toolbox {
 			ins_cbm_button_enadis($sphere)->
 			ins_cbm_button_delete($sphere);
 		if($hidesystemusers):
-			$buttons->ins_button_submit('show',gettext('Show System Users'));
+			$buttons->ins_button_submit(null,null,'show',gettext('Show System Users'),null);
 		else:
-			$buttons->ins_button_submit('hide',gettext('Hide System Users'));
+			$buttons->ins_button_submit(null,null,'hide',gettext('Hide System Users'),null);
 		endif;
 //		additional javascript code
 		$body->ins_javascript($sphere->get_js());
