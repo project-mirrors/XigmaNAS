@@ -31,43 +31,52 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-$status_cpu = true;
+use status\monitor\shared_toolbox as myst;
+
 $graph_width = 397;
 $graph_height = 220;
-$a_object = [];
-$a_object['type'] = 'image/svg+xml';
-$a_object['width'] = $graph_width;
-$a_object['height'] = $graph_height;
-$a_object['class'] = 'rrdgraphs';
-$a_param = [];
-$a_param['name'] = 'src';
-$cpus = \system_get_cpus();
-$gt_notsupported = \gettext('Your browser does not support this svg object type.');
-$document = \new_page([\gettext('Status'),\gettext('Monitoring'),\gettext('CPU Load')]);
+$a_object = [
+	'type' => 'image/svg+xml',
+	'class' => 'rrdgraphs',
+	'width' => $graph_width,
+	'height' => $graph_height
+];
+$a_param = [
+	'name' => 'src'
+];
+$cpus = system_get_cpus();
+$gt_notsupported = gettext('Your browser does not support this svg object type.');
+$document = new_page([gettext('Status'),gettext('Monitoring'),gettext('CPU Load')]);
 //	get areas
 $pagecontent = $document->getElementById('pagecontent');
 //	add tab navigation
-include 'status_graph_tabs.inc';
+myst::add_tabnav($document,myst::RRD_CPU_LOAD);
 //	create data area
 $content = $pagecontent->add_area_data();
 //	display information, warnings and errors
-if(\file_exists($d_sysrebootreqd_path)):
-	$content->ins_info_box(\get_std_save_message(0));
+if(file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(get_std_save_message(0));
 endif;
-$table = $content->add_table_data_settings();
-$table->addTHEAD()->ins_titleline(\gettext('CPU Load'));
-$content->
-	ins_remark('remark','',\gettext('Graph shows recent 120 seconds.'));
 $div = $content->
-	addDIV(['class' => 'rrdgraphs']);
+	add_table_data_settings()->
+		push()->
+		addTHEAD()->
+			ins_titleline(gettext('CPU Load'))->
+		pop()->
+		addTBODY(['class' => 'donothighlight'])->
+			addTR()->
+				addTD()->
+					addDIV(['class' => 'rrdgraphs']);
 if($cpus > 1):
 	for($j = 0;$j < $cpus;$j++):
-		$a_object['id'] = \sprintf('graph%s',$j);
-		$a_object['data'] = \sprintf('status_graph_cpu2.php?cpu=%s',$j);
-		$a_param['value'] = \sprintf('status_graph_cpu2.php?cpu=%s',$j);
+		$a_object['id'] = sprintf('graph%s',$j);
+		$a_object['data'] = sprintf('status_graph_cpu2.php?cpu=%s',$j);
+		$a_param['value'] = sprintf('status_graph_cpu2.php?cpu=%s',$j);
 		$div->
 			addElement('object',$a_object)->
 				insElement('param',$a_param)->
@@ -81,4 +90,7 @@ $div->
 	addElement('object',$a_object)->
 		insElement('param',$a_param)->
 		insSPAN([],$gt_notsupported);
+$document->
+	add_area_buttons()->
+		ins_remark('remark','',gettext('Graph shows recent 120 seconds.'));
 $document->render();

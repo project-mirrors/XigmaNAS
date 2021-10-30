@@ -32,88 +32,83 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use gui\document;
+use common\arr;
+use status\monitor\shared_toolbox as myst;
 
-$status_graph = true;
+$grid = arr::make_branch($config,'interfaces');
 $graph_width = 397;
 $graph_height = 220;
+$a_object = [
+	'type' => 'image/svg+xml',
+	'class' => 'rrdgraphs',
+	'width' => $graph_width,
+	'height' => $graph_height
+];
+$a_param = [
+	'name' => 'src'
+];
 $curif = 'lan';
 if(isset($_GET['if']) && $_GET['if']):
 	$curif = $_GET['if'];
 endif;
-$ifnum = get_ifname($config['interfaces'][$curif]['if']);
+$ifnum = get_ifname($grid[$curif]['if']);
 $ifdescrs = ['lan' => 'LAN'];
-for($j = 1;isset($config['interfaces']['opt' . $j]);$j++):
-	$ifdescrs['opt' . $j] = $config['interfaces']['opt' . $j]['descr'];
+for($j = 1;isset($grid['opt' . $j]);$j++):
+	$ifdescrs['opt' . $j] = $grid['opt' . $j]['descr'];
 endfor;
-$a_object = [
-	'class' => 'class="rrdgraphs"',
-	'type' => 'type="image/svg+xml"',
-	'width' => sprintf('width="%s"',$graph_width),
-	'height' => sprintf('height="%s"',$graph_height)
-];
-$a_param = [
-	'name' => 'name="src"'
-];
-$gt_notsupported = gtext('Your browser does not support this svg object type.') .
-		'<br />' .
-		gtext('You need to update your browser or use Internet Explorer 10 or higher.') .
-		'<br/>';
-$pgtitle = [gtext('Status'),gtext('Monitoring'),gtext('System Load')];
-include 'fbegin.inc';
-$document = new document();
-include 'status_graph_tabs.inc';
+$gt_notsupported = gettext('Your browser does not support this svg object type.');
+$document = new_page([gettext('Status'),gettext('Monitoring'),gettext('System Load')]);
+//	get areas
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
+myst::add_tabnav($document,myst::RRD_SYSTEM_LOAD);
+//	create data area
+$content = $pagecontent->add_area_data();
+//	display information, warnings and errors
+if(file_exists($d_sysrebootreqd_path)):
+	$content->ins_info_box(get_std_save_message(0));
+endif;
+$div = $content->
+	add_table_data_settings()->
+		push()->
+		addTHEAD()->
+			ins_titleline(gettext('System Load'))->
+		pop()->
+		addTBODY(['class' => 'donothighlight'])->
+			addTR()->
+				addTD()->
+					addDIV(['class' => 'rrdgraphs']);
+$a_object['id'] = 'graph';
+$a_object['data'] = sprintf('status_graph2.php?ifnum=%s&ifname=%s',$ifnum,rawurlencode($ifdescrs[$curif]));
+$a_param['value'] = sprintf('status_graph2.php?ifnum=%s&ifname=%s',$ifnum,rawurlencode($ifdescrs[$curif]));
+$div->
+	addElement('object',$a_object)->
+		insElement('param',$a_param)->
+		insSPAN([],$gt_notsupported);
+for($j = 1;isset($grid['opt' . $j]);$j++):
+	$ifdescrs = $grid['opt' . $j]['descr'];
+	$ifnum = $grid['opt' . $j]['if'];
+	$a_object['id'] = sprintf('graph%d',$j);
+	$a_object['data'] = sprintf('status_graph2.php?ifnum=%s&ifname=%s',$ifnum,rawurlencode($ifdescrs));
+	$a_param['value'] = sprintf('status_graph2.php?ifnum=%s&ifname=%s',$ifnum,rawurlencode($ifdescrs));
+	$div->
+		addElement('object',$a_object)->
+			insElement('param',$a_param)->
+			insSPAN([],$gt_notsupported);
+endfor;
+
+$a_object['id'] = 'graph0';
+$a_object['data'] = 'status_graph_cpu2.php';
+$a_param['value'] = 'status_graph_cpu2.php';
+$div->
+	addElement('object',$a_object)->
+		insElement('param',$a_param)->
+		insSPAN([],$gt_notsupported);
+$document->
+	add_area_buttons()->
+		ins_remark('remark','',gettext('Graph shows recent 120 seconds.'));
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-	<table class="area_data_settings">
-		<colgroup>
-			<col style="width:100%">
-		</colgroup>
-		<thead>
-<?php
-			html_titleline2(gettext('System Load'),1);
-?>
-		</thead>
-		<tbody>
-			<tr><td><?=gtext('Graph shows last 120 seconds');?></td></tr>
-			<tr><td>
-				<div class="rrdgraphs">
-<?php
-					$a_object['id'] = 'id="graph"';
-					$a_object['data'] = sprintf('data="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs[$curif]));
-					$a_param['value'] = sprintf('value="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs[$curif]));
-					echo sprintf('<object %s>',implode(' ',$a_object));
-					echo sprintf('<param %s/>',implode(' ',$a_param));
-					echo $gt_notsupported;
-					echo '</object>',PHP_EOL;
-					for($j = 1;isset($config['interfaces']['opt' . $j]);$j++):
-						$ifdescrs = $config['interfaces']['opt' . $j]['descr'];
-						$ifnum = $config['interfaces']['opt' . $j]['if'];
-						$a_object['id'] = sprintf('id="graph%d"',$j);
-						$a_object['data'] = sprintf('data="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs));
-						$a_param['value'] = sprintf('value="status_graph2.php?ifnum=%1$s&amp;ifname=%2$s"',$ifnum,rawurlencode($ifdescrs));
-						echo sprintf('<object %s>',implode(' ',$a_object));
-						echo sprintf('<param %s/>',implode(' ',$a_param));
-						echo $gt_notsupported;
-						echo '</object>',PHP_EOL;
-					endfor;
-					$a_object['id'] = 'id="graph0"';
-					$a_object['data'] = 'data="status_graph_cpu2.php"';
-					$a_param['value'] = 'value="status_graph_cpu2.php"';
-					echo sprintf('<object %s>',implode(' ',$a_object));
-					echo sprintf('<param %s/>',implode(' ',$a_param));
-					echo $gt_notsupported;
-					echo '</object>',PHP_EOL;
-?>
-				</div>
-			</td></tr>
-		</tbody>
-	</table>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
