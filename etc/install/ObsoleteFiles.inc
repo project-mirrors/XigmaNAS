@@ -136,3 +136,5 @@ usr/local/bin/python3.6
 usr/local/lib/libpython3.6m.so.1.0
 # 8690
 etc/inc/properties_diag_log_settings.php
+# 8741
+usr/local/www/status_graph_tabs.inc
