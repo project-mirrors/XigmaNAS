@@ -105,6 +105,16 @@
 	--bgc-footer: #000000;
 	--bgi-footer: linear-gradient(#9C9C9C,#000000);
 	--txc-footer: #FFFFFF;
+/*
+	input
+*/
+	--txc-input-rw: #000000;
+	--bgc-input-rw: #FFFFFF;
+	--bop-input-rw: 1px inset #FFFFFF;
+
+	--txc-input-ro: #000000;
+	--bgc-input-ro: transparent;
+	--bop-input-ro: 1px outset #EEEEEE;
 }
 
 body
@@ -453,13 +463,22 @@ input[type='checkbox']:checked ~ div.hideifchecked
 
 .formfld
 {
+	color: #000000;
+	color: var(--txc-input-rw);
+	background-color: #FFFFFF;
+	background-color: var(--bgc-input-rw);
+	border: 1px inset #FFFFFF;
+	border: var(--bop-input-rw);
 }
 
 .formfldro
 {
-	background-color: transparent;
-	border: 1px outset #EEEEEE;
 	color: #000000;
+	color: var(--txc-input-ro);
+	background-color: transparent;
+	background-color: var(--bgc-input-ro);
+	border: 1px outset #EEEEEE;
+	border: var(--bop-input-ro);
 }
 
 .formfld[type=file]
