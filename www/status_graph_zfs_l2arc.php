@@ -70,7 +70,7 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_l2arc_weekly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Weekly L2ARC Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_l2arc_monthly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Monthly L2ARC Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_l2arc_yearly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Yearly L2ARC Graph')]);
-$document->
-	add_area_buttons()->
-		ins_remark('remark','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
+$content->
+	add_area_remarks()->
+		ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->render();

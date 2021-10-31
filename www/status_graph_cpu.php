@@ -90,7 +90,7 @@ $div->
 	addElement('object',$a_object)->
 		insElement('param',$a_param)->
 		insSPAN([],$gt_notsupported);
-$document->
-	add_area_buttons()->
-		ins_remark('remark','',gettext('Graph shows recent 120 seconds.'));
+$content->
+	add_area_remarks()->
+		ins_remark('info','',gettext('Graph shows recent 120 seconds.'));
 $document->render();
