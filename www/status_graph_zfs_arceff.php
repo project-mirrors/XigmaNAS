@@ -70,7 +70,7 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_weekly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Weekly ARC Efficiency Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_monthly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Monthly ARC Efficiency Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-zfs_arceff_yearly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Yearly ARC Efficiency Graph')]);
-$document->
-	add_area_buttons()->
-		ins_remark('remark','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
+$content->
+	add_area_remarks()->
+		ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->render();

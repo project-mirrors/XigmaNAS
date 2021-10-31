@@ -102,6 +102,9 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_weekly.png?rand=%s',$if_enum,$now),'alt' => gettext('RRDGraphs Weekly Bandwidth Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_monthly.png?rand=%s',$if_enum,$now),'alt' => gettext('RRDGraphs Monthly Bandwidth Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_yearly.png?rand=%s',$if_enum,$now),'alt' => gettext('RRDGraphs Yearly Bandwidth Graph')]);
+$content->
+	add_area_remarks()->
+		ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->
 	add_area_buttons(true,true)->
 		ins_button_save();

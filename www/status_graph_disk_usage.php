@@ -124,6 +124,9 @@ if($record_exists):
 							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_weekly.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Weekly Disk Usage Graph')])->
 							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_monthly.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Monthly Disk Usage Graph')])->
 							insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-mnt_%s_yearly.png?rand=%s',$current_filesystem_enc,$now),'alt' => gettext('RRDGraphs Yearly Disk Usage Graph')]);
+	$content->
+		add_area_remarks()->
+			ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 	$document->
 		add_area_buttons(true,true)->
 			ins_button_save();
