@@ -70,7 +70,7 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-cpu_temp_weekly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Weekly CPU Temperature Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-cpu_temp_monthly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Monthly CPU Temperature Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-cpu_temp_yearly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Yearly CPU Temperature Graph')]);
-$document->
-	add_area_buttons()->
-		ins_remark('remark','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
+$content->
+	add_area_remarks()->
+		ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->render();

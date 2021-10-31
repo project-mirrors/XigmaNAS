@@ -70,7 +70,7 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-ups_weekly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Weekly UPS Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-ups_monthly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Monthly UPS Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-ups_yearly.png?rand=%s',$now),'alt' => gettext('RRDGraphs Yearly UPS Graph')]);
-$document->
-	add_area_buttons()->
-		ins_remark('remark','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
+$content->
+	add_area_remarks()->
+		ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->render();

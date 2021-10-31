@@ -98,6 +98,9 @@ $content->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_weekly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Weekly Memory Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_monthly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Monthly Memory Graph')])->
 						insIMG(['class' => 'rrdgraphs','src' => sprintf('/images/rrd/rrd-%s_yearly.png?rand=%s',$statusgraphmemorylevel,$now),'alt' => gettext('RRDGraphs Yearly Memory Graph')]);
+$content->
+	add_area_remarks()->
+		ins_remark('info','',sprintf(gettext('Graph updates every %d seconds.'),$refresh));
 $document->
 	add_area_buttons(true,true)->
 		ins_button_save();
