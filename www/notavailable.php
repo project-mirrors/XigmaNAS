@@ -31,36 +31,41 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
-require_once 'co_request_method.php';
+
+use common\rmo as myr;
+use common\sphere as mys;
 
 function notavailable_sphere() {
-	global $config;
-
-//	sphere structure
-	$sphere = new co_sphere_row('notavailable','php');
-	$sphere->get_parent()->set_basename('index');
+	$sphere = new mys\row();
+	$sphere->
+		set_script('notavailable')->
+		set_parent('index')->
+		add_page_title(gettext('NOT YET AVAILABLE'));
 	return $sphere;
 }
-//	init sphere
+function notavailable_rmo() {
+	$rmo = new myr\rmo();
+	$rmo->set_default('GET','view',PAGE_MODE_VIEW);
+	$rmo->add('POST','cancel',PAGE_MODE_POST);
+	return $rmo;
+}
 $sphere = notavailable_sphere();
-$rmo = new co_request_method();
-$rmo->add('POST','cancel',PAGE_MODE_POST);
-$rmo->set_default('GET','view',PAGE_MODE_VIEW);
-list($page_method,$page_action,$page_mode) = $rmo->validate();
+$rmo = notavailable_rmo();
+[$page_method,$page_action,$page_mode] = $rmo->validate();
 switch($page_method):
 	case 'POST':
 		switch($page_action):
-			case 'cancel': // cancel - nothing to do
+			case 'cancel':
 				header($sphere->get_parent()->get_location());
 				exit;
 		endswitch;
 		break;
 endswitch;
-$pgtitle = [gettext('NOT YET AVAILABLE')];
-$document = new_page($pgtitle,$sphere->get_scriptname(),'notabnav');
+$document = new_page($sphere->get_page_title(),$sphere->get_script()->get_scriptname(),'notabnav');
 $pagecontent = $document->getElementById('pagecontent');
 $content = $pagecontent->add_area_data();
 $content->
@@ -71,5 +76,4 @@ $content->
 $document->
 	add_area_buttons()->
 		ins_button_cancel();
-//	showtime
 $document->render();
