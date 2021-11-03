@@ -17,7 +17,7 @@ LIB_DEPENDS+=				libsqlite3.so:databases/sqlite3 \
 
 USE_PKGCONFIG=	yes
 MAKE_JOBS_UNSAFE=	yes
-#USE_GCC=		any
+#USE_GCC=		yes
 USE_LDCONFIG=		yes
 USE_ICONV=		yes
 GNU_CONFIGURE=	yes
@@ -32,10 +32,10 @@ CONFIGURE_ARGS=			--disable-gdbm \
 										--with-id3tag=${PREFIX} \
 										--enable-oggvorbis \
 										--enable-flac
-										
+
 .include <bsd.port.options.mk>
 .if (${ARCH} == "amd64" || ${ARCH} == "i386")
-USE_GCC=		any
+USE_GCC=		yes
 .endif
 .if ${OSVERSION} >= 1100000
 EXTRA_PATCHES+=		${FILESDIR}/extra-patch-configure
