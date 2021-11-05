@@ -94,7 +94,7 @@ if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_IMG_SIZE=480
 fi
 
-#	Set compression level from 1 to 9 
+#	Set compression level from 1 to 9
 #	1 offers the fastest compression speed but at a lower ratio, and 9 offers the highest compression ratio but at a lower speed.
 XIGMANAS_COMPLEVEL=8
 XIGMANAS_KERNCOMPLEVEL=9
@@ -1670,6 +1670,14 @@ copy_files() {
 	echo "===> Copy new port virtualbox-ose-kmod to ports/emulators/"
 	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/virtualbox-ose-kmod /usr/ports/emulators
 	echo "===> New port virtualbox-ose-kmod has been created!"
+	echo ""
+	echo "===> Delete current graid5 from base OS"
+	rm -rf /usr/ports/sysutils/graid5
+	echo "===> Delete completed!"
+	echo ""
+	echo "===> Copy new port graid5 to ports/sysutils/"
+	cp -Rpv ${XIGMANAS_SVNDIR}/build/ports/base-ports/ports/graid5 /usr/ports/sysutils
+	echo "===> New port graid5 has been created!"
 	return 0
 }
 build_ports() {
