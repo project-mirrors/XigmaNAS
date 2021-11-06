@@ -1,5 +1,5 @@
 PORTNAME=		zoneinfo
-DISTVERSION=	2021a
+DISTVERSION=	2021e
 CATEGORIES=		misc
 COMMENT=		Updated timezone definitions
 MAINTAINER=		zoon01@xigmanas.com
