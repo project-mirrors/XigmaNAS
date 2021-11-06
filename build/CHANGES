@@ -22,7 +22,6 @@ Changes:
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
 - Upgrade mDNSResponder to 1310.120.71.
-- Upgrade nano to 5.8.
 - Upgrade nut to 2021.08.27.
 - Upgrade phpmyadmin to 5.1.1.
 - Upgrade tmux to 3.2a.
@@ -30,6 +29,7 @@ Changes:
 - Upgrade virtualbox-ose to 6.1.26.
 - Upgrade sudo to 1.9.8.
 - Upgrade msmtp to 1.8.19.
+- Upgrade nano to 5.9.
 
 Fixes:
 - Fix only first lagg member is brought up.
