@@ -1685,7 +1685,7 @@ build_ports() {
 	ports=$XIGMANAS_WORKINGDIR/ports$$
 
 #	Choose what to do.
-	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 45 3 \
+	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 65 4 \
 		"build" "Build ports" \
 		"nosel" "Build ports (dev only, no preselection)" \
 		"rebuild" "Re-build ports (dev only)" \
