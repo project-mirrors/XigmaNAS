@@ -1687,6 +1687,7 @@ build_ports() {
 #	Choose what to do.
 	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 45 3 \
 		"build" "Build ports" \
+		"nosel" "Build ports (dev only, no preselection)" \
 		"rebuild" "Re-build ports (dev only)" \
 		"install" "Install ports" 2> $tempfile
 	if [ 0 != $? ]; then # successful?
@@ -1707,6 +1708,9 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 		port=`basename $s`
 		state=`cat $s/pkg-state`
 		case ${choice} in
+			nosel)
+				state="OFF"
+				;;
 			rebuild)
 				t=`echo $s/work/.build_done.*`
 				if [ -e "$t" ]; then
