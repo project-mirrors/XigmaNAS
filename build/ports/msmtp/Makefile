@@ -1,5 +1,5 @@
 PORTNAME=		msmtp
-PORTVERSION=	1.8.15
+PORTVERSION=	1.8.19
 PORTREVISION=	0
 CATEGORIES=		mail
 COMMENT=		SMTP client
@@ -7,11 +7,14 @@ MAINTAINER=		zoon01@xigmanas.com
 
 MASTER_SITES=   https://marlam.de/msmtp/releases/
 
+PATCH_SITES=	https://github.com/marlam/msmtp-mirror/commit/
+
 GNU_CONFIGURE=	yes
-USES=		gmake makeinfo pkgconfig tar:xz
+USES=		autoreconf cpe gmake makeinfo pkgconfig tar:xz
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
-INFO=	msmtp
+INFO=		msmtp
+CPE_VENDOR=	marlam
 
 CONFIGURE_ENV=	CPPFLAGS="${CPPFLAGS}" LDFLAGS="${LDFLAGS}"
 

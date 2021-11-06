@@ -8,7 +8,6 @@ Changes:
 - Upgrade zoneinfo to 2021a.
 - Upgrade lighttpd to 1.4.59.
 - Upgrade jQuery to 3.6.0.
-- Upgrade msmtp to 1.8.15.
 - Upgrade e2fsprogs to 1.46.2.
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade phpvirtualbox to 6.1.
@@ -30,6 +29,7 @@ Changes:
 - Upgrade syncthing to 1.18.2.
 - Upgrade virtualbox-ose to 6.1.26.
 - Upgrade sudo to 1.9.8.
+- Upgrade msmtp to 1.8.19.
 
 Fixes:
 - Fix only first lagg member is brought up.

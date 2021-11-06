@@ -126,7 +126,6 @@ Changes:
 - Upgrade zoneinfo to 2021a.
 - Upgrade lighttpd to 1.4.59.
 - Upgrade jQuery to 3.6.0.
-- Upgrade msmtp to 1.8.15.
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade python to 3.8.x.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade syncthing to 1.18.2.
 - Upgrade virtualbox-ose to 6.1.26.
 - Upgrade sudo to 1.9.8.
+- Upgrade msmtp to 1.8.19.
 
 Fixes:
 - Fix only first lagg member is brought up.
