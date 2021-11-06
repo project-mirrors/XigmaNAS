@@ -123,7 +123,6 @@ Changes:
 - Upgrade smartmontools to 7.2.
 - Upgrade minidlna 1.3.0.
 - Upgrade dmidecode to 3.3.
-- Upgrade zoneinfo to 2021a.
 - Upgrade lighttpd to 1.4.59.
 - Upgrade jQuery to 3.6.0.
 - Upgrade open-vm-tools to 11.2.5.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade sudo to 1.9.8.
 - Upgrade msmtp to 1.8.19.
 - Upgrade nano to 5.9.
+- Upgrade zoneinfo to 2021e.
 
 Fixes:
 - Fix only first lagg member is brought up.
