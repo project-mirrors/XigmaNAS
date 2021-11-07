@@ -1,6 +1,6 @@
 PORTNAME=		php74
-PORTVERSION=	7.4.23
-PORTREVISION=	0
+PORTVERSION=		7.4.25
+PORTREVISION=		0
 CATEGORIES=		lang
 COMMENT=		PHP7 Scripting Language
 MAINTAINER=		zoon01@xigmanas.com
@@ -103,7 +103,7 @@ OPTIONS=	CLI "Build CLI version" on \
 		LINKTHR "Link thread lib (for threaded extensions)" on \
 		ZTS "Force Zend Thread Safety (ZTS) build" off
 
-CONFLICTS=	php71-* php72-* php73-*
+CONFLICTS=	php73-* php80-*
 
 .if defined(WITH_DTRACE)
 .if ${OSVERSION} < 900000
