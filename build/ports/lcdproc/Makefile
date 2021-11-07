@@ -1,6 +1,6 @@
 PORTNAME=		lcdproc
 PORTVERSION=  0.5.9
-PORTREVISION= 1
+PORTREVISION= 0
 DISTVERSIONPREFIX=	lcdproc-
 CATEGORIES=		sysutils
 
@@ -17,7 +17,7 @@ USES=           autoreconf pkgconfig
 OPTIONS_DEFINE= USB FTDI HID FREETYPE SERDISP
 
 LIB_DEPENDS+=		libftdi1.so:${PORTSDIR}/devel/libftdi1
-LIB_DEPENDS+=		libhid.so:${PORTSDIR}/devel/libhid
+#LIB_DEPENDS+=		libhid.so:${PORTSDIR}/devel/libhid
 
 CONFIGURE_ARGS=	--enable-drivers="${LCDPROC_DRIVERS}" \
 						--with-libusb \
@@ -45,35 +45,38 @@ SERDISP_CFLAGS=		-I${LOCALBASE}/include
 SERDISP_LDFLAGS=	-L${LOCALBASE}/lib
 SERDISP_CPPFLAGS=	-I${LOCALBASE}/include
 
-LCDPROC_DRIVERS=bayrad \
-			CFontz \
-			CFontzPacket \
-			CwLnx \
-			curses \
-			ea65 \
-			EyeboxOne \
-			glcd \
-			glk \
-			hd44780 \
-			icp_a106 \
-			lb216 \
-			lcdm001 \
-			lcterm \
-			MD8800 \
-			ms6931 \
-			mtc_s16209x \
-			MtxOrb \
-			NoritakeVFD \
-			pyramid \
-			rawserial \
-			SureElec \
-			serialPOS \
-			serialVFD \
-			sli \
-			text \
-			tyan \
-			vlsys_m428
-
+LCDPROC_DRIVERS=	bayrad \
+					CFontz \
+					CFontzPacket \
+					curses \
+					CwLnx \
+					ea65 \
+					EyeboxOne \
+					futaba \
+					glcd \
+					glk \
+					hd44780 \
+					icp_a106 \
+					lb216 \
+					lcdm001 \
+					lcterm \
+					MD8800 \
+					ms6931 \
+					mtc_s16209x \
+					MtxOrb \
+					NoritakeVFD \
+					pyramid \
+					SureElec \
+					sdeclcd \
+					sed1330 \
+					sed1520 \
+					serialPOS \
+					sli \
+					stv5730 \
+					t6963 \
+					text \
+					tyan \
+					vlsys_m428
 LCDPROC_DRIVERS+=	IOWarrior \
 					picolcd \
 					shuttleVFD
@@ -88,17 +91,6 @@ LCDPROC_DRIVERS+=			serialVFD
 .endif
 
 .include <bsd.port.options.mk>
-
-.if ${ARCH} == amd64 || ${ARCH} == i386
-LCDPROC_DRIVERS+=	sdeclcd \
-			sed1330 \
-			sed1520 \
-			stv5730 \
-			t6963
-PLIST_SUB+=	X86=""
-.else
-PLIST_SUB+=	X86="@comment "
-.endif
 
 .if ${PORT_OPTIONS:MUSB}
 CONFIGURE_ARGS+=	--with-libusb=/usr
@@ -134,8 +126,6 @@ PLIST_SUB+=		USB="@comment " FTDI="@comment " HID="@comment "
 .endif
 
 do-install:
-# XigmaNAS® Install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/server/LCDd ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/lcdexec/lcdexec ${XIGMANAS_ROOTFS}${PREFIX}/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/lcdproc/lcdproc ${XIGMANAS_ROOTFS}${PREFIX}/bin
@@ -147,6 +137,5 @@ do-install:
 	@${INSTALL_DATA} -v ${WRKSRC}/clients/lcdproc/lcdproc.conf ${XIGMANAS_ROOTFS}${PREFIX}/share/lcdproc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/LCDd.in ${XIGMANAS_ROOTFS}/etc/rc.d/LCDd
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/lcdproc.in ${XIGMANAS_ROOTFS}/etc/rc.d/lcdproc
-	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
