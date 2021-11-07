@@ -32,4 +32,3 @@ diff -up ./resize/resource_track.c.orig ./resize/resource_track.c
  #endif
  #ifdef HAVE_GETRUSAGE
  	getrusage(RUSAGE_SELF, &r);
-

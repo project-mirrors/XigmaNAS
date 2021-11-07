@@ -79,4 +79,3 @@
  
  install-strip: install
  	$(Q) for i in $(SPROGS); do \
-
