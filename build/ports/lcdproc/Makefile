@@ -17,7 +17,7 @@ USES=           autoreconf pkgconfig
 OPTIONS_DEFINE= USB FTDI HID FREETYPE SERDISP
 
 LIB_DEPENDS+=		libftdi1.so:${PORTSDIR}/devel/libftdi1
-LIB_DEPENDS+=		libhid.so:${PORTSDIR}/devel/libhid
+#LIB_DEPENDS+=		libhid.so:${PORTSDIR}/devel/libhid
 
 CONFIGURE_ARGS=	--enable-drivers="${LCDPROC_DRIVERS}" \
 						--with-libusb \
