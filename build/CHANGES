@@ -26,10 +26,10 @@ Changes:
 - Upgrade tmux to 3.2a.
 - Upgrade syncthing to 1.18.2.
 - Upgrade virtualbox-ose to 6.1.26.
-- Upgrade sudo to 1.9.8.
 - Upgrade msmtp to 1.8.19.
 - Upgrade nano to 5.9.
 - Upgrade zoneinfo to 2021e.
+- Upgrade sudo to 1.9.8p2.
 
 Fixes:
 - Fix only first lagg member is brought up.
