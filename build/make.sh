@@ -95,7 +95,7 @@ if [ "amd64" = ${XIGMANAS_ARCH} ]; then
 	XIGMANAS_IMG_SIZE=480
 fi
 
-#	Set compression level from 1 to 9 
+#	Set compression level from 1 to 9
 #	1 offers the fastest compression speed but at a lower ratio, and 9 offers the highest compression ratio but at a lower speed.
 XIGMANAS_COMPLEVEL=8
 XIGMANAS_KERNCOMPLEVEL=9
@@ -1714,8 +1714,9 @@ build_ports() {
 	ports=$XIGMANAS_WORKINGDIR/ports$$
 
 #	Choose what to do.
-	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 45 3 \
+	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 65 4 \
 		"build" "Build ports" \
+		"nosel" "Build ports (dev only, no preselection)" \
 		"rebuild" "Re-build ports (dev only)" \
 		"install" "Install ports" 2> $tempfile
 	if [ 0 != $? ]; then # successful?
@@ -1736,6 +1737,9 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 		port=`basename $s`
 		state=`cat $s/pkg-state`
 		case ${choice} in
+			nosel)
+				state="OFF"
+				;;
 			rebuild)
 				t=`echo $s/work/.build_done.*`
 				if [ -e "$t" ]; then
