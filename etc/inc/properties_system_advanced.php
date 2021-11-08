@@ -32,12 +32,12 @@
 	of XigmaNAS®, either expressed or implied.
  */
 
-require_once 'properties.php';
+use common\properties as myp;
 
-class properties_system_advanced extends co_property_container {
+class properties_system_advanced extends myp\container {
 	protected $x_consoleautologin;
 	public function init_consoleautologin() {
-		$property = $this->x_consoleautologin = new property_bool($this);
+		$property = $this->x_consoleautologin = new myp\property_bool($this);
 		$property->
 			set_name('consoleautologin')->
 			set_title(gettext('Console Autologin'));
@@ -48,21 +48,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption($caption)->
 			set_description($description)->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	public function get_consoleautologin() {
+	final public function get_consoleautologin() {
 		return $this->x_consoleautologin ?? $this->init_consoleautologin();
 	}
 	protected $x_disableconsolemenu;
-	public function get_disableconsolemenu() {
-		return $this->x_disableconsolemenu ?? $this->init_disableconsolemenu();
-	}
 	public function init_disableconsolemenu() {
-		$property = $this->x_disableconsolemenu = new property_bool($this);
+		$property = $this->x_disableconsolemenu = new myp\property_bool($this);
 		$property->
 			set_name('disableconsolemenu')->
 			set_title(gettext('Console Menu'));
@@ -73,18 +67,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption($caption)->
 			set_description($description)->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_disablefm;
-	public function get_disablefm() {
-		return $this->x_disablefm ?? $this->init_disablefm();
+	final public function get_disableconsolemenu() {
+		return $this->x_disableconsolemenu ?? $this->init_disableconsolemenu();
 	}
+	protected $x_disablefm;
 	public function init_disablefm() {
-		$property = $this->x_disablefm = new property_bool($this);
+		$property = $this->x_disablefm = new myp\property_bool($this);
 		$property->
 			set_name('disablefm')->
 			set_title(gettext('File Manager'));
@@ -93,18 +84,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Disable file manager.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_disablefirmwarecheck;
-	public function get_disablefirmwarecheck() {
-		return $this->x_disablefirmwarecheck ?? $this->init_disablefirmwarecheck();
+	final public function get_disablefm() {
+		return $this->x_disablefm ?? $this->init_disablefm();
 	}
+	protected $x_disablefirmwarecheck;
 	public function init_disablefirmwarecheck() {
-		$property = $this->x_disablefirmwarecheck = new property_bool($this);
+		$property = $this->x_disablefirmwarecheck = new myp\property_bool($this);
 		$property->
 			set_name('disablefirmwarecheck')->
 			set_title(gettext('Firmware Check'));
@@ -115,18 +103,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Disable firmware version check.'))->
 			set_description($description)->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_disablebeep;
-	public function get_disablebeep() {
-		return $this->x_disablebeep ?? $this->init_disablebeep();
+	final public function get_disablefirmwarecheck() {
+		return $this->x_disablefirmwarecheck ?? $this->init_disablefirmwarecheck();
 	}
+	protected $x_disablebeep;
 	public function init_disablebeep() {
-		$property = $this->x_disablebeep = new property_bool($this);
+		$property = $this->x_disablebeep = new myp\property_bool($this);
 		$property->
 			set_name('disablebeep')->
 			set_title(gettext('Internal Speaker'));
@@ -135,18 +120,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Disable speaker beep on startup and shutdown.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_microcode_update;
-	public function get_microcode_update() {
-		return $this->x_microcode_update ?? $this->init_microcode_update();
+	final public function get_disablebeep() {
+		return $this->x_disablebeep ?? $this->init_disablebeep();
 	}
+	protected $x_microcode_update;
 	public function init_microcode_update() {
-		$property = $this->x_microcode_update = new property_bool($this);
+		$property = $this->x_microcode_update = new myp\property_bool($this);
 		$property->
 			set_name('microcode_update')->
 			set_title(gettext('CPU Microcode Update'));
@@ -155,18 +137,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Enable this option to update the CPU microcode on startup.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_disableextensionmenu;
-	public function get_disableextensionmenu() {
-		return $this->x_disableextensionmenu ?? $this->init_disableextensionmenu();
+	final public function get_microcode_update() {
+		return $this->x_microcode_update ?? $this->init_microcode_update();
 	}
+	protected $x_disableextensionmenu;
 	public function init_disableextensionmenu() {
-		$property = $this->x_disableextensionmenu = new property_bool($this);
+		$property = $this->x_disableextensionmenu = new myp\property_bool($this);
 		$property->
 			set_name('disableextensionmenu')->
 			set_title(gettext('Disable Extension Menu'));
@@ -175,18 +154,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Disable scanning of folders for existing extension menus.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_zeroconf;
-	public function get_zeroconf() {
-		return $this->x_zeroconf ?? $this->init_zeroconf();
+	final public function get_disableextensionmenu() {
+		return $this->x_disableextensionmenu ?? $this->init_disableextensionmenu();
 	}
+	protected $x_zeroconf;
 	public function init_zeroconf() {
-		$property = $this->x_zeroconf = new property_bool($this);
+		$property = $this->x_zeroconf = new myp\property_bool($this);
 		$property->
 			set_name('zeroconf')->
 			set_title(gettext('Zeroconf/Bonjour'));
@@ -195,18 +171,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Enable Zeroconf/Bonjour to advertise services of this device.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_powerd;
-	public function get_powerd() {
-		return $this->x_powerd ?? $this->init_powerd();
+	final public function get_zeroconf() {
+		return $this->x_zeroconf ?? $this->init_zeroconf();
 	}
+	protected $x_powerd;
 	public function init_powerd() {
-		$property = $this->x_powerd = new property_bool($this);
+		$property = $this->x_powerd = new myp\property_bool($this);
 		$property->
 			set_name('powerd')->
 			set_title(gettext('Power Daemon'));
@@ -215,18 +188,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Enable the server power control utility.'))->
 			set_description(gettext('The powerd utility monitors the server state and sets various power control options accordingly.'))->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_pwmode;
-	public function get_pwmode() {
-		return $this->x_pwmode ?? $this->init_pwmode();
+	final public function get_powerd() {
+		return $this->x_powerd ?? $this->init_powerd();
 	}
+	protected $x_pwmode;
 	public function init_pwmode() {
-		$property = $this->x_pwmode = new property_list($this);
+		$property = $this->x_pwmode = new myp\property_list($this);
 		$property->
 			set_name('pwmode')->
 			set_title(gettext('Power Mode'));
@@ -241,18 +211,15 @@ class properties_system_advanced extends co_property_container {
 			set_description(gettext('Controls the power consumption mode.'))->
 			set_defaultvalue('hiadaptive')->
 			set_options($options)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_pwmax;
-	public function get_pwmax() {
-		return $this->x_pwmax ?? $this->init_pwmax();
+	final public function get_pwmode() {
+		return $this->x_pwmode ?? $this->init_pwmode();
 	}
+	protected $x_pwmax;
 	public function init_pwmax() {
-		$property = $this->x_pwmax = new property_list($this);
+		$property = $this->x_pwmax = new myp\property_list($this);
 		return $property;
 /*
 		$clocks = @exec("/sbin/sysctl -q -n dev.cpu.0.freq_levels");
@@ -269,30 +236,30 @@ class properties_system_advanced extends co_property_container {
 		html_inputbox2('pwmax',gettext('CPU Maximum Frequency'),$pconfig['pwmax'],sprintf('%s %s',gettext('CPU frequencies:'),join(', ',$a_freq)) . '.<br />' . gettext('An empty field is default.'),false,5);
 */
 	}
-	protected $x_pwmin;
-	public function get_pwmin() {
-		return $this->x_pwmin ?? $this->init_pwmin();
+	final public function get_pwmax() {
+		return $this->x_pwmax ?? $this->init_pwmax();
 	}
+	protected $x_pwmin;
 	public function init_pwmin() {
-		$property = $this->x_pwmin = new property_text($this);
+		$property = $this->x_pwmin = new myp\property_text($this);
 		return $property;
 //		html_inputbox2('pwmin',gettext('CPU Minimum Frequency'),$pconfig['pwmin'],gettext('An empty field is default.'),false,5);
 	}
-	protected $x_motd;
-	public function get_motd() {
-		return $this->x_motd ?? $this->init_motd();
+	final public function get_pwmin() {
+		return $this->x_pwmin ?? $this->init_pwmin();
 	}
+	protected $x_motd;
 	public function init_motd() {
-		$property = $this->x_motd = new property_text($this);
+		$property = $this->x_motd = new myp\property_text($this);
 		return $property;
 //		html_textarea2('motd',gettext('MOTD'),$pconfig['motd'],gettext('Message of the day.'),false,65,7,false,false);
 	}
-	protected $x_shrinkpageheader;
-	public function get_shrinkpageheader() {
-		return $this->x_shrinkpageheader ?? $this->init_shrinkpageheader();
+	final public function get_motd() {
+		return $this->x_motd ?? $this->init_motd();
 	}
+	protected $x_shrinkpageheader;
 	public function init_shrinkpageheader() {
-		$property = $this->x_shrinkpageheader = new property_bool($this);
+		$property = $this->x_shrinkpageheader = new myp\property_bool($this);
 		$property->
 			set_name('shrinkpageheader')->
 			set_title(gettext('Shrink Page Header'));
@@ -301,18 +268,15 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Enable this option to reduce the height of the page header to a minimum for the duration of this session.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_sysconsaver;
-	public function get_sysconsaver() {
-		return $this->x_sysconsaver ?? $this->init_sysconsaver();
+	final public function get_shrinkpageheader() {
+		return $this->x_shrinkpageheader ?? $this->init_shrinkpageheader();
 	}
+	protected $x_sysconsaver;
 	public function init_sysconsaver() {
-		$property = $this->x_sysconsaver = new property_bool($this);
+		$property = $this->x_sysconsaver = new myp\property_bool($this);
 		$property->
 			set_name('sysconsaver')->
 			set_title(gettext('Console Screensaver'));
@@ -321,27 +285,24 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Enable console screensaver.'))->
 			set_description('')->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
 	}
-	protected $x_sysconsaverblanktime;
-	public function get_sysconsaverblanktime() {
-		return $this->x_sysconsaverblanktime ?? $this->init_sysconsaverblanktime();
+	final public function get_sysconsaver() {
+		return $this->x_sysconsaver ?? $this->init_sysconsaver();
 	}
+	protected $x_sysconsaverblanktime;
 	public function init_sysconsaverblanktime() {
-		$property = $this->x_sysconsaverblanktime = new property_text($this);
+		$property = $this->x_sysconsaverblanktime = new myp\property_text($this);
 		return $property;
 //		html_inputbox2('sysconsaverblanktime',gettext('Blank Time'),$pconfig['sysconsaverblanktime'],gettext('Turn the monitor to standby after N seconds.'),true,5);
 	}
-	protected $x_enableserialconsole;
-	public function get_enableserialconsole() {
-		return $this->x_enableserialconsole ?? $this->init_enableserialconsole();
+	final public function get_sysconsaverblanktime() {
+		return $this->x_sysconsaverblanktime ?? $this->init_sysconsaverblanktime();
 	}
+	protected $x_enableserialconsole;
 	public function init_enableserialconsole() {
-		$property = $this->x_enableserialconsole = new property_bool($this);
+		$property = $this->x_enableserialconsole = new myp\property_bool($this);
 		$property->
 			set_name('enableserialconsole')->
 			set_title(gettext('Serial Console'));
@@ -350,10 +311,10 @@ class properties_system_advanced extends co_property_container {
 			set_caption(gettext('Enable serial console.'))->
 			set_description(sprintf('<span class="red"><strong>%s</strong></span><br />%s',gettext('The COM port in BIOS has to be enabled before enabling this option.'),gettext('Changes to this option will take effect after a reboot.')))->
 			set_defaultvalue(false)->
-			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
+			filter_use_default();
 		return $property;
+	}
+	final public function get_enableserialconsole() {
+		return $this->x_enableserialconsole ?? $this->init_enableserialconsole();
 	}
 }
