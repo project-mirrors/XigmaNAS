@@ -32,12 +32,14 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 require_once 'properties_system_advanced.php';
-require_once 'autoload.php';
 
+use common\arr;
+use common\uuid;
 use gui\document;
 
 function get_sysctl_kern_vty() {
@@ -47,7 +49,7 @@ function get_sphere_system_advanced() {
 	global $config;
 
 	$sphere = new co_sphere_settings('system_advanced','php');
-	$sphere->grid = &array_make_branch($config,'system');
+	$sphere->grid = &arr::make_branch($config,'system');
 	return $sphere;
 }
 //	init properties and sphere
@@ -56,8 +58,8 @@ $sphere = get_sphere_system_advanced();
 $is_sc = 'sc' == get_sysctl_kern_vty();
 //	ensure boolean parameter are set properly
 //	take the value of the parameter if its type is bool
-//	set value to true if the parameter exists and is not NULL
-//	set value to false if the parameter doesn't exist or is NULL
+//	set value to true if the parameter exists and is not null
+//	set value to false if the parameter doesn't exist or is null
 $pconfig['consoleautologin'] = $cop->get_consoleautologin()->validate_config($config['system']);
 $pconfig['disableconsolemenu'] = $cop->get_disableconsolemenu()->validate_config($config['system']);
 $pconfig['disablefm'] = isset($config['system']['disablefm']);
@@ -182,13 +184,13 @@ if($_POST):
 		if(!empty($pwmin)):
 			$pwopt .= " -m {$pwmin}";
 		endif;
-		$grid_rcconf = &array_make_branch($config,'system','rcconf','param');
-		$index = array_search_ex('powerd_flags',$grid_rcconf,'name');
+		$grid_rcconf = &arr::make_branch($config,'system','rcconf','param');
+		$index = arr::search_ex('powerd_flags',$grid_rcconf,'name');
 		if($index !== false):
 			$grid_rcconf[$index]['value'] = $pwopt;
 		else:
 			$grid_rcconf[] = [
-				'uuid' => uuid(),
+				'uuid' => uuid::create_v4(),
 				'name' => 'powerd_flags',
 				'value' => $pwopt,
 				'comment' => 'System power control options',
@@ -311,13 +313,13 @@ $document->render();
 		<tbody>
 <?php
 			$node = new document();
-			$node->c2_checkbox($cop->get_zeroconf(),!empty($pconfig['zeroconf']));
-			$node->c2_checkbox($cop->get_disablefm(),!empty($pconfig['disablefm']));
+			$node->c2($cop->get_zeroconf(),!empty($pconfig['zeroconf']));
+			$node->c2($cop->get_disablefm(),!empty($pconfig['disablefm']));
 			if($g['zroot'] || ('full' !== $g['platform'])):
-				$node->c2_checkbox($cop->get_disablefirmwarecheck(),!empty($pconfig['disablefirmwarecheck']));
+				$node->c2($cop->get_disablefirmwarecheck(),!empty($pconfig['disablefirmwarecheck']));
 			endif;
-			$node->c2_checkbox($cop->get_shrinkpageheader(),$_SESSION['g']['shrinkpageheader']);
-			$node->c2_checkbox($cop->get_disableextensionmenu(),!empty($pconfig['disableextensionmenu']));
+			$node->c2($cop->get_shrinkpageheader(),$_SESSION['g']['shrinkpageheader']);
+			$node->c2($cop->get_disableextensionmenu(),!empty($pconfig['disableextensionmenu']));
 			$node->render();
 ?>
 		</tbody>
@@ -336,10 +338,10 @@ $document->render();
 		<tbody>
 <?php
 			$node = new document();
-			$node->c2_checkbox($cop->get_disablebeep(),!empty($pconfig['disablebeep']));
-			$node->c2_checkbox($cop->get_microcode_update(),!empty($pconfig['microcode_update']));
-			$node->c2_checkbox($cop->get_powerd(),!empty($pconfig['powerd']));
-			$node->c2_radio_grid($cop->get_pwmode(),$pconfig['pwmode']);
+			$node->c2($cop->get_disablebeep(),!empty($pconfig['disablebeep']));
+			$node->c2($cop->get_microcode_update(),!empty($pconfig['microcode_update']));
+			$node->c2($cop->get_powerd(),!empty($pconfig['powerd']));
+			$node->c2($cop->get_pwmode(),$pconfig['pwmode']);
 			$node->render();
 			$clocks = @exec("/sbin/sysctl -q -n dev.cpu.0.freq_levels");
 			$a_freq = [];
@@ -371,17 +373,17 @@ $document->render();
 		<tbody>
 <?php
 			$node = new document();
-			$node->c2_checkbox($cop->get_consoleautologin(),!empty($pconfig['consoleautologin']));
-			$node->c2_checkbox($cop->get_disableconsolemenu(),!empty($pconfig['disableconsolemenu']));
-			$node->c2_checkbox($cop->get_enableserialconsole(),!empty($pconfig['enableserialconsole']));
+			$node->c2($cop->get_consoleautologin(),!empty($pconfig['consoleautologin']));
+			$node->c2($cop->get_disableconsolemenu(),!empty($pconfig['disableconsolemenu']));
+			$node->c2($cop->get_enableserialconsole(),!empty($pconfig['enableserialconsole']));
 			if($is_sc):
-				$node->c2_checkbox($cop->get_sysconsaver(),!empty($pconfig['sysconsaver']));
+				$node->c2($cop->get_sysconsaver(),!empty($pconfig['sysconsaver']));
 			endif;
 			$node->render();
 			if($is_sc):
 				html_inputbox2('sysconsaverblanktime',gettext('Blank Time'),$pconfig['sysconsaverblanktime'],gettext('Turn the monitor to standby after N seconds.'),true,5);
 			endif;
-			$n_rows = min(64,max(8,1 + substr_count($pconfig['motd'],PHP_EOL)));
+			$n_rows = min(64,max(8,1 + substr_count($pconfig['motd'],"\n")));
 			html_textarea2('motd',gettext('MOTD'),$pconfig['motd'],gettext('Message of the day.'),false,65,$n_rows,false,false);
 ?>
 		</tbody>
