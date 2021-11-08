@@ -325,7 +325,7 @@ $thead->
 	ins_separator($n_col_width)->
 	ins_titleline(gettext('Credits'),$n_col_width)->
 	addTR()->
-		insTH(['colspan' => '3','class' => 'lcebld'],sprintf(gettext('The following persons have contributed to %s:'), get_product_name()));
+		insTH(['colspan' => '3','class' => 'lhebl'],sprintf(gettext('The following persons have contributed to %s:'),get_product_name()));
 foreach($contributors as $row):
 	$tbody->
 		addTR()->
@@ -345,10 +345,10 @@ $thead->
 	c2_titleline(gettext('Software Used'))->
 	push()->
 	addTR()->
-		insTH(['colspan' => '2','class' => 'lcebld'],sprintf(gettext('%s is based upon/includes various free software packages.'),get_product_name()))->
+		insTH(['colspan' => '2','class' => 'lhebl'],sprintf(gettext('%s is based upon/includes various free software packages.'),get_product_name()))->
 	pop()->
 	addTR()->
-		insTH(['colspan' => '2','class' => 'lcebld'],sprintf(gettext('%s would like to thank the authors of this software for their efforts.'),get_product_name()));
+		insTH(['colspan' => '2','class' => 'lhebl'],sprintf(gettext('%s would like to thank the authors of this software for their efforts.'),get_product_name()));
 foreach($software as $row):
 	$tbody->
 		addTR()->
