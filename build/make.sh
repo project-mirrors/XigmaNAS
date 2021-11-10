@@ -1767,7 +1767,7 @@ $DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 	rm $tempfile
 
 	case ${choice} in
-		build|rebuild)
+		build|nosel|rebuild)
 #			Set ports options
 			echo;
 			echo "--------------------------------------------------------------";
