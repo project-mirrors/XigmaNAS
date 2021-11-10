@@ -33,7 +33,7 @@ phpvbox_conf=${phpvbox_conf:-"/usr/local/www/phpvirtualbox/config.php"}
 vbox_certpem=${vbox_certpem:-"/var/etc/vbox-cert.pem"}
 vbox_user=${vbox_user:-"vboxusers"}
 vbox_group=${vbox_group:-"vboxusers"}
-vbox_ipaddr=${vbox_ipaddr:-"127.0.0.1"}
+vbox_ipaddr=${vbox_ipaddr:-"localhost"}
 vbox_port=${vbox_port:-"18083"}
 vbox_vrdeports=${vbox_vrdeports:-"9000-9100"}
 
@@ -278,7 +278,7 @@ vbox_stop()
 
 	# kill remaining vboxusers processes
 	PIDS=`ps aux | grep "vboxusers" | awk '{print $2}'`
-	for PID in ${PIDS}; do 
+	for PID in ${PIDS}; do
 		kill -9 ${PID};
 	done
 }
