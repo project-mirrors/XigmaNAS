@@ -1,7 +1,9 @@
-include         GENERIC
+include		GENERIC
 ident		XIGMANAS-x64
 
-makeoptions	MODULES_EXTRA="mlx4 mlx4en"
+makeoptions	MODULES_EXTRA+="mlx4"
+makeoptions	MODULES_EXTRA+="mlx4en"
+makeoptions	MODULES_EXTRA+="iser"
 
 #####################################################################
 # XIGMANAS
@@ -10,20 +12,20 @@ device		speaker
 
 # for ZFS tuning
 options		VM_KMEM_SIZE_SCALE=1
-options 	KSTACK_PAGES=6
+options		KSTACK_PAGES=6
 
 # Networking options
-#options		DEVICE_POLLING
-#options		HZ=1000
+#options	DEVICE_POLLING
+#options	HZ=1000
 
 # GEOM classes
-options 	GEOM_ELI		# Disk encryption.
-options 	TMPFS			# Efficient memory filesystem
-options 	UNIONFS			# Union filesystem
-options 	NULLFS			# NULL filesystem
+options 	GEOM_ELI	# Disk encryption.
+options 	TMPFS		# Efficient memory filesystem
+options 	UNIONFS		# Union filesystem
+options 	NULLFS		# NULL filesystem
 
-device		lagg			# Link aggregation interface.
-device		if_bridge		# Bridge interface.
+device		lagg		# Link aggregation interface.
+device		if_bridge	# Bridge interface.
 
 # 10GbE adapters
 device		cxgb		# Chelsio T3 10 Gigabit Ethernet
@@ -31,16 +33,16 @@ device		cxgb_t3fw	# Chelsio T3 10 Gigabit Ethernet firmware
 device		mxge		# Myricom Myri-10G 10GbE NIC
 device		qlxge		# QLogic 8100 10GbE/CNA Adapter
 device		qlxgb		# QLogic 3200 and 8200 10GbE/CNA Adapter
-device		oce		# Emulex 10Gbe Ethernet
+device		oce			# Emulex 10Gbe Ethernet
 device		sfxge		# Solarflare 10Gb Ethernet Adapters
 
 # InfiniBand support
 options		OFED		# InfiniBand support
-options COMPAT_LINUXKPI 
+options		COMPAT_LINUXKPI
 
-#options		SDP		# SDP protocol
-#options		IPOIB		# IPoIB
-#options		IPOIB_CM	# IPoIB connected mode
+#options	SDP			# SDP protocol
+#options	IPOIB		# IPoIB
+#options	IPOIB_CM	# IPoIB connected mode
 
 # InfiniBand Adapters
 #device		mlx4ib		# Mellanox ConnectX HCA InfiniBand
