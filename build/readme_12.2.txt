@@ -128,7 +128,6 @@ Changes:
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade python to 3.8.x.
-- Upgrade samba to 4.13.8.
 - Upgrade dialog to 1.3-20210509.
 - Upgrade bash to 5.1 p8.
 - Upgrade proftpd to 1.3.7c.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade zoneinfo to 2021e.
 - Upgrade sudo to 1.9.8p2.
 - Upgrade syncthing to 1.18.4.
+- Upgrade samba to 4.13.14.
 
 Fixes:
 - Fix only first lagg member is brought up.
