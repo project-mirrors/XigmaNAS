@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- XigmaNAS default system configuration -->
 <xigmanas>
-	<version>50</version>
+	<version>51</version>
 	<lastchange></lastchange>
 	<system>
 		<hostname>xigmanas</hostname>
@@ -785,20 +785,6 @@
 		</vdisk>
 		-->
 	</gstripe>
-	<graid5>
-		<!--
-		<vdisk>
-			<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-			<name>xxx</name>
-			<type>5</type>
-			<device>/dev/da0</device>
-			<device>/dev/da1</device>
-			<device>/dev/da2</device>
-			<desc>Software graid5 RAID 5</desc>
-			<devicespecialfile>/dev/raid5/xxx</devicespecialfile>
-		</vdisk>
-		-->
-	</graid5>
 	<geli>
 		<!--
 		<vdisk>
