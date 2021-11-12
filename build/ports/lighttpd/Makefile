@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.59
+PORTVERSION=	1.4.61
 PORTREVISION=	0
 CATEGORIES=	www
 
@@ -17,7 +17,6 @@ LIB_DEPENDS+=	libpcre.so:${PORTSDIR}/devel/pcre \
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf compiler:c11 gmake libtool pkgconfig tar:xz
-#USE_CSTD=	gnu99
 USE_BZIP2=	yes
 
 OPENSSL_USES=	ssl
