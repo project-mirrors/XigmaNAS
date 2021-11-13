@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
-"PO-Revision-Date: 2021-04-01 15:39+0000\n"
-"Last-Translator: Mirko Dall'Armellina <mrwinch@tiscali.it>\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
+"PO-Revision-Date: 2021-08-24 12:45+0000\n"
+"Last-Translator: Vincenzo Russo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 "Language: \n"
-"X-Poedit-Language: Italian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -377,6 +377,11 @@ msgstr ""
 "Un disco attualmente montato verrà temporaneamente smontato per eseguire "
 "l'operazione richiesta."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "Riavvio necessario"
 
@@ -462,9 +467,6 @@ msgstr "Modalità ACL"
 
 msgid "AD authentication is disabled."
 msgstr "L'autenticazione al AD è disattivata"
-
-msgid "AD or PDC name."
-msgstr "Nome AD o PDC."
 
 msgid "AFP"
 msgstr "AFP"
@@ -648,10 +650,10 @@ msgid "Add RAID"
 msgstr "Aggiungi RAID"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Aggiungi un Riavvio Programmato"
 
 msgid "Add Record"
-msgstr "Aggiungi un record"
+msgstr "Aggiungi record"
 
 msgid "Add Resource"
 msgstr "Aggiungi una risorsa"
@@ -669,7 +671,7 @@ msgid "Add Samba Share"
 msgstr "Aggiungi una condivisione Samba"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Aggiungi una Programmazione"
 
 msgid "Add Share"
 msgstr "Aggiungi una condivisione"
@@ -795,7 +797,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 "Indirizzo del daemon remoto hastd. Deve essere un indirizzo IP statico."
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -804,14 +806,14 @@ msgstr "Password (admin)"
 msgid "Admin access"
 msgstr "Accesso admin"
 
-msgid "Administration Password"
-msgstr "Password Amministrativa"
-
 msgid "Administrative WebGUI"
 msgstr "Interfaccia web di amministrazione"
 
 msgid "Administrator Name"
 msgstr "Nome Amministratore"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avanzato"
@@ -938,7 +940,7 @@ msgid "Allow GSSAPI authentication."
 msgstr "Consenti autenticazione GSSAPI"
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "Permetti IPv6"
 
 msgid "Allow New Files"
 msgstr "Permetti nuovi files"
@@ -1089,6 +1091,11 @@ msgstr "Un Extent definisce l'are di immagazzinamento del Target."
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "Indirizzo IPv4 o IPv6 di un inizializzatore del portale iSCSI"
 
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
+
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
 "Un indirizzo IPv4 o IPv6 dove ascoltare per le connessioni in ingresso."
@@ -1170,10 +1177,11 @@ msgid "Append content to the default CSS file"
 msgstr "Aggiungere il contenuto al file CSS di default."
 
 msgid "Append my IP"
-msgstr ""
+msgstr "Aggiungi il mio IP"
 
 msgid "Append the current IP to the DDNS server update path."
 msgstr ""
+"Aggiungi l'indirizzo corrente al percorso di aggiornamento del server DDNS"
 
 msgid "Append user defined shares"
 msgstr "Aggiungi le condivisioni definite dall'utente."
@@ -1667,7 +1675,7 @@ msgstr ""
 "configurati: il default è 300 secondi."
 
 msgid "Broken RTC"
-msgstr ""
+msgstr "RTC non funzionante"
 
 msgid "Browseable"
 msgstr "Esplorabile"
@@ -1684,6 +1692,10 @@ msgid ""
 "local, loopback, multicast and known experimental addresses. For more "
 "information, see RFC3330."
 msgstr ""
+"Per Default inadyn verifica gli indirizzi IPv4 e IPv6, accertandosi che "
+"l'indirizzo sia un valido indirizzo internet. Indirizzi non validi sono, "
+"e.g, link local, loopback, multicast e indirizzi sperimentali conosciuti. "
+"Per maggiori informazioni, confronta RFC3330."
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -1703,7 +1715,7 @@ msgid "C++ Source File"
 msgstr "File sorgente C++"
 
 msgid "CA Trusted Certificates"
-msgstr ""
+msgstr "Certificati CA Trusted"
 
 msgid "CACHE"
 msgstr "CACHE"
@@ -1868,7 +1880,7 @@ msgid "CTL LUN"
 msgstr "CTL LUN"
 
 msgid "Cache Directory"
-msgstr ""
+msgstr "Directory Cache"
 
 msgid "Calibration Battery"
 msgstr "Calibrazione batteria"
@@ -1966,19 +1978,19 @@ msgid "Charging Battery"
 msgstr "Batteria in carica"
 
 msgid "Check IP Command"
-msgstr ""
+msgstr "Controlla il comando IP"
 
 msgid "Check IP Path"
-msgstr ""
+msgstr "Controlla il percorso IP"
 
 msgid "Check IP Server"
-msgstr ""
+msgstr "Controlla l'IP del server"
 
 msgid "Check IP using HTTPS"
-msgstr ""
+msgstr "Controlla l'IP usando HTTPS"
 
 msgid "Check Interval"
-msgstr ""
+msgstr "Controlla l'intervallo"
 
 msgid "Check System|General Setup before initializing"
 msgstr "Controllo Sistema|Set up Generale prima di inizializzazione"
@@ -2128,6 +2140,10 @@ msgid ""
 "year fields match the current time, and when at least one of the two day "
 "fields (day of month, or day of week) matches the current time."
 msgstr ""
+"I comandi vengono eseguiti dallo scheduler quando i campi minuto, ora e mese "
+"dell'anno corrispondono all'ora corrente e quando almeno uno dei due campi "
+"del giorno (giorno del mese o giorno della settimana) corrisponde all'ora "
+"corrente."
 
 msgid "Comment"
 msgstr "Commento"
@@ -2160,7 +2176,7 @@ msgid "Configuration"
 msgstr "Configurazione"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "Cartella di Configurazione"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2261,7 +2277,7 @@ msgid "Controller Model"
 msgstr "Controller Model"
 
 msgid "Controller Name"
-msgstr ""
+msgstr "Nome del Controller"
 
 msgid "Controller TCP Port"
 msgstr "Porta TCP del controller"
@@ -2594,7 +2610,7 @@ msgid "Create Permission"
 msgstr "Crea Permessi"
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "Crea Snapshot"
 
 msgid "Create Work Directory"
 msgstr "Crea Directory di lavoro"
@@ -2615,10 +2631,10 @@ msgid "Create a spare device"
 msgstr "Crea un device di riserva"
 
 msgid "Create a virtual device containing a single device"
-msgstr ""
+msgstr "Crea un dispositivo virtuale contenente un singolo dispositivo"
 
 msgid "Create a virtual device containing concatenated devices"
-msgstr ""
+msgstr "Crea un dispositivo virtuale contenente dispositivi concatenati"
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "Crea un device virtuale contenente device in mirroring"
@@ -2725,13 +2741,13 @@ msgid "Current year"
 msgstr "Anno corrente"
 
 msgid "Custom Provider"
-msgstr ""
+msgstr "provider personalizzato"
 
 msgid "Custom Script"
 msgstr "Custom Script"
 
 msgid "Custom Setting"
-msgstr ""
+msgstr "impostazioni personali"
 
 msgid "Custom device"
 msgstr "DIspositivo personalizzato"
@@ -2749,18 +2765,20 @@ msgid "DAAP"
 msgstr "DAAP"
 
 msgid "DDNS server name, not the full URL."
-msgstr ""
+msgstr "ddns name server , non url completo"
 
 msgid ""
 "DDNS server path. By default the hostname is appended to the path, unless "
 "append-myip is set."
 msgstr ""
+"percorso ddns. Per default il nome host è agganciato al percorso, senza che "
+"sia settato append-myip."
 
 msgid "DDNS-Path"
-msgstr ""
+msgstr "DDNS-Path"
 
 msgid "DDNS-Server"
-msgstr ""
+msgstr "DDNS-Server"
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG - informazione di log per il debugging"
@@ -2790,7 +2808,7 @@ msgid "DHX2 Authentication"
 msgstr "Autenticazione DHX2"
 
 msgid "DISK"
-msgstr ""
+msgstr "Disco"
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2810,11 +2828,8 @@ msgstr "Dominio DNS"
 msgid "DNS Forwarder"
 msgstr "Gestore ricorsivo DNS"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
-msgstr ""
+msgstr "Protezione DNS Rebind"
 
 msgid "DNS server is empty."
 msgstr "Server DNS vuoto."
@@ -2852,7 +2867,7 @@ msgid "Daemon log"
 msgstr "Log del Daemon"
 
 msgid "Daily"
-msgstr ""
+msgstr "Ogni Giorno"
 
 msgid "Data"
 msgstr "Dati"
@@ -2906,7 +2921,7 @@ msgid "Day"
 msgstr "Giorno"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "Giorno(i)"
 
 msgid "Days"
 msgstr "Giorni"
@@ -3104,7 +3119,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "Elimina i gruppi portale selezionati"
 
 msgid "Delete Selected Providers"
-msgstr ""
+msgstr "Cancella i Provider Selezionati"
 
 msgid "Delete Selected Public Keys"
 msgstr "Cancellare le chiavi pubbliche selezionate"
@@ -3113,7 +3128,7 @@ msgid "Delete Selected RAID Volumes"
 msgstr "Cancella i Volumi RAID selezionati"
 
 msgid "Delete Selected Reboot Schedules"
-msgstr ""
+msgstr "Cancella i riavvi programmati selezionati"
 
 msgid "Delete Selected Records"
 msgstr "Cancella i record selezionati"
@@ -3134,7 +3149,7 @@ msgid "Delete Selected Samba Shares"
 msgstr "Cancella le condivisioni Samba selezionate"
 
 msgid "Delete Selected Schedules"
-msgstr ""
+msgstr "cancella le programmazioni selezionate"
 
 msgid "Delete Selected Shares"
 msgstr "Cancella le condivisioni selezionate"
@@ -3283,10 +3298,10 @@ msgid "Destination port"
 msgstr "Porta destinazione"
 
 msgid "Destroy"
-msgstr ""
+msgstr "distruggi"
 
 msgid "Destroy Snapshot"
-msgstr ""
+msgstr "Distruggi lo Snapshot"
 
 msgid "Destroy a pool"
 msgstr "Distruggi un pool"
@@ -3406,7 +3421,7 @@ msgid "Diagnostics"
 msgstr "Diagnostica"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "Informazioni Diagnostiche"
 
 msgid "Difference"
 msgstr "Differenza"
@@ -3443,7 +3458,7 @@ msgid "Disable"
 msgstr "Disabilita"
 
 msgid "Disable DNS rebind protection"
-msgstr ""
+msgstr "Disabilita la protezione DNS Rebind"
 
 msgid "Disable Extension Menu"
 msgstr "Disattiva il menu delle estensioni"
@@ -3506,13 +3521,13 @@ msgid "Disable Selected Portal Groups"
 msgstr "Disabilita i gruppi Portal selezionati"
 
 msgid "Disable Selected Providers"
-msgstr ""
+msgstr "Disabilita i Provider Selezionati"
 
 msgid "Disable Selected Public Keys"
 msgstr "Disattivare le chiavi pubbliche selezionate"
 
 msgid "Disable Selected Reboot Schedules"
-msgstr ""
+msgstr "Disabilita i riavvi programmati selezionati"
 
 msgid "Disable Selected Records"
 msgstr "Disattiva i record selezionati"
@@ -3530,7 +3545,7 @@ msgid "Disable Selected Samba Shares"
 msgstr "Disabilita le Condivisioni SAMBA Selezionate"
 
 msgid "Disable Selected Schedules"
-msgstr ""
+msgstr "Disabilita i programmi schedulati selezionati"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "Disattivare i settaggi Sysctl selezionati"
@@ -3825,7 +3840,7 @@ msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr "Vuoi creare un dispositivo 'striped virtual' dai dischi selezionati?"
 
 msgid "Do you want to create a virtual device from selected disk?"
-msgstr ""
+msgstr "Creare un dispositivo virtuale dal disco selezionato?‎"
 
 msgid "Do you want to delete selected CARPs?"
 msgstr "Desideri cancellare i CARP selezionati?"
@@ -3928,13 +3943,13 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "Desideri cancellare i gruppi di portali selezionati?"
 
 msgid "Do you want to delete selected providers?"
-msgstr ""
+msgstr "Vuoi cancellare i provider selezionati"
 
 msgid "Do you want to delete selected public keys?"
 msgstr "Vuoi cancellare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to delete selected reboot schedules?"
-msgstr ""
+msgstr "vuoi cancellare i  riavvi programmati selezionati?"
 
 msgid "Do you want to delete selected records?"
 msgstr "Desideri cancellare i record selezionati?"
@@ -3952,7 +3967,7 @@ msgid "Do you want to delete selected rsync modules?"
 msgstr "Desideri cancellare i moduli rsync selezionati?"
 
 msgid "Do you want to delete selected schedules?"
-msgstr ""
+msgstr "Vuoi cancellare le schedulazioni selezionate?"
 
 msgid "Do you want to delete selected shares?"
 msgstr "Desideri cancellare le condivisioni selezionate?"
@@ -4045,13 +4060,13 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "Vuoi disattivare i gruppi di portali selezionati?"
 
 msgid "Do you want to disable selected providers?"
-msgstr ""
+msgstr "vuoi disabilitare i provider selezionati?"
 
 msgid "Do you want to disable selected public keys?"
 msgstr "Vuoi disattivare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to disable selected reboot schedules?"
-msgstr ""
+msgstr "Vuoi disabilitare i riavvi programmati selezionati?"
 
 msgid "Do you want to disable selected records?"
 msgstr "Vuoi disattivare i record selezionati?"
@@ -4066,7 +4081,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "Vuoi disattivarei moduli rsync selezionati?"
 
 msgid "Do you want to disable selected schedules?"
-msgstr ""
+msgstr "Vuoi disabilitare le schedulazioni selezionate?"
 
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "Vuoi disattivare i settaggi sysctl selezionati?"
@@ -4315,12 +4330,6 @@ msgstr ""
 
 msgid "Domain is missing 2nd level name."
 msgstr "Il dominio è mancante di un nome di secondo livello."
-
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Domain name nel vecchio formato, e.g. ESEMPIO."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Nome dominio, es. esempio.com."
 
 msgid "Donate"
 msgstr "Fai una donazione"
@@ -4957,6 +4966,9 @@ msgstr "Abilita lo shadow copy"
 msgid "Enable store DOS attributes."
 msgstr "Abilita salvataggio attributi DOS"
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Abilita il protocollo ident (RFC1413)."
 
@@ -5096,6 +5108,9 @@ msgstr "Algoritmo di cifratura"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "Inserisci comando"
 
@@ -5107,6 +5122,9 @@ msgstr "Inserire la lunghezza del prefisso dell'indirizzo IP."
 
 msgid "Enter Identifier"
 msgstr "Inserire l'identificativo"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "Inserisci password"
@@ -5233,6 +5251,9 @@ msgstr ""
 "Inserisci l'identificazione dell'UPS e l'indirizzo IP della macchina a cui è "
 "connesso l'UPS. (anche host remoti)"
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr "Inserire il nome utente completo."
 
@@ -5254,6 +5275,9 @@ msgid ""
 msgstr ""
 "Inserisci la passphrase che sarà utilizzata nella modalità WPA-PSK. Dovrà "
 "essere compresa tra gli 8 e i 63 caratteri."
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr "Inserire la password dell'account dell'utente principale."
@@ -5297,6 +5321,9 @@ msgstr "Inserire la porta alla quale inviare le trap (default 162)."
 
 msgid "Enter trap host name."
 msgstr "Inserire un nome di host per le trap"
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr "Inserire il nome utente."
@@ -5932,9 +5959,6 @@ msgstr "Consentire il permesso alla lettura"
 
 msgid "Grant shell access to user"
 msgstr "Consentire l'accesso shell all'utente"
-
-msgid "Graph shows last 120 seconds"
-msgstr "Il grafico mostra l'ultima 120 secondi"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "Il grafico mostra i 120 secondi più recenti."
@@ -7204,6 +7228,9 @@ msgstr ""
 msgid "Listen"
 msgstr "Listen"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr "Listen record bloccato"
 
@@ -7615,6 +7642,9 @@ msgstr "La cartella multimediale è settata per la cancellazione"
 msgid "Media Folder is unlocked"
 msgstr "La cartella multimediale è sbloccata"
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "Raccolta multimediale"
 
@@ -7848,9 +7878,6 @@ msgstr "Spostamento fallito."
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Public License Version 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Deve essere un numero tra 5 e 1000."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Deve essere un numero tra 80 e 89."
 
@@ -7896,10 +7923,10 @@ msgstr "CHAP mutuo"
 msgid "NAA Identifier"
 msgstr "Identificatore NAA"
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7925,6 +7952,9 @@ msgstr "Root NFS sbloccato"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -8173,9 +8203,6 @@ msgstr "Nessun utente mutuo CHAP trovato."
 
 msgid "No Parity"
 msgstr "Nessuna parità"
-
-msgid "No Placeholder"
-msgstr "Nessun segnaposto"
 
 msgid "No Portal Group has been configured."
 msgstr "Nessun Portal Group configurato."
@@ -8824,9 +8851,6 @@ msgstr "Password per le pagine di amministrazione."
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9309,6 +9333,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Tipo approvigionamento"
 
@@ -9478,6 +9505,9 @@ msgstr "Grafico RRDGraph sull'efficienza giornaliera ARC"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "Grafico RRDGraph giornaliero ARC"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "Grafico RRDGraph giornaliero sulla frequenza CPU"
 
@@ -9487,11 +9517,17 @@ msgstr "Grafico RRDGraph giornaliero sulla temperatura CPU"
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "Grafico RRDGraph giornaliero sull'utilizzo CPU"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "Grafico RRDGraph giornaliero L2ARC"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "Grafico RRDGraph giornaliero sul carico medio"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "Grafico RRDGraph giornaliero sulla latenza di rete"
@@ -9511,6 +9547,9 @@ msgstr "Grafico RRDGraph mensile sull'efficienza ARC"
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "Grafico RRDGraph mensile sul ARC"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "Grafico RRDGraph mensile sulla frequenza CPU"
 
@@ -9520,11 +9559,17 @@ msgstr "Grafico RRDGraph mensile sulla temperatura CPU"
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "Grafico RRDGraph mensile sull'utilizzo CPU"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "Grafico RRDGraph mensile su L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "Grafico RRDGraph mensile sul carico medio"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "Grafico RRDGraph mensile sulla latenza di rete"
@@ -9544,6 +9589,9 @@ msgstr "Grafico RRDGraphs settimanale sull'efficienza ARC"
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "Grafico RRDGraphs settimanale su ARC"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "Grafico RRDGraphs settimanale sulla frequenza CPU"
 
@@ -9553,11 +9601,17 @@ msgstr "Grafico RRDGraphs settimanale sulla temperatura CPU"
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "Grafico RRDGraphs settimanale sull'utilizzo CPU"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "Grafico RRDGraphs settimanale su L2ARC"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "Grafico RRDGraphs settimanale sul carico medio"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "Grafico RRDGraphs settimanale sulla latenza di rete"
@@ -9577,6 +9631,9 @@ msgstr "Grafico RRDGraphs annuale sull'efficienza ARC"
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "Grafico RRDGraphs annuale su ARC"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "Grafico RRDGraphs annuale sulla frequenza CPU"
 
@@ -9586,11 +9643,17 @@ msgstr "Grafico RRDGraphs annuale sulla temperatura CPU"
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "Grafico RRDGraphs annuale sull'uso CPU"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "Grafico RRDGraphs annuale su L2ARC"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "Grafico RRDGraphs annuale sul carico medio"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "Grafico RRDGraphs annuale sulla latenza di rete"
@@ -9944,6 +10007,15 @@ msgstr ""
 "Riporta se la temperatura è superiore od uguale a N gradi Celsius. Impostare "
 "a 0 per disattivare questo rapporto."
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "Necessità autenticazione"
 
@@ -10063,6 +10135,9 @@ msgstr "DN root Bind"
 
 msgid "Root Bind Password"
 msgstr "Password root Bind"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr "Directory radice"
@@ -10616,6 +10691,9 @@ msgid "Select the permission for running this service. (www by default)."
 msgstr ""
 "Selezionare il permesso per l'esecuzione del servizio. (www per default)."
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "Selezionare l'interfaccia da usare."
 
@@ -10637,12 +10715,6 @@ msgstr "Il dispositivo o l'etichetta scelti non esistono."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "Il file selezionato non è un file ISO valido."
-
-msgid "Selected graph:"
-msgstr "Grafico selezionato:"
-
-msgid "Selected interface:"
-msgstr "Interfaccia selezionata:"
 
 msgid "Selected..."
 msgstr "Selezionati..."
@@ -13008,9 +13080,6 @@ msgstr ""
 "Questo è allo stesso tempo il nome del server come pubblicato via "
 "Zeroconf/Bonjour/Rendezvous e il nome del database esportato via DAAP."
 
-msgid "This is not a valid IP Address."
-msgstr "Questo indirizzo IP non è valido."
-
 msgid "This item already exists."
 msgstr ""
 
@@ -13420,6 +13489,9 @@ msgstr ""
 
 msgid "Times"
 msgstr "Volte"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "Velocità del titolo"
@@ -14218,9 +14290,6 @@ msgstr ""
 msgid "Username"
 msgstr "Username"
 
-msgid "Username of a domain administrator account."
-msgstr "Nome Utente di un account di amministratore del dominio."
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -14815,12 +14884,6 @@ msgstr "è necessario scegliere almeno un metodo di autenticazione."
 msgid "You must supply a name."
 msgstr ""
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"E' necessario aggiornare il browser oppure usare Internet Explorer 10 o "
-"successivi"
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Sarebbe meglio utilizzare HTTPS come protocollo per la WebGUI per inoltrare "
@@ -14964,6 +15027,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "es. %s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "Selezionatore dei file"
 
@@ -15021,9 +15087,6 @@ msgstr ""
 
 msgid "iSNS Period"
 msgstr "Periodo iSNS"
-
-msgid "iSNS Server"
-msgstr "Server SNS"
 
 msgid "iSNS Server is locked"
 msgstr "Il server iSNS è bloccato"
@@ -15107,6 +15170,9 @@ msgid "no"
 msgstr "no"
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"

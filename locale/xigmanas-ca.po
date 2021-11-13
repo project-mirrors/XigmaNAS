@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2021-05-21 07:08+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -379,6 +379,11 @@ msgstr ""
 "Un disc o partició muntada es desmunten temporalment per realitzar l'acció "
 "sol·licitada."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "Es requereix reiniciar"
 
@@ -460,9 +465,6 @@ msgstr "Mode ACL"
 
 msgid "AD authentication is disabled."
 msgstr "Autenticació d'AD està deshabilitat."
-
-msgid "AD or PDC name."
-msgstr "Nom ADC o PDC"
 
 msgid "AFP"
 msgstr "AFP"
@@ -794,8 +796,8 @@ msgstr "Adreça"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adreça del dimoni remot hastd. Ha de esser una adreça IP estàtica."
 
-msgid "Admin Name"
-msgstr "Nom de l'administrador"
+msgid "Admin"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "Contrasenya d'administrador"
@@ -803,14 +805,14 @@ msgstr "Contrasenya d'administrador"
 msgid "Admin access"
 msgstr "Accés d'administrador"
 
-msgid "Administration Password"
-msgstr "Gestió de contrasenyes"
-
 msgid "Administrative WebGUI"
 msgstr "WebGUI administratiu"
 
 msgid "Administrator Name"
 msgstr "Nom de l'administrador"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Avançada"
@@ -1090,6 +1092,11 @@ msgstr "Una extensió defineix l'àrea d'emmagatzematge de l'objectiu."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "Una adreça IPv4 o IPv6 d'un portal iniciador iSCSI."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Una adreça IPv4 o IPv6 per escoltar les connexions entrants."
@@ -2818,9 +2825,6 @@ msgstr "Domini DNS"
 msgid "DNS Forwarder"
 msgstr "Re-enviament DNS"
 
-msgid "DNS Name"
-msgstr "Nom DNS"
-
 msgid "DNS Rebind Protection"
 msgstr "Protecció de reconnexió de DNS"
 
@@ -4324,12 +4328,6 @@ msgstr "Noms de domini"
 msgid "Domain is missing 2nd level name."
 msgstr "No es troba segon nom de nivell de domini."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "El nom de domini en el format antic, per exemple EXEMPLE."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Nom de domini, per exemple, example.com."
-
 msgid "Donate"
 msgstr "Donatiu"
 
@@ -4968,6 +4966,9 @@ msgstr "Activa còpia d'ombra."
 msgid "Enable store DOS attributes."
 msgstr "Habilitar magatzem d'atributs DOS."
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Activar el protocol d'identificació (RFC1413)."
 
@@ -5116,6 +5117,9 @@ msgstr "Algoritme d'encriptació"
 msgid "Enhanced Scheduler"
 msgstr "Planificador ampliat"
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "Introduïu l'ordre"
 
@@ -5127,6 +5131,9 @@ msgstr "Introduïu la longitud de prefix de l'adreça IP."
 
 msgid "Enter Identifier"
 msgstr "Introduïu l'identificador"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "Introduïu la contrasenya"
@@ -5253,6 +5260,9 @@ msgstr ""
 "Introduïu l'identificador de la SAI i adreça IP de la màquina en la qual el "
 "SAI està connectat. (Això també pot ser un host remot)"
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr "Introduïu el nom d'usuari sencer"
 
@@ -5274,6 +5284,9 @@ msgid ""
 msgstr ""
 "Introduïu la contrasenya que s'utilitza en la manera WPA-PSK. Aquest ha de "
 "tenir entre 8 i 63 caràcters."
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr "Introduïu la contrasenya del compte d’usuari principal."
@@ -5318,6 +5331,9 @@ msgstr "Introduïu el port per enviar les trampes (per defecte 162)."
 
 msgid "Enter trap host name."
 msgstr "Introduïu trampa nom d'amfitrió."
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr "Introduïu el nom d'usuari."
@@ -5971,9 +5987,6 @@ msgstr "Concediu permís de lectura"
 
 msgid "Grant shell access to user"
 msgstr "Permetre l’accés al shell dels usuaris"
-
-msgid "Graph shows last 120 seconds"
-msgstr "El gràfic mostra els últims 120 segons"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "El gràfic mostra els darrers 120 segons."
@@ -7260,6 +7273,9 @@ msgstr "Llista de grups disponibles per importar"
 msgid "Listen"
 msgstr "Escolta"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr "El registre d'escolta està bloquejat"
 
@@ -7675,6 +7691,9 @@ msgstr "La carpeta multimèdia està marcada per eliminar-la"
 msgid "Media Folder is unlocked"
 msgstr "La carpeta multimèdia està desbloquejada"
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "Biblioteca multimèdia"
 
@@ -7908,9 +7927,6 @@ msgstr "Ha fallat al moure"
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Llicència pública Mozilla versió 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Ha de ser un número entre 5 i 1000."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Ha de ser un número entre 80 i 89."
 
@@ -7956,11 +7972,11 @@ msgstr "CHAP mutu"
 msgid "NAA Identifier"
 msgstr "Identificador NAA"
 
+msgid "NETBIOS"
+msgstr ""
+
 msgid "NETBIOS Hostname"
 msgstr "Nom de l'amfitrió NETBIOS"
-
-msgid "NETBIOS Name"
-msgstr "Nom NETBIOS"
 
 msgid "NFS"
 msgstr "NFS"
@@ -7985,6 +8001,9 @@ msgstr "NFS root està desbloquejat"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -8241,9 +8260,6 @@ msgstr "No s’han trobat usuaris de CHAP mutu."
 
 msgid "No Parity"
 msgstr "Sense paritat"
-
-msgid "No Placeholder"
-msgstr "Sense marcador de lloc"
 
 msgid "No Portal Group has been configured."
 msgstr "Grup portal no s'ha configurat."
@@ -8896,9 +8912,6 @@ msgstr "Contrasenya per les pàgines administratives"
 msgid "Password for the transmission web interface."
 msgstr "Contrasenya per a la interfície web de transmissió."
 
-msgid "Password of the administrator account."
-msgstr "Contrasenya del compte d'administrador."
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9386,6 +9399,9 @@ msgstr "El proveïdor està marcat per suprimir-lo"
 msgid "Provider is unlocked"
 msgstr "El proveïdor està desbloquejat"
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Tipus de subministrament"
 
@@ -9555,6 +9571,9 @@ msgstr "RRDGraphs diari gràfic d'eficiència ARC"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Diari gràfic ARC"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs Diagrama gràfic de freqüència de la CPU"
 
@@ -9564,11 +9583,17 @@ msgstr "RRDGraphs Diagrama gràfic de temperatura de la CPU"
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs Diari gràfic d’ús de la CPU"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs Diari L2ARC Gràfic"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs Diagrama de mitjanes de càrrega diària"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs Diari gràfic de latència de la xarxa"
@@ -9588,6 +9613,9 @@ msgstr "RRDGraphs mensual gràfic d'eficiència ARC"
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Diagrama d’Uptime Mensual"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs Grafic mensual de freqüència de la CPU"
 
@@ -9597,11 +9625,17 @@ msgstr "RRDGraphs Grafic mensual de temperatura de la CPU"
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs Grafic mensual de us de la CPU"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs Grafic mensual L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs Grafic mitjà de càrrega mensual"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs Gràfic de latència de la xarxa mensual"
@@ -9621,6 +9655,9 @@ msgstr "RRDGraphs setmanal gràfic d'eficiència ARC"
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Grafic ARC setmanal"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs Grafic de freqüència de la CPU setmanal"
 
@@ -9630,11 +9667,17 @@ msgstr "RRDGraphs Grafic de temperatura de la CPU setmanal"
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs Grafic d'us de la CPU setmanal"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs Grafic setmanal L2ARC"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs Grafic mitjà de càrrega setmanal"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs Grafic de latència de la xarxa setmanal"
@@ -9654,6 +9697,9 @@ msgstr "RRDGraphs anual gràfic d'eficiència ARC"
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Grafic anual ARC"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs Gràfic de freqüència de CPU anual"
 
@@ -9663,11 +9709,17 @@ msgstr "RRDGraphs Gràfic de temperatura de CPU anual"
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs Gràfic d'us de CPU anual"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs Gràfic L2ARC anual"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs Gràfic de carga mitja anual"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs Gràfic de làtencia de xarxa anual"
@@ -10024,6 +10076,15 @@ msgstr ""
 "Informe si la temperatura és major o igual que N graus centígrads. "
 "S'estableix en 0 per desactivar aquest informe."
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "Requereix autenticació."
 
@@ -10143,6 +10204,9 @@ msgstr "Arrel DN oculta."
 
 msgid "Root Bind Password"
 msgstr "Contrasenya arrel oculta"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr "Directori arrel"
@@ -10706,6 +10770,9 @@ msgstr ""
 "Seleccioneu els permissos per al funcionament d'aquest servei. (www per "
 "defecte)."
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "Seleccioneu quina interfície fareu servir."
 
@@ -10728,12 +10795,6 @@ msgstr "dispositiu seleccionat o etiqueta no existeix."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "L'arxiu seleccionat no és un fitxer ISO vàlida."
-
-msgid "Selected graph:"
-msgstr "Gràfic seleccionat:"
-
-msgid "Selected interface:"
-msgstr "Interfície seleccionada:"
 
 msgid "Selected..."
 msgstr "Seleccionats ..."
@@ -13223,9 +13284,6 @@ msgstr ""
 "Zeroconf/Bonjour/Rendezvous, i el nom de la base de dades exportada a través "
 "de DAAP."
 
-msgid "This is not a valid IP Address."
-msgstr "Aquesta no és una adreça IP vàlida."
-
 msgid "This item already exists."
 msgstr "Aquest element ja existeix."
 
@@ -13657,6 +13715,9 @@ msgstr "El temps d'espera ha de ser un nombre entre 10000 i 255000000."
 
 msgid "Times"
 msgstr "Hores"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "Velocitat del títol"
@@ -14488,9 +14549,6 @@ msgstr "Permís del portal d’usuaris."
 msgid "Username"
 msgstr "Nom d'usuari"
 
-msgid "Username of a domain administrator account."
-msgstr "Nom d'usuari d'un compte d'administrador de domini."
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 "Nom d'usuari per iniciar la sessió a la interfície web de transmision."
@@ -15084,12 +15142,6 @@ msgstr "Heu de seleccionar almenys un mètode d'autenticació."
 msgid "You must supply a name."
 msgstr "Heu de proporcionar un nom."
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Cal que actualitzi el seu navegador o utilitza Internet Explorer 10 o "
-"superior."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr "Ha d'utilitzar HTTPS com a protocol WebGUI per enviar contrasenya."
 
@@ -15231,6 +15283,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "e.x. %s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "selector de fitxers"
 
@@ -15288,9 +15343,6 @@ msgstr "iSER - iSCSI sobre RDMA"
 
 msgid "iSNS Period"
 msgstr "Periode iSNS"
-
-msgid "iSNS Server"
-msgstr "Servidor iSNS"
 
 msgid "iSNS Server is locked"
 msgstr "El servidor iSNS està bloquejat"
@@ -15386,6 +15438,9 @@ msgstr "no"
 
 msgid "no delay"
 msgstr "Sense retard"
+
+msgid "no pools available"
+msgstr ""
 
 msgid "none"
 msgstr "cap"

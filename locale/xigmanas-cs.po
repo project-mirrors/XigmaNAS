@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2020-12-06 19:22+0000\n"
 "Last-Translator: rama <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "Language: cs_CZ\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -380,6 +380,11 @@ msgstr ""
 "Pro provedení požadované akce bude připojený disk / diskový oddíl dočasně "
 "odpojen (unmount)."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "Je třeba restartovat"
 
@@ -462,9 +467,6 @@ msgstr "Režim ACL seznamu"
 
 msgid "AD authentication is disabled."
 msgstr "Ověřování vůči Active Directory je vypnuté."
-
-msgid "AD or PDC name."
-msgstr "Název řadiče domény AD nebo hlavního řadiče NT domény (PDC)."
 
 msgid "AFP"
 msgstr "AFP"
@@ -799,7 +801,7 @@ msgstr ""
 "IP adresa hastd procesu služby na protějšku. Je třeba, aby se jednalo o "
 "statickou IP adresu."
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -808,14 +810,14 @@ msgstr "Heslo správce"
 msgid "Admin access"
 msgstr "Administrátorský přístup"
 
-msgid "Administration Password"
-msgstr "Heslo pro správu"
-
 msgid "Administrative WebGUI"
 msgstr "Webové rozhraní pro správu"
 
 msgid "Administrator Name"
 msgstr "Jméno správce"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Pokročilé"
@@ -1090,6 +1092,11 @@ msgstr "Úložná jednotka určuje úložnou oblast na cíli."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "IPv4 nebo IPv6 adresa portálu iSCSI iniciátoru."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "IPv4 nebo IPv6 adresa na které očekávat příchozí spojení."
@@ -2789,9 +2796,6 @@ msgstr "DNS doména"
 msgid "DNS Forwarder"
 msgstr "DNS přeposílání"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
 msgstr ""
 
@@ -4293,12 +4297,6 @@ msgstr ""
 msgid "Domain is missing 2nd level name."
 msgstr "Doméně chybí název druhé úrovně."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Název domény ve starém formátu, např. EXAMPLE."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Název domény, např.: example.com."
-
 msgid "Donate"
 msgstr "Podpořit vývoj darem"
 
@@ -4931,6 +4929,9 @@ msgstr "Zapnout stínové kopie."
 msgid "Enable store DOS attributes."
 msgstr "Uchovávat DOS atributy."
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Používat protokol ident (norma RFC1413)"
 
@@ -5065,6 +5066,9 @@ msgstr "Šifrovací algoritmus"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "Zadejte příkaz"
 
@@ -5076,6 +5080,9 @@ msgstr "Zadejte délku předpony IP adresy"
 
 msgid "Enter Identifier"
 msgstr "Zadejte identifikátor"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "Zadejte heslo"
@@ -5195,6 +5202,9 @@ msgstr ""
 "Zadejte identifikátor UPS zdroje a IP adresu stroje, ke kterému je UPS zdroj "
 "připojený (toto může být také vzdálený stroj)."
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr ""
 
@@ -5216,6 +5226,9 @@ msgid ""
 msgstr ""
 "Zadejte heslovou frázi, která bude použita v režimu WPA-PSK. Je třeba, aby "
 "byla mezi 8 a 63 znaky dlouhá."
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr ""
@@ -5257,6 +5270,9 @@ msgstr ""
 
 msgid "Enter trap host name."
 msgstr "Zadejte název stroje, na který budou SNMP upozornění zasílána."
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr "Zadejte uživatelské jméno"
@@ -5892,9 +5908,6 @@ msgstr "Udělit oprávnění pro čtení"
 
 msgid "Grant shell access to user"
 msgstr "Udělit uživateli přístup k shellu"
-
-msgid "Graph shows last 120 seconds"
-msgstr "Graf zobrazuje předchozích 120 sekund"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "Graf zobrazuje uplynulých 120 sekund."
@@ -7174,6 +7187,9 @@ msgstr ""
 msgid "Listen"
 msgstr "Očekávat spojení"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr "Záznam očekávání spojení je uzamčen"
 
@@ -7596,6 +7612,9 @@ msgstr ""
 msgid "Media Folder is unlocked"
 msgstr ""
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "Knihovna médií"
 
@@ -7831,9 +7850,6 @@ msgstr ""
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Public License Version 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Je třeba, aby bylo číslo z rozmezí 5 až 1000."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Je třeba aby bylo číslo z rozmezí 80 až 89."
 
@@ -7881,10 +7897,10 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr "NAA identifikátor"
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7910,6 +7926,9 @@ msgstr ""
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -8161,9 +8180,6 @@ msgstr "Nebyli nalezeni žádní uživatelé pro vzájemný CHAP."
 
 msgid "No Parity"
 msgstr "Bez parity"
-
-msgid "No Placeholder"
-msgstr "Žádná výplň"
 
 msgid "No Portal Group has been configured."
 msgstr "Není nastavená žádná skupina portálu."
@@ -8812,9 +8828,6 @@ msgstr "Heslo pro správní oblast stránek"
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9297,6 +9310,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Typ poskytování"
 
@@ -9466,6 +9482,9 @@ msgstr ""
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr ""
 
@@ -9475,10 +9494,16 @@ msgstr ""
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Daily Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
@@ -9499,6 +9524,9 @@ msgstr ""
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr ""
 
@@ -9508,10 +9536,16 @@ msgstr ""
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
@@ -9532,6 +9566,9 @@ msgstr ""
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
 
@@ -9541,10 +9578,16 @@ msgstr ""
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Weekly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
@@ -9565,6 +9608,9 @@ msgstr ""
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr ""
 
@@ -9574,10 +9620,16 @@ msgstr ""
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
@@ -9929,6 +9981,15 @@ msgstr ""
 "Hlásit pokud teplota dosáhne nebo překročí hodnotu N stupňů Celsia. Pokud "
 "nemá být hlášeno, nastavte na hodnotu 0 (nula)."
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "Vyžadovat ověření."
 
@@ -10045,6 +10106,9 @@ msgstr "Rozlišený název pro spojení root"
 
 msgid "Root Bind Password"
 msgstr "Spojovací heslo pro root"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr ""
@@ -10594,6 +10658,9 @@ msgstr ""
 "Vyberte uživatelský účet, jehož práva bude mít tato služba v systému "
 "(výchozí je www)."
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "Vyberte které zařízení použít"
 
@@ -10615,12 +10682,6 @@ msgstr "Označené zařízení nebo štítek neexistuje."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "Zvolený soubor není platným ISO souborem."
-
-msgid "Selected graph:"
-msgstr "Vybraný graf:"
-
-msgid "Selected interface:"
-msgstr "Vybrané rozhraní:"
 
 msgid "Selected..."
 msgstr ""
@@ -13056,9 +13117,6 @@ msgstr ""
 "Zeroconf/Bonjour/Rendezvous a také jako název databáze, exportované "
 "prostřednictvím protokolu DAAP."
 
-msgid "This is not a valid IP Address."
-msgstr "Toto není platná IP adresa."
-
 msgid "This item already exists."
 msgstr ""
 
@@ -13466,6 +13524,9 @@ msgstr "Je třeba, aby časový limit bylo číslo z rozmezí 10000 až 25500000
 
 msgid "Times"
 msgstr "Časy"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "Rychlost titulku"
@@ -14282,9 +14343,6 @@ msgstr ""
 msgid "Username"
 msgstr "Uživatelské jméno"
 
-msgid "Username of a domain administrator account."
-msgstr "Uživatelské jméno účtu správce domény."
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -14876,12 +14934,6 @@ msgstr "Je třeba vybrat alespoň jeden ze způsobů ověřování."
 msgid "You must supply a name."
 msgstr ""
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Je třeba aktualizovat webový prohlížeč nebo použít Internet Explorer 10 a "
-"novější."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Při zadávání heslové fráze do webového rozhraní by měla být používána "
@@ -15027,6 +15079,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "např. %s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "vyberte soubor"
 
@@ -15088,9 +15143,6 @@ msgstr "iSER – iSCSI přes RDMA"
 
 msgid "iSNS Period"
 msgstr "iSNS období"
-
-msgid "iSNS Server"
-msgstr "iSNS server"
 
 msgid "iSNS Server is locked"
 msgstr "iSNS server je uzamčen"
@@ -15176,6 +15228,9 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"

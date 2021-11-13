@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
-"PO-Revision-Date: 2021-05-22 07:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
+"PO-Revision-Date: 2021-11-07 18:04+0000\n"
 "Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:13+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Poedit-Language: Swedish\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
-"X-Poedit-Language: Swedish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -368,6 +368,13 @@ msgstr ""
 "En monterad disk eller partition kommer att avmonteras tillfälligt för att "
 "utföra åtgärden."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+"En port att lyssna på för inkommande anslutningar som använder iSER (iSCSI "
+"över RDMA) protokoll."
+
 msgid "A reboot is required"
 msgstr "En omstart krävs"
 
@@ -443,9 +450,6 @@ msgstr "ACL läge"
 
 msgid "AD authentication is disabled."
 msgstr "AD autentisering är avstängd."
-
-msgid "AD or PDC name."
-msgstr "AD eller PDC-namn."
 
 msgid "AFP"
 msgstr "AFP"
@@ -777,8 +781,8 @@ msgstr "Adress"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adress till fjärr hastd demonen. Det måste vara en fast IP-adress."
 
-msgid "Admin Name"
-msgstr "Administratörsnamn"
+msgid "Admin"
+msgstr "Admin"
 
 msgid "Admin Password"
 msgstr "Administratörslösenord"
@@ -786,14 +790,14 @@ msgstr "Administratörslösenord"
 msgid "Admin access"
 msgstr "Administratörsåtkomst"
 
-msgid "Administration Password"
-msgstr "Administratörslösenord"
-
 msgid "Administrative WebGUI"
 msgstr "Administrativt webbgränssnitt"
 
 msgid "Administrator Name"
 msgstr "Administratörsnamn"
+
+msgid "Administrator Password"
+msgstr "Administratörslösenord"
 
 msgid "Advanced"
 msgstr "Avancerat"
@@ -1064,6 +1068,13 @@ msgstr "En utökning definierar lagringsarean på målet."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "En IPv4 eller IPv6 adress till en iSCSI initierarportal."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
+"En IPv4 eller IPv6 adress att lyssna på för inkommande anslutningar som "
+"använder iSER (iSCSI över RDMA) protokoll."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
@@ -2743,9 +2754,6 @@ msgstr "DNS Domän"
 msgid "DNS Forwarder"
 msgstr "DNS vidarebefodrare"
 
-msgid "DNS Name"
-msgstr "DNS-namn"
-
 msgid "DNS Rebind Protection"
 msgstr "DNS Återknytningsskydd"
 
@@ -4231,12 +4239,6 @@ msgstr "Domännamn"
 msgid "Domain is missing 2nd level name."
 msgstr "Domänen saknar nivå 2 namn."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Domännamn i gammalt format, såsom EXEMPEL."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Domännamn, såsom exempel.com."
-
 msgid "Donate"
 msgstr "Donera"
 
@@ -4870,6 +4872,9 @@ msgstr "Aktivera skuggkopior."
 msgid "Enable store DOS attributes."
 msgstr "Aktivera lagring av DOS attribut."
 
+msgid "Enable support for NFSv4 only."
+msgstr "Aktivera stöd för bara NFSv4."
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Aktivera identifieringsprotokoll (RFC1413)."
 
@@ -5016,6 +5021,9 @@ msgstr "Krypteringsalgoritm"
 msgid "Enhanced Scheduler"
 msgstr "Utökad schemaläggare"
 
+msgid "Enter AD or PDC name."
+msgstr "Mata in AD eller PDC namn."
+
 msgid "Enter Command"
 msgstr "Mata in kommando"
 
@@ -5027,6 +5035,9 @@ msgstr "Mata in IP adress förledslängd."
 
 msgid "Enter Identifier"
 msgstr "Mata in identifierare"
+
+msgid "Enter NetBIOS name."
+msgstr "Mata in NetBIOS namn."
 
 msgid "Enter Password"
 msgstr "Ange lösenord"
@@ -5148,6 +5159,9 @@ msgstr ""
 "Mata in UPS-namn och  IP-adress för maskinen dit UPS:en är ansluten till. "
 "(detta kan även vara en annan värd)"
 
+msgid "Enter the domain name."
+msgstr "Mata in domännamnet."
+
 msgid "Enter the full user name."
 msgstr "Mata in användarens hela namn."
 
@@ -5169,6 +5183,9 @@ msgid ""
 msgstr ""
 "Skriv in lösenordsfrasen som skall användas i WPA-PSK-läget. Detta måste "
 "vara mellan 8 och 63 tecken långt."
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Mata in lösenordet för domänens administratörskonto."
 
 msgid "Enter the password of the master user account."
 msgstr "Mata in lösenordet för master användarkontot."
@@ -5211,6 +5228,9 @@ msgstr "Ange port att sända fällor (traps) (standard 162)."
 
 msgid "Enter trap host name."
 msgstr "Skriv in \"fällans\" värdnamn."
+
+msgid "Enter user name of a domain administrator account."
+msgstr "Mata in användarnamnet för domänens administratörskonto."
 
 msgid "Enter user name."
 msgstr "Mata in användarnamn."
@@ -5845,9 +5865,6 @@ msgstr "Ge läsrättigheter"
 
 msgid "Grant shell access to user"
 msgstr "Ge komandoskalaccess till användaren"
-
-msgid "Graph shows last 120 seconds"
-msgstr "Diagrammet visar senaste 120 sekunder"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "Grafen visar senaste 120 sekunderna."
@@ -7103,6 +7120,9 @@ msgstr "Lista pooler tillgängliga för import"
 msgid "Listen"
 msgstr "Lyssna"
 
+msgid "Listen (iSER)"
+msgstr "Lyssna (iSER)"
+
 msgid "Listen record is locked"
 msgstr "Lyssnarposten är låst"
 
@@ -7509,6 +7529,9 @@ msgstr "Mediakatalogen är markerad för borttagning"
 msgid "Media Folder is unlocked"
 msgstr "Mediakatalog är olåst"
 
+msgid "Media Folders"
+msgstr "Mediakataloger"
+
 msgid "Media Library"
 msgstr "Mediabibliotek"
 
@@ -7741,9 +7764,6 @@ msgstr "Flyttning misslyckades."
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Publik Licens Version 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Måste vara ett nummer mellan 5 och 1000."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Måste vara ett nummer mellan 80 och 89."
 
@@ -7789,11 +7809,11 @@ msgstr "Ösesidig CHAP"
 msgid "NAA Identifier"
 msgstr "NAA Identifierare"
 
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
 msgid "NETBIOS Hostname"
 msgstr "NETBIOS Värdnamn"
-
-msgid "NETBIOS Name"
-msgstr "NETBIOS Namn"
 
 msgid "NFS"
 msgstr "NFS"
@@ -7818,6 +7838,9 @@ msgstr "NFS Root är olåst"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "Bara NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -8067,9 +8090,6 @@ msgstr "Inga ömsesidiga CHAP användare hittades."
 
 msgid "No Parity"
 msgstr "Ingen paritet"
-
-msgid "No Placeholder"
-msgstr "Ingen reservation"
 
 msgid "No Portal Group has been configured."
 msgstr "Ingen Portalgrupp har konfigurerats."
@@ -8713,9 +8733,6 @@ msgstr "Lösenord för de administrativa sidorna."
 msgid "Password for the transmission web interface."
 msgstr "Lösenord för transmission webgränssnitt."
 
-msgid "Password of the administrator account."
-msgstr "Lösenord för administratörskontot"
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9198,6 +9215,9 @@ msgstr "leverantör är markerad för borttagning"
 msgid "Provider is unlocked"
 msgstr "Leverantör är olåst"
 
+msgid "Providers"
+msgstr "Leverantörer"
+
 msgid "Provisioning Type"
 msgstr "Tillhandahållen typ"
 
@@ -9365,6 +9385,9 @@ msgstr "RRDGraphs Daglig ARC effektivitetsgraf"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Daglig ARC graf"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr "RRDGraphs Daglig Bandbreddsgraf"
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs Daglig CPU frekvensgraf"
 
@@ -9374,11 +9397,17 @@ msgstr "RRDGraphs Daglig CPU temperaturgraf"
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs Daglig CPU användningsgraf"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr "RRDGraphs Daglig Diskanvändningsgraf"
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs Daglig L2ARC graf"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs Daglig belastningsmedelvärdesgraf"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr "RRDGraphs Daglig Minnesgraf"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs Daglig nätverkslatensgraf"
@@ -9398,6 +9427,9 @@ msgstr "RRDGraphs Månatlig ARC effektivitetsgraf"
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Månatlig ARC graf"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr "RRDGraphs Månatlig Bandbreddsgraf"
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs Månatlig CPU frekvensgraf"
 
@@ -9407,11 +9439,17 @@ msgstr "RRDGraphs Månatlig CPU teperaturgraf"
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs Månatlig CPU användningsgraf"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr "RRDGraphs Månatlig Diskanvändningsgraf"
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs Månatlig L2ARC graf"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs Månatlig belastningsmedelvärdesgraf"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr "RRDGraphs Månatlig Minnsanvändningsgraf"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs Månatlig nätverkslatensgraf"
@@ -9431,6 +9469,9 @@ msgstr "RRDGraphs Veckovis ARC effektivitetsgraf"
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Vecko ARCgraf"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr "RRDGraphs Veckovis brandbreddsgraf"
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs Vecko CPU frekvensgraf"
 
@@ -9440,11 +9481,17 @@ msgstr "RRDGraphs Vecko CPU temperaturgraf"
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs Vecko CPU användningsgraf"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr "RRDGraphs veckovis diskanvändningsgraf"
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs Vecko L2ARC graf"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs Vecko belastningsmedelgraf"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr "RRDGraphs Veckovis Minnesanvändningsgraf"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs Vecko nätverkslatensgraf"
@@ -9464,6 +9511,9 @@ msgstr "RRDGraphs Årlig ARC effektivitetsgraf"
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Årlig ARC graf"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr "RRDGraphs Årlig bandbreddsgraf"
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs Årlig CPU frekvensgraf"
 
@@ -9473,11 +9523,17 @@ msgstr "RRDGraphs Årlig CPU temperaturgraf"
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs Årlig CPU användningsgraf"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr "RRDGraphs Årlig Diskanvändningsgraf"
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs Årlig L2ARC graf"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs Årlig belastningsmedelsgraf"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr "RRDGraphs Årlig Minnesanvändningsgraf"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs Årlig nätverkslatensgraf"
@@ -9828,6 +9884,15 @@ msgstr ""
 "Rapportera om temperaturen är större än eller lika med N grader Celsius. "
 "Välj 0 för att utesluta denna rapport."
 
+msgid "Reporting Disk"
+msgstr "Rapporterande disk"
+
+msgid "Reporting Interface"
+msgstr "Rapporterande gränssnitt"
+
+msgid "Reporting Level"
+msgstr "Rapporterande nivå"
+
 msgid "Require authentication."
 msgstr "Kräv autentisering."
 
@@ -9945,6 +10010,9 @@ msgstr "Root Bind DN"
 
 msgid "Root Bind Password"
 msgstr "Root Bind Lösenord"
+
+msgid "Root Directories"
+msgstr "Rootkatalog"
 
 msgid "Root Directory"
 msgstr "Rotkatalog"
@@ -10490,6 +10558,9 @@ msgstr "Välj den plats som är närmast dig."
 msgid "Select the permission for running this service. (www by default)."
 msgstr "Välj villkoret för att köra denna tjänst. (www som standard)"
 
+msgid "Select the timezone for this user."
+msgstr "Välj tidszon för denna användare."
+
 msgid "Select which interface to use."
 msgstr "Välj vilket gränssnitt som skall användas"
 
@@ -10512,12 +10583,6 @@ msgstr "Vald enhet eller etikett existerar inte."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "Den valda filen är inte en giltig ISO fil."
-
-msgid "Selected graph:"
-msgstr "Vald graf"
-
-msgid "Selected interface:"
-msgstr "Valt gränssnitt"
 
 msgid "Selected..."
 msgstr "Valda..."
@@ -12951,9 +13016,6 @@ msgstr ""
 "Detta är både namnet på den server som annonseras via Zeroconf / Bonjour / "
 "Rendezvous, och namnet på databasen som exporteras via DAAP."
 
-msgid "This is not a valid IP Address."
-msgstr "Detta är inte en giltig IP adress."
-
 msgid "This item already exists."
 msgstr "Detta objekt finns redan."
 
@@ -13370,6 +13432,9 @@ msgstr "Timeout måste vara ett nummer mellan 10000 och 255000000."
 
 msgid "Times"
 msgstr "Tider"
+
+msgid "Timezone"
+msgstr "Tidszon"
 
 msgid "Title Speed"
 msgstr "Titelhastighet"
@@ -14191,9 +14256,6 @@ msgstr "Användarportalrättigheter"
 msgid "Username"
 msgstr "Användarnamn"
 
-msgid "Username of a domain administrator account."
-msgstr "Användarnamn för ett domänadministratörskonto."
-
 msgid "Username to log into the transmission web interface."
 msgstr "Användarnamn för inloggning till transmission webgränssnitt."
 
@@ -14777,12 +14839,6 @@ msgstr "Du måste välja åtminstone en autentiseringsmetod."
 msgid "You must supply a name."
 msgstr "Du måste ange ett namn."
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Du behöver uppdatera din webbläsare eller använda Internet Explorer 10 eller "
-"senare."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Du bör använda HTTPS-protokollet för webbgränssnittet för att sända "
@@ -14926,6 +14982,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "t.ex. %s"
 
+msgid "example.com"
+msgstr "example.com"
+
 msgid "filechooser"
 msgstr "filväljare"
 
@@ -14983,9 +15042,6 @@ msgstr "iSER - iSCSI över RDMA"
 
 msgid "iSNS Period"
 msgstr "iSNS Period"
-
-msgid "iSNS Server"
-msgstr "iSNS Server"
 
 msgid "iSNS Server is locked"
 msgstr "iSNS servern är låst"
@@ -15081,6 +15137,9 @@ msgstr "nej"
 
 msgid "no delay"
 msgstr "Ingen fördröjning"
+
+msgid "no pools available"
+msgstr "Inga pooler tillgängliga"
 
 msgid "none"
 msgstr "ingen"

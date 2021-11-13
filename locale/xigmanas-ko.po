@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -349,6 +349,11 @@ msgid ""
 "requested action."
 msgstr "탑재된 디스크나 분할 영역은 요청된 작업 수행을 위해 임시로 탑재 해제 될 것입니다."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "재시동이 필요합니다."
 
@@ -424,9 +429,6 @@ msgstr "ACL 모드"
 
 msgid "AD authentication is disabled."
 msgstr "AD 인증 비활성화됨."
-
-msgid "AD or PDC name."
-msgstr "AD 또는 PDC 이름."
 
 msgid "AFP"
 msgstr "AFP"
@@ -756,7 +758,7 @@ msgstr "주소"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "원격지 hastd데몬 주소. 이 값은 고정 IP 주소여야 합니다."
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -765,14 +767,14 @@ msgstr "관리자 암호"
 msgid "Admin access"
 msgstr ""
 
-msgid "Administration Password"
-msgstr "관리 목적 암호"
-
 msgid "Administrative WebGUI"
 msgstr "관리 웹 화면"
 
 msgid "Administrator Name"
 msgstr "관리자 이름"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "고급"
@@ -1024,6 +1026,11 @@ msgid "An Extent defines the storage area of the Target."
 msgstr "범위는 타겟의 저장소 영역을 정의합니다."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr ""
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
 msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
@@ -2608,9 +2615,6 @@ msgstr "DNS 도메인"
 msgid "DNS Forwarder"
 msgstr "DNS 전달자"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
 msgstr ""
 
@@ -4062,12 +4066,6 @@ msgstr ""
 msgid "Domain is missing 2nd level name."
 msgstr "도메인에 2단계 이름이 없습니다."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "기존 포맷의 도메인 명. 예. EXAMPLE."
-
-msgid "Domain name, e.g. example.com."
-msgstr "도메인 명. 예. example.com."
-
 msgid "Donate"
 msgstr "기증"
 
@@ -4689,6 +4687,9 @@ msgstr "쉐도 복사본을 사용합니다."
 msgid "Enable store DOS attributes."
 msgstr "DOS 속성 저장을 사용합니다."
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "ident 프로토콜(RFC1413) 활성화."
 
@@ -4814,6 +4815,9 @@ msgstr "암호화 알고리즘"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "명령어 입력"
 
@@ -4825,6 +4829,9 @@ msgstr ""
 
 msgid "Enter Identifier"
 msgstr "식별자 입력"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "암호 입력"
@@ -4936,6 +4943,9 @@ msgid ""
 "connected to. (this also can be a remote host)"
 msgstr "UPS의 식별자와 UPS가 연결된 장치의 IP 주소를 입력하십시오. (원격지 호스트도 가능합니다)"
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr ""
 
@@ -4955,6 +4965,9 @@ msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
 "8 and 63 characters long."
 msgstr "WPA-PSK 모드에서 사용할 암호를 입력하십시오. 이것은 8자에서 63자 사이의 길이여야 합니다."
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr ""
@@ -4988,6 +5001,9 @@ msgstr "트랩을 전송할 포트를 입력하십시오(기본 값은 162)."
 
 msgid "Enter trap host name."
 msgstr "트랩 호스트 이름을 입력하십시오."
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr ""
@@ -5607,9 +5623,6 @@ msgstr ""
 
 msgid "Grant shell access to user"
 msgstr ""
-
-msgid "Graph shows last 120 seconds"
-msgstr "그래프는 지난 1백20초을 보여줍니다"
 
 msgid "Graph shows recent 120 seconds."
 msgstr ""
@@ -6788,6 +6801,9 @@ msgstr ""
 msgid "Listen"
 msgstr ""
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr ""
 
@@ -7189,6 +7205,9 @@ msgstr ""
 msgid "Media Folder is unlocked"
 msgstr ""
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "미디어 라이브러리"
 
@@ -7418,9 +7437,6 @@ msgstr ""
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr ""
 
-msgid "Must be a number between 5 and 1000."
-msgstr "5에서 1000 사이의 섯자여야 함."
-
 msgid "Must be a number between 80 and 89."
 msgstr ""
 
@@ -7466,10 +7482,10 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7495,6 +7511,9 @@ msgstr ""
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -7734,9 +7753,6 @@ msgstr ""
 
 msgid "No Parity"
 msgstr "패리티 없음"
-
-msgid "No Placeholder"
-msgstr ""
 
 msgid "No Portal Group has been configured."
 msgstr "포털 그룹이 구성되지 않았습니다."
@@ -8367,9 +8383,6 @@ msgstr "관리자 페이지를 위한 암호."
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr "암호 서버 이름 또는 IP 주소(예: Active Directory 도메인 컨트롤러)."
@@ -8837,6 +8850,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -9004,6 +9020,9 @@ msgstr ""
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr ""
 
@@ -9013,10 +9032,16 @@ msgstr ""
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Daily Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
@@ -9037,6 +9062,9 @@ msgstr ""
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr ""
 
@@ -9046,10 +9074,16 @@ msgstr ""
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
@@ -9070,6 +9104,9 @@ msgstr ""
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
 
@@ -9079,10 +9116,16 @@ msgstr ""
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Weekly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
@@ -9103,6 +9146,9 @@ msgstr ""
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr ""
 
@@ -9112,10 +9158,16 @@ msgstr ""
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
@@ -9447,6 +9499,15 @@ msgid ""
 "0 to disable this report."
 msgstr "온도가 섭씨 N도 이상이면 보고합니다. 0으로 설정하면 이 보고가 비활성화 됩니다."
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "인증이 필요함."
 
@@ -9563,6 +9624,9 @@ msgstr "최상위 바인드 DN"
 
 msgid "Root Bind Password"
 msgstr "최상위 바인드 암호"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr ""
@@ -10089,6 +10153,9 @@ msgstr "가장 가까운 위치를 선택하십시오."
 msgid "Select the permission for running this service. (www by default)."
 msgstr "이 서비스 실행에 사용할 허가권을 선택하십시오(기본 값은 www)."
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "사용할 인터페이스를 선택하십시오."
 
@@ -10108,12 +10175,6 @@ msgstr "선택된 장치나 라벨이 존재하지 않습니다."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "선택된 파일은 유효한 ISO 파일이 아닙니다."
-
-msgid "Selected graph:"
-msgstr "선택된 그래프:"
-
-msgid "Selected interface:"
-msgstr "선택된 인터페이스:"
 
 msgid "Selected..."
 msgstr ""
@@ -12301,9 +12362,6 @@ msgstr ""
 "이것은 Zeroconf/B‫onjour/Rendezvous를 경유 해서 공지되는 서버의 이름이기도 하며 DAAP를 경유 해서 export "
 "되는 데이터베이스의 이름이기도 합니다."
 
-msgid "This is not a valid IP Address."
-msgstr "올바른 IP 주소가 아닙니다."
-
 msgid "This item already exists."
 msgstr ""
 
@@ -12650,6 +12708,9 @@ msgstr ""
 
 msgid "Times"
 msgstr "시간"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "타이틀 속도"
@@ -13411,9 +13472,6 @@ msgstr ""
 msgid "Username"
 msgstr "사용자 이름"
 
-msgid "Username of a domain administrator account."
-msgstr "도메인 관리 계정의 사용자 이름."
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -13969,10 +14027,6 @@ msgstr "최소 한 개 이상의 인증 방법을 선택해야 합니다."
 msgid "You must supply a name."
 msgstr ""
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr "귀하의 브라우저를 업데이트하거나 Internet Explorer 10 이상을 사용해야 합니다."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr "암호를 전송하려면 WebGUI 프로토콜로서 HTTPS를 이용해야 합니다."
 
@@ -14109,6 +14163,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "예. %s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "파일 선택기"
 
@@ -14165,9 +14222,6 @@ msgid "iSER - iSCSI over RDMA"
 msgstr ""
 
 msgid "iSNS Period"
-msgstr ""
-
-msgid "iSNS Server"
 msgstr ""
 
 msgid "iSNS Server is locked"
@@ -14252,6 +14306,9 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"

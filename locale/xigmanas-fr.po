@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
-"PO-Revision-Date: 2021-05-19 04:04+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
+"PO-Revision-Date: 2021-11-07 17:36+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
 "Language: \n"
-"X-Poedit-Language: French\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
 
@@ -381,6 +381,13 @@ msgstr ""
 "Un disque ou une partition monté doit être démonté temporairement pour "
 "réaliser l'action demandée."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+"Un port sur lequel écouter les connexions entrantes à l'aide du protocole "
+"iSER (iSCSI sur RDMA)."
+
 msgid "A reboot is required"
 msgstr "Un redémarrage est nécessaire"
 
@@ -463,10 +470,6 @@ msgstr "mode ACL"
 
 msgid "AD authentication is disabled."
 msgstr "L'authentification AD est désactivée."
-
-msgid "AD or PDC name."
-msgstr ""
-"Nom du serveur Active Directory ou du Contrôleur Principal de Domaine NT4."
 
 msgid "AFP"
 msgstr "AFP"
@@ -797,8 +800,8 @@ msgstr "Adresse"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adresse du daemon hastd distant. Doit être un adresse IP statique."
 
-msgid "Admin Name"
-msgstr "Nom de l'Administrateur"
+msgid "Admin"
+msgstr "Admin"
 
 msgid "Admin Password"
 msgstr "Mot de passe de l'administrateur"
@@ -806,14 +809,14 @@ msgstr "Mot de passe de l'administrateur"
 msgid "Admin access"
 msgstr "Accès administrateur"
 
-msgid "Administration Password"
-msgstr "Mot de passe Administrateur"
-
 msgid "Administrative WebGUI"
 msgstr "Interface Web d'administration"
 
 msgid "Administrator Name"
 msgstr "Nom de l'Administrateur"
+
+msgid "Administrator Password"
+msgstr "Mot de passe Administrateur"
 
 msgid "Advanced"
 msgstr "Avancé"
@@ -1090,6 +1093,13 @@ msgstr "Une Extension definit la zone de stockage de la Cible."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "Adresse IPv4 ou IPv6 d'un portail initiateur iSCSI."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
+"Une adresse IPv4 ou IPv6 sur laquelle écouter les connexions entrantes à "
+"l'aide du protocole iSER (iSCSI sur RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Une adresse IPv4 ou IPv6 à écouter pour les connexions entrantes."
@@ -2820,9 +2830,6 @@ msgstr "Domaine DNS"
 msgid "DNS Forwarder"
 msgstr "Transitaire DNS"
 
-msgid "DNS Name"
-msgstr "Nom DNS"
-
 msgid "DNS Rebind Protection"
 msgstr "Protection contre la réassociation DNS"
 
@@ -4347,12 +4354,6 @@ msgstr "Noms de domaine"
 msgid "Domain is missing 2nd level name."
 msgstr "Le nom de deuxième niveau est manquant."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Nom de domaine dans l'ancien format, e.g. EXEMPLE."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Nom de domaine, e.g. exemple.com."
-
 msgid "Donate"
 msgstr "Faire un don"
 
@@ -4991,6 +4992,9 @@ msgstr "Activer la copie instantanée"
 msgid "Enable store DOS attributes."
 msgstr "Activer les attributs DOS de stockage"
 
+msgid "Enable support for NFSv4 only."
+msgstr "Activez la prise en charge de NFSv4 uniquement."
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Activer le protocole d'identification (RFC1413)."
 
@@ -5140,6 +5144,9 @@ msgstr "Algorithme de chiffrement"
 msgid "Enhanced Scheduler"
 msgstr "Planificateur  Amélioré"
 
+msgid "Enter AD or PDC name."
+msgstr "Entrez le nom AD ou PDC."
+
 msgid "Enter Command"
 msgstr "Entrer la commande"
 
@@ -5151,6 +5158,9 @@ msgstr "Entrez la longueur du préfixe d'adresse IP."
 
 msgid "Enter Identifier"
 msgstr "Entrer l'identifiant"
+
+msgid "Enter NetBIOS name."
+msgstr "Entrez le nom NetBIOS."
 
 msgid "Enter Password"
 msgstr "Saisissez le mot de passe"
@@ -5276,6 +5286,9 @@ msgstr ""
 "Saisissez l'identifiant de l'onduleur et l'adresse IP de l'hôte sur lequel "
 "l'onduleur est connecté. (Cela peut aussi être un hôte distant)"
 
+msgid "Enter the domain name."
+msgstr "Entrez le nom de domaine."
+
 msgid "Enter the full user name."
 msgstr "Entrez le nom d'utilisateur complet."
 
@@ -5297,6 +5310,9 @@ msgid ""
 msgstr ""
 "Entrez la phrase d'accès qui sera utilisée par le mode  WPA-PSK. Elle doit "
 "avoir entre 8 et 63 caractères."
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Saisissez le mot de passe du compte administrateur de domaine."
 
 msgid "Enter the password of the master user account."
 msgstr "Entrez le mot de passe du compte utilisateur principal."
@@ -5340,6 +5356,10 @@ msgstr "Port sur lequel envoyer les traps SNMP (162 par défaut)."
 
 msgid "Enter trap host name."
 msgstr "Nom du hôte vers lequel envoyer les traps SNMP"
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
+"Saisissez le nom d'utilisateur d'un compte d'administrateur de domaine."
 
 msgid "Enter user name."
 msgstr "Saisissez votre nom d'utilisateur."
@@ -5990,9 +6010,6 @@ msgstr "Accorder la permission de lecture"
 
 msgid "Grant shell access to user"
 msgstr "Accorder l'accès au shell à l'utilisateur"
-
-msgid "Graph shows last 120 seconds"
-msgstr "Le graphique montre les dernières 120 secondes"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "Le graphique montre les 120 dernières secondes."
@@ -7287,6 +7304,9 @@ msgstr "Liste des pools disponibles pour l'importation"
 msgid "Listen"
 msgstr "Ecoute"
 
+msgid "Listen (iSER)"
+msgstr "Écouter (iSER)"
+
 msgid "Listen record is locked"
 msgstr "L'enregistrement d'écoute est verrouillé"
 
@@ -7702,6 +7722,9 @@ msgstr "Le dossier multimédia est marqué pour suppression"
 msgid "Media Folder is unlocked"
 msgstr "Le dossier multimédia est déverrouillé"
 
+msgid "Media Folders"
+msgstr "Dossiers multimédias"
+
 msgid "Media Library"
 msgstr "Médiathèque"
 
@@ -7935,9 +7958,6 @@ msgstr "Le déplacement a échoué"
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Licence Publique Version 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Doit être un nombre compris entre 5 et 1000."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Doit être un nombre entre 80 et 89."
 
@@ -7983,11 +8003,11 @@ msgstr "Mutuel-CHAP"
 msgid "NAA Identifier"
 msgstr "Identifiant NAA"
 
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
 msgid "NETBIOS Hostname"
 msgstr "Nom d'hôte NETBIOS"
-
-msgid "NETBIOS Name"
-msgstr "Nom NETBIOS"
 
 msgid "NFS"
 msgstr "NFS"
@@ -8012,6 +8032,9 @@ msgstr "La racine NFS est déverrouillée"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "NFSv4 uniquement"
 
 msgid "NIS"
 msgstr "NIS"
@@ -8266,9 +8289,6 @@ msgstr "Pas d'utilisateurs Mutuel-CHAP trouvés"
 
 msgid "No Parity"
 msgstr "Pas de parité"
-
-msgid "No Placeholder"
-msgstr "Pas d'espace réservé"
 
 msgid "No Portal Group has been configured."
 msgstr "Aucun Groupe Portail n'a été configuré."
@@ -8918,9 +8938,6 @@ msgstr "Mot de passe pour les pages d'administration."
 msgid "Password for the transmission web interface."
 msgstr "Mot de passe de l'interface Web de transmission."
 
-msgid "Password of the administrator account."
-msgstr "Mot de passe du compte administrateur."
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9408,6 +9425,9 @@ msgstr "Le fournisseur est marqué pour suppression"
 msgid "Provider is unlocked"
 msgstr "Le fournisseur est déverrouillé"
 
+msgid "Providers"
+msgstr "Fournisseurs d'accès"
+
 msgid "Provisioning Type"
 msgstr "Type de provisioning"
 
@@ -9577,6 +9597,9 @@ msgstr "RRDGraphs Graphique Quotidien d'Efficacité ARC"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Graphique Quotidien ARC"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr "RRDGraphs Graphique de Bande Passante Quotidienne"
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs Graphique de fréquence CPU quotidien"
 
@@ -9586,11 +9609,17 @@ msgstr "RRDGraphs Graphique de la température quotidienne du processeur"
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRD Graphs Graphique d'Utilisation Quotidienne du Processeur"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr "RRDGraphs Graphique d'Utilisation Quotidienne des Disques"
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRD Graphs Graphique d'Utilisation Quotidienne de L2ARC"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs Graphique des Moyennes de Charge journalière"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr "RRDGraphs Graphique de la Mémoire Quotidienne"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs Graphique Quotidien de Latence du Réseau"
@@ -9610,6 +9639,9 @@ msgstr "RRDGraphs Graphique Mensuel d'Efficacité ARC"
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Graphique ARC mensuel"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr "RRDGraphs Graphique de Bande Passante Mensuelle"
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs Graphique Mensuel de Fréquence du Processeur"
 
@@ -9619,11 +9651,17 @@ msgstr "RRDGraphs Graphique Mensuel de la Température du Processeur"
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs Graphique d'Utilisation Mensuelle du Processeur"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr "RRDGraphs Graphique d'Utilisation Mensuelle des disques"
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs Graphique d'Utilisation Mensuelle de L2ARC"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs Graphique d'Utilisation Mensuelle de la Moyenne de Charge"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr "RRDGraphs Graphique de la Mémoire Mensuelle"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs Graphique d'Utilisation Mensuelle de la Latence Réseau"
@@ -9643,6 +9681,9 @@ msgstr "RRDGraphs Graphique Hebdomadaire d'Efficacité ARC"
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Graphique Hebdomadaire d' ARC"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr "RRDGraphs Graphique de Bande Passante Hebdomadaire"
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs Graphique Hebdomadaire de la Fréquence"
 
@@ -9652,11 +9693,17 @@ msgstr "RRDGraphs Graphique Hebdomadaire de la Température du processeur"
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs Graphique Hebdomadaire de l'utilisation du processeur"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr "RRDGraphs Graphique d'Utilisation Hebdomadaire des Disques"
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs Graphique Hebdomadaire de L2ARC"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs Graphique Hebdomadaire de la Moyenne de Charge"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr "RRDGraphs Graphique de la Mémoire Hebdomadaire"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs Graphique Hebdomadaire de la Latence Réseau"
@@ -9676,6 +9723,9 @@ msgstr "RRDGraphs Graphique Annuel d'Efficacité ARC"
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Graphique Annuel de l' ARC"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr "RRDGraphs Graphique de la Bande Passante Annuelle"
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs Graphique Annuel de la Fréquence du processeur"
 
@@ -9685,11 +9735,17 @@ msgstr "RRDGraphs Graphique Annuel de la Température du Processeur"
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs Graphique Annuel de lUtilisation Processeur"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr "RRDGraphs Graphique d'Utilisation Annuelle des Disques"
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs Graphique Annuel de L2ARC"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs Graphique des Moyennes de Charge Annuelle"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr "RRDGraphs Graphique de la Mémoire Annelle"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs Graphique des Moyennes de la Latence Réseau Annuelle"
@@ -10048,6 +10104,15 @@ msgstr ""
 "Indique si la température est plus grande ou égale à N degrés Celsius. "
 "Définir à 0 pour désactiver."
 
+msgid "Reporting Disk"
+msgstr "Disque de rapport"
+
+msgid "Reporting Interface"
+msgstr "Interface de rapport"
+
+msgid "Reporting Level"
+msgstr "Niveau de rapport"
+
 msgid "Require authentication."
 msgstr "Activer l'authentification."
 
@@ -10167,6 +10232,9 @@ msgstr "Connexion Root DN"
 
 msgid "Root Bind Password"
 msgstr "Mot de passe de Connexion Root"
+
+msgid "Root Directories"
+msgstr "Répertoires racine"
 
 msgid "Root Directory"
 msgstr "Répertoire Racine"
@@ -10735,6 +10803,9 @@ msgid "Select the permission for running this service. (www by default)."
 msgstr ""
 "Sélectionnez l'autorisation pour exécuter ce service. (Www par défaut)."
 
+msgid "Select the timezone for this user."
+msgstr "Sélectionnez le fuseau horaire de cet utilisateur."
+
 msgid "Select which interface to use."
 msgstr "Sélectionnez l'interface à utiliser."
 
@@ -10758,12 +10829,6 @@ msgstr "Le périphérique ou le label sélectionné est inexistant"
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "Le fichier sélectionné n'est pas un fichier ISO valide."
-
-msgid "Selected graph:"
-msgstr "Graphique sélectionné"
-
-msgid "Selected interface:"
-msgstr "Interface sélectionnée:"
 
 msgid "Selected..."
 msgstr "Sélectionné..."
@@ -13264,9 +13329,6 @@ msgstr ""
 "Zeroconf/Bonjour/Rendezvous, et le nom de la base de données exportée via "
 "DAAP."
 
-msgid "This is not a valid IP Address."
-msgstr "Ce n'est pas une adresse IP valide."
-
 msgid "This item already exists."
 msgstr "Cet élément existe déjà."
 
@@ -13696,6 +13758,9 @@ msgstr ""
 
 msgid "Times"
 msgstr "Temps"
+
+msgid "Timezone"
+msgstr "Fuseau horaire"
 
 msgid "Title Speed"
 msgstr "Vitesse de défilement du Titre"
@@ -14530,9 +14595,6 @@ msgstr "Autorisation du portail utilisateur."
 msgid "Username"
 msgstr "Nom d’utilisateur"
 
-msgid "Username of a domain administrator account."
-msgstr "Identifiant d'un compte administrateur du domaine."
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 "Nom d'utilisateur pour vous connecter à l'interface Web de transmission."
@@ -15131,12 +15193,6 @@ msgstr "Vous devez sélectionner au moins une méthode d'authentification."
 msgid "You must supply a name."
 msgstr "Vous devez indiquer un nom."
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Vous devez mettre à jour votre navigateur ou utiliser Internet Explorer 10 "
-"ou supérieur."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Vous devriez utiliser HTTPS comme protocole webGUI pour envoyer la phrase "
@@ -15282,6 +15338,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "e.g. %s"
 
+msgid "example.com"
+msgstr "example.com"
+
 msgid "filechooser"
 msgstr "Sélectionneur de fichier"
 
@@ -15339,9 +15398,6 @@ msgstr "iSER - iSCSI sur RDMA"
 
 msgid "iSNS Period"
 msgstr "Période ISNS"
-
-msgid "iSNS Server"
-msgstr "serveur iSNS"
 
 msgid "iSNS Server is locked"
 msgstr "Le Serveur iSNS est Verrouillé"
@@ -15438,6 +15494,9 @@ msgstr "aucun"
 
 msgid "no delay"
 msgstr "sans délais"
+
+msgid "no pools available"
+msgstr "pas de pools disponibles"
 
 msgid "none"
 msgstr "aucun"

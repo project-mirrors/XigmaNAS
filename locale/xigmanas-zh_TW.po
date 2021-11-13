@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2020-12-21 09:46+0000\n"
 "Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:13+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
-"Language: zh_TW\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:24+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
+"Language: zh_TW\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -341,6 +341,11 @@ msgid ""
 "requested action."
 msgstr "為執行需求的動作，已掛載的磁片或分區將臨時取消掛載。"
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "需要重新啟動"
 
@@ -415,9 +420,6 @@ msgstr "ACL模式"
 
 msgid "AD authentication is disabled."
 msgstr "AD身份驗證被禁用。"
-
-msgid "AD or PDC name."
-msgstr "AD或PDC 的名稱。"
 
 msgid "AFP"
 msgstr "AFP"
@@ -745,7 +747,7 @@ msgstr "地址"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "遠程hastd守護進程的地址。 它必須是靜態IP地址。"
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -754,14 +756,14 @@ msgstr "管理密碼"
 msgid "Admin access"
 msgstr ""
 
-msgid "Administration Password"
-msgstr "管理員密碼"
-
 msgid "Administrative WebGUI"
 msgstr "Web管理介面"
 
 msgid "Administrator Name"
 msgstr "管理員名稱"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "高級"
@@ -1008,6 +1010,11 @@ msgid "An Extent defines the storage area of the Target."
 msgstr "範圍定義目標的存儲區域。"
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr ""
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
 msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
@@ -2571,9 +2578,6 @@ msgstr "DNS域"
 msgid "DNS Forwarder"
 msgstr "DNS轉發器"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
 msgstr ""
 
@@ -4017,12 +4021,6 @@ msgstr ""
 msgid "Domain is missing 2nd level name."
 msgstr "域缺少第二級名稱。"
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "舊式功能變數名稱稱，例如：DOMAIN"
-
-msgid "Domain name, e.g. example.com."
-msgstr "功能變數名稱，例如：domain.com"
-
 msgid "Donate"
 msgstr "捐贈"
 
@@ -4641,6 +4639,9 @@ msgstr "啟用卷影複製。"
 msgid "Enable store DOS attributes."
 msgstr "啟用存儲DOS屬性。"
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "啟用 ident 協議（RFC1413）。"
 
@@ -4766,6 +4767,9 @@ msgstr "加密演算法"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "輸入命令"
 
@@ -4777,6 +4781,9 @@ msgstr ""
 
 msgid "Enter Identifier"
 msgstr "輸入標識符"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "輸入密碼"
@@ -4888,6 +4895,9 @@ msgid ""
 "connected to. (this also can be a remote host)"
 msgstr "輸入UPS所連接的機器的UPS識別字和主機IP地址。 （這也可以是遠程主機）"
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr ""
 
@@ -4907,6 +4917,9 @@ msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
 "8 and 63 characters long."
 msgstr "請輸入在 WPA-PSK 模式中使用的密碼短語。這個密語長度必須在 8 到 63 個字元之間。"
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr ""
@@ -4940,6 +4953,9 @@ msgstr "請輸入 Traps 傳輸端口（默認為 162）"
 
 msgid "Enter trap host name."
 msgstr "請輸入 Trap 主機名。"
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr ""
@@ -5557,9 +5573,6 @@ msgstr ""
 
 msgid "Grant shell access to user"
 msgstr ""
-
-msgid "Graph shows last 120 seconds"
-msgstr "圖表顯示最近120秒"
 
 msgid "Graph shows recent 120 seconds."
 msgstr ""
@@ -6727,6 +6740,9 @@ msgstr ""
 msgid "Listen"
 msgstr ""
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr ""
 
@@ -7126,6 +7142,9 @@ msgstr ""
 msgid "Media Folder is unlocked"
 msgstr ""
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "媒體庫"
 
@@ -7355,9 +7374,6 @@ msgstr ""
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla公共許可證2.0版（MPLv2）"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "必須是5到1000之間的數字。"
-
 msgid "Must be a number between 80 and 89."
 msgstr "必須是80到89之間的數字。"
 
@@ -7403,10 +7419,10 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7432,6 +7448,9 @@ msgstr ""
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -7670,9 +7689,6 @@ msgstr ""
 
 msgid "No Parity"
 msgstr "不相等"
-
-msgid "No Placeholder"
-msgstr ""
 
 msgid "No Portal Group has been configured."
 msgstr "未配置任何門戶組。"
@@ -8298,9 +8314,6 @@ msgstr "管理頁面的密碼。"
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr "密碼伺服器的名稱或IP 地址（例如Active Directory域控制器）。"
@@ -8768,6 +8781,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -8935,6 +8951,9 @@ msgstr ""
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr ""
 
@@ -8944,10 +8963,16 @@ msgstr ""
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Daily Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
@@ -8968,6 +8993,9 @@ msgstr ""
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr ""
 
@@ -8977,10 +9005,16 @@ msgstr ""
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
@@ -9001,6 +9035,9 @@ msgstr ""
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
 
@@ -9010,10 +9047,16 @@ msgstr ""
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Weekly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
@@ -9034,6 +9077,9 @@ msgstr ""
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr ""
 
@@ -9043,10 +9089,16 @@ msgstr ""
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
@@ -9381,6 +9433,15 @@ msgid ""
 "0 to disable this report."
 msgstr "如果溫度差異大於或等於N 的指定溫度（攝氏）便報告。如果設置為 0 則關閉這項功能。"
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "需要認證。"
 
@@ -9497,6 +9558,9 @@ msgstr "Root綁定DN"
 
 msgid "Root Bind Password"
 msgstr "Root綁定密碼"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr ""
@@ -10018,6 +10082,9 @@ msgstr "請選擇最鄰近的區域。"
 msgid "Select the permission for running this service. (www by default)."
 msgstr "選擇運行此服務的許可權。 （默認為www）。"
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "選擇要使用的介面。"
 
@@ -10037,12 +10104,6 @@ msgstr "選定的設備或標籤不存在。"
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "所選擇的檔不是一個有效的 ISO 檔。"
-
-msgid "Selected graph:"
-msgstr "選中的圖表："
-
-msgid "Selected interface:"
-msgstr "選中的介面："
 
 msgid "Selected..."
 msgstr ""
@@ -12210,9 +12271,6 @@ msgid ""
 "Zeroconf/Bonjour/Rendezvous, and the name of the database exported via DAAP."
 msgstr "此伺服器名稱被用於Zeroconf/Bonjour/Rendezvous，也是通過DAAP 導出的資料庫名稱。"
 
-msgid "This is not a valid IP Address."
-msgstr "這不是有效的IP位址。"
-
 msgid "This item already exists."
 msgstr ""
 
@@ -12545,6 +12603,9 @@ msgstr ""
 
 msgid "Times"
 msgstr "次數"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "標題速度"
@@ -13304,9 +13365,6 @@ msgstr ""
 msgid "Username"
 msgstr "用戶名"
 
-msgid "Username of a domain administrator account."
-msgstr "請在此設置管理員的帳號。"
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -13859,10 +13917,6 @@ msgstr "請至少選擇一種認證方式。"
 msgid "You must supply a name."
 msgstr ""
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr "您需要更新流覽器或使用Internet Explorer 10或更高版本。"
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr "建議您使用 HTTPS 加密模式連接 WebGUI 來傳送加密密鑰。"
 
@@ -13999,6 +14053,9 @@ msgstr "解碼為：位元組0-1-2 =好的塊數量（大端）和位元組3-4 =
 msgid "e.g. %s"
 msgstr "例如：%s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "filechooser"
 
@@ -14055,9 +14112,6 @@ msgid "iSER - iSCSI over RDMA"
 msgstr ""
 
 msgid "iSNS Period"
-msgstr ""
-
-msgid "iSNS Server"
 msgstr ""
 
 msgid "iSNS Server is locked"
@@ -14142,6 +14196,9 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"
