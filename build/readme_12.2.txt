@@ -130,7 +130,6 @@ Changes:
 - Upgrade dialog to 1.3-20210509.
 - Upgrade bash to 5.1 p8.
 - Upgrade proftpd to 1.3.7c.
-- Upgrade php to 7.4.23.
 - Upgrade devcpu-data to 1.39.
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
@@ -143,6 +142,7 @@ Changes:
 - Upgrade zoneinfo to 2021e.
 - Upgrade sudo to 1.9.8p2.
 - Upgrade syncthing to 1.18.4.
+- Upgrade php to 7.4.25.
 - Upgrade samba to 4.13.14.
 - Upgrade lighttpd to 1.4.61.
 - Upgrade nut to 2021.11.08.
