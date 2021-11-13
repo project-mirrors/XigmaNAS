@@ -37,7 +37,7 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
 function diag_infos_netstat_ajax() {
-	$cmd = '/usr/bin/netstat -Aa';
+	$cmd = '/usr/bin/netstat -Aan';
 	mwexec2($cmd,$rawdata);
 	return implode("\n",$rawdata);
 }
