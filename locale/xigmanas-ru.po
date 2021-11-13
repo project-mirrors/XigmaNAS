@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2021-05-21 02:37+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:13+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
-"X-Poedit-Language: Russian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -375,6 +375,11 @@ msgstr ""
 "Смонтированный диск или раздел будут временно размонтирован для выполнения "
 "требуемого действия."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "Требуется перезагрузка"
 
@@ -457,9 +462,6 @@ msgstr "Режим ACL"
 
 msgid "AD authentication is disabled."
 msgstr "Аутентификация AD отключена."
-
-msgid "AD or PDC name."
-msgstr "Имя AD или PDC."
 
 msgid "AFP"
 msgstr "AFP"
@@ -789,8 +791,8 @@ msgstr "Адрес"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Адрес удалённой службы hastd. Это должен быть статический IP-адрес."
 
-msgid "Admin Name"
-msgstr "Имя администратора"
+msgid "Admin"
+msgstr ""
 
 msgid "Admin Password"
 msgstr "Пароль администратора"
@@ -798,14 +800,14 @@ msgstr "Пароль администратора"
 msgid "Admin access"
 msgstr "Доступ администратора"
 
-msgid "Administration Password"
-msgstr "Пароль администратора"
-
 msgid "Administrative WebGUI"
 msgstr "Web-интерфейс управления"
 
 msgid "Administrator Name"
 msgstr "Имя администратора"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Дополнительно"
@@ -1080,6 +1082,11 @@ msgstr "Экстент определяет область хранения це
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "Адрес IPv4 или IPv6 портала инициатора iSCSI."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Адрес IPv4 или IPv6 для прослушивания входящих соединений."
@@ -2789,9 +2796,6 @@ msgstr "DNS домен"
 msgid "DNS Forwarder"
 msgstr "DNS Forwarder"
 
-msgid "DNS Name"
-msgstr "Имя DNS"
-
 msgid "DNS Rebind Protection"
 msgstr "Защита от повторной привязки DNS"
 
@@ -4289,12 +4293,6 @@ msgstr "Доменные имена"
 msgid "Domain is missing 2nd level name."
 msgstr "У домена отсутствует имя 2-го уровня."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Доменное имя в старом формате, например <i>EXAMPLE</i>"
-
-msgid "Domain name, e.g. example.com."
-msgstr "Доменное имя, например <i>example.com</i>"
-
 msgid "Donate"
 msgstr "Пожертвования"
 
@@ -4932,6 +4930,9 @@ msgstr "Включить теневое копирование."
 msgid "Enable store DOS attributes."
 msgstr "Включить хранение атрибутов DOS."
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Разрешить протокол идентификации (RFC1413)"
 
@@ -5075,6 +5076,9 @@ msgstr "Алгоритм шифрования"
 msgid "Enhanced Scheduler"
 msgstr "Расширенный планировщик"
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "Введите Команду"
 
@@ -5086,6 +5090,9 @@ msgstr "Введите длину префикса IP-адреса."
 
 msgid "Enter Identifier"
 msgstr "Введите идентификатор"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "Введите пароль"
@@ -5211,6 +5218,9 @@ msgstr ""
 "Введите идентификатор ИБП и IP-адрес компьютера, на котором ИБП подключен. "
 "(Это также может быть удаленный хост)"
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr "Введите полное имя пользователя."
 
@@ -5232,6 +5242,9 @@ msgid ""
 msgstr ""
 "Введите парольную фразу для режима WPA-PSK. Длина должна быть в интервале "
 "между 8 и 63 символами."
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr "Введите пароль основной учетной записи пользователя."
@@ -5274,6 +5287,9 @@ msgstr "Порт, на который будут отправляться соо
 
 msgid "Enter trap host name."
 msgstr "Имя сервера, ведущего мониторинг и прием сообщений."
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr "Введите имя пользователя."
@@ -5916,9 +5932,6 @@ msgstr "Предоставить разрешение на чтение"
 
 msgid "Grant shell access to user"
 msgstr "Предоставить пользователю доступ к оболочке"
-
-msgid "Graph shows last 120 seconds"
-msgstr "График показывает последние 120 секунд"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "График показывает последние 120 секунд."
@@ -7200,6 +7213,9 @@ msgstr "Список пулов, доступных для импорта"
 msgid "Listen"
 msgstr "Прослушивание"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr "Запись прослушивания заблокирована"
 
@@ -7617,6 +7633,9 @@ msgstr "Папка мультимедиа помечена для удалени
 msgid "Media Folder is unlocked"
 msgstr "Папка мультимедиа разблокирована"
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "Библиотека медиафайлов"
 
@@ -7851,9 +7870,6 @@ msgstr "Переместить не удалось."
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Public License Version 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Должно быть число от 5 до 1000."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Должно быть число от 80 до 89."
 
@@ -7899,11 +7915,11 @@ msgstr "Mutual-CHAP"
 msgid "NAA Identifier"
 msgstr "NAA идентификатор"
 
+msgid "NETBIOS"
+msgstr ""
+
 msgid "NETBIOS Hostname"
 msgstr "Имя хоста NETBIOS"
-
-msgid "NETBIOS Name"
-msgstr "Имя NETBIOS"
 
 msgid "NFS"
 msgstr "NFS"
@@ -7928,6 +7944,9 @@ msgstr "Корневая папка NFS разблокирована"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -8179,9 +8198,6 @@ msgstr "Пользователи Mutual-CHAP не найдены."
 
 msgid "No Parity"
 msgstr "Нет четности"
-
-msgid "No Placeholder"
-msgstr "Не заполнено"
 
 msgid "No Portal Group has been configured."
 msgstr "Ни одна группа порталов не сконфигурирована."
@@ -8832,9 +8848,6 @@ msgstr "Пароль на web-интерфейс управления."
 msgid "Password for the transmission web interface."
 msgstr "Пароль для веб-интерфейса transmission."
 
-msgid "Password of the administrator account."
-msgstr "Пароль учетной записи администратора."
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9320,6 +9333,9 @@ msgstr "Провайдер отмечен для удаления"
 msgid "Provider is unlocked"
 msgstr "Провайдер разблокирован"
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Тип предоставления"
 
@@ -9489,6 +9505,9 @@ msgstr "RRDGraphs График суточной эффективности ARC"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs суточный ARC график"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за сутки"
 
@@ -9498,11 +9517,17 @@ msgstr "RRDGraphs График температуры процессора за 
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за сутки"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs График L2ARC за сутки"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs График нагрузки за сутки"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs График задержки сети за сутки"
@@ -9522,6 +9547,9 @@ msgstr "Ежемесячный график эффективности ARC RRDGr
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs График ARC за месяц"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за месяц"
 
@@ -9531,11 +9559,17 @@ msgstr "RRDGraphs График температуры процессора за 
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за месяц"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs График L2ARC  за месяц"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs График нагрузки за месяц"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs График задержки сети за месяц"
@@ -9555,6 +9589,9 @@ msgstr "Еженедельный график эффективности ARC RRD
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs График ARC за неделю"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за неделю"
 
@@ -9564,11 +9601,17 @@ msgstr "RRDGraphs График температуры процессора за 
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за неделю"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs График L2ARC  за неделю"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs График нагрузки  за неделю"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs График задержки сети за неделю"
@@ -9588,6 +9631,9 @@ msgstr "Ежегодный график эффективности ARC RRDGraphs
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs График ARC за год"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за год"
 
@@ -9597,11 +9643,17 @@ msgstr "RRDGraphs График температуры процессора за 
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за год"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs График L2ARC  за год"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs График средней нагрузки  за год"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs График задержки сети  за год"
@@ -9954,6 +10006,15 @@ msgstr ""
 "Сообщить, если температура больше или равна N градусов. Установите 0 для "
 "отключения сообщения."
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "Требовать аутентификации"
 
@@ -10071,6 +10132,9 @@ msgstr "DN администратора каталогов"
 
 msgid "Root Bind Password"
 msgstr "Пароль администратора каталогов"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr "Корневой каталог"
@@ -10620,6 +10684,9 @@ msgstr "Выберите часовой пояс."
 msgid "Select the permission for running this service. (www by default)."
 msgstr "Выберите права доступа для запуска этой службы. (www по умолчанию)."
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "Выберите, какой интерфейс использовать."
 
@@ -10643,12 +10710,6 @@ msgstr "Выбранные устройство или метка не суще�
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "Выбранный файл не является корректным ISO-образом."
-
-msgid "Selected graph:"
-msgstr "Выбран график:"
-
-msgid "Selected interface:"
-msgstr "Выбран интерфейс:"
 
 msgid "Selected..."
 msgstr "Выбранное..."
@@ -13110,9 +13171,6 @@ msgid ""
 msgstr ""
 "Это одновременно и имя сервера Zeroconf/Bonjour/Rendezvous, и имя в DAAP."
 
-msgid "This is not a valid IP Address."
-msgstr "Это недействительный IP-адрес."
-
 msgid "This item already exists."
 msgstr "Этот объект уже существует."
 
@@ -13538,6 +13596,9 @@ msgstr "Время ожидания должно быть числом от 1000
 
 msgid "Times"
 msgstr "Время"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "Title Speed (скорость длинных заголовков)"
@@ -14371,9 +14432,6 @@ msgstr "Разрешение пользователя портала."
 msgid "Username"
 msgstr "Имя пользователя"
 
-msgid "Username of a domain administrator account."
-msgstr "Имя учетной записи администратора домена."
-
 msgid "Username to log into the transmission web interface."
 msgstr "Имя пользователя для входа в веб-интерфейс transmission."
 
@@ -14969,12 +15027,6 @@ msgstr "Вы должны выбрать как минимум один из с�
 msgid "You must supply a name."
 msgstr "Вы должны предоставить имя."
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-"Вам необходимо обновить браузер или использовать Internet Explorer 10 или "
-"выше."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Следует использовать HTTPS в качестве протокола WebGUI для отправки "
@@ -15120,6 +15172,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "Доменный суффикс (например  %s)."
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "Выбор файла"
 
@@ -15179,9 +15234,6 @@ msgstr "iSER - iSCSI через RDMA"
 
 msgid "iSNS Period"
 msgstr "Период iSNS"
-
-msgid "iSNS Server"
-msgstr "Сервер iSNS"
 
 msgid "iSNS Server is locked"
 msgstr "Сервер iSNS заблокирован"
@@ -15278,6 +15330,9 @@ msgstr "нет"
 
 msgid "no delay"
 msgstr "без задержки"
+
+msgid "no pools available"
+msgstr ""
 
 msgid "none"
 msgstr "none"

@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2020-09-03 10:59+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Poedit-Language: Japanese\n"
 "X-Poedit-Country: JAPAN\n"
 "Language: \n"
-"X-Poedit-Language: Japanese\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -351,6 +351,11 @@ msgid ""
 "requested action."
 msgstr "要求されたリクエストを実行するために、マウントされたディスクもしくはパーティションが一時的にアンマウントされます。"
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "再起動が必要です。"
 
@@ -424,9 +429,6 @@ msgstr "ACL モード"
 
 msgid "AD authentication is disabled."
 msgstr "Active Directoryによる認証を無効にしました。"
-
-msgid "AD or PDC name."
-msgstr "AD 又は PDC 名"
 
 msgid "AFP"
 msgstr "AFP"
@@ -756,7 +758,7 @@ msgstr "アドレス"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "リモート hastd デーモンのアドレス。固定IPアドレスでなければいけません。"
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -765,14 +767,14 @@ msgstr "管理者パスワード"
 msgid "Admin access"
 msgstr ""
 
-msgid "Administration Password"
-msgstr "管理者パスワード"
-
 msgid "Administrative WebGUI"
 msgstr "管理用 Web 画面"
 
 msgid "Administrator Name"
 msgstr "管理者名"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "高度な設定"
@@ -1020,6 +1022,11 @@ msgid "An Extent defines the storage area of the Target."
 msgstr "エクステントはターゲットのストレージ領域を定義します。"
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
+msgstr ""
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
 msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
@@ -2594,9 +2601,6 @@ msgstr "DNSドメイン"
 msgid "DNS Forwarder"
 msgstr "DNSフォワーダ"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
 msgstr ""
 
@@ -4039,12 +4043,6 @@ msgstr ""
 msgid "Domain is missing 2nd level name."
 msgstr ""
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "古い形式のドメイン名 例.EXAMPLE"
-
-msgid "Domain name, e.g. example.com."
-msgstr "ドメイン名 (例: example.com)"
-
 msgid "Donate"
 msgstr "寄附"
 
@@ -4664,6 +4662,9 @@ msgstr ""
 msgid "Enable store DOS attributes."
 msgstr "DOS 属性の保存を有効にする。"
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Ident プロトコル (RFC1413) を有効にします。"
 
@@ -4789,6 +4790,9 @@ msgstr "暗号化アルゴリズム"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr ""
 
@@ -4799,6 +4803,9 @@ msgid "Enter IP address prefix length."
 msgstr ""
 
 msgid "Enter Identifier"
+msgstr ""
+
+msgid "Enter NetBIOS name."
 msgstr ""
 
 msgid "Enter Password"
@@ -4911,6 +4918,9 @@ msgid ""
 "connected to. (this also can be a remote host)"
 msgstr ""
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr ""
 
@@ -4930,6 +4940,9 @@ msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
 "8 and 63 characters long."
 msgstr "WPA-PSK モードで使用するパスフレーズを8文字以上63文字以内で入力してください。"
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr ""
@@ -4963,6 +4976,9 @@ msgstr "SNMPトラップの送信に利用するポート番号を入力して�
 
 msgid "Enter trap host name."
 msgstr "トラップホストを入力して下さい。"
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr ""
@@ -5582,9 +5598,6 @@ msgstr ""
 
 msgid "Grant shell access to user"
 msgstr ""
-
-msgid "Graph shows last 120 seconds"
-msgstr "直近120秒のグラフ表示"
 
 msgid "Graph shows recent 120 seconds."
 msgstr ""
@@ -6763,6 +6776,9 @@ msgstr ""
 msgid "Listen"
 msgstr ""
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr ""
 
@@ -7164,6 +7180,9 @@ msgstr ""
 msgid "Media Folder is unlocked"
 msgstr ""
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr ""
 
@@ -7393,9 +7412,6 @@ msgstr ""
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr ""
 
-msgid "Must be a number between 5 and 1000."
-msgstr ""
-
 msgid "Must be a number between 80 and 89."
 msgstr ""
 
@@ -7441,10 +7457,10 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7470,6 +7486,9 @@ msgstr ""
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -7709,9 +7728,6 @@ msgid "No Mutual-CHAP users found."
 msgstr ""
 
 msgid "No Parity"
-msgstr ""
-
-msgid "No Placeholder"
 msgstr ""
 
 msgid "No Portal Group has been configured."
@@ -8340,9 +8356,6 @@ msgstr "管理画面のパスワード"
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr "パスワードサーバ名、またはIPアドレス。 (例: Active Directory ドメインコントローラ)"
@@ -8810,6 +8823,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -8977,6 +8993,9 @@ msgstr ""
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr ""
 
@@ -8986,10 +9005,16 @@ msgstr ""
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Daily Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
@@ -9010,6 +9035,9 @@ msgstr ""
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr ""
 
@@ -9019,10 +9047,16 @@ msgstr ""
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
@@ -9043,6 +9077,9 @@ msgstr ""
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
 
@@ -9052,10 +9089,16 @@ msgstr ""
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Weekly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
@@ -9076,6 +9119,9 @@ msgstr ""
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr ""
 
@@ -9085,10 +9131,16 @@ msgstr ""
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
@@ -9420,6 +9472,15 @@ msgid ""
 "0 to disable this report."
 msgstr "温度が N ℃以上の場合に通知します。0 に設定する事でこの通知を無効に出来ます。"
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "認証を要求します。"
 
@@ -9535,6 +9596,9 @@ msgid "Root Bind DN"
 msgstr ""
 
 msgid "Root Bind Password"
+msgstr ""
+
+msgid "Root Directories"
 msgstr ""
 
 msgid "Root Directory"
@@ -10061,6 +10125,9 @@ msgstr "もっとも近いロケーションを選択して下さい。"
 msgid "Select the permission for running this service. (www by default)."
 msgstr ""
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr ""
 
@@ -10080,12 +10147,6 @@ msgstr "選択したデバイスまたはラベルが存在しません。"
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "選択されたファイルは有効な ISOファイルではありません。"
-
-msgid "Selected graph:"
-msgstr "選択されたグラフ:"
-
-msgid "Selected interface:"
-msgstr "選択されたインタフェース:"
 
 msgid "Selected..."
 msgstr ""
@@ -12273,9 +12334,6 @@ msgid ""
 msgstr ""
 "Zeroconf/Bonjour/Rendezvous 経由で広告されるサーバ名と、DAAP 経由でエクスポートされるデータベース名の両方で使用されます。"
 
-msgid "This is not a valid IP Address."
-msgstr ""
-
 msgid "This item already exists."
 msgstr ""
 
@@ -12619,6 +12677,9 @@ msgstr ""
 
 msgid "Times"
 msgstr "時刻"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr ""
@@ -13381,9 +13442,6 @@ msgstr ""
 msgid "Username"
 msgstr "ユーザ名"
 
-msgid "Username of a domain administrator account."
-msgstr "ドメイン管理者アカウントのユーザ名"
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -13938,10 +13996,6 @@ msgstr "少なくとも 1つの認証方法を選択して下さい。"
 msgid "You must supply a name."
 msgstr ""
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr "お使いのブラウザを Internet Explorer 10 かそれ以降のバージョンに更新する必要があります。"
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr "パスフレーズの送信には WebGUI プロトコルに HTTPS を使用すべきです。"
 
@@ -14078,6 +14132,9 @@ msgstr "バイト0-1-2=正常ブロック数(ビッグエンディアン)とバ�
 msgid "e.g. %s"
 msgstr "例) %s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "ファイル選択"
 
@@ -14134,9 +14191,6 @@ msgid "iSER - iSCSI over RDMA"
 msgstr ""
 
 msgid "iSNS Period"
-msgstr ""
-
-msgid "iSNS Server"
 msgstr ""
 
 msgid "iSNS Server is locked"
@@ -14221,6 +14275,9 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"

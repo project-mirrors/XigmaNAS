@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
-"PO-Revision-Date: 2021-05-19 18:04+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
+"PO-Revision-Date: 2021-11-13 00:21+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:13+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Poedit-Language: Dutch\n"
 "X-Poedit-Country: Netherlands\n"
 "Language: \n"
-"X-Poedit-Language: Dutch\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -383,6 +383,13 @@ msgstr ""
 "Een aangekoppelde schijf of partitie wordt tijdelijk ontkoppeld  om de "
 "gevraagde actie uit te voeren."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+"Een poort om op te luisteren voor inkomende verbindingen met behulp van het "
+"iSER (iSCSI over RDMA) protocol."
+
 msgid "A reboot is required"
 msgstr "Een herstart is vereist"
 
@@ -467,9 +474,6 @@ msgstr "ACL modus"
 
 msgid "AD authentication is disabled."
 msgstr "AD verificatie is uitgeschakeld."
-
-msgid "AD or PDC name."
-msgstr "AD of PDC naam."
 
 msgid "AFP"
 msgstr "AFP"
@@ -802,8 +806,8 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 "Adres van de remote hastd daemon. Het moet een statisch IP-adres zijn."
 
-msgid "Admin Name"
-msgstr "Administrator Naam"
+msgid "Admin"
+msgstr "Admin"
 
 msgid "Admin Password"
 msgstr "Admin Wachtwoord"
@@ -811,14 +815,14 @@ msgstr "Admin Wachtwoord"
 msgid "Admin access"
 msgstr "Admin toegang"
 
-msgid "Administration Password"
-msgstr "Administratie Wachtwoord"
-
 msgid "Administrative WebGUI"
 msgstr "Administratie WebGUI"
 
 msgid "Administrator Name"
 msgstr "Administrator Naam"
+
+msgid "Administrator Password"
+msgstr "Administrator wachtwoord"
 
 msgid "Advanced"
 msgstr "Geavanceerd"
@@ -1094,6 +1098,13 @@ msgstr "Een Extent definieërt het opslaggebied van de Doel."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "Een IPv4- of IPv6-adres van een iSCSI initiator portaal."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
+"Een IPv4 of IPv6 adres om te luisteren naar inkomende verbindingen met "
+"behulp van het iSER (iSCSI over RDMA) protocol."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
@@ -2827,9 +2838,6 @@ msgstr "DNS Domein"
 msgid "DNS Forwarder"
 msgstr "DNS Forwarder"
 
-msgid "DNS Name"
-msgstr "DNS Naam"
-
 msgid "DNS Rebind Protection"
 msgstr "DNS Rebinding Bescherming"
 
@@ -4333,12 +4341,6 @@ msgstr "Domeinnamen"
 msgid "Domain is missing 2nd level name."
 msgstr "Domein mist de 2e level naam."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Domeinnaam in oud formaat, bijv. VOORBEELD."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Domeinnaam, bijv. voorbeeld.com."
-
 msgid "Donate"
 msgstr "Donatie"
 
@@ -4981,6 +4983,9 @@ msgstr "Inschakelen schaduw kopie"
 msgid "Enable store DOS attributes."
 msgstr "Inschakelen opslaan DOS attributen."
 
+msgid "Enable support for NFSv4 only."
+msgstr "Schakel alleen ondersteuning voor NFSv4 in."
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Inschakelen van de ident protocol (RFC1413)."
 
@@ -5123,17 +5128,23 @@ msgstr "Encryptie algoritme"
 msgid "Enhanced Scheduler"
 msgstr "Verbeterde Planning"
 
+msgid "Enter AD or PDC name."
+msgstr "geef AD of PDC naam."
+
 msgid "Enter Command"
 msgstr "Geef Commando"
 
 msgid "Enter Email Address(es)"
-msgstr "Vul de e-mailadres(sen) in"
+msgstr "Geef de e-mailadres(sen) op"
 
 msgid "Enter IP address prefix length."
 msgstr "Geef de prefixlengte van het IP-adres op."
 
 msgid "Enter Identifier"
 msgstr "Identificatie Opgeven"
+
+msgid "Enter NetBIOS name."
+msgstr "Geef NetBIOS naam."
 
 msgid "Enter Password"
 msgstr "Geef Wachtwoord"
@@ -5259,6 +5270,9 @@ msgstr ""
 "Geef een UPS identificatie en host IP adres op van de computer waarop de UPS "
 "is aangesloten. (dit kan ook een extern host te zijn)"
 
+msgid "Enter the domain name."
+msgstr "Geef de domeinnaam"
+
 msgid "Enter the full user name."
 msgstr "Geef de volledige gebruikersnaam."
 
@@ -5281,6 +5295,9 @@ msgid ""
 msgstr ""
 "Vul de wachtzin in dat gebruikt zal worden in WPA-PSK-mode. Dit moet tussen "
 "8 en 63 karakters lang zijn."
+
+msgid "Enter the password of the domain administrator account."
+msgstr "Geef het wachtwoord van het domeinbeheerdersaccount op."
 
 msgid "Enter the password of the master user account."
 msgstr "Geef het wachtwoord van de hoofdgebruikersaccount."
@@ -5325,6 +5342,9 @@ msgstr ""
 
 msgid "Enter trap host name."
 msgstr "Geef de trap hostnaam op."
+
+msgid "Enter user name of a domain administrator account."
+msgstr "Geef het wachtwoord van het domeinbeheerdersaccount op."
 
 msgid "Enter user name."
 msgstr "Geef gebruikersnaam."
@@ -5971,9 +5991,6 @@ msgstr "Verleen toestemming om te lezen"
 
 msgid "Grant shell access to user"
 msgstr "Verleen Shell toegang aan gebruiker"
-
-msgid "Graph shows last 120 seconds"
-msgstr "Grafiek van de laatste 120 seconden"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "Grafiek toont recente 120 seconden."
@@ -7257,6 +7274,9 @@ msgstr "Lijst pools beschikbaar om te importeren"
 msgid "Listen"
 msgstr "Luister"
 
+msgid "Listen (iSER)"
+msgstr "Luister (iSER)"
+
 msgid "Listen record is locked"
 msgstr "Luister record is vergrendeld"
 
@@ -7676,6 +7696,9 @@ msgstr "Media Folder is gemarkeerd voor verwijdering"
 msgid "Media Folder is unlocked"
 msgstr "Media Folder is ontgrendeld"
 
+msgid "Media Folders"
+msgstr "Media Folders"
+
 msgid "Media Library"
 msgstr "Mediabibliotheek"
 
@@ -7909,9 +7932,6 @@ msgstr "Verplaatesen mislukt."
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Publieke Licentie Versie 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "Dient een nummer tussen 5 en 1000 te zijn."
-
 msgid "Must be a number between 80 and 89."
 msgstr "Dient een nummer tussen 80 en 89 te zijn."
 
@@ -7957,11 +7977,11 @@ msgstr "Wederzijds-CHAP"
 msgid "NAA Identifier"
 msgstr "NAA Identificatie"
 
+msgid "NETBIOS"
+msgstr "NETBIOS"
+
 msgid "NETBIOS Hostname"
 msgstr "NETBIOS Hostnaam"
-
-msgid "NETBIOS Name"
-msgstr "NETBIOS Naam"
 
 msgid "NFS"
 msgstr "NFS"
@@ -7986,6 +8006,9 @@ msgstr "NFS Root is ontgrendeld"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr "Alleen NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -8239,9 +8262,6 @@ msgstr "Er is geen Wederzijds-CHAP gebruiker gevonden."
 
 msgid "No Parity"
 msgstr "Geen Pariteit"
-
-msgid "No Placeholder"
-msgstr "Geen Aanduiding"
 
 msgid "No Portal Group has been configured."
 msgstr "Er is geen Portaal Groep geconfigureerd."
@@ -8896,9 +8916,6 @@ msgstr "Wachtwoord voor de administratieve WebGUI."
 msgid "Password for the transmission web interface."
 msgstr "Wachtwoord voor de transmission webpagina."
 
-msgid "Password of the administrator account."
-msgstr "Wachtwoord van het administrator account."
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9383,6 +9400,9 @@ msgstr "De provider is gemarkeerd voor verwijdering"
 msgid "Provider is unlocked"
 msgstr "Provider is ontgrendeld"
 
+msgid "Providers"
+msgstr "Providers"
+
 msgid "Provisioning Type"
 msgstr "Provisioning Type"
 
@@ -9552,6 +9572,9 @@ msgstr "RRDGraphs Dagelijkse ARC Efficiëntie Grafiek"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Dagelijkse ARC Grafiek"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr "RRDGraphs Dagelijkse Bandbreedte Grafiek"
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs Dagelijkse CPU Frequentie Grafiek"
 
@@ -9561,11 +9584,17 @@ msgstr "RRDGraphs Dagelijkse CPU Temperatuur Grafiek"
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs Dagelijkse CPU Gebruik Grafiek"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr "RRDGraphs Dagelijkse Schijf Gebruik Grafiek"
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs Dagelijkse L2ARC Grafiek"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs Dagelijkse Gemiddelde Belasting Grafiek"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr "RRDGraphs Dagelijkse Geheugen Grafiek"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs Dagelijkse Netwerk Latentie Grafiek"
@@ -9585,6 +9614,9 @@ msgstr "RRDGraphs Maandelijkse ARC Efficiëntie Grafiek"
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Maandelijkse ARC Grafiek"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr "RRDGraphs Maandelijkse Bandbreedte Grafiek"
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs Maandelijkse CPU Frequentie Grafiek"
 
@@ -9594,11 +9626,17 @@ msgstr "RRDGraphs Maandelijkse CPU Temperatuur Grafiek"
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs Maandelijkse CPU Gebruik Grafiek"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr "RRDGraphs Maandelijkse Schijf Gebruik Grafiek"
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs Maandelijkse L2ARC Grafiek"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs Maandelijkse Gemiddelde Belasting Grafiek"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr "RRDGraphs Maandelijkse Geheugen Grafiek"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs Maandelijkse Netwerk Latentie Grafiek"
@@ -9618,6 +9656,9 @@ msgstr "RRDGraphs Wekelijkse ARC Efficiëntie Grafiek"
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Wekelijkse ARC Grafiek"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr "RRDGraphs Wekelijkse Bandbreedte Grafiek"
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs Wekelijkse CPU Frequentie Grafiek"
 
@@ -9627,11 +9668,17 @@ msgstr "RRDGraphs Wekelijkse CPU Temperatuur Grafiek"
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs Wekelijkse CPU Gebruik Grafiek"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr "RRDGraphs Wekelijkse Schijf Gebruik Grafiek"
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs Wekelijkse L2ARC Grafiek"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs Wekelijkse Gemiddelde Belasting Grafiek"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr "RRDGraphs Wekelijkse Geheugen Grafiek"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs Wekelijkse Netwerk Latentie Grafiek"
@@ -9651,6 +9698,9 @@ msgstr "RRDGraphs Jaarlijkse ARC Efficiëntiegrafiek"
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Jaarlijkse ARC Grafiek"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr "RRDGraphs Jaarlijkse Bandbreedte Grafiek"
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs Jaarlijkse CPU Frequentie Grafiek"
 
@@ -9660,11 +9710,17 @@ msgstr "RRDGraphs Jaarlijkse CPU Temperatuur Grafiek"
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs Jaarlijkse CPU Gebruik Grafiek"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr "RRDGraphs Jaarlijkse Schijf Gebruik Grafiek"
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs Jaarlijkse L2ARC Grafiek"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs Jaarlijkse Gemiddelde Belasting Grafiek"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr "RRDGraphs Jaarlijkse Geheugen Grafiek"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs Jaarlijkse Netwerk Latentie Grafiek"
@@ -10018,6 +10074,15 @@ msgstr ""
 "Rapporteer wanneer de temperatuur groter of gelijk is aan N graden Celsius. "
 "Vul 0 in om deze rapportage uit te schakelen."
 
+msgid "Reporting Disk"
+msgstr "Rapportageschijf"
+
+msgid "Reporting Interface"
+msgstr "Rapportage-interface"
+
+msgid "Reporting Level"
+msgstr "Rapportageniveau"
+
 msgid "Require authentication."
 msgstr "Verificatie vereist."
 
@@ -10137,6 +10202,9 @@ msgstr "Root Bind DN"
 
 msgid "Root Bind Password"
 msgstr "Root Bind Wachtwoord"
+
+msgid "Root Directories"
+msgstr "Root Mappen"
 
 msgid "Root Directory"
 msgstr "Root Map"
@@ -10698,6 +10766,9 @@ msgid "Select the permission for running this service. (www by default)."
 msgstr ""
 "Selecteer de permissie voor het uitvoeren van deze service. (standaard www)."
 
+msgid "Select the timezone for this user."
+msgstr "Selecteer de tijdzone voor deze gebruiker."
+
 msgid "Select which interface to use."
 msgstr "Selecteer het netwerk voor gebruik."
 
@@ -10720,12 +10791,6 @@ msgstr "Geselecteerde schijf of label bestaat niet."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "Het geselecteerd bestand is geen geldig ISO bestand."
-
-msgid "Selected graph:"
-msgstr "Geselecteerde grafiek:"
-
-msgid "Selected interface:"
-msgstr "Geselecteerd netwerk:"
 
 msgid "Selected..."
 msgstr "Geselecteerd..."
@@ -13224,9 +13289,6 @@ msgstr ""
 "Deze servernaam wordt bekendgemaakt voor Zeroconf/Bonjour/Rendezvous, als "
 "ook de naam van de database die voor DAAP wordt geëxporteerd."
 
-msgid "This is not a valid IP Address."
-msgstr "Dit is geen geldig IP-adres."
-
 msgid "This item already exists."
 msgstr "Dit item bestaat reeds."
 
@@ -13658,6 +13720,9 @@ msgstr "Timeout moet een nummer zijn tussen 10000 en 255000000."
 
 msgid "Times"
 msgstr "Aantal keer"
+
+msgid "Timezone"
+msgstr "Tijdzone"
 
 msgid "Title Speed"
 msgstr "Scrollsnelheid"
@@ -14483,9 +14548,6 @@ msgstr "Gebruikersportaal toestemming."
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-msgid "Username of a domain administrator account."
-msgstr "Gebruikersnaam van een domein administrator account."
-
 msgid "Username to log into the transmission web interface."
 msgstr "Gebruikersnaam om in te loggen op de transmission webpagina."
 
@@ -15085,10 +15147,6 @@ msgstr "U dient tenminste één verificatie methode te selecteren."
 msgid "You must supply a name."
 msgstr "U moet een naam opgeven."
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr "U moet uw browser updaten of gebruik Internet Explorer 10 of hoger."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Gebruik bij voorkeur HTTPS als WebGUI protocol voor het versturen van "
@@ -15235,6 +15293,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "bijv. %s"
 
+msgid "example.com"
+msgstr "voorbeeld.com"
+
 msgid "filechooser"
 msgstr "bestandsselector"
 
@@ -15292,9 +15353,6 @@ msgstr "iSER - iSCSI over RDMA"
 
 msgid "iSNS Period"
 msgstr "iSNS Periode"
-
-msgid "iSNS Server"
-msgstr "iSNS Server"
 
 msgid "iSNS Server is locked"
 msgstr "iSNS Server is vergrendeld"
@@ -15389,6 +15447,9 @@ msgstr "nee"
 
 msgid "no delay"
 msgstr "geen vertraging"
+
+msgid "no pools available"
+msgstr "geen pools beschikbaar"
 
 msgid "none"
 msgstr "geen"

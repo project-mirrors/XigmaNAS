@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
-"PO-Revision-Date: 2021-01-28 14:46+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
+"PO-Revision-Date: 2021-06-02 02:30+0000\n"
 "Last-Translator: tianmo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:13+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
-"Language: zh_CN\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:24+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
+"Language: zh_CN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -197,13 +197,13 @@ msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/"
-msgstr ""
+msgstr "/"
 
 msgid "/mnt"
 msgstr "/mnt"
 
 msgid "/update?domain="
-msgstr ""
+msgstr "/update?domain="
 
 msgid "000"
 msgstr "000"
@@ -341,6 +341,11 @@ msgid ""
 "requested action."
 msgstr "为执行需求的动作，已挂载的磁盘或分区将临时取消挂载。"
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "需要重新启动"
 
@@ -415,9 +420,6 @@ msgstr "ACL模式"
 
 msgid "AD authentication is disabled."
 msgstr "AD身份验证被禁用。"
-
-msgid "AD or PDC name."
-msgstr "AD或PDC 的名称。"
 
 msgid "AFP"
 msgstr "AFP"
@@ -590,7 +592,7 @@ msgid "Add Portal Group"
 msgstr "添加门户组"
 
 msgid "Add Provider"
-msgstr ""
+msgstr "添加提供方"
 
 msgid "Add Public Key"
 msgstr "添加公钥"
@@ -599,7 +601,7 @@ msgid "Add RAID"
 msgstr "添加RAID"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "添加重启计划"
 
 msgid "Add Record"
 msgstr "新增记录"
@@ -620,7 +622,7 @@ msgid "Add Samba Share"
 msgstr "添加Samba共享"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "添加时间表"
 
 msgid "Add Share"
 msgstr "添加共享"
@@ -745,7 +747,7 @@ msgstr "地址"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "远程hastd守护进程的地址。 它必须是静态IP地址。"
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -754,14 +756,14 @@ msgstr "管理密码"
 msgid "Admin access"
 msgstr "管理员权限"
 
-msgid "Administration Password"
-msgstr "管理员密码"
-
 msgid "Administrative WebGUI"
 msgstr "Web管理界面"
 
 msgid "Administrator Name"
 msgstr "管理员名称"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "高级"
@@ -876,7 +878,7 @@ msgid "Allow GSSAPI authentication."
 msgstr "允许GSSAPI身份验证。"
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "允许IPv6"
 
 msgid "Allow New Files"
 msgstr "允许新文件"
@@ -1010,6 +1012,11 @@ msgstr "Extent定义目标的存储区域。"
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "iSCSI启动器门户的IPv4或IPv6地址。"
 
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
+
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "用于侦听传入连接的IPv4或IPv6地址。"
 
@@ -1074,10 +1081,10 @@ msgid "Append content to the default CSS file"
 msgstr "将内容附加到默认CSS文件"
 
 msgid "Append my IP"
-msgstr ""
+msgstr "附加我的IP"
 
 msgid "Append the current IP to the DDNS server update path."
-msgstr ""
+msgstr "将当前 IP 附加到 DDNS 服务器更新路径。"
 
 msgid "Append user defined shares"
 msgstr "追加用户自定义的用户共享"
@@ -1457,7 +1464,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "BitTorrent设置"
 
 msgid "Blank Time"
 msgstr "空白时间"
@@ -1531,7 +1538,7 @@ msgid ""
 msgstr "在网络上每个配置的秒数广播其可用性，默认值为300秒。"
 
 msgid "Broken RTC"
-msgstr ""
+msgstr "损坏的RTC"
 
 msgid "Browseable"
 msgstr "可浏览"
@@ -1548,6 +1555,8 @@ msgid ""
 "local, loopback, multicast and known experimental addresses. For more "
 "information, see RFC3330."
 msgstr ""
+"默认情况下，inadyn 验证 IPv4 和 IPv6 地址，确保该地址是有效的 Internet 地址。 "
+"无效地址是例如本地链路、环回、多播和已知实验地址。 有关更多信息，请参阅 RFC3330。"
 
 msgid "By default, only already existing files can be uploaded."
 msgstr "默认是只有已经存在的文件可以上传。"
@@ -1565,7 +1574,7 @@ msgid "C++ Source File"
 msgstr "C++ 源文件"
 
 msgid "CA Trusted Certificates"
-msgstr ""
+msgstr "CA 可信证书"
 
 msgid "CACHE"
 msgstr "缓存"
@@ -1727,7 +1736,7 @@ msgid "CTL LUN"
 msgstr "CTL LUN"
 
 msgid "Cache Directory"
-msgstr ""
+msgstr "缓存目录"
 
 msgid "Calibration Battery"
 msgstr "电池校正"
@@ -1820,19 +1829,19 @@ msgid "Charging Battery"
 msgstr "充电中"
 
 msgid "Check IP Command"
-msgstr ""
+msgstr "检查IP命令"
 
 msgid "Check IP Path"
-msgstr ""
+msgstr "检查IP路径"
 
 msgid "Check IP Server"
-msgstr ""
+msgstr "检查IP服务器"
 
 msgid "Check IP using HTTPS"
-msgstr ""
+msgstr "使用HTTPS检查IP"
 
 msgid "Check Interval"
-msgstr ""
+msgstr "检查间隔"
 
 msgid "Check System|General Setup before initializing"
 msgstr "在初始化之前检查系统|常规设置"
@@ -1973,6 +1982,7 @@ msgid ""
 "year fields match the current time, and when at least one of the two day "
 "fields (day of month, or day of week) matches the current time."
 msgstr ""
+"当分钟、小时和月份字段与当前时间匹配时，并且当两个日期字段中的至少一个（月份中的某一天或一周中的某一天）与当前时间匹配时，调度程序将执行命令。"
 
 msgid "Comment"
 msgstr "注释"
@@ -2005,7 +2015,7 @@ msgid "Configuration"
 msgstr "配置"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "配置文件夹"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2095,7 +2105,7 @@ msgid "Controller Model"
 msgstr "控制器型号"
 
 msgid "Controller Name"
-msgstr ""
+msgstr "控制器名"
 
 msgid "Controller TCP Port"
 msgstr "控制器的TCP端口"
@@ -2358,7 +2368,7 @@ msgid "Create Permission"
 msgstr "创建权限"
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "创建快照"
 
 msgid "Create Work Directory"
 msgstr "创建工作目录"
@@ -2379,10 +2389,10 @@ msgid "Create a spare device"
 msgstr "创建一个备用设备"
 
 msgid "Create a virtual device containing a single device"
-msgstr ""
+msgstr "创建包含单个设备的虚拟设备"
 
 msgid "Create a virtual device containing concatenated devices"
-msgstr ""
+msgstr "创建包含串联设备的虚拟设备"
 
 msgid "Create a virtual device containing mirrored devices"
 msgstr "创建一个包含镜像设备的虚拟设备"
@@ -2486,13 +2496,13 @@ msgid "Current year"
 msgstr "今年"
 
 msgid "Custom Provider"
-msgstr ""
+msgstr "自定义提供者"
 
 msgid "Custom Script"
 msgstr "自定义脚本"
 
 msgid "Custom Setting"
-msgstr ""
+msgstr "自定义设置"
 
 msgid "Custom device"
 msgstr "自定义设备"
@@ -2510,18 +2520,18 @@ msgid "DAAP"
 msgstr "DAAP"
 
 msgid "DDNS server name, not the full URL."
-msgstr ""
+msgstr "DDNS 服务器名称，而不是完整的 URL。"
 
 msgid ""
 "DDNS server path. By default the hostname is appended to the path, unless "
 "append-myip is set."
-msgstr ""
+msgstr "DDNS 服务器路径。 默认情况下，主机名会附加到路径中，除非设置了 append-myip（附件我的IP）。"
 
 msgid "DDNS-Path"
-msgstr ""
+msgstr "DDNS路径"
 
 msgid "DDNS-Server"
-msgstr ""
+msgstr "DDNS服务器"
 
 msgid "DEBUG - log debugging information"
 msgstr "DEBUG  - 记录调试信息"
@@ -2551,7 +2561,7 @@ msgid "DHX2 Authentication"
 msgstr "DHX2验证"
 
 msgid "DISK"
-msgstr ""
+msgstr "磁盘"
 
 msgid "DLNA/UPnP"
 msgstr "DLNA/UPnP"
@@ -2571,11 +2581,8 @@ msgstr "DNS域"
 msgid "DNS Forwarder"
 msgstr "DNS转发器"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
-msgstr ""
+msgstr "DNS 重新绑定保护"
 
 msgid "DNS server is empty."
 msgstr "DNS服务器是空白的。"
@@ -2610,7 +2617,7 @@ msgid "Daemon log"
 msgstr "守护进程记录"
 
 msgid "Daily"
-msgstr ""
+msgstr "每天"
 
 msgid "Data"
 msgstr "数据"
@@ -2664,7 +2671,7 @@ msgid "Day"
 msgstr "日"
 
 msgid "Day(s)"
-msgstr ""
+msgstr "天"
 
 msgid "Days"
 msgstr "天"
@@ -2849,7 +2856,7 @@ msgid "Delete Selected Portal Groups"
 msgstr "删除选定的门户组"
 
 msgid "Delete Selected Providers"
-msgstr ""
+msgstr "删除选定的提供者"
 
 msgid "Delete Selected Public Keys"
 msgstr "删除选定的公钥"
@@ -2858,7 +2865,7 @@ msgid "Delete Selected RAID Volumes"
 msgstr "删除选中的RAID卷"
 
 msgid "Delete Selected Reboot Schedules"
-msgstr ""
+msgstr "删除选定的重启计划"
 
 msgid "Delete Selected Records"
 msgstr "删除选中的记录"
@@ -2879,7 +2886,7 @@ msgid "Delete Selected Samba Shares"
 msgstr "删除选中的Samba共享"
 
 msgid "Delete Selected Schedules"
-msgstr ""
+msgstr "删除选定的计划"
 
 msgid "Delete Selected Shares"
 msgstr "删除选中的共享"
@@ -3022,10 +3029,10 @@ msgid "Destination port"
 msgstr "目的地端口"
 
 msgid "Destroy"
-msgstr ""
+msgstr "销毁"
 
 msgid "Destroy Snapshot"
-msgstr ""
+msgstr "销毁快照"
 
 msgid "Destroy a pool"
 msgstr "销毁一个池"
@@ -3136,7 +3143,7 @@ msgid "Diagnostics"
 msgstr "诊断"
 
 msgid "Diagnostics Information"
-msgstr ""
+msgstr "诊断信息"
 
 msgid "Difference"
 msgstr "差异"
@@ -3173,7 +3180,7 @@ msgid "Disable"
 msgstr "禁用"
 
 msgid "Disable DNS rebind protection"
-msgstr ""
+msgstr "禁用DNS重绑定保护"
 
 msgid "Disable Extension Menu"
 msgstr "禁用扩展菜单"
@@ -3236,13 +3243,13 @@ msgid "Disable Selected Portal Groups"
 msgstr "禁用选定的门户组"
 
 msgid "Disable Selected Providers"
-msgstr ""
+msgstr "禁用选中的提供者"
 
 msgid "Disable Selected Public Keys"
 msgstr "禁用所选公钥"
 
 msgid "Disable Selected Reboot Schedules"
-msgstr ""
+msgstr "禁用选中的重启计划"
 
 msgid "Disable Selected Records"
 msgstr "禁用选中的记录"
@@ -3260,7 +3267,7 @@ msgid "Disable Selected Samba Shares"
 msgstr "禁用选定的Samba共享"
 
 msgid "Disable Selected Schedules"
-msgstr ""
+msgstr "禁用选中的计划"
 
 msgid "Disable Selected Sysctl Settings"
 msgstr "禁用选定的Sysctl设置"
@@ -3529,7 +3536,7 @@ msgid "Do you want to create a striped virtual device from selected disks?"
 msgstr "是否要从选中的磁盘创建条带化虚拟设备？"
 
 msgid "Do you want to create a virtual device from selected disk?"
-msgstr ""
+msgstr "你想从选定的磁盘创建虚拟设备吗？"
 
 msgid "Do you want to delete selected CARPs?"
 msgstr "要删除选中的CARP吗？"
@@ -3631,13 +3638,13 @@ msgid "Do you want to delete selected portal groups?"
 msgstr "你想删除选定的门户组？"
 
 msgid "Do you want to delete selected providers?"
-msgstr ""
+msgstr "你想要删除选定的提供者吗？"
 
 msgid "Do you want to delete selected public keys?"
 msgstr "要删除所选的公钥吗？"
 
 msgid "Do you want to delete selected reboot schedules?"
-msgstr ""
+msgstr "是否要删除选定的重启计划？"
 
 msgid "Do you want to delete selected records?"
 msgstr "要删除选中的记录吗？"
@@ -3655,7 +3662,7 @@ msgid "Do you want to delete selected rsync modules?"
 msgstr "要删除选中的rsync模块吗？"
 
 msgid "Do you want to delete selected schedules?"
-msgstr ""
+msgstr "您要删除选定的计划吗？"
 
 msgid "Do you want to delete selected shares?"
 msgstr "要删除选中的共享吗？"
@@ -4016,12 +4023,6 @@ msgstr ""
 
 msgid "Domain is missing 2nd level name."
 msgstr "域缺少第二级名称。"
-
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "旧式域名称，例如：DOMAIN"
-
-msgid "Domain name, e.g. example.com."
-msgstr "域名，例如：domain.com"
 
 msgid "Donate"
 msgstr "捐赠"
@@ -4641,6 +4642,9 @@ msgstr "启用卷影复制。"
 msgid "Enable store DOS attributes."
 msgstr "启用存储DOS属性。"
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "启用 ident 协议（RFC1413）。"
 
@@ -4766,6 +4770,9 @@ msgstr "加密演算法"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "输入命令"
 
@@ -4777,6 +4784,9 @@ msgstr "输入IP地址前缀长度。"
 
 msgid "Enter Identifier"
 msgstr "输入标识符"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "输入密码"
@@ -4888,6 +4898,9 @@ msgid ""
 "connected to. (this also can be a remote host)"
 msgstr "输入UPS所连接的机器的UPS标识符和主机IP地址。 （这也可以是远程主机）"
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr "输入完整用户名。"
 
@@ -4907,6 +4920,9 @@ msgid ""
 "Enter the passphrase that will be used in WPA-PSK mode. This must be between "
 "8 and 63 characters long."
 msgstr "请输入在 WPA-PSK 模式中使用的密码短语。这个密语长度必须在 8 到 63 个字元之间。"
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr "输入主用户帐户的密码。"
@@ -4940,6 +4956,9 @@ msgstr "请输入 Traps 传输端口（默认为 162）"
 
 msgid "Enter trap host name."
 msgstr "请输入 Trap 主机名。"
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr "输入用户名。"
@@ -5557,9 +5576,6 @@ msgstr "授予读取权限"
 
 msgid "Grant shell access to user"
 msgstr "授予对用户的shell访问权限"
-
-msgid "Graph shows last 120 seconds"
-msgstr "图表显示最近120秒"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "该图显示最近的120秒。"
@@ -6729,6 +6745,9 @@ msgstr ""
 msgid "Listen"
 msgstr "侦听"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr "侦听记录已锁定"
 
@@ -7128,6 +7147,9 @@ msgstr "媒体文件夹标记为删除"
 msgid "Media Folder is unlocked"
 msgstr "媒体文件夹已解锁"
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "媒体库"
 
@@ -7357,9 +7379,6 @@ msgstr "移动失败。"
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla公共许可证2.0版（MPLv2）"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "必须是5到1000之间的数字。"
-
 msgid "Must be a number between 80 and 89."
 msgstr "必须是80到89之间的数字。"
 
@@ -7405,10 +7424,10 @@ msgstr "Mutual-CHAP"
 msgid "NAA Identifier"
 msgstr "NAA标识符"
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7434,6 +7453,9 @@ msgstr "NFS Root已解锁"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -7672,9 +7694,6 @@ msgstr "找不到Mutual-CHAP用户。"
 
 msgid "No Parity"
 msgstr "不相等"
-
-msgid "No Placeholder"
-msgstr "没有占位符"
 
 msgid "No Portal Group has been configured."
 msgstr "未配置任何门户组。"
@@ -8300,9 +8319,6 @@ msgstr "管理页面的密码。"
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr "密码服务器的名称或IP 地址（例如Active Directory域控制器）。"
@@ -8770,6 +8786,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "配置类型"
 
@@ -8937,6 +8956,9 @@ msgstr "RRDGraphs每日ARC效率图"
 msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs每日ARC图"
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs每日CPU频率图"
 
@@ -8946,11 +8968,17 @@ msgstr "RRDGraphs每日CPU温度图"
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs每日CPU使用率图"
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs每日L2ARC图"
 
 msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs日平均负荷图"
+
+msgid "RRDGraphs Daily Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs每日网络延迟图"
@@ -8970,6 +8998,9 @@ msgstr "RRDGraphs每月ARC效率图"
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs月度ARC图"
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs每月CPU频率图"
 
@@ -8979,11 +9010,17 @@ msgstr "RRDGraphs每月CPU温度图"
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs每月CPU使用率图"
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs每月L2ARC图"
 
 msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs每月平均负荷图"
+
+msgid "RRDGraphs Monthly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs每月网络延迟图"
@@ -9003,6 +9040,9 @@ msgstr "RRDGraphs每周ARC效率图"
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs每周ARC图"
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs每周CPU频率图"
 
@@ -9012,11 +9052,17 @@ msgstr "RRDGraphs每周CPU温度图"
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs每周CPU使用率图"
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs每周L2ARC图"
 
 msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs每周平均负荷图"
+
+msgid "RRDGraphs Weekly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs每周网络延迟图"
@@ -9036,6 +9082,9 @@ msgstr "RRDGraphs年度ARC效率图"
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs年度ARC图"
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs年度CPU频率图"
 
@@ -9045,11 +9094,17 @@ msgstr "RRDGraphs年度CPU温度曲线图"
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs年度CPU使用率图"
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs年度L2ARC图"
 
 msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs年度平均负荷图"
+
+msgid "RRDGraphs Yearly Memory Graph"
+msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs年度网络延迟图"
@@ -9383,6 +9438,15 @@ msgid ""
 "0 to disable this report."
 msgstr "如果温度差异大于或等于N 的指定温度（摄氏）便报告。如果设置为 0 则关闭这项功能。"
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "需要认证。"
 
@@ -9499,6 +9563,9 @@ msgstr "Root绑定DN"
 
 msgid "Root Bind Password"
 msgstr "Root绑定密码"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr "Root目录"
@@ -10020,6 +10087,9 @@ msgstr "请选择最邻近的区域。"
 msgid "Select the permission for running this service. (www by default)."
 msgstr "选择运行此服务的权限。 （默认为www）。"
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "选择要使用的接口。"
 
@@ -10039,12 +10109,6 @@ msgstr "选定的设备或标签不存在。"
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "选中的文件不是一个有效的 ISO 文件。"
-
-msgid "Selected graph:"
-msgstr "选中的图表："
-
-msgid "Selected interface:"
-msgstr "选中的接口："
 
 msgid "Selected..."
 msgstr "选中的..."
@@ -12222,9 +12286,6 @@ msgid ""
 "Zeroconf/Bonjour/Rendezvous, and the name of the database exported via DAAP."
 msgstr "此服务器名称被用于Zeroconf/Bonjour/Rendezvous，也是通过DAAP 导出的数据库名称。"
 
-msgid "This is not a valid IP Address."
-msgstr "这不是有效的IP地址。"
-
 msgid "This item already exists."
 msgstr "该项目已存在。"
 
@@ -12561,6 +12622,9 @@ msgstr "超时必须是介于10000和255000000之间的数字。"
 
 msgid "Times"
 msgstr "次数"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "标题速度"
@@ -13322,9 +13386,6 @@ msgstr "用户门户权限。"
 msgid "Username"
 msgstr "用户名"
 
-msgid "Username of a domain administrator account."
-msgstr "请在此设置管理员的帐号。"
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -13877,10 +13938,6 @@ msgstr "请至少选择一种认证方式。"
 msgid "You must supply a name."
 msgstr "你必须提供一个名称。"
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr "您需要更新浏览器或使用Internet Explorer 10或更高版本。"
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr "建议您使用 HTTPS 加密模式连接 WebGUI 来传送加密密钥。"
 
@@ -14017,6 +14074,9 @@ msgstr "解码为：字节0-1-2 =好的块数量（大端）和字节3-4 =系统
 msgid "e.g. %s"
 msgstr "例如：%s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "filechooser"
 
@@ -14074,9 +14134,6 @@ msgstr "iSER - iSCSI over RDMA"
 
 msgid "iSNS Period"
 msgstr "iSNS周期"
-
-msgid "iSNS Server"
-msgstr "iSNS服务器"
 
 msgid "iSNS Server is locked"
 msgstr "iSNS服务器已锁定"
@@ -14160,6 +14217,9 @@ msgid "no"
 msgstr "否"
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"

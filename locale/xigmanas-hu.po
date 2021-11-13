@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2021-11-07 17:32+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-05-26 20:12+0000\n"
-"X-Generator: Launchpad (build 802ed26817d1cdd050553dbe99cc8a3cad1a3bc7)\n"
+"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "Language: hu_HU\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -369,6 +369,11 @@ msgstr ""
 "A becsatolt lemezt vagy partíciót ideiglenesen lecsatoljuk a kért művelet "
 "végrehajtásához."
 
+msgid ""
+"A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
+"protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr "Újraindítás szükséges"
 
@@ -447,9 +452,6 @@ msgstr "ACL mód"
 
 msgid "AD authentication is disabled."
 msgstr "AD hitelesítés kikapcsolva."
-
-msgid "AD or PDC name."
-msgstr "AD vagy PDC név."
 
 msgid "AFP"
 msgstr "AFP (Apple MacOSX)"
@@ -779,7 +781,7 @@ msgstr "Cím"
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Remote hastd daemon címe. Statikus IP címnek kell lennie."
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -788,14 +790,14 @@ msgstr "Rendszergazda jelszava"
 msgid "Admin access"
 msgstr "Admin hozzáférés"
 
-msgid "Administration Password"
-msgstr "Rendszergazda jelszava"
-
 msgid "Administrative WebGUI"
 msgstr "Webes rendszergazdai felület (WebGUI)"
 
 msgid "Administrator Name"
 msgstr "Rendszergazda neve"
+
+msgid "Administrator Password"
+msgstr ""
 
 msgid "Advanced"
 msgstr "Haladó"
@@ -1065,6 +1067,11 @@ msgstr "Egy Extent a Cél tároló területét határozza meg."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr "Az iSCSI kezdeményező portál IPv4 vagy IPv6 címe."
+
+msgid ""
+"An IPv4 or IPv6 address to listen on for incoming connections using iSER "
+"(iSCSI over RDMA) protocol."
+msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "A bejövő kapcsolatokat figyelő IPv4 vagy IPv6 cím."
@@ -2733,9 +2740,6 @@ msgstr "DNS domain"
 msgid "DNS Forwarder"
 msgstr "DNS továbbító"
 
-msgid "DNS Name"
-msgstr ""
-
 msgid "DNS Rebind Protection"
 msgstr ""
 
@@ -4238,12 +4242,6 @@ msgstr ""
 msgid "Domain is missing 2nd level name."
 msgstr "Domainhoz hiányzik a másodlagos név."
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr "Tartomány régi formátumú neve, pl.: MINTA."
-
-msgid "Domain name, e.g. example.com."
-msgstr "Tartománynév, pl.: minta.hu."
-
 msgid "Donate"
 msgstr "Adományozás"
 
@@ -4872,6 +4870,9 @@ msgstr "Árnyékmásolat engedélyezése."
 msgid "Enable store DOS attributes."
 msgstr "DOS attribútumok tárolásának engedélyezése."
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Ident protocol (RFC1413) engedélyezése"
 
@@ -5012,6 +5013,9 @@ msgstr "Titkosítási algoritmus"
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr "Parancs megadása"
 
@@ -5023,6 +5027,9 @@ msgstr "Add meg az IP cím előtagjának a hosszát."
 
 msgid "Enter Identifier"
 msgstr "Adja meg az azonosítót"
+
+msgid "Enter NetBIOS name."
+msgstr ""
 
 msgid "Enter Password"
 msgstr "Add meg a jelszót"
@@ -5145,6 +5152,9 @@ msgstr ""
 "Add meg a gép szünetmentesének azonosítóját és kiszolgálójának IP címét "
 "ahová a szünetmentes csatlakozik (ez egy távoli kiszolgáló is lehet)."
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr "Add meg a felhasználó teljes nevét."
 
@@ -5166,6 +5176,9 @@ msgid ""
 msgstr ""
 "Adja meg a jelszót a WPA-PSK módhoz. Hosszának 8 és 63 karakter között kell "
 "lennie."
+
+msgid "Enter the password of the domain administrator account."
+msgstr ""
 
 msgid "Enter the password of the master user account."
 msgstr "Add meg a mesterfelhasználó fiók jelszavát."
@@ -5208,6 +5221,9 @@ msgstr "Add meg a csapdák portját (alapértelmezetten 162)."
 
 msgid "Enter trap host name."
 msgstr "Add meg a csapda állomás nevét."
+
+msgid "Enter user name of a domain administrator account."
+msgstr ""
 
 msgid "Enter user name."
 msgstr "Add meg a felhasználónevet."
@@ -5840,9 +5856,6 @@ msgstr "Olvasási engedély adása"
 
 msgid "Grant shell access to user"
 msgstr "A felhasználónak a shell hozzáférés engedélyezése"
-
-msgid "Graph shows last 120 seconds"
-msgstr "Grafikon az utolsó 120 mp-et mutatja"
 
 msgid "Graph shows recent 120 seconds."
 msgstr "A grafikon az utóbbi 120 másodpercet mutatja."
@@ -7110,6 +7123,9 @@ msgstr ""
 msgid "Listen"
 msgstr "Figyelés"
 
+msgid "Listen (iSER)"
+msgstr ""
+
 msgid "Listen record is locked"
 msgstr "A figyelendő bejegyzést zárolták"
 
@@ -7521,6 +7537,9 @@ msgstr "A médiamappát megjelölted törlésre"
 msgid "Media Folder is unlocked"
 msgstr "A médiamappa zárolását feloldottad"
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr "Médiagyűjtemény"
 
@@ -7755,9 +7774,6 @@ msgstr ""
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr "Mozilla Közösségi Licenc Verzió 2.0 (MPLv2)"
 
-msgid "Must be a number between 5 and 1000."
-msgstr "5 és 1000 közötti szám kell, hogy legyen."
-
 msgid "Must be a number between 80 and 89."
 msgstr "80 és 89 között szám kell, hogy legyen."
 
@@ -7803,10 +7819,10 @@ msgstr "Kölcsönös-CHAP"
 msgid "NAA Identifier"
 msgstr "NAA azonosító"
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -7832,6 +7848,9 @@ msgstr "Az NFS gyökér zárolása feloldva"
 
 msgid "NFSv4"
 msgstr "NFSv4"
+
+msgid "NFSv4 Only"
+msgstr ""
 
 msgid "NIS"
 msgstr "NIS"
@@ -8083,9 +8102,6 @@ msgstr "Egy Kölcsönös-CHAP felhasználó sem található."
 
 msgid "No Parity"
 msgstr "Nincs paritás"
-
-msgid "No Placeholder"
-msgstr "Nincs"
 
 msgid "No Portal Group has been configured."
 msgstr "Egy Portal csoport sincs konfigurálva."
@@ -8737,9 +8753,6 @@ msgstr "Jelszó az rendszergazdai oldalakhoz."
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
@@ -9220,6 +9233,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr "Ellátás típusa"
 
@@ -9389,6 +9405,9 @@ msgstr ""
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr ""
 
@@ -9398,10 +9417,16 @@ msgstr ""
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Daily Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
@@ -9422,6 +9447,9 @@ msgstr ""
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr ""
 
@@ -9431,10 +9459,16 @@ msgstr ""
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
@@ -9455,6 +9489,9 @@ msgstr ""
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
 
@@ -9464,10 +9501,16 @@ msgstr ""
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Weekly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
@@ -9488,6 +9531,9 @@ msgstr ""
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr ""
 
@@ -9497,10 +9543,16 @@ msgstr ""
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
@@ -9855,6 +9907,15 @@ msgstr ""
 "Jelentse, ha a hőmérséklet nagyobb vagy egyenlő mint N Celsius fok. "
 "Kikapcsoláshoz állítsa 0-ra."
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr "Hitelesítést igényel."
 
@@ -9975,6 +10036,9 @@ msgstr "Gyökérkötés DN-je"
 
 msgid "Root Bind Password"
 msgstr "Gyökérkötés jelszava"
+
+msgid "Root Directories"
+msgstr ""
 
 msgid "Root Directory"
 msgstr "Gyökérkönyvtár"
@@ -10523,6 +10587,9 @@ msgstr ""
 "Válaszd ki ezen szolgáltatás futtatásához a jogosultságot (alapértelmezetten "
 "www)."
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr "Válaszd ki a használandó interfészt."
 
@@ -10545,12 +10612,6 @@ msgstr "A kiválasztott eszköz vagy címke nem létezik."
 
 msgid "Selected file isn't an valid ISO file."
 msgstr "A kiválasztott fájl nem érvényes ISO fájl."
-
-msgid "Selected graph:"
-msgstr "Kiválasztott grafikonok:"
-
-msgid "Selected interface:"
-msgstr "Kiválasztott interfész:"
 
 msgid "Selected..."
 msgstr ""
@@ -12969,9 +13030,6 @@ msgstr ""
 "Ez a Zeroconf/Bonjour/Rendezvous-n keresztül meghirdetésre keresztül "
 "szervernév, és a DAAP-n keresztül exportált adatbázis neve is egyben."
 
-msgid "This is not a valid IP Address."
-msgstr "Ez nem egy valós IP cím."
-
 msgid "This item already exists."
 msgstr ""
 
@@ -13373,6 +13431,9 @@ msgstr "Az időtúllépés értéke 10000 és 255000000 között kell, hogy legy
 
 msgid "Times"
 msgstr "Idő"
+
+msgid "Timezone"
+msgstr ""
 
 msgid "Title Speed"
 msgstr "Címsebesség"
@@ -14176,9 +14237,6 @@ msgstr ""
 msgid "Username"
 msgstr "Felhasználónév"
 
-msgid "Username of a domain administrator account."
-msgstr "Tartományi rendszergazdai fiók felhasználóneve."
-
 msgid "Username to log into the transmission web interface."
 msgstr ""
 
@@ -14763,10 +14821,6 @@ msgstr "Legalább egy hitelesítési eljárást ki kell választanod."
 msgid "You must supply a name."
 msgstr ""
 
-msgid ""
-"You need to update your browser or use Internet Explorer 10 or higher."
-msgstr "Frissítsd böngésződet vagy használj Explorer 10-est vagy újabbat."
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 "Jelszó küldéséhez HTTPS protokollon működő WebGUI-t kellene használnod."
@@ -14908,6 +14962,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr "pl. %s"
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr "fájlválasztó"
 
@@ -14965,9 +15022,6 @@ msgstr "iSER - iSCSI RDMA felett"
 
 msgid "iSNS Period"
 msgstr "iSNS időköz"
-
-msgid "iSNS Server"
-msgstr "iSNS szerver"
 
 msgid "iSNS Server is locked"
 msgstr "Az iSNS szerver zárolt"
@@ -15062,6 +15116,9 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
+msgstr ""
+
+msgid "no pools available"
 msgstr ""
 
 msgid "none"
