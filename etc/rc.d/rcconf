@@ -666,9 +666,14 @@ setoptions()
 	fi
 	${SYSRC_CMD} -q saver="${_value}" > /dev/null 2>&1
 #	Enable/disable NFSv4
-	if configxml_isset "//nfsd/v4enable"; then
-		eval ${RCONF_CMD} service enable "nfsv4_server"
-		eval ${RCONF_CMD} service enable "nfsuserd"
+	if configxml_isset "//nfsd/enable"; then
+		if configxml_isset "//nfsd/v4enable"; then
+			eval ${RCONF_CMD} service enable "nfsv4_server"
+			eval ${RCONF_CMD} service enable "nfsuserd"
+		else
+			eval ${RCONF_CMD} service disable "nfsv4_server"
+			eval ${RCONF_CMD} service disable "nfsuserd"
+		fi
 	else
 		eval ${RCONF_CMD} service disable "nfsv4_server"
 		eval ${RCONF_CMD} service disable "nfsuserd"
