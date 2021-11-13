@@ -1,17 +1,18 @@
 PORTNAME=		nut
 PORTVERSION=	${NUT_COMMIT_DATE}
 PORTREVISION=	0
-CATEGORIES=		sysutils
-COMMENT=		Network UPS tools
-MAINTAINER=		zoon01@xigmanas.com
+CATEGORIES=	sysutils
+COMMENT=	Network UPS tools
+MAINTAINER=	zoon01@xigmanas.com
 
 PKGNAMESUFFIX=	-devel
 
 USE_GITHUB=	yes
-GH_ACCOUNT=     networkupstools 
-GH_TAGNAME=     fab645cb
-NUT_COMMIT_DATE=	2021.08.27
+GH_ACCOUNT=	networkupstools
+GH_TAGNAME=	4319bef3
+NUT_COMMIT_DATE=	2021.11.08
 
+#MAKE_JOBS_UNSAFE=	yes
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
@@ -49,7 +50,9 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 
 .include <bsd.port.pre.mk>
 
+CFLAGS+=	-I${LOCALBASE}/include -L${LOCALBASE}/lib
 BUILD_DEPENDS=  asciidoc:textproc/asciidoc
+LIB_DEPENDS+=	libltdl.so:devel/libltdl
 LIB_DEPENDS+=	libnetsnmp.so:net-mgmt/net-snmp
 LIB_DEPENDS+=   libneon.so:www/neon
 LIB_DEPENDS+=	libpowerman.so:sysutils/powerman
@@ -136,12 +139,15 @@ do-install:
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/libupsclient.so.5 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${LN} -f -v -s /usr/local/lib/libupsclient.so.5 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.1 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${LN} -f -v -s /usr/local/lib/libnutscan.so.1 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsc ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upscmd ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upslog ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsmon ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsrw ${XIGMANAS_ROOTFS}/usr/local/bin
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/nut-scanner ${XIGMANAS_ROOTFS}/usr/local/bin
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/server/upsd ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/upsdrvctl ${XIGMANAS_ROOTFS}/usr/local/sbin
