@@ -60,7 +60,7 @@ LCDd_mkconf()
 		-o '#ScrollUpKey=Up' -n \
 		-o '#ScrollDownKey=Down' -n \
 		-o 'GoodBye=" Thanks for using"' -n \
-		-o 'GoodBye=" XigmaNAS® LCDproc!"' -n \
+		-o 'GoodBye=" XigmaNAS LCDproc!"' -n \
 		-m "//xigmanas/lcdproc/auxparam" \
 			-v "." -n \
 		-b \
