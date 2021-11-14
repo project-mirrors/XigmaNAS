@@ -348,7 +348,7 @@ $thead->
 		insTH(['colspan' => '2','class' => 'lhebl'],sprintf(gettext('%s is based upon/includes various free software packages.'),get_product_name()))->
 	pop()->
 	addTR()->
-		insTH(['colspan' => '2','class' => 'lhebl'],sprintf(gettext('%s would like to thank the authors of this software for their efforts.'),get_product_name()));
+		insTH(['colspan' => '2','class' => 'lhebl'],sprintf(gettext('%s would like to thank the authors of this software for their efforts:'),get_product_name()));
 foreach($software as $row):
 	$tbody->
 		addTR()->
