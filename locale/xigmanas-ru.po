@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-07 17:32+0000\n"
-"PO-Revision-Date: 2021-05-21 02:37+0000\n"
-"Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
+"POT-Creation-Date: 2021-11-15 15:17+0000\n"
+"PO-Revision-Date: 2021-11-15 14:25+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Launchpad-Export-Date: 2021-11-15 14:37+0000\n"
 "X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
-"X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 "Language: \n"
+"X-Poedit-Language: Russian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -107,10 +107,10 @@ msgstr "%s использовано из %s"
 
 #, php-format
 msgid ""
-"%s would like to thank the authors of this software for their efforts."
+"%s would like to thank the authors of this software for their efforts:"
 msgstr ""
 "%s хотели бы поблагодарить авторов этого программного обеспечения за их "
-"усилия."
+"усилия:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -379,6 +379,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Порт для прослушивания входящих подключений с использованием протокола iSER "
+"(iSCSI over RDMA)."
 
 msgid "A reboot is required"
 msgstr "Требуется перезагрузка"
@@ -792,7 +794,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Адрес удалённой службы hastd. Это должен быть статический IP-адрес."
 
 msgid "Admin"
-msgstr ""
+msgstr "Администратор"
 
 msgid "Admin Password"
 msgstr "Пароль администратора"
@@ -807,7 +809,7 @@ msgid "Administrator Name"
 msgstr "Имя администратора"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Пароль администратора"
 
 msgid "Advanced"
 msgstr "Дополнительно"
@@ -1087,6 +1089,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Адрес IPv4 или IPv6 для прослушивания входящих подключений с использованием "
+"протокола iSER (iSCSI over RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Адрес IPv4 или IPv6 для прослушивания входящих соединений."
@@ -4931,7 +4935,7 @@ msgid "Enable store DOS attributes."
 msgstr "Включить хранение атрибутов DOS."
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "Включить поддержку только NFSv4."
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Разрешить протокол идентификации (RFC1413)"
@@ -5077,7 +5081,7 @@ msgid "Enhanced Scheduler"
 msgstr "Расширенный планировщик"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "Введите имя AD или PDC."
 
 msgid "Enter Command"
 msgstr "Введите Команду"
@@ -5092,7 +5096,7 @@ msgid "Enter Identifier"
 msgstr "Введите идентификатор"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "Введите имя NetBIOS."
 
 msgid "Enter Password"
 msgstr "Введите пароль"
@@ -5219,7 +5223,7 @@ msgstr ""
 "(Это также может быть удаленный хост)"
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "Введите доменное имя."
 
 msgid "Enter the full user name."
 msgstr "Введите полное имя пользователя."
@@ -5244,7 +5248,7 @@ msgstr ""
 "между 8 и 63 символами."
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "Введите пароль учетной записи администратора домена."
 
 msgid "Enter the password of the master user account."
 msgstr "Введите пароль основной учетной записи пользователя."
@@ -5289,7 +5293,7 @@ msgid "Enter trap host name."
 msgstr "Имя сервера, ведущего мониторинг и прием сообщений."
 
 msgid "Enter user name of a domain administrator account."
-msgstr ""
+msgstr "Введите имя пользователя учетной записи администратора домена."
 
 msgid "Enter user name."
 msgstr "Введите имя пользователя."
@@ -7214,7 +7218,7 @@ msgid "Listen"
 msgstr "Прослушивание"
 
 msgid "Listen (iSER)"
-msgstr ""
+msgstr "Список (iSER)"
 
 msgid "Listen record is locked"
 msgstr "Запись прослушивания заблокирована"
@@ -7634,7 +7638,7 @@ msgid "Media Folder is unlocked"
 msgstr "Папка мультимедиа разблокирована"
 
 msgid "Media Folders"
-msgstr ""
+msgstr "Папки мультимедиа"
 
 msgid "Media Library"
 msgstr "Библиотека медиафайлов"
@@ -7916,7 +7920,7 @@ msgid "NAA Identifier"
 msgstr "NAA идентификатор"
 
 msgid "NETBIOS"
-msgstr ""
+msgstr "NETBIOS"
 
 msgid "NETBIOS Hostname"
 msgstr "Имя хоста NETBIOS"
@@ -7946,7 +7950,7 @@ msgid "NFSv4"
 msgstr "NFSv4"
 
 msgid "NFSv4 Only"
-msgstr ""
+msgstr "Только NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -9334,7 +9338,7 @@ msgid "Provider is unlocked"
 msgstr "Провайдер разблокирован"
 
 msgid "Providers"
-msgstr ""
+msgstr "Провайдеры"
 
 msgid "Provisioning Type"
 msgstr "Тип предоставления"
@@ -9506,7 +9510,7 @@ msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs суточный ARC график"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "График ежедневной пропускной способности RRDGraphs"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за сутки"
@@ -9518,7 +9522,7 @@ msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за сутки"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "Ежедневный график использования диска RRDGraphs"
 
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs График L2ARC за сутки"
@@ -9527,7 +9531,7 @@ msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs График нагрузки за сутки"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "Ежедневный график памяти RRDGraphs"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs График задержки сети за сутки"
@@ -9548,7 +9552,7 @@ msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs График ARC за месяц"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "Ежемесячный график пропускной способности RRDGraphs"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за месяц"
@@ -9560,7 +9564,7 @@ msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за месяц"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "Ежемесячный график использования диска RRDGraphs"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs График L2ARC  за месяц"
@@ -9569,7 +9573,7 @@ msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs График нагрузки за месяц"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "Ежемесячный график памяти RRDGraphs"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs График задержки сети за месяц"
@@ -9590,7 +9594,7 @@ msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs График ARC за неделю"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "Еженедельный график пропускной способности RRDGraphs"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за неделю"
@@ -9602,7 +9606,7 @@ msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за неделю"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "Еженедельный график использования диска RRDGraphs"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs График L2ARC  за неделю"
@@ -9611,7 +9615,7 @@ msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs График нагрузки  за неделю"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "Еженедельный график памяти RRDGraphs"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs График задержки сети за неделю"
@@ -9632,7 +9636,7 @@ msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs График ARC за год"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "Годовой график пропускной способности RRDGraphs"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs График частоты процессора за год"
@@ -9644,7 +9648,7 @@ msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs График использования процессора за год"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "Годовой график использования диска RRDGraphs"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs График L2ARC  за год"
@@ -9653,7 +9657,7 @@ msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs График средней нагрузки  за год"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "Годовой график памяти RRDGraphs"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs График задержки сети  за год"
@@ -10007,13 +10011,13 @@ msgstr ""
 "отключения сообщения."
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Отчет о дисках"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Отчет об интерфейсах"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Уровень отчетности"
 
 msgid "Require authentication."
 msgstr "Требовать аутентификации"
@@ -10134,7 +10138,7 @@ msgid "Root Bind Password"
 msgstr "Пароль администратора каталогов"
 
 msgid "Root Directories"
-msgstr ""
+msgstr "Корневые каталоги"
 
 msgid "Root Directory"
 msgstr "Корневой каталог"
@@ -10685,7 +10689,7 @@ msgid "Select the permission for running this service. (www by default)."
 msgstr "Выберите права доступа для запуска этой службы. (www по умолчанию)."
 
 msgid "Select the timezone for this user."
-msgstr ""
+msgstr "Выберите часовой пояс для этого пользователя."
 
 msgid "Select which interface to use."
 msgstr "Выберите, какой интерфейс использовать."
@@ -13598,7 +13602,7 @@ msgid "Times"
 msgstr "Время"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Часовой пояс"
 
 msgid "Title Speed"
 msgstr "Title Speed (скорость длинных заголовков)"
@@ -15173,7 +15177,7 @@ msgid "e.g. %s"
 msgstr "Доменный суффикс (например  %s)."
 
 msgid "example.com"
-msgstr ""
+msgstr "example.com"
 
 msgid "filechooser"
 msgstr "Выбор файла"
@@ -15332,7 +15336,7 @@ msgid "no delay"
 msgstr "без задержки"
 
 msgid "no pools available"
-msgstr ""
+msgstr "нет доступных пулов"
 
 msgid "none"
 msgstr "none"
@@ -15419,3 +15423,10 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
+
+#, php-format
+#~ msgid ""
+#~ "%s would like to thank the authors of this software for their efforts."
+#~ msgstr ""
+#~ "%s хотели бы поблагодарить авторов этого программного обеспечения за их "
+#~ "усилия."

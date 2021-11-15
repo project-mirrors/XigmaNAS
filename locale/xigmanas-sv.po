@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-07 17:32+0000\n"
-"PO-Revision-Date: 2021-11-07 18:04+0000\n"
-"Last-Translator: Anders Malm <anders.malm@brevet.se>\n"
+"POT-Creation-Date: 2021-11-15 15:17+0000\n"
+"PO-Revision-Date: 2021-11-15 14:24+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Launchpad-Export-Date: 2021-11-15 14:36+0000\n"
 "X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
-"X-Poedit-Language: Swedish\n"
 "X-Poedit-Country: SWEDEN\n"
 "Language: \n"
+"X-Poedit-Language: Swedish\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -107,8 +107,8 @@ msgstr "%s använt av %s"
 
 #, php-format
 msgid ""
-"%s would like to thank the authors of this software for their efforts."
-msgstr "%s vill tacka upphovsmännen till denna mjukvara för deras insatser."
+"%s would like to thank the authors of this software for their efforts:"
+msgstr "%s vill tacka upphovsmännen till denna mjukvara för deras insatser:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -15224,3 +15224,8 @@ msgstr "var tilldelad till"
 
 msgid "yes"
 msgstr "ja"
+
+#, php-format
+#~ msgid ""
+#~ "%s would like to thank the authors of this software for their efforts."
+#~ msgstr "%s vill tacka upphovsmännen till denna mjukvara för deras insatser."
