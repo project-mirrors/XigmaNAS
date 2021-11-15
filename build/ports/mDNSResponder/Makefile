@@ -1,5 +1,5 @@
 PORTNAME=		mDNSResponder
-PORTVERSION=	1310.120.71
+PORTVERSION=	1310.140.1
 PORTREVISION=	0
 CATEGORIES=	net dns
 COMMENT=	Apple's mDNSResponder
@@ -21,7 +21,6 @@ CONFLICTS_INSTALL=      avahi-libdns openmdns
 OPTIONS_DEFINE= IPV6
 
 CPE_VENDOR=	apple
-CPE_PRODUCT=	${PORTNAME:tl}
 
 .include <bsd.port.pre.mk>
 

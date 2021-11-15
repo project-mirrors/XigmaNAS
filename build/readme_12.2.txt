@@ -133,7 +133,6 @@ Changes:
 - Upgrade devcpu-data to 1.39.
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
-- Upgrade mDNSResponder to 1310.120.71.
 - Upgrade phpmyadmin to 5.1.1.
 - Upgrade tmux to 3.2a.
 - Upgrade virtualbox-ose to 6.1.28.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade samba to 4.13.14.
 - Upgrade lighttpd to 1.4.61.
 - Upgrade nut to 2021.11.08.
+- Upgrade mDNSResponder to 1310.140.1.
 
 Fixes:
 - Fix only first lagg member is brought up.
