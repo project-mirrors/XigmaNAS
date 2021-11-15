@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-11-07 17:32+0000\n"
+"POT-Creation-Date: 2021-11-15 15:17+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -102,7 +102,7 @@ msgid "%s used of %s"
 msgstr ""
 
 #, php-format
-msgid "%s would like to thank the authors of this software for their efforts."
+msgid "%s would like to thank the authors of this software for their efforts:"
 msgstr ""
 
 #, php-format
