@@ -31,10 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'super_fun.inc';
 require_once 'globals.inc';
-require_once 'array.inc';
 require_once 'system.inc';
+
+use common\arr;
 
 //	set PATH, otherwise some commands will not be found during exec.
 putenv('PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin');
@@ -262,23 +265,31 @@ function is_valid_certificate($certificate) {
 	return false;
 }
 /*
- *	Returns true if $privatekey is a valid private key.
+ *	Returns true if $privatekey is a valid format.
+ *	@param mixed $privatekey The private key
+ *	@param string $type Check for specific private key label, i.e. RSA or for any private key (null)
+ *	@return boolean
  */
-function is_valid_privatekey($privatekey,$type = 'RSA') {
-	switch($type):
-		default:
-		case 'RSA':
-			if(preg_match('/^(-----BEGIN RSA PRIVATE KEY-----).*(-----END RSA PRIVATE KEY-----)(\r|\n|\r\n)?\z/s',$privatekey)):
-				return true;
-			endif;
-			break;
-		case 'DSA':
-			if(preg_match('/^(-----BEGIN DSA PRIVATE KEY-----).*(-----END DSA PRIVATE KEY-----)(\r|\n|\r\n)?\z/s',$privatekey)):
-				return true;
-			endif;
-			break;
-	endswitch;
-	return false;
+function is_valid_privatekey($privatekey,string $type = null) {
+//	RFC 7468, https://www.rfc-editor.org/rfc/rfc7468
+	$result = false;
+	if(is_string($privatekey)):
+		$regexp = '/^(?:-----BEGIN )(|(?<type>[\x21-\x2c,\x2e-\x7e]+(?:[- ][\x21-\x2c,\x2e-\x7e]+)*) )(?:PRIVATE KEY-----)(?:.*)(?:-----END )(?:\1)(?:PRIVATE KEY-----)(?:\r|\n|\r\n)?\z/s';
+		$matches = null;
+		if(preg_match($regexp,$privatekey,$matches) === 1):
+			switch($type):
+				case null:
+//					file format matches RFC
+					$result = true;
+					break;
+				default:
+//					check if file is for given type
+					$result = ($type === $matches['type'] ?? false);
+					break;
+			endswitch;
+		endif;
+	endif;
+	return $result;
 }
 /**
  *	Returns true if $uuid is a valid UUID.
@@ -809,7 +820,7 @@ function get_hast_disks_list() {
 function get_smartmontools_drivedb_arg() {
 	global $config;
 
-	array_make_branch($config,'smartd');
+	arr::make_branch($config,'smartd');
 	$drivedb_fqn = is_string($test = $config['smartd']['drivedb'] ?? '') ? $test : '';
 	if(1 === preg_match('/\S/',$drivedb_fqn) && file_exists($drivedb_fqn)):
 		return sprintf('--drivedb=%s ',escapeshellarg($drivedb_fqn));
@@ -1020,8 +1031,8 @@ function parse_umass_controller(&$device) {
 //			if no version is provided the usb id is returned using format [0x%04x:0x%04x],vendor_id,product_id
 //			if version exists the usb id is returned using format [0x%04x:0x%04x (0x%03x)],vendor_id,product_id,version
 			$name = $searchresult[1];
-			$a_param = &array_make_branch($config,'smartmontools','umass','param');
-			$key = array_search_ex($name,$a_param,'name');
+			$a_param = &arr::make_branch($config,'smartmontools','umass','param');
+			$key = arr::search_ex($name,$a_param,'name');
 			if(false !== $key):
 				$is_enabled = isset($a_param[$key]['enable']) && (is_bool($a_param[$key]['enable']) ? $a_param[$key]['enable'] : true);
 				if($is_enabled):
@@ -1116,8 +1127,8 @@ function parse_controller_config(&$devlist) {
 				break;
 			case 'nvme':
 				$controller_fqn = $device['controller'] . $device['controller_id'];
-				$device['model'] = \parse_device_desc($device['name']);
-				$device['controller_desc'] = \parse_device_desc($controller_fqn);
+				$device['model'] = parse_device_desc($device['name']);
+				$device['controller_desc'] = parse_device_desc($controller_fqn);
 				mwexec2('smartctl ' . $smartd_drivedb_arg . '-d test /dev/' . $controller_fqn . " | grep \" opened\" | xargs -0 -J {} expr {} : \".*Device of type '\(.*\)' \[.*\] opened\"",$devtype);
 				$device['smart']['devicefilepath'] = '/dev/' . $controller_fqn;
 				$device['smart']['devicetype'] = $devtype[0];
@@ -1220,13 +1231,13 @@ function map_mfi_device_name($controller,$mfisyspd) {
 	foreach($lines as $line):
 		if(preg_match("/^" . $mfisyspd . ": /",$line,$matches)):
 			if(preg_match("/(?<= \(deviceid: )[0-9]+/",$line,$matches)):
-				$mfi_device['target_id']=$matches[0];
+				$mfi_device['target_id'] = $matches[0];
 			endif;
 		endif;
 	endforeach;
 //	2nd pass to retrieve actual device name
 	foreach($lines as $line):
-		if(preg_match("/[-A-z0-9].*(?= at ".$controller." [-A-z0-9 ].*(?=target ".$mfi_device['target_id']."))+/",$line,$matches)):
+		if(preg_match("/[-A-z0-9].*(?= at " . $controller . " [-A-z0-9 ].*(?=target " . $mfi_device['target_id'] . "))+/",$line,$matches)):
 			$mfi_device['device_name'] = $matches[0];
 		endif;
 	endforeach;
@@ -1600,7 +1611,7 @@ function mwexec($command,$logerr = false) {
 /*
  *
  */
-function mwexec2($command,&$output = NULL,&$return_var = NULL) {
+function mwexec2($command,&$output = null,&$return_var = null) {
 	return exec($command,$output,$return_var);
 }
 /*
@@ -2111,12 +2122,12 @@ function get_hvol_info(string $hastresourcename) {
 		'replication' => '',
 		'status' => 'unknown'
 	];
-	$cmd = \sprintf('/sbin/hastctl list %s 2>/dev/null',\escapeshellarg($hastresourcename));
-	\exec($cmd,$rawdata);
+	$cmd = sprintf('/sbin/hastctl list %s 2>/dev/null',escapeshellarg($hastresourcename));
+	exec($cmd,$rawdata);
 	foreach($rawdata as $row):
 		unset($matches);
-		if(\preg_match('/^\s+(?<key>[^:]+):\s+(?<val>.*)/',$row,$matches) === 1):
-			if(\array_key_exists($matches['key'],$hvolinfo)):
+		if(preg_match('/^\s+(?<key>[^:]+):\s+(?<val>.*)/',$row,$matches) === 1):
+			if(array_key_exists($matches['key'],$hvolinfo)):
 				$hvolinfo[$matches['key']] = $matches['val'];
 			endif;
 		endif;
@@ -2245,8 +2256,8 @@ function get_conf_physical_disks_list() {
 	global $config;
 
 	$fallback = [];
-	array_make_branch($config,'disks','disk');
-	array_sort_key($config['disks']['disk'],'name');
+	arr::make_branch($config,'disks','disk');
+	arr::sort_key($config['disks']['disk'],'name');
 	$a_disks = $config['disks']['disk'];
 	foreach($a_disks as &$disk):
 //		set disk type
@@ -2264,32 +2275,32 @@ function get_conf_sraid_disks_list() {
 
 	$fallback = [];
 //	prepare environment
-	array_make_branch($config,'gvinum','vdisk');
-	array_sort_key($config['gvinum']['vdisk'],'name');
+	arr::make_branch($config,'gvinum','vdisk');
+	arr::sort_key($config['gvinum']['vdisk'],'name');
 	$a_gvinum = $config['gvinum']['vdisk'];
 	foreach($a_gvinum as &$vdisk):
 		$vdisk['class'] = 'gvinum';
 	endforeach;
-	array_make_branch($config,'gmirror','vdisk');
-	array_sort_key($config['gmirror']['vdisk'],'name');
+	arr::make_branch($config,'gmirror','vdisk');
+	arr::sort_key($config['gmirror']['vdisk'],'name');
 	$a_gmirror = $config['gmirror']['vdisk'];
 	foreach($a_gmirror as &$vdisk):
 		$vdisk['class'] = 'gmirror';
 	endforeach;
-	array_make_branch($config,'gconcat','vdisk');
-	array_sort_key($config['gconcat']['vdisk'],'name');
+	arr::make_branch($config,'gconcat','vdisk');
+	arr::sort_key($config['gconcat']['vdisk'],'name');
 	$a_gconcat = $config['gconcat']['vdisk'];
 	foreach($a_gconcat as &$vdisk):
 		$vdisk['class'] = 'gconcat';
 	endforeach;
-	array_make_branch($config,'gstripe','vdisk');
-	array_sort_key($config['gstripe']['vdisk'],'name');
+	arr::make_branch($config,'gstripe','vdisk');
+	arr::sort_key($config['gstripe']['vdisk'],'name');
 	$a_gstripe = $config['gstripe']['vdisk'];
 	foreach($a_gstripe as &$vdisk):
 		$vdisk['class'] = 'gstripe';
 	endforeach;
-	array_make_branch($config,'graid5','vdisk');
-	array_sort_key($config['graid5']['vdisk'],'name');
+	arr::make_branch($config,'graid5','vdisk');
+	arr::sort_key($config['graid5']['vdisk'],'name');
 	$a_graid5 = $config['graid5']['vdisk'];
 	foreach($a_graid5 as &$vdisk):
 		$vdisk['class'] = 'graid5';
@@ -2307,8 +2318,8 @@ function get_conf_encryped_disks_list() {
 
 	$fallback = [];
 //	prepare environment
-	array_make_branch($config,'geli','vdisk');
-	array_sort_key($config['geli']['vdisk'],'name');
+	arr::make_branch($config,'geli','vdisk');
+	arr::sort_key($config['geli']['vdisk'],'name');
 	$a_geli = $config['geli']['vdisk'];
 	foreach($a_geli as &$vdisk):
 //		set disk type
@@ -2326,8 +2337,8 @@ function get_conf_zfs_vdevice_list() {
 
 	$fallback = [];
 //	prepare environment
-	array_make_branch($config,'zfs','vdevices','vdevice');
-	array_sort_key($config['zfs']['vdevices']['vdevice'],'name');
+	arr::make_branch($config,'zfs','vdevices','vdevice');
+	arr::sort_key($config['zfs']['vdevices']['vdevice'],'name');
 	$a_vdevice = $config['zfs']['vdevices']['vdevice'];
 	foreach($a_vdevice as &$vdevice):
 //		set disk type
@@ -2459,8 +2470,8 @@ function set_conf_disk_fstype_opt($disk,$fstype,$opt) {
 		'geli' => 'vdisk'
 	];
 	foreach($diskconf as $class => $val):
-		array_make_branch($config,$class,$val);
-		$id = array_search_ex($disk,$config[$class][$val],'devicespecialfile');
+		arr::make_branch($config,$class,$val);
+		$id = arr::search_ex($disk,$config[$class][$val],'devicespecialfile');
 		if($id !== false):
 			$config[$class][$val][$id]['fstype'] = $fstype;
 //			add zfsgpt information if filesystem is zfs, remove when not
