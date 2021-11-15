@@ -191,7 +191,11 @@ function do_input_validation_type($postdata,$reqdfields,$reqdfieldsn,$reqdfields
 					$message = sprintf( gtext("The attribute '%s' does not appear to be a valid certificate."),$reqdfieldsn[$i]);
 					break;
 				case 'privatekey':
-					$valid = is_valid_privatekey($postdata[$reqdfields[$i]],"RSA");
+					$valid = is_valid_privatekey($postdata[$reqdfields[$i]]);
+					$message = sprintf( gtext("The attribute '%s' does not appear to be a valid private key."),$reqdfieldsn[$i]);
+					break;
+				case 'privatersakey':
+					$valid = is_valid_privatekey($postdata[$reqdfields[$i]],'RSA');
 					$message = sprintf( gtext("The attribute '%s' does not appear to be a valid private key."),$reqdfieldsn[$i]);
 					break;
 				case 'privatedsakey':
