@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-07 17:32+0000\n"
-"PO-Revision-Date: 2021-05-23 06:54+0000\n"
-"Last-Translator: uniss <uniss@ua.fm>\n"
+"POT-Creation-Date: 2021-11-15 15:17+0000\n"
+"PO-Revision-Date: 2021-11-15 14:23+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-13 00:24+0000\n"
+"X-Launchpad-Export-Date: 2021-11-15 14:36+0000\n"
 "X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "X-Poedit-Country: Ukrainian\n"
 "Language: \n"
@@ -108,9 +108,9 @@ msgstr "%s використано з %s"
 
 #, php-format
 msgid ""
-"%s would like to thank the authors of this software for their efforts."
+"%s would like to thank the authors of this software for their efforts:"
 msgstr ""
-"%s хоче подякувати авторам цього програмного забезпечення за їх зусилля."
+"%s хоче подякувати авторам цього програмного забезпечення за їх зусилля:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -378,6 +378,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Порт для прослуховування вхідних з’єднань за допомогою протоколу iSER (iSCSI "
+"через RDMA)."
 
 msgid "A reboot is required"
 msgstr "Вимагається перезавантаження"
@@ -788,7 +790,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Адреса віддаленого демона hastd. Повинна бути статична IP адреса."
 
 msgid "Admin"
-msgstr ""
+msgstr "Адміністратор"
 
 msgid "Admin Password"
 msgstr "Пароль адміністратора"
@@ -803,7 +805,7 @@ msgid "Administrator Name"
 msgstr "Ім'я адміністратора"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Пароль адміністратора"
 
 msgid "Advanced"
 msgstr "Додатково"
@@ -1086,6 +1088,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Адреса IPv4 або IPv6 для прослуховування вхідних з’єднань за допомогою "
+"протоколу iSER (iSCSI через RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "IPv4 або IPv6 адреса для прослуховування вхідних з'єднань."
@@ -4922,7 +4926,7 @@ msgid "Enable store DOS attributes."
 msgstr "Дозволити зберігання DOS атрибутів."
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "Увімкнути підтримку лише NFSv4."
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Увімкнути протокол ідентифікації (RFC1413)."
@@ -5069,7 +5073,7 @@ msgid "Enhanced Scheduler"
 msgstr "Розширений розклад"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "Введіть назву AD або PDC."
 
 msgid "Enter Command"
 msgstr "Уведіть команду"
@@ -5084,7 +5088,7 @@ msgid "Enter Identifier"
 msgstr "Введіть ідентифікатор"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "Введіть назву NetBIOS."
 
 msgid "Enter Password"
 msgstr "Введіть пароль"
@@ -5211,7 +5215,7 @@ msgstr ""
 "може бути віддалений хост)."
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "Введіть ім'я домену."
 
 msgid "Enter the full user name."
 msgstr "Введіть повне ім'я користувача."
@@ -5234,7 +5238,7 @@ msgid ""
 msgstr "Введіть пароль для WPA-PSK. Довжина від 8 до 63 символів."
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "Введіть пароль облікового запису адміністратора домену."
 
 msgid "Enter the password of the master user account."
 msgstr "Введіть пароль головного облікового запису користувача."
@@ -5280,7 +5284,7 @@ msgid "Enter trap host name."
 msgstr "Ім'я хоста, що прослуховує повідомлення (traps)."
 
 msgid "Enter user name of a domain administrator account."
-msgstr ""
+msgstr "Введіть ім’я користувача облікового запису адміністратора домену."
 
 msgid "Enter user name."
 msgstr "Введіть ім'я."
@@ -7201,7 +7205,7 @@ msgid "Listen"
 msgstr "Прослуховування"
 
 msgid "Listen (iSER)"
-msgstr ""
+msgstr "Слухати (iSER)"
 
 msgid "Listen record is locked"
 msgstr "Запис прослуховування заблокований"
@@ -7613,7 +7617,7 @@ msgid "Media Folder is unlocked"
 msgstr "Медіа каталог розблокований"
 
 msgid "Media Folders"
-msgstr ""
+msgstr "Медіатеки"
 
 msgid "Media Library"
 msgstr "Медіабібліотека"
@@ -7895,7 +7899,7 @@ msgid "NAA Identifier"
 msgstr "Ідентифікатор NAA"
 
 msgid "NETBIOS"
-msgstr ""
+msgstr "NETBIOS"
 
 msgid "NETBIOS Hostname"
 msgstr "Ім'я хоста NETBIOS"
@@ -7925,7 +7929,7 @@ msgid "NFSv4"
 msgstr "NFSv4"
 
 msgid "NFSv4 Only"
-msgstr ""
+msgstr "тільки NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -9313,7 +9317,7 @@ msgid "Provider is unlocked"
 msgstr "Постачальник розблокований"
 
 msgid "Providers"
-msgstr ""
+msgstr "Постачальники"
 
 msgid "Provisioning Type"
 msgstr "Тип забезпечення"
@@ -9483,7 +9487,7 @@ msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs денний графік ARC"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік пропускної смуги"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs денний графік частоти ЦП"
@@ -9495,7 +9499,7 @@ msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs денний графік використання ЦП"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік використання диска"
 
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs денний графік L2ARC"
@@ -9504,7 +9508,7 @@ msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs денний графік середнього навантаження"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "RRDGraphs щоденний графік пам'яті"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs денний графік затримки мережі"
@@ -9525,7 +9529,7 @@ msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs місячний графік ARC"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs місячний графік пропускної смуги"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs місячний графік частоти ЦП"
@@ -9537,7 +9541,7 @@ msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs місячний графік використання ЦП"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs місячний графік використання диска"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs місячний графік L2ARC"
@@ -9546,7 +9550,7 @@ msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs місячний графік середнього навантаження"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs місячний графік пам'яті"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs місячний графік затримки мережі"
@@ -9567,7 +9571,7 @@ msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs тижневий графік ARC"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік пропускної смуги"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs тижневий графік частоти ЦП"
@@ -9579,7 +9583,7 @@ msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs тижневий графік використання ЦП"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік використання диска"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs тижневий графік L2ARC"
@@ -9588,7 +9592,7 @@ msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs тижневий графік середнього навантаження"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs тижневий графік пам'яті"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs тижневий графік затримок мережі"
@@ -9609,7 +9613,7 @@ msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs річний графік ARC"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік пропускної смуги"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs річний графік частоти ЦП"
@@ -9621,7 +9625,7 @@ msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs річний графік використання ЦП"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік використання диску"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs річний графік L2ARC"
@@ -9630,7 +9634,7 @@ msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs річний графік середнього навантаження"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs річний графік пам'яті"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs річний графік затримки мережі"
@@ -9986,13 +9990,13 @@ msgstr ""
 "Встановіть \"0\", щоб вимкнути ці повідомлення."
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Диск звітності"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Інтерфейс звітності"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Рівень звітності"
 
 msgid "Require authentication."
 msgstr "Вимагати автентифікацію."
@@ -10113,7 +10117,7 @@ msgid "Root Bind Password"
 msgstr "Пароль Кореневого Зв'язування"
 
 msgid "Root Directories"
-msgstr ""
+msgstr "Кореневі каталоги"
 
 msgid "Root Directory"
 msgstr "Кореневий каталог"
@@ -10669,7 +10673,7 @@ msgstr ""
 "Оберіть права доступу для запускання цієї служби (www за замовчуванням)."
 
 msgid "Select the timezone for this user."
-msgstr ""
+msgstr "Виберіть часовий пояс для цього користувача."
 
 msgid "Select which interface to use."
 msgstr "Оберіть який інтерфейс використовувати."
@@ -13561,7 +13565,7 @@ msgid "Times"
 msgstr "Час"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Часовий пояс"
 
 msgid "Title Speed"
 msgstr "Швидкість заголовків (Title Speed)"
@@ -15129,7 +15133,7 @@ msgid "e.g. %s"
 msgstr "наприклад %s"
 
 msgid "example.com"
-msgstr ""
+msgstr "example.com"
 
 msgid "filechooser"
 msgstr "Вибір файлу"
@@ -15287,7 +15291,7 @@ msgid "no delay"
 msgstr "без затримки"
 
 msgid "no pools available"
-msgstr ""
+msgstr "немає доступних пулів"
 
 msgid "none"
 msgstr "немає"
@@ -15372,3 +15376,9 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
+
+#, php-format
+#~ msgid ""
+#~ "%s would like to thank the authors of this software for their efforts."
+#~ msgstr ""
+#~ "%s хоче подякувати авторам цього програмного забезпечення за їх зусилля."

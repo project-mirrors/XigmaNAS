@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-07 17:32+0000\n"
-"PO-Revision-Date: 2021-11-12 08:36+0000\n"
-"Last-Translator: Laurentiu Bubuianu <Unknown>\n"
+"POT-Creation-Date: 2021-11-15 15:17+0000\n"
+"PO-Revision-Date: 2021-11-15 14:26+0000\n"
+"Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-13 00:25+0000\n"
+"X-Launchpad-Export-Date: 2021-11-15 14:37+0000\n"
 "X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -57,7 +57,7 @@ msgstr "%d ani"
 
 #, php-format
 msgid "%dB / block"
-msgstr "%dB / block"
+msgstr "%dB / bloc"
 
 #, php-format
 msgid "%s Interface"
@@ -105,9 +105,9 @@ msgstr "%s utilizat din %s"
 
 #, php-format
 msgid ""
-"%s would like to thank the authors of this software for their efforts."
+"%s would like to thank the authors of this software for their efforts:"
 msgstr ""
-"%s aș dori să mulțumesc autorilor/colaboratorilor pentru efortul depus."
+"%s aș dori să mulțumesc autorilor/colaboratorilor pentru efortul depus:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -1592,16 +1592,16 @@ msgid "BitTorrent Settings"
 msgstr "Setări BitTorrent"
 
 msgid "Blank Time"
-msgstr "Timp gol"
+msgstr "Timp nul"
 
 msgid "Block"
-msgstr "Bloc"
+msgstr "Blocare"
 
 msgid "Block Size"
 msgstr "Dimensiune bloc"
 
 msgid "Blocksize"
-msgstr "Dimensiune Block"
+msgstr "Dimensiune Bloc"
 
 msgid "Boot Arguments"
 msgstr "Parametri boot"
@@ -3406,7 +3406,7 @@ msgstr ""
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
-msgstr "Dispozitiv: %s | Total: %s | Utilizat: %s | Liber: %s"
+msgstr "Dispozitiv: %s | Total: %s | Utilizat: %s | Disponibil: %s"
 
 msgid "Devices"
 msgstr "Dispozitive"
@@ -3666,8 +3666,8 @@ msgid ""
 "Display Used/Avail information from the filesystem instead of the Alloc/Free "
 "information from the pool."
 msgstr ""
-"Afișare informații Utilizate/Disponibile de la sistemului de fișiere în loc "
-"de utilizarea informațiilor Alocate/Libere furnizate de pool."
+"Afișare informații Utilizat/Disponibil de la sistemului de fișiere în loc de "
+"utilizarea informațiilor Alocat/Disponibil furnizate de pool."
 
 msgid "Display ZFS command history"
 msgstr "Afișare istoric comenzi ZFS"
@@ -5784,7 +5784,7 @@ msgid "Frag"
 msgstr "Frag"
 
 msgid "Free"
-msgstr "Liber(ă)"
+msgstr "Disponibil"
 
 msgid "Frequency"
 msgstr "Frecvență"
@@ -7735,7 +7735,7 @@ msgid "Minimum (Lowest Performance)"
 msgstr "Minim (Performanța minimă)"
 
 msgid "Minimum Free Space"
-msgstr "Spațiu liber minim"
+msgstr "Spațiu minim disponibil"
 
 msgid "Minimum Performance, Minimum Acoustic Output"
 msgstr "Performanță minimă, Nivel acustic minim"
@@ -13882,7 +13882,7 @@ msgstr ""
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr "Total: %1$s | Alocat: %2$s | Liber: %3$s"
+msgstr "Total: %1$s | Alocat: %2$s | Disponibil: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
@@ -15470,3 +15470,9 @@ msgstr "a fost atribuit la"
 
 msgid "yes"
 msgstr "da"
+
+#, php-format
+#~ msgid ""
+#~ "%s would like to thank the authors of this software for their efforts."
+#~ msgstr ""
+#~ "%s doreȘte să mulțumească autorilor/colaboratorilor pentru efortul depus."
