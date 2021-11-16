@@ -36,7 +36,7 @@ namespace services\sshd;
 
 use common\properties as myp;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->set_defaultvalue(false);
@@ -155,8 +155,7 @@ final class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_rawprivatekey(): myp\property_textarea {
-		$placeholder = gettext('Paste a RSA PRIVATE KEY in PEM format');
-		$placeholderv = gettext(' No private key');
+		$placeholder = $placeholderv = gettext(' No private key');
 		$property = parent::init_rawprivatekey();
 		$property->
 			set_defaultvalue('')->
