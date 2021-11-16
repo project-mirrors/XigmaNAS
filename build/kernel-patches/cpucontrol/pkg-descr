@@ -1,0 +1,1 @@
+Fix extended signature matching code to avoid fallthough
