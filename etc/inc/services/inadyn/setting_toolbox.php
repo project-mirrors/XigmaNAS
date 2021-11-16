@@ -45,7 +45,7 @@ use const PAGE_MODE_VIEW;
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox extends myt\setting_toolbox {
+class setting_toolbox extends myt\setting_toolbox {
 /**
  *	Create the sphere object
  *	@return mys\row The sphere object
