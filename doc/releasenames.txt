@@ -19,6 +19,7 @@ Accadia	   	/ 11.4.0.4
 Reticulus	/ 12.0.0.4 
 Ingva		/ 12.1.0.4
 Ornithopter	/ 12.2.0.4
+Glowpanel	/ 13.0.0.5
 
 Also see:
 https://dune.wikia.com/wiki/Category:Original_Dune
