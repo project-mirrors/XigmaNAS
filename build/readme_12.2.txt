@@ -145,7 +145,7 @@ Changes:
 - Upgrade lighttpd to 1.4.61.
 - Upgrade nut to 2021.11.08.
 - Upgrade mDNSResponder to 1310.140.1.
-- Upgrade devcpu-data-amd to 20211109.
+- Upgrade devcpu-data-amd to 20211115.
 
 Fixes:
 - Fix only first lagg member is brought up.
