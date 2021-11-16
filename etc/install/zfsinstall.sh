@@ -779,10 +779,6 @@ EOF
 		echo "vfs.root.mountfrom=\"zfs:${ZROOT}${DATASET}${BOOTENV}\"" >> ${ALTROOT}/boot/loader.conf
 	fi
 
-	if [ "${PLATFORM}" = "amd64" ]; then
-		echo 'mlx4en_load="YES"' >> ${ALTROOT}/boot/loader.conf
-	fi
-
 	if [ "${SWAPMODE}" = 1 ]; then
 		if [ ! -z "${SWAP_SIZE}" ]; then
 			echo 'geom_mirror_load="YES"' >> ${ALTROOT}/boot/loader.conf

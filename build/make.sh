@@ -752,11 +752,6 @@ create_image() {
 		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
-#	Mellanox ConnectX EN
-	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
-		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
 	echo "===> Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
@@ -905,11 +900,6 @@ create_iso () {
 #	Custom company brand(fallback).
 	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
 		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
-#	Mellanox ConnectX EN
-	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
-		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
 	echo "ISO: Creating linker.hints"
@@ -1141,11 +1131,6 @@ create_usb () {
 		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
-#	Mellanox ConnectX EN
-	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
-		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
 	echo "USB: Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
@@ -1357,11 +1342,6 @@ create_usb_gpt() {
 		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
-#	Mellanox ConnectX EN.
-	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
-		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
 	echo "USB: Creating linker.hints"
 	kldxref -R $XIGMANAS_TMPDIR/boot
 
@@ -1511,11 +1491,6 @@ create_full() {
 #	Custom company brand(fallback).
 	if [ -f ${XIGMANAS_SVNDIR}/boot/brand-${XIGMANAS_PRODUCTNAME}.4th ]; then
 		echo "loader_brand=\"${XIGMANAS_PRODUCTNAME}\"" >> $XIGMANAS_TMPDIR/boot/loader.conf
-	fi
-
-#	Mellanox ConnectX EN
-	if [ "amd64" == ${XIGMANAS_ARCH} ]; then
-		echo 'mlx4en_load="YES"' >> $XIGMANAS_TMPDIR/boot/loader.conf
 	fi
 
 	echo "FULL: Creating linker.hints"

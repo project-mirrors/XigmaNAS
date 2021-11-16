@@ -258,9 +258,6 @@ isboot_load="YES"
 zfs_load="YES"
 
 EOD;
-	if($g['arch'] == 'x64'):
-		$loaderconf .= 'mlx4en_load="YES"' . "\n";
-	endif;
 	if(false === file_put_contents("{$mntpath}/boot/loader.conf",$loaderconf)):
 		write_console("Error: Failed to create '/boot/loader.conf'.\n");
 		return 1;
