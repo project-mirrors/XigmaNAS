@@ -1,8 +1,6 @@
 include		GENERIC
 ident		XIGMANAS-x64
 
-makeoptions	MODULES_EXTRA+="mlx4"
-makeoptions	MODULES_EXTRA+="mlx4en"
 makeoptions	MODULES_EXTRA+="iser"
 
 #####################################################################
