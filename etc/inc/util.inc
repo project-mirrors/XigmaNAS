@@ -38,6 +38,7 @@ require_once 'globals.inc';
 require_once 'system.inc';
 
 use common\arr;
+use common\uuid;
 
 //	set PATH, otherwise some commands will not be found during exec.
 putenv('PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin');
@@ -290,6 +291,14 @@ function is_valid_privatekey($privatekey,string $type = null) {
 		endif;
 	endif;
 	return $result;
+}
+/**
+ *	Returns true if $uuid is a valid UUID.
+ *	@param string $uuid Universal Unique Identifier
+ *	@return bool returns true if the given string is a valid uuid.
+ */
+function is_uuid_v4($uuid): bool {
+	return uuid::is_v4($uuid);
 }
 /**
  *	Determines the use of binary prefixes instead of decimal prefixes.
@@ -2498,6 +2507,13 @@ function get_hostbyaddr($ip_address) {
 		return $matches[1];
 	endif;
 	return $ip_address;
+}
+/**
+ *	Create a pseudo-random UUID according to RFC 4122.
+ *	@return string
+ */
+function uuid() {
+	return uuid::create_v4();
 }
 /*	Get the file size in bytes.
  *	Fix PHP file size problem (see http://de.php.net/manual/en/function.filesize.php).
