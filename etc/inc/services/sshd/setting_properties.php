@@ -61,9 +61,10 @@ class setting_properties extends grid_properties {
 			filter_use_default()->
 			filter_use_empty()->
 			set_filter(FILTER_VALIDATE_INT,'22')->
-			set_filter_flags(FILTER_REQUIRE_SCALAR,'69')->
+			set_filter_flags(FILTER_REQUIRE_SCALAR,'22')->
 			set_filter_options(['default' => null,'min_range' => 22,'max_range' => 22],'22')->
-			set_filter_group('ui',['empty','ui','22']);
+			set_filter_group('ui',['empty','ui','22'])->
+			set_message_error(gettext('Invalid port number. The port number must be 22 or a value between 1024 and 65535.'));
 		return $property;
 	}
 	public function init_allowpa(): myp\property_bool {
