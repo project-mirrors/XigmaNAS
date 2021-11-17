@@ -48,8 +48,8 @@ abstract class property {
 	protected $x_description = null;
 	protected $x_caption = null;
 	protected $x_defaultvalue = null;
-	protected $x_editableonadd = null;
-	protected $x_editableonmodify = null;
+	protected $x_editableonadd = true;
+	protected $x_editableonmodify = true;
 	protected $x_filter = [];
 	protected $x_filter_group = [];
 	protected $x_message_error = null;
@@ -625,8 +625,6 @@ class property_auxparam extends property_textarea {
 		$this->
 			set_defaultvalue('')->
 			set_description('')->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_id('auxparam')->
 			set_name('auxparam')->
 			set_placeholder($placeholder)->
@@ -932,8 +930,6 @@ class property_enable extends property_bool {
 			set_description('')->
 			set_defaultvalue(true)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$this->get_title(),gettext('The value is invalid.')));
 		return $this;
 	}
@@ -950,8 +946,6 @@ class property_protected extends property_bool {
 			set_description('')->
 			set_defaultvalue(false)->
 			filter_use_default()->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$this->get_title(),gettext('The value is invalid.')));
 		return $this;
 	}
@@ -1047,8 +1041,6 @@ abstract class co_property_container_param extends co_property_container {
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => ''])->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('The value is invalid.')));
 		return $property;
 	}
