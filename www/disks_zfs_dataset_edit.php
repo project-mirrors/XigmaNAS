@@ -38,8 +38,9 @@ require_once 'guiconfig.inc';
 require_once 'zfs.inc';
 require_once 'co_sphere.php';
 
-use gui\document;
 use common\arr;
+use common\uuid;
+use gui\document;
 
 function disks_zfs_dataset_edit_get_sphere() {
 	global $config;
@@ -88,7 +89,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 			exit;
 			break;
 		case 'clone':
-			$id = uuid();
+			$id = uuid::create_v4();
 			$sphere->row[$sphere->get_row_identifier()] = $id;
 			$mode_page = PAGE_MODE_CLONE;
 			break;
@@ -98,7 +99,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
-			if(!is_uuid_v4($id)):
+			if(!uuid::is_v4($id)):
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
@@ -113,7 +114,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]))):
 	switch($action):
 		case 'add':
-			$sphere->row[$sphere->get_row_identifier()] = uuid();
+			$sphere->row[$sphere->get_row_identifier()] = uuid::create_v4();
 			$mode_page = PAGE_MODE_ADD;
 			break;
 		case 'edit':
@@ -122,7 +123,7 @@ elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
-			if(!is_uuid_v4($id)):
+			if(!uuid::is_v4($id)):
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
@@ -154,7 +155,7 @@ $sphere->row_id = arr::search_ex($sphere->row[$sphere->get_row_identifier()],$sp
 //	determine record update mode
 $mode_updatenotify = updatenotify_get_mode($sphere->get_notifier(),$sphere->row[$sphere->get_row_identifier()]); // get updatenotify mode
 $mode_record = RECORD_ERROR;
-if(false === $sphere->row_id): // record does not exist in config
+if($sphere->row_id === false): // record does not exist in config
 	if((PAGE_MODE_POST == $mode_page) || (PAGE_MODE_ADD == $mode_page || (PAGE_MODE_CLONE == $mode_page))): // POST, ADD or CLONE
 		switch($mode_updatenotify):
 			case UPDATENOTIFY_MODE_UNKNOWN:
