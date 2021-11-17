@@ -36,7 +36,7 @@ namespace services\tftpd;
 
 use common\properties as myp;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_allowfilecreation(): myp\property_bool {
 		$caption = gettext('Allow new files to be created.');
 		$description = gettext('By default, only already existing files can be uploaded.');
@@ -46,8 +46,6 @@ final class setting_properties extends grid_properties {
 			set_caption($caption)->
 			set_description($description)->
 			set_defaultvalue(false)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			filter_use_default();
 		return $property;
 	}
@@ -65,8 +63,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue($g['media_path'])->
 			set_size(60)->
 			set_maxlength(4096)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => $g['media_path']]);
@@ -88,8 +84,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_size(60)->
 			set_maxlength(4096)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_UNSAFE_RAW)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => '']);
@@ -109,8 +103,6 @@ final class setting_properties extends grid_properties {
 			set_maxlength(5)->
 			set_min(512)->
 			set_max(65464)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			filter_use_default_or_empty();
 		return $property;
 	}
@@ -128,16 +120,10 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_size(10)->
 			set_maxlength(5)->
-			set_min(1024)->
+			set_min(1)->
 			set_max(65535)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
-			filter_use_default()->
-			filter_use_empty()->
-			set_filter(FILTER_VALIDATE_INT,'69')->
-			set_filter_flags(FILTER_REQUIRE_SCALAR,'69')->
-			set_filter_options(['default' => null,'min_range' => 69,'max_range' => 69],'69')->
-			set_filter_group('ui',['empty','ui','69']);
+			filter_use_default_or_empty()->
+			set_message_error(gettext('Invalid port number. The port number must be a value between 1 and 65535.'));
 		return $property;
 	}
 	public function init_timeout(): myp\property_int {
@@ -154,8 +140,6 @@ final class setting_properties extends grid_properties {
 			set_maxlength(9)->
 			set_min(10000)->
 			set_max(255000000)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			filter_use_default_or_empty()->
 			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Timeout must be a number between 10000 and 255000000.')));
 		return $property;
@@ -172,8 +156,6 @@ final class setting_properties extends grid_properties {
 			set_defaultvalue('')->
 			set_size(4)->
 			set_maxlength(3)->
-			set_editableonadd(true)->
-			set_editableonmodify(true)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
 			set_filter_options(['default' => null,'regexp' => '/^(|[0-7]{3})$/']);
