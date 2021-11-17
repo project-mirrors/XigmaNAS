@@ -36,8 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use gui\document;
 use common\arr;
+use common\uuid;
+use gui\document;
 
 function get_geli_info($device) {
 	$result = [];
@@ -96,10 +97,10 @@ foreach($rawdata as $line):
 		if(empty($origin) || $origin != '-'):
 			continue;
 		endif;
-		list($pool,$name) = explode('/',$fname,2);
+		[$pool,$name] = explode('/',$fname,2);
 		$zfs['datasets']['dataset'][$fname] = [
 			'identifier' => $fname,
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => $name,
 			'pool' => $pool,
 			'compression' => $compress,
@@ -118,7 +119,9 @@ foreach($rawdata as $line):
 			'secondarycache' => $secondarycache,
 			'desc' => '',
 		];
-		list($mp_owner,$mp_group,$mp_mode) = ['root','wheel',0777];
+		$mp_owner = 'root';
+		$mp_group = 'wheel';
+		$mp_mode = 0777;
 		if($canmount == 'on' && !empty($mpoint) && file_exists($mpoint)):
 			$mp_uid = fileowner($mpoint);
 			$mp_gid = filegroup($mpoint);
@@ -140,7 +143,7 @@ foreach($rawdata as $line):
 		];
 	else: // zpool
 		$zfs['pools']['pool'][$fname] = [
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => $fname,
 			'vdevice' => [],
 			'root' => null,
@@ -179,29 +182,15 @@ foreach($rawdata as $line):
 	if($line == 'no datasets available'):
 		continue;
 	endif;
-	list(
-		$fname,
-		$checksum,
-		$compression,
-		$dedup,
-		$logbias,
-		$origin,
-		$primarycache,
-		$refreservation,
-		$secondarycache,
-		$sync,
-		$volblocksize,
-		$volmode,
-		$volsize
-	) = explode("\t",$line);
+	list($fname,$checksum,$compression,$dedup,$logbias,$origin,$primarycache,$refreservation,$secondarycache,$sync,$volblocksize,$volmode,$volsize) = explode("\t",$line);
 	if(strpos($fname,'/') !== false): // volume
 		if(empty($origin) || $origin != '-'):
 			continue;
 		endif;
-		list($pool,$name) = explode('/',$fname,2);
+		[$pool,$name] = explode('/',$fname,2);
 		$zfs['volumes']['volume'][$fname] = [
 			'identifier' => $fname,
-			'uuid' => uuid(),
+			'uuid' => uuid::create_v4(),
 			'name' => $name,
 			'pool' => $pool,
 			'volsize' => $volsize,
@@ -219,7 +208,7 @@ foreach($rawdata as $line):
 		];
 	endif;
 endforeach;
-$cmd = 'zpool list -H -o name,altroot,size,allocated,free,capacity,expandsz,frag,health,dedup';
+$cmd = 'zpool list -H -o name,altroot,size,allocated,free,capacity,expandsz,frag,health,dedup,guid';
 unset($rawdata);
 unset($retval);
 mwexec2($cmd,$rawdata,$retval);
@@ -227,7 +216,7 @@ foreach($rawdata as $line):
 	if($line == 'no pools available'):
 		continue;
 	endif;
-	list($pool,$root,$size,$alloc,$free,$cap,$expandsz,$frag,$health,$dedup) = explode("\t",$line);
+	list($pool,$root,$size,$alloc,$free,$cap,$expandsz,$frag,$health,$dedup,$guid) = explode("\t",$line);
 	if($root != '-'):
 		$zfs['pools']['pool'][$pool]['root'] = $root;
 	endif;
@@ -239,6 +228,7 @@ foreach($rawdata as $line):
 	$zfs['extra']['pools']['pool'][$pool]['cap'] = $cap;
 	$zfs['extra']['pools']['pool'][$pool]['health'] = $health;
 	$zfs['extra']['pools']['pool'][$pool]['dedup'] = $dedup;
+	$zfs['extra']['pools']['pool'][$pool]['guid'] = $guid;
 endforeach;
 //	get all pool names, sorted by length, descending
 $poolnames_sorted_by_length = array_keys($zfs['pools']['pool']);
@@ -249,7 +239,7 @@ $pool = null;
 $vdev = null;
 $type = null;
 $i = 0;
-$vdev_type = ['mirror','raidz1','raidz2','raidz3'];
+$vdev_type = ['mirror','raidz1','raidz2','raidz3','draid1','draid2','draid3'];
 $cmd = 'zpool status';
 unset($rawdata);
 unset($retval);
@@ -264,7 +254,7 @@ foreach($rawdata as $line):
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 			$zfs['vdevices']['vdevice'][$vdev]['aft4k'] = true;
 		elseif(preg_match("/^(.+)\.eli$/",$dev,$m)):
-			//$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
+//			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 		else:
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
@@ -301,7 +291,7 @@ foreach($rawdata as $line):
 		endif;
 		if(!array_key_exists($vdev,$zfs['vdevices']['vdevice'])):
 			$zfs['vdevices']['vdevice'][$vdev] = [
-				'uuid' => uuid(),
+				'uuid' => uuid::create_v4(),
 				'name' => $vdev,
 				'type' => $type,
 				'device' => [],
@@ -429,7 +419,7 @@ if(isset($_POST['import_config'])):
 						$serial = "";
 					endif;
 					$cfg['disks']['disk'][] = [
-						'uuid' => uuid(),
+						'uuid' => uuid::create_v4(),
 						'name' => $disk['name'],
 						'id' => $disk['id'],
 						'devicespecialfile' => $disk['devicespecialfile'],
@@ -468,7 +458,7 @@ if(isset($_POST['import_config'])):
 						$disk = arr::search_ex($device,$disks,'devicespecialfile');
 						$disk = $disks[$disk];
 						$cfg['geli']['vdisk'][] = [
-							'uuid' => uuid(),
+							'uuid' => uuid::create_v4(),
 							'name' => $disk['name'],
 							'device' => $disk['devicespecialfile'],
 							'devicespecialfile' => $disk['devicespecialfile'].".eli",
