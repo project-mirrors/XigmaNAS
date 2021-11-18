@@ -1124,15 +1124,6 @@ function config_upgrade_2dot3() {
 			'comment' => 'ZFS maximum ARC size'
 		];
 	endif;
-	$index = arr::search_ex('vfs.zfs.arc_min',$config['system']['loaderconf']['param'],'name');
-	if($index !== false):
-		$config['system']['loaderconf']['param'][] = [
-			'uuid' => uuid::create_v4(),
-			'name' => 'vfs.zfs.arc_min',
-			'value' => '1G',
-			'comment' => 'ZFS minimum ARC size'
-		];
-	endif;
 	$index = arr::search_ex('vfs.zfs.prefetch_disable',$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
