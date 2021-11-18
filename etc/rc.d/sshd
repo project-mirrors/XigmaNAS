@@ -45,7 +45,6 @@ sshd_mkconf()
 			--output 'HostKeyAlgorithms +ssh-rsa,ssh-dss' --nl \
 			--output 'HostKey /var/etc/ssh/ssh_host_rsa_key' --nl \
 			--output 'SyslogFacility LOCAL3' --nl \
-			--output 'Protocol 2' --nl \
 			--output 'UseDNS no' --nl \
 			--if 'string-length(subsystem) > 0' \
 				--value-of 'concat("Subsystem ",subsystem)' --nl \
