@@ -20,14 +20,13 @@ desc="GEOM commands"
 load_rc_config "${name}"
 
 # Custom commands
-extra_commands="load tune"
+extra_commands="load"
 start_cmd="geom_start"
 stop_cmd="geom_stop"
 load_cmd="geom_load"
-tune_cmd="geom_tune"
 
 # Defaults
-geom_classes=${geom_classes:-"vinum mirror stripe concat raid5"}
+geom_classes=${geom_classes:-"vinum mirror stripe concat"}
 geom_load_param=${geom_load_param:-""}
 geom_stop_param=${geom_stop_param:-""}
 
@@ -47,7 +46,6 @@ geom_start()
 				*)
 					_geom_load ${_class};;
 			esac
-			geom_tune ${_class}
 		fi
 	done
 }
@@ -61,12 +59,7 @@ geom_stop()
 
 	echo "Stopping GEOM devices."
 	for _class in ${_classes}; do
-		case ${_class} in
-			raid5)
-				_geom_stop_raid5;;
-			*)
-				_geom_stop ${_class};;
-		esac
+		_geom_stop ${_class};;
 		_geom_unload ${_class}
 	done
 }
@@ -84,23 +77,6 @@ geom_load()
 				;;
 			*)
 				_geom_load ${_class};;
-		esac
-	done
-}
-
-geom_tune()
-{
-	local _classes _class
-
-	_classes=$*
-	_classes=${_classes:-"${geom_classes}"}
-
-	for _class in ${_classes}; do
-		case ${_class} in
-			raid5)
-				_geom_tune_raid5;;
-			*)
-				;;
 		esac
 	done
 }
@@ -124,7 +100,7 @@ _geom_stop()
 
 	_class=$1
 
-	# Stop devices.
+#	stop devices.
 	/usr/local/bin/xml sel -t -m "//g${_class}/vdisk" \
 		-v "name" \
 		-i "position() <= last()" -n -b \
@@ -134,27 +110,13 @@ _geom_stop()
 		done
 }
 
-_geom_stop_raid5()
-{
-	local _name
-
-	# Stop devices.
-	/usr/local/bin/xml sel -t -m "//graid5/vdisk" \
-		-v "name" \
-		-i "position() <= last()" -n -b \
-		${configxml_file} | /usr/local/bin/xml unesc | \
-		while read _name; do
-			/sbin/geom raid5 status "${_name}" 1>/dev/null 2>&1 && /sbin/graid5 destroy -y "${_name}"
-		done
-}
-
 _geom_load()
 {
 	local _class
 
 	_class=$1
 
-	# Load module.
+#	load module.
 	/sbin/kldstat -q -m g_${_class} || /sbin/geom ${_class} load ${geom_load_param}
 }
 
@@ -164,31 +126,8 @@ _geom_unload()
 
 	_class=$1
 
-	# Unload module.
+#	unload module.
 	/sbin/kldstat -q -m g_${_class} && /sbin/geom ${_class} unload
-}
-
-# Optimize geom raid5 RAM usage
-_geom_tune_raid5()
-{
-	local _realmem
-
-	_realmem=`/sbin/sysctl -n hw.realmem`
-	_realmem=`expr -- ${_realmem} / 1024 / 1024`
-
-	if [ 128 -gt ${_realmem} ]; then
-		/usr/bin/logger "Optimizing GEOM raid5 for systems with <= 128MB of RAM."
-		sysctl kern.geom.raid5.maxwql=10
-		sysctl kern.geom.raid5.maxmem=1100000
-	elif [ 256 -gt ${_realmem} ]; then
-		/usr/bin/logger "Optimizing GEOM raid5 for systems with <= 256MB of RAM."
-		sysctl kern.geom.raid5.maxwql=20
-		sysctl kern.geom.raid5.maxmem=2000000
-	else
-		/usr/bin/logger "Detected >= 512MB of RAM... No need to optimize RAM usage for GEOM raid5."
-	fi
-
-	return 0
 }
 
 run_rc_command "$@"
