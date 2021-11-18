@@ -127,7 +127,6 @@ Changes:
 - Upgrade open-vm-tools to 11.2.5.
 - Upgrade arcconf to 3_07_23971.
 - Upgrade python to 3.8.x.
-- Upgrade dialog to 1.3-20210509.
 - Upgrade proftpd to 1.3.7c.
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade mDNSResponder to 1310.140.1.
 - Upgrade devcpu-data-amd to 20211115.
 - Upgrade bash to 5.1 p12.
+- Upgrade dialog to 1.3-20211107.
 
 Fixes:
 - Fix only first lagg member is brought up.
