@@ -1115,20 +1115,32 @@ function config_upgrade_2dot3() {
 		endif;
 	endif;
 	arr::make_branch($config,'system','loaderconf','param');
-	$index = arr::search_ex('vfs.zfs.arc_max',$config['system']['loaderconf']['param'],'name');
+	$name = 'vfs.zfs.arc.max';
+	$index = arr::search_ex($name,$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid::create_v4(),
-			'name' => 'vfs.zfs.arc_max',
+			'name' => $name,
 			'value' => '2G',
 			'comment' => 'ZFS maximum ARC size'
 		];
 	endif;
-	$index = arr::search_ex('vfs.zfs.prefetch_disable',$config['system']['loaderconf']['param'],'name');
+	$name = 'vfs.zfs.arc.min';
+	$index = arr::search_ex($name,$config['system']['loaderconf']['param'],'name');
 	if($index !== false):
 		$config['system']['loaderconf']['param'][] = [
 			'uuid' => uuid::create_v4(),
-			'name' => 'vfs.zfs.prefetch_disable',
+			'name' => $name,
+			'value' => '1G',
+			'comment' => 'ZFS minimum ARC size'
+		];
+	endif;
+	$name = 'vfs.zfs.prefetch_disable';
+	$index = arr::search_ex($name,$config['system']['loaderconf']['param'],'name');
+	if($index !== false):
+		$config['system']['loaderconf']['param'][] = [
+			'uuid' => uuid::create_v4(),
+			'name' => $name,
 			'value' => '1',
 			'comment' => 'ZFS prefech disable'
 		];
