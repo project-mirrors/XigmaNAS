@@ -31,6 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
+
+use common\arr;
+
 /**
  *	Returns an array with additional geom vinum information
  *	@return array
@@ -74,13 +79,13 @@ function gvinum_processinfo_get() {
 	return $a_return;
 }
 /**
- * 
+ *
  *	@param string $devicespecialfile
  *	@param array $a_mount
  *	@return bool
  */
 function is_gvinum_mounted($devicespecialfile,&$a_mount) {
-	return (false !== array_search_ex($devicespecialfile,$a_mount,'mdisk'));
+	return (arr::search_ex($devicespecialfile,$a_mount,'mdisk') !== false);
 }
 /**
  *	GEOM vinum process update notifications
@@ -91,7 +96,7 @@ function is_gvinum_mounted($devicespecialfile,&$a_mount) {
  */
 function gvinum_process_updatenotification($mode,$data) {
 	global $config;
-	
+
 	$retval = 0;
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
@@ -102,8 +107,8 @@ function gvinum_process_updatenotification($mode,$data) {
 			break;
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
 			if(is_array($config['gvinum']['vdisk'])):
-				$index = array_search_ex($data,$config['gvinum']['vdisk'],'uuid');
-				if(false !== $index):
+				$index = arr::search_ex($data,$config['gvinum']['vdisk'],'uuid');
+				if($index !== false):
 					unset($config['gvinum']['vdisk'][$index]);
 					write_config();
 				endif;
@@ -112,8 +117,8 @@ function gvinum_process_updatenotification($mode,$data) {
 		case UPDATENOTIFY_MODE_DIRTY:
 			$retval |= disks_raid_gvinum_delete($data);
 			if(is_array($config['gvinum']['vdisk'])):
-				$index = array_search_ex($data,$config['gvinum']['vdisk'],'uuid');
-				if(false !== $index):
+				$index = arr::search_ex($data,$config['gvinum']['vdisk'],'uuid');
+				if($index !== false):
 					unset($config['gvinum']['vdisk'][$index]);
 					write_config();
 				endif;
