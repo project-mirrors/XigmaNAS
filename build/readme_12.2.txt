@@ -128,7 +128,6 @@ Changes:
 - Upgrade arcconf to 3_07_23971.
 - Upgrade python to 3.8.x.
 - Upgrade dialog to 1.3-20210509.
-- Upgrade bash to 5.1 p8.
 - Upgrade proftpd to 1.3.7c.
 - Upgrade e2fsprogs to 1.46.4.
 - Upgrade iperf3 to 3.10.1.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade nut to 2021.11.08.
 - Upgrade mDNSResponder to 1310.140.1.
 - Upgrade devcpu-data-amd to 20211115.
+- Upgrade bash to 5.1 p12.
 
 Fixes:
 - Fix only first lagg member is brought up.
