@@ -99,14 +99,14 @@
 			<param>
 				<!-- <enable/> -->
 				<uuid>938a66c6-fe89-4e2c-8e07-ad0aac8db511</uuid>
-				<name>vfs.zfs.arc_max</name>
+				<name>vfs.zfs.arc.max</name>
 				<value>2G</value>
 				<comment>ZFS maximum ARC size</comment>
 			</param>
 			<param>
 				<!-- <enable/> -->
 				<uuid>2f380ee0-4b3f-440e-9ade-ad346c7f58d1</uuid>
-				<name>vfs.zfs.arc_min</name>
+				<name>vfs.zfs.arc.min</name>
 				<value>1G</value>
 				<comment>ZFS minimum ARC size</comment>
 			</param>
