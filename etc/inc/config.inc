@@ -1142,7 +1142,7 @@ function config_upgrade_2dot3() {
 			'uuid' => uuid::create_v4(),
 			'name' => $name,
 			'value' => '1',
-			'comment' => 'ZFS prefech disable'
+			'comment' => 'ZFS prefetch disable'
 		];
 	endif;
 }
@@ -1316,7 +1316,7 @@ function config_upgrade_3dot2() {
 
 //	add min_auto_ashift for zfs because of code changes
 	$grid = &arr::make_branch($config,'system','sysctl','param');
-	$param_name = 'vfs.zfs.min_auto_ashift';
+	$param_name = 'vfs.zfs.vdev.min_auto_ashift';
 	$index = arr::search_ex($param_name,$grid,'name');
 	if($index === false):
 		$grid[] = [
