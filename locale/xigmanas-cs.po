@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-15 15:17+0000\n"
-"PO-Revision-Date: 2020-12-06 19:22+0000\n"
-"Last-Translator: rama <Unknown>\n"
+"POT-Creation-Date: 2021-11-18 20:42+0000\n"
+"PO-Revision-Date: 2021-11-18 14:32+0000\n"
+"Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-15 14:37+0000\n"
-"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
-"Language: cs_CZ\n"
+"X-Launchpad-Export-Date: 2021-11-18 22:16+0000\n"
+"X-Generator: Launchpad (build 6b4dd4993780fcabf0a1395ec360ac24e3202df6)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: cs_CZ\n"
 
 msgid " No private key"
 msgstr " Žádný soukromý klíč"
@@ -106,7 +106,7 @@ msgstr "využito %s z %s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts:"
-msgstr ""
+msgstr "%s rád bych poděkoval autorům tohoto softwaru za jejich úsilí:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -114,27 +114,27 @@ msgstr "%s%d %s je už používáno %s%d."
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u hodina"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u hodiny"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u minuta"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u minut"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u sekunda"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u sekund"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -215,7 +215,7 @@ msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/"
-msgstr ""
+msgstr "/"
 
 msgid "/mnt"
 msgstr "/mnt"
@@ -384,6 +384,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Port pro naslouchání příchozího připojení pomocí protokolu iSER (iSCSI přes "
+"RDMA)."
 
 msgid "A reboot is required"
 msgstr "Je třeba restartovat"
@@ -642,7 +644,7 @@ msgid "Add Portal Group"
 msgstr "Přidat skupinu portálu"
 
 msgid "Add Provider"
-msgstr ""
+msgstr "Přidat poskytovatele"
 
 msgid "Add Public Key"
 msgstr "Přidat veřejný klíč"
@@ -651,7 +653,7 @@ msgid "Add RAID"
 msgstr "Přidat RAID pole"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Naplánovat restart"
 
 msgid "Add Record"
 msgstr "Přidat záznam"
@@ -672,7 +674,7 @@ msgid "Add Samba Share"
 msgstr "Přidat Samba sdílení"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Přidat plán"
 
 msgid "Add Share"
 msgstr "Přidat sdílení"
@@ -802,7 +804,7 @@ msgstr ""
 "statickou IP adresu."
 
 msgid "Admin"
-msgstr ""
+msgstr "Správce"
 
 msgid "Admin Password"
 msgstr "Heslo správce"
@@ -817,7 +819,7 @@ msgid "Administrator Name"
 msgstr "Jméno správce"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Heslo správce"
 
 msgid "Advanced"
 msgstr "Pokročilé"
@@ -943,7 +945,7 @@ msgid "Allow GSSAPI authentication."
 msgstr "Povolit GSSAPI autentikaci"
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "Povolit IPv6"
 
 msgid "Allow New Files"
 msgstr "Umožnit nové soubory"
@@ -964,7 +966,7 @@ msgid "Allow USB Serial Ports"
 msgstr "Umožnit používání převodníků z USB na sériové porty"
 
 msgid "Allow challenge-response authentication."
-msgstr ""
+msgstr "Povolit ověřování výzva-odpověď."
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr "Umožnit klientům přístup k účtům, nechráněným heslem."
@@ -982,7 +984,7 @@ msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr "Umožnit souběh vyřízení po sobě jdoucích požadavků na čtení/zápis"
 
 msgid "Allow keyboard-interactive authentication."
-msgstr ""
+msgstr "Povolit interaktivní ověřování pomocí klávesnice."
 
 msgid "Allow new files to be created."
 msgstr "Umožnit vytváření nových souborů."
@@ -1097,6 +1099,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Adresa IPv4 nebo IPv6 pro naslouchání příchozího připojení pomocí protokolu "
+"iSER (iSCSI přes RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "IPv4 nebo IPv6 adresa na které očekávat příchozí spojení."
@@ -1156,6 +1160,8 @@ msgid ""
 "Another DLNA/UPnP service is already enabled. Running multiple DLNA/UPnP "
 "services can cause problems."
 msgstr ""
+"Jiná služba DLNA/UPnP je již povolena. Spuštění více služeb DLNA/UPnP může "
+"způsobit problémy."
 
 msgid ""
 "Another DLNA/UPnP service is already running. Enabling Fuppes might cause "
@@ -1175,10 +1181,10 @@ msgid "Append content to the default CSS file"
 msgstr "Připojit obsah do výchozího CSS souboru"
 
 msgid "Append my IP"
-msgstr ""
+msgstr "Připojit moji IP adresu"
 
 msgid "Append the current IP to the DDNS server update path."
-msgstr ""
+msgstr "Připojte aktuální IP adresu k cestě aktualizace serveru DDNS."
 
 msgid "Append user defined shares"
 msgstr "Připojit (přidat) uživatelsky definovaná sdílení"
@@ -1503,7 +1509,7 @@ msgid "Battery Details"
 msgstr "Podrobnosti o akumulátoru"
 
 msgid "Battery Level:"
-msgstr ""
+msgstr "Úroveň nabití baterie:"
 
 msgid "Battery Low"
 msgstr "Téměř vybitý akumulátor"
@@ -1546,7 +1552,7 @@ msgid "Battery voltage"
 msgstr "Napětí na svorkách akumulátoru/bloku"
 
 msgid "Be Quiet"
-msgstr ""
+msgstr "Potichu"
 
 msgid "Be careful with turning on these options."
 msgstr "Buďte opatrní při zapínání těchto voleb."
@@ -1580,7 +1586,7 @@ msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr ""
+msgstr "Nastavení BitTorrentu"
 
 msgid "Blank Time"
 msgstr "Zatmívací čas"
@@ -1655,9 +1661,11 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
+"Vysílá svou dostupnost v síti se zvolenou periodou. Výchozí hodnota je 300 "
+"sekund."
 
 msgid "Broken RTC"
-msgstr ""
+msgstr "Nefunkční reálný čas RTC"
 
 msgid "Browseable"
 msgstr "Možné procházet"
@@ -1674,6 +1682,10 @@ msgid ""
 "local, loopback, multicast and known experimental addresses. For more "
 "information, see RFC3330."
 msgstr ""
+"Ve výchozím nastavení inadyn ověřuje adresy IPv4 i IPv6 a ujistěte se, že "
+"adresa je platnou internetovou adresou. Neplatné adresy jsou např. adresy "
+"místního odkazu, zpětné smyčky, vícesměrového vysílání a známé "
+"experimentální adresy. Další informace naleznete v RFC3330."
 
 msgid "By default, only already existing files can be uploaded."
 msgstr ""
@@ -1693,7 +1705,7 @@ msgid "C++ Source File"
 msgstr "Zdrojový soubor v C++"
 
 msgid "CA Trusted Certificates"
-msgstr ""
+msgstr "Důvěryhodné certifikáty CA"
 
 msgid "CACHE"
 msgstr "MEZIPAMĚŤ"
@@ -1742,7 +1754,7 @@ msgid "CD/DVD drive"
 msgstr "Jednotka CD/DVD/BD"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "CGI script"
 
 msgid "CHANGE PERMISSIONS"
 msgstr "ZMĚNA PRÁV"
@@ -1857,7 +1869,7 @@ msgid "CTL LUN"
 msgstr "CTL LUN"
 
 msgid "Cache Directory"
-msgstr ""
+msgstr "Cesta/složka pro mezipaměť (cache)"
 
 msgid "Calibration Battery"
 msgstr "Kalibrace akumulátorů"
@@ -1929,19 +1941,19 @@ msgstr ""
 "zneplatněné certifikáty."
 
 msgid "Challenge-Response Authentication"
-msgstr ""
+msgstr "Autentizace výzva-odpověď"
 
 msgid "Change"
 msgstr "Změnit"
 
 msgid "Change Permission"
-msgstr ""
+msgstr "Změnit oprávnění"
 
 msgid "Change below file"
 msgstr "Změnit níže uvedený soubor"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "Změnit oprávnění"
 
 msgid "Change the IP address of your computer"
 msgstr "Změňte IP adresu počítače, ze kterého přistupujete"
@@ -1959,19 +1971,19 @@ msgid "Charging Battery"
 msgstr "Nabíjení akumulátorů"
 
 msgid "Check IP Command"
-msgstr ""
+msgstr "Kontrola IP příkazu"
 
 msgid "Check IP Path"
-msgstr ""
+msgstr "Kontrola IP adresy"
 
 msgid "Check IP Server"
-msgstr ""
+msgstr "Kontrola IP adresy serveru"
 
 msgid "Check IP using HTTPS"
-msgstr ""
+msgstr "Kontrola IP přes HTTPS"
 
 msgid "Check Interval"
-msgstr ""
+msgstr "Interval kontroly"
 
 msgid "Check System|General Setup before initializing"
 msgstr "Před inicializací zkontrolujte Systém | Obecná nastavení"
@@ -2124,6 +2136,9 @@ msgid ""
 "year fields match the current time, and when at least one of the two day "
 "fields (day of month, or day of week) matches the current time."
 msgstr ""
+"Příkazy jsou automaticky provedeny, když zvolená minuta, hodina a měsíc v "
+"roce odpovídají aktuálnímu času a zároveň odpovídá aktuálnímu času zvolený "
+"den v měsíci nebo den v týdnu."
 
 msgid "Comment"
 msgstr "Komentář"
@@ -2156,7 +2171,7 @@ msgid "Configuration"
 msgstr "Nastavení"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "Nastavení složky"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2173,6 +2188,10 @@ msgid ""
 "execute upon subsystem request. Leave this field empty to use the default "
 "settings."
 msgstr ""
+"Konfiguruje externí subsystém (např. démona přenosu souborů). Argumenty by "
+"měly být název podsystému a příkaz (s volitelnými argumenty), který se má "
+"provést na žádost podsystému. Chcete-li použít výchozí nastavení, ponechte "
+"toto pole prázdné."
 
 msgid "Configuring"
 msgstr "Nastavování"
@@ -2251,7 +2270,7 @@ msgid "Controller Model"
 msgstr "Model řadiče"
 
 msgid "Controller Name"
-msgstr ""
+msgstr "Název ovladače"
 
 msgid "Controller TCP Port"
 msgstr "TCP port řadiče"
@@ -2381,17 +2400,17 @@ msgid "Copies"
 msgstr "Kopie"
 
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
 #, php-format
 msgid "Copy from /%s to /%s "
 msgstr "Kopírovat z /%s na /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Kopírování položky/položek"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Kopírování se nezdařilo."
 
 msgid "Core"
 msgstr "Jádro"
@@ -2571,10 +2590,10 @@ msgid "Create PV Guest"
 msgstr "Vytvořit virtualizační kontejner (PV)"
 
 msgid "Create Permission"
-msgstr ""
+msgstr "Vytvořit oprávnění"
 
 msgid "Create Snapshot"
-msgstr ""
+msgstr "Vytvořit snímek snapshot"
 
 msgid "Create Work Directory"
 msgstr "Vytvoř pracovní adresář"
@@ -6758,6 +6777,10 @@ msgstr "Neplatný soubor s firmware."
 msgid "Invalid login credentials."
 msgstr "Neplatné přihlašovací údaje."
 
+msgid ""
+"Invalid port number. The port number must be a value between 1 and 65535."
+msgstr ""
+
 msgid "Invert Selection"
 msgstr "Obrátit výběr"
 
@@ -8832,9 +8855,6 @@ msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
 "Název nebo IP adresa serveru s hesly (např. řadič domény Active Directory)."
-
-msgid "Paste a RSA PRIVATE KEY in PEM format"
-msgstr ""
 
 msgid "Paste a private key in PEM format here."
 msgstr "Sem vložte soukromou část klíče v PEM formátu."
@@ -15320,8 +15340,3 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
-
-#, php-format
-#~ msgid ""
-#~ "%s would like to thank the authors of this software for their efforts."
-#~ msgstr "%s by rád(a) poděkoval(a) autorům tohoto software za jejich úsilí."
