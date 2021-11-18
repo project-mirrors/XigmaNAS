@@ -116,6 +116,7 @@ BUILD 13.0.0.5.xxxx
 Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P5.
 - Upgrade isboot to 0.2.14.
+- Upgrade bash to 5.1 p12.
 - Delete geom_raid5 module.
 
 Fixes:
