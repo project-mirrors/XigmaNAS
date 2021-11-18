@@ -118,7 +118,7 @@ Changes:
 - Upgrade isboot to 0.2.14.
 - Upgrade bash to 5.1 p12.
 - Upgrade dialog to 1.3-20211107.
-- Delete geom_raid5 module.
+- Upgrade unison to 2.51.4.
 
 Fixes:
 
