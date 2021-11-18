@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2021-11-15 15:17+0000\n"
-"PO-Revision-Date: 2021-05-21 07:08+0000\n"
+"POT-Creation-Date: 2021-11-18 20:42+0000\n"
+"PO-Revision-Date: 2021-11-15 21:53+0000\n"
 "Last-Translator: Vicente Soriano <victek@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-15 14:37+0000\n"
-"X-Generator: Launchpad (build 57dd9ea1b48fdf744e285d99fb34fa0c21646cd0)\n"
+"X-Launchpad-Export-Date: 2021-11-18 22:16+0000\n"
+"X-Generator: Launchpad (build 6b4dd4993780fcabf0a1395ec360ac24e3202df6)\n"
 "Language: ca_ES\n"
 
 msgid " No private key"
@@ -110,7 +110,7 @@ msgstr "%s usat de %s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts:"
-msgstr ""
+msgstr "%s vol agrair els seus esforços als autors d'aquest programari:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -381,6 +381,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Un port per escoltar les connexions entrants mitjançant el protocol iSER "
+"(iSCSI sobre RDMA)."
 
 msgid "A reboot is required"
 msgstr "Es requereix reiniciar"
@@ -795,7 +797,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Adreça del dimoni remot hastd. Ha de esser una adreça IP estàtica."
 
 msgid "Admin"
-msgstr ""
+msgstr "Administrador"
 
 msgid "Admin Password"
 msgstr "Contrasenya d'administrador"
@@ -810,7 +812,7 @@ msgid "Administrator Name"
 msgstr "Nom de l'administrador"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Contrasenya de l'administrador"
 
 msgid "Advanced"
 msgstr "Avançada"
@@ -1095,6 +1097,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Una adreça IPv4 o IPv6 per escoltar les connexions entrants mitjançant el "
+"protocol iSER (iSCSI sobre RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Una adreça IPv4 o IPv6 per escoltar les connexions entrants."
@@ -4965,7 +4969,7 @@ msgid "Enable store DOS attributes."
 msgstr "Habilitar magatzem d'atributs DOS."
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "Activeu el suport només per a NFSv4."
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Activar el protocol d'identificació (RFC1413)."
@@ -5116,7 +5120,7 @@ msgid "Enhanced Scheduler"
 msgstr "Planificador ampliat"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "Introduïu el nom d'AD o PDC."
 
 msgid "Enter Command"
 msgstr "Introduïu l'ordre"
@@ -5131,7 +5135,7 @@ msgid "Enter Identifier"
 msgstr "Introduïu l'identificador"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "Introduïu el nom de NetBIOS."
 
 msgid "Enter Password"
 msgstr "Introduïu la contrasenya"
@@ -5259,7 +5263,7 @@ msgstr ""
 "SAI està connectat. (Això també pot ser un host remot)"
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "Introduïu el nom del domini."
 
 msgid "Enter the full user name."
 msgstr "Introduïu el nom d'usuari sencer"
@@ -5284,7 +5288,7 @@ msgstr ""
 "tenir entre 8 i 63 caràcters."
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "Introduïu la contrasenya del compte d'administrador del domini."
 
 msgid "Enter the password of the master user account."
 msgstr "Introduïu la contrasenya del compte d’usuari principal."
@@ -5331,7 +5335,7 @@ msgid "Enter trap host name."
 msgstr "Introduïu trampa nom d'amfitrió."
 
 msgid "Enter user name of a domain administrator account."
-msgstr ""
+msgstr "Introduïu l'usuari del compte d'administrador del domini."
 
 msgid "Enter user name."
 msgstr "Introduïu el nom d'usuari."
@@ -6849,6 +6853,10 @@ msgstr "El fitxer de maquinari no és vàlid."
 msgid "Invalid login credentials."
 msgstr "Credencials d'inici de sessió no vàlides."
 
+msgid ""
+"Invalid port number. The port number must be a value between 1 and 65535."
+msgstr ""
+
 msgid "Invert Selection"
 msgstr "Inverteix la selecció"
 
@@ -7272,7 +7280,7 @@ msgid "Listen"
 msgstr "Escolta"
 
 msgid "Listen (iSER)"
-msgstr ""
+msgstr "Escoltant (iSER)"
 
 msgid "Listen record is locked"
 msgstr "El registre d'escolta està bloquejat"
@@ -7690,7 +7698,7 @@ msgid "Media Folder is unlocked"
 msgstr "La carpeta multimèdia està desbloquejada"
 
 msgid "Media Folders"
-msgstr ""
+msgstr "Carpetes multimèdia"
 
 msgid "Media Library"
 msgstr "Biblioteca multimèdia"
@@ -7971,7 +7979,7 @@ msgid "NAA Identifier"
 msgstr "Identificador NAA"
 
 msgid "NETBIOS"
-msgstr ""
+msgstr "NETBIOS"
 
 msgid "NETBIOS Hostname"
 msgstr "Nom de l'amfitrió NETBIOS"
@@ -8001,7 +8009,7 @@ msgid "NFSv4"
 msgstr "NFSv4"
 
 msgid "NFSv4 Only"
-msgstr ""
+msgstr "Només NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -8916,9 +8924,6 @@ msgstr ""
 "Contrasenya del servidor o adreça IP (per exemple, controlador de domini "
 "d'Active Directory)."
 
-msgid "Paste a RSA PRIVATE KEY in PEM format"
-msgstr "Enganxeu una clau privada RSA en format PEM"
-
 msgid "Paste a private key in PEM format here."
 msgstr "Enganxar una clau privada en format PEM aquí."
 
@@ -9398,7 +9403,7 @@ msgid "Provider is unlocked"
 msgstr "El proveïdor està desbloquejat"
 
 msgid "Providers"
-msgstr ""
+msgstr "Proveïdors"
 
 msgid "Provisioning Type"
 msgstr "Tipus de subministrament"
@@ -9570,7 +9575,7 @@ msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Diari gràfic ARC"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "Gràfic diari d'ample de banda RRDGraphs"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs Diagrama gràfic de freqüència de la CPU"
@@ -9582,7 +9587,7 @@ msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs Diari gràfic d’ús de la CPU"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "Gràfic d'ús diari del disc RRDGraphs"
 
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs Diari L2ARC Gràfic"
@@ -9591,7 +9596,7 @@ msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs Diagrama de mitjanes de càrrega diària"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "Gràfic de memòria diària RRDGraphs"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs Diari gràfic de latència de la xarxa"
@@ -9612,7 +9617,7 @@ msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Diagrama d’Uptime Mensual"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Gràfic d'ampla de banda mensual"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs Grafic mensual de freqüència de la CPU"
@@ -9624,7 +9629,7 @@ msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs Grafic mensual de us de la CPU"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "Gràfic mensual d'ús del disc RRDGraphs"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs Grafic mensual L2ARC"
@@ -9633,7 +9638,7 @@ msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs Grafic mitjà de càrrega mensual"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "Gràfic de memòria mensual RRDGraphs"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs Gràfic de latència de la xarxa mensual"
@@ -9654,7 +9659,7 @@ msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Grafic ARC setmanal"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "Gràfic d'ample de banda setmanal RRDGraphs"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs Grafic de freqüència de la CPU setmanal"
@@ -9666,7 +9671,7 @@ msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs Grafic d'us de la CPU setmanal"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "Gràfic setmanal d'ús del disc RRDGraphs"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs Grafic setmanal L2ARC"
@@ -9675,7 +9680,7 @@ msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs Grafic mitjà de càrrega setmanal"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "Gràfic de memòria setmanal RRDGraphs"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs Grafic de latència de la xarxa setmanal"
@@ -9696,7 +9701,7 @@ msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Grafic anual ARC"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "Gràfic anual d'amplada de banda RRDGraphs"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs Gràfic de freqüència de CPU anual"
@@ -9708,7 +9713,7 @@ msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs Gràfic d'us de CPU anual"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "Gràfic anual d'ús del disc RRDGraphs"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs Gràfic L2ARC anual"
@@ -9717,7 +9722,7 @@ msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs Gràfic de carga mitja anual"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "Gràfic de memòria anual de RRDGraphs"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs Gràfic de làtencia de xarxa anual"
@@ -10075,13 +10080,13 @@ msgstr ""
 "S'estableix en 0 per desactivar aquest informe."
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Informes del disc"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Informes del interfície"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Nivell d'informe"
 
 msgid "Require authentication."
 msgstr "Requereix autenticació."
@@ -10204,7 +10209,7 @@ msgid "Root Bind Password"
 msgstr "Contrasenya arrel oculta"
 
 msgid "Root Directories"
-msgstr ""
+msgstr "Directoris arrel"
 
 msgid "Root Directory"
 msgstr "Directori arrel"
@@ -10769,7 +10774,7 @@ msgstr ""
 "defecte)."
 
 msgid "Select the timezone for this user."
-msgstr ""
+msgstr "Seleccioneu la zona horària d'aquest usuari."
 
 msgid "Select which interface to use."
 msgstr "Seleccioneu quina interfície fareu servir."
@@ -13715,7 +13720,7 @@ msgid "Times"
 msgstr "Hores"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Zona horària"
 
 msgid "Title Speed"
 msgstr "Velocitat del títol"
@@ -15282,7 +15287,7 @@ msgid "e.g. %s"
 msgstr "e.x. %s"
 
 msgid "example.com"
-msgstr ""
+msgstr "example.com"
 
 msgid "filechooser"
 msgstr "selector de fitxers"
@@ -15438,7 +15443,7 @@ msgid "no delay"
 msgstr "Sense retard"
 
 msgid "no pools available"
-msgstr ""
+msgstr "no hi ha piscines disponibles"
 
 msgid "none"
 msgstr "cap"
@@ -15524,9 +15529,5 @@ msgstr "va ser assignat a"
 msgid "yes"
 msgstr "sí"
 
-#, php-format
-#~ msgid ""
-#~ "%s would like to thank the authors of this software for their efforts."
-#~ msgstr ""
-#~ "%s agradaria donar les gràcies als autors d'aquest programari pels seus "
-#~ "esforços."
+#~ msgid "Paste a RSA PRIVATE KEY in PEM format"
+#~ msgstr "Enganxeu una clau privada RSA en format PEM"
