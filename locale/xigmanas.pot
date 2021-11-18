@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-11-15 15:17+0000\n"
+"POT-Creation-Date: 2021-11-18 20:42+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -5939,6 +5939,9 @@ msgstr ""
 msgid "Invalid login credentials."
 msgstr ""
 
+msgid "Invalid port number. The port number must be a value between 1 and 65535."
+msgstr ""
+
 msgid "Invert Selection"
 msgstr ""
 
@@ -7803,9 +7806,6 @@ msgid "Password for the transmission web interface."
 msgstr ""
 
 msgid "Password server name or IP address (e.g. Active Directory domain controller)."
-msgstr ""
-
-msgid "Paste a RSA PRIVATE KEY in PEM format"
 msgstr ""
 
 msgid "Paste a private key in PEM format here."
