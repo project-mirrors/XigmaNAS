@@ -36,7 +36,7 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-$sphere_array = ['concat','mirror','raid5','stripe','vinum'];
+$sphere_array = ['concat','mirror','stripe','vinum'];
 $pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('Software RAID')];
 $document = new_page($pgtitle);
 //	get areas
