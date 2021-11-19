@@ -74,6 +74,7 @@ transmission_prestart()
 	local _umask _preallocation _messagelevel _rpchostwhitelistenabled _rpchostwhitelist _jsonkey _jsonval
 	local _homedir _configfile
 	local _downloaddir _configdir _watchdir _incompletedir
+	local _peerblockliststate
 
 #	get user's homedirectory
 	_homedir=`su -l "${transmission_user}" -c 'echo $HOME'`
@@ -144,11 +145,22 @@ transmission_prestart()
 			--break \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc )
-	if checkyesno transmission_blocklist; then
-		_command_args="${_command_args} -b"
-	else
-		_command_args="${_command_args} -B"
-	fi
+	_peerblockliststate=$( configxml_get "//bittorrent/watchdir" )
+	case "${_peerblockliststate}" in
+		enabled)
+			_command_args="${_command_args} -b"
+			;;
+		disabled)
+			_command_args="${_command_args} -B"
+			;;
+		*)
+			if checkyesno transmission_blocklist; then
+				_command_args="${_command_args} -b"
+			else
+				_command_args="${_command_args} -B"
+			fi
+			;;
+	esac
 #	check the effective user.
 	debug "command_args: $_command_args"
 	if [ "${transmission_user}" = "`/usr/bin/id -un`" ]; then

@@ -375,7 +375,7 @@ class setting_properties extends grid_properties {
 	}
 	public function init_peerblockliststate(): myp\property_list {
 		$options = [
-			'default' => gettext ('Default'),
+			'' => gettext ('Default'),
 			'enabled' => gettext('Enable Peer Blocklist'),
 			'disabled' => gettext('Disable Peer Blocklist')
 		];
