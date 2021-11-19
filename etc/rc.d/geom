@@ -59,7 +59,7 @@ geom_stop()
 
 	echo "Stopping GEOM devices."
 	for _class in ${_classes}; do
-		_geom_stop ${_class};;
+		_geom_stop ${_class}
 		_geom_unload ${_class}
 	done
 }
