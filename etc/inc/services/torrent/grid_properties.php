@@ -297,6 +297,18 @@ class grid_properties extends myp\container {
 	final public function get_password(): myp\property_text {
 		return $this->x_password ?? $this->init_password();
 	}
+	protected $x_peerblockliststate;
+	public function init_peerblockliststate(): myp\property_list {
+		$title = gettext('Peer Blocklist');
+		$property = $this->x_peerblockliststate = new myp\property_list($this);
+		$property->
+			set_name('peerblockliststate')->
+			set_title($title);
+		return $property;
+	}
+	final public function get_peerblockliststate(): myp\property_list {
+		return $this->x_peerblockliststate ?? $this->init_peerblockliststate();
+	}
 	protected $x_rpchostwhitelistenabled;
 	public function init_rpchostwhitelistenabled(): myp\property_list {
 		$title = gettext('DNS Rebind Protection');

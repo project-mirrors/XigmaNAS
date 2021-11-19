@@ -41,7 +41,7 @@ use function gettext;
 use function http_build_query;
 use function sprintf;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->
@@ -371,6 +371,21 @@ final class setting_properties extends grid_properties {
 			set_maxlength(1024)->
 			filter_use_default_set_regexp('/^[[:alnum:]]*$/')->
 			filter_use_default_or_empty();
+		return $property;
+	}
+	public function init_peerblockliststate(): myp\property_list {
+		$options = [
+			'default' => gettext ('Default'),
+			'enabled' => gettext('Enable Peer Blocklist'),
+			'disabled' => gettext('Disable Peer Blocklist')
+		];
+		$defaultvalue = '';
+		$property = parent::init_peerblockliststate();
+		$property->
+			set_id('peerblockliststate')->
+			set_defaultvalue($defaultvalue)->
+			set_options($options)->
+			filter_use_default();
 		return $property;
 	}
 	public function init_rpchostwhitelistenabled(): myp\property_list {
