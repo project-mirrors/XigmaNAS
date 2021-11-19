@@ -145,22 +145,20 @@ transmission_prestart()
 			--break \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc )
-	_peerblockliststate=$( configxml_get "//bittorrent/watchdir" )
+	_peerblockliststate=$( configxml_get "//bittorrent/peerblockliststate" )
 	case "${_peerblockliststate}" in
 		enabled)
-			_command_args="${_command_args} -b"
+			transmission_blocklist="YES"
 			;;
 		disabled)
-			_command_args="${_command_args} -B"
-			;;
-		*)
-			if checkyesno transmission_blocklist; then
-				_command_args="${_command_args} -b"
-			else
-				_command_args="${_command_args} -B"
-			fi
+			transmission_blocklist="NO"
 			;;
 	esac
+	if checkyesno transmission_blocklist; then
+		_command_args="${_command_args} -b"
+	else
+		_command_args="${_command_args} -B"
+	fi
 #	check the effective user.
 	debug "command_args: $_command_args"
 	if [ "${transmission_user}" = "`/usr/bin/id -un`" ]; then
