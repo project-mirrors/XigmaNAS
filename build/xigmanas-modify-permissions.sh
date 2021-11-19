@@ -53,3 +53,7 @@ chflags -RH noschg lib/libcrypt.so.5
 # lib/libthr.so.3
 echo "lib/libthr.so.3"
 chflags -RH noschg lib/libthr.so.3
+
+# rc.d/files*
+echo "rc.d/files*"
+chmod -R 0555 etc/rc.d/*
