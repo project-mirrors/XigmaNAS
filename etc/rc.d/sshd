@@ -31,8 +31,11 @@ sshd_enable=${sshd_enable:-"NO"}
 sshd_config=${sshd_config:-"/var/etc/ssh/sshd_config"}
 sshd_hostrsakey=${sshd_hostrsakey:-"/var/etc/ssh/ssh_host_rsa_key"}
 sshd_hostdsakey=${sshd_hostdsakey:-"/var/etc/ssh/ssh_host_dsa_key"}
+sshd_hostecdsakey=${sshd_hostecdsakey:-"/var/etc/ssh/ssh_host_ecdsa_key"}
+sshd_hosted25519key=${sshd_hosted25519key:-"/var/etc/ssh/ssh_host_ed25519_key"}
+sshd_hostkey=${sshd_hostkey:-"/var/etc/ssh/ssh_host_key"}
 command="/usr/sbin/${name}"
-command_args="-f /var/etc/ssh/sshd_config -h /var/etc/ssh/ssh_host_rsa_key"
+command_args="-f /var/etc/ssh/sshd_config -h /var/etc/ssh/ssh_host_key"
 pidfile="/var/run/${name}.pid"
 
 sshd_mkconf()
@@ -43,7 +46,7 @@ sshd_mkconf()
 	/usr/local/bin/xml sel --template \
 		--match '(//sshd[enable])[1]' \
 			--output 'HostKeyAlgorithms +ssh-rsa,ssh-dss' --nl \
-			--output 'HostKey /var/etc/ssh/ssh_host_rsa_key' --nl \
+			--output 'HostKey /var/etc/ssh/ssh_host_key' --nl \
 			--output 'SyslogFacility LOCAL3' --nl \
 			--output 'UseDNS no' --nl \
 			--if 'string-length(subsystem) > 0' \
@@ -111,14 +114,13 @@ sshd_mkconf()
 
 #	create ssh_host_rsa_key file
 	_privatekey=`configxml_get "//sshd/private-key"`
-	/bin/rm -f ${sshd_hostrsakey}
-	/bin/rm -f ${sshd_hostdsakey}
+	/bin/rm -f ${sshd_hostkey}
 	if [ -n "${_privatekey}" ]; then
-		echo "${_privatekey}" > ${sshd_hostrsakey}.tmp
-		/usr/bin/uudecode -m -p -r ${sshd_hostrsakey}.tmp > ${sshd_hostrsakey}
-		/bin/rm -f ${sshd_hostrsakey}.tmp
+		echo "${_privatekey}" > ${sshd_hostkey}.tmp
+		/usr/bin/uudecode -m -p -r ${sshd_hostkey}.tmp > ${sshd_hostkey}
+		/bin/rm -f ${sshd_hostkey}.tmp
 	elif [ -d /conf -a -f ${_confkey} ]; then
-		cp ${_confkey} ${sshd_hostrsakey}
+		cp ${_confkey} ${sshd_hostkey}
 	else
 		echo "-----BEGIN RSA PRIVATE KEY-----
 MIIEogIBAAKCAQEAvzenPFTj9cOw+30GhPpNk8OJ8prhW27iT3zbOXP+vSIxkLnS
@@ -146,10 +148,10 @@ qEmFehrFdg5gZdTd2+oxJ4SSGj5Zv2wrodGeiw74Xlkk2pQlYjb75YJH0Mu2l+l1
 M+Y5AoGAHoAq4xow56hcQd3re3eLWWEG+3m+Y9KO0Wen87Q9TP1sLDXFON4etF+v
 jDOTXoR8UbcVDcayJ4D6Ngc+tBl7f6GGyRfjRP8y4sqz1WF99nD/W0aI0fA6jBz0
 /oxl/XHd2xpJps+/hLdRrTCRF0tzeeNmefmAXEmwMdEOO9TpWg4=
------END RSA PRIVATE KEY-----" > ${sshd_hostrsakey}
+-----END RSA PRIVATE KEY-----" > ${sshd_hostkey}
 	fi
 
-	/bin/chmod 0600 ${sshd_hostrsakey}
+	/bin/chmod 0600 ${sshd_hostkey}
 }
 
 run_rc_command "$1"
