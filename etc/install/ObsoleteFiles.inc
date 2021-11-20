@@ -138,3 +138,5 @@ usr/local/lib/libpython3.6m.so.1.0
 etc/inc/properties_diag_log_settings.php
 # 8741
 usr/local/www/status_graph_tabs.inc
+# 8847
+etc/ssh/ssh_host_dsa_key
