@@ -5,6 +5,7 @@ Changes:
 - Upgrade isboot to 0.2.14.
 - Upgrade bash to 5.1 p12.
 - Upgrade dialog to 1.3-20211107.
+- Upgrade php to 7.4.26.
 
 Fixes:
 

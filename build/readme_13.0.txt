@@ -119,6 +119,7 @@ Changes:
 - Upgrade bash to 5.1 p12.
 - Upgrade dialog to 1.3-20211107.
 - Upgrade unison to 2.51.4.
+- Upgrade php to 7.4.26.
 
 Fixes:
 
