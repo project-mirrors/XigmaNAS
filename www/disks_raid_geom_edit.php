@@ -31,9 +31,14 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'disks_raid_geom_fun.inc';
+
+use common\arr;
+use common\uuid;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -47,7 +52,6 @@ $checkbox_member_record = [];
 $gt_record_loc = gtext('RAID device is already in use.');
 $gt_record_opn = gtext('RAID device can be removed.');
 $gt_confirm_mirror = gtext('Do you want to create a RAID-1 from selected disks?');
-$gt_confirm_raid5 = gtext('Do you want to create a RAID-5 from selected disks?');
 $gt_confirm_stripe = gtext('Do you want to create a RAID-0 from selected disks?');
 $gt_confirm_concat = gtext('Do you want to create a JBOD from selected disks?');
 $prerequisites_ok = true; // flag to indicate lack of information / resources
@@ -79,24 +83,24 @@ if(PAGE_MODE_POST == $mode_page): // POST is Cancel
 	endif;
 endif;
 //	get/set uuid based on page mode (GET, POST, ADD)
-if((PAGE_MODE_POST == $mode_page) && isset($_POST['uuid']) && is_uuid_v4($_POST['uuid'])):
+if((PAGE_MODE_POST == $mode_page) && isset($_POST['uuid']) && uuid::is_v4($_POST['uuid'])):
 	$sphere_record['uuid'] = $_POST['uuid'];
 else:
-	if((PAGE_MODE_EDIT == $mode_page) && isset($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
+	if((PAGE_MODE_EDIT == $mode_page) && isset($_GET['uuid']) && uuid::is_v4($_GET['uuid'])):
 		$sphere_record['uuid'] = $_GET['uuid'];
 	else:
 		if($active_button_count > 0):
 			$mode_page = PAGE_MODE_ADD;
 		else:
-			//	Nothing to add, switch to edit mode
+//			Nothing to add, switch to edit mode
 			$mode_page = PAGE_MODE_EDIT;
 		endif;
-		$sphere_record['uuid'] = uuid();
+		$sphere_record['uuid'] = uuid::create_v4();
 	endif;
 endif;
 // read configuration data
 geomraid_config_get($sphere_array);
-//	array_sort_key($sphere_array, 'name'); // no need to sort the array, we're in single record mode
+//	arr::sort_key($sphere_array, 'name'); // no need to sort the array, we're in single record mode
 //	scan for pending tasks
 $mode_updatenotify = UPDATENOTIFY_MODE_UNKNOWN;
 foreach($a_process as $r_process):
@@ -107,10 +111,11 @@ foreach($a_process as $r_process):
 	endif;
 endforeach;
 //	find index of uuid in the main array
-$index = array_search_ex($sphere_record['uuid'], $sphere_array, 'uuid');
+$index = arr::search_ex($sphere_record['uuid'], $sphere_array, 'uuid');
 //	determine record mode, exit page if information doesn't mke sense
 $mode_record = RECORD_ERROR;
-if(false !== $index): // record for uuid found in configuration 
+if($index !== false):
+//	record for uuid found in configuration
 	if((PAGE_MODE_POST == $mode_page || (PAGE_MODE_EDIT == $mode_page))): // POST or EDIT
 		switch($mode_updatenotify):
 			case UPDATENOTIFY_MODE_NEW:
@@ -123,7 +128,7 @@ if(false !== $index): // record for uuid found in configuration
 		endswitch;
 	endif;
 else:
-	//	record for uuid not found in configuration
+//	record for uuid not found in configuration
 	if((PAGE_MODE_POST == $mode_page) || (PAGE_MODE_ADD == $mode_page)): // POST or ADD
 		switch($mode_updatenotify):
 			case UPDATENOTIFY_MODE_UNKNOWN:
@@ -142,7 +147,7 @@ $isrecordmodify = (RECORD_MODIFY === $mode_record);
 $isrecordnewornewmodify = ($isrecordnew || $isrecordnewmodify);
 //	get all known softraids (config)
 $a_config_sraid = get_conf_sraid_disks_list();
-//	get all disks that are softraid-formatted 
+//	get all disks that are softraid-formatted
 $a_sdisk = get_conf_disks_filtered_ex('fstype','softraid');
 if(!sizeof($a_sdisk)):
 	$errormsg = gtext('No softraid-formatted disks available.');
@@ -171,13 +176,13 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 		header($sphere_header_parent);
 		exit;
 	endif;
-	//	start validation
+//	start validation
 	unset($input_errors);
-	//	input validation
+//	input validation
 	$reqdfields = ['name'];
 	$reqdfieldsn = [gtext('RAID Name')];
 	do_input_validation($sphere_record,$reqdfields,$reqdfieldsn,$input_errors);
-	//	logic validation
+//	logic validation
 	if($prerequisites_ok && empty($input_errors)): // check for a valid RAID name.
 		if(($sphere_record['name'] && !is_validaliasname($sphere_record['name']))):
 			$input_errors[] = gtext('The name of the RAID may only consist of the characters a-z, A-Z, 0-9.');
@@ -193,7 +198,7 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 					endif;
 				endforeach;
 			break;
-			case RECORD_NEW_MODIFY: 
+			case RECORD_NEW_MODIFY:
 				if($sphere_record['name'] !== $sphere_array[$index]['name']): // if the RAID name has changed it shouldn't be found in config
 					foreach($a_config_sraid as $r_config_sraid):
 						if($r_config_sraid['name'] === $sphere_record['name']):
@@ -203,7 +208,7 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 					endforeach;
 				endif;
 				break;
-			case RECORD_MODIFY: 
+			case RECORD_MODIFY:
 				if($sphere_record['name'] !== $sphere_array[$index]['name']): // should never happen because sphere_record['name'] should be set to $sphere_array[$index]['name']
 					$input_errors[] = gtext('The name of the RAID cannot be changed.');
 				endif;
@@ -223,11 +228,6 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 					$input_errors[] = gtext('1 or more disks are required to build a RAID-1 volume.');
 				endif;
 				break;
-			case '5':
-				if($helpinghand < 3):
-					$input_errors[] = gtext('3 or more disks are required to build a RAID-5 volume.');
-				endif;
-				break;
 			case '0':
 				if($helpinghand < 2):
 					$input_errors[] = gtext('2 or more disks are required to build a RAID-0 volume.');
@@ -235,7 +235,7 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 				break;
 		endswitch;
 	endif;
-	//	process POST
+//	process POST
 	if($prerequisites_ok && empty($input_errors)):
 		$sphere_notifier = $a_process[$sphere_record['type']]['x-notifier'];
 		switch($mode_record):
@@ -243,16 +243,17 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 				if($sphere_record['init']): // create new RAID
 					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_NEW, $sphere_record['uuid']);
 				else:
-					//	existing RAID
+//					existing RAID
 					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_record['uuid']);
 				endif;
 				unset($sphere_record['init']); // lifetime ends here
 				$sphere_array[] = $sphere_record;
 				break;
 			case RECORD_NEW_MODIFY:
-				if($sphere_record['init']): // create new RAID
+				if($sphere_record['init']):
+//					create new RAID
 				else:
-					//	existing RAID
+//					existing RAID
 					updatenotify_clear($sphere_notifier, $sphere_record['uuid']); // clear NEW
 					updatenotify_set($sphere_notifier, UPDATENOTIFY_MODE_MODIFIED, $sphere_record['uuid']);
 				endif;
@@ -273,7 +274,7 @@ if(PAGE_MODE_POST == $mode_page): // We know POST is "Submit" or "Action", alrea
 		exit;
 	endif;
 else:
-	//	EDIT / ADD
+//	EDIT / ADD
 	switch($mode_record):
 		case RECORD_NEW:
 			$sphere_record['name'] = '';
@@ -321,7 +322,7 @@ foreach($a_sdisk as $r_sdisk):
 	$r_device['size']              = isset($r_sdisk['size']) ? $r_sdisk['size'] : '';
 	$r_device['serial']            = isset($r_sdisk['serial']) ? $r_sdisk['serial'] : '';
 	$r_device['desc']              = isset($r_sdisk['desc']) ? htmlspecialchars($r_sdisk['desc']) : '';
-	$r_device['isnotinasraid']     = (false === array_search_ex($r_device['devicespecialfile'], $a_config_sraid, 'device'));
+	$r_device['isnotinasraid']     = (false === arr::search_ex($r_device['devicespecialfile'], $a_config_sraid, 'device'));
 	$r_device['isinthissraid']     = (isset($sphere_record['device']) && is_array($sphere_record['device']) && in_array($r_device['devicespecialfile'], $sphere_record['device']));
 	$a_device[$helpinghand] = $r_device;
 endforeach;
@@ -347,7 +348,6 @@ $(window).on("load", function() {
 		toggleselection($(this)[0], "<?=$checkbox_member_name;?>[]");
 	});
 	$("#button_raid1").click(function() { return confirm('<?=$gt_confirm_mirror;?>'); });
-	$("#button_raid5").click(function() { return confirm('<?=$gt_confirm_raid5;?>'); });
 	$("#button_raid0").click(function() { return confirm('<?=$gt_confirm_stripe;?>'); });
 	$("#button_jbod").click(function() { return confirm('<?=$gt_confirm_concat;?>'); });
 	controlactionbuttons(this,'<?=$checkbox_member_name;?>[]');
@@ -358,16 +358,14 @@ function disableactionbuttons(n) {
 	var ab_element;
 	var ab_disable = [];
 	if (typeof(n) !== 'number') { n = 0; }
- 	switch (n) { //            mirror, raid5 , stripe, concat
-		case  0: ab_disable = [true  , true  , true  , true ]; break;
-		case  1: ab_disable = [false , true  , true  , false]; break;
-		case  2: ab_disable = [false , true  , false , false]; break;
-		default: ab_disable = [false , false , false , false]; break; // setting for 3 or more disks
-	}		
+ 	switch (n) { //            mirror, stripe, concat
+		case  0: ab_disable = [true  , true  , true ]; break;
+		case  1: ab_disable = [false , true  , false]; break;
+		default: ab_disable = [false , false , false]; break; // setting for 2 or more disks
+	}
 	ab_element = document.getElementById('button_raid1'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[0])) { ab_element.disabled = ab_disable[0]; }
-	ab_element = document.getElementById('button_raid5'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[1])) { ab_element.disabled = ab_disable[1]; }
-	ab_element = document.getElementById('button_raid0'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[2])) { ab_element.disabled = ab_disable[2]; }
-	ab_element = document.getElementById('button_jbod'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[3])) { ab_element.disabled = ab_disable[3]; }
+	ab_element = document.getElementById('button_raid0'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[1])) { ab_element.disabled = ab_disable[1]; }
+	ab_element = document.getElementById('button_jbod'); if ((ab_element !== null) && (ab_element.disabled !== ab_disable[2])) { ab_element.disabled = ab_disable[2]; }
 }
 function controlactionbuttons(ego, triggerbyname) {
 	var a_trigger = document.getElementsByName(triggerbyname);
