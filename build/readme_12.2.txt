@@ -138,7 +138,6 @@ Changes:
 - Upgrade zoneinfo to 2021e.
 - Upgrade sudo to 1.9.8p2.
 - Upgrade syncthing to 1.18.4.
-- Upgrade php to 7.4.25.
 - Upgrade samba to 4.13.14.
 - Upgrade lighttpd to 1.4.61.
 - Upgrade nut to 2021.11.08.
@@ -147,6 +146,7 @@ Changes:
 - Upgrade bash to 5.1 p12.
 - Upgrade dialog to 1.3-20211107.
 - Upgrade unison to 2.51.4.
+- Upgrade php to 7.4.26.
 
 Fixes:
 - Fix only first lagg member is brought up.
