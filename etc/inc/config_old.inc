@@ -31,12 +31,16 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-require_once("globals.inc");
-require_once("util.inc");
-require_once("xmlparse.inc");
-require_once("system.inc");
-require_once("array.inc");
-require_once("rc.inc");
+
+require_once 'autoload.php';
+require_once 'globals.inc';
+require_once 'util.inc';
+require_once 'xmlparse.inc';
+require_once 'system.inc';
+require_once 'rc.inc';
+
+use common\arr;
+use common\uuid;
 
 // DO NOT CHANGE ANY CONVERT VALUES IN THIS FUNCTION
 // Convert the older config file.
@@ -134,7 +138,7 @@ function config_upgrade_old() {
 	}
 
 	/* convert 1.4 -> 1.5 */
-	/* Add [fullname] information on mount, disk, gmirror, gvinum and graid5 */
+	/* Add [fullname] information on mount, disk, gmirror and gvinum */
 	if ($config['version'] === "1.4") {
 		/* Add fullname (/dev/ad0) under disk */
 		for ($i = 0; isset($config['disks']['disk'][$i]); $i++) {
@@ -158,9 +162,6 @@ function config_upgrade_old() {
 				case "gstripe":
 					$config['mounts']['mount'][$i]['fullname'] = "/dev/stripe/{$config['mounts']['mount'][$i]['mdisk']}";
 					break;
-				case "graid5":
-					$config['mounts']['mount'][$i]['fullname'] = "/dev/raid5/{$config['mounts']['mount'][$i]['mdisk']}";
-					break;
 				default:
 					$config['mounts']['mount'][$i]['fullname'] = "/dev/{$config['mounts']['mount'][$i]['mdisk']}{$config['mounts']['mount'][$i]['partition']}";
 			}
@@ -179,14 +180,6 @@ function config_upgrade_old() {
 				$config['gvinum']['vdisk'][$i]['fullname']="/dev/gvinum/{$config['gvinum']['vdisk'][$i]['name']}";
 			}
 		}
-
-//		add fullname (/dev/raid5/toto) under graid5
-		for ($i = 0; isset($config['graid5']['vdisk'][$i]); $i++) {
-			if (isset($config['graid5']['vdisk'][$i]['name'])) 	{
-				$config['graid5']['vdisk'][$i]['fullname']="/dev/raid5/{$config['graid5']['vdisk'][$i]['name']}";
-			}
-		}
-
 		$config['version'] = "1.5";
 	}
 
@@ -321,23 +314,19 @@ function config_upgrade_old() {
 	/* - Change ['fstype']='gmirror' to 'softraid' */
 	/* - Change ['fstype']='gconcat' to 'softraid' */
 	/* - Change ['fstype']='gstripe' to 'softraid' */
-	/* - Change ['fstype']='graid5' to 'softraid' */
 	if ($config['version'] === "1.7") {
 		for ($i = 0; isset($config['disks']['disk'][$i]); $i++) {
 			if (isset($config['disks']['disk'][$i]['name'])) 	{
 				switch ($config['disks']['disk'][$i]['fstype']) {
-				case "gmirror":
-					$config['disks']['disk'][$i]['fstype']="softraid";
-					break;
-				case "gconcat":
-					$config['disks']['disk'][$i]['fstype']="softraid";
-					break;
-				case "gstripe":
-					$config['disks']['disk'][$i]['fstype']="softraid";
-					break;
-				case "graid5":
-					$config['disks']['disk'][$i]['fstype']="softraid";
-					break;
+					case "gmirror":
+						$config['disks']['disk'][$i]['fstype']="softraid";
+						break;
+					case "gconcat":
+						$config['disks']['disk'][$i]['fstype']="softraid";
+						break;
+					case "gstripe":
+						$config['disks']['disk'][$i]['fstype']="softraid";
+						break;
 				}
 			}
 		}
@@ -611,7 +600,7 @@ function config_upgrade_old() {
 			}
 		}
 
-		foreach (explode(" ", "gconcat gmirror graid5 gstripe gvinum geli") as $class) {
+		foreach (explode(" ", "gconcat gmirror gstripe gvinum geli") as $class) {
 			for ($i = 0; isset($config[$class]['vdisk'][$i]); $i++) {
 				if (isset($config[$class]['vdisk'][$i]['fullname'])) {
 					$config[$class]['vdisk'][$i]['devicespecialfile'] = $config[$class]['vdisk'][$i]['fullname'];
@@ -975,17 +964,17 @@ function config_upgrade_old() {
 	/* Add UUID's to physical devices and virtual GEOM devices. */
 	if ($config['version'] === "5.2") {
 		for ($i = 0; isset($config['disks']['disk'][$i]); $i++) {
-			$config['disks']['disk'][$i]['uuid'] = uuid();
+			$config['disks']['disk'][$i]['uuid'] = uuid::create_v4();
 		}
 
-		foreach (explode(" ", "gconcat gmirror graid5 gstripe gvinum geli") as $class) {
+		foreach (explode(" ", "gconcat gmirror gstripe gvinum geli") as $class) {
 			for ($i = 0; isset($config[$class]['vdisk'][$i]); $i++) {
-				$config[$class]['vdisk'][$i]['uuid'] = uuid();
+				$config[$class]['vdisk'][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
 		for ($i = 0; isset($config['mounts']['mount'][$i]); $i++) {
-			$config['mounts']['mount'][$i]['uuid'] = uuid();
+			$config['mounts']['mount'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		$config['version'] = "5.3";
@@ -1022,12 +1011,12 @@ function config_upgrade_old() {
 	/* Add UUID's to //rsyncd/module, //rsync/rsyncclient and //rsync/rsynclocal. */
 	if ($config['version'] === "5.4") {
 		for ($i = 0; isset($config['rsyncd']['module'][$i]); $i++) {
-			$config['rsyncd']['module'][$i]['uuid'] = uuid();
+			$config['rsyncd']['module'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		foreach (explode(" ", "rsyncclient rsynclocal") as $attr) {
 			for ($i = 0; isset($config['rsync'][$attr][$i]); $i++) {
-				$config['rsync'][$attr][$i]['uuid'] = uuid();
+				$config['rsync'][$attr][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
@@ -1041,42 +1030,42 @@ function config_upgrade_old() {
 	/* //iscsitarget/extent, //iscsitarget/device and //iscsitarget/target. */
 	if ($config['version'] === "5.5") {
 		for ($i = 0; isset($config['staticroutes']['route'][$i]); $i++) {
-			$config['staticroutes']['route'][$i]['uuid'] = uuid();
+			$config['staticroutes']['route'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		foreach (explode(" ", "samba afp nfsd") as $attr) {
 			for ($i = 0; isset($config[$attr]['share'][$i]); $i++) {
-				$config[$attr]['share'][$i]['uuid'] = uuid();
+				$config[$attr]['share'][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
 		for ($i = 0; isset($config['cron']['job'][$i]); $i++) {
-			$config['cron']['job'][$i]['uuid'] = uuid();
+			$config['cron']['job'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		for ($i = 0; isset($config['system']['hosts'][$i]); $i++) {
-			$config['system']['hosts'][$i]['uuid'] = uuid();
+			$config['system']['hosts'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		foreach (explode(" ", "user group") as $attr) {
 			for ($i = 0; isset($config['access'][$attr][$i]); $i++) {
-				$config['access'][$attr][$i]['uuid'] = uuid();
+				$config['access'][$attr][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
 		for ($i = 0; isset($config['smartd']['selftest'][$i]); $i++) {
-			$config['smartd']['selftest'][$i]['uuid'] = uuid();
+			$config['smartd']['selftest'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		foreach (explode(" ", "vlan lagg") as $attr) {
 			for ($i = 0; isset($config['vinterfaces'][$attr][$i]); $i++) {
-				$config['vinterfaces'][$attr][$i]['uuid'] = uuid();
+				$config['vinterfaces'][$attr][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
 		foreach (explode(" ", "extent device target") as $attr) {
 			for ($i = 0; isset($config['iscsitarget'][$attr][$i]); $i++) {
-				$config['iscsitarget'][$attr][$i]['uuid'] = uuid();
+				$config['iscsitarget'][$attr][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
@@ -1088,12 +1077,12 @@ function config_upgrade_old() {
 	if ($config['version'] === "5.6") {
 		foreach (explode(" ", "rcconf sysctl") as $attr) {
 			for ($i = 0; isset($config['system'][$attr]['param'][$i]); $i++) {
-				$config['system'][$attr]['param'][$i]['uuid'] = uuid();
+				$config['system'][$attr]['param'][$i]['uuid'] = uuid::create_v4();
 			}
 		}
 
 		for ($i = 0; isset($config['iscsiinit']['vdisk'][$i]); $i++) {
-			$config['iscsiinit']['vdisk'][$i]['uuid'] = uuid();
+			$config['iscsiinit']['vdisk'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		$config['version'] = "5.7";
@@ -1114,9 +1103,9 @@ function config_upgrade_old() {
 	/* Convert 5.8 -> 5.9 */
 	/* Add hw.ata.to=15 to //system/sysctl/param. */
 	if ($config['version'] === "5.8") {
-		if (false === array_search_ex("hw.ata.to", $config['system']['sysctl']['param'], "name")) {
+		if (false === arr::search_ex("hw.ata.to", $config['system']['sysctl']['param'], "name")) {
 			$config['system']['sysctl']['param'][] = array(
-				"uuid" => uuid(),
+				"uuid" => uuid::create_v4(),
 				"name" => "hw.ata.to",
 				"value" => "15",
 				"comment" => "ATA disk timeout vis-a-vis power-saving");
@@ -1250,7 +1239,7 @@ function config_upgrade_old() {
 		$config['system']['swap']['type'] = "file";
 
 		if (isset($config['system']['swap_enable'])) {
-			$index = array_search_ex($config['system']['swap_mountname'], $config['mounts']['mount'], "sharename");
+			$index = arr::search_ex($config['system']['swap_mountname'], $config['mounts']['mount'], "sharename");
 
 			$config['system']['swap']['enable'] = true;
 			$config['system']['swap']['mountpoint'] = $config['mounts']['mount'][$index]['uuid'];
@@ -1292,14 +1281,14 @@ function config_upgrade_old() {
 
 		$config['system']['sysctl']['param'][] = array(
 			"enable" => true,
-			"uuid" => uuid(),
+			"uuid" => uuid::create_v4(),
 			"name" => "kern.coredump",
 			"value" => "0",
 			"comment" => "Disable core dump");
 
 		$config['system']['sysctl']['param'][] = array(
 			"enable" => false,
-			"uuid" => uuid(),
+			"uuid" => uuid::create_v4(),
 			"name" => "hw.acpi.power_button_state",
 			"value" => "NONE",
 			"comment" => "Disable power button");
@@ -1351,10 +1340,10 @@ function config_upgrade_old() {
 			$config['system']['rcconf']['param'][$i]['enable'] = true;
 		}
 
-		if (false === array_search_ex("powerd_flags", $config['system']['rcconf']['param'], "name")) {
+		if (false === arr::search_ex("powerd_flags", $config['system']['rcconf']['param'], "name")) {
 			$config['system']['rcconf']['param'][] = array(
 				"enable" => true,
-				"uuid" => uuid(),
+				"uuid" => uuid::create_v4(),
 				"name" => "powerd_flags",
 				"value" => "-a adaptive -b adaptive",
 				"comment" => "System power control options");
@@ -1367,7 +1356,7 @@ function config_upgrade_old() {
 	/* Set uuid's for //websrv/authentication/url. */
 	if ($config['version'] === "7.7") {
 		for ($i = 0; isset($config['websrv']['authentication']['url'][$i]); $i++) {
-			$config['websrv']['authentication']['url'][$i]['uuid'] = uuid();
+			$config['websrv']['authentication']['url'][$i]['uuid'] = uuid::create_v4();
 		}
 
 		$config['version'] = "7.8";
@@ -1394,7 +1383,7 @@ function config_upgrade_old() {
 	/* Modify 'extraoptions' attribute for user 'transmission'. */
 	/* Convert 'fullshell' attribute to its 'shell' equivalent. */
 	if ($config['version'] === "7.9") {
-		$index = array_search_ex("60c4bfb1-7c3c-4535-800c-2b17eeae9369", $config['system']['usermanagement']['user'], "uuid");
+		$index = arr::search_ex("60c4bfb1-7c3c-4535-800c-2b17eeae9369", $config['system']['usermanagement']['user'], "uuid");
 		if (false !== $index) {
 			$config['system']['usermanagement']['user'][$index]['extraoptions'] = "-m -w random";
 		}
@@ -1539,7 +1528,6 @@ function config_upgrade_old() {
 		unset($config['gmirror']);
 		unset($config['gconcat']);
 		unset($config['gstripe']);
-		unset($config['graid5']);
 		unset($config['geli']);
 		*/
 //		convert all ad devices to ada, and clear ZFS settings.
@@ -1586,10 +1574,10 @@ function config_upgrade_old() {
 			"hw.intr_storm_threshold" => 9000,
 		);
 		foreach ($a_mib as $key => $val) {
-			$index = array_search_ex($key, $config['system']['sysctl']['param'], "name");
+			$index = arr::search_ex($key, $config['system']['sysctl']['param'], "name");
 			if ($index === false) {
 				$config['system']['sysctl']['param'][] = array(
-					"uuid" => uuid(),
+					"uuid" => uuid::create_v4(),
 					"name" => $key,
 					"value" => $val,
 					"comment" => gtext("System tuning"),
@@ -1600,7 +1588,7 @@ function config_upgrade_old() {
 				$config['system']['sysctl']['param'][$index]['enable'] = true;
 			}
 		}
-		$index = array_search_ex("net.inet.tcp.inflight.enable", $config['system']['sysctl']['param'], "name");
+		$index = arr::search_ex("net.inet.tcp.inflight.enable", $config['system']['sysctl']['param'], "name");
 		if ($index !== false) {
 			unset($config['system']['sysctl']['param'][$index]);
 		}
@@ -1623,10 +1611,10 @@ function config_upgrade_old() {
 
 	/* Convert 9.2 -> 9.3 */
 	if ($config['version'] === "9.2") {
-		$index = array_search_ex("varsize", $config['system']['rcconf']['param'], "name");
+		$index = arr::search_ex("varsize", $config['system']['rcconf']['param'], "name");
 		if ($index === false) {
 			$config['system']['rcconf']['param'][] = array(
-				"uuid" => uuid(),
+				"uuid" => uuid::create_v4(),
 				"name" => "varsize",
 				"value" => "32m",
 				"comment" => "Default /var size",
@@ -1639,10 +1627,10 @@ function config_upgrade_old() {
 			"rsync_local_logfile" => "/var/log/rsync_local.log",
 		);
 		foreach ($a_log as $key => $val) {
-			$index = array_search_ex($key, $config['system']['rcconf']['param'], "name");
+			$index = arr::search_ex($key, $config['system']['rcconf']['param'], "name");
 			if ($index === false) {
 				$config['system']['rcconf']['param'][] = array(
-					"uuid" => uuid(),
+					"uuid" => uuid::create_v4(),
 					"name" => $key,
 					"value" => $val,
 					"comment" => "Default log file",
@@ -1655,15 +1643,15 @@ function config_upgrade_old() {
 
 	/* Convert 9.3 -> 9.4 */
 	if ($config['version'] === "9.3") {
-		$index = array_search_ex("kern.ipc.maxsockbuf", $config['system']['sysctl']['param'], "name");
+		$index = arr::search_ex("kern.ipc.maxsockbuf", $config['system']['sysctl']['param'], "name");
 		if ($index !== false) {
 			$config['system']['sysctl']['param'][$index]['value'] = 16777216;
 		}
-		$index = array_search_ex("kern.ipc.nmbjumbo9", $config['system']['sysctl']['param'], "name");
+		$index = arr::search_ex("kern.ipc.nmbjumbo9", $config['system']['sysctl']['param'], "name");
 		if ($index !== false) {
 			$config['system']['sysctl']['param'][$index]['value'] = 131072;
 		}
-		$index = array_search_ex("kern.ipc.nmbjumbo16", $config['system']['sysctl']['param'], "name");
+		$index = arr::search_ex("kern.ipc.nmbjumbo16", $config['system']['sysctl']['param'], "name");
 		if ($index !== false) {
 			$config['system']['sysctl']['param'][$index]['value'] = 65536;
 		}
@@ -1725,7 +1713,7 @@ function config_upgrade_old() {
 			"#Interface2=em1",
 			"#Alias2=MGMT",
 			"unit=bit",
-			"#transfer=TRUE",
+			"#transfer=true",
 			"[Memory]",
 			"Active=True",
 			"[Load]",
