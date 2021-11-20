@@ -31,6 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
+
+use common\arr;
+
 /**
  *	returns an array with additional geom raid information
  *	@return array
@@ -47,17 +52,6 @@ function geomraid_processinfo_get() {
 			'x-button' => 'button_raid1',
 			'gt-type' => gtext('RAID-1'),
 			'show-create-button' => true
-		],
-		'5' => [
-			'type' =>  '5',
-			'x-devdir' => '/dev/raid5',
-			'x-notifier' => 'raid_graid5',
-			'x-processor' => 'graid5_process_updatenotification',
-			'x-page-maintenance' => 'disks_raid_graid5_tools.php',
-			'x-page-information' => 'disks_raid_graid5_info.php',
-			'x-button' => 'button_raid5',
-			'gt-type' => gtext('RAID-5'),
-			'show-create-button' => false
 		],
 		'0' => [
 			'type' =>  '0',
@@ -94,19 +88,14 @@ function geomraid_config_get(&$a_record) {
 	global $config;
 
 	$a_record = [];
-	array_make_branch($config,'gconcat','vdisk');
-	array_make_branch($config,'gmirror','vdisk');
-	array_make_branch($config,'graid5','vdisk');
-	array_make_branch($config,'gstripe','vdisk');
+	arr::make_branch($config,'gconcat','vdisk');
+	arr::make_branch($config,'gmirror','vdisk');
+	arr::make_branch($config,'gstripe','vdisk');
 	foreach($config['gconcat']['vdisk'] as $r_record):
 		$r_record['balance'] = '';
 		$a_record[] = $r_record;
 	endforeach;
 	foreach($config['gmirror']['vdisk'] as $r_record):
-		$a_record[] = $r_record;
-	endforeach;
-	foreach($config['graid5']['vdisk'] as $r_record):
-		$r_record['balance'] = '';
 		$a_record[] = $r_record;
 	endforeach;
 	foreach($config['gstripe']['vdisk'] as $r_record):
@@ -127,8 +116,6 @@ function geomraid_config_set(&$a_record) {
 	$a_gconcat['vdisk'] = [];
 	$a_gmirror = [];
 	$a_gmirror['vdisk'] = [];
-	$a_graid5 = [];
-	$a_graid5['vdisk'] = [];
 	$a_gstripe = [];
 	$a_gstripe['vdisk'] = [];
 	foreach($a_record as $r_record):
@@ -142,10 +129,6 @@ function geomraid_config_set(&$a_record) {
 			case '1':
 				$a_gmirror['vdisk'][] = $r_config;
 				break;
-			case '5':
-				unset($r_config['balance']);
-				$a_graid5['vdisk'][] = $r_config;
-				break;
 			case '0':
 				unset($r_config['balance']);
 				$a_gstripe['vdisk'][] = $r_config;
@@ -156,13 +139,11 @@ function geomraid_config_set(&$a_record) {
 	$config['gconcat'] = $a_gconcat;
 	unset($config['gmirror']);
 	$config['gmirror'] = $a_gmirror;
-	unset($config['graid5']);
-	$config['graid5'] = $a_graid5;
 	unset($config['gstripe']);
 	$config['gstripe'] = $a_gstripe;
 }
 function is_geomraid_mounted($devicespecialfile,&$a_mount) {
-	return (false !== array_search_ex($devicespecialfile,$a_mount,'mdisk'));
+	return (false !== arr::search_ex($devicespecialfile,$a_mount,'mdisk'));
 }
 /**
  *	GEOM CONCAT process update notifications
@@ -175,7 +156,7 @@ function gconcat_process_updatenotification($mode,$data) {
 	global $config;
 
 	$retval = 0;
-	array_make_branch($config,'gconcat','vdisk');
+	arr::make_branch($config,'gconcat','vdisk');
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			$retval |= rc_exec_service('geom load concat');
@@ -187,7 +168,7 @@ function gconcat_process_updatenotification($mode,$data) {
 		case UPDATENOTIFY_MODE_DIRTY:
 			$retval |= disks_raid_gconcat_delete($data);
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			$index = array_search_ex($data,$config['gconcat']['vdisk'],'uuid');
+			$index = arr::search_ex($data,$config['gconcat']['vdisk'],'uuid');
 			if(false !== $index):
 				unset($config['gconcat']['vdisk'][$index]);
 				write_config();
@@ -207,7 +188,7 @@ function gmirror_process_updatenotification($mode,$data) {
 	global $config;
 
 	$retval = 0;
-	array_make_branch($config,'gmirror','vdisk');
+	arr::make_branch($config,'gmirror','vdisk');
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			$retval |= rc_exec_service('geom load mirror');
@@ -219,42 +200,9 @@ function gmirror_process_updatenotification($mode,$data) {
 		case UPDATENOTIFY_MODE_DIRTY:
 			$retval |= disks_raid_gmirror_delete($data);
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			$index = array_search_ex($data, $config['gmirror']['vdisk'], 'uuid');
+			$index = arr::search_ex($data, $config['gmirror']['vdisk'], 'uuid');
 			if(false !== $index):
 				unset($config['gmirror']['vdisk'][$index]);
-				write_config();
-			endif;
-			break;
-	endswitch;
-	return $retval;
-}
-/**
- *	GEOM RAID5 process update notifications
- *	@global array $config
- *	@param const $mode
- *	@param uuid $data
- *	@return int
- */
-function graid5_process_updatenotification($mode,$data) {
-	global $config;
-
-	$retval = 0;
-	array_make_branch($config,'graid5','vdisk');
-	switch($mode):
-		case UPDATENOTIFY_MODE_NEW:
-			$retval |= rc_exec_service('geom load raid5');
-			$retval |= rc_exec_service('geom tune raid5');
-			$retval |= disks_raid_graid5_configure($data);
-			break;
-		case UPDATENOTIFY_MODE_MODIFIED:
-			$retval |= rc_exec_service('geom start raid5');
-			break;
-		case UPDATENOTIFY_MODE_DIRTY:
-			$retval |= disks_raid_graid5_delete($data);
-		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			$index = array_search_ex($data,$config['graid5']['vdisk'],'uuid');
-			if(false !== $index):
-				unset($config['graid5']['vdisk'][$index]);
 				write_config();
 			endif;
 			break;
@@ -272,7 +220,7 @@ function gstripe_process_updatenotification($mode,$data) {
 	global $config;
 
 	$retval = 0;
-	array_make_branch($config,'gstripe','vdisk');
+	arr::make_branch($config,'gstripe','vdisk');
 	switch($mode):
 		case UPDATENOTIFY_MODE_NEW:
 			$retval |= rc_exec_service('geom load stripe');
@@ -284,7 +232,7 @@ function gstripe_process_updatenotification($mode,$data) {
 		case UPDATENOTIFY_MODE_DIRTY:
 			$retval |= disks_raid_gstripe_delete($data);
 		case UPDATENOTIFY_MODE_DIRTY_CONFIG:
-			$index = array_search_ex($data,$config['gstripe']['vdisk'],'uuid');
+			$index = arr::search_ex($data,$config['gstripe']['vdisk'],'uuid');
 			if(false !== $index):
 				unset($config['gstripe']['vdisk'][$index]);
 				write_config();
