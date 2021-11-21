@@ -232,8 +232,14 @@ switch($page_action):
 						$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 						break;
 					case $cop->get_rawprivatekey()->get_name():
-						$privatekey = base64_encode($sphere->row[$name]);
-//						switch to privatekey field
+//						textarea returns a string using crlf for newline
+						$rawprivatekey = str_replace("\r\n","\n",$sphere->row[$name]);
+//						fix possible user input error
+						if((strlen($rawprivatekey) > 0) && (substr_compare($rawprivatekey,"\n",-1) !== 0)):
+							$rawprivatekey .= "\n";
+						endif;
+						$privatekey = base64_encode($rawprivatekey);
+//						populate result into privatekey field
 						$name = $cop->get_privatekey()->get_name();
 						$sphere->row[$name] = $privatekey;
 						break;
