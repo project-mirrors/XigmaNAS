@@ -113,7 +113,7 @@ sshd_mkconf()
 	/bin/rm -f ${sshd_hostkey}
 	if [ -n "${_privatekey}" ]; then
 		echo "${_privatekey}" > ${sshd_hostkey}.tmp
-		/usr/bin/uudecode -m -p -r ${sshd_hostkey}.tmp > ${sshd_hostkey}
+		/usr/bin/uudecode -m -p -r ${sshd_hostkey}.tmp | /usr/bin/tr -d '\r' > ${sshd_hostkey}
 		/bin/rm -f ${sshd_hostkey}.tmp
 	elif [ -d /conf -a -f ${_confkey} ]; then
 		cp ${_confkey} ${sshd_hostkey}
