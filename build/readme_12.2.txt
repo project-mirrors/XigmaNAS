@@ -123,7 +123,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 12.2.0.4.8854
+BUILD 12.2.0.4.8860
 ===================
 Changes:
 - Upgrade to FreeBSD 12.2-RELEASE P11.
@@ -161,6 +161,7 @@ Fixes:
 - Fix cookie expire phpvirtualbox.
 - Fix stop torrents before stopping service.
 - Fix edit user, the default group kept resetting.
+- Fix issue with private key field taken from config
 
 
 Default login credentials:
