@@ -23,6 +23,13 @@ The new (.txz) full upgrade files are compressed images.
 Notice for RootOnZFS platform users, the `beadm` utility to manage boot environments has been replaced by the `bectl` which behaves the same way as the predecessor
 `beadm`, users with existing scripting on `beadm` can create an alias or a symlink for `/usr/local/sbin/beadm` to point to `/sbin/bectl`, sorry for inconvenience.
 
+GEOM RAID-5 note
+================
+XigmaNAS 12.x releases are the last series supporting GEOM RAID-5.
+We kindly ask users to switch to ZFS RaidZ on new installations.
+In the upcomming XigmaNAS 13.0.0.5 release, GEOM RAID-5 can no longer be used.
+You will no longer be able to access the data of the RAID!
+
 Install from scratch instructions:
 ==================================
 - Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
