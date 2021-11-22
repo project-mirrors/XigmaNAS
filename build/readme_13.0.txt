@@ -6,47 +6,25 @@ General note:
 =============
 Download your configuration file from the backup/restore page and store it in a safe location before upgrading your system.
 
-Important information for users running a XigmaNAS® installation with a revision older than 6625:
-=================================================================================================
-It is not recommended to perform an in-place upgrade via the firmware update page because of recent changes to the partition layout.
-- Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
-- Download your configuration file from the backup/restore page and store it in a safe location.
-- Backup all other data partitions that exist on the current XigmaNAS® boot media.
-- Boot from the newly created LiveCD/USB and perform a XigmaNAS® installation onto a new boot media.
-- After a successful installation, remove the LiveCD/USB device, boot from your new XigmaNAS® boot media and restore your previously saved configuration.
-
-Note for Full install users:
-============================
-Make sure you first upgraded to XigmaNAS-x64-full-12.1.0.4.7321.tgz before you flash full-.txz files.
-The new (.txz) full upgrade files are compressed images.
-
-Notice for RootOnZFS platform users, the `beadm` utility to manage boot environments has been replaced by the `bectl` which behaves the same way as the predecessor
-`beadm`, users with existing scripting on `beadm` can create an alias or a symlink for `/usr/local/sbin/beadm` to point to `/sbin/bectl`, sorry for inconvenience.
-
 Install from scratch instructions:
 ==================================
 - Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
 - Boot from the LiveCD/USB device and perform a XigmaNAS® installation onto a new boot media.
-
-Upgrade note!
-=============
-In case you upgrade any current server with running service "Dynamic DNS", please disable this service first!
-After the upgrade you need to setup Dynamic DNS again. The 3th party software inadyn-mt has been replaced for inadyn.
-Please make a backup of your current server configuration, the configuration file will be upgraded to v51.
 
 Warning:
 ========
 Do not shortcut the installation procedure!
 The LiveCD/USB image contains a file called embedded.img.xz. Do not extract this file and write the extracted image to a media.
 
-Pre-upgrade task for "Full" RootOnZFS installations with a revision older than 6625:
-====================================================================================
-A one-off task must be performed when you are running a XigmaNAS® installation with a revision older than 6625 before upgrading.
-- Goto "Tools > Execute Command" and execute the below command to upgrade to the latest rc.firmware script:
+Upgrade notes!
+==============
 
-fetch --no-verify-peer -o /etc/rc.firmware "https://sourceforge.net/p/xigmanas/code/HEAD/tree/trunk/etc/rc.firmware?format=raw"
-
-- Then goto "System > Firmware Update" and upgrade your installation as usual.
+GEOM RAID5
+==========
+This is for current GEOM RAID5 users running on 12.x series!
+XigmaNAS 13.x releases will no longer support GEOM RAID5, code was removed from the code base.
+You will NOT have access to your DATA!
+Migrate your data to ZFS first before upgrade.
 
 Post-upgrade tasks:
 ===================
@@ -115,14 +93,9 @@ BUILD 13.0.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P5.
-- Upgrade isboot to 0.2.14.
-- Upgrade bash to 5.1 p12.
-- Upgrade dialog to 1.3-20211107.
-- Upgrade unison to 2.51.4.
-- Upgrade php to 7.4.26.
 
 Fixes:
-
+-
 
 Default login credentials:
 ==========================
