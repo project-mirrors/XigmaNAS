@@ -45,6 +45,9 @@ Now install the following ports:
 #cd /usr/ports/devel/subversion
 #make install clean
 
+#cd /usr/ports/devel/git
+#make install clean
+
 Start /xigmanas/svn/build/make.sh and follow the steps.
 
 =================================
