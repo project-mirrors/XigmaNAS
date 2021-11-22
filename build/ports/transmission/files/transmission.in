@@ -27,14 +27,10 @@ load_rc_config "${name}"
 start_precmd="transmission_prestart"
 start_postcmd="transmission_poststart"
 stop_precmd="transmission_prestop"
-updateblocklist_cmd="transmission_updateblocklist"
-extra_commands="updateblocklist"
 
 #	defaults
 transmission_enable=${transmission_enable:-"NO"}
 transmission_allowed=${transmission_allowed:-"*.*.*.*"}
-transmission_blocklist=${transmission_blocklist:-"NO"}
-transmission_blocklist_url=${transmission_blocklist_url:-"http://list.iblocklist.com/?list=ydxerpxkpcfqjaybcssw&fileformat=p2p&archiveformat=gz"}
 transmission_user=${transmission_user:-"transmission"}
 transmission_umask=${transmission_umask:-"0002"}
 transmission_preallocation=${transmission_preallocation:-"1"}
@@ -74,7 +70,6 @@ transmission_prestart()
 	local _umask _preallocation _messagelevel _rpchostwhitelistenabled _rpchostwhitelist _jsonkey _jsonval
 	local _homedir _configfile
 	local _downloaddir _configdir _watchdir _incompletedir
-	local _peerblockliststate
 
 #	get user's homedirectory
 	_homedir=`su -l "${transmission_user}" -c 'echo $HOME'`
@@ -145,20 +140,6 @@ transmission_prestart()
 			--break \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc )
-	_peerblockliststate=$( configxml_get "//bittorrent/peerblockliststate" )
-	case "${_peerblockliststate}" in
-		enabled)
-			transmission_blocklist="YES"
-			;;
-		disabled)
-			transmission_blocklist="NO"
-			;;
-	esac
-	if checkyesno transmission_blocklist; then
-		_command_args="${_command_args} -b"
-	else
-		_command_args="${_command_args} -B"
-	fi
 #	check the effective user.
 	debug "command_args: $_command_args"
 	if [ "${transmission_user}" = "`/usr/bin/id -un`" ]; then
@@ -334,42 +315,6 @@ transmission_prestop() {
 		/usr/local/bin/transmission-remote${_command_args} >/dev/null 2>&1
 		sleep 1
 	fi
-}
-
-transmission_updateblocklist()
-{
-	local _configdir _md5 _file
-	local _homedir
-
-#	get user's home directory
-	_homedir=`su -l "${transmission_user}" -c 'echo $HOME'`
-	[ -z "${_homedir}" ] && _homedir="/home/transmission"
-#	get the configuration directory.
-	_configdir=`configxml_get "//bittorrent/configdir"`
-	[ -z "${_configdir}" ] && _configdir="${_homedir}/.config/${name}-daemon"
-#	check if blocklists folder exists, create it if necessary. Then change directory.
-	[ ! -e "${_configdir}/blocklists" ] && mkdir "${_configdir}/blocklists"
-	cd "${_configdir}/blocklists"
-#	download blocklist file.
-	_file=${transmission_blocklist_url##*/}
-	[ -f "${_file}" ] && _md5=$(md5 -q "${_file}")
-	fetch -ampw 5 "${transmission_blocklist_url}"
-	if [ 0 -ne $? ]; then
-		logger -s -t "${name}" "Failed to fetch blocklist ${transmission_blocklist_url}"
-		exit 1
-	fi
-#	has the file been updated?
-	if [ "$(md5 -q ${_file})" = "${_md5:=0}" ]; then
-		logger -s -t "${name}" "Blocklist is up-to-date"
-		exit 1
-	fi
-#	extract file content.
-	gzip -dfkq ${_file};
-	if [ 0 -ne $? ]; then
-		logger -s -t "${name}" "Failed to extract blocklist update"
-		exit 1
-	fi
-	logger -s -t "${name}" "Blocklist has been updated successful"
 }
 
 run_rc_command "$1"

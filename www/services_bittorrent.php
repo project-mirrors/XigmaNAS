@@ -63,7 +63,6 @@ $cops = [
 	$cop->get_messagelevel(),
 	$cop->get_password(),
 	$cop->get_peerport(),
-	$cop->get_peerblockliststate(),
 	$cop->get_pex(),
 	$cop->get_port(),
 	$cop->get_portforwarding(),
@@ -271,7 +270,6 @@ $tbody1->
 	c2($cop->get_portforwarding(),$sphere,false,$is_readonly)->
 	c2($cop->get_pex(),$sphere,false,$is_readonly)->
 	c2($cop->get_dht(),$sphere,false,$is_readonly)->
-	c2($cop->get_peerblockliststate(),$sphere,false,$is_readonly)->
 	c2($cop->get_lpd(),$sphere,false,$is_readonly)->
 	c2($cop->get_utp(),$sphere,false,$is_readonly)->
 	c2($cop->get_preallocation(),$sphere,false,$is_readonly)->

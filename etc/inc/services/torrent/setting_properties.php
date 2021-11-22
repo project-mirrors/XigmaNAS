@@ -373,21 +373,6 @@ class setting_properties extends grid_properties {
 			filter_use_default_or_empty();
 		return $property;
 	}
-	public function init_peerblockliststate(): myp\property_list {
-		$options = [
-			'' => gettext ('Default'),
-			'enabled' => gettext('Enable Peer Blocklist'),
-			'disabled' => gettext('Disable Peer Blocklist')
-		];
-		$defaultvalue = '';
-		$property = parent::init_peerblockliststate();
-		$property->
-			set_id('peerblockliststate')->
-			set_defaultvalue($defaultvalue)->
-			set_options($options)->
-			filter_use_default();
-		return $property;
-	}
 	public function init_rpchostwhitelistenabled(): myp\property_list {
 		$options = [
 			'true' => gettext('Enable DNS rebind protection'),
