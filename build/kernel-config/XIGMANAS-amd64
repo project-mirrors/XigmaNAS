@@ -19,7 +19,6 @@ options 	KSTACK_PAGES=6
 #options	HZ=1000
 
 # GEOM classes
-options 	GEOM_ELI		# Disk encryption.
 options 	TMPFS			# Efficient memory filesystem
 options 	UNIONFS			# Union filesystem
 options 	NULLFS			# NULL filesystem
