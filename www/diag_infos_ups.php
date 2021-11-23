@@ -39,6 +39,8 @@ use gui\document;
 
 if($_POST):
 	$upsc_enable = $_POST['raw_upsc_enable'];
+else:
+	$upsc_enable = false;
 endif;
 
 function tblrow($name,$value,$symbol = null,$id = null) {
@@ -253,7 +255,7 @@ $document->render();
 					if(count($lines) == 1):
 						tblrow(gtext('ERROR:'), 'Data stale!');
 					endif;
-					tblrow(gtext('Manufacturer'), $ups['device.mfr']);
+					tblrow(gtext('Manufacturer'), $ups['device.mfr'] ?? null;
 					tblrow(gtext('Model'), $ups['device.model'] ?? null);
 					tblrow(gtext('Type'), $ups['device.type'] ?? null);
 					tblrow(gtext('Serial number'), $ups['device.serial'] ?? null);
@@ -441,7 +443,7 @@ $document->render();
 					tblrow('[Main] Power Factor (dimensionless value between 0 and 1)', $ups['outlet.powerfactor'] ?? null);
 					tblrow('[Main] Crest Factor (dimensionless, equal to or greater than 1)', $ups['outlet.crestfactor'] ?? null);
 					tblrow('[Main] Apparent power (VA)', $ups['outlet.power'] ?? null, 'VA');
-					for($i = 1; $ups['outlet.'.$i.'.id']; $i++):
+					for($i = 1; $ups['outlet.'.$i.'.id'] ?? false; $i++):
 						tblrow('['.$i.'] Outlet system identifier', $ups['outlet.'.$i.'.id'] ?? null);
 						tblrow('['.$i.'] Outlet description', $ups['outlet.'.$i.'.desc'] ?? null);
 						tblrow('['.$i.'] Outlet switch control (on/off)', $ups['outlet.'.$i.'.switch'] ?? null);
@@ -470,7 +472,7 @@ $document->render();
 					tblrow(gtext('Server information'), $ups['server.info'] ?? null);
 					tblrow(gtext('Server version'), $ups['server.version'] ?? null);
 					html_separator2();
-					html_titleline_checkbox2('raw_upsc_enable','NUT',$upsc_enable ? true : false,(gettext('Show RAW UPS Info')),'upsc_enable_change()');
+					html_titleline_checkbox2('raw_upsc_enable','NUT',$upsc_enable ? true : false,gettext('Show RAW UPS Info'),'upsc_enable_change()');
 					tblrow(gtext('RAW info'),htmlspecialchars($read), 'pre', 'upsc_raw_command');
 					unset($handle,$read,$lines,$status,$disp_status,$ups);
 				endif;
