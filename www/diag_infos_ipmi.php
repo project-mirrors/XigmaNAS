@@ -235,8 +235,8 @@ $document->render();
 				foreach ($a_ipmi_fru as $r_ipmi_fru):
 ?>
 					<tr>
-						<td class="lcell"><?=htmlspecialchars($r_ipmi_fru[0]);?>&nbsp;</td>
-						<td class="lcebl"><?=htmlspecialchars($r_ipmi_fru[1]);?>&nbsp;</td>
+						<td class="lcell"><?=htmlspecialchars($r_ipmi_fru[0] ?? '');?>&nbsp;</td>
+						<td class="lcebl"><?=htmlspecialchars($r_ipmi_fru[1] ?? '');?>&nbsp;</td>
 					</tr>
 <?php
 				endforeach;
