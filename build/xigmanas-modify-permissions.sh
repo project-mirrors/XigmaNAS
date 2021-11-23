@@ -55,5 +55,5 @@ echo "lib/libthr.so.3"
 chflags -RH noschg lib/libthr.so.3
 
 # rc.d/files*
-echo "rc.d/files*"
+echo "etc/rc.d/files*"
 chmod -R 0555 etc/rc.d/*
