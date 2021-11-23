@@ -161,7 +161,7 @@ $document->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
 $content = $pagecontent->add_area_data();
 $regex = '/^\s*(\d+)\s+([A-Za-z0-9_\-]+)\s+(0x[0-9a-fA-F]+)\s+(\d+)\s+(\d+)\s+(\d+).*\s+\-\s+(\d+)/';
-$do_seperator = false;
+$do_separator = false;
 foreach($a_disk as $diskk => $single_disk):
 	$tds = $content->add_table_data_settings();
 	$tds->ins_colgroup_data_settings();
