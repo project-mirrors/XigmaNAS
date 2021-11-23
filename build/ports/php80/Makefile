@@ -1,5 +1,5 @@
 PORTNAME=		php80
-PORTVERSION=	8.0.2
+PORTVERSION=	8.0.13
 PORTREVISION?=	0
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
@@ -9,7 +9,7 @@ MASTER_SITES=		${MASTER_SITE_PHP:S,$,:release,}
 MASTER_SITE_SUBDIR=	distributions/:release
 DISTNAME=		php-${PORTVERSION:S/.r/RC/}
 DISTFILES=			${DISTNAME}${EXTRACT_SUFX}:release
-USES+=			compiler:c++11-lib tar:xz cpe iconv:translit gnome
+USES+=			compiler:c11 tar:xz cpe iconv:translit gnome
 USE_CXXSTD=		gnu++11
 CPE_PRODUCT=		php
 NO_OPTIONS_SORT=	yes
@@ -70,7 +70,6 @@ CONFIGURE_ARGS+=	\
 		--enable-intl \
 		--with-ldap=${LOCALBASE} \
 		--enable-mbstring \
-		--enable-mcrypt=${LOCALBASE} \
 		--with-gmp=${LOCALBASE} \
 		--enable-bcmath \
 		--with-mhash \

@@ -1,5 +1,5 @@
---- ext/mysqli/mysqli_api.c.orig	2021-01-05 14:54:54.000000000 +0100
-+++ ext/mysqli/mysqli_api.c	2021-01-10 17:18:29.000000000 +0100
+--- ext/mysqli/mysqli_api.c.orig	2020-09-29 22:36:51 UTC
++++ ext/mysqli/mysqli_api.c
 @@ -29,7 +29,9 @@
  #include "zend_smart_str.h"
  #include "php_mysqli_structs.h"
