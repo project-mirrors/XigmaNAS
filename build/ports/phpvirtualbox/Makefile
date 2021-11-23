@@ -34,9 +34,9 @@ do-install:
 
 # XigmaNAS® install
 	@echo "Start install for ${XIGMANAS_ROOTFS}"
-	@${RM} -f ${STAGEDIR}${WWWDIR}/*.txt
-	#@${MKDIR} -p ${XIGMANAS_ROOTFS}${WWWDIR}
-	@${CP} -Rpv ${STAGEDIR}${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
+	${RM} -f ${STAGEDIR}${WWWDIR}/*.txt
+	${RM} -f ${STAGEDIR}${WWWDIR}/*.bak
+	${CP} -Rpv ${STAGEDIR}${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
 # XigmaNAS® end install
 	@echo "End install for ${XIGMANAS_ROOTFS}"
 
