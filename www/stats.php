@@ -1,6 +1,6 @@
 <?php
 /*
-	stats_graph.php
+	stats.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
@@ -35,22 +35,21 @@
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-\session_start();
 //	Make sure no other output than the requested data is echoed.
 //	leave it as is to avoid side effects (only an additional "=")
-if(\strcmp('cpu=',\getenv('QUERY_STRING')) == 0):
-	$cpuload = @\system_get_cpu_usage('stats');
+if(strcmp('cpu=',getenv('QUERY_STRING')) == 0):
+	$cpuload = @system_get_cpu_usage('stats');
 	echo $cpuload;
 else:
 	$param = $_GET;
 	if(isset($param['if'])):
-		$ifinfo = @\get_interface_info($param['if']);
-		$time = \gettimeofday();
+		$ifinfo = @get_interface_info($param['if']);
+		$time = gettimeofday();
 		$timing = (double)$time['sec'] + (double)$time['usec'] / 1000000.0;
 		echo $timing,'|',$ifinfo['inbytes'],'|',$ifinfo['outbytes'],"\n";
 	elseif(isset($param['cpu'])):
 		if($param['cpu'] == 0):
-			$_SESSION['cpu'] = @\system_get_smp_cpu_usage('stats');
+			$_SESSION['cpu'] = @system_get_smp_cpu_usage('stats');
 		endif;
 		echo $_SESSION['cpu'][$param['cpu']];
 	endif;
