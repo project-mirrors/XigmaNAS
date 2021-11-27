@@ -769,8 +769,24 @@ function gentitle(array $title = []) {
 	$navlevelsep = htmlspecialchars(' > '); // Navigation level separator string.
 	return implode($navlevelsep,$title);
 }
-function genhtmltitle(array $title = []) {
-	return htmlspecialchars(system_get_hostname()) . (empty($title) ? '' : ' - ' . gentitle($title));
+/**
+ *	Calculate document title
+ *	@global string $d_sysrebootreqd_path
+ *	@param array $page_title
+ *	@return string
+ */
+function genhtmltitle(array $page_title = []) {
+	global $d_sysrebootreqd_path;
+
+	$output = '';
+	if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
+		$output .= "\u{26a0}\u{FE0F} ";
+	endif;
+	$output .= system_get_hostname();
+	if(!empty($page_title)):
+		$output .= ' - ' . gentitle($page_title);
+	endif;
+	return htmlspecialchars($output);
 }
 /**
  *	provides the header menu
