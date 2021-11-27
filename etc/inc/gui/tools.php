@@ -1930,7 +1930,13 @@ EOJ;
 		return $output;
 	}
 	public function clc_html_page_title(array $page_title = []) {
-		$output = system_get_hostname();
+		global $d_sysrebootreqd_path;
+
+		$output = '';
+		if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
+			$output .= "\u{26a0}\u{FE0F} ";
+		endif;
+		$output .= system_get_hostname();
 		if(!empty($page_title)):
 			$output .= ' > ';
 			$output .= $this->clc_page_title($page_title);

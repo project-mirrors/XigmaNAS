@@ -31,9 +31,11 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
+$sphere_scriptname = basename(__FILE__);
 $show_separator = false;
 $ifdescrs = ['lan' => 'LAN'];
 for($j = 1;isset($config['interfaces']['opt' . $j]);$j++):
@@ -124,12 +126,12 @@ include 'fbegin.inc';
 					endif;
 					html_text2('mtu',gettext('MTU'),$sphere_record['mtu']);
 					$helpinghand = $sphere_record['inpkts'] .
-							'/' . 
-							$sphere_record['outpkts'] . 
-							' (' . 
-							format_bytes($sphere_record['inbytes']) . 
-							'/' . 
-							format_bytes($sphere_record['outbytes']) . 
+							'/' .
+							$sphere_record['outpkts'] .
+							' (' .
+							format_bytes($sphere_record['inbytes']) .
+							'/' .
+							format_bytes($sphere_record['outbytes']) .
 							')';
 					html_text2('inpkts',gettext('In/Out Packets'),$helpinghand);
 					if(isset($sphere_record['inerrs'])):
