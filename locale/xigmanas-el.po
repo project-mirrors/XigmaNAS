@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2021-11-15 14:31+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2021-11-23 14:28+0000\n"
+"Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-21 23:37+0000\n"
-"X-Generator: Launchpad (build ad4ef5362dff26fb27989d006230bae6da62d38c)\n"
+"X-Launchpad-Export-Date: 2021-11-27 20:04+0000\n"
+"X-Generator: Launchpad (build 78346d219e01c6c7b1bfd882aa0bbcbb42d4e568)\n"
+"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: Greece\n"
-"Language: \n"
 
 msgid " No private key"
 msgstr " Δεν υπάρχει προσωπικό κλειδί"
@@ -392,6 +392,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Μια θύρα για αναμονή εισερχόμενων συνδέσεων χρησιμοποιώντας το πρωτόκολλο "
+"iSER (iSCSI over RDMA)."
 
 msgid "A reboot is required"
 msgstr "Χρειάζεται να γίνει επανεκκίνηση"
@@ -813,7 +815,7 @@ msgstr ""
 "διεύθυνση IP."
 
 msgid "Admin"
-msgstr ""
+msgstr "Διαχειριστής"
 
 msgid "Admin Password"
 msgstr "Κωδικός Διαχειριστή"
@@ -828,7 +830,7 @@ msgid "Administrator Name"
 msgstr "Όνομα Διαχειριστή"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Κωδικός Διαχειριστή"
 
 msgid "Advanced"
 msgstr "Για προχωρημένους"
@@ -1118,6 +1120,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Μια διέυθυνση IPv4 ή IPv6 για αναμονή εισερχόμενων συνδέσεων με τη χρήστη "
+"του πρωτόκολλου iSER (iSCSI over RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
@@ -5027,7 +5031,7 @@ msgid "Enable store DOS attributes."
 msgstr "Ενεργοποίηση αποθήκευσης χαρακτηριστικών DOS."
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "Ενεργοποίηση υποστήριξης για NFSv4 μόνο."
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Ενεργοποιήση του πρωτοκόλλου ταυτοποίησης (RFC1413)."
@@ -5182,7 +5186,7 @@ msgid "Enhanced Scheduler"
 msgstr "Προγραμματισμός για Προχωρημένους"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "Εισάγετε AD ή όνομα PDC."
 
 msgid "Enter Command"
 msgstr "Εισαγωγή Εντολής"
@@ -5197,7 +5201,7 @@ msgid "Enter Identifier"
 msgstr "Εισαγωγή Αναγνωριστικού"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "Εισάγετε όνομα NetBIOS."
 
 msgid "Enter Password"
 msgstr "Εισαγωγή Κωδικού"
@@ -5325,7 +5329,7 @@ msgstr ""
 "υπολογιστής)"
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "Εισάγετε το όνομα του τομέα."
 
 msgid "Enter the full user name."
 msgstr "Εισάγετε το πλήρες όνομα του χρήστη."
@@ -5351,7 +5355,7 @@ msgstr ""
 "πρέπει να είναι μεταξύ 8 και 63 χαρακτήρων."
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "Εισάγετε τον κωδικό πρόσβασης του διαχειριστή τομέα."
 
 msgid "Enter the password of the master user account."
 msgstr "Εισάγετε τον κωδικό του πρωτεύοντος λογαριασμού χρήστη."
@@ -5399,7 +5403,7 @@ msgid "Enter trap host name."
 msgstr "Εισάγετε το όνομα του κεντρικού υπολογιστή παγίδα."
 
 msgid "Enter user name of a domain administrator account."
-msgstr ""
+msgstr "Εισάγετε το όνομα χρήστη για ένα λογαριασμό διαχειριστή τομέα."
 
 msgid "Enter user name."
 msgstr "Εισαγωγή ονόματος χρήστη."
@@ -6926,6 +6930,8 @@ msgstr "Μη έγκυρα διαπιστευτήρια σύνδεσης"
 msgid ""
 "Invalid port number. The port number must be a value between 1 and 65535."
 msgstr ""
+"Μη έγκυρος αριθμός θύρας. Ο αριθμός θύρας πρέπει να είναι μια τιμή ανάμεσα "
+"στο 1 και το 65536."
 
 msgid "Invert Selection"
 msgstr "Αντιστροφή Επιλογής"
@@ -7358,7 +7364,7 @@ msgid "Listen"
 msgstr "Αναμονή"
 
 msgid "Listen (iSER)"
-msgstr ""
+msgstr "Αναμονή (iSER)"
 
 msgid "Listen record is locked"
 msgstr "Η εγγραφή αναμονής σύνδεσης είναι κλειδωμένη"
@@ -7780,7 +7786,7 @@ msgid "Media Folder is unlocked"
 msgstr "Ο Φάκελος Πολυμέσων είναι ξεκλείδωτος"
 
 msgid "Media Folders"
-msgstr ""
+msgstr "Φάκελοι Πολυμέσων"
 
 msgid "Media Library"
 msgstr "Βιβλιοθήκη Πολυμέσων"
@@ -8062,7 +8068,7 @@ msgid "NAA Identifier"
 msgstr "Αναγνωριστικό NAA"
 
 msgid "NETBIOS"
-msgstr ""
+msgstr "NETBIOS"
 
 msgid "NETBIOS Hostname"
 msgstr "Όνομα NETBIOS"
@@ -8092,7 +8098,7 @@ msgid "NFSv4"
 msgstr "NFSv4"
 
 msgid "NFSv4 Only"
-msgstr ""
+msgstr "NFSv4 Μόνο"
 
 msgid "NIS"
 msgstr "NIS"
@@ -9493,7 +9499,7 @@ msgid "Provider is unlocked"
 msgstr "Ο πάροχος είναι ξεκλείδωτος"
 
 msgid "Providers"
-msgstr ""
+msgstr "Πάροχοι"
 
 msgid "Provisioning Type"
 msgstr "Τύπος Provisioning"
@@ -9665,7 +9671,7 @@ msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs Ημερήσιο Γράφημα ARC"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Ημερήσιο Γράφημα Εύρους Ζώνης"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs Ημερήσιο Γράφημα Συχνότητας Επεξεργαστή"
@@ -9677,7 +9683,7 @@ msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs Ημερήσιο Γράφημα Χρήσης Επεξεργαστή"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Ημερήσιο Γράφημα Χρήσης Δίσκου"
 
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs Ημερήσιο Γράφημα L2ARC"
@@ -9686,7 +9692,7 @@ msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs Ημερήσιο Γράφημα Μέσου Όρου Φόρτου"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Ημερήσιο Γράφημα Μνήμης"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs Ημερήσιο Γράφημα Υστέρησης Δικτύου"
@@ -9707,7 +9713,7 @@ msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs Μηνιαίο Γράφημα ARC"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Μηνιαίο Γράφημα Εύρους Ζώνης"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs Μηνιαίο Γράφημα Συχνότητας Επεξεργαστή"
@@ -9719,7 +9725,7 @@ msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs Μηνιαίο Γράφημα Χρήσης Επεξεργαστή"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Μηνιαίο Γράφημα Χρήσης Δίσκου"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs Μηνιαίο Γράφημα L2ARC"
@@ -9728,7 +9734,7 @@ msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs Μηνιαίο Γράφημα Μέσου Όρου Φόρτου"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Μηνιαίο Γράφημα Μνήμης"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs Μηνιαίο Γράφημα  Υστέρησης Δικτύου"
@@ -9749,7 +9755,7 @@ msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs Εβδομαδιαίο Γράφημα ARC"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Εβδομαδιαίο Γράφημα Εύρους Ζώνης"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs Εβδομαδιαίο Γράφημα Συχνότητας Επεξεργαστή"
@@ -9761,7 +9767,7 @@ msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs Εβδομαδιαίο Γράφημα Χρήσης Επεξεργαστή"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Εβδομαδιαίο Γράφημα Χρήσης Δίσκου"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs Εβδομαδιαίο Γράφημα L2ARC"
@@ -9770,7 +9776,7 @@ msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs Εβδομαδιαίο Γράφημα Μέσου Όρου Φόρτου"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Εβδομαδιαίο Γράφημα Μνήμης"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs ΕβδομαδιαίοΓράφημα  Υστέρησης Δικτύου"
@@ -9791,7 +9797,7 @@ msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs Ετήσιο Γράφημα ARC"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Ετήσιο Γράφημα Εύρους Ζώνης"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs Ετήσιο Γράφημα Συχνότητας Επεξεργαστή"
@@ -9803,7 +9809,7 @@ msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs Ετήσιο Γράφημα Χρήσης Επεξεργαστή"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Ετήσιο Γράφημα Χρήσης Δίσκου"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs Ετήσιο Γράφημα L2ARC"
@@ -9812,7 +9818,7 @@ msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs Ετήσιο Γράφημα Μέσου Όρου Φόρτου"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Ετήσιο Γράφημα Μνήμης"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs ΕτήσιοΓράφημα  Υστέρησης Δικτύου"
@@ -10168,13 +10174,13 @@ msgstr ""
 "Ορίστε 0 για απενεργοποίηση."
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Δίσκος Αναφοράς"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Διασύνδεση Αναφοράς"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Επίπεδο Αναφοράς"
 
 msgid "Require authentication."
 msgstr "Απαιτείται πιστοποίηση"
@@ -10298,7 +10304,7 @@ msgid "Root Bind Password"
 msgstr "Κωδικός Ριζικού Bind"
 
 msgid "Root Directories"
-msgstr ""
+msgstr "Ριζικοί Κατάλογοι"
 
 msgid "Root Directory"
 msgstr "Ριζιικός Κατάλογος"
@@ -10869,7 +10875,7 @@ msgid "Select the permission for running this service. (www by default)."
 msgstr "Επιλέξτε τα δικαιώματα εκτέλεσης της υπηρεσίας. (προεπιλογή www)."
 
 msgid "Select the timezone for this user."
-msgstr ""
+msgstr "Επιλέξτε τη ζώνη ώρας για αυτό τον χρήστη."
 
 msgid "Select which interface to use."
 msgstr "Επιλέξτε ποια διασύνδεση θα χρησιμοποιηθεί."
@@ -13884,7 +13890,7 @@ msgid "Times"
 msgstr "Ημερομηνίες"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Ζώνη Ώρας"
 
 msgid "Title Speed"
 msgstr "Ταχύτητα Τίτλου"
@@ -15476,7 +15482,7 @@ msgid "e.g. %s"
 msgstr "π.χ. %s"
 
 msgid "example.com"
-msgstr ""
+msgstr "example.com"
 
 msgid "filechooser"
 msgstr "ΕπιλογέαςΑρχείων"
@@ -15633,7 +15639,7 @@ msgid "no delay"
 msgstr "χωρίς καθυστέρηση"
 
 msgid "no pools available"
-msgstr ""
+msgstr "δεν υπάρχουν διαθέσιμα pool"
 
 msgid "none"
 msgstr "κανένα"
