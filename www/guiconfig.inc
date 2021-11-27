@@ -765,6 +765,11 @@ function get_month_names(bool $longnames = true,bool $localized = true) {
 
 	return $longnames ? ($localized ? $g_month : $g_month_en) : ($localized ? $g_month_short : $g_month_en_short);
 }
+/**
+ *	Calculates the page title and and portions of the document title string
+ *	@param array $title Array of htmlspecialchars(strings)
+ *	@return string
+ */
 function gentitle(array $title = []) {
 	$navlevelsep = htmlspecialchars(' > '); // Navigation level separator string.
 	return implode($navlevelsep,$title);
@@ -780,13 +785,14 @@ function genhtmltitle(array $page_title = []) {
 
 	$output = '';
 	if(session::is_admin() && file_exists($d_sysrebootreqd_path)):
-		$output .= "\u{26a0}\u{FE0F} ";
+		$output .= htmlspecialchars("\u{26a0}\u{FE0F} ");
 	endif;
-	$output .= system_get_hostname();
+	$output .= htmlspecialchars(system_get_hostname());
 	if(!empty($page_title)):
-		$output .= ' - ' . gentitle($page_title);
+		$output .= htmlspecialchars(' - ');
+		$output .= gentitle($page_title);
 	endif;
-	return htmlspecialchars($output);
+	return $output;
 }
 /**
  *	provides the header menu
