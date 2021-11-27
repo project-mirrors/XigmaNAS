@@ -57,7 +57,7 @@ trait tools {
  *	@param string $namespaceURI
  *	@return DOMNode $subnode
  */
-	public function addElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = null) {
+	public function addElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
 		$subnode = $this->appendChild(new element($name,null,$namespaceURI));
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
@@ -72,7 +72,7 @@ trait tools {
  *	@param string $namespaceURI
  *	@return DOMNode $this
  */
-	public function insElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = null) {
+	public function insElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
 		$subnode = $this->appendChild(new element($name,null,$namespaceURI));
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
@@ -87,7 +87,7 @@ trait tools {
  *	@param string $namespaceURI
  *	@return DOMNode $subnode
  */
-	public function prepend_element(string $name,array $attributes = [],string $value = null,string $namespaceURI = null) {
+	public function prepend_element(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
 		if(is_null($this->firstChild)):
 			$subnode = $this->appendChild(new element($name,null,$namespaceURI));
 		else:
