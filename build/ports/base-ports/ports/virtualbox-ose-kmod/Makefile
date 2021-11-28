@@ -1,6 +1,5 @@
 PORTNAME=	virtualbox-ose
-PORTVERSION=	6.1.28
-PORTREVISION=	1
+PORTVERSION=	6.1.30
 CATEGORIES=	emulators
 MASTER_SITES=	https://download.virtualbox.org/virtualbox/${PORTVERSION}/
 PKGNAMESUFFIX=	-kmod
@@ -35,8 +34,8 @@ CONFIGURE_ARGS+=	--disable-alsa \
 			--disable-xpcom
 CONFIGURE_ARGS+=	--nofatal --with-gcc="${CC}" --with-g++="${CXX}"
 
-CONFLICTS_INSTALL=	virtualbox-ose-kmod-devel-* \
-			virtualbox-ose-kmod-legacy-*
+CONFLICTS_INSTALL=	virtualbox-ose-kmod-devel \
+			virtualbox-ose-kmod-legacy
 
 OPTIONS_DEFINE=	DEBUG VIMAGE
 OPTIONS_DEFAULT=VIMAGE

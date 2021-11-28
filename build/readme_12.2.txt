@@ -139,7 +139,6 @@ Changes:
 - Upgrade iperf3 to 3.10.1.
 - Upgrade phpmyadmin to 5.1.1.
 - Upgrade tmux to 3.2a.
-- Upgrade virtualbox-ose to 6.1.28.
 - Upgrade msmtp to 1.8.19.
 - Upgrade nano to 5.9.
 - Upgrade zoneinfo to 2021e.
@@ -154,6 +153,7 @@ Changes:
 - Upgrade unison to 2.51.4.
 - Upgrade php to 7.4.26.
 - Upgrade nut to 2021.11.16.
+- Upgrade virtualbox-ose to 6.1.30.
 
 Fixes:
 - Fix only first lagg member is brought up.
