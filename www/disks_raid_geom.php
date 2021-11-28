@@ -277,9 +277,9 @@ function controlactionbuttons(ego, triggerbyname) {
 					$notprotected = !isset($sphere_record['protected']);
 					$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
 					$normaloperation = $notprotected && $notmounted;
-					$mod_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$mod_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
 					$mai_link = $a_process[$sphere_record['type']]['x-page-maintenance'];
-					$inf_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$inf_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
 ?>
 					<tr>
 						<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>">
