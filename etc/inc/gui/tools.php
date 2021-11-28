@@ -1121,7 +1121,7 @@ EOJ;
 		$div = $this->addDIV(['class' => 'lcrgridl']);
 		if($notdirty && $notprotected):
 //			record is editable
-			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(['submit' => 'edit',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 			$div->
 				addA(['href' => $link])->
@@ -1142,7 +1142,7 @@ EOJ;
 
 		$div = $this->addDIV(['class' => 'lcrgridc']);
 		if($show_link):
-			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(['submit' => 'maintain',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_maintain()->get_scriptname(),$querystring);
 			$div->
 				addA(['href' => $link])->
@@ -1155,7 +1155,7 @@ EOJ;
 
 		$div = $this->addDIV(['class' => 'lcrgridr']);
 		if($show_link):
-			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+			$querystring = http_build_query(['submit' => 'inform',$sphere->get_row_identifier() => $sphere->get_row_identifier_value()],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 			$link = sprintf('%s?%s',$sphere->get_inform()->get_scriptname(),$querystring);
 			$div->
 				addA(['href' => $link])->
@@ -1198,7 +1198,7 @@ EOJ;
  *		</th>
  *	</tr>
  */
-		$querystring = http_build_query(['submit' => 'add'],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
+		$querystring = http_build_query(['submit' => 'add'],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986);
 		$link = sprintf('%s?%s',$sphere->get_modify()->get_scriptname(),$querystring);
 //		PHP_QUERY_RFC3986
 		$tr = $this->addTR();
