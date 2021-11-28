@@ -332,7 +332,7 @@ function system_get_cpus() {
  *	@return array
  */
 function system_get_smp_cpu_usage(string $id = '0'): array {
-	$cpus = rtrim(`sysctl -nq kern.smp.cpus`);
+	$cpus = is_string($test = shell_exec('sysctl -nq kern.smp.cpus')) ? rtrim($test) : '';
 	$var = 'kern.cp_times';
 	$key = sprintf('%s.%s',$var,$id);
 	$cmd = sprintf('/sbin/sysctl -nq %s',$var);
@@ -340,7 +340,7 @@ function system_get_smp_cpu_usage(string $id = '0'): array {
 	$c_ticks_1 = $_SESSION[$key] ?? null;
 	$a_ticks_1 = isset($c_ticks_1) ? explode(' ',$c_ticks_1) : array_fill(0,$cpus * 5,0);
 //	get current ticks and save them in the session variable
-	$_SESSION[$key] = $c_ticks_2 = rtrim(`{$cmd}`);
+	$_SESSION[$key] = $c_ticks_2 = is_string($test = shell_exec($cmd)) ? rtrim($test) : '';
 	$a_ticks_2 = explode(' ',$c_ticks_2);
 	$a_ticks_all = array_map(fn($a,$b) => abs($b - $a),$a_ticks_1,$a_ticks_2);
 	$usage = array_fill_keys(range(0,$cpus - 1),0);
@@ -364,7 +364,7 @@ function system_get_cpu_usage(string $id = '0'): float {
 	$c_ticks_1 = $_SESSION[$key] ?? null;
 	$a_ticks_1 = isset($c_ticks_1) ? explode(' ',$c_ticks_1) : array_fill(0,5,'0');
 //	get current ticks and save them in the session variable
-	$_SESSION[$key] = $c_ticks_2 = rtrim(`{$cmd}`);
+	$_SESSION[$key] = $c_ticks_2 = is_string($test = shell_exec($cmd)) ? rtrim($test) : '';
 	$a_ticks_2 = explode(' ',$c_ticks_2);
 	$a_ticks = array_map(fn($a,$b) => abs($b - $a),$a_ticks_1,$a_ticks_2);
 //	CPUSTATES: 0 => user, 1 => nice, 2 => system, 3 => interrupt, 4 => idle
@@ -377,10 +377,10 @@ function system_get_cpu_usage(string $id = '0'): float {
  */
 function system_get_cpu_info() {
 	$cpuinfo = [];
-	$cpuinfo['number'] = rtrim(`/sbin/sysctl -n hw.ncpu`);
-	$cpuinfo['model'] = rtrim(`/sbin/sysctl -n hw.model`);
-	$cpuinfo['clockrate'] = rtrim(`/sbin/sysctl -n hw.clockrate`);
-	$cpuinfo['temperature'] = rtrim(`/sbin/sysctl -n hw.acpi.thermal.tz0.temperature`);
+	$cpuinfo['number'] = is_string($test = shell_exec('/sbin/sysctl -n hw.ncpu')) ? rtrim($test) : '';
+	$cpuinfo['model'] = is_string($test = shell_exec('/sbin/sysctl -n hw.model')) ? rtrim($test) : '';
+	$cpuinfo['clockrate'] = is_string($test =shell_exec('/sbin/sysctl -n hw.clockrate')) ? rtrim($test) : '';
+	$cpuinfo['temperature'] = is_string($test = shell_exec('/sbin/sysctl -n hw.acpi.thermal.tz0.temperature')) ? rtrim($test) : '';
 //	read temperatures of all cores (kern.smp.cpus) from sysctl
 	$adjust_temp_by = 0;
 	$cpu_temp_info = [];
@@ -394,8 +394,8 @@ function system_get_cpu_info() {
 	endforeach;
 	ksort($cpu_temp_info);
 	$cpuinfo['temperature2'] = $cpu_temp_info;
-	$cpuinfo['freq'] = rtrim(`/sbin/sysctl -n dev.cpu.0.freq`);
-	$cpuinfo['freqlevels'] = rtrim(`/sbin/sysctl -n dev.cpu.0.freq_levels`);
+	$cpuinfo['freq'] = is_string($test = shell_exec('/sbin/sysctl -n dev.cpu.0.freq')) ? rtrim($test) : '';
+	$cpuinfo['freqlevels'] = is_string($test = shell_exec('/sbin/sysctl -n dev.cpu.0.freq_levels')) ? trim($test) : '';
 	return $cpuinfo;
 }
 /**
