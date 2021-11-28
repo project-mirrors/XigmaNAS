@@ -333,7 +333,7 @@ function render_poolusage() {
 				endif;
 				echo '<br />';
 				echo '<span id="',$ctrlid,'_capofsize" class="capofsize">',$row['tt'],'</span>';
-				echo '<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],null,ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
+				echo '<span>',gtext(' | State: '),'</span>',sprintf('<span id="%s_state" class="state"><a href="disks_zfs_zpool_info.php?%s">%s</a></span>',$ctrlid,http_build_query(['pool' => $row['name']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986),$row['health']);
 				echo '</div></td></tr>';
 				$index++;
 				if($index < $sphere_elements):
