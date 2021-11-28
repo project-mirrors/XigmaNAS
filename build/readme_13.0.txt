@@ -98,6 +98,7 @@ Changes:
 - Upgrade bash to 5.1 p12.
 - Upgrade dialog to 1.3-20211107.
 - Upgrade php to 8.0.13.
+- Upgrade virtualbox-ose to 6.1.30.
 
 Fixes:
 -
