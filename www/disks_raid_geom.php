@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'disks_raid_geom_fun.inc';
+
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_scriptname_child = 'disks_raid_geom_edit.php';
@@ -73,9 +77,9 @@ foreach($a_process as $r_process):
 endforeach;
 //	sunrise: verify if setting exists, otherwise run init tasks
 geomraid_config_get($sphere_array);
-array_sort_key($sphere_array,'name');
+arr::sort_key($sphere_array,'name');
 //	get mounts from config
-$a_config_mount = &array_make_branch($config,'mounts','mount');
+$a_config_mount = &arr::make_branch($config,'mounts','mount');
 //	get all softraids (cli)
 $a_system_sraid = get_sraid_disks_list();
 if($_POST):
@@ -104,7 +108,8 @@ if($_POST):
 	if(isset($_POST['delete_selected_rows']) && $_POST['delete_selected_rows']):
 		$checkbox_member_array = isset($_POST[$checkbox_member_name]) ? $_POST[$checkbox_member_name] : [];
 		foreach($checkbox_member_array as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record,$sphere_array,'uuid'))):
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+			if($index !== false):
 				if(!isset($sphere_array[$index]['protected'])):
 					$sphere_notifier = $a_process[$sphere_array[$index]['type']]['x-notifier']; // get the notifier
 					$mode_updatenotify = updatenotify_get_mode($sphere_notifier,$sphere_array[$index]['uuid']);
@@ -240,10 +245,10 @@ function controlactionbuttons(ego, triggerbyname) {
 			</thead>
 			<tbody>
 <?php
-				foreach ($sphere_array as $sphere_record):
+				foreach($sphere_array as $sphere_record):
 					$size = gtext('Unknown');
 					$status = gtext('Stopped');
-					if(is_array($a_system_sraid) && (false !== ($index = array_search_ex($sphere_record['name'],$a_system_sraid,'name')))):
+					if(is_array($a_system_sraid) && (false !== ($index = arr::search_ex($sphere_record['name'],$a_system_sraid,'name')))):
 						$size = $a_system_sraid[$index]['size'];
 						$status = $a_system_sraid[$index]['state'];
 					endif;
@@ -272,9 +277,9 @@ function controlactionbuttons(ego, triggerbyname) {
 					$notprotected = !isset($sphere_record['protected']);
 					$notmounted = !is_geomraid_mounted($sphere_record['devicespecialfile'],$a_config_mount);
 					$normaloperation = $notprotected && $notmounted;
-					$mod_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$mod_link = sprintf('%s?%s',$sphere_scriptname_child,http_build_query(['submit' => 'edit','uuid' => $sphere_record['uuid']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
 					$mai_link = $a_process[$sphere_record['type']]['x-page-maintenance'];
-					$inf_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],NULL,ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
+					$inf_link = sprintf('%s?%s',$a_process[$sphere_record['type']]['x-page-information'],http_build_query(['submit' => 'inform','uuid' => $sphere_record['uuid']],'',ini_get('arg_separator.output'),PHP_QUERY_RFC3986));
 ?>
 					<tr>
 						<td class="<?=$normaloperation ? "lcelc" : "lcelcd";?>">
