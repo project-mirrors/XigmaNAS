@@ -32,55 +32,57 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'services.inc';
-require_once 'autoload.php';
 
+use common\arr;
 use gui\document;
 
+//	init arrays
+arr::make_branch($config,'system');
+arr::make_branch($config['system'],'dnsserver');
+arr::make_branch($config['system'],'ipv6dnsserver');
+arr::make_branch($config['system'],'ntp');
+arr::make_branch($config['system'],'webgui','auxparam');
+//	set defaults
+$config['system']['datetimeformat'] ??= 'default';
+$config['system']['domain'] ??= '';
+$config['system']['hostname'] ??= '';
+$config['system']['language'] ??= 'en_US';
+$config['system']['timezone'] ??= 'Etc/UTC';
+$config['system']['username'] ??= 'admin';
+$config['system']['webgui']['auxparam'] ??= [];
+$config['system']['webgui']['certificate'] ??= '';
+$config['system']['webgui']['hostsallow'] ??= '';
+$test = $config['system']['webgui']['hostsallow_disable'] ?? false;
+$config['system']['webgui']['hostsallow_disable'] = is_bool($test) ? $test : true;
+$config['system']['webgui']['privatekey'] ??= '';
+$config['system']['webgui']['port'] ??= '';
+$config['system']['webgui']['protocol'] ??= 'http';
+$config['system']['ntp']['enable'] ??= false;
+$config['system']['ntp']['timeservers'] ??= 'pool.ntp.org';
+$config['system']['ntp']['updateinterval'] ??= 300;
+$pconfig = [];
 $pconfig['hostname'] = $config['system']['hostname'];
 $pconfig['domain'] = $config['system']['domain'];
-list($pconfig['dns1'],$pconfig['dns2']) = get_ipv4dnsserver();
-list($pconfig['ipv6dns1'],$pconfig['ipv6dns2']) = get_ipv6dnsserver();
+[$pconfig['dns1'],$pconfig['dns2']] = get_ipv4dnsserver();
+[$pconfig['ipv6dns1'],$pconfig['ipv6dns2']] = get_ipv6dnsserver();
 $pconfig['username'] = $config['system']['username'];
 $pconfig['webguiproto'] = $config['system']['webgui']['protocol'];
-$pconfig['webguiport'] = !empty($config['system']['webgui']['port']) ? $config['system']['webgui']['port'] : "";
-$pconfig['webguihostsallow'] = !empty($config['system']['webgui']['hostsallow']) ? $config['system']['webgui']['hostsallow'] : '';
-$config['system']['webgui']['hostsallow_disable'] = isset($config['system']['webgui']['hostsallow_disable']) && (is_bool($config['system']['webgui']['hostsallow_disable']) ? $config['system']['webgui']['hostsallow_disable'] : true);
+$pconfig['webguiport'] = $config['system']['webgui']['port'];
+$pconfig['webguihostsallow'] = $config['system']['webgui']['hostsallow'];
 $pconfig['webguihostsallow_disable'] = $config['system']['webgui']['hostsallow_disable'];
 $pconfig['language'] = $config['system']['language'];
-if(isset($config['system']['webgui']['auxparam']) && is_array($config['system']['webgui']['auxparam'])):
-	$pconfig['auxparam'] = implode("\n",$config['system']['webgui']['auxparam']);
-else:
-	$pconfig['auxparam'] = '';
-endif;
+$pconfig['auxparam'] = implode("\n",$config['system']['webgui']['auxparam']);
 $pconfig['timezone'] = $config['system']['timezone'];
-$pconfig['datetimeformat'] = !empty($config['system']['datetimeformat']) ? $config['system']['datetimeformat'] : 'default';
-$pconfig['ntp_enable'] = isset($config['system']['ntp']['enable']);
+$pconfig['datetimeformat'] = $config['system']['datetimeformat'];
+$pconfig['ntp_enable'] = $config['system']['ntp']['enable'];
 $pconfig['ntp_timeservers'] = $config['system']['ntp']['timeservers'];
 $pconfig['ntp_updateinterval'] = $config['system']['ntp']['updateinterval'];
 $pconfig['certificate'] = base64_decode($config['system']['webgui']['certificate']);
 $pconfig['privatekey'] = base64_decode($config['system']['webgui']['privatekey']);
-// Set default values if necessary.
-if(!$pconfig['language']):
-	$pconfig['language'] = 'en_US';
-endif;
-if(!$pconfig['timezone']):
-	$pconfig['timezone'] = 'Etc/UTC';
-endif;
-if(!$pconfig['webguiproto']):
-	$pconfig['webguiproto'] = 'http';
-endif;
-if(!$pconfig['username']):
-	$pconfig['username'] = 'admin';
-endif;
-if(!$pconfig['ntp_timeservers']):
-	$pconfig['ntp_timeservers'] = 'pool.ntp.org';
-endif;
-if(!isset($pconfig['ntp_updateinterval'])):
-	$pconfig['ntp_updateinterval'] = 300;
-endif;
 if($_POST):
 	unset($input_errors);
 	$input_errors = [];
@@ -127,15 +129,15 @@ if($_POST):
 		$input_errors[] = gtext('A valid IPv4 address must be specified for the secondary DNS server.');
 	endif;
 	if($_POST['ipv6dns1'] && !is_ipv6addr($_POST['ipv6dns1'])):
-		$input_errors[] = gtext("A valid IPv6 address must be specified for the primary DNS server.");
+		$input_errors[] = gtext('A valid IPv6 address must be specified for the primary DNS server.');
 	endif;
 	if($_POST['ipv6dns2'] && !is_ipv6addr($_POST['ipv6dns2'])):
-		$input_errors[] = gtext("A valid IPv6 address must be specified for the secondary DNS server.");
+		$input_errors[] = gtext('A valid IPv6 address must be specified for the secondary DNS server.');
 	endif;
 	if(isset($_POST['ntp_enable'])):
 		$t = (int)$_POST['ntp_updateinterval'];
 		if(($t < 0) || (($t > 0) && ($t < 6)) || ($t > 1440)):
-			$input_errors[] = gtext("The time update interval must be between 6 and 1440.");
+			$input_errors[] = gtext('The time update interval must be between 6 and 1440.');
 		endif;
 		foreach(explode(' ',$_POST['ntp_timeservers']) as $ts):
 			if(!is_domain($ts)):
@@ -148,10 +150,8 @@ if($_POST):
 		$input_errors[] = sprintf(gtext("Port %ld is already used by another service."),(!empty($_POST['webguiport']) ? $_POST['webguiport'] : 80));
 	endif;
 //	Check Webserver document root if auth is required
-	if(isset($config['websrv']['enable'])
-		&& isset($config['websrv']['authentication']['enable'])
-		&& !is_dir($config['websrv']['documentroot'])):
-		$input_errors[] = gtext("Webserver document root is missing.");
+	if(isset($config['websrv']['enable']) && isset($config['websrv']['authentication']['enable']) && !is_dir($config['websrv']['documentroot'])):
+		$input_errors[] = gtext('Webserver document root is missing.');
 	endif;
 	if(empty($input_errors)):
 //		Store old values for later processing.
@@ -172,7 +172,7 @@ if($_POST):
 		$config['system']['webgui']['hostsallow_disable'] = filter_input(INPUT_POST,'webguihostsallow_disable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$config['system']['language'] = $_POST['language'] ?? '';
 //		Write auxiliary parameters.
-		unset($config['system']['webgui']['auxparam']);
+		$config['system']['webgui']['auxparam'] = [];
 		foreach(explode("\n",$_POST['auxparam']) as $auxparam):
 			$auxparam = trim($auxparam,"\t\n\r");
 			if(!empty($auxparam)):
@@ -187,9 +187,8 @@ if($_POST):
 		$config['system']['webgui']['certificate'] = base64_encode($_POST['certificate']);
 		$config['system']['webgui']['privatekey'] =  base64_encode($_POST['privatekey']);
 //		Only store IPv4 DNS servers when using static IPv4.
-		array_make_branch($config,'system','dnsserver');
-		$config['system']['dnsserver'] = []; // OK clear configuration
-		if('dhcp' !== $config['interfaces']['lan']['ipaddr']):
+		$config['system']['dnsserver'] = [];
+		if($config['interfaces']['lan']['ipaddr'] !== 'dhcp'):
 			if($_POST['dns1']):
 				$config['system']['dnsserver'][] = $_POST['dns1'];
 			endif;
@@ -201,9 +200,8 @@ if($_POST):
 			$config['system']['dnsserver'][] = '';
 		endif;
 //		Only store IPv6 DNS servers when using static IPv6.
-		array_make_branch($config,'system','ipv6dnsserver');
-		$config['system']['ipv6dnsserver'] = []; // OK
-		if('auto' !== $config['interfaces']['lan']['ipv6addr']):
+		$config['system']['ipv6dnsserver'] = [];
+		if($config['interfaces']['lan']['ipv6addr'] !== 'auto'):
 			if($_POST['ipv6dns1']):
 				$config['system']['ipv6dnsserver'][] = $_POST['ipv6dns1'];
 			endif;
@@ -220,7 +218,7 @@ if($_POST):
 		set_php_timezone();
 //		Check if a reboot is required.
 		if(!$reboot_required):
-			$reboot_required = ($oldauxparam !== $config['system']['webgui']['auxparam']);
+			$reboot_required = ($oldauxparam !== ($config['system']['webgui']['auxparam'] ?? []));
 		endif;
 		if(!$reboot_required):
 			$reboot_required = ($oldwebguiproto != $config['system']['webgui']['protocol']);
@@ -232,13 +230,13 @@ if($_POST):
 			$reboot_required = ($oldwebguihostsallow != $config['system']['webgui']['hostsallow']);
 		endif;
 		if(!$reboot_required):
-			$reboot_required = ($oldwebguihostsallow_disable != $config['system']['webgui']['hostsallow_disable']);
+			$reboot_required = ($oldwebguihostsallow_disable != ($config['system']['webgui']['hostsallow_disable'] ?? false));
 		endif;
 		if(!$reboot_required):
-			$reboot_required = ($config['system']['webgui']['certificate'] != $oldcert);
+			$reboot_required = ($oldcert != $config['system']['webgui']['certificate']);
 		endif;
 		if(!$reboot_required):
-			$reboot_required = ($config['system']['webgui']['privatekey'] != $oldkey);
+			$reboot_required = ($oldkey != $config['system']['webgui']['privatekey']);
 		endif;
 		if($reboot_required):
 			touch($d_sysrebootreqd_path);
@@ -254,24 +252,24 @@ if($_POST):
 		$retval = 0;
 		if(!$reboot_required):
 			config_lock();
-			$retval |= rc_exec_service("rcconf");
-			$retval |= rc_exec_service("timezone");
-			$retval |= rc_exec_service("resolv");
-			$retval |= rc_exec_service("hosts");
-			$retval |= rc_restart_service("hostname");
-			$retval |= rc_exec_service("userdb");
-			$retval |= rc_exec_service("htpasswd");
-			$retval |= rc_exec_service("websrv_htpasswd");
-			$retval |= rc_update_service("ntpdate");
-			$retval |= rc_update_service("mdnsresponder");
-			$retval |= rc_update_service("bsnmpd");
-			$retval |= rc_update_service("cron");
+			$retval |= rc_exec_service('rcconf');
+			$retval |= rc_exec_service('timezone');
+			$retval |= rc_exec_service('resolv');
+			$retval |= rc_exec_service('hosts');
+			$retval |= rc_restart_service('hostname');
+			$retval |= rc_exec_service('userdb');
+			$retval |= rc_exec_service('htpasswd');
+			$retval |= rc_exec_service('websrv_htpasswd');
+			$retval |= rc_update_service('ntpdate');
+			$retval |= rc_update_service('mdnsresponder');
+			$retval |= rc_update_service('bsnmpd');
+			$retval |= rc_update_service('cron');
 			config_unlock();
 		endif;
-		if(($pconfig['systime'] !== "Not Set") && (!empty($pconfig['systime']))):
+		if(($pconfig['systime'] !== 'Not Set') && (!empty($pconfig['systime']))):
 			$timestamp = strtotime($pconfig['systime']);
-			if(false !== $timestamp):
-				$timestamp = strftime("%g%m%d%H%M",$timestamp);
+			if($timestamp !== false):
+				$timestamp = strftime('%g%m%d%H%M',$timestamp);
 //				The date utility exits 0 on success, 1 if unable to set the date,
 //				and 2 if able to set the local date, but unable to set it globally.
 				$retval |= mwexec("/bin/date -n {$timestamp}");
@@ -280,8 +278,8 @@ if($_POST):
 		endif;
 		$savemsg = get_std_save_message($retval);
 //		Update DNS server controls.
-		list($pconfig['dns1'],$pconfig['dns2']) = get_ipv4dnsserver();
-		list($pconfig['ipv6dns1'],$pconfig['ipv6dns2']) = get_ipv6dnsserver();
+		[$pconfig['dns1'],$pconfig['dns2']] = get_ipv4dnsserver();
+		[$pconfig['ipv6dns1'],$pconfig['ipv6dns2']] = get_ipv6dnsserver();
 		header('Location: system.php');
 		exit;
 	endif;
@@ -475,7 +473,7 @@ $document->render();
 	include 'formend.inc';
 ?>
 </td></tr></tbody></table></form>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 ntp_change();
 webguiproto_change();
