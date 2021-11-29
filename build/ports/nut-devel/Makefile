@@ -9,8 +9,8 @@ PKGNAMESUFFIX=	-devel
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	6135bb65
-NUT_COMMIT_DATE=	2021.11.16
+GH_TAGNAME=	ad84d9d2
+NUT_COMMIT_DATE=	2021.11.28
 
 #MAKE_JOBS_UNSAFE=	yes
 GNU_CONFIGURE=	yes
@@ -111,16 +111,17 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/mge-shut ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/mge-utalk ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/microdowell ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/microsol-apc ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/netxml-ups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_atcl_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_qx ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_siemens-sitop ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 .if (${ARCH} == "amd64" || ${ARCH} == "i386")
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nut-ipmipsu ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 .endif
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/oneac ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/optiups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powercom ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powerman-pdu ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powerpanel ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/rhino ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/richcomm_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}

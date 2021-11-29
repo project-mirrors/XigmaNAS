@@ -152,8 +152,8 @@ Changes:
 - Upgrade dialog to 1.3-20211107.
 - Upgrade unison to 2.51.4.
 - Upgrade php to 7.4.26.
-- Upgrade nut to 2021.11.16.
 - Upgrade virtualbox-ose to 6.1.30.
+- Upgrade nut to 2021.11.28.
 
 Fixes:
 - Fix only first lagg member is brought up.
