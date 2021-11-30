@@ -42,7 +42,6 @@ sshd_mkconf()
 	/usr/local/bin/xml sel --template \
 		--match '(//sshd[enable])[1]' \
 			--output 'HostKeyAlgorithms +ssh-rsa,ssh-dss' --nl \
-			--output 'HostKey /var/etc/ssh/ssh_host_key' --nl \
 			--output 'SyslogFacility LOCAL3' --nl \
 			--output 'UseDNS no' --nl \
 			--if 'string-length(subsystem) > 0' \
