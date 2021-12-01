@@ -154,6 +154,7 @@ Changes:
 - Upgrade php to 7.4.26.
 - Upgrade virtualbox-ose to 6.1.30.
 - Upgrade nut to 2021.11.28.
+- Upgrade inadyn to 2.9.0.
 
 Fixes:
 - Fix only first lagg member is brought up.
