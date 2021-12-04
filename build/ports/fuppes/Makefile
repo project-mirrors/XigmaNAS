@@ -1,6 +1,6 @@
 PORTNAME=		fuppes
 PORTVERSION=	0.692
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=		net
 COMMENT=		Free UPnP Entertainment Service
 MAINTAINER=		zoon01@xigmanas.com
@@ -18,6 +18,8 @@ LIB_DEPENDS+=		libsqlite3.so:databases/sqlite3 \
 			libvorbis.so:audio/libvorbis \
 			libmp4v2.so:multimedia/mp4v2 \
 			libavformat.so:multimedia/ffmpeg
+
+BUILD_DEPENDS=		libxml2>0:textproc/libxml2
 
 USE_AUTOTOOLS=	autoconf
 USE_GNOME=		libxml2
@@ -68,6 +70,7 @@ do-install:
 # XigmaNAS® Install
 	@echo "Install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
+
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/${PORTNAME}d ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/libfuppes.so.* ${XIGMANAS_ROOTFS}/usr/local/lib
 
