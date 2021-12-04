@@ -100,6 +100,7 @@ Changes:
 - Upgrade php to 8.0.13.
 - Upgrade virtualbox-ose to 6.1.30.
 - Upgrade inadyn to 2.9.0.
+- Upgrade wsdd to 0.7.0.
 
 Fixes:
 -
