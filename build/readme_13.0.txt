@@ -101,6 +101,7 @@ Changes:
 - Upgrade virtualbox-ose to 6.1.30.
 - Upgrade inadyn to 2.9.0.
 - Upgrade wsdd to 0.7.0.
+- Upgrade lighttpd to 1.4.63.
 
 Fixes:
 -
