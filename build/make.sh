@@ -74,8 +74,9 @@ echo "XIGMANAS_TMPDIR=${XIGMANAS_TMPDIR}" >> ${XIGMANAS_MK}
 
 #	Local variables
 XIGMANAS_URL=$(cat $XIGMANAS_SVNDIR/etc/prd.url)
-XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/branches/12.2.0.4"
-XIGMANAS_SVN_SRCTREE="svn://svn.FreeBSD.org/base/releng/12.2"
+XIGMANAS_SVNURL="https://svn.code.sf.net/p/xigmanas/code/branches/12.3.0.4"
+XIGMANAS_GIT_SRCTREE="https://git.FreeBSD.org/src.git"
+XIGMANAS_GIT_BRANCH="releng/12.3"
 
 #	Size in MB of the MFS Root filesystem that will include all FreeBSD binary
 #	and XigmaNAS® WebGUI/Scripts. Keep this file very small! This file is unzipped
@@ -171,8 +172,8 @@ update_sources() {
 
 #	Choose what to do.
 	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Update Sources" --checklist "Please select what to update." 12 60 5 \
-		"svnco" "Fetch source tree" OFF \
-		"svnup" "Update source tree" OFF \
+		"git_clone" "Get src source tree" OFF \
+		"git_pull" "Update src source tree" OFF \
 		"freebsd-update" "Fetch and install binary updates" OFF \
 		"portsnap" "Update ports collection" OFF \
 		"portupgrade" "Upgrade ports on host" OFF 2> $tempfile
@@ -190,10 +191,11 @@ update_sources() {
 				freebsd-update fetch install;;
 			portsnap)
 				portsnap fetch update;;
-			svnco)
-				rm -rf /usr/src; svn co ${XIGMANAS_SVN_SRCTREE} /usr/src;;
-			svnup)
-				svn up /usr/src;;
+			git_clone)
+				rm -rf /usr/src;
+				mkdir /usr/src; git clone -b ${XIGMANAS_GIT_BRANCH} ${XIGMANAS_GIT_SRCTREE} /usr/src;;
+			git_pull)
+				cd /usr/src; git pull;;
 			portupgrade)
 				portupgrade -aFP;;
 		esac
