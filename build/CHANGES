@@ -1,5 +1,5 @@
-XigmaNAS® 12.3.0.4 -
---------------------------------
+XigmaNAS® 12.3.0.4 - Artisia
+----------------------------
 Changes:
 - Upgrade to FreeBSD 12.3-RELEASE P0.
 - Upgrade lighttpd to 1.4.63.

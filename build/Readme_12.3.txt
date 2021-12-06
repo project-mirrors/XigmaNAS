@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 12.3.0.4 -
+		README & CHANGELOG FOR XIGMANAS® 12.3.0.4 - Artisia
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -27,7 +27,7 @@ GEOM RAID-5 note
 ================
 XigmaNAS 12.x releases are the last series supporting GEOM RAID-5.
 We kindly ask users to switch to ZFS RaidZ on new installations.
-In the upcomming XigmaNAS 13.0.0.5 release, GEOM RAID-5 can no longer be used.
+In the upcomming XigmaNAS 13.x releases, GEOM RAID-5 can no longer be used.
 You will no longer be able to access the data of the RAID!
 
 Install from scratch instructions:
