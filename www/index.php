@@ -719,8 +719,9 @@ $(document).ready(function(){
 			html_textinfo2('hostname',gettext('Hostname'),$sysinfo['hostname']);
 			html_textinfo2('version',gettext('Version'),sprintf('<strong>%s %s</strong> (%s %s)',get_product_version(),get_product_versionname(),gettext('revision'),get_product_revision()));
 			html_textinfo2('builddate',gettext('Compiled'),$sysinfo['builddate']);
-			exec('/sbin/sysctl -n kern.version',$osversion);
-			html_textinfo2('platform_os',gettext('Platform OS'),sprintf('%s',$osversion[0]));
+			exec('/sbin/sysctl -n kern.ostype',$ostype);
+			exec('/sbin/sysctl -n kern.osrelease',$osversion);
+			html_textinfo2('platform_os',gettext('Platform OS'),sprintf('%s %s',$ostype[0],$osversion[0]));
 			html_textinfo2('platform',gettext('Platform'),sprintf(gettext('%s on %s'),$g['fullplatform'],$sysinfo['cpumodel']));
 			if(!is_null($smbios['planar']['maker']) && !is_null($smbios['planar']['product'])):
 				html_textinfo2('system',gettext('System'),sprintf('%s %s',$smbios['planar']['maker'],$smbios['planar']['product']));
