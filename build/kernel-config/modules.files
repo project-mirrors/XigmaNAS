@@ -11,6 +11,7 @@ geom/geom_vinum/geom_vinum.ko
 geom/geom_virstor/geom_virstor.ko
 
 # Interfaces
+aqtion/if_atlantic.ko
 carp/carp.ko
 if_tuntap/if_tuntap.ko
 
