@@ -6,9 +6,9 @@
 #
 # Service remote NFS mount requests
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/mountd		Revision 339434
-# XigmaNAS® Changes: - Remove nfsserver quota
-# 		     - Add mkconf command
+# XigmaNAS® Checked: /releng/12.3/libexec/rc/rc.d/mountd		Revision 339434
+# XigmaNAS® Changes: Remove quota from requirement
+# XigmaNAS® Changes: Add mkconf command
 #
 
 # PROVIDE: mountd
@@ -143,23 +143,46 @@ mountd_mkconf()
 
 mountd_precmd()
 {
+
 	mountd_mkconf
-	if ! checkyesno rpcbind_enable  && ! /etc/rc.d/rpcbind forcestatus 1>/dev/null 2>&1; then
+
+#	Load the modules now, so that the vfs.nfsd sysctl
+#	oids are available.
+	load_kld nfsd || return 1
+
+#	Do not force rpcbind to be running for an NFSv4 only server.
+#
+	if checkyesno nfsv4_server_only; then
+		echo 'NFSv4 only server'
+		sysctl vfs.nfsd.server_min_nfsvers=4 > /dev/null
+		sysctl vfs.nfsd.server_max_nfsvers=4 > /dev/null
+		rc_flags="${rc_flags} -R"
+	else
 		force_depend rpcbind || return 1
 	fi
+
 #	mountd flags will differ depending on rc.conf settings
-	if checkyesno nfs_server_enable ; then
+#
+	if checkyesno nfs_server_enable || checkyesno nfsv4_server_only; then
 		if checkyesno weak_mountd_authentication; then
-			rc_flags="${mountd_flags} -n"
+			if checkyesno nfsv4_server_only; then
+				echo -n 'weak_mountd_authentication '
+				echo -n 'incompatible with nfsv4_server_only, '
+				echo 'ignored'
+			else
+				rc_flags="${rc_flags} -n"
+			fi
 		fi
 	else
 		if checkyesno mountd_enable; then
 			checkyesno weak_mountd_authentication && rc_flags="-n"
 		fi
 	fi
+
 	if checkyesno zfs_enable; then
 		rc_flags="${rc_flags} /etc/exports /etc/zfs/exports"
 	fi
+
 	rm -f /var/db/mountdtab
 	( umask 022 ; > /var/db/mountdtab )
 	return 0
