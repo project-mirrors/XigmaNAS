@@ -5,7 +5,7 @@
  	VERSTR="${VERINFO}\\n"
  else
 -	VERINFO="${VERSION} #${v}${svn}${git}${hg}${p4version}: ${t}"
-+	VERINFO="${VERSION} ${t}"
++	VERINFO="${VERSION} #XigmaNAS: ${t}"
  	VERSTR="${VERINFO}\\n    ${u}@${h}:${d}\\n"
  fi
  
