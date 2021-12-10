@@ -1,0 +1,11 @@
+--- sys/conf/newvers.sh.orig
++++ sys/conf/newvers.sh
+@@ -290,7 +290,7 @@
+ 	VERINFO="${VERSION}${svn}${git}${gitup}${hg} ${i}"
+ 	VERSTR="${VERINFO}\\n"
+ else
+-	VERINFO="${VERSION} #${v}${svn}${git}${gitup}${hg}: ${t}"
++	VERINFO="${VERSION} #XigmaNAS: ${t}"
+ 	VERSTR="${VERINFO}\\n    ${u}@${h}:${d}\\n"
+ fi
+ 
