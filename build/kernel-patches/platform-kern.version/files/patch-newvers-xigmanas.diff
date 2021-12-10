@@ -1,0 +1,11 @@
+--- sys/conf/newvers.sh.orig
++++ sys/conf/newvers.sh
+@@ -276,7 +276,7 @@
+ 	VERINFO="${VERSION}${svn}${git}${hg}${p4version} ${i}"
+ 	VERSTR="${VERINFO}\\n"
+ else
+-	VERINFO="${VERSION} #${v}${svn}${git}${hg}${p4version}: ${t}"
++	VERINFO="${VERSION} ${t}"
+ 	VERSTR="${VERINFO}\\n    ${u}@${h}:${d}\\n"
+ fi
+ 
