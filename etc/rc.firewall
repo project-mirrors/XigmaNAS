@@ -3,7 +3,7 @@
 # Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
-# $FreeBSD: /etc/rc.firewall Revision 331728
+# $FreeBSD: /etc/rc.firewall commit 61e7e50
 #
 
 #
