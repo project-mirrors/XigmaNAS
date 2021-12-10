@@ -6,7 +6,7 @@
 #
 # Run file system checks
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/fsck		Revision 339434
+# XigmaNAS® Checked: stable/12/libexec/rc/rc.d/fsck		commit 0696600
 # XigmaNAS® Changes: - Refactor fsck_start to process configured disks only.
 # 		     - Add fsck_start_root to check root file system on 'full' installations.
 #

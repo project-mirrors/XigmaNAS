@@ -7,7 +7,7 @@
 # All rights reserved.
 #
 # Purge /var directory
-# $FreeBSD: /stable/12/libexec/rc/rc.d/	Revision 339434
+# $FreeBSD: main libexec/rc/rc.d/cleanvar	commit 0696600
 # ---> Change: Skip over *.hints files, otherwise 'xml' cmd will fail!
 #
 
@@ -29,9 +29,7 @@ reload_cmd="${name}_start"
 
 cleanvar_prestart()
 {
-	# These files must be removed only the first time this script is run
-	# on boot.
-	#
+	# These files must be removed only the first time this script is run on boot.
 	rm -f /var/run/clean_var /var/spool/lock/clean_var
 }
 
