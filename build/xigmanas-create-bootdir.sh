@@ -66,6 +66,7 @@ mkdir $MINIBSD_DIR/dtb
 mkdir $MINIBSD_DIR/dtb/overlays
 mkdir $MINIBSD_DIR/firmware
 mkdir $MINIBSD_DIR/kernel
+mkdir $MINIBSD_DIR/loader.conf.d
 mkdir $MINIBSD_DIR/lua
 mkdir $MINIBSD_DIR/modules
 mkdir $MINIBSD_DIR/zfs
