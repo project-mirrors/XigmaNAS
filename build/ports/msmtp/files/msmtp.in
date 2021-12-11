@@ -8,6 +8,7 @@
 #
 
 # PROVIDE: msmtp
+# REQUIRE: FILESYSTEMS
 # BEFORE: DAEMON
 
 . /etc/rc.subr
@@ -23,69 +24,69 @@ msmtp_tlstrustfile=${msmtp_tlstrustfile:-"/usr/local/share/certs/ca-root-nss.crt
 msmtprc=${msmtprc:-"/usr/local/etc/msmtprc"}
 
 # Create msmtp.conf configuration
-/usr/local/bin/xml sel -t \
-	-o "account default" -n \
-	-i "string-length(//system/domain) > 0" \
+/usr/local/bin/xml sel --text --template \
+	--output "account default" --nl \
+	--if "string-length(//system/domain) > 0" \
 		--if "string-length(//system/hostname) > 0" \
-			-v "concat('domain ',//system/hostname,'.',//system/domain)" -n \
+			--value-of "concat('domain ',//system/hostname,'.',//system/domain)" --nl \
 		--else \
-			-v "concat('domain ',//system/domain)" -n \
+			--value-of "concat('domain ',//system/domain)" --nl \
 		--break \
-	-b \
-	-i "string-length(//system/email/server) > 0" \
-		-v "concat('host ',//system/email/server)" -n \
-	-b \
-	-i "string-length(//system/email/port) > 0" \
-		-v "concat('port ',//system/email/port)" -n \
-	-b \
-	-o "protocol smtp" -n \
-	-i "string-length(//system/email/from) > 0" \
-		-v "concat('from ',//system/email/from)" -n \
-	-b \
-	-i "count(//system/email/auth) > 0" \
-		-i "string-length(//system/email/authmethod) > 0" \
-			-v "concat('auth ',//system/email/authmethod)" -n \
-		-b \
-		-i "string-length(//system/email/username) > 0" \
-			-v "concat('user ',//system/email/username)" -n \
-		-b \
-		-i "string-length(//system/email/password) > 0" \
-			-v "concat('password ',//system/email/password)" -n \
-		-b \
-	-b \
+	--break \
+	--if "string-length(//system/email/server) > 0" \
+		--value-of "concat('host ',//system/email/server)" --nl \
+	--break \
+	--if "string-length(//system/email/port) > 0" \
+		--value-of "concat('port ',//system/email/port)" --nl \
+	--break \
+	--output "protocol smtp" --nl \
+	--if "string-length(//system/email/from) > 0" \
+		--value-of "concat('from ',//system/email/from)" --nl \
+	--break \
+	--if "count(//system/email/auth) > 0" \
+		--if "string-length(//system/email/authmethod) > 0" \
+			--value-of "concat('auth ',//system/email/authmethod)" --nl \
+		--break \
+		--if "string-length(//system/email/username) > 0" \
+			--value-of "concat('user ',//system/email/username)" --nl \
+		--break \
+		--if "string-length(//system/email/password) > 0" \
+			--value-of "concat('password ',//system/email/password)" --nl \
+		--break \
+	--break \
 	--if "count(//system/email/security) > 0" \
-		-o "tls on" -n \
+		--output "tls on" --nl \
 		--if "count(//system/email/starttls) > 0" \
-			-o "tls_starttls on" -n \
+			--output "tls_starttls on" --nl \
 		--else \
-			-o "tls_starttls off" -n \
+			--output "tls_starttls off" --nl \
 		--break \
 		--if "count(//system/email/tls_certcheck) > 0" \
 			--if "count(//system/email/tls_use_default_trust_file) > 0" \
-				-o "tls_trust_file ${msmtp_tlstrustfile}" -n \
+				--output "tls_trust_file ${msmtp_tlstrustfile}" --nl \
 			--elif "string-length(//system/email/tls_trust_file) > 0" \
-				-v "concat('tls_trust_file ',//system/email/tls_trust_file)" -n \
+				--value-of "concat('tls_trust_file ',//system/email/tls_trust_file)" --nl \
 			--break \
 			--if "string-length(//system/email/tls_fingerprint) > 0" \
-				-v "concat('tls_fingerprint ',//system/email/tls_fingerprint)" -n \
+				--value-of "concat('tls_fingerprint ',//system/email/tls_fingerprint)" --nl \
 			--break \
 			--if "string-length(//system/email/tls_crl_file) > 0" \
-				-v "concat('tls_crl_file ',//system/email/tls_crl_file)" -n \
+				--value-of "concat('tls_crl_file ',//system/email/tls_crl_file)" --nl \
 			--break \
 		--else \
-			-o "tls_certcheck off" -n \
+			--output "tls_certcheck off" --nl \
 		--break \
 		--if "string-length(//system/email/tls_cert_file) > 0" \
-			-v "concat('tls_cert_file ',//system/email/tls_cert_file)" -n \
+			--value-of "concat('tls_cert_file ',//system/email/tls_cert_file)" --nl \
 		--break \
 		--if "string-length(//system/email/tls_key_file) > 0" \
-			-v "concat('tls_key_file ',//system/email/tls_key_file)" -n \
+			--value-of "concat('tls_key_file ',//system/email/tls_key_file)" --nl \
 		--break \
 	--else \
-		-o "tls off" -n \
-		-o "tls_starttls off" -n \
+		--output "tls off" --nl \
+		--output "tls_starttls off" --nl \
 	--break \
-	-o "syslog LOG_MAIL" -n \
+	--output "syslog LOG_MAIL" --nl \
 	${configxml_file} | /usr/local/bin/xml unesc > ${msmtp_config}
 
 # Set user permissions
