@@ -10,6 +10,7 @@
 #
 
 # PROVIDE: proxy
+# REQUIRE: SYSTEMINIT
 # BEFORE: LOGIN
 
 . /etc/rc.subr
