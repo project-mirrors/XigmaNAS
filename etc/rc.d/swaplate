@@ -8,7 +8,7 @@
 #
 
 # PROVIDE: swaplate
-# REQUIRE: mountlate
+# REQUIRE: FILESYSTEMS mountlate
 # KEYWORD: nojail shutdown
 # XQUERY: -i "count(//system/swap/enable) > 0" -o "0" -b
 # RCVAR: swap
