@@ -245,9 +245,9 @@ chmod 1777 /var/tmp
 /sbin/ldconfig -elf /usr/lib /usr/local/lib /lib
 
 # Add the path of full boot disk
-/sbin/kldconfig -f -m /boot/kernel
+/sbin/kldconfig -f -U /boot/kernel
 # Add the path of embedded boot disk
-/sbin/kldconfig -f -m /cf/boot/kernel
+/sbin/kldconfig -f -U /cf/boot/kernel
 
 # Let the PHP functions know we're booting
 BOOTING=1
