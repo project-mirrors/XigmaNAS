@@ -5,6 +5,7 @@ Changes:
 - Upgrade lighttpd to v1.4.63.
 - Upgrade gzip to v1.11.
 - Upgrade syncthing to v1.18.5.
+- Upgrade nut to v2021.12.09.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
