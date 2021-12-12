@@ -171,7 +171,7 @@ update_sources() {
 	tempfile=$XIGMANAS_WORKINGDIR/tmp$$
 
 #	Choose what to do.
-	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Update Sources" --checklist "Please select what to update." 12 60 5 \
+	$DIALOG --ascii-lines --title "$XIGMANAS_PRODUCTNAME - Update Sources" --checklist "Please select what to update." 12 60 5 \
 		"git_clone" "Get src source tree" OFF \
 		"git_pull" "Update src source tree" OFF \
 		"freebsd-update" "Fetch and install binary updates" OFF \
@@ -292,7 +292,7 @@ pre_build_kernel() {
 
 #	Create list of available packages.
 	echo "#! /bin/sh
-$DIALOG --title \"$XIGMANAS_PRODUCTNAME - Kernel Patches\" \\
+$DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Kernel Patches\" \\
 --checklist \"Select the patches you want to add. Make sure you have clean/origin kernel sources (via suvbersion) to apply patches successful.\" 22 88 14 \\" > $tempfile
 
 	for s in $XIGMANAS_SVNDIR/build/kernel-patches/*; do
@@ -336,7 +336,7 @@ build_kernel() {
 	[ ! -d "${XIGMANAS_ROOTFS}/boot/kernel" ] && mkdir -p ${XIGMANAS_ROOTFS}/boot/kernel
 
 #	Choose what to do.
-	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Kernel" --checklist "Please select whether you want to build or install the kernel." 10 75 3 \
+	$DIALOG --ascii-lines --title "$XIGMANAS_PRODUCTNAME - Build/Install Kernel" --checklist "Please select whether you want to build or install the kernel." 10 75 3 \
 		"prebuild" "Apply kernel patches" OFF \
 		"build" "Build kernel" OFF \
 		"install" "Install kernel + modules" ON 2> $tempfile
@@ -1687,7 +1687,7 @@ build_ports() {
 	ports=$XIGMANAS_WORKINGDIR/ports$$
 
 #	Choose what to do.
-	$DIALOG --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 65 4 \
+	$DIALOG --ascii-lines --title "$XIGMANAS_PRODUCTNAME - Build/Install Ports" --menu "Please select whether you want to build or install ports." 11 65 4 \
 		"build" "Build ports" \
 		"nosel" "Build ports (dev only, no preselection)" \
 		"rebuild" "Re-build ports (dev only)" \
@@ -1702,7 +1702,7 @@ build_ports() {
 
 #	Create list of available ports.
 	echo "#! /bin/sh
-$DIALOG --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
+$DIALOG --ascii-lines --title \"$XIGMANAS_PRODUCTNAME - Ports\" \\
 --checklist \"Select the ports you want to process.\" 21 130 14 \\" > $tempfile
 
 	for s in $XIGMANAS_SVNDIR/build/ports/*; do
