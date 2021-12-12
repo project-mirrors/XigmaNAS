@@ -3,10 +3,11 @@ XigmaNAS® 13.0.0.5 - Glowpanel
 Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P5.
 - Upgrade arcconf to v3_10_24700.
-- Upgrade isboot to 0.2.14.
-- Upgrade php to 8.0.13.
-- Upgrade lighttpd to 1.4.63.
-- Upgrade gzip to 1.11.
+- Upgrade isboot to v0.2.14.
+- Upgrade php to v8.0.13.
+- Upgrade lighttpd to v1.4.63.
+- Upgrade gzip to v1.11.
+- Upgrade syncthing to v1.18.5.
 
 Fixes:
 

@@ -94,15 +94,16 @@ BUILD 13.0.0.5.xxxx
 Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P5.
 - Upgrade arcconf to v3_10_24700.
-- Upgrade isboot to 0.2.14.
-- Upgrade bash to 5.1 p12.
-- Upgrade dialog to 1.3-20211107.
-- Upgrade php to 8.0.13.
-- Upgrade virtualbox-ose to 6.1.30.
-- Upgrade inadyn to 2.9.0.
-- Upgrade wsdd to 0.7.0.
-- Upgrade lighttpd to 1.4.63.
-- Upgrade gzip to 1.11.
+- Upgrade isboot to v0.2.14.
+- Upgrade bash to v5.1 p12.
+- Upgrade dialog to v1.3-20211107.
+- Upgrade php to v8.0.13.
+- Upgrade virtualbox-ose to v6.1.30.
+- Upgrade inadyn to v2.9.0.
+- Upgrade wsdd to v0.7.0.
+- Upgrade lighttpd to v1.4.63.
+- Upgrade gzip to v1.11.
+- Upgrade syncthing to v1.18.5.
 
 Fixes:
 -
