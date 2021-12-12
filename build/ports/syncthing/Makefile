@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.18.4
+PORTVERSION=	1.18.5
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -28,8 +28,9 @@ GROUPS=		syncthing
 MAKE_ENV+=	BUILD_USER=ports BUILD_HOST=XigmaNAS
 
 STRIP=		# stripping can break go binaries
-NO_WRKSUBDIR=   yes
 
+NO_WRKSUBDIR=   yes
+OPTIONS_DEFINE=	DOCS
 # XigmaNAS
 NO_PKG_REGISTER= yes
 
@@ -44,8 +45,18 @@ do-build:
 		)
 
 do-install:
+.for x in ${BINS}
+	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME}/${x} \
+		${STAGEDIR}${PREFIX}/bin/
+.endfor
+	${MKDIR} ${STAGEDIR}${DOCSDIR}
+.for x in AUTHORS LICENSE README.md
+	${INSTALL_DATA} ${WRKSRC}/${PORTNAME}/${x} \
+		${STAGEDIR}${DOCSDIR}
+.endfor
+
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/syncthing.in ${XIGMANAS_ROOTFS}/etc/rc.d/syncthing
 # bin
