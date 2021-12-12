@@ -104,6 +104,7 @@ Changes:
 - Upgrade lighttpd to v1.4.63.
 - Upgrade gzip to v1.11.
 - Upgrade syncthing to v1.18.5.
+- Upgrade nut to v2021.12.09.
 
 Fixes:
 -
