@@ -128,6 +128,7 @@ BUILD 12.3.0.4.
 Changes:
 - Upgrade to FreeBSD 12.3-RELEASE P0.
 - Upgrade lighttpd to 1.4.63.
+- Upgrade gzip to 1.11.
 -
 
 Fixes:
