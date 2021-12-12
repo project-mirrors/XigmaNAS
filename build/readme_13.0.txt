@@ -102,6 +102,7 @@ Changes:
 - Upgrade inadyn to 2.9.0.
 - Upgrade wsdd to 0.7.0.
 - Upgrade lighttpd to 1.4.63.
+- Upgrade gzip to 1.11.
 
 Fixes:
 -

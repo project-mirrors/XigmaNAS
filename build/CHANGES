@@ -6,6 +6,7 @@ Changes:
 - Upgrade isboot to 0.2.14.
 - Upgrade php to 8.0.13.
 - Upgrade lighttpd to 1.4.63.
+- Upgrade gzip to 1.11.
 
 Fixes:
 
