@@ -1,6 +1,6 @@
 PORTNAME=		lcdproc
 PORTVERSION=  0.5.9
-PORTREVISION= 0
+PORTREVISION= 1
 DISTVERSIONPREFIX=	lcdproc-
 CATEGORIES=		sysutils
 
@@ -14,15 +14,15 @@ GNU_CONFIGURE=	yes
 USES=           autoreconf pkgconfig
 
 # Options
-OPTIONS_DEFINE= USB FTDI HID FREETYPE SERDISP
+OPTIONS_DEFINE= USB FTDI FREETYPE SERDISP
 
 LIB_DEPENDS+=		libftdi1.so:${PORTSDIR}/devel/libftdi1
-#LIB_DEPENDS+=		libhid.so:${PORTSDIR}/devel/libhid
 
 CONFIGURE_ARGS=	--enable-drivers="${LCDPROC_DRIVERS}" \
-						--with-libusb \
-						--disable-dependency-tracking \
-						--disable-doxygen
+					--disable-dependency-tracking \
+					--with-libusb \
+					--disable-libhid \
+					--disable-doxygen
 
 OPTIONS_DEFINE=  USB FTDI HID FREETYPE PNG SERDISP
 USB_DESC=	   USB support
@@ -109,15 +109,6 @@ LCDPROC_DRIVERS+=i2500vfd \
 . else
 CONFIGURE_ARGS+=	--disable-libftdi
 PLIST_SUB+=		FTDI="@comment "
-. endif
-
-. if ${PORT_OPTIONS:MHID}
-LIB_DEPENDS+=		libhid.so:${PORTSDIR}/devel/libhid
-PLIST_SUB+=		HID=""
-LCDPROC_DRIVERS+=mdm166a
-. else
-CONFIGURE_ARGS+=	--disable-libhid
-PLIST_SUB+=		HID="@comment "
 . endif
 
 .else
