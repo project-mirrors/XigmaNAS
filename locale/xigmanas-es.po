@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2021-11-15 14:33+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2021-12-13 10:53+0000\n"
+"Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-11-27 20:05+0000\n"
-"X-Generator: Launchpad (build 78346d219e01c6c7b1bfd882aa0bbcbb42d4e568)\n"
+"X-Launchpad-Export-Date: 2021-12-13 18:09+0000\n"
+"X-Generator: Launchpad (build cd8f08e7e7c160b1710e2cad6ba032fb74527860)\n"
 "Language: es_ES\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -377,6 +377,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Un puerto para escuchar las conexiones entrantes mediante el protocolo iSER "
+"(iSCSI sobre RDMA)."
 
 msgid "A reboot is required"
 msgstr "Es necesario un reinicio"
@@ -797,7 +799,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Dirección del demonio hastd remoto. Debe ser una IP estática."
 
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 msgid "Admin Password"
 msgstr "Contraseña de administrador"
@@ -812,7 +814,7 @@ msgid "Administrator Name"
 msgstr "Nombre del Administrador"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Contraseña de administrador"
 
 msgid "Advanced"
 msgstr "Avanzado"
@@ -1094,6 +1096,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Una dirección IPv4 o IPv6 para escuchar las conexiones entrantes mediante el "
+"protocolo iSER (iSCSI sobre RDMA)."
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "Una dirección IPv4 o IPv6 para escuchar las conexiones entrantes."
@@ -4956,7 +4960,7 @@ msgid "Enable store DOS attributes."
 msgstr "Habilitar el salvar los atributos DOS"
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "Habilite la compatibilidad con NFSv4 únicamente."
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Activar el protocolo de identificación (RFC1413)."
@@ -5099,7 +5103,7 @@ msgid "Enhanced Scheduler"
 msgstr "Programador avanzado"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "Ingrese el nombre de AD o PDC."
 
 msgid "Enter Command"
 msgstr "Introduzca Comando"
@@ -5114,7 +5118,7 @@ msgid "Enter Identifier"
 msgstr "Ingrese el identificador"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "Ingrese el nombre NetBIOS."
 
 msgid "Enter Password"
 msgstr "Introduzca contraseña"
@@ -5240,7 +5244,7 @@ msgstr ""
 "conectada. (La IP puede ser de un Host remoto)"
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "Ingrese el nombre del dominio"
 
 msgid "Enter the full user name."
 msgstr "Nombre completo de usuario"
@@ -5265,7 +5269,7 @@ msgstr ""
 "entre 8 y 63 caracteres de longitud"
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "Ingrese la contraseña de la cuenta de administrador de dominio."
 
 msgid "Enter the password of the master user account."
 msgstr "Contraseña de la cuenta maestra."
@@ -5311,6 +5315,7 @@ msgstr "Ingrese el nombre de equipo trampa."
 
 msgid "Enter user name of a domain administrator account."
 msgstr ""
+"Ingrese el nombre de usuario de una cuenta de administrador de dominio."
 
 msgid "Enter user name."
 msgstr "Ingrese el nombre de usuario."
@@ -6824,6 +6829,8 @@ msgstr "Credenciales de acceso inválidas."
 msgid ""
 "Invalid port number. The port number must be a value between 1 and 65535."
 msgstr ""
+"Número de puerto no válido. El número de puerto debe tener un valor entre 1 "
+"y 65535."
 
 msgid "Invert Selection"
 msgstr "Invertir Selección"
@@ -7251,7 +7258,7 @@ msgid "Listen"
 msgstr "Escuchar"
 
 msgid "Listen (iSER)"
-msgstr ""
+msgstr "Escuchando (iSER)"
 
 msgid "Listen record is locked"
 msgstr "Grabación de escucha bloqueada"
@@ -7667,7 +7674,7 @@ msgid "Media Folder is unlocked"
 msgstr "Carpeta Multimedia desbloqueada"
 
 msgid "Media Folders"
-msgstr ""
+msgstr "Carpetas multimedia"
 
 msgid "Media Library"
 msgstr "Librería de Medios."
@@ -7949,7 +7956,7 @@ msgid "NAA Identifier"
 msgstr "Idnetificador NAA"
 
 msgid "NETBIOS"
-msgstr ""
+msgstr "NETBIOS"
 
 msgid "NETBIOS Hostname"
 msgstr "Nombre NETBIOS"
@@ -7979,7 +7986,7 @@ msgid "NFSv4"
 msgstr "NFSv4"
 
 msgid "NFSv4 Only"
-msgstr ""
+msgstr "Solo NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -9358,7 +9365,7 @@ msgid "Provider is unlocked"
 msgstr "Proveedor desbloqueado"
 
 msgid "Providers"
-msgstr ""
+msgstr "Proveedores"
 
 msgid "Provisioning Type"
 msgstr "Tipo de provisión"
@@ -9530,7 +9537,7 @@ msgid "RRDGraphs Daily ARC Graph"
 msgstr "RRDGraphs: Grafico diario de ARC"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de ancho de banda diario"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "RRDGraphs: Grafico diario de la Frecuencia del procesador"
@@ -9542,7 +9549,7 @@ msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "RRDGraphs: Grafico diario del uso del procesador"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de uso diario del disco"
 
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "RRDGraphs: Grafico diario de L2ARC"
@@ -9551,7 +9558,7 @@ msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "RRDGraphs: Grafico diario de la carga media del sistema"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de memoria diaria"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "RRDGraphs: Grafico diario de la latencia en la red"
@@ -9572,7 +9579,7 @@ msgid "RRDGraphs Monthly ARC Graph"
 msgstr "RRDGraphs: Grafico mensual de ARC"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de ancho de banda mensual"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "RRDGraphs: Grafico mensual de la frecuencia del procesador"
@@ -9584,7 +9591,7 @@ msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "RRDGraphs: Grafico mensual del uso del procesador"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "Gráfico de uso de disco mensual de RRDGraphs"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "RRDGraphs: Grafico mensual de L2ARC"
@@ -9593,7 +9600,7 @@ msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "RRDGraphs: Grafico mensual de la carga media del sistema"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de memoria mensual"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "RRDGraphs: Grafico mensual de la latencia en la red"
@@ -9614,7 +9621,7 @@ msgid "RRDGraphs Weekly ARC Graph"
 msgstr "RRDGraphs: Grafico semanal de ARC"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de ancho de banda semanal"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "RRDGraphs: Grafico semanal de la frecuencia del procesador"
@@ -9626,7 +9633,7 @@ msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "RRDGraphs: Grafico semanal del uso del procesador"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de uso de disco semanal"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "RRDGraphs: Grafico semanal de L2ARC"
@@ -9635,7 +9642,7 @@ msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "RRDGraphs: Grafico semanal de la carga media del sistema"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de memoria semanal"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "RRDGraphs: Grafico semanal de la latencia en la red"
@@ -9656,7 +9663,7 @@ msgid "RRDGraphs Yearly ARC Graph"
 msgstr "RRDGraphs: Grafico anual de ARC"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de ancho de banda anual"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "RRDGraphs: Grafico anual de la frecuencia del procesador"
@@ -9668,7 +9675,7 @@ msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "RRDGraphs: Grafico anual del uso del procesador"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "Gráfico de uso de disco anual de RRDGraphs"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "RRDGraphs: Grafico anual de L2ARC"
@@ -9677,7 +9684,7 @@ msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "RRDGraphs: Grafico anual de la carga media del sistema"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "RRDGraphs Gráfico de memoria anual"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "RRDGraphs: Grafico anual de la latencia en la red"
@@ -10036,13 +10043,13 @@ msgstr ""
 "para desabilitar este reporte."
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Reportando Disco"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Reportando interfaz"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Reportando nivel"
 
 msgid "Require authentication."
 msgstr "Requiere autenticacion."
@@ -10167,7 +10174,7 @@ msgid "Root Bind Password"
 msgstr "Root Bind Password"
 
 msgid "Root Directories"
-msgstr ""
+msgstr "Directorios raíz"
 
 msgid "Root Directory"
 msgstr "Directorio raíz"
@@ -10737,7 +10744,7 @@ msgstr ""
 "Seleccionar los permisos para ejecutar este servicio. (www por defecto)."
 
 msgid "Select the timezone for this user."
-msgstr ""
+msgstr "Seleccione la zona horaria para este usuario"
 
 msgid "Select which interface to use."
 msgstr "Seleccionar el interfaz a usar."
@@ -13660,7 +13667,7 @@ msgid "Times"
 msgstr "Veces"
 
 msgid "Timezone"
-msgstr ""
+msgstr "Zona Horaria"
 
 msgid "Title Speed"
 msgstr "Velocidad del titulo"
@@ -15383,7 +15390,7 @@ msgid "no delay"
 msgstr "Sin retardo"
 
 msgid "no pools available"
-msgstr ""
+msgstr "No hay pools disponibles"
 
 msgid "none"
 msgstr "ninguno"

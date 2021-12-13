@@ -1,8 +1,9 @@
 PORTNAME=		locale
 PORTVERSION=	1.0
-CATEGORIES=		lang
-COMMENT=		Language packages for XigmaNAS
-MAINTAINER=		zoon01@xigmanas.com
+PORTREVISION=	1
+CATEGORIES=	lang
+COMMENT=	Language packages for XigmaNAS®
+MAINTAINER=	zoon01@xigmanas.com
 
 DISTFILES?=
 
@@ -20,6 +21,29 @@ do-build:
 	done
 
 do-install:
-	@${CP} -vp -r ${WRKSRC}/* ${XIGMANAS_ROOTFS}/usr/local/share/locale
+# We only install maintained translations for WebGUI
+# XigmaNAS® install
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
+	@${CP} -vp -r ${WRKSRC}/af ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/ca ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/cs ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/de ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/el ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/es ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/fr ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/hu ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/it ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/ja ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/ko ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/nl ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/pt_BR ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/ro ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/ru ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/sv ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/uk ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/zh_CN ${XIGMANAS_ROOTFS}/usr/local/share/locale
+	@${CP} -vp -r ${WRKSRC}/zh_TW ${XIGMANAS_ROOTFS}/usr/local/share/locale
+# XigmaNAS® end install
+	@echo "End install for ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
