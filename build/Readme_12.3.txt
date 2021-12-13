@@ -120,6 +120,7 @@ Changes:
 - Upgrade gzip to v1.11.
 - Upgrade syncthing to v1.18.5.
 - Upgrade nut to v2021.12.09.
+- Upgrade inadyn to v2.9.1.
 
 Fixes:
 -
