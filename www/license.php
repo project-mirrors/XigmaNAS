@@ -111,11 +111,11 @@ $software = [
 		'Inadyn Copyright © 2010-2021 from Joachim Nilsson (<a href="mailto:troglobit@gmail.com">troglobit@gmail.com</a>). All Rights Reserved.'
 	]],
 	['iperf3',[
-		'A tool to measure TCP and UDP bandwidth. (<a href="http://software.es.net/iperf/" target="_blank" rel="noreferrer">http://software.es.net/iperf</a>).',
+		'A tool to measure TCP and UDP bandwidth. (<a href="https://software.es.net/iperf/" target="_blank" rel="noreferrer">https://software.es.net/iperf</a>).',
 		'Copyright © 2014-2019 ESnet. All Rights Reserved.'
 	]],
 	['ipmitool',[
-		'IPMItool provides a simple command-line interface to v1.5 & v2.0 IPMI-enabled devices. (<a href="http://sourceforge.net/projects/ipmitool/" target="_blank" rel="noreferrer">http://sourceforge.net/projects/ipmitool</a>).',
+		'IPMItool provides a simple command-line interface to v1.5 & v2.0 IPMI-enabled devices. (<a href="https://sourceforge.net/projects/ipmitool/" target="_blank" rel="noreferrer">https://sourceforge.net/projects/ipmitool</a>).',
 		'Copyright © 2003 Sun Microsystems. All Rights Reserved.'
 	]],
 	['iSCSI initiator',[
@@ -147,11 +147,11 @@ $software = [
 		'Copyright © 2008-2017  Justin Maggard. All Rights Reserved.'
 	]],
 	['m0n0wall',[
-		'm0n0wall (<a href="http://m0n0.ch/wall/index.php" target="_blank" rel="noreferrer">http://m0n0.ch/wall/index.php</a>).',
+		'm0n0wall (<a href="https://m0n0.ch/wall/index.php" target="_blank" rel="noreferrer">https://m0n0.ch/wall/index.php</a>).',
 		'Copyright © 2002-2006 by Manuel Kasper. All Rights Reserved.',
 	]],
 	['msmtp',[
-		'A SMTP client with a sendmail compatible interface (<a href="http://msmtp.sourceforge.net" target="_blank" rel="noreferrer">http://msmtp.sourceforge.net</a>).',
+		'A SMTP client with a sendmail compatible interface (<a href="http://marlam.de/msmtp/" target="_blank" rel="noreferrer">http://marlam.de/msmtp/</a>).',
 		'Copyright © 2008 Martin Lambers and others. All Rights Reserved.'
 	]],
 	['mt-daapd',[
@@ -163,23 +163,23 @@ $software = [
 		'Copyright © 1990,1996 Regents of The University of Michigan. All Rights Reserved.'
 	]],
 	['NTFS-3G',[
-		'NTFS-3G is a NTFS driver (<a href="http://www.tuxera.com/community/open-source-ntfs-3g/" target="_blank" rel="noreferrer">http://www.tuxera.com/community/open-source-ntfs-3g</a>).',
+		'NTFS-3G is a NTFS driver (<a href="https://www.tuxera.com/blog/ntfs-3g-community-edition/" target="_blank" rel="noreferrer">https://www.tuxera.com/blog/ntfs-3g-community-edition/</a>).',
 		'Copyright © 2008-2016 Tuxera Inc. All Rights Reserved.'
 	]],
 	['Open Virtual Machine Tools',[
-		'Open Virtual Machine Tools - Virtualization utilities and drivers (<a href="http://sourceforge.net/projects/open-vm-tools/" target="_blank" rel="noreferrer">http://sourceforge.net/projects/open-vm-tools</a>).',
+		'Open Virtual Machine Tools - Virtualization utilities and drivers (<a href="https://sourceforge.net/projects/open-vm-tools/" target="_blank" rel="noreferrer">https://sourceforge.net/projects/open-vm-tools</a>).',
 		'Copyright © 2007-2017 VMware Inc. All rights reserved.'
 	]],
 	['OpenSSH',[
-		'OpenSSH (<a href="http://www.openssh.com" target="_blank" rel="noreferrer">http://www.openssh.com</a>).',
+		'OpenSSH (<a href="https://www.openssh.com" target="_blank" rel="noreferrer">https://www.openssh.com</a>).',
 		'Copyright © 1999-2009 OpenBSD. All Rights Reserved.'
 	]],
 	['pfSense',[
-		'pfSense (<a href="http://www.pfsense.com" target="_blank" rel="noreferrer">http://www.pfsense.com</a>).',
+		'pfSense (<a href="https://www.pfsense.com" target="_blank" rel="noreferrer">https://www.pfsense.com</a>).',
 		'Copyright © 2004, 2005, 2006 Scott Ullrich. All Rights Reserved.'
 	]],
 	['PHP',[
-		'A server-side scripting language (<a href="http://www.php.net" target="_blank" rel="noreferrer">http://www.php.net</a>).',
+		'A server-side scripting language (<a href="https://www.php.net" target="_blank" rel="noreferrer">https://www.php.net</a>).',
 		'Copyright © 1999-2021 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
@@ -204,20 +204,20 @@ $software = [
 		'Copyright © Felix C. Stegerman. All Rights Reserved.'
 	]],
 	['Rsync',[
-		'Utility that provides fast incremental file transfer. (<a href="http://www.samba.org/rsync" target="_blank" rel="noreferrer">http://www.samba.org/rsync</a>).',
+		'Utility that provides fast incremental file transfer. (<a href="https://rsync.samba.org/" target="_blank" rel="noreferrer">https://rsync.samba.org/</a>).',
 		'Copyright © 2007 Free Software Foundation. All Rights Reserved.'
 	]],
 	['Samba',[
-		'Suite providing secure, stable and fast file services for all clients using the SMB/CIFS protocol (<a href="http://www.samba.org" target="_blank" rel="noreferrer">http://www.samba.org</a>).',
+		'Suite providing secure, stable and fast file services for all clients using the SMB/CIFS protocol (<a href="https://www.samba.org/" target="_blank" rel="noreferrer">https://www.samba.org/</a>).',
 		'Copyright © 2007 Free Software Foundation. All Rights Reserved.'
 	]],
 	['sipcalc',[
-		'sipcalc (<a href="http://www.routemeister.net/projects/sipcalc/" target="_blank" rel="noreferrer">http://www.routemeister.net/projects/sipcalc</a>).',
+		'sipcalc (<a href="https://www.routemeister.net/projects/sipcalc/" target="_blank" rel="noreferrer">https://www.routemeister.net/projects/sipcalc</a>).',
 		'Copyright © 2003 Simon Ekstrand. All Rights Reserved.'
 	]],
 	['smartmontools',[
-		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="http://sourceforge.net/projects/smartmontools/" target="_blank" rel="noreferrer">http://sourceforge.net/projects/smartmontools</a>).',
-		'Copyright © 2002-2020 Bruce Allen, Christian Franke. All Rights Reserved.',
+		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="https://sourceforge.net/projects/smartmontools/" target="_blank" rel="noreferrer">https://sourceforge.net/projects/smartmontools</a>).',
+		'Copyright © 2002-2009 Bruce Allen, 2004-2021 Christian Franke. All Rights Reserved.',
 	]],
 	['Spinner.js',[
 		'A spinning activity indicator (<a href="https://github.com/fgnass/spin.js" target="_blank" rel="noreferrer">https://github.com/fgnass/spin.js</a>).',
