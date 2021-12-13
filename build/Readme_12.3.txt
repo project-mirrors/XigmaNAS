@@ -2,26 +2,15 @@
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
-General note:
-=============
+
+Welcome to the new XigmaNAS® 12.3.0.4 series.
+This release also can be used for updating current running XigmaNAS® 12.2.0.4 servers.
+
+
+General upgrade note:
+=====================
 Download your configuration file from the backup/restore page and store it in a safe location before upgrading your system.
 
-Important information for users running a XigmaNAS® installation with a revision older than 6625:
-=================================================================================================
-It is not recommended to perform an in-place upgrade via the firmware update page because of recent changes to the partition layout.
-- Download the LiveUSB file, extract the image, and write the image to a USB media. Alternatevely, you can download the LiveCD ISO file and write it to a CD/DVD.
-- Download your configuration file from the backup/restore page and store it in a safe location.
-- Backup all other data partitions that exist on the current XigmaNAS® boot media.
-- Boot from the newly created LiveCD/USB and perform a XigmaNAS® installation onto a new boot media.
-- After a successful installation, remove the LiveCD/USB device, boot from your new XigmaNAS® boot media and restore your previously saved configuration.
-
-Note for Full install users:
-============================
-Make sure you first upgraded to XigmaNAS-x64-full-12.1.0.4.7321.tgz before you flash full-.txz files.
-The new (.txz) full upgrade files are compressed images.
-
-Notice for RootOnZFS platform users, the `beadm` utility to manage boot environments has been replaced by the `bectl` which behaves the same way as the predecessor
-`beadm`, users with existing scripting on `beadm` can create an alias or a symlink for `/usr/local/sbin/beadm` to point to `/sbin/bectl`, sorry for inconvenience.
 
 GEOM RAID-5 note
 ================
