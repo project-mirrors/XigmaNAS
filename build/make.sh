@@ -1622,8 +1622,8 @@ copy_files() {
 	echo "===> Start copy sources"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip /usr/ports/distfiles
 	echo "===> Copy CLI_freebsd-from_the_10.2.2.1_9.5.5.1_codesets.zip done!"
-	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.2.14.tar.gz /usr/ports/distfiles
-	echo "===> Copy isboot-0.2.14.tar.gz done!"
+	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/isboot-0.3.2.tar.gz /usr/ports/distfiles
+	echo "===> Copy isboot-0.3.2.tar.gz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/istgt-20180521.tar.gz /usr/ports/distfiles
 	echo "===> Copy istgt-20180521.tar.gz done!"
 	cp -f ${XIGMANAS_SVNDIR}/build/ports/distfiles/SAS3IRCU_P16.zip /usr/ports/distfiles

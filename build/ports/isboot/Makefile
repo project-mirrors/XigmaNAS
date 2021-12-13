@@ -1,11 +1,11 @@
 PORTNAME=		isboot
-PORTVERSION=	0.2.14
+PORTVERSION=	0.3.2
 PORTREVISION=   0
 CATEGORIES=		net
-MASTER_SITES=		https://sourceforge.net/p/xigmanas/code/HEAD/tree/trunk/build/ports/distfiles/
+COMMENT=		iSCSI boot driver by Daisuke Aoyama (aoyama@peach.ne.jp)
 
-MAINTAINER=		zoon01@xigmanas.com
-COMMENT=		iSCSI boot driver
+MAINTAINER=		aoyama@peach.ne.jp
+#MASTER_SITES=		http://www.peach.ne.jp/archives/isboot/
 
 WRKSRC=                 ${WRKDIR}/${DISTNAME}/src
 USES=			kmod
@@ -17,9 +17,6 @@ CFLAGS+=	-DVIMAGE
 .endif
 
 do-install:
-# XigmaNAS® Install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_KLD} -v ${WRKSRC}/isboot.ko ${XIGMANAS_ROOTFS}/boot/kernel
-	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
