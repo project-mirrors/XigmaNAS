@@ -57,9 +57,10 @@
 -  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseRebuild');\">rebuild database</a></li>";
 -  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseUpdate');\">update database</a></li>";
 -  result << "<li><a href=\"javascript:fuppesCtrl('VfolderUpdate');\">update virtual folders</a></li>";
-+  result << "Database Tasks:" << endl;
-+  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseUpdate');\">Update Database</a></li>";
-+  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseRebuild');\">Rebuild Database</a></li>";
++  result << "Database Options:" << endl;
++  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseRebuild');\">Build/Rebuild Database</a></li>";
++  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseUpdate');\">Update Existing Database Items</a></li>";
+
    result << "</ul>";
    
    return result.str().c_str();
