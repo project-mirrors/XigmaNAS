@@ -25,9 +25,9 @@ Notice for RootOnZFS platform users, the `beadm` utility to manage boot environm
 
 GEOM RAID-5 note
 ================
-XigmaNAS 12.x releases are the last series supporting GEOM RAID-5.
+XigmaNAS® 12.3.0.4 releases are the last series supporting GEOM RAID-5.
 We kindly ask users to switch to ZFS RaidZ on new installations.
-In the upcomming XigmaNAS 13.x releases, GEOM RAID-5 can no longer be used.
+In the upcomming XigmaNAS® 13.x releases, GEOM RAID-5 can no longer be used.
 You will no longer be able to access the data of the RAID!
 
 Install from scratch instructions:
@@ -123,7 +123,7 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 12.3.0.4.
+BUILD 12.3.0.4.8948
 ===================
 Changes:
 - Upgrade to FreeBSD 12.3-RELEASE P0.
