@@ -1,5 +1,5 @@
 --- src/lib/Presentation/PageStart.cpp.orig	2011-09-22 10:45:44.000000000 +0200
-+++ src/lib/Presentation/PageStart.cpp	2021-12-12 15:04:53.000000000 +0100
++++ src/lib/Presentation/PageStart.cpp	2021-12-14 23:05:30.000000000 +0100
 @@ -34,26 +34,17 @@
  {
    std::stringstream result;
@@ -37,20 +37,17 @@
    
    result << "<p>" << endl;
    result << "uptime: " << days << " days " << hours << " hours " << minutes << " minutes " << seconds << " seconds" << "<br />" << endl;
-@@ -79,20 +69,15 @@
-   result << "cfgfile: " << CSharedConfig::Shared()->filename() << "<br />" << endl;
+@@ -80,19 +70,15 @@
    result << "dbfile: " << CSharedConfig::Shared()->databaseSettings->dbConnectionParams().filename << "<br />" << endl;
    result << "thumbnaildir: " <<  PathFinder::findThumbnailsDir() << "<br />" << endl;
--  result << "</p>" << endl;
+   result << "</p>" << endl;
 -
 -  result << "<p>" << endl;
 -  result << "<a href=\"http://sourceforge.net/projects/fuppes/\">http://sourceforge.net/projects/fuppes/</a><br />" << endl;
 -  result << "</p>" << endl;
-+  result << "</p>" << endl;  
    
--  
--  result << "<h1>database status</h1>" << endl;  
-+  result << "<h1>Database Status</h1>" << endl;  
+   
+   result << "<h1>database status</h1>" << endl;  
    result << buildObjectStatusTable() << endl;
  
    result << "<ul>";
@@ -58,9 +55,8 @@
 -  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseUpdate');\">update database</a></li>";
 -  result << "<li><a href=\"javascript:fuppesCtrl('VfolderUpdate');\">update virtual folders</a></li>";
 +  result << "Database Options:" << endl;
-+  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseRebuild');\">Build/Rebuild Database</a></li>";
++  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseRebuild');\">Build/Rebuild Database</a></li>";;
 +  result << "<li><a href=\"javascript:fuppesCtrl('DatabaseUpdate');\">Update Existing Database Items</a></li>";
-
    result << "</ul>";
    
    return result.str().c_str();
