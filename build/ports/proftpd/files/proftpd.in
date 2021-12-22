@@ -55,8 +55,8 @@ proftpd_defaultrootgroupexpr=${proftpd_defaultrootgroupexpr:-"!wheel"}
 proftpd_requirevalidshell=${proftpd_requirevalidshell:-"off"}
 proftpd_deleteabortedstores=${proftpd_deleteabortedstores:-"off"}
 proftpd_tlsverifyclient=${proftpd_tlsverifyclient:-"off"}
-proftpd_tlsoptions=${proftpd_tlsoptions:-"NoCertRequest"}
-proftpd_tlsprotocol=${proftpd_tlsprotocol:-"TLSv1"}
+proftpd_tlsoptions=${proftpd_tlsoptions:-""}
+proftpd_tlsprotocol=${proftpd_tlsprotocol:-"ALL"}
 proftpd_tlsrequired=${proftpd_tlsrequired:-"on"}
 proftpd_tcpaccesssysloglevels=${proftpd_tcpaccesssysloglevels:-"info warn"}
 proftpd_tcpservicename=${proftpd_tcpservicename:-"ftpd"}
@@ -254,7 +254,9 @@ proftpd_mkconf()
 				--output "<IfModule mod_tls.c>" --nl \
 				--output "  TLSEngine on" --nl \
 				--output "  TLSProtocol ${proftpd_tlsprotocol}" --nl \
-				--output "  TLSOptions ${proftpd_tlsoptions}" --nl \
+				--if "string-length('${proftpd_tlsoptions}') > 0" \
+					--output "  TLSOptions ${proftpd_tlsoptions}" --nl \
+				--break \
 				--output "  TLSRSACertificateFile ${proftpd_tlsrsacertfile}" --nl \
 				--output "  TLSRSACertificateKeyFile ${proftpd_tlsrsakeyfile}" --nl \
 				--output "  TLSVerifyClient ${proftpd_tlsverifyclient}" --nl \
