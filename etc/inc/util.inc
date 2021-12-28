@@ -477,9 +477,7 @@ function get_mounts_list() {
 			$devicename = $adevicespecialfile[2] ?? '';
 		endif;
 //		test if it's a gvinum, gmirror, gconcat or gstripe device
-		if((strcmp($devicename,'gvinum') == 0) ||
-				(strcmp($devicename,'mirror') == 0) || (strcmp($devicename,'concat') == 0) ||
-				(strcmp($devicename,'stripe') == 0) || (strcmp($devicename,'raid5') == 0)):
+		if((strcmp($devicename,'gvinum') == 0) || (strcmp($devicename,'mirror') == 0) || (strcmp($devicename,'concat') == 0) || (strcmp($devicename,'stripe') == 0)):
 			$devicename = $adevicespecialfile[3];
 		endif;
 //		get the sharename
@@ -517,7 +515,7 @@ function get_mount_fsid($devicespecialfile,$mountpoint) {
  *	Return list of ALL software volume: gvinum, gmirror
  */
 function get_sraid_disks_list() {
-	$disklist = array_merge((array)get_gvinum_disks_list(),(array)get_gmirror_disks_list(),(array)get_gconcat_disks_list(),(array)get_gstripe_disks_list(),(array)get_graid5_disks_list());
+	$disklist = array_merge((array)get_gvinum_disks_list(),(array)get_gmirror_disks_list(),(array)get_gconcat_disks_list(),(array)get_gstripe_disks_list());
 	return $disklist;
 }
 /*
@@ -703,55 +701,6 @@ function get_gstripe_disks_list() {
 //		second step: Getting the array status
 //		look for this output:
 //		state: UP
-		if((strcmp($aline[0],'State:') == 0) && $foundname):
-			$disklist[$diskname]['state'] = $aline[1];
-//			init the check variable for the next RAID volume
-			$foundname = 0 ;
-			continue ;
-		endif;
-	endforeach;
-	return $disklist;
-}
-/*
- *	Get list of software graid5 RAID disks.
- *	[volumename] => [
- *		[type] => graid5
- *		[state] => COMPLETE
- *		[size] => 6149M
- *		[name] => BIG1
- *		[devicespecialfile] => /dev/raid5/BIG1
- *		[desc] => Software RAID
- *	]
- */
-function get_graid5_disks_list() {
-	$disklist = [];
-//	display all configured graid5 volume
-	exec('/sbin/graid5 list',$rawdata);
-	$foundname = 0;
-	$use_si = is_sidisksizevalues();
-	foreach($rawdata as $line):
-//		use space for break the line
-		$aline = preg_split('/\s+/',$line);
-//		first step: Getting the array name
-//		look for this output:
-//		Geom name: xxx
-		if((strcmp($aline[0],'Geom') == 0) && (strcmp($aline[1],'name:') == 0)):
-			$diskname = $aline[2];
-			$disklist[$diskname] = [];
-			$disklist[$diskname]['name'] = $diskname;
-			$disklist[$diskname]['devicespecialfile'] = '/dev/raid5/' . $diskname;
-			$disklist[$diskname]['type'] = 'graid5';
-			$disklist[$diskname]['desc'] = 'Software RAID';
-			$disklist[$diskname]['state'] = gtext('Unknown');
-//			get diskinfo to get disk size
-			$diskinfo = disks_get_diskinfo($disklist[$diskname]['devicespecialfile']);
-			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
-			$foundname = 1 ;
-			continue ;
-		endif;
-//		second step: Getting the array status
-//		look for this output:
-//		state: COMPLETE
 		if((strcmp($aline[0],'State:') == 0) && $foundname):
 			$disklist[$diskname]['state'] = $aline[1];
 //			init the check variable for the next RAID volume
@@ -1772,12 +1721,12 @@ function get_ipv4dnsserver() {
 	global $config;
 
 	$result = [];
-	switch ($config['interfaces']['lan']['ipaddr']):
+	switch($config['interfaces']['lan']['ipaddr']):
 		case 'dhcp':
 			exec('cat /etc/resolv.conf',$rawdata);
 			foreach($rawdata as $data):
 				$adata = preg_split('/\s+/',$data);
-				if(0 == strcmp(strtolower(trim($adata[0])),'nameserver')):
+				if(strcmp(strtolower(trim($adata[0])),'nameserver') == 0):
 					if(is_ipv4addr(trim($adata[1]))):
 						$result[] = trim($adata[1]);
 					endif;
@@ -1800,12 +1749,12 @@ function get_ipv6dnsserver() {
 	global $config;
 
 	$result = [];
-	switch ($config['interfaces']['lan']['ipv6addr']):
+	switch($config['interfaces']['lan']['ipv6addr']):
 		case 'auto':
 			exec('cat /etc/resolv.conf',$rawdata);
 			foreach($rawdata as $data):
 				$adata = preg_split('/\s+/',$data);
-				if(0 == strcmp(strtolower(trim($adata[0])),'nameserver')):
+				if(strcmp(strtolower(trim($adata[0])),'nameserver') == 0):
 					if(is_ipv6addr(trim($adata[1]))):
 						$result[] = trim($adata[1]);
 					endif;
@@ -1903,7 +1852,6 @@ function get_fstype_shortdesc($fstype) {
 		case 'gmirror':
 		case 'gconcat':
 		case 'gstripe':
-		case 'graid5':
 		case 'gvinum':
 			$shortdesc = $fstype;
 			break;
@@ -2300,14 +2248,8 @@ function get_conf_sraid_disks_list() {
 	foreach($a_gstripe as &$vdisk):
 		$vdisk['class'] = 'gstripe';
 	endforeach;
-	arr::make_branch($config,'graid5','vdisk');
-	arr::sort_key($config['graid5']['vdisk'],'name');
-	$a_graid5 = $config['graid5']['vdisk'];
-	foreach($a_graid5 as &$vdisk):
-		$vdisk['class'] = 'graid5';
-	endforeach;
 //	merge information
-	return array_merge($fallback,$a_gvinum,$a_gmirror,$a_gconcat,$a_gstripe,$a_graid5);
+	return array_merge($fallback,$a_gvinum,$a_gmirror,$a_gconcat,$a_gstripe);
 }
 /**
  *	Get list of configured encrypted disks.
@@ -2465,7 +2407,6 @@ function set_conf_disk_fstype_opt($disk,$fstype,$opt) {
 		'disks' => 'disk',
 		'gconcat' => 'vdisk',
 		'gmirror' => 'vdisk',
-		'graid5' => 'vdisk',
 		'gstripe' => 'vdisk',
 		'gvinum' => 'vdisk',
 		'geli' => 'vdisk'
