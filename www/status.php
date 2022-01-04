@@ -31,8 +31,8 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'auth.inc';
 require_once 'report.inc';
 
 echo report_generate_html();
-?>
