@@ -1,13 +1,13 @@
 #!/bin/sh
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
-# Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+# Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 # Web Service Discovery host daemon
 #
 # PROVIDE: wsdd
-# REQUIRE: DAEMON samba_server
+# REQUIRE: DAEMON samba_server smbd
 # BEFORE: LOGIN
 # KEYWORD: shutdown
 # XQUERY: --if "count(//wsdd/enable) > 0" --output "0" --else --output "1" --break
