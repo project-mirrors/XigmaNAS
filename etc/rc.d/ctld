@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
-# Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+# Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 
 # PROVIDE: ctld
@@ -169,6 +169,20 @@ ctld_mkconf()
 				--match '//ctld/ctl_sub_listen/param[enable and group=$filtergroup/name]' \
 					--if 'string-length(ipaddress) > 0' \
 						--output '    listen "' \
+						--if 'contains(ipaddress,":")' \
+							--value-of 'concat("[",ipaddress,"]")' \
+						--else \
+							--value-of ipaddress \
+						--break \
+						--if 'string-length(port) > 0' \
+							--value-of 'concat(":",port)' \
+						--break \
+						--output '"' --nl \
+					--break \
+				--break \
+				--match '//ctld/ctl_sub_listen_iser/param[enable and group=$filtergroup/name]' \
+					--if 'string-length(ipaddress) > 0' \
+						--output '    listen-iser "' \
 						--if 'contains(ipaddress,":")' \
 							--value-of 'concat("[",ipaddress,"]")' \
 						--else \
