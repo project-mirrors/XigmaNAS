@@ -50,7 +50,7 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
+class shared_toolbox {
 	private const NOTIFICATION_NAME = __NAMESPACE__;
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 	private const ROW_IDENTIFIER = 'uuid';
@@ -64,7 +64,7 @@ final class shared_toolbox {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
 		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
+		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
 					break;
@@ -79,12 +79,10 @@ final class shared_toolbox {
 					$cmd = sprintf('/usr/bin/getent passwd %s | cut -d : -f 6',escapeshellarg($sphere->grid[$sphere->row_id]['login']));
 					unset($output,$return_var);
 					$home_dir = mwexec2($cmd,$output,$return_var);
-					if($home_dir !== '' && $home_dir !== '/mnt' && 0 === $return_var):
+					if($home_dir !== '' && $home_dir !== '/mnt' && $return_var === 0):
 						$_akfile = sprintf('%s/.ssh/authorized_keys',$home_dir);
-						if(file_exists($_akfile)):
-							if(true !== @unlink($_akfile)):
-								$retval = 1;
-							endif;
+						if(file_exists($_akfile) && !@unlink($_akfile)):
+							$retval = 1;
 						endif;
 					endif;
 					unset($sphere->grid[$sphere->row_id]);
@@ -98,7 +96,7 @@ final class shared_toolbox {
 /**
  *	Configure shared sphere settings
  *	@global array $config
- *	@param \common\sphere\root $sphere
+ *	@param mys\root $sphere
  */
 	public static function init_sphere(mys\root $sphere) {
 		global $config;
@@ -109,7 +107,7 @@ final class shared_toolbox {
 			set_row_identifier(self::ROW_IDENTIFIER)->
 			set_enadis(true)->
 			set_lock(false)->
-			add_page_title(gettext('Access'),gettext('Public Key'));
+			add_page_title(gettext('Access'),gettext('Public Keys'));
 		$sphere->grid = &arr::make_branch($config,'access','publickey','param');
 	}
 /**

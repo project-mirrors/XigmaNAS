@@ -37,6 +37,7 @@ namespace system\access\publickey;
 use common\properties as myp;
 use common\rmo as myr;
 use common\sphere as mys;
+use common\toolbox as myt;
 
 use const PAGE_MODE_POST;
 use const UPDATENOTIFY_MODE_DIRTY;
@@ -59,10 +60,10 @@ use function write_config;
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
@@ -89,7 +90,7 @@ final class grid_toolbox {
  *	Create the request method object
  *	@param grid_properties $cop
  *	@param mys\grid $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(grid_properties $cop,mys\grid $sphere) {
 		$rmo = myr\rmo_grid_templates::rmo_base($cop,$sphere);
@@ -97,20 +98,12 @@ final class grid_toolbox {
 		return $rmo;
 	}
 /**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
-	}
-/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param \common\sphere\grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		global $input_errors;
@@ -213,11 +206,11 @@ final class grid_toolbox {
  *	@global array $input_errors
  *	@global string $errormsg
  *	@global string $savemsg
- *	@param \common\properties\container $cop
- *	@param \common\sphere\root $sphere
- *	@param \common\rmo\rmo $rmo
+ *	@param myp\container $cop
+ *	@param mys\root $sphere
+ *	@param myr\rmo $rmo
  */
-	final public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
+	public static function looper(myp\container $cop,mys\root $sphere,myr\rmo $rmo) {
 		global $config;
 		global $d_sysrebootreqd_path;
 		global $input_errors;

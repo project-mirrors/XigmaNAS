@@ -36,7 +36,7 @@ namespace system\access\publickey;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_name(): myp\property_list {
 		$property = parent::init_name();
 		$property->
