@@ -63,7 +63,7 @@ class shared_toolbox {
 		$retval = 0;
 		$sphere = grid_toolbox::init_sphere();
 		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
+		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
 					break;
