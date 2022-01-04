@@ -34,20 +34,21 @@
 
 namespace system\access\ad;
 
-use common\rmo as myr,
-	common\sphere as mys;
+use common\rmo as myr;
+use common\sphere as mys;
+use common\toolbox as myt;
 
-use const PAGE_MODE_EDIT,
-	PAGE_MODE_POST,
-	PAGE_MODE_VIEW;
+use const PAGE_MODE_EDIT;
+use const PAGE_MODE_POST;
+use const PAGE_MODE_VIEW;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class setting_toolbox {
+class setting_toolbox extends myt\setting_toolbox {
 /**
  *	Create the sphere object
- *	@return \common\sphere\row The sphere object
+ *	@return mys\row The sphere object
  */
 	public static function init_sphere() {
 		$sphere = new mys\settings();
@@ -58,9 +59,9 @@ final class setting_toolbox {
 	}
 /**
  *	Create the request method object
- *	@param \system\access\ad\setting_properties $cop
- *	@param \common\sphere\row $sphere
- *	@return \common\rmo\rmo The request method object
+ *	@param setting_properties $cop
+ *	@param mys\row $sphere
+ *	@return myr\rmo The request method object
  */
 	public static function init_rmo(setting_properties $cop,mys\settings $sphere) {
 		$rmo = new myr\rmo();
@@ -79,13 +80,5 @@ final class setting_toolbox {
 				add('POST','enable',PAGE_MODE_VIEW);
 		endif;
 		return $rmo;
-	}
-/**
- *	Creates the property object
- *	@return \system\access\ad\setting_properties
- */
-	public static function init_properties() {
-		$cop = new setting_properties();
-		return $cop;
 	}
 }

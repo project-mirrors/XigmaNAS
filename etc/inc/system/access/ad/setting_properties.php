@@ -36,23 +36,7 @@ namespace system\access\ad;
 
 use common\properties as myp;
 
-use const FILTER_CALLBACK,
-	FILTER_DEFAULT,
-	FILTER_FLAG_HOSTNAME,
-	FILTER_REQUIRE_SCALAR,
-	FILTER_VALIDATE_DOMAIN,
-	FILTER_VALIDATE_REGEXP;
-
-use function gettext,
-	in_array,
-	is_string,
-	preg_match,
-	preg_quote,
-	sprintf,
-	strlen,
-	strtoupper;
-
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->set_defaultvalue(false);
