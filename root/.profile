@@ -1,6 +1,6 @@
 #
 # Part of XigmaNAS® (https://www.xigmanas.com).
-# Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+# Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
 # All rights reserved.
 #
 PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/sbin:/usr/local/bin

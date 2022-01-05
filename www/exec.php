@@ -3,7 +3,7 @@
 	exec.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Exec+ v1.02-000 - Copyright 2001-2003, All rights reserved
