@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #	Part of XigmaNAS® (https://www.xigmanas.com).
-#	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+#	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
 #	All rights reserved.
 #
 WORKING_DIR="/var/run/rrdgraphs"

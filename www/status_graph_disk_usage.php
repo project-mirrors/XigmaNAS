@@ -3,7 +3,7 @@
 	status_graph_disk_usage.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
 
 	Redistribution and use in source and binary forms, with or without
