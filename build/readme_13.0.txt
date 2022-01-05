@@ -134,5 +134,5 @@ It is recommended to change the default passwords as soon as possible.
 
 Copyright:
 ==========
-XigmaNAS® is copyright © 2018 - 2021 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
+XigmaNAS® is copyright © 2018-2022 XigmaNAS® (info@xigmanas.com). All Rights Reserved.
 XigmaNAS® is a registered trademark of Michael Zoon (zoon01@xigmanas.com). All Rights Reserved.

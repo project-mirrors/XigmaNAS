@@ -1,6 +1,6 @@
 --
--- Part of XigmaNAS® (https://www.xigmanas.com).
--- XigmaNAS® Copyright © 2018-2021 XigmaNAS® (info@xigmanas.com).
+-- Part of XigmaNASï¿½ (https://www.xigmanas.com).
+-- XigmaNASï¿½ Copyright (c) 2018-2022 XigmaNAS(R) (info@xigmanas.com).
 -- All Rights Reserved.
 --
 -- XigmaNAS(R) is a registered trademark of Michael Zoon. (zoon01@xigmanas.com).
