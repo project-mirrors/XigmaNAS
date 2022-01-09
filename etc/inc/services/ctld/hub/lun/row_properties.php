@@ -299,6 +299,7 @@ class row_properties extends grid_properties {
 	public function init_opt_eui(): myp\property_text {
 		$description = gettext('Specifies LUN EUI-64 identifier.');
 		$placeholder = gettext('EUI-64');
+		$message_error = gettext('The value is invalid, 16 ASCII-hexadecimal characters expected.');
 		$regexp = '/^(?:|[0-9a-f]{16})$/i';
 		$property = parent::init_opt_eui();
 		$property->
@@ -306,7 +307,8 @@ class row_properties extends grid_properties {
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_defaultvalue('')->
-			set_size(18)->
+			set_message_error(sprintf('%s: %s',$property->get_title(),$message_error))->
+			set_size(60)->
 			set_maxlength(16)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
@@ -316,6 +318,7 @@ class row_properties extends grid_properties {
 	public function init_opt_naa(): myp\property_text {
 		$description = gettext('Specifies LUN NAA identifier.');
 		$placeholder = gettext('NAA Identifier');
+		$message_error = gettext('The value is invalid, 16 or 32 ASCII-hexadecimal characters expected.');
 		$regexp = '/^(?:|(?:[0-9a-f]{16}){1,2})$/i';
 		$property = parent::init_opt_naa();
 		$property->
@@ -323,7 +326,8 @@ class row_properties extends grid_properties {
 			set_description($description)->
 			set_placeholder($placeholder)->
 			set_defaultvalue('')->
-			set_size(34)->
+			set_message_error(sprintf('%s: %s',$property->get_title(),$message_error))->
+			set_size(60)->
 			set_maxlength(32)->
 			set_filter(FILTER_VALIDATE_REGEXP)->
 			set_filter_flags(FILTER_REQUIRE_SCALAR)->
