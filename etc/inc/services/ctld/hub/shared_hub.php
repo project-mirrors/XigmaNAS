@@ -59,7 +59,7 @@ class shared_hub {
 	public static function process_notification(int $mode,string $data,mys\grid $sphere) {
 		$retval = 0;
 		$sphere->row_id = arr::search_ex($data,$sphere->grid,$sphere->get_row_identifier());
-		if(false !== $sphere->row_id):
+		if($sphere->row_id !== false):
 			switch($mode):
 				case UPDATENOTIFY_MODE_NEW:
 					break;
