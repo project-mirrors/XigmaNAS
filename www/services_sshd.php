@@ -97,25 +97,6 @@ switch($page_method):
 				header($sphere->get_script()->get_location());
 				exit;
 				break;
-/*
-			case 'reload':
-				$retval = 0;
-				$name = $cop->get_enable()->get_name();
-				$sphere->grid[$name] ??= false;
-				if($sphere->grid[$name] && !$pending_changes):
-					config_lock();
-					$retval |= rc_update_service('sshd',true);
-					config_unlock();
-					$_SESSION['submit'] = $sphere->get_script()->get_basename();
-					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					header($sphere->get_script()->get_location());
-				else:
-					$page_action = 'view';
-					$page_mode = PAGE_MODE_VIEW;
-				endif;
-				exit;
-				break;
- */
 			case 'restart':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
@@ -193,7 +174,7 @@ switch($page_action):
 				case $cop->get_rawprivatekey()->get_name():
 //					decode value from privatekey
 					$rawprivatekey = base64_decode($source[$cop->get_privatekey()->get_name()] ?? '');
-					if(false !== $rawprivatekey):
+					if($rawprivatekey !== false):
 						$source[$name] = $rawprivatekey;
 					else:
 						$source[$name] = '';
@@ -315,7 +296,6 @@ switch($page_mode):
 		elseif(!$pending_changes):
 			$buttons->ins_button_enadis(!$is_enabled);
 			$buttons->ins_button_restart($is_enabled);
-//			$buttons->ins_button_reload($is_enabled);
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
