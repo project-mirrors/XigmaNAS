@@ -110,27 +110,10 @@ switch($page_method):
 				header($sphere->get_script()->get_location());
 				exit;
 				break;
-/*
-			case 'reload':
-				$retval = 0;
-				$name = $cop->get_enable()->get_name();
-				if($sphere->grid[$name] && !$pending_changes):
-					config_lock();
-					$retval |= rc_update_service_ex('transmission',true);
-					config_unlock();
-					$_SESSION['submit'] = $sphere->get_script()->get_basename();
-					$_SESSION[$sphere->get_script()->get_basename()] = $retval;
-					header($sphere->get_script()->get_location());
-					exit;
-				else:
-					$page_action = 'view';
-					$page_mode = PAGE_MODE_VIEW;
-				endif;
-				break;
- */
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
 					write_config();
@@ -150,6 +133,7 @@ switch($page_method):
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
@@ -332,8 +316,6 @@ switch($page_mode):
 			$buttons->ins_button_enadis(!$is_enabled);
 		elseif(!$pending_changes):
 			$buttons->ins_button_enadis(!$is_enabled);
-//			$buttons->ins_button_restart($is_enabled);
-//			$buttons->ins_button_reload($is_enabled);
 		endif;
 		break;
 	case PAGE_MODE_EDIT:
@@ -341,23 +323,4 @@ switch($page_mode):
 		$buttons->ins_button_cancel();
 		break;
 endswitch;
-/*
-//	additional javascript code
-$js_code = [];
-$js_code[PAGE_MODE_VIEW] = '';
-$js_code[PAGE_MODE_EDIT] = '';
-//	additional javascript code
-$js_on_load = [];
-$js_on_load[PAGE_MODE_EDIT] = '';
-$js_on_load[PAGE_MODE_VIEW] = '';
-//	additional javascript code
-$js_document_ready = [];
-$js_document_ready[PAGE_MODE_EDIT] = '';
-$js_document_ready[PAGE_MODE_VIEW] = '';
-//	add additional javascript code
-$body->ins_javascript($js_code[$page_mode]);
-$body->add_js_on_load($js_on_load[$page_mode]);
-$body->add_js_document_ready($js_document_ready[$page_mode]);
- */
-//	showtime
 $document->render();

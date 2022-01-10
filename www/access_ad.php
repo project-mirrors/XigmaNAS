@@ -36,9 +36,9 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use common\arr,
-	system\access\ad\setting_toolbox as toolbox,
-	system\access\ad\shared_toolbox;
+use common\arr;
+use system\access\ad\setting_toolbox as toolbox;
+use system\access\ad\shared_toolbox;
 
 arr::make_branch($config,'samba');
 //	init indicators
@@ -102,6 +102,7 @@ switch($page_method):
 			case 'disable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name]):
 					$sphere->grid[$name] = false;
 					write_config();
@@ -128,6 +129,7 @@ switch($page_method):
 			case 'enable':
 				$retval = 0;
 				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
 				if($sphere->grid[$name] || $pending_changes):
 					$page_action = 'view';
 					$page_mode = PAGE_MODE_VIEW;
