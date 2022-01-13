@@ -83,12 +83,15 @@ switch($page_method):
 			case 'apply':
 				$retval = 0;
 				$retval |= updatenotify_process($sphere->get_notifier(),$sphere->get_notifier_processor());
-				config_lock();
-				if($config['ad']['enable']):
+				$name = $cop->get_enable()->get_name();
+				$sphere->grid[$name] ??= false;
+				if($sphere->grid[$name]):
 					$config['samba']['enable'] = true;
 					$config['samba']['security'] = 'ads';
-					$config['samba']['workgroup'] = $sphere->row[$cop->get_domainname_netbios()->get_name()];
+					$config['samba']['workgroup'] = $sphere->grid[$cop->get_domainname_netbios()->get_name()] ?? $config['samba']['workgroup'] ?? '';
+					write_config();
 				endif;
+				config_lock();
 				rc_exec_service('pam');
 				rc_exec_service('ldap');
 				rc_start_service('nsswitch');
@@ -107,11 +110,6 @@ switch($page_method):
 					$sphere->grid[$name] = false;
 					write_config();
 					config_lock();
-					if($config['ad']['enable']):
-						$config['samba']['enable'] = true;
-						$config['samba']['security'] = 'ads';
-						$config['samba']['workgroup'] = $sphere->row[$cop->get_domainname_netbios()->get_name()];
-					endif;
 					rc_exec_service('pam');
 					rc_exec_service('ldap');
 					rc_start_service('nsswitch');
@@ -135,13 +133,11 @@ switch($page_method):
 					$page_mode = PAGE_MODE_VIEW;
 				else:
 					$sphere->grid[$name] = true;
+					$config['samba']['enable'] = true;
+					$config['samba']['security'] = 'ads';
+					$config['samba']['workgroup'] = $sphere->grid[$cop->get_domainname_netbios()->get_name()] ?? $config['samba']['workgroup'] ?? '';
 					write_config();
 					config_lock();
-					if($config['ad']['enable']):
-						$config['samba']['enable'] = true;
-						$config['samba']['security'] = 'ads';
-						$config['samba']['workgroup'] = $sphere->row[$cop->get_domainname_netbios()->get_name()];
-					endif;
 					rc_exec_service('pam');
 					rc_exec_service('ldap');
 					rc_start_service('nsswitch');
