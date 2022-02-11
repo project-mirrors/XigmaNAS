@@ -199,7 +199,6 @@ samba_mkconf_user_shares()
 					--output 'shadow:snapdir = .zfs/snapshot' --nl \
 					--output 'shadow:snapdirseverywhere = yes' --nl \
 					--output 'shadow:sort = desc' --nl \
-					--output 'shadow:localtime = yes' --nl \
 				--break \
 				--if 'count(zfsacl) > 0' \
 					--output 'veto files = /.zfs/' --nl \
