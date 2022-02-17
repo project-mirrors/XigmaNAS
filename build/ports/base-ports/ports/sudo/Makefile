@@ -1,14 +1,16 @@
+# Created by: erich@rrnet.com
+
 PORTNAME=	sudo
-PORTVERSION=	1.9.8p2
+PORTVERSION=	1.9.9
 CATEGORIES=	security
 MASTER_SITES=	SUDO
 
-MAINTAINER=	zoon01@xigmanas.com
+MAINTAINER=	garga@FreeBSD.org
 COMMENT=	Allow others to run commands as root
 
 LICENSE=	sudo
 LICENSE_NAME=	Sudo license
-LICENSE_FILE=	${WRKSRC}/doc/LICENSE
+LICENSE_FILE=	${WRKSRC}/LICENSE.md
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
 USES=		cpe libtool
