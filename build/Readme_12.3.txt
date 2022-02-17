@@ -127,6 +127,7 @@ Changes:
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade nano to v6.1.
+- Upgrade php to v7.4.28.
 
 Fixes:
 -
