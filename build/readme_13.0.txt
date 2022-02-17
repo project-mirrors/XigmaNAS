@@ -95,10 +95,8 @@ Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P5.
 - Upgrade arcconf to v3_10_24700.
 - Upgrade isboot to v0.2.14.
-- Upgrade bash to v5.1 p12.
 - Upgrade dialog to v1.3-20211107.
 - Upgrade php to v8.0.13.
-- Upgrade virtualbox-ose to v6.1.30.
 - Upgrade inadyn to v2.9.0.
 - Upgrade wsdd to v0.7.0.
 - Upgrade lighttpd to v1.4.63.
@@ -108,6 +106,8 @@ Changes:
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
 - Upgrade sudo to v1.9.9.
+- Upgrade virtualbox-ose to v6.1.32.
+- Upgrade bash to v5.1 p16.
 
 Fixes:
 -
