@@ -65,7 +65,6 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_expire.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_extforward.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_fastcgi.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_flv_streaming.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_indexfile.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_openssl.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/.libs/mod_proxy.so ${XIGMANAS_ROOTFS}/usr/local/lib/lighttpd
