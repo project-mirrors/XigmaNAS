@@ -123,6 +123,8 @@ Changes:
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
 - Upgrade sudo to v1.9.9.
+- Upgrade virtualbox-ose to v6.1.32.
+- Upgrade bash to v5.1 p16.
 
 Fixes:
 -
