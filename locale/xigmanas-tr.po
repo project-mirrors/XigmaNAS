@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2020-06-17 15:12+0000\n"
-"Last-Translator: Mustafa DAĞCI <mustafa.matrix@gmail.com>\n"
+"PO-Revision-Date: 2021-12-14 06:14+0000\n"
+"Last-Translator: Onur Ünal <Unknown>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-13 18:08+0000\n"
-"X-Generator: Launchpad (build cd8f08e7e7c160b1710e2cad6ba032fb74527860)\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2022-02-17 22:01+0000\n"
+"X-Generator: Launchpad (build 131c1c72b6032652fb002ebff08e63a8deeb8d0a)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " Özel anahtar yok"
@@ -498,7 +498,7 @@ msgid "Access the webGUI with the new IP address"
 msgstr "Web Arayüzüne yeni IP Adresi ile eriş"
 
 msgid "Acoustic Level"
-msgstr ""
+msgstr "Akustik Seviyesi"
 
 msgid "Action"
 msgstr "İşlem"
@@ -622,7 +622,7 @@ msgid "Add Portal Group"
 msgstr "Portal Groubu Ekle"
 
 msgid "Add Provider"
-msgstr ""
+msgstr "Sağlayıcı Ekle"
 
 msgid "Add Public Key"
 msgstr "Genel Anahtar Ekle"
@@ -631,7 +631,7 @@ msgid "Add RAID"
 msgstr "RAID Ekle"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Yeniden Başlama Zamanlayıcısı Ekle"
 
 msgid "Add Record"
 msgstr "Kayıt Ekle"
@@ -652,7 +652,7 @@ msgid "Add Samba Share"
 msgstr "Samba paylaşımı ekle"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Zamanlama Ekle"
 
 msgid "Add Share"
 msgstr "Paylaşım ekle"
@@ -778,7 +778,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "Uzak hastd yürütücüsü adresi. Sabit IP olmak zorundadır."
 
 msgid "Admin"
-msgstr ""
+msgstr "Yönetici"
 
 msgid "Admin Password"
 msgstr "Yönetici Şifresi"
@@ -793,7 +793,7 @@ msgid "Administrator Name"
 msgstr "Yönetici Adı"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Yönetici Parolası"
 
 msgid "Advanced"
 msgstr "Gelişmiş"
@@ -862,22 +862,22 @@ msgid "All"
 msgstr "Tümü"
 
 msgid "All Days"
-msgstr ""
+msgstr "Her Gün"
 
 msgid "All Hours"
-msgstr ""
+msgstr "Tüm Saatler"
 
 msgid "All Interfaces"
 msgstr "Tüm Arayüzler"
 
 msgid "All Minutes"
-msgstr ""
+msgstr "Tüm Dakikalar"
 
 msgid "All Months"
-msgstr ""
+msgstr "Tüm Aylar"
 
 msgid "All Weekdays"
-msgstr ""
+msgstr "Haftanın Tüm Günleri"
 
 msgid "All data from the following statistics have been deleted:"
 msgstr "Şu istatistikteki tüm veriler silindi:"
@@ -916,7 +916,7 @@ msgid "Allow GSSAPI authentication."
 msgstr "GSSAPI kimlik doğrulaması izin ver."
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "IPv6'ya Izin Ver"
 
 msgid "Allow New Files"
 msgstr "Yeni dosyalara izin ver"
@@ -14150,20 +14150,23 @@ msgstr ""
 
 msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
 msgstr ""
+"krb5i - Veri bütünlüğü sağlamaları ile Kerberos V5 doğrulamasını kullan."
 
 msgid ""
 "krb5p - Use Kerberos V5 authentication with data integrity checksums and "
 "data encryption."
 msgstr ""
+"krb5p - Veri bütünlüğü sağlamaları ve veri şifrelemeleri ile Kerberos V5 "
+"doğrulamasını kullan."
 
 msgid "less then 1.8\"."
-msgstr ""
+msgstr "1.8\" ten küçük"
 
 msgid "load/unload failed."
-msgstr ""
+msgstr "yükle/çıkar başarısız."
 
 msgid "loader.conf"
-msgstr ""
+msgstr "loader.conf"
 
 msgid "mapall - Specifies a mapping for all client UIDs (including root)"
 msgstr ""
@@ -14174,53 +14177,53 @@ msgid ""
 msgstr ""
 
 msgid "missing"
-msgstr ""
+msgstr "eksik"
 
 msgid "mount"
-msgstr ""
+msgstr "bağla"
 
 msgid "mount point"
-msgstr ""
+msgstr "bağlama noktası"
 
 msgid "must be defined!"
-msgstr ""
+msgstr "belirlenmesi zorunlu!"
 
 #, php-format
 msgid "must be in the format: %s."
-msgstr ""
+msgstr "%s formatında olmalı."
 
 msgid "n/a"
-msgstr ""
+msgstr "yok"
 
 msgid "network traffic"
-msgstr ""
+msgstr "ağ trafiği"
 
 msgid "no"
-msgstr ""
+msgstr "hayır"
 
 msgid "no delay"
-msgstr ""
+msgstr "bekleme yok"
 
 msgid "no pools available"
-msgstr ""
+msgstr "herhangi bir havuz yok"
 
 msgid "none"
-msgstr ""
+msgstr "hiçbiri"
 
 msgid "off"
-msgstr ""
+msgstr "kapalı"
 
 msgid "on"
-msgstr ""
+msgstr "Açık"
 
 msgid "phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin"
 
 msgid "phpVirtualBox"
-msgstr ""
+msgstr "phpVirtualBox"
 
 msgid "pools"
-msgstr ""
+msgstr "havuzlar"
 
 msgid "rc.conf"
 msgstr "rc.conf"
@@ -14232,34 +14235,34 @@ msgid "scan target failed."
 msgstr "hedef tarama başarısız"
 
 msgid "scponly - Secure Copy Protocol only"
-msgstr ""
+msgstr "scponly - Sadece Güvenli Kopyalama Protokolü"
 
 msgid "seconds)"
-msgstr ""
+msgstr "saniye)"
 
 msgid "sh - Bourne Shell"
-msgstr ""
+msgstr "sh- Bourne Shell (Bash)"
 
 msgid "smallest settable high voltage transfer point"
-msgstr ""
+msgstr "mümkün olan en küçük yüksek voltaj aktarım noktası değeri"
 
 msgid "smallest settable low voltage transfer point"
-msgstr ""
+msgstr "mümkün olan en küçük düşük voltaj aktarım noktası değeri"
 
 msgid "successfully."
 msgstr "Başarılı"
 
 msgid "sys - Use AUTH_SYS authentication."
-msgstr ""
+msgstr "sys - AUTH_SYS doğrulamasını kullan."
 
 msgid "sysctl.conf"
 msgstr "sysctl.conf"
 
 msgid "syslog.conf"
-msgstr ""
+msgstr "syslog.conf"
 
 msgid "tcsh - TENEX C Shell"
-msgstr ""
+msgstr "tcsh - TENEX C Shell"
 
 msgid "testparm"
 msgstr ""
@@ -14268,7 +14271,7 @@ msgid "to"
 msgstr "->"
 
 msgid "uTP"
-msgstr ""
+msgstr "uTP"
 
 msgid "umount"
 msgstr "ayır"
@@ -14277,7 +14280,7 @@ msgid "unknown"
 msgstr "Bilinmeyen"
 
 msgid "update.example.com"
-msgstr ""
+msgstr "ornek.guncelleme.com"
 
 msgid "visible"
 msgstr "görünür"

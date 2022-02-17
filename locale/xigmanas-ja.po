@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2020-09-03 10:59+0000\n"
+"PO-Revision-Date: 2022-01-28 07:38+0000\n"
 "Last-Translator: Hiroki Ohkawa <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-13 18:09+0000\n"
-"X-Generator: Launchpad (build cd8f08e7e7c160b1710e2cad6ba032fb74527860)\n"
-"Language: \n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2022-02-17 22:01+0000\n"
+"X-Generator: Launchpad (build 131c1c72b6032652fb002ebff08e63a8deeb8d0a)\n"
 "X-Poedit-Country: JAPAN\n"
 "X-Poedit-Language: Japanese\n"
+"Language: \n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " 秘密鍵なし"
@@ -23,7 +23,7 @@ msgid " interfaces:"
 msgstr " インターフェース:"
 
 msgid " | State: "
-msgstr ""
+msgstr " | 状態: "
 
 #, php-format
 msgid "%1$s is used to create %2$s volumes."
@@ -35,7 +35,7 @@ msgstr ""
 
 #, php-format
 msgid "%2$s used, %3$s available"
-msgstr ""
+msgstr "%2$s 使用中, %3$s 使用可能"
 
 #, php-format
 msgid "%d days"
@@ -75,7 +75,7 @@ msgstr "%s は既に存在します。"
 
 #, php-format
 msgid "%s available of %s"
-msgstr ""
+msgstr "%s 使用可能 (%s 中)"
 
 #, php-format
 msgid "%s is already configured as a filesystem."
@@ -87,7 +87,7 @@ msgstr "%s は既にボリュームとして構成されています。"
 
 #, php-format
 msgid "%s is based upon/includes various free software packages."
-msgstr ""
+msgstr "%s は様々なフリーソフトウェアパッケージを元に成り立っています。"
 
 #, php-format
 msgid "%s is too long."
@@ -95,7 +95,7 @@ msgstr "%s は長すぎます。"
 
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s (%s 中)"
 
 #, php-format
 msgid "%s on %s"
@@ -103,12 +103,12 @@ msgstr "%s ＠ %s"
 
 #, php-format
 msgid "%s used of %s"
-msgstr ""
+msgstr "%s 使用 (%s 中)"
 
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts:"
-msgstr ""
+msgstr "%s はこれらのソフトウェアの作者の努力に謝意を表します:"
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -116,27 +116,27 @@ msgstr "%s%d %s は既に %s%d で使用されています。"
 
 #, php-format
 msgid "%u hour"
-msgstr ""
+msgstr "%u 時間"
 
 #, php-format
 msgid "%u hours"
-msgstr ""
+msgstr "%u 時間"
 
 #, php-format
 msgid "%u minute"
-msgstr ""
+msgstr "%u 分"
 
 #, php-format
 msgid "%u minutes"
-msgstr ""
+msgstr "%u 分"
 
 #, php-format
 msgid "%u second"
-msgstr ""
+msgstr "%u 秒"
 
 #, php-format
 msgid "%u seconds"
-msgstr ""
+msgstr "%u 秒"
 
 #, php-format
 msgid "'%s' deletes all statistical data from the graphs!"
@@ -199,19 +199,19 @@ msgid "*** Imported duplicate ***"
 msgstr "*** 重複インポート ***"
 
 msgid "+upnp:class,+upnp:originalTrackNumber,+dc:title"
-msgstr ""
+msgstr "+upnp:class,+upnp:originalTrackNumber,+dc:title"
 
 msgid "/"
-msgstr ""
+msgstr "/"
 
 msgid "/mnt"
-msgstr ""
+msgstr "/mnt"
 
 msgid "/update?domain="
-msgstr ""
+msgstr "/update?domain="
 
 msgid "000"
-msgstr ""
+msgstr "000"
 
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr "0=無効、1-255=指定サイズでキューイングを有効。"
@@ -226,28 +226,28 @@ msgid "1 or more disks are required to build a RAID-1 volume."
 msgstr "RAID-1ボリュームを作成するには1個以上のディスクが必要です。"
 
 msgid "1.8\""
-msgstr ""
+msgstr "1.8\""
 
 msgid "1000"
-msgstr ""
+msgstr "1000"
 
 msgid "1000000"
-msgstr ""
+msgstr "1000000"
 
 msgid "16 KiB"
-msgstr ""
+msgstr "16 KiB"
 
 msgid "16384"
-msgstr ""
+msgstr "16384"
 
 msgid "192.168.0.0/24"
-msgstr ""
+msgstr "192.168.0.0/24"
 
 msgid "2"
 msgstr "2"
 
 msgid "2 KiB"
-msgstr ""
+msgstr "2 KiB"
 
 msgid "2 or more disks are required to build a RAID-0 volume."
 msgstr "RAID-0のボリュームを構成するには、2台かそれ以上の台数のハードディスクが必要です。"
@@ -256,7 +256,7 @@ msgid "2 or more disks are required to build a RAID-1 volume."
 msgstr "RAID-1のボリュームを構成するには、2台かそれ以上の台数のハードディスクが必要です。"
 
 msgid "2.5\""
-msgstr ""
+msgstr "2.5\""
 
 msgid "22"
 msgstr "22"
@@ -268,43 +268,43 @@ msgid "3 or more disks are required to build a RAID-5 volume."
 msgstr "RAID-5のボリュームを構成するには、3台かそれ以上の台数のハードディスクが必要です。"
 
 msgid "3.5\""
-msgstr ""
+msgstr "3.5\""
 
 msgid "300"
-msgstr ""
+msgstr "300"
 
 msgid "32 KiB"
-msgstr ""
+msgstr "32 KiB"
 
 msgid "4 KiB"
-msgstr ""
+msgstr "4 KiB"
 
 msgid "4KB wrapper"
 msgstr "4KBラッパー"
 
 msgid "5.25\""
-msgstr ""
+msgstr "5.25\""
 
 msgid "512 Bytes"
-msgstr ""
+msgstr "512 Bytes"
 
 msgid "514"
-msgstr ""
+msgstr "514"
 
 msgid "64 KiB"
-msgstr ""
+msgstr "64 KiB"
 
 msgid "69"
-msgstr ""
+msgstr "69"
 
 msgid "8 KiB"
-msgstr ""
+msgstr "8 KiB"
 
 msgid "802.1Q VLAN tag (between 1 and 4094)."
 msgstr "802.1Q VLAN タグ (1 から 4094 まで)。"
 
 msgid "8200"
-msgstr ""
+msgstr "8200"
 
 msgid ""
 "A NTP time server name may only contain the following characters: a-z, 0-9, "
@@ -321,7 +321,7 @@ msgid "A VLAN with the tag %s is already defined on this interface."
 msgstr "VLAN タグ %s は既にこのインタフェースで使用されています。"
 
 msgid "A cron job must be setup to schedule script /etc/capacitycheck.zfs."
-msgstr ""
+msgstr "スクリプト \"/etc/capacitycheck.zfs\" を定期実行するcronジョブが設定されている必要があります。"
 
 msgid ""
 "A directory listing is generated when no index-files (index.php, index.html, "
@@ -354,7 +354,7 @@ msgstr "要求されたリクエストを実行するために、マウントさ
 msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
-msgstr ""
+msgstr "iSER (iSCSI over RDMA) プロトコルで通信を受けるためにLISTENするポート番号"
 
 msgid "A reboot is required"
 msgstr "再起動が必要です。"
@@ -452,7 +452,7 @@ msgid "ARP Tables List"
 msgstr "ARP テーブルリスト"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "AVI File"
 msgstr ""
@@ -501,7 +501,7 @@ msgstr ""
 "コマンドが失敗した時に通知されます。"
 
 msgid "Activate the selected device."
-msgstr ""
+msgstr "選択したデバイスを有効化"
 
 msgid "Active"
 msgstr "アクティブ"
@@ -537,10 +537,10 @@ msgid "Add CARP"
 msgstr "CARP を追加"
 
 msgid "Add CHAP User"
-msgstr ""
+msgstr "CHAPユーザーを追加"
 
 msgid "Add Command"
-msgstr ""
+msgstr "コマンドを追加"
 
 msgid "Add Dataset"
 msgstr "データセットを追加"
@@ -606,7 +606,7 @@ msgid "Add Provider"
 msgstr ""
 
 msgid "Add Public Key"
-msgstr ""
+msgstr "公開鍵を追加"
 
 msgid "Add RAID"
 msgstr "RAID の追加"
@@ -765,7 +765,7 @@ msgid "Admin Password"
 msgstr "管理者パスワード"
 
 msgid "Admin access"
-msgstr ""
+msgstr "管理者としてアクセス"
 
 msgid "Administrative WebGUI"
 msgstr "管理用 Web 画面"
@@ -774,7 +774,7 @@ msgid "Administrator Name"
 msgstr "管理者名"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "管理者パスワード"
 
 msgid "Advanced"
 msgstr "高度な設定"
@@ -786,7 +786,7 @@ msgid "Advanced Options"
 msgstr "高度なオプション"
 
 msgid "Advanced SMB Settings"
-msgstr ""
+msgstr "高度なSMB設定"
 
 msgid "Advanced Settings"
 msgstr "高度な設定"
@@ -860,7 +860,7 @@ msgstr "以下の全ての統計データが削除されます:"
 msgid ""
 "All data in the chosen path is overwritten. Using an empty UFS directory or "
 "an empty ZFS dataset is recommended."
-msgstr ""
+msgstr "選択したパスに存在するすべてのデータは上書きされます。空のUFSディレクトリ、または空のZFSデータセットの使用を推奨します。"
 
 msgid "All data will be lost when you activate this option!"
 msgstr "このオプションを有効にすると全てのデータは失われます。"
@@ -890,13 +890,13 @@ msgid "Allow GSSAPI authentication."
 msgstr "GSSAPI認証を許可"
 
 msgid "Allow IPv6"
-msgstr ""
+msgstr "IPv6を許可"
 
 msgid "Allow New Files"
 msgstr "新規ファイルを許可"
 
 msgid "Allow Serial Ports"
-msgstr ""
+msgstr "シリアルポートを許可"
 
 msgid "Allow TCP forwarding."
 msgstr "TCP転送を許可"
@@ -905,10 +905,10 @@ msgid "Allow TLS connections only."
 msgstr "TLS 接続のみ許可する。"
 
 msgid "Allow USB"
-msgstr ""
+msgstr "USBを許可"
 
 msgid "Allow USB Serial Ports"
-msgstr ""
+msgstr "USBシリアルポートを許可"
 
 msgid "Allow challenge-response authentication."
 msgstr "チャレンジ/レスポンス認証を許可"
@@ -942,7 +942,7 @@ msgid "Allow root to login via ssh."
 msgstr "SSHによるrootユーザのログインを許可"
 
 msgid "Allow symlinks that point outside defined media folders."
-msgstr ""
+msgstr "指定されたメディアフォルダーの外を指すシンボリックリンクを許可"
 
 msgid "Allow the server to try and become a local master browser."
 msgstr ""
@@ -1030,7 +1030,7 @@ msgid ""
 msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
-msgstr ""
+msgstr "外部からの通信を受け付けるIPv4またはIPv6アドレス"
 
 msgid ""
 "An Initiator Group is identified by a tag number and defines authorised "
@@ -1040,12 +1040,12 @@ msgstr "イニシエータグループはタグ番号で識別され、ターゲ
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the critical "
 "threshold."
-msgstr ""
+msgstr "プールの使用済み割合が危険の閾値を超えた場合にアラートメールが送信されます。"
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the warning "
 "threshold."
-msgstr ""
+msgstr "プールの使用済み割合が警告の閾値を超えた場合にアラートメールが送信されます。"
 
 msgid "An empty field is default."
 msgstr "デフォルトは空欄です。"
@@ -1117,7 +1117,7 @@ msgid "Apply"
 msgstr "適用"
 
 msgid "Apply Changes"
-msgstr ""
+msgstr "変更を適用"
 
 msgid "Apply Filter"
 msgstr "フィルタの適用"
@@ -2877,7 +2877,7 @@ msgid "Delete Selected Providers"
 msgstr ""
 
 msgid "Delete Selected Public Keys"
-msgstr ""
+msgstr "選択した公開鍵を削除"
 
 msgid "Delete Selected RAID Volumes"
 msgstr "選択したRAIDボリュームの削除"
@@ -3153,7 +3153,7 @@ msgstr ""
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
-msgstr "デバイス: %s | 容量: %s | 使用領域: %s | 空き領域: %s"
+msgstr "デバイス: %s | 総容量: %s | 使用済み: %s | 空き: %s"
 
 msgid "Devices"
 msgstr "デバイス"
@@ -3265,7 +3265,7 @@ msgid "Disable Selected Providers"
 msgstr ""
 
 msgid "Disable Selected Public Keys"
-msgstr ""
+msgstr "選択した公開鍵を無効化"
 
 msgid "Disable Selected Reboot Schedules"
 msgstr ""
@@ -3660,7 +3660,7 @@ msgid "Do you want to delete selected providers?"
 msgstr ""
 
 msgid "Do you want to delete selected public keys?"
-msgstr ""
+msgstr "選択した公開鍵を削除しますか？"
 
 msgid "Do you want to delete selected reboot schedules?"
 msgstr ""
@@ -3777,7 +3777,7 @@ msgid "Do you want to disable selected providers?"
 msgstr ""
 
 msgid "Do you want to disable selected public keys?"
-msgstr ""
+msgstr "選択した公開鍵を無効化しますか？"
 
 msgid "Do you want to disable selected reboot schedules?"
 msgstr ""
@@ -3876,7 +3876,7 @@ msgid "Do you want to enable selected providers?"
 msgstr ""
 
 msgid "Do you want to enable selected public keys?"
-msgstr ""
+msgstr "選択した公開鍵を有効化しますか？"
 
 msgid "Do you want to enable selected reboot schedules?"
 msgstr ""
@@ -3984,7 +3984,7 @@ msgid "Do you want to toggle selected providers?"
 msgstr ""
 
 msgid "Do you want to toggle selected public keys?"
-msgstr ""
+msgstr "選択した公開鍵をトグルしますか？"
 
 msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
@@ -4213,7 +4213,7 @@ msgid "Edit Provider"
 msgstr ""
 
 msgid "Edit Public Key"
-msgstr ""
+msgstr "公開鍵を編集"
 
 msgid "Edit RAID"
 msgstr "RAID を編集"
@@ -4449,7 +4449,7 @@ msgid "Enable Selected Providers"
 msgstr ""
 
 msgid "Enable Selected Public Keys"
-msgstr ""
+msgstr "公開鍵を有効化"
 
 msgid "Enable Selected Reboot Schedules"
 msgstr ""
@@ -7750,7 +7750,7 @@ msgid "No ZFS zpool information available."
 msgstr "zpoolの情報が取得できません。"
 
 msgid "No access to the user portal"
-msgstr ""
+msgstr "ユーザーポータルへのアクセス権限なし"
 
 msgid "No additional parameters"
 msgstr ""
@@ -8837,28 +8837,28 @@ msgid "Public"
 msgstr ""
 
 msgid "Public Key"
-msgstr ""
+msgstr "公開鍵"
 
 msgid "Public Key Authentication"
-msgstr ""
+msgstr "公開鍵認証"
 
 msgid "Public Key Settings"
-msgstr ""
+msgstr "公開鍵設定"
 
 msgid "Public Keys"
-msgstr ""
+msgstr "公開鍵"
 
 msgid "Public key information."
-msgstr ""
+msgstr "公開鍵情報"
 
 msgid "Public key is marked for deletion"
-msgstr ""
+msgstr "公開鍵は削除されます"
 
 msgid "Public key is protected"
-msgstr ""
+msgstr "公開鍵は保護されています"
 
 msgid "Public key is unlocked"
-msgstr ""
+msgstr "公開鍵はロックされていません"
 
 msgid "Pull"
 msgstr ""
@@ -12788,7 +12788,7 @@ msgid "Toggle Selected Providers"
 msgstr ""
 
 msgid "Toggle Selected Public Keys"
-msgstr ""
+msgstr "選択した公開鍵をトグル"
 
 msgid "Toggle Selected Reboot Schedules"
 msgstr ""
@@ -12875,11 +12875,11 @@ msgstr "磁気ヘッドアクチュエータのローディング総時間（パ
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "総容量: %1$s | 使用済み: %2$s | 空き: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "総容量: %1$s | 使用済み: %2$s | 空き: %3$s"
 
 msgid "Traceroute"
 msgstr "Traceroute"
@@ -13423,7 +13423,7 @@ msgid "User Suffix"
 msgstr "ユーザサフィックス"
 
 msgid "User access"
-msgstr ""
+msgstr "ユーザーとしてアクセス"
 
 msgid "User account is marked for deletion"
 msgstr ""
@@ -14149,7 +14149,7 @@ msgid "greatest settable low voltage transfer point"
 msgstr "設定可能な最大切り替え電圧下限値"
 
 msgid "hidden"
-msgstr ""
+msgstr "非表示"
 
 msgid "iSCSI"
 msgstr ""
@@ -14345,19 +14345,19 @@ msgid "to"
 msgstr "から"
 
 msgid "uTP"
-msgstr ""
+msgstr "uTP"
 
 msgid "umount"
 msgstr "アンマウント"
 
 msgid "unknown"
-msgstr ""
+msgstr "不明"
 
 msgid "update.example.com"
-msgstr ""
+msgstr "update.example.com"
 
 msgid "visible"
-msgstr ""
+msgstr "表示"
 
 msgid "was assigned to"
 msgstr ""

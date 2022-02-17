@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2021-11-22 15:21+0000\n"
-"Last-Translator: Tomfro <Unknown>\n"
+"PO-Revision-Date: 2022-02-14 17:57+0000\n"
+"Last-Translator: Winfried Hyronimus <winfried.hyronimus@googlemail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-13 18:09+0000\n"
-"X-Generator: Launchpad (build cd8f08e7e7c160b1710e2cad6ba032fb74527860)\n"
+"X-Launchpad-Export-Date: 2022-02-17 22:01+0000\n"
+"X-Generator: Launchpad (build 131c1c72b6032652fb002ebff08e63a8deeb8d0a)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -57,7 +57,7 @@ msgstr "%d Jahre"
 
 #, php-format
 msgid "%dB / block"
-msgstr "%dB / block"
+msgstr "%dB / Block"
 
 #, php-format
 msgid "%s Interface"
@@ -178,9 +178,9 @@ msgid ""
 msgstr ""
 "(Herstellerspezifischer Rohwert). Anzahl der Lesefehler der Schreib-"
 "/Leseköpfe. Bei einer Störung der Positionierungsmechanik treten Lesefehler "
-"auf. Solche Fehler können eine Vielzahl von Ursachen haben, z.B. einen "
+"auf. Solche Fehler können eine Vielzahl von Ursachen haben, z. B. einen "
 "beschädigten Servomotor oder eine wärmebedingte Ausdehnung der Festplatte. "
-"Der Aufbau des Rohwertes ist nicht standardisiert, sondern "
+"Die Angabe des Rohwertes ist nicht standardisiert, sondern "
 "herstellerabhängig und muss daher jeweils im Einzelfall interpretiert werden."
 
 msgid ""
@@ -226,15 +226,14 @@ msgstr "000"
 
 msgid "0=disabled, 1-255=enabled command queuing with specified depth."
 msgstr ""
-"0=deaktiviert, 1-255=aktivierte Befehlswarteschlange mit spezifizierter "
-"Tiefe."
+"0: deaktivert, 1-255: Befahlswarteschlange mit angegebener Länge aktiviert."
 
 msgid "1"
 msgstr "1"
 
 msgid "1 or more disks are required to build a JBOD volume."
 msgstr ""
-"Mindestens eine Festplatte (oder mehr) werden für eine JBOD Konfiguration "
+"Mindestens eine Festplatte (oder mehr) werden für eine JBOD-Konfiguration "
 "benötigt."
 
 msgid "1 or more disks are required to build a RAID-1 volume."
@@ -396,10 +395,10 @@ msgid "A reload request has been sent to the daemon."
 msgstr "Ein 'Neuladen' - Befehl wurde an den Hintergrunddienst geschickt."
 
 msgid "A rescan has been issued."
-msgstr "Ein erneutes scannen wurde veranlasst."
+msgstr "Ein erneutes Scannen wurde veranlasst."
 
 msgid "A sysvol folder was found."
-msgstr "Ein sysvol Verzeichnis wurde gefunden. (sysvol folder)"
+msgstr "Ein sysvol-Verzeichnis wurde gefunden. (sysvol folder)"
 
 msgid ""
 "A tally of spindle start/stop cycles. The spindle turns on, and hence the "
@@ -418,8 +417,8 @@ msgstr "Es muss eine gültige IP-Adresse angegeben sein."
 msgid ""
 "A valid IP address or CIDR notation must be specified for the hosts allow."
 msgstr ""
-"Eine gültige IP Adresse oder CIDR Notation muss für erlaubte Hosts "
-"spezifiziert werden."
+"Eine gültige IP-Adresse oder CIDR-Notation muss für erlaubte Hosts angegeben "
+"werden."
 
 msgid "A valid IPv4 address must be specified for the primary DNS server."
 msgstr ""
@@ -460,19 +459,19 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Ein gültiges Präfix (1-128) muss angegeben werden."
 
 msgid "AC3 Audio File"
-msgstr "AC3 Audio Datei"
+msgstr "AC3 Audio-Datei"
 
 msgid "ACL Inherit"
 msgstr "ACL Vererbung"
 
 msgid "ACL Mode"
-msgstr "ACL Modus"
+msgstr "ACL-Modus"
 
 msgid "ACL inherit"
-msgstr "ACL vererbung"
+msgstr "ACL-Vererbung"
 
 msgid "ACL mode"
-msgstr "ACL modus"
+msgstr "ACL-Modus"
 
 msgid "AD authentication is disabled."
 msgstr "Authentifizierung ist deaktiviert."
@@ -484,25 +483,25 @@ msgid "AG"
 msgstr "AG"
 
 msgid "AIO Read Size"
-msgstr "AIO Lesen Größe"
+msgstr "AIO-Größe beim Lesen"
 
 msgid "AIO Write Size"
-msgstr "AIO Schreibgröße"
+msgstr "AIO-Größe beim Schreiben"
 
 msgid "AP mode"
-msgstr "AP Modus"
+msgstr "AP-Modus"
 
 msgid "ARP Tables"
-msgstr "ARP Tabellen"
+msgstr "ARP-Tabellen"
 
 msgid "ARP Tables List"
-msgstr "ARP Tabelle"
+msgstr "ARP-Tabelle"
 
 msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr "AVI Datei"
+msgstr "AVI-Datei"
 
 msgid "Accept remote syslog messages."
 msgstr "Erlaube Remote Syslog Nachrichten."
@@ -558,7 +557,7 @@ msgid "Active Directory"
 msgstr "Active Directory"
 
 msgid "Active Shares"
-msgstr "Verwendete Freigaben"
+msgstr "Aktive Freigaben"
 
 msgid "Active Users"
 msgstr "Aktive Benutzer"
@@ -570,7 +569,7 @@ msgid "Activity"
 msgstr "Aktivität"
 
 msgid "Adaptive (Low Power Consumption)"
-msgstr "Adaptiv (Niedriger Energieverbrauch)"
+msgstr "Angepasst (Niedriger Energieverbrauch)"
 
 msgid "Add"
 msgstr "Hinzufügen"
@@ -585,7 +584,7 @@ msgid "Add CARP"
 msgstr "CARP Hinzufügen"
 
 msgid "Add CHAP User"
-msgstr "Füge CHAP Benutzter hinzu"
+msgstr "CHAP-Benutzter hinzufügen"
 
 msgid "Add Command"
 msgstr "Befehl hinzufügen"
@@ -612,25 +611,25 @@ msgid "Add Initiator Portal"
 msgstr "Füge Initiator Portal  hinzu"
 
 msgid "Add LAGG"
-msgstr "LAGG Hinzufügen"
+msgstr "LAGG hinzufügen"
 
 msgid "Add LUN"
-msgstr "Füge LUN hinzu"
+msgstr "LUN hinzufügen"
 
 msgid "Add LUN Record"
-msgstr "Füge LUN Record hinzu"
+msgstr "LUN-Eintrag hinzufügen"
 
 msgid "Add Listen Record"
-msgstr "Füge Abhören Eintrag hinzu"
+msgstr "Füge 'listen'-Eintrag hinzu"
 
 msgid "Add Media Folder"
 msgstr "Medienverzeichnis hinzufügen"
 
 msgid "Add Mutual CHAP User"
-msgstr "Füge gegenseitigen CHAP Benutzer hinzu"
+msgstr "Gegenseitigen CHAP-Benutzer hinzufügen"
 
 msgid "Add NFS Export"
-msgstr "NFS Export hinzufügen"
+msgstr "NFS-Export hinzufügen"
 
 msgid "Add NFS Root"
 msgstr "NFS Root hinzufügen"
@@ -639,16 +638,16 @@ msgid "Add Option"
 msgstr "Option Hinzufügen"
 
 msgid "Add Option Record"
-msgstr "Füge Auswahlaufzeichnungen hinzu"
+msgstr "Optionseintrag hinzufügen"
 
 msgid "Add Pool"
 msgstr "Pool Hinzufügen"
 
 msgid "Add Port Record"
-msgstr "Füge Port Record hinzu"
+msgstr "Port-Eintrag hinzufügen"
 
 msgid "Add Portal Group"
-msgstr "Portal Group hinzufügen"
+msgstr "Portalgruppe hinzufügen"
 
 msgid "Add Provider"
 msgstr "Provider hinzufügen"
@@ -660,31 +659,31 @@ msgid "Add RAID"
 msgstr "RAID Hinzufügen"
 
 msgid "Add Reboot Schedule"
-msgstr "Neustart Zeitplan hinzufügen"
+msgstr "Neustart-Zeitplan hinzufügen"
 
 msgid "Add Record"
 msgstr "Dataset hinzufügen"
 
 msgid "Add Resource"
-msgstr "Ressource Hinzufügen"
+msgstr "Ressource hinzufügen"
 
 msgid "Add Route"
-msgstr "Füge Route Hinzu"
+msgstr "Route hinzufügen"
 
 msgid "Add Rsync Job"
-msgstr "Rsync Job Hinzufügen"
+msgstr "Rsync-Job hinzufügen"
 
 msgid "Add Rsync Module"
-msgstr "Rsync Module Hinzufügen"
+msgstr "Rsync-Modul hinzufügen"
 
 msgid "Add Samba Share"
-msgstr "Samba Share Hinzufügen"
+msgstr "Samba-Share hinzufügen"
 
 msgid "Add Schedule"
 msgstr "Zeitplan hinzufügen"
 
 msgid "Add Share"
-msgstr "Share Hinzufügen"
+msgstr "Share hinzufügen"
 
 msgid "Add Snapshot"
 msgstr "Snapshot hinzufügen"
@@ -693,22 +692,22 @@ msgid "Add Target"
 msgstr "Ziel hinzufügen"
 
 msgid "Add URL"
-msgstr "URL Hinzufügen"
+msgstr "URL hinzufügen"
 
 msgid "Add User Account"
-msgstr "Benutzerkonto Hinzufügen"
+msgstr "Benutzerkonto hinzufügen"
 
 msgid "Add VLAN"
-msgstr "VLAN Hinzufügen"
+msgstr "VLAN hinzufügen"
 
 msgid "Add Virtual Device"
-msgstr "Virtual Device Hinzufügen"
+msgstr "Virtuelles Gerät hinzufügen"
 
 msgid "Add Volume"
 msgstr "Volume hinzufügen"
 
 msgid "Add WLAN"
-msgstr "WLAN Hinzufügen"
+msgstr "WLAN hinzufügen"
 
 msgid "Add WebDAV Record"
 msgstr "WebDAV Eintrag hinzufügen"
@@ -729,31 +728,31 @@ msgid "Add additional scheduled self-test."
 msgstr "Zusätzliche planmäßige Selbsttests hinzufügen."
 
 msgid "Add any supplemental parameters."
-msgstr "Ergänzende parameter hinzufügen"
+msgstr "Ergänzende Parameter hinzufügen"
 
 msgid "Add auth group"
 msgstr "Authentifizierungsgruppe hinzufügen"
 
 msgid "Add auto snapshot"
-msgstr "Automatischen Schnappschuss hinzufügen"
+msgstr "Automatischen Snapshot hinzufügen"
 
 msgid "Add extent"
 msgstr "Extent hinzufügen"
 
 msgid "Add iSCSI Initiator"
-msgstr "Füge iSCSI Initiator hinzu"
+msgstr "iSCSI-Initiator hinzufügen"
 
 msgid "Add iSNS Server"
-msgstr "ISNS Server hinzufügen"
+msgstr "ISNS-Server hinzufügen"
 
 msgid "Add initiator group"
 msgstr "Initationsgruppe hinzufügen"
 
 msgid "Add interface"
-msgstr "Füge schnittstelle hinzu"
+msgstr "Schnittstelle hinzufügen"
 
 msgid "Add job"
-msgstr "Auftrag hinzufügen"
+msgstr "Job hinzufügen"
 
 msgid "Add mount point"
 msgstr "Einhängepunkt hinzufügen"
@@ -768,13 +767,13 @@ msgid "Add self-test"
 msgstr "Selbsttest hinzufügen"
 
 msgid "Add sysctl setting"
-msgstr "Sysctl Einstellung hinzufügen"
+msgstr "Sysctl-Einstellung hinzufügen"
 
 msgid "Add target"
-msgstr "Target hinzufügen"
+msgstr "Ziel hinzufügen"
 
 msgid "Add the selected device to the existing mirror."
-msgstr "Füge das gewählte Gerät zum bestehenden Spiegel hinzu."
+msgstr "Gewähltes Gerät zum bestehenden Spiegel hinzufügen"
 
 msgid "Add user to additional groups."
 msgstr "Benutzer zu weiteren Gruppen hinzufügen."
@@ -786,44 +785,45 @@ msgid "Additional Network"
 msgstr "Zusätzliches Netzwerk"
 
 msgid "Additional Options for Block Backend"
-msgstr "Weitere Optionen für Block Backend"
+msgstr "Weitere Optionen für das Block-Backend"
 
 msgid "Additional Options for RAM Disk Backend"
-msgstr "Weitere Optionen für RAM Disk Backend"
+msgstr "Weitere Optionen für das RAM Disk-Backend"
 
 msgid "Additional Parameters"
 msgstr "Zusätzliche Parameter"
 
 msgid "Additional Storage"
-msgstr "Zusaätzlicher Speicher"
+msgstr "Zusätzlicher Speicher"
 
 msgid "Additional parameters to the hardware-specific part of the driver."
-msgstr "Zusätzliche hardwarespezifische parameter für den treiber."
+msgstr "Zusätzliche hardwarespezifische Parameter für den Treiber."
 
 msgid "Address"
 msgstr "Adresse"
 
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
-"Adresse des remote hastd dienstes. Es muss eine statische IP Adresse sein."
+"Adresse des Ziels mit hastd-Hintergrunddienst. Angabe als statische IP-"
+"Adresse."
 
 msgid "Admin"
 msgstr "Admin"
 
 msgid "Admin Password"
-msgstr "Admin Passwort"
+msgstr "Admin-Passwort"
 
 msgid "Admin access"
 msgstr "Administratorzugriff"
 
 msgid "Administrative WebGUI"
-msgstr "Administratives WebGUI"
+msgstr "Administrator-WebGUI"
 
 msgid "Administrator Name"
-msgstr "Administrator Name"
+msgstr "Administratoren-Name"
 
 msgid "Administrator Password"
-msgstr "Administrator Passwort"
+msgstr "Administrator-Passwort"
 
 msgid "Advanced"
 msgstr "Erweitert"
@@ -847,11 +847,11 @@ msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
 msgid "Advertisement Skew"
-msgstr "Werbung Skew"
+msgstr "Advertisement-Skew (Verfälschung von Werbedaten)"
 
 msgid "After - File-deletions will be done after the transfer has completed."
 msgstr ""
-"Nachfolgede Befehle zum Löschen der Datei erfolgen erst nachdem der "
+"Nachfolgende Befehle zum Löschen der Datei erfolgen erst, nachdem der "
 "Dateitransfer beendet ist."
 
 msgid ""
@@ -870,7 +870,7 @@ msgstr ""
 "Änderungen zu übernehmen."
 
 msgid "Aggregation Protocol"
-msgstr "Aggregation Protokol"
+msgstr "Aggregation-Protokoll"
 
 msgid "Aggressive"
 msgstr "Aggressiv"
@@ -879,7 +879,7 @@ msgid ""
 "Airflow temperature on Western Digital HDs (Same as temp. , but current "
 "value is 50 less for some models. Marked as obsolete.)"
 msgstr ""
-"Temperatur des Luftstromes an Western Digital Festplatten (das gleiche wie "
+"Temperatur des Luftstromes an Western Digital Festplatten (Gleicher Wert wie "
 "Temperatur, aber der aktuelle Wert ist 50 kleiner für einige Modelle. "
 "Markiert als veraltet)"
 
@@ -890,7 +890,7 @@ msgid "Algorithm"
 msgstr "Algorithmus"
 
 msgid "Alias"
-msgstr "Pseudonym"
+msgstr "Alias"
 
 msgid "All"
 msgstr "Alle"
@@ -924,7 +924,7 @@ msgstr ""
 "leeres UFS-Verzeichnis oder ein leeres ZFS-Dataset zu verwenden."
 
 msgid "All data will be lost when you activate this option!"
-msgstr "Alle Daten werden gelöscht wenn diese OPtion aktiviert wird!"
+msgstr "Alle Daten werden gelöscht wenn diese Option aktiviert wird!"
 
 msgid "All disks are imported."
 msgstr "Alle Festplatten sind importiert."
@@ -940,57 +940,59 @@ msgstr ""
 "und alles andere das mit .Apple anfängt unzulässig macht."
 
 msgid "All software RAID disks are imported."
-msgstr "Alle Software RAID Platten sind importiert."
+msgstr "Alle Software RAID-Platten sind importiert."
 
 msgid "Alloc"
 msgstr "Zugeordnet"
 
 msgid "Allow"
-msgstr "Erlauben"
+msgstr "Zulassen"
 
 msgid "Allow GSSAPI authentication."
-msgstr "GSSAPI Authentifikation erlauben."
+msgstr "GSSAPI-Authentifikation zulassen."
 
 msgid "Allow IPv6"
-msgstr "IPv6 erlauben"
+msgstr "IPv6 zulassen"
 
 msgid "Allow New Files"
 msgstr "Neue Dateien Zulassen"
 
 msgid "Allow Serial Ports"
-msgstr "Erlaube Serielle Anschlüsse"
+msgstr "Serielle Anschlüsse zulassen"
 
 msgid "Allow TCP forwarding."
-msgstr "TCP Weiterleitung erlauben."
+msgstr "TCP-Weiterleitung zulassen."
 
 msgid "Allow TLS connections only."
-msgstr "Erlauben Sie nur TLS Anschlüsse."
+msgstr "Nur TLS-Verbindungen zulassen"
 
 msgid "Allow USB"
-msgstr "Erlaube USB"
+msgstr "USB zulassen"
 
 msgid "Allow USB Serial Ports"
-msgstr "Erlaube USB Anschlüsse"
+msgstr "USB Serial Ports zulassen"
 
 msgid "Allow challenge-response authentication."
-msgstr "Challenge-Response Authentifikation erlauben."
+msgstr "Challenge-Response-Authentifikation zulassen."
 
 msgid "Allow client access to accounts that have null passwords."
 msgstr ""
-"Erlaube Clients auf Benutzerkonten mit leeren Passwörtern zuzugreifen."
+"Den Zugriff auf Benutzerkonten mit leeren Passwörtern durch Clients zulassen."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "Clients dürfen Dateiattribute im OS/2-Style auf dem Share speichern."
+msgstr ""
+"Das Speichern von Dateiattributen im OS/2-Stil auf der Freigabe durch "
+"Clients zulassen."
 
 msgid "Allow clients to resume interrupted uploads and downloads."
 msgstr ""
-"Programmen das Fortsetzen vom unterbrochenen Hoch- und Herunterladen "
-"erlauben."
+"Das Fortsetzen vom unterbrochenem Hoch- und Herunterladen durch Clients "
+"zulassen."
 
 msgid "Allow consecutive read/writes to be issued in parallel"
 msgstr ""
-"Erlaube, aufeinanderfolgende Lese/Schreib-Zugriffe parallel auszuführen"
+"Das parallele Ausführen aufeinanderfolgender Lese-/Schreib-Zugriffe zulassen"
 
 msgid "Allow keyboard-interactive authentication."
 msgstr "Tastatureingabenbasierte Authentifikation erlauben."
@@ -999,46 +1001,47 @@ msgid "Allow new files to be created."
 msgstr "Erlaube das Erstellen neuer Dateien."
 
 msgid "Allow password authentication."
-msgstr "Passwort Authentifikation erlauben."
+msgstr "Passwort-Authentifikation zulassen."
 
 msgid "Allow public key authentication."
-msgstr "Authentifikation mit öffentlichem Schlüssel erlauben."
+msgstr "Authentifikation mit öffentlichem Schlüssel zulassen."
 
 msgid "Allow root to login via ssh."
-msgstr "Erlaube, dass Root sich über ssh einloggen darf."
+msgstr "Root-Login über SSH zulassen."
 
 msgid "Allow symlinks that point outside defined media folders."
 msgstr ""
-"Symbolische Verweise (symliks), die auf außerhalb des festgelegten "
-"Medienverzeichnisses verweisen, erlauben."
+"Symbolische Verweise (symlinks), die außerhalb des festgelegten "
+"Medienverzeichnisses verweisen, zulassen."
 
 msgid "Allow the server to try and become a local master browser."
 msgstr ""
-"Lassen Sie den Server versuchen, ein lokaler Hauptsuchdienst zu werden."
+"Zulassen, dass der Server die Rolle des 'Local Master Browser' anstrebt und "
+"übernimmt."
 
 msgid "Allow to start UPS from battery"
 msgstr ""
 "Batteriebetrieb der unterbrechungsfreien Stromversorgung (UPS) aktivieren"
 
 msgid "Allow trusted domains."
-msgstr "Vertrauenswürdige Domänen erlauben."
+msgstr "Vertrauenswürdige Domains zulassen."
 
 msgid ""
 "Allows  certain  users and groups to have read/write access to a share. This "
 "follows the allow option format."
 msgstr ""
-"Gibt bestimmten Benutzern und Benutzergruppen lese/schreib-Zugriff auf eine "
-"Freigabe. Diese Zuordnung folgt dem Erlaubt-Optionsformat."
+"Gibt bestimmten Benutzern und Benutzergruppen Lese- und Schreibzugriff auf "
+"eine Freigabe. Diese Zuordnung folgt dem Erlaubt-Optionsformat."
 
 msgid ""
 "Allows certain users and groups to have read-only  access  to  a share. This "
 "follows the allow option format."
 msgstr ""
-"Gibt bestimmten Benutzern und Benutzergruppen ein Nur-lese-Recht an einer "
+"Gibt bestimmten Benutzern und Benutzergruppen nur Lesezugriff auf eine "
 "Freigabe. Diese Zuordnung folgt dem Erlaubt-Optionsformat."
 
 msgid "Allows to connect to a hidden network"
-msgstr "Verbindung zu einem verstecktem Netzwerk"
+msgstr "Verbindung zu einem verstecktem Netzwerk zulassen"
 
 msgid ""
 "Also known as 'Power-off Retract Count' per conventional HDD terminology. "
@@ -1105,7 +1108,7 @@ msgid "An Extent defines the storage area of the Target."
 msgstr "Ein Extent definiert den Speicherbereich des Ziels."
 
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
-msgstr "Eine IPv4 oder IPv6 Adresse eines ISCSI Initiator Portals."
+msgstr "Eine IPv4- oder IPv6-Adresse eines iSCSI-Initiatorportals."
 
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
@@ -1116,34 +1119,34 @@ msgstr ""
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
-"Eine IPv4 oder IPv6 Addresse, um auf eingehende Verbindunen zu lauschen."
+"Eine IPv4- oder IPv6-Addresse, um auf eingehende Verbindungen zu horchen."
 
 msgid ""
 "An Initiator Group is identified by a tag number and defines authorised "
 "initiator names and networks."
 msgstr ""
-"Eine Initiatorgruppe wird durch eine Tag Nummer identifiziert und definiert "
+"Eine Initiatorgruppe wird durch eine Tag-Nummer identifiziert und definiert "
 "autorisierte Initiatornamen und Netzwerke."
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the critical "
 "threshold."
 msgstr ""
-"Eine Warn-Email wird gesendet, falls die Kapazität eines Pools einen "
-"kritischen Grenzwert überschreitet."
+"Eine Warn-E-mail wird gesendet, falls die Kapazitätsauslastung eines Pools "
+"einen kritischen Grenzwert überschreitet."
 
 msgid ""
 "An alert email is sent when the capacity of a pool exceeds the warning "
 "threshold."
 msgstr ""
-"Eine Warn-Email wird gesendet, falls die Kapazität eines Pools die "
-"Warnschwelle überschreitet."
+"Eine Warn-E-mail wird gesendet, falls die Kapazitätsauslastung eines Pools "
+"die Warnschwelle überschreitet."
 
 msgid "An empty field is default."
 msgstr "Ein leeres Feld ist Standard."
 
 msgid "An error occured."
-msgstr "Ein fehler ist aufgetreten."
+msgstr "Ein Fehler ist aufgetreten."
 
 msgid "An host with this name already exists."
 msgstr "Ein Host mit diesem Namen existiert bereits."
@@ -1203,10 +1206,10 @@ msgstr ""
 "Hängt die aktuelle IP an den Aktualisierungspfad des DDNS-Servers an."
 
 msgid "Append user defined shares"
-msgstr "Benutzerdefinierte freigaben hinzufügen"
+msgstr "Benutzerdefinierte Freigaben hinzufügen"
 
 msgid "Append user defined shares."
-msgstr "Append user defined shares."
+msgstr "Benutzerdefinierte Freigaben hinzufügen"
 
 msgid "Apple Filing Protocol"
 msgstr "Apple Filing Protocol"
@@ -1248,7 +1251,7 @@ msgid "Are you sure you want to delete selected item(s)?"
 msgstr "Möchten Sie die ausgewählten Elemente wirklich löschen?"
 
 msgid "Are you sure you want to reboot the server?"
-msgstr "Sind Sie sicher, dass Sie den Server rebooten wollen?"
+msgstr "Sind Sie sicher, dass Sie den Server neu starten wollen?"
 
 msgid ""
 "Are you sure you want to reset the system configuration to factory defaults?"
@@ -1288,8 +1291,8 @@ msgid ""
 "At the highest level, a target is what is presented to the initiator, and is "
 "made up of one or more extents."
 msgstr ""
-"Auf der obersten Ebene ist es EIN Target, dass dem Initiator präsentiert "
-"wird und dies kann aus einem oder mehreren Erweiterungen (extends) bestehen."
+"Auf der obersten Ebene ist das Target, was dem Initiator präsentiert wird "
+"und kann aus einem oder mehreren Erweiterungen (extents) bestehen."
 
 msgid "Attach"
 msgstr "Anhängen"
@@ -1298,7 +1301,7 @@ msgid "Attach a data device"
 msgstr "Ein Datengerät hinzufügen"
 
 msgid "Attach a log device"
-msgstr "Ein log gerät hinzufügen"
+msgstr "Ein Log-Gerät hinzufügen"
 
 msgid "Attached"
 msgstr "Hinzugefügt"
@@ -1312,8 +1315,8 @@ msgid ""
 "NTFS can result in unpredictable results, file corruption and the loss of "
 "data!"
 msgstr ""
-"Die Nutzung anderer Dateisysteme als  FAT, FAT32, EXT2, EXT3, EXT4 or NTFS "
-"kann zu unvorhersehbaren ergebnissen führen. Daten verfäschung oder "
+"Die Nutzung anderer Dateisysteme als  FAT, FAT32, EXT2, EXT3, EXT4 oder NTFS "
+"kann zu unvorhersehbaren Ergebnissen führen. Schäden an Daten, oder "
 "Datenverlust können daraus resultieren!"
 
 msgid "Attribute Name"
@@ -1634,11 +1637,11 @@ msgstr "Bootloader"
 
 #, php-format
 msgid "Boot argument (e.g. %s)."
-msgstr "Startparameter (z.B. %s)"
+msgstr "Boot-Parameter (z. B. %s)"
 
 #, php-format
 msgid "Boot loader (e.g. %s)."
-msgstr "Startprogramm (z.B. %s) (Bootloader)"
+msgstr "Boot-Programm (z. B. %s) (Bootloader)"
 
 #, php-format
 msgid ""
@@ -1881,9 +1884,8 @@ msgid ""
 "CRC Error Count. Counts the number of CRC error (read/write data FIS CRC "
 "error)."
 msgstr ""
-"CRC-Fehler.  Die Anzahl der bei der lesenden oder schreibenden Übertragung "
-"von Daten-FIS (Frame Information Structures, s. SATA-Protokoll) "
-"aufgetretenen Cyclic Redundancy Check-Fehler."
+"CRC-Fehler: Anzahl der Fehler beim Lesen oder Schreiben von Daten nach CRC-"
+"Überprüfung (Cyclic Redundancy Check) der FIS (Frame Information Structures)"
 
 msgid "CRC32C"
 msgstr "CRC32C"
@@ -1953,10 +1955,10 @@ msgid ""
 "address or DNS host is acting as a NAT gateway or port forwarder for the "
 "server."
 msgstr ""
-"Der Server wird dadurch die Netzwerkinformation für die angegebene IP "
-"Adresse oder den DNS Rechnername beim Klienten anzeigen - unter "
-"Voraussetzung, dass die IP Adresse oder der DNS Hauptrechner als NAT Gateway "
-"oder Port Forwader für den Server agiert."
+"Veranlasst den Server, die Netzwerkinformation für die angegebene IP-Adresse "
+"oder den DNS-Host beim Client anzuzeigen - unter der Voraussetzung, dass die "
+"IP-Adresse oder der DNS-Host als NAT-Gateway oder Port Forwader für den "
+"Server agiert."
 
 msgid "Certificate"
 msgstr "Zertifikat"
@@ -1969,7 +1971,7 @@ msgstr ""
 "zu prüfen."
 
 msgid "Challenge-Response Authentication"
-msgstr "hallenge-Response Authentifikation"
+msgstr "Challenge-Response-Authentifikation"
 
 msgid "Change"
 msgstr "Ändern"
@@ -1984,10 +1986,10 @@ msgid "Change permissions"
 msgstr "Rechte ändern"
 
 msgid "Change the IP address of your computer"
-msgstr "Ändern sie die IP-Adresse ihres Computers"
+msgstr "IP-Adresse ihres Computers ändern"
 
 msgid "Change the IP address of your server"
-msgstr "Ändern sie die IP-Adresse ihres Servers"
+msgstr "IP-Adresse ihres Servers ändern"
 
 msgid "Changes to this option will take effect after a reboot."
 msgstr ""
@@ -2042,7 +2044,7 @@ msgstr ""
 "diese Regel zu gelten."
 
 msgid "Choose which IP protocol this rule should match."
-msgstr "Wählen Sie das IP Protokoll welches für diese Regel gelten soll."
+msgstr "Wählen Sie das IP-Protokoll welches für diese Regel gelten soll."
 
 msgid "Choose which interface this route applies to."
 msgstr "Wählen Sie eine Netzwerkschnittstelle zu dieser Route."
@@ -2079,10 +2081,10 @@ msgid "Client"
 msgstr "Client"
 
 msgid "Client Max. Protocol"
-msgstr "Client Max. Protokoll"
+msgstr "Maximalwert für die Protokollversion, die der Client verwenden soll"
 
 msgid "Client Min. Protocol"
-msgstr "Client Min. Protokoll"
+msgstr "Minimalwert für die Protokollversion, die der Client verwenden soll"
 
 msgid "Clone"
 msgstr "Klonen"
@@ -2132,11 +2134,11 @@ msgstr "Befehl wurde erfolgreich ausgeführt."
 
 #, php-format
 msgid "Command for LINK_DOWN event (e.g. %s)."
-msgstr "Befehl für das LINK_DOWN Ereignis (z.B. %s)"
+msgstr "Befehl für das LINK_DOWN Ereignis (z. B. %s)"
 
 #, php-format
 msgid "Command for LINK_UP event (e.g. %s)."
-msgstr "Befehl für das LINK_UP Ereignis (z.B. %s)"
+msgstr "Befehl für das LINK_UP Ereignis (z. B. %s)"
 
 msgid "Command is locked"
 msgstr "Befehl ist gesperrt"
@@ -2188,7 +2190,7 @@ msgid "Compress file data during the transfer."
 msgstr "Dateidaten während der Übertragung komprimieren."
 
 msgid "Compression"
-msgstr "Komprimierung"
+msgstr "Kompression"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -2235,7 +2237,7 @@ msgid "Consider replacing this drive"
 msgstr "Ein Wechsel dieser Festplatte wird empfohlen !"
 
 msgid "Console Autologin"
-msgstr "Konsole Autologin"
+msgstr "Auto-Login über die Konsole"
 
 msgid "Console Menu"
 msgstr "Konsolenmenü"
@@ -2287,7 +2289,7 @@ msgid "Controller IP Address"
 msgstr "IP-Adresse des Controllers"
 
 msgid "Controller IP address"
-msgstr "Kontroller IP Adresse"
+msgstr "IP-Adresse des Controllers"
 
 msgid "Controller Model"
 msgstr "Controller-Modell"
@@ -2418,7 +2420,7 @@ msgid ""
 "Convert DOS attributes to UNIX execution bits when Store DOS attributes is "
 "disabled."
 msgstr ""
-"Konvertiere DOS Attribute in UNIX execution bits, wenn die Funktion 'Store "
+"Konvertiere DOS-Attribute in UNIX execution bits, wenn die Funktion 'Store "
 "DOS attributes' deaktivert wird."
 
 msgid "Conveyance Self-Test"
@@ -2563,8 +2565,8 @@ msgid ""
 "counts, ex data FIS CRC , code errors, disparity errors, command FIS crc. "
 "Value clears upon system power-down."
 msgstr ""
-"Die Anzahl der physikalischen SATA Fehler. Dieser Wert enthält alle PHY "
-"Fehlerzähler, z.B. Daten- oder Kommando-FIS-CRC, Code-Fehler, "
+"Die Anzahl der physikalischen SATA Fehler. Dieser Wert enthält alle PHY-"
+"Fehler, z. B. Daten- oder Kommando-FIS-CRC, Code-Fehler, "
 "Ungleichheitsfehler. Der Wert wird beim Ausschalten zurückgesetzt."
 
 msgid "Create"
@@ -2763,13 +2765,13 @@ msgid "DEBUG - log debugging information"
 msgstr "DEBUG - Zeichne Informationen zur Fehlersuche (Debugging) auf"
 
 msgid "DEBUG1 - same as DEBUG"
-msgstr "DEBUG1 - analog wie DEBUG"
+msgstr "DEBUG1 -  entsprechend DEBUG"
 
 msgid "DEBUG2 - log detailed debugging information"
-msgstr "DEBUG2 - Detaillierte Debugging-Informationen aufzeichnen"
+msgstr "DEBUG2 - Detaillierte Debugging-Informationen"
 
 msgid "DEBUG3 - log all debugging information"
-msgstr "DEBUG - Zeichne alle Informationen zur Fehlersuche (Debugging) auf"
+msgstr "DEBUG3 - Sämtliche Informationen zur Fehlersuche (Debugging)"
 
 msgid "DELETE"
 msgstr "LÖSCHEN"
@@ -2843,7 +2845,7 @@ msgid "Daemon Events"
 msgstr "Ereignismeldungen von Dienstprogrammen"
 
 msgid "Daemon log"
-msgstr "Dienstprotokoll"
+msgstr "Hintergrunddienste-Log"
 
 msgid "Daily"
 msgstr "Täglich"
@@ -3119,7 +3121,7 @@ msgid "Delete Selected Routes"
 msgstr "Ausgewählte Routen löschen"
 
 msgid "Delete Selected Rsync Jobs"
-msgstr "Ausgewählte RSync Aufgaben löschen"
+msgstr "Ausgewählte RSync-Jobs löschen"
 
 msgid "Delete Selected Rsync Modules"
 msgstr "Ausgewählte Rsync Module löschen"
@@ -3514,7 +3516,7 @@ msgid "Disable Selected Routes"
 msgstr "Ausgewählte Routen abschalten"
 
 msgid "Disable Selected Rsync Jobs"
-msgstr "Ausgewählte Rsync Aufgaben deaktivieren"
+msgstr "Ausgewählte RSync-Jobs deaktivieren"
 
 msgid "Disable Selected Rsync Modules"
 msgstr "Ausgewählte Rsync Module deaktivieren"
@@ -3748,7 +3750,7 @@ msgid ""
 "it will become invalid (e.g. share)!"
 msgstr ""
 "Möchten Sie diesen Einhängepunkt wirklich löschen? Alle Elemente, die gerade "
-"darauf zugreifen, werden ungültig werden (z.B. Freigaben)."
+"darauf zugreifen, werden ungültig werden (z. B. Freigaben)."
 
 msgid "Do you really want to delete this portal group?"
 msgstr "Möchten Sie wirklich diese Portalgruppe löschen?"
@@ -4897,7 +4899,7 @@ msgid "Enable local peer discovery."
 msgstr "Aktivieren der  lokalen Peer-Erkennung."
 
 msgid "Enable mapping DOS attributes."
-msgstr "Aktivierung Dos Atribute Abbilden"
+msgstr "Abbilden der DOS-Attribute aktivieren"
 
 msgid "Enable module listing."
 msgstr "Modulauflistung aktivieren."
@@ -4922,7 +4924,7 @@ msgid "Enable port forwarding via NAT-PMP or UPnP."
 msgstr "Portweiterleitung via NAT-PMP oder UPnP aktivieren."
 
 msgid "Enable proxy authentication."
-msgstr "Aktiviere Proxy Authentifizierung."
+msgstr "Aktiviere Proxy-Authentifizierung"
 
 msgid "Enable recycle bin."
 msgstr "Aktiviere Papierkorb"
@@ -4935,7 +4937,7 @@ msgid ""
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
 msgstr ""
-"Ermöglicht eine umgekehrte DNS Auflösung der entfernten IP Host Adresse für "
+"Ermöglicht eine umgekehrte DNS-Auflösung der entfernten IP-Hostadresse für "
 "ankommende Datenverbindungen im aktiven Modus und abgehende "
 "Datenverbindungen im passiven Modus."
 
@@ -4952,13 +4954,13 @@ msgid "Enable shadow copy."
 msgstr "Schattenkopie aktivieren"
 
 msgid "Enable store DOS attributes."
-msgstr "DOS Attribute aktivieren"
+msgstr "DOS-Attribute aktivieren"
 
 msgid "Enable support for NFSv4 only."
 msgstr "Aktivieren der Unterstützung nur für NFSv4."
 
 msgid "Enable the ident protocol (RFC1413)."
-msgstr "Aktiviere das Ident Protokoll (RFC1413)."
+msgstr "Aktiviere das Ident-Protokoll (RFC1413)."
 
 msgid "Enable the server power control utility."
 msgstr "Server Energieverwaltung aktivieren"
@@ -4989,8 +4991,8 @@ msgstr ""
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
-"Aktivieren Sie diese Einstellung, um von jeder IP Adresse aus Zugriff auf "
-"die WebGUI zu erlauben."
+"Aktivieren Sie diese Einstellung, den Zugriff auf das WebGUI von beliebigen "
+"IP-Adressen zu erlauben."
 
 msgid "Enable this option to make host USB available to clients."
 msgstr ""
@@ -5113,7 +5115,7 @@ msgid "Enter Email Address(es)"
 msgstr "Geben Sie die Email-Adresse ein:"
 
 msgid "Enter IP address prefix length."
-msgstr "Länge des IP Adressen-Vorsatzes eingeben."
+msgstr "Länge des IP-Adressen-Vorsatzes"
 
 msgid "Enter Identifier"
 msgstr "Identifier eingeben"
@@ -5232,7 +5234,7 @@ msgid "Enter mutual user name."
 msgstr "Gegenseitigen Benutzernamen eingeben"
 
 msgid "Enter passthrough device address bus:path:lun"
-msgstr "Durchleitungsgeräteadresse bus:path:lun eingeben"
+msgstr "Geben Sie das Passtrough-Gerät nach dem Schema bus:path:lun ein"
 
 msgid "Enter secret."
 msgstr "Geheimnis eingeben."
@@ -5244,8 +5246,8 @@ msgid ""
 "Enter the UPS identifier and host IP address of the machine where the UPS is "
 "connected to. (this also can be a remote host)"
 msgstr ""
-"Gebe die USV-Kennung und die IP-Adresse der Host-Maschine mit der die USV "
-"verbunden ist an. (das darf auch ein Remote-Host sein)"
+"Geben Sie die USV-Kennung und die IP-Adresse des Host-Geräts mit dem die USV "
+"verbunden ist, an. (Auch Angabe eines Remote-Hosts ist möglich)"
 
 msgid "Enter the domain name."
 msgstr "Eingabe des Domänennamen."
@@ -5495,7 +5497,7 @@ msgid "FTP Events"
 msgstr "FTP Ereignismeldungen"
 
 msgid "FTP Proxy"
-msgstr "FTP Proxy"
+msgstr "FTP-Proxy"
 
 msgid "FTP User Information & Status"
 msgstr "FTP Nutzer Übersicht & Status"
@@ -5520,7 +5522,7 @@ msgid "Facility"
 msgstr "Einrichtung"
 
 msgid "Factory Defaults"
-msgstr "Werkeinstellungen"
+msgstr "Auf Werkseinstellung zurücksetzen"
 
 msgid "Failed"
 msgstr "Fehlgeschlagen"
@@ -5637,11 +5639,13 @@ msgstr "Dateiöffnen fehlgeschlagen."
 
 #, php-format
 msgid "File path (e.g. %s) or ZFS volume (e.g. %s) used as Hard disk image."
-msgstr "Dateipfad (z.B. %s) oder ZFS Volume (z.B. %s) des Festplattenimage."
+msgstr ""
+"Dateipfad (z. B. %s) oder ZFS Volume (z. B. %s) des Festplattenimages."
 
 #, php-format
 msgid "File path (e.g. /mnt/sharename/extent/%s) used as extent."
-msgstr "Dateipfad (z.B. /mnt/sharename/extend/%s) wird als Extent verwendet."
+msgstr ""
+"Dateipfad (z. B. /mnt/sharename/extend/%s) wird als Extent verwendet."
 
 msgid "File saving failed."
 msgstr "Das Speichern der Datei ist fehlgeschlagen."
@@ -6003,7 +6007,7 @@ msgid "Group Settings"
 msgstr "Gruppeneinstellungen"
 
 msgid "Group Suffix"
-msgstr "Gruppen Suffix"
+msgstr "Gruppen-Suffix"
 
 msgid "Group is marked for deletion"
 msgstr "Gruppe ist zum Löschen markiert"
@@ -6092,7 +6096,7 @@ msgid "HTTP"
 msgstr "HTTP"
 
 msgid "HTTP Proxy"
-msgstr "HTTP Proxy"
+msgstr "HTTP-Proxy"
 
 msgid "HTTPS"
 msgstr "HTTPS"
@@ -6252,13 +6256,13 @@ msgid "IP"
 msgstr "IP"
 
 msgid "IP Address"
-msgstr "IP Adresse"
+msgstr "IP-Adresse"
 
 msgid "IP Address Family"
 msgstr "IP-Adressfamilie"
 
 msgid "IP Address Prefix"
-msgstr "IP Adressen Vorsatz"
+msgstr "IP-Adressen Prefix"
 
 msgid "IP address"
 msgstr "IP-Adresse"
@@ -6275,7 +6279,7 @@ msgstr ""
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
 msgstr ""
-"IP Adressen werden in Hostnamen aufgelöst wenn die folgende Einstellung "
+"IP-Adressen werden zu Hostnamen aufgelöst wenn die folgende Einstellung "
 "aktiviert ist:"
 
 msgid "IP or FQDN address of remote Rsync server."
@@ -6360,7 +6364,7 @@ msgstr "IRC XigmaNAS"
 
 #, php-format
 msgid "ISO file path (e.g. %s) used as CD/DVD drive."
-msgstr "Pfad der ISO-Datei (z.B. %s), die als CD/DVD genutzt wird"
+msgstr "Pfad der ISO-Datei (z. B. %s), die als CD/DVD genutzt wird"
 
 msgid "ISO file to be mounted."
 msgstr "ISO-Datei die eingehängt werden soll."
@@ -6433,8 +6437,8 @@ msgid ""
 "If this option is checked, IP addresses in the server logs are resolved to "
 "their hostnames where possible."
 msgstr ""
-"Wenn diese Option aktiviert ist, werden IP Adressen in den Server Logs in "
-"ihre Hostnamen umgewandelt wo möglich."
+"Wenn diese Option aktiviert ist, werden IP-Adressen in den Server-Logs zu "
+"ihren Hostnamen umgewandelt, wo möglich."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -6775,7 +6779,7 @@ msgid "Interface"
 msgstr "Schnittstelle"
 
 msgid "Interface Management"
-msgstr "Schnittstellen Management"
+msgstr "Schnittstellen-Management"
 
 msgid "Interface Selection"
 msgstr "Schnittstellen Auswahl"
@@ -6950,7 +6954,7 @@ msgstr "Kernel"
 
 #, php-format
 msgid "Kernel file (e.g. %s)."
-msgstr "Systemkern-Datei (z.B. %s)"
+msgstr "Systemkern-Datei (z. B. %s)"
 
 msgid "Key"
 msgstr "Schlüssel"
@@ -7184,12 +7188,11 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
-"Beschränkt die Höhe des Speicherplatzes eines Datensatzes und seiner "
-"Nachkommen die genutzt werden können. Diese Eigenschaft setzt eine harte "
-"Grenze bei der Höhe des genutzten Speicherplatzes durch. Das beinhaltet "
-"sämtlichen Speicher die von den Nachkommen genutzt werden, inklusive "
-"Dateisystem und Schnappschüsse. Um die Größe einzustellen bitte die "
-"folgenden Suffixe benutzen: »k«, »KB«, »M«, »Gb«, usw."
+"Beschränkt die Größe des Speicherplatzes, der durch ein Dataset und ihm "
+"nachgeordnete Sets genutzt werden kann. Mit dieser Einstellung wird eine "
+"feste Grenze für den genutzten Speicherplatz gesetzt, einschließlich des "
+"Dateisystems und möglicher Schnappschüsse. Um die Größe einzustellen, können "
+"die folgenden Suffixe benutzt werden: »k«, »KB«, »M«, »Gb«, usw."
 
 msgid "Limits the amount of space a dataset and its descendents can consume."
 msgstr ""
@@ -7325,7 +7328,7 @@ msgid ""
 "Location information, e.g. physical location of this system: 'Floor of "
 "building, Room xyz'."
 msgstr ""
-"Ortsangabe, z.B. physischer Standort dieses Systems: 'Etage des Gebäudes, "
+"Ortsangabe, z. B. physischer Standort dieses Systems: 'Etage des Gebäudes, "
 "Raum xyz'."
 
 msgid "Location of the files to share."
@@ -7354,13 +7357,13 @@ msgid "Log Filter"
 msgstr "Log-Filter"
 
 msgid "Log Level"
-msgstr "Log Level"
+msgstr "Log-Detailstufe"
 
 msgid "Log Order"
-msgstr "Log Sortierung"
+msgstr "Log-Sortierung"
 
 msgid "Log Settings"
-msgstr "Protokoll-Einstellungen"
+msgstr "Log-Einstellungen"
 
 msgid "Log file is empty."
 msgstr "Log-Datei ist leer."
@@ -7385,7 +7388,7 @@ msgstr "Logischer Unit-Controller authorisiertes Netzwerk (standardmäßig %s)"
 
 #, php-format
 msgid "Logical Unit Controller IP address (%s by default)"
-msgstr "Logischer Unit-Controller IP-Adresse (standardmäßig %s)"
+msgstr "IP-Adresse des Logical Unit Controllers (standardmäßig %s)"
 
 msgid "Logical Unit Controller Login Information"
 msgstr "Login Information LUC (Logical Unit Controller)"
@@ -7496,13 +7499,13 @@ msgid "MTU"
 msgstr "MTU"
 
 msgid "Machine Suffix"
-msgstr "Maschinen Suffix"
+msgstr "Geräte-Suffix"
 
 msgid "Maintenance"
 msgstr "Verwaltung"
 
 msgid "Maintenance Tool Settings"
-msgstr "Einstellunn gen für das Wartungstool"
+msgstr "Einstellungen für das Wartungstool"
 
 msgid "Major OS Version Upgrades"
 msgstr "Wichtige Betriebssystemversions-Upgrades"
@@ -7545,7 +7548,7 @@ msgid "Mapping"
 msgstr "Zuordnung"
 
 msgid "Mapping DOS Attributes"
-msgstr "Dos Atribute verbinden"
+msgstr "DOS-Attribute abbilden"
 
 msgid "Mar"
 msgstr "Mrz."
@@ -7567,7 +7570,7 @@ msgid "Mark the selected device as inactive."
 msgstr "Markiere die ausgewählten Geräte als inaktiv."
 
 msgid "Masquerade Address"
-msgstr "Adresse Maskieren"
+msgstr "Masquerade-Adresse"
 
 msgid "Master"
 msgstr "Master"
@@ -8059,7 +8062,7 @@ msgstr "Name des LUN"
 
 #, php-format
 msgid "Name of the NAS host, without domain part e.g. %s."
-msgstr "Name des NAS-Host, ohne den Domänennamen z.B. %s."
+msgstr "Name des NAS-Host, ohne den Domänennamen z. B. %s."
 
 msgid "Name of the Portal Group."
 msgstr "Name der Portalgruppe"
@@ -8073,7 +8076,7 @@ msgstr "Name des Befehls."
 #, php-format
 msgid "Name of the device to use as swap device, e.g. %s."
 msgstr ""
-"Name des Gerätes welches als Swap-Bereich verwendet werden soll, z.B. %s."
+"Name des Gerätes welches als Swap-Bereich verwendet werden soll, z. B. %s."
 
 msgid "Name of the option."
 msgstr "Name der Einstellung"
@@ -8390,13 +8393,13 @@ msgid "Noauto"
 msgstr "Noauto"
 
 msgid "Node A IP address"
-msgstr "IP Adresse des Knoten A"
+msgstr "IP-Adresse des Knoten A"
 
 msgid "Node A Settings"
 msgstr "Einstellungen von Knoten A"
 
 msgid "Node B IP address"
-msgstr "IP Adresse des Knoten B"
+msgstr "IP-Adresse des Knoten B"
 
 msgid "Node B Settings"
 msgstr "Einstellungen von Knoten B"
@@ -8460,8 +8463,8 @@ msgid ""
 "the SMB protocol takes care of choosing the appropriate protocol."
 msgstr ""
 "Normalerweise sollte diese Option nicht gesetzt werden, weil die "
-"automatische Aushandlungsphase im SMB-Protokoll sich um die geeigtete Wahl "
-"des Protokolls kümmert."
+"automatische Aushandlungsphase des SMB-Protokoll eine geeignete Wahl des "
+"Protokolls sicherstellt."
 
 msgid "Not Reported"
 msgstr "Nicht berichtet"
@@ -8600,7 +8603,7 @@ msgid "On"
 msgstr "Aktiviert"
 
 msgid "On-Disk Configuration"
-msgstr "\"On-Disk\" Konfiguration"
+msgstr "\"On Disk\"-Konfiguration"
 
 msgid "Online Information"
 msgstr "Online-Versionsabgleich"
@@ -8838,14 +8841,15 @@ msgid ""
 "enough to handle many simultaneous passive connections (for example, 49152-"
 "65534, the IANA-registered ephemeral port range)."
 msgstr ""
-"Passive Ports schränken den Bereich der Ports ein, von denen der Server "
-"auswählt, wenn er den PASV Befehl von einem Klienten geschickt bekommt. Der "
-"Server wählt nach dem Zufall eine Zahl innerhalb von der spezifizierten "
-"Bereich, bis ein geöffneter Ports gefunden ist. Die vorgewählte Portstrecke "
-"muss in den nicht bevorrechtigten Bereich (z.B. größer als oder gleich 1024) "
-"liegen. Es wird dringend empfohlen, dass der ausgesuchte Bereich groß genug "
-"ist, viele simultane passive Anschlüsse (z.B., 49152-65534, die IANA-"
-"geregistrierte ephemere Portstrecke) zu behandeln."
+"Passive Ports schränken den Bereich der Ports ein, die vom Server gewählt "
+"werden können, wenn er den PASV-Befehl von einem Client geschickt bekommt. "
+"Der Server wählt zufällig eine Zahl innerhalb des angegebenen Bereichs, bis "
+"ein geöffneter Port gefunden ist. Die vorgewählte Portstrecke muss im "
+"nichtprivilegierten Bereich (z. B. größer als oder gleich 1024) liegen. Es "
+"wird dringend empfohlen, den Bereich ausreichend groß einzustellen, um viele "
+"simultane passive Verbindungen (z. B., 49152-65534, entsprechend RFC 6335 "
+"sowie der Empfehlung der IANA für zeitweilig zur Verfügung gestellte Ports) "
+"zu verwalten."
 
 msgid "Passphrase"
 msgstr "Passwort"
@@ -8885,7 +8889,7 @@ msgid "Password Server"
 msgstr "Passwort Server"
 
 msgid "Password Suffix"
-msgstr "Passwort Suffix"
+msgstr "Passwort-Suffix"
 
 msgid ""
 "Password does not match the confirmation password. Please ensure both "
@@ -8906,7 +8910,7 @@ msgstr "Passwort für die Übertragungsweboberfläche."
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
 msgstr ""
-"Passwort Server Name oder IP Adresse (z.B. Active Directory Domain "
+"Name des Passwort-Servers oder IP-Adresse (z. B. Active Directory Domain "
 "Controller)"
 
 msgid "Paste a private key in PEM format here."
@@ -8938,7 +8942,7 @@ msgstr "Freizugebender Pfad."
 
 #, php-format
 msgid "Path to the local device. (e.g. %s)"
-msgstr "Pfad zum lokalen Gerät (z.B. %s)"
+msgstr "Pfad zum lokalen Gerät (z. B. %s)"
 
 msgid "Peer Exchange"
 msgstr "Austausch von Gegenstellen"
@@ -8957,7 +8961,7 @@ msgstr "Prozentsatz der scheinbaren Leistung bezogen auf die maximale Last"
 
 #, php-format
 msgid "Permanent samba data path (e.g. %s)."
-msgstr "Dauerhafter Samba Datenpfad (z.B. %s)."
+msgstr "Dauerhafter Samba-Datenpfad (z. B. %s)."
 
 msgid "Permission"
 msgstr "Berechtigung"
@@ -9395,7 +9399,7 @@ msgid "Provisioning Type"
 msgstr "Bevorratungstyp"
 
 msgid "Proxy"
-msgstr "Vermittlungsserver"
+msgstr "Proxy-Konfiguration"
 
 msgid "Public"
 msgstr "Öffentlich"
@@ -9440,7 +9444,7 @@ msgid "Python Script"
 msgstr "Python-Skript"
 
 msgid "QUIET - disable logging"
-msgstr "QUIET - Deaktiviert die Protokollierung"
+msgstr "QUIET - Kein Log wird erstellt"
 
 msgid "Queue Depth"
 msgstr "Warteschlangenlänge"
@@ -9758,7 +9762,7 @@ msgid "RSYNC Events"
 msgstr "RSYNC Ereignisse"
 
 msgid "RSYNC log"
-msgstr "RSYNC Log"
+msgstr "RSYNC-Log"
 
 msgid "Ramdisk"
 msgstr "RAM-DISK"
@@ -9791,7 +9795,7 @@ msgid "Read from lowest load"
 msgstr "Lese von niedrigster Auslastung"
 
 msgid "Read on-disk configuration."
-msgstr "\"On-Disk\" Konfiguration lesen"
+msgstr "\"On Disk\"-Konfiguration lesen"
 
 msgid "Read only"
 msgstr "Nur lesen"
@@ -9955,7 +9959,7 @@ msgid "Reminder Settings"
 msgstr "Einstellungen für Erinnerungen"
 
 msgid "Remote Address"
-msgstr "Fernadresse"
+msgstr "Zieladresse"
 
 msgid "Remote Module"
 msgstr "Remote-Modul"
@@ -9973,16 +9977,16 @@ msgid "Remote Rsync Server"
 msgstr "entfernter Rsync Server"
 
 msgid "Remote Server Address"
-msgstr "Netzwerkserveradresse"
+msgstr "Adresse des Zielservers"
 
 msgid "Remote Share Name"
 msgstr "Netzwerkfreigabename"
 
 msgid "Remote Syslog Messages"
-msgstr "Entfernte Syslog Nachrichten"
+msgstr "Entfernte Syslog-Meldungen"
 
 msgid "Remote Syslog Server"
-msgstr "Remote Syslog Server"
+msgstr "Remote Syslog-Server"
 
 msgid ""
 "Remote accesses by root will result in using a credential of 65534:65533. "
@@ -10105,10 +10109,10 @@ msgid "Resize pool to the maximum possible size"
 msgstr "Vergrößere den Pool auf die maximal mögliche Größe"
 
 msgid "Resolve IP"
-msgstr "IP Adresse auflösen"
+msgstr "IP-Adresse auflösen"
 
 msgid "Resolve IP addresses to hostnames."
-msgstr "IP Adressen zu Hostnamen auflösen"
+msgstr "IP-Adressen zu Hostnamen auflösen"
 
 msgid "Resource"
 msgstr "Ressource"
@@ -10291,7 +10295,7 @@ msgid "S.M.A.R.T. Options"
 msgstr "S.M.A.R.T. Einstellungen"
 
 msgid "S.M.A.R.T. log"
-msgstr "S.M.A.R.T. log"
+msgstr "S.M.A.R.T.-Log"
 
 msgid "SCSI Name"
 msgstr "SCSI Name"
@@ -10315,7 +10319,7 @@ msgid "SMB"
 msgstr "SMB"
 
 msgid "SMB Settings"
-msgstr "SMB Einstellungen"
+msgstr "SMB-Einstellungen"
 
 msgid "SMB is disabled."
 msgstr "SMB ist deaktiviert."
@@ -10360,7 +10364,7 @@ msgid "SSH Events"
 msgstr "SSH Ereignisse"
 
 msgid "SSHD log"
-msgstr "SSHD Logfile"
+msgstr "SSHD-Log"
 
 msgid "SSID"
 msgstr "SSID"
@@ -10620,7 +10624,7 @@ msgstr ""
 "HTTPS)."
 
 msgid "Select Log Device"
-msgstr "Wähle Log Laufwerk"
+msgstr "Wähle Log-Laufwerk"
 
 msgid "Select Pool"
 msgstr "Wähle Pool"
@@ -10896,10 +10900,10 @@ msgid "Server"
 msgstr "Server"
 
 msgid "Server Max. Protocol"
-msgstr "Anzahl der maximalen Server Protokolle"
+msgstr "Anzahl der maximalen Server-Protokolle"
 
 msgid "Server Min. Protocol"
-msgstr "Anzahl der minimalen Server Protokolle"
+msgstr "Anzahl der minimalen Server-Protokolle"
 
 msgid "Server Mode"
 msgstr "Servermodus"
@@ -10973,7 +10977,7 @@ msgstr ""
 "kleinste erlaubte Wert ist 10."
 
 msgid "Set log level"
-msgstr "Log-Level einstellen"
+msgstr "Log-Detailstufe einstellen"
 
 msgid "Set password"
 msgstr "Passwort festlegen"
@@ -11243,7 +11247,7 @@ msgid "Show Interval"
 msgstr "Anzeigeintervall"
 
 msgid "Show Log Entries"
-msgstr "Zeige Log Einträge"
+msgstr "Zeige Log-Einträge"
 
 msgid "Show Max CPUs"
 msgstr "Maximal angezeigte CPUs"
@@ -11271,15 +11275,15 @@ msgstr "Versteckte Objekte anzeigen"
 
 msgid "Show log entries in reverse order (newest entries on top)."
 msgstr ""
-"Protokoll in umgekehter Reihenfolge anzeigen (Neueste Einträge zuerst)"
+"Log-Datei in umgekehrter Reihenfolge auslesen (Neueste Einträge zuerst)"
 
 #, php-format
 msgid ""
 "Show positive/negative values for %s graphs. (can not be used together with "
 "logarithmic scaling)"
 msgstr ""
-"Zeige  positive/negative Werte für %s Graphiken. (nicht zusammen mit "
-"Logarithmischer Skalierung)"
+"Zeige positive/negative Werte für %s Graphen. (nicht möglich bei "
+"logarithmischer Skalierung)"
 
 msgid "Show symbol and text"
 msgstr "Symbol und Text anzeigen"
@@ -11712,7 +11716,7 @@ msgid "Storage location of partially downloaded files."
 msgstr "Speicherort der teilweise heruntergeladenen Dateien."
 
 msgid "Store DOS Attributes"
-msgstr "Speichere DOS Attribute"
+msgstr "Speichere DOS-Attribute"
 
 msgid "Store NTFS ACLs in Extended Attributes."
 msgstr "Speichere NTFS ACLs in erweiterten Attributen."
@@ -11832,7 +11836,7 @@ msgid "Sysctl setting is unlocked"
 msgstr "Sysctl Einstellung ist entsperrt"
 
 msgid "Syslog Level"
-msgstr "Syslog Umgebung"
+msgstr "Syslog-Detailstufe"
 
 msgid ""
 "Syslog sends UDP datagrams to port 514 on the specified remote syslog "
@@ -11895,7 +11899,7 @@ msgid "System info"
 msgstr "Systeminformation"
 
 msgid "System log"
-msgstr "System log"
+msgstr "System-Log"
 
 msgid "System message buffer"
 msgstr "System Nachrichten Puffer"
@@ -12104,16 +12108,16 @@ msgstr ""
 "primäre Knoten ist."
 
 msgid "The IP address of the UPS master."
-msgstr "Die IP-Adresse vom UPS master."
+msgstr "IP-Adresse des UPS-Masters"
 
 msgid "The IP address of the device."
-msgstr "Die IP Adresse des Geätes"
+msgstr "IP-Adresse des Geräts"
 
 msgid "The IP address or the DNS name of the iSCSI target."
-msgstr "Die IP Adresse oder der DNS Name des iSCSI Ziels."
+msgstr "Die IP-Adresse oder der DNS-Name des iSCSI Ziels."
 
 msgid "The IP address that this hostname represents."
-msgstr "Die IP Adresse, welche diesen Hostnamen repräsentiert."
+msgstr "Die IP-Adresse, welche diesen Hostnamen repräsentiert."
 
 msgid ""
 "The LAGG interface cannot be added because the interface name already exists."
@@ -12122,7 +12126,7 @@ msgstr ""
 "diesem Namen existiert bereits"
 
 msgid "The LAGG protocol is invalid."
-msgstr "Das LAGG Protokoll ist ungültig"
+msgstr "Das LAGG-Protokoll ist ungültig"
 
 msgid ""
 "The Minimum Spares Remaining attribute indicates the number of remaining "
@@ -12251,7 +12255,7 @@ msgstr "Das Attribut '%s' ist ungültig."
 
 #, php-format
 msgid "The attribute '%s' is not a valid IP address."
-msgstr "Das Eingabefeld '%s' enthält keine gültige IP Adresse."
+msgstr "Das Eingabefeld '%s' enthält keine gültige IP-Adresse."
 
 #, php-format
 msgid "The attribute '%s' is not a valid MAC address."
@@ -12338,7 +12342,7 @@ msgid ""
 "The base name (e.g. iqn.2007-09.jp.ne.peach.istgt) will append the target "
 "name that is not starting with 'iqn.'."
 msgstr ""
-"Der Hostname (z.B. ign.2007-09.jp.ne.peach.istgt) wird an den Zielnamen "
+"Der Hostname (z. B. ign.2007-09.jp.ne.peach.istgt) wird an den Zielnamen "
 "angehängt, wenn er nicht mit 'ign.' beginnt."
 
 msgid ""
@@ -12351,16 +12355,15 @@ msgid ""
 "order for a matching rule. When a match is found the rule is applied and the "
 "search process will halt."
 msgstr ""
-"Die grundlegende Konfiguration nimmt normalerweise die Gestalt von 'Dämon : "
-"Adresse : Aktion' an. Wo Daemon der Daemonname des begonnenen Services ist. "
-"Die Adresse kann ein gültiger Hostname, eine IP-Adresse (IPv4) oder eine IP-"
-"Adresse (IPv6) sein, die in Klammern eingeschlossen werden. Das "
-"Ausführungsfeld kann entweder dürfen oder verweigern sein, um den Zugang "
-"entsprechend zu bewilligen oder verweigern. Bedenken Sie, den Konfiguration "
-"weg von einem ersten Richtliniengleichen bearbeitet, das semantisch ist und "
-"bedeuten, dass die Konfigurationsakte in aufsteigender Sequenz auf eine "
-"zusammenpassende Richtlinie gescannt wird. Wenn eine Übereinstimmung "
-"gefunden wird, wird die Regel angewendet und der Suchprozess hält an."
+"Die Basiskonfiguration erfolgt normalerweise in der Form 'daemon : adresse : "
+"aktion', wobei 'daemon' der Name des gestarteten Hintergrunddienstes ist. "
+"Die Adresse muss ein gültiger Hostname sein und wird als IP-Adresse oder "
+"IPv6-Adresse in Klammern angegeben. Im Feld 'aktion' kann der Wert 'allow' "
+"oder 'deny' gesetzt werden, um den Zugriff zuzulassen oder abzuweisen. "
+"Beachten Sie, dass für die Konfiguration die erste Übereinstimmung mit einer "
+"gesuchten Regel gültig ist, und die Konfigurationsdatei aufsteigend nach "
+"einer Übereinstimmung durchsucht wird. Wird eine Übereinstimmung gefunden, "
+"wird die Regel angewandt und der Suchprozess angehalten."
 
 msgid "The blocksize visible to the initiator."
 msgstr "Die Blockgröße die für den Initiator sichtbar ist."
@@ -12444,9 +12447,9 @@ msgid ""
 "likely there will be some serious problems with power supply or an oxidized "
 "data cable."
 msgstr ""
-"anzahl abgebrochener Festplattenzugriffe wg HDD-Timeouts. Normaler Wert ist "
-"Null, ein darüberliegender Wert indiziert Probleme mit dem Netzteil oder dem "
-"Datenkabel (z.B. lose Stecker oder oxidierte Kontakte)"
+"Anzahl abgebrochener Festplattenzugriffe infolge von HDD-Timeouts. Normaler "
+"Wert ist Null, ein darüberliegender Wert weist auf Probleme mit dem Netzteil "
+"oder dem Datenkabel (z. B. lose Stecker oder oxidierte Kontakte) hin."
 
 msgid ""
 "The count of errors found when writing a sector. The higher the value, the "
@@ -12503,8 +12506,8 @@ msgstr ""
 #, php-format
 msgid "The default base distinguished name (DN) to use for searches, e.g. %s"
 msgstr ""
-"Die vorgegebene Basis an ausgesuchen Wörtern (DN), die für die Suchfunktion "
-"(z.B.: %s) verwendet werden soll."
+"Standardwert für den 'distinguished name' (DN), der für die Suchfunktion (z. "
+"B.: %s) verwendet werden soll."
 
 msgid "The default time in seconds to display a screen."
 msgstr "Die Wartezeit in Sekunden, um ein Bild darzustellen."
@@ -12531,14 +12534,15 @@ msgstr "Diese Festplatte/Partition ist bereits konfiguriert."
 
 #, php-format
 msgid "The distinguished name to bind to the directory server, e.g. %s"
-msgstr "Der kennzeichnende Name zur Bindung an den Directory Server, z.B. %s"
+msgstr ""
+"Der 'distinguished name' (DN) zur Bindung an den Directory Server, z. B. %s"
 
 #, php-format
 msgid ""
 "The distinguished name with which to bind to the directory server, e.g. %s"
 msgstr ""
-"Der ausgewählte Name, zu dem der Verzeichnis-Server verbunden werden soll, "
-"z.B.: %s"
+"Der 'distinguished name' (DN), zu dem der Verzeichnis-Server verbunden "
+"werden soll, z. B.: %s"
 
 msgid "The driver used to communicate with your UPS."
 msgstr ""
@@ -12656,7 +12660,7 @@ msgstr ""
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
 msgstr ""
-"DIe maximale Anzahl an Verbindungen pro IP Adresse muss entweder 0 "
+"DIe maximale Anzahl an Verbindungen pro IP-Adresse muss entweder 0 "
 "(unbegrenzt) oder größer sein."
 
 msgid "The max. number of clients must be in the range from 1 to 50."
@@ -12708,9 +12712,9 @@ msgid ""
 "specify the size use the following human-readable suffixes (for example, "
 "'k', 'KB', 'M', 'Gb', etc.)."
 msgstr ""
-"Minimaler Platz-Anteil der einem Dataset garantiert wird (normalerweise "
-"leer). Um die Größe anzugeben kö;nnen die folgenden Anhänge verwendet werden "
-"(z.B. \"k\", \"KB\", \"M\", \"GB\", usw.)."
+"Minimaler Speicherplatz-Anteil der einem Dataset garantiert wird "
+"(normalerweise leer). Um die Größe anzugeben können die folgenden Suffixe "
+"verwendet werden: \"k\", \"KB\", \"M\", \"GB\", usw."
 
 msgid ""
 "The minimum amount of space guaranteed to a dataset and its descendents."
@@ -12738,11 +12742,10 @@ msgid ""
 "the server, it does not prevent the banned user, host, or class from "
 "connecting to the server."
 msgstr ""
-"Dieses Modul gibt die automatischen Bann an, die aufgrund konfigurierbarer "
-"Kriterien ausgelöst werden. Ein Bann verhindert, dass ein gebannter "
-"Benutzer, Rechner oder Klasse sich beim Server anmeldet, es verhindert "
-"nicht, dass der gebannte Benutzer, Rechner oder Klasse sich zum Server "
-"verbindet."
+"Mit diesem Modul können automatische Sperrungen nach eigenen Kriterien "
+"konfiguriert werden. Eine Sperrung verhindert die Anmeldung eines Nutzers, "
+"Hosts oder einer Klasse auf dem Server, nicht jedoch die alleinige "
+"Verbindung mit diesem."
 
 msgid "The name of the RAID cannot be changed."
 msgstr "Der Name des RAID kann nicht geändret werden"
@@ -13040,8 +13043,7 @@ msgid ""
 "The value of the parameter allows the debug level (logging level) to be "
 "specified"
 msgstr ""
-"Mit dem Wert des Parameters kann die Debug-Ebene (Protokollierungsstufe) "
-"angegeben werden"
+"Mit dem Wert des Parameters kann die Log-Detailstufe festgelegt werden"
 
 msgid "The value of the setting."
 msgstr "Der Wert der Einstellung."
@@ -13258,7 +13260,7 @@ msgstr ""
 
 msgid "This can cause a huge delay in loading the log page!"
 msgstr ""
-"Dies kann eine immense Verzögerung beim Laden der Log Seite mit sich bringen!"
+"Dies kann eine immense Verzögerung beim Laden der Log-Seite mit sich bringen!"
 
 msgid ""
 "This configuration settings are used to generate the ups.conf configuration "
@@ -13519,32 +13521,32 @@ msgid ""
 "This parameter specifies the suffix that is used for groups when these are "
 "added to the LDAP directory, e.g. %s"
 msgstr ""
-"Dieser Parameter gibt den Suffix an, der für die Gruppen verwendet wird, "
-"wenn diese zum LDAP Verzeichnis (z.B.: %s) hinzugefügt werden."
+"Dieser Parameter gibt das Suffix an, der für die Gruppen verwendet wird, "
+"wenn diese zum LDAP Verzeichnis (z. B.: %s) hinzugefügt werden."
 
 #, php-format
 msgid ""
 "This parameter specifies the suffix that is used for machines when these are "
 "added to the LDAP directory, e.g. %s"
 msgstr ""
-"Dieser Parameter gibt an, welcher Suffix für die Maschine verwendet wird, "
-"wenn diese zum LDAP Verzeichnis (z.B.: %s) hinzugefügt werden."
+"Dieser Parameter gibt an, welches Suffix für Geräte verwendet wird, wenn "
+"diese zum LDAP Verzeichnis (z. B.: %s) hinzugefügt werden."
 
 #, php-format
 msgid ""
 "This parameter specifies the suffix that is used for passwords when these "
 "are added to the LDAP directory, e.g. %s"
 msgstr ""
-"Dieser Parameter gibt den Suffix an, der für die Kennwörter verwendet wird, "
-"wenn diese zum LDAP Verzeichnis (z.B.: %s) hinzugefügt werden."
+"Dieser Parameter gibt das Suffix an, das für die Kennwörter verwendet wird, "
+"wenn diese zum LDAP Verzeichnis (z. B.: %s) hinzugefügt werden."
 
 #, php-format
 msgid ""
 "This parameter specifies the suffix that is used for users when these are "
 "added to the LDAP directory, e.g. %s"
 msgstr ""
-"Dieser Parameter gibt an, welcher Suffix für die Benutzer verwendet werden, "
-"wenn diese zum LDAP Verzeichnis (z.B.: %s) hinzugefügt werden."
+"Dieser Parameter gibt an, welches Suffix für die Benutzer verwendet wird, "
+"wenn diese zum LDAP Verzeichnis (z. B.: %s) hinzugefügt werden."
 
 msgid "This password is required to access the admin web interface."
 msgstr ""
@@ -13789,7 +13791,7 @@ msgstr ""
 "bitte die NUT (Network UPS Tools) Dokumentation"
 
 msgid "To match any IP address leave this field empty."
-msgstr "Um alle IP Adressen abzudecken, lassen Sie dieses Feld frei."
+msgstr "Um alle IP-Adressen abzudecken, lassen Sie dieses Feld frei."
 
 msgid ""
 "To support multiple users of the same DDNS provider, an identifier must be "
@@ -14076,7 +14078,7 @@ msgid ""
 "unpredictable results, file corruption and the loss of data!"
 msgstr ""
 "UFS und ZFS sind NATIVE Dateisysteme von %s. Die Verwendung anderer "
-"Dateisysteme, wie z.B. EXT2, EXT3, EXT4, FAT, FAT32 oder NTFS, kann zu "
+"Dateisysteme, wie z. B. EXT2, EXT3, EXT4, FAT, FAT32 oder NTFS kann zu "
 "unvorhersehbaren Ergebnissen, Dateibeschädigungen oder sogar Datenverlust "
 "führen!"
 
@@ -14565,7 +14567,7 @@ msgid "User Shares"
 msgstr "Benutzerfreigaben"
 
 msgid "User Suffix"
-msgstr "Benutzer Suffix"
+msgstr "Benutzer-Suffix"
 
 msgid "User access"
 msgstr "Benutzerzugriff"
@@ -14818,7 +14820,7 @@ msgid "WINS Server"
 msgstr "WINS-Server"
 
 msgid "WINS server IP address (e.g. from MS Active Directory server)."
-msgstr "WINS Server IP-Adresse (z.B. vom MS Active Directory Server)."
+msgstr "IP-Adresse des WINS-Servers  (z.  B. MS Active Directory Server)."
 
 msgid "WLAN"
 msgstr "WLAN"
@@ -14974,8 +14976,8 @@ msgid ""
 "When a client initially connects to the server the ident protocol is used to "
 "attempt to identify the remote username."
 msgstr ""
-"Wenn ein Client sich mit dem Server verbindet, dann wird versucht durch das "
-"Ident Protokoll den Remote-Benutzernamen zu identifizieren."
+"Wenn ein Client sich mit dem Server verbindet, wird versucht durch das Ident-"
+"Protokoll den Remote-Benutzernamen zu identifizieren."
 
 msgid "Whether compilations should be shown together under Various Artists."
 msgstr ""
@@ -15102,7 +15104,7 @@ msgid "You can use the following parameters for substitution:"
 msgstr "Die folgenden Parameter können für die Ersetzung genutzt werden"
 
 msgid "You can verify the result in the log file."
-msgstr "Sie können das Ergebnis in den Log Dateien überprüfen."
+msgstr "Sie können das Ergebnis in den Log-Dateien überprüfen."
 
 msgid ""
 "You can't unmount a drive which is used by swap file, a iSCSI-target file or "
@@ -15118,7 +15120,8 @@ msgstr ""
 "(advertise)."
 
 msgid "You have to reboot the system for the changes to take effect."
-msgstr "Um die Änderungen durchzuführen muss das System neugestartet werden."
+msgstr ""
+"Um die Änderungen zu übernehmen, ist ein Neustart des Systems erforderlich."
 
 #, php-format
 msgid "You have to select at least one item for '%s'."
@@ -15296,8 +15299,7 @@ msgstr "ZFS-Volume-Eigenschaften nicht verfügbar."
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
 msgstr ""
-"ZFS Volume Größe. Sie können leicht lesbare Einheiten wie K, KB, M, GB "
-"wählen."
+"Größe des ZFS-Volume. Die Angabe erfolgt in Einheiten wie K, KB, M, oder GB."
 
 msgid "ZIP Archive"
 msgstr "ZIP Archiv"
@@ -15332,7 +15334,7 @@ msgstr ""
 
 #, php-format
 msgid "e.g. %s"
-msgstr "z.B. %s"
+msgstr "z. B. %s"
 
 msgid "example.com"
 msgstr "beispiel.com"
