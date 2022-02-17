@@ -1,5 +1,5 @@
 PORTNAME=	lighttpd
-PORTVERSION=	1.4.63
+PORTVERSION=	1.4.64
 PORTREVISION=	0
 CATEGORIES=	www
 
@@ -34,7 +34,6 @@ CONFIGURE_ARGS+=	--libdir=${PREFIX}/lib/lighttpd --enable-static \
 			--sysconfdir=/var/etc/ \
 			--enable-lfs \
 			--enable-ipv6 \
-			--without-geoip \
 			--without-mysql \
 			--without-ldap \
 			--with-openssl \

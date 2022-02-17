@@ -99,7 +99,6 @@ Changes:
 - Upgrade php to v8.0.13.
 - Upgrade inadyn to v2.9.0.
 - Upgrade wsdd to v0.7.0.
-- Upgrade lighttpd to v1.4.63.
 - Upgrade gzip to v1.11.
 - Upgrade nut to v2021.12.09.
 - Upgrade inadyn to v2.9.1.
@@ -113,6 +112,7 @@ Changes:
 - Upgrade syncthing to v1.19.0.
 - Upgrade devcpu-data-intel to v20220207.
 - Upgrade phpmyadmin to v5.1.3.
+- Upgrade lighttpd to v1.4.64.
 
 Fixes:
 -
