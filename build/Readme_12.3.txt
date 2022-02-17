@@ -117,7 +117,6 @@ BUILD 12.3.0.4.8948
 Changes:
 - Upgrade to FreeBSD 12.3-RELEASE P2.
 - Upgrade gzip to v1.11.
-- Upgrade nut to v2021.12.09.
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
 - Upgrade sudo to v1.9.9.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20220207.
 - Upgrade phpmyadmin to v5.1.3.
 - Upgrade lighttpd to v1.4.64.
+- Upgrade nut to v2022.02.17.
 
 Fixes:
 -
