@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2021-12-05 16:49+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2022-02-17 21:55+0000\n"
+"Last-Translator: MailMasterC <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2021-12-13 18:09+0000\n"
-"X-Generator: Launchpad (build cd8f08e7e7c160b1710e2cad6ba032fb74527860)\n"
-"Language: \n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Launchpad-Export-Date: 2022-02-17 22:01+0000\n"
+"X-Generator: Launchpad (build 131c1c72b6032652fb002ebff08e63a8deeb8d0a)\n"
 "X-Poedit-Country: ITALY\n"
 "X-Poedit-Language: Italian\n"
+"Language: \n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " Nessuna chiave privata"
@@ -381,6 +381,8 @@ msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
 msgstr ""
+"Una porta di ascolto delle connessioni in ingresso usando il potocollo iSER "
+"(iSCSI via RDMA)"
 
 msgid "A reboot is required"
 msgstr "Riavvio necessario"
@@ -1095,6 +1097,8 @@ msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
 msgstr ""
+"Un indirizzo IPv4 o IPv6 in ascolto per connessioni in arrivo usando il "
+"protocollo iSER (iSCSI over RDMA)"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
@@ -4159,13 +4163,13 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "Vuoi abilitare i portali gruppo selezionati?"
 
 msgid "Do you want to enable selected providers?"
-msgstr ""
+msgstr "Vuoi abilitare i providers selezionati ?"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "Vuoi attivare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to enable selected reboot schedules?"
-msgstr ""
+msgstr "Vuoi abilitare le pianificazioni di riavvio ?"
 
 msgid "Do you want to enable selected records?"
 msgstr "Vuoi attivare i record selezionati?"
@@ -4180,7 +4184,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "Vuoi disattivare i moduli rsync selezionati?"
 
 msgid "Do you want to enable selected schedules?"
-msgstr ""
+msgstr "Vuoi abilitare le pianificazioni selezionate ?"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "Vuoi attivare i settaggi sysctl selezionati?"
@@ -4267,13 +4271,14 @@ msgid "Do you want to toggle selected portal groups?"
 msgstr "Vuoi attivare i gruppi portali selezionati?"
 
 msgid "Do you want to toggle selected providers?"
-msgstr ""
+msgstr "Vuoi cambiare lo stato di selezione dei provider selezionati ?"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "Vuoi attivare le chiavi pubbliche selezionate?"
 
 msgid "Do you want to toggle selected reboot schedules?"
 msgstr ""
+"Vuoi cambiare lo stato di selezione delle pianificazioni di riavvio ?"
 
 msgid "Do you want to toggle selected records?"
 msgstr "Vuoi rimuovere i record selezionati?"
@@ -4288,7 +4293,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "Vuoi rimuovere i moduli di rsync selezionati?"
 
 msgid "Do you want to toggle selected schedules?"
-msgstr ""
+msgstr "Vuoi cambiare lo stato delle pianificazioni selezionate ?"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "Vuoi attivare i settaggi sysctl selezionati?"
@@ -4326,7 +4331,7 @@ msgid "Domain Name (NetBIOS-Name)"
 msgstr "Nome Dominio (NetBIOS-Name)"
 
 msgid "Domain Names"
-msgstr ""
+msgstr "Nomi di Dominio"
 
 msgid "Domain is missing 2nd level name."
 msgstr "Il dominio è mancante di un nome di secondo livello."
@@ -4350,7 +4355,7 @@ msgid "Download Configuration"
 msgstr "Scarica la Configurazione"
 
 msgid "Download Folder"
-msgstr ""
+msgstr "Cartella di Download"
 
 msgid "Drive Temperature."
 msgstr "Temperatura Disco."
@@ -4395,7 +4400,7 @@ msgid "Dynamic DNS"
 msgstr "DNS dinamico"
 
 msgid "Dynamic DNS Settings"
-msgstr ""
+msgstr "Impostazioni per DNS dinamico"
 
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "IP Dinamico (DHCP) non utilizzabile per risorse HAST."
@@ -4500,7 +4505,7 @@ msgid "Edit Portal Group"
 msgstr "Modifica il gruppo portale"
 
 msgid "Edit Provider"
-msgstr ""
+msgstr "Modifica il Provider"
 
 msgid "Edit Public Key"
 msgstr "Modifica chiave pubblica"
@@ -4509,7 +4514,7 @@ msgid "Edit RAID"
 msgstr "Modifica RAID"
 
 msgid "Edit Reboot Schedule"
-msgstr ""
+msgstr "Modifica la schedulazione del riavvio"
 
 msgid "Edit Record"
 msgstr "Modifica record"
@@ -4530,7 +4535,7 @@ msgid "Edit Samba Share"
 msgstr "Modifica condivisione Samba"
 
 msgid "Edit Schedule"
-msgstr ""
+msgstr "Modifica schedulazione"
 
 msgid "Edit Share"
 msgstr "Modifica condivision"
@@ -4646,7 +4651,7 @@ msgid "Enable Asynchronous I/O."
 msgstr "Abilita I/O asincrono"
 
 msgid "Enable DNS rebind protection"
-msgstr ""
+msgstr "Abilita la protezione DNS rebind"
 
 msgid "Enable FXP protocol."
 msgstr "Abilita il protocollo FXP."
@@ -4742,13 +4747,13 @@ msgid "Enable Selected Portal Groups"
 msgstr "Attiva i gruppi portale selezionati"
 
 msgid "Enable Selected Providers"
-msgstr ""
+msgstr "Abilita i provider selezionati"
 
 msgid "Enable Selected Public Keys"
 msgstr "Abilita le chiavi pubbliche selezionate"
 
 msgid "Enable Selected Reboot Schedules"
-msgstr ""
+msgstr "Abilita la schedulazione dei riavvii selezionati"
 
 msgid "Enable Selected Records"
 msgstr "Attiva record selezionati"
@@ -4766,7 +4771,7 @@ msgid "Enable Selected Samba Shares"
 msgstr "Abilita le condivisione Samba selezionate"
 
 msgid "Enable Selected Schedules"
-msgstr ""
+msgstr "Abilita le schedulazioni selezionate."
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "Abilita i settaggi Sysctl selezionati"
@@ -4879,6 +4884,8 @@ msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
 msgstr ""
+"Abilita l'uso dei caratteri jolly per il nome di dominio, per i provider "
+"DDNS che lo supportano."
 
 msgid "Enable encryption."
 msgstr "Abilita criptazione."
@@ -4906,7 +4913,7 @@ msgid "Enable large read/write."
 msgstr "Abilita 'large read/write'."
 
 msgid "Enable local peer discovery."
-msgstr ""
+msgstr "Abilita la ricerca dei peer locali."
 
 msgid "Enable mapping DOS attributes."
 msgstr "Abilita mappatura attributi DOS"
@@ -4967,7 +4974,7 @@ msgid "Enable store DOS attributes."
 msgstr "Abilita salvataggio attributi DOS"
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "Abilita il supporto solo per NFSv4."
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "Abilita il protocollo ident (RFC1413)."
@@ -4990,11 +4997,15 @@ msgid ""
 "Enable this option only on systems without hardware real-time clock and "
 "default bootup time far in the past."
 msgstr ""
+"Abilita questa opzione solo in sistemi senza orologio del sistema ed il "
+"momento di avvio lontano nel passato."
 
 msgid ""
 "Enable this option to abort an DDNS update if the HTTPS certificate "
 "validation fails."
 msgstr ""
+"Abilita questa opzione per terminare un aggiornamento di DDNS se il "
+"certificato HTTPS non è valido."
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr ""
@@ -5018,6 +5029,8 @@ msgid ""
 "Enable this option to reduce the height of the page header to a minimum for "
 "the duration of this session."
 msgstr ""
+"Abilita questa opzione per ridurre l'altezza dell'intestazione della pagina "
+"al minimo per la durata di questa sessione."
 
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr "Attivare questa opzione per aggiornare il codice macchina all'avvio"
@@ -5032,7 +5045,7 @@ msgid "Enable traps."
 msgstr "Attivare traps"
 
 msgid "Enable uTP for peer connections."
-msgstr ""
+msgstr "Abilita uTP per connessioni fra peer."
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "Attiva lo sfondo binaco per i grafici. (nero di default)"
@@ -5106,10 +5119,10 @@ msgid "Encryption algorithm"
 msgstr "Algoritmo di cifratura"
 
 msgid "Enhanced Scheduler"
-msgstr ""
+msgstr "Pianificazione Avanzata"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "Inserire il nome di AD o PDC."
 
 msgid "Enter Command"
 msgstr "Inserisci comando"
@@ -5124,7 +5137,7 @@ msgid "Enter Identifier"
 msgstr "Inserire l'identificativo"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "Indicare nome NetBIOS"
 
 msgid "Enter Password"
 msgstr "Inserisci password"
@@ -5198,6 +5211,7 @@ msgstr "Inserire un inizializzatore del nome iSCSI."
 
 msgid "Enter an identifier for this custom DDNS configuration."
 msgstr ""
+"Inserire un identificativo per questa configurazione DDNS personalizzata."
 
 msgid "Enter comment for the share"
 msgstr "Inserire un commento per la condivisione"
@@ -5252,7 +5266,7 @@ msgstr ""
 "connesso l'UPS. (anche host remoti)"
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "Inserire il nome di dominio."
 
 msgid "Enter the full user name."
 msgstr "Inserire il nome utente completo."
@@ -5277,7 +5291,7 @@ msgstr ""
 "essere compresa tra gli 8 e i 63 caratteri."
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "Inserire la password dell'account dell'amministratore del dominio."
 
 msgid "Enter the password of the master user account."
 msgstr "Inserire la password dell'account dell'utente principale."
@@ -5323,7 +5337,7 @@ msgid "Enter trap host name."
 msgstr "Inserire un nome di host per le trap"
 
 msgid "Enter user name of a domain administrator account."
-msgstr ""
+msgstr "Inserire lo user name dell'account amministratore del dominio"
 
 msgid "Enter user name."
 msgstr "Inserire il nome utente."
@@ -5348,7 +5362,7 @@ msgid "Error Level"
 msgstr "Livello Errore"
 
 msgid "Errors"
-msgstr ""
+msgstr "Errori"
 
 msgid "Errors have been detected during import."
 msgstr "Errori rilevati durante l'importazione"
@@ -5457,13 +5471,13 @@ msgid "Extra options (usually empty)."
 msgstr "Opzioni aggiuntive (normalmente vuoto)"
 
 msgid "Extra options for transmission-remote"
-msgstr ""
+msgstr "Opzioni extra per la trasmissione remota"
 
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "Opzioni extra di ifconfig (normalmente vuoto)."
 
 msgid "Extra options to pass over RPC using transmission-remote."
-msgstr ""
+msgstr "Opzioni extra per passare oltre RPC usando la trasmissione remota"
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "Opzioni extra di rsync (normalmente vuoto)."
@@ -5567,7 +5581,7 @@ msgid "Failover"
 msgstr "Failover"
 
 msgid "Fake Address"
-msgstr ""
+msgstr "Indirizzo falsificato"
 
 msgid "Fast"
 msgstr "Veloce"
@@ -5725,7 +5739,7 @@ msgid "Folder Pattern"
 msgstr "Modello di cartella"
 
 msgid "Folder to monitor for new .torrent files."
-msgstr ""
+msgstr "Cartella da monitorare per nuovi file .torrent"
 
 msgid "Follow"
 msgstr "Segui"
@@ -5740,7 +5754,7 @@ msgid "Force Operation"
 msgstr "Forzare l'operazione"
 
 msgid "Force Update Interval"
-msgstr ""
+msgstr "Forza l'intervallo di aggiornamento"
 
 msgid "Force Use"
 msgstr "Forzare l'uso"
@@ -6165,7 +6179,7 @@ msgid "Host Access Control"
 msgstr "Controllo Accesso al Host"
 
 msgid "Host Names"
-msgstr ""
+msgstr "Nomi host"
 
 msgid "Host Resources"
 msgstr "Risorse del host"
@@ -6180,7 +6194,7 @@ msgid "Hostname Database"
 msgstr "Database del nome degli Host"
 
 msgid "Hostnames"
-msgstr ""
+msgstr "Nomi host"
 
 msgid "Hosts"
 msgstr "Host"
@@ -6198,10 +6212,10 @@ msgid "Hour"
 msgstr "Ora"
 
 msgid "Hour(s)"
-msgstr ""
+msgstr "Ora(e)"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Ogni ora"
 
 msgid "Hours"
 msgstr "Ore"
@@ -6210,11 +6224,16 @@ msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
 msgstr ""
+"Quanto spesso viene controllato un indirizzo IP, in secondi. Di default "
+"circa 1 minuto. Al massimo per 10 giorni."
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
 "should be given in seconds. Default is equal to 30 days."
 msgstr ""
+"Quanto spesso un indirizzo IP deve essere aggiornato, anche se non è "
+"cambiato. Il tempo deve essere espresso in secondi. Di default sono 30 "
+"giorni."
 
 msgid "I/O Statistics"
 msgstr "I/O Statistiche"
@@ -6242,7 +6261,7 @@ msgid "IP Address"
 msgstr "Indirizzo IP"
 
 msgid "IP Address Family"
-msgstr ""
+msgstr "Famiglia di indirizzi IP"
 
 msgid "IP Address Prefix"
 msgstr "Prefisso indirizzo IP"
@@ -6256,6 +6275,8 @@ msgstr "Indirizzo IP del server syslog remoto."
 msgid ""
 "IP address validation can be disabled by setting this option to false."
 msgstr ""
+"La validazione dell'indirizzo IP può essere disabilitata impostando questa "
+"opzione a \"falso\"."
 
 msgid ""
 "IP addresses are resolved to hostnames when the following option is enabled:"
@@ -6285,7 +6306,7 @@ msgid "IPv4 addresses"
 msgstr "Indirizzi IPv4"
 
 msgid "IPv4 only"
-msgstr ""
+msgstr "Solo IPv4"
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "Indirizzo IPv4 o IPv6 di un server iSNS da registrare"
@@ -6335,7 +6356,7 @@ msgid "IPv6 addresses"
 msgstr "Indirizzi IPv6"
 
 msgid "IPv6 only"
-msgstr ""
+msgstr "Solo IPv6"
 
 msgid "IRC Live Support"
 msgstr "Aiuto in linea tramite IRC"
@@ -6459,6 +6480,9 @@ msgid ""
 "If this setting is not enabled, the hostname is appended. Unless the ddns-"
 "path is given with format specifiers, in which case this setting is unused."
 msgstr ""
+"Se questo settaggio non è attivato, il nome host è accodato. A meno che il "
+"percorso DDNS sia dato con specificatori di formato, nel qual caso questo "
+"settaggio non è usato."
 
 msgid "Ignore Hosts Allow"
 msgstr "Ignora gli Host abilitati"
@@ -6513,28 +6537,28 @@ msgid "In/Out Packets"
 msgstr "Pacchetti In/Out"
 
 msgid "Include /dev into scan/import"
-msgstr ""
+msgstr "Include /dev nella scansione/importazione"
 
 msgid "Include Disk ID into scan/import"
-msgstr ""
+msgstr "Include l'Id del disco nella scansione/importazione"
 
 msgid "Include GPT ID into scan/import"
-msgstr ""
+msgstr "Include l'ID GPT nella scansione/importazione"
 
 msgid "Include GPT labels into scan/import"
-msgstr ""
+msgstr "Include l'etichetta GPT nella scansione/importazione"
 
 msgid "Include UFS ID into scan/import"
-msgstr ""
+msgstr "Include l'ID UFS nella scansione/importazione"
 
 msgid "Include UFS labels into scan/import"
-msgstr ""
+msgstr "Include l'etichetta UFS nella scansione/importazione"
 
 msgid "Incoming Line/Power Information"
 msgstr "Linea in entrata/Informazioni alimentazione"
 
 msgid "Incomplete Folder"
-msgstr ""
+msgstr "Folder incompleto"
 
 msgid ""
 "Indicates the approximate SSD life left, in terms of program/erase cycles or "
@@ -6608,7 +6632,7 @@ msgid "Initial ramdisk (e.g. %s)."
 msgstr "Ramdisk iniziale (es. %s)."
 
 msgid "Initial startup delay. Default is no delay."
-msgstr ""
+msgstr "L'avvio iniziale è ritardato. Di default non c'è nessun ritardo"
 
 msgid "Initialize"
 msgstr "Inizializza"
@@ -6795,7 +6819,7 @@ msgid "Interval to wait before restarting the load"
 msgstr "Intervallo di attesa prima di riavviare il carico"
 
 msgid "Invalid"
-msgstr ""
+msgstr "Non valido"
 
 msgid "Invalid command line option"
 msgstr "Invalida opzione di linea di comando"
@@ -6815,6 +6839,8 @@ msgstr "Dati per l'accesso non validi."
 msgid ""
 "Invalid port number. The port number must be a value between 1 and 65535."
 msgstr ""
+"Numero di porta invalido. Il numero di porta deve essere compreso fra 1 e "
+"65535"
 
 msgid "Invert Selection"
 msgstr "Inverti Selezione"
@@ -6862,7 +6888,7 @@ msgid "Item(s)"
 msgstr "Oggetto(i)"
 
 msgid "Iterations"
-msgstr ""
+msgstr "Iterazioni"
 
 msgid "JBOD"
 msgstr "JBOD"
@@ -6916,7 +6942,7 @@ msgid "June"
 msgstr "Giugno"
 
 msgid "KB/s"
-msgstr ""
+msgstr "KB/s"
 
 msgid "Keep MBR"
 msgstr "Mantieni MBR"
@@ -7048,7 +7074,7 @@ msgid "LUNs"
 msgstr "LUN"
 
 msgid "Landing Pages"
-msgstr ""
+msgstr "Pagine di arrivo"
 
 msgid "Language"
 msgstr "Lingua"
@@ -7131,13 +7157,13 @@ msgid "Life time"
 msgstr "Durata"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Durata di vita"
 
 msgid "Lifetime Units"
-msgstr ""
+msgstr "Durata di vita delle unità"
 
 msgid "Lifetime Value"
-msgstr ""
+msgstr "Valore della durata di vita"
 
 msgid "Lightweight Directory Access Protocol"
 msgstr "Protocollo leggero di accesso alle cartelle"
@@ -7224,16 +7250,16 @@ msgstr ""
 "802.11i/D7.0), TKIP (Temporal Key Integrity Protocol, IEEE 802.11i/D7.0)."
 
 msgid "List of allowed domain names."
-msgstr ""
+msgstr "Lista di nomi di dominio ammessi"
 
 msgid "List pools available to import"
-msgstr ""
+msgstr "Lista dei pools disponibili per l'importazione"
 
 msgid "Listen"
 msgstr "Listen"
 
 msgid "Listen (iSER)"
-msgstr ""
+msgstr "Ascolta (iSER)"
 
 msgid "Listen record is locked"
 msgstr "Listen record bloccato"
@@ -7267,7 +7293,7 @@ msgid "Local Master Browser"
 msgstr "Local Master Browser"
 
 msgid "Local Peer Discovery"
-msgstr ""
+msgstr "Scoperta dei peer locali"
 
 msgid "Local Share"
 msgstr "Condivisione locale"
@@ -7413,7 +7439,7 @@ msgid "MISSING"
 msgstr "MANCANTE"
 
 msgid "MIT License"
-msgstr ""
+msgstr "Licenza MIT"
 
 msgid "MKV File"
 msgstr "File MKV"
@@ -7647,7 +7673,7 @@ msgid "Media Folder is unlocked"
 msgstr "La cartella multimediale è sbloccata"
 
 msgid "Media Folders"
-msgstr ""
+msgstr "Cartelle di elementi multimediali"
 
 msgid "Media Library"
 msgstr "Raccolta multimediale"
@@ -7686,7 +7712,7 @@ msgid "Message Board"
 msgstr "Bacheca messaggi"
 
 msgid "Message Level"
-msgstr ""
+msgstr "Livello del messaggio"
 
 msgid "Message of the day."
 msgstr "Messaggio del giorno."
@@ -7735,7 +7761,7 @@ msgid "Minute"
 msgstr "Minuto"
 
 msgid "Minute(s)"
-msgstr ""
+msgstr "Minuto(i)"
 
 msgid "Minutes"
 msgstr "Minuti"
@@ -7744,7 +7770,7 @@ msgid "Minutes between the next network time synchronization."
 msgstr "Minuti fra la prossima sincronizzazione con l'orario di rete"
 
 msgid "Missing Provider"
-msgstr ""
+msgstr "Provider mancante"
 
 msgid "Missing a temporary folder."
 msgstr "Manca una directory temporanea."
@@ -7807,10 +7833,10 @@ msgid "Monitoring User"
 msgstr "Monitoraggio utente"
 
 msgid "Month(s)"
-msgstr ""
+msgstr "Mese(i)"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Mensilmente"
 
 msgid "Months"
 msgstr "Mesi"
@@ -7928,10 +7954,10 @@ msgid "NAA Identifier"
 msgstr "Identificatore NAA"
 
 msgid "NETBIOS"
-msgstr ""
+msgstr "NETBIOS"
 
 msgid "NETBIOS Hostname"
-msgstr ""
+msgstr "Nome dell'host NETBIOS"
 
 msgid "NFS"
 msgstr "NFS"
@@ -7958,7 +7984,7 @@ msgid "NFSv4"
 msgstr "NFSv4"
 
 msgid "NFSv4 Only"
-msgstr ""
+msgstr "Solo NFSv4"
 
 msgid "NIS"
 msgstr "NIS"
@@ -8104,7 +8130,7 @@ msgid "Network File System"
 msgstr "Network File System"
 
 msgid "Network Interface"
-msgstr ""
+msgstr "Interfaccia di rete"
 
 msgid "Network Latency"
 msgstr "Latenza rete"
@@ -8451,7 +8477,7 @@ msgid "Nothing to synchronize"
 msgstr "Niente da sincronizzare"
 
 msgid "Notice"
-msgstr ""
+msgstr "Avviso"
 
 msgid "Notice Level"
 msgstr "Livello di notifica"
@@ -8575,7 +8601,7 @@ msgid "Only metadata will be cached in L2ARC."
 msgstr "Solo i metadati saranno salvati in L2ARC."
 
 msgid "Open File"
-msgstr ""
+msgstr "Apri file"
 
 msgid "Option"
 msgstr "Opzione"
@@ -8608,7 +8634,7 @@ msgid "Optional"
 msgstr "Facoltativo"
 
 msgid "Optional server path for check IP server"
-msgstr ""
+msgstr "Percorso opzionale del server per il server di controllo IP"
 
 msgid "Optional user-friendly string of the target."
 msgstr "Un nome per identificare con più facilità il target (opzionale)"
@@ -8623,7 +8649,7 @@ msgid "Orphaned"
 msgstr "Orfano"
 
 msgid "Orphaned Provider"
-msgstr ""
+msgstr "Provider orfano"
 
 msgid "Others"
 msgstr "Altri"
@@ -8664,7 +8690,7 @@ msgid "Overload"
 msgstr "Sovraccarico"
 
 msgid "Override (NETBIOS) hostname to be used."
-msgstr ""
+msgstr "Sovrascrivi l'hostname NETBIOS da usare"
 
 msgid "Overview"
 msgstr "Panoramica"
@@ -8853,7 +8879,7 @@ msgid "Password for the administrative pages."
 msgstr "Password per le pagine di amministrazione."
 
 msgid "Password for the transmission web interface."
-msgstr ""
+msgstr "Password per l'interfaccia web della trasmissione"
 
 msgid ""
 "Password server name or IP address (e.g. Active Directory domain controller)."
@@ -9117,6 +9143,7 @@ msgstr "Il record della porta è sbloccato"
 #, php-format
 msgid "Port to listen for incoming peer connections. The default port is %d."
 msgstr ""
+"Porta in ascolto per le connessioni in ingresso. La porta di default è %d"
 
 msgid "Port to listen on. Default iTunes port is 3689."
 msgstr "Porta di ascolto. La porta predefinita per iTunes è 3689."
@@ -9208,10 +9235,10 @@ msgid "Preallocation"
 msgstr "Preallocazione"
 
 msgid "Prefer encrypted connections"
-msgstr ""
+msgstr "Connessioni criptate di preferenza"
 
 msgid "Prefer unencrypted connections"
-msgstr ""
+msgstr "Connessioni di preferenza non criptate"
 
 msgid "Prefix"
 msgstr "Prefisso"
@@ -9220,7 +9247,7 @@ msgid "Preformatted file system"
 msgstr "File system preformattato"
 
 msgid "Preserve Case"
-msgstr ""
+msgstr "Mantenere MAIUSCOLE/minuscole"
 
 msgid "Preserve Extended Attributes"
 msgstr "Preserva gli attributi estesi"
@@ -9232,13 +9259,13 @@ msgid "Preserve Permissions"
 msgstr "Preservare i permessi"
 
 msgid "Preserve case of the provided/detected hostname."
-msgstr ""
+msgstr "Mantenere MAIUSCOLE/minuscole dell'hostname fornito o individuato"
 
 msgid "Preserve modification times."
 msgstr "Mantenere i tempi di modifica."
 
 msgid "Presets"
-msgstr ""
+msgstr "Pre-impostazioni"
 
 msgid "Prevent deep discharge of battery"
 msgstr "Impedisci la scarica profonda della batteria"
@@ -9323,19 +9350,19 @@ msgid "Provider"
 msgstr "Provider"
 
 msgid "Provider Name"
-msgstr ""
+msgstr "Nome provider"
 
 msgid "Provider is locked"
-msgstr ""
+msgstr "Il provider è bloccato"
 
 msgid "Provider is marked for deletion"
-msgstr ""
+msgstr "Il provider è segnato per essere cancellato"
 
 msgid "Provider is unlocked"
-msgstr ""
+msgstr "Il provider è sbloccato"
 
 msgid "Providers"
-msgstr ""
+msgstr "Providers"
 
 msgid "Provisioning Type"
 msgstr "Tipo approvigionamento"
@@ -9507,7 +9534,7 @@ msgid "RRDGraphs Daily ARC Graph"
 msgstr "Grafico RRDGraph giornaliero ARC"
 
 msgid "RRDGraphs Daily Bandwidth Graph"
-msgstr ""
+msgstr "Grafico della capacità di banda giornaliera RRDGraphs"
 
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr "Grafico RRDGraph giornaliero sulla frequenza CPU"
@@ -9519,7 +9546,7 @@ msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr "Grafico RRDGraph giornaliero sull'utilizzo CPU"
 
 msgid "RRDGraphs Daily Disk Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo del disco giornaliero"
 
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr "Grafico RRDGraph giornaliero L2ARC"
@@ -9528,7 +9555,7 @@ msgid "RRDGraphs Daily Load Averages Graph"
 msgstr "Grafico RRDGraph giornaliero sul carico medio"
 
 msgid "RRDGraphs Daily Memory Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo della memoria giornaliera"
 
 msgid "RRDGraphs Daily Network Latency Graph"
 msgstr "Grafico RRDGraph giornaliero sulla latenza di rete"
@@ -9549,7 +9576,7 @@ msgid "RRDGraphs Monthly ARC Graph"
 msgstr "Grafico RRDGraph mensile sul ARC"
 
 msgid "RRDGraphs Monthly Bandwidth Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo della larghezza di banda mensile"
 
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr "Grafico RRDGraph mensile sulla frequenza CPU"
@@ -9561,7 +9588,7 @@ msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr "Grafico RRDGraph mensile sull'utilizzo CPU"
 
 msgid "RRDGraphs Monthly Disk Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo del disco mensile"
 
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr "Grafico RRDGraph mensile su L2ARC"
@@ -9570,7 +9597,7 @@ msgid "RRDGraphs Monthly Load Averages Graph"
 msgstr "Grafico RRDGraph mensile sul carico medio"
 
 msgid "RRDGraphs Monthly Memory Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo della memoria mensile"
 
 msgid "RRDGraphs Monthly Network Latency Graph"
 msgstr "Grafico RRDGraph mensile sulla latenza di rete"
@@ -9591,7 +9618,7 @@ msgid "RRDGraphs Weekly ARC Graph"
 msgstr "Grafico RRDGraphs settimanale su ARC"
 
 msgid "RRDGraphs Weekly Bandwidth Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo della larghezza di banda settimanale"
 
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr "Grafico RRDGraphs settimanale sulla frequenza CPU"
@@ -9603,7 +9630,7 @@ msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr "Grafico RRDGraphs settimanale sull'utilizzo CPU"
 
 msgid "RRDGraphs Weekly Disk Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo del disco settimanale"
 
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr "Grafico RRDGraphs settimanale su L2ARC"
@@ -9612,7 +9639,7 @@ msgid "RRDGraphs Weekly Load Averages Graph"
 msgstr "Grafico RRDGraphs settimanale sul carico medio"
 
 msgid "RRDGraphs Weekly Memory Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo della memoria settimanale"
 
 msgid "RRDGraphs Weekly Network Latency Graph"
 msgstr "Grafico RRDGraphs settimanale sulla latenza di rete"
@@ -9633,7 +9660,7 @@ msgid "RRDGraphs Yearly ARC Graph"
 msgstr "Grafico RRDGraphs annuale su ARC"
 
 msgid "RRDGraphs Yearly Bandwidth Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo della larghezza di banda annuale"
 
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr "Grafico RRDGraphs annuale sulla frequenza CPU"
@@ -9645,7 +9672,7 @@ msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr "Grafico RRDGraphs annuale sull'uso CPU"
 
 msgid "RRDGraphs Yearly Disk Usage Graph"
-msgstr ""
+msgstr "Grafico RRDGraphs dell'utilizzo del disco annuale"
 
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr "Grafico RRDGraphs annuale su L2ARC"
@@ -9654,7 +9681,7 @@ msgid "RRDGraphs Yearly Load Averages Graph"
 msgstr "Grafico RRDGraphs annuale sul carico medio"
 
 msgid "RRDGraphs Yearly Memory Graph"
-msgstr ""
+msgstr "Grafico dell'utilizzo annuale della memoria RRDGraphs"
 
 msgid "RRDGraphs Yearly Network Latency Graph"
 msgstr "Grafico RRDGraphs annuale sulla latenza di rete"
@@ -9803,13 +9830,13 @@ msgid "Reboot Required"
 msgstr "Richiesto riavvio"
 
 msgid "Reboot Schedule is locked"
-msgstr ""
+msgstr "La schedulazione del riavvio è bloccata"
 
 msgid "Reboot Schedule is marked for deletion"
-msgstr ""
+msgstr "La schedulazione del riavvio è contrassegnata per la cancellazione"
 
 msgid "Reboot Schedule is unlocked"
-msgstr ""
+msgstr "La schedulazione del riavvio è sbloccata"
 
 msgid "Rebuild the selected device forcibly."
 msgstr "Ricostruisci forzatamente il dispositivo selezionato."
@@ -9824,7 +9851,7 @@ msgid "Record Maintenance"
 msgstr "Manutenzione record"
 
 msgid "Record Type"
-msgstr ""
+msgstr "Tipo di record"
 
 msgid "Record is locked"
 msgstr "Record bloccato"
@@ -9845,10 +9872,10 @@ msgid "Recursive"
 msgstr "Ricorsivo"
 
 msgid "Recursively create snapshots of all descendent datasets."
-msgstr ""
+msgstr "Crea uno snapshot ricorsivamente di tutti i dataset successivi"
 
 msgid "Recursively destroy snapshots of all descendent datasets."
-msgstr ""
+msgstr "Cancella ricorsivamente gli snapshot di tutti i dataset successivi"
 
 msgid "Recycle Bin"
 msgstr "Cestino"
@@ -10009,19 +10036,19 @@ msgstr ""
 "a 0 per disattivare questo rapporto."
 
 msgid "Reporting Disk"
-msgstr ""
+msgstr "Disco di reportistica"
 
 msgid "Reporting Interface"
-msgstr ""
+msgstr "Interfaccia di reportistica"
 
 msgid "Reporting Level"
-msgstr ""
+msgstr "Livello di reportistica"
 
 msgid "Require authentication."
 msgstr "Necessità autenticazione"
 
 msgid "Require encrypted connections"
-msgstr ""
+msgstr "Richiede connessioni criptate"
 
 msgid "Rescan"
 msgstr "Analizza di nuovo"
@@ -10138,7 +10165,7 @@ msgid "Root Bind Password"
 msgstr "Password root Bind"
 
 msgid "Root Directories"
-msgstr ""
+msgstr "Cartelle di root"
 
 msgid "Root Directory"
 msgstr "Directory radice"
@@ -10352,6 +10379,9 @@ msgid ""
 "defaults to the global setting, which if unset uses the default user agent "
 "string."
 msgstr ""
+"Come se fosse una impostazione globale, ma solo per questo provider. Se non "
+"espresso viene impostato di default come l'impostazione globale, che, se non "
+"impostata, usa la stringa di default impostata dall'utente"
 
 msgid "Sat"
 msgstr "Sabato"
@@ -10366,7 +10396,7 @@ msgid "Save & Restart"
 msgstr "Salva & Riavvia"
 
 msgid "Save File"
-msgstr ""
+msgstr "Salva File"
 
 msgid "Save and Restart"
 msgstr "Salva e Riavvia"
@@ -10411,22 +10441,22 @@ msgid "Scan folder for video files."
 msgstr "Analisi cartelle per file video."
 
 msgid "Scan/Import destroyed pools only"
-msgstr ""
+msgstr "Scansiona/importa solo i pools cancellati"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Schedulazione"
 
 msgid "Schedule Time"
 msgstr "Orario programmato"
 
 msgid "Schedule is locked"
-msgstr ""
+msgstr "La schedulazione è bloccata"
 
 msgid "Schedule is marked for deletion"
-msgstr ""
+msgstr "La schedulazione è contrassegnata per la cancellazione"
 
 msgid "Schedule is unlocked"
-msgstr ""
+msgstr "La schedulazione è sbloccata"
 
 msgid "Schedule time"
 msgstr "Tempo programmato"
@@ -10450,7 +10480,7 @@ msgid "Scheduled Tests"
 msgstr "Test programmati"
 
 msgid "Scheduler"
-msgstr ""
+msgstr "Pianificatore"
 
 msgid "Script"
 msgstr "Script"
@@ -10484,13 +10514,13 @@ msgid "Search event"
 msgstr "Evento di ricerca"
 
 msgid "Search subfolder"
-msgstr ""
+msgstr "Ricerca nelle sottocartelle"
 
 msgid "Second"
 msgstr "Secondo"
 
 msgid "Second(s)"
-msgstr ""
+msgstr "Secondo(i)"
 
 msgid "Secondary"
 msgstr "Secondario"
@@ -10508,7 +10538,7 @@ msgid "Secret for CHAP authentication."
 msgstr "Segreto per autenticazione CHAP"
 
 msgid "Secure SSL"
-msgstr ""
+msgstr "SSL sicuro"
 
 msgid "Security Flavor"
 msgstr ""
@@ -10529,6 +10559,8 @@ msgid ""
 "Select \"Custom Provider\" for customizing the DDNS update server details "
 "settings."
 msgstr ""
+"Seleziona \"Provider personalizzato\" per personalizzare le impostazioni di "
+"dettaglio del server di aggiornamento DDNS"
 
 msgid "Select 'CD/DVD' if you want to mount a CD/DVD volume."
 msgstr "Selezionare 'CD/DVD' se si vuole montare un dispositivo CD/DVD."
@@ -10570,7 +10602,7 @@ msgid "Select Pool Device"
 msgstr "Selezionare il dispositivo Pool"
 
 msgid "Select Pool, Filesystem or Volume"
-msgstr ""
+msgstr "Scegli Pool, Filesystem o Volume"
 
 msgid "Select Pools"
 msgstr "Selezionare i pools"
@@ -10596,7 +10628,7 @@ msgid "Select at which stage the command should be executed."
 msgstr "Seleziona a quale fase il comando dovrebbe essere eseguito"
 
 msgid "Select between domain mode and workgroup mode."
-msgstr ""
+msgstr "Scegli fra modo dominio e modo workgroup"
 
 msgid "Select configuration file:"
 msgstr "Selezionare il file di configurazione:"
@@ -10626,7 +10658,7 @@ msgid "Select file system format."
 msgstr "Selezionare il formato del file system"
 
 msgid "Select from predefined providers."
-msgstr ""
+msgstr "Scegli fra provider predefiniti"
 
 msgid "Select item to remove from the list"
 msgstr "Selezionare l'oggetto da rimuovere dall'elenco"
@@ -10650,13 +10682,15 @@ msgstr ""
 "formattarli con"
 
 msgid "Select pool."
-msgstr ""
+msgstr "Seleziona Pool"
 
 #, php-format
 msgid ""
 "Select preallocation mode for files. The default preallocation mode is "
 "\"%s\"."
 msgstr ""
+"Scegli la modalità di preallocazione per i file. La modalità di "
+"preallocazione di default è \"%s\""
 
 msgid "Select read balance algorithm."
 msgstr "Selezionare l'algoritmo di lettura bilanciata"
@@ -10693,7 +10727,7 @@ msgstr ""
 "Selezionare il permesso per l'esecuzione del servizio. (www per default)."
 
 msgid "Select the timezone for this user."
-msgstr ""
+msgstr "Seleziona la fascia oraria per questo utente"
 
 msgid "Select which interface to use."
 msgstr "Selezionare l'interfaccia da usare."
@@ -10761,11 +10795,17 @@ msgid ""
 "Cert File). The file must contain the private key of a certificate in PEM "
 "format."
 msgstr ""
+"Invia un certificato lato client al server (usa questa impostazione assieme "
+"all'opzione TLS Cert File). Il file deve contenere la chiave privata di un "
+"certificato in formato PEM"
 
 msgid ""
 "Send a client certificate to the server (use this together with option TLS "
 "Key File). The file must contain a certificate in PEM format."
 msgstr ""
+"Invia un certificato lato client al server (usa questa impostazione assieme "
+"all'opzione TLS Key File). Il file deve contenere un certificato in formato "
+"PEM"
 
 msgid "Send daemon event messages."
 msgstr "Invia messaggi sugli eventi dei demoni."
@@ -10824,7 +10864,7 @@ msgid "Server Min. Protocol"
 msgstr "Min. protocollo del server"
 
 msgid "Server Mode"
-msgstr ""
+msgstr "Modalità server"
 
 msgid "Server Name"
 msgstr "Nome Server"
@@ -10836,7 +10876,7 @@ msgid "Server information"
 msgstr "Informazioni sul server"
 
 msgid "Server to use for periodic IP address changes"
-msgstr ""
+msgstr "Server da usare per cambi di indirizzi IP periodici"
 
 msgid "Server version"
 msgstr "Versione Server"
@@ -10879,9 +10919,12 @@ msgid ""
 "track of which addresses have been successfully sent to their respective "
 "DDNS provider and when."
 msgstr ""
+"Imposta la cartella per la cache permanente dei file. I file di cache sono "
+"usati per tenere traccia di quali indirizzi sono stati correttamente inviati "
+"ai loro rispettivi provider DDNS e quando."
 
 msgid "Set domain name"
-msgstr ""
+msgstr "Imposta il nome di dominio"
 
 msgid ""
 "Set interval between disk checks to N seconds. The minimum allowed value is "
@@ -10890,7 +10933,7 @@ msgstr ""
 "Pone l'intervallo di controllo disco a N secondi. Il valore minimo è 10."
 
 msgid "Set log level"
-msgstr ""
+msgstr "Imposta il livello del log"
 
 msgid "Set password"
 msgstr "Imposta password"
@@ -10912,16 +10955,17 @@ msgstr ""
 "Imposta la posizione dei contenuti da o per la libreria multimediale."
 
 msgid "Set the critical threshold to a value between 90 and 95."
-msgstr ""
+msgstr "Imposta la soglia critica ad un valore fra 90 e 95"
 
 msgid "Set the desired Service Set Identifier (aka network name)."
 msgstr "Configura l'SSD (Service Set Identifier, o nome della rete)."
 
 msgid "Set the fingerprint of a single certificate to accept for TLS."
 msgstr ""
+"Imposta il fingerprint di un singolo certificato da accettare per il TLS"
 
 msgid "Set the landing page for the Diagnostics > Information menu."
-msgstr ""
+msgstr "Impostare la pagina di arrivo per il menu Diagnostica > Informazioni"
 
 msgid ""
 "Set the maximum transmission unit of the interface to n, default is "
@@ -10938,11 +10982,16 @@ msgstr ""
 msgid ""
 "Set the number of DNS updates. The default is 0, which means infinity."
 msgstr ""
+"Imposta il numero di aggiornamenti del DNS. Il default è 0, che significa "
+"infinito."
 
 msgid ""
 "Set the number of days until a reminder is shown to backup system "
 "configuration. The default is 28 days. A value of 0 disables the reminder."
 msgstr ""
+"Imposta il numero di giorni fino a quando un avviso viene mostrato per "
+"effettuare il backup della configurazione del sistema. Il default è di 28 "
+"giorni. Il valore 0 disabilita l'avviso."
 
 msgid "Set the warning threshold to a value between 80 and 89."
 msgstr "Settare la soglia di attenzione ad un valore compreso tra 80 e 89."
@@ -10955,38 +11004,48 @@ msgid ""
 "Set to \"off\", disables read caching for the LUN, if supported by the "
 "backend."
 msgstr ""
+"Imposta a \"off\" per disabilitare la lettura della cache per il LUN, se "
+"supportato dal backend."
 
 msgid ""
 "Set to \"off\", disables write caching for the LUN, if supported by the "
 "backend."
 msgstr ""
+"Imposta a \"off\" per disabilitare la scrittura della cache per il LUN, se "
+"supportato dal backend."
 
 msgid "Set to \"on\" makes LUN removable."
-msgstr ""
+msgstr "Imposta a \"on\" per rendere LUN rimuovibile"
 
 msgid ""
 "Set to \"on\", blocks all media write operations to the LUN reporting it as "
 "write protected."
 msgstr ""
+"Imposta a \"on\" per bloccare tutte le operazioni di scrittura dei supporti "
+"sul LUN, indicando che è protetto dalla scrittura."
 
 msgid ""
 "Set to \"unrestricted\", allows target to process commands with SIMPLE task "
 "attribute in arbitrary order."
 msgstr ""
+"Impostato su \"non restrittivo\", permette al destinatariodi effettuare "
+"comandi con l'attività SIMPLE attribuita in ordine arbitrario."
 
 msgid "Set user login shell."
 msgstr "Settare la shell di login per l'utente."
 
 msgid "Set user password."
-msgstr ""
+msgstr "Impostare la password utente"
 
 #, php-format
 msgid ""
 "Set verbosity of transmission messages. The default message level is \"%s\""
 msgstr ""
+"Impostare la trasmissioni di messaggi verbosi. Il livello di default del "
+"messaggio è \"%s\""
 
 msgid "Set workgroup name"
-msgstr ""
+msgstr "Impostare il nome del gruppo di lavoro"
 
 msgid "Setkey"
 msgstr "Chiave settata"
@@ -11004,12 +11063,15 @@ msgid ""
 "Default is \"None\". When set to CHAP, both chapIName and chapSecret must be "
 "defined."
 msgstr ""
+"Seleziona il modalità di autenticazione. La modalità può essere \"Nessuna\" "
+"oppure \"CHAP\". Il default è \"Nessuna\". Quando impostato a CHAP, entrambi "
+"chapIName e chapSecret devono essere definiti"
 
 msgid ""
 "Sets the data digest; a checksum calculated over the Data Section of iSCSI "
 "PDUs, and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
-msgstr ""
+msgstr "ne"
 
 msgid ""
 "Sets the header digest; a checksum calculated over the header of iSCSI PDUs, "
@@ -11024,11 +11086,18 @@ msgid ""
 "connecting to all the targets returned by SendTargets iSCSI discovery with "
 "the defined TargetAddress."
 msgstr ""
+"Impostare il tipo di sessione. La sessione può essere sia \"Discovery\" che "
+"\"Normale\". Di default è \"Normale\". Per le sessioni normali, il "
+"TargetName deve essere impostato. Le sessioni \"Discovery\" ignorano il "
+"TargetName e comportano che l'iniziatore si collega a tutti i destinatari "
+"segnalati dalla scoperta iSCSI SendTarget con il targetAddress definito."
 
 msgid ""
 "Sets the umask for newly created files. The default is 000 (anyone can read "
 "or write)."
 msgstr ""
+"Imposta la umask per i nuovi file creati. Il default è 000 (chiuque può "
+"leggere o scrivere)"
 
 msgid ""
 "Setting to \"on\" allows EXTENDED COPY command sent to this LUN access other "
@@ -11041,11 +11110,15 @@ msgid ""
 "Setting to \"on\" or \"off\" controls UNMAP support for the logical unit. "
 "Default value is \"on\" if supported by the backend."
 msgstr ""
+"L'impostazione a \"on\" oppure \"off\" controlla il supporto UNMAP per "
+"l'unità logica. Il valore di default è \"on\" se supportato dal backend."
 
 msgid ""
 "Setting to \"primary\" or \"secondary\" overrides default role of the node "
 "in HA cluster."
 msgstr ""
+"Impostando a \"primario\" o \"secondario\" sovrascrive il ruolo di default "
+"del nodo nel cluster HA"
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -11054,6 +11127,8 @@ msgid ""
 "Several DNLA/UPnP services are enabled. Running multiple DLNA/UPnP services "
 "can cause problems."
 msgstr ""
+"Diversi servizi DNLA/UPnP sono attivi. Avere più servizi DLNA/UPnP attivi "
+"contemporaneamente può causare dei problemi."
 
 msgid "Shadow Copy"
 msgstr "Shadow Copy"
@@ -11098,6 +11173,9 @@ msgid ""
 "Shell command, or script, for IP address update checking. The command must "
 "output a text with the IP address to its standard output."
 msgstr ""
+"Comando da shell, o script, per il controllo dell'aggiornamento "
+"dell'indirizzo IP. Il comando deve restituire in output un testo con "
+"l'indirizzo IP come standard output"
 
 msgid "Shock During Write."
 msgstr "Urto durante la scrittura"
@@ -11314,25 +11392,25 @@ msgstr ""
 "dalle specifiche."
 
 msgid "Specifies LUN EUI-64 identifier."
-msgstr ""
+msgstr "Specifica l'identificativo LUN EUI-64"
 
 msgid "Specifies LUN NAA identifier."
-msgstr ""
+msgstr "Specifica l'identificativo LUN NAA"
 
 msgid "Specifies LUN SCSI name string."
-msgstr ""
+msgstr "Specifica il nome della stringa LUN SCSI"
 
 msgid "Specifies LUN locally assigned RFC 4122 UUID."
-msgstr ""
+msgstr "Specifica l'UUID assegnato localmente alla LUN secondo la RFC 4122"
 
 msgid "Specifies LUN product string up to 16 chars."
-msgstr ""
+msgstr "Specifica la stringa di prodotto LUN fino a 16 caratteri"
 
 msgid "Specifies LUN revision string up to 4 chars."
-msgstr ""
+msgstr "Specifica la stringa di revisione LUN fino a 4 caratteri"
 
 msgid "Specifies LUN vendor string up to 8 chars."
-msgstr ""
+msgstr "Specifica la stringa del venditore LUN fino a 8 caratteri"
 
 msgid ""
 "Specifies capacity of backing store (maximum RAM for data). The default "
@@ -11347,12 +11425,15 @@ msgid ""
 "Specifies how many servers to create. There should be enough to handle the "
 "maximum level of concurrency from its clients, typically four to six."
 msgstr ""
+"Specifica quanti server devono essere creati. Ce ne devono essere abbastanza "
+"da gestire il livello massimo di concorrenza dai client, tipicamente da "
+"quattro a sei."
 
 msgid "Specifies how the volume should be exposed to the OS."
 msgstr "Indica come il volume dovrebbe essere mostrato al SO."
 
 msgid "Specifies medium rotation rate of the device."
-msgstr ""
+msgstr "Specifica il tasso di rotazione media del dispositivo."
 
 msgid "Specifies nominal form factor of the device."
 msgstr ""
@@ -11396,7 +11477,7 @@ msgstr ""
 "raggiunto il numero di occorrenze per attivare il ban."
 
 msgid "Specifies the username under which the TFTP service should run."
-msgstr ""
+msgstr "Specifica lo username con il quale il servizio TFTP deve funzionare."
 
 msgid ""
 "Specifies whether it is allowed to login as superuser (root) directly."
@@ -11423,21 +11504,29 @@ msgid ""
 "Specify a list of acceptable security flavors to be used for remote access. "
 "The\tdefault\tsecurity flavor\tis sys."
 msgstr ""
+"Specifica una lista di modalità di sicurezza accettabili da poter usare per "
+"un accesso remoto. La \t modalità di sicurezza \t di default \t è sys"
 
 msgid ""
 "Specify maximum allowed number of LBAs per UNMAP command to report in Block "
 "Limits VPD page."
 msgstr ""
+"Specifica il numero massimo permesso di LBA per ogni comando UNMAP da "
+"inserire nella pagina Block Limit VPD"
 
 msgid ""
 "Specify maximum allowed number of LBAs per WRITE SAME command to report in "
 "Block Limits VPD page."
 msgstr ""
+"Specifica il numero massimo permesso di LBA per ogni comando WRITE SAME da "
+"inserire nella pagina Block Limits VPD"
 
 msgid ""
 "Specify maximum allowed number of block descriptors per UNMAP command to "
 "report in Block Limits VPD page."
 msgstr ""
+"Specifica il numero massimo permesso di descrittore di blocco per ogni "
+"comando UNMAP da inserire nella pagina Block Limits VPD"
 
 msgid "Specify physical block offset of the device."
 msgstr ""
@@ -11446,18 +11535,20 @@ msgid "Specify physical block size of the device."
 msgstr "Specifica la dimensione fisiceb del blocco del dispositivo."
 
 msgid "Specify the SCSI device type to use when creating the LUN."
-msgstr ""
+msgstr "Specifica il tipo di dispositivo SCSI da usare quando si crea la LUN"
 
 msgid ""
 "Specify the User-Agent string to send to the DDNS provider on checkip and "
 "update requests."
 msgstr ""
+"Specifica la stringa User-Agent da inviare al provider DDNS al momento del "
+"controllo IP e alla richiesta di aggiornamento"
 
 msgid "Specify the group numeric id."
-msgstr ""
+msgstr "Specifica l'ID numerico del gruppo"
 
 msgid "Specify the user/account numeric id."
-msgstr ""
+msgstr "Specifica lo usre/account dell'ID numerico"
 
 msgid "Split request"
 msgstr "DIstribuisci la richiesta (split)"
@@ -11466,7 +11557,7 @@ msgid "Standard"
 msgstr "Standard"
 
 msgid "Standard Provider"
-msgstr ""
+msgstr "Provider Standard"
 
 msgid "Standard Reports"
 msgstr "Reports standard"
@@ -11488,16 +11579,18 @@ msgid "Start"
 msgstr "Inizia"
 
 msgid "Start TLS from within the session."
-msgstr ""
+msgstr "Avvia TLS da questa sessione"
 
 msgid "Start Torrents"
-msgstr ""
+msgstr "Avvio Torrent"
 
 msgid "Start/resume previously stopped torrents after service has started."
 msgstr ""
+"Avvia/riprendi i torrent precedentemente arrestati dopo che il servizio è "
+"stato avviato"
 
 msgid "Startup Delay"
-msgstr ""
+msgstr "Ritardo nell'avvio"
 
 msgid "Static"
 msgstr "Statico"
@@ -11527,16 +11620,16 @@ msgid "Stop"
 msgstr "Ferma"
 
 msgid "Stop Torrents"
-msgstr ""
+msgstr "Arresta Torrents"
 
 msgid "Stop after sending (and receiving) N packets."
 msgstr "Interrompi dopo l'invio (e la ricezione) di N pacchetti."
 
 msgid "Stop the selected mirror."
-msgstr ""
+msgstr "Arresta il mirror selezionato"
 
 msgid "Stop torrents before stopping service."
-msgstr ""
+msgstr "Arresta i torrent prima di fermare il servizio"
 
 msgid "Stopped"
 msgstr "Interrotto"
@@ -11545,13 +11638,13 @@ msgid "Storage"
 msgstr "Storage"
 
 msgid "Storage location of configuration information."
-msgstr ""
+msgstr "Luogo della memorizzazione delle informazioni di configurazione"
 
 msgid "Storage location of downloaded files."
-msgstr ""
+msgstr "Luogo di memorizzazione dei file scaricati"
 
 msgid "Storage location of partially downloaded files."
-msgstr ""
+msgstr "Luogo di memorizzazione dei file parzialmente scaricati"
 
 msgid "Store DOS Attributes"
 msgstr "Memorizzare gli attributi DOS"
@@ -11566,9 +11659,13 @@ msgid ""
 "Stream (experimental) - pass the stream on to the next module in the VFS "
 "stack."
 msgstr ""
+"Stream (sperimentale) - convoglia lo stream nel modulo successivo "
+"all'interno dello stack VFS"
 
 msgid "Stream - pass the stream on to the next module in the VFS stack."
 msgstr ""
+"Stream - convoglia lo stream nel modulo successivo all'interno dello stack "
+"VFS"
 
 msgid "Strict DLNA"
 msgstr "DLNA rigoroso"
@@ -11586,7 +11683,7 @@ msgid "Subject"
 msgstr "Soggetto"
 
 msgid "Submit Command"
-msgstr ""
+msgstr "Invia comando"
 
 msgid "Subnet Bit Count"
 msgstr "Numero dei bit di subnet"
@@ -11661,16 +11758,16 @@ msgid "Syncthing"
 msgstr "Syncthing"
 
 msgid "Sysctl Setting"
-msgstr ""
+msgstr "Impostazioni Sysctl"
 
 msgid "Sysctl setting is locked"
-msgstr ""
+msgstr "Le impostazioni Sysctl sono bloccate"
 
 msgid "Sysctl setting is marked for deletion"
-msgstr ""
+msgstr "Le impostazioni Sysctl sono segnate per la cancellazione"
 
 msgid "Sysctl setting is unlocked"
-msgstr ""
+msgstr "Le impostazioni Sysctl sono sbloccate"
 
 msgid "Syslog Level"
 msgstr "Livello di log sistema"
@@ -11703,7 +11800,7 @@ msgid "System Events"
 msgstr "Eventi di sistema"
 
 msgid "System Group"
-msgstr ""
+msgstr "Gruppo di sistema"
 
 msgid "System Information"
 msgstr "Informazioni di sistema"
@@ -11730,7 +11827,7 @@ msgid "System Uptime"
 msgstr "Tempo di accensione del sistema"
 
 msgid "System User"
-msgstr ""
+msgstr "Utente di sistema"
 
 msgid "System info"
 msgstr "Informazioni di sistema"
@@ -11781,10 +11878,10 @@ msgid "TLS Cert File"
 msgstr "File TLS CRT"
 
 msgid "TLS Fingerprint"
-msgstr ""
+msgstr "Impronta TLS"
 
 msgid "TLS Key File"
-msgstr ""
+msgstr "File della chiave TLS"
 
 msgid "TLS Only"
 msgstr "Solo TLS"
@@ -11849,22 +11946,22 @@ msgid "Target is locked"
 msgstr "Destinazione bloccata"
 
 msgid "Target is marked for deletion"
-msgstr ""
+msgstr "L'obiettivo è segnato per la cancellazione"
 
 msgid "Target is not selected."
 msgstr "Il target non è selezionato."
 
 msgid "Target is unlocked"
-msgstr ""
+msgstr "L'obiettivo è sbloccato"
 
 msgid "Target list"
 msgstr "Lista dei target"
 
 msgid "Target login for Mutual CHAP authentication."
-msgstr ""
+msgstr "Login dell'obiettivo per l'autenticazione Mutual CHAP"
 
 msgid "Target secret for Mutual CHAP authentication."
-msgstr ""
+msgstr "Obiettivo segreto per l'autenticazione Mutual CHAP"
 
 msgid "Target side secret."
 msgstr "Segreto lato target"
@@ -11948,7 +12045,7 @@ msgid "The IP address of the device."
 msgstr "Indirizzo IP del dispositivo"
 
 msgid "The IP address or the DNS name of the iSCSI target."
-msgstr ""
+msgstr "L'indirizzo IP o il nome DNS dell'obiettivo iSCSI"
 
 msgid "The IP address that this hostname represents."
 msgstr "L'indirizzo IP che questo nome di host rappresenta."
@@ -11971,7 +12068,7 @@ msgstr ""
 "disponibili."
 
 msgid "The NetBIOS name of this Samba server."
-msgstr ""
+msgstr "Il nome NetBIOS del server Samba"
 
 msgid ""
 "The Newly Added Bad Flash Block attribute indicates the total number of bad "
@@ -11984,9 +12081,11 @@ msgstr ""
 
 msgid "The SCSI Device Identification string presented to the initiator."
 msgstr ""
+"Stringa di identificazione del dispositivo SCSI presentata "
+"all'inizializzatore"
 
 msgid "The SCSI serial number presented to the initiator."
-msgstr ""
+msgstr "Numero seriale SCSI presentato all'inizializzatore"
 
 msgid "The TCP Port must be a valid port number."
 msgstr "La porta TCP deve essere un numero di porta valido."
@@ -12003,6 +12102,8 @@ msgstr "L'ID della VLAN deve essere tra 1 e 4094"
 msgid ""
 "The WebDAV configuration is applied to all folders matching this pattern."
 msgstr ""
+"La configurazione WebDAV è applicata per tutte le cartelle che coincidono "
+"con questo profilo"
 
 msgid ""
 "The action which will be executed when the packet match the criteria "
@@ -12214,6 +12315,8 @@ msgstr "I cambiamenti sono stati salvati."
 
 msgid "The check will include both initiator-portal and initiator-name."
 msgstr ""
+"Il controllo includerà sia il portale-inizializzatore che il nome-"
+"inizializzatore"
 
 msgid ""
 "The check will include initiator-portal, initiator-name, and authentication "
@@ -12221,6 +12324,10 @@ msgid ""
 "authentication, or if the CHAP user and secret used during discovery match "
 "those used by the target."
 msgstr ""
+"Il controllo includerà il portale-inizializzatore, il nome-inizializzatore e "
+"le credenziali di autenticazione. L'obiettivo è restituito se non richiede "
+"autenticazione CHAP, o se lo user e la chiave segreta CHAP usati durante la "
+"scoperta coincidono con quelli usati dall'obiettivo."
 
 msgid "The cleartext credentials with which to bind."
 msgstr "Le credenziali in chiaro con le quali effettuare il bind."
@@ -12262,6 +12369,10 @@ msgid ""
 "algorithm - you won't be prompted for this passphrase. The secret should be "
 "at least 32 or more characters long"
 msgstr ""
+"Il tipo di autorizzazione basato su cookie usa un algoritmo AES per cifrare "
+"la password. Inserisci una frase chiave a tua scelta. Sarà usata "
+"internamente dall'algoritmo AES - non ti sarà chiesto di fornire questa "
+"frase chiave. La frase chiave dovrebbe essere di almeno 32 o più caratteri"
 
 msgid ""
 "The count of aborted operations due to HDD timeout. Normally this attribute "
@@ -12321,10 +12432,11 @@ msgstr ""
 "automatici ZFS."
 
 msgid "The debug verbosity level. The default is 0."
-msgstr ""
+msgstr "Livello di verbosità del debug. Di default è 0"
 
 msgid "The default SMTP mail server port, usually port 25 or port 587."
 msgstr ""
+"La porta di default del server mail SMTP, solitamente porta 25 o 587."
 
 #, php-format
 msgid "The default base distinguished name (DN) to use for searches, e.g. %s"
@@ -12424,6 +12536,8 @@ msgstr ""
 
 msgid "The identifier reported as unknown by smartctl, including brackets."
 msgstr ""
+"L'identificatore riportato come sconosciuto da smartctl, incluse la "
+"parentesi."
 
 msgid "The initial digest mode negotiated with the initiator."
 msgstr "La modalità iniziale di digest negoziata con l'iniziatore."
@@ -12464,9 +12578,11 @@ msgid ""
 "The limit for concurrently running child processes handling incoming "
 "connections. The default is 30. A setting of 0 disables the limit."
 msgstr ""
+"Limite per processi figli attivi contemporaneamente che gestiscono le "
+"connessioni in ingresso. Il default è 30. Il valore 0 disabilita il limite."
 
 msgid "The list of hostnames. Use a comma to separate multiple names."
-msgstr ""
+msgstr "Lista dei nomi host. Usa una virgola per separare più nomi"
 
 msgid ""
 "The max. connections per IP address must be either 0 (unlimited) or greater."
@@ -12481,6 +12597,8 @@ msgid ""
 "The maximum download bandwith in KB/s. Leave this field empty to allow "
 "unlimited download bandwidth."
 msgstr ""
+"La massima ampiezza di banda in downalod espressa in KB/s. Lasciare questo "
+"campo vuoto per permettere una ampiezza di banda illimitata."
 
 msgid "The maximum idle time must be a number."
 msgstr "Il massimo tempo in idle deve essere un numero."
@@ -12496,6 +12614,8 @@ msgid ""
 "The maximum upload bandwith in KB/s. Leave this field empty to allow "
 "unlimited upload bandwidth."
 msgstr ""
+"La massima ampiezza di banda in upload espressa in KB/s. Lasciare questo "
+"campo vuoto per permettere una ampiezza di banda illimitata."
 
 msgid ""
 "The method can be accepted by the target. Auto means both none and "
@@ -12565,14 +12685,18 @@ msgid ""
 "The name of the TLS trust file. The file must be in PEM format containing "
 "one or more certificates of trusted Certification Authorities (CAs)."
 msgstr ""
+"Nome del file TLS sicuro. Il file deve essere in formato PEM contenente uno "
+"o più certificati affidabili delle Autorità di Certificazione (CAs)"
 
 msgid "The name of the ZFS pool."
-msgstr ""
+msgstr "Nome di ZFS pool"
 
 msgid ""
 "The name of the initiator. By default, the name is concatenation of "
 "\"iqn.1994-09.org.freebsd:\" with the hostname."
 msgstr ""
+"Nome dell'inizializzatore. Di default il nome è la concatenazione di "
+"\"iqn.1994-09.org.freebsd:\" con il nome host"
 
 msgid "The name of the interface is wrong."
 msgstr "Il nome dell'interfaccia è sbagliato."
@@ -12581,10 +12705,10 @@ msgid "The name of the pool cannot be changed."
 msgstr "Il nome del pool non può essere cambiato."
 
 msgid "The name of the target."
-msgstr ""
+msgstr "Nome dell'obiettivo"
 
 msgid "The name of the variable."
-msgstr ""
+msgstr "Nome della variabile"
 
 msgid "The name of this virtual device cannot be changed."
 msgstr "Il nome del dispositivo virtuale non può essere cambiato."
@@ -12610,7 +12734,7 @@ msgid "The password encryption protocol to use."
 msgstr "Il protocollo da usare per il cambio della password."
 
 msgid "The password, if applicable."
-msgstr ""
+msgstr "Password, se applicabile"
 
 msgid "The passwords do not match."
 msgstr "Le password non coincidono."
@@ -12620,11 +12744,11 @@ msgstr "La password non corrisponde. Per favore provare di nuovo."
 
 #, php-format
 msgid "The path %s does not exist."
-msgstr ""
+msgstr "Il percorso %s non esiste"
 
 #, php-format
 msgid "The path %s is not a directory."
-msgstr ""
+msgstr "Il percorso %s non è una cartella"
 
 #, php-format
 msgid "The path '%s' does not exist."
@@ -12641,11 +12765,14 @@ msgstr "Il percorso '%s' non corrisponde a una directory."
 msgid ""
 "The path to the file, device node, or zfs volume used to back the LUN."
 msgstr ""
+"Percorso al file, nodo del dispositivo o volume ZFS usato per tornare a LUN"
 
 #, php-format
 msgid ""
 "The peer connection encryption mode. The default encryption mode is \"%s\""
 msgstr ""
+"Modalità di cifratura della connessione fra pari. La modalità di cifratura "
+"di default è \"%s\""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create "
@@ -12660,7 +12787,7 @@ msgstr ""
 "utilizzata in modo flessibile da ogni utente."
 
 msgid "The port to listen on."
-msgstr ""
+msgstr "Porta attiva per l'ascolto"
 
 #, php-format
 msgid "The portal '%s' is invalid."
@@ -12694,9 +12821,10 @@ msgstr "La lunghezza della coda raccomandata è %d."
 
 msgid "The recommended range for the group id is between 1000 and 32000."
 msgstr ""
+"Lo spettro raccomandato per gli ID del gruppo è compreso fra 1000 e 32000."
 
 msgid "The recommended range for the user id is between 1000 and 32000."
-msgstr ""
+msgstr "Lo spettro raccomandato per gli user ID è compreso fra 1000 e 32000."
 
 #, php-format
 msgid "The removable area mapped to LUN%d."
@@ -12718,10 +12846,10 @@ msgid "The server is rebooting now."
 msgstr "Il server si sta riavviando ora."
 
 msgid "The server is shutting down now."
-msgstr ""
+msgstr "Il server si sta spegnendo adesso."
 
 msgid "The server will be started with the minimum required parameters."
-msgstr ""
+msgstr "Il server si avvierà con i parametri minimi richiesti."
 
 msgid ""
 "The server will reboot after the configuration was successfully restored."
@@ -12733,7 +12861,7 @@ msgid "The share name is already used."
 msgstr "Il nome della condivisione è già in uso."
 
 msgid "The size of the LUN."
-msgstr ""
+msgstr "Dimensione del LUN"
 
 msgid "The size of the swap file in MB."
 msgstr "Dimensioni del file di scambio in MB."
@@ -12752,18 +12880,21 @@ msgid ""
 "The system configuration is reset to factory defaults and the server is "
 "restarted."
 msgstr ""
+"La configurazione del sistema è resettata ai valori di fabbrica e il server "
+"è riavviato"
 
 msgid "The tag range is invalid."
 msgstr "Il valore del tag non è valido."
 
 msgid "The target directory doesn't exist."
-msgstr ""
+msgstr "La cartella di destinazione non esiste."
 
 msgid "The target directory may not be above the home directory."
 msgstr ""
+"La cartella di destinazione potrebbe non essere superiore alla cartella home"
 
 msgid "The target item already exists."
-msgstr ""
+msgstr "L'oggetto destinazione esiste già"
 
 msgid "The target name already exists."
 msgstr "Il nome del target esiste già."
@@ -12782,6 +12913,9 @@ msgid ""
 "The timeout for login sessions, after which the connection will be forcibly "
 "terminated. The default is 60. A setting of 0 disables the timeout."
 msgstr ""
+"Timeout per la sessione di login, dopo il quale la connessione verrà chiusa "
+"forzatamente. Il tempo di default è 60. Una impostazione a 0 disabilita il "
+"timeout"
 
 msgid "The total count of errors when writing a sector."
 msgstr "Il totale degli errori contati durante la scrittura di un settore."
@@ -12813,7 +12947,7 @@ msgid "The uploaded file was only partially uploaded."
 msgstr "Il file è stato inviato solo parzialmente."
 
 msgid "The username, if applicable. This might be referred to as hash."
-msgstr ""
+msgstr "Username, se applicabile. Ci si può riferire ad esso come hash."
 
 msgid "The value is invalid."
 msgstr "Il valore è invalido."
@@ -12822,9 +12956,10 @@ msgid ""
 "The value of the parameter allows the debug level (logging level) to be "
 "specified"
 msgstr ""
+"Il valore del parametro permette di impostare il livello di log del debug"
 
 msgid "The value of the setting."
-msgstr ""
+msgstr "Valore dell'impostazione"
 
 msgid "The value of the variable."
 msgstr "Il valore della variabile."
@@ -12837,7 +12972,7 @@ msgstr ""
 "altri client SMB (massimo 15 caratteri)."
 
 msgid "There are no regular product updates available."
-msgstr ""
+msgstr "Non ci sono aggiornamenti regolari del prodotto disponibili."
 
 msgid "There is no error, the file uploaded with success."
 msgstr "Non ci sono errori, il file è stato trasmesso con successo."
@@ -12870,10 +13005,15 @@ msgid ""
 "specify parameters to be passed to the kernel and additional modules to be "
 "loaded."
 msgstr ""
+"Questa(e) opzione(i) saranno aggiunte al file /boot/loader.conf.local. "
+"Questo permette di specificare quali parametri devono essere inoltrati al "
+"kernel e quali moduli aggiuntivi devono essere caricati."
 
 msgid ""
 "These options are appended to the command line parameters of the wsdd script."
 msgstr ""
+"Queste opzioni sono aggiunte in coda ai parametri della linea di comando "
+"dello script wsdd"
 
 #, php-format
 msgid "These parameters are added to %s."
@@ -12885,7 +13025,7 @@ msgstr "Questi parametri sono aggiunti alla sezione [Global] di %s."
 
 #, php-format
 msgid "These parameters are added to the [Share] section of %s."
-msgstr ""
+msgstr "Questi parametri sono aggiunti alla sezione [Share] di %s"
 
 msgid ""
 "These parameters are added to the hardware-specific part of the driver for "
@@ -12901,13 +13041,13 @@ msgstr ""
 "driver."
 
 msgid "These parameters are appended to /etc/ssh/sshd_config."
-msgstr ""
+msgstr "Questi parametri sono aggiunti in cosa a /etc/ssh/sshd_config."
 
 msgid "These parameters are appended to the exports file."
-msgstr ""
+msgstr "Questi parametri sono aggiunti in coda ai file di esportazione"
 
 msgid "These parameters are appended to the inadyn.conf file."
-msgstr ""
+msgstr "Questi parametri sono aggiunti in coda ai file inadyn.conf"
 
 #, php-format
 msgid "These parameters will be added to %s."
@@ -12918,17 +13058,20 @@ msgid "These parameters will be added to [global] settings in %s."
 msgstr "Questi parametri verranno aggiunti al'impostazione [global] in %s."
 
 msgid "These parameters will be added to minidlna.conf"
-msgstr ""
+msgstr "Questi parametri saranno aggiunti al file minidlna.conf"
 
 msgid "These parameters will be added to my.cnf"
-msgstr ""
+msgstr "Questi parametri saranno aggiunti al file my.cnf"
 
 msgid ""
 "These parameters will be added to the configuration of this initiator."
 msgstr ""
+"Questi parametri saranno aggiunti alla configurazione di questo "
+"inizializzatore"
 
 msgid "These parameters will be added to the global section of ctl.conf"
 msgstr ""
+"Questi parametri saranno aggiunti alla sezione globale del file ctl.conf"
 
 msgid ""
 "These parameters will be added to the module configuration in rsyncd.conf."
@@ -12941,6 +13084,7 @@ msgstr "Questo parametro sarà aggiunto al comando di ping."
 
 msgid "These parameters will be added to this WebDAV configuration."
 msgstr ""
+"Questi parametri saranno aggiunti alla configurazione di questo server WebDAV"
 
 msgid "These parameters will be added to this auth-group."
 msgstr ""
