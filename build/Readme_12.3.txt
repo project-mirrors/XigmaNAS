@@ -130,6 +130,7 @@ Changes:
 - Upgrade samba to v4.13.17.
 - Upgrade syncthing to v1.19.0.
 - Upgrade devcpu-data-intel to v20220207.
+- Upgrade phpmyadmin to v5.1.3.
 
 Fixes:
 -
