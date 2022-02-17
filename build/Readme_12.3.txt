@@ -128,6 +128,7 @@ Changes:
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade nano to v6.1.
 - Upgrade php to v7.4.28.
+- Upgrade samba to v4.13.17.
 
 Fixes:
 -
