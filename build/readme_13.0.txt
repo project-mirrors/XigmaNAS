@@ -101,7 +101,6 @@ Changes:
 - Upgrade wsdd to v0.7.0.
 - Upgrade lighttpd to v1.4.63.
 - Upgrade gzip to v1.11.
-- Upgrade syncthing to v1.18.5.
 - Upgrade nut to v2021.12.09.
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
@@ -111,6 +110,7 @@ Changes:
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade nano to v6.1.
 - Upgrade samba to v4.13.17.
+- Upgrade syncthing to v1.19.0.
 
 Fixes:
 -
