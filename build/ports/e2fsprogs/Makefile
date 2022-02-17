@@ -1,5 +1,5 @@
 PORTNAME=	e2fsprogs
-PORTVERSION=	1.46.4
+PORTVERSION=	1.46.5
 PORTREVISION?=	0
 CATEGORIES?=	sysutils
 MASTER_SITES=	KERNEL_ORG/linux/kernel/people/tytso/${PORTNAME}/v${PORTVERSION}
@@ -43,9 +43,13 @@ CPPFLAGS+=      -I${WRKSRC}/lib -I${LOCALBASE}/include # -D_EXT2_USE_C_VERSIONS
 MAKE_ARGS+=	pkgconfigdir='${PREFIX}/libdata/pkgconfig'
 MAKE_ENV+=	CHECK_CMD=@true
 
+CONFLICTS_INSTALL=	e2fsprogs e2fsprogs-nobootfsck e2fsprogs-roothardlinks
+
 PORTSCOUT=	ignore	# cannot handle the version in the directory
 
 .if !defined(MASTERDIR)
+CPPFLAGS+=	-D__GNUC_PREREQ\(a,b\)=1
+
 INSTALL_TARGET=		install install-libs
 
 OPTIONS_DEFINE=         DOCS NLS FUSEFS PARALLELTESTS SLOWTESTS BASHTESTS LIBUNWIND
@@ -71,7 +75,6 @@ BUILD_DEPENDS+=	gdd:sysutils/coreutils
 BASHTEST_BUILD_DEPENDS= bash:shells/bash
 
 LIB_DEPENDS+=	libblkid.so:misc/e2fsprogs-libblkid
-LIB_DEPENDS+=	libss.so:devel/e2fsprogs-libss
 LIB_DEPENDS+=	libuuid.so:misc/e2fsprogs-libuuid
 
 LIBUNWIND_LIB_DEPENDS=  libunwind.so:devel/libunwind
@@ -198,6 +201,8 @@ BROKEN=	it was not tested on your system by the maintainer; you must run self-te
 pre-build:
 # fix up Makefile ordering for parallel builds
 	cd ${WRKSRC}/lib/et && ${DO_MAKE_BUILD} compile_et
+	cd ${WRKSRC}/lib/ss && _ET_DIR_OVERRIDE=../et ../et/compile_et ss_err.et \
+		&& ${REINPLACE_CMD} -f ${FILESDIR}/fix-ss_err.h.sed ss_err.h
 	cd ${WRKSRC}/lib/support && ${DO_MAKE_BUILD} prof_err.h
 
 .if ${PORT_OPTIONS:MPARALLELTESTS}
