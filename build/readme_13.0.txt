@@ -111,6 +111,7 @@ Changes:
 - Upgrade nano to v6.1.
 - Upgrade samba to v4.13.17.
 - Upgrade syncthing to v1.19.0.
+- Upgrade devcpu-data-intel to v20220207.
 
 Fixes:
 -
