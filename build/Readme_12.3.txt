@@ -115,7 +115,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 12.3.0.4.8948
 ===================
 Changes:
-- Upgrade to FreeBSD 12.3-RELEASE P0.
+- Upgrade to FreeBSD 12.3-RELEASE P2.
 - Upgrade lighttpd to v1.4.63.
 - Upgrade gzip to v1.11.
 - Upgrade syncthing to v1.18.5.
