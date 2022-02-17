@@ -122,6 +122,7 @@ Changes:
 - Upgrade nut to v2021.12.09.
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
+- Upgrade sudo to v1.9.9.
 
 Fixes:
 -

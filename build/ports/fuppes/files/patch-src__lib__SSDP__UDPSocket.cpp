@@ -11,12 +11,12 @@
  	  opts = fcntl(m_Socket, F_GETFL);
  	  if (opts < 0) {
 -      return false;
-+      return NULL;
++      return 0;
  	  }
  	  opts = (opts | O_NONBLOCK);
  	  if (fcntl(m_Socket, F_SETFL,opts) < 0) {		
 -      return false;
-+      return NULL;
++      return 0;
  	  } 
  	  #endif
    
