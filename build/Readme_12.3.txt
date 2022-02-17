@@ -131,6 +131,7 @@ Changes:
 - Upgrade phpmyadmin to v5.1.3.
 - Upgrade lighttpd to v1.4.64.
 - Upgrade nut to v2022.02.17.
+- Upgrade cdialog to v1.3-20220117.
 
 Fixes:
 -
