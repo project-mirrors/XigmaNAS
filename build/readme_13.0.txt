@@ -114,6 +114,7 @@ Changes:
 - Upgrade lighttpd to v1.4.64.
 - Upgrade nut to v2022.02.17.
 - Upgrade cdialog to v1.3-20220117.
+- Upgrade php to v8.0.16.
 
 Fixes:
 -
