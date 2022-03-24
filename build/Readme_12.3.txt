@@ -145,6 +145,7 @@ Changes:
 - Upgrade nano to v6.2.
 - Upgrade sudo to v1.9.10.
 - Upgrade unison to v2.52.0.
+- Upgrade devcpu-data-amd to v20220221.
 
 Fixes:
 -
