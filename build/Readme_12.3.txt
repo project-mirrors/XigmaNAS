@@ -135,7 +135,6 @@ Changes:
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade php to v7.4.28.
 - Upgrade samba to v4.13.17.
-- Upgrade syncthing to v1.19.0.
 - Upgrade devcpu-data-intel to v20220207.
 - Upgrade phpmyadmin to v5.1.3.
 - Upgrade lighttpd to v1.4.64.
@@ -146,6 +145,7 @@ Changes:
 - Upgrade sudo to v1.9.10.
 - Upgrade unison to v2.52.0.
 - Upgrade devcpu-data-amd to v20220221.
+- Upgrade syncthing to v1.19.1.
 
 Fixes:
 -
