@@ -9,7 +9,6 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.32.
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
-- Upgrade nano to v6.1.
 - Upgrade php to v7.4.28.
 - Upgrade samba to v4.13.17.
 - Upgrade syncthing to v1.19.0.
@@ -19,6 +18,7 @@ Changes:
 - Upgrade nut to v2022.02.17.
 - Upgrade cdialog to v1.3-20220117.
 - Upgrade zoneinfo to 2022a.
+- Upgrade nano to v6.2.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
