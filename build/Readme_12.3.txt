@@ -60,10 +60,21 @@ From Samba 4.5.0 onwards, the "ntlm auth" option has been disabled by default.
 This may have an impact on very old clients that support NTLMv1 only.
 Only if really required, NTLMv1 authentication can be enabled by adding "ntlm auth = yes" in the additional parameter field in Services > CIFS/SMB > Settings.
 
-UPS note
+UPS note:
 =============
 We have added improved output voltage to graphs data.
 Ups users need to reset current ups graph data!
+
+UNISON note:
+=============
+ unison has been updated to version 2.52. The new version introduces
+ a new wire protocol and on disk archive format. This new version
+ is compatible with 2.51 clients for communication, so it's now
+ possible to upgrade one side and then the other.
+
+ The archive files are automatically converted to the new version,
+ but once they are converted they are incompatible with the
+ previous versions of XigmaNAS version 12.3.0.4 revision 9009 or lower.
 
 Community extension "Extended GUI" warning:
 ===========================================
@@ -133,6 +144,7 @@ Changes:
 - Upgrade zoneinfo to 2022a.
 - Upgrade nano to v6.2.
 - Upgrade sudo to v1.9.10.
+- Upgrade unison to v2.52.0.
 
 Fixes:
 -

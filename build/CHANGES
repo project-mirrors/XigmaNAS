@@ -19,6 +19,7 @@ Changes:
 - Upgrade zoneinfo to 2022a.
 - Upgrade nano to v6.2.
 - Upgrade sudo to v1.9.10.
+- Upgrade unison to v2.52.0.
 
 Permanent restrictions:
 - It is not possible to format a SoftRAID disk with MSDOS FAT16/32.
