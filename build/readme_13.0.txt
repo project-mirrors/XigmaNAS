@@ -103,7 +103,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 13.0.0.5.xxxx
 ===================
 Changes:
-- Upgrade to FreeBSD 13.0-RELEASE P7.
+- Upgrade to FreeBSD 13.0-RELEASE P10.
 - Upgrade arcconf to v3_10_24700.
 - Upgrade isboot to v0.2.14.
 - Upgrade dialog to v1.3-20211107.
