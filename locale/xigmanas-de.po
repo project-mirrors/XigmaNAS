@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2022-02-14 17:57+0000\n"
+"PO-Revision-Date: 2022-03-03 13:20+0000\n"
 "Last-Translator: Winfried Hyronimus <winfried.hyronimus@googlemail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-02-17 22:01+0000\n"
-"X-Generator: Launchpad (build 131c1c72b6032652fb002ebff08e63a8deeb8d0a)\n"
+"X-Launchpad-Export-Date: 2022-03-27 15:33+0000\n"
+"X-Generator: Launchpad (build f2db4a7fcabecdf8c170e2d5c32b80c7282fe348)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -1341,7 +1341,7 @@ msgid "Auth Group is locked"
 msgstr "Authentifizierungsgruppe ist gesperrt"
 
 msgid "Auth Group is marked for deletion"
-msgstr "Authentifizierungsgruppe ist zum löschen vorgemerkt"
+msgstr "Authentifizierungsgruppe ist zum Löschen vorgemerkt"
 
 msgid "Auth Group is unlocked"
 msgstr "Authentifizierungsgruppe ist entsperrt"
@@ -1356,16 +1356,16 @@ msgstr ""
 "Zusatzinformationen für zusätzliche Sicherheitsstufen."
 
 msgid "Auth Method"
-msgstr "Auth Methode"
+msgstr "Authentifizierungsmethode"
 
 msgid "Auth Type"
-msgstr "Auth Type"
+msgstr "Authentifizierungstyp"
 
 msgid "Authenticate Path & Realm"
-msgstr "Authentifizieren Pfad & Realm"
+msgstr "'Path' und 'Realm'-Wert für die Authentifizierung"
 
 msgid "Authenticate URL"
-msgstr "Authentifizieren URL"
+msgstr "URL authentifizieren"
 
 msgid "Authenticated Users"
 msgstr "autorisierte Benutzer"
@@ -1401,16 +1401,16 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "Auto Snapshot"
-msgstr "Automatischer Schnappschuss"
+msgstr "Automatischer Snapshot"
 
 msgid "Auto Snapshot Settings"
-msgstr "Schnappschusseinstellungen"
+msgstr "Snapshot-Einstellungen"
 
 msgid "Auto page refresh."
 msgstr "Automatische Seitenaktualisierung."
 
 msgid "Auto size"
-msgstr "Automatische Größe"
+msgstr "Größe automatisch anpassen"
 
 msgid "AutoScale"
 msgstr "Autom. Skalierung"
@@ -1458,7 +1458,7 @@ msgid "BMP Image"
 msgstr "BMP-Bilddatei"
 
 msgid "BZIP2 Archive"
-msgstr "BZIP2 Archiv"
+msgstr "BZIP2-Archiv"
 
 msgid "Back"
 msgstr "Zurück"
@@ -1505,25 +1505,25 @@ msgid "Bad User - (Non Existing Users)"
 msgstr "wenn der Benutzer nicht existiert"
 
 msgid "Balance Algorithm"
-msgstr "Ausgleichsalgoritmus"
+msgstr "Balance-Algorithmus"
 
 msgid "Ban List"
 msgstr "Sperrliste"
 
 msgid "Ban List Rule"
-msgstr "Regel Ausschlußliste"
+msgstr "Regel für Sperrliste"
 
 msgid "Ban List Rule Settings"
-msgstr "Einstellung Regel Ausschlußliste"
+msgstr "Einstellungen für Regel für Sperrliste"
 
 msgid "Banner"
 msgstr "Banner"
 
 msgid "Base DN"
-msgstr "Base DN"
+msgstr "Base-DN"
 
 msgid "Base Name"
-msgstr "Basisname"
+msgstr "Base-Name"
 
 msgid ""
 "Base Name will be appended automatically when starting without 'iqn.'."
@@ -1541,10 +1541,10 @@ msgstr "Schwacher Akku"
 
 msgid ""
 "Battery Remaining level when UPS switches to Shutdown mode (Low Battery)"
-msgstr "Ladezustand der Batterie zur Einleitung der Systemabschaltung"
+msgstr "Batterie-Ladezustandsschwelle zur Einleitung der Systemabschaltung"
 
 msgid "Battery alarm threshold"
-msgstr "Alarmwert des LAdezustands der Batterie"
+msgstr "Alarmwert des Ladezustands der Batterie"
 
 msgid "Battery capacity"
 msgstr "Batteriekapazität"
@@ -1563,13 +1563,13 @@ msgstr "Akkustatus"
 
 msgid "Battery level when UPS switches to \"Warning\" state"
 msgstr ""
-"Batterie Ladezustand, bei dem in den Status \"Warnung\" gewechselt wird"
+"Batterieladezustand, bei dem in den Status \"Warnung\" gewechselt wird"
 
 msgid "Battery manufacturing date"
-msgstr "Batterie Herstellungsdatum"
+msgstr "Herstellungsdatum der Batterie"
 
 msgid "Battery temperature"
-msgstr "Batterie Temperatur"
+msgstr "Temperatur der Batterie"
 
 msgid "Battery voltage"
 msgstr "Akkuspannung"
@@ -1582,40 +1582,40 @@ msgstr "Seien Sie vorsichtig, wenn Sie diese Optionen einschalten."
 
 msgid "Before - File-deletions will be done before the transfer starts."
 msgstr ""
-"Vorgelagerte Dateilöschungen werden ausgeführt bevor die Dateitransfers "
+"'Before' - Dateilöschungen werden ausgeführt, bevor die Dateiübertragungen "
 "beginnen"
 
 msgid "Before - File-deletions will be performed before the transfer starts."
 msgstr ""
-"Vorgelagerte Dateilöschungen werden ausgeführt bevor die Dateitransfers "
+"'Before' - Dateilöschungen werden ausgeführt, bevor die Dateiübertragungen "
 "beginnen"
 
 msgid ""
 "Before a Unison client can start to work, you need to perform the following:"
 msgstr ""
-"Bevor ein Unison Client anfangen kann zu arbeiten, müssen Sie folgendes "
+"Bevor ein Unison-Client anfangen kann zu arbeiten, müssen Sie folgendes "
 "ausführen:"
 
 msgid "Best available"
 msgstr "Bester verfügbarer"
 
 msgid "Beta Versions"
-msgstr "Beta Versionen"
+msgstr "Beta-Versionen"
 
 msgid "Binary Prefix"
-msgstr "Binärer Vorsatz"
+msgstr "Binäres Präfix"
 
 msgid "Bind DN"
-msgstr "Bind DN"
+msgstr "Bind-DN"
 
 msgid "Bind Password"
-msgstr "Leeres Passwort"
+msgstr "Bind-Passwort"
 
 msgid "BitTorrent"
 msgstr "BitTorrent"
 
 msgid "BitTorrent Settings"
-msgstr "BitTorrent Einstellungen"
+msgstr "BitTorrent-Einstellungen"
 
 msgid "Blank Time"
 msgstr "Leerzeit"
@@ -1630,10 +1630,10 @@ msgid "Blocksize"
 msgstr "Blockgrösse"
 
 msgid "Boot Arguments"
-msgstr "Startparameter"
+msgstr "Boot-Parameter"
 
 msgid "Boot Loader"
-msgstr "Bootloader"
+msgstr "Boot-Loader"
 
 #, php-format
 msgid "Boot argument (e.g. %s)."
@@ -1652,13 +1652,13 @@ msgstr ""
 "LiveCD/LiveUSB oder eine Vergrößerung der Bootpartition von %s nötig\n"
 
 msgid "Bootloader"
-msgstr "Bootloader"
+msgstr "Boot-Loader"
 
 msgid "Both user data and metadata will be cached in ARC."
-msgstr "Es werden Benutzerdaten sowie Metadaten gecached in ARC"
+msgstr "Benutzerdaten sowie Metadaten werden im ARC zwischengespeichert."
 
 msgid "Both user data and metadata will be cached in L2ARC."
-msgstr "Es werden Benutzerdaten sowie Metadaten gecached in L2ARC"
+msgstr "Benutzerdaten sowie Metadaten werden im L2ARC zwischengespeichert."
 
 msgid "Bridge"
 msgstr "Netzwerkbrücke"
@@ -1669,8 +1669,8 @@ msgstr "Bridge-Einstellungen"
 msgid ""
 "Bridge cannot be deleted because it is still being used as an interface."
 msgstr ""
-"Die (Netzwerk)brücke kann nicht gelöscht werde, denn sie wird immer noch als "
-"Schnittstelle benutzt."
+"Die (Netzwerk)brücke kann nicht gelöscht werden, da sie noch als "
+"Schnittstelle aktiv ist."
 
 msgid "Bridge is marked for deletion"
 msgstr "Die Brücke ist zur Löschung markiert."
@@ -1691,8 +1691,8 @@ msgid ""
 "Broadcasts its availability every configured seconds on the network, the "
 "default is 300 seconds."
 msgstr ""
-"Zeige seine Verfügbarkeit im eingestellten Sekundenintervall im Netzwerk an "
-"(Broadcast), voreingestellt ist 300 Sekunden."
+"Zeigt seine Verfügbarkeit im eingestellten Sekundenintervall im Netzwerk an "
+"(Broadcast), voreingestellt sind 300 Sekunden."
 
 msgid "Broken RTC"
 msgstr "Defekter RTC"
@@ -1722,10 +1722,10 @@ msgstr ""
 "Standardmäßig können nur bereits existierende Dateien hochgeladen werden."
 
 msgid "Bytes/sec"
-msgstr "Bytes/sek"
+msgstr "Bytes/Sekunde"
 
 msgid "C File"
-msgstr "C Datei"
+msgstr "C-Datei"
 
 msgid "C++ Header File"
 msgstr "C++-Headerdatei"
@@ -1740,19 +1740,17 @@ msgid "CACHE"
 msgstr "CACHE"
 
 msgid "CAM Target Layer"
-msgstr "CAM Zielebene"
+msgstr "CAM-Zielebene"
 
 msgid "CAM Target Layer / iSCSI Target"
-msgstr "CAM Zielebene / iSCSI Ziel"
+msgstr "CAM-Zielebene / iSCSI-Target"
 
 msgid "CARP"
 msgstr "CARP"
 
 msgid ""
 "CARP cannot be deleted because it is still being used as an interface."
-msgstr ""
-"CARP kann nicht gelöscht werdem, denn es wird immer noch als Schnittstelle "
-"benutzt."
+msgstr "CARP kann nicht gelöscht werdem, Schnittstelle ist noch aktiv."
 
 msgid "CARP is marked for deletion"
 msgstr "CARP ist zum Löschen markiert"
@@ -1782,10 +1780,10 @@ msgid "CD/DVD"
 msgstr "CD/DVD"
 
 msgid "CD/DVD drive"
-msgstr "CD/DVD - Laufwerk"
+msgstr "CD/DVD-Laufwerk"
 
 msgid "CGI Script"
-msgstr "CGI Script"
+msgstr "CGI-Script"
 
 msgid "CHANGE PERMISSIONS"
 msgstr "BERECHTIGUNGEN ÄNDERN"
@@ -1797,7 +1795,7 @@ msgid "CHAP"
 msgstr "CHAP"
 
 msgid "CHAP Name"
-msgstr "CHAP Name"
+msgstr "CHAP-Name"
 
 msgid "CHAP Secret"
 msgstr "CHAP Geheimnis"
@@ -1806,13 +1804,13 @@ msgid "CHAP User is locked"
 msgstr "CHAP Benutzer ist gesperrt"
 
 msgid "CHAP User is marked for deletion"
-msgstr "CHAP Benutzer ist zum Löschen markiert"
+msgstr "CHAP-Benutzer ist zum Löschen markiert"
 
 msgid "CHAP User is unlocked"
-msgstr "CHAP Benutzer ist entsperrt"
+msgstr "CHAP-Benutzer ist entsperrt"
 
 msgid "CHAP Users"
-msgstr "CHAP Benutzer"
+msgstr "CHAP-Benutzer"
 
 msgid "CHAP-Mutual"
 msgstr "CHAP-Gegenseitig (CHAP-Mutual)"
@@ -1866,16 +1864,16 @@ msgid "CPU Microcode Update"
 msgstr "CPU Microcode Update"
 
 msgid "CPU Minimum Frequency"
-msgstr "Minimum CPU Frequenz"
+msgstr "Minimale CPU-Frequenz"
 
 msgid "CPU Temperature"
-msgstr "CPU Temperatur"
+msgstr "CPU-Temperatur"
 
 msgid "CPU Usage"
 msgstr "CPU-Auslastung"
 
 msgid "CPU frequencies:"
-msgstr "CPU Frequenzen"
+msgstr "CPU-Frequenzen"
 
 msgid "CPU load"
 msgstr "CPU-Auslastung"
@@ -1894,22 +1892,22 @@ msgid "CSS File"
 msgstr "CSS-Datei"
 
 msgid "CSS Settings"
-msgstr "CSS Einstellungen"
+msgstr "CSS-Einstellungen"
 
 msgid "CTL LUN"
-msgstr "CTL LUN"
+msgstr "CTL-LUN"
 
 msgid "Cache Directory"
-msgstr "Cache Verzeichnis"
+msgstr "Cache-Verzeichnis"
 
 msgid "Calibration Battery"
-msgstr "Akku Calibration"
+msgstr "Akku-Kalibration"
 
 msgid "Can Mount"
 msgstr "Kann eingebunden werden"
 
 msgid "Can't get UFS ID."
-msgstr "Kann UFS ID nicht ermitteln"
+msgstr "Kann UFS-ID nicht ermitteln"
 
 msgid "Can't mount the system partition 1, the DATA partition is the 2."
 msgstr ""
@@ -1935,16 +1933,16 @@ msgid "Capacity"
 msgstr "Kapazität"
 
 msgid "Capacity Alert Thresholds"
-msgstr "Schwellenwerte für Kapazität"
+msgstr "Schwellenwerte für Kapazitäts-Warnmeldungen"
 
 msgid "Capacity Critical Threshold"
-msgstr "Kritischer Grenzwert für Kapazität"
+msgstr "Kritischer Kapazitäts-Schwellenwert"
 
 msgid "Capacity Warning Threshold"
-msgstr "Warnschwelle für Kapazität"
+msgstr "Kapazitäts-Schwellenwert für Warnmeldung"
 
 msgid "Carp Settings"
-msgstr "Carp Einstellungen"
+msgstr "CARP-Einstellungen"
 
 msgid "Case Sensitivity"
 msgstr "Groß-/Kleinschreibung beachten"
@@ -2017,17 +2015,20 @@ msgid "Check Interval"
 msgstr "Abfrageintervall"
 
 msgid "Check System|General Setup before initializing"
-msgstr "Überprüfen Sie System|Allgemeines Setup vor der Initialisierung"
+msgstr ""
+"Überprüfen Sie die Einstellung 'System / Allgemein' vor der Initialisierung"
 
 msgid "Check and replace cable"
-msgstr "Prüfe und ersetze das Kabel"
+msgstr "Kabel überprüfen und ersetzen"
 
 msgid ""
 "Check the FreeBSD documentation for detailed information about TCP Wrappers"
-msgstr "Lesen Sie die FreeBSD Dokumentation für Details zu 'TCP Wrappers'"
+msgstr ""
+"Sehen Sie in der FreeBSD-Dokumentation nach, um detaillierte Informationen "
+"über 'TCP Wrappers' zu bekommen"
 
 msgid "Check the list of available drivers"
-msgstr "Prüfen sie die Liste der verfügbaren Treiber"
+msgstr "Liste der verfügbaren Treiber überprüfen"
 
 msgid "Checksum"
 msgstr "Prüfsumme"
@@ -2036,18 +2037,19 @@ msgid "Choose File"
 msgstr "Datei auswählen"
 
 msgid "Choose UPS mode."
-msgstr "Wähle UPS modus."
+msgstr "Wähle UPS-Modus."
 
 msgid "Choose on which interface packets must come in to match this rule."
 msgstr ""
-"Wählen Sie die Schnittstelle über welche die Pakete ankommen müssen um für "
-"diese Regel zu gelten."
+"Wählen Sie die Schnittstelle aus, über welche die Pakete ankommen müssen, um "
+"mit dieser Regel übereinzustimmen."
 
 msgid "Choose which IP protocol this rule should match."
-msgstr "Wählen Sie das IP-Protokoll welches für diese Regel gelten soll."
+msgstr "Wählen Sie das IP-Protokoll, welches für diese Regel gelten soll."
 
 msgid "Choose which interface this route applies to."
-msgstr "Wählen Sie eine Netzwerkschnittstelle zu dieser Route."
+msgstr ""
+"Wählen Sie eine Netzwerkschnittstelle, auf die diese Route angewandt wird."
 
 msgid "Choose..."
 msgstr "Auswählen..."
@@ -2062,14 +2064,15 @@ msgid "Clear Configuration"
 msgstr "Lösche Konfiguration"
 
 msgid "Clear Text Authentication"
-msgstr "Klartext Authentifizierung"
+msgstr "Klartext-Authentifizierung"
 
 msgid "Clear configuration information before importing disks."
-msgstr "Lösche Konfigurationen vor dem Importieren von Platten."
+msgstr "Lösche Konfigurations-Informationen vor dem Importieren von Platten."
 
 msgid "Clear configuration information before importing software RAID disks."
 msgstr ""
-"Lösche Konfigurationen vor dem Importieren von Software RAID Platten."
+"Lösche Konfigurationsinformationen vor dem Importieren von Software RAID-"
+"Platten."
 
 msgid "Clear device errors"
 msgstr "Gerätefehler löschen"
@@ -2127,7 +2130,7 @@ msgid "Command Scripts"
 msgstr "Befehlsskripte"
 
 msgid "Command Scripts (Maintenance Only)"
-msgstr "Kommando Scripts (nur zur Wartung)"
+msgstr "Befehlsskripte (nur zur Wartung)"
 
 msgid "Command execution was successful"
 msgstr "Befehl wurde erfolgreich ausgeführt."
@@ -4390,7 +4393,7 @@ msgstr ""
 "Dynamische IP's (DHCP) können nicht für HAST Ressourcen verwendet werden"
 
 msgid "EA Support"
-msgstr "EA Unterstützung"
+msgstr "Extended Attributes-Unterstützung"
 
 msgid "EDIT"
 msgstr "BEARBEITEN"
@@ -4631,7 +4634,7 @@ msgid "Enable Advanced Format (4KB Sector Size)."
 msgstr "Advanced Format aktivierem (4KB Sektoren)."
 
 msgid "Enable Asynchronous I/O."
-msgstr "Asynchrone E / A aktivieren."
+msgstr "Asynchrone Ein- und Ausgabe aktivieren."
 
 msgid "Enable DNS rebind protection"
 msgstr "DNS-Rebind-Schutz aktivieren"
@@ -9872,7 +9875,7 @@ msgid "Rebuild the selected device forcibly."
 msgstr "Ausgewähltes Gerät zwangsweise erneuern."
 
 msgid "Receive Buffer"
-msgstr "Empfangspuffer"
+msgstr "Empfangs-Puffergröße"
 
 msgid "Record Information"
 msgstr "Imformationen zum Eintrag"
@@ -10392,8 +10395,8 @@ msgid ""
 "Samba will read from file asynchronously when size of request is bigger than "
 "this value. (%d by default)."
 msgstr ""
-"Samba wird von Datei asynchron lesen, wenn die Größe der Anfrage größer als "
-"dieser Wert sind.(%d by default)."
+"Samba wird von Datei asynchron lesen, wenn die Größe der Anfrage den "
+"angegebenen Wert überschreitet. (%d by default)."
 
 #, php-format
 msgid ""
@@ -10809,7 +10812,7 @@ msgid "Self-Test Schedules"
 msgstr "Selbsttestablaufplan"
 
 msgid "Send Buffer"
-msgstr "Sendebuffer"
+msgstr "Sende-Puffergröße"
 
 msgid "Send Command!"
 msgstr "Sende Befehl!"
@@ -11314,11 +11317,11 @@ msgstr "Größe"
 
 #, php-format
 msgid "Size of receive buffer (%d by default)."
-msgstr "Größe des 'Receive' Puffer (%d sind Standard)."
+msgstr "Größe des 'Receive'-Puffer (%d sind Standard)."
 
 #, php-format
 msgid "Size of send buffer (%d by default)."
-msgstr "Größe des 'Send' Puffer (%d sind Standard)."
+msgstr "Größe des 'Send'-Puffer (%d sind Standard)."
 
 msgid "Size offered to the initiator. (up to 8EiB=8388608TiB)."
 msgstr "Angegebene Größe für den Initiator. (bis zu 8EiB=8388608TiB)."
@@ -12920,7 +12923,8 @@ msgstr "Der serielle oder USB-Port an dem Ihre zweite USV angeschlossen ist."
 
 msgid "The server advertises itself as a time server to Windows clients."
 msgstr ""
-"Der Server deklariert sich gegenüber dem Windowsclient als Zeitserver"
+"Deklaration des Servers gegenüber dem Windows-Client als Zeitserver zu- und "
+"abschalten."
 
 msgid "The server is rebooting now."
 msgstr "Der Server wird jetzt neu gestartet."
@@ -13506,14 +13510,14 @@ msgid ""
 "This parameter sets the highest protocol level that will be supported by the "
 "client."
 msgstr ""
-"Dieser Parameter legt das höchste Protokol Niveau fest, das der Client "
+"Dieser Parameter legt die höchste Protokollversion fest, die der Client "
 "unterstützen wird."
 
 msgid ""
 "This parameter sets the highest protocol level that will be supported by the "
 "server."
 msgstr ""
-"Dieser Parameter legt das höchste Protokol Niveau fest, das der Server "
+"Dieser Parameter legt die höchste Protokollversion fest, die der Server "
 "unterstützen wird."
 
 #, php-format
@@ -14486,18 +14490,18 @@ msgstr ""
 msgid ""
 "Use this option to override the directory creation mask (022 by default)."
 msgstr ""
-"Standardzugriffsrechte für die Erstellung eines neuen Verzeichnisses "
+"Standard-Zugriffsrechte für die Erstellung eines neuen Verzeichnisses "
 "(Standard: 022)"
 
 msgid ""
 "Use this option to override the directory creation mask (0777 by default)."
 msgstr ""
-"Standardzugriffsrechte für die Erstellung eines neuen Verzeichnisses "
+"Standard-Zugriffsrechte für die Erstellung eines neuen Verzeichnisses "
 "(Standard: 0777)"
 
 msgid "Use this option to override the file creation mask (0666 by default)."
 msgstr ""
-"Standardzugriffsrechte für die Erstellung einer neuen Datei (Standard: 0666)"
+"Standard-Zugriffsrechte für die Erstellung einer neuen Datei (Standard: 0666)"
 
 msgid "Use this option to override the file creation mask (077 by default)."
 msgstr ""

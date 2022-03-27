@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2022-02-17 21:55+0000\n"
+"PO-Revision-Date: 2022-03-24 07:35+0000\n"
 "Last-Translator: MailMasterC <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-02-17 22:01+0000\n"
-"X-Generator: Launchpad (build 131c1c72b6032652fb002ebff08e63a8deeb8d0a)\n"
-"X-Poedit-Country: ITALY\n"
-"X-Poedit-Language: Italian\n"
+"X-Launchpad-Export-Date: 2022-03-27 15:33+0000\n"
+"X-Generator: Launchpad (build f2db4a7fcabecdf8c170e2d5c32b80c7282fe348)\n"
 "Language: \n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
@@ -224,7 +224,7 @@ msgid "/mnt"
 msgstr "/mnt"
 
 msgid "/update?domain="
-msgstr ""
+msgstr "/aggiornamento?dominio="
 
 msgid "000"
 msgstr "000"
@@ -6512,7 +6512,7 @@ msgid "Import pool in read-only mode"
 msgstr "Importa il pool in sola lettura"
 
 msgid "Import pools"
-msgstr ""
+msgstr "Pool di importazione"
 
 msgid "Imported Users"
 msgstr "Utenti importati"
@@ -10489,10 +10489,10 @@ msgid "Script has been uploaded."
 msgstr "Lo script è stato caricato."
 
 msgid "Scrub"
-msgstr ""
+msgstr "Pulitura"
 
 msgid "Scrub Pool"
-msgstr ""
+msgstr "Pool di pulitura"
 
 msgid "Scrub a pool"
 msgstr "Pulire il pool"
@@ -11078,6 +11078,10 @@ msgid ""
 "and verified on receive. Digest can be either \"None\", or \"CRC32C\". "
 "Default is \"None\"."
 msgstr ""
+"Imposta il riassunto delle intestazioni; un controllo viene calcolato sulla "
+"base delle intestazione del PDU iSCSI, e verificato al momento della "
+"ricezione. Il riassunto può essere \"Nessuno\" o \"CRC32\". Di default è "
+"\"Nessuno\""
 
 msgid ""
 "Sets the session type. Type can be either \"Discovery\", or \"Normal\". "
@@ -11105,6 +11109,11 @@ msgid ""
 "between different iSCSI targets residing on the same host in trusted "
 "environments."
 msgstr ""
+"Impostato su \"ON\" si permette di inviare il comando EXTENDED COPY a questa "
+"LUN per poter accedere ad altre LUN su questo host, altrimenti non "
+"accessibili. Questo permette di scaricare il carico della copia fra "
+"obiettivi iSCSI differenti che risiedono sullo stesso host in ambienti "
+"fidati."
 
 msgid ""
 "Setting to \"on\" or \"off\" controls UNMAP support for the logical unit. "
@@ -11417,9 +11426,14 @@ msgid ""
 "value is zero, that disables backing store completely, making all writes go "
 "to nowhere, while all reads return zeroes."
 msgstr ""
+"Specifica la capacità di immagazzinamento (al massimo della RAM). Il valore "
+"di default è zero, il quale disabilita completamente l'immagazzinamento, "
+"facendo in modo che qualsiasi scrittura si perda, mentre tutte le letture "
+"restituiscono zeri."
 
 msgid "Specifies file or device name to use for backing store."
 msgstr ""
+"Specifica il file o il nome del dispositivo da usare per l'immagazzinamento."
 
 msgid ""
 "Specifies how many servers to create. There should be enough to handle the "
@@ -13087,24 +13101,27 @@ msgstr ""
 "Questi parametri saranno aggiunti alla configurazione di questo server WebDAV"
 
 msgid "These parameters will be added to this auth-group."
-msgstr ""
+msgstr "Questi parametri verranno aggiunti a questo gruppo di autenticazione"
 
 msgid "These parameters will be added to this lun."
-msgstr ""
+msgstr "Questi parametri verranno aggiunti a questo LUN"
 
 msgid "These parameters will be added to this portal-group."
-msgstr ""
+msgstr "Questi parametri verranno aggiunti a questo gruppo portale"
 
 msgid "These parameters will be added to this provider configuration"
 msgstr ""
+"Questi parametri verranno aggiunti alla configurazione di questo provider"
 
 msgid "These parameters will be added to this target."
-msgstr ""
+msgstr "Questi parametri verranno aggiunti a questo obiettivo"
 
 msgid ""
 "These sysctl variables will be added to /etc/sysctl.conf. It allows you to "
 "make changes to a running system."
 msgstr ""
+"Queste variabili sysctl verranno aggiunte al file /etc/sysctl.conf- "
+"Permettono di apportare modifiche ad un sistema già avviato."
 
 msgid "Thin Provisioning"
 msgstr ""
@@ -13210,10 +13227,10 @@ msgid "This extent is used."
 msgstr "Questa estensione è già utilizzata."
 
 msgid "This file doesn't exist."
-msgstr ""
+msgstr "Questo file non esiste"
 
 msgid "This is a nickname and is for information only."
-msgstr ""
+msgstr "Questo è un soprannome ed è solo informativo"
 
 msgid "This is a very powerful tool. Use at your own risk!"
 msgstr "Questo è un tool molto potente: usare a vostro rischio!"
@@ -13226,7 +13243,7 @@ msgstr ""
 "Zeroconf/Bonjour/Rendezvous e il nome del database esportato via DAAP."
 
 msgid "This item already exists."
-msgstr ""
+msgstr "Questo oggetto esiste già"
 
 msgid "This item doesn't exist."
 msgstr ""
@@ -13753,13 +13770,13 @@ msgid "Toggle Selected Public Keys"
 msgstr ""
 
 msgid "Toggle Selected Reboot Schedules"
-msgstr ""
+msgstr "Abilitare la schedulazione dei riavvii selezionati"
 
 msgid "Toggle Selected Records"
 msgstr "Attiva i records selezionati"
 
 msgid "Toggle Selected Routes"
-msgstr ""
+msgstr "Abilitare le rotte selezionate"
 
 msgid "Toggle Selected Rsync Jobs"
 msgstr "Attiva le operazioni Rsync selezionate"
@@ -13768,28 +13785,28 @@ msgid "Toggle Selected Rsync Modules"
 msgstr "Attiva i moduli Rsync selezionati"
 
 msgid "Toggle Selected Samba Shares"
-msgstr ""
+msgstr "Abilitare le condivisioni Samba selezionate"
 
 msgid "Toggle Selected Schedules"
-msgstr ""
+msgstr "Abilitare le schedulazioni selezionate"
 
 msgid "Toggle Selected Sysctl Settings"
-msgstr ""
+msgstr "Abilitare le impostazioni Sysctl selezionate"
 
 msgid "Toggle Selected Targets"
-msgstr ""
+msgstr "Abilitare gli obiettivi selezionati"
 
 msgid "Toggle Selected Users"
-msgstr ""
+msgstr "Abilitare gli utenti selezionati"
 
 msgid "Toggle Selected WebDAV Records"
-msgstr ""
+msgstr "Abilitare i record WebDAV selezionati"
 
 msgid "Toggle Selected iSCSI Initiators"
-msgstr ""
+msgstr "Abilitare gli inizializzatore iSCSI selezionati"
 
 msgid "Toggle Selected iSNS Servers"
-msgstr ""
+msgstr "Abilitare i server iSNS selezionati"
 
 msgid "Toolbox"
 msgstr "Pannello strumenti"
@@ -13851,11 +13868,11 @@ msgstr ""
 
 #, php-format
 msgid "Total: %1$s | Allocated: %2$s | Free: %3$s"
-msgstr ""
+msgstr "Totale: %1$s | Impiegato: %2$s | Libero: %3$s"
 
 #, php-format
 msgid "Total: %1$s | Used: %2$s | Available: %3$s"
-msgstr ""
+msgstr "Totale: %1$s | Usato: %2$s | Disponibile: %3$s"
 
 msgid "Traceroute"
 msgstr "Traceroute"
@@ -13888,7 +13905,7 @@ msgid "Transfer mode"
 msgstr "Modalita' di trasferimento"
 
 msgid "Transmission Web Interface"
-msgstr ""
+msgstr "Interfaccia Web di Transmission"
 
 msgid "Transport Layer Security (TLS)"
 msgstr "Transport Layer Security (TLS)"
@@ -13912,7 +13929,7 @@ msgid "Trivial File Transfer Protocol"
 msgstr "Trivial File Transfer Protocol (TFTP)"
 
 msgid "Trust Account Status"
-msgstr ""
+msgstr "Stato degli account affidabili"
 
 msgid "Trusted Domains"
 msgstr "Domini protetti"
@@ -13968,7 +13985,7 @@ msgid "UFS with Soft Updates"
 msgstr "UFS con aggiornamenti software"
 
 msgid "UNMAP"
-msgstr ""
+msgstr "UNMAP"
 
 msgid "UNMAP Block Offset"
 msgstr ""
@@ -13983,16 +14000,16 @@ msgid "UNMAP Maximum LBA"
 msgstr ""
 
 msgid "UNZIP"
-msgstr ""
+msgstr "Scompattare"
 
 msgid "UP"
-msgstr ""
+msgstr "SU"
 
 msgid "UPS"
 msgstr "UPS"
 
 msgid "UPS Driver List"
-msgstr ""
+msgstr "Lista dei driver per UPS"
 
 msgid "UPS Identifier"
 msgstr "Identificativo UPS"
@@ -14043,10 +14060,10 @@ msgid "UPS goes on battery"
 msgstr "Inizio alimentazione tramite la batteria dell'UPS"
 
 msgid "UPS is disabled."
-msgstr ""
+msgstr "UPS è disabilitato"
 
 msgid "UPS load"
-msgstr ""
+msgstr "Carico UPS"
 
 msgid "UPS model"
 msgstr "Modello UPS"
@@ -14091,19 +14108,19 @@ msgid "UTF-8 Only"
 msgstr "Solo UTF-8"
 
 msgid "UUID"
-msgstr ""
+msgstr "UUID"
 
 msgid "Umask"
 msgstr "Umask"
 
 msgid "Unable to open directory."
-msgstr ""
+msgstr "Impossibile aprire la cartella"
 
 msgid "Unable to open file"
-msgstr ""
+msgstr "Impossibile aprire il file"
 
 msgid "Unable to read directory."
-msgstr ""
+msgstr "Impossibile leggere la cartella"
 
 msgid "Unavailable"
 msgstr "Non disponibile"
@@ -14112,10 +14129,10 @@ msgid "Uncorrected read errors reported to the operating system."
 msgstr "Errori di lettura corretti segnalato al sistema operativo."
 
 msgid "Undefined"
-msgstr ""
+msgstr "Non definito"
 
 msgid "Undefined Type"
-msgstr ""
+msgstr "Tipo non definito"
 
 msgid "Unformated"
 msgstr "Non formattato"
@@ -14136,6 +14153,8 @@ msgid ""
 "Unique 16-bit tag value of this portal-group. If not specified, the value is "
 "generated automatically."
 msgstr ""
+"Valore univoco del tag a 16 bit di questo gruppo portale. Se non "
+"specificato, il valore è generato automaticamente"
 
 msgid "Unison"
 msgstr "Unison"
@@ -14159,13 +14178,13 @@ msgid "Unknown Aggregation Protocol"
 msgstr "Protocollo di Aggregazione sconosciuto"
 
 msgid "Unknown Provider"
-msgstr ""
+msgstr "Provider sconosciuto"
 
 msgid "Unknown or Unformatted"
 msgstr "Sconosciuto o non formattato"
 
 msgid "Unknown or undocumented attribute."
-msgstr ""
+msgstr "Attributo sconosciuto o non documentato"
 
 msgid "Unknown or unformatted"
 msgstr "Sconosciuto o non formattato"
@@ -14174,7 +14193,7 @@ msgid "Unknown size"
 msgstr "Dimensione sconosciuta"
 
 msgid "Unlimited"
-msgstr ""
+msgstr "Illimitato"
 
 msgid "Unload"
 msgstr "Scarica"
@@ -14192,16 +14211,16 @@ msgid "Unmounting..."
 msgstr "Smontaggio in corso..."
 
 msgid "Unrestricted"
-msgstr ""
+msgstr "Senza restrizioni"
 
 msgid "Unzip"
-msgstr ""
+msgstr "Scompatta"
 
 msgid "Up"
 msgstr "Up"
 
 msgid "Updatenotifier"
-msgstr ""
+msgstr "Notifica dell'aggiornamento"
 
 msgid "Upgrade Firmware"
 msgstr "Aggiornamento firmware"
@@ -14232,19 +14251,19 @@ msgid "Uptime Statistics"
 msgstr "Statistiche di funzionamento"
 
 msgid "Use"
-msgstr ""
+msgstr "Usa"
 
 msgid "Use Bytes/sec instead of Bits/sec for network throughput display."
 msgstr "Usare Bytes/sec invece di Bits/sec per il traffico di rete."
 
 msgid "Use Default TLS Trust File"
-msgstr ""
+msgstr "Usa il file TLS sicuro di default"
 
 msgid "Use Encryption"
 msgstr "Usa cifratura"
 
 msgid "Use HTTPS"
-msgstr ""
+msgstr "Utilizza HTTPS"
 
 msgid ""
 "Use HTTPS, both when checking for IP changes and updating the DNS record. "
@@ -14303,7 +14322,7 @@ msgid "Use the \"Video\" container"
 msgstr ""
 
 msgid "Use the ZFS ACL driver."
-msgstr ""
+msgstr "Usare il driver ZFS ACL"
 
 msgid ""
 "Use the new 64k streaming read and write variant SMB requests introduced "
@@ -14325,11 +14344,16 @@ msgid ""
 "Use this network interface as source of IP address changes instead of "
 "querying an external server."
 msgstr ""
+"Usare questa interfaccia di rete come sorgente per il cambio di indirizzi IP "
+"invece di interrogare un server esterno."
 
 msgid ""
 "Use this option to fake an address update with a \"random\" address in the "
 "203.0.113.0/24 range before updating with the actual IP address."
 msgstr ""
+"Usare questa opzione per inventare un aggiornamento di indirizzo con un "
+"indirizzo \"casuale\" nell'intervallo 203.0.113.0/24 prima di aggiornare con "
+"l'indirizzo IP effettivo."
 
 #, php-format
 msgid ""
@@ -14368,12 +14392,17 @@ msgid ""
 "guest service. This user must exist in the password file, but does not "
 "require a valid login."
 msgstr ""
+"Usare questa opzione per sovrascrivere lo username (\"ftp\" di default) che "
+"sarà usato per accedere ai servizi specificati come ospite. Qualsiasi siano "
+"i privilegi che ha questo utente, saranno disponibili a qualsiasi client che "
+"si collega al servizio guest. Questo utente deve esistere nel file password, "
+"ma non richiede una login valida."
 
 msgid "Use toggle button instead of enable/disable buttons."
 msgstr "Utilizzare l'interruttore invece che attivare/disattivare i bottoni."
 
 msgid "Use zfsacl"
-msgstr ""
+msgstr "Usare ZFS ACL"
 
 msgid "Used"
 msgstr "Usato"
@@ -14386,12 +14415,16 @@ msgid ""
 "account but is impacted by compression, deduplication and quotas. Alloc/Free "
 "lists the raw storage information of a pool."
 msgstr ""
+"Usato/Disponibile elenca le informazioni di memorizzazione dopo aver "
+"considerato tutti gli elementi ridondanti ma è influenzato dalla "
+"compressione, deduplicazione e quote. Allocato/Libero elenca le informazioni "
+"di memorizzazione di un pool"
 
 msgid "User"
 msgstr "Utente"
 
 msgid "User Agent"
-msgstr ""
+msgstr "User Agent"
 
 msgid "User ID"
 msgstr "ID utente"
@@ -14415,7 +14448,7 @@ msgid "User Suffix"
 msgstr "Suffisso utente"
 
 msgid "User access"
-msgstr ""
+msgstr "Accesso utente"
 
 msgid "User account is marked for deletion"
 msgstr "Account utente segnalato per la cancellazione"
@@ -14427,16 +14460,16 @@ msgid "User account is unlocked"
 msgstr "Accounte utente sbloccato"
 
 msgid "User agent string"
-msgstr ""
+msgstr "Stringa dello user agent"
 
 msgid "User portal permission."
-msgstr ""
+msgstr "Permessi del portale dell'utente"
 
 msgid "Username"
 msgstr "Username"
 
 msgid "Username to log into the transmission web interface."
-msgstr ""
+msgstr "Nome utente per accedere all'interfaccia web di Transmission"
 
 msgid "Users"
 msgstr "Utenti"
@@ -14456,13 +14489,13 @@ msgid "Using %s bytes fragment size."
 msgstr "Dimensione frammenti in uso %s."
 
 msgid "Using defaults"
-msgstr ""
+msgstr "Uso di default"
 
 msgid "VCPUs"
 msgstr "VCPUs"
 
 msgid "VERBOSE - log detailed information"
-msgstr ""
+msgstr "VERBOSO - informazioni dettagliate del log"
 
 msgid "VFS fruit:encoding"
 msgstr ""
@@ -14514,7 +14547,7 @@ msgid "VNC Password"
 msgstr "Password VNC"
 
 msgid "VOB File"
-msgstr ""
+msgstr "File in formato VOB"
 
 msgid "Value"
 msgstr "Valore"
@@ -14536,13 +14569,13 @@ msgid "Vendor ID"
 msgstr "ID venditore"
 
 msgid "Verbosity of information that is logged."
-msgstr ""
+msgstr "Verbosità dell'informazione che è tracciata"
 
 msgid "Verify"
 msgstr "Verifica"
 
 msgid "Verify Address"
-msgstr ""
+msgstr "Indirizzo di verifica"
 
 msgid "Version"
 msgstr "Versione"
@@ -14655,7 +14688,7 @@ msgid "WARNING"
 msgstr "ATTENZIONE"
 
 msgid "WAV Audio File"
-msgstr ""
+msgstr "File audio in formato WAV"
 
 msgid "WEP"
 msgstr "WEP"
@@ -14687,7 +14720,7 @@ msgid "WLAN is unlocked"
 msgstr "WLAN è sbloccata"
 
 msgid "WORKGROUP"
-msgstr ""
+msgstr "WORKGROUP"
 
 msgid "WPA"
 msgstr "WPA"
@@ -14723,32 +14756,32 @@ msgid "Warning Level"
 msgstr "Livello di richiamo"
 
 msgid "Watch Folder"
-msgstr ""
+msgstr "Folder sotto controllo"
 
 msgid "Web Service Discovery"
-msgstr ""
+msgstr "Scoperta del servizio web"
 
 msgid "Web Service Discovery Settings"
-msgstr ""
+msgstr "Impostazioni della scoperta del servizio web"
 
 #, php-format
 msgid "Web interface port. The default port is %d."
-msgstr ""
+msgstr "Porta dell'interfaccia web. La porta di default è %d"
 
 msgid "WebDAV"
 msgstr "WebDAV"
 
 msgid "WebDAV Name"
-msgstr ""
+msgstr "Nome WebDAV"
 
 msgid "WebDAV record is locked"
-msgstr ""
+msgstr "Il record WebDAV è bloccato"
 
 msgid "WebDAV record is marked for deletion"
-msgstr ""
+msgstr "Il record WebDAV è segnato per la cancellazione"
 
 msgid "WebDAV record is unlocked"
-msgstr ""
+msgstr "Il record WebDAV è sbloccato"
 
 msgid "WebGUI"
 msgstr "WebGUI"
@@ -14757,7 +14790,7 @@ msgid "WebGUI and Root Password"
 msgstr "Password della WebGUI e di Root"
 
 msgid "WebNFS"
-msgstr ""
+msgstr "WebNFS"
 
 msgid "Webserver"
 msgstr "Webserver"
@@ -14775,13 +14808,13 @@ msgid "Week Days"
 msgstr "Giorni della settimana"
 
 msgid "Week(s)"
-msgstr ""
+msgstr "Settimana(e)"
 
 msgid "Weekdays"
 msgstr "Giorni della settimana"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Settimanale"
 
 msgid "Western Digital attribute."
 msgstr "Attributi Western Digital."
@@ -14805,6 +14838,8 @@ msgstr ""
 msgid ""
 "When Samba AD is enabled, stand-alone SMB file sharing cannot be used."
 msgstr ""
+"Quando Samba AD è attivato, la modalità di condivisione file stand-alone di "
+"SMB non può essere utilizzata."
 
 msgid ""
 "When UNMAP support is enabled, this option specifies provisioning type."
@@ -14854,7 +14889,7 @@ msgid "Wireless configuration"
 msgstr "Configurazione wireless"
 
 msgid "Word Document"
-msgstr ""
+msgstr "Documento Word"
 
 msgid "Work Directory"
 msgstr "Directory di lavoro"
@@ -14863,7 +14898,7 @@ msgid "Workgroup"
 msgstr "Workgroup"
 
 msgid "Workgroup Name"
-msgstr ""
+msgstr "Nome del gruppo di lavoro"
 
 msgid "Wrap text:"
 msgstr ""
@@ -14900,10 +14935,10 @@ msgid "Y-axis Range"
 msgstr "Intervallo dell'asse Y"
 
 msgid "Year(s)"
-msgstr ""
+msgstr "Anno(i)"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Annuale"
 
 msgid "Yes"
 msgstr "Si"
@@ -14915,19 +14950,19 @@ msgid "Yesterday"
 msgstr "Ieri"
 
 msgid "You are not allowed to access the target directory."
-msgstr ""
+msgstr "Non sei autorizzato ad accedere alla cartella indicata."
 
 msgid "You are not allowed to access this directory."
-msgstr ""
+msgstr "Non sei autorizzato ad accedere a questa cartella"
 
 msgid "You are not allowed to access this file."
-msgstr ""
+msgstr "Non sei autorizzato ad accedere a questo file"
 
 msgid "You are not allowed to access this item."
-msgstr ""
+msgstr "Non sei autorizzato ad accedere a questo oggetto"
 
 msgid "You are not allowed to use this function."
-msgstr ""
+msgstr "Non sei autorizzato ad usare questa funzione"
 
 msgid ""
 "You can also install a package via SSH or console using the pkg install "
@@ -14968,7 +15003,7 @@ msgid "You have to select at least one item for '%s'."
 msgstr "Deve essere selezionato almeno un oggetto per '%s'."
 
 msgid "You haven't selected any item(s)."
-msgstr ""
+msgstr "Non hai selezionato nessun oggetto(i)"
 
 msgid ""
 "You may also have to do one or more of the following steps before you can "
@@ -15027,7 +15062,7 @@ msgid "You must select at least one authentication method."
 msgstr "è necessario scegliere almeno un metodo di autenticazione."
 
 msgid "You must supply a name."
-msgstr ""
+msgstr "Devi indicare un nome"
 
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
@@ -15059,13 +15094,13 @@ msgid "ZFS Adaptive Replacement Cache (ARC)"
 msgstr ""
 
 msgid "ZFS Cache Efficiency"
-msgstr ""
+msgstr "Efficenza della cache ZFS"
 
 msgid "ZFS Filesystem Information & Status"
-msgstr ""
+msgstr "Stato e informazione del filesystem ZFS"
 
 msgid "ZFS Filesystem Properties"
-msgstr ""
+msgstr "Proprietà del filesystem ZFS"
 
 msgid "ZFS L2ARC"
 msgstr ""
@@ -15080,7 +15115,7 @@ msgid "ZFS Pool I/O Statistics"
 msgstr "Statistiche del ZFS Pool I/O"
 
 msgid "ZFS Pool Information & Status"
-msgstr ""
+msgstr "Stato e informazione del pool ZFS"
 
 msgid "ZFS Pool Properties"
 msgstr "Proprietà del Pool ZFS"
@@ -15107,16 +15142,16 @@ msgid "ZFS Volume Properties"
 msgstr "Proprietà del volume ZFS"
 
 msgid "ZFS filesystem not found."
-msgstr ""
+msgstr "Filesystem ZFS non trovato"
 
 msgid "ZFS filesystem properties not available."
-msgstr ""
+msgstr "Le proprietà del filesystem ZFS non sono disponibli"
 
 msgid "ZFS pool not found."
-msgstr ""
+msgstr "ZFS pool non trovato"
 
 msgid "ZFS pool properties not available."
-msgstr ""
+msgstr "Le proprietà del pool ZFS non sono disponibli"
 
 msgid "ZFS volume"
 msgstr "Volume ZFS."
@@ -15127,10 +15162,10 @@ msgstr ""
 "modificato dopo la sua creazione"
 
 msgid "ZFS volume not found."
-msgstr ""
+msgstr "Volume ZFS non trovato"
 
 msgid "ZFS volume properties not available."
-msgstr ""
+msgstr "Le proprietà del volume ZFS non sono disponibli"
 
 msgid ""
 "ZFS volume size. You can use human-readable suffixes like K, KB, M, GB."
@@ -15138,7 +15173,7 @@ msgstr ""
 "Dimensione del volume ZFS. Puoi usare un suffisso tipo K, KB, M o GB."
 
 msgid "ZIP Archive"
-msgstr ""
+msgstr "Archivio in formato ZIP"
 
 msgid "Zeroconf/Bonjour"
 msgstr "Zeroconf/Bonjour"
@@ -15173,7 +15208,7 @@ msgid "e.g. %s"
 msgstr "es. %s"
 
 msgid "example.com"
-msgstr ""
+msgstr "esempio.com"
 
 msgid "filechooser"
 msgstr "Selezionatore dei file"
@@ -15200,13 +15235,13 @@ msgid "iSCSI Initiator Settings"
 msgstr "Settaggi dell'inizializzatore iSCSI"
 
 msgid "iSCSI Initiator is locked"
-msgstr ""
+msgstr "L'inizializzatore iSCSI è bloccato"
 
 msgid "iSCSI Initiator is marked for deletion"
-msgstr ""
+msgstr "L'inizializzatore iSCSI è contrassegnato per la cancellaziome"
 
 msgid "iSCSI Initiator is unlocked"
-msgstr ""
+msgstr "L'inizializzatore iSCSI è sbloccato"
 
 msgid "iSCSI Target"
 msgstr "Target iSCSI"
@@ -15218,7 +15253,7 @@ msgid "iSCSI Target ISTGT"
 msgstr ""
 
 msgid "iSCSI Target Information & Status"
-msgstr ""
+msgstr "Stato e informazione dell'obiettivo iSCSI"
 
 msgid "iSCSI Target Logical Unit Controller"
 msgstr "iSCSI Target Logical Unit Controller"
@@ -15252,6 +15287,8 @@ msgid ""
 "iSNS registration period. Registered Network Entity not updated during this "
 "period will be unregistered. The default is 900."
 msgstr ""
+"Periodo di registrazione iSNS. Le entità di rete registrate non aggiornate "
+"durante questo periodo saranno deregistrate. Il default è 900."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"
@@ -15263,14 +15300,20 @@ msgid ""
 "krb5 - Use Kerberos V5 protocol to authenticate users before granting access "
 "to the shared filesystem."
 msgstr ""
+"krdb5 - Usare il protocollo Kerberos V5 per autenticare gli utenti prima di "
+"concedere l'accesso al filesystem condiviso."
 
 msgid "krb5i - Use Kerberos V5 authentication with data integrity checksums."
 msgstr ""
+"krb5i - Usare l'autenticazione Kerberos V5 con il controllo dell'integrità "
+"dei dati."
 
 msgid ""
 "krb5p - Use Kerberos V5 authentication with data integrity checksums and "
 "data encryption."
 msgstr ""
+"krb5p - Usare l'autenticazione Kerberos V5 con il controllo dell'integrità e "
+"la crittografia dei dati."
 
 msgid "less then 1.8\"."
 msgstr "meno di 1,8\"."
@@ -15283,11 +15326,14 @@ msgstr "loader.conf"
 
 msgid "mapall - Specifies a mapping for all client UIDs (including root)"
 msgstr ""
+"mapall - Specifica una mappatura per tutti i client UIDs (incluso root)."
 
 msgid ""
 "maproot - The credential of the specified user is used for remote access by "
 "root."
 msgstr ""
+"maproot - La credenziale dell'utente specificato è usata per l'accesso "
+"remoto da root."
 
 msgid "missing"
 msgstr "mancanti"
@@ -15315,10 +15361,10 @@ msgid "no"
 msgstr "no"
 
 msgid "no delay"
-msgstr ""
+msgstr "Senza ritardo"
 
 msgid "no pools available"
-msgstr ""
+msgstr "Non ci sono pool disponibili"
 
 msgid "none"
 msgstr "nessuno"
@@ -15348,7 +15394,7 @@ msgid "scan target failed."
 msgstr "Scansione del target fallita."
 
 msgid "scponly - Secure Copy Protocol only"
-msgstr ""
+msgstr "scponly - Solo Protocollo di Copia Sicura"
 
 msgid "seconds)"
 msgstr "secondi)"
