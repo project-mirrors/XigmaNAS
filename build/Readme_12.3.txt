@@ -146,6 +146,7 @@ Changes:
 - Upgrade unison to v2.52.0.
 - Upgrade devcpu-data-amd to v20220221.
 - Upgrade syncthing to v1.19.1.
+- Upgrade msmtp to v1.8.20.
 
 Fixes:
 -
