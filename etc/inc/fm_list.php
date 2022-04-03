@@ -42,7 +42,13 @@ require_once 'fm_qxpath.php';
 
 use common\session;
 
-function make_list($_list1,$_list2) { // make list of files
+/**
+ *	Make a list of files
+ *	@param array $_list1
+ *	@param array $_list2
+ *	@return array
+ */
+function make_list($_list1,$_list2) {
 	$list = [];
 	if($GLOBALS['srt'] == 'yes'):
 		$list1 = $_list1;
@@ -64,10 +70,15 @@ function make_list($_list1,$_list2) { // make list of files
 	return $list;
 }
 /**
- make table of files in dir
- make tables & place results in reference-variables passed to function
- also 'return' total filesize & total number of items
-*/
+ *	make table of files in dir
+ *	make tables & place results in reference-variables passed to function
+ *	also 'return' total filesize & total number of items
+ *	@param string $dir
+ *	@param array $dir_list
+ *	@param array $file_list
+ *	@param int $tot_file_size
+ *	@param int $num_items
+ */
 function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 	$tot_file_size = $num_items = 0;
 
@@ -88,65 +99,90 @@ function make_tables($dir,&$dir_list,&$file_list,&$tot_file_size,&$num_items) {
 		$tot_file_size += $new_file_size;
 		$num_items++;
 		if(is_dir($dir . DIRECTORY_SEPARATOR . $new_item)):
-			if($GLOBALS['order'] == 'mod'):
-				$dir_list[$new_item] = @filemtime($abs_new_item);
-			else:
-//				order == 'size', 'type' or 'name'
-				$dir_list[$new_item] = $new_item;
-			endif;
+			switch($GLOBALS['order']):
+				case 'mod':
+					$dir_list[$new_item] = @filemtime($abs_new_item);
+					break;
+//				case 'size':
+//				case 'type':
+//				case 'name':
+				default:
+					$dir_list[$new_item] = $new_item;
+					break;
+			endswitch;
 		else:
-			if($GLOBALS['order'] == 'size'):
-				$file_list[$new_item] = $new_file_size;
-			elseif ($GLOBALS['order'] == 'mod'):
-				$file_list[$new_item] = @filemtime($abs_new_item);
-			elseif ($GLOBALS['order'] == 'type'):
-				$file_list[$new_item] = get_mime_type($dir,$new_item,'type');
-			else:
-//				order == 'name'
-				$file_list[$new_item] = $new_item;
-			endif;
+			switch($GLOBALS['order']):
+				case 'mod':
+					$file_list[$new_item] = @filemtime($abs_new_item);
+					break;
+				case 'size':
+					$file_list[$new_item] = $new_file_size;
+					break;
+				case 'type':
+					$file_list[$new_item] = get_mime_type($dir,$new_item,'type');
+					break;
+//				case 'name':
+				default:
+					$file_list[$new_item] = $new_item;
+					break;
+			endswitch;
 		endif;
 	endwhile;
 	closedir($handle);
 //	sort directories
 	if(is_array($dir_list)):
-		if($GLOBALS['order'] == 'mod'):
-			if ($GLOBALS['srt'] == 'yes'):
-				arsort($dir_list);
-			else:
-				asort($dir_list);
-			endif;
-		else:
-//			order == 'size', 'type' or 'name'
-			if ($GLOBALS['srt'] == 'yes'):
-				ksort($dir_list);
-			else:
-				krsort($dir_list);
-			endif;
-		endif;
+		switch($GLOBALS['order']):
+			case 'mod':
+				if($GLOBALS['srt'] == 'yes'):
+					arsort($dir_list);
+				else:
+					asort($dir_list);
+				endif;
+				break;
+			case 'size':
+			case 'type':
+				if($GLOBALS['srt'] == 'yes'):
+					ksort($dir_list);
+				else:
+					krsort($dir_list);
+				endif;
+				break;
+//			case 'name':
+			default:
+				if($GLOBALS['srt'] == 'yes'):
+					ksort($dir_list,SORT_NATURAL | SORT_FLAG_CASE);
+				else:
+					krsort($dir_list,SORT_NATURAL | SORT_FLAG_CASE);
+				endif;
+				break;
+		endswitch;
 	endif;
 //	sort files
 	if(is_array($file_list)):
-		if($GLOBALS['order'] == 'mod'):
-			if($GLOBALS['srt'] == 'yes'):
-				arsort($file_list);
-			else:
-				asort($file_list);
-			endif;
-		elseif($GLOBALS['order'] == 'size' || $GLOBALS['order'] == 'type'):
-			if($GLOBALS['srt'] == 'yes'):
-				asort($file_list);
-			else:
-				arsort($file_list);
-			endif;
-		else:
-//			order == 'name'
-			if($GLOBALS['srt'] == 'yes'):
-				ksort($file_list);
-			else:
-				krsort($file_list);
-			endif;
-		endif;
+		switch($GLOBALS['order']):
+			case 'mod':
+				if($GLOBALS['srt'] == 'yes'):
+					arsort($file_list);
+				else:
+					asort($file_list);
+				endif;
+				break;
+			case 'size':
+			case 'type':
+				if($GLOBALS['srt'] == 'yes'):
+					asort($file_list);
+				else:
+					arsort($file_list);
+				endif;
+				break;
+//			case 'name':
+			default:
+				if($GLOBALS['srt'] == 'yes'):
+					ksort($file_list,SORT_NATURAL | SORT_FLAG_CASE);
+				else:
+					krsort($file_list,SORT_NATURAL | SORT_FLAG_CASE);
+				endif;
+		endswitch;
 	endif;
 }
 /**
@@ -173,7 +209,7 @@ function print_table($dir,$list) {
 		endif;
 		echo '<img style="vertical-align:middle" width="16" height="16" src="/images/fm_img/',get_mime_type($dir,$item,'img'),'" alt="">&nbsp;';
 		$s_item = $item;
-		if(strlen($s_item)>50):
+		if(strlen($s_item) > 50):
 			$s_item = substr($s_item,0,47) . '...';
 		endif;
 		echo htmlspecialchars($s_item);
@@ -220,7 +256,7 @@ function print_table($dir,$list) {
 	endforeach;
 }
 /**
- MAIN FUNCTION
+ *	main function
  */
 function list_dir($dir) {
 	if(!get_show_item($dir,null)):
@@ -229,7 +265,7 @@ function list_dir($dir) {
 //	make file & dir tables, & get total filesize & number of items
 	make_tables($dir,$dir_list,$file_list,$tot_file_size,$num_items);
 	$s_dir = $dir;
-	if (strlen($s_dir) > 50 ):
+	if(strlen($s_dir) > 50):
 		$s_dir = '...' . substr($s_dir,-47);
 	endif;
 	show_header(gtext('Directory') . ': ' . _breadcrumbs_list($dir));
