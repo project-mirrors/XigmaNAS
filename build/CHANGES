@@ -1,7 +1,7 @@
 XigmaNAS® 13.0.0.5 - Glowpanel
 -------------------------
 Changes:
-- Upgrade to FreeBSD 13.0-RELEASE P10.
+- Upgrade to FreeBSD 13.0-RELEASE P11.
 - Upgrade arcconf to v3_10_24700.
 - Upgrade isboot to v0.2.14.
 - Upgrade gzip to v1.11.
