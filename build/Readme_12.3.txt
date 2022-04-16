@@ -147,6 +147,7 @@ Changes:
 - Upgrade syncthing to v1.19.1.
 - Upgrade msmtp to v1.8.20.
 - Upgrade nut to v2022.03.18.
+- Upgrade smartmontools to v7.3.
 
 Fixes:
 -
