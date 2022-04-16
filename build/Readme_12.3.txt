@@ -133,7 +133,6 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.32.
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
-- Upgrade php to v7.4.28.
 - Upgrade samba to v4.13.17.
 - Upgrade devcpu-data-intel to v20220207.
 - Upgrade phpmyadmin to v5.1.3.
@@ -148,6 +147,7 @@ Changes:
 - Upgrade nut to v2022.03.18.
 - Upgrade smartmontools to v7.3.
 - Upgrade cdialog to v1.3-20220414.
+- Upgrade php to v7.4.29.
 
 Fixes:
 -
