@@ -138,7 +138,6 @@ Changes:
 - Upgrade devcpu-data-intel to v20220207.
 - Upgrade phpmyadmin to v5.1.3.
 - Upgrade lighttpd to v1.4.64.
-- Upgrade cdialog to v1.3-20220117.
 - Upgrade zoneinfo to 2022a.
 - Upgrade nano to v6.2.
 - Upgrade sudo to v1.9.10.
@@ -148,6 +147,7 @@ Changes:
 - Upgrade msmtp to v1.8.20.
 - Upgrade nut to v2022.03.18.
 - Upgrade smartmontools to v7.3.
+- Upgrade cdialog to v1.3-20220414.
 
 Fixes:
 -
