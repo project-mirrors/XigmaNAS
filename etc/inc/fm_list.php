@@ -391,7 +391,14 @@ function list_dir($dir) {
 				print_table($dir,make_list($dir_list,$file_list));
 	echo	'</tbody>',"\n";
 //	print number of items & total filesize
-	$free = format_bytes(diskfreespace('/'),2,false,false);
+	$free = 0;
+	$abs_dir = get_abs_dir($dir);
+	if($abs_dir !== false):
+		$free_space = diskfreespace($abs_dir);
+		if($free_space !== false):
+			$free = format_bytes($free_space,2,false,false);
+		endif;
+	endif;
 	echo	'<tfoot>',"\n",
 				'<tr>',"\n",
 					'<th class="lcell"></th>',"\n",
