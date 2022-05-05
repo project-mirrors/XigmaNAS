@@ -130,7 +130,6 @@ Changes:
 - Upgrade gzip to v1.11.
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
-- Upgrade virtualbox-ose to v6.1.32.
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade samba to v4.13.17.
@@ -148,6 +147,7 @@ Changes:
 - Upgrade smartmontools to v7.3.
 - Upgrade cdialog to v1.3-20220414.
 - Upgrade php to v7.4.29.
+- Upgrade virtualbox-ose to v6.1.34.
 
 Fixes:
 -
