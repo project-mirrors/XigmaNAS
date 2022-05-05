@@ -121,7 +121,6 @@ Changes:
 - Upgrade lighttpd to v1.4.64.
 - Upgrade php to v8.0.16.
 - Upgrade zoneinfo to 2022a.
-- Upgrade nano to v6.2.
 - Upgrade sudo to v1.9.10.
 - Upgrade unison to v2.52.0.
 - Upgrade devcpu-data-amd to v20220221.
@@ -131,6 +130,7 @@ Changes:
 - Upgrade smartmontools to v7.3.
 - Upgrade cdialog to v1.3-20220414.
 - Upgrade virtualbox-ose to v6.1.34.
+- Upgrade nano to v6.3.
 
 Fixes:
 -
