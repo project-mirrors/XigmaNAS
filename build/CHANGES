@@ -12,7 +12,6 @@ Changes:
 - Upgrade phpmyadmin to v5.1.3.
 - Upgrade lighttpd to v1.4.64.
 - Upgrade zoneinfo to 2022a.
-- Upgrade nano to v6.2.
 - Upgrade sudo to v1.9.10.
 - Upgrade unison to v2.52.0.
 - Upgrade devcpu-data-amd to v20220221.
@@ -23,6 +22,10 @@ Changes:
 - Upgrade cdialog to v1.3-20220414.
 - Upgrade php to v7.4.29.
 - Upgrade virtualbox-ose to v6.1.34.
+- Upgrade nano to v6.3.
+
+Fixes:
+-
 
 
 Permanent restrictions:
