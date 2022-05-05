@@ -131,6 +131,7 @@ Changes:
 - Upgrade cdialog to v1.3-20220414.
 - Upgrade virtualbox-ose to v6.1.34.
 - Upgrade nano to v6.3.
+- Upgrade nut to v2022.04.27.
 
 Fixes:
 -

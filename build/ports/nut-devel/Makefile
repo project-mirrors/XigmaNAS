@@ -9,8 +9,8 @@ PKGNAMESUFFIX=	-devel
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	9326073d7
-NUT_COMMIT_DATE=	2022.03.18
+GH_TAGNAME=	9cb8de681
+NUT_COMMIT_DATE=	2022.04.27
 
 #MAKE_JOBS_UNSAFE=	yes
 GNU_CONFIGURE=	yes
@@ -138,10 +138,10 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/usbhid-ups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/victronups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/libupsclient.so.5 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${LN} -f -v -s /usr/local/lib/libupsclient.so.5 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.1 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${LN} -f -v -s /usr/local/lib/libnutscan.so.1 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/libupsclient.so.6 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${LN} -f -v -s /usr/local/lib/libupsclient.so.6 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${LN} -f -v -s /usr/local/lib/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsc ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upscmd ${XIGMANAS_ROOTFS}/usr/local/bin

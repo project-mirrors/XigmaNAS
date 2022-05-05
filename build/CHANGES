@@ -21,11 +21,11 @@ Changes:
 - Upgrade devcpu-data-amd to v20220221.
 - Upgrade syncthing to v1.19.1.
 - Upgrade msmtp to v1.8.20.
-- Upgrade nut to v2022.03.18.
 - Upgrade smartmontools to v7.3.
 - Upgrade cdialog to v1.3-20220414.
 - Upgrade virtualbox-ose to v6.1.34.
 - Upgrade nano to v6.3.
+- Upgrade nut to v2022.04.27.
 
 Fixes:
 -
