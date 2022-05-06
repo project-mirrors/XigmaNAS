@@ -110,7 +110,6 @@ Changes:
 - Upgrade php to v8.0.13.
 - Upgrade inadyn to v2.9.0.
 - Upgrade wsdd to v0.7.0.
-- Upgrade gzip to v1.11.
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
 - Upgrade bash to v5.1 p16.
@@ -133,6 +132,7 @@ Changes:
 - Upgrade iperf3 to v3.11.
 - Upgrade devcpu-data-amd to v20220414.
 - Upgrade devcpu-data-intel to v20220419.
+- Upgrade gzip to v1.12.
 
 Fixes:
 -

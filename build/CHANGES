@@ -4,7 +4,6 @@ Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P11.
 - Upgrade arcconf to v3_10_24700.
 - Upgrade isboot to v0.2.14.
-- Upgrade gzip to v1.11.
 - Upgrade nut to v2021.12.09.
 - Upgrade inadyn to v2.9.1.
 - Upgrade unison to v2.51.5.
@@ -27,6 +26,7 @@ Changes:
 - Upgrade iperf3 to v3.11.
 - Upgrade devcpu-data-amd to v20220414.
 - Upgrade devcpu-data-intel to v20220419.
+- Upgrade gzip to v1.12.
 
 Fixes:
 -
