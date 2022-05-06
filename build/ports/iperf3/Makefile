@@ -1,5 +1,5 @@
 PORTNAME=		iperf
-PORTVERSION=    3.10.1
+PORTVERSION=    3.11
 PORTREVISION=   0
 CATEGORIES=	benchmarks
 COMMENT=	Improved tool to measure TCP and UDP bandwidth
@@ -9,9 +9,11 @@ USE_GITHUB=	yes
 GH_ACCOUNT=     esnet 
 GH_TAGNAME=     169b0d9
 
-USES=		libtool ssl
+USES=		cpe libtool ssl
 GNU_CONFIGURE=	yes
 USE_LDCONFIG=	yes
+
+CPE_VENDOR=	iperf_project
 
 .include <bsd.port.options.mk>
 

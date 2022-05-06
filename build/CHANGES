@@ -23,6 +23,7 @@ Changes:
 - Upgrade nano to v6.3.
 - Upgrade nut to v2022.04.27.
 - Upgrade syncthing to v1.20.1.
+- Upgrade iperf3 to v3.11.
 
 Fixes:
 -
