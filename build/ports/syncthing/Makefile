@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.19.1
+PORTVERSION=	1.20.1
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -9,8 +9,9 @@ DISTNAME=	${PORTNAME}-source-${DISTVERSIONPREFIX}${PORTVERSION}
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Encrypted file sync tool
 
-BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
+#BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
 
+USES=		cpe go:modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
 
 .for x in ${BINS}
@@ -38,10 +39,10 @@ NO_PKG_REGISTER= yes
 
 do-build:
 	@( cd ${WRKSRC}/${PORTNAME} ; \
-		${SETENV} ${MAKE_ENV} CGO_ENABLED=0 GOFLAGS="-mod=vendor" go run build.go -version v${PORTVERSION} -no-upgrade build ; \
-		${SETENV} ${MAKE_ENV} CGO_ENABLED=0 GOFLAGS="-mod=vendor" go run build.go -version v${PORTVERSION} -no-upgrade build stdiscosrv ; \
-		${SETENV} ${MAKE_ENV} CGO_ENABLED=0 GOFLAGS="-mod=vendor" go run build.go -version v${PORTVERSION} -no-upgrade build strelaysrv ; \
-		${SETENV} ${MAKE_ENV} CGO_ENABLED=0 GOFLAGS="-mod=vendor" go run build.go -version v${PORTVERSION} -no-upgrade build strelaypoolsrv ; \
+		${SETENV} ${MAKE_ENV} ${GO_ENV} GOPROXY=off ${GO_CMD} run build.go -version v${PORTVERSION} -no-upgrade build ; \
+		${SETENV} ${MAKE_ENV} ${GO_ENV} GOPROXY=off ${GO_CMD} run build.go -version v${PORTVERSION} -no-upgrade build stdiscosrv; \
+		${SETENV} ${MAKE_ENV} ${GO_ENV} GOPROXY=off ${GO_CMD} run build.go -version v${PORTVERSION} -no-upgrade build strelaysrv; \
+		${SETENV} ${MAKE_ENV} ${GO_ENV} GOPROXY=off ${GO_CMD} run build.go -version v${PORTVERSION} -no-upgrade build strelaypoolsrv; \
 		)
 
 do-install:
