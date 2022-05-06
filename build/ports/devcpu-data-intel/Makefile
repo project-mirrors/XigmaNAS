@@ -1,6 +1,6 @@
 PORTNAME=	data
 DISTVERSIONPREFIX=	microcode-
-DISTVERSION=	20220207
+DISTVERSION=	20220419
 PORTREVISION=	0
 CATEGORIES=	sysutils
 PKGNAMEPREFIX=	devcpu-
@@ -40,7 +40,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/intel-ucode.bin ${STAGEDIR}${FWDIR}/
 
 # XigmaNAS® start install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update
 
 	${MKDIR} ${XIGMANAS_ROOTFS}${DATADIR}/
