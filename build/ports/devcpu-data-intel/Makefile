@@ -47,10 +47,6 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/mcodes/* ${XIGMANAS_ROOTFS}${DATADIR}/
 	${MKDIR} ${XIGMANAS_ROOTFS}${FWDIR}
 	${INSTALL_DATA} ${WRKSRC}/intel-ucode.bin ${XIGMANAS_ROOTFS}${FWDIR}/
-
-
-
-
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
