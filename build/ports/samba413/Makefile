@@ -728,6 +728,12 @@ post-install:
 	for file in tdbbackup tdbdump tdbrestore tdbtool; do \
 		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
 	done
+# py-markdown importlib_metadata zipp.py
+	@${CP} -Rpv ${PREFIX}/lib/python3.8/site-packages/markdown ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.8/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
+	for file in zipp.py; do \
+		${CP} -pv ${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
+	done
 # XigmaNAS® install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
