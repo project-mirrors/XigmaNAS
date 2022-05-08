@@ -149,6 +149,7 @@ Changes:
 - Upgrade devcpu-data-intel to v20220419.
 - Upgrade gzip to v1.12.
 - Upgrade unison to v2.52.1.
+- Upgrade rsync to v3.2.4.
 
 Fixes:
 -
