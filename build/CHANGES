@@ -15,7 +15,6 @@ Changes:
 - Upgrade php to v8.0.16.
 - Upgrade zoneinfo to 2022a.
 - Upgrade sudo to v1.9.10.
-- Upgrade unison to v2.52.0.
 - Upgrade msmtp to v1.8.20.
 - Upgrade smartmontools to v7.3.
 - Upgrade cdialog to v1.3-20220414.
@@ -27,6 +26,7 @@ Changes:
 - Upgrade devcpu-data-amd to v20220414.
 - Upgrade devcpu-data-intel to v20220419.
 - Upgrade gzip to v1.12.
+- Upgrade unison to v2.52.1.
 
 Fixes:
 -
