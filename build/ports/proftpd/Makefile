@@ -1,5 +1,5 @@
 PORTNAME=		proftpd
-PORTVERSION=	1.3.7c
+PORTVERSION=	1.3.7d
 PORTREVISION=	0
 CATEGORIES=		ftp
 COMMENT=		Highly configurable FTP daemon
@@ -66,8 +66,8 @@ pre-build:
 	@cd ${WRKSRC} && ${MAKE_CMD} include/buildstamp.h
 
 post-install:
-# XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 	@${LN} -fsv /var/etc/proftpd.conf ${XIGMANAS_ROOTFS}/usr/local/etc/proftpd.conf
@@ -79,5 +79,7 @@ post-install:
 .for file in ftpdctl ftptop ftpwho
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}/usr/local/bin
 .endfor
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
