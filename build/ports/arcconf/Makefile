@@ -1,5 +1,5 @@
 PORTNAME=	arcconf
-DISTVERSION=	v3_07_23971
+DISTVERSION=	v4_01_24763
 PORTREVISION=	0
 CATEGORIES=		sysutils
 COMMENT=		Adaptec SCSI/SAS RAID administration tool
@@ -20,7 +20,7 @@ LIB_DEPENDS+=    	libstdc++.so.6:lang/gcc${GCC_DEFAULT}
 USE_GCC=        	yes
 
 .include <bsd.port.pre.mk>
-DIST_TYPE=		12_x64
+DIST_TYPE=		12_x86_64
 NO_BUILD=		yes
 NO_WRKSUBDIR=	yes
 

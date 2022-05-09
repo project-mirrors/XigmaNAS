@@ -150,6 +150,7 @@ Changes:
 - Upgrade gzip to v1.12.
 - Upgrade unison to v2.52.1.
 - Upgrade rsync to v3.2.4.
+- Upgrade arcconf to v4.01.24763.
 
 Fixes:
 -
