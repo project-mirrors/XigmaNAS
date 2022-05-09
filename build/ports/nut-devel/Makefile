@@ -7,15 +7,17 @@ MAINTAINER=	zoon01@xigmanas.com
 
 PKGNAMESUFFIX=	-devel
 
+CONFLICTS=	nut-[0-9]*
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	9cb8de681
-NUT_COMMIT_DATE=	2022.04.27
+GH_TAGNAME=	535395363
+NUT_COMMIT_DATE=	2022.05.05
 
 #MAKE_JOBS_UNSAFE=	yes
 GNU_CONFIGURE=	yes
-USE_LDCONFIG=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
+USE_LDCONFIG=	yes
 
 NUT_USER=		root
 NUT_GROUP=		wheel
@@ -51,6 +53,9 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 .include <bsd.port.pre.mk>
 
 CFLAGS+=	-I${LOCALBASE}/include -L${LOCALBASE}/lib
+# XXX Remove this when copying this port to sysutils/nut. The GA version
+# XXX of nut ships with preformatted files and therefore does not need
+# XXX asciidoc.
 BUILD_DEPENDS=  asciidoc:textproc/asciidoc
 LIB_DEPENDS+=	libltdl.so:devel/libltdl
 LIB_DEPENDS+=	libnetsnmp.so:net-mgmt/net-snmp
