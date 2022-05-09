@@ -104,7 +104,6 @@ BUILD 13.0.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.0-RELEASE P11.
-- Upgrade arcconf to v3_10_24700.
 - Upgrade isboot to v0.2.14.
 - Upgrade dialog to v1.3-20211107.
 - Upgrade php to v8.0.13.
@@ -134,6 +133,7 @@ Changes:
 - Upgrade gzip to v1.12.
 - Upgrade unison to v2.52.1.
 - Upgrade rsync to v3.2.4.
+- Upgrade arcconf to v4.01.24763.
 
 Fixes:
 -
