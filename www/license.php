@@ -185,16 +185,16 @@ $software = [
 	]],
 	['PHP',[
 		'A server-side scripting language (<a href="https://www.php.net" target="_blank" rel="noreferrer">https://www.php.net</a>).',
-		'Copyright © 1999-2021 The PHP Group. All Rights Reserved.'
+		'Copyright © 1999-2022 The PHP Group. All Rights Reserved.'
 	]],
 	['phpMyAdmin',[
 		'Set of PHP-scripts to manage MySQL over the web (<a href="https://www.phpmyadmin.net" target="_blank" rel="noreferrer">https://www.phpmyadmin.net</a>).',
-		'Copyright © 2003-2021 phpMyAdmin contributors. All Rights Reserved.'
+		'Copyright © 2003-2022 phpMyAdmin contributors. All Rights Reserved.'
 	]],
 	['phpVirtualBox',[
 		'phpVirtualBox (<a href="https://github.com/phpvirtualbox/phpvirtualbox/" target="_blank" rel="noreferrer">https://github.com/phpvirtualbox/phpvirtualbox</a>).',
 		'Copyright © 2011-2015 Ian Moore, Inc. All Rights Reserved.',
-		'Copyright © 2017-2021 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
+		'Copyright © 2017-2022 Now maintained by Smart Guide Pty Ltd (<a href="mailto:tudor@smartguide.com">tudor@smartguide.com</a>). All Rights Reserved.'
 	]],
 	['ProFTPD',[
 		'A highly configurable FTP server (<a href="http://www.proftpd.org" target="_blank" rel="noreferrer">http://www.proftpd.org</a>).',
@@ -202,7 +202,7 @@ $software = [
 	]],
 	['Python',[
 		'A programming language (<a href="https://www.python.org" target="_blank" rel="noreferrer">https://www.python.org</a>).',
-		'Copyright © 2001-2021 Python Software Foundation. All Rights Reserved.'
+		'Copyright © 2001-2022 Python Software Foundation. All Rights Reserved.'
 	]],
 	['QuiXplorer',[
 		'A Web-based file-management browser (<a href="https://github.com/realtimeprojects/quixplorer" target="_blank" rel="noreferrer">https://github.com/realtimeprojects/quixplorer</a>).',
@@ -222,7 +222,7 @@ $software = [
 	]],
 	['smartmontools',[
 		'Utility programs (smartctl, smartd) to control/monitor storage systems (<a href="https://sourceforge.net/projects/smartmontools/" target="_blank" rel="noreferrer">https://sourceforge.net/projects/smartmontools</a>).',
-		'Copyright © 2002-2009 Bruce Allen, 2004-2021 Christian Franke. All Rights Reserved.',
+		'Copyright © 2002-2009 Bruce Allen, 2004-2022 Christian Franke. All Rights Reserved.',
 	]],
 	['Spinner.js',[
 		'A spinning activity indicator (<a href="https://github.com/fgnass/spin.js" target="_blank" rel="noreferrer">https://github.com/fgnass/spin.js</a>).',
@@ -230,7 +230,7 @@ $software = [
 	]],
 	['sudo',[
 		'A tool to allow a sysadmin to give limited root privileges. (<a href="https://www.sudo.ws" target="_blank" rel="noreferrer">https://www.sudo.ws</a>).',
-		'Copyright © 1994-1996, 1998-2021 Todd C. Miller. All Rights Reserved.'
+		'Copyright © 1994-1996, 1998-2022 Todd C. Miller. All Rights Reserved.'
 	]],
 	['Syncthing',[
 		'Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. (<a href="https://syncthing.net" target="_blank" rel="noreferrer">https://syncthing.net</a>).',
@@ -259,7 +259,7 @@ $software = [
 	]],
 	['VirtualBox',[
 		'Open Source Edition (OSE) & (Guest Additions) (<a href="https://www.virtualbox.org" target="_blank" rel="noreferrer">https://www.virtualbox.org</a>).',
-		'Copyright © 2010-2021, Oracle and/or its affiliates. All Rights Reserved.'
+		'Copyright © 2010-2022, Oracle and/or its affiliates. All Rights Reserved.'
 	]],
 	['VMXNET3',[
 		'A NIC driver for FreeBSD (<a href="https://www.vmware.com" target="_blank" rel="noreferrer">https://www.vmware.com</a>).',
