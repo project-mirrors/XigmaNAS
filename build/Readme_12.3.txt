@@ -154,7 +154,7 @@ Changes:
 - Upgrade nut to v2022.05.05.
 
 Fixes:
--
+- Fix RootOnZFS /var/tmp permissions.
 
 
 Default login credentials:
