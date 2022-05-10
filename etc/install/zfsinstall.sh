@@ -885,6 +885,7 @@ copy_media_files()
 		mkdir -p ${ALTROOT}/tmp
 		mkdir -p ${ALTROOT}/var
 		chmod 1777 ${ALTROOT}/tmp
+		chmod 1777 ${ALTROOT}/var/tmp
 		mkdir -p ${ALTROOT}/boot/defaults
 	fi
 
