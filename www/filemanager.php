@@ -91,7 +91,7 @@ switch($action):
 			show_error(gtext("You haven't selected any item(s)."));
 		endif;
 		download_item($current_dir,$item);
-		ob_start(false); // prevent unwanted output
+		ob_start(); // prevent unwanted output
 		exit;
 		break;
 	case 'download_selected':
@@ -100,7 +100,7 @@ switch($action):
 		require 'fm_down.php';
 		ob_end_clean(); // get rid of cached unwanted output
 		download_selected($current_dir);
-		ob_start(false); // prevent unwanted output
+		ob_start(); // prevent unwanted output
 		exit;
 		break;
 	case 'unzip':
