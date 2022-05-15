@@ -1,14 +1,10 @@
 <?php
 /*
-	filemanager.php
+	fm_debug.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
-
-	Portions of Quixplorer (http://quixplorer.sourceforge.net).
-	Authors: quix@free.fr, ck@realtime-projects.com.
-	The Initial Developer of the Original Code is The QuiX project.
 
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
@@ -34,28 +30,29 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
-$pgperm['allowuser'] = true;
+ */
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace filemanager;
 
-use common\arr;
-use common\session;
-
-//	check if service is enabled
-$sphere = arr::make_branch($config,'system');
-$test = $sphere['disablefm'] ?? false;
-$disablefm = is_bool($test) ? $test : true;
-if($disablefm):
-	http_response_code(403);
-	session::destroy();
-	exit;
-endif;
-umask(002); // Added to make created files/dirs group writable
-$fm = new filemanager\filemanager();
-$fm->runner();
+trait fm_debug {
+	protected function _syslog($level,$message) {
+		openlog('quixplorer',LOG_PID | LOG_PERROR | LOG_LOCAL0,LOG_USER);
+		syslog($level,$message);
+		closelog();
+	}
+	public function _debug ($data) {
+		$debug = 1;
+		if($debug === 0):
+			return;
+		endif;
+		$this->_syslog(LOG_NOTICE,$data);
+	}
+/**
+ *	prints out an error message, but keeps your program running
+ *	@param string $data
+ */
+	public function _error ($data) {
+//		we also print out the error message to the debug log, if activated
+		$this->_syslog(LOG_ERR,$data);
+	}
+}

@@ -1,14 +1,10 @@
 <?php
 /*
-	filemanager.php
+	fm_mkitem.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
-
-	Portions of Quixplorer (http://quixplorer.sourceforge.net).
-	Authors: quix@free.fr, ck@realtime-projects.com.
-	The Initial Developer of the Original Code is The QuiX project.
 
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
@@ -34,28 +30,41 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
-$pgperm['allowuser'] = true;
+ */
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace filemanager;
 
-use common\arr;
-use common\session;
+use function gtext;
 
-//	check if service is enabled
-$sphere = arr::make_branch($config,'system');
-$test = $sphere['disablefm'] ?? false;
-$disablefm = is_bool($test) ? $test : true;
-if($disablefm):
-	http_response_code(403);
-	session::destroy();
-	exit;
-endif;
-umask(002); // Added to make created files/dirs group writable
-$fm = new filemanager\filemanager();
-$fm->runner();
+trait fm_mkitem {
+/**
+ *  make new directory or file
+ *	@param string $dir
+ */
+	public function make_item($dir) {
+		if(!$this->permissions_grant($dir,null,'create')):
+			$this->show_error(gtext('You are not allowed to use this function.'));
+		endif;
+		$mkname = $_POST['mkname'];
+		$mktype = $_POST['mktype'];
+		$mkname = basename($mkname);
+		if($mkname == ''):
+			$this->show_error(gtext('You must supply a name.'));
+		endif;
+		$new = $this->get_abs_item($dir,$mkname);
+		if(@file_exists($new)):
+			$this->show_error(htmlspecialchars($mkname) . ': ' . gtext('This item already exists.'));
+		endif;
+		if($mktype != 'file'):
+			$ok = @mkdir($new,0777);
+			$err = gtext('Directory creation failed.');
+		else:
+			$ok = @touch($new);
+			$err = gtext('File creation failed.');
+		endif;
+		if($ok === false):
+			$this->show_error($err);
+		endif;
+		header('Location: ' . $this->make_link('list',$dir,null));
+	}
+}
