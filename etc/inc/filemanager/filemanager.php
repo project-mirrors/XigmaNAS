@@ -132,8 +132,7 @@ class filemanager {
 		$this->editable_ext = '/\.(txt|php|php3|phtml|inc|sql|pl|htm|html|shtml|dhtml|xml|js|css|cgi|cpp|c|cc|cxx|hpp|h|pas|p|java|py|sh|tcl|tk|dxs|uni|htaccess)$/i';
 //		----------------------------------------------------------------------------
 //		unzipable files:
-//		$this->unzipable_ext = '/\.(zip|gz|tar|bz2|tgz)$/i';
-		$this->unzipable_ext = '/\.(zip|gz|tar|bz2)$/i';
+		$this->unzipable_ext = '/\.(zip|gz|tar|bz2|tgz)$/i';
 //		----------------------------------------------------------------------------
 //		mime types: (description,image,extension,type)
 		$this->super_mimes = [
