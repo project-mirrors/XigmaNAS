@@ -1,24 +1,20 @@
 <?php
 /*
-	filemanager.php
+	fm_error.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
-
-	Portions of Quixplorer (http://quixplorer.sourceforge.net).
-	Authors: quix@free.fr, ck@realtime-projects.com.
-	The Initial Developer of the Original Code is The QuiX project.
 
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
 
 	1. Redistributions of source code must retain the above copyright notice, this
-	   list of conditions and the following disclaimer.
+	list of conditions and the following disclaimer.
 
 	2. Redistributions in binary form must reproduce the above copyright notice,
-	   this list of conditions and the following disclaimer in the documentation
-	   and/or other materials provided with the distribution.
+	this list of conditions and the following disclaimer in the documentation
+	and/or other materials provided with the distribution.
 
 	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 	ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -34,28 +30,31 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
-$pgperm['allowuser'] = true;
+ */
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace filemanager;
 
-use common\arr;
-use common\session;
-
-//	check if service is enabled
-$sphere = arr::make_branch($config,'system');
-$test = $sphere['disablefm'] ?? false;
-$disablefm = is_bool($test) ? $test : true;
-if($disablefm):
-	http_response_code(403);
-	session::destroy();
-	exit;
-endif;
-umask(002); // Added to make created files/dirs group writable
-$fm = new filemanager\filemanager();
-$fm->runner();
+trait fm_error {
+	public function show_error($error,$extra = null) {
+		$this->_error($error . ' : ' . $extra);
+		$errmsg = gtext('ERROR(S)');
+		$backmsg = gtext('Go Back');
+		$this->show_header($errmsg);
+?>
+		<div id="area_data_frame">
+			<center>
+				<h2><?php echo $errmsg ?></h2>
+				<?php echo $error ?>
+				<h3><a href="javascript:window.history.back()"><?php echo $backmsg ?></a><h3>
+<?php
+				if($extra != null):
+					echo ' - ' . $extra;
+				endif;
+?>
+			</center>
+		</div>
+<?php
+		$this->show_footer();
+		exit;
+	}
+}

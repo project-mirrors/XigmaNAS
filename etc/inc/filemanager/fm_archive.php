@@ -1,14 +1,10 @@
 <?php
 /*
-	filemanager.php
+	fm_archive.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
-
-	Portions of Quixplorer (http://quixplorer.sourceforge.net).
-	Authors: quix@free.fr, ck@realtime-projects.com.
-	The Initial Developer of the Original Code is The QuiX project.
 
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
@@ -34,28 +30,45 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
-$pgperm['allowuser'] = true;
+ */
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace filemanager;
 
-use common\arr;
-use common\session;
+use zipstream\zipstream;
 
-//	check if service is enabled
-$sphere = arr::make_branch($config,'system');
-$test = $sphere['disablefm'] ?? false;
-$disablefm = is_bool($test) ? $test : true;
-if($disablefm):
-	http_response_code(403);
-	session::destroy();
-	exit;
-endif;
-umask(002); // Added to make created files/dirs group writable
-$fm = new filemanager\filemanager();
-$fm->runner();
+trait fm_archive {
+	public function zip_download($directory,$items) {
+		$zipfile = new zipstream('downloads.zip');
+		foreach($items as $item):
+			$this->_zipstream_add_file($zipfile,$directory,$item);
+		endforeach;
+		$zipfile->finish();
+		return true;
+	}
+	protected function _zipstream_add_file($zipfile,$directory,$file_to_add) {
+		$filename = $directory . DIRECTORY_SEPARATOR . $file_to_add;
+		if(!@file_exists($filename)):
+			$this->show_error($filename . ' does not exist');
+		endif;
+		if(is_file($filename)):
+			$this->_debug("adding file $filename");
+			return $zipfile->add_file($file_to_add,file_get_contents($filename));
+		endif;
+		if(is_dir($filename)):
+			$this->_debug("adding directory $filename");
+			$files = glob($filename . DIRECTORY_SEPARATOR . '*');
+			foreach ($files as $file):
+				$file = str_replace($directory . DIRECTORY_SEPARATOR,'',$file);
+				$this->_zipstream_add_file($zipfile,$directory,$file);
+			endforeach;
+			return true;
+		endif;
+		$this->_error("don't know how to handle $file_to_add");
+		return false;
+	}
+
+	public function tar_items($dir,$name) {
+	}
+	public function tgz_items($dir,$name) {
+	}
+}

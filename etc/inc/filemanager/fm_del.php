@@ -1,14 +1,10 @@
 <?php
 /*
-	filemanager.php
+	fm_del.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
-	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
+	Copyright © 2018-2021 XigmaNAS® <info@xigmanas.com>.
 	All rights reserved.
-
-	Portions of Quixplorer (http://quixplorer.sourceforge.net).
-	Authors: quix@free.fr, ck@realtime-projects.com.
-	The Initial Developer of the Original Code is The QuiX project.
 
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
@@ -34,28 +30,55 @@
 	The views and conclusions contained in the software and documentation are those
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
-*/
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
-$pgperm['allowuser'] = true;
+ */
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace filemanager;
 
-use common\arr;
-use common\session;
+use function gtext;
 
-//	check if service is enabled
-$sphere = arr::make_branch($config,'system');
-$test = $sphere['disablefm'] ?? false;
-$disablefm = is_bool($test) ? $test : true;
-if($disablefm):
-	http_response_code(403);
-	session::destroy();
-	exit;
-endif;
-umask(002); // Added to make created files/dirs group writable
-$fm = new filemanager\filemanager();
-$fm->runner();
+trait fm_del {
+//	delete files/dirs
+	public function del_items($dir) {
+//		check if user is allowed to delete files
+		if(!$this->permissions_grant($dir,null,'delete')):
+			$this->show_error(gtext('You are not allowed to use this function.'));
+		endif;
+		$cnt = count($_POST['selitems']);
+		$err = false;
+//		delete files & check for errors
+		for($i = 0;$i < $cnt;++$i):
+			$items[$i] = $_POST['selitems'][$i];
+			$abs = $this->get_abs_item($dir,$items[$i]);
+			if(!@file_exists($this->get_abs_item($dir,$items[$i]))):
+				$error[$i] = gtext("This item doesn't exist.");
+				$err=true;
+				continue;
+			endif;
+			if(!$this->get_show_item($dir,$items[$i])):
+				$error[$i] = gtext('You are not allowed to access this item.');
+				$err=true;
+				continue;
+			endif;
+//			Delete
+			$ok = $this->remove($this->get_abs_item($dir,$items[$i]));
+			if($ok === false):
+				$error[$i]= gtext('Deleting failed.');
+				$err = true;
+				continue;
+			endif;
+			$error[$i] = null;
+		endfor;
+		if($err):
+//			there were errors
+			$err_msg = '';
+			for($i = 0;$i < $cnt;++$i):
+				if($error[$i] == null):
+					continue;
+				endif;
+				$err_msg .= $items[$i] . ' : ' . $error[$i] . "<br>\n";
+			endfor;
+			$this->show_error($err_msg);
+		endif;
+		header('Location: ' . $this->make_link('list',$dir,null));
+	}
+}

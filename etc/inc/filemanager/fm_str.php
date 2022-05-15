@@ -1,6 +1,6 @@
 <?php
 /*
-	filemanager.php
+	fm_str.php
 
 	Part of XigmaNAS® (https://www.xigmanas.com).
 	Copyright © 2018-2022 XigmaNAS® <info@xigmanas.com>.
@@ -15,7 +15,6 @@
 
 	1. Redistributions of source code must retain the above copyright notice, this
 	   list of conditions and the following disclaimer.
-
 	2. Redistributions in binary form must reproduce the above copyright notice,
 	   this list of conditions and the following disclaimer in the documentation
 	   and/or other materials provided with the distribution.
@@ -35,27 +34,17 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-/*------------------------------------------------------------------------------
-			QuiXplorer v2.5.8 Modified for XigmaNAS
-------------------------------------------------------------------------------*/
-$pgperm['allowuser'] = true;
 
-require_once 'autoload.php';
-require_once 'auth.inc';
-require_once 'guiconfig.inc';
+namespace filemanager;
 
-use common\arr;
-use common\session;
-
-//	check if service is enabled
-$sphere = arr::make_branch($config,'system');
-$test = $sphere['disablefm'] ?? false;
-$disablefm = is_bool($test) ? $test : true;
-if($disablefm):
-	http_response_code(403);
-	session::destroy();
-	exit;
-endif;
-umask(002); // Added to make created files/dirs group writable
-$fm = new filemanager\filemanager();
-$fm->runner();
+trait fm_str {
+/**
+ *
+ * @param string $candidate
+ * @param string $search_str
+ * @return boolean
+ */
+	public function str_startswith ($candidate,$search_str) {
+		return substr($candidate,0,strlen($search_str)) == $search_str;
+	}
+}
