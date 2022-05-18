@@ -67,12 +67,13 @@ trait fm_down {
 			$this->show_error(gtext('You are not allowed to access this item.'));
 		endif;
 //		if we have exactly one file and this is a real file, we directly download
-		if(count($items) == 1 && $this->get_is_file($dir,$items[0])):
+		if((count($items) === 1) && $this->get_is_file($dir,$items[0])):
 			$abs_item = $this->get_abs_item($dir,$items[0]);
 			$this->_download($abs_item,$items[0]);
-		endif;
 //		otherwise we do the zip download
-		$this->zip_download($this->get_abs_dir($dir),$items);
+		else:
+			$this->zip_download($this->get_abs_dir($dir),$items);
+		endif;
 	}
 /**
  *	Downloads a file with X-Sendfile

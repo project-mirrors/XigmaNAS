@@ -38,37 +38,35 @@ use zipstream\zipstream;
 
 trait fm_archive {
 	public function zip_download($directory,$items) {
+		$no_errors = true;
 		$zipfile = new zipstream('downloads.zip');
 		foreach($items as $item):
-			$this->_zipstream_add_file($zipfile,$directory,$item);
+			$no_errors &= $this->_zipstream_add_file($zipfile,$directory,$item);
 		endforeach;
 		$zipfile->finish();
-		return true;
+		exit;
+		return $no_errors;
 	}
-	protected function _zipstream_add_file($zipfile,$directory,$file_to_add) {
+	protected function _zipstream_add_file(zipstream $zipfile,$directory,$file_to_add) {
+		$no_errors = true;
 		$filename = $directory . DIRECTORY_SEPARATOR . $file_to_add;
 		if(!@file_exists($filename)):
-			$this->show_error($filename . ' does not exist');
-		endif;
-		if(is_file($filename)):
+//			$this->show_error($filename . ' does not exist');
+			$no_errors &= false;
+		elseif(is_file($filename)):
 			$this->_debug("adding file $filename");
-			return $zipfile->add_file($file_to_add,file_get_contents($filename));
-		endif;
-		if(is_dir($filename)):
+			$zipfile->add_file($file_to_add,file_get_contents($filename));
+		elseif(is_dir($filename)):
 			$this->_debug("adding directory $filename");
 			$files = glob($filename . DIRECTORY_SEPARATOR . '*');
-			foreach ($files as $file):
+			foreach($files as $file):
 				$file = str_replace($directory . DIRECTORY_SEPARATOR,'',$file);
-				$this->_zipstream_add_file($zipfile,$directory,$file);
+				$no_errors &= $this->_zipstream_add_file($zipfile,$directory,$file);
 			endforeach;
-			return true;
+		else:
+			$no_errors &= false;
+//			$this->_error("don't know how to handle $file_to_add");
 		endif;
-		$this->_error("don't know how to handle $file_to_add");
-		return false;
-	}
-
-	public function tar_items($dir,$name) {
-	}
-	public function tgz_items($dir,$name) {
+		return $no_errors;
 	}
 }

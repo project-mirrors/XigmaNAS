@@ -87,7 +87,7 @@ class zipstream {
 	protected ?string $x_output_name = null;
 	protected string $x_comment = '';
 	protected int $x_large_file_size = 20 * 1024 *1024;
-	protected string $x_large_file_method = 'store';
+	protected string $x_large_file_method = 'deflate';
 	protected bool $x_send_http_headers = false;
 	protected string $x_content_type = 'application/x-zip';
 	protected string $x_content_disposition = 'attachment';
@@ -95,6 +95,7 @@ class zipstream {
 	protected array $x_files = [];
 	protected int $x_cdr_ofs = 0;
 	protected int $x_ofs = 0;
+	protected $output_stream;
 /**
  *	Create a new ZipStream object.
  *
@@ -110,7 +111,7 @@ class zipstream {
  *		                    be compressed differently; see the
  *		                    'large_file_method' option.
  *		large_file_method   How to handle large files. Legal values are
- *		                    'store' (the default), or 'deflate'. Store
+ *		                    'deflate' (the default), or 'store'. Store
  *		                    sends the file raw and is significantly
  *		                    faster, while 'deflate' compresses the file
  *		                    and is much, much slower. Note that deflate
@@ -195,6 +196,10 @@ class zipstream {
 		else:
 			$this->x_need_headers = false;
 		endif;
+		$this->output_stream = fopen('php://output','b');
+	}
+	public function __destruct() {
+		fclose($this->output_stream);
 	}
 /*
  *	add_file - add a file to the archive
@@ -500,14 +505,19 @@ class zipstream {
 	}
 /**
  * 	Send string, sending HTTP headers if necessary.
- * 	@param string $str
+ * 	@param string $data
  */
-	private function send(string $str) {
+	private function send(string $data) {
 		if($this->x_need_headers):
 			$this->x_need_headers = false;
 			$this->send_http_headers();
 		endif;
-		echo $str;
+		fwrite($this->output_stream,$data);
+		unset($data);
+		if(ob_get_length() !== false):
+			ob_flush();
+		endif;
+		flush();
 	}
 /**
  * 	Convert a UNIX timestamp to a DOS timestamp.
