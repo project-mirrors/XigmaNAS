@@ -40,9 +40,10 @@ abstract class toolbox implements interface_toolbox {
 	protected const PCN = '';
 /**
  *	Static method to instantiate related namespaced properties object
- *	@return object grid_properties
+ *	@return object
  */
 	public static function init_properties() {
+//		$fqcn = preg_replace('^(.+\\\).*','${1}' . static::PCN,static::class);
 		$reflection = new ReflectionClass(get_called_class());
 		$fqcn = $reflection->inNamespace() ? sprintf('%s\%s',$reflection->getNamespaceName(),static::PCN) : static::PCN;
 		return new $fqcn();
