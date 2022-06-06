@@ -43,7 +43,7 @@ use function updatenotify_clear;
 /**
  *	Wrapper class for autoloading functions
  */
-final class shared_toolbox {
+class shared_toolbox {
 	private const NOTIFICATION_NAME = __NAMESPACE__;
 	private const NOTIFICATION_PROCESSOR = 'process_notification';
 /**
