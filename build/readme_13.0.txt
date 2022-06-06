@@ -135,6 +135,7 @@ Changes:
 - Upgrade proftpd to v1.3.7d.
 - Upgrade nut to v2022.05.05.
 - Upgrade devcpu-data-intel to v20220510.
+- Upgrade phpmyadmin to v5.2.0.
 
 Fixes:
 -
