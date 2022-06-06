@@ -132,7 +132,6 @@ Changes:
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade samba to v4.13.17.
-- Upgrade phpmyadmin to v5.1.3.
 - Upgrade lighttpd to v1.4.64.
 - Upgrade zoneinfo to 2022a.
 - Upgrade sudo to v1.9.10.
@@ -152,6 +151,7 @@ Changes:
 - Upgrade proftpd to v1.3.7d.
 - Upgrade nut to v2022.05.05.
 - Upgrade devcpu-data-intel to v20220510.
+- Upgrade phpmyadmin to v5.2.0.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
