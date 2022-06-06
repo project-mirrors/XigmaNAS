@@ -102,7 +102,7 @@ class grid_properties extends myp\container {
 			set_title($title);
 		return $property;
 	}
-	final function get_interface(): myp\property_list {
+	final public function get_interface(): myp\property_list {
 		return $this->x_interface ?? $this->init_interface();
 	}
 	protected $x_port;
@@ -182,7 +182,7 @@ class grid_properties extends myp\container {
 			set_title($title);
 		return $property;
 	}
-	final function get_rootcontainer(): myp\property_list {
+	final public function get_rootcontainer(): myp\property_list {
 		return $this->x_rootcontainer ?? $this->init_rootcontainer();
 	}
 	protected $x_forcesortcriteria;
