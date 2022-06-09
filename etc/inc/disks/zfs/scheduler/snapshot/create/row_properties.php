@@ -38,7 +38,7 @@ namespace disks\zfs\scheduler\snapshot\create;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_path(): myp\property_list {
 		$description = gettext('Select Pool, Filesystem or Volume');
 		$property = parent::init_path();
