@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
 "PO-Revision-Date: 2022-03-31 02:13+0000\n"
 "Last-Translator: Thomas Choi <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:45+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:22+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "Language: zh_TW\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " 無私鑰"
@@ -1121,9 +1121,6 @@ msgstr "四月"
 
 msgid "Archive"
 msgstr "存檔"
-
-msgid "Archive item(s)"
-msgstr "項目歸檔"
 
 msgid "Archive mode."
 msgstr "存檔模式。"
@@ -5166,6 +5163,9 @@ msgstr "無法執行命令zpool。"
 msgid "Failed to execute cron job."
 msgstr "執行定時任務失敗。"
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr "無法刪除：%s"
@@ -5175,9 +5175,6 @@ msgstr "無法發送狀態報告。"
 
 msgid "Failed to send test email."
 msgstr "無法發送測試電子郵件。"
-
-msgid "Failed to unzip archive."
-msgstr "無法解壓縮存檔"
 
 msgid "Failed to upload file."
 msgstr "上傳檔失敗。"
@@ -5443,9 +5440,6 @@ msgstr "自定義導航欄 CSS 文件的完全限定文件名"
 
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "自定義選項卡 CSS 文件的完全限定文件名"
-
-msgid "Function unavailable."
-msgstr "功能不可用"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -12060,6 +12054,12 @@ msgstr "只上傳了部分的檔。"
 msgid "The username, if applicable. This might be referred to as hash."
 msgstr "用戶名（如果適用）。這可能被稱為哈希。"
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "該值無效。"
 
@@ -13064,9 +13064,6 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "無法打開目錄。"
-
-msgid "Unable to open file"
-msgstr "無法開啟檔案"
 
 msgid "Unable to read directory."
 msgstr "無法讀取目錄。"
@@ -14219,9 +14216,6 @@ msgstr "否"
 
 msgid "no delay"
 msgstr "無延遲"
-
-msgid "no pools available"
-msgstr "沒有可用的池"
 
 msgid "none"
 msgstr "無"

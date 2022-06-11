@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
 "PO-Revision-Date: 2022-03-03 13:20+0000\n"
 "Last-Translator: Winfried Hyronimus <winfried.hyronimus@googlemail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:44+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
-"Language: de\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:21+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: de\n"
 
 msgid " No private key"
 msgstr " Kein privater Schlüssel"
@@ -1240,9 +1240,6 @@ msgstr "April"
 
 msgid "Archive"
 msgstr "Archiv"
-
-msgid "Archive item(s)"
-msgstr "Archivelement(e)"
 
 msgid "Archive mode."
 msgstr "Archivmodus."
@@ -5542,6 +5539,9 @@ msgstr "Fehler beim Ausführen des Befehls zpool."
 msgid "Failed to execute cron job."
 msgstr "cron Job wurde nicht ausgeführt."
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr "%s kann nicht entfernt werden"
@@ -5551,9 +5551,6 @@ msgstr "Senden des Statusreports fehlgeschlagen."
 
 msgid "Failed to send test email."
 msgstr "Versenden der Test-E-Mail fehlgeschlagen"
-
-msgid "Failed to unzip archive."
-msgstr "Archiv konnte nicht entpackt werden."
 
 msgid "Failed to upload file."
 msgstr "Das Hochladen der Datei ist fehlgeschlagen."
@@ -5837,9 +5834,6 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 "Vollständiger Dateiname einer CSS-Datei mit benutzerdefinierten "
 "Registerkarten."
-
-msgid "Function unavailable."
-msgstr "Funktion nicht verfügbar."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -13040,6 +13034,12 @@ msgid "The username, if applicable. This might be referred to as hash."
 msgstr ""
 "Den Benutzernamen, falls zutreffend. Dies kann als Hash bezeichnet werden."
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "Der Wert ist ungültig."
 
@@ -14229,9 +14229,6 @@ msgstr "Unmaskieren (Unix)"
 
 msgid "Unable to open directory."
 msgstr "Verzeichnis kann nicht geöffnet werden."
-
-msgid "Unable to open file"
-msgstr "Die Datei lässt sich nicht öffnen"
 
 msgid "Unable to read directory."
 msgstr "Verzeichnis kann nicht gelesen werden."
@@ -15496,9 +15493,6 @@ msgstr "nein"
 
 msgid "no delay"
 msgstr "keine Verzögerung"
-
-msgid "no pools available"
-msgstr "keine Pools verfügbar"
 
 msgid "none"
 msgstr "keine"

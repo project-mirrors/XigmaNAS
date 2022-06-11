@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2021-11-18 19:59+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"PO-Revision-Date: 2022-06-11 23:09+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:45+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
-"Language: \n"
-"X-Poedit-Language: Dutch\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:21+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
 "X-Poedit-Country: Netherlands\n"
+"X-Poedit-Language: Dutch\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr " Geen prive sleutel"
@@ -1226,9 +1226,6 @@ msgstr "April"
 
 msgid "Archive"
 msgstr "Archief"
-
-msgid "Archive item(s)"
-msgstr "Archief item (s)"
 
 msgid "Archive mode."
 msgstr "Archief mode."
@@ -5548,7 +5545,7 @@ msgid "Failed"
 msgstr "Mislukt"
 
 msgid "Failed to access in-memory file system."
-msgstr "Gefaald het in-geheugen bestandssysteem te benaderen."
+msgstr "Toegang tot in-geheugen bestandssysteem mislukt."
 
 msgid "Failed to execute command zfs."
 msgstr "Commando uitvoeren naar zfs mislukt."
@@ -5557,7 +5554,10 @@ msgid "Failed to execute command zpool."
 msgstr "Commando uitvoeren zpool mislukt."
 
 msgid "Failed to execute cron job."
-msgstr "Mislukt om de cron taak uit te voeren."
+msgstr "Cron taak uitvoeren mislukt."
+
+msgid "Failed to extract archive."
+msgstr "Archief uitpakken mislukt."
 
 #, php-format
 msgid "Failed to remove: %s"
@@ -5568,9 +5568,6 @@ msgstr "Mislukt om het statusrapport te verzenden."
 
 msgid "Failed to send test email."
 msgstr "Mislukt om de test-email te verzenden."
-
-msgid "Failed to unzip archive."
-msgstr "Kan archief niet uitpakken."
 
 msgid "Failed to upload file."
 msgstr "Mislukt om de file te uploaden."
@@ -5719,7 +5716,7 @@ msgid "Firmware upgrade check has been disabled."
 msgstr "Firmware upgrade controle is uitgeschakeld."
 
 msgid "Firmware upload failed (out of memory?)"
-msgstr "Firmware upload mislukt (niet genoeg geheugen?)"
+msgstr "Firmware upload mislukt (geen geheugen beschikbaar?)"
 
 msgid "Firmware upload failed with error message:"
 msgstr "Firmware upload is mislukt met foutbericht:"
@@ -5854,9 +5851,6 @@ msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 "Volledig gekwalificeerde bestandsnaam van een aangepaste tabbladen CSS "
 "bestand."
-
-msgid "Function unavailable."
-msgstr "Functie niet beschikbaar."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -8800,7 +8794,7 @@ msgid "Package is already installed."
 msgstr "Het pakket is reeds geïnstalleeerd."
 
 msgid "Package upload failed (out of memory?)"
-msgstr "Pakket uploaden is mislukt (niet genoeg geheugen?)"
+msgstr "Pakket uploaden is mislukt (geen geheugen beschikbaar?)"
 
 msgid "Packages"
 msgstr "Pakketten"
@@ -13013,6 +13007,12 @@ msgid "The username, if applicable. This might be referred to as hash."
 msgstr ""
 "De gebruikersnaam, indien van toepassing. Dit kan hash worden genoemd."
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr "De waarde is ongeldig, 16 ASCII-hexadecimale tekens verwacht."
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr "De waarde is ongeldig, 16 of 32 ASCII-hexadecimale tekens verwacht."
+
 msgid "The value is invalid."
 msgstr "De waarde is ongeldig."
 
@@ -14194,9 +14194,6 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "Kan de folder niet openen."
-
-msgid "Unable to open file"
-msgstr "Kan het bestand niet openen"
 
 msgid "Unable to read directory."
 msgstr "Kan de folder niet lezen."
@@ -15450,9 +15447,6 @@ msgstr "nee"
 
 msgid "no delay"
 msgstr "geen vertraging"
-
-msgid "no pools available"
-msgstr "geen pools beschikbaar"
 
 msgid "none"
 msgstr "geen"
