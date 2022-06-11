@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2021-06-02 02:30+0000\n"
-"Last-Translator: tianmo <Unknown>\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"PO-Revision-Date: 2022-05-25 02:38+0000\n"
+"Last-Translator: Luke Luo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:45+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:22+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "Language: zh_CN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " 没有私钥"
@@ -107,7 +107,7 @@ msgstr "%s已用，共%s"
 #, php-format
 msgid ""
 "%s would like to thank the authors of this software for their efforts:"
-msgstr ""
+msgstr "%s感谢本软件的作者所做的努力："
 
 #, php-format
 msgid "%s%d %s is already used by %s%d."
@@ -344,7 +344,7 @@ msgstr "为执行需求的动作，已挂载的磁盘或分区将临时取消挂
 msgid ""
 "A port to listen on for incoming connections using iSER (iSCSI over RDMA) "
 "protocol."
-msgstr ""
+msgstr "使用iSER（iSCSI over RDMA）协议监听传入连接的端口。"
 
 msgid "A reboot is required"
 msgstr "需要重新启动"
@@ -748,7 +748,7 @@ msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr "远程hastd守护进程的地址。 它必须是静态IP地址。"
 
 msgid "Admin"
-msgstr ""
+msgstr "管理员"
 
 msgid "Admin Password"
 msgstr "管理密码"
@@ -763,7 +763,7 @@ msgid "Administrator Name"
 msgstr "管理员名称"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "管理员密码"
 
 msgid "Advanced"
 msgstr "高级"
@@ -1015,7 +1015,7 @@ msgstr "iSCSI启动器门户的IPv4或IPv6地址。"
 msgid ""
 "An IPv4 or IPv6 address to listen on for incoming connections using iSER "
 "(iSCSI over RDMA) protocol."
-msgstr ""
+msgstr "使用iSER（iSCSI over RDMA）协议侦听传入连接的IPv4或IPv6地址。"
 
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr "用于侦听传入连接的IPv4或IPv6地址。"
@@ -1120,10 +1120,7 @@ msgid "April"
 msgstr "四月"
 
 msgid "Archive"
-msgstr "存档"
-
-msgid "Archive item(s)"
-msgstr "存档项目"
+msgstr "归档"
 
 msgid "Archive mode."
 msgstr "存档模式。"
@@ -3755,13 +3752,13 @@ msgid "Do you want to disable selected portal groups?"
 msgstr "你想禁用选定的门户组？"
 
 msgid "Do you want to disable selected providers?"
-msgstr ""
+msgstr "是否要禁用选定的提供程序？"
 
 msgid "Do you want to disable selected public keys?"
 msgstr "要禁用所选公钥吗？"
 
 msgid "Do you want to disable selected reboot schedules?"
-msgstr ""
+msgstr "是否要禁用选定的重新启动计划？"
 
 msgid "Do you want to disable selected records?"
 msgstr "要禁用选中的记录吗？"
@@ -3776,7 +3773,7 @@ msgid "Do you want to disable selected rsync modules?"
 msgstr "是否要禁用选中的rsync模块？"
 
 msgid "Do you want to disable selected schedules?"
-msgstr ""
+msgstr "是否要禁用选定的计划？"
 
 msgid "Do you want to disable selected sysctl settings?"
 msgstr "是否要禁用选定的sysctl设置？"
@@ -3854,13 +3851,13 @@ msgid "Do you want to enable selected portal groups?"
 msgstr "你想启用选定的门户群组吗？"
 
 msgid "Do you want to enable selected providers?"
-msgstr ""
+msgstr "是否要启用选定的提供程序？"
 
 msgid "Do you want to enable selected public keys?"
 msgstr "要启用所选公钥吗？"
 
 msgid "Do you want to enable selected reboot schedules?"
-msgstr ""
+msgstr "是否要启用选定的重新启动计划？"
 
 msgid "Do you want to enable selected records?"
 msgstr "要启用选中的记录吗？"
@@ -3875,7 +3872,7 @@ msgid "Do you want to enable selected rsync modules?"
 msgstr "是否要启用选中的rsync模块？"
 
 msgid "Do you want to enable selected schedules?"
-msgstr ""
+msgstr "是否要启用选定的计划？"
 
 msgid "Do you want to enable selected sysctl settings?"
 msgstr "是否要启用选定的sysctl设置？"
@@ -3962,13 +3959,13 @@ msgid "Do you want to toggle selected portal groups?"
 msgstr "你想切换选定的门户组吗？"
 
 msgid "Do you want to toggle selected providers?"
-msgstr ""
+msgstr "是否要切换选定的提供程序？"
 
 msgid "Do you want to toggle selected public keys?"
 msgstr "要切换选定的公钥吗？"
 
 msgid "Do you want to toggle selected reboot schedules?"
-msgstr ""
+msgstr "是否要切换选定的重新启动计划？"
 
 msgid "Do you want to toggle selected records?"
 msgstr "要切换选中的记录吗？"
@@ -3983,7 +3980,7 @@ msgid "Do you want to toggle selected rsync modules?"
 msgstr "要切换选中的rsync模块吗？"
 
 msgid "Do you want to toggle selected schedules?"
-msgstr ""
+msgstr "是否要切换选定的计划？"
 
 msgid "Do you want to toggle selected sysctl settings?"
 msgstr "是否要切换选定的sysctl设置？"
@@ -4019,7 +4016,7 @@ msgid "Domain Name (NetBIOS-Name)"
 msgstr "域名（NetBIOS名称）"
 
 msgid "Domain Names"
-msgstr ""
+msgstr "主机名称"
 
 msgid "Domain is missing 2nd level name."
 msgstr "域缺少第二级名称。"
@@ -4043,7 +4040,7 @@ msgid "Download Configuration"
 msgstr "下载配置"
 
 msgid "Download Folder"
-msgstr ""
+msgstr "下载目录"
 
 msgid "Drive Temperature."
 msgstr "硬盘温度。"
@@ -4086,7 +4083,7 @@ msgid "Dynamic DNS"
 msgstr "动态 DNS"
 
 msgid "Dynamic DNS Settings"
-msgstr ""
+msgstr "动态DNS设置"
 
 msgid "Dynamic IP (DHCP) can not be used for HAST resources."
 msgstr "HAST资源不能使用动态IP（DHCP）。"
@@ -4191,7 +4188,7 @@ msgid "Edit Portal Group"
 msgstr "编辑门户组"
 
 msgid "Edit Provider"
-msgstr ""
+msgstr "编辑提供程序"
 
 msgid "Edit Public Key"
 msgstr "编辑公钥"
@@ -4200,7 +4197,7 @@ msgid "Edit RAID"
 msgstr "编辑RAID"
 
 msgid "Edit Reboot Schedule"
-msgstr ""
+msgstr "编辑重新启动计划"
 
 msgid "Edit Record"
 msgstr "编辑记录"
@@ -4221,7 +4218,7 @@ msgid "Edit Samba Share"
 msgstr "编辑Samba共享"
 
 msgid "Edit Schedule"
-msgstr ""
+msgstr "编辑计划"
 
 msgid "Edit Share"
 msgstr "编辑共享"
@@ -4336,7 +4333,7 @@ msgid "Enable Asynchronous I/O."
 msgstr "启用异步I/O。"
 
 msgid "Enable DNS rebind protection"
-msgstr ""
+msgstr "启用DNS重新绑定保护"
 
 msgid "Enable FXP protocol."
 msgstr "启用 FXP 协议。"
@@ -4427,13 +4424,13 @@ msgid "Enable Selected Portal Groups"
 msgstr "启用选定的门户组"
 
 msgid "Enable Selected Providers"
-msgstr ""
+msgstr "启用选定的提供程序"
 
 msgid "Enable Selected Public Keys"
 msgstr "启用选定的公钥"
 
 msgid "Enable Selected Reboot Schedules"
-msgstr ""
+msgstr "启用选定的重新启动计划"
 
 msgid "Enable Selected Records"
 msgstr "启用选中的记录"
@@ -4451,7 +4448,7 @@ msgid "Enable Selected Samba Shares"
 msgstr "启用选定的Samba共享"
 
 msgid "Enable Selected Schedules"
-msgstr ""
+msgstr "启用选定的计划"
 
 msgid "Enable Selected Sysctl Settings"
 msgstr "启用选定的sysctl设置"
@@ -4561,7 +4558,7 @@ msgstr "启用分布式散列表。"
 msgid ""
 "Enable domain name wildcarding of the domain name, for DDNS providers that "
 "support this."
-msgstr ""
+msgstr "为支持此功能的DDNS提供程序启用域名通配符。"
 
 msgid "Enable encryption."
 msgstr "启用加密。"
@@ -4587,7 +4584,7 @@ msgid "Enable large read/write."
 msgstr "启用大型读/写。"
 
 msgid "Enable local peer discovery."
-msgstr ""
+msgstr "启用本地对等发现。"
 
 msgid "Enable mapping DOS attributes."
 msgstr "启用映射DOS属性。"
@@ -4643,7 +4640,7 @@ msgid "Enable store DOS attributes."
 msgstr "启用存储DOS属性。"
 
 msgid "Enable support for NFSv4 only."
-msgstr ""
+msgstr "只启用NFSv4支持"
 
 msgid "Enable the ident protocol (RFC1413)."
 msgstr "启用 ident 协议（RFC1413）。"
@@ -4662,12 +4659,12 @@ msgstr "如果要直接编辑配置页面而不需要切换到编辑模式，请
 msgid ""
 "Enable this option only on systems without hardware real-time clock and "
 "default bootup time far in the past."
-msgstr ""
+msgstr "仅在过去没有硬件实时时钟和默认启动时间的系统上启用此选项。"
 
 msgid ""
 "Enable this option to abort an DDNS update if the HTTPS certificate "
 "validation fails."
-msgstr ""
+msgstr "启用该选项，在HTTPS验证失败依然启用DDNS更新。"
 
 msgid "Enable this option to allow any IP address to access the WebGUI."
 msgstr "启用此选项以允许任何IP地址访问WebGUI。"
@@ -4685,7 +4682,7 @@ msgstr "启用此选项可使主机串行端口可供客户端使用。"
 msgid ""
 "Enable this option to reduce the height of the page header to a minimum for "
 "the duration of this session."
-msgstr ""
+msgstr "启用此选项可在此会话期间将页眉高度降至最低。"
 
 msgid "Enable this option to update the CPU microcode on startup."
 msgstr "启用此选项可在启动时更新CPU微代码。"
@@ -4700,7 +4697,7 @@ msgid "Enable traps."
 msgstr "启用 traps。"
 
 msgid "Enable uTP for peer connections."
-msgstr ""
+msgstr "为对等连接启用uTP."
 
 msgid "Enable white background graphs. (black as default)"
 msgstr "启用白色背景图形。 （默认为黑色）"
@@ -4768,10 +4765,10 @@ msgid "Encryption algorithm"
 msgstr "加密演算法"
 
 msgid "Enhanced Scheduler"
-msgstr ""
+msgstr "增强的调度程序"
 
 msgid "Enter AD or PDC name."
-msgstr ""
+msgstr "输入AD或PDC名称."
 
 msgid "Enter Command"
 msgstr "输入命令"
@@ -4786,7 +4783,7 @@ msgid "Enter Identifier"
 msgstr "输入标识符"
 
 msgid "Enter NetBIOS name."
-msgstr ""
+msgstr "输入NetBIOS名称."
 
 msgid "Enter Password"
 msgstr "输入密码"
@@ -4850,7 +4847,7 @@ msgid "Enter an iSCSI initiator name."
 msgstr "输入iSCSI启动器名称。"
 
 msgid "Enter an identifier for this custom DDNS configuration."
-msgstr ""
+msgstr "输入自定义DDNS配置的标识。"
 
 msgid "Enter comment for the share"
 msgstr "输入对该共享的评论"
@@ -4899,7 +4896,7 @@ msgid ""
 msgstr "输入UPS所连接的机器的UPS标识符和主机IP地址。 （这也可以是远程主机）"
 
 msgid "Enter the domain name."
-msgstr ""
+msgstr "输入域名。"
 
 msgid "Enter the full user name."
 msgstr "输入完整用户名。"
@@ -4922,7 +4919,7 @@ msgid ""
 msgstr "请输入在 WPA-PSK 模式中使用的密码短语。这个密语长度必须在 8 到 63 个字元之间。"
 
 msgid "Enter the password of the domain administrator account."
-msgstr ""
+msgstr "输入域名管理员帐户密码。"
 
 msgid "Enter the password of the master user account."
 msgstr "输入主用户帐户的密码。"
@@ -4958,7 +4955,7 @@ msgid "Enter trap host name."
 msgstr "请输入 Trap 主机名。"
 
 msgid "Enter user name of a domain administrator account."
-msgstr ""
+msgstr "输入域名管理员帐户名称"
 
 msgid "Enter user name."
 msgstr "输入用户名。"
@@ -4981,7 +4978,7 @@ msgid "Error Level"
 msgstr "错误级别"
 
 msgid "Errors"
-msgstr ""
+msgstr "错误"
 
 msgid "Errors have been detected during import."
 msgstr "导入期间检测到错误。"
@@ -5088,13 +5085,13 @@ msgid "Extra options (usually empty)."
 msgstr "额外选项（通常为空白）。"
 
 msgid "Extra options for transmission-remote"
-msgstr ""
+msgstr "transmission-remote的额外选项"
 
 msgid "Extra options to ifconfig (usually empty)."
 msgstr "ifconfig 的额外选项（通常为空白）。"
 
 msgid "Extra options to pass over RPC using transmission-remote."
-msgstr ""
+msgstr "transmission-remote使用的RPC的额外选项."
 
 msgid "Extra options to rsync (usually empty)."
 msgstr "rsync 的额外选项（通常为空白）。"
@@ -5167,6 +5164,9 @@ msgstr "无法执行命令zpool。"
 msgid "Failed to execute cron job."
 msgstr "执行定时任务失败。"
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr "无法删除：%s"
@@ -5176,9 +5176,6 @@ msgstr "无法发送状态报告。"
 
 msgid "Failed to send test email."
 msgstr "无法发送测试电子邮件。"
-
-msgid "Failed to unzip archive."
-msgstr "解压错存档失败。"
 
 msgid "Failed to upload file."
 msgstr "上传文件失败。"
@@ -5196,7 +5193,7 @@ msgid "Failover"
 msgstr "故障转移"
 
 msgid "Fake Address"
-msgstr ""
+msgstr "假地址"
 
 msgid "Fast"
 msgstr "快速"
@@ -5348,7 +5345,7 @@ msgid "Folder Pattern"
 msgstr "文件夹模式"
 
 msgid "Folder to monitor for new .torrent files."
-msgstr ""
+msgstr "监视新.torrent文件的文件夹。"
 
 msgid "Follow"
 msgstr "跟随"
@@ -5363,7 +5360,7 @@ msgid "Force Operation"
 msgstr "强制操作"
 
 msgid "Force Update Interval"
-msgstr ""
+msgstr "强制更新间隔"
 
 msgid "Force Use"
 msgstr "强制使用"
@@ -5444,9 +5441,6 @@ msgstr "自定义导航栏CSS文件的全限定文件名。"
 
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "自定义标签CSS文件的全限定文件名。"
-
-msgid "Function unavailable."
-msgstr "功能不可用。"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -5758,7 +5752,7 @@ msgid "High voltage trimming transfer point"
 msgstr "高电压微调换乘点"
 
 msgid "Highlight View"
-msgstr ""
+msgstr "高亮视图"
 
 msgid "Hint"
 msgstr "提示"
@@ -5773,7 +5767,7 @@ msgid "Host Access Control"
 msgstr "主机访问控制"
 
 msgid "Host Names"
-msgstr ""
+msgstr "主机名称"
 
 msgid "Host Resources"
 msgstr "主机资源"
@@ -5788,7 +5782,7 @@ msgid "Hostname Database"
 msgstr "主机名数据库"
 
 msgid "Hostnames"
-msgstr ""
+msgstr "主机名"
 
 msgid "Hosts"
 msgstr "主机列表"
@@ -5817,7 +5811,7 @@ msgstr "小时"
 msgid ""
 "How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 "
 "days."
-msgstr ""
+msgstr "检查IP的频率，以秒为单位。默认值：约1分钟。最多10天。"
 
 msgid ""
 "How often the IP should be updated even if it is not changed. The time "
@@ -5891,7 +5885,7 @@ msgid "IPv4 addresses"
 msgstr "IPv4 地址"
 
 msgid "IPv4 only"
-msgstr ""
+msgstr "仅 IPv4"
 
 msgid "IPv4 or IPv6 address of an iSNS server to register on."
 msgstr "要注册的iSNS服务器的IPv4或IPv6地址。"
@@ -5933,7 +5927,7 @@ msgid "IPv6 addresses"
 msgstr "IPv6 地址"
 
 msgid "IPv6 only"
-msgstr ""
+msgstr "仅 IPv6"
 
 msgid "IRC Live Support"
 msgstr "IRC 在线支援"
@@ -12059,6 +12053,12 @@ msgstr "只上传了部分的文件。"
 msgid "The username, if applicable. This might be referred to as hash."
 msgstr ""
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "该值无效。"
 
@@ -13064,9 +13064,6 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "不能打开目录。"
-
-msgid "Unable to open file"
-msgstr "无法打开文件"
 
 msgid "Unable to read directory."
 msgstr "不能读取目录。"
@@ -14218,9 +14215,6 @@ msgid "no"
 msgstr "否"
 
 msgid "no delay"
-msgstr ""
-
-msgid "no pools available"
 msgstr ""
 
 msgid "none"

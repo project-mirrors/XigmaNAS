@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
 "PO-Revision-Date: 2021-12-21 11:56+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:45+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
-"Language: ro_RO\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:21+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: ro_RO\n"
 
 msgid " No private key"
 msgstr " Fără cheie privată"
@@ -1217,9 +1217,6 @@ msgstr "Aprilie"
 
 msgid "Archive"
 msgstr "Arhivă"
-
-msgid "Archive item(s)"
-msgstr "Arhivare element(e)"
 
 msgid "Archive mode."
 msgstr "Mod arhivare."
@@ -5543,6 +5540,9 @@ msgstr "Eroare execuție comandă zpool."
 msgid "Failed to execute cron job."
 msgstr "Eroare execuție acțiune programată cron."
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr "Eroare eliminare: %s"
@@ -5552,9 +5552,6 @@ msgstr "Eroare trimitere raport de stare."
 
 msgid "Failed to send test email."
 msgstr "Eroare trimitere email de test."
-
-msgid "Failed to unzip archive."
-msgstr "Eroare dezarhivare arhivă."
 
 msgid "Failed to upload file."
 msgstr "Eroare încărcare fișier."
@@ -5830,9 +5827,6 @@ msgstr ""
 
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "Nume complet definit pentru fișierul tabs CCS utilizator."
-
-msgid "Function unavailable."
-msgstr "Funcție indisponibilă."
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -12972,6 +12966,12 @@ msgstr "Fișierul a fost parțial încărcat."
 msgid "The username, if applicable. This might be referred to as hash."
 msgstr "Numele de utilizator, dacă este cazul. Poate fi referit și ca hash."
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "Valoare invalidă."
 
@@ -14132,9 +14132,6 @@ msgstr "Umask"
 
 msgid "Unable to open directory."
 msgstr "Directorul nu poate fi deschis."
-
-msgid "Unable to open file"
-msgstr "Fișierul nu poate fi deschis."
 
 msgid "Unable to read directory."
 msgstr "Directorul nu poate fi citit."
@@ -15384,9 +15381,6 @@ msgstr "nu"
 
 msgid "no delay"
 msgstr "fără întârziere"
-
-msgid "no pools available"
-msgstr "niciul pool disponibil"
 
 msgid "none"
 msgstr "nimic"

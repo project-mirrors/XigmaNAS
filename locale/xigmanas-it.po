@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
-"PO-Revision-Date: 2022-04-10 17:18+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"PO-Revision-Date: 2022-04-12 17:57+0000\n"
 "Last-Translator: MailMasterC <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:44+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
-"Language: \n"
-"X-Poedit-Language: Italian\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:21+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
 "X-Poedit-Country: ITALY\n"
+"X-Poedit-Language: Italian\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr " Nessuna chiave privata"
@@ -1222,9 +1222,6 @@ msgstr "Aprile"
 
 msgid "Archive"
 msgstr "Archivio"
-
-msgid "Archive item(s)"
-msgstr "Oggetto/i dell'archivio"
 
 msgid "Archive mode."
 msgstr "Modalità archivio"
@@ -5552,6 +5549,9 @@ msgstr "Fallita esecuzione del comando zpool."
 msgid "Failed to execute cron job."
 msgstr "Esecuzione del job di cron fallita."
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr "Problema nella rimozione di: %s"
@@ -5561,9 +5561,6 @@ msgstr "Invio rapporto di stato fallito."
 
 msgid "Failed to send test email."
 msgstr "Invio email di test fallito."
-
-msgid "Failed to unzip archive."
-msgstr "Impossibile scompattare l'archivio"
 
 msgid "Failed to upload file."
 msgstr "Upload del file fallito."
@@ -5838,9 +5835,6 @@ msgstr "Nome completo di un file CSS contente la barra di navigazione."
 
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr "Nome completo di un file CSS contente la tabella."
-
-msgid "Function unavailable."
-msgstr "Funzione non disponibile"
 
 msgid "Fuppes"
 msgstr "Fuppes"
@@ -12966,6 +12960,12 @@ msgstr "Il file è stato inviato solo parzialmente."
 msgid "The username, if applicable. This might be referred to as hash."
 msgstr "Username, se applicabile. Ci si può riferire ad esso come hash."
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr "Il valore è invalido."
 
@@ -13249,10 +13249,10 @@ msgid "This item already exists."
 msgstr "Questo oggetto esiste già"
 
 msgid "This item doesn't exist."
-msgstr ""
+msgstr "Questo oggetto non esiste"
 
 msgid "This month"
-msgstr ""
+msgstr "Questo mese"
 
 msgid "This name is used to uniquely identify your UPS on this system."
 msgstr ""
@@ -13268,6 +13268,8 @@ msgid ""
 "This option affects how clients respond to Samba and is one of the most "
 "important settings in the smb.conf file."
 msgstr ""
+"Questa opzione impatta su come i client rispondono al collegamento Samba ed "
+"è una delle impostazioni più importanti nel file smb.conf"
 
 msgid ""
 "This option allows the users and groups that access a share to be specified. "
@@ -13309,6 +13311,8 @@ msgstr ""
 msgid ""
 "This option controls if IPv6 addresses should be allowed or discarded."
 msgstr ""
+"Questa opzione controlla se gli indirizzi IPv6 debbano essere ammessi o "
+"scartati."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -13787,10 +13791,10 @@ msgid "Toggle Selected Portal Groups"
 msgstr "Attivare i gruppi di portali selezionati"
 
 msgid "Toggle Selected Providers"
-msgstr ""
+msgstr "Attiva i provider selezionati"
 
 msgid "Toggle Selected Public Keys"
-msgstr ""
+msgstr "Attiva le chiavi pubbliche selezionate"
 
 msgid "Toggle Selected Reboot Schedules"
 msgstr "Abilitare la schedulazione dei riavvii selezionati"
@@ -14139,9 +14143,6 @@ msgstr "Umask"
 msgid "Unable to open directory."
 msgstr "Impossibile aprire la cartella"
 
-msgid "Unable to open file"
-msgstr "Impossibile aprire il file"
-
 msgid "Unable to read directory."
 msgstr "Impossibile leggere la cartella"
 
@@ -14346,7 +14347,7 @@ msgid "Use the \"Pictures\" container"
 msgstr "Usa il contenitore \"Immagini\""
 
 msgid "Use the \"Video\" container"
-msgstr ""
+msgstr "Usa il contenitore \"Video\""
 
 msgid "Use the ZFS ACL driver."
 msgstr "Usare il driver ZFS ACL"
@@ -14362,7 +14363,7 @@ msgid "Use the specified NTP server."
 msgstr "Utilizza il server NTP specificato."
 
 msgid "Use the standard container (this is the default)"
-msgstr ""
+msgstr "Usa il contenitore standard (questo è il default)"
 
 msgid "Use these specials actions for debugging only!"
 msgstr "Utilizzare questa azione solo per il debugging!"
@@ -15130,10 +15131,10 @@ msgid "ZFS Filesystem Properties"
 msgstr "Proprietà del filesystem ZFS"
 
 msgid "ZFS L2ARC"
-msgstr ""
+msgstr "ZFS L2ARC"
 
 msgid "ZFS L2ARC Usage"
-msgstr ""
+msgstr "Uso di ZFS L2ARC"
 
 msgid "ZFS Level 2 Adaptive Replacement Cache (L2ARC)"
 msgstr ""
@@ -15209,10 +15210,10 @@ msgid "and"
 msgstr "e"
 
 msgid "api.ipify.org"
-msgstr ""
+msgstr "api.ipify.org"
 
 msgid "bash - Bourne Again Shell"
-msgstr ""
+msgstr "bash - Bourne Again Shell"
 
 msgid "change failed."
 msgstr "modifica falita."
@@ -15390,9 +15391,6 @@ msgstr "no"
 msgid "no delay"
 msgstr "Senza ritardo"
 
-msgid "no pools available"
-msgstr "Non ci sono pool disponibili"
-
 msgid "none"
 msgstr "nessuno"
 
@@ -15457,7 +15455,7 @@ msgid "to"
 msgstr "verso"
 
 msgid "uTP"
-msgstr ""
+msgstr "uTP"
 
 msgid "umount"
 msgstr "smonta"
@@ -15466,7 +15464,7 @@ msgid "unknown"
 msgstr "sconosciuto"
 
 msgid "update.example.com"
-msgstr ""
+msgstr "update.example.com"
 
 msgid "visible"
 msgstr "visibile"

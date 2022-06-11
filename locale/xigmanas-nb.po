@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2021-11-18 20:42+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
 "PO-Revision-Date: 2018-07-06 10:29+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-04-11 14:45+0000\n"
-"X-Generator: Launchpad (build 4c58cf79c82ce3fbd42288b21369cc838fb5b9e0)\n"
-"Language: \n"
-"X-Poedit-Language: Norwegian Bokmal\n"
+"X-Launchpad-Export-Date: 2022-06-11 23:21+0000\n"
+"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
 "X-Poedit-Country: NORWAY\n"
+"X-Poedit-Language: Norwegian Bokmal\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr ""
@@ -1134,9 +1134,6 @@ msgstr ""
 
 msgid "Archive"
 msgstr "Arkiver"
-
-msgid "Archive item(s)"
-msgstr ""
 
 msgid "Archive mode."
 msgstr "Arkiveringsmodus."
@@ -5187,6 +5184,9 @@ msgstr ""
 msgid "Failed to execute cron job."
 msgstr "Kunne ikke kjøre cron jobb."
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr ""
@@ -5195,9 +5195,6 @@ msgid "Failed to send status report."
 msgstr ""
 
 msgid "Failed to send test email."
-msgstr ""
-
-msgid "Failed to unzip archive."
 msgstr ""
 
 msgid "Failed to upload file."
@@ -5463,9 +5460,6 @@ msgid "Fully qualified file name of a custom navigation bar CSS file."
 msgstr ""
 
 msgid "Fully qualified file name of a custom tabs CSS file."
-msgstr ""
-
-msgid "Function unavailable."
 msgstr ""
 
 msgid "Fuppes"
@@ -12062,6 +12056,12 @@ msgstr ""
 msgid "The username, if applicable. This might be referred to as hash."
 msgstr ""
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr ""
 
@@ -13058,9 +13058,6 @@ msgid "Umask"
 msgstr ""
 
 msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to open file"
 msgstr ""
 
 msgid "Unable to read directory."
@@ -14217,9 +14214,6 @@ msgid "no"
 msgstr ""
 
 msgid "no delay"
-msgstr ""
-
-msgid "no pools available"
 msgstr ""
 
 msgid "none"
