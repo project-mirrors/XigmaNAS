@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2021-05-19 01:29+0000\n"
+"POT-Creation-Date: 2022-06-12 00:49+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -102,7 +102,7 @@ msgid "%s used of %s"
 msgstr ""
 
 #, php-format
-msgid "%s would like to thank the authors of this software for their efforts."
+msgid "%s would like to thank the authors of this software for their efforts:"
 msgstr ""
 
 #, php-format
@@ -301,6 +301,9 @@ msgstr ""
 msgid "A mounted disk or partition will be unmounted temporarily to perform the requested action."
 msgstr ""
 
+msgid "A port to listen on for incoming connections using iSER (iSCSI over RDMA) protocol."
+msgstr ""
+
 msgid "A reboot is required"
 msgstr ""
 
@@ -368,9 +371,6 @@ msgid "ACL mode"
 msgstr ""
 
 msgid "AD authentication is disabled."
-msgstr ""
-
-msgid "AD or PDC name."
 msgstr ""
 
 msgid "AFP"
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Address of the remote hastd daemon. It must be a static IP address."
 msgstr ""
 
-msgid "Admin Name"
+msgid "Admin"
 msgstr ""
 
 msgid "Admin Password"
@@ -706,13 +706,13 @@ msgstr ""
 msgid "Admin access"
 msgstr ""
 
-msgid "Administration Password"
-msgstr ""
-
 msgid "Administrative WebGUI"
 msgstr ""
 
 msgid "Administrator Name"
+msgstr ""
+
+msgid "Administrator Password"
 msgstr ""
 
 msgid "Advanced"
@@ -934,6 +934,9 @@ msgstr ""
 msgid "An IPv4 or IPv6 address of an iSCSI initiator portal."
 msgstr ""
 
+msgid "An IPv4 or IPv6 address to listen on for incoming connections using iSER (iSCSI over RDMA) protocol."
+msgstr ""
+
 msgid "An IPv4 or IPv6 address to listen on for incoming connections."
 msgstr ""
 
@@ -1025,9 +1028,6 @@ msgid "April"
 msgstr ""
 
 msgid "Archive"
-msgstr ""
-
-msgid "Archive item(s)"
 msgstr ""
 
 msgid "Archive mode."
@@ -2334,9 +2334,6 @@ msgid "DNS Domain"
 msgstr ""
 
 msgid "DNS Forwarder"
-msgstr ""
-
-msgid "DNS Name"
 msgstr ""
 
 msgid "DNS Rebind Protection"
@@ -3738,12 +3735,6 @@ msgstr ""
 msgid "Domain is missing 2nd level name."
 msgstr ""
 
-msgid "Domain name in old format, e.g. EXAMPLE."
-msgstr ""
-
-msgid "Domain name, e.g. example.com."
-msgstr ""
-
 msgid "Donate"
 msgstr ""
 
@@ -4347,6 +4338,9 @@ msgstr ""
 msgid "Enable store DOS attributes."
 msgstr ""
 
+msgid "Enable support for NFSv4 only."
+msgstr ""
+
 msgid "Enable the ident protocol (RFC1413)."
 msgstr ""
 
@@ -4459,6 +4453,9 @@ msgstr ""
 msgid "Enhanced Scheduler"
 msgstr ""
 
+msgid "Enter AD or PDC name."
+msgstr ""
+
 msgid "Enter Command"
 msgstr ""
 
@@ -4469,6 +4466,9 @@ msgid "Enter IP address prefix length."
 msgstr ""
 
 msgid "Enter Identifier"
+msgstr ""
+
+msgid "Enter NetBIOS name."
 msgstr ""
 
 msgid "Enter Password"
@@ -4571,6 +4571,9 @@ msgstr ""
 msgid "Enter the UPS identifier and host IP address of the machine where the UPS is connected to. (this also can be a remote host)"
 msgstr ""
 
+msgid "Enter the domain name."
+msgstr ""
+
 msgid "Enter the full user name."
 msgstr ""
 
@@ -4587,6 +4590,9 @@ msgid "Enter the network that is authorised to access the NFS share."
 msgstr ""
 
 msgid "Enter the passphrase that will be used in WPA-PSK mode. This must be between 8 and 63 characters long."
+msgstr ""
+
+msgid "Enter the password of the domain administrator account."
 msgstr ""
 
 msgid "Enter the password of the master user account."
@@ -4611,6 +4617,9 @@ msgid "Enter the port to send the traps to (default 162)."
 msgstr ""
 
 msgid "Enter trap host name."
+msgstr ""
+
+msgid "Enter user name of a domain administrator account."
 msgstr ""
 
 msgid "Enter user name."
@@ -4814,6 +4823,9 @@ msgstr ""
 msgid "Failed to execute cron job."
 msgstr ""
 
+msgid "Failed to extract archive."
+msgstr ""
+
 #, php-format
 msgid "Failed to remove: %s"
 msgstr ""
@@ -4822,9 +4834,6 @@ msgid "Failed to send status report."
 msgstr ""
 
 msgid "Failed to send test email."
-msgstr ""
-
-msgid "Failed to unzip archive."
 msgstr ""
 
 msgid "Failed to upload file."
@@ -5087,9 +5096,6 @@ msgstr ""
 msgid "Fully qualified file name of a custom tabs CSS file."
 msgstr ""
 
-msgid "Function unavailable."
-msgstr ""
-
 msgid "Fuppes"
 msgstr ""
 
@@ -5214,9 +5220,6 @@ msgid "Grant read permission"
 msgstr ""
 
 msgid "Grant shell access to user"
-msgstr ""
-
-msgid "Graph shows last 120 seconds"
 msgstr ""
 
 msgid "Graph shows recent 120 seconds."
@@ -5930,6 +5933,9 @@ msgstr ""
 msgid "Invalid login credentials."
 msgstr ""
 
+msgid "Invalid port number. The port number must be a value between 1 and 65535."
+msgstr ""
+
 msgid "Invert Selection"
 msgstr ""
 
@@ -6265,6 +6271,9 @@ msgid "List pools available to import"
 msgstr ""
 
 msgid "Listen"
+msgstr ""
+
+msgid "Listen (iSER)"
 msgstr ""
 
 msgid "Listen record is locked"
@@ -6657,6 +6666,9 @@ msgstr ""
 msgid "Media Folder is unlocked"
 msgstr ""
 
+msgid "Media Folders"
+msgstr ""
+
 msgid "Media Library"
 msgstr ""
 
@@ -6883,9 +6895,6 @@ msgstr ""
 msgid "Mozilla Public License Version 2.0 (MPLv2)"
 msgstr ""
 
-msgid "Must be a number between 5 and 1000."
-msgstr ""
-
 msgid "Must be a number between 80 and 89."
 msgstr ""
 
@@ -6931,10 +6940,10 @@ msgstr ""
 msgid "NAA Identifier"
 msgstr ""
 
-msgid "NETBIOS Hostname"
+msgid "NETBIOS"
 msgstr ""
 
-msgid "NETBIOS Name"
+msgid "NETBIOS Hostname"
 msgstr ""
 
 msgid "NFS"
@@ -6959,6 +6968,9 @@ msgid "NFS Root is unlocked"
 msgstr ""
 
 msgid "NFSv4"
+msgstr ""
+
+msgid "NFSv4 Only"
 msgstr ""
 
 msgid "NIS"
@@ -7187,9 +7199,6 @@ msgid "No Mutual-CHAP users found."
 msgstr ""
 
 msgid "No Parity"
-msgstr ""
-
-msgid "No Placeholder"
 msgstr ""
 
 msgid "No Portal Group has been configured."
@@ -7790,13 +7799,7 @@ msgstr ""
 msgid "Password for the transmission web interface."
 msgstr ""
 
-msgid "Password of the administrator account."
-msgstr ""
-
 msgid "Password server name or IP address (e.g. Active Directory domain controller)."
-msgstr ""
-
-msgid "Paste a RSA PRIVATE KEY in PEM format"
 msgstr ""
 
 msgid "Paste a private key in PEM format here."
@@ -8249,6 +8252,9 @@ msgstr ""
 msgid "Provider is unlocked"
 msgstr ""
 
+msgid "Providers"
+msgstr ""
+
 msgid "Provisioning Type"
 msgstr ""
 
@@ -8414,6 +8420,9 @@ msgstr ""
 msgid "RRDGraphs Daily ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily CPU Frequency Graph"
 msgstr ""
 
@@ -8423,10 +8432,16 @@ msgstr ""
 msgid "RRDGraphs Daily CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Daily Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Daily L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Daily Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Daily Network Latency Graph"
@@ -8447,6 +8462,9 @@ msgstr ""
 msgid "RRDGraphs Monthly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly CPU Frequency Graph"
 msgstr ""
 
@@ -8456,10 +8474,16 @@ msgstr ""
 msgid "RRDGraphs Monthly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Monthly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Monthly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Monthly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Monthly Network Latency Graph"
@@ -8480,6 +8504,9 @@ msgstr ""
 msgid "RRDGraphs Weekly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly CPU Frequency Graph"
 msgstr ""
 
@@ -8489,10 +8516,16 @@ msgstr ""
 msgid "RRDGraphs Weekly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Weekly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Weekly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Weekly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Weekly Network Latency Graph"
@@ -8513,6 +8546,9 @@ msgstr ""
 msgid "RRDGraphs Yearly ARC Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Bandwidth Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly CPU Frequency Graph"
 msgstr ""
 
@@ -8522,10 +8558,16 @@ msgstr ""
 msgid "RRDGraphs Yearly CPU Usage Graph"
 msgstr ""
 
+msgid "RRDGraphs Yearly Disk Usage Graph"
+msgstr ""
+
 msgid "RRDGraphs Yearly L2ARC Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Load Averages Graph"
+msgstr ""
+
+msgid "RRDGraphs Yearly Memory Graph"
 msgstr ""
 
 msgid "RRDGraphs Yearly Network Latency Graph"
@@ -8839,6 +8881,15 @@ msgstr ""
 msgid "Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report."
 msgstr ""
 
+msgid "Reporting Disk"
+msgstr ""
+
+msgid "Reporting Interface"
+msgstr ""
+
+msgid "Reporting Level"
+msgstr ""
+
 msgid "Require authentication."
 msgstr ""
 
@@ -8954,6 +9005,9 @@ msgid "Root Bind DN"
 msgstr ""
 
 msgid "Root Bind Password"
+msgstr ""
+
+msgid "Root Directories"
 msgstr ""
 
 msgid "Root Directory"
@@ -9449,6 +9503,9 @@ msgstr ""
 msgid "Select the permission for running this service. (www by default)."
 msgstr ""
 
+msgid "Select the timezone for this user."
+msgstr ""
+
 msgid "Select which interface to use."
 msgstr ""
 
@@ -9465,12 +9522,6 @@ msgid "Selected device or label does not exist."
 msgstr ""
 
 msgid "Selected file isn't an valid ISO file."
-msgstr ""
-
-msgid "Selected graph:"
-msgstr ""
-
-msgid "Selected interface:"
 msgstr ""
 
 msgid "Selected..."
@@ -11160,6 +11211,12 @@ msgstr ""
 msgid "The username, if applicable. This might be referred to as hash."
 msgstr ""
 
+msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
+msgstr ""
+
+msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
+msgstr ""
+
 msgid "The value is invalid."
 msgstr ""
 
@@ -11346,9 +11403,6 @@ msgid "This is a very powerful tool. Use at your own risk!"
 msgstr ""
 
 msgid "This is both the name of the server as advertised via Zeroconf/Bonjour/Rendezvous, and the name of the database exported via DAAP."
-msgstr ""
-
-msgid "This is not a valid IP Address."
 msgstr ""
 
 msgid "This item already exists."
@@ -11588,6 +11642,9 @@ msgid "Timeout must be a number between 10000 and 255000000."
 msgstr ""
 
 msgid "Times"
+msgstr ""
+
+msgid "Timezone"
 msgstr ""
 
 msgid "Title Speed"
@@ -11996,9 +12053,6 @@ msgstr ""
 msgid "Unable to open directory."
 msgstr ""
 
-msgid "Unable to open file"
-msgstr ""
-
 msgid "Unable to read directory."
 msgstr ""
 
@@ -12288,9 +12342,6 @@ msgid "User portal permission."
 msgstr ""
 
 msgid "Username"
-msgstr ""
-
-msgid "Username of a domain administrator account."
 msgstr ""
 
 msgid "Username to log into the transmission web interface."
@@ -12815,9 +12866,6 @@ msgstr ""
 msgid "You must supply a name."
 msgstr ""
 
-msgid "You need to update your browser or use Internet Explorer 10 or higher."
-msgstr ""
-
 msgid "You should use HTTPS as WebGUI protocol for sending passphrase."
 msgstr ""
 
@@ -12951,6 +12999,9 @@ msgstr ""
 msgid "e.g. %s"
 msgstr ""
 
+msgid "example.com"
+msgstr ""
+
 msgid "filechooser"
 msgstr ""
 
@@ -13007,9 +13058,6 @@ msgid "iSER - iSCSI over RDMA"
 msgstr ""
 
 msgid "iSNS Period"
-msgstr ""
-
-msgid "iSNS Server"
 msgstr ""
 
 msgid "iSNS Server is locked"
