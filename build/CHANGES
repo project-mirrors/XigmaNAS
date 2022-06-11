@@ -1,7 +1,7 @@
-XigmaNAS® 13.0.0.5 - Glowpanel
+XigmaNAS® 13.1.0.5 - Glowpanel
 -------------------------
 Changes:
-- Upgrade to FreeBSD 13.0-RELEASE P11.
+- Upgrade to FreeBSD 13.1-RELEASE P0.
 - Upgrade isboot to v0.2.14.
 - Upgrade nut to v2021.12.09.
 - Upgrade inadyn to v2.9.1.

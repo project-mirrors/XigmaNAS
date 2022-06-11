@@ -1,4 +1,4 @@
-		README & CHANGELOG FOR XIGMANAS® 13.0.0.5 - Glowpanel
+		README & CHANGELOG FOR XIGMANAS® 13.1.0.5 - Glowpanel
 
 		IMPORTANT - PLEASE READ CAREFULLY
 
@@ -100,10 +100,10 @@ To evaluate HAST, you need two of the same-configured XigmaNAS® servers.
 iSCSI, CIFS, NFS, GPTUFS and ZFS on HAST is currently supported.
 For master node of WebGUI, carp advskew is assumed as 0 or 1.
 
-BUILD 13.0.0.5.xxxx
+BUILD 13.1.0.5.xxxx
 ===================
 Changes:
-- Upgrade to FreeBSD 13.0-RELEASE P11.
+- Upgrade to FreeBSD 13.1-RELEASE P0.
 - Upgrade isboot to v0.2.14.
 - Upgrade dialog to v1.3-20211107.
 - Upgrade php to v8.0.13.

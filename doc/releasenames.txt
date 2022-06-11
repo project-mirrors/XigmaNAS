@@ -17,7 +17,8 @@ Reticulus  	/ 12.0.0.4
 Ingva		/ 12.1.0.4
 Ornithopter	/ 12.2.0.4
 Artisia		/ 12.3.0.4
-Glowpanel	/ 13.0.0.5
+Glowpanel	/ 13.0.0.5 Skipped after review
+Glowpanel	/ 13.1.0.5
 
 Also see:
 https://dune.wikia.com/wiki/Category:Original_Dune
