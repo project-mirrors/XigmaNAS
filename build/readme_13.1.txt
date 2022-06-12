@@ -104,6 +104,7 @@ BUILD 13.1.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P0.
+- Upgrade php to v8.1.7.
 - Upgrade syncthing to v1.20.2.
 - Upgrade nut to v2022.05.24.
 
