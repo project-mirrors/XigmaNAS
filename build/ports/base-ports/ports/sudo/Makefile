@@ -1,11 +1,9 @@
-# Created by: erich@rrnet.com
-
 PORTNAME=	sudo
-PORTVERSION=	1.9.10
+PORTVERSION=	1.9.11p1
 CATEGORIES=	security
 MASTER_SITES=	SUDO
 
-MAINTAINER=	garga@FreeBSD.org
+MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Allow others to run commands as root
 
 LICENSE=	sudo
