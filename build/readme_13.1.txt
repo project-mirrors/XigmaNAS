@@ -104,38 +104,8 @@ BUILD 13.1.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P0.
-- Upgrade isboot to v0.2.14.
-- Upgrade dialog to v1.3-20211107.
-- Upgrade php to v8.0.13.
-- Upgrade inadyn to v2.9.0.
-- Upgrade wsdd to v0.7.0.
-- Upgrade inadyn to v2.9.1.
-- Upgrade unison to v2.51.5.
-- Upgrade bash to v5.1 p16.
-- Upgrade e2fsprog to v1.46.5.
-- Upgrade samba to v4.13.17.
-- Upgrade phpmyadmin to v5.1.3.
-- Upgrade lighttpd to v1.4.64.
-- Upgrade php to v8.0.16.
-- Upgrade zoneinfo to 2022a.
-- Upgrade sudo to v1.9.10.
-- Upgrade msmtp to v1.8.20.
-- Upgrade nut to v2022.03.18.
-- Upgrade smartmontools to v7.3.
-- Upgrade cdialog to v1.3-20220414.
-- Upgrade virtualbox-ose to v6.1.34.
-- Upgrade nano to v6.3.
-- Upgrade syncthing to v1.20.1.
-- Upgrade iperf3 to v3.11.
-- Upgrade devcpu-data-amd to v20220414.
-- Upgrade gzip to v1.12.
-- Upgrade unison to v2.52.1.
-- Upgrade rsync to v3.2.4.
-- Upgrade arcconf to v4.01.24763.
-- Upgrade proftpd to v1.3.7d.
-- Upgrade nut to v2022.05.05.
-- Upgrade devcpu-data-intel to v20220510.
-- Upgrade phpmyadmin to v5.2.0.
+- Upgrade syncthing to v1.20.2.
+
 
 Fixes:
 -
