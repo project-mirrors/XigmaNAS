@@ -87,7 +87,7 @@ $software = [
 	]],
 	['FreeBSD',[
 		'The FreeBSD Project (<a href="https://www.freebsd.org" target="_blank" rel="noreferrer">https://www.freebsd.org</a>).',
-		'Copyright © 1995-2021 The FreeBSD Project. All Rights Reserved.'
+		'Copyright © 1995-2022 The FreeBSD Project. All Rights Reserved.'
 	]],
 	['Freenas 7',[
 		'Freenas 7 (<a href="https://github.com/freenas/freenas7" target="_blank" rel="noreferrer">https://github.com/freenas/freenas7</a>).',
