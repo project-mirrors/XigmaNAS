@@ -23,10 +23,10 @@ Changes:
 - Upgrade rsync to v3.2.4.
 - Upgrade arcconf to v4.01.24763.
 - Upgrade proftpd to v1.3.7d.
-- Upgrade nut to v2022.05.05.
 - Upgrade devcpu-data-intel to v20220510.
 - Upgrade phpmyadmin to v5.2.0.
 - Upgrade syncthing to v1.20.2.
+- Upgrade nut to v2022.05.24.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
