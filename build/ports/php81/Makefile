@@ -1,5 +1,5 @@
 PORTNAME=		php81
-PORTVERSION=	8.1.0
+PORTVERSION=	8.1.7
 PORTREVISION?=	0
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
@@ -12,6 +12,9 @@ DISTFILES=			${DISTNAME}${EXTRACT_SUFX}:release
 USES+=			compiler:c11 tar:xz cpe iconv:translit gnome
 USE_CXXSTD=		gnu++11
 CPE_PRODUCT=		php
+PHP_VER=	81
+CONFLICTS_INSTALL?=	php[0-9][0-9]${PKGNAMESUFFIX}
+
 NO_OPTIONS_SORT=	yes
 
 LIB_DEPENDS=		libpcre2-8.so:devel/pcre2 \
@@ -43,7 +46,7 @@ CONFIGURE_ENV+=	OPENSSL_CFLAGS="-I${OPENSSLINC}" \
 		OPENSSL_LIBS="-L${OPENSSLLIB} -lssl -lcrypto" \
 		PHP_OPENSSL=yes
 
-LDFLAGS+=	-L${OPENSSLLIB} -lcrypto -lssl
+LDFLAGS+=	-L${OPENSSLLIB} -lssl -lcrypto
 USES+=		ssl pkgconfig
 
 CONFIGURE_ARGS+=	\
@@ -101,11 +104,8 @@ OPTIONS=	CLI "Build CLI version" on \
 		LINKTHR "Link thread lib (for threaded extensions)" on \
 		ZTS "Force Zend Thread Safety (ZTS) build" off
 
-CONFLICTS=	php72-* php73-* php74-* php80-*
-
 post-patch:
 	@${TOUCH} ${WRKSRC}/ext/php_config.h
-	@${REINPLACE_CMD} "s|^\(extension_dir\)|; \1|" ${WRKSRC}/php.ini-*
 
 pre-configure:
 	@(cd ${WRKSRC} && ${SETENV} MAKE=${MAKE_CMD} ./buildconf --force)
