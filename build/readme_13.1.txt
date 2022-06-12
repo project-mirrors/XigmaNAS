@@ -107,6 +107,7 @@ Changes:
 - Upgrade php to v8.1.7.
 - Upgrade syncthing to v1.20.2.
 - Upgrade nut to v2022.05.24.
+- Upgrade sudo to v1.9.11p1.
 
 
 Fixes:
