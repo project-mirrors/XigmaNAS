@@ -1,6 +1,6 @@
 PORTNAME=			fusefs-ntfs
 PORTVERSION=	1.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=		sysutils
 COMMENT=			Mount NTFS partitions and disk images
 MAINTAINER=		zoon01@xigmanas.com
@@ -34,7 +34,7 @@ do-install:
 # kernel
 	@${CP} -pv /boot/kernel/fusefs.ko ${XIGMANAS_ROOTFS}/boot/kernel
 # lib
-	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-ntfs/work/ntfs-3g*/libntfs-3g/.libs/libntfs-3g.so.88 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-ntfs/work/ntfs-3g*/libntfs-3g/.libs/libntfs-3g.so.89 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-libs/work/stage/usr/local/lib/lib*.so ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/sysutils/fusefs-libs/work/stage/usr/local/lib/lib*.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/devel/libublio/work/libublio-*/libubl*.so ${XIGMANAS_ROOTFS}/usr/local/lib
