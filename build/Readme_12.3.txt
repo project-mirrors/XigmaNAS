@@ -150,9 +150,9 @@ Changes:
 - Upgrade phpmyadmin to v5.2.0.
 - Upgrade syncthing to v1.20.2.
 - Upgrade nut to v2022.05.24.
-- Upgrade sudo to v1.9.11p1.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
+- Upgrade sudo to v1.9.11p2.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
