@@ -132,7 +132,6 @@ Changes:
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade samba to v4.13.17.
-- Upgrade lighttpd to v1.4.64.
 - Upgrade zoneinfo to 2022a.
 - Upgrade msmtp to v1.8.20.
 - Upgrade smartmontools to v7.3.
@@ -153,6 +152,7 @@ Changes:
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
 - Upgrade sudo to v1.9.11p2.
+- Upgrade lighttpd to v1.4.65.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
