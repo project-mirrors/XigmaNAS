@@ -3,17 +3,17 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2022-06-12 00:49+0000\n"
-"PO-Revision-Date: 2021-11-23 14:28+0000\n"
+"PO-Revision-Date: 2022-06-13 11:13+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-12 10:49+0000\n"
-"X-Generator: Launchpad (build 35f6350d65ec68f2f58b0605cfd0647c9ae7303a)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Greek\n"
+"X-Launchpad-Export-Date: 2022-06-15 21:17+0000\n"
+"X-Generator: Launchpad (build d78eab63f7b448f195dd34ad15d6a08bb9784449)\n"
 "X-Poedit-Country: Greece\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "Language: \n"
 
 msgid " No private key"
@@ -5618,7 +5618,7 @@ msgid "Failed to execute cron job."
 msgstr "Αποτυχία εκτέλεσης προγραμματισμένης εργασίας."
 
 msgid "Failed to extract archive."
-msgstr ""
+msgstr "Αποτυχία εξαγωγής συμπιεσμένου αρχείου."
 
 #, php-format
 msgid "Failed to remove: %s"
@@ -13159,9 +13159,11 @@ msgstr "Το όνομα χρήστη, αν υπάρχει. Αυτό μπορεί
 
 msgid "The value is invalid, 16 ASCII-hexadecimal characters expected."
 msgstr ""
+"Η τιμή είναι μη έγκυρη, αναμένονται 16 ASCII-δεκαεξαδικοί χαρακτήρες."
 
 msgid "The value is invalid, 16 or 32 ASCII-hexadecimal characters expected."
 msgstr ""
+"Η τιμή είναι μη έγκυρη, αναμένονται 16 ή 32 ASCII-δεκαεξαδικοί χαρακτήρες."
 
 msgid "The value is invalid."
 msgstr "Η τιμή δεν είναι έγκυρη."
