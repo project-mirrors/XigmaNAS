@@ -37,12 +37,15 @@ namespace filemanager;
 use function gtext;
 
 trait fm_mkitem {
+	use fm_error;
+	use fm_extra;
+	use fm_permissions;
 /**
  *  make new directory or file
  *	@param string $dir
  */
 	public function make_item($dir) {
-		if(!$this->permissions_grant($dir,null,'create')):
+		if(!$this->permissions_grant(dir: $dir,action: 'create')):
 			$this->show_error(gtext('You are not allowed to use this function.'));
 		endif;
 		$mkname = $_POST['mkname'];

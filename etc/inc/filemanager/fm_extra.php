@@ -35,6 +35,12 @@
 namespace filemanager;
 
 trait fm_extra {
+	use fm_debug;
+	use fm_error;
+	use fm_qxpath;
+	use fm_session;
+	use fm_str;
+
 /**
  *	make link to next page
  *	@param string|null $_action
@@ -252,7 +258,7 @@ trait fm_extra {
 /**
 	Check if user is allowed to access $file in $directory
  */
-	public function get_show_item($directory,$file) {
+	public function get_show_item($directory,$file = null) {
 //		no relative paths are allowed in directories
 		if(preg_match('/\.\./',$directory)):
 			return false;

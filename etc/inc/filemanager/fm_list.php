@@ -36,7 +36,16 @@ namespace filemanager;
 
 use common\session;
 
+use function format_bytes;
+use function get_datetime_locale;
+use function gtext;
+
 trait fm_list {
+	use fm_error;
+	use fm_extra;
+	use fm_javascript;
+	use fm_permissions;
+
 /**
  *	Make a list of files
  *	@param array $_list1
@@ -194,7 +203,7 @@ trait fm_list {
 			echo '<td class="lcelc"><input type="checkbox" name="selitems[]" value="',htmlspecialchars($item),'" onclick="javascript:Toggle(this);"></td>',"\n";
 //			icon + link
 			echo '<td class="lcell" style="white-space: nowrap">';
-			if($this->permissions_grant($dir,$item,'read')):
+			if($this->permissions_grant(dir: $dir,file: $item,action: 'read')):
 				if(is_dir($abs_item)):
 					$link = $this->make_link('list',$this->get_rel_item($dir,$item),null);
 				else:
@@ -208,7 +217,7 @@ trait fm_list {
 				$s_item = substr($s_item,0,47) . '...';
 			endif;
 			echo htmlspecialchars($s_item);
-			if($this->permissions_grant($dir,$item,'read')):
+			if($this->permissions_grant(dir: $dir,file: $item,action: 'read')):
 				echo '</div></a>';
 			endif;
 			echo '</td>',"\n";
@@ -220,11 +229,11 @@ trait fm_list {
 			echo '<td class="lcell">',get_datetime_locale($this->get_file_date($dir,$item)),'</td>',"\n";
 //			permissions
 			echo '<td class="lcell">';
-			if($this->permissions_grant($dir,null,'change')):
+			if($this->permissions_grant(dir: $dir,action: 'change')):
 				echo '<a href="',$this->make_link('chmod',$dir,$item),'" title="',gtext('CHANGE PERMISSIONS'),'">';
 			endif;
 			echo $this->parse_file_type($dir,$item). $this->parse_file_perms($this->get_file_perms($dir,$item));
-			if($this->permissions_grant($dir,null,'change')):
+			if($this->permissions_grant(dir: $dir,action: 'change')):
 				echo '</a>';
 			endif;
 			echo '</td>',"\n";
@@ -233,15 +242,15 @@ trait fm_list {
 			echo '<table><tbody><tr>';
 //			edit
 			if($this->get_is_editable($dir,$item)):
-				$this->_print_link('edit',$this->permissions_grant($dir,$item,'change'),$dir,$item);
+				$this->_print_link('edit',$this->permissions_grant(dir: $dir,file: $item,action: 'change'),$dir,$item);
 			elseif($this->get_is_unzipable($dir,$item)):
-				$this->_print_link('unzip',$this->permissions_grant($dir,$item,'create'),$dir,$item);
+				$this->_print_link('unzip',$this->permissions_grant(dir: $dir,file: $item,action: 'create'),$dir,$item);
 			else:
 				echo '<td><img style="vertical-align:middle" width="16" height="16" src="',$this->baricons['none'],'" alt=""></td>',"\n";
 			endif;
 //			download
 			if($this->get_is_file($dir,$item)):
-				$this->_print_link('download',$this->permissions_grant($dir,$item,'read'),$dir,$item);
+				$this->_print_link('download',$this->permissions_grant(dir: $dir,file: $item,action: 'read'),$dir,$item);
 			else:
 				echo '<td><img style="vertical-align:middle" width="16" height="16" src="',$this->baricons['none'],'" alt=""></td>',"\n";
 			endif;
@@ -254,7 +263,7 @@ trait fm_list {
  *	main function
  */
 	public function list_dir($dir) {
-		if(!$this->get_show_item($dir,null)):
+		if(!$this->get_show_item(directory: $dir)):
 			$this->show_error(gtext('You are not allowed to access this directory.') . " : '$dir'");
 		endif;
 //		make file & dir tables, & get total filesize & number of items
@@ -298,13 +307,13 @@ trait fm_list {
 			'</a></td>',"\n";
 		echo '<td style="padding-right:8px"></td>',"\n";
 //		print the download button
-		$this->_print_link('download_selected',$this->permissions_grant($dir,null,'read'),$dir,null);
+		$this->_print_link('download_selected',$this->permissions_grant(dir: $dir,action: 'read'),$dir,null);
 //		print the edit buttons
 		$this->_print_edit_buttons($dir);
 		echo '</tr></tbody></table>',"\n";
 		echo '</th>',"\n";
 //		Create File / Dir
-		if($this->permissions_grant($dir,null,'create')):
+		if($this->permissions_grant(dir: $dir,action: 'create')):
 			echo '<th class="lherr">',"\n";
 			echo '<form name="mkiform" method="post" action="',$this->make_link('mkitem',$dir,null),'">',"\n";
 			echo '<div id="formextension1">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
@@ -438,9 +447,9 @@ trait fm_list {
  */
 	public function _print_edit_buttons($dir) {
 //		for the copy button the user must have create and read rights
-		$this->_print_link('copy',$this->permissions_grant($dir,null,'copy'),$dir,null);
-		$this->_print_link('move',$this->permissions_grant($dir,null,'move'),$dir,null);
-		$this->_print_link('delete',$this->permissions_grant($dir,null,'delete'),$dir,null);
+		$this->_print_link('copy',$this->permissions_grant(dir: $dir,action: 'copy'),$dir,null);
+		$this->_print_link('move',$this->permissions_grant(dir: $dir,action: 'move'),$dir,null);
+		$this->_print_link('delete',$this->permissions_grant(dir: $dir,action: 'delete'),$dir,null);
 	}
 /**
  *	print out an button link in the toolbar.

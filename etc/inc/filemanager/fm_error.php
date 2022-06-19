@@ -34,7 +34,12 @@
 
 namespace filemanager;
 
+use function gtext;
+
 trait fm_error {
+	use fm_footer;
+	use fm_header;
+
 	public function show_error($error,$extra = null) {
 		$this->_error($error . ' : ' . $extra);
 		$errmsg = gtext('ERROR(S)');

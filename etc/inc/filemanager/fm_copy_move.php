@@ -35,15 +35,19 @@
 namespace filemanager;
 
 use common\session;
-use fm_extra;
+
+use function gtext;
 
 trait fm_copy_move {
+	use fm_extra;
+	use fm_header;
+	use fm_permissions;
+
 /**
  *	make list of directories
  *	@param type $dir
  *	@return type
  */
-
 	public function dir_list($dir) {
 //		this list is used to copy/move items to a specific location
 		$dir_list = [];
@@ -121,10 +125,10 @@ trait fm_copy_move {
 //	copy/move file/dir
 	public function copy_move_items($dir) {
 //		copy and move are only allowed if the user may read and change files
-		if($this->action == 'copy' && !$this->permissions_grant($dir,null,'copy')):
+		if($this->action == 'copy' && !$this->permissions_grant(dir: $dir,action: 'copy')):
 			$this->show_error(gtext('You are not allowed to use this function.'));
 		endif;
-		if($this->action == 'move' && !$this->permissions_grant($dir,null,'move')):
+		if($this->action == 'move' && !$this->permissions_grant(dir: $dir,action: 'move')):
 			$this->show_error(gtext('You are not allowed to use this function.'));
 		endif;
 //		Vars

@@ -41,7 +41,7 @@ trait fm_debug {
 		closelog();
 	}
 	public function _debug ($data) {
-		$debug = 1;
+		$debug = 0;
 		if($debug === 0):
 			return;
 		endif;

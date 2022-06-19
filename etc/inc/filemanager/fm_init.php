@@ -35,6 +35,9 @@
 namespace filemanager;
 
 trait fm_init {
+	use fm_debug;
+	use fm_login;
+
 	public function init() {
 		$this->_debug("Initializing ---------------------------------------------------");
 /*

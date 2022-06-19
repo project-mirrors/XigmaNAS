@@ -39,6 +39,9 @@ use common\session;
 use function gtext;
 
 trait fm_search {
+	use fm_extra;
+	use fm_header;
+
 //	find items
 	public function find_item($dir,$regex,&$list,$recur) {
 		$handle = @opendir($this->get_abs_dir($dir));

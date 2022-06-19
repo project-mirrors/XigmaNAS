@@ -37,10 +37,14 @@ namespace filemanager;
 use function gtext;
 
 trait fm_del {
+	use fm_error;
+	use fm_extra;
+	use fm_permissions;
+
 //	delete files/dirs
 	public function del_items($dir) {
 //		check if user is allowed to delete files
-		if(!$this->permissions_grant($dir,null,'delete')):
+		if(!$this->permissions_grant(dir: $dir,action: 'delete')):
 			$this->show_error(gtext('You are not allowed to use this function.'));
 		endif;
 		$cnt = count($_POST['selitems']);

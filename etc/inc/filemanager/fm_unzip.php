@@ -40,6 +40,12 @@ use Throwable;
 use function gtext;
 
 trait fm_unzip {
+	use fm_copy_move;
+	use fm_error;
+	use fm_extra;
+	use fm_header;
+	use fm_permissions;
+
 /**
  *	unzip file/dir
  *
@@ -48,7 +54,7 @@ trait fm_unzip {
  */
 	public function unzip_item($dir) {
 //		copy and move are only allowed if the user may read and change files
-		if(!$this->permissions_grant($dir,null,'copy')):
+		if(!$this->permissions_grant(dir: $dir,action: 'copy')):
 			$this->show_error(gtext('You are not allowed to use this function.'));
 		endif;
 //		Vars

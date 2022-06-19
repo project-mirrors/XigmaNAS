@@ -40,9 +40,9 @@ namespace filemanager;
 trait fm_str {
 /**
  *
- * @param string $candidate
- * @param string $search_str
- * @return boolean
+ *	@param string $candidate
+ *	@param string $search_str
+ *	@return boolean
  */
 	public function str_startswith ($candidate,$search_str) {
 		return substr($candidate,0,strlen($search_str)) == $search_str;

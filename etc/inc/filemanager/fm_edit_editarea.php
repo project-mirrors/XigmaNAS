@@ -36,38 +36,44 @@ namespace filemanager;
 
 use common\session;
 
-class fm_edit_editarea {
+use function gtext;
+
+trait fm_edit_editarea {
+	use fm_error;
+	use fm_extra;
+	use fm_header;
+
 //	save edited file
 	public function savefile($file_name) {
 		$code = $_POST['code'];
 		$fp = @fopen($file_name,'w');
 		if($fp === false):
-			fm_error::show_error(htmlspecialchars(basename($file_name)) . ': ' . gtext('File saving failed.'));
+			$this->show_error(htmlspecialchars(basename($file_name)) . ': ' . gtext('File saving failed.'));
 		endif;
 		fputs($fp,$code);
 		@fclose($fp);
 	}
 //	edit file
 	public function edit_file($dir,$item) {
-		if(!fm_permissions::permissions_grant($dir,$item,'change')):
-			fm_error::show_error(gtext('You are not allowed to use this function.'));
+		if(!$this->permissions_grant(dir: $dir,file: $item,action: 'change')):
+			$this->show_error(gtext('You are not allowed to use this function.'));
 		endif;
-		if(!fm_extra::get_is_file($dir,$item)):
-			fm_error::show_error(htmlspecialchars($item) . ': ' . gtext("This file doesn't exist."));
+		if(!$this->get_is_file($dir,$item)):
+			$this->show_error(htmlspecialchars($item) . ': ' . gtext("This file doesn't exist."));
 		endif;
-		if(!fm_extra::get_show_item($dir,$item)):
-			fm_error::show_error(htmlspecialchars($item) . ': ' . gtext('You are not allowed to access this file.'));
+		if(!$this->get_show_item($dir,$item)):
+			$this->show_error(htmlspecialchars($item) . ': ' . gtext('You are not allowed to access this file.'));
 		endif;
-		$fname = fm_extra::get_abs_item($dir,$item);
+		$fname = $this->get_abs_item($dir,$item);
 		if(isset($_POST['dosave']) && $_POST['dosave'] == 'yes'):
 //		save / save as
 			$item = basename($_POST['fname']);
-			$fname2 = fm_extra::get_abs_item($dir,$item);
+			$fname2 = $this->get_abs_item($dir,$item);
 			if(!isset($item) || $item == ''):
-				fm_error::show_error(gtext('You must supply a name.'));
+				$this->show_error(gtext('You must supply a name.'));
 			endif;
 			if($fname != $fname2 && @file_exists($fname2)):
-				fm_error::show_error(htmlspecialchars($item) . ': ' . gtext('This item already exists.'));
+				$this->show_error(htmlspecialchars($item) . ': ' . gtext('This item already exists.'));
 			endif;
 			$this->savefile($fname2);
 			$fname = $fname2;
@@ -75,14 +81,14 @@ class fm_edit_editarea {
 //		open file
 		$fp = @fopen($fname,'r');
 		if($fp === false):
-			fm_error::show_error(htmlspecialchars($item) . ': ' . gtext('File opening failed.'));
+			$this->show_error(htmlspecialchars($item) . ': ' . gtext('File opening failed.'));
 		endif;
 //		header
-		$s_item = fm_extra::get_rel_item($dir,$item);
+		$s_item = $this->get_rel_item($dir,$item);
 		if(strlen($s_item) > 50):
 			$s_item = '...' . substr($s_item,-47);
 		endif;
-		fm_header::show_header(gtext('Edit file') . ': /' . htmlspecialchars($s_item));
+		$this->show_header(gtext('Edit file') . ': /' . htmlspecialchars($s_item));
 		echo '<div id="area_data_frame">',"\n";
 
 //		Word-wrap checkbox controller
@@ -106,7 +112,7 @@ class fm_edit_editarea {
 		@fclose($fp);
 //		Form
 		echo	'<br>',"\n";
-		echo	'<form name="editfrm" method="post" action="',fm_extra::make_link('edit',$dir,$item),'">',"\n";
+		echo	'<form name="editfrm" method="post" action="',$this->make_link('edit',$dir,$item),'">',"\n";
 		echo		'<div id="formextension">',"\n",'<input name="authtoken" type="hidden" value="',session::get_authtoken(),'">',"\n",'</div>',"\n";
 		echo		'<input type="hidden" name="dosave" value="yes">',"\n";
 		echo		'<textarea name="code" id="txtedit" rows="27" cols="125" style="font-family: monospace;" wrap="off">',htmlspecialchars($buffer),'</textarea>',"\n";
@@ -124,7 +130,7 @@ class fm_edit_editarea {
 							'<td><input type="text" name="fname" value="',htmlspecialchars($item),'"></td>',"\n",
 							'<td><input type="submit" value="',gtext('Save'),'"></td>',"\n",
 							'<td><input type="reset" value="',gtext('Reset'),'"></td>',"\n",
-							'<td><input type="button" value="',gtext('Close'),'" onClick="javascript:location=\'',fm_extra::make_link('list',$dir,null),'\';"></td>',"\n",
+							'<td><input type="button" value="',gtext('Close'),'" onClick="javascript:location=\'',$this->make_link('list',$dir,null),'\';"></td>',"\n",
 						'</tr>',"\n",
 					'</table>',"\n";
 		echo		'<br>',"\n";

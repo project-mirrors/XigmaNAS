@@ -35,6 +35,12 @@
 namespace filemanager;
 
 trait fm_down {
+	use fm_debug;
+	use fm_error;
+	use fm_extra;
+	use fm_permissions;
+	use fm_qxpage;
+	
 /**
  *	download_selected
  *	@param string $dir
@@ -96,7 +102,7 @@ trait fm_down {
  */
 	public function _is_download_allowed($dir,$items) {
 		foreach($items as $file):
-			if(!$this->permissions_grant($dir,$file,'read')):
+			if(!$this->permissions_grant(dir: $dir,file: $file,action: 'read')):
 				return false;
 			endif;
 			if(!$this->get_show_item($dir,$file)):

@@ -35,6 +35,8 @@
 namespace filemanager;
 
 trait fm_qx {
+	use fm_permissions;
+
 	public function qx_language() {
 		print $this->language;
 	}
@@ -58,11 +60,11 @@ trait fm_qx {
 	public function qx_grant($link) {
 		switch($link):
 			case 'javascript:Move();':
-				return $this->permissions_grant($this->dir,null,'move');
+				return $this->permissions_grant(dir: $this->dir,action: 'move');
 			case 'javascript:Copy();':
-				return $this->permissions_grant($this->dir,null,'copy');
+				return $this->permissions_grant(dir: $this->dir,action: 'copy');
 			case 'javascript:Delete();':
-				return $this->permissions_grant($this->dir,null,'delete');
+				return $this->permissions_grant(dir: $this->dir,action: 'delete');
 			case 'javascript:location.reload();':
 				return true;
 		endswitch;
