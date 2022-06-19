@@ -283,7 +283,7 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 				if(count($val) > 0):
 					foreach($val as $cval):
 						if(is_array($cval)):
-							$xmlconfig .= $s_indent . sprintf('<%s type="array">',$ent) . "\n";
+							$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
 							$xmlconfig .= dump_xml_config_sub($cval,$indent + 1,$inbound_charset,$outbound_charset);
 							$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
 						elseif(is_bool($cval)):
@@ -294,25 +294,29 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 							endif;
 						elseif(is_string($cval)):
 							if($cval === ''):
-								$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+								$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 							elseif($must_convert):
-								$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+								$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 								$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$cval));
 								$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 							else:
-								$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+								$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 								$xmlconfig .= htmlspecialchars($cval);
 								$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 							endif;
+						elseif(is_scalar($cval)):
+							$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
+							$xmlconfig .= $cval ?? '';
+							$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 						else:
-							$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+							$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 						endif;
 					endforeach;
 				else:
-					$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+					$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 				endif;
 			else: // it's an array
-				$xmlconfig .= $s_indent . sprintf('<%s type="array">',$ent) . "\n";
+				$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
 				$xmlconfig .= dump_xml_config_sub($val,$indent + 1,$inbound_charset,$outbound_charset);
 				$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
 			endif;
@@ -324,18 +328,22 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 			endif;
 		elseif(is_string($val)):
 			if($val === ''):
-				$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+				$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 			elseif($must_convert):
-				$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+				$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 				$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$val));
 				$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 			else:
-				$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+				$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
 				$xmlconfig .= htmlspecialchars($val);
 				$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 			endif;
+		elseif(is_scalar($val)):
+			$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
+			$xmlconfig .= $val ?? '';
+			$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 		else:
-			$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+			$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
 		endif;
 	endforeach;
 	return $xmlconfig;
