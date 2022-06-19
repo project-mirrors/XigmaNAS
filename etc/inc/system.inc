@@ -1269,10 +1269,10 @@ function system_get_sysinfo() {
 	$sysinfo = [];
 	$sysinfo['vipstatus'] = get_vip_status();
 	$sysinfo['hostname'] = system_get_hostname();
-	$sysinfo['builddate'] = get_datetime_locale(get_product_buildtimestamp());
+	$sysinfo['builddate'] = get_datetime_locale((int)get_product_buildtimestamp());
 	$sysinfo['date'] = get_datetime_locale();
 	$sysinfo['uptime'] = system_get_uptime();
-	$sysinfo['lastchange'] = get_datetime_locale($config['lastchange'] ?? 0);
+	$sysinfo['lastchange'] = get_datetime_locale((int)($config['lastchange'] ?? 0));
 	$cpuinfo = system_get_cpu_info();
 	$sysinfo['cpumodel'] = $cpuinfo['model'];
 	if(session::is_admin()):
