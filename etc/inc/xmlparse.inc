@@ -221,7 +221,7 @@ class config_xml_reader {
 		$this->attributes = [];
 //		Read configuration file.
 		$data = file_get_contents($cffile);
-		if(false === $data):
+		if($data === false):
 			die("Error: could not open XML input\n");
 		endif;
 //		Detect and set output character encoding. Default output encoding is UTF-8
@@ -278,32 +278,41 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 	$must_convert = ($inbound_charset !== $outbound_charset);
 	foreach($arr as $ent => $val):
 		if(is_array($val)):
-			if(array_key_exists(strtolower($ent),$listtags)): // is it a list of multiple values?
-				foreach($val as $cval):
-					if(is_array($cval)):
-						$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
-						$xmlconfig .= dump_xml_config_sub($cval,$indent + 1,$inbound_charset,$outbound_charset);
-						$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
-					elseif(is_bool($cval)):
-						if($cval):
-							$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
-//						else:
-//							$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
+//			is it a list of multiple values?
+			if(array_key_exists(strtolower($ent),$listtags)):
+				if(count($val) > 0):
+					foreach($val as $cval):
+						if(is_array($cval)):
+							$xmlconfig .= $s_indent . sprintf('<%s type="array">',$ent) . "\n";
+							$xmlconfig .= dump_xml_config_sub($cval,$indent + 1,$inbound_charset,$outbound_charset);
+							$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
+						elseif(is_bool($cval)):
+							if($cval):
+								$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
+//							else:
+//								$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
+							endif;
+						elseif(is_string($cval)):
+							if($cval === ''):
+								$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+							elseif($must_convert):
+								$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+								$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$cval));
+								$xmlconfig .= sprintf('</%s>',$ent) . "\n";
+							else:
+								$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+								$xmlconfig .= htmlspecialchars($cval);
+								$xmlconfig .= sprintf('</%s>',$ent) . "\n";
+							endif;
+						else:
+							$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
 						endif;
-					elseif($cval === ''):
-						$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
-					elseif($must_convert):
-						$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
-						$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$cval));
-						$xmlconfig .= sprintf('</%s>',$ent) . "\n";
-					else:
-						$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
-						$xmlconfig .= htmlspecialchars($cval);
-						$xmlconfig .= sprintf('</%s>',$ent) . "\n";
-					endif;
-				endforeach;
+					endforeach;
+				else:
+					$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+				endif;
 			else: // it's an array
-				$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
+				$xmlconfig .= $s_indent . sprintf('<%s type="array">',$ent) . "\n";
 				$xmlconfig .= dump_xml_config_sub($val,$indent + 1,$inbound_charset,$outbound_charset);
 				$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
 			endif;
@@ -313,16 +322,20 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 //			else:
 //				$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
 			endif;
-		elseif($val === ''):
-			$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
-		elseif($must_convert):
-			$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
-			$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$val));
-			$xmlconfig .= sprintf('</%s>',$ent) . "\n";
+		elseif(is_string($val)):
+			if($val === ''):
+				$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
+			elseif($must_convert):
+				$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+				$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$val));
+				$xmlconfig .= sprintf('</%s>',$ent) . "\n";
+			else:
+				$xmlconfig .= $s_indent . sprintf('<%s type="string">',$ent);
+				$xmlconfig .= htmlspecialchars($val);
+				$xmlconfig .= sprintf('</%s>',$ent) . "\n";
+			endif;
 		else:
-			$xmlconfig .= $s_indent . sprintf("<%s>",$ent);
-			$xmlconfig .= htmlspecialchars($val);
-			$xmlconfig .= sprintf('</%s>',$ent) . "\n";
+			$xmlconfig .= $s_indent . sprintf('<%s type="string"/>',$ent) . "\n";
 		endif;
 	endforeach;
 	return $xmlconfig;
