@@ -327,15 +327,27 @@ if(!isset($noparseconfig) || !$noparseconfig):
 	config_unlock();
 	global $config_disks;
 //	get S.M.A.R.T. arguments from config and store it in a hash to get better performance:
-	arr::make_branch($config,'disks','disk');
-	foreach($config['disks']['disk'] as $disk):
-		$config_disks[$disk['devicespecialfile']]['smart']['devicefilepath'] = $disk['smart']['devicefilepath'];
-		$config_disks[$disk['devicespecialfile']]['smart']['devicetypearg'] = $disk['smart']['devicetypearg'];
-		$config_disks[$disk['devicespecialfile']]['desc'] = $disk['desc'];
+	arr::make_branch($config,'disks');
+	$cfg_disks = $config['disks'];
+	arr::make_branch($cfg_disks,'disk');
+	foreach($cfg_disks['disk'] as $disk):
+		if(isset($disk['devicespecialfile'])):
+			if(isset($disk['smart']['devicefilepath'])):
+				$config_disks[$disk['devicespecialfile']]['smart']['devicefilepath'] = $disk['smart']['devicefilepath'];
+			endif;
+			if(isset($disk['smart']['devicetypearg'])):
+				$config_disks[$disk['devicespecialfile']]['smart']['devicetypearg'] = $disk['smart']['devicetypearg'];
+			endif;
+			if(isset($disk['desc'])):
+				$config_disks[$disk['devicespecialfile']]['desc'] = $disk['desc'];
+			endif;
+		endif;
 	endforeach;
 endif;
-
-/* mount flash card read/write */
+/**
+ *	mount flash card read/write
+ *	@global array $g
+ */
 function conf_mount_rw() {
 	global $g;
 
@@ -345,8 +357,10 @@ function conf_mount_rw() {
 		mwexec("/sbin/mount -w -o noatime {$g['cf_path']}");
 	endif;
 }
-
-/* mount flash card read only */
+/**
+ *	mount flash card read only
+ *	@global array $g
+ */
 function conf_mount_ro() {
 	global $g;
 
@@ -355,9 +369,8 @@ function conf_mount_ro() {
 		mwexec("/sbin/mount -r {$g['cf_path']}");
 	endif;
 }
-
 /**
- * Save the system configuration
+ *	Save the system configuration
  */
 function write_config() {
 	global $config, $g;
@@ -409,7 +422,7 @@ function write_config() {
 	config_unlock();
 }
 /**
- *
+ *	Write loader.conf.local
  *	@global array $g
  *	@global array $config
  */
@@ -476,9 +489,9 @@ function write_loader_config(){
 	endif;
 }
 /**
- *
- * @global array $g
- * @return int Returns 0 on success or 1 on failure.
+ *	Reset config.xml to factory settings
+ *	@global array $g
+ *	@return int Returns 0 on success or 1 on failure.
  */
 function reset_factory_defaults() {
 	global $g;
@@ -513,7 +526,6 @@ function reset_factory_defaults() {
 	config_unlock();
 	return 0;
 }
-
 /**
  *	Install the given configuration file.
  *	@param[in] conffile The path to the file to be installed.
@@ -585,16 +597,13 @@ function config_write_cache($data) {
 	global $g;
 
 	$filename = "{$g['tmp_path']}/config.cache";
-
 //	ensure configuration cache file is written
 	if(!file_put_contents_safe($filename, serialize($data), true)):
 		write_log("Error: Failed to write configuration cache file '{$filename}'.");
 		return false;
 	endif;
-
 //	modify file permissions
 	@chmod($filename, 0600);
-
 	return true;
 }
 /**
@@ -1902,26 +1911,25 @@ function config_encrypt($password) {
 	if($b64enc_config === false):
 		return false;
 	endif;
-	$gz_config = gzencode($b64enc_config,9);
+	$gz_config = gzencode($b64enc_config,9,FORCE_GZIP);
 	if($gz_config === false):
 		return false;
 	endif;
 	return $gz_config;
 }
 /**
- *	gzdecompress and decrypt
+ *	Unzip and decrypt configuration
  *	@param string $password
- *	@param string $gz_config
- *	@return mixed The decryted string is returned or false on failure.
+ *	@param string $encrypted_and_compressed_data
+ *	@return mixed The decrypted string is returned or false on failure.
  */
-function config_decrypt($password,$gz_config) {
-	$b64enc_data = gzdecode($gz_config);
-	if($b64enc_data === false):
-		return false;
+function config_decrypt(string $password,string $encrypted_and_compressed_data) {
+	$encrypted_data = gzdecode($encrypted_and_compressed_data);
+	if($encrypted_data !== false):
+		$data = decrypt_aes256cbc($password,$encrypted_data);
+//		if($data !== false):
+			return $data;
+//		endif;
 	endif;
-	$config = decrypt_aes256cbc($password,$b64enc_data);
-	if($config === false):
-		return false;
-	endif;
-	return $config;
+	return false;
 }
