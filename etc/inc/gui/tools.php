@@ -58,7 +58,7 @@ trait tools {
  *	@return DOMNode $subnode
  */
 	public function addElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
-		$subnode = $this->appendChild(new element($name,null,$namespaceURI));
+		$subnode = $this->appendChild(node: new element(qualifiedName: $name,namespace: $namespaceURI));
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
@@ -73,7 +73,7 @@ trait tools {
  *	@return DOMNode $this
  */
 	public function insElement(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
-		$subnode = $this->appendChild(new element($name,null,$namespaceURI));
+		$subnode = $this->appendChild(node: new element(qualifiedName: $name,namespace: $namespaceURI));
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
 		$subnode->addAttributes($attributes);
@@ -89,9 +89,9 @@ trait tools {
  */
 	public function prepend_element(string $name,array $attributes = [],string $value = null,string $namespaceURI = '') {
 		if(is_null($this->firstChild)):
-			$subnode = $this->appendChild(new element($name,null,$namespaceURI));
+			$subnode = $this->appendChild(node: new element(qualifiedName: $name,namespace: $namespaceURI));
 		else:
-			$subnode = $this->insertBefore(new element($name,null,$namespaceURI),$this->firstChild);
+			$subnode = $this->insertBefore(node: new element(qualifiedName: $name,namespace: $namespaceURI),child: $this->firstChild);
 		endif;
 		$check_for_html = $this->check_for_html($name);
 		$subnode->import_soup($value,$check_for_html);
@@ -325,7 +325,7 @@ trait tools {
 		$this->
 			addLI(['class' => $active ? 'tabact' : 'tabinact'])->
 				addA($attributes)->
-					addSPAN([],$value);
+					addSPAN(value: $value);
 		return $this;
 	}
 /**
@@ -360,13 +360,13 @@ trait tools {
 						$mbcl3 = $mbcl2i2->addDIV(['class' => 'mbcl-3 mbci-min']);
 						$mbcl2i1->insIMG(['src' => $src,'alt' => $alt]);
 						$hook_messages = $mbcl3->
-							addDIV([],sprintf('%s:',gettext('The following errors were detected'),':'))->
+							addDIV(value: sprintf('%s:',gettext('The following errors were detected'),':'))->
 								addUL();
 						$this->add_hook($hook_messages,'messages');
 						$firstrowtrigger = false;
 					endif;
-					$hook_messages->addLI([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
-//					$hook_messages->addLI([],$rowvalue);
+					$hook_messages->addLI(value: htmlspecialchars_decode($rowvalue,ENT_QUOTES | ENT_HTML5));
+//					$hook_messages->addLI(value: $rowvalue);
 				endif;
 			endforeach;
 		endif;
@@ -420,8 +420,8 @@ trait tools {
 						$this->add_hook($hook_messages,'messages');
 						$firstrowtrigger = false;
 					endif;
-					$hook_messages->insDIV([],htmlspecialchars_decode($rowvalue,ENT_QUOTES|ENT_HTML5));
-//					$mbcl3->insDIV([],$rowvalue);
+					$hook_messages->insDIV(value: htmlspecialchars_decode($rowvalue,ENT_QUOTES | ENT_HTML5));
+//					$mbcl3->insDIV(value: $rowvalue);
 				endif;
 			endforeach;
 		endif;
@@ -672,7 +672,7 @@ trait tools {
 			$input_attributes['required'] = 'required';
 		endif;
 		$hook = $this->addDIV(['class' => $class_checkbox]);
-		$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $id],filter_var($property->get_caption(),FILTER_VALIDATE_REGEXP,['options' => ['default' => "\xc2\xa0",'regexp' => '/\S/']]));
+		$hook->insINPUT($input_attributes)->addElement('label',['for' => $id],filter_var($property->get_caption(),FILTER_VALIDATE_REGEXP,['options' => ['default' => "\xc2\xa0",'regexp' => '/\S/']]));
 		$this->add_hook($hook,$id);
 		return $this;
 	}
@@ -774,7 +774,7 @@ trait tools {
 				unset($input_attributes['checked']);
 			endif;
 			$hook = $tbody->addTR()->addTDwC('lcebl celldatacheckbox');
-			$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $input_attributes['id']],$option_val);
+			$hook->insINPUT($input_attributes)->addElement('label',['for' => $input_attributes['id']],$option_val);
 			$this->add_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
@@ -898,7 +898,7 @@ EOJ;
 				unset($input_attributes['checked']);
 			endif;
 			$hook = $tbody->addTR()->addTDwC('lcebl celldataradio');
-			$hook->insINPUT($input_attributes)->addELEMENT('label',['for' => $input_attributes['id']],$option_val);
+			$hook->insINPUT($input_attributes)->addElement('label',['for' => $input_attributes['id']],$option_val);
 			$this->add_hook($hook,$option_tag);
 			$n_options++;
 		endforeach;
@@ -1223,16 +1223,16 @@ EOJ;
 		return $this;
 	}
 	public function ins_cbm_button_delete($sphere) {
-		$this->ins_button_submit($sphere->get_cbm_button_id_delete(),null,$sphere->get_cbm_button_val_delete(),$sphere->getmsg_cbm_delete(),null);
+		$this->ins_button_submit(id: $sphere->get_cbm_button_id_delete(),value: $sphere->get_cbm_button_val_delete(),content: $sphere->getmsg_cbm_delete());
 		return $this;
 	}
 	public function ins_cbm_button_enadis($sphere) {
 		if($sphere->is_enadis_enabled()):
 			if($sphere->toggle()):
-				$this->ins_button_submit($sphere->get_cbm_button_id_toggle(),null,$sphere->get_cbm_button_val_toggle(),$sphere->getmsg_cbm_toggle(),null);
+				$this->ins_button_submit(id: $sphere->get_cbm_button_id_toggle(),value:$sphere->get_cbm_button_val_toggle(),content: $sphere->getmsg_cbm_toggle());
 			else:
-				$this->ins_button_submit($sphere->get_cbm_button_id_enable(),null,$sphere->get_cbm_button_val_enable(),$sphere->getmsg_cbm_enable(),null);
-				$this->ins_button_submit($sphere->get_cbm_button_id_disable(),null,$sphere->get_cbm_button_val_disable(),$sphere->getmsg_cbm_disable(),null);
+				$this->ins_button_submit(id: $sphere->get_cbm_button_id_enable(),value: $sphere->get_cbm_button_val_enable(),content: $sphere->getmsg_cbm_enable());
+				$this->ins_button_submit(id: $sphere->get_cbm_button_id_disable(),value: $sphere->get_cbm_button_val_disable(),content: $sphere->getmsg_cbm_disable());
 			endif;
 		endif;
 		return $this;
@@ -1913,7 +1913,7 @@ EOJ;
 	}
 	public function ins_remark($ctrlname,$title,$text) {
 		$this->addDIV(['id' => $ctrlname])->addElement('strong',['class' => 'red'],$title);
-		$this->addDIV([],$text);
+		$this->addDIV(value: $text);
 		return $this;
 	}
 	public function ins_authtoken() {
@@ -1951,7 +1951,7 @@ EOJ;
 			insElement('meta',['name' => 'viewport','content' => 'width=device-width, initial-scale=1.0'])->
 			insElement('meta',['name' => 'robots','content' => 'noindex,nofollow'])->
 			insElement('meta',['name' => 'description','content' => 'XigmaNAS® - The Free Network Attached Storage Project'])->
-			insElement('title',[],$this->clc_html_page_title($page_title))->
+			insElement(name: 'title',value: $this->clc_html_page_title($page_title))->
 			insElement('link',['href' => '/css/gui.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement('link',['href' => '/css/navbar.css.php','rel' => 'stylesheet','type' => 'text/css'])->
 			insElement('link',['href' => '/css/tabs.css.php','rel' => 'stylesheet','type' => 'text/css']);
@@ -1961,7 +1961,7 @@ EOJ;
 			header("Content-Security-Policy: frame-ancestors 'none'");
 		endif;
 		$head->
-			insElement('style',[],'.avoid-fouc { visibility:hidden; }');
+			insElement(name: 'style',value: '.avoid-fouc { visibility:hidden; }');
 		$head->
 			insElement('script',['src' => '/js/jquery.min.js'])->
 			insElement('script',['src' => '/js/gui.js'])->
