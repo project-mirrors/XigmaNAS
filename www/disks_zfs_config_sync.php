@@ -54,10 +54,10 @@ function get_geli_info($device) {
 }
 arr::make_branch($config,'disks','disk');
 arr::make_branch($config,'geli','vdisk');
-arr::make_branch($config,'zfs','vdevices','vdevice');
-arr::make_branch($config,'zfs','pools','pool');
-arr::make_branch($config,'zfs','datasets','dataset');
-arr::make_branch($config,'zfs','volumes','volume');
+arr::make_branch($config,'zfs','vdevices');
+arr::make_branch($config,'zfs','pools');
+arr::make_branch($config,'zfs','datasets');
+arr::make_branch($config,'zfs','volumes');
 $zfs = [];
 arr::make_branch($zfs,'vdevices','vdevice');
 arr::make_branch($zfs,'pools','pool');
@@ -92,7 +92,7 @@ foreach($rawdata as $line):
 	if($line == 'no datasets available'):
 		continue;
 	endif;
-	list($fname,$mpoint,$compress,$canmount,$quota,$used,$avail,$xattr,$snapdir,$readonly,$origin,$reservation,$dedup,$sync,$atime,$aclinherit,$aclmode,$primarycache,$secondarycache) = explode("\t",$line);
+	[$fname,$mpoint,$compress,$canmount,$quota,$used,$avail,$xattr,$snapdir,$readonly,$origin,$reservation,$dedup,$sync,$atime,$aclinherit,$aclmode,$primarycache,$secondarycache] = explode("\t",$line);
 	if(strpos($fname,'/') !== false): // dataset
 		if(empty($origin) || $origin != '-'):
 			continue;
@@ -182,7 +182,7 @@ foreach($rawdata as $line):
 	if($line == 'no datasets available'):
 		continue;
 	endif;
-	list($fname,$checksum,$compression,$dedup,$logbias,$origin,$primarycache,$refreservation,$secondarycache,$sync,$volblocksize,$volmode,$volsize) = explode("\t",$line);
+	[$fname,$checksum,$compression,$dedup,$logbias,$origin,$primarycache,$refreservation,$secondarycache,$sync,$volblocksize,$volmode,$volsize] = explode("\t",$line);
 	if(strpos($fname,'/') !== false): // volume
 		if(empty($origin) || $origin != '-'):
 			continue;
@@ -216,7 +216,7 @@ foreach($rawdata as $line):
 	if($line == 'no pools available'):
 		continue;
 	endif;
-	list($pool,$root,$size,$alloc,$free,$cap,$expandsz,$frag,$health,$dedup,$guid) = explode("\t",$line);
+	[$pool,$root,$size,$alloc,$free,$cap,$expandsz,$frag,$health,$dedup,$guid] = explode("\t",$line);
 	if($root != '-'):
 		$zfs['pools']['pool'][$pool]['root'] = $root;
 	endif;
@@ -248,7 +248,8 @@ foreach($rawdata as $line):
 	if(empty($line[0]) || $line[0] != "\t"):
 		continue;
 	endif;
-	if(!is_null($vdev) && preg_match('/^\t    (\S+)/',$line,$m)): // dev
+//	dev
+	if(!is_null($vdev) && preg_match('/^\t    (\S+)/',$line,$m)):
 		$dev = $m[1];
 		if(preg_match("/^(.+)\.nop$/",$dev,$m)):
 			$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
@@ -261,7 +262,7 @@ foreach($rawdata as $line):
 		endif;
 	elseif(!is_null($pool) && preg_match('/^\t  (\S+)/',$line,$m)): // vdev or dev (type disk)
 		$is_vdev_type = true;
-		if($type == 'spare'): // disk in vdev type spares
+		if($type == 'spare'):
 			$dev = $m[1];
 		elseif($type == 'cache'):
 			$dev = $m[1];
@@ -270,7 +271,8 @@ foreach($rawdata as $line):
 			if(preg_match("/^mirror-([0-9]+)$/",$dev,$m)):
 				$type = "log-mirror";
 			endif;
-		else: // vdev or dev (type disk)
+		else:
+//			vdev or dev (type disk)
 			$type = $m[1];
 			if(preg_match("/^(.*)\-\d+$/",$type,$m)):
 				$tmp = $m[1];
@@ -281,11 +283,11 @@ foreach($rawdata as $line):
 			else:
 				$is_vdev_type = in_array($type,$vdev_type);
 			endif;
-			if(!$is_vdev_type): // type disk
+			if(!$is_vdev_type):
 				$dev = $type;
 				$type = 'disk';
 				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
-			else: // vdev
+			else:
 				$vdev = sprintf("%s_%s_%d",$pool,$type,$i++);
 			endif;
 		endif;
@@ -305,13 +307,14 @@ foreach($rawdata as $line):
 				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 				$zfs['vdevices']['vdevice'][$vdev]['aft4k'] = true;
 			elseif(preg_match("/^(.+)\.eli$/",$dev,$m)):
-				//$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
+//				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$m[1]}";
 				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 			else:
 				$zfs['vdevices']['vdevice'][$vdev]['device'][] = "/dev/{$dev}";
 			endif;
 		endif;
-	elseif(preg_match('/^\t(\S+)/',$line,$m)): // zpool or spares
+	elseif(preg_match('/^\t(\S+)/',$line,$m)):
+//		zpool or spares
 		$vdev = null;
 		$type = null;
 		switch($m[1]):
@@ -342,10 +345,10 @@ endforeach;
 if(isset($_POST['import_config'])):
 	$import = false;
 	$cfg = [];
-	arr::make_branch($cfg,'zfs','vdevices','vdevice');
-	arr::make_branch($cfg,'zfs','pools','pool');
-	arr::make_branch($cfg,'zfs','datasets','dataset');
-	arr::make_branch($cfg,'zfs','volumes','volume');
+	arr::make_branch($cfg,'zfs','vdevices');
+	arr::make_branch($cfg,'zfs','pools');
+	arr::make_branch($cfg,'zfs','datasets');
+	arr::make_branch($cfg,'zfs','volumes');
 	arr::make_branch($cfg,'zfs','autosnapshots');
 	$a_posted = [];
 	foreach(['vdev','pool','dset','vol'] as $ref):
@@ -354,7 +357,7 @@ if(isset($_POST['import_config'])):
 	foreach($a_posted['vol'] as $vol):
 		$import |= true;
 		$tmp = $zfs['volumes']['volume'][$vol];
-		unset($tmp['identifier']); // no longer required
+		unset($tmp['identifier']);
 		$cfg['zfs']['volumes']['volume'][] = $tmp;
 		if(!in_array($zfs['volumes']['volume'][$vol]['pool'],$a_posted['pool'])):
 			$a_posted['pool'][] = $zfs['volumes']['volume'][$vol]['pool'];
@@ -363,7 +366,7 @@ if(isset($_POST['import_config'])):
 	foreach($a_posted['dset'] as $dset):
 		$import |= true;
 		$tmp = $zfs['datasets']['dataset'][$dset];
-		unset($tmp['identifier']); // no longer required
+		unset($tmp['identifier']);
 		$cfg['zfs']['datasets']['dataset'][] = $tmp;
 		if(!in_array($zfs['datasets']['dataset'][$dset]['pool'],$a_posted['pool'])):
 			$a_posted['pool'][] = $zfs['datasets']['dataset'][$dset]['pool'];
@@ -480,7 +483,7 @@ if(isset($_POST['import_config'])):
 		if(isset($_POST['leave_autosnapshots'])):
 			$cfg['zfs']['autosnapshots'] = !empty($config['zfs']['autosnapshots']) ? $config['zfs']['autosnapshots'] : [];
 		endif;
-		//	use below to keep other subnodes, $config['zfs'] = $cfg['zfs']; will not keep them
+//		use below to keep other subnodes, $config['zfs'] = $cfg['zfs']; will not keep them
 		foreach($cfg['zfs'] as $zfs_key => $zfs_value):
 			$config['zfs'][$zfs_key] = $zfs_value;
 		endforeach;
@@ -488,7 +491,7 @@ if(isset($_POST['import_config'])):
 		$config['geli'] = $cfg['geli'];
 		updatenotify_set('zfs_import_config',UPDATENOTIFY_MODE_UNKNOWN,true);
 		write_config();
-		// remove existing pool cache
+//		remove existing pool cache
 		conf_mount_rw();
 		unlink_if_exists("{$g['cf_path']}/boot/zfs/zpool.cache");
 		conf_mount_ro();
