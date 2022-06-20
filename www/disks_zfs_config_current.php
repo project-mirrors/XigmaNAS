@@ -32,14 +32,21 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-array_make_branch($config,'zfs','pools','pool');
-array_make_branch($config,'zfs','vdevices','vdevice');
-array_make_branch($config,'zfs','datasets','dataset');
-array_make_branch($config,'zfs','volumes','volume');
+use common\arr;
+
+arr::make_branch($config,'zfs','pools');
+arr::make_branch($config,'zfs','vdevices');
+arr::make_branch($config,'zfs','datasets');
+arr::make_branch($config,'zfs','volumes');
 $zfs_info = $config['zfs'];
+arr::make_branch($zfs_info,'pools','pool');
+arr::make_branch($zfs_info,'vdevices','vdevice');
+arr::make_branch($zfs_info,'datasets','dataset');
+arr::make_branch($zfs_info,'volumes','volume');
 //	add additional fields
 foreach($zfs_info['pools']['pool'] as $index => $zfs_info_pool):
 	$unknown = gettext('Unknown');
@@ -51,7 +58,7 @@ foreach($zfs_info['pools']['pool'] as $index => $zfs_info_pool):
 	$zfs_info['pools']['pool'][$index]['dedup'] = $unknown;
 	$zfs_info['pools']['pool'][$index]['health'] = $unknown;
 	foreach($zfs_info_pool['vdevice'] as $vdevice):
-		$index = array_search_ex($vdevice,$zfs_info['vdevices']['vdevice'],'name');
+		$index = arr::search_ex($vdevice,$zfs_info['vdevices']['vdevice'],'name');
 		if($index !== false):
 			$zfs_info['vdevices']['vdevice'][$index]['pool'] = $zfs_info_pool['name'];
 		endif;
@@ -68,7 +75,7 @@ if($exitstatus == 0):
 			continue;
 		endif;
 		[$fname,$used,$avail] = explode("\t",$line);
-		$index = array_search_ex($fname,$zfs_info['pools']['pool'],'name');
+		$index = arr::search_ex($fname,$zfs_info['pools']['pool'],'name');
 		if($index !== false):
 			if(strpos($fname,'/') === false):
 //				pool found
@@ -89,7 +96,7 @@ if($exitstatus == 0):
 			continue;
 		endif;
 		[$poolname,$root,$size,$alloc,$free,$expandsz,$frag,$health,$dedup] = explode("\t",$line);
-		$index = array_search_ex($poolname,$zfs_info['pools']['pool'],'name');
+		$index = arr::search_ex($poolname,$zfs_info['pools']['pool'],'name');
 		if($index === false):
 			continue;
 		endif;
