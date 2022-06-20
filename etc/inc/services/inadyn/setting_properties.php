@@ -100,10 +100,12 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_period(): myp\property_int {
+		$defaultvalue = '';
 		$description = gettext('How often the IP is checked, in seconds. Default: approx. 1 minute. Max: 10 days.');
 		$placeholder = $placeholderv = '60';
 		$property = parent::init_period();
 		$property->
+			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('period')->
 			set_max(864000)->
@@ -115,10 +117,12 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_forceupdate(): myp\property_int {
+		$defaultvalue = '';
 		$description = gettext('How often the IP should be updated even if it is not changed. The time should be given in seconds. Default is equal to 30 days.');
 		$placeholder = $placeholderv = '2592000';
 		$property = parent::init_forceupdate();
 		$property->
+			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('forceupdate')->
 			set_min(0)->
@@ -153,10 +157,12 @@ class setting_properties extends grid_properties {
 	public function init_catrustfile(): myp\property_text {
 		global $g;
 
+		$defaultvalue = '';
 		$description = gettext('This setting overrides the built-in paths and fallback locations and provides a way to specify the path to a trusted set of CA certificates, in PEM format, bundled into one file.');
 		$placeholderv = $placeholder = $g['media_path'];
 		$property = parent::init_catrustfile();
 		$property->
+			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('catrustfile')->
 			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
@@ -167,10 +173,12 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_useragent(): myp\property_text {
+		$defaultvalue = '';
 		$description = gettext('Specify the User-Agent string to send to the DDNS provider on checkip and update requests.');
 		$placeholder = gettext('User agent string');
 		$property = parent::init_useragent();
 		$property->
+			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('useragent')->
 			set_placeholder($placeholder)->
@@ -179,10 +187,12 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_cachedir(): myp\property_text {
+		$defaultvalue = '';
 		$description = gettext('Set directory for persistent cache files, The cache files are used to keep track of which addresses have been successfully sent to their respective DDNS provider and when.');
 		$placeholder = $placeholderv = '/var/cache/inadyn';
 		$property = parent::init_cachedir();
 		$property->
+			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('cachedir')->
 			set_input_type($property::INPUT_TYPE_FILECHOOSER)->
@@ -193,10 +203,12 @@ class setting_properties extends grid_properties {
 		return $property;
 	}
 	public function init_startupdelay(): myp\property_int {
+		$defaultvalue = '';
 		$description = gettext('Initial startup delay. Default is no delay.');
 		$placeholder = $placeholderv = gettext('no delay');
 		$property = parent::init_startupdelay();
 		$property->
+			set_defaultvalue($defaultvalue)->
 			set_description($description)->
 			set_id('startupdelay')->
 			set_min(0)->
