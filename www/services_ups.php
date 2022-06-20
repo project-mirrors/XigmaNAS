@@ -31,14 +31,18 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'email.inc';
 
-array_make_branch($config,'ups','auxparam');
-array_make_branch($config,'ups','ups2_auxparam');
+use common\arr;
+
+arr::make_branch($config,'ups','auxparam');
+arr::make_branch($config,'ups','ups2_auxparam');
 $pconfig['enable'] = isset($config['ups']['enable']);
-$pconfig['mode'] = $config['ups']['mode'];
+$pconfig['mode'] = $config['ups']['mode'] ?? '';
 $pconfig['masteruser'] = empty($config['ups']['masteruser']) ? 'root' : $config['ups']['masteruser']; // local master user
 $pconfig['masterpassword'] = empty($config['ups']['masterpassword']) ? '' : $config['ups']['masterpassword']; // local master user password
 $pconfig['upsname'] = $config['ups']['upsname'];
@@ -63,10 +67,10 @@ $pconfig['email_enable'] = isset($config['ups']['email']['enable']);
 $pconfig['email_to'] = $config['ups']['email']['to'];
 $pconfig['email_subject'] = $config['ups']['email']['subject'];
 if(isset($config['ups']['auxparam']) && is_array($config['ups']['auxparam'])):
-	$pconfig['auxparam'] = implode(PHP_EOL,$config['ups']['auxparam']);
+	$pconfig['auxparam'] = implode("\n",$config['ups']['auxparam']);
 endif;
 if(isset($config['ups']['ups2_auxparam']['auxparam']) && is_array($config['ups']['ups2_auxparam']['auxparam'])):
-	$pconfig['ups2_auxparam'] = implode(PHP_EOL,$config['ups']['ups2_auxparam']['auxparam']);
+	$pconfig['ups2_auxparam'] = implode("\n",$config['ups']['ups2_auxparam']['auxparam']);
 endif;
 if($_POST):
 	unset($input_errors);
@@ -114,7 +118,7 @@ if($_POST):
 		$config['ups']['email']['subject'] = $_POST['email_subject'];
 		# Write additional parameters.
 		unset($config['ups']['auxparam']);
-		foreach (explode(PHP_EOL,$_POST['auxparam']) as $auxparam):
+		foreach (explode("\n",$_POST['auxparam']) as $auxparam):
 			$auxparam = trim($auxparam,"\t\n\r");
 			if(!empty($auxparam)):
 				$config['ups']['auxparam'][] = $auxparam;
@@ -122,7 +126,7 @@ if($_POST):
 		endforeach;
 		unset($config['ups']['ups2_auxparam']);
 		if(isset($config['ups']['ups2'])):
-			foreach(explode(PHP_EOL,$_POST['ups2_auxparam']) as $ups2_auxparam):
+			foreach(explode("\n",$_POST['ups2_auxparam']) as $ups2_auxparam):
 				$ups2_auxparam = trim($ups2_auxparam,"\t\n\r");
 				if(!empty($ups2_auxparam)):
 					$config['ups']['ups2_auxparam']['auxparam'][] = $ups2_auxparam;
