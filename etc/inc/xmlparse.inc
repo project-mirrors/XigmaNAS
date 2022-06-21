@@ -304,43 +304,39 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 		elseif(is_array($val)):
 //			is it a list of multiple values?
 			if(array_key_exists(strtolower($ent),$listtags)):
-				if(count($val) > 0):
-					foreach($val as $cval):
-						if(is_scalar($cval)):
-							if(is_string($cval)):
-								if($cval === ''):
-									$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
-								elseif($must_convert):
-									$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
-									$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$cval));
-									$xmlconfig .= sprintf('</%s>',$ent) . "\n";
-								else:
-									$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
-									$xmlconfig .= htmlspecialchars($cval);
-									$xmlconfig .= sprintf('</%s>',$ent) . "\n";
-								endif;
-							elseif(is_bool($cval)):
-								if($cval):
-									$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
-//								else:
-//									$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
-								endif;
+				foreach($val as $cval):
+					if(is_scalar($cval)):
+						if(is_string($cval)):
+							if($cval === ''):
+								$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
+							elseif($must_convert):
+								$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
+								$xmlconfig .= htmlspecialchars(iconv($inbound_charset,$outbound_charset . '//IGNORE',$cval));
+								$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 							else:
 								$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
-								$xmlconfig .= $cval;
+								$xmlconfig .= htmlspecialchars($cval);
 								$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 							endif;
-						elseif(is_array($cval)):
-							$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
-							$xmlconfig .= dump_xml_config_sub($cval,$indent + 1,$inbound_charset,$outbound_charset);
-							$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
+						elseif(is_bool($cval)):
+							if($cval):
+								$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
+//								else:
+//									$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
+							endif;
 						else:
-							$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
+							$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
+							$xmlconfig .= $cval;
+							$xmlconfig .= sprintf('</%s>',$ent) . "\n";
 						endif;
-					endforeach;
-				else:
-					$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
-				endif;
+					elseif(is_array($cval)):
+						$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
+						$xmlconfig .= dump_xml_config_sub($cval,$indent + 1,$inbound_charset,$outbound_charset);
+						$xmlconfig .= $s_indent . sprintf('</%s>',$ent) . "\n";
+					else:
+						$xmlconfig .= $s_indent . sprintf('<%s/>',$ent) . "\n";
+					endif;
+				endforeach;
 			else:
 				$xmlconfig .= $s_indent . sprintf('<%s>',$ent) . "\n";
 				$xmlconfig .= dump_xml_config_sub($val,$indent + 1,$inbound_charset,$outbound_charset);
