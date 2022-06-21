@@ -550,7 +550,7 @@ function get_gvinum_disks_list() {
 		$disklist[$diskname]['state'] = $aline[3];
 //		get diskinfo to get disk size
 		$diskinfo = disks_get_diskinfo($disklist[$diskname]['devicespecialfile']);
-		$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+		$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 	endforeach;
 	return $disklist;
 }
@@ -587,7 +587,7 @@ function get_gmirror_disks_list() {
 			$disklist[$diskname]['state'] = gtext('Unknown');
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($disklist[$diskname]['devicespecialfile']);
-			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+			$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 			$foundname = 1 ;
 			continue ;
 		endif;
@@ -645,7 +645,7 @@ function get_gconcat_disks_list() {
 			$disklist[$diskname]['state'] = gtext('Unknown');
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($disklist[$diskname]['devicespecialfile']);
-			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+			$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 			$foundname = 1 ;
 			continue ;
 		endif;
@@ -694,7 +694,7 @@ function get_gstripe_disks_list() {
 			$disklist[$diskname]['state'] = gtext('Unknown');
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($disklist[$diskname]['devicespecialfile']);
-			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+			$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 			$foundname = 1 ;
 			continue ;
 		endif;
@@ -744,7 +744,7 @@ function get_hast_disks_list() {
 			$disklist[$diskname]['role'] = $role;
 			if($role == 'primary'):
 				$diskinfo = disks_get_diskinfo($disklist[$diskname]['devicespecialfile']);
-				$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+				$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 			else:
 				$disklist[$diskname]['size'] = 'N/A';
 			endif;
@@ -871,7 +871,7 @@ function parse_camcontrol_info(string $devtype) {
 						init_device_attributes($devlist[$device_name]);
 //						get diskinfo to get disk size
 						$diskinfo = disks_get_diskinfo($devlist[$device_name]['devicespecialfile']);
-						$devlist[$device_name]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+						$devlist[$device_name]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 						$devlist[$device_name]['controller'] = $controller[0];
 						$devlist[$device_name]['controller_id'] = $controller[1];
 						$devlist[$device_name]['target_id'] = $target_id;
@@ -983,7 +983,7 @@ function parse_umass_controller(&$device) {
 			$name = $searchresult[1];
 			$a_param = &arr::make_branch($config,'smartmontools','umass','param');
 			$key = arr::search_ex($name,$a_param,'name');
-			if(false !== $key):
+			if($key !== false):
 				$is_enabled = isset($a_param[$key]['enable']) && (is_bool($a_param[$key]['enable']) ? $a_param[$key]['enable'] : true);
 				if($is_enabled):
 					$value = $a_param[$key]['type'] ?? '';
@@ -1426,7 +1426,7 @@ function get_iscsi_disks_list() {
 			$disklist[$diskname]['desc'] = $match[1];
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($diskname);
-			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+			$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unkown');
 //			get serial number
 			$serial = system_get_volume_serial('/dev/' . $diskname,$disklist[$diskname]['controller']);
 			$disklist[$diskname]['serial'] = $serial;
@@ -1510,7 +1510,7 @@ function get_hraid_disks_list() {
 			endif;
 //			get diskinfo to get disk size
 			$diskinfo = disks_get_diskinfo($diskname);
-			$disklist[$diskname]['size'] = format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si);
+			$disklist[$diskname]['size'] = isset($diskinfo['mediasize_bytes']) ? format_bytes($diskinfo['mediasize_bytes'],2,true,$use_si) : gtext('Unknown');
 //			get serial number
 			$serial = system_get_volume_serial('/dev/' . $diskname,$disklist[$diskname]['controller']);
 			$disklist[$diskname]['serial'] = $serial;
@@ -1548,11 +1548,11 @@ function mwexec($command,$logerr = false) {
 		passthru($command,$retval);
 	else:
 		$redirect = ">/dev/null 2>&1";
-		if(true === $logerr):
+		if($logerr === true):
 			$redirect = "2>&1 >/dev/null";
 		endif;
 		exec("{$command} {$redirect}",$output,$retval);
-		if((true === $logerr) && (is_array($output))):
+		if(($logerr === true) && (is_array($output))):
 			write_log(implode("\n",$output));
 		endif;
 	endif;
@@ -1781,7 +1781,7 @@ function get_defaultgateway() {
 			exec('/sbin/route -n get -inet default',$rawdata);
 			foreach($rawdata as $data):
 				$adata = preg_split('/\s+/',trim($data));
-				if(false !== strstr($adata[0],'gateway')):
+				if(strstr($adata[0],'gateway') !== false):
 					$result = $adata[1];
 					break;
 				endif;
@@ -1805,7 +1805,7 @@ function get_ipv6defaultgateway() {
 			exec('/sbin/route -n get -inet6 default',$rawdata);
 			foreach($rawdata as $data):
 				$adata = preg_split('/\s+/',trim($data));
-				if(false !== strstr($adata[0],'gateway')):
+				if(strstr($adata[0],'gateway') !== false):
 					$result = $adata[1];
 					break;
 				endif;
@@ -2191,7 +2191,8 @@ function is_booting() {
 	return (1 == $val) ? true : false;
 }
 function get_bootdevice() {
-	if(false === ($val = getenv('BOOTDEVICE'))):
+	$val = getenv('BOOTDEVICE');
+	if($val === false):
 		$val = '';
 	endif;
 	return $val;
@@ -2314,7 +2315,7 @@ function get_conf_all_disks_list_filtered() {
 //		check Software RAID volumes
 		foreach($a_sraiddisk as $vdisk):
 			if(is_array($vdisk['device'])):
-				if(false !== array_search($disk['devicespecialfile'],$vdisk['device'])):
+				if(array_search($disk['devicespecialfile'],$vdisk['device']) !== false):
 					$unused = false;
 					break;
 				endif;
@@ -2322,24 +2323,24 @@ function get_conf_all_disks_list_filtered() {
 		endforeach;
 //		check encrypted disks
 		foreach($a_encrypteddisk as $vdisk):
-			if(false !== array_search($disk['devicespecialfile'],$vdisk['device'])):
+			if(array_search($disk['devicespecialfile'],$vdisk['device']) !== false):
 				$unused = false;
 				break;
 			endif;
 		endforeach;
 //		check ZFS virtual devices
 		foreach($a_zfsvdevice as $vdisk):
-			if(false !== array_search($disk['devicespecialfile'],$vdisk['device'])):
+			if(array_search($disk['devicespecialfile'],$vdisk['device']) !== false):
 					$unused = false;
 				break;
 			endif;
-			if(false !== array_search($disk['devicespecialfile'] . ($disk['zfsgpt'] ?? ''),$vdisk['device'])):
+			if(array_search($disk['devicespecialfile'] . ($disk['zfsgpt'] ?? ''),$vdisk['device']) !== false):
 				$unused = false;
 				break;
 			endif;
 		endforeach;
 //		append physical disk if not used by any virtual disk
-		if(true === $unused):
+		if($unused === true):
 			$a_disk[] = $disk;
 		endif;
 	endforeach;
@@ -2350,7 +2351,7 @@ function get_conf_all_disks_list_filtered() {
 //		check Software RAID volumes
 		foreach($a_sraiddisk as $vdisk):
 			if(is_array($vdisk['device'])):
-				if(false !== array_search($disk['devicespecialfile'],$vdisk['device'])):
+				if(array_search($disk['devicespecialfile'],$vdisk['device']) !== false):
 					$unused = false;
 					break;
 				endif;
@@ -2358,13 +2359,13 @@ function get_conf_all_disks_list_filtered() {
 		endforeach;
 //		check encrypted disks
 		foreach($a_encrypteddisk as $vdisk):
-			if(false !== array_search($disk['devicespecialfile'],$vdisk['device'])):
+			if(array_search($disk['devicespecialfile'],$vdisk['device']) !== false):
 				$unused = false;
 				break;
 			endif;
 		endforeach;
 //		append virtual disk if not used by any other virtual disk
-		if(true === $unused):
+		if($unused === true):
 			$a_disk[] = $disk;
 		endif;
 	endforeach;
@@ -2475,25 +2476,29 @@ function get_filesize($file) {
  * @return string Human readable version of bytes.
  */
 function format_bytes($number,int $precision = 2,bool $fixedformat = true,bool $use_si = true) {
-	if((0 > $number)):
+	if(!is_scalar($number)):
 		$number = 0;
 	endif;
+	if($number < 0):
+		$number = 0;
+	endif;
+	$str_number = (string)$number;
 	$decimals = filter_var($precision,FILTER_VALIDATE_INT,['options' => ['default' => 2,'min_range' => 0]]);
 	if($use_si):
 //		si, 1000
 		$unit_grid = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
 		$unit_overflow = '#B';
-		$divisor = 1000;
+		$str_divisor = '1000';
 	else:
 //		non-si, 1024
 		$unit_grid = ['B','KiB','MiB','GiB','TiB','PiB','EiB','ZiB','YiB'];
 		$unit_overflow = '#iB';
-		$divisor = 1024;
+		$str_divisor = '1024';
 	endif;
-	for($laps = 0;bccomp($number,$divisor) >= 0;$laps++):
-		$number = bcdiv($number,$divisor,$decimals);
+	for($laps = 0;bccomp($str_number,$str_divisor) >= 0;$laps++):
+		$str_number = bcdiv($str_number,$str_divisor,$decimals);
 	endfor;
-	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$number,$unit_grid[$laps] ?? $unit_overflow);
+	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
 }
 /**
  * Converts an integer or an integer string into a human readable format for unit Hertz.
@@ -2503,17 +2508,21 @@ function format_bytes($number,int $precision = 2,bool $fixedformat = true,bool $
  * @return string Human readable version of Hertz.
  */
 function format_hertz($number,int $precision = 2,bool $fixedformat = true) {
-	if((0 > $number)):
+	if(!is_scalar($number)):
 		$number = 0;
 	endif;
+	if($number < 0):
+		$number = 0;
+	endif;
+	$str_number = (string)$number;
 	$decimals = filter_var($precision,FILTER_VALIDATE_INT,['options' => ['default' => 2,'min_range' => 0]]);
 	$unit_grid = ['Hz','kHz','MHz','GHz','THz','PHz','EHz','ZHz','YHz'];
 	$unit_overflow = '#Hz';
-	$divisor = 1000;
-	for($laps = 0;bccomp($number,$divisor) >= 0;$laps++):
-		$number = bcdiv($number,$divisor,$decimals);
+	$str_divisor = '1000';
+	for($laps = 0;bccomp($str_number,$str_divisor) >= 0;$laps++):
+		$str_number = bcdiv($str_number,$str_divisor,$decimals);
 	endfor;
-	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$number,$unit_grid[$laps] ?? $unit_overflow);
+	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
 }
 /**
  * Converts an integer or an integer string into a human readable format for unit bit.
@@ -2524,25 +2533,29 @@ function format_hertz($number,int $precision = 2,bool $fixedformat = true) {
  * @return string Human readable version of bits.
  */
 function format_bits($number,int $precision = 2,bool $fixedformat = true,bool $use_si = true) {
-	if((0 > $number)):
+	if(!is_scalar($number)):
 		$number = 0;
 	endif;
+	if($number < 0):
+		$number = 0;
+	endif;
+	$str_number = (string)$number;
 	$decimals = filter_var($precision,FILTER_VALIDATE_INT,['options' => ['default' => 2,'min_range' => 0]]);
 	if($use_si):
 //		si, 1000
 		$unit_grid = ['bit','kbit','Mbit','Gbit','Tbit','Pbit','Ebit','Zbit','Ybit'];
 		$unit_overflow = '#bit';
-		$divisor = 1000;
+		$str_divisor = '1000';
 	else:
 //		non-si, 1024
 		$unit_grid = ['bit','Kibit','Mibit','Gibit','Tibit','Pibit','Eibit','Zibit','Yibit'];
 		$unit_overflow = '#ibit';
-		$divisor = 1024;
+		$str_divisor = '1024';
 	endif;
-	for($laps = 0;bccomp($number,$divisor) >= 0;$laps++):
-		$number = bcdiv($number,$divisor,$decimals);
+	for($laps = 0;bccomp($str_number,$str_divisor) >= 0;$laps++):
+		$str_number = bcdiv($str_number,$str_divisor,$decimals);
 	endfor;
-	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$number,$unit_grid[$laps] ?? $unit_overflow);
+	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
 }
 /*
  * Check and get the ISO image type.
@@ -2571,7 +2584,7 @@ function util_is_iso_image($filename) {
 		'BEA01' => 'udf'
 	];
 	$fh = fopen($filename,'r');
-	if(false === $fh):
+	if($fh === false):
 		return $return;
 	endif;
 //	read various file positions.
@@ -2585,7 +2598,7 @@ function util_is_iso_image($filename) {
 	$magic[] = fgets($fh,6);
 	fclose($fh);
 	foreach($validmagic as $validmagick => $validmagicv):
-		if(false !== array_search($validmagick,$magic)):
+		if(array_search($validmagick,$magic !== false)):
 			$return = $validmagicv;
 			break;
 		endif;
@@ -2603,7 +2616,11 @@ function util_is_iso_image($filename) {
  */
 function file_put_contents_safe($filename,$data,$binary = false) {
 	$tmpfilename = sprintf('%s.%s',$filename,getmypid());
-	$mode = (true === $binary) ? 'wb' : 'w';
+	if($binary === true):
+		$mode =  'wb';
+	else:
+		$mode = 'w';
+	endif;
 	if(!($fd = fopen($tmpfilename,$mode))):
 		return false;
 	endif;
