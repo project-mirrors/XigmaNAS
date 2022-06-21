@@ -41,7 +41,7 @@ class element extends DOMElement {
 
 	public function addAttributes($attributes = []) {
 		foreach($attributes as $key => $value):
-			$this->setAttribute($key,$value);
+			$this->setAttribute((string)$key,(string)$value);
 		endforeach;
 		return $this;
 	}
