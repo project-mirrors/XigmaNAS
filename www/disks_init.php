@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
  */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use common\arr;
 
 $sphere_scriptname = basename(__FILE__);
 $sphere_header = 'Location: '.$sphere_scriptname;
@@ -59,8 +63,10 @@ $prerequisites_ok = true;
 
 function verify_filesystem_name($arg) {
 	$returnvalue = false;
-	switch ($arg) { // verify filesystem name
-		default: // invalid parameter value
+//	verify filesystem name
+	switch($arg):
+		default:
+//			invalid parameter value
 			break;
 		case 'zfs':
 		case 'softraid':
@@ -69,7 +75,7 @@ function verify_filesystem_name($arg) {
 		case 'msdos':
 			$returnvalue = true;
 			break;
-	}
+	endswitch;
 	return $returnvalue;
 }
 $do_format = [];
@@ -159,16 +165,16 @@ $bootdevice = trim(file_get_contents("{$g['etc_path']}/cfdevice"));
 $sphere_array = get_conf_all_disks_list_filtered();
 // Protect devices which are invalid or in use
 foreach($sphere_array as &$sphere_record):
-	if(0 === strcmp($sphere_record['size'],'NA')):
+	if(strcmp($sphere_record['size'],'NA') === 0):
 		$sphere_record['protected'] = true;
 		$sphere_record['protected.reason'] = gtext('Unknown size');
-	elseif(1 === disks_exists($sphere_record['devicespecialfile'])):
+	elseif(disks_exists($sphere_record['devicespecialfile']) === 1):
 		$sphere_record['protected'] = true;
 		$sphere_record['protected.reason'] = gtext('Device not found');
 	elseif(disks_ismounted_ex($sphere_record['devicespecialfile'],"devicespecialfile")):
 		$sphere_record['protected'] = true;
 		$sphere_record['protected.reason'] = gtext('Device is mounted');
-	elseif(1 === preg_match('~\A' . preg_quote($sphere_record['name'],'~') . '(\D+|\z)~',$bootdevice)):
+	elseif(preg_match('~\A' . preg_quote($sphere_record['name'],'~') . '(\D+|\z)~',$bootdevice) === 1):
 		$sphere_record['protected'] = true;
 		$sphere_record['protected.reason'] = gtext('Device contains boot partition');
 	else:
@@ -183,7 +189,8 @@ unset($sphere_record); // release pass by reference
 // Set enabled property in $sphere_array for those who can be selected
 $a_member_update = [];
 foreach($a_option['checkbox_member_array'] as $checkbox_member_record):
-	if(false !== ($index = array_search_ex($checkbox_member_record,$sphere_array,'uuid'))):
+	$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+	if($index !== false):
 		if(!$sphere_array[$index]['protected']):
 			$sphere_array[$index]['enabled'] = true;
 			$a_member_update[] = $checkbox_member_record;
@@ -229,8 +236,9 @@ elseif(isset($a_option['action2']) && $a_option['action2']):
 		// filesystem type could be invalid, we need to return to page 1 to be able to select a valid filesystem. Nothing to do here because page 1 is set by default
 	endif;
 	if($prerequisites_ok): // verify selected disks
-		if(false === ($prerequisites_ok = (isset($a_option['checkbox_member_array']) && is_array($a_option['checkbox_member_array']) && (count($a_option['checkbox_member_array']) > 0)))):
-			// no disks selected, we stay on page 2
+		$prerequisites_ok = (isset($a_option['checkbox_member_array']) && is_array($a_option['checkbox_member_array']) && (count($a_option['checkbox_member_array']) > 0));
+		if($prerequisites_ok === false):
+//			no disks selected, we stay on page 2
 			$page_index = 2;
 			$a_control = $a_control_matrix[$page_index][$a_option['filesystem']];
 			$a_button = $a_button_matrix[$page_index];
@@ -240,7 +248,7 @@ elseif(isset($a_option['action2']) && $a_option['action2']):
 		if(preg_match('/^(ufsgpt|msdos)/',$a_option['filesystem']) && preg_match('/\S/',$a_option['volumelabel'])):
 			$helpinghand = preg_quote('[%', '/');
 			if(preg_match('/^[a-z\d' . $helpinghand . ']+$/i',$a_option['volumelabel'])):
-				// additional check is required for adding serial number information to the label		
+//				additional check is required for adding serial number information to the label
 				$label_serial = [];
 				$label_serial['trigger'] = '[';
 				$label_serial['match'] = '([1-9]\d?)';
@@ -307,7 +315,8 @@ elseif(isset($a_option['action3']) && $a_option['action3']):
 		// filesystem type could be invalid, we need to return to page 1 to be able to select a valid filesystem. Nothing to do here because page 1 is set by default
 	endif;
 	if($prerequisites_ok): // verify selected disks
-		if(false === ($prerequisites_ok = (isset($a_option['checkbox_member_array']) && is_array($a_option['checkbox_member_array']) && (count($a_option['checkbox_member_array']) > 0)))):
+		$prerequisites_ok = (isset($a_option['checkbox_member_array']) && is_array($a_option['checkbox_member_array']) && (count($a_option['checkbox_member_array']) > 0));
+		if($prerequisites_ok === false):
 			// no disks selected, we need to return to page 2 to be able to select disks
 			$page_index = 2;
 			$a_control = $a_control_matrix[$page_index][$a_option['filesystem']];
@@ -442,7 +451,8 @@ elseif(isset($a_option['action3']) && $a_option['action3']):
 			endif;
 		endif;
 		foreach($a_option['checkbox_member_array'] as $checkbox_member_record):
-			if(false !== ($index = array_search_ex($checkbox_member_record,$sphere_array,'uuid'))):
+			$index = arr::search_ex($checkbox_member_record,$sphere_array,'uuid');
+			if($index !== false):
 				if(!$sphere_array[$index]['protected']):
 					set_conf_disk_fstype_opt($sphere_array[$index]['devicespecialfile'],$a_option['filesystem'],$disk_options);
 					$volumelabel = $volumelabel_pattern;
@@ -457,7 +467,8 @@ elseif(isset($a_option['action3']) && $a_option['action3']):
 					// apply serial number to label
 					if(!empty($label_serial)):
 						for($i = 0; $i < $label_serial['count']; $i++):
-							if(false === ($label_serial['replacement'][$i] = substr($sphere_array[$index]['serial'],-$label_serial['origin'][$i],$label_serial['origin'][$i]))):
+							$label_serial['replacement'][$i] = substr($sphere_array[$index]['serial'],-$label_serial['origin'][$i],$label_serial['origin'][$i]);
+							if($label_serial['replacement'][$i] === false):
 								$label_serial['replacement'][$i] = '';
 							endif;
 						endfor;
@@ -484,16 +495,16 @@ elseif(isset($a_option['action4']) && $a_option['action4']):
 //	$a_button = $a_button_matrix[$page_index];
 endif;
 $pgtitle = [gtext('Disks'),gtext('Management'),gtext('HDD Format'),sprintf('%1$s %2$d',gtext('Step'),$page_index)];
+include 'fbegin.inc';
 ?>
-<?php include 'fbegin.inc'; ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init toggle checkbox
 	$("#togglemembers").click(function() { togglecheckboxesbyname(this, "<?=$checkbox_member_name;?>[]"); });
 	// Init spinner onsubmit()
 	$("#iform").submit(function() { spinner(); });
-}); 
+});
 function togglecheckboxesbyname(ego, triggerbyname) {
 	var a_trigger = document.getElementsByName(triggerbyname);
 	var n_trigger = a_trigger.length;
@@ -545,7 +556,7 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				case 1:
 					html_combobox2('filesystem',gettext('File System'),$a_option['filesystem'],$l_filesystem,'',false,true);
 				case 0:
-					echo '<tr><td></td><td><input name="filesystem" type="hidden" value="',$a_option['filesystem'],'"/></td></tr>',"\n";
+					echo '<tr><td style="padding:0;"></td><td style="padding:0;"><input name="filesystem" type="hidden" value="',$a_option['filesystem'],'"/></td></tr>',"\n";
 					break;
 			endswitch;
 			switch($a_control['volumelabel']):
@@ -556,7 +567,7 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 					html_inputbox2('volumelabel',gettext('Volume Label'),$a_option['volumelabel'],'',false,100,true);
 					break;
 				case 0:
-					echo '<tr><td></td><td><input name="volumelabel" type="hidden" value="',$a_option['volumelabel'],'"/></td></tr>',"\n";
+					echo '<tr><td style="padding:0;"></td><td style="padding:0;"><input name="volumelabel" type="hidden" value="',$a_option['volumelabel'],'"/></td></tr>',"\n";
 					break;
 			endswitch;
 			switch($a_control['minspace']):
@@ -566,7 +577,7 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				case 1:
 					html_combobox2('minspace',gettext('Minimum Free Space'),$a_option['minspace'],$l_minspace,'',false,true);
 				case 0:
-					echo '<tr><td></td><td><input name="minspace" type="hidden" value="',$a_option['minspace'],'"/></td></tr>',"\n";
+					echo '<tr><td style="padding:0;"></td><td style="padding:0;"><input name="minspace" type="hidden" value="',$a_option['minspace'],'"/></td></tr>',"\n";
 					break;
 			endswitch;
 			switch($a_control['aft4k']):
@@ -576,8 +587,8 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				case 1:
 					html_checkbox2('aft4k',gettext('Advanced Format'),$a_option['aft4k'],gettext('Enable Advanced Format (4KB Sector Size).'),'',false,true);
 				case 0:
-					if(true === $a_option['aft4k']):
-						echo '<tr><td></td><td><input name="aft4k" type="hidden" value="yes"/></td></tr>',"\n";
+					if($a_option['aft4k'] === true):
+						echo '<tr><td style="padding:0;"></td><td style="padding:0;"><input name="aft4k" type="hidden" value="yes"/></td></tr>',"\n";
 					endif;
 					break;
 			endswitch;
@@ -588,8 +599,8 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				case 1:
 					html_checkbox2('zfsgpt',gettext('GPT Partition'),$a_option['zfsgpt'],gettext('Create ZFS on a GPT partition.'),'',false,true);
 				case 0:
-					if(true === $a_option['zfsgpt']):
-						echo '<tr><td></td><td><input name="zfsgpt" type="hidden" value="yes"/></td></tr>',"\n";
+					if($a_option['zfsgpt'] === true):
+						echo '<tr><td style="padding:0;"></td><td style="padding:0;"><input name="zfsgpt" type="hidden" value="yes"/></td></tr>',"\n";
 					endif;
 					break;
 			endswitch;
@@ -600,8 +611,8 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				case 1:
 					html_checkbox2('notinitmbr',gettext('Keep MBR'),$a_option['notinitmbr'],gettext('Do not erase the Master Boot Record (useful for some RAID controller cards).'),'',false,true);
 				case 0:
-					if(true === $a_option['notinitmbr']):
-						echo '<tr><td></td><td><input name="notinitmbr" type="hidden" value="yes"/></td></tr>',"\n";
+					if($a_option['notinitmbr'] === true):
+						echo '<tr><td style="padding:0;"></td><td style="padding:0;"><input name="notinitmbr" type="hidden" value="yes"/></td></tr>',"\n";
 					endif;
 					break;
 			endswitch;
@@ -630,10 +641,14 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 ?>
 			<tr>
 <?php
-				switch ($a_button['checkbox_control']) {
-					case 2:	echo '<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="',gtext('Invert Selection'),'"/></th>',"\n"; break;
-					case 1:	echo '<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="',gtext('Invert Selection'),'" disabled="disabled"/></th>',"\n"; break;
-				}
+				switch($a_button['checkbox_control']):
+					case 2:
+						echo '<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="',gtext('Invert Selection'),'"/></th>',"\n";
+						break;
+					case 1:
+						echo '<th class="lhelc"><input type="checkbox" id="togglemembers" name="togglemembers" title="',gtext('Invert Selection'),'" disabled="disabled"/></th>',"\n";
+						break;
+				endswitch;
 ?>
 				<th class="lhell"><?=gtext('Device');?></th>
 				<th class="lhell"><?=gtext('Serial Number');?></th>
@@ -646,10 +661,10 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 		</thead>
 		<tbody>
 <?php
-			foreach ($sphere_array as $sphere_record):
+			foreach($sphere_array as $sphere_record):
 ?>
 			<tr>
-<?php 
+<?php
 				$enabled      = isset($sphere_record['enabled']);
 				$notprotected = !$sphere_record['protected'];
 				$tag_id       = ' id="'  . $sphere_record['uuid'] . '"';
@@ -663,17 +678,17 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				endif;
 				if($notprotected):
 					$tag_checked = $enabled ? ' checked="checked"' : '';
-					switch ($a_button['checkbox_control']):
-						case 2: 
+					switch($a_button['checkbox_control']):
+						case 2:
 							echo '<td class="lcelc"><input type="checkbox"',$tag_name,$tag_value,$tag_id,$tag_checked,'/></td>',"\n";
 							break;
-						case 1: 
+						case 1:
 							echo '<td class="lcelc"><input type="checkbox"',$tag_name,$tag_value,$tag_id,$tag_disabled,$tag_checked,'/></td>',"\n";
 							if($enabled):
 								echo '<input type="hidden"',$tag_name,$tag_value,'/>',"\n";
 							endif;
 							break;
-						case 0: 
+						case 0:
 							echo '<td></td>',"\n";
 							if($enabled):
 								echo '<input type="hidden"',$tag_name,$tag_value,'/>',"\n";
@@ -685,7 +700,7 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 				endif;
 ?>
 				<td class="<?=$notprotected ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($sphere_record['name']);?></td>
-				<td class="<?=$notprotected ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($sphere_record['serial']);?></td>
+				<td class="<?=$notprotected ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($sphere_record['serial'] ?? gtext('N/A'));?></td>
 				<td class="<?=$notprotected ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($sphere_record['size']);?></td>
 				<td class="<?=$notprotected ? 'lcell' : 'lcelld';?>"><?=htmlspecialchars($sphere_record['devicespecialfile']);?></td>
 				<td class="<?=$notprotected ? 'lcell' : 'lcelld';?>"><?=$gt_fstype;?></td>
@@ -709,7 +724,7 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 		</tbody>
 	</table>
 	<div id="submit">
-<?php 
+<?php
 		switch($a_button['submit_control']):
 			case 2: echo '<input type="submit" class="formbtn" name="',$a_button['submit_name'],'" value="',$a_button['submit_value'],'"/>',"\n"; break;
 			case 1: echo '<input type="submit" class="formbtn" name="',$a_button['submit_name'],'" value="',$a_button['submit_value'],'" disabled="disabled"/>',"\n"; break;
@@ -729,11 +744,8 @@ function togglecheckboxesbyname(ego, triggerbyname) {
 			echo('</pre><br/>');
 		endforeach;
 	endif;
-?>
-<?php
 	include 'formend.inc';
 ?>
 </form></td></tr></tbody></table>
 <?php
 include 'fend.inc';
-?>
