@@ -321,8 +321,8 @@ function dump_xml_config_sub($arr,$indent,string $inbound_charset,string $outbou
 						elseif(is_bool($cval)):
 							if($cval):
 								$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">1</%1$s>',$ent) . "\n";
-//								else:
-//									$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
+//							else:
+//								$xmlconfig .= $s_indent . sprintf('<%1$s type="bool">0</%1$s>',$ent) . "\n";
 							endif;
 						else:
 							$xmlconfig .= $s_indent . sprintf('<%s>',$ent);
