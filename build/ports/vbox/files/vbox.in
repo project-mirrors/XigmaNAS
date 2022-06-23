@@ -277,7 +277,7 @@ vbox_stop()
 	echo ""
 
 	# kill remaining vboxusers processes
-	PIDS=`ps aux | grep "vboxusers" | awk '{print $2}'`
+	PIDS=$( ps aux | egrep "^vboxusers" | awk '{print $2}' )
 	for PID in ${PIDS}; do
 		kill -9 ${PID};
 	done
