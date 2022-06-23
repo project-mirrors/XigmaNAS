@@ -32,10 +32,11 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
+use common\arr;
 use gui\document;
 
 //	omit no-cache headers because it confuses IE with file downloads
@@ -66,7 +67,7 @@ if($_POST):
 			$data = config_decrypt($password,$gz_config);
 			if($data !== false):
 				$tempfile = tempnam(sys_get_temp_dir(),'cnf');
-				file_put_contents($tempfile, $data);
+				file_put_contents($tempfile,$data);
 				$valid_config = validate_xml_config($tempfile,$g['xml_rootobj'],'nas4free');
 				if(!$valid_config):
 					unlink($tempfile);
@@ -79,7 +80,7 @@ if($_POST):
 			$errormsg = gtext('The configuration could not be restored.') . ' ' . gtext('Invalid file format or incorrect password.');
 		else:
 //			void loaderconf section to force read $config
-			$loaderconf = &array_make_branch($config,'system','loaderconf');
+			$loaderconf = &arr::make_branch($config,'system','loaderconf');
 			$loaderconf = [];
 //			Install configuration backup
 			if($encrypted):
@@ -157,7 +158,9 @@ $document->render();
 <?php
 include 'fend.inc';
 if($cmd_system_reboot):
-	ob_flush();
+	while(ob_get_level() > 0):
+		ob_end_flush();
+	endwhile;
 	flush();
 	sleep(5);
 	system_reboot();
