@@ -30,6 +30,8 @@ nfs_server_vhost=""
 nfs_server_flags=`/usr/local/bin/xml sel -t -v "concat('-u -t -n ',//nfsd/numproc)" ${configxml_file} | /usr/local/bin/xml unesc`
 
 load_rc_config $name
+nfs_server_maxio=${nfs_server_maxio:-"131072"}
+
 start_precmd="nfsd_precmd"
 start_cmd="nfsd_cmd"
 sig_stop="USR1"
