@@ -20,7 +20,8 @@
 
 name="hostapd"
 desc="Authenticator for IEEE 802.11 networks"
-command="/usr/sbin/${name}"
+
+load_rc_config ${name}
 
 ifn="$2"
 if [ -z "$ifn" ]; then
@@ -32,16 +33,24 @@ else
 	conf_file="/etc/${name}-${ifn}.conf"
 	pidfile="/var/run/${name}-${ifn}.pid"
 fi
-
+hostapd_program==${hostapd_program:-"/usr/sbin/${name}"}
+command="${hostapd_program}"
 command_args="-P ${pidfile} -B ${conf_file}"
 required_modules="wlan_xauth wlan_wep wlan_tkip wlan_ccmp wlan_amrr"
 
-load_rc_config ${name}
-
-# Custom commands
+# commands
 start_precmd="hostapd_mkconf"
+start_postcmd="hostapd_poststart"
 mkconf_cmd="hostapd_mkconf"
 extra_commands="reload mkconf"
+
+hostapd_poststart() {
+	if [ -n "$ifn" ]; then
+		ifconfig ${ifn} down
+		sleep 2
+		ifconfig ${ifn} up
+	fi
+}
 
 hostapd_mkconf()
 {
