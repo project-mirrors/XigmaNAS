@@ -246,7 +246,7 @@ class co_zpool_info {
 				$a_vdev = $r_pool->xpath($x_vdev);
 				if($a_vdev !== false):
 					foreach($a_vdev as $r_vdev):
-						$this->devicevdev_info_to_array($r_device,$ret);
+						$this->devicevdev_info_to_array($r_vdev,$r_ret);
 						if($this->exclude_devices_not_present):
 							$x_device = './/children[is_log="0" and type="disk" and not(not_present)]';
 						else:
@@ -611,7 +611,8 @@ class co_zpool_info {
 //								temporary ID, to collect guid run zdb -l $dev_spare
 								$guid = uuid::create_v4();
 								$child_root = $spares_root->addChild('children');
-								$child_root->addChild('type','disk'); // it is not confirmed that the spare device is a disk
+//								it is not confirmed that the device type of the spare device is a disk
+								$child_root->addChild('type','disk');
 								$child_root->addChild('guid',$guid);
 								if(is_numeric($spare[0])):
 //									assuming string is a GUID if it starts with a digit
@@ -647,7 +648,8 @@ class co_zpool_info {
 //								temporary ID, to collect guid run zdb -l $dev_cache
 								$guid = uuid::create_v4();
 								$child_root = $caches_root->addChild('children');
-								$child_root->addChild('type','disk'); // it is not confirmed that the spare device is a disk
+//								it is not confirmed that the device type of the cache device is a disk
+								$child_root->addChild('type','disk');
 								$child_root->addChild('guid',$guid);
 								if(is_numeric($cache[0])):
 //									assuming string is a GUID if it starts with a digit
