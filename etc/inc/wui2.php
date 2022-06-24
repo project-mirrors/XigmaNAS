@@ -135,20 +135,20 @@ class HTMLBaseControl2 {
 //	support methods
 	function GetClassOfTag() {
 		$class = $this->GetClassTag();
-		if(true === $this->GetRequired()):
+		if($this->GetRequired() === true):
 			$class .= $this->GetClassAddonRequired();
 		endif;
-		if(true === $this->GetAltPadding()):
+		if($this->GetAltPadding() === true):
 			$class .= $this->GetClassAddonPadAlt();
 		endif;
 		return $class;
 	}
 	function GetClassOfData() {
 		$class = $this->GetClassData();
-		if(true === $this->GetRequired()):
+		if($this->GetRequired() === true):
 			$class .= $this->GetClassAddonRequired();
 		endif;
-		if(true === $this->GetAltPadding()):
+		if($this->GetAltPadding() === true):
 			$class .= $this->GetClassAddonPadAlt();
 		endif;
 		return $class;
@@ -321,7 +321,7 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 	}
 //	support methods
 	function GetAttributes(array &$attributes = []) {
-		if(true === $this->GetReadOnly()):
+		if($this->GetReadOnly() === true):
 			$attributes['readonly'] = 'readonly';
 		endif;
 		$tagval = $this->GetPlaceholder();
@@ -335,7 +335,7 @@ class HTMLEditBox2 extends HTMLBaseControl2 {
 		return $attributes;
 	}
 	function GetClassOfInputText() {
-		if(true === $this->GetReadOnly()):
+		if($this->GetReadOnly() === true):
 			return $this->GetClassInputTextRO();
 		else:
 			return $this->GetClassInputText();
@@ -508,7 +508,7 @@ class HTMLTextArea2 extends HTMLEditBox2 {
 //	support methods
 	function GetAttributes(array &$attributes = []) {
 		parent::GetAttributes($attributes);
-		if(false === $this->GetWrap()):
+		if($this->GetWrap() === false):
 			$attributes['wrap'] = 'soft';
 		else:
 			$attributes['wrap'] = 'hard';
@@ -706,10 +706,10 @@ class HTMLCheckBox2 extends HTMLBaseControlJS2 {
 	}
 //	support methods
 	function GetAttributes(array &$attributes = []) {
-		if(true === $this->IsChecked()):
+		if($this->IsChecked() === true):
 			$attributes['checked'] = 'checked';
 		endif;
-		if(true === $this->GetReadOnly()):
+		if($this->GetReadOnly() === true):
 			$attributes['disabled'] = 'disabled';
 		endif;
 		$onclick = $this->GetJSonClick();
@@ -755,7 +755,7 @@ class HTMLSelectControl2 extends HTMLBaseControlJS2 {
 		return $this->_options;
 	}
 	function GetAttributes(array &$attributes = []) {
-		if(true === $this->GetReadOnly()):
+		if($this->GetReadOnly() === true):
 			$attributes['disabled'] = 'disabled';
 		endif;
 		$onclick = $this->GetJSonClick();
