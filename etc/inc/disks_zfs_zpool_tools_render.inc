@@ -170,7 +170,7 @@ function render_pool_edit($a_items = [],$format = '0N',$a_selected_items = []) {
 		'checked' => '',
 		'required' => ''
 	];
-	switch ($format):
+	switch($format):
 		case '1':
 			$attribute['required'] = 'required="required"';
 //			no break;
@@ -283,7 +283,7 @@ function render_pooldev_edit($a_items = [],$format = '1',$a_selected_items = [],
 		'checked' => '',
 		'required' => ''
 	];
-	switch ($format):
+	switch($format):
 		case '1':
 			$attribute['required'] = 'required="required"';
 //			no break;
@@ -434,7 +434,7 @@ function render_newvdev_edit($a_items = [],$format = '0N',$a_selected_items = []
 		'checked' => '',
 		'required' => ''
 	];
-	switch ($format):
+	switch($format):
 		case '1':
 			$attribute['required'] = 'required="required"';
 //			no break;
@@ -542,7 +542,7 @@ function render_newdev_edit($a_items = [],$format = '1',$a_selected_items = []) 
 		'checked' => '',
 		'required' => ''
 	];
-	switch ($format):
+	switch($format):
 		case '1':
 			$attribute['required'] = 'required="required"';
 //			no break;
@@ -732,6 +732,8 @@ class co_zpool_flag_base {
 		$this->a_pool_keys['import.autoexpand'] = ['name' => 'flag','value' => 'import.autoexpand','show' => true,'default' => false,'longname' => gettext('Resize pool to the maximum possible size')];
 		$this->a_pool_keys['destroyed.pools'] = ['name' => 'flag','value' => 'destroyed.pools','show' => true,'default' => false,'longname' => gettext('Scan/Import destroyed pools only')];
 		$this->a_pool_keys['test'] = ['name' => 'flag','value' => 'test','show' => true,'default' => false,'longname' => gettext('Test Mode')];
+		$this->a_pool_keys['resilver.wait'] = ['name' => 'flag','value' => 'resilver.wait','show' => true,'default' => false,'longname' => gettext('Wait until resilvering has finished before returning.')];
+		$this->a_pool_keys['resilver.sequential'] = ['name' => 'flag','value' => 'resilver.sequential','show' => true,'default' => false,'longname' => gettext('Reconstruct the new device sequentially to restore redundancy as quickly as possible.')];
 		return true;
 	}
 }
@@ -855,7 +857,7 @@ class co_zpool_flags extends co_zpool_flag_base {
 								$attribute['value'] = sprintf('value="%s"',$this->a_pool_keys[$key]['value']);
 								$attribute['checked'] = '';
 								if($b_use_default):
-									if ($this->a_pool_keys[$key]['default']):
+									if($this->a_pool_keys[$key]['default']):
 										$attribute['checked'] = 'checked="checked"';
 									endif;
 								else:
@@ -908,7 +910,7 @@ class co_zpool_flags extends co_zpool_flag_base {
 		if(empty($this->a_selected_keys) || empty($this->a_available_keys)):
 			$a_output[] = $this->c_val_none;
 		else:
-			foreach ($this->a_selected_keys as $r_selected_option):
+			foreach($this->a_selected_keys as $r_selected_option):
 				if($this->a_pool_keys[$r_selected_option]['show']):
 					$a_output[] = $this->a_pool_keys[$r_selected_option]['longname'];
 				endif;
