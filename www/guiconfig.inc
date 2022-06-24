@@ -35,7 +35,7 @@
 use common\session;
 use gui\document;
 
-/* make sure nothing is cached */
+//	make sure nothing is cached
 if(isset($omit_nocacheheaders) && $omit_nocacheheaders):
 	header("Expires: 0");
 	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -44,7 +44,7 @@ if(isset($omit_nocacheheaders) && $omit_nocacheheaders):
 	header("Pragma: no-cache");
 endif;
 
-/* parse the configuration and include all configuration functions */
+//	parse the configuration and include all configuration functions
 require_once 'config.inc';
 require_once 'functions.inc';
 require_once 'rc.inc';
@@ -55,7 +55,7 @@ require_once 'updatenotify.inc';
 //	set timezone
 ini_set('date.timezone',$_SESSION['tz'] ?? $config['system']['timezone'] ?? 'UTC');
 
-/* Set the current language */
+//	set the current language
 system_language_load();
 
 $d_fwupenabled_path = $g['varrun_path'] . "/fwup.enabled";
@@ -73,18 +73,18 @@ if(file_exists($d_firmwarelock_path)):
 	endif;
 endif;
 
-/* Reserverd login names */
+//	reserverd login names
 $reservedlogin = ['root','toor','daemon','operator','bin','tty','kmem','www','nobody','ftp','sshd'];
 
-/* TCP flags */
+//	TCP flags */
 $tcpflags = ["fin",'syn','rst','psh','ack','urg'];
 
-/* default setting */
+//	default setting
 $input_errors = [];
 $errormsg = "";
 $savemsg = "";
 
-/* AJAX misc */
+//	AJAX misc
 function is_ajax() {
 	if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])):
 		if(strcasecmp($_SERVER['HTTP_X_REQUESTED_WITH'],'XMLHttpRequest') == 0):
@@ -111,12 +111,12 @@ function render_ajax($data,$result = 0) {
 function do_input_validation($postdata,$reqdfields,$reqdfieldsn,&$input_errors) {
 //	check for bad control characters
 	foreach($postdata as $pn => $pd):
-		if(is_string($pd) && preg_match("/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f]/",$pd)):
+		if(is_string($pd) && (preg_match("/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f]/",$pd) === 1)):
 			$input_errors[] = sprintf( gtext("The attribute '%s' contains invalid characters."),$pn);
 		endif;
 	endforeach;
 	for($i = 0;$i < count($reqdfields);$i++):
-		if(!isset($postdata[$reqdfields[$i]]) || ($postdata[$reqdfields[$i]] === "")):
+		if(!isset($postdata[$reqdfields[$i]]) || ($postdata[$reqdfields[$i]] === '')):
 			$input_errors[] = sprintf( gtext("The attribute '%s' is required."),$reqdfieldsn[$i]);
 		endif;
 	endfor;
@@ -983,34 +983,46 @@ function make_headermenu_extensions(array &$menu) {
 	global $config;
 
 	$isAdminSession = session::is_admin();
-	if(!$isAdminSession): // only admins allowed
+//	only admins allowed
+	if(!$isAdminSession):
 		return;
 	endif;
 	if(isset($config['system']) && is_array($config['system']) && isset($config['system']['disableextensionmenu'])): // do nothing when view extension is disabled
 		return;
 	endif;
-	$dir_path = $g['www_path'] . '/ext/'; // calculate the path to the extension folder
-	if(!is_dir($dir_path)): // does it exist?
+//	calculate the path to the extension folder
+	$dir_path = $g['www_path'] . '/ext/';
+//	does it exist?
+	if(!is_dir($dir_path)):
 		return;
 	endif;
-	if(false !== ($dir_handle = @opendir($dir_path))): // folder exists, open it
+	$dir_handle = @opendir($dir_path);
+//	if folder exists, open it
+	if($dir_handle !== false):
 		$language = $config['system']['language'] ?? 'en_US';
 		$hard_link_regex = '~^[a-z]+://~';
 		$menu_name = 'extensions';
 		$menu_items = &$menu[$menu_name]['menuitem'];
-		$menu_items = []; // wipe menuitems, just to be safe
-		while(false !== ($file_found_name = readdir($dir_handle))): // scan through each name
-			$file_found_full_name = $dir_path . $file_found_name; // calculate full path of the name
+//		wipe menuitems, just to be safe
+		$menu_items = [];
+//		scan through each name
+		while(false !== ($file_found_name = readdir($dir_handle))):
+//			calculate full path of the name
+			$file_found_full_name = $dir_path . $file_found_name;
 			if(($file_found_name === '.') || ($file_found_name === '..')):
 				continue;
 			endif;
-			$menu_file_full_name = $file_found_full_name . '/menu.inc'; // calculate the expected menu name
+//			calculate the expected menu name
+			$menu_file_full_name = $file_found_full_name . '/menu.inc';
 			if(file_exists($menu_file_full_name)):
-				$previous_setting = libxml_use_internal_errors(true); // suppress exeptions
+//				suppress exceptions
+				$previous_setting = libxml_use_internal_errors(true);
 				libxml_clear_errors();
-				$dom = new DOMDocument(); // import menu into DOM object, let it do it's job
-				if(false !== ($dom->loadHTMLFile($menu_file_full_name,LIBXML_NOERROR || LIBXML_NOWARNING || LIBXML_HTML_NOIMPLIED || LIBXML_HTML_NODEFDTD))):
-					$file_node_list = $dom->getElementsByTagName('a'); // get <a> elements
+				$dom = new DOMDocument();
+//				import menu into DOM object, let it do it's job
+				if($dom->loadHTMLFile($menu_file_full_name,LIBXML_NOERROR || LIBXML_NOWARNING || LIBXML_HTML_NOIMPLIED || LIBXML_HTML_NODEFDTD) !== false):
+//					get <a> elements
+					$file_node_list = $dom->getElementsByTagName('a');
 					$node_list_nolang = [];
 					$node_list_lang = [];
 					$node_list_en_US = [];
@@ -1026,28 +1038,36 @@ function make_headermenu_extensions(array &$menu) {
 							continue;
 						endif;
 					endforeach;
-					if(!empty($node_list_nolang)): // highest priority to ensure compatibility to existing menus
+//					highest priority to ensure compatibility to existing menus
+					if(!empty($node_list_nolang)):
+//						localised menus
 						$node_list = $node_list_nolang;
-					elseif(!empty($node_list_lang)): // localised menus
+					elseif(!empty($node_list_lang)):
 						$node_list = $node_list_lang;
-					elseif(!empty($node_list_en_US)): // fallback when new languages have been added but menu.inc doesn't have it.
+					elseif(!empty($node_list_en_US)):
+//						fallback when new languages have been added but menu.inc doesn't have it.
 						$node_list = $node_list_en_US;
 					else:
 						$node_list = [];
 					endif;
 					foreach($node_list as $node_item):
-						$link = trim($node_item->getAttribute('href')); // extract attribute href
-						$description = $node_item->nodeValue; // get display value
-						if(!empty($link)): // add target attribute when link looks like a hard link
-							if(preg_match($hard_link_regex,$link)): // hard link?
+//						extract attribute href
+						$link = trim($node_item->getAttribute('href'));
+//						get display value
+						$description = $node_item->nodeValue;
+//						add target attribute when link looks like a hard link
+						if(!empty($link)):
+//							hard link?
+							if(preg_match($hard_link_regex,$link)):
 								$ext_menu_item = ['visible' => $isAdminSession,'description' => $description,'type' => 'external','link' => $link];
 							elseif(preg_match('~^[\./]~',$link)):
 								$ext_menu_item = ['visible' => $isAdminSession,'description' => $description,'type' => 'internal','link' => $link];
 							else:
 								$ext_menu_item = ['visible' => $isAdminSession,'description' => $description,'type' => 'internal','link' => sprintf('/%s',$link)];
 							endif;
+//							extension menu found, make extension menu header visible
 							$menu_items[] = $ext_menu_item;
-							$menu[$menu_name]['visible'] = $isAdminSession; // extension menu found, make extension menu header visible
+							$menu[$menu_name]['visible'] = $isAdminSession;
 						endif;
 					endforeach;
 				endif;
@@ -1118,7 +1138,7 @@ function make_headermenu() {
 						switch($menu_item['type']):
 							case 'external':
 								$link = $menu_item['link'];
-								if(1 === preg_match($hard_link_regex,$link)):
+								if(preg_match($hard_link_regex,$link) === 1):
 //									hard link = no spinner
 									$output[] = sprintf('<a href="%s" target="_blank" rel="noreferrer">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								else:
@@ -1128,7 +1148,7 @@ function make_headermenu() {
 								break;
 							case 'internal':
 								$link = $menu_item['link'];
-								if(1 === preg_match($hard_link_regex,$link)):
+								if(preg_match($hard_link_regex,$link) === 1):
 //									hard link = no spinner
 									$output[] = sprintf('<a href="%s" target="_self">%s</a>',htmlspecialchars($link),htmlspecialchars($menu_item['description']));
 								else:
