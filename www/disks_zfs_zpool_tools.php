@@ -91,15 +91,17 @@ endforeach;
 $o_geom = new co_geom_info();
 $a_geom_available_provider = $o_geom->get_available_provider();
 $a_reserved_devices = [
-	'gpt/efiboot%','gpt/gptboot','gpt/gptroot','gpt/gptswap','gpt/swap%','gpt/sysboot%','gpt/sysdisk%','ufs/embboot','ufs/liveboot'
+	'msdosfs/EFIBOOT','gpt/efiboot','gpt/gptboot','gpt/gptroot','gpt/gptswap','gpt/swap','gpt/sysboot','gpt/sysdisk','ufs/embboot','ufs/liveboot'
 ];
 /*
  *	Eliminate devices
  */
 $a_newdev = [];
+$regex_reserved_devices = sprintf('/^(%s)/',implode('|',array_map(fn($element) => preg_quote($element,'/'),$a_reserved_devices)));
 foreach($a_geom_available_provider as $potential_device):
-	if(array_search($potential_device['name'],$a_reserved_devices) !== false):
+	if(preg_match($regex_reserved_devices,$potential_device['name']) === 1):
 //		skip reserved devices
+//
 //		search provider id with name of reserved device
 //		get geom id from geom ref
 //		get consumer id -> provider ref from geom id
@@ -580,7 +582,7 @@ $document->render();
 				case 'attach.data':
 //					parameter: force flag, non-raidz vdev, new device
 					$subcommand = 'attach';
-					$o_flags = new co_zpool_flags(['force'],$sphere_array['flag']);
+					$o_flags = new co_zpool_flags(['force','resilver.sequential','resilver.wait'],$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2:
 //							attach data: select flags and pool
@@ -639,6 +641,12 @@ $document->render();
 										case 'force':
 											$a_param[] = '-f';
 											break;
+										case 'resilver.sequential':
+											$a_param[] = '-s';
+											break;
+										case 'resilver.wait':
+											$a_param[] = '-w';
+											break;
 									endswitch;
 								endforeach;
 								$a_param[] = escapeshellarg($sphere_array['pool'][0]);
@@ -648,7 +656,7 @@ $document->render();
 							endif;
 							render_command_result($result);
 							render_set_end();
-							render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['keys']);
+							render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
 							break;
 					endswitch;
 					break;
@@ -1230,7 +1238,7 @@ $document->render();
 							render_newdev_edit($a_newdev,'1');
 //							render_newdev_edit($o_zpool->get_all_devices(),'1');
 							render_set_end();
-							render_submit(3,$sphere_array['activity'],$sphere_array['option'],$a_sphere['pool'],[]);
+							render_submit(3,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],[]);
 							break;
 						case 3:
 //							labelclear: process
@@ -1591,7 +1599,7 @@ $document->render();
 				case 'replace':
 //					parameter: force flag, pool, redundant device, new device (optional)
 					$subcommand = 'replace';
-					$o_flags = new co_zpool_flags(['force'],$sphere_array['flag']);
+					$o_flags = new co_zpool_flags(['force','resilver.sequential','resilver.wait'],$sphere_array['flag']);
 					switch($sphere_array['pageindex']):
 						case 2:
 //							replace data: select flags and pool
@@ -1624,7 +1632,7 @@ $document->render();
 //							add spare devices of selected pool
 							if(!empty($a_spare_devices)):
 								foreach($a_spare_devices as $r_spare_device):
-									$o_geom->get_provider_by_name($a_newdev,$r_spare_device['device.path'] ?? NULL);
+									$o_geom->get_provider_by_name($a_newdev,$r_spare_device['device.path'] ?? null);
 								endforeach;
 							endif;
 //							new device is an optional parameter
@@ -1666,6 +1674,12 @@ $document->render();
 										case 'force':
 											$a_param[] = '-f';
 											break;
+										case 'resilver.sequential':
+											$a_param[] = '-s';
+											break;
+										case 'resilver.wait':
+											$a_param[] = '-w';
+											break;
 									endswitch;
 								endforeach;
 								$a_param[] = escapeshellarg($sphere_array['pool'][0]);
@@ -1681,7 +1695,7 @@ $document->render();
 							endif;
 							render_command_result($result);
 							render_set_end();
-							render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['keys']);
+							render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
 							break;
 					endswitch;
 					break;
