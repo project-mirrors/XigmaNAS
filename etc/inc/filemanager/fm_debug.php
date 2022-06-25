@@ -40,7 +40,7 @@ trait fm_debug {
 		syslog($level,$message);
 		closelog();
 	}
-	public function _debug ($data) {
+	public function _debug($data) {
 		$debug = 0;
 		if($debug === 0):
 			return;
@@ -51,7 +51,7 @@ trait fm_debug {
  *	prints out an error message, but keeps your program running
  *	@param string $data
  */
-	public function _error ($data) {
+	public function _error($data) {
 //		we also print out the error message to the debug log, if activated
 		$this->_syslog(LOG_ERR,$data);
 	}
