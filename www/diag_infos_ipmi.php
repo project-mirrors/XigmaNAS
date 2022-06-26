@@ -165,7 +165,6 @@ if($record_exists):
 else:
 	$tfoot->ins_no_records_found($n_col_width,gettext('No IPMI Sensor data available.'));
 endif;
-$tfoot->ins_separator($n_col_width);
 $record_exists = count($a_ipmi_fru) > 0;
 $use_tablesort = count($a_ipmi_fru) > 1;
 $table = $content->add_table_data_settings();
