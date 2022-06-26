@@ -36,10 +36,11 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use disks\zfs\volume\cli_toolbox as cli;
+use common\uuid;
 use disks\zfs\volume\cfg_toolbox as cfg;
+use disks\zfs\volume\cli_toolbox as cli;
 
-if(isset($_GET['uuid']) && is_string($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
+if(isset($_GET['uuid']) && is_string($_GET['uuid']) && uuid::is_v4($_GET['uuid'])):
 //	collect information from a single zfs volume
 	$uuid = $_GET['uuid'];
 	$entity_name = cfg::name_of_uuid($uuid);
@@ -90,16 +91,13 @@ $content->
 		push()->
 		addTHEAD()->
 			c2_titleline(gettext('ZFS Volume Information & Status'))->
-		last()->
+		pop()->
 		addTBODY()->
 			addTR()->
 				insTDwC('celltag',gettext('Information & Status'))->
 				addTDwC('celldata')->
 					addElement('pre',['class' => 'cmdoutput'])->
-						insSPAN(['id' => 'arl'],$status['arl'])->
-		pop()->
-		addTFOOT()->
-			c2_separator();
+						insSPAN(['id' => 'arl'],$status['arl']);
 $content->
 	add_table_data_settings()->
 		ins_colgroup_data_settings()->
