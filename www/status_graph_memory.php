@@ -78,12 +78,9 @@ $content->
 		push()->
 		addTHEAD()->
 			c2_titleline(gettext('Reporting Level'))->
-		last()->
-		addTBODY(['class' => 'donothighlight'])->
-			c2($cops_element,$statusgraphmemorylevel)->
 		pop()->
-		addTFOOT()->
-			c2_separator();
+		addTBODY(['class' => 'donothighlight'])->
+			c2($cops_element,$statusgraphmemorylevel);
 $content->
 	add_table_data_settings()->
 		push()->

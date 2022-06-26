@@ -82,12 +82,9 @@ $content->
 		push()->
 		addTHEAD()->
 			c2_titleline(gettext('Reporting Interface'))->
-		last()->
-		addTBODY(['class' => 'donothighlight'])->
-			c2($cops_element,$statusgraphnetworkif)->
 		pop()->
-		addTFOOT()->
-			c2_separator();
+		addTBODY(['class' => 'donothighlight'])->
+			c2($cops_element,$statusgraphnetworkif);
 $content->
 	add_table_data_settings()->
 		push()->

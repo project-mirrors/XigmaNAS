@@ -104,12 +104,9 @@ if($record_exists):
 			push()->
 			addTHEAD()->
 				c2_titleline(gettext('Reporting Disk'))->
-			last()->
-			addTBODY(['class' => 'donothighlight'])->
-				c2($cops_element,$statusgraphdukey)->
 			pop()->
-			addTFOOT()->
-				c2_separator();
+			addTBODY(['class' => 'donothighlight'])->
+				c2($cops_element,$statusgraphdukey);
 	$content->
 		add_table_data_settings()->
 			push()->
