@@ -31,8 +31,12 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
+
+use common\arr;
 
 function diag_routes_get(string $family,bool $resolve): array {
 	$sphere_grid = [];
@@ -41,28 +45,32 @@ function diag_routes_get(string $family,bool $resolve): array {
 		$a_cmd[] = '-n';
 	endif;
 	$a_cmd[] = '-f';
-	if('inet6' === $family):
+	if($family === 'inet6'):
 		$a_cmd[] = 'inet6';
 	else:
 		$a_cmd[] = 'inet';
 	endif;
 	$cmd = implode(' ',$a_cmd);
 	$json_string = shell_exec($cmd);
-	$rawdata = json_decode($json_string,true);
-	$rt_family = array_make_branch($rawdata,'statistics','route-information','route-table','rt-family');
-	foreach($rt_family as $r_rt_family):
-		$address_family = $r_rt_family['address-family'] ?? '';
-		$rt_entry = array_make_branch($r_rt_family,'rt-entry');
-		foreach($rt_entry as $r_rt_entry):
+	try {
+		$decoded_data = json_decode($json_string,true,512,JSON_THROW_ON_ERROR);
+	} catch(JsonException $exception) {
+		return $sphere_grid;
+	}
+	$rt_families = arr::make_branch($decoded_data,'statistics','route-information','route-table','rt-family');
+	foreach($rt_families as $rt_family):
+		$address_family = $rt_family['address-family'] ?? '';
+		$rt_entries = arr::make_branch($rt_family,'rt-entry');
+		foreach($rt_entries as $rt_entry):
 			$sphere_row = [
 				'address-family' => $address_family,
-				'destination' => $r_rt_entry['destination'] ?? '',
-				'gateway' => $r_rt_entry['gateway'] ?? '',
-				'flags' => $r_rt_entry['flags'] ?? '',
-				'use' => $r_rt_entry['use'] ?? '',
-				'mtu' => $r_rt_entry['mtu'] ?? '',
-				'netif' => $r_rt_entry['interface-name'] ?? '',
-				'expire' => $r_rt_entry['expire-time'] ?? ''
+				'destination' => $rt_entry['destination'] ?? '',
+				'gateway' => $rt_entry['gateway'] ?? '',
+				'flags' => $rt_entry['flags'] ?? '',
+				'use' => $rt_entry['use'] ?? '',
+				'mtu' => $rt_entry['mtu'] ?? '',
+				'netif' => $rt_entry['interface-name'] ?? '',
+				'expire' => $rt_entry['expire-time'] ?? ''
 			];
 			$sphere_grid[] = $sphere_row;
 		endforeach;
@@ -70,7 +78,7 @@ function diag_routes_get(string $family,bool $resolve): array {
 	return $sphere_grid;
 }
 function diag_routes_selection() {
-	$resolve = (true === filter_input(INPUT_POST,'resolve',FILTER_VALIDATE_BOOLEAN));
+	$resolve = filter_input(INPUT_POST,'resolve',FILTER_VALIDATE_BOOLEAN) === true;
 //	IPv4
 	$ipv4_grid = diag_routes_get('inet',$resolve);
 	$ipv4_record_exists = count($ipv4_grid) > 0;
@@ -84,14 +92,14 @@ function diag_routes_selection() {
 	$a_col_width = ['20%','20%','12%','12%','12%','12%','12%'];
 	$n_col_width = count($a_col_width);
 	if($use_tablesort):
-		$document = new_page($pgtitle,NULL,'tablesort');
+		$document = new_page(page_title: $pgtitle,options: 'tablesort');
 	else:
 		$document = new_page($pgtitle);
 	endif;
 //	get areas
 //	$body = $document->getElementById('main');
 	$pagecontent = $document->getElementById('pagecontent');
-	//	create data area
+//	create data area
 	$content = $pagecontent->add_area_data();
 //	add content
 	$ipv4_table = $content->add_table_data_selection();
@@ -127,7 +135,6 @@ function diag_routes_selection() {
 	else:
 		$ipv4_tbody->ins_no_records_found($n_col_width,gettext('No IPv4 routing information found.'));
 	endif;
-	$ipv4_table->addTFOOT()->ins_separator($n_col_width);
 //	IPv6
 	$ipv6_table = $content->add_table_data_selection();
 	$ipv6_table->ins_colgroup_with_styles('width',$a_col_width);
