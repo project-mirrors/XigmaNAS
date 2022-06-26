@@ -190,49 +190,37 @@ $content->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_titleline(gettext('Navigation Menu'))->
-		last()->
-		addTBODY()->
-			c2($cop->get_navbartoplevelstyle(),$sphere,false,$is_readonly)->
 		pop()->
-		addTFOOT()->
-			c2_separator();
+		addTBODY()->
+			c2($cop->get_navbartoplevelstyle(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_titleline(gettext('Display Options'))->
-		last()->
+		pop()->
 		addTBODY()->
 			c2($cop->get_nonsidisksizevalues(),$sphere,false,$is_readonly)->
 			c2($cop->get_showcolorfulmeter(),$sphere,false,$is_readonly)->
-			c2($cop->get_showmaxcpus(),$sphere,false,$is_readonly)->
-		pop()->
-		addTFOOT()->
-			c2_separator();
+			c2($cop->get_showmaxcpus(),$sphere,false,$is_readonly);
 $content->
 	add_table_data_settings()->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
 			c2_titleline(gettext('Button Settings'))->
-		last()->
+		pop()->
 		addTBODY()->
 			c2($cop->get_enabletogglemode(),$sphere,false,$is_readonly)->
 			c2($cop->get_skipviewmode(),$sphere,false,$is_readonly)->
-			c2($cop->get_adddivsubmittodataframe(),$sphere,false,$is_readonly)->
-		pop()->
-		addTFOOT()->
-			c2_separator();
+			c2($cop->get_adddivsubmittodataframe(),$sphere,false,$is_readonly);
 $css_settings = $content->add_table_data_settings();
 $css_settings->
 	ins_colgroup_data_settings()->
 	addTHEAD()->
 		c2_titleline(gettext('CSS Settings'));
 $tbody = $css_settings->addTBODY();
-$css_settings->
-	addTFOOT()->
-		c2_separator();
 $hooks_cssguifile = $tbody->c2($cop->get_cssguifile(),$sphere,false,$is_readonly)->get_hooks();
 $hooks_cssguifile['fc']->
 	insDIV(['class' => 'gap'])->
