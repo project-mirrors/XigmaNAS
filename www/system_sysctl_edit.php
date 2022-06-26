@@ -234,14 +234,11 @@ $content->
 		push()->
 		addTHEAD()->
 			c2($cop->get_enable(),$sphere,false,false,gettext('Sysctl Setting'))->
-		last()->
+		pop()->
 		addTBODY()->
 			c2($cop->get_name(),$sphere,true,$cop->get_name()->is_readonly_rowmode($isrecordnewornewmodify))->
 			c2($cop->get_value(),$sphere,true,$cop->get_value()->is_readonly_rowmode($isrecordnewornewmodify))->
-			c2($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify))->
-		pop()->
-		addTFOOT()->
-			c2_separator();
+			c2($cop->get_description(),$sphere,false,$cop->get_description()->is_readonly_rowmode($isrecordnewornewmodify));
 $content->
 	add_table_data_settings()->
 		ins_colgroup_data_settings()->
