@@ -161,7 +161,6 @@ $document->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
 $content = $pagecontent->add_area_data();
 $regex = '/^\s*(\d+)\s+([A-Za-z0-9_\-]+)\s+(0x[0-9a-fA-F]+)\s+(\d+)\s+(\d+)\s+(\d+).*\s+\-\s+(\d+)/';
-$n_disks = count($a_disk);
 foreach($a_disk as $diskk => $single_disk):
 	$tds = $content->add_table_data_settings();
 	$tds->ins_colgroup_data_settings();
@@ -280,12 +279,5 @@ foreach($a_disk as $diskk => $single_disk):
 	$output_ach = implode("\n",array_slice($rawdata_ach,3));
 	$td->insElement('pre',['class' => 'cmdoutput'],$output_ach);
 	unset($a_command_ach,$command_ach,$rawdata_ach,$output_ach);
-	$do_separator = ($n_disks > 0);
-	$n_disks--;
-	if($do_separator):
-		$tds->
-			addTFOOT()->
-				c2_separator();
-	endif;
 endforeach;
 $document->render();
