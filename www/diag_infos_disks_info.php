@@ -82,20 +82,12 @@ if(empty($a_disk)):
 					addTDwC('celltag',gettext('Information'))->
 					addTDwC('celldata',gettext('No configured disks found.'));
 else:
-	$n_disks = count($a_disk);
 	foreach($a_disk as $diskk => $diskv):
 		$diskcontent = $content->
 			add_table_data_settings()->
 				ins_colgroup_data_settings();
 		$thead = $diskcontent->addTHEAD();
 		$tbody = $diskcontent->addTBODY();
-		$do_separator = ($n_disks > 1);
-		$n_disks--;
-		if($do_separator):
-			$diskcontent->
-				addTFOOT()->
-					c2_separator();
-		endif;
 		$thead->c2_titleline(sprintf(gettext('Device /dev/%s - %s'),$diskv['name'],$diskv['desc']));
 		exec(sprintf('diskinfo -v %s',escapeshellarg($diskv['devicespecialfile'])),$rawdata);
 //		remove first line
