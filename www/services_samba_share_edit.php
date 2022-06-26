@@ -382,7 +382,6 @@ $content->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_separator()->
 			c2($cop->get_afpcompat(),$sphere,false,false,gettext('Apple Filing Protocol (AFP) Compatibility Settings'))->
 		pop()->
 		addTBODY()->
@@ -396,7 +395,6 @@ $content->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_separator()->
 			c2_titleline(gettext('Additional Parameters'))->
 		pop()->
 		addTBODY()->
