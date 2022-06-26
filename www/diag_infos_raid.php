@@ -64,17 +64,11 @@ $document->
 			ins_tabnav_record('diag_infos_sockets.php',gettext('Sockets'))->
 			ins_tabnav_record('diag_infos_ipmi.php',gettext('IPMI Stats'))->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
-$do_seperator = false;
 $area_data = $pagecontent->add_area_data();
 foreach($sphere_array as $sphere_record):
 	$tds = $area_data->add_table_data_settings();
 	$tds->ins_colgroup_data_settings();
 	$thead = $tds->addTHEAD();
-	if($do_seperator):
-		$thead->c2_separator();
-	else:
-		$do_seperator = true;
-	endif;
 	$thead->c2_titleline(sprintf('GEOM %s',$sphere_record));
 	$pre = $tds->addTBODY()->
 		addTR()->
