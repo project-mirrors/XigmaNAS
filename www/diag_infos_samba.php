@@ -113,33 +113,37 @@ $pagecontent->
 			ins_colgroup_data_settings()->
 			addTHEAD()->
 				c2_titleline(gettext('Active Users'))->
-			pop()->
+			last()->
 			addTBODY()->
 				addTR()->
 					insTDwC('celltag',gettext('Information'))->
 					addTDwC('celldata')->
 						addElement('pre',['class' => 'cmdoutput'])->
 							addElement('span',['id' => 'area_refresh_1'],diag_infos_samba_1_ajax())->
+			pop()->
+			addTFOOT()->
+				c2_separator()->
 		last()->
 		add_table_data_settings()->
 			push()->
 			ins_colgroup_data_settings()->
 			addTHEAD()->
-				c2_separator()->
 				c2_titleline(gettext('Active Shares'))->
-			pop()->
+			last()->
 			addTBODY()->
 				addTR()->
 					insTDwC('celltag',gettext('Information'))->
 					addTDwC('celldata')->
 						addElement('pre',['class' => 'cmdoutput'])->
 							addElement('span',['id' => 'area_refresh_2'],diag_infos_samba_2_ajax())->
+			pop()->
+			addTFOOT()->
+				c2_separator()->
 		pop()->
 		add_table_data_settings()->
 			push()->
 			ins_colgroup_data_settings()->
 			addTHEAD()->
-				c2_separator()->
 				c2_titleline(gettext('Locked Files'))->
 			pop()->
 			addTBODY()->
