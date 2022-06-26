@@ -40,6 +40,10 @@
 	bos-: border style
 	bow-: border width
 	bop-: border properties => [border width] [border style] [border color]
+	mat : margin top
+	mab : margin bottom
+	mal : margin left
+	mar : margin right
 */
 	--bgc-root: #D9DCE1;
 	--txc-root: #000000;
@@ -115,6 +119,10 @@
 	--txc-input-ro: #000000;
 	--bgc-input-ro: transparent;
 	--bop-input-ro: 1px outset #EEEEEE;
+/*
+	gap
+*/
+	--mab-gap: 1.09em;
 }
 
 body
@@ -806,6 +814,13 @@ div#area_data_frame > form > table > thead tr:last-child th[class^="lhe"]
 	position: sticky;
 	top: 0;
 	z-index: 1;
+}
+
+div#area_data_frame > table.area_data_selection:not(:last-child),
+div#area_data_frame > table.area_data_settings:not(:last-child)
+{
+	margin-bottom: 1.09em;
+	margin-bottom: var(--mab-gap);
 }
 
 table#area_data_settings_submit
