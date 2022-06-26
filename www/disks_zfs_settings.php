@@ -175,7 +175,6 @@ $content->
 		push()->
 		ins_colgroup_data_settings()->
 		addTHEAD()->
-			c2_separator()->
 			c2_titleline(gettext('Capacity Alert Thresholds'))->
 		pop()->
 		addTBODY()->
