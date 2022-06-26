@@ -71,7 +71,6 @@ $table = $area_data->add_table_data_settings();
 $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY();
-$tfoot = $table->addTFOOT();
 $thead->c2_titleline(gettext('MS Active Directory Information & Status'));
 if(is_bool($test = $config['ad']['enable'] ?? false) ? $test : true):
 	unset($rawdata);
@@ -98,7 +97,6 @@ if(is_bool($test = $config['ad']['enable'] ?? false) ? $test : true):
 		addTDwC('celldata')->
 			addElement('pre',['class' => 'cmdoutput'])->
 				addElement('span',[],implode("\n",$rawdata));
-	$tfoot->c2_separator();
 	$table = $area_data->add_table_data_settings();
 	$table->ins_colgroup_data_settings();
 	$thead = $table->addTHEAD();

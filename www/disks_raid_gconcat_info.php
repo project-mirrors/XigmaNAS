@@ -101,7 +101,6 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_separator()->
 			c2_titleline(gettext('JBOD Details'))->
 		pop()->
 		addTBODY()->

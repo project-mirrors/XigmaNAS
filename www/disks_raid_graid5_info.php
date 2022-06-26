@@ -36,10 +36,11 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use disks\geom\raid5\cfg_toolbox as cfg,
-	disks\geom\raid5\cli_toolbox as cli;
+use common\uuid;
+use disks\geom\raid5\cfg_toolbox as cfg;
+use disks\geom\raid5\cli_toolbox as cli;
 
-if(isset($_GET['uuid']) && is_string($_GET['uuid']) && is_uuid_v4($_GET['uuid'])):
+if(isset($_GET['uuid']) && is_string($_GET['uuid']) && uuid::is_v4($_GET['uuid'])):
 //	collect information from a single geom (via uuid)
 	$uuid = $_GET['uuid'];
 	$entity_name = cfg::name_of_uuid($uuid);
@@ -100,7 +101,6 @@ $content->
 		ins_colgroup_data_settings()->
 		push()->
 		addTHEAD()->
-			c2_separator()->
 			c2_titleline(gettext('RAID5 Details'))->
 		pop()->
 		addTBODY()->
