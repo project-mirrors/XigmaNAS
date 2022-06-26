@@ -83,9 +83,10 @@ if($_POST):
 				$sphere->cbm_grid = $_POST[$sphere->get_cbm_name()] ?? [];
 				$updateconfig = false;
 				foreach($sphere->cbm_grid as $sphere->cbm_row):
-					if(false !== ($sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier()))):
-						$sphere->row = $sphere->grid[$sphere->record_id];
-						//	Check if interface is still in use.
+					$sphere->row_id = arr::search_ex($sphere->cbm_row,$sphere->grid,$sphere->get_row_identifier());
+					if($sphere->row_id !== false):
+						$sphere->row = $sphere->grid[$sphere->row_id];
+//						Check if interface is still in use.
 						if(vlan_inuse($sphere->row['if'])):
 							$input_errors[] = htmlspecialchars($sphere->row['if']) . ': ' . gtext('VLAN cannot be deleted because it is still being used as an interface.');
 						else:
