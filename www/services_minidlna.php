@@ -302,7 +302,6 @@ $tbody->
 	c2($cop->get_forcesortcriteria(),$sphere,false,$is_readonly)->
 	c2($cop->get_auxparam(),$sphere,false,$is_readonly);
 if($is_running):
-	$tbody->addTFOOT()->c2_separator();
 	$if = get_ifname($sphere->row['if']);
 	$ipaddr = get_ipaddr($if);
 	if(preg_match('/\S/',$sphere->row[$cop->get_port()->get_name()])):

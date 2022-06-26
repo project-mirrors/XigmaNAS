@@ -271,7 +271,6 @@ $tbody1->
 $tds2 = $content->add_table_data_settings();
 $tds2->ins_colgroup_data_settings();
 $tds2->addTHEAD()->
-	c2_separator()->
 	c2_titleline(gettext('Transmission Web Interface'));
 $tbody2 = $tds2->addTBODY();
 $tbody2->

@@ -268,7 +268,6 @@ $tds1 = $content->add_table_data_settings();
 $tds1->ins_colgroup_data_settings();
 $thead1 = $tds1->addTHEAD();
 $tbody1 = $tds1->addTBODY();
-$tfoot1 = $tds1->addTFOOT()->c2_separator();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
 		$thead1->c2_titleline(gettext('MariaDB'));

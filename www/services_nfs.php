@@ -251,7 +251,6 @@ $tds = $content->add_table_data_settings();
 $tds->ins_colgroup_data_settings();
 $thead = $tds->addTHEAD();
 $tbody = $tds->addTBODY();
-$tfoot = $tds->addTFOOT();
 switch($page_mode):
 	case PAGE_MODE_VIEW:
 		$thead->c2_titleline(gettext('Network File System'));
@@ -264,7 +263,6 @@ $tbody->
 	c2_textinfo('running',gettext('Service Active'),$is_running_message)->
 	c2($cop->get_support_nfs_v4(),$sphere,false,$is_readonly)->
 	c2($cop->get_numproc(),$sphere,false,$is_readonly);
-$tfoot->c2_separator();
 $tds_exports = $content->add_table_data_settings();
 $tds_exports->ins_colgroup_data_settings();
 $thead_exports = $tds_exports->addTHEAD();
