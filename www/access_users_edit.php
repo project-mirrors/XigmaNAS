@@ -268,7 +268,6 @@ $table_up->ins_colgroup_data_settings();
 $thead_up = $table_up->addTHEAD();
 $tbody_up = $table_up->addTBODY();
 $thead_up->
-	c2_separator()->
 	c2_titleline(gettext('User Portal'));
 $tbody_up->
 	c2($cop->get_user_portal_access(),$sphere,false,$cop->get_user_portal_access()->is_readonly_rowmode($isrecordnewornewmodify))->
@@ -278,7 +277,6 @@ $table_fm->ins_colgroup_data_settings();
 $thead_fm = $table_fm->addTHEAD();
 $tbody_fm = $table_fm->addTBODY();
 $thead_fm->
-	c2_separator()->
 	c2_titleline(gettext('File Manager'));
 $tbody_fm->
 	c2($cop->get_fm_enable(),$sphere,false,$cop->get_fm_enable()->is_readonly_rowmode($isrecordnewornewmodify))->
