@@ -80,20 +80,12 @@ if(empty($a_disk)):
 					insTDwC('celltag',gettext('Information'))->
 					insTDwC('celldata',gettext('No disks found.'));
 else:
-	$n_disks = count($a_disk);
 	foreach($a_disk as $diskk => $diskv):
 		$diskcontent = $content->
 			add_table_data_settings()->
 				ins_colgroup_data_settings();
 		$thead = $diskcontent->addTHEAD();
 		$tbody = $diskcontent->addTBODY();
-		$do_separator = ($n_disks > 1);
-		$n_disks--;
-		if($do_separator):
-			$diskcontent->
-				addTFOOT()->
-					c2_separator();
-		endif;
 		$thead->c2_titleline(sprintf(gettext('Device /dev/%s - %s'),$diskv['name'],$diskv['desc']));
 		$cmd = sprintf('/sbin/gpart show %s',escapeshellarg($diskk));
 		unset($geom_rawdata);
