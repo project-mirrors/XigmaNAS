@@ -292,6 +292,7 @@ $table = $content->add_table_data_selection();
 $table->ins_colgroup_with_styles('width',$a_col_width);
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY(['class' => 'donothighlight']);
+$tfoot = $table->addTFOOT()->ins_separator($n_col_width);
 $thead->ins_titleline(gettext('License'),$n_col_width);
 $td = $tbody->addTR()->addTDwC('lcebl');
 $td->addP([],'<strong>XigmaNAS® is copyright © 2018-2022 XigmaNAS® (<a href="mailto:info@xigmanas.com">info@xigmanas.com</a>).<br />All Rights Reserved.</strong>');
@@ -321,8 +322,8 @@ $table = $content->add_table_data_selection();
 $table->ins_colgroup_with_styles('width',$a_col_width);
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY(['class' => 'donothighlight']);
+$tfoot = $table->addTFOOT()->ins_separator($n_col_width);
 $thead->
-	ins_separator($n_col_width)->
 	ins_titleline(gettext('Credits'),$n_col_width)->
 	addTR()->
 		insTH(['colspan' => '3','class' => 'lhebl'],sprintf(gettext('The following persons have contributed to %s:'),get_product_name()));
@@ -341,7 +342,6 @@ $table->ins_colgroup_data_settings();
 $thead = $table->addTHEAD();
 $tbody = $table->addTBODY(['class' => 'donothighlight']);
 $thead->
-	c2_separator()->
 	c2_titleline(gettext('Software Used'))->
 	push()->
 	addTR()->
