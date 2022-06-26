@@ -232,7 +232,6 @@ class row_toolbox extends myt\row_toolbox {
 			$thead = $table->addTHEAD();
 			$tbody = $table->addTBODY();
 			$thead->
-				c2_separator()->
 				c2_titleline(gettext('Additional Information'));
 			$iam = $sphere->row[$cop->get_name()->get_name()];
 			$ai1 = self::get_chap_info($iam);
