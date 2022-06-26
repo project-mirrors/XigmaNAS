@@ -40,6 +40,7 @@ use gui\document;
 
 function get_ipmi_sensor() {
 	$a_sensor = [];
+	$a_output = [];
 	mwexec2('ipmitool sensor',$a_output);
 	foreach($a_output as $r_output):
 		$r_sensor = explode('|',$r_output);
@@ -54,9 +55,11 @@ function get_ipmi_sensor() {
 }
 function get_ipmi_fru() {
 	$a_fru = [];
+	$a_output = [];
 	mwexec2('ipmitool fru',$a_output);
 	foreach($a_output as $r_output):
-		$r_fru = explode(': ',$r_output,2); // we need 2 columns only, tag and value
+//		we need 2 columns only, tag and value
+		$r_fru = explode(': ',$r_output,2);
 		$c_fru = count($r_fru);
 		for($i = 0;$i < $c_fru;$i++):
 			$r_fru[$i] = trim($r_fru[$i]);
@@ -85,28 +88,17 @@ function diag_infos_ipmi_ajax() {
 	return $body_output;
 }
 $a_ipmi_sensor = get_ipmi_sensor();
-$a_ipmi_fru = get_ipmi_fru();
 if(is_ajax()):
-	$status = diag_infos_ipmi_ajax();
+	$status['area_refresh'] = diag_infos_ipmi_ajax();
 	render_ajax($status);
 endif;
-$pgtitle = [gtext('Diagnostics'),gtext('Information'),gtext('IPMI Stats')];
-include 'fbegin.inc';
-?>
-<script>
-//<![CDATA[
-$(document).ready(function(){
-	var gui = new GUI;
-	gui.recall(5000, 5000, 'diag_infos_ipmi.php', null, function(data) {
-		if ($('#area_refresh').length > 0) {
-			$('#area_refresh').html(data.data);
-		}
-	});
-});
-//]]>
-</script>
-<?php
-$document = new document();
+$a_ipmi_fru = get_ipmi_fru();
+$pgtitle = [gettext('Diagnostics'),gettext('Information'),gettext('IPMI Statistics')];
+$document = new_page($pgtitle);
+//	get areas
+$body = $document->getElementById('main');
+$pagecontent = $document->getElementById('pagecontent');
+//	add tab navigation
 $document->
 	add_area_tabnav()->
 		add_tabnav_upper()->
@@ -128,125 +120,74 @@ $document->
 			ins_tabnav_record('diag_infos_sockets.php',gettext('Sockets'))->
 			ins_tabnav_record('diag_infos_ipmi.php',gettext('IPMI Stats'),gettext('Reload page'),true)->
 			ins_tabnav_record('diag_infos_ups.php',gettext('UPS'));
+$record_exists = count($a_ipmi_sensor) > 0;
+$use_tablesort = count($a_ipmi_sensor) > 1;
+$a_col_width = ['11%','12%','5%','12%','12%','12%','12%','12%','12%'];
+$n_col_width = count($a_col_width);
+$content = $pagecontent->add_area_data();
+$table = $content->add_table_data_selection();
+$table->ins_colgroup_with_styles('width',$a_col_width);
+$thead = $table->addTHEAD();
+if($record_exists):
+	$tbody = $table->addTBODY(['id' => 'area_refresh']);
+endif;
+$tfoot = $table->addTFOOT();
+$thead->ins_titleline(gettext('Sensor Information'),$n_col_width);
+$tr = $thead->addTR();
+$tr->
+	insTH(['class' => 'lhelc','colspan' => 3],gettext('Sensor List'))->
+	insTH(['class' => 'lhelc','colspan' => 2],gettext('Non-Recoverable'))->
+	insTH(['class' => 'lhelc','colspan' => 2],gettext('Non-Critical'))->
+	insTH(['class' => 'lhebc','colspan' => 2],gettext('Critical'));
+$tr = $thead->addTR();
+$tr->
+	insTHwC('lhell',gettext('Sensor'))->
+	insTHwC('lhell',gettext('Reading'))->
+	insTHwC('lhell',gettext('Status'))->
+	insTHwC('lhell',gettext('Lower'))->
+	insTHwC('lhell',gettext('Upper'))->
+	insTHwC('lhell',gettext('Lower'))->
+	insTHwC('lhell',gettext('Upper'))->
+	insTHwC('lhell',gettext('Lower'))->
+	insTHwC('lhebl',gettext('Upper'));
+if($record_exists):
+	$tbody->import_soup(diag_infos_ipmi_ajax(),true);
+//	add additional javascript code
+	$js_document_ready = <<<'EOJ'
+		var gui = new GUI;
+		gui.recall(5000,5000,'diag_infos_ipmi.php',null,function(data) {
+			if($('#area_refresh').length > 0) {
+				$('#area_refresh').html(data.area_refresh);
+			}
+		});
+	EOJ;
+	$body->add_js_document_ready($js_document_ready);
+else:
+	$tfoot->ins_no_records_found($n_col_width,gettext('No IPMI Sensor data available.'));
+endif;
+$tfoot->ins_separator($n_col_width);
+$record_exists = count($a_ipmi_fru) > 0;
+$use_tablesort = count($a_ipmi_fru) > 1;
+$table = $content->add_table_data_settings();
+$table->ins_colgroup_data_settings();
+$thead = $table->addTHEAD();
+if($record_exists):
+	$tbody = $table->addTBODY();
+endif;
+$tfoot = $table->addTFOOT();
+$thead->c2_titleline(gettext('FRU Information'));
+$tr = $thead->addTR();
+$tr->
+	insTHwC('lhell',gettext('Tag'))->
+	insTHwC('lhebl',gettext('Value'));
+if($record_exists):
+	foreach($a_ipmi_fru as $r_ipmi_fru):
+		$tbody->
+			addTR()->
+				insTDwC('lcell',$r_ipmi_fru[0] ?? '')->
+				insTDwC('lcebl',$r_ipmi_fru[1] ?? '');
+	endforeach;
+else:
+	$tfoot->ins_no_records_found($n_col_width,gettext('No IPMI FRU data available.'));
+endif;
 $document->render();
-?>
-<table id="area_data"><tbody><tr><td id="area_data_frame">
-<?php
-	if(empty($a_ipmi_sensor)):
-?>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php
-				html_titleline2(gettext('Sensor Information'),9);
-?>
-			</thead>
-			<tbody>
-<?php
-				html_text2('sensor',gettext('System Message'),gettext('No IPMI Sensor data available.'));
-?>
-			</tbody>
-		</table>
-<?php
-	else:
-?>
-		<table class="area_data_selection">
-			<colgroup>
-				<col style="width:11%">
-				<col style="width:12%">
-				<col style="width:5%">
-				<col style="width:12%">
-				<col style="width:12%">
-				<col style="width:12%">
-				<col style="width:12%">
-				<col style="width:12%">
-				<col style="width:12%">
-			</colgroup>
-			<thead>
-<?php
-				html_titleline2(gettext('Sensor Information'),9);
-?>
-				<tr>
-					<th class="lhelc" colspan="3"><?=gtext('Sensor List');?></th>
-					<th class="lhelc" colspan="2"><?=gtext('Non-Recoverable');?></th>
-					<th class="lhelc" colspan="2"><?=gtext('Non-Critical');?></th>
-					<th class="lhebc" colspan="2"><?=gtext('Critical');?></th>
-				</tr>
-				<tr>
-					<th class="lhell"><?=gtext('Sensor');?></th>
-					<th class="lhell"><?=gtext('Reading');?></th>
-					<th class="lhell"><?=gtext('Status');?></th>
-					<th class="lhell"><?=gtext('Lower');?></th>
-					<th class="lhell"><?=gtext('Upper');?></th>
-					<th class="lhell"><?=gtext('Lower');?></th>
-					<th class="lhell"><?=gtext('Upper');?></th>
-					<th class="lhell"><?=gtext('Lower');?></th>
-					<th class="lhebl"><?=gtext('Upper');?></th>
-				</tr>
-			</thead>
-			<tbody id="area_refresh"><?=diag_infos_ipmi_ajax();?></tbody>
-		</table>
-<?php
-	endif;
-?>
-<?php
-	if(empty($a_ipmi_fru)):
-?>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php
-				html_separator2();
-				html_titleline2(gettext('FRU Information'),2);
-?>
-			</thead>
-			<tbody>
-<?php
-				html_text2('sensor',gettext('System Message'),gettext('No IPMI FRU data available.'));
-?>
-			</tbody>
-		</table>
-<?php
-	else:
-?>
-		<table class="area_data_settings">
-			<colgroup>
-				<col class="area_data_settings_col_tag">
-				<col class="area_data_settings_col_data">
-			</colgroup>
-			<thead>
-<?php
-				html_separator2();
-				html_titleline2(gettext('FRU Information'),2);
-?>
-				<tr>
-					<th class="lhell"><?=gtext('Tag');?></th>
-					<th class="lhebl"><?=gtext('Value');?></th>
-				</tr>
-			</thead>
-			<tbody>
-<?php
-				foreach ($a_ipmi_fru as $r_ipmi_fru):
-?>
-					<tr>
-						<td class="lcell"><?=htmlspecialchars($r_ipmi_fru[0] ?? '');?>&nbsp;</td>
-						<td class="lcebl"><?=htmlspecialchars($r_ipmi_fru[1] ?? '');?>&nbsp;</td>
-					</tr>
-<?php
-				endforeach;
-?>
-			</tbody>
-		</table>
-<?php
-	endif;
-	include 'formend.inc';
-?>
-</td></tr></tbody></table>
-<?php
-include 'fend.inc';
