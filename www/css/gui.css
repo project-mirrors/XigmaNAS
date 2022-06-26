@@ -797,7 +797,8 @@ td#area_data_frame
 	background-color: #EEEEEE;
 	background-color: var(--bgc-area-data);
 }
-
+div#area_data_frame > table.area_data_selection > thead,
+div#area_data_frame > table.area_data_settings > thead,
 div#area_data_frame > table > thead tr:last-child th[class^="lhe"],
 div#area_data_frame > form > table > thead tr:last-child th[class^="lhe"]
 {
