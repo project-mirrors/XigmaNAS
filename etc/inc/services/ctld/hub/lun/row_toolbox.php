@@ -93,7 +93,7 @@ class row_toolbox extends myt\row_toolbox {
 			push()->
 			addTHEAD()->
 				c2($cop->get_enable(),$sphere,false,false,gettext('Configuration'))->
-			pop()->
+			last()->
 			addTBODY()->
 				c2($cop->get_name(),$sphere,true,false)->
 				c2($cop->get_description(),$sphere,false,false)->
@@ -105,14 +105,16 @@ class row_toolbox extends myt\row_toolbox {
 				c2($cop->get_path(),$sphere,false,false)->
 				c2($cop->get_serial(),$sphere,false,false)->
 				c2($cop->get_size(),$sphere,false,false)->
-				c2($cop->get_auxparam(),$sphere,false,false);
+				c2($cop->get_auxparam(),$sphere,false,false)->
+			pop()->
+			addTFOOT()->
+				c2_separator();
 		$content->add_table_data_settings()->
 			ins_colgroup_data_settings()->
 			push()->
 			addTHEAD()->
-				c2_separator()->
 				c2_titleline(gettext('Options'))->
-			pop()->
+			last()->
 			addTBODY()->
 				c2($cop->get_opt_vendor(),$sphere,false,false)->
 				c2($cop->get_opt_product(),$sphere,false,false)->
@@ -143,22 +145,26 @@ class row_toolbox extends myt\row_toolbox {
 				c2($cop->get_opt_used_threshold(),$sphere,false,false)->
 				c2($cop->get_opt_pool_avail_threshold(),$sphere,false,false)->
 				c2($cop->get_opt_pool_used_threshold(),$sphere,false,false)->
-				c2($cop->get_opt_writecache(),$sphere,false,false);
+				c2($cop->get_opt_writecache(),$sphere,false,false)->
+			pop()->
+			addTFOOT()->
+				c2_separator();
 		$content->add_table_data_settings()->
 			ins_colgroup_data_settings()->
 			push()->
 			addTHEAD()->
-				c2_separator()->
 				c2_titleline(gettext('Additional Options for Block Backend'))->
-			pop()->
+			last()->
 			addTBODY()->
 				c2($cop->get_opt_file(),$sphere,false,false)->
-				c2($cop->get_opt_num_threads(),$sphere,false,false);
+				c2($cop->get_opt_num_threads(),$sphere,false,false)->
+			pop()->
+			addTFOOT()->
+				c2_separator();
 		$content->add_table_data_settings()->
 			ins_colgroup_data_settings()->
 			push()->
 			addTHEAD()->
-				c2_separator()->
 				c2_titleline(gettext('Additional Options for RAM Disk Backend'))->
 			pop()->
 			addTBODY()->
@@ -168,7 +174,6 @@ class row_toolbox extends myt\row_toolbox {
 			ins_colgroup_data_settings()->
 			push()->
 			addTHEAD()->
-				c2_separator()->
 				c2_titleline(gettext('Additional Options for Passthrough Backend'))->
 			pop()->
 			addTBODY()->
