@@ -184,8 +184,8 @@ if($record_exists):
 	foreach($a_ipmi_fru as $r_ipmi_fru):
 		$tbody->
 			addTR()->
-				insTDwC('lcell',$r_ipmi_fru[0] ?? '')->
-				insTDwC('lcebl',$r_ipmi_fru[1] ?? '');
+				insTDwC('celltag',$r_ipmi_fru[0] ?? '')->
+				addTDwC('celldata',$r_ipmi_fru[1] ?? '');
 	endforeach;
 else:
 	$tfoot->ins_no_records_found($n_col_width,gettext('No IPMI FRU data available.'));
