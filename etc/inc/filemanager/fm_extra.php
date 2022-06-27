@@ -263,12 +263,12 @@ trait fm_extra {
 		if(preg_match('/\.\./',$directory)):
 			return false;
 		endif;
-		if(isset($file)):
+		if(is_scalar($file)):
 //			file name must not contain any path separators
 			if(preg_match('/[\/\\\\]/',$file)):
 				return false;
 			endif;
-//			dont display own and parent directory
+//			do not display own and parent directory
 			if($file == '.' || $file == '..' ):
 				return false;
 			endif;
@@ -278,12 +278,18 @@ trait fm_extra {
 			if(!$this->str_startswith($full_path,$this->path_f())):
 				return false;
 			endif;
+			if($this->matches_noaccess_pattern($file)):
+				return false;
+			endif;
+//			check if user is allowed to access hidden files
+			if(!$this->show_hidden):
+				if($file[0] == '.'):
+					return false;
+				endif;
+			endif;
 		endif;
 //		check if user is allowed to access hidden files
 		if(!$this->show_hidden):
-			if($file[0] == '.'):
-				return false;
-			endif;
 //			no part of the path may be hidden
 			$directory_parts = explode('/',$directory);
 			foreach($directory_parts as $directory_part):
@@ -291,9 +297,6 @@ trait fm_extra {
 					return false;
 				endif;
 			endforeach;
-		endif;
-		if($this->matches_noaccess_pattern($file)):
-			return false;
 		endif;
 		return true;
 	}
