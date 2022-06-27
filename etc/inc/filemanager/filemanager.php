@@ -216,27 +216,15 @@ class filemanager {
 				break;
 			case 'download':
 //				download item
-//				prevent unwanted output
-//				ob_start();
-//				get rid of unwanted output
-//				ob_end_clean();
 				if($this->item == ''):
 					$this->show_error(gtext("You haven't selected any item(s)."));
 				endif;
 				$this->download_item($current_dir,$this->item);
-//				prevent unwanted output
-//				ob_start();
 				exit;
 				break;
 			case 'download_selected':
 //				download selected items
-//				prevent unwanted output
-//				ob_start();
-//				get rid of unwanted output
-//				ob_end_clean();
 				$this->download_selected($current_dir);
-//				prevent unwanted output
-//				ob_start();
 				exit;
 				break;
 			case 'unzip':
