@@ -58,13 +58,15 @@ function get_ipmi_fru() {
 	$a_output = [];
 	mwexec2('ipmitool fru',$a_output);
 	foreach($a_output as $r_output):
-//		we need 2 columns only, tag and value
-		$r_fru = explode(': ',$r_output,2);
-		$c_fru = count($r_fru);
-		for($i = 0;$i < $c_fru;$i++):
-			$r_fru[$i] = trim($r_fru[$i]);
-		endfor;
-		$a_fru[] = $r_fru;
+		if(strpos($r_output,':') !== false):
+//			we need 2 columns only, tag and value
+			$r_fru = explode(': ',$r_output,2);
+			$c_fru = count($r_fru);
+			for($i = 0;$i < $c_fru;$i++):
+				$r_fru[$i] = trim($r_fru[$i]);
+			endfor;
+			$a_fru[] = $r_fru;
+		endif;
 	endforeach;
 	unset($a_output);
 	return $a_fru;
@@ -177,7 +179,7 @@ $tfoot = $table->addTFOOT();
 $thead->c2_titleline(gettext('FRU Information'));
 if($record_exists):
 	foreach($a_ipmi_fru as $r_ipmi_fru):
-		$tbody->c2_textinfo(id: sprintf('fru_%s',uuid::create_v4()),title: $r_ipmi_fru[0] ?? '',value: $r_ipmi_fru[1] ?? '');
+		$tbody->c2_textinfo(id: sprintf('fru_%s',uuid::create_v4()),title: $r_ipmi_fru[0],value: $r_ipmi_fru[1] ?? '');
 	endforeach;
 else:
 	$tfoot->ins_no_records_found($n_col_width,gettext('No IPMI FRU data available.'));
