@@ -36,7 +36,7 @@ require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-use gui\document;
+use common\uuid;
 
 function get_ipmi_sensor() {
 	$a_sensor = [];
@@ -175,16 +175,9 @@ if($record_exists):
 endif;
 $tfoot = $table->addTFOOT();
 $thead->c2_titleline(gettext('FRU Information'));
-$tr = $thead->addTR();
-$tr->
-	insTHwC('lhell',gettext('Tag'))->
-	insTHwC('lhebl',gettext('Value'));
 if($record_exists):
 	foreach($a_ipmi_fru as $r_ipmi_fru):
-		$tbody->
-			addTR()->
-				insTDwC('celltag',$r_ipmi_fru[0] ?? '')->
-				addTDwC('celldata',$r_ipmi_fru[1] ?? '');
+		$tbody->c2_textinfo(id: sprintf('fru_%s',uuid::create_v4()),title: $r_ipmi_fru[0] ?? '',value: $r_ipmi_fru[1] ?? '');
 	endforeach;
 else:
 	$tfoot->ins_no_records_found($n_col_width,gettext('No IPMI FRU data available.'));
