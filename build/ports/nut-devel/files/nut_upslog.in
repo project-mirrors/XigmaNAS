@@ -25,7 +25,7 @@ load_rc_config "${name}"
 # Defaults
 nut_upslog_enable=${nut_upslog_enable:-"NO"}
 nut_upslog_prefix=${nut_upslog_prefix:-"/usr/local"}
-nut_upslog_logfile=${nut_upslog_logfile:-"/var/log/ups.log"}
+nut_upslog_logfile=${nut_upslog_logfile:-"/var/log/nut/ups.log"}
 nut_upslog_interval=${nut_upslog_interval:-"300"}
 nut_upslog_runas=${nut_upslog_runas:-"root"}
 nut_upslog_flags=${nut_upslog_flags:-"-l ${nut_upslog_logfile} -i ${nut_upslog_interval} -u ${nut_upslog_runas}"}
