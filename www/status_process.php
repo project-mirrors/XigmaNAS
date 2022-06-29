@@ -31,26 +31,20 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'co_sphere.php';
 
-function get_sphere_status_process() {
-	global $config;
-
-	$sphere = new co_sphere_row('status_process','php');
-	return $sphere;
-}
 function status_process_ajax() {
-	$cmd = 'top -b -d1 27';
+	$cmd = 'top -b -d 1 -S -t -z all';
 	mwexec2($cmd,$rawdata);
-	return implode(PHP_EOL,$rawdata);
+	return implode("\n",$rawdata);
 }
 if(is_ajax()):
 	$status['area_refresh'] = status_process_ajax();
 	render_ajax($status);
 endif;
-$sphere = get_sphere_status_process();
 $jcode = <<<EOJ
 $(document).ready(function(){
 	var gui = new GUI;
