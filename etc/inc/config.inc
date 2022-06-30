@@ -1769,7 +1769,7 @@ function config_upgrade_51() {
 
 	$rcconf = &arr::make_branch($config,'system','rcconf','param');
 	$rcconf_name = 'fuppes_logdir';
-	$index = arr::search_ex($group_name,$groups,'name');
+	$index = arr::search_ex($rcconf_name,$rcconf,'name');
 	if($index !== false):
 		unset($rcconf[$index]);
 	endif;
