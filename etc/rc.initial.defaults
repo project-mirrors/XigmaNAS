@@ -32,7 +32,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-// Don't parse the config so we can restore in case it's broken.
+//	don't parse the config so we can restore in case it's broken.
 $noparseconfig = 1;
 
 require_once 'config.inc';
@@ -41,38 +41,37 @@ require_once 'util.inc';
 require_once 'rc.inc';
 require_once 'tui.inc';
 
-// Get product information.
+//	get product information.
 $productname = get_product_name();
 
-// Remove old logs.
+//	remove old logs.
 function remove_logs() {
 	global $g;
+
 	$logs = [
-		'fuppes_logfile' => $g['varlog_path'].'/fuppes.log',
-		'minidlna_logfile' => $g['varlog_path'].'/minidlna.log',
-		'mtdaapd_logfile' => $g['varlog_path'].'/mt-daapd.log',
-		'rsync_client_logfile' => $g['varlog_path'].'/rsync_client.log',
-		'rsync_local_logfile' => $g['varlog_path'].'/rsync_local.log',
+		'fuppes_logfile' => $g['varlog_path'] . '/fuppes/fuppes.log',
+		'minidlna_logfile' => $g['varlog_path'] . '/minidlna.log',
+		'mtdaapd_logfile' => $g['varlog_path'] . '/mt-daapd.log',
+		'rsync_client_logfile' => $g['varlog_path'] . '/rsync_client.log',
+		'rsync_local_logfile' => $g['varlog_path'] . '/rsync_local.log',
 	];
-	rc_stop_service("fuppes");
-	rc_stop_service("minidlnad");
-	rc_stop_service("mt-daapd");
-	foreach ($logs as $key => $val) {
-		$file = rc_getenv_ex($key, $val);
-		if (!empty($file) && file_exists($file)) {
+	rc_stop_service('fuppes');
+	rc_stop_service('minidlnad');
+	rc_stop_service('mt-daapd');
+	foreach($logs as $key => $val):
+		$file = rc_getenv_ex($key,$val);
+		if(!empty($file) && file_exists($file)):
 			unlink($file);
-		}
-	}
+		endif;
+	endforeach;
 }
 
-// Display dialog
-$result = tui_display_yesno("You are about to reset {$productname} to factory defaults. The LAN IP address will be reset to {$g['default_ip']} and the WebGUI password will be set to '{$g['default_passwd']}'. The server will reboot after resetting the configuration.\n\nDo you want to proceed?", 60, 10, false);
-
-if (0 == $result) {
+//	display dialog
+$result = tui_display_yesno("You are about to reset {$productname} to factory defaults. The LAN IP address will be reset to {$g['default_ip']} and the WebGUI password will be set to '{$g['default_passwd']}'. The server will reboot after resetting the configuration.\n\nDo you want to proceed?",60,10,false);
+if($result == 0):
 	config_unlock();
 	remove_logs();
 	reset_factory_defaults();
 	write_console("\n{$productname} is rebooting now.");
 	system_reboot();
-}
-?>
+endif;
