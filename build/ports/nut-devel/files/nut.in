@@ -55,9 +55,6 @@ nut_mkconf()
 {
 	local _if _ip
 
-#	Check if required directories exists.
-	[ ! -d "/var/log/${name}" ] && mkdir "/var/log/${name}"
-
 #	Create nut.conf
 	/usr/local/bin/xml sel --template \
 		--match "//ups" \

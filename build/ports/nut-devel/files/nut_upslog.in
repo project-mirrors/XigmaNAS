@@ -25,7 +25,8 @@ load_rc_config "${name}"
 # Defaults
 nut_upslog_enable=${nut_upslog_enable:-"NO"}
 nut_upslog_prefix=${nut_upslog_prefix:-"/usr/local"}
-nut_upslog_logfile=${nut_upslog_logfile:-"/var/log/nut/ups.log"}
+nut_upslog_logdir=${nut_upslog_logdir:-"/var/log/nut"}
+nut_upslog_logfile="${nut_upslog_logdir}/ups.log"
 nut_upslog_interval=${nut_upslog_interval:-"300"}
 nut_upslog_runas=${nut_upslog_runas:-"root"}
 nut_upslog_flags=${nut_upslog_flags:-"-l ${nut_upslog_logfile} -i ${nut_upslog_interval} -u ${nut_upslog_runas}"}
@@ -37,5 +38,9 @@ pidfile="/var/run/upslog.pid"
 _upsname=`configxml_get "//ups/upsname"`
 _upsip=`configxml_get "//ups/ip"`
 nut_upslog_flags="-s ${_upsname}@${_upsip} ${nut_upslog_flags}"
+
+#	Check if required directories exists.
+	[ ! -d "${nut_upslog_logdir}" ] && mkdir "${nut_upslog_logdir}"
+
 
 run_rc_command "$1"
