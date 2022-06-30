@@ -1768,7 +1768,7 @@ function config_upgrade_51() {
 	global $config;
 
 	$rcconf = &arr::make_branch($config,'system','rcconf','param');
-	$rcconf_name = 'fuppes_logdir';
+	$rcconf_name = 'fuppes_logfile';
 	$index = arr::search_ex($rcconf_name,$rcconf,'name');
 	if($index !== false):
 		unset($rcconf[$index]);
