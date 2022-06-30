@@ -38,7 +38,8 @@ fuppes_config_dir=${fuppes_config_dir-"/var/etc"}
 fuppes_config=${fuppes_config-"${fuppes_config_dir}/${name}.cfg"}
 fuppes_vfolder_config=${fuppes_vfolder_config-"/usr/local/share/${name}/vfolder.cfg"}
 fuppes_loglevel=${fuppes_loglevel-"3"}
-fuppes_logfile=${fuppes_logfile-"/var/log/${name}/${name}.log"}
+fuppes_logdir=${fuppes_logdir:-"/var/log/${name}"}
+fuppes_logfile="${fuppes_logdir}/${name}.log"}
 fuppes_port=${fuppes_port-"49152"}
 fuppes_local_charset=${fuppes_local_charset-"UTF-8"}
 fuppes_use_imagemagick=${fuppes_use_imagemagick-"false"}
@@ -55,7 +56,7 @@ fuppes_friendly_name=${fuppes_friendly_name:-"XigmaNAS® (%h)"}
 command="/usr/local/bin/${name}d"
 command_args="--config-file ${fuppes_config} --log-level ${fuppes_loglevel} --log-file ${fuppes_logfile} --plugin-dir ${fuppes_plugin_dir} --friendly-name \"${fuppes_friendly_name}\""
 
-# Set kill signal to KILL, otherwise fuppes takes too long to terminate.
+#	Set kill signal to KILL, otherwise fuppes takes too long to terminate.
 sig_stop=${sig_stop-"KILL"}
 
 fuppes_mkconf()
@@ -64,7 +65,7 @@ fuppes_mkconf()
 	local _dbfile _dir _endis
 
 #	Check if required log directory exists.
-	[ ! -d "/var/log/${name}" ] && mkdir "/var/log/${name}"
+	[ ! -d "${fuppes_logdir}" ] && mkdir "${fuppes_logdir}"
 
 #	Create directory for config_dir/vfolder_dir
 	if [ ! -d ${fuppes_device_dir} ]; then mkdir -p ${fuppes_device_dir}; fi
