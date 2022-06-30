@@ -31,6 +31,7 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
 require_once 'globals.inc';
 require_once 'rc.inc';
 
@@ -38,7 +39,8 @@ require_once 'rc.inc';
 $clogdir = rc_getenv_ex('clog_logdir',$g['varlog_path']);
 $rsync_client_logfile = rc_getenv_ex('rsync_client_logfile',"{$g['varlog_path']}/rsync_client.log");
 $rsync_local_logfile = rc_getenv_ex('rsync_local_logfile',"{$g['varlog_path']}/rsync_local.log");
-$fuppes_logfile = rc_getenv_ex('fuppes_logfile',"{$g['varlog_path']}/fuppes/fuppes.log");
+$fuppes_logdir = rc_getenv_ex('fuppes_logdir',"{$g['varlog_path']}/fuppes");
+$fuppes_logfile = "{$fuppes_logdir}/fuppes.log";
 $minidlna_logdir = rc_getenv_ex('minidlna_logdir',"{$g['varlog_path']}");
 $minidlna_logfile = "{$minidlna_logdir}/minidlna.log";
 $mtdaapd_logfile = rc_getenv_ex('mtdaapd_logfile',"{$g['varlog_path']}/mt-daapd.log");
@@ -221,7 +223,7 @@ function log_get_contents($logfile,$type) {
 
 	$content = [];
 	$param = (isset($config['syslogd']['reverse']) ? '-r ' : '');
-	$param .= '-n ' . $config['syslogd']['nentries'];
+	$param .= '-n ' . $config['syslogd']['nentries'] ?? '50';
 	switch($type):
 		case 'clog':
 			$searchlog = $_POST['searchlog'] ?? '';
