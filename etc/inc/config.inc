@@ -1761,6 +1761,20 @@ function config_upgrade_50() {
 	endif;
 }
 /**
+ *	Upgrade configuration from 50
+ *	@global array $config
+ */
+function config_upgrade_51() {
+	global $config;
+
+	$rcconf = &arr::make_branch($config,'system','rcconf','param');
+	$rcconf_name = 'fuppes_logdir';
+	$index = arr::search_ex($group_name,$groups,'name');
+	if($index !== false):
+		unset($rcconf[$index]);
+	endif;
+}
+/**
  *	Upgrade the configuration file to the latest version.
  *	@global array $g
  *	@global array $config
@@ -1815,7 +1829,8 @@ function config_upgrade() {
 		'48' => [$kf => 'config_upgrade_48',$kv => '49'],
 		'49' => [$kf => 'config_upgrade_49',$kv => '50'],
 		'50' => [$kf => 'config_upgrade_50',$kv => '51'],
-		'51' => [$kf => null,$kv => null]
+		'51' => [$kf => 'config_upgrade_51',$kv => '52'],
+		'52' => [$kf => null,$kv => null]
 	];
 	$version = $config['version'] ?? 'notset';
 	$config_has_been_updated = false;
