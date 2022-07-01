@@ -5,48 +5,48 @@
 
 ============== SUMMARY =========
 
-1. Files and directories listing
-2. Generate an XigmaNAS® ISO or IMG  file
-3. Building XigmaNAS® from the latest sources
-4. Building the kernel
+1. Files and directories listing.
+2. Generate an XigmaNAS® ISO or IMG  file.
+3. Building XigmaNAS® from the latest sources.
+4. Building the kernel.
 
 ================================
 1. Files and directories listing
 
-- /xigmanas/bootloader:  This contains the FreeBSD boot loader files
-- /xigmanas/rootfs: Minimum FreeBSD root filesystem and XigmaNAS® script/WebGUI
-- /xigmanas/svn: Contains all released files and scripts
+- /xigmanas/bootloader:  This contains the FreeBSD boot loader files.
+- /xigmanas/rootfs: Minimum FreeBSD root filesystem and XigmaNAS® root and WebGUI files.
+- /xigmanas/svn (subversion): Contains all released files.
 
 ================================
 2. Generate an XigmaNAS® ISO or IMG file
 
 Copy make.conf to /etc.
 
-#cp /xigmanas/svn/build/make.conf /etc
+# cp /xigmanas/svn/build/make.conf /etc
 
 Delete all ports built without make.conf.
 
-#pkg delete -f \*
+# pkg delete -f \*
 
 Edit the script '/xigmanas/svn/build/make.sh' and adapt the directory
 variables with your local ones.
 
 Now install the following ports:
 
-#cd /usr/ports/shells/bash
-#make install clean
+# cd /usr/ports/shells/bash
+# make install clean
 
-#cd /usr/ports/ports-mgmt/portupgrade
-#make install clean
+# cd /usr/ports/ports-mgmt/portupgrade
+# make install clean
 
-#cd /usr/ports/sysutils/cdrtools
-#make install clean
+# cd /usr/ports/sysutils/cdrtools
+# make install clean
 
-#cd /usr/ports/devel/subversion
-#make install clean
+# cd /usr/ports/devel/subversion
+# make install clean
 
-#cd /usr/ports/devel/git
-#make install clean
+# cd /usr/ports/devel/git
+# make install clean
 
 Start /xigmanas/svn/build/make.sh and follow the steps.
 
@@ -98,15 +98,15 @@ Next, run the build scripts and update the kernel sources via subversion + freeb
 Continue building using the 'Build kernel' menu in the build script.
 
 Hint! 
-  You can create a backup from the kernel source to revert them quickly.
-  # cp -r /usr/src /usr/src.orig
+You can create a backup from the kernel source to revert them quickly.
+# cp -r /usr/src /usr/src.orig
 
 or
 
-  # cd /usr
-  # tar cvfz src.tar.gz ./src
+# cd /usr
+# tar cvfz src.tar.gz ./src
 
-
+============Warning!=============
 - Patches can only be applied once. 
   Multiple times will fail (e.g. when using patch command by ./make.sh file).
 
