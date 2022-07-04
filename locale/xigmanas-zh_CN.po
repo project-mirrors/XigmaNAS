@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2022-05-25 02:38+0000\n"
 "Last-Translator: Luke Luo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:12+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 "Language: zh_CN\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " 没有私钥"
@@ -59,10 +59,6 @@ msgstr "%d 年"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / 块"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s接口"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2513,9 +2509,6 @@ msgstr "必需有自定义脚本。"
 msgid "Custom script not found."
 msgstr "自定义脚本未找到。"
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "DDNS 服务器名称，而不是完整的 URL。"
 
@@ -3115,19 +3108,6 @@ msgstr "设备已挂载"
 
 msgid "Device not found"
 msgstr "设备未找到"
-
-msgid "Device polling"
-msgstr "设备轮询"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"设备轮询一种不依靠中断，而是定期向网络设备轮询新数据的技术。这可以减小CPU的负荷而提高处理量，但是会有些微的转送延迟（每秒轮询1000次）。并非所有的网"
-"卡都支持轮询。"
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4546,9 +4526,6 @@ msgstr "用户成功通过身份验证后启用压缩。"
 msgid "Enable console screensaver."
 msgstr "启用控制台屏幕保护。"
 
-msgid "Enable device polling"
-msgstr "启用设备轮询"
-
 msgid "Enable directory listing."
 msgstr "启用目录列表。"
 
@@ -5107,9 +5084,6 @@ msgstr "致命 - 仅记录致命错误"
 
 msgid "FLAC Audio File"
 msgstr "FLAC音频文件"
-
-msgid "FRU Information"
-msgstr "FRU信息"
 
 msgid "FTP"
 msgstr "FTP"
@@ -5865,6 +5839,9 @@ msgstr "当启用以下选项时，IP地址将解析为主机名："
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Rsync 的远程服务器的 IP 或 FQDN 地址"
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "IPMI统计"
@@ -7419,6 +7396,9 @@ msgstr "相互用户"
 msgid "Mutual-CHAP"
 msgstr "Mutual-CHAP"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA标识符"
 
@@ -7665,12 +7645,6 @@ msgstr "未找到GEOM分区信息。"
 
 msgid "No GEOM vinum information found."
 msgstr "未找到GEOM vinum信息。"
-
-msgid "No IPMI FRU data available."
-msgstr "没有IPMI FRU数据可用。"
-
-msgid "No IPMI Sensor data available."
-msgstr "无IPMI传感器数据可用。"
 
 msgid "No IPv4 routing information found."
 msgstr "未找到IPv4路由信息。"
@@ -9252,6 +9226,11 @@ msgstr "强制重建选中设备"
 
 msgid "Receive Buffer"
 msgstr "接收缓冲区"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "记录信息"
@@ -11062,9 +11041,6 @@ msgstr "系统资料"
 
 msgid "System Load"
 msgstr "系统负载"
-
-msgid "System Message"
-msgstr "系统消息"
 
 msgid "System Monitoring Settings"
 msgstr "系统监控设置"
@@ -13136,6 +13112,9 @@ msgstr "不详/未格式化"
 msgid "Unknown size"
 msgstr "未知大小"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13651,6 +13630,9 @@ msgstr "等待时间"
 
 msgid "Wait time"
 msgstr "等待时间"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "网络唤醒"
@@ -14300,3 +14282,38 @@ msgstr "被分配给"
 
 msgid "yes"
 msgstr "是"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s接口"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "设备轮询"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "设备轮询一种不依靠中断，而是定期向网络设备轮询新数据的技术。这可以减小CPU的负荷而提高处理量，但是会有些微的转送延迟（每秒轮询1000次）。并非所有的网"
+#~ "卡都支持轮询。"
+
+#~ msgid "Enable device polling"
+#~ msgstr "启用设备轮询"
+
+#~ msgid "FRU Information"
+#~ msgstr "FRU信息"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "没有IPMI FRU数据可用。"
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "无IPMI传感器数据可用。"
+
+#~ msgid "System Message"
+#~ msgstr "系统消息"

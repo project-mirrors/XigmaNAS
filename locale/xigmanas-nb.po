@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2018-07-06 10:29+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: NORWAY\n"
 "X-Poedit-Language: Norwegian Bokmal\n"
-"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr ""
@@ -60,10 +60,6 @@ msgstr "%d år"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / blokk"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s Grensesnitt"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2515,9 +2511,6 @@ msgstr "Egendefinert skript er påkrevd."
 msgid "Custom script not found."
 msgstr ""
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3117,23 +3110,6 @@ msgstr ""
 
 msgid "Device not found"
 msgstr ""
-
-msgid "Device polling"
-msgstr "Enhets spørring"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Enhetsspørring er en teknikk som lar systemet periodisk hente ny data fra "
-"nettverksenheter istedet for å være avhengig av prosessoravbrudd. Dette kan "
-"redusere lasten på prosessoren og dermed forbedre datagjennomstrømningen. "
-"Dette medfører en liten økning i videresendingsforsinkelsen. (forespørsler "
-"til enhetene blir gjort 1000 ganger per sekund). Ikke alle nettverkskort "
-"støtter spørring."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4554,9 +4530,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr ""
 
-msgid "Enable device polling"
-msgstr "Slå på enhets spørring"
-
 msgid "Enable directory listing."
 msgstr "Slå på kataloglisting."
 
@@ -5124,9 +5097,6 @@ msgid "FATAL - log fatal errors only"
 msgstr ""
 
 msgid "FLAC Audio File"
-msgstr ""
-
-msgid "FRU Information"
 msgstr ""
 
 msgid "FTP"
@@ -5882,6 +5852,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP eller FQDN til fjern Rsync tjener."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr ""
@@ -7433,6 +7406,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7680,12 +7656,6 @@ msgid "No GEOM partition information found."
 msgstr ""
 
 msgid "No GEOM vinum information found."
-msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr ""
-
-msgid "No IPMI Sensor data available."
 msgstr ""
 
 msgid "No IPv4 routing information found."
@@ -9273,6 +9243,11 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
+msgstr ""
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
 msgid "Record Information"
@@ -11078,9 +11053,6 @@ msgid "System Information"
 msgstr ""
 
 msgid "System Load"
-msgstr ""
-
-msgid "System Message"
 msgstr ""
 
 msgid "System Monitoring Settings"
@@ -13131,6 +13103,9 @@ msgstr "Ukjent eller uformatert"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13645,6 +13620,9 @@ msgid "Wait Time"
 msgstr ""
 
 msgid "Wait time"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
 msgstr ""
 
 msgid "Wake On LAN"
@@ -14299,3 +14277,30 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s Grensesnitt"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Enhets spørring"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Enhetsspørring er en teknikk som lar systemet periodisk hente ny data fra "
+#~ "nettverksenheter istedet for å være avhengig av prosessoravbrudd. Dette kan "
+#~ "redusere lasten på prosessoren og dermed forbedre datagjennomstrømningen. "
+#~ "Dette medfører en liten økning i videresendingsforsinkelsen. (forespørsler "
+#~ "til enhetene blir gjort 1000 ganger per sekund). Ikke alle nettverkskort "
+#~ "støtter spørring."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Slå på enhets spørring"

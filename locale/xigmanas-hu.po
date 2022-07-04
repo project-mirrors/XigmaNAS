@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
-"Language: hu_HU\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: hu_HU\n"
 
 msgid " No private key"
 msgstr " Nincs privát kulcs"
@@ -58,10 +58,6 @@ msgstr "%d év"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / blokk"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s interfész"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2672,9 +2668,6 @@ msgstr "Egyéni scriptre van szükség."
 msgid "Custom script not found."
 msgstr "Egyéni szkript nem található."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3298,23 +3291,6 @@ msgstr "Eszköz becsatolva"
 
 msgid "Device not found"
 msgstr "Eszköz nem található"
-
-msgid "Device polling"
-msgstr "Device polling (eszköz szavaztatás)"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Az eszköz szavazás egy olyan technika, amely lehetővé teszi a rendszer "
-"időközönkénti szavazását hálózati eszközök új adatok ahelyett, hogy "
-"megszakítja. Ez csökkentheti CPU terhelését és ezáltal növeli a "
-"teljesítményt, valamivel magasabb továbbítás késleltetése rovására (az "
-"eszközök 1000-szer másodpercenként kérdezett). Nem minden hálózati kártya "
-"támogatják a lekérdezést."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4769,9 +4745,6 @@ msgstr "Sikeresen hitelesítés után a tömörítés engedélyezése."
 msgid "Enable console screensaver."
 msgstr "Konzol-képernyővédő engedélyezése."
 
-msgid "Enable device polling"
-msgstr "Eszköz szavaztatás (device polling) engedélyezése"
-
 msgid "Enable directory listing."
 msgstr "Mappalistázás engedélyezése"
 
@@ -5376,9 +5349,6 @@ msgstr "FATAL - csak a végzetes hibák naplózása"
 
 msgid "FLAC Audio File"
 msgstr ""
-
-msgid "FRU Information"
-msgstr "FRU információ"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6155,6 +6125,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Távoli rsync szerver IP vagy FQDN címe."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "IPMI statisztikák"
@@ -7814,6 +7787,9 @@ msgstr "Kölcsönös felhasználó"
 msgid "Mutual-CHAP"
 msgstr "Kölcsönös-CHAP"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA azonosító"
 
@@ -8073,12 +8049,6 @@ msgstr "Egy GEOM partíció információ sincs"
 
 msgid "No GEOM vinum information found."
 msgstr "Semmilyen GEOM vinum információ nem található."
-
-msgid "No IPMI FRU data available."
-msgstr "IMPI FRU adat nem érhető el."
-
-msgid "No IPMI Sensor data available."
-msgstr "IMPI érzékelő adat nem érhető el."
 
 msgid "No IPv4 routing information found."
 msgstr "Nincs IPv4 útválasztási információ."
@@ -9710,6 +9680,11 @@ msgstr "A kiválasztott eszközök kierőszakolt újraépítése."
 
 msgid "Receive Buffer"
 msgstr "Fogadó puffer"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "Bejegyzésinformáció"
@@ -11656,9 +11631,6 @@ msgstr "Rendszerinformáció"
 
 msgid "System Load"
 msgstr "Rendszerterhelés"
-
-msgid "System Message"
-msgstr "Rendszerüzenet"
 
 msgid "System Monitoring Settings"
 msgstr "Rendszerfigyelés beállításai"
@@ -13969,6 +13941,9 @@ msgstr "Ismeretlen vagy formázatlan"
 msgid "Unknown size"
 msgstr "Ismeretlen méret"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -14509,6 +14484,9 @@ msgstr "Várakozási idő"
 
 msgid "Wait time"
 msgstr "Várakozási idő"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Hálózati ébresztés"
@@ -15199,3 +15177,42 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s interfész"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Device polling (eszköz szavaztatás)"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Az eszköz szavazás egy olyan technika, amely lehetővé teszi a rendszer "
+#~ "időközönkénti szavazását hálózati eszközök új adatok ahelyett, hogy "
+#~ "megszakítja. Ez csökkentheti CPU terhelését és ezáltal növeli a "
+#~ "teljesítményt, valamivel magasabb továbbítás késleltetése rovására (az "
+#~ "eszközök 1000-szer másodpercenként kérdezett). Nem minden hálózati kártya "
+#~ "támogatják a lekérdezést."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Eszköz szavaztatás (device polling) engedélyezése"
+
+#~ msgid "FRU Information"
+#~ msgstr "FRU információ"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "IMPI FRU adat nem érhető el."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "IMPI érzékelő adat nem érhető el."
+
+#~ msgid "System Message"
+#~ msgstr "Rendszerüzenet"

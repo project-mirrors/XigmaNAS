@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2022-06-14 13:50+0000\n"
 "Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:22+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
-"Language: es_ES\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: es_ES\n"
 
 msgid " No private key"
 msgstr " Sin clave privada"
@@ -58,10 +58,6 @@ msgstr "%d años"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / block"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s Interface"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2755,9 +2751,6 @@ msgstr "Es necesario un Script personalizado"
 msgid "Custom script not found."
 msgstr "Script personalizado no encontrado"
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "Nombre servidor DDNS, No la URL completa"
 
@@ -3383,23 +3376,6 @@ msgstr "El dispositivo está montado"
 
 msgid "Device not found"
 msgstr "Dispositivo no encontrado"
-
-msgid "Device polling"
-msgstr "Comprobación de los dispositivos"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"La consulta a un dispositivo es una técnica que permite que el sistema "
-"consulte a los dispositivos de red si tienen nuevos datos periódicamente en "
-"lugar de utilizar interrupciones. Esto puede reducir la carga de la CPU y, "
-"por lo tanto, incrementar la productividad, con el precio de un leve "
-"incremento en el tiempo de reenvío (los dispositivos son consultados 1000 "
-"veces por segundo). No todas las tarjetas de red soportan consulta."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4855,9 +4831,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr "Habilitar salvapantallas de la consola"
 
-msgid "Enable device polling"
-msgstr "Permitir comprobacion de los dispositivos"
-
 msgid "Enable directory listing."
 msgstr "Habilitarr listado de directorio."
 
@@ -5468,9 +5441,6 @@ msgstr "FATAL - Solo errores fatales de registro"
 
 msgid "FLAC Audio File"
 msgstr "Archivo de audio FLAC"
-
-msgid "FRU Information"
-msgstr "Información FRU"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6267,6 +6237,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Dirección IP o FQDN del servidor Rsync remoto."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "Estado del IPMI"
@@ -7946,6 +7919,9 @@ msgstr "Usuario mutuo"
 msgid "Mutual-CHAP"
 msgstr "CHAP mutuo"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "Idnetificador NAA"
 
@@ -8200,12 +8176,6 @@ msgstr "No se ha encontrado información sobre la partición GEOM."
 
 msgid "No GEOM vinum information found."
 msgstr "No se encontró información de GEOM vinum."
-
-msgid "No IPMI FRU data available."
-msgstr "No se encuentra disponible los datos de IPMI FRU"
-
-msgid "No IPMI Sensor data available."
-msgstr "No se encuentra disponible datos del Sensor IPMI"
 
 msgid "No IPv4 routing information found."
 msgstr "No se encuentra información de rutas IPv4"
@@ -9840,6 +9810,11 @@ msgstr "Reconstruye el dispositivo seleccionado por la fuerza."
 
 msgid "Receive Buffer"
 msgstr "Buffer de recepción"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "Información del registro"
@@ -11829,9 +11804,6 @@ msgstr "Información del sistema"
 
 msgid "System Load"
 msgstr "Carga del sistema"
-
-msgid "System Message"
-msgstr "Mensaje del sistema"
 
 msgid "System Monitoring Settings"
 msgstr "Opciones de Monitorización del sistema"
@@ -14211,6 +14183,9 @@ msgstr "Desconocido o sin formato"
 msgid "Unknown size"
 msgstr "Tamaño desconocido"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr "Ilimitado"
 
@@ -14774,6 +14749,9 @@ msgstr "Tiempo de Espera"
 
 msgid "Wait time"
 msgstr "Tiempo de espera"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Encender por medio de la LAN. (Wake On LAN)"
@@ -15469,3 +15447,42 @@ msgstr "fue asignado a"
 
 msgid "yes"
 msgstr "si"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s Interface"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Comprobación de los dispositivos"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "La consulta a un dispositivo es una técnica que permite que el sistema "
+#~ "consulte a los dispositivos de red si tienen nuevos datos periódicamente en "
+#~ "lugar de utilizar interrupciones. Esto puede reducir la carga de la CPU y, "
+#~ "por lo tanto, incrementar la productividad, con el precio de un leve "
+#~ "incremento en el tiempo de reenvío (los dispositivos son consultados 1000 "
+#~ "veces por segundo). No todas las tarjetas de red soportan consulta."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Permitir comprobacion de los dispositivos"
+
+#~ msgid "FRU Information"
+#~ msgstr "Información FRU"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "No se encuentra disponible los datos de IPMI FRU"
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "No se encuentra disponible datos del Sensor IPMI"
+
+#~ msgid "System Message"
+#~ msgstr "Mensaje del sistema"

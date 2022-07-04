@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2018-07-06 10:59+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:12+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 
 msgid " No private key"
 msgstr ""
@@ -56,10 +56,6 @@ msgstr "%d 年"
 #, php-format
 msgid "%dB / block"
 msgstr "每區塊 %d 字元"
-
-#, php-format
-msgid "%s Interface"
-msgstr ""
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2484,9 +2480,6 @@ msgstr "必需有自定義腳本。"
 msgid "Custom script not found."
 msgstr ""
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3084,19 +3077,6 @@ msgstr ""
 
 msgid "Device not found"
 msgstr ""
-
-msgid "Device polling"
-msgstr "裝置輪詢"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"裝置輪詢是一種不利用中斷，改而定期向網絡裝置輪詢新資料的 技術。這可以減小中央處理器的負荷，從而提高處理能力，但此技術會稍為增加發送延遲 "
-"(每秒向裝置輪詢1000次)。並非所有的網路配接卡都支援輪詢。"
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4515,9 +4495,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr ""
 
-msgid "Enable device polling"
-msgstr "啟用裝置輪詢"
-
 msgid "Enable directory listing."
 msgstr "啟用目錄列表。"
 
@@ -5077,9 +5054,6 @@ msgid "FATAL - log fatal errors only"
 msgstr ""
 
 msgid "FLAC Audio File"
-msgstr ""
-
-msgid "FRU Information"
 msgstr ""
 
 msgid "FTP"
@@ -5833,6 +5807,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Rsync 遠程伺服器的 IP 或 FQDN 位址"
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr ""
@@ -7382,6 +7359,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7627,12 +7607,6 @@ msgid "No GEOM partition information found."
 msgstr ""
 
 msgid "No GEOM vinum information found."
-msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr ""
-
-msgid "No IPMI Sensor data available."
 msgstr ""
 
 msgid "No IPv4 routing information found."
@@ -9212,6 +9186,11 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
+msgstr ""
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
 msgid "Record Information"
@@ -11014,9 +10993,6 @@ msgid "System Information"
 msgstr ""
 
 msgid "System Load"
-msgstr ""
-
-msgid "System Message"
 msgstr ""
 
 msgid "System Monitoring Settings"
@@ -13082,6 +13058,9 @@ msgstr "不詳/未格式化"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13595,6 +13574,9 @@ msgstr ""
 
 msgid "Wait time"
 msgstr "等待時間"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Wake On LAN 網路喚醒"
@@ -14244,3 +14226,22 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "裝置輪詢"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "裝置輪詢是一種不利用中斷，改而定期向網絡裝置輪詢新資料的 技術。這可以減小中央處理器的負荷，從而提高處理能力，但此技術會稍為增加發送延遲 "
+#~ "(每秒向裝置輪詢1000次)。並非所有的網路配接卡都支援輪詢。"
+
+#~ msgid "Enable device polling"
+#~ msgstr "啟用裝置輪詢"

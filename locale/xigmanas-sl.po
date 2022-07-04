@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2018-07-06 10:46+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
-"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr ""
@@ -60,10 +60,6 @@ msgstr "%d let"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / blok"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s vmesnik"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2512,9 +2508,6 @@ msgstr "Skripta po meri je zahtevana."
 msgid "Custom script not found."
 msgstr ""
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3114,22 +3107,6 @@ msgstr "Naprava je priklopljena"
 
 msgid "Device not found"
 msgstr "Naprave ni mogoče najti"
-
-msgid "Device polling"
-msgstr "Prioritete naprave"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Polling naprave je tehnologija, ki dovoli sistemu periodično preverjanje "
-"naprave za novimi podatki, namesto, da odgovarja na prekinitve. To lahko "
-"zmanjša obremenitev procesorja in tako poveča hitrost, vendar malenkost "
-"zviša čas med posredovanji (naprave so preverjene 1000-krat v sekundi). Vse "
-"mrežne kartice ne podpirajo preverjanja."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4550,9 +4527,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr "Omogoči ohranjevalnik zaslona na konzoli"
 
-msgid "Enable device polling"
-msgstr "Omogoči polling naprav"
-
 msgid "Enable directory listing."
 msgstr "Omogoči seznam mape."
 
@@ -5118,9 +5092,6 @@ msgid "FATAL - log fatal errors only"
 msgstr ""
 
 msgid "FLAC Audio File"
-msgstr ""
-
-msgid "FRU Information"
 msgstr ""
 
 msgid "FTP"
@@ -5877,6 +5848,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP ali FQDN naslov oddaljenega Rsync serverja."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr ""
@@ -7445,6 +7419,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7694,12 +7671,6 @@ msgid "No GEOM partition information found."
 msgstr ""
 
 msgid "No GEOM vinum information found."
-msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr ""
-
-msgid "No IPMI Sensor data available."
 msgstr ""
 
 msgid "No IPv4 routing information found."
@@ -9291,6 +9262,11 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
+msgstr ""
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
 msgid "Record Information"
@@ -11112,9 +11088,6 @@ msgstr "Podatki o sistemu"
 
 msgid "System Load"
 msgstr "Obremenitev sistema"
-
-msgid "System Message"
-msgstr "Sistemsko sporočilo"
 
 msgid "System Monitoring Settings"
 msgstr ""
@@ -13172,6 +13145,9 @@ msgstr "Neznan ali neformatiran"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13686,6 +13662,9 @@ msgid "Wait Time"
 msgstr ""
 
 msgid "Wait time"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
 msgstr ""
 
 msgid "Wake On LAN"
@@ -14336,3 +14315,32 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s vmesnik"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Prioritete naprave"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Polling naprave je tehnologija, ki dovoli sistemu periodično preverjanje "
+#~ "naprave za novimi podatki, namesto, da odgovarja na prekinitve. To lahko "
+#~ "zmanjša obremenitev procesorja in tako poveča hitrost, vendar malenkost "
+#~ "zviša čas med posredovanji (naprave so preverjene 1000-krat v sekundi). Vse "
+#~ "mrežne kartice ne podpirajo preverjanja."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Omogoči polling naprav"
+
+#~ msgid "System Message"
+#~ msgstr "Sistemsko sporočilo"

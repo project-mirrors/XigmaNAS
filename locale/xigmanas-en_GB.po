@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: comunio\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
-"PO-Revision-Date: 2022-06-11 23:17+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"PO-Revision-Date: 2022-07-04 21:08+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:12+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "Language: en_GB\n"
 
 msgid " No private key"
@@ -62,10 +62,6 @@ msgstr "%d years"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / block"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s Interface"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2701,9 +2697,6 @@ msgstr "Custom script is required."
 msgid "Custom script not found."
 msgstr "Custom script not found."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "DDNS server name, not the full URL."
 
@@ -3322,22 +3315,6 @@ msgstr "Device is mounted"
 
 msgid "Device not found"
 msgstr "Device not found"
-
-msgid "Device polling"
-msgstr "Device polling"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4778,9 +4755,6 @@ msgstr "Enable compression after the user has authenticated successfully."
 msgid "Enable console screensaver."
 msgstr "Enable console screensaver."
 
-msgid "Enable device polling"
-msgstr "Enable device polling"
-
 msgid "Enable directory listing."
 msgstr "Enable directory listing."
 
@@ -5388,9 +5362,6 @@ msgstr "FATAL - log fatal errors only"
 
 msgid "FLAC Audio File"
 msgstr "FLAC Audio File"
-
-msgid "FRU Information"
-msgstr "FRU Information"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6169,6 +6140,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP or FQDN address of remote Rsync server."
+
+msgid "IPMI Statistics"
+msgstr "IPMI Statistics"
 
 msgid "IPMI Stats"
 msgstr "IPMI Stats"
@@ -7814,6 +7788,9 @@ msgstr "Mutual User"
 msgid "Mutual-CHAP"
 msgstr "Mutual-CHAP"
 
+msgid "N/A"
+msgstr "N/A"
+
 msgid "NAA Identifier"
 msgstr "NAA Identifier"
 
@@ -8070,12 +8047,6 @@ msgstr "No GEOM partition information found."
 
 msgid "No GEOM vinum information found."
 msgstr "No GEOM vinum information found."
-
-msgid "No IPMI FRU data available."
-msgstr "No IPMI FRU data available."
-
-msgid "No IPMI Sensor data available."
-msgstr "No IPMI Sensor data available."
 
 msgid "No IPv4 routing information found."
 msgstr "No IPv4 routing information found."
@@ -9696,6 +9667,13 @@ msgstr "Rebuild the selected device forcibly."
 
 msgid "Receive Buffer"
 msgstr "Receive Buffer"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 
 msgid "Record Information"
 msgstr "Record Information"
@@ -11630,9 +11608,6 @@ msgstr "System Information"
 
 msgid "System Load"
 msgstr "System Load"
-
-msgid "System Message"
-msgstr "System Message"
 
 msgid "System Monitoring Settings"
 msgstr "System Monitoring Settings"
@@ -13972,6 +13947,9 @@ msgstr "Unknown or unformatted"
 msgid "Unknown size"
 msgstr "Unknown size"
 
+msgid "Unkown"
+msgstr "Unkown"
+
 msgid "Unlimited"
 msgstr "Unlimited"
 
@@ -14519,6 +14497,9 @@ msgstr "Wait Time"
 
 msgid "Wait time"
 msgstr "Wait time"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr "Wait until resilvering has finished before returning."
 
 msgid "Wake On LAN"
 msgstr "Wake On LAN"
@@ -15201,3 +15182,41 @@ msgstr "was assigned to"
 
 msgid "yes"
 msgstr "yes"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s Interface"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+
+#~ msgid "Device polling"
+#~ msgstr "Device polling"
+
+#~ msgid "Enable device polling"
+#~ msgstr "Enable device polling"
+
+#~ msgid "FRU Information"
+#~ msgstr "FRU Information"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "No IPMI FRU data available."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "No IPMI Sensor data available."
+
+#~ msgid "System Message"
+#~ msgstr "System Message"

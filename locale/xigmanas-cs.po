@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2021-11-18 14:32+0000\n"
 "Last-Translator: Marek Hladík <mhladik@seznam.cz>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:22+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
-"Language: cs_CZ\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: cs_CZ\n"
 
 msgid " No private key"
 msgstr " Žádný soukromý klíč"
@@ -58,10 +58,6 @@ msgstr "%d roků"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / blok"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s rozhraní"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2744,9 +2740,6 @@ msgstr "Vlastní skript je vyžadován."
 msgid "Custom script not found."
 msgstr "Vlastní skript nebyl nalezen."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3369,22 +3362,6 @@ msgstr "Zařízení je připojené (mount)"
 
 msgid "Device not found"
 msgstr "Zařízení nebylo nalezeno"
-
-msgid "Device polling"
-msgstr "Dotazování (polling) zařízení"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Dotazování zařízení je technika, která systému umožňuje průběžně zjišťovat "
-"stav síťových zařízení a nečekat tak až na signalizaci přerušeními (IRQ). Je "
-"tak možné snížit vytížení procesoru a tím zvýšit propustnost, byť za cenu "
-"mírného zvýšení prodlevy přeposílání (zařízení jsou dotazována tisíckrát za "
-"sekundu). Ne všechna síťová rozhraní dotazování podporují."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4844,9 +4821,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr "Zapnout šetřič obrazovky pro konzoli."
 
-msgid "Enable device polling"
-msgstr "Zapnout dotazování zařízení"
-
 msgid "Enable directory listing."
 msgstr "Umožnit vypsat obsah složky."
 
@@ -5444,9 +5418,6 @@ msgstr ""
 
 msgid "FLAC Audio File"
 msgstr ""
-
-msgid "FRU Information"
-msgstr "Informace o v provozu vyměnitelné součástce"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6229,6 +6200,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP adresa nebo úplný doménový název (FQDN) vzdáleného Rsync serveru."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "Statistiky z IPMI"
@@ -7911,6 +7885,9 @@ msgstr "Uživatel pro vzájemné"
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "NAA identifikátor"
 
@@ -8169,13 +8146,6 @@ msgstr "Nebyly nalezeny žádné informace o GEOM oddílu"
 
 msgid "No GEOM vinum information found."
 msgstr "Nebyly nalezeny žádné GEOM vinum informace."
-
-msgid "No IPMI FRU data available."
-msgstr ""
-"Toto IPMI neposkytuje žádné informace o uživatelsky vyměnitelných součástech"
-
-msgid "No IPMI Sensor data available."
-msgstr "Nejsou k dispozici žádné údaje z IPMI seznoru."
 
 msgid "No IPv4 routing information found."
 msgstr ""
@@ -9805,6 +9775,11 @@ msgstr "Vynutit znovusestavení označeného zařízení."
 
 msgid "Receive Buffer"
 msgstr "Vyrovnávací paměť příjmu"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "Informace o záznamu"
@@ -11732,9 +11707,6 @@ msgstr "Informace o systému"
 
 msgid "System Load"
 msgstr "Vytížení systému"
-
-msgid "System Message"
-msgstr "Systémová zpráva"
 
 msgid "System Monitoring Settings"
 msgstr "Nastavení dohledování systému"
@@ -14088,6 +14060,9 @@ msgstr "Neznámý nebo bez souborového systému"
 msgid "Unknown size"
 msgstr "Neznámá velikost"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -14638,6 +14613,9 @@ msgstr "Čas čekání"
 
 msgid "Wait time"
 msgstr "Čas čekání"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Probouzení po síti (WoL)"
@@ -15334,3 +15312,42 @@ msgstr ""
 
 msgid "yes"
 msgstr "ano"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s rozhraní"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Dotazování (polling) zařízení"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Dotazování zařízení je technika, která systému umožňuje průběžně zjišťovat "
+#~ "stav síťových zařízení a nečekat tak až na signalizaci přerušeními (IRQ). Je "
+#~ "tak možné snížit vytížení procesoru a tím zvýšit propustnost, byť za cenu "
+#~ "mírného zvýšení prodlevy přeposílání (zařízení jsou dotazována tisíckrát za "
+#~ "sekundu). Ne všechna síťová rozhraní dotazování podporují."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Zapnout dotazování zařízení"
+
+#~ msgid "FRU Information"
+#~ msgstr "Informace o v provozu vyměnitelné součástce"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr ""
+#~ "Toto IPMI neposkytuje žádné informace o uživatelsky vyměnitelných součástech"
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "Nejsou k dispozici žádné údaje z IPMI seznoru."
+
+#~ msgid "System Message"
+#~ msgstr "Systémová zpráva"

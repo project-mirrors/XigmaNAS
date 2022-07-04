@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2022-06-13 11:13+0000\n"
 "Last-Translator: ChriZathens <c_kan1@hotmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:22+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: Greece\n"
 "X-Poedit-Language: Greek\n"
-"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr " Δεν υπάρχει προσωπικό κλειδί"
@@ -60,10 +60,6 @@ msgstr "%d έτη"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / μπλοκ"
-
-#, php-format
-msgid "%s Interface"
-msgstr "Διασύνδεση %s"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2797,9 +2793,6 @@ msgstr "Απαιτείται προσαρμοσμένο αρχείο εντολ�
 msgid "Custom script not found."
 msgstr "Δεν βρέθηκε προσαρμοσμένο αρχείο εντολών"
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "Όνομα διακομιστή DDNS, όχι το πλήρες URL."
 
@@ -3429,23 +3422,6 @@ msgstr "Η συσκευή είναι προσαρτημένη"
 
 msgid "Device not found"
 msgstr "Η συσκευή δεν βρέθηκε"
-
-msgid "Device polling"
-msgstr "Έλεγχος συσκευής"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Ο έλεγχος συσκευής είναι μία τεχνική που επιτρέπει στο σύστημα να ελέγχει "
-"περιοδικά τις συσκευές δικτύου για νέα δεδομένα αντί να βασίζεται στις "
-"διακοπές. Αυτό μπορεί να ελαττώσει το φόρτο της CPU και έτσι να αυξήσει τη "
-"διαμεταγωγή, με τη θυσία μιας ελαφρώς μεγαλύτερης καθυστέρησης προώθησης (οι "
-"συσκευές ελέγχονται 1000 φορές κάθε δευτερόλεπτο). Ο έλεγχος δεν "
-"υποστηρίζεται από όλες τις κάρτες δικτύου."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4923,9 +4899,6 @@ msgstr "Ενεργοποίηση συμπίεσης αφού ο χρήστης �
 msgid "Enable console screensaver."
 msgstr "Ενεργοποίηση προφύλαξης οθόνης κονσόλας."
 
-msgid "Enable device polling"
-msgstr "Ενεργοποίηση ελέγχου συσκευής"
-
 msgid "Enable directory listing."
 msgstr "Ενεργοποίηση δημιουργίας λίστας περιεχομένων καταλόγου."
 
@@ -5557,9 +5530,6 @@ msgstr "FATAL - καταγραφή μόνο των καταστροφικών σ
 
 msgid "FLAC Audio File"
 msgstr "Αρχείο ήχου FLAC"
-
-msgid "FRU Information"
-msgstr "Πληροφορίες FRU"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6360,6 +6330,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Διεύθυνση IP ή FQDN του απομακρυσμένου διακομιστή Rsync."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "Στατιστικά IPMI"
@@ -8058,6 +8031,9 @@ msgstr "Αμοιβαίος Χρήστης"
 msgid "Mutual-CHAP"
 msgstr "Αμοιβαίο-CHAP"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "Αναγνωριστικό NAA"
 
@@ -8320,12 +8296,6 @@ msgstr "Δεν βρέθηκαν πληροφορίες για κατάτμηση
 
 msgid "No GEOM vinum information found."
 msgstr "Δεν βρέθηκαν πληροφορίες για GEOM vinum."
-
-msgid "No IPMI FRU data available."
-msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα IPMI FRU."
-
-msgid "No IPMI Sensor data available."
-msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα αισθητήρων IPMI."
 
 msgid "No IPv4 routing information found."
 msgstr "Δεν βρέθηκαν πληροφορίες δρομολόγησης IPv4"
@@ -9975,6 +9945,11 @@ msgstr "Rebuild της επιλεγμένης συσκευής με το ζόρ�
 
 msgid "Receive Buffer"
 msgstr "Buffer Λήψης"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "Πληροφορίες Εγγραφής"
@@ -11978,9 +11953,6 @@ msgstr "Πληροφορίες Συστήματος"
 
 msgid "System Load"
 msgstr "Φόρτος Συστήματος"
-
-msgid "System Message"
-msgstr "Μήνυμα Συστήματος"
 
 msgid "System Monitoring Settings"
 msgstr "Ρυθμίσεις Παρακολούθησης Συστήματος"
@@ -14439,6 +14411,9 @@ msgstr "Άγνωστο ή αδιαμόρφωτο"
 msgid "Unknown size"
 msgstr "Άγνωστο μέγεθος"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr "Απεριόριστο"
 
@@ -15010,6 +14985,9 @@ msgstr "Χρόνος Αναμονής"
 
 msgid "Wait time"
 msgstr "Χρόνος αναμονής"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Αφύπνιση μέσω τοπικού δικτύου (Wake On Lan)"
@@ -15720,3 +15698,42 @@ msgstr "ανατέθηκε στο"
 
 msgid "yes"
 msgstr "ναι"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "Διασύνδεση %s"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Έλεγχος συσκευής"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Ο έλεγχος συσκευής είναι μία τεχνική που επιτρέπει στο σύστημα να ελέγχει "
+#~ "περιοδικά τις συσκευές δικτύου για νέα δεδομένα αντί να βασίζεται στις "
+#~ "διακοπές. Αυτό μπορεί να ελαττώσει το φόρτο της CPU και έτσι να αυξήσει τη "
+#~ "διαμεταγωγή, με τη θυσία μιας ελαφρώς μεγαλύτερης καθυστέρησης προώθησης (οι "
+#~ "συσκευές ελέγχονται 1000 φορές κάθε δευτερόλεπτο). Ο έλεγχος δεν "
+#~ "υποστηρίζεται από όλες τις κάρτες δικτύου."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Ενεργοποίηση ελέγχου συσκευής"
+
+#~ msgid "FRU Information"
+#~ msgstr "Πληροφορίες FRU"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα IPMI FRU."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "Δεν υπάρχουν διαθέσιμα δεδομένα αισθητήρων IPMI."
+
+#~ msgid "System Message"
+#~ msgstr "Μήνυμα Συστήματος"

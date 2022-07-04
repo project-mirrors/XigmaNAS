@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
-"PO-Revision-Date: 2022-06-11 23:09+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"PO-Revision-Date: 2022-07-04 21:07+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: Netherlands\n"
 "X-Poedit-Language: Dutch\n"
-"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr " Geen prive sleutel"
@@ -60,10 +60,6 @@ msgstr "%d jaren"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / blok"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s Netwerk"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2768,9 +2764,6 @@ msgstr "Er is een aangepast script nodig."
 msgid "Custom script not found."
 msgstr "Er is geen aangepast script gevonden."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "DDNS servernaam, niet de volledige URL."
 
@@ -3396,23 +3389,6 @@ msgstr "Apparaat is gekoppeld"
 
 msgid "Device not found"
 msgstr "Apparaat niet gevonden"
-
-msgid "Device polling"
-msgstr "Netwerk-polling"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Netwerk-polling is een systeem techniek die periodiek netwerkapparaten scant "
-"op nieuwe gegevens in plaats van te vertrouwen op interrupts. Dit kan de "
-"belasting van de processor verminderen en daardoor de doorvoer snelheid "
-"verhogen ten koste van een licht verhoogde doorstuur vertraging (de "
-"apparaten worden 1000 keer per seconde gepold). Niet alle NIC's ondersteunen "
-"polling."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4876,9 +4852,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr "Inschakelen console schermbeveiliging."
 
-msgid "Enable device polling"
-msgstr "Inschakelen netwerk-polling."
-
 msgid "Enable directory listing."
 msgstr "Inschakelen mappenlijst."
 
@@ -5497,9 +5470,6 @@ msgstr "FATAL - log alleen fatale fouten"
 
 msgid "FLAC Audio File"
 msgstr "FLAC Audio Bestand"
-
-msgid "FRU Information"
-msgstr "FRU Informatie"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6299,6 +6269,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP of FQDN adres van de remote Rsync server."
+
+msgid "IPMI Statistics"
+msgstr "IPMI Statistieken"
 
 msgid "IPMI Stats"
 msgstr "IPMI Stats"
@@ -7974,6 +7947,9 @@ msgstr "Wederzijds Gebruiker"
 msgid "Mutual-CHAP"
 msgstr "Wederzijds-CHAP"
 
+msgid "N/A"
+msgstr "N.V.T"
+
 msgid "NAA Identifier"
 msgstr "NAA Identificatie"
 
@@ -8235,12 +8211,6 @@ msgstr "Geen GEOM partitie informatie gevonden."
 
 msgid "No GEOM vinum information found."
 msgstr "Geen GEOM vinum informatie gevonden."
-
-msgid "No IPMI FRU data available."
-msgstr "Er is geen IPMI FRU data beschikbaar."
-
-msgid "No IPMI Sensor data available."
-msgstr "Er is geen IPMI Sensor data beschikbaar."
 
 msgid "No IPv4 routing information found."
 msgstr "Geen IPv4 routeringsinformatie gevonden."
@@ -9879,6 +9849,13 @@ msgstr "Herbouw de geselecteerde schijf geforceerd."
 
 msgid "Receive Buffer"
 msgstr "Ontvangst Buffer"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
+"Reconstrueer het nieuwe apparaat sequentieel om de redundantie zo snel "
+"mogelijk te herstellen."
 
 msgid "Record Information"
 msgstr "Item Informatie"
@@ -11865,9 +11842,6 @@ msgstr "Systeemoverzicht"
 
 msgid "System Load"
 msgstr "Systeembelasting"
-
-msgid "System Message"
-msgstr "Systeembericht"
 
 msgid "System Monitoring Settings"
 msgstr "Systeem Monitoring Instellingen"
@@ -14268,6 +14242,9 @@ msgstr "Onbekend of ongeformatteerd"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
+msgid "Unkown"
+msgstr "Onbekend"
+
 msgid "Unlimited"
 msgstr "Onbegrensd"
 
@@ -14829,6 +14806,11 @@ msgstr "Wachttijd"
 
 msgid "Wait time"
 msgstr "Wachttijd"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
+"Wacht tot het opnieuw verzilveren (resilvering) is voltooid voordat u "
+"terugkeert."
 
 msgid "Wake On LAN"
 msgstr "Wake-on-LAN"
@@ -15531,3 +15513,42 @@ msgstr "was toegewezen aan"
 
 msgid "yes"
 msgstr "ja"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s Netwerk"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Netwerk-polling"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Netwerk-polling is een systeem techniek die periodiek netwerkapparaten scant "
+#~ "op nieuwe gegevens in plaats van te vertrouwen op interrupts. Dit kan de "
+#~ "belasting van de processor verminderen en daardoor de doorvoer snelheid "
+#~ "verhogen ten koste van een licht verhoogde doorstuur vertraging (de "
+#~ "apparaten worden 1000 keer per seconde gepold). Niet alle NIC's ondersteunen "
+#~ "polling."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Inschakelen netwerk-polling."
+
+#~ msgid "FRU Information"
+#~ msgstr "FRU Informatie"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "Er is geen IPMI FRU data beschikbaar."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "Er is geen IPMI Sensor data beschikbaar."
+
+#~ msgid "System Message"
+#~ msgstr "Systeembericht"

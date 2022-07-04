@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
-"Language: ko\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: ko\n"
 
 msgid " No private key"
 msgstr ""
@@ -58,10 +58,6 @@ msgstr "%d년"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / 블록"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s 인터페이스"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2547,9 +2543,6 @@ msgstr "사용자 스크립트가 필요합니다."
 msgid "Custom script not found."
 msgstr "사용자 스크립트를 찾을 수 없습니다"
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3156,20 +3149,6 @@ msgstr "장치 탑제됨"
 
 msgid "Device not found"
 msgstr "장치가 없습니다"
-
-msgid "Device polling"
-msgstr "장치 polling"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"장치 polling은 새 데이터를 위해 인터럽트에 의존하지 않고 시스템이 주기적으로 네트워크 장치를 poll 하도록 해주는 테크닉입니다. "
-"이것은 약간의 포워딩 지연이 일어나는 대신 CPU 부하를 줄여주고 그 결과 처리 양을 증가하게 해줍니다(장치는 1초 당 1000번 "
-"poll 됩니다). 모든 NIC가 polling을 지원하지는 않습니다."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4590,9 +4569,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr "콘솔 화면 보호기를 사용합니다."
 
-msgid "Enable device polling"
-msgstr "장치 polling 활성화"
-
 msgid "Enable directory listing."
 msgstr "디렉터리 리스팅 활성화."
 
@@ -5152,9 +5128,6 @@ msgstr ""
 
 msgid "FLAC Audio File"
 msgstr ""
-
-msgid "FRU Information"
-msgstr "FRU 정보"
 
 msgid "FTP"
 msgstr "FTP"
@@ -5915,6 +5888,9 @@ msgstr "다음 옵션을 사용하면 IP 주소가 호스트 이름으로 확인
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "원격 Rsync 서버의 IP나 FQDN 주소."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "IPMI 통계"
@@ -7477,6 +7453,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7724,12 +7703,6 @@ msgstr ""
 
 msgid "No GEOM vinum information found."
 msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr "IPMI FRU 자료 없음."
-
-msgid "No IPMI Sensor data available."
-msgstr "IPMI 센서 자료 없음."
 
 msgid "No IPv4 routing information found."
 msgstr ""
@@ -9313,6 +9286,11 @@ msgstr ""
 
 msgid "Receive Buffer"
 msgstr "수신 버퍼"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "항목 정보"
@@ -11128,9 +11106,6 @@ msgstr "시스템 정보"
 
 msgid "System Load"
 msgstr "시스템 부하"
-
-msgid "System Message"
-msgstr "시스템 메시지"
 
 msgid "System Monitoring Settings"
 msgstr "시스템 감시 설정"
@@ -13222,6 +13197,9 @@ msgstr "알 수 없거나 포맷 되지 않음"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13739,6 +13717,9 @@ msgstr "대기 시간"
 
 msgid "Wait time"
 msgstr "대기 시간"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "랜으로 깨우기"
@@ -14389,3 +14370,39 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s 인터페이스"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "장치 polling"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "장치 polling은 새 데이터를 위해 인터럽트에 의존하지 않고 시스템이 주기적으로 네트워크 장치를 poll 하도록 해주는 테크닉입니다. "
+#~ "이것은 약간의 포워딩 지연이 일어나는 대신 CPU 부하를 줄여주고 그 결과 처리 양을 증가하게 해줍니다(장치는 1초 당 1000번 "
+#~ "poll 됩니다). 모든 NIC가 polling을 지원하지는 않습니다."
+
+#~ msgid "Enable device polling"
+#~ msgstr "장치 polling 활성화"
+
+#~ msgid "FRU Information"
+#~ msgstr "FRU 정보"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "IPMI FRU 자료 없음."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "IPMI 센서 자료 없음."
+
+#~ msgid "System Message"
+#~ msgstr "시스템 메시지"

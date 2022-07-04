@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2019-01-20 17:40+0000\n"
 "Last-Translator: Lukas Vescicik <lukas.vescicik@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: SLOVAKIA\n"
 "X-Poedit-Language: Slovak\n"
-"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr ""
@@ -60,10 +60,6 @@ msgstr "%d rokov"
 #, php-format
 msgid "%dB / block"
 msgstr "%dB / blok"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s rozhranie"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2567,9 +2563,6 @@ msgstr ""
 msgid "Custom script not found."
 msgstr ""
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3170,22 +3163,6 @@ msgstr ""
 
 msgid "Device not found"
 msgstr ""
-
-msgid "Device polling"
-msgstr "Vyvolávanie zariadenia"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Pýtanie sa zariadenia je tehnika, ktorou systém periodicky kontroluje "
-"dostupnosť nových údajov na sieťových zariadeniach namiesto použitia "
-"prerušení. To môže znížiť záťaž CPU a tak zvýšiť priepustnosť na úkor mierne "
-"zvýšeného oneskorenia preposielania (zariadenia sa kontrolujú 1000 krát za "
-"sekundu). Nie všeky sieťové adaptéry to podporujú."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4607,9 +4584,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr ""
 
-msgid "Enable device polling"
-msgstr "Zapnúť vyvolávanie zariadenia"
-
 msgid "Enable directory listing."
 msgstr "Zapnúť výpis obsahu adresárov."
 
@@ -5177,9 +5151,6 @@ msgid "FATAL - log fatal errors only"
 msgstr ""
 
 msgid "FLAC Audio File"
-msgstr ""
-
-msgid "FRU Information"
 msgstr ""
 
 msgid "FTP"
@@ -5935,6 +5906,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP alebo FQDN adresa vzdialeného rsync servera."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr ""
@@ -7498,6 +7472,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7747,12 +7724,6 @@ msgid "No GEOM partition information found."
 msgstr ""
 
 msgid "No GEOM vinum information found."
-msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr ""
-
-msgid "No IPMI Sensor data available."
 msgstr ""
 
 msgid "No IPv4 routing information found."
@@ -9344,6 +9315,11 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
+msgstr ""
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
 msgid "Record Information"
@@ -11164,9 +11140,6 @@ msgid "System Information"
 msgstr ""
 
 msgid "System Load"
-msgstr ""
-
-msgid "System Message"
 msgstr ""
 
 msgid "System Monitoring Settings"
@@ -13299,6 +13272,9 @@ msgstr "Neznáme alebo neformátované"
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13817,6 +13793,9 @@ msgid "Wait Time"
 msgstr ""
 
 msgid "Wait time"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
 msgstr ""
 
 msgid "Wake On LAN"
@@ -14473,3 +14452,29 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s rozhranie"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Vyvolávanie zariadenia"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Pýtanie sa zariadenia je tehnika, ktorou systém periodicky kontroluje "
+#~ "dostupnosť nových údajov na sieťových zariadeniach namiesto použitia "
+#~ "prerušení. To môže znížiť záťaž CPU a tak zvýšiť priepustnosť na úkor mierne "
+#~ "zvýšeného oneskorenia preposielania (zariadenia sa kontrolujú 1000 krát za "
+#~ "sekundu). Nie všeky sieťové adaptéry to podporujú."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Zapnúť vyvolávanie zariadenia"

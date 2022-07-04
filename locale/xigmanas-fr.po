@@ -2,20 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2022-06-12 04:34+0000\n"
 "Last-Translator: sleid <jeanluc.fraysse@orange.fr>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
-"X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-Language: French\n"
-"Language: \n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: D:\\Fichiers\\freenas\\webgui\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr " Pas de clé privée"
@@ -61,10 +61,6 @@ msgstr "%d an(s)"
 #, php-format
 msgid "%dB / block"
 msgstr "%d Octet(s)/bloc"
-
-#, php-format
-msgid "%s Interface"
-msgstr "Interface %s"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2760,9 +2756,6 @@ msgstr "Le script personnalisé est requis."
 msgid "Custom script not found."
 msgstr "Script personnalisé non trouvé."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "Nom du serveur DDNS, pas l'URL complète."
 
@@ -3390,24 +3383,6 @@ msgstr "Le périphérique est monté"
 
 msgid "Device not found"
 msgstr "Périphérique non trouvé"
-
-msgid "Device polling"
-msgstr "Sondage de périphérique"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Le sondage de périphérique (device polling) est une technique permettant au "
-"système d'interroger périodiquement les périphériques réseau pour vérifier "
-"la présence de nouvelles données au lieu de se baser sur les interruptions. "
-"Ceci peut réduire la charge CPU et donc augmenter le débit, au détriment "
-"d'un délai de transfert légèrement plus élevé (les périphériques sont sondés "
-"1000 fois par seconde). Toutes les cartes réseau ne supportent pas cette "
-"technique."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4887,9 +4862,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr "Activer l'écran de veille de la console."
 
-msgid "Enable device polling"
-msgstr "Activer le sondage de périphérique (device polling)"
-
 msgid "Enable directory listing."
 msgstr "Activer le listage des répertoires."
 
@@ -5514,9 +5486,6 @@ msgstr "FATAL - journal des erreurs fatales uniquement"
 
 msgid "FLAC Audio File"
 msgstr "Fichier Audio FLAC"
-
-msgid "FRU Information"
-msgstr "Informations FRU"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6315,6 +6284,9 @@ msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "Adress IP ou FQDN du serveur Rsync distant."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "Statistiques IPMI"
@@ -8000,6 +7972,9 @@ msgstr "Utilisateur mutuel"
 msgid "Mutual-CHAP"
 msgstr "Mutuel-CHAP"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "Identifiant NAA"
 
@@ -8262,12 +8237,6 @@ msgstr "Aucune information de partition GEOM trouvée."
 
 msgid "No GEOM vinum information found."
 msgstr "Aucune information  GEOM vinum trouvée."
-
-msgid "No IPMI FRU data available."
-msgstr "Pas de données FRU IPMI disponibles."
-
-msgid "No IPMI Sensor data available."
-msgstr "Aucune donnée de capteur IPMI disponible."
 
 msgid "No IPv4 routing information found."
 msgstr "Aucune information de routage IPv4 trouvée."
@@ -9905,6 +9874,11 @@ msgstr "Reconstruisez de force le périphérique sélectionné."
 
 msgid "Receive Buffer"
 msgstr "Tampon de Réception"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "Informations sur l'enregistrement"
@@ -11899,9 +11873,6 @@ msgstr "Informations système"
 
 msgid "System Load"
 msgstr "Charge système"
-
-msgid "System Message"
-msgstr "Message système"
 
 msgid "System Monitoring Settings"
 msgstr "Paramètres de surveillance du système"
@@ -14310,6 +14281,9 @@ msgstr "Inconnu ou non formaté"
 msgid "Unknown size"
 msgstr "Taille inconnue"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr "Illimitée"
 
@@ -14879,6 +14853,9 @@ msgstr "Temps d'attente"
 
 msgid "Wait time"
 msgstr "Temps d'attente"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Wake On LAN"
@@ -15581,3 +15558,43 @@ msgstr "a été assigné à"
 
 msgid "yes"
 msgstr "oui"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "Interface %s"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Sondage de périphérique"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Le sondage de périphérique (device polling) est une technique permettant au "
+#~ "système d'interroger périodiquement les périphériques réseau pour vérifier "
+#~ "la présence de nouvelles données au lieu de se baser sur les interruptions. "
+#~ "Ceci peut réduire la charge CPU et donc augmenter le débit, au détriment "
+#~ "d'un délai de transfert légèrement plus élevé (les périphériques sont sondés "
+#~ "1000 fois par seconde). Toutes les cartes réseau ne supportent pas cette "
+#~ "technique."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Activer le sondage de périphérique (device polling)"
+
+#~ msgid "FRU Information"
+#~ msgstr "Informations FRU"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "Pas de données FRU IPMI disponibles."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "Aucune donnée de capteur IPMI disponible."
+
+#~ msgid "System Message"
+#~ msgstr "Message système"

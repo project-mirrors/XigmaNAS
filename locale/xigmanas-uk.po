@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2022-06-26 09:54+0000\n"
 "Last-Translator: uniss <uniss@ua.fm>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: Ukrainian\n"
-"Language: \n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: \n"
 
 msgid " No private key"
 msgstr " Приватного ключа немає"
@@ -59,10 +59,6 @@ msgstr "%d рк."
 #, php-format
 msgid "%dB / block"
 msgstr "%dбайт / блок"
-
-#, php-format
-msgid "%s Interface"
-msgstr "Інтерфейс %s"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2723,9 +2719,6 @@ msgstr "Потрібен довільний сценарій."
 msgid "Custom script not found."
 msgstr "Користувацький скрипт не знайдений."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr "Ім'я сервера DDNS, не повна URL-адреса."
 
@@ -3353,22 +3346,6 @@ msgstr "Пристрій примонтований"
 
 msgid "Device not found"
 msgstr "Пристрій не знайдено"
-
-msgid "Device polling"
-msgstr "Опитування пристрою"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
-msgstr ""
-"Опитування пристрою - це прийом, коли система періодично опитує мережеві "
-"пристрої для прийому даних не покладаючись на переривання. Це може зменшити "
-"навантаження на ЦП і, отже, збільшити пропускну здатність за рахунок "
-"незначного зростання затримки передачі даних (пристрої опитуються 1000 разів "
-"за секунду). Не всі мережеві інтерфейси підтримують такий режим роботи."
 
 #, php-format
 msgid "Device: %s | Total: %s | Used: %s | Free: %s"
@@ -4820,9 +4797,6 @@ msgstr "Дозволити стиснення після успішної авт
 msgid "Enable console screensaver."
 msgstr "Увімкнути консольний скрінсейвер."
 
-msgid "Enable device polling"
-msgstr "Дозволити опитування пристроїв"
-
 msgid "Enable directory listing."
 msgstr "Дозволити перегляд каталогів."
 
@@ -5439,9 +5413,6 @@ msgstr "FATAL - реєструвати лише фатальні помилки"
 
 msgid "FLAC Audio File"
 msgstr "Аудіофайл FLAC"
-
-msgid "FRU Information"
-msgstr "Інформація FRU"
 
 msgid "FTP"
 msgstr "FTP"
@@ -6228,6 +6199,9 @@ msgstr "IP адреси вирішуються в імена хостів кол
 
 msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP або FQDN адреса віддаленого сервера Rsync."
+
+msgid "IPMI Statistics"
+msgstr ""
 
 msgid "IPMI Stats"
 msgstr "IPMI статистика"
@@ -7895,6 +7869,9 @@ msgstr "Взаємний користувач"
 msgid "Mutual-CHAP"
 msgstr "Взаємний CHAP"
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr "Ідентифікатор NAA"
 
@@ -8158,12 +8135,6 @@ msgstr "Інформації про разділ GEOM не знайдено."
 
 msgid "No GEOM vinum information found."
 msgstr "Інформації про GEOM vinum не знайдено."
-
-msgid "No IPMI FRU data available."
-msgstr "Немає доступних даних IPMI FRU."
-
-msgid "No IPMI Sensor data available."
-msgstr "Немає доступних даних IPMI сенсору."
 
 msgid "No IPv4 routing information found."
 msgstr "Інформації про маршрутизацію IPv4 не знайдено."
@@ -9793,6 +9764,11 @@ msgstr "Перебудувати обраний пристрій примусо�
 
 msgid "Receive Buffer"
 msgstr "Буфер Отримання"
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
+msgstr ""
 
 msgid "Record Information"
 msgstr "Інформація про Запис"
@@ -11752,9 +11728,6 @@ msgstr "Системна інформація"
 
 msgid "System Load"
 msgstr "Завантаження системи"
-
-msgid "System Message"
-msgstr "Системне повідомлення"
 
 msgid "System Monitoring Settings"
 msgstr "Налаштування системи спостереження"
@@ -14113,6 +14086,9 @@ msgstr "Невідомий або невідформатований"
 msgid "Unknown size"
 msgstr "Розмір невідомий"
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr "Необмежено"
 
@@ -14676,6 +14652,9 @@ msgstr "Час очікування"
 
 msgid "Wait time"
 msgstr "Час очікування"
+
+msgid "Wait until resilvering has finished before returning."
+msgstr ""
 
 msgid "Wake On LAN"
 msgstr "Wake On LAN (WoL)"
@@ -15374,3 +15353,41 @@ msgstr "був призначений до"
 
 msgid "yes"
 msgstr "так"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "Інтерфейс %s"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Опитування пристрою"
+
+#~ msgid ""
+#~ "Device polling is a technique that lets the system periodically poll network "
+#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
+#~ "load and therefore increase throughput, at the expense of a slightly higher "
+#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
+#~ "NICs support polling."
+#~ msgstr ""
+#~ "Опитування пристрою - це прийом, коли система періодично опитує мережеві "
+#~ "пристрої для прийому даних не покладаючись на переривання. Це може зменшити "
+#~ "навантаження на ЦП і, отже, збільшити пропускну здатність за рахунок "
+#~ "незначного зростання затримки передачі даних (пристрої опитуються 1000 разів "
+#~ "за секунду). Не всі мережеві інтерфейси підтримують такий режим роботи."
+
+#~ msgid "Enable device polling"
+#~ msgstr "Дозволити опитування пристроїв"
+
+#~ msgid "FRU Information"
+#~ msgstr "Інформація FRU"
+
+#~ msgid "No IPMI FRU data available."
+#~ msgstr "Немає доступних даних IPMI FRU."
+
+#~ msgid "No IPMI Sensor data available."
+#~ msgstr "Немає доступних даних IPMI сенсору."
+
+#~ msgid "System Message"
+#~ msgstr "Системне повідомлення"

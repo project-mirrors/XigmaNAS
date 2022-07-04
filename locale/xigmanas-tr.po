@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: 2021-12-14 06:14+0000\n"
 "Last-Translator: Onur Ünal <Unknown>\n"
 "Language-Team: XigmaNAS <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-06-26 20:21+0000\n"
-"X-Generator: Launchpad (build 51a2e4fa2e9b8e45f00904ad7f53546f45ac48a5)\n"
+"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -59,10 +59,6 @@ msgstr "%d yıl"
 #, php-format
 msgid "%dB / block"
 msgstr "Blok başına %dB"
-
-#, php-format
-msgid "%s Interface"
-msgstr "%s Arayüzü"
 
 #, php-format
 msgid "%s already exists as a %s."
@@ -2552,9 +2548,6 @@ msgstr ""
 msgid "Custom script not found."
 msgstr "Özel kod bulunamadı."
 
-msgid "DAAP"
-msgstr "DAAP"
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -3153,17 +3146,6 @@ msgid "Device is mounted"
 msgstr ""
 
 msgid "Device not found"
-msgstr ""
-
-msgid "Device polling"
-msgstr "Aygıt seçimi"
-
-msgid ""
-"Device polling is a technique that lets the system periodically poll network "
-"devices for new data instead of relying on interrupts. This can reduce CPU "
-"load and therefore increase throughput, at the expense of a slightly higher "
-"forwarding delay (the devices are polled 1000 times per second). Not all "
-"NICs support polling."
 msgstr ""
 
 #, php-format
@@ -4585,9 +4567,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr ""
 
-msgid "Enable device polling"
-msgstr "Aygıt seçimini Aktifleştir"
-
 msgid "Enable directory listing."
 msgstr "Dizin listelemeyi etkinleştir."
 
@@ -5147,9 +5126,6 @@ msgid "FATAL - log fatal errors only"
 msgstr ""
 
 msgid "FLAC Audio File"
-msgstr ""
-
-msgid "FRU Information"
 msgstr ""
 
 msgid "FTP"
@@ -5904,6 +5880,9 @@ msgid ""
 msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
+msgstr ""
+
+msgid "IPMI Statistics"
 msgstr ""
 
 msgid "IPMI Stats"
@@ -7450,6 +7429,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7695,12 +7677,6 @@ msgid "No GEOM partition information found."
 msgstr ""
 
 msgid "No GEOM vinum information found."
-msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr ""
-
-msgid "No IPMI Sensor data available."
 msgstr ""
 
 msgid "No IPv4 routing information found."
@@ -9275,6 +9251,11 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
+msgstr ""
+
+msgid ""
+"Reconstruct the new device sequentially to restore redundancy as quickly as "
+"possible."
 msgstr ""
 
 msgid "Record Information"
@@ -11072,9 +11053,6 @@ msgid "System Information"
 msgstr ""
 
 msgid "System Load"
-msgstr ""
-
-msgid "System Message"
 msgstr ""
 
 msgid "System Monitoring Settings"
@@ -13119,6 +13097,9 @@ msgstr ""
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -13631,6 +13612,9 @@ msgid "Wait Time"
 msgstr ""
 
 msgid "Wait time"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
 msgstr ""
 
 msgid "Wake On LAN"
@@ -14284,3 +14268,16 @@ msgstr ""
 
 msgid "yes"
 msgstr "evet"
+
+#, php-format
+#~ msgid "%s Interface"
+#~ msgstr "%s Arayüzü"
+
+#~ msgid "DAAP"
+#~ msgstr "DAAP"
+
+#~ msgid "Device polling"
+#~ msgstr "Aygıt seçimi"
+
+#~ msgid "Enable device polling"
+#~ msgstr "Aygıt seçimini Aktifleştir"
