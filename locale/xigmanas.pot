@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2022-06-12 00:49+0000\n"
+"POT-Creation-Date: 2022-07-04 22:50+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -55,10 +55,6 @@ msgstr ""
 
 #, php-format
 msgid "%dB / block"
-msgstr ""
-
-#, php-format
-msgid "%s Interface"
 msgstr ""
 
 #, php-format
@@ -2273,9 +2269,6 @@ msgstr ""
 msgid "Custom script not found."
 msgstr ""
 
-msgid "DAAP"
-msgstr ""
-
 msgid "DDNS server name, not the full URL."
 msgstr ""
 
@@ -2851,12 +2844,6 @@ msgid "Device is mounted"
 msgstr ""
 
 msgid "Device not found"
-msgstr ""
-
-msgid "Device polling"
-msgstr ""
-
-msgid "Device polling is a technique that lets the system periodically poll network devices for new data instead of relying on interrupts. This can reduce CPU load and therefore increase throughput, at the expense of a slightly higher forwarding delay (the devices are polled 1000 times per second). Not all NICs support polling."
 msgstr ""
 
 #, php-format
@@ -4254,9 +4241,6 @@ msgstr ""
 msgid "Enable console screensaver."
 msgstr ""
 
-msgid "Enable device polling"
-msgstr ""
-
 msgid "Enable directory listing."
 msgstr ""
 
@@ -4767,9 +4751,6 @@ msgid "FATAL - log fatal errors only"
 msgstr ""
 
 msgid "FLAC Audio File"
-msgstr ""
-
-msgid "FRU Information"
 msgstr ""
 
 msgid "FTP"
@@ -5496,6 +5477,9 @@ msgid "IP addresses are resolved to hostnames when the following option is enabl
 msgstr ""
 
 msgid "IP or FQDN address of remote Rsync server."
+msgstr ""
+
+msgid "IPMI Statistics"
 msgstr ""
 
 msgid "IPMI Stats"
@@ -6937,6 +6921,9 @@ msgstr ""
 msgid "Mutual-CHAP"
 msgstr ""
 
+msgid "N/A"
+msgstr ""
+
 msgid "NAA Identifier"
 msgstr ""
 
@@ -7172,12 +7159,6 @@ msgid "No GEOM partition information found."
 msgstr ""
 
 msgid "No GEOM vinum information found."
-msgstr ""
-
-msgid "No IPMI FRU data available."
-msgstr ""
-
-msgid "No IPMI Sensor data available."
 msgstr ""
 
 msgid "No IPv4 routing information found."
@@ -8707,6 +8688,9 @@ msgid "Rebuild the selected device forcibly."
 msgstr ""
 
 msgid "Receive Buffer"
+msgstr ""
+
+msgid "Reconstruct the new device sequentially to restore redundancy as quickly as possible."
 msgstr ""
 
 msgid "Record Information"
@@ -10368,9 +10352,6 @@ msgid "System Information"
 msgstr ""
 
 msgid "System Load"
-msgstr ""
-
-msgid "System Message"
 msgstr ""
 
 msgid "System Monitoring Settings"
@@ -12122,6 +12103,9 @@ msgstr ""
 msgid "Unknown size"
 msgstr ""
 
+msgid "Unkown"
+msgstr ""
+
 msgid "Unlimited"
 msgstr ""
 
@@ -12601,6 +12585,9 @@ msgid "Wait Time"
 msgstr ""
 
 msgid "Wait time"
+msgstr ""
+
+msgid "Wait until resilvering has finished before returning."
 msgstr ""
 
 msgid "Wake On LAN"
