@@ -19,7 +19,7 @@ BUILD_DEPENDS+=	${NONEXISTENT}:databases/mariadb105-client
 
 do-install:
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/mysqldb.in ${XIGMANAS_ROOTFS}/etc/rc.d/mysqldb
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/mysql-server.in ${XIGMANAS_ROOTFS}${PREFIX}/etc/rc.d/mysql-server

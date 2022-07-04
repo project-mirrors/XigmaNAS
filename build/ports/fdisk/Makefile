@@ -15,8 +15,8 @@ do-build:
 	@${MAKE} -C ${WRKSRC}
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/fdisk ${XIGMANAS_ROOTFS}/sbin
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"

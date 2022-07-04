@@ -41,7 +41,7 @@ post-patch:
 		${WRKSRC}/examples/README.md ${WRKSRC}/examples/inadyn.conf
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/inadyn.in ${XIGMANAS_ROOTFS}/etc/rc.d/inadyn

@@ -20,7 +20,7 @@ DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py38/stage
 PANGO_MODULES=		${PREFIX}/lib/pango/1.8.0/modules
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # share
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs

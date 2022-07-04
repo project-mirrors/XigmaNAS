@@ -69,7 +69,7 @@ post-stage:
 .endif
 
 post-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}

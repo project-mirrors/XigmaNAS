@@ -23,7 +23,7 @@ BUILD_DEPENDS+=	${NONEXISTENT}:sysutils/fusefs-libs \
 		${NONEXISTENT}:devel/libublio
 
 do-install:
-# XigmaNAS® Start Install
+# XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/fusefs.in ${XIGMANAS_ROOTFS}/etc/rc.d/fusefs

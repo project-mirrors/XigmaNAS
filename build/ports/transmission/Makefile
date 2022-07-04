@@ -74,7 +74,7 @@ general-patch:
 post-patch: general-patch
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 

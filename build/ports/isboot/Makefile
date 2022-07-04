@@ -17,7 +17,7 @@ CFLAGS+=	-DVIMAGE
 .endif
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_KLD} -v ${WRKSRC}/isboot.ko ${XIGMANAS_ROOTFS}/boot/kernel
 # XigmaNAS® end install

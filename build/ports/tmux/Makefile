@@ -45,7 +45,7 @@ post-configure-LIBEVENT_STATIC-on:
 		${WRKSRC}/${MAKEFILE}
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/tmux ${XIGMANAS_ROOTFS}/bin
 # XigmaNAS® end install

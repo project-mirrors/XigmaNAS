@@ -39,7 +39,7 @@ do-install:
 	${MKDIR} ${STAGEDIR}${FWDIR}
 	${INSTALL_DATA} ${WRKSRC}/intel-ucode.bin ${STAGEDIR}${FWDIR}/
 
-# XigmaNAS® start install
+# XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update
 

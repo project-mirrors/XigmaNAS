@@ -117,7 +117,7 @@ PLIST_SUB+=		USB="@comment " FTDI="@comment " HID="@comment "
 .endif
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/server/LCDd ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/lcdexec/lcdexec ${XIGMANAS_ROOTFS}${PREFIX}/bin

@@ -122,7 +122,7 @@ test: build
 	@(cd ${WRKSRC} && ${MAKE} test)
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/php-cgi-websrv ${XIGMANAS_ROOTFS}${PREFIX}/bin/
 	@${CP} -pv ${FILESDIR}/php.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc

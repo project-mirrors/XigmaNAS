@@ -12,8 +12,8 @@ EXTRACT_SUFX= .tar.xz
 .include <bsd.port.pre.mk>
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/dmidecode ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/biosdecode ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/ownership ${XIGMANAS_ROOTFS}/usr/local/sbin

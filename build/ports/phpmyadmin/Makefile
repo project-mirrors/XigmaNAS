@@ -34,7 +34,7 @@ do-install:
 	    fi \
 	done
 
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${RM} -rf ${STAGEDIR}${WWWDIR}$${dst}/test
 	@${RM} -rf ${STAGEDIR}${WWWDIR}$${dst}/setup

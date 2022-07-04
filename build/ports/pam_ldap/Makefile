@@ -19,7 +19,7 @@ DISABLE_VULNERABILITIES=yes
 BUILD_DEPENDS=	${NONEXISTENT}:security/pam_ldap
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/pam_ldap/work/pam_ldap-*/pam_ldap.so ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${LN} -fsv /var/etc/ldap.conf ${XIGMANAS_ROOTFS}/usr/local/etc/ldap.conf

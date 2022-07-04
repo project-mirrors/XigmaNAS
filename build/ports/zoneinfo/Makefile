@@ -48,8 +48,8 @@ do-install:
 	@${ECHO_CMD} "posixrules" >> ${WRKSRC}/zoneinfo.exlude
 	@${ECHO_CMD} "zone.tab" >> ${WRKSRC}/zoneinfo.exlude
 
-# XigmaNAS® end install
-	@echo "End install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/share
 	${TAR} -c -v -f - -X ${WRKSRC}/zoneinfo.exlude -C ${WRKSRC}/zoneinfo/ . | ${XZ_CMD} -cv > ${XIGMANAS_ROOTFS}/usr/share/zoneinfo.txz
 # XigmaNAS® end install

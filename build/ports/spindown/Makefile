@@ -17,7 +17,7 @@ BUILD_DEPENDS=		${NONEXISTENT}:sysutils/spindown
 DEP_STAGEDIR=		${PORTSDIR}/sysutils/spindown/work/stage
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/sbin/spindown ${XIGMANAS_ROOTFS}/usr/local/sbin
 # XigmaNAS® end install

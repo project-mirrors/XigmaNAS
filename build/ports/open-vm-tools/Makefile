@@ -17,7 +17,7 @@ BLDSRC=${PORTSDIR}/emulators/open-vm-tools/work-default/open-vm-tools-stable-*
 WRKSRC=${WRKDIR}/open-vm-tools
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libguestlib/.libs/libguestlib.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib
 	@${LN} -f -v -s libguestlib.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libguestlib.so

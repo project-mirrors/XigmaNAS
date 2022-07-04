@@ -15,7 +15,7 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+= --with-logfacility="daemon" --with-logpriority="info"
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/iscsi_target.in ${XIGMANAS_ROOTFS}/etc/rc.d/iscsi_target

@@ -19,7 +19,7 @@ DISABLE_VULNERABILITIES=yes
 BUILD_DEPENDS=	${NONEXISTENT}:security/openssh-portable
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sshd ${XIGMANAS_ROOTFS}/usr/sbin
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/ssh ${XIGMANAS_ROOTFS}/usr/bin

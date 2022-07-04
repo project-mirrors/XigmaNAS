@@ -24,8 +24,8 @@ post-patch:
 	@${FIND} ${WRKSRC}/samples/ -type f -exec ${REINPLACE_CMD} -i "" "s|dialog|cdialog|g" {} \;
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/.libs/cdialog ${XIGMANAS_ROOTFS}${PREFIX}/bin/cdialog
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/.libs/libcdialog.so.* ${XIGMANAS_ROOTFS}${PREFIX}/lib
 # XigmaNAS® end install

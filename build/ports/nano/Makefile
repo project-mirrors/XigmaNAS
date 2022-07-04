@@ -49,7 +49,7 @@ post-install:
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/doc/sample.nanorc ${STAGEDIR}${EXAMPLESDIR}
 
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/src/nano ${XIGMANAS_ROOTFS}/usr/local/bin;
 # XigmaNAS® end install

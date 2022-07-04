@@ -36,7 +36,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/${f} ${STAGEDIR}${DATADIR}/${f:C/\?.*//}
 .endfor
 
-# XigmaNAS® start install
+# XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update
 	${MKDIR} ${XIGMANAS_ROOTFS}${DATADIR}/

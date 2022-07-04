@@ -16,7 +16,7 @@ BUILD_DEPENDS=		${NONEXISTENT}:${PORTSDIR}/sysutils/ipmitool
 DEP_STAGEDIR=		${PORTSDIR}/sysutils/ipmitool/work/stage
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/ipmitool ${XIGMANAS_ROOTFS}/usr/local/bin
 # XigmaNAS® end install

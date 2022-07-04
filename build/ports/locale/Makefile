@@ -23,7 +23,7 @@ do-build:
 do-install:
 # We only install maintained translations for WebGUI
 # XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${CP} -vp -r ${WRKSRC}/af ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/ca ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/cs ${XIGMANAS_ROOTFS}/usr/local/share/locale
@@ -44,6 +44,6 @@ do-install:
 	@${CP} -vp -r ${WRKSRC}/zh_CN ${XIGMANAS_ROOTFS}/usr/local/share/locale
 	@${CP} -vp -r ${WRKSRC}/zh_TW ${XIGMANAS_ROOTFS}/usr/local/share/locale
 # XigmaNAS® end install
-	@echo "End install for ${XIGMANAS_ROOTFS}"
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

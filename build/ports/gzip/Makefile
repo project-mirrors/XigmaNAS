@@ -14,7 +14,7 @@ post-configure:
 	@${REINPLACE_CMD} -e 's|^SHELL =.*|SHELL=/bin/sh|' ${WRKSRC}/Makefile
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/gzip ${XIGMANAS_ROOTFS}/usr/bin
 	@${INSTALL_SCRIPT} -v ${WRKSRC}/gunzip ${XIGMANAS_ROOTFS}/usr/bin

@@ -8,8 +8,8 @@ MASTER_SITES=		http://www.cran.org.uk/bruce/software/
 
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/ataidle ${XIGMANAS_ROOTFS}/usr/local/sbin
 # XigmaNAS® end install

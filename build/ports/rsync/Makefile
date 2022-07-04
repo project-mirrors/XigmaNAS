@@ -47,8 +47,8 @@ pre-configure:
 		${WRKSRC}/rsync.h ${WRKSRC}/zlib/zutil.h
 
 do-install:
-# XigmaNAS® end install
-	@echo "End install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/rsync ${XIGMANAS_ROOTFS}/usr/local/bin
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"

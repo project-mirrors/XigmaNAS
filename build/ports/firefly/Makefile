@@ -42,8 +42,8 @@ EXTRA_PATCHES+=		${FILESDIR}/extra-patch-configure
 .endif
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	-@${MKDIR} -v ${XIGMANAS_ROOTFS}/${PREFIX}/share/mt-daapd
 	-@${MKDIR} -v ${XIGMANAS_ROOTFS}/${PREFIX}/share/mt-daapd/plugins
 

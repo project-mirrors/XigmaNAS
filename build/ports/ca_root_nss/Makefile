@@ -17,8 +17,8 @@ BUILD_DEPENDS=		${NONEXISTENT}:${PORTSDIR}/security/ca_root_nss
 DEP_STAGEDIR=		${PORTSDIR}/security/ca_root_nss/work/stage
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/share/certs
 	${INSTALL_DATA} -v ${DEP_STAGEDIR}${PREFIX}/share/certs/ca-root-nss.crt ${XIGMANAS_ROOTFS}${PREFIX}/share/certs
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/etc/ssl

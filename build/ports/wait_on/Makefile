@@ -17,7 +17,7 @@ BUILD_DEPENDS=		${NONEXISTENT}:sysutils/wait_on
 DEP_STAGEDIR=		${PORTSDIR}/sysutils/wait_on/work/stage
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/wait_on ${XIGMANAS_ROOTFS}/usr/local/bin
 # XigmaNAS® end install

@@ -25,8 +25,8 @@ NO_BUILD=		yes
 NO_WRKSUBDIR=	yes
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/freebsd${DIST_TYPE}/cmdline/arcconf ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 # XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"

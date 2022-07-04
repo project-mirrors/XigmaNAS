@@ -34,7 +34,11 @@ do-build:
 	@${MAKE} -C /usr/src/usr.bin/clog
 
 do-install:
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v /usr/src/usr.bin/syslogd/syslogd ${XIGMANAS_ROOTFS}/usr/sbin
 	@${INSTALL_PROGRAM} -v /usr/src/usr.bin/clog/clog ${XIGMANAS_ROOTFS}/usr/sbin
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

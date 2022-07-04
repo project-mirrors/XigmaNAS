@@ -318,8 +318,8 @@ post-install:
 # the next line closes .if ${MASTERDIR} == ${.CURDIR}
 .endif
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/fsck_ext2fs ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/e2fsck/e2fsck ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/misc/badblocks ${XIGMANAS_ROOTFS}/usr/local/sbin

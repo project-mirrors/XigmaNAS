@@ -24,7 +24,7 @@ NO_PKG_REGISTER=yes
 .include <bsd.port.options.mk>
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/${BINSUFFIX}/tw_cli ${XIGMANAS_ROOTFS}${PREFIX}/sbin/
 # XigmaNAS® end install

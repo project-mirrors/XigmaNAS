@@ -26,7 +26,7 @@ do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/fsck/exfatfsck ${STAGEDIR}${PREFIX}/bin
 	${LN} -fs ${PREFIX}/bin/mount.exfat-fuse ${STAGEDIR}${PREFIX}/bin/mount.exfat
 
-# XigmaNAS® Start Install
+# XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/mount.exfat-fuse ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/exfatfsck ${XIGMANAS_ROOTFS}/usr/local/bin

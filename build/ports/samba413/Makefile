@@ -678,7 +678,7 @@ post-install:
 					-type f -print0 | ${XARGS} -0 -n 1 -t ${STRIP_CMD}
 .endif
 
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba

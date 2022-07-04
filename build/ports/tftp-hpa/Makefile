@@ -22,7 +22,7 @@ post-patch:
 	    ${WRKSRC}/tftpd/tftpd.c
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/tftpd.in ${XIGMANAS_ROOTFS}/etc/rc.d/tftpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/tftpd/tftpd ${XIGMANAS_ROOTFS}/usr/local/libexec/tftpd

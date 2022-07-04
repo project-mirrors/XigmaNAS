@@ -21,7 +21,7 @@ CFLAGS:=		${CFLAGS:S/-O2/-O/} -Wno-write-strings
 
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/smartctl ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/smartd ${XIGMANAS_ROOTFS}/usr/local/sbin

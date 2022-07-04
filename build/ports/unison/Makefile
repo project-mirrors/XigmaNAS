@@ -55,7 +55,7 @@ post-build:
 FORCE_PKG_REGISTER=	yes
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/unison ${XIGMANAS_ROOTFS}/usr/local/bin
 # XigmaNAS® end install

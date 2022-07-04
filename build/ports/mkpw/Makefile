@@ -13,7 +13,7 @@ do-build:
 	@${MAKE} -C ${WRKSRC}
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/${PORTNAME} ${XIGMANAS_ROOTFS}/usr/sbin
 # XigmaNAS® end install

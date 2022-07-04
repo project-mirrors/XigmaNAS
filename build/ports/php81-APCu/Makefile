@@ -14,7 +14,7 @@ DEP_STAGEDIR=	${PORTSDIR}/devel/pecl-APCu/work-php81/stage
 BUILD_DEPENDS=	${NONEXISTENT}:devel/pecl-APCu
 
 do-install:
-# XigmaNAS® start install
+# XigmaNAS® install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${CP} -pv ${FILESDIR}/apcu.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
 
