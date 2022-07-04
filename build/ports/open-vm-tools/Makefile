@@ -17,8 +17,8 @@ BLDSRC=${PORTSDIR}/emulators/open-vm-tools/work-default/open-vm-tools-stable-*
 WRKSRC=${WRKDIR}/open-vm-tools
 
 do-install:
-# XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libguestlib/.libs/libguestlib.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib
 	@${LN} -f -v -s libguestlib.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib/libguestlib.so
 	@${INSTALL_PROGRAM} -v ${BLDSRC}/open-vm-tools/libhgfs/.libs/libhgfs.so.0 ${XIGMANAS_ROOTFS}${PREFIX}/lib
@@ -56,7 +56,7 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${BLDSRC}/open-vm-tools/scripts/common/statechange.subr ${XIGMANAS_ROOTFS}${PREFIX}/share/vmware-tools
 	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/share/vmware-tools/scripts/vmware
 	@${INSTALL_SCRIPT} -v ${BLDSRC}/open-vm-tools/scripts/freebsd/network ${XIGMANAS_ROOTFS}${PREFIX}/share/vmware-tools/scripts/vmware
-# XigmaNAS® install
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

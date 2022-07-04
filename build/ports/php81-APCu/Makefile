@@ -14,11 +14,13 @@ DEP_STAGEDIR=	${PORTSDIR}/devel/pecl-APCu/work-php81/stage
 BUILD_DEPENDS=	${NONEXISTENT}:devel/pecl-APCu
 
 do-install:
-# XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${CP} -pv ${FILESDIR}/apcu.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
 
 	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20210902
 	${INSTALL_DATA} ${DEP_STAGEDIR}/usr/local/lib/php/20210902/apcu.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20210902
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

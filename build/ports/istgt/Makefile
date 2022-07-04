@@ -15,13 +15,14 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+= --with-logfacility="daemon" --with-logpriority="info"
 
 do-install:
-# XigmaNAS® Install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/iscsi_target.in ${XIGMANAS_ROOTFS}/etc/rc.d/iscsi_target
 # bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/istgt ${XIGMANAS_ROOTFS}${PREFIX}/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/istgtcontrol ${XIGMANAS_ROOTFS}${PREFIX}/bin
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

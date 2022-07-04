@@ -32,12 +32,12 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/config.php-example \
 	    ${STAGEDIR}${WWWDIR}/config.php.sample
 
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${RM} -f ${STAGEDIR}${WWWDIR}/*.txt
 	${RM} -f ${STAGEDIR}${WWWDIR}/*.bak
 	${CP} -Rpv ${STAGEDIR}${WWWDIR} ${XIGMANAS_ROOTFS}${PREFIX}/www
 # XigmaNAS® end install
-	@echo "End install for ${XIGMANAS_ROOTFS}"
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

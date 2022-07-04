@@ -22,9 +22,11 @@ post-patch:
 	    ${WRKSRC}/tftpd/tftpd.c
 
 do-install:
-# XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/tftpd.in ${XIGMANAS_ROOTFS}/etc/rc.d/tftpd
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/tftpd/tftpd ${XIGMANAS_ROOTFS}/usr/local/libexec/tftpd
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
+
 .include <bsd.port.mk>

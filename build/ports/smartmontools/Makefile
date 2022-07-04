@@ -21,8 +21,12 @@ CFLAGS:=		${CFLAGS:S/-O2/-O/} -Wno-write-strings
 
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/smartctl ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/smartd ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${CP} -pv ${WRKSRC}/smartd_warning.sh ${XIGMANAS_ROOTFS}${PREFIX}/etc
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

@@ -78,6 +78,8 @@ pre-install:
 	@${REINPLACE_CMD} -e 's/device-name\*/cdev/g' ${WRKSRC}/scripts/devd/nut-usb.conf
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}${PREFIX}/etc/devd
 	@${INSTALL_SCRIPT} -v ${WRKSRC}/scripts/devd/nut-usb.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/devd/nut-usb.conf
 
@@ -163,5 +165,7 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/nut_upslog.in ${XIGMANAS_ROOTFS}/etc/rc.d/nut_upslog
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/nut_upsmon.in ${XIGMANAS_ROOTFS}/etc/rc.d/nut_upsmon
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/upssched-cmd.in ${XIGMANAS_ROOTFS}/usr/local/bin/upssched-cmd
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

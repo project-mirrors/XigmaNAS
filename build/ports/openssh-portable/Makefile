@@ -19,6 +19,8 @@ DISABLE_VULNERABILITIES=yes
 BUILD_DEPENDS=	${NONEXISTENT}:security/openssh-portable
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sshd ${XIGMANAS_ROOTFS}/usr/sbin
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/ssh ${XIGMANAS_ROOTFS}/usr/bin
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/openssh-portable/work-default/openssh-*/sftp-server ${XIGMANAS_ROOTFS}/usr/libexec
@@ -28,5 +30,6 @@ do-install:
 # WARNING: /usr/local/etc/ssh/moduli does not exist, using fixed modulus
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/etc/ssh
 	@${LN} -fsv /etc/ssh/moduli ${XIGMANAS_ROOTFS}/usr/local/etc/ssh/moduli
-
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 .include <bsd.port.mk>

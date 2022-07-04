@@ -18,6 +18,10 @@ DEPENDS_TARGET=	 clean build
 BUILD_DEPENDS=	${NONEXISTENT}:security/pam_mkhomedir
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/security/pam_mkhomedir/work/pam_mkhomedir-*/pam_mkhomedir.so ${XIGMANAS_ROOTFS}/usr/local/lib
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

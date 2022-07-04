@@ -31,6 +31,10 @@ CONFIGURE_ARGS+=	--enable-scp-compat
 CONFIGURE_ARGS+=	--enable-winscp-compat
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/scponly ${XIGMANAS_ROOTFS}/usr/local/bin
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

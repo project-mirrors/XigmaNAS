@@ -52,5 +52,7 @@ post-install:
 	@${REINPLACE_CMD} 's/-l-pthread/-lpthread/' ${XIGMANAS_ROOTFS}${PREFIX}/bin/mysql_config
 
 	${STRIP_CMD} ${XIGMANAS_ROOTFS}${PREFIX}/lib/mysql/plugin/auth_gssapi_client.so
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

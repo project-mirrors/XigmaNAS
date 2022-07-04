@@ -17,8 +17,8 @@ BUILD_DEPENDS=	${NONEXISTENT}:devel/icu
 DEP_STAGEDIR=	${PORTSDIR}/devel/icu/work/stage
 
 do-install:
-# XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # bin
 .	for file in uconv pkgdata makeconv icuinfo genrb gendict gencnval gencfu genbrk derb
 		@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/${file} ${XIGMANAS_ROOTFS}${PREFIX}/bin
@@ -35,5 +35,7 @@ do-install:
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/include ${XIGMANAS_ROOTFS}${PREFIX}
 # share
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/share/icu ${XIGMANAS_ROOTFS}${PREFIX}/share
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

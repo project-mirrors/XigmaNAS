@@ -18,8 +18,12 @@ DEPENDS_TARGET=	clean build
 BUILD_DEPENDS=	${NONEXISTENT}:net/nss_ldap
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${PORTSDIR}/net/nss_ldap/work/nss_ldap-*/nss_ldap.so ${XIGMANAS_ROOTFS}/usr/local/lib/nss_ldap.so.1
 	@${LN} -fsv /var/etc/ldap.conf ${XIGMANAS_ROOTFS}/usr/local/etc/nss_ldap.conf
 	@${LN} -fsv /var/etc/ldap.secret ${XIGMANAS_ROOTFS}/usr/local/etc/nss_ldap.secret
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

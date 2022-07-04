@@ -55,7 +55,11 @@ post-build:
 FORCE_PKG_REGISTER=	yes
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/unison ${XIGMANAS_ROOTFS}/usr/local/bin
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 # Install on host system too, otherwise depending ports fail during ./configure process (e.g. scponly). 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/unison ${PREFIX}/bin
 

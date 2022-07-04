@@ -29,13 +29,13 @@ post-patch:
 	${REINPLACE_CMD} 's|PYTHON|${PYTHON_CMD}|' ${WRKSRC}/etc/rc.d/${PORTNAME}
 
 do-install:
-# XigmaNAS® Start Install
+# XigmaNAS® start install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/wsdd.in ${XIGMANAS_ROOTFS}/etc/rc.d/wsdd
 #bin
 	@${INSTALL_SCRIPT} -v ${WRKSRC}/src/${PORTNAME}.py ${XIGMANAS_ROOTFS}/usr/local/bin/${PORTNAME}
-# XigmaNAS® End install
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

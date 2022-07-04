@@ -11,6 +11,10 @@ GNU_CONFIGURE=	yes
 NO_PKG_REGISTER=	yes
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/src/sipcalc ${XIGMANAS_ROOTFS}/usr/local/bin
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

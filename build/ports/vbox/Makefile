@@ -17,8 +17,8 @@ DEP_STAGEDIR=	${PORTSDIR}/emulators/virtualbox-ose/work/stage
 KMOD_STAGEDIR=	${PORTSDIR}/emulators/virtualbox-ose-kmod/work/stage
 
 do-install:
-# XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # kmod
 .for file in vboxdrv.ko vboxnetadp.ko vboxnetflt.ko
 	@${INSTALL_KLD} -v ${KMOD_STAGEDIR}/boot/modules/${file} ${XIGMANAS_ROOTFS}/boot/modules
@@ -48,6 +48,6 @@ do-install:
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.8/site-packages/vboxapi ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
 	@${CP} -Rpv ${DEP_STAGEDIR}${PREFIX}/lib/python3.8/site-packages/xpcom ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
 # XigmaNAS® end install
-	@echo "End install for ${XIGMANAS_ROOTFS}"
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

@@ -48,10 +48,11 @@ post-build:
 post-install:
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/doc/sample.nanorc ${STAGEDIR}${EXAMPLESDIR}
-# XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/src/nano ${XIGMANAS_ROOTFS}/usr/local/bin;
-# XigmaNAS® install
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

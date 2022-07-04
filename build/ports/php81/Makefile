@@ -122,8 +122,8 @@ test: build
 	@(cd ${WRKSRC} && ${MAKE} test)
 
 do-install:
-# XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/php-cgi-websrv ${XIGMANAS_ROOTFS}${PREFIX}/bin/
 	@${CP} -pv ${FILESDIR}/php.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc
 
@@ -133,5 +133,7 @@ do-install:
 	@${MKDIR} ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20210902
 	${INSTALL_DATA} ${WRKSRC}/ext/opcache/.libs/opcache.so ${XIGMANAS_ROOTFS}${PREFIX}/lib/php/extensions/no-debug-non-zts-20210902
 	@${CP} -pv ${FILESDIR}/opcache.ini ${XIGMANAS_ROOTFS}${PREFIX}/etc/php
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

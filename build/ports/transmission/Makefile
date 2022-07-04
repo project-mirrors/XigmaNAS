@@ -74,7 +74,8 @@ general-patch:
 post-patch: general-patch
 
 do-install:
-
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/daemon/transmission-daemon ${XIGMANAS_ROOTFS}/usr/local/bin
@@ -147,5 +148,7 @@ do-install:
 	@${INSTALL_DATA} -v ${WRKSRC}/web/style/transmission/images/turtle.png ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/style/transmission/images
 	@${INSTALL_DATA} -v ${WRKSRC}/web/style/transmission/images/wrench.png ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/style/transmission/images
 	@${INSTALL_DATA} -v ${WRKSRC}/web/style/transmission/images/buttons/torrent_buttons.png ${XIGMANAS_ROOTFS}/usr/local/share/${PORTNAME}/web/style/transmission/images/buttons
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

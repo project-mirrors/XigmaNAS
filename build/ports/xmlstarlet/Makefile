@@ -20,6 +20,10 @@ post-patch:
 		${WRKSRC}/configure
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/xml ${XIGMANAS_ROOTFS}/${PREFIX}/bin
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

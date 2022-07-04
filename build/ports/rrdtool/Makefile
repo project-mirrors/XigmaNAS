@@ -20,8 +20,8 @@ DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py38/stage
 PANGO_MODULES=		${PREFIX}/lib/pango/1.8.0/modules
 
 do-install:
-# XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # share
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates
@@ -75,5 +75,7 @@ do-install:
 	@${LN} -fsv ${PREFIX}/etc/fonts/conf.avail/57-dejavu-sans-mono.conf ${XIGMANAS_ROOTFS}/usr/local/etc/fonts/conf.d/
 	@${LN} -fsv ${PREFIX}/etc/fonts/conf.avail/57-dejavu-sans.conf ${XIGMANAS_ROOTFS}/usr/local/etc/fonts/conf.d/
 	@${LN} -fsv ${PREFIX}/etc/fonts/conf.avail/57-dejavu-serif.conf ${XIGMANAS_ROOTFS}/usr/local/etc/fonts/conf.d/
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

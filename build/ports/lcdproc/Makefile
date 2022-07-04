@@ -117,6 +117,8 @@ PLIST_SUB+=		USB="@comment " FTDI="@comment " HID="@comment "
 .endif
 
 do-install:
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/server/LCDd ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/lcdexec/lcdexec ${XIGMANAS_ROOTFS}${PREFIX}/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/lcdproc/lcdproc ${XIGMANAS_ROOTFS}${PREFIX}/bin
@@ -128,5 +130,7 @@ do-install:
 	@${INSTALL_DATA} -v ${WRKSRC}/clients/lcdproc/lcdproc.conf ${XIGMANAS_ROOTFS}${PREFIX}/share/lcdproc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/LCDd.in ${XIGMANAS_ROOTFS}/etc/rc.d/LCDd
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/lcdproc.in ${XIGMANAS_ROOTFS}/etc/rc.d/lcdproc
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

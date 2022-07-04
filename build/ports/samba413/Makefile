@@ -678,8 +678,8 @@ post-install:
 					-type f -print0 | ${XARGS} -0 -n 1 -t ${STRIP_CMD}
 .endif
 
-# XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® start install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}/usr/local/etc/smb4.conf
@@ -734,7 +734,7 @@ post-install:
 	for file in zipp.py; do \
 		${CP} -pv ${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
 	done
-# XigmaNAS® install
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
