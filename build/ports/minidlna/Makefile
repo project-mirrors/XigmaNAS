@@ -21,7 +21,7 @@ CONFIGURE_ARGS=	--with-db-path=/var/db/minidlna \
 CPPFLAGS+=	-I${LOCALBASE}/include
 CFLAGS+=	-DXigmaNAS
 LIBS+=		-L${LOCALBASE}/lib
-USES=		autoreconf:2.69 gettext-tools iconv jpeg
+USES+=		autoreconf gettext-tools iconv jpeg
 
 USE_GITHUB=     yes 
 GH_ACCOUNT=     glebius 

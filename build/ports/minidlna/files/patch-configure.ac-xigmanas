@@ -1,5 +1,5 @@
---- ./configure.ac.orig	2018-12-20 04:06:26.000000000 +0100
-+++ ./configure.ac	2019-10-04 02:45:14.000000000 +0200
+--- configure.ac.orig	2021-03-19 07:31:03.000000000 +0100
++++ configure.ac	2022-06-16 01:27:46.000000000 +0200
 @@ -39,10 +39,10 @@
  AC_PROG_MAKE_SET
  
@@ -15,3 +15,23 @@
  AC_DEFINE_UNQUOTED([ROOTDEV_MODELDESCRIPTION],"MiniDLNA on " OS_NAME, [Model description])
  AC_DEFINE_UNQUOTED([ROOTDEV_MODELURL],OS_URL,[Model URL])
  
+@@ -414,7 +414,7 @@
+     AC_CHECK_LIB([id3tag -lz], [id3_file_open], [LIBID3TAG_LIBS="-lid3tag -lz"], [unset ac_cv_lib_id3tag_id3_file_open; LDFLAGS="$LDFLAGS_SAVE"; continue])
+     break
+ done
+-test x"$ac_cv_lib_id3tag__lz___id3_file_open" = x"yes" || AC_MSG_ERROR([Could not find libid3tag])
++test x"$ac_cv_lib_id3tag__lz_id3_file_open" = x"yes" || AC_MSG_ERROR([Could not find libid3tag])
+ AC_SUBST(LIBID3TAG_LIBS)
+ 
+ LDFLAGS_SAVE="$LDFLAGS"
+@@ -440,8 +440,8 @@
+ 		  [unset ac_cv_lib_avformat_av_open_input_file; unset ac_cv_lib_avformat_avformat_open_input; LDFLAGS="$LDFLAGS_SAVE"; continue])])
+     break
+ done
+-if test x"$ac_cv_lib_avformat__lavcodec__lavutil__lz___av_open_input_file" != x"yes" &&
+-   test x"$ac_cv_lib_avformat__lavcodec__lavutil__lz___avformat_open_input" != x"yes"; then
++if test x"$ac_cv_lib_avformat__lavcodec__lavutil__lz_av_open_input_file" != x"yes" &&
++   test x"$ac_cv_lib_avformat__lavcodec__lavutil__lz_avformat_open_input" != x"yes"; then
+    AC_MSG_ERROR([Could not find libavformat - part of ffmpeg])
+ fi
+ AC_SUBST(LIBAVFORMAT_LIBS)
