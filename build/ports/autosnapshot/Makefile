@@ -12,7 +12,11 @@ NO_BUILD=	yes
 NO_WRKSUBDIR=	yes
 
 do-install:
+# XigmaNAS® install
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/autosnapshot ${XIGMANAS_ROOTFS}${PREFIX}/sbin
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/autosnapshot.in ${XIGMANAS_ROOTFS}/etc/rc.d/autosnapshot
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
