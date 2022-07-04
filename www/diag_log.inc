@@ -39,11 +39,16 @@ require_once 'rc.inc';
 $clogdir = rc_getenv_ex('clog_logdir',$g['varlog_path']);
 $rsync_client_logfile = rc_getenv_ex('rsync_client_logfile',"{$g['varlog_path']}/rsync_client.log");
 $rsync_local_logfile = rc_getenv_ex('rsync_local_logfile',"{$g['varlog_path']}/rsync_local.log");
+
 $fuppes_logdir = rc_getenv_ex('fuppes_logdir',"{$g['varlog_path']}/fuppes");
 $fuppes_logfile = "{$fuppes_logdir}/fuppes.log";
+
 $minidlna_logdir = rc_getenv_ex('minidlna_logdir',"{$g['varlog_path']}");
 $minidlna_logfile = "{$minidlna_logdir}/minidlna.log";
-$mtdaapd_logfile = rc_getenv_ex('mtdaapd_logfile',"{$g['varlog_path']}/mt-daapd.log");
+
+$mtdaapd_logdir = rc_getenv_ex('mtdaapd_logdir',"{$g['varlog_path']}/mt-daapd");	
+$mtdaapd_logfile = "{$mtdaapd_logdir}/mt-daapd.log";
+
 $proftpd_modban_logfile = rc_getenv_ex('proftpd_modban_banlog',"{$g['varlog_path']}/proftpd/ban.log");
 //	the log configuration
 $loginfo = [
@@ -207,9 +212,9 @@ $loginfo = [
 		]],
 	[
 		'visible' => true,
-		'desc' => gtext('DAAP'),
+		'desc' => gtext('iTunes/DAAP'),
 		'logfile' => $mtdaapd_logfile,
-		'filename' => 'daap.log',
+		'filename' => 'mt-daaapd.log',
 		'type' => 'plain',
 		'pattern' => '/^(?<timestamp>\S+\s+\S+)\s+\S+:\s+(?<msg>.*)$/',
 		'test.rfc5424' => false,

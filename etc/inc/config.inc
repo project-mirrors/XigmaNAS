@@ -1773,6 +1773,12 @@ function config_upgrade_51() {
 	if($index !== false):
 		unset($rcconf[$index]);
 	endif;
+	$rcconf = &arr::make_branch($config,'system','rcconf','param');
+	$rcconf_name = 'mtdaapd_logfile';
+	$index = arr::search_ex($rcconf_name,$rcconf,'name');
+	if($index !== false):
+		unset($rcconf[$index]);
+	endif;
 }
 /**
  *	Upgrade the configuration file to the latest version.

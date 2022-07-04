@@ -37,7 +37,8 @@ pidfile="/var/run/mt-daapd.pid"
 mtdaapd_servername=${mtdaapd_servername:-"Firefly %v on %h"}
 mtdaapd_web_root=${mtdaapd_web_root:-"/usr/local/share/mt-daapd/admin-root"}
 mtdaapd_port=${mtdaapd_port:-"3689"}
-mtdaapd_logfile=${mtdaapd_logfile:-"/var/log/mt-daapd.log"}
+mtdaapd_logdir=${mtdaapd_logdir:-"/var/log/mt-daapd"}
+mtdaapd_logfile="${mtdaapd_logdir}/mt-daapd.log"
 mtdaapd_runas=${mtdaapd_runas:-"root"}
 mtdaapd_admin_pw=${mtdaapd_admin_pw:-"mt-daapd"}
 mtdaapd_password=${mtdaapd_password:-""}
@@ -71,6 +72,9 @@ command_args="-m -c ${mtdaapd_config}"
 mtdaapd_mkconf()
 {
 	local _port _dbparms _mp3dir _rescaninterval _alwaysscan _skipfirst _scantype _servername _admin_pw _concatcomps _compdirs
+
+	# Check if required log directory exists.
+	[ ! -d "${mtdaapd_logdir}" ] && mkdir "${mtdaapd_logdir}"
 
 	# Get setting from configuration file.
 	_servername=`configxml_get "//daap/servername"`
