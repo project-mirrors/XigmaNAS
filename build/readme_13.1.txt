@@ -111,6 +111,7 @@ Changes:
 - Upgrade tmux to v3.3a.
 - Upgrade lighttpd to v1.4.65.
 - Upgrade sudo to v1.9.11p3.
+- Upgrade python to 3.9.13.
 
 Fixes:
 -
