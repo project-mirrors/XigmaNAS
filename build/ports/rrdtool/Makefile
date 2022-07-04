@@ -16,7 +16,7 @@ DISABLE_VULNERABILITIES=yes
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=		${NONEXISTENT}:databases/rrdtool
-DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py38/stage
+DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py39/stage
 PANGO_MODULES=		${PREFIX}/lib/pango/1.8.0/modules
 
 do-install:
@@ -59,7 +59,7 @@ do-install:
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/RRDs.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/RRDp.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}
-	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.cpython-38.so ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}/
+	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.cpython-39.so ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}/
 # fonts
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/share/fonts
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/etc/fonts/conf.avail
