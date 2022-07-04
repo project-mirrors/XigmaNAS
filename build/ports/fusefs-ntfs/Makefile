@@ -23,8 +23,8 @@ BUILD_DEPENDS+=	${NONEXISTENT}:sysutils/fusefs-libs \
 		${NONEXISTENT}:devel/libublio
 
 do-install:
-# XigmaNAS® Install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Start Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/fusefs.in ${XIGMANAS_ROOTFS}/etc/rc.d/fusefs
 # sbin
@@ -41,6 +41,7 @@ do-install:
 # link
 	@${LN} -s -f -v /usr/local/bin/ntfs-3g ${XIGMANAS_ROOTFS}/sbin/mount_ntfs
 	@${LN} -s -f -v /usr/local/bin/ntfs-3g ${XIGMANAS_ROOTFS}/sbin/mount_ntfs-3g
+# XigmaNAS® End install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

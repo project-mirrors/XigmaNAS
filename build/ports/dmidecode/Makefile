@@ -12,11 +12,13 @@ EXTRACT_SUFX= .tar.xz
 .include <bsd.port.pre.mk>
 
 do-install:
+# XigmaNAS® install
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/dmidecode ${XIGMANAS_ROOTFS}/usr/local/sbin
-.if (${ARCH} == "amd64" || ${ARCH} == "i386")
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/biosdecode ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/ownership ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/vpddecode ${XIGMANAS_ROOTFS}/usr/local/sbin
-.endif
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

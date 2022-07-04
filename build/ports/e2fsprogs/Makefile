@@ -319,7 +319,7 @@ post-install:
 .endif
 do-install:
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/fsck_ext2fs ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/e2fsck/e2fsck ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/misc/badblocks ${XIGMANAS_ROOTFS}/usr/local/sbin
@@ -333,5 +333,7 @@ do-install:
 	@${CP} -Rpv ${WRKSRC}/lib/libe2p.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${CP} -Rpv ${WRKSRC}/lib/libext2fs.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${CP} -Rpv ${WRKSRC}/lib/libcom_err.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

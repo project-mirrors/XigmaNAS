@@ -34,7 +34,7 @@ CONFIGURE_ARGS=			--disable-gdbm \
 										--enable-flac
 
 .include <bsd.port.options.mk>
-.if (${ARCH} == "amd64" || ${ARCH} == "i386")
+.if (${ARCH} == "amd64")
 USE_GCC=		yes
 .endif
 .if ${OSVERSION} >= 1100000
@@ -42,6 +42,8 @@ EXTRA_PATCHES+=		${FILESDIR}/extra-patch-configure
 .endif
 
 do-install:
+# XigmaNAS® install
+	@echo "Start install for ${XIGMANAS_ROOTFS}"
 	-@${MKDIR} -v ${XIGMANAS_ROOTFS}/${PREFIX}/share/mt-daapd
 	-@${MKDIR} -v ${XIGMANAS_ROOTFS}/${PREFIX}/share/mt-daapd/plugins
 
@@ -98,5 +100,7 @@ do-install:
 	@${INSTALL_DATA} -v ${WRKSRC}/admin-root/lib-js/script.aculo.us/scriptaculous.js ${XIGMANAS_ROOTFS}${PREFIX}/share/mt-daapd/admin-root/lib-js/script.aculo.us
 	@${INSTALL_DATA} -v ${WRKSRC}/admin-root/lib-js/script.aculo.us/slider.js ${XIGMANAS_ROOTFS}${PREFIX}/share/mt-daapd/admin-root/lib-js/script.aculo.us
 	@${INSTALL_DATA} -v ${WRKSRC}/admin-root/lib-js/script.aculo.us/unittest.js ${XIGMANAS_ROOTFS}${PREFIX}/share/mt-daapd/admin-root/lib-js/script.aculo.us
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

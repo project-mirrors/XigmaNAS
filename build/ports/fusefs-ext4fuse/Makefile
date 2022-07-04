@@ -25,8 +25,10 @@ PLIST_FILES=	bin/ext4fuse
 do-install:
 	${INSTALL_PROGRAM} ${WRKSRC}/${PORTNAME} ${STAGEDIR}${PREFIX}/bin
 
-# XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+# XigmaNAS® Start Install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/bin/ext4fuse ${XIGMANAS_ROOTFS}/usr/local/bin
+# XigmaNAS® End install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>

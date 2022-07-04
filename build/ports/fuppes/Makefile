@@ -113,5 +113,4 @@ do-install:
 # XigmaNAS® End install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
-
 .include <bsd.port.mk>
