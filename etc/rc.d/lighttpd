@@ -10,6 +10,8 @@
 # PROVIDE: lighttpd
 # REQUIRE: htpasswd DAEMON
 # KEYWORD: shutdown
+# XQUERY: --output '0'
+# RCVAR: lighttpd
 
 # Test configuration: lighttpd -tt -f /var/etc/lighttpd.conf
 # Show configuration: lighttpd -p -f /var/etc/lighttpd.conf
