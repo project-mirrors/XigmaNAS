@@ -161,6 +161,7 @@ $l_command = [
 //	'set' => ['name' => 'activity','value' => 'set','show' => $b_pool && false,'default' => false,'longname' => gettext('Set property of a pool')],
 //	'split' => ['name' => 'activity','value' => 'split','show' => $b_pool && false,'default' => false,'longname' => gettext('Split off a device from mirrored virtual devices')],
 //	'status' => ['name' => 'activity','value' => 'status','show' => true && false,'default' => false,'longname' => gettext('Displays the health status of a pool')],
+	'trim' => ['name' => 'activity','value' => 'trim','show' => $b_pool,'default' => false,'longname' => gettext('Initiate TRIM of free space in a pool')],
 	'upgrade' => ['name' => 'activity','value' => 'upgrade','show' => $b_pool,'default' => false,'longname' => gettext('Upgrade ZFS and add all supported feature flags on a pool')]
 ];
 $lcommand = arr::sort_key($l_command,'longname');
@@ -218,7 +219,7 @@ endif;
 $pgtitle = [gettext('Disks'),gettext('ZFS'),gettext('Pools'),gettext('Tools'),sprintf('%1$s %2$d',gettext('Step'),$sphere_array['pageindex'])];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 //	Init spinner onsubmit()
@@ -1767,6 +1768,64 @@ $document->render();
 					else:
 						render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool']);
 					endif;
+					break;
+				case 'trim':
+					$subcommand = 'trim';
+					$result = 0;
+					switch($sphere_array['pageindex']):
+						case 2:
+//							trim: select pool
+							render_set_start();
+							render_activity_view($c_activity);
+							html_separator2(2);
+							html_titleline2(gettext('Select Pool'),2);
+//							one pool only
+							render_pool_edit($a_pool,'1',$sphere_array['pool']);
+							render_set_end();
+							render_submit(3,$sphere_array['activity'],$sphere_array['option'],[],$sphere_array['flag']);
+							break;
+						case 3:
+//							trim: select pool device
+							render_set_start();
+							render_activity_view($c_activity);
+							html_separator2(2);
+							html_titleline2(gettext('Select Pool Device'),2);
+							render_pool_view($sphere_array['pool']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_trim = $o_zpool->get_all_data_devices();
+							$o_zpool->set_poolname_filter();
+							render_pooldev_edit($a_pool_device_for_trim,'0');
+							render_set_end();
+							render_submit(4,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
+							break;
+						case 4:
+							render_set_start();
+							render_activity_view($c_activity);
+							html_separator2(2);
+							html_titleline2(gettext('Target'),2);
+							$prerequisites_ok = render_pool_view($sphere_array['pool']);
+							$o_zpool->set_poolname_filter($sphere_array['pool'][0]);
+							$a_pool_device_for_trim = $o_zpool->get_all_data_devices();
+							$o_zpool->set_poolname_filter();
+							render_pooldev_view($sphere_array['pooldev'],$a_pool_device_for_trim);
+							html_separator2(2);
+							html_titleline2(gettext('Output'),2);
+							$result = $prerequisites_ok ? 0 : 15;
+							if($prerequisites_ok):
+								$a_param = [];
+								$a_param[] = escapeshellarg($sphere_array['pool'][0]);
+								if(count($sphere_array['pooldev']) > 0):
+									foreach($sphere_array['pooldev'] as $tmp_device):
+										$a_param[] = escapeshellarg($tmp_device);
+									endforeach;
+								endif;
+								$result |= render_command_and_execute($subcommand,$a_param,$b_exec);
+							endif;
+							render_command_result($result);
+							render_set_end();
+							render_submit(1,$sphere_array['activity'],$sphere_array['option'],$sphere_array['pool'],$sphere_array['flag']);
+							break;
+					endswitch;
 					break;
 				case 'upgrade':
 					$subcommand = 'upgrade';
