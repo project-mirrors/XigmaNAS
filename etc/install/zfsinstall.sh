@@ -6,7 +6,7 @@
 #
 
 # Set environment.
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+PATH=${PATH}:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 export PATH
 
 # Set global variables.
@@ -198,7 +198,7 @@ gptpart_init()
 
 		# Create boot partition.
 		if [ "${BOOT_MODE}" = 2 ]; then
-			gpart add -a 4k -s 200M -t efi -l efiboot${NUM} ${DISK} > /dev/null
+			gpart add -a 4k -s 260M -t efi -l efiboot${NUM} ${DISK} > /dev/null
 		fi
 		gpart add -a 4k -s 512K -t freebsd-boot -l sysboot${NUM} ${DISK} > /dev/null
 
@@ -445,8 +445,15 @@ zroot_init()
 	zfs create -o mountpoint=none ${ZROOT}${DATASET}
 	zfs create -o mountpoint=/ ${ZROOT}${DATASET}${BOOTENV}
 	zfs create -o mountpoint=/tmp -o exec=on -o setuid=off ${ZROOT}/tmp
+	zfs create -o mountpoint=/usr -o canmount=off ${ZROOT}/usr
+	zfs create  ${ZROOT}/usr/home
+	zfs create -o setuid=off ${ZROOT}/usr/ports
+	zfs create  ${ZROOT}/usr/src
 	zfs create -o mountpoint=/var -o canmount=off ${ZROOT}/var
+	zfs create -o exec=off -o setuid=off ${ZROOT}/var/audit
+	zfs create -o exec=off -o setuid=off ${ZROOT}/var/crash
 	zfs create -o exec=off -o setuid=off ${ZROOT}/var/log
+	zfs create -o atime=on ${ZROOT}/var/mail
 	zfs create -o setuid=off ${ZROOT}/var/tmp
 	zfs set mountpoint=/${ZROOT} ${ZROOT}
 	zpool set bootfs=${ZROOT}${DATASET}${BOOTENV} ${ZROOT}
@@ -544,6 +551,12 @@ zroot_init()
 			done
 		fi
 	fi
+
+	# Creating/adding the /boot/efi mountpoint.
+	# New FreeBSD changes on 13.x, keep for reference for now.
+	#if [ "${BOOT_MODE}" = 2 ]; then
+	#	echo "/dev/ada0p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
+	#fi
 
 	# Backup geli providers metadata.
 	geli_meta_backup
@@ -880,13 +893,15 @@ copy_media_files()
 {
 	# Copy files from live media source.
 	if [ "${UPDATE}" != 0 ]; then
-		mkdir -p ${ALTROOT}/dev
-		mkdir -p ${ALTROOT}/mnt
-		mkdir -p ${ALTROOT}/tmp
-		mkdir -p ${ALTROOT}/var
+		DIR_LIST="/dev /mnt /tmp /var /tmp /var/tmp /boot/defaults"
+		for _DIR in ${DIR_LIST}; do
+			if [ ! -d "${ALTROOT}${_DIR}" ]; then
+				mkdir -p ${ALTROOT}${_DIR}
+			fi
+		done
+
 		chmod 1777 ${ALTROOT}/tmp
 		chmod 1777 ${ALTROOT}/var/tmp
-		mkdir -p ${ALTROOT}/boot/defaults
 	fi
 
 	# Set the proper boot path for copying.
