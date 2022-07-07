@@ -6,7 +6,7 @@
 #
 
 # Set environment.
-PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+PATH=${PATH}:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 export PATH
 
 # Set global variables.
@@ -885,13 +885,15 @@ copy_media_files()
 {
 	# Copy files from live media source.
 	if [ "${UPDATE}" != 0 ]; then
-		mkdir -p ${ALTROOT}/dev
-		mkdir -p ${ALTROOT}/mnt
-		mkdir -p ${ALTROOT}/tmp
-		mkdir -p ${ALTROOT}/var
+		DIR_LIST="/dev /mnt /tmp /var /tmp /var/tmp /boot/defaults"
+		for _DIR in ${DIR_LIST}; do
+			if [ ! -d "${ALTROOT}${_DIR}" ]; then
+				mkdir -p ${ALTROOT}${_DIR}
+			fi
+		done
+
 		chmod 1777 ${ALTROOT}/tmp
 		chmod 1777 ${ALTROOT}/var/tmp
-		mkdir -p ${ALTROOT}/boot/defaults
 	fi
 
 	# Set the proper boot path for copying.
