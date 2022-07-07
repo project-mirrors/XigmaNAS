@@ -10,6 +10,7 @@ Changes:
 - Upgrade python to v3.9.13.
 - Upgrade nut to v2022.06.23
 - Upgrade php to v8.1.8.
+- Upgrade syncthing to v1.20.3.
 
 Fixes:
 -
