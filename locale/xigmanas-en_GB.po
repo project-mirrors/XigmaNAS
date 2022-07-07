@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: comunio\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
-"PO-Revision-Date: 2022-07-04 21:08+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
+"PO-Revision-Date: 2022-07-07 21:08+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:12+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:12+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "Language: en_GB\n"
 
@@ -6488,6 +6488,9 @@ msgstr "Initialising"
 
 msgid "Initializing..."
 msgstr "Initialising..."
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr "Initiate TRIM of free space in a pool"
 
 msgid "Initiator Group"
 msgstr "Initiator Group"
@@ -15182,41 +15185,3 @@ msgstr "was assigned to"
 
 msgid "yes"
 msgstr "yes"
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "%s Interface"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-
-#~ msgid "Device polling"
-#~ msgstr "Device polling"
-
-#~ msgid "Enable device polling"
-#~ msgstr "Enable device polling"
-
-#~ msgid "FRU Information"
-#~ msgstr "FRU Information"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "No IPMI FRU data available."
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "No IPMI Sensor data available."
-
-#~ msgid "System Message"
-#~ msgstr "System Message"

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
 "PO-Revision-Date: 2019-11-09 20:14+0000\n"
 "Last-Translator: Péter <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:13+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Language: hu_HU\n"
@@ -6477,6 +6477,9 @@ msgstr "Inicializálás"
 
 msgid "Initializing..."
 msgstr "Inicializálás..."
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr ""
 
 msgid "Initiator Group"
 msgstr "Kezdeményező csoport"
@@ -15177,42 +15180,3 @@ msgstr ""
 
 msgid "yes"
 msgstr ""
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "%s interfész"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid "Device polling"
-#~ msgstr "Device polling (eszköz szavaztatás)"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "Az eszköz szavazás egy olyan technika, amely lehetővé teszi a rendszer "
-#~ "időközönkénti szavazását hálózati eszközök új adatok ahelyett, hogy "
-#~ "megszakítja. Ez csökkentheti CPU terhelését és ezáltal növeli a "
-#~ "teljesítményt, valamivel magasabb továbbítás késleltetése rovására (az "
-#~ "eszközök 1000-szer másodpercenként kérdezett). Nem minden hálózati kártya "
-#~ "támogatják a lekérdezést."
-
-#~ msgid "Enable device polling"
-#~ msgstr "Eszköz szavaztatás (device polling) engedélyezése"
-
-#~ msgid "FRU Information"
-#~ msgstr "FRU információ"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "IMPI FRU adat nem érhető el."
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "IMPI érzékelő adat nem érhető el."
-
-#~ msgid "System Message"
-#~ msgstr "Rendszerüzenet"

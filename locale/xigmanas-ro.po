@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
 "PO-Revision-Date: 2021-12-21 11:56+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:13+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: ro_RO\n"
@@ -6604,6 +6604,9 @@ msgstr "Inițializare"
 
 msgid "Initializing..."
 msgstr "Inițializare..."
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr ""
 
 msgid "Initiator Group"
 msgstr "Grup inițiator"
@@ -15441,44 +15444,3 @@ msgstr "a fost atribuit la"
 
 msgid "yes"
 msgstr "da"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid "FRU Information"
-#~ msgstr "Informații FRU"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "Nicio dată IPMI FRU disponibilă."
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "Niciun Senzor IPMI disponibil."
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "Interfața %s"
-
-#~ msgid "Device polling"
-#~ msgstr "Integogare dispozitiv"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "\"Device polling\" - Interogarea dispozitivului -  reprezintă tehnica prin "
-#~ "care sistemul verifică periodic cartelele de rețea pentru identificarea "
-#~ "eventualelor pachete noi de date în loc să folosească pentru aceasta "
-#~ "întreruperile sistem. Acest mod de lucru poate reduce încărcarea "
-#~ "procesorului cu creșterea corespunzătoare a vitezei sistemului, cu o mică "
-#~ "întârziere însă la nivelul transferului pachetelor de date în rețea "
-#~ "(dispozitivul este accesat de 1000 de ori pe secundă). Nu toate cartelele de "
-#~ "rețea suportă acest mod de lucru."
-
-#~ msgid "Enable device polling"
-#~ msgstr "Activare device polling"
-
-#~ msgid "System Message"
-#~ msgstr "Mesaj sistem"

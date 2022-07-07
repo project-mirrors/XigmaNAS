@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
 "PO-Revision-Date: 2022-06-14 13:50+0000\n"
 "Last-Translator: raul fernandez garcia <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:13+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Language: es_ES\n"
@@ -6601,6 +6601,9 @@ msgstr "Inicializando"
 
 msgid "Initializing..."
 msgstr "Inicializando…"
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr ""
 
 msgid "Initiator Group"
 msgstr "Grupo Iniciador"
@@ -15447,42 +15450,3 @@ msgstr "fue asignado a"
 
 msgid "yes"
 msgstr "si"
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "%s Interface"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid "Device polling"
-#~ msgstr "Comprobación de los dispositivos"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "La consulta a un dispositivo es una técnica que permite que el sistema "
-#~ "consulte a los dispositivos de red si tienen nuevos datos periódicamente en "
-#~ "lugar de utilizar interrupciones. Esto puede reducir la carga de la CPU y, "
-#~ "por lo tanto, incrementar la productividad, con el precio de un leve "
-#~ "incremento en el tiempo de reenvío (los dispositivos son consultados 1000 "
-#~ "veces por segundo). No todas las tarjetas de red soportan consulta."
-
-#~ msgid "Enable device polling"
-#~ msgstr "Permitir comprobacion de los dispositivos"
-
-#~ msgid "FRU Information"
-#~ msgstr "Información FRU"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "No se encuentra disponible los datos de IPMI FRU"
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "No se encuentra disponible datos del Sensor IPMI"
-
-#~ msgid "System Message"
-#~ msgstr "Mensaje del sistema"

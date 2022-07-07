@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
 "PO-Revision-Date: 2022-03-31 02:13+0000\n"
 "Last-Translator: Thomas Choi <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:12+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:12+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
-"X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
+"X-Poedit-SourceCharset: utf-8\n"
 "Language: zh_TW\n"
 
 msgid " No private key"
@@ -6149,6 +6149,9 @@ msgstr "初始化"
 
 msgid "Initializing..."
 msgstr "初始化中..."
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr ""
 
 msgid "Initiator Group"
 msgstr "啟動器組"
@@ -14282,38 +14285,3 @@ msgstr "被分配到"
 
 msgid "yes"
 msgstr "是"
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "%s介面"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid "Device polling"
-#~ msgstr "設備輪詢"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "設備輪詢一種不依靠中斷，而是定期向網路設備輪詢新數據的技術。這可以減小CPU的負荷而提高處理量，但是會有些微的轉送延遲（每秒輪詢1000次）。並非所有的網"
-#~ "卡都支持輪詢。"
-
-#~ msgid "Enable device polling"
-#~ msgstr "啟用設備輪詢"
-
-#~ msgid "FRU Information"
-#~ msgstr "FRU資訊"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "沒有IPMI FRU數據可用。"
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "無IPMI感測器數據可用。"
-
-#~ msgid "System Message"
-#~ msgstr "系統消息"

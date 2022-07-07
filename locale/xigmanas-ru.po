@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
 "PO-Revision-Date: 2022-06-13 14:51+0000\n"
 "Last-Translator: Evgeny Sokolov <sea1.150@gmail.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:13+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
-"X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Language: \n"
 
@@ -6567,6 +6567,9 @@ msgstr "Инициализация"
 
 msgid "Initializing..."
 msgstr "Инициализация…"
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr ""
 
 msgid "Initiator Group"
 msgstr "Группа инициаторов"
@@ -15398,42 +15401,3 @@ msgstr "был назначен на"
 
 msgid "yes"
 msgstr "да"
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "%s интерфейс"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid "Device polling"
-#~ msgstr "Опрос устройств"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "Опрос устройств - это подход, при котором система периодически опрашивает "
-#~ "сетевые устройства о новых данных, вместо того, чтобы полагаться на "
-#~ "прерывания. Это может снизить загрузку процессора, и, следовательно, "
-#~ "увеличить пропускную способность за счет чуть большей задержки при отправке "
-#~ "(устройства опрашиваются 1000 раз в секунду). Опрос поддерживается не всеми "
-#~ "сетевыми картами."
-
-#~ msgid "Enable device polling"
-#~ msgstr "Разрешить опрос устройств"
-
-#~ msgid "FRU Information"
-#~ msgstr "Информация FRU"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "Нет доступных данных IPMI FRU"
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "Нет доступных данных IPMI датчиков."
-
-#~ msgid "System Message"
-#~ msgstr "Системное сообщение"

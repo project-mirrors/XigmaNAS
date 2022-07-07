@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-04 22:50+0000\n"
+"POT-Creation-Date: 2022-07-07 22:43+0000\n"
 "PO-Revision-Date: 2022-07-04 15:53+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-04 21:13+0000\n"
+"X-Launchpad-Export-Date: 2022-07-07 21:13+0000\n"
 "X-Generator: Launchpad (build 34bab3ec0b1fcebb63455ce9ce19de47fff774bb)\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Language: de\n"
@@ -6615,6 +6615,9 @@ msgstr "Initialisieren"
 
 msgid "Initializing..."
 msgstr "Initialisierung läuft …"
+
+msgid "Initiate TRIM of free space in a pool"
+msgstr ""
 
 msgid "Initiator Group"
 msgstr "Initiatorgruppe"
@@ -15558,42 +15561,3 @@ msgstr "wurde zugewiesen an"
 
 msgid "yes"
 msgstr "ja"
-
-#, php-format
-#~ msgid "%s Interface"
-#~ msgstr "%s Schnittstelle"
-
-#~ msgid "DAAP"
-#~ msgstr "DAAP"
-
-#~ msgid "Device polling"
-#~ msgstr "Device polling"
-
-#~ msgid ""
-#~ "Device polling is a technique that lets the system periodically poll network "
-#~ "devices for new data instead of relying on interrupts. This can reduce CPU "
-#~ "load and therefore increase throughput, at the expense of a slightly higher "
-#~ "forwarding delay (the devices are polled 1000 times per second). Not all "
-#~ "NICs support polling."
-#~ msgstr ""
-#~ "Device polling ist eine Technik, die Geräte im Netzwerk periodisch auf neue "
-#~ "Daten überprüft und dadurch ohne Unterbrechungen (Interrupts) auskommt. Dies "
-#~ "kann die CPU-Last und dadurch den Datendurchsatz erhöhen, was allerdings zu "
-#~ "Lasten einer geringfügig höheren Weiterleitungsverzögerung (forwarding "
-#~ "delay) führt. Die Geräte werden 1000 Mal pro Sekunde abgefragt. Nicht alle "
-#~ "Netzwerkkarten unterstützen Device polling."
-
-#~ msgid "Enable device polling"
-#~ msgstr "Geräteabfrage (Device polling) aktivieren"
-
-#~ msgid "FRU Information"
-#~ msgstr "FRU Information"
-
-#~ msgid "No IPMI FRU data available."
-#~ msgstr "Keine IMPI FRU Daten verfügbar"
-
-#~ msgid "No IPMI Sensor data available."
-#~ msgstr "Es sind keine IPMI Daten verfügbar."
-
-#~ msgid "System Message"
-#~ msgstr "Systemmeldung"
