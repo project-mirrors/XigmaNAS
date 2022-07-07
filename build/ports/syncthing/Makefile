@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.20.2
+PORTVERSION=	1.20.3
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -57,12 +57,13 @@ do-install:
 .endfor
 
 # XigmaNAS® install
-	@echo "Start install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/syncthing.in ${XIGMANAS_ROOTFS}/etc/rc.d/syncthing
 # bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/${PORTNAME}/syncthing \
 		${XIGMANAS_ROOTFS}${PREFIX}/bin/
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>

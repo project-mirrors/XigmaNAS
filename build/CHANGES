@@ -22,12 +22,12 @@ Changes:
 - Upgrade proftpd to v1.3.7d.
 - Upgrade devcpu-data-intel to v20220510.
 - Upgrade phpmyadmin to v5.2.0.
-- Upgrade syncthing to v1.20.2.
 - Upgrade nut to v2022.05.24.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
 - Upgrade lighttpd to v1.4.65.
 - Upgrade sudo to v1.9.11p3.
+- Upgrade syncthing to v1.20.3.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
