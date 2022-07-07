@@ -104,14 +104,14 @@ BUILD 13.1.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P0.
-- Upgrade php to v8.1.7.
 - Upgrade syncthing to v1.20.2.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
 - Upgrade lighttpd to v1.4.65.
 - Upgrade sudo to v1.9.11p3.
 - Upgrade python to v3.9.13.
-- Upgrade nut to v2022.06.23
+- Upgrade nut to v2022.06.23.
+- Upgrade php to v8.1.8.
 
 Fixes:
 - fix bring up lighttpd at all times.
