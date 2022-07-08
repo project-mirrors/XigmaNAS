@@ -491,7 +491,7 @@ zroot_init()
 			cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/boot/BOOTx64.efi
 			echo "BOOTx64.efi" > /tmp/zfsinstall_etc/esp/efi/boot/startup.nsh
 			mkdir -p /tmp/zfsinstall_etc/esp/efi/freebsd
-			cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/boot/loader.efi
+			cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/freebsd/loader.efi
 			umount /tmp/zfsinstall_etc/esp
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 2 ${DISK}
 		else
