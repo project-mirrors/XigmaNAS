@@ -1176,8 +1176,10 @@ etc/rc.d/power_profile
 etc/rc.d/random
 etc/rc.d/securelevel
 etc/rc.d/swap
+etc/rc.d/zfs
 etc/rc.d/zfsd
 etc/rc.d/zfsbe
+etc/rc.d/zpool
 
 ####### contents of /usr/share/snmp/defs
 usr/share/snmp/defs/bridge_tree.def
