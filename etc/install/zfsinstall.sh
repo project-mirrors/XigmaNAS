@@ -12,6 +12,7 @@ export PATH
 # Set global variables.
 PLATFORM=$(uname -m)
 PRDNAME=$(cat /etc/prd.name)
+CDMOUNTED=0
 CDPATH="/tmp/cdrom"
 INCLUDE="/etc/install/include/boot"
 APPNAME="RootOnZFS"
@@ -177,10 +178,26 @@ cleandisk_init()
 load_kmods()
 {
 #	Required kernel modules.
-#	Load geom_mirror kernel module.
+#	Load geom_mirror/eli kernel modules.
+	if ! kldstat | grep -q geom_eli; then
+		if [ -f "/boot/kernel/geom_eli.ko" ]; then
+			kldload /boot/kernel/geom_eli.ko
+		else
+			# Mount cd-rom and search for the missing kmod.
+			if [ "${CDMOUNTED}" != 1 ]; then
+				mount_cdrom
+				CDMOUNTED=1
+			fi
+			if [ -f "/var/tmp/cdrom/boot/kernel/geom_eli.ko" ]; then
+				kldload /var/tmp/cdrom/boot/kernel/geom_eli.ko
+			fi
+		fi
+	fi
+
 	if ! kldstat | grep -q geom_mirror; then
 		kldload /boot/kernel/geom_mirror.ko
 	fi
+
 }
 
 # Create GPT/Partition on disk.
@@ -309,8 +326,6 @@ mbrpart_init()
 # Initialize encryption.
 geom_geli_init()
 {
-	load_kmods
-
 	DISKS=${GELI_DEVLIST}
 	for DISK in ${DISKS}
 	do
@@ -366,7 +381,9 @@ zroot_init()
 	printf '\033[1;37;44m RootOnZFS Working... \033[0m\033[1;37m\033[0m\n'
 
 	# Mount cd-rom.
-	mount_cdrom
+	if [ "${CDMOUNTED}" != 1 ]; then
+		mount_cdrom
+	fi
 
 	# Check for existing zroot pool.
 	zpool_check
@@ -701,7 +718,9 @@ upgrade_init()
 	printf '\033[1;37;44m RootOnZFS Working... \033[0m\033[1;37m\033[0m\n'
 
 	# Mount cd-rom.
-	mount_cdrom
+	if [ "${CDMOUNTED}" != 1 ]; then
+		mount_cdrom
+	fi
 
 	# Set the proper boot path for backup.
 	set_boot_path
