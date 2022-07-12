@@ -391,6 +391,9 @@ usr/bin/tail
 ## tar -- manipulate tape archives
 usr/bin/bsdtar:usr/bin/tar
 
+## timeout -- run a command with a time limit
+usr/bin/timeout
+
 ## top -- display and update information about the top cpu processes
 usr/bin/top
 
