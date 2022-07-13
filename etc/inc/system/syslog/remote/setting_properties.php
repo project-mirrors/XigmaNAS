@@ -78,7 +78,12 @@ class setting_properties extends grid_properties {
 				return $value;
 			elseif(preg_match('/^[1-9][0-9]{2,5}$/',$value) === 1):
 				$test = (int)$value;
-				if(($test >= 1024) && ($test <= 49151)):
+//				test user ports
+				if(($test >= 0x400) && ($test <= 0xbfff)):
+					return $value;
+				endif;
+//				test dynamic ports
+				if(($test >= 0xc000) && ($test <= 0xffff)):
 					return $value;
 				endif;
 			endif;
@@ -99,7 +104,7 @@ class setting_properties extends grid_properties {
 			set_placeholder(gettext('514'))->
 			set_filter(FILTER_CALLBACK)->
 			set_filter_options([$this,'test_port'])->
-			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Port number must be 514 or a number between 1024 and 49151.')));
+			set_message_error(sprintf('%s: %s',$property->get_title(),gettext('Port number must be 514 or a number between 1024 and 65535.')));
 		return $property;
 	}
 	public function init_rsyncd(): myp\property_bool {
