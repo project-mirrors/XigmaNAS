@@ -110,9 +110,9 @@ Changes:
 - Upgrade lighttpd to v1.4.65.
 - Upgrade sudo to v1.9.11p3.
 - Upgrade python to v3.9.13.
-- Upgrade nut to v2022.06.23.
 - Upgrade php to v8.1.8.
 - Upgrade syncthing to v1.20.3.
+- Upgrade nut to v2022.07.15.
 
 Fixes:
 - fix bring up lighttpd at all times.
