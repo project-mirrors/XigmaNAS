@@ -1,6 +1,6 @@
 PORTNAME=		nut
 PORTVERSION=	${NUT_COMMIT_DATE}
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	sysutils
 COMMENT=	Network UPS tools
 MAINTAINER=	zoon01@xigmanas.com
@@ -11,10 +11,9 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	3744cb047
-NUT_COMMIT_DATE=	2022.05.24
+GH_TAGNAME=	4143afd43
+NUT_COMMIT_DATE=	2022.07.18
 
-#MAKE_JOBS_UNSAFE=	yes
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
 USE_LDCONFIG=	yes
@@ -26,6 +25,8 @@ NUT_STATEDIR=		/var/db/nut
 NUT_SYSCONFDIR=		/var/etc
 NUT_DATADIR=		/usr/local/etc/${PORTNAME}
 NUT_DRVDIR=		/usr/local/libexec/${PORTNAME}
+
+MODBUS_CONFIGURE_WITH=	modbus
 
 CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--program-transform-name="" \
@@ -42,7 +43,6 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--with-snmp \
 		--with-neon \
 		--with-powerman \
-		--without-modbus \
 		--without-cgi \
 		--without-dev \
 		--without-avahi \
@@ -61,11 +61,11 @@ LIB_DEPENDS+=	libltdl.so:devel/libltdl
 LIB_DEPENDS+=	libnetsnmp.so:net-mgmt/net-snmp
 LIB_DEPENDS+=   libneon.so:www/neon
 LIB_DEPENDS+=	libpowerman.so:sysutils/powerman
-.if (${ARCH} == "amd64" || ${ARCH} == "i386")
+LIB_DEPENDS+=	libmodbus.so:comms/libmodbus
 LIB_DEPENDS+=	libfreeipmi.so:sysutils/freeipmi
 CONFIGURE_ARGS+=--with-ipmi \
 		--with-freeipmi
-.endif
+
 
 post-patch:
 	@${REINPLACE_CMD} -i '' -e 's|python|${PYTHON_CMD}|' ${WRKSRC}/autogen.sh
@@ -78,6 +78,8 @@ pre-install:
 	@${REINPLACE_CMD} -e 's/device-name\*/cdev/g' ${WRKSRC}/scripts/devd/nut-usb.conf
 
 do-install:
+# XigmaNAS® install
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}${PREFIX}/etc/devd
 	@${INSTALL_SCRIPT} -v ${WRKSRC}/scripts/devd/nut-usb.conf ${XIGMANAS_ROOTFS}${PREFIX}/etc/devd/nut-usb.conf
 
@@ -86,6 +88,7 @@ do-install:
 	@${INSTALL_DATA} -v ${WRKSRC}/data/driver.list ${XIGMANAS_ROOTFS}${NUT_DATADIR}
 
 	@${MKDIR} -pv ${XIGMANAS_ROOTFS}/${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/adelsystem_cbi ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/al175 ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/apcsmart ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/apcsmart-old ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -106,7 +109,9 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/etapro ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/everups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/gamatronic ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/generic_modbus ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/genericups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/huawei-ups2000 ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/isbmex ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/ivtscd ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/liebert ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -121,11 +126,10 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_atcl_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_qx ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nutdrv_siemens-sitop ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
-.if (${ARCH} == "amd64" || ${ARCH} == "i386")
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/nut-ipmipsu ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
-.endif
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/oneac ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/optiups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/phoenixcontact_modbus ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powercom ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/powerpanel ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/rhino ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -135,6 +139,7 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/safenet ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/skel ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/snmp-ups ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
+	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/socomec_jbus ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/solis ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/tripplite ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/tripplite_usb ${XIGMANAS_ROOTFS}${NUT_DRVDIR}
@@ -163,5 +168,7 @@ do-install:
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/nut_upslog.in ${XIGMANAS_ROOTFS}/etc/rc.d/nut_upslog
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/nut_upsmon.in ${XIGMANAS_ROOTFS}/etc/rc.d/nut_upsmon
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/upssched-cmd.in ${XIGMANAS_ROOTFS}/usr/local/bin/upssched-cmd
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
