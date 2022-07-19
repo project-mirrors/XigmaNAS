@@ -1272,7 +1272,7 @@ function system_get_sysinfo() {
 	$sysinfo['builddate'] = get_datetime_locale(get_product_buildtimestamp());
 	$sysinfo['date'] = get_datetime_locale();
 	$sysinfo['uptime'] = system_get_uptime();
-	$sysinfo['lastchange'] = get_datetime_locale($config['lastchange'] ?? 0);
+	$sysinfo['lastchange'] = get_datetime_locale((int)($config['lastchange'] ?? 0));
 	$cpuinfo = system_get_cpu_info();
 	$sysinfo['cpumodel'] = $cpuinfo['model'];
 	if(session::is_admin()):
