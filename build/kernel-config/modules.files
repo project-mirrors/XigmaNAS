@@ -1,8 +1,5 @@
 # List of kernel modules.
 
-# CPU_Freq Intel Speed Shift Technology driver
-cpufreq/cpufreq.ko
-
 # GEOM
 geom/geom_concat/geom_concat.ko
 geom/geom_gate/geom_gate.ko
