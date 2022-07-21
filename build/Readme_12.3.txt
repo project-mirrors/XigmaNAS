@@ -136,7 +136,6 @@ Changes:
 - Upgrade msmtp to v1.8.20.
 - Upgrade smartmontools to v7.3.
 - Upgrade php to v7.4.29.
-- Upgrade virtualbox-ose to v6.1.34.
 - Upgrade nano to v6.3.
 - Upgrade iperf3 to v3.11.
 - Upgrade devcpu-data-amd to v20220414.
@@ -153,6 +152,7 @@ Changes:
 - Upgrade sudo to v1.9.11p3.
 - Upgrade syncthing to v1.20.3.
 - Upgrade nut to v2022.07.18.
+- Upgrade virtualbox-ose to v6.1.36.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
