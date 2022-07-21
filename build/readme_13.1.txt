@@ -113,6 +113,7 @@ Changes:
 - Upgrade php to v8.1.8.
 - Upgrade syncthing to v1.20.3.
 - Upgrade nut to v2022.07.18.
+- Upgrade virtualbox-ose to v6.1.36.
 
 Fixes:
 - fix bring up lighttpd at all times.
