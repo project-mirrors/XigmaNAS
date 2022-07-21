@@ -6,12 +6,12 @@
 #
 # Mount critical remote filesystems
 #
-# XigmaNAS® Checked: /stable/12/libexec/rc/rc.d/mountcritremote		Revision 339434
+# XigmaNAS® Checked: 13.1/libexec/rc/rc.d/mountcritremote		commit 31b29217a
 # XigmaNAS® Changes: - Modify prereq's and remove REQUIRE: ipsec
 #
 
 # PROVIDE: mountcritremote
-# REQUIRE: NETWORKING FILESYSTEMS ipsec netwait
+# REQUIRE: NETWORKING FILESYSTEMS ipsec netwait nfscbd
 # KEYWORD: nojail shutdown
 
 . /etc/rc.subr
