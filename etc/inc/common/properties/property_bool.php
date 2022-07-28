@@ -45,7 +45,7 @@ class property_bool extends property {
 	public function filter_use_default() {
 		$filter_name = 'ui';
 		$this->
-			set_filter(FILTER_VALIDATE_BOOLEAN,$filter_name)->
+			set_filter(FILTER_VALIDATE_BOOL,$filter_name)->
 			set_filter_flags(FILTER_NULL_ON_FAILURE,$filter_name)->
 			set_filter_options(['default' => false],$filter_name);
 		return $this;
