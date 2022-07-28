@@ -41,16 +41,16 @@ use common\arr;
 
 arr::make_branch($config,'daap');
 $pconfig['enable'] = isset($config['daap']['enable']);
-$pconfig['servername'] = !empty($config['daap']['servername']) ? $config['daap']['servername'] : '';
-$pconfig['port'] = $config['daap']['port'];
+$pconfig['servername'] = !empty($config['daap']['servername']) ? $config['daap']['servername'] : $config['system']['hostname'];
+$pconfig['port'] = $config['daap']['port'] ?? '3869';
 $pconfig['dbdir'] = $config['daap']['dbdir'];
 $pconfig['content'] = !empty($config['daap']['content']) ? $config['daap']['content'] : [];
-$pconfig['compdirs'] = $config['daap']['compdirs'];
+$pconfig['compdirs'] = $config['daap']['compdirs'] ?? '';
 $pconfig['concatcomps'] = isset($config['daap']['concatcomps']);
-$pconfig['rescaninterval'] = $config['daap']['rescaninterval'];
+$pconfig['rescaninterval'] = $config['daap']['rescaninterval'] ?? 0;
 $pconfig['alwaysscan'] = isset($config['daap']['alwaysscan']);
 $pconfig['skipfirst'] = isset($config['daap']['skipfirst']);
-$pconfig['scantype'] = $config['daap']['scantype'];
+$pconfig['scantype'] = $config['daap']['scantype'] ?? '0';
 $pconfig['admin_pw'] = $config['daap']['admin_pw'];
 //	set default values.
 if(!$pconfig['servername']):
@@ -62,17 +62,8 @@ endif;
 if(!$pconfig['rescaninterval']):
 	$pconfig['rescaninterval'] = '0';
 endif;
-if(!$pconfig['alwaysscan']):
-	$pconfig['alwaysscan'] = false;
-endif;
-if(!$pconfig['skipfirst']):
-	$pconfig['skipfirst'] = false;
-endif;
 if(!$pconfig['scantype']):
 	$pconfig['scantype'] = '0';
-endif;
-if(!$pconfig['concatcomps']):
-	$pconfig['concatcomps'] = false;
 endif;
 if(!$pconfig['compdirs']):
 	$pconfig['compdirs'] = '';
@@ -96,16 +87,16 @@ if($_POST):
 		endif;
 	endif;
 	if(empty($input_errors)):
-		$config['daap']['enable'] = isset($_POST['enable']) ? true : false;
+		$config['daap']['enable'] = isset($_POST['enable']);
 		$config['daap']['servername'] = $_POST['servername'];
 		$config['daap']['port'] = $_POST['port'];
 		$config['daap']['dbdir'] = $_POST['dbdir'];
 		$config['daap']['content'] = !empty($_POST['content']) ? $_POST['content'] : [];
 		$config['daap']['compdirs'] = $_POST['compdirs'];
-		$config['daap']['concatcomps'] = isset($_POST['concatcomps']) ? true : false;
+		$config['daap']['concatcomps'] = isset($_POST['concatcomps']);
 		$config['daap']['rescaninterval'] = $_POST['rescaninterval'];
-		$config['daap']['alwaysscan'] = isset($_POST['alwaysscan']) ? true : false;
-		$config['daap']['skipfirst'] = isset($_POST['skipfirst']) ? true : false;
+		$config['daap']['alwaysscan'] = isset($_POST['alwaysscan']);
+		$config['daap']['skipfirst'] = isset($_POST['skipfirst']);
 		$config['daap']['scantype'] = $_POST['scantype'];
 		$config['daap']['admin_pw'] = $_POST['admin_pw'];
 		write_config();
@@ -168,16 +159,16 @@ function enable_change(enable_change) {
 ?>
 				<table width="100%" border="0" cellpadding="6" cellspacing="0">
 <?php
-					html_titleline_checkbox2('enable',gettext('Digital Audio Access Protocol'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'enable_change(false)');
+					html_titleline_checkbox2('enable',gettext('Digital Audio Access Protocol'),!empty($pconfig['enable']),gettext('Enable'),'enable_change(false)');
 					html_inputbox2('servername',gettext('Name'),$pconfig['servername'],gettext('This is both the name of the server as advertised via Zeroconf/Bonjour/Rendezvous, and the name of the database exported via DAAP.'),true,20);
 					html_inputbox2('port',gettext('Port'),$pconfig['port'],gettext('Port to listen on. Default iTunes port is 3689.'),true,5);
 					html_filechooser2('dbdir',gettext('Database Directory'),$pconfig['dbdir'],gettext('Location where the content database file will be stored.'),$g['media_path'],true,60);
 					html_folderbox2('content',gettext('Content'),!empty($pconfig['content']) ? $pconfig['content'] : [],gettext('Location of the files to share.'),$g['media_path'],true);
 					html_inputbox2('compdirs',gettext('Compilations Directories'),$pconfig['compdirs'],gettext('Tracks whose path contains one or more of these comma separated strings will be treated as a compilation.'),false,40);
-					html_checkbox('concatcomps',gettext('Group Compilations'),!empty($pconfig['concatcomps']) ? true : false,'',gettext('Whether compilations should be shown together under Various Artists.'),false);
+					html_checkbox('concatcomps',gettext('Group Compilations'),!empty($pconfig['concatcomps']),'',gettext('Whether compilations should be shown together under Various Artists.'),false);
 					html_inputbox2('rescaninterval',gettext('Rescan Interval'),$pconfig['rescaninterval'],gettext('Scan file system every N seconds to see if any files have been added or removed. Set to 0 to disable background scanning. If background rescanning is disabled, a scan can still be forced from the status page of the administrative web interface.'),false,5);
-					html_checkbox2('alwaysscan',gettext('Always Scan'),!empty($pconfig['alwaysscan']) ? true : false,'',gettext('Whether scans should be skipped if there are no users connected. This allows the drive to spin down when no users are connected.'),false);
-					html_checkbox2('skipfirst',gettext('Skip First Scan'),!empty($pconfig['skipfirst']) ? true : false,'',gettext('Whether to skip initial boot-up scan.'),false);
+					html_checkbox2('alwaysscan',gettext('Always Scan'),!empty($pconfig['alwaysscan']),'',gettext('Whether scans should be skipped if there are no users connected. This allows the drive to spin down when no users are connected.'),false);
+					html_checkbox2('skipfirst',gettext('Skip First Scan'),!empty($pconfig['skipfirst']),'',gettext('Whether to skip initial boot-up scan.'),false);
 					html_combobox2('scantype',gettext('Scan Mode'),$pconfig['scantype'],['0' => gettext('Normal'),'1' => gettext('Aggressive'),'2' => gettext('Painfully aggressive')],'',false);
 					html_separator2();
 					html_titleline2(gettext('Administrative WebGUI'));
