@@ -32,12 +32,13 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'cs_scheduletime.php';
-require_once 'autoload.php';
 
 use common\arr;
+use common\uuid;
 use gui\document;
 
 $sphere_scriptname = basename(__FILE__);
@@ -47,14 +48,10 @@ $sphere_notifier = 'cronjob';
 $sphere_array = [];
 $sphere_record = [];
 $prerequisites_ok = true;
-if (isset($_GET['uuid'])):
-	$uuid = $_GET['uuid'];
-endif;
-if(isset($_POST['uuid'])):
-	$uuid = $_POST['uuid'];
-endif;
+$uuid = $_POST['uuid'] ?? $_GET['uuid'] ?? null;
 $a_cronjob = &arr::make_branch($config,'cron','job');
-if(isset($uuid) && (false !== ($cnid = arr::search_ex($uuid,$a_cronjob,'uuid')))):
+$cnid = isset($uuid) ? arr::search_ex($uuid,$a_cronjob,'uuid') : false;
+if(isset($uuid) && ($cnid !== false)):
 	$pconfig['enable'] = isset($a_cronjob[$cnid]['enable']);
 	$pconfig['uuid'] = $a_cronjob[$cnid]['uuid'];
 	$pconfig['desc'] = $a_cronjob[$cnid]['desc'];
@@ -72,7 +69,7 @@ if(isset($uuid) && (false !== ($cnid = arr::search_ex($uuid,$a_cronjob,'uuid')))
 	$pconfig['command'] = $a_cronjob[$cnid]['command'];
 else:
 	$pconfig['enable'] = true;
-	$pconfig['uuid'] = uuid();
+	$pconfig['uuid'] = uuid::create_v4();
 	$pconfig['desc'] = '';
 	$pconfig['all_mins'] = 1;
 	$pconfig['all_hours'] = 1;
@@ -99,7 +96,7 @@ if($_POST):
 	endif;
 	if(empty($input_errors)):
 		$cronjob = [];
-		$cronjob['enable'] = isset($_POST['enable']) ? true : false;
+		$cronjob['enable'] = isset($_POST['enable']);
 		$cronjob['uuid'] = $_POST['uuid'];
 		$cronjob['desc'] = $_POST['desc'];
 		$cronjob['minute'] = !empty($_POST['minute']) ? $_POST['minute'] : null;
@@ -120,7 +117,7 @@ if($_POST):
 			else:
 				mwexec2(escapeshellcmd($_POST['command']),$output,$retval);
 			endif;
-			if(0 == $retval):
+			if($retval == 0):
 				$execmsg = gtext('The cron job has been executed successfully.');
 				write_log("The cron job '{$_POST['command']}' has been executed successfully.");
 			else:
@@ -128,7 +125,7 @@ if($_POST):
 				write_log("Failed to execute cron job '{$_POST['command']}'.");
 			endif;
 		else:
-			if(isset($uuid) && (false !== $cnid)):
+			if(isset($uuid) && ($cnid !== false)):
 				$a_cronjob[$cnid] = $cronjob;
 				$mode = UPDATENOTIFY_MODE_MODIFIED;
 			else:
@@ -145,7 +142,7 @@ endif;
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Cron'),isset($uuid) ? gtext('Edit') : gtext('Add')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php // Init spinner.?>
@@ -194,7 +191,7 @@ $document->render();
 		</colgroup>
 		<thead>
 <?php
-			html_titleline_checkbox2('enable',gettext('Cron job'),$pconfig['enable'] ? true : false,gettext('Enable'));
+			html_titleline_checkbox2('enable',gettext('Cron job'),!empty($pconfig['enable']),gettext('Enable'));
 ?>
 		</thead>
 		<tbody>
@@ -218,7 +215,7 @@ $document->render();
 		</tbody>
 	</table>
 	<div id="submit">
-		<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && (false !== $cnid)) ? gtext('Save') : gtext('Add')?>"/>
+		<input name="Submit" type="submit" class="formbtn" value="<?=(isset($uuid) && ($cnid !== false)) ? gtext('Save') : gtext('Add')?>"/>
 		<input name="Submit" id="runnow" type="submit" class="formbtn" value="<?=gtext('Run Now');?>"/>
 		<input name="Cancel" type="submit" class="formbtn" value="<?=gtext('Cancel');?>"/>
 		<input name="uuid" type="hidden" value="<?=$pconfig['uuid'];?>"/>
