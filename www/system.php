@@ -116,8 +116,7 @@ if($_POST):
 	do_input_validation_type($_POST,$reqdfields,$reqdfieldsn,$reqdfieldst,$input_errors);
 	if(!empty($_POST['webguihostsallow'])):
 		foreach(explode(' ',$_POST['webguihostsallow']) as $a):
-			list($hp,$np) = explode('/',$a);
-			if(!is_ipaddr($hp) || (!empty($np) && !is_subnet($a))):
+			if(!(is_ipaddr($a) || is_subnet($a))):
 				$input_errors[] = gtext('A valid IP address or CIDR notation must be specified for the hosts allow.');
 			endif;
 		endforeach;
@@ -169,7 +168,7 @@ if($_POST):
 		$config['system']['webgui']['protocol'] = $_POST['webguiproto'];
 		$config['system']['webgui']['port'] = $_POST['webguiport'];
 		$config['system']['webgui']['hostsallow'] = $_POST['webguihostsallow'];
-		$config['system']['webgui']['hostsallow_disable'] = filter_input(INPUT_POST,'webguihostsallow_disable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$config['system']['webgui']['hostsallow_disable'] = filter_input(INPUT_POST,'webguihostsallow_disable',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$config['system']['language'] = $_POST['language'] ?? '';
 //		Write auxiliary parameters.
 		$config['system']['webgui']['auxparam'] = [];
@@ -181,7 +180,7 @@ if($_POST):
 		endforeach;
 		$config['system']['timezone'] = $_POST['timezone'];
 		$config['system']['datetimeformat'] = $_POST['datetimeformat'];
-		$config['system']['ntp']['enable'] = isset($_POST['ntp_enable']) ? true : false;
+		$config['system']['ntp']['enable'] = isset($_POST['ntp_enable']);
 		$config['system']['ntp']['timeservers'] = strtolower($_POST['ntp_timeservers']);
 		$config['system']['ntp']['updateinterval'] = $_POST['ntp_updateinterval'];
 		$config['system']['webgui']['certificate'] = base64_encode($_POST['certificate']);
@@ -213,7 +212,7 @@ if($_POST):
 			$config['system']['ipv6dnsserver'][] = '';
 		endif;
 		$olddnsallowoverride = isset($config['system']['dnsallowoverride']);
-		$config['system']['dnsallowoverride'] = isset($_POST['dnsallowoverride']) ? true : false;
+		$config['system']['dnsallowoverride'] = isset($_POST['dnsallowoverride']);
 		write_config();
 		set_php_timezone();
 //		Check if a reboot is required.
@@ -365,7 +364,7 @@ $document->render();
 			html_inputbox2('webguihostsallow',gettext('Hosts Allow'),$pconfig['webguihostsallow'],gettext('Space delimited set of IP or CIDR notation that permitted to access the WebGUI. (empty is the same network of LAN interface)'),false,60);
 			$caption = gettext('Enable this option to allow any IP address to access the WebGUI.');
 			$desc = '<strong><font color="red">' . gettext('Security Warning') . '!</font> ' . gettext('Enabling this option may expose your system to additional security risk!') . '</strong>';
-			html_checkbox2('webguihostsallow_disable',gettext('Ignore Hosts Allow'),$pconfig['webguihostsallow_disable'],$caption,$desc);
+			html_checkbox2('webguihostsallow_disable',gettext('Ignore Hosts Allow'),!empty($pconfig['webguihostsallow_disable']),$caption,$desc);
 			html_textarea2('certificate',gettext('Certificate'),$pconfig['certificate'],gettext('Paste a signed certificate in X.509 PEM format here.'),true,65,7,false,false);
 			html_textarea2('privatekey',gettext('Private Key'),$pconfig['privatekey'],gettext('Paste a private key in PEM format here.'),true,65,7,false,false);
 			html_languagecombobox2('language',gettext('Language'),$pconfig['language'],gettext('Select the language of the WebGUI.'),'',false);
@@ -406,7 +405,7 @@ $document->render();
 				</td>
 			</tr>
 <?php
-			html_checkbox2('ntp_enable',gettext('Enable NTP'),!empty($pconfig['ntp_enable']) ? true : false,gettext('Use the specified NTP server.'),'',false);
+			html_checkbox2('ntp_enable',gettext('Enable NTP'),!empty($pconfig['ntp_enable']),gettext('Use the specified NTP server.'),'',false);
 			html_inputbox2('ntp_timeservers',gettext('NTP Time Server'),$pconfig['ntp_timeservers'],gettext('Use a space to separate multiple hosts (only one required). Remember to set up at least one DNS server if you enter a host name here!'),true,40);
 			html_inputbox2('ntp_updateinterval',gettext('Time Synchronization'),$pconfig['ntp_updateinterval'],gettext('Minutes between the next network time synchronization.'),true,20);
 ?>
