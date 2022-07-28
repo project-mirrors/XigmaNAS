@@ -1289,7 +1289,7 @@ $document->render();
 							html_titleline2(gettext('Select Pool'),2);
 							render_pool_edit($a_pool_for_offline_data,'1',$sphere_array['pool']);
 							render_set_end();
-							render_submit(3,$sphere_array['activity'],$sphere_array['option'],[],$sphere_array['flags']);
+							render_submit(3,$sphere_array['activity'],$sphere_array['option'],[],$sphere_array['flag']);
 							break;
 						case 3:
 //							offline data: select data device
@@ -1446,7 +1446,7 @@ $document->render();
 							html_titleline2(gettext('Select Pool'),2);
 							render_pool_edit($a_pool_for_remove_cache,'1',$sphere_array['pool']);
 							render_set_end();
-							render_submit(3,$sphere_array['activity'],$sphere_array['option'],[],$sphere_array['flags']);
+							render_submit(3,$sphere_array['activity'],$sphere_array['option'],[],$sphere_array['flag']);
 							break;
 						case 3:
 //							remove cache: select cache device
