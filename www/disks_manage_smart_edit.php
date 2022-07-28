@@ -32,21 +32,31 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'cs_scheduletime.php';
 
+use common\arr;
+use common\uuid;
+
 $sphere_scriptname = basename(__FILE__);
+$uuid = null;
 if(isset($_GET['uuid'])):
 	$uuid = $_GET['uuid'];
 endif;
 if(isset($_POST['uuid'])):
 	$uuid = $_POST['uuid'];
 endif;
-$a_selftest = &array_make_branch($config,'smartd','selftest');
-// Get list of all configured physical disks.
+$a_selftest = &arr::make_branch($config,'smartd','selftest');
+//	Get list of all configured physical disks.
 $a_disk = get_conf_physical_disks_list();
-if(isset($uuid) && (false !== ($cnid = array_search_ex($uuid,$a_selftest,'uuid')))):
+if(isset($uuid)):
+	$cnid = arr::search_ex($uuid,$a_selftest,'uuid');
+else:
+	$cnid = false;
+endif;
+if(isset($uuid) && ($cnid !== false)):
 	$pconfig['uuid'] = $a_selftest[$cnid]['uuid'];
 	$pconfig['devicespecialfile'] = $a_selftest[$cnid]['devicespecialfile'];
 	$pconfig['type'] = $a_selftest[$cnid]['type'];
@@ -60,7 +70,7 @@ if(isset($uuid) && (false !== ($cnid = array_search_ex($uuid,$a_selftest,'uuid')
 	$pconfig['all_weekdays'] = $a_selftest[$cnid]['all_weekdays'];
 	$pconfig['desc'] = $a_selftest[$cnid]['desc'];
 else:
-	$pconfig['uuid'] = uuid();
+	$pconfig['uuid'] = uuid::create_v4();
 	$pconfig['type'] = 'S';
 	$pconfig['desc'] = '';
 	$pconfig['all_hours'] = 1;
@@ -135,7 +145,7 @@ $l_types = [
 $pgtitle = [gtext('Disks'),gtext('Management'),gtext('S.M.A.R.T.'),gtext('Scheduled Self-Test'),isset($uuid) ? gtext('Edit') : gtext('Add')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php // Init spinner.?>
@@ -173,7 +183,7 @@ function set_selected(name) {
 		</thead>
 		<tbody>
 <?php
-			html_combobox2('devicespecialfile',gettext('Disk'),$pconfig['devicespecialfile'],$l_devicespecialfiles,gettext('Select a disk that is enabled for S.M.A.R.T. monitoring.'),true);
+			html_combobox2('devicespecialfile',gettext('Disk'),$pconfig['devicespecialfile'] ?? '',$l_devicespecialfiles,gettext('Select a disk that is enabled for S.M.A.R.T. monitoring.'),true);
 			html_radiobox2('type',gettext('Type'),$pconfig['type'],$l_types,'',true);
 ?>
 			<tr>
