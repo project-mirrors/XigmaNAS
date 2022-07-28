@@ -43,6 +43,7 @@ class filemanager {
 	use fm_debug;
 	use fm_del;
 	use fm_down;
+	use fm_edit_editarea;
 	use fm_extra;
 	use fm_error;
 	use fm_footer;
