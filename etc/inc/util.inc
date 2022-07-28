@@ -44,10 +44,12 @@ use common\uuid;
 putenv('PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin');
 
 function is_numericint($arg) {
-	return (preg_match("/[^0-9]/",$arg) ? false : true);
+	return (preg_match('/[^0-9]/',$arg) ? false : true);
 }
-/*
- *	returns true if $ipaddr is a valid IPv4 OR IPv6 address
+/**
+ *	Check if parameter is a valid IPv4 or IPv6 address
+ *	@param mixed $ipaddr
+ *	@return boolean
  */
 function is_ipaddr($ipaddr) {
 	if(filter_var($ipaddr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4)):
@@ -58,31 +60,39 @@ function is_ipaddr($ipaddr) {
 	endif;
 	return false;
 }
-/*
- *	returns true if $ipv4addr is a valid dotted IPv4 address
+/**
+ *	Check if parameter is a valid IPv4 address
+ *	@param mixed $ipv4addr
+ *	@return boolean
  */
-function is_ipv4addr($ipv4addr) {
-	return filter_var($ipv4addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4);
+function is_ipv4addr($ipv4addr): bool {
+	return (filter_var($ipv4addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4) !== false);
 }
-/*
- *	returns true if $ipv6addr is a valid dotted IPv6 address
+/**
+ *	Check if parameter is a valid IPv6 address
+ *	@param mixed $ipv6addr
+ *	@return boolean
  */
-function is_ipv6addr($ipv6addr) {
-	return filter_var($ipv6addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV6);
+function is_ipv6addr($ipv6addr): bool {
+	return (filter_var($ipv6addr,FILTER_VALIDATE_IP,FILTER_FLAG_IPV6) !== false);
 }
-/*
- *	returns true if $subnet is a valid subnet in IPv4/IPv6 CIDR format
+/**
+ *	Check if parameter is a valid subnet in CIDR format
+ *	@param mixed $subnet
+ *	@return boolean
  */
-function is_subnet($subnet) {
+function is_subnet($subnet): bool {
 	if(is_string($subnet)):
-		[$hp,$np] = explode('/',$subnet);
-//		if it's an IPv4 address, but with a bitcount outside 1-32 range, there is a problem
-		if(is_ipv4addr($hp) && is_numeric($np) && ($np > 0) && ($np <= 32)):
-			return true;
-		endif;
-//		if it's an IPv6 address, but with a bitcount outside 1-64 range, there is a problem
-		if(is_ipv6addr($hp) && is_numeric($np) && ($np > 0) && ($np <= 128)):
-			return true;
+		$a = explode('/',$subnet);
+		if(count($a) === 2):
+//			if it's an IPv4 address, but with a bitcount outside 1-32 range, there is a problem
+			if(is_ipv4addr($a[0]) && is_numeric($a[1]) && ($a[1] > 0) && ($a[1] <= 32)):
+				return true;
+			endif;
+//			if it's an IPv6 address, but with a bitcount outside 1-64 range, there is a problem
+			if(is_ipv6addr($a[0]) && is_numeric($a[1]) && ($a[1] > 0) && ($a[1] <= 128)):
+				return true;
+			endif;
 		endif;
 	endif;
 	return false;
@@ -2188,7 +2198,7 @@ function write_console($message) {
  */
 function is_booting() {
 	$val = getenv('BOOTING');
-	return (1 == $val) ? true : false;
+	return ($val == 1);
 }
 function get_bootdevice() {
 	$val = getenv('BOOTDEVICE');
