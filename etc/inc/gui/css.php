@@ -51,8 +51,16 @@ class css {
 		header('Content-type: text/css');
 		$css_default_filename = sprintf('%s/css/%s',$g['www_path'],$vanilla_filename);
 		$webgui_settings = arr::make_branch($config,'system','webgui');
-		$css_filemode = filter_var($webgui_settings[$cfg_key_filemode],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '','regexp' => '/^(|append|replace)$/']]);
-		$css_custom_filename = filter_var($webgui_settings[$cfg_key_filename],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]);
+		if(array_key_exists($cfg_key_filemode,$webgui_settings) && is_scalar($webgui_settings[$cfg_key_filemode])):
+			$css_filemode = filter_var($webgui_settings[$cfg_key_filemode],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/^(|append|replace)$/']]);
+		else:
+			$css_filemode = null;
+		endif;
+		if(array_key_exists($cfg_key_filename,$webgui_settings) && is_scalar($webgui_settings[$cfg_key_filename])):
+			$css_custom_filename = filter_var($webgui_settings[$cfg_key_filename],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => '/\S/']]);
+		else:
+			$css_custom_filename = null;
+		endif;
 		switch($css_filemode):
 			default:
 				if(file_exists($css_default_filename)):
