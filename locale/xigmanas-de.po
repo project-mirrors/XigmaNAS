@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
 "POT-Creation-Date: 2022-07-14 00:16+0000\n"
-"PO-Revision-Date: 2022-07-04 15:53+0000\n"
-"Last-Translator: zoon01 <Unknown>\n"
+"PO-Revision-Date: 2022-08-01 23:12+0000\n"
+"Last-Translator: ms49434 <ms49434@xigmanas.com>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-07-13 22:36+0000\n"
-"X-Generator: Launchpad (build 3033a640b736845d098ec36e3bb953aaececcd2d)\n"
+"X-Launchpad-Export-Date: 2022-08-01 23:16+0000\n"
+"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -6253,7 +6253,7 @@ msgid "IP or FQDN address of remote Rsync server."
 msgstr "IP oder FQDN Adresse des Remote-Rsync-Servers."
 
 msgid "IPMI Statistics"
-msgstr ""
+msgstr "IPMI Statistiken"
 
 msgid "IPMI Stats"
 msgstr "IPMI Statistiken"
@@ -6618,6 +6618,8 @@ msgstr "Initialisierung läuft …"
 
 msgid "Initiate TRIM of free space in a pool"
 msgstr ""
+"Ein TRIM Kommando ausführen um nicht mehr benutzten Speicherplatz in einem "
+"Pool freizugeben."
 
 msgid "Initiator Group"
 msgstr "Initiatorgruppe"
@@ -7945,7 +7947,7 @@ msgid "Mutual-CHAP"
 msgstr "Gegenseitiges CHAP"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/V"
 
 msgid "NAA Identifier"
 msgstr "NAA Kennzeichen"
@@ -9108,6 +9110,7 @@ msgstr "Port Name"
 
 msgid "Port number must be 514 or a number between 1024 and 65535."
 msgstr ""
+"Die Portnummer muß entweder 514 oder eine Zahl zwischen 1024 und 65535 sein."
 
 #, php-format
 msgid "Port number must be in the range between %d and %d."
@@ -9848,6 +9851,8 @@ msgid ""
 "Reconstruct the new device sequentially to restore redundancy as quickly as "
 "possible."
 msgstr ""
+"Sequentielle Wiederherstellung des neuen Datenträgers zur schnellstmöglichen "
+"Wiederherstellung der Redundanz."
 
 msgid "Record Information"
 msgstr "Imformationen zum Eintrag"
@@ -14282,7 +14287,7 @@ msgid "Unknown size"
 msgstr "Unbekannte Größe"
 
 msgid "Unkown"
-msgstr ""
+msgstr "Unbekannt"
 
 msgid "Unlimited"
 msgstr "Unbegrenzt"
@@ -14852,7 +14857,7 @@ msgid "Wait time"
 msgstr "Wartezeit"
 
 msgid "Wait until resilvering has finished before returning."
-msgstr ""
+msgstr "Warten, bis die Wiederherstellung abgeschlossen ist."
 
 msgid "Wake On LAN"
 msgstr "Wake On LAN"
@@ -15561,6 +15566,3 @@ msgstr "wurde zugewiesen an"
 
 msgid "yes"
 msgstr "ja"
-
-#~ msgid "Port number must be 514 or a number between 1024 and 49151."
-#~ msgstr "Die Portnummer muss 514 oder eine Zahl zwischen 1024 und 49151 sein."
