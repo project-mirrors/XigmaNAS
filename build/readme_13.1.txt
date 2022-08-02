@@ -115,6 +115,7 @@ Changes:
 - Upgrade nut to v2022.07.18.
 - Upgrade virtualbox-ose to v6.1.36.
 - Upgrade nano to v6.4.
+- Upgrade cdialog to v1.3-20220728.
 
 Fixes:
 - fix bring up lighttpd at all times.
