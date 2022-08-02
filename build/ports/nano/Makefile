@@ -1,5 +1,5 @@
 PORTNAME=		nano
-PORTVERSION=	6.3
+PORTVERSION=	6.4
 PORTREVISION?=  0
 CATEGORIES=	editors
 COMMENT=	Nano's ANOther editor, an enhanced free Pico clone
@@ -48,10 +48,11 @@ post-build:
 post-install:
 	${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/doc/sample.nanorc ${STAGEDIR}${EXAMPLESDIR}
+
 # XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_PROGRAM} -v ${WRKSRC}/src/nano ${XIGMANAS_ROOTFS}/usr/local/bin;
-# XigmaNAS® install
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
