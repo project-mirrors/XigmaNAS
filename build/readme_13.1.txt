@@ -114,6 +114,7 @@ Changes:
 - Upgrade syncthing to v1.20.3.
 - Upgrade nut to v2022.07.18.
 - Upgrade virtualbox-ose to v6.1.36.
+- Upgrade nano to v6.4.
 
 Fixes:
 - fix bring up lighttpd at all times.
