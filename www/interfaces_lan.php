@@ -40,7 +40,7 @@ $optcfg = &$config['interfaces']['lan']; // Required for WLAN.
 
 // Get interface informations.
 $ifinfo = get_interface_info(get_ifname($lancfg['if']));
-
+$pconfig['enable'] = isset($lancfg['enable']);
 if(strcmp($lancfg['ipaddr'],'dhcp') == 0):
 	$pconfig['type'] = 'DHCP';
 	$pconfig['ipaddr'] = get_ipaddr($lancfg['if']);
@@ -59,7 +59,7 @@ else:
 	$pconfig['ipv6addr'] = $lancfg['ipv6addr'];
 	$pconfig['ipv6subnet'] = $lancfg['ipv6subnet'];
 endif;
-$pconfig['gateway'] = get_defaultgateway();
+$pconfig['gateway'] = get_ipv4defaultgateway();
 $pconfig['ipv6gateway'] = get_ipv6defaultgateway();
 $pconfig['ipv6privacy'] = isset($lancfg['ipv6privacy']);
 $pconfig['mtu'] = !empty($lancfg['mtu']) ? $lancfg['mtu'] : '';
@@ -126,19 +126,19 @@ if($_POST):
 		elseif(strcmp($_POST['type'],'DHCP') == 0):
 			$lancfg['ipaddr'] = 'dhcp';
 		endif;
-		$lancfg['ipv6_enable'] = isset($_POST['ipv6_enable']) ? true : false;
+		$lancfg['ipv6_enable'] = isset($_POST['ipv6_enable']);
 		if(strcmp($_POST['ipv6type'],'Static') == 0):
 			$lancfg['ipv6addr'] = $_POST['ipv6addr'];
 			$lancfg['ipv6subnet'] = $_POST['ipv6subnet'];
 			$lancfg['ipv6gateway'] = $_POST['ipv6gateway'];
 		elseif(strcmp($_POST['ipv6type'],'Auto') == 0):
 			$lancfg['ipv6addr'] = 'auto';
-			$lancfg['ipv6privacy'] = isset($_POST['ipv6privacy']) ? true : false;
+			$lancfg['ipv6privacy'] = isset($_POST['ipv6privacy']);
 		endif;
 		$lancfg['mtu'] = $_POST['mtu'];
 		$lancfg['media'] = $_POST['media'];
 		$lancfg['mediaopt'] = $_POST['mediaopt'];
-		$lancfg['polling'] = isset($_POST['polling']) ? true : false;
+		$lancfg['polling'] = isset($_POST['polling']);
 		$lancfg['extraoptions'] = $_POST['extraoptions'];
 		if(!empty($ifinfo['wolevents'])):
 			$lancfg['wakeon'] = $_POST['wakeon'];
@@ -263,9 +263,9 @@ endif;
 			</thead>
 			<tbody>
 <?php
-				html_combobox2('type',gettext('Type'),$pconfig['type'],['Static' => gettext('Static'),'DHCP' => 'DHCP'],'',true,false,'type_change()');
-				html_ipv4addrbox2('ipaddr','subnet',gettext('IP Address'),$pconfig['ipaddr'],$pconfig['subnet'],'',true);
-				html_inputbox2('gateway',gettext('Gateway'),$pconfig['gateway'],'',true,20);
+				html_combobox2('type',gettext('Type'),$pconfig['type'] ?? '',['Static' => gettext('Static'),'DHCP' => 'DHCP'],'',true,false,'type_change()');
+				html_ipv4addrbox2('ipaddr','subnet',gettext('IP Address'),$pconfig['ipaddr'] ?? '',$pconfig['subnet'] ?? '','',true);
+				html_inputbox2('gateway',gettext('Gateway'),$pconfig['gateway'] ?? '','',true,20);
 ?>
 			</tbody>
 		</table>
@@ -277,15 +277,15 @@ endif;
 			<thead>
 <?php
 				html_separator2();
-				html_titleline_checkbox2('ipv6_enable',gettext('IPv6 Settings'),!empty($pconfig['ipv6_enable']) ? true : false,gettext('Activate'),'enable_change(this)');
+				html_titleline_checkbox2('ipv6_enable',gettext('IPv6 Settings'),!empty($pconfig['ipv6_enable']),gettext('Activate'),'enable_change(this)');
 ?>
 			</thead>
 			<tbody>
 <?php
-				html_combobox2('ipv6type',gettext('Type'),$pconfig['ipv6type'],['Static' => gettext('Static'),'Auto' => gettext('Auto')],'',true,false,'ipv6_type_change()');
-				html_ipv6addrbox2('ipv6addr','ipv6subnet',gettext('IP Address'),!empty($pconfig['ipv6addr']) ? $pconfig['ipv6addr'] : '',!empty($pconfig['ipv6subnet']) ? $pconfig['ipv6subnet'] : '','',true);
-				html_inputbox2('ipv6gateway',gettext('Gateway'),!empty($pconfig['ipv6gateway']) ? $pconfig['ipv6gateway'] : '','',true,20);
-				html_checkbox2('ipv6privacy',gettext('Privacy Extension'),!empty($pconfig['ipv6privacy']) ? true : false,gettext('Enable IPv6 privacy extensions.'),'',true);
+				html_combobox2('ipv6type',gettext('Type'),$pconfig['ipv6type'] ?? '',['Static' => gettext('Static'),'Auto' => gettext('Auto')],'',true,false,'ipv6_type_change()');
+				html_ipv6addrbox2('ipv6addr','ipv6subnet',gettext('IP Address'),$pconfig['ipv6addr'] ?? '',$pconfig['ipv6subnet'] ?? '','',true);
+				html_inputbox2('ipv6gateway',gettext('Gateway'),$pconfig['ipv6gateway'] ?? '','',true,20);
+				html_checkbox2('ipv6privacy',gettext('Privacy Extension'),!empty($pconfig['ipv6privacy']),gettext('Enable IPv6 privacy extensions.'),'',true);
 ?>
 			</tbody>
 		</table>
@@ -302,10 +302,10 @@ endif;
 			</thead>
 			<tbody>
 <?php
-				html_inputbox2('mtu',gettext('MTU'),$pconfig['mtu'],gettext('Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions.'),false,5);
-//				html_checkbox2('polling',gettext('Device Polling'),$pconfig['polling'] ? true : false,gettext('Enable device polling'),gettext('Device polling is a technique that lets the system periodically poll network devices for new data instead of relying on interrupts. This can reduce CPU load and therefore increase throughput, at the expense of a slightly higher forwarding delay (the devices are polled 1000 times per second). Not all NICs support polling.'),false);
-				html_combobox2('media',gettext('Media'),$pconfig['media'],['autoselect' => gettext('Autoselect'),'10baseT/UTP' => '10baseT/UTP','100baseTX' => '100baseTX','1000baseTX' => '1000baseTX','1000baseSX' => '1000baseSX',],'',false,false,'media_change()');
-				html_combobox2('mediaopt',gettext('Duplex'),$pconfig['mediaopt'],['half-duplex' => 'half-duplex','full-duplex' => 'full-duplex'],'',false);
+				html_inputbox2('mtu',gettext('MTU'),$pconfig['mtu'] ?? '',gettext('Set the maximum transmission unit of the interface to n, default is interface specific. The MTU is used to limit the size of packets that are transmitted on an interface. Not all interfaces support setting the MTU, and some interfaces have range restrictions.'),false,5);
+//				html_checkbox2('polling',gettext('Device Polling'),!empty($pconfig['polling']),gettext('Enable device polling'),gettext('Device polling is a technique that lets the system periodically poll network devices for new data instead of relying on interrupts. This can reduce CPU load and therefore increase throughput, at the expense of a slightly higher forwarding delay (the devices are polled 1000 times per second). Not all NICs support polling.'),false);
+				html_combobox2('media',gettext('Media'),$pconfig['media'] ?? '',['autoselect' => gettext('Autoselect'),'10baseT/UTP' => '10baseT/UTP','100baseTX' => '100baseTX','1000baseTX' => '1000baseTX','1000baseSX' => '1000baseSX',],'',false,false,'media_change()');
+				html_combobox2('mediaopt',gettext('Duplex'),$pconfig['mediaopt'] ?? '',['half-duplex' => 'half-duplex','full-duplex' => 'full-duplex'],'',false);
 				if(!empty($ifinfo['wolevents'])):
 					$wakeonoptions = [
 						'off' => gettext('Off'),
@@ -313,11 +313,11 @@ endif;
 					foreach ($ifinfo['wolevents'] as $woleventv):
 						$wakeonoptions[$woleventv] = $woleventv;
 					endforeach;
-					html_combobox2('wakeon',gettext('Wake On LAN'),$pconfig['wakeon'],$wakeonoptions,'',false);
+					html_combobox2('wakeon',gettext('Wake On LAN'),$pconfig['wakeon'] ?? '',$wakeonoptions,'',false);
 				else:
 					html_text2('wakeon',gettext('Wake On LAN'),gettext('Not available'));
 				endif;
-				html_inputbox2('extraoptions',gettext('Extra Options'),$pconfig['extraoptions'],gettext('Extra options to ifconfig (usually empty).'),false,40);
+				html_inputbox2('extraoptions',gettext('Extra Options'),$pconfig['extraoptions'] ?? '',gettext('Extra options to ifconfig (usually empty).'),false,40);
 				if(isset($lancfg['wireless'])):
 					wireless_config_print();
 				endif;

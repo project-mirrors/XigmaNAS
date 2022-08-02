@@ -1778,53 +1778,82 @@ function get_ipv6dnsserver() {
 	$result = array_merge($result,['','']);
 	return $result;
 }
-/*
- *	Get the default gateway.
- *	Returns default gateway IPv4
+/**
+ *	Returns the default IPv4 gateway or an empty string if it doesn't exist
+ *	@global array $config
+ *	@return string
  */
-function get_defaultgateway() {
+function get_ipv4defaultgateway(): string {
 	global $config;
 
 	$result = '';
-	switch($config['interfaces']['lan']['ipaddr']):
-		case 'dhcp':
-			exec('/sbin/route -n get -inet default',$rawdata);
-			foreach($rawdata as $data):
-				$adata = preg_split('/\s+/',trim($data));
-				if(strstr($adata[0],'gateway') !== false):
-					$result = $adata[1];
+	$gateway_found = false;
+	$config_lan = arr::make_branch($config,'interfaces','lan');
+//	if(!gateway_found):
+		if(isset($config_lan['ipaddr']) && ($config_lan['ipaddr'] == 'dhcp')):
+			$cmd = 'netstat -4rnW --libxo:J';
+			$json_string = shell_exec($cmd);
+			$rawdata = json_decode($json_string,true);
+			$rt_entries = arr::make_branch($rawdata,'statistics','route-information','route-table','rt-family','rt-entry');
+			foreach($rt_entries as $rt_entry):
+				$destination = $rt_entry['destination'] ?? null;
+				if($destination == 'default'):
+					$test = $rt_entry['gateway'] ?? null;
+					if(is_scalar($test)):
+						$result = $test;
+						$gateway_found = true;
+					endif;
 					break;
 				endif;
 			endforeach;
-			break;
-		default:
-			$result = $config['interfaces']['lan']['gateway'];
-			break;
-	endswitch;
+		endif;
+//	endif;
+	if(!$gateway_found):
+		$test = $config_lan['gateway'] ?? null;
+		if(is_scalar($test)):
+			$result = $test;
+//			$gateway_found = true;
+		endif;
+	endif;
 	return $result;
 }
-/*
- *	Returns default gateway IPv6
+/**
+ *	Returns the default IPv6 gateway or en empty string if it doesn't exist
+ *	@global array $config
+ *	@return string
  */
-function get_ipv6defaultgateway() {
+function get_ipv6defaultgateway(): string {
 	global $config;
 
 	$result = '';
-	switch($config['interfaces']['lan']['ipv6addr']):
-		case 'auto':
-			exec('/sbin/route -n get -inet6 default',$rawdata);
-			foreach($rawdata as $data):
-				$adata = preg_split('/\s+/',trim($data));
-				if(strstr($adata[0],'gateway') !== false):
-					$result = $adata[1];
+	$gateway_found = false;
+	$config_lan = arr::make_branch($config,'interfaces','lan');
+//	if(!gateway_found):
+		if(isset($config_lan['ipv6addr']) && ($config_lan['ipv6addr'] == 'auto')):
+			$cmd = 'netstat -6rnW --libxo:J';
+			$json_string = shell_exec($cmd);
+			$rawdata = json_decode($json_string,true);
+			$rt_entries = arr::make_branch($rawdata,'statistics','route-information','route-table','rt-family','rt-entry');
+			foreach($rt_entries as $rt_entry):
+				$destination = $rt_entry['destination'] ?? null;
+				if($destination == 'default'):
+					$test = $rt_entry['gateway'] ?? null;
+					if(is_scalar($test)):
+						$result = $test;
+						$gateway_found = true;
+					endif;
 					break;
 				endif;
 			endforeach;
-			break;
-		default:
-			$result = $config['interfaces']['lan']['ipv6gateway'];
-			break;
-	endswitch;
+		endif;
+//	endif;
+	if(!$gateway_found):
+		$test = $config_lan['ipv6gateway'] ?? null;
+		if(is_scalar($test)):
+			$result = $test;
+//			$gateway_found = true;
+		endif;
+	endif;
 	return $result;
 }
 /*
