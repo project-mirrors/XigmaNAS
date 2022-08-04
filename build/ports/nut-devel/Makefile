@@ -1,6 +1,6 @@
 PORTNAME=		nut
 PORTVERSION=	${NUT_COMMIT_DATE}
-PORTREVISION=	0
+PORTREVISION=	1
 CATEGORIES=	sysutils
 COMMENT=	Network UPS tools
 MAINTAINER=	zoon01@xigmanas.com
@@ -43,11 +43,15 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--with-snmp \
 		--with-neon \
 		--with-powerman \
+		--without-pynut \
 		--without-cgi \
 		--without-dev \
 		--without-avahi \
 		--with-user=${NUT_USER} \
 		--with-group=${NUT_GROUP} \
+		--with-python=${PYTHON_CMD} \
+		--without-python2 \
+		--with-python3=${PYTHON_CMD} \
 		--with-wrap
 
 .include <bsd.port.pre.mk>
