@@ -103,7 +103,6 @@ cp -v ${XIGMANAS_WORLD}/boot/userboot_lua.so $MINIBSD_DIR
 cp -v ${XIGMANAS_WORLD}/boot/kernel/linker.hints $MINIBSD_DIR/kernel
 
 # Copy required custom files from SVNDIR
-cp -v ${XIGMANAS_SVNDIR}/boot/boot1.efifat $MINIBSD_DIR
 cp -v ${XIGMANAS_SVNDIR}/boot/loader.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_SVNDIR}/boot/loader_4th.efi $MINIBSD_DIR
 cp -v ${XIGMANAS_SVNDIR}/boot/loader_lua.efi $MINIBSD_DIR
