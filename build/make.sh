@@ -1215,11 +1215,12 @@ create_usb_gpt() {
 	MDLSIZE=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal.xz)
 	MDLSIZE2=$(stat -f "%z" ${XIGMANAS_WORKINGDIR}/mdlocal-mini.xz)
 	IMGSIZEM=$(expr \( $IMGSIZE + $MFSSIZE + $MDLSIZE + $MDLSIZE2 - 1 + 1024 \* 1024 \) / 1024 / 1024)
-	UEFISIZE=16
+	UEFISIZE=200
 	BOOTSIZE=512
 	USBROOTM=768
 	USB_SECTS=63
 	USB_HEADS=255
+	EFI_MOUNT="/tmp/install_efi"
 
 #	4MB alignment, 800M image.
 	USBEFISIZEM=$(expr $UEFISIZE + 4)
@@ -1250,7 +1251,20 @@ create_usb_gpt() {
 
 #	Write boot code.
 	echo "USB: Writing boot code on this memory disk"
-	gpart bootcode -p /boot/boot1.efifat -i 1 /dev/${md}
+	
+	#gpart bootcode -p /boot/boot1.efifat -i 1 /dev/${md}
+	echo "Creating EFI system partition..."
+	mkdir -p ${EFI_MOUNT}/esp
+	mount -t msdosfs /dev/${md}p1 ${EFI_MOUNT}/esp
+	mkdir -p ${EFI_MOUNT}/esp/efi/boot
+	cp /boot/loader.efi ${EFI_MOUNT}/esp/efi/boot/BOOTx64.efi
+	echo "BOOTx64.efi" > ${EFI_MOUNT}/esp/efi/boot/startup.nsh
+	mkdir -p ${EFI_MOUNT}/esp/efi/freebsd
+	cp /boot/loader.efi ${EFI_MOUNT}/esp/efi/freebsd/loader.efi
+	umount ${EFI_MOUNT}/esp
+	rm -r ${EFI_MOUNT}
+
+	echo "Writing bootcode..."
 	gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 2 /dev/${md}
 
 #	SYSTEM partition.
