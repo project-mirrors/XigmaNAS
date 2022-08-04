@@ -501,16 +501,18 @@ zroot_init()
 			#gpart bootcode -p /boot/boot1.efifat -i 1 ${DISK} # Legacy efi bootcode, keep for reference.
 			if ! newfs_msdos -F 16 -L "EFISYS" /dev/${DISK}p1 > /dev/null 2>&1; then
 				error_exit "Failed to create new filesystem on ${DISK}p1"
+			else
+				echo "Creating EFI system partition..."
+				mkdir -p /tmp/zfsinstall_etc/esp
+				mount -t msdosfs /dev/${DISK}p1 /tmp/zfsinstall_etc/esp
+				mkdir -p /tmp/zfsinstall_etc/esp/efi/boot
+				cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/boot/BOOTx64.efi
+				echo "BOOTx64.efi" > /tmp/zfsinstall_etc/esp/efi/boot/startup.nsh
+				mkdir -p /tmp/zfsinstall_etc/esp/efi/freebsd
+				cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/freebsd/loader.efi
+				umount /tmp/zfsinstall_etc/esp
+				gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 2 ${DISK}
 			fi
-			mkdir -p /tmp/zfsinstall_etc/esp
-			mount -t msdosfs /dev/${DISK}p1 /tmp/zfsinstall_etc/esp
-			mkdir -p /tmp/zfsinstall_etc/esp/efi/boot
-			cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/boot/BOOTx64.efi
-			echo "BOOTx64.efi" > /tmp/zfsinstall_etc/esp/efi/boot/startup.nsh
-			mkdir -p /tmp/zfsinstall_etc/esp/efi/freebsd
-			cp /boot/loader.efi /tmp/zfsinstall_etc/esp/efi/freebsd/loader.efi
-			umount /tmp/zfsinstall_etc/esp
-			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 2 ${DISK}
 		else
 			gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${DISK}
 		fi
@@ -573,9 +575,13 @@ zroot_init()
 
 	# Creating/adding the /boot/efi mountpoint.
 	# New FreeBSD changes on 13.x, keep for reference for now.
-	#if [ "${BOOT_MODE}" = 2 ]; then
-	#	echo "/dev/ada0p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
-	#fi
+	if [ "${BOOT_MODE}" = 2 ]; then
+		if [ ! -d "${ALTROOT}/boot/efi" ]; then
+			mkdir -p ${ALTROOT}/boot/efi
+		fi
+		# Add the first esp partition to fstab.
+		#echo "/dev/${DISK}p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
+	fi
 
 	# Backup geli providers metadata.
 	geli_meta_backup
