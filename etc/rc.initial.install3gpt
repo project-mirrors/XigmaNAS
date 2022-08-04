@@ -45,77 +45,13 @@ $swapsize = sprintf('%sM',$g_install['default_swap']);
 $swapsizemin = sprintf('%sM',$g_install['default_swap'] >> 1);
 
 //	default slice/partition layout
-$schemelayout =
-	[
-		'scheme' => 'GPT',
-		'entries' => 128
-	];
+$schemelayout = ['scheme' => 'GPT','entries' => 128];
 $partlayout = [
-	'boot' => [
-		'enabled' => true,
-		'partition' => 1,
-		'fstype' => 'freebsd-boot',
-		'volname' => 'gptboot',
-		'align' => '32k',
-		'size' => '512k',
-		'minimum' => '512k',
-//		'maximum' => '512k',
-//		'allow_edit' => false,
-//		'allow_star' => false,
-		'friendly_name' => 'BOOT'
-	],
-	'efi' => [
-		'enabled' => false,
-		'partition' => 42,
-		'fstype' => 'efi',
-		'volname' => 'efiboot',
-		'align' => '32k',
-		'size' => '200m',
-		'minimum' => '200m',
-//		'maximum' => '200m',
-//		'allow_edit' => false,
-//		'allow_star' => false,
-		'friendly_name' => 'EFI'
-	],
-	'root' => [
-		'enabled' => true,
-		'partition' => 2,
-		'fstype' => 'freebsd-ufs',
-		'volname' => 'gptroot',
-		'align' => '1m',
-		'size' => $part1size,
-		'minimum' => $part1size,
-//		'maximum' => '16g',
-		'allow_edit' => true,
-//		'allow_star' => false,
-		'friendly_name' => 'OS'
-	],
-	'swap' => [
-		'enabled' => true,
-		'partition' => 3,
-		'fstype' => 'freebsd-swap',
-		'volname' => 'gptswap',
-		'size' => $swapsize,
-		'align' => '1m',
-		'minimum' => $swapsizemin,
-//		'maximum' => '*',
-		'allow_edit' => true,
-//		'allow_star' => false,
-		'friendly_name' => 'SWAP'
-	],
-	'data' => [
-		'enabled' => true,
-		'partition' => 4,
-		'fstype' => 'freebsd-ufs',
-		'volname' => 'data',
-		'align' => '1m',
-		'size' => '',
-		'minimum' => '256m',
-//		'maximum' => '*',
-		'allow_edit' => true,
-		'allow_star' => true,
-		'friendly_name' => 'DATA'
-	]
+	'boot' => ['enabled' => true ,'partition' =>  1,'fstype' => 'freebsd-boot','volname' => 'gptboot','align' => '32k','size' => '512k'    ,'minimum' => '512k'      ,'friendly_name' => 'BOOT'],
+//	'efi'  => ['enabled' => false,'partition' => 42,'fstype' => 'efi'         ,'volname' => 'efiboot','align' => '32k','size' => '260m'    ,'minimum' => '260m'      ,'friendly_name' => 'EFI'],
+	'root' => ['enabled' => true ,'partition' =>  2,'fstype' => 'freebsd-ufs' ,'volname' => 'gptroot','align' => '1m' ,'size' => $part1size,'minimum' => $part1size  ,'friendly_name' => 'OS'  ,'allow_edit' => true],
+	'swap' => ['enabled' => true ,'partition' =>  3,'fstype' => 'freebsd-swap','volname' => 'gptswap','align' => '1m' ,'size' => $swapsize ,'minimum' => $swapsizemin,'friendly_name' => 'SWAP','allow_edit' => true],
+	'data' => ['enabled' => true ,'partition' =>  4,'fstype' => 'freebsd-ufs' ,'volname' => 'data'   ,'align' => '1m' ,'size' => ''        ,'minimum' => '256m'      ,'friendly_name' => 'DATA','allow_edit' => true,'allow_star' => true]
 ];
 
 //	get product information
