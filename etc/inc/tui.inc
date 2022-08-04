@@ -38,14 +38,19 @@
 require_once 'util.inc';
 require_once 'co_geom_info.inc';
 
-// Display a yes|no dialog.
-// $text - The dialog text
-// $width - Width of the dialog
-// $height - Height of the dialog
-// Returns 0 if yes, 1 if no or 255 if aborted via ESC.
+/**
+ *	Display a yes|no dialog.
+ *	@param string $text The dialog text
+ *	@param int $width Width of the dialog
+ *	@param int $height Height of the dialog
+ *	@param bool $defaultyes
+ *	@return int Returns 0 if yes, 1 if no or 255 if aborted via ESC.
+ */
 function tui_display_yesno($text, $width, $height, $defaultyes = true) {
-	$param = "";
-	if (false === $defaultyes) $param = "--defaultno";
+	$param = '';
+	if ($defaultyes === false):
+		$param = '--defaultno';
+	endif;
 	passthru("/usr/local/bin/cdialog --clear {$param} --yesno \"{$text}\" {$height} {$width}", $retval);
 	return $retval;
 }
@@ -102,11 +107,11 @@ function tui_display_input($text, $width, $height, &$value) {
 function tui_display_menu($title, $menutitle, $width, $height, $menuheight, $amenuitem, &$value) {
 	$tmpfile = "/tmp/tui" . rand();
 	$cmd = "/usr/local/bin/cdialog --input-fd 2 --output-fd 1 --clear --title \"{$title}\" --menu \"{$menutitle}\" {$height} {$width} {$menuheight}";
-	foreach($amenuitem as $menuitemv) {
+	foreach($amenuitem as $menuitemv):
 		$cmd .= " \"{$menuitemv['tag']}\" \"{$menuitemv['item']}\"";
-	}
+	endforeach;
 	$cmd .= " 1>{$tmpfile}";
-	passthru($cmd, $retval);
+	passthru($cmd,$retval);
 	$value = @file_get_contents($tmpfile);
 	@unlink($tmpfile);
 	return $retval;
@@ -114,8 +119,9 @@ function tui_display_menu($title, $menutitle, $width, $height, $menuheight, $ame
 
 // Wait until user has pressed 'RETURN'.
 function tui_wait_keypress($message = "") {
-	if (!empty($message))
+	if (!empty($message)):
 		write_console("$message\n");
+	endif;
 	write_console("\nPress ENTER to continue.");
 	$fp = fopen('php://stdin', 'r');
 	fgets($fp);
@@ -174,11 +180,11 @@ function make_esp(string $partition_name,string $label,?string &$message): bool 
 //	global $g;
 
 	$message = '';
-	if(file_exists('/boot/boot1.efifat')):
+//	if(file_exists('/boot/boot1.efifat')):
 //		nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
-		$message .= ' skipped';
-		return true;
-	else:
+//		$message .= ' skipped';
+//		return true;
+//	else:
 //		preset variables
 		$node = '/tmp/esp';
 		$source_efi_boot = '/boot/loader.efi';
@@ -260,7 +266,7 @@ function make_esp(string $partition_name,string $label,?string &$message): bool 
 		unset($command_umount,$param_umount);
 //		no need to delete the esp folder, it will disappear after reboot
 		$message .= ' success';
-	endif;
+//	endif;
 	return true;
 }
 /**
@@ -360,7 +366,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
  */
 			$details = [];
 			$regexp = '/^(128|16|1|256|2|32|4|512|64|8)([kmgtpezy]?)$/i';
-			$details['size'] = filter_var($row['align'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
+			$details['size'] = filter_var($row['align'],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => $regexp]]);
 			if(isset($details['size'])):
 				unset($matches);
 //				$regexp = '/^(128|16|1|256|2|32|4|512|64|8)([kmgtpezy]?)$/i';
@@ -401,7 +407,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			$regexp = '/^([1-9][0-9]*)([kmgtpezy]?)$/i';
 			foreach(['minimum','maximum','size'] as $parameter):
 				$details = [];
-				$details['size'] = filter_var($row[$parameter],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
+				$details['size'] = filter_var($row[$parameter],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => $regexp]]);
 				if(isset($details['size'])):
 					unset($matches);
 					preg_match($regexp,$details['size'],$matches);
@@ -653,7 +659,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				endif;
 				$details = [];
 				$regexp = '/^([1-9][0-9]*)([kmgtpezy]?)$/i';
-				$details['size'] = filter_var($entered_size,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => NULL,'regexp' => $regexp]]);
+				$details['size'] = filter_var($entered_size,FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => $regexp]]);
 				if(isset($details['size'])):
 					unset($matches);
 					preg_match($regexp,$details['size'],$matches);
@@ -788,7 +794,7 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							endif;
 						endif;
 						break;
-					case 'efi':
+					case 'efi.do.not.use.with.13':
 //						install efi boot code
 						if(file_exists('/boot/boot1.efifat')):
 							$param = $param_geom_part;
