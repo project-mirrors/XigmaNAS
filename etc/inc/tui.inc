@@ -187,9 +187,11 @@ function make_esp(string $partition_name,string $label,?string &$message): bool 
 //	else:
 //		preset variables
 		$node = '/tmp/esp';
-		$source_efi_boot = '/boot/loader.efi';
+		$source_efi_loader = '/boot/loader.efi';
 //		from: UEFI specifications 2.8 Errata B, May 2020, 13.3.1.3 Directory Structure
-		$efi_boot_folder = '/efi/boot';
+		$efi_folder = '/efi';
+		$efi_boot_folder = $efi_folder . '/boot';
+		$efi_freebsd_folder = $efi_folder . '/freebsd';
 //		from: UEFI specification 2.8 Errata B, May 2020, table 15, File Name Convention
 		$machine_type_short_name = 'x64';
 /*
@@ -198,13 +200,16 @@ function make_esp(string $partition_name,string $label,?string &$message): bool 
  *			$message .= ' unconventional machine type';
  *		endif;
  */
-		$efi_boot_filename = 'BOOT' . $machine_type_short_name . '.efi';
-		$efi_startup_filename = 'startup.nsh';
+		$efi_boot_loader_filename = 'BOOT' . $machine_type_short_name . '.efi';
+		$efi_boot_startup_filename = 'startup.nsh';
+		$efi_freebsd_loader_filename = 'loader.efi';
 //		calculated variables
 		$device = sprintf('/dev/%s',$partition_name);
-		$fqn_work_folder = $node . $efi_boot_folder;
-		$fqfn_efi_boot = $fqn_work_folder . '/' . $efi_boot_filename;
-		$fqfn_efi_startup = $fqn_work_folder . '/' . $efi_startup_filename;
+		$fqn_efi_boot_folder = $node . $efi_boot_folder;
+		$fqn_efi_freebsd_folder = $node . $efi_freebsd_folder;
+		$fqfn_efi_boot_loader = $fqn_efi_boot_folder . '/' . $efi_boot_loader_filename;
+		$fqfn_efi_boot_startup = $fqn_efi_boot_folder . '/' . $efi_boot_startup_filename;
+		$fqfn_efi_freebsd_loader = $fqn_efi_freebsd_folder . '/' . $efi_freebsd_loader_filename;
 //		create FAT32 filesystem
 		$param_newfs = [
 			'run' => '/sbin/newfs_msdos',
@@ -238,19 +243,30 @@ function make_esp(string $partition_name,string $label,?string &$message): bool 
 		endif;
 		unset($command_mount,$param_mount);
 //		create subfolder
-		if(is_dir($fqn_work_folder)):
-		elseif(!mkdir($fqn_work_folder,0777,true)):
+		if(is_dir($fqn_efi_boot_folder)):
+		elseif(!mkdir($fqn_efi_boot_folder,0777,true)):
 			$message .= ' error, creating subfolder failed';
 			return false;
 		endif;
 //		copy loader
-		if(!copy($source_efi_boot,$fqfn_efi_boot)):
+		if(!copy($source_efi_loader,$fqfn_efi_boot_loader)):
 			$message .= ' error, copying loader failed';
 			return false;
 		endif;
 //		create startup file
-		if(file_put_contents($fqfn_efi_startup,$efi_boot_filename) === false):
+		if(file_put_contents($fqfn_efi_boot_startup,$efi_boot_loader_filename) === false):
 			$message .= ' error, creating startup failed';
+			return false;
+		endif;
+//		create subfolder
+		if(is_dir($fqn_efi_freebsd_folder)):
+		elseif(!mkdir($fqn_efi_freebsd_folder,0777,true)):
+			$message .= ' error, creating subfolder (2) failed';
+			return false;
+		endif;
+//		copy loader
+		if(!copy($source_efi_loader,$fqfn_efi_freebsd_loader)):
+			$message .= ' error, copying loader (2) failed';
 			return false;
 		endif;
 //		unmount partition
