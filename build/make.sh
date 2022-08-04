@@ -1247,17 +1247,21 @@ create_usb_gpt() {
 
 #	Write boot code.
 	echo "USB: Writing boot code on this memory disk"
-	echo "Creating EFI system partition..."
 
-	mkdir -p ${EFI_MOUNT}/esp
-	mount -t msdosfs /dev/${md}p1 ${EFI_MOUNT}/esp
-	mkdir -p ${EFI_MOUNT}/esp/efi/boot
-	cp /boot/loader.efi ${EFI_MOUNT}/esp/efi/boot/BOOTx64.efi
-	echo "BOOTx64.efi" > ${EFI_MOUNT}/esp/efi/boot/startup.nsh
-	mkdir -p ${EFI_MOUNT}/esp/efi/freebsd
-	cp /boot/loader.efi ${EFI_MOUNT}/esp/efi/freebsd/loader.efi
-	umount ${EFI_MOUNT}/esp
-	rm -r ${EFI_MOUNT}
+	if ! newfs_msdos -F 16 -L "EFISYS" /dev/${md}p1 > /dev/null 2>&1; then
+		echo "Failed to create new filesystem on /dev/${md}p1"
+	else
+		echo "Creating EFI system partition..."
+		mkdir -p ${EFI_MOUNT}/esp
+		mount -t msdosfs /dev/${md}p1 ${EFI_MOUNT}/esp
+		mkdir -p ${EFI_MOUNT}/esp/efi/boot
+		cp /boot/loader.efi ${EFI_MOUNT}/esp/efi/boot/BOOTx64.efi
+		echo "BOOTx64.efi" > ${EFI_MOUNT}/esp/efi/boot/startup.nsh
+		mkdir -p ${EFI_MOUNT}/esp/efi/freebsd
+		cp /boot/loader.efi ${EFI_MOUNT}/esp/efi/freebsd/loader.efi
+		umount ${EFI_MOUNT}/esp
+		rm -r ${EFI_MOUNT}
+	fi
 
 	echo "Writing bootcode..."
 	gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 2 /dev/${md}
