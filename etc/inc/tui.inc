@@ -46,66 +46,70 @@ require_once 'co_geom_info.inc';
  *	@param bool $defaultyes
  *	@return int Returns 0 if yes, 1 if no or 255 if aborted via ESC.
  */
-function tui_display_yesno($text, $width, $height, $defaultyes = true) {
+function tui_display_yesno($text,$width,$height,$defaultyes = true) {
 	$param = '';
 	if ($defaultyes === false):
 		$param = '--defaultno';
 	endif;
-	passthru("/usr/local/bin/cdialog --clear {$param} --yesno \"{$text}\" {$height} {$width}", $retval);
+	passthru("/usr/local/bin/cdialog --clear {$param} --yesno \"{$text}\" {$height} {$width}",$retval);
 	return $retval;
 }
-
-// Display a message box.
-// $title - The dialog title
-// $text - The dialog text
-// $width - Width of the dialog
-// $height - Height of the dialog
-// Returns 0 if ok has been pressed or 255 if aborted via ESC.
-function tui_display_message($title, $text, $width, $height) {
-	passthru("/usr/local/bin/cdialog --clear --title \"{$title}\" --msgbox \"{$text}\" {$height} {$width}", $retval);
+/**
+ *	Display a message box.
+ *	@param string $title The dialog title
+ *	@param string $text The dialog text
+ *	@param int $width Width of the dialog
+ *	@param int $height Height of the dialog
+ *	@return int Returns 0 if ok has been pressed or 255 if aborted via ESC.
+ */
+function tui_display_message($title,$text,$width,$height) {
+	passthru("/usr/local/bin/cdialog --clear --title \"{$title}\" --msgbox \"{$text}\" {$height} {$width}",$retval);
 	return $retval;
 }
-
-// Display a message box.
-// $title - The dialog title
-// $text - The dialog text
-// $width - Width of the dialog
-// $height - Height of the dialog
-// Returns 0 if OK, 1 if Cancel or 255 if aborted via ESC.
-function tui_display_message_ex($title, $text, $width, $height) {
-	passthru("/usr/local/bin/cdialog --clear --yes-label \"OK\" --no-label \"Cancel\" --title \"{$title}\" --yesno \"{$text}\" {$height} {$width}", $retval);
+/**
+ *	Display a message box.
+ *	@param string $title The dialog title
+ *	@param string $text The dialog text
+ *	@param int $width Width of the dialog
+ *	@param int $height Height of the dialog
+ *	@return int Returns 0 if OK, 1 if Cancel or 255 if aborted via ESC.
+ */
+function tui_display_message_ex($title,$text,$width,$height) {
+	passthru("/usr/local/bin/cdialog --clear --yes-label \"OK\" --no-label \"Cancel\" --title \"{$title}\" --yesno \"{$text}\" {$height} {$width}",$retval);
 	return $retval;
 }
-
-// Display a input box.
-// $text - The dialog text
-// $width - Width of the dialog
-// $height - Height of the dialog
-// $value [in|out]- Initial value. Also contains result.
-// Returns 0 if ok has been pressed or 255 if aborted via ESC.
-function tui_display_input($text, $width, $height, &$value) {
-	$tmpfile = "/tmp/tui" . rand();
-	passthru("/usr/local/bin/cdialog --input-fd 2 --output-fd 1 --clear --inputbox \"{$text}\" {$height} {$width} \"{$value}\" 1>{$tmpfile}", $retval);
+/**
+ *  Display a input box.
+ *	@param string $text The dialog text
+ *	@param int $width Width of the dialog
+ *	@param int $height Height of the dialog
+ *	@param string $value Initial input preset / result.
+ *	@return int Returns 0 if ok has been pressed or 255 if aborted via ESC.
+ */
+function tui_display_input($text,$width,$height,&$value) {
+	$tmpfile = '/tmp/tui' . rand();
+	passthru("/usr/local/bin/cdialog --input-fd 2 --output-fd 1 --clear --inputbox \"{$text}\" {$height} {$width} \"{$value}\" 1>{$tmpfile}",$retval);
 	$value = @file_get_contents($tmpfile);
 	@unlink($tmpfile);
 	return $retval;
 }
-
-// Display a menu.
-// $title - The dialog title
-// $menutitle - The menu title
-// $width - Width of the dialog
-// $height - Height of the dialog
-// $menuheight - Height of the menu
-// $amenuitem - The menu item array => Array
-// (
-// 	[tag]  => "x"
-// 	[item] => "xy zxy yxz"
-// )
-// $value [out] - Contains the selected item tag.
-// Returns 0 if ok has been pressed or 255 if aborted via ESC.
-function tui_display_menu($title, $menutitle, $width, $height, $menuheight, $amenuitem, &$value) {
-	$tmpfile = "/tmp/tui" . rand();
+/**
+ *	Display a menu.
+ *	@param string $title The dialog title
+ *	@param string $menutitle The menu title
+ *	@param int $width Width of the dialog
+ *	@param int $height Height of the dialog
+ *	@param int $menuheight Height of the menu
+ *	@param array $amenuitem The menu item array => Array
+ *	[
+ *		[tag]  => "x"
+ *		[item] => "xy zxy yxz"
+ *	]
+ *	@param string $value Contains the selected item tag.
+ *	@return int Returns 0 if ok has been pressed or 255 if aborted via ESC.
+ */
+function tui_display_menu($title,$menutitle,$width,$height,$menuheight,$amenuitem,&$value) {
+	$tmpfile = '/tmp/tui' . rand();
 	$cmd = "/usr/local/bin/cdialog --input-fd 2 --output-fd 1 --clear --title \"{$title}\" --menu \"{$menutitle}\" {$height} {$width} {$menuheight}";
 	foreach($amenuitem as $menuitemv):
 		$cmd .= " \"{$menuitemv['tag']}\" \"{$menuitemv['item']}\"";
@@ -116,9 +120,11 @@ function tui_display_menu($title, $menutitle, $width, $height, $menuheight, $ame
 	@unlink($tmpfile);
 	return $retval;
 }
-
-// Wait until user has pressed 'RETURN'.
-function tui_wait_keypress($message = "") {
+/**
+ *	Wait until user has pressed 'RETURN'.
+ *	@param string $message
+ */
+function tui_wait_keypress($message = '') {
 	if (!empty($message)):
 		write_console("$message\n");
 	endif;
@@ -171,118 +177,99 @@ function geom_part_commit(array $device_list) {
 }
 /**
  *	Manually build esp (EFI system partition)
- *	If /boot/boot1.efifat doesn't exist, the esp is build using /boot/loader.efi
  *	@param string $partition_name, i.e. ada0p42
  *	@param string|null $message
  *	@return bool
  */
 function make_esp(string $partition_name,string $label,?string &$message): bool {
-//	global $g;
-
 	$message = '';
-//	if(file_exists('/boot/boot1.efifat')):
-//		nothing to do, geom bootcode -p /boot/boot1.efifat already did the job
-//		$message .= ' skipped';
-//		return true;
-//	else:
-//		preset variables
-		$node = '/tmp/esp';
-		$source_efi_loader = '/boot/loader.efi';
-//		from: UEFI specifications 2.8 Errata B, May 2020, 13.3.1.3 Directory Structure
-		$efi_folder = '/efi';
-		$efi_boot_folder = $efi_folder . '/boot';
-		$efi_freebsd_folder = $efi_folder . '/freebsd';
-//		from: UEFI specification 2.8 Errata B, May 2020, table 15, File Name Convention
-		$machine_type_short_name = 'x64';
-/*
- *		$machine_type_short_name = $g['arch'] ?? 'x64';
- *		if(!in_array($machine_type_short_name,['IA32','x64','IA64','ARM','AA64','RISCV32','RISCV64','RISCV128'])):
- *			$message .= ' unconventional machine type';
- *		endif;
- */
-		$efi_boot_loader_filename = 'BOOT' . $machine_type_short_name . '.efi';
-		$efi_boot_startup_filename = 'startup.nsh';
-		$efi_freebsd_loader_filename = 'loader.efi';
-//		calculated variables
-		$device = sprintf('/dev/%s',$partition_name);
-		$fqn_efi_boot_folder = $node . $efi_boot_folder;
-		$fqn_efi_freebsd_folder = $node . $efi_freebsd_folder;
-		$fqfn_efi_boot_loader = $fqn_efi_boot_folder . '/' . $efi_boot_loader_filename;
-		$fqfn_efi_boot_startup = $fqn_efi_boot_folder . '/' . $efi_boot_startup_filename;
-		$fqfn_efi_freebsd_loader = $fqn_efi_freebsd_folder . '/' . $efi_freebsd_loader_filename;
-//		create FAT32 filesystem
-		$param_newfs = [
-			'run' => '/sbin/newfs_msdos',
-			'fattype' => '-F 32',
-			'label' => sprintf('-L %s',escapeshellarg($label)),
-			'spc' => '-c 1',
-			'device' => escapeshellarg($device)
-		];
-		$command_newfs = implode(' ',$param_newfs);
-		if(mwexec($command_newfs) !== 0):
-			$message .= ' error, creating filesystem failed';
-			return false;
-		endif;
-		unset($command_newfs,$param_newfs);
-//		create mount folder
-		if(is_dir($node)):
-		elseif(!mkdir($node,0777,true)):
-			$message .= ' error, creating mount folder failed';
-			return false;
-		endif;
-//		mount FAT32 partition
-		$param_mount = [
-			'run' => '/sbin/mount_msdosfs',
-			'device' => escapeshellarg($device),
-			'node' => escapeshellarg($node)
-		];
-		$command_mount = implode(' ',$param_mount);
-		if(mwexec($command_mount) !== 0):
-			$message .= ' error, mounting efi partition failed';
-			return false;
-		endif;
-		unset($command_mount,$param_mount);
-//		create subfolder
-		if(is_dir($fqn_efi_boot_folder)):
-		elseif(!mkdir($fqn_efi_boot_folder,0777,true)):
-			$message .= ' error, creating subfolder failed';
-			return false;
-		endif;
-//		copy loader
-		if(!copy($source_efi_loader,$fqfn_efi_boot_loader)):
-			$message .= ' error, copying loader failed';
-			return false;
-		endif;
-//		create startup file
-		if(file_put_contents($fqfn_efi_boot_startup,$efi_boot_loader_filename) === false):
-			$message .= ' error, creating startup failed';
-			return false;
-		endif;
-//		create subfolder
-		if(is_dir($fqn_efi_freebsd_folder)):
-		elseif(!mkdir($fqn_efi_freebsd_folder,0777,true)):
-			$message .= ' error, creating subfolder (2) failed';
-			return false;
-		endif;
-//		copy loader
-		if(!copy($source_efi_loader,$fqfn_efi_freebsd_loader)):
-			$message .= ' error, copying loader (2) failed';
-			return false;
-		endif;
-//		unmount partition
-		$param_umount = [
-			'run' => '/sbin/umount',
-			'node' => escapeshellarg($node)
-		];
-		$command_umount = implode(' ',$param_umount);
-		if(mwexec($command_umount)):
-			$message .= ' error, unmounting efi partition failed.';
-			return false;
-		endif;
-		unset($command_umount,$param_umount);
-//		no need to delete the esp folder, it will disappear after reboot
-		$message .= ' success';
-//	endif;
+//	preset variables
+	$node = '/tmp/esp';
+	$source_boot_loader = '/boot/loader.efi';
+	$efi_boot_loader_filename = 'BOOTx64.efi';
+	$efi_boot_startup_filename = 'startup.nsh';
+	$efi_freebsd_loader_filename = 'loader.efi';
+//	calculated variables
+	$device = sprintf('/dev/%s',$partition_name);
+//	/efi/boot
+	$efi_boot_folder = $node . '/efi/boot';
+	$efi_boot_loader = $efi_boot_folder . '/' . $efi_boot_loader_filename;
+	$efi_boot_startup = $efi_boot_folder . '/' . $efi_boot_startup_filename;
+//	efi/freebsd
+	$efi_freebsd_folder = $node . '/efi/freebsd';
+	$efi_freebsd_loader = $efi_freebsd_folder . '/' . $efi_freebsd_loader_filename;
+//	create FAT32 filesystem
+	$param_newfs = [
+		'run' => '/sbin/newfs_msdos',
+		'fattype' => '-F 32',
+		'label' => sprintf('-L %s',escapeshellarg($label)),
+		'spc' => '-c 1',
+		'device' => escapeshellarg($device)
+	];
+	$command_newfs = implode(' ',$param_newfs);
+	if(mwexec($command_newfs) !== 0):
+		$message .= ' error, creating filesystem failed';
+		return false;
+	endif;
+	unset($command_newfs,$param_newfs);
+//	create mount folder
+	if(is_dir($node)):
+	elseif(!mkdir($node,0777,true)):
+		$message .= ' error, creating mount folder failed';
+		return false;
+	endif;
+//	mount FAT32 partition
+	$param_mount = [
+		'run' => '/sbin/mount_msdosfs',
+		'device' => escapeshellarg($device),
+		'node' => escapeshellarg($node)
+	];
+	$command_mount = implode(' ',$param_mount);
+	if(mwexec($command_mount) !== 0):
+		$message .= ' error, mounting efi partition failed';
+		return false;
+	endif;
+	unset($command_mount,$param_mount);
+//	create subfolder
+	if(is_dir($efi_boot_folder)):
+	elseif(!mkdir($efi_boot_folder,0777,true)):
+		$message .= ' error, creating subfolder failed';
+		return false;
+	endif;
+//	copy loader
+	if(!copy($source_boot_loader,$efi_boot_loader)):
+		$message .= ' error, copying loader failed';
+		return false;
+	endif;
+//	create startup file
+	if(file_put_contents($efi_boot_startup,$efi_boot_loader_filename) === false):
+		$message .= ' error, creating startup failed';
+		return false;
+	endif;
+//	create subfolder
+	if(is_dir($efi_freebsd_folder)):
+	elseif(!mkdir($efi_freebsd_folder,0777,true)):
+		$message .= ' error, creating subfolder (2) failed';
+		return false;
+	endif;
+//	copy loader
+	if(!copy($source_boot_loader,$efi_freebsd_loader)):
+		$message .= ' error, copying loader (2) failed';
+		return false;
+	endif;
+//	unmount partition
+	$param_umount = [
+		'run' => '/sbin/umount',
+		'node' => escapeshellarg($node)
+	];
+	$command_umount = implode(' ',$param_umount);
+	if(mwexec($command_umount)):
+		$message .= ' error, unmounting efi partition failed.';
+		return false;
+	endif;
+	unset($command_umount,$param_umount);
+//	no need to delete the esp folder, it will disappear after reboot
+	$message .= ' success';
 	return true;
 }
 /**
@@ -555,41 +542,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 				return false;
 			endif;
 			break;
-/*
-		case 'mbr':
-//			create mbr scheme
-			$param = $param_geom_part;
-			$param['command'] = 'create';
-			$param['testmode'] = $test_mode;
-			$param['scheme'] = '-s mbr';
-			$param['entries'] = sprintf('-n %s',$base['entries']);
-			$param['geom'] = escapeshellarg($destination);
-			$command = implode(' ',$param);
-			if(mwexec($command)):
-				geom_part_undo($uncommitted_device_names);
-				set_kern_geom_debugflags(0);
-				$message = sprintf('Failed to create MBR partitioning scheme on %s.',$destination);
-				write_console($message . "\n");
-				tui_display_message('Error',$message,60,5);
-				return false;
-			endif;
-//			install bootcode
-			$param = $param_geom_part;
-			$param['command'] = 'bootcode';
-			$param['testmode'] = $test_mode;
-			$param['mbr'] = '-b /boot/mbr';
-			$param['geom'] = escapeshellarg($destination);
-			$command = implode(' ',$param);
-			if(mwexec($command)):
-				geom_part_undo($uncommitted_device_names);
-				set_kern_geom_debugflags(0);
-				$message = sprintf('Failed to install MBR bootcode on %s.',$destination);
-				write_console($message . "\n");
-				tui_display_message('Error',$message,60,5);
-				return false;
-			endif;
-			break;
- */
 	endswitch;
 	$partition_layout_index = 0;
 	foreach($partition_layout as $k_partition => &$r_partition):
@@ -810,142 +762,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 							endif;
 						endif;
 						break;
-					case 'efi.do.not.use.with.13':
-//						install efi boot code
-						if(file_exists('/boot/boot1.efifat')):
-							$param = $param_geom_part;
-							$param['command'] = 'bootcode';
-							$param['testmode'] = $test_mode;
-							$param['boot'] = '-p /boot/boot1.efifat';
-							$param['index'] = $partition_index;
-							$param['geom'] = escapeshellarg($destination);
-							$command = implode(' ',$param);
-							if(mwexec($command)):
-								geom_part_undo($uncommitted_device_names);
-								set_kern_geom_debugflags(0);
-								$message = sprintf('Failed to install EFI bootcode on partition %sp%s.',$destination,$partition_index);
-								write_console($message . "\n");
-								tui_display_message('Error',$message,60,5);
-								return false;
-							endif;
-/*
- *						else:
- *							manually build esp. See section create file systems below
- */
-						endif;
-						break;
 				endswitch;
 				break;
-/*
-			case 'mbr':
-				$partition_index = sprintf('-i %s',$r_partition['partition']);
-				$destination_slice = sprintf('%ss%s',$destination,$r_partition['partition']);
-				$param = $param_geom_part;
-				$param['command'] = 'add';
-				$param['testmode'] = $test_mode;
-				$param['type'] = '-t freebsd';
-				$param['index'] = $partition_index;
-				if(isset($r_partition['alignment'])):
-					$param['align'] = sprintf('-a %s',$r_partition['alignment']['size']);
-				endif;
-				if(isset($r_partition['size']) && ($r_partition['size']['size'] !== '*')):
-					$param['size'] = sprintf('-s %s',$r_partition['size']['size']);
-				endif;
-				$param['geom'] = escapeshellarg($destination);
-				$command = implode(' ',$param);
-				if(mwexec($command)):
-					geom_part_undo($uncommitted_device_names);
-					set_kern_geom_debugflags(0);
-					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination);
-					write_console($message . "\n");
-					tui_display_message('Error',$message,60,5);
-					return false;
-				endif;
-//				destroy any zombies
-				$param = $param_geom_part;
-				$param['command'] = 'destroy';
-				$param['testmode'] = $test_mode;
-				$param['force'] = '-F';
-				$param['geom'] = escapeshellarg($destination_slice);
-				$uncommitted_device_names[$destination_slice] = $destination_slice;
-				$command = implode(' ',$param);
-				mwexec($command);
-//				Create BSD scheme on slice
-				$param = $param_geom_part;
-				$param['command'] = 'create';
-				$param['testmode'] = $test_mode;
-				$param['scheme'] = '-s BSD';
-				$param['geom'] = escapeshellarg($destination_slice);
-				$command = implode(' ',$param);
-				if(mwexec($command)):
-					geom_part_undo($uncommitted_device_names);
-					set_kern_geom_debugflags(0);
-					$message = sprintf('Failed to create BSD scheme on %s.',$destination_slice);
-					write_console($message . "\n");
-					tui_display_message('Error',$message,60,5);
-					return false;
-				endif;
-				switch($k_partition):
-					case 'root':
-//						install boot code
-						$param = $param_geom_part;
-						$param['command'] = 'bootcode';
-						$param['testmode'] = $test_mode;
-						$param['boot'] = '-b /boot/boot';
-						$param['geom'] = escapeshellarg($destination_slice);
-						$command = implode(' ',$param);
-						if(mwexec($command)):
-							geom_part_undo($uncommitted_device_names);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to install bootcode on %s.',$destination_slice);
-							write_console($message . "\n");
-							tui_display_message('Error',$message,60,5);
-							return false;
-						endif;
-						$param = $param_geom_part;
-						$param['command'] = 'set';
-						$param['testmode'] = $test_mode;
-						$param['setting'] = '-a active';
-						$param['index'] = $partition_index;
-						$param['geom'] = escapeshellarg($destination);
-						$command = implode(' ',$param);
-						if(mwexec($command)):
-							geom_part_undo($uncommitted_device_names);
-							set_kern_geom_debugflags(0);
-							$message = sprintf('Failed to activate partition on %s.',$destination);
-							write_console($message . "\n");
-							tui_display_message('Error',$message,60,5);
-							return false;
-						endif;
-						break;
-				endswitch;
-				$param = $param_geom_part;
-				$param['command'] = 'add';
-				$param['testmode'] = $test_mode;
-				$param['type'] = '';
-				$param['geom'] = escapeshellarg($destination_slice);
-				switch($k_partition):
-					case 'root':
-						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
-						break;
-					case 'swap':
-						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-swap');
-						break;
-					default:
-						$param['type'] = sprintf('-t %s',$r_partition['fstype'] ?? 'freebsd-ufs');
-						break;
-				endswitch;
-				$command = implode(' ',$param);
-				if(mwexec($command)):
-					geom_part_undo($uncommitted_device_names);
-					set_kern_geom_debugflags(0);
-					$message = sprintf('Failed to add %s partition on %s.',$r_partition['friendly_name'],$destination_slice);
-					write_console($message . "\n");
-					tui_display_message('Error',$message,60,5);
-					return false;
-				endif;
-				break;
- */
 		endswitch;
 		$partition_layout_index++;
 	endforeach;
@@ -969,11 +787,6 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			case 'gpt':
 				$destination_partition_name = sprintf('%sp%s',$destination,$r_partition['partition']);
 				break;
-/*
-			case 'mbr':
-				$destination_partition_name = sprintf('%ss%sa',$destination,$r_partition['partition']);
-				break;
- */
 		endswitch;
 		$message = sprintf('  %s:',$destination_partition_name);
 		write_console($message);
