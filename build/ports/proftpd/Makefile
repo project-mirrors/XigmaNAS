@@ -68,7 +68,6 @@ CONFIGURE_ARGS=--localstatedir=/var/run \
 		--sysconfdir=${PREFIX}/etc \
 		--enable-ctrls \
 		--enable-dso \
-		--enable-auth-pam \
 		--enable-largefile \
 		--disable-sendfile
 
@@ -122,6 +121,7 @@ MODULES+=	mod_ban \
 		mod_dynmasq \
 		mod_digest \
 		mod_exec \
+		mod_ident \
 		mod_ifsession \
 		mod_ifversion \
 		mod_qos \
@@ -239,6 +239,7 @@ post-install:
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_dnsbl.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_dynmasq.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_exec.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
+	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_ident.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_ifversion.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
 	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_ifsession.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
 #	@${INSTALL_PROGRAM} -v ${STAGEDIR}${PREFIX}/libexec/proftpd/mod_memcache.so ${XIGMANAS_ROOTFS}${PREFIX}/libexec/proftpd
