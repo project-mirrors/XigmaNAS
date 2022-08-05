@@ -1,5 +1,5 @@
 PORTNAME=		rrdtool
-PORTVERSION=		1.7.2
+PORTVERSION=		1.8.0
 PORTREVISION=		0
 CATEGORIES=		databases graphics
 
@@ -16,12 +16,12 @@ DISABLE_VULNERABILITIES=yes
 DEPENDS_TARGET=	clean build stage
 
 BUILD_DEPENDS=		${NONEXISTENT}:databases/rrdtool
-DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work-py38/stage
+DEP_STAGEDIR=		${PORTSDIR}/databases/rrdtool/work/stage
 PANGO_MODULES=		${PREFIX}/lib/pango/1.8.0/modules
 
 do-install:
 # XigmaNAS® install
-	@echo "install for ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # share
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs
 	@${MKDIR} -v ${XIGMANAS_ROOTFS}/usr/local/share/rrdgraphs/templates
@@ -50,16 +50,16 @@ do-install:
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/rrdinfo ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/rrdtool ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/bin/rrdupdate ${XIGMANAS_ROOTFS}/usr/local/bin
-	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/lib/librrd.so.8.2.1 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${LN} -fsv /usr/local/lib/librrd.so.8.2.1 ${XIGMANAS_ROOTFS}/usr/local/lib/librrd.so
-	@${LN} -fsv /usr/local/lib/librrd.so.8.2.1 ${XIGMANAS_ROOTFS}/usr/local/lib/librrd.so.8
+	@${INSTALL_PROGRAM} -v ${DEP_STAGEDIR}${PREFIX}/lib/librrd.so.8.3.0 ${XIGMANAS_ROOTFS}/usr/local/lib
+	@${LN} -fsv /usr/local/lib/librrd.so.8.3.0 ${XIGMANAS_ROOTFS}/usr/local/lib/librrd.so
+	@${LN} -fsv /usr/local/lib/librrd.so.8.3.0 ${XIGMANAS_ROOTFS}/usr/local/lib/librrd.so.8
 # bindings
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/auto/RRDs
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/auto/RRDs/RRDs.so ${XIGMANAS_ROOTFS}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/auto/RRDs/
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/RRDs.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/${PERL_ARCH}/${PERL_VER}/
 	@${CP} -pv ${DEP_STAGEDIR}${SITE_PERL}/RRDp.pm ${XIGMANAS_ROOTFS}${SITE_PERL}/
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}
-	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.cpython-38.so ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}/
+	@${CP} -pv ${DEP_STAGEDIR}${PYTHON_SITELIBDIR}/rrdtool.cpython-39.so ${XIGMANAS_ROOTFS}${PYTHON_SITELIBDIR}/
 # fonts
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/share/fonts
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}${PREFIX}/etc/fonts/conf.avail
@@ -75,5 +75,7 @@ do-install:
 	@${LN} -fsv ${PREFIX}/etc/fonts/conf.avail/57-dejavu-sans-mono.conf ${XIGMANAS_ROOTFS}/usr/local/etc/fonts/conf.d/
 	@${LN} -fsv ${PREFIX}/etc/fonts/conf.avail/57-dejavu-sans.conf ${XIGMANAS_ROOTFS}/usr/local/etc/fonts/conf.d/
 	@${LN} -fsv ${PREFIX}/etc/fonts/conf.avail/57-dejavu-serif.conf ${XIGMANAS_ROOTFS}/usr/local/etc/fonts/conf.d/
+# XigmaNAS® end install
+	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.mk>
