@@ -116,6 +116,7 @@ Changes:
 - Upgrade nano to v6.4.
 - Upgrade cdialog to v1.3-20220728.
 - Upgrade nut to v2022.08.01.
+- Upgrade rrdtool to v1.8.0.
 
 Fixes:
 - fix bring up lighttpd at all times.
