@@ -207,7 +207,8 @@ function do_input_validation_type($postdata,$reqdfields,$reqdfieldsn,$reqdfields
 					$message = sprintf( gtext("The attribute '%s' may only consist of the characters a-z, A-Z, 0-9."),$reqdfieldsn[$i]);
 					break;
 				case 'time':
-					$valid = (strptime($postdata[$reqdfields[$i]],"%H:%M:%S") !== false);
+//					time value can be between 00:00:00 and 99:59:59
+					$valid = filter_var($postdata[$reqdfields[$i]],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR | FILTER_NULL_ON_FAILURE,'options' => ['default' => null,'regexp' => '/^[0-9]{1,2}(?::[0-5]?[0-9]){2}$/']]) !== null;
 					$message = sprintf( gtext("The attribute '%s' is not a valid time value."),$reqdfieldsn[$i]);
 					break;
 				case 'array':
