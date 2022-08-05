@@ -265,14 +265,16 @@ if($_POST):
 			$retval |= rc_update_service('cron');
 			config_unlock();
 		endif;
-		if(($pconfig['systime'] !== 'Not Set') && (!empty($pconfig['systime']))):
+		$notset = 'Not Set';
+		if(!empty($pconfig['systime']) && ($pconfig['systime'] !== $notset)):
 			$timestamp = strtotime($pconfig['systime']);
 			if($timestamp !== false):
-				$timestamp = strftime('%g%m%d%H%M',$timestamp);
 //				The date utility exits 0 on success, 1 if unable to set the date,
 //				and 2 if able to set the local date, but unable to set it globally.
-				$retval |= mwexec("/bin/date -n {$timestamp}");
-				$pconfig['systime'] = "Not Set";
+				$command_parameter = ['/bin/date','-f','%s',escapeshellarg($timestamp)];
+				$command = implode(' ',$command_parameter);
+				$retval |= mwexec($command);
+				$pconfig['systime'] = $notset;
 			endif;
 		endif;
 		$savemsg = get_std_save_message($retval);
