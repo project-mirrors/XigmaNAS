@@ -35,11 +35,10 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
-use common\arr;
 use system\proxy\ftp\cfg_toolbox as cfg_proxy_ftp_toolbox;
 use system\proxy\http\cfg_toolbox as cfg_proxy_http_toolbox;
 
@@ -47,7 +46,7 @@ function exec_get_sphere() {
 //	global $config;
 
 //	sphere structure
-	$sphere = new \stdClass;
+	$sphere = new stdClass;
 //	sphere content
 	$sphere->basename = 'exec';
 	$sphere->extension = '.php';
@@ -60,7 +59,6 @@ $sphere = exec_get_sphere();
 //	local variables
 $a_message = [];
 $a_message[] = gtext('This is a very powerful tool. Use at your own risk!');
-//
 if($_POST):
 	if(isset($_POST['submit'])):
 		switch($_POST['submit']):
@@ -79,7 +77,7 @@ endif;
 $pgtitle = [gtext('Tools'),gtext('Execute Command')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	// Init onsubmit()
@@ -101,8 +99,6 @@ if(isset($_POST['txtRecallBuffer']) && preg_match('/\S/',$_POST['txtRecallBuffer
 else:
 	echo 'var arrRecallBuffer = new Array;',"\n";
 endif;
-?>
-<?php
 //	Set pointer to end of recall buffer.
 ?>
 	var intRecallPtr = arrRecallBuffer.length;
@@ -324,8 +320,6 @@ endif;
 			pclose($ph);
 			echo '</pre>','</div>';
 		endif;
-?>
-<?php
 		if(isset($_POST['txtPHPCommand']) && preg_match('/\S/',$_POST['txtPHPCommand'])):
 ?>
 			<table class="area_data_settings">
@@ -350,10 +344,13 @@ endif;
 			require_once 'rc.inc';
 			require_once 'email.inc';
 			require_once 'tui.inc';
-			require_once 'array.inc';
 			require_once 'services.inc';
 			require_once 'zfs.inc';
-			echo eval($_POST['txtPHPCommand']);
+			try {
+				echo eval($_POST['txtPHPCommand']);
+			} catch (Throwable $t) {
+				echo 'Parser Error';
+			}
 			echo '</pre>','</div>';
 		endif;
 ?>
@@ -362,7 +359,7 @@ endif;
 	include 'formend.inc';
 ?>
 </form>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 document.forms[0].txtCommand.focus();
 //]]>
