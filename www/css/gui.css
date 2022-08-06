@@ -161,7 +161,7 @@ textarea,
 .label
 {
 	font-family: inherit;
-	font-size: 1em;
+	font-size: 1em !important;
 }
 
 body,
@@ -170,8 +170,8 @@ div#gapfooter
 {
 	color: #000000;
 	color: var(--txc-root);
-	background-color: #D9DCE1;
-	background-color: var(--bgc-root);
+	background-color: #D9DCE1 !important;
+	background-color: var(--bgc-root) !important;
 }
 
 body a:link,
@@ -218,13 +218,6 @@ div#pagebodyflex
 html
 {
 	height: 100%;
-}
-
-body#main
-{
-/*
-	min-width: 93.09em;
-*/
 }
 
 img
@@ -319,6 +312,7 @@ pre.cmdoutput
 	border-collapse: separate;
 	width: 100%;
 	table-layout: fixed;
+	box-shadow: none;
 }
 
 .area_data_selection > tbody > tr:nth-child(even) {
@@ -406,8 +400,11 @@ pre.cmdoutput
 {
 	padding-left: 0.7em;
 	vertical-align: top;
+	border-top: none;
+	border-right: none;
 	border-bottom: 1px solid #999999;
 	border-bottom: var(--bop-cell);
+	border-left: none;
 	text-overflow: ellipsis;
 	overflow-x: hidden;
 	white-space: normal;
@@ -687,6 +684,7 @@ a
 	padding-top: 0.18em;
 	padding-bottom: 0.18em;
 	height: 1.09em;
+	border: none;
 }
 
 .listtopic
