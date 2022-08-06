@@ -114,6 +114,7 @@
 	text-decoration: none;
 	color: white;
 	color: var(--txc-nav-sub);
+	background-color: transparent;
 }
 
 #navhdr > ul
@@ -139,6 +140,7 @@
 	padding: 0.3em 0.5em;
 	color: #CCCCCC;
 	color: var(--txc-nav);
+	background-color: transparent;
 }
 
 #navhdr > ul:hover > li > a
