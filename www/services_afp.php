@@ -31,9 +31,13 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
+
+use common\arr;
 
 function services_afp_get_sphere() {
 	global $config;
@@ -52,8 +56,8 @@ function services_afp_get_sphere() {
 		'uams_dhx2_passwd' => true,
 		'auxparam' => ''
 	];
-	$sphere->grid = &array_make_branch($config,'afp');
-	array_make_branch($config,'afp','auxparam');
+	$sphere->grid = &arr::make_branch($config,'afp');
+	arr::make_branch($config,'afp','auxparam');
 	if(empty($sphere->grid)):
 		$sphere->grid = $sphere->row_default;
 		write_config();
@@ -119,7 +123,7 @@ switch($page_action):
 					$source['uams_dhx_passwd'] = true;
 					break;
 			endswitch;
-			unset($switch['dhx']);
+			unset($source['dhx']);
 		endif;
 		if(isset($source['dhx2'])):
 			switch($source['dhx2']):
@@ -181,15 +185,9 @@ switch($page_action):
 			$input_errors[] = gtext('You must select at least one authentication method.');
 		endif;
 		if(empty($input_errors)):
-			//	convert parameters
-			$auxparam_grid = [];
-			foreach(explode("\n",$sphere->row['auxparam']) as $auxparam_row):
-				$auxparam_row = trim($auxparam_row,"\t\n\r");
-				if(!empty($auxparam_row)):
-					$auxparam_grid[] = $auxparam_row;
-				endif;
-			endforeach;
-			$sphere->row['auxparam'] = $auxparam_grid;
+//			convert parameters
+			$name = 'auxparam';
+			$sphere->row[$name] = array_map(fn($element) => trim($element,"\n\r\t"),explode("\n",$sphere->row[$name]));
 			$sphere->copyrowtogrid();
 			write_config();
 			$retval = 0;
@@ -222,13 +220,13 @@ switch($page_action):
 		break;
 endswitch;
 //	determine final page mode
-list($page_mode,$is_readonly) = calc_skipviewmode($page_mode);
+[$page_mode,$is_readonly] = calc_skipviewmode($page_mode);
 $pgtitle = [gtext('Services'),gtext('AFP')];
 include 'fbegin.inc';
 switch($page_mode):
 	case PAGE_MODE_VIEW:
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#iform").submit(function() { spinner(); });
@@ -240,7 +238,7 @@ $(window).on("load", function() {
 		break;
 	case PAGE_MODE_EDIT:
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 	$("#iform").submit(function() {	spinner(); });
@@ -255,13 +253,19 @@ $(window).on("load", function() {
 		break;
 endswitch;
 ?>
-<table id="area_navigator"><tbody>
-	<tr><td class="tabnavtbl"><ul id="tabnav">
-		<li class="tabact"><a href="services_afp.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Settings');?></span></a></li>
-		<li class="tabinact"><a href="services_afp_share.php"><span><?=gtext('Shares');?></span></a></li>
-	</ul></td></tr>
-</tbody></table>
-<table id="area_data"><tbody><tr><td id="area_data_frame"><form action="services_afp.php" method="post" name="iform" id="iform">
+<table id="area_navigator">
+	<tbody>
+		<tr>
+			<td class="tabnavtbl">
+				<ul id="tabnav">
+					<li class="tabact"><a href="services_afp.php" title="<?=gtext('Reload page');?>"><span><?=gtext('Settings');?></span></a></li>
+					<li class="tabinact"><a href="services_afp_share.php"><span><?=gtext('Shares');?></span></a></li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<form action="services_afp.php" method="post" name="iform" id="iform"><table id="area_data"><tbody><tr><td id="area_data_frame">
 <?php
 	if(!empty($input_errors)):
 		print_input_errors($input_errors);
@@ -449,6 +453,6 @@ endswitch;
 <?php
 	include 'formend.inc';
 ?>
-</form></td></tr></tbody></table>
+</td></tr></tbody></table></form>
 <?php
 include 'fend.inc';
