@@ -579,8 +579,12 @@ zroot_init()
 		if [ ! -d "${ALTROOT}/boot/efi" ]; then
 			mkdir -p ${ALTROOT}/boot/efi
 		fi
-		# Add the first esp partition to fstab.
-		#echo "/dev/${DISK}p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
+		#for DISK in ${DISKS}
+		#do
+			# Add the first esp partition to fstab.
+			#echo "/dev/${DISK}p1 /boot/efi msdosfs rw 2 2" >> ${ALTROOT}/etc/fstab
+			#break
+		#done
 	fi
 
 	# Backup geli providers metadata.
