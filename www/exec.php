@@ -349,7 +349,7 @@ endif;
 			try {
 				echo eval($_POST['txtPHPCommand']);
 			} catch (Throwable $t) {
-				echo 'Parser Error';
+				echo "\n",'Parser Error:',"\n",$t->getMessage() ?? '';
 			}
 			echo '</pre>','</div>';
 		endif;
