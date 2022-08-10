@@ -32,21 +32,15 @@
 	of XigmaNAS®, either expressed or implied.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use gui\document;
 
 //	omit no-cache headers because it confuses IE with file downloads
 $omit_nocacheheaders = true;
 
-$current_password = $config['system']['password'];
-$old_default_password = decrypt_aes256cbc('xigmanas','U2FsdGVkX1/Sq3ZsgO/H88X9ItjefBcv5eJxCjvOqwg=');
-$new_default_password = $g['default_passwd'];
-if(password_verify($new_default_password,$current_password) || password_verify($old_default_password,$current_password)):
-	$errormsg = gtext('Current system password is using the default password. You should choose a different password.');
-endif;
 if($_POST):
 	if(isset($_POST['submit'])):
 		switch($_POST['submit']):
@@ -102,6 +96,19 @@ if($_POST):
 		exit;
 	endif;
 else:
+	$donotshowpasswordsinsourcecode = 'U2FsdGVkX18jFtNkPexeEy+QZn+/8QUFobNAjMI7LoPw6ihIYE9sMlyyKUYYdDnb';
+	$default_passwords = [
+		$g['default_passwd'],
+		decrypt_aes256cbc($donotshowpasswordsinsourcecode,'U2FsdGVkX18GfJjN0M+XblqRLaIN7wzsgYz+T1yjAkE='),
+		decrypt_aes256cbc($donotshowpasswordsinsourcecode,'U2FsdGVkX19uIRzld3ipSVPVCXaZSg5gedIsBr8MudY='),
+	];
+	foreach($default_passwords as $default_password):
+		if(password_verify($default_password,$config['system']['password'])):
+			$errormsg = gtext('Current system password is using a default password. You should choose a different password.');
+			break;
+		endif;
+	endforeach;
+	unset($donotshowpasswordsinsourcecode,$default_passwords,$default_password);
 	$pconfig['encryption'] = true;
 	$pconfig['encrypt_password'] = '';
 	$pconfig['encrypt_password_confirm'] = '';
@@ -109,7 +116,7 @@ endif;
 $pgtitle = [gtext('System'),gtext('Backup Configuration'),gtext('Backup')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(document).ready(function(){
 	function encrypt_change(encrypt_change) {
