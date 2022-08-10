@@ -117,6 +117,7 @@ Changes:
 - Upgrade cdialog to v1.3-20220728.
 - Upgrade nut to v2022.08.01.
 - Upgrade rrdtool to v1.8.0.
+- Upgrade proftpd to v1.3.7e.
 
 Fixes:
 - fix bring up lighttpd at all times.
