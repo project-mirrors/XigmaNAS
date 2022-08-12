@@ -50,9 +50,9 @@
 	allow XigmaNAS® to XigmaNAS® syncing.
 */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use services\unisond\setting_toolbox as toolbox;
 use services\unisond\shared_toolbox;
@@ -218,6 +218,7 @@ endswitch;
 $is_enabled = $sphere->row[$cop->get_enable()->get_name()];
 $is_running = (rc_is_service_running('unison') === 0);
 $is_running_message = $is_running ? gettext('Yes') : gettext('No');
+$input_errors_found = count($input_errors) > 0;
 $remark = gettext('Before a Unison client can start to work, you need to perform the following:')
 	. '<div id="enumeration"><ul>'
 	. '<li><a href="services_sshd.php">' . gettext('Enable SSH service') . '</a>.</li>'
