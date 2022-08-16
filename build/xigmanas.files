@@ -1146,6 +1146,7 @@ etc/disktab
 etc/fbtab
 etc/netconfig
 etc/networks
+etc/pf.os
 etc/protocols
 etc/regdomain.xml
 etc/remote
