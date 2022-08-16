@@ -322,6 +322,15 @@ sbin/rtquery
 ## nvmecontrol -- NVM Express control utility
 sbin/nvmecontrol
 
+## pfctl -- control the packet filter (PF) device
+/sbin/pfctl
+
+## pfilctl -- pfil(9) control utility
+/sbin/pfilctl
+
+## pflogd -- packet filter logging daemon
+/sbin/pflogd
+
 ####### contents of /usr/bin
 
 ## awk -- pattern-directed scanning and processing language
