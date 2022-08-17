@@ -43,29 +43,30 @@ esac
 
 case "${1}" in
 	shutdown-warning)
-		_shutdowntimer=`configxml_get "//ups/shutdowntimer"`;
+		_shutdowntimer=$(configxml_get "//ups/shutdowntimer")
 		_message="${_notifymessage}.
-Shutdown imminent in ${_shutdowntimer} seconds.";;
-
+Shutdown imminent in ${_shutdowntimer} seconds."
+		;;
 	shutdown)
 		_message="${_notifymessage}.
-Shutdown in progress.";
-		shutdown -p now ${_message};;
-
+Shutdown in progress."
+		shutdown -p now ${_message}
+		;;
 	resume)
 		_message="${_notifymessage}.
-Shutdown cancelled.";;
-
+Shutdown cancelled."
+		;;
 	forced-shutdown)
 		_message="${_notifymessage}.
-Forced shutdown imminent in ${nut_upssched_forced_shutdown_timer} minutes.";
-		shutdown -p +${nut_upssched_forced_shutdown_timer} ${_message};;
-
+Forced shutdown imminent in ${nut_upssched_forced_shutdown_timer} minutes."
+		shutdown -p +${nut_upssched_forced_shutdown_timer} ${_message}
+		;;
 	notify)
-		_message="${_notifymessage}";;
-
+		_message="${_notifymessage}"
+		;;
 	*)
-		_message="Unknown command: ${1}";
+		_message="Unknown command: ${1}"
+		;;
 esac
 
 # Write message to syslog
@@ -74,8 +75,8 @@ logger -t upssched-cmd "${_message}"
 # Send email if feature is enabled
 if configxml_isset //ups/email/enable; then
 	# Get configured email recipients and subject.
-	_recipients=`configxml_get "//ups/email/to" | /usr/bin/tr ";," " "`
-	_subject=`configxml_get "//ups/email/subject"`
+	_recipients=$(configxml_get "//ups/email/to" | /usr/bin/tr ";," " ")
+	_subject=$(configxml_get "//ups/email/subject")
 
 	# Send email.
 	send_email "${_recipients}" "${_subject}" "${_message}"
