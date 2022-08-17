@@ -222,6 +222,10 @@ transmission_prestart()
 #		execute
 		/usr/bin/sed -i.bak -E -e "${_umask}" -e "${_preallocation}" -e "${_messagelevel}" -e "${_rpchostwhitelistenabled}" -e "${_rpchostwhitelist}" "${_configfile}" && rm "${_configfile}.bak"
 	fi
+	if [ -n "$transmission_web_home" ]; then
+		TRANSMISSION_WEB_HOME=$transmission_web_home
+		export TRANSMISSION_WEB_HOME
+	fi
 }
 
 transmission_poststart()
