@@ -1159,7 +1159,7 @@ function disks_get_rawuuid($partition,&$out = false) {
 //	Result is ufsid.
 function disks_get_ufsid($partition,&$out = false) {
 	$ufsid = '';
-	exec("/sbin/dumpfs -l ${partition} 2>&1",$rawdata);
+	exec("/sbin/dumpfs -l {$partition} 2>&1",$rawdata);
 	if($out !== false && !empty($rawdata)):
 		$out = $rawdata;
 	endif;
