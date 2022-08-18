@@ -65,10 +65,10 @@ if($_POST):
 		$input_errors[] = sprintf(gtext('The path %s is not a directory.'),escapeshellarg($dir));
 	endif;
 	if(empty($input_errors)):
-		$config['syncthing']['enable'] = isset($_POST['enable']) ? true : false;
+		$config['syncthing']['enable'] = isset($_POST['enable']);
 		$config['syncthing']['homedir'] = $_POST['homedir'];
 		$dir = $_POST['homedir'];
-		if($dir != '/mnt' && file_exists($dir) && !file_exists("${dir}/config.xml")):
+		if($dir != '/mnt' && file_exists($dir) && !file_exists("{$dir}/config.xml")):
 			$user = $syncthing_user;
 			$group = $syncthing_group;
 			chmod($dir,0700);
@@ -78,7 +78,7 @@ if($_POST):
 			$cmd = "/usr/local/bin/sudo -u {$user} /usr/local/bin/syncthing -generate=\"{$dir}\"";
 			mwexec2("$cmd 2>&1",$rawdata,$result);
 //			fix GUI address
-			$cmd = "/usr/local/bin/sudo -u {$user} /usr/bin/sed -i '' 's/127.0.0.1:8384/${gui_ipaddr}:${gui_port}/' ${dir}/config.xml";
+			$cmd = "/usr/local/bin/sudo -u {$user} /usr/bin/sed -i '' 's/127.0.0.1:8384/{$gui_ipaddr}:{$gui_port}/' {$dir}/config.xml";
 			mwexec2("$cmd 2>&1",$rawdata,$result);
 		endif;
 		write_config();
@@ -142,7 +142,7 @@ $(document).ready(function(){
 			</colgroup>
 			<thead>
 <?php
-				html_titleline_checkbox2('enable',gettext('Syncthing'),!empty($pconfig['enable']) ? true : false,gettext('Enable'),'');
+				html_titleline_checkbox2('enable',gettext('Syncthing'),!empty($pconfig['enable']),gettext('Enable'),'');
 ?>
 			</thead>
 			<tbody>
@@ -167,8 +167,8 @@ $(document).ready(function(){
 			</thead>
 			<tbody>
 <?php
-				$url = "http://${gui_ipaddr}:${gui_port}/";
-				$text = "<a href='${url}' id='a_url' target='_blank'>{$url}</a>";
+				$url = "http://{$gui_ipaddr}:{$gui_port}/";
+				$text = "<a href='{$url}' id='a_url' target='_blank'>{$url}</a>";
 				html_text2('url',gettext('URL'),$text);
 ?>
 			</tbody>
