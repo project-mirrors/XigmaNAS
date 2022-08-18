@@ -81,47 +81,39 @@ proftpd_mkconf()
 {
 	local _welcomemsg _productname _certificate _privatekey _tmpfile _allowgroup
 
-	# Check if required directories exists.
+#	Check if required directories exists.
 	[ ! -d "/var/run/${name}" ] && mkdir "/var/run/${name}"
 	[ ! -d "/var/log/${name}" ] && mkdir "/var/log/${name}"
-
-	# Check if required files exists.
+#	Check if required files exists.
 	[ ! -e "${proftpd_delaytable}" ] && cat /dev/null > "${proftpd_delaytable}"
 	[ ! -e "${proftpd_tcpaccessfilesallow}" ] && cat /dev/null > "${proftpd_tcpaccessfilesallow}"
 	[ ! -e "${proftpd_tcpaccessfilesdeny}" ] && cat /dev/null > "${proftpd_tcpaccessfilesdeny}"
 	[ ! -e "/var/log/utx.log" ] && touch /var/log/utx.log && chmod 644 /var/log/utx.log
-
-	# Create welcome message file
-	_welcomemsg=`configxml_get "//ftpd/banner"`
+#	Create welcome message file
+	_welcomemsg=$( configxml_get "//ftpd/banner" )
 	if [ -z "${_welcomemsg}" ]; then
-		_productname=`get_product_name`
+		_productname=$( get_product_name )
 		echo "Welcome to ${_productname} FTP Server" > ${proftpd_displaylogin}
 	else
 		echo ${_welcomemsg} | /usr/bin/uudecode -m -r > ${proftpd_displaylogin}
 	fi
-
-	# Create SSL/TLS certificate
+#	Create SSL/TLS certificate
 	if configxml_isset //ftpd/tls; then
-		_certificate=`configxml_get "//ftpd/certificate"`
-		_privatekey=`configxml_get "//ftpd/privatekey"`
-
-		# Create certificate and key files
+		_certificate=$( configxml_get "//ftpd/certificate" )
+		_privatekey=$( configxml_get "//ftpd/privatekey" )
+#		Create certificate and key files
 		if [ -n "${_certificate}" -a -n "${_privatekey}" ]; then
 			_tmpfile=/tmp/${name}$$.tmp
-
 			echo "${_certificate}" > ${_tmpfile}
 			/usr/bin/uudecode -m -p -r ${_tmpfile} > ${proftpd_tlsrsacertfile}
 			/bin/chmod 0600 ${proftpd_tlsrsacertfile}
-
 			echo "${_privatekey}" > ${_tmpfile}
 			/usr/bin/uudecode -m -p -r ${_tmpfile} > ${proftpd_tlsrsakeyfile}
 			/bin/chmod 0600 ${proftpd_tlsrsakeyfile}
-
 			/bin/rm -f ${_tmpfile}
 		fi
 	fi
-
-	_allowgroup=`configxml_get "//ftpd/allowgroup"`
+	_allowgroup=$( configxml_get "//ftpd/allowgroup" )
 	if [ -z "${_allowgroup}" ]; then
 	    _allowgroup="ftp"
 	fi
@@ -130,7 +122,6 @@ proftpd_mkconf()
 		--output "ServerType standalone" --nl \
 		--output "DefaultServer on" --nl \
 		--value-of "concat('DefaultAddress ',//system/hostname)" --nl \
-		--output "UseIPv6 on" --nl \
 		--match "(//ftpd[enable])[1]" \
 			--value-of "concat('Port ',port)" --nl \
 			--output "User nobody" --nl \
@@ -286,8 +277,7 @@ proftpd_mkconf()
 			--break \
 		--break \
 		${configxml_file} | /usr/local/bin/xml unesc > ${proftpd_config}
-
-		# Add mod_delay
+#		Add mod_delay
 		if checkyesno proftpd_moddelay_enable; then
 			cat <<EOF >> ${proftpd_config}
 <IfModule mod_delay.c>
@@ -297,23 +287,28 @@ proftpd_mkconf()
 
 EOF
 		fi
-
-		# Add mod_wrap
-		if [ 0 -ne `configxml_get_count "//ftpd/disabletcpwrapper"` ]; then
+#		Add mod_wrap / mod_wrap2
+		if [ 0 -ne $( configxml_get_count "//ftpd/disabletcpwrapper" ) ]; then
 			proftpd_modwrap_enable="NO"
 		fi
 		if checkyesno proftpd_modwrap_enable; then
 			cat <<EOF >> ${proftpd_config}
-<IfModule mod_wrap.c>
-  TCPAccessFiles ${proftpd_tcpaccessfilesallow} ${proftpd_tcpaccessfilesdeny}
-  TCPAccessSyslogLevels ${proftpd_tcpaccesssysloglevels}
-  TCPServiceName ${proftpd_tcpservicename}
-</ifModule>
+<IfModule mod_wrap2.c>
+	WrapEngine on
+	WrapTables file:${proftpd_tcpaccessfilesallow} file:${proftpd_tcpaccessfilesdeny}
+	WrapServiceName ${proftpd_tcpservicename}
+</IfModule>
+<IfModule !mod_wrap2.c>
+	<IfModule mod_wrap.c>
+		TCPAccessFiles ${proftpd_tcpaccessfilesallow} ${proftpd_tcpaccessfilesdeny}
+		TCPAccessSyslogLevels ${proftpd_tcpaccesssysloglevels}
+		TCPServiceName ${proftpd_tcpservicename}
+	</IfModule>
+</IfModule>
 
 EOF
 		fi
-
-		# Add mod_ctrls.
+#		Add mod_ctrls.
 		if [ "${proftpd_modctrls_controlsengine}" = "on" ]; then
 			cat <<EOF >> ${proftpd_config}
 <IfModule mod_ctrls.c>
