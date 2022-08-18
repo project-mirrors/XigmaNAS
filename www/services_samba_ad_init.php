@@ -31,15 +31,19 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
+
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-array_make_branch($config,'samba');
-array_make_branch($config,'sambaad','auxparam');
-array_make_branch($config,'interfaces','lan');
-array_make_branch($config,'system','dnsserver');
-array_make_branch($config,'system','ipv6dnsserver');
-array_make_branch($config,'system','ntp');
+use common\arr;
+
+arr::make_branch($config,'samba');
+arr::make_branch($config,'sambaad','auxparam');
+arr::make_branch($config,'interfaces','lan');
+arr::make_branch($config,'system','dnsserver');
+arr::make_branch($config,'system','ipv6dnsserver');
+arr::make_branch($config,'system','ntp');
 
 $errormsg = '';
 $do_init = false;
@@ -127,7 +131,7 @@ if($_POST):
 		$config['sambaad']['dns_forwarder'] = $_POST['dns_forwarder'];
 		$config['sambaad']['dns_domain'] = $_POST['dns_domain'];
 		$config['sambaad']['netbios_domain'] = $_POST['netbios_domain'];
-		$config['sambaad']['user_shares'] = isset($_POST['user_shares']) ? true : false;
+		$config['sambaad']['user_shares'] = isset($_POST['user_shares']);
 		$realm = strtoupper($config['sambaad']['dns_domain']);
 		$domain = strtoupper($config['sambaad']['netbios_domain']);
 		$password = $_POST['password'];
@@ -176,7 +180,7 @@ endif;
 $pgtitle = [gtext('Services'),gtext('Samba AD'),gtext('Initialize')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 <?php // Init spinner.?>
@@ -236,7 +240,7 @@ $(document).ready(function(){
 			html_passwordconfbox2('password','password_confirm',gettext('Admin Password'),'','',gettext('Generate password if left empty.'),true);
 			html_filechooser2('path',gettext('Path'),$pconfig['path'],sprintf(gettext('Permanent samba data path (e.g. %s).'),'/mnt/data/samba4'),$g['media_path'],true);
 			html_checkbox2('usezfsacl', gettext('Use zfsacl'),!empty($pconfig['usezfsacl']),gettext('Use the ZFS ACL driver.'));
-			html_checkbox2('user_shares',gettext('User Shares'),!empty($pconfig['user_shares']) ? true : false,gettext('Append user defined shares.'));
+			html_checkbox2('user_shares',gettext('User Shares'),!empty($pconfig['user_shares']),gettext('Append user defined shares.'));
 ?>
 		</tbody>
 	</table>
@@ -247,10 +251,11 @@ $(document).ready(function(){
 	if($do_init):
 		echo sprintf("<div id='cmdoutput'>%s</div>", gtext("Command output:"));
 		echo '<pre class="cmdoutput">';
-		while((\ob_get_level() > 0) && \ob_end_flush()):
+		while(ob_get_level() > 0):
+			ob_end_flush();
 		endwhile;
 		$cmd = sprintf('/usr/local/bin/samba-tool domain provision %s',implode(' ',$cmdargs));
-		echo gtext('Initializing...'),PHP_EOL;
+		echo gtext('Initializing...'),"\n";
 /*
 		mwexec2("$cmd 2>&1", $rawdata, $result);
 		foreach ($rawdata as $line) {
@@ -261,7 +266,7 @@ $(document).ready(function(){
 		while(!feof($handle)):
 			$line = fgets($handle);
 			echo htmlspecialchars($line);
-			while(\ob_get_level() > 0):
+			while(ob_get_level() > 0):
 				ob_flush();
 			endwhile;
 			flush();
@@ -269,7 +274,7 @@ $(document).ready(function(){
 		$result = pclose($handle);
 		echo('</pre>');
 		if($result == 0):
-			rename('/var/etc/smb4.conf',"${path}/smb4.conf.created");
+			rename('/var/etc/smb4.conf',"{$path}/smb4.conf.created");
 			rc_exec_service('resolv');
 		endif;
 	endif;
