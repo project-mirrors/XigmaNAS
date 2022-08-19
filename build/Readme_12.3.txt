@@ -140,7 +140,6 @@ Changes:
 - Upgrade devcpu-data-amd to v20220414.
 - Upgrade gzip to v1.12.
 - Upgrade unison to v2.52.1.
-- Upgrade rsync to v3.2.4.
 - Upgrade arcconf to v4.01.24763.
 - Upgrade proftpd to v1.3.7d.
 - Upgrade devcpu-data-intel to v20220510.
@@ -154,6 +153,7 @@ Changes:
 - Upgrade virtualbox-ose to v6.1.36.
 - Upgrade nano to v6.4.
 - Upgrade rrdtool to v1.8.0.
+- Upgrade rsync to v3.2.5.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
