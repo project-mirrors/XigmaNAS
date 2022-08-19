@@ -1,5 +1,5 @@
 PORTNAME=		rsync
-PORTVERSION=	3.2.4
+PORTVERSION=	3.2.5
 PORTREVISION=	0
 CATEGORIES=		net
 COMMENT=		A network file distribution/sync utility
@@ -12,6 +12,8 @@ MASTER_SITES=		https://rsync.samba.org/ftp/%SUBDIR%/ \
 MASTER_SITE_SUBDIR=	rsync
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX}
 DISTFILES+=		${PORTNAME}-patches-${PORTVERSION}${EXTRACT_SUFX}
+
+EXTRA_PATCHES=	${FILESDIR}/extrapatch-main.c
 
 GNU_CONFIGURE=	yes
 NO_PKG_REGISTER=yes
