@@ -111,7 +111,6 @@ Changes:
 - Upgrade sudo to v1.9.11p3.
 - Upgrade python to v3.9.13.
 - Upgrade php to v8.1.8.
-- Upgrade syncthing to v1.20.3.
 - Upgrade virtualbox-ose to v6.1.36.
 - Upgrade nano to v6.4.
 - Upgrade cdialog to v1.3-20220728.
@@ -119,6 +118,7 @@ Changes:
 - Upgrade rrdtool to v1.8.0.
 - Upgrade proftpd to v1.3.7e.
 - Upgrade rsync to v3.2.5.
+- Upgrade syncthing to v1.20.4.
 
 Fixes:
 - fix bring up lighttpd at all times.

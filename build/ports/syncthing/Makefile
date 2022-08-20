@@ -1,5 +1,5 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.20.3
+PORTVERSION=	1.20.4
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
@@ -11,7 +11,7 @@ COMMENT=	Encrypted file sync tool
 
 #BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
 
-USES=		cpe go:modules
+USES=		cpe go:1.18,modules
 BINS=		syncthing stdiscosrv strelaysrv strelaypoolsrv
 
 .for x in ${BINS}
