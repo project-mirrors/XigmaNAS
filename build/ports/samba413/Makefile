@@ -1,6 +1,6 @@
 PORTNAME=			${SAMBA4_BASENAME}413
 PORTVERSION=			${SAMBA4_VERSION}
-PORTREVISION=			0
+PORTREVISION=			1
 CATEGORIES?=			net
 MASTER_SITES=			SAMBA/samba/stable SAMBA/samba/rc
 DISTNAME=			${SAMBA4_DISTNAME}
@@ -679,7 +679,7 @@ post-install:
 .endif
 
 # XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/samba.in ${XIGMANAS_ROOTFS}/etc/rc.d/samba
 	@${LN} -fsv /var/etc/smb4.conf ${XIGMANAS_ROOTFS}/usr/local/etc/smb4.conf
@@ -706,15 +706,15 @@ post-install:
 # share
 	@${CP} -Rpv ${STAGEDIR}${PREFIX}/share/samba413 ${XIGMANAS_ROOTFS}/usr/local/share
 # misc
-	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
-	for file in talloc.cpython-38.so tdb.cpython-38.so; do \
-		${CP} -pv ${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
+	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
+	for file in talloc.cpython-39.so tdb.cpython-39.so; do \
+		${CP} -pv ${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages; \
 	done
 # from bundeled location 
-	for file in ldb.cpython-38.so; do \
-		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
+	for file in ldb.cpython-39.so; do \
+		${CP} -pv ${STAGEDIR}${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages; \
 	done
-	@${CP} -Rpv ${PREFIX}/lib/python3.8/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/dns ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
 	@${CP} -pv ${PREFIX}/bin/samba-nsupdate ${XIGMANAS_ROOTFS}/usr/local/bin
 
 # ldb/tdb
@@ -729,12 +729,12 @@ post-install:
 		${CP} -pv ${PREFIX}/bin/$${file} ${XIGMANAS_ROOTFS}/usr/local/bin; \
 	done
 # py-markdown importlib_metadata zipp.py
-	@${CP} -Rpv ${PREFIX}/lib/python3.8/site-packages/markdown ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
-	@${CP} -Rpv ${PREFIX}/lib/python3.8/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/markdown ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
+	@${CP} -Rpv ${PREFIX}/lib/python3.9/site-packages/importlib_metadata ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages
 	for file in zipp.py; do \
-		${CP} -pv ${PREFIX}/lib/python3.8/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.8/site-packages; \
+		${CP} -pv ${PREFIX}/lib/python3.9/site-packages/$${file} ${XIGMANAS_ROOTFS}/usr/local/lib/python3.9/site-packages; \
 	done
-# XigmaNAS® install
+# XigmaNAS® end install
 	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
