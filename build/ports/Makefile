@@ -48,7 +48,7 @@
     SUBDIR += phpmyadmin
     SUBDIR += phpvirtualbox
     SUBDIR += proftpd
-    SUBDIR += python3
+    SUBDIR += python39
     SUBDIR += py-wsdd
     SUBDIR += rconf
     SUBDIR += rrdtool
