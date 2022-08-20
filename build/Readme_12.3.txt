@@ -132,7 +132,6 @@ Changes:
 - Upgrade bash to v5.1 p16.
 - Upgrade e2fsprog to v1.46.5.
 - Upgrade samba to v4.13.17.
-- Upgrade zoneinfo to 2022a.
 - Upgrade msmtp to v1.8.20.
 - Upgrade smartmontools to v7.3.
 - Upgrade iperf3 to v3.11.
@@ -154,6 +153,7 @@ Changes:
 - Upgrade rsync to v3.2.5.
 - Upgrade syncthing to v1.20.4.
 - Upgrade php to v7.4.30.
+- Upgrade zoneinfo to 2022c.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
