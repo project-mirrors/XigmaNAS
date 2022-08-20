@@ -119,6 +119,7 @@ Changes:
 - Upgrade proftpd to v1.3.7e.
 - Upgrade rsync to v3.2.5.
 - Upgrade syncthing to v1.20.4.
+- Upgrade zoneinfo to 2022c.
 
 Fixes:
 - fix bring up lighttpd at all times.

@@ -1,5 +1,5 @@
 PORTNAME=		zoneinfo
-DISTVERSION=	2022a
+DISTVERSION=	2022c
 CATEGORIES=		misc
 COMMENT=		Updated timezone definitions
 MAINTAINER=		zoon01@xigmanas.com
@@ -48,11 +48,7 @@ do-install:
 	@${ECHO_CMD} "posixrules" >> ${WRKSRC}/zoneinfo.exlude
 	@${ECHO_CMD} "zone.tab" >> ${WRKSRC}/zoneinfo.exlude
 
-# XigmaNAS® install
-	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	@${MKDIR} -p ${XIGMANAS_ROOTFS}/usr/share
 	${TAR} -c -v -f - -X ${WRKSRC}/zoneinfo.exlude -C ${WRKSRC}/zoneinfo/ . | ${XZ_CMD} -cv > ${XIGMANAS_ROOTFS}/usr/share/zoneinfo.txz
-# XigmaNAS® end install
-	@echo "End install to ${XIGMANAS_ROOTFS}"
 
 .include <bsd.port.post.mk>
