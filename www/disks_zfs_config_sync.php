@@ -45,10 +45,12 @@ function get_geli_info($device) {
 	exec("/sbin/geli dump {$device}",$rawdata);
 	array_shift($rawdata);
 	foreach($rawdata as $line):
-		$a = preg_split("/:\s+/",$line);
-		$key = trim($a[0]);
-		$val = trim($a[1]);
-		$result[$key] = $val;
+		$a = preg_split('/:\s+/',$line);
+		if(is_array($a) && (count($a) >= 2)):
+			$key = trim($a[0]);
+			$val = trim($a[1]);
+			$result[$key] = $val;
+		endif;
 	endforeach;
 	return $result;
 }
@@ -199,7 +201,7 @@ foreach($rawdata as $line):
 			'compression' => $compression,
 			'dedup' => $dedup,
 			'sync' => $sync,
-			'sparse' => ($refreservation == 'none') ? true : false,
+			'sparse' => ($refreservation == 'none'),
 			'primarycache' => $primarycache,
 			'secondarycache' => $secondarycache,
 			'desc' => '',
@@ -513,7 +515,7 @@ endif;
 $pgtitle = [gtext('Disks'),gtext('ZFS'),gtext('Configuration'),gtext('Synchronize')];
 include 'fbegin.inc';
 ?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load",function() {
 	$("#iform").submit(function() { spinner(); });
