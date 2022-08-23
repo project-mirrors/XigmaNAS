@@ -40,6 +40,7 @@ trait fm_mkitem {
 	use fm_error;
 	use fm_extra;
 	use fm_permissions;
+
 /**
  *  make new directory or file
  *	@param string $dir

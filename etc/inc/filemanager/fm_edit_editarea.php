@@ -42,6 +42,7 @@ trait fm_edit_editarea {
 	use fm_error;
 	use fm_extra;
 	use fm_header;
+	use fm_permissions;
 
 //	save edited file
 	public function savefile($file_name) {

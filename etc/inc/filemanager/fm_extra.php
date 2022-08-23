@@ -34,6 +34,8 @@
 
 namespace filemanager;
 
+use function gtext;
+
 trait fm_extra {
 	use fm_debug;
 	use fm_error;

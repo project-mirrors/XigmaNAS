@@ -34,6 +34,8 @@
 
 namespace filemanager;
 
+use function unicode_escape_javascript;
+
 trait fm_javascript {
 	public function js_show() {
 ?>

@@ -34,13 +34,15 @@
 
 namespace filemanager;
 
+use function gtext;
+
 trait fm_down {
 	use fm_debug;
 	use fm_error;
 	use fm_extra;
 	use fm_permissions;
 	use fm_qxpage;
-	
+
 /**
  *	download_selected
  *	@param string $dir
