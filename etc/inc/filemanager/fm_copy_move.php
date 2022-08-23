@@ -35,15 +35,19 @@
 namespace filemanager;
 
 use common\session;
-use fm_extra;
+
+use function gtext;
 
 trait fm_copy_move {
+	use fm_extra;
+	use fm_header;
+	use fm_permissions;
+
 /**
  *	make list of directories
  *	@param type $dir
  *	@return type
  */
-
 	public function dir_list($dir) {
 //		this list is used to copy/move items to a specific location
 		$dir_list = [];

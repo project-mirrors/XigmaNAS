@@ -36,7 +36,14 @@ namespace filemanager;
 
 use common\session;
 
+use function gtext;
+
 trait fm_chmod {
+	use fm_error;
+	use fm_extra;
+	use fm_header;
+	use fm_permissions;
+
 //	change permissions
 	public function chmod_item($dir,$item) {
 		if(!$this->permissions_grant($dir,null,'change')):

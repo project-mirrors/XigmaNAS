@@ -37,6 +37,9 @@ namespace filemanager;
 use common\session;
 
 trait fm_login {
+	use fm_debug;
+	use fm_user;
+
 //	FIXME update home_dir variable if user is logged in
 	public function login() {
 		if(!$this->user_activate(session::get_user_name())):

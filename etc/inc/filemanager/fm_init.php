@@ -35,8 +35,11 @@
 namespace filemanager;
 
 trait fm_init {
+	use fm_debug;
+	use fm_login;
+
 	public function init() {
-		$this->_debug("Initializing ---------------------------------------------------");
+		$this->_debug('Initializing ---------------------------------------------------');
 /*
 		$this->_debug('xxx3 action: ' . $_GET['action'] ?? '' . '/' . $_GET['do_action'] ?? '' . '/' . (isset($_GET['action']) ? 'true' : 'false'));
  */

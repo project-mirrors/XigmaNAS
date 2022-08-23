@@ -34,7 +34,15 @@
 
 namespace filemanager;
 
+use function gtext;
+
 trait fm_extra {
+	use fm_debug;
+	use fm_error;
+	use fm_qxpath;
+	use fm_session;
+	use fm_str;
+
 /**
  *	make link to next page
  *	@param string|null $_action
@@ -252,17 +260,17 @@ trait fm_extra {
 /**
 	Check if user is allowed to access $file in $directory
  */
-	public function get_show_item($directory,$file) {
+	public function get_show_item($directory,$file = null) {
 //		no relative paths are allowed in directories
 		if(preg_match('/\.\./',$directory)):
 			return false;
 		endif;
-		if(isset($file)):
+		if(is_scalar($file)):
 //			file name must not contain any path separators
 			if(preg_match('/[\/\\\\]/',$file)):
 				return false;
 			endif;
-//			dont display own and parent directory
+//			do not display own and parent directory
 			if($file == '.' || $file == '..' ):
 				return false;
 			endif;
@@ -272,12 +280,18 @@ trait fm_extra {
 			if(!$this->str_startswith($full_path,$this->path_f())):
 				return false;
 			endif;
+			if($this->matches_noaccess_pattern($file)):
+				return false;
+			endif;
+//			check if user is allowed to access hidden files
+			if(!$this->show_hidden):
+				if($file[0] == '.'):
+					return false;
+				endif;
+			endif;
 		endif;
 //		check if user is allowed to access hidden files
 		if(!$this->show_hidden):
-			if($file[0] == '.'):
-				return false;
-			endif;
 //			no part of the path may be hidden
 			$directory_parts = explode('/',$directory);
 			foreach($directory_parts as $directory_part):
@@ -285,9 +299,6 @@ trait fm_extra {
 					return false;
 				endif;
 			endforeach;
-		endif;
-		if($this->matches_noaccess_pattern($file)):
-			return false;
 		endif;
 		return true;
 	}

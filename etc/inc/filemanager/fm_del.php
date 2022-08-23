@@ -37,6 +37,10 @@ namespace filemanager;
 use function gtext;
 
 trait fm_del {
+	use fm_error;
+	use fm_extra;
+	use fm_permissions;
+
 //	delete files/dirs
 	public function del_items($dir) {
 //		check if user is allowed to delete files

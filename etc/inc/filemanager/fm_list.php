@@ -36,7 +36,16 @@ namespace filemanager;
 
 use common\session;
 
+use function format_bytes;
+use function get_datetime_locale;
+use function gtext;
+
 trait fm_list {
+	use fm_error;
+	use fm_extra;
+	use fm_javascript;
+	use fm_permissions;
+
 /**
  *	Make a list of files
  *	@param array $_list1
@@ -439,7 +448,7 @@ trait fm_list {
 	public function _print_edit_buttons($dir) {
 //		for the copy button the user must have create and read rights
 		$this->_print_link('copy',$this->permissions_grant($dir,null,'copy'),$dir,null);
-		$this->_print_link('move',$this->permissions_grant($dir,null,'move'),$dir,null);
+//		$this->_print_link('move',$this->permissions_grant($dir,null,'move'),$dir,null);
 		$this->_print_link('delete',$this->permissions_grant($dir,null,'delete'),$dir,null);
 	}
 /**
@@ -490,8 +499,8 @@ trait fm_list {
 /**
  *	The breadcrumbs function will take the user's current path and build a breadcrumb.
  *  Typical syntax:
- *		echo breadcrumbs($dir, ">>");
- *		$this->show_header(gtext('Directory').":".breadcrumbs($dir));
+ *		echo breadcrumbs($dir,">>");
+ *		$this->show_header(gtext('Directory') . ":" . breadcrumbs($dir));
  *	@param string $curdir users current directory.
  *	@param string $displayseparator (optional) string that will be displayed betweenach crumb.
  *	@return string

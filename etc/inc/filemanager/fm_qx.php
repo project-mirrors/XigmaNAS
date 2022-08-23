@@ -35,6 +35,8 @@
 namespace filemanager;
 
 trait fm_qx {
+	use fm_permissions;
+
 	public function qx_language() {
 		print $this->language;
 	}

@@ -37,9 +37,16 @@ namespace filemanager;
 use common\session;
 use PharData;
 use Throwable;
+
 use function gtext;
 
 trait fm_unzip {
+	use fm_copy_move;
+	use fm_error;
+	use fm_extra;
+	use fm_header;
+	use fm_permissions;
+
 /**
  *	unzip file/dir
  *

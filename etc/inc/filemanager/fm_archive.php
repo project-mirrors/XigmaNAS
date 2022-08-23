@@ -37,6 +37,9 @@ namespace filemanager;
 use zipstream\zipstream;
 
 trait fm_archive {
+	use fm_debug;
+	use fm_error;
+
 	public function zip_download($directory,$items) {
 		$no_errors = true;
 		$zipfile = new zipstream('downloads.zip');

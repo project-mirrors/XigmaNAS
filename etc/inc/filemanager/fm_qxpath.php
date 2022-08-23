@@ -35,6 +35,11 @@
 namespace filemanager;
 
 trait fm_qxpath {
+/**
+ *
+ *	@param string $path
+ *	@return string
+ */
 	public function path_f($path = '') {
 		$abs_dir = $this->home_dir;
 		switch($path):
@@ -49,6 +54,11 @@ trait fm_qxpath {
 		$ret = preg_replace("#^$base#",'',$path);
 		return $ret;
 	}
+ */
+/**
+ *
+ *	@param string $path
+ *	@return string
  */
 	public function path_up($path) {
 		$ret = dirname($path);

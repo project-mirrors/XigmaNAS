@@ -37,31 +37,19 @@ namespace filemanager;
 use function gtext;
 
 class filemanager {
-	use fm_archive;
 	use fm_chmod;
 	use fm_copy_move;
-	use fm_debug;
 	use fm_del;
 	use fm_down;
 	use fm_edit_editarea;
-	use fm_extra;
 	use fm_error;
 	use fm_footer;
-	use fm_header;
 	use fm_init;
-	use fm_javascript;
 	use fm_list;
-	use fm_login;
 	use fm_mkitem;
-	use fm_permissions;
 	use fm_qx;
-	use fm_qxpage;
-	use fm_qxpath;
 	use fm_search;
-	use fm_session;
-	use fm_str;
 	use fm_unzip;
-	use fm_user;
 
 	protected string $language;
 	protected string $script_name;
@@ -130,7 +118,7 @@ class filemanager {
 			'none'			=> $this->img_root . '_.gif',
 		];
 //		editable files:
-		$this->editable_ext = '/\.(txt|php|php3|phtml|inc|sql|pl|htm|html|shtml|dhtml|xml|js|css|cgi|cpp|c|cc|cxx|hpp|h|pas|p|java|py|sh|tcl|tk|dxs|uni|htaccess)$/i';
+		$this->editable_ext = '/\.(txt|php|php3|phtml|inc|ini|sql|pl|htm|html|shtml|dhtml|xml|js|css|cgi|cpp|c|cc|cxx|hpp|h|pas|p|java|py|sh|tcl|tk|dxs|uni|htaccess)$/i';
 //		----------------------------------------------------------------------------
 //		unzipable files:
 		$this->unzipable_ext = '/\.(zip|gz|tar|bz2|tgz)$/i';
@@ -228,27 +216,15 @@ class filemanager {
 				break;
 			case 'download':
 //				download item
-//				prevent unwanted output
-//				ob_start();
-//				get rid of unwanted output
-//				ob_end_clean();
 				if($this->item == ''):
 					$this->show_error(gtext("You haven't selected any item(s)."));
 				endif;
 				$this->download_item($current_dir,$this->item);
-//				prevent unwanted output
-//				ob_start();
 				exit;
 				break;
 			case 'download_selected':
 //				download selected items
-//				prevent unwanted output
-//				ob_start();
-//				get rid of unwanted output
-//				ob_end_clean();
 				$this->download_selected($current_dir);
-//				prevent unwanted output
-//				ob_start();
 				exit;
 				break;
 			case 'unzip':
