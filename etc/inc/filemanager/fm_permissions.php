@@ -88,7 +88,7 @@ trait fm_permissions {
 								$has_permission = is_bool($test) ? $test : true;
 								break;
 							case 'copy':
-								$test = $test = $sphere_row['fmp_read'] ?? false;
+								$test = $sphere_row['fmp_read'] ?? false;
 								$fmp_read = is_bool($test) ? $test : true;
 								$test = $sphere_row['fmp_create'] ?? false;
 								$fmp_create = is_bool($test) ? $test : true;
