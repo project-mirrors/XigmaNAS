@@ -448,7 +448,7 @@ trait fm_list {
 	public function _print_edit_buttons($dir) {
 //		for the copy button the user must have create and read rights
 		$this->_print_link('copy',$this->permissions_grant($dir,null,'copy'),$dir,null);
-//		$this->_print_link('move',$this->permissions_grant($dir,null,'move'),$dir,null);
+		$this->_print_link('move',$this->permissions_grant($dir,null,'move'),$dir,null);
 		$this->_print_link('delete',$this->permissions_grant($dir,null,'delete'),$dir,null);
 	}
 /**
