@@ -36,7 +36,7 @@ namespace services\nfsd;
 
 use common\properties as myp;
 
-final class setting_properties extends grid_properties {
+class setting_properties extends grid_properties {
 	public function init_enable(): myp\property_enable {
 		$property = parent::init_enable();
 		$property->set_defaultvalue(false);

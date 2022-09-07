@@ -36,7 +36,7 @@ namespace services\nfsd\export;
 
 use common\properties as myp;
 
-final class row_properties extends grid_properties {
+class row_properties extends grid_properties {
 	public function init_filesystem(): myp\property_text {
 		global $g;
 
