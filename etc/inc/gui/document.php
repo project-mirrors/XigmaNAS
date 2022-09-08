@@ -109,10 +109,10 @@ class document extends DOMDocument {
 					implode("\n",$this->js_on_load),
 					'});'
 				]);
-				$body->ins_javascript($jdata);
+				$body->ins_javascript(text: $jdata);
 			endif;
 			$jdata = implode("\n",$this->js_document_ready);
-			$body->ins_javascript($jdata);
+			$body->ins_javascript(text: $jdata);
 		endif;
 		return $this;
 	}

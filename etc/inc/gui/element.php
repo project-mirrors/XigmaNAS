@@ -41,15 +41,15 @@ class element extends DOMElement {
 
 	public function addAttributes($attributes = []) {
 		foreach($attributes as $key => $value):
-			$this->setAttribute((string)$key,(string)$value);
+			$this->setAttribute(qualifiedName: (string)$key,value: (string)$value);
 		endforeach;
 		return $this;
 	}
 	public function option_exists(string $option) {
-		return $this->ownerDocument->option_exists($option);
+		return $this->ownerDocument->option_exists(option: $option);
 	}
 	public function push() {
-		$this->ownerDocument->push($this);
+		$this->ownerDocument->push(element: $this);
 		return $this;
 	}
 	public function pop() {
@@ -63,16 +63,16 @@ class element extends DOMElement {
 		return $this;
 	}
 	public function add_hook($dom_element,string $identifier) {
-		$this->ownerDocument->add_hook($dom_element,$identifier);
+		$this->ownerDocument->add_hook(dom_element: $dom_element,identifier: $identifier);
 		return $this;
 	}
 	public function get_hooks() {
 		return $this->ownerDocument->get_hooks();
 	}
 	public function add_js_on_load(string $jcode = '',string $key = null) {
-		return $this->ownerDocument->add_js_on_load($jcode,$key);
+		return $this->ownerDocument->add_js_on_load(jcode: $jcode,key: $key);
 	}
 	public function add_js_document_ready(string $jcode = '',string $key = null) {
-		return $this->ownerDocument->add_js_document_ready($jcode,$key);
+		return $this->ownerDocument->add_js_document_ready(jcode: $jcode,key: $key);
 	}
 }
