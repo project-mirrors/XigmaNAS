@@ -35,31 +35,23 @@
 namespace services\nutd\driverlist;
 
 use common\sphere as mys;
+use common\toolbox as myt;
 
-use function count,file,gettext,is_array,preg_match,
-		new_page;
+use function new_page;
 
 /**
  *	Wrapper class for autoloading functions
  */
-final class grid_toolbox {
+class grid_toolbox extends myt\grid_toolbox {
 /**
  *	Create the sphere object
- *	@return grid
+ *	@return mys\grid
  */
 	public static function init_sphere() {
 		$sphere = new mys\grid();
 		$sphere->
 			set_script('services_ups_drv');
 		return $sphere;
-	}
-/**
- *	Create the property object
- *	@return grid_properties
- */
-	public static function init_properties() {
-		$cop = new grid_properties();
-		return $cop;
 	}
 /**
  *	Returns an array of /usr/local/etc/nut/driver.list
@@ -95,7 +87,7 @@ final class grid_toolbox {
  *	@global string $errormsg
  *	@global string $savemsg
  *	@param grid_properties $cop
- *	@param grid $sphere
+ *	@param mys\grid $sphere
  */
 	public static function render(grid_properties $cop,mys\grid $sphere) {
 		$pgtitle = [gettext('Services'),gettext('UPS'),gettext('Driver List')];
