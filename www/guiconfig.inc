@@ -37,11 +37,11 @@ use gui\document;
 
 //	make sure nothing is cached
 if(isset($omit_nocacheheaders) && $omit_nocacheheaders):
-	header("Expires: 0");
-	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-	header("Cache-Control: no-store, no-cache, must-revalidate");
-	header("Cache-Control: post-check=0, pre-check=0",false);
-	header("Pragma: no-cache");
+	header('Expires: 0');
+	header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+	header('Cache-Control: no-store, no-cache, must-revalidate');
+	header('Cache-Control: post-check=0, pre-check=0',false);
+	header('Pragma: no-cache');
 endif;
 
 //	parse the configuration and include all configuration functions
@@ -58,18 +58,20 @@ ini_set('date.timezone',$_SESSION['tz'] ?? $config['system']['timezone'] ?? 'UTC
 //	set the current language
 system_language_load();
 
-$d_fwupenabled_path = $g['varrun_path'] . "/fwup.enabled";
-$d_firmwarelock_path = $g['varrun_path'] . "/firmware.lock";
-$d_sysrebootreqd_path = $g['varrun_path'] . "/sysreboot.reqd";
-$d_upnpconfdirty_path = $g['varrun_path'] . "/upnp.conf.dirty";
-$d_packagesconfdirty_path = $g['varrun_path'] . "/packages.conf.dirty";
+$d_fwupenabled_path = $g['varrun_path'] . '/fwup.enabled';
+$d_firmwarelock_path = $g['varrun_path'] . '/firmware.lock';
+$d_sysrebootreqd_path = $g['varrun_path'] . '/sysreboot.reqd';
+$d_upnpconfdirty_path = $g['varrun_path'] . '/upnp.conf.dirty';
+$d_packagesconfdirty_path = $g['varrun_path'] . '/packages.conf.dirty';
 
 if(file_exists($d_firmwarelock_path)):
-	if(!$d_isfwfile):
-		header("Location: system_firmware.php");
-		exit;
-	else:
+//	indicate system_firmware.php
+	$d_running_system_firmware_page ??= false;
+	if($d_running_system_firmware_page):
 		return;
+	else:
+		header('Location: system_firmware.php');
+		exit;
 	endif;
 endif;
 
@@ -77,12 +79,12 @@ endif;
 $reservedlogin = ['root','toor','daemon','operator','bin','tty','kmem','www','nobody','ftp','sshd'];
 
 //	TCP flags */
-$tcpflags = ["fin",'syn','rst','psh','ack','urg'];
+$tcpflags = ['fin','syn','rst','psh','ack','urg'];
 
 //	default setting
 $input_errors = [];
-$errormsg = "";
-$savemsg = "";
+$errormsg = '';
+$savemsg = '';
 
 //	AJAX misc
 function is_ajax() {
@@ -199,8 +201,8 @@ function do_input_validation_type($postdata,$reqdfields,$reqdfieldsn,$reqdfields
 					$message = sprintf( gtext("The attribute '%s' does not appear to be a valid private key."),$reqdfieldsn[$i]);
 					break;
 				case 'privatedsakey':
-					$valid = is_valid_privatekey($postdata[$reqdfields[$i]],"DSA");
-					$message = sprintf( gtext("The attribute '%s' does not appear to be a valid private %s key."),$reqdfieldsn[$i],"DSA");
+					$valid = is_valid_privatekey($postdata[$reqdfields[$i]],'DSA');
+					$message = sprintf( gtext("The attribute '%s' does not appear to be a valid private %s key."),$reqdfieldsn[$i],'DSA');
 					break;
 				case 'alias':
 					$valid = is_validaliasname($postdata[$reqdfields[$i]]);
@@ -269,7 +271,7 @@ function print_input_errors($input_errors) {
 }
 
 function verify_xz_file($fname) {
-	$returnvar = mwexec("/usr/bin/xz -t " . escapeshellarg($fname),true);
+	$returnvar = mwexec('/usr/bin/xz -t ' . escapeshellarg($fname),true);
 	if($returnvar != 0):
 		return 0;
 	else:
@@ -474,7 +476,7 @@ function html_filechooser($ctrlname,$title,$value,$desc,$path,$required = false,
 	$ctrl->Render();
 }
 
-function html_combobox($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = "") {
+function html_combobox($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = '') {
 	$ctrl = new HTMLComboBox($ctrlname,$title,$value,$options,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetReadOnly($readonly);
@@ -489,7 +491,7 @@ function html_mountcombobox($ctrlname,$title,$value,$desc,$required = false,$rea
 	$ctrl->Render();
 }
 
-function html_checkbox($ctrlname,$title,$checked,$caption = "",$desc = "",$required = false,$onclick = "") {
+function html_checkbox($ctrlname,$title,$checked,$caption = '',$desc = '',$required = false,$onclick = '') {
 	$ctrl = new HTMLCheckBox($ctrlname,$title,$checked,$caption,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetJSonClick($onclick);
@@ -510,7 +512,7 @@ function html_titleline($title,$colspan = 2,$idname = '') {
 	$ctrl->Render();
 }
 
-function html_titleline_checkbox($ctrlname,$title,$value,$caption,$onclick = "",$colspan = 2) {
+function html_titleline_checkbox($ctrlname,$title,$value,$caption,$onclick = '',$colspan = 2) {
 	$ctrl = new HTMLTitleLineCheckBox($ctrlname,$title,$value,$caption);
 	$ctrl->SetColSpan($colspan);
 	$ctrl->SetJSonClick($onclick);
@@ -532,7 +534,7 @@ function html_remark($ctrlname,$title,$text) {
 	$ctrl->Render();
 }
 
-function html_listbox($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = "") {
+function html_listbox($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = '') {
 	$ctrl = new HTMLListBox($ctrlname,$title,$value,$options,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetReadOnly($readonly);
@@ -605,7 +607,7 @@ function html_filechooser2($ctrlname,$title,$value,$desc,$path,$required = false
 	$ctrl->Compose()->render();
 }
 
-function html_combobox2($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = "") {
+function html_combobox2($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = '') {
 	$ctrl = new HTMLComboBox2($ctrlname,$title,$value,$options,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetReadOnly($readonly);
@@ -649,7 +651,7 @@ function html_interfacecombobox2($ctrlname,$title,$value,$desc,$required = false
 	$ctrl->Compose()->render();
 }
 
-function html_checkbox2($ctrlname,$title,$checked,$caption = "",$desc = "",$required = false,$readonly = false,$onclick = "",$altpadding = false) {
+function html_checkbox2($ctrlname,$title,$checked,$caption = '',$desc = '',$required = false,$readonly = false,$onclick = '',$altpadding = false) {
 	$ctrl = new HTMLCheckBox2($ctrlname,$title,$checked,$caption,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetReadOnly($readonly);
@@ -671,7 +673,7 @@ function html_titleline2($title,$colspan = 2,$ctrlname = '') {
 	$ctrl->Compose()->render();
 }
 
-function html_titleline_checkbox2($ctrlname,$title,$value,$caption,$onclick = "",$colspan = 2) {
+function html_titleline_checkbox2($ctrlname,$title,$value,$caption,$onclick = '',$colspan = 2) {
 	$ctrl = new HTMLTitleLineCheckBox2($ctrlname,$title,$value,$caption);
 	$ctrl->SetColSpan($colspan);
 	$ctrl->SetJSonClick($onclick);
@@ -693,7 +695,7 @@ function html_remark2($ctrlname,$title,$text) {
 	$ctrl->Compose()->render();
 }
 
-function html_listbox2($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = "") {
+function html_listbox2($ctrlname,$title,$value,$options,$desc,$required = false,$readonly = false,$onclick = '') {
 	$ctrl = new HTMLListBox2($ctrlname,$title,$value,$options,$desc);
 	$ctrl->SetRequired($required);
 	$ctrl->SetReadOnly($readonly);

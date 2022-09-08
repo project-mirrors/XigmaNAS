@@ -31,21 +31,26 @@
 	of the authors and should not be interpreted as representing official policies
 	of XigmaNAS®, either expressed or implied.
 */
-$d_isfwfile = 1; //	for guiconfig.inc, set means do not execute header('system_firmware.php') when file_exists($d_firmwarelock_path);
+
+//	for guiconfig.inc, true means not to execute command header('system_firmware.php') when file_exists($d_firmwarelock_path);
+$d_running_system_firmware_page = true;
 
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
 
-function check_firmware_version($locale) {
-/*
-	checks with /etc/firm.url to see if a newer firmware version online is available;
-	returns any HTML message it gets from the server
+/**
+ *	Checks with /etc/firm.url to see if a newer firmware version is available online
+ *	@global array $g
+ *	@param string $locale
+ *	@return ?string Any HTML message from the server
  */
+function check_firmware_version($locale) {
 	global $g;
-	$post = "product=".rawurlencode(get_product_name())
-	      . "&platform=".rawurlencode($g['fullplatform'])
-	      . "&version=".rawurlencode(get_product_version())
-	      . "&revision=".rawurlencode(get_product_revision());
+
+	$post = "product=" . rawurlencode(get_product_name())
+	      . "&platform=" . rawurlencode($g['fullplatform'])
+	      . "&version=" . rawurlencode(get_product_version())
+	      . "&revision=" . rawurlencode(get_product_revision());
 	$url = trim(get_firm_url());
 	if(preg_match('/^([^\/]+)(\/.*)/',$url,$m)):
 		$host = $m[1];
@@ -58,17 +63,17 @@ function check_firmware_version($locale) {
 	if($rfd):
 		$hdr = "POST $path/checkversion.php?locale=$locale HTTP/1.0\r\n";
 		$hdr .= "Content-Type: application/x-www-form-urlencoded\r\n";
-		$hdr .= "User-Agent: ".get_product_name()."-webGUI/1.0\r\n";
-		$hdr .= "Host: ".$host."\r\n";
-		$hdr .= "Content-Length: ".strlen($post)."\r\n\r\n";
+		$hdr .= "User-Agent: " . get_product_name() . "-webGUI/1.0\r\n";
+		$hdr .= "Host: " . $host . "\r\n";
+		$hdr .= "Content-Length: " . strlen($post) . "\r\n\r\n";
 		fwrite($rfd,$hdr);
 		fwrite($rfd,$post);
 		$inhdr = true;
-		$resp = "";
+		$resp = '';
 		while(!feof($rfd)):
 			$line = fgets($rfd);
 			if($inhdr):
-				if (trim($line) === ""):
+				if(trim($line) === ''):
 					$inhdr = false;
 				endif;
 			else:
@@ -80,8 +85,15 @@ function check_firmware_version($locale) {
 	endif;
 	return null;
 }
+/**
+ *
+ *	@param string $url
+ *	@param int $timeout
+ *	@return bool or string
+ */
 function simplexml_load_file_from_url($url,$timeout = 5) {
-	if(false !== ($ch = curl_init($url))): // get handle
+	$ch = curl_init($url);
+	if($ch !== false):
 		curl_setopt_array($ch,[
 			CURLOPT_HEADER => false,
 			CURLOPT_FOLLOWLOCATION => true, // follow location
@@ -96,7 +108,7 @@ function simplexml_load_file_from_url($url,$timeout = 5) {
 			write_log('CURL error: ' . curl_error($ch)); // write error to log
 		else:
 			curl_close($ch);
-			if(false !== $data): // just to be on the safe side
+			if($data !== false):
 				$previous_value = libxml_use_internal_errors(true);
 				$xml_data = simplexml_load_string($data); // get xml structure
 				libxml_clear_errors();
