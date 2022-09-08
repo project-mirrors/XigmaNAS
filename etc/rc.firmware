@@ -100,6 +100,7 @@ disable_memdisk() {
 	if df | grep -qw ${FTMP}; then
 		RESULT=1
 		/sbin/umount -f ${FTMP} > /dev/null 2>&1
+		RESULT=$?
 		if [ "${RESULT}" -ne 0 ]; then
 			/usr/bin/logger -t "${program}" -p console.err "${topic} - unmount command failed."
 			exit 1
