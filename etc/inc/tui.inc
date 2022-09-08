@@ -410,7 +410,11 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 			$regexp = '/^([1-9][0-9]*)([kmgtpezy]?)$/i';
 			foreach(['minimum','maximum','size'] as $parameter):
 				$details = [];
-				$details['size'] = filter_var($row[$parameter],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => $regexp]]);
+				if(array_key_exists($parameter,$row)):
+					$details['size'] = filter_var($row[$parameter],FILTER_VALIDATE_REGEXP,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => null,'regexp' => $regexp]]);
+				else:
+					$details['size'] = null;
+				endif;
 				if(isset($details['size'])):
 					unset($matches);
 					preg_match($regexp,$details['size'],$matches);
@@ -459,8 +463,8 @@ function tui_partition_layout(string $destination,array $partlayout,array $base_
 	set_kern_geom_debugflags(0x10);
 //	force delete existing partitions (ignore errors)
 	$partition_info = $geom->gather_part_by_name($destination);
-	if($partition_info !== false):
-		$current_scheme = (string)$partition_info[$destination]->config->scheme;
+	if(is_array($partition_info) && array_key_exists($destination,$partition_info)):
+		$current_scheme = (string)$partition_info[$destination]?->config?->scheme;
 	else:
 		$current_scheme = '';
 	endif;
