@@ -164,7 +164,7 @@ if($sphere->row_id === false): // record does not exist in config
 		endswitch;
 	endif;
 else: // record found in config
-	if((PAGE_MODE_POST == $mode_page || (PAGE_MODE_EDIT == $mode_page))): // POST or EDIT
+	if((PAGE_MODE_POST == $mode_page) || (PAGE_MODE_EDIT == $mode_page)): // POST or EDIT
 		switch($mode_updatenotify):
 			case UPDATENOTIFY_MODE_NEW:
 				$mode_record = RECORD_NEW_MODIFY;
@@ -236,10 +236,10 @@ switch($mode_page):
 			endswitch;
 			$sphere->row['casesensitivity'] = $helpinghand;
 		endif;
-		$sphere->row['canmount'] = filter_input(INPUT_POST,'canmount',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['readonly'] = filter_input(INPUT_POST,'readonly',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['xattr'] = filter_input(INPUT_POST,'xattr',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['snapdir'] = filter_input(INPUT_POST,'snapdir',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['canmount'] = filter_input(INPUT_POST,'canmount',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['readonly'] = filter_input(INPUT_POST,'readonly',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['xattr'] = filter_input(INPUT_POST,'xattr',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['snapdir'] = filter_input(INPUT_POST,'snapdir',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$sphere->row['quota'] = filter_input(INPUT_POST,'quota',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['quota']]]);
 		$sphere->row['reservation'] = filter_input(INPUT_POST,'reservation',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['reservation']]]);
 		$sphere->row['desc'] = filter_input(INPUT_POST,'desc',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => $sphere->row_default['desc']]]);
@@ -288,10 +288,10 @@ switch($mode_page):
 		$sphere->row['atime'] = filter_input(INPUT_POST,'atime',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['aclinherit'] = filter_input(INPUT_POST,'aclinherit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['aclmode'] = filter_input(INPUT_POST,'aclmode',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
-		$sphere->row['canmount'] = filter_input(INPUT_POST,'canmount',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['readonly'] = filter_input(INPUT_POST,'readonly',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['xattr'] = filter_input(INPUT_POST,'xattr',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['snapdir'] = filter_input(INPUT_POST,'snapdir',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['canmount'] = filter_input(INPUT_POST,'canmount',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['readonly'] = filter_input(INPUT_POST,'readonly',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['xattr'] = filter_input(INPUT_POST,'xattr',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['snapdir'] = filter_input(INPUT_POST,'snapdir',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$sphere->row['quota'] = filter_input(INPUT_POST,'quota',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['reservation'] = filter_input(INPUT_POST,'reservation',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['desc'] = filter_input(INPUT_POST,'desc',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
@@ -547,10 +547,10 @@ $document->render();
 			if($isrecordnewornewmodify):
 				html_radiobox2('casesensitivity',gettext('Case Sensitivity'),$sphere->row['casesensitivity'],$l_casesensitivity,gettext('This property indicates whether the file name matching algorithm used by the file system should be casesensitive, caseinsensitive, or allow a combination of both styles of matching'),false);
 			endif;
-			html_checkbox2('canmount',gettext('Canmount'),!empty($sphere->row['canmount']) ? true : false,gettext('If this property is disabled, the file system cannot be mounted.'),'',false);
-			html_checkbox2('readonly',gettext('Readonly'),!empty($sphere->row['readonly']) ? true : false,gettext('Controls whether this dataset can be modified.'),'',false);
-			html_checkbox2('xattr',gettext('Extended attributes'),!empty($sphere->row['xattr']) ? true : false,gettext('Enable extended attributes for this file system.'),'',false);
-			html_checkbox2('snapdir',gettext('Snapshot Visibility'),!empty($sphere->row['snapdir']) ? true : false,gettext('If this property is enabled, the snapshots are displayed into .zfs directory.'),'',false);
+			html_checkbox2('canmount',gettext('Canmount'),!empty($sphere->row['canmount']),gettext('If this property is disabled, the file system cannot be mounted.'),'',false);
+			html_checkbox2('readonly',gettext('Readonly'),!empty($sphere->row['readonly']),gettext('Controls whether this dataset can be modified.'),'',false);
+			html_checkbox2('xattr',gettext('Extended attributes'),!empty($sphere->row['xattr']),gettext('Enable extended attributes for this file system.'),'',false);
+			html_checkbox2('snapdir',gettext('Snapshot Visibility'),!empty($sphere->row['snapdir']),gettext('If this property is enabled, the snapshots are displayed into .zfs directory.'),'',false);
 			html_inputbox2('reservation',gettext('Reservation'),$sphere->row['reservation'],gettext("The minimum amount of space guaranteed to a dataset (usually empty). To specify the size use the following human-readable suffixes (for example, 'k', 'KB', 'M', 'Gb', etc.)."),false,10);
 			html_inputbox2('quota',gettext('Quota'),$sphere->row['quota'],gettext("Limits the amount of space a dataset and its descendants can consume. This property enforces a hard limit on the amount of space used. This includes all space consumed by descendants, including file systems and snapshots. To specify the size use the following human-readable suffixes (for example, 'k', 'KB', 'M', 'Gb', etc.)."),false,10);
 			html_inputbox2('desc',gettext('Description'),$sphere->row['desc'],gettext('You may enter a description here for your reference.'),false,40,false,false,40,gettext('Enter a description'));
