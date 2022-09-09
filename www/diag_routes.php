@@ -78,7 +78,7 @@ function diag_routes_get(string $family,bool $resolve): array {
 	return $sphere_grid;
 }
 function diag_routes_selection() {
-	$resolve = filter_input(INPUT_POST,'resolve',FILTER_VALIDATE_BOOLEAN) === true;
+	$resolve = filter_input(INPUT_POST,'resolve',FILTER_VALIDATE_BOOL) === true;
 //	IPv4
 	$ipv4_grid = diag_routes_get('inet',$resolve);
 	$ipv4_record_exists = count($ipv4_grid) > 0;
