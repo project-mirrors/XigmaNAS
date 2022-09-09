@@ -37,8 +37,9 @@ require_once 'auth.inc';
 require_once 'guiconfig.inc';
 require_once 'co_sphere.php';
 
-use gui\document;
 use common\arr;
+use common\uuid;
+use gui\document;
 
 function interfaces_lagg_edit_get_sphere() {
 	global $config;
@@ -75,7 +76,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 			exit;
 			break;
 		case 'clone':
-			$sphere->row[$sphere->get_row_identifier()] = uuid();
+			$sphere->row[$sphere->get_row_identifier()] = uuid::create_v4();
 			$mode_page = PAGE_MODE_CLONE;
 			break;
 		case 'save':
@@ -84,7 +85,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
-			if(!is_uuid_v4($id)):
+			if(!uuid::is_v4($id)):
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
@@ -99,7 +100,7 @@ if(false !== ($action = filter_input(INPUT_POST,'submit',FILTER_UNSAFE_RAW,['fla
 elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]))):
 	switch($action):
 		case 'add':
-			$sphere->row[$sphere->get_row_identifier()] = uuid();
+			$sphere->row[$sphere->get_row_identifier()] = uuid::create_v4();
 			$mode_page = PAGE_MODE_ADD;
 			break;
 		case 'edit':
@@ -108,7 +109,7 @@ elseif(false !== ($action = filter_input(INPUT_GET,'submit',FILTER_UNSAFE_RAW,['
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
-			if(!is_uuid_v4($id)):
+			if(!uuid::is_v4($id)):
 				header($sphere->get_parent()->get_location());
 				exit;
 			endif;
@@ -125,7 +126,7 @@ else:
 	exit;
 endif;
 $sphere->row_id = arr::search_ex($sphere->row[$sphere->get_row_identifier()],$sphere->grid,$sphere->get_row_identifier());
-$isrecordnew = (false === $sphere->row_id);
+$isrecordnew = ($sphere->row_id === false);
 switch($mode_page):
 	case PAGE_MODE_ADD:
 		if(!$isrecordnew): // add cannot have an uuid in config
@@ -150,8 +151,8 @@ switch($mode_page):
 			header($sphere->get_parent()->get_location());
 			exit;
 		endif;
-		$sphere->row['enable'] = filter_input(INPUT_POST,'enable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['protected'] = filter_input(INPUT_POST,'protected',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['enable'] = filter_input(INPUT_POST,'enable',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['protected'] = filter_input(INPUT_POST,'protected',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$interface_id = 0;
 		$interface_format = 'lagg%d';
 		do {
@@ -179,8 +180,8 @@ switch($mode_page):
 		$sphere->row['desc'] = filter_var($sphere->grid[$sphere->row_id]['desc'],FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		break;
 	case PAGE_MODE_POST:
-		$sphere->row['enable'] = filter_input(INPUT_POST,'enable',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
-		$sphere->row['protected'] = filter_input(INPUT_POST,'protected',FILTER_VALIDATE_BOOLEAN,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['enable'] = filter_input(INPUT_POST,'enable',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
+		$sphere->row['protected'] = filter_input(INPUT_POST,'protected',FILTER_VALIDATE_BOOL,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => false]]);
 		$sphere->row['if'] = filter_input(INPUT_POST,'if',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['laggproto'] = filter_input(INPUT_POST,'laggproto',FILTER_UNSAFE_RAW,['flags' => FILTER_REQUIRE_SCALAR,'options' => ['default' => '']]);
 		$sphere->row['laggport'] = filter_input(INPUT_POST,'laggport',FILTER_UNSAFE_RAW,['flags' => FILTER_FORCE_ARRAY,'options' => ['default' => []]]);
