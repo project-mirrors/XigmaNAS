@@ -58,7 +58,7 @@ else:
 	$g['fullplatform'] = 'unknown';
 endif;
 //	RootOnZFS
-$g['zroot'] = (0 == mwexec('/sbin/mount | awk "/ \/ / {print $1}" | grep -q ".*/ROOT/.*"')) ? true : false;
+$g['zroot'] = (mwexec('/sbin/mount | awk "/ \/ / {print $1}" | grep -q ".*/ROOT/.*"') == 0);
 if(is_booting()):
 //	find the device where config.xml resides and write out an fstab
 	unset($cfgdevice);
@@ -462,7 +462,8 @@ function write_loader_config(){
 		$lines = '';
 		$loader_param_list = &$config['system']['loaderconf']['param'];
 		foreach($loader_param_list as $param):
-			if(is_bool($test = $param['enable'] ?? false) ? $test : true):
+			$test = $param['enable'] ?? false;
+			if(is_bool($test) ? $test : true):
 				$name = is_string($test = $param['name'] ?? '') ? $test : '';
 				$value = is_string($test = $param['value'] ?? '') ? $test : '';
 				if(preg_match('/\S/',$name)):
@@ -1884,7 +1885,8 @@ function config_preinit() {
 	if(stristr($g['platform'],'livecd') || stristr($g['platform'],'liveusb')):
 		exec('/usr/bin/sed -i.bak -e "/^ttyv0/ s/Pc/autologin/" -e "/^ttyu0/ s/3wire/autologin/" /etc/ttys');
 	else:
-		$consoleautologin = is_bool($test = ($config['system']['consoleautologin'] ?? false)) ? $test : true;
+		$test = $config['system']['consoleautologin'] ?? false;
+		$consoleautologin = is_bool($test) ? $test : true;
 		if($consoleautologin):
 			exec('/usr/bin/sed -i.bak -e "/^ttyv0/ s/Pc/autologin/" /etc/ttys');
 		else:
