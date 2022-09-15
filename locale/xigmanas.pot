@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
-"POT-Creation-Date: 2022-08-04 21:17+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2236,7 +2236,7 @@ msgstr ""
 msgid "Current state of drive operation based upon the Life Curve."
 msgstr ""
 
-msgid "Current system password is using the default password. You should choose a different password."
+msgid "Current system password is using a default password. You should choose a different password."
 msgstr ""
 
 msgid "Current value of apparent power (Volt-Amps)"
@@ -10017,6 +10017,12 @@ msgstr ""
 msgid "Specific Helium Level. The Helium, so says the literature, allows the drives to run cooler and quieter, and reduces power consumption. This is the status of the Helium in the drive. It is a pre-fail attribute that trips once the drive detects that the internal environment is out of specification."
 msgstr ""
 
+msgid "Specific to MG07+ drives from Toshiba. This value measures lower level of helium inside of the drive specific to this manufacturer. It is a pre-fail attribute that trips once the drive detects that the internal environment is out of specification."
+msgstr ""
+
+msgid "Specific to MG07+ drives from Toshiba. This value measures the upper level helium inside of the drive specific to this manufacturer. It is a pre-fail attribute that trips once the drive detects that the internal environment is out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr ""
 
@@ -10638,6 +10644,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr ""
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr ""
 
@@ -10735,14 +10749,6 @@ msgstr ""
 
 #, php-format
 msgid "The attribute '%s' must be a string."
-msgstr ""
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr ""
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
 msgstr ""
 
 #, php-format
