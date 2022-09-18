@@ -1,8 +1,9 @@
 PORTNAME=		php81
-PORTVERSION=	8.1.8
+PORTVERSION=	8.1.10
 PORTREVISION?=	0
 CATEGORIES?=		lang
 COMMENT=		PHP Scripting Language
+WWW=			https://www.php.net/
 MAINTAINER=		zoon01@xigmanas.com
 
 MASTER_SITES=		${MASTER_SITE_PHP:S,$,:release,}
