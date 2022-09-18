@@ -107,7 +107,6 @@ Changes:
 - Upgrade syncthing to v1.20.2.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
-- Upgrade lighttpd to v1.4.65.
 - Upgrade sudo to v1.9.11p3.
 - Upgrade python to v3.9.13.
 - Upgrade php to v8.1.8.
@@ -121,6 +120,7 @@ Changes:
 - Upgrade syncthing to v1.20.4.
 - Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
+- Upgrade lighttpd to v1.4.67.
 
 Fixes:
 - fix bring up lighttpd at all times.
