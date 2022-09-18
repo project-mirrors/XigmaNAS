@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
-"PO-Revision-Date: 2022-07-13 22:34+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"PO-Revision-Date: 2022-09-17 00:11+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:17+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Dutch\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "X-Poedit-Country: Netherlands\n"
+"X-Poedit-Language: Dutch\n"
 "Language: \n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " Geen prive sleutel"
@@ -2670,8 +2670,8 @@ msgstr "Creëer de pool met een alternatieve root."
 msgid "Creating filesystem"
 msgstr "Creëer bestandssysteem"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "Creëer bestandssysteem met 'Soft Updates'"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "Bestandssysteem maken met \"Soft Updates\""
 
 msgid "Creating partition"
 msgstr "Creëer partitie"
@@ -2728,11 +2728,11 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr "Huidige staat werking van de schijf op basis van de Levens Curve."
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
-"Huidige systeemwachtwoord gebruikt het standaard wachtwoord. U zou een ander "
-"wachtwoord moeten opgeven."
+"Het huidige systeemwachtwoord gebruikt een standaardwachtwoord. U dient een "
+"ander wachtwoord te kiezen."
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Huidige waarde van schijnbaar vermogen (Volt-Amps)"
@@ -11420,6 +11420,28 @@ msgstr ""
 "fail attribuut dat verhoogt zodra de schijf detecteert dat het interne "
 "Helium levels uit specificatie zijn."
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+"Specifiek voor MG07+ schijven van Toshiba. Deze waarde meet een lager "
+"heliumniveau in de schijf die specifiek is voor deze fabrikant. Het is een "
+"pre-fail attribuut dat omschakelt zodra de schijf detecteert dat de interne "
+"omgeving buiten de specificaties valt."
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+"Specifiek voor MG07+ schijven van Toshiba. Deze waarde meet het helium van "
+"het hoogste niveau in de schijf die specifiek is voor deze fabrikant. Het is "
+"een pre-fail-attribuut dat omschakelt zodra de schijf detecteert dat de "
+"interne omgeving buiten de specificaties valt."
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "Specificeert de LUN EUI-64 identificatie"
 
@@ -12160,6 +12182,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "De geassocieerde MIB bestanden kunnen gevonden worden op %s."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr "Het attribuut %s moet in het bereik van %d tot %d liggen."
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr "Het attribuut %s moet kleiner zijn dan %s."
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr "Het attribuut '%s' bestaat reeds."
 
@@ -12285,14 +12315,6 @@ msgstr "Het attribuut '%s' moet een nummer zijn."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "Het attribuut '%s' moet een tekenreeks zijn."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "Het attribuut '%s' dient een bereik te hebben van %d tot %d."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "Het attribuut '%s' moet lager zijn dan '%s'."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

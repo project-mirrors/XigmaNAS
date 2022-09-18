@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xigmanas\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
 "PO-Revision-Date: 2021-11-15 14:27+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:16+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:24+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 
 msgid " No private key"
 msgstr " Geen privaat sleutel"
@@ -2617,8 +2617,8 @@ msgstr "Skep die poel met alternatiewe wortel"
 msgid "Creating filesystem"
 msgstr "Besig om 'n lêersisteem te skep"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "Skep lêerstelsel met 'Soft Updates'"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
 
 msgid "Creating partition"
 msgstr "Skep tans partisie"
@@ -2675,11 +2675,9 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr "Huidige staat van die skyf operasie gebaseerd op die Lewens Kurwe."
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
-"Huidige stelsel wagwoord gebruik die standaard wagwoord. Jy behoort kies 'n "
-"verskillende wagwoord."
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Huidige waarde van die oënskynlike krag (Volt-Amps)"
@@ -11269,6 +11267,20 @@ msgstr ""
 "oorskakel sodra die skyf ontdek dat die interne omgewing nie voldens "
 "spesifikasie is nie."
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "Spesifiseer LUN EUI-64 identifiseerder."
 
@@ -12001,6 +12013,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "Die geassosieerde MIB lêers kan gevind word by %s."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr "Die eienskap '%s' bestaan reeds."
 
@@ -12130,14 +12150,6 @@ msgstr "Die eienskap '%s' moet 'n nommer wees."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "Die eienskap '%s' moet 'n string wees."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "Die eienskap '%s' moet in die omvang van %d tot %d wees."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "Die eienskap '%s' moet minder as '%s' wees."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

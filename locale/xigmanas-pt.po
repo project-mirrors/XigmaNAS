@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
-"PO-Revision-Date: 2022-07-13 22:30+0000\n"
-"Last-Translator: Vicente Soriano <victek@gmail.com>\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"PO-Revision-Date: 2022-09-08 18:45+0000\n"
+"Last-Translator: PCManiac <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:17+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Portuguese\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "X-Poedit-Country: PORTUGAL\n"
+"X-Poedit-Language: Portuguese\n"
 "Language: \n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " Sem chave privada"
@@ -443,7 +443,7 @@ msgid "A valid prefix (1-128) must be specified."
 msgstr "Um prefix valido (1-128) tem de ser especificado."
 
 msgid "AC3 Audio File"
-msgstr ""
+msgstr "Ficheiro Áudio AC3"
 
 msgid "ACL Inherit"
 msgstr "Herança ACL"
@@ -485,7 +485,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "AVI File"
-msgstr ""
+msgstr "Ficheiro AVI"
 
 msgid "Accept remote syslog messages."
 msgstr "Aceitar as mensagens do syslog remoto."
@@ -642,7 +642,7 @@ msgid "Add RAID"
 msgstr "Adicionar RAID"
 
 msgid "Add Reboot Schedule"
-msgstr ""
+msgstr "Adicionar tarefa de reinicio"
 
 msgid "Add Record"
 msgstr "Adicionar Registo"
@@ -663,7 +663,7 @@ msgid "Add Samba Share"
 msgstr "Adicionar Partilha Samba"
 
 msgid "Add Schedule"
-msgstr ""
+msgstr "Adicionar tarefa"
 
 msgid "Add Share"
 msgstr "Adicionar Partilha"
@@ -805,7 +805,7 @@ msgid "Administrator Name"
 msgstr "Nome do Administrador"
 
 msgid "Administrator Password"
-msgstr ""
+msgstr "Senha de Administrador"
 
 msgid "Advanced"
 msgstr "Avançado"
@@ -1170,7 +1170,7 @@ msgid "Append user defined shares"
 msgstr "Anexar partilhas definidas pelo utilizador"
 
 msgid "Append user defined shares."
-msgstr ""
+msgstr "Anexar partilhas definidas pelo utilizador."
 
 msgid "Apple Filing Protocol"
 msgstr "Protocolo 'Apple Filing'"
@@ -1206,7 +1206,7 @@ msgid "Archive mode."
 msgstr "Modo de arquivo."
 
 msgid "Are you sure you want to delete selected item(s)?"
-msgstr ""
+msgstr "Tem a certeza que quer eliminar o(s) ficheiro(s) selecionado(s)?"
 
 msgid "Are you sure you want to reboot the server?"
 msgstr "Tem a certeza que quer reiniciar o servidor?"
@@ -1415,10 +1415,10 @@ msgstr ""
 "operacional)."
 
 msgid "BMP Image"
-msgstr ""
+msgstr "Imagem BMP"
 
 msgid "BZIP2 Archive"
-msgstr ""
+msgstr "Ficheiro BZIP2"
 
 msgid "Back"
 msgstr "Retroceder"
@@ -1681,7 +1681,7 @@ msgid "C++ Header File"
 msgstr ""
 
 msgid "C++ Source File"
-msgstr ""
+msgstr "Ficheiro de código C++"
 
 msgid "CA Trusted Certificates"
 msgstr ""
@@ -1735,10 +1735,10 @@ msgid "CD/DVD drive"
 msgstr "drive de CD/DVD"
 
 msgid "CGI Script"
-msgstr ""
+msgstr "Script CGI"
 
 msgid "CHANGE PERMISSIONS"
-msgstr ""
+msgstr "Alterar Permissões"
 
 msgid "CHANGED"
 msgstr "MUDADO"
@@ -1768,7 +1768,7 @@ msgid "CHAP-Mutual"
 msgstr ""
 
 msgid "COPY"
-msgstr ""
+msgstr "COPIAR"
 
 msgid "CP1251 (Cyrillic)"
 msgstr "CP1251 (Cirílico)"
@@ -1839,10 +1839,10 @@ msgid "CRC32C"
 msgstr ""
 
 msgid "CSS File"
-msgstr ""
+msgstr "Ficheiro CSS"
 
 msgid "CSS Settings"
-msgstr ""
+msgstr "Configurações de CSS"
 
 msgid "CTL LUN"
 msgstr "CTL LUN"
@@ -1928,7 +1928,7 @@ msgid "Change below file"
 msgstr "Mudar ficheiro abaixo"
 
 msgid "Change permissions"
-msgstr ""
+msgstr "Alterar permissões"
 
 msgid "Change the IP address of your computer"
 msgstr "Muda o endereco de IP do seu computador"
@@ -2006,7 +2006,7 @@ msgid "Clear Configuration"
 msgstr "Limpar Configuracao"
 
 msgid "Clear Text Authentication"
-msgstr ""
+msgstr "Autenticação Clear Text"
 
 msgid "Clear configuration information before importing disks."
 msgstr "Limpar informacao de configuracao antes de importar os discos."
@@ -2020,7 +2020,7 @@ msgid "Clear device errors"
 msgstr "Limpar erros do dispositivo"
 
 msgid "Clear metadata on the selected device."
-msgstr ""
+msgstr "Apagar os metadados da drive selecionada"
 
 msgid "Client"
 msgstr "Cliente"
@@ -2038,7 +2038,7 @@ msgid "Clone Configuration"
 msgstr "Clonar Configuracao"
 
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 msgid "Collecting initial data, please wait..."
 msgstr "A reunir os dados iniciais, por favor aguarde"
@@ -2047,7 +2047,7 @@ msgid "Collisions"
 msgstr "Colisões"
 
 msgid "Colorful Meters"
-msgstr ""
+msgstr "Medidores coloridos"
 
 msgid "Cols"
 msgstr "Colunas"
@@ -2075,7 +2075,7 @@ msgid "Command Scripts (Maintenance Only)"
 msgstr ""
 
 msgid "Command execution was successful"
-msgstr ""
+msgstr "O comando foi executado com sucesso"
 
 #, php-format
 msgid "Command for LINK_DOWN event (e.g. %s)."
@@ -2110,7 +2110,7 @@ msgid "Comment"
 msgstr "Comentário"
 
 msgid "Communication Error"
-msgstr ""
+msgstr "Erro de Comunicação"
 
 msgid "Community"
 msgstr "Comunidade"
@@ -2137,7 +2137,7 @@ msgid "Configuration"
 msgstr "Configuração"
 
 msgid "Configuration Folder"
-msgstr ""
+msgstr "Pasta de configuração"
 
 msgid ""
 "Configuration information about devices is different from physical devices. "
@@ -2339,13 +2339,13 @@ msgstr ""
 
 #, php-format
 msgid "Copy from /%s to /%s "
-msgstr ""
+msgstr "Copiar de /%s para /%s "
 
 msgid "Copy item(s)"
-msgstr ""
+msgstr "Copiar ficheiro(s)"
 
 msgid "Copying failed."
-msgstr ""
+msgstr "Falhou cópia."
 
 msgid "Core"
 msgstr ""
@@ -2457,7 +2457,7 @@ msgid ""
 msgstr ""
 
 msgid "Create"
-msgstr ""
+msgstr "Criar"
 
 msgid "Create 4KB wrapper (nop device)."
 msgstr ""
@@ -2534,8 +2534,8 @@ msgstr "Cria a 'pool' com uma 'root'' alternativa."
 msgid "Creating filesystem"
 msgstr "A criar o sistema de ficheiros"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "A criar sistema de ficheiros com 'Soft Updates'"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
 
 msgid "Creating partition"
 msgstr "Criando partição."
@@ -2592,7 +2592,7 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr ""
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
 
@@ -10860,6 +10860,20 @@ msgid ""
 "drive detects that the internal environment is out of specification."
 msgstr ""
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr ""
 
@@ -11545,6 +11559,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "Os ficheiros MIB associados podem ser encontrados em %s."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr ""
 
@@ -11661,14 +11683,6 @@ msgstr "O atributo '%s' deve ser um número."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "O atributo '%s' deve ser um conjunto de caracteres."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "O atributo '%s' deve estar no intervalo entre %d até %d."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "O atributo '%s' deve ser inferior a '%s'."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

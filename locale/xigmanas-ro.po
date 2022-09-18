@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
 "PO-Revision-Date: 2022-07-19 09:46+0000\n"
 "Last-Translator: Laurentiu Bubuianu <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:17+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "Language: ro_RO\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -2655,8 +2655,8 @@ msgstr "Creare pool cu root alternativ."
 msgid "Creating filesystem"
 msgstr "Creare sistem de fișiere"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "Creare sistem de fișiere cu 'Soft Updates'"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
 
 msgid "Creating partition"
 msgstr "Creare partiție"
@@ -2713,11 +2713,9 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr "Starea curentă a discului pe baza curbei de viață."
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
-"Parola curentă a sistemului este cea implicită. Ar trebui să definiți o altă "
-"parolă."
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Valoare curent pentru puterea aparentă (Volți-Amperi)"
@@ -11402,6 +11400,20 @@ msgstr ""
 "arată starea Heliumului în dispozitiv. Atributul este unul preventiv care "
 "arată dacă atmosfera artificială din dispozitiv a fost sau nu alterată."
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "Specificare identificator LUN EUI-64"
 
@@ -12130,6 +12142,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "Fișierele MIB asociate pot fi găsite la %s."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr "Parametrul '%s' există deja."
 
@@ -12254,14 +12274,6 @@ msgstr "Atributul '%s' trebuie să fie număr."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "Atributul '%s' trebuie să fie text."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "Atributul '%s' trebuie să fie în intervalul %d-%d."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "Atributul '%s' trebuie să fie mai mic ca '%s'."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

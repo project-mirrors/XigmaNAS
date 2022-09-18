@@ -2,18 +2,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
 "PO-Revision-Date: 2022-05-25 02:38+0000\n"
 "Last-Translator: Luke Luo <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:17+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "Language: zh_CN\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Bookmarks: -1,-1,-1,-1,128,-1,-1,-1,-1,-1\n"
 
 msgid " No private key"
 msgstr " 没有私钥"
@@ -2417,8 +2417,8 @@ msgstr "建立备用根池。"
 msgid "Creating filesystem"
 msgstr "创建文件系统"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "建立可 'Soft Updates' 的文件系统"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
 
 msgid "Creating partition"
 msgstr "正在创建分区"
@@ -2475,9 +2475,9 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr "基于寿命曲线的驱动器操作的当前状态。"
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
-msgstr "当前系统密码使用的是默认密码。你应该改用自定义密码以保证安全。"
+msgstr ""
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "当前的视在功率（伏安）"
@@ -10666,6 +10666,20 @@ msgstr ""
 "指定氦水平。 氦气，字面上说，允许驱动器运行更冷，更安静，并降低功耗。 这是驱动器中氦的状态。 它是一个pre-"
 "fail属性，当驱动器检测到内部环境超出规范时跳闸。"
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "指定LUN EUI-64标识符。"
 
@@ -11337,6 +11351,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "可以在 %s 中找到相关的 MIB 文件。"
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr "%s 已存在。"
 
@@ -11449,14 +11471,6 @@ msgstr "'%s' 必须是一个数字。"
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "'%s' 必须是字符串。"
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "'%s' 必须是从 %d 到 %d 的范围内。"
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "'%s' 必须小于 '%s'。"
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

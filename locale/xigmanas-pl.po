@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
 "PO-Revision-Date: 2021-11-15 12:31+0000\n"
 "Last-Translator: Mar Son <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:17+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Language: Polish\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "X-Poedit-Country: POLAND\n"
+"X-Poedit-Language: Polish\n"
 "Language: \n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 msgid " No private key"
 msgstr " Brak klucza prywatnegp"
@@ -2538,8 +2538,8 @@ msgstr "Tworzy pulę z alternatywnym katalogiem głównym."
 msgid "Creating filesystem"
 msgstr "Tworzenie systemu plików"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "Tworzenie systemu plików z 'Soft Updates'"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
 
 msgid "Creating partition"
 msgstr "Creating partition"
@@ -2596,9 +2596,9 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr ""
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
-msgstr "Aktualne hasło zawiera domyślne hasło. Powinieneś użyć innego hasła"
+msgstr ""
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Aktualna wartość mocy pozornej (Wolty-Ampery)"
@@ -10867,6 +10867,20 @@ msgid ""
 "drive detects that the internal environment is out of specification."
 msgstr ""
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr ""
 
@@ -11556,6 +11570,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "Dowiązane pliki MIB znajdują się w %s."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr ""
 
@@ -11673,14 +11695,6 @@ msgstr "Atrybut '%s' musi być liczbą."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "Atrybut '%s' musi być ciągiem znaków."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "Atrybut '%s' musi być z zakresu od %d do %d."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "Atrybut '%s' musi być mniejszy niż '%s'."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

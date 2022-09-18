@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
-"PO-Revision-Date: 2022-08-01 23:12+0000\n"
-"Last-Translator: ms49434 <ms49434@xigmanas.com>\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
+"PO-Revision-Date: 2022-09-16 05:04+0000\n"
+"Last-Translator: Tomfro <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:16+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:24+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "Language: de\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -2644,8 +2644,8 @@ msgstr "Erstellt den Pool mit alternativem Root-Verzeichis."
 msgid "Creating filesystem"
 msgstr "Dateisystem wird erstellt"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "Erstelle Dateisystem samt 'Soft Updates'"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr "Erstelle Dateisystem mit \"Soft Updates\""
 
 msgid "Creating partition"
 msgstr "Erzeuge Partition"
@@ -2702,11 +2702,11 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr "aktueller Status basierend auf der Lebensdauererwartung"
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
 msgstr ""
-"Das aktuelle Kennwort ist identisch mit dem Standard-Kennwort. Sie sollten "
-"ein neues Kennwort wählen."
+"Das aktuelle Systemkennwort verwendet ein Standardkennwort. Sie sollten ein "
+"anderes Passwort wählen."
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "Aktuelle Scheinleistung (VA)"
@@ -11427,6 +11427,30 @@ msgid ""
 "drive detects that the internal environment is out of specification."
 msgstr "Helium Status (von Festplatten, die diese Gasfüllung enthalten)"
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+"Speziell für MG07+-Laufwerke von Toshiba. Dieser Wert misst den unteren "
+"Stand des Heliumgehalts im Inneren des Laufwerks für diesen spezifischen "
+"Hersteller. Es handelt sich um ein Ausfallvorhersage-Attribut (Pre-Fail-"
+"Attribut), das ausgelöst wird, sobald das Laufwerk erkennt, dass die interne "
+"Umgebung außerhalb der Spezifikation liegt."
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+"Speziell für MG07+-Laufwerke von Toshiba. Dieser Wert misst den oberen Stand "
+"des Heliumgehalts im Inneren des Laufwerks für diesen spezifischen "
+"Hersteller. Es handelt sich um ein Ausfallvorhersage-Attribut (Pre-Fail-"
+"Attribut), das ausgelöst wird, sobald das Laufwerk erkennt, dass die interne "
+"Umgebung außerhalb der Spezifikation liegt."
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr "Legt das LUN EUI-64 Kennzeichen fest."
 
@@ -12164,6 +12188,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "Die dazugehörigen MIB Dateien können unter %s gefunden werden."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr "Das Attribut %s muss im Bereich von %d bis %d liegen."
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr "Das Attribut %s muss kleiner als %s sein."
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr "Das Attribut '%s' existiert bereits !"
 
@@ -12294,14 +12326,6 @@ msgstr "Das Attribut '%s' muss eine Zahl sein."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "Der Wert '%s' muss eine Zeichenfolge sein."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "Das Attribut '%s' muss im Bereich von %d und %d liegen."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "Das Attribut '%s' muss kleiner als '%s' sein."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."

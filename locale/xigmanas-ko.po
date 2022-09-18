@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XigmaNAS\n"
 "Report-Msgid-Bugs-To: zoon01 <zoon01@xigmanas.com>\n"
-"POT-Creation-Date: 2022-07-14 00:16+0000\n"
+"POT-Creation-Date: 2022-09-15 20:41+0000\n"
 "PO-Revision-Date: 2018-07-06 10:26+0000\n"
 "Last-Translator: zoon01 <Unknown>\n"
 "Language-Team: XigmaNAS\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2022-08-01 23:16+0000\n"
-"X-Generator: Launchpad (build d8a8b6effe4eae83e8bb5babdb93ddb4ac4f09e0)\n"
+"X-Launchpad-Export-Date: 2022-09-17 14:25+0000\n"
+"X-Generator: Launchpad (build 26a6866b96cbe27080a0dd50a67efeae15dd1018)\n"
 "Language: ko\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -2451,8 +2451,8 @@ msgstr "풀을 다른 루트로 생성합니다."
 msgid "Creating filesystem"
 msgstr "파일 시스템 생성 중"
 
-msgid "Creating filesystem with 'Soft Updates'"
-msgstr "'Soft Updates'로 파일 시스템을 생성 중"
+msgid "Creating filesystem with \"Soft Updates\""
+msgstr ""
 
 msgid "Creating partition"
 msgstr "분할 영역 생성 중"
@@ -2509,9 +2509,9 @@ msgid "Current state of drive operation based upon the Life Curve."
 msgstr "생존 곡선을 기반으로 한 드라이브 작동의 현재 상태."
 
 msgid ""
-"Current system password is using the default password. You should choose a "
+"Current system password is using a default password. You should choose a "
 "different password."
-msgstr "현재 시스템 암호로 기본 암호를 사용 중입니다. 다른 암호를 선택하십시오."
+msgstr ""
 
 msgid "Current value of apparent power (Volt-Amps)"
 msgstr "현재 피상 전류 값(볼트-암페어)"
@@ -10728,6 +10728,20 @@ msgstr ""
 "수치가 이 드라이브의 잔여 헬륨 상태입니다. 이 수치는 pre-fail 속성이기에 드라이브의 내부 환경에 대한 아무런 세부사항이 없을 "
 "경우 한 번 체크합니다."
 
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures lower level of "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
+msgid ""
+"Specific to MG07+ drives from Toshiba. This value measures the upper level "
+"helium inside of the drive specific to this manufacturer. It is a pre-fail "
+"attribute that trips once the drive detects that the internal environment is "
+"out of specification."
+msgstr ""
+
 msgid "Specifies LUN EUI-64 identifier."
 msgstr ""
 
@@ -11402,6 +11416,14 @@ msgid "The associated MIB files can be found at %s."
 msgstr "연관된 MIB 파일들은 %s에서 발견할 수 있습니다."
 
 #, php-format
+msgid "The attribute %s must be in the range from %d to %d."
+msgstr ""
+
+#, php-format
+msgid "The attribute %s must be less than %s."
+msgstr ""
+
+#, php-format
 msgid "The attribute '%s' already exists."
 msgstr "속성 %s는 이미 존재합니다."
 
@@ -11514,14 +11536,6 @@ msgstr "속성 '%s'은(는) 숫자여야 합니다."
 #, php-format
 msgid "The attribute '%s' must be a string."
 msgstr "속성 '%s'은(는) 문자열이어야 합니다."
-
-#, php-format
-msgid "The attribute '%s' must be in the range from %d to %d."
-msgstr "속성 '%s'은(는) %d와 %d의 범위에 있어야 합니다."
-
-#, php-format
-msgid "The attribute '%s' must be less than '%s'."
-msgstr "속성 '%s'은(는) '%s'보다 작아야 합니다."
 
 #, php-format
 msgid "The attribute '%s' must contain at least one entry."
