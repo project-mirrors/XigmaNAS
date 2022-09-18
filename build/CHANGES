@@ -18,7 +18,6 @@ Changes:
 - Upgrade phpmyadmin to v5.2.0.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
-- Upgrade lighttpd to v1.4.65.
 - Upgrade sudo to v1.9.11p3.
 - Upgrade nut to v2022.07.18.
 - Upgrade virtualbox-ose to v6.1.36.
@@ -29,6 +28,7 @@ Changes:
 - Upgrade php to v7.4.30.
 - Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
+- Upgrade lighttpd to v1.4.67.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
