@@ -3,6 +3,7 @@ PORTVERSION=	${NUT_COMMIT_DATE}
 PORTREVISION=	1
 CATEGORIES=	sysutils
 COMMENT=	Network UPS tools
+WWW=		https://www.networkupstools.org/
 MAINTAINER=	zoon01@xigmanas.com
 
 PKGNAMESUFFIX=	-devel
@@ -11,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	4143afd43
-NUT_COMMIT_DATE=	2022.07.18
+GH_TAGNAME=	34c8ce640
+NUT_COMMIT_DATE=	2022.09.09
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
@@ -43,11 +44,15 @@ CONFIGURE_ARGS+=	--sysconfdir=${NUT_SYSCONFDIR} \
 		--with-snmp \
 		--with-neon \
 		--with-powerman \
+		--without-pynut \
 		--without-cgi \
 		--without-dev \
 		--without-avahi \
 		--with-user=${NUT_USER} \
 		--with-group=${NUT_GROUP} \
+		--with-python=${PYTHON_CMD} \
+		--without-python2 \
+		--with-python3=${PYTHON_CMD} \
 		--with-wrap
 
 .include <bsd.port.pre.mk>

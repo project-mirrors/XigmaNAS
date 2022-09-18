@@ -19,7 +19,6 @@ Changes:
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
 - Upgrade sudo to v1.9.11p3.
-- Upgrade nut to v2022.07.18.
 - Upgrade virtualbox-ose to v6.1.36.
 - Upgrade nano to v6.4.
 - Upgrade rrdtool to v1.8.0.
@@ -29,6 +28,7 @@ Changes:
 - Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
+- Upgrade nut to v2022.09.09.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
