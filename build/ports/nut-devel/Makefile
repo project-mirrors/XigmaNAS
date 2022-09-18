@@ -3,6 +3,7 @@ PORTVERSION=	${NUT_COMMIT_DATE}
 PORTREVISION=	1
 CATEGORIES=	sysutils
 COMMENT=	Network UPS tools
+WWW=		https://www.networkupstools.org/
 MAINTAINER=	zoon01@xigmanas.com
 
 PKGNAMESUFFIX=	-devel
@@ -11,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	4e3d0ecce
-NUT_COMMIT_DATE=	2022.08.01
+GH_TAGNAME=	34c8ce640
+NUT_COMMIT_DATE=	2022.09.09
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build
