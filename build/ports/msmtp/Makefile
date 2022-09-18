@@ -1,5 +1,5 @@
 PORTNAME=		msmtp
-PORTVERSION=	1.8.20
+PORTVERSION=	1.8.22
 PORTREVISION=	0
 CATEGORIES=		mail
 COMMENT=		SMTP client
@@ -70,7 +70,7 @@ post-stage:
 
 post-install:
 # XigmaNAS® install
-	@echo "Install to ${XIGMANAS_ROOTFS}"
+	@echo "Start install to ${XIGMANAS_ROOTFS}"
 # rc/link
 	@${INSTALL_SCRIPT} -v ${FILESDIR}/${PORTNAME}.in ${XIGMANAS_ROOTFS}/etc/rc.d/${PORTNAME}
 # bin
