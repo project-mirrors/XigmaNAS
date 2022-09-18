@@ -12,12 +12,12 @@ Changes:
 - Upgrade rrdtool to v1.8.0.
 - Upgrade proftpd to v1.3.7e.
 - Upgrade rsync to v3.2.5.
-- Upgrade syncthing to v1.20.4.
 - Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
 - Upgrade nut to v2022.09.09.
 - Upgrade php to v8.1.10.
+- Upgrade syncthing to v1.21.0.
 
 Fixes:
 - fix bring up lighttpd at all times.
