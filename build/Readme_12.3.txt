@@ -148,12 +148,12 @@ Changes:
 - Upgrade nano to v6.4.
 - Upgrade rrdtool to v1.8.0.
 - Upgrade rsync to v3.2.5.
-- Upgrade syncthing to v1.20.4.
 - Upgrade php to v7.4.30.
 - Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
 - Upgrade nut to v2022.09.09.
+- Upgrade syncthing to v1.21.0.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.

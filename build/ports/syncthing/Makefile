@@ -1,13 +1,15 @@
 PORTNAME=		syncthing
-PORTVERSION=	1.20.4
+PORTVERSION=	1.21.0
 PORTREVISION=	0
 DISTVERSIONPREFIX= v
 CATEGORIES=	net
+
+COMMENT=	Encrypted file sync tool
+WWW=		https://syncthing.net/
+MAINTAINER=	zoon01@xigmanas.com
+
 MASTER_SITES=	https://github.com/syncthing/syncthing/releases/download/v${PORTVERSION}/
 DISTNAME=	${PORTNAME}-source-${DISTVERSIONPREFIX}${PORTVERSION}
-
-MAINTAINER=	zoon01@xigmanas.com
-COMMENT=	Encrypted file sync tool
 
 #BUILD_DEPENDS=	${LOCALBASE}/bin/go:lang/go
 
