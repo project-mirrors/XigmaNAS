@@ -103,7 +103,7 @@ For master node of WebGUI, carp advskew is assumed as 0 or 1.
 BUILD 13.1.0.5.xxxx
 ===================
 Changes:
-- Upgrade to FreeBSD 13.1-RELEASE P0.
+- Upgrade to FreeBSD 13.1-RELEASE P2.
 - Upgrade syncthing to v1.20.2.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
