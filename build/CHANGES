@@ -19,6 +19,7 @@ Changes:
 - Upgrade php to v8.1.10.
 - Upgrade syncthing to v1.21.0.
 - Upgrade devcpu-data-intel to v20220809.
+- Upgrade arcconf to vB25335.
 
 Fixes:
 - fix bring up lighttpd at all times.
