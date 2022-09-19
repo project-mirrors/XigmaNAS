@@ -8,7 +8,7 @@
 #
 
 # PROVIDE: nut_upslog
-# REQUIRE: NETWORKING nut
+# REQUIRE: NETWORKING nut syslogd
 # BEFORE: LOGIN
 # KEYWORD: shutdown
 # XQUERY: -i "count(//ups/enable) > 0" -o "0" -b

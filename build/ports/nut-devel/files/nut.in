@@ -8,7 +8,7 @@
 #
 
 # PROVIDE: nut
-# REQUIRE: NETWORKING devfs
+# REQUIRE: NETWORKING devfs syslogd
 # BEFORE: LOGIN
 # KEYWORD: shutdown
 # XQUERY: --if "count(//ups/enable) > 0" --output "0" --break
