@@ -8,6 +8,7 @@ EXTRACT_ONLY=	VirtualBox-${PORTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	General-purpose full virtualizer for x86 hardware
+WWW=		https://www.virtualbox.org/
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/COPYING
