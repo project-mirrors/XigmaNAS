@@ -1,6 +1,6 @@
 PORTNAME=	data
 DISTVERSIONPREFIX=	microcode-
-DISTVERSION=	20220510
+DISTVERSION=	20220809
 PORTREVISION=	0
 CATEGORIES=	sysutils
 PKGNAMEPREFIX=	devcpu-
@@ -8,6 +8,7 @@ PKGNAMESUFFIX=	-intel
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Intel CPU microcode updates
+WWW=		https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
 
 ONLY_FOR_ARCHS=	amd64
 
@@ -39,7 +40,7 @@ do-install:
 	${MKDIR} ${STAGEDIR}${FWDIR}
 	${INSTALL_DATA} ${WRKSRC}/intel-ucode.bin ${STAGEDIR}${FWDIR}/
 
-# XigmaNAS® start install
+# XigmaNAS® Install
 	@echo "Start install to ${XIGMANAS_ROOTFS}"
 	${INSTALL_SCRIPT} -v ${FILESDIR}/microcode_update.in ${XIGMANAS_ROOTFS}/etc/rc.d/microcode_update
 

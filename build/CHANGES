@@ -14,7 +14,6 @@ Changes:
 - Upgrade unison to v2.52.1.
 - Upgrade arcconf to v4.01.24763.
 - Upgrade proftpd to v1.3.7d.
-- Upgrade devcpu-data-intel to v20220510.
 - Upgrade phpmyadmin to v5.2.0.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
@@ -29,6 +28,7 @@ Changes:
 - Upgrade lighttpd to v1.4.67.
 - Upgrade nut to v2022.09.09.
 - Upgrade syncthing to v1.21.0.
+- Upgrade devcpu-data-intel to v20220809.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.

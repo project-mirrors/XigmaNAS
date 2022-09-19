@@ -134,12 +134,10 @@ Changes:
 - Upgrade samba to v4.13.17.
 - Upgrade smartmontools to v7.3.
 - Upgrade iperf3 to v3.11.
-- Upgrade devcpu-data-amd to v20220414.
 - Upgrade gzip to v1.12.
 - Upgrade unison to v2.52.1.
 - Upgrade arcconf to v4.01.24763.
 - Upgrade proftpd to v1.3.7d.
-- Upgrade devcpu-data-intel to v20220510.
 - Upgrade phpmyadmin to v5.2.0.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
@@ -154,6 +152,7 @@ Changes:
 - Upgrade lighttpd to v1.4.67.
 - Upgrade nut to v2022.09.09.
 - Upgrade syncthing to v1.21.0.
+- Upgrade devcpu-data-intel to v20220809.
 
 Fixes:
 - Fix RootOnZFS /var/tmp permissions.
