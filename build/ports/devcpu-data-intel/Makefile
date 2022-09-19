@@ -1,6 +1,6 @@
 PORTNAME=	data
 DISTVERSIONPREFIX=	microcode-
-DISTVERSION=	20220510
+DISTVERSION=	20220809
 PORTREVISION=	0
 CATEGORIES=	sysutils
 PKGNAMEPREFIX=	devcpu-
@@ -8,6 +8,7 @@ PKGNAMESUFFIX=	-intel
 
 MAINTAINER=	zoon01@xigmanas.com
 COMMENT=	Intel CPU microcode updates
+WWW=		https://github.com/intel/Intel-Linux-Processor-Microcode-Data-Files
 
 ONLY_FOR_ARCHS=	amd64
 
