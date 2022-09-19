@@ -155,15 +155,15 @@ do-install:
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/libupsclient.so.6 ${XIGMANAS_ROOTFS}/usr/local/lib
 	@${LN} -f -v -s /usr/local/lib/libupsclient.so.6 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
-	@${LN} -f -v -s /usr/local/lib/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
+#	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib
+#	@${LN} -f -v -s /usr/local/lib/libnutscan.so.2 ${XIGMANAS_ROOTFS}/usr/local/lib/libupsclient.so
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsc ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upscmd ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upslog ${XIGMANAS_ROOTFS}/usr/local/bin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsmon ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/clients/.libs/upsrw ${XIGMANAS_ROOTFS}/usr/local/bin
-	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/nut-scanner ${XIGMANAS_ROOTFS}/usr/local/bin
+#	@${INSTALL_PROGRAM} -v ${WRKSRC}/tools/nut-scanner/.libs/nut-scanner ${XIGMANAS_ROOTFS}/usr/local/bin
 
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/server/upsd ${XIGMANAS_ROOTFS}/usr/local/sbin
 	@${INSTALL_PROGRAM} -v ${WRKSRC}/drivers/upsdrvctl ${XIGMANAS_ROOTFS}/usr/local/sbin
