@@ -104,7 +104,6 @@ BUILD 13.1.0.5.xxxx
 ===================
 Changes:
 - Upgrade to FreeBSD 13.1-RELEASE P2.
-- Upgrade syncthing to v1.20.2.
 - Upgrade cdialog to v1.3-20220526.
 - Upgrade tmux to v3.3a.
 - Upgrade sudo to v1.9.11p3.
