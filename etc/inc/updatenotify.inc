@@ -72,7 +72,7 @@ try {
 	if($createdb):
 		updatenotify_initdb();
 	endif;
-} catch (PDOException $e) {
+} catch(PDOException $e) {
 	print $e->getMessage();
 }
 /**
@@ -86,7 +86,7 @@ function updatenotify_initdb() {
 	try {
 		$sql = "CREATE TABLE updatenotify (id INTEGER PRIMARY KEY AUTOINCREMENT, key TEXT, ts INTEGER, mode INTEGER, data TEXT, processor TEXT)";
 		$dbh->exec($sql);
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -108,7 +108,7 @@ function updatenotify_set($key,$mode,$data,string $processor = '') {
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key,':ts' => time(),':mode' => $mode,':data' => $data,':processor' => $processor]);
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -132,7 +132,7 @@ function updatenotify_get($key) {
 			$result[] = $row;
 		endwhile;
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -152,7 +152,7 @@ function updatenotify_get_all() {
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		unset($stmt);
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		return [];
 	}
 	return $result;
@@ -171,7 +171,7 @@ function updatenotify_delete($key) {
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key]);
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -191,7 +191,7 @@ function updatenotify_delete_id($id) {
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':id' => $id]);
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -217,7 +217,7 @@ function updatenotify_clear($key,$data,$matchwholeword = true) {
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key,':data' => $data]);
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -249,7 +249,7 @@ function updatenotify_get_mode($key,$data,$matchwholeword = true): int {
 			$result = $dbq_result['mode'];
 		endif;
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 	}
 	return $result;
@@ -267,10 +267,9 @@ function updatenotify_exists($key) {
 		$sql = "SELECT COUNT(*) FROM updatenotify WHERE key = :key";
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key]);
-		$result = $stmt->fetchColumn();
-		$result = (0 < $result) ? true : false;
+		$result = $stmt->fetchColumn() > 0;
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
@@ -291,10 +290,9 @@ function updatenotify_exists_mode($key,$mode) {
 		$sql = "SELECT COUNT(*) FROM updatenotify WHERE key = :key AND mode = :mode AND id IN (SELECT id FROM (SELECT id, MAX(ts) AS ts FROM updatenotify GROUP BY mode))";
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute([':key' => $key,':mode' => $mode]);
-		$result = $stmt->fetchColumn();
-		$result = (0 < $result) ? true : false;
+		$result = $stmt->fetchColumn() > 0;
 		$stmt = null;
-	} catch (PDOException $e) {
+	} catch(PDOException $e) {
 		print $e->getMessage();
 		return false;
 	}
