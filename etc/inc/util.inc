@@ -2537,7 +2537,7 @@ function format_bytes($number,int $precision = 2,bool $fixedformat = true,bool $
 	for($laps = 0;bccomp($str_number,$str_divisor) >= 0;$laps++):
 		$str_number = bcdiv($str_number,$str_divisor,$decimals);
 	endfor;
-	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
+	return sprintf($fixedformat ? '%.' . $decimals . 'f %s' : '%s %s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
 }
 /**
  * Converts an integer or an integer string into a human readable format for unit Hertz.
@@ -2561,7 +2561,7 @@ function format_hertz($number,int $precision = 2,bool $fixedformat = true) {
 	for($laps = 0;bccomp($str_number,$str_divisor) >= 0;$laps++):
 		$str_number = bcdiv($str_number,$str_divisor,$decimals);
 	endfor;
-	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
+	return sprintf($fixedformat ? '%.' . $decimals . 'f %s' : '%s %s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
 }
 /**
  * Converts an integer or an integer string into a human readable format for unit bit.
@@ -2594,7 +2594,7 @@ function format_bits($number,int $precision = 2,bool $fixedformat = true,bool $u
 	for($laps = 0;bccomp($str_number,$str_divisor) >= 0;$laps++):
 		$str_number = bcdiv($str_number,$str_divisor,$decimals);
 	endfor;
-	return sprintf($fixedformat ? '%.' . $decimals . 'f%s' : '%s%s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
+	return sprintf($fixedformat ? '%.' . $decimals . 'f %s' : '%s %s',(float)$str_number,$unit_grid[$laps] ?? $unit_overflow);
 }
 /*
  * Check and get the ISO image type.
