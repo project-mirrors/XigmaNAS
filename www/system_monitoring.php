@@ -32,9 +32,9 @@
 	of XigmaNAS®, either expressed or implied.
  */
 
+require_once 'autoload.php';
 require_once 'auth.inc';
 require_once 'guiconfig.inc';
-require_once 'autoload.php';
 
 use gui\document;
 use common\arr;
@@ -115,10 +115,12 @@ if(isset($_POST['save']) && $_POST['save']):
 			endif;
 			$config['rrdgraphs']['storage_path'] = $_POST['storage_path'];
 			$_POST['graph_h'] = trim($_POST['graph_h']);
+			$_POST['graph_w'] = trim($_POST['graph_w']);
 			$config['rrdgraphs']['graph_h'] = !empty($_POST['graph_h']) ? $_POST['graph_h'] : 200;
+			$config['rrdgraphs']['graph_w'] = !empty($_POST['graph_w']) ? $_POST['graph_w'] : 600;
 			$config['rrdgraphs']['refresh_time'] = !empty($_POST['refresh_time']) ? $_POST['refresh_time'] : 300;
 			$config['rrdgraphs']['autoscale'] = isset($_POST['autoscale']);
-			$config['rrdgraphs']['background_white'] = isset($_POST['background_white']) ? true : false;
+			$config['rrdgraphs']['background_white'] = isset($_POST['background_white']);
 			$config['rrdgraphs']['bytes_per_second'] = isset($_POST['bytes_per_second']);
 			$config['rrdgraphs']['logarithmic'] = isset($_POST['logarithmic']);
 			$config['rrdgraphs']['axis'] = isset($_POST['axis']);
@@ -153,7 +155,7 @@ if(isset($_POST['save']) && $_POST['save']):
 			endif;
 			require '/usr/local/share/rrdgraphs/rrd-start.php';
 		else:
-			$config['rrdgraphs']['enable'] = isset($_POST['enable']) ? true : false;
+			$config['rrdgraphs']['enable'] = isset($_POST['enable']);
 			$savemsg = get_std_save_message(write_config());
 			write_log('rrdgraphs service stopped');
 			if(!file_exists($d_sysrebootreqd_path)):
@@ -201,38 +203,39 @@ if(isset($_POST['reset_graphs']) && $_POST['reset_graphs']):
 	endforeach;
 	require '/usr/local/share/rrdgraphs/rrd-start.php';
 endif;
-$pconfig['enable'] = isset($config['rrdgraphs']['enable']) ? true : false;
+$pconfig['enable'] = isset($config['rrdgraphs']['enable']);
 $pconfig['storage_path'] = !empty($config['rrdgraphs']['storage_path']) ? $config['rrdgraphs']['storage_path'] : $g['media_path'];
 $pconfig['graph_h'] = !empty($config['rrdgraphs']['graph_h']) ? $config['rrdgraphs']['graph_h'] : 200;
+$pconfig['graph_w'] = !empty($config['rrdgraphs']['graph_w']) ? $config['rrdgraphs']['graph_w'] : 600;
 $pconfig['refresh_time'] = !empty($config['rrdgraphs']['refresh_time']) ? $config['rrdgraphs']['refresh_time'] : 300;
-$pconfig['autoscale'] = isset($config['rrdgraphs']['autoscale']) ? true : false;
-$pconfig['background_white'] = isset($config['rrdgraphs']['background_white']) ? true : false;
+$pconfig['autoscale'] = isset($config['rrdgraphs']['autoscale']);
+$pconfig['background_white'] = isset($config['rrdgraphs']['background_white']);
 // available graphs
-$pconfig['cpu_frequency'] = isset($config['rrdgraphs']['cpu_frequency']) ? true : false;
-$pconfig['cpu_temperature'] = isset($config['rrdgraphs']['cpu_temperature']) ? true : false;
-$pconfig['cpu'] = isset($config['rrdgraphs']['cpu']) ? true : false;
-$pconfig['load_averages'] = isset($config['rrdgraphs']['load_averages']) ? true : false;
-$pconfig['disk_usage'] = isset($config['rrdgraphs']['disk_usage']) ? true : false;
-$pconfig['memory_usage'] = isset($config['rrdgraphs']['memory_usage']) ? true : false;
-$pconfig['latency'] = isset($config['rrdgraphs']['latency']) ? true : false;
+$pconfig['cpu_frequency'] = isset($config['rrdgraphs']['cpu_frequency']);
+$pconfig['cpu_temperature'] = isset($config['rrdgraphs']['cpu_temperature']);
+$pconfig['cpu'] = isset($config['rrdgraphs']['cpu']);
+$pconfig['load_averages'] = isset($config['rrdgraphs']['load_averages']);
+$pconfig['disk_usage'] = isset($config['rrdgraphs']['disk_usage']);
+$pconfig['memory_usage'] = isset($config['rrdgraphs']['memory_usage']);
+$pconfig['latency'] = isset($config['rrdgraphs']['latency']);
 $pconfig['latency_host'] = !empty($config['rrdgraphs']['latency_host']) ? $config['rrdgraphs']['latency_host'] : "127.0.0.1";
 $pconfig['latency_interface'] = !empty($config['rrdgraphs']['latency_interface']) ? $config['rrdgraphs']['latency_interface'] : "identifier@host-ip-address";
 $pconfig['latency_count'] = !empty($config['rrdgraphs']['latency_count']) ? $config['rrdgraphs']['latency_count'] : "3";
 $pconfig['latency_parameters'] = !empty($config['rrdgraphs']['latency_parameters']) ? $config['rrdgraphs']['latency_parameters'] : "";
-$pconfig['lan_load'] = isset($config['rrdgraphs']['lan_load']) ? true : false;
-$pconfig['bytes_per_second'] = isset($config['rrdgraphs']['bytes_per_second']) ? true : false;
-$pconfig['logarithmic'] = isset($config['rrdgraphs']['logarithmic']) ? true : false;
-$pconfig['axis'] = isset($config['rrdgraphs']['axis']) ? true : false;
-$pconfig['no_processes'] = isset($config['rrdgraphs']['no_processes']) ? true : false;
-$pconfig['ups'] = isset($config['rrdgraphs']['ups']) ? true : false;
+$pconfig['lan_load'] = isset($config['rrdgraphs']['lan_load']);
+$pconfig['bytes_per_second'] = isset($config['rrdgraphs']['bytes_per_second']);
+$pconfig['logarithmic'] = isset($config['rrdgraphs']['logarithmic']);
+$pconfig['axis'] = isset($config['rrdgraphs']['axis']);
+$pconfig['no_processes'] = isset($config['rrdgraphs']['no_processes']);
+$pconfig['ups'] = isset($config['rrdgraphs']['ups']);
 $pconfig['ups_at'] = !empty($config['rrdgraphs']['ups_at']) ? $config['rrdgraphs']['ups_at'] : "identifier@host-ip-address";
-$pconfig['uptime'] = isset($config['rrdgraphs']['uptime']) ? true : false;
-$pconfig['arc_usage'] = isset($config['rrdgraphs']['arc_usage']) ? true : false;
-$pconfig['l2arc_usage'] = isset($config['rrdgraphs']['l2arc_usage']) ? true : false;
-$pconfig['arc_efficiency'] = isset($config['rrdgraphs']['arc_efficiency']) ? true : false;
+$pconfig['uptime'] = isset($config['rrdgraphs']['uptime']);
+$pconfig['arc_usage'] = isset($config['rrdgraphs']['arc_usage']);
+$pconfig['l2arc_usage'] = isset($config['rrdgraphs']['l2arc_usage']);
+$pconfig['arc_efficiency'] = isset($config['rrdgraphs']['arc_efficiency']);
 $a_interface = get_interface_list();
 // Add VLAN interfaces
-array_make_branch($config,'vinterfaces','vlan');
+arr::make_branch($config,'vinterfaces','vlan');
 if(!empty($config['vinterfaces']['vlan'])):
 	foreach($config['vinterfaces']['vlan'] as $vlanv):
 		$a_interface[$vlanv['if']] = $vlanv;
@@ -240,7 +243,7 @@ if(!empty($config['vinterfaces']['vlan'])):
 	endforeach;
 endif;
 // Add LAGG interfaces
-array_make_branch($config,'vfinterfaces','lagg');
+arr::make_branch($config,'vfinterfaces','lagg');
 if(!empty($config['vinterfaces']['lagg'])):
 	foreach($config['vinterfaces']['lagg'] as $laggv):
 		$a_interface[$laggv['if']] = $laggv;
@@ -253,7 +256,7 @@ if(empty($pconfig['latency_interface']) && is_array($a_interface)):
 endif;
 $pgtitle = [gtext('System'),gtext('Advanced'),gtext('Monitoring Setup')];
 include 'fbegin.inc';?>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 $(window).on("load", function() {
 <?php // Init spinner.?>
@@ -332,6 +335,7 @@ function enable_change(enable_change) {
 	document.iform.storage_path.disabled = endis;
 	document.iform.storage_pathbrowsebtn.disabled = endis;
 	document.iform.graph_h.disabled = endis;
+	document.iform.graph_w.disabled = endis;
 	document.iform.refresh_time.disabled = endis;
 	document.iform.autoscale.disabled = endis;
 	document.iform.background_white.disabled = endis;
@@ -409,6 +413,7 @@ $document->render();
 			html_filechooser2('storage_path',gettext('Home Directory'),$pconfig['storage_path'],gettext('Enter the path to the home directory. This directory will store the statistical data and gets updated every 5 minutes!'),$g['media_path'],true,60);
 			html_inputbox2('refresh_time',gettext('Page Refresh'),$pconfig['refresh_time'],gettext('Auto page refresh.') . ' ' . sprintf(gettext('(default %s %s'),300,gettext('seconds)')),false,5);
 			html_inputbox2('graph_h',gettext('Graphs Height'),$pconfig['graph_h'],sprintf(gettext('Height of the graphs. (default %s pixels)'),200),false,5);
+			html_inputbox2('graph_w',gettext('Graphs Width'),$pconfig['graph_w'],sprintf(gettext('Width of the graphs. (default %s pixels)'),600),false,5);
 			html_checkbox2('autoscale',gettext('Autoscale'),$pconfig['autoscale'],gettext('Autoscale for graphs.'),'',false);
 			html_checkbox2('background_white',gettext('Background'),$pconfig['background_white'],gettext('Enable white background graphs. (black as default)'),'',false);
 			html_separator2();
@@ -478,7 +483,7 @@ $document->render();
 	include 'formend.inc';
 ?>
 </form></td></tr></tbody></table>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 lan_change();
 latency_change();
