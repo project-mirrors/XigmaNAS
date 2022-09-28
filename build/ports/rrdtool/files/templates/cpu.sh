@@ -5,7 +5,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--alt-autoscale-max" \
 "DEF:user=$STORAGE_PATH/rrd/cpu.rrd:user:AVERAGE" \
 "DEF:nice=$STORAGE_PATH/rrd/cpu.rrd:nice:AVERAGE" \

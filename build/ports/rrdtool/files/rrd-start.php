@@ -43,7 +43,8 @@ if(isset($config['rrdgraphs']['enable'])):
 //	create config file
 	$rrdconfig = fopen("{$config['rrdgraphs']['storage_path']}/rrd_config",'w');
 	fwrite($rrdconfig,sprintf("STORAGE_PATH=%s\n",escapeshellarg($config['rrdgraphs']['storage_path'])));
-	fwrite($rrdconfig,sprintf("GRAPH_H=%u\n",$config['rrdgraphs']['graph_h']));
+	fwrite($rrdconfig,sprintf("GRAPH_H=%u\n",$config['rrdgraphs']['graph_h'] ?? 200));
+	fwrite($rrdconfig,sprintf("GRAPH_W=%u\n",$config['rrdgraphs']['graph_w'] ?? 600));
 	fwrite($rrdconfig,sprintf("REFRESH_TIME=%u\n",$config['rrdgraphs']['refresh_time']));
 	fwrite($rrdconfig,sprintf("AUTOSCALE=%s\n",isset($config['rrdgraphs']['autoscale']) ? '--alt-autoscale' : ''));
 	fwrite($rrdconfig,sprintf("BACKGROUND_WHITE=%u\n",isset($config['rrdgraphs']['background_white']) ? 1 : 0));

@@ -6,7 +6,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "--alt-autoscale-max" \
 "-b" "1024" \

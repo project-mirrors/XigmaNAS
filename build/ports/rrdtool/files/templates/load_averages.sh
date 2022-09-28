@@ -5,7 +5,7 @@ $BACKGROUND \
 "-v Load" \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "-X 0" \
 "-l 0" \
 "--slope-mode" \

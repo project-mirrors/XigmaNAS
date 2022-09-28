@@ -6,7 +6,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "-b" "1024" \
 "DEF:Total=$STORAGE_PATH/rrd/${GRAPH}.rrd:Total:AVERAGE" \

@@ -1,4 +1,4 @@
-# round-trip min/avg/max/stddev 
+# round-trip min/avg/max/stddev
 /usr/local/bin/rrdtool graph $WORKING_DIR/rrd/rrd-${GRAPH}_${GRAPH_NAME}.png \
 "-v Round-trip time [ms]" \
 "-s" "$START_TIME" \
@@ -6,7 +6,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "--alt-autoscale-max" \
 "DEF:min=$STORAGE_PATH/rrd/${GRAPH}.rrd:min:AVERAGE" \

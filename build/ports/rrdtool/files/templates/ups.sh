@@ -6,7 +6,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "--alt-autoscale-max" \
 "DEF:charge=$STORAGE_PATH/rrd/ups.rrd:charge:AVERAGE" \

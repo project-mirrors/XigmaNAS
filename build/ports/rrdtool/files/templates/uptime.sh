@@ -5,7 +5,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "--alt-autoscale-max" \
 "DEF:uptime=$STORAGE_PATH/rrd/${GRAPH}.rrd:uptime:AVERAGE" \

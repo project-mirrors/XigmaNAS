@@ -5,7 +5,7 @@
 --vertical-label "Temperature [°C]" \
 $LEFT_AXIS_FORMAT "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 --slope-mode $BACKGROUND $EXTENDED_OPTIONS \
 "DEF:c00=$STORAGE_PATH/rrd/cpu_temp.rrd:core0:AVERAGE" \
 "LINE1:c00#00CF00:Core  0" \

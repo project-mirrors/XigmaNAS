@@ -7,7 +7,7 @@ $LOWER_LIMIT \
 "-v ${BIT_STR}/sec" \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "--alt-autoscale-max" \
 "DEF:in=$STORAGE_PATH/rrd/${INTERFACE0}.rrd:in:AVERAGE" \

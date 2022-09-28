@@ -6,7 +6,7 @@ $BACKGROUND \
 "-v Bytes" \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--slope-mode" \
 "-l 0" \
 $BASEDIVISOR \

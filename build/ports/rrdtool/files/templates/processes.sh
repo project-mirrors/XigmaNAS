@@ -5,7 +5,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--alt-autoscale-max" \
 "DEF:total=$STORAGE_PATH/rrd/processes.rrd:total:AVERAGE" \
 "DEF:running=$STORAGE_PATH/rrd/processes.rrd:running:AVERAGE" \

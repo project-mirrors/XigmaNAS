@@ -5,7 +5,7 @@
 $BACKGROUND \
 "-a" "PNG" \
 "-h ${GRAPH_H}" \
-"-w" "600" \
+"-w ${GRAPH_W}" \
 "--alt-autoscale-max" \
 "DEF:EFF_ARC=$STORAGE_PATH/rrd/${GRAPH}.rrd:EFF_ARC:AVERAGE" \
 "DEF:EFF_DEMAND=$STORAGE_PATH/rrd/${GRAPH}.rrd:EFF_DEMAND:AVERAGE" \
