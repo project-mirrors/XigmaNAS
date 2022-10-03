@@ -122,6 +122,7 @@ Changes:
 - Upgrade syncthing to v1.21.0.
 - Upgrade devcpu-data-intel to v20220809.
 - Upgrade arcconf to vB25335.
+- Upgrade devcpu-data-amd to v20221002.
 
 Fixes:
 - fix bring up lighttpd at all times.
