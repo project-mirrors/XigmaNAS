@@ -1,6 +1,6 @@
 PORTNAME=		nut
 PORTVERSION=	${NUT_COMMIT_DATE}
-PORTREVISION=	1
+PORTREVISION=	0
 CATEGORIES=	sysutils
 COMMENT=	Network UPS tools
 WWW=		https://www.networkupstools.org/
@@ -12,8 +12,8 @@ CONFLICTS=	nut-[0-9]*
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	networkupstools
-GH_TAGNAME=	34c8ce640
-NUT_COMMIT_DATE=	2022.09.09
+GH_TAGNAME=	ee7218dec
+NUT_COMMIT_DATE=	2022.09.26
 
 GNU_CONFIGURE=	yes
 USES=		autoreconf:build gmake libtool pkgconfig python:build

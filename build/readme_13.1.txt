@@ -117,12 +117,12 @@ Changes:
 - Upgrade zoneinfo to 2022c.
 - Upgrade msmtp to v1.8.22.
 - Upgrade lighttpd to v1.4.67.
-- Upgrade nut to v2022.09.09.
 - Upgrade php to v8.1.10.
 - Upgrade syncthing to v1.21.0.
 - Upgrade devcpu-data-intel to v20220809.
 - Upgrade arcconf to vB25335.
 - Upgrade devcpu-data-amd to v20221002.
+- Upgrade nut to v2022.09.26.
 
 Fixes:
 - fix bring up lighttpd at all times.
