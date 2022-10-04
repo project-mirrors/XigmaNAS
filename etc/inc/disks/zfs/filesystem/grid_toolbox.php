@@ -116,6 +116,15 @@ class grid_toolbox extends myt\grid_toolbox {
 		return $rmo;
 	}
 /**
+ *	Create the property object
+ *	@return grid_properties
+ */
+	public static function init_properties() {
+		$cop = new grid_properties();
+		$cop->get_dataset_name()->set_title(gettext('Filesystem Name'));
+		return $cop;
+	}
+/**
  *	Render the page
  *	@global array $input_errors
  *	@global string $errormsg
