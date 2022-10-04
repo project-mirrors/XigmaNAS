@@ -181,6 +181,22 @@ foreach($sphere_array as &$sphere_record):
 		$sphere_record['protected'] = false;
 		$sphere_record['protected.reason'] = '';
 	endif;
+
+	// Protect devices which are zroot members.
+	// This will protect only the member disks present in the cfdevice file.
+	// This can be accomplished with various methods but we will use `gpart` to simply match the disk label/id.
+	if($g['zroot']):
+		$disk_device = $sphere_record['name'];
+		$bootdevice_array = array($bootdevice);
+		foreach($bootdevice_array as &$bootdevice_record):
+			$bootdevice_key = preg_replace('~\/dev\/gpt\/|\/dev\/~', '', $bootdevice_record);
+			$disk_locked = exec("/sbin/gpart show -lp $disk_device | /usr/bin/grep -wo '$bootdevice_key'");
+		if($disk_locked):
+			$sphere_record['protected'] = true;
+			$sphere_record['protected.reason'] = gtext("Operating system disk ($disk_locked)");
+		endif;
+		endforeach;
+	endif;
 endforeach;
 unset($sphere_record); // release pass by reference
 
